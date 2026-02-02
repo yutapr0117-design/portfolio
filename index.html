@@ -1,0 +1,4040 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+    <meta name="description" content="ポートフォリオ。Projects増分インポート、タスク管理、TODO、ポモドーロ、ローカルAI、整合性チェック/自動修復を同梱。" />
+    <meta property="og:title" content="Portfolio" />
+    <meta property="og:description" content="ポートフォリオ。Apps内蔵・増分インポート・整合性チェック/自動修復対応。" />
+    <meta property="og:type" content="website" />
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg2: #f6f7fb;
+            --panel: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --border: #e2e8f0;
+            --shadow: 0 6px 18px rgba(15, 23, 42, .08);
+            --primary: #2563eb;
+            --primary2: #1d4ed8;
+            --danger: #dc2626;
+            --ok: #16a34a;
+            --warn: #f59e0b;
+            --focus: 0 0 0 3px rgba(37, 99, 235, .35);
+            --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            --radius: 14px;
+        }
+
+        .dark {
+            --bg: #0b1220;
+            --bg2: #0f172a;
+            --panel: #0f1b33;
+            --text: #e5e7eb;
+            --muted: #94a3b8;
+            --border: #22304f;
+            --shadow: 0 10px 22px rgba(0, 0, 0, .25);
+            --primary: #60a5fa;
+            --primary2: #3b82f6;
+            --danger: #ef4444;
+            --ok: #22c55e;
+            --warn: #fbbf24;
+            --focus: 0 0 0 3px rgba(96, 165, 250, .35);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .skip {
+            position: absolute;
+            left: -999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .skip:focus {
+            left: 12px;
+            top: 12px;
+            width: auto;
+            height: auto;
+            padding: 10px 12px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            z-index: 9999;
+        }
+
+        /* Layout */
+        .app {
+            min-height: 100%;
+            display: flex;
+            background: var(--bg);
+        }
+
+        .sidebar {
+            width: 270px;
+            background: var(--bg2);
+            border-right: 1px solid var(--border);
+            padding: 18px 14px 14px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: auto;
+        }
+
+        .content {
+            flex: 1;
+            min-width: 0;
+            padding: 18px 18px 38px;
+        }
+
+        /* Mobile nav */
+        .topbar {
+            display: none;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--bg2);
+            border-bottom: 1px solid var(--border);
+            padding: 10px 12px;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topbar .brand {
+            font-weight: 900;
+            letter-spacing: .2px;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .45);
+            z-index: 60;
+        }
+
+        .drawer {
+            display: none;
+            position: fixed;
+            inset: 0 auto 0 0;
+            width: min(85vw, 320px);
+            background: var(--bg2);
+            border-right: 1px solid var(--border);
+            z-index: 70;
+            padding: 14px 12px;
+            overflow: auto;
+            box-shadow: var(--shadow);
+        }
+
+        @media (max-width: 920px) {
+            .sidebar {
+                display: none;
+            }
+
+            .topbar {
+                display: flex;
+            }
+
+            .content {
+                padding: 14px 12px 28px;
+            }
+
+            .app {
+                flex-direction: column;
+            }
+        }
+
+        /* UI atoms */
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: 0 1px 0 rgba(15, 23, 42, .03);
+        }
+
+        .card.p {
+            padding: 18px;
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .sp {
+            justify-content: space-between;
+        }
+
+        .wrap {
+            flex-wrap: wrap;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .h1 {
+            font-size: 30px;
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: -.4px;
+        }
+
+        .h2 {
+            font-size: 22px;
+            font-weight: 900;
+            margin: 0;
+        }
+
+        .h3 {
+            font-size: 16px;
+            font-weight: 900;
+            margin: 0;
+        }
+
+        .p0 {
+            margin: 0;
+        }
+
+        .mt {
+            margin-top: 12px;
+        }
+
+        .mt2 {
+            margin-top: 18px;
+        }
+
+        .mb {
+            margin-bottom: 12px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 14px;
+        }
+
+        .grid.projects {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        @media (max-width: 1120px) {
+            .grid.projects {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 700px) {
+            .grid.projects {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 3px 10px;
+            font-size: 12px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            background: rgba(37, 99, 235, .10);
+            color: var(--primary);
+            user-select: none;
+        }
+
+        .badge.gray {
+            background: rgba(148, 163, 184, .16);
+            color: var(--muted);
+        }
+
+        .badge.ok {
+            background: rgba(34, 197, 94, .14);
+            color: var(--ok);
+        }
+
+        .badge.warn {
+            background: rgba(245, 158, 11, .14);
+            color: var(--warn);
+        }
+
+        .btn {
+            border: 1px solid transparent;
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 12px;
+            border-radius: 12px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: transform .03s ease, filter .15s ease;
+            user-select: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            filter: brightness(1.02);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn:disabled {
+            opacity: .55;
+            cursor: not-allowed;
+        }
+
+        .btn.secondary {
+            background: transparent;
+            border-color: var(--border);
+            color: var(--text);
+        }
+
+        .btn.ghost {
+            background: transparent;
+            color: var(--muted);
+            border-color: transparent;
+        }
+
+        .btn.danger {
+            background: var(--danger);
+        }
+
+        .btn.small {
+            padding: 7px 10px;
+            border-radius: 10px;
+            font-weight: 900;
+            font-size: 13px;
+        }
+
+        .iconbtn {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .iconbtn:hover {
+            filter: brightness(1.02);
+        }
+
+        .icon {
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid var(--border);
+            background: var(--panel);
+            color: var(--text);
+            border-radius: 12px;
+            padding: 10px 12px;
+            outline: none;
+        }
+
+        textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus,
+        button:focus {
+            box-shadow: var(--focus);
+            outline: none;
+        }
+
+        .nav-title {
+            margin: 10px 10px 6px;
+            font-size: 12px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 900;
+        }
+
+        .navbtn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 10px;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            background: transparent;
+            color: var(--muted);
+            font-weight: 900;
+            text-align: left;
+        }
+
+        .navbtn:hover {
+            background: rgba(148, 163, 184, .12);
+            color: var(--text);
+        }
+
+        .navbtn.active {
+            background: rgba(37, 99, 235, .12);
+            color: var(--text);
+            border-color: rgba(37, 99, 235, .25);
+        }
+
+        .hr {
+            height: 1px;
+            background: var(--border);
+            margin: 12px 0;
+        }
+
+        /* Kanban */
+        .kanban {
+            display: flex;
+            gap: 14px;
+            min-width: 900px;
+        }
+
+        .colbox {
+            flex: 1;
+            background: rgba(148, 163, 184, .08);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;
+        }
+
+        .colbox .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .pill {
+            font-size: 12px;
+            padding: 2px 9px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            background: rgba(148, 163, 184, .12);
+        }
+
+        .taskcard {
+            padding: 12px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: var(--panel);
+            box-shadow: 0 1px 0 rgba(15, 23, 42, .03);
+        }
+
+        .taskrow {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            display: inline-block;
+        }
+
+        .dot.high {
+            background: var(--danger);
+        }
+
+        .dot.med {
+            background: var(--warn);
+        }
+
+        .dot.low {
+            background: var(--primary);
+        }
+
+        .mini {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .taskactions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .kwrap {
+            overflow: auto;
+        }
+
+        /* Chat */
+        .chat {
+            background: rgba(148, 163, 184, .10);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 12px;
+            min-height: 340px;
+            max-height: 56vh;
+            overflow: auto;
+        }
+
+        .bubble {
+            max-width: 82%;
+            padding: 10px 12px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            white-space: pre-wrap;
+            line-height: 1.45;
+        }
+
+        .bubble.me {
+            margin-left: auto;
+            background: rgba(37, 99, 235, .10);
+            border-color: rgba(37, 99, 235, .22);
+        }
+
+        .bubble.ai {
+            background: var(--panel);
+        }
+
+        .tiny {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        .mono {
+            font-family: var(--mono);
+        }
+
+        /* List */
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .item {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding: 12px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: var(--panel);
+        }
+
+        .item .grow {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .strike {
+            text-decoration: line-through;
+            opacity: .65;
+        }
+
+        .notice {
+            padding: 10px 12px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: rgba(34, 197, 94, .12);
+            color: var(--ok);
+            font-weight: 900;
+        }
+
+        .error {
+            padding: 10px 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(220, 38, 38, .35);
+            background: rgba(220, 38, 38, .12);
+            color: var(--danger);
+            font-weight: 900;
+        }
+
+        .warnbox {
+            padding: 10px 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(245, 158, 11, .35);
+            background: rgba(245, 158, 11, .12);
+            color: var(--warn);
+            font-weight: 900;
+        }
+
+        .kbd {
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: rgba(148, 163, 184, .10);
+            font-family: var(--mono);
+            color: var(--muted);
+        }
+
+        .pillbtns {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .pillbtns .btn.small {
+            padding: 6px 9px;
+        }
+
+        /* Fatal overlay */
+        .fatal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .55);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+        }
+
+        .fatal .box {
+            width: min(980px, 96vw);
+            max-height: 92vh;
+            overflow: auto;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            padding: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip" href="#main">本文へスキップ</a>
+
+    <div class="topbar" id="topbar">
+        <button class="iconbtn" id="menuBtn" aria-label="メニューを開く"></button>
+        <div class="brand">Portfolio</div>
+        <div style="flex:1"></div>
+        <button class="iconbtn" id="themeBtnTop" aria-label="テーマ切替"></button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="drawer" id="drawer"></div>
+
+    <div class="app" id="app"></div>
+
+    <script>
+        (() => {
+            "use strict";
+
+            /**************************************************************************
+             * 0) Minimal SVG Icons (no external deps)
+             **************************************************************************/
+            const Icons = {
+                menu: svg(`<path d="M4 6h16M4 12h16M4 18h16" />`),
+                sun: svg(`<path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>`),
+                moon: svg(`<path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z"/>`),
+                home: svg(`<path d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1v-10.5Z"/>`),
+                briefcase: svg(`<path d="M10 3h4a2 2 0 0 1 2 2v2h-8V5a2 2 0 0 1 2-2Z"/><path d="M4 7h16a2 2 0 0 1 2 2v3a3 3 0 0 1-3 3h-1v-2h-12v2H5a3 3 0 0 1-3-3V9a2 2 0 0 1 2-2Z"/><path d="M4 15v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/>`),
+                apps: svg(`<path d="M4 4h7v7H4V4Zm9 0h7v7h-7V4ZM4 13h7v7H4v-7Zm9 0h7v7h-7v-7Z"/>`),
+                checkSquare: svg(`<path d="M9 11l2 2 4-4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>`),
+                list: svg(`<path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/>`),
+                clock: svg(`<path d="M12 8v5l3 3"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>`),
+                brain: svg(`<path d="M8.5 4.5a3 3 0 0 0-3 3v1a3 3 0 0 0 0 6v1a3 3 0 0 0 3 3"/><path d="M15.5 4.5a3 3 0 0 1 3 3v1a3 3 0 0 1 0 6v1a3 3 0 0 1-3 3"/><path d="M9 7h.01M9 11h.01M9 15h.01M15 7h.01M15 11h.01M15 15h.01"/>`),
+                settings: svg(`<path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 15a7.8 7.8 0 0 0 .1-2l2-1.2-2-3.5-2.3.6a7.3 7.3 0 0 0-1.7-1L15 3h-6l-.7 2.9a7.3 7.3 0 0 0-1.7 1L4.3 6.3l-2 3.5 2 1.2a7.8 7.8 0 0 0 0 2l-2 1.2 2 3.5 2.3-.6a7.3 7.3 0 0 0 1.7 1L9 21h6l.7-2.9a7.3 7.3 0 0 0 1.7-1l2.3.6 2-3.5-2-1.2Z"/>`),
+                search: svg(`<path d="M21 21l-4.3-4.3"/><path d="M10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z"/>`),
+                upload: svg(`<path d="M12 3v12"/><path d="m7 8 5-5 5 5"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>`),
+                download: svg(`<path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M21 21H3"/>`),
+                trash: svg(`<path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M10 11v6M14 11v6"/><path d="M6 6l1 16h10l1-16"/>`),
+                x: svg(`<path d="M18 6 6 18M6 6l12 12"/>`),
+                arrowUpRight: svg(`<path d="M7 17 17 7"/><path d="M10 7h7v7"/>`),
+                play: svg(`<path d="M8 5v14l11-7-11-7Z"/>`),
+                pause: svg(`<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>`),
+                rotate: svg(`<path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v7h-7"/>`),
+                alert: svg(`<path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.7a2 2 0 0 1 3.4 0l8 13.9a2 2 0 0 1-1.7 3H4a2 2 0 0 1-1.7-3l8-13.9Z"/>`),
+                check: svg(`<path d="M20 6 9 17l-5-5"/>`),
+                up: svg(`<path d="M12 19V5"/><path d="m5 12 7-7 7 7"/>`),
+                down: svg(`<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>`),
+                pin: svg(`<path d="M14 9V4h-4v5L7 12v3h10v-3l-3-3Z"/><path d="M12 15v7"/>`)
+            };
+
+            function svg(inner) {
+                const ns = "http://www.w3.org/2000/svg";
+                const el = document.createElementNS(ns, "svg");
+                el.setAttribute("viewBox", "0 0 24 24");
+                el.setAttribute("fill", "none");
+                el.setAttribute("stroke", "currentColor");
+                el.setAttribute("stroke-width", "2");
+                el.setAttribute("stroke-linecap", "round");
+                el.setAttribute("stroke-linejoin", "round");
+                el.classList.add("icon");
+                el.innerHTML = inner;
+                return el;
+            }
+
+            /**************************************************************************
+             * 1) Helpers: DOM builder (XSS-safe), storage safe, URL sanitize
+             **************************************************************************/
+            const $ = (sel, root = document) => root.querySelector(sel);
+            const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+            function h(tag, attrs = {}, ...children) {
+                const el = document.createElement(tag);
+                let refCb = null;
+
+                for (const [k, v] of Object.entries(attrs || {})) {
+                    if (v === undefined || v === null) continue;
+
+                    if (k === "ref" && typeof v === "function") {
+                        refCb = v;
+                        continue;
+                    }
+
+                    if (k === "class") el.className = String(v);
+                    else if (k === "text") el.textContent = String(v);
+                    else if (k === "style" && v && typeof v === "object") {
+                        Object.assign(el.style, v);
+                    } else if (k === "dataset" && v && typeof v === "object") {
+                        for (const [dk, dv] of Object.entries(v)) {
+                            if (dv === undefined || dv === null) continue;
+                            try { el.dataset[dk] = String(dv); } catch { }
+                        }
+                    } else if (k === "aria" && v && typeof v === "object") {
+                        for (const [ak, av] of Object.entries(v)) {
+                            if (av === undefined || av === null) continue;
+                            el.setAttribute("aria-" + ak, String(av));
+                        }
+                    } else if (k.startsWith("on") && typeof v === "function") {
+                        el.addEventListener(k.slice(2).toLowerCase(), v);
+                    } else if (k === "html") {
+                        // Only trusted static HTML in codebase (never from user/import)
+                        el.innerHTML = String(v);
+                    } else {
+                        el.setAttribute(k, String(v));
+                    }
+                }
+
+                for (const c of children.flat()) {
+                    if (c === undefined || c === null) continue;
+                    if (typeof c === "string" || typeof c === "number") el.appendChild(document.createTextNode(String(c)));
+                    else el.appendChild(c);
+                }
+
+                if (refCb) { try { refCb(el); } catch { } }
+                return el;
+            }
+            function clear(node) { while (node.firstChild) node.removeChild(node.firstChild); }
+
+            function safeJsonParse(text) {
+                try { return { ok: true, value: JSON.parse(text) }; } catch (e) { return { ok: false, error: (e && e.message) ? e.message : "JSON parse error" }; }
+            }
+            function safeGetLS(key) {
+                try { return localStorage.getItem(key); } catch { return null; }
+            }
+            function safeSetLS(key, value) {
+                try { localStorage.setItem(key, value); return true; } catch { return false; }
+            }
+            function safeDelLS(key) {
+                try { localStorage.removeItem(key); return true; } catch { return false; }
+            }
+            function sanitizeHttpUrl(url) {
+                try {
+                    const u = new URL(url);
+                    if (u.protocol === "http:" || u.protocol === "https:") return u.toString();
+                    return null;
+                } catch { return null; }
+            }
+            function uid() {
+                if (globalThis.crypto && crypto.randomUUID) return crypto.randomUUID();
+                return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, c => {
+                    const r = (Math.random() * 16) | 0, v = c === "x" ? r : (r & 0x3) | 0x8;
+                    return v.toString(16);
+                });
+            }
+            function clampInt(n, min, max) {
+                n = Number.isFinite(n) ? Math.trunc(n) : min;
+                return Math.max(min, Math.min(max, n));
+            }
+            function slugify(s) {
+                // Convert string to URL-safe slug
+                // Supports Japanese characters (hiragana, katakana, kanji)
+                const t = String(s || "").trim().toLowerCase();
+                const a = t.replace(/[\s_]+/g, "-").replace(/[^\w\-ぁ-んァ-ン一-龥]/g, "").replace(/\-+/g, "-");
+                // Generate random slug if result is empty
+                return a || ("p-" + uid().slice(0, 8));
+            }
+            function deepClone(obj) {
+                // Prefer modern structuredClone when available (safe deep copy).
+                // Fall back to a conservative recursive clone to keep wide compatibility.
+                try {
+                    if (globalThis.structuredClone) return structuredClone(obj);
+                } catch { /* fallback */ }
+
+                // Handle primitives and null
+                if (obj === null || typeof obj !== 'object') return obj;
+
+                // Handle Date
+                if (obj instanceof Date) return new Date(obj.getTime());
+
+                // Handle RegExp
+                if (obj instanceof RegExp) return new RegExp(obj.source, obj.flags);
+
+                // Handle Array
+                if (Array.isArray(obj)) {
+                    return obj.map(item => deepClone(item));
+                }
+
+                // Handle Object
+                const cloned = {};
+                for (const key in obj) {
+                    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+                        cloned[key] = deepClone(obj[key]);
+                    }
+                }
+                return cloned;
+            }
+
+            function iconWrap(node) {
+                const w = h("span", {});
+                w.appendChild(node);
+                return w;
+            }
+
+            /**************************************************************************
+             * 2) Schema & initial data
+             **************************************************************************/
+            const STORAGE_KEY = "portfolio_single_html_store_v2";
+            const SNAPSHOT_KEY = "portfolio_single_html_snapshot_v1";
+
+            // Per-tab identity (used for cross-tab coordination)
+            const TAB_ID_KEY = "portfolio_single_html_tab_id_v1";
+            const TAB_ID = (() => {
+                try {
+                    const existing = sessionStorage.getItem(TAB_ID_KEY);
+                    if (existing) return existing;
+                    const id = uid();
+                    sessionStorage.setItem(TAB_ID_KEY, id);
+                    return id;
+                } catch {
+                    return uid();
+                }
+            })();
+
+            // Cross-tab single-run coordination for Pomodoro (leader lock w/ TTL)
+            const POMODORO_LOCK_KEY = "portfolio_single_html_pomodoro_lock_v1";
+            const POMODORO_LOCK_TTL_MS = 8000; // must be > tick interval
+            // String length limits for validation
+            const LIMITS = {
+                PROJECT_NAME: 120,
+                PROJECT_ID: 80,
+                CATEGORY: 80,
+                SUMMARY: 800,
+                PROBLEM: 1200,
+                APPROACH: 1200,
+                IMPACT: 1200,
+                METRIC_LABEL: 40,
+                METRIC_VALUE: 40,
+                TECH_ITEM: 50,
+                TAG_ITEM: 40,
+                HIGHLIGHT_ITEM: 80,
+                LINK_LABEL: 80,
+                LINK_URL: 500,
+                ARCHITECTURE_OVERVIEW: 2000,
+                ARCHITECTURE_MERMAID: 5000,
+                PROFILE_NAME: 80,
+                PROFILE_TITLE: 120,
+                PROFILE_BIO: 2000,
+                PROFILE_EMAIL: 120,
+                PROFILE_URL: 500,
+                TASK_TITLE: 200,
+                TASK_DESC: 1000,
+                TODO_TEXT: 300,
+                AI_MESSAGE: 5000,
+                MAX_METRICS: 12,
+                MAX_TECH: 12,
+                MAX_TAGS: 12,
+                MAX_HIGHLIGHTS: 20,
+                MAX_LINKS: 30,
+                MAX_RELATED_IDS: 20
+            };
+
+            const INITIAL_PROFILE = {
+                name: "ユウタ",
+                title: "ITエンジニア",
+                bio: "ポートフォリオです。このサイトは「完成品を並べる場所」ではなく「作りながら検証するための実験環境」です。",
+                email: "yuta.pr.0117@gmail.com"
+            };
+
+            function proj(id, slug, name, category, summary, problem, approach, outcome, tech, tags, highlights, architecture, relatedIds, links, demoRoute) {
+                return {
+                    id, slug, name, category,
+                    summary, problem, approach,
+                    outcome: outcome || { metrics: [], impact: "" },
+                    tech: Array.isArray(tech) ? tech : [],
+                    tags: Array.isArray(tags) ? tags : [],
+                    highlights: Array.isArray(highlights) ? highlights : [],
+                    architecture: architecture || { overview: "", mermaid: null },
+                    relatedProjectIds: Array.isArray(relatedIds) ? relatedIds : [],
+                    links: Array.isArray(links) ? links : [],
+                    demoRoute: demoRoute || null
+                };
+            }
+
+            // Demo routes normalized to: task/todo/pomodoro/ai
+            const INITIAL_PROJECTS = [
+                proj("p01", "task-manager", "タスク管理アプリ", "Productivity",
+                    "このポートフォリオに統合された、オフライン対応のタスク管理ツール。",
+                    "外部依存のあるツールは、障害時に利用できなくなるリスクがある。",
+                    "状態・優先度・検索の最低限に絞って堅牢に実装。LocalStorageで永続化。",
+                    { metrics: [{ label: "耐障害", value: "local-only" }, { label: "状態", value: "3" }], impact: "運用前提の最小機能で事故率を下げる。" },
+                    ["Vanilla JS", "LocalStorage", "Hash Router"],
+                    ["ツール", "SPA", "オフライン"], ["検索/フィルタ", "優先度", "状態遷移"],
+                    { overview: "単一ストア（appsData.tasks）をUIが参照する構造。" },
+                    ["p02", "p03", "p04"], [], "task"
+                ),
+                proj("p02", "todo-list", "TODOリスト", "Productivity",
+                    "クイックTODO。",
+                    "高機能システムへ移るたびに思考が途切れる。",
+                    "Enter追加 + IMEガード + フィルタ/一括操作に限定。",
+                    { metrics: [{ label: "入力導線", value: "Enter" }], impact: "認知負荷を落として記録を継続。" },
+                    ["Vanilla JS", "IME guard"], ["ツール", "効率化"], ["一括操作", "検索/フィルタ"],
+                    { overview: "appsData.todosを参照。" },
+                    ["p01", "p03"], [], "todo"
+                ),
+                proj("p03", "pomodoro-timer", "ポモドーロタイマー", "Productivity",
+                    "タブ休眠・スリープ対応ポモドーロ。",
+                    "setIntervalだけだと非アクティブで精度が落ちる。",
+                    "endAt(タイムスタンプ)で残秒を復元。二重起動を防止。フォーカス対象（タスク）を記録。",
+                    { metrics: [{ label: "復元方式", value: "timestamp" }], impact: "タイマーが信頼できる状態を維持。" },
+                    ["Vanilla JS", "Date API"], ["ツール", "時間管理"], ["timestamp復元", "履歴管理", "フォーカス対象"],
+                    { overview: "runtime(endAt/remainingSec)を永続化し、tickはUI更新のみ。" },
+                    ["p01", "p02", "p04"], [], "pomodoro"
+                ),
+                proj("p09", "local-ai-assist", "ローカルAIアシスト", "AI",
+                    "外部API無しのAIアシスト。",
+                    "AI活用は外部依存にすると壊れやすい。",
+                    "ルール分類（design/troubleshoot/general）＋テンプレ生成＋根拠表示。",
+                    { metrics: [{ label: "依存", value: "none" }], impact: "オフラインで提案が成立。" },
+                    ["Rule-based", "Templates"], ["AI", "オフライン"], ["タスク分解", "文章生成"],
+                    { overview: "appsData.ai.historyにログ。" },
+                    ["p16", "p17", "p18"], [], "ai"
+                ),
+                proj("p04", "unified-data-model", "データモデル設計", "Productivity",
+                    "ローカルアプリ間の整合性を保つ共通スキーマ。",
+                    "アプリごとに形式がバラバラだと、移行や復旧が破綻する。",
+                    "schemaVersion付きストア + フォールバック + Import/Export設計。整合性チェック/自動修復導線。",
+                    { metrics: [{ label: "schema", value: "v2" }, { label: "復旧", value: "safe" }], impact: "破損時も初期化・復元が可能。" },
+                    ["Schema", "Migration"], ["アーキテクチャ", "データ"], ["破損フォールバック", "Import/Export", "自動修復"],
+                    { overview: "full-store(schemaVersion:2)を採用。" },
+                    ["p01", "p02", "p03", "p18"], [], null
+                ),
+                proj("p05", "offline-sync-notes", "オフライン同期設計メモ", "Productivity",
+                    "将来同期を見据えた競合解決の整理。",
+                    "同期時の衝突は後から直せない温床になりやすい。",
+                    "Upsert/Strictの方針や、衝突キーの設計を文書化。",
+                    { metrics: [{ label: "方針", value: "append/upsert/strict" }], impact: "運用ポリシーを先に固定。" },
+                    ["Design Notes"], ["設計", "運用"], ["衝突キー", "適用モード"],
+                    { overview: "settingsでインポート結果を可視化。" },
+                    ["p04"], [], null
+                ),
+                proj("p06", "telemetry-starter", "テレメトリ基盤コンセプト", "Observability",
+                    "フロントのイベント/ログ/計測の統一案。",
+                    "ログ形式がバラバラだと調査コストが上がる。",
+                    "イベントラッパー + 最低限の構造化ログ方針を定義。",
+                    { metrics: [{ label: "形式", value: "structured" }], impact: "再現可能な調査手順の土台。" },
+                    ["Structured Logging"], ["DevOps", "運用"], ["統一フォーマット", "最小実装"],
+                    { overview: "実装は本SPAのsafe方針に反映。" },
+                    ["p07", "p08"], [], null
+                ),
+                proj("p07", "slo-dashboard", "SLOダッシュボード試作（UI）", "Observability",
+                    "SLO/SLIを読み解くUIの構造案。",
+                    "数字があるのに意思決定に繋がらないことがある。",
+                    "“見る順序”をUIに埋め込む。フィルタとハイライトを先に置く。",
+                    { metrics: [{ label: "導線", value: "filter-first" }], impact: "意思決定の遅延を減らす。" },
+                    ["UI Design"], ["UI", "運用"], ["フィルタ優先", "視認性"],
+                    { overview: "Projects一覧の検索/カテゴリ選択に思想を反映。" },
+                    ["p06"], [], null
+                ),
+                proj("p08", "incident-playbook", "インシデント手順プレイブック", "Observability",
+                    "事故時に手順抜けを防ぐチェックリスト。",
+                    "緊急時は認知負荷が上がり、抜けが生まれる。",
+                    "手順をUI化し、確認ボックスの順序を固定。",
+                    { metrics: [{ label: "抜け防止", value: "checklist" }], impact: "初動品質を底上げ。" },
+                    ["Checklist"], ["プロセス", "運用"], ["手順固定", "可視化"],
+                    { overview: "Task/Todoの最小操作性にも同じ思想。" },
+                    ["p06", "p09"], [], null
+                ),
+                proj("p10", "ci-quality-gate", "CIクオリティゲート設計", "Platform",
+                    "Lint/Test/Typecheckのゲート設計。",
+                    "品質の劣化は後工程でコスト爆増する。",
+                    "最小ゲートを固定し、失敗時に原因が即分かる形へ。",
+                    { metrics: [{ label: "ゲート", value: "3" }], impact: "品質劣化の混入を抑制。" },
+                    ["Quality Gates"], ["CI/CD"], ["最小セット", "原因特定"],
+                    { overview: "本HTMLは例外ガード/検証を先に固定。" },
+                    ["p11"], [], null
+                ),
+                proj("p11", "release-notes-builder", "リリースノート生成（ルール）", "Platform",
+                    "変更ログのテンプレ生成。",
+                    "記録が残らないと説明責任が崩れる。",
+                    "テンプレ生成 + 必須項目の抜け検出を設計。",
+                    { metrics: [{ label: "テンプレ", value: "fixed" }], impact: "説明の再現性が上がる。" },
+                    ["Templates"], ["自動化"], ["抜け検出", "規格化"],
+                    { overview: "AIアシストのテンプレ生成に思想を反映。" },
+                    ["p10", "p17"], [], null
+                ),
+                proj("p12", "design-system-mini", "ミニデザインシステム", "Platform",
+                    "最低限のUI部品を揃え、崩れを防ぐ。",
+                    "画面ごとに見た目が違うと学習コストが増える。",
+                    "ボタン/カード/バッジ/入力などを統一。",
+                    { metrics: [{ label: "部品", value: "atoms" }], impact: "見た目の一貫性でUXを安定化。" },
+                    ["CSS Variables"], ["UI/UX"], ["一貫性", "focus-visible"],
+                    { overview: "単一CSSでテーマ/余白/階層を統一。" },
+                    ["p01", "p02", "p03"], [], null
+                ),
+                proj("p13", "security-baseline", "セキュリティベースライン", "Security",
+                    "Webアプリの最低限チェック。",
+                    "基本が抜けると致命傷になる。",
+                    "XSS/リンク安全/入力検証/外部依存の境界を固定。",
+                    { metrics: [{ label: "XSS", value: "textContent" }], impact: "壊れ方を減らす。" },
+                    ["Safe DOM"], ["セキュリティ"], ["XSS回避", "境界固定"],
+                    { overview: "ユーザー入力はDOMにtextとしてのみ挿入。" },
+                    ["p14", "p15"], [], null
+                ),
+                proj("p14", "secrets-handling", "設定値管理ガイド", "Security",
+                    "秘匿情報をフロントへ入れない設計。",
+                    "クライアント側に秘密は置けない。",
+                    "外部API不要のAIアシストで運用を成立させる方針。",
+                    { metrics: [{ label: "外部API", value: "optional" }], impact: "安全側で成立させる。" },
+                    ["Boundary Design"], ["運用", "セキュリティ"], ["責任境界", "非依存"],
+                    { overview: "単一HTMLはネットワーク不要で動作。" },
+                    ["p13"], [], null
+                ),
+                proj("p15", "link-sanitization", "リンク検証ユーティリティ", "Security",
+                    "http/httpsのみ許可するURL検証。",
+                    "リンク注入は温床になりやすい。",
+                    "URL API + allowlist。",
+                    { metrics: [{ label: "protocol", value: "http/https" }], impact: "不正URLを排除。" },
+                    ["URL API"], ["セキュリティ"], ["sanitize", "noopener"],
+                    { overview: "外部リンクはrel=noopener/noreferrerを付与。" },
+                    ["p13"], [], null
+                ),
+                proj("p16", "task-breakdown-engine", "タスク分解エンジン", "AI",
+                    "キーワードに基づく標準手順の提案。",
+                    "作業開始できない状態は生産性を壊す。",
+                    "分類→テンプレ→チェックリスト化。",
+                    { metrics: [{ label: "分類", value: "3-mode" }], impact: "開始までの摩擦を下げる。" },
+                    ["Rule-based"], ["AI", "生産性"], ["分解", "根拠表示"],
+                    { overview: "ローカルルールエンジンを内蔵。" },
+                    ["p01", "p09", "p18"], [], "ai"
+                ),
+                proj("p17", "portfolio-copy-generator", "ポートフォリオ文章生成", "AI",
+                    "ケーススタディ文章の生成支援。",
+                    "文章作成に時間がかかる。",
+                    "トーン別テンプレ + ルール根拠の表示。",
+                    { metrics: [{ label: "トーン", value: "2" }], impact: "説明文作成の工数を削減。" },
+                    ["Templates"], ["AI"], ["professional/casual", "根拠表示"],
+                    { overview: "AIアシストで実装。" },
+                    ["p09", "p11"], [], "ai"
+                ),
+                proj("p18", "local-semantic-search", "ローカル検索スコアリング", "AI",
+                    "Projects検索の精度改善（依存なし）。",
+                    "完全一致だけだと探しにくい。",
+                    "トークン化→簡易スコア→降順表示。",
+                    { metrics: [{ label: "deps", value: "0" }], impact: "検索性の底上げ。" },
+                    ["Scoring"], ["検索", "AI"], ["token scoring", "lightweight"],
+                    { overview: "Projects一覧の検索にスコアリングを導入。" },
+                    ["p04", "p09"], [], null
+                ),
+            ];
+
+            const INITIAL_APPS_DATA = (() => {
+                const now = Date.now();
+                const settings = { work: 25, short: 5, long: 15 };
+                return {
+                    tasks: [
+                        { id: "t1", title: "ログの確認", status: "backlog", priority: "high", tags: ["運用"], createdAt: now, updatedAt: now },
+                        { id: "t2", title: "資料の更新", status: "in-progress", priority: "low", tags: ["ドキュメント"], createdAt: now, updatedAt: now }
+                    ],
+                    todos: [
+                        { id: "td1", text: "コーヒーを買う", completed: false, createdAt: now, dueDate: null }
+                    ],
+                    pomodoro: {
+                        history: [],
+                        settings,
+                        runtime: {
+                            isActive: false,
+                            mode: "work",
+                            endAtMs: null,
+                            remainingSec: settings.work * 60,
+                            linkedTaskId: null
+                        }
+                    },
+                    ai: { history: [] }
+                };
+            })();
+
+            const DEFAULT_STORE = {
+                schemaVersion: 2,
+                type: "full-store",
+                profile: INITIAL_PROFILE,
+                projects: INITIAL_PROJECTS,
+                appsData: INITIAL_APPS_DATA,
+                themePref: "system" // system | light | dark
+            };
+
+            /**************************************************************************
+             * 3) Validation / Normalization (import safety)
+             **************************************************************************/
+            function isObj(v) { return v && typeof v === "object"; }
+            function isStr(v) { return typeof v === "string"; }
+            function isNum(v) { return typeof v === "number" && Number.isFinite(v); }
+            function isArr(v) { return Array.isArray(v); }
+
+            function normalizeDemoRoute(r) {
+                if (!isStr(r) || !r.trim()) return null;
+                let x = r.trim();
+                if (x.startsWith("app-")) x = x.slice(4);
+                if (x.startsWith("apps/")) x = x.slice(5);
+                if (x === "task" || x === "todo" || x === "pomodoro" || x === "ai") return x;
+                return null;
+            }
+
+            function ensureLinks(v) {
+                if (!isArr(v)) return [];
+                const out = [];
+                for (const it of v) {
+                    if (!isObj(it)) continue;
+                    const label = isStr(it.label) ? it.label.slice(0, LIMITS.LINK_LABEL) : "";
+                    const u = isStr(it.url) ? sanitizeHttpUrl(it.url) : null;
+                    if (label && u) out.push({ label, url: u });
+                }
+                return out.slice(0, LIMITS.MAX_LINKS);
+            }
+            function ensureStringArray(v, maxItems = LIMITS.MAX_TECH, maxLength = LIMITS.TECH_ITEM) {
+                if (!isArr(v)) return [];
+                return v.filter(isStr).map(s => s.slice(0, maxLength)).slice(0, maxItems);
+            }
+            function ensureProject(raw, idxHint) {
+                if (!isObj(raw)) return null;
+                const id = isStr(raw.id) && raw.id.trim() ? raw.id.trim().slice(0, LIMITS.PROJECT_ID) : `imp_${idxHint}_${uid()}`;
+                const slug = isStr(raw.slug) && raw.slug.trim() ? slugify(raw.slug.trim()) : slugify(id);
+                const name = isStr(raw.name) ? raw.name.slice(0, LIMITS.PROJECT_NAME) : "Untitled Project";
+                const category = isStr(raw.category) ? raw.category.slice(0, LIMITS.CATEGORY) : "Misc";
+                const summary = isStr(raw.summary) ? raw.summary.slice(0, LIMITS.SUMMARY) : "";
+                const problem = isStr(raw.problem) ? raw.problem.slice(0, LIMITS.PROBLEM) : "";
+                const approach = isStr(raw.approach) ? raw.approach.slice(0, LIMITS.APPROACH) : "";
+
+                let outcome = { metrics: [], impact: "" };
+                if (isObj(raw.outcome)) {
+                    const impact = isStr(raw.outcome.impact) ? raw.outcome.impact.slice(0, LIMITS.IMPACT) : "";
+                    const metrics = [];
+                    if (isArr(raw.outcome.metrics)) {
+                        for (const m of raw.outcome.metrics) {
+                            if (!isObj(m)) continue;
+                            const label = isStr(m.label) ? m.label.slice(0, LIMITS.METRIC_LABEL) : "";
+                            const value = isStr(m.value) ? m.value.slice(0, LIMITS.METRIC_VALUE) : "";
+                            if (label && value) metrics.push({ label, value });
+                        }
+                    }
+                    outcome = { impact, metrics: metrics.slice(0, LIMITS.MAX_METRICS) };
+                }
+
+                let architecture = { overview: "", mermaid: null };
+                if (isObj(raw.architecture)) {
+                    architecture = {
+                        overview: isStr(raw.architecture.overview) ? raw.architecture.overview.slice(0, LIMITS.ARCHITECTURE_OVERVIEW) : "",
+                        mermaid: isStr(raw.architecture.mermaid) ? raw.architecture.mermaid.slice(0, LIMITS.ARCHITECTURE_MERMAID) : null
+                    };
+                }
+
+                const demoRoute = normalizeDemoRoute(raw.demoRoute);
+
+                return {
+                    id, slug, name, category, summary, problem, approach,
+                    outcome,
+                    tech: ensureStringArray(raw.tech, LIMITS.MAX_TECH, LIMITS.TECH_ITEM),
+                    tags: ensureStringArray(raw.tags, LIMITS.MAX_TAGS, LIMITS.TAG_ITEM),
+                    highlights: ensureStringArray(raw.highlights, LIMITS.MAX_HIGHLIGHTS, LIMITS.HIGHLIGHT_ITEM),
+                    architecture,
+                    relatedProjectIds: ensureStringArray(raw.relatedProjectIds, LIMITS.MAX_RELATED_IDS, LIMITS.PROJECT_ID),
+                    links: ensureLinks(raw.links),
+                    demoRoute
+                };
+            }
+
+            function ensureProfile(v) {
+                if (!isObj(v)) return { ...INITIAL_PROFILE };
+                const ghRaw = isStr(v.github) ? String(v.github).trim() : "";
+                const liRaw = isStr(v.linkedin) ? String(v.linkedin).trim() : "";
+                const gh = ghRaw ? (sanitizeHttpUrl(ghRaw) || "") : "";
+                const li = liRaw ? (sanitizeHttpUrl(liRaw) || "") : "";
+                return {
+                    name: isStr(v.name) ? v.name.slice(0, LIMITS.PROFILE_NAME) : INITIAL_PROFILE.name,
+                    title: isStr(v.title) ? v.title.slice(0, LIMITS.PROFILE_TITLE) : INITIAL_PROFILE.title,
+                    bio: isStr(v.bio) ? v.bio.slice(0, LIMITS.PROFILE_BIO) : INITIAL_PROFILE.bio,
+                    email: isStr(v.email) ? v.email.slice(0, LIMITS.PROFILE_EMAIL) : INITIAL_PROFILE.email,
+                    github: gh ? gh.slice(0, LIMITS.PROFILE_URL) : INITIAL_PROFILE.github,
+                    linkedin: li ? li.slice(0, LIMITS.PROFILE_URL) : INITIAL_PROFILE.linkedin
+                };
+            }
+
+            function ensureTasks(v) {
+                if (!isArr(v)) return [];
+                const out = [];
+                for (const it of v) {
+                    if (!isObj(it)) continue;
+                    const title = isStr(it.title) ? it.title.trim().slice(0, LIMITS.TASK_TITLE) : "";
+                    if (!title) continue;
+                    const id = isStr(it.id) ? it.id : uid();
+                    const status = (it.status === "backlog" || it.status === "in-progress" || it.status === "done") ? it.status : "backlog";
+                    const priority = (it.priority === "low" || it.priority === "med" || it.priority === "high") ? it.priority : "med";
+                    const tags = ensureStringArray(it.tags, 20, LIMITS.TAG_ITEM);
+                    const createdAt = isNum(it.createdAt) ? it.createdAt : Date.now();
+                    const updatedAt = isNum(it.updatedAt) ? it.updatedAt : createdAt;
+                    out.push({ id, title, status, priority, tags, createdAt, updatedAt });
+                }
+                // Dedupe IDs for operational safety
+                const seen = new Set();
+                for (let i = 0; i < out.length; i++) {
+                    if (seen.has(out[i].id)) out[i].id = out[i].id + "_" + i;
+                    seen.add(out[i].id);
+                }
+                return out.slice(0, 500);
+            }
+
+            function ensureTodos(v) {
+                if (!isArr(v)) return [];
+                const out = [];
+                for (const it of v) {
+                    if (!isObj(it)) continue;
+                    const text = isStr(it.text) ? it.text.trim().slice(0, LIMITS.TODO_TEXT) : "";
+                    if (!text) continue;
+                    const id = isStr(it.id) ? it.id : uid();
+                    const completed = !!it.completed;
+                    const createdAt = isNum(it.createdAt) ? it.createdAt : Date.now();
+                    const dueDate = isNum(it.dueDate) ? it.dueDate : null;
+                    out.push({ id, text, completed, createdAt, dueDate });
+                }
+                // Dedupe IDs for operational safety
+                const seen = new Set();
+                for (let i = 0; i < out.length; i++) {
+                    if (seen.has(out[i].id)) out[i].id = out[i].id + "_" + i;
+                    seen.add(out[i].id);
+                }
+                return out.slice(0, 1000);
+            }
+
+            function ensurePomodoro(v) {
+                const d = DEFAULT_STORE.appsData.pomodoro;
+                if (!isObj(v)) return deepClone(d);
+
+                const settings = isObj(v.settings) ? v.settings : {};
+                const set = {
+                    work: clampInt(isNum(settings.work) ? settings.work : d.settings.work, 1, 180),
+                    short: clampInt(isNum(settings.short) ? settings.short : d.settings.short, 1, 60),
+                    long: clampInt(isNum(settings.long) ? settings.long : d.settings.long, 1, 120)
+                };
+
+                const history = [];
+                if (isArr(v.history)) {
+                    for (const it of v.history) {
+                        if (!isObj(it)) continue;
+                        const ts = isNum(it.timestamp) ? it.timestamp : Date.now();
+                        const dur = clampInt(isNum(it.durationMinutes) ? it.durationMinutes : 0, 0, 240);
+                        const type = (it.type === "work" || it.type === "short-break" || it.type === "long-break") ? it.type : "work";
+                        history.push({ timestamp: ts, durationMinutes: dur, type, linkedTaskId: isStr(it.linkedTaskId) ? it.linkedTaskId : null });
+                    }
+                }
+
+                let runtime = {
+                    isActive: false,
+                    mode: "work",
+                    endAtMs: null,
+                    remainingSec: set.work * 60,
+                    linkedTaskId: null
+                };
+                if (isObj(v.runtime)) {
+                    const mode = (v.runtime.mode === "work" || v.runtime.mode === "short-break" || v.runtime.mode === "long-break") ? v.runtime.mode : "work";
+                    const isActive = !!v.runtime.isActive;
+                    const endAtMs = isNum(v.runtime.endAtMs) ? v.runtime.endAtMs : null;
+                    const remainingSec = clampInt(isNum(v.runtime.remainingSec) ? v.runtime.remainingSec : runtime.remainingSec, 0, 24 * 3600);
+                    const linkedTaskId = isStr(v.runtime.linkedTaskId) ? v.runtime.linkedTaskId : null;
+                    const okActive = isActive && endAtMs && endAtMs > Date.now();
+                    runtime = {
+                        isActive: okActive,
+                        mode,
+                        endAtMs: okActive ? endAtMs : null,
+                        remainingSec: okActive ? remainingSec : remainingSec,
+                        linkedTaskId
+                    };
+                }
+
+                // runtime sanity: if paused and remaining=0 => set to default
+                if (!runtime.isActive && runtime.remainingSec === 0) {
+                    const base = (runtime.mode === "work") ? set.work : (runtime.mode === "short-break") ? set.short : set.long;
+                    runtime.remainingSec = base * 60;
+                }
+
+                return { settings: set, history: history.slice(-200), runtime };
+            }
+
+            function ensureAiHistory(v) {
+                if (!isArr(v)) return [];
+                const out = [];
+                for (const it of v) {
+                    if (!isObj(it)) continue;
+                    const prompt = isStr(it.prompt) ? it.prompt.trim().slice(0, LIMITS.AI_MESSAGE) : "";
+                    const response = isStr(it.response) ? it.response.trim().slice(0, LIMITS.AI_MESSAGE) : "";
+                    const timestamp = isNum(it.timestamp) ? it.timestamp : Date.now();
+                    if (prompt && response) out.push({ prompt, response, timestamp });
+                }
+                return out.slice(-80);
+            }
+
+            function ensureAppsData(v) {
+                const d = DEFAULT_STORE.appsData;
+                if (!isObj(v)) return deepClone(d);
+                return {
+                    tasks: ensureTasks(v.tasks),
+                    todos: ensureTodos(v.todos),
+                    pomodoro: ensurePomodoro(v.pomodoro),
+                    ai: { history: ensureAiHistory(isObj(v.ai) ? v.ai.history : []) }
+                };
+            }
+
+            function ensureThemePref(v) {
+                if (v === "light" || v === "dark" || v === "system") return v;
+                return "system";
+            }
+
+            function migrateAndLoad(raw) {
+                if (!isObj(raw)) return null;
+                if (raw.type !== "full-store") return null;
+                const sv = isNum(raw.schemaVersion) ? raw.schemaVersion : 1;
+                if (sv !== 1 && sv !== 2) return null;
+
+                const profile = ensureProfile(raw.profile);
+
+                const projectsRaw = isArr(raw.projects) ? raw.projects : [];
+                const projects = [];
+                const seenIds = new Set();
+                const seenSlugs = new Set();
+                for (let i = 0; i < projectsRaw.length; i++) {
+                    const p = ensureProject(projectsRaw[i], i);
+                    if (!p) continue;
+                    if (seenIds.has(p.id)) p.id = p.id + "_" + i;
+                    if (seenSlugs.has(p.slug)) p.slug = p.slug + "-" + i;
+                    seenIds.add(p.id); seenSlugs.add(p.slug);
+                    projects.push(p);
+                }
+
+                const appsData = ensureAppsData(raw.appsData);
+                const themePref = ensureThemePref(raw.themePref);
+
+                const store = {
+                    schemaVersion: 2,
+                    type: "full-store",
+                    profile,
+                    projects: projects.length ? projects : deepClone(DEFAULT_STORE.projects),
+                    appsData: (appsData.tasks.length || appsData.todos.length || appsData.pomodoro.history.length || appsData.ai.history.length) ? appsData : deepClone(DEFAULT_STORE.appsData),
+                    themePref
+                };
+
+                // normalize demoRoute
+                store.projects = store.projects.map(p => ({ ...p, demoRoute: normalizeDemoRoute(p.demoRoute) }));
+                return store;
+            }
+
+            /**************************************************************************
+             * 4) Store & Theme
+             **************************************************************************/
+            let store = loadStore();
+            let ui = { sidebarOpen: false };
+            let route = parseHash();
+
+            // Route-scoped lifecycle (prevents leaks when navigating between pages)
+            let _routeKey = "";
+            let _cleanups = [];
+            function onCleanup(fn) {
+                if (typeof fn === "function") _cleanups.push(fn);
+            }
+            function _runCleanups() {
+                const list = _cleanups;
+                _cleanups = [];
+                for (const fn of list) { try { fn(); } catch { } }
+            }
+            function _makeRouteKey(r) {
+                const base = String((r && r.name) || "");
+                const slug = r && r.slug ? ("|slug=" + String(r.slug)) : "";
+                const q = r && r.q ? ("|q=" + String(r.q)) : "";
+                const cat = r && r.cat ? ("|cat=" + String(r.cat)) : "";
+                return base + slug + q + cat;
+            }
+
+
+            let PomodoroDaemon = null;
+
+            function loadStore() {
+                const rawText = safeGetLS(STORAGE_KEY);
+                if (!rawText) return deepClone(DEFAULT_STORE);
+                const parsed = safeJsonParse(rawText);
+                if (!parsed.ok) return deepClone(DEFAULT_STORE);
+                const mig = migrateAndLoad(parsed.value);
+                return mig ? mig : deepClone(DEFAULT_STORE);
+            }
+
+            let saveTimer = null;
+            let saveWarnedAt = 0;
+
+            function saveStoreNow(reason = "") {
+                // reason is for future debugging; keep it for clarity
+                const ok = safeSetLS(STORAGE_KEY, JSON.stringify(store));
+                if (!ok) {
+                    const now = Date.now();
+                    if (now - saveWarnedAt > 5000) {
+                        saveWarnedAt = now;
+                        toast("保存に失敗しました（localStorage制限/無効化の可能性）", "warn");
+                    }
+                }
+
+                try {
+                    // Ensure cross-tab-safe pomodoro daemon reacts to state changes.
+                    if (PomodoroDaemon && reason !== "pomodoro-daemon") PomodoroDaemon.sync();
+                } catch { }
+
+                return ok;
+            }
+
+            function saveStoreDebounced(reason = "") {
+                if (saveTimer) clearTimeout(saveTimer);
+                saveTimer = setTimeout(() => {
+                    saveStoreNow(reason);
+                    saveTimer = null;
+                }, 150);
+            }
+
+            function flushSave() {
+                if (saveTimer) {
+                    clearTimeout(saveTimer);
+                    saveTimer = null;
+                }
+                saveStoreNow("flush");
+            }
+
+            // Save ASAP when the tab is being backgrounded/closed
+            window.addEventListener("beforeunload", () => { try { flushSave(); } catch { } });
+            document.addEventListener("visibilitychange", () => {
+                try { if (document.visibilityState === "hidden") flushSave(); } catch { }
+            });
+
+
+            /**************************************************************************
+             * 4.5) Pomodoro Daemon (cross-tab safe)
+             * - Prevents double-complete across tabs via localStorage leader lock.
+             * - Runs even when Pomodoro page is not open (no DOM references).
+             **************************************************************************/
+            function createPomodoroDaemon() {
+                let timer = null;
+
+                function readLockRaw() {
+                    const t = safeGetLS(POMODORO_LOCK_KEY);
+                    if (!t) return null;
+                    const p = safeJsonParse(t);
+                    if (!p.ok || !isObj(p.value)) return null;
+                    const owner = p.value.owner;
+                    const expiresAtMs = p.value.expiresAtMs;
+                    if (!isStr(owner) || !isNum(expiresAtMs)) return null;
+                    return { owner, expiresAtMs };
+                }
+                function readLockValid() {
+                    const l = readLockRaw();
+                    if (!l) return null;
+                    if (l.expiresAtMs <= Date.now()) return null;
+                    return l;
+                }
+                function writeLock(expiresAtMs) {
+                    return safeSetLS(POMODORO_LOCK_KEY, JSON.stringify({ owner: TAB_ID, expiresAtMs }));
+                }
+                function tryAcquireOrRefresh() {
+                    const now = Date.now();
+                    const l = readLockRaw();
+                    if (!l || l.expiresAtMs <= now) {
+                        writeLock(now + POMODORO_LOCK_TTL_MS);
+                        return true;
+                    }
+                    if (l.owner === TAB_ID) {
+                        // Refresh only when nearing expiry to reduce churn.
+                        if (l.expiresAtMs - now < (POMODORO_LOCK_TTL_MS / 2)) {
+                            writeLock(now + POMODORO_LOCK_TTL_MS);
+                        }
+                        return true;
+                    }
+                    return false;
+                }
+                function releaseLockIfOwned() {
+                    const l = readLockRaw();
+                    if (l && l.owner === TAB_ID) safeDelLS(POMODORO_LOCK_KEY);
+                }
+
+                function getRuntime() {
+                    try { return store && store.appsData && store.appsData.pomodoro && store.appsData.pomodoro.runtime; } catch { return null; }
+                }
+                function getSettings() {
+                    try { return store && store.appsData && store.appsData.pomodoro && store.appsData.pomodoro.settings; } catch { return null; }
+                }
+                function minutesForMode(mode) {
+                    const s = getSettings() || { work: 25, short: 5, long: 15 };
+                    if (mode === "short-break") return clampInt(s.short, 1, 60);
+                    if (mode === "long-break") return clampInt(s.long, 1, 120);
+                    return clampInt(s.work, 1, 180);
+                }
+
+                function stop() {
+                    if (timer) { clearInterval(timer); timer = null; }
+                }
+                function start() {
+                    if (timer) return;
+                    timer = setInterval(tick, 1000);
+                    tick();
+                }
+
+                function notifyComplete(detail) {
+                    try {
+                        window.dispatchEvent(new CustomEvent("pomodoro-complete", { detail }));
+                    } catch { }
+                    try {
+                        if (!("Notification" in window)) return;
+                        if (Notification.permission === "granted") {
+                            new Notification("Pomodoro", { body: "セッション完了", silent: true });
+                        } else if (Notification.permission === "default") {
+                            Notification.requestPermission().then(p => {
+                                if (p === "granted") new Notification("Pomodoro", { body: "セッション完了", silent: true });
+                            }).catch(() => { });
+                        }
+                    } catch { }
+                }
+
+                function completeOnce() {
+                    const rt = getRuntime();
+                    if (!rt || !rt.isActive) return;
+
+                    const dur = minutesForMode(rt.mode);
+                    store.appsData.pomodoro.history.push({
+                        timestamp: Date.now(),
+                        durationMinutes: dur,
+                        type: rt.mode,
+                        linkedTaskId: rt.linkedTaskId || null
+                    });
+                    store.appsData.pomodoro.history = store.appsData.pomodoro.history.slice(-200);
+
+                    const mins = minutesForMode(rt.mode);
+                    store.appsData.pomodoro.runtime = Object.assign({}, rt, {
+                        isActive: false,
+                        endAtMs: null,
+                        remainingSec: mins * 60
+                    });
+
+                    // Persist immediately (other tabs will receive storage event)
+                    saveStoreNow("pomodoro-daemon");
+                    notifyComplete({ mode: rt.mode, durationMinutes: dur });
+                }
+
+                function tick() {
+                    const rt = getRuntime();
+                    if (!rt || !rt.isActive || !rt.endAtMs) {
+                        stop();
+                        releaseLockIfOwned();
+                        return;
+                    }
+                    // Only the leader tab is allowed to complete the session.
+                    if (!tryAcquireOrRefresh()) {
+                        stop();
+                        return;
+                    }
+                    if (Date.now() >= rt.endAtMs) {
+                        // Double-check leader before mutating store.
+                        if (tryAcquireOrRefresh()) completeOnce();
+                    }
+                }
+
+                function sync() {
+                    const rt = getRuntime();
+                    if (!rt || !rt.isActive || !rt.endAtMs) {
+                        stop();
+                        releaseLockIfOwned();
+                        return;
+                    }
+                    if (!tryAcquireOrRefresh()) {
+                        stop();
+                        return;
+                    }
+                    start();
+                }
+
+                function isLeader() {
+                    const l = readLockValid();
+                    return !!(l && l.owner === TAB_ID);
+                }
+
+                return { sync, stop, isLeader, readLockValid };
+            }
+
+            function applyTheme() {
+                const pref = store.themePref || "system";
+                const sysDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+                const isDark = (pref === "dark") || (pref === "system" && sysDark);
+                document.documentElement.classList.toggle("dark", !!isDark);
+                const topBtn = $("#themeBtnTop");
+                if (topBtn) {
+                    clear(topBtn);
+                    topBtn.appendChild(isDark ? Icons.sun.cloneNode(true) : Icons.moon.cloneNode(true));
+                }
+            }
+            applyTheme();
+
+            // Start daemon if a timer was running in persisted state.
+            PomodoroDaemon = createPomodoroDaemon();
+            try { PomodoroDaemon.sync(); } catch { }
+
+
+            if (window.matchMedia) {
+                try {
+                    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+                    mq.addEventListener("change", () => { if (store.themePref === "system") applyTheme(); });
+                } catch { }
+            }
+
+            function cycleThemePref() {
+                const p = store.themePref || "system";
+                const next = (p === "system") ? "dark" : (p === "dark") ? "light" : "system";
+                store.themePref = next;
+                saveStoreDebounced();
+                applyTheme();
+                toast(`Theme: ${next}`);
+            }
+
+            /**************************************************************************
+             * 5) Snapshot (operational safety net)
+             **************************************************************************/
+            function saveSnapshot(reason) {
+                const payload = { ts: Date.now(), reason: String(reason || ""), store };
+                safeSetLS(SNAPSHOT_KEY, JSON.stringify(payload));
+            }
+            function loadSnapshot() {
+                const t = safeGetLS(SNAPSHOT_KEY);
+                if (!t) return null;
+                const p = safeJsonParse(t);
+                if (!p.ok) return null;
+                if (!isObj(p.value)) return null;
+                return p.value;
+            }
+            function restoreSnapshot() {
+                const snap = loadSnapshot();
+                if (!snap || !snap.store) return { ok: false, message: "スナップショットがありません" };
+                const mig = migrateAndLoad(snap.store);
+                if (!mig) return { ok: false, message: "スナップショットが壊れています" };
+                store = mig;
+                saveStoreDebounced();
+                applyTheme();
+                return { ok: true, message: "スナップショットから復元しました" };
+            }
+
+
+            /**************************************************************************
+             * 5.5) Cross-tab sync (storage event)
+             * - Keep other tabs in sync without polling
+             * - Avoid destroying in-progress typing (defer render while editing inputs)
+             **************************************************************************/
+            let _pendingExternalRender = false;
+            function _isUserTyping() {
+                const el = document.activeElement;
+                if (!el) return false;
+                const tag = (el.tagName || "").toUpperCase();
+                if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return true;
+                return !!(el.isContentEditable);
+            }
+            function _scheduleRenderFromExternal(reason) {
+                if (_isUserTyping()) {
+                    if (!_pendingExternalRender) {
+                        _pendingExternalRender = true;
+                        try { toast("別タブで更新されました（入力後に反映）", "warn"); } catch { }
+                    }
+                    const el = document.activeElement;
+                    if (el && el.addEventListener) {
+                        el.addEventListener("blur", () => {
+                            if (!_pendingExternalRender) return;
+                            _pendingExternalRender = false;
+                            try { render(); } catch { }
+                        }, { once: true });
+                    }
+                    return;
+                }
+                _pendingExternalRender = false;
+                try { render(); } catch { }
+            }
+
+            function _applyExternalStoreText(text) {
+                if (text == null) {
+                    store = deepClone(DEFAULT_STORE);
+                    try { applyTheme(); } catch { }
+                    try { if (PomodoroDaemon) PomodoroDaemon.sync(); } catch { }
+                    _scheduleRenderFromExternal("external-reset");
+                    return;
+                }
+                const parsed = safeJsonParse(String(text));
+                if (!parsed.ok) return;
+                const mig = migrateAndLoad(parsed.value);
+                if (!mig) return;
+                store = mig;
+                try { applyTheme(); } catch { }
+                try { if (PomodoroDaemon) PomodoroDaemon.sync(); } catch { }
+                _scheduleRenderFromExternal("external-store");
+            }
+
+            window.addEventListener("storage", (e) => {
+                try {
+                    if (!e) return;
+                    if (e.key === STORAGE_KEY) {
+                        _applyExternalStoreText(e.newValue);
+                        return;
+                    }
+                    if (e.key === POMODORO_LOCK_KEY) {
+                        // Leader may have changed (or lock refreshed). React to it.
+                        try { if (PomodoroDaemon) PomodoroDaemon.sync(); } catch { }
+                        if (route && route.name === "app-pomodoro") _scheduleRenderFromExternal("external-pomodoro-lock");
+                        return;
+                    }
+                } catch { }
+            });
+
+            /**************************************************************************
+            * 6) Router (+ query in hash)
+            **************************************************************************/
+            window.addEventListener("hashchange", () => {
+                route = parseHash();
+                ui.sidebarOpen = false;
+                syncMobileDrawer();
+                render();
+            });
+
+            function parseHash() {
+                const h = location.hash || "";
+                const raw = h.startsWith("#/") ? h.slice(2) : "";
+                const [pathPart, queryPart] = raw.split("?");
+                const clean = (pathPart || "").replace(/^\/+/, "");
+                const parts = clean ? clean.split("/").filter(Boolean) : [];
+                const qs = new URLSearchParams(queryPart || "");
+                const q = qs.get("q") || "";
+                const cat = qs.get("cat") || "";
+
+                if (parts.length === 0) return { name: "home" };
+                if (parts[0] === "projects") {
+                    if (parts.length === 1) return { name: "projects", q, cat };
+                    return { name: "project-detail", slug: parts[1] || "" };
+                }
+                if (parts[0] === "apps") {
+                    if (parts.length === 1) return { name: "apps" };
+                    const app = parts[1];
+                    if (app === "task") return { name: "app-task" };
+                    if (app === "todo") return { name: "app-todo" };
+                    if (app === "pomodoro") return { name: "app-pomodoro" };
+                    if (app === "ai") return { name: "app-ai" };
+                    return { name: "not-found" };
+                }
+                if (parts[0] === "settings") return { name: "settings" };
+                if (parts[0] === "about") return { name: "about" };
+                if (parts[0] === "resume") return { name: "resume" };
+                if (parts[0] === "contact") return { name: "contact" };
+                return { name: "not-found" };
+            }
+
+            function navTo(path) {
+                location.hash = "#/" + (path || "");
+            }
+            function navToProjectsQuery(q, cat) {
+                const qp = new URLSearchParams();
+                if (q) qp.set("q", q);
+                if (cat) qp.set("cat", cat);
+                const s = qp.toString();
+                navTo("projects" + (s ? ("?" + s) : ""));
+            }
+
+            /**************************************************************************
+             * 7) SEO (SPA-feasible)
+             **************************************************************************/
+            function setMeta(title, desc) {
+                document.title = title;
+                const m = document.querySelector('meta[name="description"]');
+                if (m && desc) m.setAttribute("content", desc);
+            }
+
+            /**************************************************************************
+             * 8) Toast
+             **************************************************************************/
+            let toastTimer = null;
+            function toast(msg, kind = "ok") {
+                const box = $("#toast");
+                if (!box) return;
+                clear(box);
+                box.className = kind === "error" ? "error" : (kind === "warn" ? "warnbox" : "notice");
+                box.appendChild(h("div", { text: String(msg) }));
+                box.style.display = "block";
+                if (toastTimer) clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => { box.style.display = "none"; toastTimer = null; }, 2600);
+            }
+
+            /**************************************************************************
+             * 9) Fatal overlay (window error capture)
+             **************************************************************************/
+            let fatalActive = false;
+            function showFatal(message) {
+                if (fatalActive) return;
+                fatalActive = true;
+                const root = h("div", { class: "fatal", id: "fatal" });
+                const box = h("div", { class: "box" });
+                box.appendChild(h("div", { class: "h2", text: "致命的エラー" }));
+                box.appendChild(h("div", { class: "muted mt", text: "アプリが継続できない状態です。復旧操作を選択してください。" }));
+                box.appendChild(h("div", { class: "card p mt mono", style: "white-space:pre-wrap;" }, String(message || "unknown error")));
+                const snap = loadSnapshot();
+                const actions = h("div", { class: "row wrap mt" },
+                    h("button", { class: "btn secondary", onClick: () => { location.reload(); } }, "再読み込み"),
+                    h("button", { class: "btn secondary", onClick: () => { safeDelLS(STORAGE_KEY); location.reload(); } }, "データ初期化→再読み込み"),
+                    snap ? h("button", {
+                        class: "btn", onClick: () => {
+                            const r = restoreSnapshot();
+                            if (r.ok) { toast(r.message, "ok"); fatalActive = false; root.remove(); render(); }
+                            else { toast(r.message, "error"); }
+                        }
+                    }, "スナップショット復元") : h("span")
+                );
+                box.appendChild(actions);
+                root.appendChild(box);
+                document.body.appendChild(root);
+            }
+            window.addEventListener("error", (e) => {
+                try {
+                    const msg = (e && e.error) ? String(e.error) : (e && e.message) ? String(e.message) : "window error";
+                    showFatal(msg);
+                } catch { }
+            });
+            window.addEventListener("unhandledrejection", (e) => {
+                try {
+                    const msg = (e && e.reason) ? String(e.reason) : "unhandledrejection";
+                    showFatal(msg);
+                } catch { }
+            });
+
+            /**************************************************************************
+             * 10) Local AI (rule-based)
+             **************************************************************************/
+            function aiAnalyze(prompt) {
+                const p = String(prompt || "").toLowerCase();
+                if (p.includes("エラー") || p.includes("バグ") || p.includes("失敗") || p.includes("error")) return "troubleshoot";
+                if (p.includes("設計") || p.includes("計画") || p.includes("構成") || p.includes("design")) return "design";
+                return "general";
+            }
+            function aiSuggestBreakdown(text) {
+                const p = String(text || "").toLowerCase();
+                if (p.includes("デプロイ") || p.includes("リリース")) return ["テスト実行", "ビルド", "バックアップ", "反映", "健全性チェック"];
+                if (p.includes("バグ") || p.includes("不具合")) return ["再現手順", "ログ調査", "原因切り分け", "修正実装", "回帰テスト追加"];
+                if (p.includes("機能") || p.includes("開発")) return ["要件整理", "UI設計", "実装", "テスト", "ドキュメント更新"];
+                return ["現状確認", "計画", "実行", "振り返り"];
+            }
+            function aiGenerateCopy(context, tone) {
+                const head = String(context || "").slice(0, 10);
+                const basis = `適用ルール: 「${head}${String(context || "").length > 10 ? "..." : ""}」に一致`;
+                if (tone === "professional") {
+                    return `[根拠: ${basis}]
+【目的】${context}を確実に遂行すること。
+【課題】スケーラビリティと保守性の両立。
+【成果】安定稼働と運用負荷低減を両立しました。`;
+                }
+                return `[根拠: ${basis}]
+【やったこと】${context}を作りました。
+【工夫】シンプルに解決しました。
+【結果】快適に動いています。`;
+            }
+
+            /**************************************************************************
+             * 11) Import/Export + preview
+             **************************************************************************/
+            function computeCollisions(existing, incoming) {
+                const byId = new Map(existing.map(p => [p.id, p]));
+                const bySlug = new Map(existing.map(p => [p.slug, p]));
+                let cId = 0, cSlug = 0;
+                for (const p of incoming) {
+                    if (byId.has(p.id)) cId++;
+                    if (bySlug.has(p.slug)) cSlug++;
+                }
+                return { collisionsById: cId, collisionsBySlug: cSlug };
+            }
+
+            function extractProjectsFromPayload(payload) {
+                if (!isObj(payload)) return { ok: false, error: "payload is not object" };
+                let projectsRaw = null;
+                let backupParts = null;
+
+                if (payload.type === "projects" && isArr(payload.projects)) {
+                    projectsRaw = payload.projects;
+                } else if (payload.type === "backup") {
+                    projectsRaw = isArr(payload.projects) ? payload.projects : null;
+                    backupParts = {
+                        hasProfile: Object.prototype.hasOwnProperty.call(payload, "profile"),
+                        hasAppsData: Object.prototype.hasOwnProperty.call(payload, "appsData"),
+                        hasThemePref: Object.prototype.hasOwnProperty.call(payload, "themePref"),
+                        profile: payload.profile,
+                        appsData: payload.appsData,
+                        themePref: payload.themePref
+                    };
+                } else if (payload.type === "full-store") {
+                    projectsRaw = isArr(payload.projects) ? payload.projects : null;
+                    backupParts = {
+                        hasProfile: Object.prototype.hasOwnProperty.call(payload, "profile"),
+                        hasAppsData: Object.prototype.hasOwnProperty.call(payload, "appsData"),
+                        hasThemePref: Object.prototype.hasOwnProperty.call(payload, "themePref"),
+                        profile: payload.profile,
+                        appsData: payload.appsData,
+                        themePref: payload.themePref
+                    };
+                } else if (isArr(payload.projects)) {
+                    projectsRaw = payload.projects;
+                }
+
+                if (!projectsRaw) return { ok: false, error: "projects配列が見つかりません（type: projects / backup / full-store を想定）" };
+
+                const incoming = [];
+                const seenIds = new Set();
+                const seenSlugs = new Set();
+                for (let i = 0; i < projectsRaw.length; i++) {
+                    const p = ensureProject(projectsRaw[i], i);
+                    if (!p) continue;
+                    if (seenIds.has(p.id)) p.id = p.id + "_" + i;
+                    if (seenSlugs.has(p.slug)) p.slug = p.slug + "-" + i;
+                    seenIds.add(p.id); seenSlugs.add(p.slug);
+                    incoming.push(p);
+                }
+
+                return { ok: true, incoming, backupParts };
+            }
+
+            function importProjects(payload, mode) {
+                const ext = extractProjectsFromPayload(payload);
+                if (!ext.ok) return { ok: false, message: ext.error };
+
+                const incoming = ext.incoming;
+                const backupParts = ext.backupParts;
+
+                const byId = new Map(store.projects.map(p => [p.id, p]));
+                const bySlug = new Map(store.projects.map(p => [p.slug, p]));
+
+                if (mode === "strict") {
+                    for (const p of incoming) {
+                        if (byId.has(p.id) || bySlug.has(p.slug)) {
+                            return { ok: false, message: "Strict: 既存データと衝突があるため不適用" };
+                        }
+                    }
+                }
+
+                let added = 0, updated = 0, skipped = 0;
+                let nextProjects = store.projects.slice();
+
+                for (const p of incoming) {
+                    const hit = byId.get(p.id) || bySlug.get(p.slug);
+                    if (!hit) {
+                        nextProjects.push(p);
+                        byId.set(p.id, p); bySlug.set(p.slug, p);
+                        added++;
+                        continue;
+                    }
+                    if (mode === "append") {
+                        skipped++;
+                        continue;
+                    }
+                    const merged = Object.assign({}, hit, p, { id: hit.id, slug: hit.slug, demoRoute: normalizeDemoRoute(p.demoRoute) });
+                    nextProjects = nextProjects.map(x => x.id === hit.id ? merged : x);
+                    byId.set(hit.id, merged); bySlug.set(hit.slug, merged);
+                    updated++;
+                }
+
+                const nextStore = deepClone(store);
+                nextStore.projects = nextProjects;
+
+                if (backupParts) {
+                    const hasProfile = ("hasProfile" in backupParts) ? !!backupParts.hasProfile : ("profile" in backupParts);
+                    const hasAppsData = ("hasAppsData" in backupParts) ? !!backupParts.hasAppsData : ("appsData" in backupParts);
+                    const hasThemePref = ("hasThemePref" in backupParts) ? !!backupParts.hasThemePref : ("themePref" in backupParts);
+
+                    if (hasProfile) nextStore.profile = ensureProfile(backupParts.profile);
+                    if (hasAppsData) nextStore.appsData = ensureAppsData(backupParts.appsData);
+                    if (hasThemePref) nextStore.themePref = ensureThemePref(backupParts.themePref);
+                }
+
+                store = nextStore;
+                saveStoreDebounced();
+                applyTheme();
+                return { ok: true, message: `インポート結果: 追加 ${added} / 更新 ${updated} / スキップ ${skipped}` };
+            }
+
+            function downloadText(filename, text, mime = "text/plain") {
+                const blob = new Blob([text], { type: mime });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                URL.revokeObjectURL(url);
+            }
+
+            function generateRobotsTxt() {
+                return `User-agent: *
+Allow: /
+`;
+            }
+            function generateSitemapXml() {
+                const base = `${location.origin}${location.pathname}`.replace(/\/[^\/]*$/, "/");
+                const routes = [
+                    "#/", "#/projects", "#/apps", "#/apps/task", "#/apps/todo", "#/apps/pomodoro", "#/apps/ai", "#/about", "#/resume", "#/contact", "#/settings"
+                ];
+                const projectRoutes = store.projects.map(p => `#/projects/${encodeURIComponent(p.slug)}`);
+                const urls = routes.concat(projectRoutes).map(r => `<url><loc>${escapeXml(base + r)}</loc></url>`).join("");
+                return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>`;
+            }
+            function escapeXml(s) {
+                return String(s).replace(/[<>&'"]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", "'": "&apos;", "\"": "&quot;" }[c]));
+            }
+
+            /**************************************************************************
+             * 12) Similarity (auto related projects by tag proximity)
+             **************************************************************************/
+            function toSet(arr) {
+                const s = new Set();
+                (arr || []).forEach(x => { if (isStr(x) && x.trim()) s.add(x.trim().toLowerCase()); });
+                return s;
+            }
+            function intersection(a, b) {
+                const out = [];
+                for (const x of a) {
+                    if (b.has(x)) out.push(x);
+                }
+                return out;
+            }
+            function similarityScore(a, b) {
+                if (!a || !b) return 0;
+                const ta = toSet(a.tags), tb = toSet(b.tags);
+                const ca = toSet(a.tech), cb = toSet(b.tech);
+                const tagsShared = intersection(ta, tb).length;
+                const techShared = intersection(ca, cb).length;
+                const cat = (a.category && b.category && a.category === b.category) ? 1 : 0;
+                const demo = (a.demoRoute && b.demoRoute) ? 0.2 : 0;
+                // weights tuned for "tag proximity" primary
+                return tagsShared * 3 + techShared * 2 + cat * 1 + demo;
+            }
+            function sharedReasons(a, b) {
+                const ta = toSet(a.tags), tb = toSet(b.tags);
+                const ca = toSet(a.tech), cb = toSet(b.tech);
+                const tags = intersection(ta, tb).slice(0, 6);
+                const tech = intersection(ca, cb).slice(0, 6);
+                return { tags, tech, category: (a.category === b.category ? a.category : null) };
+            }
+            function autoRelatedCandidates(target, limit = 8) {
+                const fixed = new Set((target.relatedProjectIds || []));
+                return store.projects
+                    .filter(p => p.id !== target.id)
+                    .filter(p => !fixed.has(p.id))
+                    .map(p => ({ p, s: similarityScore(target, p) }))
+                    .filter(x => x.s > 0)
+                    .sort((a, b) => b.s - a.s)
+                    .slice(0, limit);
+            }
+            function addMutualRelation(aId, bId) {
+                const a = store.projects.find(p => p.id === aId);
+                const b = store.projects.find(p => p.id === bId);
+                if (!a || !b) return false;
+                if (!Array.isArray(a.relatedProjectIds)) a.relatedProjectIds = [];
+                if (!Array.isArray(b.relatedProjectIds)) b.relatedProjectIds = [];
+                if (!a.relatedProjectIds.includes(bId)) a.relatedProjectIds.push(bId);
+                if (!b.relatedProjectIds.includes(aId)) b.relatedProjectIds.push(aId);
+                saveStoreDebounced();
+                return true;
+            }
+
+            /**************************************************************************
+             * 13) Integrity checker + auto fix (operational risk reduction)
+             **************************************************************************/
+            function analyzeStore() {
+                const issues = [];
+
+                // ===== Projects =====
+                const ids = new Map();
+                const slugs = new Map();
+                store.projects.forEach((p, idx) => {
+                    if (!p || typeof p !== "object") { issues.push({ type: "invalid_project", at: idx }); return; }
+
+                    if (!p.id) issues.push({ type: "missing_project_id", at: idx });
+                    if (ids.has(p.id)) issues.push({ type: "dup_project_id", at: idx, id: p.id });
+                    else ids.set(p.id, idx);
+
+                    if (!p.slug) issues.push({ type: "missing_project_slug", at: idx });
+                    if (slugs.has(p.slug)) issues.push({ type: "dup_project_slug", at: idx, slug: p.slug });
+                    else slugs.set(p.slug, idx);
+
+                    const dr = normalizeDemoRoute(p.demoRoute);
+                    if (p.demoRoute && !dr) issues.push({ type: "invalid_demoRoute", at: idx, slug: p.slug, demoRoute: p.demoRoute });
+
+                    (p.links || []).forEach((l, j) => {
+                        const u = l && isStr(l.url) ? sanitizeHttpUrl(l.url) : null;
+                        if (!u) issues.push({ type: "invalid_link_url", at: idx, slug: p.slug, linkIndex: j });
+                    });
+                });
+
+                const projectIdSet = new Set(store.projects.map(p => p && p.id).filter(Boolean));
+                store.projects.forEach((p, idx) => {
+                    if (!p || typeof p !== "object") return;
+                    (p.relatedProjectIds || []).forEach((rid) => {
+                        if (!rid) return;
+                        if (rid === p.id) issues.push({ type: "self_related", at: idx, slug: p.slug });
+                        if (!projectIdSet.has(rid)) issues.push({ type: "orphan_related", at: idx, slug: p.slug, rid });
+                    });
+                });
+
+                // ===== Tasks / Todos =====
+                const allowedStatus = new Set(["backlog", "in-progress", "done"]);
+                const allowedPriority = new Set(["low", "med", "high"]);
+
+                const taskIds = new Set();
+                store.appsData.tasks.forEach((t, idx) => {
+                    if (!t || typeof t !== "object") { issues.push({ type: "invalid_task", at: idx }); return; }
+                    const title = String(t.title || "").trim();
+                    if (!title) issues.push({ type: "empty_task_title", at: idx, id: t.id });
+                    if (!t.id) issues.push({ type: "missing_task_id", at: idx });
+                    if (taskIds.has(t.id)) issues.push({ type: "dup_task_id", at: idx, id: t.id });
+                    else taskIds.add(t.id);
+
+                    if (!allowedStatus.has(t.status)) issues.push({ type: "invalid_task_status", at: idx, id: t.id, status: t.status });
+                    if (!allowedPriority.has(t.priority)) issues.push({ type: "invalid_task_priority", at: idx, id: t.id, priority: t.priority });
+
+                    if (!isNum(t.createdAt)) issues.push({ type: "invalid_task_createdAt", at: idx, id: t.id });
+                    if (!isNum(t.updatedAt)) issues.push({ type: "invalid_task_updatedAt", at: idx, id: t.id });
+                    if (isNum(t.createdAt) && isNum(t.updatedAt) && t.updatedAt < t.createdAt) {
+                        issues.push({ type: "task_updated_before_created", at: idx, id: t.id });
+                    }
+                });
+
+                const todoIds = new Set();
+                store.appsData.todos.forEach((d, idx) => {
+                    if (!d || typeof d !== "object") { issues.push({ type: "invalid_todo", at: idx }); return; }
+                    const text = String(d.text || "").trim();
+                    if (!text) issues.push({ type: "empty_todo_text", at: idx, id: d.id });
+                    if (!d.id) issues.push({ type: "missing_todo_id", at: idx });
+                    if (todoIds.has(d.id)) issues.push({ type: "dup_todo_id", at: idx, id: d.id });
+                    else todoIds.add(d.id);
+
+                    if (!isNum(d.createdAt)) issues.push({ type: "invalid_todo_createdAt", at: idx, id: d.id });
+                    if (d.dueDate !== null && !isNum(d.dueDate)) issues.push({ type: "invalid_todo_dueDate", at: idx, id: d.id, dueDate: d.dueDate });
+                });
+
+                // ===== Pomodoro =====
+                const rt = store.appsData.pomodoro && store.appsData.pomodoro.runtime ? store.appsData.pomodoro.runtime : null;
+                const set = store.appsData.pomodoro && store.appsData.pomodoro.settings ? store.appsData.pomodoro.settings : null;
+
+                if (!rt || typeof rt !== "object") {
+                    issues.push({ type: "pomodoro_runtime_missing" });
+                } else {
+                    const allowedMode = new Set(["work", "short-break", "long-break"]);
+                    if (!allowedMode.has(rt.mode)) issues.push({ type: "pomodoro_invalid_mode", mode: rt.mode });
+
+                    if (rt.isActive && (!rt.endAtMs || rt.endAtMs <= Date.now())) issues.push({ type: "pomodoro_active_invalid_endAt" });
+                    if (!rt.isActive && rt.endAtMs) issues.push({ type: "pomodoro_paused_has_endAt" });
+
+                    if (!Number.isFinite(rt.remainingSec) || rt.remainingSec < 0) issues.push({ type: "pomodoro_remaining_invalid", remainingSec: rt.remainingSec });
+
+                    if (rt.linkedTaskId && !taskIds.has(rt.linkedTaskId)) {
+                        issues.push({ type: "pomodoro_linkedTask_missing", linkedTaskId: rt.linkedTaskId });
+                    }
+                }
+
+                if (!set || typeof set !== "object") {
+                    issues.push({ type: "pomodoro_settings_missing" });
+                } else {
+                    const checks = [
+                        { key: "work", min: 1, max: 180 },
+                        { key: "short", min: 1, max: 60 },
+                        { key: "long", min: 1, max: 120 }
+                    ];
+                    checks.forEach(c => {
+                        const v = set[c.key];
+                        if (!Number.isFinite(v) || v < c.min || v > c.max) issues.push({ type: "pomodoro_setting_invalid", key: c.key, value: v });
+                    });
+                }
+
+                return issues;
+            }
+
+            function autoFixStore() {
+                saveSnapshot("auto-fix");
+
+                // ===== Projects: id/slug uniqueness + url sanitize + related cleanup =====
+                const ids = new Set();
+                const slugs = new Set();
+
+                store.projects = store.projects
+                    .filter(p => p && typeof p === "object")
+                    .map((p, idx) => {
+                        let id = isStr(p.id) && p.id.trim() ? p.id.trim() : ("p_" + uid().slice(0, 10));
+                        let slug = isStr(p.slug) && p.slug.trim() ? slugify(p.slug.trim()) : slugify(id);
+
+                        if (ids.has(id)) id = id + "_" + idx;
+                        ids.add(id);
+
+                        if (slugs.has(slug)) slug = slug + "-" + idx;
+                        slugs.add(slug);
+
+                        const demoRoute = normalizeDemoRoute(p.demoRoute);
+
+                        const links = [];
+                        (p.links || []).forEach(l => {
+                            const label = l && isStr(l.label) ? l.label.trim().slice(0, 60) : "";
+                            const u = l && isStr(l.url) ? sanitizeHttpUrl(l.url) : null;
+                            if (label && u) links.push({ label, url: u });
+                        });
+
+                        return Object.assign({}, p, { id, slug, demoRoute, links });
+                    });
+
+                const projectIdSet = new Set(store.projects.map(p => p.id));
+                store.projects = store.projects.map(p => {
+                    const r = (p.relatedProjectIds || []).filter(x => x && x !== p.id && projectIdSet.has(x));
+                    const seen = new Set();
+                    const rr = [];
+                    for (const x of r) { if (!seen.has(x)) { seen.add(x); rr.push(x); } }
+                    return Object.assign({}, p, { relatedProjectIds: rr });
+                });
+
+                // ===== Tasks =====
+                const allowedStatus = new Set(["backlog", "in-progress", "done"]);
+                const allowedPriority = new Set(["low", "med", "high"]);
+                const tSeen = new Set();
+                store.appsData.tasks = (store.appsData.tasks || [])
+                    .filter(t => t && typeof t === "object")
+                    .map((t, i) => {
+                        let id = isStr(t.id) && t.id.trim() ? t.id.trim() : uid();
+                        if (tSeen.has(id)) id = id + "_" + i;
+                        tSeen.add(id);
+
+                        const title = String(t.title || "").trim().slice(0, 200);
+                        const status = allowedStatus.has(t.status) ? t.status : "backlog";
+                        const priority = allowedPriority.has(t.priority) ? t.priority : "med";
+                        const createdAt = isNum(t.createdAt) ? t.createdAt : Date.now();
+                        const updatedAt = isNum(t.updatedAt) ? Math.max(t.updatedAt, createdAt) : createdAt;
+                        const tags = ensureStringArray(t.tags, 20);
+
+                        if (!title) return null; // drop empty tasks
+                        return { id, title, status, priority, tags, createdAt, updatedAt };
+                    })
+                    .filter(Boolean)
+                    .slice(0, 500);
+
+                // ===== Todos =====
+                const dSeen = new Set();
+                store.appsData.todos = (store.appsData.todos || [])
+                    .filter(d => d && typeof d === "object")
+                    .map((d, i) => {
+                        let id = isStr(d.id) && d.id.trim() ? d.id.trim() : uid();
+                        if (dSeen.has(id)) id = id + "_" + i;
+                        dSeen.add(id);
+
+                        const text = String(d.text || "").trim().slice(0, 300);
+                        if (!text) return null;
+                        const completed = !!d.completed;
+                        const createdAt = isNum(d.createdAt) ? d.createdAt : Date.now();
+                        const dueDate = isNum(d.dueDate) ? d.dueDate : null;
+                        return { id, text, completed, createdAt, dueDate };
+                    })
+                    .filter(Boolean)
+                    .slice(0, 1000);
+
+                // ===== Pomodoro settings/runtime =====
+                const ps = store.appsData.pomodoro && store.appsData.pomodoro.settings ? store.appsData.pomodoro.settings : {};
+                store.appsData.pomodoro.settings = {
+                    work: clampInt(isNum(ps.work) ? ps.work : 25, 1, 180),
+                    short: clampInt(isNum(ps.short) ? ps.short : 5, 1, 60),
+                    long: clampInt(isNum(ps.long) ? ps.long : 15, 1, 120),
+                };
+
+                const rt = store.appsData.pomodoro && store.appsData.pomodoro.runtime ? store.appsData.pomodoro.runtime : {};
+                const allowedMode = new Set(["work", "short-break", "long-break"]);
+                const mode = allowedMode.has(rt.mode) ? rt.mode : "work";
+                const isActive = !!rt.isActive;
+
+                let endAtMs = isNum(rt.endAtMs) ? rt.endAtMs : null;
+                let remainingSec = Number.isFinite(rt.remainingSec) ? Math.max(0, Math.floor(rt.remainingSec)) : (store.appsData.pomodoro.settings.work * 60);
+
+                if (isActive) {
+                    if (!endAtMs || endAtMs <= Date.now()) {
+                        // stale active state → stop
+                        endAtMs = null;
+                        remainingSec = Math.max(0, remainingSec);
+                    }
+                } else {
+                    endAtMs = null;
+                }
+
+                const linkedTaskId = (isStr(rt.linkedTaskId) && store.appsData.tasks.some(t => t.id === rt.linkedTaskId)) ? rt.linkedTaskId : null;
+
+                store.appsData.pomodoro.runtime = {
+                    isActive: isActive && !!endAtMs,
+                    mode,
+                    endAtMs,
+                    remainingSec,
+                    linkedTaskId
+                };
+
+                // cap histories (safety)
+                store.appsData.pomodoro.history = (store.appsData.pomodoro.history || []).slice(-200);
+                store.appsData.ai.history = (store.appsData.ai.history || []).slice(-80);
+
+                saveStoreDebounced("auto-fix");
+                applyTheme();
+            }
+
+            /**************************************************************************
+             * 14) App rendering skeleton
+             **************************************************************************/
+            const appRoot = $("#app");
+            const topbar = $("#topbar");
+            const menuBtn = $("#menuBtn");
+            const themeBtnTop = $("#themeBtnTop");
+            const overlay = $("#overlay");
+            const drawer = $("#drawer");
+
+            clear(menuBtn); menuBtn.appendChild(Icons.menu.cloneNode(true));
+            clear(themeBtnTop); themeBtnTop.appendChild(Icons.moon.cloneNode(true));
+
+            menuBtn.addEventListener("click", () => { ui.sidebarOpen = true; syncMobileDrawer(); });
+            themeBtnTop.addEventListener("click", cycleThemePref);
+            overlay.addEventListener("click", () => { ui.sidebarOpen = false; syncMobileDrawer(); });
+
+            // UX: Escape closes the drawer (mobile)
+            document.addEventListener("keydown", (e) => {
+                try {
+                    if (e.key === "Escape" && ui.sidebarOpen) {
+                        ui.sidebarOpen = false;
+                        syncMobileDrawer();
+                    }
+                } catch { }
+            });
+
+            function syncMobileDrawer() {
+                const isMobile = window.matchMedia && window.matchMedia("(max-width: 920px)").matches;
+                if (!isMobile) {
+                    overlay.style.display = "none";
+                    drawer.style.display = "none";
+                    return;
+                }
+                overlay.style.display = ui.sidebarOpen ? "block" : "none";
+                drawer.style.display = ui.sidebarOpen ? "block" : "none";
+                if (ui.sidebarOpen) {
+                    clear(drawer);
+                    drawer.appendChild(sidebarContent(true));
+                }
+            }
+            window.addEventListener("resize", syncMobileDrawer);
+
+            function sidebarContent(isDrawer) {
+                const title = h("div", { class: "row sp", style: "padding:10px 10px 6px;" },
+                    h("div", { class: "col", style: "gap:2px;" },
+                        h("div", { class: "h3", text: "Portfolio" }),
+                        h("div", { class: "mini", text: store.profile.title })
+                    ),
+                    isDrawer ? h("button", { class: "iconbtn", "aria-label": "閉じる", onClick: () => { ui.sidebarOpen = false; syncMobileDrawer(); } }, Icons.x.cloneNode(true)) : h("div")
+                );
+
+                const btn = (iconNode, label, path, active) =>
+                    h("button", { class: "navbtn" + (active ? " active" : ""), onClick: () => navTo(path) },
+                        iconWrap(iconNode), h("span", { text: label })
+                    );
+
+                const here = route.name;
+                const isProjects = (here === "projects" || here === "project-detail");
+                const isAppsHub = (here === "apps");
+                const isTask = (here === "app-task"), isTodo = (here === "app-todo"), isPom = (here === "app-pomodoro"), isAi = (here === "app-ai");
+                const isSettings = (here === "settings");
+                const isAbout = (here === "about"), isResume = (here === "resume"), isContact = (here === "contact");
+
+                const themeRow = h("div", { class: "row sp", style: "padding:10px 10px;" },
+                    h("div", { class: "col", style: "gap:2px;" },
+                        h("div", { class: "mini", text: "Theme" }),
+                        h("div", { class: "h3", text: (store.themePref || "system") })
+                    ),
+                    h("button", { class: "iconbtn", onClick: cycleThemePref, "aria-label": "テーマ切替" },
+                        (document.documentElement.classList.contains("dark") ? Icons.sun.cloneNode(true) : Icons.moon.cloneNode(true))
+                    )
+                );
+
+                return h("div", { class: "col", style: "gap:6px;" },
+                    title,
+                    h("div", { class: "hr" }),
+                    btn(Icons.home.cloneNode(true), "ホーム", "", here === "home"),
+                    btn(Icons.briefcase.cloneNode(true), "プロジェクト", "projects", isProjects),
+                    btn(Icons.apps.cloneNode(true), "アプリ", "apps", isAppsHub),
+                    h("div", { class: "nav-title", text: "Apps" }),
+                    btn(Icons.checkSquare.cloneNode(true), "タスク管理", "apps/task", isTask),
+                    btn(Icons.list.cloneNode(true), "クイックTODO", "apps/todo", isTodo),
+                    btn(Icons.clock.cloneNode(true), "ポモドーロ", "apps/pomodoro", isPom),
+                    btn(Icons.brain.cloneNode(true), "AI アシスト", "apps/ai", isAi),
+                    h("div", { class: "nav-title", text: "Info" }),
+                    btn(Icons.briefcase.cloneNode(true), "About", "about", isAbout),
+                    btn(Icons.briefcase.cloneNode(true), "Resume", "resume", isResume),
+                    btn(Icons.briefcase.cloneNode(true), "Contact", "contact", isContact),
+                    h("div", { class: "nav-title", text: "System" }),
+                    btn(Icons.settings.cloneNode(true), "設定・データ", "settings", isSettings),
+                    h("div", { class: "hr" }),
+                    themeRow
+                );
+            }
+
+            function render() {
+                // Run route-scoped cleanups only when the route changes.
+                const __rk = _makeRouteKey(route);
+                if (__rk !== _routeKey) {
+                    _routeKey = __rk;
+                    _runCleanups();
+                }
+
+                applyTheme();
+                syncMobileDrawer();
+                clear(appRoot);
+
+                const isMobile = window.matchMedia && window.matchMedia("(max-width: 920px)").matches;
+                topbar.style.display = isMobile ? "flex" : "none";
+
+                const sidebar = h("nav", { class: "sidebar" }, sidebarContent(false));
+                const main = h("main", { class: "content", id: "main" }, mainContent());
+
+                if (!isMobile) appRoot.appendChild(sidebar);
+                appRoot.appendChild(main);
+            }
+
+            function mainContent() {
+                const toastBox = h("div", { id: "toast", style: "display:none; margin-bottom:12px;" });
+                const name = route.name;
+
+                let node = null;
+                if (name === "home") node = HomePage();
+                else if (name === "projects") node = ProjectsPage(route.q || "", route.cat || "");
+                else if (name === "project-detail") node = ProjectDetailPage(route.slug);
+                else if (name === "apps") node = AppsPage();
+                else if (name === "app-task") node = TaskPage();
+                else if (name === "app-todo") node = TodoPage();
+                else if (name === "app-pomodoro") node = PomodoroPage();
+                else if (name === "app-ai") node = AIPage();
+                else if (name === "settings") node = SettingsPage();
+                else if (name === "about") node = AboutPage();
+                else if (name === "resume") node = ResumePage();
+                else if (name === "contact") node = ContactPage();
+                else node = NotFoundPage();
+
+                return h("div", {}, toastBox, node);
+            }
+
+            /**************************************************************************
+             * 15) Pages
+             **************************************************************************/
+            function HomePage() {
+                setMeta("Portfolio", "ポートフォリオ。内蔵アプリ、増分インポート、整合性チェック/自動修復を同梱。");
+                const hero = h("div", { class: "card p" },
+                    h("div", { class: "col", style: "gap:8px;" },
+                        h("div", { class: "h1", text: store.profile.title + " / ポートフォリオ" }),
+                        h("div", { class: "muted", text: store.profile.bio }),
+                        h("div", { class: "row wrap", style: "margin-top:10px;" },
+                            h("button", { class: "btn", onClick: () => navTo("projects") }, "プロジェクトを見る"),
+                            h("button", { class: "btn secondary", onClick: () => navTo("apps") }, "アプリを見る"),
+                            h("button", { class: "btn ghost", onClick: () => navTo("settings") }, "設定・データ")
+                        )
+                    )
+                );
+
+                const featured = store.projects.find(p => p.demoRoute === "task") || store.projects[0];
+
+                const cards = h("div", { class: "grid", style: "grid-template-columns:repeat(2,minmax(0,1fr));" },
+                    h("div", { class: "card p" },
+                        h("div", { class: "h3", text: "注目のプロジェクト" }),
+                        h("div", { class: "muted mt", text: featured.name }),
+                        h("div", { class: "mini", style: "margin-top:8px;", text: featured.summary }),
+                        h("div", { class: "row wrap mt" },
+                            h("button", { class: "btn ghost small", onClick: () => navTo("projects/" + featured.slug) }, "詳細 →"),
+                            featured.demoRoute ? h("button", { class: "btn secondary small", onClick: () => navTo("apps/" + featured.demoRoute) }, "デモ起動") : h("span")
+                        )
+                    ),
+                    h("div", { class: "card p" },
+                        h("div", { class: "h3", text: "設計上の工夫（事故りにくくする）" }),
+                        h("ul", { style: "margin:10px 0 0; padding-left:18px; color:var(--muted);" },
+                            h("li", { text: "Importは検証＋正規化＋衝突モード" }),
+                            h("li", { text: "整合性チェック→自動修復（重複/孤立/無効URL等）" }),
+                            h("li", { text: "スナップショット→復元で最短復旧" }),
+                            h("li", { text: "Projects詳細の関連候補はタグ近傍で自動生成＋相互固定" })
+                        )
+                    )
+                );
+                if (window.matchMedia && window.matchMedia("(max-width: 700px)").matches) {
+                    cards.style.gridTemplateColumns = "1fr";
+                }
+
+                return h("div", { class: "col", style: "gap:14px; max-width:1100px; margin:0 auto;" },
+                    hero,
+                    cards
+                );
+            }
+
+            function tokenize(s) {
+                const t = String(s || "").toLowerCase();
+                return t.split(/[\s\-\_\/\.,:;()\[\]{}"']+/).filter(Boolean).slice(0, 60);
+            }
+            function scoreProject(p, qTokens) {
+                if (qTokens.length === 0) return 0;
+                const corpus = tokenize(p.name + " " + p.summary + " " + (p.tags || []).join(" ") + " " + (p.tech || []).join(" ") + " " + p.category);
+                const freq = new Map();
+                for (const w of corpus) freq.set(w, (freq.get(w) || 0) + 1);
+                let score = 0;
+                for (const qt of qTokens) {
+                    if (freq.has(qt)) score += 5 + Math.min(3, freq.get(qt));
+                    if (qt.length >= 3) {
+                        for (const w of corpus) {
+                            if (w.includes(qt) && w !== qt) score += 1;
+                        }
+                    }
+                }
+                if (p.demoRoute) score += 0.4;
+                return score;
+            }
+
+            function ProjectsPage(initialQ, initialCat) {
+                setMeta("Projects | Portfolio", "プロジェクト一覧。検索/カテゴリ/タグで絞り込み、詳細（Case Study）へ。");
+                let q = String(initialQ || "");
+                let cat = String(initialCat || "") || "All";
+
+                const categories = ["All", ...Array.from(new Set(store.projects.map(p => p.category)))];
+                if (!categories.includes(cat)) cat = "All";
+
+                const qInput = h("input", { placeholder: "検索（名前/概要/タグ/技術/カテゴリ）...", value: q });
+                const catSel = h("select", {},
+                    ...categories.map(c => h("option", { value: c, text: c === "All" ? "全カテゴリー" : c, ...(c === cat ? { selected: "selected" } : {}) }))
+                );
+
+                const header = h("div", { class: "row sp wrap" },
+                    h("div", { class: "col", style: "gap:4px;" },
+                        h("div", { class: "h2", text: "プロジェクト一覧" }),
+                        h("div", { class: "muted", text: `合計 ${store.projects.length} 件` })
+                    ),
+                    h("div", { class: "row wrap", style: "gap:10px; min-width: min(820px, 100%);" },
+                        h("div", { style: "position:relative; flex:1; min-width:min(280px,100%);" },
+                            h("div", { style: "position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--muted);" }, Icons.search.cloneNode(true)),
+                            h("div", { style: "padding-left:40px;" }, qInput)
+                        ),
+                        h("div", { style: "min-width:190px;" }, catSel)
+                    )
+                );
+
+                // fix input wrapper: move qInput into correct place
+                const qWrap = header.querySelector('div[style*="padding-left:40px;"]');
+                clear(qWrap);
+                qInput.style.paddingLeft = "40px";
+                qInput.style.width = "100%";
+                qWrap.appendChild(qInput);
+
+                const grid = h("div", { class: "grid projects" });
+
+                qInput.addEventListener("input", (e) => { q = e.target.value; repaint(); });
+                catSel.addEventListener("change", (e) => { cat = e.target.value; repaint(); });
+
+                function repaint() {
+                    clear(grid);
+                    const qTokens = tokenize(q);
+                    let list = store.projects.slice();
+                    if (cat !== "All") list = list.filter(p => p.category === cat);
+
+                    if (qTokens.length) {
+                        list = list
+                            .map(p => ({ p, s: scoreProject(p, qTokens) }))
+                            .filter(x => x.s > 0)
+                            .sort((a, b) => b.s - a.s)
+                            .map(x => x.p);
+                    }
+
+                    if (list.length === 0) {
+                        grid.appendChild(h("div", { class: "muted", style: "padding:16px;" }, "条件に一致するプロジェクトはありません。"));
+                        return;
+                    }
+
+                    for (const p of list) {
+                        const top = h("div", { class: "row sp" },
+                            h("div", { class: "row wrap", style: "gap:8px;" },
+                                h("span", { class: "badge", text: p.category }),
+                                p.demoRoute ? h("span", { class: "badge ok", text: "アプリ起動可" }) : h("span")
+                            ),
+                            h("button", { class: "btn ghost small", onClick: () => navTo("projects/" + p.slug) }, "詳細")
+                        );
+
+                        const tags = h("div", { class: "row wrap", style: "gap:8px; margin-top:10px;" });
+                        (p.tags || []).slice(0, 6).forEach(t => {
+                            const b = h("button", { class: "btn ghost small", style: "padding:4px 8px; border:1px solid var(--border); border-radius:999px;" },
+                                "#" + t
+                            );
+                            b.addEventListener("click", () => { navToProjectsQuery(t, ""); });
+                            tags.appendChild(b);
+                        });
+
+                        const card = h("div", { class: "card p", style: "display:flex; flex-direction:column; gap:10px;" },
+                            top,
+                            h("div", { class: "h3", text: p.name }),
+                            h("div", { class: "muted", text: p.summary }),
+                            tags,
+                            h("div", { style: "margin-top:auto; display:flex; justify-content:space-between; align-items:center; gap:10px;" },
+                                p.demoRoute ? h("button", { class: "btn secondary small", onClick: () => navTo("apps/" + p.demoRoute) }, "デモ") : h("span"),
+                                h("button", { class: "btn ghost small", onClick: () => navTo("projects/" + p.slug) },
+                                    h("span", { text: "詳細を見る " }),
+                                    Icons.arrowUpRight.cloneNode(true)
+                                )
+                            )
+                        );
+
+                        grid.appendChild(card);
+                    }
+                }
+
+                repaint();
+                return h("div", { class: "col", style: "gap:14px; max-width:1100px; margin:0 auto;" },
+                    header,
+                    grid
+                );
+            }
+
+            function ProjectDetailPage(slug) {
+                const p = store.projects.find(x => x.slug === slug) || null;
+                if (!p) {
+                    setMeta("Project | Portfolio", "プロジェクトが見つかりません。");
+                    return h("div", { class: "col", style: "gap:12px; max-width:950px; margin:0 auto;" },
+                        h("div", { class: "h2", text: "プロジェクトが見つかりません" }),
+                        h("button", { class: "btn secondary", onClick: () => navTo("projects") }, "一覧へ戻る")
+                    );
+                }
+                setMeta(`${p.name} | Portfolio`, p.summary || "Project detail");
+
+                const fixedRelated = store.projects.filter(x => (p.relatedProjectIds || []).includes(x.id));
+                const autoCandidates = autoRelatedCandidates(p, 8);
+
+                const head = h("div", { class: "col", style: "gap:10px;" },
+                    h("button", { class: "btn ghost small", onClick: () => navTo("projects") }, "← 一覧に戻る"),
+                    h("div", { class: "row wrap", style: "gap:8px;" },
+                        h("span", { class: "badge", text: p.category }),
+                        p.demoRoute ? h("span", { class: "badge ok", text: "アプリ起動可" }) : h("span")
+                    ),
+                    h("div", { class: "h1", text: p.name }),
+                    h("div", { class: "muted", text: p.summary }),
+                    h("div", { class: "row wrap", style: "gap:8px;" },
+                        ...(p.tags || []).map(t => {
+                            const b = h("button", { class: "btn ghost small", style: "padding:4px 8px; border:1px solid var(--border); border-radius:999px;" },
+                                "#" + t
+                            );
+                            b.addEventListener("click", () => navToProjectsQuery(t, ""));
+                            return b;
+                        })
+                    )
+                );
+
+                const left = h("div", { class: "col", style: "gap:14px;" },
+                    section("課題", p.problem, Icons.alert.cloneNode(true)),
+                    section("アプローチ", p.approach, Icons.brain.cloneNode(true)),
+                    section("アーキテクチャ", (p.architecture && p.architecture.overview) ? p.architecture.overview : "(未登録)", Icons.apps.cloneNode(true), true),
+                    section("成果とインパクト", (p.outcome && p.outcome.impact) ? p.outcome.impact : "(未登録)", Icons.check.cloneNode(true))
+                );
+
+                const metrics = h("div", { class: "grid", style: "grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px;" });
+                if (window.matchMedia && window.matchMedia("(max-width: 700px)").matches) {
+                    metrics.style.gridTemplateColumns = "1fr";
+                }
+                const ms = (p.outcome && p.outcome.metrics) ? p.outcome.metrics : [];
+                if (ms.length) {
+                    for (const m of ms) {
+                        metrics.appendChild(h("div", { class: "card p", style: "text-align:center;" },
+                            h("div", { style: "font-size:26px; font-weight:900; color:var(--primary);", text: m.value }),
+                            h("div", { class: "muted", text: m.label })
+                        ));
+                    }
+                } else {
+                    metrics.appendChild(h("div", { class: "muted", style: "padding:6px 2px;" }, "メトリクスは未登録です。"));
+                }
+
+                const tech = h("div", { class: "card p" },
+                    h("div", { class: "h3", text: "使用技術" }),
+                    h("div", { class: "row wrap", style: "gap:8px; margin-top:10px;" },
+                        ...(p.tech || []).map(t => h("span", { class: "badge gray", text: t }))
+                    )
+                );
+
+                const demo = p.demoRoute ? h("div", { class: "card p", style: "border-color: rgba(37,99,235,.35); background: rgba(37,99,235,.07);" },
+                    h("div", { class: "h3", text: "デモ" }),
+                    h("div", { class: "muted mt" }, "このプロジェクトはポートフォリオ内で実際に動作します。"),
+                    h("div", { class: "mt" },
+                        h("button", { class: "btn", onClick: () => navTo("apps/" + p.demoRoute) }, "アプリを起動")
+                    )
+                ) : null;
+
+                const relFixed = h("div", { class: "card p" },
+                    h("div", { class: "h3", text: "関連プロジェクト（固定・相互リンク）" }),
+                    fixedRelated.length ? h("ul", { style: "margin:10px 0 0; padding-left:18px;" },
+                        ...fixedRelated.map(rp => h("li", {},
+                            h("button", { class: "btn ghost small", style: "padding:4px 0;", onClick: () => navTo("projects/" + rp.slug) }, rp.name)
+                        ))
+                    ) : h("div", { class: "muted mt" }, "固定の関連プロジェクトはありません。")
+                );
+
+                const relAuto = h("div", { class: "card p" },
+                    h("div", { class: "row sp wrap" },
+                        h("div", { class: "h3", text: "関連候補（自動：タグ近傍）" }),
+                        h("span", { class: "badge warn", text: "推奨" })
+                    ),
+                    h("div", { class: "muted mt" }, "タグ/tech/カテゴリの重なりから候補を提示。ピン留めで相互リンク固定。"),
+                    h("div", { class: "mt col", style: "gap:10px;" })
+                );
+
+                const autoList = relAuto.querySelector(".col");
+
+                if (autoCandidates.length === 0) {
+                    autoList.appendChild(h("div", { class: "muted" }, "候補が見つかりません。タグやtechが薄い場合は自然です。"));
+                } else {
+                    autoCandidates.forEach(({ p: rp, s }) => {
+                        const r = sharedReasons(p, rp);
+                        const reason = [];
+                        if (r.category) reason.push("cat:" + r.category);
+                        if (r.tags.length) reason.push("tags:" + r.tags.join(","));
+                        if (r.tech.length) reason.push("tech:" + r.tech.join(","));
+
+                        const row = h("div", { class: "card p", style: "padding:12px;" },
+                            h("div", { class: "row sp wrap" },
+                                h("div", { class: "col", style: "gap:4px; min-width:min(420px,100%);" },
+                                    h("div", { class: "row wrap", style: "gap:8px;" },
+                                        h("span", { class: "badge", text: rp.category }),
+                                        rp.demoRoute ? h("span", { class: "badge ok", text: "アプリ起動可" }) : h("span"),
+                                        h("span", { class: "badge gray", text: "score:" + s.toFixed(1) })
+                                    ),
+                                    h("div", { class: "h3", text: rp.name }),
+                                    h("div", { class: "mini mono", text: reason.join(" / ") || "(理由なし)" })
+                                ),
+                                h("div", { class: "row wrap" },
+                                    h("button", { class: "btn secondary small", onClick: () => navTo("projects/" + rp.slug) }, "開く"),
+                                    h("button", {
+                                        class: "btn small", onClick: () => {
+                                            saveSnapshot("pin-related");
+                                            const ok = addMutualRelation(p.id, rp.id);
+                                            if (ok) { toast("相互リンクで固定しました", "ok"); render(); }
+                                            else { toast("固定に失敗", "error"); }
+                                        }
+                                    }, iconWrap(Icons.pin.cloneNode(true)), h("span", { text: "ピン留め" }))
+                                )
+                            )
+                        );
+                        autoList.appendChild(row);
+                    });
+                }
+
+                const right = h("div", { class: "col", style: "gap:14px;" },
+                    tech,
+                    demo || h("span"),
+                    relFixed,
+                    relAuto
+                );
+
+                const body = h("div", { class: "grid", style: "grid-template-columns:2fr 1fr; gap:14px;" },
+                    left, right
+                );
+                if (window.matchMedia && window.matchMedia("(max-width: 980px)").matches) {
+                    body.style.gridTemplateColumns = "1fr";
+                }
+
+                return h("div", { class: "col", style: "gap:14px; max-width:1100px; margin:0 auto;" },
+                    head,
+                    body,
+                    h("div", { class: "card p" }, h("div", { class: "h3", text: "メトリクス" }), h("div", { class: "mt" }, metrics))
+                );
+            }
+
+            function section(title, text, iconNode, mono = false) {
+                return h("div", { class: "card p" },
+                    h("div", { class: "row", style: "gap:8px;" },
+                        iconWrap(iconNode), h("div", { class: "h3", text: title })
+                    ),
+                    h("div", { class: mono ? "mono mt muted" : "mt muted", style: "white-space:pre-wrap; line-height:1.55;", text: text || "" })
+                );
+            }
+
+            function AppsPage() {
+                setMeta("Apps | Portfolio", "内蔵アプリ（タスク管理 / TODO / ポモドーロ / ローカルAI）。");
+                const apps = [
+                    { id: "task", title: "タスク管理", desc: "カンバン形式の簡易タスク管理", icon: Icons.checkSquare.cloneNode(true) },
+                    { id: "todo", title: "クイックTODO", desc: "クイック入力 + 完了管理", icon: Icons.list.cloneNode(true) },
+                    { id: "pomodoro", title: "ポモドーロ", desc: "耐タブ休眠のタイマー + フォーカス対象", icon: Icons.clock.cloneNode(true) },
+                    { id: "ai", title: "AI アシスト", desc: "ローカルAI", icon: Icons.brain.cloneNode(true) }
+                ];
+                const grid = h("div", { class: "grid", style: "grid-template-columns:repeat(2,minmax(0,1fr));" });
+                if (window.matchMedia && window.matchMedia("(max-width: 700px)").matches) {
+                    grid.style.gridTemplateColumns = "1fr";
+                }
+                for (const a of apps) {
+                    grid.appendChild(h("div", { class: "card p" },
+                        h("div", { class: "row", style: "gap:8px;" },
+                            iconWrap(a.icon), h("div", { class: "h3", text: a.title })
+                        ),
+                        h("div", { class: "muted mt", text: a.desc }),
+                        h("div", { class: "mt" },
+                            h("button", { class: "btn secondary", onClick: () => navTo("apps/" + a.id) }, "開く")
+                        )
+                    ));
+                }
+                return h("div", { class: "col", style: "gap:14px; max-width:900px; margin:0 auto;" },
+                    h("div", { class: "h2", text: "アプリ" }),
+                    grid
+                );
+            }
+
+            /**************************************************************************
+             * Task App
+             **************************************************************************/
+            function TaskPage() {
+                setMeta("Task | Portfolio", "タスク管理。3状態、優先度、検索。localStorage永続。");
+                let q = "";
+                let pri = "all"; // all|high|med|low
+
+                const addInput = h("input", { placeholder: "新しいタスクを入力..." });
+                const addBtn = h("button", { class: "btn", onClick: (e) => { e.preventDefault(); addTask(); } }, "追加");
+
+                const search = h("input", { placeholder: "検索（タイトル/タグ）...", onInput: (e) => { q = e.target.value; repaint(); } });
+                const priSel = h("select", { onChange: (e) => { pri = e.target.value; repaint(); } },
+                    h("option", { value: "all", text: "優先度: 全て" }),
+                    h("option", { value: "high", text: "High" }),
+                    h("option", { value: "med", text: "Med" }),
+                    h("option", { value: "low", text: "Low" })
+                );
+
+                const header = h("div", { class: "col", style: "gap:10px; max-width:1100px; margin:0 auto;" },
+                    h("div", { class: "row sp wrap" },
+                        h("div", { class: "row", style: "gap:10px; align-items:center;" },
+                            iconWrap(Icons.checkSquare.cloneNode(true)),
+                            h("div", { class: "h2", text: "タスク管理" })
+                        ),
+                        h("div", { class: "row wrap" },
+                            h("span", { class: "kbd", text: "←/→で状態移動" })
+                        )
+                    ),
+                    h("div", { class: "row wrap" },
+                        h("div", { style: "flex:1; min-width:min(320px,100%);" }, addInput),
+                        addBtn
+                    ),
+                    h("div", { class: "row wrap" },
+                        h("div", { style: "flex:1; min-width:min(320px,100%);" }, search),
+                        h("div", { style: "min-width:190px;" }, priSel)
+                    )
+                );
+
+                const wrap = h("div", { class: "kwrap", style: "max-width:1100px; margin:0 auto;" });
+                const kanban = h("div", { class: "kanban" });
+                wrap.appendChild(kanban);
+
+                const cols = [
+                    { id: "backlog", label: "未着手 (Backlog)" },
+                    { id: "in-progress", label: "進行中 (In Progress)" },
+                    { id: "done", label: "完了 (Done)" }
+                ];
+
+                function addTask() {
+                    const title = (addInput.value || "").trim();
+                    if (!title) return;
+                    const now = Date.now();
+                    store.appsData.tasks.unshift({
+                        id: uid(),
+                        title: title.slice(0, 200),
+                        status: "backlog",
+                        priority: "med",
+                        tags: [],
+                        createdAt: now,
+                        updatedAt: now
+                    });
+                    addInput.value = "";
+                    saveStoreDebounced();
+                    repaint();
+                }
+
+                function updateTask(id, patch) {
+                    const now = Date.now();
+                    store.appsData.tasks = store.appsData.tasks.map(t => t.id === id ? Object.assign({}, t, patch, { updatedAt: now }) : t);
+                    saveStoreDebounced();
+                    repaint();
+                }
+                function delTask(id) {
+                    store.appsData.tasks = store.appsData.tasks.filter(t => t.id !== id);
+                    // also unlink from pomodoro if focused
+                    if (store.appsData.pomodoro.runtime.linkedTaskId === id) {
+                        store.appsData.pomodoro.runtime.linkedTaskId = null;
+                    }
+                    saveStoreDebounced();
+                    repaint();
+                }
+                function nextStatus(s) {
+                    return s === "backlog" ? "in-progress" : (s === "in-progress" ? "done" : "done");
+                }
+                function prevStatus(s) {
+                    return s === "done" ? "in-progress" : (s === "in-progress" ? "backlog" : "backlog");
+                }
+
+                function filtered() {
+                    const text = (q || "").trim().toLowerCase();
+                    return store.appsData.tasks.filter(t => {
+                        const okText = !text || t.title.toLowerCase().includes(text) || (t.tags || []).some(x => String(x).toLowerCase().includes(text));
+                        const okPri = pri === "all" || t.priority === pri;
+                        return okText && okPri;
+                    });
+                }
+
+                function repaint() {
+                    clear(kanban);
+                    const list = filtered();
+                    for (const c of cols) {
+                        const items = list.filter(t => t.status === c.id);
+                        const colBox = h("div", { class: "colbox" },
+                            h("div", { class: "head" },
+                                h("div", { class: "h3", text: c.label }),
+                                h("span", { class: "pill", text: String(items.length) })
+                            )
+                        );
+                        const body = h("div", { class: "col", style: "gap:10px; overflow:auto; padding-right:4px;" });
+                        if (items.length === 0) {
+                            body.appendChild(h("div", { class: "muted", style: "text-align:center; padding:18px 0;" }, "タスクがありません"));
+                        } else {
+                            for (const t of items) {
+                                const dot = h("span", { class: "dot " + t.priority });
+                                const title = h("div", { class: "h3", style: "font-weight:900; font-size:14px; margin:0;", text: t.title });
+                                const meta = h("div", { class: "row sp", style: "margin-top:8px;" },
+                                    h("select", { "aria-label": "優先度", onChange: (e) => updateTask(t.id, { priority: e.target.value }) },
+                                        h("option", { value: "high", text: "High", ...(t.priority === "high" ? { selected: "selected" } : {}) }),
+                                        h("option", { value: "med", text: "Med", ...(t.priority === "med" ? { selected: "selected" } : {}) }),
+                                        h("option", { value: "low", text: "Low", ...(t.priority === "low" ? { selected: "selected" } : {}) })
+                                    ),
+                                    h("div", { class: "mini", text: new Date(t.updatedAt).toLocaleDateString() })
+                                );
+                                const actions = h("div", { class: "taskactions" },
+                                    h("button", { class: "btn ghost small", disabled: t.status === "backlog", onClick: () => updateTask(t.id, { status: prevStatus(t.status) }) }, "←"),
+                                    h("button", { class: "btn ghost small", disabled: t.status === "done", onClick: () => updateTask(t.id, { status: nextStatus(t.status) }) }, "→"),
+                                    h("button", {
+                                        class: "btn ghost small", onClick: () => {
+                                            const ok = prompt("タスク名を編集", t.title);
+                                            if (ok === null) return;
+                                            const v = String(ok).trim();
+                                            if (!v) { toast("空は不可", "error"); return; }
+                                            updateTask(t.id, { title: v.slice(0, 200) });
+                                        }
+                                    }, "編集"),
+                                    h("button", { class: "btn ghost small", onClick: () => delTask(t.id) }, Icons.trash.cloneNode(true))
+                                );
+                                const top = h("div", { class: "taskrow" },
+                                    h("div", { class: "row", style: "gap:8px; align-items:flex-start;" },
+                                        dot, h("div", { class: "col", style: "gap:4px;" }, title)
+                                    ),
+                                    actions
+                                );
+                                body.appendChild(h("div", { class: "taskcard" }, top, meta));
+                            }
+                        }
+                        colBox.appendChild(body);
+                        kanban.appendChild(colBox);
+                    }
+                }
+
+                repaint();
+
+                return h("div", { class: "col", style: "gap:14px;" },
+                    header, wrap
+                );
+            }
+
+            /**************************************************************************
+             * Todo App
+             **************************************************************************/
+            function TodoPage() {
+                setMeta("Todo | Portfolio", "TODO。クイック入力、IMEガード、フィルタ、一括操作。");
+                let filter = "all"; // all|active|done
+                let q = "";
+                let composing = false;
+
+                const input = h("input", { placeholder: `入力してEnter（IME対応）...` });
+                input.addEventListener("compositionstart", () => composing = true);
+                input.addEventListener("compositionend", () => composing = false);
+                input.addEventListener("keydown", (e) => {
+                    if (e.key !== "Enter") return;
+                    if (composing) return;
+                    const val = (input.value || "").trim();
+                    if (!val) return;
+                    add(val);
+                    input.value = "";
+                });
+
+                const qInput = h("input", { placeholder: "検索...", onInput: (e) => { q = e.target.value; repaint(); } });
+                const fSel = h("select", { onChange: (e) => { filter = e.target.value; repaint(); } },
+                    h("option", { value: "all", text: "全て" }),
+                    h("option", { value: "active", text: "未完了" }),
+                    h("option", { value: "done", text: "完了" })
+                );
+
+                const btnAll = h("button", { class: "btn secondary small", onClick: toggleAll }, "全切替");
+                const btnClear = h("button", { class: "btn secondary small", onClick: clearDone }, "完了済み削除");
+
+                function add(text) {
+                    const item = { id: uid(), text: String(text).slice(0, 300), completed: false, createdAt: Date.now(), dueDate: null };
+                    store.appsData.todos.unshift(item);
+                    saveStoreDebounced();
+                    repaint();
+                }
+                function toggle(id) {
+                    store.appsData.todos = store.appsData.todos.map(t => t.id === id ? Object.assign({}, t, { completed: !t.completed }) : t);
+                    saveStoreDebounced();
+                    repaint();
+                }
+                function del(id) {
+                    store.appsData.todos = store.appsData.todos.filter(t => t.id !== id);
+                    saveStoreDebounced();
+                    repaint();
+                }
+                function clearDone() {
+                    store.appsData.todos = store.appsData.todos.filter(t => !t.completed);
+                    saveStoreDebounced();
+                    repaint();
+                }
+                function toggleAll() {
+                    const allDone = store.appsData.todos.length > 0 && store.appsData.todos.every(t => t.completed);
+                    store.appsData.todos = store.appsData.todos.map(t => Object.assign({}, t, { completed: !allDone }));
+                    saveStoreDebounced();
+                    repaint();
+                }
+                function visible() {
+                    const text = (q || "").trim().toLowerCase();
+                    return store.appsData.todos.filter(t => {
+                        const okText = !text || t.text.toLowerCase().includes(text);
+                        const okFilter = filter === "all" || (filter === "active" ? !t.completed : t.completed);
+                        return okText && okFilter;
+                    });
+                }
+
+                const list = h("div", { class: "list" });
+                function repaint() {
+                    clear(list);
+                    const vs = visible();
+                    btnClear.disabled = !store.appsData.todos.some(t => t.completed);
+                    if (vs.length === 0) {
+                        list.appendChild(h("div", { class: "muted", style: "text-align:center; padding:18px 0;" }, "TODOはありません。"));
+                        return;
+                    }
+                    for (const t of vs) {
+                        const chk = h("input", { type: "checkbox" });
+                        chk.checked = !!t.completed;
+                        chk.addEventListener("change", () => toggle(t.id));
+
+                        const text = h("div", { class: "grow" + (t.completed ? " strike" : ""), text: t.text });
+                        const delBtn = h("button", { class: "btn ghost small", onClick: () => del(t.id), "aria-label": "削除" }, Icons.x.cloneNode(true));
+
+                        list.appendChild(h("div", { class: "item" }, chk, text, delBtn));
+                    }
+                }
+
+                repaint();
+
+                return h("div", { class: "col", style: "gap:12px; max-width:820px; margin:0 auto;" },
+                    h("div", { class: "row", style: "gap:10px;" },
+                        iconWrap(Icons.list.cloneNode(true)), h("div", { class: "h2", text: "クイックTODO" })
+                    ),
+                    h("div", { class: "card p" },
+                        h("div", { class: "col", style: "gap:10px;" },
+                            input,
+                            h("div", { class: "row wrap" },
+                                h("div", { style: "flex:1; min-width:min(220px,100%);" }, qInput),
+                                h("div", { style: "min-width:160px;" }, fSel)
+                            ),
+                            h("div", { class: "row wrap" },
+                                btnAll,
+                                btnClear
+                            )
+                        )
+                    ),
+                    list
+                );
+            }
+
+            /**************************************************************************
+             * Pomodoro App (timestamp restore, single interval, focus task)
+             **************************************************************************/
+            let pomTimer = null;
+
+            function PomodoroPage() {
+                setMeta("Pomodoro | Portfolio", "ポモドーロ。timestamp復元・二重起動防止・フォーカス対象（タスク）連携・履歴保存。");
+
+                const box = h("div", { class: "col", style: "gap:12px; max-width:820px; margin:0 auto;" });
+                const head = h("div", { class: "row", style: "gap:10px;" },
+                    iconWrap(Icons.clock.cloneNode(true)), h("div", { class: "h2", text: "ポモドーロタイマー" })
+                );
+
+                const modes = [
+                    { id: "work", label: "集中" },
+                    { id: "short-break", label: "短休憩" },
+                    { id: "long-break", label: "長休憩" }
+                ];
+
+                const modeRow = h("div", { class: "row wrap", style: "gap:10px;" });
+                const timeBig = h("div", { style: "font-size:74px; font-weight:900; letter-spacing:-1px; font-family:var(--mono); text-align:center;" });
+                const btnToggle = h("button", { class: "btn", style: "width:180px; padding:14px 12px;" });
+                const btnReset = h("button", { class: "btn secondary", style: "padding:14px 12px;", "aria-label": "リセット" }, Icons.rotate.cloneNode(true));
+                const btns = h("div", { class: "row wrap", style: "justify-content:center; gap:10px; margin-top:10px;" }, btnToggle, btnReset);
+
+                // focus task select
+                const focusSel = h("select", {});
+                function rebuildFocusOptions() {
+                    clear(focusSel);
+                    focusSel.appendChild(h("option", { value: "", text: "フォーカス対象: なし" }));
+                    store.appsData.tasks.forEach(t => {
+                        focusSel.appendChild(h("option", { value: t.id, text: t.title.slice(0, LIMITS.TASK_TITLE) }));
+                    });
+                    focusSel.value = store.appsData.pomodoro.runtime.linkedTaskId || "";
+                }
+
+                const focusBox = h("div", { class: "card p" },
+                    h("div", { class: "h3", text: "フォーカス対象（タスク）" }),
+                    h("div", { class: "muted mt" }, "集中セッションの履歴に紐付けます。"),
+                    h("div", { class: "mt" }, focusSel),
+                    h("div", { class: "row wrap mt" },
+                        h("button", { class: "btn secondary small", onClick: () => navTo("apps/task") }, "タスク管理へ")
+                    )
+                );
+
+                focusSel.addEventListener("change", () => {
+                    store.appsData.pomodoro.runtime.linkedTaskId = focusSel.value || null;
+                    saveStoreDebounced();
+                    toast("フォーカス対象を更新", "ok");
+                });
+
+                const histBox = h("div", { class: "card p" },
+                    h("div", { class: "h3", text: "セッション履歴" }),
+                    h("div", { class: "mt", id: "hist" })
+                );
+
+                const settingsBox = PomodoroSettingsBox();
+
+                function getMinutes(mode) {
+                    const s = store.appsData.pomodoro.settings;
+                    if (mode === "work") return s.work;
+                    if (mode === "short-break") return s.short;
+                    return s.long;
+                }
+                function format(sec) {
+                    sec = Math.max(0, Math.floor(sec));
+                    const m = Math.floor(sec / 60);
+                    const s = sec % 60;
+                    return String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
+                }
+                function calcTimeLeft() {
+                    const rt = store.appsData.pomodoro.runtime;
+                    // When active, calculate remaining time from target timestamp
+                    // This ensures accuracy even if tab was backgrounded/suspended
+                    if (rt.isActive && rt.endAtMs) {
+                        return Math.max(0, Math.ceil((rt.endAtMs - Date.now()) / 1000));
+                    }
+                    // When paused, return stored remaining seconds
+                    return clampInt(rt.remainingSec, 0, 24 * 3600);
+                }
+
+                function setMode(mode) {
+                    const mins = getMinutes(mode);
+                    stopTimer();
+                    const rt = store.appsData.pomodoro.runtime;
+                    store.appsData.pomodoro.runtime = {
+                        isActive: false,
+                        mode,
+                        endAtMs: null,
+                        remainingSec: mins * 60,
+                        linkedTaskId: rt.linkedTaskId || null
+                    };
+                    saveStoreDebounced();
+                    try { if (PomodoroDaemon) PomodoroDaemon.sync(); } catch { }
+                    repaint();
+                }
+
+                function toggle() {
+                    const rt = store.appsData.pomodoro.runtime;
+                    const left = calcTimeLeft();
+                    if (rt.isActive) {
+                        stopTimer();
+                        store.appsData.pomodoro.runtime = Object.assign({}, rt, { isActive: false, endAtMs: null, remainingSec: left });
+                        saveStoreDebounced();
+                        try { if (PomodoroDaemon) PomodoroDaemon.sync(); } catch { }
+                        repaint();
+                        return;
+                    }
+                    const endAt = Date.now() + left * 1000;
+                    store.appsData.pomodoro.runtime = Object.assign({}, rt, { isActive: true, endAtMs: endAt, remainingSec: left });
+                    saveStoreDebounced();
+                    try { if (PomodoroDaemon) PomodoroDaemon.sync(); } catch { }
+                    startTimer();
+                    repaint();
+                }
+
+                function reset() {
+                    const rt = store.appsData.pomodoro.runtime;
+                    const mins = getMinutes(rt.mode);
+                    stopTimer();
+                    store.appsData.pomodoro.runtime = Object.assign({}, rt, { isActive: false, endAtMs: null, remainingSec: mins * 60 });
+                    saveStoreDebounced();
+                    try { if (PomodoroDaemon) PomodoroDaemon.sync(); } catch { }
+                    repaint();
+                }
+
+                function onComplete() {
+                    const rt = store.appsData.pomodoro.runtime;
+                    const dur = getMinutes(rt.mode);
+                    store.appsData.pomodoro.history.push({
+                        timestamp: Date.now(),
+                        durationMinutes: dur,
+                        type: rt.mode,
+                        linkedTaskId: rt.linkedTaskId || null
+                    });
+                    store.appsData.pomodoro.history = store.appsData.pomodoro.history.slice(-200);
+
+                    const mins = getMinutes(rt.mode);
+                    store.appsData.pomodoro.runtime = Object.assign({}, rt, { isActive: false, endAtMs: null, remainingSec: mins * 60 });
+
+                    saveStoreDebounced();
+                    toast("セッション完了", "ok");
+                    repaint();
+                }
+
+                function tick() {
+                    const left = calcTimeLeft();
+                    timeBig.textContent = format(left);
+                    const rt = store.appsData.pomodoro.runtime;
+                    // Completion is handled by PomodoroDaemon (cross-tab safe). This tick is UI-only.
+                }
+
+                function startTimer() {
+                    // Prevent duplicate timers by stopping any existing timer first
+                    stopTimer();
+                    pomTimer = setInterval(tick, 1000);
+                }
+                function stopTimer() {
+                    // Clean up timer to prevent memory leak
+                    if (pomTimer) { clearInterval(pomTimer); pomTimer = null; }
+                }
+
+                // Ensure the UI timer is cleared when leaving this route (prevents leaks)
+                onCleanup(stopTimer);
+                // React to daemon completion (UI toast only; state is already persisted)
+                function _onPomodoroDaemonComplete() {
+                    try { toast("セッション完了", "ok"); } catch { }
+                    try { repaint(); } catch { }
+                }
+                window.addEventListener("pomodoro-complete", _onPomodoroDaemonComplete);
+                onCleanup(() => {
+                    try { window.removeEventListener("pomodoro-complete", _onPomodoroDaemonComplete); } catch { }
+                });
+
+
+
+                function repaint() {
+                    rebuildFocusOptions();
+
+                    clear(modeRow);
+                    const rt = store.appsData.pomodoro.runtime;
+                    for (const m of modes) {
+                        const active = rt.mode === m.id;
+                        const b = h("button", { class: "btn " + (active ? "" : "secondary"), onClick: () => setMode(m.id) }, m.label);
+                        modeRow.appendChild(b);
+                    }
+
+                    clear(btnToggle);
+                    btnToggle.appendChild(rt.isActive ? Icons.pause.cloneNode(true) : Icons.play.cloneNode(true));
+                    btnToggle.appendChild(document.createTextNode(rt.isActive ? " 一時停止" : " 開始"));
+                    btnToggle.onclick = toggle;
+
+                    btnReset.onclick = reset;
+
+                    timeBig.textContent = format(calcTimeLeft());
+
+                    const hist = $("#hist", histBox);
+                    clear(hist);
+                    const list = store.appsData.pomodoro.history.slice().reverse();
+                    if (list.length === 0) {
+                        hist.appendChild(h("div", { class: "muted" }, "履歴はまだありません。"));
+                    } else {
+                        const box = h("div", { class: "col", style: "gap:6px; max-height:240px; overflow:auto;" });
+                        for (const it of list) {
+                            const label = (it.type === "work") ? "集中" : (it.type === "short-break") ? "短休憩" : "長休憩";
+                            const task = it.linkedTaskId ? store.appsData.tasks.find(t => t.id === it.linkedTaskId) : null;
+                            box.appendChild(h("div", { class: "col", style: "border-bottom:1px solid var(--border); padding:8px 0; gap:4px;" },
+                                h("div", { class: "row sp wrap" },
+                                    h("div", { text: label }),
+                                    h("div", { class: "mini", text: new Date(it.timestamp).toLocaleTimeString() })
+                                ),
+                                task ? h("div", { class: "mini", text: "focus: " + task.title }) : h("div", { class: "mini", text: "focus: none" })
+                            ));
+                        }
+                        hist.appendChild(box);
+                    }
+
+                    if (rt.isActive) startTimer();
+                    else stopTimer();
+                }
+
+                repaint();
+                tick();
+
+                // Ensure daemon is running if a session is active (works across routes/tabs)
+                try { if (PomodoroDaemon) PomodoroDaemon.sync(); } catch { }
+
+
+                box.appendChild(head);
+                box.appendChild(h("div", { class: "card p", style: "text-align:center;" },
+                    modeRow,
+                    h("div", { style: "margin-top:14px;" }, timeBig),
+                    btns
+                ));
+                box.appendChild(focusBox);
+                box.appendChild(settingsBox);
+                box.appendChild(histBox);
+
+                return box;
+            }
+
+            function PomodoroSettingsBox() {
+                const s = store.appsData.pomodoro.settings;
+                const work = h("input", { type: "number", min: "1", max: "180", value: String(s.work) });
+                const sh = h("input", { type: "number", min: "1", max: "60", value: String(s.short) });
+                const lo = h("input", { type: "number", min: "1", max: "120", value: String(s.long) });
+
+                const saveBtn = h("button", {
+                    class: "btn secondary", onClick: () => {
+                        saveSnapshot("pomodoro-settings");
+                        const nw = clampInt(parseInt(work.value, 10), 1, 180);
+                        const ns = clampInt(parseInt(sh.value, 10), 1, 60);
+                        const nl = clampInt(parseInt(lo.value, 10), 1, 120);
+                        store.appsData.pomodoro.settings = { work: nw, short: ns, long: nl };
+                        const rt = store.appsData.pomodoro.runtime;
+                        if (!rt.isActive) {
+                            const mins = (rt.mode === "work") ? nw : (rt.mode === "short-break") ? ns : nl;
+                            store.appsData.pomodoro.runtime.remainingSec = mins * 60;
+                        }
+                        saveStoreDebounced();
+                        toast("設定を保存", "ok");
+                        render();
+                    }
+                }, "設定を保存");
+
+                return h("div", { class: "card p" },
+                    h("div", { class: "h3", text: "タイマー設定（分）" }),
+                    h("div", { class: "grid mt", style: "grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px;" },
+                        h("div", { class: "col" }, h("div", { class: "mini", text: "集中" }), work),
+                        h("div", { class: "col" }, h("div", { class: "mini", text: "短休憩" }), sh),
+                        h("div", { class: "col" }, h("div", { class: "mini", text: "長休憩" }), lo)
+                    ),
+                    h("div", { class: "mt" }, saveBtn)
+                );
+            }
+
+            /**************************************************************************
+             * AI App (local rule-based)
+             **************************************************************************/
+            function AIPage() {
+                setMeta("AI | Portfolio", "ローカルAI。タスク分解、文章生成、設計/障害整理。");
+                let loading = false;
+
+                const chat = h("div", { class: "chat" });
+                const input = h("input", { placeholder: "例：『デプロイ手順を分解して』『タスク管理アプリの説明文を書いて』" });
+                const send = h("button", { class: "btn", onClick: () => submit() }, "送信");
+
+                function appendBubble(text, who) {
+                    const b = h("div", { class: "bubble " + (who === "me" ? "me" : "ai") });
+                    b.textContent = text;
+                    chat.appendChild(b);
+                    if (who === "ai") {
+                        chat.appendChild(h("div", { class: "tiny" }, "Generated by Local Rule Engine"));
+                    }
+                    chat.scrollTop = chat.scrollHeight;
+                }
+
+                function renderHistory() {
+                    clear(chat);
+                    const hist = store.appsData.ai.history;
+                    if (hist.length === 0) {
+                        chat.appendChild(h("div", { class: "muted", style: "text-align:center; padding:18px 0;" }, "AIアシスト（ローカル版）。入力すると提案を返します。"));
+                        return;
+                    }
+                    for (const it of hist) {
+                        appendBubble(it.prompt, "me");
+                        appendBubble(it.response, "ai");
+                    }
+                }
+
+                function submit() {
+                    if (loading) return;
+                    const p = (input.value || "").trim().slice(0, LIMITS.AI_MESSAGE);
+                    if (!p) return;
+                    loading = true;
+                    appendBubble(p, "me");
+                    input.value = "";
+
+                    setTimeout(() => {
+                        const kind = aiAnalyze(p);
+                        const low = p.toLowerCase();
+                        let resp = "";
+                        if (low.includes("分解") || low.includes("手順")) {
+                            const steps = aiSuggestBreakdown(p);
+                            resp = "推奨されるタスク分解案です：\n" + steps.map(s => `- [ ] ${s}`).join("\n");
+                        } else if (low.includes("コピー") || low.includes("文章") || low.includes("書いて")) {
+                            resp = aiGenerateCopy(p, "professional");
+                        } else if (kind === "troubleshoot") {
+                            resp = "[AIルール: troubleshoot]\n- 再現条件\n- 影響範囲\n- ログ/証跡\n- 切り分け\n- 修正/回帰テスト\n上記の順で整理すると事故率が下がります。";
+                        } else if (kind === "design") {
+                            resp = "[AIルール: design]\n- 目的/非目的\n- 依存/制約\n- 失敗条件\n- 境界(責任/権限)\n- 検証手段\n上記の順で設計を固定するとブレが減ります。";
+                        } else {
+                            resp = "[AIルール: general]\nタスク分解、ポートフォリオ文章生成、障害整理などに対応します。";
+                        }
+
+                        store.appsData.ai.history.push({ prompt: p, response: resp, timestamp: Date.now() });
+                        store.appsData.ai.history = store.appsData.ai.history.slice(-80);
+                        saveStoreDebounced();
+                        appendBubble(resp, "ai");
+                        loading = false;
+                    }, 260);
+                }
+
+                input.addEventListener("keydown", (e) => { if (e.key === "Enter") submit(); });
+
+                const head = h("div", { class: "row", style: "gap:10px; max-width:900px; margin:0 auto;" },
+                    iconWrap(Icons.brain.cloneNode(true)), h("div", { class: "h2", text: "AI アシスト（ローカル版）" })
+                );
+
+                const panel = h("div", { class: "card p", style: "max-width:900px; margin:0 auto;" },
+                    chat,
+                    h("div", { class: "row wrap mt", style: "gap:10px;" },
+                        h("div", { style: "flex:1; min-width:min(260px,100%);" }, input),
+                        send
+                    ),
+                    h("div", { class: "tiny mt" }, "外部APIに依存しません。")
+                );
+
+                renderHistory();
+                return h("div", { class: "col", style: "gap:12px;" }, head, panel);
+            }
+
+            /**************************************************************************
+             * Settings Page (Import/Export + Manage Projects + Integrity + Snapshot)
+             **************************************************************************/
+            function ProfileBox() {
+                const p = store.profile || {};
+                const name = h("input", { value: String(p.name || ""), placeholder: "Name" });
+                const title = h("input", { value: String(p.title || ""), placeholder: "Title（例: Web Engineer / PMO）" });
+                const bio = h("textarea", { placeholder: "Bio（短い自己紹介）" }, String(p.bio || ""));
+                bio.value = String(p.bio || "");
+                const email = h("input", { value: String(p.email || ""), placeholder: "Email" });
+                const github = h("input", { value: String(p.github || ""), placeholder: "GitHub URL (https://...)" });
+                const linkedin = h("input", { value: String(p.linkedin || ""), placeholder: "LinkedIn URL (https://...)" });
+
+                function save() {
+                    saveSnapshot("edit-profile");
+                    const n = String(name.value || "").trim().slice(0, LIMITS.PROFILE_NAME) || INITIAL_PROFILE.name;
+                    const t = String(title.value || "").trim().slice(0, LIMITS.PROFILE_TITLE) || INITIAL_PROFILE.title;
+                    const b = String(bio.value || "").trim().slice(0, LIMITS.PROFILE_BIO) || INITIAL_PROFILE.bio;
+
+                    const em = String(email.value || "").trim().slice(0, LIMITS.PROFILE_EMAIL) || "";
+                    const gh = String(github.value || "").trim().slice(0, LIMITS.PROFILE_URL);
+                    const li = String(linkedin.value || "").trim().slice(0, LIMITS.PROFILE_URL);
+
+                    const ghSan = gh ? sanitizeHttpUrl(gh) : "";
+                    const liSan = li ? sanitizeHttpUrl(li) : "";
+
+                    if (gh && !ghSan) { toast("GitHub URLが無効です（http/httpsのみ）", "warn"); }
+                    if (li && !liSan) { toast("LinkedIn URLが無効です（http/httpsのみ）", "warn"); }
+
+                    store.profile = {
+                        name: n,
+                        title: t,
+                        bio: b,
+                        email: em,
+                        github: ghSan || "",
+                        linkedin: liSan || ""
+                    };
+                    saveStoreDebounced("edit-profile");
+                    toast("プロフィールを保存しました", "ok");
+                }
+
+                function reset() {
+                    const ok = confirm("プロフィールを初期値に戻しますか？");
+                    if (!ok) return;
+                    saveSnapshot("reset-profile");
+                    store.profile = Object.assign({}, INITIAL_PROFILE);
+                    saveStoreDebounced("reset-profile");
+                    toast("プロフィールを初期化しました", "ok");
+                    render();
+                }
+
+                const form = h("div", { class: "grid mt", style: "grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px;" },
+                    h("div", { class: "col" }, h("div", { class: "mini", text: "Name" }), name),
+                    h("div", { class: "col" }, h("div", { class: "mini", text: "Title" }), title),
+                    h("div", { class: "col", style: "grid-column:1/-1;" }, h("div", { class: "mini", text: "Bio" }), bio),
+                    h("div", { class: "col" }, h("div", { class: "mini", text: "Email" }), email),
+                    h("div", { class: "col" }, h("div", { class: "mini", text: "GitHub" }), github),
+                    h("div", { class: "col" }, h("div", { class: "mini", text: "LinkedIn" }), linkedin)
+                );
+
+                return h("div", { class: "card p" },
+                    h("div", { class: "h3", text: "プロフィール" }),
+                    h("div", { class: "muted mt" }, "ここを埋めると、About/Contactなどに反映されます。"),
+                    form,
+                    h("div", { class: "row wrap mt" },
+                        h("button", { class: "btn", onClick: () => save() }, "保存"),
+                        h("button", { class: "btn secondary", onClick: () => reset() }, "初期化")
+                    )
+                );
+            }
+
+            function SettingsPage() {
+                setMeta("Settings | Portfolio", "Import/Export、並び替え、整合性チェック/自動修復、スナップショット復元。");
+
+                let mode = "append";
+                let preview = null;
+
+                const info = h("div", { class: "card p" },
+                    h("div", { class: "h2", text: "設定・データ" }),
+                    h("div", { class: "muted mt" }, "運用事故率低減のため、Import/修復/並び替えの前にスナップショットを取れます。")
+                );
+
+                const profileBox = ProfileBox();
+
+
+                function ExportSection() {
+                    const exportRow = h("div", { class: "card p" },
+                        h("div", { class: "row sp wrap" },
+                            h("div", { class: "col", style: "gap:4px;" },
+                                h("div", { class: "h3", text: "エクスポート" }),
+                                h("div", { class: "muted" }, "現在のデータをJSONとしてダウンロードします。")
+                            ),
+                            h("div", { class: "row wrap" },
+                                h("button", { class: "btn secondary", onClick: () => exportProjects() }, iconWrap(Icons.download.cloneNode(true)), h("span", { text: " Projects" })),
+                                h("button", { class: "btn secondary", onClick: () => exportFull() }, iconWrap(Icons.download.cloneNode(true)), h("span", { text: " Full" }))
+                            )
+                        ),
+                        h("div", { class: "hr" }),
+                        h("div", { class: "row wrap" },
+                            h("button", { class: "btn secondary small", onClick: () => downloadText("robots.txt", generateRobotsTxt(), "text/plain") }, "robots.txt DL"),
+                            h("button", { class: "btn secondary small", onClick: () => downloadText("sitemap.xml", generateSitemapXml(), "application/xml") }, "sitemap.xml DL")
+                        )
+                    );
+
+                    function exportProjects() {
+                        const payload = { schemaVersion: store.schemaVersion, type: "projects", projects: store.projects };
+                        downloadText("portfolio-projects.json", JSON.stringify(payload, null, 2), "application/json");
+                    }
+                    function exportFull() {
+                        downloadText("portfolio-backup.json", JSON.stringify(store, null, 2), "application/json");
+                    }
+                    return exportRow;
+                }
+                const exportRow = ExportSection();
+
+                function SnapshotSection() {
+                    // Snapshot panel
+                    const snap = loadSnapshot();
+                    const snapBox = h("div", { class: "card p" },
+                        h("div", { class: "h3", text: "スナップショット" }),
+                        snap ? h("div", { class: "muted mt" }, `保存済み: reason=${snap.reason || ""}`) : h("div", { class: "muted mt" }, "保存済みスナップショットはありません。"),
+                        h("div", { class: "row wrap mt" },
+                            h("button", { class: "btn secondary", onClick: () => { saveSnapshot("manual"); toast("スナップショット保存", "ok"); } }, "手動保存"),
+                            h("button", {
+                                class: "btn", disabled: !snap, onClick: () => {
+                                    const ok = confirm("スナップショットから復元しますか？現在のデータは上書きされます。");
+                                    if (!ok) return;
+                                    const r = restoreSnapshot();
+                                    if (r.ok) { toast(r.message, "ok"); render(); }
+                                    else toast(r.message, "error");
+                                }
+                            }, "復元")
+                        )
+                    );
+                    return snapBox;
+                }
+                const snapBox = SnapshotSection();
+
+                function ImportSection() {
+                    // Import
+                    const file = h("input", { type: "file", accept: ".json" });
+                    const previewBox = h("div", {});
+                    const noticeBox = h("div", {});
+                    const modeSel = h("select", { onChange: (e) => { mode = e.target.value; } },
+                        h("option", { value: "append", text: "Append only（重複は追加しない）" }),
+                        h("option", { value: "upsert", text: "Upsert（重複は更新）" }),
+                        h("option", { value: "strict", text: "Strict（重複があれば不適用）" })
+                    );
+
+                    const importArea = h("div", { class: "card p" },
+                        h("div", { class: "h3", text: "インポート（増分マージ）" }),
+                        h("div", { class: "muted mt" }, "Drag&Drop または ファイル選択。Previewで衝突件数を確認できます。"),
+                        h("div", { class: "row wrap mt", style: "gap:10px; align-items:center;" },
+                            h("button", { class: "btn secondary", onClick: () => file.click() }, iconWrap(Icons.upload.cloneNode(true)), h("span", { text: " JSON選択" })),
+                            h("div", { style: "min-width:280px; flex:1;" }, modeSel),
+                            h("button", { class: "btn", onClick: () => applyImport(), disabled: true, id: "applyBtn" }, "適用")
+                        ),
+                        h("div", { class: "mt" }, previewBox),
+                        h("div", { class: "mt" }, noticeBox)
+                    );
+
+                    importArea.addEventListener("dragover", (e) => { e.preventDefault(); importArea.style.borderColor = "rgba(37,99,235,.6)"; });
+                    importArea.addEventListener("dragleave", () => { importArea.style.borderColor = ""; });
+                    importArea.addEventListener("drop", (e) => {
+                        e.preventDefault();
+                        importArea.style.borderColor = "";
+                        const f = e.dataTransfer.files && e.dataTransfer.files[0];
+                        if (f) readFile(f);
+                    });
+
+                    file.addEventListener("change", () => {
+                        const f = file.files && file.files[0];
+                        if (f) readFile(f);
+                    });
+
+                    function readFile(f) {
+                        clear(noticeBox);
+                        f.text().then(text => {
+                            const parsed = safeJsonParse(text);
+                            if (!parsed.ok) {
+                                preview = null;
+                                renderPreviewError("無効なJSON: " + parsed.error);
+                                return;
+                            }
+                            preview = buildPreview(parsed.value);
+                            renderPreview();
+                        }).catch(() => {
+                            preview = null;
+                            renderPreviewError("ファイル読み込みに失敗");
+                        });
+                    }
+
+                    function buildPreview(payload) {
+                        // Extract and validate projects from imported JSON
+                        const ext = extractProjectsFromPayload(payload);
+                        if (!ext.ok) return { ok: false, error: ext.error };
+                        const incoming = ext.incoming;
+                        // Check for ID/slug collisions with existing projects
+                        const col = computeCollisions(store.projects, incoming);
+                        return {
+                            ok: true,
+                            payload,
+                            incomingCount: incoming.length,
+                            collisionsById: col.collisionsById,
+                            collisionsBySlug: col.collisionsBySlug
+                        };
+                    }
+
+                    function renderPreviewError(msg) {
+                        clear(previewBox);
+                        previewBox.appendChild(h("div", { class: "error", text: String(msg) }));
+                        const applyBtn = $("#applyBtn", importArea);
+                        applyBtn.disabled = true;
+                    }
+
+                    function renderPreview() {
+                        clear(previewBox);
+                        const applyBtn = $("#applyBtn", importArea);
+                        if (!preview || !preview.ok) {
+                            applyBtn.disabled = true;
+                            if (preview && preview.error) previewBox.appendChild(h("div", { class: "error", text: preview.error }));
+                            return;
+                        }
+                        previewBox.appendChild(h("div", { class: "card p" },
+                            h("div", { class: "h3", text: "Preview" }),
+                            h("div", { class: "mt muted", text: `incoming projects: ${preview.incomingCount}` }),
+                            h("div", { class: "muted", text: `collisions(id): ${preview.collisionsById}` }),
+                            h("div", { class: "muted", text: `collisions(slug): ${preview.collisionsBySlug}` }),
+                            h("div", { class: "tiny mt" }, "不正データは取り込み前に正規化されます（URLはhttp/httpsのみ）。")
+                        ));
+                        applyBtn.disabled = false;
+                    }
+
+                    function applyImport() {
+                        clear(noticeBox);
+                        if (!preview || !preview.ok) return;
+                        saveSnapshot("import");
+                        const res = importProjects(preview.payload, mode);
+                        if (res.ok) {
+                            noticeBox.appendChild(h("div", { class: "notice", text: res.message }));
+                            preview = null;
+                            clear(previewBox);
+                            $("#applyBtn", importArea).disabled = true;
+                            render();
+                        } else {
+                            noticeBox.appendChild(h("div", { class: "error", text: res.message }));
+                        }
+                    }
+                    return importArea;
+                }
+                const importArea = ImportSection();
+
+                // Integrity
+                const integBox = IntegrityBox();
+
+                // Manage Projects (reorder + add/delete)
+                const manage = ManageProjectsBox();
+
+                // Reset
+                const resetBox = h("div", { class: "card p" },
+                    h("div", { class: "row sp wrap" },
+                        h("div", { class: "col", style: "gap:4px;" },
+                            h("div", { class: "h3", text: "危険な操作" }),
+                            h("div", { class: "muted" }, "全データを削除し、初期状態に戻します。")
+                        ),
+                        h("button", { class: "btn danger", onClick: () => doReset() }, "全リセット")
+                    )
+                );
+
+                function doReset() {
+                    const ok = confirm("本当に全てのデータをリセットしますか？この操作は取り消せません。");
+                    if (!ok) return;
+                    saveSnapshot("before-reset");
+                    safeDelLS(STORAGE_KEY);
+                    store = deepClone(DEFAULT_STORE);
+                    saveStoreDebounced();
+                    applyTheme();
+                    toast("リセット完了", "ok");
+                    navTo("");
+                }
+
+                const stats = h("div", { class: "grid", style: "grid-template-columns:repeat(3,minmax(0,1fr));" });
+                if (window.matchMedia && window.matchMedia("(max-width: 780px)").matches) {
+                    stats.style.gridTemplateColumns = "1fr";
+                }
+                stats.appendChild(statCard("プロジェクト数", String(store.projects.length)));
+                stats.appendChild(statCard("タスク数", String(store.appsData.tasks.length)));
+                stats.appendChild(statCard("TODO数", String(store.appsData.todos.length)));
+
+                return h("div", { class: "col", style: "gap:14px; max-width:1000px; margin:0 auto;" },
+                    info, profileBox, exportRow, snapBox, integBox, importArea, manage, resetBox, h("div", { class: "h3", text: "統計" }), stats
+                );
+            }
+
+            function IntegrityBox() {
+                const box = h("div", { class: "card p" });
+                box.appendChild(h("div", { class: "row sp wrap" },
+                    h("div", { class: "h3", text: "整合性チェック" }),
+                    h("div", { class: "pillbtns" },
+                        h("button", { class: "btn secondary small", onClick: () => { saveSnapshot("before-check"); repaint(); toast("チェック結果を更新", "ok"); } }, "再チェック"),
+                        h("button", {
+                            class: "btn small", onClick: () => {
+                                const issues = analyzeStore();
+                                if (issues.length === 0) { toast("問題なし", "ok"); return; }
+                                const ok = confirm("自動修復を実行しますか？（スナップショット保存→修復）");
+                                if (!ok) return;
+                                autoFixStore();
+                                toast("自動修復を実行", "ok");
+                                render();
+                            }
+                        }, "自動修復")
+                    )
+                ));
+                box.appendChild(h("div", { class: "muted mt" }, "重複ID/slug、孤立related、無効demoRoute、無効URL、pomodoro破綻などを検出。"));
+                const body = h("div", { class: "mt col", style: "gap:10px;" });
+                box.appendChild(body);
+
+                function repaint() {
+                    clear(body);
+                    const issues = analyzeStore();
+                    if (issues.length === 0) {
+                        body.appendChild(h("div", { class: "notice", text: "問題は検出されませんでした。" }));
+                        return;
+                    }
+                    body.appendChild(h("div", { class: "warnbox", text: `検出: ${issues.length} 件` }));
+                    const list = h("div", { class: "col", style: "gap:8px;" });
+                    issues.slice(0, 30).forEach(it => {
+                        list.appendChild(h("div", { class: "card p", style: "padding:12px;" },
+                            h("div", { class: "mono", style: "white-space:pre-wrap;" }, JSON.stringify(it))
+                        ));
+                    });
+                    if (issues.length > 30) {
+                        list.appendChild(h("div", { class: "muted" }, `... and more (${issues.length - 30})`));
+                    }
+                    body.appendChild(list);
+                }
+
+                repaint();
+                return box;
+            }
+
+            function statCard(label, value) {
+                return h("div", { class: "card p" },
+                    h("div", { style: "font-size:28px; font-weight:900;", text: value }),
+                    h("div", { class: "muted", text: label })
+                );
+            }
+
+            function ManageProjectsBox() {
+                const box = h("div", { class: "card p" });
+                box.appendChild(h("div", { class: "h3", text: "Projects管理（追加 / 削除 / 並び替え）" }));
+                box.appendChild(h("div", { class: "muted mt" }, "運用前提のため、手動追加/削除＋上下ボタンで順序を固定できます。"));
+
+                // add form
+                const name = h("input", { placeholder: "Project name (必須)" });
+                const category = h("input", { placeholder: "Category（例: Productivity / AI / Security）" });
+                const summary = h("textarea", { placeholder: "Summary（短い説明）" });
+                const tags = h("input", { placeholder: "Tags（カンマ区切り）" });
+                const tech = h("input", { placeholder: "Tech（カンマ区切り）" });
+                const demo = h("select", {},
+                    h("option", { value: "", text: "Demoなし" }),
+                    h("option", { value: "task", text: "task" }),
+                    h("option", { value: "todo", text: "todo" }),
+                    h("option", { value: "pomodoro", text: "pomodoro" }),
+                    h("option", { value: "ai", text: "ai" })
+                );
+
+                const addBtn = h("button", { class: "btn", onClick: () => addProject() }, "追加");
+
+                const form = h("div", { class: "grid mt", style: "grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px;" },
+                    h("div", { class: "col" }, h("div", { class: "mini", text: "Name*" }), name),
+                    h("div", { class: "col" }, h("div", { class: "mini", text: "Category" }), category),
+                    h("div", { class: "col", style: "grid-column:1/-1;" }, h("div", { class: "mini", text: "Summary" }), summary),
+                    h("div", { class: "col" }, h("div", { class: "mini", text: "Tags" }), tags),
+                    h("div", { class: "col" }, h("div", { class: "mini", text: "Tech" }), tech),
+                    h("div", { class: "col" }, h("div", { class: "mini", text: "DemoRoute" }), demo)
+                );
+                box.appendChild(form);
+                box.appendChild(h("div", { class: "mt" }, addBtn));
+
+                const list = h("div", { class: "col", style: "gap:10px; margin-top:14px;" });
+                box.appendChild(h("div", { class: "hr" }));
+                box.appendChild(h("div", { class: "h3", text: "一覧（現在順序）" }));
+                box.appendChild(list);
+
+                function addProject() {
+                    const nm = (name.value || "").trim();
+                    if (!nm) { toast("Nameは必須", "error"); return; }
+                    saveSnapshot("add-project");
+                    const id = "p_" + uid().slice(0, 10);
+                    let slug = slugify(nm);
+                    const slugs = new Set(store.projects.map(p => p.slug));
+                    if (slugs.has(slug)) {
+                        let i = 2;
+                        while (slugs.has(slug + "-" + i)) i++;
+                        slug = slug + "-" + i;
+                    }
+                    const cat = (category.value || "").trim() || "Misc";
+                    const sm = (summary.value || "").trim();
+                    const tg = (tags.value || "").split(",").map(s => s.trim()).filter(Boolean).slice(0, 12);
+                    const tc = (tech.value || "").split(",").map(s => s.trim()).filter(Boolean).slice(0, 12);
+                    const dr = normalizeDemoRoute(demo.value);
+
+                    const p = {
+                        id, slug, name: nm, category: cat,
+                        summary: sm,
+                        problem: "（未設定）",
+                        approach: "（未設定）",
+                        outcome: { metrics: [], impact: "（未設定）" },
+                        tech: tc,
+                        tags: tg,
+                        highlights: [],
+                        architecture: { overview: "（未設定）", mermaid: null },
+                        relatedProjectIds: [],
+                        links: [],
+                        demoRoute: dr
+                    };
+                    store.projects.push(p);
+                    saveStoreDebounced();
+                    name.value = ""; category.value = ""; summary.value = ""; tags.value = ""; tech.value = ""; demo.value = "";
+                    repaint();
+                    toast("Project追加", "ok");
+                }
+
+                function delProject(id) {
+                    const ok = confirm("このProjectを削除しますか？");
+                    if (!ok) return;
+                    saveSnapshot("delete-project");
+                    store.projects = store.projects.filter(p => p.id !== id);
+                    store.projects = store.projects.map(p => Object.assign({}, p, { relatedProjectIds: (p.relatedProjectIds || []).filter(x => x !== id) }));
+                    saveStoreDebounced();
+                    repaint();
+                    toast("削除しました", "ok");
+                }
+
+                function move(id, dir) {
+                    const idx = store.projects.findIndex(p => p.id === id);
+                    if (idx < 0) return;
+                    const j = idx + dir;
+                    if (j < 0 || j >= store.projects.length) return;
+                    saveSnapshot("reorder-projects");
+                    const arr = store.projects.slice();
+                    const tmp = arr[idx]; arr[idx] = arr[j]; arr[j] = tmp;
+                    store.projects = arr;
+                    saveStoreDebounced();
+                    repaint();
+                }
+                function moveToEdge(id, where) {
+                    const idx = store.projects.findIndex(p => p.id === id);
+                    if (idx < 0) return;
+                    saveSnapshot("reorder-projects");
+                    const arr = store.projects.slice();
+                    const item = arr.splice(idx, 1)[0];
+                    if (where === "top") arr.unshift(item);
+                    else arr.push(item);
+                    store.projects = arr;
+                    saveStoreDebounced();
+                    repaint();
+                }
+
+                function repaint() {
+                    clear(list);
+                    store.projects.forEach((p, idx) => {
+                        const row = h("div", { class: "row sp wrap card p" },
+                            h("div", { class: "col", style: "gap:4px;" },
+                                h("div", { class: "row wrap", style: "gap:8px; align-items:center;" },
+                                    h("span", { class: "badge gray", text: "#" + (idx + 1) }),
+                                    h("div", { class: "h3", text: p.name }),
+                                    h("span", { class: "badge", text: p.category }),
+                                    p.demoRoute ? h("span", { class: "badge ok", text: "demo" }) : h("span")
+                                ),
+                                h("div", { class: "muted", text: p.summary || "(summaryなし)" }),
+                                h("div", { class: "mini mono", text: "#/projects/" + p.slug })
+                            ),
+                            h("div", { class: "row wrap", style: "gap:6px;" },
+                                h("button", { class: "btn secondary small", onClick: () => navTo("projects/" + p.slug) }, "開く"),
+                                h("button", { class: "btn secondary small", disabled: idx === 0, onClick: () => move(p.id, -1) }, iconWrap(Icons.up.cloneNode(true))),
+                                h("button", { class: "btn secondary small", disabled: idx === store.projects.length - 1, onClick: () => move(p.id, 1) }, iconWrap(Icons.down.cloneNode(true))),
+                                h("button", { class: "btn ghost small", onClick: () => moveToEdge(p.id, "top") }, "Top"),
+                                h("button", { class: "btn ghost small", onClick: () => moveToEdge(p.id, "bottom") }, "Bottom"),
+                                h("button", { class: "btn danger small", onClick: () => delProject(p.id) }, iconWrap(Icons.trash.cloneNode(true)))
+                            )
+                        );
+                        list.appendChild(row);
+                    });
+                }
+
+                repaint();
+                return box;
+            }
+
+            function AboutPage() {
+                setMeta("About | Portfolio", "プロフィール。");
+                const p = store.profile;
+                return h("div", { class: "col", style: "gap:12px; max-width:900px; margin:0 auto;" },
+                    h("div", { class: "h2", text: "About" }),
+                    h("div", { class: "card p" },
+                        h("div", { class: "h3", text: p.name }),
+                        h("div", { class: "muted" }, p.title),
+                        h("div", { class: "mt muted", style: "white-space:pre-wrap; line-height:1.55;", text: p.bio })
+                    )
+                );
+            }
+
+            function ResumePage() {
+                setMeta("Resume | Portfolio", "履歴テンプレ。");
+                return h("div", { class: "col", style: "gap:12px; max-width:900px; margin:0 auto;" },
+                    h("div", { class: "h2", text: "Resume" }),
+                    h("div", { class: "card p" },
+                        h("div", { class: "h3", text: store.profile.title }),
+                        h("div", { class: "muted mt" }, "経歴はデータ差し替え前提のテンプレです。"),
+                        h("ul", { style: "margin:10px 0 0; padding-left:18px; color:var(--muted);" },
+                            h("li", { text: "ProjectsをCase Study形式で整理" }),
+                            h("li", { text: "内蔵Apps（Task/Todo/Pomodoro/AI）を作品として掲載" }),
+                            h("li", { text: "整合性チェック/自動修復＋スナップショットで運用事故率を低減" })
+                        )
+                    )
+                );
+            }
+
+            function ContactPage() {
+                setMeta("Contact | Portfolio", "連絡先。mailto起動。");
+                const p = store.profile;
+                const emailBtn = h("button", { class: "btn secondary", onClick: () => { location.href = "mailto:" + p.email; } }, "メール作成");
+                return h("div", { class: "col", style: "gap:12px; max-width:900px; margin:0 auto;" },
+                    h("div", { class: "h2", text: "Contact" }),
+                    h("div", { class: "card p" },
+                        kv("Email", p.email),
+                        kv("GitHub", p.github),
+                        kv("LinkedIn", p.linkedin),
+                        h("div", { class: "mt" }, emailBtn),
+                        h("div", { class: "tiny mt" }, "外部リンクはhttp/httpsのみを許可する設計（Import時に検証）。")
+                    )
+                );
+            }
+            function kv(k, v) {
+                return h("div", { class: "row sp wrap", style: "gap:10px; padding:6px 0; border-bottom:1px solid var(--border);" },
+                    h("div", { class: "mini", text: k }),
+                    h("div", { class: "mono", text: String(v || "") })
+                );
+            }
+
+            function NotFoundPage() {
+                setMeta("Not Found | Portfolio", "見つかりません。");
+                return h("div", { class: "col", style: "gap:12px; max-width:900px; margin:0 auto;" },
+                    h("div", { class: "h2", text: "Not Found" }),
+                    h("div", { class: "muted" }, "指定されたページは見つかりません。"),
+                    h("div", { class: "row wrap" },
+                        h("button", { class: "btn secondary", onClick: () => navTo("") }, "ホームへ"),
+                        h("button", { class: "btn secondary", onClick: () => navTo("projects") }, "Projectsへ")
+                    )
+                );
+            }
+
+            /**************************************************************************
+             * 16) Boot
+             **************************************************************************/
+            syncMobileDrawer();
+            render();
+
+        })();
+    </script>
+</body>
+
+</html>
