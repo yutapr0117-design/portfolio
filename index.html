@@ -74,33 +74,34 @@
     }
     </script>
 
+    
     <style>
         /* ===== CSS Custom Properties - Design System ===== */
         :root {
-            /* Colors - RGB for opacity support */
+            /* Colors - Refined for better visual comfort and accessibility */
             --color-primary-rgb: 37, 99, 235;
             --color-primary: rgb(var(--color-primary-rgb));
-            --color-primary-light: rgb(96, 165, 250);
-            --color-primary-dark: rgb(29, 78, 216);
+            --color-primary-light: #60a5fa;
+            --color-primary-dark: #1d4ed8;
 
-            --color-success-rgb: 34, 197, 94;
+            --color-success-rgb: 22, 163, 74;
             --color-success: rgb(var(--color-success-rgb));
-            --color-warning-rgb: 245, 158, 11;
+            --color-warning-rgb: 217, 119, 6;
             --color-warning: rgb(var(--color-warning-rgb));
             --color-danger-rgb: 220, 38, 38;
             --color-danger: rgb(var(--color-danger-rgb));
-            --color-info-rgb: 6, 182, 212;
+            --color-info-rgb: 8, 145, 178;
             --color-info: rgb(var(--color-info-rgb));
 
-            /* Light Theme */
-            --bg-body: #ffffff;
-            --bg-secondary: #f8fafc;
+            /* Light Theme - Softer colors for reduced eye strain */
+            --bg-body: #f8fafc;
+            --bg-secondary: #ffffff;
             --bg-tertiary: #f1f5f9;
             --surface: #ffffff;
-            --surface-hover: #f8fafc;
+            --surface-hover: #f1f5f9;
 
             --text-primary: #0f172a;
-            --text-secondary: #475569;
+            --text-secondary: #334155;
             --text-tertiary: #64748b;
             --text-muted: #94a3b8;
 
@@ -108,17 +109,17 @@
             --border-color-strong: #cbd5e1;
 
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 
-            --focus-ring: 0 0 0 3px rgba(var(--color-primary-rgb), 0.35);
-            --focus-ring-danger: 0 0 0 3px rgba(var(--color-danger-rgb), 0.35);
+            --focus-ring: 0 0 0 3px rgba(var(--color-primary-rgb), 0.2);
+            --focus-ring-danger: 0 0 0 3px rgba(var(--color-danger-rgb), 0.2);
 
-            /* Typography */
-            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-            --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, Monaco, monospace;
+            /* Typography - Optimized for Japanese readability */
+            --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, Monaco, monospace;
 
             /* Spacing Scale */
             --space-1: 0.25rem;
@@ -133,19 +134,19 @@
             --space-16: 4rem;
             --space-20: 5rem;
 
-            /* Border Radius */
+            /* Border Radius - More modern rounded corners */
             --radius-sm: 0.375rem;
-            --radius: 0.5rem;
-            --radius-md: 0.75rem;
-            --radius-lg: 1rem;
-            --radius-xl: 1.25rem;
-            --radius-2xl: 1.5rem;
+            --radius: 0.625rem;
+            --radius-md: 0.875rem;
+            --radius-lg: 1.25rem;
+            --radius-xl: 1.5rem;
+            --radius-2xl: 2rem;
             --radius-full: 9999px;
 
             /* Transitions */
-            --transition-fast: 150ms ease;
-            --transition: 200ms ease;
-            --transition-slow: 300ms ease;
+            --transition-fast: 100ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
             /* Z-index Scale */
             --z-dropdown: 1000;
@@ -158,59 +159,59 @@
             --z-toast: 1080;
         }
 
-        /* Dark Theme */
+        /* Dark Theme - High contrast and comfort */
         [data-theme="dark"] {
-            --bg-body: #0b0f19;
-            --bg-secondary: #111827;
-            --bg-tertiary: #1f2937;
-            --surface: #1f2937;
-            --surface-hover: #374151;
+            --bg-body: #020617;
+            --bg-secondary: #0f172a;
+            --bg-tertiary: #1e293b;
+            --surface: #1e293b;
+            --surface-hover: #334155;
 
-            --text-primary: #f9fafb;
-            --text-secondary: #d1d5db;
-            --text-tertiary: #9ca3af;
-            --text-muted: #6b7280;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-tertiary: #94a3b8;
+            --text-muted: #64748b;
 
-            --border-color: #374151;
-            --border-color-strong: #4b5563;
+            --border-color: #334155;
+            --border-color-strong: #475569;
 
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
 
-            --color-primary: rgb(96, 165, 250);
-            --color-primary-light: rgb(147, 197, 253);
-            --color-primary-dark: rgb(59, 130, 246);
+            --color-primary: #60a5fa;
+            --color-primary-light: #93c5fd;
+            --color-primary-dark: #3b82f6;
         }
 
         /* System preference detection */
         @media (prefers-color-scheme: dark) {
             [data-theme="system"] {
-                --bg-body: #0b0f19;
-                --bg-secondary: #111827;
-                --bg-tertiary: #1f2937;
-                --surface: #1f2937;
-                --surface-hover: #374151;
+                --bg-body: #020617;
+                --bg-secondary: #0f172a;
+                --bg-tertiary: #1e293b;
+                --surface: #1e293b;
+                --surface-hover: #334155;
 
-                --text-primary: #f9fafb;
-                --text-secondary: #d1d5db;
-                --text-tertiary: #9ca3af;
-                --text-muted: #6b7280;
+                --text-primary: #f8fafc;
+                --text-secondary: #cbd5e1;
+                --text-tertiary: #94a3b8;
+                --text-muted: #64748b;
 
-                --border-color: #374151;
-                --border-color-strong: #4b5563;
+                --border-color: #334155;
+                --border-color-strong: #475569;
 
                 --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-                --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
-                --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-                --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-                --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+                --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+                --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+                --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+                --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
 
-                --color-primary: rgb(96, 165, 250);
-                --color-primary-light: rgb(147, 197, 253);
-                --color-primary-dark: rgb(59, 130, 246);
+                --color-primary: #60a5fa;
+                --color-primary-light: #93c5fd;
+                --color-primary-dark: #3b82f6;
             }
         }
 
@@ -236,10 +237,17 @@
             font-family: var(--font-sans);
             background-color: var(--bg-body);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.75; /* Improved for readability */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             min-height: 100vh;
+            letter-spacing: 0.01em;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            font-weight: 700;
         }
 
         img,
@@ -268,6 +276,7 @@
         a {
             color: inherit;
             text-decoration: none;
+            transition: color var(--transition-fast);
         }
 
         ul,
@@ -318,11 +327,6 @@
             box-shadow: var(--focus-ring);
         }
 
-        :focus-visible:not(button, a, input, textarea, select) {
-            outline: 2px solid var(--color-primary);
-            outline-offset: 2px;
-        }
-
         /* ===== Layout ===== */
         .app {
             display: flex;
@@ -335,7 +339,8 @@
             position: sticky;
             top: 0;
             z-index: var(--z-sticky);
-            background: var(--bg-secondary);
+            background: rgba(var(--color-primary-rgb), 0.05);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color);
             padding: var(--space-3) var(--space-4);
             align-items: center;
@@ -344,8 +349,11 @@
 
         .brand {
             font-weight: 800;
-            font-size: 1.125rem;
-            letter-spacing: -0.025em;
+            font-size: 1.25rem;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* Sidebar */
@@ -353,7 +361,7 @@
             width: 280px;
             background: var(--bg-secondary);
             border-right: 1px solid var(--border-color);
-            padding: var(--space-5) var(--space-4);
+            padding: var(--space-8) var(--space-4);
             position: sticky;
             top: 0;
             height: 100vh;
@@ -363,7 +371,7 @@
         }
 
         .sidebar::-webkit-scrollbar {
-            width: 6px;
+            width: 4px;
         }
 
         .sidebar::-webkit-scrollbar-track {
@@ -379,7 +387,9 @@
         .main-content {
             flex: 1;
             min-width: 0;
-            padding: var(--space-6) var(--space-6) var(--space-12);
+            padding: var(--space-10) var(--space-10) var(--space-20);
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         /* Mobile Navigation */
@@ -387,9 +397,9 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.4);
             z-index: var(--z-modal-backdrop);
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(8px);
         }
 
         .drawer {
@@ -400,7 +410,7 @@
             background: var(--bg-secondary);
             border-right: 1px solid var(--border-color);
             z-index: var(--z-modal);
-            padding: var(--space-4);
+            padding: var(--space-6) var(--space-4);
             overflow-y: auto;
             box-shadow: var(--shadow-xl);
         }
@@ -416,7 +426,7 @@
             }
 
             .main-content {
-                padding: var(--space-4) var(--space-4) var(--space-8);
+                padding: var(--space-6) var(--space-4) var(--space-12);
             }
 
             .app {
@@ -430,13 +440,16 @@
         .card {
             background: var(--surface);
             border: 1px solid var(--border-color);
-            border-radius: var(--radius-xl);
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow-sm);
-            transition: box-shadow var(--transition), transform var(--transition);
+            transition: all var(--transition);
+            overflow: hidden;
         }
 
         .card:hover {
             box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+            border-color: var(--color-primary-light);
         }
 
         .card-body {
@@ -457,18 +470,19 @@
             align-items: center;
             justify-content: center;
             gap: var(--space-2);
-            padding: var(--space-3) var(--space-4);
-            border-radius: var(--radius-lg);
+            padding: 0.625rem 1.25rem;
+            border-radius: var(--radius);
             font-weight: 600;
             font-size: 0.875rem;
             line-height: 1.25;
             transition: all var(--transition-fast);
             white-space: nowrap;
             user-select: none;
+            border: 1px solid transparent;
         }
 
         .btn:active {
-            transform: translateY(1px);
+            transform: scale(0.98);
         }
 
         .btn:disabled {
@@ -479,11 +493,12 @@
         .btn-primary {
             background: var(--color-primary);
             color: white;
+            box-shadow: 0 4px 12px rgba(var(--color-primary-rgb), 0.2);
         }
 
         .btn-primary:hover:not(:disabled) {
             background: var(--color-primary-dark);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 6px 16px rgba(var(--color-primary-rgb), 0.3);
         }
 
         .btn-secondary {
@@ -513,16 +528,16 @@
         }
 
         .btn-danger:hover:not(:disabled) {
-            background: rgb(185, 28, 28);
+            background: #b91c1c;
         }
 
         .btn-sm {
-            padding: var(--space-2) var(--space-3);
+            padding: 0.4rem 0.8rem;
             font-size: 0.75rem;
         }
 
         .btn-lg {
-            padding: var(--space-4) var(--space-6);
+            padding: 0.8rem 1.6rem;
             font-size: 1rem;
         }
 
@@ -531,7 +546,7 @@
             width: 2.5rem;
             height: 2.5rem;
             padding: 0;
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius);
             border: 1px solid var(--border-color);
             background: var(--surface);
             color: var(--text-secondary);
@@ -544,19 +559,20 @@
         .icon-btn:hover {
             background: var(--bg-tertiary);
             color: var(--text-primary);
-            border-color: var(--border-color-strong);
+            border-color: var(--color-primary-light);
+            transform: rotate(5deg);
         }
 
         /* Form Elements */
         .input {
             width: 100%;
-            padding: var(--space-3) var(--space-4);
-            background: var(--surface);
+            padding: 0.75rem 1rem;
+            background: var(--bg-body);
             border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius);
             color: var(--text-primary);
             font-size: 0.875rem;
-            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+            transition: all var(--transition-fast);
         }
 
         .input:hover {
@@ -566,6 +582,7 @@
         .input:focus {
             border-color: var(--color-primary);
             box-shadow: var(--focus-ring);
+            background: var(--surface);
         }
 
         .input::placeholder {
@@ -580,7 +597,7 @@
         select.input {
             cursor: pointer;
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
             background-position: right 0.75rem center;
             background-repeat: no-repeat;
             background-size: 1.25rem;
@@ -592,12 +609,13 @@
             display: inline-flex;
             align-items: center;
             gap: var(--space-1);
-            padding: var(--space-1) var(--space-3);
+            padding: 0.25rem 0.75rem;
             font-size: 0.75rem;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: var(--radius-full);
             border: 1px solid transparent;
             white-space: nowrap;
+            letter-spacing: 0.02em;
         }
 
         .badge-primary {
@@ -623,336 +641,101 @@
 
         /* Navigation */
         .nav-title {
-            margin: var(--space-6) var(--space-3) var(--space-2);
-            font-size: 0.6875rem;
-            letter-spacing: 0.08em;
+            margin: var(--space-8) var(--space-3) var(--space-3);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--text-muted);
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .nav-link {
             display: flex;
             align-items: center;
             gap: var(--space-3);
-            padding: var(--space-3);
-            border-radius: var(--radius-lg);
-            border: 1px solid transparent;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius);
             color: var(--text-secondary);
-            font-weight: 600;
-            font-size: 0.875rem;
+            font-weight: 500;
             transition: all var(--transition-fast);
-            cursor: pointer;
-            width: 100%;
-            text-align: left;
-            background: transparent;
+            margin-bottom: 0.25rem;
         }
 
         .nav-link:hover {
             background: var(--bg-tertiary);
             color: var(--text-primary);
+            transform: translateX(4px);
         }
 
         .nav-link.active {
             background: rgba(var(--color-primary-rgb), 0.1);
             color: var(--color-primary);
-            border-color: rgba(var(--color-primary-rgb), 0.2);
-        }
-
-        .nav-link:focus-visible {
-            box-shadow: var(--focus-ring);
-        }
-
-        /* Typography */
-        .h1 {
-            font-size: 2.25rem;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.025em;
-        }
-
-        .h2 {
-            font-size: 1.875rem;
-            font-weight: 800;
-            line-height: 1.2;
-            letter-spacing: -0.025em;
-        }
-
-        .h3 {
-            font-size: 1.25rem;
             font-weight: 700;
-            line-height: 1.3;
         }
 
-        .h4 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            line-height: 1.4;
+        .nav-link svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            transition: transform var(--transition-fast);
         }
 
-        .text-muted {
-            color: var(--text-secondary);
+        .nav-link:hover svg {
+            transform: scale(1.1);
         }
 
-        .text-small {
-            font-size: 0.875rem;
+        /* Typography Utilities */
+        .h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: var(--space-6); color: var(--text-primary); }
+        .h2 { font-size: 1.875rem; font-weight: 700; margin-bottom: var(--space-4); color: var(--text-primary); }
+        .h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-3); color: var(--text-primary); }
+        .text-muted { color: var(--text-tertiary); }
+        .text-sm { font-size: 0.875rem; }
+        .text-xs { font-size: 0.75rem; }
+        .font-mono { font-family: var(--font-mono); }
+
+        /* Helpers */
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .flex-wrap { flex-wrap: wrap; }
+        .gap-1 { gap: var(--space-1); }
+        .gap-2 { gap: var(--space-2); }
+        .gap-3 { gap: var(--space-3); }
+        .gap-4 { gap: var(--space-4); }
+        .gap-6 { gap: var(--space-6); }
+        .gap-8 { gap: var(--space-8); }
+        .mt-1 { margin-top: var(--space-1); }
+        .mt-2 { margin-top: var(--space-2); }
+        .mt-3 { margin-top: var(--space-3); }
+        .mt-4 { margin-top: var(--space-4); }
+        .mt-6 { margin-top: var(--space-6); }
+        .mb-1 { margin-bottom: var(--space-1); }
+        .mb-2 { margin-bottom: var(--space-2); }
+        .mb-4 { margin-bottom: var(--space-4); }
+        .mb-6 { margin-bottom: var(--space-6); }
+        .p-4 { padding: var(--space-4); }
+        .p-6 { padding: var(--space-6); }
+        .w-full { width: 100%; }
+        .max-w-2xl { max-width: 42rem; }
+        .max-w-4xl { max-width: 56rem; }
+        .cursor-pointer { cursor: pointer; }
+        .grid { display: grid; }
+        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        @media (min-width: 640px) { .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (min-width: 1024px) { .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .text-xs {
-            font-size: 0.75rem;
-        }
-
-        .font-mono {
-            font-family: var(--font-mono);
-        }
-
-        /* Utilities */
-        .flex {
-            display: flex;
-        }
-
-        .flex-col {
-            flex-direction: column;
-        }
-
-        .items-center {
-            align-items: center;
-        }
-
-        .justify-between {
-            justify-content: space-between;
-        }
-
-        .gap-1 {
-            gap: var(--space-1);
-        }
-
-        .gap-2 {
-            gap: var(--space-2);
-        }
-
-        .gap-3 {
-            gap: var(--space-3);
-        }
-
-        .gap-4 {
-            gap: var(--space-4);
-        }
-
-        .gap-6 {
-            gap: var(--space-6);
-        }
-
-        .gap-8 {
-            gap: var(--space-8);
-        }
-
-        .grid {
-            display: grid;
-            gap: var(--space-6);
-        }
-
-        .grid-cols-2 {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .grid-cols-3 {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-
-        @media (max-width: 1024px) {
-            .grid-cols-3 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 640px) {
-
-            .grid-cols-2,
-            .grid-cols-3 {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .mt-1 {
-            margin-top: var(--space-1);
-        }
-
-        .mt-2 {
-            margin-top: var(--space-2);
-        }
-
-        .mt-3 {
-            margin-top: var(--space-3);
-        }
-
-        .mt-4 {
-            margin-top: var(--space-4);
-        }
-
-        .mt-6 {
-            margin-top: var(--space-6);
-        }
-
-        .mt-8 {
-            margin-top: var(--space-8);
-        }
-
-        .mb-4 {
-            margin-bottom: var(--space-4);
-        }
-
-        .mb-6 {
-            margin-bottom: var(--space-6);
-        }
-
-        .p-4 {
-            padding: var(--space-4);
-        }
-
-        .p-6 {
-            padding: var(--space-6);
-        }
-
-        .w-full {
-            width: 100%;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .divider {
-            height: 1px;
-            background: var(--border-color);
-            margin: var(--space-6) 0;
-        }
-
-        /* Alert/Notice */
-        .alert {
-            padding: var(--space-4);
-            border-radius: var(--radius-lg);
-            border: 1px solid;
-            font-weight: 600;
-        }
-
-        .alert-success {
-            background: rgba(var(--color-success-rgb), 0.1);
-            border-color: rgba(var(--color-success-rgb), 0.3);
-            color: var(--color-success);
-        }
-
-        .alert-warning {
-            background: rgba(var(--color-warning-rgb), 0.1);
-            border-color: rgba(var(--color-warning-rgb), 0.3);
-            color: var(--color-warning);
-        }
-
-        .alert-error {
-            background: rgba(var(--color-danger-rgb), 0.1);
-            border-color: rgba(var(--color-danger-rgb), 0.3);
-            color: var(--color-danger);
-        }
-
-        .alert-info {
-            background: rgba(var(--color-info-rgb), 0.1);
-            border-color: rgba(var(--color-info-rgb), 0.3);
-            color: var(--color-info);
-        }
-
-        /* Toast */
-        .toast {
-            position: fixed;
-            top: var(--space-6);
-            right: var(--space-6);
-            z-index: var(--z-toast);
-            padding: var(--space-4) var(--space-6);
-            border-radius: var(--radius-lg);
-            border: 1px solid;
-            font-weight: 600;
-            box-shadow: var(--shadow-xl);
-            animation: slideIn 0.3s ease;
-            max-width: 400px;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        /* ARIA Live Region */
-        .aria-live {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-
-        /* Loading States */
-        .skeleton {
-            background: linear-gradient(90deg,
-                    var(--bg-tertiary) 25%,
-                    var(--bg-secondary) 50%,
-                    var(--bg-tertiary) 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-            border-radius: var(--radius);
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: 200% 0;
-            }
-
-            100% {
-                background-position: -200% 0;
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-
-            .sidebar,
-            .topbar,
-            .no-print {
-                display: none !important;
-            }
-
-            .main-content {
-                padding: 0;
-            }
-
-            body {
-                background: white;
-                color: black;
-            }
-        }
-
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+        #content > * {
+            animation: fadeIn 0.4s ease-out forwards;
         }
     </style>
+    
     <base target="_blank">
     <base target="_blank">
 </head>
@@ -1133,8 +916,12 @@
                     } else {
                         el.className = String(value);
                     }
-                } else if (key === 'style' && typeof value === 'object') {
-                    Object.assign(el.style, value);
+                } else if (key === 'style') {
+                    if (typeof value === 'object') {
+                        Object.assign(el.style, value);
+                    } else {
+                        el.style.cssText = String(value);
+                    }
                 } else if (key === 'dataset' && typeof value === 'object') {
                     Object.entries(value).forEach(([k, v]) => {
                         if (v !== undefined) el.dataset[k] = String(v);
@@ -1853,7 +1640,7 @@
 
                 const closeBtn = h('button', {
                     class: 'icon-btn',
-                    style: 'margin-left: auto;',
+                    style: { marginLeft: 'auto' },
                     onclick: () => remove(el)
                 }, createIcon('x', 16));
 
@@ -2118,7 +1905,12 @@
                 { icon: 'user', label: 'About', path: 'about', active: route.name === 'about' },
                 { icon: 'briefcase', label: 'Resume', path: 'resume', active: route.name === 'resume' },
                 { icon: 'mail', label: 'Contact', path: 'contact', active: route.name === 'contact' },
-                { icon: 'briefcase', label: 'AWS問題集', path: 'quiz', active: route.name === 'quiz' },
+            ];
+
+            const quizItems = [
+                { icon: 'briefcase', label: 'AWS', path: 'quiz?type=aws', active: route.name === 'quiz' && (!route.query.type || route.query.type === 'aws') },
+                { icon: 'briefcase', label: 'PM', path: 'quiz?type=pm', active: route.name === 'quiz' && route.query.type === 'pm' },
+                { icon: 'briefcase', label: '品質・プロセス', path: 'quiz?type=quality', active: route.name === 'quiz' && route.query.type === 'quality' },
             ];
 
             const systemItems = [
@@ -2161,6 +1953,8 @@
                 ...navItems.map(navLink),
                 h('div', { class: 'nav-title' }, 'Apps'),
                 ...appItems.map(navLink),
+                h('div', { class: 'nav-title' }, '問題集'),
+                ...quizItems.map(navLink),
                 h('div', { class: 'nav-title' }, 'Info'),
                 ...infoItems.map(navLink),
                 h('div', { class: 'nav-title' }, 'System'),
@@ -2196,7 +1990,7 @@
                         h('header', {},
                             h('h1', { class: 'h1 mb-4' }, `${state.profile.title} のポートフォリオ`)
                         ),
-                        h('p', { class: 'text-muted', style: 'white-space:pre-wrap;line-height:1.8;' }, state.profile.bio),
+                        h('p', { class: 'text-muted', style: { whiteSpace: 'pre-wrap', lineHeight: '1.8' } }, state.profile.bio),
                         h('div', { class: 'flex flex-wrap gap-3 mt-6' },
                             h('button', {
                                 class: 'btn btn-primary',
@@ -2243,7 +2037,7 @@
                             h('h3', { class: 'h3 mb-3' }, '設計上の工夫'),
                             h('ul', {
                                 class: 'text-muted',
-                                style: 'padding-left:1.5rem;line-height:2;'
+                                style: { paddingLeft: '1.5rem', lineHeight: '2' }
                             },
                                 h('li', {}, 'Importは検証＋正規化＋衝突モード'),
                                 h('li', {}, '整合性チェック→自動修復（重複/孤立/無効URL等）'),
@@ -2259,19 +2053,19 @@
                 h('section', { class: 'grid grid-cols-3' },
                     h('div', { class: 'card' },
                         h('div', { class: 'card-body text-center' },
-                            h('div', { class: 'h2', style: 'color:var(--color-primary);' }, String(state.projects.length)),
+                            h('div', { class: 'h2', style: { color: 'var(--color-primary)' } }, String(state.projects.length)),
                             h('div', { class: 'text-small text-muted' }, 'プロジェクト')
                         )
                     ),
                     h('div', { class: 'card' },
                         h('div', { class: 'card-body text-center' },
-                            h('div', { class: 'h2', style: 'color:var(--color-success);' }, String(state.appsData.tasks.length)),
+                            h('div', { class: 'h2', style: { color: 'var(--color-success)' } }, String(state.appsData.tasks.length)),
                             h('div', { class: 'text-small text-muted' }, 'タスク')
                         )
                     ),
                     h('div', { class: 'card' },
                         h('div', { class: 'card-body text-center' },
-                            h('div', { class: 'h2', style: 'color:var(--color-warning);' }, String(state.appsData.todos.length)),
+                            h('div', { class: 'h2', style: { color: 'var(--color-warning)' } }, String(state.appsData.todos.length)),
                             h('div', { class: 'text-small text-muted' }, 'TODO')
                         )
                     )
@@ -2367,7 +2161,7 @@
                         h('div', { class: 'relative' },
                             h('div', {
                                 class: 'absolute left-3 top-1/2 transform -translate-y-1/2',
-                                style: 'color:var(--text-muted);'
+                                style: { color: 'var(--text-muted)' }
                             }, createIcon('search', 18)),
                             h('input', {
                                 class: 'input pl-10',
@@ -2391,12 +2185,12 @@
 
                 // Project Grid
                 const projects = getFilteredProjects();
-                const grid = h('div', { class: 'grid grid-cols-3', style: 'gap:1.5rem;' });
+                const grid = h('div', { class: 'grid grid-cols-3', style: { gap: '1.5rem' } });
 
                 if (projects.length === 0) {
                     grid.appendChild(h('div', {
                         class: 'card',
-                        style: 'grid-column:1/-1;'
+                        style: { gridColumn: '1/-1' }
                     },
                         h('div', { class: 'card-body text-center text-muted' },
                             '条件に一致するプロジェクトはありません。'
@@ -2404,8 +2198,8 @@
                     ));
                 } else {
                     projects.forEach(p => {
-                        const card = h('article', { class: 'card', style: 'display:flex;flex-direction:column;' },
-                            h('div', { class: 'card-body', style: 'flex:1;display:flex;flex-direction:column;' },
+                        const card = h('article', { class: 'card', style: { display: 'flex', flexDirection: 'column' } },
+                            h('div', { class: 'card-body', style: { flex: '1', display: 'flex', flexDirection: 'column' } },
                                 h('div', { class: 'flex flex-wrap gap-2 mb-3' },
                                     h('span', { class: 'badge badge-primary' }, p.category),
                                     p.demoRoute ? h('span', { class: 'badge badge-success' }, 'デモあり') : null
@@ -2486,7 +2280,7 @@
                 ),
 
                 // Content Grid
-                h('div', { class: 'grid grid-cols-2', style: 'gap:1.5rem;align-items:start;' },
+                h('div', { class: 'grid grid-cols-2', style: { gap: '1.5rem', alignItems: 'start' } },
                     // Left Column
                     h('div', { class: 'flex flex-col gap-4' },
                         h('section', { class: 'card' },
@@ -2495,7 +2289,7 @@
                                     createIcon('alert', 20),
                                     '課題'
                                 )),
-                                h('p', { class: 'text-muted', style: 'white-space:pre-wrap;' }, project.problem)
+                                h('p', { class: 'text-muted', style: { whiteSpace: 'pre-wrap' } }, project.problem)
                             )
                         ),
                         h('section', { class: 'card' },
@@ -2504,7 +2298,7 @@
                                     createIcon('brain', 20),
                                     'アプローチ'
                                 )),
-                                h('p', { class: 'text-muted', style: 'white-space:pre-wrap;' }, project.approach)
+                                h('p', { class: 'text-muted', style: { whiteSpace: 'pre-wrap' } }, project.approach)
                             )
                         ),
                         h('section', { class: 'card' },
@@ -2513,7 +2307,7 @@
                                     createIcon('apps', 20),
                                     'アーキテクチャ'
                                 )),
-                                h('p', { class: 'text-muted font-mono text-small', style: 'white-space:pre-wrap;' },
+                                h('p', { class: 'text-muted font-mono text-small', style: { whiteSpace: 'pre-wrap' } },
                                     project.architecture?.overview || '(未登録)'
                                 )
                             )
@@ -2534,7 +2328,7 @@
                         ),
                         project.demoRoute ? h('section', {
                             class: 'card',
-                            style: 'border-color:var(--color-primary);background:rgba(var(--color-primary-rgb),0.05);'
+                            style: { borderColor: 'var(--color-primary)', background: 'rgba(var(--color-primary-rgb),0.05)' }
                         },
                             h('div', { class: 'card-body' },
                                 h('h3', { class: 'h3 mb-2' }, 'デモ'),
@@ -2548,7 +2342,7 @@
                         related.length > 0 ? h('section', { class: 'card' },
                             h('div', { class: 'card-body' },
                                 h('h3', { class: 'h3 mb-3' }, '関連プロジェクト'),
-                                h('ul', { style: 'list-style:none;padding:0;' },
+                                h('ul', { style: { listStyle: 'none', padding: '0' } },
                                     ...related.map(r =>
                                         h('li', { class: 'mb-2' },
                                             h('button', {
@@ -2572,7 +2366,7 @@
                                 h('div', { class: 'text-center p-4' },
                                     h('div', {
                                         class: 'h2 mb-1',
-                                        style: 'color:var(--color-primary);'
+                                        style: { color: 'var(--color-primary)' }
                                     }, m.value),
                                     h('div', { class: 'text-small text-muted' }, m.label)
                                 )
@@ -2586,7 +2380,7 @@
                     h('div', { class: 'card-body' },
                         h('h3', { class: 'h3 mb-3' }, 'おすすめ（自動）'),
                         h('p', { class: 'text-muted mb-3' }, 'カテゴリ/タグ/技術/本文の近さから自動で近いプロジェクトを提案します。'),
-                        h('ul', { style: 'list-style:none;padding:0;margin:0;' },
+                        h('ul', { style: { listStyle: 'none', padding: '0', margin: '0' } },
                             ...autoRelated.map(r =>
                                 h('li', { class: 'mb-2' },
                                     h('button', {
@@ -2594,7 +2388,7 @@
                                         onclick: () => Router.navigate(`projects/${r.slug}`)
                                     },
                                         createIcon('sparkles', 16),
-                                        h('span', { style: 'margin-left:8px;' }, r.name)
+                                        h('span', { style: { marginLeft: '8px' } }, r.name)
                                     )
                                 )
                             )
@@ -2743,14 +2537,14 @@
 
                 const board = h('div', {
                     class: 'grid grid-cols-3',
-                    style: 'gap:1rem;min-height:400px;'
+                    style: { gap: '1rem', minHeight: '400px' }
                 });
 
                 statuses.forEach(col => {
                     const tasks = allTasks.filter(t => t.status === col.id);
                     const column = h('section', {
                         class: 'card',
-                        style: 'background:var(--bg-secondary);'
+                        style: { background: 'var(--bg-secondary)' }
                     },
                         h('div', { class: 'card-header' },
                             h('div', { class: 'flex items-center justify-between' },
@@ -2762,7 +2556,7 @@
                             ...tasks.map(task =>
                                 h('article', {
                                     class: 'card',
-                                    style: 'background:var(--surface);'
+                                    style: { background: 'var(--surface)' }
                                 },
                                     h('div', { class: 'p-3' },
                                         h('div', { class: 'flex items-start justify-between gap-2 mb-2' },
@@ -2778,7 +2572,7 @@
                                             ),
                                             h('button', {
                                                 class: 'icon-btn btn-sm',
-                                                style: 'width:1.5rem;height:1.5rem;',
+                                                style: { width: '1.5rem', height: '1.5rem' },
                                                 onclick: () => deleteTask(task.id)
                                             }, createIcon('trash', 14))
                                         ),
@@ -2889,7 +2683,7 @@
                         h('div', { class: 'flex gap-2 mt-4' },
                             h('select', {
                                 class: 'input',
-                                style: 'width:auto;',
+                                style: { width: 'auto' },
                                 value: filter,
                                 onchange: (e) => render()
                             },
@@ -3065,7 +2859,7 @@
                             ),
                             h('div', {
                                 class: 'font-mono mb-6',
-                                style: 'font-size:4rem;font-weight:800;letter-spacing:-0.02em;'
+                                style: { fontSize: '4rem', fontWeight: '800', letterSpacing: '-0.02em' }
                             }, formatTime(remaining)),
                             h('div', { class: 'flex justify-center gap-3' },
                                 h('button', {
@@ -3207,7 +3001,7 @@
                     // Chat History
                     h('section', {
                         class: 'card',
-                        style: 'max-height:400px;overflow-y:auto;'
+                        style: { maxHeight: '400px', overflowY: 'auto' }
                     },
                         h('div', { class: 'card-body flex flex-col gap-4' },
                             ai.history.length === 0 ?
@@ -3218,11 +3012,11 @@
                                     h('div', { class: 'flex flex-col gap-1' },
                                         h('div', {
                                             class: 'self-end p-3 rounded-lg',
-                                            style: 'background:rgba(var(--color-primary-rgb),0.1);max-width:80%;'
+                                            style: { background: 'rgba(var(--color-primary-rgb),0.1)', maxWidth: '80%' }
                                         }, h.prompt),
                                         h('div', {
                                             class: 'self-start p-3 rounded-lg',
-                                            style: 'background:var(--bg-tertiary);max-width:80%;white-space:pre-wrap;'
+                                            style: { background: 'var(--bg-tertiary)', maxWidth: '80%', whiteSpace: 'pre-wrap' }
                                         }, h.response),
                                         h('span', { class: 'text-xs text-muted self-start' },
                                             new Date(h.timestamp).toLocaleTimeString()
@@ -3632,15 +3426,15 @@
                                     h('div', { class: 'flex flex-wrap gap-2' },
                                         h('label', { class: 'btn btn-ghost btn-sm' },
                                             h('input', { type: 'checkbox', checked: includeProfile, onchange: (e) => { includeProfile = !!e.target.checked; } }),
-                                            h('span', { style: 'margin-left:8px;' }, 'Profile')
+                                            h('span', { style: { marginLeft: '8px' } }, 'Profile')
                                         ),
                                         h('label', { class: 'btn btn-ghost btn-sm' },
                                             h('input', { type: 'checkbox', checked: includeProjects, onchange: (e) => { includeProjects = !!e.target.checked; } }),
-                                            h('span', { style: 'margin-left:8px;' }, 'Projects')
+                                            h('span', { style: { marginLeft: '8px' } }, 'Projects')
                                         ),
                                         h('label', { class: 'btn btn-ghost btn-sm' },
                                             h('input', { type: 'checkbox', checked: includeApps, onchange: (e) => { includeApps = !!e.target.checked; } }),
-                                            h('span', { style: 'margin-left:8px;' }, 'AppsData')
+                                            h('span', { style: { marginLeft: '8px' } }, 'AppsData')
                                         ),
                                     )
                                 )
@@ -3679,7 +3473,7 @@
                         h('div', { class: 'card-body flex flex-col gap-3' },
                             h('h2', { class: 'h3' }, '並び替え（Projects）'),
                             h('div', { class: 'text-muted text-sm' }, '上下ボタンで表示順を調整できます。'),
-                            h('div', { class: 'flex flex-col gap-2', style: 'max-height:360px; overflow:auto; padding-right:4px;' },
+                            h('div', { class: 'flex flex-col gap-2', style: { maxHeight: '360px', overflow: 'auto', paddingRight: '4px' } },
                                 ...state.projects.map((p, idx) =>
                                     h('div', { class: 'flex items-center justify-between gap-2' },
                                         h('div', { class: 'flex items-center gap-2' },
@@ -3751,7 +3545,7 @@
                                 const hiddenCount = state.projects.length - visibleCount;
                                 return h('div', { class: 'text-muted text-sm' }, `表示: ${visibleCount} / 非表示: ${hiddenCount} / 総数: ${state.projects.length}`);
                             })(),
-                            h('div', { class: 'flex flex-col gap-2', style: 'max-height:420px; overflow:auto; padding-right:4px;' },
+                            h('div', { class: 'flex flex-col gap-2', style: { maxHeight: '420px', overflow: 'auto', paddingRight: '4px' } },
                                 ...state.projects.map(p => {
                                     const hidden = new Set(((state.projectPrefs && state.projectPrefs.hiddenIds) || []).map(String));
                                     const isHidden = hidden.has(String(p.id));
@@ -3796,7 +3590,7 @@
                     h('div', { class: 'card-body' },
                         h('h2', { class: 'h3' }, profile.name),
                         h('p', { class: 'text-muted mb-4' }, profile.title),
-                        h('p', { class: 'text-muted', style: 'white-space:pre-wrap;line-height:1.8;' }, profile.bio)
+                        h('p', { class: 'text-muted', style: { whiteSpace: 'pre-wrap', lineHeight: '1.8' } }, profile.bio)
                     )
                 )
             );
@@ -3808,7 +3602,7 @@
                 h('section', { class: 'card' },
                     h('div', { class: 'card-body' },
                         h('h3', { class: 'h3 mb-4' }, State.get().profile.title),
-                        h('ul', { class: 'text-muted', style: 'line-height:2;padding-left:1.5rem;' },
+                        h('ul', { class: 'text-muted', style: { lineHeight: '2', paddingLeft: '1.5rem' } },
                             h('li', {}, 'ProjectsをCase Study形式で整理'),
                             h('li', {}, '内蔵Apps（Task/Todo/Pomodoro/AI）を作品として掲載'),
                             h('li', {}, '整合性チェック/自動修復＋スナップショットで運用事故率を低減'),
@@ -3827,11 +3621,11 @@
                 h('section', { class: 'card' },
                     h('div', { class: 'card-body' },
                         h('div', { class: 'flex flex-col gap-4' },
-                            h('div', { class: 'flex justify-between py-2 border-bottom', style: 'border-color:var(--border-color);' },
+                            h('div', { class: 'flex justify-between py-2 border-bottom', style: { borderColor: 'var(--border-color)' } },
                                 h('span', { class: 'text-muted' }, 'Email'),
                                 h('a', { href: `mailto:${profile.email}`, class: 'font-mono' }, profile.email)
                             ),
-                            profile.github ? h('div', { class: 'flex justify-between py-2 border-bottom', style: 'border-color:var(--border-color);' },
+                            profile.github ? h('div', { class: 'flex justify-between py-2 border-bottom', style: { borderColor: 'var(--border-color)' } },
                                 h('span', { class: 'text-muted' }, 'GitHub'),
                                 h('a', { href: profile.github, target: '_blank', rel: 'noopener' }, profile.github)
                             ) : null,
@@ -4635,12 +4429,19 @@
         };
 
         function QuizPage() {
-            setMeta("AWS問題集 | Portfolio", "AWS問題集");
-            const box = h("div", { class: "col", style: "gap:14px; max-width:1100px; margin:0 auto;" });
+            const route = Router.getRoute();
+            const quizType = route.query.type || 'aws';
+            
+            let pageTitle = 'AWS問題集';
+            if (quizType === 'pm') pageTitle = 'PM問題集';
+            if (quizType === 'quality') pageTitle = '品質・プロセス問題集';
+            
+            setMeta(`${pageTitle} | Portfolio`, pageTitle);
+            const box = h("div", { class: "col", style: { gap: '14px', maxWidth: '1100px', margin: '0 auto' } });
 
-            box.appendChild(h("div", { class: "h2", text: "AWS問題集" }));
+            box.appendChild(h("div", { class: "h2", text: pageTitle }));
 
-            const quizData = {
+            const awsQuizData = {
                 "1. コンピュート & インスタンス (EC2, EBS)": [
                     {
                         "section": "1. コンピュート & インスタンス (EC2, EBS)",
@@ -5425,22 +5226,505 @@
                 ]
             };
 
+            const pmQuizData = {
+                "1. 要件・意思決定": [
+                    {
+                        "section": "1. 要件・意思決定",
+                        "id": "Q1",
+                        "title": "Q1. 要求が曖昧なまま始まりそうなとき",
+                        "content": [
+                            "新規プロジェクトのキックオフ前だが、要件が「ユーザーにとって便利な機能」というレベルに留まっている。期限は決まっている。この状態でPMは何を決め、何を決めずに進めるか。",
+                            "",
+                            "意図:",
+                            "要件が曖昧＝止める、ではなく曖昧なままでも決められる粒度を切り出せるか。"
+                        ]
+                    },
+                    {
+                        "section": "1. 要件・意思決定",
+                        "id": "Q2",
+                        "title": "Q2. ステークホルダーの意見が割れたとき",
+                        "content": [
+                            "事業側はスピード重視、技術側は品質重視。両者の主張はどちらも合理的で、決定を先延ばしにすると影響が出る。PMは何を根拠に意思決定すべきか。",
+                            "",
+                            "意図:",
+                            "調整役ではなく、決断役として立てるか。"
+                        ]
+                    },
+                    {
+                        "section": "1. 要件・意思決定",
+                        "id": "Q3",
+                        "title": "Q3. スコープ追加の要求",
+                        "content": [
+                            "開発後半になって、「ついでにこれも入れたい」という要望が出た。工数は小さく見えるが、影響範囲は不明。PMとしてどう判断するか。",
+                            "",
+                            "意図:",
+                            "工数ではなく不確実性を見ているか。"
+                        ]
+                    },
+                    {
+                        "section": "1. 要件・意思決定",
+                        "id": "Q11",
+                        "title": "Q11. 判断を急がされる状況",
+                        "content": [
+                            "市場要因により、当初想定より1か月前倒しでのリリースを求められた。品質・スコープ・体制のいずれも余裕はない。PMとして「即断すること」と「即断しないこと」をどう分けるか。",
+                            "",
+                            "意図:",
+                            "スピード要求下での判断の分離能力。"
+                        ]
+                    },
+                    {
+                        "section": "1. 要件・意思決定",
+                        "id": "Q14",
+                        "title": "Q14. 判断材料が足りないまま決める必要があるとき",
+                        "content": [
+                            "重要な意思決定だが、情報が揃うまで待つと機会を逃す。どの条件が揃った時点で決断するか。",
+                            "",
+                            "意図:",
+                            "完全情報を前提にしない意思決定基準。"
+                        ]
+                    }
+                ],
+                "2. チーム・人": [
+                    {
+                        "section": "2. チーム・人",
+                        "id": "Q5",
+                        "title": "Q5. 成果が出ていないメンバーへの対応",
+                        "content": [
+                            "特定のメンバーのアウトプットが安定せず、チーム全体の足を引っ張り始めている。技術力・意欲・環境、原因は不明。PMとして最初に取る行動は何か。",
+                            "",
+                            "意図:",
+                            "人を評価する前に、状況を設計し直せるか。"
+                        ]
+                    }
+                ],
+                "3. プロセス・計画": [
+                    {
+                        "section": "3. プロセス・計画",
+                        "id": "Q4",
+                        "title": "Q4. 失敗が見え始めたとき",
+                        "content": [
+                            "進捗は表面上問題ないが、チームの雰囲気やレビュー内容から、「このままだと後で崩れる」という兆候を感じている。PMはどの時点で介入するべきか。",
+                            "",
+                            "意図:",
+                            "数値に出る前の違和感をどう扱うか。"
+                        ]
+                    },
+                    {
+                        "section": "3. プロセス・計画",
+                        "id": "Q12",
+                        "title": "Q12. 成果が測れない施策",
+                        "content": [
+                            "経営判断で「効果は数値化しづらいが重要」とされる施策を実施することになった。PMとして、何をもって成功・失敗を判断するか。",
+                            "",
+                            "意図:",
+                            "KPI不在時の評価軸設計。"
+                        ]
+                    },
+                    {
+                        "section": "3. プロセス・計画",
+                        "id": "Q13",
+                        "title": "Q13. 計画が機能しなくなったとき",
+                        "content": [
+                            "計画は存在するが、現場が誰も参照していない状態になっている。計画を作り直すべきか、運用を変えるべきか。どう判断するか。",
+                            "",
+                            "意図:",
+                            "計画を成果物ではなく道具として扱えるか。"
+                        ]
+                    }
+                ],
+                "4. 評価・指標": [
+                    {
+                        "section": "4. 評価・指標",
+                        "id": "Q6",
+                        "title": "Q6. 成功しているが違和感があるプロジェクト",
+                        "content": [
+                            "売上・評価ともに良好だが、チームが疲弊しており、このやり方が続くとは思えない。PMとして、この状態をどう扱うか。",
+                            "",
+                            "意図:",
+                            "短期成功を疑えるか。"
+                        ]
+                    },
+                    {
+                        "section": "4. 評価・指標",
+                        "id": "Q7",
+                        "title": "Q7. 数値目標が逆効果になったとき",
+                        "content": [
+                            "KPIを設定した結果、チームが数字を達成することだけに最適化し始めた。品質や協力が下がっている。PMはKPIをどう扱うべきか。",
+                            "",
+                            "意図:",
+                            "指標を神聖化しない判断ができるか。"
+                        ]
+                    },
+                    {
+                        "section": "4. 評価・指標",
+                        "id": "Q10",
+                        "title": "Q10. PMとしての成果の定義",
+                        "content": [
+                            "プロジェクトが終了した。機能はリリースされ、一定の成果も出た。PMとして、このプロジェクトの成功／失敗をどう定義するか。",
+                            "",
+                            "意図:",
+                            "成果をアウトプット以外で語れるか。"
+                        ]
+                    }
+                ],
+                "5. 技術・判断": [
+                    {
+                        "section": "5. 技術・判断",
+                        "id": "Q8",
+                        "title": "Q8. 技術的判断に踏み込むべきか",
+                        "content": [
+                            "技術選定について、開発チーム内で意見が割れている。PMは技術の専門家ではない。どこまで踏み込み、どこから任せるべきか。",
+                            "",
+                            "意図:",
+                            "分からないことを理由に逃げないか。"
+                        ]
+                    },
+                    {
+                        "section": "5. 技術・判断",
+                        "id": "Q9",
+                        "title": "Q9. プロジェクトを止める判断",
+                        "content": [
+                            "進行中のプロジェクトが、コスト・品質・市場状況の観点から見て成功確率が低下している。「止める」という判断はいつ成立するか。",
+                            "",
+                            "意図:",
+                            "継続バイアスから自由か。"
+                        ]
+                    }
+                ],
+                "6. 権限・委譲": [
+                    {
+                        "section": "6. 権限・委譲",
+                        "id": "Q15",
+                        "title": "Q15. 利害が対立しないが納得度が低い",
+                        "content": [
+                            "全員が「反対ではない」が、誰も納得していない決定がある。PMとして、この状態をどう扱うか。",
+                            "",
+                            "意図:",
+                            "表面合意と内的納得の違いを見抜けるか。"
+                        ]
+                    },
+                    {
+                        "section": "6. 権限・委譲",
+                        "id": "Q16",
+                        "title": "Q16. 自分の判断ミスに気づいたとき",
+                        "content": [
+                            "過去のPM判断が、現在の問題の原因になっていると分かった。この事実をどう扱い、どう修正するか。",
+                            "",
+                            "意図:",
+                            "自己正当化をせず判断を更新できるか。"
+                        ]
+                    },
+                    {
+                        "section": "6. 権限・委譲",
+                        "id": "Q17",
+                        "title": "Q17. 判断を委譲するかどうか",
+                        "content": [
+                            "PMが判断すべき領域と、チームに委ねるべき領域の境界はどこか。その境界は状況によってどう変わるか。",
+                            "",
+                            "意図:",
+                            "権限設計と責任設計の理解。"
+                        ]
+                    }
+                ],
+                "7. 学習・適応": [
+                    {
+                        "section": "7. 学習・適応",
+                        "id": "Q18",
+                        "title": "Q18. 成功パターンの再利用",
+                        "content": [
+                            "過去に成功した進め方を、別プロジェクトに適用しようとしている。どの条件が一致していれば再利用し、どこが違えば捨てるか。",
+                            "",
+                            "意図:",
+                            "成功体験を抽象化しすぎない力。"
+                        ]
+                    },
+                    {
+                        "section": "7. 学習・適応",
+                        "id": "Q19",
+                        "title": "Q19. 優先順位が頻繁に変わる状況",
+                        "content": [
+                            "外部要因により優先順位が短期間で何度も変わる。PMとして、何を固定し、何を流動的に扱うか。",
+                            "",
+                            "意図:",
+                            "不安定な状況での軸の持ち方。"
+                        ]
+                    },
+                    {
+                        "section": "7. 学習・適応",
+                        "id": "Q20",
+                        "title": "Q20. PMが不要になったと感じる瞬間",
+                        "content": [
+                            "プロジェクトが自走し始め、PMの介在が減っている。この状態を成功と見るか、リスクと見るか。",
+                            "",
+                            "意図:",
+                            "PMの価値を自己中心的に定義していないか。"
+                        ]
+                    }
+                ]
+            };
+
+            const qualityQuizData = {
+                "1. 品質の兆候・評価": [
+                    {
+                        "section": "1. 品質の兆候・評価",
+                        "id": "Q1",
+                        "title": "Q1. 品質が落ち始めた兆候",
+                        "content": [
+                            "あるプロジェクトで、リリース頻度は維持されているが軽微な不具合報告が徐々に増えている。この時点で、PMとして最初に確認すべき情報は何か。また、すぐに対策を打たない判断は成立するか。",
+                            "",
+                            "意図:",
+                            "品質を「数値」ではなく変化の傾向で捉えられるか。"
+                        ]
+                    },
+                    {
+                        "section": "1. 品質の兆候・評価",
+                        "id": "Q4",
+                        "title": "Q4. 品質指標の選び方",
+                        "content": [
+                            "品質を可視化するため、KPIを設定することになった。不具合件数・テストカバレッジ・レビュー指摘数などが候補にある。どの指標を採用し、どれを採用しないか。その理由は。",
+                            "",
+                            "意図:",
+                            "測れるもの＝見るべきものと誤解していないか。"
+                        ]
+                    },
+                    {
+                        "section": "1. 品質の兆候・評価",
+                        "id": "Q10",
+                        "title": "Q10. 「十分な品質」の定義",
+                        "content": [
+                            "プロジェクト終盤で「品質は十分か？」という問いが出た。この問いに対して、PMはどのように答えるべきか。また、「十分」という言葉をどう扱うか。",
+                            "",
+                            "意図:",
+                            "品質を絶対値ではなく合意形成として扱えるか。"
+                        ]
+                    },
+                    {
+                        "section": "1. 品質の兆候・評価",
+                        "id": "Q20",
+                        "title": "Q20. 品質が良すぎると感じたとき",
+                        "content": [
+                            "品質指標は非常に良好だが、それに見合う価値が出ていないと感じる。この状態をどう評価するか。",
+                            "",
+                            "意図:",
+                            "品質を目的化していないかの確認。"
+                        ]
+                    }
+                ],
+                "2. テスト・検証": [
+                    {
+                        "section": "2. テスト・検証",
+                        "id": "Q2",
+                        "title": "Q2. テスト工数削減の提案",
+                        "content": [
+                            "スケジュール遅延を理由に、開発側から「今回はテストケースを半分にしたい」という提案が出た。この提案を判断する際、PMは何を条件に可否を決めるべきか。",
+                            "",
+                            "意図:",
+                            "品質を「削る／守る」の二択で考えていないか。"
+                        ]
+                    },
+                    {
+                        "section": "2. テスト・検証",
+                        "id": "Q12",
+                        "title": "Q12. テストが信頼されていない",
+                        "content": [
+                            "テストは実施されているが、「どうせ抜ける」という空気がある。品質を上げるために、まず何を変えるか。",
+                            "",
+                            "意図:",
+                            "工数ではなく信頼の問題と認識できるか。"
+                        ]
+                    }
+                ],
+                "3. 責任・原因分析": [
+                    {
+                        "section": "3. 責任・原因分析",
+                        "id": "Q3",
+                        "title": "Q3. 品質問題の責任所在",
+                        "content": [
+                            "リリース後に不具合が発生し、開発チーム内で責任の押し付け合いが起きている。PMとして、原因分析と再発防止をどう切り分けるか。",
+                            "",
+                            "意図:",
+                            "犯人探しと品質改善を分離できるか。"
+                        ]
+                    },
+                    {
+                        "section": "3. 責任・原因分析",
+                        "id": "Q9",
+                        "title": "Q9. 外部要因による品質低下",
+                        "content": [
+                            "外部APIや他チームの成果物が不安定で、自チームの品質が引きずられている。PMとして、どこまでを「自分たちの品質」として扱うか。",
+                            "",
+                            "意図:",
+                            "品質の責任境界を定義できるか。"
+                        ]
+                    },
+                    {
+                        "section": "3. 責任・原因分析",
+                        "id": "Q19",
+                        "title": "Q19. 外部要因による品質低下（制御不能領域）",
+                        "content": [
+                            "外部APIや他チームの影響で品質問題が起きている。自チームで制御できない要因をどう扱うか。",
+                            "",
+                            "意図:",
+                            "コントロール不能領域の設計的扱い。"
+                        ]
+                    }
+                ],
+                "4. 技術的負債": [
+                    {
+                        "section": "4. 技術的負債",
+                        "id": "Q5",
+                        "title": "Q5. 技術的負債の扱い",
+                        "content": [
+                            "明確な技術的負債が存在するが、短期的なビジネス要求が強く、返済の時間が取れない。PMとして、どのタイミングで「返す」と判断するか。",
+                            "",
+                            "意図:",
+                            "技術的負債を感情論ではなく投資判断で扱えるか。"
+                        ]
+                    }
+                ],
+                "5. プロセス": [
+                    {
+                        "section": "5. プロセス",
+                        "id": "Q6",
+                        "title": "Q6. プロセスが形骸化したとき",
+                        "content": [
+                            "レビュー・朝会・ふりかえりは実施されているが、形だけになり、改善につながっていない。プロセスを増やさずに改善するなら、何を変えるか。",
+                            "",
+                            "意図:",
+                            "プロセスを「足す人」か「意味を問い直す人」か。"
+                        ]
+                    },
+                    {
+                        "section": "5. プロセス",
+                        "id": "Q14",
+                        "title": "Q14. プロセスを守る人と破る人",
+                        "content": [
+                            "ルールを厳密に守る人と、柔軟に破る人が混在している。どちらを是とするか。",
+                            "",
+                            "意図:",
+                            "プロセスを目的ではなく制約として扱えるか。"
+                        ]
+                    },
+                    {
+                        "section": "5. プロセス",
+                        "id": "Q18",
+                        "title": "Q18. プロセスが増えすぎたとき",
+                        "content": [
+                            "品質を守るためにプロセスが増え、現場の負担が明確に増している。どの基準で削るか。",
+                            "",
+                            "意図:",
+                            "プロセスを削る判断ができるか。"
+                        ]
+                    }
+                ],
+                "6. トレードオフ": [
+                    {
+                        "section": "6. トレードオフ",
+                        "id": "Q7",
+                        "title": "Q7. 品質とスピードのトレードオフ",
+                        "content": [
+                            "重要顧客向けの機能リリースが迫っているが、現状の品質ではリスクが高いと判断される。リリース延期以外に、PMが取り得る選択肢は何か。",
+                            "",
+                            "意図:",
+                            "トレードオフを多段階で考えられるか。"
+                        ]
+                    },
+                    {
+                        "section": "6. トレードオフ",
+                        "id": "Q13",
+                        "title": "Q13. 品質改善がスピードを落とすとき",
+                        "content": [
+                            "品質向上施策により、明確にスピードが落ち始めた。この状態をどう判断し、どう調整するか。",
+                            "",
+                            "意図:",
+                            "品質とスピードを対立概念にしない。"
+                        ]
+                    }
+                ],
+                "7. 属人化・構造": [
+                    {
+                        "section": "7. 属人化・構造",
+                        "id": "Q8",
+                        "title": "Q8. 属人化と品質",
+                        "content": [
+                            "特定メンバーが抜けると、品質が急激に落ちる構造になっている。この問題を品質の問題として扱うか、プロセスの問題として扱うか。また、最初の一手は何か。",
+                            "",
+                            "意図:",
+                            "人の問題を構造の問題に変換できるか。"
+                        ]
+                    },
+                    {
+                        "section": "7. 属人化・構造",
+                        "id": "Q15",
+                        "title": "Q15. レビューが属人化している",
+                        "content": [
+                            "特定の人のレビューだけが品質を担保している。この状態をどう評価し、どう是正するか。",
+                            "",
+                            "意図:",
+                            "ヒーロー依存を構造の問題として見られるか。"
+                        ]
+                    }
+                ],
+                "8. 文化・空気": [
+                    {
+                        "section": "8. 文化・空気",
+                        "id": "Q11",
+                        "title": "Q11. 不具合が「慣れ」始めたとき",
+                        "content": [
+                            "軽微な不具合が常態化し、誰も強く問題視しなくなっている。PMとして、この状態をどう評価し、どう介入するか。",
+                            "",
+                            "意図:",
+                            "劣化を文化として捉えられるか。"
+                        ]
+                    }
+                ],
+                "9. 改善・学習": [
+                    {
+                        "section": "9. 改善・学習",
+                        "id": "Q16",
+                        "title": "Q16. 再発防止が形だけになったとき",
+                        "content": [
+                            "再発防止策は毎回書かれているが、効果が見えない。どこに問題があると考えるか。",
+                            "",
+                            "意図:",
+                            "再発防止を手続きではなく学習として扱えるか。"
+                        ]
+                    },
+                    {
+                        "section": "9. 改善・学習",
+                        "id": "Q17",
+                        "title": "Q17. 品質改善の効果が見えない",
+                        "content": [
+                            "改善施策を打っているが、良くなっている実感も悪化している実感もない。この状態をどう判断するか。",
+                            "",
+                            "意図:",
+                            "改善を可視化できないリスクの理解。"
+                        ]
+                    }
+                ]
+            };
+
+            // 選択されたタイプのデータを使用
+            let quizData = awsQuizData;
+            if (quizType === 'pm') quizData = pmQuizData;
+            if (quizType === 'quality') quizData = qualityQuizData;
+
             // セクションごとに表示
             Object.keys(quizData).sort().forEach(section => {
-                const sectionBox = h("div", { class: "card p col", style: "gap:12px;" });
+                const sectionBox = h("div", { class: "card p col", style: { gap: '12px' } });
                 sectionBox.appendChild(h("div", { class: "h3", text: section }));
 
                 const questions = quizData[section];
                 questions.forEach((q, idx) => {
-                    const qBox = h("div", { class: "col", style: "gap:8px; padding:12px 0; border-bottom:1px solid var(--border);" });
-                    qBox.appendChild(h("div", { class: "row", style: "gap:8px; align-items:center;" },
+                    const qBox = h("div", { class: "col", style: { gap: '8px', padding: '12px 0', borderBottom: '1px solid var(--border)' } });
+                    qBox.appendChild(h("div", { class: "row", style: { gap: '8px', alignItems: 'center' } },
                         h("span", { class: "badge", text: q.id }),
-                        h("div", { style: "font-weight:600;", text: q.title.replace(q.id + '. ', '') })
+                        h("div", { style: { fontWeight: '600' }, text: q.title.replace(q.id + '. ', '') })
                     ));
 
                     q.content.forEach(line => {
                         if (line.trim()) {
-                            qBox.appendChild(h("div", { class: "muted", style: "white-space:pre-wrap; line-height:1.6;", text: line }));
+                            qBox.appendChild(h("div", { class: "muted", style: { whiteSpace: 'pre-wrap', lineHeight: '1.6' }, text: line }));
                         }
                     });
 
@@ -5451,13 +5735,13 @@
             });
 
             // Contact form section
-            const contactBox = h("div", { class: "card p col", style: "gap:14px; margin-top:24px;" });
+            const contactBox = h("div", { class: "card p col", style: { gap: '14px', marginTop: '24px' } });
             contactBox.appendChild(h("div", { class: "h3", text: "模範解答について" }));
             contactBox.appendChild(h("div", { class: "muted" }, "模範解答をご希望の方は、以下のフォームからお気軽にご連絡ください。"));
 
             const nameInput = h("input", { class: "input", type: "text", placeholder: "お名前" });
             const emailInput = h("input", { class: "input", type: "email", placeholder: "メールアドレス" });
-            const messageInput = h("textarea", { class: "input", rows: 4, placeholder: "メッセージ（任意）", style: "resize:vertical;" });
+            const messageInput = h("textarea", { class: "input", rows: 4, placeholder: "メッセージ（任意）", style: { resize: 'vertical' } });
 
             const submitBtn = h("button", {
                 class: "btn",
@@ -5471,7 +5755,7 @@
                         return;
                     }
 
-                    const subject = encodeURIComponent("AWS問題集の模範解答について");
+                    const subject = encodeURIComponent(`${pageTitle}の模範解答について`);
                     const body = encodeURIComponent(
                         `お名前: ${name}\nメールアドレス: ${email}\n\nメッセージ:\n${message || "(なし)"}`
                     );
@@ -5479,10 +5763,10 @@
                 }
             }, "送信");
 
-            contactBox.appendChild(h("div", { class: "col", style: "gap:10px;" },
-                h("div", { class: "col", style: "gap:4px;" }, h("div", { class: "mini", text: "お名前 *" }), nameInput),
-                h("div", { class: "col", style: "gap:4px;" }, h("div", { class: "mini", text: "メールアドレス *" }), emailInput),
-                h("div", { class: "col", style: "gap:4px;" }, h("div", { class: "mini", text: "メッセージ" }), messageInput),
+            contactBox.appendChild(h("div", { class: "col", style: { gap: '10px' } },
+                h("div", { class: "col", style: { gap: '4px' } }, h("div", { class: "mini", text: "お名前 *" }), nameInput),
+                h("div", { class: "col", style: { gap: '4px' } }, h("div", { class: "mini", text: "メールアドレス *" }), emailInput),
+                h("div", { class: "col", style: { gap: '4px' } }, h("div", { class: "mini", text: "メッセージ" }), messageInput),
                 submitBtn
             ));
 
@@ -5510,10 +5794,10 @@
                 h('section', { class: 'card' },
                     h('div', { class: 'card-body' },
                         h('div', { class: 'h3 mb-2' }, 'エラー'),
-                        h('pre', { style: 'white-space:pre-wrap; word-break:break-word;' }, msg),
+                        h('pre', { style: { whiteSpace: 'pre-wrap', wordBreak: 'break-word' } }, msg),
                         stack ? h('details', { class: 'mt-3' },
                             h('summary', { class: 'cursor-pointer text-sm' }, 'スタックトレース'),
-                            h('pre', { class: 'text-sm', style: 'white-space:pre-wrap; word-break:break-word; margin-top:8px;' }, stack)
+                            h('pre', { class: 'text-sm', style: { whiteSpace: 'pre-wrap', wordBreak: 'break-word', marginTop: '8px' } }, stack)
                         ) : null
                     )
                 ),
@@ -5709,12 +5993,16 @@
             render();
 
             // Service Worker registration (optional enhancement)
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('data:text/javascript,' + encodeURIComponent(`
-                    self.addEventListener('install', e => self.skipWaiting());
-                    self.addEventListener('activate', e => e.waitUntil(self.clients.claim()));
-                    self.addEventListener('fetch', e => e.respondWith(fetch(e.request).catch(() => new Response('Offline'))));
-                `)).catch(() => { });
+            try {
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.register('data:text/javascript,' + encodeURIComponent(`
+                        self.addEventListener('install', e => self.skipWaiting());
+                        self.addEventListener('activate', e => e.waitUntil(self.clients.claim()));
+                        self.addEventListener('fetch', e => e.respondWith(fetch(e.request).catch(() => new Response('Offline'))));
+                    `)).catch(() => { });
+                }
+            } catch (e) {
+                console.warn('Service Worker access denied:', e);
             }
 
             console.log('Portfolio SPA initialized');
