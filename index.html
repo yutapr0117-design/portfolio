@@ -14,10 +14,19 @@ Version History
 - v12: 応募時点のMinimum Viable Artifact
 - v14: 設計・構造を整理
 - v15: 読み手の理解速度を改善
+- v16: 機能拡張と安定性向上
+- v17: 完全上位互換版（全機能保持）
+- v18: v16×v17 ハイブリッド（Classic/Indigo切替、後方互換寄りの拡張）
+  ✨ デザイン刷新: DM Sans + Crimson Pro、インディゴ×ピンクグラデーション
+  🚀 新機能: キーボードショートカット (? でヘルプ表示)
+  📊 完全な問題集: AWS、PM、品質・プロセス問題集を全て保持
+  ♿ アクセシビリティ: 改善されたキーボード対応
+  ⚡ すべての機能を情報欠損ゼロで完全保持
+- v19: 構文エラー修正によりSPA起動不能問題を解消（最小修正）
 -->
 
 <!doctype html>
-<html lang="ja" data-theme="system">
+<html lang="ja" data-theme="system" data-brand="indigo">
 
 <head>
     <meta charset="utf-8" />
@@ -28,8 +37,8 @@ Version History
     <!-- SEO Meta Tags -->
     <meta name="robots" content="index, follow" />
     <meta name="author" content="ユウタ" />
-    <meta name="theme-color" content="#2563eb" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#60a5fa" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#818cf8" media="(prefers-color-scheme: dark)" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Portfolio | 謙虚なITエンジニア" />
@@ -47,6 +56,13 @@ Version History
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+    <!-- Fonts - DM Sans + Crimson Pro (v17) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://example.com" />
@@ -85,10 +101,13 @@ Version History
         /* ===== CSS Custom Properties - Design System ===== */
         :root {
             /* Colors - Refined for better visual comfort and accessibility */
-            --color-primary-rgb: 37, 99, 235;
+            --color-primary-rgb: 99, 102, 241;
+            /* v17: Indigo */
             --color-primary: rgb(var(--color-primary-rgb));
-            --color-primary-light: #60a5fa;
-            --color-primary-dark: #1d4ed8;
+            --color-primary-light: #818cf8;
+            /* v17 */
+            --color-primary-dark: #4f46e5;
+            /* v17 */
 
             --color-success-rgb: 22, 163, 74;
             --color-success: rgb(var(--color-success-rgb));
@@ -124,7 +143,9 @@ Version History
             --focus-ring-danger: 0 0 0 3px rgba(var(--color-danger-rgb), 0.2);
 
             /* Typography - Optimized for Japanese readability */
-            --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+            --font-sans: 'DM Sans',
+                /* v17 */
+                system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
             --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, Monaco, monospace;
 
             /* Spacing Scale */
@@ -163,6 +184,24 @@ Version History
             --z-popover: 1060;
             --z-tooltip: 1070;
             --z-toast: 1080;
+        }
+
+        /* Brand (v18): choose palette & primary font without touching light/dark theme */
+        [data-brand="classic"] {
+            --color-primary-rgb: 37, 99, 235;
+            /* v16: Blue */
+            --color-primary-light: #60a5fa;
+            --color-primary-dark: #1d4ed8;
+            --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+        }
+
+        [data-brand="indigo"] {
+            /* explicit for clarity */
+            --color-primary-rgb: 99, 102, 241;
+            /* v17: Indigo */
+            --color-primary-light: #818cf8;
+            --color-primary-dark: #4f46e5;
+            --font-sans: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
         }
 
         /* Dark Theme - High contrast and comfort */
@@ -1863,6 +1902,41 @@ Version History
             return { apply, cycle, init };
         })();
 
+
+        // ===== Brand Manager (v18): primary palette/font switcher (Classic v16 / Indigo v17) =====
+        const Brand = (() => {
+            const KEY = 'portfolio_brand_v18';
+            const DEFAULT = 'indigo';
+            const ALLOWED = new Set(['indigo', 'classic']);
+
+            function sanitize(v) {
+                return ALLOWED.has(v) ? v : DEFAULT;
+            }
+
+            function apply(brand) {
+                const b = sanitize(String(brand || DEFAULT));
+                document.documentElement.setAttribute('data-brand', b);
+                return b;
+            }
+
+            function init() {
+                const saved = Storage.get(KEY);
+                apply(saved || DEFAULT);
+            }
+
+            function set(brand) {
+                const b = apply(brand);
+                Storage.set(KEY, b);
+            }
+
+            function get() {
+                return document.documentElement.getAttribute('data-brand') || DEFAULT;
+            }
+
+            return { init, set, get, KEY };
+        })();
+
+
         // ===== Router =====
         const Router = (() => {
             let currentRoute = parseRoute();
@@ -3216,6 +3290,22 @@ Version History
             let includeProjects = true;
             let includeApps = true;
 
+
+            const BRAND_OPTIONS = [
+                { value: 'indigo', label: 'Indigo (v17)' },
+                { value: 'classic', label: 'Classic Blue (v16)' }
+            ];
+
+            function getBrand() {
+                return Brand.get();
+            }
+
+            function setBrand(v) {
+                Brand.set(v);
+                render(); // re-render settings UI
+            }
+
+
             // ---- Projects management (v2 superset; information-lossless) ----
             const defaultProjectIds = new Set((Store.createDefaultStore().projects || []).map(p => p.id));
             let newName = '';
@@ -3546,6 +3636,63 @@ Version History
 
                     h('section', { class: 'card' },
                         h('div', { class: 'card-body flex flex-col gap-3' },
+                            h('h2', { class: 'h3' }, '外観（v18）'),
+                            h('p', { class: 'text-muted' }, '色（プライマリ）と本文フォントを切り替えます。ライト/ダークは従来通りテーマ設定で決まります。'),
+                            h('label', { class: 'text-sm font-medium' }, 'ブランド'),
+                            h('select', {
+                                class: 'input',
+                                value: Brand.get(),
+                                onchange: (e) => setBrand(e.target.value)
+                            },
+                                ...BRAND_OPTIONS.map(opt =>
+                                    h('option', { value: opt.value }, opt.label)
+                                )
+                            )
+                        )
+                    ),
+
+                    h('section', { class: 'card' },
+                    ),
+
+                    h('section', { class: 'card' },
+                        h('div', { class: 'card-body flex flex-col gap-3' },
+                            h('h2', { class: 'h3' }, 'サイト外観（配色・フォント）'),
+                            h('p', { class: 'text-muted' }, 'v16のClassicとv17のIndigoを切り替えます（ソースコード上の“良いとこどり”として、両方の設計資産を保持）。'),
+                            h('label', { class: 'flex flex-col gap-2' },
+                                h('span', { class: 'text-sm font-medium' }, 'Brand'),
+                                h('select', {
+                                    class: 'input',
+                                    value: getBrand(),
+                                    onchange: (e) => setBrand(e.target.value)
+                                },
+                                    ...BRAND_OPTIONS.map(o => h('option', { value: o.value }, o.label))
+                                )
+                            )
+                        )
+                    ),
+
+                    h('section', { class: 'card' },
+                        h('div', { class: 'card-body flex flex-col gap-3' },
+                            h('h2', { class: 'h3' }, 'デザイン（v18）'),
+                            h('p', { class: 'text-muted' }, 'Primaryカラーとベースフォントを切り替えます（Light/Dark/Systemは別設定）。'),
+                            h('div', { class: 'flex flex-wrap items-center gap-3' },
+                                h('label', { class: 'text-sm font-semibold', for: 'brandSelect' }, 'ブランド'),
+                                h('select', {
+                                    id: 'brandSelect',
+                                    class: 'input',
+                                    value: Brand.get(),
+                                    onchange: (e) => { Brand.set(e.target.value); render(); }
+                                },
+                                    h('option', { value: 'indigo' }, 'Indigo（v17）'),
+                                    h('option', { value: 'classic' }, 'Classic Blue + Inter（v16）')
+                                ),
+                                h('span', { class: 'badge badge-secondary' }, '即時反映')
+                            )
+                        )
+                    ),
+
+                    h('section', { class: 'card' },
+                        h('div', { class: 'card-body flex flex-col gap-3' },
                             h('h2', { class: 'h3' }, 'エクスポート'),
                             h('div', { class: 'flex flex-wrap gap-2' },
                                 h('button', { class: 'btn btn-primary', onclick: exportFull }, 'フルバックアップ'),
@@ -3554,6 +3701,26 @@ Version History
                                 h('button', { class: 'btn btn-secondary', onclick: exportProfile }, 'Profileのみ')
                             ),
                             h('p', { class: 'text-muted text-sm' }, 'フルバックアップは v2/v7 系の互換を考慮した形式です。')
+                        )
+                    ),
+
+                    h('section', { class: 'card' },
+                        h('div', { class: 'card-body flex flex-col gap-3' },
+                            h('h2', { class: 'h3' }, 'デザイン（v18）'),
+                            h('p', { class: 'text-muted' }, 'Primaryカラーとベースフォントを切り替えます（Light/Dark/Systemは別設定）。'),
+                            h('div', { class: 'flex flex-wrap items-center gap-3' },
+                                h('label', { class: 'text-sm font-semibold', for: 'brandSelect' }, 'ブランド'),
+                                h('select', {
+                                    id: 'brandSelect',
+                                    class: 'input',
+                                    value: Brand.get(),
+                                    onchange: (e) => { Brand.set(e.target.value); render(); }
+                                },
+                                    h('option', { value: 'indigo' }, 'Indigo（v17）'),
+                                    h('option', { value: 'classic' }, 'Classic Blue + Inter（v16）')
+                                ),
+                                h('span', { class: 'badge badge-secondary' }, '即時反映')
+                            )
                         )
                     ),
 
@@ -3605,6 +3772,26 @@ Version History
 
                     h('section', { class: 'card' },
                         h('div', { class: 'card-body flex flex-col gap-3' },
+                            h('h2', { class: 'h3' }, 'デザイン（v18）'),
+                            h('p', { class: 'text-muted' }, 'Primaryカラーとベースフォントを切り替えます（Light/Dark/Systemは別設定）。'),
+                            h('div', { class: 'flex flex-wrap items-center gap-3' },
+                                h('label', { class: 'text-sm font-semibold', for: 'brandSelect' }, 'ブランド'),
+                                h('select', {
+                                    id: 'brandSelect',
+                                    class: 'input',
+                                    value: Brand.get(),
+                                    onchange: (e) => { Brand.set(e.target.value); render(); }
+                                },
+                                    h('option', { value: 'indigo' }, 'Indigo（v17）'),
+                                    h('option', { value: 'classic' }, 'Classic Blue + Inter（v16）')
+                                ),
+                                h('span', { class: 'badge badge-secondary' }, '即時反映')
+                            )
+                        )
+                    ),
+
+                    h('section', { class: 'card' },
+                        h('div', { class: 'card-body flex flex-col gap-3' },
                             h('h2', { class: 'h3' }, 'スナップショット'),
                             h('div', { class: 'flex flex-wrap gap-2' },
                                 h('button', { class: 'btn btn-secondary', onclick: setSnapshot }, '保存'),
@@ -3614,6 +3801,26 @@ Version History
                             snap
                                 ? h('p', { class: 'text-muted text-sm' }, `保存日時: ${new Date(snap.at).toLocaleString()}`)
                                 : h('p', { class: 'text-muted text-sm' }, 'スナップショットは未保存です。')
+                        )
+                    ),
+
+                    h('section', { class: 'card' },
+                        h('div', { class: 'card-body flex flex-col gap-3' },
+                            h('h2', { class: 'h3' }, 'デザイン（v18）'),
+                            h('p', { class: 'text-muted' }, 'Primaryカラーとベースフォントを切り替えます（Light/Dark/Systemは別設定）。'),
+                            h('div', { class: 'flex flex-wrap items-center gap-3' },
+                                h('label', { class: 'text-sm font-semibold', for: 'brandSelect' }, 'ブランド'),
+                                h('select', {
+                                    id: 'brandSelect',
+                                    class: 'input',
+                                    value: Brand.get(),
+                                    onchange: (e) => { Brand.set(e.target.value); render(); }
+                                },
+                                    h('option', { value: 'indigo' }, 'Indigo（v17）'),
+                                    h('option', { value: 'classic' }, 'Classic Blue + Inter（v16）')
+                                ),
+                                h('span', { class: 'badge badge-secondary' }, '即時反映')
+                            )
                         )
                     ),
 
@@ -3728,7 +3935,6 @@ Version History
 
             return render();
         }
-
         // ===== Component: Static Pages =====
         function AboutPage() {
             const profile = State.get().profile;
@@ -6116,6 +6322,12 @@ Version History
 
         // ===== Event Listeners =====
         function init() {
+            // Brand (palette/font)
+            Brand.init();
+
+            // Brand (palette/font)
+            Brand.init();
+
             // Theme
             Theme.init();
 
@@ -6153,7 +6365,7 @@ Version History
                 console.warn('Service Worker access denied:', e);
             }
 
-            console.log('Portfolio SPA v14 initialized successfully (v13 fully compatible)');
+            console.log('Portfolio SPA v18 (Hybrid Edition v16×v17) initialized successfully (v13 fully compatible)');
         }
 
         // ===== Initialization =====
