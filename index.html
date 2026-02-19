@@ -23,6 +23,7 @@ Version History
   ♿ アクセシビリティ: 改善されたキーボード対応
   ⚡ すべての機能を情報欠損ゼロで完全保持
 - v19: 構文エラー修正によりSPA起動不能問題を解消（最小修正）
+- v20: 堅牢性向上（XSS対策, ストレージ保護, 重複コード修正）、旧バージョン番号クリーンアップ
 -->
 
 <!doctype html>
@@ -57,7 +58,7 @@ Version History
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
-    <!-- Fonts - DM Sans + Crimson Pro (v17) -->
+    <!-- Fonts - DM Sans + Crimson Pro  -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
@@ -102,12 +103,12 @@ Version History
         :root {
             /* Colors - Refined for better visual comfort and accessibility */
             --color-primary-rgb: 99, 102, 241;
-            /* v17: Indigo */
+            /* Indigo */
             --color-primary: rgb(var(--color-primary-rgb));
             --color-primary-light: #818cf8;
-            /* v17 */
+            
             --color-primary-dark: #4f46e5;
-            /* v17 */
+            
 
             --color-success-rgb: 22, 163, 74;
             --color-success: rgb(var(--color-success-rgb));
@@ -144,7 +145,7 @@ Version History
 
             /* Typography - Optimized for Japanese readability */
             --font-sans: 'DM Sans',
-                /* v17 */
+                
                 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
             --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, Monaco, monospace;
 
@@ -186,10 +187,10 @@ Version History
             --z-toast: 1080;
         }
 
-        /* Brand (v18): choose palette & primary font without touching light/dark theme */
+        /* Brand : choose palette & primary font without touching light/dark theme */
         [data-brand="classic"] {
             --color-primary-rgb: 37, 99, 235;
-            /* v16: Blue */
+            /* Blue */
             --color-primary-light: #60a5fa;
             --color-primary-dark: #1d4ed8;
             --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
@@ -198,7 +199,7 @@ Version History
         [data-brand="indigo"] {
             /* explicit for clarity */
             --color-primary-rgb: 99, 102, 241;
-            /* v17: Indigo */
+            /* Indigo */
             --color-primary-light: #818cf8;
             --color-primary-dark: #4f46e5;
             --font-sans: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
@@ -920,7 +921,6 @@ Version History
     </style>
 
     <base target="_blank">
-    <base target="_blank">
 </head>
 
 <body>
@@ -1084,15 +1084,12 @@ Version History
         function h(tag, attrs = {}, ...children) {
             const el = document.createElement(tag);
             let refCb = null;
-
             for (const [key, value] of Object.entries(attrs)) {
                 if (value === undefined || value === null) continue;
-
                 if (key === 'ref' && typeof value === 'function') {
                     refCb = value;
                     continue;
                 }
-
                 if (key === 'class') {
                     if (Array.isArray(value)) {
                         el.className = value.filter(Boolean).join(' ');
@@ -1114,15 +1111,20 @@ Version History
                 } else if (key === 'text') {
                     el.textContent = String(value);
                 } else if (key === 'html') {
-                    // Only for trusted static content
-                    el.innerHTML = String(value);
+                    if (tag === 'svg' || tag === 'path' || tag === 'g') {
+                        el.innerHTML = String(value);
+                    } else {
+                        el.textContent = String(value);
+                    }
                 } else if (key.startsWith('aria')) {
                     el.setAttribute(`aria-${key.slice(4).toLowerCase()}`, String(value));
                 } else {
                     el.setAttribute(key, String(value));
                 }
             }
-
+            if (tag === 'a' && el.getAttribute('target') === '_blank') {
+                el.setAttribute('rel', 'noopener noreferrer');
+            }
             children.flat().forEach(child => {
                 if (child === undefined || child === null) return;
                 if (child instanceof Node) {
@@ -1131,11 +1133,9 @@ Version History
                     el.appendChild(document.createTextNode(String(child)));
                 }
             });
-
             if (refCb) {
                 try { refCb(el); } catch (e) { console.error(e); }
             }
-
             return el;
         }
 
@@ -1149,7 +1149,7 @@ Version History
         const Storage = {
             get(key) {
                 try {
-                    return localStorage.getItem(key);
+                    try { return localStorage.getItem(key); } catch { return null; }
                 } catch {
                     return null;
                 }
@@ -1157,7 +1157,7 @@ Version History
 
             set(key, value) {
                 try {
-                    localStorage.setItem(key, value);
+                    try { localStorage.setItem(key, value); } catch {}
                     return true;
                 } catch {
                     return false;
@@ -1166,7 +1166,7 @@ Version History
 
             remove(key) {
                 try {
-                    localStorage.removeItem(key);
+                    try { localStorage.removeItem(key); } catch {}
                     return true;
                 } catch {
                     return false;
@@ -1186,13 +1186,15 @@ Version History
 
         // ===== Helper: Utilities =====
         function uid() {
-            if (crypto.randomUUID) return crypto.randomUUID();
+            try {
+                if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
+            } catch (e) {}
             return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
                 const r = Math.random() * 16 | 0;
-                return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
             });
         }
-
         function clamp(num, min, max) {
             return Math.max(min, Math.min(max, num));
         }
@@ -1217,7 +1219,7 @@ Version History
         }
 
         function tokenize(s) {
-            return String(s || '').toLowerCase().split(/[\s\-_\/\.,:;()\[\]{}"']+/).filter(Boolean);
+            return String(s || "").toLowerCase().split(/[^\w\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF\-]+/).filter(Boolean);
         }
 
         function slugify(str) {
@@ -1570,7 +1572,7 @@ Version History
                 };
             }
 
-            // ===== v10: Similarity-based recommendations (v2 feature, adapted) =====
+            // ===== Similarity-based recommendations (v2 feature, adapted) =====
             function tokenizeForSimilarity(s) {
                 const str = String(s || '');
                 const parts = (str.match(/[A-Za-z0-9]+|[\u3040-\u30ff\u4e00-\u9fff]+/g) || [])
@@ -1903,9 +1905,9 @@ Version History
         })();
 
 
-        // ===== Brand Manager (v18): primary palette/font switcher (Classic v16 / Indigo v17) =====
+        // ===== Brand Manager : primary palette/font switcher (Classic  / Indigo ) =====
         const Brand = (() => {
-            const KEY = 'portfolio_brand_v18';
+            const KEY = 'portfolio_brand_';
             const DEFAULT = 'indigo';
             const ALLOWED = new Set(['indigo', 'classic']);
 
@@ -2306,7 +2308,7 @@ Version History
 
             // Tokenize and score
             function tokenize(s) {
-                return String(s || '').toLowerCase().split(/[\s\-_\/\.,:;()\[\]{}"']+/).filter(Boolean);
+                return String(s || "").toLowerCase().split(/[^\w\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF\-]+/).filter(Boolean);
             }
 
             function scoreProject(p, tokens) {
@@ -3290,652 +3292,191 @@ Version History
             let includeProjects = true;
             let includeApps = true;
 
-
-            const BRAND_OPTIONS = [
-                { value: 'indigo', label: 'Indigo (v17)' },
-                { value: 'classic', label: 'Classic Blue (v16)' }
-            ];
-
-            function getBrand() {
-                return Brand.get();
-            }
-
-            function setBrand(v) {
-                Brand.set(v);
-                render(); // re-render settings UI
-            }
-
-
-            // ---- Projects management (v2 superset; information-lossless) ----
-            const defaultProjectIds = new Set((Store.createDefaultStore().projects || []).map(p => p.id));
             let newName = '';
-            let newCategory = '';
-            let newSummary = '';
-            let newProblem = '';
-            let newApproach = '';
-            let newTags = '';
             let newTech = '';
             let newDemo = '';
 
-            function normalizeAndCommit(mutator) {
-                State.update(d => {
-                    mutator(d);
-                    const normalized = Store.validateAndNormalize(d);
-                    Object.keys(d).forEach(k => delete d[k]);
-                    Object.assign(d, normalized);
-                });
-            }
-
-            function toggleHiddenProject(id) {
-                normalizeAndCommit(d => {
-                    d.projectPrefs = d.projectPrefs || { hiddenIds: [] };
-                    const set = new Set((d.projectPrefs.hiddenIds || []).map(String));
-                    const key = String(id);
-                    if (set.has(key)) set.delete(key);
-                    else set.add(key);
-                    d.projectPrefs.hiddenIds = Array.from(set).slice(0, 1000);
-                });
-                Toast.show('更新しました', 'success');
-                render();
-            }
-
-            function deleteProjectHard(id) {
-                if (!confirm('このプロジェクトを削除しますか？（ユーザー追加分のみ推奨）')) return;
-                normalizeAndCommit(d => {
-                    d.projects = (d.projects || []).filter(p => p && String(p.id) !== String(id));
-                    if (d.projectPrefs && Array.isArray(d.projectPrefs.hiddenIds)) {
-                        d.projectPrefs.hiddenIds = d.projectPrefs.hiddenIds.filter(x => String(x) !== String(id));
-                    }
-                });
-                Toast.show('削除しました', 'success');
-                render();
-            }
-
-            function addProjectManual() {
-                const name = String(newName || '').trim();
-                if (!name) { Toast.show('Project name は必須です', 'error'); return; }
-
-                normalizeAndCommit(d => {
-                    const existingSlugs = new Set((d.projects || []).map(p => p && p.slug).filter(Boolean));
-                    let slug = slugify(name);
-                    if (existingSlugs.has(slug)) slug = `${slug}-${uid().slice(0, 4)}`;
-                    const id = `u${uid().slice(0, 10)}`;
-
-                    const raw = {
-                        id,
-                        slug,
-                        name,
-                        category: String(newCategory || 'Misc').trim() || 'Misc',
-                        summary: String(newSummary || '').trim(),
-                        problem: String(newProblem || '').trim(),
-                        approach: String(newApproach || '').trim(),
-                        tags: String(newTags || '').split(',').map(s => s.trim()).filter(Boolean).slice(0, 30),
-                        tech: String(newTech || '').split(',').map(s => s.trim()).filter(Boolean).slice(0, 30),
-                        demoRoute: ['task', 'todo', 'pomodoro', 'ai'].includes(String(newDemo)) ? String(newDemo) : null,
-                    };
-
-                    d.projects = (d.projects || []).concat([raw]);
-                });
-
-                newName = ''; newCategory = ''; newSummary = ''; newProblem = ''; newApproach = ''; newTags = ''; newTech = ''; newDemo = '';
-                Toast.show('追加しました', 'success');
-                render();
-            }
-
-
-            function downloadJson(obj, filename) {
-                const data = JSON.stringify(obj, null, 2);
-                const blob = new Blob([data], { type: 'application/json' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = filename;
-                a.click();
-                URL.revokeObjectURL(url);
-            }
-
-            function exportFull() {
-                downloadJson(state, `portfolio-full-${new Date().toISOString().slice(0, 10)}.json`);
-                Toast.show('フルバックアップをダウンロードしました', 'success');
-            }
-
-            function exportProjects() {
-                downloadJson({ type: 'projects-only', schemaVersion: CONSTANTS.SCHEMA_VERSION, projects: state.projects }, `portfolio-projects-${new Date().toISOString().slice(0, 10)}.json`);
-                Toast.show('Projectsをダウンロードしました', 'success');
-            }
-
-            function exportApps() {
-                downloadJson({ type: 'apps-only', schemaVersion: CONSTANTS.SCHEMA_VERSION, appsData: state.appsData }, `portfolio-apps-${new Date().toISOString().slice(0, 10)}.json`);
-                Toast.show('AppsDataをダウンロードしました', 'success');
-            }
-
-            function exportProfile() {
-                downloadJson({ type: 'profile-only', schemaVersion: CONSTANTS.SCHEMA_VERSION, profile: state.profile }, `portfolio-profile-${new Date().toISOString().slice(0, 10)}.json`);
-                Toast.show('Profileをダウンロードしました', 'success');
-            }
-
-            function setSnapshot() {
-                try {
-                    const payload = { at: Date.now(), store: State.get() };
-                    localStorage.setItem(CONSTANTS.SNAPSHOT_KEY, JSON.stringify(payload));
-                    Toast.show('スナップショットを保存しました', 'success');
-                    render();
-                } catch (e) {
-                    Toast.show('スナップショット保存に失敗: ' + e.message, 'error');
-                }
-            }
-
-            function getSnapshot() {
-                try {
-                    const raw = localStorage.getItem(CONSTANTS.SNAPSHOT_KEY);
-                    if (!raw) return null;
-                    const obj = JSON.parse(raw);
-                    if (!obj || typeof obj !== 'object' || !obj.store) return null;
-                    return obj;
-                } catch {
-                    return null;
-                }
-            }
-
-            function restoreSnapshot() {
-                const snap = getSnapshot();
-                if (!snap) {
-                    Toast.show('スナップショットがありません', 'error');
-                    return;
-                }
-                if (!confirm('スナップショットへ復元しますか？現在のデータは上書きされます。')) return;
-                try {
-                    const normalized = Store.validateAndNormalize(snap.store);
-                    State.set(normalized);
-                    Toast.show('スナップショットへ復元しました', 'success');
-                } catch (e) {
-                    Toast.show('復元に失敗: ' + e.message, 'error');
-                }
-            }
-
-            function clearSnapshot() {
-                localStorage.removeItem(CONSTANTS.SNAPSHOT_KEY);
-                Toast.show('スナップショットを削除しました', 'success');
-                render();
-            }
-
-            function mergeProjects(current, incoming, mode) {
-                const cur = (Array.isArray(current) ? current : []).map((p, i) => normalizeProject(p, i));
-                const inc = (Array.isArray(incoming) ? incoming : []).map((p, i) => normalizeProject(p, i));
-                if (mode === 'strict') return inc;
-
-                const byId = new Map(cur.map(p => [p.id, p]));
-                const bySlug = new Map(cur.map(p => [p.slug, p]));
-                const out = cur.slice();
-
-                for (const p of inc) {
-                    const hit = byId.get(p.id) || bySlug.get(p.slug);
-                    if (!hit) {
-                        if (mode === 'append' || mode === 'upsert') {
-                            out.push(p);
-                            byId.set(p.id, p);
-                            bySlug.set(p.slug, p);
-                        }
-                        continue;
-                    }
-                    if (mode === 'upsert') {
-                        const merged = { ...hit, ...p, id: hit.id, slug: hit.slug };
-                        const idx = out.findIndex(x => x.id === hit.id);
-                        if (idx >= 0) out[idx] = merged;
-                        byId.set(hit.id, merged);
-                        bySlug.set(hit.slug, merged);
-                    }
-                }
-                return out.slice(0, CONSTANTS.LIMITS.MAX_PROJECTS);
-            }
-
-            function mergeApps(current, incoming, mode) {
-                const cur = normalizeAppsData(current || {});
-                const inc = normalizeAppsData(incoming || {});
-                if (mode === 'strict') return inc;
-
-                // tasks/todos: append or upsert by id
-                const mergeList = (curList, incList, upsert) => {
-                    const out = Array.isArray(curList) ? curList.slice() : [];
-                    const byId = new Map(out.map(x => [x.id, x]));
-                    for (const x of (Array.isArray(incList) ? incList : [])) {
-                        if (!x || !x.id) continue;
-                        const hit = byId.get(x.id);
-                        if (!hit) {
-                            out.push(x);
-                            byId.set(x.id, x);
-                        } else if (upsert) {
-                            const merged = { ...hit, ...x, id: hit.id };
-                            const idx = out.findIndex(t => t.id === hit.id);
-                            if (idx >= 0) out[idx] = merged;
-                            byId.set(hit.id, merged);
-                        }
-                    }
-                    return out;
-                };
-
-                const upsert = mode === 'upsert';
-                const merged = normalizeAppsData({
-                    tasks: mergeList(cur.tasks, inc.tasks, upsert),
-                    todos: mergeList(cur.todos, inc.todos, upsert),
-                    pomodoro: {
-                        history: (cur.pomodoro.history || []).concat(inc.pomodoro.history || []).slice(-500),
-                        settings: upsert ? { ...cur.pomodoro.settings, ...inc.pomodoro.settings } : cur.pomodoro.settings,
-                        runtime: cur.pomodoro.runtime,
-                    },
-                    ai: {
-                        history: (cur.ai.history || []).concat(inc.ai.history || []).slice(-500),
-                    }
-                });
-                return merged;
-            }
-
-            function mergeProfile(current, incoming, mode) {
-                const cur = (current && typeof current === 'object') ? current : {};
-                const inc = (incoming && typeof incoming === 'object') ? incoming : {};
-                if (mode === 'strict') return { ...inc };
-                if (mode === 'upsert') return { ...cur, ...inc };
-                return { ...cur }; // append does not touch profile by default (unless strict/upsert)
-            }
-
-            function importJSON(file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    try {
-                        const data = JSON.parse(e.target.result);
-
-                        State.update((draft) => {
-                            // Full-store or partial formats supported
-                            const isFull = data && data.type === 'full-store';
-                            const incomingProfile = isFull ? data.profile : data.profile;
-                            const incomingProjects = isFull ? data.projects : data.projects;
-                            const incomingApps = isFull ? data.appsData : data.appsData;
-                            const incomingPrefs = data && data.projectPrefs;
-
-                            if (importMode === 'strict' && isFull) {
-                                const normalized = Store.validateAndNormalize(data);
-                                // validateAndNormalize expects full store shape; keep it safe
-                                State.set(normalized);
-                                return;
-                            }
-
-                            if (includeProfile && incomingProfile) {
-                                draft.profile = mergeProfile(draft.profile, incomingProfile, importMode);
-                            }
-                            if (includeProjects && incomingProjects) {
-                                draft.projects = mergeProjects(draft.projects, incomingProjects, importMode);
-                                // ensure defaults are never lost
-                                draft.projects = mergeProjectsWithDefaults(draft.projects);
-                                if (incomingPrefs && typeof incomingPrefs === 'object') {
-                                    draft.projectPrefs = {
-                                        hiddenIds: Array.isArray(incomingPrefs.hiddenIds)
-                                            ? incomingPrefs.hiddenIds.map(String).filter(Boolean).slice(0, 1000)
-                                            : []
-                                    };
-                                }
-                            }
-                            if (includeApps && incomingApps) {
-                                draft.appsData = mergeApps(draft.appsData, incomingApps, importMode);
-                            }
-
-                            // Final normalize pass for safety
-                            const normalized = Store.validateAndNormalize(draft);
-                            Object.assign(draft, normalized);
-                        });
-
-                        Toast.show('インポートしました', 'success');
-                        render();
-                    } catch (err) {
-                        Toast.show('インポートに失敗しました: ' + err.message, 'error');
-                    }
-                };
-                reader.readAsText(file);
-            }
-
-            function resetData() {
-                if (!confirm('すべてのデータを初期状態に戻しますか？この操作は取り消せません。')) return;
-                State.set(Store.createDefaultStore());
-                Theme.apply('system');
-                Toast.show('初期化しました', 'success');
-                render();
-            }
-
-            function normalizeNow() {
-                try {
-                    const before = State.get();
-                    const beforeCounts = { p: before.projects.length, t: before.appsData.tasks.length, td: before.appsData.todos.length };
-                    const normalized = Store.validateAndNormalize(before);
-                    const afterCounts = { p: normalized.projects.length, t: normalized.appsData.tasks.length, td: normalized.appsData.todos.length };
-                    State.set(normalized);
-                    Toast.show(`整合性チェック/正規化完了 (P:${beforeCounts.p}→${afterCounts.p}, T:${beforeCounts.t}→${afterCounts.t}, TODO:${beforeCounts.td}→${afterCounts.td})`, 'success');
-                    render();
-                } catch (e) {
-                    Toast.show('整合性チェックに失敗: ' + e.message, 'error');
-                }
-            }
-
-            function moveProject(idx, dir) {
-                State.update(draft => {
-                    const arr = draft.projects;
-                    const j = idx + dir;
-                    if (!arr || idx < 0 || j < 0 || idx >= arr.length || j >= arr.length) return;
-                    const tmp = arr[idx];
-                    arr[idx] = arr[j];
-                    arr[j] = tmp;
-                });
-                render();
-            }
-
             function render() {
                 const snap = getSnapshot();
-                return h('div', { class: 'flex flex-col gap-6' },
-                    h('header', {},
-                        h('h1', { class: 'h1' }, '設定・データ'),
-                        h('p', { class: 'text-muted' }, 'Import/Export、スナップショット、整合性チェック、並び替え。')
-                    ),
-
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body flex flex-col gap-3' },
-                            h('h2', { class: 'h3' }, '外観（v18）'),
-                            h('p', { class: 'text-muted' }, '色（プライマリ）と本文フォントを切り替えます。ライト/ダークは従来通りテーマ設定で決まります。'),
-                            h('label', { class: 'text-sm font-medium' }, 'ブランド'),
-                            h('select', {
-                                class: 'input',
-                                value: Brand.get(),
-                                onchange: (e) => setBrand(e.target.value)
-                            },
-                                ...BRAND_OPTIONS.map(opt =>
-                                    h('option', { value: opt.value }, opt.label)
-                                )
-                            )
-                        )
-                    ),
-
-                    h('section', { class: 'card' },
-                    ),
-
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body flex flex-col gap-3' },
-                            h('h2', { class: 'h3' }, 'サイト外観（配色・フォント）'),
-                            h('p', { class: 'text-muted' }, 'v16のClassicとv17のIndigoを切り替えます（ソースコード上の“良いとこどり”として、両方の設計資産を保持）。'),
-                            h('label', { class: 'flex flex-col gap-2' },
-                                h('span', { class: 'text-sm font-medium' }, 'Brand'),
-                                h('select', {
-                                    class: 'input',
-                                    value: getBrand(),
-                                    onchange: (e) => setBrand(e.target.value)
-                                },
-                                    ...BRAND_OPTIONS.map(o => h('option', { value: o.value }, o.label))
-                                )
-                            )
-                        )
-                    ),
-
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body flex flex-col gap-3' },
-                            h('h2', { class: 'h3' }, 'デザイン（v18）'),
-                            h('p', { class: 'text-muted' }, 'Primaryカラーとベースフォントを切り替えます（Light/Dark/Systemは別設定）。'),
-                            h('div', { class: 'flex flex-wrap items-center gap-3' },
-                                h('label', { class: 'text-sm font-semibold', for: 'brandSelect' }, 'ブランド'),
-                                h('select', {
-                                    id: 'brandSelect',
-                                    class: 'input',
-                                    value: Brand.get(),
-                                    onchange: (e) => { Brand.set(e.target.value); render(); }
-                                },
-                                    h('option', { value: 'indigo' }, 'Indigo（v17）'),
-                                    h('option', { value: 'classic' }, 'Classic Blue + Inter（v16）')
+                return h('article', { class: 'flex flex-col gap-6 max-w-4xl' },
+                    h('header', {}, h('h1', { class: 'h1' }, 'Settings')),
+                    h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-6' },
+                        h('section', { class: 'card' },
+                            h('div', { class: 'card-body flex flex-col gap-3' },
+                                h('h2', { class: 'h3' }, 'エクスポート'),
+                                h('div', { class: 'flex flex-wrap gap-2' },
+                                    h('button', { class: 'btn btn-primary', onclick: exportFull }, 'フルバックアップ'),
+                                    h('button', { class: 'btn btn-secondary', onclick: exportProjects }, 'Projectsのみ'),
+                                    h('button', { class: 'btn btn-secondary', onclick: exportApps }, 'AppsDataのみ'),
+                                    h('button', { class: 'btn btn-secondary', onclick: exportProfile }, 'Profileのみ')
                                 ),
-                                h('span', { class: 'badge badge-secondary' }, '即時反映')
+                                h('p', { class: 'text-muted text-sm' }, 'フルバックアップは互換性を考慮した形式です。')
                             )
-                        )
-                    ),
-
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body flex flex-col gap-3' },
-                            h('h2', { class: 'h3' }, 'エクスポート'),
-                            h('div', { class: 'flex flex-wrap gap-2' },
-                                h('button', { class: 'btn btn-primary', onclick: exportFull }, 'フルバックアップ'),
-                                h('button', { class: 'btn btn-secondary', onclick: exportProjects }, 'Projectsのみ'),
-                                h('button', { class: 'btn btn-secondary', onclick: exportApps }, 'AppsDataのみ'),
-                                h('button', { class: 'btn btn-secondary', onclick: exportProfile }, 'Profileのみ')
-                            ),
-                            h('p', { class: 'text-muted text-sm' }, 'フルバックアップは v2/v7 系の互換を考慮した形式です。')
-                        )
-                    ),
-
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body flex flex-col gap-3' },
-                            h('h2', { class: 'h3' }, 'デザイン（v18）'),
-                            h('p', { class: 'text-muted' }, 'Primaryカラーとベースフォントを切り替えます（Light/Dark/Systemは別設定）。'),
-                            h('div', { class: 'flex flex-wrap items-center gap-3' },
-                                h('label', { class: 'text-sm font-semibold', for: 'brandSelect' }, 'ブランド'),
-                                h('select', {
-                                    id: 'brandSelect',
-                                    class: 'input',
-                                    value: Brand.get(),
-                                    onchange: (e) => { Brand.set(e.target.value); render(); }
-                                },
-                                    h('option', { value: 'indigo' }, 'Indigo（v17）'),
-                                    h('option', { value: 'classic' }, 'Classic Blue + Inter（v16）')
-                                ),
-                                h('span', { class: 'badge badge-secondary' }, '即時反映')
-                            )
-                        )
-                    ),
-
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body flex flex-col gap-3' },
-                            h('h2', { class: 'h3' }, 'インポート（欠損ゼロ）'),
-                            h('div', { class: 'grid grid-cols-2 gap-3' },
-                                h('div', {},
-                                    h('label', { class: 'text-sm text-muted' }, 'モード'),
-                                    h('select', { class: 'input', onchange: (e) => { importMode = e.target.value; }, value: importMode },
-                                        h('option', { value: 'append' }, 'append（追加のみ）'),
-                                        h('option', { value: 'upsert' }, 'upsert（更新+追加）'),
-                                        h('option', { value: 'strict' }, 'strict（全置換）')
+                        ),
+                        h('section', { class: 'card' },
+                            h('div', { class: 'card-body flex flex-col gap-3' },
+                                h('h2', { class: 'h3' }, 'インポート（欠損ゼロ）'),
+                                h('div', { class: 'grid grid-cols-2 gap-3' },
+                                    h('div', {},
+                                        h('label', { class: 'text-sm text-muted' }, 'モード'),
+                                        h('select', { class: 'input', onchange: (e) => { importMode = e.target.value; }, value: importMode },
+                                            h('option', { value: 'append' }, 'append（追加のみ）'),
+                                            h('option', { value: 'upsert' }, 'upsert（更新+追加）'),
+                                            h('option', { value: 'strict' }, 'strict（全置換）')
+                                        )
+                                    ),
+                                    h('div', {},
+                                        h('label', { class: 'text-sm text-muted' }, '対象'),
+                                        h('div', { class: 'flex flex-wrap gap-2' },
+                                            h('label', { class: 'btn btn-ghost btn-sm' },
+                                                h('input', { type: 'checkbox', checked: includeProfile, onchange: (e) => { includeProfile = !!e.target.checked; } }),
+                                                h('span', { style: { marginLeft: '8px' } }, 'Profile')
+                                            ),
+                                            h('label', { class: 'btn btn-ghost btn-sm' },
+                                                h('input', { type: 'checkbox', checked: includeProjects, onchange: (e) => { includeProjects = !!e.target.checked; } }),
+                                                h('span', { style: { marginLeft: '8px' } }, 'Projects')
+                                            ),
+                                            h('label', { class: 'btn btn-ghost btn-sm' },
+                                                h('input', { type: 'checkbox', checked: includeApps, onchange: (e) => { includeApps = !!e.target.checked; } }),
+                                                h('span', { style: { marginLeft: '8px' } }, 'AppsData')
+                                            )
+                                        )
                                     )
                                 ),
                                 h('div', {},
-                                    h('label', { class: 'text-sm text-muted' }, '対象'),
-                                    h('div', { class: 'flex flex-wrap gap-2' },
-                                        h('label', { class: 'btn btn-ghost btn-sm' },
-                                            h('input', { type: 'checkbox', checked: includeProfile, onchange: (e) => { includeProfile = !!e.target.checked; } }),
-                                            h('span', { style: { marginLeft: '8px' } }, 'Profile')
-                                        ),
-                                        h('label', { class: 'btn btn-ghost btn-sm' },
-                                            h('input', { type: 'checkbox', checked: includeProjects, onchange: (e) => { includeProjects = !!e.target.checked; } }),
-                                            h('span', { style: { marginLeft: '8px' } }, 'Projects')
-                                        ),
-                                        h('label', { class: 'btn btn-ghost btn-sm' },
-                                            h('input', { type: 'checkbox', checked: includeApps, onchange: (e) => { includeApps = !!e.target.checked; } }),
-                                            h('span', { style: { marginLeft: '8px' } }, 'AppsData')
-                                        ),
-                                    )
+                                    h('input', {
+                                        type: 'file',
+                                        class: 'input',
+                                        accept: 'application/json',
+                                        onchange: (e) => {
+                                            const f = e.target.files && e.target.files[0];
+                                            if (f) importJSON(f);
+                                            e.target.value = '';
+                                        }
+                                    })
+                                ),
+                                h('p', { class: 'text-muted text-sm' }, 'Projectsは常にデフォルトを維持しつつ、あなたの編集を優先してマージします。')
+                            )
+                        ),
+                        h('section', { class: 'card' },
+                            h('div', { class: 'card-body flex flex-col gap-3' },
+                                h('h2', { class: 'h3' }, 'デザイン'),
+                                h('p', { class: 'text-muted' }, 'Primaryカラーとベースフォントを切り替えます（Light/Dark/Systemは別設定）。'),
+                                h('div', { class: 'flex flex-wrap items-center gap-3' },
+                                    h('label', { class: 'text-sm font-semibold', for: 'brandSelect' }, 'ブランド'),
+                                    h('select', {
+                                        id: 'brandSelect',
+                                        class: 'input',
+                                        value: Brand.get(),
+                                        onchange: (e) => { Brand.set(e.target.value); render(); }
+                                    },
+                                        h('option', { value: 'indigo' }, 'Indigo'),
+                                        h('option', { value: 'classic' }, 'Classic Blue + Inter')
+                                    ),
+                                    h('span', { class: 'badge badge-secondary' }, '即時反映')
                                 )
-                            ),
-                            h('div', {},
-                                h('input', {
-                                    type: 'file',
-                                    class: 'input',
-                                    accept: 'application/json',
-                                    onchange: (e) => {
-                                        const f = e.target.files && e.target.files[0];
-                                        if (f) importJSON(f);
-                                        e.target.value = '';
-                                    }
-                                })
-                            ),
-                            h('p', { class: 'text-muted text-sm' }, 'Projectsは常に「v2のデフォルト18件」を維持しつつ、あなたの編集を優先してマージします。')
-                        )
-                    ),
-
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body flex flex-col gap-3' },
-                            h('h2', { class: 'h3' }, 'デザイン（v18）'),
-                            h('p', { class: 'text-muted' }, 'Primaryカラーとベースフォントを切り替えます（Light/Dark/Systemは別設定）。'),
-                            h('div', { class: 'flex flex-wrap items-center gap-3' },
-                                h('label', { class: 'text-sm font-semibold', for: 'brandSelect' }, 'ブランド'),
-                                h('select', {
-                                    id: 'brandSelect',
-                                    class: 'input',
-                                    value: Brand.get(),
-                                    onchange: (e) => { Brand.set(e.target.value); render(); }
-                                },
-                                    h('option', { value: 'indigo' }, 'Indigo（v17）'),
-                                    h('option', { value: 'classic' }, 'Classic Blue + Inter（v16）')
-                                ),
-                                h('span', { class: 'badge badge-secondary' }, '即時反映')
                             )
-                        )
-                    ),
-
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body flex flex-col gap-3' },
-                            h('h2', { class: 'h3' }, 'スナップショット'),
-                            h('div', { class: 'flex flex-wrap gap-2' },
-                                h('button', { class: 'btn btn-secondary', onclick: setSnapshot }, '保存'),
-                                h('button', { class: 'btn btn-secondary', onclick: restoreSnapshot, disabled: !snap }, '復元'),
-                                h('button', { class: 'btn btn-ghost', onclick: clearSnapshot, disabled: !snap }, '削除')
-                            ),
-                            snap
-                                ? h('p', { class: 'text-muted text-sm' }, `保存日時: ${new Date(snap.at).toLocaleString()}`)
-                                : h('p', { class: 'text-muted text-sm' }, 'スナップショットは未保存です。')
-                        )
-                    ),
-
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body flex flex-col gap-3' },
-                            h('h2', { class: 'h3' }, 'デザイン（v18）'),
-                            h('p', { class: 'text-muted' }, 'Primaryカラーとベースフォントを切り替えます（Light/Dark/Systemは別設定）。'),
-                            h('div', { class: 'flex flex-wrap items-center gap-3' },
-                                h('label', { class: 'text-sm font-semibold', for: 'brandSelect' }, 'ブランド'),
-                                h('select', {
-                                    id: 'brandSelect',
-                                    class: 'input',
-                                    value: Brand.get(),
-                                    onchange: (e) => { Brand.set(e.target.value); render(); }
-                                },
-                                    h('option', { value: 'indigo' }, 'Indigo（v17）'),
-                                    h('option', { value: 'classic' }, 'Classic Blue + Inter（v16）')
+                        ),
+                        h('section', { class: 'card' },
+                            h('div', { class: 'card-body flex flex-col gap-3' },
+                                h('h2', { class: 'h3' }, 'スナップショット'),
+                                h('div', { class: 'flex flex-wrap gap-2' },
+                                    h('button', { class: 'btn btn-secondary', onclick: setSnapshot }, '保存'),
+                                    h('button', { class: 'btn btn-secondary', onclick: restoreSnapshot, disabled: !snap }, '復元'),
+                                    h('button', { class: 'btn btn-ghost', onclick: clearSnapshot, disabled: !snap }, '削除')
                                 ),
-                                h('span', { class: 'badge badge-secondary' }, '即時反映')
+                                snap
+                                    ? h('p', { class: 'text-muted text-sm' }, `保存日時: ${new Date(snap.at).toLocaleString()}`)
+                                    : h('p', { class: 'text-muted text-sm' }, 'スナップショットは未保存です。')
                             )
-                        )
-                    ),
-
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body flex flex-col gap-3' },
-                            h('h2', { class: 'h3' }, '並び替え（Projects）'),
-                            h('div', { class: 'text-muted text-sm' }, '上下ボタンで表示順を調整できます。'),
-                            h('div', { class: 'flex flex-col gap-2', style: { maxHeight: '360px', overflow: 'auto', paddingRight: '4px' } },
-                                ...state.projects.map((p, idx) =>
-                                    h('div', { class: 'flex items-center justify-between gap-2' },
-                                        h('div', { class: 'flex items-center gap-2' },
-                                            h('span', { class: 'badge badge-gray' }, String(idx + 1)),
-                                            h('span', { class: 'text-sm' }, p.name)
-                                        ),
-                                        h('div', { class: 'flex items-center gap-2' },
-                                            h('button', { class: 'btn btn-ghost btn-sm', onclick: () => moveProject(idx, -1), disabled: idx === 0 }, '↑'),
-                                            h('button', { class: 'btn btn-ghost btn-sm', onclick: () => moveProject(idx, +1), disabled: idx === state.projects.length - 1 }, '↓')
+                        ),
+                        h('section', { class: 'card' },
+                            h('div', { class: 'card-body flex flex-col gap-3' },
+                                h('h2', { class: 'h3' }, '並び替え（Projects）'),
+                                h('div', { class: 'text-muted text-sm' }, '上下ボタンで表示順を調整できます。'),
+                                h('div', { class: 'flex flex-col gap-2', style: { maxHeight: '360px', overflow: 'auto', paddingRight: '4px' } },
+                                    ...state.projects.map((p, idx) =>
+                                        h('div', { class: 'flex items-center justify-between gap-2' },
+                                            h('div', { class: 'flex items-center gap-2' },
+                                                h('span', { class: 'badge badge-gray' }, String(idx + 1)),
+                                                h('span', { class: 'text-sm' }, p.name)
+                                            ),
+                                            h('div', { class: 'flex items-center gap-2' },
+                                                h('button', { class: 'btn btn-ghost btn-sm', onclick: () => moveProject(idx, -1), disabled: idx === 0 }, '↑'),
+                                                h('button', { class: 'btn btn-ghost btn-sm', onclick: () => moveProject(idx, +1), disabled: idx === state.projects.length - 1 }, '↓')
+                                            )
                                         )
                                     )
                                 )
                             )
-                        )
-                    ),
-
-
-
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body flex flex-col gap-3' },
-                            h('h2', { class: 'h3' }, 'Projects管理（追加 / 非表示 / 削除）'),
-                            h('p', { class: 'text-muted text-sm' }, 'デフォルト（v2の18件）は「非表示」で扱い、ユーザー追加分は「削除」も可能です（情報欠損0）。'),
-                            h('div', { class: 'grid grid-cols-2 gap-3' },
-                                h('div', {},
-                                    h('label', { class: 'text-sm text-muted' }, 'Project name（必須）'),
-                                    h('input', { class: 'input', placeholder: '例: 新規プロジェクト', oninput: (e) => { newName = e.target.value; } })
-                                ),
-                                h('div', {},
-                                    h('label', { class: 'text-sm text-muted' }, 'Category'),
-                                    h('input', { class: 'input', placeholder: '例: Productivity / AI', oninput: (e) => { newCategory = e.target.value; } })
-                                ),
-                                h('div', { class: 'col-span-2' },
-                                    h('label', { class: 'text-sm text-muted' }, 'Summary'),
-                                    h('textarea', { class: 'input', placeholder: '短い説明', style: 'min-height:84px;', oninput: (e) => { newSummary = e.target.value; } })
-                                ),
-                                h('div', { class: 'col-span-2' },
-                                    h('label', { class: 'text-sm text-muted' }, 'Problem / Risk'),
-                                    h('textarea', { class: 'input', placeholder: '課題・リスク（任意）', style: 'min-height:84px;', oninput: (e) => { newProblem = e.target.value; } })
-                                ),
-                                h('div', { class: 'col-span-2' },
-                                    h('label', { class: 'text-sm text-muted' }, 'Approach / Solution'),
-                                    h('textarea', { class: 'input', placeholder: '方針・解決策（任意）', style: 'min-height:84px;', oninput: (e) => { newApproach = e.target.value; } })
-                                ),
-                                h('div', {},
-                                    h('label', { class: 'text-sm text-muted' }, 'Tags（カンマ区切り）'),
-                                    h('input', { class: 'input', placeholder: '例: #ツール,#効率化', oninput: (e) => { newTags = e.target.value; } })
-                                ),
-                                h('div', {},
-                                    h('label', { class: 'text-sm text-muted' }, 'Tech（カンマ区切り）'),
-                                    h('input', { class: 'input', placeholder: '例: JS,HTML,CSS', oninput: (e) => { newTech = e.target.value; } })
-                                ),
-                                h('div', {},
-                                    h('label', { class: 'text-sm text-muted' }, 'Demo（任意）'),
-                                    h('select', { class: 'input', onchange: (e) => { newDemo = e.target.value; } },
-                                        h('option', { value: '' }, 'Demoなし'),
-                                        h('option', { value: 'task' }, 'task'),
-                                        h('option', { value: 'todo' }, 'todo'),
-                                        h('option', { value: 'pomodoro' }, 'pomodoro'),
-                                        h('option', { value: 'ai' }, 'ai')
+                        ),
+                        h('section', { class: 'card' },
+                            h('div', { class: 'card-body flex flex-col gap-3' },
+                                h('h2', { class: 'h3' }, '表示管理（Projects）'),
+                                h('div', { class: 'grid grid-cols-1 gap-3' },
+                                    h('div', {},
+                                        h('label', { class: 'text-sm text-muted' }, '名前'),
+                                        h('input', { class: 'input', placeholder: 'プロジェクト名', oninput: (e) => { newName = e.target.value; } })
+                                    ),
+                                    h('div', {},
+                                        h('label', { class: 'text-sm text-muted' }, 'Tech（カンマ区切り）'),
+                                        h('input', { class: 'input', placeholder: '例: JS,HTML,CSS', oninput: (e) => { newTech = e.target.value; } })
+                                    ),
+                                    h('div', {},
+                                        h('label', { class: 'text-sm text-muted' }, 'Demo（任意）'),
+                                        h('select', { class: 'input', onchange: (e) => { newDemo = e.target.value; } },
+                                            h('option', { value: '' }, 'Demoなし'),
+                                            h('option', { value: 'task' }, 'task'),
+                                            h('option', { value: 'todo' }, 'todo'),
+                                            h('option', { value: 'pomodoro' }, 'pomodoro'),
+                                            h('option', { value: 'ai' }, 'ai')
+                                        )
+                                    ),
+                                    h('div', { class: 'flex items-end' },
+                                        h('button', { class: 'btn btn-primary w-full', onclick: addProjectManual }, '追加')
                                     )
                                 ),
-                                h('div', { class: 'flex items-end' },
-                                    h('button', { class: 'btn btn-primary w-full', onclick: addProjectManual }, '追加')
-                                )
-                            ),
-                            (() => {
-                                const hidden = new Set(((state.projectPrefs && state.projectPrefs.hiddenIds) || []).map(String));
-                                const visibleCount = state.projects.filter(p => !hidden.has(String(p.id))).length;
-                                const hiddenCount = state.projects.length - visibleCount;
-                                return h('div', { class: 'text-muted text-sm' }, `表示: ${visibleCount} / 非表示: ${hiddenCount} / 総数: ${state.projects.length}`);
-                            })(),
-                            h('div', { class: 'flex flex-col gap-2', style: { maxHeight: '420px', overflow: 'auto', paddingRight: '4px' } },
-                                ...state.projects.map(p => {
+                                (() => {
                                     const hidden = new Set(((state.projectPrefs && state.projectPrefs.hiddenIds) || []).map(String));
-                                    const isHidden = hidden.has(String(p.id));
-                                    const isDefault = defaultProjectIds.has(String(p.id));
-                                    return h('div', { class: 'flex items-center justify-between gap-2' },
-                                        h('div', { class: 'flex items-center gap-2' },
-                                            h('span', { class: 'badge badge-gray' }, isDefault ? 'default' : 'user'),
-                                            h('span', { class: 'text-sm' }, p.name),
-                                            isHidden ? h('span', { class: 'badge badge-green' }, 'hidden') : null
-                                        ),
-                                        h('div', { class: 'flex items-center gap-2' },
-                                            h('button', { class: 'btn btn-ghost btn-sm', onclick: () => toggleHiddenProject(p.id) }, isHidden ? '表示' : '非表示'),
-                                            h('button', { class: 'btn btn-danger btn-sm', disabled: isDefault, title: isDefault ? 'デフォルトは非表示のみ（情報欠損0）' : '', onclick: () => deleteProjectHard(p.id) }, '削除')
-                                        )
-                                    );
-                                })
+                                    const visibleCount = state.projects.filter(p => !hidden.has(String(p.id))).length;
+                                    const hiddenCount = state.projects.length - visibleCount;
+                                    return h('div', { class: 'text-muted text-sm' }, `表示: ${visibleCount} / 非表示: ${hiddenCount} / 総数: ${state.projects.length}`);
+                                })(),
+                                h('div', { class: 'flex flex-col gap-2', style: { maxHeight: '420px', overflow: 'auto', paddingRight: '4px' } },
+                                    ...state.projects.map(p => {
+                                        const hidden = new Set(((state.projectPrefs && state.projectPrefs.hiddenIds) || []).map(String));
+                                        const isHidden = hidden.has(String(p.id));
+                                        const isDefault = defaultProjectIds.has(String(p.id));
+                                        return h('div', { class: 'flex items-center justify-between gap-2' },
+                                            h('div', { class: 'flex items-center gap-2' },
+                                                h('span', { class: 'badge badge-gray' }, isDefault ? 'default' : 'user'),
+                                                h('span', { class: 'text-sm' }, p.name),
+                                                isHidden ? h('span', { class: 'badge badge-green' }, 'hidden') : null
+                                            ),
+                                            h('div', { class: 'flex items-center gap-2' },
+                                                h('button', { class: 'btn btn-ghost btn-sm', onclick: () => toggleHiddenProject(p.id) }, isHidden ? '表示' : '非表示'),
+                                                h('button', { class: 'btn btn-danger btn-sm', disabled: isDefault, title: isDefault ? 'デフォルトは非表示のみ' : '', onclick: () => deleteProjectHard(p.id) }, '削除')
+                                            )
+                                        );
+                                    })
+                                )
                             )
-                        )
-                    ),
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body flex flex-col gap-3' },
-                            h('h2', { class: 'h3' }, '整合性チェック / 正規化'),
-                            h('div', { class: 'flex flex-wrap gap-2' },
-                                h('button', { class: 'btn btn-secondary', onclick: normalizeNow }, '実行'),
-                                h('button', { class: 'btn btn-danger', onclick: resetData }, '全リセット')
-                            ),
-                            h('p', { class: 'text-muted text-sm' }, '正規化はデータ破損・型揺れ・上限超過などを安全側に丸めます。')
+                        ),
+                        h('section', { class: 'card' },
+                            h('div', { class: 'card-body flex flex-col gap-3' },
+                                h('h2', { class: 'h3' }, '整合性チェック / 正規化'),
+                                h('div', { class: 'flex flex-wrap gap-2' },
+                                    h('button', { class: 'btn btn-secondary', onclick: normalizeNow }, '実行'),
+                                    h('button', { class: 'btn btn-danger', onclick: resetData }, '全リセット')
+                                ),
+                                h('p', { class: 'text-muted text-sm' }, '正規化はデータ破損・型揺れ・上限超過などを安全側に丸めます。')
+                            )
                         )
                     )
                 );
             }
-
             return render();
         }
-        // ===== Component: Static Pages =====
         function AboutPage() {
             const profile = State.get().profile;
             return h('article', { class: 'flex flex-col gap-6 max-w-2xl' },
@@ -6365,7 +5906,7 @@ Version History
                 console.warn('Service Worker access denied:', e);
             }
 
-            console.log('Portfolio SPA v18 (Hybrid Edition v16×v17) initialized successfully (v13 fully compatible)');
+            console.log('Portfolio SPA  (Hybrid Edition ×) initialized successfully (v13 fully compatible)');
         }
 
         // ===== Initialization =====
