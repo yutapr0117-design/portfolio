@@ -24,6 +24,7 @@ Version History
   ⚡ すべての機能を情報欠損ゼロで完全保持
 - v19: 構文エラー修正によりSPA起動不能問題を解消（最小修正）
 - v20: 堅牢性向上（XSS対策, ストレージ保護, 重複コード修正）、旧バージョン番号クリーンアップ
+- v21: バグ修正（SettingsPage関数群追加, QuizPage送信ボタンクラッシュ修正, Brand.init()重複削除）
 -->
 
 <!doctype html>
@@ -3296,6 +3297,131 @@ Version History
             let newTech = '';
             let newDemo = '';
 
+            // --- 不足していた関数群の実装 ---
+            function getSnapshot() {
+                return Storage.parse(CONSTANTS.SNAPSHOT_KEY);
+            }
+            function setSnapshot() {
+                const snap = { at: Date.now(), data: State.get() };
+                Storage.set(CONSTANTS.SNAPSHOT_KEY, JSON.stringify(snap));
+                Toast.show('スナップショットを保存しました');
+                State.update(s => {}); // 強制再描画
+            }
+            function restoreSnapshot() {
+                const snap = getSnapshot();
+                if (snap && snap.data) {
+                    State.set(snap.data);
+                    Toast.show('スナップショットを復元しました');
+                }
+            }
+            function clearSnapshot() {
+                Storage.remove(CONSTANTS.SNAPSHOT_KEY);
+                Toast.show('スナップショットを削除しました');
+                State.update(s => {}); // 強制再描画
+            }
+
+            function downloadJSON(data, filename) {
+                const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                a.click();
+                URL.revokeObjectURL(url);
+            }
+            function exportFull() { downloadJSON(State.get(), `portfolio_full_${Date.now()}.json`); }
+            function exportProjects() { downloadJSON(State.get().projects, `portfolio_projects_${Date.now()}.json`); }
+            function exportApps() { downloadJSON(State.get().appsData, `portfolio_apps_${Date.now()}.json`); }
+            function exportProfile() { downloadJSON(State.get().profile, `portfolio_profile_${Date.now()}.json`); }
+
+            function importJSON(file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const parsed = JSON.parse(e.target.result);
+                        State.update(s => {
+                            if (includeProfile && parsed.profile) s.profile = parsed.profile;
+                            if (includeProjects && Array.isArray(parsed.projects)) {
+                                if (importMode === 'strict') s.projects = parsed.projects;
+                                else {
+                                    const existingIds = new Set(s.projects.map(p => p.id));
+                                    parsed.projects.forEach(p => {
+                                        if (!existingIds.has(p.id)) s.projects.push(p);
+                                        else if (importMode === 'upsert') {
+                                            const idx = s.projects.findIndex(ep => ep.id === p.id);
+                                            if (idx > -1) s.projects[idx] = p;
+                                        }
+                                    });
+                                }
+                            }
+                            if (includeApps && parsed.appsData) s.appsData = parsed.appsData;
+                        });
+                        Toast.show('インポートが完了しました');
+                    } catch (err) {
+                        Toast.show('JSONのパースに失敗しました', 'error');
+                    }
+                };
+                reader.readAsText(file);
+            }
+
+            function addProjectManual() {
+                if (!newName.trim()) { Toast.show('プロジェクト名を入力してください', 'error'); return; }
+                State.update(s => {
+                    s.projects.unshift({
+                        id: 'p_user_' + uid().slice(0, 6),
+                        slug: slugify(newName),
+                        name: newName,
+                        category: 'User Added',
+                        summary: '', problem: '', approach: '',
+                        tech: newTech ? newTech.split(',').map(t => t.trim()) : [],
+                        tags: [],
+                        demoRoute: newDemo || null
+                    });
+                });
+                newName = ''; newTech = ''; newDemo = '';
+                Toast.show('プロジェクトを追加しました');
+            }
+
+            const defaultProjectIds = new Set(['p01','p02','p03','p04','p05','p06','p07','p08','p09','p10','p11','p12','p13','p14','p15','p16','p17','p18']);
+
+            function toggleHiddenProject(id) {
+                State.update(s => {
+                    s.projectPrefs = s.projectPrefs || { hiddenIds: [] };
+                    const idx = s.projectPrefs.hiddenIds.indexOf(id);
+                    if (idx > -1) s.projectPrefs.hiddenIds.splice(idx, 1);
+                    else s.projectPrefs.hiddenIds.push(id);
+                });
+            }
+
+            function deleteProjectHard(id) {
+                if (defaultProjectIds.has(id)) return;
+                if (!confirm('本当に削除しますか？')) return;
+                State.update(s => {
+                    s.projects = s.projects.filter(p => p.id !== id);
+                });
+            }
+
+            function moveProject(idx, dir) {
+                State.update(s => {
+                    if (idx + dir < 0 || idx + dir >= s.projects.length) return;
+                    const temp = s.projects[idx];
+                    s.projects[idx] = s.projects[idx + dir];
+                    s.projects[idx + dir] = temp;
+                });
+            }
+
+            function normalizeNow() {
+                const norm = Store.validateAndNormalize(State.get());
+                State.set(norm);
+                Toast.show('正規化を完了しました');
+            }
+
+            function resetData() {
+                if (!confirm('すべてのデータを初期化しますか？')) return;
+                State.set(Store.createDefaultStore());
+                Toast.show('初期化しました');
+            }
+
             function render() {
                 const snap = getSnapshot();
                 return h('article', { class: 'flex flex-col gap-6 max-w-4xl' },
@@ -5639,14 +5765,14 @@ Version History
             const messageInput = h("textarea", { class: "input", rows: 4, placeholder: "メッセージ（任意）", style: { resize: 'vertical' } });
 
             const submitBtn = h("button", {
-                class: "btn",
-                onClick: () => {
+                class: "btn btn-primary",
+                onclick: () => {
                     const name = nameInput.value.trim();
                     const email = emailInput.value.trim();
                     const message = messageInput.value.trim();
 
                     if (!name || !email) {
-                        toast("お名前とメールアドレスを入力してください", "error");
+                        Toast.show("お名前とメールアドレスを入力してください", "error");
                         return;
                     }
 
@@ -5654,7 +5780,8 @@ Version History
                     const body = encodeURIComponent(
                         `お名前: ${name}\nメールアドレス: ${email}\n\nメッセージ:\n${message || "(なし)"}`
                     );
-                    location.href = `mailto:${store.profile.email}?subject=${subject}&body=${body}`;
+                    const currentState = State.get();
+                    location.href = `mailto:${currentState.profile.email}?subject=${subject}&body=${body}`;
                 }
             }, "送信");
 
@@ -5863,9 +5990,6 @@ Version History
 
         // ===== Event Listeners =====
         function init() {
-            // Brand (palette/font)
-            Brand.init();
-
             // Brand (palette/font)
             Brand.init();
 
