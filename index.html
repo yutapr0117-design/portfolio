@@ -25,6 +25,37 @@ Version History
 - v19: 構文エラー修正によりSPA起動不能問題を解消（最小修正）
 - v20: 堅牢性向上（XSS対策, ストレージ保護, 重複コード修正）、旧バージョン番号クリーンアップ
 - v21: バグ修正（SettingsPage関数群追加, QuizPage送信ボタンクラッシュ修正, Brand.init()重複削除）
+- v22: 構造的改善・バグ修正 (改善.md 全12項 + 追加修正)
+  🔧 Router: navigate() に '#' ガード追加（二重ハッシュ防止）
+  ⚡ State: update() を shallow copy に最適化（大配列での deepClone 廃止）
+  🔄 Cross-tab: modifiedBy (TAB_ID) で自タブ書き込みを無視して競合防止
+  🎨 Theme/Brand: dark テーマが --color-primary を上書きしない設計に修正
+  🔍 ProjectsPage: 重複 tokenize 削除・getFilteredProjects() 二重呼び出し修正（O(n²)→O(n)）
+  🧭 Sidebar: Quiz アイテムをカテゴリ別アイコン（cloud/user/settings）に変更
+  ♿ ARIA: Toast 用 action-announcement (assertive) を独立させてアクセシビリティ向上
+  💾 Store.load: schemaVersion 不一致時に旧データを SNAPSHOT_KEY へ退避
+  🎨 CSS: .h4 定義追加・.input-surface ユーティリティ追加
+  📱 CSS: .grid-projects レスポンシブ対応（1→2→3 カラム）
+  🛡️ h(): 'html' 属性に内部専用コメント追加（全タグ innerHTML 対応）
+  🏠 HomePage / ProjectDetail: grid をレスポンシブクラス化
+- v23: 安全性・堅牢性のさらなる強化
+  🔒 h(): __unsafeHtml オプトインなしの innerHTML を throw でブロック（XSS 防止を契約化）
+  🐞 CONSTANTS.DEBUG フラグ追加（localhost/?debug で厳格モード有効）
+  ⚡ State.update(): cloneAppsData() ヘルパーで配列の浅いコピーを徹底（push/splice 漏れ防止）
+  🧊 DEBUG モードで update() 前の state を Object.freeze（意図しない変異を早期検出）
+  🔧 Router.navigate(): 先頭の '#' のみ除去、DEBUG では throw に昇格
+  💾 Store.load スナップショット: {at, reason, from, to, data} 形式で記録（復元導線と統一）
+  🔄 getSnapshot(): 旧形式スナップショット（legacy-snapshot）の後方互換を維持
+  🛡️ restoreSnapshot(): shape 検証・schemaVersion 不一致時の警告 Toast 追加
+- v24: クローン戦略の精度向上
+  🗂️ cloneProject() / cloneProjects() 追加: outcome.metrics, tech, tags, highlights, architecture, links を浅いコピーで完全分離
+  🔄 cloneAppsData() 改善: tasks/todos/ai.history の要素オブジェクトも浅いコピー（cloneArrObjects）
+  🧊 deepFreezeLimited(depth=4): WeakSet で循環参照を回避しつつ深さ制限付きの再帰フリーズ
+  ⚡ State.update(): projects を cloneProjects() に差し替え（配列スライスのみでは不十分だった参照漏れを修正）
+
+  ⚠ BREAKING CHANGE:
+- h(): unsafe innerHTML requires explicit __unsafeHtml opt-in
+- DEBUG mode may throw on invalid route/state mutation
 -->
 
 <!doctype html>
@@ -107,9 +138,9 @@ Version History
             /* Indigo */
             --color-primary: rgb(var(--color-primary-rgb));
             --color-primary-light: #818cf8;
-            
+
             --color-primary-dark: #4f46e5;
-            
+
 
             --color-success-rgb: 22, 163, 74;
             --color-success: rgb(var(--color-success-rgb));
@@ -146,7 +177,7 @@ Version History
 
             /* Typography - Optimized for Japanese readability */
             --font-sans: 'DM Sans',
-                
+
                 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
             --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, Monaco, monospace;
 
@@ -207,6 +238,7 @@ Version History
         }
 
         /* Dark Theme - High contrast and comfort */
+        /* NOTE: --color-primary* は Brand が決める。テーマは背景・テキストのみ変更。 */
         [data-theme="dark"] {
             --bg-body: #020617;
             --bg-secondary: #0f172a;
@@ -227,10 +259,6 @@ Version History
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
             --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
-
-            --color-primary: #60a5fa;
-            --color-primary-light: #93c5fd;
-            --color-primary-dark: #3b82f6;
         }
 
         /* System preference detection */
@@ -255,10 +283,7 @@ Version History
                 --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
                 --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
                 --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
-
-                --color-primary: #60a5fa;
-                --color-primary-light: #93c5fd;
-                --color-primary-dark: #3b82f6;
+                /* NOTE: --color-primary* は Brand が決める。テーマは上書きしない。 */
             }
         }
 
@@ -758,6 +783,12 @@ Version History
             color: var(--text-primary);
         }
 
+        .h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
         .text-muted {
             color: var(--text-tertiary);
         }
@@ -903,6 +934,43 @@ Version History
             }
         }
 
+        /* ===== Utility: input inside a surface/card ===== */
+        .input-surface {
+            background: var(--surface);
+        }
+
+        /* ===== Responsive Project Grid ===== */
+        .grid-projects {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-projects {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .grid-projects {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        /* ===== Responsive 2-col grid ===== */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 860px) {
+            .grid-2col {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
         /* Animation */
         @keyframes fadeIn {
             from {
@@ -930,6 +998,8 @@ Version History
 
     <!-- ARIA Live Region for Screen Readers -->
     <div id="page-announcement" class="aria-live" aria-live="polite" aria-atomic="true"></div>
+    <!-- ARIA Live Region for Toast / action feedback (assertive) -->
+    <div id="action-announcement" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
 
     <!-- Mobile Topbar -->
     <header class="topbar" id="topbar">
@@ -1022,6 +1092,9 @@ Version History
             DEBOUNCE_DELAY: 150,
             SAVE_INTERVAL: 30000,
             POMODORO_LOCK_TTL: 8000,
+
+            // Dev flag (used for stricter guards)
+            DEBUG: (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || new URLSearchParams(location.search).has('debug')),
         };
 
         // ===== Icons (SVG) =====
@@ -1060,6 +1133,7 @@ Version History
             tag: `<path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>`,
             calendar: `<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>`,
             edit: `<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>`,
+            cloud: `<path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>`,
         };
 
         // ===== Helper: Create SVG Icon =====
@@ -1085,8 +1159,10 @@ Version History
         function h(tag, attrs = {}, ...children) {
             const el = document.createElement(tag);
             let refCb = null;
+            let allowUnsafeHtml = false;
             for (const [key, value] of Object.entries(attrs)) {
                 if (value === undefined || value === null) continue;
+                if (key === '__unsafeHtml') { allowUnsafeHtml = Boolean(value); continue; }
                 if (key === 'ref' && typeof value === 'function') {
                     refCb = value;
                     continue;
@@ -1112,11 +1188,12 @@ Version History
                 } else if (key === 'text') {
                     el.textContent = String(value);
                 } else if (key === 'html') {
-                    if (tag === 'svg' || tag === 'path' || tag === 'g') {
-                        el.innerHTML = String(value);
-                    } else {
-                        el.textContent = String(value);
+                    // DANGEROUS: innerHTML is allowed only when explicitly opted-in by internal callers.
+                    // Usage: h('div', { __unsafeHtml: true, html: '<b>...</b>' })
+                    if (!allowUnsafeHtml) {
+                        throw new Error('[h] Refused to set innerHTML without __unsafeHtml opt-in');
                     }
+                    el.innerHTML = String(value);
                 } else if (key.startsWith('aria')) {
                     el.setAttribute(`aria-${key.slice(4).toLowerCase()}`, String(value));
                 } else {
@@ -1158,7 +1235,7 @@ Version History
 
             set(key, value) {
                 try {
-                    try { localStorage.setItem(key, value); } catch {}
+                    try { localStorage.setItem(key, value); } catch { }
                     return true;
                 } catch {
                     return false;
@@ -1167,7 +1244,7 @@ Version History
 
             remove(key) {
                 try {
-                    try { localStorage.removeItem(key); } catch {}
+                    try { localStorage.removeItem(key); } catch { }
                     return true;
                 } catch {
                     return false;
@@ -1189,7 +1266,7 @@ Version History
         function uid() {
             try {
                 if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
-            } catch (e) {}
+            } catch (e) { }
             return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
                 const r = Math.random() * 16 | 0;
                 const v = c === 'x' ? r : (r & 0x3 | 0x8);
@@ -1485,7 +1562,19 @@ Version History
             // Load store with migration
             function load() {
                 const data = Storage.parse(CONSTANTS.STORAGE_KEY);
-                if (!data || data.schemaVersion !== CONSTANTS.SCHEMA_VERSION) {
+                if (!data) return createDefaultStore();
+                if (data.schemaVersion !== CONSTANTS.SCHEMA_VERSION) {
+                    // 旧データをスナップショットとして退避してから初期化
+                    // NOTE: Settings の復元導線とフォーマットを合わせる（{at, reason, data}）
+                    try {
+                        Storage.set(CONSTANTS.SNAPSHOT_KEY, JSON.stringify({
+                            at: Date.now(),
+                            reason: 'schema-mismatch',
+                            from: data.schemaVersion,
+                            to: CONSTANTS.SCHEMA_VERSION,
+                            data
+                        }));
+                    } catch { }
                     return createDefaultStore();
                 }
                 return validateAndNormalize(data);
@@ -1736,15 +1825,88 @@ Version History
             }
 
             function set(newData) {
-                data = { ...newData, lastModified: Date.now() };
+                data = { ...newData, lastModified: Date.now(), modifiedBy: CONSTANTS.TAB_ID };
                 notify();
                 scheduleSave();
             }
 
+            function cloneProject(p) {
+                const src = p || {};
+                return {
+                    ...src,
+                    outcome: src.outcome ? {
+                        ...src.outcome,
+                        metrics: Array.isArray(src.outcome.metrics)
+                            ? src.outcome.metrics.map(m => (m && typeof m === 'object') ? { ...m } : m).slice()
+                            : []
+                    } : src.outcome,
+                    tech: Array.isArray(src.tech) ? src.tech.slice() : [],
+                    tags: Array.isArray(src.tags) ? src.tags.slice() : [],
+                    highlights: Array.isArray(src.highlights) ? src.highlights.slice() : [],
+                    architecture: src.architecture ? { ...src.architecture } : src.architecture,
+                    relatedProjectIds: Array.isArray(src.relatedProjectIds) ? src.relatedProjectIds.slice() : [],
+                    links: Array.isArray(src.links) ? src.links.map(l => (l && typeof l === 'object') ? { ...l } : l).slice() : []
+                };
+            }
+
+            function cloneProjects(projects) {
+                return Array.isArray(projects) ? projects.map(cloneProject) : [];
+            }
+
+            function cloneAppsData(appsData) {
+                const a = appsData || {};
+                const cloneArrObjects = (arr) => Array.isArray(arr) ? arr.map(x => (x && typeof x === 'object') ? { ...x } : x) : [];
+
+                const pomodoro = a.pomodoro ? {
+                    ...a.pomodoro,
+                    history: cloneArrObjects(a.pomodoro.history),
+                    settings: a.pomodoro.settings ? { ...a.pomodoro.settings } : { work: 25, short: 5, long: 15 },
+                    runtime: a.pomodoro.runtime ? { ...a.pomodoro.runtime } : { isActive: false, mode: 'work', endAtMs: null, remainingSec: 1500, linkedTaskId: null }
+                } : { history: [], settings: { work: 25, short: 5, long: 15 }, runtime: { isActive: false, mode: 'work', endAtMs: null, remainingSec: 1500, linkedTaskId: null } };
+
+                return {
+                    ...a,
+                    tasks: cloneArrObjects(a.tasks),
+                    todos: cloneArrObjects(a.todos),
+                    pomodoro,
+                    ai: a.ai ? { ...a.ai, history: cloneArrObjects(a.ai.history) } : { history: [] },
+                };
+            }
+
+            function deepFreezeLimited(obj, depth = 3, seen = new WeakSet()) {
+                if (!obj || typeof obj !== 'object') return obj;
+                if (seen.has(obj)) return obj;
+                seen.add(obj);
+                try { Object.freeze(obj); } catch { return obj; }
+                if (depth <= 0) return obj;
+                for (const k of Object.keys(obj)) {
+                    const v = obj[k];
+                    if (v && typeof v === 'object') deepFreezeLimited(v, depth - 1, seen);
+                }
+                return obj;
+            }
+
             function update(fn) {
-                const newData = deepClone(data);
-                fn(newData);
-                set(newData);
+                // Safe-ish "mutable draft" update:
+                // - clone commonly-mutated branches deeply enough to avoid shared references
+                // - in DEBUG, deep-freeze the current state to catch accidental writes
+                const draft = {
+                    ...data,
+                    profile: data.profile ? { ...data.profile } : data.profile,
+                    projects: cloneProjects(data.projects),
+                    projectPrefs: data.projectPrefs
+                        ? { ...data.projectPrefs, hiddenIds: Array.isArray(data.projectPrefs.hiddenIds) ? data.projectPrefs.hiddenIds.slice() : [] }
+                        : { hiddenIds: [] },
+                    appsData: cloneAppsData(data.appsData)
+                };
+
+                if (CONSTANTS.DEBUG) {
+                    // Catch accidental writes to the original state (best-effort, bounded depth)
+                    try { deepFreezeLimited(data, 4); } catch { }
+                }
+
+                fn(draft);
+                set(draft);
             }
 
             function subscribe(callback) {
@@ -1784,9 +1946,11 @@ Version History
             window.addEventListener('storage', (e) => {
                 if (e.key === CONSTANTS.STORAGE_KEY && e.newValue) {
                     try {
-                        const newData = JSON.parse(e.newValue);
-                        if (newData.lastModified > data.lastModified) {
-                            data = newData;
+                        const incoming = JSON.parse(e.newValue);
+                        // Ignore writes originating from this tab
+                        if (incoming.modifiedBy === CONSTANTS.TAB_ID) return;
+                        if (incoming.lastModified > data.lastModified) {
+                            data = incoming;
                             notify();
                             Toast.show('別タブで更新されました', 'info');
                         }
@@ -1843,8 +2007,8 @@ Version History
                 container.appendChild(el);
                 toasts.push(el);
 
-                // ARIA announcement
-                const live = document.getElementById('page-announcement');
+                // ARIA announcement (assertive for immediate feedback)
+                const live = document.getElementById('action-announcement');
                 if (live) live.textContent = message;
 
                 if (duration > 0) {
@@ -2002,7 +2166,16 @@ Version History
             }
 
             function navigate(path) {
-                location.hash = '#/' + path;
+                // Guard: path should not contain '#'. If it does, strip ONLY a leading hash to prevent double-hash (e.g. #/#!/something).
+                // In DEBUG mode, treat it as an input contract violation.
+                if (typeof path === 'string' && path.includes('#')) {
+                    const original = path;
+                    path = path.replace(/^#+/, ''); // strip leading '#' only
+                    const msg = '[Router] navigate() received a path containing "#". Please pass a clean path without hash.';
+                    if (CONSTANTS.DEBUG) throw new Error(msg + ' path=' + original);
+                    console.warn(msg, { original, sanitized: path });
+                }
+                location.hash = '#/' + (path || '');
             }
 
             function subscribe(callback) {
@@ -2133,9 +2306,9 @@ Version History
             ];
 
             const quizItems = [
-                { icon: 'briefcase', label: 'AWS', path: 'quiz?type=aws', active: route.name === 'quiz' && (!route.query.type || route.query.type === 'aws') },
-                { icon: 'briefcase', label: 'PM', path: 'quiz?type=pm', active: route.name === 'quiz' && route.query.type === 'pm' },
-                { icon: 'briefcase', label: '品質・プロセス', path: 'quiz?type=quality', active: route.name === 'quiz' && route.query.type === 'quality' },
+                { icon: 'cloud', label: 'AWS 問題集', path: 'quiz?type=aws', active: route.name === 'quiz' && (!route.query.type || route.query.type === 'aws') },
+                { icon: 'user', label: 'PM 問題集', path: 'quiz?type=pm', active: route.name === 'quiz' && route.query.type === 'pm' },
+                { icon: 'settings', label: '品質・プロセス', path: 'quiz?type=quality', active: route.name === 'quiz' && route.query.type === 'quality' },
             ];
 
             const systemItems = [
@@ -2234,7 +2407,7 @@ Version History
                 ),
 
                 // Featured Project
-                h('div', { class: 'grid grid-cols-2' },
+                h('div', { class: 'grid-2col' },
                     h('article', { class: 'card' },
                         h('div', { class: 'card-body' },
                             h('h3', { class: 'h3 mb-3' }, '注目のプロジェクト'),
@@ -2307,10 +2480,7 @@ Version History
 
             const categories = ['All', ...new Set(state.projects.map(p => p.category))];
 
-            // Tokenize and score
-            function tokenize(s) {
-                return String(s || "").toLowerCase().split(/[^\w\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF\-]+/).filter(Boolean);
-            }
+            // Uses the global tokenize() utility - no local duplicate
 
             function scoreProject(p, tokens) {
                 if (!tokens.length) return 1;
@@ -2337,8 +2507,6 @@ Version History
 
             function getFilteredProjects() {
                 let list = state.projects.slice();
-
-
 
                 // Hide projects (Settings -> projectPrefs.hiddenIds)
                 const hiddenIds = new Set(((state.projectPrefs && state.projectPrefs.hiddenIds) || []).map(String));
@@ -2374,12 +2542,15 @@ Version History
                 const container = document.createElement('div');
                 container.className = 'flex flex-col gap-6';
 
+                // Compute once, reuse throughout render
+                const projects = getFilteredProjects();
+
                 // Header
                 container.appendChild(h('header', {},
                     h('div', { class: 'flex flex-wrap items-center justify-between gap-4 mb-4' },
                         h('div', {},
                             h('h1', { class: 'h1' }, 'プロジェクト一覧'),
-                            h('p', { class: 'text-muted' }, `合計 ${getFilteredProjects().length} 件`)
+                            h('p', { class: 'text-muted' }, `合計 ${projects.length} 件`)
                         )
                     ),
                     h('div', { class: 'grid grid-cols-2 gap-4' },
@@ -2408,9 +2579,8 @@ Version History
                     )
                 ));
 
-                // Project Grid
-                const projects = getFilteredProjects();
-                const grid = h('div', { class: 'grid grid-cols-3', style: { gap: '1.5rem' } });
+                // Project Grid - responsive via .grid-projects
+                const grid = h('div', { class: 'grid-projects' });
 
                 if (projects.length === 0) {
                     grid.appendChild(h('div', {
@@ -2505,7 +2675,7 @@ Version History
                 ),
 
                 // Content Grid
-                h('div', { class: 'grid grid-cols-2', style: { gap: '1.5rem', alignItems: 'start' } },
+                h('div', { class: 'grid-2col', style: { alignItems: 'start' } },
                     // Left Column
                     h('div', { class: 'flex flex-col gap-4' },
                         h('section', { class: 'card' },
@@ -3299,25 +3469,51 @@ Version History
 
             // --- 不足していた関数群の実装 ---
             function getSnapshot() {
-                return Storage.parse(CONSTANTS.SNAPSHOT_KEY);
+                const raw = Storage.parse(CONSTANTS.SNAPSHOT_KEY);
+                if (!raw) return null;
+
+                // Support both formats:
+                // 1) { at, data, ... }  (current)
+                // 2) <store object>    (legacy; schema-mismatch snapshot in older versions)
+                if (raw && typeof raw === 'object' && raw.data && typeof raw.data === 'object') {
+                    return raw;
+                }
+
+                // Legacy: treat the whole object as store data
+                if (raw && typeof raw === 'object' && raw.schemaVersion) {
+                    return { at: Date.now(), reason: 'legacy-snapshot', data: raw };
+                }
+
+                return null;
             }
             function setSnapshot() {
                 const snap = { at: Date.now(), data: State.get() };
                 Storage.set(CONSTANTS.SNAPSHOT_KEY, JSON.stringify(snap));
                 Toast.show('スナップショットを保存しました');
-                State.update(s => {}); // 強制再描画
+                State.update(s => { }); // 強制再描画
             }
             function restoreSnapshot() {
                 const snap = getSnapshot();
-                if (snap && snap.data) {
-                    State.set(snap.data);
-                    Toast.show('スナップショットを復元しました');
+                if (!snap || !snap.data) return;
+
+                // Safety: refuse obviously wrong shapes
+                if (typeof snap.data !== 'object' || !snap.data.schemaVersion) {
+                    Toast.show('スナップショット形式が不正です', 'error');
+                    return;
                 }
+
+                // If schema differs, still allow restore (user intent), but warn
+                if (snap.data.schemaVersion !== CONSTANTS.SCHEMA_VERSION) {
+                    Toast.show(`注意: schemaVersion が一致しません（${snap.data.schemaVersion}→${CONSTANTS.SCHEMA_VERSION}）`, 'warning');
+                }
+
+                State.set(snap.data);
+                Toast.show('スナップショットを復元しました');
             }
             function clearSnapshot() {
                 Storage.remove(CONSTANTS.SNAPSHOT_KEY);
                 Toast.show('スナップショットを削除しました');
-                State.update(s => {}); // 強制再描画
+                State.update(s => { }); // 強制再描画
             }
 
             function downloadJSON(data, filename) {
@@ -3382,7 +3578,7 @@ Version History
                 Toast.show('プロジェクトを追加しました');
             }
 
-            const defaultProjectIds = new Set(['p01','p02','p03','p04','p05','p06','p07','p08','p09','p10','p11','p12','p13','p14','p15','p16','p17','p18']);
+            const defaultProjectIds = new Set(['p01', 'p02', 'p03', 'p04', 'p05', 'p06', 'p07', 'p08', 'p09', 'p10', 'p11', 'p12', 'p13', 'p14', 'p15', 'p16', 'p17', 'p18']);
 
             function toggleHiddenProject(id) {
                 State.update(s => {
