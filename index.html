@@ -52,6 +52,32 @@ Version History
   🔄 cloneAppsData() 改善: tasks/todos/ai.history の要素オブジェクトも浅いコピー（cloneArrObjects）
   🧊 deepFreezeLimited(depth=4): WeakSet で循環参照を回避しつつ深さ制限付きの再帰フリーズ
   ⚡ State.update(): projects を cloneProjects() に差し替え（配列スライスのみでは不十分だった参照漏れを修正）
+- v25: 採用側リスク低減ページ追加（既存構造・ロジック変更なし）
+  🎯 新規ページ: Hiring Risk（採用側のリスクを1画面で明示）
+  🔒 不可逆回避思想を明文化（人・信頼・持続性を絶対ラインとして固定）
+  📉 採用側が想定する主要リスク4項目と低減構造を明示
+  💼 転職アピール強化: 思想再現性・約束の明文化・状況適応型アルゴリズム保持を訴求
+  🏷️ SEOタイトル・description も追加（Hiring Risk | Portfolio）
+- v26: 採用側リスク低減を経営メリット翻訳レイヤーまで拡張
+  🧠 思想→経営インパクト→実務行動→証拠 の4層構造化（経営層・PM・エンジニア全層対応）
+  📈 impactRow() 追加: リスク低減を経営言語（コスト・耐性・継続性）に変換して提示
+  🔍 riskCard() 拡張: 4引数目に「経営効果」を追加
+  ⚡ setPageMeta() 追加: hiring-risk ルートで document.title を動的制御（SEO実体化）
+  🔄 HiringRiskPage 全面刷新: 6リスクカード保持 + 4層構造セクション追加
+- v27: 採用意思決定を加速する構造へ昇格
+  🧭 PAGE_META + applyMeta() で全ページSEO一元管理（戻り忘れゼロ・setPageMeta廃止）
+  📊 Executive Summary セクション追加（経営決裁資料レベルの冒頭）
+  📈 kpiRow() 追加: 品質劣化・疲弊・属人化・炎上の早期兆候KPIを明示（経営層対応）
+  🧮 意思決定アルゴリズム可視化: 理想／通常／緊急モード切替を明文化
+  🧪 面接用Evidence導線を整理: PM問題集・品質問題集・Version History・DEBUG契約を証拠として列挙
+  🔗 CTAにPM問題集ボタン追加（思考外部化の実証へ直接誘導）
+- v28: 採用決裁資料レベルへ昇格
+  🗑️ 未使用 setPageMeta 完全削除（設計純化）
+  🧭 applyMeta() を動的ルート対応に強化（params受け取り・関数型title/desc対応）
+  📣 30秒要約ブロック追加（面接用スクリプト・読み上げ可能な即断材料）
+  📊 decisionFlow() 追加: KPI→アラート→打ち手→合意の4点セットを構造化
+  🔗 証拠ページへの即時遷移ボタンを専用セクションとして整備
+  💬 採用側への約束を「任せても事故らない人」として最終強化
 
   ⚠ BREAKING CHANGE:
 - h(): unsafe innerHTML requires explicit __unsafeHtml opt-in
@@ -1134,6 +1160,7 @@ Version History
             calendar: `<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>`,
             edit: `<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>`,
             cloud: `<path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>`,
+            shield: `<path d="M12 2L4 5v6c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V5l-8-3Z"/>`,
         };
 
         // ===== Helper: Create SVG Icon =====
@@ -2158,6 +2185,9 @@ Version History
                     case 'quiz':
                         route.name = 'quiz';
                         break;
+                    case 'hiring-risk':
+                        route.name = 'hiring-risk';
+                        break;
                     default:
                         route.name = 'not-found';
                 }
@@ -2219,6 +2249,7 @@ Version History
                 resume: 'Resume | Portfolio',
                 contact: 'Contact | Portfolio',
                 quiz: 'AWS問題集 | Portfolio',
+                'hiring-risk': 'Hiring Risk | Portfolio',
                 'not-found': 'Not Found | Portfolio'
             };
 
@@ -2227,7 +2258,8 @@ Version History
                 projects: 'プロジェクト一覧。検索/カテゴリ/タグで絞り込み、詳細（Case Study）へ。',
                 apps: '内蔵アプリ（タスク管理 / TODO / ポモドーロ / ローカルAI）。',
                 settings: 'Import/Export、整合性チェック/自動修復、スナップショット復元。',
-                quiz: 'AWS問題集 - 模範解答についてお問い合わせください。'
+                quiz: 'AWS問題集 - 模範解答についてお問い合わせください。',
+                'hiring-risk': '採用側が懸念する主要リスクと低減構造を1画面で明示。不可逆ライン・思想再現性・採用側への約束を掲載。'
             };
 
             function update(route) {
@@ -2280,6 +2312,49 @@ Version History
             }
         }
 
+        // ===== v27: PAGE_META — 全ページSEOの単一ソース =====
+        const PAGE_META = {
+            home:            { title: 'Home',                   desc: '設計思想と実験的SPAポートフォリオ。最小構成での設計判断を重視。' },
+            projects:        { title: 'Projects',               desc: '設計判断と成果物。Case Study形式でアーキテクチャ・成果を掲載。' },
+            'project-detail':{ title: 'Project Detail',         desc: 'プロジェクト詳細。設計の意図・技術選定・成果を深掘り。' },
+            apps:            { title: 'Apps',                   desc: '内蔵アプリ（タスク管理 / TODO / ポモドーロ / ローカルAI）。' },
+            'app-task':      { title: 'Task Manager',           desc: 'タスク管理アプリ。ステータス管理・優先順位付き。' },
+            'app-todo':      { title: 'Quick TODO',             desc: 'クイックTODOリスト。シンプルで高速。' },
+            'app-pomodoro':  { title: 'Pomodoro Timer',         desc: 'ポモドーロタイマー。集中と休憩を自動制御。' },
+            'app-ai':        { title: 'AI Assist',              desc: 'AIアシスト。ローカル思考補助ツール。' },
+            settings:        { title: 'Settings',               desc: '設定・テーマ・DEBUG。Import/Export・整合性チェック・スナップショット。' },
+            about:           { title: 'About',                  desc: 'プロフィール。ITエンジニアとしての経歴・思想。' },
+            resume:          { title: 'Resume',                 desc: '職務経歴。設計力・問題解決能力・継続改善習慣。' },
+            contact:         { title: 'Contact',                desc: 'お問い合わせ。メール・GitHub・LinkedIn。' },
+            quiz:            { title: 'Quiz',                   desc: 'AWS / PM / 品質問題集。模範解答付き思考外部化ライブラリ。' },
+            'hiring-risk':   {
+                title: 'Hiring Risk Reduction',
+                desc:  '採用側リスク低減構造・経営インパクト・KPI・意思決定アルゴリズムを明示。経営層・PM・エンジニア全層対応。'
+            },
+            'not-found':     { title: 'Not Found',              desc: 'ページが見つかりません。' }
+        };
+
+        /**
+         * applyMeta (v28) — PAGE_META を元に title / description / OG / Twitter を一括更新。
+         * render() の末尾で SEO.update() の後に呼ぶことで完全に上書きする。
+         * title / desc には関数を指定可能 → 動的ルート（project-detail 等）にも対応。
+         * PAGE_META に登録のないルートは SEO.update() の値がそのまま残る。
+         */
+        function applyMeta(routeName, params = {}) {
+            const meta = PAGE_META[routeName];
+            if (!meta) return;
+            const title = typeof meta.title === 'function' ? meta.title(params) : meta.title;
+            const desc  = typeof meta.desc  === 'function' ? meta.desc(params)  : meta.desc;
+            const fullTitle = title + ' | Portfolio';
+            document.title = fullTitle;
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.setAttribute('content', desc);
+            document.querySelector('meta[property="og:title"]')?.setAttribute('content', fullTitle);
+            document.querySelector('meta[property="og:description"]')?.setAttribute('content', desc);
+            document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', fullTitle);
+            document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', desc);
+        }
+
 
         // ===== Component: Sidebar =====
         function Sidebar(isDrawer = false) {
@@ -2303,6 +2378,7 @@ Version History
                 { icon: 'user', label: 'About', path: 'about', active: route.name === 'about' },
                 { icon: 'briefcase', label: 'Resume', path: 'resume', active: route.name === 'resume' },
                 { icon: 'mail', label: 'Contact', path: 'contact', active: route.name === 'contact' },
+                { icon: 'shield', label: 'Hiring Risk', path: 'hiring-risk', active: route.name === 'hiring-risk' },
             ];
 
             const quizItems = [
@@ -6026,6 +6102,447 @@ Version History
             );
         }
 
+        // ===== Page: HiringRisk (v28 — 採用決裁資料レベル) =====
+
+        // impactRow: リスク名 → 経営言語変換行
+        function impactRow(riskLabel, bizImpact, metric) {
+            return h('div', {
+                style: {
+                    display: 'flex', alignItems: 'flex-start', gap: '12px',
+                    padding: '10px 0', borderBottom: '1px solid var(--border-color)'
+                }
+            },
+                h('div', { style: { minWidth: '130px', fontWeight: '600', fontSize: '0.875rem' } }, riskLabel),
+                h('div', { style: { flex: '1', display: 'flex', flexDirection: 'column', gap: '3px' } },
+                    h('div', { style: { fontSize: '0.875rem' } }, bizImpact),
+                    metric ? h('div', { class: 'text-muted', style: { fontSize: '0.8125rem' } }, '📊 ' + metric) : null
+                )
+            );
+        }
+
+        // kpiRow: KPI / 早期兆候行
+        function kpiRow(title, metrics) {
+            return h('div', {
+                style: {
+                    display: 'flex', alignItems: 'flex-start', gap: '12px',
+                    padding: '10px 0', borderBottom: '1px solid var(--border-color)'
+                }
+            },
+                h('div', { style: { minWidth: '130px', fontWeight: '600', fontSize: '0.875rem' } }, title),
+                h('div', { class: 'text-muted', style: { fontSize: '0.875rem', flex: '1' } }, metrics)
+            );
+        }
+
+        // decisionFlow (v28): KPI → アラート → 打ち手 → 合意 の4点セット
+        function decisionFlow(title, signal, action, agreement) {
+            return h('div', {
+                style: {
+                    display: 'grid',
+                    gridTemplateColumns: 'minmax(100px,140px) 1fr 1fr 1fr',
+                    gap: '8px 16px',
+                    padding: '10px 0',
+                    borderBottom: '1px solid var(--border-color)',
+                    alignItems: 'start'
+                }
+            },
+                h('div', { style: { fontWeight: '700', fontSize: '0.875rem' } }, title),
+                h('div', { style: { fontSize: '0.8125rem' } },
+                    h('div', { class: 'text-muted', style: { fontSize: '0.7rem', fontWeight: '600', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '2px' } }, '兆候'),
+                    signal
+                ),
+                h('div', { style: { fontSize: '0.8125rem' } },
+                    h('div', { class: 'text-muted', style: { fontSize: '0.7rem', fontWeight: '600', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '2px' } }, '打ち手'),
+                    h('span', { style: { color: 'var(--color-success)', fontWeight: '600' } }, action)
+                ),
+                h('div', { style: { fontSize: '0.8125rem' } },
+                    h('div', { class: 'text-muted', style: { fontSize: '0.7rem', fontWeight: '600', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '2px' } }, '合意先'),
+                    h('span', { style: { color: 'var(--color-info)' } }, agreement)
+                )
+            );
+        }
+
+        // riskCard v28: title / risk / mitigation / impact
+        function riskCard(title, risk, mitigation, impact) {
+            return h('div', { class: 'card', style: { padding: '1rem', display: 'flex', flexDirection: 'column', gap: '8px' } },
+                h('h4', { style: { fontWeight: '700', fontSize: '0.9375rem', marginBottom: '2px' } }, title),
+                h('p', { class: 'text-muted', style: { fontSize: '0.8125rem' } }, '想定リスク: ' + risk),
+                h('p', { style: { fontSize: '0.8125rem' } }, '低減構造: ' + mitigation),
+                impact ? h('p', {
+                    style: {
+                        fontSize: '0.8125rem', color: 'var(--color-success)', fontWeight: '600',
+                        borderTop: '1px solid var(--border-color)', paddingTop: '6px', marginTop: '2px'
+                    }
+                }, '💹 経営インパクト: ' + impact) : null
+            );
+        }
+
+        function HiringRiskPage() {
+            // レイヤーバッジ
+            function layerBadge(num, label, color) {
+                return h('div', { style: { display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' } },
+                    h('div', {
+                        style: {
+                            background: color, color: '#fff', borderRadius: 'var(--radius-full)',
+                            padding: '2px 12px', fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.04em'
+                        }
+                    }, num ? 'LAYER ' + num : null),
+                    h('span', { style: { fontWeight: '700', fontSize: '1rem' } }, label)
+                );
+            }
+
+            // カラー定義
+            const C = {
+                primary: 'var(--color-primary)',
+                success: 'var(--color-success)',
+                warning: 'var(--color-warning)',
+                info:    'var(--color-info)',
+                purple:  '#7c3aed'
+            };
+
+            return h('article', { class: 'flex flex-col gap-6 max-w-3xl' },
+
+                // ══ ヘッダー ══
+                h('header', { class: 'flex flex-col gap-2' },
+                    h('h1', { class: 'h1', style: { display: 'flex', alignItems: 'center', gap: '12px' } },
+                        createIcon('shield', 30), '採用リスク低減'
+                    ),
+                    h('p', { class: 'text-muted' },
+                        '思想提示ではなく、採用側が負うリスクを構造的に低減する仕組みを明示します。' +
+                        '経営層・採用担当・技術責任者のいずれの視点からも評価できる構造で構成しています。'
+                    ),
+                    h('div', { class: 'flex flex-wrap gap-2', style: { marginTop: '4px' } },
+                        h('span', { class: 'badge badge-secondary' }, '📣 30秒要約'),
+                        h('span', { class: 'badge badge-secondary' }, '📋 Executive Summary'),
+                        h('span', { class: 'badge badge-secondary' }, '📊 KPI / 観測→打ち手→合意'),
+                        h('span', { class: 'badge badge-secondary' }, '🔍 証拠（ワンクリック）')
+                    )
+                ),
+
+                // ══ 30秒要約（面接用スクリプト）══
+                h('section', {
+                    class: 'card',
+                    style: { borderLeft: '4px solid ' + C.primary, background: 'linear-gradient(135deg, rgba(var(--color-primary-rgb),0.06) 0%, transparent 100%)' }
+                },
+                    h('div', { class: 'card-body flex flex-col gap-3' },
+                        h('div', { style: { display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' } },
+                            h('div', {
+                                style: {
+                                    background: C.primary, color: '#fff', borderRadius: 'var(--radius-full)',
+                                    padding: '2px 14px', fontSize: '0.75rem', fontWeight: '800', letterSpacing: '0.06em'
+                                }
+                            }, '30秒要約'),
+                            h('span', { style: { fontWeight: '700', fontSize: '1rem' } }, '面接でそのまま読めるスクリプト')
+                        ),
+                        h('p', { style: { fontSize: '0.9375rem', lineHeight: '1.9' } },
+                            '私は、短期成果より不可逆損失の回避を優先します。'
+                        ),
+                        h('p', { style: { fontSize: '0.9375rem', lineHeight: '1.9' } },
+                            '品質・疲弊・属人化・炎上の兆候をKPIで観測し、悪化前に打ち手を実行します。'
+                        ),
+                        h('p', { style: { fontSize: '0.9375rem', lineHeight: '1.9', fontWeight: '600' } },
+                            '思想は固定、手段は状況で切替。暴走せず、止まらない設計です。'
+                        ),
+                        h('div', {
+                            style: {
+                                borderTop: '1px solid var(--border-color)', paddingTop: '12px', marginTop: '4px',
+                                display: 'flex', flexWrap: 'wrap', gap: '8px'
+                            }
+                        },
+                            h('span', { class: 'badge badge-secondary' }, '🚫 不可逆ライン保持'),
+                            h('span', { class: 'badge badge-secondary' }, '📊 KPI観測'),
+                            h('span', { class: 'badge badge-secondary' }, '🧮 モード切替'),
+                            h('span', { class: 'badge badge-secondary' }, '♻ 思想再現可能')
+                        )
+                    )
+                ),
+
+                // ══ Executive Summary ══
+                h('section', { class: 'card', style: { borderLeft: '4px solid ' + C.success } },
+                    h('div', { class: 'card-body flex flex-col gap-3' },
+                        h('h2', { class: 'h3' }, '📋 Executive Summary'),
+                        h('p', {},
+                            '私を採用することで低減できるリスクを、経営インパクトと観測指標まで落とし込みました。' +
+                            '以下の4点が、採用投資リターンを構造的に保全します。'
+                        ),
+                        h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-3', style: { marginTop: '4px' } },
+                            ...[
+                                ['🚫 重大インシデント確率低減',    '不可逆ラインの固定と判断ログの常時レビュー可能化'],
+                                ['👤 人材損耗リスク最小化',        '「スコープを削り、人を削らない」原則による採用投資の保全'],
+                                ['🔗 属人化リスク低減',            '問題集化・思考外部化による知識の組織資産化'],
+                                ['🔥 炎上時の意思決定停止回避',    'モード切替型アルゴリズムによる緊急時の判断継続']
+                            ].map(([item, detail]) =>
+                                h('div', {
+                                    style: {
+                                        display: 'flex', flexDirection: 'column', gap: '3px',
+                                        padding: '10px 12px', background: 'var(--bg-tertiary)', borderRadius: 'var(--radius)'
+                                    }
+                                },
+                                    h('div', { style: { fontWeight: '700', fontSize: '0.875rem' } }, item),
+                                    h('div', { class: 'text-muted', style: { fontSize: '0.8125rem' } }, detail)
+                                )
+                            )
+                        )
+                    )
+                ),
+
+                // ══ LAYER 1: 思想 / 不可逆ライン ══
+                h('section', { class: 'card', style: { borderLeft: '4px solid ' + C.primary } },
+                    h('div', { class: 'card-body flex flex-col gap-4' },
+                        layerBadge(1, '思想 — 不可逆ライン（絶対に越えない境界）', C.primary),
+                        h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-4' },
+                            h('div', { class: 'flex flex-col gap-2' },
+                                h('div', { style: { fontWeight: '700', color: 'var(--color-danger)', fontSize: '0.9375rem' } }, '🚫 不可逆 = 絶対にやらない'),
+                                h('ul', { style: { paddingLeft: '1.25rem', listStyleType: 'disc', color: 'var(--text-secondary)', fontSize: '0.875rem', lineHeight: '1.9' } },
+                                    h('li', {}, '人を壊す短期最適'),
+                                    h('li', {}, '信頼を毀損する意思決定'),
+                                    h('li', {}, '合意なしの破壊的変更'),
+                                    h('li', {}, 'チームの持続可能性を捨てた速度追求'),
+                                    h('li', {}, 'スコープより先に人を削る判断')
+                                )
+                            ),
+                            h('div', { class: 'flex flex-col gap-2' },
+                                h('div', { style: { fontWeight: '700', color: 'var(--color-success)', fontSize: '0.9375rem' } }, '✅ 可逆 = 素早く切り替える'),
+                                h('ul', { style: { paddingLeft: '1.25rem', listStyleType: 'disc', color: 'var(--text-secondary)', fontSize: '0.875rem', lineHeight: '1.9' } },
+                                    h('li', {}, '技術スタック・アーキテクチャ'),
+                                    h('li', {}, 'プロセス・開発手法・ツール'),
+                                    h('li', {}, '優先順位・スコープ・期限'),
+                                    h('li', {}, '自分の意見・判断・立場'),
+                                    h('li', {}, '手段・フレームワーク')
+                                )
+                            )
+                        ),
+                        h('p', { class: 'text-muted', style: { fontSize: '0.875rem', borderTop: '1px solid var(--border-color)', paddingTop: '12px' } },
+                            '人は不可逆。プロジェクトは可逆。この原則の固定が、採用投資を守る最大の安全弁です。'
+                        )
+                    )
+                ),
+
+                // ══ LAYER 2: 経営インパクト変換 ══
+                h('section', { class: 'card', style: { borderLeft: '4px solid ' + C.success } },
+                    h('div', { class: 'card-body flex flex-col gap-0' },
+                        layerBadge(2, '経営インパクト — リスクを経営言語で翻訳する', C.success),
+                        h('p', { class: 'text-muted', style: { fontSize: '0.875rem', marginBottom: '8px' } },
+                            '採用担当・経営層向けに、各リスク低減が「何のコスト削減・何の耐性向上」に対応するかを示します。'
+                        ),
+                        impactRow('🚫 暴走防止',       '重大インシデント・訴訟リスク低減',     '意思決定ログの常時レビュー可能化により事後説明責任を確保'),
+                        impactRow('🔗 属人化回避',      '引継ぎ・組織再編コスト削減',           '1人退職で失われる知識量をほぼゼロに近づける'),
+                        impactRow('🔥 デスマーチ適応',  '事業継続性確保・燃え尽き離職防止',     'モード切替型意思決定で判断速度を維持しつつ人的損耗を抑制'),
+                        impactRow('🔒 不可逆回避',      '人材損耗リスク最小化',                 '「スコープ削減を優先し、人を削らない」原則で採用投資を守る'),
+                        impactRow('📣 情報可視化',      '非技術者との摩擦コスト低減',           'WHY→WHAT→HOW形式による設計判断の常時文書化')
+                    )
+                ),
+
+                // ══ KPI / 観測指標 ══
+                h('section', { class: 'card', style: { borderLeft: '4px solid ' + C.warning } },
+                    h('div', { class: 'card-body flex flex-col gap-0' },
+                        h('div', { style: { display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' } },
+                            h('div', {
+                                style: {
+                                    background: C.warning, color: '#fff', borderRadius: 'var(--radius-full)',
+                                    padding: '2px 12px', fontSize: '0.75rem', fontWeight: '700'
+                                }
+                            }, 'KPI'),
+                            h('span', { style: { fontWeight: '700', fontSize: '1rem' } }, '観測指標 — 問題の早期兆候を検知する')
+                        ),
+                        h('p', { class: 'text-muted', style: { fontSize: '0.875rem', marginBottom: '8px' } },
+                            '「私が機能しているか」を外部から検証できる指標です。採用後の観測・評価基準として活用できます。'
+                        ),
+                        kpiRow('品質劣化兆候', 'バグ流出率 / 再発率 / エラーバジェット消費率 / レビュー指摘密度'),
+                        kpiRow('疲弊兆候',     '稼働分散度 / 1on1異常値 / レビュー滞留 / チケット平均リードタイム'),
+                        kpiRow('属人化兆候',   'ドキュメント未整備領域 / 引継ぎ不能モジュール率 / 問題集更新頻度'),
+                        kpiRow('炎上兆候',     'WIP（仕掛り件数）急増 / リードタイム急騰 / スコープ変更頻度'),
+                        h('p', { class: 'text-muted', style: { fontSize: '0.8125rem', borderTop: '1px solid var(--border-color)', paddingTop: '10px', marginTop: '2px' } },
+                            '私はこれらのKPIを自分自身への警戒ラインとして定義し、定期的に観測します。'
+                        )
+                    )
+                ),
+
+                // ══ 観測→打ち手→合意（decisionFlow v28）══
+                h('section', { class: 'card', style: { borderLeft: '4px solid ' + C.info } },
+                    h('div', { class: 'card-body flex flex-col gap-0' },
+                        h('h2', { class: 'h3', style: { marginBottom: '8px' } }, '🔄 観測→判断→実行の流れ'),
+                        h('p', { class: 'text-muted', style: { fontSize: '0.875rem', marginBottom: '12px' } },
+                            '兆候を観測したとき、どう判断し、誰と合意するかを事前に定義しています。場当たり対応にはなりません。'
+                        ),
+                        h('div', {
+                            style: {
+                                display: 'grid',
+                                gridTemplateColumns: 'minmax(100px,140px) 1fr 1fr 1fr',
+                                gap: '0 16px', padding: '6px 0 10px',
+                                borderBottom: '2px solid var(--border-color)',
+                                marginBottom: '2px'
+                            }
+                        },
+                            h('div', { style: { fontWeight: '700', fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em' } }, '区分'),
+                            h('div', { style: { fontWeight: '700', fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em' } }, '兆候 / KPI'),
+                            h('div', { style: { fontWeight: '700', fontSize: '0.75rem', color: 'var(--color-success)', textTransform: 'uppercase', letterSpacing: '0.06em' } }, '打ち手'),
+                            h('div', { style: { fontWeight: '700', fontSize: '0.75rem', color: 'var(--color-info)', textTransform: 'uppercase', letterSpacing: '0.06em' } }, '合意先')
+                        ),
+                        decisionFlow('品質悪化',   'バグ流出率増加 / エラーバジェット急消費',    'WIP制限・スコープ調整・レビュー密度向上',    'EM / PO'),
+                        decisionFlow('疲弊兆候',   '稼働分散度低下 / 1on1異常値 / 滞留増加',    '負荷再配分・優先度再定義・タスク削除',       'マネジメント層'),
+                        decisionFlow('属人化兆候', 'ドキュメント未整備率上昇 / 引継ぎ不能領域',  '外部化スプリント・レビュー制度強化',         'チーム全体'),
+                        decisionFlow('炎上移行',   'WIP急増 / リードタイム急騰',                 '緊急モード移行・スコープ大幅削減',           'PO / CTO')
+                    )
+                ),
+
+                // ══ LAYER 3: 意思決定アルゴリズム ══
+                h('section', { class: 'card', style: { borderLeft: '4px solid ' + C.info } },
+                    h('div', { class: 'card-body flex flex-col gap-3' },
+                        layerBadge(3, '意思決定アルゴリズム — モード切替型', C.info),
+                        h('p', { class: 'text-muted', style: { fontSize: '0.875rem' } },
+                            '状況に応じて意思決定モードを切り替えます。どのモードでも「不可逆ライン」は変わりません。'
+                        ),
+                        h('div', { class: 'grid grid-cols-1 md:grid-cols-3 gap-3', style: { marginTop: '4px' } },
+                            ...[
+                                ['🟢 理想モード',   '最適解探索・品質最大化',          '時間余裕あり / 技術的負債解消期 / 新規設計フェーズ'],
+                                ['🟡 通常モード',   'スコープ管理・契約遵守',          '通常スプリント / リリース前 / 品質と速度のバランス'],
+                                ['🔴 緊急モード',   '不可逆回避優先・スコープ大幅削減', '炎上・障害対応 / リソース枯渇 / デスマーチ移行時']
+                            ].map(([mode, action, when]) =>
+                                h('div', {
+                                    style: {
+                                        display: 'flex', flexDirection: 'column', gap: '6px',
+                                        padding: '12px', background: 'var(--bg-tertiary)', borderRadius: 'var(--radius)'
+                                    }
+                                },
+                                    h('div', { style: { fontWeight: '700', fontSize: '0.9375rem' } }, mode),
+                                    h('div', { style: { fontWeight: '600', fontSize: '0.875rem' } }, action),
+                                    h('div', { class: 'text-muted', style: { fontSize: '0.8125rem' } }, when)
+                                )
+                            )
+                        ),
+                        h('p', { class: 'text-muted', style: { fontSize: '0.875rem', borderTop: '1px solid var(--border-color)', paddingTop: '10px' } },
+                            '共通原則: どのモードでも「人を削る前にスコープを削る」「合意なし破壊的変更はしない」は不変。'
+                        )
+                    )
+                ),
+
+                // ══ LAYER 4: 実務行動（6リスクカード）══
+                h('section', { class: 'flex flex-col gap-4' },
+                    h('div', { style: { display: 'flex', alignItems: 'center', gap: '8px' } },
+                        h('div', {
+                            style: {
+                                background: C.purple, color: '#fff', borderRadius: 'var(--radius-full)',
+                                padding: '2px 12px', fontSize: '0.75rem', fontWeight: '700'
+                            }
+                        }, 'LAYER 4'),
+                        h('span', { style: { fontWeight: '700', fontSize: '1rem' } }, '実務行動 — リスクカード × 経営インパクト')
+                    ),
+                    h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-4' },
+                        riskCard('⚡ 意思決定の暴走',         '短期最適への過剰収束・感情的判断',
+                            '不可逆ライン固定＋レビュー可能な判断ログ保持',                '重大事故確率の低減・事後対応コスト削減'),
+                        riskCard('🏗 品質崩壊',               '速度優先による技術的負債蓄積',
+                            '契約明文化＋エラーバジェット思考＋互換維持設計',              '長期保守コスト抑制・リリース安定化'),
+                        riskCard('🔗 属人化',                 '判断のブラックボックス化',
+                            '問題集化＋思考の外部化＋再現可能ドキュメント設計',            '引継ぎ可能性向上・採用投資の保全'),
+                        riskCard('🔥 炎上時の判断停止',       '場当たり対応・感情的行動',
+                            '理想／通常／緊急モード切替型意思決定モデルを保持',            '緊急時判断速度向上・二次被害防止'),
+                        riskCard('📣 コミュニケーション不全', '技術的問題を非技術者に伝えられない',
+                            'WHY→WHAT→HOW順の常時文書化。このSPA自体が実証',            '経営層・PM間の摩擦コスト低減'),
+                        riskCard('🔄 変化への硬直',           '技術・要件変化に対応不能',
+                            '破壊的変更を前提とした設計・継続的バージョン進化',            '技術的負債の自然解消・中長期コスト低減')
+                    )
+                ),
+
+                // ══ 証拠（ワンクリック遷移）══
+                h('section', { class: 'card', style: { borderLeft: '4px solid ' + C.info } },
+                    h('div', { class: 'card-body flex flex-col gap-4' },
+                        h('h2', { class: 'h3' }, '🔗 証拠（クリックで即遷移）'),
+                        h('p', { class: 'text-muted', style: { fontSize: '0.875rem' } },
+                            '主張はすべてこのSPA内の実物で検証可能です。面接時に開きながら説明できます。'
+                        ),
+                        h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-3' },
+                            ...[
+                                {
+                                    title: '📚 PM問題集 → 思考外部化',
+                                    desc:  '意思決定パターンをPM視点で蓄積。PMとして何を考えるかが見える',
+                                    path:  'quiz?type=pm',
+                                    label: 'PM問題集を見る'
+                                },
+                                {
+                                    title: '🔧 品質問題集 → プロセス設計力',
+                                    desc:  'バグ対応・品質定義・テスト戦略の判断基準。エンジニアとしての深さが見える',
+                                    path:  'quiz?type=quality',
+                                    label: '品質問題集を見る'
+                                },
+                                {
+                                    title: '🏗 Version History → 継続改善履歴',
+                                    desc:  'v12→v28まで全変更理由・影響・判断基準を記録。改善が習慣であることの実証',
+                                    path:  null,
+                                    label: null
+                                },
+                                {
+                                    title: '🔒 設計ポリシー → 安全設計思想',
+                                    desc:  'DEBUGフラグ・XSS契約化・スナップショット検証を実装。安全設計が思想ではなく実装',
+                                    path:  'settings',
+                                    label: '設計ポリシーを見る'
+                                }
+                            ].map(({ title, desc, path, label }) =>
+                                h('div', {
+                                    style: {
+                                        display: 'flex', flexDirection: 'column', gap: '8px',
+                                        padding: '12px', background: 'var(--bg-tertiary)', borderRadius: 'var(--radius)'
+                                    }
+                                },
+                                    h('div', { style: { fontWeight: '700', fontSize: '0.875rem' } }, title),
+                                    h('p', { class: 'text-muted', style: { fontSize: '0.8125rem' } }, desc),
+                                    path ? h('button', {
+                                        class: 'btn btn-primary btn-sm',
+                                        style: { alignSelf: 'flex-start' },
+                                        onclick: () => Router.navigate(path)
+                                    }, label) : null
+                                )
+                            )
+                        )
+                    )
+                ),
+
+                // ══ 採用側への約束（最終強化）══
+                h('section', { class: 'card', style: { borderTop: '3px solid ' + C.primary } },
+                    h('div', { class: 'card-body flex flex-col gap-3' },
+                        h('h2', { class: 'h3' }, '🤝 採用側への約束'),
+                        h('p', { class: 'text-muted', style: { fontSize: '0.875rem' } },
+                            '「任せても事故らない人」であることを、思想・構造・証拠の3つで担保します。'
+                        ),
+                        h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-2' },
+                            ...[
+                                ['不可逆損失を出さない設計を貫く',     '思想の固定により、どんな状況でも「やってはいけないこと」を維持'],
+                                ['KPIで兆候を観測し、先手を打つ',      '品質・疲弊・属人化・炎上を悪化前に検知し、合意形成して対処'],
+                                ['状況に応じて手段を切り替える',       '原理主義にならず、理想／通常／緊急モードを自律的に切替'],
+                                ['判断を外部化し、属人化させない',     '問題集・Version History・文書化で組織の知識資産を積み上げる'],
+                                ['契約と構造を明文化する',             '曖昧な期待から生まれるトラブルを事前に防ぐ'],
+                                ['改善を止めない',                     'このSPAのv12→v28の継続進化が、習慣であることの証拠']
+                            ].map(([promise, reason]) =>
+                                h('div', {
+                                    style: {
+                                        display: 'flex', flexDirection: 'column', gap: '3px',
+                                        padding: '10px 12px', background: 'var(--bg-tertiary)', borderRadius: 'var(--radius)'
+                                    }
+                                },
+                                    h('div', { style: { fontWeight: '600', fontSize: '0.875rem' } }, '✓ ' + promise),
+                                    h('p', { class: 'text-muted', style: { fontSize: '0.8125rem' } }, reason)
+                                )
+                            )
+                        )
+                    )
+                ),
+
+                // ══ CTA ══
+                h('section', { class: 'card' },
+                    h('div', { class: 'card-body flex flex-col gap-3' },
+                        h('h2', { class: 'h3' }, '次のステップ'),
+                        h('p', { class: 'text-muted' }, '実際の判断プロセスや設計思想を確認したい場合は、以下から詳細をご覧ください。'),
+                        h('div', { class: 'flex flex-wrap gap-3' },
+                            h('button', { class: 'btn btn-primary',   onclick: () => Router.navigate('projects') },         createIcon('briefcase', 16), ' プロジェクト詳細'),
+                            h('button', { class: 'btn btn-secondary', onclick: () => Router.navigate('quiz?type=pm') },     createIcon('brain', 16),     ' PM問題集'),
+                            h('button', { class: 'btn btn-secondary', onclick: () => Router.navigate('quiz?type=quality')}, createIcon('check', 16),     ' 品質問題集'),
+                            h('button', { class: 'btn btn-ghost',     onclick: () => Router.navigate('about') },            createIcon('user', 16),      ' About'),
+                            h('button', { class: 'btn btn-ghost',     onclick: () => Router.navigate('contact') },          createIcon('mail', 16),      ' 連絡する')
+                        )
+                    )
+                )
+            );
+        }
+
         function NotFoundPage() {
             return h('article', { class: 'flex flex-col gap-6 max-w-2xl' },
                 h('header', {}, h('h1', { class: 'h1' }, 'Not Found')),
@@ -6098,6 +6615,9 @@ Version History
                         case 'quiz':
                             page = QuizPage();
                             break;
+                        case 'hiring-risk':
+                            page = HiringRiskPage();
+                            break;
                         case 'not-found':
                         default:
                             page = NotFoundPage();
@@ -6113,8 +6633,11 @@ Version History
             if (page) {
                 content.appendChild(page);
             }
-            // Update SEO
+            // Update SEO (base pass)
             SEO.update(route);
+            // v27: PAGE_META で上書き（全ページ一元管理・戻り忘れゼロ）
+            // v28: params も渡すことで動的ルートにも対応
+            applyMeta(route.name, route.params || {});
 
             // Sync mobile drawer state
             syncMobileDrawer();
