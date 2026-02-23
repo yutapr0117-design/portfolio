@@ -78,6 +78,14 @@ Version History
   📊 decisionFlow() 追加: KPI→アラート→打ち手→合意の4点セットを構造化
   🔗 証拠ページへの即時遷移ボタンを専用セクションとして整備
   💬 採用側への約束を「任せても事故らない人」として最終強化
+- v29: 意思決定問題集の追加とQuizページUI全面刷新
+  🧠 新問題集: 意思決定と防衛（SREサバイバル）問題集を追加（全6章：アーキテクチャ/データストア/API/可用性/インシデント/アジャイル）
+  🎨 QuizページUI全面刷新: 問題カードを視覚的に構造化（状況・ステークホルダー・問の3ゾーン色分け）
+  📐 タイポグラフィ改善: 問題集専用フォントスケール・行間 1.85・letter-spacing 最適化
+  🏷️ セクションラベルを色バッジ化: 状況（青）・ステークホルダー（紫）・問（橙）で即座に視認
+  💬 ステークホルダー発言を引用スタイルで分離表示（border-left + 背景色）
+  🧩 architectureQuizData 定義・QuizPage 分岐・Sidebar リンク追加（既存3問題集と並列）
+  📝 PAGE_META quiz description を全4問題集に合わせて更新
 
   ⚠ BREAKING CHANGE:
 - h(): unsafe innerHTML requires explicit __unsafeHtml opt-in
@@ -1013,6 +1021,199 @@ Version History
         #content>* {
             animation: fadeIn 0.4s ease-out forwards;
         }
+
+        /* ===== v29: Quiz Page — Enhanced Readability Styles ===== */
+        .quiz-page-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .quiz-section-card {
+            background: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .quiz-section-header {
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.06) 0%, rgba(var(--color-primary-rgb), 0.02) 100%);
+            border-bottom: 2px solid rgba(var(--color-primary-rgb), 0.15);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .quiz-section-icon {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: var(--radius);
+            background: rgba(var(--color-primary-rgb), 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .quiz-section-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .quiz-question-block {
+            padding: 1.75rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .quiz-question-block:last-child {
+            border-bottom: none;
+        }
+
+        .quiz-q-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .quiz-q-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 2.25rem;
+            height: 2.25rem;
+            padding: 0 0.5rem;
+            background: var(--color-primary);
+            color: white;
+            border-radius: var(--radius);
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(var(--color-primary-rgb), 0.3);
+        }
+
+        .quiz-q-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            color: var(--text-primary);
+            line-height: 1.4;
+            padding-top: 0.25rem;
+        }
+
+        /* Zone labels */
+        .quiz-zone {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .quiz-zone-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.65rem;
+            border-radius: var(--radius-full);
+            width: fit-content;
+        }
+
+        .quiz-zone-label.situation {
+            background: rgba(8, 145, 178, 0.1);
+            color: var(--color-info);
+            border: 1px solid rgba(8, 145, 178, 0.2);
+        }
+
+        .quiz-zone-label.stakeholder {
+            background: rgba(139, 92, 246, 0.1);
+            color: #7c3aed;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .quiz-zone-label.question {
+            background: rgba(var(--color-warning-rgb), 0.1);
+            color: var(--color-warning);
+            border: 1px solid rgba(var(--color-warning-rgb), 0.2);
+        }
+
+        .quiz-zone-body {
+            font-size: 0.925rem;
+            line-height: 1.85;
+            color: var(--text-secondary);
+            letter-spacing: 0.008em;
+        }
+
+        .quiz-zone-body p + p {
+            margin-top: 0.5rem;
+        }
+
+        /* Stakeholder quote style */
+        .quiz-stakeholder-quote {
+            background: rgba(139, 92, 246, 0.04);
+            border-left: 3px solid rgba(139, 92, 246, 0.4);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 0.65rem 1rem;
+            font-size: 0.9rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin: 0.25rem 0;
+        }
+
+        .quiz-stakeholder-name {
+            font-weight: 700;
+            color: #7c3aed;
+            margin-right: 0.35rem;
+        }
+
+        /* The question highlight */
+        .quiz-question-prompt {
+            background: linear-gradient(135deg, rgba(var(--color-warning-rgb), 0.06) 0%, rgba(var(--color-warning-rgb), 0.02) 100%);
+            border: 1px solid rgba(var(--color-warning-rgb), 0.2);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.25rem;
+            font-size: 0.95rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            font-weight: 500;
+            letter-spacing: 0.005em;
+        }
+
+        /* Plain quiz content (AWS/PM/Quality) — improved from v28 */
+        .quiz-content-line {
+            font-size: 0.9rem;
+            line-height: 1.85;
+            color: var(--text-secondary);
+            letter-spacing: 0.005em;
+        }
+
+        .quiz-content-line.is-label {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 640px) {
+            .quiz-section-header,
+            .quiz-question-block {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+        }
     </style>
 
     <base target="_blank">
@@ -1161,6 +1362,9 @@ Version History
             edit: `<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>`,
             cloud: `<path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>`,
             shield: `<path d="M12 2L4 5v6c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V5l-8-3Z"/>`,
+            zap: `<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>`,
+            clipboard: `<path d="M9 2h6a1 1 0 0 1 1 1v1H8V3a1 1 0 0 1 1-1Z"/><path d="M5 3h2v2H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2V3h2"/><path d="M9 12h6M9 16h4"/>`,
+            award: `<circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>`,
         };
 
         // ===== Helper: Create SVG Icon =====
@@ -2326,7 +2530,7 @@ Version History
             about:           { title: 'About',                  desc: 'プロフィール。ITエンジニアとしての経歴・思想。' },
             resume:          { title: 'Resume',                 desc: '職務経歴。設計力・問題解決能力・継続改善習慣。' },
             contact:         { title: 'Contact',                desc: 'お問い合わせ。メール・GitHub・LinkedIn。' },
-            quiz:            { title: 'Quiz',                   desc: 'AWS / PM / 品質問題集。模範解答付き思考外部化ライブラリ。' },
+            quiz:            { title: 'Quiz',                   desc: 'AWS / PM / 品質 / 意思決定問題集。実務シナリオ×思考外部化ライブラリ。' },
             'hiring-risk':   {
                 title: 'Hiring Risk Reduction',
                 desc:  '採用側リスク低減構造・経営インパクト・KPI・意思決定アルゴリズムを明示。経営層・PM・エンジニア全層対応。'
@@ -2382,9 +2586,10 @@ Version History
             ];
 
             const quizItems = [
-                { icon: 'cloud', label: 'AWS 問題集', path: 'quiz?type=aws', active: route.name === 'quiz' && (!route.query.type || route.query.type === 'aws') },
-                { icon: 'user', label: 'PM 問題集', path: 'quiz?type=pm', active: route.name === 'quiz' && route.query.type === 'pm' },
-                { icon: 'settings', label: '品質・プロセス', path: 'quiz?type=quality', active: route.name === 'quiz' && route.query.type === 'quality' },
+                { icon: 'cloud',     label: 'AWS 問題集',          path: 'quiz?type=aws',          active: route.name === 'quiz' && (!route.query.type || route.query.type === 'aws') },
+                { icon: 'clipboard', label: 'PM 問題集',            path: 'quiz?type=pm',           active: route.name === 'quiz' && route.query.type === 'pm' },
+                { icon: 'award',     label: '品質・プロセス問題集', path: 'quiz?type=quality',      active: route.name === 'quiz' && route.query.type === 'quality' },
+                { icon: 'zap',       label: '設計判断問題集',       path: 'quiz?type=architecture', active: route.name === 'quiz' && route.query.type === 'architecture' },
             ];
 
             const systemItems = [
@@ -4728,9 +4933,10 @@ Version History
             let pageTitle = 'AWS問題集';
             if (quizType === 'pm') pageTitle = 'PM問題集';
             if (quizType === 'quality') pageTitle = '品質・プロセス問題集';
+            if (quizType === 'architecture') pageTitle = '設計判断問題集';
 
             setMeta(`${pageTitle} | Portfolio`, pageTitle);
-            const box = h("div", { class: "col", style: { gap: '14px', maxWidth: '1100px', margin: '0 auto' } });
+            const box = h("div", { class: "col", style: { gap: '14px', maxWidth: '1200px', margin: '0 auto' } });
 
             box.appendChild(h("div", { class: "h2", text: pageTitle }));
 
@@ -5997,35 +6203,228 @@ Version History
                 ]
             };
 
-            // 選択されたタイプのデータを使用
+            // ===== v29: 意思決定問題集データ =====
+            const architectureQuizData = {
+                "第1章：アーキテクチャと境界の防衛戦": [
+                    {
+                        id: "Q1",
+                        title: "組織拡大と「バズワード」の誘惑",
+                        situation: [
+                            "現在、エンジニア10名体制で運用中のモノリシックなシステムがある。今後の事業拡大（半年以内にエンジニア50名体制への急拡大）を見越し、外部から招かれた新任CTOと、意識の高い若手テックリードがアーキテクチャの全面刷新を提案してきた。",
+                            "彼らの主張は、「ドメインが未確定な現状であっても、将来の拡張性と各開発チームの自律性を担保するため、最初から完全なマイクロサービスアーキテクチャを採用すべきだ」というものだ。",
+                            "さらに、「各サービスごとにリポジトリを完全に分割（Polyrepo化）し、コンテナオーケストレーションにはKubernetesを、サービス間通信の制御にはIstio（Service Mesh）を全面導入する」というロードマップを描いている。"
+                        ],
+                        stakeholders: [
+                            { name: "CTO", quote: "最新のクラウドネイティブ・スタック（K8s、Istio）でエンジニアの採用力（技術広報）を爆発的に高めたい。GAFAもこの構成だ。" },
+                            { name: "若手テックリード", quote: "各チームが他チームに依存せず、独立して好きな技術でデプロイできる究極の理想形です。CI/CDもサービスごとに最適化できます。" },
+                            { name: "PM", quote: "で、これをやったら機能開発のスピードとベロシティは明日から2倍になるんだよね？" }
+                        ],
+                        question: "コンウェイの法則、ネットワークの8つの誤謬、そして分散モノリス化の恐怖を考慮し、この提案に対するあなたの意思決定を下せ。"
+                    }
+                ],
+                "第2章：データストアとトランザクションの泥沼": [
+                    {
+                        id: "Q2",
+                        title: "「技術の多様性（Polyglot Persistence）」と分散トランザクションの罠",
+                        situation: [
+                            "新規の重要サブシステム（決済・ポイント管理を含む）の開発において、要件として「スキーマが頻繁に変わる非定型データの保存」と「他システムと連携するための非同期ジョブキュー」が追加された。",
+                            "現在、システムのメインDBは堅牢にチューニングされた単一のPostgreSQLである。",
+                            "しかし、アプリケーション開発チームが「それぞれの用途に最適な技術を選ぶべきだ（Polyglot Persistence）」と主張し、「ドキュメント指向DBとしてMongoDBを、メッセージブローカーとしてApache Kafkaを新規導入する」という構成案を持ってきた。",
+                            "さらに、複数サービスにまたがるデータ整合性を担保するため、非同期の「Sagaパターン（補償トランザクション）」を自前で実装する計画を立てている。"
+                        ],
+                        stakeholders: [
+                            { name: "アプリエンジニア", quote: "RDBの厳格なスキーマ変更（マイグレーション）待ちで開発がブロックされるのは嫌だ。MongoDBならスキーマレスで最高だ。Kafkaなら毎秒数万件のイベントでもスケールする。" },
+                            { name: "ITコンサル", quote: "適材適所の技術選定こそがモダンです。マイクロサービス間の結果整合性（Eventual Consistency）はSagaパターンで解決できます。" }
+                        ],
+                        question: "ミドルウェアの増加がもたらす運用負荷（パッチ当て、バックアップ、監視、障害切り分けの複雑化）と、Sagaパターンのデバッグ難易度を念頭に置き、あなたの意思決定を下せ。"
+                    }
+                ],
+                "第3章：APIとリアルタイム通信の妥協点": [
+                    {
+                        id: "Q3",
+                        title: "過剰なリアルタイム性と「ステートフル」なインフラの恐怖",
+                        situation: [
+                            "新機能として「ユーザー向けダッシュボードの通知・数値のリアルタイム更新」が求められた。",
+                            "フロントエンドチームが「画面のチラつきを完全に無くし、極上のUXを提供するため、完全な双方向通信であるWebSocketを全面導入したい」と息巻いている。",
+                            "さらに、「クライアント側が欲しいデータだけを柔軟に取得できるよう、GraphQLを用いたBFF（Backends For Frontends）層をNode.jsで新規構築する」と提案してきた。"
+                        ],
+                        stakeholders: [
+                            { name: "フロントエンドTL", quote: "REST APIのオーバーフェッチ/アンダーフェッチにはもうウンザリだ。WebSocketでサーバーからバンバン状態をプッシュしたい。" },
+                            { name: "バックエンドエンジニア", quote: "WebSocketのコネクション維持でメモリがどれだけ食われるか分かってるのか？スケールアウト時のPub/Sub同期（Redis等）の構築はどうするんだ？" }
+                        ],
+                        question: "ステートフルなコネクションがもたらすローリングアップデートの困難さ、ロードバランサーのタイムアウト問題、Thundering Herd（再接続の嵐）のリスク、そしてREST API（CDNキャッシュ）の恩恵を手放すことの重大さを考慮し、あなたの意思決定を下せ。"
+                    }
+                ],
+                "第4章：可用性とFinOps（コスト）の天秤": [
+                    {
+                        id: "Q4",
+                        title: "「絶対に止まらないシステム」という幻とオーバーエンジニアリング",
+                        situation: [
+                            "事業部門トップが「今回の新サービスは会社の命運を握っている。絶対に止まってはならない。SLA 99.99%（年間ダウンタイム52分以内）を絶対保証しろ」と要求してきた。",
+                            "これを受け、外部インテグレーションベンダーが「AWSの東京リージョンと大阪リージョンを用いたマルチリージョン・Active-Active構成」という重厚長大なインフラ設計案を提出した。",
+                            "さらに「監視にはフル機能のDatadogを全レイヤー（APM、Log, Infrastructure）に導入する（試算ではDatadogの利用料がAWSのインフラコストを上回る）」と息巻いている。"
+                        ],
+                        stakeholders: [
+                            { name: "事業部長", quote: "障害でサービスが止まったら日経新聞沙汰だ。インフラ投資に金に糸目はつけない！（※稼働半年後には確実にインフラコスト半減のプレッシャーをかけてくる）" },
+                            { name: "ベンダーアーキテクト", quote: "CAP定理を乗り越える最高峰のエンタープライズ構成です。リージョン障害が起きても無停止でルーティングされます。" }
+                        ],
+                        question: "Active-Active構成がもたらすデータ同期（Split-brain）の地獄、莫大なEgress（データ転送）料金、そして「MTBF（平均故障間隔）の最大化」という幻想ではなく、「MTTR（平均修復時間）の極小化」こそが真の可用性であるというSREの原則に基づき、あなたの意思決定を下せ。"
+                    }
+                ],
+                "第5章：技術的負債とインシデント対応の狂気": [
+                    {
+                        id: "Q5",
+                        title: "P1障害対応中のリファクタリング衝動と、Git Force Pushの惨劇",
+                        situation: [
+                            "金曜日の深夜2時。本番環境で決済処理が全停止するP1（最高優先度）インシデントが発生した。",
+                            "原因究明のため緊急招集された開発メンバーがパニックに陥っている。",
+                            "一人のシニアエンジニアが「原因は決済モジュールのクラス設計がクソだからだ！今からデザインパターンを適用して根本的にリファクタリングする！」と叫び、数千行のコードを書き換え始めた。",
+                            "同時に、別の若手エンジニアが「バグが混入したコミットを見つけました！メインブランチをGit Force Pushして、昨日の状態に強制的に巻き戻します！」とコマンドを実行しようとしている。"
+                        ],
+                        stakeholders: [
+                            { name: "シニアエンジニア", quote: "どうせ直すなら、技術的負債も一緒に返済すべきだ！これが根本対応だ！" },
+                            { name: "若手エンジニア", quote: "Force Pushすれば一瞬でバグる前に戻せます！早く復旧させないと！" },
+                            { name: "カスタマーサポート", quote: "お客様からのクレーム電話が鳴り止みません！いつ復旧するんですか！？" }
+                        ],
+                        question: "インシデント中の「Mitigation（影響緩和）」と「Resolution（根本解決）」の混同が引き起こす二次災害、そして本番ブランチへの強制上書きによる状態の不整合（DBスキーマとの乖離など）の恐怖を制圧し、現場指揮官としてのあなたの意思決定を下せ。"
+                    }
+                ],
+                "第6章：アジャイルの闇と条件分岐の地獄": [
+                    {
+                        id: "Q6",
+                        title: "放置されたFeature Flags（Dead Flags）の清算",
+                        situation: [
+                            "トランクベース開発（Trunk-based Development）を推進するため、機能のオン/オフを動的に切り替える「Feature Flags（機能フラグ）」システムを導入して1年が経過した。",
+                            "アジャイルなデプロイは実現したが、深刻な問題が発覚した。リリース済みの古い機能フラグのクリーンアップが一切行われておらず、ソースコードの至る所に「数千個の不要なIF文（Dead Flags）」が散乱している状態だ。",
+                            "テストコードの組み合わせ（Cyclomatic Complexity）は天文学的な数字に爆発し、誰も全体像を把握できず、昨日ついに「古いフラグの誤操作による意図しない旧画面の露出」という本番障害が発生した。"
+                        ],
+                        stakeholders: [
+                            { name: "プロダクトオーナー", quote: "コードの掃除（リファクタリング）にスプリントのポイントを割く余裕はない。新機能（新しいフラグ）の開発を止めないでくれ。" },
+                            { name: "開発チーム", quote: "どのフラグが今本番でTrueになってるか、もう誰も分かりません。消すのが怖くて触れません。" }
+                        ],
+                        question: "技術的負債が限界を超え、システムの予測可能性が完全に崩壊する一歩手前にある。運用上の安全性とコードの健全性を取り戻すための、あなたの意思決定を下せ。"
+                    }
+                ]
+            };
+
+            // ===== v29: 選択されたタイプのデータを使用 =====
+            const isArchitecture = quizType === 'architecture';
             let quizData = awsQuizData;
             if (quizType === 'pm') quizData = pmQuizData;
             if (quizType === 'quality') quizData = qualityQuizData;
+            if (isArchitecture) quizData = architectureQuizData;
 
-            // セクションごとに表示
-            Object.keys(quizData).sort().forEach(section => {
-                const sectionBox = h("div", { class: "card p col", style: { gap: '12px' } });
-                sectionBox.appendChild(h("div", { class: "h3", text: section }));
+            // ===== v29: 意思決定問題集 — 構造化レンダリング =====
+            if (isArchitecture) {
+                const wrapper = h("div", { class: "quiz-page-wrapper" });
 
-                const questions = quizData[section];
-                questions.forEach((q, idx) => {
-                    const qBox = h("div", { class: "col", style: { gap: '8px', padding: '12px 0', borderBottom: '1px solid var(--border)' } });
-                    qBox.appendChild(h("div", { class: "row", style: { gap: '8px', alignItems: 'center' } },
-                        h("span", { class: "badge", text: q.id }),
-                        h("div", { style: { fontWeight: '600' }, text: q.title.replace(q.id + '. ', '') })
-                    ));
+                // intro banner
+                const introBanner = h("div", {
+                    class: "card",
+                    style: {
+                        padding: '1.5rem 2rem',
+                        background: 'linear-gradient(135deg, rgba(var(--color-primary-rgb),0.06) 0%, rgba(var(--color-primary-rgb),0.02) 100%)',
+                        borderColor: 'rgba(var(--color-primary-rgb),0.2)'
+                    }
+                },
+                    h("div", { style: { fontSize: '0.8rem', fontWeight: '800', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '0.5rem' } }, "設計判断問題集（SREサバイバル）"),
+                    h("div", { style: { fontSize: '1rem', lineHeight: '1.75', color: 'var(--text-secondary)' } },
+                        "実務で起きる「誘惑的な技術的判断ミス」を題材にした問題集。各問はステークホルダーの主張とともに提示される。トレードオフを整理し、現場指揮官として意思決定を下せ。"
+                    )
+                );
+                wrapper.appendChild(introBanner);
 
-                    q.content.forEach(line => {
-                        if (line.trim()) {
-                            qBox.appendChild(h("div", { class: "muted", style: { whiteSpace: 'pre-wrap', lineHeight: '1.6' }, text: line }));
-                        }
+                Object.keys(quizData).forEach((section, sIdx) => {
+                    const questions = quizData[section];
+                    const icons = ['🏛️','🗄️','🔌','⚖️','🚨','🔁'];
+
+                    const sCard = h("div", { class: "quiz-section-card" });
+
+                    const sHeader = h("div", { class: "quiz-section-header" });
+                    sHeader.appendChild(h("div", { class: "quiz-section-icon" }, icons[sIdx] || '📌'));
+                    sHeader.appendChild(h("div", { class: "quiz-section-title" }, section));
+                    sCard.appendChild(sHeader);
+
+                    questions.forEach((q) => {
+                        const qBlock = h("div", { class: "quiz-question-block" });
+
+                        // Q header
+                        const qHeader = h("div", { class: "quiz-q-header" });
+                        qHeader.appendChild(h("div", { class: "quiz-q-badge" }, q.id));
+                        qHeader.appendChild(h("div", { class: "quiz-q-title" }, q.title));
+                        qBlock.appendChild(qHeader);
+
+                        // 状況ゾーン
+                        const sitZone = h("div", { class: "quiz-zone" });
+                        sitZone.appendChild(h("div", { class: "quiz-zone-label situation" }, "📋 状況"));
+                        const sitBody = h("div", { class: "quiz-zone-body" });
+                        q.situation.forEach(line => {
+                            sitBody.appendChild(h("p", { text: line }));
+                        });
+                        sitZone.appendChild(sitBody);
+                        qBlock.appendChild(sitZone);
+
+                        // ステークホルダーゾーン
+                        const shZone = h("div", { class: "quiz-zone" });
+                        shZone.appendChild(h("div", { class: "quiz-zone-label stakeholder" }, "💬 ステークホルダーの主張"));
+                        q.stakeholders.forEach(sh => {
+                            const quote = h("div", { class: "quiz-stakeholder-quote" });
+                            quote.appendChild(h("span", { class: "quiz-stakeholder-name" }, sh.name + ":"));
+                            quote.appendChild(h("span", { text: "「" + sh.quote + "」" }));
+                            shZone.appendChild(quote);
+                        });
+                        qBlock.appendChild(shZone);
+
+                        // 問ゾーン
+                        const qZone = h("div", { class: "quiz-zone" });
+                        qZone.appendChild(h("div", { class: "quiz-zone-label question" }, "🎯 問"));
+                        qZone.appendChild(h("div", { class: "quiz-question-prompt" }, q.question));
+                        qBlock.appendChild(qZone);
+
+                        sCard.appendChild(qBlock);
                     });
 
-                    sectionBox.appendChild(qBox);
+                    wrapper.appendChild(sCard);
                 });
 
-                box.appendChild(sectionBox);
-            });
+                box.appendChild(wrapper);
+            } else {
+                // ===== v29: 既存問題集 — 改良レンダリング =====
+                const wrapper = h("div", { class: "quiz-page-wrapper" });
+                Object.keys(quizData).sort().forEach(section => {
+                    const sCard = h("div", { class: "quiz-section-card" });
+
+                    const sHeader = h("div", { class: "quiz-section-header" });
+                    sHeader.appendChild(h("div", { class: "quiz-section-icon" }, "📝"));
+                    sHeader.appendChild(h("div", { class: "quiz-section-title" }, section));
+                    sCard.appendChild(sHeader);
+
+                    const questions = quizData[section];
+                    questions.forEach((q) => {
+                        const qBlock = h("div", { class: "quiz-question-block" });
+
+                        const qHeader = h("div", { class: "quiz-q-header" });
+                        qHeader.appendChild(h("div", { class: "quiz-q-badge" }, q.id));
+                        qHeader.appendChild(h("div", { class: "quiz-q-title" }, q.title.replace(q.id + '. ', '')));
+                        qBlock.appendChild(qHeader);
+
+                        q.content.forEach(line => {
+                            if (!line.trim()) return;
+                            // Check if it's a label line (ends with ':' or is a short header)
+                            const isLabel = /^(状況|問|Challenge|Core Knowledge|境界点|Reboot vs|Stop|ASG|io2|gp[23]|注意|現場|意図|ポイント|解説|補足)[：:。]?/.test(line) || (line.endsWith(':') && line.length < 50);
+                            qBlock.appendChild(h("div", {
+                                class: "quiz-content-line" + (isLabel ? " is-label" : ""),
+                                style: { whiteSpace: 'pre-wrap' }
+                            }, line));
+                        });
+
+                        sCard.appendChild(qBlock);
+                    });
+
+                    wrapper.appendChild(sCard);
+                });
+                box.appendChild(wrapper);
+            }
 
             // Contact form section
             const contactBox = h("div", { class: "card p col", style: { gap: '14px', marginTop: '24px' } });
@@ -6749,7 +7148,7 @@ Version History
                 console.warn('Service Worker access denied:', e);
             }
 
-            console.log('Portfolio SPA  (Hybrid Edition ×) initialized successfully (v13 fully compatible)');
+            console.log('Portfolio SPA  (Hybrid Edition ×) initialized successfully (v13 fully compatible) — v29');
         }
 
         // ===== Initialization =====
