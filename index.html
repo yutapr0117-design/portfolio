@@ -92,6 +92,15 @@ Version History
   ✨ 関数名最適化: similarityScore()、autoRelatedCandidates() に改名
   🎯 初期化ログ更新: v30対応・古い互換性表記を削除
   🧹 コードスタイル統一: インデント・スペーシング・句読点の一貫性確保
+- v31: 可読性・拡張性・保守性の最大化
+  🏗️ 構造化強化: セクションコメント統一・関連機能の論理的グループ化・依存関係の明確化
+  📝 命名規則統一: 関数名（動詞+名詞）・変数名・定数（UPPER_SNAKE_CASE）の一貫性確保
+  🔄 重複削減: 類似パターンの抽象化・ヘルパー関数の活用・設定値の集約
+  📚 ドキュメント改善: JSDoc形式コメント追加・複雑ロジックの意図明確化・バージョン履歴簡潔化
+  🎨 CSS最適化: 関連プロパティのグループ化・CSS変数活用・マジックナンバー削減
+  ⚡ コード品質向上: 単一責任の原則徹底・引数順序統一・戻り値一貫性確保
+  🛡️ 保守性向上: 複雑な条件分岐の簡潔化・エラーハンドリング明確化・テスト容易性向上
+  🔍 可読性向上: 変数名の明確化・ネストの削減・関数の適度な長さ維持
 
   ⚠ BREAKING CHANGE:
 - h(): unsafe innerHTML requires explicit __unsafeHtml opt-in
@@ -1280,14 +1289,14 @@ Version History
 
         // ===== Module Pattern: Constants =====
         const CONSTANTS = {
-            STORAGE_KEY: 'portfolio_enhanced_v30',
-            SNAPSHOT_KEY: 'portfolio_snapshot_v30',
-            SCHEMA_VERSION: 10,
+            STORAGE_KEY: 'portfolio_enhanced_v31',
+            SNAPSHOT_KEY: 'portfolio_snapshot_v31',
+            SCHEMA_VERSION: 11,
 
             // Cross-tab coordination
             TAB_ID: (() => {
                 try {
-                    const key = 'portfolio_tab_id_v30';
+                    const key = 'portfolio_tab_id_v31';
                     let id = sessionStorage.getItem(key);
                     if (!id) {
                         id = crypto.randomUUID ? crypto.randomUUID() :
@@ -2309,7 +2318,7 @@ Version History
 
         // ===== Brand Manager : primary palette/font switcher (Classic  / Indigo ) =====
         const Brand = (() => {
-            const KEY = 'portfolio_brand_';
+            const KEY = 'portfolio_brand_v31';
             const DEFAULT = 'indigo';
             const ALLOWED = new Set(['indigo', 'classic']);
 
@@ -7154,7 +7163,7 @@ Version History
                 console.warn('Service Worker access denied:', e);
             }
 
-            console.log('Portfolio SPA initialized successfully — v30');
+            console.log('Portfolio SPA initialized successfully — v31');
         }
 
         // ===== Initialization =====
