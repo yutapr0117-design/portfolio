@@ -86,6 +86,12 @@ Version History
   💬 ステークホルダー発言を引用スタイルで分離表示（border-left + 背景色）
   🧩 architectureQuizData 定義・QuizPage 分岐・Sidebar リンク追加（既存3問題集と並列）
   📝 PAGE_META quiz description を全4問題集に合わせて更新
+- v30: 表記揺れ統一とコード品質向上
+  🔧 バージョン番号統一: v10→v30（STORAGE_KEY、SNAPSHOT_KEY、TAB_ID、関数名）
+  📝 コメント整理: 不要なバージョン参照を削除・文体を統一
+  ✨ 関数名最適化: similarityScore()、autoRelatedCandidates() に改名
+  🎯 初期化ログ更新: v30対応・古い互換性表記を削除
+  🧹 コードスタイル統一: インデント・スペーシング・句読点の一貫性確保
 
   ⚠ BREAKING CHANGE:
 - h(): unsafe innerHTML requires explicit __unsafeHtml opt-in
@@ -1022,7 +1028,7 @@ Version History
             animation: fadeIn 0.4s ease-out forwards;
         }
 
-        /* ===== v29: Quiz Page — Enhanced Readability Styles ===== */
+        /* ===== Quiz Page — Enhanced Readability Styles ===== */
         .quiz-page-wrapper {
             max-width: 1100px;
             margin: 0 auto;
@@ -1192,7 +1198,7 @@ Version History
             letter-spacing: 0.005em;
         }
 
-        /* Plain quiz content (AWS/PM/Quality) — improved from v28 */
+        /* Plain quiz content (AWS/PM/Quality) */
         .quiz-content-line {
             font-size: 0.9rem;
             line-height: 1.85;
@@ -1274,14 +1280,14 @@ Version History
 
         // ===== Module Pattern: Constants =====
         const CONSTANTS = {
-            STORAGE_KEY: 'portfolio_enhanced_v10',
-            SNAPSHOT_KEY: 'portfolio_snapshot_v10',
+            STORAGE_KEY: 'portfolio_enhanced_v30',
+            SNAPSHOT_KEY: 'portfolio_snapshot_v30',
             SCHEMA_VERSION: 10,
 
             // Cross-tab coordination
             TAB_ID: (() => {
                 try {
-                    const key = 'portfolio_tab_id_v10';
+                    const key = 'portfolio_tab_id_v30';
                     let id = sessionStorage.getItem(key);
                     if (!id) {
                         id = crypto.randomUUID ? crypto.randomUUID() :
@@ -1912,7 +1918,7 @@ Version History
                 return uni ? inter / uni : 0;
             }
 
-            function similarityScoreV10(a, b) {
+            function similarityScore(a, b) {
                 if (!a || !b) return 0;
                 const tagScore = jaccard(a.tags, b.tags);
                 const techScore = jaccard(a.tech, b.tech);
@@ -1930,11 +1936,11 @@ Version History
                 return Math.max(0, Math.min(1, score));
             }
 
-            function autoRelatedCandidatesV10(target, projects, limit = 8) {
+            function autoRelatedCandidates(target, projects, limit = 8) {
                 const fixed = new Set((target && target.relatedProjectIds) ? target.relatedProjectIds : []);
                 return (Array.isArray(projects) ? projects : [])
                     .filter(p => p && p.id && target && p.id !== target.id && !fixed.has(p.id))
-                    .map(p => ({ p, s: similarityScoreV10(target, p) }))
+                    .map(p => ({ p, s: similarityScore(target, p) }))
                     .filter(x => x.s > 0)
                     .sort((a, b) => b.s - a.s)
                     .slice(0, limit)
@@ -2934,7 +2940,7 @@ Version History
 
 
 
-            const autoRelated = autoRelatedCandidatesV10(project, state.projects, 8);
+            const autoRelated = autoRelatedCandidates(project, state.projects, 8);
             return h('article', { class: 'flex flex-col gap-6' },
                 // Header
                 h('header', {},
@@ -7034,8 +7040,8 @@ Version History
             }
             // Update SEO (base pass)
             SEO.update(route);
-            // v27: PAGE_META で上書き（全ページ一元管理・戻り忘れゼロ）
-            // v28: params も渡すことで動的ルートにも対応
+            // PAGE_META で上書き（全ページ一元管理）
+            // 動的ルートに対応
             applyMeta(route.name, route.params || {});
 
             // Sync mobile drawer state
@@ -7148,7 +7154,7 @@ Version History
                 console.warn('Service Worker access denied:', e);
             }
 
-            console.log('Portfolio SPA  (Hybrid Edition ×) initialized successfully (v13 fully compatible) — v29');
+            console.log('Portfolio SPA initialized successfully — v30');
         }
 
         // ===== Initialization =====
