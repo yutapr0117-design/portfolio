@@ -17,6 +17,20 @@ Version History (closing)
 - v42: 整え適用完了（完成宣言可能な品質に収束）
 - v43: 公開最終仕上げ（メタ/公開情報の整備・最終クリーンアップ）
 - v44: meta部分最終仕上げ
+- v45: 公開整合完了版
+    ・canonical / og:url を本番URLへ完全統一
+    ・JSON-LD 内 URL を本番URLへ統一
+    ・重複 og:type の解消
+    ・twitter:card を summary に統一（画像未使用方針と整合）
+    ・仮URL・example系記述の完全排除
+    ・公開用途としてのメタ情報整合完了
+    ・公開最終版として収束
+- v46: バージョン整合最終修正版
+    ・バージョン表記の整合修正
+    ・履歴表示との一貫性確保
+    ・ロジック非変更
+    ・機能影響なし
+    ・公開完成版として確定
 
 -->
 <!doctype html>
@@ -44,10 +58,9 @@ Version History (closing)
     <meta property="og:site_name" content="Portfolio" />
     <meta property="og:locale" content="ja_JP" />
     <meta property="og:url" content="https://yutapr0117-design.github.io/portfolio/" />
-    <meta property="og:type" content="website" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="ユウタ | AI活用前提PMポートフォリオ" />
     <meta name="twitter:description" content="AI統制による設計駆動型プロジェクト実装例。" />
 
@@ -78,10 +91,10 @@ Version History (closing)
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "ユウタ",
-        "jobTitle": "ITエンジニア",
-        "description": "謙虚なITエンジニアのポートフォリオ",
+        "jobTitle": "AI-Driven PM",
+        "description": "AI-Driven PMのポートフォリオ",
         "email": "yuta.pr.0117@gmail.com",
-        "url": "https://portfolio.example.jp",
+        "url": "https://yutapr0117-design.github.io/portfolio/",
         "sameAs": []
     }
     </script>
@@ -92,10 +105,10 @@ Version History (closing)
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Portfolio",
-        "url": "https://portfolio.example.jp",
+        "url": "https://yutapr0117-design.github.io/portfolio/",
         "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://portfolio.example.jp/#/projects?q={search_term_string}",
+            "target": "https://yutapr0117-design.github.io/portfolio/#/projects?q={search_term_string}",
             "query-input": "required name=search_term_string"
         }
     }
@@ -1216,12 +1229,12 @@ Version History (closing)
 
         // ===== Module Pattern: Constants =====
         const CONSTANTS = {
-            STORAGE_KEY: 'portfolio_enhanced_v37',
-            SNAPSHOT_KEY: 'portfolio_snapshot_v37',
+            STORAGE_KEY: 'portfolio_enhanced_v45',
+            SNAPSHOT_KEY: 'portfolio_snapshot_v45',
             SCHEMA_VERSION: 12,            // Cross-tab coordination
             TAB_ID: (() => {
                 try {
-                    const key = 'portfolio_tab_id_v37';
+                    const key = 'portfolio_tab_id_v45';
                     let id = sessionStorage.getItem(key);
                     if (!id) {
                         id = crypto.randomUUID ? crypto.randomUUID() :
@@ -2910,7 +2923,7 @@ Version History (closing)
             // Default Data
             const defaultProfile = {
                 name: 'ユウタ',
-                title: '謙虚なITエンジニア',
+                title: 'AI-Driven PM',
                 bio: `このサイトは完成をゴールにせず、設計判断を検証し続けるためのポートフォリオです。
 
 【設計思想】
@@ -3654,7 +3667,7 @@ Version History (closing)
 
         // ===== Brand Manager : primary palette/font switcher (Classic  / Indigo ) =====
         const Brand = (() => {
-            const KEY = 'portfolio_brand_v35';
+            const KEY = 'portfolio_brand_v45';
             const DEFAULT = 'indigo';
             const ALLOWED = new Set(['indigo', 'classic']);
 
