@@ -393,7 +393,17 @@ Version History (closing)
             box-shadow: var(--focus-ring);
         }
 
-        /* ===== Layout ===== */
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+/* ===== Layout ===== */
         .app {
             display: flex;
             min-height: 100vh;
@@ -1185,7 +1195,7 @@ Version History (closing)
 
     <!-- Mobile Topbar -->
     <header class="topbar" id="topbar">
-        <button class="icon-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false">
+        <button class="icon-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -1205,7 +1215,7 @@ Version History (closing)
     <div class="overlay" id="overlay" role="presentation" aria-hidden="true"></div>
 
     <!-- Mobile Drawer -->
-    <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="ナビゲーションメニュー"></aside>
+    <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="ナビゲーションメニュー" aria-hidden="true" hidden></aside>
 
     <!-- Main App -->
     <div class="app" id="app">
@@ -1228,6 +1238,8 @@ Version History (closing)
         'use strict';
 
         // ===== Module Pattern: Constants =====
+        // NOTE: Storage key は v45 のまま維持（互換性優先）。v46 はロジック非変更。
+
         const CONSTANTS = {
             STORAGE_KEY: 'portfolio_enhanced_v45',
             SNAPSHOT_KEY: 'portfolio_snapshot_v45',
@@ -6247,7 +6259,11 @@ Version History (closing)
 
             // Sync mobile drawer state
             syncMobileDrawer();
-        }
+        
+
+            // Enforce link security for dynamically rendered content
+            secureExternalLinks(document);
+}
 
         // ===== Mobile Drawer =====
         function syncMobileDrawer() {
@@ -6259,34 +6275,152 @@ Version History (closing)
             }
         }
 
-        function openDrawer() {
+        
+        // ===== Security: enforce noopener on target=_blank links (including dynamic links) =====
+        function secureExternalLinks(root = document) {
+            try {
+                const links = root.querySelectorAll('a[target="_blank"]');
+                links.forEach((a) => {
+                    const rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
+                    if (!rel.includes('noopener')) rel.push('noopener');
+                    if (!rel.includes('noreferrer')) rel.push('noreferrer');
+                    a.setAttribute('rel', rel.join(' '));
+                    // Optional: reduce referrer leakage for external links
+                    if (!a.getAttribute('referrerpolicy')) a.setAttribute('referrerpolicy', 'no-referrer');
+                });
+            } catch { /* noop */ }
+        }
+
+        // ===== Drawer Focus Trap / Accessibility helpers =====
+        let __drawerTrapHandler = null;
+        let __drawerLastFocused = null;
+        let __drawerScrollY = 0;
+
+        function __setAppInert(isInert) {
+            const app = document.getElementById('app');
+            if (!app) return;
+            // Prefer native inert if available; fallback to aria-hidden + pointer-events
+            try {
+                if ('inert' in app) app.inert = !!isInert;
+            } catch { /* noop */ }
+
+            if (isInert) {
+                app.setAttribute('aria-hidden', 'true');
+                app.style.pointerEvents = 'none';
+            } else {
+                app.removeAttribute('aria-hidden');
+                app.style.pointerEvents = '';
+            }
+        }
+
+        function __lockBodyScroll(lock) {
+            if (lock) {
+                __drawerScrollY = window.scrollY || 0;
+                document.body.style.position = 'fixed';
+                document.body.style.top = `-${__drawerScrollY}px`;
+                document.body.style.width = '100%';
+            } else {
+                const y = __drawerScrollY || 0;
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.width = '';
+                window.scrollTo(0, y);
+            }
+        }
+
+        function __trapFocus(container) {
+            const focusable = container.querySelectorAll(
+                'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+            );
+            if (!focusable.length) return;
+
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            __drawerTrapHandler = function (e) {
+                if (e.key === 'Escape') {
+                    closeDrawer();
+                    return;
+                }
+                if (e.key !== 'Tab') return;
+
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            };
+
+            document.addEventListener('keydown', __drawerTrapHandler);
+            first.focus();
+        }
+
+        function __releaseFocusTrap() {
+            if (__drawerTrapHandler) {
+                document.removeEventListener('keydown', __drawerTrapHandler);
+                __drawerTrapHandler = null;
+            }
+        }
+
+function openDrawer() {
             const drawer = document.getElementById('drawer');
             const overlay = document.getElementById('overlay');
+            const menuBtn = document.getElementById('menuBtn');
+
+            if (!drawer || !overlay) return;
+
+            __drawerLastFocused = document.activeElement;
 
             clear(drawer);
             drawer.appendChild(Sidebar(true));
+
+            // Visible
+            drawer.removeAttribute('hidden');
             drawer.style.display = 'block';
             overlay.style.display = 'block';
 
-            // Update ARIA
+            // ARIA
             drawer.setAttribute('aria-hidden', 'false');
             overlay.setAttribute('aria-hidden', 'false');
-            document.getElementById('menuBtn').setAttribute('aria-expanded', 'true');
+            menuBtn?.setAttribute('aria-expanded', 'true');
 
-            // Focus management
-            drawer.querySelector('button, a, input, select, textarea')?.focus();
+            // Background isolation
+            __setAppInert(true);
+            __lockBodyScroll(true);
+
+            // Ensure rel=noopener for dynamic links inside drawer
+            secureExternalLinks(drawer);
+
+            // Focus
+            __trapFocus(drawer);
         }
 
         function closeDrawer() {
             const drawer = document.getElementById('drawer');
             const overlay = document.getElementById('overlay');
+            const menuBtn = document.getElementById('menuBtn');
 
+            if (!drawer || !overlay) return;
+
+            // Hide
             drawer.style.display = 'none';
             overlay.style.display = 'none';
+            drawer.setAttribute('hidden', '');
 
+            // ARIA
             drawer.setAttribute('aria-hidden', 'true');
             overlay.setAttribute('aria-hidden', 'true');
-            document.getElementById('menuBtn').setAttribute('aria-expanded', 'false');
+            menuBtn?.setAttribute('aria-expanded', 'false');
+
+            // Release isolation
+            __releaseFocusTrap();
+            __setAppInert(false);
+            __lockBodyScroll(false);
+
+            // Focus restore
+            (menuBtn || __drawerLastFocused)?.focus?.();
         }
 
 
@@ -6329,11 +6463,11 @@ Version History (closing)
             // Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
-                    closeDrawer();
+                    const drawer = document.getElementById('drawer');
+                    if (drawer && drawer.getAttribute('aria-hidden') === 'false') closeDrawer();
                 }
             });
-
-            // Window resize listener (v37: responsive drawer sync)
+// Window resize listener (v37: responsive drawer sync)
             window.addEventListener('resize', debounce(syncMobileDrawer, CONSTANTS.DEBOUNCE_DELAY));
 
             // Router
