@@ -32,6 +32,7 @@ Version History (closing)
     ・機能影響なし
     ・公開完成版として確定
 - v47: アセット追加  
+- v48: アセット追加時のバグ修正
 
 -->
 <!doctype html>
@@ -42,7 +43,7 @@ Version History (closing)
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Content Security Policy (minimum) -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://yutapr0117-design.github.io; media-src 'self';" />
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self';" />
     <title>Portfolio</title>
     <meta name="description" content="設計判断を重視するITエンジニアの実験的SPAポートフォリオ。内蔵アプリ、データ整合性チェック、セマンティックHTML5対応。" />
 
@@ -53,7 +54,7 @@ Version History (closing)
     <meta name="theme-color" content="#818cf8" media="(prefers-color-scheme: dark)" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Yuta Yokoi - Portfolio" />
+    <meta property="og:title" content="Yuta - Portfolio" />
     <meta property="og:description" content="AI統制による設計駆動型プロジェクト実装例。単一HTML SPAとして構築した実験的ポートフォリオ。" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Portfolio" />
@@ -79,11 +80,8 @@ Version History (closing)
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
 
     <!-- Favicon -->
-    <link rel="icon" href="assets/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
-    <link rel="icon" href="assets/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
-    <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png" sizes="180x180" />
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" />
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" />
@@ -3544,14 +3542,20 @@ Version History (closing)
             function scheduleSave() {
                 if (saveTimer) clearTimeout(saveTimer);
                 saveTimer = setTimeout(() => {
-                    Storage.set(CONSTANTS.STORAGE_KEY, JSON.stringify(data));
+                    const success = Storage.set(CONSTANTS.STORAGE_KEY, JSON.stringify(data));
+                    if (!success) Toast.show('ストレージ上限のため保存に失敗しました。不要なデータを削除してください。', 'error');
                     saveTimer = null;
                 }, CONSTANTS.DEBOUNCE_DELAY);
             }
 
             function saveNow() {
                 if (saveTimer) clearTimeout(saveTimer);
-                Storage.set(CONSTANTS.STORAGE_KEY, JSON.stringify(data));
+                const success = Storage.set(CONSTANTS.STORAGE_KEY, JSON.stringify(data));
+                if (!success) {
+                    // beforeunload/visibilitychange 経由ではToastが描画されない場合があるため両方記録
+                    console.error('[State] saveNow: ストレージ上限のため保存に失敗しました。');
+                    Toast.show('ストレージ上限のため保存に失敗しました。', 'error');
+                }
             }
 
             // Auto-save on visibility change
@@ -6553,19 +6557,6 @@ function openDrawer() {
 
             // Initial render
             render();
-
-            // Service Worker registration (optional enhancement)
-            try {
-                if ('serviceWorker' in navigator) {
-                    navigator.serviceWorker.register('data:text/javascript,' + encodeURIComponent(`
-                        self.addEventListener('install', e => self.skipWaiting());
-                        self.addEventListener('activate', e => e.waitUntil(self.clients.claim()));
-                        self.addEventListener('fetch', e => e.respondWith(fetch(e.request).catch(() => new Response('Offline'))));
-                    `)).catch(() => { });
-                }
-            } catch (e) {
-
-            }
 
             // ===== BGM =====
             BGM.init();
