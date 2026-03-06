@@ -31,6 +31,7 @@ Version History (closing)
     ・ロジック非変更
     ・機能影響なし
     ・公開完成版として確定
+- v47: アセット追加  
 
 -->
 <!doctype html>
@@ -41,7 +42,7 @@ Version History (closing)
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Content Security Policy (minimum) -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;" />
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://yutapr0117-design.github.io; media-src 'self';" />
     <title>Portfolio</title>
     <meta name="description" content="設計判断を重視するITエンジニアの実験的SPAポートフォリオ。内蔵アプリ、データ整合性チェック、セマンティックHTML5対応。" />
 
@@ -52,17 +53,19 @@ Version History (closing)
     <meta name="theme-color" content="#818cf8" media="(prefers-color-scheme: dark)" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="ユウタ | AI活用前提PMポートフォリオ" />
+    <meta property="og:title" content="Yuta Yokoi - Portfolio" />
     <meta property="og:description" content="AI統制による設計駆動型プロジェクト実装例。単一HTML SPAとして構築した実験的ポートフォリオ。" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Portfolio" />
     <meta property="og:locale" content="ja_JP" />
     <meta property="og:url" content="https://yutapr0117-design.github.io/portfolio/" />
+    <meta property="og:image" content="https://yutapr0117-design.github.io/portfolio/ai-pm.webp" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="ユウタ | AI活用前提PMポートフォリオ" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yuta - Portfolio" />
     <meta name="twitter:description" content="AI統制による設計駆動型プロジェクト実装例。" />
+    <meta name="twitter:image" content="https://yutapr0117-design.github.io/portfolio/ai-pm.webp" />
 
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1179,6 +1182,8 @@ Version History (closing)
                 padding-right: 1.25rem;
             }
         }
+
+        /* ===== BGM Control UI ===== */
     </style>
 
     <base target="_blank">
@@ -1202,6 +1207,10 @@ Version History (closing)
         </button>
         <div class="brand">Portfolio</div>
         <div style="flex:1"></div>
+        <button class="icon-btn" data-bgm-btn id="bgm-btn-top" aria-pressed="false" aria-label="BGMを再生する">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            <span class="sr-only">BGMを再生する</span>
+        </button>
         <button class="icon-btn" id="themeBtnTop" aria-label="テーマ切替">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
                 <path
@@ -1227,6 +1236,8 @@ Version History (closing)
             <div class="container" id="content"></div>
         </main>
     </div>
+
+    <audio id="bgm-audio" src="./Sakura_Swing.mp3" preload="none" loop></audio>
 
     <script>
 
@@ -2706,6 +2717,8 @@ Version History (closing)
                     zap: `<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>`,
                     clipboard: `<path d="M9 2h6a1 1 0 0 1 1 1v1H8V3a1 1 0 0 1 1-1Z"/><path d="M5 3h2v2H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2V3h2"/><path d="M9 12h6M9 16h4"/>`,
                     award: `<circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>`,
+                    volume2: `<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>`,
+                    volumeX: `<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>`,
                 };;
             }
             return _icons_cache;
@@ -3677,6 +3690,55 @@ Version History (closing)
         })();
 
 
+        // ===== BGM Manager =====
+        const BGM = (() => {
+            let _on = false;
+
+            function _audio() { return document.getElementById('bgm-audio'); }
+
+            function _syncAll() {
+                document.querySelectorAll('[data-bgm-btn]').forEach(btn => {
+                    btn.setAttribute('aria-pressed', String(_on));
+                    btn.setAttribute('aria-label', _on ? 'BGMを停止する' : 'BGMを再生する');
+                    const ico = btn.querySelector('svg');
+                    if (ico) {
+                        const icons = getIcons();
+                        ico.innerHTML = _on ? icons.volume2 : icons.volumeX;
+                    }
+                });
+            }
+
+            async function toggle() {
+                const audio = _audio();
+                if (!audio) return;
+                if (_on) {
+                    audio.pause();
+                    _on = false;
+                } else {
+                    try {
+                        await audio.play();
+                        _on = true;
+                    } catch (err) {
+                        console.warn('BGM play failed:', err);
+                        return;
+                    }
+                }
+                _syncAll();
+            }
+
+            function isOn() { return _on; }
+
+            function init() {
+                const audio = _audio();
+                if (audio) {
+                    audio.addEventListener('ended', () => { _on = false; _syncAll(); });
+                }
+            }
+
+            return { toggle, isOn, syncAll: _syncAll, init };
+        })();
+
+
         // ===== Brand Manager : primary palette/font switcher (Classic  / Indigo ) =====
         const Brand = (() => {
             const KEY = 'portfolio_brand_v45';
@@ -3944,6 +4006,19 @@ Version History (closing)
                 h('div', { class: 'nav-title' }, 'System'),
                 ...systemItems.map(navLink),
                 h('div', { class: 'divider' }),
+                h('div', { class: 'flex items-center justify-between p-3 rounded-lg' },
+                    h('div', { class: 'flex flex-col' },
+                        h('div', { class: 'text-xs text-muted' }, 'BGM'),
+                        h('div', { class: 'text-small font-semibold' }, BGM.isOn() ? '再生中' : 'オフ')
+                    ),
+                    h('button', {
+                        class: 'icon-btn',
+                        dataset: { bgmBtn: '' },
+                        onclick: BGM.toggle,
+                        'aria-label': BGM.isOn() ? 'BGMを停止する' : 'BGMを再生する',
+                        'aria-pressed': String(BGM.isOn())
+                    }, createIcon(BGM.isOn() ? 'volume2' : 'volumeX'))
+                ),
                 h('div', { class: 'flex items-center justify-between p-3 rounded-lg' },
                     h('div', { class: 'flex flex-col' },
                         h('div', { class: 'text-xs text-muted' }, 'テーマ'),
@@ -6491,6 +6566,10 @@ function openDrawer() {
             } catch (e) {
 
             }
+
+            // ===== BGM =====
+            BGM.init();
+            document.getElementById('bgm-btn-top')?.addEventListener('click', BGM.toggle);
 
         }
 
