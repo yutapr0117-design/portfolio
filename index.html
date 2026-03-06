@@ -48,6 +48,10 @@ Version History (closing)
     ・入力中のフォーカス喪失を修正（グリッドのみ部分再描画）
     ・Router.replaceSilently追加（hashchange不発火でURL同期）
     ・updateSearch廃止・renderGrid/syncURLに責務分離
+- v53: 入力UXの連続性修正
+    ・Task/Todo/AI入力後の再描画でフォーカスが失われる問題を修正
+    ・各inputにid付与・setTimeout+focus()で再描画後に復元
+    ・setSnapshot の保存失敗をToastで通知
 
 -->
 <!doctype html>
@@ -4635,12 +4639,14 @@ Version History (closing)
                     ),
                     h('div', { class: 'grid grid-cols-2 gap-4' },
                         h('input', {
+                            id: 'task-input',
                             class: 'input',
                             placeholder: '新しいタスクを入力...',
                             onkeydown: (e) => {
                                 if (e.key === 'Enter') {
                                     addTask(e.target.value);
-                                    e.target.value = '';
+                                    // 全体再描画の直後にフォーカスを復元し、連続入力を可能にする
+                                    setTimeout(() => document.getElementById('task-input')?.focus(), 0);
                                 }
                             }
                         }),
@@ -4805,6 +4811,7 @@ Version History (closing)
                 h('section', { class: 'card' },
                     h('div', { class: 'card-body' },
                         h('input', {
+                            id: 'todo-input',
                             class: 'input',
                             placeholder: '入力してEnter（IME対応）...',
                             oncompositionstart: () => todoComposing = true,
@@ -4812,7 +4819,8 @@ Version History (closing)
                             onkeydown: (e) => {
                                 if (e.key === 'Enter' && !todoComposing) {
                                     addTodo(e.target.value);
-                                    e.target.value = '';
+                                    // 全体再描画の直後にフォーカスを復元
+                                    setTimeout(() => document.getElementById('todo-input')?.focus(), 0);
                                 }
                             }
                         }),
@@ -5121,6 +5129,8 @@ Version History (closing)
                     });
                     aiLoading = false;
                     // State.update が内部で notify() するため window.render() は自動で呼ばれる
+                    // 応答完了後に再度入力できるようフォーカスを復元
+                    setTimeout(() => document.getElementById('ai-input')?.focus(), 0);
                 }, 300);
             }
 
@@ -5166,6 +5176,7 @@ Version History (closing)
                         h('div', { class: 'card-body' },
                             h('div', { class: 'flex gap-3' },
                                 h('input', {
+                                    id: 'ai-input',
                                     class: 'input',
                                     placeholder: '例：デプロイ手順を分解して、タスク管理アプリの説明文を書いて...',
                                     disabled: aiLoading,
@@ -5226,8 +5237,12 @@ Version History (closing)
             }
             function setSnapshot() {
                 const snap = { at: Date.now(), data: State.get() };
-                Storage.set(CONSTANTS.SNAPSHOT_KEY, JSON.stringify(snap));
-                Toast.show('スナップショットを保存しました');
+                const success = Storage.set(CONSTANTS.SNAPSHOT_KEY, JSON.stringify(snap));
+                if (success) {
+                    Toast.show('スナップショットを保存しました');
+                } else {
+                    Toast.show('ストレージ上限のため保存に失敗しました。不要なデータを削除してください。', 'error', 5000);
+                }
                 State.update(s => { }); // 強制再描画
             }
             function restoreSnapshot() {
