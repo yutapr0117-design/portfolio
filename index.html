@@ -33,6 +33,7 @@ Version History (closing)
     ・公開完成版として確定
 - v47: アセット追加
 - v48: アセット追加時のバグ修正
+- v49: 軽微なバグ修正
 
 -->
 <!doctype html>
@@ -3914,7 +3915,16 @@ Version History (closing)
         const PAGE_META = {
             home: { title: 'Home', desc: '設計思想と実験的SPAポートフォリオ。最小構成での設計判断を重視。' },
             projects: { title: 'Projects', desc: '設計判断と成果物。Case Study形式でアーキテクチャ・成果を掲載。' },
-            'project-detail': { title: 'Project Detail', desc: 'プロジェクト詳細。設計の意図・技術選定・成果を深掘り。' },
+            'project-detail': {
+                title: ({ params, state }) => {
+                    const p = state.projects.find(x => x.slug === params.slug);
+                    return p ? p.name : 'Project Detail';
+                },
+                desc: ({ params, state }) => {
+                    const p = state.projects.find(x => x.slug === params.slug);
+                    return p ? p.summary : 'プロジェクト詳細。設計の意図・技術選定・成果を深掘り。';
+                }
+            },
             apps: { title: 'Apps', desc: '内蔵アプリ（タスク管理 / TODO / ポモドーロ / ローカルAI）。' },
             'app-task': { title: 'Task Manager', desc: 'タスク管理アプリ。ステータス管理・優先順位付き。' },
             'app-todo': { title: 'Quick TODO', desc: 'クイックTODOリスト。シンプルで高速。' },
@@ -4912,8 +4922,10 @@ Version History (closing)
                     const remaining = getRemaining();
                     if (remaining <= 0) {
                         complete();
+                        render(); // 完了時は画面外でも強制再描画して状態同期
+                    } else if (Router.getRoute().name === 'app-pomodoro') {
+                        render(); // ポモドーロ画面を開いている時のみDOMを再描画
                     }
-                    render();
                 }, 1000);
             }
 
@@ -4923,9 +4935,6 @@ Version History (closing)
                     pomodoroTimer = null;
                 }
             }
-
-            // Cleanup on unmount
-            Router.subscribe(() => stopTimer());
 
             const modes = [
                 { id: 'work', label: '集中' },
