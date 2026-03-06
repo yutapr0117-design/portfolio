@@ -34,7 +34,16 @@ Version History (closing)
 - v47: アセット追加
 - v48: アセット追加時のバグ修正
 - v49: 軽微なバグ修正
-- v50: 潜在的リスク修正（CSPの強化、インラインスクリプトの安全性確保、外部リソースの制限）
+- v50: セキュリティ・堅牢性強化
+    ・h()のinnerHTML完全禁止（XSS経路閉鎖）
+    ・beforeunload削除（visibilitychangeに一本化）
+    ・project-detail メタを動的化（slug解決）
+    ・startTimer の不要再描画を排除
+    ・Import を Map ベース最適化 + 正規化保証
+- v51: UIステート揮発バグの全面修正
+    ・クロージャ消滅で失われていたfilter/loading等を外部変数化
+    ・コンポーネント内render()シャドウイングをbuildUI()に改名
+    ・内部render()呼び出しをwindow.render()に統一
 
 -->
 <!doctype html>
@@ -4533,8 +4542,10 @@ Version History (closing)
         }
 
         // ===== Component: Task App =====
+        // [FIX] 揮発性クロージャ問題の解決：UIステートをコンポーネント外に保持
+        let taskFilter = { q: '', priority: 'all' };
+
         function TaskPage() {
-            let filter = { q: '', priority: 'all' };
 
             function addTask(title) {
                 if (!title.trim()) return;
@@ -4582,15 +4593,16 @@ Version History (closing)
 
             function getFilteredTasks() {
                 return State.get().appsData.tasks.filter(t => {
-                    const matchesQ = !filter.q ||
-                        t.title.toLowerCase().includes(filter.q.toLowerCase()) ||
-                        t.tags.some(tag => tag.toLowerCase().includes(filter.q.toLowerCase()));
-                    const matchesPriority = filter.priority === 'all' || t.priority === filter.priority;
+                    const matchesQ = !taskFilter.q ||
+                        t.title.toLowerCase().includes(taskFilter.q.toLowerCase()) ||
+                        t.tags.some(tag => tag.toLowerCase().includes(taskFilter.q.toLowerCase()));
+                    const matchesPriority = taskFilter.priority === 'all' || t.priority === taskFilter.priority;
                     return matchesQ && matchesPriority;
                 });
             }
 
-            function render() {
+            // [FIX] シャドウイング問題の解決：名称を buildUI に変更
+            function buildUI() {
                 const container = document.createElement('div');
                 container.className = 'flex flex-col gap-4';
 
@@ -4613,10 +4625,10 @@ Version History (closing)
                         }),
                         h('select', {
                             class: 'input',
-                            value: filter.priority,
+                            value: taskFilter.priority,
                             onchange: (e) => {
-                                filter.priority = e.target.value;
-                                render();
+                                taskFilter.priority = e.target.value;
+                                window.render(); // グローバルレンダーを呼び出し
                             }
                         },
                             h('option', { value: 'all', text: '優先度: 全て' }),
@@ -4713,13 +4725,15 @@ Version History (closing)
                 return container;
             }
 
-            return render();
+            return buildUI();
         }
 
         // ===== Component: Todo App =====
+        // [FIX] 揮発性クロージャ問題の解決
+        let todoFilter = 'all';
+        let todoComposing = false;
+
         function TodoPage() {
-            let filter = 'all';
-            let composing = false;
 
             function addTodo(text) {
                 if (!text.trim()) return;
@@ -4756,8 +4770,8 @@ Version History (closing)
 
             const todos = State.get().appsData.todos;
             const filtered = todos.filter(t => {
-                if (filter === 'active') return !t.completed;
-                if (filter === 'completed') return t.completed;
+                if (todoFilter === 'active') return !t.completed;
+                if (todoFilter === 'completed') return t.completed;
                 return true;
             });
 
@@ -4772,10 +4786,10 @@ Version History (closing)
                         h('input', {
                             class: 'input',
                             placeholder: '入力してEnter（IME対応）...',
-                            oncompositionstart: () => composing = true,
-                            oncompositionend: () => composing = false,
+                            oncompositionstart: () => todoComposing = true,
+                            oncompositionend: () => todoComposing = false,
                             onkeydown: (e) => {
-                                if (e.key === 'Enter' && !composing) {
+                                if (e.key === 'Enter' && !todoComposing) {
                                     addTodo(e.target.value);
                                     e.target.value = '';
                                 }
@@ -4785,8 +4799,8 @@ Version History (closing)
                             h('select', {
                                 class: 'input',
                                 style: { width: 'auto' },
-                                value: filter,
-                                onchange: (e) => render()
+                                value: todoFilter,
+                                onchange: (e) => { todoFilter = e.target.value; window.render(); }
                             },
                                 h('option', { value: 'all', text: '全て' }),
                                 h('option', { value: 'active', text: '未完了' }),
@@ -4916,9 +4930,9 @@ Version History (closing)
                     const remaining = getRemaining();
                     if (remaining <= 0) {
                         complete();
-                        render(); // 完了時は画面外でも強制再描画して状態同期
+                        window.render(); // グローバルを描画
                     } else if (Router.getRoute().name === 'app-pomodoro') {
-                        render(); // ポモドーロ画面を開いている時のみDOMを再描画
+                        window.render(); // グローバルを描画
                     }
                 }, 1000);
             }
@@ -4939,7 +4953,7 @@ Version History (closing)
             const remaining = getRemaining();
             const isActive = pomo.runtime.isActive;
 
-            function render() {
+            function buildUI() {
                 return h('div', { class: 'flex flex-col gap-4 max-w-xl' },
                     h('header', { class: 'flex items-center gap-3' },
                         createIcon('clock', 28),
@@ -5025,13 +5039,14 @@ Version History (closing)
                 );
             }
 
-            return render();
+            return buildUI();
         }
 
         // ===== Component: AI Assist Page =====
+        let aiLoading = false;
+
         function AIPage() {
             const ai = State.get().appsData.ai;
-            let loading = false;
 
             function analyzeInput(input) {
                 const p = input.toLowerCase();
@@ -5067,8 +5082,9 @@ Version History (closing)
             }
 
             function submit(input) {
-                if (!input.trim() || loading) return;
-                loading = true;
+                if (!input.trim() || aiLoading) return;
+                aiLoading = true;
+                window.render(); // ローディング表示のため再描画
 
                 const type = analyzeInput(input);
 
@@ -5082,14 +5098,12 @@ Version History (closing)
                         });
                         s.appsData.ai.history = s.appsData.ai.history.slice(-80);
                     });
-                    loading = false;
-                    render();
+                    aiLoading = false;
+                    // State.update が内部で notify() するため window.render() は自動で呼ばれる
                 }, 300);
-
-                render();
             }
 
-            function render() {
+            function buildUI() {
                 return h('div', { class: 'flex flex-col gap-4 max-w-2xl' },
                     h('header', { class: 'flex items-center gap-3' },
                         createIcon('brain', 28),
@@ -5133,44 +5147,42 @@ Version History (closing)
                                 h('input', {
                                     class: 'input',
                                     placeholder: '例：デプロイ手順を分解して、タスク管理アプリの説明文を書いて...',
-                                    disabled: loading,
+                                    disabled: aiLoading,
                                     onkeydown: (e) => {
                                         if (e.key === 'Enter') {
                                             submit(e.target.value);
-                                            e.target.value = '';
+                                            // DOM再構築されるため input の value リセットは不要
                                         }
                                     }
                                 }),
                                 h('button', {
                                     class: 'btn btn-primary',
-                                    disabled: loading,
+                                    disabled: aiLoading,
                                     onclick: (e) => {
                                         const input = e.target.previousElementSibling;
                                         submit(input.value);
-                                        input.value = '';
                                     }
-                                }, loading ? '生成中...' : '送信')
+                                }, aiLoading ? '生成中...' : '送信')
                             )
                         )
                     )
                 );
             }
 
-            return render();
+            return buildUI();
         }
 
         // ===== Component: Settings Page =====
+        let settingsImportMode = 'append';
+        let settingsIncludeProfile = true;
+        let settingsIncludeProjects = true;
+        let settingsIncludeApps = true;
+        let settingsNewName = '';
+        let settingsNewTech = '';
+        let settingsNewDemo = '';
+
         function SettingsPage() {
             const state = State.get();
-
-            let importMode = 'append'; // append | upsert | strict
-            let includeProfile = true;
-            let includeProjects = true;
-            let includeApps = true;
-
-            let newName = '';
-            let newTech = '';
-            let newDemo = '';
 
             // --- 不足していた関数群の実装 ---
             function getSnapshot() {
@@ -5241,20 +5253,20 @@ Version History (closing)
                     try {
                         const parsed = JSON.parse(e.target.result);
                         State.update(s => {
-                            if (includeProfile && parsed.profile) s.profile = parsed.profile;
-                            if (includeProjects && Array.isArray(parsed.projects)) {
-                                if (importMode === 'strict') s.projects = parsed.projects;
+                            if (settingsIncludeProfile && parsed.profile) s.profile = parsed.profile;
+                            if (settingsIncludeProjects && Array.isArray(parsed.projects)) {
+                                if (settingsImportMode === 'strict') s.projects = parsed.projects;
                                 else {
                                     // 既存プロジェクトのマップ作成
                                     const existingMap = new Map(s.projects.map(p => [p.id, p]));
                                     parsed.projects.forEach(p => {
                                         if (!existingMap.has(p.id)) s.projects.push(p);
-                                        else if (importMode === 'upsert') existingMap.set(p.id, p);
+                                        else if (settingsImportMode === 'upsert') existingMap.set(p.id, p);
                                     });
-                                    if (importMode === 'upsert') s.projects = Array.from(existingMap.values());
+                                    if (settingsImportMode === 'upsert') s.projects = Array.from(existingMap.values());
                                 }
                             }
-                            if (includeApps && parsed.appsData) s.appsData = parsed.appsData;
+                            if (settingsIncludeApps && parsed.appsData) s.appsData = parsed.appsData;
                         });
 
                         // [CRITICAL FIX] インポート直後に必ず正規化を通し、不正なデータ構造によるクラッシュを防ぐ
@@ -5269,20 +5281,20 @@ Version History (closing)
             }
 
             function addProjectManual() {
-                if (!newName.trim()) { Toast.show('プロジェクト名を入力してください', 'error'); return; }
+                if (!settingsNewName.trim()) { Toast.show('プロジェクト名を入力してください', 'error'); return; }
                 State.update(s => {
                     s.projects.unshift({
                         id: 'p_user_' + generateId().slice(0, 6),
-                        slug: slugify(newName),
-                        name: newName,
+                        slug: slugify(settingsNewName),
+                        name: settingsNewName,
                         category: 'User Added',
                         summary: '', problem: '', approach: '',
-                        tech: newTech ? newTech.split(',').map(t => t.trim()) : [],
+                        tech: settingsNewTech ? settingsNewTech.split(',').map(t => t.trim()) : [],
                         tags: [],
-                        demoRoute: newDemo || null
+                        demoRoute: settingsNewDemo || null
                     });
                 });
-                newName = ''; newTech = ''; newDemo = '';
+                settingsNewName = ''; settingsNewTech = ''; settingsNewDemo = '';
                 Toast.show('プロジェクトを追加しました');
             }
 
@@ -5326,9 +5338,7 @@ Version History (closing)
                 Toast.show('初期化しました');
             }
 
-            function render() {
-                const snap = getSnapshot();
-                return h('article', { class: 'flex flex-col gap-6 max-w-4xl' },
+            function buildUI() {
                     h('header', {}, h('h1', { class: 'h1' }, 'Settings')),
                     h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-6' },
                         h('section', { class: 'card' },
@@ -5349,7 +5359,7 @@ Version History (closing)
                                 h('div', { class: 'grid grid-cols-2 gap-3' },
                                     h('div', {},
                                         h('label', { class: 'text-sm text-muted' }, 'モード'),
-                                        h('select', { class: 'input', onchange: (e) => { importMode = e.target.value; }, value: importMode },
+                                        h('select', { class: 'input', onchange: (e) => { settingsImportMode = e.target.value; window.render(); }, value: settingsImportMode },
                                             h('option', { value: 'append' }, 'append（追加のみ）'),
                                             h('option', { value: 'upsert' }, 'upsert（更新+追加）'),
                                             h('option', { value: 'strict' }, 'strict（全置換）')
@@ -5359,15 +5369,15 @@ Version History (closing)
                                         h('label', { class: 'text-sm text-muted' }, '対象'),
                                         h('div', { class: 'flex flex-wrap gap-2' },
                                             h('label', { class: 'btn btn-ghost btn-sm' },
-                                                h('input', { type: 'checkbox', checked: includeProfile, onchange: (e) => { includeProfile = !!e.target.checked; } }),
+                                                h('input', { type: 'checkbox', checked: settingsIncludeProfile, onchange: (e) => { settingsIncludeProfile = !!e.target.checked; window.render(); } }),
                                                 h('span', { style: { marginLeft: '8px' } }, 'Profile')
                                             ),
                                             h('label', { class: 'btn btn-ghost btn-sm' },
-                                                h('input', { type: 'checkbox', checked: includeProjects, onchange: (e) => { includeProjects = !!e.target.checked; } }),
+                                                h('input', { type: 'checkbox', checked: settingsIncludeProjects, onchange: (e) => { settingsIncludeProjects = !!e.target.checked; window.render(); } }),
                                                 h('span', { style: { marginLeft: '8px' } }, 'Projects')
                                             ),
                                             h('label', { class: 'btn btn-ghost btn-sm' },
-                                                h('input', { type: 'checkbox', checked: includeApps, onchange: (e) => { includeApps = !!e.target.checked; } }),
+                                                h('input', { type: 'checkbox', checked: settingsIncludeApps, onchange: (e) => { settingsIncludeApps = !!e.target.checked; window.render(); } }),
                                                 h('span', { style: { marginLeft: '8px' } }, 'AppsData')
                                             )
                                         )
@@ -5398,7 +5408,7 @@ Version History (closing)
                                         id: 'brandSelect',
                                         class: 'input',
                                         value: Brand.get(),
-                                        onchange: (e) => { Brand.set(e.target.value); render(); }
+                                        onchange: (e) => { Brand.set(e.target.value); window.render(); }
                                     },
                                         h('option', { value: 'indigo' }, 'Indigo'),
                                         h('option', { value: 'classic' }, 'Classic Blue + Inter')
@@ -5446,15 +5456,15 @@ Version History (closing)
                                 h('div', { class: 'grid grid-cols-1 gap-3' },
                                     h('div', {},
                                         h('label', { class: 'text-sm text-muted' }, '名前'),
-                                        h('input', { class: 'input', placeholder: 'プロジェクト名', oninput: (e) => { newName = e.target.value; } })
+                                        h('input', { class: 'input', placeholder: 'プロジェクト名', value: settingsNewName, oninput: (e) => { settingsNewName = e.target.value; } })
                                     ),
                                     h('div', {},
                                         h('label', { class: 'text-sm text-muted' }, 'Tech（カンマ区切り）'),
-                                        h('input', { class: 'input', placeholder: '例: JS,HTML,CSS', oninput: (e) => { newTech = e.target.value; } })
+                                        h('input', { class: 'input', placeholder: '例: JS,HTML,CSS', value: settingsNewTech, oninput: (e) => { settingsNewTech = e.target.value; } })
                                     ),
                                     h('div', {},
                                         h('label', { class: 'text-sm text-muted' }, 'Demo（任意）'),
-                                        h('select', { class: 'input', onchange: (e) => { newDemo = e.target.value; } },
+                                        h('select', { class: 'input', onchange: (e) => { settingsNewDemo = e.target.value; }, value: settingsNewDemo },
                                             h('option', { value: '' }, 'Demoなし'),
                                             h('option', { value: 'task' }, 'task'),
                                             h('option', { value: 'todo' }, 'todo'),
@@ -5505,7 +5515,7 @@ Version History (closing)
                     )
                 );
             }
-            return render();
+            return buildUI();
         }
         function AboutPage() {
             const profile = State.get().profile;
