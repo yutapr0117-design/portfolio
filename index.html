@@ -52,6 +52,9 @@ Version History (closing)
     ・Task/Todo/AI入力後の再描画でフォーカスが失われる問題を修正
     ・各inputにid付与・setTimeout+focus()で再描画後に復元
     ・setSnapshot の保存失敗をToastで通知
+- v54: 軽微な文言・コード品質修正
+    ・project-detail フォールバックdescを自然な文体に修正
+    ・BGM初期化のオプショナルチェーンを明示的null guardに変更
 
 -->
 <!doctype html>
@@ -3943,7 +3946,7 @@ Version History (closing)
                 },
                 desc: ({ params, state }) => {
                     const p = state.projects.find(x => x.slug === params.slug);
-                    return p ? p.summary : 'プロジェクト詳細。設計の意図・技術選定・成果を深掘り。';
+                    return p ? p.summary : 'プロジェクトの設計意図、技術選定、および成果の詳細。';
                 }
             },
             apps: { title: 'Apps', desc: '内蔵アプリ（タスク管理 / TODO / ポモドーロ / ローカルAI）。' },
@@ -6641,9 +6644,10 @@ function openDrawer() {
             // Initial render
             render();
 
-            // ===== BGM =====
+            // ===== BGM Initialization =====
             BGM.init();
-            document.getElementById('bgm-btn-top')?.addEventListener('click', BGM.toggle);
+            const topBgmBtn = document.getElementById('bgm-btn-top');
+            if (topBgmBtn) topBgmBtn.addEventListener('click', BGM.toggle);
 
         }
 
