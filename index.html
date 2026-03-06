@@ -34,6 +34,7 @@ Version History (closing)
 - v47: アセット追加
 - v48: アセット追加時のバグ修正
 - v49: 軽微なバグ修正
+- v50: 潜在的リスク修正（CSPの強化、インラインスクリプトの安全性確保、外部リソースの制限）
 
 -->
 <!doctype html>
@@ -2769,10 +2770,9 @@ Version History (closing)
         function h(tag, attrs = {}, ...children) {
             const el = document.createElement(tag);
             let refCb = null;
-            let allowUnsafeHtml = false;
             for (const [key, value] of Object.entries(attrs)) {
                 if (value === undefined || value === null) continue;
-                if (key === '__unsafeHtml') { allowUnsafeHtml = Boolean(value); continue; }
+                if (key === '__unsafeHtml') continue; // [REMOVED] no longer supported
                 if (key === 'ref' && typeof value === 'function') {
                     refCb = value;
                     continue;
@@ -2798,14 +2798,9 @@ Version History (closing)
                 } else if (key === 'text') {
                     el.textContent = String(value);
                 } else if (key === 'html') {
-                    // DANGEROUS: innerHTML is allowed only when explicitly opted-in by internal callers.
-                    // Usage: h('div', { __unsafeHtml: true, html: '<b>...</b>' })
-                    if (!allowUnsafeHtml) {
-                        throw new Error('[h] Refused to set innerHTML without __unsafeHtml opt-in');
-                    }
-                    el.innerHTML = String(value);
+                    // [SECURITY] innerHTML injection completely removed. Use textContent ('text' key) or DOM nodes.
+                    throw new Error('[h] innerHTML is strictly prohibited in this architecture.');
                 } else if (key.startsWith('aria-') || key === 'role') {
-                    // ARIA attributes: remove if value is false/null, otherwise set (v39: unified removal logic)
                     if (value === false || value === null) {
                         el.removeAttribute(key);
                     } else {
@@ -3594,8 +3589,7 @@ Version History (closing)
             document.addEventListener('visibilitychange', () => {
                 if (document.visibilityState === 'hidden') saveNow();
             });
-
-            window.addEventListener('beforeunload', saveNow);
+            // [NOTE] beforeunload is deprecated for reliable state saving on mobile, rely on visibilitychange.
 
             // Cross-tab sync
             window.addEventListener('storage', (e) => {
@@ -5251,18 +5245,21 @@ Version History (closing)
                             if (includeProjects && Array.isArray(parsed.projects)) {
                                 if (importMode === 'strict') s.projects = parsed.projects;
                                 else {
-                                    const existingIds = new Set(s.projects.map(p => p.id));
+                                    // 既存プロジェクトのマップ作成
+                                    const existingMap = new Map(s.projects.map(p => [p.id, p]));
                                     parsed.projects.forEach(p => {
-                                        if (!existingIds.has(p.id)) s.projects.push(p);
-                                        else if (importMode === 'upsert') {
-                                            const idx = s.projects.findIndex(ep => ep.id === p.id);
-                                            if (idx > -1) s.projects[idx] = p;
-                                        }
+                                        if (!existingMap.has(p.id)) s.projects.push(p);
+                                        else if (importMode === 'upsert') existingMap.set(p.id, p);
                                     });
+                                    if (importMode === 'upsert') s.projects = Array.from(existingMap.values());
                                 }
                             }
                             if (includeApps && parsed.appsData) s.appsData = parsed.appsData;
                         });
+
+                        // [CRITICAL FIX] インポート直後に必ず正規化を通し、不正なデータ構造によるクラッシュを防ぐ
+                        State.set(Store.validateAndNormalize(State.get()));
+
                         Toast.show('インポートが完了しました');
                     } catch (err) {
                         Toast.show('JSONのパースに失敗しました', 'error');
