@@ -31,7 +31,7 @@ Version History (closing)
     ・ロジック非変更
     ・機能影響なし
     ・公開完成版として確定
-- v47: アセット追加  
+- v47: アセット追加
 - v48: アセット追加時のバグ修正
 
 -->
@@ -115,6 +115,29 @@ Version History (closing)
     }
     </script>
 
+
+    <script>
+        (function() {
+            try {
+                // Theme復元（FLOCKを防ぐためCSSより先に実行）
+                var rawState = localStorage.getItem('portfolio_enhanced_v45');
+                if (rawState) {
+                    var state = JSON.parse(rawState);
+                    if (state && state.theme) {
+                        var isDark = state.theme === 'dark' ||
+                            (state.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                        document.documentElement.setAttribute('data-theme', state.theme);
+                        if (isDark) document.documentElement.classList.add('dark');
+                    }
+                }
+                // Brand復元
+                var rawBrand = localStorage.getItem('portfolio_brand_v45');
+                if (rawBrand) {
+                    document.documentElement.setAttribute('data-brand', rawBrand);
+                }
+            } catch (e) {}
+        })();
+    </script>
 
     <style>
         /* ===== CSS Custom Properties - Design System ===== */
@@ -3437,6 +3460,18 @@ Version History (closing)
             let saveTimer = null;
             let callbacks = [];
 
+            // Toast Storm (通知スパム) 防止用のタイムスタンプ
+            let lastStorageErrorTime = 0;
+            function notifyStorageError() {
+                const now = Date.now();
+                if (now - lastStorageErrorTime > 60000) { // 警告は1分に1回まで
+                    // beforeunload/visibilitychange 経由ではToastが描画されない場合があるため両方記録
+                    console.error('[State] ストレージ上限のため保存に失敗しました。');
+                    Toast.show('ストレージ上限のため保存に失敗しました。不要なデータを削除してください。', 'error', 5000);
+                    lastStorageErrorTime = now;
+                }
+            }
+
             function get() {
                 return data;
             }
@@ -3543,7 +3578,7 @@ Version History (closing)
                 if (saveTimer) clearTimeout(saveTimer);
                 saveTimer = setTimeout(() => {
                     const success = Storage.set(CONSTANTS.STORAGE_KEY, JSON.stringify(data));
-                    if (!success) Toast.show('ストレージ上限のため保存に失敗しました。不要なデータを削除してください。', 'error');
+                    if (!success) notifyStorageError();
                     saveTimer = null;
                 }, CONSTANTS.DEBOUNCE_DELAY);
             }
@@ -3551,11 +3586,7 @@ Version History (closing)
             function saveNow() {
                 if (saveTimer) clearTimeout(saveTimer);
                 const success = Storage.set(CONSTANTS.STORAGE_KEY, JSON.stringify(data));
-                if (!success) {
-                    // beforeunload/visibilitychange 経由ではToastが描画されない場合があるため両方記録
-                    console.error('[State] saveNow: ストレージ上限のため保存に失敗しました。');
-                    Toast.show('ストレージ上限のため保存に失敗しました。', 'error');
-                }
+                if (!success) notifyStorageError();
             }
 
             // Auto-save on visibility change
