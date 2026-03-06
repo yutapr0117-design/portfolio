@@ -44,6 +44,10 @@ Version History (closing)
     ・クロージャ消滅で失われていたfilter/loading等を外部変数化
     ・コンポーネント内render()シャドウイングをbuildUI()に改名
     ・内部render()呼び出しをwindow.render()に統一
+- v52: ProjectsPage 検索UX修正
+    ・入力中のフォーカス喪失を修正（グリッドのみ部分再描画）
+    ・Router.replaceSilently追加（hashchange不発火でURL同期）
+    ・updateSearch廃止・renderGrid/syncURLに責務分離
 
 -->
 <!doctype html>
@@ -3889,6 +3893,15 @@ Version History (closing)
                 location.hash = '#/' + (path || '');
             }
 
+            // [FIX] hashchangeイベントを発火させずにURLを静かに書き換える（Focus Loss防止）
+            function replaceSilently(path) {
+                if (typeof path === 'string' && path.includes('#')) {
+                    path = path.replace(/^#+/, '');
+                }
+                const newUrl = location.pathname + location.search + '#/' + (path || '');
+                history.replaceState(null, '', newUrl);
+            }
+
             function subscribe(callback) {
                 handlers.push(callback);
                 return () => {
@@ -3909,6 +3922,7 @@ Version History (closing)
             return {
                 getRoute: () => currentRoute,
                 navigate,
+                replaceSilently,
                 subscribe,
                 parse: parseRoute
             };
@@ -4239,74 +4253,34 @@ Version History (closing)
                 return list;
             }
 
-            function updateSearch(newQ, newCat) {
-                q = newQ;
-                cat = newCat;
-                const params = new URLSearchParams();
-                if (q) params.set('q', q);
-                if (cat !== 'All') params.set('cat', cat);
-                Router.navigate('projects' + (params.toString() ? '?' + params.toString() : ''));
-                render();
-            }
-
-            function render() {
+            function buildUI() {
                 const container = document.createElement('div');
                 container.className = 'flex flex-col gap-6';
 
-                // Compute once, reuse throughout render
-                const projects = getFilteredProjects();
+                // [FIX] 全体再描画によるフォーカス喪失を防ぐため、リスト部分（Grid）だけを独立させる
+                const gridContainer = document.createElement('div');
+                gridContainer.className = 'grid-projects';
+                let countDisplay = null;
 
-                // Header
-                container.appendChild(h('header', {},
-                    h('div', { class: 'flex flex-wrap items-center justify-between gap-4 mb-4' },
-                        h('div', {},
-                            h('h1', { class: 'h1' }, 'プロジェクト一覧'),
-                            h('p', { class: 'text-muted' }, `合計 ${projects.length} 件`)
-                        )
-                    ),
-                    h('div', { class: 'grid grid-cols-2 gap-4' },
-                        h('div', { class: 'relative' },
-                            h('div', {
-                                class: 'absolute left-3 top-1/2 transform -translate-y-1/2',
-                                style: { color: 'var(--text-muted)' }
-                            }, createIcon('search', 18)),
-                            h('input', {
-                                class: 'input pl-10',
-                                placeholder: '検索（名前/概要/タグ/技術/カテゴリ）...',
-                                value: q,
-                                'aria-label': 'プロジェクト検索',
-                                oninput: (e) => updateSearch(e.target.value, cat)
-                            })
-                        ),
-                        h('select', {
-                            class: 'input',
-                            value: cat,
-                            'aria-label': 'カテゴリフィルター',
-                            onchange: (e) => updateSearch(q, e.target.value)
-                        },
-                            ...categories.map(c => h('option', {
-                                value: c,
-                                text: c === 'All' ? '全カテゴリー' : c
-                            }))
-                        )
-                    )
-                ));
+                function syncURL() {
+                    const params = new URLSearchParams();
+                    if (q) params.set('q', q);
+                    if (cat !== 'All') params.set('cat', cat);
+                    Router.replaceSilently('projects' + (params.toString() ? '?' + params.toString() : ''));
+                }
 
-                // Project Grid - responsive via .grid-projects
-                const grid = h('div', { class: 'grid-projects' });
+                function renderGrid() {
+                    clear(gridContainer);
+                    const projects = getFilteredProjects();
 
-                if (projects.length === 0) {
-                    grid.appendChild(h('div', {
-                        class: 'card',
-                        style: { gridColumn: '1/-1' },
-                        role: 'status',
-                        'aria-live': 'polite'
-                    },
-                        h('div', { class: 'card-body text-center text-muted' },
-                            '条件に一致するプロジェクトはありません。'
-                        )
-                    ));
-                } else {
+                    if (countDisplay) countDisplay.textContent = `合計 ${projects.length} 件`;
+
+                    if (projects.length === 0) {
+                        gridContainer.appendChild(h('div', { class: 'card', style: { gridColumn: '1/-1' }, role: 'status', 'aria-live': 'polite' },
+                            h('div', { class: 'card-body text-center text-muted' }, '条件に一致するプロジェクトはありません。')
+                        ));
+                        return;
+                    }
                     projects.forEach(p => {
                         const card = h('article', { class: 'card', style: { display: 'flex', flexDirection: 'column' } },
                             h('div', { class: 'card-body', style: { flex: '1', display: 'flex', flexDirection: 'column' } },
@@ -4320,31 +4294,78 @@ Version History (closing)
                                     ...(p.tags || []).slice(0, 4).map(tag =>
                                         h('button', {
                                             class: 'badge badge-secondary',
-                                            onclick: () => updateSearch(tag, 'All')
+                                            onclick: () => {
+                                                q = tag; cat = 'All';
+                                                const inputEl = container.querySelector('input[type="text"]');
+                                                const selectEl = container.querySelector('select');
+                                                if (inputEl) inputEl.value = tag;
+                                                if (selectEl) selectEl.value = 'All';
+                                                renderGrid(); syncURL();
+                                            }
                                         }, '#' + tag)
                                     )
                                 ),
                                 h('div', { class: 'flex gap-2 mt-auto' },
-                                    p.demoRoute ? h('button', {
-                                        class: 'btn btn-secondary btn-sm',
-                                        onclick: () => Router.navigate(`apps/${p.demoRoute}`)
-                                    }, 'デモ') : null,
-                                    h('button', {
-                                        class: 'btn btn-ghost btn-sm',
-                                        onclick: () => Router.navigate(`projects/${p.slug}`)
-                                    }, '詳細を見る')
+                                    p.demoRoute ? h('button', { class: 'btn btn-secondary btn-sm', onclick: () => Router.navigate(`apps/${p.demoRoute}`) }, 'デモ') : null,
+                                    h('button', { class: 'btn btn-ghost btn-sm', onclick: () => Router.navigate(`projects/${p.slug}`) }, '詳細を見る')
                                 )
                             )
                         );
-                        grid.appendChild(card);
+                        gridContainer.appendChild(card);
                     });
                 }
 
-                container.appendChild(grid);
+                // Header
+                container.appendChild(h('header', {},
+                    h('div', { class: 'flex flex-wrap items-center justify-between gap-4 mb-4' },
+                        h('div', {},
+                            h('h1', { class: 'h1' }, 'プロジェクト一覧'),
+                            countDisplay = h('p', { class: 'text-muted' }, '')
+                        )
+                    ),
+                    h('div', { class: 'grid grid-cols-2 gap-4' },
+                        h('div', { class: 'relative' },
+                            h('div', {
+                                class: 'absolute left-3 top-1/2 transform -translate-y-1/2',
+                                style: { color: 'var(--text-muted)' }
+                            }, createIcon('search', 18)),
+                            h('input', {
+                                type: 'text',
+                                class: 'input pl-10',
+                                placeholder: '検索（名前/概要/タグ/技術/カテゴリ）...',
+                                value: q,
+                                'aria-label': 'プロジェクト検索',
+                                oninput: (e) => {
+                                    q = e.target.value;
+                                    renderGrid(); // 部分更新でフォーカスを死守
+                                    syncURL();    // history.replaceStateで静かにURL同期
+                                }
+                            })
+                        ),
+                        h('select', {
+                            class: 'input',
+                            value: cat,
+                            'aria-label': 'カテゴリフィルター',
+                            onchange: (e) => {
+                                cat = e.target.value;
+                                renderGrid();
+                                syncURL();
+                            }
+                        },
+                            ...categories.map(c => h('option', {
+                                value: c,
+                                text: c === 'All' ? '全カテゴリー' : c
+                            }))
+                        )
+                    )
+                ));
+
+                renderGrid(); // 初期描画
+                container.appendChild(gridContainer);
                 return container;
             }
 
-            return render();
+            return buildUI();
         }
 
         // ===== Component: Project Detail Page =====
