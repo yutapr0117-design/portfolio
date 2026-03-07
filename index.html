@@ -55,6 +55,10 @@ Version History (closing)
 - v54: 軽微な文言・コード品質修正
     ・project-detail フォールバックdescを自然な文体に修正
     ・BGM初期化のオプショナルチェーンを明示的null guardに変更
+- v55: AI開発ノウハウページ追加
+    ・左メニューに「AI開発ノウハウ」を新設（Knowhowセクション）
+    ・6エージェント役割・費用感・KERNELフレームワーク・55チケット概要を掲載
+    ・課金実態の正確な記載（Gemini/ChatGPT最安プランのみ有料、他4名は無料）
 
 -->
 <!doctype html>
@@ -2762,6 +2766,8 @@ Version History (closing)
                     award: `<circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>`,
                     volume2: `<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>`,
                     volumeX: `<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>`,
+                    book: `<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>`,
+                    lightbulb: `<path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 1 7 7c0 2.4-1.2 4.5-3 5.7V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.3C6.2 13.5 5 11.4 5 9a7 7 0 0 1 7-7z"/>`,
                 };;
             }
             return _icons_cache;
@@ -3880,6 +3886,9 @@ Version History (closing)
                     case 'hiring-risk':
                         route.name = 'hiring-risk';
                         break;
+                    case 'ai-knowhow':
+                        route.name = 'ai-knowhow';
+                        break;
                     default:
                         route.name = 'not-found';
                 }
@@ -4038,6 +4047,10 @@ Version History (closing)
                 { icon: 'settings', label: '設定・データ', path: 'settings', active: route.name === 'settings' },
             ];
 
+            const knowhowItems = [
+                { icon: 'lightbulb', label: 'AI開発ノウハウ', path: 'ai-knowhow', active: route.name === 'ai-knowhow' },
+            ];
+
             function navLink(item) {
                 return h('button', {
                     class: ['nav-link', item.active && 'active'],
@@ -4074,6 +4087,8 @@ Version History (closing)
                 ...infoItems.map(navLink),
                 h('div', { class: 'nav-title' }, 'System'),
                 ...systemItems.map(navLink),
+                h('div', { class: 'nav-title' }, 'ノウハウ'),
+                ...knowhowItems.map(navLink),
                 h('div', { class: 'divider' }),
                 h('div', { class: 'flex items-center justify-between p-3 rounded-lg' },
                     h('div', { class: 'flex flex-col' },
@@ -6329,6 +6344,335 @@ Version History (closing)
             );
         }
 
+        function AIKnowhowPage() {
+            const C = {
+                primary: 'var(--color-primary)',
+                success: 'var(--color-success)',
+                warning: 'var(--color-warning)',
+                info: 'var(--color-info)',
+                purple: '#7c3aed'
+            };
+
+            function sectionHeader(icon, title, color) {
+                return h('div', {
+                    style: {
+                        display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px'
+                    }
+                },
+                    h('div', {
+                        style: {
+                            background: color, color: '#fff', borderRadius: 'var(--radius-full)',
+                            padding: '2px 14px', fontSize: '0.75rem', fontWeight: '800', letterSpacing: '0.05em'
+                        }
+                    }, icon),
+                    h('span', { style: { fontWeight: '700', fontSize: '1.0625rem' } }, title)
+                );
+            }
+
+            function agentRow(name, role, free, note) {
+                return h('div', {
+                    style: {
+                        display: 'grid', gridTemplateColumns: '7rem 1fr auto',
+                        gap: '8px 12px', alignItems: 'start',
+                        padding: '10px 12px', background: 'var(--bg-tertiary)',
+                        borderRadius: 'var(--radius)', marginBottom: '6px'
+                    }
+                },
+                    h('div', { style: { fontWeight: '700', fontSize: '0.9rem' } }, name),
+                    h('div', { style: { fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: '1.7' } }, note),
+                    h('span', {
+                        style: {
+                            fontSize: '0.7rem', fontWeight: '700', padding: '2px 10px',
+                            borderRadius: 'var(--radius-full)', whiteSpace: 'nowrap',
+                            background: free ? 'rgba(22,163,74,0.12)' : 'rgba(217,119,6,0.12)',
+                            color: free ? 'var(--color-success)' : 'var(--color-warning)'
+                        }
+                    }, free ? '無課金' : '有料（最安）')
+                );
+            }
+
+            function kernelRow(key, label, detail) {
+                return h('div', {
+                    style: {
+                        display: 'flex', gap: '10px', padding: '8px 0',
+                        borderBottom: '1px solid var(--border-color)'
+                    }
+                },
+                    h('div', {
+                        style: {
+                            flexShrink: '0', width: '2rem', height: '2rem',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            background: 'var(--color-primary)', color: '#fff',
+                            borderRadius: 'var(--radius-sm)', fontWeight: '800', fontSize: '0.9rem'
+                        }
+                    }, key),
+                    h('div', { class: 'flex flex-col', style: { gap: '2px' } },
+                        h('div', { style: { fontWeight: '700', fontSize: '0.875rem' } }, label),
+                        h('div', { class: 'text-muted', style: { fontSize: '0.8125rem', lineHeight: '1.6' } }, detail)
+                    )
+                );
+            }
+
+            function phaseCard(num, title, tickets, agents, summary, color) {
+                return h('div', {
+                    style: {
+                        borderLeft: '3px solid ' + color, padding: '12px 14px',
+                        background: 'var(--bg-tertiary)', borderRadius: '0 var(--radius) var(--radius) 0',
+                        display: 'flex', flexDirection: 'column', gap: '6px'
+                    }
+                },
+                    h('div', { style: { display: 'flex', alignItems: 'center', gap: '8px' } },
+                        h('div', {
+                            style: {
+                                background: color, color: '#fff', borderRadius: 'var(--radius-full)',
+                                padding: '1px 10px', fontSize: '0.7rem', fontWeight: '800'
+                            }
+                        }, 'Phase ' + num),
+                        h('span', { style: { fontWeight: '700', fontSize: '0.9rem' } }, title),
+                        h('span', { style: { fontSize: '0.75rem', color: 'var(--text-muted)', marginLeft: 'auto' } }, tickets)
+                    ),
+                    h('div', { style: { fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: '1.7' } }, summary),
+                    h('div', {
+                        style: {
+                            display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: '4px'
+                        }
+                    },
+                        ...agents.map(a => h('span', {
+                            style: {
+                                fontSize: '0.7rem', padding: '1px 8px', borderRadius: 'var(--radius-full)',
+                                background: 'rgba(var(--color-primary-rgb),0.1)', color: 'var(--color-primary)',
+                                fontWeight: '600'
+                            }
+                        }, a))
+                    )
+                );
+            }
+
+            return h('article', { class: 'flex flex-col gap-6 max-w-3xl' },
+
+                // ══ ヘッダー ══
+                h('header', { class: 'flex flex-col gap-2' },
+                    h('h1', { class: 'h1', style: { display: 'flex', alignItems: 'center', gap: '12px' } },
+                        createIcon('lightbulb', 28), 'AI開発ノウハウ'
+                    ),
+                    h('p', { class: 'text-muted' },
+                        '6種のAIエージェントを役割分担させ、55枚のチケット（プロンプト）のみでv54 SPAを構築した再現可能な手法のエッセンスです。'
+                    ),
+                    h('div', { class: 'flex flex-wrap gap-2', style: { marginTop: '4px' } },
+                        h('span', { class: 'badge badge-secondary' }, '🤖 6エージェント構成'),
+                        h('span', { class: 'badge badge-secondary' }, '🎫 55チケット'),
+                        h('span', { class: 'badge badge-secondary' }, '💰 課金2名のみ'),
+                        h('span', { class: 'badge badge-secondary' }, '🔑 KERNELフレームワーク')
+                    )
+                ),
+
+                // ══ 費用感 ══
+                h('section', {
+                    class: 'card',
+                    style: { borderLeft: '4px solid ' + C.warning }
+                },
+                    h('div', { class: 'card-body flex flex-col gap-3' },
+                        sectionHeader('💰', '費用感 — 課金は2名だけ', C.warning),
+                        h('p', { style: { fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: '1.7' } },
+                            'GeminiとChatGPTのみ最も安いプランで課金。残り4名（Kimi・Claude・Manus・Perplexity）は完全無料で運用可能。ツールごとの無料枠を最大活用することでコストを最小化している。'
+                        ),
+                        h('div', { class: 'flex flex-wrap gap-2' },
+                            h('span', {
+                                style: {
+                                    fontSize: '0.8rem', padding: '3px 12px', borderRadius: 'var(--radius-full)',
+                                    background: 'rgba(217,119,6,0.12)', color: 'var(--color-warning)', fontWeight: '600'
+                                }
+                            }, '💳 有料（最安）: Gemini / ChatGPT'),
+                            h('span', {
+                                style: {
+                                    fontSize: '0.8rem', padding: '3px 12px', borderRadius: 'var(--radius-full)',
+                                    background: 'rgba(22,163,74,0.12)', color: 'var(--color-success)', fontWeight: '600'
+                                }
+                            }, '✅ 完全無料: Kimi / Claude / Manus / Perplexity')
+                        )
+                    )
+                ),
+
+                // ══ 6エージェント役割 ══
+                h('section', {
+                    class: 'card',
+                    style: { borderLeft: '4px solid ' + C.primary }
+                },
+                    h('div', { class: 'card-body flex flex-col gap-3' },
+                        sectionHeader('🤖', '6エージェントの役割分担', C.primary),
+                        agentRow('Gemini', false, false,
+                            '初期ドラフト（要件定義・ワイヤーフレーム）、BGM（Lyria 3）・画像生成、最終コードレビュー。マルチモーダル能力を活かしてプロジェクトの起点と終点を担う。'
+                        ),
+                        agentRow('Kimi K2.5', 'init', true,
+                            '基盤構築（0-to-1）。Thinkingモード有効で、h()関数・ハッシュルーター・CSS変数フレームワークをゼロから設計。「ゴールを提示してあとは任せる」スタイルが効果的。'
+                        ),
+                        agentRow('Claude', 'design', true,
+                            '中盤〜後半の複雑ロジック設計。状態管理・フォーカス保持・SEOメタデータの動的生成を担当。「設計図を描く」役割に集中させ、実コード変更はManusとChatGPTに委譲する。'
+                        ),
+                        agentRow('Manus', 'exec', true,
+                            '中盤〜後半の厳密実装。「余計なことを一切しない」堅実さが武器。1.6 Maxモードで起動し、CSS/UIの変更のみを精緻に実行。ロジックへの接触を明示的に禁じる。'
+                        ),
+                        agentRow('Perplexity', 'review', true,
+                            'コードレビュー・セキュリティ監査専任。Deep Researchモードで「良い点・悪い点・全指摘事項」を網羅的に抽出。XSSやCSPの脆弱性を主要マイルストーン毎に監査。'
+                        ),
+                        agentRow('ChatGPT', 'diff', false,
+                            'Diff（差分）生成・統合。Perplexityの指摘とClaudeの設計書を受け取り、行番号に依存しない「関数ブロック単位の置換コード」のみを出力。コード統合時のヒューマンエラーを排除。'
+                        )
+                    )
+                ),
+
+                // ══ KERNELフレームワーク ══
+                h('section', {
+                    class: 'card',
+                    style: { borderLeft: '4px solid ' + C.purple }
+                },
+                    h('div', { class: 'card-body flex flex-col gap-2' },
+                        sectionHeader('🔑', 'KERNELフレームワーク — チケット設計の原則', C.purple),
+                        h('p', { style: { fontSize: '0.8125rem', color: 'var(--text-muted)', marginBottom: '8px' } },
+                            '全チケットはこの6原則で構造化。曖昧さを排除しハルシネーションを防ぐ。'
+                        ),
+                        kernelRow('K', 'Keep it simple — 1チケット1目標',
+                            '複雑な背景説明を省き、実行すべきタスクのみを簡潔に記述する。トークン消費とAIの幻覚を最小化。'
+                        ),
+                        kernelRow('E', 'Easy to verify — 成否判定基準を明記',
+                            '「コンソールエラー0件」「XSS脆弱性なし」など、検証可能な完了条件を明示する。'
+                        ),
+                        kernelRow('R', 'Reproducible — 時間・文脈依存の表現を禁止',
+                            '「最新のトレンド」より「Vanilla JSのみ使用」と厳密に指定。誰がいつ実行しても同結果になる。'
+                        ),
+                        kernelRow('N', 'Narrow scope — スコープを極限まで絞る',
+                            'コード生成・ドキュメント作成・テスト記述を1チケットに詰め込まない。成功率が大幅向上。'
+                        ),
+                        kernelRow('E', 'Explicit constraints — NOT To-Doを明示',
+                            '「外部ライブラリ禁止」「既存CSS変数の削除禁止」など、やってはいけないことを列挙する。リグレッションを90%以上削減。'
+                        ),
+                        kernelRow('L', 'Logical structure — 固定フォーマットで記述',
+                            'Context（入力情報）/ Task（タスク定義）/ Constraints（制約）/ Format（出力形式）の4構造に統一する。'
+                        )
+                    )
+                ),
+
+                // ══ 標準チケットテンプレート ══
+                h('section', {
+                    class: 'card',
+                    style: { borderLeft: '4px solid ' + C.info }
+                },
+                    h('div', { class: 'card-body flex flex-col gap-3' },
+                        sectionHeader('📋', '標準チケット・テンプレート', C.info),
+                        ...[
+                            ['役割の定義', 'あなたは[エージェントの専門性]として、Vanilla JSで構築されたSPAに対する精密な改修を実行します。'],
+                            ['タスクの明確化', '[実行すべき具体的なアクションを記述]'],
+                            ['コンテキストの提供', '単一HTMLファイル構成。innerHTML禁止。要素生成は必ずh()使用。状態は再レンダリングを越えて保持。'],
+                            ['現在の状態', '<current_code>[関連するコードブロック]</current_code>'],
+                            ['厳格な制約', '[NOT To-Doを箇条書き]'],
+                            ['出力フォーマット', 'ファイル全体ではなく、更新された関数ブロックのみを出力。余計な解説不要。']
+                        ].map(([label, val]) =>
+                            h('div', {
+                                style: {
+                                    display: 'grid', gridTemplateColumns: '9rem 1fr', gap: '6px 10px',
+                                    padding: '6px 0', borderBottom: '1px solid var(--border-color)'
+                                }
+                            },
+                                h('div', { style: { fontWeight: '700', fontSize: '0.8125rem', color: 'var(--color-info)' } }, '[' + label + ']'),
+                                h('div', { style: { fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: '1.6' } }, val)
+                            )
+                        )
+                    )
+                ),
+
+                // ══ 5フェーズ概要 ══
+                h('section', {
+                    class: 'card',
+                    style: { borderLeft: '4px solid ' + C.success }
+                },
+                    h('div', { class: 'card-body flex flex-col gap-3' },
+                        sectionHeader('🚀', '55チケットの5フェーズ構成', C.success),
+                        h('p', { style: { fontSize: '0.8125rem', color: 'var(--text-muted)', marginBottom: '4px' } },
+                            '人間はコードを1行も書かず、チケットを発行し返ってきた差分をローカルファイルに統合するだけ。'
+                        ),
+                        phaseCard(1, '概念定義と初期スキャフォールディング', 'Ticket 1〜12',
+                            ['Gemini', 'Kimi'],
+                            'Geminiで要件定義とワイヤーフレームを作成。KimiのThinkingモードでh()関数・カスタムルーター・CSS変数フレームワーク・FOUC防止IIFEをゼロ構築。',
+                            C.primary
+                        ),
+                        phaseCard(2, 'コアロジックと状態永続化', 'Ticket 13〜28',
+                            ['Claude', 'Manus'],
+                            'Claudeでreplace Silentlyルーター・フォーカス保持（setTimeout hack）・visibilitychangeによる状態保存を設計。ManusでプロジェクトグリッドのCSS Gridレイアウトを厳密実装。',
+                            C.purple
+                        ),
+                        phaseCard(3, 'コンポーネント統合とUI洗練', 'Ticket 29〜40',
+                            ['Manus', 'Perplexity'],
+                            'ManusでTask/Todo/AIインターフェース・クイズUI・タイマーUIを構築。Perplexityで機能統合後のXSS・CSP・OGタグ・JSON-LDを全面監査。',
+                            C.info
+                        ),
+                        phaseCard(4, '外科的パッチ適用', 'Ticket 41〜49',
+                            ['ChatGPT', 'Claude'],
+                            'ChatGPTをDiffモードで起動し、Perplexity指摘に基づくCSPヘッダー強化・innerHTML排除・Mapベースデータ構造最適化を行番号不依存の置換ブロックで適用。',
+                            C.warning
+                        ),
+                        phaseCard(5, 'アセット合成と最終確認', 'Ticket 50〜55',
+                            ['Gemini', 'Perplexity'],
+                            'GeminiでCity Pop/Lo-fi BGMと「AI-Driven PM」コンセプト画像を生成し統合。JSON-LDのDOM整合性をGeminiで検証、Perplexityで最終デグレ確認しv54完成。',
+                            C.success
+                        )
+                    )
+                ),
+
+                // ══ ハンドオーバープロトコル ══
+                h('section', {
+                    class: 'card',
+                    style: { borderLeft: '4px solid ' + C.warning }
+                },
+                    h('div', { class: 'card-body flex flex-col gap-3' },
+                        sectionHeader('🔗', 'エージェント引き継ぎ（ハンドオーバー）プロトコル', C.warning),
+                        h('p', { style: { fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: '1.7' } },
+                            '異なるAI間でコンテキストが消失しないよう、各チケットの末尾に以下の定型出力を要求する。'
+                        ),
+                        h('div', {
+                            style: {
+                                background: 'var(--bg-tertiary)', borderRadius: 'var(--radius)',
+                                padding: '12px 14px', fontSize: '0.8125rem', lineHeight: '1.8',
+                                color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)'
+                            }
+                        },
+                            '「作業完了後、コード全体像・主要アーキテクチャ決定理由・未解決課題・次エージェントへの具体的指示を網羅したhandover-brief.md形式のテキストを出力してください。」'
+                        ),
+                        h('p', { style: { fontSize: '0.8125rem', color: 'var(--text-muted)' } },
+                            '人間はこのハンドオーバー文書と最新ソースコードをセットにして次エージェントへの入力コンテキストとして渡す。共有メモリ不要で一貫したタスク継続性を担保できる。'
+                        )
+                    )
+                ),
+
+                // ══ 上級テクニック ══
+                h('section', {
+                    class: 'card',
+                    style: { borderLeft: '4px solid ' + C.info }
+                },
+                    h('div', { class: 'card-body flex flex-col gap-4' },
+                        sectionHeader('⚡', '上級プロンプトエンジニアリングのコツ', C.info),
+                        h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-3' },
+                            ...[
+                                ['コンテキスト段階的開示', '3000行のファイル全体を渡さず、変更対象のブロックのみを抽出して渡す。「ファイル全体を書き直さず更新ブロックのみ出力」と明示。'],
+                                ['Thinkingモードの強制発動', '「コードを書く前にDOMトポロジーを分析せよ」と前置き。KimiにはAgent Swarmモードを明示的に指定して並列推論させる。'],
+                                ['Fan-Out比較パターン', '難解なバグはKimiとClaudeに同時投入して解を比較。最適解をChatGPTでDiff化する。単一AIへの依存を排除。'],
+                                ['XMLタグ構造化（Claude専用）', '<instructions><context><example>でプロンプトを構造化。AIがユーザーデータとコマンドを混同することを防ぐ。']
+                            ].map(([title, desc]) =>
+                                h('div', {
+                                    style: {
+                                        padding: '10px 12px', background: 'var(--bg-tertiary)',
+                                        borderRadius: 'var(--radius)', display: 'flex', flexDirection: 'column', gap: '4px'
+                                    }
+                                },
+                                    h('div', { style: { fontWeight: '700', fontSize: '0.875rem' } }, title),
+                                    h('div', { style: { fontSize: '0.8125rem', color: 'var(--text-muted)', lineHeight: '1.6' } }, desc)
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+
         function NotFoundPage() {
             return h('article', { class: 'flex flex-col gap-6 max-w-2xl' },
                 h('header', {}, h('h1', { class: 'h1' }, 'Not Found')),
@@ -6403,6 +6747,9 @@ Version History (closing)
                             break;
                         case 'hiring-risk':
                             page = HiringRiskPage();
+                            break;
+                        case 'ai-knowhow':
+                            page = AIKnowhowPage();
                             break;
                         case 'not-found':
                         default:
