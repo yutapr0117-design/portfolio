@@ -59,6 +59,19 @@ Version History (closing)
     ・左メニューに「AI開発ノウハウ」を新設（Knowhowセクション）
     ・6エージェント役割・費用感・KERNELフレームワーク・55チケット概要を掲載
     ・課金実態の正確な記載（Gemini/ChatGPT最安プランのみ有料、他4名は無料）
+- v56: SEO対策全面強化
+    ・タイトルをブランド強化形式に変更（ユウタ (Yuta) - AI-Driven PM | ポートフォリオ）
+    ・applyMeta()拡張：canonical / og:url を動的更新・フルブランドタイトル形式
+    ・not-foundルートでnoindexメタタグを動的注入・有効ページでは除去（Soft 404対策）
+    ・navLink を <button> から <a href="#/path"> に変換（Googlebot リンク発見対応）
+    ・PAGE_META に ai-knowhow エントリ追加
+    ・Person JSON-LD に alternateName・sameAs・knowsAbout・dateModified を追加
+    ・render()に動的BreadcrumbList JSON-LD注入ロジックを追加
+    ・ai-knowhow ページに FAQPage JSON-LD を動的注入
+    ・Speculation Rules API を <head> に追加（ナビゲーション瞬時化）
+    ・View Transitions API をrender()に統合（ページ遷移アニメーション）
+    ・og:type を動的切替（article/website）
+    ・各ページの動的 og:title/og:description/og:url を完全同期
 
 -->
 <!doctype html>
@@ -70,7 +83,7 @@ Version History (closing)
     <!-- Content Security Policy (minimum) -->
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self';" />
-    <title>Portfolio</title>
+    <title>ユウタ (Yuta) - AI-Driven PM | ポートフォリオ</title>
     <meta name="description" content="設計判断を重視するITエンジニアの実験的SPAポートフォリオ。内蔵アプリ、データ整合性チェック、セマンティックHTML5対応。" />
 
     <!-- SEO Meta Tags -->
@@ -117,12 +130,27 @@ Version History (closing)
     {
         "@context": "https://schema.org",
         "@type": "Person",
+        "@id": "https://yutapr0117-design.github.io/portfolio/#person",
         "name": "ユウタ",
+        "alternateName": ["Yuta", "ゆうた", "Yuta AI-Driven PM"],
         "jobTitle": "AI-Driven PM",
-        "description": "AI-Driven PMのポートフォリオ",
+        "description": "AI統制による設計駆動型プロジェクト実装を専門とするAI-Driven PMのポートフォリオ",
         "email": "yuta.pr.0117@gmail.com",
         "url": "https://yutapr0117-design.github.io/portfolio/",
-        "sameAs": []
+        "sameAs": [
+            "https://github.com/yutapr0117-design"
+        ],
+        "knowsAbout": [
+            "AI-Driven Project Management",
+            "Vanilla JavaScript SPA",
+            "KERNEL Framework",
+            "LLM Cost Optimization",
+            "Multi-Agent AI Development",
+            "Software Architecture Design",
+            "ChatGPT API",
+            "Gemini API"
+        ],
+        "dateModified": "2025-01-01"
     }
     </script>
 
@@ -131,7 +159,7 @@ Version History (closing)
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Portfolio",
+        "name": "ユウタ (Yuta) - AI-Driven PM | ポートフォリオ",
         "url": "https://yutapr0117-design.github.io/portfolio/",
         "potentialAction": {
             "@type": "SearchAction",
@@ -140,6 +168,7 @@ Version History (closing)
         }
     }
     </script>
+
 
 
     <script>
@@ -451,6 +480,36 @@ Version History (closing)
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.001ms !important;
                 scroll-behavior: auto !important;
+            }
+        }
+
+        /* ===== v56: View Transitions API ===== */
+        @view-transition {
+            navigation: auto;
+        }
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+            animation-duration: 200ms;
+            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        ::view-transition-old(root) {
+            animation-name: fade-out;
+        }
+        ::view-transition-new(root) {
+            animation-name: fade-in;
+        }
+        @keyframes fade-out {
+            from { opacity: 1; }
+            to   { opacity: 0; }
+        }
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            ::view-transition-old(root),
+            ::view-transition-new(root) {
+                animation: none;
             }
         }
 /* ===== Layout ===== */
@@ -3984,7 +4043,8 @@ Version History (closing)
                 title: 'Hiring Risk Reduction',
                 desc: '採用側リスク低減構造・経営インパクト・KPI・意思決定アルゴリズムを明示。経営層・PM・エンジニア全層対応。'
             },
-            'not-found': { title: 'Not Found', desc: 'ページが見つかりません。' }
+            'not-found': { title: 'Not Found', desc: 'ページが見つかりません。' },
+            'ai-knowhow': { title: 'AI開発ノウハウ', desc: 'KERNELフレームワーク・6エージェント役割・LLMコスト管理など、AI-Driven PMのリアルな開発ノウハウを公開。' }
         };
 
         /**
@@ -4000,7 +4060,8 @@ Version History (closing)
             const context = { routeName, params, query, route: Router.getRoute(), state: State.get() };
             const title = typeof meta.title === 'function' ? meta.title(context) : meta.title;
             const desc = typeof meta.desc === 'function' ? meta.desc(context) : meta.desc;
-            const fullTitle = title + ' | Portfolio';
+            // v56: フルブランドタイトル形式
+            const fullTitle = title + ' | ユウタ (Yuta) - AI-Driven PM';
             document.title = fullTitle;
             const metaDesc = document.querySelector('meta[name="description"]');
             if (metaDesc) metaDesc.setAttribute('content', desc);
@@ -4008,6 +4069,112 @@ Version History (closing)
             document.querySelector('meta[property="og:description"]')?.setAttribute('content', desc);
             document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', fullTitle);
             document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', desc);
+
+            // v56: canonical を動的更新（ルートごとの正規URL確立）
+            const BASE_URL = 'https://yutapr0117-design.github.io/portfolio/';
+            const hashPath = location.hash || '';
+            const canonicalUrl = BASE_URL + (hashPath ? hashPath : '');
+            let canonicalEl = document.querySelector('link[rel="canonical"]');
+            if (canonicalEl) {
+                canonicalEl.setAttribute('href', canonicalUrl);
+            }
+
+            // v56: og:url を動的更新
+            document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonicalUrl);
+
+            // v56: og:type を動的切替（記事系は article、その他は website）
+            const articleRoutes = ['project-detail', 'ai-knowhow', 'about', 'resume'];
+            const ogType = articleRoutes.includes(routeName) ? 'article' : 'website';
+            document.querySelector('meta[property="og:type"]')?.setAttribute('content', ogType);
+
+            // v56 bugfix: Soft 404対策のロボット制御 (タグの増殖を防ぐため既存要素のミューテーションに一本化)
+            let robotsEl = document.querySelector('meta[name="robots"]');
+            if (!robotsEl) {
+                robotsEl = document.createElement('meta');
+                robotsEl.setAttribute('name', 'robots');
+                document.head.appendChild(robotsEl);
+            }
+            if (routeName === 'not-found') {
+                robotsEl.setAttribute('content', 'noindex, nofollow');
+            } else {
+                robotsEl.setAttribute('content', 'index, follow');
+            }
+
+            // v56: BreadcrumbList JSON-LD を動的注入
+            const ROUTE_LABELS = {
+                home: 'ホーム', projects: 'プロジェクト', 'project-detail': 'プロジェクト詳細',
+                apps: 'アプリ', 'app-task': 'タスク管理', 'app-todo': 'クイックTODO',
+                'app-pomodoro': 'ポモドーロ', 'app-ai': 'AI アシスト',
+                settings: '設定', about: 'About', resume: 'Resume', contact: 'Contact',
+                quiz: 'クイズ', 'hiring-risk': 'Hiring Risk', 'ai-knowhow': 'AI開発ノウハウ',
+                'not-found': 'Not Found'
+            };
+            const crumbs = [{ name: 'ホーム', url: BASE_URL }];
+            if (routeName !== 'home') {
+                crumbs.push({ name: ROUTE_LABELS[routeName] || title, url: canonicalUrl });
+            }
+            const breadcrumb = {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": crumbs.map((c, i) => ({
+                    "@type": "ListItem",
+                    "position": i + 1,
+                    "name": c.name,
+                    "item": c.url
+                }))
+            };
+            let bcEl = document.querySelector('script[data-ld="breadcrumb"]');
+            if (!bcEl) {
+                bcEl = document.createElement('script');
+                bcEl.setAttribute('type', 'application/ld+json');
+                bcEl.setAttribute('data-ld', 'breadcrumb');
+                document.head.appendChild(bcEl);
+            }
+            bcEl.textContent = JSON.stringify(breadcrumb);
+
+            // v56: ai-knowhow ページに FAQPage JSON-LD を動的注入
+            let faqEl = document.querySelector('script[data-ld="faqpage"]');
+            if (routeName === 'ai-knowhow') {
+                const faqData = {
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": [
+                        {
+                            "@type": "Question",
+                            "name": "KERNELフレームワークとは何ですか？",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "KERNELフレームワークは、ユウタ（Yuta）が開発したAI-Driven PMのための多エージェント開発プロセスのフレームワークです。6つのAIエージェント役割を定義し、各エージェントが協調してソフトウェア開発の設計・実装・品質管理を担当します。"
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "AI開発で実際にかかるコストはいくらですか？",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "6つのAIエージェントのうち、GeminiとChatGPTの最安プランのみ有料で、残りの4エージェントは無料プランで運用可能です。実際のAPI費用はプロジェクト規模により異なりますが、最小構成でも月額数百円から始められます。"
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "6つのAIエージェントの役割は何ですか？",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "KERNELフレームワークでは、設計担当・実装担当・品質管理・レビュー・ドキュメント・コスト管理などの役割に6つのAIエージェントを割り当てます。各エージェントが専門特化することで、単一AIによる開発より高品質な成果物を効率的に生産できます。"
+                            }
+                        }
+                    ]
+                };
+                if (!faqEl) {
+                    faqEl = document.createElement('script');
+                    faqEl.setAttribute('type', 'application/ld+json');
+                    faqEl.setAttribute('data-ld', 'faqpage');
+                    document.head.appendChild(faqEl);
+                }
+                faqEl.textContent = JSON.stringify(faqData);
+            } else {
+                if (faqEl) faqEl.remove();
+            }
         }
 
 
@@ -4052,9 +4219,15 @@ Version History (closing)
             ];
 
             function navLink(item) {
-                return h('button', {
+                // v56: <a href> を使用してGooglebotのリンク発見を保証（SEO必須）
+                // event.preventDefault()でSPAルーターへ委譲し、フルリロードを防止
+                return h('a', {
                     class: ['nav-link', item.active && 'active'],
-                    onclick: () => {
+                    href: '#/' + item.path,
+                    onclick: (e) => {
+                        // OS/ブラウザ標準機能（新規タブで開く等）のイベントはJS制御を放棄してバイパスする
+                        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                        e.preventDefault();
                         Router.navigate(item.path);
                         if (isDrawer) closeDrawer();
                     },
@@ -5393,6 +5566,8 @@ Version History (closing)
             }
 
             function buildUI() {
+                const snap = getSnapshot(); // v56.5: snapをbuildUIスコープで取得
+                return h('article', { class: 'flex flex-col gap-6' },
                     h('header', {}, h('h1', { class: 'h1' }, 'Settings')),
                     h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-6' },
                         h('section', { class: 'card' },
@@ -5567,7 +5742,7 @@ Version History (closing)
                             )
                         )
                     )
-                ;
+                );
             }
             return buildUI();
         }
@@ -6685,7 +6860,25 @@ Version History (closing)
         }
 
         // ===== Main Renderer =====
+        let _lastRoutePath = null;
+
         function render() {
+            const currentRoutePath = location.hash || '#/';
+            const isRouteTransition = _lastRoutePath !== currentRoutePath;
+
+            // v56 bugfix: View Transitions API は「ページ遷移時」のみ発火させる（タイマー等の高頻度更新でのクラッシュを防止）
+            if (isRouteTransition && document.startViewTransition) {
+                document.startViewTransition(() => {
+                    _renderCore();
+                    _lastRoutePath = currentRoutePath;
+                });
+            } else {
+                _renderCore();
+                _lastRoutePath = currentRoutePath;
+            }
+        }
+
+        function _renderCore() {
             const route = Router.getRoute();
             const content = document.getElementById('content');
             const sidebarEl = document.getElementById('sidebar');
@@ -6775,7 +6968,7 @@ Version History (closing)
 
             // Enforce link security for dynamically rendered content
             secureExternalLinks(document);
-}
+        }
 
         // ===== Mobile Drawer =====
         function syncMobileDrawer() {
