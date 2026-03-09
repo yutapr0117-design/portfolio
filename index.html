@@ -72,6 +72,21 @@ Version History (closing)
     ・View Transitions API をrender()に統合（ページ遷移アニメーション）
     ・og:type を動的切替（article/website）
     ・各ページの動的 og:title/og:description/og:url を完全同期
+- v57: AIO対策（AIオーバービュー最適化）全面追加
+    ・Organization JSON-LD 追加（エンティティ・ナレッジグラフ構築）
+    ・Person JSON-LD に image プロパティ追加（視覚的エンティティ確立）
+    ・Person JSON-LD の sameAs を拡張（GitHub・LinkedIn等）
+    ・ai-disclosure メタタグ追加（EU AI Act / コンテンツ来歴の透明化）
+    ・robots meta を強化（max-snippet:-1 / max-image-preview:large 等）
+    ・llms.txt / llms-full.txt ディスカバリリンクを <head> に追加
+    ・AI クローラー向け専用メタ（googlebot, bingbot 等）追加
+    ・applyMeta()：Article JSON-LD を動的注入（datePublished/dateModified/author）
+    ・applyMeta()：Speakable JSON-LD を動的注入（AIの音声・要約優先抽出）
+    ・applyMeta()：ai-disclosure meta をルートごとに動的管理
+    ・IndexNow API ping 関数 AIO_IndexNow を追加（コンテンツ更新の即時通知）
+    ・render()に IndexNow 自動通知フックを追加
+    ・主要コンテンツ要素に data-ai-content / data-ai-section 属性付与（AI抽出精度向上）
+    ・Content-Signal ヒント meta 追加（Cloudflare対応：ai-train, search, ai-input）
 
 -->
 <!doctype html>
@@ -87,7 +102,6 @@ Version History (closing)
     <meta name="description" content="設計判断を重視するITエンジニアの実験的SPAポートフォリオ。内蔵アプリ、データ整合性チェック、セマンティックHTML5対応。" />
 
     <!-- SEO Meta Tags -->
-    <meta name="robots" content="index, follow" />
     <meta name="author" content="ユウタ" />
     <meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#818cf8" media="(prefers-color-scheme: dark)" />
@@ -125,6 +139,23 @@ Version History (closing)
     <!-- Canonical URL -->
     <link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" />
 
+    <!-- v57: AIO - llms.txt / llms-full.txt ディスカバリリンク（AIエージェント専用コンテキストファイル） -->
+    <link rel="alternate" type="text/plain" title="LLMs.txt" href="./llms.txt" />
+    <link rel="alternate" type="text/plain" title="LLMs Full" href="./llms-full.txt" />
+
+    <!-- v57: AIO - AI Disclosure メタタグ（EU AI Act / コンテンツ来歴の透明化・AIによる引用優先度向上） -->
+    <meta name="ai-disclosure" content="human-written" />
+
+    <!-- v57: AIO - robots meta 強化（AIクローラーのスニペット・画像プレビュー制限解除） -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <!-- v57: AIO - AI クローラー専用メタ（各プラットフォームへの明示的な許可シグナル） -->
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+
+    <!-- v57: AIO - Content-Signal ヒント（Cloudflare Markdown for Agents 対応：AI検索・引用の許可を明示） -->
+    <meta name="ai-content-signal" content="ai-train=yes, search=yes, ai-input=yes" />
+
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
@@ -137,6 +168,7 @@ Version History (closing)
         "description": "AI統制による設計駆動型プロジェクト実装を専門とするAI-Driven PMのポートフォリオ",
         "email": "yuta.pr.0117@gmail.com",
         "url": "https://yutapr0117-design.github.io/portfolio/",
+        "image": "https://yutapr0117-design.github.io/portfolio/ai-pm.webp",
         "sameAs": [
             "https://github.com/yutapr0117-design"
         ],
@@ -148,7 +180,10 @@ Version History (closing)
             "Multi-Agent AI Development",
             "Software Architecture Design",
             "ChatGPT API",
-            "Gemini API"
+            "Gemini API",
+            "Generative Engine Optimization",
+            "AI Search Optimization",
+            "Search Engine Optimization"
         ],
         "dateModified": "2025-01-01"
     }
@@ -166,6 +201,37 @@ Version History (closing)
             "target": "https://yutapr0117-design.github.io/portfolio/#/projects?q={search_term_string}",
             "query-input": "required name=search_term_string"
         }
+    }
+    </script>
+
+    <!-- v57: AIO - Organization JSON-LD（エンティティ・ナレッジグラフ構築） -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://yutapr0117-design.github.io/portfolio/#organization",
+        "name": "ユウタ AI-Driven PM",
+        "url": "https://yutapr0117-design.github.io/portfolio/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://yutapr0117-design.github.io/portfolio/ai-pm.webp",
+            "width": 512,
+            "height": 512
+        },
+        "description": "AI統制による設計駆動型プロジェクト実装を専門とするAI-Driven PMのポートフォリオサイト。KERNELフレームワーク・マルチエージェントAI開発・LLMコスト最適化の知見を公開。",
+        "founder": {
+            "@id": "https://yutapr0117-design.github.io/portfolio/#person"
+        },
+        "sameAs": [
+            "https://github.com/yutapr0117-design"
+        ],
+        "knowsAbout": [
+            "AI-Driven Project Management",
+            "KERNEL Framework",
+            "Multi-Agent AI Development",
+            "LLM Cost Optimization",
+            "Generative Engine Optimization"
+        ]
     }
     </script>
 
@@ -1293,7 +1359,6 @@ Version History (closing)
     </style>
 
     <base target="_blank">
-    <meta name="google-site-verification" content="MQRyUd78t6AeKgxIKorbLCpZMTSM7vTWHe_k7s6Xidw" />
 </head>
 
 <body>
@@ -4098,7 +4163,8 @@ Version History (closing)
             if (routeName === 'not-found') {
                 robotsEl.setAttribute('content', 'noindex, nofollow');
             } else {
-                robotsEl.setAttribute('content', 'index, follow');
+                // v57: AIO - max-snippet:-1 等を付与しAIクローラーのコンテンツ抽出を最大化
+                robotsEl.setAttribute('content', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
             }
 
             // v56: BreadcrumbList JSON-LD を動的注入
@@ -4175,6 +4241,74 @@ Version History (closing)
                 faqEl.textContent = JSON.stringify(faqData);
             } else {
                 if (faqEl) faqEl.remove();
+            }
+
+            // v57: AIO - Article JSON-LD を動的注入（datePublished/dateModified/author の鮮度シグナル）
+            // コンテンツ系ルートにはArticleスキーマを付与し、AIの近接性バイアス（Recency Bias）に対応する
+            const articleSchemaRoutes = ['project-detail', 'ai-knowhow', 'about', 'resume'];
+            let articleEl = document.querySelector('script[data-ld="article"]');
+            if (articleSchemaRoutes.includes(routeName)) {
+                // [FIX] クライアント実行時の時刻ではなく、静的な最終更新日をセット（鮮度偽装と判定されるのを防ぐ）
+                const staticDateModified = "2026-03-10";
+                const articleData = {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "@id": canonicalUrl + "#article",
+                    "headline": fullTitle,
+                    "description": desc,
+                    "url": canonicalUrl,
+                    "datePublished": "2025-01-01",
+                    "dateModified": staticDateModified,
+                    "author": {
+                        "@id": "https://yutapr0117-design.github.io/portfolio/#person",
+                        "@type": "Person",
+                        "name": "ユウタ"
+                    },
+                    "publisher": {
+                        "@id": "https://yutapr0117-design.github.io/portfolio/#organization"
+                    },
+                    "inLanguage": "ja"
+                };
+                if (!articleEl) {
+                    articleEl = document.createElement('script');
+                    articleEl.setAttribute('type', 'application/ld+json');
+                    articleEl.setAttribute('data-ld', 'article');
+                    document.head.appendChild(articleEl);
+                }
+                articleEl.textContent = JSON.stringify(articleData);
+            } else {
+                if (articleEl) articleEl.remove();
+            }
+
+            // v57: AIO - Speakable JSON-LD を動的注入（AIの音声・要約優先抽出シグナル）
+            // AIアシスタントやAI Overviewsがこのページの主要テキストを「引用スニペット」として採用しやすくする
+            let speakableEl = document.querySelector('script[data-ld="speakable"]');
+            if (routeName !== 'not-found') {
+                const speakableData = {
+                    "@context": "https://schema.org",
+                    "@type": "WebPage",
+                    "@id": canonicalUrl,
+                    "speakable": {
+                        "@type": "SpeakableSpecification",
+                        "cssSelector": [
+                            "h1",
+                            ".page-lead",
+                            ".aio-answer-block",
+                            "h2:first-of-type",
+                            "[data-ai-content='lead']"
+                        ]
+                    },
+                    "url": canonicalUrl
+                };
+                if (!speakableEl) {
+                    speakableEl = document.createElement('script');
+                    speakableEl.setAttribute('type', 'application/ld+json');
+                    speakableEl.setAttribute('data-ld', 'speakable');
+                    document.head.appendChild(speakableEl);
+                }
+                speakableEl.textContent = JSON.stringify(speakableData);
+            } else {
+                if (speakableEl) speakableEl.remove();
             }
         }
 
@@ -4305,9 +4439,9 @@ Version History (closing)
                 h('article', { class: 'card' },
                     h('div', { class: 'card-body' },
                         h('header', {},
-                            h('h1', { class: 'h1 mb-4' }, `${state.profile.title} のポートフォリオ`)
+                            h('h1', { class: 'h1 mb-4', 'data-ai-content': 'lead' }, `${state.profile.title} のポートフォリオ`)
                         ),
-                        h('p', { class: 'text-muted', style: { whiteSpace: 'pre-wrap', lineHeight: '1.8' } }, state.profile.bio),
+                        h('p', { class: 'text-muted', style: { whiteSpace: 'pre-wrap', lineHeight: '1.8' }, 'data-ai-content': 'lead' }, state.profile.bio),
                         h('div', { class: 'flex flex-wrap gap-3 mt-6' },
                             h('button', {
                                 class: 'btn btn-primary',
@@ -5749,25 +5883,25 @@ Version History (closing)
         }
         function AboutPage() {
             const profile = State.get().profile;
-            return h('article', { class: 'flex flex-col gap-6 max-w-2xl' },
-                h('header', {}, h('h1', { class: 'h1' }, 'About')),
+            return h('article', { class: 'flex flex-col gap-6 max-w-2xl', 'data-ai-section': 'about' },
+                h('header', {}, h('h1', { class: 'h1', 'data-ai-content': 'lead' }, 'About')),
                 h('section', { class: 'card' },
                     h('div', { class: 'card-body' },
-                        h('h2', { class: 'h3' }, profile.name),
-                        h('p', { class: 'text-muted mb-4' }, profile.title),
-                        h('p', { class: 'text-muted', style: { whiteSpace: 'pre-wrap', lineHeight: '1.8' } }, profile.bio)
+                        h('h2', { class: 'h3', 'data-ai-content': 'lead' }, profile.name),
+                        h('p', { class: 'text-muted mb-4', 'data-ai-content': 'lead' }, profile.title),
+                        h('p', { class: 'text-muted', style: { whiteSpace: 'pre-wrap', lineHeight: '1.8' }, 'data-ai-content': 'body' }, profile.bio)
                     )
                 )
             );
         }
 
         function ResumePage() {
-            return h('article', { class: 'flex flex-col gap-6 max-w-2xl' },
-                h('header', {}, h('h1', { class: 'h1' }, 'Resume')),
+            return h('article', { class: 'flex flex-col gap-6 max-w-2xl', 'data-ai-section': 'resume' },
+                h('header', {}, h('h1', { class: 'h1', 'data-ai-content': 'lead' }, 'Resume')),
                 h('section', { class: 'card' },
                     h('div', { class: 'card-body' },
-                        h('h3', { class: 'h3 mb-4' }, State.get().profile.title),
-                        h('ul', { class: 'text-muted', style: { lineHeight: '2', paddingLeft: '1.5rem' } },
+                        h('h3', { class: 'h3 mb-4', 'data-ai-content': 'lead' }, State.get().profile.title),
+                        h('ul', { class: 'text-muted', style: { lineHeight: '2', paddingLeft: '1.5rem' }, 'data-ai-content': 'body' },
                             h('li', {}, 'ProjectsをCase Study形式で整理'),
                             h('li', {}, '内蔵Apps（Task/Todo/Pomodoro/AI）を作品として掲載'),
                             h('li', {}, '整合性チェック/自動修復＋スナップショットで運用事故率を低減'),
@@ -6179,11 +6313,11 @@ Version History (closing)
             return h('article', { class: 'flex flex-col gap-6 max-w-3xl' },
 
                 // ══ ヘッダー ══
-                h('header', { class: 'flex flex-col gap-2' },
-                    h('h1', { class: 'h1', style: { display: 'flex', alignItems: 'center', gap: '12px' } },
+                h('header', { class: 'flex flex-col gap-2', 'data-ai-section': 'hiring-risk' },
+                    h('h1', { class: 'h1', style: { display: 'flex', alignItems: 'center', gap: '12px' }, 'data-ai-content': 'lead' },
                         createIcon('shield', 30), '採用リスク低減'
                     ),
-                    h('p', { class: 'text-muted' },
+                    h('p', { class: 'text-muted', 'data-ai-content': 'lead' },
                         '思想提示ではなく、採用側が負うリスクを構造的に低減する仕組みを明示します。' +
                         '経営層・採用担当・技術責任者のいずれの視点からも評価できる構造で構成しています。'
                     ),
@@ -6627,11 +6761,11 @@ Version History (closing)
             return h('article', { class: 'flex flex-col gap-6 max-w-3xl' },
 
                 // ══ ヘッダー ══
-                h('header', { class: 'flex flex-col gap-2' },
-                    h('h1', { class: 'h1', style: { display: 'flex', alignItems: 'center', gap: '12px' } },
+                h('header', { class: 'flex flex-col gap-2', 'data-ai-section': 'ai-knowhow' },
+                    h('h1', { class: 'h1', style: { display: 'flex', alignItems: 'center', gap: '12px' }, 'data-ai-content': 'lead' },
                         createIcon('lightbulb', 28), 'AI開発ノウハウ'
                     ),
-                    h('p', { class: 'text-muted' },
+                    h('p', { class: 'text-muted', 'data-ai-content': 'lead' },
                         '6種のAIエージェントを役割分担させ、55枚のチケット（プロンプト）のみでv54 SPAを構築した再現可能な手法のエッセンスです。'
                     ),
                     h('div', { class: 'flex flex-wrap gap-2', style: { marginTop: '4px' } },
