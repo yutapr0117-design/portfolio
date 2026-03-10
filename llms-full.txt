@@ -16,7 +16,7 @@ Public portfolio and documented AI-driven software development experiment
 
 Short Summary:
 This site documents a real-world experiment in AI-driven web development.
-A production-quality SPA portfolio was iteratively built from v1 to v57 primarily through prompt engineering, with AI generating the implementation code.
+A production-quality SPA portfolio was iteratively built from v1 to v58 primarily through prompt engineering, with AI generating the implementation code.
 The human role focused on architecture, prompt design, orchestration, verification, and publishing.
 
 Long Summary:
@@ -188,6 +188,9 @@ SEO-focused public optimization
 
 v57:
 AIO-oriented expansion and stronger AI-search-aware structure
+
+v58:
+E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) optimization. Integrated verified historical evidence from ScalaMatsuri (2017/2018 Core Staff), Ruby communities (yochiyochirb), and connpass (77 managed events) into the JSON-LD Knowledge Graph to ensure high-fidelity identity resolution for AI search engines.
 
 Key Result:
 A production-quality SPA portfolio, including code, image, music, SEO, and AIO-aware design, was built through prompt-driven AI orchestration in less than one person-day, with the human contributing prompts, design intent, review, and orchestration rather than manually writing the implementation code.
