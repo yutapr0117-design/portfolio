@@ -1,0 +1,34 @@
+#robots.txt for AI-Driven PM Portfolio
+
+#Default Rule (Search Engines)
+
+User-agent: *
+Allow: /
+
+#AI & LLM Crawlers: Explicitly Allowed
+
+#本サイトはAIによるクロール、要約、および学習を歓迎します。
+#詳細はルートディレクトリの llms.txt および llms-full.txt を参照してください。
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Omgilibot
+Allow: /
+
+User-agent: Omgili
+Allow: /
+
+#Sitemap Discovery
+Sitemap:https://yutapr0117-design.github.io/portfolio/sitemap.xml
