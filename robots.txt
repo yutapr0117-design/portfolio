@@ -1,14 +1,19 @@
-#robots.txt for AI-Driven PM Portfolio
+# ==========================================
+# robots.txt for AI-Driven PM Portfolio
+# ==========================================
 
-#Default Rule (Search Engines)
-
+# ------------------------------------------
+# Default Rule (Search Engines)
+# ------------------------------------------
 User-agent: *
 Allow: /
 
-#AI & LLM Crawlers: Explicitly Allowed
+# ------------------------------------------
+# AI & LLM Crawlers: Explicitly Allowed
+# ------------------------------------------
+# 本サイトはAIによるクロール、要約、および学習を歓迎します。
+# 詳細はルートディレクトリの llms.txt および llms-full.txt を参照してください。
 
-#本サイトはAIによるクロール、要約、および学習を歓迎します。
-#詳細はルートディレクトリの llms.txt および llms-full.txt を参照してください。
 User-agent: GPTBot
 Allow: /
 
@@ -30,5 +35,7 @@ Allow: /
 User-agent: Omgili
 Allow: /
 
-#Sitemap Discovery
-Sitemap:https://yutapr0117-design.github.io/portfolio/sitemap.xml
+# ------------------------------------------
+# Sitemap Discovery
+# ------------------------------------------
+Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml
