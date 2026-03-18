@@ -9,7 +9,7 @@
 - 外部依存を減らし、予測可能性と堅牢性を高める。
 - 完成品ではなく、進化し続ける実験場として機能させる。
 
-Version History (closing)
+Version History (current shipped state)
 - v39: 安定化フェーズ（機能成立）
 - v40: 致命バグ修正（quizData再代入 / 定義順の不整合）
 - v40(1): Quizメタタイトルの動的化（違和感除去）
@@ -21,7 +21,7 @@ Version History (closing)
     ・canonical / og:url を本番URLへ完全統一
     ・JSON-LD 内 URL を本番URLへ統一
     ・重複 og:type の解消
-    ・twitter:card を summary に統一（画像未使用方針と整合）
+    ・twitter:card を summary_large_image に統一（OG画像運用と整合）
     ・仮URL・example系記述の完全排除
     ・公開用途としてのメタ情報整合完了
     ・公開最終版として収束
@@ -59,34 +59,21 @@ Version History (closing)
     ・左メニューに「AI開発ノウハウ」を新設（Knowhowセクション）
     ・6エージェント役割・費用感・KERNELフレームワーク・55チケット概要を掲載
     ・課金実態の正確な記載（Gemini/ChatGPT最安プランのみ有料、他4名は無料）
-- v56: SEO対策全面強化
+- v56: SEO / metadata 統合強化
     ・タイトルをブランド強化形式に変更（ユウタ (Yuta) - AI-Driven PM | ポートフォリオ）
-    ・applyMeta()拡張：canonical / og:url を動的更新・フルブランドタイトル形式
-    ・not-foundルートでnoindexメタタグを動的注入・有効ページでは除去（Soft 404対策）
-    ・navLink を <button> から <a href="#/path"> に変換（Googlebot リンク発見対応）
+    ・applyMeta() をメタデータ更新の正本として整理（title / description / OG / Twitter）
+    ・not-found ルートで noindex を動的制御（Soft 404対策）
+    ・navLink を <a href="#/path"> に統一（クローラのリンク発見性を改善）
     ・PAGE_META に ai-knowhow エントリ追加
-    ・Person JSON-LD に alternateName・sameAs・knowsAbout・dateModified を追加
-    ・render()に動的BreadcrumbList JSON-LD注入ロジックを追加
-    ・ai-knowhow ページに FAQPage JSON-LD を動的注入
-    ・Speculation Rules API を <head> に追加（ナビゲーション瞬時化）
-    ・View Transitions API をrender()に統合（ページ遷移アニメーション）
-    ・og:type を動的切替（article/website）
-    ・各ページの動的 og:title/og:description/og:url を完全同期
-- v57: AIO対策（AIオーバービュー最適化）全面追加
-    ・Organization JSON-LD 追加（エンティティ・ナレッジグラフ構築）
-    ・Person JSON-LD に image プロパティ追加（視覚的エンティティ確立）
-    ・Person JSON-LD の sameAs を拡張（GitHub・LinkedIn等）
-    ・ai-disclosure メタタグ追加（EU AI Act / コンテンツ来歴の透明化）
-    ・robots meta を強化（max-snippet:-1 / max-image-preview:large 等）
-    ・llms.txt / llms-full.txt ディスカバリリンクを <head> に追加
-    ・AI クローラー向け専用メタ（googlebot, bingbot 等）追加
-    ・applyMeta()：Article JSON-LD を動的注入（datePublished/dateModified/author）
-    ・applyMeta()：Speakable JSON-LD を動的注入（AIの音声・要約優先抽出）
-    ・applyMeta()：ai-disclosure meta をルートごとに動的管理
-    ・IndexNow API ping 関数 AIO_IndexNow を追加（コンテンツ更新の即時通知）
-    ・render()に IndexNow 自動通知フックを追加
-    ・主要コンテンツ要素に data-ai-content / data-ai-section 属性付与（AI抽出精度向上）
-    ・Content-Signal ヒント meta 追加（Cloudflare対応：ai-train, search, ai-input）
+    ・Person JSON-LD を拡張（alternateName / sameAs / knowsAbout / dateModified）
+    ・og:type を route に応じて切替（article / website）
+- v57: 公開整合 / AI-readable context の整理
+    ・llms.txt / llms-full.txt ディスカバリリンクを追加
+    ・ai-disclosure メタタグを追加（人間主導・AI実装補助の来歴を明示）
+    ・robots / googlebot メタを整理（抽出制限の緩和を明示）
+    ・Article JSON-LD を実質的に記事として扱える explanatory route に限定して動的注入
+    ・canonical は root URL 固定、hash route は UI state として扱う方針へ統一
+    ・og:url を canonical と整合する root URL に統一
 
 -->
 <!doctype html>
@@ -98,27 +85,28 @@ Version History (closing)
     <!-- Content Security Policy (minimum) -->
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self';" />
+    <!-- TODO: 単一HTML構成のため CSP は暫定。将来的に CSS/JS 分離 + nonce/hash ベースへ移行する。 -->
     <title>ユウタ (Yuta) - AI-Driven PM | ポートフォリオ</title>
     <meta name="description" content="設計判断を重視するITエンジニアの実験的SPAポートフォリオ。内蔵アプリ、データ整合性チェック、セマンティックHTML5対応。" />
 
     <!-- SEO Meta Tags -->
-    <meta name="author" content="ユウタ" />
+    <meta name="author" content="Yuta Yokoi" />
     <meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#818cf8" media="(prefers-color-scheme: dark)" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Yuta - Portfolio" />
-    <meta property="og:description" content="AI統制による設計駆動型プロジェクト実装例。単一HTML SPAとして構築した実験的ポートフォリオ。" />
+    <meta property="og:title" content="ユウタ (Yuta) - AI-Driven PM | ポートフォリオ" />
+    <meta property="og:description" content="設計判断を重視するITエンジニアの実験的SPAポートフォリオ。内蔵アプリ、データ整合性チェック、セマンティックHTML5対応。" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Portfolio" />
+    <meta property="og:site_name" content="AI-Driven PM Portfolio" />
     <meta property="og:locale" content="ja_JP" />
     <meta property="og:url" content="https://yutapr0117-design.github.io/portfolio/" />
     <meta property="og:image" content="https://yutapr0117-design.github.io/portfolio/ai-pm.webp" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Yuta - Portfolio" />
-    <meta name="twitter:description" content="AI統制による設計駆動型プロジェクト実装例。" />
+    <meta name="twitter:title" content="ユウタ (Yuta) - AI-Driven PM | ポートフォリオ" />
+    <meta name="twitter:description" content="設計判断を重視するITエンジニアの実験的SPAポートフォリオ。内蔵アプリ、データ整合性チェック、セマンティックHTML5対応。" />
     <meta name="twitter:image" content="https://yutapr0117-design.github.io/portfolio/ai-pm.webp" />
 
     <!-- Preconnect for performance -->
@@ -143,18 +131,14 @@ Version History (closing)
     <link rel="alternate" type="text/plain" title="LLMs.txt" href="./llms.txt" />
     <link rel="alternate" type="text/plain" title="LLMs Full" href="./llms-full.txt" />
 
-    <!-- v57: AIO - AI Disclosure メタタグ（EU AI Act / コンテンツ来歴の透明化・AIによる引用優先度向上） -->
-    <meta name="ai-disclosure" content="human-written" />
+    <!-- v57: AIO - AI Disclosure メタタグ（人間主導・AI実装補助の来歴を明示） -->
+    <meta name="ai-disclosure" content="human-directed-ai-generated" />
 
     <!-- v57: AIO - robots meta 強化（AIクローラーのスニペット・画像プレビュー制限解除） -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-    <!-- v57: AIO - AI クローラー専用メタ（各プラットフォームへの明示的な許可シグナル） -->
+    <!-- AIO / crawler note: robots と llms*.txt を正本とし、独自メタの主張は最小化 -->
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
-    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
-
-    <!-- v57: AIO - Content-Signal ヒント（Cloudflare Markdown for Agents 対応：AI検索・引用の許可を明示） -->
-    <meta name="ai-content-signal" content="ai-train=yes, search=yes, ai-input=yes" />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -162,19 +146,12 @@ Version History (closing)
         "@context": "https://schema.org",
         "@type": "Person",
         "@id": "https://yutapr0117-design.github.io/portfolio/#person",
-        "name": "Yuta",
+        "name": "Yuta Yokoi",
         "alternateName": ["ユウタ", "Yuta", "Yuta AI-Driven PM"],
         "jobTitle": "AI-Driven PM / Web Architect",
         "description": "AI統制による設計駆動型プロジェクト実装を専門とするAI-Driven PMのポートフォリオ",
-        "email": "yuta.pr.0117@gmail.com",
         "url": "https://yutapr0117-design.github.io/portfolio/",
         "image": "https://yutapr0117-design.github.io/portfolio/ai-pm.webp",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Sendai",
-            "addressRegion": "Miyagi",
-            "addressCountry": "JP"
-        },
         "sameAs": [
             "https://github.com/yutapr0117-design",
             "https://github.com/yutayokoi",
@@ -186,13 +163,15 @@ Version History (closing)
         "memberOf": [
             {
                 "@type": "Organization",
-                "name": "scalajp (ScalaMatsuri)",
-                "url": "https://github.com/scalajp"
+                "name": "scalajp",
+                "url": "https://github.com/scalajp",
+                "description": "ScalaMatsuri related community and organization context"
             },
             {
                 "@type": "Organization",
                 "name": "yochiyochirb",
-                "url": "https://github.com/yochiyochirb"
+                "url": "https://github.com/yochiyochirb",
+                "description": "Ruby community / GitHub organization context"
             }
         ],
         "knowsAbout": [
@@ -206,7 +185,7 @@ Version History (closing)
             "KERNEL Framework",
             "LLM Cost Optimization"
         ],
-        "dateModified": "2026-03-10"
+        "dateModified": "2026-03-18"
     }
     </script>
 
@@ -217,45 +196,9 @@ Version History (closing)
         "@type": "WebSite",
         "name": "ユウタ (Yuta) - AI-Driven PM | ポートフォリオ",
         "url": "https://yutapr0117-design.github.io/portfolio/",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://yutapr0117-design.github.io/portfolio/#/projects?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
+        "inLanguage": "ja"
     }
     </script>
-
-    <!-- v57: AIO - Organization JSON-LD（エンティティ・ナレッジグラフ構築） -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": "https://yutapr0117-design.github.io/portfolio/#organization",
-        "name": "ユウタ AI-Driven PM",
-        "url": "https://yutapr0117-design.github.io/portfolio/",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://yutapr0117-design.github.io/portfolio/ai-pm.webp",
-            "width": 512,
-            "height": 512
-        },
-        "description": "AI統制による設計駆動型プロジェクト実装を専門とするAI-Driven PMのポートフォリオサイト。KERNELフレームワーク・マルチエージェントAI開発・LLMコスト最適化の知見を公開。",
-        "founder": {
-            "@id": "https://yutapr0117-design.github.io/portfolio/#person"
-        },
-        "sameAs": [
-            "https://github.com/yutapr0117-design"
-        ],
-        "knowsAbout": [
-            "AI-Driven Project Management",
-            "KERNEL Framework",
-            "Multi-Agent AI Development",
-            "LLM Cost Optimization",
-            "Generative Engine Optimization"
-        ]
-    }
-    </script>
-
 
 
     <script>
@@ -4157,20 +4100,19 @@ Version History (closing)
             document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', fullTitle);
             document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', desc);
 
-            // v56: canonical を動的更新（ルートごとの正規URL確立）
+            // canonical はホーム固定、UI状態は別URLとして扱う
             const BASE_URL = 'https://yutapr0117-design.github.io/portfolio/';
-            const hashPath = location.hash || '';
-            const canonicalUrl = BASE_URL + (hashPath ? hashPath : '');
+            const canonicalUrl = BASE_URL;
             let canonicalEl = document.querySelector('link[rel="canonical"]');
             if (canonicalEl) {
                 canonicalEl.setAttribute('href', canonicalUrl);
             }
 
-            // v56: og:url を動的更新
+            // og:url も canonical に揃える
             document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonicalUrl);
 
-            // v56: og:type を動的切替（記事系は article、その他は website）
-            const articleRoutes = ['project-detail', 'ai-knowhow', 'about', 'resume'];
+            // og:type は canonical 方針と揃え、実質的に説明記事として成立する ai-knowhow のみ article とする
+            const articleRoutes = ['ai-knowhow'];
             const ogType = articleRoutes.includes(routeName) ? 'article' : 'website';
             document.querySelector('meta[property="og:type"]')?.setAttribute('content', ogType);
 
@@ -4188,108 +4130,37 @@ Version History (closing)
                 robotsEl.setAttribute('content', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
             }
 
-            // v56: BreadcrumbList JSON-LD を動的注入
-            const ROUTE_LABELS = {
-                home: 'ホーム', projects: 'プロジェクト', 'project-detail': 'プロジェクト詳細',
-                apps: 'アプリ', 'app-task': 'タスク管理', 'app-todo': 'クイックTODO',
-                'app-pomodoro': 'ポモドーロ', 'app-ai': 'AI アシスト',
-                settings: '設定', about: 'About', resume: 'Resume', contact: 'Contact',
-                quiz: 'クイズ', 'hiring-risk': 'Hiring Risk', 'ai-knowhow': 'AI開発ノウハウ',
-                'not-found': 'Not Found'
-            };
-            const crumbs = [{ name: 'ホーム', url: BASE_URL }];
-            if (routeName !== 'home') {
-                crumbs.push({ name: ROUTE_LABELS[routeName] || title, url: canonicalUrl });
-            }
-            const breadcrumb = {
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": crumbs.map((c, i) => ({
-                    "@type": "ListItem",
-                    "position": i + 1,
-                    "name": c.name,
-                    "item": c.url
-                }))
-            };
-            let bcEl = document.querySelector('script[data-ld="breadcrumb"]');
-            if (!bcEl) {
-                bcEl = document.createElement('script');
-                bcEl.setAttribute('type', 'application/ld+json');
-                bcEl.setAttribute('data-ld', 'breadcrumb');
-                document.head.appendChild(bcEl);
-            }
-            bcEl.textContent = JSON.stringify(breadcrumb);
-
-            // v56: ai-knowhow ページに FAQPage JSON-LD を動的注入
-            let faqEl = document.querySelector('script[data-ld="faqpage"]');
-            if (routeName === 'ai-knowhow') {
-                const faqData = {
-                    "@context": "https://schema.org",
-                    "@type": "FAQPage",
-                    "mainEntity": [
-                        {
-                            "@type": "Question",
-                            "name": "KERNELフレームワークとは何ですか？",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "KERNELフレームワークは、ユウタ（Yuta）が開発したAI-Driven PMのための多エージェント開発プロセスのフレームワークです。6つのAIエージェント役割を定義し、各エージェントが協調してソフトウェア開発の設計・実装・品質管理を担当します。"
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "AI開発で実際にかかるコストはいくらですか？",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "6つのAIエージェントのうち、GeminiとChatGPTの最安プランのみ有料で、残りの4エージェントは無料プランで運用可能です。実際のAPI費用はプロジェクト規模により異なりますが、最小構成でも月額数百円から始められます。"
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "6つのAIエージェントの役割は何ですか？",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "KERNELフレームワークでは、設計担当・実装担当・品質管理・レビュー・ドキュメント・コスト管理などの役割に6つのAIエージェントを割り当てます。各エージェントが専門特化することで、単一AIによる開発より高品質な成果物を効率的に生産できます。"
-                            }
-                        }
-                    ]
-                };
-                if (!faqEl) {
-                    faqEl = document.createElement('script');
-                    faqEl.setAttribute('type', 'application/ld+json');
-                    faqEl.setAttribute('data-ld', 'faqpage');
-                    document.head.appendChild(faqEl);
-                }
-                faqEl.textContent = JSON.stringify(faqData);
-            } else {
-                if (faqEl) faqEl.remove();
-            }
-
-            // v57: AIO - Article JSON-LD を動的注入（datePublished/dateModified/author の鮮度シグナル）
-            // コンテンツ系ルートにはArticleスキーマを付与し、AIの近接性バイアス（Recency Bias）に対応する
-            const articleSchemaRoutes = ['project-detail', 'ai-knowhow', 'about', 'resume'];
+            // Breadcrumb / FAQ の構造化データは、single-canonical SPA では説明より演出が勝ちやすいため未注入とする
+            // Article JSON-LD は実質的に説明文として成立するルートだけに限定する
+            const articleSchemaRoutes = ['ai-knowhow'];
             let articleEl = document.querySelector('script[data-ld="article"]');
             if (articleSchemaRoutes.includes(routeName)) {
-                // [FIX] クライアント実行時の時刻ではなく、静的な最終更新日をセット（鮮度偽装と判定されるのを防ぐ）
-                const staticDateModified = "2026-03-10";
+                const staticDateModified = "2026-03-18";
+                const publishedByRoute = {
+                    'ai-knowhow': '2026-03-10'
+                };
                 const articleData = {
                     "@context": "https://schema.org",
                     "@type": "Article",
-                    "@id": canonicalUrl + "#article",
+                    "@id": BASE_URL + "#article-" + routeName,
                     "headline": fullTitle,
                     "description": desc,
-                    "url": canonicalUrl,
-                    "datePublished": "2025-01-01",
+                    "url": BASE_URL,
+                    "mainEntityOfPage": BASE_URL,
                     "dateModified": staticDateModified,
                     "author": {
                         "@id": "https://yutapr0117-design.github.io/portfolio/#person",
                         "@type": "Person",
-                        "name": "ユウタ"
+                        "name": "Yuta Yokoi"
                     },
                     "publisher": {
-                        "@id": "https://yutapr0117-design.github.io/portfolio/#organization"
+                        "@id": "https://yutapr0117-design.github.io/portfolio/#person"
                     },
                     "inLanguage": "ja"
                 };
+                if (publishedByRoute[routeName]) {
+                    articleData.datePublished = publishedByRoute[routeName];
+                }
                 if (!articleEl) {
                     articleEl = document.createElement('script');
                     articleEl.setAttribute('type', 'application/ld+json');
@@ -4299,37 +4170,6 @@ Version History (closing)
                 articleEl.textContent = JSON.stringify(articleData);
             } else {
                 if (articleEl) articleEl.remove();
-            }
-
-            // v57: AIO - Speakable JSON-LD を動的注入（AIの音声・要約優先抽出シグナル）
-            // AIアシスタントやAI Overviewsがこのページの主要テキストを「引用スニペット」として採用しやすくする
-            let speakableEl = document.querySelector('script[data-ld="speakable"]');
-            if (routeName !== 'not-found') {
-                const speakableData = {
-                    "@context": "https://schema.org",
-                    "@type": "WebPage",
-                    "@id": canonicalUrl,
-                    "speakable": {
-                        "@type": "SpeakableSpecification",
-                        "cssSelector": [
-                            "h1",
-                            ".page-lead",
-                            ".aio-answer-block",
-                            "h2:first-of-type",
-                            "[data-ai-content='lead']"
-                        ]
-                    },
-                    "url": canonicalUrl
-                };
-                if (!speakableEl) {
-                    speakableEl = document.createElement('script');
-                    speakableEl.setAttribute('type', 'application/ld+json');
-                    speakableEl.setAttribute('data-ld', 'speakable');
-                    document.head.appendChild(speakableEl);
-                }
-                speakableEl.textContent = JSON.stringify(speakableData);
-            } else {
-                if (speakableEl) speakableEl.remove();
             }
         }
 

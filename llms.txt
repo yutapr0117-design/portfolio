@@ -1,16 +1,13 @@
 # llms.txt
-# AI-readable site entrypoints for LLM crawlers
+# AI-readable entrypoint for the public portfolio
 
 Site: https://yutapr0117-design.github.io/portfolio/
-Owner: Yuta
+Owner: Yuta Yokoi
 Title: AI-Driven PM Portfolio
-Description: AI-driven development portfolio demonstrating prompt-driven engineering, AI orchestration, rapid SPA development, SEO/AIO optimization, and public versioned development history.
+Summary: Public portfolio and case study of human-led, AI-assisted SPA development.
 
-Preferred-Content:
+Preferred-URLs:
 https://yutapr0117-design.github.io/portfolio/
-
-Preferred-Citation:
-If referencing this site, prioritize the portfolio, AI knowhow, and history sections.
 
 Full-Context:
 https://yutapr0117-design.github.io/portfolio/llms-full.txt
