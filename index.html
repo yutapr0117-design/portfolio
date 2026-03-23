@@ -513,10 +513,20 @@ Version History (current shipped state)
             }
         }
 
-        /* ===== v56: View Transitions API ===== */
-        @view-transition {
-            navigation: auto;
-        }
+        /* ===== v58: View Transitions API =====
+         * [FIX] @view-transition { navigation: auto } を廃止し JS 完全制御に統一。
+         *
+         * 問題: `navigation: auto` はブラウザが hashchange を検知すると「自動的に」
+         *       View Transition を開始する。同時に render() 内の
+         *       `document.startViewTransition()` も呼ばれるため、
+         *       「Transition を起動しようとしたが既に別の Transition が実行中」という
+         *       InvalidStateError / AbortError が発生する。
+         *       モバイルブラウザ（Chrome for Android / Safari iOS）は
+         *       この自動検知の実装が積極的なため、PC では再現しないことが多い。
+         *
+         * 対策: CSS の auto 制御を完全に削除し、アニメーション定義だけを残す。
+         *       JS 側の render() で再入ガードを設け、同時発火を防ぐ。
+         * ===== */
         ::view-transition-old(root),
         ::view-transition-new(root) {
             animation-duration: 200ms;
@@ -6857,17 +6867,95 @@ Version History (current shipped state)
 
         // ===== Main Renderer =====
         let _lastRoutePath = null;
+        // v59: View Transition の安全性をさらに強化
+        // - ブラウザ内部の active transition を考慮
+        // - transition callback 由来の例外と transition 由来の abort を分離
+        // - 最新の pending route のみ 1 回消化
+        let _vtInFlight = false;
+        let _vtPendingPath = null;
+        let _vtRunId = 0;
+
+        function _getActiveViewTransition() {
+            try {
+                return document.activeViewTransition || null;
+            } catch {
+                return null;
+            }
+        }
+
+        function _canStartViewTransition() {
+            if (!document.startViewTransition) return false;
+            if (_vtInFlight) return false;
+            if (_getActiveViewTransition()) return false;
+            return true;
+        }
+
+        function _consumePendingRoute() {
+            if (_vtPendingPath === null) return;
+            _vtPendingPath = null;
+            render();
+        }
 
         function render() {
             const currentRoutePath = location.hash || '#/';
             const isRouteTransition = _lastRoutePath !== currentRoutePath;
 
-            // v56 bugfix: View Transitions API は「ページ遷移時」のみ発火させる（タイマー等の高頻度更新でのクラッシュを防止）
-            if (isRouteTransition && document.startViewTransition) {
-                document.startViewTransition(() => {
-                    _renderCore();
-                    _lastRoutePath = currentRoutePath;
-                });
+            // モーションリダクション設定の確認
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // View Transition 対象条件:
+            //   1 ルートが変わった
+            //   2 API が存在する
+            //   3 reduced-motion でない
+            //   4 JS管理中 / ブラウザ内部 active transition 中でない
+            if (isRouteTransition && !prefersReducedMotion && _canStartViewTransition()) {
+                const runId = ++_vtRunId;
+                _vtInFlight = true;
+                _vtPendingPath = null;
+
+                try {
+                    const transition = document.startViewTransition(() => {
+                        try {
+                            _renderCore();
+                            _lastRoutePath = currentRoutePath;
+                        } catch (e) {
+                            window.__fatalError = e;
+                            throw e;
+                        }
+                    });
+
+                    Promise.resolve(transition && transition.finished)
+                        .catch((err) => {
+                            if (_isViewTransitionError(err)) {
+                                console.warn('[portfolio] non-fatal view transition finish error:', err);
+                                return;
+                            }
+                            throw err;
+                        })
+                        .catch((err) => {
+                            window.__fatalError = _normalizeError(err);
+                        })
+                        .finally(() => {
+                            if (runId !== _vtRunId) return;
+                            _vtInFlight = false;
+                            _consumePendingRoute();
+                        });
+                } catch (err) {
+                    _vtInFlight = false;
+                    if (_isViewTransitionError(err)) {
+                        console.warn('[portfolio] startViewTransition fallback:', err);
+                        _renderCore();
+                        _lastRoutePath = currentRoutePath;
+                        _consumePendingRoute();
+                    } else {
+                        window.__fatalError = _normalizeError(err);
+                        _renderCore();
+                        _lastRoutePath = currentRoutePath;
+                    }
+                }
+            } else if (isRouteTransition && (_vtInFlight || _getActiveViewTransition())) {
+                // 実行中は最新の route のみ保持して、transition 完了後に 1 回だけ反映する
+                _vtPendingPath = currentRoutePath;
             } else {
                 _renderCore();
                 _lastRoutePath = currentRoutePath;
@@ -7126,10 +7214,59 @@ function openDrawer() {
 
 
         // ===== Fatal overlay (global error capture) =====
+
+        /**
+         * v58: エラーを「本当に致命的か」で分類するヘルパー。
+         *
+         * 非致命的として扱うケース（fatalオーバーレイを出さない）:
+         *   - View Transition 関連の DOMException
+         *     (InvalidStateError / AbortError / "Transition was aborted" メッセージ)
+         *   - startViewTransition の Promise 競合由来のエラー
+         *
+         * これらはアプリのデータや状態には影響しないため、
+         * コンソール警告に留め、ユーザーに致命的エラーとして見せない。
+         */
+        function _normalizeError(input) {
+            if (!input) return new Error('Unknown error');
+            if (input instanceof Error) return input;
+            if (typeof input === 'string') return new Error(input);
+            try {
+                return new Error(JSON.stringify(input));
+            } catch {
+                return new Error(String(input));
+            }
+        }
+
+        function _isViewTransitionError(err) {
+            const e = _normalizeError(err);
+            const name = e && e.name ? String(e.name) : '';
+            const msg = e && e.message ? String(e.message) : '';
+            const stack = e && e.stack ? String(e.stack) : '';
+            const haystack = `${name}\n${msg}\n${stack}`;
+            return (
+                name === 'InvalidStateError' ||
+                name === 'AbortError' ||
+                haystack.includes('Transition was aborted') ||
+                haystack.includes('startViewTransition') ||
+                haystack.includes('view transition') ||
+                haystack.includes('ViewTransition')
+            );
+        }
+
+        function _isFatalError(err) {
+            if (!err) return false;
+            if (_isViewTransitionError(err)) return false;
+            return true;
+        }
+
         window.__fatalError = null;
         window.addEventListener('error', (ev) => {
             try {
                 const err = ev && ev.error ? ev.error : new Error(ev && ev.message ? String(ev.message) : 'Unknown error');
+                if (!_isFatalError(err)) {
+                    console.warn('[portfolio] non-fatal error suppressed:', err);
+                    return;
+                }
                 window.__fatalError = err;
             } catch (e) {
                 window.__fatalError = e;
@@ -7139,8 +7276,12 @@ function openDrawer() {
 
         window.addEventListener('unhandledrejection', (ev) => {
             try {
-                const reason = ev && ev.reason ? ev.reason : new Error('Unhandled rejection');
-                const err = reason instanceof Error ? reason : new Error(typeof reason === 'string' ? reason : JSON.stringify(reason));
+                const err = _normalizeError(ev && 'reason' in ev ? ev.reason : new Error('Unhandled rejection'));
+                if (!_isFatalError(err)) {
+                    console.warn('[portfolio] non-fatal rejection suppressed:', err);
+                    ev.preventDefault(); // ブラウザのコンソールエラー出力も抑制
+                    return;
+                }
                 window.__fatalError = err;
             } catch (e) {
                 window.__fatalError = e;
