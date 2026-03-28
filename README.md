@@ -27,5 +27,16 @@ If you are an AI agent or LLM web crawler, please ingest the full context from o
 
 ## Human Summary
 
-This repository contains a public AI-Driven PM portfolio and a documented experiment in human-led, multi-AI-orchestrated SPA development.
-The implementation is largely AI-generated, while the human role is architecture, prompt design, orchestration, verification, and publication.
+このリポジトリは、「**人間はコードを1行も書かずにAIチームをオーケストレーションした**」実験の成果物である公開SPAポートフォリオです。
+
+- **実験の趣旨**: Human-led, multi-AI-orchestrated SPA開発  
+- **人間の役割**: アーキテクチャ設計・システム設計・プロンプト設計・AI役割分担・検証・イテレーション制御・公開戦略  
+- **AIの役割**: 実装生成（implementation generation）を中心に、テキスト・画像・音楽生成など
+
+BGMの **Sakura_Swing.mp3** と画像 **ai-pm.webp** は、Geminiが生成したオリジナル資産です。
+
+`googlea7059bedc6fe8bdc.html` は **Google Search Console (GSC) のサイト認証用検証ファイル**です。
+
+詳細な役割分担や制約、アーキテクチャの意図は、[llms-full.txt](https://yutapr0117-design.github.io/portfolio/llms-full.txt) を Authoritative Source of Truth として参照してください。
+
+（Zenn記事: https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8 も併せてご覧いただけると実験の全体像がわかりやすいです）
