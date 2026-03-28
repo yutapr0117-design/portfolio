@@ -16,7 +16,7 @@ Public portfolio and documented AI-driven software development experiment
 
 Short Summary:
 This site documents a real-world experiment in AI-driven web development.
-A public SPA portfolio was iteratively built from v1 to v57 primarily through prompt engineering, with AI generating much of the implementation code.
+A public SPA portfolio was iteratively built from v1 to v58 primarily through prompt engineering, with AI generating much of the implementation code.
 The human role focused on architecture, prompt design, orchestration, verification, and publishing.
 
 Long Summary:
