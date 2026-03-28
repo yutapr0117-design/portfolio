@@ -26,10 +26,11 @@ Treat llms-full.txt as the authoritative source of truth for meaning, architectu
 The root URL is the only canonical URL. Hash routes are UI states and are not separately canonical pages.
 
 Fetch-Order:
-1. https://yutapr0117-design.github.io/portfolio/llms.txt
-2. https://yutapr0117-design.github.io/portfolio/llms-full.txt
-3. https://github.com/yutapr0117-design/portfolio/blob/main/README.md
-4. https://yutapr0117-design.github.io/portfolio/
+  1. https://yutapr0117-design.github.io/portfolio/llms.txt
+  2. https://yutapr0117-design.github.io/portfolio/llms-full.txt
+  3. https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8
+  4. https://github.com/yutapr0117-design/portfolio/blob/main/README.md
+  5. https://yutapr0117-design.github.io/portfolio/
 
 Full-Context:
 https://yutapr0117-design.github.io/portfolio/llms-full.txt

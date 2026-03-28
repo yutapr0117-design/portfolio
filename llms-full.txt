@@ -249,3 +249,6 @@ Index of Discovery Signals:
 - llms.txt
 - index.html <link rel="alternate" ...>
 - repository README
+
+Official Documentations & Case Studies:
+- Philosophy & Architecture (Zenn): https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8
