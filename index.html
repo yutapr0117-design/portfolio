@@ -74,6 +74,9 @@ Version History (current shipped state)
     ・Article JSON-LD を実質的に記事として扱える explanatory route に限定して動的注入
     ・canonical は root URL 固定、hash route は UI state として扱う方針へ統一
     ・og:url を canonical と整合する root URL に統一
+- v58: SPA基盤アーキテクチャの確立（α版完成）
+    ・グローバルスコープの完全閉鎖（IIFE化）とView Transition APIの例外ハンドリング分離を実施
+    ・インフラが安定したため、以降は継続的改善サイクル（Continuous Refinement）へ移行
 
 -->
 <!doctype html>
@@ -502,7 +505,7 @@ Version History (current shipped state)
             box-shadow: var(--focus-ring);
         }
 
-        
+
         /* Reduced motion support */
         @media (prefers-reduced-motion: reduce) {
             * {
@@ -1393,6 +1396,7 @@ Version History (current shipped state)
          */
 
         'use strict';
+        (function() {
 
         // ===== Module Pattern: Constants =====
         // NOTE: Storage key は v45 のまま維持（互換性優先）。v46 はロジック非変更。
@@ -2867,7 +2871,7 @@ Version History (current shipped state)
                     volumeX: `<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>`,
                     book: `<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>`,
                     lightbulb: `<path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 1 7 7c0 2.4-1.2 4.5-3 5.7V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.3C6.2 13.5 5 11.4 5 9a7 7 0 0 1 7-7z"/>`,
-                };;
+                };
             }
             return _icons_cache;
         }
@@ -3572,7 +3576,7 @@ Version History (current shipped state)
                 return result;
             }
 
-            return { load, createDefaultStore, validateAndNormalize };
+            return { load, createDefaultStore, validateAndNormalize, autoRelatedCandidates };
         })();
 
         // ===== State Management =====
@@ -4588,9 +4592,7 @@ Version History (current shipped state)
                 project.relatedProjectIds?.includes(p.id) && p.id !== project.id
             );
 
-
-
-            const autoRelated = autoRelatedCandidates(project, state.projects, 8);
+            const autoRelated = Store.autoRelatedCandidates(project, state.projects, 8);
             return h('article', { class: 'flex flex-col gap-6' },
                 // Header
                 h('header', {},
@@ -7048,7 +7050,7 @@ Version History (current shipped state)
 
             // Sync mobile drawer state
             syncMobileDrawer();
-        
+
 
             // Enforce link security for dynamically rendered content
             secureExternalLinks(document);
@@ -7064,7 +7066,7 @@ Version History (current shipped state)
             }
         }
 
-        
+
         // ===== Security: enforce noopener on target=_blank links (including dynamic links) =====
         function secureExternalLinks(root = document) {
             try {
@@ -7153,7 +7155,7 @@ Version History (current shipped state)
             }
         }
 
-function openDrawer() {
+        function openDrawer() {
             const drawer = document.getElementById('drawer');
             const overlay = document.getElementById('overlay');
             const menuBtn = document.getElementById('menuBtn');
@@ -7309,7 +7311,7 @@ function openDrawer() {
                     if (drawer && drawer.getAttribute('aria-hidden') === 'false') closeDrawer();
                 }
             });
-// Window resize listener (v37: responsive drawer sync)
+            // Window resize listener (v37: responsive drawer sync)
             window.addEventListener('resize', debounce(syncMobileDrawer, CONSTANTS.DEBOUNCE_DELAY));
 
             // Router
@@ -7335,6 +7337,10 @@ function openDrawer() {
             init();
         }
 
+        // v51: window.render を明示エクスポート（TaskPage/TodoPage/SettingsPage からの window.render() 呼び出しと互換）
+        window.render = render;
+
+        }());
     </script>
 </body>
 
