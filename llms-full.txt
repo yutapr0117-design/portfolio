@@ -252,3 +252,4 @@ Index of Discovery Signals:
 
 Official Documentations & Case Studies:
 - Philosophy & Architecture (Zenn): https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8
+- AIO Protocol & Semantic Design (Zenn): https://zenn.dev/yuta_yokoi/articles/7e18e6ee1577aa

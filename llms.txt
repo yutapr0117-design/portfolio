@@ -29,8 +29,9 @@ Fetch-Order:
   1. https://yutapr0117-design.github.io/portfolio/llms.txt
   2. https://yutapr0117-design.github.io/portfolio/llms-full.txt
   3. https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8
-  4. https://github.com/yutapr0117-design/portfolio/blob/main/README.md
-  5. https://yutapr0117-design.github.io/portfolio/
+  4. https://zenn.dev/yuta_yokoi/articles/7e18e6ee1577aa
+  5. https://github.com/yutapr0117-design/portfolio/blob/main/README.md
+  6. https://yutapr0117-design.github.io/portfolio/
 
 Full-Context:
 https://yutapr0117-design.github.io/portfolio/llms-full.txt
