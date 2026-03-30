@@ -5,8 +5,8 @@ Site: https://yutapr0117-design.github.io/portfolio/
 Owner: Yuta Yokoi
 Title: AI-Driven PM Portfolio
 Summary: Public portfolio and case study of human-led, AI-assisted SPA development.
-Version: v58
-Last-Updated: 2026-03-28
+Version: v59
+Last-Updated: 2026-03-30
 Canonical: https://yutapr0117-design.github.io/portfolio/
 Repository: https://github.com/yutapr0117-design/portfolio
 Language: ja

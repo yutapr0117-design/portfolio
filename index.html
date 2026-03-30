@@ -77,6 +77,11 @@ Version History (current shipped state)
 - v58: SPA基盤アーキテクチャの確立（α版完成）
     ・グローバルスコープの完全閉鎖（IIFE化）とView Transition APIの例外ハンドリング分離を実施
     ・インフラが安定したため、以降は継続的改善サイクル（Continuous Refinement）へ移行
+- v59: Human vs AI 分担表ページ追加
+    ・左メニュー「ノウハウ」セクションに「Human vs AI 分担表」を新設（route: role-split）
+    ・設計・プロンプト設計・実装・検証・コンテンツ生成・SEO/AIO・バージョン管理・AIチーム編成の8カテゴリで分担を明示
+    ・設計原則6項目・核心テーゼ・CTAを掲載
+    ・PAGE_METAにrole-splitエントリを追加
 
 -->
 <!doctype html>
@@ -2965,6 +2970,12 @@ Version History (current shipped state)
                     volumeX: `<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>`,
                     book: `<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>`,
                     lightbulb: `<path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 1 7 7c0 2.4-1.2 4.5-3 5.7V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.3C6.2 13.5 5 11.4 5 9a7 7 0 0 1 7-7z"/>`,
+                    users: `<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>`,
+                    externalLink: `<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>`,
+                    messageCircle: `<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>`,
+                    send: `<line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>`,
+                    music: `<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>`,
+                    palette: `<circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>`,
                 };
             }
             return _icons_cache;
@@ -4086,6 +4097,9 @@ Version History (current shipped state)
                     case 'ai-knowhow':
                         route.name = 'ai-knowhow';
                         break;
+                    case 'role-split':
+                        route.name = 'role-split';
+                        break;
                     default:
                         route.name = 'not-found';
                 }
@@ -4182,7 +4196,8 @@ Version History (current shipped state)
                 desc: '採用側リスク低減構造・経営インパクト・KPI・意思決定アルゴリズムを明示。経営層・PM・エンジニア全層対応。'
             },
             'not-found': { title: 'Not Found', desc: 'ページが見つかりません。' },
-            'ai-knowhow': { title: 'AI開発ノウハウ', desc: 'KERNELフレームワーク・6エージェント役割・LLMコスト管理など、AI-Driven PMのリアルな開発ノウハウを公開。' }
+            'ai-knowhow': { title: 'AI開発ノウハウ', desc: 'KERNELフレームワーク・6エージェント役割・LLMコスト管理など、AI-Driven PMのリアルな開発ノウハウを公開。' },
+            'role-split': { title: 'Human vs AI 分担表', desc: '人間とAIの役割分担を明示。アーキテクチャ・判断・検証を担う人間と、実装・生成・補助を担うAIの具体的な責任範囲を整理。' }
         };
 
         /**
@@ -4320,6 +4335,7 @@ Version History (current shipped state)
 
             const knowhowItems = [
                 { icon: 'lightbulb', label: 'AI開発ノウハウ', path: 'ai-knowhow', active: route.name === 'ai-knowhow' },
+                { icon: 'users', label: 'Human vs AI 分担表', path: 'role-split', active: route.name === 'role-split' },
             ];
 
             function navLink(item) {
@@ -4368,9 +4384,12 @@ Version History (current shipped state)
                 ...knowhowItems.map(navLink),
                 h('div', { class: 'divider' }),
                 h('div', { class: 'flex items-center justify-between p-3 rounded-lg' },
-                    h('div', { class: 'flex flex-col' },
-                        h('div', { class: 'text-xs text-muted' }, 'BGM'),
-                        h('div', { class: 'text-small font-semibold' }, BGM.isOn() ? '再生中' : 'オフ')
+                    h('div', { class: 'flex items-center gap-2' },
+                        createIcon('music', 18),
+                        h('div', { class: 'flex flex-col' },
+                            h('div', { class: 'text-xs text-muted' }, 'BGM'),
+                            h('div', { class: 'text-small font-semibold' }, BGM.isOn() ? '再生中' : 'オフ')
+                        )
                     ),
                     h('button', {
                         class: 'icon-btn',
@@ -4381,10 +4400,13 @@ Version History (current shipped state)
                     }, createIcon(BGM.isOn() ? 'volume2' : 'volumeX'))
                 ),
                 h('div', { class: 'flex items-center justify-between p-3 rounded-lg' },
-                    h('div', { class: 'flex flex-col' },
-                        h('div', { class: 'text-xs text-muted' }, 'テーマ'),
-                        h('div', { class: 'text-small font-semibold' },
-                            state.theme === 'system' ? 'システム' : state.theme === 'dark' ? 'ダーク' : 'ライト'
+                    h('div', { class: 'flex items-center gap-2' },
+                        createIcon('palette', 18),
+                        h('div', { class: 'flex flex-col' },
+                            h('div', { class: 'text-xs text-muted' }, 'テーマ'),
+                            h('div', { class: 'text-small font-semibold' },
+                                state.theme === 'system' ? 'システム' : state.theme === 'dark' ? 'ダーク' : 'ライト'
+                            )
                         )
                     ),
                     h('button', {
@@ -4405,10 +4427,25 @@ Version History (current shipped state)
 
             return h('div', { class: 'flex flex-col gap-6' },
                 // Hero Section
-                h('article', { class: 'card' },
+                h('article', { class: 'card', style: { borderTop: '3px solid var(--color-primary)' } },
                     h('div', { class: 'card-body' },
                         h('header', {},
-                            h('h1', { class: 'h1 mb-4', 'data-ai-content': 'lead' }, `${state.profile.title} のポートフォリオ`)
+                            h('h1', { class: 'h1 mb-3', 'data-ai-content': 'lead' }, `${state.profile.title} のポートフォリオ`),
+                            h('p', {
+                                'data-ai-content': 'tagline',
+                                style: {
+                                    fontSize: '1.125rem',
+                                    fontWeight: '600',
+                                    lineHeight: '1.75',
+                                    marginBottom: '1.25rem',
+                                    color: 'var(--text-primary)',
+                                    borderLeft: '3px solid var(--color-primary)',
+                                    paddingLeft: '0.875rem'
+                                }
+                            },
+                                '設計と判断は人間が握る。実装と生成は、',
+                                h('span', { style: { color: 'var(--color-primary)', fontWeight: '700' } }, 'AIに委ねる。')
+                            )
                         ),
                         h('p', { class: 'text-muted', style: { whiteSpace: 'pre-wrap', lineHeight: '1.8' }, 'data-ai-content': 'lead' }, state.profile.bio),
                         h('div', { class: 'flex flex-wrap gap-3 mt-6' },
@@ -4422,8 +4459,16 @@ Version History (current shipped state)
                             }, 'アプリを見る'),
                             h('button', {
                                 class: 'btn btn-ghost',
-                                onclick: () => Router.navigate('settings')
-                            }, '設定・データ')
+                                style: {
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    gap: '6px',
+                                    border: '1.5px solid var(--color-primary)',
+                                    color: 'var(--color-primary)',
+                                    fontWeight: '700'
+                                },
+                                onclick: () => Router.navigate('role-split')
+                            }, createIcon('users', 16), '設計はヒト、実装はAI — 分担表へ →')
                         )
                     )
                 ),
@@ -4489,7 +4534,10 @@ Version History (current shipped state)
                             h('div', { class: 'text-small text-muted' }, 'TODO')
                         )
                     )
-                )
+                ),
+
+                // Contact CTA
+                ContactCTA('PM設計・AI開発・アーキテクチャ設計のご相談を受け付けています。このSPAを見て「こういうものを作りたい」「AI導入を相談したい」「設計を一緒に考えたい」と感じた方は、お気軽にどうぞ。')
             );
         }
 
@@ -5858,7 +5906,8 @@ Version History (current shipped state)
                         h('p', { class: 'text-muted mb-4', 'data-ai-content': 'lead' }, profile.title),
                         h('p', { class: 'text-muted', style: { whiteSpace: 'pre-wrap', lineHeight: '1.8' }, 'data-ai-content': 'body' }, profile.bio)
                     )
-                )
+                ),
+                ContactCTA('自己紹介を読んで、一緒に働くイメージが湧いた方へ。PM・アーキテクチャ設計・AI導入推進のご相談・採用のご連絡はこちらから。')
             );
         }
 
@@ -5876,7 +5925,8 @@ Version History (current shipped state)
                             h('li', {}, '単一HTMLで完結（依存性最小化）')
                         )
                     )
-                )
+                ),
+                ContactCTA('スキルセット・開発スタイルを確認いただいた方へ。AI駆動開発・PM設計・システムアーキテクチャ設計の相談、採用のご連絡はこちらから。')
             );
         }
 
@@ -6613,11 +6663,12 @@ Version History (current shipped state)
                             h('button', { class: 'btn btn-primary', onclick: () => Router.navigate('projects') }, createIcon('briefcase', 16), ' プロジェクト詳細'),
                             h('button', { class: 'btn btn-secondary', onclick: () => Router.navigate('quiz?type=pm') }, createIcon('brain', 16), ' PM問題集'),
                             h('button', { class: 'btn btn-secondary', onclick: () => Router.navigate('quiz?type=quality') }, createIcon('check', 16), ' 品質問題集'),
-                            h('button', { class: 'btn btn-ghost', onclick: () => Router.navigate('about') }, createIcon('user', 16), ' About'),
-                            h('button', { class: 'btn btn-ghost', onclick: () => Router.navigate('contact') }, createIcon('mail', 16), ' 連絡する')
+                            h('button', { class: 'btn btn-ghost', onclick: () => Router.navigate('about') }, createIcon('user', 16), ' About')
                         )
                     )
-                )
+                ),
+
+                ContactCTA('採用リスクの低減構造・KPI・意思決定モデルを確認いただいた方へ。チーム合流・PM採用・アーキテクト採用のご相談はこちらから。')
             );
         }
 
@@ -6946,11 +6997,122 @@ Version History (current shipped state)
                             )
                         )
                     )
+                ),
+
+                ContactCTA('AI開発ワークフローを読んで、自社への導入や共同プロジェクトに興味を持った方へ。プロンプト設計・マルチエージェント構成・AI開発プロセス設計のご相談を受け付けています。')
+            );
+        }
+
+        // ===== Shared Component: ContactCTA =====
+        // desc: ページ文脈に合わせた一言（何を頼めるか）
+        function ContactCTA(desc) {
+            const profile = State.get().profile;
+            const ZENN_ARTICLE  = 'https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8';
+            const ZENN_AIO      = 'https://zenn.dev/yuta_yokoi/articles/7e18e6ee1577aa';
+            const X_URL         = 'https://x.com/yuta_mezasi';
+
+            function outLink(url, icon, label, colorVar) {
+                return h('a', {
+                    href: url,
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                    style: {
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        padding: '10px 18px',
+                        borderRadius: 'var(--radius-full)',
+                        fontWeight: '700',
+                        fontSize: '0.875rem',
+                        textDecoration: 'none',
+                        border: '1.5px solid ' + colorVar,
+                        color: colorVar,
+                        background: 'transparent',
+                        transition: 'var(--transition)',
+                        whiteSpace: 'nowrap'
+                    }
+                }, createIcon(icon, 16), label);
+            }
+
+            function mailBtn() {
+                return h('button', {
+                    style: {
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        padding: '10px 18px',
+                        borderRadius: 'var(--radius-full)',
+                        fontWeight: '700',
+                        fontSize: '0.875rem',
+                        border: '1.5px solid var(--color-primary)',
+                        color: 'var(--color-primary)',
+                        background: 'transparent',
+                        cursor: 'pointer',
+                        whiteSpace: 'nowrap'
+                    },
+                    onclick: () => {
+                        const subject = encodeURIComponent('ポートフォリオを見てご連絡しました');
+                        const body = encodeURIComponent('はじめまして。\nポートフォリオを拝見し、ご相談があってご連絡しました。\n\n【ご相談内容】\n');
+                        location.href = 'mailto:' + profile.email + '?subject=' + subject + '&body=' + body;
+                    }
+                }, createIcon('mail', 16), 'メールで相談する');
+            }
+
+            return h('section', {
+                class: 'card',
+                style: {
+                    background: 'linear-gradient(135deg, rgba(var(--color-primary-rgb),0.06) 0%, rgba(var(--color-primary-rgb),0.02) 100%)',
+                    borderTop: '3px solid var(--color-primary)',
+                    borderRadius: 'var(--radius-md)'
+                }
+            },
+                h('div', { class: 'card-body flex flex-col gap-4' },
+                    // Header
+                    h('div', { style: { display: 'flex', alignItems: 'center', gap: '10px' } },
+                        h('div', {
+                            style: {
+                                background: 'var(--color-primary)', color: '#fff',
+                                borderRadius: 'var(--radius-full)',
+                                padding: '2px 14px', fontSize: '0.72rem',
+                                fontWeight: '800', letterSpacing: '0.06em'
+                            }
+                        }, 'CONTACT'),
+                        h('span', { style: { fontWeight: '700', fontSize: '1rem' } }, '気になった方へ')
+                    ),
+
+                    // What can be asked
+                    h('p', { style: { fontSize: '0.9375rem', lineHeight: '1.75', color: 'var(--text-secondary)' } }, desc),
+
+                    // Divider label row
+                    h('div', { style: { display: 'flex', flexDirection: 'column', gap: '14px' } },
+                        // Row 1: 技術記事
+                        h('div', { style: { display: 'flex', flexDirection: 'column', gap: '6px' } },
+                            h('div', { style: {
+                                fontSize: '0.72rem', fontWeight: '800', letterSpacing: '0.08em',
+                                textTransform: 'uppercase', color: 'var(--text-muted)'
+                            } }, '📖  技術記事を読む'),
+                            h('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '8px' } },
+                                outLink(ZENN_ARTICLE, 'externalLink', 'AI開発ワークフロー全解説 → Zenn', 'var(--color-info)'),
+                                outLink(ZENN_AIO, 'externalLink', 'LLMクローラー制御 (AIO) → Zenn', 'var(--color-info)')
+                            )
+                        ),
+                        // Row 2: 相談・依頼
+                        h('div', { style: { display: 'flex', flexDirection: 'column', gap: '6px' } },
+                            h('div', { style: {
+                                fontSize: '0.72rem', fontWeight: '800', letterSpacing: '0.08em',
+                                textTransform: 'uppercase', color: 'var(--text-muted)'
+                            } }, '✉  PM・アーキテクチャ設計の相談・依頼'),
+                            h('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '8px' } },
+                                outLink(X_URL, 'messageCircle', 'X (Twitter) でDMを送る', 'var(--color-primary)'),
+                                mailBtn()
+                            )
+                        )
+                    )
                 )
             );
         }
 
-        function NotFoundPage() {
+                function NotFoundPage() {
             return h('article', { class: 'flex flex-col gap-6 max-w-2xl' },
                 h('header', {}, h('h1', { class: 'h1' }, 'Not Found')),
                 h('p', { class: 'text-muted' }, '指定されたページは見つかりません。'),
@@ -6958,6 +7120,273 @@ Version History (current shipped state)
                     h('button', { class: 'btn btn-secondary', onclick: () => Router.navigate('') }, 'ホームへ'),
                     h('button', { class: 'btn btn-ghost', onclick: () => Router.navigate('projects') }, 'プロジェクト一覧へ')
                 )
+            );
+        }
+
+        // ===== Page: RoleSplitPage — Human vs AI 分担表 =====
+        function RoleSplitPage() {
+            const C = {
+                primary: 'var(--color-primary)',
+                success: 'var(--color-success)',
+                warning: 'var(--color-warning)',
+                info: 'var(--color-info)',
+                purple: '#7c3aed',
+                human: '#2563eb',
+                ai: '#7c3aed'
+            };
+
+            // ヘッダーバッジ
+            function badge(label, color) {
+                return h('span', {
+                    style: {
+                        display: 'inline-block',
+                        padding: '2px 14px',
+                        borderRadius: 'var(--radius-full)',
+                        fontSize: '0.72rem',
+                        fontWeight: '800',
+                        letterSpacing: '0.06em',
+                        background: color,
+                        color: '#fff',
+                        textTransform: 'uppercase'
+                    }
+                }, label);
+            }
+
+            // 分担行 (Human列 / AI列)
+            function splitRow(category, humanItems, aiItems) {
+                return h('div', {
+                    style: {
+                        display: 'grid',
+                        gridTemplateColumns: '7rem 1fr 1fr',
+                        gap: '0',
+                        borderBottom: '1px solid var(--border-color)'
+                    }
+                },
+                    // カテゴリラベル
+                    h('div', {
+                        style: {
+                            padding: '12px 10px',
+                            fontWeight: '700',
+                            fontSize: '0.8125rem',
+                            color: 'var(--text-secondary)',
+                            borderRight: '1px solid var(--border-color)',
+                            display: 'flex',
+                            alignItems: 'center'
+                        }
+                    }, category),
+                    // Human列
+                    h('div', {
+                        style: {
+                            padding: '10px 14px',
+                            borderRight: '1px solid var(--border-color)',
+                            background: 'rgba(37,99,235,0.04)'
+                        }
+                    },
+                        ...humanItems.map(item =>
+                            h('div', {
+                                style: {
+                                    display: 'flex', alignItems: 'flex-start', gap: '6px',
+                                    marginBottom: '5px', fontSize: '0.8125rem', lineHeight: '1.6'
+                                }
+                            },
+                                h('span', { style: { color: C.human, fontWeight: '700', flexShrink: '0' } }, '✦'),
+                                h('span', {}, item)
+                            )
+                        )
+                    ),
+                    // AI列
+                    h('div', {
+                        style: {
+                            padding: '10px 14px',
+                            background: 'rgba(124,58,237,0.04)'
+                        }
+                    },
+                        ...aiItems.map(item =>
+                            h('div', {
+                                style: {
+                                    display: 'flex', alignItems: 'flex-start', gap: '6px',
+                                    marginBottom: '5px', fontSize: '0.8125rem', lineHeight: '1.6'
+                                }
+                            },
+                                h('span', { style: { color: C.ai, fontWeight: '700', flexShrink: '0' } }, '✦'),
+                                h('span', {}, item)
+                            )
+                        )
+                    )
+                );
+            }
+
+            // テーブルヘッダー行
+            function tableHeader() {
+                return h('div', {
+                    style: {
+                        display: 'grid',
+                        gridTemplateColumns: '7rem 1fr 1fr',
+                        gap: '0',
+                        borderBottom: '2px solid var(--border-color)',
+                        background: 'var(--bg-tertiary)',
+                        borderRadius: 'var(--radius) var(--radius) 0 0'
+                    }
+                },
+                    h('div', {
+                        style: {
+                            padding: '10px 10px',
+                            fontSize: '0.72rem', fontWeight: '800',
+                            color: 'var(--text-muted)',
+                            letterSpacing: '0.08em', textTransform: 'uppercase',
+                            borderRight: '1px solid var(--border-color)'
+                        }
+                    }, 'カテゴリ'),
+                    h('div', {
+                        style: {
+                            padding: '10px 14px',
+                            display: 'flex', alignItems: 'center', gap: '8px',
+                            borderRight: '1px solid var(--border-color)'
+                        }
+                    },
+                        h('div', {
+                            style: {
+                                width: '10px', height: '10px', borderRadius: '50%',
+                                background: C.human, flexShrink: '0'
+                            }
+                        }),
+                        h('span', { style: { fontWeight: '800', fontSize: '0.8125rem' } }, '人間（Human）の役割')
+                    ),
+                    h('div', {
+                        style: {
+                            padding: '10px 14px',
+                            display: 'flex', alignItems: 'center', gap: '8px'
+                        }
+                    },
+                        h('div', {
+                            style: {
+                                width: '10px', height: '10px', borderRadius: '50%',
+                                background: C.ai, flexShrink: '0'
+                            }
+                        }),
+                        h('span', { style: { fontWeight: '800', fontSize: '0.8125rem' } }, 'AI の役割')
+                    )
+                );
+            }
+
+            // 原則カード
+            function principleCard(icon, title, desc, color) {
+                return h('div', {
+                    style: {
+                        padding: '14px 16px',
+                        background: 'var(--bg-tertiary)',
+                        borderRadius: 'var(--radius)',
+                        borderLeft: '3px solid ' + color,
+                        display: 'flex', flexDirection: 'column', gap: '4px'
+                    }
+                },
+                    h('div', { style: { fontWeight: '700', fontSize: '0.9rem' } }, icon + ' ' + title),
+                    h('div', { class: 'text-muted', style: { fontSize: '0.8125rem', lineHeight: '1.65' } }, desc)
+                );
+            }
+
+            return h('div', { class: 'flex flex-col gap-6' },
+
+                // ── Hero ──
+                h('section', { class: 'card', style: { borderTop: '3px solid ' + C.primary } },
+                    h('div', { class: 'card-body' },
+                        h('div', { style: { display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' } },
+                            badge('Human', C.human),
+                            h('span', { style: { fontWeight: '300', color: 'var(--text-muted)' } }, 'vs'),
+                            badge('AI', C.ai)
+                        ),
+                        h('h1', { class: 'h2', style: { marginBottom: '10px' } }, '役割分担表'),
+                        h('p', { class: 'text-muted', style: { lineHeight: '1.8', maxWidth: '700px' } },
+                            'このサイトは「人間がコードを書かない」AI駆動開発の実験です。人間の貢献は設計・判断・オーケストレーションであり、AIは実装・生成・補助を担います。' +
+                            '以下の表で、各工程における責任の所在を明示します。'
+                        )
+                    )
+                ),
+
+                // ── 分担表 ──
+                h('section', { class: 'card', style: { overflow: 'hidden' } },
+                    h('div', { class: 'card-body', style: { padding: '0' } },
+                        tableHeader(),
+                        splitRow('設計',
+                            ['システムアーキテクチャの決定', 'SPA構成・ルーティング設計', 'コンポーネント責務の定義', '設計上のトレードオフ判断'],
+                            ['構造の提案・代替案の列挙', 'コード骨格の自動生成', '既存パターンの適用提案']
+                        ),
+                        splitRow('プロンプト設計',
+                            ['意図・制約・ゴールの言語化', 'AIへの役割割当と指示', 'コンテキスト注入設計', 'Few-shot例の設計'],
+                            ['プロンプトへの応答生成', '要求を解釈し実装に変換', '不足情報の補完・推定']
+                        ),
+                        splitRow('実装',
+                            ['実装方針・境界条件の指示', '生成コードの受け入れ判断', 'リファクタリング方向の決定'],
+                            ['HTML / CSS / JS のコード生成', 'スタイル・ロジックの実装', '関数・コンポーネントの具体化']
+                        ),
+                        splitRow('検証・QA',
+                            ['動作確認・意図との整合チェック', 'バグの本質原因の特定', '修正方針の最終判断'],
+                            ['補助的なレビュー・問題指摘', 'テストケース案の生成', 'エラーメッセージの解説']
+                        ),
+                        splitRow('コンテンツ生成',
+                            ['掲載方針・文体・トーンの決定', '生成物の選択・編集・採否判断'],
+                            ['テキスト原稿のドラフト生成', '画像・BGMなどのクリエイティブ生成', '多案の同時生成による選択肢提供']
+                        ),
+                        splitRow('SEO / AIO',
+                            ['メタ設計方針・構造化データ戦略', 'llms.txt・llms-full.txt の設計方針', 'canonical・og 整合の最終確認'],
+                            ['JSON-LD・OGタグのコード生成', 'キーワード案・description草案', 'AI-readable コンテキスト文書の草案']
+                        ),
+                        splitRow('バージョン管理',
+                            ['リリース判断・バージョン番号付与', '変更内容の記録・公開可否判断', 'ブレイキングチェンジの意思決定'],
+                            ['変更差分の説明補助', '変更点サマリの草案生成']
+                        ),
+                        splitRow('AIチーム編成',
+                            ['目的に応じたAIツール選定', 'モデル・ツールの切り替え判断', '各AIへの役割割当と統制'],
+                            ['割り当てられた役割での実行', '他AIとの差別化の自己開示']
+                        )
+                    )
+                ),
+
+                // ── 設計原則 ──
+                h('section', { class: 'card' },
+                    h('div', { class: 'card-body flex flex-col gap-4' },
+                        h('h2', { class: 'h3' }, '設計原則 — この分担が機能する理由'),
+                        h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-3' },
+                            principleCard('🧭', '設計は人間が保持する', 'AIは設計を実行できるが、設計を「所有」することはできない。意図・制約・ゴールの定義は常に人間の責任領域。', C.human),
+                            principleCard('⚡', 'AIは実装エンジンとして扱う', '単一モデルへの依存ではなく、用途・精度・コストに応じてAIを動的に選択・交代させる。AIは固定のパートナーではなく流動的なチーム。', C.ai),
+                            principleCard('🔍', '人間が最終検証者である', 'AIの出力は「ドラフト」として扱う。最終的な受け入れ判断・修正指示・公開判断はすべて人間が行う。', C.human),
+                            principleCard('📜', '制約はAIへの設計入力とする', 'AIの能力限界・ツール制約は「バグ」ではなく設計条件。制約を吸収し、その中で最適なアウトプットを得る設計がAI-PM本来の仕事。', C.primary),
+                            principleCard('🔄', '反復で品質を高める', '1回の完璧な生成より、多数の反復サイクルが品質に寄与する。各サイクルで人間が方向を修正し、AIが実装を更新する。', C.primary),
+                            principleCard('🌐', '方法論も成果物として公開する', '出力物（SPA）だけでなく開発プロセスを公開することで、再現可能なAI-PM能力の証拠とする。', C.info)
+                        )
+                    )
+                ),
+
+                // ── 核心テーゼ ──
+                h('section', { class: 'card', style: { borderLeft: '4px solid ' + C.primary } },
+                    h('div', { class: 'card-body' },
+                        h('h2', { class: 'h3', style: { marginBottom: '10px' } }, '核心テーゼ'),
+                        h('p', { class: 'text-muted', style: { lineHeight: '1.9', fontSize: '0.9375rem' } },
+                            '「コードを書く力」はもはや唯一のエンジニアリング価値ではない。' +
+                            'AIに設計を任せず・AIを信頼しすぎず・AIを有効活用するために必要なのは、' +
+                            '設計を言語化する能力・プロンプトで意図を転写する能力・' +
+                            '複数AIをオーケストレーションする能力・出力を判断し改善する能力——の4つである。'
+                        ),
+                        h('p', { class: 'text-muted', style: { lineHeight: '1.9', fontSize: '0.9375rem', marginTop: '10px' } },
+                            '本サイト（v1→v' + '58）はその実証実験の公開記録であり、' +
+                            'Human vs AI の分担を守り続けることが、再現性ある AI-Driven PM の証明になる。'
+                        )
+                    )
+                ),
+
+                // ── 関連ページ ──
+                h('section', { class: 'card' },
+                    h('div', { class: 'card-body flex flex-col gap-3' },
+                        h('h2', { class: 'h3' }, '関連ページ'),
+                        h('div', { class: 'flex flex-wrap gap-3' },
+                            h('button', { class: 'btn btn-primary', onclick: () => Router.navigate('ai-knowhow') }, createIcon('lightbulb', 16), ' AI開発ノウハウ'),
+                            h('button', { class: 'btn btn-secondary', onclick: () => Router.navigate('projects') }, createIcon('briefcase', 16), ' プロジェクト'),
+                            h('button', { class: 'btn btn-ghost', onclick: () => Router.navigate('about') }, createIcon('user', 16), ' About')
+                        )
+                    )
+                ),
+
+                ContactCTA('分担表を読んで「こういう進め方を自社でも取り入れたい」「一緒にプロジェクトを進めたい」と感じた方へ。AI設計・PMOコンサルティングのご相談はこちらから。')
             );
         }
 
@@ -7123,6 +7552,9 @@ Version History (current shipped state)
                             break;
                         case 'ai-knowhow':
                             page = AIKnowhowPage();
+                            break;
+                        case 'role-split':
+                            page = RoleSplitPage();
                             break;
                         case 'not-found':
                         default:

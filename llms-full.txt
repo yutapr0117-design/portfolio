@@ -15,10 +15,10 @@ Repository:
 https://github.com/yutapr0117-design/portfolio
 
 Version:
-v58
+v59
 
 Last-Updated:
-2026-03-28
+2026-03-30
 
 Site:
 https://yutapr0117-design.github.io/portfolio/
@@ -34,7 +34,7 @@ Public portfolio and documented AI-driven software development experiment
 
 Short Summary:
 This site documents a real-world experiment in AI-driven web development.
-A public SPA portfolio was iteratively built from v1 to v58 primarily through prompt engineering, with AI generating much of the implementation code.
+A public SPA portfolio was iteratively built from v1 to v59 primarily through prompt engineering, with AI generating much of the implementation code.
 The human role focused on architecture, prompt design, orchestration, verification, and publishing.
 
 Long Summary:
@@ -210,6 +210,9 @@ v58:
 Established the Alpha architecture for the core SPA foundation.
 Completely isolated the main logic within an IIFE to prevent global scope pollution, ensuring security and execution predictability. Implemented explicit error boundaries for the View Transition API to gracefully handle UI interrupt exceptions.
 This release solidifies the "Boring Technology" infrastructure. The project now transitions into a continuous refinement cycle, aggressively targeting external AI-agent marketing while maintaining ongoing architectural iteration.
+
+v59: 
+Transitioned to the marketing and business conversion phase. Explicitly exposed the "Human vs AI" role boundaries on the UI to prove PM orchestration capabilities. Implemented clear L7 routing (CTAs) for business inquiries and technical deep-dives without degrading SPA performance.
 
 Key Result:
 A public SPA portfolio, including code, image, music, metadata design, and AI-readable context files, was built through prompt-driven AI orchestration, with the human contributing prompts, design intent, review, and orchestration rather than manually writing most of the implementation code.
