@@ -90,10 +90,18 @@ Version History (current shipped state)
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Content Security Policy (minimum) -->
+    <!-- Content Security Policy (minimum) -->    
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self';" />
-    <!-- TODO: 単一HTML構成のため CSP は暫定。将来的に CSS/JS 分離 + nonce/hash ベースへ移行する。 -->
+    content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://cdn-edge.karte.io https://static.karte.io;
+        connect-src 'self' https://edge-api.karte.io https://b.karte.io;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        img-src 'self' data:;
+        media-src 'self';
+    " />
+        <!-- TODO: 単一HTML構成のため CSP は暫定。将来的に CSS/JS 分離 + nonce/hash ベースへ移行する。 -->
     <title>ユウタ (Yuta) - AI-Driven PM | ポートフォリオ</title>
     <meta name="description" content="設計判断を重視するITエンジニアの実験的SPAポートフォリオ。内蔵アプリ、データ整合性チェック、セマンティックHTML5対応。" />
 
