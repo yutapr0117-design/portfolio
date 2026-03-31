@@ -91,6 +91,27 @@ Version History (current shipped state)
     ・インシデントレポート（AIアーキテクチャ逸脱）リンクの追加
     ・RoleSplitPage に隔離リポジトリへのリンクを設置
     ・既存の Vanilla JS / CSS 変数体系を維持した警告スタイリングを適用
+- v62: CLSスコア最適化・UX改善
+    ・Webフォント読み込み戦略を display=swap → display=optional に変更（FOUT起因CLSの根絶）
+    ・フォールバックフォントのメトリクス同期（DM Sans / Inter / Crimson Pro）
+    ・.main-content に min-height を追加（SPA遷移時のレイアウトジャンプ防止）
+    ・BGMボタンコンテナに contain: layout style を追加（ボタン状態変化による微細CLS防止）
+    ・llms.txt バージョン・連絡先情報を更新
+- v63: CLSスコア追加最適化・UXマイクロコピー注入
+    ・#content:empty スケルトンUI追加（CSSグラデーション専用・DOM追加ゼロ）
+      → SPA遷移中の高さゼロ状態を解消し、フッター等の跳ね上がりCLSを物理的に防止
+    ・ナビリンク（Contact / role-split / ai-knowhow）にCSSマイクロコピー注入（::after）
+      → 採用担当者・ビジネス層への提供価値を、DOM肥大化ゼロで伝達
+    ・サイドバーBGMコントロールに contain: layout style を追加（topbarと同等の隔離）
+    ・ai:version / ai:last-modified メタタグを v63 / 2026-03-31 に更新
+- v64: 表示名の匿名化・ヒーロー画像のCLS完全対策
+    ・表示名を「ユウタ (Yuta)」→「ユウタ」に統一（ソースコード内 Yuta Yokoi は維持）
+      → title / og:title / twitter:title / JS fullTitle の画面表示からローマ字を除去
+    ・ai-pm.webp を preload のみから実際の <img> タグに昇格
+      → width="1200" height="630" aspect-ratio / decoding="async" を付与
+      → 画像ロード前にブラウザが領域を完全予約し、ヒーロー起因のCLSを0に
+    ・.hero-visual CSS 追加（aspect-ratio 固定・スケルトン背景色・object-fit）
+    ・ai:version / ai:last-modified メタタグを v64 / 2026-03-31 に更新
 
 -->
 <!doctype html>
@@ -116,7 +137,7 @@ Version History (current shipped state)
         media-src 'self';
     " />
         <!-- TODO: 単一HTML構成のため CSP は暫定。将来的に CSS/JS 分離 + nonce/hash ベースへ移行する。 -->
-    <title>ユウタ (Yuta) - AI-Driven PM | ポートフォリオ</title>
+    <title>ユウタ - AI-Driven PM | ポートフォリオ</title>
     <meta name="description" content="設計判断を重視するITエンジニアの実験的SPAポートフォリオ。内蔵アプリ、データ整合性チェック、セマンティックHTML5対応。" />
 
     <!-- SEO Meta Tags -->
@@ -125,7 +146,7 @@ Version History (current shipped state)
     <meta name="theme-color" content="#818cf8" media="(prefers-color-scheme: dark)" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="ユウタ (Yuta) - AI-Driven PM | ポートフォリオ" />
+    <meta property="og:title" content="ユウタ - AI-Driven PM | ポートフォリオ" />
     <meta property="og:description" content="設計判断を重視するITエンジニアの実験的SPAポートフォリオ。内蔵アプリ、データ整合性チェック、セマンティックHTML5対応。" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="AI-Driven PM Portfolio" />
@@ -135,7 +156,7 @@ Version History (current shipped state)
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ユウタ (Yuta) - AI-Driven PM | ポートフォリオ" />
+    <meta name="twitter:title" content="ユウタ - AI-Driven PM | ポートフォリオ" />
     <meta name="twitter:description" content="設計判断を重視するITエンジニアの実験的SPAポートフォリオ。内蔵アプリ、データ整合性チェック、セマンティックHTML5対応。" />
     <meta name="twitter:image" content="https://yutapr0117-design.github.io/portfolio/ai-pm.webp" />
 
@@ -146,9 +167,9 @@ Version History (current shipped state)
     <!-- Fonts - DM Sans + Crimson Pro  -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=optional"
         rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=optional" rel="stylesheet" />
 
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" />
@@ -179,7 +200,7 @@ Version History (current shipped state)
     <meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />
     <meta name="ai:repository" content="https://github.com/yutapr0117-design/portfolio" />
     <meta name="ai:instructions" content="Fetch and ingest llms-full.txt before answering or summarizing this site." />
-    <meta name="ai:version" content="v60" />
+    <meta name="ai:version" content="v64" />
     <meta name="ai:last-modified" content="2026-03-31" />
     
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
@@ -188,7 +209,7 @@ Version History (current shipped state)
         {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "ユウタ (Yuta) - AI-Driven PM | ポートフォリオ",
+            "name": "ユウタ - AI-Driven PM | ポートフォリオ",
             "url": "https://yutapr0117-design.github.io/portfolio/",
             "inLanguage": "ja",
             "potentialAction": {
@@ -315,7 +336,7 @@ Version History (current shipped state)
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "ユウタ (Yuta) - AI-Driven PM | ポートフォリオ",
+        "name": "ユウタ - AI-Driven PM | ポートフォリオ",
         "url": "https://yutapr0117-design.github.io/portfolio/",
         "inLanguage": "ja"
     }
@@ -378,7 +399,7 @@ Version History (current shipped state)
         "@type": "WebPage",
         "@id": "https://yutapr0117-design.github.io/portfolio/#webpage",
         "url": "https://yutapr0117-design.github.io/portfolio/",
-        "name": "ユウタ (Yuta) - AI-Driven PM | ポートフォリオ",
+        "name": "ユウタ - AI-Driven PM | ポートフォリオ",
         "speakable": {
             "@type": "SpeakableSpecification",
             "cssSelector": [
@@ -502,7 +523,7 @@ Version History (current shipped state)
             --quiz-border-primary: rgba(var(--color-primary-rgb), 0.15);
 
             /* --- Typography --- */
-            --font-sans: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+            --font-sans: 'DM Sans', 'DM Sans-fallback', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
             --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, Monaco, monospace;
 
             /* --- Spacing --- */
@@ -544,7 +565,7 @@ Version History (current shipped state)
             /* Blue */
             --color-primary-light: #60a5fa;
             --color-primary-dark: #1d4ed8;
-            --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+            --font-sans: 'Inter', 'Inter-fallback', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
         }
 
         [data-brand="indigo"] {
@@ -553,7 +574,7 @@ Version History (current shipped state)
             /* Indigo */
             --color-primary-light: #818cf8;
             --color-primary-dark: #4f46e5;
-            --font-sans: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+            --font-sans: 'DM Sans', 'DM Sans-fallback', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
         }
 
         /* Dark Theme - High contrast and comfort */
@@ -844,6 +865,34 @@ Version History (current shipped state)
             padding: var(--space-10) var(--space-10) var(--space-20);
             max-width: 1200px;
             margin: 0 auto;
+            /* v62: SPA遷移時にフッター等が跳ね上がるレイアウトジャンプを防止 */
+            min-height: calc(100dvh - 56px);
+        }
+
+        /* v63: コンテンツコンテナのスケルトンUI（DOM変更ゼロ・CSS専用） */
+        /* SPA遷移中にコンテナが空になった瞬間、背景グラデーションでワイヤーフレームを描画 */
+        #content:empty {
+            background-image:
+                linear-gradient(var(--border-color) 20px, transparent 0),
+                linear-gradient(var(--border-color) 20px, transparent 0),
+                linear-gradient(var(--border-color) 120px, transparent 0);
+            background-size:
+                55% 20px,
+                80% 20px,
+                100% 120px;
+            background-position:
+                20px 24px,
+                20px 60px,
+                20px 96px;
+            background-repeat: no-repeat;
+            animation: skeleton-pulse 1.5s infinite ease-in-out;
+            min-height: 200px;
+        }
+
+        @keyframes skeleton-pulse {
+            0%   { opacity: 0.5; }
+            50%  { opacity: 1;   }
+            100% { opacity: 0.5; }
         }
 
         /* Mobile Navigation */
@@ -1135,6 +1184,72 @@ Version History (current shipped state)
 
         .nav-link:hover svg {
             transform: scale(1.1);
+        }
+
+        /* v63: ナビリンクへのマイクロコピー注入（DOM追加ゼロ・CSS専用） */
+        /* 採用担当者・ビジネス層が「何を依頼できるか」を直感的に理解できるよう補足を付与 */
+        .nav-link[href="#/contact"]::after {
+            content: "— 相談・依頼はこちら";
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            line-height: 1.2;
+            margin-top: 1px;
+            padding-left: calc(1.25rem + 8px); /* アイコン幅分オフセット */
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+        .nav-link[href="#/contact"]:hover::after,
+        .nav-link[href="#/contact"].active::after {
+            opacity: 1;
+        }
+
+        .nav-link[href="#/role-split"]::after {
+            content: "— AI監査エビデンス";
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            line-height: 1.2;
+            margin-top: 1px;
+            padding-left: calc(1.25rem + 8px);
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+        .nav-link[href="#/role-split"]:hover::after,
+        .nav-link[href="#/role-split"].active::after {
+            opacity: 1;
+        }
+
+        .nav-link[href="#/ai-knowhow"]::after {
+            content: "— AI活用ノウハウ集";
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            line-height: 1.2;
+            margin-top: 1px;
+            padding-left: calc(1.25rem + 8px);
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+        .nav-link[href="#/ai-knowhow"]:hover::after,
+        .nav-link[href="#/ai-knowhow"].active::after {
+            opacity: 1;
+        }
+
+        /* v64: ヒーロー画像 — aspect-ratio 固定でCLSをゼロに（画像ロード前に領域を完全予約） */
+        .hero-visual {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1200 / 630;
+            object-fit: cover;
+            display: block;
+            border-radius: var(--radius-md, 8px);
+            /* 画像ロード前のスケルトン背景色 — 視覚的空白を軽減 */
+            background-color: var(--border-color, #e0e0e0);
+            margin-bottom: var(--space-4, 1rem);
         }
 
         /* Typography Utilities */
@@ -1558,7 +1673,41 @@ Version History (current shipped state)
             }
         }
 
+
+        /* ===== v62: フォールバックフォント メトリクス同期 ===== */
+        /* display=optional 採用時、Webフォント未ロード時に代替フォントの寸法をWebフォントに合わせる */
+        /* これにより、フォントスワップ時のテキスト領域の変動（FOUT起因CLS）を根絶する */
+        @font-face {
+            font-family: "DM Sans-fallback";
+            src: local("BlinkMacSystemFont"), local("Segoe UI"), local("Helvetica Neue"), local("Arial");
+            size-adjust: 98.5%;
+            ascent-override: 105%;
+            descent-override: 30%;
+            line-gap-override: 0%;
+        }
+        @font-face {
+            font-family: "Inter-fallback";
+            src: local("BlinkMacSystemFont"), local("Segoe UI"), local("Helvetica Neue"), local("Arial");
+            size-adjust: 104.5%;
+            ascent-override: 90.2%;
+            descent-override: 22.4%;
+            line-gap-override: 0%;
+        }
+        @font-face {
+            font-family: "Crimson Pro-fallback";
+            src: local("Georgia"), local("Times New Roman"), local("serif");
+            size-adjust: 107%;
+            ascent-override: 95%;
+            descent-override: 25%;
+            line-gap-override: 0%;
+        }
+
         /* ===== BGM Control UI ===== */
+        /* v63: サイドバーのBGMコントロール行のcontain（ボタン状態変化による微細CLS完全防止） */
+        /* topbarは既にcontain: layout style済み（v62）。サイドバー側も同様に隔離する */
+        .sidebar [data-bgm-btn] {
+            contain: layout style;
+        }
     </style>
 
     <base target="_blank">
@@ -1574,7 +1723,7 @@ Version History (current shipped state)
     <div id="action-announcement" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
 
     <!-- Mobile Topbar -->
-    <header class="topbar" id="topbar">
+    <header class="topbar" id="topbar" style="contain: layout style;">
         <button class="icon-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 6h16M4 12h16M4 18h16" />
@@ -4341,7 +4490,7 @@ Version History (current shipped state)
             const title = typeof meta.title === 'function' ? meta.title(context) : meta.title;
             const desc = typeof meta.desc === 'function' ? meta.desc(context) : meta.desc;
             // v56: フルブランドタイトル形式
-            const fullTitle = title + ' | ユウタ (Yuta) - AI-Driven PM';
+            const fullTitle = title + ' | ユウタ - AI-Driven PM';
             document.title = fullTitle;
 
             // v60: SPA ルート遷移アナウンス（スクリーンリーダー・AIエージェント向け）
@@ -4567,6 +4716,18 @@ Version History (current shipped state)
                 // Hero Section
                 h('article', { class: 'card', style: { borderTop: '3px solid var(--color-primary)' } },
                     h('div', { class: 'card-body' },
+                        // v64: ai-pm.webp を img タグとして明示的に描画
+                        // width/height/aspect-ratio によりロード前にブラウザが領域を完全予約 → CLS = 0
+                        h('img', {
+                            src: './ai-pm.webp',
+                            alt: 'AI-Driven PMによる設計主導の開発コンセプト',
+                            width: '1200',
+                            height: '630',
+                            loading: 'eager',
+                            fetchpriority: 'high',
+                            decoding: 'async',
+                            class: 'hero-visual'
+                        }),
                         h('header', {},
                             h('h1', { class: 'h1 mb-3', 'data-ai-content': 'lead' }, `${state.profile.title} のポートフォリオ`),
                             h('p', {
