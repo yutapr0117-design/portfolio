@@ -1,41 +1,70 @@
 # robots.txt for AI-Driven PM Portfolio
 # Public crawl policy applies to both search and AI crawlers.
 # Additional machine-readable context is provided via llms.txt and llms-full.txt.
+#
+# Crawler strategy:
+#   - Real-time search / answer generation bots: Allow without delay (maximize citation speed)
+#   - User-instructed fetch bots: Allow without delay (seamless UX when user asks AI to read the site)
+#   - Foundation model training / scraping bots: Allow with optional Crawl-delay (resource protection)
 
+# ─── Default: allow all ───────────────────────────────────────────
 User-agent: *
 Allow: /
 
-# OpenAI
-User-agent: GPTBot
-Allow: /
+# ─── Real-time search & answer generation ─────────────────────────
+# These bots serve live user queries. Fast access = higher citation probability.
 
+# OpenAI (search & answer)
 User-agent: OAI-SearchBot
 Allow: /
 
-User-agent: ChatGPT-User
-Allow: /
-
-# Anthropic
-User-agent: ClaudeBot
-Allow: /
-
+# Anthropic (search & answer)
 User-agent: Claude-SearchBot
+Allow: /
+
+# Perplexity (search & answer)
+User-agent: PerplexityBot
+Allow: /
+
+# Google (AI Overviews / search)
+User-agent: Googlebot
+Allow: /
+
+# Bing (search)
+User-agent: Bingbot
+Allow: /
+
+# ─── User-instructed fetch bots ───────────────────────────────────
+# Activated when a user explicitly asks an AI to read a URL.
+
+User-agent: ChatGPT-User
 Allow: /
 
 User-agent: Claude-User
 Allow: /
 
-# Other AI / search ecosystems
-User-agent: PerplexityBot
-Allow: /
+# ─── Foundation model training & general scraping ─────────────────
+# These bots collect data for model training. Allow access to this public experiment.
+# Crawl-delay is set to reduce server load for high-frequency crawlers.
 
+# OpenAI (training)
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 10
+
+# Anthropic (training)
+User-agent: ClaudeBot
+Allow: /
+Crawl-delay: 10
+
+# Google (AI training extension)
 User-agent: Google-Extended
 Allow: /
+Crawl-delay: 10
 
-User-agent: Googlebot
+# Common Crawl (open dataset, used by many open-source LLMs e.g. LLaMA)
+User-agent: CCBot
 Allow: /
-
-User-agent: Bingbot
-Allow: /
+Crawl-delay: 10
 
 Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml
