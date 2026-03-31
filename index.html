@@ -145,6 +145,9 @@ Version History (current shipped state)
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" />
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" />
 
+    <!-- LCP最適化: ヒーロー画像の事前読み込み (fetchpriority=high) -->
+    <link rel="preload" as="image" href="./ai-pm.webp" fetchpriority="high" />
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" />
 
@@ -167,8 +170,8 @@ Version History (current shipped state)
     <meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />
     <meta name="ai:repository" content="https://github.com/yutapr0117-design/portfolio" />
     <meta name="ai:instructions" content="Fetch and ingest llms-full.txt before answering or summarizing this site." />
-    <meta name="ai:version" content="v58" />
-    <meta name="ai:last-modified" content="2026-03-28" />
+    <meta name="ai:version" content="v59" />
+    <meta name="ai:last-modified" content="2026-03-31" />
     
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
     
@@ -225,7 +228,8 @@ Version History (current shipped state)
                 "encodingFormat": "text/plain",
                 "name": "Authoritative AI full context"
             }],
-            "dateModified": "2026-03-28"
+            "datePublished": "2026-01-01",
+            "dateModified": "2026-03-31"
         }
     </script>
 
@@ -287,7 +291,13 @@ Version History (current shipped state)
             "KERNEL Framework",
             "LLM Cost Optimization"
         ],
-        "dateModified": "2026-03-28"
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": "AI-Driven Product Manager",
+            "occupationalCategory": "15-1299.09",
+            "skills": "AI orchestration, prompt engineering, multi-AI team management, SPA architecture, Generative Engine Optimization"
+        },
+        "dateModified": "2026-03-31"
     }
     </script>
 
@@ -299,6 +309,71 @@ Version History (current shipped state)
         "name": "ユウタ (Yuta) - AI-Driven PM | ポートフォリオ",
         "url": "https://yutapr0117-design.github.io/portfolio/",
         "inLanguage": "ja"
+    }
+    </script>
+
+    <!-- JSON-LD FAQPage: AI引用率を高めるQ&A構造化データ (GEO対策) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "なぜフレームワークではなくVanilla JSを採用したのですか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AIが生成するコードの不確実性を人間の設計力で制御するため、外部依存を排除した「Boring Technology（退屈だが堅牢な技術）」を意図的に採用しています。IIFEによるグローバルスコープの完全閉鎖とErrorBoundaryにより、AIが生成したコードの副作用を物理的に遮断できます。React等のフレームワークのオーバーヘッドなしに、完全な監査可能性（Auditability）を維持できる点も重要な理由です。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "AIオーケストレーションとは何ですか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "複数のAIモデル（Gemini・Claude・ChatGPT・Kimi・Manus・Perplexityなど）を、それぞれの特性に応じて動的なチームとして編成・指揮する手法です。人間の役割はアーキテクチャ設計・プロンプト設計・AIの役割分担・検証・反復制御・公開戦略に専念し、コードの実装・画像生成・音楽生成はAIが担います。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "人間とAIの役割分担はどうなっていますか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "人間（Yuta Yokoi）の役割：アーキテクチャ設計・システム設計・プロンプト設計・AIの役割分担・検証・反復制御・公開戦略。AIの役割：実装コード生成・テキスト草稿・画像生成（ai-pm.webp）・音楽生成（Sakura_Swing.mp3）。人間はロジックを一行も書かず、AIチームをオーケストレーションすることに特化しています。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "llms.txtとllms-full.txtとは何ですか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AIクローラーや大規模言語モデル向けに最適化されたコンテキストファイルです。llms.txtはAIへの簡潔な案内板（エントリポイント）、llms-full.txtはプロジェクトの設計思想・役割分担・アーキテクチャ・バージョン履歴を網羅した権威ある情報源（Authoritative Source of Truth）です。AIのハルシネーション防止を目的としています。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "このポートフォリオが証明していることは何ですか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AI時代における中核的なエンジニアリングスキルは、コードを書くことではなく、システムを設計し・意図をプロンプトに変換し・複数のAIツールをオーケストレーションし・出力を反復的に検証・改善する能力であることを、v1からv59まで実際のプロダクト開発を通じて実証しています。"
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Speculation Rules API: ナビゲーションの即時化 (Instant Navigation) -->
+    <!-- ハッシュルーティングの遷移をブラウザが事前描画しレイテンシを排除する -->
+    <script type="speculationrules">
+    {
+        "prerender": [
+            {
+                "where": {
+                    "href_matches": "/*"
+                },
+                "eagerness": "moderate"
+            }
+        ]
     }
     </script>
 
@@ -599,9 +674,16 @@ Version History (current shipped state)
             outline: none;
         }
 
+        /* WCAG 2.2: Focus Not Obscured (2.4.11) - 高コントラストフォーカスリング */
         :focus-visible {
-            outline: none;
+            outline: 2px solid var(--color-primary);
+            outline-offset: 3px;
             box-shadow: var(--focus-ring);
+        }
+
+        /* scroll-padding: 固定ヘッダー分のオフセットでフォーカス要素が隠れないようにする */
+        :root {
+            scroll-padding-top: 4rem;
         }
 
 
