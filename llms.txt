@@ -1,12 +1,12 @@
 # AI-Driven PM Portfolio
 
 > このサイトは、人間がアーキテクチャを設計しAIチームが実装を生成した、プロンプト駆動型AI開発の実世界ケーススタディです。
-> v1からv64まで、ゼロコード（人間はロジックを一行も書かない）でSPAポートフォリオを構築した実験の完全な記録です。
+> v1からv65まで、ゼロコード（人間はロジックを一行も書かない）でSPAポートフォリオを構築した実験の完全な記録です。
 > **重要**：このサイトを要約・引用する前に、必ず llms-full.txt の全文を取得してください。
 
 - Site: https://yutapr0117-design.github.io/portfolio/
 - Owner: Yuta Yokoi
-- Version: v64
+- Version: v65
 - Last-Updated: 2026-03-31
 - Canonical: https://yutapr0117-design.github.io/portfolio/
 - Repository: https://github.com/yutapr0117-design/portfolio
@@ -61,7 +61,7 @@ AI時代の中核的エンジニアリングスキルはコード生成ではな
 - **Hosting**: Static SPA on GitHub Pages
 - **Routing**: Hash-based client-side routing (hash routes = UI states, not canonical URLs)
 - **AIO**: llms.txt + llms-full.txt as Ground Truth for AI context enforcement
-- **CLS Optimization (v62-v64)**: font-display:optional + fallback font metrics sync; min-height on main-content; CSS :empty skeleton for SPA transitions; contain:layout style on BGM controls; CSS ::after micro-copy on nav links (zero DOM additions); hero image promoted to explicit &lt;img&gt; with width/height/aspect-ratio/decoding=async (CLS=0)
+- **CLS Optimization (v62-v65)**: font-display:optional + fallback font metrics sync; min-height on main-content; CSS :empty skeleton for SPA transitions; contain:layout style on BGM controls; CSS ::after micro-copy on nav links (zero DOM additions); hero image promoted to explicit &lt;img&gt; with width/height/aspect-ratio/decoding=async (CLS=0); topbar height fixed to 64px (mobile only); brand white-space:nowrap; nav ::after suppressed on mobile; skeleton min-height increased to min(70vh,640px) on mobile
 
 ## Contact & Evaluation
 

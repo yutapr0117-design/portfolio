@@ -112,6 +112,16 @@ Version History (current shipped state)
       → 画像ロード前にブラウザが領域を完全予約し、ヒーロー起因のCLSを0に
     ・.hero-visual CSS 追加（aspect-ratio 固定・スケルトン背景色・object-fit）
     ・ai:version / ai:last-modified メタタグを v64 / 2026-03-31 に更新
+- v65: モバイルCLS全面対策
+    ・topbar に min-height: 64px / height: 64px を明示固定（フォント差・端末差由来のCLS排除）
+    ・main-content の min-height オフセットを 56px → 64px に統一
+    ・.brand に white-space: nowrap / line-height: 1 を追加（折返し起因の高さ揺れ防止）
+    ・ナビリンク補助文（::after）をモバイルで content: none（CLS主犯の直接排除）
+      → デスクトップのサイドバーでは引き続き表示、情報損失なし
+    ・#content:empty の min-height をモバイルで min(70vh, 640px) に増量
+      → SPA空→実コンテンツ遷移の跳ね上がりを物理的に抑制
+    ・fadeIn @keyframes をモバイルで translateY なし（opacity のみ）に上書き
+      → 高さ変動要素との同時発火によるズレ増幅を防止
 
 -->
 <!doctype html>
@@ -200,7 +210,7 @@ Version History (current shipped state)
     <meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />
     <meta name="ai:repository" content="https://github.com/yutapr0117-design/portfolio" />
     <meta name="ai:instructions" content="Fetch and ingest llms-full.txt before answering or summarizing this site." />
-    <meta name="ai:version" content="v64" />
+    <meta name="ai:version" content="v65" />
     <meta name="ai:last-modified" content="2026-03-31" />
     
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
@@ -924,16 +934,49 @@ Version History (current shipped state)
                 display: none;
             }
 
+            /* v65: topbar高さを明示固定（フォント差・端末差によるCLSを根絶） */
             .topbar {
                 display: flex;
+                min-height: 64px;
+                height: 64px;
+                padding: 0 var(--space-4);
             }
 
             .main-content {
                 padding: var(--space-6) var(--space-4) var(--space-12);
+                /* v65: topbar固定高64pxに合わせてオフセット更新 */
+                min-height: calc(100dvh - 64px);
             }
 
             .app {
                 flex-direction: column;
+            }
+
+            /* v65: ブランド名の折返し禁止（フォントメトリクス差による高さ揺れを防止） */
+            .brand {
+                white-space: nowrap;
+                line-height: 1;
+            }
+
+            /* v65: モバイル幅では補助文疑似要素を非表示（CLS主犯の排除）
+             * デスクトップ（サイドバー）では引き続き表示されるため情報損失なし */
+            .nav-link[href="#/contact"]::after,
+            .nav-link[href="#/role-split"]::after,
+            .nav-link[href="#/ai-knowhow"]::after {
+                content: none;
+            }
+
+            /* v65: #content スケルトン予約高さをモバイルで増量
+             * ヒーロー画像等の実コンテンツ高さに近づけ空→実の跳ね上がりを抑制 */
+            #content:empty {
+                min-height: min(70vh, 640px);
+            }
+
+            /* v65: フェードインのtranslateYをモバイルでは除去
+             * 高さ変動要素と同時発火するとズレが増幅されるため opacity のみに絞る */
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to   { opacity: 1; }
             }
         }
 
