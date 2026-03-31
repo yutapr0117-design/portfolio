@@ -82,6 +82,11 @@ Version History (current shipped state)
     ・設計・プロンプト設計・実装・検証・コンテンツ生成・SEO/AIO・バージョン管理・AIチーム編成の8カテゴリで分担を明示
     ・設計原則6項目・核心テーゼ・CTAを掲載
     ・PAGE_METAにrole-splitエントリを追加
+- v60: アクセシビリティ・AIO改善
+    ・page-announcement の class="aria-live" を class="sr-only" に修正（CSSクラス未定義バグの解消）
+    ・applyMeta() にルート遷移アナウンス追加（page-announcement を requestAnimationFrame で更新し aria-live 読み上げを確実化）
+    ・Speakable JSON-LD スキーマ追加（AIエージェント・音声アシスタント向けのコアコンテンツマーク）
+    ・WebPage スキーマに primaryImageOfPage・isPartOf・about を追加してエンティティ相互参照を強化
 
 -->
 <!doctype html>
@@ -170,7 +175,7 @@ Version History (current shipped state)
     <meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />
     <meta name="ai:repository" content="https://github.com/yutapr0117-design/portfolio" />
     <meta name="ai:instructions" content="Fetch and ingest llms-full.txt before answering or summarizing this site." />
-    <meta name="ai:version" content="v59" />
+    <meta name="ai:version" content="v60" />
     <meta name="ai:last-modified" content="2026-03-31" />
     
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
@@ -359,6 +364,42 @@ Version History (current shipped state)
                 }
             }
         ]
+    }
+    </script>
+
+    <!-- JSON-LD Speakable: AIエージェント・音声アシスタント向けにコアコンテンツ部分を明示 (GEO対策) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://yutapr0117-design.github.io/portfolio/#webpage",
+        "url": "https://yutapr0117-design.github.io/portfolio/",
+        "name": "ユウタ (Yuta) - AI-Driven PM | ポートフォリオ",
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [
+                ".hero-tagline",
+                ".core-thesis",
+                ".short-summary",
+                "h1",
+                "[data-speakable]"
+            ],
+            "xpath": [
+                "/html/head/title"
+            ]
+        },
+        "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://yutapr0117-design.github.io/portfolio/ai-pm.webp",
+            "description": "AI-Driven PM - Strategy × Technology × Execution. AIと人間の協働を象徴するサイバーデザインのバナー画像（Geminiが生成）",
+            "contentUrl": "https://yutapr0117-design.github.io/portfolio/ai-pm.webp"
+        },
+        "isPartOf": {
+            "@id": "https://yutapr0117-design.github.io/portfolio/"
+        },
+        "about": {
+            "@id": "https://yutapr0117-design.github.io/portfolio/#person"
+        }
     }
     </script>
 
@@ -1524,7 +1565,7 @@ Version History (current shipped state)
     <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
 
     <!-- ARIA Live Region for Screen Readers -->
-    <div id="page-announcement" class="aria-live" aria-live="polite" aria-atomic="true"></div>
+    <div id="page-announcement" class="sr-only" aria-live="polite" aria-atomic="true"></div>
     <!-- ARIA Live Region for Toast / action feedback (assertive) -->
     <div id="action-announcement" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
 
@@ -4298,6 +4339,17 @@ Version History (current shipped state)
             // v56: フルブランドタイトル形式
             const fullTitle = title + ' | ユウタ (Yuta) - AI-Driven PM';
             document.title = fullTitle;
+
+            // v60: SPA ルート遷移アナウンス（スクリーンリーダー・AIエージェント向け）
+            // aria-live="polite" リージョンを更新してページ変化を通知する
+            // テキストを一度クリアしてから再設定することで確実に読み上げが発火する
+            const _pageAnnouncer = document.getElementById('page-announcement');
+            if (_pageAnnouncer) {
+                _pageAnnouncer.textContent = '';
+                requestAnimationFrame(function() {
+                    _pageAnnouncer.textContent = title + 'ページを表示しています。';
+                });
+            }
             const metaDesc = document.querySelector('meta[name="description"]');
             if (metaDesc) metaDesc.setAttribute('content', desc);
             document.querySelector('meta[property="og:title"]')?.setAttribute('content', fullTitle);
