@@ -61,7 +61,7 @@ AI時代の中核的エンジニアリングスキルはコード生成ではな
 - **Hosting**: Static SPA on GitHub Pages
 - **Routing**: Hash-based client-side routing (hash routes = UI states, not canonical URLs)
 - **AIO**: llms.txt + llms-full.txt as Ground Truth for AI context enforcement
-- **CLS Optimization (v62-v65)**: font-display:optional + fallback font metrics sync; min-height on main-content; CSS :empty skeleton for SPA transitions; contain:layout style on BGM controls; CSS ::after micro-copy on nav links (zero DOM additions); hero image promoted to explicit &lt;img&gt; with width/height/aspect-ratio/decoding=async (CLS=0); topbar height fixed to 64px (mobile only); brand white-space:nowrap; nav ::after suppressed on mobile; skeleton min-height increased to min(70vh,640px) on mobile
+- **CLS Optimization (v62-v65)**: font-display:optional + fallback font metrics sync; min-height on main-content; CSS :empty skeleton for SPA transitions; contain:layout style on BGM controls; CSS ::after micro-copy on nav links (zero DOM additions); hero image promoted to explicit `<img>` with width/height/aspect-ratio/decoding=async (CLS=0); topbar height fixed to 64px (mobile only); brand white-space:nowrap; nav ::after suppressed on mobile; skeleton min-height increased to min(70vh,640px) on mobile
 
 ## Contact & Evaluation
 
