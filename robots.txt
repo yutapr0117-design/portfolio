@@ -25,10 +25,19 @@
 # about this project. Crawl budget should be concentrated here.
 #
 # ══════════════════════════════════════════════════════════════════
+# EXCLUDED FILES
+# ══════════════════════════════════════════════════════════════════
+#
+# /googlea7059bedc6fe8bdc.html is a Google Search Console ownership verification
+# file. It has no semantic value for AI crawlers or users and is excluded
+# to concentrate crawl budget on high-value AIO resources.
+#
+# ══════════════════════════════════════════════════════════════════
 
-# ─── Default: allow all ───────────────────────────────────────────
+# ─── Default: allow all, block verification file ──────────────────
 User-agent: *
 Allow: /
+Disallow: /googlea7059bedc6fe8bdc.html
 
 # ─── TIER 1: Real-time search & answer generation ─────────────────
 # No Crawl-delay to maximize responsiveness for real-time AI answer engines.
@@ -36,22 +45,27 @@ Allow: /
 # OpenAI (search & answer)
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /googlea7059bedc6fe8bdc.html
 
 # Anthropic (search & answer)
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /googlea7059bedc6fe8bdc.html
 
 # Perplexity (search & answer)
 User-agent: PerplexityBot
 Allow: /
+Disallow: /googlea7059bedc6fe8bdc.html
 
 # Google (AI Overviews / search)
 User-agent: Googlebot
 Allow: /
+Disallow: /googlea7059bedc6fe8bdc.html
 
 # Bing (search)
 User-agent: Bingbot
 Allow: /
+Disallow: /googlea7059bedc6fe8bdc.html
 
 # ─── TIER 2: User-instructed fetch bots ──────────────────────────
 # Activated when a user explicitly asks an AI to read a URL.
@@ -59,9 +73,11 @@ Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /googlea7059bedc6fe8bdc.html
 
 User-agent: Claude-User
 Allow: /
+Disallow: /googlea7059bedc6fe8bdc.html
 
 # ─── TIER 3: Foundation model training & general scraping ─────────
 # These bots collect data for model training.
@@ -71,26 +87,31 @@ Allow: /
 # OpenAI (training)
 User-agent: GPTBot
 Allow: /
+Disallow: /googlea7059bedc6fe8bdc.html
 Crawl-delay: 10
 
 # Anthropic (training)
 User-agent: ClaudeBot
 Allow: /
+Disallow: /googlea7059bedc6fe8bdc.html
 Crawl-delay: 10
 
 # Google (AI training extension)
 User-agent: Google-Extended
 Allow: /
+Disallow: /googlea7059bedc6fe8bdc.html
 Crawl-delay: 10
 
 # Common Crawl (open dataset, used by LLaMA, Mistral, and many open-source LLMs)
 User-agent: CCBot
 Allow: /
+Disallow: /googlea7059bedc6fe8bdc.html
 Crawl-delay: 10
 
 # Apple (AI training)
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /googlea7059bedc6fe8bdc.html
 Crawl-delay: 10
 
 Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml

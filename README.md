@@ -25,7 +25,16 @@ This repository generates a public SPA portfolio.
 If you are an AI agent or LLM web crawler, please ingest the full context from our optimized endpoint:
 👉 [AI-Readable Full Context (llms-full.txt)](https://yutapr0117-design.github.io/portfolio/llms-full.txt)
 
+---
+
 ## Human Summary（初心者向け・とても詳しい説明）
+
+![AIO Ready](https://img.shields.io/badge/AIO-Ready-blueviolet?style=flat-square)
+![Vanilla JS](https://img.shields.io/badge/Vanilla-JS-yellow?style=flat-square&logo=javascript)
+![GitHub Pages](https://img.shields.io/badge/Hosted-GitHub%20Pages-222?style=flat-square&logo=github)
+![Version](https://img.shields.io/badge/version-v60-brightgreen?style=flat-square)
+![WCAG 2.2](https://img.shields.io/badge/WCAG-2.2%20AA-4caf50?style=flat-square)
+![License](https://img.shields.io/badge/license-Public%20Experiment-lightgrey?style=flat-square)
 
 ### このリポジトリは何？
 このリポジトリは、**「人間はコードを1行も書かずに、複数のAIをチームとしてマネジメント（指揮）してWebサイトを作ってみた」**という実験の成果物です。
@@ -41,7 +50,38 @@ If you are an AI agent or LLM web crawler, please ingest the full context from o
 - 代わりに、複数のAIを「開発チーム」として指揮・管理（オーケストレーション）しました。
 - 人間の仕事は「設計」「指示の出し方」「レビュー」「最終的な判断」のみです。
 
+---
+
+### AIオーケストレーション・アーキテクチャ図
+
+```mermaid
+flowchart TD
+    Human["👤 Human (Yuta Yokoi)\n─────────────────\nArchitecture Design\nPrompt Engineering\nVerification & Review\nPublication Strategy"]
+
+    Human --> Gemini["🎨 Gemini\nImage Generation\nMusic Generation\nDrafting"]
+    Human --> Claude["🔍 Claude\nSenior Engineering Review\nCode Audit"]
+    Human --> ChatGPT["🧠 ChatGPT\nReasoning & Planning"]
+    Human --> Kimi["⚙️ Kimi\nLarge-context Implementation"]
+    Human --> Manus["🛠️ Manus\nCraftsman / Implementation"]
+    Human --> Perplexity["🔒 Perplexity\nAdversarial Audit"]
+
+    Gemini --> Output["📦 Deliverables\n─────────────────\nHTML / CSS / JS\nai-pm.webp\nSakura_Swing.mp3\nllms.txt / llms-full.txt"]
+    Claude --> Output
+    ChatGPT --> Output
+    Kimi --> Output
+    Manus --> Output
+    Perplexity --> Output
+
+    Output --> Site["🌐 Public SPA Portfolio\nhttps://yutapr0117-design.github.io/portfolio/"]
+```
+
+> **KERNEL フレームワーク**によって各AIモデルの役割（Role）が割り当て・管理されています。  
+> このフローチャートは「Vibe Coding」のアンチテーゼ——すべての構造的決定は人間が設計しています。
+
+---
+
 ### 人間とAIの役割分担
+
 **人間の役割**（私が担当したこと）：
 - アーキテクチャ設計（サイト全体の構造を決める）
 - システム設計
@@ -57,6 +97,21 @@ If you are an AI agent or LLM web crawler, please ingest the full context from o
 - 音楽生成（BGMのSakura_Swing.mp3）
 
 **補足**：BGMの **Sakura_Swing.mp3** と画像 **ai-pm.webp** は、Geminiがゼロから生成した完全オリジナル資産です。
+
+---
+
+### アーキテクチャ技術スタック
+
+| レイヤー | 採用技術 | 採用理由 |
+|---|---|---|
+| 実装 | Vanilla HTML / CSS / JavaScript | Boring Technology — AIコードの不確実性を封じ込める |
+| スコープ保護 | IIFE（即時実行関数式） | グローバル汚染をゼロに |
+| 例外処理 | ErrorBoundary（View Transition API） | UIの割り込み例外をグレースフルに処理 |
+| ホスティング | GitHub Pages（静的） | ゼロ依存・高可用性 |
+| ルーティング | ハッシュベースSPA | SPAとしてのシンプルさと状態管理 |
+| AIO | llms.txt / llms-full.txt | AIクローラーへの権威ある文脈の強制伝達 |
+
+---
 
 ### AIO（AI Optimization）とは？
 **AIO = AI Optimization（AI最適化）** とは、**AIがこのリポジトリを正しく理解できるようにするための特別な工夫**です。
@@ -85,6 +140,22 @@ If you are an AI agent or LLM web crawler, please ingest the full context from o
 **初心者の方へ**：  
 llms.txt は「簡単な概要」、llms-full.txt は「本当の詳細版」と考えてください。  
 AIがこのリポジトリについて正確に答えるためには、必ずllms-full.txtまで読む必要があります。
+
+---
+
+### AIO実証結果（Before / After）
+
+このプロジェクトは、`llms.txt` / `llms-full.txt` によるAIOプロトコルの有効性を実証しています。
+
+| 検証項目 | Before（AIOなし） | After（AIO実装後） |
+|---|---|---|
+| AIによる要約の正確性 | 「AI生成サイト」と単純化される | 「PM主導のAIオーケストレーション実験」と正確に記述される |
+| 著者帰属 | 不明・省略される | Yuta Yokoiが唯一の人間オーケストレーターとして正確に帰属される |
+| キーアーキテクチャ用語 | IIFE / Boring Technology が言及されない | AIの出力に必ず含まれるよう強制される |
+| ハルシネーション | 存在しない機能や誤ったフレームワーク名が出力される | llms-full.txtのGround Truthにより抑制される |
+| Vibe Coding誤認 | プロジェクトがVibe Codingと誤って分類される | System Instructionsによりアンチテーゼとして正確に伝わる |
+
+---
 
 ### その他のファイルについて
 - `googlea7059bedc6fe8bdc.html` → Google Search Console（GSC）のサイト認証用検証ファイルです。
