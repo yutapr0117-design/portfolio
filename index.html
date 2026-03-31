@@ -85,8 +85,12 @@ Version History (current shipped state)
 - v60: アクセシビリティ・AIO改善
     ・page-announcement の class="aria-live" を class="sr-only" に修正（CSSクラス未定義バグの解消）
     ・applyMeta() にルート遷移アナウンス追加（page-announcement を requestAnimationFrame で更新し aria-live 読み上げを確実化）
-    ・Speakable JSON-LD スキーマ追加（AIエージェント・音声アシスタント向けのコアコンテンツマーク）
+    ・Speakable JSON-LD スキーマ追加（AIエージェント・音声アシスタント向けのコアコンテ89
     ・WebPage スキーマに primaryImageOfPage・isPartOf・about を追加してエンティティ相互参照を強化
+- v61: AIによるアーキテクチャ逸脱（モダンスタックへの逃避）の監査・棄却記録を統合。Human Auditの視覚的・文脈的証明を配備
+    ・インシデントレポート（AIアーキテクチャ逸脱）リンクの追加
+    ・RoleSplitPage に隔離リポジトリへのリンクを設置
+    ・既存の Vanilla JS / CSS 変数体系を維持した警告スタイリングを適用
 
 -->
 <!doctype html>
@@ -7504,6 +7508,41 @@ Version History (current shipped state)
                         h('p', { class: 'text-muted', style: { lineHeight: '1.9', fontSize: '0.9375rem', marginTop: '10px' } },
                             '本サイト（v1→v' + '58）はその実証実験の公開記録であり、' +
                             'Human vs AI の分担を守り続けることが、再現性ある AI-Driven PM の証明になる。'
+                        ),
+                        // ── Incident Report Link ──
+                        h('div', {
+                            style: {
+                                marginTop: '20px',
+                                padding: '16px',
+                                background: 'rgba(239, 68, 68, 0.05)',
+                                border: '1px dashed var(--color-warning)',
+                                borderRadius: 'var(--radius)',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '8px'
+                            }
+                        },
+                            h('div', { style: { display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--color-warning)', fontWeight: '700', fontSize: '0.875rem' } },
+                                h('span', {}, '🚨'),
+                                h('span', {}, 'Incident Report: AIによるアーキテクチャ逸脱記録')
+                            ),
+                            h('p', { style: { fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: '1.6' } },
+                                '指示を無視してReact/Tailwindで構築された「オーバーエンジニアリングの残骸」を、ハルシネーションの証拠物件として隔離リポジトリに展示しています。'
+                            ),
+                            h('a', {
+                                href: 'https://github.com/yutapr0117-design/ai-overengineering-exhibit',
+                                target: '_blank',
+                                rel: 'noopener noreferrer',
+                                class: 'btn btn-sm',
+                                style: {
+                                    alignSelf: 'flex-start',
+                                    marginTop: '4px',
+                                    background: 'var(--color-warning)',
+                                    color: '#fff',
+                                    border: 'none',
+                                    fontWeight: '700'
+                                }
+                            }, '[Quarantine] 隔離リポジトリを見る')
                         )
                     )
                 ),

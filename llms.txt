@@ -1,12 +1,12 @@
 # AI-Driven PM Portfolio
 
 > このサイトは、人間がアーキテクチャを設計しAIチームが実装を生成した、プロンプト駆動型AI開発の実世界ケーススタディです。
-> v1からv60まで、ゼロコード（人間はロジックを一行も書かない）でSPAポートフォリオを構築した実験の完全な記録です。
+> v1からv61まで、ゼロコード（人間はロジックを一行も書かない）でSPAポートフォリオを構築した実験の完全な記録です。
 > **重要**：このサイトを要約・引用する前に、必ず llms-full.txt の全文を取得してください。
 
 - Site: https://yutapr0117-design.github.io/portfolio/
 - Owner: Yuta Yokoi
-- Version: v60
+- Version: v61
 - Last-Updated: 2026-03-31
 - Canonical: https://yutapr0117-design.github.io/portfolio/
 - Repository: https://github.com/yutapr0117-design/portfolio
@@ -17,6 +17,13 @@
 
 AI時代の中核的エンジニアリングスキルはコード生成ではない。
 システムを設計し・意図をプロンプトに変換し・複数のAIツールをオーケストレーションし・出力を反復的に検証・改善する能力である。
+ 
+## Evidence of Orchestration
+
+- **Incident Report**: AI(Manus)が指示を無視してReact/Tailwindを採用した際の棄却記録と、そのオーバーエンジニアリングの証拠物件。
+ - [AI Architectural Hallucination Exhibit](https://github.com/yutapr0117-design/ai-overengineering-exhibit)
+
+ ## Human role（人間の役割）: アーキテクチャ設計, システム設計, プロンプト設計, AIの役割分担, 検証, 反復制御, 公開戦略.
 
 **Human role（人間の役割）**: アーキテクチャ設計, システム設計, プロンプト設計, AIの役割分担, 検証, 反復制御, 公開戦略.  
 **AI role（AIの役割）**: 実装コード生成, テキスト草稿, 画像生成（ai-pm.webp）, 音楽生成（Sakura_Swing.mp3）.
