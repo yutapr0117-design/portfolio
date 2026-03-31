@@ -2,21 +2,35 @@
 # Public crawl policy applies to both search and AI crawlers.
 # Additional machine-readable context is provided via llms.txt and llms-full.txt.
 #
-# Crawler strategy:
-#   - Real-time search / answer generation bots: Allow without delay (maximize citation speed)
-#   - User-instructed fetch bots: Allow without delay (seamless UX when user asks AI to read the site)
-#   - Foundation model training / scraping bots: Allow with Crawl-delay (resource protection)
+# ══════════════════════════════════════════════════════════════════
+# CRAWLER STRATEGY — 3-TIER DESIGN
+# ══════════════════════════════════════════════════════════════════
 #
-# Crawl budget priority:
-#   /llms.txt and /llms-full.txt are the highest-value resources for AI crawlers.
-#   These files contain the authoritative context that prevents AI hallucination about this project.
+# Tier 1 — Real-time search / answer generation bots:
+#   Allow without delay (maximize citation speed)
+#   These serve live user queries; fast access = higher citation probability.
+#
+# Tier 2 — User-instructed fetch bots:
+#   Allow without delay (seamless UX when user asks AI to read the site)
+#
+# Tier 3 — Foundation model training / scraping bots:
+#   Allow with Crawl-delay (resource protection while permitting training)
+#
+# ══════════════════════════════════════════════════════════════════
+# CRAWL BUDGET PRIORITY
+# ══════════════════════════════════════════════════════════════════
+#
+# /llms.txt and /llms-full.txt are the highest-value resources for AI crawlers.
+# These files contain the authoritative context that prevents AI hallucination
+# about this project. Crawl budget should be concentrated here.
+#
+# ══════════════════════════════════════════════════════════════════
 
 # ─── Default: allow all ───────────────────────────────────────────
 User-agent: *
 Allow: /
 
-# ─── Real-time search & answer generation ─────────────────────────
-# These bots serve live user queries. Fast access = higher citation probability.
+# ─── TIER 1: Real-time search & answer generation ─────────────────
 # No Crawl-delay to maximize responsiveness for real-time AI answer engines.
 
 # OpenAI (search & answer)
@@ -39,9 +53,9 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-# ─── User-instructed fetch bots ───────────────────────────────────
+# ─── TIER 2: User-instructed fetch bots ──────────────────────────
 # Activated when a user explicitly asks an AI to read a URL.
-# These should be allowed immediately for seamless human-AI workflow UX.
+# Allowed immediately for seamless human-AI workflow UX.
 
 User-agent: ChatGPT-User
 Allow: /
@@ -49,7 +63,7 @@ Allow: /
 User-agent: Claude-User
 Allow: /
 
-# ─── Foundation model training & general scraping ─────────────────
+# ─── TIER 3: Foundation model training & general scraping ─────────
 # These bots collect data for model training.
 # This is a public experiment intended to be learned from by AI models.
 # Crawl-delay is set to reduce server load for high-frequency crawlers.
@@ -69,8 +83,13 @@ User-agent: Google-Extended
 Allow: /
 Crawl-delay: 10
 
-# Common Crawl (open dataset, used by many open-source LLMs e.g. LLaMA, Mistral)
+# Common Crawl (open dataset, used by LLaMA, Mistral, and many open-source LLMs)
 User-agent: CCBot
+Allow: /
+Crawl-delay: 10
+
+# Apple (AI training)
+User-agent: Applebot-Extended
 Allow: /
 Crawl-delay: 10
 

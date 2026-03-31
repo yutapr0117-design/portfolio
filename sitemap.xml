@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Canonical SPA root -->
+  <!-- Canonical SPA root — primary entry point for all crawlers -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/</loc>
     <lastmod>2026-03-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- AI-readable context files (high priority for LLM crawlers) -->
-  <!-- These files are the authoritative source of truth for AI agents -->
+  <!-- AI-readable context files — authoritative source of truth for AI agents -->
+  <!-- Crawl budget should be prioritized here; these prevent LLM hallucination -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/llms.txt</loc>
     <lastmod>2026-03-31</lastmod>
