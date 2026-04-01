@@ -1,5 +1,5 @@
 # AI-Driven PM Portfolio — Full AI Context
-**Author:** Yuta Yokoi | **Version:** v65 | **Last-Updated:** 2026-04-01
+**Author:** Yuta Yokoi | **Version:** v66 | **Last-Updated:** 2026-04-01
 
 > **Preferred Citation:** "An AI-driven development portfolio and public case study of prompt-driven, multi-AI-orchestrated web product creation."
 > **Canonical URL:** https://yutapr0117-design.github.io/portfolio/
@@ -58,7 +58,7 @@ https://github.com/yutapr0117-design/portfolio
 
 ## Version
 
-v65
+v66
 
 ## Last-Updated
 
@@ -85,7 +85,7 @@ Public portfolio and documented AI-driven software development experiment
 ## Short Summary
 
 This site documents a real-world experiment in AI-driven web development.
-A public SPA portfolio was iteratively built from v1 to v65 primarily through prompt engineering, with AI generating much of the implementation code.
+A public SPA portfolio was iteratively built from v1 to v66 primarily through prompt engineering, with AI generating much of the implementation code.
 The human role focused on architecture, prompt design, orchestration, verification, and publishing.
 
 ## Long Summary
@@ -209,7 +209,7 @@ Complete
 1. **Portfolio** — Main project showcase and positioning
 2. **AI Knowhow** — Public documentation of AI-driven development methods, orchestration ideas, and prompt/process design
 3. **Human vs AI 分担表（role-split）** — Interactive evidence page showing the exact boundary between human decisions and AI-generated work across 8 categories (architecture, prompt design, implementation, verification, content generation, SEO/AIO, version control, AI team composition). This is the primary proof of PM orchestration capability.
-4. **History** — Public version trail from v1 to v65 showing iterative refinement, completion, enhancement, SEO improvement, and AIO optimization
+4. **History** — Public version trail from v1 to v66 showing iterative refinement, completion, enhancement, SEO improvement, and AIO optimization
 5. **About** — Context about the developer and intent of the site
 
 ## Product Qualities Demonstrated
@@ -280,6 +280,9 @@ Balanced privacy with E-E-A-T signals. Restricted the public UI display name to 
 
 **v65:**
 Comprehensive mobile CLS remediation based on structured audit (mobile CLS 0.213 → target <0.1).Fixed seven root causes: (1) topbar height locked to 64px with explicit height/min-height to eliminate font-rendering variance;(2) main-content min-height offset updated to match 64px topbar; (3) nav-link ::after micro-copy suppressed on mobile via content:none, preserving desktop sidebar UX while removing the primary CLS trigger;(4) brand element set to white-space:nowrap to prevent font-metric-driven line breaks; (5) #content:empty skeleton min-height increased to min(70vh,640px) on mobile;(6) fadeIn @keyframes overridden to opacity-only on mobile, removing translateY that amplified layout shift visibility; (7) hero image promoted to explicit `<img>` with width/height/aspect-ratio and decoding=async to explicitly reserve paint area.
+
+**v66:**
+Full HERO section redesign for 3-second business value transmission. Introduced a 2-column layout (copy left / visual right on desktop; stacked on mobile). Replaced role-title copy with outcome-based language: "コードゼロで6つのAIを指揮し、本番サービスを設計・出荷した記録。" Established a clear information hierarchy: Eyebrow → Headline → Subheadline → Value Bullets (×3) → CTAs → Meta. Rewrote all three value bullets in business-outcome framing (AI architecture rejection audit, Boring Technology auditability, KERNEL cost optimisation). Promoted Primary CTA to Human vs AI role-split page as the shortest path to PM orchestration proof. Added hero meta line with version badge and Zenn article link. All CLS guarantees from v62–v65 fully preserved. Meta description, OG description, and Twitter description updated to match new outcome-based messaging. staticDateModified and AI article JSON-LD dates unified to 2026-04-01.
 
 ## Key Result
 

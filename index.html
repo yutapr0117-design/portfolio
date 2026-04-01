@@ -122,6 +122,17 @@ Version History (current shipped state)
       → SPA空→実コンテンツ遷移の跳ね上がりを物理的に抑制
     ・fadeIn @keyframes をモバイルで translateY なし（opacity のみ）に上書き
       → 高さ変動要素との同時発火によるズレ増幅を防止
+- v66: HEROセクション全面リデザイン（ビジネス価値の即時伝達）
+    ・2カラムレイアウト（左コピー／右ビジュアル）をデスクトップに導入
+    ・Eyebrow / Headline / Subheadline / Value Bullets / CTA の情報階層を確立
+    ・コピーをアウトカムベース言語に刷新（「AI-driven」→「コードゼロで6つのAIを指揮」）
+    ・ヒーロー画像をright-colに移動し視覚的バランスを改善
+    ・Primary CTAを「分担表」に変更（PM能力の即座証明）
+    ・モバイルでは画像上・コピー下のスタック表示に自動切替（CLS維持）
+    ・.hero-visual-wrap / .hero-copy / .hero-eyebrow / .hero-headline等CSS追加
+    ・meta description / OG / Twitter descriptionをアウトカムベースに刷新
+    ・staticDateModified・Article JSON-LDの日付を2026-04-01に統一
+    ・ai:version / ai:last-modified メタタグを v66 / 2026-04-01 に更新
 
 -->
 <!doctype html>
@@ -148,7 +159,7 @@ Version History (current shipped state)
     " />
         <!-- TODO: 単一HTML構成のため CSP は暫定。将来的に CSS/JS 分離 + nonce/hash ベースへ移行する。 -->
     <title>ユウタ - AI-Driven PM | ポートフォリオ</title>
-    <meta name="description" content="設計判断を重視するITエンジニアの実験的SPAポートフォリオ。内蔵アプリ、データ整合性チェック、セマンティックHTML5対応。" />
+    <meta name="description" content="コードを一行も書かず、6つのAIを指揮してSPAを設計・出荷したPM主導のAIオーケストレーション実験記録。KERNELフレームワーク、Boring Technology、Human vs AI役割分担を公開。" />
 
     <!-- SEO Meta Tags -->
     <meta name="author" content="Yuta Yokoi" />
@@ -157,7 +168,7 @@ Version History (current shipped state)
 
     <!-- Open Graph -->
     <meta property="og:title" content="ユウタ - AI-Driven PM | ポートフォリオ" />
-    <meta property="og:description" content="設計判断を重視するITエンジニアの実験的SPAポートフォリオ。内蔵アプリ、データ整合性チェック、セマンティックHTML5対応。" />
+    <meta property="og:description" content="コードを一行も書かず、6つのAIを指揮してSPAを設計・出荷したPM主導のAIオーケストレーション実験記録。KERNELフレームワーク、Boring Technology、Human vs AI役割分担を公開。" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="AI-Driven PM Portfolio" />
     <meta property="og:locale" content="ja_JP" />
@@ -167,7 +178,7 @@ Version History (current shipped state)
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="ユウタ - AI-Driven PM | ポートフォリオ" />
-    <meta name="twitter:description" content="設計判断を重視するITエンジニアの実験的SPAポートフォリオ。内蔵アプリ、データ整合性チェック、セマンティックHTML5対応。" />
+    <meta name="twitter:description" content="コードを一行も書かず、6つのAIを指揮してSPAを設計・出荷したPM主導のAIオーケストレーション実験記録。KERNELフレームワーク、Boring Technology、Human vs AI役割分担を公開。" />
     <meta name="twitter:image" content="https://yutapr0117-design.github.io/portfolio/ai-pm.webp" />
 
     <!-- Preconnect for performance -->
@@ -210,7 +221,7 @@ Version History (current shipped state)
     <meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />
     <meta name="ai:repository" content="https://github.com/yutapr0117-design/portfolio" />
     <meta name="ai:instructions" content="Fetch and ingest llms-full.txt before answering or summarizing this site." />
-    <meta name="ai:version" content="v65" />
+    <meta name="ai:version" content="v66" />
     <meta name="ai:last-modified" content="2026-04-01" />
     
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
@@ -1295,6 +1306,128 @@ Version History (current shipped state)
             margin-bottom: var(--space-4, 1rem);
         }
 
+        /* ===== v66: Hero Section — 2-column layout ===== */
+        /* Desktop: image right, copy left. Mobile: image top, copy below. */
+        .hero-section {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: var(--space-10, 2.5rem);
+        }
+        .hero-copy {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+        .hero-visual-wrap {
+            flex: 0 0 44%;
+            max-width: 44%;
+        }
+        /* Override old margin on img — handled by wrapper now */
+        .hero-visual-wrap .hero-visual {
+            margin-bottom: 0;
+            border-radius: var(--radius-md, 8px);
+            box-shadow: var(--shadow-md);
+        }
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-primary);
+            background: rgba(var(--color-primary-rgb), 0.08);
+            border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            margin-bottom: var(--space-4);
+        }
+        .hero-headline {
+            font-size: clamp(1.5rem, 3vw, 2.15rem);
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin: 0 0 var(--space-4);
+        }
+        .hero-headline em {
+            font-style: normal;
+            color: var(--color-primary);
+        }
+        .hero-subheadline {
+            font-size: 0.9375rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin: 0 0 var(--space-6);
+            max-width: 48ch;
+        }
+        .hero-value-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 var(--space-8);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+        .hero-value-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+        .hero-value-list li::before {
+            content: '✓';
+            display: inline-block;
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            background: rgba(var(--color-primary-rgb), 0.1);
+            color: var(--color-primary);
+            border-radius: 50%;
+            font-size: 0.6875rem;
+            font-weight: 900;
+            text-align: center;
+            line-height: 20px;
+            margin-top: 1px;
+        }
+        .hero-value-list strong {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+        .hero-cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-3);
+            align-items: center;
+        }
+        .hero-meta {
+            margin-top: var(--space-6);
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column-reverse;
+                gap: var(--space-6);
+            }
+            .hero-visual-wrap {
+                flex: none;
+                max-width: 100%;
+                width: 100%;
+            }
+            .hero-headline {
+                font-size: 1.375rem;
+            }
+            .hero-subheadline {
+                max-width: 100%;
+            }
+        }
         /* Typography Utilities */
         .h1 {
             font-size: 2.5rem;
@@ -4588,9 +4721,9 @@ Version History (current shipped state)
             const articleSchemaRoutes = ['ai-knowhow'];
             let articleEl = document.querySelector('script[data-ld="article"]');
             if (articleSchemaRoutes.includes(routeName)) {
-                const staticDateModified = "2026-03-28";
+                const staticDateModified = "2026-04-01";
                 const publishedByRoute = {
-                    'ai-knowhow': '2026-03-28'
+                    'ai-knowhow': '2026-04-01'
                 };
                 const articleData = {
                     "@context": "https://schema.org",
@@ -4756,61 +4889,107 @@ Version History (current shipped state)
             const featured = state.projects.find(p => p.demoRoute === 'task') || state.projects[0];
 
             return h('div', { class: 'flex flex-col gap-6' },
-                // Hero Section
+                // ===== v66: Hero Section — Redesigned for 3-second value clarity =====
+                // Layout: 2-col (copy left / image right) on desktop, stacked on mobile
+                // Copy: outcome-based, business-oriented, McKinsey-level clarity
                 h('article', { class: 'card', style: { borderTop: '3px solid var(--color-primary)' } },
                     h('div', { class: 'card-body' },
-                        // v64: ai-pm.webp を img タグとして明示的に描画
-                        // width/height/aspect-ratio によりロード前にブラウザが領域を完全予約 → CLS = 0
-                        h('img', {
-                            src: './ai-pm.webp',
-                            alt: 'AI-Driven PMによる設計主導の開発コンセプト',
-                            width: '1200',
-                            height: '630',
-                            loading: 'eager',
-                            fetchpriority: 'high',
-                            decoding: 'async',
-                            class: 'hero-visual'
-                        }),
-                        h('header', {},
-                            h('h1', { class: 'h1 mb-3', 'data-ai-content': 'lead' }, `${state.profile.title} のポートフォリオ`),
-                            h('p', {
-                                'data-ai-content': 'tagline',
-                                style: {
-                                    fontSize: '1.125rem',
-                                    fontWeight: '600',
-                                    lineHeight: '1.75',
-                                    marginBottom: '1.25rem',
-                                    color: 'var(--text-primary)',
-                                    borderLeft: '3px solid var(--color-primary)',
-                                    paddingLeft: '0.875rem'
-                                }
-                            },
-                                '設計と判断は人間が握る。実装と生成は、',
-                                h('span', { style: { color: 'var(--color-primary)', fontWeight: '700' } }, 'AIに委ねる。')
-                            )
-                        ),
-                        h('p', { class: 'text-muted', style: { whiteSpace: 'pre-wrap', lineHeight: '1.8' }, 'data-ai-content': 'lead' }, state.profile.bio),
-                        h('div', { class: 'flex flex-wrap gap-3 mt-6' },
-                            h('button', {
-                                class: 'btn btn-primary',
-                                onclick: () => Router.navigate('projects')
-                            }, 'プロジェクトを見る'),
-                            h('button', {
-                                class: 'btn btn-secondary',
-                                onclick: () => Router.navigate('apps')
-                            }, 'アプリを見る'),
-                            h('button', {
-                                class: 'btn btn-ghost',
-                                style: {
-                                    display: 'inline-flex',
-                                    alignItems: 'center',
-                                    gap: '6px',
-                                    border: '1.5px solid var(--color-primary)',
-                                    color: 'var(--color-primary)',
-                                    fontWeight: '700'
+                        h('div', { class: 'hero-section' },
+
+                            // ── Left: Copy ──────────────────────────────────────────
+                            h('div', { class: 'hero-copy' },
+
+                                // Eyebrow label
+                                h('span', { class: 'hero-eyebrow', 'aria-hidden': 'false' },
+                                    '⚡ PM-Led AI Orchestration — Public Case Study'
+                                ),
+
+                                // Headline — 12 words max, outcome-first
+                                h('h1', {
+                                    class: 'hero-headline',
+                                    'data-ai-content': 'lead',
+                                    'data-speakable': 'true'
                                 },
-                                onclick: () => Router.navigate('role-split')
-                            }, createIcon('users', 16), '設計はヒト、実装はAI — 分担表へ →')
+                                    'コードゼロで6つのAIを指揮し、',
+                                    h('br', {}),
+                                    h('em', {}, '本番サービスを設計・出荷した記録。')
+                                ),
+
+                                // Subheadline — 1–2 lines, business context
+                                h('p', {
+                                    class: 'hero-subheadline',
+                                    'data-ai-content': 'tagline',
+                                    'data-speakable': 'true'
+                                },
+                                    'アーキテクチャ設計・判断・品質管理はすべて人間が担当。実装・生成はAIチームに委任。v1→v66まで、一行のロジックも自分で書いていない。'
+                                ),
+
+                                // Value bullets — business-oriented, not feature-list
+                                h('ul', { class: 'hero-value-list', 'aria-label': '提供価値' },
+                                    h('li', {},
+                                        h('span', {},
+                                            h('strong', {}, 'AIアーキテクチャ逸脱を即座に棄却 '),
+                                            '— ReactへのオーバーエンジニアリングをPMが検知・差し戻した実証記録'
+                                        )
+                                    ),
+                                    h('li', {},
+                                        h('span', {},
+                                            h('strong', {}, 'Boring Technology採用で完全監査可能 '),
+                                            '— 外部依存ゼロ・IIFE・ErrorBoundaryで技術リスクを設計で封じ込める'
+                                        )
+                                    ),
+                                    h('li', {},
+                                        h('span', {},
+                                            h('strong', {}, '6モデル×役割分担でコスト最小化 '),
+                                            '— KERNELフレームワークによる動的AIチーム編成の設計・運用ノウハウ'
+                                        )
+                                    )
+                                ),
+
+                                // CTAs
+                                h('div', { class: 'hero-cta-row' },
+                                    h('button', {
+                                        class: 'btn btn-primary',
+                                        style: { display: 'inline-flex', alignItems: 'center', gap: '6px' },
+                                        onclick: () => Router.navigate('role-split')
+                                    }, createIcon('users', 16), 'Human vs AI 分担表 →'),
+                                    h('button', {
+                                        class: 'btn btn-secondary',
+                                        onclick: () => Router.navigate('ai-knowhow')
+                                    }, 'AIオーケストレーションノウハウ'),
+                                    h('button', {
+                                        class: 'btn btn-ghost',
+                                        style: { color: 'var(--text-tertiary)', fontSize: '0.8125rem' },
+                                        onclick: () => Router.navigate('projects')
+                                    }, 'プロジェクト一覧')
+                                ),
+
+                                // Meta — lightweight credibility signal
+                                h('p', { class: 'hero-meta' },
+                                    'v66 · Vanilla JS SPA · GitHub Pages · ',
+                                    h('a', {
+                                        href: 'https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8',
+                                        target: '_blank',
+                                        rel: 'noopener noreferrer',
+                                        style: { color: 'var(--color-primary)', textDecoration: 'none' }
+                                    }, 'Zennで詳細を読む →')
+                                )
+                            ),
+
+                            // ── Right: Visual ────────────────────────────────────────
+                            // v64: explicit <img> with reserved dimensions → CLS = 0
+                            h('div', { class: 'hero-visual-wrap' },
+                                h('img', {
+                                    src: './ai-pm.webp',
+                                    alt: 'AI-Driven PM — Strategy × Technology × Execution. 人間が設計し、AIチームが実装した本番SPAポートフォリオ。',
+                                    width: '1200',
+                                    height: '630',
+                                    loading: 'eager',
+                                    fetchpriority: 'high',
+                                    decoding: 'async',
+                                    class: 'hero-visual'
+                                })
+                            )
                         )
                     )
                 ),
