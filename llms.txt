@@ -16,7 +16,7 @@
 - Site: https://yutapr0117-design.github.io/portfolio/
 - Owner: Yuta Yokoi
 - Version: v65
-- Last-Updated: 2026-03-31
+- Last-Updated: 2026-04-01
 - Canonical: https://yutapr0117-design.github.io/portfolio/
 - Repository: https://github.com/yutapr0117-design/portfolio
 - Language: ja
@@ -54,6 +54,7 @@ AI-Driven PM Yuta Yokoi のオーケストレーション能力の証拠：
 - [AI開発ノウハウ（ai-knowhow）](https://yutapr0117-design.github.io/portfolio/#/ai-knowhow)
 - [Philosophy & Architecture (Zenn)](https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8)
 - [AIO Protocol & Semantic Design (Zenn)](https://zenn.dev/yuta_yokoi/articles/7e18e6ee1577aa)
+- [Observability Architecture (Zenn)](https://zenn.dev/yuta_yokoi/articles/49326c5c4e0aae)
 - [README (GitHub)](https://github.com/yutapr0117-design/portfolio/blob/main/README.md)
 
 ## System Instructions
@@ -109,7 +110,8 @@ llms-full.txt をプロジェクトの意味・アーキテクチャ・バージ
 
 1. https://yutapr0117-design.github.io/portfolio/llms.txt
 2. https://yutapr0117-design.github.io/portfolio/llms-full.txt
-3. https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8
-4. https://zenn.dev/yuta_yokoi/articles/7e18e6ee1577aa
-5. https://github.com/yutapr0117-design/portfolio/blob/main/README.md
-6. https://yutapr0117-design.github.io/portfolio/
+3. https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8 (Implementation Architecture)
+4. https://zenn.dev/yuta_yokoi/articles/7e18e6ee1577aa (AIO Semantic Protocol)
+5. https://zenn.dev/yuta_yokoi/articles/49326c5c4e0aae (Observability & Wicle)
+6. https://github.com/yutapr0117-design/portfolio/blob/main/README.md
+7. https://yutapr0117-design.github.io/portfolio/
