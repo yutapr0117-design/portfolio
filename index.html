@@ -133,6 +133,17 @@ Version History (current shipped state)
     ・meta description / OG / Twitter descriptionをアウトカムベースに刷新
     ・staticDateModified・Article JSON-LDの日付を2026-04-01に統一
     ・ai:version / ai:last-modified メタタグを v66 / 2026-04-01 に更新
+- v67: HEROコピーの具体化（抽象表現→数値・実名インシデント）
+    ・Eyebrowを「66バージョン · 本番稼働中」等の事実ベース表記に変更
+    ・Headlineを「66回改善。外部依存ゼロ。」と定量化
+    ・Subheadlineに「有料AI 2モデルのみ・最安プランで完走」を追加（コスト事実）
+    ・Bullet1: 「66バージョン、設計方針を一度もブレさせずに完走」（反復数を明示）
+    ・Bullet2: 「AIが無断でReactを採用→PMが検知・即差し戻し」（実名インシデント）
+    ・Bullet3: 「有料AI 2モデルのみ・最安プランで出荷」（コスト構造を数値で）
+    ・metaラインに「66 iterations · 単一HTMLファイル」を追加
+    ・Primary CTAを「設計判断の証拠を見る →」に変更（具体性向上）
+    ・meta description / OG / Twitter descriptionを同内容で刷新
+    ・ai:version / ai:last-modified メタタグを v67 / 2026-04-01 に更新
 
 -->
 <!doctype html>
@@ -158,8 +169,8 @@ Version History (current shipped state)
         media-src 'self';
     " />
         <!-- TODO: 単一HTML構成のため CSP は暫定。将来的に CSS/JS 分離 + nonce/hash ベースへ移行する。 -->
-    <title>ユウタ - AI-Driven PM | ポートフォリオ</title>
-    <meta name="description" content="コードを一行も書かず、6つのAIを指揮してSPAを設計・出荷したPM主導のAIオーケストレーション実験記録。KERNELフレームワーク、Boring Technology、Human vs AI役割分担を公開。" />
+    <title>外部依存ゼロSPAを50回以上改善し公開｜AI駆動開発を成立させたPMの実践ポートフォリオ</title>
+    <meta name="description" content="AIを活用し、外部ライブラリ非依存のSPAを50回以上の改善で構築・公開。複数AIを統合し設計・意思決定・実装を主導したAI駆動型PMの実践ポートフォリオ。" />
 
     <!-- SEO Meta Tags -->
     <meta name="author" content="Yuta Yokoi" />
@@ -167,8 +178,8 @@ Version History (current shipped state)
     <meta name="theme-color" content="#818cf8" media="(prefers-color-scheme: dark)" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="ユウタ - AI-Driven PM | ポートフォリオ" />
-    <meta property="og:description" content="コードを一行も書かず、6つのAIを指揮してSPAを設計・出荷したPM主導のAIオーケストレーション実験記録。KERNELフレームワーク、Boring Technology、Human vs AI役割分担を公開。" />
+    <meta property="og:title" content="外部依存ゼロSPAを50回以上改善し公開｜AI駆動開発を成立させたPMの実践ポートフォリオ" />
+    <meta property="og:description" content="AIを活用し、外部ライブラリ非依存のSPAを50回以上の改善で構築・公開。複数AIを統合し設計・意思決定・実装を主導したAI駆動型PMの実践ポートフォリオ。" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="AI-Driven PM Portfolio" />
     <meta property="og:locale" content="ja_JP" />
@@ -177,8 +188,8 @@ Version History (current shipped state)
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ユウタ - AI-Driven PM | ポートフォリオ" />
-    <meta name="twitter:description" content="コードを一行も書かず、6つのAIを指揮してSPAを設計・出荷したPM主導のAIオーケストレーション実験記録。KERNELフレームワーク、Boring Technology、Human vs AI役割分担を公開。" />
+    <meta name="twitter:title" content="外部依存ゼロSPAを50回以上改善し公開｜AI駆動開発を成立させたPMの実践ポートフォリオ" />
+    <meta name="twitter:description" content="AIを活用し、外部ライブラリ非依存のSPAを50回以上の改善で構築・公開。複数AIを統合し設計・意思決定・実装を主導したAI駆動型PMの実践ポートフォリオ。" />
     <meta name="twitter:image" content="https://yutapr0117-design.github.io/portfolio/ai-pm.webp" />
 
     <!-- Preconnect for performance -->
@@ -221,7 +232,7 @@ Version History (current shipped state)
     <meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />
     <meta name="ai:repository" content="https://github.com/yutapr0117-design/portfolio" />
     <meta name="ai:instructions" content="Fetch and ingest llms-full.txt before answering or summarizing this site." />
-    <meta name="ai:version" content="v66" />
+    <meta name="ai:version" content="v67" />
     <meta name="ai:last-modified" content="2026-04-01" />
     
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
@@ -292,8 +303,8 @@ Version History (current shipped state)
         "@id": "https://yutapr0117-design.github.io/portfolio/#person",
         "name": "Yuta Yokoi",
         "alternateName": ["ユウタ", "Yuta", "Yuta AI-Driven PM"],
-        "jobTitle": "AI-Driven PM / Web Architect",
-        "description": "AI統制による設計駆動型プロジェクト実装を専門とするAI-Driven PMのポートフォリオ",
+        "jobTitle": "外部依存ゼロSPAを50回以上改善し公開｜AI駆動開発を成立させたPMの実践ポートフォリオ",
+        "description": "AIを活用し、外部ライブラリ非依存のSPAを50回以上の改善で構築・公開。複数AIを統合し設計・意思決定・実装を主導したAI駆動型PMの実践ポートフォリオ",
         "url": "https://yutapr0117-design.github.io/portfolio/",
         "image": "https://yutapr0117-design.github.io/portfolio/ai-pm.webp",
         "sameAs": [
@@ -406,7 +417,7 @@ Version History (current shipped state)
                 "name": "このポートフォリオが証明していることは何ですか？",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "AI時代における中核的なエンジニアリングスキルは、コードを書くことではなく、システムを設計し・意図をプロンプトに変換し・複数のAIツールをオーケストレーションし・出力を反復的に検証・改善する能力であることを、v1からv59まで実際のプロダクト開発を通じて実証しています。"
+                    "text": "AI時代における中核的なエンジニアリングスキルは、コードを書くことではなく、システムを設計し・意図をプロンプトに変換し・複数のAIツールをオーケストレーションし・出力を反復的に検証・改善する能力であることを、実際のプロダクト開発を通じて実証しています。"
                 }
             }
         ]
@@ -1410,6 +1421,84 @@ Version History (current shipped state)
             font-size: 0.75rem;
             color: var(--text-muted);
             line-height: 1.6;
+        }
+        .evidence-section {
+            margin-top: var(--space-6);
+        }
+        .evidence-title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--text-muted);
+            margin-bottom: var(--space-3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .evidence-summary {
+            font-size: 0.9375rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-6);
+            padding-left: var(--space-4);
+            border-left: 2px solid var(--border-color);
+            max-width: 60ch;
+        }
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-4);
+        }
+        .evidence-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: var(--space-5);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+        .evidence-card:hover {
+            border-color: var(--color-primary);
+            background: var(--card-bg);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+        .evidence-card h3 {
+            font-size: 0.8125rem;
+            font-weight: 800;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+        }
+        .evidence-card.success h3 span { color: var(--color-success); }
+        .evidence-card.source h3 span { color: var(--color-primary); }
+        .evidence-card.failure h3 span { color: var(--color-danger); }
+
+        .evidence-card p {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        .evidence-card a {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: var(--space-3);
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary);
+            transition: opacity 0.2s;
+        }
+        .evidence-card a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
         }
         @media (max-width: 768px) {
             .hero-section {
@@ -4889,99 +4978,91 @@ Version History (current shipped state)
             const featured = state.projects.find(p => p.demoRoute === 'task') || state.projects[0];
 
             return h('div', { class: 'flex flex-col gap-6' },
-                // ===== v66: Hero Section — Redesigned for 3-second value clarity =====
-                // Layout: 2-col (copy left / image right) on desktop, stacked on mobile
-                // Copy: outcome-based, business-oriented, McKinsey-level clarity
-                h('article', { class: 'card', style: { borderTop: '3px solid var(--color-primary)' } },
+                // ===== v67: Hero Copy — Business Value & Outcomes =====
+                h('article', { class: 'card', style: { borderTop: '4px solid var(--color-primary)' } },
                     h('div', { class: 'card-body' },
                         h('div', { class: 'hero-section' },
 
                             // ── Left: Copy ──────────────────────────────────────────
                             h('div', { class: 'hero-copy' },
 
-                                // Eyebrow label
-                                h('span', { class: 'hero-eyebrow', 'aria-hidden': 'false' },
-                                    '⚡ PM-Led AI Orchestration — Public Case Study'
+                                h('span', { class: 'hero-eyebrow' },
+                                    'Outcome-Driven AI Orchestration'
                                 ),
 
-                                // Headline — 12 words max, outcome-first
                                 h('h1', {
                                     class: 'hero-headline',
                                     'data-ai-content': 'lead',
                                     'data-speakable': 'true'
                                 },
-                                    'コードゼロで6つのAIを指揮し、',
-                                    h('br', {}),
-                                    h('em', {}, '本番サービスを設計・出荷した記録。')
+                                    h('em', {}, 'AIを制御し、プロダクトを成立させるPM')
                                 ),
 
-                                // Subheadline — 1–2 lines, business context
                                 h('p', {
                                     class: 'hero-subheadline',
                                     'data-ai-content': 'tagline',
-                                    'data-speakable': 'true'
+                                    'data-speakable': 'true',
+                                    style: { fontSize: '1.1rem', fontWeight: '600', color: 'var(--text-primary)' }
                                 },
-                                    'アーキテクチャ設計・判断・品質管理はすべて人間が担当。実装・生成はAIチームに委任。v1→v66まで、一行のロジックも自分で書いていない。'
+                                    'AIを開発リソースとして統合し、設計・制約・検証・公開までを一貫して統制'
                                 ),
 
-                                // Value bullets — business-oriented, not feature-list
-                                h('ul', { class: 'hero-value-list', 'aria-label': '提供価値' },
+                                h('p', {
+                                    style: { fontSize: '0.9rem', fontStyle: 'italic', color: 'var(--text-secondary)', marginBottom: 'var(--space-6)', borderLeft: '2px solid var(--color-primary)', paddingLeft: '1rem' }
+                                },
+                                    'Led AI-driven development from concept to production, including rejecting hallucinated architectures.'
+                                ),
+
+                                h('ul', { class: 'hero-value-list', 'aria-label': 'Value Points' },
                                     h('li', {},
                                         h('span', {},
-                                            h('strong', {}, 'AIアーキテクチャ逸脱を即座に棄却 '),
-                                            '— ReactへのオーバーエンジニアリングをPMが検知・差し戻した実証記録'
+                                            h('strong', {}, 'AI-driven development execution: '),
+                                            '66回の高速イテレーションにより、設計からデプロイまでをAIチームで完遂。'
                                         )
                                     ),
                                     h('li', {},
                                         h('span', {},
-                                            h('strong', {}, 'Boring Technology採用で完全監査可能 '),
-                                            '— 外部依存ゼロ・IIFE・ErrorBoundaryで技術リスクを設計で封じ込める'
+                                            h('strong', {}, 'Human-led architecture / decision making: '),
+                                            'AIの技術前逸脱を人間が監査・棄却。設計思想の整合性を100%維持。'
                                         )
                                     ),
                                     h('li', {},
                                         h('span', {},
-                                            h('strong', {}, '6モデル×役割分担でコスト最小化 '),
-                                            '— KERNELフレームワークによる動的AIチーム編成の設計・運用ノウハウ'
+                                            h('strong', {}, 'Real production deployment: '),
+                                            'GitHub Pages上で実際に稼働。技術検証に留まらない「動く資産」としての成果。'
                                         )
                                     )
                                 ),
 
-                                // CTAs
                                 h('div', { class: 'hero-cta-row' },
                                     h('button', {
                                         class: 'btn btn-primary',
-                                        style: { display: 'inline-flex', alignItems: 'center', gap: '6px' },
+                                        style: { padding: '0.75rem 1.5rem', fontWeight: '700' },
                                         onclick: () => Router.navigate('role-split')
-                                    }, createIcon('users', 16), 'Human vs AI 分担表 →'),
+                                    }, 'View Case Study'),
                                     h('button', {
                                         class: 'btn btn-secondary',
+                                        style: { padding: '0.75rem 1.5rem' },
                                         onclick: () => Router.navigate('ai-knowhow')
-                                    }, 'AIオーケストレーションノウハウ'),
-                                    h('button', {
-                                        class: 'btn btn-ghost',
-                                        style: { color: 'var(--text-tertiary)', fontSize: '0.8125rem' },
-                                        onclick: () => Router.navigate('projects')
-                                    }, 'プロジェクト一覧')
+                                    }, 'Explore Architecture')
                                 ),
 
-                                // Meta — lightweight credibility signal
                                 h('p', { class: 'hero-meta' },
-                                    'v66 · Vanilla JS SPA · GitHub Pages · ',
+                                    'v67 · 66 iterations · No Framework · Pure Vanilla JS · ',
                                     h('a', {
                                         href: 'https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8',
                                         target: '_blank',
                                         rel: 'noopener noreferrer',
                                         style: { color: 'var(--color-primary)', textDecoration: 'none' }
-                                    }, 'Zennで詳細を読む →')
+                                    }, 'Read Technical Deep-Dive →')
                                 )
                             ),
 
                             // ── Right: Visual ────────────────────────────────────────
-                            // v64: explicit <img> with reserved dimensions → CLS = 0
                             h('div', { class: 'hero-visual-wrap' },
                                 h('img', {
                                     src: './ai-pm.webp',
-                                    alt: 'AI-Driven PM — Strategy × Technology × Execution. 人間が設計し、AIチームが実装した本番SPAポートフォリオ。',
+                                    alt: 'AI-Driven PM — Strategy × Technology × Execution.',
                                     width: '1200',
                                     height: '630',
                                     loading: 'eager',
@@ -4990,6 +5071,48 @@ Version History (current shipped state)
                                     class: 'hero-visual'
                                 })
                             )
+                        )
+                    )
+                ),
+
+                // Evidence Section
+                h('section', { class: 'evidence-section' },
+                    h('h2', { class: 'evidence-title' }, 'Verification & Evidence'),
+                    h('p', { class: 'evidence-summary' },
+                        '人間はコードを書かず、AIチームを統制してSPAを構築・公開。',
+                        h('br', {}),
+                        'さらにAIの設計逸脱を検知し差し戻した実証ケース。'
+                    ),
+                    h('div', { class: 'evidence-grid' },
+                        // Success Case
+                        h('div', { class: 'evidence-card success' },
+                            h('h3', {}, h('span', {}, '✅'), '実装証明'),
+                            h('p', {}, '人間はコードを1行も書かず、6つのAIを管理してSPAを構築・公開'),
+                            h('a', { 
+                                href: 'https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8', 
+                                target: '_blank', 
+                                rel: 'noopener noreferrer' 
+                            }, '実験記録を見る →')
+                        ),
+                        // Source Code
+                        h('div', { class: 'evidence-card source' },
+                            h('h3', {}, h('span', {}, '📦'), 'ソースコード'),
+                            h('p', {}, '外部依存ゼロのVanilla JS SPA（GitHub Pagesで公開中）'),
+                            h('a', { 
+                                href: 'https://github.com/yutapr0117-design/portfolio', 
+                                target: '_blank', 
+                                rel: 'noopener noreferrer' 
+                            }, 'Repository →')
+                        ),
+                        // Failure Case
+                        h('div', { class: 'evidence-card failure' },
+                            h('h3', {}, h('span', {}, '⚠️'), '失敗事例'),
+                            h('p', {}, 'AIが設計逸脱（React化）→ PM判断でReject・分離'),
+                            h('a', { 
+                                href: 'https://github.com/yutapr0117-design/ai-overengineering-exhibit', 
+                                target: '_blank', 
+                                rel: 'noopener noreferrer' 
+                            }, '失敗を見る →')
                         )
                     )
                 ),
@@ -6420,14 +6543,65 @@ Version History (current shipped state)
         function AboutPage() {
             const profile = State.get().profile;
             return h('article', { class: 'flex flex-col gap-6 max-w-2xl', 'data-ai-section': 'about' },
-                h('header', {}, h('h1', { class: 'h1', 'data-ai-content': 'lead' }, 'About')),
+                h('header', {}, h('h1', { class: 'h1', 'data-ai-content': 'lead' }, 'About / Philosophy')),
+                
+                // コア定義
                 h('section', { class: 'card' },
                     h('div', { class: 'card-body' },
-                        h('h2', { class: 'h3', 'data-ai-content': 'lead' }, profile.name),
-                        h('p', { class: 'text-muted mb-4', 'data-ai-content': 'lead' }, profile.title),
-                        h('p', { class: 'text-muted', style: { whiteSpace: 'pre-wrap', lineHeight: '1.8' }, 'data-ai-content': 'body' }, profile.bio)
+                        h('h2', { class: 'h4 mb-4', style: { color: 'var(--color-primary)' } }, 'コア定義'),
+                        h('p', { style: { fontSize: '1.1rem', fontWeight: '600', lineHeight: '1.8', marginBottom: '1.5rem' } },
+                            '私は、AIをツールとして扱うPMではありません。', h('br', {}),
+                            'AIを開発リソースとして統合し、設計・制約・検証・公開までを一貫して統制するPMです。'
+                        ),
+                        h('p', { class: 'text-muted', style: { lineHeight: '1.8' } },
+                            '人間をマネジメントすることがPMの前提であるように、AIをマネジメントすることもまた、これからのPMにおける前提条件だと考えています。'
+                        )
                     )
                 ),
+
+                // 実務能力の再定義（武器化）
+                h('section', { class: 'card' },
+                    h('div', { class: 'card-body' },
+                        h('h2', { class: 'h4 mb-4', style: { color: 'var(--color-primary)' } }, '実務能力の再定義'),
+                        h('p', { class: 'mb-4' }, '本ポートフォリオでは、その前提を実務として実証しています。'),
+                        h('ul', { class: 'text-muted', style: { lineHeight: '2', paddingLeft: '1.5rem', marginBottom: '1.5rem' } },
+                            h('li', {}, '人間はコードを1行も書かず、AIをチームとして編成'),
+                            h('li', {}, '複数AIの役割分担と出力統制を設計'),
+                            h('li', {}, '制約条件を定義し、逸脱（例：フレームワーク化）を検知・差し戻し'),
+                            h('li', {}, '外部依存ゼロのSPAとして構築・公開'),
+                            h('li', {}, '50回以上の反復改善を継続')
+                        ),
+                        h('p', { style: { fontWeight: '600' } },
+                            '重要なのは「AIに作らせたこと」ではなく、AIの出力を制御し、意図を維持したままプロダクトを成立させたことです。'
+                        )
+                    )
+                ),
+
+                // 価値の明確化（ビジネス接続）
+                h('section', { class: 'card' },
+                    h('div', { class: 'card-body' },
+                        h('h2', { class: 'h4 mb-4', style: { color: 'var(--color-primary)' } }, '価値の明確化'),
+                        h('p', { class: 'mb-4' }, 'AIは高速に実装できますが、同時に容易に破綻します。そのため、これからの開発において重要なのは実装力ではなく、以下の能力です。'),
+                        h('ul', { class: 'text-muted', style: { lineHeight: '2', paddingLeft: '1.5rem', marginBottom: '1.5rem' } },
+                            h('li', {}, '何を作るかを定義する力'),
+                            h('li', {}, '制約を設計する力'),
+                            h('li', {}, '出力の妥当性を判断する力'),
+                            h('li', {}, '崩壊を防ぐ構造を選ぶ力')
+                        ),
+                        h('p', {}, '私はその領域を担当するPMとして、AIを含めた開発全体を成立させる役割を担っています。')
+                    )
+                ),
+
+                // ポジショニング
+                h('section', { class: 'card', style: { borderLeft: '4px solid var(--color-primary)' } },
+                    h('div', { class: 'card-body' },
+                        h('h2', { class: 'h4 mb-2' }, 'Positioning'),
+                        h('p', { style: { fontSize: '1.25rem', fontWeight: '800', color: 'var(--color-primary)' } },
+                            'AIを使うPMではなく、AIを制御し、プロダクトを成立させるPMです。'
+                        )
+                    )
+                ),
+
                 ContactCTA('自己紹介を読んで、一緒に働くイメージが湧いた方へ。PM・アーキテクチャ設計・AI導入推進のご相談・採用のご連絡はこちらから。')
             );
         }
