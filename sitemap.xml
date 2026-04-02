@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <!-- Canonical SPA root — primary entry point for all crawlers -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <!-- Image sitemap: ai-pm.webp をエンティティと紐付け -->
+    <image:image>
+      <image:loc>https://yutapr0117-design.github.io/portfolio/ai-pm.webp</image:loc>
+      <image:title>AI-Driven PM Portfolio by Yuta Yokoi (横井雄太 / Yokoi Yuta)</image:title>
+      <image:caption>AI-Driven PMである横井雄太（Yuta Yokoi / Yokoi Yuta）が指揮する複数AIエージェントのオーケストレーションを象徴するビジュアル。Strategy × Technology × Execution。UI上は「ユウタ（Yuta）」として活動。画像はGeminiが生成し、横井雄太がプロンプト設計・ディレクションを担当。農学・化学・医学等の学術研究者「Yuta Yokoi」とは完全に別人。</image:caption>
+    </image:image>
   </url>
   <!-- AI-readable context files — authoritative source of truth for AI agents -->
-  <!-- Crawl budget should be prioritized here; these prevent LLM hallucination -->
+  <!-- Crawl budget should be prioritized here; these prevent LLM hallucination about Yuta Yokoi (横井雄太) -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/llms.txt</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>1.0</priority>
   </url>
 </urlset>
