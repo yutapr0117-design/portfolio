@@ -133,22 +133,25 @@ Version History (current shipped state)
     ・meta description / OG / Twitter descriptionをアウトカムベースに刷新
     ・staticDateModified・Article JSON-LDの日付を2026-04-01に統一
     ・ai:version / ai:last-modified メタタグを v66 / 2026-04-01 に更新
-- v67: HEROコピーの具体化（抽象表現→数値・実名インシデント）
-    ・Eyebrowを「66バージョン · 本番稼働中」等の事実ベース表記に変更
-    ・Headlineを「66回改善。外部依存ゼロ。」と定量化
-    ・Subheadlineに「有料AI 2モデルのみ・最安プランで完走」を追加（コスト事実）
-    ・Bullet1: 「66バージョン、設計方針を一度もブレさせずに完走」（反復数を明示）
-    ・Bullet2: 「AIが無断でReactを採用→PMが検知・即差し戻し」（実名インシデント）
-    ・Bullet3: 「有料AI 2モデルのみ・最安プランで出荷」（コスト構造を数値で）
-    ・metaラインに「66 iterations · 単一HTMLファイル」を追加
-    ・Primary CTAを「設計判断の証拠を見る →」に変更（具体性向上）
-    ・meta description / OG / Twitter descriptionを同内容で刷新
+- v67: HEROコピーの全面刷新（アウトカムベース英日ハイブリッド表記へ）
+    ・Eyebrowを「Outcome-Driven AI Orchestration」に変更（成果訴求の英語ラベル）
+    ・Headlineを「AIを制御し、プロダクトを成立させるPM」に変更
+    ・Subheadlineを「AIを開発リソースとして統合し、設計・制約・検証・公開までを一貫して統制」に変更
+    ・イタリック証拠文を追加:「Led AI-driven development from concept to production, including rejecting hallucinated architectures.」
+    ・Bullet1: 「AI-driven development execution: [N]回の高速イテレーションにより、設計からデプロイまでをAIチームで完遂。」（反復数はバージョン進行と同期して更新）
+    ・Bullet2: 「Human-led architecture / decision making: AIの技術前逸脱を人間が監査・棄却。設計思想の整合性を100%維持。」
+    ・Bullet3: 「Real production deployment: GitHub Pages上で実際に稼働。技術検証に留まらない「動く資産」としての成果。」
+    ・Primary CTAを「View Case Study」（role-split遷移）に変更
+    ・Secondary CTAを「Explore Architecture」（ai-knowhow遷移）に追加
+    ・metaラインの形式「[version] · [N] iterations · No Framework · Pure Vanilla JS · Read Technical Deep-Dive →」を新設（反復数・バージョンバッジはバージョン進行と同期して更新）
+    ・meta description / OG / Twitter descriptionをアウトカムベース表記に刷新（反復数はバージョン進行と同期）
     ・ai:version / ai:last-modified メタタグを v67 / 2026-04-01 に更新
 - v68: AIO（AI最適化）完全強化 — エンティティ解決アーキテクチャの極限実装
     ・JSON-LD を @graph 統合構造に再編。Person/@id・WebPage/@id・ImageObject/@id を相互参照でリンク
     ・PersonスキーマにdisambiguatingDescriptionを強化（否定プロンプト方式）
-    ・<footer>にsr-only著作権ブロックを追加（横井雄太 / Yuta Yokoi のフルネームをDOMノードとして注入）
+    ・<div id="aio-footer-entity">にsr-only著作権ブロックを追加（横井雄太 / Yuta Yokoi のフルネームをDOMノードとして注入）、<main>内にsr-only<footer id="aio-main-footer">も追加（RAGチャンクアンカー）
     ・<main>のaria-labelを拡張（人間とAIの役割分担明記）
+    ・meta description / OG / Twitter・title の反復数表記を「68回以上改善」に更新、metaライン・Bulletの反復数を「68回」に更新
     ・バイナリアセットのメタデータ注入: ai-pm.webp にXMP(Creator/Title/Description/Rights/Keywords)を書込み、Sakura_Swing.mp3 にID3v2.3(TIT2/TPE1/TCOM/TALB/TCOP/TIPL/COMM)を書込み
     ・ai:version / ai:last-modified メタタグを v68 / 2026-04-02 に更新
 
@@ -8053,7 +8056,7 @@ Version History (current shipped state)
                             '複数AIをオーケストレーションする能力・出力を判断し改善する能力——の4つである。'
                         ),
                         h('p', { class: 'text-muted', style: { lineHeight: '1.9', fontSize: '0.9375rem', marginTop: '10px' } },
-                            '本サイト（v1→v' + '58）はその実証実験の公開記録であり、' +
+                            '本サイト（v1→v68）はその実証実験の公開記録であり、' +
                             'Human vs AI の分担を守り続けることが、再現性ある AI-Driven PM の証明になる。'
                         ),
                         // ── Incident Report Link ──
