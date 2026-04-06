@@ -8526,7 +8526,11 @@ Version History (current shipped state)
                 haystack.includes('Transition was aborted') ||
                 haystack.includes('startViewTransition') ||
                 haystack.includes('view transition') ||
-                haystack.includes('ViewTransition')
+                haystack.includes('ViewTransition') ||
+                // Chrome拡張のメッセージチャンネルエラー（ポートフォリオ起因でない）
+                haystack.includes('message channel closed') ||
+                haystack.includes('asynchronous response') ||
+                haystack.includes('A listener indicated')
             );
         }
 
@@ -8555,8 +8559,7 @@ Version History (current shipped state)
             try {
                 const err = _normalizeError(ev && 'reason' in ev ? ev.reason : new Error('Unhandled rejection'));
                 if (!_isFatalError(err)) {
-                    console.warn('[portfolio] non-fatal rejection suppressed:', err);
-                    ev.preventDefault(); // ブラウザのコンソールエラー出力も抑制
+                    ev.preventDefault(); // 非致命的エラーはブラウザ出力ごと抑制
                     return;
                 }
                 window.__fatalError = err;
