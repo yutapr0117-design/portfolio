@@ -28,4 +28,41 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- AIO実践シリーズ（Zenn記事）— Googlebot / AIクローラー向け参照用 -->
+  <url>
+    <loc>https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zenn.dev/yuta_yokoi/articles/7e18e6ee1577aa</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zenn.dev/yuta_yokoi/articles/49326c5c4e0aae</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zenn.dev/yuta_yokoi/articles/3735dc2683f900</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zenn.dev/yuta_yokoi/articles/340dbb85491fc8</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zenn.dev/yuta_yokoi/articles/27fa4c511cd972</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

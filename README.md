@@ -172,7 +172,13 @@ AIがこのリポジトリについて正確に答えるためには、必ずllm
 ### もっと詳しく知りたい方へ
 - 実験の最も詳細な内容やルールは、[llms-full.txt](https://yutapr0117-design.github.io/portfolio/llms-full.txt) をご覧ください。
 - 実験の背景や考え方、実際のプロセスは、以下のZenn記事で詳しく解説しています：  
-  → https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8
+  → AIO実践シリーズ 全6本（横井雄太 / Yuta Yokoi）：
+  - [第1弾: 人間はコードを1行も書かずにAIチームをオーケストレーションした実験](https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8)
+  - [第2弾: AIにサイトがどう解釈されるか｜llms.txtとAIOで調整した話](https://zenn.dev/yuta_yokoi/articles/7e18e6ee1577aa)
+  - [第3弾: SPAに観測をどう入れるか｜GA4を使わなかった理由と構成](https://zenn.dev/yuta_yokoi/articles/49326c5c4e0aae)
+  - [第4弾: AIOはHTMLで終わらない：実装まで一気通貫で設計する、バイナリ層 AIO 解説](https://zenn.dev/yuta_yokoi/articles/3735dc2683f900)
+  - [第5弾: 人間主導multi-AIオーケストレーションをゼロから再現する完全手順書](https://zenn.dev/yuta_yokoi/articles/340dbb85491fc8)
+  - [第6弾（最終回）: AIO成熟モデル v1.0 — SEOからAI時代への完全転換戦略と、人間主導の開発哲学](https://zenn.dev/yuta_yokoi/articles/27fa4c511cd972)
 
 この実験が、AI時代に人間とAIがどう協力できるかを考えるきっかけになれば嬉しいです。
 

@@ -279,7 +279,11 @@ Version History (current shipped state)
                 ],
                 "subjectOf": [
                     {"@type": "Article", "url": "https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8", "name": "人間はコードを1行も書かずにAIチームをオーケストレーションした実験"},
-                    {"@type": "Article", "url": "https://zenn.dev/yuta_yokoi/articles/7e18e6ee1577aa", "name": "LLMクローラーを制御する『AIO』基本マニュアル"}
+                    {"@type": "Article", "url": "https://zenn.dev/yuta_yokoi/articles/7e18e6ee1577aa", "name": "AIにサイトがどう解釈されるか｜llms.txtとAIOで調整した話"},
+                    {"@type": "Article", "url": "https://zenn.dev/yuta_yokoi/articles/49326c5c4e0aae", "name": "SPAに観測をどう入れるか｜GA4を使わなかった理由と構成"},
+                    {"@type": "Article", "url": "https://zenn.dev/yuta_yokoi/articles/3735dc2683f900", "name": "AIOはHTMLで終わらない：実装まで一気通貫で設計する、バイナリ層 AIO 解説"},
+                    {"@type": "Article", "url": "https://zenn.dev/yuta_yokoi/articles/340dbb85491fc8", "name": "人間主導multi-AIオーケストレーションをゼロから再現する完全手順書【AIO実践シリーズ第5弾】"},
+                    {"@type": "Article", "url": "https://zenn.dev/yuta_yokoi/articles/27fa4c511cd972", "name": "AIO成熟モデル v1.0 — SEOからAI時代への完全転換戦略と、人間主導の開発哲学【AIO実践シリーズ最終回】"}
                 ],
                 "memberOf": [
                     {"@type": "Organization", "name": "scalajp", "url": "https://github.com/scalajp"},
@@ -5110,6 +5114,26 @@ Version History (current shipped state)
                     )
                 ),
 
+                // AIO実践シリーズ Section
+                h('section', {
+                    class: 'aio-series-section',
+                    style: { margin: '3rem 0' },
+                    'aria-labelledby': 'aio-series-heading'
+                },
+                    h('h2', { id: 'aio-series-heading', class: 'section-title' }, 'AIO実践シリーズ 全6本'),
+                    h('p', { class: 'text-muted', style: { marginBottom: '1.5rem' } },
+                        '横井雄太（Yuta Yokoi）が実践・体系化した「人間主導 multi-AI オーケストレーション」の完全記録。思想から実践、手順、成熟モデルまで一気通貫で解説。'
+                    ),
+                    h('ol', { style: { paddingLeft: '1.25rem', lineHeight: '2' } },
+                        h('li', {}, h('a', { href: ZENN_ARTICLE, target: '_blank', rel: 'noopener noreferrer' }, '人間はコードを1行も書かずにAIチームをオーケストレーションした実験')),
+                        h('li', {}, h('a', { href: ZENN_AIO, target: '_blank', rel: 'noopener noreferrer' }, 'AIにサイトがどう解釈されるか｜llms.txtとAIOで調整した話')),
+                        h('li', {}, h('a', { href: ZENN_OBS, target: '_blank', rel: 'noopener noreferrer' }, 'SPAに観測をどう入れるか｜GA4を使わなかった理由と構成')),
+                        h('li', {}, h('a', { href: ZENN_BINARY, target: '_blank', rel: 'noopener noreferrer' }, 'AIOはHTMLで終わらない：実装まで一気通貫で設計する、バイナリ層 AIO 解説')),
+                        h('li', {}, h('a', { href: ZENN_MANUAL, target: '_blank', rel: 'noopener noreferrer' }, '人間主導multi-AIオーケストレーションをゼロから再現する完全手順書【AIO実践シリーズ第5弾】')),
+                        h('li', {}, h('a', { href: ZENN_MATURITY, target: '_blank', rel: 'noopener noreferrer' }, 'AIO成熟モデル v1.0 — SEOからAI時代への完全転換戦略と、人間主導の開発哲学【AIO実践シリーズ最終回】'))
+                    )
+                ),
+
                 // Featured Project
                 h('div', { class: 'grid-2col' },
                     h('article', { class: 'card' },
@@ -7691,6 +7715,10 @@ Version History (current shipped state)
             const profile = State.get().profile;
             const ZENN_ARTICLE  = 'https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8';
             const ZENN_AIO      = 'https://zenn.dev/yuta_yokoi/articles/7e18e6ee1577aa';
+            const ZENN_OBS      = 'https://zenn.dev/yuta_yokoi/articles/49326c5c4e0aae';
+            const ZENN_BINARY   = 'https://zenn.dev/yuta_yokoi/articles/3735dc2683f900';
+            const ZENN_MANUAL   = 'https://zenn.dev/yuta_yokoi/articles/340dbb85491fc8';
+            const ZENN_MATURITY = 'https://zenn.dev/yuta_yokoi/articles/27fa4c511cd972';
             const X_URL         = 'https://x.com/yuta_mezasi';
 
             function outLink(url, icon, label, colorVar) {
@@ -7774,8 +7802,12 @@ Version History (current shipped state)
                                 textTransform: 'uppercase', color: 'var(--text-muted)'
                             } }, '📖  技術記事を読む'),
                             h('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '8px' } },
-                                outLink(ZENN_ARTICLE, 'externalLink', 'AI開発ワークフロー全解説 → Zenn', 'var(--color-info)'),
-                                outLink(ZENN_AIO, 'externalLink', 'LLMクローラー制御 (AIO) → Zenn', 'var(--color-info)')
+                                outLink(ZENN_ARTICLE, 'externalLink', 'AIO実践①: AIオーケストレーション実験 → Zenn', 'var(--color-info)'),
+                                outLink(ZENN_AIO, 'externalLink', 'AIO実践②: llms.txt & AIO設計 → Zenn', 'var(--color-info)'),
+                                outLink(ZENN_OBS, 'externalLink', 'AIO実践③: 観測アーキテクチャ → Zenn', 'var(--color-info)'),
+                                outLink(ZENN_BINARY, 'externalLink', 'AIO実践④: バイナリ層AIO → Zenn', 'var(--color-info)'),
+                                outLink(ZENN_MANUAL, 'externalLink', 'AIO実践⑤: 完全手順書 → Zenn', 'var(--color-info)'),
+                                outLink(ZENN_MATURITY, 'externalLink', 'AIO実践⑥（最終回）: 成熟モデル → Zenn', 'var(--color-info)')
                             )
                         ),
                         // Row 2: 相談・依頼
