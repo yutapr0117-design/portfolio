@@ -4953,8 +4953,7 @@ Version History (current shipped state)
                 el.textContent = message;
 
                 const closeBtn = h('button', {
-                    class: 'icon-btn',
-                    class: 'ml-auto',
+                    class: 'icon-btn ml-auto',
                     'aria-label': '通知を閉じる',
                     onclick: () => remove(el)
                 }, createIcon('x', 16));
@@ -5562,10 +5561,9 @@ Version History (current shipped state)
                                 ),
 
                                 h('p', {
-                                    class: 'hero-subheadline',
+                                    class: 'hero-subheadline text-lead',
                                     'data-ai-content': 'tagline',
-                                    'data-speakable': 'true',
-                                    class: 'text-lead'
+                                    'data-speakable': 'true'
                                 },
                                     'AIを開発リソースとして統合し、設計・制約・検証・公開までを一貫して統制'
                                 ),
@@ -5599,13 +5597,11 @@ Version History (current shipped state)
 
                                 h('div', { class: 'hero-cta-row' },
                                     h('button', {
-                                        class: 'btn btn-primary',
-                                        class: 'cta-primary',
+                                        class: 'btn btn-primary cta-primary',
                                         onclick: () => Router.navigate('role-split')
                                     }, 'View Case Study'),
                                     h('button', {
-                                        class: 'btn btn-secondary',
-                                        class: 'cta-secondary',
+                                        class: 'btn btn-secondary cta-secondary',
                                         onclick: () => Router.navigate('ai-knowhow')
                                     }, 'Explore Architecture')
                                 ),
@@ -5732,8 +5728,7 @@ Version History (current shipped state)
                         h('div', { class: 'card-body' },
                             h('h3', { class: 'h3 mb-3' }, '設計上の工夫'),
                             h('ul', {
-                                class: 'text-muted',
-                                class: 'list-indented'
+                                class: 'text-muted list-indented'
                             },
                                 h('li', {}, 'Importは検証＋正規化＋衝突モード'),
                                 h('li', {}, '整合性チェック→自動修復（重複/孤立/無効URL等）'),
@@ -5904,8 +5899,7 @@ Version History (current shipped state)
                     h('div', { class: 'grid grid-cols-2 gap-4' },
                         h('div', { class: 'relative' },
                             h('div', {
-                                class: 'absolute left-3 top-1/2 transform -translate-y-1/2',
-                                class: 'color-muted'
+                                class: 'absolute left-3 top-1/2 transform -translate-y-1/2 color-muted'
                             }, createIcon('search', 18)),
                             h('input', {
                                 type: 'text',
@@ -6034,8 +6028,7 @@ Version History (current shipped state)
                             )
                         ),
                         project.demoRoute ? h('section', {
-                            class: 'card',
-                            class: 'border-primary-faint'
+                            class: 'card border-primary-faint'
                         },
                             h('div', { class: 'card-body' },
                                 h('h3', { class: 'h3 mb-2' }, 'デモ'),
@@ -6072,8 +6065,7 @@ Version History (current shipped state)
                             ...project.outcome.metrics.map(m =>
                                 h('div', { class: 'text-center p-4' },
                                     h('div', {
-                                        class: 'h2 mb-1',
-                                        class: 'color-primary'
+                                        class: 'h2 mb-1 color-primary'
                                     }, m.value),
                                     h('div', { class: 'text-small text-muted' }, m.label)
                                 )
@@ -6248,15 +6240,13 @@ Version History (current shipped state)
                 const allTasks = getFilteredTasks();
 
                 const board = h('div', {
-                    class: 'grid grid-cols-3',
-                    class: 'col-min-400'
+                    class: 'grid grid-cols-3 col-min-400'
                 });
 
                 statuses.forEach(col => {
                     const tasks = allTasks.filter(t => t.status === col.id);
                     const column = h('section', {
-                        class: 'card',
-                        class: 'bg-secondary'
+                        class: 'card bg-secondary'
                     },
                         h('div', { class: 'card-header' },
                             h('div', { class: 'flex items-center justify-between' },
@@ -6267,8 +6257,7 @@ Version History (current shipped state)
                         h('div', { class: 'card-body flex flex-col gap-3' },
                             ...tasks.map(task =>
                                 h('article', {
-                                    class: 'card',
-                                    class: 'bg-surface'
+                                    class: 'card bg-surface'
                                 },
                                     h('div', { class: 'p-3' },
                                         h('div', { class: 'flex items-start justify-between gap-2 mb-2' },
@@ -6283,8 +6272,7 @@ Version History (current shipped state)
                                                 h('span', { class: 'font-medium text-small' }, task.title)
                                             ),
                                             h('button', {
-                                                class: 'icon-btn btn-sm',
-                                                class: 'icon-sm',
+                                                class: 'icon-btn btn-sm icon-sm',
                                                 onclick: () => deleteTask(task.id)
                                             }, createIcon('trash', 14))
                                         ),
@@ -6398,8 +6386,7 @@ Version History (current shipped state)
                         }),
                         h('div', { class: 'flex gap-2 mt-4' },
                             h('select', {
-                                class: 'input',
-                                class: 'w-auto',
+                                class: 'input w-auto',
                                 value: todoFilter,
                                 onchange: (e) => { todoFilter = e.target.value; window.render(); }
                             },
@@ -6573,8 +6560,7 @@ Version History (current shipped state)
                                 )
                             ),
                             h('div', {
-                                class: 'font-mono mb-6',
-                                class: 'text-stat'
+                                class: 'font-mono mb-6 text-stat'
                             }, formatTime(remaining)),
                             h('div', { class: 'flex justify-center gap-3' },
                                 h('button', {
@@ -6717,26 +6703,23 @@ Version History (current shipped state)
 
                     // Chat History
                     h('section', {
-                        class: 'card',
-                        class: 'scroll-y-400'
+                        class: 'card scroll-y-400'
                     },
                         h('div', { class: 'card-body flex flex-col gap-4' },
                             ai.history.length === 0 ?
                                 h('p', { class: 'text-muted text-center py-8' },
                                     '会話を始めましょう。タスク分解、設計支援、トラブルシューティングなどが可能です。'
                                 ) :
-                                ai.history.flatMap(h => [
+                                ai.history.flatMap(histItem => [
                                     h('div', { class: 'flex flex-col gap-1' },
                                         h('div', {
-                                            class: 'self-end p-3 rounded-lg',
-                                            class: 'chat-bubble-own'
-                                        }, h.prompt),
+                                            class: 'self-end p-3 rounded-lg chat-bubble-own'
+                                        }, histItem.prompt),
                                         h('div', {
-                                            class: 'self-start p-3 rounded-lg',
-                                            class: 'chat-bubble-other'
-                                        }, h.response),
+                                            class: 'self-start p-3 rounded-lg chat-bubble-other'
+                                        }, histItem.response),
                                         h('span', { class: 'text-xs text-muted self-start' },
-                                            new Date(h.timestamp).toLocaleTimeString()
+                                            new Date(histItem.timestamp).toLocaleTimeString()
                                         )
                                     )
                                 ])
@@ -7281,8 +7264,7 @@ Version History (current shipped state)
                         oninput: handleSearch
                     }),
                     h("div", {
-                        class: "absolute left-3 top-1/2 -translate-y-1/2 text-muted",
-                        class: 'pointer-events-none'
+                        class: "absolute left-3 top-1/2 -translate-y-1/2 text-muted pointer-events-none"
                     }, createIcon("search", 18))
                 )
             ));
@@ -7313,8 +7295,7 @@ Version History (current shipped state)
             // 0件時UI
             if (query && Object.keys(quizData).length === 0) {
                 box.appendChild(h("div", {
-                    class: "card",
-                    class: 'panel-empty',
+                    class: 'card panel-empty',
                     role: 'status',
                     'aria-live': 'polite'
                 }, '「' + query + '」に一致する問題は見つかりませんでした。'));
@@ -7630,8 +7611,7 @@ Version History (current shipped state)
 
                 // ══ 30秒要約（面接用スクリプト）══
                 h('section', {
-                    class: 'card',
-                    class: 'card--hero-accent'
+                    class: 'card card--hero-accent'
                 },
                     h('div', { class: 'card-body flex flex-col gap-3' },
                         h('div', { class: 'row-gap-10' },
@@ -7890,8 +7870,7 @@ Version History (current shipped state)
                                     h('div', { class: 'text-label' }, title),
                                     h('p', { class: 'text-muted', class: 'text-xs-body' }, desc),
                                     path ? h('button', {
-                                        class: 'btn btn-primary btn-sm',
-                                        class: 'self-start',
+                                        class: 'btn btn-primary btn-sm self-start',
                                         onclick: () => Router.navigate(path)
                                     }, label) : null
                                 )
@@ -8072,7 +8051,6 @@ Version History (current shipped state)
 
                 // ══ 費用感 ══
                 h('section', {
-                    class: 'card',
                     class: 'card card--accent-left', 'data-accent': 'warning'
                 },
                     h('div', { class: 'card-body flex flex-col gap-3' },
@@ -8099,7 +8077,6 @@ Version History (current shipped state)
 
                 // ══ 6エージェント役割 ══
                 h('section', {
-                    class: 'card',
                     class: 'card card--accent-left', 'data-accent': 'primary'
                 },
                     h('div', { class: 'card-body flex flex-col gap-3' },
@@ -8127,7 +8104,6 @@ Version History (current shipped state)
 
                 // ══ KERNELフレームワーク ══
                 h('section', {
-                    class: 'card',
                     class: 'card card--accent-left', 'data-accent': 'purple'
                 },
                     h('div', { class: 'card-body flex flex-col gap-2' },
@@ -8158,7 +8134,6 @@ Version History (current shipped state)
 
                 // ══ 標準チケットテンプレート ══
                 h('section', {
-                    class: 'card',
                     class: 'card card--accent-left', 'data-accent': 'info'
                 },
                     h('div', { class: 'card-body flex flex-col gap-3' },
@@ -8186,7 +8161,6 @@ Version History (current shipped state)
 
                 // ══ 5フェーズ概要 ══
                 h('section', {
-                    class: 'card',
                     class: 'card card--accent-left', 'data-accent': 'success'
                 },
                     h('div', { class: 'card-body flex flex-col gap-3' },
@@ -8224,7 +8198,6 @@ Version History (current shipped state)
 
                 // ══ ハンドオーバープロトコル ══
                 h('section', {
-                    class: 'card',
                     class: 'card card--accent-left', 'data-accent': 'warning'
                 },
                     h('div', { class: 'card-body flex flex-col gap-3' },
@@ -8249,7 +8222,6 @@ Version History (current shipped state)
 
                 // ══ 上級テクニック ══
                 h('section', {
-                    class: 'card',
                     class: 'card card--accent-left', 'data-accent': 'info'
                 },
                     h('div', { class: 'card-body flex flex-col gap-4' },
