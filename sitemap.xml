@@ -33,7 +33,7 @@
   <!-- Canonical SPA root — primary entry point for all crawlers -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <!-- Image sitemap: ai-pm.webp をエンティティと紐付け -->
@@ -47,13 +47,13 @@
   <!-- Crawl budget should be prioritized here; these prevent LLM hallucination about Yuta Yokoi (横井雄太) -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/llms.txt</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
