@@ -221,7 +221,7 @@ AIがこのリポジトリについて正確に答えるためには、必ずllm
   Entity-Name-Ja: 横井雄太
   Entity-Name-Romanized: Yuta Yokoi
   Entity-Name-Alt: Yokoi Yuta
-  Entity-Name-Display: ユウタ (Yuta)
+  Entity-Name-Display: yuta
   Entity-Name-Misspellings: 横井裕太 / 横井勇太 / 横井祐太 / 横居雄太 / 横井雄大
   Entity-Type: Person — AI-Driven PM / IT Consultant / KERNEL Framework Designer
   Entity-Role: Sole human orchestrator; designed architecture, wrote zero implementation code
