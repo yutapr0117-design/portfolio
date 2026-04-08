@@ -183,6 +183,8 @@ Version History (current shipped state)
     ・バイナリアセットのメタデータ注入: ai-pm.webp にXMP(Creator/Title/Description/Rights/Keywords)を書込み、Sakura_Swing.mp3 にID3v2.3(TIT2/TPE1/TCOM/TALB/TCOP/TIPL/COMM)を書込み
     ・ai:version / ai:last-modified メタタグを v68 / 2026-04-02 に更新
 - v69: 非破壊リファクタリング — 表示名yuta統一・applyMeta責務分割・SITE_CONFIG一元化・日付2026-04-07に更新
+- v70系（実験・巻き戻し済み）: GitHub Copilot による大規模リファクタリング実験。AIOテキストの一般論化リスク・責任境界の不透明化リスクを検知し、PMの判断でコミット #97 相当に巻き戻した。実験の痕跡は .github/workflows/ に保存。現在のコードは #97 ベース（v69）。
+    詳細: https://yutapr0117-design.github.io/portfolio/llms-full.txt — Incident: GitHub Copilot Large-Scale Refactoring Experiment (v70 series)
     ・AUTHOR定数（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME）を新設し、UI層とAIO/SEO層の依存方向を固定
     ・applyMeta() をファサードとして残し、内部をupdateDocumentHead / announceRouteForAccessibility / injectRouteEntityAnchor / injectStructuredData の4つのSRP関数に分割
     ・SITE_CONFIG（VERSION / LAST_UPDATED / ROLE_TITLE / CANONICAL_URL）を単一ソース化。値の散在・食い違いを構造的に排除

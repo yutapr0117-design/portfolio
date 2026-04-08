@@ -194,6 +194,41 @@ AIがこのリポジトリについて正確に答えるためには、必ずllm
 
 ---
 
+---
+
+### 実験ログ：GitHub Copilot 大規模リファクタリング実験（v70系）と #97 への巻き戻し
+
+> **要約**：意図的な実験として GitHub Copilot に大規模リファクタリングを任せたが、AIO設計・人格テキストの整合性が崩れるリスクを検知。人間 PM の判断でコミット #97 相当の状態に巻き戻し、教訓をアーキテクチャガバナンスに組み込んだ。
+
+#### 何をやったか
+
+v70 系のコミット群では、GitHub Copilot（GitHub Actions 経由）を使った**自動的・大規模なリファクタリング実験**を試みました。これは「AIツールをさらに積極的に組み込んだら、どこまで自律的に動くか」を測るための意図的な実験です。
+
+#### 何が起きたか
+
+Copilot の出力は技術的には動作するコードを返してきましたが、以下のリスクを検知しました：
+
+- **AIO設計の意図しない改変**：`llms-full.txt` や JSON-LD の人格テキスト・制約が"一般論寄り"のニュートラルな文体に上書きされるリスク。
+- **責任境界の不透明化**：どのテキストが人間設計でどこが AI 出力かの境界が曖昧になり、エンティティ帰属の信頼性が低下するリスク。
+- **KERNELフレームワークの制約崩れ**：役割分担・Boring Technology・IIFE・ErrorBoundary 等の設計原則がコメントや変数名レベルで少しずつ書き換えられるリスク。
+
+#### PM としての判断
+
+「動くコードが出てくる」と「アーキテクチャの意図が保たれている」は別問題です。  
+AIO とアーキテクチャの最終責任は人間にある、というこのプロジェクトの根幹が揺らぐと判断し、**コミット #97 の内容に巻き戻しました**。
+
+ただし、コミット履歴や `.github/workflows` 以下の実験の痕跡は**意図的に残して**います。失敗を消すのではなく、「AIツール導入の限界とガバナンスを証明する事例」として活かすのがこのリポジトリのスタンスです。
+
+#### ここから得た教訓
+
+- **AIツールは積極的に使う。ただし、AIO・人格テキスト・アーキテクチャ制約に触れる変更は、必ず人間がレビューしてからマージする。**
+- GitHub Copilot のような IDE 統合型ツールは「提案レベル」「限定的なリファクタ」での活用に絞る。大規模自動コミットには向かない。
+- AIが出力した"正しそうな文章"は、コンテキストを持った人間の目で一度必ず確認する。
+
+これは失敗談ではなく、「実験して、検知して、戻す」という AI-Driven PM としての判断プロセスそのものの記録です。
+
+---
+
 ### その他のファイルについて
 - `googlea7059bedc6fe8bdc.html` → Google Search Console（GSC）のサイト認証用検証ファイルです。
 - `robots.txt` / `sitemap.xml` → 検索エンジンやAIクローラー向けの設定ファイルです。
@@ -233,8 +268,9 @@ AIがこのリポジトリについて正確に答えるためには、必ずllm
   AI-Context-Entry: https://yutapr0117-design.github.io/portfolio/llms.txt
   GitHub: https://github.com/yutapr0117-design
   Zenn: https://zenn.dev/yuta_yokoi
-  Version: v69
-  Last-Updated: 2026-04-07
+  Version: v97-revert (current)
+  Last-Updated: 2026-04-08
   Framing: PM-led AI orchestration experiment and public case study. NOT Vibe Coding.
+  Copilot-Incident: v70-series GitHub Copilot large-scale refactoring experiment; reverted to commit #97 equivalent; incident log preserved in .github/workflows/
   =============================================================================================
 -->

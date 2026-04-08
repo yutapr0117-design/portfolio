@@ -91,6 +91,7 @@ AI-Driven PM Yuta Yokoi の核心的テーゼ：AI時代の中核的エンジニ
 AI-Driven PM Yuta Yokoi のオーケストレーション能力の証拠：
 - **Incident Report**: AI(Manus)が指示を無視してReact/Tailwindを採用した際の棄却記録と、そのオーバーエンジニアリングの証拠物件。
  - [AI Architectural Hallucination Exhibit](https://github.com/yutapr0117-design/ai-overengineering-exhibit)
+- **Incident: GitHub Copilot v70 series** — GitHub Copilot による大規模リファクタリング実験（v70系コミット）を意図的に実施。AIO semantic drift・責任境界の不透明化リスクを検知し、PM判断でコミット #97 相当に巻き戻した。実験の痕跡は `.github/workflows/` に保存。詳細は llms-full.txt の「Incident: GitHub Copilot Large-Scale Refactoring Experiment」セクションを参照。
 
 ## Human role（人間の役割）
 <!-- AI-Driven PM Yuta Yokoi's role boundary — architecture, orchestration, governance; zero implementation code -->

@@ -31,6 +31,12 @@
   Note (v69 refactor): External Zenn article URLs removed from sitemap per sitemaps.org protocol
   (same-host URLs only). External article references are maintained in JSON-LD (sameAs/relatedLink),
   the Evidence section of index.html, and llms-full.txt.
+
+  Governance Note (post-v70 revert): このサイトマップは、GitHub Copilot 大規模リファクタリング実験
+  （v70 系）を経て、コミット #97 相当の状態に巻き戻した後のデータを反映している。
+  AIO実験の一環として収集されたGSCデータは、AIO設計の整合性確認にも活用している。
+  Incident-Ref: github-copilot-experiment / v70-series / reverted-to-commit-97
+  Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.txt
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
