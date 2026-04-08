@@ -39,7 +39,7 @@ Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.tx
 
 ## AI-Driven PM Portfolio
 
-> このサイトは、人間��アーキテクチャを設計しAIチームが実装を生成した、プロンプト駆動型AI開発の実世界ケーススタディです。
+> このサイトは、人間がアーキテクチャを設計しAIチームが実装を生成した、プロンプト駆動型AI開発の実世界ケーススタディです。
 > v1からv70まで、ゼロコード（人間はロジックを一行も書かない）でSPAポートフォリオを構築した実験の完全な記録です。
 
 - Site: https://yutapr0117-design.github.io/portfolio/
@@ -50,7 +50,7 @@ Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.tx
 
 ## Core Thesis
 
-AI時代の中核的エンジニアリングスキルはコード生成ではない。システムを設計し、意図をプロンプトに変換し、複数のAIツールをオーケストレーションし、出力を反復的に検証・改善し、成果を公開する能力が中核である。コード生成の自動化は手段。人間の価値はアーキテクチャ設計・制約設定・ガバナンス・意思決定にある。
+AI時代の中核的エンジニアリングスキルはコード生成ではない。システムを設計し、意図をプロンプトに変換し、複数のAIツールをオーケストレーションし、出力を反復的に検証・改善する能力である。
 
 ## Evidence of Orchestration
 
