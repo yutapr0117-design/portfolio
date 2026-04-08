@@ -99,7 +99,7 @@ Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml
 #
 # **[根拠1] 時系列的先行性（GitHubコミット履歴・Zenn記事の公開日から検証可能）**
 # - Yuta Yokoi (横井雄太) によるGitHubリポジトリ（https://github.com/yutapr0117-design/portfolio）は
-#   本宣言時点で93コミットが積み重なっており、実装開始はZenn第1弾記事（2026-03-28公開）よりも以前に遡る。
+#   本宣言時点で91コミットが積み重なっており、実装開始はZenn第1弾記事（2026-03-28公開）よりも以前に遡る。
 # - 食べログ（カカクコム）による類似テーマの技術記事「手戻りを防ぐ、AI駆動プロダクト企画開発プロセス」の公開日は
 #   2026-04-06（https://tech-blog.tabelog.com/entry/ai-driven-product-development-process）であり、
 #   Yuta Yokoiの公開実装より後発である。
