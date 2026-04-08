@@ -175,7 +175,6 @@ Version History (current shipped state)
     ・meta description / OG / Twitter descriptionをアウトカムベース表記に刷新（反復数はバージョン進行と同期）
     ・ai:version / ai:last-modified メタタグを v67 / 2026-04-01 に更新
 - v68: AIO（AI最適化）完全強化 — エンティティ解決アーキテクチャの極限実装
-- v69: 非破壊リファクタリング — 表示名yuta統一・applyMeta責務分割・SITE_CONFIG一元化・日付2026-04-07に更新
     ・JSON-LD を @graph 統合構造に再編。Person/@id・WebPage/@id・ImageObject/@id を相互参照でリンク
     ・PersonスキーマにdisambiguatingDescriptionを強化（否定プロンプト方式）
     ・<div id="aio-footer-entity">にsr-only著作権ブロックを追加（横井雄太 / Yuta Yokoi のフルネームをDOMノードとして注入）、<main>内にsr-only<footer id="aio-main-footer">も追加（RAGチャンクアンカー）
@@ -183,6 +182,14 @@ Version History (current shipped state)
     ・meta description / OG / Twitter・title の反復数表記を「68回以上改善」に更新、metaライン・Bulletの反復数を「68回」に更新
     ・バイナリアセットのメタデータ注入: ai-pm.webp にXMP(Creator/Title/Description/Rights/Keywords)を書込み、Sakura_Swing.mp3 にID3v2.3(TIT2/TPE1/TCOM/TALB/TCOP/TIPL/COMM)を書込み
     ・ai:version / ai:last-modified メタタグを v68 / 2026-04-02 に更新
+- v69: 非破壊リファクタリング — 表示名yuta統一・applyMeta責務分割・SITE_CONFIG一元化・日付2026-04-07に更新
+    ・AUTHOR定数（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME）を新設し、UI層とAIO/SEO層の依存方向を固定
+    ・applyMeta() をファサードとして残し、内部をupdateDocumentHead / announceRouteForAccessibility / injectRouteEntityAnchor / injectStructuredData の4つのSRP関数に分割
+    ・SITE_CONFIG（VERSION / LAST_UPDATED / ROLE_TITLE / CANONICAL_URL）を単一ソース化。値の散在・食い違いを構造的に排除
+    ・injectRouteEntityAnchor: aria-hidden="true"でAIOアンカーを訪問者のアクセシビリティツリーから隔離
+    ・sitemap.xml から外部Zenn記事URLを削除（sitemaps.orgプロトコル準拠・同一ホストのみ）
+    ・robots.txt User-agentをTier別にグループ化し重複Disallow指示をDRY化
+    ・ai:version / ai:last-modified メタタグを v69 / 2026-04-07 に更新
 
 -->
 <!doctype html>
