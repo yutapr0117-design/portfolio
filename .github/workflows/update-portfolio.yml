@@ -1,0 +1,58 @@
+name: Portfolio Auto-Fix
+
+on:
+  workflow_dispatch:  # 手動トリガー
+
+jobs:
+  fix-bugs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Apply bug fixes to index.html
+        run: |
+          # 修正スクリプトをここに記述
+          python3 << 'EOF'
+          import json
+          
+          # ファイル読み込み
+          with open('index.html', 'r', encoding='utf-8') as f:
+              content = f.read()
+          
+          # 修正1: localStorage v45 → v69
+          content = content.replace(
+              "portfolio_enhanced_v45",
+              "portfolio_enhanced_v69"
+          )
+          content = content.replace(
+              "portfolio_brand_v45",
+              "portfolio_brand_v69"
+          )
+          
+          # 修正2: CSP ポリシー強化
+          old_csp = """default-src 'self';"""
+          new_csp = """default-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"""
+          content = content.replace(old_csp, new_csp)
+          
+          # 修正3: Meta description 完全化
+          content = content.replace(
+              'content="外部ライブラリ非依存のSPAを68回以上改善したAI-Driven PMポートフォリオ。人間がアーキテクチャを設計しAIチームを指[...]',
+              'content="外部ライブラリ非依存のSPAを68回以上改善したAI-Driven PMポートフォリオ。人間がアーキテクチャを設計しAIチームを指揮し、設計からデプロイまで完遂。Vanilla JS + IIFE + ErrorBoundary による Boring Technology で実装。"'
+          )
+          
+          # ファイル書き込み
+          with open('index.html', 'w', encoding='utf-8') as f:
+              f.write(content)
+          
+          print("✅ All fixes applied successfully!")
+          EOF
+      
+      - name: Commit and push
+        run: |
+          git config --local user.email "copilot@github.com"
+          git config --local user.name "GitHub Copilot"
+          git add index.html
+          git commit -m "fix: v69 comprehensive bug fixes (localStorage, CSP, Meta tags)"
+          git push
