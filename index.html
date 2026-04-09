@@ -2416,6 +2416,57 @@ Version History (current shipped state)
             color: var(--text-secondary);
             line-height: 1.6;
         }
+
+        /* ===== 未定義クラス補完（既存デザインシステム準拠） ===== */
+
+        /* badge-gray: badge-secondaryと同体系でグレー配色 */
+        .badge-gray {
+            background: var(--bg-tertiary);
+            color: var(--text-tertiary);
+            border-color: var(--border-color);
+        }
+
+        /* badge-green: badge-successと同体系 */
+        .badge-green {
+            background: rgba(var(--color-success-rgb), 0.1);
+            color: var(--color-success);
+            border-color: rgba(var(--color-success-rgb), 0.2);
+        }
+
+        /* divider: サイドバー区切り線 */
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: var(--space-2) 0;
+        }
+
+        /* mini: フォームラベル用小文字テキスト（text-xsと同系） */
+        .mini {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-tertiary);
+        }
+
+        /* mb-3: mb-2(0.5rem)とmb-4(1rem)の中間 */
+        .mb-3 { margin-bottom: var(--space-3); }
+
+        /* gap-0: gapを0にリセット */
+        .gap-0 { gap: 0; }
+
+        /* font-medium: font-weight 500（既存体系の中間値） */
+        .font-medium { font-weight: 500; }
+
+        /* mt-auto: 上余白autoで下寄せ */
+        .mt-auto { margin-top: auto; }
+
+        /* pl-10: 検索アイコン(left-3=0.75rem + icon=1rem)分の左パディング */
+        .pl-10 { padding-left: 2.5rem; }
+
+        /* text-small: text-xsと同系の小テキスト */
+        .text-small {
+            font-size: 0.75rem;
+            line-height: 1.5;
+        }
     </style>
 
     <base target="_blank">
