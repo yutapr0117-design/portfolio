@@ -7036,7 +7036,7 @@ Version History (current shipped state)
                             h('div', { class: 'card-body flex flex-col gap-3' },
                                 h('h2', { class: 'h3' }, '並び替え（Projects）'),
                                 h('div', { class: 'text-muted text-sm' }, '上下ボタンで表示順を調整できます。'),
-                                h('div', { class: 'flex flex-col gap-2', class: 'scroll-container-sm' },
+                                h('div', { class: 'flex flex-col gap-2 scroll-container-sm' },
                                     ...state.projects.map((p, idx) =>
                                         h('div', { class: 'flex items-center justify-between gap-2' },
                                             h('div', { class: 'flex items-center gap-2' },
@@ -7084,7 +7084,7 @@ Version History (current shipped state)
                                     const hiddenCount = state.projects.length - visibleCount;
                                     return h('div', { class: 'text-muted text-sm' }, `表示: ${visibleCount} / 非表示: ${hiddenCount} / 総数: ${state.projects.length}`);
                                 })(),
-                                h('div', { class: 'flex flex-col gap-2', class: 'scroll-container-md' },
+                                h('div', { class: 'flex flex-col gap-2 scroll-container-md' },
                                     ...state.projects.map(p => {
                                         const hidden = new Set(((state.projectPrefs && state.projectPrefs.hiddenIds) || []).map(String));
                                         const isHidden = hidden.has(String(p.id));
@@ -7143,7 +7143,7 @@ Version History (current shipped state)
                     h('div', { class: 'card-body' },
                         h('h2', { class: 'h4 mb-4 color-primary' }, '実務能力の再定義'),
                         h('p', { class: 'mb-4' }, '本ポートフォリオでは、その前提を実務として実証しています。'),
-                        h('ul', { class: 'text-muted', class: 'list-body' },
+                        h('ul', { class: 'text-muted list-body' },
                             h('li', {}, '人間はコードを1行も書かず、AIをチームとして編成'),
                             h('li', {}, '複数AIの役割分担と出力統制を設計'),
                             h('li', {}, '制約条件を定義し、逸脱（例：フレームワーク化）を検知・差し戻し'),
@@ -7161,7 +7161,7 @@ Version History (current shipped state)
                     h('div', { class: 'card-body' },
                         h('h2', { class: 'h4 mb-4 color-primary' }, '価値の明確化'),
                         h('p', { class: 'mb-4' }, 'AIは高速に実装できますが、同時に容易に破綻します。そのため、これからの開発において重要なのは実装力ではなく、以下の能力です。'),
-                        h('ul', { class: 'text-muted', class: 'list-body' },
+                        h('ul', { class: 'text-muted list-body' },
                             h('li', {}, '何を作るかを定義する力'),
                             h('li', {}, '制約を設計する力'),
                             h('li', {}, '出力の妥当性を判断する力'),
@@ -7191,7 +7191,7 @@ Version History (current shipped state)
                 h('section', { class: 'card' },
                     h('div', { class: 'card-body' },
                         h('h3', { class: 'h3 mb-4', 'data-ai-content': 'lead' }, State.get().profile.title),
-                        h('ul', { class: 'text-muted', class: 'list-body-tight', 'data-ai-content': 'body' },
+                        h('ul', { class: 'text-muted list-body-tight', 'data-ai-content': 'body' },
                             h('li', {}, 'ProjectsをCase Study形式で整理'),
                             h('li', {}, '内蔵Apps（Task/Todo/Pomodoro/AI）を作品として掲載'),
                             h('li', {}, '整合性チェック/自動修復＋スナップショットで運用事故率を低減'),
@@ -7515,7 +7515,7 @@ Version History (current shipped state)
                 h('div', { class: 'text-label' }, riskLabel),
                 h('div', { class: 'flex-1-col' },
                     h('div', { class: 'text-sm-body' }, bizImpact),
-                    metric ? h('div', { class: 'text-muted', class: 'text-xs-body' }, '📊 ' + metric) : null
+                    metric ? h('div', { class: 'text-muted text-xs-body' }, '📊 ' + metric) : null
                 )
             );
         }
@@ -7547,15 +7547,15 @@ Version History (current shipped state)
             },
                 h('div', { class: 'text-label' }, title),
                 h('div', { class: 'text-xs-body' },
-                    h('div', { class: 'text-muted', class: 'text-micro-label' }, '兆候'),
+                    h('div', { class: 'text-muted text-micro-label' }, '兆候'),
                     signal
                 ),
                 h('div', { class: 'text-xs-body' },
-                    h('div', { class: 'text-muted', class: 'text-micro-label' }, '打ち手'),
+                    h('div', { class: 'text-muted text-micro-label' }, '打ち手'),
                     h('span', { class: 'text-success-bold' }, action)
                 ),
                 h('div', { class: 'text-xs-body' },
-                    h('div', { class: 'text-muted', class: 'text-micro-label' }, '合意先'),
+                    h('div', { class: 'text-muted text-micro-label' }, '合意先'),
                     h('span', { class: 'color-info' }, agreement)
                 )
             );
@@ -7565,7 +7565,7 @@ Version History (current shipped state)
         function riskCard(title, risk, mitigation, impact) {
             return h('div', { class: 'card card--p-flex' },
                 h('h4', { class: 'text-subhead' }, title),
-                h('p', { class: 'text-muted', class: 'text-xs-body' }, '想定リスク: ' + risk),
+                h('p', { class: 'text-muted text-xs-body' }, '想定リスク: ' + risk),
                 h('p', { class: 'text-xs-body' }, '低減構造: ' + mitigation),
                 impact ? h('p', {
                     style: {
@@ -7603,14 +7603,14 @@ Version History (current shipped state)
 
                 // ══ ヘッダー ══
                 h('header', { class: 'flex flex-col gap-2', 'data-ai-section': 'hiring-risk' },
-                    h('h1', { class: 'h1', class: 'row-gap-12', 'data-ai-content': 'lead' },
+                    h('h1', { class: 'h1 row-gap-12', 'data-ai-content': 'lead' },
                         createIcon('shield', 30), '採用リスク低減'
                     ),
                     h('p', { class: 'text-muted', 'data-ai-content': 'lead' },
                         '思想提示ではなく、採用側が負うリスクを構造的に低減する仕組みを明示します。' +
                         '経営層・採用担当・技術責任者のいずれの視点からも評価できる構造で構成しています。'
                     ),
-                    h('div', { class: 'flex flex-wrap gap-2', class: 'row-mt-4' },
+                    h('div', { class: 'flex flex-wrap gap-2 row-mt-4' },
                         h('span', { class: 'badge badge-secondary' }, '📣 30秒要約'),
                         h('span', { class: 'badge badge-secondary' }, '📋 Executive Summary'),
                         h('span', { class: 'badge badge-secondary' }, '📊 KPI / 観測→打ち手→合意'),
@@ -7663,7 +7663,7 @@ Version History (current shipped state)
                             '私を採用することで低減できるリスクを、経営インパクトと観測指標まで落とし込みました。' +
                             '以下の4点が、採用投資リターンを構造的に保全します。'
                         ),
-                        h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-3', class: 'row-mt-4' },
+                        h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-3 row-mt-4' },
                             ...[
                                 ['🚫 重大インシデント確率低減', '不可逆ラインの固定と判断ログの常時レビュー可能化'],
                                 ['👤 人材損耗リスク最小化', '「スコープを削り、人を削らない」原則による採用投資の保全'],
@@ -7677,7 +7677,7 @@ Version History (current shipped state)
                                     }
                                 },
                                     h('div', { class: 'text-label' }, item),
-                                    h('div', { class: 'text-muted', class: 'text-xs-body' }, detail)
+                                    h('div', { class: 'text-muted text-xs-body' }, detail)
                                 )
                             )
                         )
@@ -7788,10 +7788,10 @@ Version History (current shipped state)
                 h('section', { class: 'card card--accent-left', 'data-accent': 'info' },
                     h('div', { class: 'card-body flex flex-col gap-3' },
                         layerBadge(3, '意思決定アルゴリズム — モード切替型', C.info),
-                        h('p', { class: 'text-muted', class: 'text-sm-body' },
+                        h('p', { class: 'text-muted text-sm-body' },
                             '状況に応じて意思決定モードを切り替えます。どのモードでも「不可逆ライン」は変わりません。'
                         ),
-                        h('div', { class: 'grid grid-cols-1 md:grid-cols-3 gap-3', class: 'row-mt-4' },
+                        h('div', { class: 'grid grid-cols-1 md:grid-cols-3 gap-3 row-mt-4' },
                             ...[
                                 ['🟢 理想モード', '最適解探索・品質最大化', '時間余裕あり / 技術的負債解消期 / 新規設計フェーズ'],
                                 ['🟡 通常モード', 'スコープ管理・契約遵守', '通常スプリント / リリース前 / 品質と速度のバランス'],
@@ -7805,7 +7805,7 @@ Version History (current shipped state)
                                 },
                                     h('div', { class: 'text-subhead' }, mode),
                                     h('div', { class: 'text-sm-bold' }, action),
-                                    h('div', { class: 'text-muted', class: 'text-xs-body' }, when)
+                                    h('div', { class: 'text-muted text-xs-body' }, when)
                                 )
                             )
                         ),
@@ -7846,7 +7846,7 @@ Version History (current shipped state)
                 h('section', { class: 'card card--accent-left', 'data-accent': 'info' },
                     h('div', { class: 'card-body flex flex-col gap-4' },
                         h('h2', { class: 'h3' }, '🔗 証拠'),
-                        h('p', { class: 'text-muted', class: 'text-sm-body' },
+                        h('p', { class: 'text-muted text-sm-body' },
                             '主張はすべてこのSPA内の実物で検証可能です。面接時に開きながら説明できます。'
                         ),
                         h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-3' },
@@ -7877,7 +7877,7 @@ Version History (current shipped state)
                                     }
                                 },
                                     h('div', { class: 'text-label' }, title),
-                                    h('p', { class: 'text-muted', class: 'text-xs-body' }, desc),
+                                    h('p', { class: 'text-muted text-xs-body' }, desc),
                                     path ? h('button', {
                                         class: 'btn btn-primary btn-sm self-start',
                                         onclick: () => Router.navigate(path)
@@ -7892,7 +7892,7 @@ Version History (current shipped state)
                 h('section', { class: 'card card--accent-top', 'data-accent': 'primary' },
                     h('div', { class: 'card-body flex flex-col gap-3' },
                         h('h2', { class: 'h3' }, '🤝 採用側への約束'),
-                        h('p', { class: 'text-muted', class: 'text-sm-body' },
+                        h('p', { class: 'text-muted text-sm-body' },
                             '「任せても事故らない人」であることを、思想・構造・証拠の3つで担保します。'
                         ),
                         h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-2' },
@@ -7911,7 +7911,7 @@ Version History (current shipped state)
                                     }
                                 },
                                     h('div', { class: 'text-sm-bold' }, '✓ ' + promise),
-                                    h('p', { class: 'text-muted', class: 'text-xs-body' }, reason)
+                                    h('p', { class: 'text-muted text-xs-body' }, reason)
                                 )
                             )
                         )
@@ -8044,13 +8044,13 @@ Version History (current shipped state)
 
                 // ══ ヘッダー ══
                 h('header', { class: 'flex flex-col gap-2', 'data-ai-section': 'ai-knowhow' },
-                    h('h1', { class: 'h1', class: 'row-gap-12', 'data-ai-content': 'lead' },
+                    h('h1', { class: 'h1 row-gap-12', 'data-ai-content': 'lead' },
                         createIcon('lightbulb', 28), 'AI開発ノウハウ'
                     ),
                     h('p', { class: 'text-muted', 'data-ai-content': 'lead' },
                         '6種のAIエージェントを役割分担させ、55枚のチケット（プロンプト）のみでv54 SPAを構築した再現可能な手法のエッセンスです。'
                     ),
-                    h('div', { class: 'flex flex-wrap gap-2', class: 'row-mt-4' },
+                    h('div', { class: 'flex flex-wrap gap-2 row-mt-4' },
                         h('span', { class: 'badge badge-secondary' }, '🤖 6エージェント構成'),
                         h('span', { class: 'badge badge-secondary' }, '🎫 55チケット'),
                         h('span', { class: 'badge badge-secondary' }, '💰 課金2名のみ'),
