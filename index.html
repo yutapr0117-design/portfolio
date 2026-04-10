@@ -183,8 +183,6 @@ Version History (current shipped state)
     ・バイナリアセットのメタデータ注入: ai-pm.webp にXMP(Creator/Title/Description/Rights/Keywords)を書込み、Sakura_Swing.mp3 にID3v2.3(TIT2/TPE1/TCOM/TALB/TCOP/TIPL/COMM)を書込み
     ・ai:version / ai:last-modified メタタグを v68 / 2026-04-02 に更新
 - v69: 非破壊リファクタリング — 表示名yuta統一・applyMeta責務分割・SITE_CONFIG一元化・日付2026-04-07に更新
-- v70系（実験・巻き戻し済み）: GitHub Copilot による大規模リファクタリング実験。AIOテキストの一般論化リスク・責任境界の不透明化リスクを検知し、PMの判断でコミット #97 相当に巻き戻した。実験の痕跡は .github/workflows/ に保存。現在のコードは #97 ベース（v69）。
-    詳細: https://yutapr0117-design.github.io/portfolio/llms-full.txt — Incident: GitHub Copilot Large-Scale Refactoring Experiment (v70 series)
     ・AUTHOR定数（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME）を新設し、UI層とAIO/SEO層の依存方向を固定
     ・applyMeta() をファサードとして残し、内部をupdateDocumentHead / announceRouteForAccessibility / injectRouteEntityAnchor / injectStructuredData の4つのSRP関数に分割
     ・SITE_CONFIG（VERSION / LAST_UPDATED / ROLE_TITLE / CANONICAL_URL）を単一ソース化。値の散在・食い違いを構造的に排除
@@ -192,6 +190,8 @@ Version History (current shipped state)
     ・sitemap.xml から外部Zenn記事URLを削除（sitemaps.orgプロトコル準拠・同一ホストのみ）
     ・robots.txt User-agentをTier別にグループ化し重複Disallow指示をDRY化
     ・ai:version / ai:last-modified メタタグを v69 / 2026-04-07 に更新
+- v70系（実験・巻き戻し済み）: GitHub Copilot による大規模リファクタリング実験。AIOテキストの一般論化リスク・責任境界の不透明化リスクを検知し、PMの判断でコミット #97 相当に巻き戻した。実験の痕跡は .github/workflows/ に保存。現在のコードは #97 ベース（v69）。
+    詳細: https://yutapr0117-design.github.io/portfolio/llms-full.txt — Incident: GitHub Copilot Large-Scale Refactoring Experiment (v70 series)
 
 -->
 <!doctype html>
@@ -434,13 +434,21 @@ Version History (current shipped state)
 
     <!-- Speculation Rules API: ナビゲーションの即時化 (Instant Navigation) -->
     <!-- ハッシュルーティングの遷移をブラウザが事前描画しレイテンシを排除する -->
+    <!-- 対象を副作用ゼロの静的表示ルートに限定。計測タグ（KARTE）・状態更新を伴うルートは除外。 -->
+    <!-- 除外: apps/* / quiz/* / settings — prerender中の計測送信・状態変更を防ぐ -->
     <script type="speculationrules">
     {
         "prerender": [
             {
-                "where": {
-                    "href_matches": "/*"
-                },
+                "urls": [
+                    "https://yutapr0117-design.github.io/portfolio/",
+                    "https://yutapr0117-design.github.io/portfolio/#/about",
+                    "https://yutapr0117-design.github.io/portfolio/#/resume",
+                    "https://yutapr0117-design.github.io/portfolio/#/projects",
+                    "https://yutapr0117-design.github.io/portfolio/#/ai-knowhow",
+                    "https://yutapr0117-design.github.io/portfolio/#/role-split",
+                    "https://yutapr0117-design.github.io/portfolio/#/contact"
+                ],
                 "eagerness": "moderate"
             }
         ]
@@ -1188,6 +1196,22 @@ Version History (current shipped state)
             color: var(--text-muted);
             font-weight: 800;
         }
+
+        /* NAV_GROUPS: Lab セクション折りたたみ制御 */
+        .nav-group-toggle {
+            display: flex; align-items: center; justify-content: space-between;
+            margin: var(--space-8) var(--space-3) var(--space-3);
+            cursor: pointer; user-select: none;
+            background: none; border: none; padding: 0; width: 100%; text-align: left;
+        }
+        .nav-group-toggle .nav-title { margin: 0; }
+        .nav-group-toggle .nav-group-chevron {
+            font-size: 0.65rem; color: var(--text-muted);
+            transition: transform var(--transition-fast);
+        }
+        .nav-group-toggle[aria-expanded="false"] .nav-group-chevron { transform: rotate(-90deg); }
+        .nav-group-body { overflow: hidden; transition: max-height 0.25s ease; }
+        .nav-group-body[data-collapsed="true"] { max-height: 0 !important; }
 
         .nav-link {
             display: flex;
@@ -2023,6 +2047,67 @@ Version History (current shipped state)
 
         /* ===== v69: Utility Classes — inline style を撤去するための共通クラス群 ===== */
         /* これらを使うことで JS 側の style: {} オブジェクトを class 属性に置き換えられる */
+
+        /* ── インラインstyle撤去用ユーティリティ（v69リファクタ） ── */
+        .text-body-sm { font-size: 0.875rem; line-height: 1.75; color: var(--text-secondary); }
+        .text-detail { font-size: 0.8125rem; line-height: 1.7; color: var(--text-secondary); }
+        .text-detail-muted { font-size: 0.8125rem; color: var(--text-muted); }
+        .text-detail-muted-relaxed { font-size: 0.8125rem; line-height: 1.6; color: var(--text-muted); }
+        .text-label-xs-push { font-size: 0.75rem; color: var(--text-muted); margin-left: auto; }
+        .text-body-relaxed { font-size: 0.9375rem; line-height: 1.75; color: var(--text-secondary); }
+        .text-info-label { font-weight: 700; font-size: 0.8125rem; color: var(--color-info); }
+        .text-bullet-human { font-weight: 700; flex-shrink: 0; }
+        .text-bullet-ai { font-weight: 700; flex-shrink: 0; }
+        .mb-1 { margin-bottom: 4px; }
+        .mb-2 { margin-bottom: 8px; }
+        .gap-col-sm { display: flex; flex-direction: column; gap: 6px; }
+        .gap-col-md { display: flex; flex-direction: column; gap: 14px; }
+        .gap-row-sm { display: flex; gap: 2px; }
+        .gap-wrap-sm { display: flex; flex-wrap: wrap; gap: 8px; }
+        .gap-row-10 { display: flex; align-items: center; gap: 10px; }
+        .card--gradient-primary { padding: 1.5rem 2rem; background: linear-gradient(135deg, rgba(var(--color-primary-rgb),0.06) 0%, rgba(var(--color-primary-rgb),0.02) 100%); border-color: rgba(var(--color-primary-rgb),0.2); }
+        .row-border-bottom { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+        .grid-role-split-4col { display: grid; grid-template-columns: minmax(100px,140px) 1fr 1fr 1fr; gap: 8px 16px; padding: 10px 0; border-bottom: 1px solid var(--border-color); align-items: start; }
+        .grid-role-split-4col-header { display: grid; grid-template-columns: minmax(100px,140px) 1fr 1fr 1fr; gap: 0 16px; padding: 6px 0 10px; border-bottom: 2px solid var(--border-color); margin-bottom: 2px; }
+        .cell-success-note { font-size: 0.8125rem; color: var(--color-success); font-weight: 600; border-top: 1px solid var(--border-color); padding-top: 6px; margin-top: 2px; }
+        .badge-layer { color: #fff; border-radius: var(--radius-full); padding: 2px 12px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; }
+        .badge-layer--lg { color: #fff; border-radius: var(--radius-full); padding: 2px 14px; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.06em; }
+        .badge-phase { color: #fff; border-radius: var(--radius-full); padding: 1px 10px; font-size: 0.7rem; font-weight: 800; }
+        .badge-agent { font-size: 0.7rem; padding: 1px 8px; border-radius: var(--radius-full); background: rgba(var(--color-primary-rgb),0.1); color: var(--color-primary); font-weight: 600; }
+        .badge-contact-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+        .badge-contact-section { display: inline-block; border-radius: var(--radius-full); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; }
+        .badge-tool-tier--paid { font-size: 0.8rem; padding: 3px 12px; border-radius: var(--radius-full); font-weight: 600; background: rgba(217,119,6,0.12); color: var(--color-warning); }
+        .badge-tool-tier--free { font-size: 0.8rem; padding: 3px 12px; border-radius: var(--radius-full); font-weight: 600; background: rgba(22,163,74,0.12); color: var(--color-success); }
+        .free-paid-badge { font-size: 0.7rem; font-weight: 700; padding: 2px 10px; border-radius: var(--radius-full); white-space: nowrap; }
+        .block-bg-tertiary-sm { display: flex; flex-direction: column; gap: 3px; padding: 10px 12px; background: var(--bg-tertiary); border-radius: var(--radius); }
+        .block-bg-tertiary-md { display: flex; flex-direction: column; gap: 6px; padding: 12px; background: var(--bg-tertiary); border-radius: var(--radius); }
+        .block-bg-tertiary-md-8 { display: flex; flex-direction: column; gap: 8px; padding: 12px; background: var(--bg-tertiary); border-radius: var(--radius); }
+        .block-bg-tertiary-pad14 { padding: 10px 12px; background: var(--bg-tertiary); border-radius: var(--radius); margin-bottom: 6px; display: grid; grid-template-columns: 7rem 1fr auto; gap: 8px 12px; align-items: start; }
+        .block-blockquote-mono { background: var(--bg-tertiary); border-radius: var(--radius); padding: 12px 14px; font-size: 0.8125rem; line-height: 1.8; color: var(--text-secondary); font-family: var(--font-mono); }
+        .block-phase-card { border-radius: 0 var(--radius) var(--radius) 0; display: flex; flex-direction: column; gap: 6px; }
+        .block-section-item { padding: 10px 12px; background: var(--bg-tertiary); border-radius: var(--radius); display: flex; flex-direction: column; gap: 4px; }
+        .cell-category { padding: 12px 10px; font-weight: 700; font-size: 0.8125rem; color: var(--text-secondary); border-right: 1px solid var(--border-color); display: flex; align-items: center; }
+        .cell-human { padding: 10px 14px; border-right: 1px solid var(--border-color); background: rgba(37,99,235,0.04); }
+        .cell-ai { padding: 10px 14px; background: rgba(124,58,237,0.04); }
+        .cell-bullet-row { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 5px; font-size: 0.8125rem; line-height: 1.6; }
+        .cell-header-label { padding: 10px; font-size: 0.72rem; font-weight: 800; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; border-right: 1px solid var(--border-color); }
+        .cell-header-col { padding: 10px 14px; display: flex; align-items: center; gap: 8px; border-right: 1px solid var(--border-color); }
+        .cell-header-col-last { padding: 10px 14px; display: flex; align-items: center; gap: 8px; }
+        .dot-color-indicator { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+        .table-header-row { display: grid; grid-template-columns: 7rem 1fr 1fr; gap: 0; border-bottom: 2px solid var(--border-color); background: var(--bg-tertiary); border-radius: var(--radius) var(--radius) 0 0; }
+        .table-data-row { display: grid; grid-template-columns: 7rem 1fr 1fr; gap: 0; border-bottom: 1px solid var(--border-color); }
+        .grid-info-row { display: grid; grid-template-columns: 9rem 1fr; gap: 6px 10px; padding: 6px 0; border-bottom: 1px solid var(--border-color); }
+        .row-gap-8-nm { display: flex; align-items: center; gap: 8px; margin-bottom: 0; }
+        .gap-wrap-mt4 { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+        .row-gap-8-border { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border-color); }
+        .step-num-badge { flex-shrink: 0; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; background: var(--color-primary); color: #fff; border-radius: var(--radius-sm); font-weight: 800; font-size: 0.9rem; }
+        .cta-pill { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: var(--radius-full); font-weight: 700; font-size: 0.875rem; }
+        .card--contact { background: linear-gradient(135deg, rgba(var(--color-primary-rgb),0.06) 0%, rgba(var(--color-primary-rgb),0.02) 100%); border-top: 3px solid var(--color-primary); border-radius: var(--radius-md); }
+        .contact-section-badge { background: var(--color-primary); color: #fff; border-radius: var(--radius-full); padding: 2px 14px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; }
+        .card--incident { margin-top: 20px; padding: 16px; background: rgba(239,68,68,0.05); border: 1px dashed var(--color-warning); border-radius: var(--radius); display: flex; flex-direction: column; gap: 8px; }
+        .btn-incident { align-self: flex-start; margin-top: 4px; background: var(--color-warning); color: #fff; border: none; font-weight: 700; }
+        .wrap-with-border-top { border-top: 1px solid var(--border-color); padding-top: 12px; margin-top: 4px; display: flex; flex-wrap: wrap; gap: 8px; }
+        .row-gap-4-items-start { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
 
         /* Typography utilities */
         .text-lead {
@@ -5472,65 +5557,83 @@ Version History (current shipped state)
 
 
         // ===== Component: Sidebar =====
+        // ===== Component: Sidebar =====
+        // NAV_GROUPS: Primary（採用・評価者向け）/ Secondary（深掘り用）/ Lab（初期折りたたみ）
         function Sidebar(isDrawer = false) {
             const state = State.get();
             const route = Router.getRoute();
 
-            const navItems = [
-                { icon: 'home', label: 'ホーム', path: '', active: route.name === 'home' },
-                { icon: 'briefcase', label: 'プロジェクト', path: 'projects', active: route.name.startsWith('project') },
-                { icon: 'apps', label: 'アプリ', path: 'apps', active: route.name === 'apps' },
+            const primaryItems = [
+                { icon: 'home',      label: 'ホーム',             path: '',           active: route.name === 'home' },
+                { icon: 'users',     label: 'Human vs AI 分担表', path: 'role-split', active: route.name === 'role-split' },
+                { icon: 'lightbulb', label: 'AI開発ノウハウ',     path: 'ai-knowhow', active: route.name === 'ai-knowhow' },
+                { icon: 'user',      label: 'About',              path: 'about',      active: route.name === 'about' },
+                { icon: 'briefcase', label: 'Resume',             path: 'resume',     active: route.name === 'resume' },
+                { icon: 'mail',      label: 'Contact',            path: 'contact',    active: route.name === 'contact' },
+            ];
+            const secondaryItems = [
+                { icon: 'briefcase', label: 'プロジェクト', path: 'projects',    active: route.name.startsWith('project') },
+                { icon: 'shield',    label: 'Hiring Risk',  path: 'hiring-risk', active: route.name === 'hiring-risk' },
+            ];
+            const labItems = [
+                { icon: 'apps',        label: 'アプリ一覧',    path: 'apps',               active: route.name === 'apps' },
+                { icon: 'checkSquare', label: 'タスク管理',    path: 'apps/task',          active: route.name === 'app-task' },
+                { icon: 'list',        label: 'クイックTODO',  path: 'apps/todo',          active: route.name === 'app-todo' },
+                { icon: 'clock',       label: 'ポモドーロ',    path: 'apps/pomodoro',      active: route.name === 'app-pomodoro' },
+                { icon: 'brain',       label: 'AI アシスト',   path: 'apps/ai',            active: route.name === 'app-ai' },
+                { icon: 'cloud',       label: 'AWS 問題集',    path: 'quiz?type=aws',      active: route.name === 'quiz' && (!route.query.type || route.query.type === 'aws') },
+                { icon: 'clipboard',   label: 'PM 問題集',     path: 'quiz?type=pm',       active: route.name === 'quiz' && route.query.type === 'pm' },
+                { icon: 'award',       label: '品質・プロセス', path: 'quiz?type=quality', active: route.name === 'quiz' && route.query.type === 'quality' },
+                { icon: 'zap',         label: '設計判断問題集', path: 'quiz?type=architecture', active: route.name === 'quiz' && route.query.type === 'architecture' },
+                { icon: 'settings',    label: '設定・データ',   path: 'settings',           active: route.name === 'settings' },
             ];
 
-            const appItems = [
-                { icon: 'checkSquare', label: 'タスク管理', path: 'apps/task', active: route.name === 'app-task' },
-                { icon: 'list', label: 'クイックTODO', path: 'apps/todo', active: route.name === 'app-todo' },
-                { icon: 'clock', label: 'ポモドーロ', path: 'apps/pomodoro', active: route.name === 'app-pomodoro' },
-                { icon: 'brain', label: 'AI アシスト', path: 'apps/ai', active: route.name === 'app-ai' },
-            ];
+            const isLabRoute = labItems.some(item => item.active);
+            const labKey = 'portfolio_nav_lab_open_v69';
+            function isLabOpen() {
+                if (isLabRoute) return true;
+                try { return localStorage.getItem(labKey) === 'true'; } catch { return false; }
+            }
+            function toggleLab(btn, body) {
+                const open = btn.getAttribute('aria-expanded') === 'true';
+                const next = !open;
+                btn.setAttribute('aria-expanded', String(next));
+                body.setAttribute('data-collapsed', String(!next));
+                body.style.maxHeight = next ? body.scrollHeight + 'px' : '0';
+                try { localStorage.setItem(labKey, String(next)); } catch { /* ignore */ }
+            }
 
-            const infoItems = [
-                { icon: 'user', label: 'About', path: 'about', active: route.name === 'about' },
-                { icon: 'briefcase', label: 'Resume', path: 'resume', active: route.name === 'resume' },
-                { icon: 'mail', label: 'Contact', path: 'contact', active: route.name === 'contact' },
-                { icon: 'shield', label: 'Hiring Risk', path: 'hiring-risk', active: route.name === 'hiring-risk' },
-            ];
-
-            const quizItems = [
-                { icon: 'cloud', label: 'AWS 問題集', path: 'quiz?type=aws', active: route.name === 'quiz' && (!route.query.type || route.query.type === 'aws') },
-                { icon: 'clipboard', label: 'PM 問題集', path: 'quiz?type=pm', active: route.name === 'quiz' && route.query.type === 'pm' },
-                { icon: 'award', label: '品質・プロセス問題集', path: 'quiz?type=quality', active: route.name === 'quiz' && route.query.type === 'quality' },
-                { icon: 'zap', label: '設計判断問題集', path: 'quiz?type=architecture', active: route.name === 'quiz' && route.query.type === 'architecture' },
-            ];
-
-            const systemItems = [
-                { icon: 'settings', label: '設定・データ', path: 'settings', active: route.name === 'settings' },
-            ];
-
-            const knowhowItems = [
-                { icon: 'lightbulb', label: 'AI開発ノウハウ', path: 'ai-knowhow', active: route.name === 'ai-knowhow' },
-                { icon: 'users', label: 'Human vs AI 分担表', path: 'role-split', active: route.name === 'role-split' },
-            ];
-
+            // v56: <a href> でGooglebotのリンク発見を保証しつつSPAルーターへ委譲
             function navLink(item) {
-                // v56: <a href> を使用してGooglebotのリンク発見を保証（SEO必須）
-                // event.preventDefault()でSPAルーターへ委譲し、フルリロードを防止
                 return h('a', {
                     class: ['nav-link', item.active && 'active'],
                     href: '#/' + item.path,
                     onclick: (e) => {
-                        // OS/ブラウザ標準機能（新規タブで開く等）のイベントはJS制御を放棄してバイパスする
                         if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
                         e.preventDefault();
                         Router.navigate(item.path);
                         if (isDrawer) closeDrawer();
                     },
                     'aria-current': item.active ? 'page' : undefined
+                }, createIcon(item.icon), h('span', { text: item.label }));
+            }
+
+            function navGroupToggleButton(label, open) {
+                return h('button', {
+                    class: 'nav-group-toggle',
+                    'aria-expanded': String(open),
+                    'aria-controls': 'nav-lab-body',
+                    onclick(e) {
+                        const body = document.getElementById('nav-lab-body');
+                        if (body) toggleLab(e.currentTarget, body);
+                    }
                 },
-                    createIcon(item.icon),
-                    h('span', { text: item.label })
+                    h('span', { class: 'nav-title' }, label),
+                    h('span', { class: 'nav-group-chevron', 'aria-hidden': 'true' }, '▼')
                 );
             }
+
+            const labOpen = isLabOpen();
 
             const content = h('div', { class: 'flex flex-col gap-2' },
                 h('div', { class: 'flex items-center justify-between mb-4' },
@@ -5539,24 +5642,20 @@ Version History (current shipped state)
                         h('div', { class: 'text-small text-muted' }, state.profile.title)
                     ),
                     isDrawer ? h('button', {
-                        class: 'icon-btn',
-                        onclick: closeDrawer,
-                        'aria-label': 'メニューを閉じる'
+                        class: 'icon-btn', onclick: closeDrawer, 'aria-label': '閉じる'
                     }, createIcon('x')) : null
                 ),
                 h('div', { class: 'divider' }),
-                ...navItems.map(navLink),
-                h('div', { class: 'nav-title' }, 'Apps'),
-                ...appItems.map(navLink),
-                h('div', { class: 'nav-title' }, '問題集'),
-                ...quizItems.map(navLink),
-                h('div', { class: 'nav-title' }, 'Info'),
-                ...infoItems.map(navLink),
-                h('div', { class: 'nav-title' }, 'System'),
-                ...systemItems.map(navLink),
-                h('div', { class: 'nav-title' }, 'ノウハウ'),
-                ...knowhowItems.map(navLink),
-                h('div', { class: 'divider' }),
+                h('div', { class: 'nav-title' }, 'Primary'),
+                ...primaryItems.map(navLink),
+                h('div', { class: 'nav-title' }, 'More'),
+                ...secondaryItems.map(navLink),
+                navGroupToggleButton('Lab', labOpen),
+                h('div', {
+                    id: 'nav-lab-body', class: 'nav-group-body',
+                    'data-collapsed': String(!labOpen),
+                    style: labOpen ? '' : 'max-height:0'
+                }, ...labItems.map(navLink)),                h('div', { class: 'divider' }),
                 h('div', { class: 'flex items-center justify-between p-3 rounded-lg' },
                     h('div', { class: 'flex items-center gap-2' },
                         createIcon('music', 18),
@@ -7428,11 +7527,7 @@ Version History (current shipped state)
                 // intro banner
                 const introBanner = h("div", {
                     class: "card",
-                    style: {
-                        padding: '1.5rem 2rem',
-                        background: 'linear-gradient(135deg, rgba(var(--color-primary-rgb),0.06) 0%, rgba(var(--color-primary-rgb),0.02) 100%)',
-                        borderColor: 'rgba(var(--color-primary-rgb),0.2)'
-                    }
+                    class: 'card--gradient-primary'
                 },
                     h("div", { class: 'text-overline' }, "設計判断問題集（SREサバイバル）"),
                     h("div", { class: 'text-body-relaxed' },
@@ -7613,10 +7708,7 @@ Version History (current shipped state)
         // impactRow: リスク名 → 経営言語変換行
         function impactRow(riskLabel, bizImpact, metric) {
             return h('div', {
-                style: {
-                    display: 'flex', alignItems: 'flex-start', gap: '12px',
-                    padding: '10px 0', borderBottom: '1px solid var(--border-color)'
-                }
+                class: 'row-border-bottom'
             },
                 h('div', { class: 'text-label' }, riskLabel),
                 h('div', { class: 'flex-1-col' },
@@ -7629,10 +7721,7 @@ Version History (current shipped state)
         // kpiRow: KPI / 早期兆候行
         function kpiRow(title, metrics) {
             return h('div', {
-                style: {
-                    display: 'flex', alignItems: 'flex-start', gap: '12px',
-                    padding: '10px 0', borderBottom: '1px solid var(--border-color)'
-                }
+                class: 'row-border-bottom'
             },
                 h('div', { class: 'text-label' }, title),
                 h('div', { class: 'text-muted text-sm-body' }, metrics)
@@ -7642,14 +7731,7 @@ Version History (current shipped state)
         // decisionFlow (v28): KPI → アラート → 打ち手 → 合意 の4点セット
         function decisionFlow(title, signal, action, agreement) {
             return h('div', {
-                style: {
-                    display: 'grid',
-                    gridTemplateColumns: 'minmax(100px,140px) 1fr 1fr 1fr',
-                    gap: '8px 16px',
-                    padding: '10px 0',
-                    borderBottom: '1px solid var(--border-color)',
-                    alignItems: 'start'
-                }
+                class: 'grid-role-split-4col'
             },
                 h('div', { class: 'text-label' }, title),
                 h('div', { class: 'text-xs-body' },
@@ -7674,10 +7756,7 @@ Version History (current shipped state)
                 h('p', { class: 'text-muted text-xs-body' }, '想定リスク: ' + risk),
                 h('p', { class: 'text-xs-body' }, '低減構造: ' + mitigation),
                 impact ? h('p', {
-                    style: {
-                        fontSize: '0.8125rem', color: 'var(--color-success)', fontWeight: '600',
-                        borderTop: '1px solid var(--border-color)', paddingTop: '6px', marginTop: '2px'
-                    }
+                    class: 'cell-success-note'
                 }, '💹 経営インパクト: ' + impact) : null
             );
         }
@@ -7687,10 +7766,7 @@ Version History (current shipped state)
             function layerBadge(num, label, color) {
                 return h('div', { class: 'row-gap-8' },
                     h('div', {
-                        style: {
-                            background: color, color: '#fff', borderRadius: 'var(--radius-full)',
-                            padding: '2px 12px', fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.04em'
-                        }
+                        class: 'badge-layer', style: { background: color }
                     }, num ? 'LAYER ' + num : null),
                     h('span', { class: 'text-subhead-lg' }, label)
                 );
@@ -7731,10 +7807,7 @@ Version History (current shipped state)
                     h('div', { class: 'card-body flex flex-col gap-3' },
                         h('div', { class: 'row-gap-10' },
                             h('div', {
-                                style: {
-                                    background: C.primary, color: '#fff', borderRadius: 'var(--radius-full)',
-                                    padding: '2px 14px', fontSize: '0.75rem', fontWeight: '800', letterSpacing: '0.06em'
-                                }
+                                class: 'badge-layer--lg', style: { background: C.primary }
                             }, '30秒要約'),
                             h('span', { class: 'text-subhead-lg' }, '面接でそのまま読めるスクリプト')
                         ),
@@ -7748,10 +7821,7 @@ Version History (current shipped state)
                             '思想は固定、手段は状況で切替。暴走せず、止まらない設計です。'
                         ),
                         h('div', {
-                            style: {
-                                borderTop: '1px solid var(--border-color)', paddingTop: '12px', marginTop: '4px',
-                                display: 'flex', flexWrap: 'wrap', gap: '8px'
-                            }
+                            class: 'wrap-with-border-top'
                         },
                             h('span', { class: 'badge badge-secondary' }, '🚫 不可逆ライン保持'),
                             h('span', { class: 'badge badge-secondary' }, '📊 KPI観測'),
@@ -7777,10 +7847,7 @@ Version History (current shipped state)
                                 ['🔥 炎上時の意思決定停止回避', 'モード切替型アルゴリズムによる緊急時の判断継続']
                             ].map(([item, detail]) =>
                                 h('div', {
-                                    style: {
-                                        display: 'flex', flexDirection: 'column', gap: '3px',
-                                        padding: '10px 12px', background: 'var(--bg-tertiary)', borderRadius: 'var(--radius)'
-                                    }
+                                    class: 'block-bg-tertiary-sm'
                                 },
                                     h('div', { class: 'text-label' }, item),
                                     h('div', { class: 'text-muted text-xs-body' }, detail)
@@ -7842,10 +7909,7 @@ Version History (current shipped state)
                     h('div', { class: 'card-body flex flex-col gap-0' },
                         h('div', { class: 'row-gap-8' },
                             h('div', {
-                                style: {
-                                    background: C.warning, color: '#fff', borderRadius: 'var(--radius-full)',
-                                    padding: '2px 12px', fontSize: '0.75rem', fontWeight: '700'
-                                }
+                                class: 'badge-layer', style: { background: C.warning }
                             }, 'KPI'),
                             h('span', { class: 'text-subhead-lg' }, '観測指標 — 問題の早期兆候を検知する')
                         ),
@@ -7870,13 +7934,7 @@ Version History (current shipped state)
                             '兆候を観測したとき、どう判断し、誰と合意するかを事前に定義しています。場当たり対応にはなりません。'
                         ),
                         h('div', {
-                            style: {
-                                display: 'grid',
-                                gridTemplateColumns: 'minmax(100px,140px) 1fr 1fr 1fr',
-                                gap: '0 16px', padding: '6px 0 10px',
-                                borderBottom: '2px solid var(--border-color)',
-                                marginBottom: '2px'
-                            }
+                            class: 'grid-role-split-4col-header'
                         },
                             h('div', { class: 'text-col-header' }, '区分'),
                             h('div', { class: 'text-col-header' }, '兆候 / KPI'),
@@ -7904,10 +7962,7 @@ Version History (current shipped state)
                                 ['🔴 緊急モード', '不可逆回避優先・スコープ大幅削減', '炎上・障害対応 / リソース枯渇 / デスマーチ移行時']
                             ].map(([mode, action, when]) =>
                                 h('div', {
-                                    style: {
-                                        display: 'flex', flexDirection: 'column', gap: '6px',
-                                        padding: '12px', background: 'var(--bg-tertiary)', borderRadius: 'var(--radius)'
-                                    }
+                                    class: 'block-bg-tertiary-md'
                                 },
                                     h('div', { class: 'text-subhead' }, mode),
                                     h('div', { class: 'text-sm-bold' }, action),
@@ -7925,10 +7980,7 @@ Version History (current shipped state)
                 h('section', { class: 'flex flex-col gap-4' },
                     h('div', { class: 'row-gap-8-nm' },
                         h('div', {
-                            style: {
-                                background: C.purple, color: '#fff', borderRadius: 'var(--radius-full)',
-                                padding: '2px 12px', fontSize: '0.75rem', fontWeight: '700'
-                            }
+                            class: 'badge-layer', style: { background: C.purple }
                         }, 'LAYER 4'),
                         h('span', { class: 'text-subhead-lg' }, '実務行動 — リスクカード × 経営インパクト')
                     ),
@@ -7977,10 +8029,7 @@ Version History (current shipped state)
                                 }
                             ].map(({ title, desc, path, label }) =>
                                 h('div', {
-                                    style: {
-                                        display: 'flex', flexDirection: 'column', gap: '8px',
-                                        padding: '12px', background: 'var(--bg-tertiary)', borderRadius: 'var(--radius)'
-                                    }
+                                    class: 'block-bg-tertiary-md-8'
                                 },
                                     h('div', { class: 'text-label' }, title),
                                     h('p', { class: 'text-muted text-xs-body' }, desc),
@@ -8011,10 +8060,7 @@ Version History (current shipped state)
                                 ['改善を止めない', 'このSPAの継続進化が、習慣であることの証拠']
                             ].map(([promise, reason]) =>
                                 h('div', {
-                                    style: {
-                                        display: 'flex', flexDirection: 'column', gap: '3px',
-                                        padding: '10px 12px', background: 'var(--bg-tertiary)', borderRadius: 'var(--radius)'
-                                    }
+                                    class: 'block-bg-tertiary-sm'
                                 },
                                     h('div', { class: 'text-sm-bold' }, '✓ ' + promise),
                                     h('p', { class: 'text-muted text-xs-body' }, reason)
@@ -8053,15 +8099,10 @@ Version History (current shipped state)
 
             function sectionHeader(icon, title, color) {
                 return h('div', {
-                    style: {
-                        display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px'
-                    }
+                    class: 'row-gap-4-items-start'
                 },
                     h('div', {
-                        style: {
-                            background: color, color: '#fff', borderRadius: 'var(--radius-full)',
-                            padding: '2px 14px', fontSize: '0.75rem', fontWeight: '800', letterSpacing: '0.05em'
-                        }
+                        class: 'badge-layer--lg', style: { background: color }
                     }, icon),
                     h('span', { class: 'text-head-lg' }, title)
                 );
@@ -8069,78 +8110,47 @@ Version History (current shipped state)
 
             function agentRow(name, role, free, note) {
                 return h('div', {
-                    style: {
-                        display: 'grid', gridTemplateColumns: '7rem 1fr auto',
-                        gap: '8px 12px', alignItems: 'start',
-                        padding: '10px 12px', background: 'var(--bg-tertiary)',
-                        borderRadius: 'var(--radius)', marginBottom: '6px'
-                    }
+                    class: 'block-bg-tertiary-pad14'
                 },
                     h('div', { class: 'role-desc-row' }, name),
-                    h('div', { style: { fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: '1.7' } }, note),
+                    h('div', { class: 'text-detail' }, note),
                     h('span', {
-                        style: {
-                            fontSize: '0.7rem', fontWeight: '700', padding: '2px 10px',
-                            borderRadius: 'var(--radius-full)', whiteSpace: 'nowrap',
-                            background: free ? 'rgba(22,163,74,0.12)' : 'rgba(217,119,6,0.12)',
-                            color: free ? 'var(--color-success)' : 'var(--color-warning)'
-                        }
+                        class: 'free-paid-badge', style: { background: free ? 'rgba(22,163,74,0.12)' : 'rgba(217,119,6,0.12)', color: free ? 'var(--color-success)' : 'var(--color-warning)' }
                     }, free ? '無課金' : '有料（最安）')
                 );
             }
 
             function kernelRow(key, label, detail) {
                 return h('div', {
-                    style: {
-                        display: 'flex', gap: '10px', padding: '8px 0',
-                        borderBottom: '1px solid var(--border-color)'
-                    }
+                    class: 'row-gap-8-border'
                 },
                     h('div', {
-                        style: {
-                            flexShrink: '0', width: '2rem', height: '2rem',
-                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            background: 'var(--color-primary)', color: '#fff',
-                            borderRadius: 'var(--radius-sm)', fontWeight: '800', fontSize: '0.9rem'
-                        }
+                        class: 'step-num-badge'
                     }, key),
-                    h('div', { class: 'flex flex-col', style: { gap: '2px' } },
+                    h('div', { class: 'flex flex-col gap-row-sm' },
                         h('div', { class: 'text-label' }, label),
-                        h('div', { class: 'text-muted', style: { fontSize: '0.8125rem', lineHeight: '1.6' } }, detail)
+                        h('div', { class: 'text-detail-muted-relaxed' }, detail)
                     )
                 );
             }
 
             function phaseCard(num, title, tickets, agents, summary, color) {
                 return h('div', {
-                    style: {
-                        borderLeft: '3px solid ' + color, padding: '12px 14px',
-                        background: 'var(--bg-tertiary)', borderRadius: '0 var(--radius) var(--radius) 0',
-                        display: 'flex', flexDirection: 'column', gap: '6px'
-                    }
+                    class: 'block-phase-card', style: { borderLeft: '3px solid ' + color, padding: '12px 14px', background: 'var(--bg-tertiary)' }
                 },
                     h('div', { class: 'row-gap-8-nm' },
                         h('div', {
-                            style: {
-                                background: color, color: '#fff', borderRadius: 'var(--radius-full)',
-                                padding: '1px 10px', fontSize: '0.7rem', fontWeight: '800'
-                            }
+                            class: 'badge-phase', style: { background: color }
                         }, 'Phase ' + num),
                         h('span', { class: 'role-desc-row' }, title),
-                        h('span', { style: { fontSize: '0.75rem', color: 'var(--text-muted)', marginLeft: 'auto' } }, tickets)
+                        h('span', { class: 'text-label-xs-push' }, tickets)
                     ),
-                    h('div', { style: { fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: '1.7' } }, summary),
+                    h('div', { class: 'text-detail' }, summary),
                     h('div', {
-                        style: {
-                            display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: '4px'
-                        }
+                        class: 'gap-wrap-mt4'
                     },
                         ...agents.map(a => h('span', {
-                            style: {
-                                fontSize: '0.7rem', padding: '1px 8px', borderRadius: 'var(--radius-full)',
-                                background: 'rgba(var(--color-primary-rgb),0.1)', color: 'var(--color-primary)',
-                                fontWeight: '600'
-                            }
+                            class: 'badge-agent'
                         }, a))
                     )
                 );
@@ -8170,21 +8180,15 @@ Version History (current shipped state)
                 },
                     h('div', { class: 'card-body flex flex-col gap-3' },
                         sectionHeader('💰', '費用感 — 課金は2名だけ', C.warning),
-                        h('p', { style: { fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: '1.7' } },
+                        h('p', { class: 'text-body-sm' },
                             'GeminiとChatGPTのみ最も安いプランで課金。残り4名（Kimi・Claude・Manus・Perplexity）は完全無料で運用可能。ツールごとの無料枠を最大活用することでコストを最小化している。'
                         ),
                         h('div', { class: 'flex flex-wrap gap-2' },
                             h('span', {
-                                style: {
-                                    fontSize: '0.8rem', padding: '3px 12px', borderRadius: 'var(--radius-full)',
-                                    background: 'rgba(217,119,6,0.12)', color: 'var(--color-warning)', fontWeight: '600'
-                                }
+                                class: 'badge-tool-tier--paid'
                             }, '💳 有料（最安）: Gemini / ChatGPT'),
                             h('span', {
-                                style: {
-                                    fontSize: '0.8rem', padding: '3px 12px', borderRadius: 'var(--radius-full)',
-                                    background: 'rgba(22,163,74,0.12)', color: 'var(--color-success)', fontWeight: '600'
-                                }
+                                class: 'badge-tool-tier--free'
                             }, '✅ 完全無料: Kimi / Claude / Manus / Perplexity')
                         )
                     )
@@ -8223,7 +8227,7 @@ Version History (current shipped state)
                 },
                     h('div', { class: 'card-body flex flex-col gap-2' },
                         sectionHeader('🔑', 'KERNELフレームワーク — チケット設計の原則', C.purple),
-                        h('p', { style: { fontSize: '0.8125rem', color: 'var(--text-muted)', marginBottom: '8px' } },
+                        h('p', { class: 'text-detail-muted mb-2' },
                             '全チケットはこの6原則で構造化。曖昧さを排除しハルシネーションを防ぐ。'
                         ),
                         kernelRow('K', 'Keep it simple — 1チケット1目標',
@@ -8262,12 +8266,9 @@ Version History (current shipped state)
                             ['出力フォーマット', 'ファイル全体ではなく、更新された関数ブロックのみを出力。余計な解説不要。']
                         ].map(([label, val]) =>
                             h('div', {
-                                style: {
-                                    display: 'grid', gridTemplateColumns: '9rem 1fr', gap: '6px 10px',
-                                    padding: '6px 0', borderBottom: '1px solid var(--border-color)'
-                                }
+                                class: 'grid-info-row'
                             },
-                                h('div', { style: { fontWeight: '700', fontSize: '0.8125rem', color: 'var(--color-info)' } }, '[' + label + ']'),
+                                h('div', { class: 'text-info-label' }, '[' + label + ']'),
                                 h('div', { class: 'text-secondary-xs' }, val)
                             )
                         )
@@ -8280,7 +8281,7 @@ Version History (current shipped state)
                 },
                     h('div', { class: 'card-body flex flex-col gap-3' },
                         sectionHeader('🚀', '55チケットの5フェーズ構成', C.success),
-                        h('p', { style: { fontSize: '0.8125rem', color: 'var(--text-muted)', marginBottom: '4px' } },
+                        h('p', { class: 'text-detail-muted mb-1' },
                             '人間はコードを1行も書かず、チケットを発行し返ってきた差分をローカルファイルに統合するだけ。'
                         ),
                         phaseCard(1, '概念定義と初期スキャフォールディング', 'Ticket 1〜12',
@@ -8317,19 +8318,15 @@ Version History (current shipped state)
                 },
                     h('div', { class: 'card-body flex flex-col gap-3' },
                         sectionHeader('🔗', 'エージェント引き継ぎ（ハンドオーバー）プロトコル', C.warning),
-                        h('p', { style: { fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: '1.7' } },
+                        h('p', { class: 'text-body-sm' },
                             '異なるAI間でコンテキストが消失しないよう、各チケットの末尾に以下の定型出力を要求する。'
                         ),
                         h('div', {
-                            style: {
-                                background: 'var(--bg-tertiary)', borderRadius: 'var(--radius)',
-                                padding: '12px 14px', fontSize: '0.8125rem', lineHeight: '1.8',
-                                color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)'
-                            }
+                            class: 'block-blockquote-mono'
                         },
                             '「作業完了後、コード全体像・主要アーキテクチャ決定理由・未解決課題・次エージェントへの具体的指示を網羅したhandover-brief.md形式のテキストを出力してください。」'
                         ),
-                        h('p', { style: { fontSize: '0.8125rem', color: 'var(--text-muted)' } },
+                        h('p', { class: 'text-detail-muted' },
                             '人間はこのハンドオーバー文書と最新ソースコードをセットにして次エージェントへの入力コンテキストとして渡す。共有メモリ不要で一貫したタスク継続性を担保できる。'
                         )
                     )
@@ -8349,13 +8346,10 @@ Version History (current shipped state)
                                 ['XMLタグ構造化（Claude専用）', '<instructions><context><example>でプロンプトを構造化。AIがユーザーデータとコマンドを混同することを防ぐ。']
                             ].map(([title, desc]) =>
                                 h('div', {
-                                    style: {
-                                        padding: '10px 12px', background: 'var(--bg-tertiary)',
-                                        borderRadius: 'var(--radius)', display: 'flex', flexDirection: 'column', gap: '4px'
-                                    }
+                                    class: 'block-section-item'
                                 },
                                     h('div', { class: 'text-label' }, title),
-                                    h('div', { style: { fontSize: '0.8125rem', color: 'var(--text-muted)', lineHeight: '1.6' } }, desc)
+                                    h('div', { class: 'text-detail-muted-relaxed' }, desc)
                                 )
                             )
                         )
@@ -8377,14 +8371,8 @@ Version History (current shipped state)
                     href: url,
                     target: '_blank',
                     rel: 'noopener noreferrer',
+                    class: 'cta-pill',
                     style: {
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        padding: '10px 18px',
-                        borderRadius: 'var(--radius-full)',
-                        fontWeight: '700',
-                        fontSize: '0.875rem',
                         textDecoration: 'none',
                         border: '1.5px solid ' + colorVar,
                         color: colorVar,
@@ -8397,14 +8385,8 @@ Version History (current shipped state)
 
             function mailBtn() {
                 return h('button', {
+                    class: 'cta-pill',
                     style: {
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        padding: '10px 18px',
-                        borderRadius: 'var(--radius-full)',
-                        fontWeight: '700',
-                        fontSize: '0.875rem',
                         border: '1.5px solid var(--color-primary)',
                         color: 'var(--color-primary)',
                         background: 'transparent',
@@ -8420,49 +8402,33 @@ Version History (current shipped state)
             }
 
             return h('section', {
-                class: 'card',
-                style: {
-                    background: 'linear-gradient(135deg, rgba(var(--color-primary-rgb),0.06) 0%, rgba(var(--color-primary-rgb),0.02) 100%)',
-                    borderTop: '3px solid var(--color-primary)',
-                    borderRadius: 'var(--radius-md)'
-                }
+                class: 'card card--contact'
             },
                 h('div', { class: 'card-body flex flex-col gap-4' },
                     // Header
-                    h('div', { style: { display: 'flex', alignItems: 'center', gap: '10px' } },
+                    h('div', { class: 'gap-row-10' },
                         h('div', {
-                            style: {
-                                background: 'var(--color-primary)', color: '#fff',
-                                borderRadius: 'var(--radius-full)',
-                                padding: '2px 14px', fontSize: '0.72rem',
-                                fontWeight: '800', letterSpacing: '0.06em'
-                            }
+                            class: 'contact-section-badge'
                         }, 'CONTACT'),
                         h('span', { class: 'text-subhead-lg' }, '気になった方へ')
                     ),
 
                     // What can be asked
-                    h('p', { style: { fontSize: '0.9375rem', lineHeight: '1.75', color: 'var(--text-secondary)' } }, desc),
+                    h('p', { class: 'text-body-relaxed' }, desc),
 
                     // Divider label row
-                    h('div', { style: { display: 'flex', flexDirection: 'column', gap: '14px' } },
+                    h('div', { class: 'gap-col-md' },
                         // Row 1: 技術記事
-                        h('div', { style: { display: 'flex', flexDirection: 'column', gap: '6px' } },
-                            h('div', { style: {
-                                fontSize: '0.72rem', fontWeight: '800', letterSpacing: '0.08em',
-                                textTransform: 'uppercase', color: 'var(--text-muted)'
-                            } }, '📖  技術記事（AIO実践シリーズ 全6本）'),
-                            h('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '8px' } },
+                        h('div', { class: 'gap-col-sm' },
+                            h('div', { class: 'badge-contact-label' }, '📖  技術記事（AIO実践シリーズ 全6本）'),
+                            h('div', { class: 'gap-wrap-sm' },
                                 outLink('https://zenn.dev/yuta_yokoi', 'externalLink', 'Zennで全6本の記事を読む →', 'var(--color-info)')
                             )
                         ),
                         // Row 2: 相談・依頼
-                        h('div', { style: { display: 'flex', flexDirection: 'column', gap: '6px' } },
-                            h('div', { style: {
-                                fontSize: '0.72rem', fontWeight: '800', letterSpacing: '0.08em',
-                                textTransform: 'uppercase', color: 'var(--text-muted)'
-                            } }, '✉  PM・アーキテクチャ設計の相談・依頼'),
-                            h('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '8px' } },
+                        h('div', { class: 'gap-col-sm' },
+                            h('div', { class: 'badge-contact-label' }, '✉  PM・アーキテクチャ設計の相談・依頼'),
+                            h('div', { class: 'gap-wrap-sm' },
                                 outLink(X_URL, 'messageCircle', 'X (Twitter) でDMを送る', 'var(--color-primary)'),
                                 mailBtn()
                             )
@@ -8498,14 +8464,7 @@ Version History (current shipped state)
             // ヘッダーバッジ
             function badge(label, color) {
                 return h('span', {
-                    style: {
-                        display: 'inline-block',
-                        padding: '2px 14px',
-                        borderRadius: 'var(--radius-full)',
-                        fontSize: '0.72rem',
-                        fontWeight: '800',
-                        letterSpacing: '0.06em',
-                        background: color,
+                    class: 'badge-contact-section', style: { background: color,
                         color: '#fff',
                         textTransform: 'uppercase'
                     }
@@ -8515,60 +8474,34 @@ Version History (current shipped state)
             // 分担行 (Human列 / AI列)
             function splitRow(category, humanItems, aiItems) {
                 return h('div', {
-                    style: {
-                        display: 'grid',
-                        gridTemplateColumns: '7rem 1fr 1fr',
-                        gap: '0',
-                        borderBottom: '1px solid var(--border-color)'
-                    }
+                    class: 'table-data-row'
                 },
                     // カテゴリラベル
                     h('div', {
-                        style: {
-                            padding: '12px 10px',
-                            fontWeight: '700',
-                            fontSize: '0.8125rem',
-                            color: 'var(--text-secondary)',
-                            borderRight: '1px solid var(--border-color)',
-                            display: 'flex',
-                            alignItems: 'center'
-                        }
+                        class: 'cell-category'
                     }, category),
                     // Human列
                     h('div', {
-                        style: {
-                            padding: '10px 14px',
-                            borderRight: '1px solid var(--border-color)',
-                            background: 'rgba(37,99,235,0.04)'
-                        }
+                        class: 'cell-human'
                     },
                         ...humanItems.map(item =>
                             h('div', {
-                                style: {
-                                    display: 'flex', alignItems: 'flex-start', gap: '6px',
-                                    marginBottom: '5px', fontSize: '0.8125rem', lineHeight: '1.6'
-                                }
+                                class: 'cell-bullet-row'
                             },
-                                h('span', { style: { color: C.human, fontWeight: '700', flexShrink: '0' } }, '✦'),
+                                h('span', { class: 'text-bullet-human', style: { color: C.human } }, '✦'),
                                 h('span', {}, item)
                             )
                         )
                     ),
                     // AI列
                     h('div', {
-                        style: {
-                            padding: '10px 14px',
-                            background: 'rgba(124,58,237,0.04)'
-                        }
+                        class: 'cell-ai'
                     },
                         ...aiItems.map(item =>
                             h('div', {
-                                style: {
-                                    display: 'flex', alignItems: 'flex-start', gap: '6px',
-                                    marginBottom: '5px', fontSize: '0.8125rem', lineHeight: '1.6'
-                                }
+                                class: 'cell-bullet-row'
                             },
-                                h('span', { style: { color: C.ai, fontWeight: '700', flexShrink: '0' } }, '✦'),
+                                h('span', { class: 'text-bullet-ai', style: { color: C.ai } }, '✦'),
                                 h('span', {}, item)
                             )
                         )
@@ -8579,50 +8512,24 @@ Version History (current shipped state)
             // テーブルヘッダー行
             function tableHeader() {
                 return h('div', {
-                    style: {
-                        display: 'grid',
-                        gridTemplateColumns: '7rem 1fr 1fr',
-                        gap: '0',
-                        borderBottom: '2px solid var(--border-color)',
-                        background: 'var(--bg-tertiary)',
-                        borderRadius: 'var(--radius) var(--radius) 0 0'
-                    }
+                    class: 'table-header-row'
                 },
                     h('div', {
-                        style: {
-                            padding: '10px 10px',
-                            fontSize: '0.72rem', fontWeight: '800',
-                            color: 'var(--text-muted)',
-                            letterSpacing: '0.08em', textTransform: 'uppercase',
-                            borderRight: '1px solid var(--border-color)'
-                        }
+                        class: 'cell-header-label'
                     }, 'カテゴリ'),
                     h('div', {
-                        style: {
-                            padding: '10px 14px',
-                            display: 'flex', alignItems: 'center', gap: '8px',
-                            borderRight: '1px solid var(--border-color)'
-                        }
+                        class: 'cell-header-col'
                     },
                         h('div', {
-                            style: {
-                                width: '10px', height: '10px', borderRadius: '50%',
-                                background: C.human, flexShrink: '0'
-                            }
+                            class: 'dot-color-indicator', style: { background: C.human }
                         }),
                         h('span', { class: 'role-label' }, '人間（Human）の役割')
                     ),
                     h('div', {
-                        style: {
-                            padding: '10px 14px',
-                            display: 'flex', alignItems: 'center', gap: '8px'
-                        }
+                        class: 'cell-header-col-last'
                     },
                         h('div', {
-                            style: {
-                                width: '10px', height: '10px', borderRadius: '50%',
-                                background: C.ai, flexShrink: '0'
-                            }
+                            class: 'dot-color-indicator', style: { background: C.ai }
                         }),
                         h('span', { class: 'role-label' }, 'AI の役割')
                     )
@@ -8632,13 +8539,7 @@ Version History (current shipped state)
             // 原則カード
             function principleCard(icon, title, desc, color) {
                 return h('div', {
-                    style: {
-                        padding: '14px 16px',
-                        background: 'var(--bg-tertiary)',
-                        borderRadius: 'var(--radius)',
-                        borderLeft: '3px solid ' + color,
-                        display: 'flex', flexDirection: 'column', gap: '4px'
-                    }
+                    class: 'block-section-item', style: { borderLeft: '3px solid ' + color }
                 },
                     h('div', { class: 'role-desc-row' }, icon + ' ' + title),
                     h('div', { class: 'text-muted text-xs-relaxed' }, desc)
@@ -8733,16 +8634,7 @@ Version History (current shipped state)
                         ),
                         // ── Incident Report Link ──
                         h('div', {
-                            style: {
-                                marginTop: '20px',
-                                padding: '16px',
-                                background: 'rgba(239, 68, 68, 0.05)',
-                                border: '1px dashed var(--color-warning)',
-                                borderRadius: 'var(--radius)',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '8px'
-                            }
+                            class: 'card--incident'
                         },
                             h('div', { class: 'row-warning-label' },
                                 h('span', {}, '🚨'),
@@ -8756,14 +8648,7 @@ Version History (current shipped state)
                                 target: '_blank',
                                 rel: 'noopener noreferrer',
                                 class: 'btn btn-sm',
-                                style: {
-                                    alignSelf: 'flex-start',
-                                    marginTop: '4px',
-                                    background: 'var(--color-warning)',
-                                    color: '#fff',
-                                    border: 'none',
-                                    fontWeight: '700'
-                                }
+                                class: 'btn btn-incident'
                             }, '[Quarantine] 隔離リポジトリを見る')
                         )
                     )
