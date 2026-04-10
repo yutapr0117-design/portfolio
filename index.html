@@ -2529,18 +2529,18 @@ Version History (current shipped state)
 
     <!-- Mobile Topbar -->
     <header class="topbar" id="topbar" style="contain: layout style;">
-        <button class="icon-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer">
+        <button class="icon-btn" id="menuBtn" aria-label="メインメニューを開く" aria-expanded="false" aria-controls="drawer">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 6h16M4 12h16M4 18h16" />
             </svg>
         </button>
         <div class="brand">Portfolio</div>
         <div style="flex:1"></div>
-        <button class="icon-btn" data-bgm-btn id="bgm-btn-top" aria-pressed="false" aria-label="BGMを再生する">
+        <button class="icon-btn" data-bgm-btn id="bgm-btn-top" aria-pressed="false" aria-label="BGMを再生・停止する">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
             <span class="sr-only">BGMを再生する</span>
         </button>
-        <button class="icon-btn" id="themeBtnTop" aria-label="テーマ切替">
+        <button class="icon-btn" id="themeBtnTop" aria-label="ライトモードとダークモードを切り替える">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
                 <path
                     d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
@@ -5541,7 +5541,7 @@ Version History (current shipped state)
                     isDrawer ? h('button', {
                         class: 'icon-btn',
                         onclick: closeDrawer,
-                        'aria-label': '閉じる'
+                        'aria-label': 'メニューを閉じる'
                     }, createIcon('x')) : null
                 ),
                 h('div', { class: 'divider' }),
@@ -5586,7 +5586,7 @@ Version History (current shipped state)
                     h('button', {
                         class: 'icon-btn',
                         onclick: Theme.cycle,
-                        'aria-label': 'テーマを切り替え'
+                        'aria-label': 'ライトモードとダークモードを切り替える'
                     }, createIcon(state.theme === 'dark' || (state.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'sun' : 'moon'))
                 )
             );
@@ -5601,7 +5601,7 @@ Version History (current shipped state)
 
             return h('div', { class: 'flex flex-col gap-6' },
                 // ===== v68: Hero Copy — Business Value & Outcomes =====
-                h('article', { class: 'card card--accent-top' },
+                h('article', { class: 'card card--accent-top', role: 'region', 'aria-label': 'ヒーローセクション' },
                     h('div', { class: 'card-body' },
                         h('div', { class: 'hero-section' },
 
@@ -5694,9 +5694,64 @@ Version History (current shipped state)
                     )
                 ),
 
+                // ── まず見るべき3箇所 (The Big Three) ──
+                h('section', { 
+                    class: 'card', 
+                    role: 'region', 
+                    'aria-label': 'まず見るべき3つの重要コンテンツ',
+                    style: { padding: 'var(--space-6)', background: 'var(--bg-secondary)', borderRadius: 'var(--radius-lg)' }
+                },
+                    h('h2', { class: 'h3 mb-6 text-center' }, 'まずはこの3つだけ見てください'),
+                    h('div', { 
+                        class: 'grid grid-cols-1 md:grid-cols-3 gap-6'
+                    },
+                        // Card 1: Case Study
+                        h('div', { class: 'card flex flex-col h-full shadow-sm hover-shadow-md transition' },
+                            h('div', { class: 'card-body flex flex-col h-full' },
+                                h('h3', { class: 'h4 mb-3' }, 'Case Studies（AI-Driven PMの成果）'),
+                                h('p', { class: 'text-muted text-sm mb-6 flex-grow' }, 'AIを使ってどんな成果を出してきたか、代表的な事例だけをまとめています。'),
+                                h('button', { 
+                                    class: 'btn btn-primary btn-sm w-full mt-auto',
+                                    onclick: () => {
+                                        const el = document.getElementById('evidence-heading');
+                                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                                    },
+                                    'aria-label': 'ケーススタディセクションへ移動'
+                                }, 'ケースを見る →')
+                            )
+                        ),
+                        // Card 2: Role Split
+                        h('div', { class: 'card flex flex-col h-full shadow-sm hover-shadow-md transition' },
+                            h('div', { class: 'card-body flex flex-col h-full' },
+                                h('h3', { class: 'h4 mb-3' }, 'Human vs AI 分担表'),
+                                h('p', { class: 'text-muted text-sm mb-6 flex-grow' }, '人間と複数AIをどう役割分担させているかを、1枚の表で可視化しています。'),
+                                h('button', { 
+                                    class: 'btn btn-primary btn-sm w-full mt-auto',
+                                    onclick: () => Router.navigate('role-split'),
+                                    'aria-label': 'Human vs AI 分担表ページへ移動'
+                                }, '分担表を見る →')
+                            )
+                        ),
+                        // Card 3: AIO Series
+                        h('div', { class: 'card flex flex-col h-full shadow-sm hover-shadow-md transition' },
+                            h('div', { class: 'card-body flex flex-col h-full' },
+                                h('h3', { class: 'h4 mb-3' }, 'AIO実践シリーズ'),
+                                h('p', { class: 'text-muted text-sm mb-6 flex-grow' }, 'このポートフォリオをAIO視点でどう設計し、AIにどう読ませているかの全手順です。'),
+                                h('a', { 
+                                    href: 'https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8',
+                                    target: '_blank',
+                                    rel: 'noopener noreferrer',
+                                    class: 'btn btn-primary btn-sm w-full mt-auto flex items-center justify-center',
+                                    'aria-label': 'ZennのAIO実践シリーズ記事を新しいタブで開く'
+                                }, 'Zennで読む →')
+                            )
+                        )
+                    )
+                ),
+
                 // ── Verification & Evidence + AIO Series（統合セクション）──
                 // 旧: evidence-section と aio-series-section の2セクションが重複していたため統合
-                h('section', { class: 'evidence-section', 'aria-labelledby': 'evidence-heading' },
+                h('section', { class: 'evidence-section', role: 'region', 'aria-label': 'AI-Driven PMとしての主なケーススタディ', 'aria-labelledby': 'evidence-heading' },
                     h('h2', { class: 'evidence-title', id: 'evidence-heading' }, 'Verification & Evidence'),
                     h('p', { class: 'evidence-summary' },
                         '人間はコードを書かず、AIチームを統制してSPAを構築・公開。AIの設計逸脱を検知し差し戻した実証ケース。'
@@ -8111,7 +8166,7 @@ Version History (current shipped state)
 
                 // ══ 費用感 ══
                 h('section', {
-                    class: 'card card--accent-left', 'data-accent': 'warning'
+                    class: 'card card--accent-left', 'data-accent': 'warning', role: 'region', 'aria-label': 'AI開発の費用感'
                 },
                     h('div', { class: 'card-body flex flex-col gap-3' },
                         sectionHeader('💰', '費用感 — 課金は2名だけ', C.warning),
@@ -8137,7 +8192,7 @@ Version History (current shipped state)
 
                 // ══ 6エージェント役割 ══
                 h('section', {
-                    class: 'card card--accent-left', 'data-accent': 'primary'
+                    class: 'card card--accent-left', 'data-accent': 'primary', role: 'region', 'aria-label': '6つのAIエージェントの役割分担'
                 },
                     h('div', { class: 'card-body flex flex-col gap-3' },
                         sectionHeader('🤖', '6エージェントの役割分担', C.primary),
@@ -8593,7 +8648,7 @@ Version History (current shipped state)
             return h('div', { class: 'flex flex-col gap-6' },
 
                 // ── Hero ──
-                h('section', { class: 'card card--accent-top', 'data-accent': 'primary' },
+                h('section', { class: 'card card--accent-top', 'data-accent': 'primary', role: 'region', 'aria-label': '役割分担の概要' },
                     h('div', { class: 'card-body' },
                         h('div', { class: 'row-gap-10-mb8' },
                             badge('Human', C.human),
@@ -8609,7 +8664,7 @@ Version History (current shipped state)
                 ),
 
                 // ── 分担表 ──
-                h('section', { class: 'card card--overflow-hidden' },
+                h('section', { class: 'card card--overflow-hidden', role: 'region', 'aria-label': 'Human vs AI 詳細分担表' },
                     h('div', { class: 'card-body card-body--no-pad' },
                         tableHeader(),
                         splitRow('設計',
@@ -8648,7 +8703,7 @@ Version History (current shipped state)
                 ),
 
                 // ── 設計原則 ──
-                h('section', { class: 'card' },
+                h('section', { class: 'card', role: 'region', 'aria-label': 'AI駆動開発の設計原則' },
                     h('div', { class: 'card-body flex flex-col gap-4' },
                         h('h2', { class: 'h3' }, '設計原則 — この分担が機能する理由'),
                         h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-3' },
@@ -8663,7 +8718,7 @@ Version History (current shipped state)
                 ),
 
                 // ── 核心テーゼ ──
-                h('section', { class: 'card card--accent-left', 'data-accent': 'primary' },
+                h('section', { class: 'card card--accent-left', 'data-accent': 'primary', role: 'region', 'aria-label': 'AI-Driven PMの核心テーゼ' },
                     h('div', { class: 'card-body' },
                         h('h2', { class: 'h3 mb-10px' }, '核心テーゼ'),
                         h('p', { class: 'text-muted text-body-relaxed-sm' },
