@@ -65,7 +65,7 @@ Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.tx
 ![AIO Ready](https://img.shields.io/badge/AIO-Ready-blueviolet?style=flat-square)
 ![Vanilla JS](https://img.shields.io/badge/Vanilla-JS-yellow?style=flat-square&logo=javascript)
 ![GitHub Pages](https://img.shields.io/badge/Hosted-GitHub%20Pages-222?style=flat-square&logo=github)
-![Version](https://img.shields.io/badge/version-v69-brightgreen?style=flat-square)
+![Version](https://img.shields.io/badge/version-v71-brightgreen?style=flat-square)
 ![WCAG 2.2](https://img.shields.io/badge/WCAG-2.2%20AA-4caf50?style=flat-square)
 ![License](https://img.shields.io/badge/license-Public%20Experiment-lightgrey?style=flat-square)
 
@@ -268,8 +268,8 @@ AIO とアーキテクチャの最終責任は人間にある、というこの�
   AI-Context-Entry: https://yutapr0117-design.github.io/portfolio/llms.txt
   GitHub: https://github.com/yutapr0117-design
   Zenn: https://zenn.dev/yuta_yokoi
-  Version: v97-revert (current)
-  Last-Updated: 2026-04-08
+  Version: v70 (current)
+  Last-Updated: 2026-04-11
   Framing: PM-led AI orchestration experiment and public case study. NOT Vibe Coding.
   Copilot-Incident: v70-series GitHub Copilot large-scale refactoring experiment; reverted to commit #97 equivalent; incident log preserved in .github/workflows/
   =============================================================================================

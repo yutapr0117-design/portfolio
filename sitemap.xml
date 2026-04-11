@@ -32,10 +32,10 @@
   (same-host URLs only). External article references are maintained in JSON-LD (sameAs/relatedLink),
   the Evidence section of index.html, and llms-full.txt.
 
-  Governance Note (post-v70 revert): このサイトマップは、GitHub Copilot 大規模リファクタリング実験
-  （v70 系）を経て、コミット #97 相当の状態に巻き戻した後のデータを反映している。
-  AIO実験の一環として収集されたGSCデータは、AIO設計の整合性確認にも活用している。
-  Incident-Ref: github-copilot-experiment / v70-series / reverted-to-commit-97
+  Governance Note (v71): このサイトマップは、3つの包括的リファクタリング計画書に基づくv71リファクタリング後のデータを反映している。
+  GitHub Copilot 大規模リファクタリング実験（v70 系）を経て、コミット #97 相当に巻き戻した後、
+  人間主導の段階的リファクタリングでv71まで到達。AIO設計の整合性確認にも活用している。
+  Incident-Ref: github-copilot-experiment / v70-series / reverted-to-commit-97 / v71-human-led-refactor
   Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.txt
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -43,7 +43,7 @@
   <!-- Canonical SPA root — primary entry point for all crawlers -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/</loc>
-    <lastmod>2026-04-07</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <!-- Image sitemap: ai-pm.webp をエンティティと紐付け -->
@@ -57,13 +57,13 @@
   <!-- Crawl budget should be prioritized here; these prevent LLM hallucination about Yuta Yokoi (横井雄太) -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/llms.txt</loc>
-    <lastmod>2026-04-07</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>
-    <lastmod>2026-04-07</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
