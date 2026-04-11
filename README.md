@@ -65,7 +65,7 @@ Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.tx
 ![AIO Ready](https://img.shields.io/badge/AIO-Ready-blueviolet?style=flat-square)
 ![Vanilla JS](https://img.shields.io/badge/Vanilla-JS-yellow?style=flat-square&logo=javascript)
 ![GitHub Pages](https://img.shields.io/badge/Hosted-GitHub%20Pages-222?style=flat-square&logo=github)
-![Version](https://img.shields.io/badge/version-v71-brightgreen?style=flat-square)
+![Version](https://img.shields.io/badge/version-v72-brightgreen?style=flat-square)
 ![WCAG 2.2](https://img.shields.io/badge/WCAG-2.2%20AA-4caf50?style=flat-square)
 ![License](https://img.shields.io/badge/license-Public%20Experiment-lightgrey?style=flat-square)
 
