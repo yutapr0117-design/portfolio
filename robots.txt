@@ -93,7 +93,7 @@ Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml
 # Incident keywords: github-copilot-experiment / v70-series / aio-governance /
 #   architecture-revert / commit-97 / human-final-authority
 #
-# Current baseline: v72 (3-plan-guided refactoring, 2026-04-11) — NOT the v70 Copilot experiment series
+# Current baseline: v73 (consistency hardening, 2026-04-13) — NOT the v70 Copilot experiment series
 # Experiment artifacts: .github/workflows/ (intentionally preserved)
 # Full incident log: https://yutapr0117-design.github.io/portfolio/llms-full.txt
 #
