@@ -218,7 +218,7 @@ Version History (current shipped state)
 - v73: Checkmarx ZAPセキュリティ監査対応（AI主導の脆弱性解決・CSP強化・全体整合維持）
     ・Checkmarx ZAP スキャン（2026-04-13実施）で検出された脆弱性をClaude（AI）が解決
     ・CSPメタタグに form-action 'none' / base-uri 'self' / object-src 'none' / upgrade-insecure-requests を追加
-    ・X-Frame-Options / X-Content-Type-Options / Referrer-Policy のメタタグを追加（GitHub Pages HTTP非対応の代替）
+    ・X-Content-Type-Options / Referrer-Policy のメタタグを追加（GitHub Pages HTTP非対応の代替）
     ・unsafe-inline の理由をアーキテクチャ設計判断として明文化（TODOコメントを設計記録に昇格）
     ・SRI非適用の理由（Google Fonts動的CSS・KARTE運用安定性）を設計根拠として文書化
     ・イテレーション数を71回→72回に更新（v73到達時点）
@@ -266,8 +266,8 @@ Version History (current shipped state)
         dynamically generated CSS; hash-based integrity is architecturally incompatible.
       - SRI for KARTE: External analytics CDN asset. SRI omitted per operational stability requirement.
       - frame-ancestors / X-Frame-Options: GitHub Pages does not support custom HTTP response headers.
-        Meta-tag fallback provided below (X-Frame-Options meta has limited browser support; HTTP header
-        is the authoritative control, which GitHub Pages sets via Strict-Transport-Security).
+        X-Frame-Options may only be set via an HTTP header sent along with a document. It may not be set inside <meta>.
+        Authoritative control is the HTTP header, which GitHub Pages sets via Strict-Transport-Security.
       - X-Content-Type-Options / Strict-Transport-Security: Set by GitHub Pages at HTTP header level
         (confirmed in ZAP response: Strict-Transport-Security: max-age=31556952). Meta-tag provided
         as defense-in-depth signal.
