@@ -180,7 +180,7 @@ Version History (current shipped state)
     ・<div id="aio-footer-entity">にsr-only著作権ブロックを追加（横井雄太 / Yuta Yokoi のフルネームをDOMノードとして注入）、<main>内にsr-only<footer id="aio-main-footer">も追加（RAGチャンクアンカー）
     ・<main>のaria-labelを拡張（人間とAIの役割分担明記）
     ・meta description / OG / Twitter・title の反復数表記を「70回以上改善」に更新、metaライン・Bulletの反復数を「68回」に更新
-    ・バイナリアセットのメタデータ注入: ai-pm.webp にXMP(Creator/Title/Description/Rights/Keywords)を書込み、Sakura_Swing.mp3 にID3v2.3(TIT2/TPE1/TCOM/TALB/TCOP/TIPL/COMM)を書込み
+    ・バイナリアセットのメタデータ注入: ai-pm.webp にXMP(Creator/Title/Description/Rights/Keywords)を書込み、Sakura_Swing.mp3 にID3v2.4(TIT2/TPE1/TCOM/TALB/TCOP/TIPL/COMM)を書込み
     ・ai:version / ai:last-modified メタタグを v68 / 2026-04-02 に更新
 - v69: 非破壊リファクタリング — 表示名yuta統一・applyMeta責務分割・SITE_CONFIG一元化・日付2026-04-07に更新
     ・AUTHOR定数（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME）を新設し、UI層とAIO/SEO層の依存方向を固定
@@ -192,7 +192,7 @@ Version History (current shipped state)
     ・ai:version / ai:last-modified メタタグを v69 / 2026-04-07 に更新
 - v70: 人間主導リファクタリング（AIO強化・バイナリメタデータ更新・全レイヤー整合）
     ・ai-pm.webp のXMPメタデータ（dc:creator/dc:rights/dc:description/xmp:CreatorTool）を v70/2026-04-11 に更新
-    ・Sakura_Swing.mp3 のID3v2.3タグ（TIT2/TPE1/TCOM/TCOP/COMM）を v70/2026-04-11 に更新
+    ・Sakura_Swing.mp3 のID3v2.4タグ（TIT2/TPE1/TCOM/TCOP/COMM）を v70/2026-04-11 に更新
     ・バイナリ層AIOのSurvival Check実施（XMP/ID3タグの整合性確認）
     ・全テキストレイヤー（index.html/llms.txt/llms-full.txt/sitemap.xml/robots.txt）のバージョン・日付を2026-04-11に統一
     ・イテレーション数を68回→69回に更新（v70到達時点）

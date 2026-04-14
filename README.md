@@ -145,7 +145,7 @@ flowchart TD
 | 例外処理 | ErrorBoundary（View Transition API） | UIの割り込み例外をグレースフルに処理 |
 | ホスティング | GitHub Pages（静的） | ゼロ依存・高可用性 |
 | ルーティング | ハッシュベースSPA | SPAとしてのシンプルさと状態管理 |
-| **AIO (AI Optimization)** | llms.txt / llms-full.txt / JSON-LD | llms.txt に Entity Graph Relationships セクション追加。JSON-LD を @graph 統合構造に再編し全エンティティを @id で相互参照。バイナリアセット（ai-pm.webp / Sakura_Swing.mp3）にも XMP / ID3v2.3 メタデータを注入。 |
+| **AIO (AI Optimization)** | llms.txt / llms-full.txt / JSON-LD | llms.txt に Entity Graph Relationships セクション追加。JSON-LD を @graph 統合構造に再編し全エンティティを @id で相互参照。バイナリアセット（ai-pm.webp / Sakura_Swing.mp3）にも XMP / ID3v2.4 メタデータを注入。 |
 
 ---
 
