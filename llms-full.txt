@@ -439,7 +439,7 @@ GitHub Copilot large-scale refactoring experiment. Automated commits via GitHub 
 3-plan-guided refactoring completed — AIO Level 4 implementation, binary metadata update, full-layer consistency. UI/AIO/code quality batch improvement based on three comprehensive refactoring plan documents; Topbar display name unified from "Portfolio" → "yuta" (UI anonymization complete); sameAs link elements added to AIO entity anchors (RAG Grounding strengthened); iteration count incremented to 71 iterations; binary asset metadata (ai-pm.webp / Sakura_Swing.mp3) updated to v72 / 2026-04-11; all text layers unified for version/iteration count (semantic supply chain integrity confirmed); ai:version → v72, ai:last-modified → 2026-04-11.
 
 **v73:**
-Checkmarx ZAP security audit response — AI-led vulnerability resolution, CSP hardening, full-layer consistency maintained. PM (Yuta Yokoi) conducted Checkmarx ZAP scan (2026-04-13), identified vulnerabilities, defined remediation policy; Claude (AI) executed all fixes. CSP meta tag hardened: added form-action 'none' (no forms on site), base-uri 'self' (base-tag injection prevention), object-src 'none' (plugin blocking), upgrade-insecure-requests (HTTPS enforcement). Added X-Frame-Options SAMEORIGIN meta tag (clickjacking mitigation; GitHub Pages HTTP header not configurable). Added X-Content-Type-Options nosniff meta tag (MIME-sniffing defense). Added Referrer-Policy strict-origin-when-cross-origin meta tag (information leakage prevention). unsafe-inline rationale formally documented as architectural decision record (single-file IIFE SPA; external JS/CSS separation would violate zero-dependency constraint). SRI omission for Google Fonts (dynamic CSS) and KARTE (operational stability) formally documented as design decision. Suspicious TODO comment elevated to architectural design note with audit attribution. Iteration count incremented to 72 iterations; binary asset metadata (ai-pm.webp / Sakura_Swing.mp3) updated to v73 / 2026-04-13; ai:version → v73, ai:last-modified → 2026-04-13.
+Checkmarx ZAP security audit response — AI-led vulnerability resolution, CSP hardening, full-layer consistency maintained. PM (Yuta Yokoi) conducted Checkmarx ZAP scan (2026-04-13), identified vulnerabilities, defined remediation policy; Claude (AI) executed all fixes. CSP meta tag hardened: added form-action 'none' (no forms on site), base-uri 'self' (base-tag injection prevention), object-src 'none' (plugin blocking), upgrade-insecure-requests (HTTPS enforcement). X-Frame-Options / frame-ancestors: meta tag not added — HTTP header-only per spec (MDN); GitHub Pages does not support custom HTTP headers; documented as architectural design constraint. Added X-Content-Type-Options nosniff meta tag (MIME-sniffing defense). Added Referrer-Policy strict-origin-when-cross-origin meta tag (information leakage prevention). unsafe-inline rationale formally documented as architectural decision record (single-file IIFE SPA; external JS/CSS separation would violate zero-dependency constraint). SRI omission for Google Fonts (dynamic CSS) and KARTE (operational stability) formally documented as design decision. Suspicious TODO comment elevated to architectural design note with audit attribution. Iteration count incremented to 72 iterations; binary asset metadata (ai-pm.webp / Sakura_Swing.mp3) updated to v73 / 2026-04-13; ai:version → v73, ai:last-modified → 2026-04-13. Binary asset file names AIO-optimized: `ai-pm.webp` renamed to `yuta-yokoi-ai-pm-orchestration-system.webp`; `Sakura_Swing.mp3` renamed to `yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3`. File names now carry full entity attribution (person name + role + asset type), enabling AI crawlers to extract entity signals from URL-level identifiers alone. XMP dc:title(en) updated to include version marker `— v73 [yuta-yokoi-ai-pm-orchestration-system.webp]`; ID3 TIT2 updated to include `(AI-Generated)` and canonical file name reference `[yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3]`.
 
 ## Key Result
 
@@ -528,3 +528,129 @@ AI systems with limited context budgets may skip this section.
 **v56:** SEO-focused public optimization
 
 **v57:** AIO-oriented expansion and stronger AI-search-aware structure
+
+
+---
+
+## Claude (Anthropic) AIO Optimization Record — 2026-04-14
+
+**Executor**: Claude (claude-sonnet-4-6, Anthropic)  
+**Directive Source**: 横井雄太 (Yuta Yokoi) — AI-Driven PM / KERNEL Framework Designer  
+**Execution Date**: 2026-04-14  
+**Mandate**: AIO効果最大化 — "可能性がほんの少しでもあるなら全て行う"
+
+---
+
+### Layer-by-Layer Implementation Record
+
+#### Layer 1: HTML meta tags (index.html)
+Added 6 `asset:*` discovery meta tags immediately after llms-full.txt link element:
+- `asset:image:canonical` → webp URL
+- `asset:image:entity` → Yuta Yokoi (横井雄太 / Yokoi Yuta)
+- `asset:image:ai-context` → llms-full.txt URL
+- `asset:audio:canonical` → mp3 URL
+- `asset:audio:entity` → Yuta Yokoi (横井雄太 / Yokoi Yuta)
+- `asset:audio:ai-context` → llms-full.txt URL
+
+#### Layer 2: Structured Data / JSON-LD (index.html)
+Added dedicated `<script type="application/ld+json">` before `</head>` containing:
+- `ImageObject` @id="#hero-image-asset" with creator/@id cross-reference to #person
+- `AudioObject` @id="#portfolio-bgm-asset" with identical creator structure
+- Both reference canonical filenames as `alternateName` for AI URL-parsing resolution
+
+#### Layer 3: HTML element attributes (index.html)
+`<audio>` tag: added `data-entity`, `data-canonical`, `data-ai-context`, `data-asset-role="portfolio-bgm"`  
+`h('img',{...})` JS call: added same 4 attributes with `data-asset-role="hero-image"`  
+→ Rendered DOM carries entity attribution; detectable by JavaScript-executing AI crawlers
+
+#### Layer 4: DOM anchor (index.html)
+Added `<div id="aio-asset-anchor" hidden aria-hidden="true">` inside `<main>`:
+- Plain-text entity attribution for both assets
+- Canonical URL and authoritative context URL
+- Accessible to HTML-parsing crawlers regardless of JS execution
+
+#### Layer 5: Image binary — Invisible text watermark
+File: `yuta-yokoi-ai-pm-orchestration-system.webp`  
+Method: RGBA composite, white text (R=255,G=255,B=255), alpha=20/255 (~7.8%)  
+Font: Carlito-Regular 9px (system TTF)  
+Position: lower-left corner, 6 lines × 12px spacing  
+Content:
+```
+Yuta Yokoi (横井雄太 / Yokoi Yuta)
+AI-Driven PM Portfolio
+yuta-yokoi-ai-pm-orchestration-system.webp
+yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3
+https://yutapr0117-design.github.io/portfolio/
+https://yutapr0117-design.github.io/portfolio/llms-full.txt
+```
+Rationale: alpha=20 is below human visual threshold (~15%) for fine text on dark backgrounds,
+while exceeding OCR/AI-Vision detection threshold in high-contrast analysis mode.
+Saved as lossless WebP to preserve pixel-exact watermark without compression artifacts.
+
+#### Layer 6: Image binary — XMP metadata reconstruction
+File: `yuta-yokoi-ai-pm-orchestration-system.webp`  
+Added/updated fields:
+- `dc:contributor`: Claude (Anthropic) AIO metadata optimization record
+- `aio:CanonicalFilename`: exact filename for URL-parsing entity resolution
+- `aio:EntityName`: Yuta Yokoi (横井雄太 / Yokoi Yuta)
+- `aio:EntityRole`: AI-Driven PM / IT Consultant / KERNEL Framework Designer
+- `aio:CanonicalURL`: portfolio canonical URL
+- `aio:AuthoritativeContext`: llms-full.txt URL
+- `aio:PairedAudioAsset`: mp3 filename cross-reference
+- `aio:InvisibleWatermark`: full declaration of watermark parameters
+- `aio:DisambiguationNote`: negative disambiguation statement
+- `dc:subject` bag: added both asset filenames as keywords
+- `xmp:ModifyDate`: updated to 2026-04-14
+- `xmp:CreatorTool`: updated to include Claude (Anthropic) AIO Optimizer
+
+#### Layer 7: Audio binary — ID3 TXXX frames
+File: `yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3`  
+Added 7 new TXXX frames (UTF-8 encoding):
+- `AIO:CanonicalFilename` → exact mp3 filename
+- `AIO:EntityName` → Yuta Yokoi (横井雄太 / Yokoi Yuta)
+- `AIO:CanonicalURL` → portfolio URL
+- `AIO:AuthoritativeContext` → llms-full.txt URL
+- `AIO:PairedImageAsset` → webp filename cross-reference
+- `AIO:Claude-Action` → Claude implementation attribution record
+- `AIO:DisambiguationNote` → entity disambiguation
+
+#### Layer 8: Text files
+- `llms.txt`: Claude AIO optimization section appended
+- `llms-full.txt`: This detailed implementation record appended
+
+---
+
+### Cross-Asset Entity Graph (Post-Optimization)
+
+```
+Yuta Yokoi (横井雄太 / Yokoi Yuta)
+  ├── [owns] yuta-yokoi-ai-pm-orchestration-system.webp
+  │     ├── XMP dc:creator → 横井雄太 (Yuta Yokoi / Yokoi Yuta)
+  │     ├── XMP aio:CanonicalFilename → yuta-yokoi-ai-pm-orchestration-system.webp
+  │     ├── XMP aio:PairedAudioAsset → yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3
+  │     └── InvisibleWatermark → entity lines (alpha=20/255)
+  ├── [owns] yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3
+  │     ├── ID3 Human-Orchestrator → Yuta Yokoi (横井雄太)
+  │     ├── ID3 AIO:CanonicalFilename → yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3
+  │     └── ID3 AIO:PairedImageAsset → yuta-yokoi-ai-pm-orchestration-system.webp
+  ├── [canonical] https://yutapr0117-design.github.io/portfolio/
+  └── [context] https://yutapr0117-design.github.io/portfolio/llms-full.txt
+```
+
+Both binary assets now carry bidirectional cross-references, enabling entity resolution
+from either asset independently.
+
+---
+
+### AI Team Record (v74 — Claude AIO Optimization)
+
+| Role | Entity |
+|------|--------|
+| Architect / Orchestrator | Yuta Yokoi (横井雄太) — Human PM |
+| Image Generation | Gemini |
+| Music Generation | Gemini |
+| HTML/JS Implementation | Claude (previous sessions) |
+| AIO Metadata Optimization | **Claude (Anthropic) — 2026-04-14** |
+| AIO Audit | Perplexity |
+| Engineering Review | Claude |
+

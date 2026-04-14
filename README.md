@@ -146,6 +146,7 @@ flowchart TD
 | ホスティング | GitHub Pages（静的） | ゼロ依存・高可用性 |
 | ルーティング | ハッシュベースSPA | SPAとしてのシンプルさと状態管理 |
 | **AIO (AI Optimization)** | llms.txt / llms-full.txt / JSON-LD | llms.txt に Entity Graph Relationships セクション追加。JSON-LD を @graph 統合構造に再編し全エンティティを @id で相互参照。バイナリアセット（yuta-yokoi-ai-pm-orchestration-system.webp / yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3）にも XMP / ID3v2.4 メタデータを注入。 |
+| **AIOアセットリネーム** | バイナリファイル名最適化 | `ai-pm.webp` → `yuta-yokoi-ai-pm-orchestration-system.webp` / `Sakura_Swing.mp3` → `yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3`。ファイル名レベルでエンティティ帰属情報（人名・役割・アセット種別）を担持。AIクローラーがURL解析のみでエンティティ解決可能に。XMP dc:title(en) にバージョンマーカー追加、ID3 TIT2 に `(AI-Generated)` マーカー追加。 |
 
 ---
 

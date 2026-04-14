@@ -36,6 +36,8 @@
   GitHub Copilot 大規模リファクタリング実験（v70 系）を経て、コミット #97 相当に巻き戻した後、
   人間主導の段階的リファクタリングでv73まで到達。AIO設計の整合性確認にも活用している。
   Incident-Ref: github-copilot-experiment / v70-series / reverted-to-commit-97 / v73-zap-security-hardening
+  Asset-Rename: ai-pm.webp→yuta-yokoi-ai-pm-orchestration-system.webp / Sakura_Swing.mp3→yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3
+  Asset-Rename-Purpose: AIO entity-attribution at URL level — AI crawlers can resolve entity from file name alone
   Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.txt
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
