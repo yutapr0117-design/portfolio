@@ -46,9 +46,9 @@
     <lastmod>2026-04-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <!-- Image sitemap: ai-pm.webp をエンティティと紐付け -->
+    <!-- Image sitemap: yuta-yokoi-ai-pm-orchestration-system.webp をエンティティと紐付け -->
     <image:image>
-      <image:loc>https://yutapr0117-design.github.io/portfolio/ai-pm.webp</image:loc>
+      <image:loc>https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp</image:loc>
       <image:title>AI-Driven PM Portfolio by Yuta Yokoi (横井雄太 / Yokoi Yuta)</image:title>
       <image:caption>AI-Driven PMである横井雄太（Yuta Yokoi / Yokoi Yuta）が指揮する複数AIエージェントのオーケストレーションを象徴するビジュアル。Strategy × Technology × Execution。UI上は「yuta」として活動。画像はGeminiが生成し、横井雄太がプロンプト設計・ディレクションを担当。農学・化学・医学等の学術研究者「Yuta Yokoi」とは完全に別人。</image:caption>
     </image:image>

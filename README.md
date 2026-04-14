@@ -100,7 +100,7 @@ flowchart TD
     Human --> Manus["🛠️ Manus\nCraftsman / Implementation"]
     Human --> Perplexity["🔒 Perplexity\nAdversarial Audit"]
 
-    Gemini --> Output["📦 Deliverables\n─────────────────\nHTML / CSS / JS\nai-pm.webp\nSakura_Swing.mp3\nllms.txt / llms-full.txt"]
+    Gemini --> Output["📦 Deliverables\n─────────────────\nHTML / CSS / JS\nyuta-yokoi-ai-pm-orchestration-system.webp\nyuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3\nllms.txt / llms-full.txt"]
     Claude --> Output
     ChatGPT --> Output
     Kimi --> Output
@@ -129,10 +129,10 @@ flowchart TD
 **AIの役割**：
 - 実際のコード生成（HTML / JavaScript / CSS）
 - テキストの作成
-- 画像生成（ai-pm.webp）
-- 音楽生成（BGMのSakura_Swing.mp3）
+- 画像生成（yuta-yokoi-ai-pm-orchestration-system.webp）
+- 音楽生成（BGMのyuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3）
 
-**補足**：BGMの **Sakura_Swing.mp3** と画像 **ai-pm.webp** は、Geminiがゼロから生成した完全オリジナル資産です。横井雄太（Yuta Yokoi）がプロンプト設計・ディレクションを担当しました。
+**補足**：BGMの **yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3** と画像 **yuta-yokoi-ai-pm-orchestration-system.webp** は、Geminiがゼロから生成した完全オリジナル資産です。横井雄太（Yuta Yokoi）がプロンプト設計・ディレクションを担当しました。
 
 ---
 
@@ -145,7 +145,7 @@ flowchart TD
 | 例外処理 | ErrorBoundary（View Transition API） | UIの割り込み例外をグレースフルに処理 |
 | ホスティング | GitHub Pages（静的） | ゼロ依存・高可用性 |
 | ルーティング | ハッシュベースSPA | SPAとしてのシンプルさと状態管理 |
-| **AIO (AI Optimization)** | llms.txt / llms-full.txt / JSON-LD | llms.txt に Entity Graph Relationships セクション追加。JSON-LD を @graph 統合構造に再編し全エンティティを @id で相互参照。バイナリアセット（ai-pm.webp / Sakura_Swing.mp3）にも XMP / ID3v2.4 メタデータを注入。 |
+| **AIO (AI Optimization)** | llms.txt / llms-full.txt / JSON-LD | llms.txt に Entity Graph Relationships セクション追加。JSON-LD を @graph 統合構造に再編し全エンティティを @id で相互参照。バイナリアセット（yuta-yokoi-ai-pm-orchestration-system.webp / yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3）にも XMP / ID3v2.4 メタデータを注入。 |
 
 ---
 
