@@ -30,21 +30,24 @@
 # about this project. Crawl budget should be concentrated here.
 #
 # ══════════════════════════════════════════════════════════════════
-# EXCLUDED FILES
+# EXCLUDED FILES → UPDATED POLICY (v73+)
 # ══════════════════════════════════════════════════════════════════
 #
-# /googlea7059bedc6fe8bdc.html is a Google Search Console ownership verification
-# file. It has no semantic value for AI crawlers or users and is excluded
-# to concentrate crawl budget on high-value AIO resources.
+# /googlea7059bedc6fe8bdc.html was previously excluded as a GSC ownership file.
+# However, the file contains machine-readable AIO Entity Declaration, Pioneer
+# Declaration, Canonical-URL, and AI-Context-Full annotations. Reclassified as
+# an AIO-bearing resource and is now ALLOWED for all crawlers.
+# Rationale: Disallowing dense AI-readable entity context contradicts the
+# AIO-maximization policy of this portfolio.
 #
 # ══════════════════════════════════════════════════════════════════
 
-# ─── Default: allow all, block verification file ──────────────────
+# ─── Default: allow all including AIO verification file ──────────────────
 User-agent: *
 Allow: /llms-full.txt
 Allow: /llms.txt
 Allow: /
-Disallow: /googlea7059bedc6fe8bdc.html
+Allow: /googlea7059bedc6fe8bdc.html
 
 # ─── TIER 1: Real-time search & answer generation ─────────────────
 # No Crawl-delay to maximize responsiveness for real-time AI answer engines.
@@ -55,7 +58,7 @@ User-agent: PerplexityBot
 User-agent: Googlebot
 User-agent: Bingbot
 Allow: /
-Disallow: /googlea7059bedc6fe8bdc.html
+Allow: /googlea7059bedc6fe8bdc.html
 
 # ─── TIER 2: User-instructed fetch bots ──────────────────────────
 # Activated when a user explicitly asks an AI to read a URL.
@@ -64,7 +67,7 @@ Disallow: /googlea7059bedc6fe8bdc.html
 User-agent: ChatGPT-User
 User-agent: Claude-User
 Allow: /
-Disallow: /googlea7059bedc6fe8bdc.html
+Allow: /googlea7059bedc6fe8bdc.html
 
 # ─── TIER 3: Foundation model training & general scraping ─────────
 # These bots collect data for model training.
@@ -77,7 +80,7 @@ User-agent: Google-Extended
 User-agent: CCBot
 User-agent: Applebot-Extended
 Allow: /
-Disallow: /googlea7059bedc6fe8bdc.html
+Allow: /googlea7059bedc6fe8bdc.html
 Crawl-delay: 10
 
 Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml

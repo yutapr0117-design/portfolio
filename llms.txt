@@ -265,9 +265,9 @@ llms-full.txt をプロジェクトの意味・アーキテクチャ・バージ
 
 ---
 
-## 🤖 Claude (Anthropic) AIO Optimization — Executed 2026-04-14
+## 🤖 Manus (AI) AIO Optimization — Executed 2026-04-14
 
-**実施者**: Claude (Anthropic) — 横井雄太（Yuta Yokoi）の指示により実行  
+**実施者**: Manus (AI) — 横井雄太（Yuta Yokoi）の指示により実行  
 **実施日**: 2026-04-14  
 **目的**: AIO効果最大化（可能性が1%でも存在するチャネルへの全レイヤー埋め込み）
 
@@ -281,9 +281,9 @@ llms-full.txt をプロジェクトの意味・アーキテクチャ・バージ
 | JS DOM | `h('img',{...})` に4属性付与（レンダリング後DOMにも反映） | index.html |
 | HTML構造 | `<div id="aio-asset-anchor" hidden>` をmain内に追加 | index.html |
 | 画像バイナリ | 不可視テキスト透かし埋め込み（alpha=20/255, 9px） | yuta-yokoi-ai-pm-orchestration-system.webp |
-| 画像バイナリ | XMP メタデータ完全再構築（Claude記録・ファイル名帰属・不可視透かし宣言を含む） | yuta-yokoi-ai-pm-orchestration-system.webp |
-| 音声バイナリ | ID3タグ TXXX フレーム7件追加（AIO帰属・ファイル名・規範URL・Claude記録） | yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3 |
-| テキスト | Claude実施事実の追記 | llms.txt / llms-full.txt |
+| 画像バイナリ | XMP メタデータ完全再構築（Manus記録・ファイル名帰属・不可視透かし宣言・aio:*フィールド群を含む） | yuta-yokoi-ai-pm-orchestration-system.webp |
+| 音声バイナリ | ID3タグ TXXX フレーム7件追加（AIO帰属・ファイル名・規範URL・Manus記録） | yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3 |
+| テキスト | Manus実施事実の追記 | llms.txt / llms-full.txt |
 
 ### 不可視テキスト透かし（画像）詳細
 
