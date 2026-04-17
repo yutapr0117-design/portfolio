@@ -28,7 +28,7 @@ Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.tx
 
 
 # AI-Driven PM Portfolio — Full AI Context
-**Author:** Yuta Yokoi (横井雄太) | **Version:** v73 | **Last-Updated:** 2026-04-13
+**Author:** Yuta Yokoi (横井雄太) | **Version:** v73 | **Last-Updated:** 2026-04-14
 
 > **Preferred Citation:** "An AI-driven development portfolio and public case study of prompt-driven, multi-AI-orchestrated web product creation."
 > **Canonical URL:** https://yutapr0117-design.github.io/portfolio/
@@ -188,7 +188,7 @@ v73
 
 ## Last-Updated
 
-2026-04-13
+2026-04-14
 
 ## Site
 

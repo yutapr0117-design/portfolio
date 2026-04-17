@@ -1,5 +1,5 @@
 # robots.txt for AI-Driven PM Portfolio
-# Architected and orchestrated by Yuta Yokoi (横井雄太 / Yokoi Yuta) — v73 / 2026-04-13
+# Architected and orchestrated by Yuta Yokoi (横井雄太 / Yokoi Yuta) — v73 / 2026-04-14
 # UI Display Name: yuta — Full name is in metadata and llms-full.txt only
 # Entity Disambiguation: https://yutapr0117-design.github.io/portfolio/llms-full.txt
 # Yuta Yokoi (横井雄太) = AI-Driven PM / IT Consultant / KERNEL Framework Designer
