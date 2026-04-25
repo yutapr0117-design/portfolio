@@ -1,0 +1,19 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://yutapr0117-design.github.io/portfolio/.well-known/api-catalog",
+      "api-catalog": [
+        {
+          "href": "https://yutapr0117-design.github.io/portfolio/llms-full.txt",
+          "type": "text/plain",
+          "service-meta": "https://yutapr0117-design.github.io/portfolio/.well-known/mcp.json"
+        },
+        {
+          "href": "https://yutapr0117-design.github.io/portfolio/.well-known/agent-skills/index.json",
+          "type": "application/json",
+          "service-desc": "https://schemas.agentskills.io/discovery/0.2.0/schema.json"
+        }
+      ]
+    }
+  ]
+}
