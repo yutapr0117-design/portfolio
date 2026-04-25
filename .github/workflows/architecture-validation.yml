@@ -15,11 +15,9 @@ on:
 jobs:
   validate-level-constraints:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # Node.js 20非推奨警告の根本解消（2026-06-02以降の強制移行に先行対応）
     steps:
       - name: Checkout repository codebase
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5  # Node.js 24 ネイティブ対応版（根本解決）
 
       - name: Enforce CSP HTML Attribute Compliance (Level 2 Separation)
         run: |
