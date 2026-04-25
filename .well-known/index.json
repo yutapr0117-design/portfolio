@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "read-aio-context",
+      "type": "skill-md",
+      "url": "https://yutapr0117-design.github.io/portfolio/llms-full.txt",
+      "digest": ""
+    },
+    {
+      "name": "ai2ai-pipeline-handoff",
+      "type": "skill-md",
+      "url": "https://yutapr0117-design.github.io/portfolio/AI2AI.md",
+      "digest": ""
+    }
+  ]
+}
