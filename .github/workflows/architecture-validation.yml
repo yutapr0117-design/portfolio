@@ -15,6 +15,8 @@ on:
 jobs:
   validate-level-constraints:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # Node.js 20非推奨警告の根本解消（2026-06-02以降の強制移行に先行対応）
     steps:
       - name: Checkout repository codebase
         uses: actions/checkout@v4
