@@ -45,18 +45,30 @@ jobs:
 
       - name: Validate Machine-Readable JSON-LD Structures
         run: |
-          for file in $(find . -name "*.html"); do
-            sed -n '/<script type="application\/ld+json">/,/<\/script>/p' "$file" | sed '1d;$d' > temp_schema.json
-            if [ -s temp_schema.json ]; then
-              if ! jq . temp_schema.json > /dev/null 2>&1; then
-                echo "::error::Invalid JSON-LD syntax detected in $file"
-                rm -f temp_schema.json
-                exit 1
-              fi
-            fi
-          done
-          rm -f temp_schema.json
-          echo "JSON-LD validation passed."
+          # sedは複数のJSON-LDブロックを正しく扱えないため、Pythonで各ブロックを個別に検証する。
+          # （根本修正: 改善手順 v74 — 複数ブロック対応）
+          python3 - << 'EOF'
+          import re, json, sys, glob
+
+          files = glob.glob('./**/*.html', recursive=True)
+          error = False
+          for filepath in sorted(files):
+              with open(filepath, 'r', encoding='utf-8') as f:
+                  content = f.read()
+              blocks = re.findall(
+                  r'<script\s+type="application/ld\+json">(.*?)</script>',
+                  content, re.DOTALL
+              )
+              for i, block in enumerate(blocks):
+                  try:
+                      json.loads(block.strip())
+                  except json.JSONDecodeError as e:
+                      print(f"::error::Invalid JSON-LD in {filepath} (block {i+1}): {e}")
+                      error = True
+          if error:
+              sys.exit(1)
+          print("JSON-LD validation passed.")
+          EOF
 
       - name: Check Routing Integrity (Level 4 Crawler Control)
         run: |
