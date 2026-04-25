@@ -464,6 +464,7 @@ Before any AI-generated code or content is merged into production, the human PM 
 | G4 | ErrorBoundary integrity | View Transition API error handling remains intact. Graceful degradation path is preserved. |
 | G5 | Version/date consistency | `ai:version`, `ai:last-modified`, `SITE_CONFIG.VERSION`, `SITE_CONFIG.LAST_UPDATED`, `robots.txt` header date, and binary metadata dates are all synchronized. |
 | G6 | aria-busy state management | `#content` element transitions `aria-busy` true→false correctly on every route change. `data-ai-state` on `document.body` reflects current route and loading state. |
+| G7 | Binary Metadata Sync Check | `yuta-yokoi-ai-pm-orchestration-system.webp` の XMP `xmp:ModifyDate`、および `yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3` の ID3 TXXX `AIO:Manus-Action` に記載されたバージョン・日付が、`llms-full.txt` の HEAD（現在のバージョンと Last-Updated）と完全に一致していること。ファイルのリネームや再生成が行われた場合、必ずバイナリ層のエンティティ宣言を同期すること。 |
 
 ---
 

@@ -83,11 +83,16 @@ Allow: /
 Allow: /googlea7059bedc6fe8bdc.html
 Crawl-delay: 10
 
-# ─── Explicit Allowance for Model Context Protocol (MCP) ───────────
-# 2026年のAIOエコシステムにおいて、MCPクライアントがポートフォリオの設定を
-# 自動解決できるよう、.well-knownディレクトリへのアクセスをTier 1/2ボットに明示許可。
+# ─── Explicit Allowance for Model Context Protocol (MCP) & Agent Skills ──────────────────────────
+# 2026年のAIOエコシステムにおいて、MCPクライアントおよびCloudflare等の
+# Agent Readinessスキャナーがポートフォリオの設定を自動解決できるよう、
+# .well-knownディレクトリ配下の全標準ディスカバリリソースへのアクセスを明示許可。
+# 該当リソースは計算負荷が極めて低いため、Crawl-delayの対象外とする。
 User-agent: *
 Allow: /.well-known/mcp.json
+Allow: /.well-known/agent-skills/index.json
+Allow: /.well-known/api-catalog
+Allow: /.well-known/mcp/server-card.json
 
 Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml
 

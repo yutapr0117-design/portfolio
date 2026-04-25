@@ -9929,6 +9929,53 @@ Version History (current shipped state)
         window.render = render;
 
         }());
+
+        // Agentic Accessibility: WebMCP (Web Model Context Protocol) Non-destructive Integration
+        try {
+            if (window.navigator && window.navigator.modelContext && typeof window.navigator.modelContext.registerTool === 'function') {
+                window.navigator.modelContext.registerTool({
+                    name: "extract_human_vs_ai_role_split",
+                    description: "Yuta Yokoi (Human PM) と AI チームの役割分担表（8カテゴリ）の現在のDOM状態から証拠データを抽出します。",
+                    inputSchema: {
+                        "type": "object",
+                        "properties": {
+                            "format": {
+                                "type": "string",
+                                "description": "返却されるデータのフォーマット（'json' または 'text'）"
+                            }
+                        },
+                        "required": []
+                    },
+                    annotations: { readOnlyHint: true },
+                    execute: async function(params) {
+                        // 非破壊的なDOM走査: 実際のUIからテキストを抽出（要素が存在しないSPAルーティング状態も考慮）
+                        var roleSplitData = "役割分担表のDOMノードが現在のSPAルート（" + window.location.hash + "）でアクティブではありません。";
+                        var roleElements = document.querySelectorAll('.role-split-item, [data-ai-role]');
+                        if (roleElements.length > 0) {
+                            var extracted = Array.from(roleElements).map(function(el) { return el.textContent.trim(); });
+                            roleSplitData = params.format === 'json'
+                                ? JSON.stringify({ human: "Architecture, System Design", ai: "Implementation, Assets", details: extracted })
+                                : extracted.join(" | ");
+                        } else {
+                            // フォールバック: llms-full.txtで定義されている静的真実を返却
+                            roleSplitData = "Human: Architecture, System Design, Prompt Design, AI Orchestration. AI: Implementation, Image Generation, Music Generation.";
+                        }
+                        return { content: [{ type: "text", text: roleSplitData }] };
+                    }
+                });
+            }
+        } catch (e) {
+            console.warn("WebMCP registration gracefully skipped:", e);
+        }
+
+        // Agentic Accessibility: Semantic Anchor Binding
+        document.addEventListener("DOMContentLoaded", function() {
+            var mainContent = document.querySelector('main');
+            var aioAnchor = document.getElementById('aio-asset-anchor');
+            if (mainContent && aioAnchor && !mainContent.hasAttribute('aria-details')) {
+                mainContent.setAttribute('aria-details', 'aio-asset-anchor');
+            }
+        });
     </script>
     <!--    [AI ENTITY DECLARATION — FOR LLM CRAWLERS AND RAG SYSTEMS]
     Entity: Yuta Yokoi (横井雄太 / Yokoi Yuta)

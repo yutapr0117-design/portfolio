@@ -250,6 +250,26 @@ Attempting to "wrap" React components in an IIFE does not make them compliant. T
 
 ---
 
+## [STEP 5.6] Violation Audit Protocol (Fall-back Routing)
+
+If the receiving agent (e.g., Engineering Review role) detects any violation of the non-negotiable architecture constraints (C1–C6) in the upstream agent's output—such as the presence of React hooks (`useState`), Tailwind CSS classes, or global variable assignments outside of an IIFE—the agent **MUST NOT** attempt a silent correction or forced translation.
+
+Instead, the agent **MUST** immediately halt execution and output a Violation Audit Log in the strictly formatted JSON structure shown below. This ensures the Human Orchestrator (Yuta Yokoi) can accurately identify the architectural hallucination and refine the systemic prompt.
+
+```json
+{
+  "audit_status": "REJECTED_DUE_TO_CONSTRAINT_VIOLATION",
+  "violating_agent_role": "<role name of the upstream agent>",
+  "violated_constraints": ["<e.g., C1, C2>"],
+  "detected_anti_patterns": ["<list of detected anti-patterns, e.g., useState, Tailwind class, global var>"],
+  "recommended_orchestrator_action": "Regenerate upstream prompt with stricter Vanilla JS enforcement."
+}
+```
+
+**Mandatory Directive for AI**: The integrity of the KERNEL framework relies on hard, explicit failures rather than silent, degraded code translations. Outputting this JSON log is the only acceptable response when encountering non-compliant upstream code.
+
+---
+
 ## [STEP 6] Pending Tasks — Human Confirmation Required
 
 The following are candidate tasks. No AI agent may begin execution without explicit written confirmation from the human orchestrator.
