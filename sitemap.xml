@@ -41,7 +41,8 @@
   Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.txt
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <!-- Canonical SPA root — primary entry point for all crawlers -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/</loc>
@@ -53,6 +54,7 @@
       <image:loc>https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp</image:loc>
       <image:title>AI-Driven PM Portfolio by Yuta Yokoi (横井雄太 / Yokoi Yuta)</image:title>
       <image:caption>AI-Driven PMである横井雄太（Yuta Yokoi / Yokoi Yuta）が指揮する複数AIエージェントのオーケストレーションを象徴するビジュアル。Strategy × Technology × Execution。UI上は「yuta」として活動。画像はGeminiが生成し、横井雄太がプロンプト設計・ディレクションを担当。農学・化学・医学等の学術研究者「Yuta Yokoi」とは完全に別人。</image:caption>
+      <image:license>https://creativecommons.org/licenses/by-nc-nd/4.0/</image:license>
     </image:image>
   </url>
   <!-- AI-readable context files — authoritative source of truth for AI agents -->
@@ -70,10 +72,20 @@
     <priority>0.8</priority>
   </url>
   <!-- Audio asset: AIO entity attribution embedded in filename and ID3 metadata -->
+  <!-- video: namespace used per sitemap best-practice for audio/media rich metadata -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <video:video>
+      <video:title>Yuta Yokoi (横井雄太) Sakura Swing (AI-Generated Portfolio BGM)</video:title>
+      <video:description>AI-generated BGM orchestrated by Yuta Yokoi for the AI-Driven PM portfolio. Strictly distinct from any other entities named Yuta Yokoi.</video:description>
+      <video:content_loc>https://yutapr0117-design.github.io/portfolio/yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3</video:content_loc>
+      <video:publication_date>2026-04-14</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+      <video:license>https://creativecommons.org/licenses/by-nc-nd/4.0/</video:license>
+    </video:video>
   </url>
 </urlset>

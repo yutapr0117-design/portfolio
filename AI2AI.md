@@ -209,6 +209,47 @@ Before finalizing any response or delivering code, the AI agent MUST internally 
 
 ---
 
+## [STEP 5.5] Handoff Protocol (AI2AI Conversion) — MANDATORY
+
+This section defines the model-agnostic context handoff protocol. The human orchestrator MUST follow this when passing output between KERNEL roles.
+
+### Protocol Steps
+
+**Step A — Drafting agent delivers output**
+The active agent (e.g., Creative Assets role) produces its output (code draft, text, prompt result, etc.).
+
+**Step B — Human orchestrator injects Pre-flight checklist**
+Before passing output to the next agent, the human MUST prepend the STEP 2 constraint table to the new prompt. Minimum injection:
+
+```
+[KERNEL Handoff — Pre-flight Validation]
+Receiving role: [Engineering Review / Adversarial Audit / ...]
+Prior agent output is appended below.
+Constraints (MUST NOT VIOLATE):
+- C1: Zero external framework/library. Vanilla JS only. No React, Vue, Tailwind, Bootstrap, Framer Motion.
+- C2: All logic inside IIFE wrapper. No global scope pollution.
+- C3: View Transition API errors handled with ErrorBoundary. Graceful degradation required.
+- C4: Frameworks permanently rejected. Do not re-propose.
+- C5: Human writes zero code. AI generates implementation only.
+- C6: AIO text (llms-full.txt, llms.txt, JSON-LD, binary metadata) immutable without explicit orchestrator approval.
+
+If the prior agent's output contains React/Tailwind/framework syntax: DISCARD entirely. Regenerate from scratch in Vanilla JS within IIFE.
+
+[Prior agent output below]
+---
+```
+
+**Step C — Receiving agent acknowledges**
+The receiving agent MUST state its `ACTIVE_KERNEL_ROLE` in the first line of its response, confirming successful handoff.
+
+**Step D — Constraint enforcement**
+If prior output violates C1–C4, the receiving agent MUST NOT attempt to "adapt" the framework code — it must perform a full regeneration in compliant Vanilla JS.
+
+### Anti-pattern: Silent Framework Laundering
+Attempting to "wrap" React components in an IIFE does not make them compliant. The constraint is zero external runtime dependency, not cosmetic encapsulation.
+
+---
+
 ## [STEP 6] Pending Tasks — Human Confirmation Required
 
 The following are candidate tasks. No AI agent may begin execution without explicit written confirmation from the human orchestrator.

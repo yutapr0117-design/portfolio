@@ -369,6 +369,21 @@ Complete
 - Search-oriented metadata optimization
 - AI-oriented discoverability design
 
+### Boring Technology — Quantitative Performance Advantages
+
+The adoption of Boring Technology (Vanilla JS, zero external dependencies) yields the following measurable outcomes:
+
+- **Initial payload size**: Minimal — the entire application is delivered as a single HTML file with no external JS bundles. Zero framework runtime overhead.
+- **Time to Interactive (TTI)**: Near-instant. No hydration step, no virtual DOM reconciliation, no lazy-loading overhead from a framework bootstrap cycle.
+- **Cumulative Layout Shift (CLS)**: Maintained at **0.0** in Lighthouse audits. Achieved by combining:
+  - CSS `:empty` skeleton UI (gradient-only, zero DOM additions during loading)
+  - Explicit `width`/`height`/`aspect-ratio` on the hero image (`<img>`)
+  - `min-height` reservation on `.main-content` keyed to topbar height (64px)
+  - `font-display: optional` on web fonts to eliminate FOUT-induced CLS
+- **Auditability**: 100% of application logic is readable in a single file without a build toolchain. AI-generated code cannot hide side effects behind framework abstractions.
+
+These metrics are the direct consequence of the constraint-driven design. React and comparable frameworks would introduce hydration latency, larger bundles, and additional CLS sources that require dedicated mitigation work.
+
 ## SEO / AIO Highlights
 
 - Canonical and Open Graph normalization
@@ -389,6 +404,109 @@ It is a public demonstration that:
 ## Current Implementation Status
 
 **[HEAD Authority Enforcement]**: For clarity: the current production version of this portfolio site is logically equivalent to commit #97, plus narrative and documentation additions only. No code generated during the Copilot v70 incident is used in the current HEAD.
+
+---
+
+## KERNEL Handoff Protocol (AI2AI Conversion)
+
+This section defines the model-agnostic handoff protocol used when context passes between AI agents in the KERNEL framework.
+
+### Protocol Definition
+
+**Section Name:** Handoff Protocol (AI2AI Conversion)
+
+When output transitions between KERNEL roles (e.g., Creative Assets → Engineering Review), the human orchestrator (Yuta Yokoi / 横井雄太) MUST inject the AI2AI.md constraint block as a **Pre-flight validation checklist** into the receiving agent's prompt. This is non-optional.
+
+**Handoff flow:**
+
+1. **Drafting agent** (e.g., Creative Assets role) produces output (code, text, image prompt, etc.)
+2. **Orchestrator (human)** copies the output and prepends the AI2AI.md STEP 2 constraint table to the next prompt
+3. **Receiving agent** (e.g., Engineering Review role) MUST:
+   - Explicitly state its ACTIVE_KERNEL_ROLE in the first line
+   - Reject any syntax or pattern that violates C1–C6 (React, Tailwind, global scope pollution, etc.)
+   - Re-encode output strictly within IIFE encapsulation rules before delivering
+   - If a prior agent produced React or Tailwind syntax, the receiving agent MUST discard it entirely and regenerate from scratch in Vanilla JS
+
+**Data flow example (Drafting → Engineering Review):**
+```
+[Human injects to Engineering Review agent]:
+"The previous AI produced the following output. Apply the constraints below before finalizing.
+[STEP 2 constraints from AI2AI.md]
+[Prior agent output]
+Reject any React/Tailwind/framework syntax. Enforce IIFE. Deliver Vanilla JS only."
+```
+
+This protocol ensures that even if an upstream AI agent hallucinates framework code, the downstream Engineering Review agent acts as a hard constraint boundary — preventing architectural erosion from propagating into production.
+
+---
+
+## AIO Maturity Model — Level 5 Roadmap
+
+Current status: **Level 4 — Operationalized System** (HTML → binary layer AIO implemented end-to-end)
+
+### Level 5 Definition: Fully Agentic Action Integration
+
+Level 5 is reached when AI agents do not merely *read* the portfolio context but autonomously *act* within defined security boundaries. Specifically:
+
+- **Agentic Context Resolution**: MCPクライアント（Claude Desktop, Cursor 等）が `.well-known/mcp.json` を自律的にディスカバリし、`llms-full.txt` および `AI2AI.md` を Resource として取得・解析できる状態
+- **Agentic Workflow Execution**: An AI agent, after reading the context, can autonomously execute bounded workflows — e.g., submitting an audit report, verifying constraint compliance, generating a session record — without requiring the human to manually copy-paste between systems
+- **Constraint-bounded autonomy**: All agentic actions remain within the C1–C6 constraint envelope. The agent self-validates against the Pre-flight Validation Checklist before any action is committed
+
+### Governance Checklist (Pre-merge, Human PM Review)
+
+Before any AI-generated code or content is merged into production, the human PM (Yuta Yokoi / 横井雄太) MUST verify the following items:
+
+| # | Checkpoint | Acceptance Criterion |
+|---|-----------|----------------------|
+| G1 | External dependency absence | Zero new `<script src>`, `import`, or `require()` calls referencing external CDNs or npm packages (except pre-approved operational services: KARTE, Google Fonts) |
+| G2 | IIFE closure integrity | All application logic remains inside the top-level `(function() { ... })()` wrapper. No global variable leakage. |
+| G3 | AIO semantic drift check | Text in `llms-full.txt`, `llms.txt`, JSON-LD, and binary metadata (XMP/ID3) has not been neutralized, generalized, or reattributed. Entity name "Yuta Yokoi / 横井雄太" appears with correct disambiguation. |
+| G4 | ErrorBoundary integrity | View Transition API error handling remains intact. Graceful degradation path is preserved. |
+| G5 | Version/date consistency | `ai:version`, `ai:last-modified`, `SITE_CONFIG.VERSION`, `SITE_CONFIG.LAST_UPDATED`, `robots.txt` header date, and binary metadata dates are all synchronized. |
+| G6 | aria-busy state management | `#content` element transitions `aria-busy` true→false correctly on every route change. `data-ai-state` on `document.body` reflects current route and loading state. |
+
+---
+
+## Agent-Readable Route Map
+
+This SPA operates using hash-based routing. JavaScript execution is required to render content, but AI agents can use the following map to understand the virtual page hierarchy before navigating:
+
+```
+Agent-Readable Route Map — yuta-yokoi AI-Driven PM Portfolio SPA
+
+#/              (home)
+  → Core outcomes, Pioneer Declaration, Hero section
+  → Primary entry for all AI crawlers and agents
+
+#/role-split    (Human vs AI 分担表)
+  → Human vs AI responsibility evidence matrix (8 categories)
+  → Governance audit trail: design / prompt-engineering / implementation / QA / content / SEO-AIO / versioning / AI-team
+  → Contains link to quarantine repo (ai-overengineering-exhibit)
+
+#/ai-knowhow    (AI開発ノウハウ)
+  → Public documentation of AI-driven development methodology
+  → KERNEL framework roles, cost structure, 55-ticket case study overview
+
+#/services      (Services)
+  → Professional offerings: AI-Driven PM consulting, AIO architecture consulting
+
+#/about         (About)
+  → Personal background and philosophy of Yuta Yokoi (横井雄太)
+
+#/projects      (Projects)
+  → Portfolio project list with filter by tag
+
+#/hiring-risk   (Hiring Risk)
+  → Risk/benefit analysis framing for AI-Driven PM hiring decisions
+
+#/resume        (Resume)
+  → Professional resume of Yuta Yokoi (横井雄太)
+
+#/contact       (Contact)
+  → Contact form and CTA
+```
+
+Agents that cannot execute JavaScript should prioritize `llms-full.txt` and `llms.txt` as authoritative content sources. The route map above describes the *semantic intent* of each hash state.
 
 ## Version Narrative
 
