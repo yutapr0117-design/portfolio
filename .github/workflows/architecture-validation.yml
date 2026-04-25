@@ -1,0 +1,97 @@
+name: Architecture Constraint Validation Pipeline
+
+# ======================================================================
+# 改善手順 v74 — Item 6: Zero-Inconsistency Pipeline（静的解析のみ）
+# このワークフローはデプロイや本番書き込みを一切行わず、
+# 「制約の検証のみ」を行う完全非破壊な監視レイヤーとして機能する。
+# ======================================================================
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate-level-constraints:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository codebase
+        uses: actions/checkout@v3
+
+      - name: Enforce CSP HTML Attribute Compliance (Level 2 Separation)
+        run: |
+          # NOTE: style-src の unsafe-inline は Boring Technology 単一ファイル SPA 制約により
+          #       アーキテクチャ設計上維持されている（v73 Security Architecture Note 参照）。
+          #       このチェックは HTML 要素の style="" 属性インジェクションのみを検査する。
+          if grep -qP '<[^>]+\s+style="[^"]+"' index.html; then
+            echo "::error::Architecture violation: HTML inline style=\"\" attributes detected. Use utility classes (u-ai-*) instead."
+            exit 1
+          else
+            echo "CSP attribute validation passed. No HTML inline style= attributes detected."
+          fi
+
+      - name: Verify Canonical Ground Truth Status (llms-full.txt)
+        run: |
+          if [ ! -f "llms-full.txt" ]; then
+            echo "::error::Missing llms-full.txt. Canonical source of truth is required."
+            exit 1
+          fi
+          if ! grep -q "authoritative-status: Highest Priority" llms-full.txt; then
+            echo "::error::Missing or incorrect Authoritative-Status injection in llms-full.txt"
+            exit 1
+          fi
+          echo "llms-full.txt authoritative-status validation passed."
+
+      - name: Validate Machine-Readable JSON-LD Structures
+        run: |
+          for file in $(find . -name "*.html"); do
+            sed -n '/<script type="application\/ld+json">/,/<\/script>/p' "$file" | sed '1d;$d' > temp_schema.json
+            if [ -s temp_schema.json ]; then
+              if ! jq . temp_schema.json > /dev/null 2>&1; then
+                echo "::error::Invalid JSON-LD syntax detected in $file"
+                rm -f temp_schema.json
+                exit 1
+              fi
+            fi
+          done
+          rm -f temp_schema.json
+          echo "JSON-LD validation passed."
+
+      - name: Check Routing Integrity (Level 4 Crawler Control)
+        run: |
+          test -f robots.txt \
+            || (echo "::error::robots.txt constraint missing" && exit 1)
+          test -f llms.txt \
+            || (echo "::error::llms.txt router missing" && exit 1)
+          if ! grep -q "AI2AI.md" llms.txt; then
+            echo "::warning::AI2AI.md is not referenced in llms.txt. Semantic handoff may fail."
+          fi
+          echo "Routing integrity validation passed."
+
+      - name: Verify Constraint Metadata Tags (Level 7 Hardcoding)
+        run: |
+          if ! grep -q 'portfolio:identity:owner' index.html; then
+            echo "::error::Missing portfolio:identity:owner meta tag in index.html"
+            exit 1
+          fi
+          if ! grep -q 'portfolio:constraint:01' index.html; then
+            echo "::error::Missing portfolio:constraint meta tags in index.html"
+            exit 1
+          fi
+          echo "Constraint metadata validation passed."
+
+      - name: Verify Body Canonical Attribute (Machine-Readability)
+        run: |
+          if ! grep -q 'data-canonical="https://yutapr0117-design.github.io/portfolio/"' index.html; then
+            echo "::error::Missing data-canonical attribute on <body> element in index.html"
+            exit 1
+          fi
+          echo "Body canonical attribute validation passed."
+
+      - name: Verify Async Font Loading (Core Web Vitals)
+        run: |
+          if grep -qP '<link[^>]+fonts\.googleapis\.com[^>]+rel="stylesheet"[^>]*>' index.html; then
+            echo "::warning::Synchronous font loading detected. Consider media=print onload pattern for LCP optimization."
+          fi
+          echo "Font loading check complete."

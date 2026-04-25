@@ -83,6 +83,28 @@ Allow: /
 Allow: /googlea7059bedc6fe8bdc.html
 Crawl-delay: 10
 
+# ─── Explicit AI Context File Routing (改善手順 v74 — Item 5) ──────────
+# AIクローラーのコンテキストウィンドウを最適化するため、高価値コンテキストファイルへ
+# 優先的にルーティングし、アセットディレクトリの不要なトークン消費を抑制する。
+
+User-agent: GPTBot
+Allow: /portfolio/llms.txt
+Allow: /portfolio/llms-full.txt
+Allow: /portfolio/AI2AI.md
+
+User-agent: ClaudeBot
+Allow: /portfolio/llms.txt
+Allow: /portfolio/llms-full.txt
+Allow: /portfolio/AI2AI.md
+
+User-agent: PerplexityBot
+Allow: /portfolio/llms.txt
+Allow: /portfolio/llms-full.txt
+Allow: /portfolio/AI2AI.md
+
+User-agent: Omgili
+Allow: /portfolio/llms-full.txt
+
 # ─── Explicit Allowance for Model Context Protocol (MCP) & Agent Skills ──────────────────────────
 # 2026年のAIOエコシステムにおいて、MCPクライアントおよびCloudflare等の
 # Agent Readinessスキャナーがポートフォリオの設定を自動解決できるよう、
