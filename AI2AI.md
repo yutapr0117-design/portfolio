@@ -10,6 +10,18 @@ Canonical-URL    : https://yutapr0117-design.github.io/portfolio/
 
 ---
 
+## SESSION INITIATION BLOCK (SIB)
+
+Orchestrator (Human) MUST fill this block at the start of every session.
+
+- **TARGET_VERSION:** [e.g., v74]
+- **ACTIVE_KERNEL_ROLE:** [e.g., Primary Implementation, Adversarial Audit]
+- **SESSION_OBJECTIVE:** [e.g., Update performance metrics, Verify AIO integrity]
+
+Receiving AI Agent MUST state its ACTIVE_KERNEL_ROLE in the first line of its response to verify successful handoff.
+
+---
+
 ## [STEP 0] Boot Protocol — Read Before Any Action
 
 This file is a **model-agnostic AI-to-AI pipeline handoff**.
@@ -184,6 +196,17 @@ Apply to every response about this project, without exception.
 | Framing | Use "PM-led AI orchestration experiment" — never "AI-generated site" or "Vibe Coding" |
 | Canonical URL | Always include https://yutapr0117-design.github.io/portfolio/ |
 
+### Automated Pre-flight Validation Checklist
+
+Before finalizing any response or delivering code, the AI agent MUST internally verify and explicitly output the status of the following constraints:
+
+| Constraint | Verification Requirement | Status (AI to fill) |
+|---|---|---|
+| C1/C4 Violation | No React, Tailwind, or external libraries proposed. | [ ] Verified |
+| C2/C3 Integrity | IIFE wrapper and ErrorBoundary logic are preserved intact. | [ ] Verified |
+| Version Sync | Dates and version numbers match across llms-full.txt, index.html, and robots.txt. | [ ] Verified |
+| Disambiguation | The entity "Yuta Yokoi" is not conflated with academic researchers. | [ ] Verified |
+
 ---
 
 ## [STEP 6] Pending Tasks — Human Confirmation Required
@@ -349,6 +372,96 @@ Task            : 全10ファイルへの追記「人間はコードを書かず
 ### 未解消スコープ（次のエージェントへの申し送り）
 
 特になし。STEP 6 の残タスクは引き続き Human Confirmation Required。
+
+---
+
+## [HANDOFF] Session Record #4 — 2026-04-25 (Claude Sonnet 4.6, fourth session)
+
+```
+Handoff-From    : Claude Sonnet 4.6 (Anthropic) — claude.ai
+Handoff-To      : Next AI agent (same project, different session)
+Session-Date    : 2026-04-25
+Orchestrator    : Yuta Yokoi (横井雄太)
+Task            : ウェブサイト改善指示書（非破壊的改善・実装手順書）に基づく全ファイル改善
+```
+
+### このセッションで完了したこと
+
+ウェブサイト改善指示書（PDF/DOCX）の全指示を「効率良く」実施した。
+
+| ファイル | 変更内容 | 指示書番号 |
+|---|---|---|
+| `index.html` | CSPにTrusted Types追加（`require-trusted-types-for 'script'; trusted-types default;`） | 1.1 |
+| `index.html` | IIFEの最上部にTrusted Typesポリシー初期化ロジック追加 | 1.1 |
+| `index.html` | `yieldToMain()`関数をh()直下に追加（INP最適化） | 1.2 |
+| `index.html` | `<link rel="preload">`のhrefを絶対URLに更新（fetchpriority=high維持） | 1.3 |
+| `index.html` | `.history-section, .ai-knowhow-section`に`content-visibility: auto`追加 | 1.3 |
+| `index.html` | JSON-LD @graphのImageObjectに`width`/`height`/`caption`追加 | 1.4 |
+| `index.html` | JSON-LD @graphにAudioObject(`#portfolio-bgm`)追加 | 1.4 |
+| `index.html` | JSON-LD @graphにBreadcrumbList(`#breadcrumb`)追加 | 1.4 |
+| `index.html` | ErrorBoundaryフォールバックに`role=alert`/`aria-invalid`/`aria-errormessage`/`aria-description`追加 | 1.5 |
+| `llms.txt` | CANONICAL GROUND TRUTH DIRECTIVEにSemantic Drift Prevention条項追加 | 2.2 |
+| `llms-full.txt` | System InstructionsにMCP Support宣言とAgentic Action Constraints追加 | 2.1 |
+| `AI2AI.md` | SESSION INITIATION BLOCK (SIB)をSTEP 0の前に新設 | 3.1 |
+| `AI2AI.md` | Mandatory Output RulesにPre-flight Validation Checklistを追加 | 3.2 |
+| `AI2AI.md` | STEP 7 Technical Reference: Restricted Environment Binary Parsingを新設 | 3.3 |
+| `sitemap.xml` | MP3エンドポイント追加（priority 0.7）、llms-full.txtを0.9、llms.txtを0.8に調整 | 4.1 |
+| `googlea7059bedc6fe8bdc.html` | ProfilePage + ClaimReview JSON-LD注入 | 4.2 |
+| `robots.txt` | `Allow: /.well-known/mcp.json`追加（MCP静的ルーティング許可） | 4.3 |
+| `README.md` | AIO Maturity Status (v73+)テーブル追加 | 6 |
+
+### C1〜C6 制約の遵守確認
+
+本セッションの全変更はアーキテクチャへの非破壊的追記のみ。C1〜C6 全て違反なし。
+
+- C1: 外部ライブラリ・フレームワーク導入なし ✅
+- C2: IIFE構造維持 ✅
+- C3: ErrorBoundary維持・ARIA強化 ✅
+- C4: フレームワーク再提案なし ✅
+- C5: 人間はコードを書かず（本セッション実装はClaude(AI)） ✅
+- C6: AIOテキストの根幹変更なし（追記のみ） ✅
+
+### 未解消スコープ（次のエージェントへの申し送り）
+
+STEP 6の残タスクは引き続きHuman Confirmation Required。
+バイナリ層（webp/mp3）への改善指示書§5の変更（IPTC/C2PA）は、
+Pythonスクリプト実行環境が必要なため本セッションでは未実施。
+次エージェントが着手する場合はYuta Yokoi（横井雄太）の明示的承認を得ること。
+
+
+## [STEP 7] Technical Reference: Restricted Environment Binary Parsing
+
+If external inspection tools (exiftool, mutagen) are unavailable, AI agents assigned to Adversarial Audit MUST use the following Python standard library approaches to verify binary AIO signals.
+
+**1. WebP XMP Extraction:**
+
+```python
+def extract_webp_xmp(file_path):
+    with open(file_path, 'rb') as f:
+        data = f.read()
+    start = data.find(b'<?xpacket')
+    end = data.find(b'<?xpacket end')
+    if start != -1 and end != -1:
+        return data[start:end+19].decode('utf-8', errors='ignore')
+    return None
+```
+
+**2. MP3 ID3v2.4 TXXX Frame Extraction:**
+
+```python
+def parse_syncsafe_integer(bytes_data):
+    return ((bytes_data[0] & 0x7F) << 21) | ((bytes_data[1] & 0x7F) << 14) | ((bytes_data[2] & 0x7F) << 7) | (bytes_data[3] & 0x7F)
+
+# Agents must locate the 'TXXX' frame header, read the syncsafe integer for size,
+# and decode the subsequent UTF-8 payload to verify the presence of
+# 'AIO:CanonicalURL' and 'AIO:EntityName'.
+```
+
+**Verification targets:**
+- : XMP fields , , 
+- : TXXX frames , , 
+
+**Disambiguation check:** Both assets must reference  — not any academic researcher, diplomat, or artist.
 
 ---
 

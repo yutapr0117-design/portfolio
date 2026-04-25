@@ -151,6 +151,21 @@ flowchart TD
 
 ---
 
+### AIO Maturity Status (v73+)
+
+This project achieves Level 4 (Operationalized System) in the AIO Maturity Model by maintaining strict governance over the Semantic Supply Chain.
+
+| AIO Layer | Implementation Strategy | Status |
+|---|---|---|
+| L1: Visible Web | Semantic HTML, Zero-CLS Architecture, @graph JSON-LD | Completed |
+| L2: AI-Readable | llms.txt, llms-full.txt, .well-known/mcp.json | Completed |
+| L3: Binary Layer | WebP XMP, MP3 ID3v2.4 TXXX frames, Invisible Text Watermarks | Completed |
+| L4: Operations | AI2AI.md Handoff Protocol, Adversarial Audit, CSP Enforcement | Completed |
+
+> **Note on Architecture Integrity:** As documented in the Incident Log, the HEAD remains equivalent to the logic of commit #97, specifically discarding any semantic drift introduced during the v70 GitHub Copilot automated refactoring experiment. The human orchestrator (Yuta Yokoi / 横井雄太) retains absolute authority over the AIO text constraints.
+
+---
+
 ### AIO（AI Optimization）とは？
 **AIO = AI Optimization（AI最適化）** とは、**AIがこのリポジトリを正しく理解できるようにするための特別な工夫**です。
 

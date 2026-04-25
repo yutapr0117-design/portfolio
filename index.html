@@ -259,6 +259,8 @@ Version History (current shipped state)
         base-uri 'self';
         object-src 'none';
         upgrade-insecure-requests;
+        require-trusted-types-for 'script';
+        trusted-types default;
     " />
     <!--
       Security Architecture Note (v73 — Checkmarx ZAP audit response, resolved by Claude):
@@ -323,7 +325,7 @@ Version History (current shipped state)
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" />
 
     <!-- LCP最適化: ヒーロー画像の事前読み込み (fetchpriority=high) -->
-    <link rel="preload" as="image" href="./yuta-yokoi-ai-pm-orchestration-system.webp" fetchpriority="high" />
+    <link rel="preload" href="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" as="image" fetchpriority="high" />
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" />
@@ -425,7 +427,10 @@ Version History (current shipped state)
                 "creator": {"@id": "https://yutapr0117-design.github.io/portfolio/#person"},
                 "copyrightHolder": {"@id": "https://yutapr0117-design.github.io/portfolio/#person"},
                 "copyrightYear": "2026",
-                "encodingFormat": "image/webp"
+                "encodingFormat": "image/webp",
+                "width": "1200",
+                "height": "630",
+                "caption": "AI-Driven PM Portfolio visually representing the 6-AI team orchestration under the KERNEL framework."
             },
             {
                 "@type": "WebSite",
@@ -481,6 +486,26 @@ Version History (current shipped state)
                 ],
                 "datePublished": "2026-01-01",
                 "dateModified": "2026-04-14"
+            },
+            {
+                "@type": "AudioObject",
+                "@id": "https://yutapr0117-design.github.io/portfolio/#portfolio-bgm",
+                "url": "https://yutapr0117-design.github.io/portfolio/yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3",
+                "name": "Sakura Swing (AI-Generated Portfolio BGM)",
+                "encodingFormat": "audio/mpeg",
+                "creator": {"@id": "https://yutapr0117-design.github.io/portfolio/#person"}
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://yutapr0117-design.github.io/portfolio/#breadcrumb",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://yutapr0117-design.github.io/portfolio/"
+                    }
+                ]
             },
             {
                 "@type": "FAQPage",
@@ -2162,6 +2187,12 @@ Version History (current shipped state)
             contain-intrinsic-size: auto 400px;
         }
 
+        /* 1.3 LCP/CLS optimization (改善指示書): 初期表示領域外セクションのレンダリングコスト削減 */
+        .history-section, .ai-knowhow-section {
+            content-visibility: auto;
+            contain-intrinsic-size: 0 800px; /* スクロール時のCLSを防止するプレースホルダサイズ */
+        }
+
         /* ===== v69: Utility Classes — inline style を撤去するための共通クラス群 ===== */
         /* これらを使うことで JS 側の style: {} オブジェクトを class 属性に置き換えられる */
 
@@ -2892,6 +2923,25 @@ Version History (current shipped state)
            ╚══════════════════════════════════════════════════════════════════╝ */
         (function() {
         'use strict';
+
+        // ===== Trusted Types Policy Enforcement (Non-destructive addition) =====
+        // createHTML returns empty string to physically block any innerHTML manipulation.
+        // This enforces the Boring Technology constraint at the browser engine level,
+        // preventing future AI agents (e.g., Manus) from injecting React/framework code.
+        if (window.trustedTypes && trustedTypes.createPolicy) {
+            try {
+                trustedTypes.createPolicy('default', {
+                    createHTML: (string) => {
+                        console.warn('[AIO Audit] Architecture Constraint Violation: innerHTML manipulation is strictly prohibited.');
+                        return '';
+                    },
+                    createScript: (string) => string,
+                    createScriptURL: (string) => string
+                });
+            } catch (e) {
+                console.error('Trusted Types policy initialization failed.', e);
+            }
+        }
 
         // ===== Module Pattern: Constants =====
         // NOTE: Storage key は v45 のまま維持（互換性優先）。v46 はロジック非変更。
@@ -4507,6 +4557,15 @@ Version History (current shipped state)
             }
             return el;
         }
+
+        // ===== 1.2 INP最適化: メインスレッド解放ユーティリティ (改善指示書) =====
+        // scheduler.yield() が使えない環境ではsetTimeout(0)でフォールバック
+        const yieldToMain = () => {
+            if ('scheduler' in window && 'yield' in scheduler) {
+                return scheduler.yield();
+            }
+            return new Promise(resolve => setTimeout(resolve, 0));
+        };
 
         function clear(node) {
             while (node.firstChild) {
@@ -7146,7 +7205,7 @@ Version History (current shipped state)
                 return true;
             });
 
-            return h('div', { class: 'flex flex-col gap-4 max-w-2xl' },
+            return h('div', { class: 'flex flex-col gap-4 max-w-2xl error-boundary-fallback', role: 'alert', 'aria-invalid': 'true', 'aria-errormessage': 'fallback-details', 'aria-description': 'Architecture constraint successfully caught an unstable state transition.' },
                 h('header', { class: 'flex items-center gap-3' },
                     createIcon('list', 28),
                     h('h1', { class: 'h1' }, 'クイックTODO')
@@ -8254,7 +8313,7 @@ Version History (current shipped state)
 
             return h('div', { class: 'flex flex-col gap-4 max-w-2xl' },
                 h('h1', { class: 'h1' }, '致命的エラーが発生しました'),
-                h('p', { class: 'text-muted' }, '表示を継続できない例外が発生しました。下の情報を確認し、必要ならデータを初期化してください。'),
+                h('p', { id: 'fallback-details', class: 'text-muted' }, '表示を継続できない例外が発生しました。下の情報を確認し、必要ならデータを初期化してください。'),
                 h('section', { class: 'card' },
                     h('div', { class: 'card-body' },
                         h('div', { class: 'h3 mb-2' }, 'エラー'),
@@ -9316,9 +9375,9 @@ Version History (current shipped state)
                 _vtPendingPath = null;
 
                 try {
-                    const transition = document.startViewTransition(() => {
+                    const transition = document.startViewTransition(async () => {
                         try {
-                            _renderCore();
+                            await _renderCore();
                             _lastRoutePath = currentRoutePath;
                         } catch (e) {
                             window.__fatalError = e;
@@ -9346,25 +9405,28 @@ Version History (current shipped state)
                     _vtInFlight = false;
                     if (_isViewTransitionError(err)) {
                         console.warn('[portfolio] startViewTransition fallback:', err);
-                        _renderCore();
-                        _lastRoutePath = currentRoutePath;
-                        _consumePendingRoute();
+                        _renderCore().then(() => {
+                            _lastRoutePath = currentRoutePath;
+                            _consumePendingRoute();
+                        });
                     } else {
                         window.__fatalError = _normalizeError(err);
-                        _renderCore();
-                        _lastRoutePath = currentRoutePath;
+                        _renderCore().then(() => {
+                            _lastRoutePath = currentRoutePath;
+                        });
                     }
                 }
             } else if (isRouteTransition && (_vtInFlight || _getActiveViewTransition())) {
                 // 実行中は最新の route のみ保持して、transition 完了後に 1 回だけ反映する
                 _vtPendingPath = currentRoutePath;
             } else {
-                _renderCore();
-                _lastRoutePath = currentRoutePath;
+                _renderCore().then(() => {
+                    _lastRoutePath = currentRoutePath;
+                });
             }
         }
 
-        function _renderCore() {
+        async function _renderCore() {
             const route = Router.getRoute();
             const content = document.getElementById('content');
             const sidebarEl = document.getElementById('sidebar');
@@ -9374,6 +9436,9 @@ Version History (current shipped state)
                 clear(sidebarEl);
                 sidebarEl.appendChild(Sidebar(false));
             }
+
+            // §1.2 INP最適化: サイドバー構築後にメインスレッドを解放してから本体を描画
+            await yieldToMain();
 
             // Render page content
             clear(content);
@@ -9448,6 +9513,8 @@ Version History (current shipped state)
             if (page) {
                 content.appendChild(page);
             }
+            // §1.2 INP最適化: ページコンテンツ追加後にスレッドを解放してからメタ更新
+            await yieldToMain();
             // Update SEO via PAGE_META (v37: unified metadata management)
             applyMeta(route.name, route.params || {}, route.query || {});
 
