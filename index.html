@@ -2754,6 +2754,14 @@ Version History (current shipped state)
         .u-ai-contain-layout-style { contain: layout style!important; }
         .u-ai-flex-1 { flex: 1!important; }
 
+        /* AIDK DiagnosticsRail — JS innerHTML 生成用クラス（改善手順 v74 Item 1 JS動的スタイル対応） */
+        .u-ai-diag-title { color: #818cf8; }
+        .u-ai-diag-hr { border-color: #334155; margin: 4px 0; }
+        .u-ai-diag-label { color: #e2e8f0; }
+        .u-ai-diag-val-green { color: #6ee7b7; }
+        .u-ai-diag-val-amber { color: #fbbf24; }
+        .u-ai-diag-hint { color: #475569; font-size: 10px; }
+
         } /* end @layer utilities */
     </style>
 
@@ -5698,7 +5706,7 @@ Version History (current shipped state)
                     'border:1px solid #334155', 'pointer-events:auto'
                 ].join(';');
                 el.setAttribute('aria-hidden', 'true');
-                el.innerHTML = '<strong style="color:#818cf8">AIDK Diagnostics</strong><br>';
+                el.innerHTML = '<strong class="u-ai-diag-title">AIDK Diagnostics</strong><br>';
                 return el;
             }
 
@@ -5706,24 +5714,24 @@ Version History (current shipped state)
                 if (!_el) return;
                 const RS = RouteState.proxy;
                 _el.innerHTML = [
-                    '<strong style="color:#818cf8">AIDK Diagnostics</strong>',
-                    '<hr style="border-color:#334155;margin:4px 0">',
-                    '<b style="color:#e2e8f0">RouteState</b>',
-                    `route_name: <span style="color:#6ee7b7">${RS.route_name}</span>`,
-                    `route_slug: <span style="color:#6ee7b7">${RS.route_slug || '—'}</span>`,
-                    `ui_drawer_open: <span style="color:#6ee7b7">${RS.ui_drawer_open}</span>`,
-                    `ui_theme: <span style="color:#6ee7b7">${RS.ui_theme}</span>`,
-                    '<hr style="border-color:#334155;margin:4px 0">',
-                    '<b style="color:#e2e8f0">Last Change</b>',
-                    `key: <span style="color:#fbbf24">${RS.diag_last_key || '—'}</span>`,
-                    `value: <span style="color:#fbbf24">${String(RS.diag_last_value)}</span>`,
-                    `changes: <span style="color:#fbbf24">${RS.diag_change_count}</span>`,
-                    '<hr style="border-color:#334155;margin:4px 0">',
-                    '<b style="color:#e2e8f0">Kernel</b>',
+                    '<strong class="u-ai-diag-title">AIDK Diagnostics</strong>',
+                    '<hr class="u-ai-diag-hr">',
+                    '<b class="u-ai-diag-label">RouteState</b>',
+                    `route_name: <span class="u-ai-diag-val-green">${RS.route_name}</span>`,
+                    `route_slug: <span class="u-ai-diag-val-green">${RS.route_slug || '—'}</span>`,
+                    `ui_drawer_open: <span class="u-ai-diag-val-green">${RS.ui_drawer_open}</span>`,
+                    `ui_theme: <span class="u-ai-diag-val-green">${RS.ui_theme}</span>`,
+                    '<hr class="u-ai-diag-hr">',
+                    '<b class="u-ai-diag-label">Last Change</b>',
+                    `key: <span class="u-ai-diag-val-amber">${RS.diag_last_key || '—'}</span>`,
+                    `value: <span class="u-ai-diag-val-amber">${String(RS.diag_last_value)}</span>`,
+                    `changes: <span class="u-ai-diag-val-amber">${RS.diag_change_count}</span>`,
+                    '<hr class="u-ai-diag-hr">',
+                    '<b class="u-ai-diag-label">Kernel</b>',
                     'BindingRegistry: active',
                     'ActionDelegator: active',
                     'EffectRails: Meta/AIO/A11y/Security/Diag',
-                    '<span style="color:#475569;font-size:10px">?debug=1 to show · Press D to refresh</span>'
+                    '<span class="u-ai-diag-hint">?debug=1 to show · Press D to refresh</span>'
                 ].join('<br>');
             }
 
