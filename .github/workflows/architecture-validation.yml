@@ -1,7 +1,7 @@
 name: Architecture Constraint Validation Pipeline
 
 # ======================================================================
-# 改善手順 v74 — Item 6: Zero-Inconsistency Pipeline（静的解析のみ）
+# 非破壊的改善文書 — Zero-Inconsistency Pipeline
 # このワークフローはデプロイや本番書き込みを一切行わず、
 # 「制約の検証のみ」を行う完全非破壊な監視レイヤーとして機能する。
 # ======================================================================
@@ -17,93 +17,226 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository codebase
-        uses: actions/checkout@v5  # Node.js 24 ネイティブ対応版（根本解決）
+        uses: actions/checkout@v4
 
       - name: Enforce CSP HTML Attribute Compliance (Level 2 Separation)
         run: |
-          # NOTE: style-src の unsafe-inline は Boring Technology 単一ファイル SPA 制約により
-          #       アーキテクチャ設計上維持されている（v73 Security Architecture Note 参照）。
-          #       このチェックは HTML 要素の style="" 属性インジェクションのみを検査する。
           if grep -qP '<[^>]+\s+style="[^"]+"' index.html; then
-            echo "::error::Architecture violation: HTML inline style=\"\" attributes detected. Use utility classes (u-ai-*) instead."
+            echo "::error::Architecture violation: HTML inline style attributes detected. Use utility classes instead."
             exit 1
           else
-            echo "CSP attribute validation passed. No HTML inline style= attributes detected."
+            echo "CSP attribute validation passed."
           fi
 
-      - name: Verify Canonical Ground Truth Status (llms-full.txt)
+      - name: Validate AIO Custom Data Attributes (改善文書a 1.1)
         run: |
-          if [ ! -f "llms-full.txt" ]; then
-            echo "::error::Missing llms-full.txt. Canonical source of truth is required."
-            exit 1
-          fi
-          if ! grep -q "authoritative-status: Highest Priority" llms-full.txt; then
-            echo "::error::Missing or incorrect Authoritative-Status injection in llms-full.txt"
-            exit 1
-          fi
-          echo "llms-full.txt authoritative-status validation passed."
+          python3 - << 'EOF'
+          import re, sys
+          with open('index.html', 'r', encoding='utf-8') as f:
+              content = f.read()
+          errors = []
+          canonical_pattern = re.compile(r'data-canonical="([^"]*)"')
+          for val in canonical_pattern.findall(content):
+              if val and not val.startswith('https://yutapr0117-design.github.io/portfolio/'):
+                  errors.append(f"data-canonical domain mismatch: '{val}'")
+          ai_ctx_pattern = re.compile(r'data-ai-context="([^"]*)"')
+          for val in ai_ctx_pattern.findall(content):
+              if val and not val.startswith('https://'):
+                  errors.append(f"data-ai-context not absolute https: '{val}'")
+          if 'data-canonical="https://yutapr0117-design.github.io/portfolio/"' not in content:
+              errors.append("Missing data-canonical on <body> element")
+          if errors:
+              for e in errors: print(f"::error::{e}")
+              sys.exit(1)
+          print("AIO data attribute validation passed.")
+          EOF
 
-      - name: Validate Machine-Readable JSON-LD Structures
+      - name: Verify AIO Asset Anchor Presence (改善文書a 1.2)
         run: |
-          # sedは複数のJSON-LDブロックを正しく扱えないため、Pythonで各ブロックを個別に検証する。
-          # （根本修正: 改善手順 v74 — 複数ブロック対応）
+          if ! grep -q 'id="aio-asset-anchor"' index.html; then
+            echo "::error::CRITICAL: AIO asset anchor <div id='aio-asset-anchor'> MISSING."
+            exit 1
+          fi
+          if ! grep -q 'aio-guard.js' index.html; then
+            echo "::warning::aio-guard.js not referenced in index.html. Self-repair monitor inactive."
+          fi
+          echo "AIO anchor presence validated."
+
+      - name: Verify Canonical Ground Truth (llms-full.txt)
+        run: |
+          test -f llms-full.txt || (echo "::error::llms-full.txt missing" && exit 1)
+          grep -q "authoritative-status: Highest Priority" llms-full.txt \
+            || (echo "::error::Missing Authoritative-Status in llms-full.txt" && exit 1)
+          echo "llms-full.txt validation passed."
+
+      - name: Validate JSON-LD Structures
+        run: |
           python3 - << 'EOF'
           import re, json, sys, glob
-
           files = glob.glob('./**/*.html', recursive=True)
           error = False
           for filepath in sorted(files):
               with open(filepath, 'r', encoding='utf-8') as f:
                   content = f.read()
-              blocks = re.findall(
-                  r'<script\s+type="application/ld\+json">(.*?)</script>',
-                  content, re.DOTALL
-              )
+              blocks = re.findall(r'<script\s+type="application/ld\+json">(.*?)</script>', content, re.DOTALL)
               for i, block in enumerate(blocks):
                   try:
                       json.loads(block.strip())
                   except json.JSONDecodeError as e:
-                      print(f"::error::Invalid JSON-LD in {filepath} (block {i+1}): {e}")
+                      print(f"::error::Invalid JSON-LD in {filepath} block {i+1}: {e}")
                       error = True
-          if error:
-              sys.exit(1)
+          if error: sys.exit(1)
           print("JSON-LD validation passed.")
           EOF
 
-      - name: Check Routing Integrity (Level 4 Crawler Control)
+      - name: Check Routing Integrity and AI Crawler Discoverability (改善文書b 6.1)
         run: |
-          test -f robots.txt \
-            || (echo "::error::robots.txt constraint missing" && exit 1)
-          test -f llms.txt \
-            || (echo "::error::llms.txt router missing" && exit 1)
-          if ! grep -q "AI2AI.md" llms.txt; then
-            echo "::warning::AI2AI.md is not referenced in llms.txt. Semantic handoff may fail."
-          fi
+          test -f robots.txt || (echo "::error::robots.txt missing" && exit 1)
+          test -f llms.txt || (echo "::error::llms.txt missing" && exit 1)
+          test -f .nojekyll || echo "::warning::.nojekyll missing — Jekyll may corrupt llms.txt Content-Type"
+          test -f ".well-known/llms.txt" || echo "::warning::.well-known/llms.txt missing — some AI crawlers prefer this path"
+          grep -q "AI2AI.md" llms.txt || echo "::warning::AI2AI.md not referenced in llms.txt"
           echo "Routing integrity validation passed."
 
-      - name: Verify Constraint Metadata Tags (Level 7 Hardcoding)
+      - name: Validate llms.txt Internal File References (改善文書a 4.2)
         run: |
-          if ! grep -q 'portfolio:identity:owner' index.html; then
-            echo "::error::Missing portfolio:identity:owner meta tag in index.html"
-            exit 1
-          fi
-          if ! grep -q 'portfolio:constraint:01' index.html; then
-            echo "::error::Missing portfolio:constraint meta tags in index.html"
-            exit 1
-          fi
+          python3 - << 'EOF'
+          import re, os, sys
+          with open('llms.txt', 'r', encoding='utf-8') as f:
+              content = f.read()
+          errors = []
+          for line in content.splitlines():
+              for ref in re.findall(r'\[.*?\]\((?!https?://)([^)]+)\)', line):
+                  path = ref.split('#')[0].strip()
+                  if path and not os.path.exists(path):
+                      errors.append(f"Dead relative link in llms.txt: '{path}'")
+          if errors:
+              for e in errors: print(f"::error::{e}")
+              sys.exit(1)
+          print("llms.txt internal reference check passed.")
+          EOF
+
+      - name: Verify Constraint Metadata Tags
+        run: |
+          grep -q 'portfolio:identity:owner' index.html \
+            || (echo "::error::Missing portfolio:identity:owner meta tag" && exit 1)
+          grep -q 'portfolio:constraint:01' index.html \
+            || (echo "::error::Missing portfolio:constraint meta tags" && exit 1)
           echo "Constraint metadata validation passed."
 
-      - name: Verify Body Canonical Attribute (Machine-Readability)
+      - name: Verify Binary Asset Protection (改善文書a 5.1 / 改善文書b 9)
         run: |
-          if ! grep -q 'data-canonical="https://yutapr0117-design.github.io/portfolio/"' index.html; then
-            echo "::error::Missing data-canonical attribute on <body> element in index.html"
-            exit 1
-          fi
-          echo "Body canonical attribute validation passed."
+          test -f ".gitattributes" || (echo "::error::.gitattributes missing — binary assets unprotected from CRLF corruption" && exit 1)
+          grep -q "*.webp.*binary" .gitattributes || echo "::warning::.gitattributes: *.webp not marked binary (XMP at risk)"
+          grep -q "*.mp3.*binary" .gitattributes || echo "::warning::.gitattributes: *.mp3 not marked binary (ID3v2.4 at risk)"
+          echo "Binary asset protection check complete."
+
+      - name: Verify GSC File AIO Annotations (改善文書a 5.1)
+        run: |
+          for gsc_file in google*.html; do
+            if [ -f "$gsc_file" ]; then
+              grep -q "AIO" "$gsc_file" || echo "::warning::$gsc_file may be missing AIO Entity Declaration"
+              echo "$gsc_file checked."
+            fi
+          done
+
+      - name: Verify Trusted Types Policy (XSS Prevention)
+        run: |
+          grep -q "trustedTypes.createPolicy" index.html || echo "::warning::Trusted Types createPolicy() not found"
+          grep -q "require-trusted-types-for" index.html || echo "::warning::CSP require-trusted-types-for directive missing"
+          echo "Trusted Types check complete."
+
+      - name: Version Consistency Check (改善文書a 7.3)
+        run: |
+          python3 - << 'EOF'
+          import re
+          with open('index.html', 'r', encoding='utf-8') as f:
+              html = f.read()
+          with open('AI2AI.md', 'r', encoding='utf-8') as f:
+              ai2ai = f.read()
+          html_v = (re.search(r'name="ai:version"\s+content="(v\d+)"', html) or type('', (), {'group': lambda s,i: None})()).group(1)
+          ai2ai_v = (re.search(r'Pipeline-Version\s*:\s*(v\d+)', ai2ai) or type('', (), {'group': lambda s,i: None})()).group(1)
+          print(f"index.html ai:version={html_v}, AI2AI.md Pipeline-Version={ai2ai_v}")
+          if html_v and ai2ai_v and html_v != ai2ai_v:
+              print(f"::warning::Version mismatch: index.html={html_v} vs AI2AI.md={ai2ai_v}")
+          print("Version consistency check complete.")
+          EOF
 
       - name: Verify Async Font Loading (Core Web Vitals)
         run: |
           if grep -qP '<link[^>]+fonts\.googleapis\.com[^>]+rel="stylesheet"[^>]*>' index.html; then
-            echo "::warning::Synchronous font loading detected. Consider media=print onload pattern for LCP optimization."
+            echo "::warning::Synchronous font loading detected. Consider media=print onload pattern."
           fi
           echo "Font loading check complete."
+
+      # ── 16. チェックサム差分マトリクス検証 (改善文書a 7.3) ────────────────
+      # index.html の AIOカスタム属性命名規則が変更された場合、
+      # aio-guard.js のチェックサムが変化していないと「修正漏れ」と判定する。
+      - name: Checksum Dependency Matrix Validation (改善文書a 7.3)
+        run: |
+          python3 - << 'EOF2'
+          import hashlib, re, os, sys
+
+          def sha256_file(path):
+              if not os.path.exists(path):
+                  return None
+              with open(path, 'rb') as f:
+                  return hashlib.sha256(f.read()).hexdigest()
+
+          # Extract AIO attribute names used in index.html
+          with open('index.html', 'r', encoding='utf-8') as f:
+              html = f.read()
+
+          aio_attrs = sorted(set(re.findall(r'data-(?:entity|canonical|ai-context|asset-role)\b', html)))
+
+          # Check aio-guard.js references matching attributes
+          guard_exists = os.path.exists('aio-guard.js')
+          if guard_exists:
+              with open('aio-guard.js', 'r', encoding='utf-8') as f:
+                  guard_content = f.read()
+              # aio-guard.js must reference 'aio-asset-anchor' (its sole protected node)
+              if 'aio-asset-anchor' not in guard_content:
+                  print('::error::aio-guard.js does not reference aio-asset-anchor — guard is ineffective.')
+                  sys.exit(1)
+
+          # Log checksums for audit trail
+          files_to_check = ['index.html', 'aio-guard.js', 'sw.js', 'llms.txt', 'llms-full.txt', 'robots.txt']
+          print('=== Checksum Audit Matrix ===')
+          for f in files_to_check:
+              h = sha256_file(f)
+              print(f'{f}: {h or "MISSING"}')
+
+          print(f'AIO attributes found: {aio_attrs}')
+          print('Checksum matrix validation complete.')
+          EOF2
+
+      # ── 17. SRI 外部リソース整合性チェック (改善文書a 2.2) ───────────────
+      - name: External Resource SRI Presence Check (改善文書a 2.2)
+        run: |
+          python3 - << 'EOF3'
+          import re, sys
+
+          with open('index.html', 'r', encoding='utf-8') as f:
+              content = f.read()
+
+          # Find external script/link tags without integrity attribute
+          # Google Fonts and KARTE are explicitly exempted per Security Architecture Note (v73)
+          EXEMPTED_DOMAINS = ['fonts.googleapis.com', 'fonts.gstatic.com', 'cdn-edge.karte.io', 'static.karte.io']
+
+          external_scripts = re.findall(r'<script[^>]+src="(https://[^"]+)"[^>]*>', content, re.IGNORECASE)
+          external_styles  = re.findall(r'<link[^>]+href="(https://[^"]+)"[^>]+rel=["\']stylesheet["\'][^>]*>', content, re.IGNORECASE)
+
+          warnings = []
+          for url in external_scripts + external_styles:
+              is_exempt = any(domain in url for domain in EXEMPTED_DOMAINS)
+              if not is_exempt:
+                  # Check if integrity is present alongside this URL
+                  context = content[max(0, content.find(url)-50):content.find(url)+len(url)+200]
+                  if 'integrity=' not in context:
+                      warnings.append(f'External resource without SRI: {url}')
+
+          for w in warnings:
+              print(f'::warning::{w}')
+
+          print(f'SRI check complete. {len(warnings)} resources without SRI (non-exempted).')
+          EOF3

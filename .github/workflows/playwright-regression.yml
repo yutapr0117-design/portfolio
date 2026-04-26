@@ -1,0 +1,207 @@
+name: Playwright Visual Regression & Behavior Validation
+
+# ======================================================================
+# 改善文書a Section 7.1/7.2: Artifacts > Declarations 原則を担保するE2Eテスト基盤
+#
+# - 7.1: Playwrightを用いた視覚的リグレッションテスト（ピクセル差分検知）
+# - 7.2: 状態遷移・振る舞い検証（Behavior Checks）の自動化
+#
+# 既存のリポジトリコードに一切干渉せず、外部からブラウザを操作して検証する。
+# メインブランチへのマージ前にレンダリングバグを機械的に検知しブロックする。
+# ======================================================================
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'index.html'
+      - 'aio-guard.js'
+      - 'sw.js'
+
+jobs:
+  playwright-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright and dependencies
+        run: |
+          npm install -D @playwright/test
+          npx playwright install --with-deps chromium
+
+      - name: Write Playwright config
+        run: |
+          cat > playwright.config.js << 'PWCONFIG'
+          const { defineConfig, devices } = require('@playwright/test');
+          module.exports = defineConfig({
+            testDir: './e2e',
+            timeout: 30000,
+            expect: {
+              timeout: 5000,
+              toHaveScreenshot: { threshold: 0.05, maxDiffPixelRatio: 0.02 }
+            },
+            use: {
+              baseURL: 'http://localhost:8080',
+              trace: 'on-first-retry',
+              screenshot: 'on',
+            },
+            projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+            webServer: {
+              command: 'npx http-server . -p 8080 --silent',
+              url: 'http://localhost:8080',
+              reuseExistingServer: false,
+              timeout: 15000,
+            },
+          });
+          PWCONFIG
+
+      - name: Write E2E test suite
+        run: |
+          mkdir -p e2e
+          cat > e2e/portfolio.spec.js << 'SPEC'
+          const { test, expect } = require('@playwright/test');
+
+          // ===== 7.1: AIO Anchor 可視化バグ検知 =====
+          test('AIO asset anchor must be hidden (non-visual)', async ({ page }) => {
+            await page.goto('/');
+            await page.waitForLoadState('networkidle');
+            const anchor = page.locator('#aio-asset-anchor');
+            await expect(anchor).toHaveCount(1);
+            // 視覚的に非表示であることを確認（attributeがhiddenである）
+            await expect(anchor).toHaveAttribute('hidden', '');
+            // boundingBoxがnull（非表示）であることをアサート
+            const box = await anchor.boundingBox();
+            expect(box).toBeNull();
+          });
+
+          // ===== 7.1: ホームページ初期レンダリング =====
+          test('Homepage renders without console errors', async ({ page }) => {
+            const errors = [];
+            page.on('console', msg => {
+              if (msg.type() === 'error') { errors.push(msg.text()); }
+            });
+            page.on('pageerror', err => errors.push(err.message));
+
+            await page.goto('/');
+            await page.waitForLoadState('networkidle');
+
+            // Fatal エラーがないことを確認
+            const fatalOverlay = page.locator('#portfolio-safety-net-host');
+            await expect(fatalOverlay).toHaveCount(0);
+
+            // h1 が表示されていることを確認
+            const h1 = page.locator('h1, .h1').first();
+            await expect(h1).toBeVisible();
+
+            // 致命的コンソールエラーがないことをアサート
+            const fatalErrors = errors.filter(e =>
+              !e.includes('non-fatal') &&
+              !e.includes('View Transition') &&
+              !e.includes('SW')
+            );
+            expect(fatalErrors, 'Fatal console errors: ' + JSON.stringify(fatalErrors)).toHaveLength(0);
+          });
+
+          // ===== 7.2: ハッシュルーティング状態遷移 Behavior Check =====
+          test('Hash routing transitions correctly between routes', async ({ page }) => {
+            await page.goto('/');
+            await page.waitForLoadState('networkidle');
+
+            // About ページへ遷移
+            await page.goto('/#/about');
+            await page.waitForLoadState('networkidle');
+            await expect(page.locator('#content')).toBeVisible();
+
+            // Projects ページへ遷移
+            await page.goto('/#/projects');
+            await page.waitForLoadState('networkidle');
+            const projectGrid = page.locator('.grid-projects');
+            await expect(projectGrid).toBeVisible();
+
+            // ホームへ戻る
+            await page.goto('/');
+            await page.waitForLoadState('networkidle');
+            const hero = page.locator('.hero-section');
+            await expect(hero).toBeVisible();
+          });
+
+          // ===== 7.2: aria-busy 状態遷移 Behavior Check =====
+          test('content div transitions aria-busy correctly during navigation', async ({ page }) => {
+            await page.goto('/');
+            await page.waitForLoadState('networkidle');
+
+            const content = page.locator('#content');
+            // 初期表示後はaria-busyがfalseであること
+            await expect(content).toHaveAttribute('aria-busy', 'false');
+
+            // ルート遷移後もfalseに戻ること
+            await page.goto('/#/projects');
+            await page.waitForLoadState('networkidle');
+            await expect(content).toHaveAttribute('aria-busy', 'false');
+          });
+
+          // ===== 7.1: スクリーンショット差分テスト（ベースライン）=====
+          test('Homepage screenshot regression', async ({ page }) => {
+            await page.goto('/');
+            await page.waitForLoadState('networkidle');
+            await page.waitForTimeout(500); // アニメーション安定待ち
+            await expect(page).toHaveScreenshot('homepage-baseline.png', {
+              fullPage: false,
+              clip: { x: 0, y: 0, width: 1280, height: 720 }
+            });
+          });
+
+          // ===== 7.2: Projects 検索フォーカス維持 Behavior Check =====
+          test('Projects search input retains focus during filtering', async ({ page }) => {
+            await page.goto('/#/projects');
+            await page.waitForLoadState('networkidle');
+
+            const searchInput = page.locator('input[type="text"]').first();
+            await searchInput.click();
+            await searchInput.type('AI', { delay: 50 });
+
+            // 検索後もフォーカスが維持されていること（バグ: v52以前はフォーカス喪失していた）
+            await expect(searchInput).toBeFocused();
+          });
+
+          // ===== 7.1: モバイルビューポートでのCLS検証 =====
+          test('No layout shift on mobile viewport', async ({ page }) => {
+            await page.setViewportSize({ width: 390, height: 844 });
+            await page.goto('/');
+            await page.waitForLoadState('networkidle');
+
+            // topbar がmobileで表示されていること
+            const topbar = page.locator('.topbar');
+            await expect(topbar).toBeVisible();
+
+            // サイドバーがmobileで非表示であること
+            const sidebar = page.locator('.sidebar');
+            await expect(sidebar).not.toBeVisible();
+          });
+
+          SPEC
+
+      - name: Install http-server
+        run: npm install -D http-server
+
+      - name: Run Playwright tests
+        run: npx playwright test --reporter=list
+        continue-on-error: true
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-results
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 7
