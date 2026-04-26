@@ -1,0 +1,44 @@
+# .gitattributes — Binary Metadata Protection & Line-Ending Control
+# 改善文書b Section 9: バイナリアセットのGit LFS/改行コード変換による破損予防
+#
+# PURPOSE: Prevent Git clients (especially on Windows) from treating media files
+# as text and corrupting XMP / ID3v2.4 metadata via CRLF conversion.
+# This is a silent bug (no visual diff) that would destroy AIO semantic data.
+
+# ── XMP-embedded images (DO NOT auto-convert line endings) ──────────────────
+*.webp    binary
+*.jpg     binary
+*.jpeg    binary
+*.png     binary
+*.gif     binary
+*.svg     text eol=lf
+
+# ── ID3v2.4-embedded audio ──────────────────────────────────────────────────
+*.mp3     binary
+*.wav     binary
+*.ogg     binary
+*.flac    binary
+*.m4a     binary
+
+# ── AI-Optimization routing files (MUST be LF — CRLF breaks parser/crawler) ─
+llms.txt       text eol=lf
+llms-full.txt  text eol=lf
+AI2AI.md       text eol=lf
+robots.txt     text eol=lf
+sitemap.xml    text eol=lf
+
+# ── General web source files ─────────────────────────────────────────────────
+*.html    text eol=lf
+*.css     text eol=lf
+*.js      text eol=lf
+*.ts      text eol=lf
+*.json    text eol=lf
+*.md      text eol=lf
+*.yml     text eol=lf
+*.yaml    text eol=lf
+*.txt     text eol=lf
+
+# ── Exports / build artifacts (keep binary) ──────────────────────────────────
+*.zip     binary
+*.tar.gz  binary
+*.tar     binary

@@ -1,0 +1,64 @@
+{
+  "plugins": [],
+  "rules": {
+    "declaration-no-important": [true, {
+      "severity": "error",
+      "message": "!important is prohibited. Resolve specificity conflicts instead."
+    }],
+    "selector-max-specificity": ["0,4,0", {
+      "severity": "error",
+      "message": "Max specificity: 4 class selectors. Reduce nesting to prevent cascade bugs."
+    }],
+    "color-no-invalid-hex": [true, {
+      "severity": "error"
+    }],
+    "color-named": ["never", {
+      "severity": "warning",
+      "message": "Use CSS variables var(--color-*) instead of named colors."
+    }],
+    "unit-no-unknown": [true, {
+      "severity": "error"
+    }],
+    "property-no-unknown": [true, {
+      "severity": "error"
+    }],
+    "no-duplicate-selectors": [true, {
+      "severity": "warning"
+    }],
+    "shorthand-property-no-redundant-values": [true, {
+      "severity": "warning"
+    }],
+    "block-no-empty": [true, {
+      "severity": "warning"
+    }],
+    "comment-no-empty": [true, {
+      "severity": "warning"
+    }],
+    "no-empty-source": [true, {
+      "severity": "warning"
+    }],
+    "length-zero-no-unit": [true, {
+      "severity": "warning",
+      "ignore": ["custom-properties"]
+    }]
+  },
+  "ignoreFiles": [
+    "node_modules/**",
+    "*.min.css"
+  ],
+  "_note_declaration-strict-value": {
+    "description": "改善文書a 6.2: color/background-color/font-family には var() を強制する。stylelint-declaration-strict-value プラグインをインストールして有効化すること。",
+    "plugin": "stylelint-declaration-strict-value",
+    "config_when_installed": {
+      "plugin/declaration-strict-value": [
+        ["/color$/", "background-color", "font-family", "font-size"],
+        {
+          "ignoreValues": ["inherit", "initial", "unset", "transparent", "currentColor", "none"],
+          "disableFix": true,
+          "severity": "warning",
+          "message": "Use CSS variables (var(--*)) for color, background-color, font-family, font-size."
+        }
+      ]
+    }
+  }
+}
