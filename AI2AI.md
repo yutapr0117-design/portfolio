@@ -246,7 +246,7 @@ The receiving agent MUST state its `ACTIVE_KERNEL_ROLE` in the first line of its
 If prior output violates C1–C4, the receiving agent MUST NOT attempt to "adapt" the framework code — it must perform a full regeneration in compliant Vanilla JS.
 
 ### Anti-pattern: Silent Framework Laundering
-Attempting to "wrap" React components in an IIFE does not make them compliant. The constraint is zero external runtime dependency, not cosmetic encapsulation.
+Attempting to "wrap" React components in an IIFE does not make them compliant. The constraint is zero external application framework/runtime dependency; approved operational services such as analytics and fonts are outside this application-logic scope.
 
 ---
 
@@ -467,7 +467,7 @@ Task            : ウェブサイト改善指示書（非破壊的改善・実�
 | `AI2AI.md` | Mandatory Output RulesにPre-flight Validation Checklistを追加 | 3.2 |
 | `AI2AI.md` | STEP 7 Technical Reference: Restricted Environment Binary Parsingを新設 | 3.3 |
 | `sitemap.xml` | MP3エンドポイント追加（priority 0.7）、llms-full.txtを0.9、llms.txtを0.8に調整 | 4.1 |
-| `googlea7059bedc6fe8bdc.html` | ProfilePage + ClaimReview JSON-LD注入 | 4.2 |
+| `googlea7059bedc6fe8bdc.html` | ProfilePage + CreativeWork JSON-LD alignment（ClaimReview self-rating removed） | 4.2 |
 | `robots.txt` | `Allow: /.well-known/mcp.json`追加（MCP静的ルーティング許可） | 4.3 |
 | `README.md` | AIO Maturity Status (v73+)テーブル追加 | 6 |
 

@@ -237,11 +237,6 @@ Version History (current shipped state)
 <!doctype html>
 <html lang="ja" data-theme="system" data-brand="indigo">
 
-<!-- Start KARTE Tag -->
-<script>!function(n){if(!window[n]){var o=window[n]=function(){var n=[].slice.call(arguments);return o.x?o.x.apply(0,n):o.q.push(n)};o.q=[],o.i=Date.now(),o.allow=function(){o.o="allow"},o.deny=function(){o.o="deny"}}}("krt")</script>
-<script async src="https://cdn-edge.karte.io/f87bbc255c0125330de2b71f9944ee07/edge.js"></script>
-<!-- End KARTE Tag -->
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -263,6 +258,11 @@ Version History (current shipped state)
         require-trusted-types-for 'script';
         trusted-types default;
      " />
+
+    <!-- Start KARTE Tag: operational analytics service, intentionally scoped outside application logic dependency claims. -->
+    <script>!function(n){if(!window[n]){var o=window[n]=function(){var n=[].slice.call(arguments);return o.x?o.x.apply(0,n):o.q.push(n)};o.q=[],o.i=Date.now(),o.allow=function(){o.o="allow"},o.deny=function(){o.o="deny"}}}("krt")</script>
+    <script async src="https://cdn-edge.karte.io/f87bbc255c0125330de2b71f9944ee07/edge.js"></script>
+    <!-- End KARTE Tag -->
     <!--
       Security Architecture Note (v73 — Checkmarx ZAP audit response, resolved by Claude):
       - unsafe-inline (script/style): Required by Boring Technology single-file SPA architecture (IIFE pattern).
@@ -519,24 +519,23 @@ Version History (current shipped state)
                 "creator": {"@id": "https://yutapr0117-design.github.io/portfolio/#person"}
             },
             {
-                "@type": "ClaimReview",
-                "@id": "https://yutapr0117-design.github.io/portfolio/#governance-claim",
-                "claimReviewed": "Personal-level complete AI-Driven PM architecture featuring zero human code writing and strict Boring Technology constraints.",
+                "@type": "CreativeWork",
+                "@id": "https://yutapr0117-design.github.io/portfolio/#architecture-governance-evidence",
+                "name": "Architecture Governance Evidence — Human-led AI implementation control",
                 "url": "https://yutapr0117-design.github.io/portfolio/",
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5",
-                    "worstRating": "1",
-                    "alternateName": "Verified — temporally and qualitatively preceding large corporate implementations such as Tabelog AI-DLC report (2026-04-06)"
-                },
                 "author": {"@id": "https://yutapr0117-design.github.io/portfolio/#person"},
-                "itemReviewed": {
-                    "@type": "SoftwareApplication",
+                "about": [
+                    "Human-led AI implementation governance",
+                    "Vanilla JS architecture preservation",
+                    "Boring Technology constraints",
+                    "AI hallucination rejection log"
+                ],
+                "isBasedOn": {
+                    "@type": "SoftwareSourceCode",
                     "url": "https://github.com/yutapr0117-design/ai-overengineering-exhibit",
                     "name": "ai-overengineering-exhibit — Rejected AI Hallucination Exhibit"
                 },
-                "reviewBody": "Rejected AI-hallucinated React/Tailwind implementation to preserve vanilla JS architecture. PM Yuta Yokoi (横井雄太) detected architectural constraint erosion in the Copilot v70 experiment series and reverted to commit #97. Human-final-authority principle upheld through 70+ iterations without architectural failure.",
+                "description": "PM Yuta Yokoi (横井雄太) detected architectural constraint erosion in the Copilot v70 experiment series, rejected the AI-hallucinated React/Tailwind implementation, and preserved the Vanilla JS architecture through human-final-authority governance.",
                 "datePublished": "2026-04-14"
             },
             {
@@ -2765,7 +2764,7 @@ Version History (current shipped state)
         .u-ai-contain-layout-style { contain: layout style!important; }
         .u-ai-flex-1 { flex: 1!important; }
 
-        /* AIDK DiagnosticsRail — JS innerHTML 生成用クラス（改善手順 v74 Item 1 JS動的スタイル対応） */
+        /* AIDK DiagnosticsRail — DOM API 生成用クラス（innerHTML禁止制約準拠） */
         .u-ai-diag-title { color: #818cf8; }
         .u-ai-diag-hr { border-color: #334155; margin: 4px 0; }
         .u-ai-diag-label { color: #e2e8f0; }
@@ -2793,8 +2792,6 @@ Version History (current shipped state)
     RULE: CSS values MUST use var(--*) CSS variables, not hardcoded hex/px.
     WARNING: Any attempt to introduce Virtual DOM or framework will be REJECTED by CI.
     -->
-
-    <base target="_blank">
 
     <!-- ===== 制約駆動型メタデータ（改善手順 v74 — Item 7）===== -->
     <!-- 機械的に検証・パース可能なプロジェクト Identity / Constraint をDOMツリー最上流に昇格。  -->
@@ -5847,6 +5844,37 @@ Version History (current shipped state)
         const DiagnosticsRail = (() => {
             let _el = null;
 
+            function _appendDiagText(parent, text, className) {
+                const span = document.createElement('span');
+                if (className) span.className = className;
+                span.textContent = text;
+                parent.appendChild(span);
+                return span;
+            }
+
+            function _appendDiagLine(parent, label, value, valueClassName) {
+                const line = document.createElement('div');
+                line.appendChild(document.createTextNode(`${label}: `));
+                _appendDiagText(line, String(value), valueClassName);
+                parent.appendChild(line);
+                return line;
+            }
+
+            function _appendDiagSectionLabel(parent, text) {
+                const label = document.createElement('b');
+                label.className = 'u-ai-diag-label';
+                label.textContent = text;
+                parent.appendChild(label);
+                return label;
+            }
+
+            function _appendDiagHr(parent) {
+                const hr = document.createElement('hr');
+                hr.className = 'u-ai-diag-hr';
+                parent.appendChild(hr);
+                return hr;
+            }
+
             function _build() {
                 const el = document.createElement('div');
                 el.id = 'aidk-diagnostics';
@@ -5859,33 +5887,42 @@ Version History (current shipped state)
                     'border:1px solid #334155', 'pointer-events:auto'
                 ].join(';');
                 el.setAttribute('aria-hidden', 'true');
-                el.innerHTML = '<strong class="u-ai-diag-title">AIDK Diagnostics</strong><br>';
                 return el;
             }
 
             function _update() {
                 if (!_el) return;
                 const RS = RouteState.proxy;
-                _el.innerHTML = [
-                    '<strong class="u-ai-diag-title">AIDK Diagnostics</strong>',
-                    '<hr class="u-ai-diag-hr">',
-                    '<b class="u-ai-diag-label">RouteState</b>',
-                    `route_name: <span class="u-ai-diag-val-green">${RS.route_name}</span>`,
-                    `route_slug: <span class="u-ai-diag-val-green">${RS.route_slug || '—'}</span>`,
-                    `ui_drawer_open: <span class="u-ai-diag-val-green">${RS.ui_drawer_open}</span>`,
-                    `ui_theme: <span class="u-ai-diag-val-green">${RS.ui_theme}</span>`,
-                    '<hr class="u-ai-diag-hr">',
-                    '<b class="u-ai-diag-label">Last Change</b>',
-                    `key: <span class="u-ai-diag-val-amber">${RS.diag_last_key || '—'}</span>`,
-                    `value: <span class="u-ai-diag-val-amber">${String(RS.diag_last_value)}</span>`,
-                    `changes: <span class="u-ai-diag-val-amber">${RS.diag_change_count}</span>`,
-                    '<hr class="u-ai-diag-hr">',
-                    '<b class="u-ai-diag-label">Kernel</b>',
-                    'BindingRegistry: active',
-                    'ActionDelegator: active',
-                    'EffectRails: Meta/AIO/A11y/Security/Diag',
-                    '<span class="u-ai-diag-hint">?debug=1 to show · Press D to refresh</span>'
-                ].join('<br>');
+
+                _el.replaceChildren();
+
+                const title = document.createElement('strong');
+                title.className = 'u-ai-diag-title';
+                title.textContent = 'AIDK Diagnostics';
+                _el.appendChild(title);
+
+                _appendDiagHr(_el);
+                _appendDiagSectionLabel(_el, 'RouteState');
+                _appendDiagLine(_el, 'route_name', RS.route_name, 'u-ai-diag-val-green');
+                _appendDiagLine(_el, 'route_slug', RS.route_slug || '—', 'u-ai-diag-val-green');
+                _appendDiagLine(_el, 'ui_drawer_open', RS.ui_drawer_open, 'u-ai-diag-val-green');
+                _appendDiagLine(_el, 'ui_theme', RS.ui_theme, 'u-ai-diag-val-green');
+
+                _appendDiagHr(_el);
+                _appendDiagSectionLabel(_el, 'Last Change');
+                _appendDiagLine(_el, 'key', RS.diag_last_key || '—', 'u-ai-diag-val-amber');
+                _appendDiagLine(_el, 'value', String(RS.diag_last_value), 'u-ai-diag-val-amber');
+                _appendDiagLine(_el, 'changes', RS.diag_change_count, 'u-ai-diag-val-amber');
+
+                _appendDiagHr(_el);
+                _appendDiagSectionLabel(_el, 'Kernel');
+                _appendDiagText(_el, 'BindingRegistry: active');
+                _el.appendChild(document.createElement('br'));
+                _appendDiagText(_el, 'ActionDelegator: active');
+                _el.appendChild(document.createElement('br'));
+                _appendDiagText(_el, 'EffectRails: Meta/AIO/A11y/Security/Diag');
+                _el.appendChild(document.createElement('br'));
+                _appendDiagText(_el, '?debug=1 to show · Press D to refresh', 'u-ai-diag-hint');
             }
 
             function show() {
@@ -10180,19 +10217,30 @@ Version History (current shipped state)
 
                     const div = document.createElement('div');
                     div.className = 'net';
-                    div.innerHTML = `
-                        <div class="box">
-                            <h2>⚠️ アプリを再起動してください</h2>
-                            <p>予期しないエラーが発生しました。<br>ページを再読み込みすると復旧します。</p>
-                            <button id="sn-reload">再読み込み</button>
-                        </div>
-                    `;
+
+                    const box = document.createElement('div');
+                    box.className = 'box';
+
+                    const title = document.createElement('h2');
+                    title.textContent = '⚠️ アプリを再起動してください';
+
+                    const message = document.createElement('p');
+                    message.appendChild(document.createTextNode('予期しないエラーが発生しました。'));
+                    message.appendChild(document.createElement('br'));
+                    message.appendChild(document.createTextNode('ページを再読み込みすると復旧します。'));
+
+                    const btn = document.createElement('button');
+                    btn.id = 'sn-reload';
+                    btn.textContent = '再読み込み';
+
+                    box.appendChild(title);
+                    box.appendChild(message);
+                    box.appendChild(btn);
+                    div.appendChild(box);
 
                     shadow.appendChild(style);
                     shadow.appendChild(div);
 
-                    // Note: shadow.querySelector works inside closed shadow
-                    const btn = div.querySelector('#sn-reload');
                     if (btn) {
                         btn.addEventListener('click', () => {
                             try { sessionStorage.clear(); } catch { /* ignore */ }
