@@ -233,6 +233,10 @@ Version History (current shipped state)
     ・ID3 TIT2 に (AI-Generated) マーカーと正規ファイル名参照を追加
     ・PM：横井雄太（Yuta Yokoi）が脆弱性検出・方針策定。実装：Claude（AI）が修正実行
 
+    ・XMP dc:title(en) に v73 バージョンマーカーとファイル名参照を追加
+    ・ID3 TIT2 に (AI-Generated) マーカーと正規ファイル名参照を追加
+    ・PM：横井雄太（Yuta Yokoi）が脆弱性検出・方針策定。実装：Claude（AI）が修正実行
+
 -->
 <!doctype html>
 <html lang="ja" data-theme="system" data-brand="indigo">
@@ -3094,16 +3098,23 @@ Version History (current shipped state)
                     return { ready: r, finished: r, updateCallbackDone: r, skipTransition: function() {} };
                 }
 
-                // Promise.race でタイムアウト制御 (ハングアップバグ防止 / doc c §1)
-                var timeoutPromise = new Promise(function(_, reject) {
-                    setTimeout(function() { reject(new Error('[VT-Proxy] Transition timed out after ' + TRANSITION_TIMEOUT_MS + 'ms')); }, TRANSITION_TIMEOUT_MS);
-                });
-
-                // finished にタイムアウトを競合させる — transition オブジェクト自体は返す
-                var originalFinished = transition.finished;
-                transition.finished = Promise.race([originalFinished, timeoutPromise]).catch(function(e) {
-                    console.warn('[VT-Proxy] Transition aborted or timed out — forcing skipTransition():', e);
+                // タイムアウト制御 (ハングアップバグ防止 / doc c §1)
+                // ※ transition.finished は ViewTransition の read-only getter のため代入不可。
+                //   代わりに setTimeout で skipTransition() を直接呼び出す。
+                var _timeoutId = setTimeout(function() {
+                    console.warn('[VT-Proxy] Transition timed out after ' + TRANSITION_TIMEOUT_MS + 'ms — forcing skipTransition()');
                     try { transition.skipTransition(); } catch (_) {}
+                }, TRANSITION_TIMEOUT_MS);
+
+                // finished が正常完了またはキャンセルされたらタイムアウトをクリア
+                transition.finished.then(function() {
+                    clearTimeout(_timeoutId);
+                }).catch(function(e) {
+                    clearTimeout(_timeoutId);
+                    // アニメーションが拒否された場合のみ警告 (DOMContentの適用は完了している)
+                    if (e && e.name !== 'AbortError') {
+                        console.warn('[VT-Proxy] Transition finished rejected:', e);
+                    }
                 });
 
                 return transition;
