@@ -3050,6 +3050,66 @@ Version History (current shipped state)
         (function() {
         'use strict';
 
+        // ─────────────────────────────────────────────────────────────────────────
+        // 改善文書c Section 1 / カテゴリA #9: document.startViewTransition プロキシ・インターセプター
+        // AIが素のdocument.startViewTransition()を直接呼び出しても、
+        // try/catch + skipTransition() + タイムアウト制御が必ず効くよう
+        // メソッド自体をここで上書きする。safeViewTransition()経由かどうかに依存しない。
+        // ─────────────────────────────────────────────────────────────────────────
+        (function _installStartViewTransitionProxy() {
+            'use strict';
+            if (!document.startViewTransition) { return; } // 未対応環境はスキップ
+
+            var _orig = document.startViewTransition.bind(document);
+            var TRANSITION_TIMEOUT_MS = 3000;
+
+            document.startViewTransition = function startViewTransitionProxy(callback) {
+                // prefers-reduced-motion: animationを完全スキップ (doc b §13.1 二重防衛)
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    try { if (typeof callback === 'function') callback(); } catch (e) { console.warn('[VT-Proxy] callback error (reduced-motion path):', e); }
+                    // transition.ready / transition.finished を持つ duck-typed オブジェクトを返す
+                    var resolved = Promise.resolve();
+                    return { ready: resolved, finished: resolved, updateCallbackDone: resolved, skipTransition: function() {} };
+                }
+
+                // コールバックを try/catch/finally でラップ
+                var safeCallback = function() {
+                    try {
+                        var result = (typeof callback === 'function') ? callback() : undefined;
+                        return result;
+                    } catch (e) {
+                        console.warn('[VT-Proxy] callback threw — transition will be skipped:', e);
+                        throw e; // ブラウザに再スロー → transition 自体がスキップされる
+                    }
+                };
+
+                var transition;
+                try {
+                    transition = _orig(safeCallback);
+                } catch (initErr) {
+                    // startViewTransition 自体の初期化失敗 (TypeError等)
+                    console.warn('[VT-Proxy] startViewTransition init error — direct DOM fallback:', initErr);
+                    try { if (typeof callback === 'function') callback(); } catch (e) {}
+                    var r = Promise.resolve();
+                    return { ready: r, finished: r, updateCallbackDone: r, skipTransition: function() {} };
+                }
+
+                // Promise.race でタイムアウト制御 (ハングアップバグ防止 / doc c §1)
+                var timeoutPromise = new Promise(function(_, reject) {
+                    setTimeout(function() { reject(new Error('[VT-Proxy] Transition timed out after ' + TRANSITION_TIMEOUT_MS + 'ms')); }, TRANSITION_TIMEOUT_MS);
+                });
+
+                // finished にタイムアウトを競合させる — transition オブジェクト自体は返す
+                var originalFinished = transition.finished;
+                transition.finished = Promise.race([originalFinished, timeoutPromise]).catch(function(e) {
+                    console.warn('[VT-Proxy] Transition aborted or timed out — forcing skipTransition():', e);
+                    try { transition.skipTransition(); } catch (_) {}
+                });
+
+                return transition;
+            };
+        })();
+
         // ===== Trusted Types Policy Enforcement (Non-destructive addition) =====
         // createHTML returns empty string to physically block any innerHTML manipulation.
         // This enforces the Boring Technology constraint at the browser engine level,
