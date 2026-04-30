@@ -336,15 +336,23 @@ jobs:
           import re, sys
           with open('index.html', 'r', encoding='utf-8') as f:
               html = f.read()
-          # src を持たない <script> ブロックのみ抽出
-          blocks = re.findall(
-              r'<script(?![^>]*\bsrc\b)(?![^>]*\btype\s*=\s*[\"\''](?!text/javascript|module)[^\"\'']*[\"\''])[^>]*>(.*?)</script>',
-              html, re.DOTALL | re.IGNORECASE
-          )
-          combined = '\n;\n'.join(blocks)
+          # attrs + body に分解して Python 側で型判定 (YAML/quoting conflict 回避)
+          raw_pairs = re.findall(r'<script([^>]*)>(.*?)</script>', html, re.DOTALL | re.IGNORECASE)
+          js_blocks = []
+          for attrs, body in raw_pairs:
+              a = attrs.lower()
+              if 'src=' in a:
+                  continue
+              tm = re.search(r'type\s*=\s*(["\'])([^"\']*)["\']', a, re.IGNORECASE)
+              if tm:
+                  t = tm.group(2).strip()
+                  if t and t not in ('text/javascript', 'module'):
+                      continue
+              js_blocks.append(body)
+          combined = '\n;\n'.join(js_blocks)
           with open('/tmp/_inline_check.js', 'w', encoding='utf-8') as f:
               f.write(combined)
-          print(f"Extracted {len(blocks)} script blocks ({len(combined)} chars) to /tmp/_inline_check.js")
+          sys.stdout.write('Extracted {} JS blocks ({} chars) to /tmp/_inline_check.js\n'.format(len(js_blocks), len(combined)))
           EOF
             # inline 用の最小 tsconfig (型チェックのみ・出力なし)
             cat > /tmp/_tsconfig_inline.json << 'TSEOF'
@@ -389,14 +397,22 @@ jobs:
           import re
           with open('index.html', 'r', encoding='utf-8') as f:
               html = f.read()
-          blocks = re.findall(
-              r'<script(?![^>]*\bsrc\b)(?![^>]*\btype\s*=\s*[\"\''](?!text/javascript|module)[^\"\'']*[\"\''])[^>]*>(.*?)</script>',
-              html, re.DOTALL | re.IGNORECASE
-          )
-          combined = '\n;\n'.join(blocks)
+          raw_pairs = re.findall(r'<script([^>]*)>(.*?)</script>', html, re.DOTALL | re.IGNORECASE)
+          js_blocks = []
+          for attrs, body in raw_pairs:
+              a = attrs.lower()
+              if 'src=' in a:
+                  continue
+              tm = re.search(r'type\s*=\s*(["\'])([^"\']*)["\']', a, re.IGNORECASE)
+              if tm:
+                  t = tm.group(2).strip()
+                  if t and t not in ('text/javascript', 'module'):
+                      continue
+              js_blocks.append(body)
+          combined = '\n;\n'.join(js_blocks)
           with open('/tmp/_eslint_check.js', 'w', encoding='utf-8') as f:
               f.write(combined)
-          print(f"Extracted {len(blocks)} blocks for ESLint")
+          print('Extracted {} JS blocks for ESLint'.format(len(js_blocks)))
           EOF
             LINT_TARGET="/tmp/_eslint_check.js"
           fi
