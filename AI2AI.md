@@ -540,3 +540,30 @@ def parse_syncsafe_integer(bytes_data):
 | Zenn #4 | https://zenn.dev/yuta_yokoi/articles/3735dc2683f900 |
 | Zenn #5 | https://zenn.dev/yuta_yokoi/articles/340dbb85491fc8 |
 | Zenn #6 | https://zenn.dev/yuta_yokoi/articles/27fa4c511cd972 |
+
+---
+
+## Canonical Consistency Matrix (WP-14)
+
+AI agents modifying this repository MUST verify the following facts remain consistent across all mirrors after any edit.
+
+| Fact | Canonical Source | Mirrors | Validation |
+|---|---|---|---|
+| Canonical URL | `llms-full.txt` | README, index.html, robots.txt, sitemap.xml, mcp.json, JSON-LD, XMP, ID3 | `grep -r "yutapr0117-design.github.io/portfolio/" *.html *.txt *.md sitemap.xml` |
+| Current release version | `llms-full.txt` | README, AI2AI.md, mcp.json, index.html meta | grep `Pipeline-Version` |
+| Entity name variants | `llms-full.txt` | All AIO files, JSON-LD, XMP, ID3 | grep `Yuta Yokoi\|横井雄太\|Yokoi Yuta` |
+| UI display name | `index.html` + `llms-full.txt` | README, llms.txt | grep `yuta` (lowercase) |
+| WebP canonical filename | filesystem | JSON-LD, XMP, sitemap.xml, llms-full.txt, index.html | `grep "yuta-yokoi-ai-pm-orchestration-system.webp"` |
+| MP3 canonical filename | filesystem | JSON-LD, ID3, sitemap.xml, llms-full.txt, index.html | `grep "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3"` |
+| llms.txt primary entrypoint | root `llms.txt` | `.well-known/llms.txt` | `diff llms.txt .well-known/llms.txt` → zero diff |
+| .well-known/index.json | `.well-known/index.json` | `.well-known/agent-skills/index.json` | `diff` → zero diff |
+| mcp.json static manifest | `.well-known/mcp.json` | README, llms-full.txt | must say "static AI discovery manifest", `tools: false` |
+| Architecture constraints | `llms-full.txt` | AI2AI.md, index.html comments, README | no React/Vue/external framework import |
+
+**Validation command (run after any multi-file edit):**
+```bash
+diff llms.txt .well-known/llms.txt && echo "llms OK" || echo "MISMATCH"
+diff .well-known/index.json .well-known/agent-skills/index.json && echo "index OK" || echo "MISMATCH"
+python3 -c "import xml.etree.ElementTree as ET; ET.parse('sitemap.xml'); print('sitemap XML OK')"
+python3 -c "import json; json.load(open('.well-known/mcp.json')); print('mcp.json OK')"
+```

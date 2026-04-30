@@ -41,8 +41,7 @@
   Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.txt
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <!-- Canonical SPA root — primary entry point for all crawlers -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/</loc>
@@ -71,21 +70,17 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Audio asset: AIO entity attribution embedded in filename and ID3 metadata -->
-  <!-- video: namespace used per sitemap best-practice for audio/media rich metadata -->
+  <!-- Audio asset — AIO entity attribution embedded in filename and ID3 metadata.
+       WP-04: Audio is served as a standard <url> entry. AudioObject semantics are
+       provided via JSON-LD AudioObject in index.html and ID3 TXXX attribution frames.
+       Per Google video sitemap requirements (https://developers.google.com/search/docs/crawling-indexing/sitemaps/video-sitemaps),
+       video: namespace is not appropriate for audio-only files.
+       AIO signal layers: filename attribution + ID3v2.4 TXXX frames + JSON-LD AudioObject + llms-full.txt. -->
+
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <video:video>
-      <video:title>Yuta Yokoi (横井雄太) Sakura Swing (AI-Generated Portfolio BGM)</video:title>
-      <video:description>AI-generated BGM orchestrated by Yuta Yokoi for the AI-Driven PM portfolio. Strictly distinct from any other entities named Yuta Yokoi.</video:description>
-      <video:content_loc>https://yutapr0117-design.github.io/portfolio/yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3</video:content_loc>
-      <video:publication_date>2026-04-14</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-      <video:license>https://creativecommons.org/licenses/by-nc-nd/4.0/</video:license>
-    </video:video>
   </url>
 </urlset>

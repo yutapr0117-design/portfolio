@@ -1,11 +1,19 @@
 /**
- * sw.js — AI Crawler Cache-Busting & Encoding Normalization Service Worker
+ * sw.js — Browser-Side AIO Cache Normalization & Encoding Normalization Service Worker
  * 改善文書c Section 7: AIクローラー向けL7ルーティングのキャッシュ汚染バグとエンコーディング不一致の予防
  *
+ * WP-12 Claim Calibration:
+ * This Service Worker provides cache normalization for BROWSER environments that register
+ * and execute it (e.g., Chrome, Firefox, Safari when visiting the portfolio directly).
+ * AI crawlers that do not execute Service Workers will NOT be affected by this script.
+ * Primary AIO discoverability must remain available without SW execution via static files:
+ *   index.html, llms.txt, llms-full.txt, robots.txt, sitemap.xml, and .well-known/ endpoints.
+ * This SW is an enhancement layer, not the primary AIO delivery mechanism.
+ *
  * DESIGN:
- * - Intercepts requests for llms.txt and llms-full.txt
+ * - Intercepts requests for llms.txt and llms-full.txt in browser context
  * - Forces network-fresh fetch (cache bypass) for AI crawler bot User-Agents
- * - Ensures UTF-8 BOM is present for crawlers that may misdetect encoding
+ * - Ensures UTF-8 BOM is present for environments that may misdetect encoding
  * - Non-destructive: passes all other requests through unchanged
  *
  * NOTE: This SW is registered with { scope: './' } to avoid affecting

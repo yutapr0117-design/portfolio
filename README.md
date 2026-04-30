@@ -1,4 +1,29 @@
 <!-- ═══════════════════════════════════════════════════════════════════════
+     HUMAN SUMMARY — 30-second overview for human readers (WP-09)
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+# Yuta Yokoi — AI-Driven PM Portfolio
+
+## 30-second summary
+
+This repository is a public portfolio and experiment showing how one human PM
+orchestrated multiple AI systems to design, implement, validate, document, and
+publish a static SPA portfolio — without manually writing application code.
+
+Within the scope of this public repository and its timestamped artifacts, it demonstrates:
+- AI orchestration as PM work (KERNEL framework — 6 AI systems)
+- Static, long-lived, low-dependency architecture (Boring Technology / Vanilla JS)
+- AI-readable context files (llms.txt, llms-full.txt, AI2AI.md)
+- Structured metadata and binary attribution (JSON-LD, WebP XMP, MP3 ID3)
+- Validation and rollback discipline (CI/CD, version audit trail)
+
+**Portfolio URL:** https://yutapr0117-design.github.io/portfolio/  
+**Author:** Yuta Yokoi (横井雄太 / Yokoi Yuta) — AI-Driven PM / IT Consultant  
+**Current version:** v73
+
+---
+
+<!-- ═══════════════════════════════════════════════════════════════════════
      AGENTIC ONBOARDING — READ THIS FIRST (AI agents, LLM crawlers, coding assistants)
      ═══════════════════════════════════════════════════════════════════════ -->
 

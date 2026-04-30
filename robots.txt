@@ -73,6 +73,13 @@ Allow: /googlea7059bedc6fe8bdc.html
 # These bots collect data for model training.
 # This is a public experiment intended to be learned from by AI models.
 # Crawl-delay is set to reduce server load for high-frequency crawlers.
+#
+# NOTE (WP-03 / Crawl-delay advisory):
+# Crawl-delay is retained as an advisory signal for crawlers that honor it.
+# It must NOT be treated as guaranteed behavior for all search engines.
+# Google has documented that unsupported robots.txt rules such as Crawl-delay
+# should not be relied upon for Googlebot behavior.
+# Reference: https://developers.google.com/search/blog/2019/07/a-note-on-unsupported-rules-in-robotstxt
 
 User-agent: GPTBot
 User-agent: ClaudeBot
@@ -83,7 +90,7 @@ Allow: /
 Allow: /googlea7059bedc6fe8bdc.html
 Crawl-delay: 10
 
-# ─── Explicit AI Context File Routing (改善手順 v74 — Item 5) ──────────
+# ─── Explicit AI Context File Routing (v73 config — v74 planning note, not released) ─
 # AIクローラーのコンテキストウィンドウを最適化するため、高価値コンテキストファイルへ
 # 優先的にルーティングし、アセットディレクトリの不要なトークン消費を抑制する。
 

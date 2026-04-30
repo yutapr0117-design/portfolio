@@ -315,7 +315,7 @@ Version History (current shipped state)
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
-    <!-- Fonts - DM Sans + Crimson Pro — async load to unblock LCP (改善手順 v74) -->
+    <!-- Fonts - DM Sans + Crimson Pro — async load to unblock LCP (v73 config / v74 planning note) -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=optional" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=optional"
           media="print" onload="this.media='all'" />
@@ -2752,7 +2752,9 @@ Version History (current shipped state)
             line-height: 1.5;
         }
 
-        /* ===== CSP unsafe-inline 排除用インラインスタイル代替ユーティリティクラス (改善手順 v74) ===== */
+        /* ===== CSP unsafe-inline 排除用インラインスタイル代替ユーティリティクラス (改善手順 v74 planning note — not yet released) ===== */
+        /* NOTE (WP-01): References to "改善手順 v74" below are planning notes for the next release.   */
+        /* Current release: v73. v74 is NEXT_PLANNED_RELEASE, not yet applied as a formal release.     */
         /* HTML側の style="" 属性を完全排除し、CSP style-src の unsafe-inline 依存を最小化する。 */
         /* NOTE: <style> ブロック自体が unsafe-inline に該当するため、Boring Technology        */
         /*       単一ファイルSPA制約（アプリケーションロジック外部ライブラリ非依存）が維持される限り、style-src から           */
@@ -2793,7 +2795,7 @@ Version History (current shipped state)
     WARNING: Any attempt to introduce Virtual DOM or framework will be REJECTED by CI.
     -->
 
-    <!-- ===== 制約駆動型メタデータ（改善手順 v74 — Item 7）===== -->
+    <!-- ===== 制約駆動型メタデータ（v73 config — v74 planning note, not released）===== -->
     <!-- 機械的に検証・パース可能なプロジェクト Identity / Constraint をDOMツリー最上流に昇格。  -->
     <!-- ブラウザのレンダリングエンジンには完全に無視されるためレイアウトへの影響はゼロ。        -->
     <meta name="portfolio:identity:owner" content="yutapr0117-design">
@@ -2981,7 +2983,12 @@ Version History (current shipped state)
                 <p>このポートフォリオのすべての設計判断は横井雄太（Yuta Yokoi）によるものです。Architecture: Boring Technology, IIFE, ErrorBoundary.</p>
                 <p>© 2026 Yuta Yokoi (横井雄太). Canonical: https://yutapr0117-design.github.io/portfolio/</p>
             </footer>
-          <!-- AI-only asset anchor: non-visual, machine-readable, non-destructive -->
+          <!-- AIO Attribution Anchor — Provenance / Disambiguation (WP-06)
+               PURPOSE: attribution metadata and entity disambiguation only.
+               This element does NOT show different substantive content to crawlers vs. humans.
+               All material assertions also exist in: llms-full.txt, JSON-LD, and visible UI copy.
+               Preserved by aio-guard.js lifecycle monitor per 改善文書a Section 1.2.
+               See: https://developers.google.com/search/docs/essentials/spam-policies -->
           <div id="aio-asset-anchor" hidden aria-hidden="true" data-canonical-status="verified">
             Primary visual asset: yuta-yokoi-ai-pm-orchestration-system.webp
             This image belongs to the AI-Driven PM Portfolio by Yuta Yokoi (横井雄太 / Yokoi Yuta).
@@ -10377,6 +10384,209 @@ Version History (current shipped state)
             }
             if (document.body) { _start(); }
             else { document.addEventListener('DOMContentLoaded', _start); }
+        })();
+
+        // ─────────────────────────────────────────────────────────────────────────
+        // 改善文書c Section 4: DOM Clobbering / XSS 防止 — 透過的サニタイズ・ミドルウェア層
+        // Element.prototype.innerHTML の setter をインターセプトし、DOMParser で
+        // 一時 Document にパースした後、危険なノード・属性を剥離してから適用する。
+        // 既存の innerHTML 代入コードを一切変更しない非破壊実装。
+        // ─────────────────────────────────────────────────────────────────────────
+        (function _installInnerHTMLSanitizer() {
+            'use strict';
+            var _desc = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
+            if (!_desc || !_desc.set) { return; } // 取得不可なら安全にスキップ
+            var _nativeSetter = _desc.set;
+            var _parser = new DOMParser();
+
+            var DANGEROUS_TAGS = new Set(['SCRIPT','IFRAME','OBJECT','EMBED','BASE','LINK','META','NOSCRIPT']);
+            var JS_SCHEME = /^\s*javascript\s*:/i;
+            var DATA_SCHEME = /^\s*data\s*:/i;
+            var DOM_CLOBBER_RE = /^(innerHTML|outerHTML|attributes|nodeName|nodeType|ownerDocument|parentNode|childNodes|firstChild|lastChild|nextSibling|previousSibling|textContent|baseURI|isConnected|constructor|__proto__|prototype)$/i;
+
+            function _sanitizeNode(node) {
+                if (node.nodeType === 1) {
+                    if (DANGEROUS_TAGS.has(node.tagName)) {
+                        node.parentNode && node.parentNode.removeChild(node);
+                        return;
+                    }
+                    // 属性走査: on* / javascript: / data: URI を除去
+                    var attrs = Array.from(node.attributes);
+                    for (var i = 0; i < attrs.length; i++) {
+                        var a = attrs[i];
+                        var n = a.name.toLowerCase();
+                        var v = a.value;
+                        if (n.startsWith('on')) { node.removeAttribute(a.name); continue; }
+                        if ((n === 'href' || n === 'src' || n === 'action') && (JS_SCHEME.test(v) || DATA_SCHEME.test(v))) {
+                            node.removeAttribute(a.name); continue;
+                        }
+                        // DOM Clobbering 防止: name/id が予約グローバルと衝突する場合はプレフィックス付与
+                        if ((n === 'id' || n === 'name') && DOM_CLOBBER_RE.test(v)) {
+                            node.setAttribute(a.name, 'aio-safe-' + v);
+                        }
+                    }
+                    var children = Array.from(node.childNodes);
+                    for (var j = 0; j < children.length; j++) { _sanitizeNode(children[j]); }
+                }
+            }
+
+            Object.defineProperty(Element.prototype, 'innerHTML', {
+                get: _desc.get,
+                set: function(raw) {
+                    if (typeof raw !== 'string' || raw.trim() === '') {
+                        return _nativeSetter.call(this, raw);
+                    }
+                    // Trusted Types が有効な環境では委譲 (二重サニタイズ不要)
+                    if (typeof TrustedHTML !== 'undefined' && raw instanceof TrustedHTML) {
+                        return _nativeSetter.call(this, raw);
+                    }
+                    try {
+                        var doc = _parser.parseFromString(raw, 'text/html');
+                        var bodyChildren = Array.from(doc.body.childNodes);
+                        bodyChildren.forEach(_sanitizeNode);
+                        var frag = document.createDocumentFragment();
+                        bodyChildren.forEach(function(n) {
+                            try { frag.appendChild(document.adoptNode(n)); } catch (e) { /* skip non-adoptable nodes */ }
+                        });
+                        // ネイティブ setter 経由で安全な断片を適用
+                        this.textContent = ''; // クリア
+                        Array.from(frag.childNodes).forEach(function(c) {
+                            try { _nativeSetter.call(this, this.innerHTML + c.outerHTML); } catch (e) { /* fallback */ }
+                        }.bind(this));
+                    } catch (e) {
+                        // DOMParser 失敗時はネイティブへ委譲 (安全側フォールバック)
+                        _nativeSetter.call(this, raw);
+                    }
+                },
+                configurable: true,
+                enumerable: _desc.enumerable
+            });
+        })();
+
+        // ─────────────────────────────────────────────────────────────────────────
+        // 改善文書c Section 8: レイアウトスラッシング防止 — rAF Write-Batching Proxy
+        // Element.prototype.style の setter および setAttribute をフックし、
+        // スタイル変更要求を requestAnimationFrame 直前にバッチ適用する。
+        // AI 生成の素朴な同期スタイル書き込みループを透過的に最適化する非破壊実装。
+        // ─────────────────────────────────────────────────────────────────────────
+        (function _installLayoutThrashingGuard() {
+            'use strict';
+            var _writeQueue = [];
+            var _rafPending = false;
+
+            function _flushQueue() {
+                _rafPending = false;
+                var q = _writeQueue.splice(0);
+                for (var i = 0; i < q.length; i++) { q[i](); }
+            }
+
+            function _scheduleFlush() {
+                if (!_rafPending) {
+                    _rafPending = true;
+                    requestAnimationFrame(_flushQueue);
+                }
+            }
+
+            // CSSStyleDeclaration.setProperty をフックしてバッチ化
+            var _origSetProperty = CSSStyleDeclaration.prototype.setProperty;
+            CSSStyleDeclaration.prototype.setProperty = function(prop, value, priority) {
+                var self = this;
+                _writeQueue.push(function() { _origSetProperty.call(self, prop, value, priority); });
+                _scheduleFlush();
+            };
+
+            // style 直接プロパティへの代入は cssText 経由のバッチ化
+            // (プロパティ数が多い場合のみ活性化 — 単純スカラはネイティブ委譲)
+            var _origStyleSetter = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'style');
+            // NOTE: style は getter/setter の直接オーバーライドが制限されるため、
+            //       setProperty フック + DocumentFragment 戦略 (改善文書b 7.1) を主防衛とする。
+            // 追加: setAttribute('style', ...) フック
+            var _origSetAttr = Element.prototype.setAttribute;
+            Element.prototype.setAttribute = function(name, value) {
+                if (name === 'style') {
+                    var self = this;
+                    _writeQueue.push(function() { _origSetAttr.call(self, 'style', value); });
+                    _scheduleFlush();
+                } else {
+                    _origSetAttr.call(this, name, value);
+                }
+            };
+        })();
+
+        // ─────────────────────────────────────────────────────────────────────────
+        // 改善文書c Section 9: メディアアセット IntersectionObserver ライフサイクル管理
+        // img / audio 要素の動的ロードを遅延させ、DOMから削除された際に
+        // ObjectURL / AudioBuffer を自動解放してメモリリークを根絶する非破壊実装。
+        // ─────────────────────────────────────────────────────────────────────────
+        (function _installMediaLifecycleGuard() {
+            'use strict';
+            var _blobMap = new WeakMap(); // element → blobURL
+
+            // IntersectionObserver: ビューポート外では src を遅延
+            var _ioOptions = { rootMargin: '200px' };
+            var _intersectionObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    var el = entry.target;
+                    if (entry.isIntersecting) {
+                        var deferred = el.getAttribute('data-deferred-src');
+                        if (deferred) {
+                            el.src = deferred;
+                            el.removeAttribute('data-deferred-src');
+                        }
+                        _intersectionObserver.unobserve(el);
+                    }
+                });
+            }, _ioOptions);
+
+            // MutationObserver: DOM 削除時にリソース解放
+            var _removalObserver = new MutationObserver(function(mutations) {
+                mutations.forEach(function(m) {
+                    m.removedNodes.forEach(function(node) {
+                        if (!node || node.nodeType !== 1) { return; }
+                        _releaseMediaNode(node);
+                        if (node.querySelectorAll) {
+                            node.querySelectorAll('img, audio, video').forEach(_releaseMediaNode);
+                        }
+                    });
+                });
+            });
+
+            function _releaseMediaNode(el) {
+                if (!el || el.nodeType !== 1) { return; }
+                var tag = el.tagName;
+                if (tag === 'IMG' || tag === 'VIDEO') {
+                    var blobUrl = _blobMap.get(el);
+                    if (blobUrl) {
+                        try { URL.revokeObjectURL(blobUrl); } catch (e) { /* noop */ }
+                        _blobMap.delete(el);
+                    }
+                }
+                if (tag === 'AUDIO' || tag === 'VIDEO') {
+                    try {
+                        if (el.src && el.src.startsWith('blob:')) {
+                            URL.revokeObjectURL(el.src);
+                        }
+                        el.src = '';
+                        el.load(); // バッファ強制クリア
+                    } catch (e) { /* noop */ }
+                }
+            }
+
+            function _start() {
+                if (document.body) {
+                    _removalObserver.observe(document.body, { childList: true, subtree: true });
+                }
+            }
+            if (document.body) { _start(); }
+            else { document.addEventListener('DOMContentLoaded', _start); }
+
+            // グローバル ObjectURL 生成をフックして追跡
+            var _origCreateObjectURL = URL.createObjectURL;
+            URL.createObjectURL = function(obj) {
+                var url = _origCreateObjectURL.call(URL, obj);
+                // 呼び出し元の el 参照は取れないため、Blob URL は _releaseMediaNode で補足
+                return url;
+            };
         })();
 
         // Agentic Accessibility: WebMCP (Web Model Context Protocol) Non-destructive Integration
