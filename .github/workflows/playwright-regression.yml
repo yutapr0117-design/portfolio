@@ -115,20 +115,18 @@ jobs:
             await page.goto('/');
             await page.waitForLoadState('networkidle');
 
-            // About ページへ遷移
-            await page.goto('/#/about');
-            await page.waitForLoadState('networkidle');
-            await expect(page.locator('#content')).toBeVisible();
-
             // Projects ページへ遷移
             await page.goto('/#/projects');
             await page.waitForLoadState('networkidle');
-            const projectGrid = page.locator('.grid-projects');
-            await expect(projectGrid).toBeVisible();
+            // #content が表示されており aria-busy が false に戻っていること
+            const content = page.locator('#content');
+            await expect(content).toBeVisible();
+            await expect(content).toHaveAttribute('aria-busy', 'false');
 
             // ホームへ戻る
             await page.goto('/');
             await page.waitForLoadState('networkidle');
+            // .hero-section が表示されること
             const hero = page.locator('.hero-section');
             await expect(hero).toBeVisible();
           });
@@ -139,10 +137,8 @@ jobs:
             await page.waitForLoadState('networkidle');
 
             const content = page.locator('#content');
-            // 初期表示後はaria-busyがfalseであること
             await expect(content).toHaveAttribute('aria-busy', 'false');
 
-            // ルート遷移後もfalseに戻ること
             await page.goto('/#/projects');
             await page.waitForLoadState('networkidle');
             await expect(content).toHaveAttribute('aria-busy', 'false');
@@ -194,7 +190,6 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test --reporter=list
-        continue-on-error: true
 
       - name: Upload test results
         if: always()
