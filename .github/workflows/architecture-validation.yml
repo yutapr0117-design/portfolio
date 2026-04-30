@@ -338,7 +338,7 @@ jobs:
               html = f.read()
           # src を持たない <script> ブロックのみ抽出
           blocks = re.findall(
-              r'<script(?![^>]*\bsrc\b)[^>]*>(.*?)</script>',
+              r'<script(?![^>]*\bsrc\b)(?![^>]*\btype\s*=\s*[\"\''](?!text/javascript|module)[^\"\'']*[\"\''])[^>]*>(.*?)</script>',
               html, re.DOTALL | re.IGNORECASE
           )
           combined = '\n;\n'.join(blocks)
@@ -390,7 +390,7 @@ jobs:
           with open('index.html', 'r', encoding='utf-8') as f:
               html = f.read()
           blocks = re.findall(
-              r'<script(?![^>]*\bsrc\b)[^>]*>(.*?)</script>',
+              r'<script(?![^>]*\bsrc\b)(?![^>]*\btype\s*=\s*[\"\''](?!text/javascript|module)[^\"\'']*[\"\''])[^>]*>(.*?)</script>',
               html, re.DOTALL | re.IGNORECASE
           )
           combined = '\n;\n'.join(blocks)
