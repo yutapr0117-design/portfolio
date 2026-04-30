@@ -240,3 +240,77 @@ jobs:
 
           print(f'SRI check complete. {len(warnings)} resources without SRI (non-exempted).')
           EOF3
+
+      # ── 18. Blocking: llms.txt == .well-known/llms.txt (WP-13 / WP-08) ──────
+      # These files MUST be byte-identical. Any drift is a blocking error.
+      - name: "BLOCKING: llms.txt byte-identity with .well-known/llms.txt"
+        run: |
+          if ! diff -q llms.txt .well-known/llms.txt > /dev/null 2>&1; then
+            echo "::error::BLOCKING: llms.txt and .well-known/llms.txt are NOT byte-identical. Sync them before merging."
+            diff llms.txt .well-known/llms.txt | head -20
+            exit 1
+          fi
+          echo "llms.txt == .well-known/llms.txt: PASS"
+
+      # ── 19. Blocking: .well-known/index.json == .well-known/agent-skills/index.json ──
+      - name: "BLOCKING: .well-known/index.json identity with agent-skills/index.json"
+        run: |
+          if ! diff -q .well-known/index.json .well-known/agent-skills/index.json > /dev/null 2>&1; then
+            echo "::error::BLOCKING: .well-known/index.json and .well-known/agent-skills/index.json differ. Sync them."
+            exit 1
+          fi
+          echo ".well-known/index.json == .well-known/agent-skills/index.json: PASS"
+
+      # ── 20. Blocking: sitemap.xml XML validity ─────────────────────────────
+      - name: "BLOCKING: sitemap.xml XML parse"
+        run: |
+          python3 -c "
+          import xml.etree.ElementTree as ET, sys
+          try:
+              ET.parse('sitemap.xml')
+              print('sitemap.xml: XML parse PASS')
+          except ET.ParseError as e:
+              print(f'::error::BLOCKING: sitemap.xml parse failed: {e}')
+              sys.exit(1)
+          "
+
+      # ── 21. Blocking: mcp.json JSON validity ──────────────────────────────
+      - name: "BLOCKING: .well-known/mcp.json JSON parse"
+        run: |
+          python3 -c "
+          import json, sys
+          try:
+              with open('.well-known/mcp.json') as f: json.load(f)
+              print('.well-known/mcp.json: JSON parse PASS')
+          except json.JSONDecodeError as e:
+              print(f'::error::BLOCKING: .well-known/mcp.json parse failed: {e}')
+              sys.exit(1)
+          "
+
+      # ── 22. Advisory: Security header classification note (WP-02 / 改善文書a 2.3) ──
+      # GitHub Pages does not support custom HTTP response headers.
+      # X-Content-Type-Options, X-Frame-Options, frame-ancestors are header-only controls.
+      # This step documents what cannot be enforced at the repo level (advisory, not blocking).
+      - name: "Advisory: Security Header Enforcement Classification (WP-02)"
+        run: |
+          echo "=== Security Control Classification (WP-02) ==="
+          echo "Category A (Effective via meta/application layer):"
+          python3 -c "
+          import re
+          with open('index.html') as f: c = f.read()
+          csp = re.findall(r'<meta[^>]+Content-Security-Policy[^>]*>', c, re.IGNORECASE)
+          print(f'  CSP meta tags found: {len(csp)}')
+          print('  - script-src, style-src: effective via meta')
+          "
+          echo ""
+          echo "Category B (Requires HTTP response headers — NOT enforceable by static GitHub Pages alone):"
+          echo "  - X-Content-Type-Options: nosniff (header-only)"
+          echo "  - X-Frame-Options (header-only)"
+          echo "  - CSP frame-ancestors (meta element has no effect per MDN)"
+          echo "  - HSTS (header-only)"
+          echo "  Ref: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors"
+          echo ""
+          echo "Category C (AIO/documentation signals only):"
+          echo "  - robots.txt, sitemap.xml, llms.txt, llms-full.txt, JSON-LD, XMP, ID3"
+          echo ""
+          echo "Advisory check complete. No merge block for informational classification."
