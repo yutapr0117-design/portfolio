@@ -10508,11 +10508,15 @@ Version History (current shipped state)
                         bodyChildren.forEach(function(n) {
                             try { frag.appendChild(document.adoptNode(n)); } catch (e) { /* skip non-adoptable nodes */ }
                         });
-                        // ネイティブ setter 経由で安全な断片を適用
-                        this.textContent = ''; // クリア
-                        Array.from(frag.childNodes).forEach(function(c) {
-                            try { _nativeSetter.call(this, this.innerHTML + c.outerHTML); } catch (e) { /* fallback */ }
-                        }.bind(this));
+                        // replaceChildren で一括置換 — _nativeSetter を経由しないため
+                        // Trusted Types の干渉を受けず、かつリフローが1回のみ発生する
+                        if (typeof this.replaceChildren === 'function') {
+                            this.replaceChildren(frag);
+                        } else {
+                            // replaceChildren 非対応の旧ブラウザ向けフォールバック
+                            while (this.firstChild) { this.removeChild(this.firstChild); }
+                            this.appendChild(frag);
+                        }
                     } catch (e) {
                         // DOMParser 失敗時はネイティブへ委譲 (安全側フォールバック)
                         _nativeSetter.call(this, raw);
