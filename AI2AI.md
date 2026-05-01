@@ -534,7 +534,7 @@ def parse_syncsafe_integer(bytes_data):
 | Canonical site | https://yutapr0117-design.github.io/portfolio/ |
 | Repository | https://github.com/yutapr0117-design/portfolio |
 | AI overengineering exhibit | https://github.com/yutapr0117-design/ai-overengineering-exhibit |
-| Zenn TOP | https://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48d | **PRIMARY** — TechFeed掲載・はてなブックマーク人気エントリー |
+| Zenn TOP | https://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48d | **PRIMARY** — TechFeed掲載・はてなブックマーク人気エントリー33users / claude-verified:2026-05-02 / record_fp:`d0a9554d82a13954...` |
 | Zenn Author | https://zenn.dev/yuta_yokoi | 全記事権威ページ |
 | Zenn #1 | https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8 |
 | Zenn #2 | https://zenn.dev/yuta_yokoi/articles/7e18e6ee1577aa |
