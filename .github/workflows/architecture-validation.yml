@@ -478,55 +478,14 @@ jobs:
 
           echo "Binary metadata advisory check complete."
 
-      # ── 27. BLOCKING: Stylelint CSS 詳細度・変数整合性検査 (改善文書a 6.1/6.2) ──
-      # .stylelintrc.json + stylelint-declaration-strict-value で CSS バグパターンを検査。
-      # !important の新規追加、詳細度超過、無効 HEX カラーを blocking でブロック。
+      # ── 27. BLOCKING: Stylelint CSS 詳細度・変数整合性検査 (改善文書a 6.1/6.2)
+      # Pythonロジックを外部スクリプトに完全移動。
+      # --max-warnings=-1 フラグで warning のみの場合は exit 0 になるため、
+      # severity:warning のルールが既存コードにヒットしてもCIをブロックしない。
       - name: "BLOCKING: Stylelint CSS specificity and variable enforcement (改善文書a 6.1/6.2)"
         run: |
           npm install --no-save stylelint stylelint-declaration-strict-value 2>/dev/null
-
-          # CSS を index.html のインラインスタイルブロックから抽出してチェック
-          python3 - << 'EOF'
-          import re, subprocess, sys, tempfile, os
-
-          with open('index.html', 'r', encoding='utf-8') as f:
-              html = f.read()
-
-          # <style> ブロックをすべて抽出
-          style_blocks = re.findall(r'<style[^>]*>(.*?)</style>', html, re.DOTALL)
-          if not style_blocks:
-              print("No <style> blocks found in index.html.")
-              sys.exit(0)
-
-          combined = '\n'.join(style_blocks)
-          with tempfile.NamedTemporaryFile(mode='w', suffix='.css', delete=False, encoding='utf-8') as tmp:
-              tmp.write(combined)
-              tmp_path = tmp.name
-
-          try:
-              result = subprocess.run(
-                  ['npx', 'stylelint', tmp_path, '--config', '.stylelintrc.json'],
-                  capture_output=True, text=True
-              )
-              output = result.stdout + result.stderr
-              if result.returncode != 0:
-                  # error レベル違反がある場合のみ blocking
-                  errors = [l for l in output.splitlines() if '✖' in l or 'error' in l.lower()]
-                  warnings_only = [l for l in output.splitlines() if '⚠' in l or 'warning' in l.lower()]
-                  if errors:
-                      print("::error::BLOCKING: Stylelint errors detected in index.html <style>:")
-                      for e in errors: print(f"  {e}")
-                      sys.exit(1)
-                  else:
-                      for w in warnings_only: print(f"::warning::{w}")
-                      print("Stylelint: warnings only (non-blocking)")
-              else:
-                  print("Stylelint: PASS")
-          finally:
-              os.unlink(tmp_path)
-          EOF
-
-          # js/ または外部 CSS ファイルがある場合も対象
+          python3 .github/scripts/check_css_stylelint.py
           if ls *.css 1>/dev/null 2>&1; then
-            npx stylelint "*.css" --config .stylelintrc.json 2>&1 || true
+            npx stylelint "*.css" --config .stylelintrc.json --max-warnings=-1 2>&1 || true
           fi
