@@ -631,6 +631,8 @@ This file describes the current shipped public artifact. It does not assert beha
 The following articles document the architectural decisions and paradigm shifts implemented in this portfolio. They form a complete, six-part record of the AI-Driven PM methodology:
 
 1. **Implementation & SPA Philosophy:**
+   - **[PRIMARY — TechFeed掲載・はてなブックマーク人気エントリー]** [AI-Driven PM実践記事（最優先個別記事）](https://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48d)
+   - [Zenn作者ページ（全記事権威ページ）](https://zenn.dev/yuta_yokoi)
    - [AIO実践シリーズ第1弾: 人間はコードを1行も書かずにAIチームをオーケストレーションした実験](https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8)
 2. **Inbound I/O — AIO Semantic Protocol:**
    - [AIO実践シリーズ第2弾: AIにサイトがどう解釈されるか｜llms.txtとAIOで調整した話](https://zenn.dev/yuta_yokoi/articles/7e18e6ee1577aa)
