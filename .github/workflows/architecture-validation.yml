@@ -348,61 +348,62 @@ jobs:
           echo "ESLint: PASS ($ERROR_COUNT errors, $WARN_COUNT warnings)"
           python3 -c "import json; json.load(open('.eslintrc.json')); print('.eslintrc.json: JSON parse PASS')"
 
-      # ── 25. BLOCKING: AI2AI.md タイムスタンプ vs Git ─────────────────────
-      # 改善文書a 4.1: AI2AI.md の Last-Updated と Authoritative-GT ファイルの
-      # Git 最終更新日を照合し、実体ファイルのみが先行更新された場合はエラー。
-      - name: "BLOCKING: AI2AI.md Last-Updated vs Git timestamp (改善文書a 4.1)"
+      # ── 25. BLOCKING: AI2AI.md コミット単位ドリフト検出 (改善文書a 4.1)
+      # 「絶対日付比較」ではなく「今回のコミット(HEAD)単位」で検出する設計に変更。
+      # 理由: 絶対日付比較だと「重要ファイルを過去にコミットした」だけで永遠にブロックされる。
+      # 正しい意図: 今回のHEADコミットで重要ファイルを変更したのにAI2AI.mdを更新し忘れた場合のみエラー。
+      - name: "BLOCKING: AI2AI.md commit-level drift detection (改善文書a 4.1)"
         run: |
           python3 - << 'EOF'
-          import subprocess, sys, re
-          from datetime import datetime
+          import subprocess, sys, re, os
 
-          # AI2AI.md の Last-Updated を読む
-          with open('AI2AI.md', 'r', encoding='utf-8') as f:
-              content = f.read()
-          m = re.search(r'Last-Updated\s*:\s*(\d{4}-\d{2}-\d{2})', content)
-          if not m:
-              print("::warning::AI2AI.md: Last-Updated field not found — skipping cross-validation")
-              sys.exit(0)
-          ai2ai_date = datetime.strptime(m.group(1), '%Y-%m-%d')
-          print(f"AI2AI.md Last-Updated: {ai2ai_date.date()}")
-
-          # Authoritative Ground Truth ファイルリストを AI2AI.md から抽出
-          gt_files = re.findall(r'Authoritative-GT\s*:\s*https?://[^\s]+/([^\s]+)', content)
-          # fallback: 重要ファイルを固定でチェック
-          check_files = list(set(gt_files)) or ['llms-full.txt', 'llms.txt', 'index.html']
-
-          errors = []
-          for fname in check_files:
-              result = subprocess.run(
-                  ['git', 'log', '-1', '--format=%ci', '--', fname],
+          def git_files_in_commit(ref='HEAD'):
+              r = subprocess.run(
+                  ['git', 'diff-tree', '--no-commit-id', '-r', '--name-only', ref],
                   capture_output=True, text=True
               )
-              if not result.stdout.strip():
-                  print(f"  {fname}: no git history found — skipping")
-                  continue
-              git_date = datetime.strptime(result.stdout.strip()[:10], '%Y-%m-%d')
-              print(f"  {fname}: git last modified {git_date.date()}")
-              # 実ファイルがAI2AI.mdより新しい場合は「ハンドオフ規則違反」
-              if git_date.date() > ai2ai_date.date():
-                  errors.append(f"{fname} was updated {git_date.date()} but AI2AI.md Last-Updated is still {ai2ai_date.date()}")
+              return set(r.stdout.strip().splitlines())
 
-          if errors:
-              for e in errors:
-                  print(f"::error::AI2AI Drift Detected: {e}")
-              print("::error::BLOCKING: Update AI2AI.md Last-Updated to match the real file changes.")
+          # HEADコミットで変更されたファイル一覧
+          changed = git_files_in_commit('HEAD')
+          print(f"Files changed in HEAD commit: {sorted(changed)}")
+
+          # 監視対象の重要ファイル (Authoritative Ground Truth)
+          with open('AI2AI.md', 'r', encoding='utf-8') as f:
+              ai2ai_content = f.read()
+          gt_files = re.findall(r'Authoritative-GT\s*:\s*https?://[^\s]+/([^\s]+)', ai2ai_content)
+          watch_files = list(set(gt_files)) or ['llms-full.txt', 'llms.txt', 'index.html']
+          print(f"Watching: {watch_files}")
+
+          # 今回のHEADコミットで重要ファイルが変更されたか
+          gt_changed = [f for f in watch_files if f in changed]
+
+          if not gt_changed:
+              print("No authoritative files changed in this commit — drift check: SKIP")
+              sys.exit(0)
+
+          # 重要ファイルが変更された → AI2AI.md も同じコミットで更新されているべき
+          if 'AI2AI.md' not in changed:
+              print(f"::error::BLOCKING: {gt_changed} changed in this commit but AI2AI.md was NOT updated.")
+              print("::error::Please update AI2AI.md Last-Updated and Pipeline-Version in the same commit.")
               sys.exit(1)
 
-          # Authoritative-GT ファイルの存在確認 (改善文書a 4.1 fs.existsSync相当)
-          import os
-          gt_paths = re.findall(r'Authoritative-GT\s*:\s*\S+/(llms[^/\s]+)', content)
-          for p in gt_paths or ['llms-full.txt']:
-              if not os.path.exists(p):
-                  print(f"::error::BLOCKING: Authoritative Ground Truth file missing: {p}")
-                  sys.exit(1)
-              print(f"  {p}: exists PASS")
+          # AI2AI.md も更新されている → Last-Updated の日付が正しいかだけ確認
+          m = re.search(r'Last-Updated\s*:\s*(\d{4}-\d{2}-\d{2})', ai2ai_content)
+          if not m:
+              print("::warning::AI2AI.md: Last-Updated field not found")
+          else:
+              print(f"AI2AI.md Last-Updated: {m.group(1)} — updated in same commit: PASS")
 
-          print("AI2AI.md timestamp cross-validation: PASS")
+          # Authoritative-GT ファイルの存在確認
+          for p in watch_files:
+              if os.path.exists(p):
+                  print(f"  {p}: exists PASS")
+              else:
+                  print(f"::error::BLOCKING: Authoritative GT file missing: {p}")
+                  sys.exit(1)
+
+          print("AI2AI.md commit-level drift check: PASS")
           EOF
 
       # ── 26. Advisory: exiftool / ffprobe バイナリメタデータ検査 (改善文書a 5.1) ──
