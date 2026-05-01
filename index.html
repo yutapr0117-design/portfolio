@@ -244,7 +244,46 @@ Version History (current shipped state)
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Content Security Policy (minimum) -->    
+    <!--
+      早期エラー抑制スクリプト — <head>の最初のscriptとして配置必須。
+      Chrome拡張機能が発生させる "message channel closed" Promise rejectionを
+      ページスクリプトが初期化される前に捕捉・抑制する。
+      このハンドラはbody末尾の完全な_isViewTransitionErrorロジックより先に登録され、
+      "portfolio/:1 Uncaught (in promise)" という誤検出エラーを根本から防ぐ。
+    -->
+    <script>
+    (function() {
+        'use strict';
+        // Known browser extension / messaging infrastructure error patterns.
+        // These are NOT caused by portfolio code — they originate from Chrome
+        // extension content scripts whose message channels close before responding.
+        // We must register this suppressor here (head, blocking) because the
+        // unhandledrejection fires at portfolio/:1 (document start) before the
+        // main error handler at the bottom of the page is registered.
+        var SUPPRESS_PATTERNS = [
+            'message channel closed',
+            'asynchronous response',
+            'A listener indicated',
+            'The message port closed'
+        ];
+        window.addEventListener('unhandledrejection', function(ev) {
+            try {
+                var reason = ev && ev.reason;
+                var msg = reason
+                    ? (reason.message || (typeof reason === 'string' ? reason : ''))
+                    : '';
+                var stack = (reason && reason.stack) ? reason.stack : '';
+                var haystack = msg + '\n' + stack;
+                for (var i = 0; i < SUPPRESS_PATTERNS.length; i++) {
+                    if (haystack.indexOf(SUPPRESS_PATTERNS[i]) !== -1) {
+                        ev.preventDefault();
+                        return;
+                    }
+                }
+            } catch (e) { /* never propagate from suppressor */ }
+        });
+    })();
+    </script>    
      <meta http-equiv="Content-Security-Policy"
      content="
         default-src 'self';
@@ -10406,7 +10445,7 @@ Version History (current shipped state)
             window.addEventListener('load', function() {
                 navigator.serviceWorker.register('./sw.js', { scope: './' })
                     .then(function(reg) {
-                        console.info('[SW] AIO cache-busting service worker registered:', reg.scope);
+                        console.debug('[SW] AIO service worker registered:', reg.scope);
                     })
                     .catch(function(err) {
                         // SW registration failure is non-fatal — portfolio works without it
