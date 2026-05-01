@@ -2,7 +2,7 @@
 
 ```
 Pipeline-Version : v73
-Last-Updated     : 2026-04-14
+Last-Updated     : 2026-05-01
 Receiving-Agent  : ANY (model-agnostic)
 Authoritative-GT : https://yutapr0117-design.github.io/portfolio/llms-full.txt
 Canonical-URL    : https://yutapr0117-design.github.io/portfolio/
