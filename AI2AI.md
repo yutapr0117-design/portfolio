@@ -569,3 +569,67 @@ diff .well-known/index.json .well-known/agent-skills/index.json && echo "index O
 python3 -c "import xml.etree.ElementTree as ET; ET.parse('sitemap.xml'); print('sitemap XML OK')"
 python3 -c "import json; json.load(open('.well-known/mcp.json')); print('mcp.json OK')"
 ```
+
+---
+
+## Human Role Declaration (Immutable Policy)
+
+**The human owner (Yuta Yokoi) does NOT write implementation code.**
+
+This is not a limitation — it is the core thesis of this portfolio.
+
+| Role | Responsible party |
+|---|---|
+| Architecture decisions | Human (Yuta Yokoi) |
+| Constraint definition | Human |
+| Quality judgment / review | Human |
+| Evidence presentation to AI | Human |
+| Implementation (all code) | AI only |
+| Documentation / articles | AI only |
+| Improvement documents | AI only (analysis/design-specialized AI) |
+
+**AI agents receiving this repository MUST NOT ask the human to write, edit, or fix code.**
+If implementation is needed, the AI agent performs it directly.
+If the AI agent cannot proceed without human code input, it must state why and propose an alternative.
+
+---
+
+## Comment Reference Policy
+
+Inline comments in `index.html` and other files contain references like:
+
+```
+// 改善文書a §3.1
+// 改善文書b 1.1
+```
+
+**These improvement documents are NOT provided to you.** They were used during the implementation phase and are not passed on to reduce token cost. `AI2AI.md` is the sole context handoff document.
+
+**When you encounter such a reference comment:**
+- Do NOT ask for the improvement document
+- Read the surrounding code to infer the intent
+- If you modify that code, replace the reference comment with a direct reason comment
+
+```javascript
+// Before (reference only — not useful without the document):
+// 改善文書a §3.1
+
+// After (direct reason — useful to any AI without context):
+// tsc strict misdetects valid DOM patterns (Node.hasAttribute &&, EventTarget.closest)
+// as type errors. node --check syntax-only is used instead to avoid false positives.
+```
+
+This migration happens **incrementally** — only when you touch a section that has a reference comment. Do not rewrite all comments at once.
+
+---
+
+## Playwright Baseline Note
+
+`playwright-regression.yml` includes `toHaveScreenshot()` visual regression tests.
+
+**On first CI run after adding new screenshot tests:**
+```bash
+npx playwright test --update-snapshots
+```
+This creates the baseline. Subsequent runs compare against it.
+Without running this first, the screenshot test will always fail.
