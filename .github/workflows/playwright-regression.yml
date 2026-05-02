@@ -183,6 +183,140 @@ jobs:
             await expect(sidebar).not.toBeVisible();
           });
 
+          // ===== 7.2: 全ハッシュルート検証 — aria-busy 収束 & コンテンツ非空 =====
+          // 各ルートで #content の aria-busy が最終的に "false" になり、
+          // かつ #content が空でないことを確認する。
+          // ※ #/home / #/skills は router 上 not-found へ落ちるが
+          //   NotFoundPage() が描画されるため content は空にならない。
+          const HASH_ROUTES = ['#/home', '#/projects', '#/about', '#/contact', '#/skills'];
+
+          for (const route of HASH_ROUTES) {
+            test(`Hash route ${route}: aria-busy resolves to false and #content is non-empty`, async ({ page }) => {
+              await page.goto(`/${route}`);
+              await page.waitForLoadState('networkidle');
+
+              const content = page.locator('#content');
+
+              // aria-busy が "false" に収束するまで最大 5 秒待機
+              // (requestAnimationFrame 内で設定されるため waitForFunction を使用)
+              await page.waitForFunction(
+                () => {
+                  const el = document.getElementById('content');
+                  return el && el.getAttribute('aria-busy') === 'false';
+                },
+                { timeout: 5000 }
+              );
+
+              await expect(content).toHaveAttribute('aria-busy', 'false');
+
+              // #content が空でないこと（innerHTML に要素が存在する）
+              const isEmpty = await page.evaluate(() => {
+                const el = document.getElementById('content');
+                return el ? el.children.length === 0 : true;
+              });
+              expect(isEmpty, `#content must not be empty on route ${route}`).toBe(false);
+            });
+          }
+
+          // ===== 7.2: 5層防衛プロキシ — startViewTransition 上書き確認 =====
+          // document.startViewTransition が _installStartViewTransitionProxy() に
+          // よってプロキシ関数へ差し替えられていることを確認する。
+          // Chromium は startViewTransition 対応なのでスキップ条件不要。
+          test('5-layer proxy: document.startViewTransition is overridden by proxy', async ({ page }) => {
+            await page.goto('/');
+            await page.waitForLoadState('networkidle');
+
+            const proxyInstalled = await page.evaluate(() => {
+              if (typeof document.startViewTransition !== 'function') {
+                // ブラウザ未対応環境はプロキシ自体がインストールされない（正常）
+                return true;
+              }
+              // プロキシ関数の name が 'startViewTransitionProxy' であることを確認
+              return document.startViewTransition.name === 'startViewTransitionProxy';
+            });
+
+            expect(
+              proxyInstalled,
+              'document.startViewTransition must be replaced by startViewTransitionProxy'
+            ).toBe(true);
+          });
+
+          // ===== 7.2: 5層防衛プロキシ — window.addEventListener 直接上書き禁止確認 =====
+          // WeakMap-based イベントリスナーレジストリは EventTarget.prototype.addEventListener を
+          // ラップするアプローチを採用しており、window.addEventListener を直接上書きしない。
+          // window.addEventListener === EventTarget.prototype.addEventListener であることを確認。
+          test('5-layer proxy: window.addEventListener is not directly overwritten', async ({ page }) => {
+            await page.goto('/');
+            await page.waitForLoadState('networkidle');
+
+            const isConsistent = await page.evaluate(() => {
+              // window 自身のプロパティとして addEventListener が存在する場合、
+              // それは直接上書きされたことを意味する（WeakMap 方式では起こらない）
+              return !Object.prototype.hasOwnProperty.call(window, 'addEventListener');
+            });
+
+            expect(
+              isConsistent,
+              'window.addEventListener must not be directly overwritten; use EventTarget.prototype instead'
+            ).toBe(true);
+          });
+
+          // ===== 7.1: AIOアンカー永続性 — ページ読み込み後も DOM に存在すること =====
+          // SPA のルーティングや再レンダリングを経ても #aio-asset-anchor が
+          // DOM から削除されていないことを検証する。
+          test('AIO anchor persists in DOM after initial load', async ({ page }) => {
+            await page.goto('/');
+            await page.waitForLoadState('networkidle');
+
+            // 存在確認
+            const count = await page.locator('#aio-asset-anchor').count();
+            expect(count, '#aio-asset-anchor must exist in DOM').toBe(1);
+
+            // hidden 属性が付いていること
+            await expect(page.locator('#aio-asset-anchor')).toHaveAttribute('hidden', '');
+          });
+
+          // ===== 7.1: AIOアンカー永続性 — ルート遷移後も保持されること =====
+          test('AIO anchor persists in DOM after route navigation', async ({ page }) => {
+            await page.goto('/');
+            await page.waitForLoadState('networkidle');
+
+            // ルート遷移
+            await page.goto('/#/about');
+            await page.waitForLoadState('networkidle');
+
+            const count = await page.locator('#aio-asset-anchor').count();
+            expect(count, '#aio-asset-anchor must persist after route navigation').toBe(1);
+            await expect(page.locator('#aio-asset-anchor')).toHaveAttribute('hidden', '');
+          });
+
+          // ===== 7.2: early suppressor — unhandledrejection リスナーの動作確認 =====
+          // <head> 内の early suppressor が window に unhandledrejection リスナーを
+          // 登録していることを、動作ベースで検証する。
+          // SUPPRESS_PATTERNS に含まれるメッセージを持つ PromiseRejectionEvent を
+          // 発火させ、ev.preventDefault() が呼ばれていること（defaultPrevented === true）を確認。
+          test('Early suppressor: unhandledrejection listener suppresses known patterns', async ({ page }) => {
+            await page.goto('/');
+            await page.waitForLoadState('networkidle');
+
+            const wasSuppressed = await page.evaluate(() => {
+              // SUPPRESS_PATTERNS の代表パターンを持つエラーで合成イベントを発火
+              const err = new Error('message channel closed before a response was received');
+              const event = new PromiseRejectionEvent('unhandledrejection', {
+                promise: Promise.reject(err),
+                reason: err,
+                cancelable: true,
+              });
+              window.dispatchEvent(event);
+              return event.defaultPrevented;
+            });
+
+            expect(
+              wasSuppressed,
+              'Early suppressor must call ev.preventDefault() for known extension error patterns'
+            ).toBe(true);
+          });
+
           SPEC
 
       - name: Install http-server
