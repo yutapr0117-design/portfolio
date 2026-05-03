@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "name": "Yuta Yokoi",
+    "name_ja": "横井雄太",
+    "canonical_url": "https://yutapr0117-design.github.io/portfolio/"
+  },
+  "source_of_truth": [
+    {
+      "path": "llms.txt",
+      "role": "short AI routing context",
+      "sha256": "d948d1c382ffd3699862c84b8c0e8897cd88320890c5e81825fe6bada1e750be"
+    },
+    {
+      "path": "llms-full.txt",
+      "role": "full AI context",
+      "sha256": "b822772ab96d2842424f199e049715a157a1a7901e409e1a8873394ca78307f1"
+    },
+    {
+      "path": "AI2AI.md",
+      "role": "AI-to-AI implementation handoff",
+      "sha256": "5f233d7bebf61a7f8ceb142e1c2d08bcedb6ea5629384439b5e3afd6db6a3b59"
+    },
+    {
+      "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
+      "role": "AIO image asset with XMP metadata",
+      "sha256": "d674754a726aea67c68697da36fe529ca418f6f25196403c55b3a593aa154c38"
+    },
+    {
+      "path": "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3",
+      "role": "AIO audio asset with ID3 metadata",
+      "sha256": "d87a101841286057f92998509225b339181decb3bd2844da961df7498f8ff5e4"
+    }
+  ]
+}
