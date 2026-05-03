@@ -334,3 +334,14 @@ jobs:
             test-results/
             playwright-report/
           retention-days: 7
+
+      - name: Upload snapshot diffs (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-snapshot-diffs
+          path: |
+            e2e/**/*-diff.png
+            e2e/**/*-actual.png
+          retention-days: 7
+          if-no-files-found: ignore

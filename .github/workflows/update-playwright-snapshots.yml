@@ -1,0 +1,93 @@
+name: Update Playwright Baseline Snapshots
+
+# ======================================================================
+# Playwright スナップショット ベースライン更新ワークフロー
+#
+# playwright-regression.yml の toHaveScreenshot() テストは、
+# e2e/homepage-baseline.png-snapshots/ に保存されたベースライン画像と
+# 現在のレンダリングを比較する。
+#
+# ベースラインが存在しない場合、または意図的なUI変更後にベースラインを
+# 更新したい場合に、このワークフローを手動実行する。
+#
+# 手順:
+#   1. GitHub Actions の "Run workflow" ボタンで手動実行する。
+#   2. Actions が新しいスナップショットを artifacts にアップロードする。
+#   3. artifacts をダウンロードし、e2e/ ディレクトリに配置して commit / push する。
+#   4. 次回の playwright-regression.yml 実行から新ベースラインが使われる。
+#
+# 注意: このワークフローは直接 main にコミットしない（人間のレビューゲートを保持）。
+# ======================================================================
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "ベースライン更新の理由（任意）"
+        required: false
+        default: "manual baseline update"
+
+jobs:
+  update-snapshots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright and dependencies
+        run: |
+          npm install -D @playwright/test http-server
+          npx playwright install --with-deps chromium
+
+      - name: Write Playwright config
+        run: |
+          cat > playwright.config.js << 'PWCONFIG'
+          const { defineConfig, devices } = require('@playwright/test');
+          module.exports = defineConfig({
+            testDir: './e2e',
+            timeout: 30000,
+            expect: {
+              timeout: 5000,
+              toHaveScreenshot: { threshold: 0.05, maxDiffPixelRatio: 0.02 }
+            },
+            use: {
+              baseURL: 'http://localhost:8080',
+              trace: 'on-first-retry',
+              screenshot: 'on',
+            },
+            projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+            webServer: {
+              command: 'npx http-server . -p 8080 --silent',
+              url: 'http://localhost:8080',
+              reuseExistingServer: false,
+              timeout: 15000,
+            },
+          });
+          PWCONFIG
+
+      - name: Generate baseline snapshots
+        run: npx playwright test --update-snapshots --reporter=list
+        continue-on-error: true
+
+      - name: Upload new snapshots as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-baseline-snapshots-${{ github.run_id }}
+          path: e2e/**/*.png
+          retention-days: 30
+
+      - name: Print instructions
+        run: |
+          echo "======================================================"
+          echo "Baseline snapshots generated."
+          echo "Download the artifact 'playwright-baseline-snapshots-${{ github.run_id }}'"
+          echo "and commit the .png files into e2e/ to finalize the baseline."
+          echo "Reason: ${{ github.event.inputs.reason }}"
+          echo "======================================================"
