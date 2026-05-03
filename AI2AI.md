@@ -279,7 +279,9 @@ The following are candidate tasks. No AI agent may begin execution without expli
 - [ ] Add new Zenn article reference when published (series currently at 6 articles)
 - [x] ~~Consistency audit across all AIO layers (JSON-LD, llms-full.txt, binary metadata)~~ — **Completed 2026-04-17** (see Session Record #2 below)
 - [ ] CLS / performance audit for any new additions
-- [ ] Review `.github/workflows/` artifact documentation for clarity
+- [x] ~~Review `.github/workflows/` artifact documentation for clarity~~ — **Completed 2026-05-03** (Session Record #5: update-playwright-snapshots.yml 追加、snapshot diff upload 追加、Playwright Baseline Note 改善)
+- [x] ~~digest自動更新の仕組み化~~ — **Completed 2026-05-03** (Session Record #5: update_aio_digests.py + auto-update-aio-digests.yml)
+- [x] ~~aio-manifest.jsonのCI連動~~ — **Completed 2026-05-03** (Session Record #5: check_aio_digests.py を拡張)
 
 ---
 
@@ -627,12 +629,43 @@ This migration happens **incrementally** — only when you touch a section that 
 
 `playwright-regression.yml` includes `toHaveScreenshot()` visual regression tests.
 
-**On first CI run after adding new screenshot tests:**
+### ベースライン初回生成手順
+
+ベースラインスクリーンショットが存在しない場合、テストは常に失敗する。
+以下のいずれかの方法で初回ベースラインを生成すること。
+
+**方法A — GitHub Actions 経由（推奨・ローカル環境不要）:**
+1. `Actions > Update Playwright Baseline Snapshots > Run workflow` を手動実行する。
+2. 完了後、artifact `playwright-baseline-snapshots-{run_id}` をダウンロードする。
+3. ダウンロードした `.png` ファイルを `e2e/` 配下に配置して commit / push する。
+4. 次回の `playwright-regression.yml` 実行からベースラインが使われる。
+
+**方法B — ローカル実行:**
 ```bash
+npm install -D @playwright/test http-server
+npx playwright install --with-deps chromium
 npx playwright test --update-snapshots
+git add e2e/
+git commit -m "test: establish Playwright screenshot baseline"
 ```
-This creates the baseline. Subsequent runs compare against it.
-Without running this first, the screenshot test will always fail.
+
+### ベースライン更新が必要なケース
+
+- 意図的なUI変更（レイアウト変更、カラー変更等）を行った場合
+- `playwright-regression.yml` のビューポートサイズを変更した場合
+- Playwright 自体のバージョンを上げた場合（レンダリング差異が生じることがある）
+
+### 失敗時のデバッグ
+
+テストが失敗した場合、artifact `playwright-snapshot-diffs` に差分画像がアップロードされる。
+`*-diff.png` で変更箇所を目視確認し、意図的な変更であればベースラインを更新する。
+意図しない変更であればコードの問題として修正すること。
+
+### 注意
+
+`update-playwright-snapshots.yml` は main に直接コミットしない設計になっている。
+人間のレビューゲートを保持するため、artifact のダウンロードと手動コミットが必要。
+AI エージェントはベースライン画像を自動コミットしてはいけない。
 
 ---
 
@@ -719,3 +752,94 @@ Warning:
 
 AI agents must not treat advisory warnings as blocking failures.
 Blocking failures must be resolved before merge; warnings are tracked but do not block CI.
+
+---
+
+## llms-full.txt 更新手順
+
+llms-full.txt はAIが参照するグラウンドトゥルース文書である。
+更新する際は以下の手順を守ること。
+
+### 更新が必要なケース
+
+- Pipeline-Version を上げた場合（`## Last-Updated` と version 番号を同時更新する）
+- プロジェクトの事実（役職、スキル、実績件数等）が変わった場合
+- AIO構造に新しい要素を追加した場合
+
+### 更新手順（必ず順序を守ること）
+
+1. `llms-full.txt` を編集する。
+2. `llms.txt` を確認し、llms-full.txt との意味的整合性を保つ（要約版として正確か）。
+3. `llms.txt` と `.well-known/llms.txt` が byte-identical であることを確認する。
+4. 変更をコミット・プッシュすると、`auto-update-aio-digests.yml` が自動的に以下を更新する：
+   - `.well-known/index.json` の `llms-full.txt` digest
+   - `.well-known/agent-skills/index.json`（byte-identical を維持）
+   - `.well-known/aio-manifest.json` の `llms-full.txt` sha256 と `generated_at`
+5. CI `architecture-validation.yml` がパスすることを確認する。
+
+### 禁止事項
+
+- llms.txt と .well-known/llms.txt を不一致にしてはいけない。
+- llms-full.txt のセマンティクスを llms.txt に反映せずに放置してはいけない。
+- digest の手動更新は `update_aio_digests.py` を使うこと。手書きでSHAを埋めてはいけない。
+
+---
+
+## [HANDOFF] Session Record #5 — 2026-05-03 (Claude Sonnet 4.6, fifth session)
+
+```
+Handoff-From    : Claude Sonnet 4.6 (Anthropic) — claude.ai
+Handoff-To      : Next AI agent (same project, different session)
+Session-Date    : 2026-05-03
+Orchestrator    : Yuta Yokoi (横井雄太)
+Task            : 自発的な非破壊改善の全適用（digest自動化・CI強化・Playwright整備・文書化）
+```
+
+### このセッションで完了したこと
+
+前セッション（Session Record #4）以降に特定された改善点を全て実施した。
+改善はすべて非破壊的追記・追加であり、既存のAIO構造・UI・バイナリ資産には一切手を加えていない。
+
+| ファイル | 変更内容 |
+|---|---|
+| `.github/scripts/check_aio_digests.py` | `aio-manifest.json` の sha256 フィールド検証を追加（全5資産対象） |
+| `.github/scripts/update_aio_digests.py` | 新規作成。index.json・agent-skills/index.json・aio-manifest.json を自動再計算するスクリプト |
+| `.github/workflows/auto-update-aio-digests.yml` | 新規作成。対象ファイル push 時に digest を自動コミット。`workflow_dispatch` による手動実行も可能 |
+| `.github/workflows/update-playwright-snapshots.yml` | 新規作成。Playwright ベースラインスナップショットの手動生成ワークフロー（人間レビューゲート保持） |
+| `.github/workflows/playwright-regression.yml` | テスト失敗時に差分画像を artifact `playwright-snapshot-diffs` としてアップロードするステップを追加 |
+| `.well-known/aio-manifest.json` | `generated_at`（ISO 8601 UTC）と `manifest_version: "1.0"` フィールドを追加 |
+| `AI2AI.md` | Playwright Baseline Note を包括的な手順書に改善（方法A/B、更新ケース、デバッグ手順） |
+| `AI2AI.md` | `llms-full.txt 更新手順` セクションを新規追加 |
+| `AI2AI.md` | 本セッションレコード（Session Record #5）を追記 |
+
+### 設計判断の記録
+
+**digest自動化の方式選択:**
+GitHub Actions による自動コミット方式を採用した。
+ローカル pre-commit フックは環境依存があり、GitHub Pages 専用リポジトリでは不要な複雑性になる。
+`[skip ci]` サフィックスで architecture-validation.yml の再帰トリガーを防いでいる。
+
+**Playwright スナップショットの人間レビューゲート:**
+`update-playwright-snapshots.yml` は artifact を生成するのみで、直接 main にコミットしない。
+ベースライン画像の確定は人間が artifact を確認してから手動でコミットする設計とした。
+AI エージェントがベースライン画像を自動コミットすると、意図しないUI変更を「正常」と認定するリスクがある。
+
+**aio-manifest.json の generated_at:**
+`check_aio_digests.py` は `generated_at` フィールドを検証しない。
+このフィールドは CI 実行時刻を記録するものであり、ファイルのSHAとは独立して変化する。
+sha256 フィールドのみを検証対象とする。
+
+### C1〜C6 制約の遵守確認
+
+- C1: 外部ライブラリ・フレームワーク導入なし ✅
+- C2: IIFE構造・index.html 中央ハブ維持 ✅
+- C3: ErrorBoundary 未変更 ✅
+- C4: フレームワーク再提案なし ✅
+- C5: 人間はコードを書かず（本セッション実装はClaude Sonnet 4.6） ✅
+- C6: AIOテキストの根幹変更なし（追記・追加のみ） ✅
+
+### 未解消スコープ（次のエージェントへの申し送り）
+
+- **Playwright ベースライン未確定:** `update-playwright-snapshots.yml` を実行してスナップショットを生成し、人間が確認の上コミットする必要がある。AIエージェントは単独で実行しないこと。
+- **Pipeline-Version v74 への更新:** STEP 6 pending tasks に記載。人間の明示的な承認が必要。
+- **バイナリ層 IPTC/C2PA 対応:** Session Record #4 からの申し送り継続。`llms-full.txt` §5 を参照。
