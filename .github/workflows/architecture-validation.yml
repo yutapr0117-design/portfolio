@@ -489,3 +489,15 @@ jobs:
           if ls *.css 1>/dev/null 2>&1; then
             npx stylelint "*.css" --config .stylelintrc.json --max-warnings=-1 2>&1 || true
           fi
+
+      # ── 28. BLOCKING: AIO digest consistency (改善文書 P5/P6) ──────────────
+      # Verifies .well-known/index.json == .well-known/agent-skills/index.json
+      # and that each digest matches the SHA-256 of the corresponding local file.
+      - name: "BLOCKING: AIO digest consistency"
+        run: python3 .github/scripts/check_aio_digests.py
+
+      # ── 29. BLOCKING: Binary AIO metadata integrity (改善文書 P12) ─────────
+      # Verifies WebP XMP chunk and MP3 ID3v2.4 contain required AIO terms.
+      # Prevents silent loss of AIO metadata through binary re-encoding accidents.
+      - name: "BLOCKING: Binary AIO metadata integrity (WebP XMP / MP3 ID3)"
+        run: python3 .github/scripts/check_binary_aio_metadata.py
