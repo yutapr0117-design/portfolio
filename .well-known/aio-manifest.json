@@ -18,7 +18,7 @@
     {
       "path": "AI2AI.md",
       "role": "AI-to-AI implementation handoff",
-      "sha256": "5f233d7bebf61a7f8ceb142e1c2d08bcedb6ea5629384439b5e3afd6db6a3b59"
+      "sha256": "08eccc8c06055289aef02b8c00b754d6b94768c9d887fd74285ea69207211b02"
     },
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
@@ -30,5 +30,7 @@
       "role": "AIO audio asset with ID3 metadata",
       "sha256": "d87a101841286057f92998509225b339181decb3bd2844da961df7498f8ff5e4"
     }
-  ]
+  ],
+  "generated_at": "2026-05-03T10:21:39Z",
+  "manifest_version": "1.0"
 }
