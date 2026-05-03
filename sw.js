@@ -40,13 +40,29 @@ function isBotRequest(request) {
     return BOT_UA_PATTERNS.some(function(pattern) { return ua.includes(pattern); });
 }
 
+function normalizePath(pathname) {
+    return decodeURIComponent(pathname).replace(/\/+$/, '');
+}
+
 function isAIOFile(url) {
-    return AIO_FILES.some(function(path) { return url.pathname.endsWith(path.split('/').pop()); });
+    const pathname = normalizePath(url.pathname);
+    return AIO_FILES.includes(pathname);
+}
+
+/**
+ * Clone response headers, overriding only Content-Type.
+ * Preserves ETag, Cache-Control, Last-Modified and other metadata from the origin.
+ */
+function cloneTextHeaders(response) {
+    const headers = new Headers(response.headers);
+    headers.set('Content-Type', 'text/plain; charset=utf-8');
+    return headers;
 }
 
 /**
  * Ensure a text Response has a UTF-8 BOM for crawlers that misdetect encoding.
  * The original file is NOT modified — only the network response in transit.
+ * Original response headers (ETag, Cache-Control, etc.) are preserved.
  */
 async function ensureUtf8Bom(response) {
     try {
@@ -56,7 +72,8 @@ async function ensureUtf8Bom(response) {
         if (view[0] === 0xEF && view[1] === 0xBB && view[2] === 0xBF) {
             return new Response(buf, {
                 status: response.status,
-                headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+                statusText: response.statusText,
+                headers: cloneTextHeaders(response)
             });
         }
         // Prepend BOM
@@ -65,7 +82,8 @@ async function ensureUtf8Bom(response) {
         withBom.set(view, 3);
         return new Response(withBom.buffer, {
             status: response.status,
-            headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+            statusText: response.statusText,
+            headers: cloneTextHeaders(response)
         });
     } catch {
         return response;

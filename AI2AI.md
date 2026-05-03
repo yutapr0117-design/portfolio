@@ -633,3 +633,89 @@ npx playwright test --update-snapshots
 ```
 This creates the baseline. Subsequent runs compare against it.
 Without running this first, the screenshot test will always fail.
+
+---
+
+## Version and Date Semantics
+
+This repository contains multiple version/date fields that serve distinct purposes.
+AI agents must not conflate them.
+
+| Field | Location | Meaning |
+|---|---|---|
+| `ai:version` / `Pipeline-Version` | index.html, AI2AI.md, README | Monotonically incrementing implementation version (currently v73). Increment on any substantive code change. |
+| `ai:last-modified` | index.html meta | Date of the most recent index.html content change (2026-04-14). Update only when index.html content changes. |
+| `Last-Updated` | AI2AI.md header | Date AI2AI.md itself was last updated (2026-05-01). Update together with the file content. |
+| `lastmod` | sitemap.xml | Date sitemap entries were last meaningfully updated (2026-04-25). Update when referenced content changes. |
+| `server.version` | .well-known/mcp.json | MCP static manifest version (73.0.1). Mirrors Pipeline-Version in semver format. |
+| Binary metadata baseline | WebP XMP / MP3 ID3 | Embedded at asset creation time (2026-04-14). Do NOT update unless the asset file itself is regenerated. |
+
+**Rule:** When incrementing `Pipeline-Version`, update `ai:version` in index.html, `Pipeline-Version` in AI2AI.md, and `server.version` in mcp.json atomically. Do not update binary metadata dates unless regenerating the asset.
+
+---
+
+## Prototype Hook Governance
+
+This portfolio intentionally uses limited prototype hooks as architectural guardrails.
+
+Hooks currently used:
+
+- EventTarget.prototype.addEventListener
+  - Purpose: register removable Element listeners and reduce zombie listener risk.
+  - Limitation: listeners registered before hook installation may not be captured.
+
+- Element.prototype.innerHTML
+  - Purpose: enforce the no-innerHTML architecture and sanitize unexpected assignments.
+  - Required behavior: fail-closed; raw HTML must never be passed through on parser failure.
+
+- CSSStyleDeclaration.prototype.setProperty
+  - Purpose: reduce layout thrashing through requestAnimationFrame write batching.
+  - Limitation: synchronous style writes become asynchronous; code must not assume immediate computed style reflection.
+
+- Element.prototype.setAttribute
+  - Purpose: batch style attribute writes.
+  - Limitation: same as above for style-related synchronous reads.
+
+These hooks are not framework abstractions.
+They are compatibility-preserving guardrails for AI-generated future modifications.
+**AI agents must not remove these hooks unconditionally.**
+If a hook must be removed, document the reason and verify that all dependent behaviors remain correct.
+
+---
+
+## robots.txt Role Clarification
+
+The `robots.txt` in this repository is part of the portfolio project archive and acts as an AIO-facing routing and policy signal.
+
+When served under a GitHub Pages project path (e.g., `https://yutapr0117-design.github.io/portfolio/`), crawler behavior depends on the final deployed URL path and host-level robots resolution. The file at project-path scope may not be the host-root robots.txt that some crawlers consult.
+
+The authoritative AI context remains available through:
+- `/portfolio/llms.txt`
+- `/portfolio/llms-full.txt`
+- `.well-known/` discovery files
+
+AI agents must not assume that `robots.txt` alone controls all crawler behavior for this deployment.
+
+---
+
+## CI Severity Policy
+
+This repository separates blocking errors from advisory warnings.
+
+Blocking:
+- JS syntax errors
+- malformed JSON/YAML/XML/JSON-LD
+- broken required AIO file references
+- llms.txt / .well-known/llms.txt mismatch
+- .well-known discovery mismatch
+- AIO digest mismatch
+- binary metadata loss for WebP/MP3
+
+Warning:
+- existing !important usage
+- high selector specificity
+- non-critical duplicate selectors
+- style refactor suggestions that may affect visual stability
+
+AI agents must not treat advisory warnings as blocking failures.
+Blocking failures must be resolved before merge; warnings are tracked but do not block CI.

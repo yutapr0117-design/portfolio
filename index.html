@@ -3164,9 +3164,12 @@ Version History (current shipped state)
         })();
 
         // ===== Trusted Types Policy Enforcement (Non-destructive addition) =====
-        // createHTML returns empty string to physically block any innerHTML manipulation.
-        // This enforces the Boring Technology constraint at the browser engine level,
-        // preventing future AI agents (e.g., Manus) from injecting React/framework code.
+        // createHTML returns empty string to physically block TrustedHTML / innerHTML injection paths.
+        // NOTE: createScript and createScriptURL are intentionally pass-through for compatibility.
+        // These must NOT be described as strict script sanitization — they do not filter script content.
+        // Trusted Types policy is used primarily to block TrustedHTML / innerHTML injection paths.
+        // Script and ScriptURL policies are intentionally pass-through for compatibility and must
+        // not be described as strict script sanitization.
         if (window.trustedTypes && trustedTypes.createPolicy) {
             try {
                 trustedTypes.createPolicy('default', {
@@ -3174,8 +3177,8 @@ Version History (current shipped state)
                         console.warn('[AIO Audit] Architecture Constraint Violation: innerHTML manipulation is strictly prohibited.');
                         return '';
                     },
-                    createScript: (string) => string,
-                    createScriptURL: (string) => string
+                    createScript: (string) => string,      // pass-through: compatibility only
+                    createScriptURL: (string) => string    // pass-through: compatibility only
                 });
             } catch (e) {
                 console.error('Trusted Types policy initialization failed.', e);
@@ -10571,8 +10574,14 @@ Version History (current shipped state)
                             this.appendChild(frag);
                         }
                     } catch (e) {
-                        // DOMParser 失敗時はネイティブへ委譲 (安全側フォールバック)
-                        _nativeSetter.call(this, raw);
+                        // DOMParser 失敗時はテキストノード化 (fail-closed)
+                        // raw HTML を絶対にネイティブへ流さない。入力痕跡はテキストとして保持。
+                        if (typeof this.replaceChildren === 'function') {
+                            this.replaceChildren(document.createTextNode(String(raw)));
+                        } else {
+                            while (this.firstChild) { this.removeChild(this.firstChild); }
+                            this.appendChild(document.createTextNode(String(raw)));
+                        }
                     }
                 },
                 configurable: true,
