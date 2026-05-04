@@ -83,4 +83,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- AIO Asset Manifest — machine-readable source-of-truth for canonical AIO assets and SHA-256 digests -->
+  <url>
+    <loc>https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

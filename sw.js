@@ -10,8 +10,17 @@
  *   index.html, llms.txt, llms-full.txt, robots.txt, sitemap.xml, and .well-known/ endpoints.
  * This SW is an enhancement layer, not the primary AIO delivery mechanism.
  *
+ * SCOPE (implementation-accurate):
+ * This Service Worker only normalizes browser-context delivery for:
+ * - /portfolio/llms.txt
+ * - /portfolio/llms-full.txt
+ *
+ * Other AIO resources (.well-known/, aio-manifest.json, AI2AI.md, binary assets) remain
+ * statically discoverable and are intentionally NOT intercepted by this SW.
+ * Do not expand this interception list unless there is a verified delivery issue.
+ *
  * DESIGN:
- * - Intercepts requests for llms.txt and llms-full.txt in browser context
+ * - Intercepts requests for llms.txt and llms-full.txt in browser context only
  * - Forces network-fresh fetch (cache bypass) for AI crawler bot User-Agents
  * - Ensures UTF-8 BOM is present for environments that may misdetect encoding
  * - Non-destructive: passes all other requests through unchanged
