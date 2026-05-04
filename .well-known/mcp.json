@@ -37,7 +37,9 @@
             "description": "検証対象のエンティティ名または関連クエリ（例: 'Yuta Yokoi', '横井雄太', 'KERNEL Framework'）"
           }
         },
-        "required": ["query"]
+        "required": [
+          "query"
+        ]
       }
     }
   ],
@@ -65,6 +67,12 @@
       "name": "Portfolio SPA — Main Entry",
       "description": "Single-page application portfolio. Hash-based routing: #/ (Home), #/role-split (Human vs AI split), #/ai-knowhow (AI development methodology), #/services (consulting offerings). Vanilla JS, external framework independent; application logic is external-library independent. Operational services such as analytics and fonts are scoped exceptions.",
       "mimeType": "text/html"
+    },
+    {
+      "uri": "https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json",
+      "name": "AIO Asset Manifest",
+      "description": "Machine-readable manifest of canonical AIO assets and SHA-256 digests.",
+      "mimeType": "application/json"
     }
   ]
 }
