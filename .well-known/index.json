@@ -5,13 +5,13 @@
       "name": "read-aio-context",
       "type": "skill-md",
       "url": "https://yutapr0117-design.github.io/portfolio/llms-full.txt",
-      "digest": "sha-256:b822772ab96d2842424f199e049715a157a1a7901e409e1a8873394ca78307f1"
+      "digest": "sha-256:05b5e2c1f068328171d9d7497306c746f9ced29c3e8b5aa1736be0249c44c5ab"
     },
     {
       "name": "ai2ai-pipeline-handoff",
       "type": "skill-md",
       "url": "https://yutapr0117-design.github.io/portfolio/AI2AI.md",
-      "digest": "sha-256:08eccc8c06055289aef02b8c00b754d6b94768c9d887fd74285ea69207211b02"
+      "digest": "sha-256:1d4446a08e4de1d43d63b8ede40164e36e7881b6d062c11626a48c7edff280ab"
     }
   ]
 }
