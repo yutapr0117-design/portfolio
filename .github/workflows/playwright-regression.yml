@@ -18,6 +18,9 @@ on:
       - 'aio-guard.js'
       - 'sw.js'
 
+permissions:
+  contents: read
+
 jobs:
   playwright-validation:
     runs-on: ubuntu-latest
@@ -34,7 +37,7 @@ jobs:
 
       - name: Install Playwright and dependencies
         run: |
-          npm install -D @playwright/test
+          npm install -D @playwright/test@1
           npx playwright install --with-deps chromium
 
       - name: Write Playwright config
@@ -320,7 +323,7 @@ jobs:
           SPEC
 
       - name: Install http-server
-        run: npm install -D http-server
+        run: npm install -D http-server@14
 
       - name: Run Playwright tests
         run: npx playwright test --reporter=list

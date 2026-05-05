@@ -12,6 +12,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: read
+
 jobs:
   validate-level-constraints:
     runs-on: ubuntu-latest
@@ -482,9 +485,9 @@ jobs:
       # Pythonロジックを外部スクリプトに完全移動。
       # --max-warnings=-1 フラグで warning のみの場合は exit 0 になるため、
       # severity:warning のルールが既存コードにヒットしてもCIをブロックしない。
-      - name: "BLOCKING: Stylelint CSS specificity and variable enforcement (改善文書a 6.1/6.2)"
+      - name: "ADVISORY: Stylelint CSS specificity and variable enforcement (改善文書a 6.1/6.2)"
         run: |
-          npm install --no-save stylelint stylelint-declaration-strict-value 2>/dev/null
+          npm install --no-save stylelint@16 stylelint-declaration-strict-value@1 2>/dev/null
           python3 .github/scripts/check_css_stylelint.py
           if ls *.css 1>/dev/null 2>&1; then
             npx stylelint "*.css" --config .stylelintrc.json --max-warnings=-1 2>&1 || true

@@ -27,6 +27,9 @@ on:
         required: false
         default: "manual baseline update"
 
+permissions:
+  contents: read
+
 jobs:
   update-snapshots:
     runs-on: ubuntu-latest
@@ -43,7 +46,7 @@ jobs:
 
       - name: Install Playwright and dependencies
         run: |
-          npm install -D @playwright/test http-server
+          npm install -D @playwright/test@1 http-server@14
           npx playwright install --with-deps chromium
 
       - name: Write Playwright config
