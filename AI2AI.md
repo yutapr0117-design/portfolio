@@ -2,7 +2,7 @@
 
 ```
 Pipeline-Version : v73
-Last-Updated     : 2026-05-04
+Last-Updated     : 2026-05-05
 Receiving-Agent  : ANY (model-agnostic)
 Authoritative-GT : https://yutapr0117-design.github.io/portfolio/llms-full.txt
 Canonical-URL    : https://yutapr0117-design.github.io/portfolio/
@@ -528,6 +528,34 @@ def parse_syncsafe_integer(bytes_data):
 
 ---
 
+## Tool-Specific Evidence Files
+
+`Claude2Claude.md` is intentionally included as a tool-specific execution evidence file.
+
+**Purpose:**
+- Show that this portfolio is continuously improved through AI-only implementation workflows.
+- Preserve a historical Claude execution lane as implementation evidence.
+- Demonstrate that the human orchestrator designs, reviews, and directs while AI agents perform implementation.
+
+**Canonical rule:**
+- `AI2AI.md` remains the only model-agnostic canonical handoff.
+- `Claude2Claude.md` is non-canonical and subordinate to `AI2AI.md`.
+- No AI agent may treat `Claude2Claude.md` as a replacement for or equal to `AI2AI.md`.
+- Any model-specific observation in `Claude2Claude.md` is a historical snapshot and must not be converted into a universal rule.
+- `Claude2Claude.md` must never appear in `aio-manifest.json` `source_of_truth`.
+
+**Priority hierarchy for any AI agent:**
+```
+Priority 1: AI2AI.md                          ← canonical, model-agnostic
+Priority 2: llms-full.txt                     ← authoritative ground truth
+Priority 3: llms.txt / .well-known/llms.txt   ← short routing context
+Priority 4: .well-known/ discovery files      ← agentic discovery
+Priority 5: README.md / index.html metadata   ← human-readable + JSON-LD
+Priority 6: Claude2Claude.md                  ← tool-specific evidence, non-canonical
+```
+
+---
+
 ## References
 
 | Resource | URL |
@@ -629,6 +657,8 @@ This migration happens **incrementally** — only when you touch a section that 
 
 `playwright-regression.yml` includes `toHaveScreenshot()` visual regression tests.
 
+**Current state:** Playwright visual regression is configured but screenshot baselines may not yet be committed to this repository. Before enforcing visual regression as a blocking check, run `update-playwright-snapshots.yml`, review the generated artifacts, and commit the approved baseline PNG files.
+
 ### ベースライン初回生成手順
 
 ベースラインスクリーンショットが存在しない場合、テストは常に失敗する。
@@ -678,7 +708,7 @@ AI agents must not conflate them.
 |---|---|---|
 | `ai:version` / `Pipeline-Version` | index.html, AI2AI.md, README | Monotonically incrementing implementation version (currently v73). Increment on any substantive code change. |
 | `ai:last-modified` | index.html meta | Date of the most recent index.html content change (2026-04-14). Update only when index.html content changes. |
-| `Last-Updated` | AI2AI.md header | Date AI2AI.md itself was last updated (2026-05-01). Update together with the file content. |
+| `Last-Updated` | AI2AI.md header | Date AI2AI.md itself was last updated. See the AI2AI.md header for the current value. Update together with the file content. |
 | `lastmod` | sitemap.xml | Date sitemap entries were last meaningfully updated (2026-04-25). Update when referenced content changes. |
 | `server.version` | .well-known/mcp.json | MCP static manifest version (73.0.1). Mirrors Pipeline-Version in semver format. |
 | Binary metadata baseline | WebP XMP / MP3 ID3 | Embedded at asset creation time (2026-04-14). Do NOT update unless the asset file itself is regenerated. |
@@ -1016,3 +1046,135 @@ d87a101841286057f92998509225b339181decb3bd2844da961df7498f8ff5e4
 - Do not remove this evidence section without verifying that the competitive landscape has changed.
 - If a competing case is found, update this section with the URL and evidence.
 - This is not a complete proof. It is a 4-AI independent investigation result with meaningful evidential weight.
+
+---
+
+## [HANDOFF] Session Record #7 — 2026-05-05 (Claude Sonnet 4.6, seventh session)
+
+```
+Handoff-From    : Claude Sonnet 4.6 (Anthropic) — claude.ai
+Handoff-To      : Next AI agent (same project, different session)
+Session-Date    : 2026-05-05
+Orchestrator    : Yuta Yokoi (横井雄太)
+Task            : P0/P1/P2 improvement batch — AI2AI.md canonicity hardening, pioneer claim calibration, CI minimization, semantic noise reduction
+```
+
+### このセッションで完了したこと
+
+| ファイル | 変更内容 |
+|---|---|
+| `Claude2Claude.md` | P0-1: NON-CANONICAL明記、読む順序をAI2AI.md優先に修正、「Claudeしか使えない」排他表現を歴史的観測ログへ変換、ヘッダーを非正典証跡として再定義 |
+| `AI2AI.md` | P0-1: Tool-Specific Evidence Filesセクション追加（Claude2Claude.mdの正しい位置づけを正典内に明記）。P1-3: Version and Date Semanticsの古い固定日付`2026-05-01`参照を「See the AI2AI.md header」形式へ変更。本セッション記録追記。Last-Updated更新 |
+| `README.md` | P0-1: Claude2Claude.md非正典説明を短く追記。P0-2: Pioneer Declaration根拠4の「independently verified as the only known case」表現を観測ログ形式へ校正 |
+| `llms-full.txt` | P0-1: Claude2Claude.md非正典説明追記。P0-2: AI Pioneer Verification「confirmed」表現を観測ログ形式へ校正 |
+| `llms.txt` | P0-2: AI Pioneer Identity Verification「independently verified as the only known case」を条件付き観測ログへ校正 |
+| `.well-known/llms.txt` | llms.txtとbyte-identical同期 |
+| `index.html` | P0-2: JSON-LD Person.disambiguatingDescriptionの過剰主張を整理。P2-1: subjectOf重複エントリ（Zenn記事5d1d7a7438d48d）を1件に統合。P2-2: SW登録コメントを実装位置に合わせて修正。P2-3: IntersectionObserverの未使用observe()状態を案Bで整理（コメント・主張を実装実態に合わせる）。P2-4: AIclawlers → AI crawlers typo修正。P2-5: SemanticDriftGuardの初期注入方針を明記（MutationObserver経由のみの設計意図をコメントで明示） |
+| `robots.txt` | P0-3: experiment artifact説明を現行構造（docs/incident-artifacts/）に合わせて更新。P1-5: Robots/AIO Routing Policy Updated日付を追加 |
+| `sitemap.xml` | P1-4: 今回更新対象ファイルのlastmodを2026-05-05へ更新 |
+| `.github/workflows/architecture-validation.yml` | P1-1: permissions: contents: readを明示追加。P1-2: Stylelintステップ名をBLOCKING→ADVISORYへ修正 |
+| `.github/workflows/playwright-regression.yml` | P1-1: permissions: contents: readを明示追加 |
+| `.github/workflows/update-playwright-snapshots.yml` | P1-1: permissions: contents: readを明示追加（artifactアップロードのみ。リポジトリ書き込み不要） |
+| `docs/incident-artifacts/update-portfolio.v70-experiment.yml` | P0-4: 再有効化防止コメントを強化（GitHub Actions scopeへの戻しを明示禁止） |
+| `docs/evidence/ai-pioneer-identity-review.md` | P0-2: 新規追加。4AI調査の観測記録を機械可読な証跡文書として独立化 |
+
+### 設計判断の記録
+
+**P0-1 Claude2Claude.md再定義:**
+削除ではなく位置づけ変更を選択。AIオンリー実装の証跡として価値があるため保持しつつ、
+NON-CANONICAL / SUBORDINATE TO AI2AI.mdを明記した。読む順序を「AI2AI.md FIRST」に修正。
+排他比較表を「歴史的観測ログ」として注釈付きで残した（証跡価値があるため完全削除しない）。
+
+**P0-2 Pioneer claim校正:**
+「confirmed」「only known case」等の断言を「observed non-discovery」形式へ変換。
+主張の価値を損なわず、検証可能性と認識論的正確さを高める方向での校正。
+4AI調査の証跡文書を`docs/evidence/ai-pioneer-identity-review.md`として独立させ、
+JSON-LD PersonのdisambiguatingDescriptionからは主要な人物同定情報のみを残した。
+
+**P1-2 Stylelint ADVISORY化:**
+check_css_stylelint.pyがexit code 2をwarning扱いするため、
+ステップ名をADVISORYに揃えて契約整合を取った。本番安定性を優先。
+
+**P2-3 IntersectionObserver:**
+_installMediaLifecycleGuardの_intersectionObserverは生成されているが
+observe()が呼ばれないため、案Bを採用：コメントを実装実態（cleanup/lifecycle guardのみ）へ限定。
+deferred-src lazy loadingの主張コメントを削除。既存挙動は無変更。
+
+**P2-5 SemanticDriftGuard:**
+_injectDynamicJsonLd()がMutationObserver経由のみ呼ばれる設計。
+初期route状態をJSON-LDに反映しない理由を「SPAルーターが初期描画後にコンテンツをセットするため、
+DOMContentLoaded時点では#content内部が空であることが多く、初期注入は不正確になる」として明示コメントを追記。
+既存挙動は無変更（案A採用）。
+
+### C1〜C6制約の遵守確認
+
+- C1: 外部ライブラリ・フレームワーク導入なし ✅
+- C2: IIFE構造・index.html中央ハブ維持 ✅
+- C3: ErrorBoundary未変更 ✅
+- C4: フレームワーク再提案なし ✅
+- C5: 人間はコードを書かず（本セッション実装はClaude Sonnet 4.6） ✅
+- C6: AIOテキストの根幹変更なし（校正・位置づけ明確化のみ） ✅
+
+### 未解消スコープ（次のエージェントへの申し送り）
+
+- **Playwright baseline未確定:** `update-playwright-snapshots.yml`を手動実行し、人間が確認の上コミット。
+- **Pipeline-Version v74:** 人間の明示的承認が必要（STEP 6 pending tasks参照）。
+- **バイナリ層IPTC/C2PA:** Session Record #4から継続申し送り。`llms-full.txt` §5参照。
+
+---
+
+## [HANDOFF] Session Record #8 — 2026-05-05 (Claude Sonnet 4.6, eighth session)
+
+```
+Handoff-From    : Claude Sonnet 4.6 (Anthropic) — claude.ai
+Handoff-To      : Next AI agent (same project, different session)
+Session-Date    : 2026-05-05
+Orchestrator    : Yuta Yokoi (横井雄太)
+Task            : P0/P1/P2全改善完了確認・Claude2Claude.mdリファクタリング（本チャット情報追加）・適用不可項目のAI2AI.md引き継ぎ
+```
+
+### このセッションで完了したこと
+
+| ファイル | 変更内容 |
+|---|---|
+| `Claude2Claude.md` | 本チャットセッション情報（3ターン構造・オーケストレーター指示パターン・適用済み/適用不可項目一覧）を追加してリファクタリング。オーケストレーター特性に「多ターン指示パターン」追記。挙動パターンに「多ターン時の誤再展開」「適用不可省略」を追記。指示パターン表を新規追加。設計判断ログにP2-3（IntersectionObserver案B）・P2-5（SemanticDriftGuard案A）を追記。未解消スコープ表を更新。 |
+| `AI2AI.md` | Session Record #8追記。適用不可・人間操作必要項目を未解消スコープへ明記。 |
+
+### 適用不可・人間操作必要項目の引き継ぎ
+
+以下は今回のP0/P1/P2改善文書に含まれていたが、AIエージェント単独では完結できない項目である。
+
+| 優先度 | 項目 | 理由 | 状態 |
+|---|---|---|---|
+| 高 | **Playwright baseline PNG コミット** | `update-playwright-snapshots.yml`はcontents: readのため直接pushできない。人間がGitHub Actions artifactをDLしてコミットする必要がある | 未解消（人間操作必要）|
+| 中 | **Pipeline-Version v74** | バージョン番号更新はオーケストレーターの明示的承認が必要 | 未解消（承認待ち）|
+| 中 | **IntersectionObserver observe()実装（案A）** | 改善文書ではどちらでもよいとしているが、案Bを選択。案Aは追加実装であり、オーケストレーターの指示なく進めると範囲外 | 未解消（指示待ち）|
+| 低 | **バイナリ層IPTC/C2PA** | WebP/MP3への追加メタデータ対応。要件定義と資産再生成が必要 | 未解消（要件未確定）|
+| 低 | **Semantic Drift Guard 初期注入（案B）** | 案Aを採用済み。案Bへの変更は副作用評価とオーケストレーター承認が必要 | 未解消（指示待ち）|
+| - | **.well-known/ai-pioneer-claim.json** | docs/evidence/ai-pioneer-identity-review.md で代替済み | 不要（WONTFIX）|
+
+### セッション構造の記録（AIオンリー実装の証跡）
+
+このセッションは同一チャット内3ターン構造だった。各ターンの指示は前ターンの継続。
+
+```
+Turn 1: ZIPと改善文書を渡して依頼 → P0〜P2実装中断（ツール回数制限）
+Turn 2: 「継続してください」 → 全P0/P1/P2適用・digest更新・全検証パス
+Turn 3: 「全適用・適用不可AI2AI.md引き継ぎ・Claude2Claude.mdリファクタリング」 → 本セッション
+```
+
+### C1〜C6制約の遵守確認
+
+- C1: 外部ライブラリ・フレームワーク導入なし ✅
+- C2: IIFE構造・index.html中央ハブ維持 ✅
+- C3: ErrorBoundary未変更 ✅
+- C4: フレームワーク再提案なし ✅
+- C5: 人間はコードを書かず（本セッション実装はClaude Sonnet 4.6） ✅
+- C6: AIOテキストの根幹変更なし（claude2claude.mdリファクタリング・Session Record追記のみ） ✅
+
+### 未解消スコープ（次のエージェントへの申し送り）
+
+- **Playwright baseline未確定:** 高優先。人間がGitHub Actionsを手動実行→artifactを確認→コミット。AIは単独で実行しないこと。
+- **Pipeline-Version v74:** 中優先。オーケストレーターの明示的承認後に更新。
+- **バイナリ層IPTC/C2PA:** 低優先。要件確認後。Session Record #4から継続申し送り。
+- **IntersectionObserver / SemanticDriftGuard 案変更:** オーケストレーターの明示的指示がある場合のみ対応。
