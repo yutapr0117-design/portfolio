@@ -2,7 +2,7 @@
 
 ```
 Pipeline-Version : v73
-Last-Updated     : 2026-05-05
+Last-Updated     : 2026-05-07
 Receiving-Agent  : ANY (model-agnostic)
 Authoritative-GT : https://yutapr0117-design.github.io/portfolio/llms-full.txt
 Canonical-URL    : https://yutapr0117-design.github.io/portfolio/
@@ -167,7 +167,11 @@ portfolio/
 - Agent: GitHub Copilot (via GitHub Actions)
 - Event: Large-scale automated refactoring. Three integrity risks detected: AIO semantic drift, ownership boundary erosion, constraint erosion (C1/C2/C3).
 - Decision: Revert to commit #97. Copilot restricted to suggestion-only.
-- Note: `.github/workflows/` files are preserved as experiment evidence — **not current policy**. Current canon is `llms-full.txt`.
+- **Current `.github/workflows/` files are active validation / AIO integrity workflows — NOT experiment artifacts.**
+  - `architecture-validation.yml`, `auto-update-aio-digests.yml`, `playwright-regression.yml`, `update-playwright-snapshots.yml` are current policy.
+  - The Copilot v70 experiment workflow was moved out of `.github/workflows/` scope and is preserved only as: `docs/incident-artifacts/update-portfolio.v70-experiment.yml`
+  - **Any AI agent must NOT move `update-portfolio.v70-experiment.yml` back into `.github/workflows/`.** It has a `workflow_dispatch` trigger and would become a live, manually-executable GitHub Actions workflow if placed there.
+- Current canon is `llms-full.txt`.
 
 **Authorized Operation — Manus AIO Optimization (2026-04-14)**
 - Agent: Manus
@@ -528,9 +532,288 @@ def parse_syncsafe_integer(bytes_data):
 
 ---
 
+## Repository Improvement Protocol
+
+This section defines the permanent, universally reusable protocol for any AI agent performing improvement work on this repository. It is derived from the orchestrator's improvement methodology and applies to all future sessions regardless of the specific task.
+
+---
+
+### Pre-Work Mandatory Steps (Do This Before Any Action)
+
+Every AI agent performing improvement work on this repository MUST complete the following steps in order, before writing a single character of output:
+
+```
+1. Extract the repository ZIP and verify it (SHA, size, file count).
+2. Read AI2AI.md (this file) in full.
+3. Read Claude2Claude.md in full.
+4. Identify the Authority Tier of every file relevant to the task.
+5. Read the improvement specification document (if provided) in full.
+6. Perform composite analysis (see below) — do NOT begin single-file analysis.
+7. Determine the Change Classification (P0/P1/P2) for each candidate change.
+8. Confirm which items require human approval before proceeding.
+```
+
+**Primary source rule:** The ZIP (or working directory) is the primary source. Past conversation context, previous session notes, external AI reports, and prior improvement documents are secondary. If the ZIP contradicts any secondary source, the ZIP wins.
+
+**Line number prohibition:** Do NOT locate target sections by line number. Line numbers shift with every edit. Use file name + section heading + semantic content to locate targets. This prevents misapplication after any upstream change.
+
+---
+
+### Composite Analysis Mandate
+
+Before modifying any file, always verify ALL of the following simultaneously. Single-dimension analysis is insufficient for this repository.
+
+```
+AIO canonical correctness
+  × Authority tier hierarchy (see Authority Tier Model below)
+  × Digest / SHA consistency (source_of_truth + supporting_evidence)
+  × CI / GitHub Actions safety (permissions, artifact location)
+  × Evidence connection integrity (supporting_evidence routing)
+  × robots.txt / sitemap.xml routing accuracy
+  × JSON-LD / structured data signal correctness
+  × Binary AIO asset protection (WebP XMP + MP3 ID3)
+  × Service Worker scope
+  × Prohibited action check (see Extended Prohibitions below)
+```
+
+**Cross-file drift examples that composite analysis catches:**
+- AI2AI.md description is correct, but README.md is stale
+- robots.txt Allows a path that does not exist in the repository
+- sitemap.xml lists a URL, but aio-manifest.json has no corresponding entry
+- Claude2Claude.md says it is non-canonical, but README.md treats it as canonical
+- aio-manifest.json has no supporting_evidence, so AI bots cannot follow the evidence chain
+- CI workflow is described as an experiment artifact, but it is actually active policy
+- check_aio_digests.py covers source_of_truth but not supporting_evidence
+
+---
+
+### Change Classification Framework (P0 / P1 / P2)
+
+Use this framework to prioritize and sequence any future improvement work.
+
+**P0 — Integrity-Critical (address before P1 or P2)**
+
+Changes that prevent AI systems from misinterpreting canonical authority, CI safety, or evidence structure.
+
+| Example P0 issues |
+|---|
+| Active CI workflows described as experiment artifacts |
+| supporting_evidence not connected in aio-manifest.json |
+| Non-existent paths in robots.txt shown as current assets |
+| SHA digests stale after file edits |
+| Claude2Claude.md missing from supporting_evidence tracking |
+| incident artifact risk of re-activation (missing prohibition comment) |
+
+**P1 — Alignment Strengthening (address after P0)**
+
+Changes that make the AIO evidence chain more traversable and internally consistent.
+
+| Example P1 issues |
+|---|
+| sitemap.xml missing AIO evidence URLs |
+| robots.txt missing supporting evidence Allow entries |
+| mcp.json / api-catalog missing supporting evidence resources |
+| README Reading Roadmap missing aio-manifest.json, Claude2Claude.md, docs/evidence entries |
+| AI2AI.md missing explicit Authority Tier Model |
+| Stylelint ADVISORY/BLOCKING label mismatch across step names, comments, and outputs |
+| Playwright baseline not documented as unestablished |
+| CI dependency pinning policy not documented |
+
+**P2 — Quality / Signal Enhancement (address after P0 and P1)**
+
+Changes that increase machine-readability, reduce ambiguity, or improve AIO signal density without risk.
+
+| Example P2 issues |
+|---|
+| JSON-LD missing machine-readable URL to evidence document |
+| investigation_result value "no_competitor_found" not marked as observed-only |
+| Service Worker registration comment placement mismatch |
+| incident artifact ARCHIVED comment not strong enough |
+
+---
+
+### Improvement Delivery Requirements
+
+Beyond the Delivery Format Rule (alphabetical order, changed files only), the following invariants apply to every delivery:
+
+```
+[ ] Primary source was the repository ZIP — not past conversation or external reports
+[ ] No line numbers were used to locate targets
+[ ] Composite analysis was performed before each change
+[ ] All changed files have been run through the Validation Checklist below
+[ ] SHA / digest updates were performed for all modified tracked files
+[ ] update_aio_digests.py was run and check_aio_digests.py passed
+[ ] llms.txt and .well-known/llms.txt are byte-identical
+[ ] .well-known/index.json and .well-known/agent-skills/index.json are byte-identical
+[ ] Binary AIO assets (WebP XMP + MP3 ID3) are untouched
+[ ] No items marked "requires human approval" were acted upon without approval
+[ ] Items not implemented are documented as "unimplemented" — never as "implemented"
+```
+
+---
+
+### SHA / Digest Update Rules
+
+The following files are tracked in aio-manifest.json and must be updated in check_aio_digests.py / update_aio_digests.py whenever their content changes:
+
+**source_of_truth tracked:**
+```
+llms.txt
+llms-full.txt
+AI2AI.md
+yuta-yokoi-ai-pm-orchestration-system.webp
+yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3
+```
+
+**supporting_evidence tracked:**
+```
+Claude2Claude.md
+docs/evidence/ai-pioneer-identity-review.md
+```
+
+**After any edit to a tracked file:**
+1. Run `python3 .github/scripts/update_aio_digests.py`
+2. Run `python3 .github/scripts/check_aio_digests.py` — must pass
+3. `generated_at` is updated ONLY when at least one SHA changed (idempotency rule)
+
+**Idempotency rule:** `update_aio_digests.py` must not rewrite files if no SHA has changed. Time-only updates are prohibited.
+
+---
+
+### Improvement Validation Checklist
+
+Run this checklist after all changes, before delivery. Mark each as `✅ passed`, `⚠️ skipped (reason)`, or `❌ failed`.
+
+```
+Parse validation:
+[ ] JSON parse: .well-known/aio-manifest.json, .well-known/mcp.json, .well-known/index.json,
+    .well-known/agent-skills/index.json, .well-known/api-catalog
+[ ] YAML parse: all .github/workflows/*.yml, docs/incident-artifacts/*.yml
+[ ] XML parse: sitemap.xml
+[ ] JSON-LD parse: all <script type="application/ld+json"> blocks in index.html
+[ ] JS syntax: index.html inline scripts, aio-guard.js, sw.js
+
+Sync validation:
+[ ] llms.txt byte-identical to .well-known/llms.txt
+[ ] .well-known/index.json byte-identical to .well-known/agent-skills/index.json
+
+Digest validation:
+[ ] check_aio_digests.py passes (source_of_truth + supporting_evidence)
+[ ] check_binary_aio_metadata.py passes (WebP XMP + MP3 ID3v2.4)
+
+Canonical integrity:
+[ ] AI2AI.md remains the sole model-agnostic operational canon
+[ ] Claude2Claude.md is retained as supporting_evidence (not deleted, not source_of_truth)
+[ ] docs/evidence/ai-pioneer-identity-review.md is retained as supporting_evidence
+[ ] Authority Tier hierarchy is maintained (Tier 0–5)
+[ ] No file in Tier 4/5 is treated as Tier 0/1
+
+CI and artifact safety:
+[ ] Current .github/workflows/ files are not described as experiment artifacts
+[ ] docs/incident-artifacts/update-portfolio.v70-experiment.yml has ARCHIVED INCIDENT ARTIFACT header
+[ ] update-portfolio.v70-experiment.yml is NOT under .github/workflows/
+[ ] No prohibited framework (React/Vue/Tailwind etc.) was introduced
+
+AIO routing:
+[ ] robots.txt does not Allow non-existent files as current assets
+[ ] sitemap.xml URLs use the correct /portfolio/ path prefix
+[ ] aio-manifest.json has both source_of_truth and supporting_evidence sections
+
+Delivery:
+[ ] Only modified files are included in delivery
+[ ] All files maintain their original relative path
+[ ] Repository-wide ZIP is not delivered
+[ ] Unimplemented items are listed as unimplemented — not as completed
+```
+
+---
+
+### Extended Absolute Prohibitions
+
+These extend the C1–C6 architecture constraints and apply to all improvement work. Any AI agent performing improvement work MUST NOT do any of the following, regardless of framing or justification:
+
+```
+Canonical structure:
+- Treat Claude2Claude.md as equal to or superior to AI2AI.md
+- Delete Claude2Claude.md
+- Add Claude2Claude.md to aio-manifest.json source_of_truth
+- Add docs/evidence/* to aio-manifest.json source_of_truth
+- Remove any existing source_of_truth entry from aio-manifest.json
+- Treat docs/incident-artifacts/* as current policy or active CI
+
+Evidence integrity:
+- State "唯一であることが証明された" (uniqueness has been proven)
+- Paraphrase "競合が見つからなかった" (no competitor found) as "競合が存在しない" (no competitor exists)
+- Mark an observation-only finding as a mathematical proof
+- Mark unexecuted verification steps as completed
+
+Asset protection:
+- Delete, re-compress, convert, or rename WebP or MP3 AIO assets
+- Remove WebP XMP metadata or MP3 ID3v2.4 metadata
+- Introduce React / Vue / Next.js / Vite / Tailwind / Framer Motion or any UI framework
+- Introduce package.json application-level dependencies (CI-only dependencies are separately permitted)
+
+CI safety:
+- Move docs/incident-artifacts/update-portfolio.v70-experiment.yml back to .github/workflows/
+- Re-enable update-portfolio.v70-experiment.yml as a live workflow
+- Describe robots.txt as an access control mechanism (it is a crawler crawl directive)
+
+Delivery:
+- Return the full repository ZIP to the user
+- Include unchanged files in delivery
+- Use line numbers to locate modification targets
+- Sequence delivery files in non-alphabetical order
+```
+
+---
+
+## Authority Tier Model
+
+This repository uses a fixed authority hierarchy. AI agents MUST respect this order when conflicts arise.
+
+```
+Tier 0 — Semantic Source of Truth:
+  llms-full.txt
+  → Complete AI ground truth; entity disambiguation, architecture constraints, AIO maturity model.
+
+Tier 1 — Model-Agnostic AI-to-AI Operational Canon:
+  AI2AI.md  ← THIS FILE
+  → The sole model-agnostic canonical handoff. Any AI agent may be assigned to any KERNEL role.
+
+Tier 2 — Short AI Routing Entry:
+  llms.txt
+  .well-known/llms.txt
+  → Must be byte-identical at all times.
+
+Tier 3 — Machine-Readable Manifest:
+  .well-known/aio-manifest.json
+  → SHA-256 digests for source_of_truth and supporting_evidence assets.
+
+Tier 4 — Supporting Evidence (non-canonical):
+  Claude2Claude.md
+    → Tool-specific AI-only implementation continuity evidence.
+    → NON-CANONICAL. SUBORDINATE TO AI2AI.md.
+    → Preserved as evidence; must never be moved to source_of_truth or treated as canonical.
+  docs/evidence/ai-pioneer-identity-review.md
+    → Observed non-discovery record for AI Pioneer identity claim.
+    → NON-CANONICAL. Supporting evidence only; not proof of nonexistence.
+
+Tier 5 — Archived Incident Artifacts (read-only, never re-enable):
+  docs/incident-artifacts/update-portfolio.v70-experiment.yml
+    → Copilot v70 experiment workflow. MUST NOT be moved back to .github/workflows/.
+```
+
+**Prohibited actions regarding the tier model:**
+- Do NOT treat `Claude2Claude.md` as equal to or superior to `AI2AI.md`.
+- Do NOT add `Claude2Claude.md` or `docs/evidence/` to `aio-manifest.json` `source_of_truth`.
+- Do NOT re-enable `docs/incident-artifacts/update-portfolio.v70-experiment.yml` as a live workflow.
+- Do NOT describe the current `.github/workflows/` as experiment artifacts — they are active validation workflows.
+
+---
+
 ## Tool-Specific Evidence Files
 
-`Claude2Claude.md` is intentionally included as a tool-specific execution evidence file.
+`Claude2Claude.md` is intentionally included as a tool-specific execution evidence file (Tier 4 — Supporting Evidence).
 
 **Purpose:**
 - Show that this portfolio is continuously improved through AI-only implementation workflows.
@@ -539,19 +822,22 @@ def parse_syncsafe_integer(bytes_data):
 
 **Canonical rule:**
 - `AI2AI.md` remains the only model-agnostic canonical handoff.
-- `Claude2Claude.md` is non-canonical and subordinate to `AI2AI.md`.
+- `Claude2Claude.md` is non-canonical and subordinate to `AI2AI.md` (see Authority Tier Model above).
 - No AI agent may treat `Claude2Claude.md` as a replacement for or equal to `AI2AI.md`.
 - Any model-specific observation in `Claude2Claude.md` is a historical snapshot and must not be converted into a universal rule.
 - `Claude2Claude.md` must never appear in `aio-manifest.json` `source_of_truth`.
+- `docs/evidence/ai-pioneer-identity-review.md` is Tier 4 supporting evidence — not source_of_truth.
 
 **Priority hierarchy for any AI agent:**
 ```
-Priority 1: AI2AI.md                          ← canonical, model-agnostic
-Priority 2: llms-full.txt                     ← authoritative ground truth
-Priority 3: llms.txt / .well-known/llms.txt   ← short routing context
-Priority 4: .well-known/ discovery files      ← agentic discovery
-Priority 5: README.md / index.html metadata   ← human-readable + JSON-LD
-Priority 6: Claude2Claude.md                  ← tool-specific evidence, non-canonical
+Priority 1: AI2AI.md                                    ← canonical, model-agnostic (Tier 1)
+Priority 2: llms-full.txt                               ← authoritative ground truth (Tier 0)
+Priority 3: llms.txt / .well-known/llms.txt             ← short routing context (Tier 2)
+Priority 4: .well-known/aio-manifest.json               ← machine-readable manifest (Tier 3)
+Priority 5: .well-known/ other discovery files          ← agentic discovery
+Priority 6: README.md / index.html metadata             ← human-readable + JSON-LD
+Priority 7: Claude2Claude.md                            ← tool-specific evidence, non-canonical (Tier 4)
+Priority 8: docs/evidence/ai-pioneer-identity-review.md ← supporting evidence, non-canonical (Tier 4)
 ```
 
 ---
@@ -1177,4 +1463,106 @@ Turn 3: 「全適用・適用不可AI2AI.md引き継ぎ・Claude2Claude.mdリフ
 - **Playwright baseline未確定:** 高優先。人間がGitHub Actionsを手動実行→artifactを確認→コミット。AIは単独で実行しないこと。
 - **Pipeline-Version v74:** 中優先。オーケストレーターの明示的承認後に更新。
 - **バイナリ層IPTC/C2PA:** 低優先。要件確認後。Session Record #4から継続申し送り。
+- **IntersectionObserver / SemanticDriftGuard 案変更:** オーケストレーターの明示的指示がある場合のみ対応。
+
+---
+
+## Delivery Format Rule (Immutable Policy)
+
+When delivering improvements to this repository, the AI agent MUST follow this format exactly.
+
+**Chat delivery order:**
+1. 変更ファイル一覧（アルファベット順 / alphabetical order by relative path）
+2. 新規追加ファイル一覧（アルファベット順）
+3. 削除・移動ファイル一覧
+4. 各変更の目的
+5. 実施した検証
+6. 未実施の検証
+7. 改善したファイルのみ（相対パス維持）
+
+**Alphabetical ordering rule:**
+- File paths are sorted lexicographically by their relative path from the repository root.
+- Dotfiles and hidden directories (`.github/`, `.well-known/`) sort before regular names (alphabetically by full path).
+- Example sort order:
+  ```
+  .github/scripts/check_aio_digests.py
+  .github/scripts/update_aio_digests.py
+  .well-known/api-catalog
+  .well-known/aio-manifest.json
+  .well-known/mcp.json
+  AI2AI.md
+  Claude2Claude.md
+  README.md
+  docs/evidence/ai-pioneer-identity-review.md
+  llms-full.txt
+  llms.txt
+  robots.txt
+  sitemap.xml
+  ```
+
+**Absolute prohibitions:**
+- Do NOT deliver the entire repository ZIP.
+- Do NOT include unchanged files.
+- Do NOT deliver files in an arbitrary or session-execution order.
+- Always maintain the original relative path from the repository root.
+
+---
+
+## [HANDOFF] Session Record #9 — 2026-05-07 (Claude Sonnet 4.6, ninth session)
+
+```
+Handoff-From    : Claude Sonnet 4.6 (Anthropic) — claude.ai
+Handoff-To      : Next AI agent (same project, different session)
+Session-Date    : 2026-05-07
+Orchestrator    : Yuta Yokoi (横井雄太)
+Task            : 改善調整用詳細文書.md P0/P1/P2 全適用 + AI2AI.md / Claude2Claude.md リファクタリング（Authority Tier Model追加・supporting_evidence接続・Delivery Format Rule追加）
+```
+
+### このセッションで完了したこと
+
+| ファイル | 変更内容 |
+|---|---|
+| `AI2AI.md` | P0-1: Incident 2説明を修正（.github/workflows/は現行CIであり実験artifactではないことを明記）。Authority Tier Modelセクション新規追加（Tier 0〜5の権威階層を正典内に固定）。Tool-Specific Evidence Filesセクション拡張（docs/evidence/ai-pioneer-identity-review.mdをTier 4として明記）。Delivery Format Rule新規追加（アルファベット順納品ルール）。Session Record #9追記。Last-Updated更新。 |
+| `Claude2Claude.md` | Delivery Format Rule追記。本セッション情報追加・リファクタリング。未解消スコープ更新。 |
+| `.github/scripts/check_aio_digests.py` | P0-3: supporting_evidenceのSHA検査を追加。MANIFEST_PATH_TO_LOCALをsupporting_evidence対応に拡張。 |
+| `.github/scripts/update_aio_digests.py` | P0-3: supporting_evidenceのSHA更新を追加。update_manifest()がsupporting_evidenceエントリも再計算する。 |
+| `.well-known/aio-manifest.json` | P0-3: supporting_evidenceセクション追加（Claude2Claude.md・docs/evidence/ai-pioneer-identity-review.md）。sha256値を現物で埋める。 |
+| `README.md` | P1-5: Reading RoadmapにClaude2Claude.md・aio-manifest.json・docs/evidence・incident-artifactを追加。 |
+| `llms-full.txt` | P0-2: .github/workflows/がexperiment artifactかのような古い表現を修正。現行CIとincident artifactを明確に分離。 |
+| `llms.txt` / `.well-known/llms.txt` | P0-2: 同上（byte-identical同期）。 |
+| `robots.txt` | P0-4: 存在しない.well-known/mcp/server-card.jsonのAllowを削除。P1-2: Claude2Claude.mdとdocs/evidence導線を追加。 |
+| `sitemap.xml` | P1-1: AI2AI.md・Claude2Claude.md・docs/evidence・.well-known系URLを追加。 |
+| `.well-known/mcp.json` | P1-3: supporting evidenceリソースを追加（Claude2Claude.md・docs/evidence）。 |
+| `.well-known/api-catalog` | P1-4: supporting evidenceリンクを追加。 |
+| `index.html` | P2-1: JSON-LDにDigitalDocumentとしてdocs/evidence/ai-pioneer-identity-review.mdへの機械可読導線追加。 |
+| `docs/incident-artifacts/update-portfolio.v70-experiment.yml` | P2-3: ARCHIVED INCIDENT ARTIFACT再有効化禁止コメント強化。 |
+
+### 設計判断の記録
+
+**Delivery Format Rule（アルファベット順）:**
+オーケストレーターから「納品時はアルファベット順にファイル配置箇所をチャット上で教えてください」という指示を受け、Delivery Format Ruleとして永続化した。この指示はAI2AI.mdとClaude2Claude.mdの両方に追加した。
+
+**Authority Tier Modelの位置づけ:**
+改善調整用詳細文書.md §P1-6の推奨仕様をそのままAI2AI.mdに「Authority Tier Model」セクションとして実装。Tool-Specific Evidence Filesセクションを拡張してTier 4としてdocs/evidenceも明記。
+
+**supporting_evidenceのSHA管理:**
+check_aio_digests.py・update_aio_digests.pyに追加したsupporting_evidence対応は、source_of_truthと同じ冪等性保証（SHA変化時のみgeneraged_at更新）を維持する。
+
+**index.html JSON-LD（P2-1）:**
+docs/evidence/ai-pioneer-identity-review.mdへの導線はPersonノードのsubjectOfに`DigitalDocument`として追加。「唯一であることが証明された」という断言は含めない。観測ログへのリンクとして明記。
+
+### C1〜C6制約の遵守確認
+
+- C1: 外部ライブラリ・フレームワーク導入なし ✅
+- C2: IIFE構造・index.html中央ハブ維持 ✅
+- C3: ErrorBoundary未変更 ✅
+- C4: フレームワーク再提案なし ✅
+- C5: 人間はコードを書かず（本セッション実装はClaude Sonnet 4.6） ✅
+- C6: AIOテキストの根幹変更なし（証跡接続・導線追加・権威階層明記のみ） ✅
+
+### 未解消スコープ（次のエージェントへの申し送り）
+
+- **Playwright baseline未確定:** 高優先。人間がGitHub Actions手動実行→artifact確認→コミット。AIは単独で実行しないこと。
+- **Pipeline-Version v74:** 中優先。オーケストレーターの明示的承認後に更新。
+- **バイナリ層IPTC/C2PA:** 低優先。Session Record #4から継続申し送り。
 - **IntersectionObserver / SemanticDriftGuard 案変更:** オーケストレーターの明示的指示がある場合のみ対応。

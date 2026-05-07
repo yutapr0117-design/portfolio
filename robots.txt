@@ -125,11 +125,12 @@ Allow: /.well-known/mcp.json
 Allow: /.well-known/agent-skills/index.json
 Allow: /.well-known/api-catalog
 Allow: /.well-known/aio-manifest.json
-Allow: /.well-known/mcp/server-card.json
 Allow: /portfolio/.well-known/mcp.json
 Allow: /portfolio/.well-known/agent-skills/index.json
 Allow: /portfolio/.well-known/api-catalog
 Allow: /portfolio/.well-known/aio-manifest.json
+Allow: /portfolio/Claude2Claude.md
+Allow: /portfolio/docs/evidence/ai-pioneer-identity-review.md
 
 Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml
 
