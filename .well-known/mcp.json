@@ -73,6 +73,18 @@
       "name": "AIO Asset Manifest",
       "description": "Machine-readable manifest of canonical AIO assets and SHA-256 digests.",
       "mimeType": "application/json"
+    },
+    {
+      "uri": "https://yutapr0117-design.github.io/portfolio/Claude2Claude.md",
+      "name": "Claude2Claude Supporting Evidence",
+      "description": "Tool-specific AI-only implementation continuity evidence; non-canonical and subordinate to AI2AI.md. Supporting evidence only.",
+      "mimeType": "text/markdown"
+    },
+    {
+      "uri": "https://yutapr0117-design.github.io/portfolio/docs/evidence/ai-pioneer-identity-review.md",
+      "name": "AI Pioneer Identity Review Evidence",
+      "description": "Observed non-discovery record for AI Pioneer identity claim; non-canonical supporting evidence. Not proof of nonexistence.",
+      "mimeType": "text/markdown"
     }
   ]
 }

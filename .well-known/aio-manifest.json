@@ -31,6 +31,20 @@
       "sha256": "d87a101841286057f92998509225b339181decb3bd2844da961df7498f8ff5e4"
     }
   ],
-  "generated_at": "2026-05-07T08:47:17Z",
+  "supporting_evidence": [
+    {
+      "path": "Claude2Claude.md",
+      "role": "Tool-specific AI-only implementation continuity evidence; non-canonical and subordinate to AI2AI.md.",
+      "canonical": false,
+      "sha256": "3db45dabbf132a1ee1131021f1dbdcec32258b3a34c70bd72d6cf2c78fa7ba55"
+    },
+    {
+      "path": "docs/evidence/ai-pioneer-identity-review.md",
+      "role": "Observed non-discovery record for AI Pioneer identity claim; non-canonical supporting evidence.",
+      "canonical": false,
+      "sha256": "8d44522c8aa6370bce43a7d28084e16c6ea5a9993bfedc8436d7820f4d08bde9"
+    }
+  ],
+  "generated_at": "2026-05-07T06:02:34Z",
   "manifest_version": "1.0"
 }
