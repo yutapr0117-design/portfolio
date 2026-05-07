@@ -4,7 +4,8 @@ check_aio_digests.py — AIO digest consistency CI check
 Verifies:
   1. .well-known/index.json and .well-known/agent-skills/index.json are byte-identical.
   2. Each skill's digest matches the SHA-256 of the corresponding local file.
-  3. .well-known/aio-manifest.json sha256 fields match the SHA-256 of each local file.
+  3. .well-known/aio-manifest.json sha256 fields match the SHA-256 of each local file
+     in both source_of_truth and supporting_evidence sections.
      (generated_at and manifest_version fields are not checked — updated by CI.)
 
 Exit codes:
@@ -40,6 +41,11 @@ MANIFEST_PATH_TO_LOCAL: dict[str, Path] = {
         ROOT / "yuta-yokoi-ai-pm-orchestration-system.webp",
     "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3":
         ROOT / "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3",
+    # supporting_evidence
+    "Claude2Claude.md":
+        ROOT / "Claude2Claude.md",
+    "docs/evidence/ai-pioneer-identity-review.md":
+        ROOT / "docs" / "evidence" / "ai-pioneer-identity-review.md",
 }
 
 
@@ -99,8 +105,41 @@ def check_index_files() -> tuple[bool, list[str]]:
     return ok, errors
 
 
+def check_manifest_section(data: dict, section_key: str) -> tuple[bool, list[str]]:
+    """Verify sha256 fields in a manifest section (source_of_truth or supporting_evidence)."""
+    errors: list[str] = []
+    ok = True
+
+    for entry in data.get(section_key, []):
+        path_key = entry.get("path", "")
+        recorded = entry.get("sha256", "")
+        local = MANIFEST_PATH_TO_LOCAL.get(path_key)
+
+        if not local:
+            errors.append(f"aio-manifest [{section_key}]: unknown path '{path_key}' — no local mapping")
+            ok = False
+            continue
+        if not local.exists():
+            errors.append(f"aio-manifest [{section_key}]: local file not found for '{path_key}'")
+            ok = False
+            continue
+
+        expected = sha256_file(local)
+        if recorded != expected:
+            errors.append(
+                f"aio-manifest sha256 mismatch [{section_key}] for '{path_key}'\n"
+                f"  expected : {expected}\n"
+                f"  in file  : {recorded}"
+            )
+            ok = False
+        else:
+            print(f"OK (manifest/{section_key}): {path_key}")
+
+    return ok, errors
+
+
 def check_manifest() -> tuple[bool, list[str]]:
-    """aio-manifest.json sha256 field verification."""
+    """aio-manifest.json sha256 field verification for source_of_truth and supporting_evidence."""
     errors: list[str] = []
 
     if not MANIFEST_FILE.exists():
@@ -112,30 +151,11 @@ def check_manifest() -> tuple[bool, list[str]]:
         return False, [f"JSON parse error in aio-manifest.json: {e}"]
 
     ok = True
-    for entry in data.get("source_of_truth", []):
-        path_key = entry.get("path", "")
-        recorded = entry.get("sha256", "")
-        local = MANIFEST_PATH_TO_LOCAL.get(path_key)
-
-        if not local:
-            errors.append(f"aio-manifest: unknown path '{path_key}' — no local mapping")
+    for section in ("source_of_truth", "supporting_evidence"):
+        section_ok, section_errors = check_manifest_section(data, section)
+        if not section_ok:
+            errors.extend(section_errors)
             ok = False
-            continue
-        if not local.exists():
-            errors.append(f"aio-manifest: local file not found for '{path_key}'")
-            ok = False
-            continue
-
-        expected = sha256_file(local)
-        if recorded != expected:
-            errors.append(
-                f"aio-manifest sha256 mismatch for '{path_key}'\n"
-                f"  expected : {expected}\n"
-                f"  in file  : {recorded}"
-            )
-            ok = False
-        else:
-            print(f"OK (manifest): {path_key}")
 
     return ok, errors
 
