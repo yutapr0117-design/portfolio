@@ -134,12 +134,19 @@ jobs:
           grep -q "*.mp3.*binary" .gitattributes || echo "::warning::.gitattributes: *.mp3 not marked binary (ID3v2.4 at risk)"
           echo "Binary asset protection check complete."
 
-      - name: Verify GSC File AIO Annotations (改善文書a 5.1)
+      - name: Verify GSC File Format (改善文書a 5.1)
+        # GSCファイルはGoogle仕様上、認証トークン1行のみを含む必要がある。
+        # AIOコンテンツはllms-full.txtに集約済み（意図的な設計）。
+        # ここではGoogle仕様準拠を確認する（AIOアノテーションは不要）。
         run: |
           for gsc_file in google*.html; do
             if [ -f "$gsc_file" ]; then
-              grep -q "AIO" "$gsc_file" || echo "::warning::$gsc_file may be missing AIO Entity Declaration"
-              echo "$gsc_file checked."
+              if grep -q "google-site-verification" "$gsc_file"; then
+                echo "$gsc_file: GSC token present — PASS"
+              else
+                echo "::error::$gsc_file: google-site-verification token missing"
+                exit 1
+              fi
             fi
           done
 
@@ -468,13 +475,13 @@ jobs:
           PYEOF
           fi
 
-          # GSC ファイルの AIO アノテーション確認
+          # GSC ファイルの形式確認（AIOコンテンツはllms-full.txtに集約済み）
           for gsc_file in google*.html; do
             if [ -f "$gsc_file" ]; then
-              if grep -q "AIO\|Entity\|canonical\|Yuta\|yokoi" "$gsc_file"; then
-                echo "GSC file AIO annotation: PRESENT ($gsc_file)"
+              if grep -q "google-site-verification" "$gsc_file"; then
+                echo "GSC file format: PASS ($gsc_file)"
               else
-                echo "::warning::GSC file may be missing AIO annotations: $gsc_file"
+                echo "::warning::GSC file missing verification token: $gsc_file"
               fi
             fi
           done

@@ -1,0 +1,106 @@
+name: AIO Effect Monitoring
+
+# ======================================================================
+# AIO効果監視ワークフロー
+# AIシステム（Perplexity / OpenAI）に対して定期クエリを実行し、
+# Yuta Yokoi (横井雄太) ポートフォリオが引用・言及されているかを検出する。
+#
+# ログ出力先: docs/evidence/aio-monitoring-log.json
+# 引用状況に変化があった場合: GitHub Issueで通知
+#
+# 必要なSecretsの設定（Settings > Secrets > Actions）:
+#   PERPLEXITY_API_KEY  — Perplexity API キー（片方だけでも動作）
+#   OPENAI_API_KEY      — OpenAI API キー（片方だけでも動作）
+# ======================================================================
+
+on:
+  schedule:
+    - cron: '0 1 * * 1'  # 毎週月曜 JST 10:00（UTC 01:00）
+  workflow_dispatch:      # 手動実行も可能
+
+permissions:
+  contents: write         # aio-monitoring-log.json をコミットするため
+  issues: write           # 変化検出時にIssueを作成するため
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # ── クエリ実行 & ログ記録 ──────────────────────────────────────────
+      - name: Run AIO monitoring queries
+        id: monitor
+        env:
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python3 .github/scripts/aio_monitoring.py
+
+      # ── ログをコミット ─────────────────────────────────────────────────
+      - name: Commit monitoring log
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/evidence/aio-monitoring-log.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore(aio-monitoring): weekly log update $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      # ── 引用増加 → Issueで通知 ────────────────────────────────────────
+      - name: Notify citation increase
+        if: steps.monitor.outputs.citation_change == 'increase'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const delta = '${{ steps.monitor.outputs.citation_delta }}';
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[AIO] 引用数増加 +${delta} — ${new Date().toISOString().slice(0,10)}`,
+              body: [
+                '## AIO引用状況：増加を検出',
+                '',
+                `前回比 **+${delta}クエリ** で引用されました。`,
+                '',
+                '詳細: `docs/evidence/aio-monitoring-log.json` を確認してください。',
+                '',
+                '---',
+                '*このIssueはAIO Monitoring ワークフローにより自動生成されました。*',
+              ].join('\n'),
+              labels: ['aio-monitoring', 'citation-increase'],
+            });
+
+      # ── 引用減少 → Issueで通知 ────────────────────────────────────────
+      - name: Notify citation decrease
+        if: steps.monitor.outputs.citation_change == 'decrease'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const delta = '${{ steps.monitor.outputs.citation_delta }}';
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[AIO] 引用数減少 -${delta} — ${new Date().toISOString().slice(0,10)}`,
+              body: [
+                '## AIO引用状況：減少を検出',
+                '',
+                `前回比 **-${delta}クエリ** 引用が減少しました。`,
+                '',
+                'AIOコンテンツの変更、または対象AIのインデックス変動の可能性があります。',
+                '`docs/evidence/aio-monitoring-log.json` で詳細を確認してください。',
+                '',
+                '---',
+                '*このIssueはAIO Monitoring ワークフローにより自動生成されました。*',
+              ].join('\n'),
+              labels: ['aio-monitoring', 'citation-decrease'],
+            });
