@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "description": "AIO Effect Monitoring Log — Yuta Yokoi (横井雄太) Portfolio",
+  "canonical_url": "https://yutapr0117-design.github.io/portfolio/",
+  "monitored_signals": [
+    "yutapr0117-design.github.io",
+    "横井雄太",
+    "Yuta Yokoi",
+    "Yokoi Yuta",
+    "KERNEL framework",
+    "KERNELフレームワーク",
+    "AI-Driven PM Portfolio"
+  ],
+  "runs": []
+}
