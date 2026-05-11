@@ -5,8 +5,9 @@ aio_monitoring.py — AIO Effect Monitoring Script
 Yuta Yokoi (横井雄太) のポートフォリオが引用・言及されているかを検出する。
 
 対応API:
-  - Perplexity API (sonar model — web検索付き、citations付き)
-  - OpenAI API (gpt-4o-search-preview — web検索付き)
+  - Gemini API (gemini-2.0-flash + Google Search grounding — 無料枠あり・主力)
+  - Perplexity API (sonar model — web検索付き・有料)
+  - OpenAI API (gpt-4o-search-preview — web検索付き・有料)
 
 出力:
   docs/evidence/aio-monitoring-log.json に追記
@@ -109,6 +110,48 @@ def query_perplexity(query: str, api_key: str) -> dict:
         return {"status": "parse_error", "detail": str(e)}
 
 
+# ── Gemini ─────────────────────────────────────────────────────────────────
+
+def query_gemini(query: str, api_key: str) -> dict:
+    """Gemini 2.0 Flash + Google Search grounding（無料枠）でクエリを実行する。"""
+    url = (
+        f"https://generativelanguage.googleapis.com/v1beta/models/"
+        f"gemini-2.0-flash:generateContent?key={api_key}"
+    )
+    body = {
+        "contents": [{"parts": [{"text": query}], "role": "user"}],
+        "tools": [{"google_search": {}}],
+    }
+    result = post_json(url, {"Content-Type": "application/json"}, body)
+
+    if "error" in result:
+        return {"status": "error", "detail": result["error"]}
+
+    try:
+        candidate = result["candidates"][0]
+        text = "".join(
+            p.get("text", "") for p in candidate["content"]["parts"]
+        )
+        # groundingChunks からURLを収集
+        grounding = candidate.get("groundingMetadata", {})
+        cited_urls = [
+            chunk["web"]["uri"]
+            for chunk in grounding.get("groundingChunks", [])
+            if "web" in chunk
+        ]
+        all_text = text + " " + " ".join(cited_urls)
+        signals = detect_signals(all_text)
+        return {
+            "status": "ok",
+            "model_used": "gemini-2.0-flash",
+            "response_excerpt": text[:300],
+            "cited_urls": cited_urls,
+            **signals,
+        }
+    except (KeyError, IndexError) as e:
+        return {"status": "parse_error", "detail": str(e)}
+
+
 # ── OpenAI ─────────────────────────────────────────────────────────────────
 
 def _call_openai(api_key: str, body: dict) -> dict:
@@ -188,12 +231,13 @@ def get_previous_citation_status(log: dict) -> dict | None:
 # ── メイン ─────────────────────────────────────────────────────────────────
 
 def main() -> None:
+    gemini_key = os.environ.get("GEMINI_API_KEY", "")
     perplexity_key = os.environ.get("PERPLEXITY_API_KEY", "")
     openai_key = os.environ.get("OPENAI_API_KEY", "")
 
-    if not perplexity_key and not openai_key:
+    if not gemini_key and not perplexity_key and not openai_key:
         print("::error::AIO Monitoring: No API keys configured.")
-        print("::error::Set PERPLEXITY_API_KEY or OPENAI_API_KEY in GitHub Secrets.")
+        print("::error::Set GEMINI_API_KEY, PERPLEXITY_API_KEY, or OPENAI_API_KEY in GitHub Secrets.")
         sys.exit(1)
 
     log = load_log()
@@ -204,6 +248,7 @@ def main() -> None:
         "timestamp": timestamp,
         "queries": [],
         "summary": {
+            "gemini_cited_count": 0,
             "perplexity_cited_count": 0,
             "openai_cited_count": 0,
             "total_queries": len(QUERIES),
@@ -211,12 +256,22 @@ def main() -> None:
     }
 
     print(f"=== AIO Monitoring Run: {timestamp} ===")
-    print(f"Queries: {len(QUERIES)}  |  Perplexity: {'enabled' if perplexity_key else 'skip'}  |  OpenAI: {'enabled' if openai_key else 'skip'}")
+    print(f"Queries: {len(QUERIES)}  |  Gemini: {'enabled' if gemini_key else 'skip'}  |  Perplexity: {'enabled' if perplexity_key else 'skip'}  |  OpenAI: {'enabled' if openai_key else 'skip'}")
     print("")
 
     for query in QUERIES:
         print(f"Query: {query}")
         query_record = {"query": query, "results": {}}
+
+        if gemini_key:
+            gr = query_gemini(query, gemini_key)
+            query_record["results"]["gemini"] = gr
+            if gr.get("cited"):
+                run_record["summary"]["gemini_cited_count"] += 1
+                print(f"  Gemini: CITED — {gr.get('signals_found', [])} urls={gr.get('cited_urls', [])}")
+            else:
+                detail = gr.get("detail", "")
+                print(f"  Gemini: not cited (status={gr.get('status')} detail={str(detail)[:80]})")
 
         if perplexity_key:
             pr = query_perplexity(query, perplexity_key)
@@ -245,10 +300,12 @@ def main() -> None:
 
     # ── 変化検出（GitHub Actions output） ─────────────────────────────────
     s = run_record["summary"]
-    total_cited = s["perplexity_cited_count"] + s["openai_cited_count"]
+    total_cited = s["gemini_cited_count"] + s["perplexity_cited_count"] + s["openai_cited_count"]
 
     print("")
     print(f"=== Summary ===")
+    if gemini_key:
+        print(f"Gemini cited:     {s['gemini_cited_count']}/{s['total_queries']}")
     print(f"Perplexity cited: {s['perplexity_cited_count']}/{s['total_queries']}")
     print(f"OpenAI cited:     {s['openai_cited_count']}/{s['total_queries']}")
 
@@ -258,6 +315,8 @@ def main() -> None:
         with open(summary_path, "a", encoding="utf-8") as f:
             f.write(f"## AIO Monitoring — {timestamp}\n\n")
             f.write(f"| AI | 引用クエリ数 / 全クエリ数 |\n|---|---|\n")
+            if gemini_key:
+                f.write(f"| Gemini | {s['gemini_cited_count']} / {s['total_queries']} |\n")
             if perplexity_key:
                 f.write(f"| Perplexity | {s['perplexity_cited_count']} / {s['total_queries']} |\n")
             if openai_key:
