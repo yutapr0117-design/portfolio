@@ -9,8 +9,10 @@ name: AIO Effect Monitoring
 # 引用状況に変化があった場合: GitHub Issueで通知
 #
 # 必要なSecretsの設定（Settings > Secrets > Actions）:
-#   PERPLEXITY_API_KEY  — Perplexity API キー（片方だけでも動作）
-#   OPENAI_API_KEY      — OpenAI API キー（片方だけでも動作）
+#   GEMINI_API_KEY      — Gemini API キー（無料・主力）
+#   PERPLEXITY_API_KEY  — Perplexity API キー（有料・任意）
+#   OPENAI_API_KEY      — OpenAI API キー（有料・任意）
+#   ※ いずれか1つあれば動作
 # ======================================================================
 
 on:
@@ -39,6 +41,7 @@ jobs:
       - name: Run AIO monitoring queries
         id: monitor
         env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python3 .github/scripts/aio_monitoring.py
