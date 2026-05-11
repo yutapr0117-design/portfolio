@@ -55,7 +55,11 @@ def post_json(url: str, headers: dict, body: dict) -> dict:
         with urllib.request.urlopen(req, timeout=30) as resp:
             return json.loads(resp.read().decode("utf-8"))
     except urllib.error.HTTPError as e:
-        return {"error": f"HTTP {e.code}: {e.reason}"}
+        try:
+            body = e.read().decode("utf-8")
+            return {"error": f"HTTP {e.code}: {e.reason} — {body[:300]}"}
+        except Exception:
+            return {"error": f"HTTP {e.code}: {e.reason}"}
     except Exception as e:
         return {"error": str(e)}
 
@@ -107,33 +111,52 @@ def query_perplexity(query: str, api_key: str) -> dict:
 
 # ── OpenAI ─────────────────────────────────────────────────────────────────
 
-def query_openai(query: str, api_key: str) -> dict:
-    result = post_json(
+def _call_openai(api_key: str, body: dict) -> dict:
+    return post_json(
         "https://api.openai.com/v1/chat/completions",
         {
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
         },
-        {
-            "model": "gpt-4o-search-preview",
-            "messages": [{"role": "user", "content": query}],
-            "max_tokens": 800,
-        },
+        body,
     )
 
-    if "error" in result:
-        return {"status": "error", "detail": result["error"]}
+def query_openai(query: str, api_key: str) -> dict:
+    # 試行順: search-preview → tools形式 → gpt-4o(フォールバック)
+    attempts = [
+        {"model": "gpt-4o-search-preview",
+         "messages": [{"role": "user", "content": query}],
+         "max_tokens": 800},
+        {"model": "gpt-4o",
+         "tools": [{"type": "web_search_preview"}],
+         "messages": [{"role": "user", "content": query}],
+         "max_tokens": 800},
+        {"model": "gpt-4o",
+         "messages": [{"role": "user", "content": query}],
+         "max_tokens": 800},
+    ]
 
-    try:
-        content = result["choices"][0]["message"]["content"]
-        signals = detect_signals(content)
-        return {
-            "status": "ok",
-            "response_excerpt": content[:300],
-            **signals,
-        }
-    except (KeyError, IndexError) as e:
-        return {"status": "parse_error", "detail": str(e)}
+    last_error = None
+    for body in attempts:
+        result = _call_openai(api_key, body)
+        if "error" in result:
+            last_error = result["error"]
+            print(f"    [OpenAI] model={body['model']} error: {last_error[:120]}")
+            continue
+        try:
+            content = result["choices"][0]["message"]["content"]
+            signals = detect_signals(content)
+            return {
+                "status": "ok",
+                "model_used": body["model"],
+                "response_excerpt": content[:300],
+                **signals,
+            }
+        except (KeyError, IndexError) as e:
+            last_error = str(e)
+            continue
+
+    return {"status": "error", "detail": last_error}
 
 
 # ── ログ管理 ───────────────────────────────────────────────────────────────
@@ -211,7 +234,9 @@ def main() -> None:
                 run_record["summary"]["openai_cited_count"] += 1
                 print(f"  OpenAI: CITED — {or_.get('signals_found', [])}")
             else:
-                print(f"  OpenAI: not cited (status={or_.get('status')})")
+                detail = or_.get("detail", "")
+                model = or_.get("model_used", "")
+                print(f"  OpenAI: not cited (status={or_.get('status')} model={model} detail={detail[:80]})")
 
         run_record["queries"].append(query_record)
 
