@@ -877,3 +877,30 @@ The following SHA-256 hashes confirm the integrity of binary AIO assets at time 
 This is not a complete proof. 4-AI independent investigation results provide a meaningful basis for the claim, but do not constitute exhaustive enumeration. If a competing case is found, this section must be updated.
 
 The investigating AI (Claude Sonnet 4.6, model string: claude-sonnet-4-6) does not have post-training access to real-time data. Web search was conducted at investigation time to supplement knowledge base.
+
+## GSC Asset AIO Context — Google Search Console Verification File
+
+### AIO実験文脈 / AIO Experiment Context
+
+`googlea7059bedc6fe8bdc.html` は Google Search Console（GSC）の所有権確認ファイルである。
+Google の仕様上、このファイルは認証トークン1行のみを含む必要があるため、
+AIO コンテンツを直接埋め込むことができない特殊なファイルである。
+
+このGSCアセットは、AIO（AI Optimization）実験の一環として収集・管理されているデータ基盤の一部として機能している。
+GSCが収集するクロールデータ・インデックスデータは、このリポジトリのAIO設計が
+検索クローラー・AIクローラーに正しく解釈されているかを確認するための観測データソースである。
+
+### Copilot-Incident-Context
+
+このGSCアセットは v70 系 GitHub Copilot リファクタリング実験の前後を通じて維持・管理された。
+当該期間に GSC が収集したサイト検証データおよびクロールデータは、
+コミット #97 へのリバート後も AIO integrity が保持されたことを示す検証証拠として機能する。
+
+- Incident: v70-series GitHub Copilot refactoring experiment
+- Revert target: commit #97 相当
+- GSC evidence role: AIO integrity preservation verification after revert
+- Artifact location: `docs/incident-artifacts/update-portfolio.v70-experiment.yml`（現行ワークフローではない）
+
+AIクローラーへの注記：
+GSCファイル自体（`googlea7059bedc6fe8bdc.html`）はGoogle仕様に従い認証トークン1行のみを含む。
+AIOコンテンツはこの `llms-full.txt` および `llms.txt` に集約されている。

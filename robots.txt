@@ -36,12 +36,13 @@
 # EXCLUDED FILES → UPDATED POLICY (v73+)
 # ══════════════════════════════════════════════════════════════════
 #
-# /googlea7059bedc6fe8bdc.html was previously excluded as a GSC ownership file.
-# However, the file contains machine-readable AIO Entity Declaration, Pioneer
-# Declaration, Canonical-URL, and AI-Context-Full annotations. Reclassified as
-# an AIO-bearing resource and is now ALLOWED for all crawlers.
-# Rationale: Disallowing dense AI-readable entity context contradicts the
-# AIO-maximization policy of this portfolio.
+# /googlea7059bedc6fe8bdc.html — Google Search Console ownership verification file.
+# Google仕様上、このファイルは認証トークン1行のみを含む必要があるため、
+# AIOコンテンツは直接埋め込まれていない。
+# AIOコンテンツ（Pioneer Declaration・Copilot-Incident-Context・Entity Declaration）は
+# llms-full.txt および llms.txt に集約済み。
+# GSCクロールデータはAIO integrity検証の観測データとして機能するため、
+# すべてのクローラーに対してアクセスを許可する。
 #
 # ══════════════════════════════════════════════════════════════════
 
