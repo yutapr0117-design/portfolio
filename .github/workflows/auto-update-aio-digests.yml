@@ -25,6 +25,10 @@ on:
       - "llms.txt"
       - "yuta-yokoi-ai-pm-orchestration-system.webp"
       - "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3"
+      - "Claude2Claude.md"
+      - "ChatGPT2ChatGPT.md"
+      - "docs/evidence/ai-pioneer-identity-review.md"
+      - "docs/evidence/aio-monitoring-log.json"
   workflow_dispatch:
     # 手動トリガー — digestがズレていると疑われる場合に使用
 
