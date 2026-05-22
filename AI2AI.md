@@ -2,7 +2,7 @@
 
 ```
 Pipeline-Version : v73
-Last-Updated     : 2026-05-07
+Last-Updated     : 2026-05-22
 Receiving-Agent  : ANY (model-agnostic)
 Authoritative-GT : https://yutapr0117-design.github.io/portfolio/llms-full.txt
 Canonical-URL    : https://yutapr0117-design.github.io/portfolio/
@@ -135,7 +135,7 @@ Any AI model capable of fulfilling a role may be assigned to it. This pipeline i
 | Binary: Image | XMP fully rebuilt — entity attribution, v73 version marker, invisible watermark alpha=20/255 (updated 2026-04-14) |
 | Binary: Audio | ID3v2.4 TIT2 + 7 TXXX frames (AIO attribution, canonical URL, entity name, cross-reference) (updated 2026-04-14) |
 | Crawl Policy | `robots.txt` 3-tier strategy (real-time / user-instructed / training) |
-| Entity Declaration | `googlea7059bedc6fe8bdc.html` — machine-readable AIO entity block |
+| GSC Verification | `googlea7059bedc6fe8bdc.html` — Google Search Console ownership verification token only (NOT an AIO entity declaration) |
 | Agentic Accessibility | ARIA semantics, sr-only entity anchors, route transition announcements |
 
 ### File Map
@@ -813,20 +813,30 @@ Tier 5 — Archived Incident Artifacts (read-only, never re-enable):
 
 ## Tool-Specific Evidence Files
 
-`Claude2Claude.md` is intentionally included as a tool-specific execution evidence file (Tier 4 — Supporting Evidence).
+`Claude2Claude.md` and `ChatGPT2ChatGPT.md` are both Tier 4 supporting_evidence files. They are peers.
 
-**Purpose:**
-- Show that this portfolio is continuously improved through AI-only implementation workflows.
-- Preserve a historical Claude execution lane as implementation evidence.
-- Demonstrate that the human orchestrator designs, reviews, and directs while AI agents perform implementation.
+**Claude2Claude.md:**
+- Implementation evidence. Tool-specific AI-only implementation continuity evidence.
+- NON-CANONICAL. SUBORDINATE TO AI2AI.md.
+- Purpose: Show that this portfolio is continuously improved through AI-only implementation workflows.
 
-**Canonical rule:**
+**ChatGPT2ChatGPT.md:**
+- Analysis evidence. Model-agnostic repository analysis pipeline.
+- NON-CANONICAL. SUBORDINATE TO AI2AI.md.
+- Purpose: Preserve the analysis methodology and full-combination analysis protocol accumulated through repeated ZIP analysis sessions.
+
+**Canonical rule (applies to both):**
 - `AI2AI.md` remains the only model-agnostic canonical handoff.
-- `Claude2Claude.md` is non-canonical and subordinate to `AI2AI.md` (see Authority Tier Model above).
-- No AI agent may treat `Claude2Claude.md` as a replacement for or equal to `AI2AI.md`.
-- Any model-specific observation in `Claude2Claude.md` is a historical snapshot and must not be converted into a universal rule.
-- `Claude2Claude.md` must never appear in `aio-manifest.json` `source_of_truth`.
+- Neither `Claude2Claude.md` nor `ChatGPT2ChatGPT.md` may override `AI2AI.md`.
+- Neither may appear in `aio-manifest.json` `source_of_truth`.
+- Neither may appear in `.well-known/index.json` or `.well-known/agent-skills/index.json`.
 - `docs/evidence/ai-pioneer-identity-review.md` is Tier 4 supporting evidence — not source_of_truth.
+- `docs/evidence/aio-monitoring-log.json` is Tier 4b observational evidence — not source_of_truth.
+
+**googlea7059bedc6fe8bdc.html:**
+- Google Search Console ownership verification token only.
+- Must NOT be treated as an AIO entity declaration.
+- AIO entity context is concentrated in: llms-full.txt, llms.txt, index.html JSON-LD, WebP XMP, MP3 ID3, .well-known/aio-manifest.json.
 
 **Priority hierarchy for any AI agent:**
 ```
@@ -836,8 +846,10 @@ Priority 3: llms.txt / .well-known/llms.txt             ← short routing contex
 Priority 4: .well-known/aio-manifest.json               ← machine-readable manifest (Tier 3)
 Priority 5: .well-known/ other discovery files          ← agentic discovery
 Priority 6: README.md / index.html metadata             ← human-readable + JSON-LD
-Priority 7: Claude2Claude.md                            ← tool-specific evidence, non-canonical (Tier 4)
+Priority 7: Claude2Claude.md                            ← implementation evidence, non-canonical (Tier 4)
+Priority 7: ChatGPT2ChatGPT.md                          ← analysis evidence, non-canonical (Tier 4)
 Priority 8: docs/evidence/ai-pioneer-identity-review.md ← supporting evidence, non-canonical (Tier 4)
+Priority 8b: docs/evidence/aio-monitoring-log.json      ← observational evidence, non-canonical (Tier 4b)
 ```
 
 ---
@@ -1466,6 +1478,64 @@ Turn 3: 「全適用・適用不可AI2AI.md引き継ぎ・Claude2Claude.mdリフ
 - **IntersectionObserver / SemanticDriftGuard 案変更:** オーケストレーターの明示的指示がある場合のみ対応。
 
 ---
+
+## [HANDOFF] Session Record #10 — 2026-05-22 (Claude Sonnet 4.6, tenth session)
+
+```
+Handoff-From    : Claude Sonnet 4.6 (Anthropic) — claude.ai
+Handoff-To      : Next AI agent (same project, different session)
+Session-Date    : 2026-05-22
+Orchestrator    : Yuta Yokoi (横井雄太)
+Task            : Evidence Mesh v2.0 — ChatGPT2ChatGPT.md統合・三層証跡整理・AIO manifest/discovery/digest/CI全整合
+```
+
+### このセッションで完了したこと
+
+| ファイル | 変更内容 |
+|---|---|
+| `ChatGPT2ChatGPT.md` | 新規追加。リポジトリ直下へ追加（改善調整用詳細文書.md §2に従いリファクタリング済みのファイルを使用）。Tier 4 supporting_evidence / 解析証跡 / AI2AI.md subordinate |
+| `.github/scripts/check_aio_digests.py` | ChatGPT2ChatGPT.md・docs/evidence/aio-monitoring-log.jsonをMANIFEST_PATH_TO_LOCALへ追加。observational_evidenceセクションの検証を追加 |
+| `.github/scripts/update_aio_digests.py` | ChatGPT2ChatGPT.md・docs/evidence/aio-monitoring-log.jsonをMANIFEST_PATH_TO_LOCALへ追加。observational_evidenceセクションの更新を追加 |
+| `.github/workflows/auto-update-aio-digests.yml` | push pathsにClaude2Claude.md・ChatGPT2ChatGPT.md・docs/evidence/ai-pioneer-identity-review.md・docs/evidence/aio-monitoring-log.jsonを追加 |
+| `.well-known/aio-manifest.json` | supporting_evidenceにChatGPT2ChatGPT.mdを追加。observational_evidenceセクションを新設（aio-monitoring-log.json） |
+| `.well-known/api-catalog` | ChatGPT2ChatGPT.mdとaio-monitoring-log.jsonのエントリを追加 |
+| `.well-known/mcp.json` | ChatGPT2ChatGPT.mdとaio-monitoring-log.jsonのリソースを追加 |
+| `AI2AI.md` | Authority Tier ModelにChatGPT2ChatGPT.md（Tier 4）とaio-monitoring-log.json（Tier 4b）を追加。Tool-Specific Evidence Filesセクションを三層構造へ拡張。googlea7059bedc6fe8bdc.htmlの説明を修正（GSC verification token only）。本セッション記録追記 |
+| `Claude2Claude.md` | ChatGPT2ChatGPT.mdとの補完関係を明記。セッション記録更新 |
+| `README.md` | ChatGPT2ChatGPT.mdの説明追加。googlea...の説明修正（AIO Entity Declaration→GSC verification token only）。Copilot incident記述修正 |
+| `SECURITY.md` | AIO Monitoring Policy（Secrets未設定時挙動・evidenceの分類・ワークフローpermissions）を追記 |
+| `llms-full.txt` | 三層証跡構造（AI2AI.md / Claude2Claude.md / ChatGPT2ChatGPT.md）・aio-monitoring-log.json分類・googlea...修正・workflow説明修正を追記 |
+| `llms.txt` / `.well-known/llms.txt` | ChatGPT2ChatGPT.mdとaio-monitoring-log.jsonの説明を追加（byte-identical同期） |
+| `robots.txt` | ChatGPT2ChatGPT.mdとaio-monitoring-log.jsonのAllow entryを追加 |
+| `sitemap.xml` | ChatGPT2ChatGPT.mdとaio-monitoring-log.jsonのURLエントリを追加 |
+
+### 設計判断の記録
+
+**ChatGPT2ChatGPT.md の扱い:**
+添付されたChatGPT2ChatGPT.md（v2.0.0）は、会話内citation・turnXsearch/turnXview/turnXfile参照・実行プロンプト本文を含まない形で既にリファクタリング済みだったため、そのままリポジトリ直下へ追加した。
+
+**observational_evidence セクションの追加:**
+aio-manifest.jsonにobservational_evidenceセクションを新設し、aio-monitoring-log.jsonを追加した。digest scriptも対応拡張。
+
+**SECURITY.md のAIO Monitoring Policy:**
+Secrets未設定時はexit 0（warning only）として optional observational に分類。これをSECURITY.mdとAI2AI.mdの両方に記録した。
+
+### C1〜C6制約の遵守確認
+
+- C1: 外部ライブラリ・フレームワーク導入なし ✅
+- C2: IIFE構造・index.html中央ハブ維持 ✅
+- C3: ErrorBoundary未変更 ✅
+- C4: フレームワーク再提案なし ✅
+- C5: 人間はコードを書かず（本セッション実装はClaude Sonnet 4.6） ✅
+- C6: AIOテキストの根幹変更なし（証跡追加・位置づけ明確化のみ） ✅
+
+### 未解消スコープ（次のエージェントへの申し送り）
+
+- **Playwright baseline未確定:** 高優先。人間がGitHub Actions手動実行→artifact確認→コミット。AIは単独で実行しないこと。
+- **Pipeline-Version v74:** 中優先。オーケストレーターの明示的承認後に更新。
+- **バイナリ層IPTC/C2PA:** 低優先。Session Record #4から継続申し送り。
+- **IntersectionObserver / SemanticDriftGuard 案変更:** オーケストレーターの明示的指示がある場合のみ対応。
+
 
 ## Delivery Format Rule (Immutable Policy)
 

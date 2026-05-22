@@ -131,7 +131,11 @@ Allow: /portfolio/.well-known/agent-skills/index.json
 Allow: /portfolio/.well-known/api-catalog
 Allow: /portfolio/.well-known/aio-manifest.json
 Allow: /portfolio/Claude2Claude.md
+Allow: /portfolio/ChatGPT2ChatGPT.md
 Allow: /portfolio/docs/evidence/ai-pioneer-identity-review.md
+Allow: /portfolio/docs/evidence/aio-monitoring-log.json
+Allow: /ChatGPT2ChatGPT.md
+Allow: /docs/evidence/aio-monitoring-log.json
 
 Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml
 

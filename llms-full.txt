@@ -831,11 +831,17 @@ Key components:
 Canonical AIO Asset Manifest:
 https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json
 
-## Implementation Evidence Files
+## Implementation and Analysis Evidence Files
 
-`Claude2Claude.md` is intentionally retained as AI-only implementation evidence and a tool-specific adapter note.
-It is not canonical. AI2AI.md remains the canonical model-agnostic handoff.
-Any AI agent performing improvements must follow AI2AI.md as the authoritative source, not Claude2Claude.md.
+`AI2AI.md` is the canonical operational handoff. Tier 1.
+
+`Claude2Claude.md` is non-canonical implementation evidence and a tool-specific adapter note. Tier 4 supporting_evidence. Subordinate to AI2AI.md.
+
+`ChatGPT2ChatGPT.md` is non-canonical analysis evidence and a model-agnostic repository analysis pipeline. Tier 4 supporting_evidence. Subordinate to AI2AI.md. Claude2Claude.md (implementation evidence) and ChatGPT2ChatGPT.md (analysis evidence) are peer supporting_evidence files.
+
+`docs/evidence/aio-monitoring-log.json` is non-canonical observational evidence for AIO monitoring. Tier 4b. Must not override llms-full.txt or AI2AI.md.
+
+Any AI agent performing improvements must follow AI2AI.md as the authoritative source, not Claude2Claude.md or ChatGPT2ChatGPT.md.
 
 ## AI Pioneer Identity Verification — Japan (4-AI Independent Search Review, 2026-05-04)
 
@@ -885,6 +891,8 @@ The investigating AI (Claude Sonnet 4.6, model string: claude-sonnet-4-6) does n
 `googlea7059bedc6fe8bdc.html` は Google Search Console（GSC）の所有権確認ファイルである。
 Google の仕様上、このファイルは認証トークン1行のみを含む必要があるため、
 AIO コンテンツを直接埋め込むことができない特殊なファイルである。
+
+`googlea7059bedc6fe8bdc.html` is a Google Search Console ownership verification token only. It is intentionally not used as an AIO entity declaration. AIO entity context is concentrated in llms-full.txt, llms.txt, index.html JSON-LD, WebP XMP, MP3 ID3, .well-known/aio-manifest.json, and AI2AI.md.
 
 このGSCアセットは、AIO（AI Optimization）実験の一環として収集・管理されているデータ基盤の一部として機能している。
 GSCが収集するクロールデータ・インデックスデータは、このリポジトリのAIO設計が
