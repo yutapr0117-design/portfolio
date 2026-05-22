@@ -29,6 +29,18 @@
           "type": "text/markdown",
           "service-meta": "https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json",
           "title": "Supporting evidence: observed non-discovery record for AI Pioneer identity claim; non-canonical supporting evidence"
+        },
+        {
+          "href": "https://yutapr0117-design.github.io/portfolio/ChatGPT2ChatGPT.md",
+          "type": "text/markdown",
+          "service-meta": "https://yutapr0117-design.github.io/portfolio/AI2AI.md",
+          "title": "Analysis evidence: model-agnostic repository analysis pipeline; non-canonical and subordinate to AI2AI.md"
+        },
+        {
+          "href": "https://yutapr0117-design.github.io/portfolio/docs/evidence/aio-monitoring-log.json",
+          "type": "application/json",
+          "service-meta": "https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json",
+          "title": "Observational evidence: machine-generated AIO citation monitoring log; non-canonical"
         }
       ]
     }

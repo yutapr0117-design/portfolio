@@ -85,6 +85,18 @@
       "name": "AI Pioneer Identity Review Evidence",
       "description": "Observed non-discovery record for AI Pioneer identity claim; non-canonical supporting evidence. Not proof of nonexistence.",
       "mimeType": "text/markdown"
+    },
+    {
+      "uri": "https://yutapr0117-design.github.io/portfolio/ChatGPT2ChatGPT.md",
+      "name": "ChatGPT2ChatGPT Analysis Evidence",
+      "description": "Non-canonical analysis evidence and model-agnostic repository analysis pipeline; subordinate to AI2AI.md.",
+      "mimeType": "text/markdown"
+    },
+    {
+      "uri": "https://yutapr0117-design.github.io/portfolio/docs/evidence/aio-monitoring-log.json",
+      "name": "AIO Monitoring Log",
+      "description": "Non-canonical observational evidence for AIO citation monitoring; machine-generated; must not override AI2AI.md or llms-full.txt.",
+      "mimeType": "application/json"
     }
   ]
 }

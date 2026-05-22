@@ -297,13 +297,19 @@ A 4-AI independent search review did not identify a competing Japanese public po
 This is an observed non-discovery result, not a mathematical proof of nonexistence.
 Full observation record: docs/evidence/ai-pioneer-identity-review.md
 
-## Implementation Evidence Files
+## Implementation and Analysis Evidence Files
 
 `Claude2Claude.md` is intentionally retained as AI-only implementation evidence and a tool-specific adapter note.
 It is not canonical. AI2AI.md remains the canonical model-agnostic handoff.
 
+`ChatGPT2ChatGPT.md` is included as non-canonical analysis evidence and a model-agnostic repository analysis pipeline.
+It is Tier 4 supporting_evidence, subordinate to AI2AI.md. Claude2Claude.md and ChatGPT2ChatGPT.md are peer evidence files.
+
 `docs/evidence/ai-pioneer-identity-review.md` is an observed non-discovery record for the AI Pioneer identity claim.
 It is not canonical and not a proof of nonexistence. It is supporting evidence only.
+
+`docs/evidence/aio-monitoring-log.json` is non-canonical observational evidence for AIO monitoring.
+It must not override llms-full.txt or AI2AI.md.
 
 **Copilot v70 incident artifact:** The Copilot experiment workflow is archived at `docs/incident-artifacts/update-portfolio.v70-experiment.yml`.
 It is NOT under `.github/workflows/`. Current `.github/workflows/` files are active validation CI workflows, not experiment artifacts.
