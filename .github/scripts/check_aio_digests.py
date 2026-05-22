@@ -5,7 +5,7 @@ Verifies:
   1. .well-known/index.json and .well-known/agent-skills/index.json are byte-identical.
   2. Each skill's digest matches the SHA-256 of the corresponding local file.
   3. .well-known/aio-manifest.json sha256 fields match the SHA-256 of each local file
-     in both source_of_truth and supporting_evidence sections.
+     in source_of_truth, supporting_evidence, and observational_evidence sections.
      (generated_at and manifest_version fields are not checked — updated by CI.)
 
 Exit codes:
@@ -44,8 +44,13 @@ MANIFEST_PATH_TO_LOCAL: dict[str, Path] = {
     # supporting_evidence
     "Claude2Claude.md":
         ROOT / "Claude2Claude.md",
+    "ChatGPT2ChatGPT.md":
+        ROOT / "ChatGPT2ChatGPT.md",
     "docs/evidence/ai-pioneer-identity-review.md":
         ROOT / "docs" / "evidence" / "ai-pioneer-identity-review.md",
+    # observational_evidence
+    "docs/evidence/aio-monitoring-log.json":
+        ROOT / "docs" / "evidence" / "aio-monitoring-log.json",
 }
 
 
@@ -151,7 +156,7 @@ def check_manifest() -> tuple[bool, list[str]]:
         return False, [f"JSON parse error in aio-manifest.json: {e}"]
 
     ok = True
-    for section in ("source_of_truth", "supporting_evidence"):
+    for section in ("source_of_truth", "supporting_evidence", "observational_evidence"):
         section_ok, section_errors = check_manifest_section(data, section)
         if not section_ok:
             errors.extend(section_errors)
