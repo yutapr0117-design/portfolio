@@ -340,11 +340,12 @@ jobs:
       - name: "BLOCKING: ESLint logical bug pattern validation (改善文書a 3.2)"
         run: |
           npm install --no-save eslint 2>/dev/null
+          # JS-CSS separation (v74+): main.js and other .js files are now external.
+          # Direct lint coverage replaces the inline-extraction fallback.
+          LINT_TARGET="main.js error-suppressor.js karte-init.js theme-init.js aio-guard.js sw.js"
+          # Retain js/ directory support for future modularisation
           if [ -d "js" ] && ls js/*.js 1>/dev/null 2>&1; then
-            LINT_TARGET="js/**/*.js"
-          else
-            python3 .github/scripts/extract_js_for_eslint.py
-            LINT_TARGET="/tmp/_eslint_check.js"
+            LINT_TARGET="js/**/*.js $LINT_TARGET"
           fi
           cp .eslintrc.json /tmp/_eslintrc.json
           npx eslint "$LINT_TARGET"             --no-eslintrc --config /tmp/_eslintrc.json             --env browser --env es2022             --max-warnings=0             2>&1 | tee /tmp/eslint-output.txt || true
