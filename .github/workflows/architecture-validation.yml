@@ -334,7 +334,17 @@ jobs:
       # 有効なDOM APIパターンを誤検出する。node --check で構文エラーのみを確実に検出。
       # PythonロジックはYAML外部スクリプトに完全移動(YAML/Pythonクォート干渉を根本排除)。
       - name: "BLOCKING: JS syntax check via node --check (改善文書a 3.1)"
-        run: python3 .github/scripts/check_js_syntax.py
+        run: |
+          LINT_TARGET="main.js error-suppressor.js karte-init.js theme-init.js aio-guard.js sw.js"
+          if [ -d "js" ] && ls js/*.js 1>/dev/null 2>&1; then
+            LINT_TARGET="js/**/*.js $LINT_TARGET"
+          fi
+          for file in $LINT_TARGET; do
+            if [ -f "$file" ]; then
+              node --check "$file" || (echo "::error::Syntax error in $file" && exit 1)
+            fi
+          done
+          echo "node --check: PASS"
 
       # ── 24. BLOCKING: ESLint 論理バグパターン検査 (改善文書a 3.2) ──────────
       - name: "BLOCKING: ESLint logical bug pattern validation (改善文書a 3.2)"
