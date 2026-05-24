@@ -255,7 +255,11 @@ Version History (current shipped state)
      <meta http-equiv="Content-Security-Policy"
      content="
         default-src 'self';
-        script-src 'self' https://cdn-edge.karte.io https://static.karte.io;
+        script-src 'self'
+                   'sha256-saY5em3yrZYqsPJD1Mq2g7PuFwnxdMxEootF8K5fcVU='
+                   'unsafe-hashes'
+                   'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc='
+                   https://cdn-edge.karte.io https://static.karte.io;
         connect-src 'self' https://cdn-edge.karte.io https://static.karte.io https://edge-api.karte.io https://b.karte.io https://mirror2.karte.io;
         style-src 'self' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com;
@@ -278,7 +282,7 @@ Version History (current shipped state)
       Security Architecture Note (v74 — Secure-by-Design: unsafe-inline fully eliminated):
       - unsafe-inline (script/style): ELIMINATED. All inline scripts extracted to external files
         (error-suppressor.js, karte-init.js, theme-init.js, main.js) and CSS to style.css.
-        Native ESM (<script type="module">) used for main application entry point.
+        Native ESM (script[type=module]) used for main application entry point.
         No build tools introduced — Boring Technology / Vanilla JS constraint preserved.
       - form-action 'none': No HTML forms present on this site. Explicitly blocked.
       - base-uri 'self': Prevents base-tag injection attacks.
