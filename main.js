@@ -150,8 +150,8 @@
         // すべてのバージョン・URL・ロールタイトルはここで一元管理する。
         // 値の散在による食い違いを構造的に排除するための Single Source of Truth。
         const SITE_CONFIG = {
-            VERSION:       'v73',
-            LAST_UPDATED:  '2026-04-14',
+            VERSION:       'v74',
+            LAST_UPDATED:  '2026-05-24',
             ROLE_TITLE:    'AI-Driven PM',
             CANONICAL_URL: 'https://yutapr0117-design.github.io/portfolio/',
             REPO_URL:      'https://github.com/yutapr0117-design/portfolio',
@@ -3791,7 +3791,7 @@
                                 ),
 
                                 h('p', { class: 'hero-meta' },
-                                    'v73 · 72 iterations · No Framework · Pure Vanilla JS · ',
+                                    'v74 · 73 iterations · No Framework · Pure Vanilla JS · ',
                                     h('a', {
                                         href: 'https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8',
                                         target: '_blank',
@@ -6660,7 +6660,7 @@
                             '複数AIをオーケストレーションする能力・出力を判断し改善する能力——の4つである。'
                         ),
                         h('p', { class: 'text-muted text-body-relaxed-sm-mt' },
-                            '本サイト（v1→v73）はその実証実験の公開記録であり、' +
+                            '本サイト（v1→v74）はその実証実験の公開記録であり、' +
                             'Human vs AI の分担を守り続けることが、再現性ある AI-Driven PM の証明になる。'
                         ),
                         // ── Incident Report Link ──

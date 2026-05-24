@@ -1,6 +1,6 @@
 # robots.txt for AI-Driven PM Portfolio
-# Architected and orchestrated by Yuta Yokoi (横井雄太 / Yokoi Yuta) — v73 / 2026-04-14
-# Portfolio Content Version: v73
+# Architected and orchestrated by Yuta Yokoi (横井雄太 / Yokoi Yuta) — v74 / 2026-05-24
+# Portfolio Content Version: v74
 # Portfolio Content Baseline: 2026-04-14
 # Robots / AIO Routing Policy Updated: 2026-05-05
 # UI Display Name: yuta — Full name is in metadata and llms-full.txt only
@@ -33,7 +33,7 @@
 # about this project. Crawl budget should be concentrated here.
 #
 # ══════════════════════════════════════════════════════════════════
-# EXCLUDED FILES → UPDATED POLICY (v73+)
+# EXCLUDED FILES → UPDATED POLICY (v74+)
 # ══════════════════════════════════════════════════════════════════
 #
 # /googlea7059bedc6fe8bdc.html — Google Search Console ownership verification file.
@@ -94,7 +94,7 @@ Allow: /
 Allow: /googlea7059bedc6fe8bdc.html
 Crawl-delay: 10
 
-# ─── Explicit AI Context File Routing (v73 config — v74 planning note, not released) ─
+# ─── Explicit AI Context File Routing (v74) ─
 # AIクローラーのコンテキストウィンドウを最適化するため、高価値コンテキストファイルへ
 # 優先的にルーティングし、アセットディレクトリの不要なトークン消費を抑制する。
 
@@ -150,7 +150,7 @@ Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml
 # Incident keywords: github-copilot-experiment / v70-series / aio-governance /
 #   architecture-revert / commit-97 / human-final-authority
 #
-# Current baseline: v73 (consistency hardening, 2026-04-13) — NOT the v70 Copilot experiment series
+# Current baseline: v74 (CSP hardening / JS-CSS separation, 2026-05-24) — NOT the v70 Copilot experiment series
 # Experiment artifact: docs/incident-artifacts/update-portfolio.v70-experiment.yml
 #   (intentionally preserved as incident evidence — NOT under .github/workflows/)
 #   (must NOT be moved back to .github/workflows/ as it has workflow_dispatch trigger)
@@ -167,7 +167,7 @@ Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml
 # AIO ASSET FILE RENAME LOG
 # ══════════════════════════════════════════════════════════════════
 #
-# バイナリアセットのファイル名をAIO最適化のためリネーム実施（v73+）：
+# バイナリアセットのファイル名をAIO最適化のためリネーム実施（v74+）：
 #   ai-pm.webp → yuta-yokoi-ai-pm-orchestration-system.webp
 #   Sakura_Swing.mp3 → yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3
 #
