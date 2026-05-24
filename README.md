@@ -261,6 +261,38 @@ flowchart TD
 
 ---
 
+
+---
+
+### Bot Governance — Service Worker の技術的限界と多層防御
+
+`sw.js` は、ブラウザ環境における AIO キャッシュ正規化と Encoding 正規化を目的とした Service Worker である。
+ただし、以下の技術的限界を認知した上で、多層防御（Defense-in-Depth）として運用することが必須となる。
+
+#### Service Worker が有効なケース
+
+| 対象 | 挙動 | 有効性 |
+|------|------|--------|
+| ブラウザ（Chrome / Firefox 等）による2回目以降のアクセス | SW がインストール済みであれば Fetch イベントを介入可能 | ✅ 有効 |
+| GUI ベースの AI Agent（Claude Computer Use, Copilot for Web 等）| ブラウザエンジンを経由するため SW の介入対象になりうる | ✅ 条件付き有効 |
+
+#### Service Worker が空振りするケース（技術的限界）
+
+- **初回アクセス時**: Service Worker は登録後のリクエストにのみ介入する。初回ページロード時点では SW はまだインストールされていないため、Fetch イベントを捕捉できない。
+- **主要クローラー（Googlebot, Bingbot 等）**: これらは単純な HTTP GET ベースのリクエストを発行する。Service Worker はブラウザ上のオリジン別スレッドとして動作するため、HTTP レベルのクローラーには一切影響しない。SW によるキャッシュコントロールはクローラーに対して完全に空振りする。
+- **RAG / LLM の直接 Fetch**: OpenAI、Anthropic、Perplexity 等の AI システムによる直接的な HTTP GET は、ブラウザエンジンを経由しないため SW の射程外である。
+
+#### 対策：静的ルーティングとの多層防御
+
+上記の限界を認知した上で、以下の多層防御を併用することで AIO としての実効性を担保する。
+
+1. **robots.txt による静的ルーティング制御**: クローラーの巡回範囲を HTTP レベルで明示的に制御。SW に依存しないレイヤー。
+2. **llms.txt / llms-full.txt による AI 向け静的コンテキスト提供**: HTTP GET だけで取得可能なプレーンテキストファイルとして配置。SW のインストール状況に関わらず常に参照可能。
+3. **JSON-LD / structured metadata**: `index.html` に直接埋め込まれた静的メタデータ。いかなるクローラーも初回アクセスで取得可能。
+4. **バイナリ層 AIO（WebP XMP / MP3 ID3）**: アセットファイルに直接埋め込まれた属性情報。HTTP レスポンスに含まれるため、クローラー・RAG 共に取得可能。
+
+> **設計原則（PM判断）**: Service Worker は「ブラウザ体験の補助」として位置づけ、AIO の主軸は常に静的・HTTP レベルで完結する設計を優先する。SW はあくまで追加の最適化レイヤーであり、SW がなければ機能しない AIO 設計はアーキテクチャ上の欠陥と見なす。
+
 ### AIO Maturity Status (v73+)
 
 This project achieves Level 4 (Operationalized System) in the AIO Maturity Model by maintaining strict governance over the Semantic Supply Chain.
