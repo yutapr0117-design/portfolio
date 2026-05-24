@@ -8,12 +8,12 @@
     {
       "path": "llms.txt",
       "role": "short AI routing context",
-      "sha256": "aa3b08cefa89c5f2142e736a413f9923a9fa485f4790866f5429adc7bf6ea212"
+      "sha256": "dde14a4f4c5af671cec5baeef8da788e487250c1d704d84d75e308ba5910b899"
     },
     {
       "path": "llms-full.txt",
       "role": "full AI context",
-      "sha256": "0d164c38e41037682faa88d00c4165e4c756bcbd7a140a61c826419aec9e7ca9"
+      "sha256": "1375d042654c4fa52450277676b4eeb6dae642772d725917a222a87a2fc852dd"
     },
     {
       "path": "AI2AI.md",
@@ -51,7 +51,7 @@
       "sha256": "f46cb364850c1def0a525c932809e2e71d7c457ee08f88d33005bdac38c9751f"
     }
   ],
-  "generated_at": "2026-05-22T06:36:48Z",
+  "generated_at": "2026-05-24T10:26:45Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
