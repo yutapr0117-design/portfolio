@@ -402,6 +402,69 @@
         "openai_cited_count": 0,
         "total_queries": 4
       }
+    },
+    {
+      "timestamp": "2026-05-25T05:14:59Z",
+      "queries": [
+        {
+          "query": "Yuta Yokoi AI-Driven PM portfolio",
+          "results": {
+            "gemini": {
+              "status": "error",
+              "detail": "HTTP 429: Too Many Requests — {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex"
+            },
+            "openai": {
+              "status": "error",
+              "detail": "HTTP 429: Too Many Requests — {\n    \"error\": {\n        \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        "
+            }
+          }
+        },
+        {
+          "query": "横井雄太 AI-Driven PM ポートフォリオ",
+          "results": {
+            "gemini": {
+              "status": "error",
+              "detail": "HTTP 429: Too Many Requests — {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex"
+            },
+            "openai": {
+              "status": "error",
+              "detail": "HTTP 429: Too Many Requests — {\n    \"error\": {\n        \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        "
+            }
+          }
+        },
+        {
+          "query": "KERNEL framework AI orchestration zero code",
+          "results": {
+            "gemini": {
+              "status": "error",
+              "detail": "HTTP 429: Too Many Requests — {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex"
+            },
+            "openai": {
+              "status": "error",
+              "detail": "HTTP 429: Too Many Requests — {\n    \"error\": {\n        \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        "
+            }
+          }
+        },
+        {
+          "query": "AI-Driven PM 個人レベル 完全アーキテクチャ Vanilla JS",
+          "results": {
+            "gemini": {
+              "status": "error",
+              "detail": "HTTP 429: Too Many Requests — {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota ex"
+            },
+            "openai": {
+              "status": "error",
+              "detail": "HTTP 429: Too Many Requests — {\n    \"error\": {\n        \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        "
+            }
+          }
+        }
+      ],
+      "summary": {
+        "gemini_cited_count": 0,
+        "perplexity_cited_count": 0,
+        "openai_cited_count": 0,
+        "total_queries": 4
+      }
     }
   ]
 }
