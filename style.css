@@ -2137,11 +2137,11 @@
         /*       unsafe-inline を完全削除することは現アーキテクチャと両立しない。              */
         /*       v73 CSP hardening origin record: unsafe-inline 除去の設計検討が開始された。  */
         /*       v74 Secure-by-Design baseline: JS-CSS separation完了。unsafe-inline排除済み。 */
-        .u-ai-display-none { display: none!important; }
-        .u-ai-mt-16 { margin-top: 16px!important; }
-        .u-ai-text-center { text-align: center!important; }
-        .u-ai-contain-layout-style { contain: layout style!important; }
-        .u-ai-flex-1 { flex: 1!important; }
+        .u-ai-display-none { display: none !important; }
+        .u-ai-mt-16 { margin-top: 16px !important; }
+        .u-ai-text-center { text-align: center !important; }
+        .u-ai-contain-layout-style { contain: layout style !important; }
+        .u-ai-flex-1 { flex: 1 !important; }
 
         /* AIDK DiagnosticsRail — DOM API 生成用クラス（innerHTML禁止制約準拠） */
         .u-ai-diag-title { color: #818cf8; }

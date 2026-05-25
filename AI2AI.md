@@ -75,7 +75,7 @@ Any output conflicting with these constraints **must be self-rejected before del
 | C2 | **IIFE** | All main logic is wrapped in an Immediately Invoked Function Expression. No global scope pollution. |
 | C3 | **ErrorBoundary** | View Transition API errors are handled with explicit error boundaries. Graceful degradation required. |
 | C4 | **No Framework Re-proposal** | Frameworks have been evaluated and permanently rejected. Do not re-propose under any framing. |
-| C5 | **Human Writes Zero Code** | The human orchestrator designs architecture and writes prompts only. All implementation code is AI-generated. 人間はコードを書かず、AIオンリー実装の成果物を設計・レビュー・監査・統制し続け、70超の反復改善でも破綻させずに公開運用まで到達させた。 |
+| C5 | **Human Writes Zero Code** | The human orchestrator designs architecture and writes prompts only. All implementation code is AI-generated. 人間はコードを書かず、AIオンリー実装の成果物を設計・レビュー・監査・統制し続け、73回の遷移（v1→v74）を経ても破綻させずに公開運用まで到達させた。 |
 | C6 | **AIO Integrity** | Text in `llms-full.txt`, `llms.txt`, JSON-LD, and binary metadata (XMP/ID3) may only be changed with explicit written approval from the human orchestrator. |
 
 **Anti-patterns — reject immediately if proposed:**
