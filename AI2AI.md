@@ -1,8 +1,8 @@
 # AI2AI Pipeline — Yuta Yokoi Portfolio
 
 ```
-Pipeline-Version : v73
-Last-Updated     : 2026-05-22
+Pipeline-Version : v74
+Last-Updated     : 2026-05-25
 Receiving-Agent  : ANY (model-agnostic)
 Authoritative-GT : https://yutapr0117-design.github.io/portfolio/llms-full.txt
 Canonical-URL    : https://yutapr0117-design.github.io/portfolio/
@@ -119,7 +119,7 @@ Any AI model capable of fulfilling a role may be assigned to it. This pipeline i
 | 1 | Portfolio | Main project showcase and positioning |
 | 2 | AI Knowhow | AI-driven development methods, prompt design, orchestration docs |
 | 3 | Human vs AI 分担表 | Interactive role-split across 8 categories. **Primary proof of PM orchestration. Never omit.** |
-| 4 | History | Public version trail v1→v73 |
+| 4 | History | Public version trail v1→v74 (73 transitions) |
 | 5 | About | Developer context and project intent |
 
 ### AIO Layers
@@ -278,8 +278,8 @@ Instead, the agent **MUST** immediately halt execution and output a Violation Au
 
 The following are candidate tasks. No AI agent may begin execution without explicit written confirmation from the human orchestrator.
 
-- [ ] Version bump to v74 — update version references across all files
-- [ ] Update iteration count in HERO copy (currently reflects v73)
+- [x] ~~Version bump to v74 — update version references across all files~~ — **Completed 2026-05-25** (v74 consistency hardening)
+- [x] ~~Update iteration count in HERO copy (currently reflects v73)~~ — **Completed 2026-05-25** (v74 consistency hardening: hero copy aligned to 73 iterations)
 - [ ] Add new Zenn article reference when published (series currently at 6 articles)
 - [x] ~~Consistency audit across all AIO layers (JSON-LD, llms-full.txt, binary metadata)~~ — **Completed 2026-04-17** (see Session Record #2 below)
 - [ ] CLS / performance audit for any new additions
@@ -1004,12 +1004,12 @@ AI agents must not conflate them.
 
 | Field | Location | Meaning |
 |---|---|---|
-| `ai:version` / `Pipeline-Version` | index.html, AI2AI.md, README | Monotonically incrementing implementation version (currently v73). Increment on any substantive code change. |
-| `ai:last-modified` | index.html meta | Date of the most recent index.html content change (2026-04-14). Update only when index.html content changes. |
+| `ai:version` / `Pipeline-Version` | index.html, AI2AI.md, README | Monotonically incrementing implementation version (currently v74). Increment on any substantive code change. |
+| `ai:last-modified` | index.html meta | Date of the most recent index.html content change (2026-05-24). Update only when index.html content changes. |
 | `Last-Updated` | AI2AI.md header | Date AI2AI.md itself was last updated. See the AI2AI.md header for the current value. Update together with the file content. |
-| `lastmod` | sitemap.xml | Date sitemap entries were last meaningfully updated (2026-04-25). Update when referenced content changes. |
-| `server.version` | .well-known/mcp.json | MCP static manifest version (73.0.1). Mirrors Pipeline-Version in semver format. |
-| Binary metadata baseline | WebP XMP / MP3 ID3 | Embedded at asset creation time (2026-04-14). Do NOT update unless the asset file itself is regenerated. |
+| `lastmod` | sitemap.xml | Date sitemap entries were last meaningfully updated. Update when referenced content changes. |
+| `server.version` | .well-known/mcp.json | MCP static manifest version (74.0.0). Mirrors Pipeline-Version in semver format. |
+| Binary metadata baseline | WebP XMP / MP3 ID3 | Embedded at Manus AIO optimization time (2026-04-14, v73). These are **asset baseline** values and do NOT change unless the asset file itself is regenerated. Current application version is v74; binary asset metadata baseline remains v73/2026-04-14. |
 
 **Rule:** When incrementing `Pipeline-Version`, update `ai:version` in index.html, `Pipeline-Version` in AI2AI.md, and `server.version` in mcp.json atomically. Do not update binary metadata dates unless regenerating the asset.
 
@@ -1655,3 +1655,79 @@ docs/evidence/ai-pioneer-identity-review.mdへの導線はPersonノードのsubj
 - **Pipeline-Version v74:** 中優先。オーケストレーターの明示的承認後に更新。
 - **バイナリ層IPTC/C2PA:** 低優先。Session Record #4から継続申し送り。
 - **IntersectionObserver / SemanticDriftGuard 案変更:** オーケストレーターの明示的指示がある場合のみ対応。
+
+---
+
+## GitHub Pages Project Site Limitation (P0-13 / P0-21)
+
+This repository is published as a **GitHub Pages project site**:
+
+```
+https://yutapr0117-design.github.io/portfolio/
+```
+
+Therefore:
+
+- `robots.txt` is served at `/portfolio/robots.txt`, **not** at the origin-root `/robots.txt`.
+- `.well-known/*` resources are served under `/portfolio/.well-known/`, **not** at origin-root `/.well-known/`.
+
+These files function as **project-scoped AIO discovery signals** and are linked from `index.html`, `sitemap.xml`, `robots.txt`, and `llms` files. They should **not** be represented as guaranteed origin-root `.well-known` endpoints unless a user/organization Pages root site is configured.
+
+---
+
+## Canonical Source Tier Hierarchy (P1-02)
+
+```
+Tier 0: 現物ZIP / repository files (absolute ground truth)
+Tier 1: llms-full.txt
+Tier 2: AI2AI.md
+Tier 3: llms.txt / .well-known/llms.txt mirrors
+Tier 4: README.md
+Tier 5: Claude2Claude.md / ChatGPT2ChatGPT.md / evidence docs
+```
+
+- `Claude2Claude.md` and `ChatGPT2ChatGPT.md` are **evidence/adapters**, not canonical sources.
+- `llms_well-known.txt` and `.well-known/llms_well-known.txt` are **byte-identical fallback aliases** of `llms.txt`. They are not separate canonical sources.
+
+---
+
+## Binary Metadata Update Policy (P2-05)
+
+```
+Binary metadata update policy:
+- Do not re-encode image/audio payload.
+- Metadata-only update is allowed (WebP XMP chunk / MP3 ID3 frames only).
+- After update, regenerate all SHA-256 digests via update_aio_digests.py.
+- If binary metadata cannot be safely updated, report "Not possible" and stop.
+- Never claim binary update completion without byte-level verification.
+
+Current state:
+- Application version: v74 / 2026-05-24
+- Binary asset metadata baseline: v73 / 2026-04-14 (Manus AIO Optimization Record)
+- Binary files are NOT re-encoded; only text-layer files have been updated to v74.
+```
+
+---
+
+## Standard Verification Command Set (P2-04)
+
+Run these commands after any modification to this repository:
+
+```bash
+python3 -m py_compile .github/scripts/*.py
+node --check aio-guard.js
+node --check error-suppressor.js
+node --check karte-init.js
+node --check main.js
+node --check sw.js
+node --check theme-init.js
+python3 .github/scripts/check_aio_digests.py
+python3 .github/scripts/check_binary_aio_metadata.py
+python3 .github/scripts/check_css_stylelint.py
+python3 .github/scripts/check_repository_consistency.py
+diff -q llms.txt .well-known/llms.txt
+diff -q llms_well-known.txt .well-known/llms_well-known.txt
+diff -q .well-known/index.json .well-known/agent-skills/index.json
+```
+
+---

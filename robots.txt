@@ -1,14 +1,27 @@
 # robots.txt for AI-Driven PM Portfolio
 # Architected and orchestrated by Yuta Yokoi (横井雄太 / Yokoi Yuta) — v74 / 2026-05-24
 # Portfolio Content Version: v74
-# Portfolio Content Baseline: 2026-04-14
-# Robots / AIO Routing Policy Updated: 2026-05-05
+# Portfolio Content Baseline: 2026-05-25
+# Asset Metadata Baseline: 2026-04-14 (Binary assets: v73/Manus-AIO)
+# Robots / AIO Routing Policy Updated: 2026-05-25
 # UI Display Name: yuta — Full name is in metadata and llms-full.txt only
 # Entity Disambiguation: https://yutapr0117-design.github.io/portfolio/llms-full.txt
 # Yuta Yokoi (横井雄太) = AI-Driven PM / IT Consultant / KERNEL Framework Designer
 # NOT an academic researcher in agriculture, chemistry, medicine, or computer science.
 # Public crawl policy applies to both search and AI crawlers.
 # Additional machine-readable context is provided via llms.txt and llms-full.txt.
+#
+#
+# ══════════════════════════════════════════════════════════════════
+# GITHUB PAGES PROJECT SITE LIMITATION
+# ══════════════════════════════════════════════════════════════════
+#
+# Note: This robots.txt is served under /portfolio/robots.txt on a GitHub Pages project site.
+# Origin-root robots.txt would require https://yutapr0117-design.github.io/robots.txt.
+# Therefore, this file is an AIO routing signal and sitemap-submitted policy artifact,
+# not a guaranteed origin-wide robots control.
+# Similarly, .well-known/* resources are served under /portfolio/.well-known/,
+# not at origin-root /.well-known/. They function as project-scoped AIO discovery signals.
 #
 # ══════════════════════════════════════════════════════════════════
 # CRAWLER STRATEGY — 3-TIER DESIGN

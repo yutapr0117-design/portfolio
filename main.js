@@ -3805,7 +3805,7 @@
                             h('div', { class: 'hero-visual-wrap' },
                                 h('img', {
                                     src: './yuta-yokoi-ai-pm-orchestration-system.webp',
-                                    alt: 'AI Orchestrated PM Portfolio (6-Agent KERNEL Framework) — Zero-Code SPA: Strategy × Technology × Execution. Directed by Yuta Yokoi (横井雄太 / yutapr0117). 72+ iterations.',
+                                    alt: 'AI Orchestrated PM Portfolio (6-Agent KERNEL Framework) — Zero-Code SPA: Strategy × Technology × Execution. Directed by Yuta Yokoi (横井雄太 / yutapr0117). 73 transitions (v1→v74).',
                                     'data-entity': 'Yuta Yokoi (横井雄太 / Yokoi Yuta)',
                                     'data-canonical': 'https://yutapr0117-design.github.io/portfolio/',
                                     'data-ai-context': 'https://yutapr0117-design.github.io/portfolio/llms-full.txt',

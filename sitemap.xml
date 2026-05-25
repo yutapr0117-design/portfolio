@@ -32,7 +32,7 @@
   (same-host URLs only). External article references are maintained in JSON-LD (sameAs/relatedLink),
   the Evidence section of index.html, and llms-full.txt.
 
-  Governance Note (v73): このサイトマップは、3つの包括的リファクタリング計画書に基づくv73リファクタリング後のデータを反映している。
+  Historical Governance Note (v73): このサイトマップは、3つの包括的リファクタリング計画書に基づくv73リファクタリング後のデータを反映している。
   GitHub Copilot 大規模リファクタリング実験（v70 系）を経て、コミット #97 相当に巻き戻した後、
   人間主導の段階的リファクタリングでv73まで到達。AIO設計の整合性確認にも活用している。
   Incident-Ref: github-copilot-experiment / v70-series / reverted-to-commit-97 / v73-zap-security-hardening
@@ -45,7 +45,7 @@
   <!-- Canonical SPA root — primary entry point for all crawlers -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <!-- Image sitemap: yuta-yokoi-ai-pm-orchestration-system.webp をエンティティと紐付け -->
@@ -60,13 +60,13 @@
   <!-- Crawl budget should be prioritized here; these prevent LLM hallucination about Yuta Yokoi (横井雄太) -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/llms.txt</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -86,59 +86,59 @@
   <!-- AIO Asset Manifest — machine-readable source-of-truth for canonical AIO assets and SHA-256 digests -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- AI2AI.md — model-agnostic AI-to-AI pipeline handoff (Tier 1 canonical) -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/AI2AI.md</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <!-- Supporting Evidence: Claude2Claude.md — tool-specific AI-only implementation continuity evidence (non-canonical) -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/Claude2Claude.md</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <!-- Supporting Evidence: AI Pioneer Identity Review — observed non-discovery record (non-canonical) -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/docs/evidence/ai-pioneer-identity-review.md</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <!-- .well-known discovery files — agentic discovery layer -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/.well-known/mcp.json</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/.well-known/api-catalog</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/.well-known/index.json</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/.well-known/agent-skills/index.json</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/robots.txt</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -153,5 +153,20 @@
     <lastmod>2026-05-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.4</priority>
+  </url>
+  <!-- Current Sitemap Baseline (v74): 2026-05-25 — v74 consistency hardening -->
+  <!-- .well-known/llms.txt — project-scoped AIO discovery, byte-identical alias of llms.txt -->
+  <url>
+    <loc>https://yutapr0117-design.github.io/portfolio/.well-known/llms.txt</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- README.md — human + AI readable project overview -->
+  <url>
+    <loc>https://yutapr0117-design.github.io/portfolio/README.md</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

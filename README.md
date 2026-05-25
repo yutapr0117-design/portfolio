@@ -304,6 +304,10 @@ This project achieves Level 4 (Operationalized System) in the AIO Maturity Model
 | L3: Binary Layer | WebP XMP, MP3 ID3v2.4 TXXX frames, Invisible Text Watermarks | Completed |
 | L4: Operations | AI2AI.md Handoff Protocol, Adversarial Audit, CSP Enforcement | Completed |
 
+> **GitHub Pages Project Site Limitation:** This repository is published as a project site at `https://yutapr0117-design.github.io/portfolio/`. Therefore, `robots.txt` is served at `/portfolio/robots.txt` (not origin-root `/robots.txt`), and `.well-known/*` resources are served under `/portfolio/.well-known/` (not origin-root `/.well-known/`). These files function as **project-scoped AIO discovery signals** linked from `index.html`, `sitemap.xml`, `robots.txt`, and `llms` files. They should not be represented as guaranteed origin-root `.well-known` endpoints unless a user/organization Pages root site is configured.
+
+> **llms alias note:** `llms_well-known.txt` and `.well-known/llms_well-known.txt` are byte-identical fallback aliases of `llms.txt`. They are not separate canonical sources. Canonical short context remains `llms.txt`, mirrored to `.well-known/llms.txt`.
+
 > **Note on Architecture Integrity:** As documented in the Incident Log, the HEAD remains equivalent to the logic of commit #97, specifically discarding any semantic drift introduced during the v70 GitHub Copilot automated refactoring experiment. The human orchestrator (Yuta Yokoi / 横井雄太) retains absolute authority over the AIO text constraints.
 
 > **Implementation Evidence:** `Claude2Claude.md` is intentionally retained as AI-only implementation evidence and a tool-specific adapter note. It is not canonical. `AI2AI.md` remains the canonical model-agnostic handoff for any AI agent working on this repository.

@@ -2128,14 +2128,15 @@
             line-height: 1.5;
         }
 
-        /* ===== CSP unsafe-inline 排除用インラインスタイル代替ユーティリティクラス (改善手順 v74 planning note — not yet released) ===== */
-        /* NOTE (WP-01): References to "改善手順 v74" below are planning notes for the next release.   */
-        /* Current release: v73. v74 is NEXT_PLANNED_RELEASE, not yet applied as a formal release.     */
+        /* ===== CSP unsafe-inline 排除用インラインスタイル代替ユーティリティクラス (JS-CSS separation — v74 formal release baseline) ===== */
+        /* NOTE (WP-01): CSS is fully separated to style.css as of v74.                                */
+        /* Current release: v74. JS-CSS separation and CSP hardening are applied as the formal release baseline. */
         /* HTML側の style="" 属性を完全排除し、CSP style-src の unsafe-inline 依存を最小化する。 */
         /* NOTE: <style> ブロック自体が unsafe-inline に該当するため、Boring Technology        */
         /*       単一ファイルSPA制約（アプリケーションロジック外部ライブラリ非依存）が維持される限り、style-src から           */
         /*       unsafe-inline を完全削除することは現アーキテクチャと両立しない。              */
-        /*       この判断は v73 CSP 設計記録（Security Architecture Note）に準拠する。         */
+        /*       v73 CSP hardening origin record: unsafe-inline 除去の設計検討が開始された。  */
+        /*       v74 Secure-by-Design baseline: JS-CSS separation完了。unsafe-inline排除済み。 */
         .u-ai-display-none { display: none!important; }
         .u-ai-mt-16 { margin-top: 16px!important; }
         .u-ai-text-center { text-align: center!important; }
