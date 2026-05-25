@@ -9,6 +9,14 @@ Detection logic:
   - severity:error violations  → BLOCKING (exit 1)
   - severity:warning violations → non-blocking (printed as ::warning::)
   - stylelint --max-warnings=-1 → exit 0 = no errors, exit 1 = real errors only
+
+Design-exception suppression (P3):
+  Warnings for !important in the following contexts are suppressed as
+  intentional design decisions, not lint noise:
+    1. @media (prefers-reduced-motion: reduce) blocks — animation/transition safety net
+    2. .u-ai-* utility classes — DOM-API-only utility layer (innerHTML禁止制約準拠)
+    3. .nav-group-body[data-collapsed] — JS-driven collapse control
+  All other !important occurrences remain warning-eligible.
 """
 
 import re
@@ -16,6 +24,29 @@ import subprocess
 import sys
 import tempfile
 import os
+
+
+# ── Design-exception patterns for !important suppression (P3) ─────────────
+# Lines matching these patterns are filtered from warning output.
+_IMPORTANT_EXCEPTION_PATTERNS = [
+    # reduced-motion block contents (animation/transition/scroll-behavior)
+    re.compile(r"animation-duration\s*:.*!important", re.IGNORECASE),
+    re.compile(r"animation-iteration-count\s*:.*!important", re.IGNORECASE),
+    re.compile(r"transition-duration\s*:.*!important", re.IGNORECASE),
+    re.compile(r"scroll-behavior\s*:.*!important", re.IGNORECASE),
+    # .u-ai-* utility classes
+    re.compile(r"\.u-ai-\w+\s*\{[^}]*!important", re.IGNORECASE),
+    # nav-group-body collapse control
+    re.compile(r"nav-group-body.*!important", re.IGNORECASE),
+]
+
+
+def _is_design_exception_warning(line: str) -> bool:
+    """Return True if a stylelint warning line matches a known design exception."""
+    for pat in _IMPORTANT_EXCEPTION_PATTERNS:
+        if pat.search(line):
+            return True
+    return False
 
 
 def extract_style_blocks(html: str) -> str:
@@ -52,12 +83,44 @@ def run_stylelint(css_content: str, label: str, config_path: str) -> int:
             print(f"::warning::Stylelint [{label}] fatal error (config issue?): {output[:300]}")
             return 0  # Don't block on config issues
 
-        # exit code 1: real error-severity violations exist
-        print(f"::error::BLOCKING: Stylelint error-severity violations in [{label}]:")
-        for line in output.splitlines():
-            if line.strip():
-                print(f"  {line}")
-        return 1
+        # exit code 1: real error-severity violations exist.
+        # Filter out design-exception !important warnings before reporting.
+        lines = output.splitlines()
+        suppressed = 0
+        filtered_lines = []
+        for line in lines:
+            if "declaration-no-important" in line and _is_design_exception_warning(line):
+                suppressed += 1
+                continue
+            filtered_lines.append(line)
+
+        if suppressed:
+            print(
+                f"::warning::Stylelint [{label}]: {suppressed} !important warning(s) suppressed "
+                f"(design exceptions: reduced-motion / .u-ai-* / nav-group-body). "
+                f"See check_css_stylelint.py for policy."
+            )
+
+        remaining_output = "\n".join(filtered_lines)
+
+        # Re-check if any real (non-suppressed) violations remain
+        # Stylelint exit-1 mixes warnings and errors in output; re-run can't easily re-score,
+        # so we check for "error" lines still present after filtering.
+        has_real_violations = any(
+            ("error" in l.lower() or "warning" in l.lower())
+            for l in filtered_lines
+            if l.strip()
+        )
+
+        if has_real_violations:
+            print(f"::error::BLOCKING: Stylelint error-severity violations in [{label}]:")
+            for line in filtered_lines:
+                if line.strip():
+                    print(f"  {line}")
+            return 1
+
+        print(f"Stylelint [{label}]: PASS after suppressing design exceptions")
+        return 0
 
     finally:
         os.unlink(tmp_path)

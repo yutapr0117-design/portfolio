@@ -177,6 +177,86 @@ check(
     "aio_monitoring.py: 'total_cited_count' missing from summary (P0-06)",
 )
 
+
+# ── 12. No stale 72回/72回以上 in current-description context ─────────────────
+# History records (e2e comments, version history lines) are exempt — we only
+# check the files that form the "current description" layer.
+CURRENT_DESC_FILES = [
+    "index.html", "main.js", "README.md",
+    "llms-full.txt", "llms.txt", "llms_well-known.txt",
+    "robots.txt",
+]
+stale_72_hits = []
+for fname in CURRENT_DESC_FILES:
+    fpath = ROOT / fname
+    if not fpath.exists():
+        continue
+    text = fpath.read_text(encoding="utf-8")
+    # Exclude known history-record lines (v73到達時点, history section indicators)
+    for lineno, line in enumerate(text.splitlines(), 1):
+        if re.search(r"72回(?:以上)?", line):
+            # Allowed: clearly a history/version-record line
+            if re.search(r"v73到達時点|履歴|history|record|session", line, re.IGNORECASE):
+                continue
+            stale_72_hits.append(f"{fname}:{lineno}: {line.strip()[:80]}")
+check(
+    len(stale_72_hits) == 0,
+    "No stale '72回/72回以上' in current-description files",
+    f"Stale 72回 found in current-description files: {stale_72_hits}",
+)
+
+# ── 13. 70超 only in history/log context ─────────────────────────────────────
+stale_70_hits = []
+for fname in CURRENT_DESC_FILES:
+    fpath = ROOT / fname
+    if not fpath.exists():
+        continue
+    text = fpath.read_text(encoding="utf-8")
+    for lineno, line in enumerate(text.splitlines(), 1):
+        if "70超" in line:
+            # Allowed if it's a history/session record
+            if re.search(r"履歴|history|record|session|Session Record|Task|v7[0-3]", line, re.IGNORECASE):
+                continue
+            stale_70_hits.append(f"{fname}:{lineno}: {line.strip()[:80]}")
+check(
+    len(stale_70_hits) == 0,
+    "No current-description '70超' outside history context",
+    f"'70超' found outside history context: {stale_70_hits}",
+)
+
+# ── 14. v1→v74 / 73 transitions consistency ─────────────────────────────────
+has_v74_declaration = "v1→v74" in html or "v1→v74" in ai2ai
+check(
+    has_v74_declaration,
+    "v1→v74 canonical declaration present in index.html or AI2AI.md",
+    "v1→v74 canonical declaration missing — add to index.html or AI2AI.md",
+)
+
+# ── 15. Project Pages robots/.well-known constraint documented ───────────────
+constraint_phrase = "project-scoped"
+has_constraint = (
+    constraint_phrase in read("llms-full.txt") or
+    constraint_phrase in read("AI2AI.md") or
+    constraint_phrase in read("README.md")
+)
+check(
+    has_constraint,
+    "Project Pages robots/.well-known constraint documented in llms-full.txt / AI2AI.md / README.md",
+    "Project Pages robots/.well-known constraint not documented — add explanation to llms-full.txt, AI2AI.md, or README.md",
+)
+
+# ── 16. Playwright spec references baseline-skip guard ───────────────────────
+spec_path = ROOT / "e2e" / "portfolio.spec.js"
+if spec_path.exists():
+    spec = spec_path.read_text(encoding="utf-8")
+    check(
+        "baselineExists" in spec or "test.skip" in spec,
+        "e2e/portfolio.spec.js: screenshot test has baseline-skip guard",
+        "e2e/portfolio.spec.js: toHaveScreenshot() without baseline-skip guard — add test.skip when no baseline exists",
+    )
+else:
+    print("WARNING: e2e/portfolio.spec.js not found — Playwright spec check skipped")
+
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
 if errors:
