@@ -2,8 +2,9 @@ name: AIO Effect Monitoring
 
 # ======================================================================
 # AIO効果監視ワークフロー
-# AIシステム（Perplexity / OpenAI）に対して定期クエリを実行し、
+# AIシステム（Gemini / Perplexity / OpenAI）に対して定期クエリを実行し、
 # Yuta Yokoi (横井雄太) ポートフォリオが引用・言及されているかを検出する。
+# Gemini is the primary low-cost monitoring path; Perplexity and OpenAI are optional.
 #
 # ログ出力先: docs/evidence/aio-monitoring-log.json
 # 引用状況に変化があった場合: GitHub Issueで通知

@@ -156,20 +156,79 @@ jobs:
           grep -q "require-trusted-types-for" index.html || echo "::warning::CSP require-trusted-types-for directive missing"
           echo "Trusted Types check complete."
 
-      - name: Version Consistency Check (改善文書a 7.3)
+      - name: "BLOCKING: Version Consistency Check across all canonical fields (P0-09)"
         run: |
           python3 - << 'EOF'
-          import re
+          import re, json, sys
+          errors = []
+          warnings = []
+
           with open('index.html', 'r', encoding='utf-8') as f:
               html = f.read()
           with open('AI2AI.md', 'r', encoding='utf-8') as f:
               ai2ai = f.read()
-          html_v = (re.search(r'name="ai:version"\s+content="(v\d+)"', html) or type('', (), {'group': lambda s,i: None})()).group(1)
-          ai2ai_v = (re.search(r'Pipeline-Version\s*:\s*(v\d+)', ai2ai) or type('', (), {'group': lambda s,i: None})()).group(1)
-          print(f"index.html ai:version={html_v}, AI2AI.md Pipeline-Version={ai2ai_v}")
-          if html_v and ai2ai_v and html_v != ai2ai_v:
-              print(f"::warning::Version mismatch: index.html={html_v} vs AI2AI.md={ai2ai_v}")
-          print("Version consistency check complete.")
+          with open('main.js', 'r', encoding='utf-8') as f:
+              mainjs = f.read()
+          with open('README.md', 'r', encoding='utf-8') as f:
+              readme = f.read()
+          with open('llms.txt', 'r', encoding='utf-8') as f:
+              llms = f.read()
+          with open('llms-full.txt', 'r', encoding='utf-8') as f:
+              llms_full = f.read()
+          with open('.well-known/mcp.json', 'r', encoding='utf-8') as f:
+              mcp = json.load(f)
+
+          def extract(pattern, text, default=None):
+              m = re.search(pattern, text)
+              return m.group(1) if m else default
+
+          html_v   = extract(r'name="ai:version"\s+content="(v\d+)"', html)
+          ai2ai_v  = extract(r'Pipeline-Version\s*:\s*(v\d+)', ai2ai)
+          mainjs_v = extract(r"VERSION:\s*['"]?(v\d+)['"]?", mainjs)
+          readme_v = extract(r'Current version[:\s]+(v\d+)', readme)
+          llms_v   = extract(r'^- Version:\s*(v\d+)', llms, None) or extract(r'Version:\s*(v\d+)', llms)
+          llmsfull_v = extract(r'\*\*Version:\*\*\s*(v\d+)', llms_full)
+          mcp_v    = mcp.get('server', {}).get('version', '')
+          # mcp version format: "74.0.0" → expect starts with same major as pipeline v74 → 74
+          mcp_major = mcp_v.split('.')[0] if mcp_v else None
+          html_major = html_v.lstrip('v') if html_v else None
+
+          versions = {
+              'index.html ai:version': html_v,
+              'AI2AI.md Pipeline-Version': ai2ai_v,
+              'main.js VERSION': mainjs_v,
+              'llms.txt Version': llms_v,
+              'llms-full.txt Version': llmsfull_v,
+          }
+
+          print("Version field values:")
+          for k, v in versions.items():
+              print(f"  {k} = {v}")
+          print(f"  README.md Current version = {readme_v}")
+          print(f"  mcp.json server.version = {mcp_v}")
+
+          # Check all present canonical fields match
+          present = {k: v for k, v in versions.items() if v}
+          unique = set(present.values())
+          if len(unique) > 1:
+              errors.append(f"BLOCKING: Version mismatch across canonical fields: {present}")
+
+          # Check mcp.json major version
+          if mcp_major and html_major and mcp_major != html_major:
+              errors.append(f"BLOCKING: mcp.json server.version major ({mcp_major}) != ai:version ({html_v})")
+
+          # Check style.css has no stale v73 current-release comment (P0-03)
+          with open('style.css', 'r', encoding='utf-8') as f:
+              css = f.read()
+          if 'Current release: v73' in css or 'NEXT_PLANNED_RELEASE' in css:
+              errors.append("BLOCKING: style.css still contains stale v73 current-release comment")
+
+          for e in errors:
+              print(f"::error::{e}")
+          if errors:
+              sys.exit(1)
+
+          print("Version consistency check complete — all fields aligned.")
           EOF
 
       - name: Verify Async Font Loading (Core Web Vitals)
@@ -503,13 +562,14 @@ jobs:
       # Pythonロジックを外部スクリプトに完全移動。
       # --max-warnings=-1 フラグで warning のみの場合は exit 0 になるため、
       # severity:warning のルールが既存コードにヒットしてもCIをブロックしない。
-      - name: "ADVISORY: Stylelint CSS specificity and variable enforcement (改善文書a 6.1/6.2)"
+      # BLOCKING for error-severity; warning-severity is non-blocking (by stylelint --max-warnings=-1 design).
+      # check_css_stylelint.py now covers style.css AND inline <style> blocks.
+      # The direct npx stylelint call below is removed to avoid double-reporting;
+      # all logic is consolidated in check_css_stylelint.py.
+      - name: "BLOCKING(error)/ADVISORY(warning): Stylelint CSS specificity and variable enforcement (P0-16/P0-17)"
         run: |
           npm install --no-save stylelint@16 stylelint-declaration-strict-value@1 2>/dev/null
           python3 .github/scripts/check_css_stylelint.py
-          if ls *.css 1>/dev/null 2>&1; then
-            npx stylelint "*.css" --config .stylelintrc.json --max-warnings=-1 2>&1 || true
-          fi
 
       # ── 28. BLOCKING: AIO digest consistency (改善文書 P5/P6) ──────────────
       # Verifies .well-known/index.json == .well-known/agent-skills/index.json
@@ -522,3 +582,41 @@ jobs:
       # Prevents silent loss of AIO metadata through binary re-encoding accidents.
       - name: "BLOCKING: Binary AIO metadata integrity (WebP XMP / MP3 ID3)"
         run: python3 .github/scripts/check_binary_aio_metadata.py
+
+      # ── 30. BLOCKING: Repository consistency (P0-23) ─────────────────────
+      # Cross-file invariants: version alignment, llms alias byte-identity,
+      # CSP position, stale markers, Python syntax.
+      - name: "BLOCKING: Repository consistency check (P0-23)"
+        run: python3 .github/scripts/check_repository_consistency.py
+
+      # ── 31. ADVISORY: CSP meta position and inline handler audit (P1-04) ─
+      # Warns if inline event handlers (on*=) are detected in index.html.
+      # This is advisory because some framework-free patterns legitimately use them.
+      - name: "ADVISORY: CSP inline handler audit (P1-04)"
+        run: |
+          python3 - << 'EOF'
+          import re, sys
+          with open('index.html', 'r', encoding='utf-8') as f:
+              html = f.read()
+
+          # Check for inline event handlers (advisory only)
+          handlers = re.findall(r'\b(on\w+)=["\']', html)
+          if handlers:
+              unique = sorted(set(handlers))
+              print(f"::warning::CSP inline handler audit: {len(handlers)} inline handler(s) found in index.html: {unique}")
+              print("  These may conflict with a strict CSP script-src without 'unsafe-inline'.")
+              print("  If intentional, document each handler in AI2AI.md CSP Architecture Note.")
+          else:
+              print("CSP inline handler audit: no inline event handlers found in index.html.")
+
+          # Confirm CSP is before error-suppressor.js
+          pos_csp = html.find('<meta http-equiv="Content-Security-Policy"')
+          pos_err = html.find('<script src="./error-suppressor.js">')
+          if pos_csp == -1:
+              print("::error::CSP meta not found in index.html")
+              sys.exit(1)
+          if pos_csp >= pos_err:
+              print("::error::BLOCKING: CSP meta must appear before error-suppressor.js script tag")
+              sys.exit(1)
+          print(f"CSP meta position check OK: CSP at {pos_csp}, error-suppressor at {pos_err}")
+          EOF

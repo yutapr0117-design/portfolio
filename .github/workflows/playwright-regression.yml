@@ -15,8 +15,21 @@ on:
     branches: [ "main" ]
     paths:
       - 'index.html'
+      - 'main.js'
+      - 'style.css'
       - 'aio-guard.js'
+      - 'error-suppressor.js'
+      - 'theme-init.js'
+      - 'karte-init.js'
       - 'sw.js'
+      - 'yuta-yokoi-ai-pm-orchestration-system.webp'
+      - 'yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3'
+      - 'llms.txt'
+      - 'llms-full.txt'
+      - 'AI2AI.md'
+      - '.well-known/**'
+      - 'robots.txt'
+      - 'sitemap.xml'
 
 permissions:
   contents: read
