@@ -156,80 +156,13 @@ jobs:
           grep -q "require-trusted-types-for" index.html || echo "::warning::CSP require-trusted-types-for directive missing"
           echo "Trusted Types check complete."
 
+      # P0-09: Version consistency — delegated to check_repository_consistency.py.
+      # Inline Python heredoc was removed: YAML/shell/Python triple-escaping caused
+      # SyntaxError in CI (quote characters inside heredoc regex broke Python parser).
+      # check_repository_consistency.py is an actual .py file with no escaping issues
+      # and covers all the same checks plus more (llms alias, CSP position, etc.).
       - name: "BLOCKING: Version Consistency Check across all canonical fields (P0-09)"
-        run: |
-          python3 - << 'EOF'
-          import re, json, sys
-          errors = []
-          warnings = []
-
-          with open('index.html', 'r', encoding='utf-8') as f:
-              html = f.read()
-          with open('AI2AI.md', 'r', encoding='utf-8') as f:
-              ai2ai = f.read()
-          with open('main.js', 'r', encoding='utf-8') as f:
-              mainjs = f.read()
-          with open('README.md', 'r', encoding='utf-8') as f:
-              readme = f.read()
-          with open('llms.txt', 'r', encoding='utf-8') as f:
-              llms = f.read()
-          with open('llms-full.txt', 'r', encoding='utf-8') as f:
-              llms_full = f.read()
-          with open('.well-known/mcp.json', 'r', encoding='utf-8') as f:
-              mcp = json.load(f)
-
-          def extract(pattern, text, default=None):
-              m = re.search(pattern, text)
-              return m.group(1) if m else default
-
-          html_v   = extract(r'name="ai:version"\s+content="(v\d+)"', html)
-          ai2ai_v  = extract(r'Pipeline-Version\s*:\s*(v\d+)', ai2ai)
-          mainjs_v = extract(r"VERSION:\s*['"]?(v\d+)['"]?", mainjs)
-          readme_v = extract(r'Current version[:\s]+(v\d+)', readme)
-          llms_v   = extract(r'^- Version:\s*(v\d+)', llms, None) or extract(r'Version:\s*(v\d+)', llms)
-          llmsfull_v = extract(r'\*\*Version:\*\*\s*(v\d+)', llms_full)
-          mcp_v    = mcp.get('server', {}).get('version', '')
-          # mcp version format: "74.0.0" → expect starts with same major as pipeline v74 → 74
-          mcp_major = mcp_v.split('.')[0] if mcp_v else None
-          html_major = html_v.lstrip('v') if html_v else None
-
-          versions = {
-              'index.html ai:version': html_v,
-              'AI2AI.md Pipeline-Version': ai2ai_v,
-              'main.js VERSION': mainjs_v,
-              'llms.txt Version': llms_v,
-              'llms-full.txt Version': llmsfull_v,
-          }
-
-          print("Version field values:")
-          for k, v in versions.items():
-              print(f"  {k} = {v}")
-          print(f"  README.md Current version = {readme_v}")
-          print(f"  mcp.json server.version = {mcp_v}")
-
-          # Check all present canonical fields match
-          present = {k: v for k, v in versions.items() if v}
-          unique = set(present.values())
-          if len(unique) > 1:
-              errors.append(f"BLOCKING: Version mismatch across canonical fields: {present}")
-
-          # Check mcp.json major version
-          if mcp_major and html_major and mcp_major != html_major:
-              errors.append(f"BLOCKING: mcp.json server.version major ({mcp_major}) != ai:version ({html_v})")
-
-          # Check style.css has no stale v73 current-release comment (P0-03)
-          with open('style.css', 'r', encoding='utf-8') as f:
-              css = f.read()
-          if 'Current release: v73' in css or 'NEXT_PLANNED_RELEASE' in css:
-              errors.append("BLOCKING: style.css still contains stale v73 current-release comment")
-
-          for e in errors:
-              print(f"::error::{e}")
-          if errors:
-              sys.exit(1)
-
-          print("Version consistency check complete — all fields aligned.")
-          EOF
+        run: python3 .github/scripts/check_repository_consistency.py
 
       - name: Verify Async Font Loading (Core Web Vitals)
         run: |
@@ -586,6 +519,9 @@ jobs:
       # ── 30. BLOCKING: Repository consistency (P0-23) ─────────────────────
       # Cross-file invariants: version alignment, llms alias byte-identity,
       # CSP position, stale markers, Python syntax.
+      # NOTE: P0-09 (step 14) also calls this script for version checks.
+      # Running it again here is intentional: step 14 is an early fail-fast gate;
+      # step 30 is the full post-validation pass after all other checks complete.
       - name: "BLOCKING: Repository consistency check (P0-23)"
         run: python3 .github/scripts/check_repository_consistency.py
 
