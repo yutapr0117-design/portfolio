@@ -4,11 +4,14 @@ name: Update Playwright Baseline Snapshots
 # Playwright スナップショット ベースライン更新ワークフロー
 #
 # playwright-regression.yml の toHaveScreenshot() テストは、
-# e2e/homepage-baseline.png-snapshots/ に保存されたベースライン画像と
+# e2e/portfolio.spec.js-snapshots/ に保存されたベースライン画像と
 # 現在のレンダリングを比較する。
 #
 # ベースラインが存在しない場合、または意図的なUI変更後にベースラインを
 # 更新したい場合に、このワークフローを手動実行する。
+#
+# テスト定義: e2e/portfolio.spec.js（regression.yml と共通ファイル）
+# 設定:       playwright.config.cjs（同上）
 #
 # 手順:
 #   1. GitHub Actions の "Run workflow" ボタンで手動実行する。
@@ -49,34 +52,8 @@ jobs:
           npm install -D @playwright/test@1 http-server@14
           npx playwright install --with-deps chromium
 
-      - name: Write Playwright config
-        run: |
-          cat > playwright.config.js << 'PWCONFIG'
-          const { defineConfig, devices } = require('@playwright/test');
-          module.exports = defineConfig({
-            testDir: './e2e',
-            timeout: 30000,
-            expect: {
-              timeout: 5000,
-              toHaveScreenshot: { threshold: 0.05, maxDiffPixelRatio: 0.02 }
-            },
-            use: {
-              baseURL: 'http://localhost:8080',
-              trace: 'on-first-retry',
-              screenshot: 'on',
-            },
-            projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
-            webServer: {
-              command: 'npx http-server . -p 8080 --silent',
-              url: 'http://localhost:8080',
-              reuseExistingServer: false,
-              timeout: 15000,
-            },
-          });
-          PWCONFIG
-
       - name: Generate baseline snapshots
-        run: npx playwright test --update-snapshots --reporter=list
+        run: npx playwright test --config=playwright.config.cjs --update-snapshots --reporter=list
         continue-on-error: true
 
       - name: Upload new snapshots as artifact
