@@ -8,17 +8,17 @@
     {
       "path": "llms.txt",
       "role": "short AI routing context",
-      "sha256": "f9e02671f491f479a07c7c8ac70a28acd613e45bfa3ddf13ece317af4bf6a90c"
+      "sha256": "dde14a4f4c5af671cec5baeef8da788e487250c1d704d84d75e308ba5910b899"
     },
     {
       "path": "llms-full.txt",
       "role": "full AI context",
-      "sha256": "c3b70dfd25b280e15c41e1471ff827e31e40c76266d61d7ae34a23d139f8bc0b"
+      "sha256": "1375d042654c4fa52450277676b4eeb6dae642772d725917a222a87a2fc852dd"
     },
     {
       "path": "AI2AI.md",
       "role": "AI-to-AI implementation handoff",
-      "sha256": "1fa9cf383d0f1aed79fb25bccdc12f1cec2e15ab0bc82ba33a6029af0f23c069"
+      "sha256": "9f6f8610aa0be0a826538f3c48e984bf3d38ac4321badbbef764e57c51850e7d"
     },
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
@@ -48,17 +48,17 @@
       "path": "ChatGPT2ChatGPT.md",
       "role": "analysis evidence and model-agnostic repository analysis pipeline; non-canonical and subordinate to AI2AI.md",
       "canonical": false,
-      "sha256": "231b21167238a303fb2911f7642aed4c3210b64ebea626f32fa980a6c3999513"
+      "sha256": "f46cb364850c1def0a525c932809e2e71d7c457ee08f88d33005bdac38c9751f"
     }
   ],
-  "generated_at": "2026-05-25T08:08:12Z",
+  "generated_at": "2026-05-25T08:26:26Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
       "path": "docs/evidence/aio-monitoring-log.json",
       "role": "machine-generated AIO citation monitoring log; non-canonical observational evidence; must not override llms-full.txt or AI2AI.md",
       "canonical": false,
-      "sha256": "339fae605de26dd5c530c3aaba20245f041750f9d61ca26ea83261a77a15d27e"
+      "sha256": "b963e5baf04eb2f43caeaf03b0cb44e61ab9d18193aa7754a9acf9ff02898cd4"
     }
   ]
 }
