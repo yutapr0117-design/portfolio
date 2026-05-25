@@ -230,6 +230,27 @@ def get_previous_citation_status(log: dict) -> dict | None:
 
 # ── メイン ─────────────────────────────────────────────────────────────────
 
+def _emit_citation_change(github_output: str | None, total_cited: int, prev_total: int) -> None:
+    """Emit citation change signals to stdout and GitHub Actions output."""
+    if total_cited > prev_total:
+        print(f"::notice::AIO CITATION INCREASE: {prev_total} → {total_cited}")
+        if github_output:
+            with open(github_output, "a") as f:
+                f.write(f"citation_change=increase\n")
+                f.write(f"citation_delta={total_cited - prev_total}\n")
+    elif total_cited < prev_total:
+        print(f"::warning::AIO CITATION DECREASE: {prev_total} → {total_cited}")
+        if github_output:
+            with open(github_output, "a") as f:
+                f.write(f"citation_change=decrease\n")
+                f.write(f"citation_delta={prev_total - total_cited}\n")
+    else:
+        if github_output:
+            with open(github_output, "a") as f:
+                f.write(f"citation_change=none\n")
+                f.write(f"citation_delta=0\n")
+
+
 def main() -> None:
     gemini_key = os.environ.get("GEMINI_API_KEY", "")
     perplexity_key = os.environ.get("PERPLEXITY_API_KEY", "")
@@ -244,13 +265,23 @@ def main() -> None:
     previous_status = get_previous_citation_status(log)
 
     timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    enabled_engines = []
+    if gemini_key:
+        enabled_engines.append("gemini")
+    if perplexity_key:
+        enabled_engines.append("perplexity")
+    if openai_key:
+        enabled_engines.append("openai")
+
     run_record = {
         "timestamp": timestamp,
         "queries": [],
         "summary": {
+            "enabled_engines": enabled_engines,
             "gemini_cited_count": 0,
             "perplexity_cited_count": 0,
             "openai_cited_count": 0,
+            "total_cited_count": 0,
             "total_queries": len(QUERIES),
         },
     }
@@ -301,6 +332,7 @@ def main() -> None:
     # ── 変化検出（GitHub Actions output） ─────────────────────────────────
     s = run_record["summary"]
     total_cited = s["gemini_cited_count"] + s["perplexity_cited_count"] + s["openai_cited_count"]
+    s["total_cited_count"] = total_cited
 
     print("")
     print(f"=== Summary ===")
@@ -324,28 +356,40 @@ def main() -> None:
 
     # 変化があればGitHub Actionsで警告出力（Issue作成はワークフロー側で行う）
     if previous_status:
-        prev_total = previous_status.get("perplexity_cited_count", 0) + previous_status.get("openai_cited_count", 0)
-        if total_cited > prev_total:
-            print(f"::notice::AIO CITATION INCREASE: {prev_total} → {total_cited}")
-            # GitHub Actions output variable
+        previous_engines = previous_status.get("enabled_engines")
+        current_engines = enabled_engines
+
+        # If engine configuration changed (e.g., Gemini newly added), suppress simple delta comparison
+        if previous_engines is not None and set(previous_engines) != set(current_engines):
+            print(f"::notice::AIO MONITORING: Engine configuration changed: {previous_engines} → {current_engines}")
             github_output = os.environ.get("GITHUB_OUTPUT")
             if github_output:
                 with open(github_output, "a") as f:
-                    f.write(f"citation_change=increase\n")
-                    f.write(f"citation_delta={total_cited - prev_total}\n")
-        elif total_cited < prev_total:
-            print(f"::warning::AIO CITATION DECREASE: {prev_total} → {total_cited}")
-            github_output = os.environ.get("GITHUB_OUTPUT")
-            if github_output:
-                with open(github_output, "a") as f:
-                    f.write(f"citation_change=decrease\n")
-                    f.write(f"citation_delta={prev_total - total_cited}\n")
-        else:
-            github_output = os.environ.get("GITHUB_OUTPUT")
-            if github_output:
-                with open(github_output, "a") as f:
-                    f.write(f"citation_change=none\n")
+                    f.write(f"citation_change=configuration_changed\n")
                     f.write(f"citation_delta=0\n")
+        elif previous_engines is None:
+            # Legacy log without enabled_engines — estimate from present keys
+            prev_total = (
+                previous_status.get("gemini_cited_count", 0)
+                + previous_status.get("perplexity_cited_count", 0)
+                + previous_status.get("openai_cited_count", 0)
+            )
+            if prev_total == 0 and "gemini_cited_count" not in previous_status:
+                # Very old log: only perplexity/openai recorded
+                print(f"::notice::AIO MONITORING: Previous run used legacy schema (no enabled_engines). Comparison skipped (previous_schema_legacy).")
+                github_output = os.environ.get("GITHUB_OUTPUT")
+                if github_output:
+                    with open(github_output, "a") as f:
+                        f.write(f"citation_change=previous_schema_legacy\n")
+                        f.write(f"citation_delta=0\n")
+            else:
+                _emit_citation_change(github_output=os.environ.get("GITHUB_OUTPUT"), total_cited=total_cited, prev_total=prev_total)
+        else:
+            # Same engine set: safe to compare
+            prev_total = sum(
+                previous_status.get(f"{e}_cited_count", 0) for e in current_engines
+            )
+            _emit_citation_change(github_output=os.environ.get("GITHUB_OUTPUT"), total_cited=total_cited, prev_total=prev_total)
 
     print("Log saved to docs/evidence/aio-monitoring-log.json")
 

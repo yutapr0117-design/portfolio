@@ -1,20 +1,14 @@
 #!/usr/bin/env python3
 """
-check_css_stylelint.py — 改善文書a 6.1/6.2
-Extracts inline <style> blocks from index.html and runs stylelint on them.
-
-Root fix for recurring CI bug:
-  The YAML heredoc + Python string quoting combination caused persistent
-  SyntaxErrors and incorrect error detection. Moving ALL logic here
-  eliminates YAML/Python escaping conflicts entirely.
+check_css_stylelint.py — P0-16 / 改善文書a 6.1/6.2
+Runs stylelint on:
+  1. style.css (external CSS — always checked)
+  2. Inline <style> blocks extracted from index.html (checked if present)
 
 Detection logic:
   - severity:error violations  → BLOCKING (exit 1)
   - severity:warning violations → non-blocking (printed as ::warning::)
-  - The old logic used 'error' in l.lower() which matched summary lines
-    like "14 errors, 6 warnings" even when all rules were severity:warning.
-    This script uses subprocess exit code correctly:
-      stylelint --max-warnings=-1 → exit 0 = no errors, exit 1 = real errors only
+  - stylelint --max-warnings=-1 → exit 0 = no errors, exit 1 = real errors only
 """
 
 import re
@@ -30,35 +24,15 @@ def extract_style_blocks(html: str) -> str:
     return "\n".join(blocks)
 
 
-def main() -> int:
-    html_path = "index.html"
-    config_path = ".stylelintrc.json"
-
-    if not os.path.exists(html_path):
-        print(f"::error::File not found: {html_path}")
-        return 1
-
-    with open(html_path, "r", encoding="utf-8") as f:
-        html = f.read()
-
-    css = extract_style_blocks(html)
-    if not css.strip():
-        print("No <style> blocks found — skipping Stylelint check")
-        return 0
-
+def run_stylelint(css_content: str, label: str, config_path: str) -> int:
+    """Run stylelint on css_content; return exit code (0=pass, 1=error, 2=fatal)."""
     with tempfile.NamedTemporaryFile(
         mode="w", suffix=".css", delete=False, encoding="utf-8"
     ) as tmp:
-        tmp.write(css)
+        tmp.write(css_content)
         tmp_path = tmp.name
 
     try:
-        # --max-warnings=-1: suppress "Too many warnings" — warnings are non-blocking by design.
-        # Exit code semantics with this flag:
-        #   0 = no violations at all
-        #   1 = at least one error-severity violation exists
-        #   2 = fatal/unexpected error
-        # Warning-only violations do NOT cause exit code 1 when --max-warnings=-1.
         result = subprocess.run(
             [
                 "npx", "stylelint", tmp_path,
@@ -68,18 +42,18 @@ def main() -> int:
             capture_output=True,
             text=True,
         )
-        output = (result.stdout + result.stderr).replace(tmp_path, "<index.html style>")
+        output = (result.stdout + result.stderr).replace(tmp_path, f"<{label}>")
 
         if result.returncode == 0:
-            print("Stylelint: PASS (no violations)")
+            print(f"Stylelint [{label}]: PASS (no violations)")
             return 0
 
         if result.returncode == 2:
-            print(f"::warning::Stylelint fatal error (config issue?): {output[:300]}")
+            print(f"::warning::Stylelint [{label}] fatal error (config issue?): {output[:300]}")
             return 0  # Don't block on config issues
 
         # exit code 1: real error-severity violations exist
-        print("::error::BLOCKING: Stylelint error-severity violations detected:")
+        print(f"::error::BLOCKING: Stylelint error-severity violations in [{label}]:")
         for line in output.splitlines():
             if line.strip():
                 print(f"  {line}")
@@ -87,6 +61,41 @@ def main() -> int:
 
     finally:
         os.unlink(tmp_path)
+
+
+def main() -> int:
+    config_path = ".stylelintrc.json"
+    exit_code = 0
+
+    # ── 1. External style.css (always checked) ──────────────────────────
+    css_path = "style.css"
+    if not os.path.exists(css_path):
+        print(f"::error::style.css not found — CSS check cannot proceed")
+        return 1
+
+    with open(css_path, "r", encoding="utf-8") as f:
+        css_content = f.read()
+
+    ec = run_stylelint(css_content, "style.css", config_path)
+    if ec != 0:
+        exit_code = 1
+
+    # ── 2. Inline <style> blocks from index.html (checked if present) ───
+    html_path = "index.html"
+    if os.path.exists(html_path):
+        with open(html_path, "r", encoding="utf-8") as f:
+            html = f.read()
+        css = extract_style_blocks(html)
+        if css.strip():
+            ec = run_stylelint(css, "index.html inline <style>", config_path)
+            if ec != 0:
+                exit_code = 1
+        else:
+            print("No inline <style> blocks found in index.html — skipping inline check")
+    else:
+        print(f"::warning::{html_path} not found — skipping inline <style> check")
+
+    return exit_code
 
 
 if __name__ == "__main__":
