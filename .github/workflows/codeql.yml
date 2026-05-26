@@ -1,0 +1,56 @@
+# .github/workflows/codeql.yml
+#
+# 【作成理由】
+# GitHub の "Default Setup" が github/codeql-action@v4 の特定 SHA
+# (7211b7c8077ea37d8641b6271f6a365a22a5fbfa) を内部ピン留めしており、
+# そのSHAがGitHub側で取得不能になったため CI が全落ちしていた。
+# カスタム codeql.yml を置くことで Default Setup を上書きし解消する。
+#
+# 【バージョン方針】
+# SHA ピン留めを避け、floating tag (@v3) を使用する。
+# dependabot.yml (github-actions エコシステム) が月次で自動 PR を発行する。
+# SHA ピン留めを再開する場合は dependabot の自動更新と必ずセットにすること。
+#
+# 【言語ターゲット】
+# - javascript: Vanilla JS / HTML を対象 (TypeScript トランスパイルなし)
+# Default Setup が使っていた "javascript-typescript" と同一クエリパックに解決される。
+# "actions" スキャン (YAML) は本リポジトリでは低リスクのため省略する。
+
+name: CodeQL
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    # 毎週月曜 07:00 UTC — Default Setup の週次スキャン相当
+    - cron: "0 7 * * 1"
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  analyze:
+    name: Analyze (javascript)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript
+          # クエリパックはデフォルト (security-extended) を使用
+          queries: security-extended
+
+      # Vanilla JS は autobuild 不要 (解釈型言語 / ビルドステップなし)
+      # github/codeql-action/autobuild は省略する
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:javascript"
