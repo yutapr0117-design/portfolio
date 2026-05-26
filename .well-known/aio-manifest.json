@@ -8,17 +8,17 @@
     {
       "path": "llms.txt",
       "role": "short AI routing context",
-      "sha256": "ad161a830d7759983148688f67a29915b8c4bd3ec2aa3897002e667db5b208a8"
+      "sha256": "e6de88b98bed88b97b92ac353c32cbbe5d959896947cffc37a1cd7f4155fdfff"
     },
     {
       "path": "llms-full.txt",
       "role": "full AI context",
-      "sha256": "57437580abf1b8bcb7143ca15b00bcca808dcd624c8fea5079290934e35cd401"
+      "sha256": "767db135feb0a90da087ab9f3d1449f4e505f466c1e40d917e00c49fcbd7ca81"
     },
     {
       "path": "AI2AI.md",
       "role": "AI-to-AI implementation handoff",
-      "sha256": "068486440112a2258febf609cc5a4ce6f40eeed4d8be0fac85aee27dc975d024"
+      "sha256": "d783c419e0e2dd8548ce5d2cf36984df9159fae45d1399d2572c8a7688c8b8b0"
     },
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
@@ -36,7 +36,7 @@
       "path": "Claude2Claude.md",
       "role": "Tool-specific AI-only implementation continuity evidence; non-canonical and subordinate to AI2AI.md.",
       "canonical": false,
-      "sha256": "9ee58f05940f2b46c95093b9d541ba83ae142cfbafac39d1b9683e5854dd11b3"
+      "sha256": "ad0f372afedbaaee1f3faf4e33e7710d48de8cc425dbb869a608cf11158a6829"
     },
     {
       "path": "docs/evidence/ai-pioneer-identity-review.md",
@@ -48,15 +48,20 @@
       "path": "ChatGPT2ChatGPT.md",
       "role": "analysis evidence and model-agnostic repository analysis pipeline; non-canonical and subordinate to AI2AI.md",
       "canonical": false,
-      "sha256": "231b21167238a303fb2911f7642aed4c3210b64ebea626f32fa980a6c3999513"
+      "sha256": "a166258ef16a3bc371247e047a4eb2ea06f33820b14559be5ba5957b54a0107e"
+    },
+    {
+      "path": "docs/session-records/AI2AI-archive.md",
+      "role": "archive of past Session Records #1-#10; read-only historical evidence",
+      "sha256": "c62fc70f3aaedaa96212fffdcc43181fec6d6cb72bf90681efd61d2690dcbf13"
     }
   ],
-  "generated_at": "2026-05-25T23:51:44Z",
+  "generated_at": "2026-05-26T00:00:00Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
       "path": "docs/evidence/aio-monitoring-log.json",
-      "role": "machine-generated AIO citation monitoring log; non-canonical observational evidence; must not override llms-full.txt or AI2AI.md",
+      "role": "AIO monitoring attempt log — records search attempts; not yet confirmed citation evidence",
       "canonical": false,
       "sha256": "b963e5baf04eb2f43caeaf03b0cb44e61ab9d18193aa7754a9acf9ff02898cd4"
     }
