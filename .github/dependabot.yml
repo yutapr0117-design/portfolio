@@ -1,0 +1,14 @@
+# .github/dependabot.yml — GitHub Actions 更新管理 (改善文書 3.15)
+# 目的: GitHub Actions の major tag が更新された場合に PR を受け取る
+# 注意: ランタイム依存ではない。CI/dev tool のバージョン管理のみ。
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "ci"
+    labels:
+      - "dependencies"
+      - "ci"
