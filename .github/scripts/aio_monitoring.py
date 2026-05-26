@@ -326,13 +326,15 @@ def main() -> None:
 
         run_record["queries"].append(query_record)
 
+    # ── total_cited_count を計算してから save_log する (P0-08 fix) ──────────
+    s = run_record["summary"]
+    total_cited = s["gemini_cited_count"] + s["perplexity_cited_count"] + s["openai_cited_count"]
+    s["total_cited_count"] = total_cited
+
     log["runs"].append(run_record)
     save_log(log)
 
     # ── 変化検出（GitHub Actions output） ─────────────────────────────────
-    s = run_record["summary"]
-    total_cited = s["gemini_cited_count"] + s["perplexity_cited_count"] + s["openai_cited_count"]
-    s["total_cited_count"] = total_cited
 
     print("")
     print(f"=== Summary ===")

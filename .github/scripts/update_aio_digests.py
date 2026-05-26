@@ -47,6 +47,7 @@ MANIFEST_PATH_TO_LOCAL: dict[str, Path] = {
     "Claude2Claude.md":                          ROOT / "Claude2Claude.md",
     "ChatGPT2ChatGPT.md":                        ROOT / "ChatGPT2ChatGPT.md",
     "docs/evidence/ai-pioneer-identity-review.md": ROOT / "docs" / "evidence" / "ai-pioneer-identity-review.md",
+    "docs/session-records/AI2AI-archive.md": ROOT / "docs" / "session-records" / "AI2AI-archive.md",
     # observational_evidence
     "docs/evidence/aio-monitoring-log.json":     ROOT / "docs" / "evidence" / "aio-monitoring-log.json",
 }

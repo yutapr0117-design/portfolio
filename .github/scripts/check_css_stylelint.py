@@ -1,24 +1,25 @@
 #!/usr/bin/env python3
 """
-check_css_stylelint.py — P0-16 / 改善文書a 6.1/6.2
+check_css_stylelint.py — P0-10 / 改善文書 3.10
 Runs stylelint on:
   1. style.css (external CSS — always checked)
   2. Inline <style> blocks extracted from index.html (checked if present)
 
-Detection logic:
+Detection logic (改善文書 3.10):
+  - Uses --formatter json for reliable severity parsing
   - severity:error violations  → BLOCKING (exit 1)
   - severity:warning violations → non-blocking (printed as ::warning::)
-  - stylelint --max-warnings=-1 → exit 0 = no errors, exit 1 = real errors only
+  - stylelint execution failure / config errors → distinct category (not silently non-blocking)
 
-Design-exception suppression (P3):
+Design-exception suppression:
   Warnings for !important in the following contexts are suppressed as
   intentional design decisions, not lint noise:
-    1. @media (prefers-reduced-motion: reduce) blocks — animation/transition safety net
-    2. .u-ai-* utility classes — DOM-API-only utility layer (innerHTML禁止制約準拠)
+    1. @media (prefers-reduced-motion: reduce) blocks
+    2. .u-ai-* utility classes (DOM-API-only utility layer)
     3. .nav-group-body[data-collapsed] — JS-driven collapse control
-  All other !important occurrences remain warning-eligible.
 """
 
+import json
 import re
 import subprocess
 import sys
@@ -26,37 +27,32 @@ import tempfile
 import os
 
 
-# ── Design-exception patterns for !important suppression (P3) ─────────────
-# Lines matching these patterns are filtered from warning output.
 _IMPORTANT_EXCEPTION_PATTERNS = [
-    # reduced-motion block contents (animation/transition/scroll-behavior)
     re.compile(r"animation-duration\s*:.*!important", re.IGNORECASE),
     re.compile(r"animation-iteration-count\s*:.*!important", re.IGNORECASE),
     re.compile(r"transition-duration\s*:.*!important", re.IGNORECASE),
     re.compile(r"scroll-behavior\s*:.*!important", re.IGNORECASE),
-    # .u-ai-* utility classes
     re.compile(r"\.u-ai-\w+\s*\{[^}]*!important", re.IGNORECASE),
-    # nav-group-body collapse control
     re.compile(r"nav-group-body.*!important", re.IGNORECASE),
 ]
 
 
-def _is_design_exception_warning(line: str) -> bool:
-    """Return True if a stylelint warning line matches a known design exception."""
+def _is_design_exception(rule: str, text: str) -> bool:
+    if rule != "declaration-no-important":
+        return False
     for pat in _IMPORTANT_EXCEPTION_PATTERNS:
-        if pat.search(line):
+        if pat.search(text):
             return True
     return False
 
 
 def extract_style_blocks(html: str) -> str:
-    """Extract and concatenate all inline <style> blocks."""
     blocks = re.findall(r"<style[^>]*>(.*?)</style>", html, re.DOTALL)
     return "\n".join(blocks)
 
 
 def run_stylelint(css_content: str, label: str, config_path: str) -> int:
-    """Run stylelint on css_content; return exit code (0=pass, 1=error, 2=fatal)."""
+    """Run stylelint with --formatter json; return 0=pass, 1=has errors."""
     with tempfile.NamedTemporaryFile(
         mode="w", suffix=".css", delete=False, encoding="utf-8"
     ) as tmp:
@@ -66,60 +62,76 @@ def run_stylelint(css_content: str, label: str, config_path: str) -> int:
     try:
         result = subprocess.run(
             [
-                "npx", "stylelint", tmp_path,
+                "npx", "--yes", "stylelint@15.11.0", tmp_path,
                 "--config", config_path,
-                "--max-warnings", "-1",
+                "--formatter", "json",
+                "--allow-empty-input",
             ],
             capture_output=True,
             text=True,
         )
-        output = (result.stdout + result.stderr).replace(tmp_path, f"<{label}>")
 
-        if result.returncode == 0:
-            print(f"Stylelint [{label}]: PASS (no violations)")
+        # returncode 64 = bad usage/config; 78 = lint error (some versions)
+        if result.returncode not in (0, 1, 2, 64, 78):
+            print(f"::warning::Stylelint [{label}] unexpected exit code {result.returncode} — treating as config issue")
+            if result.stderr:
+                print(f"::warning::Stylelint [{label}] stderr: {result.stderr[:300]}")
+            return 0  # config issues are non-blocking but reported
+
+        # Try to parse JSON output
+        stdout = result.stdout.strip()
+        if not stdout:
+            if result.returncode == 0:
+                print(f"Stylelint [{label}]: PASS (no output)")
+                return 0
+            # exit 1 with no JSON = likely config parse error
+            print(f"::warning::Stylelint [{label}] config/parse error (no JSON output): {result.stderr[:300]}")
             return 0
 
-        if result.returncode == 2:
-            print(f"::warning::Stylelint [{label}] fatal error (config issue?): {output[:300]}")
-            return 0  # Don't block on config issues
+        try:
+            lint_results = json.loads(stdout)
+        except json.JSONDecodeError:
+            print(f"::warning::Stylelint [{label}] non-JSON output (version mismatch?): {stdout[:200]}")
+            return 0
 
-        # exit code 1: real error-severity violations exist.
-        # Filter out design-exception !important warnings before reporting.
-        lines = output.splitlines()
-        suppressed = 0
-        filtered_lines = []
-        for line in lines:
-            if "declaration-no-important" in line and _is_design_exception_warning(line):
-                suppressed += 1
-                continue
-            filtered_lines.append(line)
+        error_count = 0
+        warning_count = 0
+        suppressed_count = 0
 
-        if suppressed:
+        for file_result in lint_results:
+            for warning in file_result.get("warnings", []):
+                rule = warning.get("rule", "")
+                severity = warning.get("severity", "warning")
+                text = warning.get("text", "")
+                line = warning.get("line", "?")
+                col = warning.get("column", "?")
+
+                if _is_design_exception(rule, text):
+                    suppressed_count += 1
+                    continue
+
+                location = f"{label}:{line}:{col}"
+                if severity == "error":
+                    error_count += 1
+                    print(f"::error::Stylelint error [{location}] {rule}: {text}")
+                else:
+                    warning_count += 1
+                    print(f"::warning::Stylelint warning [{location}] {rule}: {text}")
+
+        if suppressed_count:
             print(
-                f"::warning::Stylelint [{label}]: {suppressed} !important warning(s) suppressed "
-                f"(design exceptions: reduced-motion / .u-ai-* / nav-group-body). "
-                f"See check_css_stylelint.py for policy."
+                f"::warning::Stylelint [{label}]: {suppressed_count} !important warning(s) suppressed "
+                f"(design exceptions: reduced-motion / .u-ai-* / nav-group-body)."
             )
 
-        remaining_output = "\n".join(filtered_lines)
-
-        # Re-check if any real (non-suppressed) violations remain
-        # Stylelint exit-1 mixes warnings and errors in output; re-run can't easily re-score,
-        # so we check for "error" lines still present after filtering.
-        has_real_violations = any(
-            ("error" in l.lower() or "warning" in l.lower())
-            for l in filtered_lines
-            if l.strip()
-        )
-
-        if has_real_violations:
-            print(f"::error::BLOCKING: Stylelint error-severity violations in [{label}]:")
-            for line in filtered_lines:
-                if line.strip():
-                    print(f"  {line}")
+        if error_count == 0 and warning_count == 0 and suppressed_count == 0:
+            print(f"Stylelint [{label}]: PASS (no violations)")
+        elif error_count == 0:
+            print(f"Stylelint [{label}]: PASS ({warning_count} warning(s), {suppressed_count} suppressed)")
+        else:
+            print(f"::error::BLOCKING: Stylelint [{label}]: {error_count} error(s), {warning_count} warning(s)")
             return 1
 
-        print(f"Stylelint [{label}]: PASS after suppressing design exceptions")
         return 0
 
     finally:
@@ -130,7 +142,6 @@ def main() -> int:
     config_path = ".stylelintrc.json"
     exit_code = 0
 
-    # ── 1. External style.css (always checked) ──────────────────────────
     css_path = "style.css"
     if not os.path.exists(css_path):
         print(f"::error::style.css not found — CSS check cannot proceed")
@@ -143,7 +154,6 @@ def main() -> int:
     if ec != 0:
         exit_code = 1
 
-    # ── 2. Inline <style> blocks from index.html (checked if present) ───
     html_path = "index.html"
     if os.path.exists(html_path):
         with open(html_path, "r", encoding="utf-8") as f:

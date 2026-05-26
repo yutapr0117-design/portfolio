@@ -257,6 +257,95 @@ if spec_path.exists():
 else:
     print("WARNING: e2e/portfolio.spec.js not found — Playwright spec check skipped")
 
+
+# ── 17. Date sync: ai:last-modified == SITE_CONFIG.LAST_UPDATED ──────────────
+html_date = extract(r'name="ai:last-modified" content="([0-9-]+)"', html)
+mainjs_date = extract(r'LAST_UPDATED:\s+[\'"]([0-9-]+)[\'"]' , mainjs)
+check(
+    html_date is not None and mainjs_date is not None and html_date == mainjs_date,
+    f"ai:last-modified ({html_date}) == SITE_CONFIG.LAST_UPDATED ({mainjs_date})",
+    f"Date sync mismatch: index.html ai:last-modified={html_date}, main.js LAST_UPDATED={mainjs_date}",
+)
+
+# ── 18. sitemap.xml: all <lastmod> are the same date ─────────────────────────
+try:
+    sitemap_tree = ET.parse(ROOT / "sitemap.xml")
+    ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    lastmods = [el.text for el in sitemap_tree.findall(".//sm:lastmod", ns) if el.text]
+    unique_dates = set(lastmods)
+    check(
+        len(unique_dates) <= 1,
+        f"sitemap.xml: all <lastmod> are the same date ({unique_dates.pop() if unique_dates else 'N/A'})",
+        f"sitemap.xml: mixed <lastmod> dates found: {sorted(unique_dates)}",
+    )
+    if html_date and lastmods:
+        sitemap_date = lastmods[0]
+        check(
+            sitemap_date == html_date,
+            f"sitemap.xml <lastmod> ({sitemap_date}) == ai:last-modified ({html_date})",
+            f"Date sync: sitemap.xml <lastmod>={sitemap_date} vs ai:last-modified={html_date}",
+        )
+except ET.ParseError:
+    pass  # already caught in check 9
+
+# ── 19. sw.js CACHE_NAME matches app version ──────────────────────────────────
+sw_js = read("sw.js")
+sw_cache = extract(r"CACHE_NAME = 'portfolio-aio-(v\d+)'" , sw_js)
+check(
+    sw_cache is not None and html_v is not None and sw_cache == html_v,
+    f"sw.js CACHE_NAME version ({sw_cache}) == ai:version ({html_v})",
+    f"sw.js CACHE_NAME mismatch: sw.js={sw_cache}, index.html ai:version={html_v}",
+)
+
+# ── 20. og:image:width / og:image:height / og:image:alt present ──────────────
+check(
+    'property="og:image:width"' in html,
+    "index.html: og:image:width present",
+    "index.html: og:image:width missing (add <meta property=og:image:width>)",
+)
+check(
+    'property="og:image:height"' in html,
+    "index.html: og:image:height present",
+    "index.html: og:image:height missing (add <meta property=og:image:height>)",
+)
+check(
+    'property="og:image:alt"' in html,
+    "index.html: og:image:alt present",
+    "index.html: og:image:alt missing (add <meta property=og:image:alt>)",
+)
+
+# ── 21. llms alias files Last-Updated sync ───────────────────────────────────
+llms_date_pattern = r"Last-Updated: ([0-9-]+)"
+llms_check_paths = ["llms.txt", ".well-known/llms.txt", "llms_well-known.txt", ".well-known/llms_well-known.txt"]
+llms_dates = {}
+for p in llms_check_paths:
+    fpath = ROOT / p
+    if fpath.exists():
+        d = extract(llms_date_pattern, fpath.read_text(encoding="utf-8"))
+        if d:
+            llms_dates[p] = d
+if len(set(llms_dates.values())) > 1:
+    check(
+        False,
+        "llms alias files Last-Updated are in sync",
+        f"llms alias files Last-Updated mismatch: {llms_dates}",
+    )
+else:
+    d = list(llms_dates.values())[0] if llms_dates else "N/A"
+    print(f"OK: llms alias files Last-Updated are in sync ({d})")
+
+# ── 22. AI2AI.md Session Record order: no #10 before #9 ──────────────────────
+ai2ai_text = read("AI2AI.md")
+import re as _re
+header_records = _re.findall(r'^## \\[HANDOFF\\] Session Record #(\\d+)', ai2ai_text, _re.MULTILINE)
+record_nums = [int(n) for n in header_records]
+order_ok = len(record_nums) == 0 or all(record_nums[i] <= record_nums[i+1] for i in range(len(record_nums)-1))
+check(
+    order_ok,
+    f"AI2AI.md Session Record headers are in ascending order: {record_nums}",
+    f"AI2AI.md Session Record headers out of order: {record_nums}",
+)
+
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
 if errors:
