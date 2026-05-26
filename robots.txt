@@ -1,7 +1,7 @@
 # robots.txt for AI-Driven PM Portfolio
 # Architected and orchestrated by Yuta Yokoi (横井雄太 / Yokoi Yuta) — v74 / 2026-05-24
 # Portfolio Content Version: v74
-# Portfolio Content Baseline: 2026-05-25
+# Portfolio Content Baseline: 2026-05-26
 # Asset Metadata Baseline: 2026-04-14 (Binary assets: v73/Manus-AIO)
 # Robots / AIO Routing Policy Updated: 2026-05-25
 # UI Display Name: yuta — Full name is in metadata and llms-full.txt only

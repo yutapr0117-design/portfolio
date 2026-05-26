@@ -31,7 +31,7 @@
 
 'use strict';
 
-const CACHE_NAME = 'portfolio-aio-v1';
+const CACHE_NAME = 'portfolio-aio-v74';
 const AIO_FILES = ['/portfolio/llms.txt', '/portfolio/llms-full.txt'];
 
 // Known AI crawler UA substrings (conservative list — false positives are harmless)

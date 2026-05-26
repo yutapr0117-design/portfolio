@@ -151,7 +151,7 @@
         // 値の散在による食い違いを構造的に排除するための Single Source of Truth。
         const SITE_CONFIG = {
             VERSION:       'v74',
-            LAST_UPDATED:  '2026-05-24',
+            LAST_UPDATED:  '2026-05-26',
             ROLE_TITLE:    'AI-Driven PM',
             CANONICAL_URL: 'https://yutapr0117-design.github.io/portfolio/',
             REPO_URL:      'https://github.com/yutapr0117-design/portfolio',

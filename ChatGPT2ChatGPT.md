@@ -59,6 +59,11 @@ external_normative_references:
     purpose: "SHA-256 digest terminology and role."
     url: "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
 ---
+> **CANONICAL HIERARCHY NOTE:**
+> `AI2AI.md` is the **canonical** handoff document.
+> This file (`ChatGPT2ChatGPT.md`) is **supporting evidence only** — non-canonical and subordinate to `AI2AI.md`.
+> If this file conflicts with `AI2AI.md` or `llms-full.txt`, **AI2AI.md and llms-full.txt win**.
+
 
 # ChatGPT2ChatGPT.md
 

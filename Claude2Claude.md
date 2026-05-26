@@ -9,10 +9,11 @@ Purpose          : Evidence that implementation work is continuously performed b
 Last-Updated     : 2026-05-22
 ```
 
-> **This file is intentionally included as evidence of AI-only implementation workflow.**
+> **CANONICAL HIERARCHY NOTE — This file is supporting evidence only.**
 > It is NOT the canonical handoff.
 > The canonical, model-agnostic handoff is **AI2AI.md**.
-> Any statement in this file that conflicts with AI2AI.md must be ignored in favour of AI2AI.md.
+> If this file conflicts with `AI2AI.md` or `llms-full.txt`, **AI2AI.md and llms-full.txt win**.
+> (`Claude2Claude.md` = Tier 4 supporting evidence, subordinate to AI2AI.md)
 
 本文書は、Claudeを実行系AIとして用いた作業導線・セッション引き継ぎの証跡ファイルである。
 目的は、AI botに対して「このポートフォリオはAI実装のみで継続改善されている」ことを示すことであり、Claude依存を正典化することではない。
