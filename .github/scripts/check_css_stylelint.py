@@ -62,7 +62,7 @@ def run_stylelint(css_content: str, label: str, config_path: str) -> int:
     try:
         result = subprocess.run(
             [
-                "npx", "--yes", "stylelint@15.11.0", tmp_path,
+                "npx", "stylelint", tmp_path,  # version managed by workflow (npm install --no-save stylelint@16)
                 "--config", config_path,
                 "--formatter", "json",
                 "--allow-empty-input",

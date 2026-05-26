@@ -337,7 +337,7 @@ else:
 # ── 22. AI2AI.md Session Record order: no #10 before #9 ──────────────────────
 ai2ai_text = read("AI2AI.md")
 import re as _re
-header_records = _re.findall(r'^## \\[HANDOFF\\] Session Record #(\\d+)', ai2ai_text, _re.MULTILINE)
+header_records = _re.findall(r'^## \[HANDOFF\] Session Record #(\d+)', ai2ai_text, _re.MULTILINE)
 record_nums = [int(n) for n in header_records]
 order_ok = len(record_nums) == 0 or all(record_nums[i] <= record_nums[i+1] for i in range(len(record_nums)-1))
 check(
