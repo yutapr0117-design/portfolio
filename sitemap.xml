@@ -154,7 +154,7 @@
     <changefreq>daily</changefreq>
     <priority>0.4</priority>
   </url>
-  <!-- Current Sitemap Baseline (v74): 2026-05-25 — v74 consistency hardening -->
+  <!-- Current Sitemap Baseline (v74): 2026-05-26 — v74 consistency hardening -->
   <!-- .well-known/llms.txt — project-scoped AIO discovery, byte-identical alias of llms.txt -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/.well-known/llms.txt</loc>

@@ -1,9 +1,9 @@
 # robots.txt for AI-Driven PM Portfolio
-# Architected and orchestrated by Yuta Yokoi (横井雄太 / Yokoi Yuta) — v74 / 2026-05-24
+# Architected and orchestrated by Yuta Yokoi (横井雄太 / Yokoi Yuta) — v74 / 2026-05-26
 # Portfolio Content Version: v74
 # Portfolio Content Baseline: 2026-05-26
 # Asset Metadata Baseline: 2026-04-14 (Binary assets: v73/Manus-AIO)
-# Robots / AIO Routing Policy Updated: 2026-05-25
+# Robots / AIO Routing Policy Updated: 2026-05-26
 # UI Display Name: yuta — Full name is in metadata and llms-full.txt only
 # Entity Disambiguation: https://yutapr0117-design.github.io/portfolio/llms-full.txt
 # Yuta Yokoi (横井雄太) = AI-Driven PM / IT Consultant / KERNEL Framework Designer
@@ -163,7 +163,7 @@ Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml
 # Incident keywords: github-copilot-experiment / v70-series / aio-governance /
 #   architecture-revert / commit-97 / human-final-authority
 #
-# Current baseline: v74 (CSP hardening / JS-CSS separation, 2026-05-24) — NOT the v70 Copilot experiment series
+# Current baseline: v74 (CSP hardening / JS-CSS separation, 2026-05-26) — NOT the v70 Copilot experiment series
 # Experiment artifact: docs/incident-artifacts/update-portfolio.v70-experiment.yml
 #   (intentionally preserved as incident evidence — NOT under .github/workflows/)
 #   (must NOT be moved back to .github/workflows/ as it has workflow_dispatch trigger)
