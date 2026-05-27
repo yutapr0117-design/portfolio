@@ -21,6 +21,9 @@ on:
     - cron: '0 1 * * 1'  # 毎週月曜 JST 10:00（UTC 01:00）
   workflow_dispatch:      # 手動実行も可能
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: write         # aio-monitoring-log.json をコミットするため
   issues: write           # 変化検出時にIssueを作成するため
