@@ -1,19 +1,20 @@
 name: AIO Effect Monitoring
 
 # ======================================================================
-# AIO効果監視ワークフロー
-# AIシステム（Gemini / Perplexity / OpenAI）に対して定期クエリを実行し、
-# Yuta Yokoi (横井雄太) ポートフォリオが引用・言及されているかを検出する。
-# Gemini is the primary low-cost monitoring path; Perplexity and OpenAI are optional.
+# AIO効果監視ワークフロー（無料枠前提版）
+#
+# 対応エンジン:
+#   Gemini (無料):  Google AI Studio 無料枠で動作。主力。
+#   OpenAI (任意):  無料トライアルクレジット枠内のみ動作。
+#                   クレジット切れ後は graceful skip（run は失敗しない）。
+#   Perplexity:     廃止済み（無料 API 枠なし）。
+#
+# 必要な GitHub Secrets（Settings > Secrets > Actions）:
+#   GEMINI_API_KEY   — Google AI Studio で無料取得。必須。
+#   OPENAI_API_KEY   — 任意。無料クレジット切れ後は自動スキップ。
 #
 # ログ出力先: docs/evidence/aio-monitoring-log.json
-# 引用状況に変化があった場合: GitHub Issueで通知
-#
-# 必要なSecretsの設定（Settings > Secrets > Actions）:
-#   GEMINI_API_KEY      — Gemini API キー（無料・主力）
-#   PERPLEXITY_API_KEY  — Perplexity API キー（有料・任意）
-#   OPENAI_API_KEY      — OpenAI API キー（有料・任意）
-#   ※ いずれか1つあれば動作
+# 引用状況に変化があった場合: GitHub Issue で通知
 # ======================================================================
 
 on:
@@ -26,7 +27,7 @@ env:
 
 permissions:
   contents: write         # aio-monitoring-log.json をコミットするため
-  issues: write           # 変化検出時にIssueを作成するため
+  issues: write           # 変化検出時に Issue を作成するため
 
 jobs:
   monitor:
@@ -46,8 +47,8 @@ jobs:
         id: monitor
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # PERPLEXITY_API_KEY は廃止済み（無料枠なし）
         run: python3 .github/scripts/aio_monitoring.py
 
       # ── ログをコミット ─────────────────────────────────────────────────
@@ -63,7 +64,7 @@ jobs:
             git push
           fi
 
-      # ── 引用増加 → Issueで通知 ────────────────────────────────────────
+      # ── 引用増加 → Issue で通知 ───────────────────────────────────────
       - name: Notify citation increase
         if: steps.monitor.outputs.citation_change == 'increase'
         uses: actions/github-script@v7
@@ -87,7 +88,7 @@ jobs:
               labels: ['aio-monitoring', 'citation-increase'],
             });
 
-      # ── 引用減少 → Issueで通知 ────────────────────────────────────────
+      # ── 引用減少 → Issue で通知 ───────────────────────────────────────
       - name: Notify citation decrease
         if: steps.monitor.outputs.citation_change == 'decrease'
         uses: actions/github-script@v7
