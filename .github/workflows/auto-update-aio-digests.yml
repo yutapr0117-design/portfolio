@@ -32,18 +32,20 @@ on:
       - "ChatGPT2ChatGPT.md"
       - "docs/evidence/ai-pioneer-identity-review.md"
       - "docs/evidence/aio-monitoring-log.json"
+      - "docs/session-records/**"
+      - "docs/incident-artifacts/**"
   workflow_dispatch:
     # 手動トリガー — digestがズレていると疑われる場合に使用
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: write
 
 jobs:
   update-digests:
     runs-on: ubuntu-latest
-    env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
-permissions:
-      contents: write
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
