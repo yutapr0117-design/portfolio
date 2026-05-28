@@ -458,7 +458,7 @@ When output transitions between KERNEL roles (e.g., Creative Assets → Engineer
 2. **Orchestrator (human)** copies the output and prepends the AI2AI.md STEP 2 constraint table to the next prompt
 3. **Receiving agent** (e.g., Engineering Review role) MUST:
    - Explicitly state its ACTIVE_KERNEL_ROLE in the first line
-   - Reject any syntax or pattern that violates C1–C6 (React, Tailwind, global scope pollution, etc.)
+   - Reject any syntax or pattern that violates C1–C7 (React, Tailwind, global scope pollution, etc.)
    - Re-encode output strictly within IIFE encapsulation rules before delivering
    - If a prior agent produced React or Tailwind syntax, the receiving agent MUST discard it entirely and regenerate from scratch in Vanilla JS
 
@@ -485,7 +485,7 @@ Level 5 is reached when AI agents do not merely *read* the portfolio context but
 
 - **Agentic Context Resolution**: MCPクライアント（Claude Desktop, Cursor 等）が `.well-known/mcp.json` を自律的にディスカバリし、`llms-full.txt` および `AI2AI.md` を Resource として取得・解析できる状態
 - **Agentic Workflow Execution**: An AI agent, after reading the context, can autonomously execute bounded workflows — e.g., submitting an audit report, verifying constraint compliance, generating a session record — without requiring the human to manually copy-paste between systems
-- **Constraint-bounded autonomy**: All agentic actions remain within the C1–C6 constraint envelope. The agent self-validates against the Pre-flight Validation Checklist before any action is committed
+- **Constraint-bounded autonomy**: All agentic actions remain within the C1–C7 constraint envelope. The agent self-validates against the Pre-flight Validation Checklist before any action is committed
 
 ### Governance Checklist (Pre-merge, Human PM Review)
 
@@ -499,7 +499,7 @@ Before any AI-generated code or content is merged into production, the human PM 
 | G4 | ErrorBoundary integrity | View Transition API error handling remains intact. Graceful degradation path is preserved. |
 | G5 | Version/date consistency | `ai:version`, `ai:last-modified`, `SITE_CONFIG.VERSION`, `SITE_CONFIG.LAST_UPDATED`, `robots.txt` header date, and binary metadata dates are all synchronized. |
 | G6 | aria-busy state management | `#content` element transitions `aria-busy` true→false correctly on every route change. `data-ai-state` on `document.body` reflects current route and loading state. |
-| G7 | Binary Metadata Sync Check | バイナリアセット（WebP XMP / MP3 ID3）のメタデータは、Manus AIO最適化時（v73 / 2026-04-14）のベースラインを保持する。テキスト層のアプリケーションバージョン（現行: v74 / 2026-05-25）とバイナリ層のベースラインが異なることは **意図的**（P0-14 Asset Baseline Policy）。バイナリを再生成・リネームした場合のみバイナリ層の同期が必要。再エンコードなしのメタデータのみ更新は許可（XMP chunk / ID3 frames）。更新後は必ず `update_aio_digests.py` を再実行すること。 |
+| G7 | Binary Metadata Sync Check | バイナリアセット（WebP XMP / MP3 ID3）のメタデータは、Manus AIO最適化時（v73 / 2026-04-14）のベースラインを保持する。テキスト層のアプリケーションバージョン（現行: v74 / 2026-05-26）とバイナリ層のベースラインが異なることは **意図的**（P0-14 Asset Baseline Policy）。バイナリを再生成・リネームした場合のみバイナリ層の同期が必要。再エンコードなしのメタデータのみ更新は許可（XMP chunk / ID3 frames）。更新後は必ず `update_aio_digests.py` を再実行すること。 |
 
 ---
 

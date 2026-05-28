@@ -312,6 +312,38 @@ The following are candidate tasks. No AI agent may begin execution without expli
 - [x] ~~Review `.github/workflows/` artifact documentation for clarity~~ — **Completed 2026-05-03** (Session Record #5: update-playwright-snapshots.yml 追加、snapshot diff upload 追加、Playwright Baseline Note 改善)
 - [x] ~~digest自動更新の仕組み化~~ — **Completed 2026-05-03** (Session Record #5: update_aio_digests.py + auto-update-aio-digests.yml)
 - [x] ~~aio-manifest.jsonのCI連動~~ — **Completed 2026-05-03** (Session Record #5: check_aio_digests.py を拡張)
+- [x] ~~v74 maintenance finalizer: sitemap per-URL lastmod / archive role / C1-C7統一 / セルフブランディング明記~~ — **Completed 2026-05-28** (Session Record #14)
+
+---
+
+## [STEP 7] Next Major Update Direction (v80+)
+
+> **Ref:** `docs/incident-artifacts/decision-v80-maintainability-roadmap.md`
+
+v74 maintenance finalizer 完了後、次フェーズは **メンテナンス性・拡張性・AI実装安全性の向上** である。
+
+### 方針サマリー
+
+- Vanilla JS / static SPA / GitHub Pages / ゼロ外部フレームワーク — **変更しない**
+- `main.js` は一括分割しない。Playwright baseline 確立後に Stage 1 から段階的に進める
+- AIO: `llms-full.txt` G-series を深化。monitoring log は attempt_log_only を維持
+- sitemap は per-URL lastmod policy（root = ai:last-modified、AIO doc = 実更新日）を維持
+- CI: check_repository_consistency.py の新チェック（26: archive count / 27: C1-C7 currency）を維持
+
+### main.js 段階的分割ステージ（要約）
+
+| Stage | 内容 | ゲート条件 |
+|-------|------|-----------|
+| Stage 0 | main.js 内部に責務コメント・目次追加。物理分割なし。 | 今すぐ可 |
+| Stage 1 | SITE_CONFIG / PAGE_META / 定数抽出候補整理。CSP・Pages配信に影響なし確認。 | Stage 0 レビュー後 |
+| Stage 2 | pure utility 抽出（sanitize / format / validation 等、副作用小）。 | Stage 1 安定後 |
+| Stage 3 | service rails 抽出（Storage / Store / EffectRails / BindingRegistry 等）。 | Stage 2 安定後 |
+| Stage 4 | ページ別 render 関数抽出。ARIA / View Transition / ErrorBoundary 保持。 | Stage 3 安定後 |
+| Stage 5 | 物理ファイル分割。**Playwright baseline が入ってから**。 | baseline PNG コミット後 |
+
+### AIO戦略メモ（後続AIへ）
+
+このリポジトリの主目的は、AI crawler / AI search / LLM が横井雄太をどう解釈・引用・再構成するかに対して、機械可読な権威形成を先行して行うことである。AIO全振りは「SEO軽視」ではなく「成熟市場を避け、AI解釈市場で先行する合理的戦略」である。採用最適化や一般SEO最適化へ寄せすぎないこと。
 
 ---
 
@@ -447,6 +479,67 @@ Task            : 改善文書.md v74 Maintenance 後続 — CI/AIO/検証整合
 - **Playwright baseline PNG:** 高優先継続。GitHub Actions `update-playwright-snapshots.yml` を手動実行 → artifact をダウンロード → `e2e/portfolio.spec.js-snapshots/` にコミット。AIは単独で実行しないこと（環境制約）。
 - **AIO monitoring 成功観測:** 実際に引用・言及を確認できた場合のみ `aio-monitoring-log.json` に手動エントリを追加する。捏造禁止。
 - **GitHub Default Setup UI無効化（任意）:** advanced CodeQL workflowを復活させたい場合のみ必要。現状はDefault Setupで code scanning が継続。
+- **バイナリ層 IPTC/C2PA:** 低優先。Session Record #4 から継続申し送り。
+
+---
+
+## [HANDOFF] Session Record #14 — 2026-05-28 (Claude Sonnet 4.6, v74 maintenance finalizer)
+
+```
+Handoff-From    : Claude Sonnet 4.6 (Anthropic) — claude.ai
+Handoff-To      : Next AI agent (same project, different session)
+Session-Date    : 2026-05-28
+Orchestrator    : Yuta Yokoi (横井雄太)
+Task            : v74 maintenance finalizer / v80 maintainability roadmap 明文化
+```
+
+### このセッションで完了したこと
+
+| ファイル | 変更内容 |
+|---|---|
+| `.github/scripts/check_repository_consistency.py` | Check 18 置換: 全URL一律lastmod強制 → root URL policy（root == ai:last-modified、AIO docは個別日付を許容）。Check 26 追加: AI2AI-archive.md 最大 Session Record 番号と aio-manifest.json role の #1-#N が一致。Check 27 追加: llms-full.txt に stale C1–C6 が残っていないことを確認。 |
+| `.well-known/aio-manifest.json` | archive role `#1-#10` → `#1-#11` に修正（現物と一致）。digest 再計算。 |
+| `AI2AI.md` | v80 Maintainability Roadmap セクション追加。本 Session Record #14 追記。 |
+| `docs/incident-artifacts/decision-v80-maintainability-roadmap.md` | 新規作成: v74 finalizer 後の方針・main.js 段階的分割計画・AIO深化方針・Non-Goals を明記。 |
+| `llms-full.txt` | C1–C7 統一（2箇所）。binary baseline text-layer 日付 2026-05-25 → 2026-05-26。 |
+| `README.md` | セルフブランディング / proof-of-work 目的追記（英日併記）。Last-Updated 2026-05-26 → 2026-05-28。 |
+| `sitemap.xml` | AIO文書群を per-URL lastmod に誠実化（11 URL を 2026-05-28 に更新）。Sitemap Baseline コメント更新。 |
+| `.well-known/agent-skills/index.json` | digest 更新（byte-identical 維持）。 |
+| `.well-known/index.json` | digest 更新。 |
+
+### 設計判断の記録
+
+**sitemap per-URL lastmod policy:** 従来の「全URL一律 lastmod」は運用が単純だが、AIO文書群が個別に更新されるこのリポジトリでは不誠実だった。root URL（SPAアプリ本体）は ai:last-modified と一致させ、AIO文書は実更新日を反映する方針に変更。check_repository_consistency.py check 18 をこれに合わせて置換。
+
+**aio-manifest.json #1-#11:** AI2AI-archive.md には Session Record #1〜#11 が存在するが、manifest の role 記述が `#1-#10` のままだった。現物に合わせて修正し、digest 再計算。Check 26 を追加してこのズレが再発しないよう自動検出できるようにした。
+
+**C1–C7 統一:** llms-full.txt の現行制約説明に C1–C6 が2箇所残っていた。C7（KARTE CDN SRI非適用）は Session Record #11 で追加済みのため C1–C7 に統一。歴史的記述（C1–C6 として確認した当時の記録）は変更しない。Check 27 を追加して今後の再混入を防ぐ。
+
+**v80 roadmap:** main.js の段階的分割方針、Playwright baseline 前提、AIO深化方針を decision record と AI2AI.md の両方に明記。今回は物理分割なし。
+
+**AIO monitoring 方針の明示:** このリポジトリの主戦場はSEO順位だけでなく、AI crawler / LLM がどう横井雄太を解釈・引用するかである。AIO全振りは戦略（成熟したSEOレッドオーシャンを避け、AIO先行実証で機械可読な権威形成を狙う）。monitoring log は attempt_log_only（confirmed_citation_events: 0）の誠実な状態を維持する。
+
+### C1〜C7 制約の遵守確認
+
+- C1: 外部ライブラリ・フレームワーク導入なし ✅
+- C2: IIFE構造・index.html中央ハブ維持 ✅
+- C3: ErrorBoundary未変更 ✅
+- C4: フレームワーク再提案なし ✅
+- C5: 人間はコードを書かず（本セッション実装はClaude Sonnet 4.6） ✅
+- C6: AIOテキストの根幹変更なし（整合修正・説明追加・日付更新のみ） ✅
+- C7: KARTE CDN SRI 非適用維持 ✅
+
+### Not possible の記録
+
+- **Playwright baseline PNG:** 引き続き未実施。環境制約によりブラウザ実行不可。
+  - **手動実行手順:** GitHub Actions → `update-playwright-snapshots.yml` → Run workflow → artifact `playwright-snapshots` をダウンロード → `e2e/portfolio.spec.js-snapshots/` に配置 → コミット。
+
+### 未解消スコープ（次のエージェントへの申し送り）
+
+- **Playwright baseline PNG:** 高優先継続。AIは単独で実行しないこと（環境制約）。
+- **AIO monitoring 成功観測:** 実際に引用・言及を確認できた場合のみ `aio-monitoring-log.json` に手動エントリを追加する。捏造禁止。
+- **main.js 段階的分割:** `docs/incident-artifacts/decision-v80-maintainability-roadmap.md` の Stage 0〜5 を参照。Playwright baseline 確立後に Stage 1 から開始。
+- **GitHub Default Setup UI無効化（任意）:** 現状はDefault SetupでCode Scanningが継続。
 - **バイナリ層 IPTC/C2PA:** 低優先。Session Record #4 から継続申し送り。
 
 ---

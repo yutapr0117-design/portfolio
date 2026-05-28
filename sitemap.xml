@@ -60,13 +60,13 @@
   <!-- Crawl budget should be prioritized here; these prevent LLM hallucination about Yuta Yokoi (横井雄太) -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/llms.txt</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -86,21 +86,21 @@
   <!-- AIO Asset Manifest — machine-readable source-of-truth for canonical AIO assets and SHA-256 digests -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- AI2AI.md — model-agnostic AI-to-AI pipeline handoff (Tier 1 canonical) -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/AI2AI.md</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <!-- Supporting Evidence: Claude2Claude.md — tool-specific AI-only implementation continuity evidence (non-canonical) -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/Claude2Claude.md</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -126,13 +126,13 @@
   </url>
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/.well-known/index.json</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/.well-known/agent-skills/index.json</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -144,28 +144,28 @@
   </url>
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/ChatGPT2ChatGPT.md</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/docs/evidence/aio-monitoring-log.json</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.4</priority>
   </url>
-  <!-- Current Sitemap Baseline (v74): 2026-05-26 — v74 consistency hardening -->
+  <!-- Current Sitemap Baseline (v74): 2026-05-26 (app) / 2026-05-28 (AIO docs) — v74 maintenance finalizer: per-URL lastmod policy -->
   <!-- .well-known/llms.txt — project-scoped AIO discovery, byte-identical alias of llms.txt -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/.well-known/llms.txt</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- README.md — human + AI readable project overview -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/README.md</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
