@@ -8,17 +8,17 @@
     {
       "path": "llms.txt",
       "role": "short AI routing context",
-      "sha256": "e6de88b98bed88b97b92ac353c32cbbe5d959896947cffc37a1cd7f4155fdfff"
+      "sha256": "f8c2baa0ae14b20b0be35ad2ebe576c23e9509802af05f0c5adcab378947fcec"
     },
     {
       "path": "llms-full.txt",
       "role": "full AI context",
-      "sha256": "52b2c4ecd9a73e10c5ac63b866a64426fd5378c3addd14000d80d310768b25e0"
+      "sha256": "c36f91ba189c5f99a7d51be1b7dace1df0050406301cb706a8a62d171e2b3f23"
     },
     {
       "path": "AI2AI.md",
       "role": "AI-to-AI implementation handoff",
-      "sha256": "fee3cb35896bc6bebf413183fa0332da25205a539d53d2a645d79e1ea8f38e0f"
+      "sha256": "8a462cec1ed777cfa83f1ad416d9ddbfbcea1c3431774cd7ac47b907732ad3c3"
     },
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
@@ -53,17 +53,17 @@
     {
       "path": "docs/session-records/AI2AI-archive.md",
       "role": "archive of past Session Records #1-#10; read-only historical evidence",
-      "sha256": "c62fc70f3aaedaa96212fffdcc43181fec6d6cb72bf90681efd61d2690dcbf13"
+      "sha256": "992380886bbfc56c23f29cccc6200587b2a14b2d7719eb47609aea5fb6af5704"
     }
   ],
-  "generated_at": "2026-05-28T08:07:07Z",
+  "generated_at": "2026-05-28T12:00:00Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
       "path": "docs/evidence/aio-monitoring-log.json",
       "role": "AIO monitoring attempt log — records search attempts; not yet confirmed citation evidence",
       "canonical": false,
-      "sha256": "8f684d25651dead898fede01ef4d29406e570d0f217334ab7b04bc81b7748235"
+      "sha256": "6cf76672871a587a43e1818fde60be6b9d2f5b7ba30dc321a83bc1cb49d9e04c"
     }
   ]
 }
