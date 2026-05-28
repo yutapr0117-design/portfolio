@@ -16,6 +16,7 @@ Checks performed:
   9.  sitemap.xml is valid XML
   10. All .github/scripts/*.py parse without syntax errors
   11. aio_monitoring.py summary dict contains 'enabled_engines' and 'total_cited_count'
+  23. .github/workflows/*.yml and dependabot.yml parse without YAML syntax errors
 
 Exit codes:
   0 — all checks passed
@@ -345,6 +346,29 @@ check(
     f"AI2AI.md Session Record headers are in ascending order: {record_nums}",
     f"AI2AI.md Session Record headers out of order: {record_nums}",
 )
+
+
+# ── 23. YAML syntax: .github/workflows/*.yml and dependabot.yml ───────────────
+try:
+    import yaml as _yaml
+    yaml_targets = list((ROOT / ".github" / "workflows").glob("*.yml"))
+    dep_yml = ROOT / ".github" / "dependabot.yml"
+    if dep_yml.exists():
+        yaml_targets.append(dep_yml)
+    yaml_errors = []
+    for ypath in sorted(yaml_targets):
+        try:
+            _yaml.safe_load(ypath.read_text(encoding="utf-8"))
+        except Exception as ye:
+            yaml_errors.append(f"{ypath.name}: {ye}")
+    check(
+        len(yaml_errors) == 0,
+        f"All GitHub Actions YAML files parse successfully ({len(yaml_targets)} files)",
+        "YAML parse errors: " + "; ".join(yaml_errors),
+    )
+except ImportError:
+    print("WARNING: PyYAML not available — YAML syntax check skipped")
+    warnings.append("PyYAML not available — YAML syntax check skipped")
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
