@@ -1,25 +1,33 @@
 """
-aio_monitoring.py — AIO Effect Monitoring Script
+aio_monitoring.py — AIO Effect Monitoring Script (free-tier edition)
 
 複数のAIシステムに対してクエリを実行し、
 Yuta Yokoi (横井雄太) のポートフォリオが引用・言及されているかを検出する。
 
-対応API:
-  - Gemini API (gemini-2.0-flash + Google Search grounding — 無料枠あり・主力)
-  - Perplexity API (sonar model — web検索付き・有料)
-  - OpenAI API (gpt-4o-search-preview — web検索付き・有料)
+【無料枠前提の対応エンジン】
+  Gemini API (gemini-2.0-flash + Google Search grounding)
+    Google AI Studio 無料枠: 15 RPM / 1500 RPD
+    クレジットカード不要。長期的に安定して利用可能。主力。
 
-出力:
-  docs/evidence/aio-monitoring-log.json に追記
+  OpenAI API (gpt-4o-mini)
+    無料トライアル: アカウント作成時の $5 クレジット（有効期限あり）
+    クレジット消費後は quota エラーになる。graceful skip で run は失敗しない。
+    OPENAI_API_KEY が設定されていても quota 切れなら自動スキップ。
+
+【廃止済みエンジン】
+  Perplexity API: 無料 API 枠なし。Key 取得不可のため廃止。
+
+出力: docs/evidence/aio-monitoring-log.json に追記
 
 Exit codes:
   0 — 実行完了（引用なしでも正常終了）
-  1 — API設定エラーまたは実行失敗
+  1 — 有効な API キーが1つも設定されていない
 """
 
 import json
 import os
 import sys
+import time
 import urllib.request
 import urllib.error
 from datetime import datetime, timezone
@@ -47,7 +55,22 @@ QUERIES = [
 
 OUTPUT_PATH = Path("docs/evidence/aio-monitoring-log.json")
 
-# ── API呼び出しユーティリティ ───────────────────────────────────────────────
+# OpenAI の quota 切れ・無料枠なしを示すエラーパターン（graceful skip 対象）
+OPENAI_QUOTA_PATTERNS = (
+    "insufficient_quota",
+    "exceeded your current quota",
+    "billing",
+    "no credits",
+    "credit balance",
+    "rate limit",
+    "free tier",
+    "429",
+)
+
+# Gemini クエリ間の待機時間（無料枠 15 RPM 対応。4秒 = 15RPM の安全マージン付き）
+GEMINI_INTER_QUERY_SLEEP = 5  # seconds
+
+# ── API呼び出しユーティリティ ──────────────────────────────────────────────
 
 def post_json(url: str, headers: dict, body: dict) -> dict:
     data = json.dumps(body).encode("utf-8")
@@ -57,10 +80,10 @@ def post_json(url: str, headers: dict, body: dict) -> dict:
             return json.loads(resp.read().decode("utf-8"))
     except urllib.error.HTTPError as e:
         try:
-            body = e.read().decode("utf-8")
-            return {"error": f"HTTP {e.code}: {e.reason} — {body[:300]}"}
+            err_body = e.read().decode("utf-8")
+            return {"error": f"HTTP {e.code}: {e.reason} — {err_body[:400]}", "http_code": e.code}
         except Exception:
-            return {"error": f"HTTP {e.code}: {e.reason}"}
+            return {"error": f"HTTP {e.code}: {e.reason}", "http_code": e.code}
     except Exception as e:
         return {"error": str(e)}
 
@@ -77,46 +100,13 @@ def detect_signals(text: str) -> dict:
     }
 
 
-# ── Perplexity ─────────────────────────────────────────────────────────────
-
-def query_perplexity(query: str, api_key: str) -> dict:
-    result = post_json(
-        "https://api.perplexity.ai/chat/completions",
-        {
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-        },
-        {
-            "model": "sonar",
-            "messages": [{"role": "user", "content": query}],
-            "max_tokens": 800,
-        },
-    )
-
-    if "error" in result:
-        return {"status": "error", "detail": result["error"]}
-
-    try:
-        content = result["choices"][0]["message"]["content"]
-        citations = result.get("citations", [])
-        signals = detect_signals(content + " " + " ".join(citations))
-        return {
-            "status": "ok",
-            "response_excerpt": content[:300],
-            "citations": citations,
-            **signals,
-        }
-    except (KeyError, IndexError) as e:
-        return {"status": "parse_error", "detail": str(e)}
-
-
-# ── Gemini ─────────────────────────────────────────────────────────────────
+# ── Gemini（主力・無料）─────────────────────────────────────────────────────
 
 def query_gemini(query: str, api_key: str) -> dict:
     """Gemini 2.0 Flash + Google Search grounding（無料枠）でクエリを実行する。"""
     url = (
-        f"https://generativelanguage.googleapis.com/v1beta/models/"
-        f"gemini-2.0-flash:generateContent?key={api_key}"
+        "https://generativelanguage.googleapis.com/v1beta/models/"
+        "gemini-2.0-flash:generateContent?key=" + api_key
     )
     body = {
         "contents": [{"parts": [{"text": query}], "role": "user"}],
@@ -125,14 +115,11 @@ def query_gemini(query: str, api_key: str) -> dict:
     result = post_json(url, {"Content-Type": "application/json"}, body)
 
     if "error" in result:
-        return {"status": "error", "detail": result["error"]}
+        return {"status": "error", "detail": result["error"], "cited": False, "signals_found": []}
 
     try:
         candidate = result["candidates"][0]
-        text = "".join(
-            p.get("text", "") for p in candidate["content"]["parts"]
-        )
-        # groundingChunks からURLを収集
+        text = "".join(p.get("text", "") for p in candidate["content"]["parts"])
         grounding = candidate.get("groundingMetadata", {})
         cited_urls = [
             chunk["web"]["uri"]
@@ -149,57 +136,53 @@ def query_gemini(query: str, api_key: str) -> dict:
             **signals,
         }
     except (KeyError, IndexError) as e:
-        return {"status": "parse_error", "detail": str(e)}
+        return {"status": "parse_error", "detail": str(e), "cited": False, "signals_found": []}
 
 
-# ── OpenAI ─────────────────────────────────────────────────────────────────
+# ── OpenAI（任意・無料クレジット枠内のみ）────────────────────────────────────
 
-def _call_openai(api_key: str, body: dict) -> dict:
-    return post_json(
-        "https://api.openai.com/v1/chat/completions",
-        {
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-        },
-        body,
-    )
+def _is_openai_quota_error(error_text: str) -> bool:
+    lower = error_text.lower()
+    return any(pat in lower for pat in OPENAI_QUOTA_PATTERNS)
+
 
 def query_openai(query: str, api_key: str) -> dict:
-    # 試行順: search-preview → tools形式 → gpt-4o(フォールバック)
-    attempts = [
-        {"model": "gpt-4o-search-preview",
-         "messages": [{"role": "user", "content": query}],
-         "max_tokens": 800},
-        {"model": "gpt-4o",
-         "tools": [{"type": "web_search_preview"}],
-         "messages": [{"role": "user", "content": query}],
-         "max_tokens": 800},
-        {"model": "gpt-4o",
-         "messages": [{"role": "user", "content": query}],
-         "max_tokens": 800},
-    ]
+    """
+    gpt-4o-mini（最安値モデル）でクエリを実行する。
+    quota 切れ / billing エラーの場合は graceful skip を返す。
+    run 全体を失敗させない。
+    """
+    result = post_json(
+        "https://api.openai.com/v1/chat/completions",
+        {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+        {
+            "model": "gpt-4o-mini",
+            "messages": [{"role": "user", "content": query}],
+            "max_tokens": 600,
+        },
+    )
 
-    last_error = None
-    for body in attempts:
-        result = _call_openai(api_key, body)
-        if "error" in result:
-            last_error = result["error"]
-            print(f"    [OpenAI] model={body['model']} error: {last_error[:120]}")
-            continue
-        try:
-            content = result["choices"][0]["message"]["content"]
-            signals = detect_signals(content)
+    if "error" in result:
+        err = result["error"]
+        if _is_openai_quota_error(err):
             return {
-                "status": "ok",
-                "model_used": body["model"],
-                "response_excerpt": content[:300],
-                **signals,
+                "status": "free_tier_exhausted",
+                "detail": "OpenAI free tier credits exhausted or billing required. Graceful skip.",
+                "cited": False,
+                "signals_found": [],
             }
-        except (KeyError, IndexError) as e:
-            last_error = str(e)
-            continue
+        return {"status": "error", "detail": err, "cited": False, "signals_found": []}
 
-    return {"status": "error", "detail": last_error}
+    try:
+        content = result["choices"][0]["message"]["content"]
+        return {
+            "status": "ok",
+            "model_used": "gpt-4o-mini",
+            "response_excerpt": content[:300],
+            **detect_signals(content),
+        }
+    except (KeyError, IndexError) as e:
+        return {"status": "parse_error", "detail": str(e), "cited": False, "signals_found": []}
 
 
 # ── ログ管理 ───────────────────────────────────────────────────────────────
@@ -211,7 +194,7 @@ def load_log() -> dict:
                 return json.load(f)
         except json.JSONDecodeError:
             pass
-    return {"runs": []}
+    return {"schema_version": "1.0", "runs": []}
 
 
 def save_log(log: dict) -> None:
@@ -220,56 +203,49 @@ def save_log(log: dict) -> None:
         json.dump(log, f, ensure_ascii=False, indent=2)
 
 
-def get_previous_citation_status(log: dict) -> dict | None:
-    """直前のrunの引用状況サマリーを返す"""
+def get_previous_citation_status(log: dict):
     if not log["runs"]:
         return None
-    last = log["runs"][-1]
-    return last.get("summary", {})
+    return log["runs"][-1].get("summary", {})
+
+
+# ── 変化検出 ──────────────────────────────────────────────────────────────
+
+def emit_citation_change(github_output, total_cited: int, prev_total: int) -> None:
+    if total_cited > prev_total:
+        print(f"::notice::AIO CITATION INCREASE: {prev_total} -> {total_cited}")
+        tag, delta = "increase", total_cited - prev_total
+    elif total_cited < prev_total:
+        print(f"::warning::AIO CITATION DECREASE: {prev_total} -> {total_cited}")
+        tag, delta = "decrease", prev_total - total_cited
+    else:
+        tag, delta = "none", 0
+
+    if github_output:
+        with open(github_output, "a") as f:
+            f.write(f"citation_change={tag}\n")
+            f.write(f"citation_delta={delta}\n")
 
 
 # ── メイン ─────────────────────────────────────────────────────────────────
 
-def _emit_citation_change(github_output: str | None, total_cited: int, prev_total: int) -> None:
-    """Emit citation change signals to stdout and GitHub Actions output."""
-    if total_cited > prev_total:
-        print(f"::notice::AIO CITATION INCREASE: {prev_total} → {total_cited}")
-        if github_output:
-            with open(github_output, "a") as f:
-                f.write(f"citation_change=increase\n")
-                f.write(f"citation_delta={total_cited - prev_total}\n")
-    elif total_cited < prev_total:
-        print(f"::warning::AIO CITATION DECREASE: {prev_total} → {total_cited}")
-        if github_output:
-            with open(github_output, "a") as f:
-                f.write(f"citation_change=decrease\n")
-                f.write(f"citation_delta={prev_total - total_cited}\n")
-    else:
-        if github_output:
-            with open(github_output, "a") as f:
-                f.write(f"citation_change=none\n")
-                f.write(f"citation_delta=0\n")
-
-
 def main() -> None:
-    gemini_key = os.environ.get("GEMINI_API_KEY", "")
-    perplexity_key = os.environ.get("PERPLEXITY_API_KEY", "")
-    openai_key = os.environ.get("OPENAI_API_KEY", "")
+    gemini_key = os.environ.get("GEMINI_API_KEY", "").strip()
+    openai_key = os.environ.get("OPENAI_API_KEY", "").strip()
+    # Perplexity は無料枠なし・廃止済み（PERPLEXITY_API_KEY は読まない）
 
-    if not gemini_key and not perplexity_key and not openai_key:
+    if not gemini_key and not openai_key:
         print("::error::AIO Monitoring: No API keys configured.")
-        print("::error::Set GEMINI_API_KEY, PERPLEXITY_API_KEY, or OPENAI_API_KEY in GitHub Secrets.")
+        print("::error::GEMINI_API_KEY を GitHub Secrets に設定してください（Google AI Studio 無料）。")
         sys.exit(1)
 
     log = load_log()
     previous_status = get_previous_citation_status(log)
-
     timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
     enabled_engines = []
     if gemini_key:
         enabled_engines.append("gemini")
-    if perplexity_key:
-        enabled_engines.append("perplexity")
     if openai_key:
         enabled_engines.append("openai")
 
@@ -279,119 +255,111 @@ def main() -> None:
         "summary": {
             "enabled_engines": enabled_engines,
             "gemini_cited_count": 0,
-            "perplexity_cited_count": 0,
             "openai_cited_count": 0,
+            "openai_skipped_quota": 0,
             "total_cited_count": 0,
             "total_queries": len(QUERIES),
+            "note": "perplexity removed (no free tier available)",
         },
     }
 
     print(f"=== AIO Monitoring Run: {timestamp} ===")
-    print(f"Queries: {len(QUERIES)}  |  Gemini: {'enabled' if gemini_key else 'skip'}  |  Perplexity: {'enabled' if perplexity_key else 'skip'}  |  OpenAI: {'enabled' if openai_key else 'skip'}")
+    print(
+        f"Gemini: {'enabled' if gemini_key else 'skip (no key)'}  |  "
+        f"OpenAI: {'enabled (free-tier credits)' if openai_key else 'skip (no key)'}  |  "
+        f"Perplexity: removed"
+    )
     print("")
 
-    for query in QUERIES:
-        print(f"Query: {query}")
+    for i, query in enumerate(QUERIES):
+        print(f"[{i+1}/{len(QUERIES)}] {query}")
         query_record = {"query": query, "results": {}}
 
         if gemini_key:
+            if i > 0:
+                time.sleep(GEMINI_INTER_QUERY_SLEEP)  # 無料枠レート制限対応
             gr = query_gemini(query, gemini_key)
             query_record["results"]["gemini"] = gr
             if gr.get("cited"):
                 run_record["summary"]["gemini_cited_count"] += 1
-                print(f"  Gemini: CITED — {gr.get('signals_found', [])} urls={gr.get('cited_urls', [])}")
+                print(f"  Gemini: CITED — signals={gr.get('signals_found')} urls={gr.get('cited_urls', [])}")
+            elif gr.get("status") == "error":
+                print(f"  Gemini: ERROR — {str(gr.get('detail', ''))[:120]}")
             else:
-                detail = gr.get("detail", "")
-                print(f"  Gemini: not cited (status={gr.get('status')} detail={str(detail)[:80]})")
-
-        if perplexity_key:
-            pr = query_perplexity(query, perplexity_key)
-            query_record["results"]["perplexity"] = pr
-            if pr.get("cited"):
-                run_record["summary"]["perplexity_cited_count"] += 1
-                print(f"  Perplexity: CITED — {pr.get('signals_found', [])}")
-            else:
-                print(f"  Perplexity: not cited (status={pr.get('status')})")
+                print(f"  Gemini: not cited (status={gr.get('status')})")
 
         if openai_key:
             or_ = query_openai(query, openai_key)
             query_record["results"]["openai"] = or_
-            if or_.get("cited"):
+            if or_.get("status") == "free_tier_exhausted":
+                run_record["summary"]["openai_skipped_quota"] += 1
+                print("  OpenAI: free tier exhausted — graceful skip")
+            elif or_.get("cited"):
                 run_record["summary"]["openai_cited_count"] += 1
-                print(f"  OpenAI: CITED — {or_.get('signals_found', [])}")
+                print(f"  OpenAI: CITED — signals={or_.get('signals_found')}")
+            elif or_.get("status") == "error":
+                print(f"  OpenAI: ERROR — {str(or_.get('detail', ''))[:120]}")
             else:
-                detail = or_.get("detail", "")
-                model = or_.get("model_used", "")
-                print(f"  OpenAI: not cited (status={or_.get('status')} model={model} detail={detail[:80]})")
+                print(f"  OpenAI: not cited (status={or_.get('status')})")
 
         run_record["queries"].append(query_record)
 
-    # ── total_cited_count を計算してから save_log する (P0-08 fix) ──────────
+    # total_cited_count を計算してから save_log する
     s = run_record["summary"]
-    total_cited = s["gemini_cited_count"] + s["perplexity_cited_count"] + s["openai_cited_count"]
-    s["total_cited_count"] = total_cited
+    s["total_cited_count"] = s["gemini_cited_count"] + s["openai_cited_count"]
 
     log["runs"].append(run_record)
     save_log(log)
 
-    # ── 変化検出（GitHub Actions output） ─────────────────────────────────
-
-    print("")
-    print(f"=== Summary ===")
+    # サマリー
+    print("\n=== Summary ===")
     if gemini_key:
-        print(f"Gemini cited:     {s['gemini_cited_count']}/{s['total_queries']}")
-    print(f"Perplexity cited: {s['perplexity_cited_count']}/{s['total_queries']}")
-    print(f"OpenAI cited:     {s['openai_cited_count']}/{s['total_queries']}")
+        print(f"Gemini cited:   {s['gemini_cited_count']}/{s['total_queries']}")
+    if openai_key:
+        sk = s["openai_skipped_quota"]
+        if sk == len(QUERIES):
+            print(f"OpenAI:         free tier exhausted (all {sk} queries skipped)")
+        else:
+            print(f"OpenAI cited:   {s['openai_cited_count']}/{s['total_queries']}"
+                  + (f" ({sk} skipped quota)" if sk else ""))
+    print(f"Total cited:    {s['total_cited_count']}/{s['total_queries']}")
 
-    # GitHub Actions の job summary に出力
-    summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
-    if summary_path:
-        with open(summary_path, "a", encoding="utf-8") as f:
+    # GitHub Step Summary
+    step_summary = os.environ.get("GITHUB_STEP_SUMMARY")
+    if step_summary:
+        with open(step_summary, "a", encoding="utf-8") as f:
             f.write(f"## AIO Monitoring — {timestamp}\n\n")
-            f.write(f"| AI | 引用クエリ数 / 全クエリ数 |\n|---|---|\n")
+            f.write("| AI | 結果 |\n|---|---|\n")
             if gemini_key:
-                f.write(f"| Gemini | {s['gemini_cited_count']} / {s['total_queries']} |\n")
-            if perplexity_key:
-                f.write(f"| Perplexity | {s['perplexity_cited_count']} / {s['total_queries']} |\n")
+                f.write(f"| Gemini (free tier) | {s['gemini_cited_count']} / {s['total_queries']} |\n")
             if openai_key:
-                f.write(f"| OpenAI | {s['openai_cited_count']} / {s['total_queries']} |\n")
+                sk = s["openai_skipped_quota"]
+                if sk == len(QUERIES):
+                    f.write("| OpenAI | free tier 枠切れ（スキップ） |\n")
+                else:
+                    f.write(f"| OpenAI (free credits) | {s['openai_cited_count']} / {s['total_queries']} |\n")
+            f.write("| Perplexity | 廃止（無料枠なし） |\n")
 
-    # 変化があればGitHub Actionsで警告出力（Issue作成はワークフロー側で行う）
+    # 変化検出
+    github_output = os.environ.get("GITHUB_OUTPUT")
     if previous_status:
-        previous_engines = previous_status.get("enabled_engines")
-        current_engines = enabled_engines
-
-        # If engine configuration changed (e.g., Gemini newly added), suppress simple delta comparison
-        if previous_engines is not None and set(previous_engines) != set(current_engines):
-            print(f"::notice::AIO MONITORING: Engine configuration changed: {previous_engines} → {current_engines}")
-            github_output = os.environ.get("GITHUB_OUTPUT")
+        prev_engines = previous_status.get("enabled_engines")
+        if prev_engines is not None and set(prev_engines) != set(enabled_engines):
+            print(f"::notice::Engine configuration changed: {prev_engines} -> {enabled_engines}")
             if github_output:
                 with open(github_output, "a") as f:
-                    f.write(f"citation_change=configuration_changed\n")
-                    f.write(f"citation_delta=0\n")
-        elif previous_engines is None:
-            # Legacy log without enabled_engines — estimate from present keys
-            prev_total = (
-                previous_status.get("gemini_cited_count", 0)
-                + previous_status.get("perplexity_cited_count", 0)
-                + previous_status.get("openai_cited_count", 0)
-            )
-            if prev_total == 0 and "gemini_cited_count" not in previous_status:
-                # Very old log: only perplexity/openai recorded
-                print(f"::notice::AIO MONITORING: Previous run used legacy schema (no enabled_engines). Comparison skipped (previous_schema_legacy).")
-                github_output = os.environ.get("GITHUB_OUTPUT")
-                if github_output:
-                    with open(github_output, "a") as f:
-                        f.write(f"citation_change=previous_schema_legacy\n")
-                        f.write(f"citation_delta=0\n")
-            else:
-                _emit_citation_change(github_output=os.environ.get("GITHUB_OUTPUT"), total_cited=total_cited, prev_total=prev_total)
+                    f.write("citation_change=configuration_changed\n")
+                    f.write("citation_delta=0\n")
         else:
-            # Same engine set: safe to compare
-            prev_total = sum(
-                previous_status.get(f"{e}_cited_count", 0) for e in current_engines
-            )
-            _emit_citation_change(github_output=os.environ.get("GITHUB_OUTPUT"), total_cited=total_cited, prev_total=prev_total)
+            # OpenAI が全スキップの場合は比較対象から除外
+            all_openai_skipped = s.get("openai_skipped_quota", 0) == len(QUERIES)
+            comparable = [e for e in enabled_engines if not (e == "openai" and all_openai_skipped)]
+            prev_total = sum(previous_status.get(f"{e}_cited_count", 0) for e in comparable)
+            emit_citation_change(github_output, s["total_cited_count"], prev_total)
+    else:
+        if github_output:
+            with open(github_output, "a") as f:
+                f.write("citation_change=none\ncitation_delta=0\n")
 
     print("Log saved to docs/evidence/aio-monitoring-log.json")
 
