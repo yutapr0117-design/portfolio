@@ -474,5 +474,16 @@
         "total_cited_count": 0
       }
     }
-  ]
+  ],
+  "status_values": {
+    "cited": "AI response explicitly cited or surfaced the portfolio URL/source.",
+    "not_cited": "AI responded but did not cite the portfolio.",
+    "error": "API error, timeout, quota, or unavailable engine.",
+    "unknown": "Legacy run with insufficient status data."
+  },
+  "evidence_policy": {
+    "current_status": "attempt_log_only",
+    "confirmed_citation_events": 0,
+    "do_not_interpret_as": "proof of AIO success"
+  }
 }
