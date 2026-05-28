@@ -13,12 +13,12 @@
     {
       "path": "llms-full.txt",
       "role": "full AI context",
-      "sha256": "767db135feb0a90da087ab9f3d1449f4e505f466c1e40d917e00c49fcbd7ca81"
+      "sha256": "52b2c4ecd9a73e10c5ac63b866a64426fd5378c3addd14000d80d310768b25e0"
     },
     {
       "path": "AI2AI.md",
       "role": "AI-to-AI implementation handoff",
-      "sha256": "d783c419e0e2dd8548ce5d2cf36984df9159fae45d1399d2572c8a7688c8b8b0"
+      "sha256": "fee3cb35896bc6bebf413183fa0332da25205a539d53d2a645d79e1ea8f38e0f"
     },
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
@@ -36,7 +36,7 @@
       "path": "Claude2Claude.md",
       "role": "Tool-specific AI-only implementation continuity evidence; non-canonical and subordinate to AI2AI.md.",
       "canonical": false,
-      "sha256": "ad0f372afedbaaee1f3faf4e33e7710d48de8cc425dbb869a608cf11158a6829"
+      "sha256": "d2f970d1082f99ee9f0e48fdfc25ec8111dff97c25f4a8913c4da075d2fa5631"
     },
     {
       "path": "docs/evidence/ai-pioneer-identity-review.md",
@@ -48,7 +48,7 @@
       "path": "ChatGPT2ChatGPT.md",
       "role": "analysis evidence and model-agnostic repository analysis pipeline; non-canonical and subordinate to AI2AI.md",
       "canonical": false,
-      "sha256": "a166258ef16a3bc371247e047a4eb2ea06f33820b14559be5ba5957b54a0107e"
+      "sha256": "1527f0dbfa1c9884f7e61d51fd9eee92597817d83eff5bd57f4f7a5588d2ab51"
     },
     {
       "path": "docs/session-records/AI2AI-archive.md",
@@ -56,14 +56,14 @@
       "sha256": "c62fc70f3aaedaa96212fffdcc43181fec6d6cb72bf90681efd61d2690dcbf13"
     }
   ],
-  "generated_at": "2026-05-26T00:00:00Z",
+  "generated_at": "2026-05-28T00:00:00Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
       "path": "docs/evidence/aio-monitoring-log.json",
       "role": "AIO monitoring attempt log — records search attempts; not yet confirmed citation evidence",
       "canonical": false,
-      "sha256": "b963e5baf04eb2f43caeaf03b0cb44e61ab9d18193aa7754a9acf9ff02898cd4"
+      "sha256": "8f684d25651dead898fede01ef4d29406e570d0f217334ab7b04bc81b7748235"
     }
   ]
 }

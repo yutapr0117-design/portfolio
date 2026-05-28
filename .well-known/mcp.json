@@ -15,7 +15,7 @@
   "prompts": [
     {
       "name": "audit_architecture_constraints",
-      "description": "AI2AI.md に定義されたアーキテクチャ制約（C1–C6: Vanilla JS / IIFE / ErrorBoundary / External Framework Independent / App Logic External Library Independent 等）を自動評価するためのプロンプトテンプレートを展開します。受け取ったコードが制約に準拠しているか検証し、違反が検出された場合は Violation Audit Log を出力します。",
+      "description": "AI2AI.md に定義されたアーキテクチャ制約（C1–C7: Vanilla JS / IIFE / ErrorBoundary / External Framework Independent / App Logic External Library Independent 等）を自動評価するためのプロンプトテンプレートを展開します。受け取ったコードが制約に準拠しているか検証し、違反が検出された場合は Violation Audit Log を出力します。",
       "arguments": [
         {
           "name": "code_snippet",
