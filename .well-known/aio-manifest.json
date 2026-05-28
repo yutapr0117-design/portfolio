@@ -13,12 +13,12 @@
     {
       "path": "llms-full.txt",
       "role": "full AI context",
-      "sha256": "c36f91ba189c5f99a7d51be1b7dace1df0050406301cb706a8a62d171e2b3f23"
+      "sha256": "90e0f5863a567ac94df639da6f115aa8baeafb8d5c2ed40dcc956198081127ea"
     },
     {
       "path": "AI2AI.md",
       "role": "AI-to-AI implementation handoff",
-      "sha256": "8a462cec1ed777cfa83f1ad416d9ddbfbcea1c3431774cd7ac47b907732ad3c3"
+      "sha256": "2f502f0b55eb4dfefd42cfd6ac34919a5ac6cf869da16af6b8a80cc48e27dcac"
     },
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
@@ -52,11 +52,11 @@
     },
     {
       "path": "docs/session-records/AI2AI-archive.md",
-      "role": "archive of past Session Records #1-#10; read-only historical evidence",
+      "role": "archive of past Session Records #1-#11; read-only historical evidence",
       "sha256": "992380886bbfc56c23f29cccc6200587b2a14b2d7719eb47609aea5fb6af5704"
     }
   ],
-  "generated_at": "2026-05-28T13:27:40Z",
+  "generated_at": "2026-05-28T22:16:51Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
