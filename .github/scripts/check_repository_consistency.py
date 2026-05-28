@@ -268,24 +268,32 @@ check(
     f"Date sync mismatch: index.html ai:last-modified={html_date}, main.js LAST_UPDATED={mainjs_date}",
 )
 
-# ── 18. sitemap.xml: all <lastmod> are the same date ─────────────────────────
+# ── 18. sitemap.xml: root <lastmod> == ai:last-modified (per-URL policy) ──────
+# Policy (v74 maintenance finalizer):
+#   - Root URL (/): lastmod MUST match ai:last-modified / SITE_CONFIG.LAST_UPDATED
+#   - AIO document URLs: lastmod may reflect their own update date (honest per-URL)
+#   - Binary asset URLs: lastmod may follow asset baseline policy (intentional lag)
+#   - Mixed dates across the sitemap are ALLOWED and expected after AIO doc updates
 try:
     sitemap_tree = ET.parse(ROOT / "sitemap.xml")
     ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-    lastmods = [el.text for el in sitemap_tree.findall(".//sm:lastmod", ns) if el.text]
-    unique_dates = set(lastmods)
-    check(
-        len(unique_dates) <= 1,
-        f"sitemap.xml: all <lastmod> are the same date ({unique_dates.pop() if unique_dates else 'N/A'})",
-        f"sitemap.xml: mixed <lastmod> dates found: {sorted(unique_dates)}",
-    )
-    if html_date and lastmods:
-        sitemap_date = lastmods[0]
+    CANONICAL_ROOT = "https://yutapr0117-design.github.io/portfolio/"
+    root_lastmod: str | None = None
+    for url_el in sitemap_tree.findall(".//sm:url", ns):
+        loc_el = url_el.find("sm:loc", ns)
+        lastmod_el = url_el.find("sm:lastmod", ns)
+        if loc_el is not None and lastmod_el is not None:
+            if loc_el.text and loc_el.text.rstrip("/") == CANONICAL_ROOT.rstrip("/"):
+                root_lastmod = lastmod_el.text
+                break
+    if html_date and root_lastmod is not None:
         check(
-            sitemap_date == html_date,
-            f"sitemap.xml <lastmod> ({sitemap_date}) == ai:last-modified ({html_date})",
-            f"Date sync: sitemap.xml <lastmod>={sitemap_date} vs ai:last-modified={html_date}",
+            root_lastmod == html_date,
+            f"sitemap.xml root <lastmod> ({root_lastmod}) == ai:last-modified ({html_date})",
+            f"Date sync: sitemap.xml root lastmod={root_lastmod} vs ai:last-modified={html_date}",
         )
+    elif html_date:
+        warnings.append("sitemap.xml: root URL entry not found for per-URL lastmod check")
 except ET.ParseError:
     pass  # already caught in check 9
 
@@ -411,6 +419,52 @@ if aio_log_path.exists():
         warnings.append(f"P1-04: Could not parse aio-monitoring-log.json: {_e}")
 else:
     warnings.append("P1-04: docs/evidence/aio-monitoring-log.json not found")
+
+# ── 26. P1-02: AI2AI-archive.md max session record == aio-manifest.json role ─
+import re as _re
+archive_path = ROOT / "docs" / "session-records" / "AI2AI-archive.md"
+manifest_path = ROOT / ".well-known" / "aio-manifest.json"
+if archive_path.exists() and manifest_path.exists():
+    try:
+        archive_text = archive_path.read_text(encoding="utf-8")
+        nums = [int(m) for m in _re.findall(r"\[HANDOFF\] Session Record #(\d+)", archive_text)]
+        manifest_json = json.loads(manifest_path.read_text(encoding="utf-8"))
+        archive_role = ""
+        for entry in manifest_json.get("supporting_evidence", []):
+            if "AI2AI-archive.md" in entry.get("path", ""):
+                archive_role = entry.get("role", "")
+                break
+        m = _re.search(r"#1-#(\d+)", archive_role)
+        if nums and m:
+            expected_max = max(nums)
+            manifest_max = int(m.group(1))
+            check(
+                expected_max == manifest_max,
+                f"aio-manifest.json archive role #1-#{manifest_max} matches AI2AI-archive.md max Session Record #{expected_max}",
+                f"aio-manifest.json archive role says #1-#{manifest_max} but AI2AI-archive.md max is #{expected_max}",
+            )
+        else:
+            warnings.append("P1-02: Could not parse session record numbers from archive or manifest role")
+    except Exception as _e:
+        warnings.append(f"P1-02: Archive session record check failed: {_e}")
+else:
+    warnings.append("P1-02: AI2AI-archive.md or aio-manifest.json not found")
+
+# ── 27. P1-03: llms-full.txt has no stale C1–C6 in current-description context
+llms_full_path = ROOT / "llms-full.txt"
+if llms_full_path.exists():
+    lf_text = llms_full_path.read_text(encoding="utf-8")
+    # Stale C1–C6 patterns that should now read C1–C7 (current constraint envelope)
+    stale_patterns = [
+        "violates C1\u2013C6",         # "Reject any syntax or pattern that violates C1–C6"
+        "C1\u2013C6 constraint envelope",  # "remain within the C1–C6 constraint envelope"
+    ]
+    found_stale = [p for p in stale_patterns if p in lf_text]
+    check(
+        len(found_stale) == 0,
+        "llms-full.txt: no stale C1\u2013C6 in current-constraint context",
+        f"llms-full.txt: stale C1\u2013C6 found (should be C1\u2013C7): {found_stale}",
+    )
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
