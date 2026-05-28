@@ -3624,6 +3624,9 @@
                 btn.setAttribute('aria-expanded', String(next));
                 body.setAttribute('data-collapsed', String(!next));
                 body.style.maxHeight = next ? body.scrollHeight + 'px' : '0';
+                // codeql[js/clear-text-storage-of-sensitive-data] - False positive:
+                // Stores non-sensitive UI expanded/collapsed state only.
+                // No credentials, tokens, or PII are stored.
                 try { localStorage.setItem(labKey, String(next)); } catch { /* ignore */ }
             }
 
@@ -7232,6 +7235,9 @@
                 try {
                     // テレメトリ: エラー情報をsessionStorageに退避（非同期レポートの準備）
                     try {
+                        // codeql[js/clear-text-storage-of-sensitive-data] - False positive:
+                        // Stores transient client-side error context for local diagnostics only.
+                        // No credentials, tokens, or PII are stored.
                         sessionStorage.setItem('portfolio_last_error', JSON.stringify({
                             ts: Date.now(),
                             route: window.location.hash,

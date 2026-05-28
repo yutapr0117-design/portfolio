@@ -2,7 +2,7 @@
 
 ```
 Pipeline-Version : v74
-Last-Updated     : 2026-05-26
+Last-Updated     : 2026-05-28
 Receiving-Agent  : ANY (model-agnostic)
 Authoritative-GT : https://yutapr0117-design.github.io/portfolio/llms-full.txt
 Canonical-URL    : https://yutapr0117-design.github.io/portfolio/
@@ -504,6 +504,69 @@ Task            : 改善文書.md v74 全適用 — Consistency & Observability 
 - **AIO monitoring 成功観測:** 実際に引用・言及を確認できた場合のみ `aio-monitoring-log.json` に手動エントリを追加する。捏造禁止。
 - **バイナリ層 IPTC/C2PA:** 低優先。Session Record #4 から継続申し送り。
 - **check_repository_consistency.py Session Record 順序チェック:** AI2AI.md から過去 record が archive に移動したため、残る順序チェックは archive ではなく AI2AI.md 本体の record のみが対象となる。次回確認要。
+
+---
+
+## [HANDOFF] Session Record #12 — 2026-05-28 (Claude Sonnet 4.6, v74 maintenance / CI recovery)
+
+### セッション概要
+
+v74 maintenance ターン。アプリケーション Pipeline-Version は v74 維持。
+CI復旧・YAML修正・AIO整合・incident record追加を実施。
+
+### 変更ファイル
+
+| ファイル | 変更内容 |
+|---|---|
+| `.github/workflows/auto-update-aio-digests.yml` | YAML構文修正（env/permissions/steps のインデント崩れを解消）。paths に `docs/session-records/**` と `docs/incident-artifacts/**` を追加。 |
+| `.github/workflows/codeql.yml` | **削除**。GitHub Default Setup と custom advanced CodeQL workflow の競合（SARIF処理拒否）を実装側で止血。 |
+| `.github/scripts/check_repository_consistency.py` | YAML構文チェック追加（check 23: .github/workflows/*.yml および dependabot.yml を yaml.safe_load で検証）。 |
+| `.well-known/aio-manifest.json` | 変更ファイルの sha256 再計算。generated_at 更新。 |
+| `.well-known/mcp.json` | audit_architecture_constraints description の C1–C6 → C1–C7 更新。 |
+| `AI2AI.md` | 本 Session Record #12 追記。Last-Updated → 2026-05-28。 |
+| `ChatGPT2ChatGPT.md` | date → 2026-05-28 に更新。 |
+| `Claude2Claude.md` | Last-Updated → 2026-05-28 に更新。 |
+| `docs/evidence/aio-monitoring-log.json` | 全8runの summary に `total_cited_count` を補完（key欠落補正; 全値0、引用確認事実なし）。 |
+| `docs/incident-artifacts/decision-v75-codeql-workflow-introduction.md` | 新規追加。v75 CodeQL custom workflow導入の判断記録。 |
+| `docs/incident-artifacts/decision-v76-v77-codeql-default-setup-conflict.md` | 新規追加。v76/v77 Default Setup競合顕在化の判断記録。 |
+| `docs/incident-artifacts/decision-v78-codeql-default-setup-compatible-ci-recovery.md` | 新規追加。v78 CI復旧判断記録（custom workflowをworkflow配下から外す方針）。 |
+| `index.html` | body内の `<link rel="sameAs">` 3行を削除（JSON-LD側 sameAs は維持）。apple-touch-icon SVG data URL を削除（iOS Safari非互換のため）。 |
+| `llms-full.txt` | v74 および v74 Maintenance (v75–v78) のCI/運用改善履歴を追記。 |
+| `main.js` | CodeQL false-positive suppressionコメントを未対応の localStorage.setItem (labKey) および sessionStorage.setItem (portfolio_last_error) に追加。 |
+
+### 設計判断の記録
+
+**CodeQL競合止血:** GitHub Default Setup が有効な状態でcustom CodeQL workflow (.github/workflows/codeql.yml) が残ると、SARIF処理が拒否され CI失敗が継続する。UI操作でDefault Setupを無効化することはリポジトリファイル編集では実行できない。最短解として codeql.yml をworkflow配下から外した。Default Setupが将来無効化されるまで advanced CodeQL workflow は復活させない。
+
+**YAML修正:** auto-update-aio-digests.yml の `env` / `permissions` / `steps` がjob配下に誤ってインデントされており、GitHub Actionsがworkflowを認識できない状態だった。env と permissions をworkflowトップレベルに移動し、steps をjob配下に戻して修正。
+
+**CodeQL false positive:** localStorage.setItem (lab expanded/collapsed state) および sessionStorage.setItem (portfolio_last_error) はいずれも機密情報を含まない。codeql[js/clear-text-storage-of-sensitive-data] suppression commentで明示的に非機密であることを記録。
+
+**index.html body sameAs:** body内の `<link rel="sameAs">` はHTMLとして不適切。JSON-LD側に同等の sameAs が存在するため削除。apple-touch-icon の SVG data URL は iOS Safariで機能しないため削除。
+
+**aio-monitoring-log.json:** total_cited_count keyが全8runで欠落していた。現行 aio_monitoring.py はこの keyを出力する設計であり、keyの欠落を補完した。全値は0（引用成功の確認事実なし）。値は捏造していない。
+
+### C1〜C7 制約の遵守確認
+
+- C1: 外部ライブラリ・フレームワーク導入なし ✅
+- C2: IIFE構造・index.html中央ハブ維持 ✅
+- C3: ErrorBoundary未変更 ✅
+- C4: フレームワーク再提案なし ✅
+- C5: 人間はコードを書かず（本セッション実装はClaude Sonnet 4.6） ✅
+- C6: AIOテキストの根幹変更なし（CI復旧・YAML修正・整合補完のみ） ✅
+- C7: KARTE CDN SRI 非適用維持 ✅
+
+### Not possible の記録
+
+- **GitHub Default Setup のUI無効化:** リポジトリファイル編集では実行できない。代替として custom CodeQL workflowをworkflow配下から外した。Default Setupを無効化したい場合は人間がGitHub UIで操作する必要がある。
+- **Playwright baseline PNG:** 引き続き未実施。環境制約によりブラウザ実行不可。
+
+### 未解消スコープ（次のエージェントへの申し送り）
+
+- **Playwright baseline PNG:** 高優先継続。GitHub Actions `update-playwright-snapshots.yml` を手動実行 → artifact をダウンロード → `e2e/portfolio.spec.js-snapshots/` にコミット。AIは単独で実行しないこと。
+- **GitHub Default Setup UI無効化（任意）:** advanced CodeQL workflowを復活させたい場合のみ必要。現状はDefault Setupで code scanning が継続している。
+- **AIO monitoring 成功観測:** 実際に引用・言及を確認できた場合のみ `aio-monitoring-log.json` に手動エントリを追加する。捏造禁止。
+- **バイナリ層 IPTC/C2PA:** 低優先。Session Record #4 から継続申し送り。
 
 ---
 

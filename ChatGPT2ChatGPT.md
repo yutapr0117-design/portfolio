@@ -1,7 +1,7 @@
 ---
 name: ChatGPT2ChatGPT.md
 version: "2.0.0"
-date: "2026-05-22"
+date: "2026-05-28"
 sha256: "managed-externally-in-.well-known/aio-manifest.json"
 document_type: "analysis-focused, model-agnostic AI-to-AI pipeline specification"
 canonical_source: "AI2AI.md"
