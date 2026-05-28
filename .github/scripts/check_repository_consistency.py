@@ -370,6 +370,48 @@ except ImportError:
     print("WARNING: PyYAML not available — YAML syntax check skipped")
     warnings.append("PyYAML not available — YAML syntax check skipped")
 
+
+# ── 24. P1-01: llms-full.txt Last-Updated freshness vs AI2AI.md ──────────────
+import re as _re2, datetime as _dt
+ai2ai_lu_m = _re2.search(r'^Last-Updated\s*:\s*([0-9-]+)', read("AI2AI.md"), _re2.MULTILINE)
+llms_full_lu_m = _re2.search(r'^## Last-Updated\n+(\d{4}-\d{2}-\d{2})', read("llms-full.txt"), _re2.MULTILINE | _re2.DOTALL)
+# also check header line
+llms_full_header_m = _re2.search(r'Last-Updated:\*\*\s*([0-9-]+)', read("llms-full.txt"))
+if ai2ai_lu_m and llms_full_lu_m:
+    ai2ai_date = _dt.date.fromisoformat(ai2ai_lu_m.group(1))
+    llms_full_date = _dt.date.fromisoformat(llms_full_lu_m.group(1))
+    diff_days = abs((ai2ai_date - llms_full_date).days)
+    check(
+        diff_days <= 7,
+        f"llms-full.txt Last-Updated ({llms_full_date}) is within 7 days of AI2AI.md Last-Updated ({ai2ai_date})",
+        f"llms-full.txt Last-Updated ({llms_full_date}) differs from AI2AI.md Last-Updated ({ai2ai_date}) by {diff_days} days (>7)"
+    )
+    llms_full_text = read("llms-full.txt")
+    has_maintenance = any(f"v{n}" in llms_full_text for n in ["75", "76", "77", "78"])
+    if has_maintenance:
+        check(
+            llms_full_date >= _dt.date(2026, 5, 28),
+            f"llms-full.txt Last-Updated ({llms_full_date}) >= 2026-05-28 (v75-v78 content detected)",
+            f"llms-full.txt Last-Updated ({llms_full_date}) is stale: v75-v78 content detected but date < 2026-05-28"
+        )
+else:
+    warnings.append("P1-01: Could not parse Last-Updated from AI2AI.md or llms-full.txt")
+
+# ── 25. P1-04: aio-monitoring-log.json evidence_policy key ──────────────────
+aio_log_path = ROOT / "docs" / "evidence" / "aio-monitoring-log.json"
+if aio_log_path.exists():
+    try:
+        aio_log = json.loads(aio_log_path.read_text(encoding="utf-8"))
+        check(
+            "evidence_policy" in aio_log,
+            "aio-monitoring-log.json: evidence_policy key present",
+            "aio-monitoring-log.json: evidence_policy key missing — add to clarify attempt_log_only status"
+        )
+    except Exception as _e:
+        warnings.append(f"P1-04: Could not parse aio-monitoring-log.json: {_e}")
+else:
+    warnings.append("P1-04: docs/evidence/aio-monitoring-log.json not found")
+
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
 if errors:
