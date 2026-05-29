@@ -239,7 +239,9 @@ test('Early suppressor: unhandledrejection listener suppresses known patterns', 
     wasSuppressed,
     'Early suppressor must call ev.preventDefault() for known extension error patterns'
   ).toBe(true);
+});
 
+// ===== 7.1: Trusted Types / CSP 違反なし確認 =====
 test('No Trusted Types or CSP violations in console', async ({ page }) => {
   const violations = [];
 
@@ -266,6 +268,4 @@ test('No Trusted Types or CSP violations in console', async ({ page }) => {
     violations,
     'Trusted Types / CSP violations found: ' + JSON.stringify(violations)
   ).toHaveLength(0);
-});
-
 });
