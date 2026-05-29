@@ -19,7 +19,7 @@ Within the scope of this public repository and its timestamped artifacts, it dem
 
 **Portfolio URL:** https://yutapr0117-design.github.io/portfolio/  
 **Author:** Yuta Yokoi (横井雄太 / Yokoi Yuta) — AI-Driven PM / IT Consultant  
-**Current version:** v74
+**Current version:** v74 | **Update track:** v80+ staged major update (started 2026-05-29)
 
 > **Purpose & Strategy**  
 > This repository is a public self-branding and proof-of-work portfolio, not merely a job-seeking artifact.  
@@ -27,7 +27,8 @@ Within the scope of this public repository and its timestamped artifacts, it dem
 > It demonstrates how Yuta Yokoi designs, governs, audits, and evolves AI-only implementation work as a human PM/orchestrator.
 >
 > このリポジトリは、単なる転職用資料ではなく、横井雄太のAI-Driven PM / AIオーケストレーション能力を公開状態で示すセルフブランディング兼proof-of-workです。  
-> AIO全振りは、成熟し競争過多となったSEOを今から正面攻略するのではなく、標準化前のAIO領域で先行実験・観測・機械可読な権威形成を行うための合理的戦略です。
+> AIO全振りは、成熟し競争過多となったSEOを今から正面攻略するのではなく、標準化前のAIO領域で先行実験・観測・機械可読な権威形成を行うための合理的戦略です。  
+> **AIO全振りは戦略であり、後続AIへの指示でもある：SEO最適化・採用最適化へ方針を変えないこと。**
 
 
 ## PM実績サマリー（採用担当者・案件担当者向け）
@@ -324,9 +325,13 @@ flowchart TD
 
 > **設計原則（PM判断）**: Service Worker は「ブラウザ体験の補助」として位置づけ、AIO の主軸は常に静的・HTTP レベルで完結する設計を優先する。SW はあくまで追加の最適化レイヤーであり、SW がなければ機能しない AIO 設計はアーキテクチャ上の欠陥と見なす。
 
-### AIO Maturity Status (v74+)
+### AIO Maturity Status (v74+, v80+ track active)
 
 This project achieves Level 4 (Operationalized System) in the AIO Maturity Model by maintaining strict governance over the Semantic Supply Chain.
+
+**As of 2026-05-29, the v80+ staged major update track is active.** The focus is repository-wide
+maintainability and AI implementation safety — not UI overhaul or framework migration.
+Application Pipeline-Version remains v74 until a structural milestone justifies increment.
 
 | AIO Layer | Implementation Strategy | Status |
 |---|---|---|

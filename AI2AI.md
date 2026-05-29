@@ -313,14 +313,17 @@ The following are candidate tasks. No AI agent may begin execution without expli
 - [x] ~~digest自動更新の仕組み化~~ — **Completed 2026-05-03** (Session Record #5: update_aio_digests.py + auto-update-aio-digests.yml)
 - [x] ~~aio-manifest.jsonのCI連動~~ — **Completed 2026-05-03** (Session Record #5: check_aio_digests.py を拡張)
 - [x] ~~v74 maintenance finalizer: sitemap per-URL lastmod / archive role / C1-C7統一 / セルフブランディング明記~~ — **Completed 2026-05-28** (Session Record #14)
+- [x] ~~v80+ staged major update track entry: E2E spec structural fix / Check 28 / track start declaration~~ — **Completed 2026-05-29** (Session Record #15)
 
 ---
 
-## [STEP 7] Next Major Update Direction (v80+)
+## [STEP 7] Next Major Update Direction (v80+) — **TRACK ACTIVE**
 
-> **Ref:** `docs/incident-artifacts/decision-v80-maintainability-roadmap.md`
+> **Ref:** `docs/incident-artifacts/decision-v80-maintainability-roadmap.md`  
+> **Track Status: STARTED 2026-05-29** (Session Record #15)
 
-v74 maintenance finalizer 完了後、次フェーズは **メンテナンス性・拡張性・AI実装安全性の向上** である。
+v80+ staged major update track に正式に入った。  
+土台の歪み取りは完了した。次フェーズは **メンテナンス性・拡張性・AI実装安全性の向上** を、順次・堅実に進める。
 
 ### 方針サマリー
 
@@ -541,5 +544,66 @@ Task            : v74 maintenance finalizer / v80 maintainability roadmap 明文
 - **main.js 段階的分割:** `docs/incident-artifacts/decision-v80-maintainability-roadmap.md` の Stage 0〜5 を参照。Playwright baseline 確立後に Stage 1 から開始。
 - **GitHub Default Setup UI無効化（任意）:** 現状はDefault SetupでCode Scanningが継続。
 - **バイナリ層 IPTC/C2PA:** 低優先。Session Record #4 から継続申し送り。
+
+---
+
+## [HANDOFF] Session Record #15 — 2026-05-29 (Claude Sonnet 4.6, v80+ track entry)
+
+```
+Handoff-From    : Claude Sonnet 4.6 (Anthropic) — claude.ai
+Handoff-To      : Next AI agent (same project, different session)
+Session-Date    : 2026-05-29
+Orchestrator    : Yuta Yokoi (横井雄太)
+Task            : v80+ staged major update track entry / E2E spec structural fix
+```
+
+### このセッションで完了したこと
+
+| ファイル | 変更内容 |
+|---|---|
+| `.github/scripts/check_repository_consistency.py` | Check 28 追加: `e2e/portfolio.spec.js` の `test()` ネスト構造を検出（BLOCKING）。`No Trusted Types or CSP violations in console` テストの存在確認も追加。 |
+| `AI2AI.md` | STEP 6 pending tasks に v80+ track entry 完了を記録。STEP 7 を「TRACK ACTIVE」に更新。本 Session Record #15 追記。 |
+| `docs/incident-artifacts/decision-v80-maintainability-roadmap.md` | Status を `Active — v80+ staged major update track STARTED 2026-05-29` に更新。Background を「holding pattern 終了、track started」に書き換え。AIO戦略の後続AI向け指針を強化。Phase A+ セクション追加（このセッションの実施内容）。 |
+| `e2e/portfolio.spec.js` | P0-01: `No Trusted Types or CSP violations in console` テストを `Early suppressor` テストのネスト内から独立したトップレベル定義に修正。末尾の余剰 `});` を削除。 |
+| `llms-full.txt` | v80+ staged major update track started の記録を追記。 |
+| `README.md` | Current version 行に update track 表記を追加。AIO Maturity Status セクションに v80+ track active 旨を追記。AIO全振り方針の後続AI向け禁止指示を強化。 |
+
+### 設計判断の記録
+
+**E2E spec ネスト修正（P0-01）:** `test()` が `test()` の中に定義されると、Playwrightは実行時エラーまたは予期しない登録をする。`node --check` は通過してしまうため CI では検出できなかった。修正は `});` を1行追加して Early suppressor を閉じ、末尾の余剰 `});` を除去するだけで完結した。
+
+**Check 28（P0-02）:** ブレース深度追跡による実用的なネスト検出。厳密なJS ASTではなく、このファイル構造に対して十分な精度を持つ。`^test\(` (column 0) のみを追跡するため、`for` ループ内のインデントされた `test(` は意図的に除外される。旧ファイルで line 243 のネストを正確に検出することを確認済み。
+
+**v80+ track 開始宣言（P1-01）:** Pipeline-Version は v74 のまま維持。「v80+」はアプリケーション版数ではなく更新トラック名。土台の歪み取りが完了したため、順次・堅実な保守性/拡張性向上フェーズへ移る、という状態宣言。
+
+**AIO戦略の後続AI向け強化（P1-02）:** SEO最適化・採用最適化への方針転換を禁止する明示的指示を `README.md` と `decision-v80-maintainability-roadmap.md` の両方に追記。後続AIが「汎用的な最適化提案」としてSEOに寄らないよう、機械可読な制約として埋め込んだ。
+
+**main.js 段階的分割（P1-03）:** 今回は物理分割なし。Stage 0〜5 の計画は `decision-v80-maintainability-roadmap.md` および本ファイル STEP 7 に既に文書化済み。
+
+**AIO monitoring 誠実性（P1-04）:** `docs/evidence/aio-monitoring-log.json` に変更なし。実観測なし、`attempt_log_only` / `confirmed_citation_events: 0` の状態を維持。
+
+### C1〜C7 制約の遵守確認
+
+- C1: 外部ライブラリ・フレームワーク導入なし ✅
+- C2: IIFE構造・index.html中央ハブ維持 ✅
+- C3: ErrorBoundary未変更 ✅
+- C4: フレームワーク再提案なし ✅
+- C5: 人間はコードを書かず（本セッション実装はClaude Sonnet 4.6） ✅
+- C6: AIOテキストの根幹変更なし（構造修正・状態宣言・禁止指示追加のみ） ✅
+- C7: KARTE CDN SRI 非適用維持 ✅
+
+### Not possible の記録
+
+- **Playwright baseline PNG:** 未実施。この実行環境ではブラウザ起動不可（Not possible）。
+  - **手動実行手順:** GitHub Actions → `update-playwright-snapshots.yml` → Run workflow → artifact `playwright-snapshots` をダウンロード → `e2e/portfolio.spec.js-snapshots/` に配置 → コミット。
+- **GitHub Default Setup UI無効化:** 引き続き Not possible（UI操作が必要）。
+- **AIO citation 実観測:** 未発生。捏造禁止。
+
+### 未解消スコープ（次のエージェントへの申し送り）
+
+- **Playwright baseline PNG:** 高優先継続。AIは単独で実行しないこと。手動手順は上記参照。
+- **main.js Stage 1 以降:** Playwright baseline 確立後に開始。Stage 0〜5 は `decision-v80-maintainability-roadmap.md` 参照。
+- **AIO monitoring 成功観測:** 実引用確認時のみ `aio-monitoring-log.json` に記録。捏造禁止。
+- **バイナリ層 IPTC/C2PA:** 低優先。Session Record #4 から継続。
 
 ---

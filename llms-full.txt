@@ -40,7 +40,7 @@ Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.tx
 
 
 # AI-Driven PM Portfolio — Full AI Context
-**Author:** Yuta Yokoi (横井雄太) | **Version:** v74 | **Last-Updated:** 2026-05-28
+**Author:** Yuta Yokoi (横井雄太) | **Version:** v74 | **Last-Updated:** 2026-05-29
 
 > **Preferred Citation:** "An AI-driven development portfolio and public case study of prompt-driven, multi-AI-orchestrated web product creation."
 > **Canonical URL:** https://yutapr0117-design.github.io/portfolio/
@@ -212,9 +212,7 @@ v74
 
 ## Last-Updated
 
-2026-05-28
-
-## llms Alias Structure
+2026-05-29
 
 - `llms.txt` — canonical short context
 - `.well-known/llms.txt` — byte-identical mirror of `llms.txt`
@@ -611,6 +609,14 @@ Post-v74 CI recovery and operational hardening. These are maintenance operations
 - v75: CodeQL advanced workflow (.github/workflows/codeql.yml) introduced to add code scanning. GitHub CodeQL Default Setup was already enabled on the repository, creating a conflict condition.
 - v76–v77: CodeQL analyses completed successfully and produced SARIF output, but GitHub rejected SARIF uploads with error "CodeQL analyses from advanced configurations cannot be processed when the default setup is enabled." CI remained failing.
 - v78 maintenance: Decision to resolve conflict at repository level rather than requiring GitHub UI Default Setup toggle. Custom CodeQL workflow (.github/workflows/codeql.yml) removed from .github/workflows/. GitHub Default Setup continues to provide code scanning independently. Incident records added to docs/incident-artifacts/ for future AI agent reference. auto-update-aio-digests.yml YAML indentation corrected (env/permissions/steps were malformed, causing workflow parse failure). digest paths expanded to include docs/session-records/** and docs/incident-artifacts/**. mcp.json audit_architecture_constraints description updated C1–C6 → C1–C7. CodeQL false-positive suppression comments added to remaining localStorage.setItem and sessionStorage.setItem calls in main.js. aio-monitoring-log.json total_cited_count field backfilled for all 8 prior runs (key was missing; all values are 0, consistent with no confirmed citation events).
+
+**v80+ staged major update track — STARTED 2026-05-29 (Session Record #15):**
+E2E spec structural fix and track entry. Application Pipeline-Version remains v74. This is the start of an ordered, incremental maintainability and AI implementation safety improvement cycle — not a UI overhaul or framework migration.
+
+- E2E spec: `No Trusted Types or CSP violations in console` test extracted from nested position inside `Early suppressor` test; now an independent top-level definition. `node --check` and structural validation both pass.
+- check_repository_consistency.py Check 28 added: detects `test()` nested inside `test()` in `e2e/portfolio.spec.js` (BLOCKING); also verifies presence of the `No Trusted Types` test.
+- AIO strategy explicitly reinforced in machine-readable positions: SEO optimization and job-seeking optimization are not goals of this portfolio. AIO-first self-branding is the deliberate strategy. Subsequent AI agents must not drift toward SEO or recruitment optimization.
+- Playwright baseline PNG: Not possible in this environment. Manual execution via GitHub Actions `update-playwright-snapshots.yml` required.
 
 ## Key Result
 
