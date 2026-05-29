@@ -11,7 +11,8 @@ Checks performed:
   4.  llms.txt / .well-known/llms.txt / llms_well-known.txt / .well-known/llms_well-known.txt are byte-identical
   5.  .well-known/index.json == .well-known/agent-skills/index.json (byte-identical)
   6.  style.css has no stale "Current release: v73" or "NEXT_PLANNED_RELEASE" markers
-  7.  index.html CSP meta appears before error-suppressor.js
+  7.  index.html CSP meta appears before inline suppressor script (error-suppressor inlined)
+  7b. index.html CSP contains inline suppressor sha256 hash
   8.  index.html has no <meta http-equiv="X-Content-Type-Options"> (header-only control)
   9.  sitemap.xml is valid XML
   10. All .github/scripts/*.py parse without syntax errors
@@ -133,13 +134,24 @@ check(
     "style.css: stale 'NEXT_PLANNED_RELEASE' marker found",
 )
 
-# ── 7. CSP meta before error-suppressor.js ───────────────────────────────────
+# ── 7. CSP meta before inline suppressor script ───────────────────────────────
+# error-suppressor.js is now inlined in <head> to eliminate the network-fetch
+# timing gap that caused intermittent "message channel closed" console errors.
+_INLINE_SUPPRESSOR_ANCHOR = "window.addEventListener('unhandledrejection'"
 pos_csp = html.find('<meta http-equiv="Content-Security-Policy"')
-pos_err = html.find('<script src="./error-suppressor.js">')
+pos_err = html.find(_INLINE_SUPPRESSOR_ANCHOR)
 check(
     pos_csp != -1 and pos_err != -1 and pos_csp < pos_err,
-    f"CSP meta (pos {pos_csp}) appears before error-suppressor.js (pos {pos_err})",
-    f"CSP meta must appear before error-suppressor.js (CSP={pos_csp}, err={pos_err})",
+    f"CSP meta (pos {pos_csp}) appears before inline suppressor (pos {pos_err})",
+    f"CSP meta must appear before inline suppressor (CSP={pos_csp}, inline={pos_err})",
+)
+
+# ── 7b. inline suppressor CSP hash is present ────────────────────────────────
+_SUPPRESSOR_HASH = "sha256-h3mQOofrAGcb+CTl7pupnDKXvGRPj3gcHJb4Mt0eSeM="
+check(
+    f"'{_SUPPRESSOR_HASH}'" in html,
+    f"index.html CSP contains inline suppressor hash ({_SUPPRESSOR_HASH})",
+    f"index.html CSP missing inline suppressor hash ({_SUPPRESSOR_HASH})",
 )
 
 # ── 8. No X-Content-Type-Options meta ────────────────────────────────────────
