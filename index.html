@@ -248,7 +248,7 @@ Version History (current shipped state)
      content="
         default-src 'self';
         script-src 'self'
-                   'sha256-saY5em3yrZYqsPJD1Mq2g7PuFwnxdMxEootF8K5fcVU='
+                   'sha256-h3mQOofrAGcb+CTl7pupnDKXvGRPj3gcHJb4Mt0eSeM='
                    'unsafe-hashes'
                    'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc='
                    https://cdn-edge.karte.io https://static.karte.io;
@@ -266,13 +266,55 @@ Version History (current shipped state)
         trusted-types default;
      " />
     <!--
-      早期エラー抑制スクリプト — <head>の最初のscriptとして配置必須。
+      早期エラー抑制スクリプト（インライン）— <head>の最初のscriptとして配置必須。
       Chrome拡張機能が発生させる "message channel closed" Promise rejectionを
       ページスクリプトが初期化される前に捕捉・抑制する。
-      このハンドラはbody末尾の完全な_isViewTransitionErrorロジックより先に登録され、
-      "portfolio/:1 Uncaught (in promise)" という誤検出エラーを根本から防ぐ。
+
+      【重要】なぜ外部ファイル読み込みではなくインラインなのか:
+      外部ファイル (<script src="./error-suppressor.js">) は、ブラウザがHTMLパーサーを
+      ブロックしてネットワークフェッチを完了するまでスクリプトを実行できない。
+      このフェッチ待機中（数ms〜数十ms）に Chrome 拡張機能が unhandledrejection を
+      発火させると、リスナーがまだ登録されていないためエラーがコンソールに露出する。
+      インラインスクリプトはフェッチ不要で、パーサーが <script> タグに到達した瞬間に
+      同期実行されるため、タイミング競合ウィンドウがゼロになる。
+
+      ソース真正本: error-suppressor.js（ファイル内容と byte-identical で維持すること）
+      CSP ハッシュ: sha256-h3mQOofrAGcb+CTl7pupnDKXvGRPj3gcHJb4Mt0eSeM=
+      （<script> 直後の \n + ファイル内容 全体の SHA-256）
     -->
-    <script src="./error-suppressor.js"></script>
+    <script>
+    (function() {
+        'use strict';
+        // Known browser extension / messaging infrastructure error patterns.
+        // These are NOT caused by portfolio code — they originate from Chrome
+        // extension content scripts whose message channels close before responding.
+        // We must register this suppressor here (head, blocking) because the
+        // unhandledrejection fires at portfolio/:1 (document start) before the
+        // main error handler at the bottom of the page is registered.
+        var SUPPRESS_PATTERNS = [
+            'message channel closed',
+            'asynchronous response',
+            'A listener indicated',
+            'The message port closed'
+        ];
+        window.addEventListener('unhandledrejection', function(ev) {
+            try {
+                var reason = ev && ev.reason;
+                var msg = reason
+                    ? (reason.message || (typeof reason === 'string' ? reason : ''))
+                    : '';
+                var stack = (reason && reason.stack) ? reason.stack : '';
+                var haystack = msg + '\n' + stack;
+                for (var i = 0; i < SUPPRESS_PATTERNS.length; i++) {
+                    if (haystack.indexOf(SUPPRESS_PATTERNS[i]) !== -1) {
+                        ev.preventDefault();
+                        return;
+                    }
+                }
+            } catch (e) { /* never propagate from suppressor */ }
+        });
+    })();
+</script>
 
     <!-- Start KARTE Tag: operational analytics service, intentionally scoped outside application logic dependency claims. -->
     <script src="./karte-init.js"></script>
