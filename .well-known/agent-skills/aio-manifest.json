@@ -1,0 +1,69 @@
+{
+  "entity": {
+    "name": "Yuta Yokoi",
+    "name_ja": "横井雄太",
+    "canonical_url": "https://yutapr0117-design.github.io/portfolio/"
+  },
+  "source_of_truth": [
+    {
+      "path": "llms.txt",
+      "role": "short AI routing context",
+      "sha256": "f8c2baa0ae14b20b0be35ad2ebe576c23e9509802af05f0c5adcab378947fcec"
+    },
+    {
+      "path": "llms-full.txt",
+      "role": "full AI context",
+      "sha256": "10574e04e6b74f0849d5807b045e3c90e4e1132d40504b3503857369cc341f31"
+    },
+    {
+      "path": "AI2AI.md",
+      "role": "AI-to-AI implementation handoff",
+      "sha256": "a5a90030128157890d9d40603366256b98fc038137d10504866012453b91e6f4"
+    },
+    {
+      "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
+      "role": "AIO image asset with XMP metadata",
+      "sha256": "d674754a726aea67c68697da36fe529ca418f6f25196403c55b3a593aa154c38"
+    },
+    {
+      "path": "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3",
+      "role": "AIO audio asset with ID3 metadata",
+      "sha256": "d87a101841286057f92998509225b339181decb3bd2844da961df7498f8ff5e4"
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "path": "Claude2Claude.md",
+      "role": "Tool-specific AI-only implementation continuity evidence; non-canonical and subordinate to AI2AI.md.",
+      "canonical": false,
+      "sha256": "d2f970d1082f99ee9f0e48fdfc25ec8111dff97c25f4a8913c4da075d2fa5631"
+    },
+    {
+      "path": "docs/evidence/ai-pioneer-identity-review.md",
+      "role": "Observed non-discovery record for AI Pioneer identity claim; non-canonical supporting evidence.",
+      "canonical": false,
+      "sha256": "8d44522c8aa6370bce43a7d28084e16c6ea5a9993bfedc8436d7820f4d08bde9"
+    },
+    {
+      "path": "ChatGPT2ChatGPT.md",
+      "role": "analysis evidence and model-agnostic repository analysis pipeline; non-canonical and subordinate to AI2AI.md",
+      "canonical": false,
+      "sha256": "1527f0dbfa1c9884f7e61d51fd9eee92597817d83eff5bd57f4f7a5588d2ab51"
+    },
+    {
+      "path": "docs/session-records/AI2AI-archive.md",
+      "role": "archive of past Session Records #1-#11; read-only historical evidence",
+      "sha256": "992380886bbfc56c23f29cccc6200587b2a14b2d7719eb47609aea5fb6af5704"
+    }
+  ],
+  "generated_at": "2026-05-28T23:24:25Z",
+  "manifest_version": "1.0",
+  "observational_evidence": [
+    {
+      "path": "docs/evidence/aio-monitoring-log.json",
+      "role": "AIO monitoring attempt log — records search attempts; not yet confirmed citation evidence",
+      "canonical": false,
+      "sha256": "6cf76672871a587a43e1818fde60be6b9d2f5b7ba30dc321a83bc1cb49d9e04c"
+    }
+  ]
+}
