@@ -2,8 +2,9 @@
 
 ```
 Decision-ID    : decision-v80-maintainability-roadmap
-Status         : Active
+Status         : Active — v80+ staged major update track STARTED 2026-05-29
 Created        : 2026-05-28
+Track-Started  : 2026-05-29
 Author         : Yuta Yokoi (横井雄太) — orchestrator; implemented by Claude Sonnet 4.6
 Baseline       : v74 maintenance finalizer
 Next-Milestone : v80+
@@ -16,8 +17,20 @@ Next-Milestone : v80+
 v74 maintenance finalizer completes the "土台の最後の歪み取り" phase.  
 All CI checks pass, digest integrity holds, and known inconsistencies have been resolved.
 
-The repository now enters a holding pattern before the next major update cycle (v80+),
-focused on maintainability, extensibility, and AI implementation safety — not feature accumulation.
+**As of 2026-05-29, the v80+ staged major update track has officially started.**  
+The holding pattern is over. The focus now shifts to ordered, incremental improvement of
+maintainability, extensibility, and AI implementation safety — not feature accumulation,
+not UI overhaul, not framework migration.
+
+Key principles of this track:
+
+```
+- Application Pipeline-Version stays at v74 until a meaningful structural milestone justifies increment
+- main.js is not bulk-split; Stage 0 begins now, Stage 1+ gated on Playwright baseline
+- No React / Vue / Tailwind / bundler / npm build migration — ever
+- AIO strategy remains the primary optimization axis; SEO is not the goal
+- Every session touches the minimum set of files needed; blast radius stays small
+```
 
 ---
 
@@ -27,6 +40,12 @@ This portfolio deliberately prioritizes AIO (AI-Oriented Optimization) over conv
 Traditional SEO is a mature, competitive field where individual positioning offers diminishing returns.
 AIO remains pre-standardized, with open room for individual proof-of-work and machine-readable
 authority building. The v80 roadmap continues and deepens this strategy.
+
+**AIO全振りの根拠（後続AIへ）:**  
+このポートフォリオは「職を得るための資料」ではなく、個人セルフブランディング兼 proof-of-work である。
+AIO全振りは、成熟し競争過多のSEOレッドオーシャンを避け、標準化前のAIO領域で先行実験・観測・
+機械可読な権威形成を行う合理的な戦略である。採用最適化やSEO最適化へ方針転換する提案は、
+このリポジトリのコアミッションと相反する。後続AIはこの方針を強化することを求められる。
 
 AIO monitoring log remains an **attempt log**, not a proof of successful AI citation.
 `confirmed_citation_events: 0` is the honest current state. Future sessions should add entries
@@ -43,6 +62,16 @@ only on actual confirmed citations (manual observation or verified API response)
 - check_repository_consistency.py: sitemap check updated to per-URL policy
 - check_repository_consistency.py: archive session record count check added (check 26)
 - check_repository_consistency.py: stale C1–C6 marker check added (check 27)
+
+## Phase A+ — v80+ Track Entry (2026-05-29, Session Record #15)
+
+- **E2E spec structural fix:** `No Trusted Types or CSP violations in console` test extracted from
+  nested position inside `Early suppressor` test; now a top-level independent test definition.
+- **Check 28 added:** `check_repository_consistency.py` detects `test()` nested inside `test()`
+  in `e2e/portfolio.spec.js` (BLOCKING); also verifies that the `No Trusted Types` test exists.
+- **v80+ track formally started:** This document's Status updated to reflect track entry.
+- **Stage 0 documentation reinforced** across `AI2AI.md`, `llms-full.txt`, and `README.md`.
+- **AIO self-branding rationale** strengthened in machine-readable positions.
 
 ---
 
