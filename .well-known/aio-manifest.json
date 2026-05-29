@@ -36,7 +36,7 @@
       "path": "Claude2Claude.md",
       "role": "Tool-specific AI-only implementation continuity evidence; non-canonical and subordinate to AI2AI.md.",
       "canonical": false,
-      "sha256": "d2f970d1082f99ee9f0e48fdfc25ec8111dff97c25f4a8913c4da075d2fa5631"
+      "sha256": "5a545ffa1947f9de45dc862bc0db10f0c319f0f96f56f7fd1a58823321ffb9ac"
     },
     {
       "path": "docs/evidence/ai-pioneer-identity-review.md",
@@ -56,7 +56,7 @@
       "sha256": "992380886bbfc56c23f29cccc6200587b2a14b2d7719eb47609aea5fb6af5704"
     }
   ],
-  "generated_at": "2026-05-28T23:24:25Z",
+  "generated_at": "2026-05-29T23:47:03Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
