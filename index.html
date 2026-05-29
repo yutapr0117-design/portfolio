@@ -249,6 +249,7 @@ Version History (current shipped state)
         default-src 'self';
         script-src 'self'
                    'sha256-h3mQOofrAGcb+CTl7pupnDKXvGRPj3gcHJb4Mt0eSeM='
+                   'sha256-saY5em3yrZYqsPJD1Mq2g7PuFwnxdMxEootF8K5fcVU='
                    'unsafe-hashes'
                    'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc='
                    https://cdn-edge.karte.io https://static.karte.io;
@@ -340,11 +341,17 @@ Version History (current shipped state)
         (confirmed in ZAP response: Strict-Transport-Security: max-age=31556952). Meta-tag provided
         as defense-in-depth signal.
       - Audit source: Checkmarx ZAP scan 2026-04-13. PM: 横井雄太 (Yuta Yokoi). Resolver: Claude (AI).
-      - speculationrules: script[type="speculationrules"] is a JSON-only declarative hint processed
-        by the browser's speculative loading infrastructure, not by the JS engine script pipeline.
-        It is not subject to script-src CSP directives (per WHATWG HTML spec). No hash needed.
-      - JSON-LD: script[type="application/ld+json"] is similarly exempt from script-src CSP
-        (per W3C CSP Level 3 spec; non-executable MIME type). No hash needed.
+      - speculationrules: script[type="speculationrules"] IS subject to script-src CSP in Chrome.
+        Despite being a JSON-only declarative hint (not executed by the JS engine), Chrome's
+        speculation rules implementation enforces script-src and blocks inline rules unless
+        authorized by 'unsafe-inline', a nonce, or a hash. We use a hash:
+        sha256-saY5em3yrZYqsPJD1Mq2g7PuFwnxdMxEootF8K5fcVU= in script-src.
+        Hash computed from the exact content between <script type="speculationrules"> and </script>.
+        DO NOT remove this hash, and DO NOT edit the speculation rules JSON without recomputing it,
+        or Chrome will emit "Applying inline speculation rules violates ... script-src" and block prerender.
+        (check_repository_consistency.py Check 7c recomputes and verifies this hash on every CI run.)
+      - JSON-LD: script[type="application/ld+json"] is genuinely exempt from script-src CSP
+        (non-executable data MIME type; Chrome does not apply script-src). No hash needed.
       - onload="this.media='all'" (Google Fonts link elements): covered by unsafe-hashes +
         sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc= in script-src.
         Hash computed from the exact attribute value string.
