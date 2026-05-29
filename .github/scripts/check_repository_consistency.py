@@ -12,7 +12,8 @@ Checks performed:
   5.  .well-known/index.json == .well-known/agent-skills/index.json (byte-identical)
   6.  style.css has no stale "Current release: v73" or "NEXT_PLANNED_RELEASE" markers
   7.  index.html CSP meta appears before inline suppressor script (error-suppressor inlined)
-  7b. index.html CSP contains inline suppressor sha256 hash
+  7b. index.html CSP authorizes inline suppressor (hash recomputed from live content)
+  7c. index.html CSP authorizes inline speculation rules (hash recomputed from live content)
   8.  index.html has no <meta http-equiv="X-Content-Type-Options"> (header-only control)
   9.  sitemap.xml is valid XML
   10. All .github/scripts/*.py parse without syntax errors
@@ -25,6 +26,8 @@ Exit codes:
 """
 
 import ast
+import base64
+import hashlib
 import json
 import re
 import subprocess
@@ -146,13 +149,55 @@ check(
     f"CSP meta must appear before inline suppressor (CSP={pos_csp}, inline={pos_err})",
 )
 
-# ── 7b. inline suppressor CSP hash is present ────────────────────────────────
-_SUPPRESSOR_HASH = "sha256-h3mQOofrAGcb+CTl7pupnDKXvGRPj3gcHJb4Mt0eSeM="
-check(
-    f"'{_SUPPRESSOR_HASH}'" in html,
-    f"index.html CSP contains inline suppressor hash ({_SUPPRESSOR_HASH})",
-    f"index.html CSP missing inline suppressor hash ({_SUPPRESSOR_HASH})",
-)
+# ── 7b/7c. inline-script CSP hashes are present AND match actual content ──────
+# Both the inline suppressor and the inline speculation-rules block are subject to
+# script-src CSP in Chrome. Each requires its exact-content SHA-256 hash in script-src.
+# We compute the hash from the live content (not a hardcoded constant) so this check
+# catches BOTH a removed hash AND content edited without recomputing the hash —
+# the exact failure mode that produced "Applying inline speculation rules violates ... script-src".
+def _csp_sri_hash(content: str) -> str:
+    return "sha256-" + base64.b64encode(
+        hashlib.sha256(content.encode("utf-8")).digest()
+    ).decode()
+
+# Strip HTML comments first: comments may contain literal <script>...</script> strings
+# (e.g. the CSP architecture note documents the speculationrules tag), which would
+# otherwise corrupt regex-based extraction. The browser never hashes comment text.
+_html_nc = re.sub(r"<!--.*?-->", "", html, flags=re.DOTALL)
+
+# 7b. inline suppressor (plain <script> containing the unhandledrejection listener)
+_plain_scripts = re.findall(r"<script>(.*?)</script>", _html_nc, re.DOTALL)
+_sup_content = next((s for s in _plain_scripts if "unhandledrejection" in s), None)
+if _sup_content is not None:
+    _sup_hash = _csp_sri_hash(_sup_content)
+    check(
+        f"'{_sup_hash}'" in html,
+        f"index.html CSP authorizes inline suppressor (content hash {_sup_hash})",
+        f"index.html CSP does NOT authorize inline suppressor — computed {_sup_hash} "
+        f"is absent from script-src. Inline content and CSP hash are out of sync.",
+    )
+else:
+    check(
+        False,
+        "",
+        "index.html: inline suppressor <script> block not found "
+        "(expected a plain <script> containing 'unhandledrejection').",
+    )
+
+# 7c. inline speculation rules (<script type="speculationrules">)
+_m_spec = re.search(r'<script type="speculationrules">(.*?)</script>', _html_nc, re.DOTALL)
+if _m_spec is not None:
+    _spec_hash = _csp_sri_hash(_m_spec.group(1))
+    check(
+        f"'{_spec_hash}'" in html,
+        f"index.html CSP authorizes inline speculation rules (content hash {_spec_hash})",
+        f"index.html CSP does NOT authorize inline speculation rules — computed {_spec_hash} "
+        f"is absent from script-src. Chrome will block prerender with "
+        f"\"Applying inline speculation rules violates ... script-src\". "
+        f"Add '{_spec_hash}' to script-src (recompute if the JSON was edited).",
+    )
+else:
+    warnings.append("index.html: speculationrules block not found — Check 7c skipped")
 
 # ── 8. No X-Content-Type-Options meta ────────────────────────────────────────
 check(
