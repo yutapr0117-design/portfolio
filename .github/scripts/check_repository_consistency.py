@@ -466,6 +466,56 @@ if llms_full_path.exists():
         f"llms-full.txt: stale C1\u2013C6 found (should be C1\u2013C7): {found_stale}",
     )
 
+# ── 28. P0-02: e2e/portfolio.spec.js — no test() nested inside another test() ─
+_spec_path_28 = ROOT / "e2e" / "portfolio.spec.js"
+if _spec_path_28.exists():
+    _spec_lines_28 = _spec_path_28.read_text(encoding="utf-8").splitlines()
+
+    # Verify the 'No Trusted Types' test exists at all
+    _has_ttt = any(
+        "No Trusted Types or CSP violations in console" in ln
+        for ln in _spec_lines_28
+    )
+    check(
+        _has_ttt,
+        "e2e/portfolio.spec.js: 'No Trusted Types or CSP violations in console' test exists",
+        "e2e/portfolio.spec.js: 'No Trusted Types or CSP violations in console' test is missing",
+    )
+
+    # Detect test() nested inside another test() by tracking brace depth.
+    # Only top-level test() calls (column 0, matching ^test\() are tracked as test-openers.
+    # Parameterised tests inside a for-loop are indented and do NOT match ^test\(,
+    # so they are intentionally excluded from this check.
+    import re as _re_spec28
+    _brace_depth_28 = 0
+    _test_start_depth_28 = None   # None = not currently inside a top-level test()
+    _nesting_errors_28: list[str] = []
+
+    for _ln28, _line28 in enumerate(_spec_lines_28, 1):
+        # A top-level test() definition starts at column 0
+        if _re_spec28.match(r"^test\s*\(", _line28):
+            if _test_start_depth_28 is not None:
+                _nesting_errors_28.append(
+                    f"line {_ln28}: test() opened while previous test() "
+                    f"(started at brace-depth {_test_start_depth_28}) is not yet closed"
+                )
+            _test_start_depth_28 = _brace_depth_28  # record depth *before* this line
+
+        # Naive brace counting (works for this file; strings do not contain unbalanced braces)
+        _brace_depth_28 += _line28.count("{") - _line28.count("}")
+
+        # When brace depth returns to the level before the test opened, the test is closed
+        if _test_start_depth_28 is not None and _brace_depth_28 <= _test_start_depth_28:
+            _test_start_depth_28 = None
+
+    check(
+        len(_nesting_errors_28) == 0,
+        "e2e/portfolio.spec.js: all test() definitions are top-level (no nesting detected)",
+        "e2e/portfolio.spec.js: nested test() detected — " + "; ".join(_nesting_errors_28[:3]),
+    )
+else:
+    warnings.append("P0-02: e2e/portfolio.spec.js not found — test-nesting check skipped")
+
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
 if errors:
