@@ -56,6 +56,10 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Generate baseline snapshots
+        env:
+          # P0-01: signals e2e/portfolio.spec.js to NOT skip the screenshot test
+          # when a baseline is absent, so --update-snapshots can capture the first baseline.
+          PLAYWRIGHT_UPDATE_SNAPSHOTS: "1"
         run: npx playwright test --config=playwright.config.cjs --update-snapshots --reporter=list
         continue-on-error: true
 

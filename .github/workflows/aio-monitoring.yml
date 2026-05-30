@@ -64,51 +64,80 @@ jobs:
             git push
           fi
 
-      # ── 引用増加 → Issue で通知 ───────────────────────────────────────
-      - name: Notify citation increase
-        if: steps.monitor.outputs.citation_change == 'increase'
+      # ── 引用状況の変化 → Issue で通知（P2-01/02）──────────────────────
+      # 増加・減少を 1 ステップに統合（重複排除・保守性向上）。
+      # 個人ポートフォリオでは「ラベルが付くこと」より「workflow が失敗しないこと」を優先するため、
+      #   (1) 必要ラベルを best-effort で用意（既存なら 422 等を握り潰す）
+      #   (2) ラベル付き Issue 作成を試行し、失敗時はラベルなしで再作成（通知の確実性を担保）
+      - name: Notify citation change
+        if: steps.monitor.outputs.citation_change == 'increase' || steps.monitor.outputs.citation_change == 'decrease'
         uses: actions/github-script@v7
         with:
           script: |
-            const delta = '${{ steps.monitor.outputs.citation_delta }}';
-            await github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: `[AIO] 引用数増加 +${delta} — ${new Date().toISOString().slice(0,10)}`,
-              body: [
-                '## AIO引用状況：増加を検出',
-                '',
-                `前回比 **+${delta}クエリ** で引用されました。`,
-                '',
-                '詳細: `docs/evidence/aio-monitoring-log.json` を確認してください。',
-                '',
-                '---',
-                '*このIssueはAIO Monitoring ワークフローにより自動生成されました。*',
-              ].join('\n'),
-              labels: ['aio-monitoring', 'citation-increase'],
-            });
+            const change = '${{ steps.monitor.outputs.citation_change }}';
+            const delta  = '${{ steps.monitor.outputs.citation_delta }}';
+            const today  = new Date().toISOString().slice(0, 10);
+            const isIncrease = change === 'increase';
 
-      # ── 引用減少 → Issue で通知 ───────────────────────────────────────
-      - name: Notify citation decrease
-        if: steps.monitor.outputs.citation_change == 'decrease'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const delta = '${{ steps.monitor.outputs.citation_delta }}';
-            await github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: `[AIO] 引用数減少 -${delta} — ${new Date().toISOString().slice(0,10)}`,
-              body: [
-                '## AIO引用状況：減少を検出',
-                '',
-                `前回比 **-${delta}クエリ** 引用が減少しました。`,
-                '',
-                'AIOコンテンツの変更、または対象AIのインデックス変動の可能性があります。',
-                '`docs/evidence/aio-monitoring-log.json` で詳細を確認してください。',
-                '',
-                '---',
-                '*このIssueはAIO Monitoring ワークフローにより自動生成されました。*',
-              ].join('\n'),
-              labels: ['aio-monitoring', 'citation-decrease'],
-            });
+            const labels = ['aio-monitoring', isIncrease ? 'citation-increase' : 'citation-decrease'];
+
+            const title = isIncrease
+              ? `[AIO] 引用数増加 +${delta} — ${today}`
+              : `[AIO] 引用数減少 -${delta} — ${today}`;
+
+            const body = (isIncrease
+              ? [
+                  '## AIO引用状況：増加を検出',
+                  '',
+                  `前回比 **+${delta}クエリ** で引用されました。`,
+                  '',
+                  '詳細: `docs/evidence/aio-monitoring-log.json` を確認してください。',
+                ]
+              : [
+                  '## AIO引用状況：減少を検出',
+                  '',
+                  `前回比 **-${delta}クエリ** 引用が減少しました。`,
+                  '',
+                  'AIOコンテンツの変更、または対象AIのインデックス変動の可能性があります。',
+                  '`docs/evidence/aio-monitoring-log.json` で詳細を確認してください。',
+                ]
+            ).concat([
+              '',
+              '---',
+              '*このIssueはAIO Monitoring ワークフローにより自動生成されました。*',
+            ]).join('\n');
+
+            // (1) 必要ラベルを best-effort で用意（存在しない場合のみ作成、既存の 422 等は無視）
+            const labelColors = {
+              'aio-monitoring': '0e8a16',
+              'citation-increase': '1d76db',
+              'citation-decrease': 'b60205',
+            };
+            for (const name of labels) {
+              try {
+                await github.rest.issues.createLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name,
+                  color: labelColors[name] || 'ededed',
+                });
+              } catch (e) {
+                core.info(`Label '${name}' not created (may already exist): ${e.status || e.message}`);
+              }
+            }
+
+            // (2) ラベル付き作成 → 失敗時はラベルなしで再作成（通知の確実性を優先）
+            try {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title, body, labels,
+              });
+            } catch (e) {
+              core.warning(`Issue creation with labels failed (${e.status || e.message}); retrying without labels.`);
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title, body,
+              });
+            }
