@@ -622,6 +622,29 @@ for _arch_doc in (
         f"{_arch_doc} missing — v80+ staged maintainability doc absent",
     )
 
+# ── 31. Claude2Claude.md references AI2AI.md's current max Session Record ─────
+# Mechanizes the Claude2Claude.md "本文書の更新タイミング" rule: whenever a Session
+# Record is appended to AI2AI.md, Claude2Claude.md's 現在状態 MUST be bumped to match.
+# Prevents the supporting-evidence adapter note from silently lagging the canonical handoff
+# (this exact drift was found and fixed in Session Record #17).
+_ai2ai_p31 = ROOT / "AI2AI.md"
+_c2c_p31 = ROOT / "Claude2Claude.md"
+if _ai2ai_p31.exists() and _c2c_p31.exists():
+    import re as _re31
+    _ai_nums31 = [int(m) for m in _re31.findall(r"Session Record #(\d+)", _ai2ai_p31.read_text(encoding="utf-8"))]
+    _c2c_txt31 = _c2c_p31.read_text(encoding="utf-8")
+    if _ai_nums31:
+        _max31 = max(_ai_nums31)
+        check(
+            f"#{_max31}" in _c2c_txt31,
+            f"Claude2Claude.md references AI2AI.md current max Session Record #{_max31}",
+            f"Claude2Claude.md does not reference AI2AI.md max Session Record #{_max31} — bump its 現在状態 section (Claude2Claude.md 本文書の更新タイミング rule)",
+        )
+    else:
+        warnings.append("Check 31: no Session Record number found in AI2AI.md")
+else:
+    warnings.append("Check 31: AI2AI.md or Claude2Claude.md not found — Claude2Claude sync check skipped")
+
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
 if errors:
