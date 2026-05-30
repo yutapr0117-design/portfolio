@@ -7,7 +7,7 @@ Canonical-Source : AI2AI.md
 Canonical-Status : NON-CANONICAL / SUBORDINATE TO AI2AI.md (Tier 4 supporting_evidence)
 Purpose          : (1) AI実装の継続証跡  (2) Claude向け作業開始/納品bashプロトコル
 Entry-Point      : CLAUDE.md（Claude Code自動読込の入口）
-Last-Updated     : 2026-05-29
+Last-Updated     : 2026-05-30
 ```
 
 > **CANONICAL HIERARCHY NOTE — このファイルは補助証跡＋運用手順であり、正典ではない。**
@@ -158,11 +158,11 @@ for i, b in enumerate(blocks):
 
 ---
 
-## 現在状態（2026-05-29）
+## 現在状態（2026-05-30）
 
 - **Pipeline-Version：v74**（current）。「v80+」は更新トラック名であり、アプリ版数ではない。
-- **v80+ staged major update track：ACTIVE**（STARTED 2026-05-29、Session Record #15）。
-- **最新 Session Record：#15**（`AI2AI.md`）。`main.js` Stage 0〜5 の計画は `AI2AI.md` STEP 7 と `decision-v80-maintainability-roadmap.md`。
+- **v80+ staged major update track：ACTIVE**（STARTED 2026-05-29、Session Record #15）。Phase 0/1（E2E baseline 実効化・保守性マップ整備）は Session Record #16（2026-05-30）で着手済み。
+- **最新 Session Record：#17**（`AI2AI.md`、2026-05-30）。本ファイルの 現在状態 同期漏れを修正し、その同期義務を `check_repository_consistency.py` Check 31 で機械強制化した回。`main.js` Stage 0〜5 の計画は `AI2AI.md` STEP 7・`docs/architecture/main-js-extraction-map.md`・`decision-v80-maintainability-roadmap.md`。
 - **C制約は C1〜C7**（C7 = KARTE CDN SRI非適用）。
 
 ### 未解消スコープ（正典は `AI2AI.md` 最新Session Recordの「未解消スコープ」）
@@ -183,5 +183,7 @@ for i, b in enumerate(blocks):
 - `Last-Updated` の日付
 - 「現在状態」セクション（Pipeline-Version / track状態 / 最新Session Record番号）
 - 「未解消スコープ」表（完了項目を削除、新規項目を追加）
+
+> **この同期義務は機械強制されている（属人化させない）。** `check_repository_consistency.py` **Check 31**（BLOCKING）が、本ファイルが `AI2AI.md` の最新 Session Record 番号を参照しているかを検査する。Session Record を追記したのに本ファイルの 現在状態 を更新し忘れると CI が赤化する。Session Record #17 で、この同期漏れの発生を受けて導入した。
 
 **構造・正典階層・bashプロトコル・Delivery Format Rule・既知の設計判断ログは、根幹が変わらない限り変更不要。** 本文書を変更したら、納品プロトコルに従い `update_aio_digests.py` → `check_aio_digests.py` を実行すること（このファイルは aio-manifest.json に SHA 登録済みの supporting_evidence であるため）。
