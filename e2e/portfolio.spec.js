@@ -15,6 +15,14 @@ function baselineExists(name) {
   return files.some(f => f.startsWith(name));
 }
 
+// Detect baseline-generation mode (set by update-playwright-snapshots.yml).
+// In this mode the screenshot test MUST run even when no baseline exists yet,
+// otherwise `--update-snapshots` would have nothing to capture and the baseline
+// could never be generated (the original skip-guard deadlock — P0-01).
+function isSnapshotUpdateMode() {
+  return process.env.PLAYWRIGHT_UPDATE_SNAPSHOTS === '1';
+}
+
 // ===== 7.1: AIO Anchor 可視化バグ検知 =====
 test('AIO asset anchor must be hidden (non-visual)', async ({ page }) => {
   await page.goto('/');
@@ -91,10 +99,12 @@ test('content div transitions aria-busy correctly during navigation', async ({ p
 });
 
 // ===== 7.1: スクリーンショット差分テスト（ベースライン）=====
-// Skipped when no baseline image exists (prevents constant-failure on first run).
+// Regression runs: skipped when no baseline image exists (prevents constant-failure on first run).
+// Baseline-generation runs (PLAYWRIGHT_UPDATE_SNAPSHOTS=1 via update-playwright-snapshots.yml):
+//   the test runs even without a baseline so `--update-snapshots` can capture it. (P0-01)
 // Run update-playwright-snapshots.yml to generate the baseline, then commit the .png files.
 test('Homepage screenshot regression', async ({ page }) => {
-  if (!baselineExists('homepage-baseline')) {
+  if (!baselineExists('homepage-baseline') && !isSnapshotUpdateMode()) {
     test.skip(true, 'No screenshot baseline found. Run update-playwright-snapshots workflow to generate.');
   }
   await page.goto('/');
