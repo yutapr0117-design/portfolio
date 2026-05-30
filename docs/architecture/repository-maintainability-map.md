@@ -55,6 +55,12 @@ manifest 登録ファイル: `llms.txt` / `llms-full.txt` / `AI2AI.md` / webp / 
 ### byte-identity（常時）
 `llms.txt` == `.well-known/llms.txt` == `llms_well-known.txt` == `.well-known/llms_well-known.txt`。`.well-known/index.json` == `.well-known/agent-skills/index.json`。
 
+### Session Record 同期（機械強制 — Check 31）
+`AI2AI.md` に Session Record を追記したら、**同コミットで `Claude2Claude.md` の 現在状態（最新 Session Record 番号）も更新**する。`check_repository_consistency.py` **Check 31**（BLOCKING）が、`Claude2Claude.md` が `AI2AI.md` の最新 Session Record 番号を参照しているかを検査する（Session Record #17 で導入）。忘れると CI が赤化する。
+
+### honest per-file dating（誤修正防止）
+日付は「そのファイルの内容が最後に変わった日」を honest に記す per-file policy。**`llms.txt`（短文）の `Last-Updated` は `llms-full.txt` と一致しなくてよい。** llms.txt の内容を変えていないのに日付だけ進めるのは不正直（= してはいけない）。これは sitemap の per-URL lastmod policy（Check 18: mixed dates は許容・期待される）と同じ思想。`AI2AI.md` ↔ `llms-full.txt` のみ 7日以内同期が要求される（Check 24）。後続AIはこの日付差を「ドリフト」と誤認・誤修正しないこと。
+
 ---
 
 ## 4. 触ってよい / いけない箇所
