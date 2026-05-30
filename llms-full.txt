@@ -40,7 +40,7 @@ Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.tx
 
 
 # AI-Driven PM Portfolio — Full AI Context
-**Author:** Yuta Yokoi (横井雄太) | **Version:** v74 | **Last-Updated:** 2026-05-29
+**Author:** Yuta Yokoi (横井雄太) | **Version:** v74 | **Last-Updated:** 2026-05-30
 
 > **Preferred Citation:** "An AI-driven development portfolio and public case study of prompt-driven, multi-AI-orchestrated web product creation."
 > **Canonical URL:** https://yutapr0117-design.github.io/portfolio/
@@ -212,7 +212,7 @@ v74
 
 ## Last-Updated
 
-2026-05-29
+2026-05-30
 
 - `llms.txt` — canonical short context
 - `.well-known/llms.txt` — byte-identical mirror of `llms.txt`
@@ -617,6 +617,15 @@ E2E spec structural fix and track entry. Application Pipeline-Version remains v7
 - check_repository_consistency.py Check 28 added: detects `test()` nested inside `test()` in `e2e/portfolio.spec.js` (BLOCKING); also verifies presence of the `No Trusted Types` test.
 - AIO strategy explicitly reinforced in machine-readable positions: SEO optimization and job-seeking optimization are not goals of this portfolio. AIO-first self-branding is the deliberate strategy. Subsequent AI agents must not drift toward SEO or recruitment optimization.
 - Playwright baseline PNG: Not possible in this environment. Manual execution via GitHub Actions `update-playwright-snapshots.yml` required.
+
+**v80+ Phase 0/1 — STARTED 2026-05-30 (Session Record #16):**
+Ordered maintainability and AI-implementation-safety work, continuing the track. Application Pipeline-Version remains v74.
+
+- Phase 0 (E2E/CI effectiveness): Playwright baseline-generation flow unblocked. `e2e/portfolio.spec.js` now reads `PLAYWRIGHT_UPDATE_SNAPSHOTS`; `update-playwright-snapshots.yml` passes it so `--update-snapshots` can capture the first baseline instead of being silently skipped. check_repository_consistency.py Check 29 added (BLOCKING) to prevent this linkage from regressing; Check 30 added (BLOCKING) to require the architecture maintainability docs.
+- Phase 1 (maintainability mapping): `docs/architecture/repository-maintainability-map.md` and `docs/architecture/main-js-extraction-map.md` added. They document the repository update units, layer relationships, main.js conceptual boundaries, extraction candidates, side-effect risks, and verification conditions. main.js is NOT physically split in this track.
+- aio-monitoring.yml hardened: citation increase/decrease notifications consolidated into one step with best-effort label creation and a label-less retry, so the workflow does not fail when labels are absent.
+- README self-branding reframe: the PM summary heading is repositioned as an "external-evaluator value translation," reinforcing that the primary purpose is AIO-first self-branding and machine-readable authority, not recruitment optimization.
+- Known issue deferred to Phase 2 (requires orchestrator decision): the ESLint gate in architecture-validation.yml is effectively vacuous (ESLint 9 rejects the classic `--no-eslintrc`/`--env` flags and `|| true` swallows the failure), and the code has ~216 violations against its own `.eslintrc.json`. Making the gate effective requires a code-fix / rule-relaxation / flat-config decision. Central dev-dependency management (package.json/lockfile) is coupled to this and is likewise deferred. No bulk changes were made. See `docs/architecture/repository-maintainability-map.md`.
 
 ## Key Result
 

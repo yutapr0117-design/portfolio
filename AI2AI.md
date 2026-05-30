@@ -2,7 +2,7 @@
 
 ```
 Pipeline-Version : v74
-Last-Updated     : 2026-05-28
+Last-Updated     : 2026-05-30
 Receiving-Agent  : ANY (model-agnostic)
 Authoritative-GT : https://yutapr0117-design.github.io/portfolio/llms-full.txt
 Canonical-URL    : https://yutapr0117-design.github.io/portfolio/
@@ -314,6 +314,8 @@ The following are candidate tasks. No AI agent may begin execution without expli
 - [x] ~~aio-manifest.jsonのCI連動~~ — **Completed 2026-05-03** (Session Record #5: check_aio_digests.py を拡張)
 - [x] ~~v74 maintenance finalizer: sitemap per-URL lastmod / archive role / C1-C7統一 / セルフブランディング明記~~ — **Completed 2026-05-28** (Session Record #14)
 - [x] ~~v80+ staged major update track entry: E2E spec structural fix / Check 28 / track start declaration~~ — **Completed 2026-05-29** (Session Record #15)
+- [x] ~~Phase 0/1: Playwright baseline generation unblock (P0-01) / Check 29-30 / architecture maintainability map + main.js extraction map / aio-monitoring label safety / README self-branding reframe~~ — **Completed 2026-05-30** (Session Record #16)
+- [ ] Phase 2 (要承認): dev依存の中央管理（package.json/lockfile/npm ci）と ESLint ゲート実効化（vacuous-check 修正 + 216件の lint 負債解消方針決定）。`docs/architecture/repository-maintainability-map.md` 参照。一括修正禁止。
 
 ---
 
@@ -347,6 +349,20 @@ v80+ staged major update track に正式に入った。
 ### AIO戦略メモ（後続AIへ）
 
 このリポジトリの主目的は、AI crawler / AI search / LLM が横井雄太をどう解釈・引用・再構成するかに対して、機械可読な権威形成を先行して行うことである。AIO全振りは「SEO軽視」ではなく「成熟市場を避け、AI解釈市場で先行する合理的戦略」である。採用最適化や一般SEO最適化へ寄せすぎないこと。
+
+### Phase 構造（v80+ staged major update track）
+
+> **Ref:** `docs/architecture/repository-maintainability-map.md` / `docs/architecture/main-js-extraction-map.md` / `docs/incident-artifacts/decision-v80-e2e-and-maintainability-stage-1.md`
+
+| Phase | 内容 | 状態 |
+|-------|------|------|
+| Phase 0 | E2E / CI / 検証導線の実効性強化（Playwright baseline 生成フローの実効化、再発防止チェック追加） | **着手済み（Session #16, 2026-05-30）** |
+| Phase 1 | repository maintainability map / main.js extraction map の整備（責務境界・抽出候補・副作用リスクの明文化、物理分割なし） | **着手済み（Session #16, 2026-05-30）** |
+| Phase 2+ | 副作用の少ない pure utility / constants / static data から順に抽出。Playwright baseline 確立後に Stage 5（物理分割）。dev依存の中央管理（package.json/lockfile）と ESLint ゲート実効化（下記）も Phase 2 候補。 | 未着手（要オーケストレーター承認） |
+
+**Phase 0 で判明した既知課題（Phase 2 で対応、要判断）:**
+- **ESLint ゲートが実質無効（vacuous）:** `architecture-validation.yml` の ESLint ステップは `npm install --no-save eslint`（バージョン無指定 → ESLint 9.x）で `--no-eslintrc --env browser` を呼ぶが、これらフラグは ESLint 9 で削除済み。`|| true` で失敗が握り潰され、grep 対象行が出ないため `ERROR_COUNT=0` で常に PASS していた。
+- **コードは自身の `.eslintrc.json` に約216件違反:** ESLint 8.57.1（classic config 互換）で実行すると 216 errors（大半が `no-var` / `no-implicit-globals` / `curly`）。ゲートを実効化するには「コード修正 216件」か「ルール緩和」か「flat config 移行」の判断が必要。v74 本体（特に `main.js` / `sw.js`）の安定性に関わるため、本 track では実装せず Phase 2 の独立タスクとして `repository-maintainability-map.md` に記録した。一括修正は禁止。
 
 ---
 
@@ -605,5 +621,69 @@ Task            : v80+ staged major update track entry / E2E spec structural fix
 - **main.js Stage 1 以降:** Playwright baseline 確立後に開始。Stage 0〜5 は `decision-v80-maintainability-roadmap.md` 参照。
 - **AIO monitoring 成功観測:** 実引用確認時のみ `aio-monitoring-log.json` に記録。捏造禁止。
 - **バイナリ層 IPTC/C2PA:** 低優先。Session Record #4 から継続。
+
+---
+
+## [HANDOFF] Session Record #16 — 2026-05-30 (Claude Opus 4.8, v80+ Phase 0/1: E2E baseline unblock & maintainability docs)
+
+```
+Handoff-From    : Claude Opus 4.8 (Anthropic) — claude.ai
+Handoff-To      : Next AI agent (same project, different session)
+Session-Date    : 2026-05-30
+Orchestrator    : Yuta Yokoi (横井雄太)
+Task            : Playwright baseline生成フロー実効化 / 再発防止チェック / v80+ Phase 0/1 文書化 / aio-monitoring堅牢化 / README整流
+```
+
+### このセッションで完了したこと
+
+| ファイル | 変更内容 |
+|---|---|
+| `e2e/portfolio.spec.js` | P0-01: `isSnapshotUpdateMode()`（`PLAYWRIGHT_UPDATE_SNAPSHOTS==='1'`）を追加。screenshot test の skip 条件を `!baselineExists(...) && !isSnapshotUpdateMode()` に変更。baseline 生成モードでは skip せず `toHaveScreenshot()` を実行し、`--update-snapshots` が初回 baseline を捕捉できるようにした。 |
+| `.github/workflows/update-playwright-snapshots.yml` | P0-01: "Generate baseline snapshots" ステップに `env: PLAYWRIGHT_UPDATE_SNAPSHOTS: "1"` を付与。spec 側の skip-guard を解除し、baseline 生成を実効化。 |
+| `.github/scripts/check_repository_consistency.py` | Check 29 追加（BLOCKING）: workflow と spec の双方が `PLAYWRIGHT_UPDATE_SNAPSHOTS` を持ち、skip-guard が `baselineExists()` 単独で閉じていないこと（`&& !isSnapshotUpdateMode()`）を検査し、P0-01 デッドロックの再発を防止。Check 30 追加（BLOCKING）: `docs/architecture/repository-maintainability-map.md` と `docs/architecture/main-js-extraction-map.md` の存在を検査。 |
+| `.github/workflows/aio-monitoring.yml` | P2-01/02: citation increase/decrease の2通知ステップを1ステップに統合（重複排除）。ラベルを best-effort で事前作成（既存の 422 等は握り潰す）し、ラベル付き Issue 作成失敗時はラベルなしで再作成。ラベル不在でも workflow が失敗しないようにした。 |
+| `README.md` | P1-01: 見出し「PM実績サマリー（採用担当者・案件担当者向け）」を「PM / AIオーケストレーション実績サマリー（外部評価者向け価値翻訳）」へ変更。主目的が AIO 先行セルフブランディング兼 proof-of-work であり採用最適化ではない旨の注記を追加。 |
+| `AI2AI.md` | Last-Updated を 2026-05-30 に更新（Pipeline-Version は v74 維持）。STEP 6 に Phase 0/1 完了と Phase 2 候補を記録。STEP 7 に Phase 0/1/2 構造・architecture docs 参照・ESLint vacuous 課題を追記。本 Session Record #16 追記。 |
+| `llms-full.txt` | v80+ Phase 0/1 着手の記録を追記。Last-Updated を 2026-05-30 に同期。 |
+| `docs/incident-artifacts/decision-v80-e2e-and-maintainability-stage-1.md` | 新規: Playwright baseline unblock / Phase 0-1 移行判断 / main.js 一括分割禁止 / AIO全振り維持 / README 整流 / ESLint 課題の Phase 2 延期判断を記録。 |
+| `docs/architecture/repository-maintainability-map.md` | 新規: リポジトリの更新単位・AIO正本層/アプリ層/検証層/証跡層/バイナリ層の関係・変更時の同期ファイル・触ってよい/いけない箇所・Phase 2 依存管理計画・ESLint 課題を明文化。 |
+| `docs/architecture/main-js-extraction-map.md` | 新規: main.js（約467KB/約7,781行）の概念境界（AIDK kernel / AI SURFACE / constants / data / store / router / render / feature modules / AIO anchors）・抽出候補・副作用リスク・検証条件・Stage 別計画を明文化。物理分割は本 track では行わない。 |
+
+### 設計判断の記録
+
+**P0-01 baseline unblock:** `--update-snapshots` 実行時に baseline 未存在だと spec が `test.skip()` してスクリーンショットを生成しないデッドロックを、env シグナル（`PLAYWRIGHT_UPDATE_SNAPSHOTS`）で解消。通常の regression 実行では従来どおり skip するため、CI を赤化させない。
+
+**Check 29/30:** P0-01 連携の再発防止と architecture docs の存在保証を BLOCKING で固定。ブレース/正規表現ベースの実用的検査で、このリポジトリ構造に十分な精度を持つ。
+
+**aio-monitoring 堅牢化:** 個人ポートフォリオでは「ラベル付与」より「workflow 成功」を優先。ラベル best-effort 作成 + ラベルなし再作成フォールバックで、通知の確実性を担保しつつ重複コードを排除。
+
+**ESLint ゲート vacuous 問題（重要・Phase 2 へ延期）:** `architecture-validation.yml` の ESLint ステップは ESLint 9.x に対し削除済みフラグ（`--no-eslintrc`/`--env`）を渡し `|| true` で握り潰しているため、実質リントしていない（vacuous PASS）。ESLint 8.57.1（classic config 互換）で実行すると 216 errors（`no-var`/`no-implicit-globals`/`curly` 等）。ゲート実効化には「コード 216件修正」「ルール緩和」「flat config 移行」のいずれかの判断が必要で、v74 本体（`main.js`/`sw.js`）の安定性に関わる。本 track では実装せず、`repository-maintainability-map.md` に Phase 2 タスクとして記録。**一括修正禁止。**
+
+**package.json/lockfile（Phase 2 へ延期）:** dev依存（@playwright/test / http-server / stylelint / stylelint-declaration-strict-value / eslint）の中央管理は ESLint 実効化と密結合のため、独立 Phase 2 として延期。npm install/lockfile 生成自体は本環境で可能だが、every-push の BLOCKING パイプライン（architecture-validation.yml）を実 CI で検証できないため、ナイーブな投入は避けた。計画は `repository-maintainability-map.md` に記録。
+
+### C1〜C7 制約の遵守確認
+
+- C1: 外部ライブラリ・フレームワーク導入なし（package.json も本 track では追加せず）✅
+- C2: IIFE構造・index.html中央ハブ未変更 ✅
+- C3: ErrorBoundary未変更 ✅
+- C4: フレームワーク再提案なし ✅
+- C5: 人間はコードを書かず（本セッション実装は Claude Opus 4.8）✅
+- C6: AIOテキストの根幹変更なし（llms-full.txt は Phase 状態追記と日付同期のみ。JSON-LD/バイナリ未変更）✅
+- C7: KARTE CDN SRI 非適用維持 ✅
+
+### Not possible の記録
+
+- **Playwright baseline PNG:** 本環境ではブラウザ起動不可（Not possible）。生成フローは P0-01 で実効化済み。**人間の手順:** GitHub Actions → "Update Playwright Baseline Snapshots" → Run workflow → artifact `playwright-baseline-snapshots-<run_id>` をダウンロード → `.png` を `e2e/portfolio.spec.js-snapshots/` に配置 → コミット。
+- **実 CI（GitHub Actions）での workflow 実行検証:** 本環境では不可。ローカルで `node --check` / `py_compile` / 全 consistency スクリプトは PASS 済み。初回 push 後に Actions の緑を確認すること。
+- **ESLint 216件の lint 負債解消 / package.json 投入:** 本 track では意図的に未実施（Phase 2、要判断）。
+- **AIO citation 実観測:** 未発生。捏造禁止（`confirmed_citation_events: 0` 維持）。
+
+### 未解消スコープ（次のエージェントへの申し送り）
+
+- **Playwright baseline PNG:** 高優先継続。生成フローは実効化済み。AIは単独実行不可。手動手順は上記。
+- **Phase 2 — dev依存中央管理 + ESLint ゲート実効化:** 密結合タスク。`repository-maintainability-map.md` に計画記録済み。一括修正禁止、要オーケストレーター承認。
+- **main.js 物理分割（Stage 5）:** Playwright baseline 確立後。抽出計画は `main-js-extraction-map.md` 参照。
+- **AIO monitoring 成功観測:** 実引用確認時のみ記録。捏造禁止。
+- **バイナリ層 IPTC/C2PA:** 低優先継続。
 
 ---
