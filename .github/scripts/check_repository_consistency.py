@@ -573,6 +573,55 @@ if _spec_path_28.exists():
 else:
     warnings.append("P0-02: e2e/portfolio.spec.js not found — test-nesting check skipped")
 
+# ── 29. P0-01: Playwright baseline-generation linkage is intact ─────────────
+# The baseline generation flow only works if BOTH sides agree on the env signal:
+#   - update-playwright-snapshots.yml passes PLAYWRIGHT_UPDATE_SNAPSHOTS
+#   - e2e/portfolio.spec.js reads it and does NOT skip the screenshot test in that mode
+# Without this, --update-snapshots runs but the skip-guard prevents capture (deadlock).
+_snap_wf = ROOT / ".github" / "workflows" / "update-playwright-snapshots.yml"
+_spec_29 = ROOT / "e2e" / "portfolio.spec.js"
+if _snap_wf.exists() and _spec_29.exists():
+    _wf_txt = _snap_wf.read_text(encoding="utf-8")
+    _spec_txt = _spec_29.read_text(encoding="utf-8")
+    check(
+        "PLAYWRIGHT_UPDATE_SNAPSHOTS" in _wf_txt,
+        "update-playwright-snapshots.yml: passes PLAYWRIGHT_UPDATE_SNAPSHOTS env",
+        "update-playwright-snapshots.yml: PLAYWRIGHT_UPDATE_SNAPSHOTS env missing — baseline generation will skip the screenshot test (P0-01 deadlock)",
+    )
+    check(
+        "PLAYWRIGHT_UPDATE_SNAPSHOTS" in _spec_txt,
+        "e2e/portfolio.spec.js: reads PLAYWRIGHT_UPDATE_SNAPSHOTS (baseline-generation mode aware)",
+        "e2e/portfolio.spec.js: does not read PLAYWRIGHT_UPDATE_SNAPSHOTS — screenshot test cannot run in baseline-generation mode (P0-01 deadlock)",
+    )
+    # The screenshot skip-guard must not be closed by baselineExists() alone:
+    # it must also allow the snapshot-update mode to bypass the skip.
+    _guard_ok = bool(
+        re.search(
+            r"!baselineExists\([^)]*\)\s*&&\s*!isSnapshotUpdateMode\(\)",
+            _spec_txt,
+        )
+    )
+    check(
+        _guard_ok,
+        "e2e/portfolio.spec.js: screenshot skip-guard combines baselineExists() with isSnapshotUpdateMode()",
+        "e2e/portfolio.spec.js: screenshot skip-guard is not gated by isSnapshotUpdateMode() — baseline can never be generated (P0-01 deadlock)",
+    )
+else:
+    warnings.append("P0-01: update-playwright-snapshots.yml or e2e/portfolio.spec.js not found — baseline-linkage check skipped")
+
+# ── 30. v80+ Stage 0/1: architecture maintainability docs are present ────────
+# These docs anchor the staged main.js decomposition and the repository update map.
+# Their absence means a later AI agent has no extraction/maintainability contract to follow.
+for _arch_doc in (
+    "docs/architecture/repository-maintainability-map.md",
+    "docs/architecture/main-js-extraction-map.md",
+):
+    check(
+        (ROOT / _arch_doc).exists(),
+        f"{_arch_doc} present (v80+ maintainability anchor)",
+        f"{_arch_doc} missing — v80+ staged maintainability doc absent",
+    )
+
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
 if errors:
