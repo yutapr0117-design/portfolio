@@ -25,6 +25,12 @@ jobs:
       - name: Checkout repository codebase
         uses: actions/checkout@v4
 
+      - name: Install pinned dev dependencies (npm ci)
+        # Phase 2-A (Session #18): dev tools (eslint/stylelint/playwright/http-server)
+        # are centralized in package.json + package-lock.json. `npm ci` installs the
+        # exact locked versions reproducibly. Runs once; later steps use `npx`.
+        run: npm ci
+
       - name: Enforce CSP HTML Attribute Compliance (Level 2 Separation)
         run: |
           if grep -qP '<[^>]+\s+style="[^"]+"' index.html; then
@@ -341,27 +347,56 @@ jobs:
           done
           echo "node --check: PASS"
 
-      # ── 24. BLOCKING: ESLint 論理バグパターン検査 (改善文書a 3.2) ──────────
-      - name: "BLOCKING: ESLint logical bug pattern validation (改善文書a 3.2)"
+      # ── 24. BLOCKING(errors + execution) / ADVISORY(warnings): ESLint scan ──
+      # History (Session #18): this gate was previously vacuous. `npm install --no-save
+      #   eslint` (UNPINNED) resolved ESLint 9.x, where `--no-eslintrc`/`--env` were
+      #   removed; the pinned-8.x flags errored, `|| true` swallowed it, ERROR_COUNT=0,
+      #   and it PASSED while labelled BLOCKING. That is now fully fixed:
+      #     1. ESLint is pinned (8.57.1) via package.json + `npm ci` (run once, above).
+      #     2. Execution failure (exit >= 2: config/parse/flag error) → BLOCKING.
+      #     3. Lint ERRORS (exit 1 with error-level findings) → BLOCKING. The repo was
+      #        brought to 0 errors by: modernising the small helper files, declaring
+      #        TrustedHTML as a global (false-positive no-undef), a vendor eslint-disable
+      #        on the KARTE snippet, and a targeted no-implicit-globals disable in the
+      #        service worker. The two purely-cosmetic rules (no-var, curly) are demoted
+      #        to WARNINGS on main.js/sw.js via .eslintrc `overrides`, so the production
+      #        SPA and the DO-NOT-EDIT kernel are not mass-rewritten. All bug-catching
+      #        rules remain blocking errors.
+      #     4. WARNINGS are reported but do NOT fail CI (advisory; tracked for
+      #        incremental modernisation in repository-maintainability-map.md).
+      #   A vacuous PASS is structurally impossible: the step lints honestly and either
+      #   passes with 0 errors, fails on a new error, or fails loud on execution error.
+      - name: "BLOCKING(errors+execution) / ADVISORY(warnings): ESLint scan"
         run: |
-          npm install --no-save eslint 2>/dev/null
-          # JS-CSS separation (v74+): main.js and other .js files are now external.
-          # Direct lint coverage replaces the inline-extraction fallback.
+          # JS-CSS separation (v74+): main.js and other .js files are external.
           LINT_TARGET="main.js error-suppressor.js karte-init.js theme-init.js aio-guard.js sw.js"
           # Retain js/ directory support for future modularisation
           if [ -d "js" ] && ls js/*.js 1>/dev/null 2>&1; then
             LINT_TARGET="js/**/*.js $LINT_TARGET"
           fi
           cp .eslintrc.json /tmp/_eslintrc.json
-          npx eslint "$LINT_TARGET"             --no-eslintrc --config /tmp/_eslintrc.json             --env browser --env es2022             --max-warnings=0             2>&1 | tee /tmp/eslint-output.txt || true
-          ERROR_COUNT=$(grep -cE "^[[:space:]]+[0-9]+:[0-9]+[[:space:]]+error" /tmp/eslint-output.txt || true)
-          if [ "$ERROR_COUNT" -gt "0" ]; then
-            echo "::error::BLOCKING: $ERROR_COUNT ESLint error(s) detected."
-            grep -E "error" /tmp/eslint-output.txt | head -20
+          # Capture ESLint's own exit code; do NOT swallow it with `|| true`.
+          #   exit 0  → clean
+          #   exit 1  → ESLint ran and found problems (errors and/or warnings)
+          #   exit >=2 → ESLint failed to execute: config/parse/flag error (BLOCKING)
+          set +e
+          npx eslint $LINT_TARGET --no-eslintrc --config /tmp/_eslintrc.json --env browser --env es2022 > /tmp/eslint-output.txt 2>&1
+          ESLINT_EXIT=$?
+          set -e
+          if [ "$ESLINT_EXIT" -ge 2 ]; then
+            echo "::error::BLOCKING: ESLint failed to execute (exit $ESLINT_EXIT). Config/flag/parse error, not lint debt — the gate is NOT vacuous."
+            cat /tmp/eslint-output.txt
             exit 1
           fi
+          ERROR_COUNT=$(grep -cE "^[[:space:]]+[0-9]+:[0-9]+[[:space:]]+error" /tmp/eslint-output.txt || true)
           WARN_COUNT=$(grep -cE "^[[:space:]]+[0-9]+:[0-9]+[[:space:]]+warning" /tmp/eslint-output.txt || true)
-          echo "ESLint: PASS ($ERROR_COUNT errors, $WARN_COUNT warnings)"
+          if [ "$ERROR_COUNT" -gt "0" ]; then
+            echo "::error::BLOCKING: $ERROR_COUNT ESLint error(s) detected (bug-catching rules). See log."
+            grep -E "error" /tmp/eslint-output.txt | head -40
+            exit 1
+          fi
+          echo "::notice::ESLint PASS — 0 errors, $WARN_COUNT advisory warning(s) (no-var/curly on main.js/sw.js, tracked for incremental modernisation; non-blocking)."
+          grep -E "warning" /tmp/eslint-output.txt | head -10 || true
           python3 -c "import json; json.load(open('.eslintrc.json')); print('.eslintrc.json: JSON parse PASS')"
 
       # ── 25. BLOCKING: AI2AI.md コミット単位ドリフト検出 (改善文書a 4.1)
@@ -504,7 +539,10 @@ jobs:
       # all logic is consolidated in check_css_stylelint.py.
       - name: "BLOCKING(error)/ADVISORY(warning): Stylelint CSS specificity and variable enforcement (P0-16/P0-17)"
         run: |
-          npm install --no-save stylelint@16 stylelint-declaration-strict-value@1 2>/dev/null
+          # stylelint is pinned in package.json and installed via `npm ci` earlier in
+          # this job. check_css_stylelint.py invokes `npx stylelint`. The previously
+          # installed-but-unused `stylelint-declaration-strict-value` plugin was removed
+          # (Session #18): .stylelintrc.json has "plugins": [] and never referenced it.
           python3 .github/scripts/check_css_stylelint.py
 
       # ── 28. BLOCKING: AIO digest consistency (改善文書 P5/P6) ──────────────

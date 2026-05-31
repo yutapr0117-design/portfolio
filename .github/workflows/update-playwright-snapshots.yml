@@ -52,7 +52,7 @@ jobs:
 
       - name: Install Playwright and dependencies
         run: |
-          npm install -D @playwright/test@1 http-server@14
+          npm ci
           npx playwright install --with-deps chromium
 
       - name: Generate baseline snapshots
