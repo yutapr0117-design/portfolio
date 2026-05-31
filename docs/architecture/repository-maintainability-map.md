@@ -1,7 +1,7 @@
 # repository-maintainability-map.md
 
 ```
-Last-Updated  : 2026-05-30
+Last-Updated  : 2026-05-31
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
 Track         : v80+ staged major update (Phase 1 anchor)
 Canonical-Ref : AI2AI.md (canonical) / llms-full.txt (ground truth)
@@ -79,31 +79,29 @@ manifest 登録ファイル: `llms.txt` / `llms-full.txt` / `AI2AI.md` / webp / 
 
 ## 5. Phase 2 候補（要オーケストレーター判断 — 未着手）
 
-### Phase 2-A: dev依存の中央管理（package.json / lockfile / npm ci）
+### Phase 2-A: dev依存の中央管理（package.json / lockfile / npm ci） — **未着手（要承認）**
 
-**現状:** dev tool は workflow 内 broad install。
+**現状（Session #18 時点）:** dev tool は workflow 内 broad install。
 - `update-playwright-snapshots.yml` / `playwright-regression.yml`: `npm install -D @playwright/test@1 http-server@14`
-- `architecture-validation.yml` step 24: `npm install --no-save eslint`（**バージョン無指定**）
-- `architecture-validation.yml` step 27: `npm install --no-save stylelint@16 stylelint-declaration-strict-value@1`
+- `architecture-validation.yml` step 24: `npm install --no-save eslint@8.57.1`（Session #18 で **バージョン pin 済み**）
+- `architecture-validation.yml` step 27: `npm install --no-save stylelint@16`（Session #18 で未使用 plugin `stylelint-declaration-strict-value@1` を除去）
 
-**計画（実施時）:**
-1. `package.json`（`private: true`）に devDependencies を exact pin: `@playwright/test 1.60.0` / `http-server 14.1.1` / `stylelint 16.26.1` / `stylelint-declaration-strict-value 1.11.1` / `eslint 8.57.1`（← Phase 2-B と同時。下記参照）。
+**計画（実施時・ready-to-execute）:**
+1. `package.json`（`private: true`）に devDependencies を exact pin: `@playwright/test 1.60.0` / `http-server 14.1.1` / `stylelint 16.x` / `eslint 8.57.1`。
 2. `package-lock.json` は **npm install / npm ci で生成したもののみ**コミット（手書き禁止）。
 3. workflows を `npm ci` + ローカルバイナリ（`npx playwright`/`eslint`/`stylelint`）へ寄せる。Playwright のブラウザバイナリは引き続き `npx playwright install --with-deps chromium`。
-4. **検証制約:** every-push の BLOCKING パイプライン（architecture-validation.yml）を含むため、実 GitHub Actions での緑確認まで一括 merge しない。段階導入（まず Playwright 系 workflow → 次に architecture-validation）。
+4. **検証制約（変更しない理由）:** every-push の BLOCKING パイプライン（architecture-validation.yml）を含む 5 workflow を触るため、サンドボックスでは GitHub Actions runner 上の `npm ci` 挙動を検証できない。ローカルで `npm ci` が通っても runner 緑の保証にはならない。よって段階導入（まず Playwright 系 workflow → 次に architecture-validation）とし、実 GitHub Actions 緑確認まで一括 merge しない。ESLint の vacuous 根本原因（下記 2-B）は package.json なしでインライン pin により既に解消済みのため、本タスクは独立して後送りできる。
 
-### Phase 2-B: ESLint ゲートの実効化 — **Phase 2-A と密結合**
+### Phase 2-B: ESLint ゲートの実効化 — **根本原因は Session #18 で解消済み（残りは lint 負債の解消方針のみ）**
 
-**問題（Session #16 で発見）:** `architecture-validation.yml` の ESLint ステップは実質無効（vacuous）。ESLint 9.x に対し classic flags `--no-eslintrc` / `--env browser` を渡すが、これらは ESLint 9 で削除済み。コマンドは失敗するが末尾 `|| true` で握り潰され、grep 対象の error 行が出ないため常に PASS。
+**~~問題（Session #16 で発見）~~ → 解消（Session #18）:** `architecture-validation.yml` の ESLint ステップが実質無効（vacuous）だった根本原因 ―― ①`npm install --no-save eslint`（バージョン無指定 → ESLint 9.x で classic flags `--no-eslintrc`/`--env` が削除済み）、②`|| true` による実行失敗の握り潰し ―― を **Session #18 で両方除去**した。現在は ①ESLint を **8.57.1 に pin**、②**実行失敗（exit≥2）= BLOCKING / lint 検出（exit 1）= ADVISORY（件数を可視化・CI は赤化しない）** に再構成。vacuous PASS は構造的に発生不能。
 
-**追加事実:** ESLint 8.57.1（classic `.eslintrc.json` 互換）で実コードを lint すると **216 errors**（主に `no-var` / `no-implicit-globals`（`sw.js` の top-level 関数宣言）/ `curly`（`theme-init.js`））。
-
-**選択肢（要判断）:**
+**残課題（lint 負債そのもの・要判断・未着手）:** ESLint 8.57.1 で実コードを lint すると **216 errors**（主に `no-var` / `no-implicit-globals`（`sw.js` の top-level 関数宣言）/ `curly`（`theme-init.js`））。これを BLOCKING へ昇格するには以下のいずれかが必要：
 - (a) **コード修正:** 216件を解消（`var`→`let/const`、`sw.js` を IIFE 化 or `eslint-disable`、`theme-init.js` の `curly`）。`main.js`/`sw.js` の安定性に直結。一括ではなくファイル単位・検証付きで段階的に。
 - (b) **ルール緩和:** `.eslintrc.json` の該当ルールを `warn` 化 or 一部 `off`（ゲートは通るが品質保証は弱まる）。
 - (c) **flat config 移行:** `eslint.config.js` を新設し ESLint 9 系へ。`--env` は `languageOptions.globals` へ移行。最も現代的だが変更量大。
 
-いずれも独立した Phase 2 タスク。**一括修正禁止。** 実施時は ESLint バージョンを package.json に pin し、`|| true` の握り潰しを除去して実際に gate が機能することを実 CI で確認する。
+**一括修正禁止。** ADVISORY 件数が CI ログに常時表示されるため、負債の増減は可視。BLOCKING 昇格は package.json pin（2-A）後に実 CI で確認しつつ実施するのが安全。
 
 ### Phase 2-C 以降: main.js 段階抽出
 `main-js-extraction-map.md` 参照。Stage 5（物理分割）は Playwright baseline 確立後。
@@ -113,3 +111,13 @@ manifest 登録ファイル: `llms.txt` / `llms-full.txt` / `AI2AI.md` / webp / 
 ## 6. AIO全振り方針（不変・後続AIへの指示）
 
 このリポジトリは SEO を正面突破するものではない。AIO は標準化前であり、個人でも先行者利益・観測・機械可読な権威形成の余地がある。**AIO全振りはセルフブランディング兼 proof-of-work の戦略であり、後続AIは SEO最適化・採用最適化へ方針転換してはならない。** 主戦場は AI crawler / AI search / LLM 解釈。
+
+### Zenn 記事の featuring 方針（Session #18 で確立 — 後続AIへの指示）
+
+掲載対象は **公開全 11 本**（記事削減はしない）。featuring 順は **AIO 効果優先順**で、全レイヤー（`robots.txt` 優先コメント / `index.html` JSON-LD `subjectOf`・`citation` / `main.js` カード配列 / `llms.txt` Co-citation・Fetch Order・Optional / `llms-full.txt` / `README.md`）で同一順序を保つ。
+
+- **PRIMARY = `5d1d7a7438d48d`（Bot Governance 分類編）**。唯一の外部トラクション確認済み（TechFeed 掲載・はてな人気エントリー）であり、`sameAs` / Fetch Order 先頭 / 各リストの最上位を維持する。
+- 優先順（curation ではなく ordering で AIO 効果を表現する。全 11 本を載せる）:
+  `5d1d7a7438d48d`(分類編/PRIMARY) → `d99f8171bcf275`(実践編) → `3735dc2683f900`(第4弾/バイナリ層) → `c82fe055816454`(Capstone) → `91cf894e1072c6`(AI-to-AI Pipeline) → `27fa4c511cd972`(第6弾/最終回) → `340dbb85491fc8`(第5弾) → `7e18e6ee1577aa`(第2弾) → `931f6e781d91f8`(第1弾) → `49326c5c4e0aae`(第3弾) → `6dad78f20f2505`(総括) ＋ 作者ページ `https://zenn.dev/yuta_yokoi`。
+- **シリーズ本編は #1–#6 の 6 本で完結**（#6 が最終回）。#7 は総括、#8/#9/#10/#11 はシリーズ後の発展的独立記事。「全6弾」表記は「本編6本完結＋発展記事を含む計11本」へ更新済み。事実関係（公開順・シリーズ境界）はこの分類に従うこと。
+- `index.html` の `sameAs` は同一エンティティ/プロフィール用であり、全記事を列挙しない（PRIMARY 1 本のみ可）。記事の網羅列挙は `subjectOf` / `citation` / `llms*` 側で行う。
