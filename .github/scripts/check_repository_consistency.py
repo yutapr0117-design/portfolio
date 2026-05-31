@@ -4,7 +4,8 @@ check_repository_consistency.py — P0-23 / Cross-file consistency check (BLOCKI
 
 Verifies that key version, date, and structural invariants hold across the repository.
 
-Checks performed:
+Checks performed (the numbering is historical/incremental; this list is the
+authoritative inventory and is kept in sync with the implementation below):
   1.  ai:version (index.html) == Pipeline-Version (AI2AI.md)
   2.  ai:version == SITE_CONFIG.VERSION or main.js VERSION string
   3.  mcp.json server.version major matches ai:version
@@ -18,7 +19,31 @@ Checks performed:
   9.  sitemap.xml is valid XML
   10. All .github/scripts/*.py parse without syntax errors
   11. aio_monitoring.py summary dict contains 'enabled_engines' and 'total_cited_count'
+  12. No stale "72回/72回以上" in current-description files (history lines exempt)
+  13. "70超" appears only in history/log context
+  14. v1→v74 canonical declaration present in index.html or AI2AI.md
+  15. Project Pages robots/.well-known constraint documented (llms-full.txt / AI2AI.md / README.md)
+  16. e2e/portfolio.spec.js screenshot test has a baseline-skip guard
+  17. ai:last-modified (index.html) == SITE_CONFIG.LAST_UPDATED (main.js)
+  18. sitemap.xml root <lastmod> == ai:last-modified (per-URL lastmod policy)
+  19. sw.js CACHE_NAME version == ai:version
+  20. index.html has og:image:width / og:image:height / og:image:alt
+  21. llms alias files Last-Updated are in sync
+  22. AI2AI.md Session Record headers are in ascending order
   23. .github/workflows/*.yml and dependabot.yml parse without YAML syntax errors
+  24. llms-full.txt Last-Updated is within 7 days of AI2AI.md and >= v75-v78 floor
+  25. aio-monitoring-log.json has an evidence_policy key (attempt_log_only honesty)
+  26. aio-manifest.json archive role #1-#N matches AI2AI-archive.md max Session Record
+  27. llms-full.txt has no stale C1–C6 in current-constraint context (should be C1–C7)
+  28. e2e/portfolio.spec.js has no test() nested inside another test()
+  29. Playwright baseline-generation linkage intact (snapshot workflow <-> spec env signal)
+  30. v80+ maintainability anchor docs present (repository-maintainability-map / main-js-extraction-map)
+  31. Claude2Claude.md references AI2AI.md's current max Session Record
+  32. index.html application/ld+json blocks are valid JSON (BLOCKING)
+  33. Zenn featuring layers share the canonical article slug set + PRIMARY (BLOCKING)
+  34. doc Last-Updated equals its sitemap <lastmod> — honest dating (WARNING)
+  35. robots.txt advertises a Sitemap: directive resolving to sitemap.xml (BLOCKING)
+  36. sitemap.xml has no future-dated <lastmod> (WARNING)
 
 Exit codes:
   0 — all checks passed
@@ -644,6 +669,135 @@ if _ai2ai_p31.exists() and _c2c_p31.exists():
         warnings.append("Check 31: no Session Record number found in AI2AI.md")
 else:
     warnings.append("Check 31: AI2AI.md or Claude2Claude.md not found — Claude2Claude sync check skipped")
+
+# ── 32. index.html JSON-LD blocks are valid JSON (BLOCKING) ──────────────────
+# Mechanizes a gap found in Session #18: the checker validated CSP inline-script
+# hashes but never parsed the application/ld+json blocks. JSON-LD is the core AIO
+# structured-data asset and is hand-edited (e.g. the Zenn subjectOf/citation lists),
+# so a stray comma/bracket would ship invalid structured data silently.
+import json as _json32
+import re as _re32
+_idx32 = ROOT / "index.html"
+if _idx32.exists():
+    _html32 = _idx32.read_text(encoding="utf-8")
+    _blocks32 = _re32.findall(
+        r'<script type="application/ld\+json">(.*?)</script>', _html32, _re32.DOTALL
+    )
+    if not _blocks32:
+        warnings.append("Check 32: no application/ld+json blocks found in index.html")
+    for _i32, _b32 in enumerate(_blocks32):
+        try:
+            _json32.loads(_b32)
+            check(True, f"index.html JSON-LD block #{_i32} parses as valid JSON", "")
+        except Exception as _e32:  # noqa: BLE001
+            check(False, "", f"index.html JSON-LD block #{_i32} is INVALID JSON: {_e32}")
+else:
+    warnings.append("Check 32: index.html not found — JSON-LD parse check skipped")
+
+# ── 33. Zenn featuring layers share the same article slug set (BLOCKING) ──────
+# Mechanizes the Session #18 Zenn re-selection policy (see repository-maintainability-map.md
+# §6). The canonical featured set must appear in EVERY featuring layer, and the PRIMARY
+# slug must be present everywhere. Prevents the omission-drift that was present at the
+# start of Session #18 (the high-AIO articles #8/#10/#11 were referenced in zero files).
+_PRIMARY_SLUG = "5d1d7a7438d48d"
+_CANON_SLUGS = {
+    "5d1d7a7438d48d", "d99f8171bcf275", "3735dc2683f900", "c82fe055816454",
+    "91cf894e1072c6", "27fa4c511cd972", "340dbb85491fc8", "7e18e6ee1577aa",
+    "931f6e781d91f8", "49326c5c4e0aae", "6dad78f20f2505",
+}
+_ZENN_LAYERS = [
+    "robots.txt", "index.html", "main.js", "llms.txt", "llms-full.txt", "README.md",
+]
+for _layer33 in _ZENN_LAYERS:
+    _p33 = ROOT / _layer33
+    if not _p33.exists():
+        warnings.append(f"Check 33: {_layer33} not found — Zenn slug check skipped for it")
+        continue
+    _txt33 = _p33.read_text(encoding="utf-8")
+    _missing33 = sorted(s for s in _CANON_SLUGS if s not in _txt33)
+    check(
+        not _missing33,
+        f"{_layer33}: contains all {len(_CANON_SLUGS)} canonical Zenn article slugs",
+        f"{_layer33}: missing Zenn slug(s) {_missing33} — featuring layers have drifted out of sync (repository-maintainability-map.md §6)",
+    )
+    check(
+        _PRIMARY_SLUG in _txt33,
+        f"{_layer33}: contains the PRIMARY Zenn slug ({_PRIMARY_SLUG})",
+        f"{_layer33}: missing the PRIMARY Zenn slug ({_PRIMARY_SLUG})",
+    )
+
+# ── 34. honest per-file dating: doc Last-Updated == its sitemap <lastmod> (WARNING) ──
+# Mechanizes the "honest dating" policy applied by hand in Session #18: a file's
+# declared Last-Updated should equal the lastmod its sitemap entry advertises. WARNING
+# (not BLOCKING) because the per-URL lastmod policy legitimately allows mixed dates and
+# some docs intentionally lag; this surfaces accidental divergence without breaking CI.
+_sitemap34 = ROOT / "sitemap.xml"
+if _sitemap34.exists():
+    import re as _re34
+    _sm34 = _sitemap34.read_text(encoding="utf-8")
+    # path-suffix -> declared Last-Updated regex in that file
+    _date_docs34 = {
+        "llms.txt": r"Last-Updated:\s*([0-9]{4}-[0-9]{2}-[0-9]{2})",
+        "llms-full.txt": r"Last-Updated:\*\*\s*([0-9]{4}-[0-9]{2}-[0-9]{2})",
+        "AI2AI.md": r"Last-Updated\s*:\s*([0-9]{4}-[0-9]{2}-[0-9]{2})",
+    }
+    for _suffix34, _re_pat34 in _date_docs34.items():
+        _fp34 = ROOT / _suffix34
+        if not _fp34.exists():
+            continue
+        _m_decl = _re34.search(_re_pat34, _fp34.read_text(encoding="utf-8"))
+        # find the sitemap <url> block whose <loc> ends with this suffix
+        _m_sm = _re34.search(
+            r"<loc>[^<]*/" + _re34.escape(_suffix34) + r"</loc>\s*<lastmod>([0-9-]+)</lastmod>",
+            _sm34,
+        )
+        if _m_decl and _m_sm:
+            if _m_decl.group(1) != _m_sm.group(1):
+                warnings.append(
+                    f"Check 34: {_suffix34} declares Last-Updated {_m_decl.group(1)} "
+                    f"but sitemap lastmod is {_m_sm.group(1)} (honest-dating divergence)"
+                )
+            else:
+                check(True, f"{_suffix34}: Last-Updated matches sitemap lastmod ({_m_decl.group(1)})", "")
+else:
+    warnings.append("Check 34: sitemap.xml not found — honest-dating check skipped")
+
+# ── 35. robots.txt advertises the sitemap, and that sitemap exists (BLOCKING) ─
+# Configuration self-consistency: a Sitemap: directive that points at a missing or
+# wrong-host file silently breaks crawler discovery (AIO + SEO).
+_robots35 = ROOT / "robots.txt"
+if _robots35.exists():
+    import re as _re35
+    _rb35 = _robots35.read_text(encoding="utf-8")
+    _sm_directive35 = _re35.search(r"(?im)^Sitemap:\s*(\S+)", _rb35)
+    check(
+        bool(_sm_directive35),
+        "robots.txt: advertises a Sitemap: directive",
+        "robots.txt: no Sitemap: directive — crawlers cannot discover sitemap.xml",
+    )
+    if _sm_directive35:
+        _sm_url35 = _sm_directive35.group(1)
+        check(
+            _sm_url35.endswith("/sitemap.xml") and (ROOT / "sitemap.xml").exists(),
+            "robots.txt: Sitemap: directive points at the existing sitemap.xml",
+            f"robots.txt: Sitemap: directive '{_sm_url35}' does not resolve to an existing sitemap.xml",
+        )
+else:
+    warnings.append("Check 35: robots.txt not found — Sitemap directive check skipped")
+
+# ── 36. sitemap.xml has no future-dated <lastmod> (WARNING) ──────────────────
+# A lastmod in the future is an unnatural freshness signal and usually a typo
+# (e.g. a transposed year). WARNING so a clock-skew edge case never breaks CI.
+if _sitemap34.exists():
+    import re as _re36
+    from datetime import date as _date36
+    _today36 = _date36.today()
+    for _lm36 in _re36.findall(r"<lastmod>([0-9]{4}-[0-9]{2}-[0-9]{2})</lastmod>", _sm34):
+        try:
+            if _date36.fromisoformat(_lm36) > _today36:
+                warnings.append(f"Check 36: sitemap.xml has a future-dated <lastmod> {_lm36} (>{_today36})")
+        except ValueError:
+            warnings.append(f"Check 36: sitemap.xml has a malformed <lastmod> '{_lm36}'")
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
