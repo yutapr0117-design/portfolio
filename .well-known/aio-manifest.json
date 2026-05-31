@@ -8,17 +8,17 @@
     {
       "path": "llms.txt",
       "role": "short AI routing context",
-      "sha256": "f8c2baa0ae14b20b0be35ad2ebe576c23e9509802af05f0c5adcab378947fcec"
+      "sha256": "9364470c7bb3961f44f8caf63da101c2e1bf73b288f3ce2f37189fabe05a72a6"
     },
     {
       "path": "llms-full.txt",
       "role": "full AI context",
-      "sha256": "40776ab91baa63525b3ccfd441afeb51d88e528f7063093fa40c1a7e6187f46b"
+      "sha256": "8cebbd9f535a8113443b43a17a21cb8610638671a8cc50cc6e08bb366fb4cc43"
     },
     {
       "path": "AI2AI.md",
       "role": "AI-to-AI implementation handoff",
-      "sha256": "717dea0363a70a355d6c84264e03e4d130dddb9e90cf4b2db6e66b97c30841f2"
+      "sha256": "fff0b0c13151fece3dca3b243caccbf6639a45c8d6178022b9cca11251905737"
     },
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
@@ -36,7 +36,7 @@
       "path": "Claude2Claude.md",
       "role": "Tool-specific AI-only implementation continuity evidence; non-canonical and subordinate to AI2AI.md.",
       "canonical": false,
-      "sha256": "782a503fa2dbfe74df1ea45049a0b0d96cf0990dfb37c6cbb8366712eae48f91"
+      "sha256": "94634b1c262a4a1a5a4435f0b8f2d6af96b117fe6e22b15bebaa83905a29cbca"
     },
     {
       "path": "docs/evidence/ai-pioneer-identity-review.md",
@@ -56,7 +56,7 @@
       "sha256": "992380886bbfc56c23f29cccc6200587b2a14b2d7719eb47609aea5fb6af5704"
     }
   ],
-  "generated_at": "2026-05-30T10:59:11Z",
+  "generated_at": "2026-05-31T14:31:19Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
