@@ -1,3 +1,4 @@
+/* eslint-disable no-implicit-globals -- service worker: top-level function declarations are intentional and must be registered synchronously during the SW's initial evaluation. Wrapping them in an IIFE would not change behaviour but would obscure the conventional service-worker structure. */
 /**
  * sw.js — Browser-Side AIO Cache Normalization & Encoding Normalization Service Worker
  * 改善文書c Section 7: AIクローラー向けL7ルーティングのキャッシュ汚染バグとエンコーディング不一致の予防

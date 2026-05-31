@@ -151,7 +151,7 @@
         // 値の散在による食い違いを構造的に排除するための Single Source of Truth。
         const SITE_CONFIG = {
             VERSION:       'v74',
-            LAST_UPDATED:  '2026-05-26',
+            LAST_UPDATED:  '2026-05-31',
             ROLE_TITLE:    'AI-Driven PM',
             CANONICAL_URL: 'https://yutapr0117-design.github.io/portfolio/',
             REPO_URL:      'https://github.com/yutapr0117-design/portfolio',
@@ -3875,11 +3875,11 @@
                                 h('h3', { class: 'h4 mb-3' }, 'AIO実践シリーズ'),
                                 h('p', { class: 'text-muted text-sm mb-6 flex-grow' }, 'このポートフォリオをAIO視点でどう設計し、AIにどう読ませているかの全手順です。'),
                                 h('a', { 
-                                    href: 'https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8',
+                                    href: 'https://zenn.dev/yuta_yokoi',
                                     target: '_blank',
                                     rel: 'noopener noreferrer',
                                     class: 'btn btn-primary btn-sm w-full mt-auto flex items-center justify-center',
-                                    'aria-label': 'ZennのAIO実践シリーズ記事を新しいタブで開く'
+                                    'aria-label': 'ZennのAIO実践シリーズ・発展記事の一覧を新しいタブで開く'
                                 }, 'Zennで読む →')
                             )
                         )
@@ -3928,22 +3928,27 @@
                     // AIO実践シリーズ（同セクション内サブエリア）
                     h('div', { class: 'aio-series-sub', 'aria-labelledby': 'aio-series-heading' },
                         h('h3', { class: 'aio-series-sub-title', id: 'aio-series-heading' },
-                            h('span', {}, '📝'), 'AIO実践シリーズ 全6本'
+                            h('span', {}, '📝'), 'AIO実践シリーズ＋発展記事（AIO効果順・計11本）'
                         ),
                         h('p', { class: 'aio-series-sub-desc' },
                             'AI-Driven PM による「人間主導 multi-AI オーケストレーション」の完全記録。'
                         ),
                         h('div', { class: 'aio-series-grid' },
                             ...([
-                                ['01', 'AI開発をPMが管理した実験｜コードを書かずにSPAを構築している途中経過', 'https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8'],
-                                ['02', 'AIにサイトがどう解釈されるか｜llms.txtとAIOで調整した話', 'https://zenn.dev/yuta_yokoi/articles/7e18e6ee1577aa'],
-                                ['03', 'SPAに観測をどう入れるか｜GA4を使わなかった理由と構成', 'https://zenn.dev/yuta_yokoi/articles/49326c5c4e0aae'],
-                                ['04', 'AIOはHTMLで終わらない：実装まで一気通貫で設計する、バイナリ層AIO解説', 'https://zenn.dev/yuta_yokoi/articles/3735dc2683f900'],
-                                ['05', '人間主導multi-AIオーケストレーションをゼロから再現する完全手順書【AIO実践シリーズ第5弾】', 'https://zenn.dev/yuta_yokoi/articles/340dbb85491fc8'],
-                                ['06', 'SEO BotからAIO Botへ――意味のサプライチェーン設計とAIO成熟モデル v1.0【AIO実践シリーズ最終回】', 'https://zenn.dev/yuta_yokoi/articles/27fa4c511cd972'],
-                            ].map(([num, title, url]) =>
+                                ['PRIMARY', 'AIO Bot Governance 分類編｜AIクローラーを一括りにするな（学習・検索・ユーザーfetch・AIエージェントを分けて制御）', 'https://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48d'],
+                                ['実践編', 'AIO Bot Governance 実践編｜robots/WAF/CIDRでAIボットを本番制御する', 'https://zenn.dev/yuta_yokoi/articles/d99f8171bcf275'],
+                                ['第4弾', 'AIOはHTMLで終わらない：実装まで一気通貫で設計する、バイナリ層AIO解説', 'https://zenn.dev/yuta_yokoi/articles/3735dc2683f900'],
+                                ['集大成', 'Portfolio AIO Capstone｜AI検索・AI採用に向けた実装の総まとめ', 'https://zenn.dev/yuta_yokoi/articles/c82fe055816454'],
+                                ['AI×AI', 'AI-to-AI Pipeline Design｜正典・制約・実ファイルでAIに状態を継承させる', 'https://zenn.dev/yuta_yokoi/articles/91cf894e1072c6'],
+                                ['第6弾', 'SEO BotからAIO Botへ――意味のサプライチェーン設計とAIO成熟モデル v1.0（最終回）', 'https://zenn.dev/yuta_yokoi/articles/27fa4c511cd972'],
+                                ['第5弾', '人間主導multi-AIオーケストレーションをゼロから再現する完全手順書', 'https://zenn.dev/yuta_yokoi/articles/340dbb85491fc8'],
+                                ['第2弾', 'AIにサイトがどう解釈されるか｜llms.txtとAIOで調整した話', 'https://zenn.dev/yuta_yokoi/articles/7e18e6ee1577aa'],
+                                ['第1弾', 'AI開発をPMが管理した実験｜コードを書かずにSPAを構築する', 'https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8'],
+                                ['第3弾', 'SPAに観測をどう入れるか｜GA4を使わなかった理由と構成', 'https://zenn.dev/yuta_yokoi/articles/49326c5c4e0aae'],
+                                ['総括', 'AIO実践シリーズ総括｜全6本完結・6つの設計パターン', 'https://zenn.dev/yuta_yokoi/articles/6dad78f20f2505'],
+                            ].map(([badge, title, url]) =>
                                 h('div', { class: 'aio-article-card' },
-                                    h('span', { class: 'aio-article-num' }, `第${num}弾`),
+                                    h('span', { class: 'aio-article-num' }, badge),
                                     h('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, title),
                                     h('span', { class: 'aio-article-arrow' }, 'Zenn →')
                                 )
@@ -6458,9 +6463,9 @@
                     h('div', { class: 'gap-col-md' },
                         // Row 1: 技術記事
                         h('div', { class: 'gap-col-sm' },
-                            h('div', { class: 'badge-contact-label' }, '📖  技術記事（AIO実践シリーズ 全6本）'),
+                            h('div', { class: 'badge-contact-label' }, '📖  技術記事（AIO実践シリーズ＋発展記事・計11本）'),
                             h('div', { class: 'gap-wrap-sm' },
-                                outLink('https://zenn.dev/yuta_yokoi', 'externalLink', 'Zennで全6本の記事を読む →', 'var(--color-info)')
+                                outLink('https://zenn.dev/yuta_yokoi', 'externalLink', 'Zennで全11本の記事を読む →', 'var(--color-info)')
                             )
                         ),
                         // Row 2: 相談・依頼

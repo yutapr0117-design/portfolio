@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-aio",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Dev-tooling manifest for the AI-Driven PM Portfolio. The published site is dependency-free Vanilla JS (Boring Technology); these are CI/dev tools only (lint, CSS lint, E2E). No runtime dependencies. Application code imports nothing from here.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "lint": "eslint main.js error-suppressor.js karte-init.js theme-init.js aio-guard.js sw.js --no-eslintrc --config .eslintrc.json --env browser --env es2022",
+    "lint:css": "python3 .github/scripts/check_css_stylelint.py",
+    "test:e2e": "playwright test --config=playwright.config.cjs --reporter=list",
+    "test:e2e:update": "playwright test --config=playwright.config.cjs --update-snapshots --reporter=list",
+    "check": "python3 .github/scripts/check_repository_consistency.py && python3 .github/scripts/check_aio_digests.py && python3 .github/scripts/check_binary_aio_metadata.py"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.49.1",
+    "eslint": "8.57.1",
+    "http-server": "14.1.1",
+    "stylelint": "16.10.0"
+  }
+}

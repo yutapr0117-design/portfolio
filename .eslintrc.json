@@ -41,6 +41,16 @@
     "Proxy": "readonly",
     "Reflect": "readonly",
     "scheduler": "readonly",
-    "trustedTypes": "readonly"
-  }
+    "trustedTypes": "readonly",
+    "TrustedHTML": "readonly"
+  },
+  "overrides": [
+    {
+      "files": ["main.js", "sw.js"],
+      "rules": {
+        "no-var": "warn",
+        "curly": ["warn", "all"]
+      }
+    }
+  ]
 }

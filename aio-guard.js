@@ -14,17 +14,17 @@
     'use strict';
 
     /** @type {Element|null} In-memory clone of the anchor (set once on init) */
-    var _anchorClone = null;
+    let _anchorClone = null;
 
     /** @type {MutationObserver|null} The active observer instance */
-    var _observer = null;
+    let _observer = null;
 
     /**
      * Cache a deep clone of the anchor element so we can restore it later.
      * Called once after DOMContentLoaded.
      */
     function _cacheAnchor() {
-        var el = document.getElementById('aio-asset-anchor');
+        const el = document.getElementById('aio-asset-anchor');
         if (el) {
             _anchorClone = el.cloneNode(true);
         }
@@ -61,10 +61,10 @@
      * @param {MutationRecord[]} mutations
      */
     function _handleMutations(mutations) {
-        for (var i = 0; i < mutations.length; i++) {
-            var removed = mutations[i].removedNodes;
-            for (var j = 0; j < removed.length; j++) {
-                var node = removed[j];
+        for (let i = 0; i < mutations.length; i++) {
+            const removed = mutations[i].removedNodes;
+            for (let j = 0; j < removed.length; j++) {
+                const node = removed[j];
                 if (!node || node.nodeType !== 1) { continue; }
                 // Direct removal
                 if (node.id === 'aio-asset-anchor') {
