@@ -44,6 +44,13 @@ authoritative inventory and is kept in sync with the implementation below):
   34. doc Last-Updated equals its sitemap <lastmod> — honest dating (WARNING)
   35. robots.txt advertises a Sitemap: directive resolving to sitemap.xml (BLOCKING)
   36. sitemap.xml has no future-dated <lastmod> (WARNING)
+  37. No generated/cache artifacts (node_modules, __pycache__, *.pyc, test-results,
+      playwright-report, blob-report, .DS_Store, …) are tracked in the repository.
+      Authoritatively uses `git ls-files`; falls back to a pruned filesystem walk
+      for non-git contexts (ZIP/zipball export). (BLOCKING)
+  38. package.json <-> package-lock.json sync: lockfileVersion 3, lock root
+      name/version/devDependencies match package.json, package.json is private,
+      and has no runtime dependencies (dev-tooling-only manifest invariant). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -798,6 +805,130 @@ if _sitemap34.exists():
                 warnings.append(f"Check 36: sitemap.xml has a future-dated <lastmod> {_lm36} (>{_today36})")
         except ValueError:
             warnings.append(f"Check 36: sitemap.xml has a malformed <lastmod> '{_lm36}'")
+
+# ── 37. No generated/cache artifacts are tracked in the repository (BLOCKING) ──
+# .gitignore prevents *new* accidental staging, but it does NOT detect artifacts
+# that are already tracked, nor ones that slipped into a distributed ZIP. This check
+# makes re-introduction a hard CI failure. It judges *repository membership*, so the
+# source of truth is `git ls-files` — which correctly ignores the runtime node_modules/
+# and __pycache__/ that CI itself creates via `npm ci` / py_compile (a naive os.walk
+# would false-positive on those in CI). For non-git contexts (ZIP/zipball export with
+# no .git), it falls back to a filesystem walk that prunes those same ignored runtime
+# dirs so a local `npm ci` / py_compile in the export cannot cause false positives.
+FORBIDDEN_GENERATED_PATH_PARTS = {
+    "__pycache__",
+    "node_modules",
+    "test-results",
+    "playwright-report",
+    "blob-report",
+    ".pytest_cache",
+}
+FORBIDDEN_GENERATED_NAMES = {
+    ".DS_Store",
+    "Thumbs.db",
+    "npm-debug.log",
+}
+FORBIDDEN_GENERATED_SUFFIXES = (".pyc", ".pyo")
+
+
+def _repo_member_paths() -> list[str]:
+    """Repo-relative POSIX paths that constitute the repository.
+
+    Prefer `git ls-files` (authoritative: excludes untracked/ignored runtime dirs).
+    Fall back to a pruned filesystem walk for ZIP/zipball contexts without .git."""
+    try:
+        proc = subprocess.run(
+            ["git", "ls-files", "-z"],
+            cwd=str(ROOT), capture_output=True, timeout=30,
+        )
+        if proc.returncode == 0 and proc.stdout:
+            return [p for p in proc.stdout.decode("utf-8", "replace").split("\0") if p]
+    except (OSError, subprocess.SubprocessError):
+        pass
+    import os as _os37
+    _prune = {".git"} | FORBIDDEN_GENERATED_PATH_PARTS
+    out: list[str] = []
+    for dirpath, dirnames, filenames in _os37.walk(ROOT):
+        dirnames[:] = [d for d in dirnames if d not in _prune]
+        for fn in filenames:
+            out.append((Path(dirpath) / fn).relative_to(ROOT).as_posix())
+    return out
+
+
+_member_paths = _repo_member_paths()
+_artifact_hits = []
+for _p in _member_paths:
+    _name = _p.rsplit("/", 1)[-1]
+    if set(_p.split("/")) & FORBIDDEN_GENERATED_PATH_PARTS:
+        _artifact_hits.append(_p)
+    elif _name in FORBIDDEN_GENERATED_NAMES:
+        _artifact_hits.append(_p)
+    elif _p.endswith(FORBIDDEN_GENERATED_SUFFIXES):
+        _artifact_hits.append(_p)
+
+check(
+    not _artifact_hits,
+    f"Check 37: no generated/cache artifacts tracked in repository (scanned {len(_member_paths)} paths)",
+    "Check 37: generated/cache artifact(s) present in repository tree — remove from Git and "
+    "keep them in .gitignore: " + ", ".join(sorted(_artifact_hits)[:10])
+    + (" …" if len(_artifact_hits) > 10 else ""),
+    blocking=True,
+)
+
+# ── 38. package.json <-> package-lock.json sync (BLOCKING) ────────────────────
+# Phase 2-A centralizes dev tooling in package.json + package-lock.json (npm ci).
+# These invariants catch a hand-edited lockfile or any drift between the two files,
+# and assert the dev-tooling-only contract (private, no runtime dependencies) that
+# keeps the published site dependency-free Vanilla JS (Boring Technology).
+_pkg_path = ROOT / "package.json"
+_lock_path = ROOT / "package-lock.json"
+if _pkg_path.exists() and _lock_path.exists():
+    try:
+        _pkg = json.loads(_pkg_path.read_text(encoding="utf-8"))
+        _lock = json.loads(_lock_path.read_text(encoding="utf-8"))
+        _lock_root = _lock.get("packages", {}).get("", {})
+        _pkg_dev = _pkg.get("devDependencies", {})
+        _lock_dev = _lock_root.get("devDependencies", {})
+        _pkg_runtime = _pkg.get("dependencies", {})
+
+        check(_lock.get("lockfileVersion") == 3,
+              "Check 38: package-lock.json lockfileVersion == 3",
+              f"Check 38: package-lock.json lockfileVersion is {_lock.get('lockfileVersion')!r}, expected 3",
+              blocking=True)
+        check(_lock.get("name") == _pkg.get("name") and _lock_root.get("name") == _pkg.get("name"),
+              f"Check 38: lockfile name matches package.json name ({_pkg.get('name')!r})",
+              f"Check 38: lockfile name mismatch — package.json={_pkg.get('name')!r} "
+              f"lock={_lock.get('name')!r} lock.packages['']={_lock_root.get('name')!r}",
+              blocking=True)
+        check(_lock.get("version") == _pkg.get("version") and _lock_root.get("version") == _pkg.get("version"),
+              f"Check 38: lockfile version matches package.json version ({_pkg.get('version')!r})",
+              f"Check 38: lockfile version mismatch — package.json={_pkg.get('version')!r} "
+              f"lock={_lock.get('version')!r} lock.packages['']={_lock_root.get('version')!r}",
+              blocking=True)
+        check(_pkg_dev == _lock_dev,
+              "Check 38: package.json devDependencies == package-lock.json root devDependencies",
+              f"Check 38: devDependencies drift — package.json={_pkg_dev} vs lock={_lock_dev} "
+              "(regenerate with `npm install`; never hand-edit package-lock.json)",
+              blocking=True)
+        check(_pkg.get("private") is True,
+              "Check 38: package.json is private (never published)",
+              f"Check 38: package.json 'private' must be true, got {_pkg.get('private')!r}",
+              blocking=True)
+        check(not _pkg_runtime,
+              "Check 38: package.json declares no runtime dependencies (dev-tooling-only manifest)",
+              f"Check 38: package.json has runtime dependencies {_pkg_runtime} — the published site "
+              "must stay dependency-free (Boring Technology). Keep tools under devDependencies.",
+              blocking=True)
+    except (ValueError, KeyError) as _e38:
+        check(False, "",
+              f"Check 38: package.json/package-lock.json parse or structure error: {_e38}",
+              blocking=True)
+else:
+    check(_pkg_path.exists() and _lock_path.exists(),
+          "Check 38: package.json and package-lock.json both present",
+          "Check 38: package.json and package-lock.json must both exist "
+          "(Phase 2-A central dev-dependency management)",
+          blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

@@ -46,7 +46,7 @@
   },
   "overrides": [
     {
-      "files": ["main.js", "sw.js"],
+      "files": ["main.js"],
       "rules": {
         "no-var": "warn",
         "curly": ["warn", "all"]

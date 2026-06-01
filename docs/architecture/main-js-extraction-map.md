@@ -1,9 +1,9 @@
 # main-js-extraction-map.md
 
 ```
-Last-Updated  : 2026-05-30
+Last-Updated  : 2026-06-01
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
-Track         : v80+ staged major update (Phase 1 anchor)
+Track         : v80+ staged major update (Phase 2 — CI hygiene increment applied)
 Subject       : main.js (≈467 KB / ≈7,781 lines, single IIFE, no imports)
 Canonical-Ref : AI2AI.md (canonical) / repository-maintainability-map.md
 Status        : Mapping only — main.js is NOT physically split in this track
@@ -96,6 +96,6 @@ python3 .github/scripts/check_css_stylelint.py
 
 ## 5. 既知の注意点（再litigation 防止）
 
-- **ESLint ゲートは現在 vacuous**（`repository-maintainability-map.md` Phase 2-B 参照）。実コードは `no-var` 等で約216件違反。抽出作業で `var`→`let/const` に触れる場合は、Phase 2-B の方針決定と整合させること（抽出のついでに大量改変しない）。
-- **`sw.js` は top-level 関数宣言**（`no-implicit-globals` 違反）だが Service Worker として意図的。IIFE 化は副作用評価が必要。
+- **ESLint ゲートは実効化済み**（`repository-maintainability-map.md` Phase 2-B 参照）。実行失敗（exit≥2）= BLOCKING、lint 検出 = ADVISORY。負債は **`main.js` に局在**し、実測 **0 errors / 199 warnings**（`curly`:124 / `no-var`:64 / `no-shadow`:10 / `prefer-const`:1）。`main.js` は `.eslintrc.json` overrides で warn 級に降格中。**抽出作業で `var`→`let/const` 等に触れる場合も、抽出のついでに大量改変しない**（差分を巨大化させず、視覚回帰 baseline 確立後に論理ブロック単位で解消）。旧記載の「vacuous / 約216件」は現物と乖離していたため破棄。
+- **`sw.js` は ESLint clean**（現 `.eslintrc.json` で error 級ルールでも 0 件）。overrides から除外し error 級ゲートへ昇格済み。旧記載の「`no-implicit-globals` 違反」は現構成では発生していない（現物と乖離のため破棄）。Service Worker の構造自体（top-level 宣言）は意図的に維持。
 - AIDK Kernel と AIO アンカー（`#aio-asset-anchor`、`aio-guard.js` 連動）は抽出対象外。

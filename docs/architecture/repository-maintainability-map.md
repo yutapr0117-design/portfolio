@@ -1,9 +1,9 @@
 # repository-maintainability-map.md
 
 ```
-Last-Updated  : 2026-05-31
+Last-Updated  : 2026-06-01
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
-Track         : v80+ staged major update (Phase 1 anchor)
+Track         : v80+ staged major update (Phase 2 — CI hygiene increment applied)
 Canonical-Ref : AI2AI.md (canonical) / llms-full.txt (ground truth)
 Status        : Living document — update when layer structure or sync relationships change
 ```
@@ -77,34 +77,55 @@ manifest 登録ファイル: `llms.txt` / `llms-full.txt` / `AI2AI.md` / webp / 
 
 ---
 
-## 5. Phase 2 候補（要オーケストレーター判断 — 未着手）
+## 5. Phase 2 — 進捗と候補
 
-### Phase 2-A: dev依存の中央管理（package.json / lockfile / npm ci） — **未着手（要承認）**
+### Phase 2-A: dev依存の中央管理（package.json / lockfile / npm ci） — **完了（適用済み）**
 
-**現状（Session #18 時点）:** dev tool は workflow 内 broad install。
-- `update-playwright-snapshots.yml` / `playwright-regression.yml`: `npm install -D @playwright/test@1 http-server@14`
-- `architecture-validation.yml` step 24: `npm install --no-save eslint@8.57.1`（Session #18 で **バージョン pin 済み**）
-- `architecture-validation.yml` step 27: `npm install --no-save stylelint@16`（Session #18 で未使用 plugin `stylelint-declaration-strict-value@1` を除去）
+**結果（現状）:** dev tool は `package.json`（`private: true` / `"name": "portfolio-aio"` / `"version": "0.0.0"` / runtime `dependencies` 無し）＋ `package-lock.json`（`lockfileVersion: 3`）で**中央管理済み**。全 dev tool は exact pin:
+- `@playwright/test`: **1.55.1**（後述 CI 衛生 increment で 1.49.1 から bump）
+- `eslint`: **8.57.1**
+- `http-server`: **14.1.1**
+- `stylelint`: **16.10.0**
 
-**計画（実施時・ready-to-execute）:**
-1. `package.json`（`private: true`）に devDependencies を exact pin: `@playwright/test 1.60.0` / `http-server 14.1.1` / `stylelint 16.x` / `eslint 8.57.1`。
-2. `package-lock.json` は **npm install / npm ci で生成したもののみ**コミット（手書き禁止）。
-3. workflows を `npm ci` + ローカルバイナリ（`npx playwright`/`eslint`/`stylelint`）へ寄せる。Playwright のブラウザバイナリは引き続き `npx playwright install --with-deps chromium`。
-4. **検証制約（変更しない理由）:** every-push の BLOCKING パイプライン（architecture-validation.yml）を含む 5 workflow を触るため、サンドボックスでは GitHub Actions runner 上の `npm ci` 挙動を検証できない。ローカルで `npm ci` が通っても runner 緑の保証にはならない。よって段階導入（まず Playwright 系 workflow → 次に architecture-validation）とし、実 GitHub Actions 緑確認まで一括 merge しない。ESLint の vacuous 根本原因（下記 2-B）は package.json なしでインライン pin により既に解消済みのため、本タスクは独立して後送りできる。
+workflow は `npm install --no-save …` / `npm install -D …` の broad install を撤去し、`npm ci` + ローカルバイナリ（`npx playwright` / `eslint` / `stylelint`）へ移行済み。Playwright のブラウザバイナリは引き続き `npx playwright install --with-deps chromium`。`package-lock.json` は `npm install --save-exact` / `npm ci` で生成したもののみコミット（手書き禁止）。
+
+**注:** 旧計画に記載のあった `@playwright/test 1.60.0` は採用していない。実際に lock された baseline は 1.49.1 で、CI 衛生 increment（下記）の `npm audit` 解消のため **1.55.1** へ minor bump した。ドキュメントの版数は lock の実体に追従する（推測の計画値を残さない）。
 
 ### Phase 2-B: ESLint ゲートの実効化 — **根本原因は Session #18 で解消済み（残りは lint 負債の解消方針のみ）**
 
 **~~問題（Session #16 で発見）~~ → 解消（Session #18）:** `architecture-validation.yml` の ESLint ステップが実質無効（vacuous）だった根本原因 ―― ①`npm install --no-save eslint`（バージョン無指定 → ESLint 9.x で classic flags `--no-eslintrc`/`--env` が削除済み）、②`|| true` による実行失敗の握り潰し ―― を **Session #18 で両方除去**した。現在は ①ESLint を **8.57.1 に pin**、②**実行失敗（exit≥2）= BLOCKING / lint 検出（exit 1）= ADVISORY（件数を可視化・CI は赤化しない）** に再構成。vacuous PASS は構造的に発生不能。
 
-**残課題（lint 負債そのもの・要判断・未着手）:** ESLint 8.57.1 で実コードを lint すると **216 errors**（主に `no-var` / `no-implicit-globals`（`sw.js` の top-level 関数宣言）/ `curly`（`theme-init.js`））。これを BLOCKING へ昇格するには以下のいずれかが必要：
-- (a) **コード修正:** 216件を解消（`var`→`let/const`、`sw.js` を IIFE 化 or `eslint-disable`、`theme-init.js` の `curly`）。`main.js`/`sw.js` の安定性に直結。一括ではなくファイル単位・検証付きで段階的に。
-- (b) **ルール緩和:** `.eslintrc.json` の該当ルールを `warn` 化 or 一部 `off`（ゲートは通るが品質保証は弱まる）。
-- (c) **flat config 移行:** `eslint.config.js` を新設し ESLint 9 系へ。`--env` は `languageOptions.globals` へ移行。最も現代的だが変更量大。
+**残課題（lint 負債そのもの・要判断）— 実測値で更新:** 現行 `.eslintrc.json` は **base ルール（`no-var`/`prefer-const`/`curly`/`no-shadow` 等）を error 級**に置き、`overrides` で **`main.js` のみを `warn`（ADVISORY）に降格**する構成。実測すると `main.js` に **0 errors / 199 warnings**（内訳 `curly`:124 / `no-var`:64 / `no-shadow`:10 / `prefer-const`:1）が残り、それ以外の対象ファイル（`error-suppressor.js` / `karte-init.js` / `theme-init.js` / `aio-guard.js` / `sw.js`）は **error 級ルールでも 0 件**。すなわち負債は **`main.js` に局在**しており、旧記載の「216 errors / `sw.js` top-level / `theme-init.js` の `curly`」は**現物と乖離していたため破棄**（`sw.js`・`theme-init.js` は既に clean）。
 
-**一括修正禁止。** ADVISORY 件数が CI ログに常時表示されるため、負債の増減は可視。BLOCKING 昇格は package.json pin（2-A）後に実 CI で確認しつつ実施するのが安全。
+- **`sw.js` を `overrides` から除外済み（CI 衛生 increment）:** `sw.js` は warn 級降格が不要なほど clean なため、`.eslintrc.json` overrides 対象を `["main.js"]` のみへ縮小し、`sw.js` を error 級ゲートへ昇格した（clean なので緑のまま、かつ将来の退行を error で捕捉）。
+- **BLOCKING 化の残作業は `main.js` のみ:** 199 warnings を解消（`var`→`let/const`、`if` 単文の波括弧、shadow 変数のリネーム）すれば `main.js` も overrides から外せる。ただし **一括整形は禁止**（差分が巨大化し、視覚回帰 baseline 未確立では退行検出不能）。`main-js-extraction-map.md` の Stage 進行に合わせ、論理ブロック単位で段階解消する。
+- 代替（flat config 移行＝`eslint.config.js` / ESLint 9 系）は変更量が大きく、現 pin（8.57.1）で十分機能しているため deferred。
+
+**一括修正禁止。** ADVISORY 件数（199）が CI ログに常時表示されるため、負債の増減は可視。`main.js` の BLOCKING 昇格は視覚回帰 baseline 確立後に段階実施するのが安全。
+
+> **補足（vacuous 根本原因は解消済みだが、ローカル検証の限界は残る）:** every-push の BLOCKING パイプライン（`architecture-validation.yml`）はサンドボックスでは GitHub Actions runner 上の `npm ci` 実挙動を検証できない。ローカル `npm ci` 緑は runner 緑を保証しない。CI 衛生 increment（下記）の workflow 変更は YAML 構文・ローカル相当コマンドまで検証済みだが、**実 Actions 緑確認は人間の責務**。
 
 ### Phase 2-C 以降: main.js 段階抽出
 `main-js-extraction-map.md` 参照。Stage 5（物理分割）は Playwright baseline 確立後。
+
+### CI 衛生 increment（v80+ — 本コミットで適用済み）
+
+Phase 2-A/2-B の土台の上に、**生成物再混入の機械検出・lockfile 整合の機械検出・CI 高速化・baseline 偽成功防止・dev 監査の解消**を追加した。AIO 正本層（`llms-full.txt` / `AI2AI.md` / `llms.txt` + alias / `.well-known/*` / digest / version 文字列）は**一切変更していない**（digest 連鎖を避け「最小・可逆」を維持。pipeline version も据え置き）。よって本 increment は非 digest 層（検証層・配信/設定層・証跡層）に閉じる。
+
+| 項目 | 変更ファイル | 内容 | 種別 |
+|---|---|---|---|
+| 生成物再混入防止 | `check_repository_consistency.py` | **Check 37**（BLOCKING）: `__pycache__`/`node_modules`/`test-results`/`playwright-report`/`blob-report`/`.pytest_cache`、`*.pyc`/`*.pyo`、`.DS_Store`/`Thumbs.db`/`npm-debug.log` がリポジトリツリーに存在したら赤化。`git ls-files` を権威とし、git 不在環境では prune 付き walk へフォールバック（CI runtime の `node_modules`/`__pycache__` を誤検知しない設計） | BLOCKING |
+| lockfile 整合 | `check_repository_consistency.py` | **Check 38**（BLOCKING）: `package.json` と `package-lock.json` の整合（`lockfileVersion==3` / `name`・`version` 一致 / `devDependencies` 完全一致 / `private==true` / runtime `dependencies` 不在） | BLOCKING |
+| npm cache | `architecture-validation.yml` / `playwright-regression.yml` / `update-playwright-snapshots.yml` | `actions/setup-node@v4` に `cache: 'npm'` を付与。`architecture-validation.yml` には欠落していた `Setup Node.js` step（`node-version: '20'`）を `npm ci` 前に追加（runner default Node 依存を解消し、両 Playwright workflow の '20' pin と統一） | 非破壊・高速化 |
+| baseline 偽成功防止 | `update-playwright-snapshots.yml` | `--update-snapshots` 後に PNG が 1 枚も無ければ赤化する検証 step を追加（`continue-on-error: true` で部分失敗を許容する設計の死角＝空 baseline の silent success を塞ぐ）。`upload-artifact` に `if-no-files-found: error` も付与 | BLOCKING（生成時のみ） |
+| dev 監査解消 | `package.json` / `package-lock.json` | `@playwright/test` を 1.49.1→**1.55.1** へ minor bump（GHSA-7mvr-c777-76hp / ブラウザ DL 時の SSL 証明書未検証 high×2 を解消）。`npm audit` = **0 件**。**重要:** 本番配信物は依存ゼロ Vanilla JS であり、この脆弱性は dev 専用ツリー（`npm audit --omit=dev` = 0 件）にのみ存在し、配信物には到達しない。`baseline PNG 未生成の今`が bump の唯一の非破壊窓（後で bump すると人間生成 baseline を無効化し手戻り）だったため、このタイミングで実施 | 非破壊 |
+| 陳腐化コメント修正 | `check_css_stylelint.py` | 旧運用の `npm install --no-save stylelint@16` 記述を `package.json / package-lock.json via npm ci`（Phase 2-A）へ修正 | 文書整合 |
+
+**docstring インベントリ:** `check_repository_consistency.py` の冒頭 docstring に Check 37/38 を追記し、「実装と同期」の約束を維持。
+
+**`.eslintrc.json` の `comment` キー不可（実装メモ）:** ESLint の `.eslintrc.json` は JSON スキーマ上コメントキー（`comment` 等）を**拒否**する（`eslint --print-config` が schema 違反で停止）。よって overrides 縮小の根拠は設定ファイル内に書けず、本マップおよび incident artifact 側にのみ記述する。
+
+**Not possible（本 increment では実施不能・捏造禁止）:** GitHub Actions の実実行緑確認 / Playwright baseline PNG の実生成（人間が Actions 経由で生成し `e2e/portfolio.spec.js-snapshots/` へ配置・commit）/ AIO citation の実観測 / C2PA 署名 / Zenn 記事公開日の外部確定。
 
 ---
 

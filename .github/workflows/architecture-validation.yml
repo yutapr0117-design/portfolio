@@ -25,6 +25,16 @@ jobs:
       - name: Checkout repository codebase
         uses: actions/checkout@v4
 
+      - name: Setup Node.js (pinned + npm cache)
+        # v80+ CI hygiene: pin the Node runtime explicitly instead of
+        # relying on the runner default, matching the '20' pin already used by both
+        # Playwright workflows. `cache: 'npm'` keys the dependency cache on
+        # package-lock.json, so `npm ci` below restores from cache on repeat runs.
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
       - name: Install pinned dev dependencies (npm ci)
         # Phase 2-A (Session #18): dev tools (eslint/stylelint/playwright/http-server)
         # are centralized in package.json + package-lock.json. `npm ci` installs the

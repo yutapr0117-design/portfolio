@@ -49,6 +49,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          # v80+ CI hygiene: cache npm downloads keyed on
+          # package-lock.json so `npm ci` restores from cache on repeat runs.
+          cache: 'npm'
 
       - name: Install Playwright and dependencies
         run: |
@@ -63,12 +66,29 @@ jobs:
         run: npx playwright test --config=playwright.config.cjs --update-snapshots --reporter=list
         continue-on-error: true
 
+      - name: Verify generated baseline snapshots exist
+        # P1-03 (v80+ CI hygiene): "Generate baseline snapshots" runs with
+        # continue-on-error: true so a partial Playwright failure still lets us
+        # collect whatever PNGs were produced. The hazard is the opposite case —
+        # ZERO PNGs generated, yet the job still reports success and a human
+        # downloads an empty artifact. This BLOCKING gate fails the run when no
+        # *-snapshots/*.png exists, converting a silent empty-baseline into a
+        # hard error before the upload step.
+        run: |
+          if ! find e2e -path '*-snapshots/*.png' -type f | grep -q .; then
+            echo "::error::No Playwright baseline PNG files were generated. Refusing to upload an empty artifact."
+            exit 1
+          fi
+
       - name: Upload new snapshots as artifact
         uses: actions/upload-artifact@v4
         with:
           name: playwright-baseline-snapshots-${{ github.run_id }}
           path: e2e/**/*.png
           retention-days: 30
+          # P1-03: belt-and-suspenders with the verification gate above — if the
+          # glob matches nothing, fail rather than publishing an empty artifact.
+          if-no-files-found: error
 
       - name: Print instructions
         run: |
