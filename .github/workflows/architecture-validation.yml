@@ -30,7 +30,7 @@ jobs:
         # relying on the runner default, matching the '20' pin already used by both
         # Playwright workflows. `cache: 'npm'` keys the dependency cache on
         # package-lock.json, so `npm ci` below restores from cache on repeat runs.
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '20'
           cache: 'npm'
