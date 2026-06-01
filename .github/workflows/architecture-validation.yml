@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository codebase
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js (pinned + npm cache)
         # v80+ CI hygiene: pin the Node runtime explicitly instead of
