@@ -12,3 +12,22 @@ updates:
     labels:
       - "dependencies"
       - "ci"
+
+  # npm (dev-tooling only) — Phase 2-A で package.json / package-lock.json を導入したため、
+  # その dev tool（eslint / stylelint / @playwright/test / http-server）の更新も Dependabot で受け取る。
+  # 公開サイトはランタイム依存ゼロの Vanilla JS（Boring Technology）であり、ここは dev 専用。
+  # Check 38 が package.json <-> lockfile 整合を BLOCKING で守るため、Dependabot の lockfile 同期更新も検査対象。
+  # 4 つの dev 依存は 1 PR にまとめ、月次・低ノイズで受け取る。
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "ci"
+    labels:
+      - "dependencies"
+      - "ci"
+    groups:
+      dev-dependencies:
+        patterns:
+          - "*"

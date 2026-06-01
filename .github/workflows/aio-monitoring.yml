@@ -29,6 +29,14 @@ permissions:
   contents: write         # aio-monitoring-log.json をコミットするため
   issues: write           # 変化検出時に Issue を作成するため
 
+# v80+ CI hygiene: this workflow commits + pushes the monitoring log. A manual
+# workflow_dispatch coinciding with the weekly schedule would race on `git push`
+# (loser fails non-fast-forward). Serialize per-ref; do not cancel in progress so an
+# in-flight commit/push is never truncated.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   monitor:
     runs-on: ubuntu-latest

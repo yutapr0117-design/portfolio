@@ -108,7 +108,7 @@ workflow は `npm install --no-save …` / `npm install -D …` の broad instal
 ### Phase 2-C 以降: main.js 段階抽出
 `main-js-extraction-map.md` 参照。Stage 5（物理分割）は Playwright baseline 確立後。
 
-### CI 衛生 increment（v80+ — 本コミットで適用済み）
+### CI 衛生 increment #1（v80+ — 適用済み）
 
 Phase 2-A/2-B の土台の上に、**生成物再混入の機械検出・lockfile 整合の機械検出・CI 高速化・baseline 偽成功防止・dev 監査の解消**を追加した。AIO 正本層（`llms-full.txt` / `AI2AI.md` / `llms.txt` + alias / `.well-known/*` / digest / version 文字列）は**一切変更していない**（digest 連鎖を避け「最小・可逆」を維持。pipeline version も据え置き）。よって本 increment は非 digest 層（検証層・配信/設定層・証跡層）に閉じる。
 
@@ -126,6 +126,25 @@ Phase 2-A/2-B の土台の上に、**生成物再混入の機械検出・lockfil
 **`.eslintrc.json` の `comment` キー不可（実装メモ）:** ESLint の `.eslintrc.json` は JSON スキーマ上コメントキー（`comment` 等）を**拒否**する（`eslint --print-config` が schema 違反で停止）。よって overrides 縮小の根拠は設定ファイル内に書けず、本マップおよび incident artifact 側にのみ記述する。
 
 **Not possible（本 increment では実施不能・捏造禁止）:** GitHub Actions の実実行緑確認 / Playwright baseline PNG の実生成（人間が Actions 経由で生成し `e2e/portfolio.spec.js-snapshots/` へ配置・commit）/ AIO citation の実観測 / C2PA 署名 / Zenn 記事公開日の外部確定。
+
+### CI 衛生 increment #2（v80+ — 本コミットで適用）
+
+increment #1 が確定（CI 緑・コンソールエラーなし）した後のトータルチェックで発見した非破壊改善。#1 と同じく **AIO 正本層（`llms-full.txt` / `AI2AI.md` / `llms*` alias / `.well-known/*` / digest / `sitemap.xml` / `robots.txt` の本文）は一切変更せず**、非 digest 層（検証層・設定層）に閉じる。`main-js-extraction-map.md` は本 increment の対象外（main.js 抽出に変化なし）。
+
+| 項目 | 変更ファイル | 内容 | 種別 |
+|---|---|---|---|
+| sitemap 整合 | `check_repository_consistency.py` | **Check 39**（BLOCKING）: `sitemap.xml` の全 same-project `<loc>` がリポジトリ内の実ファイルへ解決することを検査（root / 末尾スラッシュ → `index.html`、外部 URL は対象外）。Checks 9/18/34/35/36 がカバーしていなかった「広告 URL ↔ 実体ファイル」の整合を埋め、crawler 404 を防止。現状 17 URL すべて解決 | BLOCKING |
+| Dependabot npm | `.github/dependabot.yml` | `github-actions` に加え **`npm` ecosystem** を追加（月次・`ci` prefix・dev-dependencies を 1 PR にグループ化）。Phase 2-A で `package.json`/`package-lock.json` を導入したのに更新検知が無かった保守の穴を塞ぐ。Check 38 が Dependabot の lockfile 同期更新も BLOCKING で検査。公開サイトはランタイム依存ゼロのため dev 専用 | 非破壊・保守性 |
+| push race 防止 | `auto-update-aio-digests.yml` / `aio-monitoring.yml` | commit+push する 2 workflow に top-level `concurrency`（`group: ${{ github.workflow }}-${{ github.ref }}` / `cancel-in-progress: false`）を付与。near-simultaneous トリガ時の `git push` 非 fast-forward 衝突（赤化）を直列化で防止。digest はファイル内容の純関数のためキュー実行で最新ツリーに収束 | 障害点除去 |
+
+**docstring インベントリ:** `check_repository_consistency.py` 冒頭 docstring に Check 39 を追記（「実装と同期」を維持）。
+
+**意図的に「やらなかった」こと（observation-only / 要オーケストレーター判断）:**
+- **`npm run lint` と `architecture-validation.yml` の `--env browser --env es2022` 重複は削除しない。** `--no-eslintrc --config .eslintrc.json` で `.eslintrc.json` の `env` が読まれるため `--env` は冗長だが、削除しても lint 結果は完全に不変（実測: 0 errors / 199 warnings で一致）。**BLOCKING ゲートを純粋に美観目的で触るのは「最適化でなく障害点除去」「最小・可逆」に反する**ため、観察記録に留める。flat config 移行（将来）で自然解消。
+- **PR 検証系 workflow（`architecture-validation` / `playwright-regression`）への `concurrency` 付与は見送る。** これらは commit/push しないため push race は無く、`cancel-in-progress` 付与は純粋なコスト最適化（実行時間短縮）に該当。「最適化でなく障害点除去」の原則に従い churn を避ける。
+- **`FORCE_JAVASCRIPT_ACTIONS_TO_NODE24` env は据え置く。** GitHub Actions の Node24 移行に伴う前方互換設定であり、CI 緑の現状で除去する積極理由が無い。
+
+**Not possible（本 increment でも同様・捏造禁止）:** GitHub Actions 実実行緑確認 / Dependabot 実 PR の挙動 / Playwright baseline PNG 実生成 / AIO citation 実観測。
 
 ---
 

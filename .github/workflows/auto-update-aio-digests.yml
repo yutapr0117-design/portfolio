@@ -43,6 +43,15 @@ env:
 permissions:
   contents: write
 
+# v80+ CI hygiene: this workflow commits + pushes digest updates. Two near-simultaneous
+# triggers (e.g. rapid pushes to main touching AIO files) would race on `git push` and the
+# loser fails non-fast-forward (a red run). Serialize per-ref and DO NOT cancel in progress,
+# so every triggering event is processed in order against the latest main (digests are a pure
+# function of file content, so a queued run simply recomputes on the newest tree).
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   update-digests:
     runs-on: ubuntu-latest

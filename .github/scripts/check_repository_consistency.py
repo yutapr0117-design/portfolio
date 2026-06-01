@@ -51,6 +51,9 @@ authoritative inventory and is kept in sync with the implementation below):
   38. package.json <-> package-lock.json sync: lockfileVersion 3, lock root
       name/version/devDependencies match package.json, package.json is private,
       and has no runtime dependencies (dev-tooling-only manifest invariant). (BLOCKING)
+  39. Every same-project sitemap.xml <loc> resolves to a committed file
+      (root/trailing-slash -> index.html; external URLs skipped). Prevents
+      advertising crawler-404 URLs. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -929,6 +932,39 @@ else:
           "Check 38: package.json and package-lock.json must both exist "
           "(Phase 2-A central dev-dependency management)",
           blocking=True)
+
+# ── 39. sitemap <loc> -> committed file existence (BLOCKING) ──────────────────
+# Checks 9/18/34/35/36 cover sitemap XML validity, lastmod policy, and the
+# robots Sitemap: directive — but none verify that each advertised URL actually
+# resolves to a file in the deployed tree. A sitemap entry without a backing
+# file is a real AIO/SEO defect (crawler 404). This gate maps each same-project
+# <loc> to its repo-relative path and asserts the file exists.
+#   - project base is the GitHub Pages path segment '/portfolio/'
+#   - the SPA root ('.../portfolio/') and any trailing-slash path map to index.html
+#   - URLs outside the project path are skipped (Check 39 governs local-file
+#     integrity only, not external-URL policy)
+_sitemap_path = ROOT / "sitemap.xml"
+if _sitemap_path.exists():
+    _sm_text = _sitemap_path.read_text(encoding="utf-8")
+    _sm_missing = []
+    _sm_checked = 0
+    for _loc in re.findall(r"<loc>\s*(.*?)\s*</loc>", _sm_text):
+        if "/portfolio/" not in _loc:
+            continue  # external / non-project URL — not a local-file invariant
+        _rel = _loc.split("/portfolio/", 1)[1]
+        if _rel == "" or _rel.endswith("/"):
+            _rel = _rel + "index.html"
+        _sm_checked += 1
+        if not (ROOT / _rel).exists():
+            _sm_missing.append(_rel + "  (<- " + _loc + ")")
+    check(
+        not _sm_missing,
+        f"Check 39: all {_sm_checked} project sitemap <loc> URLs resolve to committed files",
+        "Check 39: sitemap.xml advertises URL(s) with no backing file (crawler 404 risk) — "
+        "add the file or remove the <loc>: " + "; ".join(sorted(_sm_missing)[:10])
+        + (" …" if len(_sm_missing) > 10 else ""),
+        blocking=True,
+    )
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
