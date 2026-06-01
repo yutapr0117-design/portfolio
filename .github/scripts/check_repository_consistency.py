@@ -54,6 +54,11 @@ authoritative inventory and is kept in sync with the implementation below):
   39. Every same-project sitemap.xml <loc> resolves to a committed file
       (root/trailing-slash -> index.html; external URLs skipped). Prevents
       advertising crawler-404 URLs. (BLOCKING)
+  40. CSS lint execution-path hygiene: package.json devDependencies declares
+      stylelint; check_css_stylelint.py references node_modules/.bin/stylelint
+      (local-binary-preferred); npx remains a documented fallback. Guards the
+      Phase 2 CI-hygiene increment #3 contract against a false-green-prone
+      npx-primary regression. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -965,6 +970,61 @@ if _sitemap_path.exists():
         + (" …" if len(_sm_missing) > 10 else ""),
         blocking=True,
     )
+
+# ── 40. CSS lint execution-path hygiene (BLOCKING) ────────────────────────────
+# Phase 2-A centralized dev tooling under package.json + `npm ci`; Phase 2
+# CI-hygiene increment #3 (decision-v80-phase2-ci-hygiene-3) then rewired
+# check_css_stylelint.py to PREFER the local node_modules/.bin/stylelint binary
+# over `npx`, escalating execution/config failures to BLOCKING when stylelint is
+# expected to run cleanly. This check guards that contract so a future edit
+# cannot silently revert CSS linting to an npx-primary, false-green-prone path:
+#   (40a) package.json devDependencies declares "stylelint"
+#   (40b) check_css_stylelint.py references the local binary path
+#         "node_modules/.bin/stylelint" (local-preferred execution)
+#   (40c) the npx path is documented as a *fallback* (not the primary), i.e. the
+#         source mentions both "npx" and a fallback rationale.
+_pkg40_path = ROOT / "package.json"
+_css_checker_path = ROOT / ".github" / "scripts" / "check_css_stylelint.py"
+if _pkg40_path.exists() and _css_checker_path.exists():
+    try:
+        _pkg40 = json.loads(_pkg40_path.read_text(encoding="utf-8"))
+        _pkg40_dev = _pkg40.get("devDependencies", {})
+        _css_src = _css_checker_path.read_text(encoding="utf-8")
+        _css_src_low = _css_src.lower()
+
+        # (40a) stylelint is a managed dev dependency
+        check("stylelint" in _pkg40_dev,
+              "Check 40a: package.json devDependencies declares 'stylelint' "
+              f"({_pkg40_dev.get('stylelint', '?')})",
+              "Check 40a: package.json devDependencies is missing 'stylelint' — the CSS "
+              "lint gate depends on a pinned, `npm ci`-installed stylelint",
+              blocking=True)
+
+        # (40b) checker prefers the local binary installed by `npm ci`
+        check("node_modules/.bin/stylelint" in _css_src,
+              "Check 40b: check_css_stylelint.py references node_modules/.bin/stylelint "
+              "(local-binary-preferred execution)",
+              "Check 40b: check_css_stylelint.py does not reference "
+              "node_modules/.bin/stylelint — it must prefer the locally installed binary "
+              "over npx (reproducibility / no npm-cache false-green)",
+              blocking=True)
+
+        # (40c) npx remains only a documented fallback
+        check(("npx" in _css_src_low) and ("fallback" in _css_src_low or "falls back" in _css_src_low),
+              "Check 40c: check_css_stylelint.py documents npx as a fallback path",
+              "Check 40c: check_css_stylelint.py must keep npx as a *documented fallback* "
+              "(local binary preferred); the fallback condition is no longer described",
+              blocking=True)
+    except (ValueError, KeyError) as _e40:
+        check(False, "",
+              f"Check 40: package.json / check_css_stylelint.py parse or structure error: {_e40}",
+              blocking=True)
+else:
+    check(_pkg40_path.exists() and _css_checker_path.exists(),
+          "Check 40: package.json and check_css_stylelint.py both present",
+          "Check 40: package.json and .github/scripts/check_css_stylelint.py must both "
+          "exist (CSS lint execution-path hygiene contract)",
+          blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
