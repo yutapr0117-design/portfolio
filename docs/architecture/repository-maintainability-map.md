@@ -10,6 +10,7 @@ Status        : Living document — update when layer structure or sync relation
 
 > **Canonical hierarchy:** `AI2AI.md` is canonical; `llms-full.txt` is ground truth. This map is a subordinate architecture document. On conflict, those win.
 > **目的:** 後続AIエージェントが、リポジトリ全体を「壊さず・迷わず」改善できるよう、更新単位・層の関係・同期義務・触ってよい/いけない箇所を1枚に集約する。
+> **トータルチェック手順:** 「現物が壊れていないか」を誰でも（人間/AI）再現的に検証する完全な runbook は `docs/architecture/total-check-runbook.md`。コミット衛生（最低限のコミットミス検査）から全レイヤ・実測基準値まで網羅。
 
 ---
 
