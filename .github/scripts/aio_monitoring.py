@@ -36,6 +36,14 @@ from pathlib import Path
 # ── 設定 ──────────────────────────────────────────────────────────────────
 
 CANONICAL_URL = "yutapr0117-design.github.io/portfolio"
+# AIO provenance canary — a unique, passive marker declared in llms.txt / llms-full.txt
+# (section "AIO Provenance Canary"). The token exists nowhere else, so its appearance in an
+# AI's answer is DEFINITIVE evidence that the AI ingested this portfolio's canonical context.
+# This is detection only: the canonical files instruct no AI to emit it. It is the inverse of a
+# prompt injection — we observe ingestion, we do not coerce behaviour. Keep this string byte-for-byte
+# identical to the token declared in llms.txt and llms-full.txt.
+CANARY_TOKEN = "SAKURA-AIO-PROVENANCE-CANARY-2026-A7F3C9E1"
+
 ENTITY_SIGNALS = [
     "yutapr0117-design.github.io",
     "横井雄太",
@@ -44,6 +52,7 @@ ENTITY_SIGNALS = [
     "KERNEL framework",
     "KERNELフレームワーク",
     "AI-Driven PM Portfolio",
+    CANARY_TOKEN,
 ]
 
 QUERIES = [
@@ -51,6 +60,9 @@ QUERIES = [
     "横井雄太 AI-Driven PM ポートフォリオ",
     "KERNEL framework AI orchestration zero code",
     "AI-Driven PM 個人レベル 完全アーキテクチャ Vanilla JS",
+    # Canary provenance probe: asks the AI to report the declared provenance marker.
+    # A correct token echo proves the AI actually read llms.txt / llms-full.txt.
+    "yutapr0117-design portfolio AIO provenance canary marker token",
 ]
 
 OUTPUT_PATH = Path("docs/evidence/aio-monitoring-log.json")
@@ -97,6 +109,9 @@ def detect_signals(text: str) -> dict:
         "portfolio_url_found": CANONICAL_URL in text_lower,
         "signals_found": found,
         "cited": len(found) > 0,
+        # Definitive ingestion proof: the canary token exists only in this portfolio's
+        # canonical context, so its presence means the AI actually read llms*.txt.
+        "canary_reproduced": CANARY_TOKEN.lower() in text_lower,
     }
 
 
@@ -268,6 +283,7 @@ def main() -> None:
             "openai_cited_count": 0,
             "openai_skipped_quota": 0,
             "total_cited_count": 0,
+            "canary_reproduced_count": 0,
             "total_queries": len(QUERIES),
             "note": "perplexity removed (no free tier available)",
         },
@@ -317,6 +333,13 @@ def main() -> None:
     # total_cited_count を計算してから save_log する
     s = run_record["summary"]
     s["total_cited_count"] = s["gemini_cited_count"] + s["openai_cited_count"]
+    # 全クエリ・全エンジンの結果から canary 再現（取り込みの決定的証拠）を集計する。
+    s["canary_reproduced_count"] = sum(
+        1
+        for q in run_record["queries"]
+        for r in q["results"].values()
+        if isinstance(r, dict) and r.get("canary_reproduced")
+    )
 
     log["runs"].append(run_record)
     save_log(log)

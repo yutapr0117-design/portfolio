@@ -254,7 +254,7 @@ echo "ALL LOCAL CHECKS PASSED"
 
 | 指標 | 基準値 |
 |---|---|
-| 追跡ファイル総数 | 72（increment #4 後 71 ＋ artifact-governance increment の `docs/README.md` 1。本 increment の decision record・改善文書も同梱・commit する場合は +2）|
+| 追跡ファイル総数 | 76（artifact-governance increment 後 74 ＋ 本 AIO-update increment の decision record・改善文書 2。変更 10 ファイルは AIO 正本テキスト＋ミラー・digest 3 点・監視スクリプト・sitemap で新規追加ではない）|
 | `npm run lint` | 0 errors / 199 warnings（`curly`:124 / `no-var`:64 / `no-shadow`:10 / `prefer-const`:1、すべて `main.js`）|
 | consistency 検査の `OK:` 行 | 83（Check 41 の 2 行・Check 42 の 2 行を含む。`all invariants hold` で終了）|
 | consistency Check 総数 | 42（最大番号 42）|
