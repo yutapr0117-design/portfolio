@@ -1,7 +1,7 @@
 # total-check-runbook.md
 
 ```
-Last-Updated  : 2026-06-01
+Last-Updated  : 2026-06-02
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
 Track         : v80+ staged major update (verification institutionalization)
 Purpose       : このリポジトリの「トータルチェック」を、人間でも AI でも、誰でも
@@ -121,7 +121,7 @@ npm audit --omit=dev # 配信物（ランタイム依存）だけの監査
 |---|---|---|
 | `npm run lint` | `199 problems (0 errors, 199 warnings)` / **exit 0** | exit ≥2 = 実行失敗（config/parse/flag）→ **BLOCKING**。errors>0 → **BLOCKING**。warnings → **advisory**（`main.js` の `no-var`/`curly`/`no-shadow`/`prefer-const`。視覚回帰 baseline 確立後に段階解消）。**warning 件数の増加は負債増のサイン**として監視 |
 | `npm run lint:css` | `Stylelint [style.css]: PASS` / exit 0 | error は BLOCKING |
-| `npm run check` | `Repository consistency check passed — all invariants hold.` / exit 0 / 78 OK 行 | §6 の registry 参照。1 つでも ERROR が出れば exit 1（BLOCKING）|
+| `npm run check` | `Repository consistency check passed — all invariants hold.` / exit 0 / consistency 88 OK 行（`npm run check` 全体＝consistency＋digest＋binary の 3 スクリプトで、`OK:` トークン行は合計 90）| §6 の registry 参照。1 つでも ERROR が出れば exit 1（BLOCKING）。OK 行数の権威値は §9 の実測表。両者がずれた場合は §9 を正とし、本行を §9 に合わせて更新する |
 | `py_compile` | 無出力・exit 0 | 構文エラーは BLOCKING |
 | `node --check`（8 JS） | 各 OK | 構文エラーは BLOCKING |
 | `npm audit` | `found 0 vulnerabilities` | high/critical は要対応 |
@@ -215,9 +215,10 @@ every-push の BLOCKING パイプライン（`architecture-validation.yml`）は
 ### 7.4 Not-possible 境界（ローカル/AI では検証不能・捏造禁止）
 以下は CI・人間・外部だけが確認できる。サンドボックスや AI セッション内で「成功した」と書いてはならない。
 - GitHub Actions の実実行緑
-- Playwright **視覚回帰 baseline PNG の実生成**（人間が Actions の "Update Playwright Baseline Snapshots" を実行 → artifact を DL → `e2e/portfolio.spec.js-snapshots/` に配置・commit。**生成は Playwright 1.55.1 で**）
+- Playwright **視覚回帰 baseline PNG の実生成**（人間が Actions の "Update Playwright Baseline Snapshots" を実行 → artifact を DL → `e2e/portfolio.spec.js-snapshots/` に配置・commit。**生成は Playwright 1.55.1 で**）。ローカル/サンドボックスでは Chromium バイナリのダウンロードがネットワーク許可リストで遮断されるため `npm run test:e2e` 自体が起動できないことがある。**この遮断はテストの欠陥ではなく環境制約**であり、テストを削除・skip 化する理由にはならない。baseline 生成は GitHub Actions 経由が唯一の正規ルートである。
 - Dependabot の実 PR 挙動
 - GitHub Pages 上での実 200 応答（Check 39 はファイル存在までを保証。配信到達性は別）
+- **公開 Pages の反映鮮度（public deployment freshness）**: 公開 `llms.txt` / `llms-full.txt` がワーキングコピーと一致して見えるかは、外部 HTTP 取得が通る環境でのみ確認できる。サンドボックスから公開エンドポイントへ到達できない場合、`unobservable`（観測不能）と分類し、`stale`（古い）と断定しない。手順と分類規則は `docs/evidence/public-deployment-freshness-review.md`、補助観測スクリプトは `.github/scripts/check_public_deployment_freshness.py`（**非ブロッキング・常に exit 0**、`npm run check` には組み込まない）。
 - AIO citation の実観測 / C2PA 署名 / Zenn 記事公開日の外部確定
 
 ### 7.5 honesty（事実と解釈の分離）
@@ -248,21 +249,24 @@ echo "ALL LOCAL CHECKS PASSED"
 
 ---
 
-## 9. 実測基準値（このコミット時点 / 2026-06-01）
+## 9. 実測基準値（このコミット時点 / 2026-06-02）
 
-トータルチェックが緑のとき、以下の数値になる。乖離したら原因を調べる。
+トータルチェックが緑のとき、以下の数値になる。乖離したら原因を調べる。各値は本コミットで実測したものであり、推定ではない。
 
 | 指標 | 基準値 |
 |---|---|
-| 追跡ファイル総数 | 76（artifact-governance increment 後 74 ＋ 本 AIO-update increment の decision record・改善文書 2。変更 10 ファイルは AIO 正本テキスト＋ミラー・digest 3 点・監視スクリプト・sitemap で新規追加ではない）|
-| `npm run lint` | 0 errors / 199 warnings（`curly`:124 / `no-var`:64 / `no-shadow`:10 / `prefer-const`:1、すべて `main.js`）|
-| consistency 検査の `OK:` 行 | 83（Check 41 の 2 行・Check 42 の 2 行を含む。`all invariants hold` で終了）|
-| consistency Check 総数 | 42（最大番号 42）|
+| 追跡ファイル総数 | 76（artifact-governance increment 後 74 ＋ AIO-update increment の decision record・改善文書 2。本 public-freshness-observation increment では既存追跡ファイルの編集と非追跡 outputs への複製のみで、追跡ツリーの新規ファイルは別途のコミット運用に従う）|
+| `npm run lint` | 0 errors / 199 warnings（`curly`:124 / `no-var`:64 / `no-shadow`:10 / `prefer-const`:1、すべて `main.js`。本 increment で `main.js` は未変更のため件数不変）|
+| consistency 検査の `OK:` 行 | 88（Check 41 の 2 行・Check 42 の 2 行・新規 Check 43 の 4 行を含む。`all invariants hold` で終了）|
+| `npm run check` 全体の `OK:` トークン行 | 90（consistency 88 ＋ `check_binary_aio_metadata.py` 2。`check_aio_digests.py` は `OK (manifest/...)` 形式と末尾 `AIO digest check passed` を出力し、`OK:` トークンには 0 行寄与する。3 スクリプトはいずれも exit 0）|
+| consistency Check 総数 | 43（最大番号 43。Check 43 は main.js AIDK Isolated Kernel の構造健全性を 43a–43d の 4 サブチェックで検証、BLOCKING）|
 | sitemap `<loc>`（Check 39） | 17 URL すべて実ファイルへ解決 |
 | JSON / YAML / XML | 10 / 7 / 1、失敗ゼロ |
 | llms alias unique sha | 1 |
+| `.well-known/aio-manifest.json` の証跡カウント | source_of_truth 5 / supporting_evidence 4 / observational_evidence 1 |
+| `index.html` 構造化データ | JSON-LD ブロック 2 / `ai:` meta タグ 8（ハイフン付き含む）|
 | `npm audit` / `--omit=dev` | 0 件 / 0 件 |
-| `main.js` | ≈468 KB / ≈7,785 行（単一 IIFE、外部 import なし）|
+| `main.js` | ≈468 KB / ≈7,785 行（単一 IIFE、外部 import なし。Check 43 が IIFE と kernel の存在を機械強制）|
 
 ---
 

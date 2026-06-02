@@ -71,6 +71,12 @@ authoritative inventory and is kept in sync with the implementation below):
       improvement-notes-*.md file lives outside docs/incident-artifacts/. Turns the
       placement convention documented in docs/README.md into an enforced invariant
       (artifact-placement governance increment). (BLOCKING)
+  43. main.js AIDK Isolated Kernel structural integrity: the "DO NOT EDIT: AIDK
+      Isolated Kernel" header marker, the startViewTransition proxy installer, and
+      the Trusted Types 'default' policy are all present, and the file is wrapped in
+      a single top-level IIFE (C2). Converts the kernel-protection posture — until
+      now enforced only by a code comment and the architecture docs — into a
+      machine-enforced invariant, so kernel removal/un-wrapping fails CI. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -1126,6 +1132,64 @@ else:
     check(False, "",
           "Check 42: docs/incident-artifacts/ directory is missing — the artifact placement "
           "convention (docs/README.md) requires it to exist",
+          blocking=True)
+
+# ── 43. main.js AIDK Isolated Kernel structural integrity (BLOCKING) ──────────
+# Until now, the AIDK Isolated Kernel ("DO NOT EDIT") was protected only by a code
+# comment in main.js and prose in docs/architecture/*. Nothing in CI would catch the
+# kernel being deleted, relabeled, or the whole-file IIFE being un-wrapped — yet those
+# are precisely the C2/P0-4 invariants the whole orchestration model relies on. This
+# check makes the kernel boundary a machine-enforced invariant by asserting the presence
+# of the kernel's stable, safety-critical anchors:
+#   (43a) the literal "DO NOT EDIT: AIDK Isolated Kernel" header marker,
+#   (43b) the startViewTransition proxy installer (View Transition safety device),
+#   (43c) the Trusted Types 'default' policy (innerHTML/XSS block, CSP-linked),
+#   (43d) a single top-level IIFE wrapper (C2 — no global-namespace pollution).
+# These anchors live inside the kernel and are untouched by legitimate AI-SURFACE edits,
+# so the check does not false-positive on normal work; it only fires if the kernel itself
+# is removed or its wrapper broken. NOTE: this is a *structural presence* invariant, not a
+# behavioural audit of kernel logic (that remains a human/orchestrator responsibility).
+_mainjs43 = ROOT / "main.js"
+if _mainjs43.exists():
+    _src43 = _mainjs43.read_text(encoding="utf-8")
+    # 43a — kernel demarcation header must remain.
+    check("DO NOT EDIT: AIDK Isolated Kernel" in _src43,
+          "Check 43a: main.js retains the AIDK Isolated Kernel 'DO NOT EDIT' header marker",
+          "Check 43a: main.js is missing the 'DO NOT EDIT: AIDK Isolated Kernel' header — "
+          "the kernel demarcation (C2/P0-4) has been removed or relabeled",
+          blocking=True)
+    # 43b — startViewTransition proxy installer must remain (View Transition safety).
+    check("startViewTransitionProxy" in _src43,
+          "Check 43b: main.js retains the startViewTransition proxy (View Transition safety device)",
+          "Check 43b: main.js is missing the startViewTransition proxy installer — "
+          "the kernel's View Transition / ErrorBoundary safety device (C3) is gone",
+          blocking=True)
+    # 43c — Trusted Types 'default' policy must remain (innerHTML/XSS block, CSP-linked).
+    check(("trustedTypes.createPolicy('default'" in _src43)
+          or ('trustedTypes.createPolicy("default"' in _src43),
+          "Check 43c: main.js retains the Trusted Types 'default' policy (innerHTML/XSS block)",
+          "Check 43c: main.js is missing the Trusted Types 'default' policy — "
+          "the kernel's innerHTML/XSS defense (C5, CSP-linked) is gone",
+          blocking=True)
+    # 43d — single top-level IIFE wrapper (C2). Heuristic that tolerates legitimate edits:
+    # after stripping line/block comments, the first executable statement must open an IIFE
+    # — `(function`/`(()=>`/`(async function`/`!function` — i.e. the global scope is not
+    # polluted by top-level declarations. This is intentionally lenient about *which* IIFE
+    # form is used so it never blocks a legitimate refactor that keeps the wrapper intact.
+    _nocomments43 = re.sub(r"/\*.*?\*/", "", _src43, flags=re.DOTALL)
+    _nocomments43 = re.sub(r"^\s*//.*$", "", _nocomments43, flags=re.MULTILINE)
+    _exec43 = _nocomments43.strip()
+    # An optional leading "'use strict';" / "\"use strict\";" directive is allowed before the IIFE.
+    _exec43 = re.sub(r"^(['\"]use strict['\"]\s*;\s*)+", "", _exec43)
+    _iife_opener43 = re.match(r"^[!+\-~]?\(\s*(async\s+)?(function\b|\()", _exec43)
+    check(_iife_opener43 is not None,
+          "Check 43d: main.js is wrapped in a single top-level IIFE (C2 — no global namespace pollution)",
+          "Check 43d: main.js does not open with a top-level IIFE — the IIFE wrapper (C2) "
+          "appears to have been broken (global namespace pollution risk)",
+          blocking=True)
+else:
+    check(False, "",
+          "Check 43: main.js not found — the published SPA entry point is missing",
           blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────

@@ -1,10 +1,10 @@
 # main-js-extraction-map.md
 
 ```
-Last-Updated  : 2026-06-01
+Last-Updated  : 2026-06-02
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
-Track         : v80+ staged major update (Phase 2 — CI hygiene increment applied)
-Subject       : main.js (≈467 KB / ≈7,781 lines, single IIFE, no imports)
+Track         : v80+ staged major update (Phase 2 — public-freshness-observation increment applied)
+Subject       : main.js (≈468 KB / ≈7,785 lines, single IIFE, no imports)
 Canonical-Ref : AI2AI.md (canonical) / repository-maintainability-map.md
 Status        : Mapping only — main.js is NOT physically split in this track
 ```
@@ -75,6 +75,20 @@ Status        : Mapping only — main.js is NOT physically split in this track
 | **Stage 3** | **static data 抽出**（Quiz / 意思決定問題集）。巨大データの分離で可読性改善。 | Stage 2 安定後 |
 | **Stage 4** | service rails（Storage / Store / EffectRails / BindingRegistry 等）。**schema 後方互換必須。** | Stage 3 安定後 |
 | **Stage 5** | ページ別 render 抽出 → **物理ファイル分割**。ARIA / View Transition / ErrorBoundary を保持。 | **Playwright baseline PNG コミット後**（必須） |
+
+### 3.1 Stage 0 で「やってよいこと」の明示列挙（P1-4）
+
+Stage 0 は「物理分割なし」とだけ書くと、後続 AI が安全なコメント作業まで萎縮したり、逆に「コメント整備」を口実に挙動へ踏み込んだりしうる。境界を曖昧にしないため、Stage 0 で許可される操作を以下に限定列挙する。ここに無い操作は Stage 0 の範囲外であり、対応する後段 Stage のゲート（多くは Playwright baseline）を満たすまで行わない。
+
+Stage 0 で許可されるのは、(1) 意味的アンカーとなる責務コメント・セクション目次（TOC）の追加、(2) 論理的な責務境界を説明するドキュメント側の記述（本 map など）の追加・更新、(3) **挙動を 1 ビットも変えない**範囲に限った ESLint 指摘の解消（例: 到達不能な dead comment の削除、フォーマットのみの是正であって識別子のリネームや `var`→`let/const` の一括置換を含まない）、(4) コードとドキュメントの対応関係（どのブロックがどの責務か）のマッピング、の 4 種である。これらはいずれも実行時の挙動・DOM 出力・CSP 連動を変えないため、視覚回帰 baseline 無しでも安全に行える。
+
+逆に Stage 0 で**やってはいけない**のは、識別子のリネーム、`var`→`let/const` の機械置換、関数の移動・抽出、`eslint --fix` の一括適用、テンプレートやイベント委譲の書き換えである。これらは挙動またはバンドル構造を変えうるため、対応する Stage（2 以降）と Playwright baseline のゲートに従う。
+
+### 3.2 AIDK Isolated Kernel の境界に関する発見（B2 — Check 43 で機械強制済み）
+
+分析の結果、`main.js` の AIDK Isolated Kernel には次の構造的事実があることを確認した。第一に、kernel は冒頭の「DO NOT EDIT: AIDK Isolated Kernel」ヘッダ箱で**始まり**は明示されるが、**終端を示す機械可読なマーカーが存在しない**。第二に、kernel 自身が ESLint warning を含んでいる（最小行で `var _orig` 付近など、199 warnings の一部は kernel 行内に分布する）。この 2 点が組み合わさると、`eslint --fix` の**一括適用は kernel 行を書き換えてしまう**——すなわち C2／AIDK 不可侵（P0-4）の違反になる。これが、本 track が一貫して「一括 fix 禁止・抽出のついでに大量改変しない」と定めてきた根拠の一つである。
+
+この構造前提はこれまでコメントだけで守られていた。本トラックの哲学（発見した前提は機械強制へ落とす）に従い、`check_repository_consistency.py` に **Check 43（BLOCKING・4 サブチェック）** を追加して機械強制した。Check 43 は (43a) kernel ヘッダマーカーの存在、(43b) `startViewTransitionProxy`（View Transition 安全装置）の存在、(43c) Trusted Types `'default'` policy の存在、(43d) コメント除去後に単一トップレベル IIFE で包まれていること、を検査する。これにより、安全装置の喪失や IIFE の破壊が CI でブロックされる。なお Check 43 は**構造の存在**を保証するものであって、kernel ロジックの挙動を逐一監査するものではない（挙動の回帰検知は Playwright baseline の領分）。
 
 ---
 

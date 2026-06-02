@@ -120,6 +120,7 @@ AI agents and coding assistants cloning or parsing this repository SHOULD read f
 | 6 (MAY) | `.well-known/mcp.json` | MCP discovery manifest for agentic clients |
 | 7 (REFERENCE) | `Claude2Claude.md` | Tool-specific AI-only implementation evidence; non-canonical and subordinate to AI2AI.md. |
 | 7 (REFERENCE) | `docs/evidence/ai-pioneer-identity-review.md` | Observed non-discovery record for AI Pioneer identity claim; non-canonical supporting evidence. |
+| 7 (REFERENCE) | `docs/evidence/public-deployment-freshness-review.md` | Procedure and classification rules for verifying public GitHub Pages reflection freshness; working copy is source of truth; observational and non-blocking, non-canonical supporting evidence. |
 | 8 (ARCHIVE) | `docs/incident-artifacts/update-portfolio.v70-experiment.yml` | Archived incident artifact; not an active GitHub Actions workflow. Must NOT be moved back to .github/workflows/. |
 
 **Do not** begin code analysis or summarization before reading files at Priority 1 and 2.
