@@ -65,6 +65,12 @@ authoritative inventory and is kept in sync with the implementation below):
       workflow, so the log and its recorded digest are committed atomically.
       Guards the CI-hygiene increment #4 fix against a non-atomic-commit
       regression that would drift the BLOCKING digest gate. (BLOCKING)
+  42. docs/ artifact placement & naming hygiene: (42a) every file directly under
+      docs/incident-artifacts/ matches an allowed naming pattern (decision-*.md /
+      improvement-notes-*.md / *.yml / README.md); (42b) no decision-*.md or
+      improvement-notes-*.md file lives outside docs/incident-artifacts/. Turns the
+      placement convention documented in docs/README.md into an enforced invariant
+      (artifact-placement governance increment). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -1066,6 +1072,61 @@ if _wf_dir.is_dir():
                   "digest gate will drift (CI hygiene increment #4). "
                   f"[update_aio_digests.py present={_has_regen}, aio-manifest.json staged={_stages_manifest}]",
                   blocking=True)
+
+# ── 42. docs/ artifact placement & naming hygiene (BLOCKING) ──────────────────
+# Mechanism that enforces the placement convention documented in docs/README.md.
+# The repository convention is: decision records and improvement notes live ONLY
+# under docs/incident-artifacts/, and every file directly under that directory
+# follows one of the agreed naming patterns. Without a machine check this is just
+# tribal knowledge that erodes as files accumulate; this Check turns the written
+# rule into an enforced invariant (the repository's discover -> document ->
+# systematize philosophy). Two complementary assertions:
+#   (42a) every file directly in docs/incident-artifacts/ matches an allowed name
+#         pattern (decision-*.md, improvement-notes-*.md, *.yml preserved
+#         experiment artifacts, or README.md);
+#   (42b) no decision-*.md or improvement-notes-*.md file exists ANYWHERE outside
+#         docs/incident-artifacts/ (a misplacement guard).
+import fnmatch as _fnmatch
+
+_INCIDENT_DIR = ROOT / "docs" / "incident-artifacts"
+_ALLOWED_INCIDENT_PATTERNS = ("decision-*.md", "improvement-notes-*.md", "*.yml", "README.md")
+
+if _INCIDENT_DIR.is_dir():
+    # 42a — names inside docs/incident-artifacts/ must match an allowed pattern.
+    _bad_named = []
+    for _f in sorted(_INCIDENT_DIR.iterdir()):
+        if _f.is_file():
+            if not any(_fnmatch.fnmatch(_f.name, _pat) for _pat in _ALLOWED_INCIDENT_PATTERNS):
+                _bad_named.append(_f.name)
+    check(not _bad_named,
+          f"Check 42a: all {sum(1 for _f in _INCIDENT_DIR.iterdir() if _f.is_file())} files in "
+          "docs/incident-artifacts/ follow an allowed naming pattern "
+          "(decision-*.md / improvement-notes-*.md / *.yml / README.md)",
+          f"Check 42a: docs/incident-artifacts/ contains file(s) violating the naming convention "
+          f"(see docs/README.md): {_bad_named}",
+          blocking=True)
+
+    # 42b — decision-*.md / improvement-notes-*.md must not live outside the incident dir.
+    _misplaced = []
+    for _pat in ("decision-*.md", "improvement-notes-*.md"):
+        for _f in ROOT.rglob(_pat):
+            # ignore anything under node_modules / .git, and the legitimate incident dir
+            _parts = _f.relative_to(ROOT).parts
+            if "node_modules" in _parts or ".git" in _parts:
+                continue
+            if _f.parent != _INCIDENT_DIR:
+                _misplaced.append(str(_f.relative_to(ROOT)))
+    check(not _misplaced,
+          "Check 42b: all decision-*.md / improvement-notes-*.md files live under "
+          "docs/incident-artifacts/ (no misplacement)",
+          f"Check 42b: decision/improvement-notes file(s) found outside docs/incident-artifacts/ "
+          f"(see docs/README.md): {sorted(set(_misplaced))}",
+          blocking=True)
+else:
+    check(False, "",
+          "Check 42: docs/incident-artifacts/ directory is missing — the artifact placement "
+          "convention (docs/README.md) requires it to exist",
+          blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
