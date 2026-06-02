@@ -59,16 +59,33 @@ jobs:
           # PERPLEXITY_API_KEY は廃止済み（無料枠なし）
         run: python3 .github/scripts/aio_monitoring.py
 
-      # ── ログをコミット ─────────────────────────────────────────────────
-      - name: Commit monitoring log
+      # ── digest 同期（ログ追記と同一コミットに含める＝原子性）────────────
+      # 監視ログ docs/evidence/aio-monitoring-log.json は aio-manifest.json の
+      # observational_evidence として digest 連鎖に登録されている。ログだけを
+      # コミットすると manifest の記録 sha と実ファイル sha がズレ、BLOCKING の
+      # check_aio_digests.py が次の push で赤化する（CI 衛生 increment #4 で是正）。
+      # ここで update_aio_digests.py を走らせ、ログと同じコミットで manifest /
+      # index を再計算しておくことで drift window を消す。digest が変わらなければ
+      # write_if_changed が冪等にスキップする。
+      - name: Regenerate AIO digests (keep manifest in sync with the appended log)
+        run: python3 .github/scripts/update_aio_digests.py
+
+      # ── ログ＋manifest を「ひとつのコミット」で記録 ───────────────────────
+      - name: Commit monitoring log and synced digests
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/evidence/aio-monitoring-log.json
+          # ログと、それに連動して再計算された manifest / index を同一コミットに含める。
+          # これにより、コミット境界で常に「ログ sha == manifest 記録 sha」が成り立つ。
+          git add \
+            docs/evidence/aio-monitoring-log.json \
+            .well-known/aio-manifest.json \
+            .well-known/index.json \
+            .well-known/agent-skills/index.json
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "chore(aio-monitoring): weekly log update $(date -u +%Y-%m-%d)"
+            git commit -m "chore(aio-monitoring): weekly log update + digest sync $(date -u +%Y-%m-%d)"
             git push
           fi
 

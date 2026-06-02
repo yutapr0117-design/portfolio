@@ -59,6 +59,12 @@ authoritative inventory and is kept in sync with the implementation below):
       (local-binary-preferred); npx remains a documented fallback. Guards the
       Phase 2 CI-hygiene increment #3 contract against a false-green-prone
       npx-primary regression. (BLOCKING)
+  41. AIO monitoring log ↔ manifest atomic-commit invariant: any workflow that
+      stages docs/evidence/aio-monitoring-log.json for commit must also run
+      update_aio_digests.py and stage .well-known/aio-manifest.json in the same
+      workflow, so the log and its recorded digest are committed atomically.
+      Guards the CI-hygiene increment #4 fix against a non-atomic-commit
+      regression that would drift the BLOCKING digest gate. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -1025,6 +1031,41 @@ else:
           "Check 40: package.json and .github/scripts/check_css_stylelint.py must both "
           "exist (CSS lint execution-path hygiene contract)",
           blocking=True)
+
+# ── 41. AIO monitoring log ↔ manifest atomic-commit invariant (BLOCKING) ──────
+# Root-cause guard for CI hygiene increment #4. docs/evidence/aio-monitoring-log.json
+# is registered in aio-manifest.json (observational_evidence) and is therefore a
+# BLOCKING digest target (check_aio_digests.py). It is also the one digest-tracked
+# file that an automated workflow MUTATES and COMMITS (aio_monitoring.py appends a
+# run weekly). If a workflow commits the log WITHOUT regenerating the manifest in
+# the SAME commit, the committed log sha and the manifest's recorded sha diverge for
+# the window until a separate digest-sync commit lands — and during that window the
+# BLOCKING validation can run and red the build. (That is exactly the failure this
+# increment fixes.) This check makes the atomic-commit contract machine-enforced:
+#   any workflow that stages the monitoring log for commit (git add … + git commit)
+#   MUST also run update_aio_digests.py AND stage .well-known/aio-manifest.json,
+#   so the log and its digest are always committed together.
+_MON_LOG = "aio-monitoring-log.json"
+_wf_dir = ROOT / ".github" / "workflows"
+if _wf_dir.is_dir():
+    for _wf in sorted(_wf_dir.glob("*.yml")):
+        _wf_text = _wf.read_text(encoding="utf-8")
+        # A workflow "commits the monitoring log" iff it references the log AND both
+        # stages (git add) and commits (git commit). Comment-only mentions without a
+        # commit do not trip this (conservative — avoids false positives).
+        _commits_log = (_MON_LOG in _wf_text) and ("git add" in _wf_text) and ("git commit" in _wf_text)
+        if _commits_log:
+            _has_regen = "update_aio_digests.py" in _wf_text
+            _stages_manifest = "aio-manifest.json" in _wf_text
+            check(_has_regen and _stages_manifest,
+                  f"Check 41: {_wf.name} commits the monitoring log AND regenerates/stages the "
+                  "manifest in the same workflow (atomic log+digest commit)",
+                  f"Check 41: {_wf.name} stages '{_MON_LOG}' for commit but does not "
+                  "(run update_aio_digests.py AND stage .well-known/aio-manifest.json) in the same "
+                  "workflow — the log and its digest must be committed atomically or the BLOCKING "
+                  "digest gate will drift (CI hygiene increment #4). "
+                  f"[update_aio_digests.py present={_has_regen}, aio-manifest.json staged={_stages_manifest}]",
+                  blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

@@ -23,7 +23,7 @@ Status        : Active runbook
 ### 0.1 誰のための文書か
 - **人間**: コミット前後の最終確認、引き継ぎ、レビュー。
 - **AI エージェント**: セッション内でリポジトリを変更した後の自己検証。
-- 前提知識: このリポジトリは **AI-only 実装 + 人間オーケストレーション**。コードは AI が書き、人間が設計・レビュー・監査・統制する。**この検証機構（40 個の整合チェック + CI + 本 runbook）が、その運用を安全にしている核**である。検証を省略すると安全性の前提が崩れる。
+- 前提知識: このリポジトリは **AI-only 実装 + 人間オーケストレーション**。コードは AI が書き、人間が設計・レビュー・監査・統制する。**この検証機構（41 個の整合チェック + CI + 本 runbook）が、その運用を安全にしている核**である。検証を省略すると安全性の前提が崩れる。
 
 ### 0.2 トータルチェックの原則
 1. **BLOCKING と advisory を区別する。** BLOCKING（exit 1 を生む）は commit 前に必ず解消。advisory（warning）は追跡して段階的に解消。両者を混同しない。
@@ -254,10 +254,10 @@ echo "ALL LOCAL CHECKS PASSED"
 
 | 指標 | 基準値 |
 |---|---|
-| 追跡ファイル総数 | 69（受領 ZIP 時点 68 ＋ 本 increment の decision record 1。Claude 改善文書も同梱・commit する場合は 70）|
+| 追跡ファイル総数 | 70（increment #3 後 69 ＋ 本 increment #4 の decision record 1。Claude 改善文書も同梱・commit する場合は +1）|
 | `npm run lint` | 0 errors / 199 warnings（`curly`:124 / `no-var`:64 / `no-shadow`:10 / `prefer-const`:1、すべて `main.js`）|
-| consistency 検査の `OK:` 行 | 79（Check 40 の 3 行を含む。`all invariants hold` で終了）|
-| consistency Check 総数 | 40（最大番号 40）|
+| consistency 検査の `OK:` 行 | 81（Check 41 の 2 行を含む。`all invariants hold` で終了）|
+| consistency Check 総数 | 41（最大番号 41）|
 | sitemap `<loc>`（Check 39） | 17 URL すべて実ファイルへ解決 |
 | JSON / YAML / XML | 10 / 7 / 1、失敗ゼロ |
 | llms alias unique sha | 1 |

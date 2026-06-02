@@ -199,8 +199,18 @@ def load_log() -> dict:
 
 def save_log(log: dict) -> None:
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    # CI 衛生 increment #4: write the log in the SAME canonical serialization the
+    # digest system uses for every other AIO JSON — json.dumps(..., ensure_ascii=
+    # False, indent=2) PLUS a trailing newline. update_aio_digests.py writes
+    # .well-known/aio-manifest.json / index.json with a trailing "\n"; json.dump()
+    # alone omits it. Aligning them keeps the log's on-disk bytes deterministic and
+    # POSIX-conformant, so a later whitespace normalizer (an editor, a future
+    # .editorconfig with insert_final_newline, a formatter) cannot silently flip the
+    # log's sha256 and drift it out of the manifest. Because the monitoring workflow
+    # now regenerates the manifest in the same commit (atomicity), this one-time
+    # newline change is recorded together with its digest on the next run.
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(log, f, ensure_ascii=False, indent=2)
+        f.write(json.dumps(log, ensure_ascii=False, indent=2) + "\n")
 
 
 def get_previous_citation_status(log: dict):
