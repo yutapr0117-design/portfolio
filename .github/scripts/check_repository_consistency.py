@@ -77,6 +77,16 @@ authoritative inventory and is kept in sync with the implementation below):
       a single top-level IIFE (C2). Converts the kernel-protection posture — until
       now enforced only by a code comment and the architecture docs — into a
       machine-enforced invariant, so kernel removal/un-wrapping fails CI. (BLOCKING)
+  44. AIO provenance canary token cross-surface consistency: the single canary token
+      string (SAKURA-AIO-PROVENANCE-CANARY-<YYYY>-<8 hex>) appears identically on every
+      published AIO surface (llms.txt + its 3 byte-identical mirrors, llms-full.txt) AND
+      in every monitor that searches for it (aio_monitoring.py, check_public_deployment_
+      freshness.py), with exactly one canonical value across the whole repository. The
+      canary's entire evidentiary value rests on the published token and the searched
+      token being the same string; a silent edit to one side would make the monitor hunt
+      for a token that is no longer published, yielding permanent false negatives that no
+      other check would catch. This turns that load-bearing assumption into a machine-
+      enforced invariant. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -1191,6 +1201,77 @@ else:
     check(False, "",
           "Check 43: main.js not found — the published SPA entry point is missing",
           blocking=True)
+
+# ── 44. AIO provenance canary token cross-surface consistency (BLOCKING) ──────
+# The passive provenance canary is the linchpin of the AIO ingestion experiment: a
+# unique token is published in the canonical AIO text, and the monitors search AI
+# responses for that exact token (its reproduction is the *only* positive proof of
+# ingestion). That design has a single point of silent failure that no other check
+# guards: if an edit changes the token on the published side but not in the monitor
+# (or vice-versa), the monitor will forever hunt for a string that is no longer
+# published — producing permanent false negatives while every existing check stays
+# green (Check 4 only proves the four llms mirrors are byte-identical to EACH OTHER;
+# it says nothing about llms-full.txt, and nothing about the Python monitors). This
+# check closes that gap by asserting one canonical token value across all surfaces:
+#   (44a) every published AIO surface contains the token at least once,
+#   (44b) every monitor that consumes the token hardcodes the same string,
+#   (44c) the repository contains exactly ONE canary value (no drifted variants).
+# Like the kernel check, this is a *consistency* invariant, not a claim that the
+# canary has been reproduced in the wild (that remains an external observation and is
+# deliberately NOT asserted here — see the honesty rule in the runbook).
+_CANARY_RE = re.compile(r"SAKURA-AIO-PROVENANCE-CANARY-\d{4}-[0-9A-F]{8}")
+# Published AIO surfaces a crawler / LLM actually reads (ground truth + entry + mirrors).
+_canary_published = [
+    "llms.txt",
+    "llms-full.txt",
+    ".well-known/llms.txt",
+    "llms_well-known.txt",
+    ".well-known/llms_well-known.txt",
+]
+# Monitors that must look for the SAME token they expect to be published.
+_canary_monitors = [
+    ".github/scripts/aio_monitoring.py",
+    ".github/scripts/check_public_deployment_freshness.py",
+]
+# Collect every canary-shaped token across the whole repo to detect drift (44c).
+_canary_values = set()
+_canary_present = {}
+for _rel in _canary_published + _canary_monitors:
+    _p = ROOT / _rel
+    if _p.exists():
+        _txt = _p.read_text(encoding="utf-8", errors="ignore")
+        _hits = _CANARY_RE.findall(_txt)
+        _canary_present[_rel] = len(_hits)
+        _canary_values.update(_hits)
+    else:
+        _canary_present[_rel] = -1  # file missing
+
+# 44a — every published surface carries the token.
+_missing_pub = [f for f in _canary_published if _canary_present.get(f, -1) < 1]
+check(not _missing_pub,
+      "Check 44a: the AIO provenance canary token is present on every published surface "
+      "(llms.txt + 3 mirrors, llms-full.txt)",
+      "Check 44a: the AIO provenance canary token is missing from published surface(s): "
+      f"{', '.join(_missing_pub)} — the canary experiment's published anchor is broken",
+      blocking=True)
+
+# 44b — every monitor hardcodes the token it is supposed to find.
+_missing_mon = [f for f in _canary_monitors if _canary_present.get(f, -1) < 1]
+check(not _missing_mon,
+      "Check 44b: every AIO monitor hardcodes the canary token it searches for "
+      "(aio_monitoring.py, check_public_deployment_freshness.py)",
+      "Check 44b: the canary token is absent from monitor(s): "
+      f"{', '.join(_missing_mon)} — the monitor would search for a token it never defines",
+      blocking=True)
+
+# 44c — exactly one canonical canary value exists repo-wide (no drift between sides).
+check(len(_canary_values) == 1,
+      "Check 44c: the repository declares exactly one canonical AIO canary token value "
+      f"({next(iter(_canary_values)) if len(_canary_values)==1 else 'n/a'})",
+      "Check 44c: multiple distinct canary token values found across published/monitor "
+      f"surfaces ({sorted(_canary_values)}) — published and searched tokens have drifted "
+      "apart, which silently breaks ingestion detection",
+      blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
