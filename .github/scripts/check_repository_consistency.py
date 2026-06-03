@@ -87,6 +87,18 @@ authoritative inventory and is kept in sync with the implementation below):
       for a token that is no longer published, yielding permanent false negatives that no
       other check would catch. This turns that load-bearing assumption into a machine-
       enforced invariant. (BLOCKING)
+  45. This check file's self-documentation matches its implementation: the numbered
+      entries in THIS module docstring (the "N. ..." inventory above) and the numbered
+      "# ── N." section-header comments in the code body describe the same set of checks,
+      are contiguous 1..N with no gaps or duplicates on each side, and agree with each
+      other. The inventory and the section headers are two hand-maintained descriptions of
+      the same checks; until now nothing stopped them from silently drifting apart (a new
+      check added in the body but forgotten in the inventory, or renumbered on one side
+      only), which would make this file's own documentation lie about what it enforces.
+      This is a self-referential meta-check: it is true precisely because anyone adding a
+      check updates BOTH descriptions together — exactly the discipline it exists to keep.
+      It asserts structural agreement of the documentation, not the behaviour of any
+      individual check. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -1272,6 +1284,68 @@ check(len(_canary_values) == 1,
       f"surfaces ({sorted(_canary_values)}) — published and searched tokens have drifted "
       "apart, which silently breaks ingestion detection",
       blocking=True)
+
+# ── 45. This file's self-documentation matches its implementation (BLOCKING) ──
+# Two hand-maintained descriptions of the check set live in this file: the numbered
+# inventory inside the module docstring ("N. ...") and the numbered section-header
+# comments in the code body ("# ── N."). They are currently in agreement, but nothing
+# stops them from drifting — e.g. a future check added to the body whose inventory line
+# is forgotten, or a renumber applied on one side only. If they drift, this file's own
+# documentation starts lying about what it enforces, and no other check notices. This
+# meta-check makes their agreement an invariant.
+#
+# Why this is not circular reasoning: we deliberately parse the docstring and the body
+# SEPARATELY and compare them to EACH OTHER. The check passes only when the two
+# independent descriptions coincide; it cannot pass by "describing itself", because
+# Check 45 must appear as a line in BOTH the docstring inventory AND as a body section
+# header to be counted on both sides. The assertion is about structural agreement of the
+# documentation, never about the behaviour of any individual check.
+#
+# We read THIS source file from disk (not via introspection) so the check sees exactly
+# the committed bytes a reviewer would read.
+_selfsrc = (ROOT / ".github" / "scripts" / "check_repository_consistency.py").read_text(encoding="utf-8")
+# Isolate the module docstring (first triple-quoted block) from the executable body so
+# the two number sets are extracted from genuinely different regions of the file.
+_doc_m = re.search(r'"""(.*?)"""', _selfsrc, re.DOTALL)
+if _doc_m:
+    _docstring45 = _doc_m.group(1)
+    _body45 = _selfsrc[_doc_m.end():]
+    # Inventory numbers: lines like "  N. " at the top level of the docstring.
+    _inv45 = sorted(int(n) for n in re.findall(r'^\s{2}(\d+)\.\s', _docstring45, re.MULTILINE))
+    # Section-header numbers: lines like "# ── N." in the body (── = U+2500 box drawing).
+    _sec45 = sorted(int(n) for n in re.findall(r'^#\s*\u2500\u2500\s*(\d+)\.', _body45, re.MULTILINE))
+
+    def _contiguous(seq):
+        # True when seq is exactly [1, 2, ..., max] with no gaps and no duplicates.
+        return bool(seq) and seq == list(range(1, seq[-1] + 1))
+
+    # 45a — the docstring inventory is a clean contiguous 1..N with no gaps/dupes.
+    check(_contiguous(_inv45),
+          f"Check 45a: docstring check inventory is contiguous 1..{_inv45[-1] if _inv45 else 0} "
+          "(no gaps or duplicate numbers)",
+          f"Check 45a: docstring check inventory is not a clean 1..N sequence ({_inv45}) — "
+          "a check number is missing, duplicated, or out of order in the module docstring",
+          blocking=True)
+    # 45b — the body section headers are a clean contiguous 1..N with no gaps/dupes.
+    check(_contiguous(_sec45),
+          f"Check 45b: code section headers are contiguous 1..{_sec45[-1] if _sec45 else 0} "
+          "(no gaps or duplicate numbers)",
+          f"Check 45b: code section headers are not a clean 1..N sequence ({_sec45}) — "
+          "a '# ── N.' header is missing, duplicated, or out of order in the code body",
+          blocking=True)
+    # 45c — the two descriptions agree: same set of check numbers on both sides.
+    check(set(_inv45) == set(_sec45),
+          f"Check 45c: docstring inventory and code section headers describe the same "
+          f"{len(_sec45)} checks (self-documentation matches implementation)",
+          "Check 45c: docstring inventory and code section headers have drifted apart — "
+          f"only in docstring: {sorted(set(_inv45) - set(_sec45))}; "
+          f"only in code body: {sorted(set(_sec45) - set(_inv45))}",
+          blocking=True)
+else:
+    check(False, "",
+          "Check 45: could not locate this file's module docstring to self-verify "
+          "documentation/implementation agreement",
+          blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
