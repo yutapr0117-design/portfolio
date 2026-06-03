@@ -99,6 +99,16 @@ authoritative inventory and is kept in sync with the implementation below):
       check updates BOTH descriptions together — exactly the discipline it exists to keep.
       It asserts structural agreement of the documentation, not the behaviour of any
       individual check. (BLOCKING)
+  46. package.json lint scripts cover a consistent JavaScript file set: the files named in
+      the `lint` script (ESLint) and the files named in the `lint:js` script (node --check
+      syntax pass) are exactly the same set, and that set is exactly the top-level *.js
+      files committed at the repository root. These two script lists are hand-maintained
+      duplicates of the same fact ("which JS files does this project ship and gate?"); if a
+      future JS file is added to one script but forgotten in the other — or added to the
+      repo but to neither — the lint coverage and the syntax-check coverage would silently
+      diverge, leaving a shipped file ungated with nothing to catch it. This makes the two
+      lists' agreement, and their match to the actual root JS files, a machine-enforced
+      invariant. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -1345,6 +1355,54 @@ else:
     check(False, "",
           "Check 45: could not locate this file's module docstring to self-verify "
           "documentation/implementation agreement",
+          blocking=True)
+
+# ── 46. package.json lint scripts cover a consistent JS file set (BLOCKING) ───
+# Adding the `lint:js` (node --check) and `verify` aggregate scripts introduced a new
+# hand-maintained duplication: the `lint` script (ESLint) and the `lint:js` script each
+# enumerate the project's JavaScript files by name. They describe the SAME underlying
+# fact — "which JS files does this project ship and gate?" — in two places. If a future
+# JS file is added to one list but not the other, or added to the repo root but to
+# neither, lint coverage and syntax-check coverage would silently diverge and a shipped
+# file would go ungated. This check makes their agreement an invariant, and ties both to
+# the actual top-level *.js files on disk so neither list can quietly fall behind reality.
+# We compare THREE sets: lint's files, lint:js's files, and the real root JS files; all
+# three must coincide. This is a configuration-consistency invariant (it checks the lint
+# wiring, not the JS behaviour, which ESLint/node --check themselves cover).
+_pkg_path46 = ROOT / "package.json"
+if _pkg_path46.exists():
+    _pkg46 = json.loads(_pkg_path46.read_text(encoding="utf-8"))
+    _scripts46 = _pkg46.get("scripts", {})
+    _lint_cmd46 = _scripts46.get("lint", "")
+    _lintjs_cmd46 = _scripts46.get("lint:js", "")
+    # `lint` lists files as bare eslint args (before the `--flags`); capture *.js tokens
+    # that are NOT part of a flag value. Splitting on the first " --" isolates the file args.
+    _lint_args46 = _lint_cmd46.split(" --", 1)[0]
+    _lint_files46 = set(re.findall(r"([A-Za-z0-9_./-]+\.js)\b", _lint_args46))
+    # `lint:js` lists files as `node --check <file>` clauses.
+    _lintjs_files46 = set(re.findall(r"node\s+--check\s+([A-Za-z0-9_./-]+\.js)\b", _lintjs_cmd46))
+    # Ground truth: the top-level *.js files actually committed at the repo root.
+    _root_js46 = {p.name for p in ROOT.glob("*.js") if p.is_file()}
+
+    # 46a — lint and lint:js name the same set of JS files.
+    check(_lint_files46 == _lintjs_files46,
+          "Check 46a: package.json `lint` and `lint:js` scripts cover the same JS file set",
+          "Check 46a: package.json `lint` and `lint:js` scripts have drifted apart — "
+          f"only in lint: {sorted(_lint_files46 - _lintjs_files46)}; "
+          f"only in lint:js: {sorted(_lintjs_files46 - _lint_files46)}",
+          blocking=True)
+    # 46b — that lint set matches the actual top-level *.js files on disk (no file ungated,
+    # no phantom file listed). Guards against a new root JS file being added to neither script.
+    check(_lint_files46 == _root_js46,
+          "Check 46b: the lint script's JS file set matches the top-level *.js files on disk "
+          f"({len(_root_js46)} files)",
+          "Check 46b: the lint script's JS file set does not match the repository's top-level "
+          f"*.js files — only in lint: {sorted(_lint_files46 - _root_js46)}; "
+          f"on disk but unlinted: {sorted(_root_js46 - _lint_files46)}",
+          blocking=True)
+else:
+    check(False, "",
+          "Check 46: package.json not found — cannot verify lint-script JS coverage",
           blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────

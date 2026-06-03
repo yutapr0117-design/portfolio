@@ -23,7 +23,7 @@ Status        : Active runbook
 ### 0.1 誰のための文書か
 - **人間**: コミット前後の最終確認、引き継ぎ、レビュー。
 - **AI エージェント**: セッション内でリポジトリを変更した後の自己検証。
-- 前提知識: このリポジトリは **AI-only 実装 + 人間オーケストレーション**。コードは AI が書き、人間が設計・レビュー・監査・統制する。**この検証機構（45 個の整合チェック + CI + 本 runbook）が、その運用を安全にしている核**である。検証を省略すると安全性の前提が崩れる。
+- 前提知識: このリポジトリは **AI-only 実装 + 人間オーケストレーション**。コードは AI が書き、人間が設計・レビュー・監査・統制する。**この検証機構（46 個の整合チェック + CI + 本 runbook）が、その運用を安全にしている核**である。検証を省略すると安全性の前提が崩れる。
 
 ### 0.2 トータルチェックの原則
 1. **BLOCKING と advisory を区別する。** BLOCKING（exit 1 を生む）は commit 前に必ず解消。advisory（warning）は追跡して段階的に解消。両者を混同しない。
@@ -121,9 +121,11 @@ npm audit --omit=dev # 配信物（ランタイム依存）だけの監査
 |---|---|---|
 | `npm run lint` | `199 problems (0 errors, 199 warnings)` / **exit 0** | exit ≥2 = 実行失敗（config/parse/flag）→ **BLOCKING**。errors>0 → **BLOCKING**。warnings → **advisory**（`main.js` の `no-var`/`curly`/`no-shadow`/`prefer-const`。視覚回帰 baseline 確立後に段階解消）。**warning 件数の増加は負債増のサイン**として監視 |
 | `npm run lint:css` | `Stylelint [style.css]: PASS` / exit 0 | error は BLOCKING |
-| `npm run check` | `Repository consistency check passed — all invariants hold.` / exit 0 / consistency 94 OK 行（`npm run check` 全体＝consistency＋digest＋binary の 3 スクリプトで、`OK:` トークン行は合計 96）| §6 の registry 参照。1 つでも ERROR が出れば exit 1（BLOCKING）。OK 行数の権威値は §9 の実測表。両者がずれた場合は §9 を正とし、本行を §9 に合わせて更新する |
+| `npm run lint:js` | 各 JS が OK・exit 0 | `node --check` を 6 つの公開/dev JS（`main.js` / `sw.js` / `aio-guard.js` / `error-suppressor.js` / `theme-init.js` / `karte-init.js`）へまとめて適用する糖衣。構文エラーは BLOCKING。対象集合は `lint` と一致し Check 46 が機械強制 |
+| `npm run check` | `Repository consistency check passed — all invariants hold.` / exit 0 / consistency 96 OK 行（`npm run check` 全体＝consistency＋digest＋binary の 3 スクリプトで、`OK:` トークン行は合計 98）| §6 の registry 参照。1 つでも ERROR が出れば exit 1（BLOCKING）。OK 行数の権威値は §9 の実測表。両者がずれた場合は §9 を正とし、本行を §9 に合わせて更新する |
+| `npm run verify` | 上記が順に全 pass・exit 0 | **ローカル総合ゲートの単一エントリポイント**。`check`→`lint:css`→`lint`→`lint:js` を `&&` で連結（最初の失敗で停止・exit 非 0）。既存スクリプトを合成するだけで独自ロジックを持たない。Playwright は外部バイナリ依存のため意図的に含めない（§7.4 参照）|
 | `py_compile` | 無出力・exit 0 | 構文エラーは BLOCKING |
-| `node --check`（8 JS） | 各 OK | 構文エラーは BLOCKING |
+| `node --check`（6 JS） | 各 OK | 構文エラーは BLOCKING。`npm run lint:js` がこの 6 ファイルをまとめて実行する |
 | `npm audit` | `found 0 vulnerabilities` | high/critical は要対応 |
 | `npm audit --omit=dev` | `found 0 vulnerabilities` | **配信物は依存ゼロの Vanilla JS**。dev のみの脆弱性は配信物に到達しない（事実と影響を分離して評価）|
 
@@ -257,9 +259,9 @@ echo "ALL LOCAL CHECKS PASSED"
 |---|---|
 | 追跡ファイル総数 | 76（artifact-governance increment 後 74 ＋ AIO-update increment の decision record・改善文書 2。本 public-freshness-observation increment では既存追跡ファイルの編集と非追跡 outputs への複製のみで、追跡ツリーの新規ファイルは別途のコミット運用に従う）|
 | `npm run lint` | 0 errors / 199 warnings（`curly`:124 / `no-var`:64 / `no-shadow`:10 / `prefer-const`:1、すべて `main.js`。本 increment で `main.js` は未変更のため件数不変）|
-| consistency 検査の `OK:` 行 | 94（Check 41 の 2 行・Check 42 の 2 行・Check 43 の 4 行・Check 44 の 3 行・新規 Check 45 の 3 行を含む。`all invariants hold` で終了）|
-| `npm run check` 全体の `OK:` トークン行 | 96（consistency 94 ＋ `check_binary_aio_metadata.py` 2。`check_aio_digests.py` は `OK (manifest/...)` 形式と末尾 `AIO digest check passed` を出力し、`OK:` トークンには 0 行寄与する。3 スクリプトはいずれも exit 0）|
-| consistency Check 総数 | 45（最大番号 45。Check 43 は main.js AIDK Isolated Kernel の構造健全性、Check 44 は AIO provenance canary トークンの published 面と monitor 面のクロス整合、Check 45 は本チェックファイルの docstring インベントリと `# ── N.` セクション見出しの自己整合を検証、いずれも BLOCKING）|
+| consistency 検査の `OK:` 行 | 96（Check 41 の 2 行・Check 42 の 2 行・Check 43 の 4 行・Check 44 の 3 行・Check 45 の 3 行・新規 Check 46 の 2 行を含む。`all invariants hold` で終了）|
+| `npm run check` 全体の `OK:` トークン行 | 98（consistency 96 ＋ `check_binary_aio_metadata.py` 2。`check_aio_digests.py` は `OK (manifest/...)` 形式と末尾 `AIO digest check passed` を出力し、`OK:` トークンには 0 行寄与する。3 スクリプトはいずれも exit 0）|
+| consistency Check 総数 | 46（最大番号 46。Check 43 は main.js AIDK Isolated Kernel の構造健全性、Check 44 は AIO provenance canary トークンの published 面と monitor 面のクロス整合、Check 45 は本チェックファイルの docstring インベントリと `# ── N.` セクション見出しの自己整合、Check 46 は package.json の `lint`/`lint:js` が対象 JS ファイル集合を一致させていること（かつディスク上の root *.js と一致）を検証、いずれも BLOCKING）|
 | sitemap `<loc>`（Check 39） | 17 URL すべて実ファイルへ解決 |
 | JSON / YAML / XML | 10 / 7 / 1、失敗ゼロ |
 | llms alias unique sha | 1 |
