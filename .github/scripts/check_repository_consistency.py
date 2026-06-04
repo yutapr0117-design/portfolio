@@ -101,14 +101,30 @@ authoritative inventory and is kept in sync with the implementation below):
       individual check. (BLOCKING)
   46. package.json lint scripts cover a consistent JavaScript file set: the files named in
       the `lint` script (ESLint) and the files named in the `lint:js` script (node --check
-      syntax pass) are exactly the same set, and that set is exactly the top-level *.js
-      files committed at the repository root. These two script lists are hand-maintained
+      syntax pass) are exactly the same set, and that set is exactly the shipped *.js files
+      on disk — the repository-root *.js files together with everything under js/ (where the
+      v80+ staged split places extracted modules). These two script lists are hand-maintained
       duplicates of the same fact ("which JS files does this project ship and gate?"); if a
       future JS file is added to one script but forgotten in the other — or added to the
       repo but to neither — the lint coverage and the syntax-check coverage would silently
       diverge, leaving a shipped file ungated with nothing to catch it. This makes the two
-      lists' agreement, and their match to the actual root JS files, a machine-enforced
-      invariant. (BLOCKING)
+      lists' agreement, and their match to the actual shipped JS files (root ∪ js/), a
+      machine-enforced invariant. (BLOCKING)
+  47. main.js ⇄ js/ module ESM import/export contract: for each local module main.js imports
+      from (js/pure-utils.js, js/quiz-data.js), every name main.js imports is actually
+      exported by that module, and (symmetrically) every name the module exports is imported
+      by main.js — an exact bijection per module. This guards the physical module split
+      (v80+ Stage 2 pure utilities, Stage 3 static quiz data). Because the site is build-free
+      and served directly, a mismatch is a *runtime* failure: importing a name a module does
+      not export throws a module-load error and the whole SPA fails to boot, while a
+      left-behind unused export signals the split has drifted. (This check is exactly what
+      would have caught the Stage 3 near-miss where main.js referenced four quiz datasets but
+      an early draft of the module exported only two.) The import lists carry inline `//`
+      comments, so the parser strips per-line comments before extracting identifiers, and it
+      matches each `import {…} from '<module>'` block in isolation (the captured brace group
+      excludes braces so a match cannot span an adjacent import block). Each module must also
+      stay import-free (a dependency-free leaf). This turns the hand-maintained cross-file
+      contract into a machine-enforced invariant. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -1208,14 +1224,29 @@ if _mainjs43.exists():
     # — `(function`/`(()=>`/`(async function`/`!function` — i.e. the global scope is not
     # polluted by top-level declarations. This is intentionally lenient about *which* IIFE
     # form is used so it never blocks a legitimate refactor that keeps the wrapper intact.
+    #
+    # v80+ staged split: main.js is now an ES module that imports its extracted layers
+    # (js/pure-utils.js, js/quiz-data.js) BEFORE running its body in the IIFE. ESM requires
+    # `import` to sit at module top level (outside any function), so a module-level import
+    # section may now legitimately precede the IIFE. We therefore strip leading `import ...;`
+    # statements (alongside the optional "use strict" directive) before looking for the IIFE
+    # opener. This does NOT weaken C2: only `import` statements — which create module-scoped
+    # bindings, not global-scope pollution — are allowed ahead of the IIFE. Any other
+    # top-level construct (a bare `const`/`let`/`var`/`function` declaration, etc.) still
+    # leaves a non-IIFE token first and fails the check, exactly as before.
     _nocomments43 = re.sub(r"/\*.*?\*/", "", _src43, flags=re.DOTALL)
     _nocomments43 = re.sub(r"^\s*//.*$", "", _nocomments43, flags=re.MULTILINE)
     _exec43 = _nocomments43.strip()
     # An optional leading "'use strict';" / "\"use strict\";" directive is allowed before the IIFE.
     _exec43 = re.sub(r"^(['\"]use strict['\"]\s*;\s*)+", "", _exec43)
+    # Strip any leading ESM import statements (module-scoped, not global pollution).
+    # Matches both `import { a, b } from '...';` and `import '...';` forms, repeatedly.
+    _exec43 = re.sub(r"^(import\b[^;]*;\s*)+", "", _exec43, flags=re.DOTALL)
+    # A "use strict" directive is also legal after the imports; allow it there too.
+    _exec43 = re.sub(r"^(['\"]use strict['\"]\s*;\s*)+", "", _exec43)
     _iife_opener43 = re.match(r"^[!+\-~]?\(\s*(async\s+)?(function\b|\()", _exec43)
     check(_iife_opener43 is not None,
-          "Check 43d: main.js is wrapped in a single top-level IIFE (C2 — no global namespace pollution)",
+          "Check 43d: main.js is wrapped in a single top-level IIFE (C2 — no global namespace pollution; module-level imports may precede it)",
           "Check 43d: main.js does not open with a top-level IIFE — the IIFE wrapper (C2) "
           "appears to have been broken (global namespace pollution risk)",
           blocking=True)
@@ -1381,8 +1412,15 @@ if _pkg_path46.exists():
     _lint_files46 = set(re.findall(r"([A-Za-z0-9_./-]+\.js)\b", _lint_args46))
     # `lint:js` lists files as `node --check <file>` clauses.
     _lintjs_files46 = set(re.findall(r"node\s+--check\s+([A-Za-z0-9_./-]+\.js)\b", _lintjs_cmd46))
-    # Ground truth: the top-level *.js files actually committed at the repo root.
-    _root_js46 = {p.name for p in ROOT.glob("*.js") if p.is_file()}
+    # Ground truth: every shipped *.js file on disk = root-level *.js ∪ js/**/*.js.
+    # v80+ staged split: extracted modules live under js/ (Stage 2 js/pure-utils.js,
+    # Stage 3 js/quiz-data.js, and future Stage 4/5 modules), so the shipped JS surface is
+    # no longer root-only. Paths are repo-relative with POSIX separators so they match the
+    # script tokens ("main.js", "js/pure-utils.js") regardless of OS. As new js/ modules are
+    # extracted, this check automatically REQUIRES them in both lint scripts — lint coverage
+    # cannot silently fall behind the split.
+    _disk_js46 = {p.name for p in ROOT.glob("*.js") if p.is_file()}
+    _disk_js46 |= {p.relative_to(ROOT).as_posix() for p in ROOT.glob("js/**/*.js") if p.is_file()}
 
     # 46a — lint and lint:js name the same set of JS files.
     check(_lint_files46 == _lintjs_files46,
@@ -1391,18 +1429,110 @@ if _pkg_path46.exists():
           f"only in lint: {sorted(_lint_files46 - _lintjs_files46)}; "
           f"only in lint:js: {sorted(_lintjs_files46 - _lint_files46)}",
           blocking=True)
-    # 46b — that lint set matches the actual top-level *.js files on disk (no file ungated,
-    # no phantom file listed). Guards against a new root JS file being added to neither script.
-    check(_lint_files46 == _root_js46,
-          "Check 46b: the lint script's JS file set matches the top-level *.js files on disk "
-          f"({len(_root_js46)} files)",
-          "Check 46b: the lint script's JS file set does not match the repository's top-level "
-          f"*.js files — only in lint: {sorted(_lint_files46 - _root_js46)}; "
-          f"on disk but unlinted: {sorted(_root_js46 - _lint_files46)}",
+    # 46b — that lint set matches the actual shipped *.js files on disk (root ∪ js/),
+    # so no shipped file is ungated and no phantom file is listed. Guards against a new
+    # JS file being added to neither script, or a js/ module being left unlinted.
+    check(_lint_files46 == _disk_js46,
+          "Check 46b: the lint script's JS file set matches the shipped *.js files on disk "
+          f"(root ∪ js/ — {len(_disk_js46)} files)",
+          "Check 46b: the lint script's JS file set does not match the repository's shipped "
+          f"*.js files (root ∪ js/) — only in lint: {sorted(_lint_files46 - _disk_js46)}; "
+          f"on disk but unlinted: {sorted(_disk_js46 - _lint_files46)}",
           blocking=True)
 else:
     check(False, "",
           "Check 46: package.json not found — cannot verify lint-script JS coverage",
+          blocking=True)
+
+# ── 47. main.js ⇄ js/ module ESM import/export contract (BLOCKING) ────────────
+# The v80+ staged split physically extracted layers of main.js into local ES modules
+# (Stage 2: js/pure-utils.js — pure utilities; Stage 3: js/quiz-data.js — static quiz
+# datasets). main.js now `import`s specific names from each module, and each module
+# `export`s a set of names. Those lists are a hand-maintained cross-file contract spread
+# across three files. Because the site is build-free and served directly by GitHub Pages,
+# a mismatch is a *runtime* failure, not a lint nit:
+#   - importing a name a module does NOT export → the browser throws a module-load error
+#     (e.g. "does not provide an export named 'foo'") and the ENTIRE SPA fails to boot. No
+#     other check catches this: node --check validates each file's syntax in isolation; it
+#     never cross-checks one file's import names against another file's exports.
+#   - an export nothing imports → a harmless but real signal that the split has drifted (a
+#     name was removed from main.js's import list but left in the module, or added to the
+#     module speculatively). We require an exact bijection per module so the split stays
+#     intentional. NOTE: this is precisely the guard that would have caught the Stage 3
+#     near-miss in which main.js referenced four quiz datasets (aws/pm/quality/architecture)
+#     while an early draft of js/quiz-data.js exported only two — the dangling references
+#     would have failed this check immediately.
+# Parsing notes (both learned from real bugs while authoring this check):
+#   (a) the import lists carry one inline `//` comment per name, so we strip per-line
+#       comments BEFORE extracting identifiers — a naive split would read a comment fragment
+#       as a name; and
+#   (b) the captured brace group is [^{}]*? so each `import {…} from '<module>'` block is
+#       matched in isolation and a match cannot span across an adjacent import block (with a
+#       greedy/dotall group, the pure-utils block bled into the quiz-data match).
+# We also assert each module stays import-free: it is a dependency-free leaf of the module
+# graph (Boring Technology — the utility/data layers depend on nothing), so an accidental
+# import into one is itself a regression.
+# This is a configuration/wiring invariant (it checks the module contract, not the JS
+# behaviour, which node --check and the browser cover).
+_main_src47 = (ROOT / "main.js").read_text(encoding="utf-8")
+# Each tuple: (import specifier as written in main.js, module file path on disk).
+_modules47 = [
+    ("./js/pure-utils.js", ROOT / "js" / "pure-utils.js"),
+    ("./js/quiz-data.js",  ROOT / "js" / "quiz-data.js"),
+]
+for _spec47, _mpath47 in _modules47:
+    if not _mpath47.exists():
+        check(False, "",
+              f"Check 47: {_spec47} is missing while main.js may still import from it "
+              "(the staged-split module was removed without updating main.js)",
+              blocking=True)
+        continue
+    _msrc47 = _mpath47.read_text(encoding="utf-8")
+
+    # ── Names main.js imports from THIS module ──
+    # [^{}]*? keeps the match inside a single import block (cannot span an adjacent block).
+    _imp_m47 = re.search(r"import\s*\{([^{}]*?)\}\s*from\s*'" + re.escape(_spec47) + r"'",
+                         _main_src47, re.DOTALL)
+    _imported47 = set()
+    if _imp_m47:
+        _block_nc47 = re.sub(r"//[^\n]*", "", _imp_m47.group(1))  # strip inline comments first
+        for _tok47 in re.split(r"[,\n]", _block_nc47):
+            _name47 = _tok47.strip()
+            if re.fullmatch(r"[A-Za-z_$][\w$]*", _name47):
+                _imported47.add(_name47)
+
+    # ── Names THIS module exports (function / const / let / var) ──
+    _exported47 = set(re.findall(r"^export\s+(?:async\s+)?function\s+([A-Za-z_$][\w$]*)",
+                                 _msrc47, re.MULTILINE))
+    _exported47 |= set(re.findall(r"^export\s+(?:const|let|var)\s+([A-Za-z_$][\w$]*)",
+                                  _msrc47, re.MULTILINE))
+
+    _short47 = _spec47.replace("./", "")
+
+    # 47a — every imported name is actually exported (else the SPA fails to boot).
+    _missing47 = _imported47 - _exported47
+    check(not _missing47,
+          f"Check 47a [{_short47}]: every name main.js imports is exported by the module "
+          f"({len(_imported47)} names)",
+          f"Check 47a [{_short47}]: main.js imports name(s) the module does NOT export: "
+          f"{sorted(_missing47)} — this throws a module-load error and the SPA fails to boot",
+          blocking=True)
+
+    # 47b — every export is imported (exact bijection; no drifted/orphan exports).
+    _orphan47 = _exported47 - _imported47
+    check(not _orphan47,
+          f"Check 47b [{_short47}]: every name the module exports is imported by main.js "
+          "(exact import/export bijection — no orphan exports)",
+          f"Check 47b [{_short47}]: the module exports name(s) main.js does not import: "
+          f"{sorted(_orphan47)} — the split has drifted; remove the unused export or wire it up",
+          blocking=True)
+
+    # 47c — the module stays a dependency-free leaf (no imports of its own).
+    _leaf_imports47 = re.findall(r"^\s*import\b", _msrc47, re.MULTILINE)
+    check(not _leaf_imports47,
+          f"Check 47c [{_short47}]: the module is a dependency-free leaf (imports nothing)",
+          f"Check 47c [{_short47}]: the module has {len(_leaf_imports47)} import statement(s) "
+          "— extracted leaf layers must not depend on other modules (Boring Technology)",
           blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
