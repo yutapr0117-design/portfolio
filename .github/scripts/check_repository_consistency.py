@@ -125,6 +125,17 @@ authoritative inventory and is kept in sync with the implementation below):
       excludes braces so a match cannot span an adjacent import block). Each module must also
       stay import-free (a dependency-free leaf). This turns the hand-maintained cross-file
       contract into a machine-enforced invariant. (BLOCKING)
+  48. Playwright baseline-commit pipeline permission coupling: if
+      update-playwright-snapshots.yml contains the pull-request-creation step (the action
+      that commits the generated baseline PNGs via a PR), then the workflow must also declare
+      both `contents: write` (to push the baseline branch) and `pull-requests: write` (to open
+      the PR). These two facts live in the same file but in different sections — the
+      permissions block near the top and the PR step near the bottom — so they can drift
+      apart silently. If a later edit trimmed the permissions back to read-only while leaving
+      the PR step in place (for example by copying from the read-only regression workflow),
+      the step would fail at *runtime* with a confusing permissions error and nothing would
+      catch it beforehand. This check converts that latent runtime failure into an immediate
+      pre-commit error, in the same spirit as the Check 29 env-signal linkage. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -1534,6 +1545,66 @@ for _spec47, _mpath47 in _modules47:
           f"Check 47c [{_short47}]: the module has {len(_leaf_imports47)} import statement(s) "
           "— extracted leaf layers must not depend on other modules (Boring Technology)",
           blocking=True)
+
+# ── 48. Playwright baseline-commit pipeline permission coupling (BLOCKING) ────
+# update-playwright-snapshots.yml was upgraded from "upload an artifact a human
+# downloads and commits by hand" to "commit the generated baseline via a pull
+# request" — closing the manual last-mile gap that kept the baseline unobtained.
+# The PR-creation step (peter-evans/create-pull-request) cannot function unless the
+# workflow also grants `contents: write` (push the baseline branch) and
+# `pull-requests: write` (open the PR). Those two facts live in the same file but in
+# different sections (permissions block at the top, PR step near the bottom), so they
+# can silently drift apart. If a later edit reverted the permissions to read-only
+# while leaving the PR step in place, the step would fail at runtime with a confusing
+# permission error and nothing would catch it beforehand. This check makes the
+# coupling explicit and BLOCKING — but only fires the permission requirement WHEN the
+# PR step is present, so a legitimate future simplification back to artifact-only
+# (which needs no write permissions) is not forbidden. Same spirit as Check 29's
+# env-signal linkage between the workflow and the spec.
+_snap_wf48 = ROOT / ".github" / "workflows" / "update-playwright-snapshots.yml"
+if _snap_wf48.exists():
+    _wf48 = _snap_wf48.read_text(encoding="utf-8")
+    # The defining marker that this workflow opens a PR: the create-pull-request action.
+    _has_pr_step48 = "peter-evans/create-pull-request" in _wf48
+    if _has_pr_step48:
+        # Both write scopes must be declared as real YAML directives. We anchor the
+        # match to line structure (re.MULTILINE: start-of-line, only indentation before
+        # the key) so that COMMENT lines mentioning the permission in prose — e.g.
+        # "  #   contents: write  — push the branch" — do NOT satisfy the check. A bare
+        # substring/loose match would read the workflow's own explanatory comments and
+        # be fooled (this was caught by a negative test: reverting the real directives to
+        # read-only while the comment still described them must still fail the check).
+        _has_contents_write48 = re.search(r"^[ \t]*contents:[ \t]*write\b", _wf48, re.MULTILINE) is not None
+        _has_pr_write48 = re.search(r"^[ \t]*pull-requests:[ \t]*write\b", _wf48, re.MULTILINE) is not None
+        check(
+            _has_contents_write48 and _has_pr_write48,
+            "Check 48: update-playwright-snapshots.yml declares contents:write + "
+            "pull-requests:write to match its PR-creation step",
+            "Check 48: update-playwright-snapshots.yml contains the create-pull-request "
+            "step but is missing required permission(s): "
+            + ", ".join(
+                p for p, ok in (
+                    ("contents: write", _has_contents_write48),
+                    ("pull-requests: write", _has_pr_write48),
+                ) if not ok
+            )
+            + " — the PR step would fail at runtime",
+            blocking=True,
+        )
+    else:
+        # No PR step → artifact-only mode is legitimate and needs no write permissions.
+        check(
+            True,
+            "Check 48: update-playwright-snapshots.yml has no PR-creation step "
+            "(artifact-only mode; no write permissions required)",
+            "",
+            blocking=True,
+        )
+else:
+    warnings.append(
+        "Check 48: update-playwright-snapshots.yml not found — baseline-commit "
+        "permission-coupling check skipped"
+    )
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

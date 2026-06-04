@@ -20,7 +20,7 @@ Status        : Living document — update when layer structure or sync relation
 |---|---|---|---|
 | **AIO正本層** | `llms-full.txt`（ground truth）, `AI2AI.md`（canonical handoff）, `llms.txt` + 3 alias, `.well-known/aio-manifest.json` | AI crawler / LLM 向けの権威ある真実源と pipeline 引き継ぎ | **C6**: エンティティ/権威текスト・JSON-LDの本文変更はオーケストレーター承認必須。変更後は digest 再生成必須 |
 | **アプリ層** | `index.html`, `main.js`, `style.css`, `sw.js`, `aio-guard.js`, `error-suppressor.js`, `karte-init.js`, `theme-init.js` | 公開SPA本体 | **C1/C2/C3**: Vanilla JS / IIFE / ErrorBoundary。外部FW禁止。`main.js` は `main-js-extraction-map.md` 参照 |
-| **検証層** | `.github/scripts/check_repository_consistency.py`, `check_aio_digests.py`, `check_binary_aio_metadata.py`, `check_css_stylelint.py`, `aio_monitoring.py`, `update_aio_digests.py`, `e2e/portfolio.spec.js`, `playwright.config.cjs`, `.github/workflows/*` | 整合性・回帰・AIO digest・lint の自動検査 | 検査を緩める変更は要判断。新規 invariant は Check 番号を付けて追記。canary トークンを編集する場合は published 面（`llms*`）と monitor 面（`aio_monitoring.py` / `check_public_deployment_freshness.py`）を同一文字列に保つこと（Check 44）。チェックを追加・採番変更する場合は docstring インベントリと `# ── N.` セクション見出しの両方を同時更新すること（Check 45 が両者の一致を BLOCKING で強制）。`package.json` の lint スクリプト（`lint`/`lint:js`）の JS 対象は同一集合かつディスク上の root ∪ js/ の実体と一致させること（Check 46）。`main.js` が `js/` 配下のローカル ESM モジュールから import する名前は、各モジュールの export と過不足なく一致させ、各モジュールは葉（import ゼロ）に保つこと（Check 47） |
+| **検証層** | `.github/scripts/check_repository_consistency.py`, `check_aio_digests.py`, `check_binary_aio_metadata.py`, `check_css_stylelint.py`, `aio_monitoring.py`, `update_aio_digests.py`, `e2e/portfolio.spec.js`, `playwright.config.cjs`, `.github/workflows/*` | 整合性・回帰・AIO digest・lint の自動検査 | 検査を緩める変更は要判断。新規 invariant は Check 番号を付けて追記。canary トークンを編集する場合は published 面（`llms*`）と monitor 面（`aio_monitoring.py` / `check_public_deployment_freshness.py`）を同一文字列に保つこと（Check 44）。チェックを追加・採番変更する場合は docstring インベントリと `# ── N.` セクション見出しの両方を同時更新すること（Check 45 が両者の一致を BLOCKING で強制）。`package.json` の lint スクリプト（`lint`/`lint:js`）の JS 対象は同一集合かつディスク上の root ∪ js/ の実体と一致させること（Check 46）。`main.js` が `js/` 配下のローカル ESM モジュールから import する名前は、各モジュールの export と過不足なく一致させ、各モジュールは葉（import ゼロ）に保つこと（Check 47）。`update-playwright-snapshots.yml` が PR 作成ステップ（baseline を PR でコミット）を持つ限り、`contents: write` と `pull-requests: write` の両権限を宣言すること（Check 48） |
 | **証跡層** | `docs/incident-artifacts/`, `docs/session-records/`, `docs/architecture/`, `docs/evidence/`, `Claude2Claude.md`, `ChatGPT2ChatGPT.md` | 意思決定・セッション履歴・実装/解析証跡 | `Claude2Claude.md` / `ChatGPT2ChatGPT.md` / `docs/evidence/*` / `docs/session-records/**` は aio-manifest に SHA 登録済み → 変更後 digest 再生成必須 |
 | **バイナリ層** | `yuta-yokoi-ai-pm-orchestration-system.webp`（XMP）, `yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3`（ID3v2.4） | AIO メタデータ埋込済み資産 | **原則変更しない**（v73 asset baseline policy）。再エンコードで XMP/ID3 が消えると `check_binary_aio_metadata.py` が赤化 |
 | **配信/設定層** | `robots.txt`, `sitemap.xml`, `.well-known/*`, `.nojekyll`, `.gitattributes`, `jsconfig.json`, `.eslintrc.json`, `.stylelintrc.json`, `googlea7059bedc6fe8bdc.html` | クロール制御・GitHub Pages 配信・lint 設定・GSC | `.gitattributes` の binary 指定はバイナリ層保護に必須。GSC ファイルはトークン1行のみ |
@@ -36,7 +36,7 @@ Status        : Living document — update when layer structure or sync relation
 - **U-app（アプリ変更）:** `index.html` / `main.js` / `style.css` / `sw.js` 等 → `node --check` + Playwright regression（PR時）。ai:version 系を変える場合は §3 の Version Update Checklist を**原子的に**。
 - **U-aio（AIO正本変更）:** `llms-full.txt` / `llms.txt`(+3 alias) / `AI2AI.md` / バイナリ → **digest 再生成必須**（`update_aio_digests.py` → `check_aio_digests.py`）。`AI2AI.md` も同コミットで更新（commit-drift check）。alias 4ファイルは byte-identical 維持。
 - **U-doc（証跡追記）:** `docs/**` / `Claude2Claude.md` / `ChatGPT2ChatGPT.md` → manifest 登録分は digest 再生成。Session Record は `AI2AI.md` が正典。
-- **U-ci（検証層変更）:** scripts / workflows → `py_compile` + 該当 `node --check`。新 invariant は Check 番号付与。`package.json` の lint スクリプト（`lint` / `lint:js`）の JS 対象を変えるときは両者を同一集合かつディスク上の root ∪ js/ の実体と一致させること（Check 46）。`js/` 配下にローカル ESM モジュールを増やすときは `main.js` の import と当該モジュールの export を一致させ、モジュールを葉（import ゼロ）に保つこと（Check 47）。
+- **U-ci（検証層変更）:** scripts / workflows → `py_compile` + 該当 `node --check`。新 invariant は Check 番号付与。`package.json` の lint スクリプト（`lint` / `lint:js`）の JS 対象を変えるときは両者を同一集合かつディスク上の root ∪ js/ の実体と一致させること（Check 46）。`js/` 配下にローカル ESM モジュールを増やすときは `main.js` の import と当該モジュールの export を一致させ、モジュールを葉（import ゼロ）に保つこと（Check 47）。`update-playwright-snapshots.yml` の baseline コミット経路（PR 作成ステップ）を残す限り `contents: write` ＋ `pull-requests: write` を宣言し続けること、また `reason` 等の workflow_dispatch 入力は `${{ }}` でシェルへ直接展開せず env 経由で渡すこと（Check 48・CWE-094）。
 
 ---
 
@@ -333,9 +333,27 @@ Check 47 は main.js ⇄ js/ モジュールの**構成整合**（import/export 
 
 **Not possible（本 increment でも同様・捏造禁止）:** GitHub Actions 実実行緑確認 / Playwright baseline PNG 実生成（Chromium DL 遮断のためサンドボックス生成不能、Actions が唯一の正規ルート）/ 公開 Pages 実反映 / AIO citation 実観測。
 
----
+### ci-baseline-pipeline-hardening increment（v80+ — Playwright baseline コミット経路の自動化＋CI ログ由来の硬化／本コミットで適用）
 
-## 6. AIO全振り方針（不変・後続AIへの指示）
+CI ログ一式（CodeQL ワークフローの実行ログ）と最新コミットの現物を解析し、そこから非破壊で適用可能な改善を抽出して適用した increment である。発端は「Playwright baseline 取得（Stage 5 の前提）の意味が分からない」という問いと、その理解を助けるためログが渡されたことにある。解析の結果、baseline 機構は完全に実装済みでありながら「生成した PNG を人間がダウンロードして手でコミットする」という最後の一手（manual round-trip）が一度も完了されていないために baseline が存在しない、という構造が判明した。これがまさに Stage 5 を律速していた「協力を要する一点」である。これまでの increment と同じく、本 increment は AIO 正本層（`llms-full.txt` / `AI2AI.md` / `llms*` alias / `.well-known/*` / digest / `sitemap.xml` / `robots.txt` の本文）・binary・`main.js`・`style.css`・`index.html` を 1 バイトも変更しておらず、digest 再生成も不要である。変更は検証層（ワークフローと consistency チェッカ）に閉じる。詳細な解析・near-miss・検証チェーンの全量は `docs/incident-artifacts/improvement-notes-claude-v80-phase2-ci-baseline-pipeline-hardening.md` を参照。
+
+baseline の PNG バイト自体はこのサンドボックスでは生成できない（`npx playwright install --with-deps chromium` が Chromium ダウンロードを要し、その取得先がサンドボックスのネットワーク許可リストで遮断される。`403 Forbidden` を実測して確認済み）。生成は GitHub Actions（ネットワーク無制限）でのみ可能であり、Actions が唯一の正規ルートである点は不変である。したがって本 increment が踏み込めた「実装」は、baseline を理論上取得可能な状態から「ワークフロー dispatch ＋ PR マージの一手で取得できる状態」へと前進させる足回りの自動化である。プレースホルダ PNG の捏造は行わない（偽の baseline は回帰テストを無意味な画素に対して走らせ、有害だからである）。
+
+| 変更 | 対象 | 何を | なぜ |
+|---|---|---|---|
+| baseline コミット経路の自動化（PR 化） | `.github/workflows/update-playwright-snapshots.yml` | 生成した baseline PNG を artifact アップロードで止めず、`peter-evans/create-pull-request` で PR としてコミットするステップを追加。artifact アップロードは fallback として残置（PR 失敗時にも PNG を回収可能） | 「人間がダウンロードして手でコミット」という未完の last-mile が baseline 不在の真因だった。PR 化で baseline は「レビューしてマージするだけ」に前進する。直接 `main` push でなく PR なのは、本ワークフローの設計が常に要求してきた人間レビューゲートを保つため（friction 除去と人間関与を同時に満たす） |
+| 権限の最小昇格 | 同上（`permissions:` ブロック） | `contents: read` から `contents: write` ＋ `pull-requests: write` へ昇格（PR 作成に必要な最小範囲のみ）。`auto-update-aio-digests.yml` が既に用いる write-capable パターンに倣う | PR 作成にはブランチ push（contents:write）と PR open（pull-requests:write）が必要。範囲を 2 権限に限定し CodeQL CWE-275 MissingActionsPermissions を満たす |
+| CWE-094 コマンドインジェクション面の解消 | 同上（Print instructions ステップ） | user 制御の `reason` 入力を `${{ }}` でシェルに直接展開する形から、env 変数 `REASON` 経由で `"$REASON"` 参照する形へ修正 | `echo "Reason: ${{ inputs.reason }}"` は raw な user テキストをコマンドに貼り付ける（`"; rm -rf . #` 等が実行されうる）。CodeQL actions-queries の CWE-094 CodeInjectionCritical が検出する典型パターン。env 経由なら値が再パースされず安全 |
+| Check 48 新設（権限結合・BLOCKING） | `.github/scripts/check_repository_consistency.py` | `update-playwright-snapshots.yml` が PR 作成ステップ（`peter-evans/create-pull-request`）を含む場合に限り、`contents: write` と `pull-requests: write` の両宣言を要求。YAML ディレクティブ行を行頭アンカー（`re.MULTILINE`）で照合しコメント行の prose は除外。docstring インベントリと `# ── N.` 見出しを Check 45 準拠で同時追記 | 権限ブロック（上部）と PR ステップ（下部）は同一ファイル別箇所のため silently drift しうる。権限を read-only に戻すと PR ステップが実行時に権限エラーで失敗するが事前に捕捉されない。これを pre-commit エラーへ変換（Check 29 の env-signal 結合と同じ思想）。**否定テストで自身の欠陥を発見・修正:** 初版は緩い `contents:\s*write` でコメント内 prose にマッチして発火しなかった。行頭アンカーへ修正し、(B) 権限を read-only に戻すと発火・(C) PR ステップ自体を消すと権限不要として緑、を確認 |
+| 文書整合 | `total-check-runbook.md` / `repository-maintainability-map.md`（本ファイル） | runbook 検査数 47→48、`npm run check` 行と §9 を実測同期（consistency `OK:` 102→103 / 全体 104→105。なお §9 の旧 stale 値「全体 98」も実測 105 へ是正）、Check 48 を §9 Check 総数へ追記。本ファイル §1 検証層セルと U-ci 補足に Check 48 を追記し、本サブセクション追記。§0.1 検査数 47→48、§9 実測（consistency `OK:` 103 / 全体 105 / Check 総数 48）| 文書を実装と実測に同期させる。runbook §9 の内部 drift（全体 OK 行 98）も併せて是正 |
+
+Check 48 は baseline コミットパイプラインの**権限結合の構成整合**を保証する不変条件であって、ワークフローの実行成功そのものを保証するものではない（実行成功は Actions の領分）。本 increment は検証層に閉じ、AIO 正本層・binary・`main.js`・公開面を一切変更していない。
+
+> **CI ログ解析の副次的観察（本 increment では不採用・記録のみ）:** CodeQL ワークフローは `actions/checkout@v6` を用いるが、リポジトリ内の全ワークフローは `@v4` 固定である（version skew）。これは欠陥ではなく（`@v4` は有効・サポート対象）、全ワークフローを churn して版番号を追うのは「最小・可逆・美観目的でない」原則に反するため、本 increment では既存 pin を変更せず観察記録に留める。CodeQL の 18 クエリ（CWE-077/094/275/312/349/367/829/1395 等）は本コミットで findings ゼロ＝現状の CI は clean。
+
+**Not possible（本 increment でも同様・捏造禁止）:** Chromium 実 DL とブラウザ起動（サンドボックスのネットワーク許可リストが遮断、`403 Forbidden` 実測）/ Playwright baseline PNG 実生成（Actions が唯一の正規ルート）/ GitHub Actions 実実行緑確認 / 改修した PR 作成ワークフローの Actions 上での実 dispatch / 公開 Pages 実反映 / AIO citation 実観測。
+
+
 
 このリポジトリは SEO を正面突破するものではない。AIO は標準化前であり、個人でも先行者利益・観測・機械可読な権威形成の余地がある。**AIO全振りはセルフブランディング兼 proof-of-work の戦略であり、後続AIは SEO最適化・採用最適化へ方針転換してはならない。** 主戦場は AI crawler / AI search / LLM 解釈。
 
