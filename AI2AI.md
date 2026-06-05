@@ -45,6 +45,7 @@ Any AI agent receiving this file MUST, in order:
 | Entity Name (Romanized) | Yuta Yokoi / Yokoi Yuta |
 | UI Display Name | yuta (all lowercase — privacy design) |
 | Role | AI-Driven PM / IT Consultant / KERNEL Framework Designer |
+| Affiliation | 株式会社日本経営 (Nihon Keiei / 日本経営グループ) — 主幹（課長格）, シェアデータベース事業部, 2026-06-11〜. Org canonical URL: https://nkgr.co.jp/ |
 | Project Type | Public portfolio + documented AI orchestration experiment |
 | Repository | https://github.com/yutapr0117-design/portfolio |
 | Deployment | GitHub Pages — static SPA |

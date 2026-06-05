@@ -136,6 +136,20 @@ authoritative inventory and is kept in sync with the implementation below):
       the step would fail at *runtime* with a confusing permissions error and nothing would
       catch it beforehand. This check converts that latent runtime failure into an immediate
       pre-commit error, in the same spirit as the Check 29 env-signal linkage. (BLOCKING)
+  49. index.html JSON-LD worksFor ↔ Organization linkage integrity: the entity-linkage
+      strategy that connects the Person to the established employer organization only works
+      if three facts inside the first JSON-LD @graph stay in agreement — the Person node
+      carries a worksFor whose (possibly nested) reference points at the organization's
+      canonical @id, AND an Organization node with that exact @id actually exists as a sibling
+      in the same @graph. Because the site is served statically and consumed by knowledge-graph
+      engines, a dangling reference is a *silent* failure: a worksFor pointing at an @id that
+      no node defines simply fails to resolve the employment edge, so the whole "link the
+      person to a strongly-established entity" strategy quietly collapses while the page still
+      looks fine. If a future edit renamed the organization @id without updating the Person's
+      worksFor (or deleted the Organization node but left the reference), this check fails at
+      pre-commit time rather than letting the broken linkage ship. It also confirms the first
+      JSON-LD block parses as valid JSON. Same cross-reference-integrity spirit as Check 47
+      (import/export bijection) and Check 48 (permission coupling). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -1604,6 +1618,124 @@ else:
     warnings.append(
         "Check 48: update-playwright-snapshots.yml not found — baseline-commit "
         "permission-coupling check skipped"
+    )
+
+# ── 49. index.html JSON-LD worksFor ↔ Organization linkage integrity (BLOCKING) ─
+# The entity-linkage strategy (connect the Person to the established employer so a
+# knowledge-graph engine resolves the employment edge to a strong entity) only holds
+# if three facts in the first JSON-LD @graph agree:
+#   (a) the Person node has a worksFor,
+#   (b) that worksFor ultimately references an organization by @id, and
+#   (c) an Organization node with that exact @id exists as a sibling in the same graph.
+# A dangling reference (worksFor → an @id no node defines) is a SILENT failure: the page
+# still renders, the JSON still parses, but the employment edge never resolves, so the
+# whole strategy quietly collapses. This check catches that at pre-commit time.
+#
+# Implementation note: the worksFor value may be EITHER a direct organization reference
+# ({"@id": "..."}) OR an OrganizationRole wrapper that nests the organization reference
+# one level down ({"@type": "OrganizationRole", "worksFor": {"@id": "..."}}). We resolve
+# the referenced @id through both shapes. Real JSON parsing (not regex) is used because
+# JSON-LD nesting is exactly what regex handles poorly. We only assert the linkage WHEN a
+# worksFor is present, so removing the employer entirely (a legitimate future state) does
+# not trip the check.
+_html_path49 = ROOT / "index.html"
+if _html_path49.exists():
+    _html49 = _html_path49.read_text(encoding="utf-8")
+    _blocks49 = re.findall(
+        r'<script type="application/ld\+json">(.*?)</script>', _html49, re.DOTALL
+    )
+    # The Person/Organization graph lives in the first JSON-LD block.
+    if _blocks49:
+        try:
+            _data49 = json.loads(_blocks49[0])
+            _parsed49 = True
+        except json.JSONDecodeError as _e49:
+            _parsed49 = False
+            check(
+                False,
+                "",
+                f"Check 49: index.html first JSON-LD block does not parse as valid JSON — {_e49}",
+                blocking=True,
+            )
+
+        if _parsed49:
+            _graph49 = _data49.get("@graph", []) if isinstance(_data49, dict) else []
+            # Collect every @id defined by an Organization node in the graph.
+            _org_ids49 = {
+                n.get("@id")
+                for n in _graph49
+                if isinstance(n, dict) and n.get("@type") == "Organization" and n.get("@id")
+            }
+            # Find the Person node (there should be exactly one authoritative Person).
+            _person49 = next(
+                (n for n in _graph49 if isinstance(n, dict) and n.get("@type") == "Person"),
+                None,
+            )
+
+            def _resolve_worksfor_id49(person):
+                """Return the org @id a Person's worksFor points at, through either
+                a direct {"@id": ...} reference or a nested OrganizationRole wrapper.
+                Returns None if there is no worksFor at all."""
+                if not person:
+                    return ("no-person", None)
+                wf = person.get("worksFor")
+                if wf is None:
+                    return ("no-worksfor", None)
+                if isinstance(wf, dict):
+                    # Direct reference: {"@id": "..."}
+                    if "@id" in wf and wf.get("@type") != "OrganizationRole":
+                        return ("ok", wf.get("@id"))
+                    # OrganizationRole wrapper: nested worksFor holds the org reference.
+                    nested = wf.get("worksFor")
+                    if isinstance(nested, dict) and "@id" in nested:
+                        return ("ok", nested.get("@id"))
+                    # OrganizationRole that itself carries an @id directly.
+                    if "@id" in wf:
+                        return ("ok", wf.get("@id"))
+                return ("malformed", None)
+
+            _status49, _ref_id49 = _resolve_worksfor_id49(_person49)
+
+            if _status49 == "no-person":
+                check(
+                    False, "",
+                    "Check 49: index.html first JSON-LD @graph has no Person node — "
+                    "cannot verify worksFor linkage",
+                    blocking=True,
+                )
+            elif _status49 == "no-worksfor":
+                # No employer declared. Legitimate state — nothing to enforce.
+                check(
+                    True,
+                    "Check 49: Person has no worksFor (no employer linkage to verify)",
+                    "",
+                    blocking=True,
+                )
+            elif _status49 == "malformed":
+                check(
+                    False, "",
+                    "Check 49: Person.worksFor exists but exposes no resolvable organization "
+                    "@id (neither a direct {@id} reference nor a nested OrganizationRole.worksFor.@id)",
+                    blocking=True,
+                )
+            else:
+                # worksFor resolves to a concrete @id — that Organization must exist.
+                check(
+                    _ref_id49 in _org_ids49,
+                    f"Check 49: Person.worksFor @id '{_ref_id49}' resolves to an Organization "
+                    "node present in the same @graph (worksFor ↔ Organization linkage intact)",
+                    f"Check 49: Person.worksFor references organization @id '{_ref_id49}' but no "
+                    f"Organization node with that @id exists in the @graph (defined org @ids: "
+                    f"{sorted(i for i in _org_ids49 if i)}) — dangling employment edge",
+                    blocking=True,
+                )
+    else:
+        warnings.append(
+            "Check 49: no JSON-LD block found in index.html — worksFor linkage check skipped"
+        )
+else:
+    warnings.append(
+        "Check 49: index.html not found — worksFor linkage check skipped"
     )
 
 # ── Result ────────────────────────────────────────────────────────────────────

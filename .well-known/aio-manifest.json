@@ -8,17 +8,17 @@
     {
       "path": "llms.txt",
       "role": "short AI routing context",
-      "sha256": "07134a7cfc65bf4466909da18206e3145fedc60082bc24e1b1fece83839a0abe"
+      "sha256": "a13166f6a9d61fddaddf4bf08b39fbb536ad7d90656ca722b0477a406763b3a1"
     },
     {
       "path": "llms-full.txt",
       "role": "full AI context",
-      "sha256": "a2f85df96f0e8f46b646175c256e40942ce7c493257520c7c2046bf11d7c37a6"
+      "sha256": "c99e6f8fa84c094dda6598aea0dc923631d6093b530f944c219c623fcfbb95dc"
     },
     {
       "path": "AI2AI.md",
       "role": "AI-to-AI implementation handoff",
-      "sha256": "fff0b0c13151fece3dca3b243caccbf6639a45c8d6178022b9cca11251905737"
+      "sha256": "b56f9cff15b0988d414eb524557245b302d2084bc2fdf2f0a0b5b201102ae428"
     },
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
@@ -56,7 +56,7 @@
       "sha256": "992380886bbfc56c23f29cccc6200587b2a14b2d7719eb47609aea5fb6af5704"
     }
   ],
-  "generated_at": "2026-06-02T08:19:56Z",
+  "generated_at": "2026-06-04T22:51:57Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
