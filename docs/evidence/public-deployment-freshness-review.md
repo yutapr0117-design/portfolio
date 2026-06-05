@@ -152,6 +152,30 @@ warning-only workflow whose failure does not block other pipelines — matching 
 
 ## 6. Observation log (append newest first)
 
+### 2026-06-05 — lint-hygiene increment; public endpoint re-observed as `unobservable` (HTTP 403)
+
+Re-running `python3 .github/scripts/check_public_deployment_freshness.py` from the working-copy
+verification environment produced exit 0 with classification `unobservable`. The authoritative
+recorded reason is **HTTP 403 Forbidden on the public endpoint** (the egress allowlist used by this
+environment does not permit outbound fetches to `*.github.io`). This supersedes any external
+hand-off note that described the cause as a "temporary DNS failure": the working copy is the source
+of truth, and the *observed* failure mode here is an HTTP-layer 403 from the allowlist, not name
+resolution. Either way the classification is the same category — `unobservable` — and per §1 this is
+**never** a reason to roll the repository back; it is recorded here as an observation only.
+
+Recorded facts about the source of truth at the time of this entry:
+
+- `llms.txt` declares `Last-Updated: 2026-06-02` and contains the provenance canary (count 1); the
+  four `llms` aliases remain byte-identical. The expected public `Last-Updated` is therefore
+  `2026-06-02` (`fetch_ok: False`, public `Last-Updated: None`, canary expected/public: `True`/`None`).
+- Application version is `v74` across every authoritative location (unchanged by this increment).
+- Full local verification was green: `npm ci --ignore-scripts` (0 vulnerabilities), `npm run check`
+  (49 checks, all invariants hold; AIO digest passed; binary metadata passed), `npm run lint:css`
+  (PASS), all `node --check`, and `npm run lint` — now **0 errors / 120 warnings** (down from 194:
+  safe-zone `curly` ×71 braced + `prefer-const` ×1 resolved; protected zones byte-identical).
+- The public Pages comparison (priority 3) and the actual GitHub Pages build status (step 4) remain a
+  human/CI responsibility and are **not** recorded as observed here (no fabrication).
+
 ### 2026-06-02 — working-copy verification at the time this layer was introduced
 
 The working copy was verified directly (priorities 1–2 only; the public Pages endpoint at

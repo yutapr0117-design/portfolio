@@ -410,7 +410,7 @@
                 el.setAttribute('rel', 'noopener noreferrer');
             }
             children.flat().forEach(child => {
-                if (child === undefined || child === null) return;
+                if (child === undefined || child === null) {return;}
                 if (child instanceof Node) {
                     el.appendChild(child);
                 } else {
@@ -467,7 +467,7 @@
 
             parse(key) {
                 const data = this.get(key);
-                if (!data) return null;
+                if (!data) {return null;}
                 try {
                     return JSON.parse(data);
                 } catch {
@@ -723,7 +723,7 @@
             // Load store with migration
             function load() {
                 const data = Storage.parse(CONSTANTS.STORAGE_KEY);
-                if (!data) return createDefaultStore();
+                if (!data) {return createDefaultStore();}
                 if (data.schemaVersion !== CONSTANTS.SCHEMA_VERSION) {
                     // 旧データをスナップショットとして退避してから初期化
                     // NOTE: Settings の復元導線とフォーマットを合わせる（{at, reason, data}）
@@ -835,15 +835,15 @@
             function jaccard(a, b) {
                 const A = new Set(Array.isArray(a) ? a.map(String) : []);
                 const B = new Set(Array.isArray(b) ? b.map(String) : []);
-                if (!A.size && !B.size) return 0;
+                if (!A.size && !B.size) {return 0;}
                 let inter = 0;
-                for (const x of A) if (B.has(x)) inter++;
+                for (const x of A) {if (B.has(x)) {inter++;}}
                 const uni = A.size + B.size - inter;
                 return uni ? inter / uni : 0;
             }
 
             function similarityScore(a, b) {
-                if (!a || !b) return 0;
+                if (!a || !b) {return 0;}
                 const tagScore = jaccard(a.tags, b.tags);
                 const techScore = jaccard(a.tech, b.tech);
                 const catScore = (a.category && b.category && String(a.category) === String(b.category)) ? 1 : 0;
@@ -853,7 +853,7 @@
                 const ta = new Set(tokenizeForSimilarity(textA));
                 const tb = new Set(tokenizeForSimilarity(textB));
                 let inter = 0;
-                for (const t of ta) if (tb.has(t)) inter++;
+                for (const t of ta) {if (tb.has(t)) {inter++;}}
                 const textScore = (ta.size + tb.size) ? (2 * inter / (ta.size + tb.size)) : 0;
 
                 const score = (0.40 * tagScore) + (0.30 * techScore) + (0.15 * catScore) + (0.15 * textScore);
@@ -861,7 +861,7 @@
             }
 
             function autoRelatedCandidates(target, projects, limit = 8) {
-                if (!target || !Array.isArray(projects)) return [];
+                if (!target || !Array.isArray(projects)) {return [];}
                 const fixed = new Set(target.relatedProjectIds || []);
 
                 // Filter early to reduce similarity calculations
@@ -1101,14 +1101,14 @@
             }
 
             function deepFreezeLimited(obj, depth = 3, seen = new WeakSet()) {
-                if (!obj || typeof obj !== 'object') return obj;
-                if (seen.has(obj)) return obj;
+                if (!obj || typeof obj !== 'object') {return obj;}
+                if (seen.has(obj)) {return obj;}
                 seen.add(obj);
                 try { Object.freeze(obj); } catch { return obj; }
-                if (depth <= 0) return obj;
+                if (depth <= 0) {return obj;}
                 for (const k of Object.keys(obj)) {
                     const v = obj[k];
-                    if (v && typeof v === 'object') deepFreezeLimited(v, depth - 1, seen);
+                    if (v && typeof v === 'object') {deepFreezeLimited(v, depth - 1, seen);}
                 }
                 return obj;
             }
@@ -1150,23 +1150,23 @@
             }
 
             function scheduleSave() {
-                if (saveTimer) clearTimeout(saveTimer);
+                if (saveTimer) {clearTimeout(saveTimer);}
                 saveTimer = setTimeout(() => {
                     const success = Storage.set(CONSTANTS.STORAGE_KEY, JSON.stringify(data));
-                    if (!success) notifyStorageError();
+                    if (!success) {notifyStorageError();}
                     saveTimer = null;
                 }, CONSTANTS.DEBOUNCE_DELAY);
             }
 
             function saveNow() {
-                if (saveTimer) clearTimeout(saveTimer);
+                if (saveTimer) {clearTimeout(saveTimer);}
                 const success = Storage.set(CONSTANTS.STORAGE_KEY, JSON.stringify(data));
-                if (!success) notifyStorageError();
+                if (!success) {notifyStorageError();}
             }
 
             // Auto-save on visibility change
             document.addEventListener('visibilitychange', () => {
-                if (document.visibilityState === 'hidden') saveNow();
+                if (document.visibilityState === 'hidden') {saveNow();}
             });
             // [NOTE] beforeunload is deprecated for reliable state saving on mobile, rely on visibilitychange.
 
@@ -1176,7 +1176,7 @@
                     try {
                         const incoming = JSON.parse(e.newValue);
                         // Ignore writes originating from this tab
-                        if (incoming.modifiedBy === CONSTANTS.TAB_ID) return;
+                        if (incoming.modifiedBy === CONSTANTS.TAB_ID) {return;}
                         if (incoming.lastModified > data.lastModified) {
                             data = incoming;
                             notify();
@@ -1989,7 +1989,7 @@
         function updateDocumentHead(fullTitle, desc, routeName) {
             document.title = fullTitle;
             const metaDesc = document.querySelector('meta[name="description"]');
-            if (metaDesc) metaDesc.setAttribute('content', desc);
+            if (metaDesc) {metaDesc.setAttribute('content', desc);}
             document.querySelector('meta[property="og:title"]')?.setAttribute('content', fullTitle);
             document.querySelector('meta[property="og:description"]')?.setAttribute('content', desc);
             document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', fullTitle);
@@ -2025,7 +2025,7 @@
          */
         function announceRouteForAccessibility(title) {
             const pageAnnouncer = document.getElementById('page-announcement');
-            if (!pageAnnouncer) return;
+            if (!pageAnnouncer) {return;}
             pageAnnouncer.textContent = '';
             requestAnimationFrame(function() {
                 pageAnnouncer.textContent = title + 'ページを表示しています。';
@@ -2094,7 +2094,7 @@
                 }
                 articleEl.textContent = JSON.stringify(articleData);
             } else {
-                if (articleEl) articleEl.remove();
+                if (articleEl) {articleEl.remove();}
             }
 
             // § SpeakableSpecification 動的更新 — ルートコンテキストをAI音声アシスタント向けに最適化
@@ -2135,7 +2135,7 @@
          */
         function applyMeta(routeName, params = {}, query = {}) {
             const meta = PAGE_META[routeName];
-            if (!meta) return;
+            if (!meta) {return;}
             const context = { routeName, params, query, route: Router.getRoute(), state: State.get() };
             const title = typeof meta.title === 'function' ? meta.title(context) : meta.title;
             const desc  = typeof meta.desc  === 'function' ? meta.desc(context)  : meta.desc;
@@ -2183,7 +2183,7 @@
             const isLabRoute = labItems.some(item => item.active);
             const labKey = 'portfolio_nav_lab_open_v69';
             function isLabOpen() {
-                if (isLabRoute) return true;
+                if (isLabRoute) {return true;}
                 try { return localStorage.getItem(labKey) === 'true'; } catch { return false; }
             }
             function toggleLab(btn, body) {
@@ -2225,7 +2225,7 @@
                     'aria-controls': 'nav-lab-body',
                     onclick(e) {
                         const body = document.getElementById('nav-lab-body');
-                        if (body) toggleLab(e.currentTarget, body);
+                        if (body) {toggleLab(e.currentTarget, body);}
                     }
                 },
                     h('span', { class: 'nav-title' }, label),
@@ -2419,7 +2419,7 @@
                                     class: 'btn btn-primary btn-sm w-full mt-auto',
                                     onclick: () => {
                                         const el = document.getElementById('evidence-heading');
-                                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                                        if (el) {el.scrollIntoView({ behavior: 'smooth' });}
                                     },
                                     'aria-label': 'ケーススタディセクションへ移動'
                                 }, 'ケースを見る →')
@@ -2604,7 +2604,7 @@
             // Uses the global tokenize() utility - no local duplicate
 
             function scoreProject(p, tokens) {
-                if (!tokens.length) return 1;
+                if (!tokens.length) {return 1;}
                 const corpus = [
                     ...tokenize(p.name),
                     ...tokenize(p.summary),
@@ -2620,9 +2620,9 @@
 
                 let score = 0;
                 tokens.forEach(t => {
-                    if (freq.has(t)) score += 5 + Math.min(3, freq.get(t));
+                    if (freq.has(t)) {score += 5 + Math.min(3, freq.get(t));}
                     uniqueWords.forEach(w => {
-                        if (w !== t && w.includes(t)) score += 1;
+                        if (w !== t && w.includes(t)) {score += 1;}
                     });
                 });
                 return score;
@@ -2633,7 +2633,7 @@
 
                 // Hide projects (Settings -> projectPrefs.hiddenIds)
                 const hiddenIds = new Set(((state.projectPrefs && state.projectPrefs.hiddenIds) || []).map(String));
-                if (hiddenIds.size) list = list.filter(p => !hiddenIds.has(p.id));
+                if (hiddenIds.size) {list = list.filter(p => !hiddenIds.has(p.id));}
 
                 if (cat !== 'All') {
                     list = list.filter(p => p.category === cat);
@@ -2663,8 +2663,8 @@
 
                 function syncURL() {
                     const params = new URLSearchParams();
-                    if (q) params.set('q', q);
-                    if (cat !== 'All') params.set('cat', cat);
+                    if (q) {params.set('q', q);}
+                    if (cat !== 'All') {params.set('cat', cat);}
                     Router.replaceSilently('projects' + (params.toString() ? '?' + params.toString() : ''));
                 }
 
@@ -2672,7 +2672,7 @@
                     clear(gridContainer);
                     const projects = getFilteredProjects();
 
-                    if (countDisplay) countDisplay.textContent = `合計 ${projects.length} 件`;
+                    if (countDisplay) {countDisplay.textContent = `合計 ${projects.length} 件`;}
 
                     if (projects.length === 0) {
                         gridContainer.appendChild(h('div', { class: 'card card--full-col', role: 'status', 'aria-live': 'polite' },
@@ -2697,8 +2697,8 @@
                                                 q = tag; cat = 'All';
                                                 const inputEl = container.querySelector('input[type="text"]');
                                                 const selectEl = container.querySelector('select');
-                                                if (inputEl) inputEl.value = tag;
-                                                if (selectEl) selectEl.value = 'All';
+                                                if (inputEl) {inputEl.value = tag;}
+                                                if (selectEl) {selectEl.value = 'All';}
                                                 renderGrid(); syncURL();
                                             }
                                         }, '#' + tag)
@@ -2958,12 +2958,14 @@
 
         // ===== Component: Task App =====
         // [FIX] 揮発性クロージャ問題の解決：UIステートをコンポーネント外に保持
-        let taskFilter = { q: '', priority: 'all' };
+        // v80+ lint: 束縛自体は再代入されず .q / .priority のプロパティ変異のみのため const が正しい
+        // （再代入が無い束縛に let を使うと prefer-const に抵触する。挙動は不変）。
+        const taskFilter = { q: '', priority: 'all' };
 
         function TaskPage() {
 
             function addTask(title) {
-                if (!title.trim()) return;
+                if (!title.trim()) {return;}
                 State.update(s => {
                     s.appsData.tasks.unshift({
                         id: generateId(),
@@ -3149,7 +3151,7 @@
         function TodoPage() {
 
             function addTodo(text) {
-                if (!text.trim()) return;
+                if (!text.trim()) {return;}
                 State.update(s => {
                     s.appsData.todos.unshift({
                         id: generateId(),
@@ -3164,7 +3166,7 @@
             function toggleTodo(id) {
                 State.update(s => {
                     const todo = s.appsData.todos.find(t => t.id === id);
-                    if (todo) todo.completed = !todo.completed;
+                    if (todo) {todo.completed = !todo.completed;}
                 });
             }
 
@@ -3183,8 +3185,8 @@
 
             const todos = State.get().appsData.todos;
             const filtered = todos.filter(t => {
-                if (todoFilter === 'active') return !t.completed;
-                if (todoFilter === 'completed') return t.completed;
+                if (todoFilter === 'active') {return !t.completed;}
+                if (todoFilter === 'completed') {return t.completed;}
                 return true;
             });
 
@@ -3339,7 +3341,7 @@
             }
 
             function startTimer() {
-                if (pomodoroTimer) clearInterval(pomodoroTimer);
+                if (pomodoroTimer) {clearInterval(pomodoroTimer);}
                 pomodoroTimer = setInterval(() => {
                     const remaining = getRemaining();
                     if (remaining <= 0) {
@@ -3463,8 +3465,8 @@
 
             function analyzeInput(input) {
                 const p = input.toLowerCase();
-                if (p.includes('エラー') || p.includes('バグ') || p.includes('失敗')) return 'troubleshoot';
-                if (p.includes('設計') || p.includes('計画') || p.includes('構成')) return 'design';
+                if (p.includes('エラー') || p.includes('バグ') || p.includes('失敗')) {return 'troubleshoot';}
+                if (p.includes('設計') || p.includes('計画') || p.includes('構成')) {return 'design';}
                 return 'general';
             }
 
@@ -3495,7 +3497,7 @@
             }
 
             function submit(input) {
-                if (!input.trim() || aiLoading) return;
+                if (!input.trim() || aiLoading) {return;}
                 aiLoading = true;
                 window.render(); // ローディング表示のため再描画
 
@@ -3600,7 +3602,7 @@
             // --- 不足していた関数群の実装 ---
             function getSnapshot() {
                 const raw = Storage.parse(CONSTANTS.SNAPSHOT_KEY);
-                if (!raw) return null;
+                if (!raw) {return null;}
 
                 // Support both formats:
                 // 1) { at, data, ... }  (current)
@@ -3628,7 +3630,7 @@
             }
             function restoreSnapshot() {
                 const snap = getSnapshot();
-                if (!snap || !snap.data) return;
+                if (!snap || !snap.data) {return;}
 
                 // Safety: refuse obviously wrong shapes
                 if (typeof snap.data !== 'object' || !snap.data.schemaVersion) {
@@ -3670,20 +3672,20 @@
                     try {
                         const parsed = JSON.parse(e.target.result);
                         State.update(s => {
-                            if (settingsIncludeProfile && parsed.profile) s.profile = parsed.profile;
+                            if (settingsIncludeProfile && parsed.profile) {s.profile = parsed.profile;}
                             if (settingsIncludeProjects && Array.isArray(parsed.projects)) {
-                                if (settingsImportMode === 'strict') s.projects = parsed.projects;
+                                if (settingsImportMode === 'strict') {s.projects = parsed.projects;}
                                 else {
                                     // 既存プロジェクトのマップ作成
                                     const existingMap = new Map(s.projects.map(p => [p.id, p]));
                                     parsed.projects.forEach(p => {
-                                        if (!existingMap.has(p.id)) s.projects.push(p);
-                                        else if (settingsImportMode === 'upsert') existingMap.set(p.id, p);
+                                        if (!existingMap.has(p.id)) {s.projects.push(p);}
+                                        else if (settingsImportMode === 'upsert') {existingMap.set(p.id, p);}
                                     });
-                                    if (settingsImportMode === 'upsert') s.projects = Array.from(existingMap.values());
+                                    if (settingsImportMode === 'upsert') {s.projects = Array.from(existingMap.values());}
                                 }
                             }
-                            if (settingsIncludeApps && parsed.appsData) s.appsData = parsed.appsData;
+                            if (settingsIncludeApps && parsed.appsData) {s.appsData = parsed.appsData;}
                         });
 
                         // [CRITICAL FIX] インポート直後に必ず正規化を通し、不正なデータ構造によるクラッシュを防ぐ
@@ -3721,14 +3723,14 @@
                 State.update(s => {
                     s.projectPrefs = s.projectPrefs || { hiddenIds: [] };
                     const idx = s.projectPrefs.hiddenIds.indexOf(id);
-                    if (idx > -1) s.projectPrefs.hiddenIds.splice(idx, 1);
-                    else s.projectPrefs.hiddenIds.push(id);
+                    if (idx > -1) {s.projectPrefs.hiddenIds.splice(idx, 1);}
+                    else {s.projectPrefs.hiddenIds.push(id);}
                 });
             }
 
             function deleteProjectHard(id) {
-                if (defaultProjectIds.has(id)) return;
-                if (!confirm('本当に削除しますか？')) return;
+                if (defaultProjectIds.has(id)) {return;}
+                if (!confirm('本当に削除しますか？')) {return;}
                 State.update(s => {
                     s.projects = s.projects.filter(p => p.id !== id);
                 });
@@ -3736,7 +3738,7 @@
 
             function moveProject(idx, dir) {
                 State.update(s => {
-                    if (idx + dir < 0 || idx + dir >= s.projects.length) return;
+                    if (idx + dir < 0 || idx + dir >= s.projects.length) {return;}
                     const temp = s.projects[idx];
                     s.projects[idx] = s.projects[idx + dir];
                     s.projects[idx + dir] = temp;
@@ -3750,7 +3752,7 @@
             }
 
             function resetData() {
-                if (!confirm('すべてのデータを初期化しますか？')) return;
+                if (!confirm('すべてのデータを初期化しますか？')) {return;}
                 State.set(Store.createDefaultStore());
                 Toast.show('初期化しました');
             }
@@ -3809,7 +3811,7 @@
                                         accept: 'application/json',
                                         onchange: (e) => {
                                             const f = e.target.files && e.target.files[0];
-                                            if (f) importJSON(f);
+                                            if (f) {importJSON(f);}
                                             e.target.value = '';
                                         }
                                     })
@@ -4104,7 +4106,7 @@
 
             Object.keys(quizData).forEach(section => {
                 const questions = quizData[section].filter(q => {
-                    if (!query) return true;
+                    if (!query) {return true;}
                     const titleMatch = q.title.toLowerCase().includes(query);
                     const idMatch = q.id.toLowerCase().includes(query);
                     const contentMatch = q.content ? q.content.some(line => line.toLowerCase().includes(query)) : false;
@@ -4222,7 +4224,7 @@
                         qBlock.appendChild(qHeader);
 
                         q.content.forEach(line => {
-                            if (!line.trim()) return;
+                            if (!line.trim()) {return;}
                             // Check if it's a label line (ends with ':' or is a short header)
                             const isLabel = /^(状況|問|Challenge|Core Knowledge|境界点|Reboot vs|Stop|ASG|io2|gp[23]|注意|現場|意図|ポイント|解説|補足)[：:。]?/.test(line) || (line.endsWith(':') && line.length < 50);
                             qBlock.appendChild(h("div", {
@@ -4286,7 +4288,7 @@
             const stack = (error && error.stack) ? String(error.stack) : '';
 
             function clearAllData() {
-                if (!confirm('LocalStorageのデータを削除して再読み込みしますか？')) return;
+                if (!confirm('LocalStorageのデータを削除して再読み込みしますか？')) {return;}
                 try {
                     localStorage.removeItem(CONSTANTS.STORAGE_KEY);
                     localStorage.removeItem(CONSTANTS.SNAPSHOT_KEY);
@@ -5527,7 +5529,7 @@
 
             // § Agentic State Notification: 描画完了後に aria-busy=false へ切替
             requestAnimationFrame(() => {
-                if (content) content.setAttribute('aria-busy', 'false');
+                if (content) {content.setAttribute('aria-busy', 'false');}
                 document.body.setAttribute('data-ai-state', JSON.stringify({
                     route: route.name || 'home',
                     filter: '',
@@ -5573,11 +5575,11 @@
                 const links = root.querySelectorAll('a[target="_blank"]');
                 links.forEach((a) => {
                     const rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
-                    if (!rel.includes('noopener')) rel.push('noopener');
-                    if (!rel.includes('noreferrer')) rel.push('noreferrer');
+                    if (!rel.includes('noopener')) {rel.push('noopener');}
+                    if (!rel.includes('noreferrer')) {rel.push('noreferrer');}
                     a.setAttribute('rel', rel.join(' '));
                     // Optional: reduce referrer leakage for external links
-                    if (!a.getAttribute('referrerpolicy')) a.setAttribute('referrerpolicy', 'no-referrer');
+                    if (!a.getAttribute('referrerpolicy')) {a.setAttribute('referrerpolicy', 'no-referrer');}
                 });
             } catch { /* noop */ }
         }
@@ -5589,10 +5591,10 @@
 
         function __setAppInert(isInert) {
             const app = document.getElementById('app');
-            if (!app) return;
+            if (!app) {return;}
             // Prefer native inert if available; fallback to aria-hidden + pointer-events
             try {
-                if ('inert' in app) app.inert = !!isInert;
+                if ('inert' in app) {app.inert = !!isInert;}
             } catch { /* noop */ }
 
             if (isInert) {
@@ -5623,7 +5625,7 @@
             const focusable = container.querySelectorAll(
                 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
             );
-            if (!focusable.length) return;
+            if (!focusable.length) {return;}
 
             const first = focusable[0];
             const last = focusable[focusable.length - 1];
@@ -5633,7 +5635,7 @@
                     closeDrawer();
                     return;
                 }
-                if (e.key !== 'Tab') return;
+                if (e.key !== 'Tab') {return;}
 
                 if (e.shiftKey && document.activeElement === first) {
                     e.preventDefault();
@@ -5660,7 +5662,7 @@
             const overlay = document.getElementById('overlay');
             const menuBtn = document.getElementById('menuBtn');
 
-            if (!drawer || !overlay) return;
+            if (!drawer || !overlay) {return;}
 
             __drawerLastFocused = document.activeElement;
 
@@ -5693,7 +5695,7 @@
             const overlay = document.getElementById('overlay');
             const menuBtn = document.getElementById('menuBtn');
 
-            if (!drawer || !overlay) return;
+            if (!drawer || !overlay) {return;}
 
             // Hide
             drawer.style.display = 'none';

@@ -119,7 +119,7 @@ npm audit --omit=dev # 配信物（ランタイム依存）だけの監査
 
 | コマンド | 期待 | 解釈 |
 |---|---|---|
-| `npm run lint` | `194 problems (0 errors, 194 warnings)` / **exit 0** | exit ≥2 = 実行失敗（config/parse/flag）→ **BLOCKING**。errors>0 → **BLOCKING**。warnings → **advisory**（`main.js` の `no-var`/`curly`/`no-shadow`/`prefer-const`。視覚回帰 baseline 確立後に段階解消）。**warning 件数の増加は負債増のサイン**として監視。注: Stage 2/3 抽出で 199→194 に減少（`curly` 5 件が `js/pure-utils.js` へ移動し解消） |
+| `npm run lint` | `120 problems (0 errors, 120 warnings)` / **exit 0** | exit ≥2 = 実行失敗（config/parse/flag）→ **BLOCKING**。errors>0 → **BLOCKING**。warnings → **advisory**（`main.js` の `no-var`/`curly`/`no-shadow`。視覚回帰 baseline 確立後に残りを段階解消）。**warning 件数の増加は負債増のサイン**として監視。注: Stage 2/3 抽出で 199→194 に減少（`curly` 5 件が `js/pure-utils.js` へ移動し解消）、続く lint-hygiene increment で 194→120 に減少（safe-zone の `curly` 71 件にブレース付与＋`prefer-const` 1 件を `const` 化。保護領域=AIDK kernel／AIDK modules／known benign suppressor／innerHTML interceptor は byte-identical のため未着手で温存） |
 | `npm run lint:css` | `Stylelint [style.css]: PASS` / exit 0 | error は BLOCKING |
 | `npm run lint:js` | 各 JS が OK・exit 0 | `node --check` を 8 つの公開/dev JS（`main.js` / `sw.js` / `aio-guard.js` / `error-suppressor.js` / `theme-init.js` / `karte-init.js` / `js/pure-utils.js` / `js/quiz-data.js`）へまとめて適用する糖衣。構文エラーは BLOCKING。対象集合は `lint` と一致し Check 46 が機械強制（対象は root ∪ js/） |
 | `npm run check` | `Repository consistency check passed — all invariants hold.` / exit 0 / consistency 104 OK 行（`npm run check` 全体＝consistency＋digest＋binary の 3 スクリプトで、`OK:` トークン行は合計 106）| §6 の registry 参照。1 つでも ERROR が出れば exit 1（BLOCKING）。OK 行数の権威値は §9 の実測表。両者がずれた場合は §9 を正とし、本行を §9 に合わせて更新する |
@@ -209,7 +209,7 @@ sha256sum llms.txt llms_well-known.txt .well-known/llms.txt .well-known/llms_wel
 
 ### 7.2 失敗時の対応
 - **BLOCKING 失敗（exit 1 / ERROR 行 / 構文エラー / lint error）**: commit 前に必ず修正。原因を特定し、最小修正で解消。
-- **advisory（warning 行）**: 即時修正は不要。件数を記録し、増えていれば原因を調べる。`main.js` の 194 warnings は視覚回帰 baseline 確立後に段階解消する方針（一括 fix 禁止）。Stage 2/3 抽出で 199→194 に減少した（`curly` 5 件が抽出関数とともに `js/pure-utils.js` へ移動し、移動先でブレース付与により解消）。
+- **advisory（warning 行）**: 即時修正は不要。件数を記録し、増えていれば原因を調べる。`main.js` の 120 warnings は視覚回帰 baseline 確立後に残りを段階解消する方針（baseline 前は大規模 trivial diff を避ける）。Stage 2/3 抽出で 199→194 に減少した（`curly` 5 件が抽出関数とともに `js/pure-utils.js` へ移動し、移動先でブレース付与により解消）。続く lint-hygiene increment で 194→120 に減少した（safe-zone の `curly` 71 件にブレース付与＋`prefer-const` 1 件を `const` 化。保護領域内の `curly`／全 `no-var`／全 `no-shadow` は温存）。
 
 ### 7.3 ローカル緑 ≠ CI 緑
 every-push の BLOCKING パイプライン（`architecture-validation.yml`）は GitHub Actions runner 上で動く。ローカル `npm ci` 緑は runner 緑を保証しない。**実 Actions 緑確認は人間の責務**。push 後に Actions の結果を必ず確認する。
@@ -258,7 +258,7 @@ echo "ALL LOCAL CHECKS PASSED"
 | 指標 | 基準値 |
 |---|---|
 | 追跡ファイル総数 | 76（artifact-governance increment 後 74 ＋ AIO-update increment の decision record・改善文書 2。本 public-freshness-observation increment では既存追跡ファイルの編集と非追跡 outputs への複製のみで、追跡ツリーの新規ファイルは別途のコミット運用に従う）|
-| `npm run lint` | 0 errors / 194 warnings（`curly`:119 / `no-var`:64 / `no-shadow`:10 / `prefer-const`:1、すべて `main.js`。本 increment で `main.js` を Stage 2/3 分割し、`curly` 該当 5 件が `js/pure-utils.js` へ移動・解消したため 199→194 に減少。`js/pure-utils.js`・`js/quiz-data.js` は 0 problems）|
+| `npm run lint` | 0 errors / 120 warnings（`curly`:46 / `no-var`:64 / `no-shadow`:10、すべて `main.js`。Stage 2/3 分割で `curly` 該当 5 件が `js/pure-utils.js` へ移動・解消し 199→194 に減少、続く lint-hygiene increment で safe-zone の `curly` 71 件にブレース付与＋`prefer-const` 1 件を `const` 化し 194→120 に減少。保護領域=AIDK kernel／AIDK modules／known benign suppressor／innerHTML interceptor 内の `curly`・全 `no-var`・全 `no-shadow` は byte-identical 維持のため温存。`js/pure-utils.js`・`js/quiz-data.js` は 0 problems）|
 | consistency 検査の `OK:` 行 | 103（Check 41 の 2 行・Check 42 の 2 行・Check 43 の 4 行・Check 44 の 3 行・Check 45 の 3 行・Check 46 の 2 行・Check 47 の 6 行（2 モジュール × 3 サブチェック）・新規 Check 48 の 1 行を含む。`all invariants hold` で終了）|
 | `npm run check` 全体の `OK:` トークン行 | 106（consistency 104 ＋ `check_binary_aio_metadata.py` 2。`check_aio_digests.py` は `OK (manifest/...)` 形式と末尾 `AIO digest check passed` を出力し、`OK:` トークンには 0 行寄与する。3 スクリプトはいずれも exit 0）|
 | consistency Check 総数 | 49（最大番号 49。Check 43 は main.js AIDK Isolated Kernel の構造健全性（43d は v80+ で module-level import が IIFE に先行することを許容しつつ C2 を維持）、Check 44 は AIO provenance canary トークンの published 面と monitor 面のクロス整合、Check 45 は本チェックファイルの docstring インベントリと `# ── N.` セクション見出しの自己整合、Check 46 は package.json の `lint`/`lint:js` が対象 JS ファイル集合を一致させ（かつディスク上の root ∪ js/ と一致）させていること、Check 47 は main.js ⇄ js/ 各モジュールの ESM import/export bijection と葉モジュール性（import ゼロ）、Check 48 は update-playwright-snapshots.yml が PR 作成ステップを含む場合に contents:write と pull-requests:write の両権限を宣言していること（baseline コミットパイプラインの権限結合・否定テスト済）、新規 Check 49 は index.html の最初の JSON-LD @graph において Person.worksFor が参照する組織 @id（OrganizationRole 経由のネスト参照も解決）が同一 @graph 内の Organization ノードとして実在すること（worksFor ↔ Organization linkage の宙吊り防止・否定テスト2種で発火確認）を検証、いずれも BLOCKING）|
@@ -268,7 +268,7 @@ echo "ALL LOCAL CHECKS PASSED"
 | `.well-known/aio-manifest.json` の証跡カウント | source_of_truth 5 / supporting_evidence 4 / observational_evidence 1 |
 | `index.html` 構造化データ | JSON-LD ブロック 2 / `ai:` meta タグ 8（ハイフン付き含む）|
 | `npm audit` / `--omit=dev` | 0 件 / 0 件 |
-| `main.js` | ≈352 KB / ≈6,353 行（単一 IIFE 本体 + 先頭にローカル ESM import。元 ≈468 KB / ≈7,785 行。Stage 2/3 で純ユーティリティ 10 関数を `js/pure-utils.js`、静的データ 4 つを `js/quiz-data.js` へ分割し −1,432 行。Check 43 が IIFE と kernel の存在を機械強制、Check 43d が import 先行を許容）|
+| `main.js` | ≈352 KB / ≈6,355 行（単一 IIFE 本体 + 先頭にローカル ESM import。元 ≈468 KB / ≈7,785 行。Stage 2/3 で純ユーティリティ 10 関数を `js/pure-utils.js`、静的データ 4 つを `js/quiz-data.js` へ分割し −1,432 行で ≈6,353 行、続く lint-hygiene increment で `prefer-const` 解消の説明コメント +2 行。Check 43 が IIFE と kernel の存在を機械強制、Check 43d が import 先行を許容）|
 | `js/pure-utils.js` | ≈277 行（純粋ユーティリティ 10 関数の ESM 葉モジュール。Stage 2 抽出）|
 | `js/quiz-data.js` | ≈1,406 行（静的クイズデータ 4 つの ESM 葉モジュール。Stage 3 抽出、byte-equivalent）|
 
@@ -280,7 +280,7 @@ echo "ALL LOCAL CHECKS PASSED"
 
 - **`main.js` モノリス**（現 ≈352 KB / 単一 IIFE 本体）: Stage 2/3（pure utility・static data）は分割済み（−1,432 行）。残る service rails（Stage 4）と render/router/kernel（extraction-map の Stage 5）の物理分割は **視覚回帰 baseline 確立が前提**。
 - **視覚回帰 baseline 未生成**: `e2e/portfolio.spec.js` の screenshot テストは baseline が無い間 skip される（P0-01 のデッドロック回避）。**baseline 生成（§7.4）が、回帰カバレッジと main.js 分割の両方を解錠する単一最重要アクション**。
-- **`main.js` の 194 advisory warnings**: 上記分割と同期して段階解消（一括 fix 禁止）。Stage 2/3 で 199→194 に減少済み。
+- **`main.js` の 120 advisory warnings**: 上記分割と同期して残りを段階解消（baseline 前は大規模 trivial diff を避ける）。Stage 2/3 で 199→194、続く lint-hygiene increment で 194→120 に減少済み。残債の内訳は safe-zone 外（保護領域内）の `curly`・全 `no-var`・全 `no-shadow`。
 
 ---
 
