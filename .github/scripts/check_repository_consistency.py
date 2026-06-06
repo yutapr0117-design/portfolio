@@ -150,6 +150,19 @@ authoritative inventory and is kept in sync with the implementation below):
       pre-commit time rather than letting the broken linkage ship. It also confirms the first
       JSON-LD block parses as valid JSON. Same cross-reference-integrity spirit as Check 47
       (import/export bijection) and Check 48 (permission coupling). (BLOCKING)
+  50. ESLint flat-config migration integrity: the lint toolchain has migrated off the
+      End-of-Life ESLint 8.x / eslintrc format onto ESLint 9.x flat config. Two facts must
+      stay true for that migration to remain intact. First, eslint.config.mjs (the flat config)
+      must exist at the repository root — it is the sole config ESLint 9.x auto-discovers, and
+      deleting it would make every lint run fall back to "no configuration" and pass vacuously.
+      Second, the package.json `lint` script must NOT carry the legacy eslintrc-era flags
+      (`--no-eslintrc`, `--config .eslintrc.json`, `--env`): ESLint 9.x removed those flags, so
+      their presence would make `npm run lint` exit 2 (config/flag error) — and the historical
+      vacuous-gate incident showed exactly how a flag mismatch can be silently swallowed. The
+      legacy `.eslintrc.json` must also be absent (its lingering presence would invite a
+      regression back onto the EOL format). This check converts a silent reversion to the EOL
+      linter into an immediate pre-commit error, in the same discover→systematize spirit that
+      added Checks 46–49. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -1737,6 +1750,56 @@ else:
     warnings.append(
         "Check 49: index.html not found — worksFor linkage check skipped"
     )
+
+# ── 50. ESLint flat-config migration integrity (BLOCKING) ─────────────────────
+# The lint toolchain migrated off EOL ESLint 8.x / eslintrc onto ESLint 9.x flat config.
+# Guard the migration so it cannot silently regress:
+#   50a — eslint.config.mjs (the flat config ESLint 9.x auto-discovers) exists at root.
+#   50b — the package.json `lint` script carries none of the removed eslintrc-era flags
+#         (--no-eslintrc / --config .eslintrc.json / --env), whose presence makes ESLint 9.x
+#         exit 2 (the historical vacuous-gate failure mode).
+#   50c — the legacy .eslintrc.json is absent (its return would invite an EOL-format regression).
+_flat_cfg50 = ROOT / "eslint.config.mjs"
+check(
+    _flat_cfg50.is_file(),
+    "Check 50a: eslint.config.mjs (ESLint 9.x flat config) exists at repository root",
+    "Check 50a: eslint.config.mjs is missing — ESLint 9.x would run with no configuration "
+    "and pass vacuously. The flat config is the sole config ESLint auto-discovers since the "
+    "migration off the EOL eslintrc format.",
+)
+_pkg_path50 = ROOT / "package.json"
+if _pkg_path50.is_file():
+    try:
+        _scripts50 = json.loads(_pkg_path50.read_text(encoding="utf-8")).get("scripts", {})
+        _lint_cmd50 = _scripts50.get("lint", "")
+        _legacy_flags50 = ["--no-eslintrc", "--config .eslintrc.json", "--env "]
+        _found_legacy50 = [f for f in _legacy_flags50 if f in _lint_cmd50]
+        check(
+            not _found_legacy50,
+            "Check 50b: package.json `lint` script uses flat-config invocation (no eslintrc-era flags)",
+            "Check 50b: package.json `lint` script still contains legacy ESLint 8.x/eslintrc flags "
+            f"{_found_legacy50} — ESLint 9.x removed these and would exit 2 (config/flag error). "
+            "Flat config is auto-discovered from eslint.config.mjs; remove the legacy flags.",
+        )
+    except (ValueError, KeyError) as _e50:
+        check(
+            False,
+            "Check 50b: package.json `lint` script parseable",
+            f"Check 50b: could not parse package.json scripts to verify flat-config lint invocation: {_e50}",
+        )
+else:
+    check(
+        False,
+        "Check 50b: package.json present for flat-config lint-script verification",
+        "Check 50b: package.json not found — cannot verify the lint script uses flat-config invocation.",
+    )
+check(
+    not (ROOT / ".eslintrc.json").exists(),
+    "Check 50c: legacy .eslintrc.json is absent (fully migrated to flat config)",
+    "Check 50c: .eslintrc.json still exists — the repository migrated to ESLint 9.x flat config "
+    "(eslint.config.mjs), and the EOL eslintrc file should be removed to prevent a regression "
+    "back onto the unsupported format.",
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

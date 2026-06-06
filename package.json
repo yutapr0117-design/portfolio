@@ -5,7 +5,7 @@
   "description": "Dev-tooling manifest for the AI-Driven PM Portfolio. The published site is dependency-free Vanilla JS (Boring Technology); these are CI/dev tools only (lint, CSS lint, E2E). No runtime dependencies. Application code imports nothing from here.",
   "license": "UNLICENSED",
   "scripts": {
-    "lint": "eslint main.js error-suppressor.js karte-init.js theme-init.js aio-guard.js sw.js js/pure-utils.js js/quiz-data.js --no-eslintrc --config .eslintrc.json --env browser --env es2022",
+    "lint": "eslint main.js error-suppressor.js karte-init.js theme-init.js aio-guard.js sw.js js/pure-utils.js js/quiz-data.js",
     "lint:css": "python3 .github/scripts/check_css_stylelint.py",
     "lint:js": "node --check main.js && node --check sw.js && node --check aio-guard.js && node --check error-suppressor.js && node --check theme-init.js && node --check karte-init.js && node --check js/pure-utils.js && node --check js/quiz-data.js",
     "test:e2e": "playwright test --config=playwright.config.cjs --reporter=list",
@@ -14,12 +14,14 @@
     "verify": "npm run check && npm run lint:css && npm run lint && npm run lint:js"
   },
   "devDependencies": {
-    "@playwright/test": "1.55.1",
-    "eslint": "8.57.1",
+    "@eslint/js": "9.39.4",
+    "@playwright/test": "1.60.0",
+    "eslint": "9.39.4",
+    "globals": "16.5.0",
     "http-server": "14.1.1",
-    "stylelint": "16.10.0"
+    "stylelint": "17.12.0"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=20.19.0"
   }
 }

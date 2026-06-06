@@ -54,12 +54,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
           # v80+ CI hygiene: cache npm downloads keyed on
           # package-lock.json so `npm ci` restores from cache on repeat runs.
           cache: 'npm'
@@ -92,7 +92,7 @@ jobs:
           fi
 
       - name: Upload new snapshots as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: playwright-baseline-snapshots-${{ github.run_id }}
           path: e2e/**/*.png
@@ -124,7 +124,7 @@ jobs:
         #     with the CWE-094 fix in the instructions step.
         #   - The action is pinned to a major version and uses the workflow's scoped
         #     token (contents: write + pull-requests: write declared above, nothing more).
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           # Only the generated baseline PNGs should ride in this PR — nothing else
           # in the tree is expected to change during a baseline-generation run.

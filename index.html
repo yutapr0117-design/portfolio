@@ -417,6 +417,17 @@ Version History (current shipped state)
     <!-- LCP最適化: ヒーロー画像の事前読み込み (fetchpriority=high) -->
     <link rel="preload" href="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" as="image" fetchpriority="high" />
 
+    <!-- ESM 依存グラフの並列先読み (modulepreload):
+         main.js は <script type="module"> として読み込まれ、先頭で ./js/pure-utils.js と
+         ./js/quiz-data.js を import する。modulepreload を宣言しておくと、ブラウザは main.js の
+         パース（import 文の発見）を待たずに両葉モジュールを並列フェッチ・パース・コンパイルでき、
+         モジュールグラフの逐次的なウォーターフォールを短縮する（起動と INP に寄与）。
+         挙動は不変（純粋なリソースヒント）。両モジュールは same-origin であり CSP script-src 'self'
+         に準拠する。外部 import・CDN・フレームワーク禁止の Boring Technology 原則とも矛盾しない
+         （対象は自オリジンのローカル ESM 葉モジュールのみ）。 -->
+    <link rel="modulepreload" href="./js/pure-utils.js" />
+    <link rel="modulepreload" href="./js/quiz-data.js" />
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" />
 

@@ -23,16 +23,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository codebase
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js (pinned + npm cache)
         # v80+ CI hygiene: pin the Node runtime explicitly instead of
-        # relying on the runner default, matching the '20' pin already used by both
-        # Playwright workflows. `cache: 'npm'` keys the dependency cache on
-        # package-lock.json, so `npm ci` below restores from cache on repeat runs.
-        uses: actions/setup-node@v4
+        # relying on the runner default, matching the '24' pin used by both
+        # Playwright workflows. Node '24' is the Active LTS (Krypton, EOL
+        # 2026-04-30 for the prior Node 20 line made the '20' pin EOL); '24'
+        # is supported by setup-node@v6 and current ESLint engines. `cache: 'npm'`
+        # keys the dependency cache on package-lock.json, so `npm ci` below
+        # restores from cache on repeat runs.
+        uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'npm'
 
       - name: Install pinned dev dependencies (npm ci)
@@ -384,13 +387,18 @@ jobs:
           if [ -d "js" ] && ls js/*.js 1>/dev/null 2>&1; then
             LINT_TARGET="js/**/*.js $LINT_TARGET"
           fi
-          cp .eslintrc.json /tmp/_eslintrc.json
+          # v80+ flat-config migration: ESLint 8.x reached EOL (2024-10-05) and ESLint 9.x
+          #   removed the legacy --no-eslintrc/--env/--config(eslintrc) flags. The config is
+          #   now eslint.config.mjs (flat config), auto-discovered from the repo root. The
+          #   equivalence of the migration is machine-proven: flat config reproduces the
+          #   pre-migration 8.57.1 baseline exactly (0 errors / 120 warnings, same rule
+          #   breakdown). The vacuous-gate protection below is UNCHANGED in spirit.
           # Capture ESLint's own exit code; do NOT swallow it with `|| true`.
           #   exit 0  → clean
           #   exit 1  → ESLint ran and found problems (errors and/or warnings)
           #   exit >=2 → ESLint failed to execute: config/parse/flag error (BLOCKING)
           set +e
-          npx eslint $LINT_TARGET --no-eslintrc --config /tmp/_eslintrc.json --env browser --env es2022 > /tmp/eslint-output.txt 2>&1
+          npx eslint $LINT_TARGET > /tmp/eslint-output.txt 2>&1
           ESLINT_EXIT=$?
           set -e
           if [ "$ESLINT_EXIT" -ge 2 ]; then
@@ -407,7 +415,10 @@ jobs:
           fi
           echo "::notice::ESLint PASS — 0 errors, $WARN_COUNT advisory warning(s) (no-var/curly on main.js/sw.js, tracked for incremental modernisation; non-blocking)."
           grep -E "warning" /tmp/eslint-output.txt | head -10 || true
-          python3 -c "import json; json.load(open('.eslintrc.json')); print('.eslintrc.json: JSON parse PASS')"
+          # Flat-config sanity: eslint.config.mjs must be syntactically valid ESM.
+          # (Replaces the former `.eslintrc.json` JSON parse check; flat config is
+          #  JavaScript/ESM, not JSON, so we validate it with `node --check`.)
+          node --check eslint.config.mjs && echo "eslint.config.mjs: ESM syntax PASS"
 
       # ── 25. BLOCKING: AI2AI.md コミット単位ドリフト検出 (改善文書a 4.1)
       # 「絶対日付比較」ではなく「今回のコミット(HEAD)単位」で検出する設計に変更。

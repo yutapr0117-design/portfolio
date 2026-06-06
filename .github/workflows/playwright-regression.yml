@@ -48,12 +48,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
           # v80+ CI hygiene: cache npm downloads keyed on
           # package-lock.json so `npm ci` restores from cache on repeat runs.
           cache: 'npm'
@@ -68,7 +68,7 @@ jobs:
 
       - name: Upload test results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: playwright-results
           path: |
@@ -78,7 +78,7 @@ jobs:
 
       - name: Upload snapshot diffs (on failure)
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: playwright-snapshot-diffs
           path: |
