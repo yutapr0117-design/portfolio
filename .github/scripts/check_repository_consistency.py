@@ -163,6 +163,22 @@ authoritative inventory and is kept in sync with the implementation below):
       regression back onto the EOL format). This check converts a silent reversion to the EOL
       linter into an immediate pre-commit error, in the same discover→systematize spirit that
       added Checks 46–49. (BLOCKING)
+  51. Active-runbook Playwright baseline-generation version matches the pin: the Playwright
+      version named in total-check-runbook.md's baseline-generation instruction must equal the
+      @playwright/test pin in package.json. Visual-regression baselines depend on the generating
+      Playwright (Chromium) version, and the operational "generate the baseline with version X"
+      instruction lives in the active runbook in prose — a different place from the pin — so a
+      dependency bump can leave the runbook's version behind (this happened across the
+      1.49.1→1.55.1→1.60.0 bumps, where the runbook kept saying 1.55.1 after the pin moved to
+      1.60.0). A human following a stale runbook would generate the baseline with the wrong engine
+      and produce spurious visual diffs against CI's pinned version. This extracts every concrete
+      Playwright version the active runbook names and requires all of them to equal the pin
+      (vacuously true if it names none, but the pin must be readable). Scope is the active runbook
+      only: the decision records under docs/incident-artifacts/ are append-only history that
+      legitimately preserve the version current at each increment and must NOT be rewritten, and
+      repository-maintainability-map.md keeps the version-evolution narrative as a layer — only the
+      single-source operational runbook is pinned. Same "surface a latent operational failure at
+      pre-commit time" spirit as Check 48 (permission coupling) and Check 29 (baseline linkage). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -1800,6 +1816,66 @@ check(
     "(eslint.config.mjs), and the EOL eslintrc file should be removed to prevent a regression "
     "back onto the unsupported format.",
 )
+
+# ── 51. Active-runbook Playwright baseline-generation version matches the pin (BLOCKING) ──
+# Playwright の視覚回帰 baseline PNG は、それを生成した Playwright（＝同梱 Chromium）の
+# バージョンに依存する。CI（playwright-regression.yml / update-playwright-snapshots.yml）は
+# package-lock.json に固定された @playwright/test を `npm ci` で厳密復元して使うため、baseline は
+# 実質その pin バージョンで生成・比較される。ところが「baseline はどの版で生成すべきか」という
+# *運用指示* は active runbook（total-check-runbook.md §7.4）に自然言語で書かれており、pin
+# （package.json）とは別の場所にある。このため依存近代化で pin を bump したとき、runbook 側の
+# 版数記述だけが取り残されて *ドリフト* しうる。実際 1.49.1→1.55.1→1.60.0 と bump する過程で
+# runbook が「1.55.1 で生成」のまま残った履歴があり、これは人間が誤った版で baseline を生成し
+# CI（pin 版）との間に偽の視覚差分を生む運用事故クラスである。
+#
+# 本チェックは、active runbook が baseline 生成手順で名指しする具体 Playwright 版数（X.Y.Z）を
+# 一つ残らず抽出し、そのすべてが package.json の @playwright/test pin と一致することを BLOCKING で
+# 強制する。runbook が具体版数を一つも名指ししない場合は vacuous に成立する（ただし pin 自体が
+# 読めることは要求）。対象は active runbook のみ——decision 記録（docs/incident-artifacts/*）は
+# 「その increment 時点の事実」を残す append-only な歴史であり後発 bump で遡及修正しない（歴史を
+# 壊さない）ため対象外、repository-maintainability-map.md も版数進化（1.49.1→1.55.1→1.60.0）の
+# 物語を層として保持するため対象外とし、運用上 single-source となる runbook の指示だけを pin に
+# 拘束する。Check 48（baseline コミット経路の権限結合）/ Check 29（baseline 生成リンク）と同じ、
+# latent な運用事故を pre-commit で顕在化させる思想。
+_pkg51 = ROOT / "package.json"
+_runbook51 = ROOT / "docs" / "architecture" / "total-check-runbook.md"
+if _pkg51.is_file() and _runbook51.is_file():
+    try:
+        _pw_pin51 = (
+            json.loads(_pkg51.read_text(encoding="utf-8"))
+            .get("devDependencies", {})
+            .get("@playwright/test", "")
+        )
+        _runbook_text51 = _runbook51.read_text(encoding="utf-8")
+        # active runbook 中の「Playwright」直後に来る 3 部構成バージョン（X.Y.Z）のみを重複なく
+        # 抽出する。半角・全角スペース双方を許容。版数を伴わない「Playwright 視覚回帰」「Playwright
+        # は外部バイナリ依存」等の言及は拾わない（運用版数指示のみを対象化する）。
+        _pw_versions51 = sorted(set(re.findall(r"Playwright[ \u3000]+(\d+\.\d+\.\d+)", _runbook_text51)))
+        _mismatched51 = [v for v in _pw_versions51 if v != _pw_pin51]
+        check(
+            bool(_pw_pin51) and not _mismatched51,
+            "Check 51: total-check-runbook.md の baseline 生成 Playwright 版数 "
+            f"{_pw_versions51 or '（具体版数の名指しなし）'} が package.json の @playwright/test "
+            f"pin（{_pw_pin51}）と一致",
+            "Check 51: total-check-runbook.md が baseline 生成版数として "
+            f"{_mismatched51} を名指ししているが、package.json の @playwright/test pin は "
+            f"{_pw_pin51!r} である。視覚回帰 baseline は生成 Playwright（Chromium）版に依存するため、"
+            "active runbook の生成版数指示は pin と一致させること（pin を bump したら runbook も同期）。"
+            "decision 記録は歴史として版数差を残してよいが、active runbook の運用指示は pin に追従する。",
+        )
+    except (ValueError, KeyError) as _e51:
+        check(
+            False,
+            "Check 51: package.json/runbook を版数整合検査のため読めた",
+            f"Check 51: Playwright 版数整合の検査中に package.json/runbook の解析に失敗した: {_e51}",
+        )
+else:
+    check(
+        False,
+        "Check 51: 版数整合検査に必要な package.json/runbook が存在",
+        "Check 51: package.json または docs/architecture/total-check-runbook.md が見つからず、"
+        "baseline 生成 Playwright 版数と @playwright/test pin の一致を検証できない。",
+    )
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

@@ -1,9 +1,9 @@
 # repository-maintainability-map.md
 
 ```
-Last-Updated  : 2026-06-02
+Last-Updated  : 2026-06-07
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
-Track         : v80+ staged major update (Phase 2 — dev-ergonomics-and-lint-coverage increment applied)
+Track         : v80+ staged major update (Phase 2 — baseline-gate-doc-hardening increment applied)
 Canonical-Ref : AI2AI.md (canonical) / llms-full.txt (ground truth)
 Status        : Living document — update when layer structure or sync relationships change
 ```
@@ -20,7 +20,7 @@ Status        : Living document — update when layer structure or sync relation
 |---|---|---|---|
 | **AIO正本層** | `llms-full.txt`（ground truth）, `AI2AI.md`（canonical handoff）, `llms.txt` + 3 alias, `.well-known/aio-manifest.json` | AI crawler / LLM 向けの権威ある真実源と pipeline 引き継ぎ | **C6**: エンティティ/権威текスト・JSON-LDの本文変更はオーケストレーター承認必須。変更後は digest 再生成必須 |
 | **アプリ層** | `index.html`, `main.js`, `style.css`, `sw.js`, `aio-guard.js`, `error-suppressor.js`, `karte-init.js`, `theme-init.js` | 公開SPA本体 | **C1/C2/C3**: Vanilla JS / IIFE / ErrorBoundary。外部FW禁止。`main.js` は `main-js-extraction-map.md` 参照 |
-| **検証層** | `.github/scripts/check_repository_consistency.py`, `check_aio_digests.py`, `check_binary_aio_metadata.py`, `check_css_stylelint.py`, `aio_monitoring.py`, `update_aio_digests.py`, `e2e/portfolio.spec.js`, `playwright.config.cjs`, `.github/workflows/*` | 整合性・回帰・AIO digest・lint の自動検査 | 検査を緩める変更は要判断。新規 invariant は Check 番号を付けて追記。canary トークンを編集する場合は published 面（`llms*`）と monitor 面（`aio_monitoring.py` / `check_public_deployment_freshness.py`）を同一文字列に保つこと（Check 44）。チェックを追加・採番変更する場合は docstring インベントリと `# ── N.` セクション見出しの両方を同時更新すること（Check 45 が両者の一致を BLOCKING で強制）。`package.json` の lint スクリプト（`lint`/`lint:js`）の JS 対象は同一集合かつディスク上の root ∪ js/ の実体と一致させること（Check 46）。`main.js` が `js/` 配下のローカル ESM モジュールから import する名前は、各モジュールの export と過不足なく一致させ、各モジュールは葉（import ゼロ）に保つこと（Check 47）。`update-playwright-snapshots.yml` が PR 作成ステップ（baseline を PR でコミット）を持つ限り、`contents: write` と `pull-requests: write` の両権限を宣言すること（Check 48）。`index.html` の JSON-LD で Person.worksFor が組織を参照する場合、その参照先 @id（OrganizationRole 経由のネストを含む）と同一 @graph 内の Organization ノードの @id を一致させ、宙吊り参照を作らないこと（Check 49）。ESLint は 9.x flat config（`eslint.config.mjs`）で運用し、`eslint.config.mjs` を残し・`package.json` の `lint` から旧 eslintrc 系フラグ（`--no-eslintrc`/`--config .eslintrc.json`/`--env`）を排し・旧 `.eslintrc.json` を置かないこと（Check 50。EOL の 8.x/eslintrc への逆戻りと vacuous-gate 再発の防止） |
+| **検証層** | `.github/scripts/check_repository_consistency.py`, `check_aio_digests.py`, `check_binary_aio_metadata.py`, `check_css_stylelint.py`, `aio_monitoring.py`, `update_aio_digests.py`, `e2e/portfolio.spec.js`, `playwright.config.cjs`, `.github/workflows/*` | 整合性・回帰・AIO digest・lint の自動検査 | 検査を緩める変更は要判断。新規 invariant は Check 番号を付けて追記。canary トークンを編集する場合は published 面（`llms*`）と monitor 面（`aio_monitoring.py` / `check_public_deployment_freshness.py`）を同一文字列に保つこと（Check 44）。チェックを追加・採番変更する場合は docstring インベントリと `# ── N.` セクション見出しの両方を同時更新すること（Check 45 が両者の一致を BLOCKING で強制）。`package.json` の lint スクリプト（`lint`/`lint:js`）の JS 対象は同一集合かつディスク上の root ∪ js/ の実体と一致させること（Check 46）。`main.js` が `js/` 配下のローカル ESM モジュールから import する名前は、各モジュールの export と過不足なく一致させ、各モジュールは葉（import ゼロ）に保つこと（Check 47）。`update-playwright-snapshots.yml` が PR 作成ステップ（baseline を PR でコミット）を持つ限り、`contents: write` と `pull-requests: write` の両権限を宣言すること（Check 48）。`index.html` の JSON-LD で Person.worksFor が組織を参照する場合、その参照先 @id（OrganizationRole 経由のネストを含む）と同一 @graph 内の Organization ノードの @id を一致させ、宙吊り参照を作らないこと（Check 49）。ESLint は 9.x flat config（`eslint.config.mjs`）で運用し、`eslint.config.mjs` を残し・`package.json` の `lint` から旧 eslintrc 系フラグ（`--no-eslintrc`/`--config .eslintrc.json`/`--env`）を排し・旧 `.eslintrc.json` を置かないこと（Check 50。EOL の 8.x/eslintrc への逆戻りと vacuous-gate 再発の防止）。active runbook（`total-check-runbook.md`）の Playwright baseline 生成手順が名指しする Playwright 版数は `package.json` の `@playwright/test` pin と一致させること（Check 51。CI の比較版と生成版がずれると内容同一でも偽の視覚差分が出るため・BLOCKING。decision 記録・extraction-map 等の歴史層は対象外） |
 | **証跡層** | `docs/incident-artifacts/`, `docs/session-records/`, `docs/architecture/`, `docs/evidence/`, `Claude2Claude.md`, `ChatGPT2ChatGPT.md` | 意思決定・セッション履歴・実装/解析証跡 | `Claude2Claude.md` / `ChatGPT2ChatGPT.md` / `docs/evidence/*` / `docs/session-records/**` は aio-manifest に SHA 登録済み → 変更後 digest 再生成必須 |
 | **バイナリ層** | `yuta-yokoi-ai-pm-orchestration-system.webp`（XMP）, `yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3`（ID3v2.4） | AIO メタデータ埋込済み資産 | **原則変更しない**（v73 asset baseline policy）。再エンコードで XMP/ID3 が消えると `check_binary_aio_metadata.py` が赤化 |
 | **配信/設定層** | `robots.txt`, `sitemap.xml`, `.well-known/*`, `.nojekyll`, `.gitattributes`, `jsconfig.json`, `.eslintrc.json`, `.stylelintrc.json`, `googlea7059bedc6fe8bdc.html` | クロール制御・GitHub Pages 配信・lint 設定・GSC | `.gitattributes` の binary 指定はバイナリ層保護に必須。GSC ファイルはトークン1行のみ |
@@ -89,9 +89,11 @@ manifest 登録ファイル: `llms.txt` / `llms-full.txt` / `AI2AI.md` / webp / 
 - `http-server`: **14.1.1**
 - `stylelint`: **16.10.0**
 
+> **⚠️ superseded（dev-tooling 版数・本サブセクションおよび Phase 2-B の版数記述）:** 上記 dev-tooling 版数（`@playwright/test` 1.55.1 / `eslint` 8.57.1 / `stylelint` 16.10.0）は当該 Phase 2-A／CI 衛生 increment 時点の記録である。その後の **dependency-modernization increment（本ファイル「依存近代化（外部調査ベース）」changelog §392–§394 参照）** で **`@playwright/test`→1.60.0 ／ `eslint`→9.39.4（flat config 移行・`.eslintrc.json` 廃止）／ `stylelint`→17.12.0** へ更新済みであり、**現行 lock 実体（`package-lock.json`）はこれら新版**である。本サブセクションの旧版数・直後 §94 の「1.60.0 不採用」注記・Phase 2-B §104 の「flat config 移行は deferred」記述は、いずれも当該 increment 時点の歴史として保持する（append-only）。**現行値は changelog（§392–§394）側が正であり**、§94 が掲げる「版数は lock の実体に追従する」原則そのものが、現行 lock 実体（1.60.0／9.39.4／17.12.0）への追従を要求している。Playwright 版数の pin 整合は Check 51 が BLOCKING で機械強制する。
+
 workflow は `npm install --no-save …` / `npm install -D …` の broad install を撤去し、`npm ci` + ローカルバイナリ（`npx playwright` / `eslint` / `stylelint`）へ移行済み。Playwright のブラウザバイナリは引き続き `npx playwright install --with-deps chromium`。`package-lock.json` は `npm install --save-exact` / `npm ci` で生成したもののみコミット（手書き禁止）。
 
-**注:** 旧計画に記載のあった `@playwright/test 1.60.0` は採用していない。実際に lock された baseline は 1.49.1 で、CI 衛生 increment（下記）の `npm audit` 解消のため **1.55.1** へ minor bump した。ドキュメントの版数は lock の実体に追従する（推測の計画値を残さない）。
+**注:** 旧計画に記載のあった `@playwright/test 1.60.0` は採用していない。実際に lock された baseline は 1.49.1 で、CI 衛生 increment（下記）の `npm audit` 解消のため **1.55.1** へ minor bump した。ドキュメントの版数は lock の実体に追従する（推測の計画値を残さない）。**（※ superseded: この「1.60.0 不採用」は当 increment 時点の判断であり、後続の dependency-modernization increment §394 で 1.60.0 を実 lock として採用済み。直前の superseded バナー参照。）**
 
 ### Phase 2-B: ESLint ゲートの実効化 — **根本原因は Session #18 で解消済み（残りは lint 負債の解消方針のみ）**
 
@@ -101,7 +103,7 @@ workflow は `npm install --no-save …` / `npm install -D …` の broad instal
 
 - **`sw.js` を `overrides` から除外済み（CI 衛生 increment）:** `sw.js` は warn 級降格が不要なほど clean なため、`.eslintrc.json` overrides 対象を `["main.js"]` のみへ縮小し、`sw.js` を error 級ゲートへ昇格した（clean なので緑のまま、かつ将来の退行を error で捕捉）。
 - **BLOCKING 化の残作業は `main.js` のみ:** 残る 120 warnings を解消（`var`→`let/const`、保護領域内の `if` 単文の波括弧、shadow 変数のリネーム）すれば `main.js` も overrides から外せる。ただし **baseline 未確立下では大規模 trivial diff を避ける**（差分が巨大化し、視覚回帰 baseline 未確立では退行検出不能）。`main-js-extraction-map.md` の Stage 進行に合わせ、論理ブロック単位で段階解消する。
-- 代替（flat config 移行＝`eslint.config.js` / ESLint 9 系）は変更量が大きく、現 pin（8.57.1）で十分機能しているため deferred。
+- 代替（flat config 移行＝`eslint.config.js` / ESLint 9 系）は変更量が大きく、現 pin（8.57.1）で十分機能しているため deferred。**（※ superseded: この deferred 判断は後続の dependency-modernization increment §392 で覆り、ESLint 9.x flat config への移行は完了済み（移行前後で 0 errors / 120 warnings・ルール別内訳まで差分ゼロを機械的に証明）。Phase 2-A の superseded バナー参照。）**
 
 **baseline 前は大規模 trivial diff を避ける。** ADVISORY 件数（120）が CI ログに常時表示されるため、負債の増減は可視。`main.js` の BLOCKING 昇格は視覚回帰 baseline 確立後に段階実施するのが安全。
 
@@ -400,6 +402,25 @@ Check 49 は JSON-LD の **worksFor ↔ Organization 参照整合（構成整合
 この increment は AIO 正本層（`llms*` / `AI2AI.md` / `.well-known/*` / digest / `sitemap.xml` / `robots.txt` の本文）と binary を 1 バイトも変更しておらず、digest 再生成は不要。`main.js`・`style.css` も不変（`index.html` は modulepreload 2 行の追加のみで digest 非対象）。`npm run verify` は exit 0（50 checks・all invariants hold・AIO digest passed・binary passed・Stylelint PASS・ESLint 0 errors / 120 warnings）。`npm ci` でのロックファイル厳密復元・脆弱性 0 も確認済み。
 
 **Not possible（本 increment・捏造禁止）:** ESLint 10.x（eslintrc 完全削除）への即時移行は今回見送り（9.x で flat config を確立し検証可能な移行経路を取る判断。10.x は将来段階）/ Playwright baseline の実生成（サンドボックスは Chromium DL 遮断のため GitHub Actions dispatch→PR→人間 merge が唯一の経路・workflow 準備は完了）/ 公開 Pages への実反映（人間/CI の領分）。
+
+### baseline-gate-doc-hardening increment（v80+ — Playwright 版数整合の機械強制＋Stage 4 ゲート明文化＋検証層文書ドリフト是正／本コミットで適用）
+
+dependency-modernization increment が確定した後の、受領現物（最新コミット ZIP）に対する網羅的分析で発見・整備した非破壊改善である。依頼は (A) `プロンプト.md`／`改善文書.md` の改善項目（案A：公開反映観測の強化／案C：Stage 4 前ゲートの文書硬化／案D：Playwright baseline 運用の固定。案B＝ESLint warning 低リスク削減は §3.4 の通り安全部分が前 increment で実施済みで、残余は保護領域内か baseline ゲート対象のため本 increment では `main.js` を触らない）と、(B) Claude 自身が発見した検証層・文書のドリフト是正（後述）である。これまでの increment と同じく **AIO 正本層（`llms-full.txt` / `AI2AI.md` / `llms*` alias / `.well-known/*` / digest / `sitemap.xml` / `robots.txt` の本文）は 1 バイトも変更しておらず**、digest 再生成も行わない。`main.js`・`style.css`・`index.html`・binary も不変で、lint 件数（0 errors / 120 warnings、内訳 `curly`:46 / `no-var`:64 / `no-shadow`:10）も不変である。本 increment は検証層・証跡層・アーキテクチャ文書層に閉じる。詳細な意思決定と発見項目の全量は `docs/incident-artifacts/improvement-notes-claude-v80-phase2-baseline-gate-doc-hardening.md`。
+
+| 変更 | ファイル | 内容 | 区分 |
+|---|---|---|---|
+| Check 51 新設（active runbook の Playwright baseline 生成版数 ↔ pin 整合・BLOCKING） | `.github/scripts/check_repository_consistency.py` | `total-check-runbook.md` の baseline 生成手順が名指しする Playwright 版数（`Playwright <x.y.z>`）を全抽出し、`package.json` の `@playwright/test` pin と全一致を検証。版数名指しが無い場合のみ vacuous 成立（pin を読めること自体は要求）。decision 記録・extraction-map 等の歴史層は対象外。docstring インベントリと `# ── N.` 見出しを Check 45 準拠で同時追記（1..51 連番・bijection 緑） | 検証層（非破壊） |
+| runbook §7.4 Playwright 版数ドリフト是正（Claude 発見 B） | `docs/architecture/total-check-runbook.md` | baseline 生成手順の版数記述「1.55.1」→「1.60.0」（現 pin と一致）。誤版生成は CI（1.60.0）と内容同一でも偽の視覚差分を生む運用事故クラスの bug。過去 decision 記録の `1.55.1` は append-only な歴史として遡及修正しない旨を明記。Check 51 がこの一致を以後 BLOCKING で機械強制 | 文書（実害ドリフト是正） |
+| runbook §9 実測ドリフト是正（Claude 発見 B） | `docs/architecture/total-check-runbook.md` | §9 実測表を Check 51 込みの実測値へ：consistency `OK:` 行 106→**108**・`npm run check` 全体 109→**110**・Check 総数 50→**51**。旧「106」「内部参照 107」は dependency-modernization increment 時の片側同期漏れドリフト。§0.1「50 個」→「51 個」・§3 Layer 2 表「107/合計 109」→「108/合計 110」も同期 | 文書（実測同期） |
+| extraction-map §3.5 新設（案C／案D） | `docs/architecture/main-js-extraction-map.md` | Stage 4 候補（Toast/DiagnosticsRail/Theme/BGM/ContactCTA ＝低〜中、Safe Storage/Store/State/Meta ＝中〜高、Router/Proxy/EffectRails/BindingRegistry/ActionDelegator/Renderer/drawer/ErrorBoundary/AIDK Kernel ＝高・後回し）を 6 軸（状態/副作用/永続化/DOM 自動更新/タイミング/保護領域）で危険度別 3 層に固定し「baseline 前着手可否」を二値対応づけ。Playwright baseline 取得状況欄（未取得・取得経路は Actions dispatch→PR→merge が唯一・生成は pin 1.60.0・Check 51 が版一致を強制）と Stage 5 ゲート再掲を追加 | 文書（ゲート硬化） |
+| maintainability-map dev-deps superseded（Claude 発見 B） | `docs/architecture/repository-maintainability-map.md`（本ファイル） | Phase 2-A dev-deps 版数（`@playwright/test` 1.55.1 / `eslint` 8.57.1 / `stylelint` 16.10.0）と §94「1.60.0 不採用」注記・§104「flat config 移行は deferred」記述が、現行 lock 実体（1.60.0 / 9.39.4 flat config / 17.12.0）に対し陳腐化していた。superseded バナー＋ローカルマーカーで現行値と §392–§394 へ誘導（歴史は append-only で全保持）。§94 自身の「版数は lock の実体に追従」原則の充足 | 文書（superseded 明示） |
+| freshness observer に `--markdown` モード追加（案A） | `.github/scripts/check_public_deployment_freshness.py` | 観測結果を review ログ貼付用 Markdown ブロック（観測表＋notes＋rollback 禁止リマインダ）で出力する `--markdown` を追加。stdlib のみ・常に exit 0（非ブロッキング契約不変）・既存 `--json`／既定テキストは後方互換。canary は presence boolean のみ出力しトークンリテラルは複製しない（Check 44 の唯一リテラル定義 L61 不変） | 検証層（観測補助） |
+| freshness-review に観測テンプレ＋分類補強＋新観測ログ（案A／P2） | `docs/evidence/public-deployment-freshness-review.md` | 再現可能な観測手順テンプレ（`--markdown`／`--json` 言及）、fresh/stale-or-divergent/unobservable 分類の補強と「stale/unobservable は観測であり rollback の理由にしない」禁止の強化、2026-06-07 の新観測ログ（HTTP 403＝unobservable・verify 緑・newest-first）を追記 | 証跡層（観測記録） |
+| 文書整合 | `total-check-runbook.md` / `main-js-extraction-map.md` / `repository-maintainability-map.md`（本ファイル） | 本ファイル検証層セルに Check 51 追記・Last-Updated 06-02→06-07・本 changelog 追加。extraction-map Last-Updated 06-04→06-07。runbook は上記 §7.4/§9/§0.1/§3 を同期 | 文書を実装と実測に同期 |
+
+この increment は AIO 正本層（`llms*` / `AI2AI.md` / `.well-known/*` / digest / `sitemap.xml` / `robots.txt` の本文）と binary を 1 バイトも変更しておらず、digest 再生成は不要。`main.js`・`style.css`・`index.html` も不変。`npm run verify` は exit 0（**51 checks**・all invariants hold・AIO digest passed・binary passed・Stylelint PASS・ESLint 0 errors / 120 warnings）。`npm ci` でのロックファイル厳密復元・脆弱性 0 も確認済み。append-only 履歴（過去 increment の changelog の数値・版数）は書き換えていない。
+
+**Not possible（本 increment・捏造禁止／追加分）:** Playwright baseline の実生成・公開 Pages への実反映・`confirmed_citation_events` の計上（いずれも人間/CI/外部の領分。現時点 0 件であり捏造しない）。案B の `main.js` warning 追加削減（残余は保護領域内＝Check 43 byte-identity 違反、または baseline ゲート対象のタイミング依存隣接＝オーナー方針違反のため、安全に削れる低リスク件はゼロ。安全部分は §3.4 の通り前 increment で実施済み）。
 
 
 

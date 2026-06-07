@@ -33,6 +33,7 @@ USAGE
     python3 .github/scripts/check_public_deployment_freshness.py
     python3 .github/scripts/check_public_deployment_freshness.py --url <public-llms.txt URL>
     python3 .github/scripts/check_public_deployment_freshness.py --json   # machine-readable
+    python3 .github/scripts/check_public_deployment_freshness.py --markdown  # paste into the review log
 
 EXIT CODE
 ---------
@@ -184,12 +185,46 @@ def main() -> int:
     )
     parser.add_argument("--url", default=DEFAULT_PUBLIC_URL, help="Public llms.txt URL to probe.")
     parser.add_argument("--json", action="store_true", help="Emit machine-readable JSON.")
+    parser.add_argument(
+        "--markdown",
+        action="store_true",
+        help="Emit a Markdown observation block for pasting into the freshness review log.",
+    )
     args = parser.parse_args()
 
     obs = observe(args.url)
 
     if args.json:
         print(json.dumps(obs, ensure_ascii=False, indent=2))
+    elif args.markdown:
+        # A self-contained Markdown observation block, ready to paste under the
+        # "Observation log" section of docs/evidence/public-deployment-freshness-review.md.
+        # NOTE: only the canary PRESENCE booleans are emitted, never the token literal,
+        # so the review log never becomes a second published copy of the canary.
+        md_lines = [
+            f"### Observation — {obs['observed_at']}",
+            "",
+            "| field | value |",
+            "|---|---|",
+            f"| `observed_at` | {obs['observed_at']} |",
+            f"| `public_url` | {obs['public_url']} |",
+            f"| `source_of_truth` | {obs['source_of_truth']} |",
+            f"| `expected_last_updated` | {obs['expected_last_updated']} (from working-copy llms.txt) |",
+            f"| `fetch_ok` | {obs['fetch_ok']} |",
+            f"| `public_last_updated` | {obs['public_last_updated']} |",
+            f"| `canary_present` (expected / public) | {obs['expected_canary_present']} / {obs['public_canary_present']} |",
+            f"| `classification` | **{obs['classification']}** |",
+            "",
+            "Notes:",
+        ]
+        for note in obs["notes"]:
+            md_lines.append(f"- {note}")
+        md_lines.append("")
+        md_lines.append(
+            "Reminder: the working copy is the source of truth. A stale or unobservable "
+            "public surface is an observation to record, never a reason to roll the repository back."
+        )
+        print("\n".join(md_lines))
     else:
         print("Public deployment freshness — OBSERVATION (non-blocking, always exit 0)")
         print(f"  observed_at           : {obs['observed_at']}")

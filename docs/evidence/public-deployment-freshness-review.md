@@ -1,7 +1,7 @@
 # public-deployment-freshness-review.md
 
 ```
-Last-Updated  : 2026-06-02
+Last-Updated  : 2026-06-07
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
 Track         : v80+ staged major update (public-deployment-freshness observation layer)
 Role          : Observational evidence (non-canonical, NON-BLOCKING). Not in the digest
@@ -113,7 +113,11 @@ The non-blocking observer `\.github/scripts/check_public_deployment_freshness.py
 subset of step 3: it fetches the public `llms.txt`, derives the expected `Last-Updated` and canary
 from the working-copy `llms.txt` (so expectations stay honest as the source of truth evolves), and
 classifies the result as `fresh`, `stale-or-divergent`, or `unobservable`. It **always exits 0** —
-it is evidence, not a gate.
+it is evidence, not a gate. It supports `--json` for a machine-readable record and `--markdown`
+to emit an observation block (a small table plus notes and the rollback-prohibition reminder)
+that can be pasted verbatim into §6's observation log; the `--markdown` block reports the canary
+only as a presence boolean (`True`/`False`), never the token literal, so the log never becomes a
+second published copy of the canary.
 
 ---
 
@@ -151,6 +155,57 @@ warning-only workflow whose failure does not block other pipelines — matching 
 ---
 
 ## 6. Observation log (append newest first)
+
+**Recording template.** Append each new observation at the **top** (newest first). The fastest honest
+way to produce one is `python3 .github/scripts/check_public_deployment_freshness.py --markdown`, which
+emits a ready-to-paste block. A complete entry records: (1) a dated `###` heading naming the increment
+and the observed classification, (2) the observed `classification` and the authoritative reason (the
+exact HTTP status or error), (3) the recorded facts about the source of truth — working-copy `llms.txt`
+`Last-Updated`, canary presence, the four-alias byte-identity, and application version, and (4) the local
+`npm run verify` result. A `stale-or-divergent` or `unobservable` result is **recorded here and actioned
+nowhere**: per §0 and §5 it is never a reason to roll the repository back, and a `--markdown` block reports
+the canary only as a presence boolean so the log never becomes a second published copy of the token.
+
+### 2026-06-07 — baseline-gate-doc-hardening increment; public endpoint re-observed as `unobservable` (HTTP 403)
+
+Re-running the observer from the working-copy verification environment produced exit 0 with classification
+`unobservable`; the authoritative recorded reason is **HTTP 403 Forbidden on the public endpoint** (the
+egress allowlist used by this environment does not permit outbound fetches to `*.github.io`). This is the
+same category as the 2026-06-05 entry and, per §0/§1/§5, is **never** a reason to roll the repository back —
+it is recorded as an observation only. The block below was produced verbatim by `--markdown` (canary shown
+as a presence boolean, never the literal):
+
+```text
+### Observation — 2026-06-07T08:56:37Z
+
+| field | value |
+|---|---|
+| `observed_at` | 2026-06-07T08:56:37Z |
+| `public_url` | https://yutapr0117-design.github.io/portfolio/llms.txt |
+| `source_of_truth` | working-copy llms.txt |
+| `expected_last_updated` | 2026-06-02 (from working-copy llms.txt) |
+| `fetch_ok` | False |
+| `public_last_updated` | None |
+| `canary_present` (expected / public) | True / None |
+| `classification` | **unobservable** |
+
+Notes:
+- Could not fetch the public endpoint (HTTP 403 Forbidden). This is an observation, not a repository defect; the working copy remains the source of truth.
+```
+
+Recorded facts about the source of truth at the time of this entry:
+
+- `llms.txt` declares `Last-Updated: 2026-06-02` and contains the provenance canary (count 1); the four
+  `llms` aliases remain byte-identical. The expected public `Last-Updated` is therefore `2026-06-02`
+  (`fetch_ok: False`, public `Last-Updated: None`, canary expected/public: `True`/`None`). **This increment
+  did not touch the AIO canonical layer**, so the expected public surface is unchanged from the prior entry
+  (no digest regeneration; `llms*` / `AI2AI.md` / `.well-known/*` byte-identical).
+- Application version is `v74` across every authoritative location (unchanged by this increment: no version
+  bump — `main.js` `SITE_CONFIG.VERSION` untouched, Playwright visual-regression baseline not yet acquired).
+- Full local verification was green: `npm ci --ignore-scripts` (0 vulnerabilities), `npm run verify` exit 0
+  (**51 checks** — including the newly added Check 51 — all invariants hold; AIO digest passed; binary
+  metadata passed), `npm run lint:css` (PASS), all `node --check`, and `npm run lint` — **0 errors /
+  120 warnings** (unchanged; `main.js` was not modified in this increment).
 
 ### 2026-06-05 — lint-hygiene increment; public endpoint re-observed as `unobservable` (HTTP 403)
 
