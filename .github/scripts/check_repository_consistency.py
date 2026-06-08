@@ -179,6 +179,19 @@ authoritative inventory and is kept in sync with the implementation below):
       repository-maintainability-map.md keeps the version-evolution narrative as a layer — only the
       single-source operational runbook is pinned. Same "surface a latent operational failure at
       pre-commit time" spirit as Check 48 (permission coupling) and Check 29 (baseline linkage). (BLOCKING)
+  52. File-size budget advisory: each file listed in the machine-readable BUDGET-DATA block of
+      docs/architecture/file-size-budget.md whose budget is a concrete integer must have a current
+      line count at or below that budget. This is the bloat-governance counterpart to the staged
+      split: main.js carries a strong-advisory ceiling so its growth is actively discouraged, while
+      protected AIO canon and archive/evidence files are recorded with budget "-" (no ceiling)
+      because line growth there is itself valuable (digests, session records, incident history). The
+      budget lives single-source in file-size-budget.md (as-decided) and this check only parses and
+      compares against reality — it never hardcodes a line number, the same "documentation must match
+      reality" philosophy as Check 44/45/47, applied to the line-budget domain. Deliberately
+      NON-BLOCKING (ADVISORY): an over-budget file raises a warning a human reviews, never a CI
+      failure, so a justified increase (a new safety comment, a new archive entry) is never blocked;
+      main.js is the file whose advisory the owner treats as near-hard. A missing or unparseable
+      budget file is itself a (non-blocking) advisory. (ADVISORY)
 
 Exit codes:
   0 — all checks passed
@@ -1530,9 +1543,16 @@ else:
 # behaviour, which node --check and the browser cover).
 _main_src47 = (ROOT / "main.js").read_text(encoding="utf-8")
 # Each tuple: (import specifier as written in main.js, module file path on disk).
+# v80+ Stage 3-b: the single js/quiz-data.js was split into four domain leaf modules under
+# js/quiz/, each exporting exactly one dataset. The check loops over all module specs, so the
+# per-module import/export bijection (47a/47b) and leaf-ness (47c) now cover all four — adding
+# or removing a quiz module without wiring main.js's import would fail this check immediately.
 _modules47 = [
-    ("./js/pure-utils.js", ROOT / "js" / "pure-utils.js"),
-    ("./js/quiz-data.js",  ROOT / "js" / "quiz-data.js"),
+    ("./js/pure-utils.js",                  ROOT / "js" / "pure-utils.js"),
+    ("./js/quiz/architecture-quiz-data.js", ROOT / "js" / "quiz" / "architecture-quiz-data.js"),
+    ("./js/quiz/aws-quiz-data.js",          ROOT / "js" / "quiz" / "aws-quiz-data.js"),
+    ("./js/quiz/pm-quiz-data.js",           ROOT / "js" / "quiz" / "pm-quiz-data.js"),
+    ("./js/quiz/quality-quiz-data.js",      ROOT / "js" / "quiz" / "quality-quiz-data.js"),
 ]
 for _spec47, _mpath47 in _modules47:
     if not _mpath47.exists():
@@ -1875,6 +1895,81 @@ else:
         "Check 51: 版数整合検査に必要な package.json/runbook が存在",
         "Check 51: package.json または docs/architecture/total-check-runbook.md が見つからず、"
         "baseline 生成 Playwright 版数と @playwright/test pin の一致を検証できない。",
+    )
+
+# ── 52. File-size budget advisory (ADVISORY / non-blocking) ──────────────────
+# Bloat-governance counterpart to the v80+ staged split. We parse the machine-readable
+# BUDGET-DATA block embedded in docs/architecture/file-size-budget.md and, for every file
+# whose budget is a concrete integer, assert its current line count is at or below that
+# budget. The budget is single-source in that doc (as-decided by the owner); this check only
+# reads and compares — it never hardcodes a line number, mirroring the "documentation must
+# match reality" philosophy of Check 44/45/47 but applied to line budgets. It is deliberately
+# NON-BLOCKING: protected AIO canon and archive/evidence files are recorded with budget "-"
+# (no ceiling) because growth there is itself valuable, and even a concrete over-budget only
+# raises a warning a human reviews — never a CI failure that would block a justified increase
+# (a new safety comment, a new archive entry). main.js carries a strong-advisory ceiling the
+# owner treats as near-hard, so its growth is the one this check most actively surfaces.
+# Line-count convention: number of "\n" + 1, matching `wc -l`+1 for files without a trailing
+# newline and `wc -l` for files that end in a newline (we count lines, not newline characters).
+_budget_doc52 = ROOT / "docs" / "architecture" / "file-size-budget.md"
+if _budget_doc52.exists():
+    _btext52 = _budget_doc52.read_text(encoding="utf-8")
+    # The budget block is an HTML comment so it never renders in the Markdown, yet stays
+    # diff-visible and parseable. Each data line: "<repo-relative-path> | <budget|-> | <kind>".
+    _bm52 = re.search(r"<!--\s*BUDGET-DATA(.*?)-->", _btext52, re.DOTALL)
+    if _bm52:
+        _over52: list[str] = []
+        _missing52: list[str] = []
+        _checked52 = 0
+        for _raw52 in _bm52.group(1).strip().split("\n"):
+            _line52 = _raw52.strip()
+            if not _line52 or _line52.startswith("#"):
+                continue  # allow blank lines and "# ..." comments inside the block
+            _parts52 = [p.strip() for p in _line52.split("|")]
+            if len(_parts52) < 3:
+                continue
+            _path52, _limit52, _kind52 = _parts52[0], _parts52[1], _parts52[2]
+            if _limit52 in ("-", "none", "n/a", ""):
+                continue  # protected / archive-growth-ok rows carry no ceiling
+            try:
+                _limit_n52 = int(_limit52)
+            except ValueError:
+                continue
+            _fp52 = ROOT / _path52
+            if not _fp52.exists():
+                _missing52.append(_path52)
+                continue
+            _actual52 = _fp52.read_text(encoding="utf-8").count("\n") + 1
+            _checked52 += 1
+            if _actual52 > _limit_n52:
+                _over52.append(f"{_path52} ({_actual52} lines > budget {_limit_n52}; {_kind52})")
+        # 52 — advisory only (blocking=False): warns but never fails CI.
+        _msg_fail52_parts = []
+        if _over52:
+            _msg_fail52_parts.append("over advisory line budget: " + "; ".join(_over52))
+        if _missing52:
+            _msg_fail52_parts.append("budgeted file(s) missing on disk: " + ", ".join(_missing52))
+        check(
+            not _over52 and not _missing52,
+            f"Check 52: all {_checked52} budgeted files are within their advisory line budget "
+            "(file-size-budget.md)",
+            "Check 52 (ADVISORY): " + " | ".join(_msg_fail52_parts)
+            + " — review docs/architecture/file-size-budget.md (advisory, not blocking)",
+            blocking=False,
+        )
+    else:
+        check(
+            False, "",
+            "Check 52 (ADVISORY): docs/architecture/file-size-budget.md has no parseable "
+            "<!-- BUDGET-DATA ... --> block (advisory, not blocking)",
+            blocking=False,
+        )
+else:
+    check(
+        False, "",
+        "Check 52 (ADVISORY): docs/architecture/file-size-budget.md is missing — the "
+        "file-size budget is not recorded (advisory, not blocking)",
+        blocking=False,
     )
 
 # ── Result ────────────────────────────────────────────────────────────────────

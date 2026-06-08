@@ -45,12 +45,16 @@
             deepClone,     // オブジェクト/配列/Date の深いコピー
             yieldToMain    // INP 改善のためメインスレッドを解放（scheduler.yield 等）
         } from './js/pure-utils.js';
-        import {
-            awsQuizData,          // AWS 問題集データ（静的）
-            pmQuizData,           // PM 問題集データ（静的）
-            qualityQuizData,      // 品質・プロセス問題集データ（静的）
-            architectureQuizData  // v29 意思決定問題集データ（静的）
-        } from './js/quiz-data.js';
+        // v80+ Stage 3-b: 静的クイズデータ 4 つをドメイン別の葉モジュールへ細分化し直接 import する
+        //   （Stage 3 の js/quiz-data.js 単一ファイルを AWS / PM / 品質 / 設計判断の 4 ファイルへ分割）。
+        //   aggregator は葉契約（Check 47c）を崩すため不採用。詳細は docs/architecture/main-js-extraction-map.md §3.6。
+        //   純データゆえ挙動不変。import/export bijection と葉性は Check 47 が複数モジュールをループ検査して強制。
+        //   （各 import は行末コメントを付けない＝ Check 43d の import 連結検出が確実に全 import を消費できるよう、
+        //    付帯説明は各葉モジュールの fileoverview と上記コメントへ集約する。）
+        import { awsQuizData } from './js/quiz/aws-quiz-data.js';
+        import { pmQuizData } from './js/quiz/pm-quiz-data.js';
+        import { qualityQuizData } from './js/quiz/quality-quiz-data.js';
+        import { architectureQuizData } from './js/quiz/architecture-quiz-data.js';
         /* ╔══════════════════════════════════════════════════════════════════╗
            ║  DO NOT EDIT: AIDK Isolated Kernel — AIDK Architecture          ║
            ║  このブロック全体がAIエージェントのアクセスから隔離された核です。   ║
@@ -249,8 +253,9 @@
 
 
         // ===== Global Data: Quiz Questions =====
-        // ▼ v80+ Stage 3: 4 つの巨大な静的データ定義は `js/quiz-data.js` へ物理分割し、
-        //   本ファイル冒頭で import 済み（main.js から byte-equivalent に抽出。挙動不変）:
+        // ▼ v80+ Stage 3 / 3-b: 4 つの巨大な静的データ定義は、Stage 3 で `js/quiz-data.js` へまとめて
+        //   物理分割し、Stage 3-b でドメイン別 4 葉モジュール（`js/quiz/*-quiz-data.js`）へ細分化した。
+        //   本ファイル冒頭でそれぞれを直接 import 済み（main.js から byte-equivalent に抽出。挙動不変）:
         //     awsQuizData / pmQuizData / qualityQuizData / architectureQuizData
         //   いずれも関数も副作用も持たない純データのため、別モジュール化で挙動は変わらない。
         //   消費箇所（quiz ソース lookup table: aws/pm/quality/architecture）は従来どおり

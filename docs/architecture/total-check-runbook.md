@@ -23,7 +23,7 @@ Status        : Active runbook
 ### 0.1 誰のための文書か
 - **人間**: コミット前後の最終確認、引き継ぎ、レビュー。
 - **AI エージェント**: セッション内でリポジトリを変更した後の自己検証。
-- 前提知識: このリポジトリは **AI-only 実装 + 人間オーケストレーション**。コードは AI が書き、人間が設計・レビュー・監査・統制する。**この検証機構（51 個の整合チェック + CI + 本 runbook）が、その運用を安全にしている核**である。検証を省略すると安全性の前提が崩れる。
+- 前提知識: このリポジトリは **AI-only 実装 + 人間オーケストレーション**。コードは AI が書き、人間が設計・レビュー・監査・統制する。**この検証機構（52 個の整合チェック + CI + 本 runbook）が、その運用を安全にしている核**である。検証を省略すると安全性の前提が崩れる。
 
 ### 0.2 トータルチェックの原則
 1. **BLOCKING と advisory を区別する。** BLOCKING（exit 1 を生む）は commit 前に必ず解消。advisory（warning）は追跡して段階的に解消。両者を混同しない。
@@ -122,7 +122,7 @@ npm audit --omit=dev # 配信物（ランタイム依存）だけの監査
 | `npm run lint` | `120 problems (0 errors, 120 warnings)` / **exit 0** | exit ≥2 = 実行失敗（config/parse/flag）→ **BLOCKING**。errors>0 → **BLOCKING**。warnings → **advisory**（`main.js` の `no-var`/`curly`/`no-shadow`。視覚回帰 baseline 確立後に残りを段階解消）。**warning 件数の増加は負債増のサイン**として監視。注: Stage 2/3 抽出で 199→194 に減少（`curly` 5 件が `js/pure-utils.js` へ移動し解消）、続く lint-hygiene increment で 194→120 に減少（safe-zone の `curly` 71 件にブレース付与＋`prefer-const` 1 件を `const` 化。保護領域=AIDK kernel／AIDK modules／known benign suppressor／innerHTML interceptor は byte-identical のため未着手で温存） |
 | `npm run lint:css` | `Stylelint [style.css]: PASS` / exit 0 | error は BLOCKING |
 | `npm run lint:js` | 各 JS が OK・exit 0 | `node --check` を 8 つの公開/dev JS（`main.js` / `sw.js` / `aio-guard.js` / `error-suppressor.js` / `theme-init.js` / `karte-init.js` / `js/pure-utils.js` / `js/quiz-data.js`）へまとめて適用する糖衣。構文エラーは BLOCKING。対象集合は `lint` と一致し Check 46 が機械強制（対象は root ∪ js/） |
-| `npm run check` | `Repository consistency check passed — all invariants hold.` / exit 0 / consistency 108 OK 行（`npm run check` 全体＝consistency＋digest＋binary の 3 スクリプトで、`OK:` トークン行は合計 110）| §6 の registry 参照。1 つでも ERROR が出れば exit 1（BLOCKING）。OK 行数の権威値は §9 の実測表。両者がずれた場合は §9 を正とし、本行を §9 に合わせて更新する |
+| `npm run check` | `Repository consistency check passed — all invariants hold.` / exit 0 / consistency 118 OK 行（`npm run check` 全体＝consistency＋digest＋binary の 3 スクリプトで、`OK:` トークン行は合計 120）| §6 の registry 参照。1 つでも ERROR が出れば exit 1（BLOCKING）。OK 行数の権威値は §9 の実測表。両者がずれた場合は §9 を正とし、本行を §9 に合わせて更新する |
 | `npm run verify` | 上記が順に全 pass・exit 0 | **ローカル総合ゲートの単一エントリポイント**。`check`→`lint:css`→`lint`→`lint:js` を `&&` で連結（最初の失敗で停止・exit 非 0）。既存スクリプトを合成するだけで独自ロジックを持たない。Playwright は外部バイナリ依存のため意図的に含めない（§7.4 参照）|
 | `py_compile` | 無出力・exit 0 | 構文エラーは BLOCKING |
 | `node --check`（6 JS） | 各 OK | 構文エラーは BLOCKING。`npm run lint:js` がこの 6 ファイルをまとめて実行する |
@@ -251,7 +251,7 @@ echo "ALL LOCAL CHECKS PASSED"
 
 ---
 
-## 9. 実測基準値（このコミット時点 / 2026-06-02）
+## 9. 実測基準値（このコミット時点 / 2026-06-07・quiz-domain-split + bloat-governance increment）
 
 トータルチェックが緑のとき、以下の数値になる。乖離したら原因を調べる。各値は本コミットで実測したものであり、推定ではない。
 
@@ -259,9 +259,9 @@ echo "ALL LOCAL CHECKS PASSED"
 |---|---|
 | 追跡ファイル総数 | 76（artifact-governance increment 後 74 ＋ AIO-update increment の decision record・改善文書 2。本 public-freshness-observation increment では既存追跡ファイルの編集と非追跡 outputs への複製のみで、追跡ツリーの新規ファイルは別途のコミット運用に従う）|
 | `npm run lint` | 0 errors / 120 warnings（`curly`:46 / `no-var`:64 / `no-shadow`:10、すべて `main.js`。Stage 2/3 分割で `curly` 該当 5 件が `js/pure-utils.js` へ移動・解消し 199→194 に減少、続く lint-hygiene increment で safe-zone の `curly` 71 件にブレース付与＋`prefer-const` 1 件を `const` 化し 194→120 に減少。保護領域=AIDK kernel／AIDK modules／known benign suppressor／innerHTML interceptor 内の `curly`・全 `no-var`・全 `no-shadow` は byte-identical 維持のため温存。`js/pure-utils.js`・`js/quiz-data.js` は 0 problems）|
-| consistency 検査の `OK:` 行 | 108（Check 41 の 2 行・Check 42 の 2 行・Check 43 の 4 行・Check 44 の 3 行・Check 45 の 3 行・Check 46 の 2 行・Check 47 の 6 行（2 モジュール × 3 サブチェック）・Check 48 の 1 行・Check 50 の 3 行（50a/50b/50c）・新規 Check 51 の 1 行を含む。`all invariants hold` で終了。旧記載「106」は dependency-modernization increment 時の同期漏れによるドリフトであり、実測 108 へ是正した）|
-| `npm run check` 全体の `OK:` トークン行 | 110（consistency 108 ＋ `check_binary_aio_metadata.py` 2。`check_aio_digests.py` は `OK (manifest/...)` 形式と末尾 `AIO digest check passed` を出力し、`OK:` トークンには 0 行寄与する。3 スクリプトはいずれも exit 0。旧記載「109（consistency 107 …）」は Check 51 追加前かつ §262 の 106/107 ドリフトを引きずった値であり、実測 110 へ是正した）|
-| consistency Check 総数 | 51（最大番号 51。Check 43 は main.js AIDK Isolated Kernel の構造健全性（43d は v80+ で module-level import が IIFE に先行することを許容しつつ C2 を維持）、Check 44 は AIO provenance canary トークンの published 面と monitor 面のクロス整合、Check 45 は本チェックファイルの docstring インベントリと `# ── N.` セクション見出しの自己整合、Check 46 は package.json の `lint`/`lint:js` が対象 JS ファイル集合を一致させ（かつディスク上の root ∪ js/ と一致）させていること、Check 47 は main.js ⇄ js/ 各モジュールの ESM import/export bijection と葉モジュール性（import ゼロ）、Check 48 は update-playwright-snapshots.yml が PR 作成ステップを含む場合に contents:write と pull-requests:write の両権限を宣言していること（baseline コミットパイプラインの権限結合・否定テスト済）、Check 49 は index.html の最初の JSON-LD @graph において Person.worksFor が参照する組織 @id（OrganizationRole 経由のネスト参照も解決）が同一 @graph 内の Organization ノードとして実在すること（worksFor ↔ Organization linkage の宙吊り防止・否定テスト2種で発火確認）、Check 50 は ESLint 9.x flat-config 移行の不変条件（50a: eslint.config.mjs 存在／50b: package.json `lint` が旧 eslintrc 系フラグ非使用／50c: 旧 .eslintrc.json 不在）を検証し EOL リンタへの逆戻りと vacuous-gate 再発を防止、新規 Check 51 は active runbook（本ファイル）の Playwright baseline 生成手順で名指しする Playwright 版数が package.json の `@playwright/test` pin と一致することを検証し、誤版生成による偽の視覚差分という運用事故を防止（pin を読めること自体も要求し、版数名指しが無い場合のみ vacuous 成立。decision 記録・extraction-map 等の歴史層は対象外）、いずれも BLOCKING）|
+| consistency 検査の `OK:` 行 | 118（Check 41 の 2 行・Check 42 の 2 行・Check 43 の 4 行・Check 44 の 3 行・Check 45 の 3 行・Check 46 の 2 行・Check 47 の 15 行（5 モジュール × 3 サブチェック＝pure-utils + quiz 4 ドメインモジュール。Stage 3-b 分割で 2 モジュール 6 行から増加）・Check 48 の 1 行・Check 50 の 3 行（50a/50b/50c）・Check 51 の 1 行・新規 Check 52 の 1 行（advisory・予算内のため OK）を含む。`all invariants hold` で終了。前 increment の 108 から、Check 47 の +9 行（2→5 モジュール）と Check 52 の +1 行で 118 へ増加）|
+| `npm run check` 全体の `OK:` トークン行 | 120（consistency 118 ＋ `check_binary_aio_metadata.py` 2。`check_aio_digests.py` は `OK (manifest/...)` 形式と末尾 `AIO digest check passed` を出力し、`OK:` トークンには 0 行寄与する。3 スクリプトはいずれも exit 0。前 increment の 110 から consistency 側の +10 行で 120 へ増加）|
+| consistency Check 総数 | 52（最大番号 52。Check 43 は main.js AIDK Isolated Kernel の構造健全性（43d は v80+ で module-level import が IIFE に先行することを許容しつつ C2 を維持）、Check 44 は AIO provenance canary トークンの published 面と monitor 面のクロス整合、Check 45 は本チェックファイルの docstring インベントリと `# ── N.` セクション見出しの自己整合、Check 46 は package.json の `lint`/`lint:js` が対象 JS ファイル集合を一致させ（かつディスク上の root ∪ js/ と一致）させていること、Check 47 は main.js ⇄ js/ 各モジュールの ESM import/export bijection と葉モジュール性（import ゼロ。Stage 3-b で pure-utils + quiz 4 ドメインモジュールの計 5 モジュールをループ検査）、Check 48 は update-playwright-snapshots.yml が PR 作成ステップを含む場合に contents:write と pull-requests:write の両権限を宣言していること（baseline コミットパイプラインの権限結合・否定テスト済）、Check 49 は index.html の最初の JSON-LD @graph において Person.worksFor が参照する組織 @id（OrganizationRole 経由のネスト参照も解決）が同一 @graph 内の Organization ノードとして実在すること（worksFor ↔ Organization linkage の宙吊り防止・否定テスト2種で発火確認）、Check 50 は ESLint 9.x flat-config 移行の不変条件（50a: eslint.config.mjs 存在／50b: package.json `lint` が旧 eslintrc 系フラグ非使用／50c: 旧 .eslintrc.json 不在）を検証し EOL リンタへの逆戻りと vacuous-gate 再発を防止、Check 51 は active runbook（本ファイル）の Playwright baseline 生成手順で名指しする Playwright 版数が package.json の `@playwright/test` pin と一致することを検証し、誤版生成による偽の視覚差分という運用事故を防止（pin を読めること自体も要求し、版数名指しが無い場合のみ vacuous 成立。decision 記録・extraction-map 等の歴史層は対象外）、新規 Check 52 は file-size-budget.md の機械可読 BUDGET-DATA ブロックをパースし各ファイルの現行行数が予算（上限）以内であることを検査する肥大化予算（main.js は strong-advisory・予算は文書側で単一管理しコードにハードコードしない・否定テストで超過時 advisory 発火を確認）。Check 1–51 は BLOCKING（Check 34/36 は元から WARNING 級）、**Check 52 は ADVISORY＝非ブロッキング**（超過は warning のみで exit に影響しない。archive/evidence/AIO 正本の正当な増加を CI が誤ってブロックしないため）|
 | sitemap `<loc>`（Check 39） | 17 URL すべて実ファイルへ解決 |
 | JSON / YAML / XML | 10 / 7 / 1、失敗ゼロ |
 | llms alias unique sha | 1 |
