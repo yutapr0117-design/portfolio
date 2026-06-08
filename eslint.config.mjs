@@ -1,5 +1,5 @@
 // ============================================================================
-// eslint.config.mjs — ESLint v9 flat config（v80+ CI hygiene increment）
+// eslint.config.mjs — ESLint flat config（v9 で flat 化・v10 系へ移行済み / v80+ track）
 // ============================================================================
 //
 // 【この設定の position と移行の背景】
@@ -17,6 +17,15 @@
 // main.js）。本ファイルはその真値を 1 件もずらさないよう、旧設定の env / parserOptions /
 // rules / globals / overrides を機械的に 1:1 変換している。
 //
+// 【v10 への bump（quiz-domain-split + research-application increment）】
+// その後 ESLint を v9.39.4 → v10.4.1（@eslint/js も 9.39.4 → 10.0.1）へ bump した。v10 は
+// eslintrc を完全撤廃したが、本ファイルは元から flat config のため設定変更は不要であり、bump
+// 前後の lint 出力は 0 errors / 120 warnings（no-var:64 / curly:46 / no-shadow:10、内訳も同一）で
+// 完全一致することを実測確認済み（非破壊）。engines.node は v10 要件
+// （^20.19.0 || ^22.13.0 || >=24）へ更新した。@eslint/js のメジャーは eslint のメジャーと
+// 一致させること（不一致は v10 系での解決衝突＝二重インストールや型不整合を招く）。この
+// メジャー一致は check_repository_consistency.py Check 54 が BLOCKING で機械強制する。
+//
 // 【設計判断: globals は「明示列挙のみ」を維持する】
 // `@eslint/migrate-config` の自動生成物は `...globals.browser`（数百個のブラウザ
 // グローバルの超集合）を展開するが、本リポジトリの旧 `.eslintrc.json` は
@@ -30,7 +39,8 @@
 //
 // 【lint 対象ファイル集合について】
 // 対象（main.js / error-suppressor.js / karte-init.js / theme-init.js / aio-guard.js /
-// sw.js / js/pure-utils.js / js/quiz-data.js）は package.json の `lint` / `lint:js`
+// sw.js / js/pure-utils.js / js/quiz/{architecture,aws,pm,quality}-quiz-data.js）は
+// package.json の `lint` / `lint:js`
 // スクリプトが指定し、check_repository_consistency.py の Check 46 が
 // 「lint と lint:js とディスク上の root ∪ js/ の三者一致」を BLOCKING で機械強制する。
 // 本 flat config はファイル集合を限定せず（＝渡された対象をそのまま lint する）、

@@ -20,3 +20,12 @@ __pycache__/
 .DS_Store
 Thumbs.db
 *.swp
+
+# ── Claude Code (CLI agent) local/personal config ──────────────────────
+# .claude/settings.json (project, committed = team-shared) and .claude/commands/
+# ARE tracked. Only the per-machine personal override is ignored. Claude Code
+# also auto-ignores this file when it first creates it; this entry is explicit
+# so the intent is clear in source control.
+.claude/settings.local.json
+# Local-only Claude memory (personal context, never shared)
+CLAUDE.local.md

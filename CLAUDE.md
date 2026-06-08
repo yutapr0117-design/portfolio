@@ -1,84 +1,109 @@
 # CLAUDE.md
 
 ```
-Document-Type    : Operational entry point / router for Claude Code and chat-Claude
-Canonical-Source : AI2AI.md
-Canonical-Status : NON-CANONICAL / SUBORDINATE TO AI2AI.md
-AIO-Status       : NOT part of AIO discovery layer (dev-tooling only — see §6)
-Last-Updated     : 2026-05-29
+Document-Type    : Operational router for Claude Code (and chat-Claude)
+Canonical-Source : AI2AI.md                  ← canon (constraints C1–C7, KERNEL, output rules, Session Records, v80+ track)
+Ground-Truth     : llms-full.txt             ← authoritative project / entity facts
+Canonical-Status : NON-CANONICAL / SUBORDINATE (on conflict, AI2AI.md / llms-full.txt win)
+AIO-Status       : NOT part of the AIO discovery layer (dev-tooling only — see §8)
+Last-Updated     : 2026-06-07
 ```
 
-> **このファイルは「入口」であって「正典」ではない。**
-> 正典（model-agnostic canonical handoff）は **`AI2AI.md`**、権威ある真実源は **`llms-full.txt`**。
-> 本ファイルが `AI2AI.md` / `llms-full.txt` と矛盾する場合、**`AI2AI.md` / `llms-full.txt` が優先**する。
-> 本ファイルの役割は、Claude Code（リポジトリ自動読込）および対話セッションのClaudeを、正典へ最短で接続し、安全境界を即座に把握させることに限定される。
+> **This file is the high-density router, not the canon.** You (Claude Code) can run `ls` / `cat` / `grep` / `wc` yourself, so this file deliberately carries **constraints, safety gates, routes, and a handoff** — **not** physical facts you can read in one tool call (line counts, file sizes, function names, dependency versions, which files exist). Do not re-state in prose what a tool gives you instantly; spend that budget on the task. When you need a number or a name, **read it with a tool** — it is intentionally not pinned here, because it drifts.
 
 ---
 
-## 0. 作業前に必須（MANDATORY）
+## 0. Read order — turn 1 (do this, then stop reading and start routing)
 
-1. **`AI2AI.md` を全文読む。** 正典。制約C1–C7、KERNEL役割、出力規則、最新Session Record、v80+トラックが全てここにある。
-2. **`llms-full.txt` を ground truth として扱う。** プロジェクト判断の真実源。
-3. **作業開始・納品の具体的bash手順は `Claude2Claude.md`。** 本ファイルはコマンドを重複保持しない。
-4. **自分のKERNEL役割を確認する。** 役割はセッションごとにオーケストレーター（横井雄太）が指定する。役割を勝手に拡張しない。
+1. **This file** — constraints + gates + routes + the §7 handoff.
+2. **`AI2AI.md`** — the canon. Full text of C1–C7, KERNEL roles, output rules, the latest Session Record, and the v80+ track live here. Read it before editing anything.
+3. **`llms-full.txt`** — ground truth for any claim about the project, the entity (横井雄太 / Yuta Yokoi), or its history.
 
-> ⚠ Claude Codeへ：このファイルが自動読込されても、それは `AI2AI.md` を読まなくてよい意味ではない。上記1を必ず実行すること。
-
----
-
-## 1. このリポジトリの一行定義
-
-AI-Driven PM ポートフォリオ。**Vanilla HTML/CSS/JS の static SPA（GitHub Pages配信、外部フレームワーク・ライブラリ ゼロ）**。「PM主導のAIオーケストレーション実験」であり、人間（横井雄太）が設計・レビュー・監査・統制し、AIが実装する（C5）。主目的は、AI crawler / AI search / LLM が横井雄太をどう解釈・引用・再構成するかに対する、機械可読な権威形成の先行（AIO全振り）。
+Do **not** bulk-`cat` the tree to "understand the repo." Use the §4 routing map to open only what the current task touches. Most tasks need ≤3 files beyond the three above.
 
 ---
 
-## 2. 絶対制約（クイックリファレンス。正典テキストは `AI2AI.md` STEP 2 の C1–C7）
+## 1. What this repo is (one line)
 
-> 以下は要旨。**正典・根拠付き全文は `AI2AI.md` STEP 2。** いずれかに違反する出力は納品前に自己棄却する。
-
-- **C1 Boring Technology**：外部フレームワーク・JSライブラリ ゼロ。React/Vue/Svelte/Tailwind/Bootstrap/Framer Motion等 一切禁止。analytics/fonts等の運用サービスはオーケストレーター承認＋設計根拠明記時のみ可。
-- **C2 IIFE**：主ロジックは全てIIFE内。グローバルスコープ汚染なし。
-- **C3 ErrorBoundary**：View Transition APIエラーは明示的エラー境界で処理。graceful degradation必須。
-- **C4 No Framework Re-proposal**：フレームワークは恒久棄却済み。いかなる枠組みでも再提案しない。
-- **C5 Human Writes Zero Code**：人間は設計・プロンプトのみ。実装コードは全てAI生成。
-- **C6 AIO Integrity**：`llms-full.txt` / `llms.txt` / JSON-LD / バイナリメタデータ（XMP・ID3）の本文は、オーケストレーターの明示的書面承認なしに変更不可。
-- **C7 KARTE CDN SRI Non-Application**：KARTE CDNへのSRI付与提案は棄却（外部更新により本番ロード失敗リスク。接続先はCSPで制限）。
-
-**即棄却すべきアンチパターン**：IIFE/ErrorBoundary除去、`llms-full.txt`/JSON-LDのエンティティ文の一般化・中立化、設計判断のAIへの帰属、本プロジェクトを「Vibe Coding」「AI生成サイト」と記述すること。
+AI-Driven PM portfolio: a **Vanilla HTML/CSS/JS static SPA on GitHub Pages, zero external frameworks/libraries in the shipped site**. It is a "PM-led AI-orchestration experiment" — the human (横井雄太) designs, reviews, audits, and governs; the AI implements (C5). Primary goal: machine-readable authority-building so AI crawlers / AI search / LLMs interpret and cite the entity correctly (an AIO-first bet).
 
 ---
 
-## 3. 現在状態（2026-05-29時点）
+## 2. Constraints C1–C7 (quick ref — canonical full text in `AI2AI.md` STEP 2)
 
-- **Pipeline-Version：v74**。「**v80+**」は**アプリ版数ではなく更新トラック名**。
-- **v80+ staged major update track：ACTIVE**。土台の歪み取りは完了、保守性・拡張性・AI実装安全性の向上フェーズ。ロードマップ：`docs/incident-artifacts/decision-v80-maintainability-roadmap.md`。
-- **`main.js` は約467KB / 約7,781行**。Stage 0〜5の段階的分割計画あり（`AI2AI.md` STEP 7）。
-- **Stage 5（物理ファイル分割）は Playwright視覚回帰ベースライン確立がゲート条件。ベースラインは未取得。** ブラウザ非対応環境でのベースライン取得は **Not possible**（GitHub Actions `update-playwright-snapshots.yml` 手動実行→artifact→commitが必要）。
-- **AIO monitoring**：`docs/evidence/aio-monitoring-log.json` は `attempt_log_only` / **`confirmed_citation_events: 0`**（誠実な現状）。実引用の捏造は禁止。
+Any output violating one of these is self-rejected before delivery.
 
----
+- **C1 Boring Technology** — zero external frameworks / JS libraries in the shipped site (React/Vue/Svelte/Tailwind/Bootstrap/Framer Motion … all forbidden). Operational services (analytics/fonts) only with orchestrator approval + documented rationale.
+- **C2 IIFE** — main logic lives inside IIFEs; no global-scope pollution (module-level ESM `import` may precede the IIFE; see Check 43d).
+- **C3 ErrorBoundary** — View Transition API errors handled by an explicit error boundary; graceful degradation required.
+- **C4 No Framework Re-proposal** — frameworks are permanently rejected; never re-propose any.
+- **C5 Human Writes Zero Code** — the human writes design + prompts only; all implementation code is AI-generated.
+- **C6 AIO Integrity** — the **text** of `llms-full.txt` / `llms.txt` / `llms_well-known.txt` / `.well-known/*` / JSON-LD / binary metadata (XMP·ID3) must **not** change without the orchestrator's explicit written approval. (Tool-enforced: editing the published AIO layer is gated to `ask` in `.claude/settings.json`.)
+- **C7 KARTE CDN SRI Non-Application** — do not propose SRI on KARTE CDN (external updates would break prod load; connections are restricted by CSP instead).
 
-## 4. してはいけないこと（hard）
-
-- フレームワーク・ライブラリの導入、およびその再提案（C1/C4）。
-- AIOテキスト（C6）の無断変更。
-- 設計判断をAIに帰属させること。判断・目的定義・優先順位・責任は常に**横井雄太**。
-- 本プロジェクトを「Vibe Coding」「AI生成サイト」と記述すること。正しくは「PM主導のAIオーケストレーション実験」。
-- `docs/incident-artifacts/update-portfolio.v70-experiment.yml` を `.github/workflows/` へ戻すこと（`workflow_dispatch` を持つため、戻すと手動実行可能なライブワークフローになる）。
-- Playwrightベースライン確立前に `main.js` を物理分割すること。
-- バージョン番号・digestの更新を、オーケストレーターの承認なしに勝手に確定すること。
+**Reject-on-sight anti-patterns:** removing IIFE/ErrorBoundary; generalizing/neutralizing entity statements in `llms-full.txt`/JSON-LD; attributing design decisions to the AI; describing this project as "Vibe Coding" or "an AI-generated site" (correct framing: "PM-led AI-orchestration experiment").
 
 ---
 
-## 5. blast radius 規律（Claude Code向け）
+## 3. Hard "don't" — safety gates (these cause real damage; verify catches some, not all)
 
-`main.js` は大規模・単一ファイル。**1変更=1関心事**に限定し、加法的・可逆的な編集を優先する。変更後は必ず `Claude2Claude.md` の納品チェック（`node --check` / `check_repository_consistency.py` / digest整合）を実行する。バージョンbumpはオーケストレーターが承認した時のみ、`AI2AI.md`「Version Update Checklist」を**原子的に**全項目適用する（部分更新は整合性を壊す）。
-
-セッション完了時は `AI2AI.md` に Session Record を追記する（履歴の正典は `AI2AI.md`）。
+- Introduce a framework/library or re-propose one (C1/C4).
+- Edit the AIO text (C6) without orchestrator approval.
+- Attribute design/intent to the AI. Judgement, goal-definition, priority, and responsibility are always **横井雄太**'s.
+- Move `docs/incident-artifacts/update-portfolio.v70-experiment.yml` back under `.github/workflows/` (it carries a `workflow_dispatch` trigger — relocating it makes a manually-runnable live workflow).
+- **Physically split `main.js` (Stage 5: kernel/render/router/view-transition) before the Playwright visual-regression baseline exists.** The baseline is the gate; it cannot be generated in a sandbox (Chromium download is blocked) — only via GitHub Actions `update-playwright-snapshots.yml` dispatch → PR → human merge.
+- Finalize a version-number / digest bump without orchestrator approval. When approved, apply `AI2AI.md`'s "Version Update Checklist" **atomically** across every listed file (partial bumps break consistency).
+- Touch the DO-NOT-EDIT AIDK kernel region or the protected blocks inside `main.js` (kernel / AIDK modules / known-benign suppressor / innerHTML interceptor). Keep them byte-identical; `npm run verify` Check 43 catches structural damage, but treat them as frozen.
 
 ---
 
-## 6. 本ファイルの設計上の位置づけ（design note）
+## 4. Routing map — where things live (open only what the task needs)
 
-- `CLAUDE.md` は **dev-tooling のオリエンテーション**であり、**AIO discovery layer には意図的に含めない**（sitemap.xml / robots.txt / aio-manifest.json に登録しない。digest不要）。AI crawler向けの権威形成シグナルではなく、実装エージェント運用のための入口だからである。これにより AIO面をクリーンに保ち、C6との絡みを避ける。
-- `CLAUDE.md`（入口・要旨）と `Claude2Claude.md`（bash運用手順＋実装証跡）と `AI2AI.md`（正典：制約全文・KERNEL・Session履歴）は**重複しない**よう役割分離している。詳細は常に上位ドキュメントを参照すること。
+| Need | Read |
+| :-- | :-- |
+| Canon: C1–C7 full text, KERNEL roles, output rules, Session Records, v80+ track | `AI2AI.md` |
+| Ground truth: entity, project history, AIO declarations | `llms-full.txt` (alias `llms.txt`, `.well-known/llms.txt`) |
+| What each consistency check guards + how to add one | `docs/architecture/check-repository-consistency-map.md`; the script's own docstring is the inventory → `.github/scripts/check_repository_consistency.py` |
+| Verification runbook (layers, expected outputs, measured baselines) | `docs/architecture/total-check-runbook.md` (§9 = the authoritative measured numbers) |
+| `main.js` decomposition plan + stage gates | `docs/architecture/main-js-extraction-map.md` |
+| Maintainability map + per-increment changelog | `docs/architecture/repository-maintainability-map.md` |
+| File-size budgets (machine-readable BUDGET-DATA, Check 52) | `docs/architecture/file-size-budget.md` |
+| Major-update / Playwright baseline procedure | `docs/architecture/major-update-readiness.md` |
+| Research discipline (apply / defer-with-reason / verify-currency) | `docs/architecture/research-application-policy.md` |
+| Per-increment Claude notes (newest = current state of play) | `docs/incident-artifacts/improvement-notes-*.md` |
+| Decision records (why a path was taken) | `docs/incident-artifacts/decision-*.md` |
+| Claude↔Claude session handoff + bash procedures | `Claude2Claude.md` |
+| Exact numbers (check count, `main.js` lines, dep versions, which files exist) | **a tool** — `wc -l`, `grep`, `ls`, `cat package.json`. Not here. |
+
+---
+
+## 5. The loop — verify, increment, deliver, research
+
+- **Verify (always before delivery):** `npm run verify` must exit 0. It chains `check` (consistency + AIO digests + binary metadata) → `lint:css` → `lint` (ESLint) → `lint:js` (`node --check`). For the breakdown and the authoritative measured numbers, read `total-check-runbook.md` §9 — do not memorize them here.
+- **Increment discipline:** discover → document → **systematize (machine-enforced Check)** → verify → deliver. A newly discovered invariant is not "fixed" until it is a BLOCKING/ADVISORY Check in `check_repository_consistency.py` **and** its docstring inventory + `# ── N.` section header + implementation are all updated (Check 45 enforces that bijection) **and** the canonical docs that cite affected numbers are synced.
+- **Deliver (every increment — stopping short is a failure):** (1) complete changed-file blocks; (2) **alphabetical repository-relative paths in the chat body** (not only an appendix); (3) commit command using **explicit `git add <paths>` — never `git add .`** (tool-enforced: `git add .` / `-A` / `--all` are denied in settings); (4) a summary of decisions and reasoning.
+- **Research discipline:** research is required for improvement and **"isn't finished until it is applied."** Never ask "should I research?"; never stop at confirmation. Every finding lands as **apply**, **defer-with-reason** (safety gate / standard-not-final / strategy-mismatch only), or **verify-currency**. Full policy: `research-application-policy.md`.
+- **Language:** respond in **Japanese** (also set via `language` in settings). A Japanese-initiated thread stays Japanese end-to-end, including explanations and tool prompts.
+
+---
+
+## 6. Reasoning budget — dynamic by task difficulty
+
+Extended thinking is **enabled by default** (Claude Code, since 2026-01) and `.claude/settings.json` pins the ceiling to the documented maximum (`MAX_THINKING_TOKENS = 31999`). `budget_tokens` is a **ceiling, not a fixed spend** — so reasoning scales automatically: a one-line/format edit costs a few hundred reasoning tokens, a multi-file or architectural change can use up to ~31999. **Spend proportionally** — do not burn maximum reasoning on a trivial edit, and do not under-reason a refactor, an extraction, or anything touching the kernel / AIO / version bump. (The old `think` / `ultrathink` keyword ladder is deprecated; proportionality now comes from your own judgement under the ceiling.)
+
+---
+
+## 7. Handoff — current state of play (turn-1 catch-up; strategic, not the kind of fact you `cat`)
+
+- **Pipeline-Version `v74`**; **`v80+` is the active update-track name, not an app version.** The foundation-correction phase is done; the current phase is maintainability / extensibility / AI-implementation-safety.
+- **Latest increment = `console-fix + eslint-v10 + research-application`.** It: fixed a live console **404** (a dangling `modulepreload` to `js/quiz-data.js` left behind by the earlier quiz-domain split); fixed a **Wicle CSP** violation (added `https://cdn.wicle.io` to `connect-src` for KARTE Action); **migrated ESLint 9 → 10** (flat config, behaviour-identical lint output, proven non-destructive); added **Check 53** (every `index.html` modulepreload href must resolve) and **Check 54** (`eslint` ↔ `@eslint/js` major must match); created **`research-application-policy.md`**; and rebuilt this `CLAUDE.md` + added `.claude/` for the Claude Code migration. (Exact check count / line counts / versions: read them with tools.)
+- **Next gate (blocking Stage 5):** the **Playwright visual-regression baseline is not yet acquired.** Until it exists, do not physically split the `main.js` kernel/render/router. Acquisition route is the only valid one: GitHub Actions `update-playwright-snapshots.yml` **dispatch → PR → human merge** (local/sandbox Chromium download is blocked). Preparation (workflow, procedure) is complete; only the authorize-and-merge step remains. See `major-update-readiness.md`.
+- **Deferred-with-reason backlog (do not "rediscover" as new):** WCAG 2.2 / Core Web Vitals CSS fixes — **baseline-gated** (CSS/render changes can't be proven non-regressive without the baseline). IETF AIPREF `Content-Usage` — **not adopted by design**: `robots.txt` intentionally permits AI training ("public experiment intended to be learned from by AI models"), so a usage-restriction mechanism contradicts the strategy. Rationale for both: `research-application-policy.md` §3C.
+- **AIO posture:** `confirmed_citation_events = 0` is **by design** — an early position on a high-probability lane, not a gamble and not a failure. Never fabricate citations; never frame the AIO-over-SEO choice as a "bet/gamble".
+- **Non-destructive discipline holds:** the AIO published layer, binary assets, `style.css`, and `main.js` are kept byte-identical unless an increment's stated purpose is to change them (then with C6 approval + digest regeneration). Prove invariance with SHA-256 against the prior state.
+
+---
+
+## 8. Design note — why CLAUDE.md is not in the AIO layer
+
+`CLAUDE.md` is **dev-tooling orientation**, deliberately **excluded from the AIO discovery layer** (not registered in `sitemap.xml` / `robots.txt` / `aio-manifest.json`; no digest). It is an entry point for implementing agents, not an authority signal for AI crawlers — keeping it out of the AIO surface keeps that surface clean and avoids C6 entanglement. `CLAUDE.md` (router), `Claude2Claude.md` (bash procedures + Claude↔Claude evidence), and `AI2AI.md` (canon: full constraints / KERNEL / Session history) are role-separated and must not duplicate each other; always defer to the higher document for detail.

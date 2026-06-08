@@ -151,7 +151,8 @@ authoritative inventory and is kept in sync with the implementation below):
       JSON-LD block parses as valid JSON. Same cross-reference-integrity spirit as Check 47
       (import/export bijection) and Check 48 (permission coupling). (BLOCKING)
   50. ESLint flat-config migration integrity: the lint toolchain has migrated off the
-      End-of-Life ESLint 8.x / eslintrc format onto ESLint 9.x flat config. Two facts must
+      End-of-Life ESLint 8.x / eslintrc format onto flat config (introduced as default in 9.x;
+      now pinned at v10). Two facts must
       stay true for that migration to remain intact. First, eslint.config.mjs (the flat config)
       must exist at the repository root — it is the sole config ESLint 9.x auto-discovers, and
       deleting it would make every lint run fall back to "no configuration" and pass vacuously.
@@ -192,6 +193,19 @@ authoritative inventory and is kept in sync with the implementation below):
       failure, so a justified increase (a new safety comment, a new archive entry) is never blocked;
       main.js is the file whose advisory the owner treats as near-hard. A missing or unparseable
       budget file is itself a (non-blocking) advisory. (ADVISORY)
+  53. index.html modulepreload href resolution: every <link rel="modulepreload" href="..."> in
+      index.html must resolve to a file that exists in the repository. This systematizes the
+      dangling-preload 404 class — when js/quiz-data.js was split into js/quiz/*.js, the
+      modulepreload hint kept pointing at the deleted module and produced a guaranteed console
+      404 on every page load. A modulepreload to a non-existent module is always a defect, so
+      this is BLOCKING. Same-origin repo-relative hrefs only (./js/..., js/..., /portfolio/js/...);
+      absolute cross-origin preloads are out of scope (not resolvable against the working tree). (BLOCKING)
+  54. ESLint <-> @eslint/js major-version coupling: package.json's `eslint` and `@eslint/js`
+      devDependencies must share the same MAJOR version. ESLint v10 reorganised how the
+      recommended-config package resolves, and a major mismatch (e.g. eslint 10.x with
+      @eslint/js 9.x) causes a duplicate/incompatible install and config-resolution conflict.
+      They version independently within a major (eslint 10.4.1 pairs with @eslint/js 10.0.1), so
+      only the major is compared, not exact equality. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -1788,7 +1802,7 @@ else:
     )
 
 # ── 50. ESLint flat-config migration integrity (BLOCKING) ─────────────────────
-# The lint toolchain migrated off EOL ESLint 8.x / eslintrc onto ESLint 9.x flat config.
+# The lint toolchain migrated off EOL ESLint 8.x / eslintrc onto flat config (9.x default, now v10).
 # Guard the migration so it cannot silently regress:
 #   50a — eslint.config.mjs (the flat config ESLint 9.x auto-discovers) exists at root.
 #   50b — the package.json `lint` script carries none of the removed eslintrc-era flags
@@ -1798,7 +1812,7 @@ else:
 _flat_cfg50 = ROOT / "eslint.config.mjs"
 check(
     _flat_cfg50.is_file(),
-    "Check 50a: eslint.config.mjs (ESLint 9.x flat config) exists at repository root",
+    "Check 50a: eslint.config.mjs (flat config) exists at repository root",
     "Check 50a: eslint.config.mjs is missing — ESLint 9.x would run with no configuration "
     "and pass vacuously. The flat config is the sole config ESLint auto-discovers since the "
     "migration off the EOL eslintrc format.",
@@ -1971,6 +1985,63 @@ else:
         "file-size budget is not recorded (advisory, not blocking)",
         blocking=False,
     )
+
+# ── 53. index.html modulepreload href resolution (BLOCKING) ───────────────────
+# Every <link rel="modulepreload" href="..."> in index.html must point to a file that
+# actually exists in the repository. Directly systematizes the dangling-preload 404 class:
+# when js/quiz-data.js was split into js/quiz/*.js, the modulepreload hint kept pointing at
+# the deleted module, producing a console 404 on every page load. A modulepreload to a
+# non-existent module is always a defect (a guaranteed 404), so this is BLOCKING. Scope:
+# same-origin repo-relative hrefs (./js/..., js/..., /portfolio/js/...). Absolute cross-origin
+# preloads (e.g. the github.io webp) are out of scope (not resolvable against the working tree).
+_index53 = read("index.html")
+_preload_hrefs53 = re.findall(r'<link\s+rel="modulepreload"\s+href="([^"]+)"', _index53)
+_dangling53: list[str] = []
+for _href53 in _preload_hrefs53:
+    _h53 = _href53.strip()
+    if _h53.startswith(("http://", "https://", "//")):
+        continue  # absolute / cross-origin preload — out of scope
+    _rel53 = _h53.lstrip("/")
+    if _rel53.startswith("portfolio/"):
+        _rel53 = _rel53[len("portfolio/"):]
+    if _rel53.startswith("./"):
+        _rel53 = _rel53[2:]
+    if not (ROOT / _rel53).is_file():
+        _dangling53.append(_href53)
+check(
+    not _dangling53,
+    f"Check 53: all {len(_preload_hrefs53)} index.html modulepreload href(s) resolve to existing files",
+    "Check 53: index.html declares modulepreload href(s) that do not exist on disk — "
+    f"{_dangling53}; a dangling modulepreload causes a guaranteed 404 on page load "
+    "(update the hint when the module is renamed/split/removed)",
+)
+
+# ── 54. ESLint <-> @eslint/js major-version coupling (BLOCKING) ───────────────
+# package.json's `eslint` and `@eslint/js` devDependencies must share the same MAJOR version.
+# ESLint v10 reorganised how the recommended-config package resolves; a major mismatch
+# (e.g. eslint 10.x with @eslint/js 9.x) causes a duplicate/incompatible install and a
+# config-resolution conflict. They version independently WITHIN a major (eslint 10.4.1 pairs
+# with @eslint/js 10.0.1), so this compares the major only, not exact equality.
+_pkg54 = json.loads(read("package.json"))
+_dd54 = _pkg54.get("devDependencies", {})
+_eslint_v54 = _dd54.get("eslint", "")
+_eslintjs_v54 = _dd54.get("@eslint/js", "")
+
+
+def _major54(spec):
+    m = re.search(r"(\d+)\.", spec.lstrip("^~>=< "))
+    return m.group(1) if m else None
+
+
+_em54 = _major54(_eslint_v54)
+_jm54 = _major54(_eslintjs_v54)
+check(
+    _em54 is not None and _jm54 is not None and _em54 == _jm54,
+    f"Check 54: eslint ({_eslint_v54}) and @eslint/js ({_eslintjs_v54}) share major version {_em54}",
+    f"Check 54: eslint ({_eslint_v54}) and @eslint/js ({_eslintjs_v54}) have mismatched major "
+    "versions — pin @eslint/js to the same major as eslint (a mismatch causes ESLint v10 "
+    "config-resolution conflicts)",
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

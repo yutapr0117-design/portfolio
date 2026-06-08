@@ -253,7 +253,7 @@ Version History (current shipped state)
                    'unsafe-hashes'
                    'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc='
                    https://cdn-edge.karte.io https://static.karte.io;
-        connect-src 'self' https://cdn-edge.karte.io https://static.karte.io https://edge-api.karte.io https://b.karte.io https://mirror2.karte.io;
+        connect-src 'self' https://cdn-edge.karte.io https://static.karte.io https://edge-api.karte.io https://b.karte.io https://mirror2.karte.io https://cdn.wicle.io;
         style-src 'self' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com;
         img-src 'self' data:;
@@ -419,14 +419,20 @@ Version History (current shipped state)
 
     <!-- ESM 依存グラフの並列先読み (modulepreload):
          main.js は <script type="module"> として読み込まれ、先頭で ./js/pure-utils.js と
-         ./js/quiz-data.js を import する。modulepreload を宣言しておくと、ブラウザは main.js の
-         パース（import 文の発見）を待たずに両葉モジュールを並列フェッチ・パース・コンパイルでき、
-         モジュールグラフの逐次的なウォーターフォールを短縮する（起動と INP に寄与）。
-         挙動は不変（純粋なリソースヒント）。両モジュールは same-origin であり CSP script-src 'self'
-         に準拠する。外部 import・CDN・フレームワーク禁止の Boring Technology 原則とも矛盾しない
-         （対象は自オリジンのローカル ESM 葉モジュールのみ）。 -->
+         4 つの quiz データ葉モジュール（./js/quiz/aws-quiz-data.js ほか）を import する。
+         modulepreload を宣言しておくと、ブラウザは main.js のパース（import 文の発見）を待たずに
+         各葉モジュールを並列フェッチ・パース・コンパイルでき、モジュールグラフの逐次的な
+         ウォーターフォールを短縮する（起動と INP に寄与）。挙動は不変（純粋なリソースヒント）。
+         各モジュールは same-origin であり CSP script-src 'self' に準拠する。外部 import・CDN・
+         フレームワーク禁止の Boring Technology 原則とも矛盾しない（対象は自オリジンのローカル
+         ESM 葉モジュールのみ）。v80+ Stage 3-b の quiz 4 分割に合わせ、preload 対象も
+         quiz-data.js 単一から 4 モジュールへ更新済み（削除済みファイルへの dangling preload に
+         よる 404 を防止。この整合は check_repository_consistency.py Check 53 が機械強制する）。 -->
     <link rel="modulepreload" href="./js/pure-utils.js" />
-    <link rel="modulepreload" href="./js/quiz-data.js" />
+    <link rel="modulepreload" href="./js/quiz/aws-quiz-data.js" />
+    <link rel="modulepreload" href="./js/quiz/pm-quiz-data.js" />
+    <link rel="modulepreload" href="./js/quiz/quality-quiz-data.js" />
+    <link rel="modulepreload" href="./js/quiz/architecture-quiz-data.js" />
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" />
