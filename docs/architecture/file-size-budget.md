@@ -1,9 +1,9 @@
 # file-size-budget.md
 
 ```
-Last-Updated  : 2026-06-07
+Last-Updated  : 2026-06-09
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
-Track         : v80+ staged major update (Phase 2 — quiz-domain-split + bloat-governance increment)
+Track         : v80+ staged major update (Phase 2 — verification-doc-drift-sync increment)
 Subject       : 主要ファイルの行数予算（line budget）と、肥大化の「許容」「抑制」分類
 Canonical-Ref : AI2AI.md (canonical) / docs/architecture/repository-maintainability-map.md
 Enforced-By   : check_repository_consistency.py Check 52（ADVISORY / 非ブロッキング）
@@ -41,7 +41,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 
 ---
 
-## 2. 現行予算と実測行数（2026-06-07 時点）
+## 2. 現行予算と実測行数（2026-06-09 時点）
 
 下表は人間可読な要約である。機械可読な真正ソースは §4 の `BUDGET-DATA` ブロックであり、Check 52 はそちらだけをパースする（本表が drift しても Check 52 の挙動は §4 に従う。両者の一致は人間レビューで保つ）。
 
@@ -54,8 +54,8 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/quiz/quality-quiz-data.js` | 275 | 350 | `advisory` | Stage 3-b 分割済み。品質・プロセス問題集 |
 | `js/quiz/architecture-quiz-data.js` | 137 | 250 | `advisory` | Stage 3-b 分割済み。v29 意思決定問題集 |
 | `style.css` | 2,156 | 2,300 | `advisory` | baseline 後に section 分割を検討（cascade 破壊リスクのため baseline 前は分割しない） |
-| `.github/scripts/check_repository_consistency.py` | 1,988 | 2,150 | `advisory` | check-repository-consistency-map.md 作成済み。utility の `lib/` 抽出は将来検討 |
-| `index.html` | 1,259 | — | `protected` | CSP / JSON-LD / AI meta / AIO anchor の中核。AIO 承認なしに整理しない |
+| `.github/scripts/check_repository_consistency.py` | 2,059 | 2,150 | `advisory` | check-repository-consistency-map.md 作成済み。utility の `lib/` 抽出は将来検討 |
+| `index.html` | 1,265 | — | `protected` | CSP / JSON-LD / AI meta / AIO anchor の中核。AIO 承認なしに整理しない |
 | `llms-full.txt` | 998 | — | `protected` | AIO 正本（ground truth）。削らない |
 | `AI2AI.md` | 846 | — | `protected` | AIO 正本（canonical）。削らない |
 | `docs/session-records/AI2AI-archive.md` | 1,513 | — | `archive-growth-ok` | セッション証跡。削らない |
