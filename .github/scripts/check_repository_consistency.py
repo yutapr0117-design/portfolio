@@ -1561,8 +1561,12 @@ _main_src47 = (ROOT / "main.js").read_text(encoding="utf-8")
 # js/quiz/, each exporting exactly one dataset. The check loops over all module specs, so the
 # per-module import/export bijection (47a/47b) and leaf-ness (47c) now cover all four — adding
 # or removing a quiz module without wiring main.js's import would fail this check immediately.
+# v80+ Stage 4: js/ui-components.js added — DOM builder (h), SVG icon helper (createIcon),
+# Toast notification system, and BGM manager extracted as a single leaf module (no local imports).
+# All four exports are used in main.js's IIFE; Check 47b enforces bijection.
 _modules47 = [
     ("./js/pure-utils.js",                  ROOT / "js" / "pure-utils.js"),
+    ("./js/ui-components.js",               ROOT / "js" / "ui-components.js"),
     ("./js/quiz/architecture-quiz-data.js", ROOT / "js" / "quiz" / "architecture-quiz-data.js"),
     ("./js/quiz/aws-quiz-data.js",          ROOT / "js" / "quiz" / "aws-quiz-data.js"),
     ("./js/quiz/pm-quiz-data.js",           ROOT / "js" / "quiz" / "pm-quiz-data.js"),
