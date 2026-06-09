@@ -96,7 +96,7 @@ jobs:
       #   (2) ラベル付き Issue 作成を試行し、失敗時はラベルなしで再作成（通知の確実性を担保）
       - name: Notify citation change
         if: steps.monitor.outputs.citation_change == 'increase' || steps.monitor.outputs.citation_change == 'decrease'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const change = '${{ steps.monitor.outputs.citation_change }}';
