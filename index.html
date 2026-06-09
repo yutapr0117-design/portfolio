@@ -425,10 +425,11 @@ Version History (current shipped state)
          ウォーターフォールを短縮する（起動と INP に寄与）。挙動は不変（純粋なリソースヒント）。
          各モジュールは same-origin であり CSP script-src 'self' に準拠する。外部 import・CDN・
          フレームワーク禁止の Boring Technology 原則とも矛盾しない（対象は自オリジンのローカル
-         ESM 葉モジュールのみ）。v80+ Stage 3-b の quiz 4 分割に合わせ、preload 対象も
-         quiz-data.js 単一から 4 モジュールへ更新済み（削除済みファイルへの dangling preload に
-         よる 404 を防止。この整合は check_repository_consistency.py Check 53 が機械強制する）。 -->
+         ESM 葉モジュールのみ）。v80+ Stage 3-b の quiz 4 分割 + Stage 4 の ui-components 抽出に
+         合わせ、preload 対象を更新済み（削除済みファイルへの dangling preload による 404 を防止。
+         この整合は check_repository_consistency.py Check 53 が機械強制する）。 -->
     <link rel="modulepreload" href="./js/pure-utils.js" />
+    <link rel="modulepreload" href="./js/ui-components.js" />
     <link rel="modulepreload" href="./js/quiz/aws-quiz-data.js" />
     <link rel="modulepreload" href="./js/quiz/pm-quiz-data.js" />
     <link rel="modulepreload" href="./js/quiz/quality-quiz-data.js" />
