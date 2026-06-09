@@ -1,7 +1,7 @@
 # total-check-runbook.md
 
 ```
-Last-Updated  : 2026-06-07
+Last-Updated  : 2026-06-09
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
 Track         : v80+ staged major update (verification institutionalization)
 Purpose       : このリポジトリの「トータルチェック」を、人間でも AI でも、誰でも
@@ -121,7 +121,7 @@ npm audit --omit=dev # 配信物（ランタイム依存）だけの監査
 |---|---|---|
 | `npm run lint` | `120 problems (0 errors, 120 warnings)` / **exit 0** | exit ≥2 = 実行失敗（config/parse/flag）→ **BLOCKING**。errors>0 → **BLOCKING**。warnings → **advisory**（`main.js` の `no-var`/`curly`/`no-shadow`。視覚回帰 baseline 確立後に残りを段階解消）。**warning 件数の増加は負債増のサイン**として監視。注: Stage 2/3 抽出で 199→194 に減少（`curly` 5 件が `js/pure-utils.js` へ移動し解消）、続く lint-hygiene increment で 194→120 に減少（safe-zone の `curly` 71 件にブレース付与＋`prefer-const` 1 件を `const` 化。保護領域=AIDK kernel／AIDK modules／known benign suppressor／innerHTML interceptor は byte-identical のため未着手で温存） |
 | `npm run lint:css` | `Stylelint [style.css]: PASS` / exit 0 | error は BLOCKING |
-| `npm run lint:js` | 各 JS が OK・exit 0 | `node --check` を 8 つの公開/dev JS（`main.js` / `sw.js` / `aio-guard.js` / `error-suppressor.js` / `theme-init.js` / `karte-init.js` / `js/pure-utils.js` / `js/quiz-data.js`）へまとめて適用する糖衣。構文エラーは BLOCKING。対象集合は `lint` と一致し Check 46 が機械強制（対象は root ∪ js/） |
+| `npm run lint:js` | 各 JS が OK・exit 0 | `node --check` を 11 の公開/dev JS（`main.js` / `sw.js` / `aio-guard.js` / `error-suppressor.js` / `theme-init.js` / `karte-init.js` / `js/pure-utils.js` / `js/quiz/architecture-quiz-data.js` / `js/quiz/aws-quiz-data.js` / `js/quiz/pm-quiz-data.js` / `js/quiz/quality-quiz-data.js`）へまとめて適用する糖衣。構文エラーは BLOCKING。対象集合は `lint` と一致し Check 46 が機械強制（対象は root ∪ js/） |
 | `npm run check` | `Repository consistency check passed — all invariants hold.` / exit 0 / consistency 120 OK 行（`npm run check` 全体＝consistency＋digest＋binary の 3 スクリプトで、`OK:` トークン行は合計 122）| §6 の registry 参照。1 つでも ERROR が出れば exit 1（BLOCKING）。OK 行数の権威値は §9 の実測表。両者がずれた場合は §9 を正とし、本行を §9 に合わせて更新する |
 | `npm run verify` | 上記が順に全 pass・exit 0 | **ローカル総合ゲートの単一エントリポイント**。`check`→`lint:css`→`lint`→`lint:js` を `&&` で連結（最初の失敗で停止・exit 非 0）。既存スクリプトを合成するだけで独自ロジックを持たない。Playwright は外部バイナリ依存のため意図的に含めない（§7.4 参照）|
 | `py_compile` | 無出力・exit 0 | 構文エラーは BLOCKING |
@@ -251,13 +251,13 @@ echo "ALL LOCAL CHECKS PASSED"
 
 ---
 
-## 9. 実測基準値（このコミット時点 / 2026-06-07・console-fix + eslint-v10 + research-application increment）
+## 9. 実測基準値（このコミット時点 / 2026-06-09・verification-doc-drift-sync + incident-archive-v74 increment）
 
 トータルチェックが緑のとき、以下の数値になる。乖離したら原因を調べる。各値は本コミットで実測したものであり、推定ではない。
 
 | 指標 | 基準値 |
 |---|---|
-| 追跡ファイル総数 | 76（artifact-governance increment 後 74 ＋ AIO-update increment の decision record・改善文書 2。本 public-freshness-observation increment では既存追跡ファイルの編集と非追跡 outputs への複製のみで、追跡ツリーの新規ファイルは別途のコミット運用に従う）|
+| 追跡ファイル総数 | 98（console-fix increment 時点 102 から、v74 トラック incident 6 ファイルを archive へ集約して −6、新規に archive-v74.md と archive-incidents.md の 2 本を追加して +2。過去の積み上げ経緯は各 incident-artifact に記録。本 increment 以前は本表が 76 のまま停止しており、複数 increment 分のファイル追加が未同期だった）|
 | `npm run lint` | 0 errors / 120 warnings（`curly`:46 / `no-var`:64 / `no-shadow`:10、すべて `main.js`。Stage 2/3 分割で `curly` 該当 5 件が `js/pure-utils.js` へ移動・解消し 199→194 に減少、続く lint-hygiene increment で safe-zone の `curly` 71 件にブレース付与＋`prefer-const` 1 件を `const` 化し 194→120 に減少。保護領域=AIDK kernel／AIDK modules／known benign suppressor／innerHTML interceptor 内の `curly`・全 `no-var`・全 `no-shadow` は byte-identical 維持のため温存。`js/pure-utils.js`・`js/quiz/{aws,pm,quality,architecture}-quiz-data.js` は 0 problems。lint は ESLint v10.4.1 / flat config 実行）|
 | consistency 検査の `OK:` 行 | 120（Check 41 の 2 行・Check 42 の 2 行・Check 43 の 4 行・Check 44 の 3 行・Check 45 の 3 行・Check 46 の 2 行・Check 47 の 15 行（5 モジュール × 3 サブチェック＝pure-utils + quiz 4 ドメインモジュール。Stage 3-b 分割で 2 モジュール 6 行から増加）・Check 48 の 1 行・Check 50 の 3 行（50a/50b/50c）・Check 51 の 1 行・Check 52 の 1 行（advisory・予算内のため OK）・新規 Check 53 の 1 行（modulepreload 参照解決）・新規 Check 54 の 1 行（eslint↔@eslint/js メジャー一致）を含む。`all invariants hold` で終了。前 increment の 118 から、Check 53/54 の +2 行で 120 へ増加）|
 | `npm run check` 全体の `OK:` トークン行 | 122（consistency 120 ＋ `check_binary_aio_metadata.py` 2。`check_aio_digests.py` は `OK (manifest/...)` 形式と末尾 `AIO digest check passed` を出力し、`OK:` トークンには 0 行寄与する。3 スクリプトはいずれも exit 0。前 increment の 120 から consistency 側の +2 行で 122 へ増加）|
@@ -268,9 +268,9 @@ echo "ALL LOCAL CHECKS PASSED"
 | `.well-known/aio-manifest.json` の証跡カウント | source_of_truth 5 / supporting_evidence 4 / observational_evidence 1 |
 | `index.html` 構造化データ | JSON-LD ブロック 2 / `ai:` meta タグ 8（ハイフン付き含む）|
 | `npm audit` / `--omit=dev` | 0 件 / 0 件 |
-| `main.js` | ≈352 KB / ≈6,355 行（単一 IIFE 本体 + 先頭にローカル ESM import。元 ≈468 KB / ≈7,785 行。Stage 2/3 で純ユーティリティ 10 関数を `js/pure-utils.js`、静的データ 4 つを `js/quiz-data.js` へ分割し −1,432 行で ≈6,353 行、続く lint-hygiene increment で `prefer-const` 解消の説明コメント +2 行。Check 43 が IIFE と kernel の存在を機械強制、Check 43d が import 先行を許容）|
+| `main.js` | ≈353 KB / 6,360 行（単一 IIFE 本体 + 先頭にローカル ESM import。元 ≈468 KB / ≈7,785 行。Stage 2/3 で純ユーティリティ 10 関数を `js/pure-utils.js`、静的データ 4 つを `js/quiz-data.js` へ分割し −1,432 行で ≈6,353 行、続く lint-hygiene increment で `prefer-const` 解消の説明コメント +2 行、Stage 3-b の quiz ドメイン分割で import ブロック +5 行。Check 43 が IIFE と kernel の存在を機械強制、Check 43d が import 先行を許容）|
 | `js/pure-utils.js` | ≈277 行（純粋ユーティリティ 10 関数の ESM 葉モジュール。Stage 2 抽出）|
-| `js/quiz-data.js` | ≈1,406 行（静的クイズデータ 4 つの ESM 葉モジュール。Stage 3 抽出、byte-equivalent）|
+| `js/quiz/{aws,pm,quality,architecture}-quiz-data.js` | 819/271/275/137 行（静的クイズデータの ESM 葉モジュール 4 つ。Stage 3 で `js/quiz-data.js` へ抽出後、Stage 3-b でドメイン別 4 モジュールへ byte-equivalent 分割。元 `js/quiz-data.js` は削除済み）|
 
 ---
 

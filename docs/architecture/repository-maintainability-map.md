@@ -1,9 +1,9 @@
 # repository-maintainability-map.md
 
 ```
-Last-Updated  : 2026-06-07
+Last-Updated  : 2026-06-09
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
-Track         : v80+ staged major update (Phase 2 — baseline-gate-doc-hardening increment applied)
+Track         : v80+ staged major update (Phase 2 — verification-doc-drift-sync + incident-archive-v74 increment applied)
 Canonical-Ref : AI2AI.md (canonical) / llms-full.txt (ground truth)
 Status        : Living document — update when layer structure or sync relationships change
 ```
@@ -99,7 +99,7 @@ workflow は `npm install --no-save …` / `npm install -D …` の broad instal
 
 **~~問題（Session #16 で発見）~~ → 解消（Session #18）:** `architecture-validation.yml` の ESLint ステップが実質無効（vacuous）だった根本原因 ―― ①`npm install --no-save eslint`（バージョン無指定 → ESLint 9.x で classic flags `--no-eslintrc`/`--env` が削除済み）、②`|| true` による実行失敗の握り潰し ―― を **Session #18 で両方除去**した。現在は ①ESLint を **8.57.1 に pin**、②**実行失敗（exit≥2）= BLOCKING / lint 検出（exit 1）= ADVISORY（件数を可視化・CI は赤化しない）** に再構成。vacuous PASS は構造的に発生不能。
 
-**残課題（lint 負債そのもの・要判断）— 実測値で更新:** 現行 `.eslintrc.json` は **base ルール（`no-var`/`prefer-const`/`curly`/`no-shadow` 等）を error 級**に置き、`overrides` で **`main.js` のみを `warn`（ADVISORY）に降格**する構成。実測すると `main.js` に **0 errors / 120 warnings**（内訳 `curly`:46 / `no-var`:64 / `no-shadow`:10、`prefer-const` は 0 へ解消）が残り、それ以外の対象ファイル（`error-suppressor.js` / `karte-init.js` / `theme-init.js` / `aio-guard.js` / `sw.js` / `js/pure-utils.js` / `js/quiz-data.js`）は **error 級ルールでも 0 件**。すなわち負債は **`main.js` に局在**しており、旧記載の「216 errors / `sw.js` top-level / `theme-init.js` の `curly`」は**現物と乖離していたため破棄**（`sw.js`・`theme-init.js` は既に clean）。なお v80+ Stage 2/3 抽出前は 199 warnings（`curly`:124）だったが、`curly` 該当の単文 if 5 件が抽出関数とともに `js/pure-utils.js` へ移動し移動先でブレース付与により解消したため、`main.js` 側は 119（合計 194）に減少した（負債が消えたのではなく移動先で解消した結果）。続く lint-hygiene increment では、safe-zone（AIDK kernel／AIDK modules／known benign suppressor／innerHTML interceptor の各保護領域の外）の `curly` 71 件にブレース付与し、`prefer-const` 1 件（`taskFilter`、再代入されずプロパティ変異のみのため `const` が正しい）を解消して、194→120 に減少した（保護領域内の `curly`・全 `no-var`・全 `no-shadow` は byte-identical 維持のため温存。`curly` は構文のみで挙動不変だが、baseline 未確立下では大規模 trivial diff を避ける方針に従い safe-zone の 83 件すべてではなく 71 件に限定）。
+**残課題（lint 負債そのもの・要判断）— 実測値で更新:** 現行 `.eslintrc.json` は **base ルール（`no-var`/`prefer-const`/`curly`/`no-shadow` 等）を error 級**に置き、`overrides` で **`main.js` のみを `warn`（ADVISORY）に降格**する構成。実測すると `main.js` に **0 errors / 120 warnings**（内訳 `curly`:46 / `no-var`:64 / `no-shadow`:10、`prefer-const` は 0 へ解消）が残り、それ以外の対象ファイル（`error-suppressor.js` / `karte-init.js` / `theme-init.js` / `aio-guard.js` / `sw.js` / `js/pure-utils.js` / `js/quiz/architecture-quiz-data.js` / `js/quiz/aws-quiz-data.js` / `js/quiz/pm-quiz-data.js` / `js/quiz/quality-quiz-data.js`）は **error 級ルールでも 0 件**。すなわち負債は **`main.js` に局在**しており、旧記載の「216 errors / `sw.js` top-level / `theme-init.js` の `curly`」は**現物と乖離していたため破棄**（`sw.js`・`theme-init.js` は既に clean）。なお v80+ Stage 2/3 抽出前は 199 warnings（`curly`:124）だったが、`curly` 該当の単文 if 5 件が抽出関数とともに `js/pure-utils.js` へ移動し移動先でブレース付与により解消したため、`main.js` 側は 119（合計 194）に減少した（負債が消えたのではなく移動先で解消した結果）。続く lint-hygiene increment では、safe-zone（AIDK kernel／AIDK modules／known benign suppressor／innerHTML interceptor の各保護領域の外）の `curly` 71 件にブレース付与し、`prefer-const` 1 件（`taskFilter`、再代入されずプロパティ変異のみのため `const` が正しい）を解消して、194→120 に減少した（保護領域内の `curly`・全 `no-var`・全 `no-shadow` は byte-identical 維持のため温存。`curly` は構文のみで挙動不変だが、baseline 未確立下では大規模 trivial diff を避ける方針に従い safe-zone の 83 件すべてではなく 71 件に限定）。
 
 - **`sw.js` を `overrides` から除外済み（CI 衛生 increment）:** `sw.js` は warn 級降格が不要なほど clean なため、`.eslintrc.json` overrides 対象を `["main.js"]` のみへ縮小し、`sw.js` を error 級ゲートへ昇格した（clean なので緑のまま、かつ将来の退行を error で捕捉）。
 - **BLOCKING 化の残作業は `main.js` のみ:** 残る 120 warnings を解消（`var`→`let/const`、保護領域内の `if` 単文の波括弧、shadow 変数のリネーム）すれば `main.js` も overrides から外せる。ただし **baseline 未確立下では大規模 trivial diff を避ける**（差分が巨大化し、視覚回帰 baseline 未確立では退行検出不能）。`main-js-extraction-map.md` の Stage 進行に合わせ、論理ブロック単位で段階解消する。
