@@ -47,7 +47,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 
 | ファイル | 実測行数 | 予算（上限） | 予算種別 | 方針 |
 |---|---:|---:|---|---|
-| `main.js` | 4,469 | 6,400 | `strong-advisory` | Stage 5-i: Theme を factory pattern で js/theme.js へ抽出し −27 行。累計 7,785→4,469 行（−43%）。次の縮小は DiagnosticsRail / RouteState / EffectRails 等の AIDK Rail |
+| `main.js` | 4,476 | 6,400 | `strong-advisory` | Stage 5-j: pages.js を factory pattern に refactor (ReferenceError bug fix)。main.js +7 行（destructure + コメント）。累計 7,785→4,476 行（−42%）。次の縮小は DiagnosticsRail / RouteState / EffectRails 等の AIDK Rail |
 | `js/brand.js` | 65 | 120 | `advisory` | Stage 5-f 新設。Brand manager（primary palette/font switcher）factory。closure-deps = none（葉契約）+ Storage を引数注入 |
 | `js/constants.js` | 88 | 150 | `advisory` | Stage 5-d 新設。実行時定数（STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID）。closure-deps = none |
 | `js/identity.js` | 36 | 80 | `advisory` | Stage 5-e 新設。AUTHOR（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME）純データ。closure-deps = none |
@@ -55,7 +55,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/router.js` | 175 | 250 | `advisory` | Stage 5 新設。Hash-based SPA ルーター葉モジュール。安定 |
 | `js/state.js` | 240 | 320 | `advisory` | Stage 5-h 新設。State factory（Proxy 型安全モニター + subscriber + cross-tab + auto-save）。closure-deps = none + 引数注入 |
 | `js/page-meta.js` | 63 | 120 | `advisory` | Stage 5 新設。ページ SEO メタ単一ソース（AI SURFACE）。安定 |
-| `js/pages.js` | 635 | 700 | `advisory` | Stage 5-b 新設。HiringRiskPage / RoleSplitPage / NotFoundPage + helpers の葉モジュール。closure-deps = none |
+| `js/pages.js` | 650 | 750 | `advisory` | Stage 5-b → Stage 5-j fix。factory pattern (createPages) で ReferenceError bug を解消。closure-deps = none + h/createIcon/Router 引数注入 |
 | `js/pure-utils.js` | 277 | 400 | `advisory` | Stage 2 抽出済みの純ユーティリティ。安定 |
 | `js/storage.js` | 74 | 120 | `advisory` | Stage 5-c 新設。Safe localStorage ラッパ。closure-deps = none |
 | `js/store.js` | 512 | 600 | `advisory` | Stage 5-g 新設。Store factory（default data + load/validate/normalize/similarity）。closure-deps = none（葉契約）+ 引数注入 |
@@ -103,7 +103,7 @@ js/identity.js | 80 | advisory
 js/ui-components.js | 400 | advisory
 js/router.js | 250 | advisory
 js/page-meta.js | 120 | advisory
-js/pages.js | 700 | advisory
+js/pages.js | 750 | advisory
 js/pure-utils.js | 400 | advisory
 js/state.js | 320 | advisory
 js/storage.js | 120 | advisory

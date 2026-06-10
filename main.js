@@ -63,9 +63,11 @@
         //   PAGE_META: 動的 title/desc は引数で state/params を受け取る純粋関数。closure-deps = none。
         import { Router } from './js/router.js';
         import { PAGE_META } from './js/page-meta.js';
-        // v80+ Stage 5-b: ページコンポーネント（HiringRiskPage / RoleSplitPage / NotFoundPage）を葉モジュールへ抽出。
-        //   closure-deps = none（h / createIcon / Router の純粋ユーティリティのみ参照）。
-        import { HiringRiskPage, RoleSplitPage, NotFoundPage } from './js/pages.js';
+        // v80+ Stage 5-b → Stage 5-j fix: ページコンポーネント（HiringRiskPage / RoleSplitPage /
+        // NotFoundPage）を葉モジュールへ抽出。Stage 5-b 時点は h/createIcon/Router を未定義の
+        // 暗黙参照としていた（ReferenceError 隠れバグ）。Stage 5-j で factory pattern に修正し、
+        // 依存を引数注入で解消（葉契約維持）。
+        import { createPages } from './js/pages.js';
         // v80+ Stage 5-c: Safe Storage（localStorage ラッパ）を葉モジュールへ抽出。
         //   closure-deps = none（localStorage と引数のみ。CONSTANTS 等の IIFE クロージャ非参照）。
         import { Storage } from './js/storage.js';
@@ -691,6 +693,11 @@
         //   ▼ v80+ Stage 5-f: Brand は factory pattern で js/brand.js へ抽出。
         //     createBrand(Storage) に Storage instance を渡して合成（葉モジュール契約維持・挙動 byte-equivalent）。
         const Brand = createBrand(Storage);
+
+        // ===== v80+ Stage 5-j: Page components factory instantiation =====
+        //   js/pages.js は factory として createPages({h, createIcon, Router}) を export。
+        //   ここで instance 化し、各ページ関数を main.js scope に bind する（挙動 byte-equivalent）。
+        const { HiringRiskPage, RoleSplitPage, NotFoundPage } = createPages({ h, createIcon, Router });
 
 
         // ===== Router =====
