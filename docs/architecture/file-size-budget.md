@@ -47,7 +47,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 
 | ファイル | 実測行数 | 予算（上限） | 予算種別 | 方針 |
 |---|---:|---:|---|---|
-| `main.js` | 2,071 | 6,400 | `strong-advisory` | Stage 5-n: Productivity Apps 5 関数 (TaskPage/TodoPage/PomodoroPage/AIPage/SettingsPage) + private state を js/apps.js へ factory pattern で抽出し −984 行。累計 7,785→2,071 行（**−73%**）。次の縮小は Quiz レンダラ と AIDK Rail |
+| `main.js` | 1,855 | 6,400 | `strong-advisory` | Stage 5-o: Quiz Renderer (QuizPage) を js/quiz-renderer.js へ factory pattern で抽出し −228 行。累計 7,785→1,855 行（**−76%**）。次の縮小は AIDK Rail (RouteState/EffectRails/BindingRegistry/ActionDelegator/DiagnosticsRail) |
 | `js/apps.js` | 1,030 | 1,200 | `advisory` | Stage 5-n 新設。Productivity Apps 5 関数 factory（TaskPage/TodoPage/PomodoroPage/AIPage/SettingsPage + private state）。closure-deps = none + 引数注入 |
 | `js/brand.js` | 65 | 120 | `advisory` | Stage 5-f 新設。Brand manager（primary palette/font switcher）factory。closure-deps = none（葉契約）+ Storage を引数注入 |
 | `js/components.js` | 1,335 | 1,500 | `advisory` | Stage 5-m 新設。UI page components 11 関数 factory（Sidebar/HomePage/ProjectsPage/ProjectDetailPage/AppsPage/AboutPage/ResumePage/ContactPage/FatalPage/AIKnowhowPage/ContactCTA）。closure-deps = none + 引数注入 |
@@ -60,6 +60,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/page-meta.js` | 63 | 120 | `advisory` | Stage 5 新設。ページ SEO メタ単一ソース（AI SURFACE）。安定 |
 | `js/pages.js` | 650 | 750 | `advisory` | Stage 5-b → Stage 5-j fix。factory pattern (createPages) で ReferenceError bug を解消。closure-deps = none + h/createIcon/Router 引数注入 |
 | `js/pure-utils.js` | 277 | 400 | `advisory` | Stage 2 抽出済みの純ユーティリティ。安定 |
+| `js/quiz-renderer.js` | 259 | 350 | `advisory` | Stage 5-o 新設。Quiz Renderer factory（QuizPage + 4 domain lookup table）。closure-deps = none + 引数注入 |
 | `js/storage.js` | 74 | 120 | `advisory` | Stage 5-c 新設。Safe localStorage ラッパ。closure-deps = none |
 | `js/store.js` | 512 | 600 | `advisory` | Stage 5-g 新設。Store factory（default data + load/validate/normalize/similarity）。closure-deps = none（葉契約）+ 引数注入 |
 | `js/theme.js` | 65 | 120 | `advisory` | Stage 5-i 新設。Theme factory（system/dark/light cycle + matchMedia listener）。closure-deps = none（葉契約）+ 引数注入 |
@@ -111,6 +112,7 @@ js/router.js | 250 | advisory
 js/page-meta.js | 120 | advisory
 js/pages.js | 750 | advisory
 js/pure-utils.js | 400 | advisory
+js/quiz-renderer.js | 350 | advisory
 js/state.js | 320 | advisory
 js/storage.js | 120 | advisory
 js/store.js | 600 | advisory
