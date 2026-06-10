@@ -894,25 +894,44 @@ _CANON_SLUGS = {
     "91cf894e1072c6", "27fa4c511cd972", "340dbb85491fc8", "7e18e6ee1577aa",
     "931f6e781d91f8", "49326c5c4e0aae", "6dad78f20f2505",
 }
+# v80+ Stage 5-m: UI components (HomePage の Zenn featured card list を含む) が
+# js/components.js へ抽出された。main.js / js/components.js のどちらかに slug が含まれて
+# いれば Zenn featuring 契約は満たされる。検査ロジックも main.js を JS 統合面として扱う。
 _ZENN_LAYERS = [
     "robots.txt", "index.html", "main.js", "llms.txt", "llms-full.txt", "README.md",
 ]
+_JS_SHIPPED_AGGREGATE = None  # main.js + js/components.js を 1 度だけ結合
 for _layer33 in _ZENN_LAYERS:
     _p33 = ROOT / _layer33
-    if not _p33.exists():
+    if _layer33 == "main.js":
+        # main.js + js/components.js を結合して検査
+        if _JS_SHIPPED_AGGREGATE is None:
+            _agg33 = ""
+            for _aux33 in (_p33, ROOT / "js" / "components.js"):
+                if _aux33.exists():
+                    _agg33 += _aux33.read_text(encoding="utf-8") + "\n"
+            _JS_SHIPPED_AGGREGATE = _agg33
+        _txt33 = _JS_SHIPPED_AGGREGATE
+        if not _txt33:
+            warnings.append("Check 33: main.js not found — Zenn slug check skipped for it")
+            continue
+        _layer_label33 = "main.js∪js/components.js"
+    elif not _p33.exists():
         warnings.append(f"Check 33: {_layer33} not found — Zenn slug check skipped for it")
         continue
-    _txt33 = _p33.read_text(encoding="utf-8")
+    else:
+        _txt33 = _p33.read_text(encoding="utf-8")
+        _layer_label33 = _layer33
     _missing33 = sorted(s for s in _CANON_SLUGS if s not in _txt33)
     check(
         not _missing33,
-        f"{_layer33}: contains all {len(_CANON_SLUGS)} canonical Zenn article slugs",
-        f"{_layer33}: missing Zenn slug(s) {_missing33} — featuring layers have drifted out of sync (repository-maintainability-map.md §6)",
+        f"{_layer_label33}: contains all {len(_CANON_SLUGS)} canonical Zenn article slugs",
+        f"{_layer_label33}: missing Zenn slug(s) {_missing33} — featuring layers have drifted out of sync (repository-maintainability-map.md §6)",
     )
     check(
         _PRIMARY_SLUG in _txt33,
-        f"{_layer33}: contains the PRIMARY Zenn slug ({_PRIMARY_SLUG})",
-        f"{_layer33}: missing the PRIMARY Zenn slug ({_PRIMARY_SLUG})",
+        f"{_layer_label33}: contains the PRIMARY Zenn slug ({_PRIMARY_SLUG})",
+        f"{_layer_label33}: missing the PRIMARY Zenn slug ({_PRIMARY_SLUG})",
     )
 
 # ── 34. honest per-file dating: doc Last-Updated == its sitemap <lastmod> (WARNING) ──

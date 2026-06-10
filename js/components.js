@@ -33,7 +33,7 @@
  *   - AIKnowhowPage の article schema route 表示も不変
  *   - AIDK Kernel / AIO 正本層には影響しない
  */
-export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, State, Theme, Brand, Store }) {
+export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, State, Theme, Brand, Store, tokenize }) {
     function Sidebar(isDrawer = false) {
         const state = State.get();
         const route = Router.getRoute();

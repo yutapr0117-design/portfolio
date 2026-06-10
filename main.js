@@ -734,7 +734,7 @@
         const {
             Sidebar, HomePage, ProjectsPage, ProjectDetailPage, AppsPage,
             AboutPage, ResumePage, ContactPage, FatalPage, AIKnowhowPage, ContactCTA
-        } = createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, State, Theme, Brand, Store });
+        } = createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, State, Theme, Brand, Store, tokenize });
 
         // ===== v80+ Stage 5-j: Page components factory instantiation =====
         //   ContactCTA は Stage 5-m で createComponents から供給される。それを createPages
