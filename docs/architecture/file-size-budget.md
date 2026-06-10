@@ -47,7 +47,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 
 | ファイル | 実測行数 | 予算（上限） | 予算種別 | 方針 |
 |---|---:|---:|---|---|
-| `main.js` | 5,182 | 6,400 | `strong-advisory` | Stage 5-f: Brand manager を factory pattern で js/brand.js へ抽出し −24 行。累計 7,785→5,182 行（−33%）。次の縮小は Theme / DiagnosticsRail / Store / State 等 |
+| `main.js` | 4,702 | 6,400 | `strong-advisory` | Stage 5-g: Store を factory pattern で js/store.js へ抽出し −484 行（main.js −484 だが正味 −480: 説明コメント 4 行追加）。累計 7,785→4,702 行（−40%）。次の縮小は State / Theme / DiagnosticsRail |
 | `js/brand.js` | 65 | 120 | `advisory` | Stage 5-f 新設。Brand manager（primary palette/font switcher）factory。closure-deps = none（葉契約）+ Storage を引数注入 |
 | `js/constants.js` | 88 | 150 | `advisory` | Stage 5-d 新設。実行時定数（STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID）。closure-deps = none |
 | `js/identity.js` | 36 | 80 | `advisory` | Stage 5-e 新設。AUTHOR（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME）純データ。closure-deps = none |
@@ -57,6 +57,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/pages.js` | 635 | 700 | `advisory` | Stage 5-b 新設。HiringRiskPage / RoleSplitPage / NotFoundPage + helpers の葉モジュール。closure-deps = none |
 | `js/pure-utils.js` | 277 | 400 | `advisory` | Stage 2 抽出済みの純ユーティリティ。安定 |
 | `js/storage.js` | 74 | 120 | `advisory` | Stage 5-c 新設。Safe localStorage ラッパ。closure-deps = none |
+| `js/store.js` | 512 | 600 | `advisory` | Stage 5-g 新設。Store factory（default data + load/validate/normalize/similarity）。closure-deps = none（葉契約）+ 引数注入 |
 | `js/quiz/aws-quiz-data.js` | 819 | 900 | `advisory` | Stage 3-b 分割済み。AWS 問題集（最大データセット） |
 | `js/quiz/pm-quiz-data.js` | 271 | 350 | `advisory` | Stage 3-b 分割済み。PM 問題集 |
 | `js/quiz/quality-quiz-data.js` | 275 | 350 | `advisory` | Stage 3-b 分割済み。品質・プロセス問題集 |
@@ -103,6 +104,7 @@ js/page-meta.js | 120 | advisory
 js/pages.js | 700 | advisory
 js/pure-utils.js | 400 | advisory
 js/storage.js | 120 | advisory
+js/store.js | 600 | advisory
 js/quiz/aws-quiz-data.js | 900 | advisory
 js/quiz/pm-quiz-data.js | 350 | advisory
 js/quiz/quality-quiz-data.js | 350 | advisory
