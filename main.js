@@ -69,6 +69,10 @@
         // v80+ Stage 5-c: Safe Storage（localStorage ラッパ）を葉モジュールへ抽出。
         //   closure-deps = none（localStorage と引数のみ。CONSTANTS 等の IIFE クロージャ非参照）。
         import { Storage } from './js/storage.js';
+        // v80+ Stage 5-d: CONSTANTS（実行時定数: STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID）を葉モジュールへ抽出。
+        //   SITE_CONFIG.VERSION / LAST_UPDATED は Check 2 / 17 が main.js から名前抽出するため残置。
+        //   closure-deps = none（ブラウザグローバル crypto/sessionStorage/location のみ参照、IIFE クロージャ非参照）。
+        import { CONSTANTS } from './js/constants.js';
         /* ╔══════════════════════════════════════════════════════════════════╗
            ║  DO NOT EDIT: AIDK Isolated Kernel — AIDK Architecture          ║
            ║  このブロック全体がAIエージェントのアクセスから隔離された核です。   ║
@@ -210,60 +214,10 @@
             ARTICLE_ROUTES: ['ai-knowhow'],   // og:type = article を適用するルート
         };
 
-        const CONSTANTS = {
-            STORAGE_KEY: 'portfolio_enhanced_v45',
-            SNAPSHOT_KEY: 'portfolio_snapshot_v45',
-            SCHEMA_VERSION: 12,            // Cross-tab coordination
-            TAB_ID: (() => {
-                try {
-                    const key = 'portfolio_tab_id_v45';
-                    let id = sessionStorage.getItem(key);
-                    if (!id) {
-                        id = crypto.randomUUID ? crypto.randomUUID() :
-                            (() => {
-                                const timestamp = Date.now().toString(16);
-                                const random = Math.random().toString(16).substring(2, 10);
-                                return `fallback-${timestamp}-${random}`;
-                            })()
-                        // codeql[js/clear-text-storage-of-sensitive-data] - False positive: stores a random UUID for cross-tab coordination only.
-                        sessionStorage.setItem(key, id);
-                    }
-                    return id;
-                } catch {
-                    return Math.random().toString(36).substring(2);
-                }
-            })(),
-
-            // Limits for validation
-            LIMITS: {
-                PROJECT_NAME: 120,
-                PROJECT_ID: 80,
-                CATEGORY: 80,
-                SUMMARY: 800,
-                PROBLEM: 1200,
-                APPROACH: 1200,
-                IMPACT: 1200,
-                TASK_TITLE: 200,
-                TASK_DESC: 1000,
-                TODO_TEXT: 300,
-                AI_MESSAGE: 5000,
-                MAX_PROJECTS: 1000,
-                MAX_TASKS: 500,
-                MAX_TODOS: 1000,
-            },
-
-            // Timing
-            DEBOUNCE_DELAY: 150,       // ms — input debounce (search, filters)
-            SAVE_INTERVAL: 30000,      // ms — auto-save interval
-            POMODORO_LOCK_TTL: 8000,   // ms — pomodoro cross-tab lock TTL
-
-            // Layout — must stay in sync with CSS --topbar-height variable
-            TOPBAR_HEIGHT_PX: 64,      // px — fixed topbar height (v65)
-            MOBILE_BREAKPOINT: 920,    // px — sidebar → drawer breakpoint
-
-            // Dev flag (used for stricter guards)
-            DEBUG: (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || new URLSearchParams(location.search).has('debug')),
-        };
+        // ===== CONSTANTS — Application Runtime Constants =====
+        //   ▼ v80+ Stage 5-d: CONSTANTS は closure-deps = none（ブラウザグローバルのみ参照）
+        //     のため js/constants.js へ抽出し、ファイル冒頭で import 済み（挙動・schema 等価）。
+        //     SITE_CONFIG.VERSION / LAST_UPDATED は Check 2 / 17 が main.js を grep するため残置。
 
 
         // ===== Global Data: Quiz Questions =====
