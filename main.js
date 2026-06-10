@@ -3860,12 +3860,9 @@
             );
         }
 
-        // ===== Page: HiringRisk (v28 — 採用決裁資料レベル) =====
-
-        // impactRow: リスク名 → 経営言語変換行
         // ===== Page Components =====
-        //   ▼ v80+ Stage 5-b: Page functions exported from js/pages.js
-        //     (HiringRiskPage / RoleSplitPage / NotFoundPage + helpers).
+        //   ▼ v80+ Stage 5-b: HiringRiskPage (v28 採用決裁資料レベル) + helpers
+        //     (impactRow / kpiRow / decisionFlow / riskCard) を js/pages.js へ抽出済み。
         function AIKnowhowPage() {
             const C = {
                 primary: 'var(--color-primary)',
@@ -4216,9 +4213,8 @@
             );
         }
 
-        // ===== Page Components =====
-        //   ▼ v80+ Stage 5-b: Page functions exported from js/pages.js
-        //     (HiringRiskPage / RoleSplitPage / NotFoundPage + helpers).
+        //   ▼ v80+ Stage 5-b: RoleSplitPage (Human vs AI 分担表 / proof の中核) と
+        //     NotFoundPage (404 fallback) を js/pages.js へ抽出済み。
         // 改善文書b 4 / 改善文書c: AbortController-based render lifecycle management.
         // Each call to _renderCore() carries a signal; if a new render starts before
         // the previous one completes, the previous one is aborted cleanly.
