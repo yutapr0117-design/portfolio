@@ -1578,9 +1578,15 @@ _main_src47 = (ROOT / "main.js").read_text(encoding="utf-8")
 # extracted as leaf modules. Router had one closure dep (CONSTANTS.DEBUG, production dead code)
 # which was removed. PAGE_META's dynamic entries are pure functions that accept state/params as
 # arguments — no closure deps. Both are leaves (no local imports).
-# v80+ Stage 5-b: js/pages.js (HiringRiskPage / RoleSplitPage / NotFoundPage + 4 helpers)
-# extracted as a leaf module. All three page functions and helpers only reference pure utilities
-# (h, createIcon, Router) which are themselves ESM-imported — closure-deps = none verified.
+# v80+ Stage 5-b → 5-j fix: js/pages.js (HiringRiskPage / RoleSplitPage / NotFoundPage + 4 helpers)
+# was originally extracted with IMPLICIT GLOBAL references to h/createIcon/Router (Stage 5-b).
+# That was a hidden ReferenceError bug — ESM module scope doesn't see main.js IIFE bindings,
+# so calling the page functions at runtime would throw. Playwright never visited /#/hiring-risk
+# or /#/role-split, so CI stayed green and the bug latent. Stage 5-j refactored to the same
+# factory pattern as Brand/Store/State/Theme: `createPages({h, createIcon, Router})` accepts
+# the dependencies as injected arguments and the closure binds them for the returned page
+# functions. main.js destructures the result: `const { HiringRiskPage, RoleSplitPage,
+# NotFoundPage } = createPages({ h, createIcon, Router })`. Public usage sites unchanged.
 # v80+ Stage 5-c: js/storage.js (Safe localStorage wrapper) extracted as a leaf module. The
 # four methods (get/set/remove/parse) operate purely on the (key, value) arguments and the
 # global localStorage API — no IIFE closure state, no DOM, no CONSTANTS dependency. The earlier
