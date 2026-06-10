@@ -26,6 +26,20 @@
 // 一致させること（不一致は v10 系での解決衝突＝二重インストールや型不整合を招く）。この
 // メジャー一致は check_repository_consistency.py Check 54 が BLOCKING で機械強制する。
 //
+// 【その後の Stage 5 / 5-b 抽出による warning 減少（2026-06-10・honest dating）】
+// Stage 5（PR #16: Router + PAGE_META を js/router.js / js/page-meta.js へ抽出）と
+// Stage 5-b（PR #18: HiringRiskPage / RoleSplitPage / NotFoundPage + helpers を
+// js/pages.js へ抽出）により、移動先で curly/no-var 該当箇所がブレース付与や let/const
+// 化と同時に解消され、main.js の lint 出力は **0 errors / 107 warnings**（−13 件）まで
+// 減少した。lint 対象ファイル集合自体も page-meta / pages / router / ui-components の
+// 4 葉モジュールが追加され、現行 14 ファイル（main.js / sw.js / aio-guard.js /
+// error-suppressor.js / karte-init.js / theme-init.js / js/page-meta.js / js/pages.js /
+// js/pure-utils.js / js/router.js / js/ui-components.js / js/quiz/{architecture,aws,pm,
+// quality}-quiz-data.js）になっている。これらの値は本ファイルの設定変更によるもので
+// はなく、main.js / js/ 配下の物理分割と抽出時の構文是正に起因する（flat config 本体は
+// 不変）。実測値は CI ログが権威で、本コメントは「いつ どの increment で どこまで
+// 減ったか」の歴史記録として残す（lint 設定にハードコードされる値ではない）。
+//
 // 【設計判断: globals は「明示列挙のみ」を維持する】
 // `@eslint/migrate-config` の自動生成物は `...globals.browser`（数百個のブラウザ
 // グローバルの超集合）を展開するが、本リポジトリの旧 `.eslintrc.json` は
@@ -39,7 +53,8 @@
 //
 // 【lint 対象ファイル集合について】
 // 対象（main.js / error-suppressor.js / karte-init.js / theme-init.js / aio-guard.js /
-// sw.js / js/pure-utils.js / js/quiz/{architecture,aws,pm,quality}-quiz-data.js）は
+// sw.js / js/page-meta.js / js/pages.js / js/pure-utils.js / js/router.js /
+// js/ui-components.js / js/quiz/{architecture,aws,pm,quality}-quiz-data.js）は
 // package.json の `lint` / `lint:js`
 // スクリプトが指定し、check_repository_consistency.py の Check 46 が
 // 「lint と lint:js とディスク上の root ∪ js/ の三者一致」を BLOCKING で機械強制する。

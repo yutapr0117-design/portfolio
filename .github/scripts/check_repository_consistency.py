@@ -111,10 +111,13 @@ authoritative inventory and is kept in sync with the implementation below):
       lists' agreement, and their match to the actual shipped JS files (root ∪ js/), a
       machine-enforced invariant. (BLOCKING)
   47. main.js ⇄ js/ module ESM import/export contract: for each local module main.js imports
-      from (js/pure-utils.js, js/quiz-data.js), every name main.js imports is actually
-      exported by that module, and (symmetrically) every name the module exports is imported
-      by main.js — an exact bijection per module. This guards the physical module split
-      (v80+ Stage 2 pure utilities, Stage 3 static quiz data). Because the site is build-free
+      from (js/page-meta.js, js/pages.js, js/pure-utils.js, js/router.js, js/ui-components.js
+      and js/quiz/{architecture,aws,pm,quality}-quiz-data.js — 9 modules), every name main.js
+      imports is actually exported by that module, and (symmetrically) every name the module
+      exports is imported by main.js — an exact bijection per module. This guards the physical
+      module split (v80+ Stage 2 pure utilities, Stage 3/3-b static quiz data, Stage 4 UI
+      components, Stage 5 Router+PAGE_META, Stage 5-b page components). Because the site is
+      build-free
       and served directly, a mismatch is a *runtime* failure: importing a name a module does
       not export throws a module-load error and the whole SPA fails to boot, while a
       left-behind unused export signals the split has drifted. (This check is exactly what
@@ -122,9 +125,13 @@ authoritative inventory and is kept in sync with the implementation below):
       an early draft of the module exported only two.) The import lists carry inline `//`
       comments, so the parser strips per-line comments before extracting identifiers, and it
       matches each `import {…} from '<module>'` block in isolation (the captured brace group
-      excludes braces so a match cannot span an adjacent import block). Each module must also
-      stay import-free (a dependency-free leaf). This turns the hand-maintained cross-file
-      contract into a machine-enforced invariant. (BLOCKING)
+      excludes braces so a match cannot span an adjacent import block). The export-side parser
+      recognises three forms — (1) `export function name()`, (2) `export const|let|var name`,
+      and (3) `export { name1, name2, ... };` named-list (with optional `as` aliasing) — so a
+      module that re-exports already-declared identifiers at file tail (e.g. js/pages.js) is
+      correctly inventoried. Each module must also stay import-free (a dependency-free leaf).
+      This turns the hand-maintained cross-file contract into a machine-enforced invariant.
+      (BLOCKING)
   48. Playwright baseline-commit pipeline permission coupling: if
       update-playwright-snapshots.yml contains the pull-request-creation step (the action
       that commits the generated baseline PNGs via a PR), then the workflow must also declare
@@ -1568,8 +1575,12 @@ _main_src47 = (ROOT / "main.js").read_text(encoding="utf-8")
 # extracted as leaf modules. Router had one closure dep (CONSTANTS.DEBUG, production dead code)
 # which was removed. PAGE_META's dynamic entries are pure functions that accept state/params as
 # arguments — no closure deps. Both are leaves (no local imports).
+# v80+ Stage 5-b: js/pages.js (HiringRiskPage / RoleSplitPage / NotFoundPage + 4 helpers)
+# extracted as a leaf module. All three page functions and helpers only reference pure utilities
+# (h, createIcon, Router) which are themselves ESM-imported — closure-deps = none verified.
 _modules47 = [
     ("./js/page-meta.js",                   ROOT / "js" / "page-meta.js"),
+    ("./js/pages.js",                       ROOT / "js" / "pages.js"),
     ("./js/pure-utils.js",                  ROOT / "js" / "pure-utils.js"),
     ("./js/router.js",                      ROOT / "js" / "router.js"),
     ("./js/ui-components.js",               ROOT / "js" / "ui-components.js"),
@@ -1599,11 +1610,32 @@ for _spec47, _mpath47 in _modules47:
             if re.fullmatch(r"[A-Za-z_$][\w$]*", _name47):
                 _imported47.add(_name47)
 
-    # ── Names THIS module exports (function / const / let / var) ──
+    # ── Names THIS module exports (function / const / let / var / named-list) ──
+    # Supports three ECMAScript export forms:
+    #   1. `export function name() ...` / `export async function name() ...`
+    #   2. `export const name = ...` / `export let name = ...` / `export var name = ...`
+    #   3. `export { name1, name2, name3 };` (named-list, optionally with `as` aliasing)
+    # The named-list form is the canonical way to export multiple already-declared
+    # identifiers in one statement — js/pages.js uses it at the file tail. Failing to
+    # parse it would silently mask import/export drift (this exact gap was caught when
+    # js/pages.js was first added to _modules47: Check 47a flagged HiringRiskPage /
+    # RoleSplitPage / NotFoundPage as "not exported" because only forms (1) and (2)
+    # were recognised). The parser strips per-line comments inside the brace block,
+    # handles `as`-aliased re-exports by taking the exposed (right-hand) name, and
+    # only accepts valid identifier tokens.
     _exported47 = set(re.findall(r"^export\s+(?:async\s+)?function\s+([A-Za-z_$][\w$]*)",
                                  _msrc47, re.MULTILINE))
     _exported47 |= set(re.findall(r"^export\s+(?:const|let|var)\s+([A-Za-z_$][\w$]*)",
                                   _msrc47, re.MULTILINE))
+    for _named_block47 in re.findall(r"^export\s*\{([^{}]*)\}\s*;?", _msrc47, re.MULTILINE):
+        _block_nc47 = re.sub(r"//[^\n]*", "", _named_block47)  # strip inline comments
+        for _tok47 in re.split(r"[,\n]", _block_nc47):
+            _name47 = _tok47.strip()
+            # `export { foo as bar }` — bar is the exposed external name
+            if re.search(r"\bas\b", _name47):
+                _name47 = re.split(r"\s+as\s+", _name47)[-1].strip()
+            if re.fullmatch(r"[A-Za-z_$][\w$]*", _name47):
+                _exported47.add(_name47)
 
     _short47 = _spec47.replace("./", "")
 
