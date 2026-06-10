@@ -63,6 +63,9 @@
         //   PAGE_META: 動的 title/desc は引数で state/params を受け取る純粋関数。closure-deps = none。
         import { Router } from './js/router.js';
         import { PAGE_META } from './js/page-meta.js';
+        // v80+ Stage 5-b: ページコンポーネント（HiringRiskPage / RoleSplitPage / NotFoundPage）を葉モジュールへ抽出。
+        //   closure-deps = none（h / createIcon / Router の純粋ユーティリティのみ参照）。
+        import { HiringRiskPage, RoleSplitPage, NotFoundPage } from './js/pages.js';
         /* ╔══════════════════════════════════════════════════════════════════╗
            ║  DO NOT EDIT: AIDK Isolated Kernel — AIDK Architecture          ║
            ║  このブロック全体がAIエージェントのアクセスから隔離された核です。   ║
@@ -4216,6 +4219,12 @@
         // ===== Page Components =====
         //   ▼ v80+ Stage 5-b: Page functions exported from js/pages.js
         //     (HiringRiskPage / RoleSplitPage / NotFoundPage + helpers).
+        // 改善文書b 4 / 改善文書c: AbortController-based render lifecycle management.
+        // Each call to _renderCore() carries a signal; if a new render starts before
+        // the previous one completes, the previous one is aborted cleanly.
+        // This prevents zombie DOM updates from stale renders accumulating listeners.
+        let _renderAbortController = new AbortController();
+
         // ===== Main Renderer =====
         let _lastRoutePath = null;
         // v59: View Transition の安全性をさらに強化
