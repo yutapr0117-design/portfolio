@@ -73,6 +73,10 @@
         //   SITE_CONFIG.VERSION / LAST_UPDATED は Check 2 / 17 が main.js から名前抽出するため残置。
         //   closure-deps = none（ブラウザグローバル crypto/sessionStorage/location のみ参照、IIFE クロージャ非参照）。
         import { CONSTANTS } from './js/constants.js';
+        // v80+ Stage 5-e: AUTHOR（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME 純データ）を葉モジュールへ抽出。
+        //   UI 表示専用 (DISPLAY_NAME) と AIO/SEO 機械可読層専用 (AUTHORITATIVE_NAME) の責務分離は値で固定（不変）。
+        //   closure-deps = none。値は byte-equivalent で AIO citation 不影響（main.js は digest 対象外）。
+        import { AUTHOR } from './js/identity.js';
         /* ╔══════════════════════════════════════════════════════════════════╗
            ║  DO NOT EDIT: AIDK Isolated Kernel — AIDK Architecture          ║
            ║  このブロック全体がAIエージェントのアクセスから隔離された核です。   ║
@@ -193,14 +197,9 @@
 
 
         // ===== Identity Constants — Single Source of Truth =====
-        // DISPLAY_NAME : UI表示専用。訪問者が見るすべての箇所はこれのみを参照する。
-        // AUTHORITATIVE_NAME : AIO / SEO / 機械可読層専用。UIコンポーネントからは参照しない。
-        // （依存方向の固定により、UIに本名が漏洩する構造的リスクを排除する）
-        const AUTHOR = {
-            DISPLAY_NAME:       'yuta',
-            AUTHORITATIVE_NAME: 'Yuta Yokoi (横井雄太 / Yokoi Yuta)',
-            JAPANESE_NAME:      '横井雄太',
-        };
+        //   ▼ v80+ Stage 5-e: AUTHOR は closure-deps = none の純データのため
+        //     js/identity.js へ抽出し、ファイル冒頭で import 済み（値は byte-equivalent）。
+        //     UI 表示専用 (DISPLAY_NAME) と AIO/SEO 機械可読層専用 (AUTHORITATIVE_NAME) の責務分離は値で固定。
 
         // ===== Site Configuration — Central Registry =====
         // すべてのバージョン・URL・ロールタイトルはここで一元管理する。
