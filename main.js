@@ -77,6 +77,10 @@
         //   UI 表示専用 (DISPLAY_NAME) と AIO/SEO 機械可読層専用 (AUTHORITATIVE_NAME) の責務分離は値で固定（不変）。
         //   closure-deps = none。値は byte-equivalent で AIO citation 不影響（main.js は digest 対象外）。
         import { AUTHOR } from './js/identity.js';
+        // v80+ Stage 5-f: Brand (primary palette / font manager) を factory pattern で葉モジュール抽出。
+        //   葉モジュール契約 (Check 47c) 維持のため createBrand(Storage) → Brand instance 形式で合成。
+        //   公開 API {init, set, get, KEY} と localStorage schema は byte-equivalent。
+        import { createBrand } from './js/brand.js';
         /* ╔══════════════════════════════════════════════════════════════════╗
            ║  DO NOT EDIT: AIDK Isolated Kernel — AIDK Architecture          ║
            ║  このブロック全体がAIエージェントのアクセスから隔離された核です。   ║
@@ -1397,37 +1401,9 @@
         //   ▼ v80+ Stage 4: BGM は表示専用コンポーネントのため
         //     js/ui-components.js へ抽出し、ファイル冒頭で import 済み（挙動不変）。
         // ===== Brand Manager : primary palette/font switcher (Classic  / Indigo ) =====
-        const Brand = (() => {
-            const KEY = 'portfolio_brand_v45';
-            const DEFAULT = 'indigo';
-            const ALLOWED = new Set(['indigo', 'classic']);
-
-            function sanitize(v) {
-                return ALLOWED.has(v) ? v : DEFAULT;
-            }
-
-            function apply(brand) {
-                const b = sanitize(String(brand || DEFAULT));
-                document.documentElement.setAttribute('data-brand', b);
-                return b;
-            }
-
-            function init() {
-                const saved = Storage.get(KEY);
-                apply(saved || DEFAULT);
-            }
-
-            function set(brand) {
-                const b = apply(brand);
-                Storage.set(KEY, b);
-            }
-
-            function get() {
-                return document.documentElement.getAttribute('data-brand') || DEFAULT;
-            }
-
-            return { init, set, get, KEY };
-        })();
+        //   ▼ v80+ Stage 5-f: Brand は factory pattern で js/brand.js へ抽出。
+        //     createBrand(Storage) に Storage instance を渡して合成（葉モジュール契約維持・挙動 byte-equivalent）。
+        const Brand = createBrand(Storage);
 
 
         // ===== Router =====
