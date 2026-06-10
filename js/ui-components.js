@@ -84,7 +84,7 @@ function getIcons() {
 // innerHTML の代わりに DOMParser を使うことで XSS リスクを構造的にゼロにする。
 export function createIcon(name, size = 20) {
     const paths = getIcons()[name];
-    if (!paths) return document.createTextNode('');
+    if (!paths) { return document.createTextNode(''); }
 
     const NS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(NS, 'svg');
@@ -124,8 +124,8 @@ export function h(tag, attrs = {}, ...children) {
     const el = document.createElement(tag);
     let refCb = null;
     for (const [key, value] of Object.entries(attrs)) {
-        if (value === undefined || value === null) continue;
-        if (key === '__unsafeHtml') continue; // [REMOVED] no longer supported
+        if (value === undefined || value === null) { continue; }
+        if (key === '__unsafeHtml') { continue; } // [REMOVED] no longer supported
         if (key === 'ref' && typeof value === 'function') {
             refCb = value;
             continue;
@@ -144,7 +144,7 @@ export function h(tag, attrs = {}, ...children) {
             }
         } else if (key === 'dataset' && typeof value === 'object') {
             Object.entries(value).forEach(([k, v]) => {
-                if (v !== undefined) el.dataset[k] = String(v);
+                if (v !== undefined) { el.dataset[k] = String(v); }
             });
         } else if (key.startsWith('on') && typeof value === 'function') {
             el.addEventListener(key.slice(2).toLowerCase(), value);
@@ -233,7 +233,7 @@ export const Toast = (() => {
 
         // ARIA announcement (assertive for immediate feedback)
         const live = document.getElementById('action-announcement');
-        if (live) live.textContent = message;
+        if (live) { live.textContent = message; }
 
         if (duration > 0) {
             setTimeout(() => remove(el), duration);
@@ -274,7 +274,7 @@ export const BGM = (() => {
 
     async function toggle() {
         const audio = _audio();
-        if (!audio) return;
+        if (!audio) { return; }
         if (_on) {
             audio.pause();
             _on = false;

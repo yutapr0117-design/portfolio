@@ -22,7 +22,7 @@
  *     kpiRow / decisionFlow / riskCard）の DOM 出力は byte-equivalent
  *   - factory closure 内に閉じることで葉契約（Check 47c: import ゼロ）を維持
  */
-export function createPages({ h, createIcon, Router }) {
+export function createPages({ h, createIcon, Router, ContactCTA }) {
 
     function impactRow(riskLabel, bizImpact, metric) {
         return h('div', {
