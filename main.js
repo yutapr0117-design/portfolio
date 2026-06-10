@@ -731,10 +731,16 @@
         //   Sidebar / HomePage / ProjectsPage / ProjectDetailPage / AppsPage /
         //   AboutPage / ResumePage / ContactPage / FatalPage / AIKnowhowPage / ContactCTA を
         //   js/components.js へ factory pattern で抽出。挙動 byte-equivalent。
+        // closeDrawer is a function declaration later in this IIFE (hoisted), so the
+        // identifier is already bound at this point. clear / CONSTANTS / tokenize are
+        // already imported / declared above.
         const {
             Sidebar, HomePage, ProjectsPage, ProjectDetailPage, AppsPage,
             AboutPage, ResumePage, ContactPage, FatalPage, AIKnowhowPage, ContactCTA
-        } = createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, State, Theme, Brand, Store, tokenize });
+        } = createComponents({
+            h, createIcon, Toast, BGM, AUTHOR, Router, State, Theme, Brand, Store,
+            tokenize, CONSTANTS, clear, closeDrawer
+        });
 
         // ===== v80+ Stage 5-j: Page components factory instantiation =====
         //   ContactCTA は Stage 5-m で createComponents から供給される。それを createPages
