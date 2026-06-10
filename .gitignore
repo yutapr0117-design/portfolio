@@ -29,3 +29,5 @@ Thumbs.db
 .claude/settings.local.json
 # Local-only Claude memory (personal context, never shared)
 CLAUDE.local.md
+# Session-local scheduled-task lock (auto-managed by Claude Code; never share)
+.claude/scheduled_tasks.lock
