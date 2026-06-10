@@ -1,7 +1,7 @@
 # total-check-runbook.md
 
 ```
-Last-Updated  : 2026-06-09
+Last-Updated  : 2026-06-10
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
 Track         : v80+ staged major update (verification institutionalization)
 Purpose       : このリポジトリの「トータルチェック」を、人間でも AI でも、誰でも
@@ -119,10 +119,10 @@ npm audit --omit=dev # 配信物（ランタイム依存）だけの監査
 
 | コマンド | 期待 | 解釈 |
 |---|---|---|
-| `npm run lint` | `120 problems (0 errors, 120 warnings)` / **exit 0** | exit ≥2 = 実行失敗（config/parse/flag）→ **BLOCKING**。errors>0 → **BLOCKING**。warnings → **advisory**（`main.js` の `no-var`/`curly`/`no-shadow`。視覚回帰 baseline 確立後に残りを段階解消）。**warning 件数の増加は負債増のサイン**として監視。注: Stage 2/3 抽出で 199→194 に減少（`curly` 5 件が `js/pure-utils.js` へ移動し解消）、続く lint-hygiene increment で 194→120 に減少（safe-zone の `curly` 71 件にブレース付与＋`prefer-const` 1 件を `const` 化。保護領域=AIDK kernel／AIDK modules／known benign suppressor／innerHTML interceptor は byte-identical のため未着手で温存） |
+| `npm run lint` | `107 problems (0 errors, 107 warnings)` / **exit 0** | exit ≥2 = 実行失敗（config/parse/flag）→ **BLOCKING**。errors>0 → **BLOCKING**。warnings → **advisory**（`main.js` の `no-var`/`curly`/`no-shadow`。残りを段階解消）。**warning 件数の増加は負債増のサイン**として監視。減少履歴: 199→194（Stage 2/3 抽出）→120（lint-hygiene safe-zone curly 71 + prefer-const 1）→**107**（Stage 5 / 5-b 抽出で −13 件が抽出関数とともに js/{router,page-meta,pages}.js へ移動し移動先で解消）。保護領域=AIDK kernel／AIDK modules／known benign suppressor／innerHTML interceptor は byte-identical のため温存 |
 | `npm run lint:css` | `Stylelint [style.css]: PASS` / exit 0 | error は BLOCKING |
-| `npm run lint:js` | 各 JS が OK・exit 0 | `node --check` を 11 の公開/dev JS（`main.js` / `sw.js` / `aio-guard.js` / `error-suppressor.js` / `theme-init.js` / `karte-init.js` / `js/pure-utils.js` / `js/quiz/architecture-quiz-data.js` / `js/quiz/aws-quiz-data.js` / `js/quiz/pm-quiz-data.js` / `js/quiz/quality-quiz-data.js`）へまとめて適用する糖衣。構文エラーは BLOCKING。対象集合は `lint` と一致し Check 46 が機械強制（対象は root ∪ js/） |
-| `npm run check` | `Repository consistency check passed — all invariants hold.` / exit 0 / consistency 120 OK 行（`npm run check` 全体＝consistency＋digest＋binary の 3 スクリプトで、`OK:` トークン行は合計 122）| §6 の registry 参照。1 つでも ERROR が出れば exit 1（BLOCKING）。OK 行数の権威値は §9 の実測表。両者がずれた場合は §9 を正とし、本行を §9 に合わせて更新する |
+| `npm run lint:js` | 各 JS が OK・exit 0 | `node --check` を 14 の公開/dev JS（`main.js` / `sw.js` / `aio-guard.js` / `error-suppressor.js` / `theme-init.js` / `karte-init.js` / `js/page-meta.js` / `js/pages.js` / `js/pure-utils.js` / `js/router.js` / `js/ui-components.js` / `js/quiz/architecture-quiz-data.js` / `js/quiz/aws-quiz-data.js` / `js/quiz/pm-quiz-data.js` / `js/quiz/quality-quiz-data.js`）へまとめて適用する糖衣。構文エラーは BLOCKING。対象集合は `lint` と一致し Check 46 が機械強制（対象は root ∪ js/） |
+| `npm run check` | `Repository consistency check passed — all invariants hold.` / exit 0 / consistency 132 OK 行（`npm run check` 全体＝consistency＋digest＋binary の 3 スクリプトで、`OK:` トークン行は合計 134）| §6 の registry 参照。1 つでも ERROR が出れば exit 1（BLOCKING）。OK 行数の権威値は §9 の実測表。両者がずれた場合は §9 を正とし、本行を §9 に合わせて更新する |
 | `npm run verify` | 上記が順に全 pass・exit 0 | **ローカル総合ゲートの単一エントリポイント**。`check`→`lint:css`→`lint`→`lint:js` を `&&` で連結（最初の失敗で停止・exit 非 0）。既存スクリプトを合成するだけで独自ロジックを持たない。Playwright は外部バイナリ依存のため意図的に含めない（§7.4 参照）|
 | `py_compile` | 無出力・exit 0 | 構文エラーは BLOCKING |
 | `node --check`（6 JS） | 各 OK | 構文エラーは BLOCKING。`npm run lint:js` がこの 6 ファイルをまとめて実行する |
@@ -251,25 +251,28 @@ echo "ALL LOCAL CHECKS PASSED"
 
 ---
 
-## 9. 実測基準値（このコミット時点 / 2026-06-10・ui-components Stage4 + baseline + CSP-fix increment）
+## 9. 実測基準値（このコミット時点 / 2026-06-10・Stage 5-b page extraction + doc-sync increment）
 
 トータルチェックが緑のとき、以下の数値になる。乖離したら原因を調べる。各値は本コミットで実測したものであり、推定ではない。
 
 | 指標 | 基準値 |
 |---|---|
-| 追跡ファイル総数 | 100（98 ＋ js/ui-components.js ＋ e2e/portfolio.spec.js-snapshots/homepage-baseline-chromium-linux.png）|
-| `npm run lint` | 0 errors / 120 warnings（`curly`:46 / `no-var`:64 / `no-shadow`:10、すべて `main.js`。Stage 2/3 分割で `curly` 該当 5 件が `js/pure-utils.js` へ移動・解消し 199→194 に減少、続く lint-hygiene increment で safe-zone の `curly` 71 件にブレース付与＋`prefer-const` 1 件を `const` 化し 194→120 に減少。保護領域=AIDK kernel／AIDK modules／known benign suppressor／innerHTML interceptor 内の `curly`・全 `no-var`・全 `no-shadow` は byte-identical 維持のため温存。`js/pure-utils.js`・`js/quiz/{aws,pm,quality,architecture}-quiz-data.js` は 0 problems。lint は ESLint v10.4.1 / flat config 実行）|
-| consistency 検査の `OK:` 行 | 123（Check 47 が 6 モジュール × 3 サブチェック＝18 行に増加（pure-utils + ui-components + quiz 4）。その他の内訳は前 increment の 120 から Check 47 の +3 行で 123 へ増加）|
-| `npm run check` 全体の `OK:` トークン行 | 125（consistency 123 ＋ `check_binary_aio_metadata.py` 2。`check_aio_digests.py` は `OK (manifest/...)` 形式と末尾 `AIO digest check passed` を出力し、`OK:` トークンには 0 行寄与する。3 スクリプトはいずれも exit 0。前 increment の 120 から consistency 側の +2 行で 122 へ増加）|
-| consistency Check 総数 | 54（最大番号 54。Check 43 は main.js AIDK Isolated Kernel の構造健全性（43d は v80+ で module-level import が IIFE に先行することを許容しつつ C2 を維持）、Check 44 は AIO provenance canary トークンの published 面と monitor 面のクロス整合、Check 45 は本チェックファイルの docstring インベントリと `# ── N.` セクション見出しの自己整合、Check 46 は package.json の `lint`/`lint:js` が対象 JS ファイル集合を一致させ（かつディスク上の root ∪ js/ と一致）させていること、Check 47 は main.js ⇄ js/ 各モジュールの ESM import/export bijection と葉モジュール性（import ゼロ。Stage 3-b で pure-utils + quiz 4 ドメインモジュールの計 5 モジュールをループ検査）、Check 48 は update-playwright-snapshots.yml が PR 作成ステップを含む場合に contents:write と pull-requests:write の両権限を宣言していること（baseline コミットパイプラインの権限結合・否定テスト済）、Check 49 は index.html の最初の JSON-LD @graph において Person.worksFor が参照する組織 @id（OrganizationRole 経由のネスト参照も解決）が同一 @graph 内の Organization ノードとして実在すること（worksFor ↔ Organization linkage の宙吊り防止・否定テスト2種で発火確認）、Check 50 は ESLint flat-config 移行の不変条件（flat config は 9.x 既定・現在 v10 ピン）（50a: eslint.config.mjs 存在／50b: package.json `lint` が旧 eslintrc 系フラグ非使用／50c: 旧 .eslintrc.json 不在）を検証し EOL リンタへの逆戻りと vacuous-gate 再発を防止、Check 51 は active runbook（本ファイル）の Playwright baseline 生成手順で名指しする Playwright 版数が package.json の `@playwright/test` pin と一致することを検証し、誤版生成による偽の視覚差分という運用事故を防止（pin を読めること自体も要求し、版数名指しが無い場合のみ vacuous 成立。decision 記録・extraction-map 等の歴史層は対象外）、新規 Check 52 は file-size-budget.md の機械可読 BUDGET-DATA ブロックをパースし各ファイルの現行行数が予算（上限）以内であることを検査する肥大化予算（main.js は strong-advisory・予算は文書側で単一管理しコードにハードコードしない・否定テストで超過時 advisory 発火を確認）、新規 Check 53 は index.html の全 modulepreload href がリポジトリ実体ファイルへ解決することを検証し dangling preload による 404 を防止（quiz-data.js 分割で削除済みファイルへの preload が残り 404 を出した事故を systematize・否定テストで発火確認）、新規 Check 54 は package.json の eslint と @eslint/js が同一メジャーであることを検証し ESLint v10 系での解決衝突を防止（メジャーのみ比較・否定テストで発火確認）。Check 1–51 + 53 + 54 は BLOCKING（Check 34/36 は元から WARNING 級）、**Check 52 のみ ADVISORY＝非ブロッキング**（超過は warning のみで exit に影響しない。archive/evidence/AIO 正本の正当な増加を CI が誤ってブロックしないため）|
+| 追跡ファイル総数 | 103（前 increment 100 ＋ js/router.js ＋ js/page-meta.js ＋ js/pages.js）|
+| `npm run lint` | 0 errors / 107 warnings（前 increment 120 から −13 件。減少分は Stage 5 (Router/PAGE_META) と Stage 5-b (pages) の抽出に伴い safe-zone 外の `curly`/`no-var` が抽出関数とともに移動し、移動先 (js/router.js / js/pages.js) で書き直し時に解消された結果。すべて `main.js` に残存。`js/{router,page-meta,pages,ui-components,pure-utils}.js`・`js/quiz/{aws,pm,quality,architecture}-quiz-data.js` は 0 problems。lint は ESLint v10.4.1 / flat config 実行）|
+| consistency 検査の `OK:` 行 | 132（Check 47 が 9 モジュール × 3 サブチェック＝27 行に増加（前 6 → 現 9: pure-utils + ui-components + router + page-meta + pages + quiz 4）。前 increment 123 から Check 47 の +9 行で 132 へ増加）|
+| `npm run check` 全体の `OK:` トークン行 | 134（consistency 132 ＋ `check_binary_aio_metadata.py` 2。`check_aio_digests.py` は `OK (manifest/...)` 形式と末尾 `AIO digest check passed` を出力し、`OK:` トークンには 0 行寄与する。3 スクリプトはいずれも exit 0）|
+| consistency Check 総数 | 54（最大番号 54。Check 43 は main.js AIDK Isolated Kernel の構造健全性（43d は v80+ で module-level import が IIFE に先行することを許容しつつ C2 を維持）、Check 44 は AIO provenance canary トークンの published 面と monitor 面のクロス整合、Check 45 は本チェックファイルの docstring インベントリと `# ── N.` セクション見出しの自己整合、Check 46 は package.json の `lint`/`lint:js` が対象 JS ファイル集合を一致させ（かつディスク上の root ∪ js/ と一致）させていること、Check 47 は main.js ⇄ js/ 各モジュールの ESM import/export bijection と葉モジュール性（import ゼロ。Stage 5-b で pure-utils + ui-components + router + page-meta + pages + quiz 4 の計 9 モジュールをループ検査）、Check 48 は update-playwright-snapshots.yml が PR 作成ステップを含む場合に contents:write と pull-requests:write の両権限を宣言していること、Check 49 は index.html の最初の JSON-LD @graph において Person.worksFor が参照する組織 @id が同一 @graph 内の Organization ノードとして実在すること、Check 50 は ESLint flat-config 移行の不変条件、Check 51 は active runbook の Playwright baseline 生成手順で名指しする Playwright 版数が package.json の `@playwright/test` pin と一致すること、Check 52 は file-size-budget.md の機械可読 BUDGET-DATA ブロックをパースし各ファイルの現行行数が予算以内であること（**ADVISORY＝非ブロッキング**）、Check 53 は index.html の全 modulepreload href がリポジトリ実体ファイルへ解決すること、Check 54 は package.json の eslint と @eslint/js が同一メジャーであること。Check 1–51 + 53 + 54 は BLOCKING（Check 34/36 は元から WARNING 級）、**Check 52 のみ ADVISORY**）|
 | sitemap `<loc>`（Check 39） | 17 URL すべて実ファイルへ解決 |
 | JSON / YAML / XML | 10 / 7 / 1、失敗ゼロ |
 | llms alias unique sha | 1 |
 | `.well-known/aio-manifest.json` の証跡カウント | source_of_truth 5 / supporting_evidence 4 / observational_evidence 1 |
 | `index.html` 構造化データ | JSON-LD ブロック 2 / `ai:` meta タグ 8（ハイフン付き含む）|
 | `npm audit` / `--omit=dev` | 0 件 / 0 件 |
-| `main.js` | 6,089 行（Stage 4: h/createIcon/Toast/BGM を js/ui-components.js へ抽出し −271 行。元 ≈7,785 行→現 6,089 行。Check 43 が IIFE と kernel の存在を機械強制）|
-| `js/ui-components.js` | 303 行（Stage 4 新設。DOM ビルダー h・SVG アイコン createIcon・Toast・BGM の葉モジュール。closure-deps = none を確認済み）|
+| `main.js` | 5,292 行（Stage 5-b: HiringRiskPage / RoleSplitPage / NotFoundPage + helpers を js/pages.js へ抽出し −613 行（前 increment 5,905 から）。Stage 0 累計 7,785→5,292 行（**−2,493 行 / −32%**）。Check 43 が IIFE と kernel の存在を機械強制）|
+| `js/ui-components.js` | 303 行（Stage 4 新設。DOM ビルダー h・SVG アイコン createIcon・Toast・BGM の葉モジュール）|
+| `js/router.js` | 175 行（Stage 5 新設。hash-based SPA ルーター。closure-deps = none）|
+| `js/page-meta.js` | 63 行（Stage 5 新設。per-page SEO メタ単一ソース（AI SURFACE）。closure-deps = none）|
+| `js/pages.js` | 635 行（Stage 5-b 新設。HiringRiskPage/RoleSplitPage/NotFoundPage + 4 helpers。closure-deps = none）|
 | `js/pure-utils.js` | 277 行（純粋ユーティリティ 10 関数の ESM 葉モジュール。Stage 2 抽出）|
 | `js/quiz/{aws,pm,quality,architecture}-quiz-data.js` | 819/271/275/137 行（静的クイズデータの ESM 葉モジュール 4 つ。Stage 3-b 分割済み）|
 
@@ -279,9 +282,9 @@ echo "ALL LOCAL CHECKS PASSED"
 
 トータルチェックが緑でも、以下は設計上の負債として認識されている（即修正ではなく段階対応）。詳細は各 map / incident artifact。
 
-- **`main.js` モノリス**（現 6,089 行）: Stage 2/3（pure utility・static data）−1,432 行 + Stage 4（UI コンポーネント）−271 行で合計 −1,703 行を削減済み。残る service rails（Safe Storage / Store 等）の物理分割は **視覚回帰 baseline 確立が前提**。
-- **視覚回帰 baseline 未生成**: `e2e/portfolio.spec.js` の screenshot テストは baseline が無い間 skip される（P0-01 のデッドロック回避）。**baseline 生成（§7.4）が、回帰カバレッジと main.js 分割の両方を解錠する単一最重要アクション**。
-- **`main.js` の 120 advisory warnings**: 上記分割と同期して残りを段階解消（baseline 前は大規模 trivial diff を避ける）。Stage 2/3 で 199→194、続く lint-hygiene increment で 194→120 に減少済み。残債の内訳は safe-zone 外（保護領域内）の `curly`・全 `no-var`・全 `no-shadow`。
+- **`main.js` モノリス**（現 5,292 行 / 元 7,785 行 / 累計 −32%）: Stage 2/3（pure utility・static data）−1,432 行 + Stage 4（UI コンポーネント）−271 行 + Stage 5（Router+PAGE_META）−193 行 + Stage 5-b（ページコンポーネント）−613 行で合計 **−2,493 行（−32%）** を削減済み。残るは service rails（Safe Storage / Store / State Management）と Main Renderer / DiagnosticsRail 等の高副作用領域。baseline 取得済みのため技術的には着手可能だが、schema 後方互換・副作用順序の保証が必要。
+- **視覚回帰 baseline 取得済み（2026-06-10 / PR #13）**: `e2e/portfolio.spec.js-snapshots/homepage-baseline-chromium-linux.png`（252 KB）がコミット済み。Stage 5 残部（kernel/render/view-transition）と style.css section 分割のゲートを解錠した。今後の物理分割は視覚回帰の裏付けの下で進められる。
+- **`main.js` の 107 advisory warnings**: 上記分割と同期して段階解消。Stage 2/3 で 199→194、lint-hygiene increment で 194→120、Stage 5/5-b で 120→107（−13 件は抽出関数の移動先で解消）。残債は safe-zone 外（保護領域内）の `curly`・全 `no-var`・全 `no-shadow` で `main.js` に局在。`js/router.js` / `js/page-meta.js` / `js/pages.js` 等の抽出済みモジュールは 0 warnings。
 
 ---
 

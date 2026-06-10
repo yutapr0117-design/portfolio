@@ -1,9 +1,9 @@
 # repository-maintainability-map.md
 
 ```
-Last-Updated  : 2026-06-09
+Last-Updated  : 2026-06-10
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
-Track         : v80+ staged major update (Phase 2 — verification-doc-drift-sync + incident-archive-v74 increment applied)
+Track         : v80+ staged major update (Phase 2 — Stage 5 / 5-b page extraction + doc-sync increment applied)
 Canonical-Ref : AI2AI.md (canonical) / llms-full.txt (ground truth)
 Status        : Living document — update when layer structure or sync relationships change
 ```
@@ -495,7 +495,37 @@ dependency-modernization increment が確定した後の、受領現物（最新
 
 **Not possible（本 increment・捏造禁止）:** 公開 Pages への実反映 / `confirmed_citation_events` の計上。
 
+### Stage 5 / 5-b — Router + PAGE_META + page components extraction + doc-sync increment（v80+ Stage 5 / Stage 5-b 物理分割 + 文書数値同期／本コミットで記録）
 
+baseline 取得（PR #13）の後、Stage 5 のページ・ルーター層を 2 段階で抽出し、関連文書の数値ドリフトを一括解消した。
+
+**Stage 5 — Router + PAGE_META 抽出（PR #16）:**
+
+| 変更 | 対象 | 何を | なぜ |
+|---|---|---|---|
+| Stage 5 第一段 | `js/router.js`（新設 175 行）/ `js/page-meta.js`（新設 63 行）/ `main.js` | hash-based SPA ルーターと per-page SEO メタ単一ソースを葉モジュールへ（−193 行。main.js: 6,089→5,896 行）。CONSTANTS.DEBUG 参照は production dead code として除去 | closure-deps = none の純粋な制御層。baseline 取得直後の最も安全な Stage 5 抽出から着手 |
+
+**Stage 5-b — ページコンポーネント抽出（PR #18）:**
+
+| 変更 | 対象 | 何を | なぜ |
+|---|---|---|---|
+| Stage 5 第二段 | `js/pages.js`（新設 635 行）/ `main.js` | HiringRiskPage / RoleSplitPage / NotFoundPage + 4 helpers（impactRow / kpiRow / decisionFlow / riskCard）を葉モジュールへ（−613 行。main.js: 5,905→5,292 行）。すべて closure-deps = none（h / createIcon / Router の純粋ユーティリティのみ参照） | proof の中核（RoleSplit）を含むため byte-equivalent 抽出 + Playwright 視覚回帰 baseline で非破壊性を機械保証 |
+| near-miss → systematize | `package.json` / `main.js` | (a) lint/lint:js への js/pages.js 追加漏れ → Check 46b BLOCKING で検出 → 追記（fix afeb4af）。(b) main.js の import 文＆`_renderAbortController` 宣言の取りこぼし → ESLint no-undef 5 件 BLOCKING で検出 → 追記＋復元（fix c0e56aa） | CI のゲートチェーン（Check 46/47/53 + ESLint no-undef）が本番反映前に検出。「抽出時は package.json 両スクリプト・main.js import・modulepreload・Check 47 リスト の 4 参照面を同期せねばならない」という運用規律を改めて確認 |
+| 機械契約更新 | `package.json` / `index.html` / `check_repository_consistency.py` | lint 被覆・modulepreload・Check 47 モジュールリストへ router / page-meta / pages を追加 | Check 46/47/53 が BLOCKING で整合を強制 |
+
+**文書数値同期（本 increment 同梱）:**
+
+| 変更 | 対象 | 何を | なぜ |
+|---|---|---|---|
+| 文書 drift 一括解消 | `file-size-budget.md` / `total-check-runbook.md` / `main-js-extraction-map.md` / `repository-maintainability-map.md`（本ファイル） | main.js 6,089→5,292 反映。js/pages.js（635 行）を BUDGET-DATA・実測表・extraction-map に追加。runbook §9 実測値（追跡数 100→103、Check 47 モジュール数 6→9、consistency OK 123→132、全体 OK 125→134、ESLint warning 120→107）。extraction-map に §3.8（Stage 5）と §3.9（Stage 5-b）の sub-section を新設。各文書の Last-Updated を 2026-06-10 に同期 | as-measured 義務（メモリ#28 の数値同期義務）。append-only 履歴は書き換えず、最新セクションのみ更新 |
+
+**累計 main.js 削減量:** Stage 2/3（−1,432）＋ Stage 4 UI（−271）＋ Stage 5（−193）＋ Stage 5-b（−613）＝ **−2,509 行**（7,785→5,292 行、**−32%**）。Stage 0 当初目標を超える規模で物理分割が進んだ（baseline 取得が解錠した結果）。
+
+**非破壊性の核:** AIO 正本層（`llms*` / `AI2AI.md` / `.well-known/*` / digest / `sitemap.xml` / `robots.txt` の本文）と binary（WebP/MP3）と `style.css` は 1 バイトも変更なし。digest 再生成不要。`main.js` の AIDK Isolated Kernel と View Transition Proxy は byte-identical 維持（Check 43 が構造健全性を BLOCKING で機械強制）。抽出した 3 モジュール（router/page-meta/pages）はすべて closure-deps = none を Check 47c が機械強制。
+
+**Not possible（本 increment・捏造禁止）:** 公開 Pages への実反映 / `confirmed_citation_events` の計上。
+
+### Featured Articles Curation Policy（v80+ — Zenn 11本掲載順）
 
 掲載対象は **公開全 11 本**（記事削減はしない）。featuring 順は **AIO 効果優先順**で、全レイヤー（`robots.txt` 優先コメント / `index.html` JSON-LD `subjectOf`・`citation` / `main.js` カード配列 / `llms.txt` Co-citation・Fetch Order・Optional / `llms-full.txt` / `README.md`）で同一順序を保つ。
 
