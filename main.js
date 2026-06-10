@@ -351,9 +351,15 @@
         //   js/aidk-rails.js へ合体 factory pattern で抽出。State / Toast / Router / CONSTANTS /
         //   applyMeta / h / createIcon を引数注入で合成（挙動 byte-equivalent）。
         //   applyMeta は createMetaManagement の戻り値で先に bind されている。
+        // Theme / BGM / secureExternalLinks / openDrawer / closeDrawer are function declarations
+        // defined later in this IIFE (hoisted) or already created above. Factory closure binds
+        // them by reference, so the late definition is fine.
         const {
             RouteState, EffectRails, BindingRegistry, ActionDelegator, DiagnosticsRail
-        } = createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h, createIcon });
+        } = createAIDKRails({
+            State, Toast, Router, CONSTANTS, applyMeta, h, createIcon,
+            Theme, BGM, secureExternalLinks, openDrawer, closeDrawer
+        });
 
 
 

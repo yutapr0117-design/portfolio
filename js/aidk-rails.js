@@ -36,7 +36,7 @@
  *   - AIDK Kernel (Check 43 で構造強制) には触れない（kernel proper はそのまま main.js に残置）
  *   - AIO 正本層 / style.css は無変更
  */
-export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h, createIcon }) {
+export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h, createIcon, Theme, BGM, secureExternalLinks, openDrawer, closeDrawer }) {
     const RouteState = (() => {
         const _state = {
             // ── route namespace ──
@@ -68,7 +68,7 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
 
         const proxy = new Proxy(_state, {
             set(target, key, value) {
-                if (target[key] === value) return true; // 値変化なし → スキップ
+                if (target[key] === value) { return true; } // 値変化なし → スキップ
                 const prev = target[key];
                 target[key] = value;
 
@@ -93,7 +93,7 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
 
         function subscribe(cb) {
             _callbacks.push(cb);
-            return () => { const i = _callbacks.indexOf(cb); if (i > -1) _callbacks.splice(i, 1); };
+            return () => { const i = _callbacks.indexOf(cb); if (i > -1) { _callbacks.splice(i, 1); } };
         }
 
         return { proxy, subscribe };
@@ -152,17 +152,17 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
 
         function _diagRail(key, value) {
             if (key === 'diag_debug_mode') {
-                if (value) DiagnosticsRail.show();
-                else DiagnosticsRail.hide();
+                if (value) { DiagnosticsRail.show(); }
+                else { DiagnosticsRail.hide(); }
             }
         }
 
         function dispatch(key, value, prev) {
             const rails = _map[key] || [];
-            if (rails.includes('meta'))  try { _metaRail(key, value); } catch {}
-            if (rails.includes('aio'))   try { _aioRail(key, value); } catch {}
-            if (rails.includes('a11y'))  try { _a11yRail(key, value); } catch {}
-            if (rails.includes('diag'))  try { _diagRail(key, value); } catch {}
+            if (rails.includes('meta')) { try { _metaRail(key, value); } catch {} }
+            if (rails.includes('aio')) { try { _aioRail(key, value); } catch {} }
+            if (rails.includes('a11y')) { try { _a11yRail(key, value); } catch {} }
+            if (rails.includes('diag')) { try { _diagRail(key, value); } catch {} }
             // Security Rail: 常時実行（副作用コストが低いため全変更後に走らせる）
             try { secureExternalLinks(document); } catch {}
         }
@@ -181,15 +181,15 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
         function _registerElement(el) {
             // data-bind-text
             const bindText = el.getAttribute('data-bind-text');
-            if (bindText) _add(bindText, el);
+            if (bindText) { _add(bindText, el); }
             // data-bind-show
             const bindShow = el.getAttribute('data-bind-show');
-            if (bindShow) _add(bindShow, el);
+            if (bindShow) { _add(bindShow, el); }
             // data-bind-attr-*
             for (const attr of el.attributes) {
                 if (attr.name.startsWith('data-bind-attr-')) {
                     const stateKey = attr.value;
-                    if (stateKey) _add(stateKey, el);
+                    if (stateKey) { _add(stateKey, el); }
                 }
             }
         }
@@ -199,7 +199,7 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
         }
 
         function _add(key, el) {
-            if (!_registry.has(key)) _registry.set(key, new Set());
+            if (!_registry.has(key)) { _registry.set(key, new Set()); }
             _registry.get(key).add(el);
             // 初期同期
             _syncElement(el, key, RouteState.proxy[key]);
@@ -226,7 +226,7 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
 
         function updateBindings(key, value) {
             const set = _registry.get(key);
-            if (!set) return;
+            if (!set) { return; }
             set.forEach(el => {
                 if (document.contains(el)) {
                     _syncElement(el, key, value);
@@ -240,7 +240,7 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
             // 初回スキャン
             document.querySelectorAll('[data-bind-text],[data-bind-show],[data-bind-list]').forEach(el => {
                 for (const attr of el.attributes) {
-                    if (attr.name.startsWith('data-bind-')) _registerElement(el);
+                    if (attr.name.startsWith('data-bind-')) { _registerElement(el); }
                 }
             });
 
@@ -248,7 +248,7 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
             _observer = new MutationObserver((mutations) => {
                 for (const mut of mutations) {
                     for (const node of mut.addedNodes) {
-                        if (node.nodeType !== 1) continue;
+                        if (node.nodeType !== 1) { continue; }
                         if (node.hasAttribute && node.hasAttribute('data-bind-text') ||
                             node.hasAttribute && node.hasAttribute('data-bind-show')) {
                             _registerElement(node);
@@ -258,7 +258,7 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
                         });
                     }
                     for (const node of mut.removedNodes) {
-                        if (node.nodeType !== 1) continue;
+                        if (node.nodeType !== 1) { continue; }
                         _unregisterElement(node);
                         node.querySelectorAll && node.querySelectorAll('[data-bind-text],[data-bind-show]').forEach(el => {
                             _unregisterElement(el);
@@ -277,10 +277,10 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
     // 個別の addEventListener 記述は不要。
     const ActionDelegator = (() => {
         const _handlers = {
-            'drawer:open':    () => { if (typeof openDrawer === 'function') openDrawer(); },
-            'drawer:close':   () => { if (typeof closeDrawer === 'function') closeDrawer(); },
-            'theme:cycle':    () => { if (typeof Theme !== 'undefined') Theme.cycle(); },
-            'bgm:toggle':     () => { if (typeof BGM !== 'undefined') BGM.toggle(); }
+            'drawer:open':    () => { if (typeof openDrawer === 'function') { openDrawer(); } },
+            'drawer:close':   () => { if (typeof closeDrawer === 'function') { closeDrawer(); } },
+            'theme:cycle':    () => { if (typeof Theme !== 'undefined') { Theme.cycle(); } },
+            'bgm:toggle':     () => { if (typeof BGM !== 'undefined') { BGM.toggle(); } }
         };
 
         function init() {
@@ -316,7 +316,7 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
 
         function _appendDiagText(parent, text, className) {
             const span = document.createElement('span');
-            if (className) span.className = className;
+            if (className) { span.className = className; }
             span.textContent = text;
             parent.appendChild(span);
             return span;
@@ -361,7 +361,7 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
         }
 
         function _update() {
-            if (!_el) return;
+            if (!_el) { return; }
             const RS = RouteState.proxy;
 
             _el.replaceChildren();
@@ -407,7 +407,7 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
             }
             _update();
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'd' || e.key === 'D') _update();
+                if (e.key === 'd' || e.key === 'D') { _update(); }
             });
         }
 
