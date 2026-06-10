@@ -1568,8 +1568,12 @@ _main_src47 = (ROOT / "main.js").read_text(encoding="utf-8")
 # extracted as leaf modules. Router had one closure dep (CONSTANTS.DEBUG, production dead code)
 # which was removed. PAGE_META's dynamic entries are pure functions that accept state/params as
 # arguments — no closure deps. Both are leaves (no local imports).
+# v80+ Stage 5-b: js/pages.js added — Page component functions (HiringRiskPage, RoleSplitPage,
+# NotFoundPage) and helper functions (impactRow, kpiRow, decisionFlow, riskCard). All have
+# closure-deps = none (only h, createIcon, Router imported). Leaf module (no local imports).
 _modules47 = [
     ("./js/page-meta.js",                   ROOT / "js" / "page-meta.js"),
+    ("./js/pages.js",                       ROOT / "js" / "pages.js"),
     ("./js/pure-utils.js",                  ROOT / "js" / "pure-utils.js"),
     ("./js/router.js",                      ROOT / "js" / "router.js"),
     ("./js/ui-components.js",               ROOT / "js" / "ui-components.js"),
