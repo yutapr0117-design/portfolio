@@ -47,10 +47,11 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 
 | ファイル | 実測行数 | 予算（上限） | 予算種別 | 方針 |
 |---|---:|---:|---|---|
-| `main.js` | 4,476 | 6,400 | `strong-advisory` | Stage 5-j: pages.js を factory pattern に refactor (ReferenceError bug fix)。main.js +7 行（destructure + コメント）。累計 7,785→4,476 行（−42%）。次の縮小は DiagnosticsRail / RouteState / EffectRails 等の AIDK Rail |
+| `main.js` | 4,316 | 6,400 | `strong-advisory` | Stage 5-l: Meta Management (4 SRP sub-functions + applyMeta) を js/meta-management.js へ factory pattern で抽出し −162 行。累計 7,785→4,316 行（−45%）。次の縮小は DiagnosticsRail / RouteState / EffectRails 等の AIDK Rail |
 | `js/brand.js` | 65 | 120 | `advisory` | Stage 5-f 新設。Brand manager（primary palette/font switcher）factory。closure-deps = none（葉契約）+ Storage を引数注入 |
 | `js/constants.js` | 88 | 150 | `advisory` | Stage 5-d 新設。実行時定数（STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID）。closure-deps = none |
 | `js/identity.js` | 36 | 80 | `advisory` | Stage 5-e 新設。AUTHOR（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME）純データ。closure-deps = none |
+| `js/meta-management.js` | 195 | 280 | `advisory` | Stage 5-l 新設。Meta Management factory（updateDocumentHead/announceRouteForAccessibility/injectRouteEntityAnchor/injectStructuredData + applyMeta ファサード）。closure-deps = none + 引数注入 |
 | `js/ui-components.js` | 303 | 400 | `advisory` | Stage 4 新設。DOM ビルダー・SVG アイコン・Toast・BGM の葉モジュール。安定 |
 | `js/router.js` | 175 | 250 | `advisory` | Stage 5 新設。Hash-based SPA ルーター葉モジュール。安定 |
 | `js/state.js` | 240 | 320 | `advisory` | Stage 5-h 新設。State factory（Proxy 型安全モニター + subscriber + cross-tab + auto-save）。closure-deps = none + 引数注入 |
@@ -100,6 +101,7 @@ main.js | 6400 | strong-advisory
 js/brand.js | 120 | advisory
 js/constants.js | 150 | advisory
 js/identity.js | 80 | advisory
+js/meta-management.js | 280 | advisory
 js/ui-components.js | 400 | advisory
 js/router.js | 250 | advisory
 js/page-meta.js | 120 | advisory
