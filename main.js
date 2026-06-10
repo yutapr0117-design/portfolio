@@ -89,6 +89,10 @@
         //   CONSTANTS/Store/Storage/Toast を引数注入で合成（葉契約維持）。
         //   公開 API { get, set, update, subscribe, saveNow } と挙動は byte-equivalent。
         import { createState } from './js/state.js';
+        // v80+ Stage 5-i: Theme (system/dark/light) を factory pattern で葉モジュール抽出。
+        //   State/Toast を引数注入で合成（葉契約維持）。
+        //   公開 API { apply, cycle, init } と挙動は byte-equivalent。
+        import { createTheme } from './js/theme.js';
         /* ╔══════════════════════════════════════════════════════════════════╗
            ║  DO NOT EDIT: AIDK Isolated Kernel — AIDK Architecture          ║
            ║  このブロック全体がAIエージェントのアクセスから隔離された核です。   ║
@@ -675,44 +679,9 @@
         //   ▼ v80+ Stage 4: Toast は表示専用コンポーネントのため
         //     js/ui-components.js へ抽出し、ファイル冒頭で import 済み（挙動不変）。
         // ===== Theme Manager =====
-        const Theme = (() => {
-            function apply(theme) {
-                document.documentElement.setAttribute('data-theme', theme);
-
-                const isDark = theme === 'dark' ||
-                    (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-                document.documentElement.classList.toggle('dark', isDark);
-
-                // Update meta theme-color
-                const meta = document.querySelector('meta[name="theme-color"]');
-                if (meta) {
-                    meta.content = isDark ? '#0b0f19' : '#ffffff';
-                }
-            }
-
-            function cycle() {
-                const current = State.get().theme;
-                const next = current === 'system' ? 'dark' : current === 'dark' ? 'light' : 'system';
-                State.update(s => s.theme = next);
-                apply(next);
-                Toast.show(`テーマ: ${next === 'system' ? 'システム設定' : next === 'dark' ? 'ダーク' : 'ライト'}`, 'info');
-                return next;
-            }
-
-            function init() {
-                apply(State.get().theme);
-
-                // Listen for system theme changes
-                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-                    if (State.get().theme === 'system') {
-                        apply('system');
-                    }
-                });
-            }
-
-            return { apply, cycle, init };
-        })();
+        //   ▼ v80+ Stage 5-i: Theme は factory pattern で js/theme.js へ抽出。
+        //     createTheme({State, Toast}) で合成（葉モジュール契約維持・公開 API と挙動は byte-equivalent）。
+        const Theme = createTheme({ State, Toast });
 
 
         // ===== BGM Manager =====

@@ -112,15 +112,15 @@ authoritative inventory and is kept in sync with the implementation below):
       machine-enforced invariant. (BLOCKING)
   47. main.js ⇄ js/ module ESM import/export contract: for each local module main.js imports
       from (js/brand.js, js/constants.js, js/identity.js, js/page-meta.js, js/pages.js,
-      js/pure-utils.js, js/router.js, js/state.js, js/storage.js, js/store.js,
-      js/ui-components.js and js/quiz/{architecture,aws,pm,quality}-quiz-data.js — 15
+      js/pure-utils.js, js/router.js, js/state.js, js/storage.js, js/store.js, js/theme.js,
+      js/ui-components.js and js/quiz/{architecture,aws,pm,quality}-quiz-data.js — 16
       modules), every name main.js imports is actually exported by that module, and
       (symmetrically) every name the module exports is imported by main.js — an exact
       bijection per module. This guards the physical module split (v80+ Stage 2 pure
       utilities, Stage 3/3-b static quiz data, Stage 4 UI components, Stage 5 Router+PAGE_META,
       Stage 5-b page components, Stage 5-c Safe Storage, Stage 5-d CONSTANTS, Stage 5-e AUTHOR
-      identity, Stage 5-f Brand factory, Stage 5-g Store factory, Stage 5-h State factory).
-      Because the site is build-free
+      identity, Stage 5-f Brand factory, Stage 5-g Store factory, Stage 5-h State factory,
+      Stage 5-i Theme factory). Because the site is build-free
       and served directly, a mismatch is a *runtime* failure: importing a name a module does
       not export throws a module-load error and the whole SPA fails to boot, while a
       left-behind unused export signals the split has drifted. (This check is exactly what
@@ -1616,6 +1616,11 @@ _main_src47 = (ROOT / "main.js").read_text(encoding="utf-8")
 # accepts dependencies as injected arguments. The 209-line State IIFE body (Proxy wrapper /
 # subscribe-notify / save debounce / cross-tab storage event listener) is preserved
 # byte-equivalent. Public API {get, set, update, subscribe, saveNow} unchanged.
+# v80+ Stage 5-i: js/theme.js (Theme: system/dark/light cycle + matchMedia listener) extracted
+# via the factory pattern. createTheme({State, Toast}) accepts the State and Toast dependencies.
+# The 38-line Theme IIFE body (apply/cycle/init + DOM data-theme attribute + meta theme-color
+# + window.matchMedia subscription) is preserved byte-equivalent. Public API {apply, cycle, init}
+# unchanged.
 _modules47 = [
     ("./js/brand.js",                       ROOT / "js" / "brand.js"),
     ("./js/constants.js",                   ROOT / "js" / "constants.js"),
@@ -1627,6 +1632,7 @@ _modules47 = [
     ("./js/state.js",                       ROOT / "js" / "state.js"),
     ("./js/storage.js",                     ROOT / "js" / "storage.js"),
     ("./js/store.js",                       ROOT / "js" / "store.js"),
+    ("./js/theme.js",                       ROOT / "js" / "theme.js"),
     ("./js/ui-components.js",               ROOT / "js" / "ui-components.js"),
     ("./js/quiz/architecture-quiz-data.js", ROOT / "js" / "quiz" / "architecture-quiz-data.js"),
     ("./js/quiz/aws-quiz-data.js",          ROOT / "js" / "quiz" / "aws-quiz-data.js"),
