@@ -1681,6 +1681,7 @@ _modules47 = [
     ("./js/page-meta.js",                   ROOT / "js" / "page-meta.js"),
     ("./js/pages.js",                       ROOT / "js" / "pages.js"),
     ("./js/pure-utils.js",                  ROOT / "js" / "pure-utils.js"),
+    ("./js/quiz-renderer.js",               ROOT / "js" / "quiz-renderer.js"),
     ("./js/router.js",                      ROOT / "js" / "router.js"),
     ("./js/state.js",                       ROOT / "js" / "state.js"),
     ("./js/storage.js",                     ROOT / "js" / "storage.js"),
