@@ -47,12 +47,13 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 
 | ファイル | 実測行数 | 予算（上限） | 予算種別 | 方針 |
 |---|---:|---:|---|---|
-| `main.js` | 4,702 | 6,400 | `strong-advisory` | Stage 5-g: Store を factory pattern で js/store.js へ抽出し −484 行（main.js −484 だが正味 −480: 説明コメント 4 行追加）。累計 7,785→4,702 行（−40%）。次の縮小は State / Theme / DiagnosticsRail |
+| `main.js` | 4,496 | 6,400 | `strong-advisory` | Stage 5-h: State を factory pattern で js/state.js へ抽出し −206 行（main.js -209 だが import 説明 4 行追加で正味 -206）。累計 7,785→4,496 行（−42%）。次の縮小は Theme / DiagnosticsRail / RouteState |
 | `js/brand.js` | 65 | 120 | `advisory` | Stage 5-f 新設。Brand manager（primary palette/font switcher）factory。closure-deps = none（葉契約）+ Storage を引数注入 |
 | `js/constants.js` | 88 | 150 | `advisory` | Stage 5-d 新設。実行時定数（STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID）。closure-deps = none |
 | `js/identity.js` | 36 | 80 | `advisory` | Stage 5-e 新設。AUTHOR（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME）純データ。closure-deps = none |
 | `js/ui-components.js` | 303 | 400 | `advisory` | Stage 4 新設。DOM ビルダー・SVG アイコン・Toast・BGM の葉モジュール。安定 |
 | `js/router.js` | 175 | 250 | `advisory` | Stage 5 新設。Hash-based SPA ルーター葉モジュール。安定 |
+| `js/state.js` | 240 | 320 | `advisory` | Stage 5-h 新設。State factory（Proxy 型安全モニター + subscriber + cross-tab + auto-save）。closure-deps = none + 引数注入 |
 | `js/page-meta.js` | 63 | 120 | `advisory` | Stage 5 新設。ページ SEO メタ単一ソース（AI SURFACE）。安定 |
 | `js/pages.js` | 635 | 700 | `advisory` | Stage 5-b 新設。HiringRiskPage / RoleSplitPage / NotFoundPage + helpers の葉モジュール。closure-deps = none |
 | `js/pure-utils.js` | 277 | 400 | `advisory` | Stage 2 抽出済みの純ユーティリティ。安定 |
@@ -103,6 +104,7 @@ js/router.js | 250 | advisory
 js/page-meta.js | 120 | advisory
 js/pages.js | 700 | advisory
 js/pure-utils.js | 400 | advisory
+js/state.js | 320 | advisory
 js/storage.js | 120 | advisory
 js/store.js | 600 | advisory
 js/quiz/aws-quiz-data.js | 900 | advisory
