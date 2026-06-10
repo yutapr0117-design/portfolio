@@ -227,12 +227,14 @@ authoritative inventory and is kept in sync with the implementation below):
       weeks. This check converts that vacuous-gate class into a structural BLOCKING signal.
       (BLOCKING)
   56. js/ leaf module factory-pattern parameter coverage: for each js/ module that uses the
-      factory pattern (`export function createFoo(deps)`), main.js MUST invoke the factory
-      `createFoo({...})` at least once. A factory exported but never invoked is the Stage 5-j
-      bug class: the module compiles fine, ESLint passes, Check 47 passes (import/export
-      bijection holds), but at runtime any caller of the page/manager hits ReferenceError
-      because the dependency identifiers are never bound. This check converts that latent
-      runtime failure into a pre-commit BLOCKING error. (BLOCKING)
+      factory pattern (`export function createFoo({deps})` — note: the leading argument MUST
+      be a destructured object `{...}` so that a plain utility named `createXxx` like
+      `createIcon(name, size)` is correctly NOT classified as a factory), main.js MUST invoke
+      the factory `createFoo({...})` at least once. A factory exported but never invoked is
+      the Stage 5-j bug class: the module compiles fine, ESLint passes, Check 47 passes
+      (import/export bijection holds), but at runtime any caller of the page/manager hits
+      ReferenceError because the dependency identifiers are never bound. This check converts
+      that latent runtime failure into a pre-commit BLOCKING error. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -2252,8 +2254,10 @@ for _spec56, _mpath56 in _modules47:
     if not _mpath56.exists():
         continue
     _msrc56 = _mpath56.read_text(encoding="utf-8")
-    # factory pattern? `export function createXxx(...)` がある
-    _factory_re56 = re.search(r"^export\s+function\s+(create[A-Z][A-Za-z0-9_]*)\s*\(",
+    # factory pattern? `export function createXxx({ ... })` がある
+    # 「createXxx」かつ「先頭引数が destructured object `{`」のもののみを factory とみなす。
+    # 単純な純粋関数 `export function createIcon(name, size)` は factory ではない（false positive 防止）。
+    _factory_re56 = re.search(r"^export\s+function\s+(create[A-Z][A-Za-z0-9_]*)\s*\(\s*\{",
                               _msrc56, re.MULTILINE)
     _short56 = _spec56.replace("./", "")
     if _factory_re56:
