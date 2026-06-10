@@ -1,16 +1,17 @@
 # major-update-readiness.md
 
 ```
-Last-Updated  : 2026-06-07
+Last-Updated  : 2026-06-10
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
-Track         : v80+ staged major update (Phase 2)
+Track         : v80+ staged major update (Phase 2) — baseline 取得済み + Stage 5 / 5-b 完了後の歴史文書として保存
 Subject       : Playwright 視覚回帰 baseline 確立 → メジャーアップデート化 → Stage 5 解禁までの「人間が実行すべき手順」集約
 Canonical-Ref : AI2AI.md (canonical) / docs/architecture/main-js-extraction-map.md §3.5 / total-check-runbook.md §7.4
-Status        : 準備完了・owner action 待ち（baseline PR は AI からは dispatch/review/merge できない＝§5 の権限境界）
+Status        : baseline 取得済み（2026-06-10 / PR #13 / コミット 178a432 / Playwright 1.60.0）。Stage 5（PR #16 Router+PAGE_META） / 5-b（PR #18 page components）完了済み。**本文書は当時の準備手順記録として歴史層に保存**（本文の「未取得」「準備完了・owner action 待ち」の記述は当時の事実であり、append-only で書き換えない）
 ```
 
 > **正本階層:** `AI2AI.md` が canonical、`llms-full.txt` が ground truth。本ファイルはそれらに従属する運用準備文書であり、矛盾時は上位を正とする。
-> **本文書の目的:** v80+ トラックにおける唯一の真のメジャーアップデート候補は「Playwright 視覚回帰 baseline の確立」である。これが成立すると、CI の役割が「構文・整合チェック」から「視覚回帰保証」へ拡張され、`main.js` の Stage 5 抽出（render / router / view-transition / AIDK Kernel）の安全弁が初めて成立する。本文書は、その baseline 確立から version bump、Stage 5 解禁までに **人間（横井雄太）が実行すべき手順を一箇所に集約** し、同時に **AI が権限上実行できない境界** を明記する。
+> **本文書の現在の位置づけ（2026-06-10 追記）:** 本書が想定していた「baseline 取得」と「Stage 5 解禁」は、2026-06-10 にすべて完了した。具体的には、(a) `update-playwright-snapshots.yml` を `workflow_dispatch` 起動 → PR #13（コミット 178a432）→ 人間 merge で `e2e/portfolio.spec.js-snapshots/homepage-baseline-chromium-linux.png`（252 KB / Playwright 1.60.0）を取得、(b) Stage 5（PR #16 Router+PAGE_META 抽出）と Stage 5-b（PR #18 ページコンポーネント抽出）を完了し、`main.js` は元 7,785 行から現 5,288 行（**−2,497 行 / −32%**）へ縮小、(c) §3 の文書同期は PR #19（doc-sync increment）で実施済み。したがって本文の「未取得」「準備完了・owner action 待ち」「baseline PR pending」等の記述は **2026-06-07 当時の事実** であり、append-only 原則に従い書き換えない。本文書は手順の歴史記録として保存する。
+> **本文書の目的（当時）:** v80+ トラックにおける唯一の真のメジャーアップデート候補は「Playwright 視覚回帰 baseline の確立」である。これが成立すると、CI の役割が「構文・整合チェック」から「視覚回帰保証」へ拡張され、`main.js` の Stage 5 抽出（render / router / view-transition / AIDK Kernel）の安全弁が初めて成立する。本文書は、その baseline 確立から version bump、Stage 5 解禁までに **人間（横井雄太）が実行すべき手順を一箇所に集約** し、同時に **AI が権限上実行できない境界** を明記する。
 
 ---
 
