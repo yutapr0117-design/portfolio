@@ -111,14 +111,15 @@ authoritative inventory and is kept in sync with the implementation below):
       lists' agreement, and their match to the actual shipped JS files (root ∪ js/), a
       machine-enforced invariant. (BLOCKING)
   47. main.js ⇄ js/ module ESM import/export contract: for each local module main.js imports
-      from (js/constants.js, js/identity.js, js/page-meta.js, js/pages.js, js/pure-utils.js,
-      js/router.js, js/storage.js, js/ui-components.js and js/quiz/{architecture,aws,pm,
-      quality}-quiz-data.js — 12 modules), every name main.js imports is actually exported by
-      that module, and (symmetrically) every name the module exports is imported by main.js —
-      an exact bijection per module. This guards the physical module split (v80+ Stage 2 pure
-      utilities, Stage 3/3-b static quiz data, Stage 4 UI components, Stage 5 Router+PAGE_META,
-      Stage 5-b page components, Stage 5-c Safe Storage, Stage 5-d CONSTANTS, Stage 5-e
-      AUTHOR identity). Because the site is build-free
+      from (js/brand.js, js/constants.js, js/identity.js, js/page-meta.js, js/pages.js,
+      js/pure-utils.js, js/router.js, js/storage.js, js/ui-components.js and js/quiz/
+      {architecture,aws,pm,quality}-quiz-data.js — 13 modules), every name main.js imports is
+      actually exported by that module, and (symmetrically) every name the module exports is
+      imported by main.js — an exact bijection per module. This guards the physical module
+      split (v80+ Stage 2 pure utilities, Stage 3/3-b static quiz data, Stage 4 UI components,
+      Stage 5 Router+PAGE_META, Stage 5-b page components, Stage 5-c Safe Storage, Stage 5-d
+      CONSTANTS, Stage 5-e AUTHOR identity, Stage 5-f Brand factory). Because the site is
+      build-free
       and served directly, a mismatch is a *runtime* failure: importing a name a module does
       not export throws a module-load error and the whole SPA fails to boot, while a
       left-behind unused export signals the split has drifted. (This check is exactly what
@@ -1597,7 +1598,14 @@ _main_src47 = (ROOT / "main.js").read_text(encoding="utf-8")
 # and main.js is not in the AIO digest chain, so AI citation / entity identity is unaffected.
 # The UI vs AIO dependency-direction contract (UI → DISPLAY_NAME only / AIO → AUTHORITATIVE_NAME)
 # stays enforced by the values themselves, not by module location.
+# v80+ Stage 5-f: js/brand.js (Brand: primary palette/font manager) extracted via the factory
+# pattern. The module exports `createBrand(storage)` rather than a pre-built Brand object —
+# main.js composes `const Brand = createBrand(Storage)` to inject the Storage dependency
+# while the module itself stays a dependency-free leaf (Check 47c: zero imports). This is the
+# canonical pattern for extracting service-rail modules that have logical dependencies on
+# other extracted modules without forming a cross-module import graph.
 _modules47 = [
+    ("./js/brand.js",                       ROOT / "js" / "brand.js"),
     ("./js/constants.js",                   ROOT / "js" / "constants.js"),
     ("./js/identity.js",                    ROOT / "js" / "identity.js"),
     ("./js/page-meta.js",                   ROOT / "js" / "page-meta.js"),
