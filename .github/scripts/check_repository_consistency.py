@@ -1674,6 +1674,7 @@ _main_src47 = (ROOT / "main.js").read_text(encoding="utf-8")
 # {applyMeta} unchanged. EffectRails dispatch and renderer (_renderCore) both call applyMeta
 # through the same closure binding.
 _modules47 = [
+    ("./js/aidk-rails.js",                  ROOT / "js" / "aidk-rails.js"),
     ("./js/apps.js",                        ROOT / "js" / "apps.js"),
     ("./js/brand.js",                       ROOT / "js" / "brand.js"),
     ("./js/components.js",                  ROOT / "js" / "components.js"),
