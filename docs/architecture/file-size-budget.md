@@ -47,7 +47,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 
 | ファイル | 実測行数 | 予算（上限） | 予算種別 | 方針 |
 |---|---:|---:|---|---|
-| `main.js` | 5,292 | 6,400 | `strong-advisory` | Stage 5-b: HiringRiskPage / RoleSplitPage / NotFoundPage + helpers を js/pages.js へ抽出し −613 行。累計 7,785→5,292 行（−32%）。次の縮小は service rails（Store/State）と残ページレンダー |
+| `main.js` | 5,288 | 6,400 | `strong-advisory` | Stage 5-b: HiringRiskPage / RoleSplitPage / NotFoundPage + helpers を js/pages.js へ抽出し −613 行。累計 7,785→5,288 行（−32%）。次の縮小は service rails（Store/State）と残ページレンダー |
 | `js/ui-components.js` | 303 | 400 | `advisory` | Stage 4 新設。DOM ビルダー・SVG アイコン・Toast・BGM の葉モジュール。安定 |
 | `js/router.js` | 175 | 250 | `advisory` | Stage 5 新設。Hash-based SPA ルーター葉モジュール。安定 |
 | `js/page-meta.js` | 63 | 120 | `advisory` | Stage 5 新設。ページ SEO メタ単一ソース（AI SURFACE）。安定 |
@@ -65,7 +65,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `docs/session-records/AI2AI-archive.md` | 1,513 | — | `archive-growth-ok` | セッション証跡。削らない |
 | `ChatGPT2ChatGPT.md` | 1,027 | — | `archive-growth-ok` | AI 間対話証跡。削らない |
 
-予算（上限）は現行行数より少し上に置いてある。これは「いまの行数は許容範囲内であり、ここから大きく増やすな」という意図の表現である。`main.js` は Stage 5-b のページコンポーネント抽出により 5,905→5,292 行（−613 行）に縮小した。累計縮小量は 7,785→5,292 行（**−2,493 行 / −32%**）。次の縮小は service rails（Safe Storage / Store 等、baseline 取得済みのため Stage 5 残りの kernel/render 物理分割も技術的には可能）。
+予算（上限）は現行行数より少し上に置いてある。これは「いまの行数は許容範囲内であり、ここから大きく増やすな」という意図の表現である。`main.js` は Stage 5-b のページコンポーネント抽出により 5,905→5,288 行（−613 行）に縮小した。累計縮小量は 7,785→5,288 行（**−2,493 行 / −32%**）。次の縮小は service rails（Safe Storage / Store 等、baseline 取得済みのため Stage 5 残りの kernel/render 物理分割も技術的には可能）。
 
 ---
 
