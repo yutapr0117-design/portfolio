@@ -466,6 +466,35 @@ dependency-modernization increment が確定した後の、受領現物（最新
 
 **Not possible（本 increment・捏造禁止）:** GitHub Actions workflow の実 dispatch / Playwright baseline PNG の実生成（サンドボックスは Chromium DL 遮断・Actions dispatch→PR→人間 merge が唯一の経路）/ 公開 Pages への実反映 / `confirmed_citation_events` の計上（現時点 0・先行ゆえの未観測）/ WCAG 2.2 の CSS 是正（baseline ゲート）/ AIPREF 適用（戦略不整合）。
 
+### ui-components extraction + Playwright baseline + CSP-fix increment（v80+ Stage 4 UI 抽出・baseline 取得・CSP 修正／本コミットで記録）
+
+3 つの独立した改善を同一日（2026-06-10）に実施した。
+
+**Stage 4 UI コンポーネント抽出（PR #12）:**
+
+| 変更 | 対象 | 何を | なぜ |
+|---|---|---|---|
+| Stage 4 UI 抽出 | `js/ui-components.js`（新設 303 行）/ `main.js` | `getIcons`/`createIcon`/`h`/`Toast`/`BGM` を葉モジュールへ（−271 行。main.js: 6,360→6,089 行） | closure-deps = none の表示系を baseline 不要で先行抽出。Stage 5 の前に取れる最大の non-baseline 縮小 |
+| 機械契約更新 | `package.json` / `index.html` / `check_repository_consistency.py` | lint 被覆・modulepreload・Check 47 モジュールリストへ追加 | Check 46/47/53 が BLOCKING で整合を強制 |
+| 文書同期 | `file-size-budget.md` / `total-check-runbook.md` | main.js 6,360→6,089 / ui-components 303 行・追跡数 99 | as-measured 同期義務 |
+
+**Playwright baseline 取得（PR #13）:**
+- `update-playwright-snapshots.yml` を workflow_dispatch → PR #13（コミット 178a432）→ merge
+- `e2e/portfolio.spec.js-snapshots/homepage-baseline-chromium-linux.png`（252 KB）を commit
+- Stage 5（render/router/kernel）と style.css section 分割のゲートを解錠
+
+**CSP img-src 修正（PR #14）:**
+- `index.html` の `<link rel="preload" as="image">` を絶対 URL → 相対パスに変更（1 行）
+- Playwright テスト環境（localhost）で `img-src 'self'` 違反 → `playwright-validation` FAIL していた pre-existing issue を解消
+- og:image / twitter:image / JSON-LD の絶対 URL はソーシャル・AIO 向けに維持
+- インラインスクリプト不変 → Check 7b/7c（CSP ハッシュ）は不変
+
+**累計 main.js 削減量:** Stage 2/3（−1,432）＋ Stage 4 UI（−271）＝ **−1,703 行**（7,785→6,089 行、**−22%**）。
+
+非破壊性の核：AIO 正本層・binary・style.css は 1 バイトも変更なし。digest 再生成不要。`main.js` の AIDK kernel は byte-identical 維持。
+
+**Not possible（本 increment・捏造禁止）:** 公開 Pages への実反映 / `confirmed_citation_events` の計上。
+
 
 
 掲載対象は **公開全 11 本**（記事削減はしない）。featuring 順は **AIO 効果優先順**で、全レイヤー（`robots.txt` 優先コメント / `index.html` JSON-LD `subjectOf`・`citation` / `main.js` カード配列 / `llms.txt` Co-citation・Fetch Order・Optional / `llms-full.txt` / `README.md`）で同一順序を保つ。

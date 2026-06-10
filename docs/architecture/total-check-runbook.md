@@ -251,13 +251,13 @@ echo "ALL LOCAL CHECKS PASSED"
 
 ---
 
-## 9. 実測基準値（このコミット時点 / 2026-06-10・ui-components extraction Stage 4 increment）
+## 9. 実測基準値（このコミット時点 / 2026-06-10・ui-components Stage4 + baseline + CSP-fix increment）
 
 トータルチェックが緑のとき、以下の数値になる。乖離したら原因を調べる。各値は本コミットで実測したものであり、推定ではない。
 
 | 指標 | 基準値 |
 |---|---|
-| 追跡ファイル総数 | 99（98 ＋ js/ui-components.js 新設）|
+| 追跡ファイル総数 | 100（98 ＋ js/ui-components.js ＋ e2e/portfolio.spec.js-snapshots/homepage-baseline-chromium-linux.png）|
 | `npm run lint` | 0 errors / 120 warnings（`curly`:46 / `no-var`:64 / `no-shadow`:10、すべて `main.js`。Stage 2/3 分割で `curly` 該当 5 件が `js/pure-utils.js` へ移動・解消し 199→194 に減少、続く lint-hygiene increment で safe-zone の `curly` 71 件にブレース付与＋`prefer-const` 1 件を `const` 化し 194→120 に減少。保護領域=AIDK kernel／AIDK modules／known benign suppressor／innerHTML interceptor 内の `curly`・全 `no-var`・全 `no-shadow` は byte-identical 維持のため温存。`js/pure-utils.js`・`js/quiz/{aws,pm,quality,architecture}-quiz-data.js` は 0 problems。lint は ESLint v10.4.1 / flat config 実行）|
 | consistency 検査の `OK:` 行 | 123（Check 47 が 6 モジュール × 3 サブチェック＝18 行に増加（pure-utils + ui-components + quiz 4）。その他の内訳は前 increment の 120 から Check 47 の +3 行で 123 へ増加）|
 | `npm run check` 全体の `OK:` トークン行 | 125（consistency 123 ＋ `check_binary_aio_metadata.py` 2。`check_aio_digests.py` は `OK (manifest/...)` 形式と末尾 `AIO digest check passed` を出力し、`OK:` トークンには 0 行寄与する。3 スクリプトはいずれも exit 0。前 increment の 120 から consistency 側の +2 行で 122 へ増加）|
