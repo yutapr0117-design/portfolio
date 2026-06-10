@@ -66,6 +66,9 @@
         // v80+ Stage 5-b: ページコンポーネント（HiringRiskPage / RoleSplitPage / NotFoundPage）を葉モジュールへ抽出。
         //   closure-deps = none（h / createIcon / Router の純粋ユーティリティのみ参照）。
         import { HiringRiskPage, RoleSplitPage, NotFoundPage } from './js/pages.js';
+        // v80+ Stage 5-c: Safe Storage（localStorage ラッパ）を葉モジュールへ抽出。
+        //   closure-deps = none（localStorage と引数のみ。CONSTANTS 等の IIFE クロージャ非参照）。
+        import { Storage } from './js/storage.js';
         /* ╔══════════════════════════════════════════════════════════════════╗
            ║  DO NOT EDIT: AIDK Isolated Kernel — AIDK Architecture          ║
            ║  このブロック全体がAIエージェントのアクセスから隔離された核です。   ║
@@ -288,47 +291,9 @@
             }
         }
 
-        // ===== Helper: Safe Storage (v39: cleaned up redundant try-catch) =====
-        const Storage = {
-            get(key) {
-                try {
-                    return localStorage.getItem(key);
-                } catch {
-                    return null;
-                }
-            },
-
-            set(key, value) {
-                try {
-                    // codeql[js/clear-text-storage-of-sensitive-data] - False positive:
-                    // Stores portfolio UI state (task list, theme, pomodoro history).
-                    // No credentials, tokens, or PII are stored in localStorage.
-                    localStorage.setItem(key, value);
-                    return true;
-                } catch {
-                    return false;
-                }
-            },
-
-            remove(key) {
-                try {
-                    localStorage.removeItem(key);
-                    return true;
-                } catch {
-                    return false;
-                }
-            },
-
-            parse(key) {
-                const data = this.get(key);
-                if (!data) {return null;}
-                try {
-                    return JSON.parse(data);
-                } catch {
-                    return null;
-                }
-            }
-        };
+        // ===== Helper: Safe Storage =====
+        //   ▼ v80+ Stage 5-c: Storage は closure-deps = none（localStorage と引数のみで挙動が決まる）
+        //     のため js/storage.js へ抽出し、ファイル冒頭で import 済み（挙動・署名は byte-equivalent）。
 
 
         // ===== Helper: Utilities =====

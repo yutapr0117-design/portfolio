@@ -111,13 +111,13 @@ authoritative inventory and is kept in sync with the implementation below):
       lists' agreement, and their match to the actual shipped JS files (root ∪ js/), a
       machine-enforced invariant. (BLOCKING)
   47. main.js ⇄ js/ module ESM import/export contract: for each local module main.js imports
-      from (js/page-meta.js, js/pages.js, js/pure-utils.js, js/router.js, js/ui-components.js
-      and js/quiz/{architecture,aws,pm,quality}-quiz-data.js — 9 modules), every name main.js
-      imports is actually exported by that module, and (symmetrically) every name the module
-      exports is imported by main.js — an exact bijection per module. This guards the physical
-      module split (v80+ Stage 2 pure utilities, Stage 3/3-b static quiz data, Stage 4 UI
-      components, Stage 5 Router+PAGE_META, Stage 5-b page components). Because the site is
-      build-free
+      from (js/page-meta.js, js/pages.js, js/pure-utils.js, js/router.js, js/storage.js,
+      js/ui-components.js and js/quiz/{architecture,aws,pm,quality}-quiz-data.js — 10
+      modules), every name main.js imports is actually exported by that module, and
+      (symmetrically) every name the module exports is imported by main.js — an exact
+      bijection per module. This guards the physical module split (v80+ Stage 2 pure
+      utilities, Stage 3/3-b static quiz data, Stage 4 UI components, Stage 5 Router+PAGE_META,
+      Stage 5-b page components, Stage 5-c Safe Storage). Because the site is build-free
       and served directly, a mismatch is a *runtime* failure: importing a name a module does
       not export throws a module-load error and the whole SPA fails to boot, while a
       left-behind unused export signals the split has drifted. (This check is exactly what
@@ -1578,11 +1578,19 @@ _main_src47 = (ROOT / "main.js").read_text(encoding="utf-8")
 # v80+ Stage 5-b: js/pages.js (HiringRiskPage / RoleSplitPage / NotFoundPage + 4 helpers)
 # extracted as a leaf module. All three page functions and helpers only reference pure utilities
 # (h, createIcon, Router) which are themselves ESM-imported — closure-deps = none verified.
+# v80+ Stage 5-c: js/storage.js (Safe localStorage wrapper) extracted as a leaf module. The
+# four methods (get/set/remove/parse) operate purely on the (key, value) arguments and the
+# global localStorage API — no IIFE closure state, no DOM, no CONSTANTS dependency. The earlier
+# extraction-map §3.5 classification "Safe Storage = mid/high risk (schema backward-compat)"
+# referred to the callers' contract over localStorage keys/values, not to module-level closure
+# deps, so the module itself extracts cleanly. The schema backward-compat responsibility stays
+# with the callers (main.js controls all key/value formats).
 _modules47 = [
     ("./js/page-meta.js",                   ROOT / "js" / "page-meta.js"),
     ("./js/pages.js",                       ROOT / "js" / "pages.js"),
     ("./js/pure-utils.js",                  ROOT / "js" / "pure-utils.js"),
     ("./js/router.js",                      ROOT / "js" / "router.js"),
+    ("./js/storage.js",                     ROOT / "js" / "storage.js"),
     ("./js/ui-components.js",               ROOT / "js" / "ui-components.js"),
     ("./js/quiz/architecture-quiz-data.js", ROOT / "js" / "quiz" / "architecture-quiz-data.js"),
     ("./js/quiz/aws-quiz-data.js",          ROOT / "js" / "quiz" / "aws-quiz-data.js"),

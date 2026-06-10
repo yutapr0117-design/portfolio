@@ -47,12 +47,13 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 
 | ファイル | 実測行数 | 予算（上限） | 予算種別 | 方針 |
 |---|---:|---:|---|---|
-| `main.js` | 5,288 | 6,400 | `strong-advisory` | Stage 5-b: HiringRiskPage / RoleSplitPage / NotFoundPage + helpers を js/pages.js へ抽出し −613 行。累計 7,785→5,288 行（−32%）。次の縮小は service rails（Store/State）と残ページレンダー |
+| `main.js` | 5,253 | 6,400 | `strong-advisory` | Stage 5-c: Safe Storage（localStorage ラッパ）を js/storage.js へ抽出し −35 行。累計 7,785→5,253 行（−32%）。次の縮小は Store / State / RouteState 等の service rails |
 | `js/ui-components.js` | 303 | 400 | `advisory` | Stage 4 新設。DOM ビルダー・SVG アイコン・Toast・BGM の葉モジュール。安定 |
 | `js/router.js` | 175 | 250 | `advisory` | Stage 5 新設。Hash-based SPA ルーター葉モジュール。安定 |
 | `js/page-meta.js` | 63 | 120 | `advisory` | Stage 5 新設。ページ SEO メタ単一ソース（AI SURFACE）。安定 |
 | `js/pages.js` | 635 | 700 | `advisory` | Stage 5-b 新設。HiringRiskPage / RoleSplitPage / NotFoundPage + helpers の葉モジュール。closure-deps = none |
 | `js/pure-utils.js` | 277 | 400 | `advisory` | Stage 2 抽出済みの純ユーティリティ。安定 |
+| `js/storage.js` | 74 | 120 | `advisory` | Stage 5-c 新設。Safe localStorage ラッパ。closure-deps = none |
 | `js/quiz/aws-quiz-data.js` | 819 | 900 | `advisory` | Stage 3-b 分割済み。AWS 問題集（最大データセット） |
 | `js/quiz/pm-quiz-data.js` | 271 | 350 | `advisory` | Stage 3-b 分割済み。PM 問題集 |
 | `js/quiz/quality-quiz-data.js` | 275 | 350 | `advisory` | Stage 3-b 分割済み。品質・プロセス問題集 |
@@ -95,6 +96,7 @@ js/router.js | 250 | advisory
 js/page-meta.js | 120 | advisory
 js/pages.js | 700 | advisory
 js/pure-utils.js | 400 | advisory
+js/storage.js | 120 | advisory
 js/quiz/aws-quiz-data.js | 900 | advisory
 js/quiz/pm-quiz-data.js | 350 | advisory
 js/quiz/quality-quiz-data.js | 350 | advisory
