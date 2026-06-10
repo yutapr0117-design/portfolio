@@ -4,7 +4,7 @@
 Last-Updated  : 2026-06-10
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
 Track         : v80+ staged major update (Phase 2 — Stage 5-b page extraction complete; Router/PAGE_META/pages all extracted)
-Subject       : main.js (現在 5,288 行。単一 IIFE 本体 + 先頭にローカル ESM import。元 7,785 行から **−2,493 行 / −32%** を達成。内訳: Stage 2/3 −1,432 / lint-hygiene +2 / Stage 3-b +5 / Stage 4 UI −271 / Stage 5 Router+PAGE_META −193 / Stage 5-b pages −613 + import 行追加で実質 −619。AIDK Kernel と View Transition Proxy は不可侵領域として温存)
+Subject       : main.js (現在 5,288 行。単一 IIFE 本体 + 先頭にローカル ESM import。元 7,785 行から **−2,497 行 / −32%** を達成。内訳: Stage 2/3 −1,432 / lint-hygiene +2 / Stage 3-b +5 / Stage 4 UI −271 / Stage 5 Router+PAGE_META −193 / Stage 5-b pages −613 + import 行追加で実質 −619 / Stage 5-b orphan-comment cleanup −4。AIDK Kernel と View Transition Proxy は不可侵領域として温存)
 Canonical-Ref : AI2AI.md (canonical) / repository-maintainability-map.md
 Status        : 物理分割を継続実施中。Stage 2（pure utility）・Stage 3（static data）・Stage 3-b
                 （quiz データドメイン分割）・Stage 4（UI コンポーネント）・Stage 5（Router + PAGE_META）・

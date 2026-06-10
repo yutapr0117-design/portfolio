@@ -268,7 +268,7 @@ echo "ALL LOCAL CHECKS PASSED"
 | `.well-known/aio-manifest.json` の証跡カウント | source_of_truth 5 / supporting_evidence 4 / observational_evidence 1 |
 | `index.html` 構造化データ | JSON-LD ブロック 2 / `ai:` meta タグ 8（ハイフン付き含む）|
 | `npm audit` / `--omit=dev` | 0 件 / 0 件 |
-| `main.js` | 5,288 行（Stage 5-b: HiringRiskPage / RoleSplitPage / NotFoundPage + helpers を js/pages.js へ抽出し −613 行（前 increment 5,905 から）。Stage 0 累計 7,785→5,288 行（**−2,493 行 / −32%**）。Check 43 が IIFE と kernel の存在を機械強制）|
+| `main.js` | 5,288 行（Stage 5-b: HiringRiskPage / RoleSplitPage / NotFoundPage + helpers を js/pages.js へ抽出し −613 行（前 increment 5,905 から）。さらに orphan-comment cleanup で −4 行。Stage 0 累計 7,785→5,288 行（**−2,497 行 / −32%**）。Check 43 が IIFE と kernel の存在を機械強制）|
 | `js/ui-components.js` | 303 行（Stage 4 新設。DOM ビルダー h・SVG アイコン createIcon・Toast・BGM の葉モジュール）|
 | `js/router.js` | 175 行（Stage 5 新設。hash-based SPA ルーター。closure-deps = none）|
 | `js/page-meta.js` | 63 行（Stage 5 新設。per-page SEO メタ単一ソース（AI SURFACE）。closure-deps = none）|
@@ -282,7 +282,7 @@ echo "ALL LOCAL CHECKS PASSED"
 
 トータルチェックが緑でも、以下は設計上の負債として認識されている（即修正ではなく段階対応）。詳細は各 map / incident artifact。
 
-- **`main.js` モノリス**（現 5,288 行 / 元 7,785 行 / 累計 −32%）: Stage 2/3（pure utility・static data）−1,432 行 + Stage 4（UI コンポーネント）−271 行 + Stage 5（Router+PAGE_META）−193 行 + Stage 5-b（ページコンポーネント）−613 行で合計 **−2,493 行（−32%）** を削減済み。残るは service rails（Safe Storage / Store / State Management）と Main Renderer / DiagnosticsRail 等の高副作用領域。baseline 取得済みのため技術的には着手可能だが、schema 後方互換・副作用順序の保証が必要。
+- **`main.js` モノリス**（現 5,288 行 / 元 7,785 行 / 累計 −32%）: Stage 2/3（pure utility・static data）−1,432 行 + Stage 4（UI コンポーネント）−271 行 + Stage 5（Router+PAGE_META）−193 行 + Stage 5-b（ページコンポーネント）−613 行 + Stage 5-b orphan-comment cleanup −4 行で合計 **−2,497 行（−32%）** を削減済み（lint-hygiene +2 / Stage 3-b +5 / Stage 5-b import 行追加 +6 を含む素加算）。残るは service rails（Safe Storage / Store / State Management）と Main Renderer / DiagnosticsRail 等の高副作用領域。baseline 取得済みのため技術的には着手可能だが、schema 後方互換・副作用順序の保証が必要。
 - **視覚回帰 baseline 取得済み（2026-06-10 / PR #13）**: `e2e/portfolio.spec.js-snapshots/homepage-baseline-chromium-linux.png`（252 KB）がコミット済み。Stage 5 残部（kernel/render/view-transition）と style.css section 分割のゲートを解錠した。今後の物理分割は視覚回帰の裏付けの下で進められる。
 - **`main.js` の 107 advisory warnings**: 上記分割と同期して段階解消。Stage 2/3 で 199→194、lint-hygiene increment で 194→120、Stage 5/5-b で 120→107（−13 件は抽出関数の移動先で解消）。残債は safe-zone 外（保護領域内）の `curly`・全 `no-var`・全 `no-shadow` で `main.js` に局在。`js/router.js` / `js/page-meta.js` / `js/pages.js` 等の抽出済みモジュールは 0 warnings。
 
