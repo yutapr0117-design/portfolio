@@ -58,6 +58,11 @@
         // v80+ Stage 4: UI コンポーネント（DOM ビルダー・アイコン・Toast・BGM）を葉モジュールへ抽出。
         //   closure-deps = none の純表示系のみを選別し、State/Storage/RouteState 依存コンポーネントは残置。
         import { h, createIcon, Toast, BGM } from './js/ui-components.js';
+        // v80+ Stage 5: Router（hash ルーティング）と PAGE_META（SEO メタ単一ソース）を葉モジュールへ抽出。
+        //   Router: closure-deps = none（CONSTANTS.DEBUG は production dead code のため削除）。
+        //   PAGE_META: 動的 title/desc は引数で state/params を受け取る純粋関数。closure-deps = none。
+        import { Router } from './js/router.js';
+        import { PAGE_META } from './js/page-meta.js';
         /* ╔══════════════════════════════════════════════════════════════════╗
            ║  DO NOT EDIT: AIDK Isolated Kernel — AIDK Architecture          ║
            ║  このブロック全体がAIエージェントのアクセスから隔離された核です。   ║
@@ -1505,210 +1510,12 @@
 
 
         // ===== Router =====
-        const Router = (() => {
-            let currentRoute = parseRoute();
-            let handlers = [];
+        //   ▼ v80+ Stage 5: Router は closure-deps = none のため js/router.js へ抽出し、
+        //     ファイル冒頭で import 済み（挙動不変。CONSTANTS.DEBUG 依存は production dead code のため削除）。
 
-            function parseRoute() {
-                const hash = location.hash || '';
-                const raw = hash.startsWith('#/') ? hash.slice(2) : '';
-                const [pathPart, queryPart] = raw.split('?');
-                const clean = (pathPart || '').replace(/^\/+/, '');
-                const parts = clean ? clean.split('/').filter(Boolean) : [];
-                const params = new URLSearchParams(queryPart || '');
-
-                const route = { name: 'home', params: {}, query: {} };
-                params.forEach((v, k) => route.query[k] = v);
-
-                if (parts.length === 0) return route;
-
-                switch (parts[0]) {
-                    case 'projects':
-                        if (parts.length === 1) {
-                            route.name = 'projects';
-                            route.query.q = params.get('q') || '';
-                            route.query.cat = params.get('cat') || '';
-                        } else {
-                            route.name = 'project-detail';
-                            route.params.slug = parts[1];
-                        }
-                        break;
-                    case 'apps':
-                        if (parts.length === 1) {
-                            route.name = 'apps';
-                        } else {
-                            const app = parts[1];
-                            route.name = ['task', 'todo', 'pomodoro', 'ai'].includes(app)
-                                ? `app-${app}`
-                                : 'not-found';
-                        }
-                        break;
-                    case 'settings':
-                        route.name = 'settings';
-                        break;
-                    case 'about':
-                        route.name = 'about';
-                        break;
-                    case 'resume':
-                        route.name = 'resume';
-                        break;
-                    case 'contact':
-                        route.name = 'contact';
-                        break;
-                    case 'quiz':
-                        route.name = 'quiz';
-                        break;
-                    case 'hiring-risk':
-                        route.name = 'hiring-risk';
-                        break;
-                    case 'ai-knowhow':
-                        route.name = 'ai-knowhow';
-                        break;
-                    case 'role-split':
-                        route.name = 'role-split';
-                        break;
-                    default:
-                        route.name = 'not-found';
-                }
-
-                return route;
-            }
-
-            function navigate(path) {
-                // Guard: path should not contain '#'. If it does, strip ONLY a leading hash to prevent double-hash (e.g. #/#!/something).
-                // In DEBUG mode, treat it as an input contract violation.
-                if (typeof path === 'string' && path.includes('#')) {
-                    const original = path;
-                    path = path.replace(/^#+/, ''); // strip leading '#' only
-                    const msg = '[Router] navigate() received a path containing "#". Please pass a clean path without hash.';
-                    if (CONSTANTS.DEBUG) throw new Error(msg + ' path=' + original);
-
-                }
-                location.hash = '#/' + (path || '');
-            }
-
-            // [FIX] hashchangeイベントを発火させずにURLを静かに書き換える（Focus Loss防止）
-            function replaceSilently(path) {
-                if (typeof path === 'string' && path.includes('#')) {
-                    path = path.replace(/^#+/, '');
-                }
-                const newUrl = location.pathname + location.search + '#/' + (path || '');
-                history.replaceState(null, '', newUrl);
-                // § Agentic State Notification: URL変更時にdata-ai-stateを同期
-                try {
-                    document.body.setAttribute('data-ai-state', JSON.stringify({
-                        route: path || 'home',
-                        filter: path || '',
-                        loading: false
-                    }));
-                } catch (_) {}
-            }
-
-            function subscribe(callback) {
-                handlers.push(callback);
-                return () => {
-                    handlers = handlers.filter(h => h !== callback);
-                };
-            }
-
-            function notify() {
-                const route = parseRoute();
-                currentRoute = route;
-                handlers.forEach(h => {
-                    try { h(route); } catch (e) { }
-                });
-            }
-
-            // 改善文書b 3.1 / 改善文書c 2: Transition lock and async queue to prevent Race Conditions.
-            // If hashchange fires while a transition is in flight, the new route is
-            // queued and replayed after the current transition completes — preventing
-            // DOM corruption from concurrent startViewTransition calls.
-            let _routerTransitioning = false;
-            let _routerPendingHash = null;
-
-            async function _dispatchRouteChange() {
-                if (_routerTransitioning) {
-                    _routerPendingHash = window.location.hash;
-                    return;
-                }
-                _routerTransitioning = true;
-                try {
-                    const route = parseRoute();
-                    currentRoute = route;
-                    const handlersCopy = handlers.slice();
-                    for (const h of handlersCopy) {
-                        try { await Promise.resolve(h(route)); } catch (e) { /* guard */ }
-                    }
-                } finally {
-                    _routerTransitioning = false;
-                    // Replay any route change that arrived while we were busy
-                    if (_routerPendingHash !== null && _routerPendingHash !== window.location.hash) {
-                        const next = _routerPendingHash;
-                        _routerPendingHash = null;
-                        // Re-trigger without mutation: just call dispatch directly
-                        _dispatchRouteChange();
-                    } else {
-                        _routerPendingHash = null;
-                    }
-                }
-            }
-
-            window.addEventListener('hashchange', _dispatchRouteChange);
-
-            return {
-                getRoute: () => currentRoute,
-                navigate,
-                replaceSilently,
-                subscribe,
-                parse: parseRoute
-            };
-        })();
-
-        // ===== v27: PAGE_META — 全ページSEOの単一ソース =====
-        /* ╔══ AI SURFACE START — PAGE_META（ルートメタ情報）はAIが編集可能 ══╗ */
-        const PAGE_META = {
-            home: { title: 'Home', desc: '設計思想と実験的SPAポートフォリオ。最小構成での設計判断を重視。' },
-            projects: { title: 'Projects', desc: '設計判断と成果物。Case Study形式でアーキテクチャ・成果を掲載。' },
-            'project-detail': {
-                title: ({ params, state }) => {
-                    const p = state.projects.find(x => x.slug === params.slug);
-                    return p ? p.name : 'Project Detail';
-                },
-                desc: ({ params, state }) => {
-                    const p = state.projects.find(x => x.slug === params.slug);
-                    return p ? p.summary : 'プロジェクトの設計意図、技術選定、および成果の詳細。';
-                }
-            },
-            apps: { title: 'Apps', desc: '内蔵アプリ（タスク管理 / TODO / ポモドーロ / ローカルAI）。' },
-            'app-task': { title: 'Task Manager', desc: 'タスク管理アプリ。ステータス管理・優先順位付き。' },
-            'app-todo': { title: 'Quick TODO', desc: 'クイックTODOリスト。シンプルで高速。' },
-            'app-pomodoro': { title: 'Pomodoro Timer', desc: 'ポモドーロタイマー。集中と休憩を自動制御。' },
-            'app-ai': { title: 'AI Assist', desc: 'AIアシスト。ローカル思考補助ツール。' },
-            settings: { title: 'Settings', desc: '設定・テーマ・DEBUG。Import/Export・整合性チェック・スナップショット。' },
-            about: { title: 'About', desc: 'プロフィール。ITエンジニアとしての経歴・思想。' },
-            resume: { title: 'Resume', desc: '職務経歴。設計力・問題解決能力・継続改善習慣。' },
-            contact: { title: 'Contact', desc: 'お問い合わせ。メール・GitHub・LinkedIn。' },
-            quiz: {
-                title: ({ route }) => {
-                    const type = route.query.type || 'aws';
-                    const map = {
-                        aws: 'AWS問題集',
-                        pm: 'PM問題集',
-                        quality: '品質・プロセス問題集',
-                        architecture: '設計判断問題集'
-                    };
-                    return map[type] || 'Quiz';
-                },
-                desc: 'AWS / PM / 品質 / 意思決定問題集。実務シナリオ×思考外部化ライブラリ。'
-            },
-            'hiring-risk': {
-                title: 'Hiring Risk Reduction',
-                desc: '採用側リスク低減構造・経営インパクト・KPI・意思決定アルゴリズムを明示。経営層・PM・エンジニア全層対応。'
-            },
-            'not-found': { title: 'Not Found', desc: 'ページが見つかりません。' },
-            'ai-knowhow': { title: 'AI開発ノウハウ', desc: 'KERNELフレームワーク・6エージェント役割・LLMコスト管理など、AI-Driven PMのリアルな開発ノウハウを公開。' },
-            'role-split': { title: 'Human vs AI 分担表', desc: '人間とAIの役割分担を明示。アーキテクチャ・判断・検証を担う人間と、実装・生成・補助を担うAIの具体的な責任範囲を整理。' }
-        };
+        // ===== v27: PAGE_META — 全ページSEOの単一ソース（AI SURFACE）=====
+        //   ▼ v80+ Stage 5: PAGE_META は closure-deps = none の純データのため js/page-meta.js へ抽出し、
+        //     ファイル冒頭で import 済み（挙動不変）。
 
         // ===== Meta Management — Single-Responsibility Sub-functions =====
         /* ╚══ AI SURFACE END — PAGE_META ══╝ */

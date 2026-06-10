@@ -1564,8 +1564,14 @@ _main_src47 = (ROOT / "main.js").read_text(encoding="utf-8")
 # v80+ Stage 4: js/ui-components.js added — DOM builder (h), SVG icon helper (createIcon),
 # Toast notification system, and BGM manager extracted as a single leaf module (no local imports).
 # All four exports are used in main.js's IIFE; Check 47b enforces bijection.
+# v80+ Stage 5: js/router.js (hash-based SPA router) and js/page-meta.js (per-page SEO metadata)
+# extracted as leaf modules. Router had one closure dep (CONSTANTS.DEBUG, production dead code)
+# which was removed. PAGE_META's dynamic entries are pure functions that accept state/params as
+# arguments — no closure deps. Both are leaves (no local imports).
 _modules47 = [
+    ("./js/page-meta.js",                   ROOT / "js" / "page-meta.js"),
     ("./js/pure-utils.js",                  ROOT / "js" / "pure-utils.js"),
+    ("./js/router.js",                      ROOT / "js" / "router.js"),
     ("./js/ui-components.js",               ROOT / "js" / "ui-components.js"),
     ("./js/quiz/architecture-quiz-data.js", ROOT / "js" / "quiz" / "architecture-quiz-data.js"),
     ("./js/quiz/aws-quiz-data.js",          ROOT / "js" / "quiz" / "aws-quiz-data.js"),
