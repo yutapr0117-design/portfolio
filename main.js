@@ -697,7 +697,9 @@
         // ===== v80+ Stage 5-j: Page components factory instantiation =====
         //   js/pages.js は factory として createPages({h, createIcon, Router}) を export。
         //   ここで instance 化し、各ページ関数を main.js scope に bind する（挙動 byte-equivalent）。
-        const { HiringRiskPage, RoleSplitPage, NotFoundPage } = createPages({ h, createIcon, Router });
+        // ContactCTA は main.js 内で定義された関数。pages.js から参照されるので factory 引数で注入する。
+        // ContactCTA 定義位置は L3325 近辺 (factory 呼び出しは関数 hoisting のおかげで成功)。
+        const { HiringRiskPage, RoleSplitPage, NotFoundPage } = createPages({ h, createIcon, Router, ContactCTA });
 
 
         // ===== Router =====

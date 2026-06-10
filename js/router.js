@@ -33,7 +33,7 @@ export const Router = (() => {
         const route = { name: 'home', params: {}, query: {} };
         params.forEach((v, k) => route.query[k] = v);
 
-        if (parts.length === 0) return route;
+        if (parts.length === 0) { return route; }
 
         switch (parts[0]) {
             case 'projects':

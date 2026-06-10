@@ -348,17 +348,18 @@ jobs:
       # 有効なDOM APIパターンを誤検出する。node --check で構文エラーのみを確実に検出。
       # PythonロジックはYAML外部スクリプトに完全移動(YAML/Pythonクォート干渉を根本排除)。
       - name: "BLOCKING: JS syntax check via node --check (改善文書a 3.1)"
+        # v80+ Stage 5-k CI hygiene fix: enable bash globstar so `js/**/*.js` recursively
+        # matches js/<file>.js AND js/quiz/<file>.js. Without globstar, `**` collapses to `*`
+        # and `js/**/*.js` matches ONLY js/<subdir>/<file>.js (2-level), silently skipping
+        # all direct js/<file>.js leaf modules. This was the root cause of the Stage 5-j
+        # latent ReferenceError bug in js/pages.js: ESLint and node --check both used the
+        # same broken glob and never scanned the file. Also use `npm run lint:js` as the
+        # authoritative entrypoint so the package.json scripts (which Check 46 enforces)
+        # remain the single source of truth for what gets checked.
         run: |
-          LINT_TARGET="main.js error-suppressor.js karte-init.js theme-init.js aio-guard.js sw.js"
-          if [ -d "js" ] && ls js/*.js 1>/dev/null 2>&1; then
-            LINT_TARGET="js/**/*.js $LINT_TARGET"
-          fi
-          for file in $LINT_TARGET; do
-            if [ -f "$file" ]; then
-              node --check "$file" || (echo "::error::Syntax error in $file" && exit 1)
-            fi
-          done
-          echo "node --check: PASS"
+          shopt -s globstar
+          npm run lint:js
+          echo "node --check: PASS (via npm run lint:js — package.json authoritative)"
 
       # ── 24. BLOCKING(errors + execution) / ADVISORY(warnings): ESLint scan ──
       # History (Session #18): this gate was previously vacuous. `npm install --no-save
@@ -380,7 +381,16 @@ jobs:
       #   A vacuous PASS is structurally impossible: the step lints honestly and either
       #   passes with 0 errors, fails on a new error, or fails loud on execution error.
       - name: "BLOCKING(errors+execution) / ADVISORY(warnings): ESLint scan"
+        # v80+ Stage 5-k CI hygiene fix: same globstar issue as node --check above.
+        # Without `shopt -s globstar`, `js/**/*.js` collapses to `js/<subdir>/<file>.js`
+        # and silently SKIPS all direct js/<file>.js leaf modules. To make the gate
+        # authoritative we (a) enable globstar so the historic glob still works, AND
+        # (b) cross-check the LINT_TARGET against `npm run lint` (which is the
+        # package.json single source of truth that Check 46 enforces). If the two
+        # disagree, that itself is a structural drift signal — historically this
+        # caused the Stage 5-j ReferenceError in js/pages.js to stay green for weeks.
         run: |
+          shopt -s globstar
           # JS-CSS separation (v74+): main.js and other .js files are external.
           LINT_TARGET="main.js error-suppressor.js karte-init.js theme-init.js aio-guard.js sw.js"
           # Retain js/ directory support for future modularisation
