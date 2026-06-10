@@ -111,13 +111,14 @@ authoritative inventory and is kept in sync with the implementation below):
       lists' agreement, and their match to the actual shipped JS files (root ∪ js/), a
       machine-enforced invariant. (BLOCKING)
   47. main.js ⇄ js/ module ESM import/export contract: for each local module main.js imports
-      from (js/page-meta.js, js/pages.js, js/pure-utils.js, js/router.js, js/storage.js,
-      js/ui-components.js and js/quiz/{architecture,aws,pm,quality}-quiz-data.js — 10
-      modules), every name main.js imports is actually exported by that module, and
+      from (js/constants.js, js/page-meta.js, js/pages.js, js/pure-utils.js, js/router.js,
+      js/storage.js, js/ui-components.js and js/quiz/{architecture,aws,pm,quality}-quiz-data.js
+      — 11 modules), every name main.js imports is actually exported by that module, and
       (symmetrically) every name the module exports is imported by main.js — an exact
       bijection per module. This guards the physical module split (v80+ Stage 2 pure
       utilities, Stage 3/3-b static quiz data, Stage 4 UI components, Stage 5 Router+PAGE_META,
-      Stage 5-b page components, Stage 5-c Safe Storage). Because the site is build-free
+      Stage 5-b page components, Stage 5-c Safe Storage, Stage 5-d CONSTANTS). Because the
+      site is build-free
       and served directly, a mismatch is a *runtime* failure: importing a name a module does
       not export throws a module-load error and the whole SPA fails to boot, while a
       left-behind unused export signals the split has drifted. (This check is exactly what
@@ -1585,7 +1586,14 @@ _main_src47 = (ROOT / "main.js").read_text(encoding="utf-8")
 # referred to the callers' contract over localStorage keys/values, not to module-level closure
 # deps, so the module itself extracts cleanly. The schema backward-compat responsibility stays
 # with the callers (main.js controls all key/value formats).
+# v80+ Stage 5-d: js/constants.js (application runtime constants: STORAGE_KEY / LIMITS /
+# timing / DEBUG / TAB_ID) extracted as a leaf module. SITE_CONFIG.VERSION/LAST_UPDATED stay
+# in main.js (Check 2 / 17 extract them by name from main.js). CONSTANTS only references
+# browser globals (crypto, sessionStorage, location, URLSearchParams, Date, Math) — no IIFE
+# closure deps. TAB_ID's IIFE side-effect (one-time sessionStorage write) executes once at
+# module load, equivalent to its prior one-time evaluation inside main.js's IIFE.
 _modules47 = [
+    ("./js/constants.js",                   ROOT / "js" / "constants.js"),
     ("./js/page-meta.js",                   ROOT / "js" / "page-meta.js"),
     ("./js/pages.js",                       ROOT / "js" / "pages.js"),
     ("./js/pure-utils.js",                  ROOT / "js" / "pure-utils.js"),
