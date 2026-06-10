@@ -415,7 +415,9 @@ Version History (current shipped state)
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" />
 
     <!-- LCP最適化: ヒーロー画像の事前読み込み (fetchpriority=high) -->
-    <link rel="preload" href="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" as="image" fetchpriority="high" />
+    <!-- 相対パス: 絶対 URL は E2E テスト環境 (localhost) で img-src 'self' に違反するため。
+         og:image / JSON-LD は引き続き正規絶対 URL を使用する（ソーシャル・AIO 向け）。 -->
+    <link rel="preload" href="./yuta-yokoi-ai-pm-orchestration-system.webp" as="image" fetchpriority="high" />
 
     <!-- ESM 依存グラフの並列先読み (modulepreload):
          main.js は <script type="module"> として読み込まれ、先頭で ./js/pure-utils.js と
