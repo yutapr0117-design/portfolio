@@ -216,6 +216,22 @@ authoritative inventory and is kept in sync with the implementation below):
       @eslint/js 9.x) causes a duplicate/incompatible install and config-resolution conflict.
       They version independently within a major (eslint 10.4.1 pairs with @eslint/js 10.0.1), so
       only the major is compared, not exact equality. (BLOCKING)
+  55. CI lint-target authoritative coupling: architecture-validation.yml's `node --check` and
+      `npx eslint` steps must either (a) enable `shopt -s globstar` before expanding
+      `js/**/*.js`, or (b) call the package.json scripts (`npm run lint:js` / `npm run lint`).
+      Without globstar, bash collapses `js/**/*.js` to `js/<subdir>/<file>.js` and silently
+      skips direct `js/<file>.js` leaf modules. This was the root cause of the Stage 5-j
+      hidden ReferenceError in js/pages.js — the file was extracted, listed in package.json,
+      and exported names — but ESLint never scanned it because the CI glob missed it for
+      weeks. This check converts that vacuous-gate class into a structural BLOCKING signal.
+      (BLOCKING)
+  56. js/ leaf module factory-pattern parameter coverage: for each js/ module that uses the
+      factory pattern (`export function createFoo(deps)`), main.js MUST invoke the factory
+      `createFoo({...})` at least once. A factory exported but never invoked is the Stage 5-j
+      bug class: the module compiles fine, ESLint passes, Check 47 passes (import/export
+      bijection holds), but at runtime any caller of the page/manager hits ReferenceError
+      because the dependency identifiers are never bound. This check converts that latent
+      runtime failure into a pre-commit BLOCKING error. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -2139,6 +2155,99 @@ check(
     f"Check 54: eslint ({_eslint_v54}) and @eslint/js ({_eslintjs_v54}) have mismatched major "
     "versions — pin @eslint/js to the same major as eslint (a mismatch causes ESLint v10 "
     "config-resolution conflicts)",
+)
+
+# ── 55. CI lint-target authoritative coupling (BLOCKING) ──────────────────────
+# Stage 5-j で発見した「ESLint vacuous-gate 再来」を構造的に防ぐ。
+# .github/workflows/architecture-validation.yml の ESLint scan は
+# `LINT_TARGET="js/**/*.js main.js ..."` を bash で展開して `npx eslint` に渡す。
+# bash の **globstar が無効** な状態だと `js/**/*.js` は `js/<dir>/<file>.js`
+# (2 階層) のみマッチし、`js/<file>.js` (直下) が **silently skip** される。
+# これが Stage 5-j の hidden ReferenceError (js/pages.js の `h` 未定義) を
+# 何週間も lint で検出できなかった根本原因。
+# 本 Check は workflow YAML を grep し、(a) ESLint/node --check が `shopt -s
+# globstar` を有効化しているか、または (b) `npm run lint` / `npm run lint:js`
+# を呼んでいるか、のいずれかを満たすことを BLOCKING で機械強制する。
+# どちらでも単一 SoT (package.json の lint script) と一致する lint 対象が保証される。
+_wf55 = ROOT / ".github" / "workflows" / "architecture-validation.yml"
+if _wf55.exists():
+    _wfsrc55 = _wf55.read_text(encoding="utf-8")
+    # node --check section: identify by the comment marker that names the step
+    _has_globstar55 = "shopt -s globstar" in _wfsrc55
+    _uses_npm_lint55 = ("npm run lint:js" in _wfsrc55) or ("npm run lint" in _wfsrc55)
+    # 古い独自 LINT_TARGET expansion が残っているなら、globstar かつ npm が無いと vacuous
+    _has_raw_target55 = 'LINT_TARGET="js/**/*.js' in _wfsrc55 or 'LINT_TARGET="js/**' in _wfsrc55
+    _vacuous55 = _has_raw_target55 and not (_has_globstar55 or _uses_npm_lint55)
+    check(
+        not _vacuous55,
+        "Check 55: architecture-validation.yml lint targets are authoritatively coupled "
+        "(npm run lint:js, or globstar-enabled glob — Stage 5-j vacuous-gate prevention)",
+        "Check 55: architecture-validation.yml ESLint/node --check uses `js/**/*.js` without "
+        "`shopt -s globstar` and without `npm run lint(:js)` — direct js/<file>.js leaves "
+        "would be silently skipped. Either enable globstar (`shopt -s globstar`) or call the "
+        "package.json lint scripts (single source of truth). See Stage 5-j incident.",
+    )
+else:
+    warnings.append(
+        "Check 55: architecture-validation.yml not found — cannot verify lint-target coupling"
+    )
+
+# ── 56. js/ leaf modules: factory pattern parameter coverage (BLOCKING) ───────
+# Stage 5-j で発見した js/pages.js (元 Stage 5-b) の hidden ReferenceError は、
+# 葉モジュール内の関数本体が IIFE 外スコープのバインディング (h, createIcon,
+# Router) を未定義の暗黙グローバルとして参照していたために起きた。
+# factory pattern (createFoo({deps}) → instance) で抽出すれば、deps が
+# factory 引数で bind されるため安全だが、これは構造的に強制されていなかった。
+#
+# 本 Check は js/ 配下の各葉モジュール（_modules47）について、main.js での
+# 使用パターンが以下のいずれかに該当することを検査する:
+#   (A) 値 export (`export const Foo = ...` / `export function Foo() {...}` /
+#       `export { Foo }`) → main.js は `import { Foo }` で取得・直接使用
+#   (B) factory export (`export function createFoo(deps)` / `export function
+#       createXxx(deps)`) → main.js は `import { createFoo }` で取得し
+#       `const Foo = createFoo({...})` で合成
+#
+# (A) は closure-deps = none が前提（葉契約 = Check 47c で機械強制）。
+# (B) は deps を引数で受けるため、葉契約を破らずに service-rail 結合を表現できる。
+#
+# 本 Check は「main.js の使用形式と module の export 形式の一致」を検査する:
+# - module が `createFoo` を export しているのに main.js が `const X = createFoo(...)`
+#   していない → 引数注入忘れ → 関数実行時 ReferenceError 危険
+# - 逆に module が `Foo` を直接 export しているのに main.js が `createFoo(...)`
+#   している → 構文 error (call on object)
+_factory_usage_mismatches = []
+for _spec56, _mpath56 in _modules47:
+    if not _mpath56.exists():
+        continue
+    _msrc56 = _mpath56.read_text(encoding="utf-8")
+    # factory pattern? `export function createXxx(...)` がある
+    _factory_re56 = re.search(r"^export\s+function\s+(create[A-Z][A-Za-z0-9_]*)\s*\(",
+                              _msrc56, re.MULTILINE)
+    _short56 = _spec56.replace("./", "")
+    if _factory_re56:
+        _factory_name56 = _factory_re56.group(1)
+        # main.js で `const ... = createXxx(...)` という使用形式があるはず
+        _usage_re56 = re.search(
+            r"\b" + re.escape(_factory_name56) + r"\s*\(",
+            _main_src47,
+        )
+        if not _usage_re56:
+            _factory_usage_mismatches.append(
+                f"{_short56}: exports factory `{_factory_name56}` but main.js never calls it"
+            )
+_factory_count56 = sum(
+    1 for _spec, _path in _modules47
+    if _path.exists()
+    and re.search(r"^export\s+function\s+create", _path.read_text(encoding="utf-8"), re.MULTILINE)
+)
+check(
+    not _factory_usage_mismatches,
+    f"Check 56: factory-pattern modules in js/ are all invoked from main.js "
+    f"({_factory_count56} factories detected)",
+    f"Check 56: factory-pattern module(s) exported but not invoked from main.js: "
+    f"{_factory_usage_mismatches} — this is the Stage 5-j class of bug (extracted module's "
+    f"functions would throw ReferenceError when called because dependencies are never bound). "
+    f"Either invoke the factory in main.js or remove the orphan export.",
 )
 
 # ── Result ────────────────────────────────────────────────────────────────────

@@ -279,3 +279,98 @@ test('No Trusted Types or CSP violations in console', async ({ page }) => {
     'Trusted Types / CSP violations found: ' + JSON.stringify(violations)
   ).toHaveLength(0);
 });
+
+// ===== v80+ Stage 5-k CI hygiene: all-routes runtime sanity =====
+// Stage 5-j で発見された "hidden ReferenceError" (js/pages.js の `h` 未定義参照) は、
+// Playwright が当該ルート (/#/hiring-risk, /#/role-split, /#/not-found) を訪問
+// していなかったため CI 緑のまま潜在していた。本テスト群は SPA の全 17 ルートを
+// 訪問して各ページの runtime 健全性 (console-error / pageerror なし + DOM 出力存在)
+// を検証する。これにより同種の bug を将来的に発火前検出可能にする。
+//
+// 各ルートに対して個別 test() を生成し、失敗しても他ルートは独立に検査される。
+// screenshot baseline は引き続き Homepage のみ (他ルートは behavior テストに留め
+// baseline の re-take 負荷を避ける)。
+const ALL_ROUTES = [
+  { hash: '#/',                  name: 'home' },
+  { hash: '#/projects',          name: 'projects' },
+  { hash: '#/apps',              name: 'apps' },
+  { hash: '#/app-task',          name: 'app-task' },
+  { hash: '#/app-todo',          name: 'app-todo' },
+  { hash: '#/app-pomodoro',      name: 'app-pomodoro' },
+  { hash: '#/app-ai',            name: 'app-ai' },
+  { hash: '#/settings',          name: 'settings' },
+  { hash: '#/about',             name: 'about' },
+  { hash: '#/resume',            name: 'resume' },
+  { hash: '#/contact',           name: 'contact' },
+  { hash: '#/quiz',              name: 'quiz' },
+  { hash: '#/hiring-risk',       name: 'hiring-risk' },
+  { hash: '#/ai-knowhow',        name: 'ai-knowhow' },
+  { hash: '#/role-split',        name: 'role-split' },
+  { hash: '#/not-found',         name: 'not-found-fallback' },
+];
+
+for (const route of ALL_ROUTES) {
+  test(`Route ${route.name} renders without runtime errors`, async ({ page }) => {
+    const consoleErrors = [];
+    const pageErrors = [];
+
+    page.on('console', msg => {
+      if (msg.type() === 'error') {
+        const text = msg.text();
+        // Allow benign KARTE/Wicle / suppressor-known patterns
+        if (/KARTE|Wicle|wicle|Failed to fetch|Trusted Type/i.test(text)) { return; }
+        consoleErrors.push(text);
+      }
+    });
+    page.on('pageerror', err => pageErrors.push(err.message));
+
+    await page.goto('/' + route.hash);
+    await page.waitForLoadState('networkidle');
+    // Wait an extra tick to let the SPA finish its render cycle
+    await page.waitForTimeout(200);
+
+    // SPA must have rendered content
+    const contentLocator = page.locator('#content');
+    await expect(contentLocator).toHaveCount(1);
+    const contentText = await contentLocator.textContent();
+    expect(contentText, `Route ${route.name} content div is empty — likely render threw`).not.toBe('');
+
+    // No console errors (other than benign third-party patterns)
+    expect(
+      consoleErrors,
+      `Route ${route.name} console errors: ` + JSON.stringify(consoleErrors)
+    ).toHaveLength(0);
+
+    // No uncaught page errors (ReferenceError / TypeError 等)
+    expect(
+      pageErrors,
+      `Route ${route.name} page errors: ` + JSON.stringify(pageErrors)
+    ).toHaveLength(0);
+  });
+}
+
+// ===== v80+ Stage 5-k CI hygiene: project-detail route requires slug =====
+test('Route project-detail renders for a known slug without errors', async ({ page }) => {
+  const consoleErrors = [];
+  const pageErrors = [];
+
+  page.on('console', msg => {
+    if (msg.type() === 'error') {
+      const text = msg.text();
+      if (/KARTE|Wicle|wicle|Failed to fetch|Trusted Type/i.test(text)) { return; }
+      consoleErrors.push(text);
+    }
+  });
+  page.on('pageerror', err => pageErrors.push(err.message));
+
+  // p01 = task-manager (Store の defaultProjects 先頭)
+  await page.goto('/#/project/task-manager');
+  await page.waitForLoadState('networkidle');
+  await page.waitForTimeout(200);
+
+  const contentLocator = page.locator('#content');
+  const contentText = await contentLocator.textContent();
+  expect(contentText, 'project-detail content empty').not.toBe('');
+  expect(consoleErrors).toHaveLength(0);
+  expect(pageErrors).toHaveLength(0);
+});
