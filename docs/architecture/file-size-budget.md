@@ -1,9 +1,9 @@
 # file-size-budget.md
 
 ```
-Last-Updated  : 2026-06-09
+Last-Updated  : 2026-06-10
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
-Track         : v80+ staged major update (Phase 2 — verification-doc-drift-sync increment)
+Track         : v80+ staged major update (Phase 2 — Stage 5-b page extraction sync increment)
 Subject       : 主要ファイルの行数予算（line budget）と、肥大化の「許容」「抑制」分類
 Canonical-Ref : AI2AI.md (canonical) / docs/architecture/repository-maintainability-map.md
 Enforced-By   : check_repository_consistency.py Check 52（ADVISORY / 非ブロッキング）
@@ -41,16 +41,17 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 
 ---
 
-## 2. 現行予算と実測行数（2026-06-10 時点 / Stage 5 Router+PAGE_META）
+## 2. 現行予算と実測行数（2026-06-10 時点 / Stage 5-b page extraction complete）
 
 下表は人間可読な要約である。機械可読な真正ソースは §4 の `BUDGET-DATA` ブロックであり、Check 52 はそちらだけをパースする（本表が drift しても Check 52 の挙動は §4 に従う。両者の一致は人間レビューで保つ）。
 
 | ファイル | 実測行数 | 予算（上限） | 予算種別 | 方針 |
 |---|---:|---:|---|---|
-| `main.js` | 5,896 | 6,400 | `strong-advisory` | Stage 5: Router・PAGE_META を js/router.js / js/page-meta.js へ抽出し −193 行。次の縮小は service rails（Store/State）と残ページレンダー |
+| `main.js` | 5,292 | 6,400 | `strong-advisory` | Stage 5-b: HiringRiskPage / RoleSplitPage / NotFoundPage + helpers を js/pages.js へ抽出し −613 行。累計 7,785→5,292 行（−32%）。次の縮小は service rails（Store/State）と残ページレンダー |
 | `js/ui-components.js` | 303 | 400 | `advisory` | Stage 4 新設。DOM ビルダー・SVG アイコン・Toast・BGM の葉モジュール。安定 |
 | `js/router.js` | 175 | 250 | `advisory` | Stage 5 新設。Hash-based SPA ルーター葉モジュール。安定 |
 | `js/page-meta.js` | 63 | 120 | `advisory` | Stage 5 新設。ページ SEO メタ単一ソース（AI SURFACE）。安定 |
+| `js/pages.js` | 635 | 700 | `advisory` | Stage 5-b 新設。HiringRiskPage / RoleSplitPage / NotFoundPage + helpers の葉モジュール。closure-deps = none |
 | `js/pure-utils.js` | 277 | 400 | `advisory` | Stage 2 抽出済みの純ユーティリティ。安定 |
 | `js/quiz/aws-quiz-data.js` | 819 | 900 | `advisory` | Stage 3-b 分割済み。AWS 問題集（最大データセット） |
 | `js/quiz/pm-quiz-data.js` | 271 | 350 | `advisory` | Stage 3-b 分割済み。PM 問題集 |
@@ -64,7 +65,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `docs/session-records/AI2AI-archive.md` | 1,513 | — | `archive-growth-ok` | セッション証跡。削らない |
 | `ChatGPT2ChatGPT.md` | 1,027 | — | `archive-growth-ok` | AI 間対話証跡。削らない |
 
-予算（上限）は現行行数より少し上に置いてある。これは「いまの行数は許容範囲内であり、ここから大きく増やすな」という意図の表現である。`main.js` は Stage 4 の UI コンポーネント抽出により 6,360→6,089 行へ縮小した（−271 行）。次の縮小は service rails（Safe Storage / Store 等、baseline 後）。
+予算（上限）は現行行数より少し上に置いてある。これは「いまの行数は許容範囲内であり、ここから大きく増やすな」という意図の表現である。`main.js` は Stage 5-b のページコンポーネント抽出により 5,905→5,292 行（−613 行）に縮小した。累計縮小量は 7,785→5,292 行（**−2,493 行 / −32%**）。次の縮小は service rails（Safe Storage / Store 等、baseline 取得済みのため Stage 5 残りの kernel/render 物理分割も技術的には可能）。
 
 ---
 
@@ -92,6 +93,7 @@ main.js | 6400 | strong-advisory
 js/ui-components.js | 400 | advisory
 js/router.js | 250 | advisory
 js/page-meta.js | 120 | advisory
+js/pages.js | 700 | advisory
 js/pure-utils.js | 400 | advisory
 js/quiz/aws-quiz-data.js | 900 | advisory
 js/quiz/pm-quiz-data.js | 350 | advisory
