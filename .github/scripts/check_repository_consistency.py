@@ -1681,6 +1681,7 @@ _modules47 = [
     ("./js/constants.js",                   ROOT / "js" / "constants.js"),
     ("./js/identity.js",                    ROOT / "js" / "identity.js"),
     ("./js/meta-management.js",             ROOT / "js" / "meta-management.js"),
+    ("./js/mobile-drawer.js",               ROOT / "js" / "mobile-drawer.js"),
     ("./js/page-meta.js",                   ROOT / "js" / "page-meta.js"),
     ("./js/pages.js",                       ROOT / "js" / "pages.js"),
     ("./js/pure-utils.js",                  ROOT / "js" / "pure-utils.js"),

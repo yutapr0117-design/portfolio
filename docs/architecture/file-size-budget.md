@@ -47,7 +47,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 
 | ファイル | 実測行数 | 予算（上限） | 予算種別 | 方針 |
 |---|---:|---:|---|---|
-| `main.js` | 1,485 | 6,400 | `strong-advisory` | Stage 5-l: AIDK Rail 5 IIFE (RouteState/EffectRails/BindingRegistry/ActionDelegator/DiagnosticsRail) を js/aidk-rails.js へ合体 factory pattern で抽出し −383 行。累計 7,785→1,485 行（**−81%**）。残部は view-transition/render core/mobile drawer/focus trap (AIDK Kernel 隣接) |
+| `main.js` | 1,346 | 6,400 | `strong-advisory` | Stage 5-q: Mobile Drawer + Focus Trap + secureExternalLinks を js/mobile-drawer.js へ factory pattern で抽出（_drawer holder の late-binding で循環依存解消）。−149 行。累計 7,785→1,346 行（**−83%**）。残部は view-transition/render core/Fatal overlay/perf guards (AIDK Kernel 隣接) |
 | `js/aidk-rails.js` | 425 | 550 | `advisory` | Stage 5-l 新設。AIDK Rail 5 IIFE 合体 factory (RouteState/EffectRails/BindingRegistry/ActionDelegator/DiagnosticsRail)。closure-deps = none + 引数注入 |
 | `js/apps.js` | 1,030 | 1,200 | `advisory` | Stage 5-n 新設。Productivity Apps 5 関数 factory（TaskPage/TodoPage/PomodoroPage/AIPage/SettingsPage + private state）。closure-deps = none + 引数注入 |
 | `js/brand.js` | 65 | 120 | `advisory` | Stage 5-f 新設。Brand manager（primary palette/font switcher）factory。closure-deps = none（葉契約）+ Storage を引数注入 |
@@ -55,6 +55,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/constants.js` | 88 | 150 | `advisory` | Stage 5-d 新設。実行時定数（STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID）。closure-deps = none |
 | `js/identity.js` | 36 | 80 | `advisory` | Stage 5-e 新設。AUTHOR（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME）純データ。closure-deps = none |
 | `js/meta-management.js` | 195 | 280 | `advisory` | Stage 5-l 新設。Meta Management factory（updateDocumentHead/announceRouteForAccessibility/injectRouteEntityAnchor/injectStructuredData + applyMeta ファサード）。closure-deps = none + 引数注入 |
+| `js/mobile-drawer.js` | 200 | 280 | `advisory` | Stage 5-q 新設。Mobile Drawer factory（syncMobileDrawer / secureExternalLinks / __setAppInert / __lockBodyScroll / __trapFocus / __releaseFocusTrap / openDrawer / closeDrawer + state）。closure-deps = none + 引数注入 |
 | `js/ui-components.js` | 303 | 400 | `advisory` | Stage 4 新設。DOM ビルダー・SVG アイコン・Toast・BGM の葉モジュール。安定 |
 | `js/router.js` | 175 | 250 | `advisory` | Stage 5 新設。Hash-based SPA ルーター葉モジュール。安定 |
 | `js/state.js` | 240 | 320 | `advisory` | Stage 5-h 新設。State factory（Proxy 型安全モニター + subscriber + cross-tab + auto-save）。closure-deps = none + 引数注入 |
@@ -109,6 +110,7 @@ js/components.js | 1500 | advisory
 js/constants.js | 150 | advisory
 js/identity.js | 80 | advisory
 js/meta-management.js | 280 | advisory
+js/mobile-drawer.js | 280 | advisory
 js/ui-components.js | 400 | advisory
 js/router.js | 250 | advisory
 js/page-meta.js | 120 | advisory
