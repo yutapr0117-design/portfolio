@@ -29,57 +29,59 @@
  *   - AIDK Kernel / AIO 正本層 / style.css は無変更
  */
 export function createFatalOverlay({ render }) {
+    // ===== Fatal overlay (global error capture) =====
+    // ヘルパー 3 関数は factory closure 直下に置き、戻り値で main.js scope にも公開する。
+    // executeSafeTransition / render など main.js IIFE 内の他箇所から参照されるため。
+
+    /**
+     * v58: エラーを「本当に致命的か」で分類するヘルパー。
+     *
+     * 非致命的として扱うケース（fatalオーバーレイを出さない）:
+     *   - View Transition 関連の DOMException
+     *     (InvalidStateError / AbortError / "Transition was aborted" メッセージ)
+     *   - startViewTransition の Promise 競合由来のエラー
+     *
+     * これらはアプリのデータや状態には影響しないため、
+     * コンソール警告に留め、ユーザーに致命的エラーとして見せない。
+     */
+    function _normalizeError(input) {
+        if (!input) { return new Error('Unknown error'); }
+        if (input instanceof Error) { return input; }
+        if (typeof input === 'string') { return new Error(input); }
+        try {
+            return new Error(JSON.stringify(input));
+        } catch {
+            return new Error(String(input));
+        }
+    }
+
+    function _isViewTransitionError(err) {
+        const e = _normalizeError(err);
+        const name = e && e.name ? String(e.name) : '';
+        const msg = e && e.message ? String(e.message) : '';
+        const stack = e && e.stack ? String(e.stack) : '';
+        const haystack = `${name}\n${msg}\n${stack}`;
+        return (
+            name === 'InvalidStateError' ||
+            name === 'AbortError' ||
+            haystack.includes('Transition was aborted') ||
+            haystack.includes('startViewTransition') ||
+            haystack.includes('view transition') ||
+            haystack.includes('ViewTransition') ||
+            // Chrome拡張のメッセージチャンネルエラー（ポートフォリオ起因でない）
+            haystack.includes('message channel closed') ||
+            haystack.includes('asynchronous response') ||
+            haystack.includes('A listener indicated')
+        );
+    }
+
+    function _isFatalError(err) {
+        if (!err) { return false; }
+        if (_isViewTransitionError(err)) { return false; }
+        return true;
+    }
+
     function install() {
-        // ===== Fatal overlay (global error capture) =====
-
-        /**
-         * v58: エラーを「本当に致命的か」で分類するヘルパー。
-         *
-         * 非致命的として扱うケース（fatalオーバーレイを出さない）:
-         *   - View Transition 関連の DOMException
-         *     (InvalidStateError / AbortError / "Transition was aborted" メッセージ)
-         *   - startViewTransition の Promise 競合由来のエラー
-         *
-         * これらはアプリのデータや状態には影響しないため、
-         * コンソール警告に留め、ユーザーに致命的エラーとして見せない。
-         */
-        function _normalizeError(input) {
-            if (!input) return new Error('Unknown error');
-            if (input instanceof Error) return input;
-            if (typeof input === 'string') return new Error(input);
-            try {
-                return new Error(JSON.stringify(input));
-            } catch {
-                return new Error(String(input));
-            }
-        }
-
-        function _isViewTransitionError(err) {
-            const e = _normalizeError(err);
-            const name = e && e.name ? String(e.name) : '';
-            const msg = e && e.message ? String(e.message) : '';
-            const stack = e && e.stack ? String(e.stack) : '';
-            const haystack = `${name}\n${msg}\n${stack}`;
-            return (
-                name === 'InvalidStateError' ||
-                name === 'AbortError' ||
-                haystack.includes('Transition was aborted') ||
-                haystack.includes('startViewTransition') ||
-                haystack.includes('view transition') ||
-                haystack.includes('ViewTransition') ||
-                // Chrome拡張のメッセージチャンネルエラー（ポートフォリオ起因でない）
-                haystack.includes('message channel closed') ||
-                haystack.includes('asynchronous response') ||
-                haystack.includes('A listener indicated')
-            );
-        }
-
-        function _isFatalError(err) {
-            if (!err) return false;
-            if (_isViewTransitionError(err)) return false;
-            return true;
-        }
-
         window.__fatalError = null;
         window.addEventListener('error', (ev) => {
             try {
@@ -211,5 +213,5 @@ export function createFatalOverlay({ render }) {
         })();
     }
 
-    return { install };
+    return { install, _normalizeError, _isViewTransitionError, _isFatalError };
 }

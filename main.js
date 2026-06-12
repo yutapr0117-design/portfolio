@@ -738,7 +738,11 @@
         //   _installGlobalSafetyNet (Shadow DOM フォールバック UI) を js/fatal-overlay.js へ
         //   factory pattern で抽出。render は後段で declared なので wrapper で late-bind する。
         //   install() を呼ぶと元 main.js IIFE 評価時の即時実行と等価な副作用が発生する。
-        createFatalOverlay({ render: (...args) => render(...args) }).install();
+        //   ヘルパー 3 関数（_normalizeError / _isViewTransitionError / _isFatalError）は
+        //   executeSafeTransition / render 内からも参照されるため main.js scope に bind する。
+        const _fatalOverlay = createFatalOverlay({ render: (...args) => render(...args) });
+        const { _normalizeError, _isViewTransitionError, _isFatalError } = _fatalOverlay;
+        _fatalOverlay.install();
 
 
         // ===== Event Listeners =====
