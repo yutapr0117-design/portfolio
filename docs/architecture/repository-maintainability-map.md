@@ -605,6 +605,39 @@ Stage 5-b で発生した「直下 js/<file>.js が ESLint scan で silent skip 
 
 **Not possible（本 increment・捏造禁止）:** 公開 Pages への実反映 / `confirmed_citation_events` の計上。
 
+### Stage 5-q + 5-r + 5-s：Mobile Drawer / Fatal Overlay / Perf Guards 最終抽出（v80+ Stage 5 物理分割の最終完遂・2026-06-12）
+
+§3.10 の完遂後、ユーザー要望「残を完全に無くす」に応えるため、main.js に残存していた「AIDK Kernel 周辺の非保護領域」をさらに 3 増分で抽出。`main.js` は 1,495 → **1,086 行**（−409 行）まで縮小し、累計は **−86%** に到達。葉モジュールは 21 → **24** に増加。
+
+#### 追加抽出増分一覧
+
+| Stage | PR | 抽出物 | モジュール | main.js 削減 | 累計 |
+|---|---|---|---|---:|---:|
+| 5-q | #39 | Mobile Drawer + Focus Trap + secureExternalLinks（8 関数 + drawer state） | `js/mobile-drawer.js` | −149 | −83% |
+| 5-r | #40 | Fatal overlay + Global Safety Net（エラー判定 3 関数 + window handlers + Shadow DOM safety net） | `js/fatal-overlay.js` | −178 | −85% |
+| 5-s | #41 | Performance Guards（Layout Thrashing rAF batch + Media Lifecycle blob revoke） | `js/perf-guards.js` | −128 | **−86%** |
+
+#### 重要な設計判断
+
+1. **5-q late-binding holder pattern**: createComponents (Sidebar) ↔ createMobileDrawer (Sidebar 引数) の循環依存を `_drawer` holder object 経由で解消。Components / AIDK Rails が呼ぶ closeDrawer / openDrawer / secureExternalLinks はすべて runtime 解決される。
+2. **5-r dual-binding**: Fatal Overlay は `install()` の副作用ハンドラと `_normalizeError / _isViewTransitionError / _isFatalError` の純粋ヘルパーを両方 return し、main.js scope に bind することで executeSafeTransition / render 内からも参照可能にする。
+3. **5-s lint upgrade as side-effect**: 抽出時に `var → let/const` 変換（19 件）も併せて適用し、抽出済みモジュール全体の lint 品質を main.js override 不要レベルへ。
+
+#### 最終的に残る main.js 1,086 行の内訳（−86% 後・意図的温存）
+
+- **AIDK Isolated Kernel proper**（DO NOT EDIT・Check 43a で構造強制）
+- **startViewTransitionProxy installer**（Check 43b で必須）
+- **Trusted Types 'default' policy**（Check 43c で必須・CSP 連動）
+- **single top-level IIFE**（Check 43d で C2 強制）
+- **view-transition + render core**（_getActiveViewTransition / _canStartViewTransition / _consumePendingRoute / executeSafeTransition / render / _renderCore）— kernel 隣接の高リスク領域
+- **SITE_CONFIG**（Check 2/17 が main.js から VERSION / LAST_UPDATED を grep するため抽出禁止）
+- **_installEventListenerRegistry / _installInnerHTMLSanitizer**（CLAUDE.md §3 で protected blocks）
+- **init / WebMCP / 各 factory の合成呼び出し**（合成的に小さく、抽出メリットなし）
+
+これらは Check 43 / Check 2/17 / CLAUDE.md §3 で多層的に保護されており、追加抽出は kernel 構造との緊張関係を生む。**「最終的に温存する」は妥協ではなく、機械強制された安全契約に従った honest な記録**である。
+
+**Not possible（本 increment・捏造禁止）:** 公開 Pages への実反映 / `confirmed_citation_events` の計上。
+
 ### Featured Articles Curation Policy（v80+ — Zenn 11本掲載順）
 
 掲載対象は **公開全 11 本**（記事削減はしない）。featuring 順は **AIO 効果優先順**で、全レイヤー（`robots.txt` 優先コメント / `index.html` JSON-LD `subjectOf`・`citation` / `main.js` カード配列 / `llms.txt` Co-citation・Fetch Order・Optional / `llms-full.txt` / `README.md`）で同一順序を保つ。

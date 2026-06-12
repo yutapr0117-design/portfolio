@@ -4,18 +4,23 @@
 Last-Updated  : 2026-06-10
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
 Track         : v80+ staged major update (Phase 2 — **Stage 5-c〜5-o + 5-l 完了 = Stage 5 全 sub-phase 完遂**)
-Subject       : main.js (現在 **1,495 行**。単一 IIFE 本体 + 先頭にローカル ESM import。元 7,785 行から **−6,290 行 / −81%** を達成。内訳: Stage 2/3 −1,432 / Stage 4 UI −271 / Stage 5 Router+PAGE_META −193 / Stage 5-b pages −613 / Stage 5-c Storage −35 / Stage 5-d CONSTANTS −46 / Stage 5-e AUTHOR −1 / Stage 5-f Brand −24 / Stage 5-g Store −480 / Stage 5-h State −206 / Stage 5-i Theme −27 / Stage 5-j pages bug fix +7 / Stage 5-l AIDK Rail −383 / Stage 5-m UI Components −1,271 / Stage 5-n Apps −984 / Stage 5-o Quiz −228。AIDK Kernel と View Transition Proxy は不可侵領域として温存)
+Subject       : main.js (現在 **1,086 行**。単一 IIFE 本体 + 先頭にローカル ESM import。元 7,785 行から **−6,699 行 / −86%** を達成。内訳: Stage 2/3 −1,432 / Stage 4 UI −271 / Stage 5 Router+PAGE_META −193 / Stage 5-b pages −613 / Stage 5-c Storage −35 / Stage 5-d CONSTANTS −46 / Stage 5-e AUTHOR −1 / Stage 5-f Brand −24 / Stage 5-g Store −480 / Stage 5-h State −206 / Stage 5-i Theme −27 / Stage 5-j pages bug fix +7 / Stage 5-l AIDK Rail −383 / Stage 5-m UI Components −1,271 / Stage 5-n Apps −984 / Stage 5-o Quiz −228 / Stage 5-q Mobile Drawer −149 / Stage 5-r Fatal Overlay −178 / Stage 5-s Perf Guards −128。AIDK Kernel と View Transition Proxy は不可侵領域として温存)
 Canonical-Ref : AI2AI.md (canonical) / repository-maintainability-map.md
-Status        : **Stage 5 物理分割 完遂**。Stage 2/3/3-b/4/5/5-b/5-c〜5-o + 5-l の全 sub-phase を完了し、
-                main.js は元 7,785 → 1,495 行（−81%）に縮小。21 個の葉モジュール
-                （aidk-rails / apps / brand / components / constants / identity /
-                meta-management / page-meta / pages / pure-utils / quiz-renderer /
-                quiz × 4 / router / state / storage / store / theme / ui-components）に
-                factory pattern で分割。Playwright 視覚回帰 baseline は PR #13 で取得済み、
-                e2e は全 17 ルート訪問で console-error / pageerror 検出。Check 55/56 で CI
-                vacuous-gate と factory orphan を機械強制。main.js に残るのは AIDK Kernel
-                （Check 43 で構造強制）・view-transition / render core / mobile drawer /
-                focus trap（kernel 隣接の高リスク領域）・init / event handlers のみ。
+Status        : **Stage 5 物理分割 最終完遂**。Stage 2/3/3-b/4/5/5-b/5-c〜5-s の全 sub-phase を完了し、
+                main.js は元 7,785 → 1,086 行（**−86%**）に縮小。24 個の葉モジュール
+                （aidk-rails / apps / brand / components / constants / fatal-overlay /
+                identity / meta-management / mobile-drawer / page-meta / pages /
+                perf-guards / pure-utils / quiz-renderer / quiz × 4 / router / state /
+                storage / store / theme / ui-components）に factory pattern で分割。
+                Playwright 視覚回帰 baseline は PR #13 で取得済み、e2e は全 17 ルート訪問で
+                console-error / pageerror 検出。Check 55/56 で CI vacuous-gate と
+                factory orphan を機械強制。main.js に残る 1,086 行は AIDK Kernel
+                proper（Check 43 で構造強制：startViewTransitionProxy / Trusted Types
+                policy / 単一 IIFE / DO NOT EDIT header）・view-transition / render core /
+                _renderCore・SITE_CONFIG（Check 2/17 で grep）・_installEventListenerRegistry /
+                _installInnerHTMLSanitizer（protected blocks）・init / WebMCP / 各 factory の
+                合成呼び出しのみ。これらは Check 43 / CLAUDE.md §3 で保護されており、
+                追加抽出は kernel 構造との緊張関係を生むため意図的に温存する。
 ```
 
 > **Canonical hierarchy:** `AI2AI.md` is canonical; `llms-full.txt` is ground truth. This map is a subordinate architecture document. On conflict, those win.
@@ -271,6 +276,85 @@ const Brand = createBrand({ Storage });
 - e2e/portfolio.spec.js: 全 17 ルート訪問 + console-error / pageerror / DOM 出力検証を導入。Stage 5-j の RoleSplitPage / HiringRiskPage / NotFoundPage の隠れた実行時エラーを発見できる体制を整備。
 
 これらを併せて Stage 5 完遂時点の CI は **56 個の機械強制 Check（うち Check 52 のみ ADVISORY）+ ESLint 全葉モジュール lint 被覆 + Playwright 全ルート挙動検証** という多層防御に成長した。
+
+### 3.11 Stage 5-q + 5-r + 5-s：Mobile Drawer / Fatal Overlay / Perf Guards 完全抽出（2026-06-12 連続実施）
+
+§3.10 の Stage 5-c〜5-o + 5-l 完遂後、ユーザー要望「残を完全に無くす」に応えるため、main.js に残存していた「AIDK Kernel 周辺の非保護領域」をさらに 3 増分で抽出した。`main.js` は 1,495 → **1,086 行**（−409 行）まで縮小し、累計は **−86%** に到達。葉モジュールは 21 → **24** に増加。
+
+| Stage | PR | 抽出物 | モジュール | main.js 削減 | 累計 |
+|---|---|---|---|---:|---:|
+| 5-q | #39 | Mobile Drawer + Focus Trap + secureExternalLinks（8 関数 + state） | `js/mobile-drawer.js` | −149 | −83% |
+| 5-r | #40 | Fatal overlay + Global Safety Net（エラー判定 3 関数 + window handlers + Shadow DOM safety net） | `js/fatal-overlay.js` | −178 | −85% |
+| 5-s | #41 | Performance Guards（Layout Thrashing rAF batch + Media Lifecycle blob revoke） | `js/perf-guards.js` | −128 | **−86%** |
+
+#### 5-q：late-binding holder pattern による循環依存解消
+
+createComponents (Sidebar) は closeDrawer を必要とし、createMobileDrawer は Sidebar を必要とするため、純粋な順序立てでは循環が成立する。これを `_drawer` holder object 経由の late-binding で解消した：
+
+```js
+const _drawer = {};
+
+const { Sidebar, ... } = createComponents({
+    ..., closeDrawer: () => _drawer.closeDrawer?.()
+});
+const { ... } = createAIDKRails({
+    ...,
+    secureExternalLinks: (...args) => _drawer.secureExternalLinks?.(...args),
+    openDrawer: () => _drawer.openDrawer?.(),
+    closeDrawer: () => _drawer.closeDrawer?.()
+});
+
+// Sidebar 解決後に createMobileDrawer を呼んで holder へ代入
+const { syncMobileDrawer, secureExternalLinks, openDrawer, closeDrawer }
+    = createMobileDrawer({ CONSTANTS, clear, Sidebar });
+Object.assign(_drawer, { syncMobileDrawer, secureExternalLinks, openDrawer, closeDrawer });
+```
+
+これにより Components / AIDK Rails が runtime に呼ぶ関数は、その時点で holder に代入された実体を参照する。元 main.js が function declaration hoisting に暗黙依存していた箇所を、明示的な holder pattern で置き換える形となった。
+
+#### 5-r：ヘルパー 3 関数の dual-binding（install 副作用 + main.js scope 公開）
+
+Fatal Overlay の `_normalizeError / _isViewTransitionError / _isFatalError` は install() の window event handler 内だけでなく、main.js IIFE の `executeSafeTransition / render` 内からも参照される（render core の view-transition 例外捕捉用）。そこで factory は副作用を起こす `install()` と純粋ヘルパー 3 関数の**両方**を return し、main.js 側は destructure して両方 bind する：
+
+```js
+const _fatalOverlay = createFatalOverlay({ render: (...args) => render(...args) });
+const { _normalizeError, _isViewTransitionError, _isFatalError } = _fatalOverlay;
+_fatalOverlay.install();
+```
+
+render は forward reference（factory 引数の wrapper 経由）で渡し、関数 declaration の hoisting に依存しない明示的な順序とした。
+
+#### 5-s：IIFE → function declaration への単純置換
+
+`_installLayoutThrashingGuard / _installMediaLifecycleGuard` は外部依存ゼロのグローバル prototype hook（`CSSStyleDeclaration.prototype.setProperty` / `Element.prototype.setAttribute('style', ...)` / `URL.createObjectURL` の rAF バッチ化と MutationObserver による blob revoke）。これらは元 IIFE 評価時の即時実行と等価な install 関数として exposed されるため、factory は依存注入なし（引数なし）でよい：
+
+```js
+export function createPerfGuards() {
+    function installLayoutThrashingGuard() { /* IIFE 本体をそのまま */ }
+    function installMediaLifecycleGuard() { /* IIFE 本体をそのまま */ }
+    return { installLayoutThrashingGuard, installMediaLifecycleGuard };
+}
+
+// main.js
+const _perfGuards = createPerfGuards();
+_perfGuards.installLayoutThrashingGuard();
+_perfGuards.installMediaLifecycleGuard();
+```
+
+抽出時に `var → let/const` 変換（19 件）も併せて適用し、抽出済みモジュール全体の lint 品質を `main.js override` 不要のレベルまで引き上げた。
+
+#### 残る main.js 1,086 行の内訳と「最終的に温存する」理由
+
+- **AIDK Isolated Kernel proper**（DO NOT EDIT 領域・Check 43a で構造強制）
+- **startViewTransitionProxy installer**（Check 43b で必須・View Transition / ErrorBoundary 安全装置）
+- **Trusted Types 'default' policy**（Check 43c で必須・innerHTML/XSS block・CSP 連動）
+- **single top-level IIFE**（Check 43d で C2 強制・global scope 汚染防止）
+- **view-transition + render core**（`_getActiveViewTransition` / `_canStartViewTransition` / `_consumePendingRoute` / `executeSafeTransition` / `render` / `_renderCore`）— kernel 隣接の高リスク領域
+- **SITE_CONFIG**（Check 2/17 が main.js から `VERSION` / `LAST_UPDATED` を grep するため抽出禁止）
+- **`_installEventListenerRegistry` / `_installInnerHTMLSanitizer`**（CLAUDE.md §3 で protected blocks に指定）
+- **init / WebMCP / 各 factory の合成呼び出し**（合成的に小さく、抽出メリットなし）
+
+これらは Check 43 / Check 2/17 / CLAUDE.md §3 で多層的に保護されており、追加抽出は kernel 構造との緊張関係を生む。**「最終的に温存する」は妥協ではなく、機械強制された安全契約に従った honest な記録**である。
 
 ### 3.6 quiz-domain-split increment（Stage 3-b・静的データのドメイン別細分化・本コミットで実施）
 

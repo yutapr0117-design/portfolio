@@ -257,7 +257,7 @@ echo "ALL LOCAL CHECKS PASSED"
 
 | 指標 | 基準値 |
 |---|---|
-| 追跡ファイル総数 | **115**（Stage 5-c〜5-o + 5-l で 12 個の新規葉モジュール追加: aidk-rails / apps / brand / components / constants / identity / meta-management / quiz-renderer / state / storage / store / theme）|
+| 追跡ファイル総数 | **118**（Stage 5-c〜5-s + 5-l + 5-q + 5-r で 15 個の新規葉モジュール追加: aidk-rails / apps / brand / components / constants / fatal-overlay / identity / meta-management / mobile-drawer / perf-guards / quiz-renderer / state / storage / store / theme）|
 | `npm run lint` | 0 errors / 107 warnings（前 increment 120 から −13 件。減少分は Stage 5 (Router/PAGE_META) と Stage 5-b (pages) の抽出に伴い safe-zone 外の `curly`/`no-var` が抽出関数とともに移動し、移動先 (js/router.js / js/pages.js) で書き直し時に解消された結果。すべて `main.js` に残存。`js/{router,page-meta,pages,ui-components,pure-utils}.js`・`js/quiz/{aws,pm,quality,architecture}-quiz-data.js` は 0 problems。lint は ESLint v10.4.1 / flat config 実行）|
 | consistency 検査の `OK:` 行 | 135（Check 47 が 9 モジュール × 3 サブチェック＝27 行 (前 increment では _modules47 リストに pages.js が含まれず実質 8 モジュール = 24 行だったが、本 increment でリスト追加し正しく 9 モジュール = 27 行へ修正)。前 increment 132 から Check 47 の +3 行で 135 へ増加。修正対象モジュール: pure-utils + ui-components + router + page-meta + **pages** + quiz 4）|
 | `npm run check` 全体の `OK:` トークン行 | 137（consistency 135 ＋ `check_binary_aio_metadata.py` 2。`check_aio_digests.py` は `OK (manifest/...)` 形式と末尾 `AIO digest check passed` を出力し、`OK:` トークンには 0 行寄与する。3 スクリプトはいずれも exit 0）|
@@ -268,7 +268,7 @@ echo "ALL LOCAL CHECKS PASSED"
 | `.well-known/aio-manifest.json` の証跡カウント | source_of_truth 5 / supporting_evidence 4 / observational_evidence 1 |
 | `index.html` 構造化データ | JSON-LD ブロック 2 / `ai:` meta タグ 8（ハイフン付き含む）|
 | `npm audit` / `--omit=dev` | 0 件 / 0 件 |
-| `main.js` | **1,495 行**（Stage 5 全 sub-phase（5-c〜5-o + 5-l）完遂。Stage 0 累計 7,785→1,495 行（**−6,290 行 / −81%**）。残るは AIDK Kernel + kernel 隣接 + 入口層のみ。Check 43 が IIFE と kernel の存在を機械強制）|
+| `main.js` | **1,086 行**（Stage 5 全 sub-phase（5-c〜5-s + 5-l + 5-q + 5-r）最終完遂。Stage 0 累計 7,785→1,086 行（**−6,699 行 / −86%**）。残るは AIDK Kernel proper + startViewTransitionProxy + Trusted Types policy + view-transition / render core + SITE_CONFIG + protected blocks + init のみ。Check 43 が IIFE と kernel の存在を機械強制）|
 | `js/ui-components.js` | 303 行（Stage 4 新設。DOM ビルダー h・SVG アイコン createIcon・Toast・BGM の葉モジュール）|
 | `js/router.js` | 175 行（Stage 5 新設。hash-based SPA ルーター。closure-deps = none）|
 | `js/page-meta.js` | 63 行（Stage 5 新設。per-page SEO メタ単一ソース（AI SURFACE）。closure-deps = none）|
@@ -282,7 +282,7 @@ echo "ALL LOCAL CHECKS PASSED"
 
 トータルチェックが緑でも、以下は設計上の負債として認識されている（即修正ではなく段階対応）。詳細は各 map / incident artifact。
 
-- **`main.js` 物理分割完遂**（現 1,495 行 / 元 7,785 行 / 累計 **−81%**）: Stage 2/3〜5-o + 5-l の全 13 sub-phase で合計 **−6,290 行** を削減。葉モジュールは 8 → **21** に増えた（aidk-rails / apps / brand / components / constants / identity / meta-management / page-meta / pages / pure-utils / quiz-renderer / quiz × 4 / router / state / storage / store / theme / ui-components）。factory pattern 確立で closure 依存を引数注入として明示しつつ葉契約（Check 47c）を維持。残る `main.js` 1,495 行は AIDK Isolated Kernel + view-transition / render core / mobile drawer / focus trap（kernel 隣接の高リスク領域）+ SITE_CONFIG + init / event handlers / 各 factory の合成呼び出しのみ。詳細は `main-js-extraction-map.md` §3.10 と `repository-maintainability-map.md` の Stage 5-c〜5-o + 5-l 増分一覧を参照。
+- **`main.js` 物理分割 最終完遂**（現 1,086 行 / 元 7,785 行 / 累計 **−86%**）: Stage 2/3〜5-s + 5-l + 5-q + 5-r の全 16 sub-phase で合計 **−6,699 行** を削減。葉モジュールは 8 → **24** に増えた（aidk-rails / apps / brand / components / constants / fatal-overlay / identity / meta-management / mobile-drawer / page-meta / pages / perf-guards / pure-utils / quiz-renderer / quiz × 4 / router / state / storage / store / theme / ui-components）。factory pattern 確立で closure 依存を引数注入として明示しつつ葉契約（Check 47c）を維持。残る `main.js` 1,086 行は AIDK Kernel proper + startViewTransitionProxy + Trusted Types policy + view-transition / render core + SITE_CONFIG + protected blocks (_installEventListenerRegistry / _installInnerHTMLSanitizer) + init / WebMCP + 各 factory の合成呼び出し のみ — すべて Check 43 / Check 2/17 / CLAUDE.md §3 で機械保護された意図的温存領域。詳細は `main-js-extraction-map.md` §3.10〜§3.11 と `repository-maintainability-map.md` の Stage 5-c〜5-s + 5-l + 5-q + 5-r 増分一覧を参照。
 - **視覚回帰 baseline 取得済み（2026-06-10 / PR #13）**: `e2e/portfolio.spec.js-snapshots/homepage-baseline-chromium-linux.png`（252 KB）がコミット済み。Stage 5 残部（kernel/render/view-transition）と style.css section 分割のゲートを解錠した。今後の物理分割は視覚回帰の裏付けの下で進められる。
 - **`main.js` の 107 advisory warnings**: 上記分割と同期して段階解消。Stage 2/3 で 199→194、lint-hygiene increment で 194→120、Stage 5/5-b で 120→107（−13 件は抽出関数の移動先で解消）。残債は safe-zone 外（保護領域内）の `curly`・全 `no-var`・全 `no-shadow` で `main.js` に局在。`js/router.js` / `js/page-meta.js` / `js/pages.js` 等の抽出済みモジュールは 0 warnings。
 
