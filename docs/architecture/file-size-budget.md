@@ -47,12 +47,13 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 
 | ファイル | 実測行数 | 予算（上限） | 予算種別 | 方針 |
 |---|---:|---:|---|---|
-| `main.js` | 1,346 | 6,400 | `strong-advisory` | Stage 5-q: Mobile Drawer + Focus Trap + secureExternalLinks を js/mobile-drawer.js へ factory pattern で抽出（_drawer holder の late-binding で循環依存解消）。−149 行。累計 7,785→1,346 行（**−83%**）。残部は view-transition/render core/Fatal overlay/perf guards (AIDK Kernel 隣接) |
+| `main.js` | 1,168 | 6,400 | `strong-advisory` | Stage 5-r: Fatal overlay + Global Safety Net を js/fatal-overlay.js へ factory pattern で抽出（render の wrapper 注入）。−178 行。累計 7,785→1,168 行（**−85%**）。残部は view-transition/render core/perf guards (AIDK Kernel 隣接) |
 | `js/aidk-rails.js` | 425 | 550 | `advisory` | Stage 5-l 新設。AIDK Rail 5 IIFE 合体 factory (RouteState/EffectRails/BindingRegistry/ActionDelegator/DiagnosticsRail)。closure-deps = none + 引数注入 |
 | `js/apps.js` | 1,030 | 1,200 | `advisory` | Stage 5-n 新設。Productivity Apps 5 関数 factory（TaskPage/TodoPage/PomodoroPage/AIPage/SettingsPage + private state）。closure-deps = none + 引数注入 |
 | `js/brand.js` | 65 | 120 | `advisory` | Stage 5-f 新設。Brand manager（primary palette/font switcher）factory。closure-deps = none（葉契約）+ Storage を引数注入 |
 | `js/components.js` | 1,335 | 1,500 | `advisory` | Stage 5-m 新設。UI page components 11 関数 factory（Sidebar/HomePage/ProjectsPage/ProjectDetailPage/AppsPage/AboutPage/ResumePage/ContactPage/FatalPage/AIKnowhowPage/ContactCTA）。closure-deps = none + 引数注入 |
 | `js/constants.js` | 88 | 150 | `advisory` | Stage 5-d 新設。実行時定数（STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID）。closure-deps = none |
+| `js/fatal-overlay.js` | 214 | 300 | `advisory` | Stage 5-r 新設。Fatal overlay + Global Safety Net factory（エラー判定 + Shadow DOM フォールバック UI + setInterval ウォッチ）。closure-deps = none + render 注入 |
 | `js/identity.js` | 36 | 80 | `advisory` | Stage 5-e 新設。AUTHOR（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME）純データ。closure-deps = none |
 | `js/meta-management.js` | 195 | 280 | `advisory` | Stage 5-l 新設。Meta Management factory（updateDocumentHead/announceRouteForAccessibility/injectRouteEntityAnchor/injectStructuredData + applyMeta ファサード）。closure-deps = none + 引数注入 |
 | `js/mobile-drawer.js` | 200 | 280 | `advisory` | Stage 5-q 新設。Mobile Drawer factory（syncMobileDrawer / secureExternalLinks / __setAppInert / __lockBodyScroll / __trapFocus / __releaseFocusTrap / openDrawer / closeDrawer + state）。closure-deps = none + 引数注入 |
@@ -108,6 +109,7 @@ js/apps.js | 1200 | advisory
 js/brand.js | 120 | advisory
 js/components.js | 1500 | advisory
 js/constants.js | 150 | advisory
+js/fatal-overlay.js | 300 | advisory
 js/identity.js | 80 | advisory
 js/meta-management.js | 280 | advisory
 js/mobile-drawer.js | 280 | advisory

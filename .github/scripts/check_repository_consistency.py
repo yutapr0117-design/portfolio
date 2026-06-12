@@ -1679,6 +1679,7 @@ _modules47 = [
     ("./js/brand.js",                       ROOT / "js" / "brand.js"),
     ("./js/components.js",                  ROOT / "js" / "components.js"),
     ("./js/constants.js",                   ROOT / "js" / "constants.js"),
+    ("./js/fatal-overlay.js",               ROOT / "js" / "fatal-overlay.js"),
     ("./js/identity.js",                    ROOT / "js" / "identity.js"),
     ("./js/meta-management.js",             ROOT / "js" / "meta-management.js"),
     ("./js/mobile-drawer.js",               ROOT / "js" / "mobile-drawer.js"),

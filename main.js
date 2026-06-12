@@ -119,6 +119,9 @@
         // v80+ Stage 5-q: Mobile Drawer + Focus Trap + secureExternalLinks を factory pattern で
         //   葉モジュール抽出。Sidebar 注入と _drawer holder 経由の late-binding で循環依存解消。
         import { createMobileDrawer } from './js/mobile-drawer.js';
+        // v80+ Stage 5-r: Fatal overlay + Global Safety Net を factory pattern で葉モジュール抽出。
+        //   install() を呼ぶと window error handlers + Shadow DOM safety net の setInterval が登録される。
+        import { createFatalOverlay } from './js/fatal-overlay.js';
         /* ╔══════════════════════════════════════════════════════════════════╗
            ║  DO NOT EDIT: AIDK Isolated Kernel — AIDK Architecture          ║
            ║  このブロック全体がAIエージェントのアクセスから隔離された核です。   ║
@@ -730,185 +733,17 @@
 
 
 
-        // ===== Fatal overlay (global error capture) =====
+        // ===== v80+ Stage 5-r: Fatal overlay + Global Safety Net =====
+        //   _normalizeError / _isViewTransitionError / _isFatalError + window error handlers +
+        //   _installGlobalSafetyNet (Shadow DOM フォールバック UI) を js/fatal-overlay.js へ
+        //   factory pattern で抽出。render は後段で declared なので wrapper で late-bind する。
+        //   install() を呼ぶと元 main.js IIFE 評価時の即時実行と等価な副作用が発生する。
+        //   ヘルパー 3 関数（_normalizeError / _isViewTransitionError / _isFatalError）は
+        //   executeSafeTransition / render 内からも参照されるため main.js scope に bind する。
+        const _fatalOverlay = createFatalOverlay({ render: (...args) => render(...args) });
+        const { _normalizeError, _isViewTransitionError, _isFatalError } = _fatalOverlay;
+        _fatalOverlay.install();
 
-        /**
-         * v58: エラーを「本当に致命的か」で分類するヘルパー。
-         *
-         * 非致命的として扱うケース（fatalオーバーレイを出さない）:
-         *   - View Transition 関連の DOMException
-         *     (InvalidStateError / AbortError / "Transition was aborted" メッセージ)
-         *   - startViewTransition の Promise 競合由来のエラー
-         *
-         * これらはアプリのデータや状態には影響しないため、
-         * コンソール警告に留め、ユーザーに致命的エラーとして見せない。
-         */
-        function _normalizeError(input) {
-            if (!input) return new Error('Unknown error');
-            if (input instanceof Error) return input;
-            if (typeof input === 'string') return new Error(input);
-            try {
-                return new Error(JSON.stringify(input));
-            } catch {
-                return new Error(String(input));
-            }
-        }
-
-        function _isViewTransitionError(err) {
-            const e = _normalizeError(err);
-            const name = e && e.name ? String(e.name) : '';
-            const msg = e && e.message ? String(e.message) : '';
-            const stack = e && e.stack ? String(e.stack) : '';
-            const haystack = `${name}\n${msg}\n${stack}`;
-            return (
-                name === 'InvalidStateError' ||
-                name === 'AbortError' ||
-                haystack.includes('Transition was aborted') ||
-                haystack.includes('startViewTransition') ||
-                haystack.includes('view transition') ||
-                haystack.includes('ViewTransition') ||
-                // Chrome拡張のメッセージチャンネルエラー（ポートフォリオ起因でない）
-                haystack.includes('message channel closed') ||
-                haystack.includes('asynchronous response') ||
-                haystack.includes('A listener indicated')
-            );
-        }
-
-        function _isFatalError(err) {
-            if (!err) return false;
-            if (_isViewTransitionError(err)) return false;
-            return true;
-        }
-
-        window.__fatalError = null;
-        window.addEventListener('error', (ev) => {
-            try {
-                const err = ev && ev.error ? ev.error : new Error(ev && ev.message ? String(ev.message) : 'Unknown error');
-                if (!_isFatalError(err)) {
-                    console.warn('[portfolio] non-fatal error suppressed:', err);
-                    return;
-                }
-                window.__fatalError = err;
-            } catch (e) {
-                window.__fatalError = e;
-            }
-            try { render(); } catch { }
-        });
-
-        window.addEventListener('unhandledrejection', (ev) => {
-            try {
-                const err = _normalizeError(ev && 'reason' in ev ? ev.reason : new Error('Unhandled rejection'));
-                if (!_isFatalError(err)) {
-                    ev.preventDefault(); // 非致命的エラーはブラウザ出力ごと抑制
-                    return;
-                }
-                window.__fatalError = err;
-            } catch (e) {
-                window.__fatalError = e;
-            }
-            try { render(); } catch { }
-        });
-
-        // 改善文書c Section 6: グローバル・セーフティネット
-        // Shadow DOM を使ってメインCSSと完全に隔離されたフォールバックUIを提示する。
-        // すべての改善のうち最後に起動するため、他のすべての防御レイヤーをすり抜けた
-        // 「サイレント・フェイラー」を捕捉できる最終安全網として機能する。
-        (function _installGlobalSafetyNet() {
-            let _safetyNetShown = false;
-
-            function _showSafetyNet(origin) {
-                if (_safetyNetShown) { return; }
-                _safetyNetShown = true;
-
-                try {
-                    // テレメトリ: エラー情報をsessionStorageに退避（非同期レポートの準備）
-                    try {
-                        // codeql[js/clear-text-storage-of-sensitive-data] - False positive:
-                        // Stores transient client-side error context for local diagnostics only.
-                        // No credentials, tokens, or PII are stored.
-                        sessionStorage.setItem('portfolio_last_error', JSON.stringify({
-                            ts: Date.now(),
-                            route: window.location.hash,
-                            origin: String(origin || 'unknown')
-                        }));
-                    } catch { /* storage unavailable — ignore */ }
-
-                    // Shadow DOM でスタイル汚染ゼロのフォールバックUIを構築
-                    const host = document.createElement('div');
-                    host.id = 'portfolio-safety-net-host';
-                    host.style.cssText = 'position:fixed;inset:0;z-index:99998;pointer-events:none;';
-                    document.body.appendChild(host);
-
-                    const shadow = host.attachShadow({ mode: 'closed' });
-
-                    const style = document.createElement('style');
-                    style.textContent = `
-                        :host { all: initial; }
-                        .net {
-                            position: fixed; inset: 0; display: flex;
-                            align-items: center; justify-content: center;
-                            background: rgba(2,6,23,0.85);
-                            backdrop-filter: blur(4px);
-                            font-family: system-ui, sans-serif;
-                            pointer-events: auto;
-                        }
-                        .box {
-                            background: #0f172a; color: #e2e8f0;
-                            border: 1px solid #334155; border-radius: 12px;
-                            padding: 2rem; max-width: 400px; text-align: center;
-                        }
-                        h2 { font-size: 1.1rem; margin: 0 0 0.75rem; color: #f8fafc; }
-                        p  { font-size: 0.875rem; color: #94a3b8; margin: 0 0 1.5rem; line-height: 1.6; }
-                        button {
-                            background: #6366f1; color: #fff; border: none;
-                            border-radius: 8px; padding: 0.6rem 1.4rem;
-                            font-size: 0.875rem; font-weight: 600; cursor: pointer;
-                        }
-                        button:hover { background: #4f46e5; }
-                    `;
-
-                    const div = document.createElement('div');
-                    div.className = 'net';
-
-                    const box = document.createElement('div');
-                    box.className = 'box';
-
-                    const title = document.createElement('h2');
-                    title.textContent = '⚠️ アプリを再起動してください';
-
-                    const message = document.createElement('p');
-                    message.appendChild(document.createTextNode('予期しないエラーが発生しました。'));
-                    message.appendChild(document.createElement('br'));
-                    message.appendChild(document.createTextNode('ページを再読み込みすると復旧します。'));
-
-                    const btn = document.createElement('button');
-                    btn.id = 'sn-reload';
-                    btn.textContent = '再読み込み';
-
-                    box.appendChild(title);
-                    box.appendChild(message);
-                    box.appendChild(btn);
-                    div.appendChild(box);
-
-                    shadow.appendChild(style);
-                    shadow.appendChild(div);
-
-                    if (btn) {
-                        btn.addEventListener('click', () => {
-                            try { sessionStorage.clear(); } catch { /* ignore */ }
-                            location.reload();
-                        });
-                    }
-                } catch { /* Safety net itself failed — nothing more we can do */ }
-            }
-
-            // 既存のfatal overlayと協調: __fatalErrorが2秒経っても未処理なら安全網を起動
-            setInterval(function() {
-                if (window.__fatalError && !document.getElementById('portfolio-safety-net-host')) {
-                    _showSafetyNet(window.__fatalError);
-                }
-            }, 2000);
-        })();
 
         // ===== Event Listeners =====
         function init() {
