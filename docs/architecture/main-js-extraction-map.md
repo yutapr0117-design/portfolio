@@ -1,10 +1,10 @@
 # main-js-extraction-map.md
 
 ```
-Last-Updated  : 2026-06-10
+Last-Updated  : 2026-06-12
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
 Track         : v80+ staged major update (Phase 2 — **Stage 5-c〜5-o + 5-l 完了 = Stage 5 全 sub-phase 完遂**)
-Subject       : main.js (現在 **1,086 行**。単一 IIFE 本体 + 先頭にローカル ESM import。元 7,785 行から **−6,699 行 / −86%** を達成。内訳: Stage 2/3 −1,432 / Stage 4 UI −271 / Stage 5 Router+PAGE_META −193 / Stage 5-b pages −613 / Stage 5-c Storage −35 / Stage 5-d CONSTANTS −46 / Stage 5-e AUTHOR −1 / Stage 5-f Brand −24 / Stage 5-g Store −480 / Stage 5-h State −206 / Stage 5-i Theme −27 / Stage 5-j pages bug fix +7 / Stage 5-l AIDK Rail −383 / Stage 5-m UI Components −1,271 / Stage 5-n Apps −984 / Stage 5-o Quiz −228 / Stage 5-q Mobile Drawer −149 / Stage 5-r Fatal Overlay −178 / Stage 5-s Perf Guards −128。AIDK Kernel と View Transition Proxy は不可侵領域として温存)
+Subject       : main.js (現在 **1,086 行**。単一 IIFE 本体 + 先頭にローカル ESM import。元 7,785 行から **−6,699 行 / −86%** を達成。内訳: Stage 2/3 −1,432 / Stage 4 UI −271 / Stage 5 Router+PAGE_META −193 / Stage 5-b pages −613 / Stage 5-c Storage −35 / Stage 5-d CONSTANTS −46 / Stage 5-e AUTHOR −1 / Stage 5-f Brand −24 / Stage 5-g Store −480 / Stage 5-h State −206 / Stage 5-i Theme −27 / Stage 5-j pages bug fix +7 / Stage 5-k' Meta Management −162 / Stage 5-l AIDK Rail −383 / Stage 5-m UI Components −1,271 / Stage 5-n Apps −984 / Stage 5-o Quiz −228 / Stage 5-q Mobile Drawer −149 / Stage 5-r Fatal Overlay −178 / Stage 5-s Perf Guards −128。AIDK Kernel と View Transition Proxy は不可侵領域として温存。**Stage 5-k'/5-l 命名衝突の honest dating**: PR #33 commit message は Stage 5-l Meta Management、PR #37 commit message は Stage 5-l AIDK Rail で同名となったため、changelog 上では PR #33 を 5-k′ として区別する（commit message は append-only で残置）)
 Canonical-Ref : AI2AI.md (canonical) / repository-maintainability-map.md
 Status        : **Stage 5 物理分割 最終完遂**。Stage 2/3/3-b/4/5/5-b/5-c〜5-s の全 sub-phase を完了し、
                 main.js は元 7,785 → 1,086 行（**−86%**）に縮小。24 個の葉モジュール

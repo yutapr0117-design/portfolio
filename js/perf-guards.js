@@ -35,12 +35,12 @@ export function createPerfGuards() {
     // ─────────────────────────────────────────────────────────────────────────
     function installLayoutThrashingGuard() {
         'use strict';
-        let _writeQueue = [];
+        const _writeQueue = [];
         let _rafPending = false;
 
         function _flushQueue() {
             _rafPending = false;
-            let q = _writeQueue.splice(0);
+            const q = _writeQueue.splice(0);
             for (let i = 0; i < q.length; i++) { q[i](); }
         }
 
@@ -54,7 +54,7 @@ export function createPerfGuards() {
         // CSSStyleDeclaration.setProperty をフックしてバッチ化
         const _origSetProperty = CSSStyleDeclaration.prototype.setProperty;
         CSSStyleDeclaration.prototype.setProperty = function(prop, value, priority) {
-            let self = this;
+            const self = this;
             _writeQueue.push(function() { _origSetProperty.call(self, prop, value, priority); });
             _scheduleFlush();
         };
@@ -68,7 +68,7 @@ export function createPerfGuards() {
         const _origSetAttr = Element.prototype.setAttribute;
         Element.prototype.setAttribute = function(name, value) {
             if (name === 'style') {
-                let self = this;
+                const self = this;
                 _writeQueue.push(function() { _origSetAttr.call(self, 'style', value); });
                 _scheduleFlush();
             } else {
@@ -94,9 +94,9 @@ export function createPerfGuards() {
         const _ioOptions = { rootMargin: '200px' };
         const _intersectionObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
-                let el = entry.target;
+                const el = entry.target;
                 if (entry.isIntersecting) {
-                    let deferred = el.getAttribute('data-deferred-src');
+                    const deferred = el.getAttribute('data-deferred-src');
                     if (deferred) {
                         el.src = deferred;
                         el.removeAttribute('data-deferred-src');
@@ -121,9 +121,9 @@ export function createPerfGuards() {
 
         function _releaseMediaNode(el) {
             if (!el || el.nodeType !== 1) { return; }
-            let tag = el.tagName;
+            const tag = el.tagName;
             if (tag === 'IMG' || tag === 'VIDEO') {
-                let blobUrl = _blobMap.get(el);
+                const blobUrl = _blobMap.get(el);
                 if (blobUrl) {
                     try { URL.revokeObjectURL(blobUrl); } catch (e) { /* noop */ }
                     _blobMap.delete(el);
@@ -151,7 +151,7 @@ export function createPerfGuards() {
         // グローバル ObjectURL 生成をフックして追跡
         const _origCreateObjectURL = URL.createObjectURL;
         URL.createObjectURL = function(obj) {
-            let url = _origCreateObjectURL.call(URL, obj);
+            const url = _origCreateObjectURL.call(URL, obj);
             // 呼び出し元の el 参照は取れないため、Blob URL は _releaseMediaNode で補足
             return url;
         };
