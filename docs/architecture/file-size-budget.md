@@ -47,7 +47,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 
 | ファイル | 実測行数 | 予算（上限） | 予算種別 | 方針 |
 |---|---:|---:|---|---|
-| `main.js` | 1,168 | 6,400 | `strong-advisory` | Stage 5-r: Fatal overlay + Global Safety Net を js/fatal-overlay.js へ factory pattern で抽出（render の wrapper 注入）。−178 行。累計 7,785→1,168 行（**−85%**）。残部は view-transition/render core/perf guards (AIDK Kernel 隣接) |
+| `main.js` | 1,075 | 6,400 | `strong-advisory` | Stage 5-s: パフォーマンスガード 2 つ（Layout Thrashing / Media Lifecycle）を js/perf-guards.js へ factory pattern で抽出。−128 行。累計 7,785→1,075 行（**−86%**）。残部は AIDK Kernel + view-transition/render core (Check 43 で保護) |
 | `js/aidk-rails.js` | 425 | 550 | `advisory` | Stage 5-l 新設。AIDK Rail 5 IIFE 合体 factory (RouteState/EffectRails/BindingRegistry/ActionDelegator/DiagnosticsRail)。closure-deps = none + 引数注入 |
 | `js/apps.js` | 1,030 | 1,200 | `advisory` | Stage 5-n 新設。Productivity Apps 5 関数 factory（TaskPage/TodoPage/PomodoroPage/AIPage/SettingsPage + private state）。closure-deps = none + 引数注入 |
 | `js/brand.js` | 65 | 120 | `advisory` | Stage 5-f 新設。Brand manager（primary palette/font switcher）factory。closure-deps = none（葉契約）+ Storage を引数注入 |
@@ -62,6 +62,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/state.js` | 240 | 320 | `advisory` | Stage 5-h 新設。State factory（Proxy 型安全モニター + subscriber + cross-tab + auto-save）。closure-deps = none + 引数注入 |
 | `js/page-meta.js` | 63 | 120 | `advisory` | Stage 5 新設。ページ SEO メタ単一ソース（AI SURFACE）。安定 |
 | `js/pages.js` | 650 | 750 | `advisory` | Stage 5-b → Stage 5-j fix。factory pattern (createPages) で ReferenceError bug を解消。closure-deps = none + h/createIcon/Router 引数注入 |
+| `js/perf-guards.js` | 161 | 250 | `advisory` | Stage 5-s 新設。Performance Guards factory（Layout Thrashing + Media Lifecycle 2 つの DOM API prototype hook）。closure-deps = none + 引数注入なし |
 | `js/pure-utils.js` | 277 | 400 | `advisory` | Stage 2 抽出済みの純ユーティリティ。安定 |
 | `js/quiz-renderer.js` | 259 | 350 | `advisory` | Stage 5-o 新設。Quiz Renderer factory（QuizPage + 4 domain lookup table）。closure-deps = none + 引数注入 |
 | `js/storage.js` | 74 | 120 | `advisory` | Stage 5-c 新設。Safe localStorage ラッパ。closure-deps = none |
@@ -117,6 +118,7 @@ js/ui-components.js | 400 | advisory
 js/router.js | 250 | advisory
 js/page-meta.js | 120 | advisory
 js/pages.js | 750 | advisory
+js/perf-guards.js | 250 | advisory
 js/pure-utils.js | 400 | advisory
 js/quiz-renderer.js | 350 | advisory
 js/state.js | 320 | advisory
