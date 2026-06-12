@@ -35,13 +35,13 @@ export function createPerfGuards() {
     // ─────────────────────────────────────────────────────────────────────────
     function installLayoutThrashingGuard() {
         'use strict';
-        var _writeQueue = [];
-        var _rafPending = false;
+        let _writeQueue = [];
+        let _rafPending = false;
 
         function _flushQueue() {
             _rafPending = false;
-            var q = _writeQueue.splice(0);
-            for (var i = 0; i < q.length; i++) { q[i](); }
+            let q = _writeQueue.splice(0);
+            for (let i = 0; i < q.length; i++) { q[i](); }
         }
 
         function _scheduleFlush() {
@@ -52,23 +52,23 @@ export function createPerfGuards() {
         }
 
         // CSSStyleDeclaration.setProperty をフックしてバッチ化
-        var _origSetProperty = CSSStyleDeclaration.prototype.setProperty;
+        const _origSetProperty = CSSStyleDeclaration.prototype.setProperty;
         CSSStyleDeclaration.prototype.setProperty = function(prop, value, priority) {
-            var self = this;
+            let self = this;
             _writeQueue.push(function() { _origSetProperty.call(self, prop, value, priority); });
             _scheduleFlush();
         };
 
         // style 直接プロパティへの代入は cssText 経由のバッチ化
         // (プロパティ数が多い場合のみ活性化 — 単純スカラはネイティブ委譲)
-        var _origStyleSetter = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'style');
+        const _origStyleSetter = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'style');
         // NOTE: style は getter/setter の直接オーバーライドが制限されるため、
         //       setProperty フック + DocumentFragment 戦略 (改善文書b 7.1) を主防衛とする。
         // 追加: setAttribute('style', ...) フック
-        var _origSetAttr = Element.prototype.setAttribute;
+        const _origSetAttr = Element.prototype.setAttribute;
         Element.prototype.setAttribute = function(name, value) {
             if (name === 'style') {
-                var self = this;
+                let self = this;
                 _writeQueue.push(function() { _origSetAttr.call(self, 'style', value); });
                 _scheduleFlush();
             } else {
@@ -88,15 +88,15 @@ export function createPerfGuards() {
     // ─────────────────────────────────────────────────────────────────────────
     function installMediaLifecycleGuard() {
         'use strict';
-        var _blobMap = new WeakMap(); // element → blobURL
+        const _blobMap = new WeakMap(); // element → blobURL
 
         // IntersectionObserver: ビューポート外では src を遅延
-        var _ioOptions = { rootMargin: '200px' };
-        var _intersectionObserver = new IntersectionObserver(function(entries) {
+        const _ioOptions = { rootMargin: '200px' };
+        const _intersectionObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
-                var el = entry.target;
+                let el = entry.target;
                 if (entry.isIntersecting) {
-                    var deferred = el.getAttribute('data-deferred-src');
+                    let deferred = el.getAttribute('data-deferred-src');
                     if (deferred) {
                         el.src = deferred;
                         el.removeAttribute('data-deferred-src');
@@ -107,7 +107,7 @@ export function createPerfGuards() {
         }, _ioOptions);
 
         // MutationObserver: DOM 削除時にリソース解放
-        var _removalObserver = new MutationObserver(function(mutations) {
+        const _removalObserver = new MutationObserver(function(mutations) {
             mutations.forEach(function(m) {
                 m.removedNodes.forEach(function(node) {
                     if (!node || node.nodeType !== 1) { return; }
@@ -121,9 +121,9 @@ export function createPerfGuards() {
 
         function _releaseMediaNode(el) {
             if (!el || el.nodeType !== 1) { return; }
-            var tag = el.tagName;
+            let tag = el.tagName;
             if (tag === 'IMG' || tag === 'VIDEO') {
-                var blobUrl = _blobMap.get(el);
+                let blobUrl = _blobMap.get(el);
                 if (blobUrl) {
                     try { URL.revokeObjectURL(blobUrl); } catch (e) { /* noop */ }
                     _blobMap.delete(el);
@@ -149,9 +149,9 @@ export function createPerfGuards() {
         else { document.addEventListener('DOMContentLoaded', _start); }
 
         // グローバル ObjectURL 生成をフックして追跡
-        var _origCreateObjectURL = URL.createObjectURL;
+        const _origCreateObjectURL = URL.createObjectURL;
         URL.createObjectURL = function(obj) {
-            var url = _origCreateObjectURL.call(URL, obj);
+            let url = _origCreateObjectURL.call(URL, obj);
             // 呼び出し元の el 参照は取れないため、Blob URL は _releaseMediaNode で補足
             return url;
         };
