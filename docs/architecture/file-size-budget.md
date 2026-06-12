@@ -1,7 +1,7 @@
 # file-size-budget.md
 
 ```
-Last-Updated  : 2026-06-10
+Last-Updated  : 2026-06-12
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
 Track         : v80+ staged major update (Phase 2 — Stage 5-b page extraction sync increment)
 Subject       : 主要ファイルの行数予算（line budget）と、肥大化の「許容」「抑制」分類
@@ -47,15 +47,15 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 
 | ファイル | 実測行数 | 予算（上限） | 予算種別 | 方針 |
 |---|---:|---:|---|---|
-| `main.js` | 1,075 | 6,400 | `strong-advisory` | Stage 5-s: パフォーマンスガード 2 つ（Layout Thrashing / Media Lifecycle）を js/perf-guards.js へ factory pattern で抽出。−128 行。累計 7,785→1,075 行（**−86%**）。残部は AIDK Kernel + view-transition/render core (Check 43 で保護) |
-| `js/aidk-rails.js` | 425 | 550 | `advisory` | Stage 5-l 新設。AIDK Rail 5 IIFE 合体 factory (RouteState/EffectRails/BindingRegistry/ActionDelegator/DiagnosticsRail)。closure-deps = none + 引数注入 |
+| `main.js` | 1,086 | 6,400 | `strong-advisory` | Stage 5-q/r/s 後の最終状態。累計 7,785→1,086 行（**−86%**）。残部は AIDK Kernel + view-transition/render core (Check 43 で保護) |
+| `js/aidk-rails.js` | 425 | 550 | `advisory` | Stage 5-l (AIDK Rail) 新設。AIDK Rail 5 IIFE 合体 factory (RouteState/EffectRails/BindingRegistry/ActionDelegator/DiagnosticsRail)。closure-deps = none + 引数注入。命名: PR #37。Stage 5-l は本 entry (AIDK Rail) を指し、PR #33 の Meta Management は changelog 上では 5-k' と呼称（命名衝突を honest dating で記録） |
 | `js/apps.js` | 1,030 | 1,200 | `advisory` | Stage 5-n 新設。Productivity Apps 5 関数 factory（TaskPage/TodoPage/PomodoroPage/AIPage/SettingsPage + private state）。closure-deps = none + 引数注入 |
 | `js/brand.js` | 65 | 120 | `advisory` | Stage 5-f 新設。Brand manager（primary palette/font switcher）factory。closure-deps = none（葉契約）+ Storage を引数注入 |
 | `js/components.js` | 1,335 | 1,500 | `advisory` | Stage 5-m 新設。UI page components 11 関数 factory（Sidebar/HomePage/ProjectsPage/ProjectDetailPage/AppsPage/AboutPage/ResumePage/ContactPage/FatalPage/AIKnowhowPage/ContactCTA）。closure-deps = none + 引数注入 |
 | `js/constants.js` | 88 | 150 | `advisory` | Stage 5-d 新設。実行時定数（STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID）。closure-deps = none |
-| `js/fatal-overlay.js` | 214 | 300 | `advisory` | Stage 5-r 新設。Fatal overlay + Global Safety Net factory（エラー判定 + Shadow DOM フォールバック UI + setInterval ウォッチ）。closure-deps = none + render 注入 |
+| `js/fatal-overlay.js` | 217 | 300 | `advisory` | Stage 5-r 新設。Fatal overlay + Global Safety Net factory（エラー判定 + Shadow DOM フォールバック UI + setInterval ウォッチ）。closure-deps = none + render 注入 |
 | `js/identity.js` | 36 | 80 | `advisory` | Stage 5-e 新設。AUTHOR（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME）純データ。closure-deps = none |
-| `js/meta-management.js` | 195 | 280 | `advisory` | Stage 5-l 新設。Meta Management factory（updateDocumentHead/announceRouteForAccessibility/injectRouteEntityAnchor/injectStructuredData + applyMeta ファサード）。closure-deps = none + 引数注入 |
+| `js/meta-management.js` | 201 | 280 | `advisory` | Stage 5-k' (Meta Management) 新設。Meta Management factory（updateDocumentHead/announceRouteForAccessibility/injectRouteEntityAnchor/injectStructuredData + applyMeta ファサード）。closure-deps = none + 引数注入。命名: PR #33。元 commit message では Stage 5-l と記録されたが、PR #37 で AIDK Rail も同名となったため、changelog 上では 5-k' として区別する（commit message は append-only で残置） |
 | `js/mobile-drawer.js` | 200 | 280 | `advisory` | Stage 5-q 新設。Mobile Drawer factory（syncMobileDrawer / secureExternalLinks / __setAppInert / __lockBodyScroll / __trapFocus / __releaseFocusTrap / openDrawer / closeDrawer + state）。closure-deps = none + 引数注入 |
 | `js/ui-components.js` | 303 | 400 | `advisory` | Stage 4 新設。DOM ビルダー・SVG アイコン・Toast・BGM の葉モジュール。安定 |
 | `js/router.js` | 175 | 250 | `advisory` | Stage 5 新設。Hash-based SPA ルーター葉モジュール。安定 |
@@ -73,7 +73,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/quiz/quality-quiz-data.js` | 275 | 350 | `advisory` | Stage 3-b 分割済み。品質・プロセス問題集 |
 | `js/quiz/architecture-quiz-data.js` | 137 | 250 | `advisory` | Stage 3-b 分割済み。v29 意思決定問題集 |
 | `style.css` | 2,156 | 2,300 | `advisory` | baseline 後に section 分割を検討（cascade 破壊リスクのため baseline 前は分割しない） |
-| `.github/scripts/check_repository_consistency.py` | 2,059 | 2,150 | `advisory` | check-repository-consistency-map.md 作成済み。utility の `lib/` 抽出は将来検討 |
+| `.github/scripts/check_repository_consistency.py` | 2,307 | 2,400 | `advisory` | Stage 5 完遂までに Check 47 docstring 拡張 / Check 55/56 新設 / _modules47 リスト 24 モジュール展開で +248 行。budget も同期して引き上げ（utility の `lib/` 抽出は将来検討） |
 | `index.html` | 1,265 | — | `protected` | CSP / JSON-LD / AI meta / AIO anchor の中核。AIO 承認なしに整理しない |
 | `llms-full.txt` | 998 | — | `protected` | AIO 正本（ground truth）。削らない |
 | `AI2AI.md` | 846 | — | `protected` | AIO 正本（canonical）。削らない |
@@ -130,7 +130,7 @@ js/quiz/pm-quiz-data.js | 350 | advisory
 js/quiz/quality-quiz-data.js | 350 | advisory
 js/quiz/architecture-quiz-data.js | 250 | advisory
 style.css | 2300 | advisory
-.github/scripts/check_repository_consistency.py | 2150 | advisory
+.github/scripts/check_repository_consistency.py | 2400 | advisory
 index.html | - | protected
 llms-full.txt | - | protected
 AI2AI.md | - | protected

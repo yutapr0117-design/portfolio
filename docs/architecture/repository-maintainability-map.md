@@ -1,7 +1,7 @@
 # repository-maintainability-map.md
 
 ```
-Last-Updated  : 2026-06-10
+Last-Updated  : 2026-06-12
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
 Track         : v80+ staged major update (Phase 2 — Stage 5 / 5-b page extraction + doc-sync increment applied)
 Canonical-Ref : AI2AI.md (canonical) / llms-full.txt (ground truth)

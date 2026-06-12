@@ -6,7 +6,7 @@ Canonical-Source : AI2AI.md                  ← canon (constraints C1–C7, KER
 Ground-Truth     : llms-full.txt             ← authoritative project / entity facts
 Canonical-Status : NON-CANONICAL / SUBORDINATE (on conflict, AI2AI.md / llms-full.txt win)
 AIO-Status       : NOT part of the AIO discovery layer (dev-tooling only — see §8)
-Last-Updated     : 2026-06-10
+Last-Updated     : 2026-06-12
 ```
 
 > **This file is the high-density router, not the canon.** You (Claude Code) can run `ls` / `cat` / `grep` / `wc` yourself, so this file deliberately carries **constraints, safety gates, routes, and a handoff** — **not** physical facts you can read in one tool call (line counts, file sizes, function names, dependency versions, which files exist). Do not re-state in prose what a tool gives you instantly; spend that budget on the task. When you need a number or a name, **read it with a tool** — it is intentionally not pinned here, because it drifts.

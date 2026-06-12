@@ -1,7 +1,7 @@
 # total-check-runbook.md
 
 ```
-Last-Updated  : 2026-06-10
+Last-Updated  : 2026-06-12
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
 Track         : v80+ staged major update (verification institutionalization)
 Purpose       : このリポジトリの「トータルチェック」を、人間でも AI でも、誰でも
@@ -119,7 +119,7 @@ npm audit --omit=dev # 配信物（ランタイム依存）だけの監査
 
 | コマンド | 期待 | 解釈 |
 |---|---|---|
-| `npm run lint` | `107 problems (0 errors, 107 warnings)` / **exit 0** | exit ≥2 = 実行失敗（config/parse/flag）→ **BLOCKING**。errors>0 → **BLOCKING**。warnings → **advisory**（`main.js` の `no-var`/`curly`/`no-shadow`。残りを段階解消）。**warning 件数の増加は負債増のサイン**として監視。減少履歴: 199→194（Stage 2/3 抽出）→120（lint-hygiene safe-zone curly 71 + prefer-const 1）→**107**（Stage 5 / 5-b 抽出で −13 件が抽出関数とともに js/{router,page-meta,pages}.js へ移動し移動先で解消）。保護領域=AIDK kernel／AIDK modules／known benign suppressor／innerHTML interceptor は byte-identical のため温存 |
+| `npm run lint` | `65 problems (0 errors, 65 warnings)` / **exit 0** | exit ≥2 = 実行失敗（config/parse/flag）→ **BLOCKING**。errors>0 → **BLOCKING**。warnings → **advisory**（`main.js` 内の保護領域（AIDK kernel／AIDK modules／known benign suppressor／innerHTML interceptor）の `no-var`/`curly`/`no-shadow`）。**warning 件数の増加は負債増のサイン**として監視。減少履歴: 199→194（Stage 2/3 抽出）→120（lint-hygiene safe-zone curly 71 + prefer-const 1）→107（Stage 5 / 5-b 抽出で −13 件が抽出関数とともに移動し移動先で解消）→**65**（Stage 5-c〜5-s で残り抽出された関数群の curly/no-var が移動先で解消。保護領域=AIDK kernel／AIDK modules／known benign suppressor／innerHTML interceptor は byte-identical のため温存） |
 | `npm run lint:css` | `Stylelint [style.css]: PASS` / exit 0 | error は BLOCKING |
 | `npm run lint:js` | 各 JS が OK・exit 0 | `node --check` を 14 の公開/dev JS（`main.js` / `sw.js` / `aio-guard.js` / `error-suppressor.js` / `theme-init.js` / `karte-init.js` / `js/page-meta.js` / `js/pages.js` / `js/pure-utils.js` / `js/router.js` / `js/ui-components.js` / `js/quiz/architecture-quiz-data.js` / `js/quiz/aws-quiz-data.js` / `js/quiz/pm-quiz-data.js` / `js/quiz/quality-quiz-data.js`）へまとめて適用する糖衣。構文エラーは BLOCKING。対象集合は `lint` と一致し Check 46 が機械強制（対象は root ∪ js/） |
 | `npm run check` | `Repository consistency check passed — all invariants hold.` / exit 0 / consistency 135 OK 行（`npm run check` 全体＝consistency＋digest＋binary の 3 スクリプトで、`OK:` トークン行は合計 137）| §6 の registry 参照。1 つでも ERROR が出れば exit 1（BLOCKING）。OK 行数の権威値は §9 の実測表。両者がずれた場合は §9 を正とし、本行を §9 に合わせて更新する |
@@ -258,7 +258,7 @@ echo "ALL LOCAL CHECKS PASSED"
 | 指標 | 基準値 |
 |---|---|
 | 追跡ファイル総数 | **118**（Stage 5-c〜5-s + 5-l + 5-q + 5-r で 15 個の新規葉モジュール追加: aidk-rails / apps / brand / components / constants / fatal-overlay / identity / meta-management / mobile-drawer / perf-guards / quiz-renderer / state / storage / store / theme）|
-| `npm run lint` | 0 errors / 107 warnings（前 increment 120 から −13 件。減少分は Stage 5 (Router/PAGE_META) と Stage 5-b (pages) の抽出に伴い safe-zone 外の `curly`/`no-var` が抽出関数とともに移動し、移動先 (js/router.js / js/pages.js) で書き直し時に解消された結果。すべて `main.js` に残存。`js/{router,page-meta,pages,ui-components,pure-utils}.js`・`js/quiz/{aws,pm,quality,architecture}-quiz-data.js` は 0 problems。lint は ESLint v10.4.1 / flat config 実行）|
+| `npm run lint` | 0 errors / 65 warnings（Stage 5-c〜5-s 完了後の最終実測。前 increment 107 から −42 件。減少分は Stage 5 全 sub-phase 抽出に伴い safe-zone 外の `curly`/`no-var` が抽出関数とともに移動し、移動先 (js/{各種}.js) で書き直し時に解消された結果。すべて `main.js` の保護領域に残存。`js/{aidk-rails,apps,brand,components,constants,fatal-overlay,identity,meta-management,mobile-drawer,page-meta,pages,perf-guards,pure-utils,quiz-renderer,router,state,storage,store,theme,ui-components}.js`・`js/quiz/{aws,pm,quality,architecture}-quiz-data.js` は 0 problems。lint は ESLint v10.4.1 / flat config 実行）|
 | consistency 検査の `OK:` 行 | 135（Check 47 が 9 モジュール × 3 サブチェック＝27 行 (前 increment では _modules47 リストに pages.js が含まれず実質 8 モジュール = 24 行だったが、本 increment でリスト追加し正しく 9 モジュール = 27 行へ修正)。前 increment 132 から Check 47 の +3 行で 135 へ増加。修正対象モジュール: pure-utils + ui-components + router + page-meta + **pages** + quiz 4）|
 | `npm run check` 全体の `OK:` トークン行 | 137（consistency 135 ＋ `check_binary_aio_metadata.py` 2。`check_aio_digests.py` は `OK (manifest/...)` 形式と末尾 `AIO digest check passed` を出力し、`OK:` トークンには 0 行寄与する。3 スクリプトはいずれも exit 0）|
 | consistency Check 総数 | **56**（最大番号 56。v80+ Stage 5-k CI hygiene fix で Check 55/56 を追加。Check 55 は architecture-validation.yml の ESLint/node --check ステップが `js/**/*.js` を bash globstar 有効化で展開しているか、または `npm run lint(:js)` を呼んでいるかを機械強制（Stage 5-j vacuous-gate 防止）。Check 56 は js/ 葉モジュールのうち factory pattern を export しているものについて、main.js で `createXxx(...)` 呼出が存在することを機械強制（Stage 5-j 隠れ ReferenceError class の構造的防止）。Check 43–54 の説明は前 increment と同じ。Check 1–51 + 53 + 54 + 55 + 56 は BLOCKING（Check 34/36 は元から WARNING 級）、**Check 52 のみ ADVISORY**）|
@@ -284,7 +284,7 @@ echo "ALL LOCAL CHECKS PASSED"
 
 - **`main.js` 物理分割 最終完遂**（現 1,086 行 / 元 7,785 行 / 累計 **−86%**）: Stage 2/3〜5-s + 5-l + 5-q + 5-r の全 16 sub-phase で合計 **−6,699 行** を削減。葉モジュールは 8 → **24** に増えた（aidk-rails / apps / brand / components / constants / fatal-overlay / identity / meta-management / mobile-drawer / page-meta / pages / perf-guards / pure-utils / quiz-renderer / quiz × 4 / router / state / storage / store / theme / ui-components）。factory pattern 確立で closure 依存を引数注入として明示しつつ葉契約（Check 47c）を維持。残る `main.js` 1,086 行は AIDK Kernel proper + startViewTransitionProxy + Trusted Types policy + view-transition / render core + SITE_CONFIG + protected blocks (_installEventListenerRegistry / _installInnerHTMLSanitizer) + init / WebMCP + 各 factory の合成呼び出し のみ — すべて Check 43 / Check 2/17 / CLAUDE.md §3 で機械保護された意図的温存領域。詳細は `main-js-extraction-map.md` §3.10〜§3.11 と `repository-maintainability-map.md` の Stage 5-c〜5-s + 5-l + 5-q + 5-r 増分一覧を参照。
 - **視覚回帰 baseline 取得済み（2026-06-10 / PR #13）**: `e2e/portfolio.spec.js-snapshots/homepage-baseline-chromium-linux.png`（252 KB）がコミット済み。Stage 5 残部（kernel/render/view-transition）と style.css section 分割のゲートを解錠した。今後の物理分割は視覚回帰の裏付けの下で進められる。
-- **`main.js` の 107 advisory warnings**: 上記分割と同期して段階解消。Stage 2/3 で 199→194、lint-hygiene increment で 194→120、Stage 5/5-b で 120→107（−13 件は抽出関数の移動先で解消）。残債は safe-zone 外（保護領域内）の `curly`・全 `no-var`・全 `no-shadow` で `main.js` に局在。`js/router.js` / `js/page-meta.js` / `js/pages.js` 等の抽出済みモジュールは 0 warnings。
+- **`main.js` の 65 advisory warnings**: 上記分割と同期して段階解消。Stage 2/3 で 199→194、lint-hygiene increment で 194→120、Stage 5/5-b で 120→107、**Stage 5-c〜5-s で 107→65**（−42 件は抽出関数の移動先で解消 / Stage 5-s で perf-guards.js の `var → let/const` + `prefer-const → const` を追加適用）。残債は保護領域内（AIDK kernel / AIDK modules / known benign suppressor / innerHTML interceptor）の `curly`・全 `no-var`・全 `no-shadow` で `main.js` に局在。抽出済み 24 葉モジュールは全部 0 warnings。
 
 ---
 
