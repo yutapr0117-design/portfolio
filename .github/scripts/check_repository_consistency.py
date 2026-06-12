@@ -1685,6 +1685,7 @@ _modules47 = [
     ("./js/mobile-drawer.js",               ROOT / "js" / "mobile-drawer.js"),
     ("./js/page-meta.js",                   ROOT / "js" / "page-meta.js"),
     ("./js/pages.js",                       ROOT / "js" / "pages.js"),
+    ("./js/perf-guards.js",                 ROOT / "js" / "perf-guards.js"),
     ("./js/pure-utils.js",                  ROOT / "js" / "pure-utils.js"),
     ("./js/quiz-renderer.js",               ROOT / "js" / "quiz-renderer.js"),
     ("./js/router.js",                      ROOT / "js" / "router.js"),
