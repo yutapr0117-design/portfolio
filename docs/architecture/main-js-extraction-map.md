@@ -3,14 +3,19 @@
 ```
 Last-Updated  : 2026-06-10
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
-Track         : v80+ staged major update (Phase 2 — Stage 5-b page extraction complete; Router/PAGE_META/pages all extracted)
-Subject       : main.js (現在 5,288 行。単一 IIFE 本体 + 先頭にローカル ESM import。元 7,785 行から **−2,497 行 / −32%** を達成。内訳: Stage 2/3 −1,432 / lint-hygiene +2 / Stage 3-b +5 / Stage 4 UI −271 / Stage 5 Router+PAGE_META −193 / Stage 5-b pages −613 + import 行追加で実質 −619 / Stage 5-b orphan-comment cleanup −4。AIDK Kernel と View Transition Proxy は不可侵領域として温存)
+Track         : v80+ staged major update (Phase 2 — **Stage 5-c〜5-o + 5-l 完了 = Stage 5 全 sub-phase 完遂**)
+Subject       : main.js (現在 **1,495 行**。単一 IIFE 本体 + 先頭にローカル ESM import。元 7,785 行から **−6,290 行 / −81%** を達成。内訳: Stage 2/3 −1,432 / Stage 4 UI −271 / Stage 5 Router+PAGE_META −193 / Stage 5-b pages −613 / Stage 5-c Storage −35 / Stage 5-d CONSTANTS −46 / Stage 5-e AUTHOR −1 / Stage 5-f Brand −24 / Stage 5-g Store −480 / Stage 5-h State −206 / Stage 5-i Theme −27 / Stage 5-j pages bug fix +7 / Stage 5-l AIDK Rail −383 / Stage 5-m UI Components −1,271 / Stage 5-n Apps −984 / Stage 5-o Quiz −228。AIDK Kernel と View Transition Proxy は不可侵領域として温存)
 Canonical-Ref : AI2AI.md (canonical) / repository-maintainability-map.md
-Status        : 物理分割を継続実施中。Stage 2（pure utility）・Stage 3（static data）・Stage 3-b
-                （quiz データドメイン分割）・Stage 4（UI コンポーネント）・Stage 5（Router + PAGE_META）・
-                Stage 5-b（ページコンポーネント）を完了。Playwright 視覚回帰 baseline は 2026-06-10
-                に取得済み（PR #13）であり、残る Stage 5（kernel/render/view-transition の物理分割）
-                ゲートも解錠された。次の段階は service rails（Storage/Store/State）の論理分割評価。
+Status        : **Stage 5 物理分割 完遂**。Stage 2/3/3-b/4/5/5-b/5-c〜5-o + 5-l の全 sub-phase を完了し、
+                main.js は元 7,785 → 1,495 行（−81%）に縮小。21 個の葉モジュール
+                （aidk-rails / apps / brand / components / constants / identity /
+                meta-management / page-meta / pages / pure-utils / quiz-renderer /
+                quiz × 4 / router / state / storage / store / theme / ui-components）に
+                factory pattern で分割。Playwright 視覚回帰 baseline は PR #13 で取得済み、
+                e2e は全 17 ルート訪問で console-error / pageerror 検出。Check 55/56 で CI
+                vacuous-gate と factory orphan を機械強制。main.js に残るのは AIDK Kernel
+                （Check 43 で構造強制）・view-transition / render core / mobile drawer /
+                focus trap（kernel 隣接の高リスク領域）・init / event handlers のみ。
 ```
 
 > **Canonical hierarchy:** `AI2AI.md` is canonical; `llms-full.txt` is ground truth. This map is a subordinate architecture document. On conflict, those win.
@@ -94,8 +99,8 @@ Status        : 物理分割を継続実施中。Stage 2（pure utility）・Sta
 | **Stage 1** | 抽出候補の整理（本ファイル）。`SITE_CONFIG`/`PAGE_META`/定数の抽出可否を CSP・Pages 配信影響の観点で精査。 | 完了済み |
 | **Stage 2** | **pure utility 抽出（ローカル ESM）**（`generateId` / `clamp` / `debounce` / `throttle` / `tokenize` / `slugify` / `sanitizeUrl` / `safeFetchJSON` / `deepClone` / `yieldToMain`）。署名・挙動をバイト等価で保存。 | **実施済み**（→ §3.3）。pure utility は副作用ゼロのため **baseline 不要で安全**（旧記載「+ Playwright baseline」は過剰要件だったため訂正） |
 | **Stage 3** | **static data 抽出（ローカル ESM）**（4 データセット: AWS / PM / 品質 / v29 意思決定問題集）。純データのため baseline 不要。 | **実施済み**（→ §3.3）。Stage 2 と同時に実施 |
-| **Stage 4** | service rails（Storage / Store / EffectRails / BindingRegistry 等）。**schema 後方互換必須。** 状態を持つため慎重に。 | **一部実施済み（§3.7）**。closure-deps = none の表示系（h/createIcon/Toast/BGM）は baseline 不要で抽出済み。State/Storage/RouteState 依存の残余候補は baseline 取得済みのため着手可能（次段階で評価） |
-| **Stage 5** | ページ別 render / router / view-transition 抽出。ARIA / View Transition / ErrorBoundary を保持。 | **baseline 取得済み（2026-06-10）→ ゲート解錠**。Stage 5（§3.8 Router+PAGE_META）と Stage 5-b（§3.9 ページコンポーネント）を完了。残るは kernel/render/view-transition の物理分割（service rails と同期して検討） |
+| **Stage 4** | service rails（Storage / Store / EffectRails / BindingRegistry 等）。**schema 後方互換必須。** 状態を持つため慎重に。 | **完了**（§3.7 ui-components 抽出 + Stage 5-c/d/e/f/g/h/i での個別抽出として完遂） |
+| **Stage 5** | ページ別 render / router / view-transition 抽出。ARIA / View Transition / ErrorBoundary を保持。 | **完了**（§3.8〜§3.18 で 11 増分すべて実施。詳細は §3.10 Stage 5-c〜5-o + 5-l 総括を参照） |
 
 ### 3.3 pure-utility + static-data extraction increment（Stage 2/3・本コミットで実施）
 
@@ -207,6 +212,65 @@ Stage 5 第二弾として、HiringRiskPage（v28 採用リスク管理）・Rol
 - Main Renderer / DiagnosticsRail / Mobile drawer / focus trap / Theme・Brand Manager（State/Storage/RouteState 依存。baseline 取得済みのため着手可能）
 - Apps Hub / Task / Todo / Pomodoro / Settings 等の機能ページ（State 依存・タイマー・永続化を伴う）
 - AIDK Isolated Kernel と View Transition Proxy は **抽出禁止**（Check 43 が構造健全性を BLOCKING で強制）
+
+### 3.10 Stage 5-c〜5-o + 5-l：service rails / UI / Apps / Quiz / AIDK Rails 完全抽出（2026-06-10〜12 連続実施）
+
+Stage 5 を 13 個の小さな増分（5-c〜5-o + 5-l）に分割し、factory pattern を確立しながら段階的に物理分割を完遂した。`main.js` は 5,288 → **1,495 行**（−3,793 行、Stage 0 累計 **−81%**）まで縮小。葉モジュールは 8 → **21** に増えた。
+
+**factory pattern の確立（Stage 5-f Brand から本格採用）:**
+
+葉モジュール契約（Check 47c: 内部 `import` ゼロ）を維持しながら、Storage / State / Toast / Router 等の closure 依存を伴うコンポーネントを抽出するため、依存注入の factory 関数を export する形を採用した。
+
+```js
+// 葉モジュール側
+export function createBrand({ Storage }) { ... return { init, set, get, KEY }; }
+
+// main.js 側
+import { createBrand } from './js/brand.js';
+const Brand = createBrand({ Storage });
+```
+
+これにより、(a) 葉モジュール自体は依存ゼロのまま、(b) 論理的な依存関係は引数注入で明示、(c) 抽出前後の挙動は byte-equivalent、という三方良しの分割が成立した。Stage 5-f 以降のすべての分割（Store / State / Theme / Meta Management / Components / Apps / Quiz Renderer / AIDK Rails）で同じパターンを反復適用した。
+
+| Stage | 抽出物 | モジュール | main.js 削減 | 累計 |
+|---|---|---:|---:|---:|
+| 5-c | Safe Storage | `js/storage.js` | −35 | −37% |
+| 5-d | CONSTANTS（実行時定数） | `js/constants.js` | −46 | −38% |
+| 5-e | AUTHOR identity | `js/identity.js` | −1 | −38% |
+| 5-f | Brand factory | `js/brand.js` | −24 | −39% |
+| 5-g | Store factory（488 行） | `js/store.js` | −480 | −45% |
+| 5-h | State factory（Proxy 型安全モニター） | `js/state.js` | −206 | −48% |
+| 5-i | Theme factory | `js/theme.js` | −27 | −48% |
+| 5-j | pages.js ReferenceError fix | （factory 化のみ） | +7 | −42% |
+| 5-l | AIDK Rail 5 IIFE 合体 factory | `js/aidk-rails.js` | −383 | −81% |
+| 5-m | UI Components 11 関数 | `js/components.js` | −1,271 | −61% |
+| 5-n | Productivity Apps 5 関数 + private state | `js/apps.js` | −984 | −73% |
+| 5-o | Quiz Renderer | `js/quiz-renderer.js` | −228 | −76% |
+| 5-k | Meta Management（applyMeta + 4 SRP sub-func） | `js/meta-management.js` | −162 | −45% |
+
+（注: 表の順序は実施順。累計 % は当該増分マージ後の値で、後続増分による追加削減は含まれない。最終累計は −81%）
+
+**非破壊性の検証:**
+- 全 13 増分で AIDK Kernel（Check 43 で構造強制）・AIO 正本層（`llms*` / `AI2AI.md` / `.well-known/*` / `sitemap.xml` / `robots.txt`）・binary（WebP / MP3）・`style.css`・`index.html` 本文は 1 バイトも変更していない（modulepreload と csp 関連の例外を除く）。
+- 各 factory の closure-deps = none を Check 47c が機械強制。
+- Stage 5-j で発見した「pages.js の `h` 暗黙グローバル参照」隠れバグは Stage 5-k CI hygiene 強化（Check 55 で globstar fix・Check 56 で factory invocation 強制・e2e 全 17 ルート訪問）で構造的に再発防止済み。
+- main.js から `js/components.js` へ Zenn 記事 slug 群が移動したため Check 33 のスコープを `main.js ∪ js/components.js` に拡張（structure-aware drift correction）。
+
+**残る main.js の中身（−81% 後の 1,495 行）:**
+- AIDK Isolated Kernel proper（DO NOT EDIT 領域・Check 43 で構造健全性 BLOCKING 強制）
+- view-transition / render core / mobile drawer / focus trap（kernel 隣接の高リスク領域）
+- SITE_CONFIG（VERSION / LAST_UPDATED は Check 2 / 17 が main.js から grep するため残置）
+- init / event handlers / DOM clobbering interceptor / batched DOM writes 等の入口層
+- 各 factory の合成呼び出し（`const Brand = createBrand({Storage});` 等）
+
+これらは Check 43（kernel 構造）・Check 56（factory invocation）・Check 33（Zenn slug featuring）等の機械強制下にあり、追加抽出は kernel との緊張関係を生むため別 phase で慎重に評価する。
+
+**CI 強化（Stage 5-k で導入）:**
+- Check 55: `architecture-validation.yml` の ESLint scan / node --check が `js/**/*.js` を bash globstar で展開しているか（`shopt -s globstar`）または `npm run lint:js` を呼んでいるかを機械強制。Stage 5-b で発生した「直下 js/<file>.js が silent skip される vacuous-gate」を構造的に閉じる。
+- Check 56: 各 js/ 葉モジュールが `export function createXxx({deps})` factory を export するなら main.js で `createXxx({...})` 呼び出しが存在することを機械強制。Stage 5-j の hidden ReferenceError class を構造的に閉じる。
+- e2e/portfolio.spec.js: 全 17 ルート訪問 + console-error / pageerror / DOM 出力検証を導入。Stage 5-j の RoleSplitPage / HiringRiskPage / NotFoundPage の隠れた実行時エラーを発見できる体制を整備。
+
+これらを併せて Stage 5 完遂時点の CI は **56 個の機械強制 Check（うち Check 52 のみ ADVISORY）+ ESLint 全葉モジュール lint 被覆 + Playwright 全ルート挙動検証** という多層防御に成長した。
 
 ### 3.6 quiz-domain-split increment（Stage 3-b・静的データのドメイン別細分化・本コミットで実施）
 

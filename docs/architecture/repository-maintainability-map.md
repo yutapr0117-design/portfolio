@@ -525,6 +525,86 @@ baseline 取得（PR #13）の後、Stage 5 のページ・ルーター層を 2 
 
 **Not possible（本 increment・捏造禁止）:** 公開 Pages への実反映 / `confirmed_citation_events` の計上。
 
+### Stage 5-c〜5-o + 5-l：service rails / UI / Apps / Quiz / AIDK Rails 完全抽出 + CI 多層化（v80+ Stage 5 物理分割の完遂・2026-06-10〜12）
+
+Stage 5 を 13 個の小さな増分（5-c〜5-o + 5-l）に分割し、factory pattern を確立しながら段階的に物理分割を完遂した。`main.js` は 5,288 → **1,495 行**（**−3,793 行、Stage 0 累計 −81%**）まで縮小し、葉モジュールは 8 → **21** に増えた。
+
+#### 抽出増分一覧（PR # / 抽出物 / main.js 削減 / Stage 0 累計）
+
+| Stage | PR | 抽出物 | モジュール | main.js 削減 | 累計 |
+|---|---|---|---|---:|---:|
+| 5-c | #24 | Safe Storage | `js/storage.js` | −35 | −37% |
+| 5-d | #25 | CONSTANTS（実行時定数） | `js/constants.js` | −46 | −38% |
+| 5-e | #26 | AUTHOR identity | `js/identity.js` | −1 | −38% |
+| 5-f | #27 | Brand factory | `js/brand.js` | −24 | −39% |
+| 5-g | #28 | Store factory（488 行） | `js/store.js` | −480 | −45% |
+| 5-h | #29 | State factory（Proxy 型安全モニター） | `js/state.js` | −206 | −48% |
+| 5-i | #30 | Theme factory | `js/theme.js` | −27 | −48% |
+| 5-j | #31 | pages.js ReferenceError fix | （factory 化のみ） | +7 | −42% |
+| 5-k | #32 | CI hygiene (Check 55/56 + e2e 全 17 ルート) | （CI 強化） | 0 | −42% |
+| 5-k' | #33 | Meta Management（applyMeta + 4 SRP sub-func） | `js/meta-management.js` | −162 | −45% |
+| 5-m | #34 | UI Components 11 関数 | `js/components.js` | −1,271 | −61% |
+| 5-n | #35 | Productivity Apps 5 関数 + private state | `js/apps.js` | −984 | −73% |
+| 5-o | #36 | Quiz Renderer | `js/quiz-renderer.js` | −228 | −76% |
+| 5-l | #37 | AIDK Rail 5 IIFE 合体 factory | `js/aidk-rails.js` | −383 | **−81%** |
+
+#### factory pattern の確立（Stage 5-f 以降）
+
+葉モジュール契約（Check 47c: 内部 `import` ゼロ）を維持しながら、Storage / State / Toast / Router 等の closure 依存を伴うコンポーネントを抽出するため、依存注入の factory 関数を export する形を採用した。
+
+```js
+// 葉モジュール側 (js/brand.js)
+export function createBrand({ Storage }) { ... return { init, set, get, KEY }; }
+
+// main.js 側
+import { createBrand } from './js/brand.js';
+const Brand = createBrand({ Storage });
+```
+
+(a) 葉モジュール自体は依存ゼロのまま、(b) 論理的な依存関係は引数注入で明示、(c) 抽出前後の挙動は byte-equivalent、という三方良しの分割が成立。Stage 5-f 以降のすべての分割（Store / State / Theme / Meta Management / Components / Apps / Quiz Renderer / AIDK Rails）で同じパターンを反復適用した。
+
+特に AIDK Rail 5 IIFE（RouteState / EffectRails / BindingRegistry / ActionDelegator / DiagnosticsRail）は相互依存のため、1 つの `js/aidk-rails.js` に**合体 factory** として抽出した：
+
+```js
+export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h, createIcon, ... }) {
+  const RouteState = (() => { ... uses BindingRegistry / EffectRails (late) ... })();
+  const EffectRails = (() => { ... })();
+  const BindingRegistry = (() => { ... })();
+  const ActionDelegator = (() => { ... })();
+  const DiagnosticsRail = (() => { ... })();
+  return { RouteState, EffectRails, BindingRegistry, ActionDelegator, DiagnosticsRail };
+}
+```
+
+IIFE 評価時 binding が undefined でも、Proxy.set / Rail.dispatch が初めて呼ばれるのは renderer / event handler 起動後＝全 Rail 定義済み。元の main.js IIFE と完全に同じ評価順序を維持。
+
+#### CI 多層化（Stage 5-k で導入）
+
+Stage 5-b で発生した「直下 js/<file>.js が ESLint scan で silent skip された vacuous-gate」と Stage 5-j で発見した「pages.js の暗黙グローバル `h` への ReferenceError」を構造的に閉じるため、以下を新規導入：
+
+| 機構 | 内容 | 防止する問題 class |
+|---|---|---|
+| **Check 55**（BLOCKING） | `architecture-validation.yml` の ESLint scan / node --check が `js/**/*.js` を bash globstar で展開（`shopt -s globstar`）または `npm run lint:js` を呼んでいることを機械強制 | bash glob による「直下 js/<file>.js silent skip」（vacuous-gate） |
+| **Check 56**（BLOCKING） | 各 js/ 葉モジュールが `export function createXxx({deps})` factory を export しているなら、main.js で `createXxx({...})` 呼び出しが存在することを機械強制 | factory exported but never invoked（Stage 5-j class の hidden ReferenceError） |
+| **e2e/portfolio.spec.js 拡張** | 全 17 ルート訪問 + console-error / pageerror / DOM 出力検証 | 未訪問ルートに残存する hidden runtime error（RoleSplitPage / HiringRiskPage の例） |
+| **Check 33 scope 拡張** | Zenn 記事 slug 検証を `main.js ∪ js/components.js` の統合面で行う | UI Component 抽出により slug が main.js から js/components.js へ移動した場合の slug drift 誤検出 |
+
+#### 非破壊性
+
+全 13 増分で AIDK Isolated Kernel（Check 43 で構造強制）・AIO 正本層（`llms*` / `AI2AI.md` / `.well-known/*` / `sitemap.xml` / `robots.txt`）・binary（WebP / MP3）・`style.css`・`index.html` 本文（modulepreload と CSP 関連の意図的更新を除く）は 1 バイトも変更なし。digest 再生成不要。各 factory の closure-deps = none を Check 47c が機械強制し、factory invocation を Check 56 が機械強制する多層防御で隠れバグの再発を構造的に閉じた。
+
+#### 残る main.js の中身（−81% 後の 1,495 行）
+
+- AIDK Isolated Kernel proper（DO NOT EDIT 領域・Check 43 で構造健全性 BLOCKING 強制）
+- view-transition / render core / mobile drawer / focus trap（kernel 隣接の高リスク領域）
+- SITE_CONFIG（VERSION / LAST_UPDATED は Check 2 / 17 が main.js から grep するため残置）
+- init / event handlers / DOM clobbering interceptor / batched DOM writes 等の入口層
+- 各 factory の合成呼び出し（`const Brand = createBrand({Storage});` 等）
+
+これらは Check 43（kernel 構造）・Check 56（factory invocation）・Check 33（Zenn slug featuring）等の機械強制下にあり、追加抽出は kernel との緊張関係を生むため別 phase で慎重に評価する。
+
+**Not possible（本 increment・捏造禁止）:** 公開 Pages への実反映 / `confirmed_citation_events` の計上。
+
 ### Featured Articles Curation Policy（v80+ — Zenn 11本掲載順）
 
 掲載対象は **公開全 11 本**（記事削減はしない）。featuring 順は **AIO 効果優先順**で、全レイヤー（`robots.txt` 優先コメント / `index.html` JSON-LD `subjectOf`・`citation` / `main.js` カード配列 / `llms.txt` Co-citation・Fetch Order・Optional / `llms-full.txt` / `README.md`）で同一順序を保つ。
