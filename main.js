@@ -116,6 +116,9 @@
         //   ActionDelegator / DiagnosticsRail) を合体 factory pattern で葉モジュール抽出。
         //   相互依存を内部 closure に閉じ込めるため 1 モジュールに合体。挙動 byte-equivalent。
         import { createAIDKRails } from './js/aidk-rails.js';
+        // v80+ Stage 5-q: Mobile Drawer + Focus Trap + secureExternalLinks を factory pattern で
+        //   葉モジュール抽出。Sidebar 注入と _drawer holder 経由の late-binding で循環依存解消。
+        import { createMobileDrawer } from './js/mobile-drawer.js';
         /* ╔══════════════════════════════════════════════════════════════════╗
            ║  DO NOT EDIT: AIDK Isolated Kernel — AIDK Architecture          ║
            ║  このブロック全体がAIエージェントのアクセスから隔離された核です。   ║
@@ -346,19 +349,29 @@
         //     PAGE_META, Router, State}) で合成（葉モジュール契約維持・挙動 byte-equivalent）。
         const { applyMeta } = createMetaManagement({ SITE_CONFIG, AUTHOR, PAGE_META, Router, State });
 
+        // ===== v80+ Stage 5-q: Mobile Drawer late-binding holder =====
+        //   createComponents (Sidebar 含む) は closeDrawer を必要とし、createMobileDrawer は
+        //   Sidebar を必要とするため、循環依存が成立する。これを解決するため、_drawer holder
+        //   object を介して late-binding する。Components / AIDK Rails が参照する closeDrawer /
+        //   openDrawer / secureExternalLinks はすべて runtime（event handler 起動時など）に
+        //   _drawer.<method> 経由で解決され、その時点では createMobileDrawer が実行済み。
+        const _drawer = {};
+
         // ===== v80+ Stage 5-l: AIDK Rails 合体 factory =====
         //   RouteState / EffectRails / BindingRegistry / ActionDelegator / DiagnosticsRail を
         //   js/aidk-rails.js へ合体 factory pattern で抽出。State / Toast / Router / CONSTANTS /
         //   applyMeta / h / createIcon を引数注入で合成（挙動 byte-equivalent）。
         //   applyMeta は createMetaManagement の戻り値で先に bind されている。
-        // Theme / BGM / secureExternalLinks / openDrawer / closeDrawer are function declarations
-        // defined later in this IIFE (hoisted) or already created above. Factory closure binds
-        // them by reference, so the late definition is fine.
+        //   Theme / BGM は factory instance（先に bind 済み）。
+        //   secureExternalLinks / openDrawer / closeDrawer は _drawer holder 経由で late-bound。
         const {
             RouteState, EffectRails, BindingRegistry, ActionDelegator, DiagnosticsRail
         } = createAIDKRails({
             State, Toast, Router, CONSTANTS, applyMeta, h, createIcon,
-            Theme, BGM, secureExternalLinks, openDrawer, closeDrawer
+            Theme, BGM,
+            secureExternalLinks: (...args) => _drawer.secureExternalLinks?.(...args),
+            openDrawer: () => _drawer.openDrawer?.(),
+            closeDrawer: () => _drawer.closeDrawer?.()
         });
 
 
@@ -370,15 +383,15 @@
         //   Sidebar / HomePage / ProjectsPage / ProjectDetailPage / AppsPage /
         //   AboutPage / ResumePage / ContactPage / FatalPage / AIKnowhowPage / ContactCTA を
         //   js/components.js へ factory pattern で抽出。挙動 byte-equivalent。
-        // closeDrawer is a function declaration later in this IIFE (hoisted), so the
-        // identifier is already bound at this point. clear / CONSTANTS / tokenize are
-        // already imported / declared above.
+        // closeDrawer は _drawer holder 経由で late-bound（Sidebar 内 event handler が呼ぶときに解決）。
+        // clear / CONSTANTS / tokenize は既に import / declared 済み。
         const {
             Sidebar, HomePage, ProjectsPage, ProjectDetailPage, AppsPage,
             AboutPage, ResumePage, ContactPage, FatalPage, AIKnowhowPage, ContactCTA
         } = createComponents({
             h, createIcon, Toast, BGM, AUTHOR, Router, State, Theme, Brand, Store,
-            tokenize, CONSTANTS, clear, closeDrawer
+            tokenize, CONSTANTS, clear,
+            closeDrawer: () => _drawer.closeDrawer?.()
         });
 
         // ===== v80+ Stage 5-j: Page components factory instantiation =====
@@ -698,163 +711,23 @@
             secureExternalLinks(document);
         }
 
-        // ===== Mobile Drawer =====
-        function syncMobileDrawer() {
-            const isMobile = window.matchMedia(`(max-width: ${CONSTANTS.MOBILE_BREAKPOINT}px)`).matches;
-            const topbar = document.getElementById('topbar');
+        // ===== Stage 5-q dispatcher resolution =====
+        //   実行時 _drawer object は createComponents の closeDrawer late-binding と AIDK Rail
+        //   の secureExternalLinks / openDrawer / closeDrawer late-binding が「現実のインスタンス」
+        //   を解決するための holder。createMobileDrawer の戻り値を Object.assign で代入することで、
+        //   Sidebar 内の close button や AIDK Rail の EffectRails.dispatch が実行された際に
+        //   正しい関数が呼ばれる。
+        //
+        //   ※ Mobile Drawer の抽出は main.js の真の末尾、つまり init() 直前で行うのが本来は
+        //   清潔だが、本ファイルではすでに init や event registry が後段に並んでおり、
+        //   それらは syncMobileDrawer / openDrawer / closeDrawer 等に依存している。
+        //   よって本 PR では Mobile Drawer factory を Sidebar 解決直後（= createComponents の
+        //   直後）に呼び出し、_drawer holder へ即代入する形でフロー順を整える。
+        const {
+            syncMobileDrawer, secureExternalLinks, openDrawer, closeDrawer
+        } = createMobileDrawer({ CONSTANTS, clear, Sidebar });
+        Object.assign(_drawer, { syncMobileDrawer, secureExternalLinks, openDrawer, closeDrawer });
 
-            if (topbar) {
-                topbar.style.display = isMobile ? 'flex' : 'none';
-            }
-        }
-
-
-        // ===== Security: enforce noopener on target=_blank links (including dynamic links) =====
-        function secureExternalLinks(root = document) {
-            try {
-                const links = root.querySelectorAll('a[target="_blank"]');
-                links.forEach((a) => {
-                    const rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
-                    if (!rel.includes('noopener')) {rel.push('noopener');}
-                    if (!rel.includes('noreferrer')) {rel.push('noreferrer');}
-                    a.setAttribute('rel', rel.join(' '));
-                    // Optional: reduce referrer leakage for external links
-                    if (!a.getAttribute('referrerpolicy')) {a.setAttribute('referrerpolicy', 'no-referrer');}
-                });
-            } catch { /* noop */ }
-        }
-
-        // ===== Drawer Focus Trap / Accessibility helpers =====
-        let __drawerTrapHandler = null;
-        let __drawerLastFocused = null;
-        let __drawerScrollY = 0;
-
-        function __setAppInert(isInert) {
-            const app = document.getElementById('app');
-            if (!app) {return;}
-            // Prefer native inert if available; fallback to aria-hidden + pointer-events
-            try {
-                if ('inert' in app) {app.inert = !!isInert;}
-            } catch { /* noop */ }
-
-            if (isInert) {
-                app.setAttribute('aria-hidden', 'true');
-                app.style.pointerEvents = 'none';
-            } else {
-                app.removeAttribute('aria-hidden');
-                app.style.pointerEvents = '';
-            }
-        }
-
-        function __lockBodyScroll(lock) {
-            if (lock) {
-                __drawerScrollY = window.scrollY || 0;
-                document.body.style.position = 'fixed';
-                document.body.style.top = `-${__drawerScrollY}px`;
-                document.body.style.width = '100%';
-            } else {
-                const y = __drawerScrollY || 0;
-                document.body.style.position = '';
-                document.body.style.top = '';
-                document.body.style.width = '';
-                window.scrollTo(0, y);
-            }
-        }
-
-        function __trapFocus(container) {
-            const focusable = container.querySelectorAll(
-                'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
-            );
-            if (!focusable.length) {return;}
-
-            const first = focusable[0];
-            const last = focusable[focusable.length - 1];
-
-            __drawerTrapHandler = function (e) {
-                if (e.key === 'Escape') {
-                    closeDrawer();
-                    return;
-                }
-                if (e.key !== 'Tab') {return;}
-
-                if (e.shiftKey && document.activeElement === first) {
-                    e.preventDefault();
-                    last.focus();
-                } else if (!e.shiftKey && document.activeElement === last) {
-                    e.preventDefault();
-                    first.focus();
-                }
-            };
-
-            document.addEventListener('keydown', __drawerTrapHandler);
-            first.focus();
-        }
-
-        function __releaseFocusTrap() {
-            if (__drawerTrapHandler) {
-                document.removeEventListener('keydown', __drawerTrapHandler);
-                __drawerTrapHandler = null;
-            }
-        }
-
-        function openDrawer() {
-            const drawer = document.getElementById('drawer');
-            const overlay = document.getElementById('overlay');
-            const menuBtn = document.getElementById('menuBtn');
-
-            if (!drawer || !overlay) {return;}
-
-            __drawerLastFocused = document.activeElement;
-
-            clear(drawer);
-            drawer.appendChild(Sidebar(true));
-
-            // Visible
-            drawer.removeAttribute('hidden');
-            drawer.style.display = 'block';
-            overlay.style.display = 'block';
-
-            // ARIA
-            drawer.setAttribute('aria-hidden', 'false');
-            overlay.setAttribute('aria-hidden', 'false');
-            menuBtn?.setAttribute('aria-expanded', 'true');
-
-            // Background isolation
-            __setAppInert(true);
-            __lockBodyScroll(true);
-
-            // Ensure rel=noopener for dynamic links inside drawer
-            secureExternalLinks(drawer);
-
-            // Focus
-            __trapFocus(drawer);
-        }
-
-        function closeDrawer() {
-            const drawer = document.getElementById('drawer');
-            const overlay = document.getElementById('overlay');
-            const menuBtn = document.getElementById('menuBtn');
-
-            if (!drawer || !overlay) {return;}
-
-            // Hide
-            drawer.style.display = 'none';
-            overlay.style.display = 'none';
-            drawer.setAttribute('hidden', '');
-
-            // ARIA
-            drawer.setAttribute('aria-hidden', 'true');
-            overlay.setAttribute('aria-hidden', 'true');
-            menuBtn?.setAttribute('aria-expanded', 'false');
-
-            // Release isolation
-            __releaseFocusTrap();
-            __setAppInert(false);
-            __lockBodyScroll(false);
-
-            // Focus restore
-            (menuBtn || __drawerLastFocused)?.focus?.();
-        }
 
 
         // ===== Fatal overlay (global error capture) =====
