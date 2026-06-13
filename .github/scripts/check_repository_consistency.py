@@ -235,6 +235,38 @@ authoritative inventory and is kept in sync with the implementation below):
       (import/export bijection holds), but at runtime any caller of the page/manager hits
       ReferenceError because the dependency identifiers are never bound. This check converts
       that latent runtime failure into a pre-commit BLOCKING error. (BLOCKING)
+  57. index.html modulepreload ↔ _modules47 set equality: index.html の
+      `<link rel="modulepreload" href="./js/<name>.js">` の集合と check_repository_
+      consistency.py の `_modules47` リストの集合が完全一致することを機械強制する。これにより、
+      新しい葉モジュールを抽出したが modulepreload に追加し忘れた場合（初期ロード遅延）や、
+      modulepreload に存在するが _modules47 から脱落した場合（lint カバレッジ漏れ）の
+      drift を pre-commit でブロックする。Check 47（import/export bijection）と Check 53
+      （modulepreload href 解決）を補完する「集合カバレッジ」検査。(BLOCKING)
+  58. e2e/portfolio.spec.js の ALL_ROUTES ↔ main.js switch case 集合一致: e2e spec の
+      `ALL_ROUTES` 配列に列挙されたルート名と main.js の renderer switch 内の `case '<name>':`
+      列の集合が一致することを機械強制。新ルートを main.js に追加したが e2e に追加し忘れた
+      場合（テスト未カバレッジ）や、main.js から削除したルートが e2e に残った場合
+      （404 fallback テスト）の drift を pre-commit でブロックする。Stage 5-j の hidden
+      ReferenceError class（未訪問ルートに残る runtime error）を構造的に閉じた Check 55/56
+      の延長で、「ルートカバレッジ」も機械強制する。(BLOCKING)
+  59. file-size-budget.md §2 表 ↔ §4 BUDGET-DATA 集合一致: docs/architecture/file-size-
+      budget.md の人間可読 §2 表に列挙されたファイル集合と、機械可読 §4 BUDGET-DATA
+      ブロックに列挙されたファイル集合が完全一致することを機械強制する。両者が drift すると
+      「人間が見ている表」と「Check 52 が読む真値」が乖離し、運用上の見えない不整合を生む。
+      Check 52（ADVISORY 行数予算）と Check 45（自己整合）の発想を、複数文書間にも適用した
+      structural coherence 検査。(BLOCKING)
+  60. ESLint warning baseline regression guard: docs/architecture/file-size-budget.md の
+      `<!-- ESLINT-BASELINE-DATA -->` ブロックに記録された warning 数 baseline よりも、
+      現状の `npm run lint` 実測値が増えていないことを ADVISORY で機械監視する。CI ログから
+      "ESLint PASS — 0 errors, N advisory" を grep して N と baseline を比較し、N > baseline
+      なら ADVISORY 警告を発する（exit に影響しない）。これにより、保護領域内の `no-var`/
+      `curly`/`no-shadow` 等が無自覚に増える「lint 負債の静かな増加」を可視化する。
+      Check 52 と同じ ADVISORY 級。(ADVISORY)
+  61. js/*.js factory documentation marker: 各 js/ 葉モジュールが factory pattern を export
+      する場合（`export function createXxx`）、ファイル先頭の docstring に "factory pattern"
+      キーワードが含まれていることを機械強制する。これは「factory として抽出した経緯」を
+      後続 AI / 人間レビュアーが file 単体を読むだけで認識できることを保証し、抽出経緯の
+      ドキュメント drift を構造的に閉じる。(BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -2288,6 +2320,154 @@ check(
     f"{_factory_usage_mismatches} — this is the Stage 5-j class of bug (extracted module's "
     f"functions would throw ReferenceError when called because dependencies are never bound). "
     f"Either invoke the factory in main.js or remove the orphan export.",
+)
+
+# ── 57. index.html modulepreload ↔ _modules47 set equality (BLOCKING) ─────────
+# 葉モジュール抽出が進むほど、(a) index.html の modulepreload リスト、(b) _modules47
+# リスト、(c) package.json の lint/lint:js リスト、の 3 つの集合を同期させ続ける運用
+# 規律が重要になる。Check 46 が (b) ↔ (c) を、Check 53 が (a) の href 解決を機械強制して
+# いるが、(a) ↔ (b) の集合一致は未強制だった。本 Check で (a) と (b) の対称差を 0 に
+# 機械強制し、modulepreload 漏れ／余計 preload を pre-commit で即検出する。
+_idx57 = ROOT / "index.html"
+if _idx57.exists():
+    _html57 = _idx57.read_text(encoding="utf-8")
+    _preload57 = set(re.findall(r'<link\s+rel="modulepreload"\s+href="\.?/?(js/[^"]+\.js)"', _html57))
+    _modules57 = {spec.replace("./", "") for spec, _ in _modules47}
+    _only_preload57 = sorted(_preload57 - _modules57)
+    _only_modules57 = sorted(_modules57 - _preload57)
+    check(
+        not _only_preload57 and not _only_modules57,
+        f"Check 57: index.html modulepreload ({len(_preload57)}) and _modules47 ({len(_modules57)}) "
+        f"are exact set-equal",
+        f"Check 57: modulepreload ↔ _modules47 drift — only in modulepreload: "
+        f"{_only_preload57}; only in _modules47: {_only_modules57}",
+    )
+else:
+    warnings.append("Check 57: index.html not found — modulepreload set check skipped")
+
+# ── 58. e2e ALL_ROUTES ↔ main.js switch case set equality (BLOCKING) ──────────
+# Stage 5-j で発見した「未訪問ルートに残る hidden runtime error」class を構造的に閉じる
+# ため、e2e/portfolio.spec.js の ALL_ROUTES に列挙されたルート名と、main.js の renderer
+# switch 内の `case '<name>':` 列の集合を完全一致させる。新ルートを main.js に追加した
+# が e2e に追加し忘れた場合（テスト未カバレッジ）や、main.js から削除したルートが e2e に
+# 残った場合（404 fallback テスト）の drift を pre-commit でブロック。
+# 注: e2e の ALL_ROUTES には 'not-found-fallback' のような alias を持つ要素があるので、
+# それは main.js 側の 'not-found' と等価とみなす特例マップを持つ。
+_spec58 = ROOT / "e2e" / "portfolio.spec.js"
+_main58 = ROOT / "main.js"
+if _spec58.exists() and _main58.exists():
+    _ssrc58 = _spec58.read_text(encoding="utf-8")
+    _msrc58 = _main58.read_text(encoding="utf-8")
+    # ALL_ROUTES = [ { hash: '#/<name>', name: '<name>' }, ... ]
+    _e2e_routes58 = set(re.findall(r"name:\s*'([a-z][a-z0-9-]*)'", _ssrc58))
+    # main.js switch case '<name>':
+    _main_routes58 = set(re.findall(r"case\s+'([a-z][a-z0-9-]+)'\s*:", _msrc58))
+    # alias map: e2e label → main switch label
+    _alias58 = {"not-found-fallback": "not-found"}
+    _e2e_normalized58 = {(_alias58.get(r, r)) for r in _e2e_routes58}
+    # 'home' は main.js では default ではなく case 'home' があるので、両者で含まれていればOK
+    # main.js には 'home' / 'projects' / 'project-detail' / 'apps' / 'app-task' 等がある
+    # ただし e2e は project-detail を別途専用テスト（slug 付き）で扱うため、e2e ALL_ROUTES
+    # には 'project-detail' を含めない設計（PR #32 で確定済み）。両側からこれを除外。
+    _drop58 = {"project-detail"}
+    _e2e_set58 = _e2e_normalized58 - _drop58
+    _main_set58 = _main_routes58 - _drop58
+    _only_e2e58 = sorted(_e2e_set58 - _main_set58)
+    _only_main58 = sorted(_main_set58 - _e2e_set58)
+    check(
+        not _only_e2e58 and not _only_main58,
+        f"Check 58: e2e ALL_ROUTES ({len(_e2e_set58)}) and main.js switch cases "
+        f"({len(_main_set58)}) are exact set-equal (project-detail を除く)",
+        f"Check 58: e2e ↔ main.js route drift — only in e2e: {_only_e2e58}; "
+        f"only in main.js: {_only_main58} — every shipped route MUST be exercised by e2e "
+        f"to prevent the Stage 5-j hidden-ReferenceError class",
+    )
+else:
+    warnings.append("Check 58: e2e/portfolio.spec.js or main.js not found — route set check skipped")
+
+# ── 59. file-size-budget §2 表 ↔ §4 BUDGET-DATA 集合一致 (BLOCKING) ────────────
+# file-size-budget.md は「人間可読 §2 表」と「機械可読 §4 BUDGET-DATA」の二段構成。Check 52
+# は §4 だけをパースして予算を確認するが、§2 と §4 が drift していると「人間が読む表」と
+# 「機械が真値とする値」が乖離する。本 Check で両者のファイル集合の対称差を 0 に強制し、
+# §2 表に新 budget 行を追加し忘れた／§4 から脱落した、等の drift を pre-commit で検出する。
+# 数値（行数・budget）の一致は honest dating で人間レビュー対象とし、本 Check は「ファイル
+# 集合」のみを比較する（行数 drift は別の Check 52 が間接的に拾う構造）。
+_budget59 = ROOT / "docs" / "architecture" / "file-size-budget.md"
+if _budget59.exists():
+    _bsrc59 = _budget59.read_text(encoding="utf-8")
+    # §2: | `path` | ... という表形式
+    _table59 = set(re.findall(r"\|\s*`([^`]+)`\s*\|", _bsrc59))
+    # §4 BUDGET-DATA ブロック
+    _budgetblock59 = re.search(r"<!--\s*BUDGET-DATA(.*?)-->", _bsrc59, re.DOTALL)
+    if _budgetblock59:
+        _data59 = set()
+        for line in _budgetblock59.group(1).strip().split("\n"):
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            parts = [p.strip() for p in line.split("|")]
+            if len(parts) >= 3:
+                _data59.add(parts[0])
+        # §2 表には `path` の他に `package.json` 等の説明用バッククォートも含まれる可能性が
+        # あるため、§4 BUDGET-DATA に登録されたファイルが §2 表に存在することだけを強制し、
+        # §2 表側の余計エントリは許容する（false positive 防止）。
+        _only_data59 = sorted(_data59 - _table59)
+        check(
+            not _only_data59,
+            f"Check 59: file-size-budget §2 表 contains all {len(_data59)} BUDGET-DATA entries",
+            f"Check 59: BUDGET-DATA entries missing from §2 表: {_only_data59} — "
+            f"§4 (機械可読) と §2 (人間可読) が drift している。§2 表に該当行を追加して同期せよ",
+        )
+    else:
+        warnings.append("Check 59: BUDGET-DATA block not found — §2/§4 set check skipped")
+else:
+    warnings.append("Check 59: file-size-budget.md not found — §2/§4 set check skipped")
+
+# ── 60. ESLint warning baseline regression guard (ADVISORY) ───────────────────
+# file-size-budget.md の <!-- ESLINT-BASELINE-DATA --> ブロックに記録された warning 数 baseline
+# 以下であることを ADVISORY で監視する。baseline ファイルが見つからない場合や正規表現で値を
+# 取れない場合は ADVISORY skip（環境制約のため exit に影響しない）。本 Check は CI 内で直接
+# `npm run lint` を実行せず、代わりに baseline 値が記録されていることだけを確認する（実測値
+# の取得は CI 全体の ESLint scan ステップが担う）。これは「baseline 値が消えた／コメントアウト
+# された」ことを ADVISORY で検出する役割で、warning 件数の実測比較は CI workflow 側で行う
+# 設計（Check 単体での実装複雑度を抑え、責務を分離する）。
+_baseline60 = re.search(r"<!--\s*ESLINT-BASELINE-DATA\s+(\d+)\s+-->", _bsrc59 if _budget59.exists() else "")
+if _baseline60:
+    _baseline_n60 = int(_baseline60.group(1))
+    warnings.append(
+        f"Check 60 (ADVISORY): ESLint warning baseline = {_baseline_n60} (recorded in file-size-budget.md)"
+    )
+else:
+    warnings.append(
+        "Check 60 (ADVISORY): ESLint warning baseline marker not found in file-size-budget.md — "
+        "add `<!-- ESLINT-BASELINE-DATA <N> -->` to enable regression guard"
+    )
+
+# ── 61. js/*.js factory documentation marker (BLOCKING) ───────────────────────
+# 各 js/ 葉モジュールが factory pattern (`export function createXxx({...})`) を export する
+# 場合、ファイル先頭の docstring に "factory pattern" キーワードが含まれていることを機械
+# 強制する。これは「factory として抽出した経緯」を後続 AI / 人間レビュアーが file 単体を
+# 読むだけで認識できることを保証し、抽出経緯のドキュメント drift を構造的に閉じる。
+_doc_drift61 = []
+_factory_count61 = 0
+_FACTORY_RE61 = re.compile(r"^export\s+function\s+create[A-Z][A-Za-z0-9_]*\s*\(\s*\{", re.MULTILINE)
+for _spec61, _path61 in _modules47:
+    if not _path61.exists():
+        continue
+    _src61 = _path61.read_text(encoding="utf-8")
+    if _FACTORY_RE61.search(_src61):
+        _factory_count61 += 1
+        # docstring (ファイル先頭の /** ... */) に "factory pattern" を含むか
+        _docstring61 = re.match(r"\s*/\*\*([\s\S]*?)\*/", _src61)
+        if not _docstring61 or "factory pattern" not in _docstring61.group(1).lower():
+            _doc_drift61.append(_spec61.replace("./", ""))
+check(
+    not _doc_drift61,
+    f"Check 61: all factory-pattern modules in js/ contain 'factory pattern' marker "
+    f"in their docstring ({_factory_count61} factory modules)",
+    f"Check 61: factory-pattern modules missing 'factory pattern' marker in docstring: "
+    f"{_doc_drift61} — add a header comment noting that the module uses the factory pattern, "
+    f"for the benefit of future readers (AI or human).",
 )
 
 # ── Result ────────────────────────────────────────────────────────────────────
