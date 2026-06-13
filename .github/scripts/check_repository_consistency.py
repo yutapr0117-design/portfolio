@@ -3522,6 +3522,41 @@ _phase1_targets96 = [
     ".well-known/aio-manifest.json", ".well-known/index.json",
     ".well-known/agent-skills/index.json", ".well-known/mcp.json",
     "robots.txt", "sitemap.xml",
+    # Phase 3: config / scripts / workflows / Claude Code (25)
+    ".github/scripts/_lib_io.py",
+    ".github/scripts/aio_monitoring.py",
+    ".github/scripts/check_aio_digests.py",
+    ".github/scripts/check_binary_aio_metadata.py",
+    ".github/scripts/check_css_stylelint.py",
+    ".github/scripts/check_public_deployment_freshness.py",
+    ".github/scripts/check_repository_consistency.py",
+    ".github/scripts/update_aio_digests.py",
+    ".github/scripts/update_binary_aio_organization.py",
+    ".github/workflows/aio-monitoring.yml",
+    ".github/workflows/architecture-validation.yml",
+    ".github/workflows/auto-update-aio-digests.yml",
+    ".github/workflows/playwright-regression.yml",
+    ".github/workflows/update-playwright-snapshots.yml",
+    ".github/dependabot.yml",
+    ".claude/settings.json",
+    ".claude/README.md",
+    ".claude/CLAUDE.md",
+    ".claude/agents/aio-guardian.md",
+    ".claude/agents/check-author.md",
+    ".claude/agents/repo-auditor.md",
+    ".claude/commands/archive-incidents.md",
+    ".claude/commands/deliver.md",
+    ".claude/commands/verify.md",
+    ".claude/commands/audit.md",
+    ".claude/commands/sync-docs.md",
+    ".claude/commands/increment.md",
+    ".claude/skills/repo-status/SKILL.md",
+    ".stylelintrc.json",
+    "eslint.config.mjs",
+    "package.json",
+    "package-lock.json",
+    "playwright.config.cjs",
+    "e2e/portfolio.spec.js",
 ]
 _missing96 = []
 for _t in _phase1_targets96:
@@ -3530,7 +3565,7 @@ for _t in _phase1_targets96:
         _missing96.append(_t)
 check(
     not _missing96,
-    f"Check 96: all {len(_phase1_targets96)} Phase 1+2 files (shipped + AIO published) have 1-to-1 docs at docs/files/<path>.md",
+    f"Check 96: all {len(_phase1_targets96)} Phase 1+2+3 files (shipped + AIO + config/scripts/workflows/.claude) have 1-to-1 docs",
     f"Check 96: missing 1-to-1 docs for: {_missing96} — `docs/files/_template.md` を元に作成せよ",
 )
 
