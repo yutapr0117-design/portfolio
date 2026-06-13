@@ -1,9 +1,9 @@
 # file-size-budget.md
 
 ```
-Last-Updated  : 2026-06-12
+Last-Updated  : 2026-06-13
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
-Track         : v80+ staged major update (Phase 2 — Stage 5-b page extraction sync increment)
+Track         : v80+ staged major update (Phase 2 — All Plans Combined: helper 抽出 + Check 72-75 同期)
 Subject       : 主要ファイルの行数予算（line budget）と、肥大化の「許容」「抑制」分類
 Canonical-Ref : AI2AI.md (canonical) / docs/architecture/repository-maintainability-map.md
 Enforced-By   : check_repository_consistency.py Check 52（ADVISORY / 非ブロッキング）
@@ -73,7 +73,8 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/quiz/quality-quiz-data.js` | 275 | 350 | `advisory` | Stage 3-b 分割済み。品質・プロセス問題集 |
 | `js/quiz/architecture-quiz-data.js` | 137 | 250 | `advisory` | Stage 3-b 分割済み。v29 意思決定問題集 |
 | `style.css` | 2,156 | 2,300 | `advisory` | baseline 後に section 分割を検討（cascade 破壊リスクのため baseline 前は分割しない） |
-| `.github/scripts/check_repository_consistency.py` | 2,307 | 2,400 | `advisory` | Stage 5 完遂までに Check 47 docstring 拡張 / Check 55/56 新設 / _modules47 リスト 24 モジュール展開で +248 行。budget も同期して引き上げ（utility の `lib/` 抽出は将来検討） |
+| `.github/scripts/check_repository_consistency.py` | 2,950 | 3,100 | `advisory` | Stage 5 完遂 + 「CI 更なる手厚化 v1/v2」 + 「All Plans Combined」で Check 57-75 を追加。Plan C で純 helper を `_lib_io.py` に sibling 抽出（Check 番号体系は不変）|
+| `.github/scripts/_lib_io.py` | 60 | 200 | `advisory` | All Plans Combined で新設。純 I/O helper sibling module (read / read_bytes / extract / csp_sri_hash)。Check 74 で API 契約を BLOCKING 保護 |
 | `index.html` | 1,265 | — | `protected` | CSP / JSON-LD / AI meta / AIO anchor の中核。AIO 承認なしに整理しない |
 | `llms-full.txt` | 998 | — | `protected` | AIO 正本（ground truth）。削らない |
 | `AI2AI.md` | 846 | — | `protected` | AIO 正本（canonical）。削らない |
@@ -134,7 +135,8 @@ js/quiz/pm-quiz-data.js | 350 | advisory
 js/quiz/quality-quiz-data.js | 350 | advisory
 js/quiz/architecture-quiz-data.js | 250 | advisory
 style.css | 2300 | advisory
-.github/scripts/check_repository_consistency.py | 2400 | advisory
+.github/scripts/check_repository_consistency.py | 3100 | advisory
+.github/scripts/_lib_io.py | 200 | advisory
 index.html | - | protected
 llms-full.txt | - | protected
 AI2AI.md | - | protected
