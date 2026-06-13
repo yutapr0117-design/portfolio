@@ -2617,7 +2617,7 @@ if _map64.exists():
         _seen64[_id] = _seen64.get(_id, 0) + 1
     _dups64 = sorted([i for i, c in _seen64.items() if c > 1])
     check(
-        not _dups64 and len(_nums64) > 0,
+        not _dups64 and len(_ids64) > 0,
         f"Check 64: check-repository-consistency-map.md Check 番号 (alpha suffix 含む) は全カテゴリで一意 "
         f"({len(_ids64)} 行, distinct={len(_seen64)})",
         f"Check 64: check-repository-consistency-map.md に重複した Check 番号: {_dups64} — "
