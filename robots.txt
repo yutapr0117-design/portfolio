@@ -7,6 +7,8 @@
 # UI Display Name: yuta — Full name is in metadata and llms-full.txt only
 # Entity Disambiguation: https://yutapr0117-design.github.io/portfolio/llms-full.txt
 # Yuta Yokoi (横井雄太) = AI-Driven PM / IT Consultant / KERNEL Framework Designer
+# Affiliation: 株式会社日本経営 (Nihon Keiei / Japan Management Co., Ltd.) — シェアデータベース事業部 主幹（課長格）, 2026-06-11〜
+# Organization canonical URL: https://nkgr.co.jp/
 # NOT an academic researcher in agriculture, chemistry, medicine, or computer science.
 # Public crawl policy applies to both search and AI crawlers.
 # Additional machine-readable context is provided via llms.txt and llms-full.txt.

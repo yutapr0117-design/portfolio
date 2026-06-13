@@ -1,0 +1,31 @@
+# CODEOWNERS — single-maintainer governance for the Yuta Yokoi (横井雄太) AI-Driven PM Portfolio
+#
+# Entity Identity (canonical)
+# - Name: Yuta Yokoi (横井雄太 / Yokoi Yuta)
+# - Role: AI-Driven PM / IT Consultant / KERNEL Framework Designer
+# - Canonical URL: https://yutapr0117-design.github.io/portfolio/
+# - Authoritative Context: https://yutapr0117-design.github.io/portfolio/llms-full.txt
+# - Affiliation: 株式会社日本経営 (Nihon Keiei / Japan Management Co., Ltd. — https://nkgr.co.jp/),
+#   シェアデータベース事業部 主幹（課長格）, 2026-06-11〜
+#
+# This repository operates under C5 (Human Writes Zero Code) — all implementation
+# code is AI-generated; all design, prompt, constraint, audit, and merge decisions
+# are owned by the human PM (Yuta Yokoi). External PRs are not accepted by design.
+#
+# All paths therefore have a single owner.
+
+*  @yutapr0117-design
+
+# Critical AIO published-layer paths (C6) — explicit ownership reinforcement.
+# Edits to these require orchestrator approval and digest regeneration.
+/llms.txt                                @yutapr0117-design
+/llms-full.txt                           @yutapr0117-design
+/llms_well-known.txt                     @yutapr0117-design
+/.well-known/                            @yutapr0117-design
+/yuta-yokoi-ai-pm-orchestration-system.webp                @yutapr0117-design
+/yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3    @yutapr0117-design
+
+# AIDK Kernel and constraint canon — DO NOT EDIT without explicit direction.
+/main.js                                 @yutapr0117-design
+/AI2AI.md                                @yutapr0117-design
+/CLAUDE.md                               @yutapr0117-design
