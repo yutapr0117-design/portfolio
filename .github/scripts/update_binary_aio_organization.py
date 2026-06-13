@@ -155,13 +155,41 @@ def update_mp3(path: Path) -> bool:
     return True
 
 
+def update_timestamps(iso_now: str) -> None:
+    """B2 案: binary 編集 tool に日付更新責務を持たせる。
+
+    Organization 注入と同 invocation で xmp:ModifyDate / xmp:MetadataDate /
+    MP3 TXXX AIO:MetadataLastModified を同期更新する。`_lib_io.py` の helper
+    (6 案・統一実装) を経由するので、複数 tool 間で実装重複しない。
+    """
+    import sys
+    sys.path.insert(0, str(ROOT / ".github" / "scripts"))
+    from _lib_io import update_webp_xmp_dates, update_mp3_metadata_date
+
+    if update_webp_xmp_dates(WEBP, iso_now):
+        print(f"WebP XMP dates updated to {iso_now}")
+    else:
+        print("WebP XMP dates already current")
+    if update_mp3_metadata_date(MP3, iso_now):
+        print(f"MP3 ID3 AIO:MetadataLastModified updated to {iso_now}")
+    else:
+        print("MP3 ID3 AIO:MetadataLastModified already current")
+
+
 if __name__ == "__main__":
-    print("== WebP XMP ==")
+    import sys
+    sys.path.insert(0, str(ROOT / ".github" / "scripts"))
+    from _lib_io import now_iso8601
+
+    print("== WebP XMP Organization ==")
     update_webp(WEBP)
-    print("== MP3 ID3 ==")
+    print("== MP3 ID3 Organization ==")
     update_mp3(MP3)
     print()
+    print("== Derived-value timestamps (C6 A 案 例外条項) ==")
+    update_timestamps(now_iso8601())
+    print()
     print("Done. Next steps:")
-    print("  1. python3 .github/scripts/update_aio_digests.py  # sha256 連鎖更新")
+    print("  1. python3 .github/scripts/update_aio_digests.py  # sha256 連鎖更新 + manifest last_metadata_update")
     print("  2. python3 .github/scripts/check_aio_digests.py    # 検証")
     print("  3. python3 .github/scripts/check_binary_aio_metadata.py")

@@ -132,7 +132,42 @@ def update_manifest() -> list[str]:
 
     if changed_any_digest:
         # Only update generated_at when digests actually change
-        data["generated_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        data["generated_at"] = now_iso
+        # 8 案: top-level last_metadata_update を真値として記録
+        # (C6 derived-value 例外条項 A 案 に基づく自動更新フィールド)
+        data["last_metadata_update"] = now_iso
+        # B1 案: binary が変わったら xmp:ModifyDate / xmp:MetadataDate / MP3 TXXX
+        # AIO:MetadataLastModified も同期更新する (binary 編集の sha256 が変わったら
+        # その binary 内日付メタも同期させる)
+        binary_paths = {"yuta-yokoi-ai-pm-orchestration-system.webp", "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3"}
+        binary_changed = False
+        for section in ("source_of_truth",):
+            for entry in data.get(section, []):
+                if entry.get("path") in binary_paths:
+                    # この entry は今回 digest 更新で sha が書き換わった可能性がある
+                    binary_changed = True
+                    break
+        if binary_changed:
+            try:
+                from _lib_io import update_webp_xmp_dates, update_mp3_metadata_date
+                webp = ROOT / "yuta-yokoi-ai-pm-orchestration-system.webp"
+                mp3 = ROOT / "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3"
+                if webp.exists():
+                    if update_webp_xmp_dates(webp, now_iso):
+                        print(f"  WebP XMP dates synced to {now_iso}")
+                        # digest を再計算 (binary が変わったので)
+                        for entry in data["source_of_truth"]:
+                            if entry.get("path") == "yuta-yokoi-ai-pm-orchestration-system.webp":
+                                entry["sha256"] = sha256_file(webp)
+                if mp3.exists():
+                    if update_mp3_metadata_date(mp3, now_iso):
+                        print(f"  MP3 ID3 metadata date synced to {now_iso}")
+                        for entry in data["source_of_truth"]:
+                            if entry.get("path") == "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3":
+                                entry["sha256"] = sha256_file(mp3)
+            except ImportError:
+                print("WARNING: _lib_io not importable — binary date sync skipped")
     # else: do not rewrite aio-manifest.json only to refresh generated_at
 
     data.setdefault("manifest_version", "1.0")
