@@ -6,7 +6,7 @@ Canonical-Source : AI2AI.md                  ← canon (constraints C1–C7, KER
 Ground-Truth     : llms-full.txt             ← authoritative project / entity facts
 Canonical-Status : NON-CANONICAL / SUBORDINATE (on conflict, AI2AI.md / llms-full.txt win)
 AIO-Status       : NOT part of the AIO discovery layer (dev-tooling only — see §8)
-Last-Updated     : 2026-06-12
+Last-Updated     : 2026-06-13
 ```
 
 > **This file is the high-density router, not the canon.** You (Claude Code) can run `ls` / `cat` / `grep` / `wc` yourself, so this file deliberately carries **constraints, safety gates, routes, and a handoff** — **not** physical facts you can read in one tool call (line counts, file sizes, function names, dependency versions, which files exist). Do not re-state in prose what a tool gives you instantly; spend that budget on the task. When you need a number or a name, **read it with a tool** — it is intentionally not pinned here, because it drifts.
@@ -102,6 +102,11 @@ Extended thinking is **enabled by default** (Claude Code, since 2026-01) and `.c
 - **Deferred-with-reason backlog (do not "rediscover" as new):** WCAG 2.2 / Core Web Vitals CSS fixes — **baseline-gated** (CSS/render changes can't be proven non-regressive without the baseline). IETF AIPREF `Content-Usage` — **not adopted by design**: `robots.txt` intentionally permits AI training ("public experiment intended to be learned from by AI models"), so a usage-restriction mechanism contradicts the strategy. Rationale for both: `research-application-policy.md` §3C.
 - **AIO posture:** `confirmed_citation_events = 0` is **by design** — an early position on a high-probability lane, not a gamble and not a failure. Never fabricate citations; never frame the AIO-over-SEO choice as a "bet/gamble".
 - **Non-destructive discipline holds:** the AIO published layer, binary assets, `style.css`, and `main.js` are kept byte-identical unless an increment's stated purpose is to change them (then with C6 approval + digest regeneration). Prove invariance with SHA-256 against the prior state.
+- **Check 総数は 80 まで成長 (2026-06-13)。** Stage 5 完遂後、3 連 increment で機械強制を倍増:
+  - 「CI 更なる手厚化 v1/v2」 (PR #45/#46) → Check 57〜71 追加。modulepreload / e2e routes / file-size-budget §2 ↔ §4 集合一致・AIO entity canonical_url 整合・workflow permissions 明示など、Stage 5 後の真の抜け漏れを 0 化。
+  - 「All Plans Combined」 (PR #47) → Check 72〜75 追加。ESLint 絶対防衛線 (Plan A) / preload-as・img-alt・hero-fetchpriority HTML 属性契約 (Plan B) / `_lib_io.py` helper 抽出 + 4 関数 API 契約 (Plan C) / `docs/incident-artifacts/README.md` inventory governance (Plan D) を 1 PR で統合。
+  - 「Repo-wide & Claude Code files」 (本 increment) → Check 76〜80 追加。`.claude/settings.json` security baseline / `.claude/commands/*.md` frontmatter / `.claude/agents/*.md` frontmatter (`repo-auditor` / `check-author` / `aio-guardian` の 3 sub-agent 新設) / `.mcp.json` JSON parsability / `.claude/skills/*/SKILL.md` frontmatter を機械強制化。`/audit` `/increment` `/sync-docs` の 3 新規 slash command と `repo-status` skill も新設。
+- **Claude Code 用ファイル一式が揃った (2026-06-13)。** 後続セッションは次の順に読めば cold-start で復帰可能: (1) 本 CLAUDE.md §7、(2) `AI2AI.md` の最新 Session Record、(3) `docs/architecture/total-check-runbook.md` §9 (現状 N=80)。深い drift 監査が必要なら `/audit` を起動 (`repo-auditor` sub-agent が読み取り専用で 6 dimension をチェック)。Check 追加が必要なら `/increment` → `check-author` sub-agent。AIO 編集が必要なら必ず `aio-guardian` sub-agent を経由する (C6 enforcement)。
 
 ---
 

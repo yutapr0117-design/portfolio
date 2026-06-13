@@ -352,6 +352,28 @@ authoritative inventory and is kept in sync with the implementation below):
       「物理移動なし、README で grouping を提供」設計を機械強制化したもので、incident-artifact
       追加時に README 更新を忘れる drift を pre-commit で構造的に閉じる。README 自身は
       inventory から除外。(BLOCKING)
+  76. .claude/settings.json security baseline: Claude Code agent の権限境界設定が最低限の
+      security invariant (permissions.deny に `git add .` / `-A` / `--all` + `*.webp` Edit/Write
+      deny + `*.mp3` Edit/Write deny の 5 項目宣言) を満たすことを機械強制する。Claude Code が
+      agent として作業するときの safety net を「設定ファイルに依存する暗黙の約束」から
+      「機械強制契約」へ昇格させる。(BLOCKING)
+  77. .claude/commands/ slash-command frontmatter integrity: .claude/commands/*.md の全 slash-
+      command 定義が、Claude Code 仕様に従った frontmatter (`---\ndescription: <text>\n---`) を
+      持つことを機械強制する。description フィールド消失で Claude Code は command を skill
+      listing から拾えなくなる silent failure に陥るため、構造的に閉じる。(BLOCKING)
+  78. .claude/agents/ sub-agent frontmatter integrity: .claude/agents/*.md の全 sub-agent
+      定義が、Claude Code 仕様の frontmatter (`name:` + `description:`) を持つことを機械強制
+      する。description は Agent tool の subagent_type 選択時の真値で、消失すると orchestrator
+      が agent を呼び出せず silent unavailability になる。(BLOCKING)
+  79. .mcp.json JSON parsability: `.mcp.json` (MCP server project-scope config) が JSON として
+      parse 可能かつ `mcpServers` dict を含むことを機械強制する。parse 失敗は Claude Code 起動
+      時の catastrophic 障害になるため、早期検出が必要。空 `mcpServers: {}` の placeholder は
+      OK。ファイル不在は ADVISORY (optional)。(BLOCKING when present)
+  80. .claude/skills/*/SKILL.md frontmatter integrity: .claude/skills/<name>/SKILL.md の全 skill
+      定義が、Claude Code 仕様の frontmatter (`name:` + `description:`) を持つことを機械強制
+      する。skill description は Claude が proactive な skill 呼び出し判断に使う重要シグナルで、
+      消失すると skill は登録されても呼び出されなくなる silent unavailability になる。
+      (BLOCKING when present, ADVISORY when absent)
 
 Exit codes:
   0 — all checks passed
@@ -2961,6 +2983,138 @@ else:
         "Check 75: docs/incident-artifacts/README.md exists",
         "Check 75: docs/incident-artifacts/README.md が無い — Plan D inventory が消失",
     )
+
+# ── 76. .claude/settings.json security baseline (BLOCKING) ───────────────────
+# .claude/settings.json は Claude Code agent の権限境界を定義する重要設定。最低限の
+# security invariant: (a) `permissions.deny` に `git add .` / `-A` / `--all` の 3 パターン
+# が明示宣言されている (誤った全 stage 防止)、(b) WebP / MP3 への Edit/Write が deny
+# (binary AIO metadata 保護 C6)。Claude Code が agent として作業するときの safety net
+# を「設定ファイルに依存する暗黙の約束」から「機械強制契約」へ昇格させる。
+_settings76 = ROOT / ".claude" / "settings.json"
+if _settings76.exists():
+    try:
+        _sdata76 = json.loads(_settings76.read_text(encoding="utf-8"))
+        _deny76 = _sdata76.get("permissions", {}).get("deny", [])
+        _has_git_add76 = any("git add ." in d for d in _deny76)
+        _has_git_add_A76 = any("git add -A" in d for d in _deny76)
+        _has_git_add_all76 = any("git add --all" in d for d in _deny76)
+        _has_webp_deny76 = any("*.webp" in d for d in _deny76)
+        _has_mp3_deny76 = any("*.mp3" in d for d in _deny76)
+        _all76 = _has_git_add76 and _has_git_add_A76 and _has_git_add_all76 and _has_webp_deny76 and _has_mp3_deny76
+        check(
+            _all76,
+            "Check 76: .claude/settings.json declares security-baseline denies (git add . / -A / --all + *.webp + *.mp3)",
+            f"Check 76: .claude/settings.json security baseline incomplete — "
+            f"git add .={_has_git_add76}, -A={_has_git_add_A76}, --all={_has_git_add_all76}, "
+            f"webp deny={_has_webp_deny76}, mp3 deny={_has_mp3_deny76}. 全 5 項目を deny に明示せよ",
+        )
+    except json.JSONDecodeError as _e76:
+        check(False, "Check 76: .claude/settings.json parses as JSON", f"Check 76: settings.json JSON parse error: {_e76}")
+else:
+    check(False, "Check 76: .claude/settings.json exists", "Check 76: .claude/settings.json が消失")
+
+# ── 77. .claude/commands/ slash-command frontmatter integrity (BLOCKING) ─────
+# .claude/commands/*.md の全 slash-command 定義が、Claude Code 仕様に従った frontmatter
+# (`---\ndescription: <text>\n---`) を持つことを機械強制する。description フィールドが
+# 消失すると Claude Code は command を skill listing から拾えなくなり、UI で見えない
+# silent failure に陥る。
+_cmds77_dir = ROOT / ".claude" / "commands"
+if _cmds77_dir.is_dir():
+    _cmds77 = sorted(_cmds77_dir.glob("*.md"))
+    _bad77 = []
+    for _cmd in _cmds77:
+        _csrc = _cmd.read_text(encoding="utf-8")
+        _fm77 = re.match(r"^---\s*\n([\s\S]*?)\n---\s*\n", _csrc)
+        if not _fm77 or not re.search(r"^description:\s*\S", _fm77.group(1), re.MULTILINE):
+            _bad77.append(_cmd.name)
+    check(
+        not _bad77 and len(_cmds77) > 0,
+        f"Check 77: all {len(_cmds77)} .claude/commands/*.md have a valid frontmatter with description",
+        f"Check 77: slash-command(s) missing valid frontmatter/description: {_bad77} — "
+        f"Claude Code は description を skill listing で必須要求する",
+    )
+else:
+    check(False, "Check 77: .claude/commands/ exists", "Check 77: .claude/commands/ ディレクトリが消失")
+
+# ── 78. .claude/agents/ sub-agent frontmatter integrity (BLOCKING) ───────────
+# .claude/agents/*.md の全 sub-agent 定義が、Claude Code 仕様に従った frontmatter
+# (`name:` + `description:`) を持つことを機械強制する。sub-agent の description は
+# Agent tool の subagent_type 選択時に表示される真値で、消失すると orchestrator は
+# agent を呼び出せず silent unavailability になる。
+_agents78_dir = ROOT / ".claude" / "agents"
+if _agents78_dir.is_dir():
+    _agents78 = sorted(_agents78_dir.glob("*.md"))
+    _bad78 = []
+    for _ag in _agents78:
+        _asrc = _ag.read_text(encoding="utf-8")
+        _fm78 = re.match(r"^---\s*\n([\s\S]*?)\n---\s*\n", _asrc)
+        if not _fm78:
+            _bad78.append(f"{_ag.name}: missing frontmatter")
+            continue
+        _fm_body78 = _fm78.group(1)
+        if not re.search(r"^name:\s*\S", _fm_body78, re.MULTILINE):
+            _bad78.append(f"{_ag.name}: missing name:")
+        if not re.search(r"^description:\s*\S", _fm_body78, re.MULTILINE):
+            _bad78.append(f"{_ag.name}: missing description:")
+    check(
+        not _bad78 and len(_agents78) > 0,
+        f"Check 78: all {len(_agents78)} .claude/agents/*.md have valid frontmatter (name + description)",
+        f"Check 78: sub-agent(s) with invalid frontmatter: {_bad78} — "
+        f"Claude Code は name + description を agent 解決で必須要求する",
+    )
+else:
+    check(False, "Check 78: .claude/agents/ exists", "Check 78: .claude/agents/ ディレクトリが消失")
+
+# ── 79. .mcp.json JSON parsability (BLOCKING) ────────────────────────────────
+# `.mcp.json` (MCP server project-scope config) が JSON として parse 可能であることを
+# 機械強制する。空 `mcpServers: {}` の placeholder でも parse 成功すれば OK。parse 失敗
+# は Claude Code 起動時に MCP server provisioning が全て失敗する catastrophic 障害で、
+# 早期検出が必要。
+_mcp79 = ROOT / ".mcp.json"
+if _mcp79.exists():
+    try:
+        _mdata79 = json.loads(_mcp79.read_text(encoding="utf-8"))
+        _has_servers79 = "mcpServers" in _mdata79 and isinstance(_mdata79["mcpServers"], dict)
+        check(
+            _has_servers79,
+            f"Check 79: .mcp.json parses as JSON and has mcpServers dict ({len(_mdata79['mcpServers'])} servers)",
+            "Check 79: .mcp.json missing mcpServers dict — 空 {} でもよいので明示宣言せよ",
+        )
+    except json.JSONDecodeError as _e79:
+        check(False, "Check 79: .mcp.json parses as JSON", f"Check 79: .mcp.json JSON parse error: {_e79}")
+else:
+    warnings.append("Check 79 (ADVISORY): .mcp.json not present — optional, but recommended as a placeholder for future MCP integrations")
+
+# ── 80. .claude/skills/*/SKILL.md frontmatter integrity (BLOCKING) ───────────
+# .claude/skills/<name>/SKILL.md の全 skill 定義が、Claude Code 仕様に従った frontmatter
+# (`name:` + `description:`) を持つことを機械強制する。skill description は Claude が
+# proactive な skill 呼び出し判断に使う重要シグナルで、消失すると skill は登録されても
+# 呼び出されなくなる silent unavailability になる。
+_skills80_dir = ROOT / ".claude" / "skills"
+if _skills80_dir.is_dir():
+    _skills80 = sorted(_skills80_dir.glob("*/SKILL.md"))
+    _bad80 = []
+    for _sk in _skills80:
+        _ssrc = _sk.read_text(encoding="utf-8")
+        _fm80 = re.match(r"^---\s*\n([\s\S]*?)\n---\s*\n", _ssrc)
+        if not _fm80:
+            _bad80.append(f"{_sk.parent.name}/SKILL.md: missing frontmatter")
+            continue
+        _fm_body80 = _fm80.group(1)
+        if not re.search(r"^name:\s*\S", _fm_body80, re.MULTILINE):
+            _bad80.append(f"{_sk.parent.name}/SKILL.md: missing name:")
+        if not re.search(r"^description:\s*\S", _fm_body80, re.MULTILINE):
+            _bad80.append(f"{_sk.parent.name}/SKILL.md: missing description:")
+    if _skills80:
+        check(
+            not _bad80,
+            f"Check 80: all {len(_skills80)} .claude/skills/*/SKILL.md have valid frontmatter (name + description)",
+            f"Check 80: skill(s) with invalid frontmatter: {_bad80} — Claude Code は name + description を skill 解決で必須要求する",
+        )
+    else:
+        warnings.append("Check 80 (ADVISORY): .claude/skills/ exists but no SKILL.md found")
+else:
+    warnings.append("Check 80 (ADVISORY): .claude/skills/ not present — optional, 将来 skill 追加時にディレクトリ作成")
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
