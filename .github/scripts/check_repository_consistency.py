@@ -423,6 +423,18 @@ authoritative inventory and is kept in sync with the implementation below):
       ことを機械強制。「日付同期を tool が責務として持つ」契約を構造保護。(BLOCKING)
   95. _lib_io.py date helpers: `_lib_io.py` に `now_iso8601` / `update_webp_xmp_dates` /
       `update_mp3_metadata_date` の 3 public helper が存在することを機械強制 (6 案)。(BLOCKING)
+  96. Phase 1 shipped-code 1-to-1 docs bijection: Phase 1 対象 shipped code (33 ファイル) が
+      `docs/files/<path>.md` のミラー構造で 1 対 1 ドキュメント化されていることを機械強制
+      (Docs 七 Phase 計画の Phase 7 骨格 — Phase 2-6 完了時に対象拡張)。新規 shipped ファイル
+      追加時の doc 漏れを pre-commit fail で構造防止。(BLOCKING)
+  97. docs/files/*.md frontmatter integrity: 各 1 対 1 doc が必須 frontmatter
+      (`file` / `audience` / `last-updated` / `canonical-ref`) を持つことを機械強制。
+      drift を pre-commit で防止。(BLOCKING)
+  98. docs/files/*.md 5+1-axis section presence: 各 1 対 1 doc が必須 6 セクション見出し
+      (`## What` / `## Why` / `## How` / `## Constraints` / `## Change impact` /
+      `## Audience-specific notes`) を持つことを機械強制 (`_template.md` 整合)。(BLOCKING)
+  99. docs/files/README.md + _template.md presence: 1 対 1 docs の inventory (README.md) と
+      template (_template.md) が両方存在することを機械強制。(BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -3486,6 +3498,88 @@ if _lib95.exists():
     )
 else:
     check(False, "Check 95: _lib_io.py exists", "Check 95: _lib_io.py が消失")
+
+# ── 96. Phase 1 shipped-code 1-to-1 docs bijection (BLOCKING) ────────────────
+# Docs Phase 7 骨格: Phase 1 対象 shipped code (33 ファイル) が `docs/files/<path>.md`
+# のミラー構造で 1 対 1 ドキュメント化されていることを機械強制。新規 shipped ファイルを
+# 追加するたびに対応 doc も同時に作成しないと pre-commit fail。Phase 2-6 は順次拡張。
+_phase1_targets96 = [
+    "main.js", "index.html", "style.css", "sw.js", "aio-guard.js",
+    "error-suppressor.js", "karte-init.js", "theme-init.js",
+    "googlea7059bedc6fe8bdc.html",
+    "js/aidk-rails.js", "js/apps.js", "js/brand.js", "js/components.js",
+    "js/constants.js", "js/fatal-overlay.js", "js/identity.js",
+    "js/meta-management.js", "js/mobile-drawer.js", "js/page-meta.js",
+    "js/pages.js", "js/perf-guards.js", "js/pure-utils.js",
+    "js/quiz-renderer.js", "js/router.js", "js/state.js",
+    "js/storage.js", "js/store.js", "js/theme.js", "js/ui-components.js",
+    "js/quiz/architecture-quiz-data.js", "js/quiz/aws-quiz-data.js",
+    "js/quiz/pm-quiz-data.js", "js/quiz/quality-quiz-data.js",
+]
+_missing96 = []
+for _t in _phase1_targets96:
+    _doc = ROOT / "docs" / "files" / f"{_t}.md"
+    if not _doc.exists():
+        _missing96.append(_t)
+check(
+    not _missing96,
+    f"Check 96: all {len(_phase1_targets96)} Phase 1 shipped-code files have 1-to-1 docs at docs/files/<path>.md",
+    f"Check 96: missing 1-to-1 docs for: {_missing96} — `docs/files/_template.md` を元に作成せよ",
+)
+
+# ── 97. docs/files/*.md frontmatter integrity (BLOCKING) ─────────────────────
+# 各 1 対 1 doc が必須 frontmatter (file / audience / last-updated / canonical-ref) を
+# 持つことを機械強制。drift を pre-commit で防止。
+_docs97_dir = ROOT / "docs" / "files"
+_bad97 = []
+if _docs97_dir.is_dir():
+    for _md in _docs97_dir.rglob("*.md"):
+        if _md.name in ("README.md", "_template.md"):
+            continue
+        _src = _md.read_text(encoding="utf-8")
+        _fm = re.match(r"^---\s*\n([\s\S]*?)\n---\s*\n", _src)
+        if not _fm:
+            _bad97.append(f"{_md.relative_to(_docs97_dir)}: no frontmatter")
+            continue
+        _fm_body = _fm.group(1)
+        for _required in ["file:", "audience:", "last-updated:", "canonical-ref:"]:
+            if not re.search(rf"^{_required}", _fm_body, re.MULTILINE):
+                _bad97.append(f"{_md.relative_to(_docs97_dir)}: missing {_required}")
+check(
+    not _bad97,
+    f"Check 97: all docs/files/*.md have required frontmatter (file / audience / last-updated / canonical-ref)",
+    f"Check 97: doc frontmatter issues: {_bad97[:5]}{'...' if len(_bad97) > 5 else ''}",
+)
+
+# ── 98. docs/files/*.md 5-axis section presence (BLOCKING) ───────────────────
+# 各 1 対 1 doc が必須 5+1 セクション見出し (## What / ## Why / ## How / ## Constraints
+# / ## Change impact / ## Audience-specific notes) を持つことを機械強制。template と
+# のセクション整合を pre-commit で保証。
+_required_sections98 = ["## What", "## Why", "## How", "## Constraints", "## Change impact", "## Audience-specific notes"]
+_bad98 = []
+if _docs97_dir.is_dir():
+    for _md in _docs97_dir.rglob("*.md"):
+        if _md.name in ("README.md", "_template.md"):
+            continue
+        _src = _md.read_text(encoding="utf-8")
+        _missing_sec = [s for s in _required_sections98 if s not in _src]
+        if _missing_sec:
+            _bad98.append(f"{_md.relative_to(_docs97_dir)}: missing {_missing_sec}")
+check(
+    not _bad98,
+    f"Check 98: all docs/files/*.md have required 5+1-axis sections (What / Why / How / Constraints / Change impact / Audience-specific notes)",
+    f"Check 98: doc section issues: {_bad98[:3]}{'...' if len(_bad98) > 3 else ''}",
+)
+
+# ── 99. docs/files/README.md + _template.md presence (BLOCKING) ──────────────
+# 1 対 1 docs の inventory と template が存在することを機械強制。
+_inventory99 = ROOT / "docs" / "files" / "README.md"
+_template99 = ROOT / "docs" / "files" / "_template.md"
+check(
+    _inventory99.exists() and _template99.exists(),
+    "Check 99: docs/files/README.md (inventory) と _template.md (5-軸 template) が両方存在",
+    f"Check 99: missing — README.md={_inventory99.exists()}, _template.md={_template99.exists()}",
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
