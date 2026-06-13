@@ -3504,6 +3504,7 @@ else:
 # のミラー構造で 1 対 1 ドキュメント化されていることを機械強制。新規 shipped ファイルを
 # 追加するたびに対応 doc も同時に作成しないと pre-commit fail。Phase 2-6 は順次拡張。
 _phase1_targets96 = [
+    # Phase 1: shipped code (33)
     "main.js", "index.html", "style.css", "sw.js", "aio-guard.js",
     "error-suppressor.js", "karte-init.js", "theme-init.js",
     "googlea7059bedc6fe8bdc.html",
@@ -3515,6 +3516,12 @@ _phase1_targets96 = [
     "js/storage.js", "js/store.js", "js/theme.js", "js/ui-components.js",
     "js/quiz/architecture-quiz-data.js", "js/quiz/aws-quiz-data.js",
     "js/quiz/pm-quiz-data.js", "js/quiz/quality-quiz-data.js",
+    # Phase 2: AIO 正本層 + crawler 制御 (11)
+    "llms.txt", "llms-full.txt", "llms_well-known.txt",
+    ".well-known/llms.txt", ".well-known/llms_well-known.txt",
+    ".well-known/aio-manifest.json", ".well-known/index.json",
+    ".well-known/agent-skills/index.json", ".well-known/mcp.json",
+    "robots.txt", "sitemap.xml",
 ]
 _missing96 = []
 for _t in _phase1_targets96:
@@ -3523,7 +3530,7 @@ for _t in _phase1_targets96:
         _missing96.append(_t)
 check(
     not _missing96,
-    f"Check 96: all {len(_phase1_targets96)} Phase 1 shipped-code files have 1-to-1 docs at docs/files/<path>.md",
+    f"Check 96: all {len(_phase1_targets96)} Phase 1+2 files (shipped + AIO published) have 1-to-1 docs at docs/files/<path>.md",
     f"Check 96: missing 1-to-1 docs for: {_missing96} — `docs/files/_template.md` を元に作成せよ",
 )
 
