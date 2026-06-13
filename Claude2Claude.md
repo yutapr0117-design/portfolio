@@ -161,6 +161,7 @@ for i, b in enumerate(blocks):
 ## 現在状態（2026-05-31）
 
 - **Pipeline-Version：v74**（current）。「v80+」は更新トラック名であり、アプリ版数ではない。
+- **Affiliation (entity-canonical)**: 株式会社日本経営 (Nihon Keiei / 日本経営グループ — 国内最大規模級の医業経営コンサルティングファーム), シェアデータベース事業部 主幹（課長格）, 2026-06-11〜. Organization canonical URL: https://nkgr.co.jp/ — index.html JSON-LD の `Person.worksFor` および llms.txt / llms-full.txt / aio-manifest.json / WebP XMP / MP3 ID3 と整合する正本記述。
 - **v80+ staged major update track：ACTIVE**（STARTED 2026-05-29、Session Record #15）。Phase 0/1（E2E baseline 実効化・保守性マップ整備）は Session Record #16（2026-05-30）で着手済み。
 - **最新 Session Record：#19**（`AI2AI.md`、2026-05-31）。Phase 2-A（package.json/lockfile/npm ci の中央管理）を導入し、ESLint ゲートを vacuous から実効 BLOCKING（errors+実行失敗=BLOCKING / 体裁は warn 降格）へ昇格、consistency Check 32–36（JSON-LD parse・Zenn slug 整合・honest dating・robots Sitemap・未来日 lastmod）を追加、`.gitignore` を新設した回。直前の #18 は掲載Zenn記事の全11本AIO順 再選定と整合化。`main.js` Stage 0〜5 の計画は `AI2AI.md` STEP 7・`docs/architecture/main-js-extraction-map.md`・`decision-v80-maintainability-roadmap.md`。
 - **C制約は C1〜C7**（C7 = KARTE CDN SRI非適用）。
