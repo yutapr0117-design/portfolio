@@ -2867,7 +2867,12 @@ else:
 #   (73c) hero 画像 (yuta-yokoi-ai-pm-orchestration-system.webp) に
 #         `fetchpriority="high"` を指定 (LCP 改善契約の固定)
 _html73 = read("index.html")
-_preload73 = re.findall(r"<link[^>]*\brel=\"preload\"[^>]*>", _html73)
+# HTML コメント (<!-- ... -->) を pre-strip。コメント内に literal `<img>` や preload tag を
+# 記述している可能性があり、それらは実際の DOM 要素ではない (browser は描画しない) ため
+# accessibility / CWV 契約の対象外。Check 7b/7c が同じ pattern で comment-strip 済み。
+_html_no_comments73 = re.sub(r"<!--.*?-->", "", _html73, flags=re.DOTALL)
+
+_preload73 = re.findall(r"<link[^>]*\brel=\"preload\"[^>]*>", _html_no_comments73)
 _preload_no_as73 = [p for p in _preload73 if not re.search(r"\bas=", p)]
 check(
     not _preload_no_as73,
@@ -2876,7 +2881,7 @@ check(
     f"preload は as 無指定だと無効 (Chrome は warning を出す)。as=script/style/image/font 等を指定せよ",
 )
 
-_img73 = re.findall(r"<img\b[^>]*>", _html73)
+_img73 = re.findall(r"<img\b[^>]*>", _html_no_comments73)
 _img_no_alt73 = [t for t in _img73 if not re.search(r"\balt=", t)]
 check(
     not _img_no_alt73,
@@ -2890,7 +2895,7 @@ _hero_pattern73 = re.compile(
     rf"<link[^>]*href=\"[./]*{re.escape(_HERO_IMG_73)}\"[^>]*>",
     re.IGNORECASE,
 )
-_hero_tags73 = _hero_pattern73.findall(_html73)
+_hero_tags73 = _hero_pattern73.findall(_html_no_comments73)
 _hero_has_fp73 = any("fetchpriority=\"high\"" in t for t in _hero_tags73)
 check(
     _hero_has_fp73 and len(_hero_tags73) > 0,
