@@ -18,7 +18,8 @@ Within the scope of this public repository and its timestamped artifacts, it dem
 - Validation and rollback discipline (CI/CD, version audit trail)
 
 **Portfolio URL:** https://yutapr0117-design.github.io/portfolio/  
-**Author:** Yuta Yokoi (横井雄太 / Yokoi Yuta) — AI-Driven PM / IT Consultant  
+**Author:** Yuta Yokoi (横井雄太 / Yokoi Yuta) — AI-Driven PM / IT Consultant / KERNEL Framework Designer  
+**Affiliation:** 株式会社日本経営 (Nihon Keiei / Japan Management Co., Ltd.) — シェアデータベース事業部 主幹（課長格）, 2026-06-11〜. Organization canonical URL: https://nkgr.co.jp/  
 **Current version:** v74 | **Update track:** v80+ staged major update (started 2026-05-29)
 
 > **Purpose & Strategy**  

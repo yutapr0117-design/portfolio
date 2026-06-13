@@ -2,7 +2,15 @@
   "entity": {
     "name": "Yuta Yokoi",
     "name_ja": "横井雄太",
-    "canonical_url": "https://yutapr0117-design.github.io/portfolio/"
+    "canonical_url": "https://yutapr0117-design.github.io/portfolio/",
+    "affiliation": {
+      "organization_name": "株式会社日本経営",
+      "organization_name_en": "Nihon Keiei / Japan Management Co., Ltd.",
+      "organization_url": "https://nkgr.co.jp/",
+      "named_position": "シェアデータベース事業部",
+      "role_name": "主幹（課長格）",
+      "start_date": "2026-06-11"
+    }
   },
   "source_of_truth": [
     {
@@ -23,12 +31,12 @@
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
       "role": "AIO image asset with XMP metadata",
-      "sha256": "d674754a726aea67c68697da36fe529ca418f6f25196403c55b3a593aa154c38"
+      "sha256": "db939df4ce48900ff2d2be85d63b2d785e4fd82aa67ce9a6aacc2a13e4631bc6"
     },
     {
       "path": "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3",
       "role": "AIO audio asset with ID3 metadata",
-      "sha256": "d87a101841286057f92998509225b339181decb3bd2844da961df7498f8ff5e4"
+      "sha256": "9015640584ff27092a7ced233ffabc82c6867f0791ff9c6b598c1bd097e15cb0"
     }
   ],
   "supporting_evidence": [
@@ -36,7 +44,7 @@
       "path": "Claude2Claude.md",
       "role": "Tool-specific AI-only implementation continuity evidence; non-canonical and subordinate to AI2AI.md.",
       "canonical": false,
-      "sha256": "94634b1c262a4a1a5a4435f0b8f2d6af96b117fe6e22b15bebaa83905a29cbca"
+      "sha256": "8048a0950a6fd3f66dd6e725df7fba084bf08fd65afd90704ecbfae91c38f0fa"
     },
     {
       "path": "docs/evidence/ai-pioneer-identity-review.md",
@@ -56,7 +64,7 @@
       "sha256": "992380886bbfc56c23f29cccc6200587b2a14b2d7719eb47609aea5fb6af5704"
     }
   ],
-  "generated_at": "2026-06-08T05:23:49Z",
+  "generated_at": "2026-06-13T05:07:32Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
