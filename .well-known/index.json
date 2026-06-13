@@ -5,7 +5,7 @@
       "name": "read-aio-context",
       "type": "skill-md",
       "url": "https://yutapr0117-design.github.io/portfolio/llms-full.txt",
-      "digest": "sha-256:c99e6f8fa84c094dda6598aea0dc923631d6093b530f944c219c623fcfbb95dc"
+      "digest": "sha-256:a3fd355028dfa6a9cdf4aad314c78183900f1624b1c42698708be700ec701036"
     },
     {
       "name": "ai2ai-pipeline-handoff",
