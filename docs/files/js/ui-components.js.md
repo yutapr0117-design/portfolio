@@ -15,6 +15,22 @@ UI building blocks module (303 行)。`h` (hyperscript) / `createIcon` (SVG icon
 
 main.js Stage 4 で物理分割。DOM builder と SVG icon と Toast を 1 module に集約して、各 page component から使う共通インフラ。
 
+## How (usage)
+
+```
+main.js / 各 factory module
+  └─ import { h, createIcon, Toast, BGM } from './js/ui-components.js'
+  └─ const el = h('div', {class: 'card'}, ['Hello', h('br'), 'World'])
+  └─ const icon = createIcon('chevron-down', 24)
+  └─ Toast.show('Saved!', { type: 'success' })
+  └─ BGM.play() / BGM.pause()
+```
+
+## Change impact
+
+- `h()` シグネチャ変更 → 全 page component (1,000+ 箇所) に影響
+- SVG icon 追加 → createIcon の lookup table 拡張 + assets/icons.svg sprite 更新
+
 ## Constraints
 
 - **closure-deps = none**, factory pattern なし (Stage 4 時点では純 named export)

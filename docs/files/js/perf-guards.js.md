@@ -15,6 +15,16 @@ Performance Guards factory module (161 行)。`createPerfGuards()` を export。
 
 main.js Stage 5-s で物理分割。runtime での layout thrash / media leak を防ぐ guard を集約。引数注入なし (純粋な monkey-patch hook)。
 
+## How (usage)
+
+```
+main.js
+  └─ import { createPerfGuards } from './js/perf-guards.js'
+  └─ createPerfGuards()  // DOM API prototype を hook (副作用のみ、返り値不要)
+```
+
+起動時に 1 度だけ呼べば、以降の全 DOM 操作に guard が適用される。
+
 ## Constraints
 
 - **factory pattern** (Check 56, 61)

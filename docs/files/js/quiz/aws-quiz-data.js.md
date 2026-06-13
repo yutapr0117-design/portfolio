@@ -15,6 +15,19 @@ AWS 問題集 static data (819 行)。最大データセット。`questions` 配
 
 Stage 3-b で Quiz データを domain 別に分割した 4 ファイルのうち最大。AWS サービスに関する問題を集約。
 
+## How (usage)
+
+```
+main.js
+  └─ import awsQuizData from './js/quiz/aws-quiz-data.js'
+  └─ createQuizRenderer({ quizData: { aws: awsQuizData, ... } })
+```
+
+## Change impact
+
+- question schema 変更 → 4 domain 全部 + quiz-renderer.js 同期
+- 行数増加 → Check 52 budget (900 行) 超過時は budget 引き上げ判断
+
 ## Constraints
 
 - **closure-deps = none** (純データ)

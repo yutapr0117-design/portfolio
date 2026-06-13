@@ -15,6 +15,14 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5) / js/meta-m
 
 ルート毎の meta を 1 箇所に集約 (AI SURFACE)。meta-management.js が runtime でこれを参照して `<head>` に注入する。
 
+## How (usage)
+
+```
+js/meta-management.js
+  └─ import { PAGE_META } from './js/page-meta.js'
+  └─ applyMeta(routeName) → PAGE_META[routeName] を <head> へ反映
+```
+
 ## Constraints
 
 - **closure-deps = none** (純粋データ)

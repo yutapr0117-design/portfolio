@@ -17,6 +17,15 @@ Stage 5-b で main.js から物理分割した際、`h` / `createIcon` / `Router
 
 教訓: 物理分割では closure-deps = none + 引数注入を厳格に守る (Check 56 / 61 で機械強制)。
 
+## How (usage)
+
+```
+main.js
+  └─ import { createPages } from './js/pages.js'
+  └─ const Pages = createPages({ h, createIcon, Router, ContactCTA })
+       └─ Router の change イベントで Pages.<RouteName>() を呼んで render
+```
+
 ## Constraints
 
 - **factory pattern** (Check 56, 61)

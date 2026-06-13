@@ -31,6 +31,11 @@ main.js
 - **Check 47**: import/export bijection
 - **Check 52**: 200 行 ≤ 280
 
+## Change impact
+
+- API 名変更 → js/components.js の `_drawer = {}` holder への wire 変更
+- focus trap / inert 制御変更 → mobile UI accessibility テストへの影響
+
 ## Audience-specific notes
 
 ### For AI agents

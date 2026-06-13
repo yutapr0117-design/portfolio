@@ -15,6 +15,19 @@ PM (Project Management) 問題集 static data (271 行)。`questions` 配列を 
 
 Stage 3-b で Quiz データを domain 別に分割した 4 ファイルの 1 つ。PM 関連の意思決定 / 知識を問う問題群。entity (Yuta Yokoi) の knowsAbout (AI-Driven Project Management 等) と整合。
 
+## How (usage)
+
+```
+main.js
+  └─ import pmQuizData from './js/quiz/pm-quiz-data.js'
+  └─ createQuizRenderer({ quizData: { pm: pmQuizData, ... } })
+```
+
+## Change impact
+
+- question schema 変更 → 4 domain 全部 + quiz-renderer.js 同期
+- PM 系問題の方向性変更 → entity knowsAbout (JSON-LD) との整合確認
+
 ## Constraints
 
 - **closure-deps = none** (純データ)

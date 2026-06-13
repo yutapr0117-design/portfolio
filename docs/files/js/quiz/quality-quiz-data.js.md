@@ -15,6 +15,18 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 3-b) / js/quiz
 
 Stage 3-b で Quiz データを domain 別に分割した 4 ファイルの 1 つ。品質 (testing / linting / static analysis) とプロセス関連の問題を集約。
 
+## How (usage)
+
+```
+main.js
+  └─ import qualityQuizData from './js/quiz/quality-quiz-data.js'
+  └─ createQuizRenderer({ quizData: { quality: qualityQuizData, ... } })
+```
+
+## Change impact
+
+- question schema 変更 → 4 domain 全部 + quiz-renderer.js 同期
+
 ## Constraints
 
 - **closure-deps = none** (純データ)

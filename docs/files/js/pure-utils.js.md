@@ -15,6 +15,16 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 2)
 
 main.js から最初に切り出した pure function 群。Stage 2 で抽出されてから現在まで安定 (factory pattern 化以前の純 named export 形式)。
 
+## How (usage)
+
+```
+main.js / 各 factory module
+  └─ import { escape, tokenize, clamp, debounce, throttle, ... } from './js/pure-utils.js'
+       └─ 必要な関数を named import して呼ぶ
+```
+
+副作用ゼロ・外部依存ゼロなので、どこから呼んでも安全。
+
 ## Constraints
 
 - **closure-deps = none**, factory pattern なし (純関数 named export)

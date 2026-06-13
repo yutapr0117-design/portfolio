@@ -15,6 +15,22 @@ Theme factory module (65 行)。`createTheme({Storage})` を export。system / d
 
 main.js Stage 5-i で物理分割。`theme-init.js` (起動最早期の FOUC 防止) と分担: theme-init が同期で初期 class を適用、theme.js が runtime cycle / matchMedia listener を担当。
 
+## How (usage)
+
+```
+main.js
+  └─ import { createTheme } from './js/theme.js'
+  └─ const Theme = createTheme({ Storage })
+       └─ Theme.cycle()       // system → dark → light → system
+       └─ Theme.set('dark')   // 直接指定
+       └─ matchMedia listener で system 変更を自動反映
+```
+
+## Change impact
+
+- theme class 名変更 → theme-init.js / style.css の selector / Storage key 整合
+- cycle 順序変更 → UI で表示するアイコン順と同期
+
 ## Constraints
 
 - **factory pattern** (Check 56, 61), closure-deps = none
