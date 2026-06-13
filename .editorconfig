@@ -1,0 +1,33 @@
+# .editorconfig — repository-wide editor defaults
+# https://editorconfig.org/
+#
+# Lightweight editor governance that complements the existing CI gates
+# (stylelint / ESLint flat config / check_repository_consistency.py).
+# This file does not enforce formatting in CI; it merely aligns editor
+# behavior across humans and AIs editing the repo, reducing whitespace
+# drift in PR diffs.
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Python (CI scripts) — PEP 8 standard 4-space indentation.
+[*.py]
+indent_size = 4
+
+# Markdown — preserve trailing whitespace (used for hard line breaks in some docs).
+[*.md]
+trim_trailing_whitespace = false
+
+# YAML — strict 2-space; trailing whitespace breaks GitHub Actions parse.
+[*.{yml,yaml}]
+indent_size = 2
+
+# Binary AIO assets — handled by .gitattributes (CRLF protection + diff suppression).
+# Do NOT add binary patterns here; .gitattributes is the authoritative source.

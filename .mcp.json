@@ -1,0 +1,5 @@
+{
+  "$schema": "https://json.schemastore.org/mcp.json",
+  "_comment": "Project-scope MCP (Model Context Protocol) server config. Currently empty — this repo does not yet wire up any MCP server (the static portfolio + AI-Driven PM workflow runs without external context providers). The file is committed as a placeholder so adding a future MCP server (e.g. a Linear / Notion / GitHub integration) is a single-key edit rather than a new-file decision. If you add a server, follow the @modelcontextprotocol/sdk conventions and re-run check_repository_consistency.py to confirm Check 79 still parses.",
+  "mcpServers": {}
+}
