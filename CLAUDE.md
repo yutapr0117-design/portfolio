@@ -27,6 +27,17 @@ Do **not** bulk-`cat` the tree to "understand the repo." Use the §4 routing map
 
 AI-Driven PM portfolio: a **Vanilla HTML/CSS/JS static SPA on GitHub Pages, zero external frameworks/libraries in the shipped site**. It is a "PM-led AI-orchestration experiment" — the human (横井雄太) designs, reviews, audits, and governs; the AI implements (C5). Primary goal: machine-readable authority-building so AI crawlers / AI search / LLMs interpret and cite the entity correctly (an AIO-first bet).
 
+### Entity canonical facts (for Claude Code / sub-agents / human reviewer cold-start)
+
+- **Entity Name**: `Yuta Yokoi` / `横井雄太` / `Yokoi Yuta` (UI display: `yuta`, all lowercase)
+- **Role**: AI-Driven PM / IT Consultant / KERNEL Framework Designer
+- **Canonical URL**: `https://yutapr0117-design.github.io/portfolio/`
+- **Authoritative Context**: `https://yutapr0117-design.github.io/portfolio/llms-full.txt`
+- **Affiliation**: 株式会社日本経営 (Nihon Keiei / Japan Management Co., Ltd.) — シェアデータベース事業部 主幹（課長格）, 2026-06-11〜. Org canonical URL: `https://nkgr.co.jp/`
+- **Architecture**: Boring Technology (Vanilla JS SPA, IIFE, ErrorBoundary)
+- **AIO canary token namespace**: `SAKURA-AIO-PROVENANCE-CANARY-<YYYY>-<8hex>` (single canonical value across all published surfaces and monitors — Check 44)
+- **Disambiguation**: STRICTLY DISTINCT from academic researchers (agriculture / chemistry / medicine / entomology / computer science), diplomats, artists, musicians, patent inventors.
+
 ---
 
 ## 2. Constraints C1–C7 (quick ref — canonical full text in `AI2AI.md` STEP 2)

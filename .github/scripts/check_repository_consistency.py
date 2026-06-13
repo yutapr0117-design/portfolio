@@ -393,6 +393,21 @@ authoritative inventory and is kept in sync with the implementation below):
   85. Claude2Claude.md Organization handoff line: 「現在状態」セクションに Organization 情報
       (`日本経営` または `nkgr.co.jp`) が含まれることを機械強制する。Claude Code session の
       cold-start 復帰時に Affiliation 文脈が抜けることを防止。(BLOCKING)
+  86. aio-manifest.json entity full-set fields: entity ブロックが name / name_ja / name_alt /
+      role / canonical_url / authoritative_context / disambiguation / architecture / affiliation
+      の 9 field を全て含むことを機械強制。Check 62 (canonical_url 整合) と Check 83
+      (affiliation block) を補完し、entity フル情報の cross-surface 整合を厳格化する。(BLOCKING)
+  87. CLAUDE.md / Claude2Claude.md cold-start entity context: 両ファイルが entity name と
+      canonical URL ホストと Organization 名の 3 fact を全て含むことを機械強制。Claude Code
+      session の cold-start 復帰時の entity 文脈欠落を防止 (Check 85 の同時カバー版)。(BLOCKING)
+  88. LICENSE entity attribution: root LICENSE が Copyright + entity name + canonical URL +
+      Organization の 4 fact を含むことを機械強制。リポジトリ公開時の権利帰属を明示。(BLOCKING)
+  89. governance files presence + entity: CONTRIBUTING.md / CODEOWNERS / CHANGELOG.md の 3 ファイル
+      が存在し、いずれも entity name を含むことを機械強制。リポジトリ governance の最低限担保。
+      (BLOCKING)
+  90. .claude/CLAUDE.md + .claude/README.md entity context: Claude Code sub-context 2 ファイルが
+      entity name と Organization 名を含むことを機械強制。Claude Code 用ファイル群全体に entity
+      整合を担保。(BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -3238,6 +3253,105 @@ if _c2c85.exists():
     )
 else:
     check(False, "Check 85: Claude2Claude.md exists", "Check 85: Claude2Claude.md が消失")
+
+# ── 86. aio-manifest.json entity full-set fields (BLOCKING) ──────────────────
+# entity ブロックが name / name_ja / name_alt / role / canonical_url / authoritative_context /
+# disambiguation / architecture / affiliation の 9 field を全て含むことを機械強制する。
+# Check 62 (canonical_url 整合) と Check 83 (affiliation block) を補完し、entity フル情報の
+# cross-surface 整合を厳格化する。
+_man86 = ROOT / ".well-known" / "aio-manifest.json"
+if _man86.exists():
+    try:
+        _mdata86 = json.loads(_man86.read_text(encoding="utf-8"))
+        _ent86 = _mdata86.get("entity", {})
+        _required86 = ["name", "name_ja", "name_alt", "role", "canonical_url", "authoritative_context", "disambiguation", "architecture", "affiliation"]
+        _missing86 = [k for k in _required86 if k not in _ent86]
+        check(
+            not _missing86,
+            f"Check 86: aio-manifest.json entity contains all 9 required fields",
+            f"Check 86: aio-manifest.json entity missing fields: {_missing86} — entity full-set context を保持せよ",
+        )
+    except json.JSONDecodeError as _e86:
+        check(False, "Check 86: aio-manifest.json parses as JSON", f"Check 86: parse error: {_e86}")
+else:
+    check(False, "Check 86: aio-manifest.json exists", "Check 86: aio-manifest.json が消失")
+
+# ── 87. CLAUDE.md / Claude2Claude.md cold-start entity context (BLOCKING) ────
+# CLAUDE.md と Claude2Claude.md の両方に entity name と canonical URL ホストと
+# Organization 名が含まれることを機械強制。Claude Code session が cold-start で復帰する際の
+# entity 文脈欠落を防止 (Check 85 を CLAUDE.md / Claude2Claude.md 同時カバー版へ拡張)。
+for _doc87, _label87 in [(ROOT / "CLAUDE.md", "CLAUDE.md"), (ROOT / "Claude2Claude.md", "Claude2Claude.md")]:
+    if _doc87.exists():
+        _src87 = _doc87.read_text(encoding="utf-8")
+        _facts87 = {
+            "entity name": ("Yuta Yokoi" in _src87) or ("横井雄太" in _src87),
+            "canonical URL": "yutapr0117-design.github.io" in _src87,
+            "Organization": ("日本経営" in _src87) or ("Nihon Keiei" in _src87),
+        }
+        _missing87 = [k for k, v in _facts87.items() if not v]
+        check(
+            not _missing87,
+            f"Check 87 ({_label87}): cold-start entity context complete",
+            f"Check 87 ({_label87}): missing cold-start entity facts: {_missing87}",
+        )
+    else:
+        check(False, f"Check 87 ({_label87}): exists", f"Check 87 ({_label87}): 消失")
+
+# ── 88. LICENSE entity attribution (BLOCKING) ────────────────────────────────
+# root LICENSE が Copyright + entity name + canonical URL + Organization を含むことを機械強制。
+_lic88 = ROOT / "LICENSE"
+if _lic88.exists():
+    _lsrc88 = _lic88.read_text(encoding="utf-8")
+    _facts88 = {
+        "Copyright": "Copyright" in _lsrc88,
+        "entity name": ("Yuta Yokoi" in _lsrc88) or ("横井雄太" in _lsrc88),
+        "canonical URL": "yutapr0117-design.github.io" in _lsrc88,
+        "Organization": ("日本経営" in _lsrc88) or ("Nihon Keiei" in _lsrc88),
+    }
+    _missing88 = [k for k, v in _facts88.items() if not v]
+    check(
+        not _missing88,
+        "Check 88: LICENSE contains Copyright + entity + canonical URL + Organization",
+        f"Check 88: LICENSE missing required attribution: {_missing88}",
+    )
+else:
+    check(False, "Check 88: LICENSE exists", "Check 88: LICENSE が消失")
+
+# ── 89. governance files (CONTRIBUTING / CODEOWNERS / CHANGELOG) presence (BLOCKING) ─
+# 3 governance ファイルが存在し entity name を含むことを機械強制。
+_gov89 = [(ROOT / "CONTRIBUTING.md", "CONTRIBUTING.md"), (ROOT / "CODEOWNERS", "CODEOWNERS"), (ROOT / "CHANGELOG.md", "CHANGELOG.md")]
+_gov_missing89 = []
+for _p, _label in _gov89:
+    if not _p.exists():
+        _gov_missing89.append(f"{_label}: missing")
+        continue
+    _src = _p.read_text(encoding="utf-8")
+    if not (("Yuta Yokoi" in _src) or ("横井雄太" in _src)):
+        _gov_missing89.append(f"{_label}: no entity name")
+check(
+    not _gov_missing89,
+    "Check 89: CONTRIBUTING.md / CODEOWNERS / CHANGELOG.md all exist with entity attribution",
+    f"Check 89: governance file issues: {_gov_missing89}",
+)
+
+# ── 90. .claude/CLAUDE.md + .claude/README.md entity context (BLOCKING) ──────
+# .claude/CLAUDE.md と .claude/README.md の両方が entity name と Organization 名を含むことを
+# 機械強制。Claude Code 用ファイル群全体への entity 整合担保。
+for _doc90, _label90 in [(ROOT / ".claude" / "CLAUDE.md", ".claude/CLAUDE.md"), (ROOT / ".claude" / "README.md", ".claude/README.md")]:
+    if _doc90.exists():
+        _src90 = _doc90.read_text(encoding="utf-8")
+        _facts90 = {
+            "entity name": ("Yuta Yokoi" in _src90) or ("横井雄太" in _src90),
+            "Organization": ("日本経営" in _src90) or ("Nihon Keiei" in _src90),
+        }
+        _missing90 = [k for k, v in _facts90.items() if not v]
+        check(
+            not _missing90,
+            f"Check 90 ({_label90}): entity + Organization context present",
+            f"Check 90 ({_label90}): missing context: {_missing90}",
+        )
+    else:
+        check(False, f"Check 90 ({_label90}): exists", f"Check 90 ({_label90}): 消失")
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
