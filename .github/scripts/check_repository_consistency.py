@@ -281,11 +281,12 @@ authoritative inventory and is kept in sync with the implementation below):
       引用先が外部ホストを指す事態になる。Check 35 (robots.txt の Sitemap directive 存在確認)
       と Check 39 (sitemap loc 実在確認) を補完する「同一 origin 一致」の structural integrity
       検査。(BLOCKING)
-  64. check-repository-consistency-map.md table row ascending order: 当該文書の Check 一覧表が
-      `| Check N | ... |` 形式で番号昇順に並ぶことを機械強制する。table 行が降順／重複してい
-      ると新規 Check の挿入位置を誤り、番号衝突を引き起こす（Stage 5-l / 5-k' の naming 衝突
-      と同種 class）。本 Check は表内の `Check N` を順次抽出し、ascending strict であることを
-      機械強制する。(BLOCKING)
+  64. check-repository-consistency-map.md Check-number uniqueness: 当該文書の機能カテゴリ別
+      (A〜F) 表に列挙された Check 番号がカテゴリをまたいで重複しないことを機械強制する。番号
+      重複は「Check N は何の検査か」を一意解決不能にし、新規 Check の挿入位置を誤って番号
+      衝突を引き起こす (Stage 5-l / 5-k' の naming 衝突と同種 class)。番号順序自体はカテゴリ
+      境界でリセットするため強制しない (各カテゴリ内では ascending、カテゴリ間では非単調) —
+      番号一意性のみが本質的に守るべき invariant。(BLOCKING)
   65. docs/architecture/*.md Last-Updated ISO-8601 format: 全 docs/architecture/*.md について
       `Last-Updated:` フィールドが存在する場合は値が ISO-8601 `YYYY-MM-DD` 形式に厳密に従うこ
       とを機械強制する。Last-Updated は「文書がいつ真値だったか」を読み手 (AI/human) に伝える
@@ -2596,27 +2597,33 @@ if _robots63.exists() and _sitemap63.exists() and _manifest62.exists():
 else:
     warnings.append("Check 63: robots.txt / sitemap.xml / aio-manifest.json 一部欠落 — origin alignment skipped")
 
-# ── 64. check-repository-consistency-map.md Check-row ascending (BLOCKING) ────
+# ── 64. check-repository-consistency-map.md Check-number uniqueness (BLOCKING) ─
 # docs/architecture/check-repository-consistency-map.md は本ファイル check_repository_
-# consistency.py の Check 一覧を一行 = 一 Check で表形式に列挙したガバナンス文書。各行は
-# `| Check N | ... |` 形式で番号が昇順に並ぶことが「人間レビュアーが Check の追加位置を
-# 一瞬で判断できる」という運用前提を支える。table 行の番号が降順／重複していると、新規
-# Check の挿入位置を誤り、Check 番号衝突を引き起こす（過去 Stage 5-l / 5-k' の naming 衝突
-# と同種の class）。本 Check は表内の `Check N` を順次抽出し、ascending strict であることを
-# 機械強制する。
+# consistency.py の Check 一覧を機能カテゴリ別 (A〜F) の表形式で列挙したガバナンス文書。
+# 各カテゴリ表は `| N | 検査内容 | BLOCKING |` 形式 (N = Check 番号) で並ぶ。番号がカテ
+# ゴリをまたいで重複すると、人間レビュアーが「Check N は何の検査か」を一意に解決できなく
+# なり、新規 Check の挿入位置を誤って番号衝突を引き起こす (Stage 5-l / 5-k' の naming 衝突
+# と同種の class)。本 Check は全カテゴリ表の Check 番号を抽出し、重複が 0 件であることを
+# 機械強制する。番号順序自体はカテゴリ境界でリセットするため強制しない (各カテゴリ内では
+# ascending だが、カテゴリ間では非単調) — 番号一意性のみが本質的に守るべき invariant。
 _map64 = ROOT / "docs" / "architecture" / "check-repository-consistency-map.md"
 if _map64.exists():
     _msrc64 = _map64.read_text(encoding="utf-8")
-    _nums64 = [int(m) for m in re.findall(r"\|\s*Check\s+(\d+)[a-z]?\s*\|", _msrc64)]
-    _ascending64 = all(_nums64[i] <= _nums64[i + 1] for i in range(len(_nums64) - 1))
+    # 行頭が `| <数字> |` 形式の行を抽出 (category 表のみ; §3 級別表は行頭 `| BLOCKING` で除外)
+    _nums64 = [int(m) for m in re.findall(r"^\|\s*(\d+)[a-z]?\s*\|", _msrc64, re.MULTILINE)]
+    _seen64: dict[int, int] = {}
+    for _n in _nums64:
+        _seen64[_n] = _seen64.get(_n, 0) + 1
+    _dups64 = sorted([n for n, c in _seen64.items() if c > 1])
     check(
-        _ascending64 and len(_nums64) > 0,
-        f"Check 64: check-repository-consistency-map.md table rows are in ascending order ({len(_nums64)} rows, range {_nums64[0] if _nums64 else 0}..{_nums64[-1] if _nums64 else 0})",
-        f"Check 64: check-repository-consistency-map.md table rows NOT ascending — sequence = {_nums64}. "
-        f"テーブル内の `| Check N |` 行は番号昇順に並べよ (新規 Check の挿入位置誤認防止)",
+        not _dups64 and len(_nums64) > 0,
+        f"Check 64: check-repository-consistency-map.md Check 番号は全カテゴリで一意 "
+        f"({len(_nums64)} 行, distinct={len(_seen64)})",
+        f"Check 64: check-repository-consistency-map.md に重複した Check 番号: {_dups64} — "
+        f"新規 Check の挿入位置を誤って番号衝突 (Stage 5-l / 5-k' クラス)。重複番号を解消せよ",
     )
 else:
-    warnings.append("Check 64: check-repository-consistency-map.md not found — ascending row check skipped")
+    warnings.append("Check 64: check-repository-consistency-map.md not found — uniqueness check skipped")
 
 # ── 65. docs/architecture/*.md Last-Updated ISO-8601 format (BLOCKING) ────────
 # docs/architecture/ 配下の全 .md について、`Last-Updated:` フィールドが存在する場合は
