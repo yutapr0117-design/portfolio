@@ -2609,16 +2609,17 @@ else:
 _map64 = ROOT / "docs" / "architecture" / "check-repository-consistency-map.md"
 if _map64.exists():
     _msrc64 = _map64.read_text(encoding="utf-8")
-    # 行頭が `| <数字> |` 形式の行を抽出 (category 表のみ; §3 級別表は行頭 `| BLOCKING` で除外)
-    _nums64 = [int(m) for m in re.findall(r"^\|\s*(\d+)[a-z]?\s*\|", _msrc64, re.MULTILINE)]
-    _seen64: dict[int, int] = {}
-    for _n in _nums64:
-        _seen64[_n] = _seen64.get(_n, 0) + 1
-    _dups64 = sorted([n for n, c in _seen64.items() if c > 1])
+    # 行頭が `| <数字><suffix?> |` 形式の行を抽出 (category 表のみ; §3 級別表は行頭 `| BLOCKING` で除外)
+    # alpha suffix を含めた identifier として保存 (Check 7 / 7b / 7c は別 identifier として一意性検査)
+    _ids64 = re.findall(r"^\|\s*(\d+[a-z]?)\s*\|", _msrc64, re.MULTILINE)
+    _seen64: dict[str, int] = {}
+    for _id in _ids64:
+        _seen64[_id] = _seen64.get(_id, 0) + 1
+    _dups64 = sorted([i for i, c in _seen64.items() if c > 1])
     check(
         not _dups64 and len(_nums64) > 0,
-        f"Check 64: check-repository-consistency-map.md Check 番号は全カテゴリで一意 "
-        f"({len(_nums64)} 行, distinct={len(_seen64)})",
+        f"Check 64: check-repository-consistency-map.md Check 番号 (alpha suffix 含む) は全カテゴリで一意 "
+        f"({len(_ids64)} 行, distinct={len(_seen64)})",
         f"Check 64: check-repository-consistency-map.md に重複した Check 番号: {_dups64} — "
         f"新規 Check の挿入位置を誤って番号衝突 (Stage 5-l / 5-k' クラス)。重複番号を解消せよ",
     )
