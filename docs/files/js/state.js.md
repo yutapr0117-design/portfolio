@@ -15,6 +15,24 @@ State factory module (240 行)。`createState({Storage})` を export。Proxy ベ
 
 main.js Stage 5-h で物理分割。Proxy traps で型違反を runtime に検出し、subscriber pattern で UI 連動、`storage` event で cross-tab 同期、debounced auto-save で localStorage 永続化。
 
+## How (usage)
+
+```
+main.js
+  └─ import { createState } from './js/state.js'
+  └─ const State = createState({ Storage })
+       └─ State.set(key, value) / State.get(key) / State.subscribe(fn)
+            └─ Proxy traps で型違反を検出 → throw
+            └─ subscribers に通知 → UI 再描画
+            └─ debounced で Storage.setItem (auto-save)
+            └─ 別タブの storage event で再 hydrate
+```
+
+## Change impact
+
+- Proxy schema 変更 → js/store.js の validate/normalize と整合
+- subscriber API 変更 → 全 page component の bind ロジック
+
 ## Constraints
 
 - **factory pattern** (Check 56, 61), closure-deps = none

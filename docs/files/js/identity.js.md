@@ -15,6 +15,16 @@ AUTHOR (DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME) 純データ module (
 
 main.js Stage 5-e で物理分割。runtime で entity 名 (Yuta Yokoi / 横井雄太 / yuta UI display) を参照する単一ソースを提供。
 
+## How (usage)
+
+```
+main.js / 各 factory module
+  └─ import { AUTHOR } from './js/identity.js'
+       └─ AUTHOR.DISPLAY_NAME / .AUTHORITATIVE_NAME / .JAPANESE_NAME を参照
+```
+
+`js/meta-management.js` の `applyMeta()` で title/og:title への注入、`js/components.js` の footer / contact 等で表示に使用。
+
 ## Constraints
 
 - **closure-deps = none** (純粋データ)

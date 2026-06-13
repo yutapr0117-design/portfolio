@@ -15,6 +15,26 @@ Quiz Renderer factory module (259 行)。`createQuizRenderer({deps})` を export
 
 main.js Stage 5-o で物理分割。Quiz 機能の renderer logic を独立 module へ。4 domain のデータは `js/quiz/<domain>-quiz-data.js` に分散 (Stage 3-b 抽出)、quiz-renderer がそれらを統合 render する。
 
+## How (usage)
+
+```
+main.js
+  └─ import { createQuizRenderer } from './js/quiz-renderer.js'
+  └─ import architectureQuizData from './js/quiz/architecture-quiz-data.js'
+  └─ ... + 3 domains
+  └─ const QuizPage = createQuizRenderer({
+        h, createIcon, Store, State,
+        quizData: { architecture, aws, pm, quality }
+     })
+```
+
+Router が `#/quiz` route に到達したら QuizPage を render。
+
+## Change impact
+
+- 新 domain 追加 → js/quiz/<domain>-quiz-data.js 新設 + quiz-renderer の lookup table 拡張 + main.js import
+- question schema 変更 → 4 domain data 全部に同期適用
+
 ## Constraints
 
 - **factory pattern** (Check 56, 61), closure-deps = none
