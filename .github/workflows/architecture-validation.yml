@@ -178,12 +178,15 @@ jobs:
           grep -q "require-trusted-types-for" index.html || echo "::warning::CSP require-trusted-types-for directive missing"
           echo "Trusted Types check complete."
 
-      # P0-09: Version consistency — delegated to check_repository_consistency.py.
-      # Inline Python heredoc was removed: YAML/shell/Python triple-escaping caused
-      # SyntaxError in CI (quote characters inside heredoc regex broke Python parser).
-      # check_repository_consistency.py is an actual .py file with no escaping issues
-      # and covers all the same checks plus more (llms alias, CSP position, etc.).
-      - name: "BLOCKING: Version Consistency Check across all canonical fields (P0-09)"
+      # Version consistency + cross-file invariants — delegated to
+      # check_repository_consistency.py. Inline Python heredoc was removed: YAML/shell/
+      # Python triple-escaping caused SyntaxError in CI. The .py file has no escaping
+      # issues and covers all canonical-version checks plus llms alias byte-identity,
+      # CSP position, JS module bijection, AIO entity URL, CI permission baseline, and
+      # the full Check 1-71 inventory. v80+ CI hygiene: this is the SINGLE blocking
+      # invocation of the script in this workflow (the historical step-30 duplicate
+      # was removed). If new checks are added, they are picked up here automatically.
+      - name: "BLOCKING: Repository consistency check (Check 1-71, all canonical invariants)"
         run: python3 .github/scripts/check_repository_consistency.py
 
       - name: Verify Async Font Loading (Core Web Vitals)
@@ -568,7 +571,7 @@ jobs:
       # check_css_stylelint.py now covers style.css AND inline <style> blocks.
       # The direct npx stylelint call below is removed to avoid double-reporting;
       # all logic is consolidated in check_css_stylelint.py.
-      - name: "BLOCKING(error)/ADVISORY(warning): Stylelint CSS specificity and variable enforcement (P0-16/P0-17)"
+      - name: "BLOCKING(error)/ADVISORY(warning): Stylelint CSS specificity and variable enforcement"
         run: |
           # stylelint is pinned in package.json and installed via `npm ci` earlier in
           # this job. check_css_stylelint.py invokes `npx stylelint`. The previously
@@ -588,19 +591,16 @@ jobs:
       - name: "BLOCKING: Binary AIO metadata integrity (WebP XMP / MP3 ID3)"
         run: python3 .github/scripts/check_binary_aio_metadata.py
 
-      # ── 30. BLOCKING: Repository consistency (P0-23) ─────────────────────
-      # Cross-file invariants: version alignment, llms alias byte-identity,
-      # CSP position, stale markers, Python syntax.
-      # NOTE: P0-09 (step 14) also calls this script for version checks.
-      # Running it again here is intentional: step 14 is an early fail-fast gate;
-      # step 30 is the full post-validation pass after all other checks complete.
-      - name: "BLOCKING: Repository consistency check (P0-23)"
-        run: python3 .github/scripts/check_repository_consistency.py
-
-      # ── 31. ADVISORY: CSP meta position and inline handler audit (P1-04) ─
+      # ── 30. ADVISORY: CSP meta position and inline handler audit ─────────
+      # v80+ CI hygiene: the historical "step 30 = re-run consistency check as a
+      # post-validation pass" was removed. step 14 already runs check_repository_
+      # consistency.py with all blocking invariants; if it passes there, re-running
+      # the identical script later is pure CI time tax and adds no signal. The
+      # inline-handler / CSP-position audit below is preserved as the actual final
+      # advisory pass after every blocking gate has cleared.
       # Warns if inline event handlers (on*=) are detected in index.html.
       # This is advisory because some framework-free patterns legitimately use them.
-      - name: "ADVISORY: CSP inline handler audit (P1-04)"
+      - name: "ADVISORY: CSP inline handler audit (final pass)"
         run: |
           python3 - << 'EOF'
           import re, sys

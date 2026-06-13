@@ -267,6 +267,67 @@ authoritative inventory and is kept in sync with the implementation below):
       キーワードが含まれていることを機械強制する。これは「factory として抽出した経緯」を
       後続 AI / 人間レビュアーが file 単体を読むだけで認識できることを保証し、抽出経緯の
       ドキュメント drift を構造的に閉じる。(BLOCKING)
+  62. AIO entity canonical_url cross-surface identity: aio-manifest.json の `entity.canonical_url`
+      と llms-full.txt の `Canonical URL:` 値が 1 バイトも違わずに一致することを機械強制する。
+      Entity の canonical URL は AIO 識別子の最重要 anchor — manifest と canon (llms-full) の
+      双方が同じ URL を主張していないと、引用先 / クローラの ground-truth が分かれ、entity
+      disambiguation が崩れる。C6 範疇内で「両者が drift したら BLOCKING」する Check 4 (llms 系
+      byte-identity) の発想を entity-URL 単位に降ろした検査。(BLOCKING)
+  63. Crawler discovery origin alignment: robots.txt `Sitemap:` URL の origin、aio-manifest.json
+      `entity.canonical_url` の origin、sitemap.xml の全 `<loc>` の origin が完全に同一である
+      ことを機械強制する。クローラは robots.txt → sitemap.xml の順に discover するため、両者
+      が origin drift していると crawler は別ホストの URL を「同サイトの一部」と誤認するか
+      丸ごと取りこぼす。さらに entity.canonical_url の origin もこれらと一致していないと、AIO
+      引用先が外部ホストを指す事態になる。Check 35 (robots.txt の Sitemap directive 存在確認)
+      と Check 39 (sitemap loc 実在確認) を補完する「同一 origin 一致」の structural integrity
+      検査。(BLOCKING)
+  64. check-repository-consistency-map.md Check-number uniqueness: 当該文書の機能カテゴリ別
+      (A〜F) 表に列挙された Check 番号がカテゴリをまたいで重複しないことを機械強制する。番号
+      重複は「Check N は何の検査か」を一意解決不能にし、新規 Check の挿入位置を誤って番号
+      衝突を引き起こす (Stage 5-l / 5-k' の naming 衝突と同種 class)。番号順序自体はカテゴリ
+      境界でリセットするため強制しない (各カテゴリ内では ascending、カテゴリ間では非単調) —
+      番号一意性のみが本質的に守るべき invariant。(BLOCKING)
+  65. docs/architecture/*.md Last-Updated ISO-8601 format: 全 docs/architecture/*.md について
+      `Last-Updated:` フィールドが存在する場合は値が ISO-8601 `YYYY-MM-DD` 形式に厳密に従うこ
+      とを機械強制する。Last-Updated は「文書がいつ真値だったか」を読み手 (AI/human) に伝える
+      正本シグナルで、フォーマット揺れ (e.g. `06-13-2026`) は honest-dating 原則を内部から
+      侵食する。Check 34 が sitemap lastmod との一致を ADVISORY で見るのに対し、本 Check は
+      「日付フォーマットそのもの」を BLOCKING で固定する責務分離。(BLOCKING)
+  66. index.html <title> entity-identifier presence: index.html の `<title>` 要素に entity
+      primary identifier (`yuta` または `横井`、いずれも case-insensitive) が含まれることを
+      機械強制する。`<title>` は SEO/AIO 検索結果の最重要 anchor で、entity 名が含まれていな
+      いと SERP/LLM 引用時に「これは誰のサイトか」が一瞬で判定できなくなり、AIO 戦略（「機械
+      可読な authority building」）の効果が消失する。C6 範疇内で title の「ブランディング
+      anchor」性を機械強制する。(BLOCKING)
+  67. GitHub Actions workflow explicit permissions: .github/workflows/*.yml の全ファイルに
+      top-level `permissions:` ブロックが明示宣言されていることを機械強制する。permissions: が
+      無いと GitHub の default token は full read/write 相当の広い権限になり、CWE-275
+      (Missing Actions Permissions) クラスのセキュリティ問題となる。Check 48 (snapshot
+      workflow の permissions 二重宣言整合) を補完する「全 workflow 適用版」の security
+      baseline。(BLOCKING)
+  68. dependabot.yml dual-ecosystem coverage: .github/dependabot.yml が `npm` (devDependencies
+      の月次更新) と `github-actions` (workflow action major tag の月次更新) の両 ecosystem を
+      update 対象に含むことを機械強制する。Dev tooling と GitHub Actions の自動更新は v80+ CI
+      hygiene の基盤で、どちらかが欠落すると人手で月次更新を追跡する負債が積み上がる。設定
+      ファイル drift を BLOCKING で防ぐ。(BLOCKING)
+  69. package.json engines.node ↔ CI node-version pin alignment: package.json `engines.node`
+      が CI workflow の Node version pin (`node-version: '24'`) を許容する範囲を含むことを機械
+      強制する。両者が drift していると CI は 24 でビルドするが package.json は別 version を
+      強制するため、ローカル開発と CI で実行 Node が分かれる inconsistency が生まれる。
+      setup-node@v6 の pin と engines が許容範囲で揃っていることを pre-commit で保証する。
+      (BLOCKING)
+  70. total-check-runbook.md §9 check-count cross-reference: docs/architecture/total-check-
+      runbook.md §9 の「consistency Check 総数」行に記述された Check 件数 (`**N**`) が
+      check_repository_consistency.py の実装上の Check 番号最大値と一致することを機械強制する。
+      Check 45 が docstring inventory ↔ section header の bijection を見るのに対し、本 Check
+      は「実装ファイル ↔ runbook §9」の cross-document 整合性を担う。新 Check 追加時に runbook
+      を更新し忘れる drift を pre-commit で構造的に閉じる。(BLOCKING)
+  71. file-size-budget.md BUDGET-DATA path existence: docs/architecture/file-size-budget.md
+      §4 BUDGET-DATA に列挙された各エントリのパスが実在ファイルを指すことを機械強制する。
+      BUDGET-DATA は Check 52 (ADVISORY 行数予算) の真値だが、ファイル rename / 削除後に
+      BUDGET-DATA から行を消し忘れると Check 52 が「存在しないファイル」を黙ってスキップし、
+      削除後の monitoring drift が見えなくなる。本 Check は「BUDGET-DATA に登録された path は
+      全て実在する」を BLOCKING で保証する。(BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -2469,6 +2530,273 @@ check(
     f"{_doc_drift61} — add a header comment noting that the module uses the factory pattern, "
     f"for the benefit of future readers (AI or human).",
 )
+
+# ── 62. AIO entity canonical_url cross-surface identity (BLOCKING) ────────────
+# aio-manifest.json の `entity.canonical_url` と llms-full.txt の `Canonical URL:` 値が
+# 1 バイトも違わずに一致することを機械強制する。Entity の canonical URL は AIO 識別子の
+# 最重要 anchor — manifest と canon (llms-full) の双方が同じ URL を主張していないと、
+# 引用先 / クローラの ground-truth が分かれ、entity disambiguation が崩れる。C6 の
+# 範疇内で「両者が drift していたら BLOCKING」する。これは Check 4 (llms 系 byte-identity)
+# の発想を entity-URL 単位に降ろした検査。
+_manifest62 = ROOT / ".well-known" / "aio-manifest.json"
+_llmsfull62 = ROOT / "llms-full.txt"
+if _manifest62.exists() and _llmsfull62.exists():
+    try:
+        _mdata62 = json.loads(_manifest62.read_text(encoding="utf-8"))
+        _entity_url62 = _mdata62.get("entity", {}).get("canonical_url", "")
+    except json.JSONDecodeError:
+        _entity_url62 = ""
+    _llms_match62 = re.search(r"Canonical URL:\s*\**\s*(https?://\S+?)\s*(?:\s|\*|$)", _llmsfull62.read_text(encoding="utf-8"))
+    _llms_url62 = _llms_match62.group(1) if _llms_match62 else ""
+    check(
+        _entity_url62 and _entity_url62 == _llms_url62,
+        f"Check 62: aio-manifest entity.canonical_url ({_entity_url62}) == llms-full.txt Canonical URL — entity identifier consistent across AIO layers",
+        f"Check 62: AIO entity canonical_url drift — aio-manifest={_entity_url62!r}, llms-full={_llms_url62!r}. "
+        f"Entity の canonical URL は最重要 anchor。両者を再同期せよ (C6 範疇)",
+    )
+else:
+    warnings.append("Check 62: aio-manifest.json or llms-full.txt not found — entity-URL check skipped")
+
+# ── 63. Crawler discovery origin alignment (BLOCKING) ─────────────────────────
+# robots.txt の `Sitemap:` URL の origin、aio-manifest.json `entity.canonical_url` の origin、
+# sitemap.xml の全 `<loc>` の origin が完全に同一であることを機械強制する。クローラは
+# robots.txt → sitemap.xml の順に discover するため、両者が origin drift していると
+# crawler は別ホストの URL を「同サイトの一部」と誤認するか、丸ごと取りこぼす。さらに
+# entity.canonical_url の origin もこれらと一致していないと、AIO 引用先が外部ホストを
+# 指す事態になる。Check 35 (robots.txt の Sitemap directive 存在確認) と Check 39
+# (sitemap loc の実在確認) を補完する「同一 origin 一致」の structural integrity 検査。
+_robots63 = ROOT / "robots.txt"
+_sitemap63 = ROOT / "sitemap.xml"
+if _robots63.exists() and _sitemap63.exists() and _manifest62.exists():
+    _sm_match63 = re.search(r"^Sitemap:\s*(https?://\S+)", _robots63.read_text(encoding="utf-8"), re.MULTILINE)
+    _sm_url63 = _sm_match63.group(1) if _sm_match63 else ""
+    _sm_origin63 = re.match(r"(https?://[^/]+)", _sm_url63)
+    _sm_origin_v63 = _sm_origin63.group(1) if _sm_origin63 else ""
+    try:
+        _tree63 = ET.parse(str(_sitemap63))
+        _ns63 = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+        _locs63 = [el.text for el in _tree63.getroot().findall(".//s:loc", _ns63) if el.text]
+    except ET.ParseError:
+        _locs63 = []
+    _loc_origins63 = set()
+    for _loc in _locs63:
+        _m = re.match(r"(https?://[^/]+)", _loc)
+        if _m:
+            _loc_origins63.add(_m.group(1))
+    _entity_origin63 = ""
+    _em = re.match(r"(https?://[^/]+)", _entity_url62 or "")
+    if _em:
+        _entity_origin63 = _em.group(1)
+    _all_origins63 = _loc_origins63 | ({_sm_origin_v63} if _sm_origin_v63 else set()) | ({_entity_origin63} if _entity_origin63 else set())
+    check(
+        len(_all_origins63) == 1,
+        f"Check 63: crawler discovery origins all agree at {sorted(_all_origins63)[0] if _all_origins63 else '(none)'} (robots Sitemap + sitemap loc + aio-manifest entity)",
+        f"Check 63: crawler discovery origin drift — distinct origins = {sorted(_all_origins63)}. "
+        f"robots.txt Sitemap, sitemap.xml <loc> origins, aio-manifest entity.canonical_url origin は全て同一ホストでなければクローラが取りこぼす",
+    )
+else:
+    warnings.append("Check 63: robots.txt / sitemap.xml / aio-manifest.json 一部欠落 — origin alignment skipped")
+
+# ── 64. check-repository-consistency-map.md Check-number uniqueness (BLOCKING) ─
+# docs/architecture/check-repository-consistency-map.md は本ファイル check_repository_
+# consistency.py の Check 一覧を機能カテゴリ別 (A〜F) の表形式で列挙したガバナンス文書。
+# 各カテゴリ表は `| N | 検査内容 | BLOCKING |` 形式 (N = Check 番号) で並ぶ。番号がカテ
+# ゴリをまたいで重複すると、人間レビュアーが「Check N は何の検査か」を一意に解決できなく
+# なり、新規 Check の挿入位置を誤って番号衝突を引き起こす (Stage 5-l / 5-k' の naming 衝突
+# と同種の class)。本 Check は全カテゴリ表の Check 番号を抽出し、重複が 0 件であることを
+# 機械強制する。番号順序自体はカテゴリ境界でリセットするため強制しない (各カテゴリ内では
+# ascending だが、カテゴリ間では非単調) — 番号一意性のみが本質的に守るべき invariant。
+_map64 = ROOT / "docs" / "architecture" / "check-repository-consistency-map.md"
+if _map64.exists():
+    _msrc64 = _map64.read_text(encoding="utf-8")
+    # 行頭が `| <数字><suffix?> |` 形式の行を抽出 (category 表のみ; §3 級別表は行頭 `| BLOCKING` で除外)
+    # alpha suffix を含めた identifier として保存 (Check 7 / 7b / 7c は別 identifier として一意性検査)
+    _ids64 = re.findall(r"^\|\s*(\d+[a-z]?)\s*\|", _msrc64, re.MULTILINE)
+    _seen64: dict[str, int] = {}
+    for _id in _ids64:
+        _seen64[_id] = _seen64.get(_id, 0) + 1
+    _dups64 = sorted([i for i, c in _seen64.items() if c > 1])
+    check(
+        not _dups64 and len(_ids64) > 0,
+        f"Check 64: check-repository-consistency-map.md Check 番号 (alpha suffix 含む) は全カテゴリで一意 "
+        f"({len(_ids64)} 行, distinct={len(_seen64)})",
+        f"Check 64: check-repository-consistency-map.md に重複した Check 番号: {_dups64} — "
+        f"新規 Check の挿入位置を誤って番号衝突 (Stage 5-l / 5-k' クラス)。重複番号を解消せよ",
+    )
+else:
+    warnings.append("Check 64: check-repository-consistency-map.md not found — uniqueness check skipped")
+
+# ── 65. docs/architecture/*.md Last-Updated ISO-8601 format (BLOCKING) ────────
+# docs/architecture/ 配下の全 .md について、`Last-Updated:` フィールドが存在する場合は
+# その値が ISO-8601 の `YYYY-MM-DD` 形式に厳密に従うことを機械強制する。Last-Updated は
+# 「文書がいつ真値だったか」を読み手 (AI/human) に伝える正本シグナルであり、フォーマット
+# 揺れ (e.g. `06-13-2026` / `2026.6.13`) は honest-dating 原則（Check 34/AI2AI.md カノン）
+# を内部から侵食する。Check 34 が sitemap lastmod との一致を ADVISORY で見るのに対し、
+# 本 Check は「日付フォーマットそのもの」を BLOCKING で固定する責務分離。
+_isodate65 = re.compile(r"^\s*Last-Updated\s*:\s*(.+?)\s*$", re.MULTILINE)
+_isoformat65 = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+_bad_dates65 = []
+for _md65 in sorted((ROOT / "docs" / "architecture").glob("*.md")):
+    _src65 = _md65.read_text(encoding="utf-8")
+    _m65 = _isodate65.search(_src65)
+    if _m65:
+        _val65 = _m65.group(1).strip()
+        if not _isoformat65.match(_val65):
+            _bad_dates65.append(f"{_md65.relative_to(ROOT)}: {_val65!r}")
+check(
+    not _bad_dates65,
+    "Check 65: all docs/architecture/*.md Last-Updated values are ISO-8601 (YYYY-MM-DD)",
+    f"Check 65: non-ISO-8601 Last-Updated values: {_bad_dates65} — "
+    f"全 docs/architecture/*.md の Last-Updated は `YYYY-MM-DD` 形式に統一せよ (honest-dating 原則)",
+)
+
+# ── 66. index.html <title> entity-identifier presence (BLOCKING) ──────────────
+# index.html の `<title>` 要素に entity primary identifier (`yuta` または `横井`、いずれも
+# case-insensitive) が含まれることを機械強制する。`<title>` は SEO/AIO 検索結果の最重要
+# anchor で、entity 名が含まれていないと SERP/LLM 引用時に「これは誰のサイトか」が一瞬で
+# 判定できなくなり、AIO 戦略（「機械可読な authority building」）の効果が消失する。
+# C6 範疇内で title の「ブランディング anchor」性を機械強制する検査。
+_title66 = re.search(r"<title>([^<]+)</title>", read("index.html"), re.IGNORECASE)
+_title_text66 = _title66.group(1) if _title66 else ""
+_has_entity66 = bool(re.search(r"yuta", _title_text66, re.IGNORECASE) or "横井" in _title_text66)
+check(
+    _has_entity66,
+    f"Check 66: index.html <title> contains entity primary identifier — title={_title_text66!r}",
+    f"Check 66: index.html <title> ({_title_text66!r}) lacks entity primary identifier "
+    f"('yuta' [case-insensitive] or '横井'). AIO/SEO の entity anchor 強度が失われる。"
+    f"title に entity 名を含めて再同期せよ",
+)
+
+# ── 67. GitHub Actions workflow explicit permissions (BLOCKING) ───────────────
+# .github/workflows/*.yml の全ファイルに top-level `permissions:` ブロックが明示宣言されて
+# いることを機械強制する。permissions: が無いと GitHub の default token は full read/write
+# 相当の広い権限になり、CWE-275 (Missing Actions Permissions) クラスのセキュリティ問題と
+# なる。実運用 5 workflow は既に明示宣言済みだが、新規 workflow 追加時にこれを忘れる drift
+# を pre-commit で構造的に閉じる。Check 48 (snapshot workflow の permissions 二重宣言整合)
+# を補完する「全 workflow 適用版」の security baseline。
+_perm_missing67 = []
+for _wf67 in sorted((ROOT / ".github" / "workflows").glob("*.yml")):
+    _wsrc67 = _wf67.read_text(encoding="utf-8")
+    if not re.search(r"^permissions:\s*$", _wsrc67, re.MULTILINE):
+        _perm_missing67.append(_wf67.name)
+check(
+    not _perm_missing67,
+    f"Check 67: all {len(list((ROOT / '.github' / 'workflows').glob('*.yml')))} workflows declare an explicit top-level permissions: block",
+    f"Check 67: workflows missing top-level permissions: block: {_perm_missing67}. "
+    f"GitHub Actions の default token は full r/w — 明示宣言で CWE-275 を防ぐ",
+)
+
+# ── 68. dependabot.yml dual-ecosystem coverage (BLOCKING) ─────────────────────
+# .github/dependabot.yml が `npm` (devDependencies の月次更新) と `github-actions`
+# (workflow action major tag の月次更新) の両 ecosystem を update 対象に含むことを
+# 機械強制する。Dev tooling (eslint / stylelint / playwright / http-server) と GitHub
+# Actions の自動更新は v80+ CI hygiene の基盤で、どちらかが欠落すると人手で月次更新を
+# 追跡する負債が積み上がる。設定ファイルの drift (e.g. 1 ecosystem だけ残してもう片方を
+# 消す) を BLOCKING で防ぐ。
+_dependabot68 = ROOT / ".github" / "dependabot.yml"
+if _dependabot68.exists():
+    _dsrc68 = _dependabot68.read_text(encoding="utf-8")
+    _has_npm68 = 'package-ecosystem: "npm"' in _dsrc68 or "package-ecosystem: 'npm'" in _dsrc68
+    _has_gha68 = 'package-ecosystem: "github-actions"' in _dsrc68 or "package-ecosystem: 'github-actions'" in _dsrc68
+    check(
+        _has_npm68 and _has_gha68,
+        "Check 68: dependabot.yml covers both npm and github-actions ecosystems",
+        f"Check 68: dependabot.yml is missing ecosystem coverage — npm={_has_npm68}, github-actions={_has_gha68}. "
+        f"両 ecosystem の月次更新は v80+ CI hygiene の基盤。両方を保持せよ",
+    )
+else:
+    warnings.append("Check 68: .github/dependabot.yml not found — ecosystem coverage check skipped")
+
+# ── 69. package.json engines.node ↔ CI node-version pin alignment (BLOCKING) ──
+# package.json `engines.node` が CI workflow の Node version pin (`node-version: '24'`) を
+# 許容する範囲を含むことを機械強制する。両者が drift していると CI は 24 でビルドするが
+# package.json は別 version を強制するため、ローカル開発と CI で実行 Node が分かれる
+# inconsistency が生まれる。setup-node@v6 の pin と engines が許容範囲で揃っていることを
+# pre-commit で保証する。
+_pkg69 = ROOT / "package.json"
+_engines69 = ""
+_ci_nodes69 = []
+if _pkg69.exists():
+    try:
+        _pkgdata69 = json.loads(_pkg69.read_text(encoding="utf-8"))
+        _engines69 = _pkgdata69.get("engines", {}).get("node", "")
+    except json.JSONDecodeError:
+        _engines69 = ""
+for _wf69 in sorted((ROOT / ".github" / "workflows").glob("*.yml")):
+    for _m in re.finditer(r"node-version:\s*['\"]?(\d+)['\"]?", _wf69.read_text(encoding="utf-8")):
+        _ci_nodes69.append(_m.group(1))
+# engines が `>=24` または `>=20` などの major-range 表現を含むか、CI pin の major を許容するか
+_ci_majors69 = set(_ci_nodes69)
+_satisfied69 = True
+_unsupported69 = []
+for _maj in _ci_majors69:
+    # engines 文字列に当該 major が含まれているか (e.g. ">=24" or "^24" or "24" )
+    if not re.search(rf"(>=|\^|~|\b){_maj}(\b|\.)", _engines69):
+        _satisfied69 = False
+        _unsupported69.append(_maj)
+check(
+    _satisfied69 and _engines69,
+    f"Check 69: package.json engines.node ({_engines69!r}) covers all CI node-version pins ({sorted(_ci_majors69)})",
+    f"Check 69: package.json engines.node ({_engines69!r}) does NOT cover CI node-version pin major(s) {sorted(_unsupported69)}. "
+    f"setup-node@v6 の pin と engines が許容範囲で揃っていないとローカル開発と CI が分裂する",
+)
+
+# ── 70. total-check-runbook.md §9 check-count cross-reference (BLOCKING) ──────
+# docs/architecture/total-check-runbook.md §9 の「consistency Check 総数」行に記述された
+# Check 件数 (`**N**`) が、check_repository_consistency.py の実際の Check 番号最大値と
+# 一致することを機械強制する。Check 45 が docstring inventory ↔ section header の bijection
+# を見るのに対し、本 Check は「実装ファイル ↔ runbook §9」の cross-document 整合性を担う。
+# 新 Check 追加時に runbook を更新し忘れる drift を pre-commit で構造的に閉じる。
+_runbook70 = ROOT / "docs" / "architecture" / "total-check-runbook.md"
+_self70 = ROOT / ".github" / "scripts" / "check_repository_consistency.py"
+if _runbook70.exists() and _self70.exists():
+    _self_src70 = _self70.read_text(encoding="utf-8")
+    _section_nums70 = [int(m) for m in re.findall(r"^# ── (\d+)\.\s", _self_src70, re.MULTILINE)]
+    _actual_max70 = max(_section_nums70) if _section_nums70 else 0
+    _runbook_src70 = _runbook70.read_text(encoding="utf-8")
+    _runbook_match70 = re.search(r"consistency Check 総数\s*\|\s*\*\*(\d+)\*\*", _runbook_src70)
+    _runbook_n70 = int(_runbook_match70.group(1)) if _runbook_match70 else 0
+    check(
+        _runbook_n70 == _actual_max70 and _actual_max70 > 0,
+        f"Check 70: total-check-runbook.md §9 records {_runbook_n70} checks == implementation max {_actual_max70}",
+        f"Check 70: total-check-runbook.md §9 records {_runbook_n70} but implementation has {_actual_max70}. "
+        f"runbook §9 の「consistency Check 総数」を `**{_actual_max70}**` に同期せよ",
+    )
+else:
+    warnings.append("Check 70: runbook or check script not found — count cross-reference skipped")
+
+# ── 71. file-size-budget.md BUDGET-DATA path existence (BLOCKING) ─────────────
+# docs/architecture/file-size-budget.md §4 BUDGET-DATA に列挙された各エントリのパスが
+# 実在ファイルを指すことを機械強制する。BUDGET-DATA は Check 52 (ADVISORY 行数予算) の
+# 真値だが、ファイル rename / 削除後に BUDGET-DATA から行を消し忘れると Check 52 が
+# 「存在しないファイル」を黙ってスキップし、削除後の monitoring drift が見えなくなる。
+# 本 Check は「BUDGET-DATA に登録された path は全て実在する」を BLOCKING で保証する。
+_budget71 = ROOT / "docs" / "architecture" / "file-size-budget.md"
+if _budget71.exists():
+    _bsrc71 = _budget71.read_text(encoding="utf-8")
+    _budgetblock71 = re.search(r"<!--\s*BUDGET-DATA(.*?)-->", _bsrc71, re.DOTALL)
+    _missing71 = []
+    _count71 = 0
+    if _budgetblock71:
+        for line in _budgetblock71.group(1).strip().split("\n"):
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            parts = [p.strip() for p in line.split("|")]
+            if len(parts) >= 3:
+                _p71 = parts[0]
+                _count71 += 1
+                if not (ROOT / _p71).exists():
+                    _missing71.append(_p71)
+    check(
+        not _missing71 and _count71 > 0,
+        f"Check 71: all {_count71} BUDGET-DATA paths in file-size-budget.md exist",
+        f"Check 71: BUDGET-DATA paths point at non-existent files: {_missing71}. "
+        f"ファイル rename/削除後に §4 BUDGET-DATA から該当行を削除して同期せよ "
+        f"(Check 52 silent-skip 防止)",
+    )
+else:
+    warnings.append("Check 71: file-size-budget.md not found — BUDGET-DATA existence check skipped")
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
