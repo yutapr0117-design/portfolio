@@ -328,6 +328,30 @@ authoritative inventory and is kept in sync with the implementation below):
       BUDGET-DATA から行を消し忘れると Check 52 が「存在しないファイル」を黙ってスキップし、
       削除後の monitoring drift が見えなくなる。本 Check は「BUDGET-DATA に登録された path は
       全て実在する」を BLOCKING で保証する。(BLOCKING)
+  72. ESLint baseline absolute-ceiling contract: file-size-budget.md の
+      `<!-- ESLINT-BASELINE-DATA <N> -->` ブロックが記録する warning 数 baseline N が、
+      sanity ceiling (200) を超えないことを機械強制する。Check 60 (ADVISORY 監視) を BLOCKING
+      化した姉妹 Check で、baseline 値が極端に大きい drift も同時に検出する。Plan A の
+      「絶対防衛線」を main.js / sw.js の AIDK Kernel 保護領域に手を入れることなく達成する
+      設計。baseline marker が消失している場合も BLOCKING で fail。(BLOCKING)
+  73. index.html accessibility/CWV HTML-attribute contract: index.html の HTML 属性のみで
+      完結する WCAG 2.2 / Core Web Vitals 契約を機械強制する。Playwright visual baseline
+      不変が前提のため、pixel diff を発生させない HTML 属性のみを対象とする (現状の good
+      practice を契約化して drift 防止): (73a) 全 <link rel="preload"> に as= 属性必須
+      (preload 仕様で as 無指定は無効); (73b) 全 <img> 要素に alt= 属性必須 (WCAG 1.1.1
+      Level A); (73c) hero 画像の preload に fetchpriority="high" 指定 (LCP 改善契約の
+      固定)。Plan B の HTML 属性スコープを BLOCKING 化。(BLOCKING)
+  74. .github/scripts/_lib_io.py helper module integrity: Plan C で抽出した純 helper module
+      `_lib_io.py` が `read` / `read_bytes` / `extract` / `csp_sri_hash` の 4 public 関数を
+      export することを機械強制する。sibling import の path 解決が壊れると script 全体が
+      ImportError で実行不能になり catastrophic に CI が落ちる。本 Check は import 成功時に
+      実行され、import 失敗時はそれ自体が fail-fast する設計 — 本 Check の役割は helper module
+      の API 契約 (4 関数の存在) を構造的に固定する。(BLOCKING)
+  75. docs/incident-artifacts/ README inventory completeness: docs/incident-artifacts/ 配下の
+      全 *.md / *.yml ファイルが README.md に列挙されていることを機械強制する。Plan D の
+      「物理移動なし、README で grouping を提供」設計を機械強制化したもので、incident-artifact
+      追加時に README 更新を忘れる drift を pre-commit で構造的に閉じる。README 自身は
+      inventory から除外。(BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -344,6 +368,16 @@ import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+# 純 I/O helper は sibling module `_lib_io.py` に抽出 (check-repository-consistency-
+# map.md §4 で予告された helper-first 抽出の第一歩)。sibling import は Python が
+# 実行スクリプトのディレクトリを自動 sys.path に含めるため、特別な path 操作不要。
+# 既存呼出インターフェース (`read(path)` / `read_bytes(path)` / `extract(pat, text)`)
+# は保持し、ROOT を bind した薄い wrapper で公開する。
+from _lib_io import csp_sri_hash as _lib_csp_sri_hash
+from _lib_io import extract
+from _lib_io import read as _lib_read
+from _lib_io import read_bytes as _lib_read_bytes
+
 ROOT = Path(__file__).resolve().parents[2]
 errors: list[str] = []
 warnings: list[str] = []
@@ -359,16 +393,13 @@ def check(condition: bool, msg_ok: str, msg_fail: str, blocking: bool = True) ->
 
 
 def read(path: str) -> str:
-    return (ROOT / path).read_text(encoding="utf-8")
+    """ROOT 基準で text ファイルを読む (互換 wrapper)."""
+    return _lib_read(path, root=ROOT)
 
 
 def read_bytes(path: str) -> bytes:
-    return (ROOT / path).read_bytes()
-
-
-def extract(pattern: str, text: str) -> str | None:
-    m = re.search(pattern, text)
-    return m.group(1) if m else None
+    """ROOT 基準で binary ファイルを読む (互換 wrapper)."""
+    return _lib_read_bytes(path, root=ROOT)
 
 
 # ── Load files ──────────────────────────────────────────────────────────────
@@ -465,9 +496,8 @@ check(
 # catches BOTH a removed hash AND content edited without recomputing the hash —
 # the exact failure mode that produced "Applying inline speculation rules violates ... script-src".
 def _csp_sri_hash(content: str) -> str:
-    return "sha256-" + base64.b64encode(
-        hashlib.sha256(content.encode("utf-8")).digest()
-    ).decode()
+    """互換 alias — 実装は `_lib_io.csp_sri_hash` に統合 (Plan C helper 抽出)."""
+    return _lib_csp_sri_hash(content)
 
 # Strip HTML comments first: comments may contain literal <script>...</script> strings
 # (e.g. the CSP architecture note documents the speculationrules tag), which would
@@ -2797,6 +2827,140 @@ if _budget71.exists():
     )
 else:
     warnings.append("Check 71: file-size-budget.md not found — BUDGET-DATA existence check skipped")
+
+# ── 72. ESLint baseline absolute-ceiling contract (BLOCKING) ─────────────────
+# file-size-budget.md の `<!-- ESLINT-BASELINE-DATA <N> -->` ブロックが記録する
+# warning 数 baseline N が、絶対的な上限契約として固定されていることを機械強制する。
+# 「現在のリポジトリ状態を確定上限 N とし、以降この値を上回ることを CI で防ぐ」と
+# いう絶対防衛線。Check 60 (ADVISORY 監視) を BLOCKING 化した姉妹 Check で、
+# baseline 値が極端に大きい (e.g. 数千) という drift も同時に検出する (sanity ceiling
+# = 200 を超えると BLOCKING で警告し、明示的な doc 更新を強要する)。これで Plan A
+# の「絶対防衛線」を sw.js / main.js の AIDK Kernel 保護領域に手を入れることなく
+# 達成する。
+_baseline72 = re.search(r"<!--\s*ESLINT-BASELINE-DATA\s+(\d+)\s+-->", _bsrc59 if _budget59.exists() else "")
+_BASELINE_SANITY_CEILING_72 = 200
+if _baseline72:
+    _n72 = int(_baseline72.group(1))
+    check(
+        _n72 <= _BASELINE_SANITY_CEILING_72,
+        f"Check 72: ESLint baseline {_n72} ≤ sanity ceiling {_BASELINE_SANITY_CEILING_72} (絶対防衛線)",
+        f"Check 72: ESLint baseline {_n72} exceeds sanity ceiling {_BASELINE_SANITY_CEILING_72} — "
+        f"baseline 値が制御不能な水準。保護領域外の lint 負債が静かに増えた可能性。"
+        f"file-size-budget.md の ESLINT-BASELINE-DATA を見直し、増分の根拠を doc に明文化せよ",
+    )
+else:
+    check(
+        False,
+        "Check 72: ESLint baseline marker present",
+        "Check 72: file-size-budget.md に `<!-- ESLINT-BASELINE-DATA <N> -->` が無い — "
+        "Plan A 絶対防衛線が消失している。baseline marker を追加せよ",
+    )
+
+# ── 73. index.html accessibility/CWV HTML-attribute contract (BLOCKING) ──────
+# index.html の機械強制 HTML accessibility / Core Web Vitals 契約。Plan B の HTML
+# 属性のみで完結する範囲を BLOCKING 化することで、style.css に触れずに WCAG 2.2 /
+# CWV シグナルを構造的に固定する。Playwright visual baseline 不変が前提のため、
+# pixel diff を発生させない HTML 属性のみを対象とする (現状の good practice を
+# 契約化して drift 防止):
+#   (73a) 全 <link rel="preload"> に `as=` 属性必須 (preload 仕様で as 無指定は無効)
+#   (73b) 全 <img> 要素に `alt=` 属性必須 (WCAG 1.1.1 Level A)
+#   (73c) hero 画像 (yuta-yokoi-ai-pm-orchestration-system.webp) に
+#         `fetchpriority="high"` を指定 (LCP 改善契約の固定)
+_html73 = read("index.html")
+# HTML コメント (<!-- ... -->) を pre-strip。コメント内に literal `<img>` や preload tag を
+# 記述している可能性があり、それらは実際の DOM 要素ではない (browser は描画しない) ため
+# accessibility / CWV 契約の対象外。Check 7b/7c が同じ pattern で comment-strip 済み。
+_html_no_comments73 = re.sub(r"<!--.*?-->", "", _html73, flags=re.DOTALL)
+
+_preload73 = re.findall(r"<link[^>]*\brel=\"preload\"[^>]*>", _html_no_comments73)
+_preload_no_as73 = [p for p in _preload73 if not re.search(r"\bas=", p)]
+check(
+    not _preload_no_as73,
+    f"Check 73a: all {len(_preload73)} <link rel=\"preload\"> tags have an `as=` attribute (WCAG/CWV)",
+    f"Check 73a: <link rel=\"preload\"> without `as=` attribute: {_preload_no_as73} — "
+    f"preload は as 無指定だと無効 (Chrome は warning を出す)。as=script/style/image/font 等を指定せよ",
+)
+
+_img73 = re.findall(r"<img\b[^>]*>", _html_no_comments73)
+_img_no_alt73 = [t for t in _img73 if not re.search(r"\balt=", t)]
+check(
+    not _img_no_alt73,
+    f"Check 73b: all {len(_img73)} <img> tags have an `alt=` attribute (WCAG 1.1.1 Level A)",
+    f"Check 73b: <img> without `alt=` attribute: {_img_no_alt73} — "
+    f"WCAG 1.1.1 Level A 違反。装飾画像は alt=\"\" でも明示せよ",
+)
+
+_HERO_IMG_73 = "yuta-yokoi-ai-pm-orchestration-system.webp"
+_hero_pattern73 = re.compile(
+    rf"<link[^>]*href=\"[./]*{re.escape(_HERO_IMG_73)}\"[^>]*>",
+    re.IGNORECASE,
+)
+_hero_tags73 = _hero_pattern73.findall(_html_no_comments73)
+_hero_has_fp73 = any("fetchpriority=\"high\"" in t for t in _hero_tags73)
+check(
+    _hero_has_fp73 and len(_hero_tags73) > 0,
+    f"Check 73c: hero image ({_HERO_IMG_73}) preload has fetchpriority=\"high\" (LCP 契約)",
+    f"Check 73c: hero image preload missing fetchpriority=\"high\" — "
+    f"Core Web Vitals LCP 改善契約。<link rel=\"preload\" href=\"./{_HERO_IMG_73}\" "
+    f"as=\"image\" fetchpriority=\"high\"> を維持せよ",
+)
+
+# ── 74. .github/scripts/_lib_io.py helper module integrity (BLOCKING) ────────
+# Plan C で抽出した純 helper module `_lib_io.py` が check_repository_consistency.py
+# から import 解決され、`read` / `read_bytes` / `extract` / `csp_sri_hash` の 4 public
+# 関数を export することを機械強制する。sibling import の path 解決が一度でも壊れる
+# (e.g. file rename / Python のディレクトリ走査仕様変更) と、check_repository_
+# consistency.py 全体が ImportError で実行不能になり CI が catastrophic に落ちる。
+# 本 Check は import に成功した時点で実行されるため、import 失敗時はそれ自体が
+# 上位 BLOCKING (script 起動失敗) として fail-fast する設計。本 Check の役割は
+# 「helper module の API 契約 (4 関数の存在) を構造的に固定」する。
+_lib74 = ROOT / ".github" / "scripts" / "_lib_io.py"
+if _lib74.exists():
+    _lib_src74 = _lib74.read_text(encoding="utf-8")
+    _required74 = ["read", "read_bytes", "extract", "csp_sri_hash"]
+    _missing_api74 = [
+        fn for fn in _required74
+        if not re.search(rf"^def {fn}\b", _lib_src74, re.MULTILINE)
+    ]
+    check(
+        not _missing_api74,
+        f"Check 74: _lib_io.py exports all {len(_required74)} required helpers ({_required74})",
+        f"Check 74: _lib_io.py missing required helpers: {_missing_api74} — "
+        f"Plan C 抽出 helper module の API 契約違反。4 関数の def を保持せよ",
+    )
+else:
+    check(
+        False,
+        "Check 74: _lib_io.py exists",
+        "Check 74: .github/scripts/_lib_io.py が存在しない — Plan C 抽出 helper module が消失",
+    )
+
+# ── 75. docs/incident-artifacts/ README inventory completeness (BLOCKING) ────
+# docs/incident-artifacts/ 配下の全 *.md / *.yml ファイルが README.md に列挙されている
+# ことを機械強制する。Plan D の「物理移動なし、README で年次/種別 grouping を提供」
+# 設計を機械強制化したもので、incident-artifact 追加時に README 更新を忘れる drift
+# を pre-commit で構造的に閉じる。README 自身は inventory から除外。
+_artifacts75 = ROOT / "docs" / "incident-artifacts"
+_readme75 = _artifacts75 / "README.md"
+if _readme75.exists() and _artifacts75.is_dir():
+    _readme_src75 = _readme75.read_text(encoding="utf-8")
+    _entries75 = [
+        p.name for p in _artifacts75.iterdir()
+        if p.is_file() and p.name != "README.md" and not p.name.startswith(".")
+    ]
+    _missing75 = [n for n in _entries75 if n not in _readme_src75]
+    check(
+        not _missing75 and len(_entries75) > 0,
+        f"Check 75: docs/incident-artifacts/README.md lists all {len(_entries75)} artifact files",
+        f"Check 75: README.md not listing {len(_missing75)} artifact(s): {_missing75[:5]}{'...' if len(_missing75) > 5 else ''} — "
+        f"新規 artifact 追加時は README.md にも列挙せよ (Plan D inventory governance)",
+    )
+else:
+    check(
+        False,
+        "Check 75: docs/incident-artifacts/README.md exists",
+        "Check 75: docs/incident-artifacts/README.md が無い — Plan D inventory が消失",
+    )
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
