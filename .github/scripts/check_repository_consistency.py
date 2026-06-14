@@ -3557,6 +3557,53 @@ _phase1_targets96 = [
     "package-lock.json",
     "playwright.config.cjs",
     "e2e/portfolio.spec.js",
+    # Phase 4: binary assets (2)
+    "yuta-yokoi-ai-pm-orchestration-system.webp",
+    "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3",
+    # Phase 5: dot files / meta config (6)
+    ".editorconfig", ".gitattributes", ".gitignore",
+    ".mcp.json", ".nvmrc", ".nojekyll",
+    # Phase 6: root docs + docs/* meta-docs (47)
+    "AI2AI.md", "CLAUDE.md", "Claude2Claude.md", "ChatGPT2ChatGPT.md",
+    "README.md", "LICENSE", "SECURITY.md", "CONTRIBUTING.md",
+    "CODEOWNERS", "CHANGELOG.md",
+    "docs/README.md",
+    "docs/architecture/check-repository-consistency-map.md",
+    "docs/architecture/file-size-budget.md",
+    "docs/architecture/main-js-extraction-map.md",
+    "docs/architecture/major-update-readiness.md",
+    "docs/architecture/repository-maintainability-map.md",
+    "docs/architecture/research-application-policy.md",
+    "docs/architecture/total-check-runbook.md",
+    "docs/evidence/ai-pioneer-identity-review.md",
+    "docs/evidence/public-deployment-freshness-review.md",
+    "docs/incident-artifacts/README.md",
+    "docs/incident-artifacts/decision-v80-e2e-and-maintainability-stage-1.md",
+    "docs/incident-artifacts/decision-v80-maintainability-roadmap.md",
+    "docs/incident-artifacts/decision-v80-phase2-aio-update-canary.md",
+    "docs/incident-artifacts/decision-v80-phase2-artifact-governance.md",
+    "docs/incident-artifacts/decision-v80-phase2-ci-hygiene.md",
+    "docs/incident-artifacts/decision-v80-phase2-ci-hygiene-2.md",
+    "docs/incident-artifacts/decision-v80-phase2-ci-hygiene-3.md",
+    "docs/incident-artifacts/decision-v80-phase2-ci-hygiene-4.md",
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-aio-update-canary.md",
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-artifact-governance.md",
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-baseline-gate-doc-hardening.md",
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-ci-baseline-pipeline-hardening.md",
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-ci-hygiene-4.md",
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-consistency-invariant-hardening.md",
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-console-fix-and-eslint-v10-and-research-application.md",
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-dependency-modernization-and-flat-config.md",
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-dev-ergonomics-and-lint-coverage.md",
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-domain-authority-worksfor.md",
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-lint-hygiene-and-doc-sync.md",
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-public-freshness-observation.md",
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-pure-utility-and-static-data-extraction.md",
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-quiz-domain-split-and-bloat-governance.md",
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-self-documentation-integrity.md",
+    "docs/incident-artifacts/update-portfolio.v70-experiment.yml",
+    "docs/session-records/AI2AI-archive.md",
+    "docs/session-records/incident-artifacts-archive-v74.md",
 ]
 _missing96 = []
 for _t in _phase1_targets96:
@@ -3565,7 +3612,7 @@ for _t in _phase1_targets96:
         _missing96.append(_t)
 check(
     not _missing96,
-    f"Check 96: all {len(_phase1_targets96)} Phase 1+2+3 files (shipped + AIO + config/scripts/workflows/.claude) have 1-to-1 docs",
+    f"Check 96: all {len(_phase1_targets96)} Phase 1-6 files (shipped + AIO + config + binary + dot + meta-docs) have 1-to-1 docs",
     f"Check 96: missing 1-to-1 docs for: {_missing96} — `docs/files/_template.md` を元に作成せよ",
 )
 
