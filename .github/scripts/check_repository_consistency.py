@@ -3616,6 +3616,8 @@ _phase1_targets96 = [
     "jsconfig.json",
     "docs/evidence/aio-monitoring-log.json",
     "e2e/portfolio.spec.js-snapshots/homepage-baseline-chromium-linux.png",
+    # Session handoff (本セッション末尾で AI-agnostic な引き継ぎ書を追加)
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-session-handoff-comment-injection.md",
 ]
 _missing96 = []
 for _t in _phase1_targets96:
