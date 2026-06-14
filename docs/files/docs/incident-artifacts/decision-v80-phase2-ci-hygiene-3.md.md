@@ -15,6 +15,22 @@ CI hygiene #3 (CSS lint 実行 path: local-binary preferred + npx fallback / Che
 
 Check 42 命名規約 / 過去判断参照 / append-only / lint 実行 path の安定化。
 
+
+## Why
+
+当該 increment の意思決定 / 学びを後続セッション向けに保持する (append-only)。
+
+
+## How (usage)
+
+過去判断・学びの参照源。新規 session 復帰時に文脈再構成のために読む。
+
+
+## Change impact
+
+- append-only: 既存内容は変更しない
+- 新規 increment 時のみ新ファイル追加
+
 ## Audience-specific notes
 
 ### For AI agents

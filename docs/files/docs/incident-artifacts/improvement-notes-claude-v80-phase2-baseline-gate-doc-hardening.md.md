@@ -15,6 +15,23 @@ Playwright baseline gate + 文書 hardening (Check 51 Playwright pin 一致 / Ch
 
 baseline 取得 → Stage 5 物理分割解放 / Check 51 機械強制化過程 / append-only。
 
+
+## How (usage)
+
+過去判断・学びの参照源。新規 session 復帰時に文脈再構成のために読む。
+
+
+## Constraints
+
+- **Check 42**: incident-artifacts 命名規約 (`decision-*.md` / `improvement-notes-*.md` / `*.yml` / `README.md`)
+- append-only history (既存内容は変更しない)
+
+
+## Change impact
+
+- append-only: 既存内容は変更しない
+- 新規 increment 時のみ新ファイル追加
+
 ## Audience-specific notes
 
 ### For AI agents

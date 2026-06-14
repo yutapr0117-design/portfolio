@@ -23,6 +23,11 @@ incident-artifacts/ ディレクトリの inventory。24 件の artifact (decisi
 
 - 新規 artifact 追加 → README §2/§3/§4 のどれかに追記
 
+
+## How (usage)
+
+過去判断・学びの参照源。新規 session 復帰時に文脈再構成のために読む。
+
 ## Audience-specific notes
 
 ### For AI agents

@@ -24,6 +24,11 @@ historical evidence として保持。AIDK governance の「proof-of-work は減
 
 - `.github/workflows/` へ戻さない (絶対)
 
+
+## How (usage)
+
+過去判断・学びの参照源。新規 session 復帰時に文脈再構成のために読む。
+
 ## Audience-specific notes
 
 ### For AI agents

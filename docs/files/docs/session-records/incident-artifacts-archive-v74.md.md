@@ -24,6 +24,11 @@ major-release boundary での incident-artifacts/ folder slim 化。proof-of-wor
 
 - 新規 archive 化時に新ファイル (incident-artifacts-archive-v8X.md) として作成
 
+
+## How (usage)
+
+過去判断・学びの参照源。新規 session 復帰時に文脈再構成のために読む。
+
 ## Audience-specific notes
 
 ### For AI agents

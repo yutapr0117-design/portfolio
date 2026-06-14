@@ -15,6 +15,23 @@ public deployment freshness 観測実装の Claude 視点 notes。
 
 公開反映 lag を可視化する観測の出発点 / append-only。
 
+
+## How (usage)
+
+過去判断・学びの参照源。新規 session 復帰時に文脈再構成のために読む。
+
+
+## Constraints
+
+- **Check 42**: incident-artifacts 命名規約 (`decision-*.md` / `improvement-notes-*.md` / `*.yml` / `README.md`)
+- append-only history (既存内容は変更しない)
+
+
+## Change impact
+
+- append-only: 既存内容は変更しない
+- 新規 increment 時のみ新ファイル追加
+
 ## Audience-specific notes
 
 ### For AI agents

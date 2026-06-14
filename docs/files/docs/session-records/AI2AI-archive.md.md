@@ -25,6 +25,11 @@ AI2AI.md 肥大化対策。閉じた track は archive 化し、active な Sessi
 
 - archive 化時に append (削除なし)
 
+
+## How (usage)
+
+過去判断・学びの参照源。新規 session 復帰時に文脈再構成のために読む。
+
 ## Audience-specific notes
 
 ### For AI agents

@@ -23,6 +23,12 @@ Phase 2-A CI hygiene 起点 (package.json/lockfile/npm ci 中央管理 + ESLint 
 
 CI が「動いてるが本当は何も検査していなかった」class のバグを構造的に閉じる出発点。
 
+
+## Change impact
+
+- append-only: 既存内容は変更しない
+- 新規 increment 時のみ新ファイル追加
+
 ## Audience-specific notes
 
 ### For AI agents

@@ -24,6 +24,11 @@ canonical-ref: .github/scripts/check_public_deployment_freshness.py
 
 - 観測の都度 append
 
+
+## How (usage)
+
+過去判断・学びの参照源。新規 session 復帰時に文脈再構成のために読む。
+
 ## Audience-specific notes
 
 ### For AI agents

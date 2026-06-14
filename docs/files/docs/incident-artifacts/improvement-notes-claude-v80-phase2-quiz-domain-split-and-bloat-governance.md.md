@@ -15,6 +15,23 @@ quiz domain split (Stage 3-b) + bloat governance (Check 52) の Claude 視点 no
 
 ドメイン別データ分割 + 行数予算機械監視 / append-only。
 
+
+## How (usage)
+
+過去判断・学びの参照源。新規 session 復帰時に文脈再構成のために読む。
+
+
+## Constraints
+
+- **Check 42**: incident-artifacts 命名規約 (`decision-*.md` / `improvement-notes-*.md` / `*.yml` / `README.md`)
+- append-only history (既存内容は変更しない)
+
+
+## Change impact
+
+- append-only: 既存内容は変更しない
+- 新規 increment 時のみ新ファイル追加
+
 ## Audience-specific notes
 
 ### For AI agents

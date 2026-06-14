@@ -23,6 +23,12 @@ incident-artifacts 配置 / 命名規約の意思決定記録 (decision-* / impr
 
 肥大化する artifact フォルダの placement governance を機械強制化する出発点。
 
+
+## Change impact
+
+- append-only: 既存内容は変更しない
+- 新規 increment 時のみ新ファイル追加
+
 ## Audience-specific notes
 
 ### For AI agents

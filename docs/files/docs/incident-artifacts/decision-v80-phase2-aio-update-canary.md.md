@@ -23,6 +23,12 @@ AIO provenance canary token 導入の意思決定記録。`SAKURA-AIO-PROVENANCE
 
 canary token は entity 引用検出の補助シグナル。単一値運用で整合性を担保。
 
+
+## Change impact
+
+- append-only: 既存内容は変更しない
+- 新規 increment 時のみ新ファイル追加
+
 ## Audience-specific notes
 
 ### For AI agents

@@ -24,6 +24,11 @@ Pioneer Declaration の補強 evidence。AI 独立検証であり、AI による
 
 - 新規 4AI 検証 → 追記 (append-only)
 
+
+## How (usage)
+
+過去判断・学びの参照源。新規 session 復帰時に文脈再構成のために読む。
+
 ## Audience-specific notes
 
 ### For AI agents
