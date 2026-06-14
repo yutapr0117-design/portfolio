@@ -27,6 +27,18 @@ Canonical-Ref : AI2AI.md (canon) / CLAUDE.md (router) / llms-full.txt (ground tr
 | `docs(increment)` | 本 improvement-notes + docs/files mirror + Check 96 list / incident README 同期 (bijection 139=139=139) |
 | `docs(comments)` Stage E | playwright.config.cjs の baseline-gate magic number (threshold/maxDiffPixelRatio/reuseExistingServer) に WHY |
 | `docs(handoff)` | CLAUDE.md §7 を Check 100 / N=100 / 本 increment bullet へ同期 (cold-start router 整合) |
+| `feat(a11y+check)` | **Plan E+B**: style.css に forced-colors (Windows HCM) focus fallback (WCAG 2.4.7/1.4.1) を render-neutral に追加 + Check 101 で機械強制 |
+
+### 後続「全 plan 好いとこ取り」increment (handoff §10 の延長・ユーザー依頼)
+
+前 plan 群 (A 検証 / B Check / C PR / D JSON WHY / E WCAG / F 維持) の **デメリットを実体解析で回避しメリットのみ享受**する依頼を実行:
+
+- **Plan A (e2e 実測検証)**: node 導入済を活かし `npx playwright install chromium` 後、`--grep-invert "screenshot regression"` で **behavior テスト 34 件を全 pass** 実行。screenshot テストのみ除外することで linux baseline (`*-chromium-linux.png`) と macOS 描画の差ノイズを回避しつつ、全コメント/CSS 変更が実行時非破壊と実証。
+- **Plan E (機能的 a11y)**: WCAG 2.2 で唯一の genuine gap = `@media (forced-colors: active)` 欠如を発見し補完。box-shadow のみの focus が HCM で消える問題を outline fallback で解消。**§3 baseline ゲートは侵さない** — forced-colors ブロックは通常描画に構造上非影響 (スコープによる render-neutral 証明) ゆえ baseline 再生成不要。`--update-snapshots` でのローカル baseline 生成は §3 ゲートにより正しくブロックされた (尊重)。
+- **Plan B (systematize)**: 発見した a11y invariant を Check 101 (BLOCKING) 化。fragile な密度系 Check (handoff §5.5 の 102/103) は採用せず、構造的 presence check のみ。
+- **Plan D (JSON WHY)**: package.json / jsconfig.json 等の strict JSON はコメント不可だが、docs/files mirror が既に非自明 WHY (ランタイム依存ゼロ=C1 / checkJs=IDE 型支援) を完備済と確認 → padding せず (demerit 回避)。
+- **Plan C (PR)**: main を直接 push せず branch + PR で CI 再検証の恩恵を得る (不可逆な main 前進を回避)。
+- **Plan F**: 全工程で verify exit 0 / tree clean を維持。
 
 ## 2. 最重要の honest finding — 次セッションは盲目的に Stage B-E を走らせるな
 
@@ -71,10 +83,11 @@ verify 実行: `export PATH="/opt/homebrew/opt/python@3.12/libexec/bin:/opt/home
 
 | 項目 | 値 |
 |---|---|
-| Check 総数 | **100** (最大番号 100 / BLOCKING 96 + ADVISORY 4: Check 52 + 60) |
-| 3 集合 bijection | git(excl docs/files) = _phase1_targets96 = docs/files/*.md = **139** (本ファイル + mirror 追加後) |
-| npm run verify | exit 0 |
-| 実行コード | main.js / index.html / vendor すべて挙動 byte-unchanged (コメントのみ) |
+| Check 総数 | **101** (最大番号 101 / BLOCKING 97 + ADVISORY 4: Check 52 + 60) |
+| 3 集合 bijection | git(excl docs/files) = _phase1_targets96 = docs/files/*.md = **139** |
+| npm run verify | exit 0 (230 OK) |
+| e2e behavior | chromium ローカル実測 **34 passed** (screenshot は platform baseline 都合で除外) |
+| 実行コード | main.js / index.html / vendor は挙動 byte-unchanged (コメントのみ)。style.css のみ forced-colors ブロック追加だが render-neutral (通常描画不変) |
 
 ## 6. 次セッションへの申し送り (defer / 再 litigate 禁止)
 
