@@ -1496,12 +1496,19 @@ if _INCIDENT_DIR.is_dir():
           blocking=True)
 
     # 42b — decision-*.md / improvement-notes-*.md must not live outside the incident dir.
+    # Exception: docs/files/**/<orig-name>.md (1-to-1 mirror docs from Phase 6) are doc-of-doc,
+    # not actual incident records — they live next to the original file's path under docs/files/
+    # by design (Check 96 bijection 強制構造). Excluding docs/files/** so the placement
+    # governance only judges real decision/improvement-notes content.
     _misplaced = []
     for _pat in ("decision-*.md", "improvement-notes-*.md"):
         for _f in ROOT.rglob(_pat):
-            # ignore anything under node_modules / .git, and the legitimate incident dir
+            # ignore anything under node_modules / .git, the legitimate incident dir, and
+            # the 1-to-1 mirror docs under docs/files/
             _parts = _f.relative_to(ROOT).parts
             if "node_modules" in _parts or ".git" in _parts:
+                continue
+            if len(_parts) >= 2 and _parts[0] == "docs" and _parts[1] == "files":
                 continue
             if _f.parent != _INCIDENT_DIR:
                 _misplaced.append(str(_f.relative_to(ROOT)))
