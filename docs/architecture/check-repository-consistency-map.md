@@ -3,8 +3,8 @@
 ```
 Last-Updated  : 2026-06-13
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
-Track         : v80+ staged major update (Phase 2 — 「Docs Phase 1」 で 33 shipped-code 1-to-1 docs + Check 96〜99 + Phase 7 骨格)
-Subject       : .github/scripts/check_repository_consistency.py（≈3,600 行・Check 1〜99）の構造地図
+Track         : v80+ staged major update (Phase 2 — 「Docs 7 Phase」全完了 + Final audit 漏れ 4 補完 で 全 137 ファイル 1-to-1 docs)
+Subject       : .github/scripts/check_repository_consistency.py（≈3,700 行・Check 1〜99）の構造地図
 Canonical-Ref : AI2AI.md (canonical) / docs/architecture/total-check-runbook.md / repository-maintainability-map.md
 Status        : 本 increment で新設。物理分割はまだ行わない（本文書は分割の準備＝カテゴリ化と helper 識別）。
 ```
