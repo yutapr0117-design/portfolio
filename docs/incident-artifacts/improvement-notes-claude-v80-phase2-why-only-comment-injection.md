@@ -24,6 +24,9 @@ Canonical-Ref : AI2AI.md (canon) / CLAUDE.md (router) / llms-full.txt (ground tr
 | `docs(comments)` Stage A | main.js AIDK Kernel に「なぜ DO NOT EDIT/frozen か + Check 43a-d アンカー + 触ると何が壊れるか」を block 単位で注入。VT proxy / Trusted Types / 2 protected blocks (event listener registry・innerHTML sanitizer) を含む。**実行コード byte-unchanged (39 行すべてコメント追加)** |
 | `feat(comments+check)` | theme-init.js (FOUC pre-paint の WHY + hidden key-duplication invariant) / karte-init.js (queue-stub + C7) に WHY 注入。**Check 100 (BLOCKING / 100a・100b) 新設** + 3 governance doc 同期 |
 | `docs(comments)` Stage C | index.html CSP meta に各ディレクティブの WHY (Trusted Types↔Check 43c / 3 hash の正確な帰属 / 'unsafe-hashes'↔onload / karte hosts↔C7 / img-src 相対パス↔Check 73c) |
+| `docs(increment)` | 本 improvement-notes + docs/files mirror + Check 96 list / incident README 同期 (bijection 139=139=139) |
+| `docs(comments)` Stage E | playwright.config.cjs の baseline-gate magic number (threshold/maxDiffPixelRatio/reuseExistingServer) に WHY |
+| `docs(handoff)` | CLAUDE.md §7 を Check 100 / N=100 / 本 increment bullet へ同期 (cold-start router 整合) |
 
 ## 2. 最重要の honest finding — 次セッションは盲目的に Stage B-E を走らせるな
 
