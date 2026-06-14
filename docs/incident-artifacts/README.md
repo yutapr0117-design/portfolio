@@ -60,6 +60,7 @@ Status        : Plan D「物理移動なし、README で grouping を提供」�
 - `improvement-notes-claude-v80-phase2-pure-utility-and-static-data-extraction.md`
 - `improvement-notes-claude-v80-phase2-quiz-domain-split-and-bloat-governance.md`
 - `improvement-notes-claude-v80-phase2-self-documentation-integrity.md`
+- `improvement-notes-claude-v80-phase2-session-handoff-comment-injection.md`
 
 ---
 
