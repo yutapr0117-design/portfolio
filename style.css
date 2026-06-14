@@ -296,6 +296,26 @@
             scroll-padding-top: 4rem;
         }
 
+        /* WCAG 2.2 — Windows High Contrast Mode (forced-colors) support.
+           WHY: forced-colors モードでは box-shadow が描画されず author color は system color
+           に置換される。`.skip-link:focus` は `outline: none; box-shadow: var(--focus-ring)`
+           で focus を表現しているため、HCM ではフォーカス表示が消え 2.4.7 (Focus Visible) /
+           1.4.1 違反になる。outline は forced-colors でも描画されるので、HCM 専用に system
+           color (CanvasText) の outline を補う。`:focus-visible` 側は既に outline を持つが、
+           色を確実に system color へ寄せて視認性を担保する。
+           RENDER-NEUTRAL: 本ブロックは `@media (forced-colors: active)` に完全スコープされ、
+           OS が HCM のときだけ有効。通常描画 (Playwright/CI の既存 baseline が見る描画) には
+           構造上一切影響しないため、視覚 baseline の再生成は不要 (CLAUDE.md §3 ゲート非該当)。 */
+        @media (forced-colors: active) {
+            :focus-visible {
+                outline: 2px solid CanvasText;
+                outline-offset: 3px;
+            }
+            .skip-link:focus {
+                outline: 2px solid CanvasText;
+            }
+        }
+
 
         /* Reduced motion support */
         @media (prefers-reduced-motion: reduce) {

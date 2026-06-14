@@ -446,6 +446,16 @@ authoritative inventory and is kept in sync with the implementation below):
        why-only comment-injection pass (the comment documents the duplication; this Check enforces
        it). Asserts theme-init.js reads exactly the canonical STORAGE_KEY (100a) and Brand.KEY
        (100b). (BLOCKING)
+  101. style.css Windows High Contrast Mode (forced-colors) focus support: style.css contains a
+       `@media (forced-colors: active)` block that restores a visible outline-based focus indicator
+       for focus selectors. WHY: in forced-colors mode (Windows High Contrast Mode) box-shadow is
+       NOT painted, so any focus indicator expressed only via box-shadow (e.g. `.skip-link:focus`,
+       which sets `outline: none; box-shadow: var(--focus-ring)`) disappears, failing WCAG 2.4.7
+       (Focus Visible) / 1.4.1 for HCM users. This Check locks in the forced-colors fallback so a
+       future edit cannot silently strip it. The block is render-neutral (inert outside HCM), so it
+       never affects the Playwright visual baseline — i.e. it is exempt from the §3 baseline gate.
+       Discovered + systematized during the why-only comment-injection track (same pattern as
+       Check 100). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -3739,6 +3749,38 @@ else:
         "",
         "Check 100: theme-init.js / js/constants.js / js/brand.js のいずれかが見つからず "
         "storage-key consistency を検証できない",
+        blocking=True,
+    )
+
+# ── 101. style.css forced-colors (HCM) focus support (BLOCKING) ──────────────
+# Windows High Contrast Mode (`@media (forced-colors: active)`) では box-shadow が描画されず
+# author color が system color に置換される。focus 表示を box-shadow のみに依存している箇所
+# (.skip-link:focus は outline:none + box-shadow) は HCM で消え WCAG 2.4.7 / 1.4.1 違反になる。
+# style.css に forced-colors 専用の outline-based focus fallback が存在することを BLOCKING で
+# 固定し、将来の編集で silently strip されるのを防ぐ。このブロックは forced-colors モードでのみ
+# 有効で通常描画 (CI baseline) に非影響ゆえ §3 baseline ゲート非該当 (render-neutral)。
+# why-only comment-injection track で発見・systematize (Check 100 と同 pattern)。
+_css101 = ROOT / "style.css"
+if _css101.exists():
+    _src101 = _css101.read_text(encoding="utf-8")
+    _fc101 = re.search(r"@media\s*\(\s*forced-colors\s*:\s*active\s*\)", _src101)
+    _focus_in_fc101 = False
+    if _fc101:
+        # forced-colors at-rule 開始から十分な window を見て、focus selector + outline 復帰を確認。
+        _window101 = _src101[_fc101.start():_fc101.start() + 800]
+        _focus_in_fc101 = (":focus" in _window101) and ("outline" in _window101)
+    check(
+        bool(_fc101) and _focus_in_fc101,
+        "Check 101: style.css has a forced-colors (HCM) block restoring outline-based focus (WCAG 2.4.7/1.4.1)",
+        "Check 101: style.css is missing the @media (forced-colors: active) focus fallback — "
+        "High Contrast Mode users lose the focus indicator (box-shadow is not painted in HCM)",
+        blocking=True,
+    )
+else:
+    check(
+        False,
+        "",
+        "Check 101: style.css not found — forced-colors focus support を検証できない",
         blocking=True,
     )
 
