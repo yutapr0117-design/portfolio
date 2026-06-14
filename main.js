@@ -131,6 +131,19 @@
            ║  AIが編集してよいのは「AI SURFACE」マーカーで囲まれた領域のみ。    ║
            ║  Kernel内のロジック改変はCI/CDレベルで検知・棄却されます。         ║
            ╚══════════════════════════════════════════════════════════════════╝ */
+        // WHY この領域が "DO NOT EDIT" か:
+        //   KERNEL framework (AI2AI.md STEP 3) は「人間が設計し AI が実装する」分担の
+        //   不可侵境界。ここの各装置（VT proxy / Trusted Types / IIFE 包囲）は安全契約
+        //   C2/C3/C5 の物理的実体であり、AI 実装の暴走（global 汚染・innerHTML 注入・
+        //   transition ハングアップ）から site を守る最後の砦。
+        // 機械強制: Check 43a〜43d (check_repository_consistency.py) が以下を BLOCKING で監視:
+        //   43a = "DO NOT EDIT: AIDK Isolated Kernel" header 文字列の存在
+        //   43b = startViewTransitionProxy installer の存在 (C3 ErrorBoundary)
+        //   43c = Trusted Types 'default' policy の存在 (C5 / CSP-linked)
+        //   43d = main.js 全体が単一 top-level IIFE で包囲されている (C2)
+        // 触ると壊れるもの: これらマーカーのどれかを消す/改名すると verify が BLOCKING fail。
+        //   さらに Stage 5 物理分割でここが "最終的に un-extractable と判断して温存した"
+        //   領域（CLAUDE.md §7 参照）であり、分割は visual-regression baseline 緑が前提。
         (function() {
         'use strict';
 
@@ -139,6 +152,12 @@
         // AIが素のdocument.startViewTransition()を直接呼び出しても、
         // try/catch + skipTransition() + タイムアウト制御が必ず効くよう
         // メソッド自体をここで上書きする。safeViewTransition()経由かどうかに依存しない。
+        // WHY メソッド自体を上書きするか（wrapper を呼ばせる方式を採らない理由）:
+        //   AI 実装は executeSafeTransition() を経由せず素の API を直接呼ぶ可能性がある。
+        //   ラッパー関数を「使ってもらう」前提は破られうるので、API surface 自体を差し替え、
+        //   どの呼び出し経路でも ErrorBoundary (C3) が必ず効く構造にしている。
+        // Check 43b が "startViewTransitionProxy" 文字列の存在を BLOCKING 監視。関数名を
+        //   変えると verify が落ちる＝この安全装置が消えた合図として検出される。
         // ─────────────────────────────────────────────────────────────────────────
         (function _installStartViewTransitionProxy() {
             'use strict';
@@ -208,6 +227,15 @@
         // Trusted Types policy is used primarily to block TrustedHTML / innerHTML injection paths.
         // Script and ScriptURL policies are intentionally pass-through for compatibility and must
         // not be described as strict script sanitization.
+        // WHY createHTML を空文字に倒すか（C5 = innerHTML 全面禁止の実体）:
+        //   この site は h() helper / DOM API のみで描画する契約（@rules 5）。createHTML が
+        //   常に '' を返すことで、万一 AI 実装が innerHTML 経由の文字列注入を書いても DOM に
+        //   反映されず fail-closed する。index.html の CSP `require-trusted-types-for 'script'`
+        //   と対になって機能するため、policy 名 'default' は CSP と一致させ変更不可。
+        // WHY script/scriptURL は pass-through か:
+        //   KARTE 等の正当な外部 script 読込（C7）を壊さないため。ここで script 内容を
+        //   filter する意図はなく、"厳密な script サニタイズ" と説明してはならない（誤記防止）。
+        // Check 43c が trustedTypes.createPolicy('default' の存在を BLOCKING 監視。
         if (window.trustedTypes && trustedTypes.createPolicy) {
             try {
                 trustedTypes.createPolicy('default', {
@@ -829,6 +857,11 @@
         // 改善文書c Section 3: WeakMap-based global event listener registry
         // Intercepts addEventListener to automatically clean up listeners when
         // DOM nodes are removed — prevents zombie listener memory leaks in the SPA.
+        // WHY protected block（CLAUDE.md §3 で「frozen」指定）か:
+        //   EventTarget.prototype.addEventListener を site 全体で差し替えるグローバル hook。
+        //   WeakMap registry と MutationObserver の対が崩れると、SPA の頻繁な再描画で
+        //   リスナーが回収されず zombie listener のメモリリークに直結する。挙動が全 component
+        //   に波及するため、closure-deps を持たないが「分割せず main.js に残す」判断対象。
         (function _installEventListenerRegistry() {
             'use strict';
             var _registry = new WeakMap();
@@ -874,6 +907,12 @@
         // Element.prototype.innerHTML の setter をインターセプトし、DOMParser で
         // 一時 Document にパースした後、危険なノード・属性を剥離してから適用する。
         // 既存の innerHTML 代入コードを一切変更しない非破壊実装。
+        // WHY protected block（CLAUDE.md §3 で「frozen」指定）か / Trusted Types との二重防衛:
+        //   これは Trusted Types createHTML='' (C5) を二重化する第二防壁。Trusted Types 非対応
+        //   ブラウザや TrustedHTML を経由しない代入経路でも、DANGEROUS_TAGS 除去・on* 属性除去・
+        //   javascript:/data: スキーム除去・DOM Clobbering プレフィックスで fail-closed する。
+        //   DOMParser 失敗時に raw HTML を絶対 native setter へ流さずテキスト化する点が肝で、
+        //   ここを緩めると XSS 経路が開く。グローバル prototype 改変ゆえ全描画に波及＝残置。
         // ─────────────────────────────────────────────────────────────────────────
         (function _installInnerHTMLSanitizer() {
             'use strict';
