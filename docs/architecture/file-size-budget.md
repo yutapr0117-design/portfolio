@@ -1,9 +1,9 @@
 # file-size-budget.md
 
 ```
-Last-Updated  : 2026-06-13
+Last-Updated  : 2026-06-14
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
-Track         : v80+ staged major update (Phase 2 — All Plans Combined: helper 抽出 + Check 72-75 同期)
+Track         : v80+ staged major update (Phase 2 — Final audit: check_repository_consistency.py 行数 3,693 / budget 3,800 へ同期)
 Subject       : 主要ファイルの行数予算（line budget）と、肥大化の「許容」「抑制」分類
 Canonical-Ref : AI2AI.md (canonical) / docs/architecture/repository-maintainability-map.md
 Enforced-By   : check_repository_consistency.py Check 52（ADVISORY / 非ブロッキング）
