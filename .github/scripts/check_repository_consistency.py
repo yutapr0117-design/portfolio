@@ -3611,6 +3611,11 @@ _phase1_targets96 = [
     "docs/incident-artifacts/update-portfolio.v70-experiment.yml",
     "docs/session-records/AI2AI-archive.md",
     "docs/session-records/incident-artifacts-archive-v74.md",
+    # Final audit 漏れ補完 (4) — grep ベース全数監査で発見
+    ".well-known/api-catalog",
+    "jsconfig.json",
+    "docs/evidence/aio-monitoring-log.json",
+    "e2e/portfolio.spec.js-snapshots/homepage-baseline-chromium-linux.png",
 ]
 _missing96 = []
 for _t in _phase1_targets96:
