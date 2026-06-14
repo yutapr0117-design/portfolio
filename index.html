@@ -244,6 +244,26 @@ Version History (current shipped state)
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--
+      Content-Security-Policy — 各ディレクティブの WHY（変更時の連動先）。詳細な
+      defense-in-depth / ZAP 監査の根拠は下の長文コメント (speculationrules 等) を参照:
+      ・require-trusted-types-for 'script' + trusted-types default:
+          main.js の Trusted Types 'default' policy (createHTML→'') と対で機能する innerHTML/XSS
+          防壁。CSP がポリシー適用を強制し、main.js が実体を提供する。policy 名 'default' は
+          この行と一致させること（main.js Check 43c が policy 存在を BLOCKING 監視）。
+      ・script-src の sha256 ハッシュ × 3（いずれも inline で、content を 1 byte 変えると落ちる）:
+          h3mQ… = inline error-suppressor (Check 7b が live content からハッシュ再計算)、
+          saY5… = inline speculationrules JSON (Check 7c が再計算)、
+          MhtP… = Google Fonts link の onload="this.media='all'" 属性（'unsafe-hashes' 併用）。
+          'unsafe-hashes' はこの onload インラインイベントハンドラ属性を許可するためにある。
+          外部 script (theme-init.js / karte-init.js / aio-guard.js / main.js) は 'self' で許可されハッシュ不要。
+      ・karte hosts (cdn-edge/static/edge-api/… .karte.io):
+          KARTE 分析の接続許可。C7 によりこの CDN には SRI を付けない（外部更新で prod
+          ロードが壊れるため）。代わりにこの connect-src/script-src の host 限定で接続を絞る。
+      ・img-src 'self' data:（絶対 URL を許可しない）:
+          E2E (localhost) で hero 画像を絶対 URL にすると 'self' 違反になるため、preload は
+          相対パスで宣言する（下の hero preload コメント参照・Check 73c 連動）。
+    -->
      <meta http-equiv="Content-Security-Policy"
      content="
         default-src 'self';

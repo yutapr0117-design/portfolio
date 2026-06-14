@@ -435,6 +435,27 @@ authoritative inventory and is kept in sync with the implementation below):
       `## Audience-specific notes`) を持つことを機械強制 (`_template.md` 整合)。(BLOCKING)
   99. docs/files/README.md + _template.md presence: 1 対 1 docs の inventory (README.md) と
       template (_template.md) が両方存在することを機械強制。(BLOCKING)
+  100. theme-init.js hardcoded storage keys ↔ js/constants.js STORAGE_KEY / js/brand.js KEY:
+       the FOUC-prevention pre-paint script theme-init.js runs synchronously in <head> BEFORE
+       main.js (ESM, async) loads, so it intentionally hardcodes the localStorage keys instead of
+       importing them — 'portfolio_enhanced_v45' (theme/State) and 'portfolio_brand_v45' (Brand).
+       If STORAGE_KEY in js/constants.js or KEY in js/brand.js is changed without updating the two
+       literals in theme-init.js, only the very first paint reads a stale key and restores the
+       wrong theme/brand; main.js re-applies the correct value once it loads, so the drift is
+       silent (most tests never observe the first-paint window). This was discovered during the
+       why-only comment-injection pass (the comment documents the duplication; this Check enforces
+       it). Asserts theme-init.js reads exactly the canonical STORAGE_KEY (100a) and Brand.KEY
+       (100b). (BLOCKING)
+  101. style.css Windows High Contrast Mode (forced-colors) focus support: style.css contains a
+       `@media (forced-colors: active)` block that restores a visible outline-based focus indicator
+       for focus selectors. WHY: in forced-colors mode (Windows High Contrast Mode) box-shadow is
+       NOT painted, so any focus indicator expressed only via box-shadow (e.g. `.skip-link:focus`,
+       which sets `outline: none; box-shadow: var(--focus-ring)`) disappears, failing WCAG 2.4.7
+       (Focus Visible) / 1.4.1 for HCM users. This Check locks in the forced-colors fallback so a
+       future edit cannot silently strip it. The block is render-neutral (inert outside HCM), so it
+       never affects the Playwright visual baseline — i.e. it is exempt from the §3 baseline gate.
+       Discovered + systematized during the why-only comment-injection track (same pattern as
+       Check 100). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -3618,6 +3639,8 @@ _phase1_targets96 = [
     "e2e/portfolio.spec.js-snapshots/homepage-baseline-chromium-linux.png",
     # Session handoff (本セッション末尾で AI-agnostic な引き継ぎ書を追加)
     "docs/incident-artifacts/improvement-notes-claude-v80-phase2-session-handoff-comment-injection.md",
+    # why-only comment-injection increment record (handoff §10 の実行記録)
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-why-only-comment-injection.md",
 ]
 _missing96 = []
 for _t in _phase1_targets96:
@@ -3683,6 +3706,83 @@ check(
     "Check 99: docs/files/README.md (inventory) と _template.md (5-軸 template) が両方存在",
     f"Check 99: missing — README.md={_inventory99.exists()}, _template.md={_template99.exists()}",
 )
+
+# ── 100. theme-init.js hardcoded storage keys ↔ constants.js / brand.js (BLOCKING) ─
+# theme-init.js は main.js (ESM, async) ロード前に <head> で同期実行され、FOUC を防ぐため
+# localStorage から theme/brand を復元する。そのため STORAGE_KEY ('portfolio_enhanced_v45')
+# と Brand.KEY ('portfolio_brand_v45') を **意図的にハードコード複製** している (import すると
+# main.js ロード前に解決できない)。js/constants.js の STORAGE_KEY や js/brand.js の KEY を
+# 変更したとき theme-init.js のリテラルを更新し忘れると、初期ペイントだけ旧キーを読み first-paint
+# のテーマ/ブランドが壊れる — main.js ロード後は正しいキーで再適用されるため test でも気づきに
+# くい silent drift。本 Check はこの 2 リテラルが canonical 値と一致することを BLOCKING で保証する。
+# (why-only コメント注入 increment で発見・systematize: コメントが複製を説明し、本 Check が強制する)
+_themeinit100 = ROOT / "theme-init.js"
+_constants100 = ROOT / "js" / "constants.js"
+_brand100 = ROOT / "js" / "brand.js"
+if _themeinit100.exists() and _constants100.exists() and _brand100.exists():
+    _ti_src100 = _themeinit100.read_text(encoding="utf-8")
+    _const_src100 = _constants100.read_text(encoding="utf-8")
+    _brand_src100 = _brand100.read_text(encoding="utf-8")
+    _storage_key_m100 = re.search(r"STORAGE_KEY:\s*'([^']+)'", _const_src100)
+    _brand_key_m100 = re.search(r"const\s+KEY\s*=\s*'([^']+)'", _brand_src100)
+    _storage_key100 = _storage_key_m100.group(1) if _storage_key_m100 else None
+    _brand_key100 = _brand_key_m100.group(1) if _brand_key_m100 else None
+    # 100a — theme-init.js が constants.js の canonical STORAGE_KEY を読む。
+    check(
+        _storage_key100 is not None and (f"getItem('{_storage_key100}')" in _ti_src100),
+        f"Check 100a: theme-init.js reads the canonical STORAGE_KEY ('{_storage_key100}') from js/constants.js",
+        f"Check 100a: theme-init.js does not read STORAGE_KEY '{_storage_key100}' — "
+        "the FOUC-prevention pre-paint reads a stale localStorage key (js/constants.js ↔ theme-init.js drift)",
+        blocking=True,
+    )
+    # 100b — theme-init.js が brand.js の canonical KEY を読む。
+    check(
+        _brand_key100 is not None and (f"getItem('{_brand_key100}')" in _ti_src100),
+        f"Check 100b: theme-init.js reads the canonical Brand.KEY ('{_brand_key100}') from js/brand.js",
+        f"Check 100b: theme-init.js does not read Brand.KEY '{_brand_key100}' — "
+        "the FOUC-prevention pre-paint reads a stale localStorage brand key (js/brand.js ↔ theme-init.js drift)",
+        blocking=True,
+    )
+else:
+    check(
+        False,
+        "",
+        "Check 100: theme-init.js / js/constants.js / js/brand.js のいずれかが見つからず "
+        "storage-key consistency を検証できない",
+        blocking=True,
+    )
+
+# ── 101. style.css forced-colors (HCM) focus support (BLOCKING) ──────────────
+# Windows High Contrast Mode (`@media (forced-colors: active)`) では box-shadow が描画されず
+# author color が system color に置換される。focus 表示を box-shadow のみに依存している箇所
+# (.skip-link:focus は outline:none + box-shadow) は HCM で消え WCAG 2.4.7 / 1.4.1 違反になる。
+# style.css に forced-colors 専用の outline-based focus fallback が存在することを BLOCKING で
+# 固定し、将来の編集で silently strip されるのを防ぐ。このブロックは forced-colors モードでのみ
+# 有効で通常描画 (CI baseline) に非影響ゆえ §3 baseline ゲート非該当 (render-neutral)。
+# why-only comment-injection track で発見・systematize (Check 100 と同 pattern)。
+_css101 = ROOT / "style.css"
+if _css101.exists():
+    _src101 = _css101.read_text(encoding="utf-8")
+    _fc101 = re.search(r"@media\s*\(\s*forced-colors\s*:\s*active\s*\)", _src101)
+    _focus_in_fc101 = False
+    if _fc101:
+        # forced-colors at-rule 開始から十分な window を見て、focus selector + outline 復帰を確認。
+        _window101 = _src101[_fc101.start():_fc101.start() + 800]
+        _focus_in_fc101 = (":focus" in _window101) and ("outline" in _window101)
+    check(
+        bool(_fc101) and _focus_in_fc101,
+        "Check 101: style.css has a forced-colors (HCM) block restoring outline-based focus (WCAG 2.4.7/1.4.1)",
+        "Check 101: style.css is missing the @media (forced-colors: active) focus fallback — "
+        "High Contrast Mode users lose the focus indicator (box-shadow is not painted in HCM)",
+        blocking=True,
+    )
+else:
+    check(
+        False,
+        "",
+        "Check 101: style.css not found — forced-colors focus support を検証できない",
+        blocking=True,
+    )
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

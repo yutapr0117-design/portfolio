@@ -323,6 +323,16 @@ for (const route of ALL_ROUTES) {
         // "Applying inline style violates CSP" advisories in some Chromium builds;
         // these are advisories, not blocked execution, and pre-date this PR scope).
         if (/KARTE|Wicle|wicle|Failed to fetch|Trusted Type|Applying inline style violates/i.test(text)) { return; }
+        // External-resource load failures (e.g. KARTE CDN flaking in CI) surface as
+        // "Failed to load resource: net::ERR_FAILED" — note Chromium puts the FAILED URL in
+        // msg.location().url, NOT in msg.text(), so the host-name filter above cannot see it.
+        // Ignore such network errors only when the failing URL is a *non-self* origin: a failed
+        // OWN module/asset would instead throw a pageerror AND leave #content empty (both asserted
+        // below), so this never masks a real same-origin regression — it only de-flakes third-party
+        // CDN failures that are outside our code's control.
+        const _loc = (typeof msg.location === 'function') ? msg.location() : null;
+        const _url = (_loc && _loc.url) || '';
+        if (/Failed to load resource|net::ERR_/i.test(text) && _url && !/^https?:\/\/(localhost|127\.0\.0\.1)/i.test(_url)) { return; }
         consoleErrors.push(text);
       }
     });
