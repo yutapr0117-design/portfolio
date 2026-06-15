@@ -3657,6 +3657,8 @@ _phase1_targets96 = [
     "docs/incident-artifacts/improvement-notes-claude-v80-phase2-session-handoff-comment-injection.md",
     # why-only comment-injection increment record (handoff §10 の実行記録)
     "docs/incident-artifacts/improvement-notes-claude-v80-phase2-why-only-comment-injection.md",
+    # self-drive operating-model 確立セッションの引き継ぎ書 (PR #60〜#64)
+    "docs/incident-artifacts/improvement-notes-claude-v80-phase2-session-handoff-self-drive-operating-model.md",
 ]
 _missing96 = []
 for _t in _phase1_targets96:
