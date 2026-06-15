@@ -463,7 +463,9 @@ authoritative inventory and is kept in sync with the implementation below):
        control + audit (CI all-green) only — is load-bearing for how every future session operates.
        If it silently disappeared from canon, agents would revert to asking-at-every-step and the
        owner's "audit-CI-only" model would break. This Check pins the policy's presence (102a:
-       AI2AI.md markers; 102b: CLAUDE.md reference) so it cannot drift out. (BLOCKING)
+       AI2AI.md markers; 102b: CLAUDE.md reference; 102c: the "AI proposes, human disposes"
+       proposal policy — proactive AI proposal-generation is a core self-driving function, the
+       human dispositions which proposal to pursue) so it cannot drift out. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -3823,6 +3825,16 @@ if _ai2ai102.exists() and _claude102.exists():
         "Check 102b: CLAUDE.md references the core Operating Model policy",
         "Check 102b: CLAUDE.md no longer references the Operating Model policy — "
         "router から核心ポリシーへの到達性が失われた",
+        blocking=True,
+    )
+    # 102c — 「AI proposes, human disposes」献策ポリシーが Operating Model に明記。
+    # AI 自走の中核機能として「AI が献策し人間が裁可する」が canon に保持されることを固定。
+    _102c = ("AI proposes, human disposes" in _ai2ai_src102) and ("献策" in _ai2ai_src102)
+    check(
+        _102c,
+        "Check 102c: AI2AI.md documents the proposal policy (AI proposes, human disposes)",
+        "Check 102c: AI2AI.md is missing the 'AI proposes, human disposes'（AI 献策 / 人間裁可）policy — "
+        "AI 自走の中核機能（能動的献策）の canon 明記が消えた",
         blocking=True,
     )
 else:
