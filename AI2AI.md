@@ -135,6 +135,16 @@ Any AI model capable of fulfilling a role may be assigned to it. This pipeline i
 
 **Receiving agent:** Identify the role assigned to you by the human orchestrator for this session. Do not assume or expand your role beyond what has been explicitly assigned.
 
+### Operating Model — AI Self-Driving / Human Control-and-Audit-Only（核心運用ポリシー）
+
+このリポジトリの **核心運用ポリシー**: 実装 → 検証 → マージ → 本番デプロイの全工程を **AI が end-to-end で自走（self-drive）** する。人間オーケストレーター（横井雄太 / Yuta Yokoi）の runtime 役割は **制御（goal / priority の提示）と監査（CI オールグリーンの確認）「のみ」** であり、コード記述・手動マージ・手動デプロイは行わない。これは C5「Human Writes Zero Code」と本ファイル冒頭の「AI は交換可能な人員」思想の自然な帰結であり、特定 AI ベンダー / モデルに非依存。
+
+- **AI 自走の範囲**: 「**既存非破壊** かつ **CI オールグリーン**」である限り、AI は確認を求めず `merge` / `push` / 本番デプロイ（GitHub Pages）まで完遂してよい。CI が緑でなければ AI が **根本原因を直してから**（バイパス禁止）緑にして進める。「research / 改善は適用するまで終わらない」（CLAUDE.md §5）と同じ精神で、停止せず完遂する。
+- **人間の役割**: goal / priority の提示と、結果（特に CI 状態）の監査・是正指示「のみ」。人間は「CI オールグリーンを見る」運用に全振りする。
+- **自走しても越えない安全境界**: (a) AI 自身による権限設定（`.claude/settings.json`）の自己拡張は不可＝人間が行う（self-permission-widening 防止）、(b) §3 baseline ゲート（ローカル Playwright baseline 生成禁止）、(c) 制約 C1〜C7、(d) force-push / `rm -rf` 等の破壊的操作（settings deny で固定）。これらは「全振り」でも越えない。CI 緑とは別系統の boundary。
+- **非 AIO**: 本ポリシーは dev 運用ガバナンスであり AIO 公開層（`llms-full.txt` 等）には記載しない（CLAUDE.md §8 と同じく discovery 層をクリーンに保つため）。
+- **機械強制**: 本ポリシーの canon 明記は Check 102 が presence で BLOCKING 監視し、drift（核心ポリシーの silent 消失）を構造的に防ぐ。
+
 ---
 
 ## [STEP 4] Project Context

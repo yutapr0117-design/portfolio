@@ -456,6 +456,14 @@ authoritative inventory and is kept in sync with the implementation below):
        never affects the Playwright visual baseline — i.e. it is exempt from the §3 baseline gate.
        Discovered + systematized during the why-only comment-injection track (same pattern as
        Check 100). (BLOCKING)
+  102. Core operating-model policy is documented in canon: AI2AI.md STEP 3 carries the
+       "Operating Model — AI Self-Driving / Human Control-and-Audit-Only"（核心運用ポリシー）
+       statement, and CLAUDE.md §7 references it. WHY: the repository's core governance contract
+       — AI self-drives implement→verify→merge→deploy end-to-end while the human's runtime role is
+       control + audit (CI all-green) only — is load-bearing for how every future session operates.
+       If it silently disappeared from canon, agents would revert to asking-at-every-step and the
+       owner's "audit-CI-only" model would break. This Check pins the policy's presence (102a:
+       AI2AI.md markers; 102b: CLAUDE.md reference) so it cannot drift out. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -3781,6 +3789,47 @@ else:
         False,
         "",
         "Check 101: style.css not found — forced-colors focus support を検証できない",
+        blocking=True,
+    )
+
+# ── 102. core operating-model policy documented in canon (BLOCKING) ──────────
+# このリポジトリの核心ガバナンス契約「AI が implement→verify→merge→deploy を自走し、人間の
+# runtime 役割は制御 + 監査 (CI オールグリーン) のみ」が canon に明記され続けることを機械強制。
+# 黙って消えると、後続セッションが「毎手確認」運用に逆戻りし、オーナーの audit-CI-only 運用が
+# 壊れる。AI2AI.md STEP 3 の Operating Model marker (102a) と CLAUDE.md §7 の参照 (102b) を
+# presence で固定し drift を防ぐ。
+_ai2ai102 = ROOT / "AI2AI.md"
+_claude102 = ROOT / "CLAUDE.md"
+if _ai2ai102.exists() and _claude102.exists():
+    _ai2ai_src102 = _ai2ai102.read_text(encoding="utf-8")
+    _claude_src102 = _claude102.read_text(encoding="utf-8")
+    # 102a — AI2AI.md に Operating Model 宣言（英語 marker + 日本語 marker + CI 緑条件）が存在。
+    _102a = (
+        "Operating Model" in _ai2ai_src102
+        and "核心運用ポリシー" in _ai2ai_src102
+        and "CI オールグリーン" in _ai2ai_src102
+    )
+    check(
+        _102a,
+        "Check 102a: AI2AI.md documents the core Operating Model policy (AI self-driving / human control-and-audit-only)",
+        "Check 102a: AI2AI.md is missing the core Operating Model policy markers "
+        "('Operating Model' / '核心運用ポリシー' / 'CI オールグリーン') — 核心ガバナンス契約が canon から消えた",
+        blocking=True,
+    )
+    # 102b — CLAUDE.md が同ポリシーを参照（router からの到達性）。
+    _102b = ("核心運用ポリシー" in _claude_src102) or ("Operating Model" in _claude_src102)
+    check(
+        _102b,
+        "Check 102b: CLAUDE.md references the core Operating Model policy",
+        "Check 102b: CLAUDE.md no longer references the Operating Model policy — "
+        "router から核心ポリシーへの到達性が失われた",
+        blocking=True,
+    )
+else:
+    check(
+        False,
+        "",
+        "Check 102: AI2AI.md / CLAUDE.md のいずれかが見つからず operating-model policy を検証できない",
         blocking=True,
     )
 
