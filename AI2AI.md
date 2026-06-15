@@ -141,9 +141,10 @@ Any AI model capable of fulfilling a role may be assigned to it. This pipeline i
 
 - **AI 自走の範囲**: 「**既存非破壊** かつ **CI オールグリーン**」である限り、AI は確認を求めず `merge` / `push` / 本番デプロイ（GitHub Pages）まで完遂してよい。CI が緑でなければ AI が **根本原因を直してから**（バイパス禁止）緑にして進める。「research / 改善は適用するまで終わらない」（CLAUDE.md §5）と同じ精神で、停止せず完遂する。
 - **人間の役割**: goal / priority の提示と、結果（特に CI 状態）の監査・是正指示「のみ」。人間は「CI オールグリーンを見る」運用に全振りする。
+- **AI 献策 / 人間裁可（AI proposes, human disposes）**: 「次に何をやるか」の**選択肢生成（提案）は AI 自走の中核機能**である。人間が goal/priority の裁可と CI 監査のみに専念できるためには、AI が能動的に改善余地を発見し献策しなければならない（受動的な指示待ち AI は「監査のみ」運用を破綻させる）。ただし**提案から何を採るか（goal/priority の確定）はオーケストレーターが裁可する** — 判断主体は常に人間。これは C5「人間は設計・判断、AI は実装」の自然な形（AI が献策し人間が裁可する）であり、repo の DNA（「research は適用するまで終わらない」「停止せず完遂」「全 invariant を機械強制」）が前提とする**能動的 AI の振る舞いそのもの**。
 - **自走しても越えない安全境界**: (a) AI 自身による権限設定（`.claude/settings.json`）の自己拡張は不可＝人間が行う（self-permission-widening 防止）、(b) §3 baseline ゲート（ローカル Playwright baseline 生成禁止）、(c) 制約 C1〜C7、(d) force-push / `rm -rf` 等の破壊的操作（settings deny で固定）。これらは「全振り」でも越えない。CI 緑とは別系統の boundary。
 - **非 AIO**: 本ポリシーは dev 運用ガバナンスであり AIO 公開層（`llms-full.txt` 等）には記載しない（CLAUDE.md §8 と同じく discovery 層をクリーンに保つため）。
-- **機械強制**: 本ポリシーの canon 明記は Check 102 が presence で BLOCKING 監視し、drift（核心ポリシーの silent 消失）を構造的に防ぐ。
+- **機械強制**: 本ポリシーの canon 明記は Check 102 が presence で BLOCKING 監視し、drift（核心ポリシーの silent 消失）を構造的に防ぐ（102a: 自走宣言マーカー / 102b: CLAUDE.md 参照 / 102c: 「AI proposes, human disposes」献策ポリシーの明記）。
 
 ---
 
