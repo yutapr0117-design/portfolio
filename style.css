@@ -316,6 +316,25 @@
             }
         }
 
+        /* WCAG — prefers-contrast: more 対応（1.4.11 Non-text Contrast 強化）。
+           WHY: ユーザーが OS で「より高いコントラスト」を要求した時のみ、境界線・補助テキスト・
+           フォーカスを濃く/太くして可読性を上げる。token (--border-color 等) を上書きするので
+           border / focus を使う全 UI に一括で効く（個別セレクタ列挙より保守容易）。
+           RENDER-NEUTRAL: 本ブロックは `@media (prefers-contrast: more)` に完全スコープされ、
+           当該設定が非アクティブな通常描画（CI の既存 baseline が見る描画）には構造上影響しない
+           ため、視覚 baseline の再生成は不要（CLAUDE.md §3 ゲート非該当・forced-colors と同パターン）。 */
+        @media (prefers-contrast: more) {
+            :root {
+                --border-color: #475569;
+                --border-color-strong: #1e293b;
+                --text-tertiary: #475569;
+                --text-muted: #475569;
+            }
+            :focus-visible {
+                outline-width: 3px;
+            }
+        }
+
 
         /* Reduced motion support */
         @media (prefers-reduced-motion: reduce) {
