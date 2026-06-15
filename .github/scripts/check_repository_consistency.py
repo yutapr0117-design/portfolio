@@ -466,6 +466,12 @@ authoritative inventory and is kept in sync with the implementation below):
        AI2AI.md markers; 102b: CLAUDE.md reference; 102c: the "AI proposes, human disposes"
        proposal policy — proactive AI proposal-generation is a core self-driving function, the
        human dispositions which proposal to pursue) so it cannot drift out. (BLOCKING)
+  103. style.css prefers-contrast (higher-contrast preference) support: style.css contains a
+       `@media (prefers-contrast: more)` block that strengthens borders / muted text / focus for
+       users who request higher contrast (WCAG 1.4.11 Non-text Contrast 強化). Like Check 101
+       (forced-colors), the block is render-neutral — inert unless the OS preference is active — so
+       it never affects the Playwright visual baseline (§3 gate exempt). This Check locks in the
+       higher-contrast fallback so a future edit cannot silently strip it. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -3842,6 +3848,30 @@ else:
         False,
         "",
         "Check 102: AI2AI.md / CLAUDE.md のいずれかが見つからず operating-model policy を検証できない",
+        blocking=True,
+    )
+
+# ── 103. style.css prefers-contrast (higher-contrast) support (BLOCKING) ─────
+# ユーザーが OS で「より高いコントラスト」を要求した時のみ有効化する fallback (境界線/補助
+# テキスト/focus を濃く・太く) が style.css に存在することを固定。WCAG 1.4.11 Non-text Contrast
+# 強化。Check 101 (forced-colors) と同じく render-neutral (当該設定が非アクティブな通常描画 =
+# CI baseline には非影響) ゆえ §3 baseline ゲート非該当。将来 silently strip されるのを防ぐ。
+_css103 = ROOT / "style.css"
+if _css103.exists():
+    _src103 = _css103.read_text(encoding="utf-8")
+    _pc103 = re.search(r"@media\s*\(\s*prefers-contrast\s*:\s*more\s*\)", _src103)
+    check(
+        bool(_pc103),
+        "Check 103: style.css has a prefers-contrast: more block (WCAG 1.4.11 higher-contrast support)",
+        "Check 103: style.css is missing the @media (prefers-contrast: more) fallback — "
+        "higher-contrast-preference users lose the strengthened borders/focus contrast",
+        blocking=True,
+    )
+else:
+    check(
+        False,
+        "",
+        "Check 103: style.css not found — prefers-contrast support を検証できない",
         blocking=True,
     )
 
