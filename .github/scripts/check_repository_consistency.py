@@ -472,6 +472,14 @@ authoritative inventory and is kept in sync with the implementation below):
        (forced-colors), the block is render-neutral — inert unless the OS preference is active — so
        it never affects the Playwright visual baseline (§3 gate exempt). This Check locks in the
        higher-contrast fallback so a future edit cannot silently strip it. (BLOCKING)
+  104. verify-gate scripts carry a Python 3.10+ version guard: each Python script run by
+       `npm run verify` (check_repository_consistency / check_aio_digests /
+       check_binary_aio_metadata / check_css_stylelint) contains a `sys.version_info < (3, 10)`
+       guard that exits with an actionable message. These scripts use 3.10+ syntax (PEP 604
+       `str | None`), so on Python 3.9 (macOS /usr/bin/python3) they otherwise crash with an
+       opaque `TypeError: unsupported operand type(s) for |` at import time. This Check fixes
+       the guard in place so it cannot be silently removed, re-introducing the cryptic-crash
+       class for the next AI-agnostic agent on a fresh machine. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -497,6 +505,19 @@ from _lib_io import csp_sri_hash as _lib_csp_sri_hash
 from _lib_io import extract
 from _lib_io import read as _lib_read
 from _lib_io import read_bytes as _lib_read_bytes
+
+# Python version guard: these verification scripts use 3.10+ syntax (PEP 604
+# `str | None` union annotations, e.g. `root_lastmod: str | None` below). On
+# Python 3.9 (the macOS system interpreter at /usr/bin/python3) a module-level
+# union annotation raises an opaque `TypeError: unsupported operand type(s) for |`
+# at import time, which is hard to diagnose. Fail fast with an actionable message
+# instead. The repo targets Python 3.12 (CI setup-python pin). Held in place by
+# Check 104 so it cannot be silently removed.
+if sys.version_info < (3, 10):
+    sys.exit(
+        "ERROR: this repository's verification scripts require Python 3.10+ "
+        f"(found {sys.version.split()[0]}). Use python3.12 — see CLAUDE.md / .zprofile."
+    )
 
 ROOT = Path(__file__).resolve().parents[2]
 errors: list[str] = []
@@ -3876,6 +3897,38 @@ else:
         "Check 103: style.css not found — prefers-contrast support を検証できない",
         blocking=True,
     )
+
+# ── 104. verify-gate scripts carry a Python 3.10+ version guard (BLOCKING) ────
+# `npm run verify` runs these Python scripts under whatever `python3` resolves to on
+# the machine. They use 3.10+ syntax (PEP 604 `str | None` union annotations), so on
+# Python 3.9 (the macOS system interpreter at /usr/bin/python3)
+# check_repository_consistency.py crashes with an opaque
+# `TypeError: unsupported operand type(s) for |` at import time — a hard-to-diagnose
+# failure for the next (AI-agnostic) agent who lands on a fresh machine. Each verify-gate
+# script now fails fast with an actionable "requires Python 3.10+" message; this Check
+# fixes the guard in place so it cannot be silently removed, re-introducing the
+# cryptic-crash class. (Sibling to Check 55's vacuous-gate and Check 56's orphan
+# detection: it closes a silent/cryptic-failure class structurally.)
+_guard_scripts104 = [
+    ".github/scripts/check_repository_consistency.py",
+    ".github/scripts/check_aio_digests.py",
+    ".github/scripts/check_binary_aio_metadata.py",
+    ".github/scripts/check_css_stylelint.py",
+]
+_guard_marker104 = "sys.version_info < (3, 10)"
+_missing104 = [
+    p for p in _guard_scripts104
+    if not (ROOT / p).exists()
+    or _guard_marker104 not in (ROOT / p).read_text(encoding="utf-8")
+]
+check(
+    not _missing104,
+    f"Check 104: all {len(_guard_scripts104)} verify-gate scripts carry a Python 3.10+ version guard",
+    f"Check 104: these verify-gate scripts are missing the `{_guard_marker104}` guard: {_missing104}. "
+    "3.10+ 専用構文 (PEP 604 `str | None`) を使うため、guard 無しでは Python 3.9 で cryptic TypeError になる。"
+    "各スクリプトの import 直後に version guard を復元せよ",
+    blocking=True,
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

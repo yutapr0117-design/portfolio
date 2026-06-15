@@ -31,6 +31,17 @@ from pathlib import Path
 import struct
 import sys
 
+# Python version guard: this repository's verification scripts use 3.10+ syntax
+# (PEP 604 `str | None` union annotations). On Python 3.9 (the macOS system
+# interpreter at /usr/bin/python3) a module-level union annotation raises an
+# opaque TypeError at import time. Fail fast with an actionable message instead.
+# The repo targets Python 3.12. Held in place by Check 104.
+if sys.version_info < (3, 10):
+    sys.exit(
+        "ERROR: this repository's verification scripts require Python 3.10+ "
+        f"(found {sys.version.split()[0]}). Use python3.12 — see CLAUDE.md / .zprofile."
+    )
+
 ROOT = Path(__file__).resolve().parents[2]
 
 WEBP_FILE = ROOT / "yuta-yokoi-ai-pm-orchestration-system.webp"
