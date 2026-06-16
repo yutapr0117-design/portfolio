@@ -39,6 +39,7 @@ Status        : Plan D「物理移動なし、README で grouping を提供」�
 - `decision-v80-phase2-ci-hygiene-3.md`
 - `decision-v80-phase2-ci-hygiene-4.md`
 - `decision-v80-phase3-authorized-track-audit-wcag-cwv-aio.md`
+- `decision-v80-phase3-deep-specialized-audit.md`
 
 ---
 
