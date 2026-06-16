@@ -352,11 +352,13 @@ authoritative inventory and is kept in sync with the implementation below):
       「物理移動なし、README で grouping を提供」設計を機械強制化したもので、incident-artifact
       追加時に README 更新を忘れる drift を pre-commit で構造的に閉じる。README 自身は
       inventory から除外。(BLOCKING)
-  76. .claude/settings.json security baseline: Claude Code agent の権限境界設定が最低限の
-      security invariant (permissions.deny に `git add .` / `-A` / `--all` + `*.webp` Edit/Write
-      deny + `*.mp3` Edit/Write deny の 5 項目宣言) を満たすことを機械強制する。Claude Code が
-      agent として作業するときの safety net を「設定ファイルに依存する暗黙の約束」から
-      「機械強制契約」へ昇格させる。(BLOCKING)
+  76. .claude/settings.json self-drive safety-boundary baseline: 完全 AI 自走を「安全に」
+      成立させている settings.json の deny 境界 (AI2AI.md STEP 3「越えない安全境界」) が silent
+      に消えていないことを機械強制する。検証する deny: (a) self-permission-widening 防止 =
+      `Edit/Write(.claude/settings.json)`、(b) 破壊的操作 = `git push --force`/`-f`・`rm -rf`、
+      (c) 全 stage 事故防止 = `git add .`/`-A`/`--all`、(d) C6 binary 保護 = `*.webp`/`*.mp3`
+      Edit/Write deny。safety net を「暗黙の約束」から「機械強制契約」へ昇格させる。とりわけ (a) が
+      消えると AI が自身の権限を自己拡張でき、人間の制御境界が崩壊するため最重要。(BLOCKING)
   77. .claude/commands/ slash-command frontmatter integrity: .claude/commands/*.md の全 slash-
       command 定義が、Claude Code 仕様に従った frontmatter (`---\ndescription: <text>\n---`) を
       持つことを機械強制する。description フィールド消失で Claude Code は command を skill
@@ -3148,28 +3150,43 @@ else:
     )
 
 # ── 76. .claude/settings.json security baseline (BLOCKING) ───────────────────
-# .claude/settings.json は Claude Code agent の権限境界を定義する重要設定。最低限の
-# security invariant: (a) `permissions.deny` に `git add .` / `-A` / `--all` の 3 パターン
-# が明示宣言されている (誤った全 stage 防止)、(b) WebP / MP3 への Edit/Write が deny
-# (binary AIO metadata 保護 C6)。Claude Code が agent として作業するときの safety net
-# を「設定ファイルに依存する暗黙の約束」から「機械強制契約」へ昇格させる。
+# .claude/settings.json は Claude Code agent の権限境界を定義する重要設定。完全 AI 自走
+# (Operating Model: AI が implement→verify→merge→deploy を自走、人間は監査のみ) を「安全に」
+# 成立させているのは、settings.json の deny が宣言する「越えない安全境界」そのものである。
+# よってこれらの deny が silent に消えていないことを機械強制し、「設定ファイルに依存する暗黙の
+# 約束」を「機械強制契約」へ昇格させる。検証する deny (AI2AI.md STEP 3「自走しても越えない安全
+# 境界」と対応):
+#   (a) self-permission-widening 防止 = `Edit/Write(.claude/settings.json)` deny (境界 a)。
+#       これが消えると AI が自分の権限を自己拡張でき、人間の制御境界が崩壊する = 最重要。
+#   (b) 破壊的操作 deny = `git push --force`/`-f` (force-push)・`rm -rf` (境界 d)。
+#   (c) 全 stage 事故防止 = `git add .`/`-A`/`--all` deny。
+#   (d) C6 binary 保護 = `*.webp`/`*.mp3` への Edit/Write deny。
+# いずれか一つでも欠けると自走運用の安全前提が崩れるため BLOCKING。
 _settings76 = ROOT / ".claude" / "settings.json"
 if _settings76.exists():
     try:
         _sdata76 = json.loads(_settings76.read_text(encoding="utf-8"))
         _deny76 = _sdata76.get("permissions", {}).get("deny", [])
-        _has_git_add76 = any("git add ." in d for d in _deny76)
-        _has_git_add_A76 = any("git add -A" in d for d in _deny76)
-        _has_git_add_all76 = any("git add --all" in d for d in _deny76)
-        _has_webp_deny76 = any("*.webp" in d for d in _deny76)
-        _has_mp3_deny76 = any("*.mp3" in d for d in _deny76)
-        _all76 = _has_git_add76 and _has_git_add_A76 and _has_git_add_all76 and _has_webp_deny76 and _has_mp3_deny76
+        # 各 safety boundary を「deny リストにその marker を含む要素が存在するか」で判定。
+        _req76 = {
+            "Edit(.claude/settings.json) [self-permission-widening 防止]": lambda: any("Edit(.claude/settings.json)" in d for d in _deny76),
+            "Write(.claude/settings.json) [self-permission-widening 防止]": lambda: any("Write(.claude/settings.json)" in d for d in _deny76),
+            "git push --force [force-push 防止]": lambda: any("git push --force" in d for d in _deny76),
+            "git push -f [force-push 防止]": lambda: any("git push -f" in d for d in _deny76),
+            "rm -rf [破壊的削除 防止]": lambda: any("rm -rf" in d for d in _deny76),
+            "git add . [全 stage 事故 防止]": lambda: any("git add ." in d for d in _deny76),
+            "git add -A [全 stage 事故 防止]": lambda: any("git add -A" in d for d in _deny76),
+            "git add --all [全 stage 事故 防止]": lambda: any("git add --all" in d for d in _deny76),
+            "*.webp Edit/Write [C6 binary 保護]": lambda: any("*.webp" in d for d in _deny76),
+            "*.mp3 Edit/Write [C6 binary 保護]": lambda: any("*.mp3" in d for d in _deny76),
+        }
+        _missing76 = [name for name, fn in _req76.items() if not fn()]
         check(
-            _all76,
-            "Check 76: .claude/settings.json declares security-baseline denies (git add . / -A / --all + *.webp + *.mp3)",
-            f"Check 76: .claude/settings.json security baseline incomplete — "
-            f"git add .={_has_git_add76}, -A={_has_git_add_A76}, --all={_has_git_add_all76}, "
-            f"webp deny={_has_webp_deny76}, mp3 deny={_has_mp3_deny76}. 全 5 項目を deny に明示せよ",
+            not _missing76,
+            f"Check 76: .claude/settings.json declares all {len(_req76)} self-drive safety-boundary denies "
+            "(settings self-edit / force-push / rm -rf / git add . / webp+mp3)",
+            f"Check 76: .claude/settings.json safety baseline incomplete — missing deny markers: {_missing76}. "
+            "AI2AI.md STEP 3「越えない安全境界」を settings.json の deny で固定せよ (完全自走の安全前提)",
         )
     except json.JSONDecodeError as _e76:
         check(False, "Check 76: .claude/settings.json parses as JSON", f"Check 76: settings.json JSON parse error: {_e76}")
