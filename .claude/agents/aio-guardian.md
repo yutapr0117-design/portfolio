@@ -33,7 +33,7 @@ The following are AIO published-layer canonical files. Any edit requires explici
 1. Run `python3 .github/scripts/update_aio_digests.py` to regenerate `.well-known/aio-manifest.json` / `.well-known/index.json` / `.well-known/agent-skills/index.json`.
 2. Run `python3 .github/scripts/check_aio_digests.py` to verify digest chain consistency.
 3. Run `python3 .github/scripts/check_binary_aio_metadata.py` to verify WebP XMP / MP3 ID3.
-4. Run `python3 .github/scripts/check_repository_consistency.py` to confirm all 75 Checks pass.
+4. Run `python3 .github/scripts/check_repository_consistency.py` to confirm all consistency Checks pass (the authoritative Check total lives in `docs/architecture/total-check-runbook.md` §9, enforced by Check 70 — do not hardcode a number here).
 
 ## Reject-on-sight anti-patterns (refuse and report)
 

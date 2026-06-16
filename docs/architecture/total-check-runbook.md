@@ -294,7 +294,7 @@ echo "ALL LOCAL CHECKS PASSED"
 
 | workflow file | trigger | 役割 |
 |---|---|---|
-| `architecture-validation.yml` | `push` / `pull_request` → main | 構成制約検証パイプライン。`npm run verify`（consistency 106 Check + lint + css + 構文）を CI で実行する主ゲート。ここが緑 = 「既存非破壊」の機械的証明。 |
+| `architecture-validation.yml` | `push` / `pull_request` → main | 構成制約検証パイプライン。`npm run verify`（全 consistency Check + lint + css + 構文。Check 総数の正値は §9）を CI で実行する主ゲート。ここが緑 = 「既存非破壊」の機械的証明。 |
 | `playwright-regression.yml` | `pull_request` → main（shipped code path のみ）| 視覚回帰 + behavior 検証。`index.html` / `main.js` / `js/**` / `style.css` 等の配信コードが変わった PR で baseline PNG と差分照合（§3 baseline ゲートの実行面）。 |
 | `update-playwright-snapshots.yml` | `workflow_dispatch`（手動のみ）| Playwright baseline PNG を生成して PR 化する唯一の正規経路。ローカル `--update-snapshots` は §3 ゲートで禁止ゆえ、視覚変更の baseline はここ経由 → 人間 merge。 |
 | `auto-update-aio-digests.yml` | `push` → main（AIO file path のみ）| AIO 正本層（`llms*` / `AI2AI.md` / WebP / MP3 / Claude2Claude.md 等）が main に入った時、digest 連鎖（C6 derived-value）を自動再計算・同期 commit する。 |

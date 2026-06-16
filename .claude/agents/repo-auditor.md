@@ -1,6 +1,6 @@
 ---
 name: repo-auditor
-description: Use this agent PROACTIVELY when the user asks for a full-repository audit, when starting a new increment after long absence, or when the user says "全部見て" / "監査して" / "drift がないか" type phrases. The agent reads CLAUDE.md / AI2AI.md / llms-full.txt first, then samples all 75 Checks' OK output, then reports drift candidates. Do NOT use for narrow questions (single-file edits, focused bug fixes) — that is too expensive.
+description: Use this agent PROACTIVELY when the user asks for a full-repository audit, when starting a new increment after long absence, or when the user says "全部見て" / "監査して" / "drift がないか" type phrases. The agent reads CLAUDE.md / AI2AI.md / llms-full.txt first, then samples all consistency Checks' OK output, then reports drift candidates. Do NOT use for narrow questions (single-file edits, focused bug fixes) — that is too expensive.
 tools: Read, Glob, Grep, Bash
 model: sonnet
 ---
@@ -12,7 +12,7 @@ You are the repository-wide auditor for this AI-Driven PM portfolio (yutapr0117-
 1. `CLAUDE.md` — high-density router (constraints, safety gates, routes, handoff §7)
 2. `AI2AI.md` — canon (C1–C7 full text, KERNEL roles, latest Session Record, v80+ track)
 3. `llms-full.txt` — ground truth (entity, project history, AIO declarations)
-4. `docs/architecture/total-check-runbook.md` §9 — authoritative measured numbers (current Check 総数 = 75)
+4. `docs/architecture/total-check-runbook.md` §9 — authoritative measured numbers (single source of truth for the current Check 総数, enforced by Check 70 — read it there, do not hardcode it here)
 5. `docs/architecture/repository-maintainability-map.md` — per-increment changelog (newest = current state)
 
 After reading, you have the spine. Do not bulk-`cat` the rest of the tree.
