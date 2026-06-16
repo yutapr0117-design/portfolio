@@ -256,6 +256,36 @@ test('Task app adds a task and persists it across reload', async ({ page }) => {
   await expect(page.getByText(title)).toBeVisible();
 });
 
+// ===== 7.2: TODO アプリの追加→完了トグル→一括削除フロー Behavior Check =====
+// #/apps/todo は TodoPage (task とは別 factory / 別 State slice) で、addTodo (Enter) /
+// toggleTodo (checkbox) / clearCompleted (「完了済み削除」一括操作) という distinct な
+// コードパスを持つ。task テスト (#91) が add+persist を見るのに対し、本テストは toggle と
+// bulk 削除という別 operation class を実ブラウザで動的検証する。
+test('Todo app add, complete-toggle, then clear-completed removes the item', async ({ page }) => {
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('networkidle');
+
+  const input = page.locator('#todo-input');
+  await expect(input).toBeVisible();
+  const text = 'E2E-TODO-FLOW-CHECK-3389';
+  await input.fill(text);
+  await input.press('Enter');
+
+  // 追加された
+  const item = page.locator('article', { hasText: text });
+  await expect(item).toBeVisible();
+
+  // 完了トグル (checkbox) → clearCompleted (「完了済み削除」) でリストから消える
+  await item.locator('input[type="checkbox"]').check();
+  await page.getByRole('button', { name: '完了済み削除' }).click();
+  await expect(page.getByText(text)).toHaveCount(0);
+
+  // リロード後も削除が永続している (State auto-save)
+  await page.reload();
+  await page.waitForLoadState('networkidle');
+  await expect(page.getByText(text)).toHaveCount(0);
+});
+
 // ===== 7.2: 全ハッシュルート検証 — aria-busy 収束 & コンテンツ非空 =====
 const HASH_ROUTES = ['#/home', '#/projects', '#/about', '#/contact', '#/skills'];
 
