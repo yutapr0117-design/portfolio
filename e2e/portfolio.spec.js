@@ -286,6 +286,29 @@ test('Todo app add, complete-toggle, then clear-completed removes the item', asy
   await expect(page.getByText(text)).toHaveCount(0);
 });
 
+// ===== 7.2: 設定アプリのデータエクスポート整合性 Behavior Check =====
+// #/settings の「フルバックアップ」は downloadJSON(State.get()) で blob を生成し
+// portfolio_full_<ts>.json として download する (data-integrity 機能)。CRUD とは別系統の
+// 「State 全体を妥当な JSON として書き出せるか」を、Playwright の download イベントで動的検証。
+test('Settings app exports a full backup as a valid JSON download', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('networkidle');
+
+  const exportBtn = page.getByRole('button', { name: 'フルバックアップ' });
+  await expect(exportBtn).toBeVisible();
+
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    exportBtn.click(),
+  ]);
+  expect(download.suggestedFilename()).toMatch(/^portfolio_full_\d+\.json$/);
+
+  // ダウンロード本体が State の妥当な JSON であること
+  const content = fs.readFileSync(await download.path(), 'utf8');
+  const parsed = JSON.parse(content);
+  expect(parsed, 'export must contain the appsData State slice').toHaveProperty('appsData');
+});
+
 // ===== 7.2: 全ハッシュルート検証 — aria-busy 収束 & コンテンツ非空 =====
 const HASH_ROUTES = ['#/home', '#/projects', '#/about', '#/contact', '#/skills'];
 
@@ -502,6 +525,18 @@ for (const route of ALL_ROUTES) {
       pageErrors,
       `Route ${route.name} page errors: ` + JSON.stringify(pageErrors)
     ).toHaveLength(0);
+
+    // No CAUGHT render crash (ErrorBoundary → FatalPage). main.js stores the thrown
+    // error on window.__fatalError before rendering FatalPage. A route that crashes into
+    // FatalPage would otherwise PASS the three checks above — #content is non-empty (it
+    // holds the fatal UI) and the error was caught (so no console/page error). This is
+    // exactly how the SettingsPage Storage-injection bug hid undetected. Asserting
+    // window.__fatalError is falsy closes that detection gap for every shipped route.
+    const fatal = await page.evaluate(() => {
+      const e = window.__fatalError;
+      return e ? (e.message || String(e)) : null;
+    });
+    expect(fatal, `Route ${route.name} fell into the ErrorBoundary FatalPage: ${fatal}`).toBeNull();
   });
 }
 

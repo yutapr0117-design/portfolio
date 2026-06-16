@@ -38,7 +38,7 @@
  *   - SettingsPage のインポート/エクスポート挙動も byte-equivalent
  *   - AIDK Kernel / AIO 正本層には影響しない
  */
-export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme, Brand, Store, CONSTANTS, generateId, clamp, slugify }) {
+export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme, Brand, Store, Storage, CONSTANTS, generateId, clamp, slugify }) {
     // ===== Component: Apps Hub =====
 
     // ===== Component: Task App =====

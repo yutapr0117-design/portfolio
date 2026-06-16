@@ -446,7 +446,7 @@
         //   todoFilter / todoComposing / pomodoroTimer / aiLoading / settings*）も
         //   factory closure 内へ移動（揮発性 UI 状態は元と同位置で保持される・挙動 byte-equivalent）。
         const { TaskPage, TodoPage, PomodoroPage, AIPage, SettingsPage } = createApps({
-            h, createIcon, Toast, AUTHOR, Router, State, Theme, Brand, Store, CONSTANTS,
+            h, createIcon, Toast, AUTHOR, Router, State, Theme, Brand, Store, Storage, CONSTANTS,
             generateId, clamp, slugify
         });
 
