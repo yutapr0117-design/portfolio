@@ -3,6 +3,7 @@
 // Do NOT embed this file in workflow heredocs — both regression and snapshot workflows reference it directly.
 
 const { test, expect } = require('@playwright/test');
+const AxeBuilder = require('@axe-core/playwright').default;
 const path = require('path');
 const fs   = require('fs');
 
@@ -366,6 +367,30 @@ test('Pomodoro mode switch resets and updates the timer display', async ({ page 
   await page.getByRole('button', { name: '短休憩', exact: true }).click();
   await expect(timer).not.toHaveText(initial);
 });
+
+// ===== 7.1: axe-core 自動アクセシビリティ監査 — invalid-ARIA 回帰防止 =====
+// axe-core で WCAG 2a/2aa/21a/21aa を全主要ルートでスキャンし、critical な `aria-valid-attr-value`
+// 違反がゼロであることを機械強制する。これは「main 要素等の aria-details が `#id`（CSS セレクタ
+// 形式・IDREF 不正）かつ dangling だった」全ルート critical バグ (本 increment で是正) の回帰防止。
+// 注: color-contrast / link-in-text-block 等の render 系違反は §3 baseline ゲート下で別途扱う
+// ため本テストでは対象外（render-neutral に直せる ARIA 妥当性のみを今は機械強制する）。
+const A11Y_ROUTES = ['#/', '#/projects', '#/about', '#/contact', '#/resume', '#/apps', '#/settings', '#/quiz', '#/apps/task'];
+for (const route of A11Y_ROUTES) {
+  test(`a11y axe: ${route} has no invalid-ARIA-value violations`, async ({ page }) => {
+    await page.goto(`/${route}`);
+    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(150);
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .analyze();
+    const ariaValueViolations = results.violations.filter(v => v.id === 'aria-valid-attr-value');
+    expect(
+      ariaValueViolations,
+      `Route ${route} aria-valid-attr-value: ` +
+      JSON.stringify(ariaValueViolations.flatMap(v => v.nodes.map(n => n.html.slice(0, 120))))
+    ).toHaveLength(0);
+  });
+}
 
 // ===== 7.2: 全ハッシュルート検証 — aria-busy 収束 & コンテンツ非空 =====
 // 注: 以前は '#/home'（home は '#/'）と '#/skills'（'skills' route は存在しない）が含まれ、

@@ -268,7 +268,6 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
                                 'data-ai-context': 'https://yutapr0117-design.github.io/portfolio/llms-full.txt',
                                 'data-asset-role': 'hero-image',
                                 id: 'hero-image',
-                                'aria-details': '#hero-image-asset',
                                 width: '1536',
                                 height: '1024',
                                 loading: 'eager',
