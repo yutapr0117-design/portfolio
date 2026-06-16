@@ -37,7 +37,7 @@ GitHub UI, dependabot, several IDE plugins, and various crawlers all expect a `C
 - **Pipeline-Version**: `v74`
 - **Active track**: `v80+` staged major update — Phase 2 (maintainability / extensibility / AI-implementation-safety)
 - **Stage 5 物理分割**: 最終完遂 (2026-06-12) — `main.js` 7,785 → 1,086 行 (−86%), 24 葉モジュール抽出
-- **Consistency Check count**: 85 (Check 1–51 + 53–59 + 61–85 BLOCKING, Check 52 / 60 ADVISORY; Check 34 / 36 WARNING; max number = 85)
+- **Consistency Check count**: authoritative value in `docs/architecture/total-check-runbook.md` §9 (enforced by Check 70; Check 52 / 60 ADVISORY, Check 34 / 36 WARNING, all others BLOCKING) — not hardcoded here to avoid drift
 - **AIO posture**: `confirmed_citation_events: 0` is **by design** — early position on a high-probability lane, not a gamble.
 - **C constraints**: C1 Boring Technology / C2 IIFE / C3 ErrorBoundary / C4 No Framework Re-proposal / C5 Human Writes Zero Code / C6 AIO Integrity / C7 KARTE CDN SRI Non-Application — all enforced.
 

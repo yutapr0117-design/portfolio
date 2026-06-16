@@ -22,7 +22,7 @@ Status        : SUBORDINATE — `/CLAUDE.md` at repo root is the primary router.
 
 ## Claude Code session-start protocol (every fresh session)
 
-1. **Read in order**: `/CLAUDE.md` § 7 (handoff) → newest `docs/incident-artifacts/improvement-notes-claude-*.md` → `docs/architecture/total-check-runbook.md` § 9 (current Check 総数 = 85).
+1. **Read in order**: `/CLAUDE.md` § 7 (handoff) → newest `docs/incident-artifacts/improvement-notes-claude-*.md` → `docs/architecture/total-check-runbook.md` § 9 (single source of truth for the current Check 総数, enforced by Check 70 — read it there, do not hardcode it here).
 2. **Invoke skill** when state-summary is needed: `/repo-status` (the `repo-status` skill in `.claude/skills/repo-status/SKILL.md` produces a 15-line BLUF status block).
 3. **Audit before editing if uncertain**: `/audit` (invokes `repo-auditor` sub-agent for read-only 6-dimension drift detection).
 4. **For AIO edits**: ALWAYS route through `aio-guardian` sub-agent first (C6 enforcement; agent is in `.claude/agents/aio-guardian.md`).
