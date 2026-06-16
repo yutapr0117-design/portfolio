@@ -8,7 +8,7 @@ canonical-ref: AI2AI.md / CLAUDE.md / docs/architecture/total-check-runbook.md
 # docs/incident-artifacts/improvement-notes-claude-v80-phase3-continuous-improvement-run.md
 
 ## What
-2026-06-16 の continuous-improvement run（PR #73〜#81、継続中）の増分記録。(a) 「No terminal "done" state（改善に完了状態は存在しない）」を canon 化 + Check 102d で機械強制、(b) 再発していた stale Check-count hardcode drift を Check 109 で封じ living 文書 18 件へ全面拡張、(c) 完全自走の安全境界を Check 76 で全面強制（self-permission-widening / force-push / rm -rf）、(d) agent/skill の name==identifier coherence を Check 78/80 で強制、(e) theme 永続化・mobile drawer の e2e behavior カバレッジを追加。
+2026-06-16 の continuous-improvement run（PR #73〜#101、継続中。実バグ 2 件 = Settings 全ユーザー crash #93 / sw.js オフライン unhandledrejection #84 の修正を含む）の増分記録。(a) 「No terminal "done" state（改善に完了状態は存在しない）」を canon 化 + Check 102d で機械強制、(b) 再発していた stale Check-count hardcode drift を Check 109 で封じ living 文書 18 件へ全面拡張、(c) 完全自走の安全境界を Check 76 で全面強制（self-permission-widening / force-push / rm -rf）、(d) agent/skill の name==identifier coherence を Check 78/80 で強制、(e) theme 永続化・mobile drawer の e2e behavior カバレッジを追加。
 
 ## Why
 オーナーが「改善に完了概念は存在しない・AI は自発停止せず無限に genuine 改善を自走する」運用を確定した。その第一弾として、手動 drift-proof が構造的に漏れる（PR #68 が自ら §11 へ stale 値を混入させた）ことを契機に、stale count drift class を機械強制へ昇格させた proof-of-work を残す。
