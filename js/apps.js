@@ -129,6 +129,7 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                     }),
                     h('select', {
                         class: 'input',
+                        'aria-label': '優先度で絞り込み',
                         value: taskFilter.priority,
                         onchange: (e) => {
                             taskFilter.priority = e.target.value;
@@ -186,12 +187,14 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                                         ),
                                         h('button', {
                                             class: 'icon-btn btn-sm icon-sm',
+                                            'aria-label': 'タスクを削除',
                                             onclick: () => deleteTask(task.id)
                                         }, createIcon('trash', 14))
                                     ),
                                     h('div', { class: 'flex items-center justify-between' },
                                         h('select', {
                                             class: 'input btn-sm',
+                                            'aria-label': 'タスクの優先度',
                                             style: 'width:auto;padding:0.25rem 0.5rem;font-size:0.75rem;',
                                             value: task.priority,
                                             onchange: (e) => updateTask(task.id, { priority: e.target.value })
@@ -300,6 +303,7 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                     h('div', { class: 'flex gap-2 mt-4' },
                         h('select', {
                             class: 'input w-auto',
+                            'aria-label': 'TODO を絞り込み',
                             value: todoFilter,
                             onchange: (e) => { todoFilter = e.target.value; window.render(); }
                         },
@@ -865,7 +869,7 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                             h('div', { class: 'grid grid-cols-2 gap-3' },
                                 h('div', {},
                                     h('label', { class: 'text-sm text-muted' }, 'モード'),
-                                    h('select', { class: 'input', onchange: (e) => { settingsImportMode = e.target.value; window.render(); }, value: settingsImportMode },
+                                    h('select', { class: 'input', 'aria-label': 'インポートモード', onchange: (e) => { settingsImportMode = e.target.value; window.render(); }, value: settingsImportMode },
                                         h('option', { value: 'append' }, 'append（追加のみ）'),
                                         h('option', { value: 'upsert' }, 'upsert（更新+追加）'),
                                         h('option', { value: 'strict' }, 'strict（全置換）')
@@ -893,6 +897,7 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                                 h('input', {
                                     type: 'file',
                                     class: 'input',
+                                    'aria-label': 'インポートする JSON ファイルを選択',
                                     accept: 'application/json',
                                     onchange: (e) => {
                                         const f = e.target.files && e.target.files[0];
@@ -970,7 +975,7 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                                 ),
                                 h('div', {},
                                     h('label', { class: 'text-sm text-muted' }, 'Demo（任意）'),
-                                    h('select', { class: 'input', onchange: (e) => { settingsNewDemo = e.target.value; }, value: settingsNewDemo },
+                                    h('select', { class: 'input', 'aria-label': 'Demo アプリの種類', onchange: (e) => { settingsNewDemo = e.target.value; }, value: settingsNewDemo },
                                         h('option', { value: '' }, 'Demoなし'),
                                         h('option', { value: 'task' }, 'task'),
                                         h('option', { value: 'todo' }, 'todo'),
