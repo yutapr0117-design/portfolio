@@ -364,18 +364,21 @@ authoritative inventory and is kept in sync with the implementation below):
       持つことを機械強制する。description フィールド消失で Claude Code は command を skill
       listing から拾えなくなる silent failure に陥るため、構造的に閉じる。(BLOCKING)
   78. .claude/agents/ sub-agent frontmatter integrity: .claude/agents/*.md の全 sub-agent
-      定義が、Claude Code 仕様の frontmatter (`name:` + `description:`) を持つことを機械強制
-      する。description は Agent tool の subagent_type 選択時の真値で、消失すると orchestrator
-      が agent を呼び出せず silent unavailability になる。(BLOCKING)
+      定義が、Claude Code 仕様の frontmatter (`name:` + `description:`) を持ち、かつ `name:` が
+      ファイル名 stem と一致することを機械強制する。description は Agent tool の subagent_type
+      選択時の真値で、消失すると orchestrator が agent を呼び出せず silent unavailability になる。
+      name≠stem だと docs (例 .claude/CLAUDE.md の invocation table) がファイル名で参照する agent を
+      Claude が name で解決できず dangling reference が silent に生じる。(BLOCKING)
   79. .mcp.json JSON parsability: `.mcp.json` (MCP server project-scope config) が JSON として
       parse 可能かつ `mcpServers` dict を含むことを機械強制する。parse 失敗は Claude Code 起動
       時の catastrophic 障害になるため、早期検出が必要。空 `mcpServers: {}` の placeholder は
       OK。ファイル不在は ADVISORY (optional)。(BLOCKING when present)
   80. .claude/skills/*/SKILL.md frontmatter integrity: .claude/skills/<name>/SKILL.md の全 skill
-      定義が、Claude Code 仕様の frontmatter (`name:` + `description:`) を持つことを機械強制
-      する。skill description は Claude が proactive な skill 呼び出し判断に使う重要シグナルで、
-      消失すると skill は登録されても呼び出されなくなる silent unavailability になる。
-      (BLOCKING when present, ADVISORY when absent)
+      定義が、Claude Code 仕様の frontmatter (`name:` + `description:`) を持ち、かつ `name:` が
+      親ディレクトリ名と一致することを機械強制する。skill description は Claude が proactive な
+      skill 呼び出し判断に使う重要シグナルで、消失すると skill は登録されても呼び出されなくなる
+      silent unavailability になる。name≠dirname は解決分裂を招く (Check 78 と同型の
+      identifier-coherence)。(BLOCKING when present, ADVISORY when absent)
   81. WebP XMP Organization field presence: hero WebP の XMP chunk に `aio:OrganizationName` /
       `OrganizationURL` / `OrganizationRole` / `OrganizationStartDate` の 4 field が含まれること
       を機械強制する。Check 44 (canary token 整合) と同じ「entity 文脈が binary metadata にも
@@ -3218,9 +3221,12 @@ else:
 
 # ── 78. .claude/agents/ sub-agent frontmatter integrity (BLOCKING) ───────────
 # .claude/agents/*.md の全 sub-agent 定義が、Claude Code 仕様に従った frontmatter
-# (`name:` + `description:`) を持つことを機械強制する。sub-agent の description は
-# Agent tool の subagent_type 選択時に表示される真値で、消失すると orchestrator は
-# agent を呼び出せず silent unavailability になる。
+# (`name:` + `description:`) を持ち、かつ `name:` がファイル名 stem と一致することを機械強制
+# する。sub-agent の description は Agent tool の subagent_type 選択時に表示される真値で、
+# 消失すると orchestrator は agent を呼び出せず silent unavailability になる。さらに Claude Code
+# は agent を `name:` で解決する一方、人間や docs (例: .claude/CLAUDE.md の sub-agent invocation
+# table) はファイル名で参照するため、name ≠ stem だと「docs が指す agent が解決できない」
+# dangling reference が silent に生じる。両者の一致を固定して footgun を構造的に閉じる。
 _agents78_dir = ROOT / ".claude" / "agents"
 if _agents78_dir.is_dir():
     _agents78 = sorted(_agents78_dir.glob("*.md"))
@@ -3232,15 +3238,18 @@ if _agents78_dir.is_dir():
             _bad78.append(f"{_ag.name}: missing frontmatter")
             continue
         _fm_body78 = _fm78.group(1)
-        if not re.search(r"^name:\s*\S", _fm_body78, re.MULTILINE):
+        _name78 = re.search(r"^name:\s*(\S+)", _fm_body78, re.MULTILINE)
+        if not _name78:
             _bad78.append(f"{_ag.name}: missing name:")
+        elif _name78.group(1) != _ag.stem:
+            _bad78.append(f"{_ag.name}: name '{_name78.group(1)}' != filename stem '{_ag.stem}'")
         if not re.search(r"^description:\s*\S", _fm_body78, re.MULTILINE):
             _bad78.append(f"{_ag.name}: missing description:")
     check(
         not _bad78 and len(_agents78) > 0,
-        f"Check 78: all {len(_agents78)} .claude/agents/*.md have valid frontmatter (name + description)",
+        f"Check 78: all {len(_agents78)} .claude/agents/*.md have valid frontmatter (name==stem + description)",
         f"Check 78: sub-agent(s) with invalid frontmatter: {_bad78} — "
-        f"Claude Code は name + description を agent 解決で必須要求する",
+        f"Claude Code は name + description を agent 解決で必須要求し、name はファイル名 stem と一致させる",
     )
 else:
     check(False, "Check 78: .claude/agents/ exists", "Check 78: .claude/agents/ ディレクトリが消失")
@@ -3267,9 +3276,11 @@ else:
 
 # ── 80. .claude/skills/*/SKILL.md frontmatter integrity (BLOCKING) ───────────
 # .claude/skills/<name>/SKILL.md の全 skill 定義が、Claude Code 仕様に従った frontmatter
-# (`name:` + `description:`) を持つことを機械強制する。skill description は Claude が
-# proactive な skill 呼び出し判断に使う重要シグナルで、消失すると skill は登録されても
-# 呼び出されなくなる silent unavailability になる。
+# (`name:` + `description:`) を持ち、かつ `name:` が親ディレクトリ名と一致することを機械強制
+# する。skill description は Claude が proactive な skill 呼び出し判断に使う重要シグナルで、
+# 消失すると skill は登録されても呼び出されなくなる silent unavailability になる。Claude Code は
+# skill をディレクトリ名で配置しつつ `name:` で解決するため、name ≠ dirname だと解決が分裂する
+# (Check 78 の agent name==stem と同型の identifier-coherence 不変条件)。
 _skills80_dir = ROOT / ".claude" / "skills"
 if _skills80_dir.is_dir():
     _skills80 = sorted(_skills80_dir.glob("*/SKILL.md"))
@@ -3281,15 +3292,18 @@ if _skills80_dir.is_dir():
             _bad80.append(f"{_sk.parent.name}/SKILL.md: missing frontmatter")
             continue
         _fm_body80 = _fm80.group(1)
-        if not re.search(r"^name:\s*\S", _fm_body80, re.MULTILINE):
+        _name80 = re.search(r"^name:\s*(\S+)", _fm_body80, re.MULTILINE)
+        if not _name80:
             _bad80.append(f"{_sk.parent.name}/SKILL.md: missing name:")
+        elif _name80.group(1) != _sk.parent.name:
+            _bad80.append(f"{_sk.parent.name}/SKILL.md: name '{_name80.group(1)}' != dir '{_sk.parent.name}'")
         if not re.search(r"^description:\s*\S", _fm_body80, re.MULTILINE):
             _bad80.append(f"{_sk.parent.name}/SKILL.md: missing description:")
     if _skills80:
         check(
             not _bad80,
-            f"Check 80: all {len(_skills80)} .claude/skills/*/SKILL.md have valid frontmatter (name + description)",
-            f"Check 80: skill(s) with invalid frontmatter: {_bad80} — Claude Code は name + description を skill 解決で必須要求する",
+            f"Check 80: all {len(_skills80)} .claude/skills/*/SKILL.md have valid frontmatter (name==dir + description)",
+            f"Check 80: skill(s) with invalid frontmatter: {_bad80} — Claude Code は name + description を skill 解決で必須要求し、name は親ディレクトリ名と一致させる",
         )
     else:
         warnings.append("Check 80 (ADVISORY): .claude/skills/ exists but no SKILL.md found")
