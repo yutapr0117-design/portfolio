@@ -368,26 +368,30 @@ test('Pomodoro mode switch resets and updates the timer display', async ({ page 
   await expect(timer).not.toHaveText(initial);
 });
 
-// ===== 7.1: axe-core 自動アクセシビリティ監査 — invalid-ARIA 回帰防止 =====
-// axe-core で WCAG 2a/2aa/21a/21aa を全主要ルートでスキャンし、critical な `aria-valid-attr-value`
-// 違反がゼロであることを機械強制する。これは「main 要素等の aria-details が `#id`（CSS セレクタ
-// 形式・IDREF 不正）かつ dangling だった」全ルート critical バグ (本 increment で是正) の回帰防止。
-// 注: color-contrast / link-in-text-block 等の render 系違反は §3 baseline ゲート下で別途扱う
-// ため本テストでは対象外（render-neutral に直せる ARIA 妥当性のみを今は機械強制する）。
-const A11Y_ROUTES = ['#/', '#/projects', '#/about', '#/contact', '#/resume', '#/apps', '#/settings', '#/quiz', '#/apps/task'];
+// ===== 7.1: axe-core 自動アクセシビリティ監査 — render-neutral critical 回帰防止 =====
+// axe-core で WCAG 2a/2aa/21a/21aa を全主要ルートでスキャンし、render-neutral に修正可能な
+// critical 違反群がゼロであることを機械強制する。本 increment で是正したバグの回帰防止:
+//   - aria-valid-attr-value: aria-details が `#id`（IDREF 不正）かつ dangling だった全ルート critical
+//   - select-name / button-name / label: settings/task/todo の form-control に accessible name が
+//     無かった critical（aria-label を付与して是正）
+// これらは ARIA 属性 / accessible name の付与のみで pixel 不変ゆえ §3 baseline ゲート非該当。
+// 注: color-contrast / link-in-text-block 等の render（CSS）系違反は baseline ゲート下で別途扱う
+// ため本テストでは対象外（render-neutral に直せる違反のみを今は機械強制する）。
+const A11Y_ROUTES = ['#/', '#/projects', '#/about', '#/contact', '#/resume', '#/apps', '#/settings', '#/quiz', '#/apps/task', '#/apps/todo'];
+const A11Y_RENDER_NEUTRAL_RULES = ['aria-valid-attr-value', 'select-name', 'button-name', 'label'];
 for (const route of A11Y_ROUTES) {
-  test(`a11y axe: ${route} has no invalid-ARIA-value violations`, async ({ page }) => {
+  test(`a11y axe: ${route} has no render-neutral critical violations`, async ({ page }) => {
     await page.goto(`/${route}`);
     await page.waitForLoadState('networkidle');
     await page.waitForTimeout(150);
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
       .analyze();
-    const ariaValueViolations = results.violations.filter(v => v.id === 'aria-valid-attr-value');
+    const offenders = results.violations.filter(v => A11Y_RENDER_NEUTRAL_RULES.includes(v.id));
     expect(
-      ariaValueViolations,
-      `Route ${route} aria-valid-attr-value: ` +
-      JSON.stringify(ariaValueViolations.flatMap(v => v.nodes.map(n => n.html.slice(0, 120))))
+      offenders,
+      `Route ${route} render-neutral a11y violations: ` +
+      JSON.stringify(offenders.map(v => `${v.id}(${v.nodes.length}): ${v.nodes[0] && v.nodes[0].html.slice(0, 100)}`))
     ).toHaveLength(0);
   });
 }
