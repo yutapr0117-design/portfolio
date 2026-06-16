@@ -142,6 +142,7 @@ export default [
       'no-duplicate-case': 'error',            // switch の重複 case 検出
       'no-empty': ['error', { allowEmptyCatch: true }], // 空ブロック禁止（空 catch は許容）
       'no-unreachable': 'error',               // 到達不能コード検出
+      radix: 'error',                          // parseInt は基数必須（"08"→0 / "0x" 誤解釈の footgun 除去）
       // ── style/quality（warn 級。advisory・CI を止めない）──
       'no-shadow': ['warn', { allow: ['e', 'err', 'error'] }], // 変数シャドウ（e/err/error は許容）
       'prefer-const': 'warn',                  // 再代入されない let を const に（挙動不変の品質指摘）

@@ -502,7 +502,7 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                                     value: pomo.settings.work,
                                     min: 1, max: 180,
                                     onchange: (e) => State.update(s => {
-                                        s.appsData.pomodoro.settings.work = clamp(parseInt(e.target.value) || 25, 1, 180);
+                                        s.appsData.pomodoro.settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 180);
                                         if (!s.appsData.pomodoro.runtime.isActive && s.appsData.pomodoro.runtime.mode === 'work') {
                                             s.appsData.pomodoro.runtime.remainingSec = s.appsData.pomodoro.settings.work * 60;
                                         }
@@ -517,7 +517,7 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                                     value: pomo.settings.short,
                                     min: 1, max: 60,
                                     onchange: (e) => State.update(s => {
-                                        s.appsData.pomodoro.settings.short = clamp(parseInt(e.target.value) || 5, 1, 60);
+                                        s.appsData.pomodoro.settings.short = clamp(parseInt(e.target.value, 10) || 5, 1, 60);
                                     })
                                 })
                             ),
@@ -529,7 +529,7 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                                     value: pomo.settings.long,
                                     min: 1, max: 120,
                                     onchange: (e) => State.update(s => {
-                                        s.appsData.pomodoro.settings.long = clamp(parseInt(e.target.value) || 15, 1, 120);
+                                        s.appsData.pomodoro.settings.long = clamp(parseInt(e.target.value, 10) || 15, 1, 120);
                                     })
                                 })
                             )
