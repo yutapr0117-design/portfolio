@@ -64,6 +64,7 @@ Status        : Plan D「物理移動なし、README で grouping を提供」�
 - `improvement-notes-claude-v80-phase2-why-only-comment-injection.md`
 - `improvement-notes-claude-v80-phase2-session-handoff-self-drive-operating-model.md`
 - `improvement-notes-claude-v80-phase3-session-handoff-near-full-self-drive.md`
+- `improvement-notes-claude-v80-phase3-continuous-improvement-run.md`
 
 ---
 
