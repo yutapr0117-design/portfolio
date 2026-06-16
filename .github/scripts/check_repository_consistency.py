@@ -491,6 +491,11 @@ authoritative inventory and is kept in sync with the implementation below):
        `.github/workflows/*.yml`, and those pins are mutually equal. Check 69 only verifies
        package.json `engines.node` *covers* the CI pins; this Check pins the local-dev
        interpreter to the exact CI interpreter so a contributor's nvm and CI never diverge. (BLOCKING)
+  107. total-check-runbook.md §11 CI-workflow inventory bijection: the runbook's §11 "CI
+       workflows overview" names EXACTLY the set of `.github/workflows/*.yml` files on disk
+       (backtick-quoted filenames). The human-facing CI index thus cannot silently fall behind
+       when a workflow is added or removed — the counterpart of Check 75 (incident README
+       inventory) / Check 105 (check-map) for the CI workflow surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -3999,6 +4004,33 @@ if _nvmrc106.exists() and _wfdir106.exists():
     )
 else:
     check(False, "", "Check 106: .nvmrc or workflows dir not found — node alignment を検証できない", blocking=True)
+
+# ── 107. total-check-runbook.md §11 CI-workflow inventory bijection (BLOCKING) ─
+# total-check-runbook.md §11 "CI workflows overview" is the human-facing index of what runs in
+# GitHub Actions and when. Like Check 75 (incident README inventory) and Check 105 (check-map),
+# a hand-maintained inventory silently drifts when a workflow file is added or removed but the
+# table is not updated. We slice §11 from the runbook and extract the backtick-quoted `*.yml`
+# filenames it names (backtick-anchored so the `docs/files/.../<name>.yml.md` reference inside
+# the section is NOT mistaken for a workflow), then require that set to equal the real
+# .github/workflows/*.yml files on disk — so the CI overview can never fall behind reality.
+_runbook107 = ROOT / "docs" / "architecture" / "total-check-runbook.md"
+_wfdir107 = ROOT / ".github" / "workflows"
+if _runbook107.exists() and _wfdir107.exists():
+    _disk_wf107 = {p.name for p in _wfdir107.glob("*.yml")}
+    _sec107 = re.search(r"^## 11\..*?(?=^## |\Z)", _runbook107.read_text(encoding="utf-8"), re.MULTILINE | re.DOTALL)
+    _doc_wf107 = set(re.findall(r"`([\w-]+\.yml)`", _sec107.group(0))) if _sec107 else set()
+    _only_disk107 = sorted(_disk_wf107 - _doc_wf107)
+    _only_doc107 = sorted(_doc_wf107 - _disk_wf107)
+    check(
+        bool(_sec107) and _disk_wf107 == _doc_wf107,
+        f"Check 107: total-check-runbook.md §11 documents exactly the {len(_disk_wf107)} CI workflows (doc ↔ .github/workflows bijection)",
+        f"Check 107: CI workflow overview drift — on disk but missing from §11: {_only_disk107}; "
+        f"in §11 but not on disk: {_only_doc107}. runbook §11 の workflow 一覧を同期せよ"
+        + ("" if _sec107 else "（§11 セクションが見つからない）"),
+        blocking=True,
+    )
+else:
+    check(False, "", "Check 107: runbook or workflows dir not found — workflow inventory を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
