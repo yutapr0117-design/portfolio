@@ -505,15 +505,18 @@ authoritative inventory and is kept in sync with the implementation below):
        extends the bijection to ALL tracked files, so a newly added file without a mirror, or an
        orphan mirror left after a source is deleted/renamed, is caught structurally. (BLOCKING)
   109. living-doc Check-count hardcode drift guard: orientation/governance docs that describe the
-       CURRENT repository state (.claude/CLAUDE.md, .claude/README.md, .claude/agents/*.md, root
-       CLAUDE.md, CHANGELOG.md, total-check-runbook.md outside §9, check-repository-consistency-
+       CURRENT repository state (root CLAUDE.md / README.md / CHANGELOG.md / Claude2Claude.md /
+       .claude/CLAUDE.md / .claude/README.md / .claude/agents/*.md / .claude/skills/*/SKILL.md /
+       .claude/commands/*.md / total-check-runbook.md outside §9 / check-repository-consistency-
        map.md) must NOT hardcode a current Check tally in prose (the recurring "総数 = N" /
        "総数は N まで成長" / "all N Checks" / "consistency N Check" / "Check count: N" drift). This drift recurred even
        after PR #68 drift-proofed the runbook/map — PR #68 itself introduced a fresh stale value
        in §11 — proving manual drift-proofing leaks. §9 of the runbook (enforced by Check 70) is
        the single authority for the raw tally and is excluded from this scan; everywhere else the
        number must be replaced by a pointer to §9. Historical artifacts (improvement-notes /
-       decision / Session Records / docs/files mirrors) are point-in-time records, not scanned. (BLOCKING)
+       decision / Session Records / docs/files mirrors / the per-increment changelogs in
+       repository-maintainability-map.md & main-js-extraction-map.md) are point-in-time records,
+       not scanned. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4097,17 +4100,23 @@ check(
 # decision / Session Record / docs/files ミラー）は point-in-time 記録ゆえ対象外。runbook は §9
 # （生の総数が正本として住む唯一の zone）を除外して走査する。
 # NOTE: 本 Check 実装ファイル自身は走査対象に含めない（下記 regex 文字列が自己発火しないため）。
+# 走査対象 = 現在状態を語る living orientation/governance 文書の全面。意図的に除外するもの:
+# (1) runbook §9 zone（生タリーの正本・下で個別除外）、(2) 歴史層 = per-increment changelog や
+# engineering log（repository-maintainability-map.md / main-js-extraction-map.md は「Check 総数
+# 42→43」等の point-in-time 記録を正当に保持するため対象外。Session Record / improvement-notes /
+# decision / docs/files ミラーも同様）。新たに living 文書を足したらここへ追加する。
 _living109 = [
     ".claude/CLAUDE.md",
     ".claude/README.md",
     "CLAUDE.md",
     "CHANGELOG.md",
+    "Claude2Claude.md",
+    "README.md",
     "docs/architecture/total-check-runbook.md",
     "docs/architecture/check-repository-consistency-map.md",
 ]
-_agents_dir109 = ROOT / ".claude" / "agents"
-if _agents_dir109.exists():
-    _living109 += [str(p.relative_to(ROOT)) for p in sorted(_agents_dir109.glob("*.md"))]
+for _glob109 in (".claude/agents/*.md", ".claude/skills/*/SKILL.md", ".claude/commands/*.md"):
+    _living109 += [str(p.relative_to(ROOT)) for p in sorted(ROOT.glob(_glob109))]
 _forbidden109 = [
     (re.compile(r"総数\s*[=＝]\s*\d+"), "総数 = N"),
     (re.compile(r"総数\s*[はが]\s*\d+\s*(?:まで|に|へ)"), "総数は N まで"),
