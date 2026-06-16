@@ -287,12 +287,14 @@ authoritative inventory and is kept in sync with the implementation below):
       衝突を引き起こす (Stage 5-l / 5-k' の naming 衝突と同種 class)。番号順序自体はカテゴリ
       境界でリセットするため強制しない (各カテゴリ内では ascending、カテゴリ間では非単調) —
       番号一意性のみが本質的に守るべき invariant。(BLOCKING)
-  65. docs/architecture/*.md Last-Updated ISO-8601 format: 全 docs/architecture/*.md について
-      `Last-Updated:` フィールドが存在する場合は値が ISO-8601 `YYYY-MM-DD` 形式に厳密に従うこ
-      とを機械強制する。Last-Updated は「文書がいつ真値だったか」を読み手 (AI/human) に伝える
-      正本シグナルで、フォーマット揺れ (e.g. `06-13-2026`) は honest-dating 原則を内部から
-      侵食する。Check 34 が sitemap lastmod との一致を ADVISORY で見るのに対し、本 Check は
-      「日付フォーマットそのもの」を BLOCKING で固定する責務分離。(BLOCKING)
+  65. doc Last-Updated ISO-8601 format: docs/architecture/*.md の `Last-Updated:` と
+      docs/files/*.md mirror の `last-updated:` (YAML frontmatter) について、日付フィールドが
+      存在する場合は値が ISO-8601 `YYYY-MM-DD` 形式に厳密に従うことを機械強制する。Last-Updated
+      は「文書がいつ真値だったか」を読み手 (AI/human) に伝える正本シグナルで、フォーマット揺れ
+      (e.g. `06-13-2026`) は honest-dating 原則を内部から侵食する。Check 34 が sitemap lastmod
+      との一致を ADVISORY で見るのに対し、本 Check は「日付フォーマットそのもの」を BLOCKING で
+      固定する責務分離。Check 97 が mirror の date presence を見るのに対し本 Check が format を
+      担い、honest-dating の scope を 143 ミラー全面へ拡張する。(BLOCKING)
   66. index.html <title> entity-identifier presence: index.html の `<title>` 要素に entity
       primary identifier (`yuta` または `横井`、いずれも case-insensitive) が含まれることを
       機械強制する。`<title>` は SEO/AIO 検索結果の最重要 anchor で、entity 名が含まれていな
@@ -2866,28 +2868,40 @@ if _map64.exists():
 else:
     warnings.append("Check 64: check-repository-consistency-map.md not found — uniqueness check skipped")
 
-# ── 65. docs/architecture/*.md Last-Updated ISO-8601 format (BLOCKING) ────────
-# docs/architecture/ 配下の全 .md について、`Last-Updated:` フィールドが存在する場合は
-# その値が ISO-8601 の `YYYY-MM-DD` 形式に厳密に従うことを機械強制する。Last-Updated は
-# 「文書がいつ真値だったか」を読み手 (AI/human) に伝える正本シグナルであり、フォーマット
-# 揺れ (e.g. `06-13-2026` / `2026.6.13`) は honest-dating 原則（Check 34/AI2AI.md カノン）
-# を内部から侵食する。Check 34 が sitemap lastmod との一致を ADVISORY で見るのに対し、
-# 本 Check は「日付フォーマットそのもの」を BLOCKING で固定する責務分離。
+# ── 65. doc Last-Updated ISO-8601 format (BLOCKING) ───────────────────────────
+# docs/architecture/ 配下の全 .md (`Last-Updated:`) と docs/files/ 配下の全 mirror
+# (`last-updated:` YAML frontmatter) について、日付フィールドが存在する場合は ISO-8601 の
+# `YYYY-MM-DD` 形式に厳密に従うことを機械強制する。Last-Updated は「文書がいつ真値だったか」を
+# 読み手 (AI/human) に伝える正本シグナルであり、フォーマット揺れ (e.g. `06-13-2026` /
+# `2026.6.13`) は honest-dating 原則（Check 34/AI2AI.md カノン）を内部から侵食する。Check 34 が
+# sitemap lastmod との一致を ADVISORY で見るのに対し、本 Check は「日付フォーマットそのもの」を
+# BLOCKING で固定する責務分離。docs/files mirror (143 件) は Check 97 が presence を見るが
+# フォーマットは未検証だったため、honest-dating の scope をミラー全面へ拡張する。
 _isodate65 = re.compile(r"^\s*Last-Updated\s*:\s*(.+?)\s*$", re.MULTILINE)
+_isodate65_lc = re.compile(r"^\s*last-updated\s*:\s*(.+?)\s*$", re.MULTILINE)
 _isoformat65 = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 _bad_dates65 = []
 for _md65 in sorted((ROOT / "docs" / "architecture").glob("*.md")):
     _src65 = _md65.read_text(encoding="utf-8")
     _m65 = _isodate65.search(_src65)
-    if _m65:
-        _val65 = _m65.group(1).strip()
-        if not _isoformat65.match(_val65):
-            _bad_dates65.append(f"{_md65.relative_to(ROOT)}: {_val65!r}")
+    if _m65 and not _isoformat65.match(_m65.group(1).strip()):
+        _bad_dates65.append(f"{_md65.relative_to(ROOT)}: {_m65.group(1).strip()!r}")
+_docsfiles65 = ROOT / "docs" / "files"
+if _docsfiles65.is_dir():
+    for _mir65 in sorted(_docsfiles65.rglob("*.md")):
+        if _mir65.name in ("README.md", "_template.md"):
+            continue
+        _fm65 = re.match(r"^---\s*\n([\s\S]*?)\n---", _mir65.read_text(encoding="utf-8"))
+        if not _fm65:
+            continue
+        _lm65 = _isodate65_lc.search(_fm65.group(1))
+        if _lm65 and not _isoformat65.match(_lm65.group(1).strip()):
+            _bad_dates65.append(f"{_mir65.relative_to(ROOT)}: {_lm65.group(1).strip()!r}")
 check(
     not _bad_dates65,
-    "Check 65: all docs/architecture/*.md Last-Updated values are ISO-8601 (YYYY-MM-DD)",
-    f"Check 65: non-ISO-8601 Last-Updated values: {_bad_dates65} — "
-    f"全 docs/architecture/*.md の Last-Updated は `YYYY-MM-DD` 形式に統一せよ (honest-dating 原則)",
+    "Check 65: all docs/architecture/*.md Last-Updated + docs/files/*.md last-updated values are ISO-8601 (YYYY-MM-DD)",
+    f"Check 65: non-ISO-8601 date values: {_bad_dates65} — "
+    f"全 doc の Last-Updated / last-updated は `YYYY-MM-DD` 形式に統一せよ (honest-dating 原則)",
 )
 
 # ── 66. index.html <title> entity-identifier presence (BLOCKING) ──────────────
