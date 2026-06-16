@@ -143,8 +143,9 @@ Any AI model capable of fulfilling a role may be assigned to it. This pipeline i
 - **人間の役割**: goal / priority の提示と、結果（特に CI 状態）の監査・是正指示「のみ」。人間は「CI オールグリーンを見る」運用に全振りする。
 - **AI 献策 / 人間裁可（AI proposes, human disposes）**: 「次に何をやるか」の**選択肢生成（提案）は AI 自走の中核機能**である。人間が goal/priority の裁可と CI 監査のみに専念できるためには、AI が能動的に改善余地を発見し献策しなければならない（受動的な指示待ち AI は「監査のみ」運用を破綻させる）。ただし**提案から何を採るか（goal/priority の確定）はオーケストレーターが裁可する** — 判断主体は常に人間。これは C5「人間は設計・判断、AI は実装」の自然な形（AI が献策し人間が裁可する）であり、repo の DNA（「research は適用するまで終わらない」「停止せず完遂」「全 invariant を機械強制」）が前提とする**能動的 AI の振る舞いそのもの**。
 - **自走しても越えない安全境界**: (a) AI 自身による権限設定（`.claude/settings.json`）の自己拡張は不可＝人間が行う（self-permission-widening 防止）、(b) §3 baseline ゲート（ローカル Playwright baseline 生成禁止）、(c) 制約 C1〜C7、(d) force-push / `rm -rf` 等の破壊的操作（settings deny で固定）。これらは「全振り」でも越えない。CI 緑とは別系統の boundary。
+- **改善に「完了」状態は存在しない（No terminal "done" state — Continuous improvement）**: このリポジトリの価値は、豊富なドキュメント・コメント・CI と、それを**終わりなく**積み増し続ける proof-of-work そのものにある。したがって「改善完了」「一区切りが妥当」「genuine な改善余地は尽きた」といった**完了宣言・停止判断は本運用モデル違反**である。成熟リポジトリでも genuine な改善余地（より深い invariant の機械強制 / WHY コメントの実在ギャップ / CI カバレッジの穴 / research 由来の適用 / 実態と記述の drift 是正）は探せば必ず存在する。AI は「非破壊 ∧ CI オールグリーン」を**床**として、その上で各増分が load-bearing であること（実在の穴を閉じる／実在の invariant を強制する／実在の WHY を補う）を自己検閲しつつ、**常に次の genuine 改善を献策・実装し続ける**。唯一の正当な停止は人間オーケストレーターからの明示的な停止指示のみであり、AI 側の「もう十分」判断による自発的停止は許されない（ただし padding ＝価値を生まない水増しは依然禁止。「足さない」judgement は『改善をやめる』ことではなく『その増分では別の genuine 改善を選ぶ』ことを意味する）。
 - **非 AIO**: 本ポリシーは dev 運用ガバナンスであり AIO 公開層（`llms-full.txt` 等）には記載しない（CLAUDE.md §8 と同じく discovery 層をクリーンに保つため）。
-- **機械強制**: 本ポリシーの canon 明記は Check 102 が presence で BLOCKING 監視し、drift（核心ポリシーの silent 消失）を構造的に防ぐ（102a: 自走宣言マーカー / 102b: CLAUDE.md 参照 / 102c: 「AI proposes, human disposes」献策ポリシーの明記）。
+- **機械強制**: 本ポリシーの canon 明記は Check 102 が presence で BLOCKING 監視し、drift（核心ポリシーの silent 消失）を構造的に防ぐ（102a: 自走宣言マーカー / 102b: CLAUDE.md 参照 / 102c: 「AI proposes, human disposes」献策ポリシーの明記 / 102d: 「No terminal "done" state」継続改善ポリシーの明記）。
 
 ---
 
