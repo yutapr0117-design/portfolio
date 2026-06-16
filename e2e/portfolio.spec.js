@@ -230,6 +230,32 @@ test('Quiz search filters question blocks and shows empty state on no match', as
   await expect(blocks).toHaveCount(initial);
 });
 
+// ===== 7.2: タスク管理アプリの追加 + リロード永続化 Behavior Check =====
+// #/apps/task は #task-input に入力 → Enter で State.update 経由でタスクを追加し、
+// localStorage (State auto-save) へ永続化する。apps セクションは従来「ルートが描画される」
+// テストのみで、実際のデータ操作 (add → 永続 → reload で復元) は未カバーだった。State の
+// Proxy 永続パスを実ブラウザで動的検証する (theme/drawer/quiz に続く interactive coverage)。
+test('Task app adds a task and persists it across reload', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('networkidle');
+
+  const input = page.locator('#task-input');
+  await expect(input).toBeVisible();
+
+  // 一意なタイトルで衝突を避ける (固定文字列 + 数値を埋め込み、Math.random は使わない)
+  const title = 'E2E-PERSIST-CHECK-TASK-7421';
+  await input.fill(title);
+  await input.press('Enter');
+
+  // 追加直後にカードが描画される
+  await expect(page.getByText(title)).toBeVisible();
+
+  // リロード後も State (localStorage) から復元される
+  await page.reload();
+  await page.waitForLoadState('networkidle');
+  await expect(page.getByText(title)).toBeVisible();
+});
+
 // ===== 7.2: 全ハッシュルート検証 — aria-busy 収束 & コンテンツ非空 =====
 const HASH_ROUTES = ['#/home', '#/projects', '#/about', '#/contact', '#/skills'];
 
