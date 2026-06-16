@@ -309,6 +309,28 @@ test('Settings app exports a full backup as a valid JSON download', async ({ pag
   expect(parsed, 'export must contain the appsData State slice').toHaveProperty('appsData');
 });
 
+// ===== 7.2: 設定アプリのスナップショット保存→反映 Behavior Check =====
+// #/settings の「保存」は setSnapshot() で Storage.set(SNAPSHOT_KEY, ...) し、再描画後に
+// getSnapshot()(=Storage.parse) が読み戻して「保存日時: …」を表示する。これは PR #93 で
+// 注入漏れを修正した Storage 依存 (set/parse) の往復を実際に通す data-integrity パスで、
+// 修正前は Storage.parse が render 時に throw して到達すらできなかった経路。
+test('Settings app saves a snapshot and reflects the saved-at status', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('networkidle');
+
+  // 初期 (fresh context) は未保存
+  await expect(page.getByText('スナップショットは未保存です。')).toBeVisible();
+
+  // 保存 → Storage.set → 再描画 → getSnapshot(Storage.parse) が読み戻し「保存日時:」表示
+  await page.getByRole('button', { name: '保存', exact: true }).click();
+  await expect(page.getByText(/保存日時:/)).toBeVisible();
+
+  // リロード後も Storage から読み戻せる (永続)
+  await page.reload();
+  await page.waitForLoadState('networkidle');
+  await expect(page.getByText(/保存日時:/)).toBeVisible();
+});
+
 // ===== 7.2: 全ハッシュルート検証 — aria-busy 収束 & コンテンツ非空 =====
 const HASH_ROUTES = ['#/home', '#/projects', '#/about', '#/contact', '#/skills'];
 
