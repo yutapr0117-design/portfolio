@@ -351,7 +351,11 @@ test('AI assist app generates and renders a response for a prompt', async ({ pag
 });
 
 // ===== 7.2: 全ハッシュルート検証 — aria-busy 収束 & コンテンツ非空 =====
-const HASH_ROUTES = ['#/home', '#/projects', '#/about', '#/contact', '#/skills'];
+// 注: 以前は '#/home'（home は '#/'）と '#/skills'（'skills' route は存在しない）が含まれ、
+// どちらも NotFoundPage に解決していた。NotFound も aria-busy=false + #content 非空ゆえ、
+// この 2 entry の aria-busy テストは vacuous に NotFound を検査していた（PR #96/#97 の
+// app-route-hash と同型の vacuous-hash class）。実在 route のみへ是正し、下の guard で再発を防ぐ。
+const HASH_ROUTES = ['#/', '#/projects', '#/about', '#/contact', '#/resume'];
 
 for (const route of HASH_ROUTES) {
   test(`Hash route ${route}: aria-busy resolves to false and #content is non-empty`, async ({ page }) => {
@@ -375,6 +379,14 @@ for (const route of HASH_ROUTES) {
       return el ? el.children.length === 0 : true;
     });
     expect(isEmpty, `#content must not be empty on route ${route}`).toBe(false);
+
+    // Hash-resolution guard (vacuous-hash 再発防止): これらは実在 route のみゆえ、NotFoundPage
+    // に落ちてはならない。aria-busy=false + 非空は NotFound でも満たされるため、本 guard が無いと
+    // 誤った hash (例: '#/home' / '#/skills') を足しても vacuous に pass してしまう。
+    await expect(
+      page.getByRole('heading', { name: 'Not Found', exact: true }),
+      `Hash route ${route} fell through to NotFoundPage — not a real route`
+    ).toHaveCount(0);
   });
 }
 
