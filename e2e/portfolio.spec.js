@@ -350,6 +350,23 @@ test('AI assist app generates and renders a response for a prompt', async ({ pag
   await expect(page.getByText(prompt)).toBeVisible();
 });
 
+// ===== 7.2: ポモドーロのモード切替→タイマー表示更新 Behavior Check =====
+// #/apps/pomodoro は集中/短休憩/長休憩ボタンで switchMode() → State 更新 + remaining を新モードの
+// duration へリセットし、`.font-mono.text-stat` の MM:SS 表示が変わる。timer の tick に依存しない
+// 非 flaky な対話 (mode 切替は即時)。apps 5 種 (task/todo/settings/ai/pomodoro) の対話カバレッジ完成。
+test('Pomodoro mode switch resets and updates the timer display', async ({ page }) => {
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('networkidle');
+
+  const timer = page.locator('.font-mono.text-stat').first();
+  await expect(timer).toBeVisible();
+  const initial = (await timer.textContent()).trim();
+
+  // 既定 (集中) から短休憩へ切替 → remaining が短休憩 duration にリセットされ表示が変化
+  await page.getByRole('button', { name: '短休憩', exact: true }).click();
+  await expect(timer).not.toHaveText(initial);
+});
+
 // ===== 7.2: 全ハッシュルート検証 — aria-busy 収束 & コンテンツ非空 =====
 // 注: 以前は '#/home'（home は '#/'）と '#/skills'（'skills' route は存在しない）が含まれ、
 // どちらも NotFoundPage に解決していた。NotFound も aria-busy=false + #content 非空ゆえ、
