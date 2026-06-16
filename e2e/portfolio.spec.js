@@ -620,8 +620,11 @@ test('Route project-detail renders for a known slug without errors', async ({ pa
   });
   page.on('pageerror', err => pageErrors.push(err.message));
 
-  // p01 = task-manager (Store の defaultProjects 先頭)
-  await page.goto('/#/project/task-manager');
+  // p01 = task-manager (Store の defaultProjects 先頭)。
+  // 注: route は複数形 '#/projects/<slug>' で project-detail に解決する。以前は単数 '#/project/...'
+  // を使っており NotFoundPage に落ちて vacuous に NotFound を検査していた（PR #96-#98 と同型の
+  // vacuous-hash class）。複数形へ是正し、実プロジェクト描画を直接アサートする。
+  await page.goto('/#/projects/task-manager');
   await page.waitForLoadState('networkidle');
   await page.waitForTimeout(200);
 
@@ -630,4 +633,8 @@ test('Route project-detail renders for a known slug without errors', async ({ pa
   expect(contentText, 'project-detail content empty').not.toBe('');
   expect(consoleErrors).toHaveLength(0);
   expect(pageErrors).toHaveLength(0);
+
+  // NotFound fall-through ではなく実 ProjectDetailPage が描画されていること
+  await expect(page.getByRole('heading', { name: 'Not Found', exact: true })).toHaveCount(0);
+  await expect(page.getByText('タスク管理アプリ')).toBeVisible();
 });
