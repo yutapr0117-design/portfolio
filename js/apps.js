@@ -503,6 +503,7 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                                 h('input', {
                                     type: 'number',
                                     class: 'input',
+                                    'aria-label': '集中時間（分）',
                                     value: pomo.settings.work,
                                     min: 1, max: 180,
                                     onchange: (e) => State.update(s => {
@@ -518,6 +519,7 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                                 h('input', {
                                     type: 'number',
                                     class: 'input',
+                                    'aria-label': '短休憩時間（分）',
                                     value: pomo.settings.short,
                                     min: 1, max: 60,
                                     onchange: (e) => State.update(s => {
@@ -530,6 +532,7 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                                 h('input', {
                                     type: 'number',
                                     class: 'input',
+                                    'aria-label': '長休憩時間（分）',
                                     value: pomo.settings.long,
                                     min: 1, max: 120,
                                     onchange: (e) => State.update(s => {
