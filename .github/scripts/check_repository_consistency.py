@@ -502,6 +502,16 @@ authoritative inventory and is kept in sync with the implementation below):
        has a live source file. Check 96 only guards the 33 Phase-1 shipped-code files; this Check
        extends the bijection to ALL tracked files, so a newly added file without a mirror, or an
        orphan mirror left after a source is deleted/renamed, is caught structurally. (BLOCKING)
+  109. living-doc Check-count hardcode drift guard: orientation/governance docs that describe the
+       CURRENT repository state (.claude/CLAUDE.md, .claude/README.md, .claude/agents/*.md, root
+       CLAUDE.md, CHANGELOG.md, total-check-runbook.md outside §9, check-repository-consistency-
+       map.md) must NOT hardcode a current Check tally in prose (the recurring "総数 = N" /
+       "総数は N まで成長" / "all N Checks" / "consistency N Check" / "Check count: N" drift). This drift recurred even
+       after PR #68 drift-proofed the runbook/map — PR #68 itself introduced a fresh stale value
+       in §11 — proving manual drift-proofing leaks. §9 of the runbook (enforced by Check 70) is
+       the single authority for the raw tally and is excluded from this scan; everywhere else the
+       number must be replaced by a pointer to §9. Historical artifacts (improvement-notes /
+       decision / Session Records / docs/files mirrors) are point-in-time records, not scanned. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4061,6 +4071,55 @@ check(
     f"Check 108: all {len(_src108)} tracked files have a 1-to-1 docs/files mirror (full bijection)",
     f"Check 108: docs/files mirror drift — tracked but undocumented (missing mirror): {_missing_mirror108}; "
     f"orphan mirror (doc with no source file): {_orphan_mirror108}. docs/files/<path>.md を同期せよ",
+    blocking=True,
+)
+
+# ── 109. living-doc Check-count hardcode drift guard (BLOCKING) ────────────────
+# stale な「現在の Check 総数」を prose にハードコードする drift class を構造的に封じる。この
+# drift は PR #68 が runbook/map を drift-proof 化した後も再発し、皮肉にも PR #68 自身が §11 に
+# 新たな stale 値を混入させていた（後続増分で実態へ修正）。手動の drift-proof 化では漏れが構造的に
+# 生じるため、機械強制で「§9 以外の living 文書に現在総数の数値ハードコードを書けない」ことを保証
+# する。正確な総数は §9（Check 70 が強制）を単一権威とし、他所はすべて §9 への pointer に置換する。
+# 走査対象は「現在状態を語る」orientation/governance 文書のみ。歴史層（improvement-notes /
+# decision / Session Record / docs/files ミラー）は point-in-time 記録ゆえ対象外。runbook は §9
+# （生の総数が正本として住む唯一の zone）を除外して走査する。
+# NOTE: 本 Check 実装ファイル自身は走査対象に含めない（下記 regex 文字列が自己発火しないため）。
+_living109 = [
+    ".claude/CLAUDE.md",
+    ".claude/README.md",
+    "CLAUDE.md",
+    "CHANGELOG.md",
+    "docs/architecture/total-check-runbook.md",
+    "docs/architecture/check-repository-consistency-map.md",
+]
+_agents_dir109 = ROOT / ".claude" / "agents"
+if _agents_dir109.exists():
+    _living109 += [str(p.relative_to(ROOT)) for p in sorted(_agents_dir109.glob("*.md"))]
+_forbidden109 = [
+    (re.compile(r"総数\s*[=＝]\s*\d+"), "総数 = N"),
+    (re.compile(r"総数\s*[はが]\s*\d+\s*(?:まで|に|へ)"), "総数は N まで"),
+    (re.compile(r"\ball\s+\d+\s+[Cc]hecks\b"), "all N Checks"),
+    (re.compile(r"consistency\s+\d+\s+[Cc]heck\b"), "consistency N Check"),
+    (re.compile(r"[Cc]heck\s+count\**\s*[:：]\s*\**\d+"), "Check count: N"),
+]
+_hits109 = []
+for _rel109 in _living109:
+    _fp109 = ROOT / _rel109
+    if not _fp109.exists():
+        continue
+    _txt109 = _fp109.read_text(encoding="utf-8")
+    # runbook §9 は生の総数が正本として住む authority zone ゆえ走査から除外（§10/§11 は走査する）。
+    if _rel109.endswith("total-check-runbook.md"):
+        _txt109 = re.sub(r"^## 9\..*?(?=^## )", "", _txt109, flags=re.MULTILINE | re.DOTALL)
+    for _rx109, _name109 in _forbidden109:
+        for _m109 in _rx109.finditer(_txt109):
+            _ln109 = _txt109[: _m109.start()].count("\n") + 1
+            _hits109.append(f"{_rel109}:{_ln109} [{_name109}] {_m109.group(0)!r}")
+check(
+    not _hits109,
+    f"Check 109: no stale Check-count hardcode in {len(_living109)} living docs (§9 is the single authority)",
+    "Check 109: stale Check-count hardcode(s) in living docs — " + "; ".join(_hits109)
+    + ". 数値を除去し「正値は total-check-runbook.md §9 (Check 70 強制)」への pointer へ phrasing せよ",
     blocking=True,
 )
 
