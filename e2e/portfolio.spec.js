@@ -204,6 +204,32 @@ test('Mobile drawer opens with ARIA, isolates background, and closes on Escape',
   await expect(menuBtn).toBeFocused();
 });
 
+// ===== 7.2: クイズ検索フィルタ + 空状態 Behavior Check =====
+// #/quiz の検索 input (aria-label='問題検索') は oninput で .quiz-question-block を絞り込み、
+// 一致ゼロのとき .panel-empty (aria-live=polite) の「見つかりませんでした」を表示する。
+// 検索クリアで全件復帰する。Projects 検索 (focus 維持) とは別ページ・別データセットの
+// フィルタ + 空状態契約で従来 e2e 未カバーだった。
+test('Quiz search filters question blocks and shows empty state on no match', async ({ page }) => {
+  await page.goto('/#/quiz');
+  await page.waitForLoadState('networkidle');
+
+  const blocks = page.locator('.quiz-question-block');
+  const initial = await blocks.count();
+  expect(initial, 'quiz should render question blocks initially').toBeGreaterThan(0);
+
+  const search = page.locator('input[aria-label="問題検索"]');
+  await expect(search).toBeVisible();
+
+  // 一致しない検索 → 空状態 + ブロック 0
+  await search.fill('zzz-no-such-question-xyz');
+  await expect(page.locator('.panel-empty')).toBeVisible();
+  await expect(blocks).toHaveCount(0);
+
+  // クリアで全件復帰
+  await search.fill('');
+  await expect(blocks).toHaveCount(initial);
+});
+
 // ===== 7.2: 全ハッシュルート検証 — aria-busy 収束 & コンテンツ非空 =====
 const HASH_ROUTES = ['#/home', '#/projects', '#/about', '#/contact', '#/skills'];
 
