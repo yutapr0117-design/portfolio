@@ -41,6 +41,7 @@ Status        : Plan D「物理移動なし、README で grouping を提供」�
 - `decision-v80-phase3-authorized-track-audit-wcag-cwv-aio.md`
 - `decision-v80-phase3-deep-specialized-audit.md`
 - `decision-v80-phase3-settings-fatalpage-storage-injection.md`
+- `decision-v80-phase3-e2e-vacuous-hash-coverage.md`
 
 ---
 
