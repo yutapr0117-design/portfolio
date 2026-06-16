@@ -4,7 +4,7 @@
 Last-Updated     : 2026-06-16
 Maintained-By    : AI agents under Yuta Yokoi (横井雄太) orchestration
 Type             : Increment notes — 「終わりなき改善（No terminal "done" state）」運用を canon 化し、その上で drift 防止 / 自走安全境界 / identifier-coherence / e2e カバレッジを継続的に強化した continuous-improvement run の記録
-Session          : 2026-06-16（phase3 handoff からの自走継続。PR #73〜#81 を完遂・継続中）
+Session          : 2026-06-16（phase3 handoff からの自走継続。PR #73〜#101 を完遂・継続中。実バグ 2 件修正含む）
 AI               : Claude Code (Anthropic Claude Opus) — ただし内容は AI-agnostic
 Canonical-Ref    : AI2AI.md (STEP 3 Operating Model / canon) / CLAUDE.md §7 / docs/architecture/total-check-runbook.md §9
 Prev             : improvement-notes-claude-v80-phase3-session-handoff-near-full-self-drive.md
@@ -38,8 +38,29 @@ Prev             : improvement-notes-claude-v80-phase3-session-handoff-near-full
 | #79 | feat(check) | Check 78/80 に name==identifier coherence を追加（agent の name==ファイル名 stem / skill の name==親ディレクトリ名）。docs がファイル名で参照する agent/skill を Claude が name で解決できる dangling-reference 防止。負テストで mismatch 検出 |
 | #80 | test(e2e) | テーマ切替の cycle + リロード永続化 behavior テストを追加（実ブラウザで切替→永続→復元を動的保証）。behavior suite 34→35 |
 | #81 | test(e2e) | モバイルドロワーの開閉 + ARIA + Escape + focus 復帰 behavior テストを追加（accessibility focus-trap / 背景隔離契約）。behavior suite 35→36 |
+| #82 | docs | 本 run-log を #73-81 へ同期 |
+| #83 | test(e2e) | クイズ検索フィルタ + 空状態 behavior テスト。behavior 37 |
+| #84 | fix(sw) | **sw.js SWR の宙吊り networkFetch に `.catch` 追加（オフライン時 unhandledrejection 防止）= 実コード robustness fix** |
+| #85 | docs(verify) | 承認済み gated トラック（WCAG2.2/CWV・AIO C6）監査 = §3B verify（主要 SC 既充足・AIO 網羅的ゆえ非 padding 判定） |
+| #86 | fix(check) | **Check 39 vacuous-gate 修正**（gutted sitemap が「all 0 URLs resolve」で pass）+ Check 57/58/59 に非空ガード一貫追加 |
+| #87 | feat(check) | Check 97 に mirror `file:`==派生パス coherence 追加（copy-paste drift 防止） |
+| #88 | feat(check) | Check 65 honest-dating scope を docs/files mirror 全面へ拡張 |
+| #89 | docs(fix) | **sw.js.md mirror の重大な内容 drift 是正**（実体は AIO 正規化 SW なのに precache PWA と誤記していた） |
+| #90 | docs(verify) | 深い専門監査の coverage map（7 次元監査の §3B verify-record） |
+| #91/#92 | test(e2e) | タスク追加+永続 / TODO 追加→完了→一括削除 の apps 対話テスト。behavior 38→39 |
+| #93 | **fix(apps)** | **🔴 Settings ページ全ユーザー FatalPage crash を修正（Stage 5-n の Storage 依存注入漏れ）+ route-render に window.__fatalError アサーション追加で検出 gap を systematize** |
+| #94 | docs(decision) | Settings バグの原因・検出 gap・再発防止を記録 |
+| #95 | test(e2e) | Settings スナップショット保存→反映（Storage 往復回帰防止） |
+| #96-#99 | **fix(e2e)** | **vacuous-hash class 是正: 7 route テスト（app 4 / HASH_ROUTES 2 / project-detail 1）が誤 hash で NotFoundPage を vacuous 検査していたのを実 route へ是正 + NotFound fall-through guard で systematize**。AI assist 応答テストも追加 |
+| #100 | docs(decision) | e2e vacuous-hash coverage class の発見・是正・教訓を記録 |
+| #101 | test(e2e) | ポモドーロ mode 切替→タイマー表示更新。**apps 5 種（task/todo/settings/ai/pomodoro）の対話カバレッジ完成**。behavior 43 |
 
 各 Check PR で docstring inventory / section header / map / runbook §9 / file-size-budget を同期し Check 45 / 64 / 70 / 105 を緑に保った。各 e2e PR はローカル chromium で behavior suite 全 pass を実測してから push（CI の playwright-regression でも再実行）。
+
+### 本 run の最重要 finding（次セッション必読）
+- **🔴 実バグ 2 件**: Settings 全ユーザー crash（#93・Storage 注入漏れ）/ sw.js オフライン時 unhandledrejection（#84）。両方デプロイ済。
+- **🟡 テスト品質**: e2e の 7 route テストが NotFoundPage を vacuous 検査していた（#96-#99）。教訓 = 「graceful 代替ページ（NotFound/Fatal）が弱い合否条件のテストを vacuous に通す」（decision-v80-phase3-e2e-vacuous-hash-coverage.md / -settings-fatalpage-storage-injection.md）。
+- **再発防止 systematize**: route-render / HASH_ROUTES / project-detail に NotFound fall-through guard、route-render に window.__fatalError アサーション。factory 抽出時は全 dep 注入必須（特にグローバル同名の Storage 等）。
 
 ---
 
