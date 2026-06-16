@@ -139,12 +139,17 @@ self.addEventListener('fetch', function(event) {
     event.respondWith(
         caches.open(CACHE_NAME).then(function(cache) {
             return cache.match(request).then(function(cached) {
+                // WHY .catch: stale-while-revalidate で cached を即返した場合、networkFetch は
+                // バックグラウンド revalidation として宙吊りになる。オフライン等で reject すると
+                // SW 内で unhandledrejection になるため、cached へフォールバックして握りつぶす
+                // (cached が無い初回オフラインでは undefined → respondWith がネットワークエラーを
+                // 表示=従来挙動と等価)。online 時の挙動は不変。
                 const networkFetch = fetch(request).then(function(response) {
                     if (response && response.ok) {
                         cache.put(request, response.clone());
                     }
                     return response;
-                });
+                }).catch(function() { return cached; });
                 return cached || networkFetch;
             });
         })
