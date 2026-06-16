@@ -331,6 +331,25 @@ test('Settings app saves a snapshot and reflects the saved-at status', async ({ 
   await expect(page.getByText(/保存日時:/)).toBeVisible();
 });
 
+// ===== 7.2: AI アシストアプリの応答生成 Behavior Check =====
+// #/apps/ai は #ai-input + 「送信」で submit() → analyzeInput → (300ms 後) generateResponse +
+// State.update で appsData.ai.history に push し再描画する。task/todo とは別 State slice・別ロジック
+// (ローカル生成・非同期 setTimeout) の distinct な対話パス。送信した prompt が履歴に現れることで
+// submit→生成→State 反映→render の一連が壊れていないことを動的検証する。
+test('AI assist app generates and renders a response for a prompt', async ({ page }) => {
+  await page.goto('/#/apps/ai');
+  await page.waitForLoadState('networkidle');
+
+  const input = page.locator('#ai-input');
+  await expect(input).toBeVisible();
+  const prompt = 'E2E-AI-PROMPT-デプロイ手順-5512';
+  await input.fill(prompt);
+  await page.getByRole('button', { name: '送信', exact: true }).click();
+
+  // 生成完了後、prompt が history (テキスト) として描画される (input value ではなく本文)
+  await expect(page.getByText(prompt)).toBeVisible();
+});
+
 // ===== 7.2: 全ハッシュルート検証 — aria-busy 収束 & コンテンツ非空 =====
 const HASH_ROUTES = ['#/home', '#/projects', '#/about', '#/contact', '#/skills'];
 
@@ -481,10 +500,10 @@ const ALL_ROUTES = [
   { hash: '#/',                  name: 'home' },
   { hash: '#/projects',          name: 'projects' },
   { hash: '#/apps',              name: 'apps' },
-  { hash: '#/app-task',          name: 'app-task' },
-  { hash: '#/app-todo',          name: 'app-todo' },
-  { hash: '#/app-pomodoro',      name: 'app-pomodoro' },
-  { hash: '#/app-ai',            name: 'app-ai' },
+  { hash: '#/apps/task',         name: 'app-task' },
+  { hash: '#/apps/todo',         name: 'app-todo' },
+  { hash: '#/apps/pomodoro',     name: 'app-pomodoro' },
+  { hash: '#/apps/ai',           name: 'app-ai' },
   { hash: '#/settings',          name: 'settings' },
   { hash: '#/about',             name: 'about' },
   { hash: '#/resume',            name: 'resume' },
