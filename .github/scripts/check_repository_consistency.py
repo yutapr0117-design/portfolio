@@ -472,14 +472,25 @@ authoritative inventory and is kept in sync with the implementation below):
        (forced-colors), the block is render-neutral — inert unless the OS preference is active — so
        it never affects the Playwright visual baseline (§3 gate exempt). This Check locks in the
        higher-contrast fallback so a future edit cannot silently strip it. (BLOCKING)
-  104. verify-gate scripts carry a Python 3.10+ version guard: each Python script run by
-       `npm run verify` (check_repository_consistency / check_aio_digests /
-       check_binary_aio_metadata / check_css_stylelint) contains a `sys.version_info < (3, 10)`
+  104. verify-gate scripts carry a Python 3.10+ version guard: every `.github/scripts/*.py`
+       script invoked through an npm script (derived from package.json `scripts`, not a
+       hardcoded list — like Check 46 for JS files) contains a `sys.version_info < (3, 10)`
        guard that exits with an actionable message. These scripts use 3.10+ syntax (PEP 604
        `str | None`), so on Python 3.9 (macOS /usr/bin/python3) they otherwise crash with an
        opaque `TypeError: unsupported operand type(s) for |` at import time. This Check fixes
        the guard in place so it cannot be silently removed, re-introducing the cryptic-crash
        class for the next AI-agnostic agent on a fresh machine. (BLOCKING)
+  105. check-repository-consistency-map.md ↔ implementation Check-number bijection: the map
+       documents EXACTLY the set of check numbers the implementation defines (section headers
+       1..N, alpha sub-checks like 73a normalized to 73). The cross-document counterpart of
+       Check 45 (docstring ↔ section bijection): it catches the "added a Check but forgot the
+       map row" drift class structurally, so the human-facing check inventory can never fall
+       silently behind the implementation. (BLOCKING)
+  106. .nvmrc ↔ CI workflow node-version single-major alignment: the Node major in `.nvmrc`
+       (the local-dev contract nvm reads) equals the `node-version` pinned across ALL
+       `.github/workflows/*.yml`, and those pins are mutually equal. Check 69 only verifies
+       package.json `engines.node` *covers* the CI pins; this Check pins the local-dev
+       interpreter to the exact CI interpreter so a contributor's nvm and CI never diverge. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -3909,12 +3920,15 @@ else:
 # fixes the guard in place so it cannot be silently removed, re-introducing the
 # cryptic-crash class. (Sibling to Check 55's vacuous-gate and Check 56's orphan
 # detection: it closes a silent/cryptic-failure class structurally.)
-_guard_scripts104 = [
-    ".github/scripts/check_repository_consistency.py",
-    ".github/scripts/check_aio_digests.py",
-    ".github/scripts/check_binary_aio_metadata.py",
-    ".github/scripts/check_css_stylelint.py",
-]
+# Derive the script set from package.json `scripts` (every .github/scripts/*.py invoked via
+# npm) rather than hardcoding it — so a Python script newly wired into the verify gate is
+# automatically required to carry the guard, exactly as Check 46 derives the JS file set.
+_pkg104 = ROOT / "package.json"
+_guard_scripts104 = []
+if _pkg104.exists():
+    _scripts104 = json.loads(_pkg104.read_text(encoding="utf-8")).get("scripts", {})
+    _all_script_src104 = " ".join(_scripts104.values())
+    _guard_scripts104 = sorted(set(re.findall(r"\.github/scripts/[\w./-]+\.py", _all_script_src104)))
 _guard_marker104 = "sys.version_info < (3, 10)"
 _missing104 = [
     p for p in _guard_scripts104
@@ -3922,13 +3936,69 @@ _missing104 = [
     or _guard_marker104 not in (ROOT / p).read_text(encoding="utf-8")
 ]
 check(
-    not _missing104,
-    f"Check 104: all {len(_guard_scripts104)} verify-gate scripts carry a Python 3.10+ version guard",
-    f"Check 104: these verify-gate scripts are missing the `{_guard_marker104}` guard: {_missing104}. "
+    bool(_guard_scripts104) and not _missing104,
+    f"Check 104: all {len(_guard_scripts104)} npm-invoked Python scripts (derived from package.json) carry a Python 3.10+ version guard",
+    f"Check 104: these npm-invoked Python scripts are missing the `{_guard_marker104}` guard: {_missing104}. "
     "3.10+ 専用構文 (PEP 604 `str | None`) を使うため、guard 無しでは Python 3.9 で cryptic TypeError になる。"
-    "各スクリプトの import 直後に version guard を復元せよ",
+    "各スクリプトの import 直後に version guard を復元せよ" if _guard_scripts104 else
+    "Check 104: package.json から .github/scripts/*.py を 1 つも検出できない (package.json の scripts を確認せよ)",
     blocking=True,
 )
+
+# ── 105. check-repository-consistency-map.md ↔ implementation bijection (BLOCKING) ─
+# check-repository-consistency-map.md is the human-facing inventory of every Check. It is
+# hand-maintained in parallel with the implementation, so it can silently fall behind when a
+# Check is added but the map row is forgotten (or vice-versa). Check 45 already guards the
+# docstring↔section bijection WITHIN this file; this is its cross-document counterpart. We
+# extract the integer check-numbers from the map's table rows (`| N |` / `| Na |`, alpha
+# sub-checks normalized to their integer) and from this file's `# ── N.` section headers,
+# and require the two sets to coincide exactly — so the inventory a reviewer reads can never
+# drift from what the script actually enforces.
+_map105 = ROOT / "docs" / "architecture" / "check-repository-consistency-map.md"
+_self105 = ROOT / ".github" / "scripts" / "check_repository_consistency.py"
+if _map105.exists() and _self105.exists():
+    _mapsrc105 = _map105.read_text(encoding="utf-8")
+    _map_nums105 = {int(m) for m in re.findall(r"^\|\s*(\d+)[a-z]?\s*\|", _mapsrc105, re.MULTILINE)}
+    _impl_nums105 = {int(m) for m in re.findall(r"^#\s*──\s*(\d+)\.", _self105.read_text(encoding="utf-8"), re.MULTILINE)}
+    _only_map105 = sorted(_map_nums105 - _impl_nums105)
+    _only_impl105 = sorted(_impl_nums105 - _map_nums105)
+    check(
+        bool(_impl_nums105) and _map_nums105 == _impl_nums105,
+        f"Check 105: check-repository-consistency-map.md documents exactly the {len(_impl_nums105)} implemented checks (map ↔ implementation bijection)",
+        f"Check 105: check-map and implementation have drifted — only in map: {_only_map105}; "
+        f"missing a map row (implemented but undocumented): {_only_impl105}. "
+        "新 Check 追加時に map へ行を足し忘れる drift を防ぐ (Check 45 の docstring↔section bijection の cross-document 版)",
+        blocking=True,
+    )
+else:
+    check(False, "", "Check 105: check-map or implementation script not found — bijection を検証できない", blocking=True)
+
+# ── 106. .nvmrc ↔ CI workflow node-version single-major alignment (BLOCKING) ──
+# Check 69 verifies package.json `engines.node` *covers* the CI node-version pins, but two
+# gaps remain: (1) `.nvmrc` — the local-dev contract `nvm` reads — is not tied to the CI pin,
+# so a contributor's local Node could silently differ from CI; (2) the workflows could pin
+# DIFFERENT majors from each other and still satisfy a permissive engines range. This Check
+# closes both: the `.nvmrc` major must equal the node-version pinned across ALL workflows,
+# and those pins must be mutually equal (a single shared major). Python-only workflows (no
+# node-version) contribute nothing and are correctly ignored.
+_nvmrc106 = ROOT / ".nvmrc"
+_wfdir106 = ROOT / ".github" / "workflows"
+if _nvmrc106.exists() and _wfdir106.exists():
+    _nvm_major106 = _nvmrc106.read_text(encoding="utf-8").strip().lstrip("v").split(".")[0]
+    _wf_majors106 = set()
+    for _wf106 in sorted(_wfdir106.glob("*.yml")):
+        for _m106 in re.finditer(r"node-version:\s*['\"]?(\d+)", _wf106.read_text(encoding="utf-8")):
+            _wf_majors106.add(_m106.group(1))
+    check(
+        bool(_nvm_major106) and _wf_majors106 == {_nvm_major106},
+        f"Check 106: .nvmrc (Node {_nvm_major106}) matches all CI workflow node-version pins ({sorted(_wf_majors106)})",
+        f"Check 106: .nvmrc Node major {_nvm_major106!r} != CI workflow node-version pin major(s) {sorted(_wf_majors106)}. "
+        "ローカル dev 契約 (.nvmrc) と全 workflow の node-version pin を単一 major に揃えよ "
+        "(Check 69 は engines が pin を許容するかのみを見る)",
+        blocking=True,
+    )
+else:
+    check(False, "", "Check 106: .nvmrc or workflows dir not found — node alignment を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
