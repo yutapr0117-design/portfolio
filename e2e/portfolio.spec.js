@@ -144,6 +144,35 @@ test('No layout shift on mobile viewport', async ({ page }) => {
   await expect(sidebar).not.toBeVisible();
 });
 
+// ===== 7.2: テーマ切替の永続化 Behavior Check =====
+// theme toggle (#themeBtnTop) は data-theme を cycle (system→dark→light→system) させ、
+// State 経由で localStorage に永続化する。リロードを跨いだ往復 (theme-init.js の FOUC
+// pre-paint → main.js Theme.init の再適用) が壊れていないことを検証する。Check 100 が
+// FOUC pre-paint の storage キー一致を静的強制するのに対し、本テストは実ブラウザでの
+// 切替→永続→復元の振る舞いを動的に保証する。
+test('Theme toggle cycles data-theme and persists across reload', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+
+  const html = page.locator('html');
+  const initial = await html.getAttribute('data-theme');
+
+  // テーマ切替ボタンは desktop (sidebar) と mobile (#themeBtnTop) の両方に存在し同じ
+  // aria-label を共有する。viewport で可視な方を選んでクリックする。
+  const themeBtn = page.locator('button[aria-label="ライトモードとダークモードを切り替える"]:visible').first();
+  await expect(themeBtn).toBeVisible();
+  await themeBtn.click();
+
+  const afterClick = await html.getAttribute('data-theme');
+  expect(afterClick, 'data-theme must change after toggling the theme button').not.toBe(initial);
+
+  // リロード後もテーマが永続化されていること（State → localStorage 往復）
+  await page.reload();
+  await page.waitForLoadState('networkidle');
+  const afterReload = await page.locator('html').getAttribute('data-theme');
+  expect(afterReload, 'theme selection must persist across a page reload').toBe(afterClick);
+});
+
 // ===== 7.2: 全ハッシュルート検証 — aria-busy 収束 & コンテンツ非空 =====
 const HASH_ROUTES = ['#/home', '#/projects', '#/about', '#/contact', '#/skills'];
 
