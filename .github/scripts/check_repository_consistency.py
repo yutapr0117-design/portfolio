@@ -433,8 +433,10 @@ authoritative inventory and is kept in sync with the implementation below):
       (Docs 七 Phase 計画の Phase 7 骨格 — Phase 2-6 完了時に対象拡張)。新規 shipped ファイル
       追加時の doc 漏れを pre-commit fail で構造防止。(BLOCKING)
   97. docs/files/*.md frontmatter integrity: 各 1 対 1 doc が必須 frontmatter
-      (`file` / `audience` / `last-updated` / `canonical-ref`) を持つことを機械強制。
-      drift を pre-commit で防止。(BLOCKING)
+      (`file` / `audience` / `last-updated` / `canonical-ref`) を持ち、かつ `file:` 値が
+      mirror 自身の派生ソースパス (docs/files/<path>.md → <path>) と一致することを機械強制。
+      copy-paste で `file:` 更新を忘れ「別ファイルを指す mirror」が通過する silent drift
+      (Check 78/80 の name==identifier と同型) を閉じる。drift を pre-commit で防止。(BLOCKING)
   98. docs/files/*.md 5+1-axis section presence: 各 1 対 1 doc が必須 6 セクション見出し
       (`## What` / `## Why` / `## How` / `## Constraints` / `## Change impact` /
       `## Audience-specific notes`) を持つことを機械強制 (`_template.md` 整合)。(BLOCKING)
@@ -3780,7 +3782,10 @@ check(
 
 # ── 97. docs/files/*.md frontmatter integrity (BLOCKING) ─────────────────────
 # 各 1 対 1 doc が必須 frontmatter (file / audience / last-updated / canonical-ref) を
-# 持つことを機械強制。drift を pre-commit で防止。
+# 持ち、かつ `file:` 値が自身の派生ソースパス (docs/files/<path>.md → <path>) と一致する
+# ことを機械強制。drift を pre-commit で防止。`file:` の self-coherence を加えることで、
+# mirror を copy-paste 新設した際に `file:` 更新を忘れ「別ファイルを指す mirror」が
+# Check 97/98 を通過してしまう silent drift (Check 78/80 の name==identifier と同型) を閉じる。
 _docs97_dir = ROOT / "docs" / "files"
 _bad97 = []
 if _docs97_dir.is_dir():
@@ -3796,9 +3801,19 @@ if _docs97_dir.is_dir():
         for _required in ["file:", "audience:", "last-updated:", "canonical-ref:"]:
             if not re.search(rf"^{_required}", _fm_body, re.MULTILINE):
                 _bad97.append(f"{_md.relative_to(_docs97_dir)}: missing {_required}")
+        # file: self-coherence — 値が mirror 自身の派生ソースパスと一致するか
+        _relmd97 = _md.relative_to(_docs97_dir).as_posix()
+        if _relmd97.endswith(".md"):
+            _derived97 = _relmd97[:-len(".md")]
+            _filefld97 = re.search(r"^file:\s*(\S+)", _fm_body, re.MULTILINE)
+            if _filefld97 and _filefld97.group(1) != _derived97:
+                _bad97.append(
+                    f"{_relmd97}: file:'{_filefld97.group(1)}' != derived source path '{_derived97}' "
+                    "(mirror が別ファイルを指している — copy-paste drift)"
+                )
 check(
     not _bad97,
-    f"Check 97: all docs/files/*.md have required frontmatter (file / audience / last-updated / canonical-ref)",
+    f"Check 97: all docs/files/*.md have required frontmatter (file / audience / last-updated / canonical-ref) and file:==derived path",
     f"Check 97: doc frontmatter issues: {_bad97[:5]}{'...' if len(_bad97) > 5 else ''}",
 )
 
