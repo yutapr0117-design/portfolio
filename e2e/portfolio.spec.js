@@ -173,6 +173,37 @@ test('Theme toggle cycles data-theme and persists across reload', async ({ page 
   expect(afterReload, 'theme selection must persist across a page reload').toBe(afterClick);
 });
 
+// ===== 7.2: モバイルドロワーの開閉 + ARIA + Escape + focus 復帰 Behavior Check =====
+// mobile (≤MOBILE_BREAKPOINT=920px) では sidebar が #menuBtn → #drawer (role=dialog,
+// aria-modal) に畳まれる。開くと aria-expanded=true / drawer aria-hidden=false / 背景 #app が
+// inert+aria-hidden で隔離され、Escape で閉じて focus が #menuBtn に復帰する。これは
+// accessibility 上重要な focus-trap / background-isolation 契約だが従来 e2e 未カバーだった。
+test('Mobile drawer opens with ARIA, isolates background, and closes on Escape', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+
+  const menuBtn = page.locator('#menuBtn');
+  const drawer = page.locator('#drawer');
+  await expect(menuBtn).toBeVisible();
+  await expect(menuBtn).toHaveAttribute('aria-expanded', 'false');
+  await expect(drawer).toHaveAttribute('aria-hidden', 'true');
+
+  // 開く: ARIA 状態と背景隔離
+  await menuBtn.click();
+  await expect(menuBtn).toHaveAttribute('aria-expanded', 'true');
+  await expect(drawer).toHaveAttribute('aria-hidden', 'false');
+  await expect(drawer).toBeVisible();
+  await expect(page.locator('#app')).toHaveAttribute('aria-hidden', 'true');
+
+  // Escape で閉じる: ARIA 復元 + focus が menuBtn へ復帰
+  await page.keyboard.press('Escape');
+  await expect(menuBtn).toHaveAttribute('aria-expanded', 'false');
+  await expect(drawer).toHaveAttribute('aria-hidden', 'true');
+  await expect(page.locator('#app')).not.toHaveAttribute('aria-hidden', 'true');
+  await expect(menuBtn).toBeFocused();
+});
+
 // ===== 7.2: 全ハッシュルート検証 — aria-busy 収束 & コンテンツ非空 =====
 const HASH_ROUTES = ['#/home', '#/projects', '#/about', '#/contact', '#/skills'];
 
