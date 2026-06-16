@@ -377,7 +377,7 @@ test('Pomodoro mode switch resets and updates the timer display', async ({ page 
 // これらは ARIA 属性 / accessible name の付与のみで pixel 不変ゆえ §3 baseline ゲート非該当。
 // 注: color-contrast / link-in-text-block 等の render（CSS）系違反は baseline ゲート下で別途扱う
 // ため本テストでは対象外（render-neutral に直せる違反のみを今は機械強制する）。
-const A11Y_ROUTES = ['#/', '#/projects', '#/about', '#/contact', '#/resume', '#/apps', '#/settings', '#/quiz', '#/apps/task', '#/apps/todo'];
+const A11Y_ROUTES = ['#/', '#/projects', '#/about', '#/contact', '#/resume', '#/apps', '#/settings', '#/quiz', '#/apps/task', '#/apps/todo', '#/apps/pomodoro', '#/apps/ai', '#/hiring-risk', '#/ai-knowhow', '#/role-split'];
 const A11Y_RENDER_NEUTRAL_RULES = ['aria-valid-attr-value', 'select-name', 'button-name', 'label'];
 for (const route of A11Y_ROUTES) {
   test(`a11y axe: ${route} has no render-neutral critical violations`, async ({ page }) => {
