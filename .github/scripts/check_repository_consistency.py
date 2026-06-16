@@ -496,6 +496,12 @@ authoritative inventory and is kept in sync with the implementation below):
        (backtick-quoted filenames). The human-facing CI index thus cannot silently fall behind
        when a workflow is added or removed — the counterpart of Check 75 (incident README
        inventory) / Check 105 (check-map) for the CI workflow surface. (BLOCKING)
+  108. docs/files mirror ↔ tracked-files full bijection: EVERY tracked repository file (per
+       `git ls-files`, excluding docs/files itself) has a 1-to-1 multi-audience doc mirror at
+       `docs/files/<path>.md`, and every mirror (except the README.md inventory and _template.md)
+       has a live source file. Check 96 only guards the 33 Phase-1 shipped-code files; this Check
+       extends the bijection to ALL tracked files, so a newly added file without a mirror, or an
+       orphan mirror left after a source is deleted/renamed, is caught structurally. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4031,6 +4037,32 @@ if _runbook107.exists() and _wfdir107.exists():
     )
 else:
     check(False, "", "Check 107: runbook or workflows dir not found — workflow inventory を検証できない", blocking=True)
+
+# ── 108. docs/files mirror ↔ tracked-files full bijection (BLOCKING) ──────────
+# The repo documents EVERY tracked file with a 1-to-1 mirror at docs/files/<path>.md
+# (multi-audience: AI / new hire / auditor / recruiter / researcher). Check 96 only enforces
+# the 33 Phase-1 shipped-code files, leaving the other ~100 mirrors unguarded: a new file added
+# without a mirror, or an orphan mirror left after a source file is deleted/renamed, would erode
+# the "every file is documented" guarantee silently. This Check extends the bijection to the
+# FULL tracked set. Authoritative source = `git ls-files` via the already-computed `_member_paths`
+# (so untracked node_modules/__pycache__ never false-positive). README.md (the inventory, Check
+# 99) and _template.md are the only docs/files entries that are not themselves mirrors.
+_src108 = {f for f in _member_paths if not f.startswith("docs/files/")}
+_mirror108 = set()
+for _f108 in _member_paths:
+    if _f108.startswith("docs/files/") and _f108.endswith(".md"):
+        if _f108.rsplit("/", 1)[-1] in ("README.md", "_template.md"):
+            continue
+        _mirror108.add(_f108[len("docs/files/"):-len(".md")])
+_missing_mirror108 = sorted(_src108 - _mirror108)
+_orphan_mirror108 = sorted(_mirror108 - _src108)
+check(
+    bool(_src108) and _src108 == _mirror108,
+    f"Check 108: all {len(_src108)} tracked files have a 1-to-1 docs/files mirror (full bijection)",
+    f"Check 108: docs/files mirror drift — tracked but undocumented (missing mirror): {_missing_mirror108}; "
+    f"orphan mirror (doc with no source file): {_orphan_mirror108}. docs/files/<path>.md を同期せよ",
+    blocking=True,
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
