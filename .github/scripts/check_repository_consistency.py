@@ -465,7 +465,9 @@ authoritative inventory and is kept in sync with the implementation below):
        owner's "audit-CI-only" model would break. This Check pins the policy's presence (102a:
        AI2AI.md markers; 102b: CLAUDE.md reference; 102c: the "AI proposes, human disposes"
        proposal policy — proactive AI proposal-generation is a core self-driving function, the
-       human dispositions which proposal to pursue) so it cannot drift out. (BLOCKING)
+       human dispositions which proposal to pursue; 102d: the 'No terminal "done" state'
+       continuous-improvement policy — the AI may not self-stop or declare "done"/"good enough";
+       only an explicit human stop instruction halts the improvement loop) so it cannot drift out. (BLOCKING)
   103. style.css prefers-contrast (higher-contrast preference) support: style.css contains a
        `@media (prefers-contrast: more)` block that strengthens borders / muted text / focus for
        users who request higher contrast (WCAG 1.4.11 Non-text Contrast 強化). Like Check 101
@@ -3896,6 +3898,17 @@ if _ai2ai102.exists() and _claude102.exists():
         "Check 102c: AI2AI.md documents the proposal policy (AI proposes, human disposes)",
         "Check 102c: AI2AI.md is missing the 'AI proposes, human disposes'（AI 献策 / 人間裁可）policy — "
         "AI 自走の中核機能（能動的献策）の canon 明記が消えた",
+        blocking=True,
+    )
+    # 102d — 「改善に完了状態は存在しない」継続改善ポリシーが Operating Model に明記。
+    # AI 側の「もう十分」自発停止・完了宣言を canon が禁じ続けることを固定。これが消えると
+    # 後続 AI が「一区切りが妥当」と停止し、オーナーの「終わりなき改善を自走」運用が壊れる。
+    _102d = ('No terminal "done" state' in _ai2ai_src102) and ("完了" in _ai2ai_src102)
+    check(
+        _102d,
+        "Check 102d: AI2AI.md documents the continuous-improvement policy (No terminal \"done\" state)",
+        "Check 102d: AI2AI.md is missing the 'No terminal \"done\" state'（改善に完了状態は存在しない）"
+        "continuous-improvement policy — AI の自発的停止/完了宣言を禁じる canon が消えた",
         blocking=True,
     )
 else:
