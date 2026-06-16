@@ -533,7 +533,7 @@ export function createPages({ h, createIcon, Router, ContactCTA }) {
             ),
 
             // ── 分担表 ──
-            h('section', { class: 'card card--overflow-hidden', role: 'region', 'aria-label': 'Human vs AI 詳細分担表', id: 'role-split-table', 'aria-details': '#governance-claim', itemprop: 'hasPart' },
+            h('section', { class: 'card card--overflow-hidden', role: 'region', 'aria-label': 'Human vs AI 詳細分担表', id: 'role-split-table', itemprop: 'hasPart' },
                 h('div', { class: 'card-body card-body--no-pad' },
                     tableHeader(),
                     splitRow('設計',
