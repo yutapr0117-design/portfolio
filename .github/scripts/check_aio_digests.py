@@ -1,6 +1,18 @@
 """
 check_aio_digests.py — AIO digest consistency CI check
 
+WHY THIS SCRIPT EXISTS
+----------------------
+The AIO discovery layer publishes SHA-256 digests of the canonical files (in
+`.well-known/index.json` and `.well-known/aio-manifest.json`) as tamper-evidence:
+an AI crawler can hash the file it fetched and compare it to the published digest
+to confirm it is reading the authoritative bytes. That guarantee is only real if
+the published digests actually match the committed files — so this check recomputes
+every digest from the working-copy bytes and fails CI on any mismatch. It is the
+machine-enforced half of the C6 "AIO Integrity" contract: digests are a
+content-DERIVED value (auto-updated by `update_aio_digests.py` when approved
+semantic edits land), and this script proves that derivation never silently drifts.
+
 Verifies:
   1. .well-known/index.json and .well-known/agent-skills/index.json are byte-identical.
   2. Each skill's digest matches the SHA-256 of the corresponding local file.
@@ -38,12 +50,17 @@ INDEX_FILES = [
 
 MANIFEST_FILE = ROOT / ".well-known" / "aio-manifest.json"
 
+# Two surfaces publish digests in two different shapes, so there are two maps.
+# The skills index keys entries by their PUBLIC URL (what a crawler dereferences),
+# hence absolute https URLs here…
 URL_TO_LOCAL = {
     "https://yutapr0117-design.github.io/portfolio/llms-full.txt": ROOT / "llms-full.txt",
     "https://yutapr0117-design.github.io/portfolio/AI2AI.md": ROOT / "AI2AI.md",
 }
 
-# aio-manifest path → local file (relative to repo root)
+# …whereas the manifest keys entries by repo-relative path. Keeping the maps
+# separate (rather than deriving one from the other) lets each surface list its own
+# subset of files without an artificial coupling. aio-manifest path → local file:
 MANIFEST_PATH_TO_LOCAL: dict[str, Path] = {
     "llms.txt":       ROOT / "llms.txt",
     "llms-full.txt":  ROOT / "llms-full.txt",
@@ -88,6 +105,11 @@ def check_index_files() -> tuple[bool, list[str]]:
     if errors:
         return False, errors
 
+    # Byte-identity (not just semantic equality): the same skills index is published at
+    # two discovery paths (`.well-known/index.json` and `.well-known/agent-skills/index.json`)
+    # because different crawlers probe different conventional locations. If the two copies
+    # diverged by even one byte, a crawler could derive a different authority signal depending
+    # on which path it happened to fetch — so they must be kept literally identical.
     raw = [p.read_bytes() for p in INDEX_FILES]
     if raw[0] != raw[1]:
         return False, [
@@ -109,6 +131,10 @@ def check_index_files() -> tuple[bool, list[str]]:
             ok = False
             continue
 
+        # The skills index records digests with an algorithm-prefixed form
+        # (`sha-256:<hex>`), whereas the manifest (below) stores the bare hex. The two
+        # surfaces follow different conventions, so the expected string is built differently
+        # in each — do not "unify" them without changing the published files too.
         expected = "sha-256:" + sha256_file(local)
         if digest != expected:
             errors.append(
