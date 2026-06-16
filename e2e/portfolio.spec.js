@@ -578,6 +578,19 @@ for (const route of ALL_ROUTES) {
       return e ? (e.message || String(e)) : null;
     });
     expect(fatal, `Route ${route.name} fell into the ErrorBoundary FatalPage: ${fatal}`).toBeNull();
+
+    // Hash-resolution guard: every route EXCEPT the intentional not-found fallback must
+    // resolve to its real page, never silently fall through to NotFoundPage (h1 "Not Found").
+    // This catches the "wrong hash → NotFound" vacuous-coverage class — e.g. ALL_ROUTES once
+    // listed #/app-task instead of #/apps/task, so 4 app route tests vacuously asserted the
+    // NotFound page (non-empty + no error) and passed. Check 58 only compares route NAMES,
+    // not that each hash resolves, so this behavioral guard closes that gap.
+    if (route.name !== 'not-found-fallback') {
+      await expect(
+        page.getByRole('heading', { name: 'Not Found', exact: true }),
+        `Route ${route.name} (${route.hash}) fell through to NotFoundPage — its hash does not resolve to the intended route`
+      ).toHaveCount(0);
+    }
   });
 }
 
