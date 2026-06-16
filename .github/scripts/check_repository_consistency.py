@@ -1464,11 +1464,18 @@ if _sitemap_path.exists():
         if not (ROOT / _rel).exists():
             _sm_missing.append(_rel + "  (<- " + _loc + ")")
     check(
-        not _sm_missing,
+        # _sm_checked > 0 ガード: project <loc> がゼロ件 (sitemap が gutted/空) のとき
+        # `not _sm_missing` だけだと「all 0 URLs resolve」で vacuous pass し、AIO/SEO の
+        # 根幹である sitemap の中身消失を見逃す。最低 1 件 (SPA root) は常に広告されるべき。
+        _sm_checked > 0 and not _sm_missing,
         f"Check 39: all {_sm_checked} project sitemap <loc> URLs resolve to committed files",
-        "Check 39: sitemap.xml advertises URL(s) with no backing file (crawler 404 risk) — "
-        "add the file or remove the <loc>: " + "; ".join(sorted(_sm_missing)[:10])
-        + (" …" if len(_sm_missing) > 10 else ""),
+        "Check 39: " + (
+            "sitemap.xml advertises zero project <loc> URLs — gutted/empty sitemap is an AIO/SEO defect "
+            "(at least the SPA root must be listed)" if _sm_checked == 0 else
+            "sitemap.xml advertises URL(s) with no backing file (crawler 404 risk) — "
+            "add the file or remove the <loc>: " + "; ".join(sorted(_sm_missing)[:10])
+            + (" …" if len(_sm_missing) > 10 else "")
+        ),
         blocking=True,
     )
 
@@ -2617,7 +2624,9 @@ if _idx57.exists():
     _only_preload57 = sorted(_preload57 - _modules57)
     _only_modules57 = sorted(_modules57 - _preload57)
     check(
-        not _only_preload57 and not _only_modules57,
+        # _modules57 非空ガード: 両集合が空 (main.js が import を失い、index.html も preload ゼロ)
+        # のとき対称差 0 で vacuous pass するのを防ぐ。葉モジュール集合は常に非空であるべき。
+        bool(_modules57) and not _only_preload57 and not _only_modules57,
         f"Check 57: index.html modulepreload ({len(_preload57)}) and _modules47 ({len(_modules57)}) "
         f"are exact set-equal",
         f"Check 57: modulepreload ↔ _modules47 drift — only in modulepreload: "
@@ -2656,7 +2665,10 @@ if _spec58.exists() and _main58.exists():
     _only_e2e58 = sorted(_e2e_set58 - _main_set58)
     _only_main58 = sorted(_main_set58 - _e2e_set58)
     check(
-        not _only_e2e58 and not _only_main58,
+        # 両集合非空ガード: e2e ALL_ROUTES と main.js switch case のどちらかが空 (正規表現が
+        # 何も拾えない＝構造変更や gutting) のとき対称差 0 で vacuous pass し、ルート網羅検証が
+        # 無効化されるのを防ぐ。出荷ルートは常に複数存在するため両集合は非空であるべき。
+        bool(_e2e_set58) and bool(_main_set58) and not _only_e2e58 and not _only_main58,
         f"Check 58: e2e ALL_ROUTES ({len(_e2e_set58)}) and main.js switch cases "
         f"({len(_main_set58)}) are exact set-equal (project-detail を除く)",
         f"Check 58: e2e ↔ main.js route drift — only in e2e: {_only_e2e58}; "
@@ -2694,10 +2706,16 @@ if _budget59.exists():
         # §2 表側の余計エントリは許容する（false positive 防止）。
         _only_data59 = sorted(_data59 - _table59)
         check(
-            not _only_data59,
+            # _data59 非空ガード: BUDGET-DATA ブロックが空 (エントリ全削除) のとき
+            # `not _only_data59` だけだと vacuous pass し、予算定義の消失を見逃す。
+            bool(_data59) and not _only_data59,
             f"Check 59: file-size-budget §2 表 contains all {len(_data59)} BUDGET-DATA entries",
-            f"Check 59: BUDGET-DATA entries missing from §2 表: {_only_data59} — "
-            f"§4 (機械可読) と §2 (人間可読) が drift している。§2 表に該当行を追加して同期せよ",
+            "Check 59: " + (
+                "BUDGET-DATA block has zero entries — file-size 予算定義が消失している"
+                if not _data59 else
+                f"BUDGET-DATA entries missing from §2 表: {_only_data59} — "
+                f"§4 (機械可読) と §2 (人間可読) が drift している。§2 表に該当行を追加して同期せよ"
+            ),
         )
     else:
         warnings.append("Check 59: BUDGET-DATA block not found — §2/§4 set check skipped")
