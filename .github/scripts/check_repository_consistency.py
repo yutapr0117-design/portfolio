@@ -1079,8 +1079,22 @@ if _spec_path_28.exists():
     _test_start_depth_28 = None   # None = not currently inside a top-level test()
     _nesting_errors_28: list[str] = []
 
+    # 文字列リテラル / コメントを除去してから brace を数える stripper。素朴な count("{") は
+    # 文字列・コメント内の brace も数えてしまい false-positive を生む（例: テストデータの
+    # 破損 JSON 文字列 'NOT{VALID' の孤立 `{`）。これを構造ブレースのみ数えるよう堅牢化する。
+    # 順序が重要: まず文字列を除去 (内部の // や /* を巻き込む) → 次に // と /* */ コメント除去。
+    _str_re28 = _re_spec28.compile(r"'(?:\\.|[^'\\])*'|\"(?:\\.|[^\"\\])*\"|`(?:\\.|[^`\\])*`")
+    _blockc_re28 = _re_spec28.compile(r"/\*.*?\*/")
+
+    def _strip_js_literals_28(line: str) -> str:
+        line = _str_re28.sub("", line)        # 文字列リテラル除去 (escape 対応)
+        line = _blockc_re28.sub("", line)     # 単一行 /* ... */ 除去
+        line = _re_spec28.sub(r"//.*$", "", line)  # 行コメント除去
+        return line
+
     for _ln28, _line28 in enumerate(_spec_lines_28, 1):
-        # A top-level test() definition starts at column 0
+        _code28 = _strip_js_literals_28(_line28)
+        # A top-level test() definition starts at column 0 (元行で判定: 列 0 固定ゆえ strip 不要)
         if _re_spec28.match(r"^test\s*\(", _line28):
             if _test_start_depth_28 is not None:
                 _nesting_errors_28.append(
@@ -1089,8 +1103,8 @@ if _spec_path_28.exists():
                 )
             _test_start_depth_28 = _brace_depth_28  # record depth *before* this line
 
-        # Naive brace counting (works for this file; strings do not contain unbalanced braces)
-        _brace_depth_28 += _line28.count("{") - _line28.count("}")
+        # 構造ブレースのみ数える (文字列/コメント内の brace は strip 済みゆえ無視される)
+        _brace_depth_28 += _code28.count("{") - _code28.count("}")
 
         # When brace depth returns to the level before the test opened, the test is closed
         if _test_start_depth_28 is not None and _brace_depth_28 <= _test_start_depth_28:

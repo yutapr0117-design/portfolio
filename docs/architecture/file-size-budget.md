@@ -3,7 +3,7 @@
 ```
 Last-Updated  : 2026-06-16
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
-Track         : v80+ staged major update (Phase 3 — Check 102e infinite-improvement canon: check_repository_consistency.py 行数 4,256 / budget 4,400・_lib_io.py 217 / 250 へ同期)
+Track         : v80+ staged major update (Phase 3 — Check 28 brace-counter 堅牢化: check_repository_consistency.py 行数 4,270 / budget 4,400・_lib_io.py 217 / 250 へ同期)
 Subject       : 主要ファイルの行数予算（line budget）と、肥大化の「許容」「抑制」分類
 Canonical-Ref : AI2AI.md (canonical) / docs/architecture/repository-maintainability-map.md
 Enforced-By   : check_repository_consistency.py Check 52（ADVISORY / 非ブロッキング）
@@ -73,7 +73,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/quiz/quality-quiz-data.js` | 275 | 350 | `advisory` | Stage 3-b 分割済み。品質・プロセス問題集 |
 | `js/quiz/architecture-quiz-data.js` | 137 | 250 | `advisory` | Stage 3-b 分割済み。v29 意思決定問題集 |
 | `style.css` | 2,156 | 2,300 | `advisory` | baseline 後に section 分割を検討（cascade 破壊リスクのため baseline 前は分割しない） |
-| `.github/scripts/check_repository_consistency.py` | 4,256 | 4,400 | `advisory` | 中央 enforcement registry ゆえ Check 追加ごとに約 35 行/件で構造的に成長する設計 (Check 100-109 + 102d + 76/78/80 拡張 + 39/57/58/59 vacuous-gate ガード + 97 file-coherence + 65 mirror date scope 等を順次追加)。budget は実態 +headroom (約 5 件分) へ同期。これは「抑制すべき bloat」ではなく「機械強制の richness 増加」ゆえ ceiling は緩やかに追従 |
+| `.github/scripts/check_repository_consistency.py` | 4,270 | 4,400 | `advisory` | 中央 enforcement registry ゆえ Check 追加ごとに約 35 行/件で構造的に成長する設計 (Check 100-109 + 102d + 76/78/80 拡張 + 39/57/58/59 vacuous-gate ガード + 97 file-coherence + 65 mirror date scope 等を順次追加)。budget は実態 +headroom (約 5 件分) へ同期。これは「抑制すべき bloat」ではなく「機械強制の richness 増加」ゆえ ceiling は緩やかに追従 |
 | `.github/scripts/_lib_io.py` | 217 | 250 | `advisory` | 純 I/O helper sibling module (read / read_bytes / extract / csp_sri_hash + 日付 helper)。Check 74/95 で API 契約を BLOCKING 保護。budget を実態 +headroom へ同期 |
 | `index.html` | 1,265 | — | `protected` | CSP / JSON-LD / AI meta / AIO anchor の中核。AIO 承認なしに整理しない |
 | `llms-full.txt` | 998 | — | `protected` | AIO 正本（ground truth）。削らない |
