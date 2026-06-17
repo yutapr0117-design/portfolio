@@ -204,6 +204,39 @@ test('Projects search input retains focus during filtering', async ({ page }) =>
   await expect(searchInput).toBeFocused();
 });
 
+// ===== 7.2: プロジェクトのカテゴリフィルタ (件数絞り込み + URL ディープリンク) =====
+// ProjectsPage は select(aria-label='カテゴリフィルター') で cat を切替え、getFilteredProjects が
+// p.category===cat で絞り込み、syncURL が ?cat= を replaceSilently で URL に反映する (focus 喪失を
+// 避けるため grid のみ再描画)。検索フォーカス維持テストはあるが、カテゴリ絞り込み + URL 反映は
+// 未カバーだった。実カテゴリ名をハードコードせず「2 番目の option 選択 → 件数が減る + URL に cat=
+// → All で総数復帰」を実検証する (フィルタ条件 / URL sync が壊れたら検知)。
+test('Projects category filter narrows the list and syncs to the URL', async ({ page }) => {
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+
+  const countLabel = page.getByText(/合計 \d+ 件/);
+  const total = parseInt((await countLabel.textContent()).match(/\d+/)[0], 10);
+  expect(total, 'should have multiple projects to filter').toBeGreaterThan(1);
+
+  const catSelect = page.locator('select[aria-label="カテゴリフィルター"]');
+  // 先頭 'All' の次=最初の実カテゴリ (名前はデータ依存なので index で選ぶ)
+  const firstRealCat = await catSelect.locator('option').nth(1).getAttribute('value');
+  await catSelect.selectOption(firstRealCat);
+
+  // 件数が絞られる (0 < filtered < total)
+  const filtered = parseInt((await page.getByText(/合計 \d+ 件/).textContent()).match(/\d+/)[0], 10);
+  expect(filtered).toBeGreaterThan(0);
+  expect(filtered).toBeLessThan(total);
+  // URL に cat= が反映 (deep-link 可能)
+  await expect(page).toHaveURL(/[?&]cat=/);
+
+  // All に戻すと総数復帰 + URL から cat= が消える
+  await catSelect.selectOption('All');
+  const restored = parseInt((await page.getByText(/合計 \d+ 件/).textContent()).match(/\d+/)[0], 10);
+  expect(restored).toBe(total);
+  await expect(page).not.toHaveURL(/[?&]cat=/);
+});
+
 // ===== 7.2: プロジェクト browse→detail→back のコア導線 =====
 // ProjectsPage のカード「詳細を見る」は Router.navigate(`projects/<slug>`) で ProjectDetailPage
 // へ遷移し、詳細側「← 一覧に戻る」で navigate('projects') で戻る。route-render テストは直接 URL で
