@@ -281,6 +281,53 @@ test('Task app adds a task and persists it across reload', async ({ page }) => {
   await expect(page.getByText(title)).toBeVisible();
 });
 
+// ===== 7.1b: localStorage QuotaExceeded 時の graceful degradation =====
+// State の保存経路 (state.js scheduleSave/saveNow) は Storage.set が false を返したとき
+// notifyStorageError() でユーザーに通知し、in-memory state はそのまま維持する設計
+// (storage.js は容量超過例外を握りつぶして false を返す)。read 側 (corrupt-storage) とは
+// 別の write 側耐障害性: localStorage.setItem が QuotaExceededError を投げても (1) タスク
+// 追加は in-memory で機能し描画される (2) ErrorBoundary (FatalPage) に落ちない
+// (3) ストレージエラーがログされる。動きの保証 = ディスク満杯でも操作を失わない。
+test('Task app degrades gracefully when localStorage write quota is exceeded', async ({ page }) => {
+  // setItem だけを QuotaExceededError で失敗させる (getItem は機能させ、初期 theme 読込等は壊さない)
+  await page.addInitScript(() => {
+    const proto = window.Storage && window.Storage.prototype;
+    if (proto) {
+      proto.setItem = function () {
+        const err = new Error('quota');
+        err.name = 'QuotaExceededError';
+        throw err;
+      };
+    }
+  });
+
+  const consoleErrors = [];
+  page.on('console', msg => { if (msg.type() === 'error') {consoleErrors.push(msg.text());} });
+
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('networkidle');
+
+  const input = page.locator('#task-input');
+  await expect(input).toBeVisible();
+
+  const title = 'E2E-QUOTA-DEGRADE-TASK-3390';
+  await input.fill(title);
+  await input.press('Enter');
+
+  // (1) 書き込みは失敗しても in-memory state で描画される
+  await expect(page.getByText(title)).toBeVisible();
+
+  // (2) FatalPage (ErrorBoundary) に落ちていない
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `quota write failure caused a fatal: ${fatal}`).toBeNull();
+
+  // (3) ストレージ上限エラーが通知 (console.error) される (debounce save 後)
+  await expect.poll(
+    () => consoleErrors.some(t => t.includes('ストレージ上限')),
+    { timeout: 5000 }
+  ).toBe(true);
+});
+
 // ===== 7.2: TODO アプリの追加→完了トグル→一括削除フロー Behavior Check =====
 // #/apps/todo は TodoPage (task とは別 factory / 別 State slice) で、addTodo (Enter) /
 // toggleTodo (checkbox) / clearCompleted (「完了済み削除」一括操作) という distinct な
