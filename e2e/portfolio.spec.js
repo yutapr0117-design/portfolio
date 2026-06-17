@@ -378,14 +378,17 @@ test('Pomodoro mode switch resets and updates the timer display', async ({ page 
 // 注: color-contrast / link-in-text-block 等の render（CSS）系違反は baseline ゲート下で別途扱う
 // ため本テストでは対象外（render-neutral に直せる違反のみを今は機械強制する）。
 const A11Y_ROUTES = ['#/', '#/projects', '#/about', '#/contact', '#/resume', '#/apps', '#/settings', '#/quiz', '#/apps/task', '#/apps/todo', '#/apps/pomodoro', '#/apps/ai', '#/hiring-risk', '#/ai-knowhow', '#/role-split'];
-const A11Y_RENDER_NEUTRAL_RULES = ['aria-valid-attr-value', 'select-name', 'button-name', 'label'];
+// 本テストで違反ゼロを機械強制する rule の allowlist（= 既に render-neutral に修正済の rule）。
+// color-contrast / color-contrast-enhanced / heading-order / link-in-text-block 等の未修正
+// （baseline-gated or 別 increment）rule は analyze 結果に含まれても本 allowlist 外ゆえ無視する。
+const A11Y_RENDER_NEUTRAL_RULES = ['aria-valid-attr-value', 'select-name', 'button-name', 'label', 'page-has-heading-one'];
 for (const route of A11Y_ROUTES) {
   test(`a11y axe: ${route} has no render-neutral critical violations`, async ({ page }) => {
     await page.goto(`/${route}`);
     await page.waitForLoadState('networkidle');
     await page.waitForTimeout(150);
     const results = await new AxeBuilder({ page })
-      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'])
       .analyze();
     const offenders = results.violations.filter(v => A11Y_RENDER_NEUTRAL_RULES.includes(v.id));
     expect(

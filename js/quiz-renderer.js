@@ -50,7 +50,7 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
 
         const box = h("div", { class: "col col-centered" });
 
-        box.appendChild(h("div", { class: "h2", text: pageTitle }));
+        box.appendChild(h("h1", { class: "h2", text: pageTitle }));
 
         // Search Input
         box.appendChild(h("div", { class: "mb-6" },
