@@ -531,6 +531,11 @@ authoritative inventory and is kept in sync with the implementation below):
        decision / Session Records / docs/files mirrors / the per-increment changelogs in
        repository-maintainability-map.md & main-js-extraction-map.md) are point-in-time records,
        not scanned. (BLOCKING)
+  110. e2e A11Y_ROUTES ↔ ALL_ROUTES coverage bijection: the axe a11y test loops over A11Y_ROUTES
+       asserting zero render-neutral critical violations per route; this Check asserts that
+       A11Y_ROUTES's hash set equals ALL_ROUTES's hash set, so a route added to the route-render
+       coverage (ALL_ROUTES) but forgotten in the a11y coverage (A11Y_ROUTES) is caught — no shipped
+       route can silently escape automated accessibility scanning (the a11y counterpart of Check 58). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4253,6 +4258,31 @@ check(
     + ". 数値を除去し「正値は total-check-runbook.md §9 (Check 70 強制)」への pointer へ phrasing せよ",
     blocking=True,
 )
+
+# ── 110. e2e A11Y_ROUTES ↔ ALL_ROUTES coverage bijection (BLOCKING) ────────────
+# axe a11y テスト (A11Y_ROUTES でループ) は render-neutral critical 違反ゼロを全ルートで機械強制
+# するが、その対象集合 A11Y_ROUTES が手動配列ゆえ、新ルートを ALL_ROUTES (route-render が網羅) に
+# 足したのに A11Y_ROUTES へ足し忘れると「新ルートが a11y 未検証」の silent coverage gap が生じる。
+# 両配列の hash 集合が一致することを機械強制し、a11y カバレッジが shipped route 集合を常に追従する
+# ことを保証する (Check 58 の e2e↔main.js route 版の a11y 面)。
+_spec110 = ROOT / "e2e" / "portfolio.spec.js"
+if _spec110.exists():
+    _src110 = _spec110.read_text(encoding="utf-8")
+    _a11y_m110 = re.search(r"const A11Y_ROUTES\s*=\s*\[(.*?)\]", _src110, re.DOTALL)
+    _all_m110 = re.search(r"const ALL_ROUTES\s*=\s*\[(.*?)\];", _src110, re.DOTALL)
+    _a11y_set110 = set(re.findall(r"'([^']+)'", _a11y_m110.group(1))) if _a11y_m110 else set()
+    _all_set110 = set(re.findall(r"hash:\s*'([^']+)'", _all_m110.group(1))) if _all_m110 else set()
+    _only_all110 = sorted(_all_set110 - _a11y_set110)
+    _only_a11y110 = sorted(_a11y_set110 - _all_set110)
+    check(
+        bool(_a11y_set110) and bool(_all_set110) and _a11y_set110 == _all_set110,
+        f"Check 110: e2e A11Y_ROUTES ({len(_a11y_set110)}) covers exactly the ALL_ROUTES hash set ({len(_all_set110)}) — a11y axe runs on every shipped route",
+        f"Check 110: a11y coverage drift — in ALL_ROUTES but missing from A11Y_ROUTES (a11y 未検証ルート): "
+        f"{_only_all110}; in A11Y_ROUTES but not ALL_ROUTES: {_only_a11y110}. e2e の A11Y_ROUTES を同期せよ",
+        blocking=True,
+    )
+else:
+    check(False, "", "Check 110: e2e/portfolio.spec.js not found — a11y coverage bijection を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
