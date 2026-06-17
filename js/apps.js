@@ -365,7 +365,12 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
         }
 
         function getRemaining() {
-            const rt = pomo.runtime;
+            // [FIX] live state を読む: startTimer の interval は start() 時の closure に固定され、
+            // その closure の `pomo` は再描画後に stale (isActive=false の旧 runtime) になる。
+            // クロージャ変数を読むと interval の完了判定が常に remainingSec を返し complete() が
+            // 永遠に発火しない (表示は毎 tick の window.render が live を読むので 0 まで進むが
+            // 停止・history 記録・完了通知が起きない) ため、ここは必ず最新 runtime を参照する。
+            const rt = State.get().appsData.pomodoro.runtime;
             if (rt.isActive && rt.endAtMs) {
                 return Math.max(0, Math.ceil((rt.endAtMs - Date.now()) / 1000));
             }
