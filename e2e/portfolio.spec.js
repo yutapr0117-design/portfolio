@@ -255,6 +255,29 @@ test('Quiz search filters question blocks and shows empty state on no match', as
   await expect(blocks).toHaveCount(initial);
 });
 
+// ===== 7.2: 設計判断問題集 (?type=architecture) の構造化レンダリング分岐 =====
+// QuizPage は quizType=architecture のとき isArchitecture 分岐で intro banner + 状況/
+// ステークホルダー主張/問の構造化ゾーン (.quiz-stakeholder-quote / .quiz-question-prompt) を
+// 描画する (他 3 種 aws/pm/quality とは別 code path)。既存 quiz テストは default(aws) の検索
+// のみ見ており、この distinct な構造化分岐は未カバーだった。?type= query 経由のルーティング
+// (router の queryPart 解析) + architecture 専用 DOM の描画を実検証する。
+test('Quiz architecture type renders structured stakeholder/question zones (?type query)', async ({ page }) => {
+  await page.goto('/#/quiz?type=architecture');
+  await page.waitForLoadState('networkidle');
+
+  // タイトルが architecture 用に切り替わる (QUIZ_DATA_MAP lookup)
+  await expect(page.locator('h1', { hasText: '設計判断問題集' })).toBeVisible();
+
+  // architecture 専用の構造化ゾーンが描画される
+  await expect(page.locator('.quiz-stakeholder-quote').first()).toBeVisible();
+  await expect(page.locator('.quiz-question-prompt').first()).toBeVisible();
+  await expect(page.locator('.quiz-question-block').first()).toBeVisible();
+
+  // ErrorBoundary に落ちていない
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `architecture quiz render caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: タスク管理アプリの追加 + リロード永続化 Behavior Check =====
 // #/apps/task は #task-input に入力 → Enter で State.update 経由でタスクを追加し、
 // localStorage (State auto-save) へ永続化する。apps セクションは従来「ルートが描画される」
