@@ -739,6 +739,37 @@ test('Deleting a user project (confirm accepted) removes it everywhere', async (
   await expect(page.getByText(name)).toHaveCount(0);
 });
 
+// ===== 7.2: 全データ初期化 (全リセット → confirm → defaults 復帰) =====
+// settings の resetData は confirm() の上 State.set(Store.createDefaultStore()) で全状態を初期値へ
+// 戻す最も破壊的な操作。snapshot/delete とは別経路で、ユーザーデータ (タスク等) を全消去し
+// デフォルトへ戻す導線が未カバーだった。タスクを追加→「全リセット」confirm 受諾→初期化通知 +
+// タスクが消えデフォルトに戻ることを実検証する (createDefaultStore への置換が壊れたら検知)。
+test('Reset data restores defaults after confirm (destructive)', async ({ page }) => {
+  page.on('dialog', (dialog) => dialog.accept());
+
+  // タスクを追加 (デフォルトとの差分を作る)
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  const input = page.locator('#task-input');
+  await input.fill('RESET-TARGET-TASK-7788');
+  await input.press('Enter');
+  await expect(page.getByText('RESET-TARGET-TASK-7788')).toBeVisible();
+
+  // 全リセット → confirm 受諾
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByRole('button', { name: '全リセット' }).click();
+  await expect(page.locator('#toast-container').getByText('初期化しました')).toBeVisible();
+
+  // タスクが消え defaults に戻る
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByText('RESET-TARGET-TASK-7788')).toHaveCount(0);
+  // crash していない
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `reset caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: 設定アプリのスナップショット保存→反映 Behavior Check =====
 // #/settings の「保存」は setSnapshot() で Storage.set(SNAPSHOT_KEY, ...) し、再描画後に
 // getSnapshot()(=Storage.parse) が読み戻して「保存日時: …」を表示する。これは PR #93 で
