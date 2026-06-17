@@ -438,6 +438,28 @@ test('App recovers gracefully from corrupt localStorage (no FatalPage)', async (
   await expect(page.getByRole('heading', { name: 'Not Found', exact: true })).toHaveCount(0);
 });
 
+// ===== 7.1: 設定インポートの不正 JSON 耐障害性 (graceful error) =====
+// settings の importJSON は FileReader + JSON.parse を try/catch で囲み、不正ファイルでも crash
+// せず「JSONのパースに失敗しました」エラー Toast を出す (fail-soft)。不正 JSON ファイルを与え、
+// エラー Toast 表示 + FatalPage に落ちないことを検証する (もう一つの入力境界 = ファイルアップロード)。
+test('Settings import shows an error for malformed JSON file without crashing', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('networkidle');
+
+  const fileInput = page.locator('input[type="file"]');
+  await fileInput.setInputFiles({
+    name: 'broken.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from('this is definitely not valid json ###'),
+  });
+
+  // 不正 JSON → エラー Toast 表示・crash しない（エラーは #toast-container と sr-only aria-live の
+  // 両方に出る = 視覚 + screen reader 両対応。toast 側を検証する）。
+  await expect(page.locator('#toast-container').getByText('JSONのパースに失敗しました')).toBeVisible();
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `malformed import caused a fatal render: ${fatal}`).toBeNull();
+});
+
 // ===== 7.1: axe-core 自動アクセシビリティ監査 — render-neutral critical 回帰防止 =====
 // axe-core で WCAG 2a/2aa/21a/21aa を全主要ルートでスキャンし、render-neutral に修正可能な
 // critical 違反群がゼロであることを機械強制する。本 increment で是正したバグの回帰防止:
