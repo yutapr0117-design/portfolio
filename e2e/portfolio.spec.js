@@ -229,6 +229,40 @@ test('Mobile drawer opens with ARIA, isolates background, and closes on Escape',
   await expect(menuBtn).toBeFocused();
 });
 
+// ===== 7.2: モバイルドロワーからのナビゲーション (リンククリック → 遷移 + 自動クローズ) =====
+// drawer 内 navLink は isDrawer のとき onclick で Router.navigate(path) に加え closeDrawer() を
+// 呼ぶ (components.js)。Escape クローズ (#上) とは別の閉路 = ナビゲーション経由のクローズで、
+// モバイルで目的ページへ飛ぶ最も普通の操作にも関わらず従来未カバーだった。ドロワーを開いて
+// Projects リンクをクリックし、(1) #/projects へ遷移し本文描画 (2) drawer が自動クローズ
+// (aria-hidden=true) (3) 背景隔離 (#app aria-hidden) も解除、を実検証する。
+test('Mobile drawer nav link navigates and auto-closes the drawer', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+
+  const menuBtn = page.locator('#menuBtn');
+  const drawer = page.locator('#drawer');
+  await menuBtn.click();
+  await expect(drawer).toHaveAttribute('aria-hidden', 'false');
+
+  // ドロワー内の Projects ナビリンクをクリック
+  const projectsLink = drawer.locator('a.nav-link[href="#/projects"]');
+  await expect(projectsLink).toBeVisible();
+  await projectsLink.click();
+
+  // (1) 遷移して本文描画
+  await expect(page).toHaveURL(/#\/projects$/);
+  await expect(page.locator('h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+  // (2) drawer が自動クローズ
+  await expect(drawer).toHaveAttribute('aria-hidden', 'true');
+  await expect(menuBtn).toHaveAttribute('aria-expanded', 'false');
+  // (3) 背景隔離も解除
+  await expect(page.locator('#app')).not.toHaveAttribute('aria-hidden', 'true');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `drawer nav caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: クイズ検索フィルタ + 空状態 Behavior Check =====
 // #/quiz の検索 input (aria-label='問題検索') は oninput で .quiz-question-block を絞り込み、
 // 一致ゼロのとき .panel-empty (aria-live=polite) の「見つかりませんでした」を表示する。
