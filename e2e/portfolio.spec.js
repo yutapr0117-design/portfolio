@@ -518,6 +518,40 @@ test('Settings app exports a full backup as a valid JSON download', async ({ pag
   expect(parsed, 'export must contain the appsData State slice').toHaveProperty('appsData');
 });
 
+// ===== 7.2: 設定からのプロジェクト手動追加 (CRUD create → Projects ページ反映 + 永続) =====
+// settings の addProjectManual はプロジェクト名を入力→「追加」で s.projects.unshift し slugify する。
+// tasks/todos (appsData slice) とは別の projects domain への create 経路で、ProjectsPage の
+// hiddenIds フィルタを通って公開一覧に現れる。空入力バリデーション (エラー Toast) と、追加後に
+// /#/projects へ反映 + リロード永続を実検証する。projects への書き込み導線が壊れたら退行検知。
+test('Settings can add a project manually and it appears on the Projects page', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('networkidle');
+
+  const nameInput = page.getByPlaceholder('プロジェクト名');
+  const addBtn = page.getByRole('button', { name: '追加', exact: true });
+  await expect(nameInput).toBeVisible();
+
+  // 空入力バリデーション: エラー Toast、追加されない
+  await addBtn.click();
+  await expect(page.locator('#toast-container').getByText('プロジェクト名を入力してください')).toBeVisible();
+
+  // 正常追加
+  const name = 'E2E-MANUAL-PROJECT-8420';
+  await nameInput.fill(name);
+  await addBtn.click();
+  await expect(page.locator('#toast-container').getByText('プロジェクトを追加しました')).toBeVisible();
+
+  // Projects ページ (hiddenIds フィルタ通過) に現れる
+  await page.goto('/#/projects');
+  await page.waitForLoadState('networkidle');
+  await expect(page.getByText(name).first()).toBeVisible();
+
+  // リロード後も永続
+  await page.reload();
+  await page.waitForLoadState('networkidle');
+  await expect(page.getByText(name).first()).toBeVisible();
+});
+
 // ===== 7.2: 設定アプリのスナップショット保存→反映 Behavior Check =====
 // #/settings の「保存」は setSnapshot() で Storage.set(SNAPSHOT_KEY, ...) し、再描画後に
 // getSnapshot()(=Storage.parse) が読み戻して「保存日時: …」を表示する。これは PR #93 で
