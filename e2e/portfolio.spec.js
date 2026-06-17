@@ -480,6 +480,39 @@ test('AI assist app generates and renders a response for a prompt', async ({ pag
   await expect(page.getByText(prompt)).toBeVisible();
 });
 
+// ===== 7.2: AI アシストの analyzeInput キーワード分岐 (troubleshoot/design/general) =====
+// analyzeInput は入力に含まれるキーワードで応答タイプを 3 分岐する: 「エラー/バグ/失敗」→
+// troubleshoot、「設計/計画/構成」→ design、それ以外 → general。既存 AI テスト (#上) は
+// prompt が履歴に出ることのみ見ており、この分類ロジック (generateResponse の type 別出力) は
+// 未カバーだった。各キーワードで送信し、対応する応答マーカーが描画されることを実検証する。
+// 分類ロジックが壊れたら (例: キーワード変更で全部 general に倒れる) 退行を捕まえる。
+test('AI assist routes prompts to troubleshoot/design/general responses by keyword', async ({ page }) => {
+  await page.goto('/#/apps/ai');
+  await page.waitForLoadState('networkidle');
+
+  const input = page.locator('#ai-input');
+  const submit = page.getByRole('button', { name: '送信', exact: true });
+
+  // 「エラー」→ troubleshoot
+  await expect(input).toBeVisible();
+  await input.fill('本番でエラーが出た');
+  await submit.click();
+  await expect(page.getByText('[AI分析: トラブルシューティング]')).toBeVisible();
+
+  // 「設計」→ design
+  await input.fill('新機能の設計を相談したい');
+  await submit.click();
+  await expect(page.getByText('[AI分析: 設計支援]')).toBeVisible();
+
+  // キーワードなし → general
+  await input.fill('こんにちは');
+  await submit.click();
+  await expect(page.getByText('[AI分析: 一般支援]')).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `AI assist branching caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: ポモドーロのモード切替→タイマー表示更新 Behavior Check =====
 // #/apps/pomodoro は集中/短休憩/長休憩ボタンで switchMode() → State 更新 + remaining を新モードの
 // duration へリセットし、`.font-mono.text-stat` の MM:SS 表示が変わる。timer の tick に依存しない
