@@ -495,6 +495,46 @@ test('Settings app saves a snapshot and reflects the saved-at status', async ({ 
   await expect(page.getByText(/保存日時:/)).toBeVisible();
 });
 
+// ===== 7.2: スナップショット復元のラウンドトリップ (保存→変更→復元で巻き戻る) =====
+// save テスト (#上) は保存と保存日時表示の往復を見るが、復元 (restoreSnapshot → State.set(snap.data))
+// で「保存時点へ実際に巻き戻る」中核機能は未カバーだった。これはユーザの undo/復旧の data-integrity
+// 経路。タスク A を追加→保存→タスク B を追加→復元、で A は残り B が消える (保存時点へ revert) ことを
+// 実検証する。復元が State.set を正しく通し永続データを差し替えることの保証。
+test('Settings snapshot restore reverts state to the saved point', async ({ page }) => {
+  // 1. タスク A を追加 (保存に含める状態)
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('networkidle');
+  const input = page.locator('#task-input');
+  await input.fill('SNAP-TASK-A-7700');
+  await input.press('Enter');
+  await expect(page.getByText('SNAP-TASK-A-7700')).toBeVisible();
+
+  // 2. スナップショット保存 (A を含む)
+  await page.goto('/#/settings');
+  await page.waitForLoadState('networkidle');
+  await page.getByRole('button', { name: '保存', exact: true }).click();
+  await expect(page.getByText(/保存日時:/)).toBeVisible();
+
+  // 3. 保存後にタスク B を追加 (この変更は snapshot に含まれない)
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('networkidle');
+  await input.fill('SNAP-TASK-B-7701');
+  await input.press('Enter');
+  await expect(page.getByText('SNAP-TASK-B-7701')).toBeVisible();
+
+  // 4. 復元 → 保存時点 (A のみ) へ巻き戻る
+  await page.goto('/#/settings');
+  await page.waitForLoadState('networkidle');
+  await page.getByRole('button', { name: '復元', exact: true }).click();
+  await expect(page.locator('#toast-container').getByText('スナップショットを復元しました')).toBeVisible();
+
+  // 5. タスク画面: A は残り B は消える (= 保存時点へ revert)
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('networkidle');
+  await expect(page.getByText('SNAP-TASK-A-7700')).toBeVisible();
+  await expect(page.getByText('SNAP-TASK-B-7701')).toHaveCount(0);
+});
+
 // ===== 7.2: AI アシストアプリの応答生成 Behavior Check =====
 // #/apps/ai は #ai-input + 「送信」で submit() → analyzeInput → (300ms 後) generateResponse +
 // State.update で appsData.ai.history に push し再描画する。task/todo とは別 State slice・別ロジック
