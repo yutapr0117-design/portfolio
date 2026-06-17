@@ -360,8 +360,13 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
         }
 
         function getDuration(mode) {
-            return (mode === 'work' ? pomo.settings.work :
-                mode === 'short-break' ? pomo.settings.short : pomo.settings.long) * 60;
+            // [FIX] live state を読む (getRemaining と同根の stale-closure 対策): startTimer の
+            // interval は start() 時の closure に固定され、その closure の `pomo.settings` は稼働中に
+            // 設定変更されても古いまま。complete() が getDuration で remainingSec をリセットする際に
+            // 旧設定値を使うバグになるため、必ず最新 settings を参照する。
+            const settings = State.get().appsData.pomodoro.settings;
+            return (mode === 'work' ? settings.work :
+                mode === 'short-break' ? settings.short : settings.long) * 60;
         }
 
         function getRemaining() {
