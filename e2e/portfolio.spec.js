@@ -1099,6 +1099,49 @@ test('Settings import shows an error for malformed JSON file without crashing', 
   expect(fatal, `malformed import caused a fatal render: ${fatal}`).toBeNull();
 });
 
+// ===== 7.2: 有効 JSON インポートの正常系ラウンドトリップ (data-recovery) =====
+// importJSON は FileReader→JSON.parse→トグル (既定: include profile/projects/apps, mode=append)
+// に従い State.update でマージ→validateAndNormalize→「インポートが完了しました」。malformed
+// (error 系) は被覆済みだが、バックアップ復元という data-recovery の中核=正常系は未カバーだった。
+// 新 id のプロジェクトを含む有効 JSON を import し、(1) 完了通知 (2) append でそのプロジェクトが
+// /#/projects に現れる (3) リロード永続、を実検証する (import のマージ/正規化破壊を検知)。
+test('Settings import (valid JSON) appends projects and persists (data recovery)', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  const imported = {
+    projects: [{
+      id: 'p_import_e2e_9911',
+      slug: 'imported-proj-9911',
+      name: 'IMPORTED-PROJ-9911',
+      category: 'Imported',
+      summary: 'e2e import roundtrip',
+      problem: '', approach: '',
+      tech: ['JS'], tags: ['import']
+    }]
+  };
+
+  const fileInput = page.locator('input[type="file"]');
+  await fileInput.setInputFiles({
+    name: 'backup.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify(imported)),
+  });
+
+  // (1) 完了通知
+  await expect(page.locator('#toast-container').getByText('インポートが完了しました')).toBeVisible();
+
+  // (2) append モードで新 id のプロジェクトが公開一覧に追加される
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByText('IMPORTED-PROJ-9911').first()).toBeVisible();
+
+  // (3) リロード後も永続 (validateAndNormalize が user-added を保持)
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByText('IMPORTED-PROJ-9911').first()).toBeVisible();
+});
+
 // ===== 7.1: axe-core 自動アクセシビリティ監査 — render-neutral critical 回帰防止 =====
 // axe-core で WCAG 2a/2aa/21a/21aa を全主要ルートでスキャンし、render-neutral に修正可能な
 // critical 違反群がゼロであることを機械強制する。本 increment で是正したバグの回帰防止:
