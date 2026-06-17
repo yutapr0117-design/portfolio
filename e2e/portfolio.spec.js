@@ -37,6 +37,44 @@ test('AIO asset anchor must be hidden (non-visual)', async ({ page }) => {
   expect(box).toBeNull();
 });
 
+// ===== 7.1: 外部リンクの noopener/noreferrer 強制 (tabnabbing / referrer 漏洩防止) =====
+// render 末尾で secureExternalLinks(document) が全 a[target=_blank] に rel="noopener noreferrer" を
+// 付与する (main.js / aidk-rails の Security Rail)。これは reverse tabnabbing (window.opener 乗っ取り)
+// と referrer 漏洩を防ぐセキュリティ不変条件だが、その動的強制は従来 e2e 未カバーだった。(1) home の
+// 実外部リンクが全て noopener+noreferrer を持つこと、(2) rel 未設定の外部リンクを注入し再描画すると
+// 強制が補完すること、の双方を検証する。secureExternalLinks が止まると検知する。
+test('External target=_blank links are hardened with noopener+noreferrer (security)', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+
+  // (1) home の実外部リンク (例: Zenn) が全て noopener + noreferrer を持つ
+  const externalLinks = page.locator('a[target="_blank"]');
+  const count = await externalLinks.count();
+  expect(count, 'home should render at least one external link (non-vacuous)').toBeGreaterThan(0);
+  for (let i = 0; i < count; i++) {
+    const rel = (await externalLinks.nth(i).getAttribute('rel')) || '';
+    expect(rel, `external link #${i} must include noopener`).toContain('noopener');
+    expect(rel, `external link #${i} must include noreferrer`).toContain('noreferrer');
+  }
+
+  // (2) rel 未設定の外部リンクを document に注入 → ハッシュ遷移で再描画 (フルリロードせず
+  //     secureExternalLinks(document) を起動) → 強制が rel を補完することを検証
+  await page.evaluate(() => {
+    const a = document.createElement('a');
+    a.href = 'https://example.com/';
+    a.target = '_blank';
+    a.id = 'e2e-injected-unsafe-link';
+    a.textContent = 'unsafe';
+    document.body.appendChild(a); // #content 外 + リロードしないので残る
+    location.hash = '#/projects'; // hashchange → Router → render → secureExternalLinks(document)
+  });
+  await expect(page.locator('h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+
+  const injected = page.locator('#e2e-injected-unsafe-link');
+  await expect(injected).toHaveAttribute('rel', /noopener/);
+  await expect(injected).toHaveAttribute('rel', /noreferrer/);
+});
+
 // ===== 7.1: ホームページ初期レンダリング =====
 test('Homepage renders without console errors', async ({ page }) => {
   // pageerror (未捕捉 JS 例外) と console.error を分けて収集する。前者は常に app バグなので
