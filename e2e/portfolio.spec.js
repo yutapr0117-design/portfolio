@@ -328,6 +328,41 @@ test('Task app degrades gracefully when localStorage write quota is exceeded', a
   ).toBe(true);
 });
 
+// ===== 7.1c: クロスタブ同期 (storage イベント → 別タブの更新を採用) =====
+// state.js は window 'storage' イベントを購読し、別タブ (modifiedBy ≠ 自タブの TAB_ID) からの
+// より新しい書き込み (lastModified 比較) を採用 → 再描画 + 「別タブで更新されました」toast を出す。
+// この multi-tab 経路は単一ページのテストでは発火しない (storage イベントは書き込んだタブ自身には
+// 飛ばない) ため従来未カバー。同一 context の 2 ページ (localStorage 共有・sessionStorage=TAB_ID は
+// タブ毎に独立) で実検証する。複数タブで同じポートフォリオを開いても状態が同期される保証。
+test('Cross-tab sync: a task added in one tab appears in another tab', async ({ context }) => {
+  const tabA = await context.newPage();
+  const tabB = await context.newPage();
+
+  await tabA.goto('/#/apps/task');
+  await tabA.waitForLoadState('networkidle');
+  await tabB.goto('/#/apps/task');
+  await tabB.waitForLoadState('networkidle');
+
+  // タブ B にはまだ存在しないことを確認 (negative baseline)
+  const title = 'E2E-CROSS-TAB-SYNC-TASK-5108';
+  await expect(tabB.getByText(title)).toHaveCount(0);
+
+  // タブ A でタスクを追加 → State debounce save で localStorage 書き込み
+  const inputA = tabA.locator('#task-input');
+  await expect(inputA).toBeVisible();
+  await inputA.fill(title);
+  await inputA.press('Enter');
+  await expect(tabA.getByText(title)).toBeVisible();
+
+  // タブ B が storage イベントを受信 → 採用 → 再描画でタスクが現れる
+  await expect(tabB.getByText(title)).toBeVisible({ timeout: 5000 });
+  // 「別タブで更新されました」通知 (info toast) が出る
+  await expect(tabB.locator('#toast-container').getByText('別タブで更新されました')).toBeVisible();
+
+  await tabA.close();
+  await tabB.close();
+});
+
 // ===== 7.2: TODO アプリの追加→完了トグル→一括削除フロー Behavior Check =====
 // #/apps/todo は TodoPage (task とは別 factory / 別 State slice) で、addTodo (Enter) /
 // toggleTodo (checkbox) / clearCompleted (「完了済み削除」一括操作) という distinct な
