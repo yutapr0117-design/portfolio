@@ -450,6 +450,51 @@ test('Todo app add, complete-toggle, then clear-completed removes the item', asy
   await expect(page.getByText(text)).toHaveCount(0);
 });
 
+// ===== 7.2: TODO フィルタ (未完了/完了/全て) の絞り込み分岐 =====
+// TodoPage は select(aria-label='TODO を絞り込み') で todoFilter を切替え、getFilteredTodos が
+// active→未完了のみ / completed→完了のみ / all→全件、と分岐する。既存 TODO テストは add/toggle/
+// clear を見るがこの 3 値フィルタ分岐は未カバーだった。2 件追加→1 件完了→各フィルタで表示集合が
+// 切り替わることを実検証する (フィルタ条件が壊れたら退行検知)。
+test('Todo filter switches the visible set by active/completed/all', async ({ page }) => {
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('networkidle');
+
+  const input = page.locator('#todo-input');
+  await expect(input).toBeVisible();
+  const done = 'E2E-TODO-DONE-6201';
+  const active = 'E2E-TODO-ACTIVE-6202';
+
+  // 1 件目を追加し、描画を待ってから 2 件目を追加 (連続追加の再描画レースを避ける)
+  await input.fill(done);
+  await input.press('Enter');
+  await expect(page.getByText(done)).toBeVisible();
+  await input.fill(active);
+  await input.press('Enter');
+  await expect(page.getByText(active)).toBeVisible();
+
+  // done を完了にし、チェック反映を待つ
+  const doneCheckbox = page.locator('article', { hasText: done }).locator('input[type="checkbox"]');
+  await doneCheckbox.check();
+  await expect(doneCheckbox).toBeChecked();
+
+  const filter = page.locator('select[aria-label="TODO を絞り込み"]');
+
+  // 完了 → done のみ表示・active は非表示
+  await filter.selectOption('completed');
+  await expect(page.getByText(done)).toBeVisible();
+  await expect(page.getByText(active)).toHaveCount(0);
+
+  // 未完了 → active のみ表示・done は非表示
+  await filter.selectOption('active');
+  await expect(page.getByText(active)).toBeVisible();
+  await expect(page.getByText(done)).toHaveCount(0);
+
+  // 全て → 両方表示
+  await filter.selectOption('all');
+  await expect(page.getByText(done)).toBeVisible();
+  await expect(page.getByText(active)).toBeVisible();
+});
+
 // ===== 7.2: 設定アプリのデータエクスポート整合性 Behavior Check =====
 // #/settings の「フルバックアップ」は downloadJSON(State.get()) で blob を生成し
 // portfolio_full_<ts>.json として download する (data-integrity 機能)。CRUD とは別系統の
