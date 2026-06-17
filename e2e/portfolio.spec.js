@@ -664,6 +664,43 @@ test('Hiding a project removes it from the public Projects list, unhide restores
   await expect(page.getByText(name).first()).toBeVisible();
 });
 
+// ===== 7.2: ユーザープロジェクトの削除 (confirm 受諾 → 永久削除) =====
+// settings の deleteProjectHard は confirm() 確認の上 s.projects から id で除外する。デフォルト
+// プロジェクト (defaultProjectIds) は削除不可 (ボタン disabled) で、ユーザー追加分のみ削除できる。
+// add/hide とは別の destructive な CRUD 経路で、confirm ダイアログ + State からの完全除去が
+// 従来未カバーだった。カスタム追加→confirm 受諾で削除→ settings リスト + /#/projects 双方から
+// 消える、を実検証し projects CRUD (追加/非表示/削除) のカバレッジを完成させる。
+test('Deleting a user project (confirm accepted) removes it everywhere', async ({ page }) => {
+  // confirm() を常に受諾
+  page.on('dialog', (dialog) => dialog.accept());
+
+  // カスタムプロジェクトを追加
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  const name = 'DELETE-PROJ-5560';
+  await page.getByPlaceholder('プロジェクト名').fill(name);
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect(page.locator('#toast-container').getByText('プロジェクトを追加しました')).toBeVisible();
+
+  // 公開一覧に出る
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByText(name).first()).toBeVisible();
+
+  // settings の該当行で「削除」(user プロジェクトなので有効) → confirm 受諾
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  const row = page.locator('div.flex.items-center.justify-between.gap-2').filter({ hasText: name });
+  await row.getByRole('button', { name: '削除' }).click();
+  // settings リストから行が消える
+  await expect(page.locator('div.flex.items-center.justify-between.gap-2').filter({ hasText: name })).toHaveCount(0);
+
+  // 公開一覧からも消える (永続削除)
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByText(name)).toHaveCount(0);
+});
+
 // ===== 7.2: 設定アプリのスナップショット保存→反映 Behavior Check =====
 // #/settings の「保存」は setSnapshot() で Storage.set(SNAPSHOT_KEY, ...) し、再描画後に
 // getSnapshot()(=Storage.parse) が読み戻して「保存日時: …」を表示する。これは PR #93 で
