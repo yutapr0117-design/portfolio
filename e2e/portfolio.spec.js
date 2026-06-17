@@ -393,6 +393,24 @@ test('Pomodoro start counts down and pause halts it (deterministic clock)', asyn
   await expect(timer).toHaveText(tPaused);
 });
 
+// ===== 7.2: skip link が main コンテンツへ focus を移す (WCAG 2.4.1 Bypass Blocks) =====
+// `<a href="#main-content" class="skip-link">` はキーボード利用者がナビを飛ばして本文へ直接
+// 到達する手段。focus → Enter で focus が #main-content (tabindex=-1) へ移ることを検証する。
+// また hash routing (#/...) と競合して NotFound に落ちたり focus が移らない退行も同時に防ぐ。
+test('Skip link moves focus to #main-content without breaking routing (WCAG 2.4.1)', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+
+  const skip = page.locator('.skip-link');
+  await skip.focus();
+  await expect(skip).toBeFocused();
+
+  await skip.press('Enter');
+  // focus が #main-content へ移り、NotFoundPage に落ちていないこと
+  await expect(page.locator('#main-content')).toBeFocused();
+  await expect(page.getByRole('heading', { name: 'Not Found', exact: true })).toHaveCount(0);
+});
+
 // ===== 7.1: axe-core 自動アクセシビリティ監査 — render-neutral critical 回帰防止 =====
 // axe-core で WCAG 2a/2aa/21a/21aa を全主要ルートでスキャンし、render-neutral に修正可能な
 // critical 違反群がゼロであることを機械強制する。本 increment で是正したバグの回帰防止:
