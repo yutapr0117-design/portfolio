@@ -476,7 +476,12 @@ authoritative inventory and is kept in sync with the implementation below):
        proposal policy — proactive AI proposal-generation is a core self-driving function, the
        human dispositions which proposal to pursue; 102d: the 'No terminal "done" state'
        continuous-improvement policy — the AI may not self-stop or declare "done"/"good enough";
-       only an explicit human stop instruction halts the improvement loop) so it cannot drift out. (BLOCKING)
+       only an explicit human stop instruction halts the improvement loop; 102e: the 'Infinite
+       improvement'（改善は無限・完璧は存在しない）truth — the AI may not make a self-assessment of
+       exhaustion/convergence ("no more improvements / converged / backlog harvested"), since that
+       judgment is empirically almost always false (availability-heuristic fallacy); padding is
+       guarded at the increment granularity only, never at the session granularity) so it cannot
+       drift out. (BLOCKING)
   103. style.css prefers-contrast (higher-contrast preference) support: style.css contains a
        `@media (prefers-contrast: more)` block that strengthens borders / muted text / focus for
        users who request higher contrast (WCAG 1.4.11 Non-text Contrast 強化). Like Check 101
@@ -3990,6 +3995,18 @@ if _ai2ai102.exists() and _claude102.exists():
         "Check 102d: AI2AI.md documents the continuous-improvement policy (No terminal \"done\" state)",
         "Check 102d: AI2AI.md is missing the 'No terminal \"done\" state'（改善に完了状態は存在しない）"
         "continuous-improvement policy — AI の自発的停止/完了宣言を禁じる canon が消えた",
+        blocking=True,
+    )
+    # 102e — 「改善は無限・枯渇/収束の自己判断禁止」が canon に明記。AI が「改善は尽きた/収束した」
+    # という self-assessment of exhaustion を下すことを禁じる真理を固定する。102d (完了宣言禁止) の
+    # 上位概念で、本セッションで AI が繰り返した「収束した」誤判断 (毎回偽だった) の再発を構造的に防ぐ。
+    _102e = ("Infinite improvement" in _ai2ai_src102) and ("改善は無限" in _ai2ai_src102)
+    check(
+        _102e,
+        "Check 102e: AI2AI.md documents the infinite-improvement truth (改善は無限・枯渇の自己判断禁止)",
+        "Check 102e: AI2AI.md is missing the 'Infinite improvement'（改善は無限・完璧は存在しない・"
+        "枯渇/収束の自己判断禁止）truth — AI が「改善は尽きた/収束した」と誤判断して自走を止める"
+        "失敗モードを禁じる canon が消えた",
         blocking=True,
     )
 else:
