@@ -411,6 +411,33 @@ test('Skip link moves focus to #main-content without breaking routing (WCAG 2.4.
   await expect(page.getByRole('heading', { name: 'Not Found', exact: true })).toHaveCount(0);
 });
 
+// ===== 7.1: 壊れた localStorage からの graceful 復帰 (resilience) =====
+// 永続データ (localStorage) が破損 JSON でも、Storage.parse の try/catch + Store.load の default
+// fallback でアプリは crash せず既定状態で描画を継続すべき (fail-open)。破損値を仕込んで load し、
+// FatalPage / NotFound に落ちず home が正常描画されることを検証する。設定画面 crash バグ (#93) で
+// 「render 時クラッシュは致命的」と分かったため、永続層破損というもう一つの入力境界も固定する。
+test('App recovers gracefully from corrupt localStorage (no FatalPage)', async ({ page }) => {
+  await page.addInitScript(() => {
+    try {
+      localStorage.setItem('portfolio_enhanced_v45', 'not-valid-json-%%%');
+      localStorage.setItem('portfolio_brand_v45', 'garbage-not-json');
+    } catch (e) { /* noop */ }
+  });
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+  await page.waitForTimeout(200);
+
+  // ErrorBoundary の FatalPage に落ちていない (window.__fatalError が falsy)
+  const fatal = await page.evaluate(() => {
+    const e = window.__fatalError;
+    return e ? (e.message || String(e)) : null;
+  });
+  expect(fatal, `corrupt storage caused a fatal render: ${fatal}`).toBeNull();
+  // home が正常描画され NotFound でもない
+  await expect(page.locator('.hero-section')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Not Found', exact: true })).toHaveCount(0);
+});
+
 // ===== 7.1: axe-core 自動アクセシビリティ監査 — render-neutral critical 回帰防止 =====
 // axe-core で WCAG 2a/2aa/21a/21aa を全主要ルートでスキャンし、render-neutral に修正可能な
 // critical 違反群がゼロであることを機械強制する。本 increment で是正したバグの回帰防止:
