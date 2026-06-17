@@ -154,6 +154,35 @@ test('Projects search input retains focus during filtering', async ({ page }) =>
   await expect(searchInput).toBeFocused();
 });
 
+// ===== 7.2: プロジェクト browse→detail→back のコア導線 =====
+// ProjectsPage のカード「詳細を見る」は Router.navigate(`projects/<slug>`) で ProjectDetailPage
+// へ遷移し、詳細側「← 一覧に戻る」で navigate('projects') で戻る。route-render テストは直接 URL で
+// 詳細が描画されることのみ見ており、一覧からのクリック導線 (params slug 解決 + 往復) は未カバー
+// だった。最も基本的な閲覧ジャーニーを実検証する: 一覧→詳細 (slug URL + 詳細描画)→一覧。
+test('Project card navigates to detail and back (browse journey)', async ({ page }) => {
+  await page.goto('/#/projects');
+  await page.waitForLoadState('networkidle');
+
+  // 最初のカードの「詳細を見る」で詳細へ
+  const detailBtn = page.getByRole('button', { name: '詳細を見る' }).first();
+  await expect(detailBtn).toBeVisible();
+  await detailBtn.click();
+
+  // slug URL へ遷移し詳細ページ (戻るボタン) が描画される
+  await expect(page).toHaveURL(/#\/projects\/[^/]+$/);
+  const backBtn = page.getByRole('button', { name: '← 一覧に戻る' });
+  await expect(backBtn).toBeVisible();
+  let fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `project detail caused a fatal: ${fatal}`).toBeNull();
+
+  // 「← 一覧に戻る」で一覧へ復帰
+  await backBtn.click();
+  await expect(page).toHaveURL(/#\/projects$/);
+  await expect(page.locator('h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+  fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `back navigation caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.1: モバイルビューポートでのCLS検証 =====
 test('No layout shift on mobile viewport', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
