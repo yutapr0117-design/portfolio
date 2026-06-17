@@ -567,7 +567,7 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
                                 h('span', { class: 'badge badge-primary' }, p.category),
                                 p.demoRoute ? h('span', { class: 'badge badge-success' }, 'デモあり') : null
                             ),
-                            h('h3', { class: 'h3 mb-2' }, p.name),
+                            h('h2', { class: 'h3 mb-2' }, p.name),
                             h('p', { class: 'text-small text-muted mb-3' }, p.summary),
                             h('div', { class: 'flex flex-wrap gap-2 mb-4' },
                                 ...(p.tags || []).slice(0, 4).map(tag =>
@@ -820,7 +820,7 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
                         h('div', { class: 'card-body' },
                             h('div', { class: 'flex items-center gap-3 mb-3' },
                                 createIcon(app.icon, 24),
-                                h('h3', { class: 'h3' }, app.title)
+                                h('h2', { class: 'h3' }, app.title)
                             ),
                             h('p', { class: 'text-muted mb-4' }, app.desc),
                             h('button', {
@@ -905,7 +905,7 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
             h('header', {}, h('h1', { class: 'h1', 'data-ai-content': 'lead' }, 'Resume')),
             h('section', { class: 'card' },
                 h('div', { class: 'card-body' },
-                    h('h3', { class: 'h3 mb-4', 'data-ai-content': 'lead' }, State.get().profile.title),
+                    h('h2', { class: 'h3 mb-4', 'data-ai-content': 'lead' }, State.get().profile.title),
                     h('ul', { class: 'text-muted list-body-tight', 'data-ai-content': 'body' },
                         h('li', {}, 'ProjectsをCase Study形式で整理'),
                         h('li', {}, '内蔵Apps（Task/Todo/Pomodoro/AI）を作品として掲載'),

@@ -164,7 +164,7 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                 },
                     h('div', { class: 'card-header' },
                         h('div', { class: 'flex items-center justify-between' },
-                            h('h4', { class: 'h4' }, col.label),
+                            h('h2', { class: 'h4' }, col.label),
                             h('span', { class: 'badge badge-secondary' }, String(tasks.length))
                         )
                     ),
@@ -496,7 +496,7 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                 // Settings
                 h('section', { class: 'card' },
                     h('div', { class: 'card-body' },
-                        h('h3', { class: 'h3 mb-4' }, '設定（分）'),
+                        h('h2', { class: 'h3 mb-4' }, '設定（分）'),
                         h('div', { class: 'grid grid-cols-3 gap-4' },
                             h('div', {},
                                 h('label', { class: 'text-small text-muted mb-1 block' }, '集中'),
