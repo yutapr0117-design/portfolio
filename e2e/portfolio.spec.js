@@ -891,6 +891,37 @@ test('Pomodoro completes at zero: shows done toast and resets to full duration (
   expect(fatal, `pomodoro completion caused a fatal: ${fatal}`).toBeNull();
 });
 
+// ===== 7.2: 稼働中に集中時間を変更 → 完了時のリセットが新しい設定値を使う (stale-closure 修正) =====
+// getDuration も getRemaining と同じく render 毎キャプチャの closure `pomo` を読んでいたため、
+// タイマー稼働中 (interval は start() 時の closure に固定) に集中時間を変更すると、完了時の
+// remainingSec リセットが古い設定値になるバグがあった (getDuration を live state 参照に修正)。
+// work=1 で開始→稼働中に work=2 へ変更→満了、で完了後の表示が新しい 02:00 になることを検証する。
+test('Pomodoro completion uses the latest focus-duration setting changed mid-run', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+
+  const workInput = page.getByLabel('集中時間（分）');
+  await workInput.fill('1');
+  await workInput.blur();
+  const timer = page.locator('.font-mono.text-stat').first();
+  await expect(timer).toHaveText('01:00');
+
+  // 開始 (work=1 の endAtMs で稼働)
+  await page.getByRole('button', { name: '開始' }).click();
+
+  // 稼働中に集中時間を 2 分へ変更 (active なので remainingSec/endAtMs は据え置き=稼働継続)
+  await workInput.fill('2');
+  await workInput.blur();
+
+  // 満了まで進める → complete() の duration リセットは最新設定 (2 分) を使うべき
+  await page.clock.fastForward(61000);
+  await expect(page.locator('#toast-container').getByText('セッション完了！')).toBeVisible();
+  await expect(page.getByRole('button', { name: '開始' })).toBeVisible();
+  // 修正前は stale 設定で 01:00 に戻っていた。修正後は最新の 02:00。
+  await expect(timer).toHaveText('02:00');
+});
+
 // ===== 7.2: skip link が main コンテンツへ focus を移す (WCAG 2.4.1 Bypass Blocks) =====
 // `<a href="#main-content" class="skip-link">` はキーボード利用者がナビを飛ばして本文へ直接
 // 到達する手段。focus → Enter で focus が #main-content (tabindex=-1) へ移ることを検証する。
