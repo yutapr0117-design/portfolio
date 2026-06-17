@@ -499,6 +499,40 @@ test('Pomodoro start counts down and pause halts it (deterministic clock)', asyn
   await expect(timer).toHaveText(tPaused);
 });
 
+// ===== 7.2: ポモドーロのセッション完了 (0 到達 → complete: history 記録 + リセット) =====
+// start/pause テスト (#上) はカウントダウン継続/停止を見るが、タイマーが 0 に到達する complete()
+// 経路 (setInterval 内の remaining<=0 分岐) は未テストだった。complete は history へ push し
+// 「セッション完了！」toast を出して runtime を満了状態 (isActive=false / remainingSec=duration)
+// に戻す。集中時間を 1 分に設定し fake clock で 0 到達まで進め、完了通知 + 「開始」へ戻る (停止) +
+// 満了表示への復帰を決定的に検証する。集中→0 という apps の自動完了サイクルの保証。
+test('Pomodoro completes at zero: shows done toast and resets to full duration (deterministic clock)', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('networkidle');
+
+  // 集中時間を 1 分に短縮 (onchange は blur で発火) → 満了まで 60 秒に
+  const workInput = page.getByLabel('集中時間（分）');
+  await workInput.fill('1');
+  await workInput.blur();
+
+  const timer = page.locator('.font-mono.text-stat').first();
+  await expect(timer).toHaveText('01:00');
+
+  // 開始 → 61 秒進めて 0 到達 → complete()
+  await page.getByRole('button', { name: '開始' }).click();
+  await page.clock.fastForward(61000);
+
+  // 完了通知が出る
+  await expect(page.locator('#toast-container').getByText('セッション完了！')).toBeVisible();
+  // runtime が満了状態へ戻る: 「一時停止」ではなく「開始」が再表示 (isActive=false)
+  await expect(page.getByRole('button', { name: '開始' })).toBeVisible();
+  // 表示は満了 duration (01:00) に復帰
+  await expect(timer).toHaveText('01:00');
+  // ErrorBoundary に落ちていない
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `pomodoro completion caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: skip link が main コンテンツへ focus を移す (WCAG 2.4.1 Bypass Blocks) =====
 // `<a href="#main-content" class="skip-link">` はキーボード利用者がナビを飛ばして本文へ直接
 // 到達する手段。focus → Enter で focus が #main-content (tabindex=-1) へ移ることを検証する。
