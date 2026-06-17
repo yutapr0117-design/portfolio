@@ -38,17 +38,17 @@
     {
       "path": "AI2AI.md",
       "role": "AI-to-AI implementation handoff",
-      "sha256": "b4b5cb8826df0ed525ef006c941fbe64607ed8f6aa3f8dcf12f2e4c9b58a0381"
+      "sha256": "6ebba17ec4c4a1ba41b6b2a363f6f4ef4212f98872f3d31365cb6d6ce2f01e3c"
     },
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
       "role": "AIO image asset with XMP metadata",
-      "sha256": "0e3d7d6bf539562267d871bbe557cba850bad875a38436897c2f7f0da036efbd"
+      "sha256": "8bba84a9ff0f8a5f2c2fbeb8a3d77dcc3f78ac54cb1ebe2fb8e5352de4fed520"
     },
     {
       "path": "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3",
       "role": "AIO audio asset with ID3 metadata",
-      "sha256": "fc5c1c708bfff41a8657063d6305ffaadcee335a2ca37baba73c93e41a6424b1"
+      "sha256": "7b437244f40d7c0f898d16752901ce77906fbd70864a7c00a9da537bec76ed34"
     }
   ],
   "supporting_evidence": [
@@ -76,7 +76,7 @@
       "sha256": "992380886bbfc56c23f29cccc6200587b2a14b2d7719eb47609aea5fb6af5704"
     }
   ],
-  "generated_at": "2026-06-16T09:19:19Z",
+  "generated_at": "2026-06-17T01:35:12Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
@@ -86,5 +86,5 @@
       "sha256": "803da683ebb03476db16aae40395c7356ce574d77a815ec1e47b2c7f54e2d3d5"
     }
   ],
-  "last_metadata_update": "2026-06-16T09:19:19Z"
+  "last_metadata_update": "2026-06-17T01:35:12Z"
 }
