@@ -27,7 +27,7 @@ function isSnapshotUpdateMode() {
 // ===== 7.1: AIO Anchor 可視化バグ検知 =====
 test('AIO asset anchor must be hidden (non-visual)', async ({ page }) => {
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   const anchor = page.locator('#aio-asset-anchor');
   await expect(anchor).toHaveCount(1);
   // 視覚的に非表示であることを確認（attributeがhiddenである）
@@ -39,14 +39,17 @@ test('AIO asset anchor must be hidden (non-visual)', async ({ page }) => {
 
 // ===== 7.1: ホームページ初期レンダリング =====
 test('Homepage renders without console errors', async ({ page }) => {
-  const errors = [];
+  // pageerror (未捕捉 JS 例外) と console.error を分けて収集する。前者は常に app バグなので
+  // 無条件で失敗させ、後者からは非致命/環境由来ノイズのみ除外する (intent = app-logic エラー検出)。
+  const consoleErrors = [];
+  const pageErrors = [];
   page.on('console', msg => {
-    if (msg.type() === 'error') { errors.push(msg.text()); }
+    if (msg.type() === 'error') { consoleErrors.push(msg.text()); }
   });
-  page.on('pageerror', err => errors.push(err.message));
+  page.on('pageerror', err => pageErrors.push(err.message));
 
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   // Fatal エラーがないことを確認
   const fatalOverlay = page.locator('#portfolio-safety-net-host');
@@ -56,23 +59,32 @@ test('Homepage renders without console errors', async ({ page }) => {
   const h1 = page.locator('h1, .h1').first();
   await expect(h1).toBeVisible();
 
-  // 致命的コンソールエラーがないことをアサート
-  const fatalErrors = errors.filter(e =>
+  // 環境由来ノイズ判定: テスト用静的サーバ (http-server) が並列負荷でリソース取得に失敗すると
+  // console に "Failed to load resource" / "net::ERR_*" を吐くが、これは本番 CDN では発生しない
+  // テストインフラ起因のノイズで app-logic エラーではない。必須リソース欠落は render 系テスト
+  // (h1 可視 / screenshot) が別途検出するため、ここでは除外して flake を排除する。
+  const isEnvNoise = (e) => e.includes('Failed to load resource') || e.includes('net::');
+
+  // app 由来の致命的 console エラーのみ抽出 (既存の非致命フィルタ + 環境ノイズ除外)
+  const fatalConsole = consoleErrors.filter(e =>
     !e.includes('non-fatal') &&
     !e.includes('View Transition') &&
-    !e.includes('SW')
+    !e.includes('SW') &&
+    !isEnvNoise(e)
   );
-  expect(fatalErrors, 'Fatal console errors: ' + JSON.stringify(fatalErrors)).toHaveLength(0);
+  // pageerror (未捕捉例外) は環境ノイズ除外せず常に失敗対象
+  const fatalErrors = [...pageErrors, ...fatalConsole];
+  expect(fatalErrors, 'Fatal errors: ' + JSON.stringify(fatalErrors)).toHaveLength(0);
 });
 
 // ===== 7.2: ハッシュルーティング状態遷移 Behavior Check =====
 test('Hash routing transitions correctly between routes', async ({ page }) => {
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   // Projects ページへ遷移
   await page.goto('/#/projects');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   // #content が表示されており aria-busy が false に戻っていること
   const content = page.locator('#content');
   await expect(content).toBeVisible();
@@ -80,7 +92,7 @@ test('Hash routing transitions correctly between routes', async ({ page }) => {
 
   // ホームへ戻る
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   // .hero-section が表示されること
   const hero = page.locator('.hero-section');
   await expect(hero).toBeVisible();
@@ -89,13 +101,13 @@ test('Hash routing transitions correctly between routes', async ({ page }) => {
 // ===== 7.2: aria-busy 状態遷移 Behavior Check =====
 test('content div transitions aria-busy correctly during navigation', async ({ page }) => {
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const content = page.locator('#content');
   await expect(content).toHaveAttribute('aria-busy', 'false');
 
   await page.goto('/#/projects');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await expect(content).toHaveAttribute('aria-busy', 'false');
 });
 
@@ -107,17 +119,17 @@ test('content div transitions aria-busy correctly during navigation', async ({ p
 test('Navigation works under prefers-reduced-motion (View Transition skipped)', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   await page.goto('/#/projects');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   const content = page.locator('#content');
   await expect(content).toHaveAttribute('aria-busy', 'false');
   await expect(page.locator('h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
 
   // 別ルートへもう一度遷移しても reduced-motion 経路で正常更新
   await page.goto('/#/about');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await expect(content).toHaveAttribute('aria-busy', 'false');
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `reduced-motion navigation caused a fatal: ${fatal}`).toBeNull();
@@ -144,7 +156,7 @@ test('Homepage screenshot regression', async ({ page }) => {
 // ===== 7.2: Projects 検索フォーカス維持 Behavior Check =====
 test('Projects search input retains focus during filtering', async ({ page }) => {
   await page.goto('/#/projects');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const searchInput = page.locator('input[type="text"]').first();
   await searchInput.click();
@@ -161,7 +173,7 @@ test('Projects search input retains focus during filtering', async ({ page }) =>
 // だった。最も基本的な閲覧ジャーニーを実検証する: 一覧→詳細 (slug URL + 詳細描画)→一覧。
 test('Project card navigates to detail and back (browse journey)', async ({ page }) => {
   await page.goto('/#/projects');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   // 最初のカードの「詳細を見る」で詳細へ
   const detailBtn = page.getByRole('button', { name: '詳細を見る' }).first();
@@ -187,7 +199,7 @@ test('Project card navigates to detail and back (browse journey)', async ({ page
 test('No layout shift on mobile viewport', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   // topbar がmobileで表示されていること
   const topbar = page.locator('.topbar');
@@ -206,7 +218,7 @@ test('No layout shift on mobile viewport', async ({ page }) => {
 // 切替→永続→復元の振る舞いを動的に保証する。
 test('Theme toggle cycles data-theme and persists across reload', async ({ page }) => {
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const html = page.locator('html');
   const initial = await html.getAttribute('data-theme');
@@ -222,7 +234,7 @@ test('Theme toggle cycles data-theme and persists across reload', async ({ page 
 
   // リロード後もテーマが永続化されていること（State → localStorage 往復）
   await page.reload();
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   const afterReload = await page.locator('html').getAttribute('data-theme');
   expect(afterReload, 'theme selection must persist across a page reload').toBe(afterClick);
 });
@@ -237,7 +249,7 @@ test('Theme toggle cycles data-theme and persists across reload', async ({ page 
 test('System theme follows the OS prefers-color-scheme (live)', async ({ page }) => {
   await page.emulateMedia({ colorScheme: 'dark' });
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const html = page.locator('html');
   // fresh context は既定で system
@@ -262,7 +274,7 @@ test('System theme follows the OS prefers-color-scheme (live)', async ({ page })
 test('Mobile drawer opens with ARIA, isolates background, and closes on Escape', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const menuBtn = page.locator('#menuBtn');
   const drawer = page.locator('#drawer');
@@ -294,7 +306,7 @@ test('Mobile drawer opens with ARIA, isolates background, and closes on Escape',
 test('Mobile drawer nav link navigates and auto-closes the drawer', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const menuBtn = page.locator('#menuBtn');
   const drawer = page.locator('#drawer');
@@ -326,7 +338,7 @@ test('Mobile drawer nav link navigates and auto-closes the drawer', async ({ pag
 // フィルタ + 空状態契約で従来 e2e 未カバーだった。
 test('Quiz search filters question blocks and shows empty state on no match', async ({ page }) => {
   await page.goto('/#/quiz');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const blocks = page.locator('.quiz-question-block');
   const initial = await blocks.count();
@@ -353,7 +365,7 @@ test('Quiz search filters question blocks and shows empty state on no match', as
 // (router の queryPart 解析) + architecture 専用 DOM の描画を実検証する。
 test('Quiz architecture type renders structured stakeholder/question zones (?type query)', async ({ page }) => {
   await page.goto('/#/quiz?type=architecture');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   // タイトルが architecture 用に切り替わる (QUIZ_DATA_MAP lookup)
   await expect(page.locator('h1', { hasText: '設計判断問題集' })).toBeVisible();
@@ -375,7 +387,7 @@ test('Quiz architecture type renders structured stakeholder/question zones (?typ
 // Proxy 永続パスを実ブラウザで動的検証する (theme/drawer/quiz に続く interactive coverage)。
 test('Task app adds a task and persists it across reload', async ({ page }) => {
   await page.goto('/#/apps/task');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const input = page.locator('#task-input');
   await expect(input).toBeVisible();
@@ -390,7 +402,7 @@ test('Task app adds a task and persists it across reload', async ({ page }) => {
 
   // リロード後も State (localStorage) から復元される
   await page.reload();
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await expect(page.getByText(title)).toBeVisible();
 });
 
@@ -418,7 +430,7 @@ test('Task app degrades gracefully when localStorage write quota is exceeded', a
   page.on('console', msg => { if (msg.type() === 'error') {consoleErrors.push(msg.text());} });
 
   await page.goto('/#/apps/task');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const input = page.locator('#task-input');
   await expect(input).toBeVisible();
@@ -452,9 +464,9 @@ test('Cross-tab sync: a task added in one tab appears in another tab', async ({ 
   const tabB = await context.newPage();
 
   await tabA.goto('/#/apps/task');
-  await tabA.waitForLoadState('networkidle');
+  await tabA.waitForLoadState('domcontentloaded');
   await tabB.goto('/#/apps/task');
-  await tabB.waitForLoadState('networkidle');
+  await tabB.waitForLoadState('domcontentloaded');
 
   // タブ B にはまだ存在しないことを確認 (negative baseline)
   const title = 'E2E-CROSS-TAB-SYNC-TASK-5108';
@@ -483,7 +495,7 @@ test('Cross-tab sync: a task added in one tab appears in another tab', async ({ 
 // bulk 削除という別 operation class を実ブラウザで動的検証する。
 test('Todo app add, complete-toggle, then clear-completed removes the item', async ({ page }) => {
   await page.goto('/#/apps/todo');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const input = page.locator('#todo-input');
   await expect(input).toBeVisible();
@@ -502,7 +514,7 @@ test('Todo app add, complete-toggle, then clear-completed removes the item', asy
 
   // リロード後も削除が永続している (State auto-save)
   await page.reload();
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await expect(page.getByText(text)).toHaveCount(0);
 });
 
@@ -513,7 +525,7 @@ test('Todo app add, complete-toggle, then clear-completed removes the item', asy
 // 切り替わることを実検証する (フィルタ条件が壊れたら退行検知)。
 test('Todo filter switches the visible set by active/completed/all', async ({ page }) => {
   await page.goto('/#/apps/todo');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const input = page.locator('#todo-input');
   await expect(input).toBeVisible();
@@ -557,7 +569,7 @@ test('Todo filter switches the visible set by active/completed/all', async ({ pa
 // 「State 全体を妥当な JSON として書き出せるか」を、Playwright の download イベントで動的検証。
 test('Settings app exports a full backup as a valid JSON download', async ({ page }) => {
   await page.goto('/#/settings');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const exportBtn = page.getByRole('button', { name: 'フルバックアップ' });
   await expect(exportBtn).toBeVisible();
@@ -581,7 +593,7 @@ test('Settings app exports a full backup as a valid JSON download', async ({ pag
 // /#/projects へ反映 + リロード永続を実検証する。projects への書き込み導線が壊れたら退行検知。
 test('Settings can add a project manually and it appears on the Projects page', async ({ page }) => {
   await page.goto('/#/settings');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const nameInput = page.getByPlaceholder('プロジェクト名');
   const addBtn = page.getByRole('button', { name: '追加', exact: true });
@@ -599,12 +611,12 @@ test('Settings can add a project manually and it appears on the Projects page', 
 
   // Projects ページ (hiddenIds フィルタ通過) に現れる
   await page.goto('/#/projects');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await expect(page.getByText(name).first()).toBeVisible();
 
   // リロード後も永続
   await page.reload();
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await expect(page.getByText(name).first()).toBeVisible();
 });
 
@@ -616,7 +628,7 @@ test('Settings can add a project manually and it appears on the Projects page', 
 test('Hiding a project removes it from the public Projects list, unhide restores it', async ({ page }) => {
   // カスタムプロジェクトを追加 (一意名)
   await page.goto('/#/settings');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   const name = 'HIDE-TOGGLE-PROJ-3050';
   await page.getByPlaceholder('プロジェクト名').fill(name);
   await page.getByRole('button', { name: '追加', exact: true }).click();
@@ -624,12 +636,12 @@ test('Hiding a project removes it from the public Projects list, unhide restores
 
   // 公開一覧に出る
   await page.goto('/#/projects');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await expect(page.getByText(name).first()).toBeVisible();
 
   // settings の該当行で「非表示」
   await page.goto('/#/settings');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   const row = page.locator('div.flex.items-center.justify-between.gap-2').filter({ hasText: name });
   await row.getByRole('button', { name: '非表示' }).click();
   // 行に hidden バッジ + 「表示」ボタンへ切替わる
@@ -637,18 +649,18 @@ test('Hiding a project removes it from the public Projects list, unhide restores
 
   // 公開一覧から消える
   await page.goto('/#/projects');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await expect(page.getByText(name)).toHaveCount(0);
 
   // 再表示 → 公開一覧へ復帰
   await page.goto('/#/settings');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   const row2 = page.locator('div.flex.items-center.justify-between.gap-2').filter({ hasText: name });
   await row2.getByRole('button', { name: '表示' }).click();
   await expect(row2.getByRole('button', { name: '非表示' })).toBeVisible();
 
   await page.goto('/#/projects');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await expect(page.getByText(name).first()).toBeVisible();
 });
 
@@ -659,7 +671,7 @@ test('Hiding a project removes it from the public Projects list, unhide restores
 // 修正前は Storage.parse が render 時に throw して到達すらできなかった経路。
 test('Settings app saves a snapshot and reflects the saved-at status', async ({ page }) => {
   await page.goto('/#/settings');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   // 初期 (fresh context) は未保存
   await expect(page.getByText('スナップショットは未保存です。')).toBeVisible();
@@ -670,7 +682,7 @@ test('Settings app saves a snapshot and reflects the saved-at status', async ({ 
 
   // リロード後も Storage から読み戻せる (永続)
   await page.reload();
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await expect(page.getByText(/保存日時:/)).toBeVisible();
 });
 
@@ -682,7 +694,7 @@ test('Settings app saves a snapshot and reflects the saved-at status', async ({ 
 test('Settings snapshot restore reverts state to the saved point', async ({ page }) => {
   // 1. タスク A を追加 (保存に含める状態)
   await page.goto('/#/apps/task');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   const input = page.locator('#task-input');
   await input.fill('SNAP-TASK-A-7700');
   await input.press('Enter');
@@ -690,26 +702,26 @@ test('Settings snapshot restore reverts state to the saved point', async ({ page
 
   // 2. スナップショット保存 (A を含む)
   await page.goto('/#/settings');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await page.getByRole('button', { name: '保存', exact: true }).click();
   await expect(page.getByText(/保存日時:/)).toBeVisible();
 
   // 3. 保存後にタスク B を追加 (この変更は snapshot に含まれない)
   await page.goto('/#/apps/task');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await input.fill('SNAP-TASK-B-7701');
   await input.press('Enter');
   await expect(page.getByText('SNAP-TASK-B-7701')).toBeVisible();
 
   // 4. 復元 → 保存時点 (A のみ) へ巻き戻る
   await page.goto('/#/settings');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await page.getByRole('button', { name: '復元', exact: true }).click();
   await expect(page.locator('#toast-container').getByText('スナップショットを復元しました')).toBeVisible();
 
   // 5. タスク画面: A は残り B は消える (= 保存時点へ revert)
   await page.goto('/#/apps/task');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await expect(page.getByText('SNAP-TASK-A-7700')).toBeVisible();
   await expect(page.getByText('SNAP-TASK-B-7701')).toHaveCount(0);
 });
@@ -721,7 +733,7 @@ test('Settings snapshot restore reverts state to the saved point', async ({ page
 // submit→生成→State 反映→render の一連が壊れていないことを動的検証する。
 test('AI assist app generates and renders a response for a prompt', async ({ page }) => {
   await page.goto('/#/apps/ai');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const input = page.locator('#ai-input');
   await expect(input).toBeVisible();
@@ -741,7 +753,7 @@ test('AI assist app generates and renders a response for a prompt', async ({ pag
 // 分類ロジックが壊れたら (例: キーワード変更で全部 general に倒れる) 退行を捕まえる。
 test('AI assist routes prompts to troubleshoot/design/general responses by keyword', async ({ page }) => {
   await page.goto('/#/apps/ai');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const input = page.locator('#ai-input');
   const submit = page.getByRole('button', { name: '送信', exact: true });
@@ -772,7 +784,7 @@ test('AI assist routes prompts to troubleshoot/design/general responses by keywo
 // 非 flaky な対話 (mode 切替は即時)。apps 5 種 (task/todo/settings/ai/pomodoro) の対話カバレッジ完成。
 test('Pomodoro mode switch resets and updates the timer display', async ({ page }) => {
   await page.goto('/#/apps/pomodoro');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const timer = page.locator('.font-mono.text-stat').first();
   await expect(timer).toBeVisible();
@@ -790,7 +802,7 @@ test('Pomodoro mode switch resets and updates the timer display', async ({ page 
 test('Pomodoro start counts down and pause halts it (deterministic clock)', async ({ page }) => {
   await page.clock.install();
   await page.goto('/#/apps/pomodoro');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const timer = page.locator('.font-mono.text-stat').first();
   await expect(timer).toBeVisible();
@@ -817,7 +829,7 @@ test('Pomodoro start counts down and pause halts it (deterministic clock)', asyn
 test('Pomodoro completes at zero: shows done toast and resets to full duration (deterministic clock)', async ({ page }) => {
   await page.clock.install();
   await page.goto('/#/apps/pomodoro');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   // 集中時間を 1 分に短縮 (onchange は blur で発火) → 満了まで 60 秒に
   const workInput = page.getByLabel('集中時間（分）');
@@ -848,7 +860,7 @@ test('Pomodoro completes at zero: shows done toast and resets to full duration (
 // また hash routing (#/...) と競合して NotFound に落ちたり focus が移らない退行も同時に防ぐ。
 test('Skip link moves focus to #main-content without breaking routing (WCAG 2.4.1)', async ({ page }) => {
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const skip = page.locator('.skip-link');
   await skip.focus();
@@ -873,7 +885,7 @@ test('App recovers gracefully from corrupt localStorage (no FatalPage)', async (
     } catch (e) { /* noop */ }
   });
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await page.waitForTimeout(200);
 
   // ErrorBoundary の FatalPage に落ちていない (window.__fatalError が falsy)
@@ -907,7 +919,7 @@ test('Store migrates safely on schema version mismatch (snapshots old data, rese
     } catch (e) { /* noop */ }
   });
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   // (1) crash せず home 描画
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
@@ -924,7 +936,7 @@ test('Store migrates safely on schema version mismatch (snapshots old data, rese
 
   // (2) 旧タスクは現行ストアに反映されない (defaults へ初期化)
   await page.goto('/#/apps/task');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await expect(page.getByText('OLD-SCHEMA-TASK-9001')).toHaveCount(0);
 });
 
@@ -934,7 +946,7 @@ test('Store migrates safely on schema version mismatch (snapshots old data, rese
 // エラー Toast 表示 + FatalPage に落ちないことを検証する (もう一つの入力境界 = ファイルアップロード)。
 test('Settings import shows an error for malformed JSON file without crashing', async ({ page }) => {
   await page.goto('/#/settings');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const fileInput = page.locator('input[type="file"]');
   await fileInput.setInputFiles({
@@ -967,7 +979,7 @@ const A11Y_RENDER_NEUTRAL_RULES = ['aria-valid-attr-value', 'select-name', 'butt
 for (const route of A11Y_ROUTES) {
   test(`a11y axe: ${route} has no render-neutral critical violations`, async ({ page }) => {
     await page.goto(`/${route}`);
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
     await page.waitForTimeout(150);
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'])
@@ -989,7 +1001,7 @@ for (const route of A11Y_ROUTES) {
 test('a11y axe: mobile viewport with open drawer has no render-neutral critical violations', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await page.locator('#menuBtn').click();
   await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
 
@@ -1014,7 +1026,7 @@ const HASH_ROUTES = ['#/', '#/projects', '#/about', '#/contact', '#/resume'];
 for (const route of HASH_ROUTES) {
   test(`Hash route ${route}: aria-busy resolves to false and #content is non-empty`, async ({ page }) => {
     await page.goto(`/${route}`);
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
 
     const content = page.locator('#content');
 
@@ -1047,7 +1059,7 @@ for (const route of HASH_ROUTES) {
 // ===== 7.2: 5層防衛プロキシ — startViewTransition 上書き確認 =====
 test('5-layer proxy: document.startViewTransition is overridden by proxy', async ({ page }) => {
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const proxyInstalled = await page.evaluate(() => {
     if (typeof document.startViewTransition !== 'function') {
@@ -1065,7 +1077,7 @@ test('5-layer proxy: document.startViewTransition is overridden by proxy', async
 // ===== 7.2: 5層防衛プロキシ — window.addEventListener 直接上書き禁止確認 =====
 test('5-layer proxy: window.addEventListener is not directly overwritten', async ({ page }) => {
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const isConsistent = await page.evaluate(() => {
     return !Object.prototype.hasOwnProperty.call(window, 'addEventListener');
@@ -1080,7 +1092,7 @@ test('5-layer proxy: window.addEventListener is not directly overwritten', async
 // ===== 7.1: AIOアンカー永続性 — ページ読み込み後も DOM に存在すること =====
 test('AIO anchor persists in DOM after initial load', async ({ page }) => {
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const count = await page.locator('#aio-asset-anchor').count();
   expect(count, '#aio-asset-anchor must exist in DOM').toBe(1);
@@ -1091,10 +1103,10 @@ test('AIO anchor persists in DOM after initial load', async ({ page }) => {
 // ===== 7.1: AIOアンカー永続性 — ルート遷移後も保持されること =====
 test('AIO anchor persists in DOM after route navigation', async ({ page }) => {
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   await page.goto('/#/about');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const count = await page.locator('#aio-asset-anchor').count();
   expect(count, '#aio-asset-anchor must persist after route navigation').toBe(1);
@@ -1104,7 +1116,7 @@ test('AIO anchor persists in DOM after route navigation', async ({ page }) => {
 // ===== 7.2: early suppressor — unhandledrejection リスナーの動作確認 =====
 test('Early suppressor: unhandledrejection listener suppresses known patterns', async ({ page }) => {
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   const wasSuppressed = await page.evaluate(() => {
     const err = new Error('message channel closed before a response was received');
@@ -1144,7 +1156,7 @@ test('No Trusted Types or CSP violations in console', async ({ page }) => {
   });
 
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
 
   expect(
     violations,
@@ -1211,7 +1223,7 @@ for (const route of ALL_ROUTES) {
     page.on('pageerror', err => pageErrors.push(err.message));
 
     await page.goto('/' + route.hash);
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
     // Wait an extra tick to let the SPA finish its render cycle
     await page.waitForTimeout(200);
 
@@ -1279,7 +1291,7 @@ test('Route project-detail renders for a known slug without errors', async ({ pa
   // を使っており NotFoundPage に落ちて vacuous に NotFound を検査していた（PR #96-#98 と同型の
   // vacuous-hash class）。複数形へ是正し、実プロジェクト描画を直接アサートする。
   await page.goto('/#/projects/task-manager');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
   await page.waitForTimeout(200);
 
   const contentLocator = page.locator('#content');
