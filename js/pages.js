@@ -70,7 +70,7 @@ export function createPages({ h, createIcon, Router, ContactCTA }) {
     // riskCard v28: title / risk / mitigation / impact
     function riskCard(title, risk, mitigation, impact) {
         return h('div', { class: 'card card--p-flex' },
-            h('h4', { class: 'text-subhead' }, title),
+            h('h3', { class: 'text-subhead' }, title),
             h('p', { class: 'text-muted text-xs-body' }, '想定リスク: ' + risk),
             h('p', { class: 'text-xs-body' }, '低減構造: ' + mitigation),
             impact ? h('p', {
