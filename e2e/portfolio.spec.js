@@ -227,6 +227,33 @@ test('Theme toggle cycles data-theme and persists across reload', async ({ page 
   expect(afterReload, 'theme selection must persist across a page reload').toBe(afterClick);
 });
 
+// ===== 7.2: system テーマが OS の prefers-color-scheme に追従する =====
+// Theme.apply は theme='system' のとき isDark = matchMedia('(prefers-color-scheme: dark)') で
+// 解決し documentElement に 'dark' class を toggle する。さらに init で matchMedia の change を
+// 購読し、system 選択時のみ OS テーマ変更へライブ追従する (theme.js §init 不変条件)。cycle
+// テスト (data-theme 属性遷移) とは別に、この OS 解決 + ライブ追従経路を検証する。fresh context は
+// 既定 theme='system' なので、emulateMedia で OS を dark/light に切替え 'dark' class の付与/解除を
+// 実検証する。動きの保証 = OS をダークにしている利用者に常にダーク表示。
+test('System theme follows the OS prefers-color-scheme (live)', async ({ page }) => {
+  await page.emulateMedia({ colorScheme: 'dark' });
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+
+  const html = page.locator('html');
+  // fresh context は既定で system
+  await expect(html).toHaveAttribute('data-theme', 'system');
+  await expect(html).toHaveClass(/\bdark\b/);
+
+  // OS を light へ → change リスナーが apply('system') 再実行 → dark class 解除
+  await page.emulateMedia({ colorScheme: 'light' });
+  await expect(html).not.toHaveClass(/\bdark\b/);
+  await expect(html).toHaveAttribute('data-theme', 'system');
+
+  // OS を再び dark へ → dark class 復帰
+  await page.emulateMedia({ colorScheme: 'dark' });
+  await expect(html).toHaveClass(/\bdark\b/);
+});
+
 // ===== 7.2: モバイルドロワーの開閉 + ARIA + Escape + focus 復帰 Behavior Check =====
 // mobile (≤MOBILE_BREAKPOINT=920px) では sidebar が #menuBtn → #drawer (role=dialog,
 // aria-modal) に畳まれる。開くと aria-expanded=true / drawer aria-hidden=false / 背景 #app が
