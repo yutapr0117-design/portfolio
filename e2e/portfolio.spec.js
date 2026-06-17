@@ -368,6 +368,31 @@ test('Pomodoro mode switch resets and updates the timer display', async ({ page 
   await expect(timer).not.toHaveText(initial);
 });
 
+// ===== 7.2: ポモドーロの開始→カウントダウン→一時停止 Behavior Check (page.clock で決定的) =====
+// timer は endAtMs (Date.now() ベース) で remaining を算出する。page.clock で時刻を決定的に進め、
+// 開始でカウントダウンが進み、一時停止で停止することを flaky なしに検証する (mode 切替テストが
+// 即時遷移のみだったのに対し、本テストは時間経過を伴う中核ロジックをカバー)。
+test('Pomodoro start counts down and pause halts it (deterministic clock)', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('networkidle');
+
+  const timer = page.locator('.font-mono.text-stat').first();
+  await expect(timer).toBeVisible();
+  const t0 = (await timer.textContent()).trim();
+
+  // 開始 → 3 秒進める → カウントダウンが進む
+  await page.getByRole('button', { name: '開始' }).click();
+  await page.clock.fastForward(3000);
+  await expect(timer).not.toHaveText(t0);
+
+  // 一時停止 → さらに進めても表示は変化しない (停止)
+  await page.getByRole('button', { name: '一時停止' }).click();
+  const tPaused = (await timer.textContent()).trim();
+  await page.clock.fastForward(3000);
+  await expect(timer).toHaveText(tPaused);
+});
+
 // ===== 7.1: axe-core 自動アクセシビリティ監査 — render-neutral critical 回帰防止 =====
 // axe-core で WCAG 2a/2aa/21a/21aa を全主要ルートでスキャンし、render-neutral に修正可能な
 // critical 違反群がゼロであることを機械強制する。本 increment で是正したバグの回帰防止:
