@@ -634,6 +634,47 @@ test('App recovers gracefully from corrupt localStorage (no FatalPage)', async (
   await expect(page.getByRole('heading', { name: 'Not Found', exact: true })).toHaveCount(0);
 });
 
+// ===== 7.1: スキーマ version 不一致時の安全マイグレーション (旧データ退避 → defaults リセット) =====
+// Store.load() は parse 可能でも schemaVersion が現行 (CONSTANTS.SCHEMA_VERSION) と異なる旧データを
+// 検出したとき、それを SNAPSHOT_KEY に {reason:'schema-mismatch', from, to, data} で退避してから
+// createDefaultStore() で初期化する (将来のスキーマ変更で旧ユーザを crash させず、かつ旧データを
+// 失わせない安全弁)。corrupt-storage テスト (parse 不能) とは別経路。古い schemaVersion の有効
+// JSON を仕込んで load し、(1) crash せず home 描画 (2) 旧データが反映されず初期化 (3) snapshot に
+// schema-mismatch で退避、を検証する。
+test('Store migrates safely on schema version mismatch (snapshots old data, resets to defaults)', async ({ page }) => {
+  await page.addInitScript(() => {
+    try {
+      // parse 可能だが旧 schemaVersion のデータ (現行は 12)。旧タスクを 1 件含める。
+      localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+        schemaVersion: 1,
+        type: 'full-store',
+        theme: 'system',
+        appsData: { tasks: [{ id: 'old-1', title: 'OLD-SCHEMA-TASK-9001', status: 'backlog', priority: 'med', tags: [] }] }
+      }));
+    } catch (e) { /* noop */ }
+  });
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+
+  // (1) crash せず home 描画
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `schema mismatch caused a fatal render: ${fatal}`).toBeNull();
+  await expect(page.locator('.hero-section')).toBeVisible();
+
+  // (3) 旧データが schema-mismatch として snapshot に退避される
+  const snap = await page.evaluate(() => {
+    try { return JSON.parse(localStorage.getItem('portfolio_snapshot_v45')); } catch { return null; }
+  });
+  expect(snap, 'old data should be snapshotted on schema mismatch').not.toBeNull();
+  expect(snap.reason).toBe('schema-mismatch');
+  expect(snap.from).toBe(1);
+
+  // (2) 旧タスクは現行ストアに反映されない (defaults へ初期化)
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('networkidle');
+  await expect(page.getByText('OLD-SCHEMA-TASK-9001')).toHaveCount(0);
+});
+
 // ===== 7.1: 設定インポートの不正 JSON 耐障害性 (graceful error) =====
 // settings の importJSON は FileReader + JSON.parse を try/catch で囲み、不正ファイルでも crash
 // せず「JSONのパースに失敗しました」エラー Toast を出す (fail-soft)。不正 JSON ファイルを与え、
