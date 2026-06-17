@@ -99,6 +99,30 @@ test('content div transitions aria-busy correctly during navigation', async ({ p
   await expect(content).toHaveAttribute('aria-busy', 'false');
 });
 
+// ===== 7.2: prefers-reduced-motion でのナビゲーション (WCAG 2.3.3 / 前庭安全) =====
+// main.js は prefers-reduced-motion: reduce のとき View Transition を完全スキップする専用経路を
+// 持つ (doc b §13.1 二重防衛)。この distinct code path でもナビゲーションが機能し (#content 更新・
+// aria-busy 収束)、ErrorBoundary に落ちないことを検証する。動きに敏感なユーザーがアニメ無しでも
+// 壊れず操作できることの保証。
+test('Navigation works under prefers-reduced-motion (View Transition skipped)', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+
+  await page.goto('/#/projects');
+  await page.waitForLoadState('networkidle');
+  const content = page.locator('#content');
+  await expect(content).toHaveAttribute('aria-busy', 'false');
+  await expect(page.locator('h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+
+  // 別ルートへもう一度遷移しても reduced-motion 経路で正常更新
+  await page.goto('/#/about');
+  await page.waitForLoadState('networkidle');
+  await expect(content).toHaveAttribute('aria-busy', 'false');
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `reduced-motion navigation caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.1: スクリーンショット差分テスト（ベースライン）=====
 // Regression runs: skipped when no baseline image exists (prevents constant-failure on first run).
 // Baseline-generation runs (PLAYWRIGHT_UPDATE_SNAPSHOTS=1 via update-playwright-snapshots.yml):
