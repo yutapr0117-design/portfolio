@@ -469,7 +469,7 @@ test('Settings import shows an error for malformed JSON file without crashing', 
 // これらは ARIA 属性 / accessible name の付与のみで pixel 不変ゆえ §3 baseline ゲート非該当。
 // 注: color-contrast / link-in-text-block 等の render（CSS）系違反は baseline ゲート下で別途扱う
 // ため本テストでは対象外（render-neutral に直せる違反のみを今は機械強制する）。
-const A11Y_ROUTES = ['#/', '#/projects', '#/about', '#/contact', '#/resume', '#/apps', '#/settings', '#/quiz', '#/apps/task', '#/apps/todo', '#/apps/pomodoro', '#/apps/ai', '#/hiring-risk', '#/ai-knowhow', '#/role-split'];
+const A11Y_ROUTES = ['#/', '#/projects', '#/about', '#/contact', '#/resume', '#/apps', '#/settings', '#/quiz', '#/apps/task', '#/apps/todo', '#/apps/pomodoro', '#/apps/ai', '#/hiring-risk', '#/ai-knowhow', '#/role-split', '#/not-found'];
 // 本テストで違反ゼロを機械強制する rule の allowlist（= 既に render-neutral に修正済の rule）。
 // color-contrast / color-contrast-enhanced / heading-order / link-in-text-block 等の未修正
 // （baseline-gated or 別 increment）rule は analyze 結果に含まれても本 allowlist 外ゆえ無視する。
