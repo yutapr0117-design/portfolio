@@ -491,6 +491,29 @@ for (const route of A11Y_ROUTES) {
   });
 }
 
+// ===== 7.1: モバイル viewport + drawer 開 (モーダル) の a11y =====
+// 上の A11Y_ROUTES ループは default(desktop) viewport で走る。モバイル (≤MOBILE_BREAKPOINT) は
+// sidebar が #drawer (role=dialog/aria-modal) に畳まれる別レンダリング面で、特に drawer 開状態は
+// モーダルの a11y (背景隔離・focusable な dialog 内容) が desktop scan ではカバーされない。
+// 390px で drawer を開いた状態の render-neutral critical 違反ゼロを機械強制する。
+test('a11y axe: mobile viewport with open drawer has no render-neutral critical violations', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+  await page.locator('#menuBtn').click();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
+
+  const results = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'])
+    .analyze();
+  const offenders = results.violations.filter(v => A11Y_RENDER_NEUTRAL_RULES.includes(v.id));
+  expect(
+    offenders,
+    'mobile+drawer render-neutral a11y violations: ' +
+    JSON.stringify(offenders.map(v => `${v.id}(${v.nodes.length})`))
+  ).toHaveLength(0);
+});
+
 // ===== 7.2: 全ハッシュルート検証 — aria-busy 収束 & コンテンツ非空 =====
 // 注: 以前は '#/home'（home は '#/'）と '#/skills'（'skills' route は存在しない）が含まれ、
 // どちらも NotFoundPage に解決していた。NotFound も aria-busy=false + #content 非空ゆえ、
