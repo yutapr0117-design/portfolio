@@ -608,6 +608,50 @@ test('Settings can add a project manually and it appears on the Projects page', 
   await expect(page.getByText(name).first()).toBeVisible();
 });
 
+// ===== 7.2: プロジェクト非表示/表示トグル (公開一覧の curation) =====
+// settings の toggleHiddenProject は projectPrefs.hiddenIds に id を出し入れし、ProjectsPage は
+// hiddenIds を filter して公開一覧から除外する (components.js)。これは公開ページの見せ方を制御する
+// curation 機能だが従来未カバーだった。カスタムプロジェクトを追加→「非表示」で /#/projects から
+// 消える→「表示」で復帰、を実検証する。hiddenIds の State 往復とフィルタ適用の保証。
+test('Hiding a project removes it from the public Projects list, unhide restores it', async ({ page }) => {
+  // カスタムプロジェクトを追加 (一意名)
+  await page.goto('/#/settings');
+  await page.waitForLoadState('networkidle');
+  const name = 'HIDE-TOGGLE-PROJ-3050';
+  await page.getByPlaceholder('プロジェクト名').fill(name);
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect(page.locator('#toast-container').getByText('プロジェクトを追加しました')).toBeVisible();
+
+  // 公開一覧に出る
+  await page.goto('/#/projects');
+  await page.waitForLoadState('networkidle');
+  await expect(page.getByText(name).first()).toBeVisible();
+
+  // settings の該当行で「非表示」
+  await page.goto('/#/settings');
+  await page.waitForLoadState('networkidle');
+  const row = page.locator('div.flex.items-center.justify-between.gap-2').filter({ hasText: name });
+  await row.getByRole('button', { name: '非表示' }).click();
+  // 行に hidden バッジ + 「表示」ボタンへ切替わる
+  await expect(row.getByRole('button', { name: '表示' })).toBeVisible();
+
+  // 公開一覧から消える
+  await page.goto('/#/projects');
+  await page.waitForLoadState('networkidle');
+  await expect(page.getByText(name)).toHaveCount(0);
+
+  // 再表示 → 公開一覧へ復帰
+  await page.goto('/#/settings');
+  await page.waitForLoadState('networkidle');
+  const row2 = page.locator('div.flex.items-center.justify-between.gap-2').filter({ hasText: name });
+  await row2.getByRole('button', { name: '表示' }).click();
+  await expect(row2.getByRole('button', { name: '非表示' })).toBeVisible();
+
+  await page.goto('/#/projects');
+  await page.waitForLoadState('networkidle');
+  await expect(page.getByText(name).first()).toBeVisible();
+});
+
 // ===== 7.2: 設定アプリのスナップショット保存→反映 Behavior Check =====
 // #/settings の「保存」は setSnapshot() で Storage.set(SNAPSHOT_KEY, ...) し、再描画後に
 // getSnapshot()(=Storage.parse) が読み戻して「保存日時: …」を表示する。これは PR #93 で
