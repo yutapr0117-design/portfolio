@@ -159,6 +159,31 @@ test('Each route updates document.title and meta description (AIO/SEO)', async (
   await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /お問い合わせ/);
 });
 
+// ===== 7.1: ルート毎の動的 JSON-LD Article + og:type 注入/削除 (AIO-first 中核) =====
+// injectStructuredData (meta-management.js) は ARTICLE_ROUTES (=['ai-knowhow']) のとき
+// script[data-ld="article"] に Article schema を注入し og:type=article にする。非該当ルートでは
+// その script を削除し og:type=website に戻す。これは AI クローラ向け動的構造化データ = 本プロジェクト
+// 中核の AIO サーフェスだが未カバーだった。article ルートで JSON-LD Article が valid に注入され、
+// 別ルートへ移ると除去されることを実検証する (injectStructuredData が壊れたら AIO 退行を検知)。
+test('Article routes inject JSON-LD Article + og:type and clean up on leave (AIO)', async ({ page }) => {
+  // article ルート: JSON-LD Article 注入 + og:type=article
+  await page.goto('/#/ai-knowhow');
+  await page.waitForLoadState('domcontentloaded');
+  const articleLd = page.locator('script[data-ld="article"]');
+  await expect(articleLd).toHaveCount(1);
+  const ld = JSON.parse(await articleLd.textContent());
+  expect(ld['@type']).toBe('Article');
+  expect(ld.headline, 'headline は ai-knowhow の title を含む').toContain('AI開発ノウハウ');
+  expect(ld.author && ld.author['@type']).toBe('Person');
+  await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'article');
+
+  // 非 article ルートへ移動: Article script 除去 + og:type=website
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('script[data-ld="article"]')).toHaveCount(0);
+  await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'website');
+});
+
 // ===== 7.2: aria-busy 状態遷移 Behavior Check =====
 test('content div transitions aria-busy correctly during navigation', async ({ page }) => {
   await page.goto('/');
