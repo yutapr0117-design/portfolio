@@ -1175,6 +1175,40 @@ test('Settings import (valid JSON) appends projects and persists (data recovery)
   await expect(page.getByText('IMPORTED-PROJ-9911').first()).toBeVisible();
 });
 
+// ===== 7.1: profile の github/linkedin が import で保持される + URL サニタイズ (data fidelity + XSS) =====
+// validateAndNormalize は従来 profile の name/title/bio/email だけを残し github/linkedin/location を
+// strip していたため、バックアップ import でこれらが silently 消え ContactPage の該当リンクが
+// dead code 化していた。修正で schema 定義済みフィールドを保持しつつ、github/linkedin は href 描画
+// されるため http(s) のみ許可して javascript: 等の XSS を遮断する。有効 URL は ContactPage に
+// 反映され、危険な URL は描画されないことを実検証する。
+test('Profile github/linkedin survive import and are URL-sanitized (XSS-safe)', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  // 注: profile.name は付けない (Check 58 が spec 内の `name: '<lowercase>'` を route 名として
+  // 抽出するため。本テストは github/linkedin の保持/サニタイズのみ検証するので name は不要)。
+  const backup = {
+    profile: {
+      github: 'https://github.com/e2e-test-acct',
+      linkedin: 'javascript:alert(1)', // 危険スキーム → サニタイズで除去されるべき
+    }
+  };
+  await page.locator('input[type="file"]').setInputFiles({
+    name: 'profile-backup.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify(backup)),
+  });
+  await expect(page.locator('#toast-container').getByText('インポートが完了しました')).toBeVisible();
+
+  // Contact ページ: 有効な github は href として保持される
+  await page.goto('/#/contact');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('a[href="https://github.com/e2e-test-acct"]')).toBeVisible();
+
+  // 危険スキームの linkedin は描画されない (サニタイズで '' に落ちて条件描画が抑止)
+  expect(await page.locator('a[href^="javascript:"]').count()).toBe(0);
+});
+
 // ===== 7.1: axe-core 自動アクセシビリティ監査 — render-neutral critical 回帰防止 =====
 // axe-core で WCAG 2a/2aa/21a/21aa を全主要ルートでスキャンし、render-neutral に修正可能な
 // critical 違反群がゼロであることを機械強制する。本 increment で是正したバグの回帰防止:

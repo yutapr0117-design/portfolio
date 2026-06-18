@@ -292,12 +292,23 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
 
         // Merge profile
         if (data.profile && typeof data.profile === 'object') {
+            // github / linkedin は ContactPage で href として描画されるため、http(s) スキームのみ
+            // 許可して javascript:/data: 等の XSS ベクタを遮断する (空文字はクリア扱いで許容)。
+            const safeUrl = (v, fallback) => {
+                const s = String(v ?? '').trim();
+                if (s === '') {return '';}
+                return /^https?:\/\//i.test(s) ? s.slice(0, 500) : String(fallback || '');
+            };
             store.profile = {
                 ...store.profile,
                 name: String(data.profile.name || store.profile.name).slice(0, CONSTANTS.LIMITS.PROJECT_NAME),
                 title: String(data.profile.title || store.profile.title).slice(0, CONSTANTS.LIMITS.CATEGORY),
                 bio: String(data.profile.bio || store.profile.bio).slice(0, 5000),
                 email: String(data.profile.email || store.profile.email),
+                // schema 定義済みフィールドの取りこぼし防止 (従来 strip され import で消えていた)
+                github: safeUrl(data.profile.github, store.profile.github),
+                linkedin: safeUrl(data.profile.linkedin, store.profile.linkedin),
+                location: String(data.profile.location || store.profile.location || '').slice(0, 200),
             };
         }
 
