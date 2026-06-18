@@ -184,6 +184,32 @@ test('Article routes inject JSON-LD Article + og:type and clean up on leave (AIO
   await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'website');
 });
 
+// ===== 7.1: robots meta の soft-404 保護 + og/twitter/canonical 同期 (AIO/SEO 衛生) =====
+// updateDocumentHead (meta-management.js) は not-found ルートで robots を 'noindex, nofollow' に、
+// 実ルートで 'index, follow, ...' に切替える soft-404 保護を持ち、og:title/twitter:title を title に、
+// canonical/og:url を CANONICAL_URL に同期する。これらは AI クローラ/検索のインデックス制御 = AIO/SEO
+// 衛生の中核だが未カバーだった。特に NotFound が誤ってインデックスされる soft-404 退行を防ぐ。
+test('Robots meta protects against soft-404 + og/canonical sync (SEO hygiene)', async ({ page }) => {
+  // 実ルート: index, follow + og:title が title を反映 + canonical が正規 URL
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /index, follow/);
+  const title = await page.title();
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', title);
+  await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute('content', title);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', /yutapr0117-design\.github\.io\/portfolio/);
+
+  // not-found ルート: noindex, nofollow (soft-404 保護)
+  await page.goto('/#/zzz-nonexistent-route-9999');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, nofollow');
+
+  // 実ルートへ戻ると index, follow に復帰
+  await page.goto('/#/about');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /index, follow/);
+});
+
 // ===== 7.2: aria-busy 状態遷移 Behavior Check =====
 test('content div transitions aria-busy correctly during navigation', async ({ page }) => {
   await page.goto('/');
