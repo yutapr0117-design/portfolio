@@ -136,6 +136,29 @@ test('Hash routing transitions correctly between routes', async ({ page }) => {
   await expect(hero).toBeVisible();
 });
 
+// ===== 7.1: ルート毎の document.title / meta description 更新 (AIO/SEO 中核) =====
+// applyMeta (meta-management.js) は PAGE_META を引き、ルート遷移ごとに document.title を
+// "<RouteTitle> | <name> - <role>" 形式に、meta[name=description] を該当 desc に更新する。
+// このプロジェクトは AIO-first (機械可読性) が中核目標であり、ルート毎の正しい title/description は
+// AI クローラ/検索の解釈に直結するが、その動的更新は従来 e2e 未カバーだった。主要ルートで title
+// 先頭と meta description の内容が切り替わることを実検証する (applyMeta が止まると検知)。
+test('Each route updates document.title and meta description (AIO/SEO)', async ({ page }) => {
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page).toHaveTitle(/^Projects \| /);
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /設計判断/);
+
+  await page.goto('/#/about');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page).toHaveTitle(/^About \| /);
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /プロフィール/);
+
+  await page.goto('/#/contact');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page).toHaveTitle(/^Contact \| /);
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /お問い合わせ/);
+});
+
 // ===== 7.2: aria-busy 状態遷移 Behavior Check =====
 test('content div transitions aria-busy correctly during navigation', async ({ page }) => {
   await page.goto('/');
