@@ -536,6 +536,15 @@ authoritative inventory and is kept in sync with the implementation below):
        A11Y_ROUTES's hash set equals ALL_ROUTES's hash set, so a route added to the route-render
        coverage (ALL_ROUTES) but forgotten in the a11y coverage (A11Y_ROUTES) is caught — no shipped
        route can silently escape automated accessibility scanning (the a11y counterpart of Check 58). (BLOCKING)
+  111. e2e no-networkidle guard: e2e/portfolio.spec.js must not call
+       waitForLoadState('networkidle') anywhere except inside the screenshot regression test
+       (recognised by a toHaveScreenshot call within a few lines). networkidle waits for ALL
+       network to settle, but the site loads external Google Fonts and a service-worker SWR
+       background fetch, so on CI it can never reach idle and the wait hangs to the 30s test
+       timeout (the hang flake fixed repo-wide in PR #132). Behavior tests must synchronise via
+       'domcontentloaded' + expect() auto-wait instead; only the screenshot capture legitimately
+       needs networkidle (font/image load determinism). This Check blocks reintroduction of the
+       hang-flake class. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4283,6 +4292,33 @@ if _spec110.exists():
     )
 else:
     check(False, "", "Check 110: e2e/portfolio.spec.js not found — a11y coverage bijection を検証できない", blocking=True)
+
+# ── 111. e2e no-networkidle guard (BLOCKING) ──────────────────────────────────
+# `waitForLoadState('networkidle')` は全ネット通信が 500ms 落ち着くのを待つが、本サイトは外部
+# Google Fonts と service worker の SWR background fetch を持つため、CI のネット遅延窓では idle に
+# 到達せず 30s test-timeout までハングする (PR #132 で repo 全体を root-fix した hang flake クラス)。
+# behavior テストは 'domcontentloaded' + expect() の auto-wait で同期すべきで、networkidle が正当
+# なのは screenshot capture (フォント/画像ロードの決定化が必要) のみ。本 Check は screenshot テスト
+# 以外での networkidle 再導入を pre-commit でブロックし flake クラスの再発を構造的に封じる。
+# 許容判定: networkidle 行の直後数行以内に toHaveScreenshot があれば screenshot テスト内とみなす。
+_spec111 = ROOT / "e2e" / "portfolio.spec.js"
+if _spec111.exists():
+    _lines111 = _spec111.read_text(encoding="utf-8").splitlines()
+    _viol111 = []
+    for _i111, _line111 in enumerate(_lines111):
+        if "waitForLoadState('networkidle')" in _line111 or 'waitForLoadState("networkidle")' in _line111:
+            _window111 = "\n".join(_lines111[_i111:_i111 + 6])
+            if "toHaveScreenshot" not in _window111:
+                _viol111.append(_i111 + 1)
+    check(
+        not _viol111,
+        "Check 111: e2e/portfolio.spec.js uses waitForLoadState('networkidle') only in the screenshot regression test",
+        f"Check 111: e2e/portfolio.spec.js: waitForLoadState('networkidle') が screenshot テスト外の line {_viol111} に存在 — "
+        f"'domcontentloaded' + expect() auto-wait を使え (networkidle は外部 Fonts/SW で CI hang する。PR #132 参照)",
+        blocking=True,
+    )
+else:
+    check(False, "", "Check 111: e2e/portfolio.spec.js not found — networkidle guard を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
