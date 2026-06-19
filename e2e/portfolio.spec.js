@@ -280,6 +280,24 @@ test('content div transitions aria-busy correctly during navigation', async ({ p
   await expect(content).toHaveAttribute('aria-busy', 'false');
 });
 
+// ===== 7.1: body[data-ai-state] agentic サーフェス (render 毎に現在 route を機械可読公開) =====
+// main.js は描画完了 (requestAnimationFrame) 毎に document.body[data-ai-state] へ
+// {route, filter, loading} を JSON で書き込む。AI エージェントが DOM から現在状態を読める AIO-agentic
+// サーフェスだが未カバーだった。ルート遷移で data-ai-state.route が追従することを expect.poll で検証。
+test('Body data-ai-state reflects the current route (agentic surface)', async ({ page }) => {
+  const routeOf = async () => page.evaluate(() => {
+    try { return JSON.parse(document.body.getAttribute('data-ai-state')).route; } catch { return null; }
+  });
+
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect.poll(routeOf).toBe('projects');
+
+  await page.goto('/#/about');
+  await page.waitForLoadState('domcontentloaded');
+  await expect.poll(routeOf).toBe('about');
+});
+
 // ===== 7.2: prefers-reduced-motion でのナビゲーション (WCAG 2.3.3 / 前庭安全) =====
 // main.js は prefers-reduced-motion: reduce のとき View Transition を完全スキップする専用経路を
 // 持つ (doc b §13.1 二重防衛)。この distinct code path でもナビゲーションが機能し (#content 更新・
