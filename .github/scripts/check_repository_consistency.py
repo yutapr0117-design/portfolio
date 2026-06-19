@@ -545,6 +545,13 @@ authoritative inventory and is kept in sync with the implementation below):
        'domcontentloaded' + expect() auto-wait instead; only the screenshot capture legitimately
        needs networkidle (font/image load determinism). This Check blocks reintroduction of the
        hang-flake class. (BLOCKING)
+  112. js/apps.js IME composition guard: every Enter-submit handler in the app inputs
+       (task / todo / ai) must carry an IME composition guard on the same line as the
+       `e.key === 'Enter'` test — either `!e.isComposing` or a manual `!todoComposing` flag.
+       Without it, a Japanese user confirming an IME conversion with Enter prematurely
+       submits the unconfirmed text (the footgun fixed for task in PR #151 and ai in PR #152;
+       todo already had the guard). This Check blocks reintroduction of the IME premature-submit
+       class by requiring "Composing" to appear on any line testing for the Enter key. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4319,6 +4326,36 @@ if _spec111.exists():
     )
 else:
     check(False, "", "Check 111: e2e/portfolio.spec.js not found — networkidle guard を検証できない", blocking=True)
+
+# ── 112. js/apps.js IME composition guard (BLOCKING) ──────────────────────────
+# task/todo/ai の入力 Enter ハンドラは IME 変換確定の Enter (e.isComposing) で submit してはならない。
+# 日本語入力で変換候補を Enter 確定した際に未確定テキストが誤って追加/送信される footgun を防ぐため、
+# `e.key === 'Enter'` を判定する行には必ず composition ガード ('Composing' = e.isComposing または
+# 手動 todoComposing) を同一行に併記する。task は PR #151、ai は PR #152 で修正済み (todo は既存対応)。
+# 本 Check は IME premature-submit クラスの再発を pre-commit でブロックする。
+_apps112 = ROOT / "js" / "apps.js"
+if _apps112.exists():
+    _lines112 = _apps112.read_text(encoding="utf-8").splitlines()
+    _enter112 = 0
+    _viol112 = []
+    for _i112, _line112 in enumerate(_lines112):
+        if "e.key === 'Enter'" in _line112 or 'e.key === "Enter"' in _line112:
+            _enter112 += 1
+            if "Composing" not in _line112:
+                _viol112.append(_i112 + 1)
+    check(
+        # 両側非空ガード: Enter ハンドラが 1 つも見つからない (構造変更/gutting) 場合に vacuous pass
+        # するのを防ぐ。task/todo/ai の 3 入力があるため Enter ハンドラは常に存在するはず。
+        _enter112 > 0 and not _viol112,
+        f"Check 112: js/apps.js — {_enter112} 個の Enter-submit ハンドラすべてが IME composition ガードを持つ",
+        f"Check 112: js/apps.js: IME composition ガード無しの Enter-submit が line {_viol112} に存在 — "
+        f"`&& !e.isComposing` を追加せよ (日本語 IME 変換確定の誤 submit を防ぐ。PR #151/#152 参照)"
+        if _viol112 else
+        "Check 112: js/apps.js に Enter-submit ハンドラが見つからない (構造変更の可能性) — IME guard 検証が無効化された",
+        blocking=True,
+    )
+else:
+    check(False, "", "Check 112: js/apps.js not found — IME composition guard を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
