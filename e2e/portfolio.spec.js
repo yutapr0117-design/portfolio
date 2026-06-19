@@ -956,6 +956,46 @@ test('Settings app exports a full backup as a valid JSON download', async ({ pag
   expect(parsed, 'export must contain the appsData State slice').toHaveProperty('appsData');
 });
 
+// ===== 7.2: 部分エクスポート (Projectsのみ / AppsDataのみ / Profileのみ) のスライス整合 =====
+// exportProjects/Apps/Profile は downloadJSON で State の各スライス (projects 配列 / appsData /
+// profile) を別ファイル名で書き出す。フルバックアップは被覆済みだが、部分エクスポートが「正しい
+// スライスだけ」を出すか (誤って full store を出していないか) は未カバーだった。各ボタンの download
+// 内容の shape + ファイル名 + 負アサーション (他スライスを含まない) を実検証する。
+test('Settings partial export buttons download the correct State slice', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  // Projectsのみ → projects 配列
+  const [dlP] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Projectsのみ' }).click(),
+  ]);
+  expect(dlP.suggestedFilename()).toMatch(/^portfolio_projects_\d+\.json$/);
+  const projects = JSON.parse(fs.readFileSync(await dlP.path(), 'utf8'));
+  expect(Array.isArray(projects), 'projects export must be an array').toBe(true);
+  expect(projects.length).toBeGreaterThan(0);
+
+  // AppsDataのみ → appsData (tasks を持つ object・full store ではない)
+  const [dlA] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'AppsDataのみ' }).click(),
+  ]);
+  expect(dlA.suggestedFilename()).toMatch(/^portfolio_apps_\d+\.json$/);
+  const apps = JSON.parse(fs.readFileSync(await dlA.path(), 'utf8'));
+  expect(apps).toHaveProperty('tasks');
+  expect(apps, 'appsData export must NOT be the full store').not.toHaveProperty('projects');
+
+  // Profileのみ → profile (email を持つ object・appsData を含まない)
+  const [dlPr] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Profileのみ' }).click(),
+  ]);
+  expect(dlPr.suggestedFilename()).toMatch(/^portfolio_profile_\d+\.json$/);
+  const profile = JSON.parse(fs.readFileSync(await dlPr.path(), 'utf8'));
+  expect(profile).toHaveProperty('email');
+  expect(profile, 'profile export must NOT contain appsData').not.toHaveProperty('tasks');
+});
+
 // ===== 7.2: 設定からのプロジェクト手動追加 (CRUD create → Projects ページ反映 + 永続) =====
 // settings の addProjectManual はプロジェクト名を入力→「追加」で s.projects.unshift し slugify する。
 // tasks/todos (appsData slice) とは別の projects domain への create 経路で、ProjectsPage の
