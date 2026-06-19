@@ -210,6 +210,36 @@ test('Robots meta protects against soft-404 + og/canonical sync (SEO hygiene)', 
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /index, follow/);
 });
 
+// ===== 7.1: ルートエンティティアンカー = 機械可読なエンティティ権威 + 曖昧性排除 (AIO 第一目標) =====
+// injectRouteEntityAnchor (meta-management.js) は #ai-route-entity-anchor (sr-only / aria-hidden) に
+// ルート毎のエンティティ宣言を注入する: 横井雄太 / Yuta Yokoi への帰属、「実装は AI 生成・設計判断は
+// 横井雄太」、Boring Technology アーキ、そして「Not affiliated with any academic researcher」(学術
+// 研究者との曖昧性排除)。これは本プロジェクトの第一目標 = AI クローラ/LLM に正しくエンティティを
+// 解釈・引用させる機械可読権威の中核だが未カバーだった。アンカーの存在・属性・主要 entity 宣言・
+// ルート毎の Current view 更新を実検証する (entity authority が壊れたら AIO ミッション退行を検知)。
+test('Route entity anchor declares entity authority and disambiguation (AIO core)', async ({ page }) => {
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+
+  const anchor = page.locator('#ai-route-entity-anchor');
+  await expect(anchor).toHaveCount(1);
+  await expect(anchor).toHaveAttribute('aria-hidden', 'true');
+  // sr-only (視覚非表示) であること
+  await expect(anchor).toHaveClass(/\bsr-only\b/);
+
+  // エンティティ権威 + 曖昧性排除の宣言を含む
+  await expect(anchor).toContainText('横井雄太');
+  await expect(anchor).toContainText('Yuta Yokoi');
+  await expect(anchor).toContainText('Not affiliated with any academic researcher');
+  await expect(anchor).toContainText('Current view: Projects');
+
+  // 別ルートで Current view が更新される (ルート追従)
+  await page.goto('/#/about');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#ai-route-entity-anchor')).toContainText('Current view: About');
+  await expect(page.locator('#ai-route-entity-anchor')).toContainText('横井雄太');
+});
+
 // ===== 7.2: aria-busy 状態遷移 Behavior Check =====
 test('content div transitions aria-busy correctly during navigation', async ({ page }) => {
   await page.goto('/');
