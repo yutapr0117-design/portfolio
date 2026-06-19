@@ -1110,6 +1110,33 @@ test('Settings app saves a snapshot and reflects the saved-at status', async ({ 
   await expect(page.getByText(/保存日時:/)).toBeVisible();
 });
 
+// ===== 7.2: スナップショット削除 (clearSnapshot → 未保存へ復帰) =====
+// clearSnapshot は Storage.remove(SNAPSHOT_KEY) + 再描画で「未保存」状態へ戻す。save/restore は
+// 被覆済みだが clear (snapshot ライフサイクルの最後) は未カバーだった。snapshot 削除ボタンは
+// btn-ghost (プロジェクト削除の btn-danger とは別) で識別する。保存→削除で「未保存」表示へ戻り、
+// リロード後も未保存が永続することを実検証し snapshot ライフサイクル (save/restore/clear) を完成させる。
+test('Settings snapshot can be cleared back to the unsaved state', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  // 保存 → 保存日時表示
+  await page.getByRole('button', { name: '保存', exact: true }).click();
+  await expect(page.getByText(/保存日時:/)).toBeVisible();
+
+  // 削除 (snapshot clear = btn-ghost の「削除」。project 削除は btn-danger なので衝突しない)
+  await page.locator('button.btn-ghost', { hasText: '削除' }).click();
+  await expect(page.locator('#toast-container').getByText('スナップショットを削除しました')).toBeVisible();
+
+  // 未保存状態へ復帰
+  await expect(page.getByText('スナップショットは未保存です。')).toBeVisible();
+  await expect(page.getByText(/保存日時:/)).toHaveCount(0);
+
+  // リロード後も未保存 (clear が永続)
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByText('スナップショットは未保存です。')).toBeVisible();
+});
+
 // ===== 7.2: スナップショット復元のラウンドトリップ (保存→変更→復元で巻き戻る) =====
 // save テスト (#上) は保存と保存日時表示の往復を見るが、復元 (restoreSnapshot → State.set(snap.data))
 // で「保存時点へ実際に巻き戻る」中核機能は未カバーだった。これはユーザの undo/復旧の data-integrity
