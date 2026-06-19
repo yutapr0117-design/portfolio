@@ -1185,6 +1185,34 @@ test('Pomodoro start counts down and pause halts it (deterministic clock)', asyn
   await expect(timer).toHaveText(tPaused);
 });
 
+// ===== 7.2: ポモドーロ reset ボタン (満了値へ復帰 + 停止) =====
+// reset() は stopTimer + remainingSec をモード duration へ戻す。switchMode (モード切替) や complete
+// (0 到達) とは別経路で、稼働中の「リセット」ボタン押下は未カバーだった。開始→進める→リセットで
+// 満了値に戻り、以降 clock を進めても変化しない (= 停止) ことを fake clock で決定的に検証する。
+test('Pomodoro reset button restores full duration and stops (deterministic clock)', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+
+  const timer = page.locator('.font-mono.text-stat').first();
+  await expect(timer).toBeVisible();
+  const full = (await timer.textContent()).trim();
+
+  // 開始 → 5 秒進める → カウントダウン
+  await page.getByRole('button', { name: '開始' }).click();
+  await page.clock.fastForward(5000);
+  await expect(timer).not.toHaveText(full);
+
+  // リセット → 満了値へ復帰 + 「開始」へ戻る (停止)
+  await page.getByRole('button', { name: 'リセット' }).click();
+  await expect(timer).toHaveText(full);
+  await expect(page.getByRole('button', { name: '開始' })).toBeVisible();
+
+  // 停止後は clock を進めても変化しない
+  await page.clock.fastForward(5000);
+  await expect(timer).toHaveText(full);
+});
+
 // ===== 7.2: ポモドーロのセッション完了 (0 到達 → complete: history 記録 + リセット) =====
 // start/pause テスト (#上) はカウントダウン継続/停止を見るが、タイマーが 0 に到達する complete()
 // 経路 (setInterval 内の remaining<=0 分岐) は未テストだった。complete は history へ push し
