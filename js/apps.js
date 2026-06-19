@@ -669,7 +669,10 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                                 placeholder: '例：デプロイ手順を分解して、タスク管理アプリの説明文を書いて...',
                                 disabled: aiLoading,
                                 onkeydown: (e) => {
-                                    if (e.key === 'Enter') {
+                                    // [FIX] IME 変換確定の Enter (e.isComposing) では submit しない。
+                                    // 日本語入力で変換候補を Enter 確定した際の未確定テキスト誤送信を防ぐ
+                                    // (task 入力と同クラスの footgun。todo の composing ガードと同等)。
+                                    if (e.key === 'Enter' && !e.isComposing) {
                                         submit(e.target.value);
                                         // DOM再構築されるため input の value リセットは不要
                                     }

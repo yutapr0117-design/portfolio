@@ -1193,6 +1193,33 @@ test('AI assist shows a loading state then resolves (deterministic clock)', asyn
   await expect(page.getByText('[AI分析:').first()).toBeVisible();
 });
 
+// ===== 7.2: AI 入力の IME composition ガード (日本語入力の誤送信防止) =====
+// ai-input の Enter ハンドラは e.isComposing をチェックせず、日本語入力で IME 変換確定の Enter が
+// 未確定テキストを誤って submit していた (task と同クラスの実バグ)。修正で `!e.isComposing` ガードを
+// 追加。fake clock で「composing 中の Enter は submit されず応答が出ない」「通常 Enter は応答が出る」
+// を決定的に検証する。
+test('AI input ignores Enter during IME composition (Japanese input safety)', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/#/apps/ai');
+  await page.waitForLoadState('domcontentloaded');
+
+  const input = page.locator('#ai-input');
+  await expect(input).toBeVisible();
+  await input.fill('未確定の質問テキスト');
+
+  // IME 変換確定の Enter (isComposing=true) では submit しない
+  await input.evaluate((el) => {
+    el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', isComposing: true, bubbles: true, cancelable: true }));
+  });
+  await page.clock.fastForward(500); // submit されていれば応答が出るはずの時間
+  await expect(page.getByText('[AI分析:')).toHaveCount(0);
+
+  // 通常の Enter (isComposing=false) では submit → 応答
+  await input.press('Enter');
+  await page.clock.fastForward(500);
+  await expect(page.getByText('[AI分析:').first()).toBeVisible();
+});
+
 // ===== 7.2: ポモドーロのモード切替→タイマー表示更新 Behavior Check =====
 // #/apps/pomodoro は集中/短休憩/長休憩ボタンで switchMode() → State 更新 + remaining を新モードの
 // duration へリセットし、`.font-mono.text-stat` の MM:SS 表示が変わる。timer の tick に依存しない
