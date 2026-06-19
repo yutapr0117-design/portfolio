@@ -1143,6 +1143,31 @@ test('AI assist routes prompts to troubleshoot/design/general responses by keywo
   expect(fatal, `AI assist branching caused a fatal: ${fatal}`).toBeNull();
 });
 
+// ===== 7.2: AI アシストの loading 状態機械 (送信→生成中→応答) =====
+// submit() は aiLoading=true で即時再描画し、入力/送信を disabled にしてボタンを「生成中...」に変え、
+// 300ms 後 (setTimeout) に generateResponse + aiLoading=false で「送信」へ戻す。分岐テストは応答内容を
+// 見るが、この非同期 loading state machine (生成中表示 + disabled) は未カバーだった。fake clock で
+// 300ms を決定的に制御し、loading 中→解決の遷移を検証する。
+test('AI assist shows a loading state then resolves (deterministic clock)', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/#/apps/ai');
+  await page.waitForLoadState('domcontentloaded');
+
+  const input = page.locator('#ai-input');
+  await expect(input).toBeVisible();
+  await input.fill('ローディング検証の質問');
+  await page.getByRole('button', { name: '送信', exact: true }).click();
+
+  // loading 中: ボタンが「生成中...」になり「送信」は消える
+  await expect(page.getByRole('button', { name: '生成中' })).toBeVisible();
+  await expect(page.getByRole('button', { name: '送信', exact: true })).toHaveCount(0);
+
+  // 300ms 進める → 応答生成 + 「送信」へ復帰
+  await page.clock.fastForward(300);
+  await expect(page.getByRole('button', { name: '送信', exact: true })).toBeVisible();
+  await expect(page.getByText('[AI分析:').first()).toBeVisible();
+});
+
 // ===== 7.2: ポモドーロのモード切替→タイマー表示更新 Behavior Check =====
 // #/apps/pomodoro は集中/短休憩/長休憩ボタンで switchMode() → State 更新 + remaining を新モードの
 // duration へリセットし、`.font-mono.text-stat` の MM:SS 表示が変わる。timer の tick に依存しない
