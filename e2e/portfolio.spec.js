@@ -240,6 +240,33 @@ test('Route entity anchor declares entity authority and disambiguation (AIO core
   await expect(page.locator('#ai-route-entity-anchor')).toContainText('横井雄太');
 });
 
+// ===== 7.1: Speakable JSON-LD のルート毎 cssSelector 更新 (AI 音声アシスタント最適化) =====
+// injectStructuredData は全ルートで script[data-ld="speakable"] に WebPage + SpeakableSpecification
+// を注入し、cssSelector を SPEAKABLE_SELECTORS でルート毎に切替える (home は .hero-tagline 等の固有
+// セレクタを持つ)。AI 音声アシスタントが読み上げるべき要素を指定する AIO サーフェスだが未カバー
+// だった。home で固有セレクタが入り、別ルートで外れる (= ルート追従) ことを実検証する。
+test('Speakable JSON-LD updates cssSelector per route (AIO voice)', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('.hero-section')).toBeVisible();
+
+  const speakable = page.locator('script[data-ld="speakable"]');
+  await expect(speakable).toHaveCount(1);
+  const data = JSON.parse(await speakable.textContent());
+  expect(data.speakable['@type']).toBe('SpeakableSpecification');
+  expect(Array.isArray(data.speakable.cssSelector)).toBe(true);
+  // home 固有セレクタを含む
+  expect(data.speakable.cssSelector).toContain('.hero-tagline');
+
+  // 別ルートへ移ると home 固有セレクタが外れる (ルート追従)
+  await page.goto('/#/about');
+  await page.waitForLoadState('domcontentloaded');
+  await expect.poll(async () => {
+    const d = JSON.parse(await page.locator('script[data-ld="speakable"]').textContent());
+    return d.speakable.cssSelector.includes('.hero-tagline');
+  }).toBe(false);
+});
+
 // ===== 7.2: aria-busy 状態遷移 Behavior Check =====
 test('content div transitions aria-busy correctly during navigation', async ({ page }) => {
   await page.goto('/');
