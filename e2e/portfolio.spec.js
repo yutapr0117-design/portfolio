@@ -499,6 +499,29 @@ test('Mobile drawer opens with ARIA, isolates background, and closes on Escape',
   await expect(menuBtn).toBeFocused();
 });
 
+// ===== 7.2: モバイルドロワーの focus trap (Tab が #drawer 内に閉じ込められる・WCAG 2.4.3 モーダル) =====
+// __trapFocus は開いたドロワー内で Tab/Shift+Tab を focusable 要素間でループさせ、focus が背景
+// (inert 化された #app) へ漏れないようにする。Escape クローズは被覆済みだがこの focus-trap (モーダル
+// の a11y 必須要件) は未カバーだった。開いた状態で Shift+Tab (先頭→末尾へ wrap) + 複数 Tab を
+// 送っても activeElement が常に #drawer 内に留まることを実検証する。
+test('Mobile drawer traps focus within the dialog (WCAG modal focus trap)', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+
+  await page.locator('#menuBtn').click();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
+
+  // 開直後 focus は drawer 内 (trapFocus が先頭へ)。Shift+Tab で末尾へ wrap しても drawer 内に留まる
+  await page.keyboard.press('Shift+Tab');
+  expect(await page.evaluate(() => !!document.activeElement?.closest('#drawer'))).toBe(true);
+
+  // 複数回 Tab を送っても focus は #drawer から漏れない (背景 #app へ移らない)
+  for (let i = 0; i < 8; i++) { await page.keyboard.press('Tab'); }
+  expect(await page.evaluate(() => !!document.activeElement?.closest('#drawer'))).toBe(true);
+  expect(await page.evaluate(() => !!document.activeElement?.closest('#app'))).toBe(false);
+});
+
 // ===== 7.2: モバイルドロワーからのナビゲーション (リンククリック → 遷移 + 自動クローズ) =====
 // drawer 内 navLink は isDrawer のとき onclick で Router.navigate(path) に加え closeDrawer() を
 // 呼ぶ (components.js)。Escape クローズ (#上) とは別の閉路 = ナビゲーション経由のクローズで、
