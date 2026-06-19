@@ -608,6 +608,39 @@ test('Task app adds a task and persists it across reload', async ({ page }) => {
   await expect(page.getByText(title)).toBeVisible();
 });
 
+// ===== 7.2: タスクの kanban ステータス移動 (未着手→進行中→完了) + 永続 =====
+// タスクカードの「→」は moveStatus(task, +1) で status を backlog→in-progress→done と進める
+// (backlog で「←」/ done で「→」は disabled)。add+persist テストはあるがこの kanban 列移動という
+// 別 operation は未カバーだった。追加→「→」で進行中列へ→もう一度「→」で完了列へ移り、リロード後も
+// 完了列に残る (status 永続) ことを実検証する。
+test('Task moves across kanban columns and persists the status', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+
+  const input = page.locator('#task-input');
+  await expect(input).toBeVisible();
+  const title = 'KANBAN-MOVE-TASK-4400';
+  await input.fill(title);
+  await input.press('Enter');
+
+  const inProgress = page.locator('section.card.bg-secondary').filter({ has: page.getByRole('heading', { name: '進行中' }) });
+  const done = page.locator('section.card.bg-secondary').filter({ has: page.getByRole('heading', { name: '完了' }) });
+
+  // 追加直後は未着手。→ で 進行中 へ
+  await page.locator('article', { hasText: title }).getByRole('button', { name: '→' }).click();
+  await expect(inProgress.getByText(title)).toBeVisible();
+
+  // もう一度 → で 完了 へ
+  await page.locator('article', { hasText: title }).getByRole('button', { name: '→' }).click();
+  await expect(done.getByText(title)).toBeVisible();
+
+  // リロード後も 完了 列に残る (status 永続)
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+  const doneAfter = page.locator('section.card.bg-secondary').filter({ has: page.getByRole('heading', { name: '完了' }) });
+  await expect(doneAfter.getByText(title)).toBeVisible();
+});
+
 // ===== 7.1b: localStorage QuotaExceeded 時の graceful degradation =====
 // State の保存経路 (state.js scheduleSave/saveNow) は Storage.set が false を返したとき
 // notifyStorageError() でユーザーに通知し、in-memory state はそのまま維持する設計
