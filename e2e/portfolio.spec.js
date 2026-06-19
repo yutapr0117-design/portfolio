@@ -641,6 +641,29 @@ test('Task moves across kanban columns and persists the status', async ({ page }
   await expect(doneAfter.getByText(title)).toBeVisible();
 });
 
+// ===== 7.2: タスク削除 (task CRUD: add/move/delete を完成) =====
+// タスクカードの削除ボタン (aria-label='タスクを削除') は deleteTask(id) で State から該当タスクを
+// 除去し「タスクを削除しました」を出す。add/move はカバー済みだが削除は未カバーだった。追加→削除で
+// カードが消え通知が出ることを実検証し task CRUD のカバレッジを完成させる。
+test('Task can be deleted from the board', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+
+  const input = page.locator('#task-input');
+  await expect(input).toBeVisible();
+  const title = 'DELETE-ME-TASK-7799';
+  await input.fill(title);
+  await input.press('Enter');
+
+  const card = page.locator('article', { hasText: title });
+  await expect(card).toBeVisible();
+
+  // 削除 → カードが消える + 通知
+  await card.getByRole('button', { name: 'タスクを削除' }).click();
+  await expect(page.locator('#toast-container').getByText('タスクを削除しました')).toBeVisible();
+  await expect(page.getByText(title)).toHaveCount(0);
+});
+
 // ===== 7.1b: localStorage QuotaExceeded 時の graceful degradation =====
 // State の保存経路 (state.js scheduleSave/saveNow) は Storage.set が false を返したとき
 // notifyStorageError() でユーザーに通知し、in-memory state はそのまま維持する設計
