@@ -120,7 +120,10 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                         class: 'input',
                         placeholder: '新しいタスクを入力...',
                         onkeydown: (e) => {
-                            if (e.key === 'Enter') {
+                            // [FIX] IME 変換確定の Enter (e.isComposing) では追加しない。日本語入力で
+                            // 変換候補を Enter 確定した際に未確定文字が誤ってタスク化される footgun を防ぐ
+                            // (todo 入力の todoComposing ガードと同等の保護を task 入力にも付与)。
+                            if (e.key === 'Enter' && !e.isComposing) {
                                 addTask(e.target.value);
                                 // 全体再描画の直後にフォーカスを復元し、連続入力を可能にする
                                 setTimeout(() => document.getElementById('task-input')?.focus(), 0);
