@@ -127,6 +127,39 @@ for i, b in enumerate(blocks):
 
 ---
 
+## 自走サイクル手順（batched commits + rebase-merge）
+
+> 詳細な規律は `CLAUDE.md` §5「AI2AI handoff-first commit/PR 規律」が正。ここはその bash 手順。
+
+```bash
+# --- 1 サイクル = 1 テーマの PR。テーマ内で coherence フロア内の最大限細かい commit を
+#     複数積む。各 commit に手厚い what + why（why = 次の AI への文脈）を書く。 ---
+git checkout -b claude/<theme>
+# ... 増分 1 を実装 ...
+git add <explicit paths> && git commit -m "<what + why を厚く>"   # 例: fix とその test を 1 commit
+# ... 増分 2 を実装 ...
+git add <explicit paths> && git commit -m "<what + why を厚く>"
+# （coherence フロア例: canon 編集 + 派生 digest は同一 commit / 新規 Check の impl+docstring+map+
+#   runbook §9 は自己整合 Check 45/70/105 が同時検証するため同一 commit）
+
+# --- PR 末尾で 1 回だけ full verify + e2e（各 commit は coherent に authoring 済み）---
+npm run verify
+npx playwright test --config=playwright.config.cjs --grep-invert "screenshot regression"
+
+# --- PR 作成 → CI（PR 末尾の最終状態を 1 回検証）---
+git push -u origin claude/<theme>
+gh pr create --title "<theme>" --body "<commit 群の目次 + 非破壊性>"
+
+# --- CI 緑なら rebase-merge（fine commit を main の git log に保持。squash 不可）---
+gh pr merge <N> --rebase --delete-branch
+git checkout main && git pull --ff-only origin main
+# screenshot flake のみで落ちたら `gh run rerun <id> --failed` で 1 回再試行してから merge。
+```
+
+**要点**: 最大ネックは CI 待ち。commit を細かく+厚くしつつ PR 当たり commit を増やせば、git log の handoff 情報量を増やしながら CI 回数を増やさない。merge は **必ず `--rebase`**（squash は per-commit の what/why を潰す）。
+
+---
+
 ## digest更新ルール
 
 - `llms-full.txt` / `llms.txt` / `.well-known/*` / バイナリ資産（WebP・MP3）/ `index.html` のJSON-LD、および supporting_evidence（`Claude2Claude.md` / `ChatGPT2ChatGPT.md` / `docs/evidence`）を変更したら、`update_aio_digests.py` を実行して `aio-manifest.json` の `sha256` を再生成する。
