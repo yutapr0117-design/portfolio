@@ -664,6 +664,45 @@ test('Task can be deleted from the board', async ({ page }) => {
   await expect(page.getByText(title)).toHaveCount(0);
 });
 
+// ===== 7.2: タスク優先度フィルタ (カードで優先度変更 → high/med/all で振り分け) =====
+// タスクカードの優先度 select (aria-label='タスクの優先度') は updateTask で priority を変更し、
+// ヘッダの絞り込み select (aria-label='優先度で絞り込み') は getFilteredTasks で
+// taskFilter.priority に一致するものだけ表示する。card 優先度変更 + フィルタ分岐は未カバーだった。
+// 1 件を high に変更し、high/med/all フィルタで表示集合が切り替わることを実検証する。
+test('Task priority filter narrows the board by priority', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+
+  const input = page.locator('#task-input');
+  const hi = 'PRIO-HIGH-TASK-3301';
+  const md = 'PRIO-MED-TASK-3302';
+  await input.fill(hi);
+  await input.press('Enter');
+  await expect(page.getByText(hi)).toBeVisible();
+  // hi の優先度を high に変更 (既定は med)
+  await page.locator('article', { hasText: hi }).getByLabel('タスクの優先度').selectOption('high');
+  await input.fill(md);
+  await input.press('Enter');
+  await expect(page.getByText(md)).toBeVisible();
+
+  const filter = page.getByLabel('優先度で絞り込み');
+
+  // high → hi のみ
+  await filter.selectOption('high');
+  await expect(page.getByText(hi)).toBeVisible();
+  await expect(page.getByText(md)).toHaveCount(0);
+
+  // med → md のみ
+  await filter.selectOption('med');
+  await expect(page.getByText(md)).toBeVisible();
+  await expect(page.getByText(hi)).toHaveCount(0);
+
+  // all → 両方
+  await filter.selectOption('all');
+  await expect(page.getByText(hi)).toBeVisible();
+  await expect(page.getByText(md)).toBeVisible();
+});
+
 // ===== 7.1b: localStorage QuotaExceeded 時の graceful degradation =====
 // State の保存経路 (state.js scheduleSave/saveNow) は Storage.set が false を返したとき
 // notifyStorageError() でユーザーに通知し、in-memory state はそのまま維持する設計
