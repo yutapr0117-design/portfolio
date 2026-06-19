@@ -942,6 +942,40 @@ test('Settings can add a project manually and it appears on the Projects page', 
   await expect(page.getByText(name).first()).toBeVisible();
 });
 
+// ===== 7.2: 同名プロジェクト追加時の slug 一意化 (詳細ページ到達性) =====
+// slugify は決定的なので、同名プロジェクトを 2 つ追加すると slug が重複し、ProjectDetailPage の
+// find(p.slug===slug) が先頭のみ返して 2 つ目の詳細が到達不能になるバグがあった。修正で衝突時に
+// -2 等を付与して一意化する。同名を 2 件追加し、両方の slug が異なる (= 詳細ページが別個に存在) ことを
+// State から実検証する。
+test('Adding two projects with the same name yields unique slugs (detail reachability)', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  const dupName = 'DUP-SLUG-PROJECT-7340';
+  const addBtn = page.getByRole('button', { name: '追加', exact: true });
+  const nameInput = page.getByPlaceholder('プロジェクト名');
+
+  await nameInput.fill(dupName);
+  await addBtn.click();
+  await expect(page.locator('#toast-container').getByText('プロジェクトを追加しました')).toBeVisible();
+  await nameInput.fill(dupName);
+  await addBtn.click();
+
+  const readSlugs = () => page.evaluate((nm) => {
+    try {
+      const st = JSON.parse(localStorage.getItem('portfolio_enhanced_v45'));
+      return (st.projects || []).filter(p => p.name === nm).map(p => p.slug);
+    } catch { return []; }
+  }, dupName);
+
+  // debounce save 完了 (2 件永続) を待つ
+  await expect.poll(async () => (await readSlugs()).length).toBe(2);
+
+  // 同名 2 件の slug が一意 (重複しない) こと
+  const slugs = await readSlugs();
+  expect(new Set(slugs).size, `slugs must be unique: ${JSON.stringify(slugs)}`).toBe(2);
+});
+
 // ===== 7.2: プロジェクト非表示/表示トグル (公開一覧の curation) =====
 // settings の toggleHiddenProject は projectPrefs.hiddenIds に id を出し入れし、ProjectsPage は
 // hiddenIds を filter して公開一覧から除外する (components.js)。これは公開ページの見せ方を制御する
