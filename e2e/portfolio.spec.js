@@ -863,6 +863,31 @@ test('Todo app add, complete-toggle, then clear-completed removes the item', asy
   await expect(page.getByText(text)).toHaveCount(0);
 });
 
+// ===== 7.2: TODO 入力の IME composition ガード (compositionstart/end フラグ機構) =====
+// todo-input は task/ai の e.isComposing とは別に、手動 todoComposing フラグ
+// (oncompositionstart→true / oncompositionend→false) で IME 変換確定 Enter の誤追加を防ぐ。
+// この既存ガードは未テストだった。composition 中の Enter では追加されず、compositionend 後の Enter
+// では追加されることを実検証し、3 入力 (task/ai/todo) すべての IME 保護カバレッジを完成させる。
+test('Todo input ignores Enter during IME composition (compositionstart flag)', async ({ page }) => {
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+
+  const input = page.locator('#todo-input');
+  await expect(input).toBeVisible();
+  const t = 'TODO-IME-COMPOSING-2300';
+  await input.fill(t);
+
+  // composition 中 (todoComposing=true) の Enter では追加しない
+  await input.evaluate((el) => el.dispatchEvent(new CompositionEvent('compositionstart', { bubbles: true })));
+  await input.evaluate((el) => el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true })));
+  await expect(page.getByText(t)).toHaveCount(0);
+
+  // compositionend 後 (todoComposing=false) の Enter では追加される
+  await input.evaluate((el) => el.dispatchEvent(new CompositionEvent('compositionend', { bubbles: true })));
+  await input.evaluate((el) => el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true })));
+  await expect(page.getByText(t)).toBeVisible();
+});
+
 // ===== 7.2: TODO フィルタ (未完了/完了/全て) の絞り込み分岐 =====
 // TodoPage は select(aria-label='TODO を絞り込み') で todoFilter を切替え、getFilteredTodos が
 // active→未完了のみ / completed→完了のみ / all→全件、と分岐する。既存 TODO テストは add/toggle/
