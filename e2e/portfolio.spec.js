@@ -608,6 +608,31 @@ test('Task app adds a task and persists it across reload', async ({ page }) => {
   await expect(page.getByText(title)).toBeVisible();
 });
 
+// ===== 7.2: タスク入力の IME composition ガード (日本語入力の誤確定防止) =====
+// task-input の Enter ハンドラは IME 変換確定の Enter (e.isComposing=true) でタスクを追加しては
+// ならない (todo は todoComposing で対応済みだが task は未対応だった = 日本語が主対象の本サイトで
+// 実バグ)。修正で `!e.isComposing` ガードを追加。composing 中の Enter では追加されず、通常の Enter
+// では追加されることを実検証する。
+test('Task input ignores Enter during IME composition (Japanese input safety)', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+
+  const input = page.locator('#task-input');
+  await expect(input).toBeVisible();
+  const t = 'IME-COMPOSING-TASK-2200';
+
+  // IME 変換確定の Enter (isComposing=true) ではタスクを追加しない
+  await input.fill(t);
+  await input.evaluate((el) => {
+    el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', isComposing: true, bubbles: true, cancelable: true }));
+  });
+  await expect(page.getByText(t)).toHaveCount(0);
+
+  // 通常の Enter (isComposing=false) では追加される
+  await input.press('Enter');
+  await expect(page.getByText(t)).toBeVisible();
+});
+
 // ===== 7.2: タスクの kanban ステータス移動 (未着手→進行中→完了) + 永続 =====
 // タスクカードの「→」は moveStatus(task, +1) で status を backlog→in-progress→done と進める
 // (backlog で「←」/ done で「→」は disabled)。add+persist テストはあるがこの kanban 列移動という
