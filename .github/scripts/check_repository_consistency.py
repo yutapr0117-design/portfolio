@@ -552,6 +552,11 @@ authoritative inventory and is kept in sync with the implementation below):
        submits the unconfirmed text (the footgun fixed for task in PR #151 and ai in PR #152;
        todo already had the guard). This Check blocks reintroduction of the IME premature-submit
        class by requiring "Composing" to appear on any line testing for the Enter key. (BLOCKING)
+  113. CLAUDE.md commit/PR handoff discipline presence: CLAUDE.md §5 must retain the
+       "AI2AI handoff-first commit/PR discipline" (fine commits with rich what+why,
+       theme-batched PRs, `gh pr merge --rebase`, commit-count-is-output-not-target). This
+       discipline is the repo's "interchangeable AI member" handoff rule; this Check enforces
+       its presence by markers so it cannot silently drift out of the turn-1 router. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4356,6 +4361,29 @@ if _apps112.exists():
     )
 else:
     check(False, "", "Check 112: js/apps.js not found — IME composition guard を検証できない", blocking=True)
+
+# ── 113. CLAUDE.md commit/PR handoff discipline presence (BLOCKING) ────────────
+# 「AI は交換可能なメンバ」軸の核 = AI→AI 引き継ぎ。CLAUDE.md §5 の「AI2AI handoff-first commit/PR
+# 規律」(fine commit ×厚い what+why ×テーマ束ね PR ×rebase-merge ×commit 数は OUTPUT) は turn-1
+# router に置かれた永続ルールであり、silent に消えると新 AI が squash や粗い commit に退行して
+# handoff 情報が失われる。マーカー存在で機械強制し drift を防ぐ。
+_claudemd113 = ROOT / "CLAUDE.md"
+if _claudemd113.exists():
+    _src113 = _claudemd113.read_text(encoding="utf-8")
+    _markers113 = [
+        "handoff-first commit/PR",   # 規律見出し
+        "gh pr merge --rebase",       # commit を main に保持する merge 方式
+        "OUTPUT であって TARGET",      # padding 禁止条項 (数を目的化しない)
+    ]
+    _missing113 = [m for m in _markers113 if m not in _src113]
+    check(
+        not _missing113,
+        "Check 113: CLAUDE.md §5 が AI2AI handoff-first commit/PR 規律を保持している",
+        f"Check 113: CLAUDE.md から commit/PR 規律のマーカーが欠落: {_missing113} — §5 の規律を復元せよ",
+        blocking=True,
+    )
+else:
+    check(False, "", "Check 113: CLAUDE.md not found — commit/PR handoff discipline presence を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
