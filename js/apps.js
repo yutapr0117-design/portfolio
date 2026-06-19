@@ -810,9 +810,17 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
         function addProjectManual() {
             if (!settingsNewName.trim()) { Toast.show('プロジェクト名を入力してください', 'error'); return; }
             State.update(s => {
+                // [FIX] slug 衝突回避: slugify は決定的なので同名追加だと slug が重複し、
+                // ProjectDetailPage の find(p.slug===slug) が先頭のみ返して片方の詳細が到達不能に
+                // なる。既存 slug と衝突する場合は -2, -3... を付与して一意化する。
+                const existing = new Set(s.projects.map(p => p.slug));
+                const base = slugify(settingsNewName);
+                let slug = base;
+                let n = 2;
+                while (existing.has(slug)) { slug = `${base}-${n}`; n++; }
                 s.projects.unshift({
                     id: 'p_user_' + generateId().slice(0, 6),
-                    slug: slugify(settingsNewName),
+                    slug,
                     name: settingsNewName,
                     category: 'User Added',
                     summary: '', problem: '', approach: '',
