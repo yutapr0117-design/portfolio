@@ -1255,6 +1255,35 @@ test('Reset data restores defaults after confirm (destructive)', async ({ page }
   expect(fatal, `reset caused a fatal: ${fatal}`).toBeNull();
 });
 
+// ===== 7.2: settings 正規化ボタン (normalizeNow → validateAndNormalize) =====
+// 「整合性チェック / 正規化」セクションの「実行」は normalizeNow() で State を
+// validateAndNormalize() に通し「正規化を完了しました」を出す (型揺れ/上限超過/破損を安全側に
+// 丸めるデータ hygiene)。reset (createDefaultStore) とは別経路で未カバーだった。実行 →
+// 完了通知 + crash なし + データ保持 (初期化ではない) を検証する。
+test('Settings normalize button runs validateAndNormalize without data loss', async ({ page }) => {
+  // 正規化が「初期化」ではないことを示すため、ユーザータスクを 1 件用意
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  const input = page.locator('#task-input');
+  await input.fill('NORMALIZE-KEEP-TASK-8810');
+  await input.press('Enter');
+  await expect(page.getByText('NORMALIZE-KEEP-TASK-8810')).toBeVisible();
+
+  // settings の「整合性チェック / 正規化」セクションの「実行」
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  const normSection = page.locator('section.card').filter({ has: page.getByRole('heading', { name: '整合性チェック / 正規化' }) });
+  await normSection.getByRole('button', { name: '実行' }).click();
+  await expect(page.locator('#toast-container').getByText('正規化を完了しました')).toBeVisible();
+
+  // crash せず、正規化はデータを保持する (初期化と異なりタスクは残る)
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `normalize caused a fatal: ${fatal}`).toBeNull();
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByText('NORMALIZE-KEEP-TASK-8810')).toBeVisible();
+});
+
 // ===== 7.2: 設定アプリのスナップショット保存→反映 Behavior Check =====
 // #/settings の「保存」は setSnapshot() で Storage.set(SNAPSHOT_KEY, ...) し、再描画後に
 // getSnapshot()(=Storage.parse) が読み戻して「保存日時: …」を表示する。これは PR #93 で
