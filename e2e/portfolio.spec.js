@@ -504,6 +504,28 @@ test('Theme toggle cycles data-theme and persists across reload', async ({ page 
   expect(afterReload, 'theme selection must persist across a page reload').toBe(afterClick);
 });
 
+// ===== 7.1: theme-init.js の FOUC pre-paint (保存 dark テーマの初期適用) =====
+// theme-init.js は main.js (ESM) ロード前に localStorage の theme を読み data-theme / .dark を
+// pre-paint 適用し FOUC (light→dark のちらつき) を防ぐ。theme-cycle テストは「クリックで切替→永続」
+// を見るが、「保存済み dark を初期ロードで復元する」FOUC 防止経路は未カバーだった。dark を seed して
+// 読み込み、html[data-theme=dark] + .dark が初期適用されることを検証する。
+test('theme-init.js applies stored dark theme on initial load (FOUC prevention)', async ({ page }) => {
+  // main.js ロード前に走る theme-init.js が読む localStorage キーへ dark を seed
+  await page.addInitScript(() => {
+    try {
+      localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+        schemaVersion: 12, type: 'full-store', theme: 'dark'
+      }));
+    } catch (e) { /* noop */ }
+  });
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const html = page.locator('html');
+  await expect(html).toHaveAttribute('data-theme', 'dark');
+  await expect(html).toHaveClass(/\bdark\b/);
+});
+
 // ===== 7.2: system テーマが OS の prefers-color-scheme に追従する =====
 // Theme.apply は theme='system' のとき isDark = matchMedia('(prefers-color-scheme: dark)') で
 // 解決し documentElement に 'dark' class を toggle する。さらに init で matchMedia の change を
