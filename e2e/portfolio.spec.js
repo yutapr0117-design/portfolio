@@ -2204,6 +2204,41 @@ test('Importing projects with colliding slugs yields unique slugs (detail reacha
   expect(new Set(slugs).size, `imported colliding slugs must be unique: ${JSON.stringify(slugs)}`).toBe(2);
 });
 
+// ===== 7.2: upsert インポートが既存を更新しつつ新規も追加する (data-loss 回帰) =====
+// importJSON の upsert モード (UI ラベル「更新+追加」) は既存 id を更新し未知 id を追加するはず。
+// 旧実装は未知 id を s.projects.push したのち Map.values() で上書きし、push した新規が破棄される
+// data-loss バグがあった (append/strict は被覆済みだが upsert は 0 カバレッジで未検知だった)。
+// 既存 default (p01) の更新 + 新規 id の追加を含む JSON を upsert import し、両方が一覧に出ることを
+// 検証する (修正前は新規 'UPSERT-NEW-*' が消えて fail する)。
+test('Settings upsert import updates existing AND adds new projects (data-loss regression)', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  // インポートモードを upsert に切替
+  await page.locator('select[aria-label="インポートモード"]').selectOption('upsert');
+
+  const imported = {
+    projects: [
+      // 既存 default (id=p01) を更新
+      { id: 'p01', slug: 'task-manager', name: 'UPSERT-UPDATED-7711', category: 'Productivity', summary: 'upsert update', problem: '', approach: '', tech: ['JS'], tags: [] },
+      // 未知 id を追加 (旧バグで消えていた)
+      { id: 'p_upsert_new_7712', slug: 'upsert-new-7712', name: 'UPSERT-NEW-7712', category: 'Imported', summary: 'upsert add', problem: '', approach: '', tech: ['JS'], tags: [] },
+    ]
+  };
+  await page.locator('input[type="file"]').setInputFiles({
+    name: 'upsert.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(imported)),
+  });
+  await expect(page.locator('#toast-container').getByText('インポートが完了しました')).toBeVisible();
+
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  // 追加パス (バグ修正の核): 新規 id のプロジェクトが一覧に出る
+  await expect(page.getByText('UPSERT-NEW-7712').first()).toBeVisible();
+  // 更新パス: 既存 p01 の name が更新され、元の default 名は消える (append では更新されない)
+  await expect(page.getByText('UPSERT-UPDATED-7711').first()).toBeVisible();
+  await expect(page.getByText('タスク管理アプリ')).toHaveCount(0);
+});
+
 // ===== 7.1: profile の github/linkedin が import で保持される + URL サニタイズ (data fidelity + XSS) =====
 // validateAndNormalize は従来 profile の name/title/bio/email だけを残し github/linkedin/location を
 // strip していたため、バックアップ import でこれらが silently 消え ContactPage の該当リンクが
