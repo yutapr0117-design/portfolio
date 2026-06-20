@@ -353,6 +353,23 @@ test('Projects search input retains focus during filtering', async ({ page }) =>
   await expect(searchInput).toBeFocused();
 });
 
+// ===== 7.2: Projects 検索の 0 件マッチ empty-state =====
+// ProjectsPage の renderGrid は getFilteredProjects() が空のとき「条件に一致するプロジェクトは
+// ありません。」(role=status, aria-live) を表示し件数を 合計 0 件 にする。検索フォーカス維持は
+// 被覆済みだが、この empty-state 分岐 (quiz の empty-state とは別 page) は未カバーだった。一致しない
+// 検索 → 空状態メッセージ + 0 件 + カード 0、を実検証する。
+test('Projects search shows an empty state when nothing matches', async ({ page }) => {
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+
+  const searchInput = page.locator('input[type="text"]').first();
+  await searchInput.fill('zzz-no-such-project-xyz-9999');
+
+  await expect(page.getByText('条件に一致するプロジェクトはありません。')).toBeVisible();
+  await expect(page.getByText('合計 0 件')).toBeVisible();
+  await expect(page.locator('.grid-projects article.card')).toHaveCount(0);
+});
+
 // ===== 7.2: プロジェクトのカテゴリフィルタ (件数絞り込み + URL ディープリンク) =====
 // ProjectsPage は select(aria-label='カテゴリフィルター') で cat を切替え、getFilteredProjects が
 // p.category===cat で絞り込み、syncURL が ?cat= を replaceSilently で URL に反映する (focus 喪失を
