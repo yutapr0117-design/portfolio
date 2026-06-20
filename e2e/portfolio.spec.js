@@ -585,6 +585,28 @@ test('Mobile drawer traps focus within the dialog (WCAG modal focus trap)', asyn
   expect(await page.evaluate(() => !!document.activeElement?.closest('#app'))).toBe(false);
 });
 
+// ===== 7.2: ドロワー overlay(背景)クリックで閉じる (モーダル backdrop dismiss) =====
+// main.js は #overlay のクリックで closeDrawer を呼ぶ (main.js:800)。Escape / nav-link クローズ
+// とは別の「背景クリックで閉じる」モーダル標準挙動で未カバーだった。開いて overlay をクリック →
+// aria-hidden 復帰 + 背景隔離 (#app aria-hidden) 解除 + menuBtn aria-expanded=false を検証。
+test('Mobile drawer closes on overlay (backdrop) click', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const menuBtn = page.locator('#menuBtn');
+  const drawer = page.locator('#drawer');
+  await menuBtn.click();
+  await expect(drawer).toHaveAttribute('aria-hidden', 'false');
+
+  // 背景 overlay クリックで閉じる (overlay 中央は drawer に覆われ得るため click ハンドラを
+  // dispatchEvent で直接発火 = main.js:800 の overlay→closeDrawer 配線を検証)
+  await page.locator('#overlay').dispatchEvent('click');
+  await expect(drawer).toHaveAttribute('aria-hidden', 'true');
+  await expect(menuBtn).toHaveAttribute('aria-expanded', 'false');
+  await expect(page.locator('#app')).not.toHaveAttribute('aria-hidden', 'true');
+});
+
 // ===== 7.2: モバイルドロワーからのナビゲーション (リンククリック → 遷移 + 自動クローズ) =====
 // drawer 内 navLink は isDrawer のとき onclick で Router.navigate(path) に加え closeDrawer() を
 // 呼ぶ (components.js)。Escape クローズ (#上) とは別の閉路 = ナビゲーション経由のクローズで、
