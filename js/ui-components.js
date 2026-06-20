@@ -188,7 +188,6 @@ export function h(tag, attrs = {}, ...children) {
 // ===== AIDK Toast Notification System =====
 export const Toast = (() => {
     let container = null;
-    let toasts = [];
 
     function init() {
         if (!container) {
@@ -229,7 +228,6 @@ export const Toast = (() => {
 
         el.appendChild(closeBtn);
         container.appendChild(el);
-        toasts.push(el);
 
         // ARIA announcement (assertive for immediate feedback)
         const live = document.getElementById('action-announcement');
@@ -246,7 +244,6 @@ export const Toast = (() => {
         el.style.animation = 'slideIn 0.3s ease reverse';
         setTimeout(() => {
             el.remove();
-            toasts = toasts.filter(t => t !== el);
         }, 300);
     }
 
