@@ -267,6 +267,34 @@ test('Speakable JSON-LD updates cssSelector per route (AIO voice)', async ({ pag
   }).toBe(false);
 });
 
+// ===== 7.1: Speakable cssSelector が実 DOM 要素に解決する (AIO accuracy / dead-selector 再発防止) =====
+// dead-selector 修正 (home の .hero-tagline/.core-thesis 除去・role-split の .role-split-table →
+// #role-split-table) の再発防止ガード。home は全 cssSelector が実在要素に解決すべき (修正前は
+// .hero-tagline/.core-thesis が 0 マッチで red だった)。role-split は修正対象 #role-split-table が
+// 解決することを確認する。注: [data-speakable] のような汎用 baseline selector は home の hero のみ
+// が持ち他ルートでは no-op になり得る (forward-compat ゆえ容認) ため、home の全解決 + role-split の
+// 固有 selector 解決に絞って検証する。
+test('Home Speakable cssSelectors all resolve to real elements (AIO accuracy)', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  const data = JSON.parse(await page.locator('script[data-ld="speakable"]').textContent());
+  const selectors = data.speakable.cssSelector;
+  expect(Array.isArray(selectors) && selectors.length > 0).toBe(true);
+  for (const sel of selectors) {
+    expect(await page.locator(sel).count(), `Speakable selector "${sel}" must resolve to >=1 element on home`).toBeGreaterThan(0);
+  }
+});
+
+test('Role-split Speakable references the actual table via #role-split-table (not a dead class)', async ({ page }) => {
+  await page.goto('/#/role-split');
+  await page.waitForLoadState('domcontentloaded');
+  const data = JSON.parse(await page.locator('script[data-ld="speakable"]').textContent());
+  // 修正で .role-split-table(class・dead) → #role-split-table(id・実在) に変更済み
+  expect(data.speakable.cssSelector).toContain('#role-split-table');
+  expect(data.speakable.cssSelector).not.toContain('.role-split-table');
+  expect(await page.locator('#role-split-table').count()).toBeGreaterThan(0);
+});
+
 // ===== 7.2: aria-busy 状態遷移 Behavior Check =====
 test('content div transitions aria-busy correctly during navigation', async ({ page }) => {
   await page.goto('/');
