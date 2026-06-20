@@ -482,6 +482,16 @@ test('Hiring-risk page renders its risk-reduction lead heading', async ({ page }
   await expect(page.getByRole('heading', { name: /採用リスク低減/ })).toBeVisible();
 });
 
+// ===== 7.2: thesis ページの key コンテンツ presence (ai-knowhow lead) =====
+// ai-knowhow は「AI-Driven PM の開発ノウハウ公開」命題を h1「AI開発ノウハウ」
+// (data-ai-section='ai-knowhow') で提示する。role-split / hiring-risk と並ぶ thesis trio の 3 つ目。
+// route-render とは別に lead 見出しの描画を検証し、ページが空/別内容になる退行を捕捉する。
+test('AI-knowhow page renders its lead heading', async ({ page }) => {
+  await page.goto('/#/ai-knowhow');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByRole('heading', { name: /AI開発ノウハウ/ })).toBeVisible();
+});
+
 // ===== 7.1: モバイルビューポートでのCLS検証 =====
 test('No layout shift on mobile viewport', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
