@@ -16,6 +16,7 @@
  *   - h: DOM builder (js/ui-components.js)
  *   - createIcon: SVG アイコン生成 (js/ui-components.js)
  *   - Router: hash router (js/router.js)
+ *   - ContactCTA: 問い合わせ CTA セクション生成関数 (HiringRiskPage / RoleSplitPage 末尾で使用)
  *
  * 【非破壊性】
  *   - 各ページ関数（HiringRiskPage / RoleSplitPage / NotFoundPage）と helper（impactRow /
