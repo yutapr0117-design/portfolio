@@ -27,6 +27,7 @@
  *   - Theme: js/theme.js factory instance
  *   - Brand: js/brand.js factory instance
  *   - Store: js/store.js factory instance
+ *   - Storage: js/storage.js (Settings の snapshot 保存/復元で Storage.parse/set/remove)
  *   - CONSTANTS: js/constants.js
  *   - generateId, clamp, slugify: js/pure-utils.js
  *   - window グローバル経由: render (window.render として後段で代入される)
