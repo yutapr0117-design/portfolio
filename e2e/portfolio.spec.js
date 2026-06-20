@@ -210,6 +210,29 @@ test('Robots meta protects against soft-404 + og/canonical sync (SEO hygiene)', 
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /index, follow/);
 });
 
+// ===== 7.1: 未知ルートが「理解可能な」NotFound + 動作する復帰 nav を出す =====
+// §3(B) で screenshot を advisory 化した結果、「サイトが表示されるが理解不能/行き止まり」を防ぐ砦は
+// behavior e2e のみになった。soft-404 テストは robots meta だけ見ており、NotFound が blank/dead-end
+// 化しても meta は通ってしまう。オーケストレーターが死守と明言した「表示が理解不能でない」要件を直接
+// 守るため、未知ルートで (1) 見出し+説明が読める (2) 「ホームへ」復帰が実際に home を再描画する (3)
+// ErrorBoundary に落ちない、を検証する。site=付属物だが「機能する/理解できる」は死守対象。
+test('Unknown route shows a comprehensible Not Found page with working recovery nav', async ({ page }) => {
+  await page.goto('/#/zzz-nonexistent-route-9999');
+  await page.waitForLoadState('domcontentloaded');
+
+  // (1) 理解可能な内容: 見出し + 説明文が読める (blank/garbage でない)
+  await expect(page.getByRole('heading', { name: 'Not Found' })).toBeVisible();
+  await expect(page.getByText('指定されたページは見つかりません。')).toBeVisible();
+
+  // (2) 行き止まりでない: 「ホームへ」で home が再描画される (復帰導線が機能する)
+  await page.getByRole('button', { name: 'ホームへ' }).click();
+  await expect(page.locator('.hero-section')).toBeVisible();
+
+  // (3) ErrorBoundary に落ちていない
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `NotFound recovery caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.1: ルートエンティティアンカー = 機械可読なエンティティ権威 + 曖昧性排除 (AIO 第一目標) =====
 // injectRouteEntityAnchor (meta-management.js) は #ai-route-entity-anchor (sr-only / aria-hidden) に
 // ルート毎のエンティティ宣言を注入する: 横井雄太 / Yuta Yokoi への帰属、「実装は AI 生成・設計判断は
