@@ -568,6 +568,14 @@ authoritative inventory and is kept in sync with the implementation below):
        unsafe-inline), AND must retain `default-src 'self'`, `object-src 'none'`, `base-uri
        'self'`. Guards against silent CSP weakening (a high-impact security regression class,
        the runtime-policy counterpart of Check 7's position/hash checks). (BLOCKING)
+  116. playwright.config.cjs reuseExistingServer=false: the Playwright webServer must NOT
+       reuse an existing server. If flipped to true, CI/local could test a stale already-running
+       dev server (pre-edit state) and pass green while the committed files are broken — a
+       false-green vector. This Check asserts `reuseExistingServer: false` and rejects `: true`. (BLOCKING)
+  117. playwright.config.cjs screenshot tolerance sanity ceiling: `toHaveScreenshot`'s
+       `maxDiffPixelRatio` must stay <= 0.05. The screenshot regression test is the §3 baseline
+       safety gate; silently loosening the tolerance (e.g. 0.5) would let real visual regressions
+       pass. This Check caps the tolerance so the gate cannot be gutted by a config tweak. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4437,6 +4445,37 @@ if _csp_m115:
     )
 else:
     check(False, "", "Check 115: index.html に Content-Security-Policy meta が見つからない — CSP baseline を検証できない", blocking=True)
+
+# ── 116. playwright.config.cjs reuseExistingServer=false (BLOCKING) ────────────
+# reuseExistingServer:true だと既に起動中の dev server を再利用し、commit 前の stale 状態を検証して
+# CI が緑になる false-green vector。`reuseExistingServer: false` の存在 + `: true` の不在を機械強制。
+_pwcfg = ROOT / "playwright.config.cjs"
+_pwsrc = _pwcfg.read_text(encoding="utf-8") if _pwcfg.exists() else ""
+if _pwcfg.exists():
+    _reuse_ok = bool(re.search(r"reuseExistingServer\s*:\s*false\b", _pwsrc)) and \
+        not re.search(r"reuseExistingServer\s*:\s*true\b", _pwsrc)
+    check(
+        _reuse_ok,
+        "Check 116: playwright.config.cjs reuseExistingServer が false (stale-server false-green 防止)",
+        "Check 116: playwright.config.cjs の reuseExistingServer が false でない — 既存 server 再利用で stale 状態を検証し false-green 化する。false に戻せ",
+        blocking=True,
+    )
+else:
+    check(False, "", "Check 116: playwright.config.cjs not found — webServer 設定を検証できない", blocking=True)
+
+# ── 117. playwright.config.cjs screenshot tolerance sanity ceiling (BLOCKING) ──
+# maxDiffPixelRatio を緩めすぎると §3 baseline ゲートが本物の視覚 regression を見逃す。<=0.05 を強制。
+if _pwcfg.exists():
+    _mdpr = re.search(r"maxDiffPixelRatio\s*:\s*([0-9.]+)", _pwsrc)
+    _mdpr_val = float(_mdpr.group(1)) if _mdpr else None
+    check(
+        _mdpr_val is not None and _mdpr_val <= 0.05,
+        f"Check 117: playwright.config.cjs maxDiffPixelRatio={_mdpr_val} <= 0.05 (§3 baseline 感度を維持)",
+        f"Check 117: maxDiffPixelRatio={_mdpr_val} が sanity ceiling 0.05 を超過 (or 未設定) — 緩めると視覚 regression を見逃す。締め直せ",
+        blocking=True,
+    )
+else:
+    check(False, "", "Check 117: playwright.config.cjs not found — screenshot tolerance を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
