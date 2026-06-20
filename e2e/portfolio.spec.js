@@ -1742,6 +1742,23 @@ test('Skip link moves focus to #main-content without breaking routing (WCAG 2.4.
   await expect(page.getByRole('heading', { name: 'Not Found', exact: true })).toHaveCount(0);
 });
 
+// ===== 7.2: サイドバーナビのキーボード操作性 (focus + Enter で遷移・WCAG 2.1.1) =====
+// nav-link は <a href="#/..."> + onclick(Router.navigate)。マウス click は別テストで被覆済みだが、
+// キーボード利用者にとっての「focus して Enter で起動できる」操作性 (WCAG 2.1.1 Keyboard) は
+// 未カバーだった。Projects ナビリンクへ focus し Enter で /#/projects へ遷移 + 本文描画を検証する。
+test('Sidebar nav link is keyboard-operable (focus + Enter activates)', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const projectsLink = page.locator('a.nav-link[href="#/projects"]:visible').first();
+  await projectsLink.focus();
+  await expect(projectsLink).toBeFocused();
+
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/#\/projects$/);
+  await expect(page.locator('h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+});
+
 // ===== 7.1: 壊れた localStorage からの graceful 復帰 (resilience) =====
 // 永続データ (localStorage) が破損 JSON でも、Storage.parse の try/catch + Store.load の default
 // fallback でアプリは crash せず既定状態で描画を継続すべき (fail-open)。破損値を仕込んで load し、
