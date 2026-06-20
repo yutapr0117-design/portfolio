@@ -526,6 +526,27 @@ test('theme-init.js applies stored dark theme on initial load (FOUC prevention)'
   await expect(html).toHaveClass(/\bdark\b/);
 });
 
+// ===== 7.1: Service Worker の登録・activate・page 制御 (SW ライフサイクル) =====
+// sw.js は install(skipWaiting)→activate(古いキャッシュ削除 + clients.claim)→fetch(SWR) の
+// ライフサイクルを持つ。フルオフライン navigation は提供しない設計 (SWR・app-shell precache なし)
+// ため offline 配信はテスト対象外。ここでは genuine な「SW が登録され active になり page を制御する」
+// ことを検証し、SW 登録/活性化の退行 (例: registration 失敗・activate 例外) を捕捉する。
+test('Service worker registers, activates, and controls the page', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  await page.evaluate(() => navigator.serviceWorker.ready);
+
+  // active な registration が存在する
+  const active = await page.evaluate(async () => {
+    const reg = await navigator.serviceWorker.getRegistration();
+    return !!(reg && reg.active);
+  });
+  expect(active, 'an active service worker registration must exist').toBe(true);
+
+  // clients.claim() により page が SW 制御下に入る
+  await expect.poll(() => page.evaluate(() => !!navigator.serviceWorker.controller)).toBe(true);
+});
+
 // ===== 7.1: theme-init.js の brand pre-paint (保存 brand の初期適用) =====
 // theme-init.js は localStorage 'portfolio_brand_v45' を main.js ロード前に読み data-brand を
 // pre-paint 適用する (brand 別パレットの FOUC 防止)。dark テーマ FOUC と同クラスだが brand 軸は
