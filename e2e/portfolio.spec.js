@@ -1909,6 +1909,38 @@ test('Settings import (valid JSON) appends projects and persists (data recovery)
   await expect(page.getByText('IMPORTED-PROJ-9911').first()).toBeVisible();
 });
 
+// ===== 7.2: import で slug 衝突するプロジェクトが一意化される (詳細到達性) =====
+// mergeProjectsWithDefaults は ID でのみ dedupe するため、import データ内に同一 slug の別 id
+// プロジェクトが 2 件あると slug が重複し、ProjectDetailPage の find(p.slug===slug) が先頭のみ返して
+// 片方の詳細が到達不能になっていた (addProjectManual の slug 衝突修正の import パス版・全経路チョーク
+// ポイントで根治)。同一 slug の 2 件を import → 結果の slug が一意化されることを State から検証する。
+test('Importing projects with colliding slugs yields unique slugs (detail reachability)', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  const imported = {
+    projects: [
+      { id: 'p_imp_collide_a', slug: 'collide-slug', name: 'IMPORT-COLLIDE-A-5511', category: 'X', summary: '', problem: '', approach: '', tech: [], tags: [] },
+      { id: 'p_imp_collide_b', slug: 'collide-slug', name: 'IMPORT-COLLIDE-B-5512', category: 'X', summary: '', problem: '', approach: '', tech: [], tags: [] },
+    ]
+  };
+  await page.locator('input[type="file"]').setInputFiles({
+    name: 'collide.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(imported)),
+  });
+  await expect(page.locator('#toast-container').getByText('インポートが完了しました')).toBeVisible();
+
+  // State 上で 2 件の slug が一意化されていること (重複なし)
+  const readSlugs = () => page.evaluate(() => {
+    try {
+      const st = JSON.parse(localStorage.getItem('portfolio_enhanced_v45'));
+      return (st.projects || []).filter(p => /^IMPORT-COLLIDE-[AB]-/.test(p.name)).map(p => p.slug);
+    } catch { return []; }
+  });
+  await expect.poll(async () => (await readSlugs()).length).toBe(2);
+  const slugs = await readSlugs();
+  expect(new Set(slugs).size, `imported colliding slugs must be unique: ${JSON.stringify(slugs)}`).toBe(2);
+});
+
 // ===== 7.1: profile の github/linkedin が import で保持される + URL サニタイズ (data fidelity + XSS) =====
 // validateAndNormalize は従来 profile の name/title/bio/email だけを残し github/linkedin/location を
 // strip していたため、バックアップ import でこれらが silently 消え ContactPage の該当リンクが
