@@ -1906,6 +1906,30 @@ test('Sidebar nav link is keyboard-operable (focus + Enter activates)', async ({
   await expect(page.locator('h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
 });
 
+// ===== 7.2: サイドバー全 nav リンクの整合性 (全て非 not-found route へ解決) =====
+// navLink の href (#/ + item.path) が実在 route を指さないと click で NotFound に落ちる。route-render
+// テストは ALL_ROUTES (curated 直 URL) を訪問するが、実際の nav href は検証しないため、nav path の
+// タイポ等の drift を捕捉できなかった。サイドバーの全 nav リンク href を収集し、各々を訪問しても
+// NotFound に落ちないことを実検証する (非 vacuous: href 6 件以上)。
+test('All sidebar nav links resolve to valid (non-not-found) routes', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const hrefs = await page.locator('a.nav-link:visible').evaluateAll(
+    els => els.map(e => e.getAttribute('href')).filter(Boolean)
+  );
+  expect(hrefs.length, 'sidebar should expose multiple nav links').toBeGreaterThan(5);
+
+  for (const href of hrefs) {
+    await page.goto('/' + href); // href は '#/...' 形式
+    await page.waitForLoadState('domcontentloaded');
+    await expect(
+      page.getByRole('heading', { name: 'Not Found', exact: true }),
+      `nav href ${href} は NotFound に落ちてはならない`
+    ).toHaveCount(0);
+  }
+});
+
 // ===== 7.1: 壊れた localStorage からの graceful 復帰 (resilience) =====
 // 永続データ (localStorage) が破損 JSON でも、Storage.parse の try/catch + Store.load の default
 // fallback でアプリは crash せず既定状態で描画を継続すべき (fail-open)。破損値を仕込んで load し、
