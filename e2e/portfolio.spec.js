@@ -1765,6 +1765,26 @@ test('Actions announce to the assertive sr-only aria-live region (screen reader 
   await expect(live).toHaveText('タスクを追加しました');
 });
 
+// ===== 7.2: SPA ルート変更の sr-only aria-live 通知 (screen reader a11y) =====
+// SPA はページ全体が再読込されないため、SR 利用者にルート変更を能動的に通知する必要がある
+// (SPA a11y の既知要件)。#page-announcement (sr-only, aria-live=polite) はルート遷移ごとに
+// RouteState の a11y_announcement バインディング (main.js, route.name ベースで「<route> ページを
+// 表示中」) で更新される。視覚 title 更新 (別テスト) とは別チャネルで未カバーだった。route 遷移で
+// polite 領域が現在 route 名に追従することを検証する。
+test('Route changes announce to the polite sr-only aria-live region (SPA a11y)', async ({ page }) => {
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+
+  const announcer = page.locator('#page-announcement');
+  await expect(announcer).toHaveAttribute('aria-live', 'polite');
+  await expect.poll(async () => (await announcer.textContent()) || '').toContain('projects');
+
+  // 別ルートへ遷移すると announcement が現在 route 名に追従更新される
+  await page.goto('/#/about');
+  await page.waitForLoadState('domcontentloaded');
+  await expect.poll(async () => (await announcer.textContent()) || '').toContain('about');
+});
+
 // ===== 7.2: AI 入力の IME composition ガード (日本語入力の誤送信防止) =====
 // ai-input の Enter ハンドラは e.isComposing をチェックせず、日本語入力で IME 変換確定の Enter が
 // 未確定テキストを誤って submit していた (task と同クラスの実バグ)。修正で `!e.isComposing` ガードを
