@@ -596,6 +596,15 @@ authoritative inventory and is kept in sync with the implementation below):
        js/page-meta.js. A route missing from PAGE_META makes applyMeta early-return, so that
        route ships with no <title>/description/JSON-LD — a silent AIO/SEO gap on the project's
        #1 mission. Closes the PAGE_META ↔ ALL_ROUTES ↔ main.js coherence triangle. (BLOCKING)
+  119. factory docstring dependency coherence: every dependency a leaf factory
+       `createX({ ...deps })` destructures from its argument must appear in that file's
+       【依存（引数で注入）】 docstring section. Guards the factory-docstring-dep drift class
+       hand-fixed in Session #20 (aidk-rails/apps/components/pages each had injected deps the
+       docstring omitted). The docstring is the next AI's onboarding substrate (low onboarding
+       cost = a pillar of token-sustained autonomy); a signature/docstring divergence makes the
+       next AI read a wrong dependency contract — an onboarding tax that degrades the flywheel.
+       Dep names are matched on word boundaries to avoid single-char (`h`) false positives.
+       (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4557,6 +4566,40 @@ if _pm118.exists() and _spec118.exists():
     )
 else:
     check(False, "", "Check 118: js/page-meta.js または e2e/portfolio.spec.js が見つからない — PAGE_META 網羅を検証できない", blocking=True)
+
+# ── 119. factory docstring dependency coherence (BLOCKING) ────────────────────
+# 各葉モジュールの factory `createX({ ...deps })` が引数で受け取る依存名のすべてが、その
+# ファイル冒頭 docstring の【依存（引数で注入）】節に列挙されていることを機械強制する。これは
+# Session #20 で手修正した factory docstring の依存 drift (aidk-rails に Theme/BGM/secureExternalLinks/
+# openDrawer/closeDrawer、apps に Storage、components に tokenize/CONSTANTS/clear/closeDrawer、pages に
+# ContactCTA が署名にあるのに docstring から欠落していた) の class を再発防止するもの。docstring は
+# 次の AI の onboarding substrate（低 onboarding コスト = トークン持続性の柱）であり、署名と docstring
+# の乖離は次の AI に誤った依存契約を読ませる onboarding 税＝flywheel 劣化要因。署名から派生して照合する
+# ことで「依存を増やしたのに docstring 更新を忘れた」drift を pre-commit で BLOCKING 検出する。
+# 照合は dep 名を word-boundary で 【依存】節テキストに探す (単一文字 dep `h` の部分一致誤検出を回避)。
+_dep_problems119 = []
+_checked119 = 0
+for _facfile119 in sorted((ROOT / "js").glob("*.js")):
+    _facsrc119 = _facfile119.read_text(encoding="utf-8")
+    _facm119 = re.search(r"export function create\w+\(\{\s*([^}]*?)\}\)", _facsrc119)
+    if not _facm119:
+        continue  # 依存注入 factory でないファイル (純データ等) は対象外
+    _checked119 += 1
+    _deps119 = [d.strip() for d in _facm119.group(1).replace("\n", " ").split(",") if d.strip()]
+    _secm119 = re.search(r"【依存[^】]*】(.*?)(?:【|\*/)", _facsrc119, re.DOTALL)
+    _sectext119 = _secm119.group(1) if _secm119 else ""
+    _miss119 = [d for d in _deps119
+                if not re.search(r"(?<![\w$])" + re.escape(d) + r"(?![\w$])", _sectext119)]
+    if _miss119:
+        _dep_problems119.append(f"{_facfile119.name}: docstring【依存】節に欠落 {_miss119}")
+check(
+    not _dep_problems119,
+    f"Check 119: 全 {_checked119} factory の docstring【依存】節が署名の注入依存を網羅 (onboarding 精度 / flywheel 保護)",
+    "Check 119: factory 署名の依存が docstring【依存】節に欠落 (依存契約 drift): "
+    + "; ".join(_dep_problems119)
+    + " — 署名に dep を足したら同ファイルの【依存（引数で注入）】節にも追記せよ",
+    blocking=True,
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
