@@ -10,6 +10,9 @@
  * 【公開 API（呼び出し側 main.js からの形）】
  *   const fatalOverlay = createFatalOverlay({ render });
  *   fatalOverlay.install();  // window event listener + safety net setInterval を登録
+ *   戻り値は { install, _normalizeError, _isViewTransitionError, _isFatalError }。install が主 API
+ *   で、`_`接頭辞の 3 helper は main.js IIFE 側の合成 (executeSafeTransition / render 等) が
+ *   同じエラー分類ロジックを再利用するために返している internal-composition export（外部公開意図はない）。
  *
  * 【依存（引数で注入）】
  *   - render: main.js の render 関数（Fatal 発生時に再描画を試みる）
