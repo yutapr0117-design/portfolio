@@ -637,14 +637,5 @@ export function createPages({ h, createIcon, Router, ContactCTA }) {
         );
     }
 
-    // 改善文書b 4 / 改善文書c: AbortController-based render lifecycle management.
-    // Each call to _renderCore() carries a signal; if a new render starts before
-    // the previous one completes, the previous one is aborted cleanly.
-    // This prevents zombie DOM updates from stale renders accumulating listeners.
-    let _renderAbortController = new AbortController();
-
-
-
-
     return { HiringRiskPage, RoleSplitPage, NotFoundPage };
 }
