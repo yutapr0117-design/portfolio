@@ -668,6 +668,22 @@ test('Quiz architecture type renders structured stakeholder/question zones (?typ
   expect(fatal, `architecture quiz render caused a fatal: ${fatal}`).toBeNull();
 });
 
+// ===== 7.2: quiz 模範解答問い合わせフォームの空入力バリデーション =====
+// QuizPage の問い合わせフォームは送信時に name/email 必須を検証し、欠落時「お名前とメール
+// アドレスを入力してください」エラー toast を出す (mailto は開かない)。この validation 分岐は
+// 未カバーだった。空のまま送信 → エラー toast + crash なしを実検証する。
+test('Quiz contact form shows validation error on empty submit', async ({ page }) => {
+  await page.goto('/#/quiz');
+  await page.waitForLoadState('domcontentloaded');
+
+  // 名前/メール未入力で送信
+  await page.getByRole('button', { name: '送信' }).click();
+  await expect(page.locator('#toast-container').getByText('お名前とメールアドレスを入力してください')).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `quiz form validation caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: タスク管理アプリの追加 + リロード永続化 Behavior Check =====
 // #/apps/task は #task-input に入力 → Enter で State.update 経由でタスクを追加し、
 // localStorage (State auto-save) へ永続化する。apps セクションは従来「ルートが描画される」
