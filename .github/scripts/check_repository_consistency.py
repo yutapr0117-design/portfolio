@@ -576,6 +576,11 @@ authoritative inventory and is kept in sync with the implementation below):
        `maxDiffPixelRatio` must stay <= 0.05. The screenshot regression test is the §3 baseline
        safety gate; silently loosening the tolerance (e.g. 0.5) would let real visual regressions
        pass. This Check caps the tolerance so the gate cannot be gutted by a config tweak. (BLOCKING)
+  118. PAGE_META route coverage: every shipped route in e2e ALL_ROUTES (normalized, the curated
+       shipped-route authority tied to main.js by Check 58) must have a PAGE_META entry in
+       js/page-meta.js. A route missing from PAGE_META makes applyMeta early-return, so that
+       route ships with no <title>/description/JSON-LD — a silent AIO/SEO gap on the project's
+       #1 mission. Closes the PAGE_META ↔ ALL_ROUTES ↔ main.js coherence triangle. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4476,6 +4481,31 @@ if _pwcfg.exists():
     )
 else:
     check(False, "", "Check 117: playwright.config.cjs not found — screenshot tolerance を検証できない", blocking=True)
+
+# ── 118. PAGE_META route coverage (BLOCKING) ──────────────────────────────────
+# 全 shipped route が js/page-meta.js の PAGE_META に metadata を持つことを保証する。route が
+# PAGE_META に無いと applyMeta が early-return し title/desc/JSON-LD が出ない silent AIO/SEO gap に
+# なる。shipped route 集合は e2e の ALL_ROUTES (Check 58 が main.js と結ぶ curated 権威) の name を
+# 正規化して用い、PAGE_META keys が全 route を網羅する (⊇) ことを機械強制する。
+_pm118 = ROOT / "js" / "page-meta.js"
+_spec118 = ROOT / "e2e" / "portfolio.spec.js"
+if _pm118.exists() and _spec118.exists():
+    _pmsrc118 = _pm118.read_text(encoding="utf-8")
+    _pmkeys118 = set(re.findall(r"^\s*'?([a-z][a-z0-9-]*)'?\s*:\s*\{", _pmsrc118, re.MULTILINE))
+    _ssrc118 = _spec118.read_text(encoding="utf-8")
+    _allm118 = re.search(r"const ALL_ROUTES\s*=\s*\[(.*?)\];", _ssrc118, re.DOTALL)
+    _names118 = set(re.findall(r"name:\s*'([^']+)'", _allm118.group(1))) if _allm118 else set()
+    _alias118 = {"not-found-fallback": "not-found"}
+    _norm118 = {_alias118.get(n, n) for n in _names118}
+    _missing118 = sorted(_norm118 - _pmkeys118)
+    check(
+        bool(_pmkeys118) and bool(_norm118) and not _missing118,
+        f"Check 118: PAGE_META が全 {len(_norm118)} shipped route の metadata を網羅 (route 毎 AIO/SEO)",
+        f"Check 118: PAGE_META に metadata 欠落の route: {_missing118} — applyMeta が early-return し title/desc/JSON-LD が出ない。js/page-meta.js に追加せよ",
+        blocking=True,
+    )
+else:
+    check(False, "", "Check 118: js/page-meta.js または e2e/portfolio.spec.js が見つからない — PAGE_META 網羅を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
