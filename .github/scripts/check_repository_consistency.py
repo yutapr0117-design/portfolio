@@ -609,6 +609,13 @@ authoritative inventory and is kept in sync with the implementation below):
        next AI read a wrong dependency contract — an onboarding tax that degrades the flywheel.
        Dep names are matched on word boundaries to avoid single-char (`h`) false positives.
        (BLOCKING)
+  120. shipped JS+CSS byte-weight budget: the total bytes of the browser-downloaded payload
+       (main.js + js/**/*.js + style.css) must stay <= the PERF-BUDGET-DATA ceiling in
+       file-size-budget.md. §3(B) made the pixel screenshot advisory, thinning real page-weight
+       protection; this byte-weight guard restores it on a different axis from Check 52's
+       line-count budget (byte ≠ line). Catches runaway bloat (e.g. a huge file committed by
+       mistake) that would inflate download/parse cost (LCP/CWV). Legitimate feature growth
+       ratchets the ceiling up with a rationale, like the ESLint baseline. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4618,6 +4625,39 @@ check(
     + " — 署名に dep を足したら同ファイルの【依存（引数で注入）】節にも追記せよ",
     blocking=True,
 )
+
+# ── 120. shipped JS+CSS byte-weight budget (BLOCKING) ─────────────────────────
+# ブラウザが download/parse する shipped payload (main.js + js/**/*.js + style.css) の合計バイト数が
+# file-size-budget.md の PERF-BUDGET-DATA ceiling 以下であることを機械強制する。§3(B) で screenshot を
+# advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護が薄くなった。これを byte-weight で
+# 補う。行数予算 (Check 52) とは別軸 (byte ≠ line) で、実 download/parse 負荷 (LCP/CWV に影響) を守り、
+# 巨大ファイル誤コミット等の runaway bloat を BLOCKING 捕捉する。ceiling は ESLint baseline 同様、正当な
+# 機能成長で超えたら rationale 付きでラチェット更新する運用 (PERF-BUDGET-DATA コメントに記録)。
+_budget120 = ROOT / "docs" / "architecture" / "file-size-budget.md"
+_perf_m120 = re.search(r"<!--\s*PERF-BUDGET-DATA\s+(\d+)\s+-->", _budget120.read_text(encoding="utf-8")) if _budget120.exists() else None
+if _perf_m120:
+    _ceiling120 = int(_perf_m120.group(1))
+    _shipped120 = 0
+    _files120 = [ROOT / "main.js", ROOT / "style.css"] + sorted((ROOT / "js").rglob("*.js"))
+    for _f120 in _files120:
+        if _f120.exists():
+            _shipped120 += len(_f120.read_bytes())
+    check(
+        _shipped120 <= _ceiling120,
+        f"Check 120: shipped JS+CSS byte-weight {_shipped120} <= budget {_ceiling120} (page-weight / CWV 保護)",
+        f"Check 120: shipped JS+CSS byte-weight {_shipped120} が budget {_ceiling120} を超過 — "
+        f"runaway bloat か正当な機能成長かを判断し、後者なら file-size-budget.md の PERF-BUDGET-DATA を "
+        f"rationale 付きでラチェット更新せよ (byte ≠ line ゆえ Check 52 とは別軸の page-weight 保護)",
+        blocking=True,
+    )
+else:
+    check(
+        False,
+        "Check 120: file-size-budget.md PERF-BUDGET-DATA marker present",
+        "Check 120: file-size-budget.md に `<!-- PERF-BUDGET-DATA <N> -->` が無い — "
+        "shipped JS+CSS の page-weight 保護が消失。marker を追加せよ",
+        blocking=True,
+    )
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
