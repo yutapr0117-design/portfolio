@@ -168,6 +168,12 @@ export default [
       'no-unsafe-negation': 'error',            // `!key in obj` / `!a instanceof B`（`!`の作用域誤り）
       'no-compare-neg-zero': 'error',           // `x === -0`（=== は -0 と 0 を区別しない＝意図不達）
       'no-async-promise-executor': 'error',     // `new Promise(async …)`（executor 内 reject が握り潰される）
+      // setter / Object.defineProperty の set が値を return する事故（戻り値は無視される＝
+      // 意図した代入が起きない兆候）。Proxy の set トラップ（boolean 返却が正当）は対象外。
+      // ※ main.js のみ後段 override で off: 凍結された innerHTML interceptor が
+      //   `return _nativeSetter.call(this, raw)` を early-exit に使う正当パターンで、§3 保護領域
+      //   ゆえ改変不可のため除外する（leaf モジュールでは error で実バグを捕捉）。
+      'no-setter-return': 'error',
       // ── style/quality（warn 級。advisory・CI を止めない）──
       'no-shadow': ['warn', { allow: ['e', 'err', 'error'] }], // 変数シャドウ（e/err/error は許容）
       'prefer-const': 'warn',                  // 再代入されない let を const に（挙動不変の品質指摘）
@@ -179,7 +185,10 @@ export default [
   // 旧 .eslintrc.json の overrides[{ files:["main.js"] }] を移植。
   // main.js は本番 SPA 本体かつ DO-NOT-EDIT の AIDK kernel を含むため、
   // 純粋に整形目的の no-var / curly を「一括 error で機械修正させない」よう
-  // warn（ADVISORY）に降格する。bug-catching ルールは error のまま全適用される。
+  // warn（ADVISORY）に降格する。bug-catching ルールは原則 error のまま全適用するが、
+  // no-setter-return だけは off にする: §3 保護領域の innerHTML interceptor が
+  // `return _nativeSetter.call(this, raw)` を early-exit に使う正当パターンで（setter 戻り値は
+  // 無視されるため機能的に無害・凍結ゆえ改変不可）、leaf モジュールでは error のまま実バグを捕捉する。
   // ※ flat config の files は対象“限定”ではなく“この設定ブロックを適用する対象”の
   //   指定であり、後勝ちでマージされる。旧 eslintrc の files:["main.js"] は
   //   実行時の cwd 相対で main.js にマッチしていたため、ここでは "**/main.js" と
@@ -190,6 +199,7 @@ export default [
     rules: {
       'no-var': 'warn',
       curly: ['warn', 'all'],
+      'no-setter-return': 'off', // 凍結 innerHTML interceptor の early-exit return を許容（上記理由）
     },
   },
 ];
