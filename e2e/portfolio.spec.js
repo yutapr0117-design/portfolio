@@ -1718,6 +1718,18 @@ test('Pomodoro mode switch resets and updates the timer display', async ({ page 
   await expect(timer).not.toHaveText(initial);
 });
 
+// ===== 7.2: ポモドーロ 長休憩モード (3 つ目の mode 分岐 / settings.long duration) =====
+// switchMode('long-break') は getDuration で settings.long(既定 15)*60 を remaining にセットする。
+// mode-switch テストは短休憩のみで、長休憩は distinct な 3 つ目の mode 分岐として未カバーだった。
+// 「長休憩」クリックで表示が既定の長休憩 duration 15:00 になることを検証する。
+test('Pomodoro long-break mode sets the long-break duration', async ({ page }) => {
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+
+  await page.getByRole('button', { name: '長休憩', exact: true }).click();
+  await expect(page.locator('.font-mono.text-stat').first()).toHaveText('15:00');
+});
+
 // ===== 7.2: ポモドーロの開始→カウントダウン→一時停止 Behavior Check (page.clock で決定的) =====
 // timer は endAtMs (Date.now() ベース) で remaining を算出する。page.clock で時刻を決定的に進め、
 // 開始でカウントダウンが進み、一時停止で停止することを flaky なしに検証する (mode 切替テストが
