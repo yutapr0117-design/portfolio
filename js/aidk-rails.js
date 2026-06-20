@@ -20,6 +20,11 @@
  *   - CONSTANTS: js/constants.js (特に DEBUG / TAB_ID)
  *   - applyMeta: js/meta-management.js factory instance ({ applyMeta })
  *   - h, createIcon: js/ui-components.js (DiagnosticsRail の表示部で使う)
+ *   - Theme: js/theme.js factory instance (ActionDelegator の 'theme:cycle' で Theme.cycle())
+ *   - BGM: js/ui-components.js (ActionDelegator の 'bgm:toggle' で BGM.toggle())
+ *   - secureExternalLinks: js/mobile-drawer.js (EffectRails が render 後に外部リンクを安全化)
+ *   - openDrawer, closeDrawer: js/mobile-drawer.js
+ *     (ActionDelegator の 'drawer:open' / 'drawer:close')
  *
  * 【相互依存の順序（評価時 binding が undefined でも runtime 呼び出し時には全 Rail 解決済み）】
  *   1. RouteState 定義: Proxy.set 内で BindingRegistry / EffectRails を参照するが、
