@@ -586,9 +586,11 @@ authoritative inventory and is kept in sync with the implementation below):
        dev server (pre-edit state) and pass green while the committed files are broken — a
        false-green vector. This Check asserts `reuseExistingServer: false` and rejects `: true`. (BLOCKING)
   117. playwright.config.cjs screenshot tolerance sanity ceiling: `toHaveScreenshot`'s
-       `maxDiffPixelRatio` must stay <= 0.05. The screenshot regression test is the §3 baseline
-       safety gate; silently loosening the tolerance (e.g. 0.5) would let real visual regressions
-       pass. This Check caps the tolerance so the gate cannot be gutted by a config tweak. (BLOCKING)
+       `maxDiffPixelRatio` must stay <= 0.05. Per Session Record #20 §3(B) the screenshot
+       regression test is now ADVISORY (non-blocking observation), not the merge gate — but the
+       tolerance ceiling still matters so the advisory OBSERVATION stays meaningful: loosening it
+       (e.g. 0.5) would make the observation blind to real visual drift. This Check caps the
+       tolerance so the visual-regression signal cannot be gutted by a config tweak. (BLOCKING)
   118. PAGE_META route coverage: every shipped route in e2e ALL_ROUTES (normalized, the curated
        shipped-route authority tied to main.js by Check 58) must have a PAGE_META entry in
        js/page-meta.js. A route missing from PAGE_META makes applyMeta early-return, so that

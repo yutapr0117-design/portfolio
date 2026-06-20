@@ -64,8 +64,19 @@ jobs:
           npm ci
           npx playwright install --with-deps chromium
 
-      - name: Run Playwright tests
-        run: npx playwright test --config=playwright.config.cjs --reporter=list
+      # Behavior / functionality tests are the BLOCKING gate. Per Session Record #20 the
+      # repository (not the rendered site) is the portfolio; the site is an appendage whose
+      # functionality (loads / displays / comprehensible) must be protected, but pixel-level
+      # visual regressions are acceptable. So functionality e2e blocks merges …
+      - name: Run behavior / functionality tests (BLOCKING gate)
+        run: npx playwright test --config=playwright.config.cjs --grep-invert "screenshot regression" --reporter=list
+
+      # … and the homepage pixel screenshot is ADVISORY (observed, never blocking). An intentional
+      # visual change makes this step red until the baseline is regenerated via the human-merged
+      # update-playwright-snapshots.yml path — that red is expected and does NOT gate merges.
+      - name: Run visual regression (ADVISORY — non-blocking, see Session Record #20 §3(B))
+        continue-on-error: true
+        run: npx playwright test --config=playwright.config.cjs --grep "screenshot regression" --reporter=list
 
       - name: Upload test results
         if: always()
