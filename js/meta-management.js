@@ -149,12 +149,16 @@ export function createMetaManagement({ SITE_CONFIG, AUTHOR, PAGE_META, Router, S
 
         // § SpeakableSpecification 動的更新 — ルートコンテキストをAI音声アシスタント向けに最適化
         // メインの@graphスクリプトを書き換えずに、ルート固有のSpeakableを別スクリプトで管理する
+        // [FIX] Speakable cssSelector は実在要素を指す必要がある (AI 音声アシスタント向け AIO 精度)。
+        // home: hero headline/tagline は既に [data-speakable] が拾うため、実体の無い .hero-tagline /
+        //   .core-thesis (dead selector) を除去。role-split: 表は id='role-split-table' なので class
+        //   selector .role-split-table を #role-split-table へ修正。'services' は対応 route が無い
+        //   dead key なので削除。
         const SPEAKABLE_SELECTORS = {
-            'home':        ['.hero-tagline', '.core-thesis', 'h1', '[data-speakable]', '.sr-only[data-ai-entity]'],
-            'role-split':  ['h1', '.role-split-table', '[data-speakable]', '.sr-only'],
+            'home':        ['h1', '[data-speakable]', '.sr-only[data-ai-entity]'],
+            'role-split':  ['h1', '#role-split-table', '[data-speakable]', '.sr-only'],
             'ai-knowhow':  ['h1', '.ai-summary-block', '[data-speakable]', '.sr-only'],
             'about':       ['h1', '[data-speakable]', '.sr-only'],
-            'services':    ['h1', '[data-speakable]', '.sr-only'],
         };
         const cssSel = SPEAKABLE_SELECTORS[routeName] || ['h1', '[data-speakable]', '.sr-only'];
         const speakableData = {
