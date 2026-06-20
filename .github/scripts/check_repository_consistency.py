@@ -571,8 +571,13 @@ authoritative inventory and is kept in sync with the implementation below):
        `'unsafe-inline'` or `'unsafe-eval'` (which would defeat the XSS protection — the site
        authorizes inline scripts/handlers via sha256 hashes + `'unsafe-hashes'`, not blanket
        unsafe-inline), AND must retain `default-src 'self'`, `object-src 'none'`, `base-uri
-       'self'`. Guards against silent CSP weakening (a high-impact security regression class,
-       the runtime-policy counterpart of Check 7's position/hash checks). (BLOCKING)
+       'self'`, plus the Trusted Types pair `require-trusted-types-for 'script'` and
+       `trusted-types default`. The Trusted Types directives pair with main.js's
+       `trustedTypes.createPolicy('default')` (Check 43c): dropping require-trusted-types-for
+       un-enforces the innerHTML interceptor's fail-closed XSS block, and removing 'default' from
+       trusted-types makes createPolicy('default') CSP-blocked (app fails to boot). Guards against
+       silent CSP weakening (a high-impact security regression class, the runtime-policy
+       counterpart of Check 7's position/hash checks). (BLOCKING)
   116. playwright.config.cjs reuseExistingServer=false: the Playwright webServer must NOT
        reuse an existing server. If flipped to true, CI/local could test a stale already-running
        dev server (pre-edit state) and pass green while the committed files are broken — a
@@ -4459,6 +4464,12 @@ else:
 # 防御を無効化する高影響のセキュリティ退行。本サイトは inline を sha256 hash + 'unsafe-hashes' で
 # 許可しており blanket 'unsafe-inline' は使わない。CSP meta の content を抽出し、危険トークン不在 +
 # 必須 directive 存在を BLOCKING で機械強制する (Check 7 の position/hash に対する runtime-policy 面)。
+# 必須 directive には Trusted Types の 2 つ (require-trusted-types-for 'script' / trusted-types default)
+# を含む: これらは main.js の trustedTypes.createPolicy('default') (Check 43c が存在を強制) と「対に
+# なって機能する」security 不変条件で、(a) require-trusted-types-for が消えると innerHTML interceptor の
+# fail-closed 保護がブラウザ非強制化して XSS 防御が弱体化し、(b) trusted-types の許可名から 'default' が
+# 外れると createPolicy('default') が CSP にブロックされ app 自体が起動失敗する。main.js 側 (43c) のみ
+# 強制し CSP 側を放置すると pairing が片肺になるため、ここで CSP 側も BLOCKING で固定する。
 _csp_m115 = re.search(r'http-equiv="Content-Security-Policy"\s+content="(.*?)"', html, re.DOTALL)
 if _csp_m115:
     _csp115 = _csp_m115.group(1)
@@ -4467,7 +4478,10 @@ if _csp_m115:
         _problems115.append("'unsafe-inline' が存在 (XSS 防御を無効化)")
     if "'unsafe-eval'" in _csp115:
         _problems115.append("'unsafe-eval' が存在")
-    for _req115 in ["default-src 'self'", "object-src 'none'", "base-uri 'self'"]:
+    for _req115 in [
+        "default-src 'self'", "object-src 'none'", "base-uri 'self'",
+        "require-trusted-types-for 'script'", "trusted-types default",
+    ]:
         if _req115 not in _csp115:
             _problems115.append(f"必須 directive 欠落: {_req115}")
     check(
