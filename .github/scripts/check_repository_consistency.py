@@ -571,8 +571,11 @@ authoritative inventory and is kept in sync with the implementation below):
        `'unsafe-inline'` or `'unsafe-eval'` (which would defeat the XSS protection — the site
        authorizes inline scripts/handlers via sha256 hashes + `'unsafe-hashes'`, not blanket
        unsafe-inline), AND must retain `default-src 'self'`, `object-src 'none'`, `base-uri
-       'self'`, plus the Trusted Types pair `require-trusted-types-for 'script'` and
-       `trusted-types default`. The Trusted Types directives pair with main.js's
+       'self'`, the Trusted Types pair `require-trusted-types-for 'script'` and
+       `trusted-types default`, plus `form-action 'none'` (no HTML forms exist; blocks form
+       exfiltration) and `upgrade-insecure-requests` (blocks HTTP downgrade / mixed content) —
+       both have zero legitimate-removal scenario so they belong in the anti-weakening baseline.
+       The Trusted Types directives pair with main.js's
        `trustedTypes.createPolicy('default')` (Check 43c): dropping require-trusted-types-for
        un-enforces the innerHTML interceptor's fail-closed XSS block, and removing 'default' from
        trusted-types makes createPolicy('default') CSP-blocked (app fails to boot). Guards against
@@ -4470,6 +4473,9 @@ else:
 # fail-closed 保護がブラウザ非強制化して XSS 防御が弱体化し、(b) trusted-types の許可名から 'default' が
 # 外れると createPolicy('default') が CSP にブロックされ app 自体が起動失敗する。main.js 側 (43c) のみ
 # 強制し CSP 側を放置すると pairing が片肺になるため、ここで CSP 側も BLOCKING で固定する。
+# さらに form-action 'none' (本サイトに HTML form は無く明示ブロック=フォーム exfiltration 遮断) と
+# upgrade-insecure-requests (HTTP downgrade / mixed-content 遮断) も必須化する: いずれも除去が常に
+# security weakening でゼロ legitimate-removal シナリオのため anti-weakening baseline に含める。
 _csp_m115 = re.search(r'http-equiv="Content-Security-Policy"\s+content="(.*?)"', html, re.DOTALL)
 if _csp_m115:
     _csp115 = _csp_m115.group(1)
@@ -4481,6 +4487,7 @@ if _csp_m115:
     for _req115 in [
         "default-src 'self'", "object-src 'none'", "base-uri 'self'",
         "require-trusted-types-for 'script'", "trusted-types default",
+        "form-action 'none'", "upgrade-insecure-requests",
     ]:
         if _req115 not in _csp115:
             _problems115.append(f"必須 directive 欠落: {_req115}")
