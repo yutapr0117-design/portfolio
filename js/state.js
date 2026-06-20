@@ -1,5 +1,5 @@
 /**
- * js/state.js — UI/data state manager (Proxy-wrapped, subscriber-pattern, cross-tab sync)
+ * js/state.js — UI/data state manager (clone-on-update isolation, subscriber-pattern, cross-tab sync)
  * (v80+ Stage 5-h extraction via factory pattern)
  *
  * main.js の `State` IIFE モジュールを依存注入（factory pattern）で物理分割した葉モジュール。
@@ -17,11 +17,12 @@
  *   - Toast: { show(message, type?, durationMs?) }
  *
  * 【非破壊性】
- *   - Proxy 型安全モニターの挙動・Type-guard の判定基準は不変
+ *   - update() の clone-on-write（commonly-mutated ブランチを深くクローン）+ DEBUG 時の
+ *     deep-freeze による状態隔離の挙動は不変
  *   - subscriber 配列の add/remove と notify の順序も不変
  *   - localStorage への save debounce (CONSTANTS.DEBOUNCE_DELAY) と visibilitychange での
  *     saveNow / cross-tab storage event handling も不変
- *   - 既存テスト（Playwright spec の 5-layer proxy / context override 等）が緑のまま
+ *   - 既存の Playwright behavior テスト（state 永続・cross-tab・schema-mismatch 等）が緑のまま
  *
  * 【副作用（既存挙動と等価）】
  *   - module load 時に document.addEventListener('visibilitychange', ...) と
@@ -30,57 +31,6 @@
  *     ガラの即時評価 ≈ 元の IIFE 即時実行）
  */
 export function createState({ CONSTANTS, Store, Storage, Toast }) {
-    // 改善文書b 8.1 / 改善文書a 3.3: Proxy型安全モニター
-    // appsData内のプリミティブ値への型不一致代入を検知・拒否し、
-    // 状態変更時にカスタムイベントを自動発火して再描画漏れを防ぐ。
-    // 既存のState.update() API・データ構造には一切変更を加えない（非破壊）。
-    function _wrapWithProxy(obj, path) {
-        if (!obj || typeof obj !== 'object') { return obj; }
-        return new Proxy(obj, {
-            get(target, prop) {
-                if (
-                    typeof prop === 'string' &&
-                    !(prop in target) &&
-                    prop !== 'then' && prop !== 'toJSON' && prop !== Symbol.toPrimitive
-                ) {
-                    if (CONSTANTS.DEBUG) {
-                        console.warn('[State Proxy] Undefined key accessed: "' + path + '.' + prop + '"');
-                    }
-                }
-                const val = Reflect.get(target, prop);
-                if (val && typeof val === 'object' && !Array.isArray(val)) {
-                    return _wrapWithProxy(val, path + '.' + String(prop));
-                }
-                return val;
-            },
-            set(target, prop, value) {
-                const existing = target[prop];
-                // Type guard: only applies to non-null primitives
-                if (
-                    existing !== undefined && existing !== null &&
-                    value !== undefined && value !== null &&
-                    typeof existing !== typeof value &&
-                    typeof existing !== 'object'
-                ) {
-                    console.error(
-                        '[State Proxy] Blocked type mismatch at "' + path + '.' + String(prop) +
-                        '": expected ' + typeof existing + ', got ' + typeof value
-                    );
-                    return false;
-                }
-                const ok = Reflect.set(target, prop, value);
-                if (ok && typeof prop === 'string') {
-                    try {
-                        window.dispatchEvent(new CustomEvent('appStateChanged', {
-                            detail: { path: path + '.' + prop, value }
-                        }));
-                    } catch { /* non-fatal */ }
-                }
-                return ok;
-            }
-        });
-    }
-
     let data = Store.load();
     let saveTimer = null;
     let callbacks = [];
