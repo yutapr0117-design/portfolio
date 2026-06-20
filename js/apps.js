@@ -783,14 +783,19 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                         if (settingsIncludeProfile && parsed.profile) {s.profile = parsed.profile;}
                         if (settingsIncludeProjects && Array.isArray(parsed.projects)) {
                             if (settingsImportMode === 'strict') {s.projects = parsed.projects;}
-                            else {
-                                // 既存プロジェクトのマップ作成
-                                const existingMap = new Map(s.projects.map(p => [p.id, p]));
-                                parsed.projects.forEach(p => {
-                                    if (!existingMap.has(p.id)) {s.projects.push(p);}
-                                    else if (settingsImportMode === 'upsert') {existingMap.set(p.id, p);}
-                                });
-                                if (settingsImportMode === 'upsert') {s.projects = Array.from(existingMap.values());}
+                            else if (settingsImportMode === 'upsert') {
+                                // upsert（UI ラベル「更新+追加」）: 既存 id は更新、未知 id は追加。
+                                // [FIX] 旧実装は未知 id を s.projects.push したのち Map.values() で
+                                // 上書きしており、push した新規プロジェクトが破棄されていた
+                                // (UI が約束する「追加」が機能しないデータ欠落バグ)。1 つの Map に
+                                // 更新も追加も集約することで新規 id も確実に残す。
+                                const map = new Map(s.projects.map(p => [p.id, p]));
+                                parsed.projects.forEach(p => map.set(p.id, p));
+                                s.projects = Array.from(map.values());
+                            } else {
+                                // append（追加のみ）: 未知 id だけ追加し、既存は変更しない。
+                                const existing = new Set(s.projects.map(p => p.id));
+                                parsed.projects.forEach(p => { if (!existing.has(p.id)) {s.projects.push(p);} });
                             }
                         }
                         if (settingsIncludeApps && parsed.appsData) {s.appsData = parsed.appsData;}
