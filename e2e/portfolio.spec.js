@@ -1725,6 +1725,28 @@ test('AI assist shows a loading state then resolves (deterministic clock)', asyn
   await expect(page.getByText('[AI分析:').first()).toBeVisible();
 });
 
+// ===== 7.2: Toast の自動消滅ライフサイクル (duration 経過で消える) =====
+// Toast.show は duration(既定 3000ms) 後に remove() を呼び、さらに 300ms のアニメ後に DOM から
+// 除去する (ui-components.js)。toast が表示される検証は多数あるが「時間経過で自動消滅する」
+// ライフサイクルは未カバーだった (消えないと toast が画面に積み上がる UX バグ)。fake clock で
+// duration+アニメ経過後に toast が消えることを決定的に検証する。
+test('Toast auto-dismisses after its duration (deterministic clock)', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+
+  // タスク追加で success toast を発火
+  const input = page.locator('#task-input');
+  await input.fill('TOAST-DISMISS-TASK-9501');
+  await input.press('Enter');
+  const toast = page.locator('#toast-container').getByText('タスクを追加しました');
+  await expect(toast).toBeVisible();
+
+  // duration(3000) + remove アニメ(300) を超えて進める → 自動消滅
+  await page.clock.fastForward(3500);
+  await expect(toast).toHaveCount(0);
+});
+
 // ===== 7.2: AI 入力の IME composition ガード (日本語入力の誤送信防止) =====
 // ai-input の Enter ハンドラは e.isComposing をチェックせず、日本語入力で IME 変換確定の Enter が
 // 未確定テキストを誤って submit していた (task と同クラスの実バグ)。修正で `!e.isComposing` ガードを
