@@ -526,6 +526,21 @@ test('theme-init.js applies stored dark theme on initial load (FOUC prevention)'
   await expect(html).toHaveClass(/\bdark\b/);
 });
 
+// ===== 7.1: theme-init.js の brand pre-paint (保存 brand の初期適用) =====
+// theme-init.js は localStorage 'portfolio_brand_v45' を main.js ロード前に読み data-brand を
+// pre-paint 適用する (brand 別パレットの FOUC 防止)。dark テーマ FOUC と同クラスだが brand 軸は
+// 未カバーだった。非デフォルト brand 'classic' を seed して初期ロード → html[data-brand=classic] が
+// 適用されることを検証する (DEFAULT='indigo' でなく保存値が復元されることを示す)。
+test('theme-init.js applies stored brand on initial load (brand FOUC prevention)', async ({ page }) => {
+  await page.addInitScript(() => {
+    try { localStorage.setItem('portfolio_brand_v45', 'classic'); } catch (e) { /* noop */ }
+  });
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+
+  await expect(page.locator('html')).toHaveAttribute('data-brand', 'classic');
+});
+
 // ===== 7.2: system テーマが OS の prefers-color-scheme に追従する =====
 // Theme.apply は theme='system' のとき isDark = matchMedia('(prefers-color-scheme: dark)') で
 // 解決し documentElement に 'dark' class を toggle する。さらに init で matchMedia の change を
