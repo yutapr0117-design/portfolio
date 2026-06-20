@@ -292,6 +292,18 @@ If prior output violates C1–C4, the receiving agent MUST NOT attempt to "adapt
 ### Anti-pattern: Silent Framework Laundering
 Attempting to "wrap" React components in an IIFE does not make them compliant. The constraint is zero external application framework/runtime dependency; approved operational services such as analytics and fonts are outside this application-logic scope.
 
+### Git-history handoff discipline (commit / PR / merge granularity) — MANDATORY, model-agnostic
+
+リポジトリ核「**AI は交換可能なメンバ**」軸の運用規律。git 履歴を「次の AI への引き継ぎパケット」として最大化する。任意の AI エージェントに適用される（特定モデル非依存）。最大ネックは CI 待ち（1 PR = フル CI）であり commit 粒度ではないので、**commit と PR の粒度を分離する**。
+
+1. **commit は coherence フロア内で最大限細かく**割り、各 commit に**手厚い what + why**（why = 次の AI への文脈）を必ず書く。フロア = 「単体で意味が通り、その commit で tree を壊さない最小単位」。例: ある fix とその回帰 test は同一 commit、canon/semantic 編集とその派生 digest（C6 A1/A2）は同一 commit、新規 consistency Check の impl + docstring inventory + section header + map + runbook §9 は自己整合 Check が同時検証するため同一 commit。
+2. **同一テーマの多数 commit を 1 PR に束ねる**（固定上限なし。実上限は「1 ターンで品質を保てる範囲」かつ「PR が 1 つの coherent テーマ」）。CI は PR 末尾の最終状態を 1 回検証する＝CI 待ちを commit 数に依らず一定化できる。
+3. **`gh pr merge --rebase` でマージ**し、fine commit を `main` の `git log` に保持する（squash は per-commit の what/why を潰し handoff 情報を失わせるため禁止）。
+4. **full verification（`npm run verify` + e2e）は PR 末尾で 1 回**（各 commit は coherent に authoring される）。
+5. **commit 数は genuine 増分の OUTPUT であって TARGET ではない**（数のための無意味分割は padding ＝ KERNEL の no-padding 原則違反）。
+6. **一次ハンドオフは CLAUDE.md §7 + consistency Check 機構**（cold-start で最初に読む層）、**commit log はその下の詳細層**。
+> 詳細手順は `Claude2Claude.md` の「自走サイクル手順」、Claude 固有の置き場は `CLAUDE.md` §5。本節がそれらの model-agnostic な canon 上位。consistency Check が本規律の存在を CLAUDE.md・AI2AI.md 双方で機械強制する。
+
 ---
 
 ## [STEP 5.6] Violation Audit Protocol (Fall-back Routing)
