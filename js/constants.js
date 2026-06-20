@@ -79,9 +79,8 @@ export const CONSTANTS = {
     SAVE_INTERVAL: 30000,      // ms — auto-save interval
     POMODORO_LOCK_TTL: 8000,   // ms — pomodoro cross-tab lock TTL
 
-    // Layout — must stay in sync with CSS --topbar-height variable
-    TOPBAR_HEIGHT_PX: 64,      // px — fixed topbar height (v65)
-    MOBILE_BREAKPOINT: 920,    // px — sidebar → drawer breakpoint
+    // Layout
+    MOBILE_BREAKPOINT: 920,    // px — sidebar → drawer breakpoint（matchMedia で js/mobile-drawer.js が参照）
 
     // Dev flag (used for stricter guards)
     DEBUG: (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || new URLSearchParams(location.search).has('debug')),
