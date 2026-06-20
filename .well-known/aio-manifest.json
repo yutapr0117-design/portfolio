@@ -38,17 +38,17 @@
     {
       "path": "AI2AI.md",
       "role": "AI-to-AI implementation handoff",
-      "sha256": "1a00ca1ad1667a715817856a3b89b539582c0d76516c1dbaf506c744d947cc18"
+      "sha256": "e571b963c1e45c3937be8e32c97a9ea6fef8705cec6b3bd303f0c7bfa74ecefe"
     },
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
       "role": "AIO image asset with XMP metadata",
-      "sha256": "e9672ecc30637e07edc1058ba8996a284a54aa5cf6413d9b0c78b626039ff8a1"
+      "sha256": "d677bcd913fdd146a767c58d39ae7a7723e4a5186d45bb09a9f8cc3137996885"
     },
     {
       "path": "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3",
       "role": "AIO audio asset with ID3 metadata",
-      "sha256": "8015b837eb6fd0f5cc9d40cb22839b669183c2564108618459c612ae98b104d8"
+      "sha256": "9d4787e64dcc5ab81b43220e85fd010ffacf539b0b40bf53d0ed64b7888249b8"
     }
   ],
   "supporting_evidence": [
@@ -56,7 +56,7 @@
       "path": "Claude2Claude.md",
       "role": "Tool-specific AI-only implementation continuity evidence; non-canonical and subordinate to AI2AI.md.",
       "canonical": false,
-      "sha256": "f021d523df2f0f7f161d723a8c3b05a61efb1b103932eba218d694f3126664c1"
+      "sha256": "fe309e5d68bda0c4b39229a70816bf6c96cc627310f38f851245a6bbfd13e1e5"
     },
     {
       "path": "docs/evidence/ai-pioneer-identity-review.md",
@@ -76,7 +76,7 @@
       "sha256": "992380886bbfc56c23f29cccc6200587b2a14b2d7719eb47609aea5fb6af5704"
     }
   ],
-  "generated_at": "2026-06-20T04:42:15Z",
+  "generated_at": "2026-06-20T12:47:53Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
@@ -86,5 +86,5 @@
       "sha256": "803da683ebb03476db16aae40395c7356ce574d77a815ec1e47b2c7f54e2d3d5"
     }
   ],
-  "last_metadata_update": "2026-06-20T04:42:15Z"
+  "last_metadata_update": "2026-06-20T12:47:53Z"
 }
