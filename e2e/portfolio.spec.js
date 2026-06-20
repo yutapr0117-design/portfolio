@@ -1118,6 +1118,29 @@ test('Todo input ignores Enter during IME composition (compositionstart flag)', 
 // active→未完了のみ / completed→完了のみ / all→全件、と分岐する。既存 TODO テストは add/toggle/
 // clear を見るがこの 3 値フィルタ分岐は未カバーだった。2 件追加→1 件完了→各フィルタで表示集合が
 // 切り替わることを実検証する (フィルタ条件が壊れたら退行検知)。
+// ===== 7.2: TODO「完了済み削除」ボタンの disabled 状態 (完了 0 件で無効 → 完了化で有効) =====
+// clearCompleted ボタンは `disabled: !todos.some(t => t.completed)` で、完了 TODO が 1 件も無いとき
+// 無効・1 件でも完了すると有効になる。filter/flow テストはあるがこの disabled binding は未カバー
+// だった。active な TODO 追加直後は無効、checkbox で完了にすると有効になることを検証する。
+test('Todo clear-completed button is disabled until a todo is completed', async ({ page }) => {
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+
+  const input = page.locator('#todo-input');
+  await expect(input).toBeVisible();
+  await input.fill('CLEAR-DISABLED-TODO-9301');
+  await input.press('Enter');
+  const item = page.locator('article', { hasText: 'CLEAR-DISABLED-TODO-9301' });
+  await expect(item).toBeVisible();
+
+  const clearBtn = page.getByRole('button', { name: '完了済み削除' });
+  // 完了 0 件 → 無効
+  await expect(clearBtn).toBeDisabled();
+  // 完了にすると有効
+  await item.locator('input[type="checkbox"]').check();
+  await expect(clearBtn).toBeEnabled();
+});
+
 test('Todo filter switches the visible set by active/completed/all', async ({ page }) => {
   await page.goto('/#/apps/todo');
   await page.waitForLoadState('domcontentloaded');
