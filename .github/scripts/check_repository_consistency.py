@@ -552,11 +552,11 @@ authoritative inventory and is kept in sync with the implementation below):
        submits the unconfirmed text (the footgun fixed for task in PR #151 and ai in PR #152;
        todo already had the guard). This Check blocks reintroduction of the IME premature-submit
        class by requiring "Composing" to appear on any line testing for the Enter key. (BLOCKING)
-  113. CLAUDE.md commit/PR handoff discipline presence: CLAUDE.md §5 must retain the
-       "AI2AI handoff-first commit/PR discipline" (fine commits with rich what+why,
-       theme-batched PRs, `gh pr merge --rebase`, commit-count-is-output-not-target). This
-       discipline is the repo's "interchangeable AI member" handoff rule; this Check enforces
-       its presence by markers so it cannot silently drift out of the turn-1 router. (BLOCKING)
+  113. commit/PR handoff discipline presence in canon: BOTH the model-agnostic canon
+       AI2AI.md (STEP 5.5) AND the Claude router CLAUDE.md (§5) must retain the handoff-first
+       commit/PR discipline (theme-batched PRs, `gh pr merge --rebase`, commit-count-is-output-
+       not-target). The owner adopted this as a repo-core rule; this Check enforces the rebase +
+       no-padding markers in both docs so it cannot silently drift out of either. (BLOCKING)
   114. e2e no-`.only` guard: e2e/portfolio.spec.js must contain no `test.only` /
        `describe.only` / `test.describe.only`. A stray `.only` makes Playwright run ONLY that
        test and silently skip every other test, so CI passes green while the suite is gutted
@@ -4386,28 +4386,32 @@ if _apps112.exists():
 else:
     check(False, "", "Check 112: js/apps.js not found — IME composition guard を検証できない", blocking=True)
 
-# ── 113. CLAUDE.md commit/PR handoff discipline presence (BLOCKING) ────────────
-# 「AI は交換可能なメンバ」軸の核 = AI→AI 引き継ぎ。CLAUDE.md §5 の「AI2AI handoff-first commit/PR
-# 規律」(fine commit ×厚い what+why ×テーマ束ね PR ×rebase-merge ×commit 数は OUTPUT) は turn-1
-# router に置かれた永続ルールであり、silent に消えると新 AI が squash や粗い commit に退行して
-# handoff 情報が失われる。マーカー存在で機械強制し drift を防ぐ。
-_claudemd113 = ROOT / "CLAUDE.md"
-if _claudemd113.exists():
-    _src113 = _claudemd113.read_text(encoding="utf-8")
-    _markers113 = [
-        "handoff-first commit/PR",   # 規律見出し
-        "gh pr merge --rebase",       # commit を main に保持する merge 方式
-        "OUTPUT であって TARGET",      # padding 禁止条項 (数を目的化しない)
-    ]
-    _missing113 = [m for m in _markers113 if m not in _src113]
-    check(
-        not _missing113,
-        "Check 113: CLAUDE.md §5 が AI2AI handoff-first commit/PR 規律を保持している",
-        f"Check 113: CLAUDE.md から commit/PR 規律のマーカーが欠落: {_missing113} — §5 の規律を復元せよ",
-        blocking=True,
-    )
-else:
-    check(False, "", "Check 113: CLAUDE.md not found — commit/PR handoff discipline presence を検証できない", blocking=True)
+# ── 113. commit/PR handoff discipline presence in canon (BLOCKING) ────────────
+# 「AI は交換可能なメンバ」軸の核 = AI→AI 引き継ぎ。commit/PR 規律 (fine commit ×厚い what+why ×
+# テーマ束ね PR ×rebase-merge ×commit 数は OUTPUT) はオーナーが「リポジトリの核」として正式採用し、
+# model-agnostic 正典 AI2AI.md (STEP 5.5) と Claude 固有 router CLAUDE.md (§5) の双方に置かれる永続
+# ルール。どちらかから silent に消えると新 AI が squash/粗 commit に退行し handoff 情報が失われるため、
+# 両ドキュメントに rebase + no-padding 条項のマーカーが存在することを機械強制し drift を防ぐ。
+_disc113_files = [("CLAUDE.md", ROOT / "CLAUDE.md"), ("AI2AI.md", ROOT / "AI2AI.md")]
+_markers113 = [
+    "gh pr merge --rebase",   # commit を main に保持する merge 方式
+    "OUTPUT であって TARGET",   # padding 禁止条項 (数を目的化しない)
+]
+_miss113 = []
+for _label113, _path113 in _disc113_files:
+    if not _path113.exists():
+        _miss113.append(f"{_label113}:NOTFOUND")
+        continue
+    _src113 = _path113.read_text(encoding="utf-8")
+    for _m113 in _markers113:
+        if _m113 not in _src113:
+            _miss113.append(f"{_label113}:{_m113}")
+check(
+    not _miss113,
+    "Check 113: CLAUDE.md と AI2AI.md の双方が handoff-first commit/PR 規律 (rebase + no-padding) を保持",
+    f"Check 113: commit/PR 規律マーカー欠落: {_miss113} — CLAUDE.md §5 / AI2AI.md STEP 5.5 の規律を復元せよ",
+    blocking=True,
+)
 
 # ── 114. e2e no-`.only` guard (BLOCKING) ──────────────────────────────────────
 # Playwright で test.only / describe.only が 1 つでも残ると、その test だけが走り他は全 skip され、
