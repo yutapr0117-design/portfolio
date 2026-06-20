@@ -415,6 +415,32 @@ test('Project card navigates to detail and back (browse journey)', async ({ page
   expect(fatal, `back navigation caused a fatal: ${fatal}`).toBeNull();
 });
 
+// ===== 7.2: project detail「おすすめ（自動）」からの遷移 (autoRelatedCandidates 実行) =====
+// ProjectDetailPage は Store.autoRelatedCandidates(project, all, 8) の出力を「おすすめ（自動）」
+// セクションのボタン群として描画し、各ボタンが Router.navigate(projects/slug) で別詳細へ飛ぶ。
+// この類似度計算 → 実ナビの導線は未カバーだった。一覧→詳細へ入り、おすすめセクションの先頭ボタンが
+// 存在する (非 vacuous) ことを assert し、クリックで別 slug の詳細へ遷移 + fatal なしを検証する。
+test('Project detail "auto-recommended" card navigates to another project (autoRelated)', async ({ page }) => {
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByRole('button', { name: '詳細を見る' }).first().click();
+  await expect(page).toHaveURL(/#\/projects\/[^/]+$/);
+  const firstUrl = page.url();
+
+  // 「おすすめ（自動）」= autoRelatedCandidates 由来セクションの先頭ボタン (非 vacuous に存在を要求)
+  const recSection = page.locator('section.card').filter({ has: page.getByRole('heading', { name: 'おすすめ（自動）' }) });
+  const recBtn = recSection.getByRole('button').first();
+  await expect(recBtn).toBeVisible();
+
+  // クリック → 別 slug の詳細へ遷移
+  await recBtn.click();
+  await expect(page).toHaveURL(/#\/projects\/[^/]+$/);
+  expect(page.url(), 'must navigate to a different project').not.toBe(firstUrl);
+  await expect(page.getByRole('button', { name: '← 一覧に戻る' })).toBeVisible();
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `autoRelated navigation caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.1: モバイルビューポートでのCLS検証 =====
 test('No layout shift on mobile viewport', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
