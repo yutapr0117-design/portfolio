@@ -59,11 +59,9 @@ export function createPerfGuards() {
             _scheduleFlush();
         };
 
-        // style 直接プロパティへの代入は cssText 経由のバッチ化
-        // (プロパティ数が多い場合のみ活性化 — 単純スカラはネイティブ委譲)
-        const _origStyleSetter = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'style');
-        // NOTE: style は getter/setter の直接オーバーライドが制限されるため、
-        //       setProperty フック + DocumentFragment 戦略 (改善文書b 7.1) を主防衛とする。
+        // NOTE: style プロパティの直接代入 (el.style.x = …) は getter/setter の直接
+        //       オーバーライドが制限されるためフックしない。setProperty フック (上記) +
+        //       DocumentFragment 戦略 (改善文書b 7.1) を主防衛とする。
         // 追加: setAttribute('style', ...) フック
         const _origSetAttr = Element.prototype.setAttribute;
         Element.prototype.setAttribute = function(name, value) {
