@@ -796,6 +796,23 @@ test('Quiz contact form shows validation error on empty submit', async ({ page }
   expect(fatal, `quiz form validation caused a fatal: ${fatal}`).toBeNull();
 });
 
+// ===== 7.2: quiz pm / quality タイプのデータファイル描画カバレッジ =====
+// QUIZ_DATA_MAP は aws / pm / quality / architecture の 4 データファイルを引く。aws(default) と
+// architecture は被覆済みだが、pm(pmQuizData) / quality(qualityQuizData) はどのテストでも未訪問で
+// 0 カバレッジ = malformed でも未検知だった。?type= 経由で両者の title + question block 描画を検証し
+// 2 データファイルの renderability を守る (distinct data ゆえ非 padding)。
+test('Quiz pm and quality types render their data files', async ({ page }) => {
+  await page.goto('/#/quiz?type=pm');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('h1', { hasText: 'PM問題集' })).toBeVisible();
+  await expect(page.locator('.quiz-question-block').first()).toBeVisible();
+
+  await page.goto('/#/quiz?type=quality');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('h1', { hasText: '品質・プロセス問題集' })).toBeVisible();
+  await expect(page.locator('.quiz-question-block').first()).toBeVisible();
+});
+
 // ===== 7.2: タスク管理アプリの追加 + リロード永続化 Behavior Check =====
 // #/apps/task は #task-input に入力 → Enter で State.update 経由でタスクを追加し、
 // localStorage (State auto-save) へ永続化する。apps セクションは従来「ルートが描画される」
