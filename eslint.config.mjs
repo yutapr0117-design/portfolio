@@ -152,6 +152,22 @@ export default [
       'no-empty': ['error', { allowEmptyCatch: true }], // 空ブロック禁止（空 catch は許容）
       'no-unreachable': 'error',               // 到達不能コード検出
       radix: 'error',                          // parseInt は基数必須（"08"→0 / "0x" 誤解釈の footgun 除去）
+      // ── recommended 由来の bug-catching 追補（no-dupe-keys と同じ class を閉じる）──
+      // 本 config は EOL 移行の非破壊性維持のため eslint:recommended を「敢えて継承しない」
+      // 明示列挙方式を採る（冒頭 (1) 参照）。だがこの方針は「recommended にある純粋な
+      // bug-catching ルールが CI ゲートから漏れる」副作用を持ち、実際に no-dupe-keys 欠落で
+      // quiz-renderer.js の重複 class バグを取り逃した。そこで recommended の中でも「常に実バグ
+      // 兆候を表す（スタイル論ではない）」サブセットだけを選別して error 級で追補する。導入時点で
+      // 全対象ファイルに対し新規 error/warning は 0 件＝「0 errors / 56 warnings」の真値は不変
+      // （件数をずらさない・実測確認済み）。各ルールが捕捉する実バグ class:
+      'no-constant-binary-expression': 'error', // `!x === y` / `a || b ?? c` 等の優先順位・恒真比較事故
+      'use-isnan': 'error',                     // `x === NaN`（常に false。NaN 比較は Number.isNaN 必須）
+      'no-dupe-else-if': 'error',               // if/else-if の重複条件（2 つ目の分岐が永遠に死ぬ）
+      'no-self-compare': 'error',               // `x === x`（タイプミス兆候。NaN 検出意図なら use-isnan）
+      'no-self-assign': 'error',                // `x = x`（無意味代入＝タイプミス兆候）
+      'no-unsafe-negation': 'error',            // `!key in obj` / `!a instanceof B`（`!`の作用域誤り）
+      'no-compare-neg-zero': 'error',           // `x === -0`（=== は -0 と 0 を区別しない＝意図不達）
+      'no-async-promise-executor': 'error',     // `new Promise(async …)`（executor 内 reject が握り潰される）
       // ── style/quality（warn 級。advisory・CI を止めない）──
       'no-shadow': ['warn', { allow: ['e', 'err', 'error'] }], // 変数シャドウ（e/err/error は許容）
       'prefer-const': 'warn',                  // 再代入されない let を const に（挙動不変の品質指摘）
