@@ -1747,6 +1747,24 @@ test('Toast auto-dismisses after its duration (deterministic clock)', async ({ p
   await expect(toast).toHaveCount(0);
 });
 
+// ===== 7.2: アクションの sr-only aria-live 通知 (screen reader フィードバック・a11y) =====
+// Toast.show は視覚 toast に加え #action-announcement (sr-only, aria-live=assertive) にも message を
+// 書き込む。視覚 toast の検証は多数あるが、SR 利用者向け assertive 通知チャネルは未カバーだった。
+// 通知領域が assertive aria-live を持つこと + アクションでメッセージが announce されることを検証する。
+test('Actions announce to the assertive sr-only aria-live region (screen reader a11y)', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+
+  const live = page.locator('#action-announcement');
+  await expect(live).toHaveAttribute('aria-live', 'assertive');
+
+  // アクション (タスク追加) でメッセージが SR 通知領域に入る
+  const input = page.locator('#task-input');
+  await input.fill('SR-ANNOUNCE-TASK-9601');
+  await input.press('Enter');
+  await expect(live).toHaveText('タスクを追加しました');
+});
+
 // ===== 7.2: AI 入力の IME composition ガード (日本語入力の誤送信防止) =====
 // ai-input の Enter ハンドラは e.isComposing をチェックせず、日本語入力で IME 変換確定の Enter が
 // 未確定テキストを誤って submit していた (task と同クラスの実バグ)。修正で `!e.isComposing` ガードを
