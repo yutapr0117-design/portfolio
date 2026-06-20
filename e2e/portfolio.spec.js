@@ -460,6 +460,28 @@ test('Home featured project navigates to its detail page', async ({ page }) => {
   expect(fatal, `home featured nav caused a fatal: ${fatal}`).toBeNull();
 });
 
+// ===== 7.2: thesis ページの key 構造化コンテンツ presence (role-split 分担表) =====
+// role-split は本プロジェクトの中核命題「Human vs AI 役割分担」を #role-split-table (region,
+// aria-label='Human vs AI 詳細分担表') で提示する。route-render テストは「エラーなく描画」しか
+// 見ないため、ページは描画されるが分担表が欠落する退行を捕捉できなかった。table region が
+// 実際に描画されることを検証する。
+test('Role-split page renders the Human-vs-AI division table', async ({ page }) => {
+  await page.goto('/#/role-split');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#role-split-table')).toBeVisible();
+  await expect(page.locator('#role-split-table')).toHaveAttribute('aria-label', /Human vs AI/);
+});
+
+// ===== 7.2: thesis ページの key コンテンツ presence (hiring-risk lead) =====
+// hiring-risk は採用側リスク低減という命題を h1「採用リスク低減」(data-ai-content='lead') で
+// 提示する。route-render とは別に、この lead 見出しが描画されることを検証し、ページが空/別内容に
+// なる退行を捕捉する。
+test('Hiring-risk page renders its risk-reduction lead heading', async ({ page }) => {
+  await page.goto('/#/hiring-risk');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByRole('heading', { name: /採用リスク低減/ })).toBeVisible();
+});
+
 // ===== 7.1: モバイルビューポートでのCLS検証 =====
 test('No layout shift on mobile viewport', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
