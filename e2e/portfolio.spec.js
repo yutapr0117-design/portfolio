@@ -418,6 +418,30 @@ test('Projects search shows an empty state when nothing matches', async ({ page 
   await expect(page.locator('.grid-projects article.card')).toHaveCount(0);
 });
 
+// ===== 7.2: 検索の fill→絞り込み→clear→全件復帰 lifecycle =====
+// 既存テストは「0 件マッチ empty-state」(非マッチ語) と「タグクリック由来の絞り込み」は被覆するが、
+// 検索語を入れて部分集合に絞り → クリアで全件に戻る round-trip (getFilteredProjects の token あり/
+// なし分岐の往復) は未カバーだった。tokenizer のスコアリング詳細に依存しない robust 形 (絞込後 <
+// 全件 かつ >=1、クリア後 == 全件) で検証する。'ポモドーロ' は default では p03 のみが持つ語。
+test('Projects search filters to a subset then clears back to the full list', async ({ page }) => {
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+
+  const cards = page.locator('.grid-projects article.card');
+  const total = await cards.count();
+  expect(total, 'projects page should list multiple projects initially').toBeGreaterThan(1);
+
+  const search = page.locator('input[type="text"]').first();
+  await search.fill('ポモドーロ');
+  // 絞り込まれる: 全件未満かつ 1 件以上 (default では p03 のみ該当)
+  await expect.poll(async () => await cards.count()).toBeLessThan(total);
+  await expect(cards.first()).toBeVisible();
+
+  // クリアで全件復帰 (token なし分岐 → category 'All' の全件)
+  await search.fill('');
+  await expect(cards).toHaveCount(total);
+});
+
 // ===== 7.2: プロジェクトカードのタグクリックでフィルタ (#tag → 検索) =====
 // 各カードのタグ badge (`#tag` ボタン) クリックは q=tag / cat=All に設定し検索入力値も更新して
 // 再描画 + syncURL する (components.js)。category select / 検索入力フィルタとは別の「カードの
