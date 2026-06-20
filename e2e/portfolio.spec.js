@@ -398,6 +398,27 @@ test('Projects search shows an empty state when nothing matches', async ({ page 
   await expect(page.locator('.grid-projects article.card')).toHaveCount(0);
 });
 
+// ===== 7.2: プロジェクトカードのタグクリックでフィルタ (#tag → 検索) =====
+// 各カードのタグ badge (`#tag` ボタン) クリックは q=tag / cat=All に設定し検索入力値も更新して
+// 再描画 + syncURL する (components.js)。category select / 検索入力フィルタとは別の「カードの
+// タグから絞り込む」distinct な導線で未カバーだった。先頭タグをクリック → 検索入力にタグが入り
+// URL に q= が反映、結果 >=1 件、を実検証する。
+test('Clicking a project card tag filters projects by that tag', async ({ page }) => {
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+
+  const tagBtn = page.locator('.grid-projects button.badge').filter({ hasText: '#' }).first();
+  await expect(tagBtn).toBeVisible();
+  const tagText = (await tagBtn.textContent()).replace('#', '').trim();
+
+  await tagBtn.click();
+
+  // 検索入力にタグが入り、URL に q= 反映、絞り込み結果 >=1
+  await expect(page.locator('input[type="text"]').first()).toHaveValue(tagText);
+  await expect(page).toHaveURL(/[?&]q=/);
+  await expect(page.locator('.grid-projects article.card').first()).toBeVisible();
+});
+
 // ===== 7.2: プロジェクトのカテゴリフィルタ (件数絞り込み + URL ディープリンク) =====
 // ProjectsPage は select(aria-label='カテゴリフィルター') で cat を切替え、getFilteredProjects が
 // p.category===cat で絞り込み、syncURL が ?cat= を replaceSilently で URL に反映する (focus 喪失を
