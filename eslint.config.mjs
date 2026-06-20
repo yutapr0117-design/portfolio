@@ -140,6 +140,15 @@ export default [
       'no-script-url': 'error',                // javascript: URL 禁止
       'no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }],
       'no-duplicate-case': 'error',            // switch の重複 case 検出
+      // オブジェクトリテラルの重複キー検出。実バグ起点で追加した bug-catching ルール:
+      // js/quiz-renderer.js の h() 第 2 引数に `class` キーが 2 つあり、後勝ちで前者
+      // (`quiz-content-line[ is-label]`) が静かに捨てられ、quiz 本文行のスタイルとラベル
+      // 強調が一切描画されない死にコードになっていた。本ルール導入時点で当該バグは修正済みの
+      // ため新規 error は 0 件＝「0 errors / 56 warnings」の真値は不変（件数をずらさない）。
+      // 以降この class の事故（h() props の重複キー）を CI で BLOCKING 化する。存在は
+      // check_repository_consistency.py Check 50d が機械強制する（config からの silent な
+      // 削除＝保護の消失を pre-commit で検出）。
+      'no-dupe-keys': 'error',                 // オブジェクトリテラルの重複キー検出（h() props 事故防止）
       'no-empty': ['error', { allowEmptyCatch: true }], // 空ブロック禁止（空 catch は許容）
       'no-unreachable': 'error',               // 到達不能コード検出
       radix: 'error',                          // parseInt は基数必須（"08"→0 / "0x" 誤解釈の footgun 除去）

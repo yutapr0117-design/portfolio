@@ -172,9 +172,14 @@ authoritative inventory and is kept in sync with the implementation below):
       their presence would make `npm run lint` exit 2 (config/flag error) — and the historical
       vacuous-gate incident showed exactly how a flag mismatch can be silently swallowed. The
       legacy `.eslintrc.json` must also be absent (its lingering presence would invite a
-      regression back onto the EOL format). This check converts a silent reversion to the EOL
-      linter into an immediate pre-commit error, in the same discover→systematize spirit that
-      added Checks 46–49. (BLOCKING)
+      regression back onto the EOL format). Finally (50d), the flat config must carry the
+      `no-dupe-keys` bug-catching rule: it was added after a real bug where js/quiz-renderer.js
+      passed two `class` keys to the same h() props object, silently dropping the first
+      (`quiz-content-line[ is-label]`) styling. The rule's silent removal from the config would
+      re-open that whole class of accident, so its presence is itself machine-enforced. This
+      check converts a silent reversion to the EOL linter (or loss of the dupe-key guard) into an
+      immediate pre-commit error, in the same discover→systematize spirit that added Checks
+      46–49. (BLOCKING)
   51. Active-runbook Playwright baseline-generation version matches the pin: the Playwright
       version named in total-check-runbook.md's baseline-generation instruction must equal the
       @playwright/test pin in package.json. Visual-regression baselines depend on the generating
@@ -2354,6 +2359,9 @@ else:
 #         (--no-eslintrc / --config .eslintrc.json / --env), whose presence makes ESLint 9.x
 #         exit 2 (the historical vacuous-gate failure mode).
 #   50c — the legacy .eslintrc.json is absent (its return would invite an EOL-format regression).
+#   50d — eslint.config.mjs carries the `no-dupe-keys` bug-catching rule (added after a real
+#         duplicate-`class` bug in js/quiz-renderer.js silently dropped styling); guarding the
+#         rule's presence keeps that protection from being silently removed.
 _flat_cfg50 = ROOT / "eslint.config.mjs"
 check(
     _flat_cfg50.is_file(),
@@ -2395,6 +2403,22 @@ check(
     "(eslint.config.mjs), and the EOL eslintrc file should be removed to prevent a regression "
     "back onto the unsupported format.",
 )
+if _flat_cfg50.is_file():
+    _cfg_src50d = _flat_cfg50.read_text(encoding="utf-8")
+    check(
+        re.search(r"['\"]no-dupe-keys['\"]\s*:", _cfg_src50d) is not None,
+        "Check 50d: eslint.config.mjs carries the `no-dupe-keys` bug-catching rule",
+        "Check 50d: eslint.config.mjs no longer declares `no-dupe-keys` — this rule was added "
+        "after a real duplicate-`class` bug in js/quiz-renderer.js silently dropped element "
+        "styling. Removing it re-opens that whole class of accident (duplicate keys in h() "
+        "props passing CI unnoticed). Restore `'no-dupe-keys': 'error'` in the rules block.",
+    )
+else:
+    check(
+        False,
+        "Check 50d: eslint.config.mjs present for no-dupe-keys rule verification",
+        "Check 50d: eslint.config.mjs not found — cannot verify the no-dupe-keys rule is declared.",
+    )
 
 # ── 51. Active-runbook Playwright baseline-generation version matches the pin (BLOCKING) ──
 # Playwright の視覚回帰 baseline PNG は、それを生成した Playwright（＝同梱 Chromium）の
