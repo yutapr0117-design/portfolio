@@ -242,9 +242,9 @@ test('Route entity anchor declares entity authority and disambiguation (AIO core
 
 // ===== 7.1: Speakable JSON-LD のルート毎 cssSelector 更新 (AI 音声アシスタント最適化) =====
 // injectStructuredData は全ルートで script[data-ld="speakable"] に WebPage + SpeakableSpecification
-// を注入し、cssSelector を SPEAKABLE_SELECTORS でルート毎に切替える (home は .hero-tagline 等の固有
-// セレクタを持つ)。AI 音声アシスタントが読み上げるべき要素を指定する AIO サーフェスだが未カバー
-// だった。home で固有セレクタが入り、別ルートで外れる (= ルート追従) ことを実検証する。
+// を注入し、cssSelector を SPEAKABLE_SELECTORS でルート毎に切替える (home は固有の
+// '.sr-only[data-ai-entity]' を持ち、他ルートは '.sr-only')。AI 音声アシスタントが読み上げるべき
+// 要素を指定する AIO サーフェス。home で固有セレクタが入り、別ルートで外れる (= ルート追従) ことを検証。
 test('Speakable JSON-LD updates cssSelector per route (AIO voice)', async ({ page }) => {
   await page.goto('/');
   await page.waitForLoadState('domcontentloaded');
@@ -256,14 +256,14 @@ test('Speakable JSON-LD updates cssSelector per route (AIO voice)', async ({ pag
   expect(data.speakable['@type']).toBe('SpeakableSpecification');
   expect(Array.isArray(data.speakable.cssSelector)).toBe(true);
   // home 固有セレクタを含む
-  expect(data.speakable.cssSelector).toContain('.hero-tagline');
+  expect(data.speakable.cssSelector).toContain('.sr-only[data-ai-entity]');
 
   // 別ルートへ移ると home 固有セレクタが外れる (ルート追従)
   await page.goto('/#/about');
   await page.waitForLoadState('domcontentloaded');
   await expect.poll(async () => {
     const d = JSON.parse(await page.locator('script[data-ld="speakable"]').textContent());
-    return d.speakable.cssSelector.includes('.hero-tagline');
+    return d.speakable.cssSelector.includes('.sr-only[data-ai-entity]');
   }).toBe(false);
 });
 
