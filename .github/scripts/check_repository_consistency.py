@@ -485,8 +485,12 @@ authoritative inventory and is kept in sync with the implementation below):
        improvement'（改善は無限・完璧は存在しない）truth — the AI may not make a self-assessment of
        exhaustion/convergence ("no more improvements / converged / backlog harvested"), since that
        judgment is empirically almost always false (availability-heuristic fallacy); padding is
-       guarded at the increment granularity only, never at the session granularity) so it cannot
-       drift out. (BLOCKING)
+       guarded at the increment granularity only, never at the session granularity; 102f: the
+       'reflect-then-organize' quality step — before a non-trivial increment the AI articulates a
+       brief view (pros/cons, lens-check), documented in both AI2AI.md Operating Model and
+       CLAUDE.md §5; externalizing reasoning breaks the 102e exhaustion fallacy, proven 2026-06-21
+       when the AI self-generated 10 ideas and triaged 6 as autonomously executable with zero human
+       input) so it cannot drift out. (BLOCKING)
   103. style.css prefers-contrast (higher-contrast preference) support: style.css contains a
        `@media (prefers-contrast: more)` block that strengthens borders / muted text / focus for
        users who request higher contrast (WCAG 1.4.11 Non-text Contrast 強化). Like Check 101
@@ -4114,6 +4118,20 @@ if _ai2ai102.exists() and _claude102.exists():
         "Check 102e: AI2AI.md is missing the 'Infinite improvement'（改善は無限・完璧は存在しない・"
         "枯渇/収束の自己判断禁止）truth — AI が「改善は尽きた/収束した」と誤判断して自走を止める"
         "失敗モードを禁じる canon が消えた",
+        blocking=True,
+    )
+    # 102f — 「reflect-then-organize」= AI が非自明な増分前に簡潔な見解 (pros/cons・レンズ確認) を
+    # 出してから進む品質ステップが Operating Model に明記され、CLAUDE.md §5 The loop にも記載される
+    # ことを固定。見解化＝暗黙推論の明示構造化が 102e の枯渇誤謬を破る実証 (2026-06-21: 人間ゼロ入力で
+    # AI が 10 案自己生成→6 案自走可能と判明) を受けて正式フロー化した。silent に消えると AI が
+    # 「枯渇」自己判断のまま停止/padding へ滑る失敗モードへ戻るため presence を BLOCKING 強制する。
+    _102f = ("reflect-then-organize" in _ai2ai_src102) and ("reflect-then-organize" in _claude_src102)
+    check(
+        _102f,
+        "Check 102f: reflect-then-organize quality step documented (AI2AI.md Operating Model + CLAUDE.md §5)",
+        "Check 102f: 'reflect-then-organize'（自己見解→自己整理を品質ステップ化）の canon 明記が消えた — "
+        "AI2AI.md Operating Model と CLAUDE.md §5 The loop の両方に存在させよ。"
+        "これが消えると AI が枯渇誤謬(102e)のまま停止/padding へ滑る失敗モードに戻る",
         blocking=True,
     )
 else:
