@@ -869,3 +869,55 @@ C1 外部FW追加なし（package.json は **dev 専用**・runtime 依存ゼロ
 - 残: main.js の体裁 warnings(199) の段階的解消（ファイル単位・一括禁止）/ ESLint flat config 移行（任意）/ Playwright baseline（要 GitHub Actions）→ main.js 物理分割 Stage 5 / a11y 自動化（package.json 整備済みで `@axe-core/playwright` 追加が容易）/ 記事 datePublished・要旨（要公開日検証）/ バイナリ IPTC・C2PA（要ツール・証明書）/ dev 依存 audit レビュー。詳細は `docs/incident-artifacts/improvement-notes-claude-v74-post-session19.md`。
 
 ---
+
+## [HANDOFF] Session Record #20 — 2026-06-20 (Claude Opus 4.7, Operating-Model 検証: 無人連続自走 15.5h / 44 PR + 人間↔AI 議論→合意→委任の実証)
+
+```
+Handoff-From    : Claude Opus 4.7 (Anthropic) — Claude Code
+Handoff-To      : Next AI agent (same project, different session)
+Session-Date    : 2026-06-20
+Orchestrator    : Yuta Yokoi (横井雄太)
+Task            : v80+ phase4 後続。AI 無限自走で genuine 増分を継続しつつ、§5「AI2AI handoff-first commit/PR 規律」(commit 細分化 × 1 PR 束ね × gh pr merge --rebase) を 1 セッション通しで実運用し、その効率を実測する。会話途中でオーケストレーターと運用モデルそのものを議論・合意し、委任範囲を再定義した。
+```
+
+### このセッションで完了したこと（実測サマリ）
+
+- **無人連続自走 約 15.5h（03:56→19:28 JST）/ 44 PR merged / 59 commit（rebase で squash されず全て main の git log に what+why 付きで保持）。** 全 PR が「既存非破壊 ∧ CI オールグリーン」を満たし、各 PR 末尾で full `npm run verify` + e2e を 1 回通してから `gh pr merge --rebase --delete-branch` で自動マージ。
+- **🔴 実バグ 2 件を発見・修正してデプロイ**: (1) `js/quiz-renderer.js` の `h()` props 重複 `class` キーで `quiz-content-line`/`is-label` スタイルが後勝ち上書きで消失していた死にコード（PR #186、+ `no-dupe-keys` + Check 50d で機械強制）、(2) settings の **upsert インポートで新規プロジェクトが黙って消失する data-loss**（PR #192、+ 回帰 e2e）。
+- **lint/security 機械強制の拡張**: recommended bug-catcher 8 件 + `no-setter-return`（凍結カーネル override 付き）+ Check 50d、Check 115 を CSP anti-weakening baseline へ拡張（Trusted Types pair + form-action 'none' + upgrade-insecure-requests を lock-in、43c との pairing を固定）。
+- **dead-code sweep / drift 是正**: router `_notify`、state.js の never-activated Proxy（git `-S` で配線が一度も存在しないと確定）、ui-components toasts、dead な TOPBAR_HEIGHT_PX（実在しない CSS 変数を謳う misleading comment 付き）等。全 factory docstring の依存 drift（aidk-rails/apps/components/pages）を実署名へ同期。state.js docs/files mirror も実態へ同期。ESLint baseline を 56→55 にラチェットダウン。
+- **e2e 拡張**: タグフィルタ / strict インポート / Speakable resolution 全ルート化（→ 133 behavior tests、vacuous test ゼロを確認）。
+
+### 設計判断の記録 — Operating-Model の議論と合意（本セッションの最重要成果）
+
+**コミット/PR/rebase 規律（§5）の効率を実測し、当初仮説を修正した。** 当初の仮説は「CI 待ち（1 PR=フル CI）が最大の支配項ゆえ commit を細分化して 1 PR に束ね CI を償却する」だったが、実測で CI ゲートは PR あたり **~57s と高速**であり、commit/PR は **1.34**（増分が genuine に atomic だったため無理に束ねなかった＝commit 数は OUTPUT であって TARGET でない、の通り）。よって CI 償却による高速化の寄与は小さく、**真の効き目は別 2 レバーにあった**:
+
+1. **トークン持続性の劇的改善（1〜2h → 15.5h+、約 7〜15 倍）。** AI のトークンは 5h ごとに復活するが、従来は依頼直後停止や 1〜2h で枯渇していた。本セッションは復活サイクルを 3 周またいで持続。メカニズム（次の AI への一級の知見）:
+   - **(a) background-notification への yield**: merge 待ちを bg コマンド化して yield すると、CI 待ち（~42 分相当）の間トークンをほぼ消費しない。sleep/poll や巨大単一実行で「待ちながらトークンを焼く」のが従来の枯渇原因と推定。**待ち時間のトークンコストを実質ゼロにしたのが核。**
+   - **(b) 記憶の外部化**: git log（fine commit の what+why）+ Check 機構 + §7 handoff + docs/files mirror が作業記憶を担い、各サイクルが context を抱え込まず軽い → 1 サイクルのトークン単価が小さい。
+   - **(c) 低 AI-onboarding コスト（オーケストレーター設計）**: リポジトリに AI 向け docs が異様に多く、コード内コメントも充実しているため、毎サイクル全コードを読み直さず対象ファイルの最小読み取りで方針判断できた。これが (b) を増幅。
+   - **(d) terse communication + compaction**: 1 サイクルのオーバーヘッドが小さく、会話が context 上限で死なず継続。
+   - これら lean な消費 + 5h 復活が噛み合い、復活がバーストを上回って持続。**＝commit/PR/rebase 規律と逐次自走ループの本質的価値は「速度」ではなく「無人運転のトークン持続性」だった。**
+2. **handoff 品質 + 草密度**: rebase 保持の 59 fine commit が次 AI の cold-start を安くし、1 日 59 commit が contribution graph を濃くする（人間界隈での活性価値）。
+
+**flywheel（好循環）の明文化**: 充実 docs/comment → onboarding 安い → AI が長く持続 → 産出増（docs/comment 保守を含む）→ onboarding 安いまま → … 。AI-only で成長し続けるリポジトリの動力源。**failure mode は drift**（docs/comment が実態と乖離すると onboarding 税が上がり flywheel が劣化する）。ゆえに **doc/comment 精度の維持は周辺 polish でなく flywheel を守る一級 load-bearing work**。本セッションの drift 是正群（state.js Proxy 記述・topbar 定数・factory deps）はこの観点で正当化される。今後あらゆるコード変更は対応 docs/comment を必ず同期する（さもなくば自ら onboarding 税を増やす）。
+
+**「完璧不在 → 枯渇宣言不可」の再確認（canon 102e 強化）**: 私は 20 PR 出した後「自走スコープで到達できる non-padding 増分を出し切った」と述べたが、これは誤り。no-padding の約束の背景が「この世に完璧は無い」である以上、「genuine 増分を出し切った」は前提と矛盾する。正しい統合は「足す/足さないでなく genuine か fake かが唯一の軸。genuine は完璧不在ゆえ常に在る。ゆえに停止は無い」。**簡単な vein が枯れたと感じた瞬間は『停止のサイン』でなく『抽象度/レンズを切り替えるサイン』**（モジュール監査 → 横断不変条件 → research 適用 → stakeholder レンズへ effort を上げる。bar は下げない）。特にメタ層（Check 深化 / handoff 品質 / research 適用）はリポジトリ＝ポートフォリオの核ゆえ無尽蔵の genuine vein。
+
+### 委任範囲の再定義（オーケストレーター裁可）
+
+- **「既存非破壊 ∧ CI オールグリーン」前提下の承認要求は全て事前承認。** AI が判断を仰ぐのは**その前提が崩れ得る場合のみ**。AIO content enrichment（C6 経由）も視覚/CSS 変更も、前提を満たす限り自走で実施してよい。
+- **リポジトリ＝ポートフォリオ、サイト＝付属物。** 価値の核はリポジトリの engineering rigor と AI-only 実装（オーケストレーターはコードを一文字も書いていない＝AI 提示コードのコピペも AI 作）。サイトは視覚的に崩れる期間があっても、**サイトが落ちる/表示されない/表示が理解不能、のいずれでもなければ問題ない**（機能性のみ死守）。
+- **§3 screenshot regression を blocking → advisory へ降格すること（B 案）で合意**（機能性 behavior e2e は blocking 維持）。理由: pixel 一致を blocking で守る意味は「サイト＝ポートフォリオ」前提のもので、その前提が降りた以上 blocking 対象は機能性へ移すのが筋。かつ視覚変更で screenshot が red 化すると「CI 緑」前提が崩れ無人連続自走（＝トークン持続の核）を断つため。**本 Record の次の増分として §3(B) を実装する。**
+
+### C1〜C7 制約の遵守確認
+
+C1 外部FW追加なし ✅ / C2 IIFE 未変更 ✅ / C3 ErrorBoundary 未変更 ✅ / C4 FW 再提案なし ✅ / C5 人間はコード未記述（実装は Claude Opus 4.7）✅ / **C6 AIO 本文の根幹は不変**（本 Record は AI2AI.md への Session Record 追記のみ＝canon の確立された handoff log 用途。llms-full.txt/llms.txt 本文・JSON-LD・バイナリの semantic metadata=Entity/Organization/Canary は未変更。`update_aio_digests.py` 実行で sha256 digest（A2 例外）と binary 日付フィールド=WebP xmp:ModifyDate/MetadataDate・MP3 TXXX（A1 例外）が派生値として auto-sync された。メディア実体（画素/音声）は不変＝非破壊。Check 91/93/94 緑）✅ / C7 KARTE CDN SRI 非適用維持 ✅。
+
+### 未解消スコープ（次のエージェントへの申し送り）
+
+- Session Record 追記時は **Claude2Claude.md 現在状態も同コミットで #N へ**（Check 31 が BLOCKING）。
+- **次の増分: §3(B) の実装**（screenshot regression を advisory 化・機能性 e2e は blocking 維持・CLAUDE.md §3 / playwright.config.cjs / Check 117 / total-check-runbook を同期）。
+- 無限自走を継続（停止権限は人間のみ）。枯渇宣言はせず、vein が薄れたらレンズ/抽象度を上げる（メタ層・research 適用を一級 vein とする）。doc/comment 精度は flywheel を守る load-bearing work として常に同期する。Check 総数の真値は `total-check-runbook.md` §9。
+
+---
