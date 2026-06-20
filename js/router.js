@@ -121,14 +121,6 @@ export const Router = (() => {
         };
     }
 
-    function _notify() {
-        const route = _parseRoute();
-        currentRoute = route;
-        handlers.forEach(h => {
-            try { h(route); } catch (e) { }
-        });
-    }
-
     // 改善文書b 3.1 / 改善文書c 2: Transition lock and async queue to prevent Race Conditions.
     // If hashchange fires while a transition is in flight, the new route is
     // queued and replayed after the current transition completes — preventing
@@ -153,9 +145,9 @@ export const Router = (() => {
             _routerTransitioning = false;
             // Replay any route change that arrived while we were busy
             if (_routerPendingHash !== null && _routerPendingHash !== window.location.hash) {
-                const next = _routerPendingHash;
                 _routerPendingHash = null;
-                // Re-trigger without mutation: just call dispatch directly
+                // Re-trigger: _dispatchRouteChange re-reads the live window.location.hash,
+                // so the queued value itself is not needed — only the fact that a change arrived.
                 _dispatchRouteChange();
             } else {
                 _routerPendingHash = null;
