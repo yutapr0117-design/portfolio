@@ -24,6 +24,10 @@
  *   - Theme: js/theme.js factory instance
  *   - Brand: js/brand.js factory instance
  *   - Store: js/store.js factory instance
+ *   - tokenize: js/pure-utils.js (ProjectsPage 検索のスコアリング)
+ *   - CONSTANTS: js/constants.js
+ *   - clear: main.js IIFE の純粋関数 (DOM の子要素を全削除)
+ *   - closeDrawer: js/mobile-drawer.js (ナビリンク選択時にドロワーを閉じる)
  *
  * 【非破壊性】
  *   - 11 関数の DOM 出力・class 名・style・aria 属性は byte-equivalent
