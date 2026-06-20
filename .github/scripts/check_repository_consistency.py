@@ -557,6 +557,11 @@ authoritative inventory and is kept in sync with the implementation below):
        theme-batched PRs, `gh pr merge --rebase`, commit-count-is-output-not-target). This
        discipline is the repo's "interchangeable AI member" handoff rule; this Check enforces
        its presence by markers so it cannot silently drift out of the turn-1 router. (BLOCKING)
+  114. e2e no-`.only` guard: e2e/portfolio.spec.js must contain no `test.only` /
+       `describe.only` / `test.describe.only`. A stray `.only` makes Playwright run ONLY that
+       test and silently skip every other test, so CI passes green while the suite is gutted
+       (a false-green footgun, the inverse of the vacuous-gate class). This Check blocks any
+       `.only(` left in the spec. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4384,6 +4389,23 @@ if _claudemd113.exists():
     )
 else:
     check(False, "", "Check 113: CLAUDE.md not found — commit/PR handoff discipline presence を検証できない", blocking=True)
+
+# ── 114. e2e no-`.only` guard (BLOCKING) ──────────────────────────────────────
+# Playwright で test.only / describe.only が 1 つでも残ると、その test だけが走り他は全 skip され、
+# CI は緑のまま suite が空洞化する (false-green footgun = vacuous-gate の裏返し)。spec 内の
+# `(test|describe).only(` を検出して BLOCKING で禁止し、デバッグ用 .only の commit 漏れを封じる。
+_spec114 = ROOT / "e2e" / "portfolio.spec.js"
+if _spec114.exists():
+    _src114 = _spec114.read_text(encoding="utf-8")
+    _only114 = re.findall(r"\b(?:test|describe)(?:\.[A-Za-z]+)*\.only\s*\(", _src114)
+    check(
+        not _only114,
+        "Check 114: e2e/portfolio.spec.js に test.only/describe.only が無い (false-green footgun 防止)",
+        f"Check 114: e2e/portfolio.spec.js に .only が {len(_only114)} 個ある — 全 suite が skip され CI が false-green 化する。.only を除去せよ",
+        blocking=True,
+    )
+else:
+    check(False, "", "Check 114: e2e/portfolio.spec.js not found — no-.only guard を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
