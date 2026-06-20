@@ -295,6 +295,26 @@ test('Role-split Speakable references the actual table via #role-split-table (no
   expect(await page.locator('#role-split-table').count()).toBeGreaterThan(0);
 });
 
+// ===== 7.1: ai-knowhow / about の Speakable cssSelector も実 DOM に解決する (dead-selector 全ルート化) =====
+// home / role-split の解決ガードは被覆済みだが、SPEAKABLE_SELECTORS は ai-knowhow (固有 '.ai-summary-block')
+// と about も宣言しており、これらは未検証だった = 将来それらが dead 化しても検知できない穴。元バグ
+// (.hero-tagline/.core-thesis/.role-split-table の dead selector) と同 class の AIO-accuracy 不変条件を
+// 残る 2 ルートへ拡張する。注: '[data-speakable]' は home の hero のみが持つ forward-compat baseline で
+// 他ルートでは no-op になり得る (既存 home テストの注記と同じ) ため除外し、ルート固有 + .sr-only/h1 の
+// 実在を検証する。ai-knowhow の '.ai-summary-block' は index.html の静的 sr-only ノードで全ルートに在る。
+test('ai-knowhow/about Speakable cssSelectors (non-baseline) resolve to real elements (AIO accuracy)', async ({ page }) => {
+  for (const route of ['ai-knowhow', 'about']) {
+    await page.goto(`/#/${route}`);
+    await page.waitForLoadState('domcontentloaded');
+    const data = JSON.parse(await page.locator('script[data-ld="speakable"]').textContent());
+    const selectors = (data.speakable.cssSelector || []).filter(s => s !== '[data-speakable]');
+    expect(selectors.length, `${route} should declare non-baseline Speakable selectors`).toBeGreaterThan(0);
+    for (const sel of selectors) {
+      expect(await page.locator(sel).count(), `Speakable selector "${sel}" must resolve to >=1 element on ${route}`).toBeGreaterThan(0);
+    }
+  }
+});
+
 // ===== 7.2: aria-busy 状態遷移 Behavior Check =====
 test('content div transitions aria-busy correctly during navigation', async ({ page }) => {
   await page.goto('/');
