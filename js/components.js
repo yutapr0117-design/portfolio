@@ -835,7 +835,6 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
     }
 
     function AboutPage() {
-        const profile = State.get().profile;
         return h('article', { class: 'flex flex-col gap-6 max-w-2xl', 'data-ai-section': 'about' },
             h('header', {}, h('h1', { class: 'h1', 'data-ai-content': 'lead' }, 'About / Philosophy')),
             
