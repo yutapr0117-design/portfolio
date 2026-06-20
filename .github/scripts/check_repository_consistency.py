@@ -562,6 +562,12 @@ authoritative inventory and is kept in sync with the implementation below):
        test and silently skip every other test, so CI passes green while the suite is gutted
        (a false-green footgun, the inverse of the vacuous-gate class). This Check blocks any
        `.only(` left in the spec. (BLOCKING)
+  115. index.html CSP hardening baseline: the Content-Security-Policy meta must NOT contain
+       `'unsafe-inline'` or `'unsafe-eval'` (which would defeat the XSS protection — the site
+       authorizes inline scripts/handlers via sha256 hashes + `'unsafe-hashes'`, not blanket
+       unsafe-inline), AND must retain `default-src 'self'`, `object-src 'none'`, `base-uri
+       'self'`. Guards against silent CSP weakening (a high-impact security regression class,
+       the runtime-policy counterpart of Check 7's position/hash checks). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4406,6 +4412,31 @@ if _spec114.exists():
     )
 else:
     check(False, "", "Check 114: e2e/portfolio.spec.js not found — no-.only guard を検証できない", blocking=True)
+
+# ── 115. index.html CSP hardening baseline (BLOCKING) ─────────────────────────
+# CSP の弱体化 (script-src への 'unsafe-inline'/'unsafe-eval' 混入や必須 directive の欠落) は XSS
+# 防御を無効化する高影響のセキュリティ退行。本サイトは inline を sha256 hash + 'unsafe-hashes' で
+# 許可しており blanket 'unsafe-inline' は使わない。CSP meta の content を抽出し、危険トークン不在 +
+# 必須 directive 存在を BLOCKING で機械強制する (Check 7 の position/hash に対する runtime-policy 面)。
+_csp_m115 = re.search(r'http-equiv="Content-Security-Policy"\s+content="(.*?)"', html, re.DOTALL)
+if _csp_m115:
+    _csp115 = _csp_m115.group(1)
+    _problems115 = []
+    if "'unsafe-inline'" in _csp115:
+        _problems115.append("'unsafe-inline' が存在 (XSS 防御を無効化)")
+    if "'unsafe-eval'" in _csp115:
+        _problems115.append("'unsafe-eval' が存在")
+    for _req115 in ["default-src 'self'", "object-src 'none'", "base-uri 'self'"]:
+        if _req115 not in _csp115:
+            _problems115.append(f"必須 directive 欠落: {_req115}")
+    check(
+        not _problems115,
+        "Check 115: index.html CSP がセキュリティ baseline を維持 (unsafe-inline/eval 無し + 必須 directive 存在)",
+        f"Check 115: CSP 弱体化を検出: {_problems115} — XSS 防御 baseline を復元せよ",
+        blocking=True,
+    )
+else:
+    check(False, "", "Check 115: index.html に Content-Security-Policy meta が見つからない — CSP baseline を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
