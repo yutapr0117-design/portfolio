@@ -1316,6 +1316,40 @@ test('Hiding a project removes it from the public Projects list, unhide restores
   await expect(page.getByText(name).first()).toBeVisible();
 });
 
+// ===== 7.2: プロジェクト並び替え (moveProject ↑/↓ で順序入替) — projects 管理 CRUD 完成 =====
+// settings の moveProject(idx, dir) は state.projects[idx] と [idx+dir] を入替える。add/hide/delete は
+// 被覆済みだが reorder は未カバーだった。一意名 2 件 (A→B の順で追加 = unshift で [B, A, ...defaults])
+// を作り、A の行の「↑」で A を先頭へ繰り上げ、State 上で A が B より前に来る (順序入替) ことを検証する。
+// 順序は localStorage State 読み取りで決定的に判定する。
+test('Projects can be reordered with the up/down controls', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  const nameInput = page.getByPlaceholder('プロジェクト名');
+  const addBtn = page.getByRole('button', { name: '追加', exact: true });
+  const A = 'REORDER-PROJ-A-6701';
+  const B = 'REORDER-PROJ-B-6702';
+  await nameInput.fill(A); await addBtn.click();
+  await expect(page.locator('#toast-container').getByText('プロジェクトを追加しました')).toBeVisible();
+  await nameInput.fill(B); await addBtn.click();
+
+  const orderAB = () => page.evaluate((names) => {
+    try {
+      const st = JSON.parse(localStorage.getItem('portfolio_enhanced_v45'));
+      const list = (st.projects || []).map(p => p.name);
+      return { a: list.indexOf(names[0]), b: list.indexOf(names[1]) };
+    } catch { return { a: -1, b: -1 }; }
+  }, [A, B]);
+
+  // 初期は unshift で [B, A, ...] → B が A より前
+  await expect.poll(async () => { const o = await orderAB(); return o.a > o.b && o.a >= 0; }).toBe(true);
+
+  // A の行の「↑」で A を 1 つ繰り上げ → A が B より前へ
+  const rowA = page.locator('div.flex.items-center.justify-between.gap-2').filter({ hasText: A });
+  await rowA.getByRole('button', { name: '↑' }).click();
+  await expect.poll(async () => { const o = await orderAB(); return o.a < o.b && o.a >= 0; }).toBe(true);
+});
+
 // ===== 7.2: ユーザープロジェクトの削除 (confirm 受諾 → 永久削除) =====
 // settings の deleteProjectHard は confirm() 確認の上 s.projects から id で除外する。デフォルト
 // プロジェクト (defaultProjectIds) は削除不可 (ボタン disabled) で、ユーザー追加分のみ削除できる。
