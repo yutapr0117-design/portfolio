@@ -441,6 +441,25 @@ test('Project detail "auto-recommended" card navigates to another project (autoR
   expect(fatal, `autoRelated navigation caused a fatal: ${fatal}`).toBeNull();
 });
 
+// ===== 7.2: home「注目のプロジェクト」→ 詳細への遷移 (home→detail ジャーニー) =====
+// HomePage の featured セクション「詳細 →」は Router.navigate(projects/featured.slug) で featured
+// プロジェクト詳細へ飛ぶ。projects 一覧→詳細 (別テスト) とは別の、home からの導線で未カバーだった。
+// home の featured「詳細 →」クリックで slug URL の詳細へ遷移 + 戻るボタン描画 + fatal なしを検証。
+test('Home featured project navigates to its detail page', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const featured = page.locator('article.card').filter({ has: page.getByRole('heading', { name: '注目のプロジェクト' }) });
+  const detailBtn = featured.getByRole('button', { name: /詳細/ });
+  await expect(detailBtn).toBeVisible();
+  await detailBtn.click();
+
+  await expect(page).toHaveURL(/#\/projects\/[^/]+$/);
+  await expect(page.getByRole('button', { name: '← 一覧に戻る' })).toBeVisible();
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `home featured nav caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.1: モバイルビューポートでのCLS検証 =====
 test('No layout shift on mobile viewport', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
