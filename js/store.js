@@ -446,6 +446,22 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
             }
         }
 
+        // [FIX] slug 一意化: 上記 merge は ID でのみ dedupe するため、import データ等で別 id・同一
+        // slug のプロジェクトが混在すると slug が重複し、ProjectDetailPage の find(p.slug===slug) が
+        // 先頭のみ返して片方の詳細が到達不能になる。全 load/import/normalize が通るこのチョークポイントで
+        // slug を一意化する (先頭=defaults を優先保持し、後続の衝突分へ -2,-3... を付与)。
+        const _seenSlugs = new Set();
+        for (const p of merged) {
+            let s = p.slug || `p-${p.id}`;
+            if (_seenSlugs.has(s)) {
+                let n = 2;
+                while (_seenSlugs.has(`${s}-${n}`)) { n++; }
+                s = `${s}-${n}`;
+                p.slug = s;
+            }
+            _seenSlugs.add(s);
+        }
+
         return merged.slice(0, CONSTANTS.LIMITS.MAX_PROJECTS);
     }
 
