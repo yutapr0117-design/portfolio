@@ -1387,6 +1387,50 @@ test('Deleting a user project (confirm accepted) removes it everywhere', async (
   await expect(page.getByText(name)).toHaveCount(0);
 });
 
+// ===== 7.2: destructive 操作の confirm-cancel ガード (data-safety) =====
+// deleteProjectHard / resetData は `if (!confirm(...)) return;` で「キャンセル時は何もしない」分岐を
+// 持つ。accept 経路は被覆済みだが cancel 経路は未カバーだった。cancel したのに実行されると重大な
+// データ損失になるため、confirm を dismiss しても (1) プロジェクトが削除されない (2) データが初期化
+// されない、を実検証する。
+test('Canceling the delete confirm keeps the project (data-safety)', async ({ page }) => {
+  page.on('dialog', (dialog) => dialog.dismiss());
+
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  const name = 'DELETE-CANCEL-PROJ-8120';
+  await page.getByPlaceholder('プロジェクト名').fill(name);
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect(page.locator('#toast-container').getByText('プロジェクトを追加しました')).toBeVisible();
+
+  // 削除 → confirm を dismiss → 行は残る
+  const row = page.locator('div.flex.items-center.justify-between.gap-2').filter({ hasText: name });
+  await row.getByRole('button', { name: '削除' }).click();
+  // dismiss されたので削除されず、公開一覧にも残る
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByText(name).first()).toBeVisible();
+});
+
+test('Canceling the reset confirm keeps data (data-safety)', async ({ page }) => {
+  page.on('dialog', (dialog) => dialog.dismiss());
+
+  // タスクを追加
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  const input = page.locator('#task-input');
+  await input.fill('RESET-CANCEL-TASK-8121');
+  await input.press('Enter');
+  await expect(page.getByText('RESET-CANCEL-TASK-8121')).toBeVisible();
+
+  // 全リセット → confirm を dismiss → タスクは残る (初期化されない)
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByRole('button', { name: '全リセット' }).click();
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByText('RESET-CANCEL-TASK-8121')).toBeVisible();
+});
+
 // ===== 7.2: 全データ初期化 (全リセット → confirm → defaults 復帰) =====
 // settings の resetData は confirm() の上 State.set(Store.createDefaultStore()) で全状態を初期値へ
 // 戻す最も破壊的な操作。snapshot/delete とは別経路で、ユーザーデータ (タスク等) を全消去し
