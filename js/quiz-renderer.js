@@ -200,8 +200,7 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
                         // Check if it's a label line (ends with ':' or is a short header)
                         const isLabel = /^(状況|問|Challenge|Core Knowledge|境界点|Reboot vs|Stop|ASG|io2|gp[23]|注意|現場|意図|ポイント|解説|補足)[：:。]?/.test(line) || (line.endsWith(':') && line.length < 50);
                         qBlock.appendChild(h("div", {
-                            class: "quiz-content-line" + (isLabel ? " is-label" : ""),
-                            class: 'text-prewrap'
+                            class: "quiz-content-line text-prewrap" + (isLabel ? " is-label" : "")
                         }, line));
                     });
 
