@@ -73,7 +73,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/quiz/quality-quiz-data.js` | 275 | 350 | `advisory` | Stage 3-b 分割済み。品質・プロセス問題集 |
 | `js/quiz/architecture-quiz-data.js` | 137 | 250 | `advisory` | Stage 3-b 分割済み。v29 意思決定問題集 |
 | `style.css` | 2,156 | 2,300 | `advisory` | baseline 後に section 分割を検討（cascade 破壊リスクのため baseline 前は分割しない） |
-| `.github/scripts/check_repository_consistency.py` | 4,300 | 4,500 | `advisory` | 中央 enforcement registry ゆえ Check 追加ごとに約 35 行/件で構造的に成長する設計 (Check 100-109 + 102d + 76/78/80 拡張 + 39/57/58/59 vacuous-gate ガード + 97 file-coherence + 65 mirror date scope 等を順次追加)。budget は実態 +headroom (約 5 件分) へ同期。これは「抑制すべき bloat」ではなく「機械強制の richness 増加」ゆえ ceiling は緩やかに追従 |
+| `.github/scripts/check_repository_consistency.py` | 4,551 | 4,750 | `advisory` | 中央 enforcement registry ゆえ Check 追加ごとに約 35 行/件で構造的に成長する設計 (Check 100-109 + 102d + 76/78/80 拡張 + 39/57/58/59 vacuous-gate ガード + 97 file-coherence + 65 mirror date scope + 50d eslint-rule presence 等を順次追加)。budget は実態 +headroom (約 5 件分) へ同期。これは「抑制すべき bloat」ではなく「機械強制の richness 増加」ゆえ ceiling は緩やかに追従 |
 | `.github/scripts/_lib_io.py` | 217 | 250 | `advisory` | 純 I/O helper sibling module (read / read_bytes / extract / csp_sri_hash + 日付 helper)。Check 74/95 で API 契約を BLOCKING 保護。budget を実態 +headroom へ同期 |
 | `index.html` | 1,265 | — | `protected` | CSP / JSON-LD / AI meta / AIO anchor の中核。AIO 承認なしに整理しない |
 | `llms-full.txt` | 998 | — | `protected` | AIO 正本（ground truth）。削らない |
@@ -139,7 +139,7 @@ js/quiz/pm-quiz-data.js | 350 | advisory
 js/quiz/quality-quiz-data.js | 350 | advisory
 js/quiz/architecture-quiz-data.js | 250 | advisory
 style.css | 2300 | advisory
-.github/scripts/check_repository_consistency.py | 4500 | advisory
+.github/scripts/check_repository_consistency.py | 4750 | advisory
 .github/scripts/_lib_io.py | 250 | advisory
 index.html | - | protected
 llms-full.txt | - | protected
