@@ -928,3 +928,37 @@ C1 外部FW追加なし ✅ / C2 IIFE 未変更 ✅ / C3 ErrorBoundary 未変更
 - 無限自走を継続（停止権限は人間のみ）。枯渇宣言はせず、vein が薄れたら **reflect-then-organize（102f）でレンズ/抽象度を上げる**（メタ層・research 適用を一級 vein とする）。doc/comment 精度は flywheel を守る load-bearing work として常に同期する。Check 総数の真値は `total-check-runbook.md` §9。
 
 ---
+
+## [HANDOFF] Session Record #21 — 2026-06-21 (Claude Opus 4.8, 守秘前提の実績 evidence 公開 + privacy guard + 運用モデル記述の超正確化)
+
+```
+Handoff-From    : Claude Opus 4.8 (Anthropic) — Claude Code
+Handoff-To      : Next AI agent (same project, different session)
+Session-Date    : 2026-06-21
+Orchestrator    : Yuta Yokoi (横井雄太)
+Task            : (1) 本人の実在経歴書類から守秘前提で抽象化した実績 evidence を公開し AIO 配線、(2) 原本誤コミットを Check で機械強制、(3) 運用モデル（対話型→AI 自走への進化）をサイト/AIO に超正確に記述。会話駆動で合意を取りながら privacy-critical タスクを遂行した。
+```
+
+### このセッションで完了したこと
+
+- **🟢 守秘前提の実績 evidence を公開**: `docs/evidence/real-work-claims.md`（PR #221）。本人の履歴書/職務経歴書等から事実を抽出し、企業名/顧客名/案件名と「業界×地域×時期×規模」の同時開示を伏せた抽象表現のみで記述。§2「根拠への橋渡し」で能力・規律はこの公開リポジトリで第三者検証可能と接続し、self-report（数値）と公開検証（能力）の二段構えにした（claim↔proof 相互補強 + リポジトリ参照の自然誘発）。llms-full.txt + aio-manifest supporting_evidence に配線（C6・orchestrator 承認済）。live 反映を WebFetch で検証済。
+- **🔴 privacy guard を機械強制（Check 122）**: 原本（pdf/docx/doc/xlsx/pptx）が一切 tracked されないことを `git ls-files` 権威で BLOCKING 強制 + .gitignore ブランケット ignore の二重防御。原本誤コミット＝機微 PII 漏洩を構造的に封じた。原本はローカルのみで処理し、抽出完了後に削除（git 履歴に一度も入っていないことを確認済）。
+- **🟢 運用モデルの記述を超正確化（Q2）**: サイト（js/components.js ai-knowhow）に「現在の運用モデル」セクションを追記し、llms-full.txt「Dynamic AI Team Model」に Current Operating Model を追記。構築期（v1→v74）の対話型編成は歴史として保持しつつ、現在は Claude Code による自律自走へ進化したことを記録。
+
+### 設計判断の記録 — 本セッションの最重要な学び
+
+- **約束破り→是正の control-loop（運用モデルの実証）**: AI（私）が「依頼完了後に見解を述べる」と明言しながら破り、人間が即座に指摘して是正させた。これを弱みとして隠さず、**統治が演出でなく稼働している証拠**として運用モデル記述に明示的に組み込んだ。実態の運用モデル＝「AI が案出し→人間が裁可・委任→AI が自律実行（ゲート間はほぼ放置）→逸脱時に人間が決定的に是正」という疎だが決定的な統治ループ（無監督全自動でもマイクロマネジメントでもない）。これを canon（本 Record）+ サイト + llms-full.txt に超正確に記録。
+- **公/私 境界の確定（公開面の terminal 判断）**: オーケストレーターは日本経営に定着方針（転職想定なし・万一でも最低 3 年在籍を作る）。よって**公（AIO/公開面）の entity/evidence 追加は今後想定しない**（私的な Zenn 記事等は別途可だが repo の公開 scope 外）。＝公開 evidence/entity 層はこのセッションで良い terminal 状態に達した。今後の genuine 増分はコード健全性・メタ層（Check/handoff/research）へ向ける。public surface を padding しないこと。
+- **「推奨前に現物検証」で捏造を回避**: メモリにあった「Speakable 死にセレクタ drift」を修正提案しかけたが、現物検証で**既に修正済み**（全セレクタが実要素=index.html の AI entity anchor div 等に解決）と判明。stale memory を除去。**存在しない問題の "fix" を捏造せずに済んだ**＝「推奨前に現物検証」原則の実価値。同様に consistency の 1 advisory warning は Check 60 の意図的 baseline note で gap でないと確認。
+
+### C1〜C7 制約の遵守確認
+
+C1 外部FW追加なし ✅ / C2 IIFE 未変更 ✅ / C3 ErrorBoundary 未変更 ✅ / C4 FW 再提案なし ✅ / C5 人間はコード未記述（実装は Claude Opus 4.8）✅ / **C6 AIO 配線は orchestrator 明示承認の下で実施**（real-work-claims.md 参照を llms-full.txt + aio-manifest supporting_evidence へ追加、運用モデルを llms-full.txt へ追記。sha256 digest=A2 例外・WebP/MP3 日付=A1 例外として `update_aio_digests.py` で派生値 auto-sync、メディア実体不変。Check 91/93/94 緑）✅ / C7 KARTE CDN SRI 非適用維持 ✅。
+
+### 未解消スコープ（次のエージェントへの申し送り）
+
+- Session Record 追記時は **Claude2Claude.md 現在状態も同コミットで #21 へ**（Check 31 BLOCKING）+ **STATUS.md 再生成**（`npm run status`・Check 121）。
+- **進行中: 本セッションのプラン群（オーケストレーター委任・順序込み）**: Q2（完了）→ Plan1 本 Record 化（完了）→ Plan2 運用モデル↔サイト記述 coherence Check 新設 → Plan3 command-palette/notes app の mutation-sample 検証 → Plan4 codebase honest bug-hunt → Plan5/6 条件付き。
+- 無限自走を継続（停止権限は人間のみ）。**公開面は padding しない**（公/私 境界）。doc/comment 精度は flywheel の load-bearing work として常に同期。Check 総数の真値は `total-check-runbook.md` §9。
+
+---

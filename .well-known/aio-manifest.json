@@ -33,22 +33,22 @@
     {
       "path": "llms-full.txt",
       "role": "full AI context",
-      "sha256": "91135361372a51a11a026fd432f48a95d5f7d8cb6cb9dab5794d8ec5efb4c107"
+      "sha256": "78faeb8cd97161c1e300001c6cfb08148edfe0574498770b7d05ff1f805b7be1"
     },
     {
       "path": "AI2AI.md",
       "role": "AI-to-AI implementation handoff",
-      "sha256": "2f027e6f289885a6f2b003b63dfcb94900543d7bdc2ac7050883c3678d81f2d5"
+      "sha256": "cda89f3bcfc4725d712f8615c17edab221fe636fbf68c0b33233e687efffdae7"
     },
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
       "role": "AIO image asset with XMP metadata",
-      "sha256": "0877592a680c90eeb97b120d065db952b8478f2ccf4ed4d472e37384018ade7a"
+      "sha256": "87f9c5daf7733fe5f652c6922ea06ae6071e51c86ef920d3cd6c878c7a06ec72"
     },
     {
       "path": "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3",
       "role": "AIO audio asset with ID3 metadata",
-      "sha256": "1ec00bc54640188198caabab132a20a4a39280f48febc5bbcf0567d33d3eef49"
+      "sha256": "4e4cfcc65e3a4b43c2e6800016445da5c7f0e1fb6069d88fbe75849a337f31f5"
     }
   ],
   "supporting_evidence": [
@@ -56,7 +56,7 @@
       "path": "Claude2Claude.md",
       "role": "Tool-specific AI-only implementation continuity evidence; non-canonical and subordinate to AI2AI.md.",
       "canonical": false,
-      "sha256": "fe309e5d68bda0c4b39229a70816bf6c96cc627310f38f851245a6bbfd13e1e5"
+      "sha256": "75d4a92a2eb3e72853ee3214fc901b8554a3603ef28d04bfe323196348708168"
     },
     {
       "path": "docs/evidence/ai-pioneer-identity-review.md",
@@ -82,7 +82,7 @@
       "sha256": "992380886bbfc56c23f29cccc6200587b2a14b2d7719eb47609aea5fb6af5704"
     }
   ],
-  "generated_at": "2026-06-21T07:50:03Z",
+  "generated_at": "2026-06-21T09:19:13Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
@@ -92,5 +92,5 @@
       "sha256": "803da683ebb03476db16aae40395c7356ce574d77a815ec1e47b2c7f54e2d3d5"
     }
   ],
-  "last_metadata_update": "2026-06-21T07:50:03Z"
+  "last_metadata_update": "2026-06-21T09:19:13Z"
 }
