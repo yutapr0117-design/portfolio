@@ -253,9 +253,9 @@ Public portfolio and documented AI-driven software development experiment
 
 ## Short Summary
 
-This site documents a real-world experiment in AI-driven web development.
-A public SPA portfolio was iteratively built from v1 to v74 through prompt engineering and AI orchestration, with AI generating much of the implementation code.
-The human role focused on architecture, prompt design, orchestration, verification, and publishing.
+This site is itself the output of an AI-self-driving, human-governed engineering system.
+The public SPA portfolio was first built (v1→v74) through prompt-driven multi-AI orchestration, and is now operated by autonomous AI self-driving: the AI implements, verifies, merges, and deploys to production on its own — and even proposes what to do next — while the human (Yuta Yokoi) writes zero code and governs through goal-setting, approval, delegation, and decisive correction (audit).
+The autonomy is held safe by a machine-enforced consistency-check suite (BLOCKING at pre-commit/CI) and behavior end-to-end tests.
 
 ## Long Summary
 
@@ -266,14 +266,14 @@ The broader purpose is to show that in the AI era, engineering value shifts from
 
 ## Core Thesis
 
-The key engineering skill is no longer only code production.
-The key engineering skill is the ability to:
-- design systems clearly
-- translate intent into prompts
-- orchestrate multiple AI tools
-- absorb constraints into design
+The key engineering skill is no longer code production; it is the ability to design AND govern autonomous AI engineering — to set the system up so AI can self-drive, and to keep that self-driving safe and correct.
+Concretely, the ability to:
+- design systems clearly and translate intent into prompts
+- orchestrate multiple AI tools and let them self-drive implementation/verification/deployment
+- absorb constraints into design and enforce them by machine (consistency checks + e2e), not by vigilance
+- govern through goal-setting, approval, delegation, and decisive correction (audit) — without writing code
 - iteratively verify and improve outputs
-- publish both product and method
+- publish both product and method (this site is the running proof)
 
 ## Primary Audience
 
