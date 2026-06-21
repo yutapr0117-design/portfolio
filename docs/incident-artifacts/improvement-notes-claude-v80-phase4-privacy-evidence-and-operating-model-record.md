@@ -82,3 +82,16 @@ baseline: 対象 4 テスト（command palette 2 本 + notes + palette a11y）gr
 - **Plan6 = defer-with-reason（honest・捏造回避）**: research 適用は本 run では見送る。理由 (research-application-policy の defer-with-reason に該当): (a) **公/私 境界**で公開面の padding は不可ゆえ research の適用先を公開 surface に出せない、(b) 最強の research veins（WCAG 2.2 / Core Web Vitals / AIO C6 enrichment / IETF AIPREF）は deferred backlog で**既に audit 済み**（largely satisfied / not-adopted-by-design）、(c) code への適用には genuine な新規 gap が要るが Plan4 の bug-hunt で近傍は堅牢と確認済み、(d) 明確な適用先の無い外部 fetch research は padding リスク。→ **genuine な research-applicable gap が将来出たら apply する**（停止でなく、現時点で non-padding な適用先が無いという honest な triage）。
 
 **本セッションの委任プラン群（Q2 + Plan1〜6）は以上で完了。** Q2 / Plan1（Session Record #21）/ Plan2（Check 123）/ Plan3（mutation-sample 3/3）/ Plan4（bug-hunt 実バグ無し）/ Plan5（privacy guard 拡張）= 実施、Plan6 = defer-with-reason。停止権限は人間のみゆえ、次の指示または自走継続の判断を仰ぐ。
+
+## 9. 委任後の継続自走（無限改善・2026-06-21〜22・PR #221 以降の後続）
+
+オーケストレーターの「効率良く完全に自走・判断求め不要」指示の下、レンズを上げながら（reflect-then-organize）genuine 増分を継続。主成果:
+
+- **🔴 実バグ 2 件（追加）**: (a) **AIPage が user prompt を無制限保存**（他アプリは全 slice 済）→ AI_MESSAGE(5000) で bound・PR #230。(b) **router transition-lock の replay 判定バグ**: transition 中の hashchange で queued route が drop され URL=B/表示=A に desync（コメントの正しい意図をコードの余分な clause が裏切る drift）→ `_routerPendingHash !== null` のみで replay に修正・PR #232（全 50 routing e2e で非破壊実証）。
+- **匿名性の二層を機械強制**: サイト UI=「yuta」匿名 / 実名は AIO・entity 層のみ。**Check 124a**（視覚 renderer の bare 実名禁止）+ **124b**（実名系定数 AUTHORITATIVE_NAME/JAPANESE_NAME の視覚 renderer 参照禁止＝identity.js の UI→DISPLAY_NAME only 契約を機械化）。
+- **dead-code 系統化**: never-activated 定数 POMODORO_LOCK_TTL/SAVE_INTERVAL を git -S で配線歴ゼロ確認後に除去（pomodoro bug-hunt 由来）→ **Check 125**（dead-constant guard）新設→導入即 TASK_DESC（vestigial 除去）/ AI_MESSAGE（lost-wiring の実バグ→再配線）を検出。手 probe の見逃しを rigorous Check が捕捉した実証。
+- **honest 監査で clean 確認した surface**（捏造 fix なし）: notes レンダリング / drawer focus-trap / quiz（表示+contact form・採点無し）/ theme（matchMedia listener leak 無し）/ state（set が lastModified/modifiedBy を stamp＝cross-tab sync 健全・clone は documented bounded-depth）。read-only ゆえ commit せず branch 破棄。
+- **mutation-sample をデータ整合性中枢へ拡張**: store.js validateAndNormalize の safeUrl（XSS sanitize）と load() の schema-version migration に意図的 mutation を注入し、対応 e2e（Profile URL-sanitized / schema version mismatch）が **2/2 捕捉**することを確認（mutation は即 revert）。最 critical な data-integrity path の assertion は意味的に強く test 強化不要。
+- **§7 handoff + Session Record #21 + 本 notes** を同期し cold-start 鮮度を維持。**公/私 境界**（公開 entity/evidence 面は terminal・padding しない）を確定し、以後の genuine vein は code health / メタ層（Check）/ test-strength / handoff へ向ける方針を canon 化。
+
+**教訓（この継続自走から）**: (1) レンズを上げると枯渇は偽だった——core 未監査 surface（router）に実バグが眠っていた。(2) 「assigned but never used」は git -S で vestigial（除去）か lost-wiring（再配線）か判別。(3) コメントが正しい意図を述べているのにコードが裏切る drift（router replay）は実バグの温床。(4) 監査が clean なら捏造せず branch 破棄＝honest（無理に commit しない）。
