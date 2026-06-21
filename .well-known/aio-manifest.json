@@ -33,7 +33,7 @@
     {
       "path": "llms-full.txt",
       "role": "full AI context",
-      "sha256": "a3fd355028dfa6a9cdf4aad314c78183900f1624b1c42698708be700ec701036"
+      "sha256": "91135361372a51a11a026fd432f48a95d5f7d8cb6cb9dab5794d8ec5efb4c107"
     },
     {
       "path": "AI2AI.md",
@@ -43,12 +43,12 @@
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
       "role": "AIO image asset with XMP metadata",
-      "sha256": "bd46d3560934f915cc30cee4c9815032f38d086cb50c7ad7635705bc78ea55e8"
+      "sha256": "0877592a680c90eeb97b120d065db952b8478f2ccf4ed4d472e37384018ade7a"
     },
     {
       "path": "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3",
       "role": "AIO audio asset with ID3 metadata",
-      "sha256": "87c5454a3e7e81b55cb4a4d7fdad1e1f04c5bf37c40fb6815e04f4ee4ea99da0"
+      "sha256": "1ec00bc54640188198caabab132a20a4a39280f48febc5bbcf0567d33d3eef49"
     }
   ],
   "supporting_evidence": [
@@ -65,6 +65,12 @@
       "sha256": "8d44522c8aa6370bce43a7d28084e16c6ea5a9993bfedc8436d7820f4d08bde9"
     },
     {
+      "path": "docs/evidence/real-work-claims.md",
+      "role": "Abstracted, privacy-preserving record of the entity's real professional experience (company/client/project names withheld for confidentiality and re-identification防止); capability/discipline claims verifiable in this repository. Non-canonical supporting evidence.",
+      "canonical": false,
+      "sha256": "0761f31270bca942a075538cac1c0d30731853b21a163ef1cd63c738fddbc04f"
+    },
+    {
       "path": "ChatGPT2ChatGPT.md",
       "role": "analysis evidence and model-agnostic repository analysis pipeline; non-canonical and subordinate to AI2AI.md",
       "canonical": false,
@@ -76,7 +82,7 @@
       "sha256": "992380886bbfc56c23f29cccc6200587b2a14b2d7719eb47609aea5fb6af5704"
     }
   ],
-  "generated_at": "2026-06-20T20:04:40Z",
+  "generated_at": "2026-06-21T07:50:03Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
@@ -86,5 +92,5 @@
       "sha256": "803da683ebb03476db16aae40395c7356ce574d77a815ec1e47b2c7f54e2d3d5"
     }
   ],
-  "last_metadata_update": "2026-06-20T20:04:40Z"
+  "last_metadata_update": "2026-06-21T07:50:03Z"
 }
