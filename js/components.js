@@ -1118,6 +1118,27 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
                 )
             ),
 
+            // ══ 現在の運用モデル（対話型 → AI 自走への進化）══
+            h('section', {
+                class: 'card card--accent-left', 'data-accent': 'primary', role: 'region', 'aria-label': '現在の運用モデル：AI自走運用への進化'
+            },
+                h('div', { class: 'card-body flex flex-col gap-3' },
+                    sectionHeader('🔄', '現在の運用モデル — 対話型から AI 自走運用への進化', C.primary),
+                    h('p', { class: 'text-detail-muted mb-1' },
+                        '上記6エージェントの編成は v1→v74 の「構築期」の役割分担（対話型で起用）。現在の運用は、その一面である Claude Code による自律自走へ進化している。制御も自走も、いずれも事実である。'
+                    ),
+                    h('p', { class: 'text-body-sm' },
+                        'AI（Claude Code）が実装・検証・マージ・本番デプロイまで自走し、さらに「次に何をやるか」の案出し（提案）も AI が行う。人間（横井雄太）の役割は、ゴール／優先度の提示・承認・委任、そして必要時の決定的な是正（監査）に集約される。'
+                    ),
+                    h('p', { class: 'text-body-sm' },
+                        '実態は「案出し → 人間が裁可・委任 → AI が自律実行（ゲート間はほぼ放置）→ 逸脱時に人間が決定的に是正」という、疎だが決定的な統治ループ。無監督の全自動でもマイクロマネジメントでもない。例えば本運用中、AI が「依頼完了後に見解を述べる」約束を破った際、人間が即座に指摘し是正させた——統治が演出ではなく稼働している証拠である。'
+                    ),
+                    h('p', { class: 'text-detail-muted' },
+                        'この AI 自走運用そのものが、現時点では高価値かつ希少と認識している。具体の運用記録は公開リポジトリの AI2AI.md（Session Record）および docs/incident-artifacts/improvement-notes で検証できる。'
+                    )
+                )
+            ),
+
             // ══ KERNELフレームワーク ══
             h('section', {
                 class: 'card card--accent-left', 'data-accent': 'purple'
