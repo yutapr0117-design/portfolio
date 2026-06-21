@@ -57,3 +57,19 @@ baseline: 対象 4 テスト（command palette 2 本 + notes + palette a11y）gr
 | M_n1 | `js/apps.js` `renderMarkdown` の `#` 見出しを `h1`→`p` で描画 | `Markdown notes app live-previews (innerHTML-free) and persists`（`.md-preview h1` が visible でない） | ✅ caught (toBeVisible failed) |
 
 **結果: 3/3 mutation を suite が捕捉。** command-palette の filter・omni-nav（プロジェクト検索）と notes の見出しレンダリングは、e2e が**意味的に正しく assert している**ことを実証（構造的空洞性なし + 緩い assertion なし）。test-strengthening 不要。**教訓: 新機能を足したら、その critical ロジックに one-off mutation を入れて対応テストが red 化するかをローカル 1 回確認するのが、重い stryker CI 無しで assertion 強度を担保する軽量で有効な手段**（付属物サイトには重い mutation CI は disproportionate との前 run 判断を踏襲）。
+
+## 7. Plan4 — codebase honest bug-hunt 結果（2026-06-21・実バグ無し）
+
+**reflect-then-organize**: 最新かつ regex ベースで edge-case bug が出やすく、e2e が happy-path のみの **notes レンダリング**を起点に、隣接の高リスク経路（過去に実バグ歴のある slug 一意化 #154 / import upsert #192）まで深掘りした。**捏造を避けるため、見つからなければ「無し」と honest に記録する**前提で実施。
+
+精査した surface と結論（すべて健全＝実バグ無し）:
+
+| surface | 精査内容 | 結論 |
+|---|---|---|
+| `_renderMarkdownInline` (apps.js) | 複数 `**bold**`/`` `code` `` 連続・unclosed `**`・`***a***`・code 内 `**`・bold 内 backtick・終了性（rest は m[0].length≥3 で厳密縮小＝無限ループ無し）・XSS（h()=textContent で構造防止） | 正しく安全 |
+| `renderMarkdown` block (apps.js) | 見出し/箇条書き/段落の分岐、ループ後の最終 `flushList()`（末尾が list の場合の取りこぼし無し） | 正しい |
+| notes 永続 (apps.js 759 / store normalizeAppsData) | `val.slice(0,20000)` は意図的上限（他 limit と同種）。preview/textarea は full 表示で保存のみ slice＝仕様 | 問題なし |
+| slug 一意化（add: apps.js 905-909 / import・merge: store.js mergeProjectsWithDefaults 450-463） | add はインライン一意化、import/append/upsert/strict は全て 889 で `validateAndNormalize → mergeProjectsWithDefaults` を経由し slug 衝突を中央集約で解消。「別 id・同一 slug で詳細到達不能」(#154) の経路を全網羅で確認 | 全経路安全 |
+| import/upsert (apps.js 861-889) | upsert は単一 Map で更新+追加を集約（#192 fix 正しい）。strict/append/upsert いずれも 889 で normalize され profile/appsData も sanitize（safeUrl で javascript:/data: 遮断） | 正しく安全 |
+
+**結論: 実バグ無し。** 上記は過去に実バグが出た近傍を含む genuine な深掘りで、いずれも既存 fix（#154/#192/#139）+ 中央集約正規化で堅牢だった。**捏造 fix は作らない**（推奨前検証の原則）。本記録は次 AI が同 surface を再 hunt せずに済むための audit-trail（flywheel = onboarding 精度）。次の genuine vein は別 surface / メタ層 / research へ。
