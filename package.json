@@ -11,6 +11,7 @@
     "test:e2e": "playwright test --config=playwright.config.cjs --reporter=list",
     "test:e2e:update": "playwright test --config=playwright.config.cjs --update-snapshots --reporter=list",
     "check": "python3 .github/scripts/check_repository_consistency.py && python3 .github/scripts/check_aio_digests.py && python3 .github/scripts/check_binary_aio_metadata.py",
+    "status": "python3 .github/scripts/generate_status.py",
     "verify": "npm run check && npm run lint:css && npm run lint && npm run lint:js"
   },
   "devDependencies": {
