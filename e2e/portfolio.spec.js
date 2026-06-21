@@ -49,8 +49,11 @@ test('External target=_blank links are hardened with noopener+noreferrer (securi
 
   // (1) home の実外部リンク (例: Zenn) が全て noopener + noreferrer を持つ
   const externalLinks = page.locator('a[target="_blank"]');
+  // [FIX] SPA はモジュール実行後に外部リンク (Zenn/GitHub/X 等) を描画するため、domcontentloaded
+  // 直後の即時 count は描画前で 0 になり得る (CI の遅い環境で間欠 flake)。web-first assertion で
+  // 「最低 1 本が描画される」まで auto-wait してから数える (snapshot count → retry 付き assertion へ)。
+  await expect(externalLinks, 'home should render at least one external link (non-vacuous)').not.toHaveCount(0);
   const count = await externalLinks.count();
-  expect(count, 'home should render at least one external link (non-vacuous)').toBeGreaterThan(0);
   for (let i = 0; i < count; i++) {
     const rel = (await externalLinks.nth(i).getAttribute('rel')) || '';
     expect(rel, `external link #${i} must include noopener`).toContain('noopener');
