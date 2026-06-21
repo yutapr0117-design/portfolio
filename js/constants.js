@@ -66,7 +66,6 @@ export const CONSTANTS = {
         APPROACH: 1200,
         IMPACT: 1200,
         TASK_TITLE: 200,
-        TASK_DESC: 1000,
         TODO_TEXT: 300,
         AI_MESSAGE: 5000,
         MAX_PROJECTS: 1000,
