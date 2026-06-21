@@ -42,4 +42,18 @@ Session Record #21（AI2AI.md）が簡潔な handoff であるのに対し、本
 
 ## 5. このセッションのプラン（オーケストレーター委任・順序込み）
 
-Q2（完了）→ Plan1 本 Record 化（完了）→ Plan2 運用モデル↔サイト記述 coherence Check 新設 → Plan3 command-palette/notes app の mutation-sample 検証 → Plan4 codebase honest bug-hunt → Plan5/6 条件付き（Check122 forward 強化 / research 適用）。
+Q2（完了）→ Plan1 本 Record 化（完了）→ Plan2 運用モデル↔サイト記述 coherence Check 新設（完了・Check 123）→ Plan3 command-palette/notes app の mutation-sample 検証（完了・下記 §6）→ Plan4 codebase honest bug-hunt → Plan5/6 条件付き（Check122 forward 強化 / research 適用）。
+
+## 6. Plan3 — command-palette / notes app の mutation-sample 検証結果（2026-06-21）
+
+**reflect-then-organize**: 前 run（§操作モデル run §7）の mutation-sample は notes の `**bold**` tokenizer（M3）を含むが、**command-palette（PR #214）は未サンプル**だった。よって今回は command-palette の critical ロジック 2 点 + notes の別 mutation（見出し）を対象に、対応 e2e が意味的に assert する（vacuous でない）ことをローカル 1 回検証（新 dep ゼロ・mutation は commit せず即 revert）。
+
+baseline: 対象 4 テスト（command palette 2 本 + notes + palette a11y）green を確認した上で:
+
+| # | 注入した mutation | 期待して fail した e2e | 結果 |
+|---|---|---|---|
+| M_cp1 | `js/command-palette.js` `_renderList` の filter を無効化（query 無視＝常に全件） | `Command palette (Ctrl+K) opens, filters, navigates, and closes`（Enter で先頭=Home へ飛び「プロジェクト一覧」h1 が出ない） | ✅ caught (1 failed) |
+| M_cp2 | `_allDestinations` を `return NAV`（プロジェクトを検索対象に加えない） | `Command palette searches projects and jumps to a project detail`（projItem `タスク管理アプリ` が visible でない） | ✅ caught (toBeVisible failed) |
+| M_n1 | `js/apps.js` `renderMarkdown` の `#` 見出しを `h1`→`p` で描画 | `Markdown notes app live-previews (innerHTML-free) and persists`（`.md-preview h1` が visible でない） | ✅ caught (toBeVisible failed) |
+
+**結果: 3/3 mutation を suite が捕捉。** command-palette の filter・omni-nav（プロジェクト検索）と notes の見出しレンダリングは、e2e が**意味的に正しく assert している**ことを実証（構造的空洞性なし + 緩い assertion なし）。test-strengthening 不要。**教訓: 新機能を足したら、その critical ロジックに one-off mutation を入れて対応テストが red 化するかをローカル 1 回確認するのが、重い stryker CI 無しで assertion 強度を担保する軽量で有効な手段**（付属物サイトには重い mutation CI は disproportionate との前 run 判断を踏襲）。
