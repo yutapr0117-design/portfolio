@@ -125,6 +125,8 @@
         // v80+ Stage 5-s: パフォーマンスガード 2 つ（Layout Thrashing / Media Lifecycle）を
         //   factory pattern で葉モジュール抽出。外部依存なしの DOM API グローバル prototype hook。
         import { createPerfGuards } from './js/perf-guards.js';
+        // Command palette: Cmd/Ctrl+K の横断ナビ overlay（新ルート無し・純追加機能）を葉モジュール化。
+        import { createCommandPalette } from './js/command-palette.js';
         /* ╔══════════════════════════════════════════════════════════════════╗
            ║  DO NOT EDIT: AIDK Isolated Kernel — AIDK Architecture          ║
            ║  このブロック全体がAIエージェントのアクセスから隔離された核です。   ║
@@ -775,6 +777,9 @@
         const { _normalizeError, _isViewTransitionError, _isFatalError } = _fatalOverlay;
         _fatalOverlay.install();
 
+        // Command palette（Cmd/Ctrl+K 横断ナビ overlay）を合成。init() で global keydown を登録。
+        const CommandPalette = createCommandPalette({ Router, h, createIcon });
+
 
         // ===== Event Listeners =====
         function init() {
@@ -807,6 +812,9 @@
                     if (drawer && drawer.getAttribute('aria-hidden') === 'false') closeDrawer();
                 }
             });
+            // Command palette: Cmd/Ctrl+K の global opener を登録（他キーは素通し）
+            CommandPalette.init();
+
             // Window resize listener (v37: responsive drawer sync)
             window.addEventListener('resize', debounce(syncMobileDrawer, CONSTANTS.DEBOUNCE_DELAY));
 
