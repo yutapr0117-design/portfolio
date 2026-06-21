@@ -35,7 +35,6 @@
  * 【非破壊性】
  *   - 5 関数の DOM 出力・class 名・style・aria 属性は byte-equivalent
  *   - localStorage への副作用順序（State.update 経由）も不変
- *   - PomodoroPage の cross-tab lock TTL（CONSTANTS.POMODORO_LOCK_TTL）も不変
  *   - SettingsPage のインポート/エクスポート挙動も byte-equivalent
  *   - AIDK Kernel / AIO 正本層には影響しない
  */
