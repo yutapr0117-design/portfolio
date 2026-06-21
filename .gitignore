@@ -31,3 +31,18 @@ Thumbs.db
 CLAUDE.local.md
 # Session-local scheduled-task lock (auto-managed by Claude Code; never share)
 .claude/scheduled_tasks.lock
+
+# ── Private source documents (NEVER commit) ────────────────────────────
+# Personal/confidential source material (resume, career history, offer letters,
+# employer-provided documents) is dropped at the repo root ONLY as local input
+# for generating abstracted, privacy-safe evidence (docs/evidence/*). The shipped
+# repo is Vanilla JS/MD with NO legitimate .pdf/.docx, so these patterns are a
+# safe blanket guard against committing any such source doc. Re-identification /
+# 身バレ防止: the originals are processed locally then deleted; only ABSTRACTED
+# claims (ranges, role types, deliverable types — no company/client/project names)
+# are ever committed. Check 122 machine-enforces that no .pdf/.docx is ever tracked.
+*.pdf
+*.docx
+*.doc
+*.xlsx
+*.pptx

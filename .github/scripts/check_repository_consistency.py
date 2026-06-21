@@ -622,6 +622,13 @@ authoritative inventory and is kept in sync with the implementation below):
        and asserts it byte-matches the committed STATUS.md (regenerate-and-compare, same idea as
        the AIO digest checks). A hand-edited or stale dashboard is misinformation that degrades
        the flywheel, so freshness is machine-enforced. Fix: `npm run status`. (BLOCKING)
+  122. no private source documents tracked: personal career source documents (resume / career
+       history / offer letters / labor-condition sheets) are LOCAL-ONLY input for generating the
+       abstracted, privacy-safe docs/evidence/real-work-claims.md. Committing an original would
+       leak sensitive PII (personal identifiers beyond the public real name, client/project names,
+       salary, labor conditions). The shipped repo is Vanilla JS/MD with no legitimate
+       .pdf/.docx/.doc/.xlsx/.pptx, so this Check asserts (via `git ls-files`) that none of those
+       suffixes is tracked — defense-in-depth alongside the .gitignore blanket ignore. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4691,6 +4698,24 @@ except Exception as _e121:
         f"Check 121: STATUS.md 鮮度を検証できない (generate_status import 失敗等): {_e121}",
         blocking=True,
     )
+
+# ── 122. no private source documents tracked (BLOCKING) ───────────────────────
+# 本人の経歴書類 (履歴書・職務経歴書・内定通知書・労働条件表 等) は、抽象化済み evidence
+# (docs/evidence/real-work-claims.md) を生成するためのローカル入力に過ぎず、原本を公開リポジトリへ
+# commit すると機微情報 (氏名以外の個人特定情報・顧客名・案件名・年収・労働条件) の漏洩になる。
+# shipped repo は Vanilla JS/MD で正規の .pdf/.docx/.doc/.xlsx/.pptx は存在しないため、これらの拡張子が
+# tracked されていないことを BLOCKING で機械強制する (.gitignore のブランケット ignore と二重防御。
+# `git add .` は settings で deny 済みだが、明示 add の取りこぼしや将来の再投入もここで閉じる)。
+_PRIVATE_DOC_SUFFIXES = (".pdf", ".docx", ".doc", ".xlsx", ".pptx")
+_private_hits = sorted(p for p in _member_paths if p.lower().endswith(_PRIVATE_DOC_SUFFIXES))
+check(
+    not _private_hits,
+    f"Check 122: no private source documents (.pdf/.docx/...) tracked (scanned {len(_member_paths)} paths)",
+    "Check 122: private source document(s) tracked in repository — 機微情報漏洩リスク。原本は "
+    "ローカルのみで扱い、抽象化済み evidence のみ commit せよ。tracked 違反: "
+    + ", ".join(_private_hits[:10]) + (" …" if len(_private_hits) > 10 else ""),
+    blocking=True,
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
