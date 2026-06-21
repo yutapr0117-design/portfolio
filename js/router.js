@@ -143,14 +143,17 @@ export const Router = (() => {
             }
         } finally {
             _routerTransitioning = false;
-            // Replay any route change that arrived while we were busy
-            if (_routerPendingHash !== null && _routerPendingHash !== window.location.hash) {
+            // Replay any route change that arrived while we were busy.
+            // [FIX] 判定は「pending が到着したか (!== null)」だけで行う。旧実装は
+            // `&& _routerPendingHash !== window.location.hash` を併用していたが、これは
+            // rapid double-nav の常見ケース (transition 中に 1 度だけ B へ遷移し以後動かない) で
+            // pending===live(B) となり replay を skip し、処理済みは遷移前の旧ルート (A) のまま
+            // ＝ URL=B / 表示=A の desync を生むバグだった。_dispatchRouteChange は live hash を
+            // 再読するため、pending の値自体は不要で「変化が到着した事実」だけが replay の条件
+            // (この関数のコメントが元から述べていた正しい意図に一致させる)。
+            if (_routerPendingHash !== null) {
                 _routerPendingHash = null;
-                // Re-trigger: _dispatchRouteChange re-reads the live window.location.hash,
-                // so the queued value itself is not needed — only the fact that a change arrived.
                 _dispatchRouteChange();
-            } else {
-                _routerPendingHash = null;
             }
         }
     }
