@@ -650,6 +650,11 @@ authoritative inventory and is kept in sync with the implementation below):
        (literal grep alone would miss a variable-rendered name). Together they structurally prevent the
        real-name-leak class (an AI added the literal name to visible text in Session #21; corrected).
        AIO layers (meta-management etc.) legitimately use AUTHORITATIVE_NAME and are out of scope. (BLOCKING)
+  125. no dead CONSTANTS key: every key in js/constants.js (top-level + nested `[A-Z_]+:` lines) must
+       be referenced at least once from the other shipped JS. Systematizes the dead-constant cleanup of
+       Session #21 (POMODORO_LOCK_TTL / SAVE_INTERVAL were never-activated and removed); prevents the
+       never-activated-constant class from re-accumulating. ALL-CAPS snake keys are distinctive so the
+       reference grep is robust (a comment mention also counts — conservative under-flagging). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4815,6 +4820,32 @@ check(
     + ", ".join(_idleak124[:10]),
     blocking=True,
 )
+
+# ── 125. no dead CONSTANTS key (BLOCKING) ─────────────────────────────────────
+# Session #21 の pomodoro bug-hunt で、consumer ゼロの never-activated 定数 (POMODORO_LOCK_TTL /
+# SAVE_INTERVAL) を発見・除去した。この dead-constant class の再発を機械封じするため、js/constants.js
+# の各キー (top-level + LIMITS 等 nested を含む `[A-Z_]+:` 行) が、他の shipped JS から少なくとも 1 回
+# 参照されることを BLOCKING で機械強制する。ALL-CAPS snake のキー名は識別性が高く誤マッチしにくい
+# (コメント言及も "not dead" として保守的に許容＝over-flag より under-flag を選ぶ)。dead は除去すること。
+_const125 = ROOT / "js" / "constants.js"
+if _const125.exists():
+    _keys125 = list(dict.fromkeys(re.findall(r'^\s+([A-Z][A-Z0-9_]*)\s*:', _const125.read_text(encoding="utf-8"), re.M)))
+    _corpus125_parts = []
+    for _p125 in [ROOT / "main.js", ROOT / "sw.js", ROOT / "theme-init.js"] + sorted((ROOT / "js").rglob("*.js")):
+        if _p125.resolve() == _const125.resolve() or not _p125.exists():
+            continue
+        _corpus125_parts.append(_p125.read_text(encoding="utf-8"))
+    _blob125 = "\n".join(_corpus125_parts)
+    _dead125 = [k for k in _keys125 if not re.search(r'\b' + re.escape(k) + r'\b', _blob125)]
+    check(
+        not _dead125,
+        f"Check 125: js/constants.js の全 {len(_keys125)} キーが他 shipped JS から参照される (dead-constant guard)",
+        "Check 125: 未使用の CONSTANTS キー (never-activated dead 定数) を検出 — 他 shipped JS から参照が無い。"
+        "除去せよ (Session #21 の POMODORO_LOCK_TTL/SAVE_INTERVAL と同 class)。違反: " + ", ".join(_dead125[:10]),
+        blocking=True,
+    )
+else:
+    check(False, "Check 125: js/constants.js present", "Check 125: js/constants.js が見つからない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
