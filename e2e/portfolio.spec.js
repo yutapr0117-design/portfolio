@@ -2519,6 +2519,27 @@ test('a11y axe: mobile viewport with open drawer has no render-neutral critical 
   ).toHaveLength(0);
 });
 
+// ===== 7.1: コマンドパレット open 状態の axe a11y (overlay a11y parity) =====
+// route-based axe (A11Y_ROUTES) は palette が閉じた状態のみ走る。command palette はオーバーレイ
+// (非ルート) ゆえ open 状態の a11y が未被覆だった。drawer-open axe と同 parity で、Cmd+K で開いた
+// dialog (role=dialog/listbox/option + focus-trap) に render-neutral critical 違反が無いことを検証する。
+test('a11y axe: open command palette has no render-neutral critical violations', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  await page.keyboard.press('Control+k');
+  await expect(page.locator('#command-palette-host')).toHaveAttribute('aria-hidden', 'false');
+
+  const results = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'])
+    .analyze();
+  const offenders = results.violations.filter(v => A11Y_RENDER_NEUTRAL_RULES.includes(v.id));
+  expect(
+    offenders,
+    'open-command-palette render-neutral a11y violations: ' +
+    JSON.stringify(offenders.map(v => `${v.id}(${v.nodes.length})`))
+  ).toHaveLength(0);
+});
+
 // ===== 7.2: 全ハッシュルート検証 — aria-busy 収束 & コンテンツ非空 =====
 // 注: 以前は '#/home'（home は '#/'）と '#/skills'（'skills' route は存在しない）が含まれ、
 // どちらも NotFoundPage に解決していた。NotFound も aria-busy=false + #content 非空ゆえ、
