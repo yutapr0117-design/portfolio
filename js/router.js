@@ -51,7 +51,7 @@ export const Router = (() => {
                     route.name = 'apps';
                 } else {
                     const app = parts[1];
-                    route.name = ['task', 'todo', 'pomodoro', 'ai'].includes(app)
+                    route.name = ['task', 'todo', 'pomodoro', 'ai', 'notes'].includes(app)
                         ? `app-${app}`
                         : 'not-found';
                 }

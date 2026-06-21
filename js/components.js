@@ -811,6 +811,7 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
             { id: 'todo', title: 'クイックTODO', desc: 'クイック入力 + 完了管理', icon: 'list' },
             { id: 'pomodoro', title: 'ポモドーロ', desc: '耐タブ休眠のタイマー + フォーカス対象', icon: 'clock' },
             { id: 'ai', title: 'AI アシスト', desc: 'ローカルAI（外部API不要）', icon: 'brain' },
+            { id: 'notes', title: 'Markdown ノート', desc: 'innerHTML 不使用の安全 MD ライブプレビュー', icon: 'edit' },
         ];
 
         return h('div', { class: 'flex flex-col gap-6' },

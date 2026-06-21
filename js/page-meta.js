@@ -35,6 +35,7 @@ export const PAGE_META = {
     'app-todo': { title: 'Quick TODO', desc: 'クイックTODOリスト。シンプルで高速。' },
     'app-pomodoro': { title: 'Pomodoro Timer', desc: 'ポモドーロタイマー。集中と休憩を自動制御。' },
     'app-ai': { title: 'AI Assist', desc: 'AIアシスト。ローカル思考補助ツール。' },
+    'app-notes': { title: 'Markdown Notes', desc: 'Markdown ライブプレビュー・ノート。innerHTML 不使用の安全レンダリング。' },
     settings: { title: 'Settings', desc: '設定・テーマ・DEBUG。Import/Export・整合性チェック・スナップショット。' },
     about: { title: 'About', desc: 'プロフィール。ITエンジニアとしての経歴・思想。' },
     resume: { title: 'Resume', desc: '職務経歴。設計力・問題解決能力・継続改善習慣。' },
