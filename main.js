@@ -447,7 +447,7 @@
         //   へ factory pattern で抽出。各 page の private state（taskFilter /
         //   todoFilter / todoComposing / pomodoroTimer / aiLoading / settings*）も
         //   factory closure 内へ移動（揮発性 UI 状態は元と同位置で保持される・挙動 byte-equivalent）。
-        const { TaskPage, TodoPage, PomodoroPage, AIPage, SettingsPage } = createApps({
+        const { TaskPage, TodoPage, PomodoroPage, AIPage, NotesPage, SettingsPage } = createApps({
             h, createIcon, Toast, AUTHOR, Router, State, Theme, Brand, Store, Storage, CONSTANTS,
             generateId, clamp, slugify
         });
@@ -672,6 +672,9 @@
                             break;
                         case 'app-ai':
                             page = AIPage();
+                            break;
+                        case 'app-notes':
+                            page = NotesPage();
                             break;
                         case 'settings':
                             page = SettingsPage();

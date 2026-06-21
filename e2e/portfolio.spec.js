@@ -1790,6 +1790,34 @@ test('AI assist app generates and renders a response for a prompt', async ({ pag
   await expect(page.getByText(prompt)).toBeVisible();
 });
 
+// ===== 7.2: Markdown ノートアプリ (innerHTML 不使用のライブプレビュー + 永続) =====
+// js/apps.js NotesPage は textarea の Markdown を h() のみ（innerHTML 不使用）で DOM へレンダリングし
+// live preview + localStorage 永続する純追加アプリ。# 見出し / **太字** / `code` / - リストを
+// h('h1'/'strong'/'code'/'li') へ変換する。入力→プレビュー反映→リロード永続を検証する。
+test('Markdown notes app live-previews (innerHTML-free) and persists', async ({ page }) => {
+  await page.goto('/#/apps/notes');
+  await page.waitForLoadState('domcontentloaded');
+
+  const ta = page.locator('#notes-input');
+  await expect(ta).toBeVisible();
+  await ta.fill('# E2E-NOTE-見出し-7733\n\n**太字テキスト** と `inlineコード`\n\n- 項目A');
+
+  // プレビューが h() で構造化レンダリング (innerHTML 不使用) されること
+  const preview = page.locator('.md-preview');
+  await expect(preview.locator('h1', { hasText: 'E2E-NOTE-見出し-7733' })).toBeVisible();
+  await expect(preview.locator('strong', { hasText: '太字テキスト' })).toBeVisible();
+  await expect(preview.locator('code.md-code', { hasText: 'inlineコード' })).toBeVisible();
+  await expect(preview.locator('ul.md-ul li', { hasText: '項目A' })).toBeVisible();
+
+  // リロード後も永続 (appsData.notes)
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('.md-preview h1', { hasText: 'E2E-NOTE-見出し-7733' })).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `notes app caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: AI アシストの analyzeInput キーワード分岐 (troubleshoot/design/general) =====
 // analyzeInput は入力に含まれるキーワードで応答タイプを 3 分岐する: 「エラー/バグ/失敗」→
 // troubleshoot、「設計/計画/構成」→ design、それ以外 → general。既存 AI テスト (#上) は
@@ -2425,7 +2453,7 @@ test('Profile github/linkedin survive import and are URL-sanitized (XSS-safe)', 
 // これらは ARIA 属性 / accessible name の付与のみで pixel 不変ゆえ §3 baseline ゲート非該当。
 // 注: color-contrast / link-in-text-block 等の render（CSS）系違反は baseline ゲート下で別途扱う
 // ため本テストでは対象外（render-neutral に直せる違反のみを今は機械強制する）。
-const A11Y_ROUTES = ['#/', '#/projects', '#/about', '#/contact', '#/resume', '#/apps', '#/settings', '#/quiz', '#/apps/task', '#/apps/todo', '#/apps/pomodoro', '#/apps/ai', '#/hiring-risk', '#/ai-knowhow', '#/role-split', '#/not-found'];
+const A11Y_ROUTES = ['#/', '#/projects', '#/about', '#/contact', '#/resume', '#/apps', '#/settings', '#/quiz', '#/apps/task', '#/apps/todo', '#/apps/pomodoro', '#/apps/ai', '#/apps/notes', '#/hiring-risk', '#/ai-knowhow', '#/role-split', '#/not-found'];
 // 本テストで違反ゼロを機械強制する rule の allowlist（= 既に render-neutral に修正済の rule）。
 // color-contrast / color-contrast-enhanced / heading-order / link-in-text-block 等の未修正
 // （baseline-gated or 別 increment）rule は analyze 結果に含まれても本 allowlist 外ゆえ無視する。
@@ -2636,6 +2664,7 @@ const ALL_ROUTES = [
   { hash: '#/apps/todo',         name: 'app-todo' },
   { hash: '#/apps/pomodoro',     name: 'app-pomodoro' },
   { hash: '#/apps/ai',           name: 'app-ai' },
+  { hash: '#/apps/notes',        name: 'app-notes' },
   { hash: '#/settings',          name: 'settings' },
   { hash: '#/about',             name: 'about' },
   { hash: '#/resume',            name: 'resume' },

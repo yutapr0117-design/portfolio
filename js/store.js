@@ -69,7 +69,8 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
             }
         },
         ai: { history: [] },
-        quizSearch: ""
+        quizSearch: "",
+        notes: "# メモ\n\nMarkdown で書けます。**太字**・`コード`・- リスト・見出し。"
     };
 
     function proj(id, slug, name, category, summary, problem, approach, outcome, tech, tags, highlights, architecture, relatedIds, links, demoRoute) {
@@ -530,6 +531,11 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
             result.ai.history = data.ai.history
                 .filter(h => h && h.prompt && h.response)
                 .slice(-80);
+        }
+
+        // Notes (Markdown 文字列・additive ゆえ schema bump 不要。上限で防御)
+        if (typeof data.notes === 'string') {
+            result.notes = data.notes.slice(0, 20000);
         }
 
         return result;

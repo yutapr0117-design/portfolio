@@ -9,7 +9,7 @@
  * 完全に byte-equivalent に保つ。
  *
  * 【公開 API（抽出前後で byte-equivalent）】
- *   const { TaskPage, TodoPage, PomodoroPage, AIPage, SettingsPage } = createApps({...});
+ *   const { TaskPage, TodoPage, PomodoroPage, AIPage, NotesPage, SettingsPage } = createApps({...});
  *
  * 【factory closure 内の private state（揮発性 UI 状態の維持）】
  *   - taskFilter (const), todoFilter / todoComposing (let)
@@ -696,6 +696,89 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
         return buildUI();
     }
 
+    // ===== Component: Markdown Notes Page =====
+    // innerHTML を一切使わず h() のみで Markdown サブセットを DOM へレンダリングする。
+    // 対応: 見出し(# ## ###) / 箇条書き(- ) / **太字** / `inline code` / 段落。リンク・ネストは非対応
+    // (スコープを絞り、javascript: 等の注入面を作らない＝C6/セキュリティ境界と整合)。
+    function _renderMarkdownInline(text) {
+        // 1 行内の **bold** と `code` を h() の子ノード列へ分解する (innerHTML 不使用)。
+        const nodes = [];
+        let rest = String(text);
+        const token = /(\*\*([^*]+)\*\*|`([^`]+)`)/;
+        let m;
+        while ((m = token.exec(rest)) !== null) {
+            if (m.index > 0) { nodes.push(rest.slice(0, m.index)); }
+            if (m[2] !== undefined) { nodes.push(h('strong', {}, m[2])); }
+            else if (m[3] !== undefined) { nodes.push(h('code', { class: 'md-code' }, m[3])); }
+            rest = rest.slice(m.index + m[0].length);
+        }
+        if (rest) { nodes.push(rest); }
+        return nodes;
+    }
+
+    function renderMarkdown(src) {
+        const out = [];
+        const lines = String(src || '').split('\n');
+        let listBuf = null;
+        const flushList = () => {
+            if (listBuf) { out.push(h('ul', { class: 'md-ul' }, ...listBuf)); listBuf = null; }
+        };
+        for (const line of lines) {
+            const h3 = /^###\s+(.*)$/.exec(line);
+            const h2 = /^##\s+(.*)$/.exec(line);
+            const h1 = /^#\s+(.*)$/.exec(line);
+            const li = /^[-*]\s+(.*)$/.exec(line);
+            if (h3) { flushList(); out.push(h('h3', { class: 'h3' }, ..._renderMarkdownInline(h3[1]))); }
+            else if (h2) { flushList(); out.push(h('h2', { class: 'h2' }, ..._renderMarkdownInline(h2[1]))); }
+            else if (h1) { flushList(); out.push(h('h1', { class: 'h1' }, ..._renderMarkdownInline(h1[1]))); }
+            else if (li) { (listBuf = listBuf || []).push(h('li', {}, ..._renderMarkdownInline(li[1]))); }
+            else if (line.trim() === '') { flushList(); }
+            else { flushList(); out.push(h('p', { class: 'text-prewrap' }, ..._renderMarkdownInline(line))); }
+        }
+        flushList();
+        return out;
+    }
+
+    function NotesPage() {
+        const src = State.get().appsData.notes || '';
+
+        const preview = h('div', { class: 'card md-preview', 'aria-label': 'プレビュー' }, ...renderMarkdown(src));
+
+        const textarea = h('textarea', {
+            id: 'notes-input',
+            class: 'input textarea-resize-v',
+            rows: 16,
+            'aria-label': 'Markdown ノート',
+            placeholder: '# 見出し\n\n**太字** や `コード`、- リスト が使えます',
+            value: src,
+            oninput: (e) => {
+                const val = e.target.value;
+                // live preview を innerHTML 無しで差し替え
+                while (preview.firstChild) { preview.removeChild(preview.firstChild); }
+                renderMarkdown(val).forEach(n => preview.appendChild(n));
+                State.update(s => { s.appsData.notes = val.slice(0, 20000); });
+            }
+        });
+
+        return h('div', { class: 'flex flex-col gap-4 max-w-2xl' },
+            h('header', { class: 'flex items-center gap-3' },
+                createIcon('edit', 28),
+                h('h1', { class: 'h1' }, 'Markdown ノート')
+            ),
+            h('p', { class: 'text-muted' }, 'innerHTML を使わず h() のみで描画する安全な Markdown ライブプレビュー。内容は自動保存されます。'),
+            h('div', { class: 'grid-2col grid--align-start' },
+                h('section', { class: 'card' }, h('div', { class: 'card-body' },
+                    h('h2', { class: 'h3 mb-3' }, '入力'),
+                    textarea
+                )),
+                h('section', { class: 'card' }, h('div', { class: 'card-body' },
+                    h('h2', { class: 'h3 mb-3' }, 'プレビュー'),
+                    preview
+                ))
+            )
+        );
+    }
+
     // ===== Component: Settings Page =====
     let settingsImportMode = 'append';
     let settingsIncludeProfile = true;
@@ -1064,5 +1147,5 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
 
 
 
-    return { TaskPage, TodoPage, PomodoroPage, AIPage, SettingsPage };
+    return { TaskPage, TodoPage, PomodoroPage, AIPage, NotesPage, SettingsPage };
 }
