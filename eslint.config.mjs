@@ -168,6 +168,30 @@ export default [
       'no-unsafe-negation': 'error',            // `!key in obj` / `!a instanceof B`（`!`の作用域誤り）
       'no-compare-neg-zero': 'error',           // `x === -0`（=== は -0 と 0 を区別しない＝意図不達）
       'no-async-promise-executor': 'error',     // `new Promise(async …)`（executor 内 reject が握り潰される）
+      // ── recommended pure bug-catcher 追補 第2弾（research: eslint.org 現行 recommended で verify-currency・2026-06-22）──
+      // 上記 #187 の 8 件に続き、eslint:recommended の「Possible Problems」中の純粋 bug-catcher で
+      // 本 config 未登録のものを追補。導入時点で全対象に新規 error/warning 0 件＝件数の真値不変（実測確認）。
+      'valid-typeof': 'error',                  // `typeof x === 'strnig'`（typeof 比較文字列の typo）
+      'no-func-assign': 'error',                // 関数宣言への再代入（意図せぬ上書き）
+      'no-import-assign': 'error',              // import 束縛への代入（ESM・常に TypeError）
+      'no-obj-calls': 'error',                  // `Math()` / `JSON()` 等を関数呼び（TypeError）
+      'getter-return': 'error',                 // getter が値を return しない（undefined 事故）
+      'no-unsafe-finally': 'error',             // finally 内の return/throw が try/catch の制御を奪う（router の finally 等）
+      'no-const-assign': 'error',               // const への再代入（TypeError）
+      'no-dupe-args': 'error',                  // 関数の重複仮引数
+      'no-loss-of-precision': 'error',          // 数値リテラルの精度欠落（`9007199254740993` 等）
+      'no-control-regex': 'error',              // 正規表現中の制御文字（大抵タイプミス）
+      'no-invalid-regexp': 'error',             // `new RegExp` の不正パターン
+      'no-misleading-character-class': 'error', // 複数コードポイント文字を含む char class の誤判定
+      'no-useless-backreference': 'error',      // 常にマッチしない後方参照
+      'no-empty-character-class': 'error',      // `/[]/`（何にもマッチしない空 char class）
+      'no-sparse-arrays': 'error',              // `[1,,3]`（穴あき配列＝カンマ typo 兆候）
+      'no-unsafe-optional-chaining': 'error',   // `(a?.b)()` 等 optional chaining 後の不正操作
+      'no-cond-assign': 'error',                // `if (x = 1)`（=/== typo。括弧包囲の代入は default で許容）
+      'no-fallthrough': 'error',                // switch の case フォールスルー（break 忘れ）
+      'no-ex-assign': 'error',                  // catch 節の例外変数への再代入
+      'no-irregular-whitespace': 'error',       // 不可視の異常空白（コード中。文字列/コメントは default 除外）
+      'no-unexpected-multiline': 'error',       // ASI 起因の予期せぬ複数行解釈
       // setter / Object.defineProperty の set が値を return する事故（戻り値は無視される＝
       // 意図した代入が起きない兆候）。Proxy の set トラップ（boolean 返却が正当）は対象外。
       // ※ main.js のみ後段 override で off: 凍結された innerHTML interceptor が
