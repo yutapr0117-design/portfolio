@@ -14,6 +14,7 @@
  *   - Router: js/router.js（navigate(hash) で遷移）
  *   - h: js/ui-components.js（型安全 DOM ビルダー）
  *   - createIcon: js/ui-components.js（SVG アイコン）
+ *   - State: js/state.js factory instance（open 時に現在のプロジェクト一覧を検索対象へ加える）
  *
  * 【不変条件】
  *   - 本モジュールは葉（ローカル ESM import ゼロ。Check 47c）。
@@ -22,9 +23,9 @@
  *   - 開いている間だけ focus を overlay 内に trap し、閉じたら直前 focus を復元する。
  *   - DOM 副作用は body 末尾の #command-palette-host に限定（render の #content には触れない）。
  */
-export function createCommandPalette({ Router, h, createIcon }) {
-    // 横断ナビの行き先（curated quick-nav）。label は人間可読、hash は Router.navigate 引数。
-    const DESTINATIONS = [
+export function createCommandPalette({ Router, h, createIcon, State }) {
+    // 横断ナビの固定行き先（curated quick-nav）。label は人間可読、hash は Router.navigate 引数。
+    const NAV = [
         { label: 'Home（ホーム）', hash: '' },
         { label: 'Projects（プロジェクト一覧）', hash: 'projects' },
         { label: 'Apps（内蔵アプリ）', hash: 'apps' },
@@ -54,11 +55,22 @@ export function createCommandPalette({ Router, h, createIcon }) {
         return !!host && host.getAttribute('aria-hidden') === 'false';
     }
 
+    // 固定 NAV に「現在のプロジェクト一覧」を加えた検索対象を返す。プロジェクトは open 毎に
+    // State から取得するので、追加/削除/import 後も最新が反映される (stale にならない)。
+    function _allDestinations() {
+        const projects = (State && State.get().projects) || [];
+        const projItems = projects
+            .filter(p => p && p.slug && p.name)
+            .map(p => ({ label: 'プロジェクト: ' + p.name, hash: 'projects/' + p.slug }));
+        return NAV.concat(projItems);
+    }
+
     function _renderList(query) {
         const q = String(query || '').trim().toLowerCase();
+        const all = _allDestinations();
         rendered = q
-            ? DESTINATIONS.filter(d => d.label.toLowerCase().includes(q) || d.hash.toLowerCase().includes(q))
-            : DESTINATIONS.slice();
+            ? all.filter(d => d.label.toLowerCase().includes(q) || d.hash.toLowerCase().includes(q))
+            : all;
         activeIdx = 0;
         while (listEl.firstChild) { listEl.removeChild(listEl.firstChild); }
         if (!rendered.length) {

@@ -781,7 +781,7 @@
         _fatalOverlay.install();
 
         // Command palette（Cmd/Ctrl+K 横断ナビ overlay）を合成。init() で global keydown を登録。
-        const CommandPalette = createCommandPalette({ Router, h, createIcon });
+        const CommandPalette = createCommandPalette({ Router, h, createIcon, State });
 
 
         // ===== Event Listeners =====

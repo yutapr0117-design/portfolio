@@ -459,6 +459,27 @@ test('Command palette (Ctrl+K) opens, filters, navigates, and closes', async ({ 
   expect(fatal, `command palette caused a fatal: ${fatal}`).toBeNull();
 });
 
+// ===== 7.2: コマンドパレットがプロジェクトも検索対象にする (omni-nav) =====
+// createCommandPalette は固定 NAV に State の現在プロジェクト一覧を加えて検索する。プロジェクト名で
+// 絞り込み → 選択で projects/<slug> の詳細へ飛べることを検証する (top-nav 専用でない omni-nav)。
+test('Command palette searches projects and jumps to a project detail', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const cmdInput = page.locator('.cmdk-input');
+  await page.keyboard.press('Control+k');
+  await cmdInput.fill('タスク管理');
+
+  // プロジェクト候補 (default p01 'タスク管理アプリ') が出る
+  const projItem = page.locator('.cmdk-item', { hasText: 'タスク管理アプリ' }).first();
+  await expect(projItem).toBeVisible();
+  await projItem.click();
+
+  // プロジェクト詳細へ遷移 (「← 一覧に戻る」が出る = ProjectDetailPage) + パレットが閉じる
+  await expect(page.getByRole('button', { name: '← 一覧に戻る' })).toBeVisible();
+  await expect(page.locator('#command-palette-host')).toHaveAttribute('aria-hidden', 'true');
+});
+
 // ===== 7.2: Projects 検索の 0 件マッチ empty-state =====
 // ProjectsPage の renderGrid は getFilteredProjects() が空のとき「条件に一致するプロジェクトは
 // ありません。」(role=status, aria-live) を表示し件数を 合計 0 件 にする。検索フォーカス維持は
