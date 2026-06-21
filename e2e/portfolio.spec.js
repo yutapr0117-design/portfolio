@@ -424,6 +424,41 @@ test('Projects search input retains focus during filtering', async ({ page }) =>
   await expect(searchInput).toBeFocused();
 });
 
+// ===== 7.2: コマンドパレット (Cmd/Ctrl+K) 横断ナビ =====
+// js/command-palette.js は Cmd/Ctrl+K で overlay を開き、入力で行き先を絞り込み、Enter/クリックで
+// Router.navigate、Esc/背景で閉じる純追加機能 (新ルート無し)。検索 input / category / タグに続く
+// 第 4 のナビ導線で未カバー。CI は linux ゆえ Control+k。open→絞込→遷移→close と Esc-close を検証。
+test('Command palette (Ctrl+K) opens, filters, navigates, and closes', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const host = page.locator('#command-palette-host');
+  const cmdInput = page.locator('.cmdk-input');
+
+  // 開く: Ctrl+K で overlay 表示 + input フォーカス
+  await page.keyboard.press('Control+k');
+  await expect(host).toHaveAttribute('aria-hidden', 'false');
+  await expect(cmdInput).toBeFocused();
+
+  // 絞り込み → 候補がフィルタされる
+  await cmdInput.fill('projects');
+  await expect(page.locator('.cmdk-item').first()).toBeVisible();
+
+  // Enter で先頭候補へ遷移 + パレットが閉じる
+  await page.keyboard.press('Enter');
+  await expect(host).toHaveAttribute('aria-hidden', 'true');
+  await expect(page.locator('h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+
+  // 再度開いて Esc で閉じる (行き止まりでない)
+  await page.keyboard.press('Control+k');
+  await expect(host).toHaveAttribute('aria-hidden', 'false');
+  await page.keyboard.press('Escape');
+  await expect(host).toHaveAttribute('aria-hidden', 'true');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `command palette caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: Projects 検索の 0 件マッチ empty-state =====
 // ProjectsPage の renderGrid は getFilteredProjects() が空のとき「条件に一致するプロジェクトは
 // ありません。」(role=status, aria-live) を表示し件数を 合計 0 件 にする。検索フォーカス維持は

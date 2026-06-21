@@ -1,0 +1,158 @@
+/**
+ * js/command-palette.js — Command palette (Cmd/Ctrl+K quick navigation overlay)
+ *
+ * @fileoverview キーボード駆動の横断ナビゲーション overlay。Cmd/Ctrl+K で開き、入力で
+ * 行き先を絞り込み、↑↓ で選択・Enter で遷移・Esc/背景クリックで閉じる。新ルートは追加せず
+ * 既存 Router.navigate を呼ぶだけの純追加機能（route cascade 無し）。overlay DOM は初回 open 時に
+ * 動的生成して body へ append する（index.html を変更しない）。
+ *
+ * 【公開 API（main.js から合成）】
+ *   const CommandPalette = createCommandPalette({ Router, h, createIcon });
+ *   CommandPalette.init();   // global Cmd/Ctrl+K keydown を登録
+ *
+ * 【依存（引数で注入）】
+ *   - Router: js/router.js（navigate(hash) で遷移）
+ *   - h: js/ui-components.js（型安全 DOM ビルダー）
+ *   - createIcon: js/ui-components.js（SVG アイコン）
+ *
+ * 【不変条件】
+ *   - 本モジュールは葉（ローカル ESM import ゼロ。Check 47c）。
+ *   - 既存の global keydown（main.js の Escape / aidk-rails）と非衝突: 本 module は
+ *     `(meta|ctrl)+k` のみを横取りし preventDefault、それ以外は素通し。
+ *   - 開いている間だけ focus を overlay 内に trap し、閉じたら直前 focus を復元する。
+ *   - DOM 副作用は body 末尾の #command-palette-host に限定（render の #content には触れない）。
+ */
+export function createCommandPalette({ Router, h, createIcon }) {
+    // 横断ナビの行き先（curated quick-nav）。label は人間可読、hash は Router.navigate 引数。
+    const DESTINATIONS = [
+        { label: 'Home（ホーム）', hash: '' },
+        { label: 'Projects（プロジェクト一覧）', hash: 'projects' },
+        { label: 'Apps（内蔵アプリ）', hash: 'apps' },
+        { label: 'Task Manager（タスク管理）', hash: 'apps/task' },
+        { label: 'Quick TODO', hash: 'apps/todo' },
+        { label: 'Pomodoro Timer（ポモドーロ）', hash: 'apps/pomodoro' },
+        { label: 'AI Assist（ローカル AI）', hash: 'apps/ai' },
+        { label: 'Quiz（問題集）', hash: 'quiz' },
+        { label: 'AI Know-how（AI 開発ノウハウ）', hash: 'ai-knowhow' },
+        { label: 'Role Split（人間 vs AI 分担）', hash: 'role-split' },
+        { label: 'Hiring Risk（採用リスク低減）', hash: 'hiring-risk' },
+        { label: 'About（思想・経歴）', hash: 'about' },
+        { label: 'Resume（職務経歴）', hash: 'resume' },
+        { label: 'Contact（問い合わせ）', hash: 'contact' },
+        { label: 'Settings（設定）', hash: 'settings' },
+    ];
+
+    let host = null;        // #command-palette-host（body 直下・初回生成）
+    let inputEl = null;
+    let listEl = null;
+    let trapHandler = null;
+    let lastFocused = null;
+    let activeIdx = 0;
+    let rendered = [];      // 現在描画中の DESTINATIONS 部分集合
+
+    function isOpen() {
+        return !!host && host.getAttribute('aria-hidden') === 'false';
+    }
+
+    function _renderList(query) {
+        const q = String(query || '').trim().toLowerCase();
+        rendered = q
+            ? DESTINATIONS.filter(d => d.label.toLowerCase().includes(q) || d.hash.toLowerCase().includes(q))
+            : DESTINATIONS.slice();
+        activeIdx = 0;
+        while (listEl.firstChild) { listEl.removeChild(listEl.firstChild); }
+        if (!rendered.length) {
+            listEl.appendChild(h('li', { class: 'cmdk-empty', role: 'status' }, '一致する行き先はありません'));
+            return;
+        }
+        rendered.forEach((d, i) => {
+            listEl.appendChild(h('li', {
+                class: 'cmdk-item' + (i === activeIdx ? ' is-active' : ''),
+                role: 'option',
+                'aria-selected': i === activeIdx ? 'true' : 'false',
+                'data-idx': String(i),
+                onclick: () => _choose(i),
+            }, createIcon('arrowUpRight', 16), h('span', { class: 'icon-gap' }, d.label)));
+        });
+    }
+
+    function _highlight() {
+        Array.from(listEl.children).forEach((li, i) => {
+            const on = i === activeIdx;
+            li.classList.toggle('is-active', on);
+            if (li.setAttribute) { li.setAttribute('aria-selected', on ? 'true' : 'false'); }
+        });
+        const activeLi = listEl.children[activeIdx];
+        if (activeLi && activeLi.scrollIntoView) { activeLi.scrollIntoView({ block: 'nearest' }); }
+    }
+
+    function _choose(i) {
+        const dest = rendered[i];
+        if (!dest) { return; }
+        close();
+        Router.navigate(dest.hash);
+    }
+
+    function _build() {
+        host = document.createElement('div');
+        host.id = 'command-palette-host';
+        host.className = 'cmdk-host';
+        host.setAttribute('aria-hidden', 'true');
+
+        const backdrop = h('div', { class: 'cmdk-backdrop', onclick: close });
+        inputEl = h('input', {
+            type: 'text',
+            class: 'cmdk-input',
+            'aria-label': 'コマンドパレット: 行き先を検索',
+            placeholder: '行き先を検索… (Esc で閉じる)',
+            oninput: (e) => _renderList(e.target.value),
+        });
+        listEl = h('ul', { class: 'cmdk-list', role: 'listbox', 'aria-label': '行き先候補' });
+        const panel = h('div', {
+            class: 'cmdk-panel', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'コマンドパレット',
+        }, inputEl, listEl);
+
+        host.appendChild(backdrop);
+        host.appendChild(panel);
+        document.body.appendChild(host);
+    }
+
+    function open() {
+        if (!host) { _build(); }
+        if (isOpen()) { return; }
+        lastFocused = document.activeElement;
+        _renderList('');
+        inputEl.value = '';
+        host.setAttribute('aria-hidden', 'false');
+        host.style.display = 'block';
+        // focus trap: Tab/Shift+Tab は input ↔ list で循環、矢印で選択、Enter で遷移、Esc で閉じる
+        trapHandler = function (e) {
+            if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+            if (e.key === 'ArrowDown') { e.preventDefault(); activeIdx = Math.min(activeIdx + 1, rendered.length - 1); _highlight(); return; }
+            if (e.key === 'ArrowUp') { e.preventDefault(); activeIdx = Math.max(activeIdx - 1, 0); _highlight(); return; }
+            if (e.key === 'Enter') { e.preventDefault(); _choose(activeIdx); return; }
+        };
+        document.addEventListener('keydown', trapHandler);
+        inputEl.focus();
+    }
+
+    function close() {
+        if (!host) { return; }
+        host.setAttribute('aria-hidden', 'true');
+        host.style.display = 'none';
+        if (trapHandler) { document.removeEventListener('keydown', trapHandler); trapHandler = null; }
+        if (lastFocused && lastFocused.focus) { try { lastFocused.focus(); } catch (e) { /* noop */ } }
+    }
+
+    function init() {
+        // global opener: Cmd/Ctrl+K のみ横取り（他キーは素通し）
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
+                e.preventDefault();
+                isOpen() ? close() : open();
+            }
+        });
+    }
+
+    return { init, open, close };
+}
