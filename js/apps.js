@@ -612,7 +612,10 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                 const response = generateResponse(input, type);
                 State.update(s => {
                     s.appsData.ai.history.push({
-                        prompt: input,
+                        // [FIX] prompt を AI_MESSAGE 上限で bound する (他アプリの入力 slice と同様)。
+                        // 従来は無制限保存で、巨大入力が ai.history (last 80) に蓄積し localStorage を
+                        // bloat させ得た。AI_MESSAGE 定数は元来この制限用だが配線が失われていた (Check 125 が検出)。
+                        prompt: input.slice(0, CONSTANTS.LIMITS.AI_MESSAGE),
                         response,
                         timestamp: Date.now()
                     });
