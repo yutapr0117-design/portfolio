@@ -644,8 +644,12 @@ authoritative inventory and is kept in sync with the implementation below):
        layer (sr-only / JSON-LD / meta / alt / data-entity attributes / llms-full.txt). This Check
        asserts that in the visible page renderers (js/components.js, js/pages.js, js/apps.js) the
        real name appears ONLY on lines carrying an attribute marker (alt:/data-entity/data-ai-entity/
-       aria-), never as a bare visible h() text node — structurally preventing the real-name-leak
-       class (an AI added it to visible operating-model text in Session #21; corrected). (BLOCKING)
+       aria-), never as a bare visible h() text node (124a). 124b enforces js/identity.js's documented
+       contract (UI → DISPLAY_NAME only): the visible renderers must NOT reference the real-name entity
+       constants (AUTHORITATIVE_NAME/JAPANESE_NAME) either, closing the identifier-based leak path
+       (literal grep alone would miss a variable-rendered name). Together they structurally prevent the
+       real-name-leak class (an AI added the literal name to visible text in Session #21; corrected).
+       AIO layers (meta-management etc.) legitimately use AUTHORITATIVE_NAME and are out of scope. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4783,6 +4787,10 @@ _VIS_RENDERERS124 = ["js/components.js", "js/pages.js", "js/apps.js"]
 _NAME124 = "横井雄太"
 _ATTR_MARKERS124 = ("alt:", "data-entity", "data-ai-entity", "aria-")
 _leak124 = []
+_idleak124 = []
+# UI → DISPLAY_NAME only / AIO → AUTHORITATIVE_NAME etc. (js/identity.js の明文契約)。
+# 視覚 renderer が実名系の entity 定数を参照すると識別子経由で実名が視覚露出し得るため禁止。
+_NAME_IDENTS124 = ("AUTHORITATIVE_NAME", "JAPANESE_NAME")
 for _rel124 in _VIS_RENDERERS124:
     _f124 = ROOT / _rel124
     if not _f124.exists():
@@ -4790,11 +4798,21 @@ for _rel124 in _VIS_RENDERERS124:
     for _i124, _line124 in enumerate(_f124.read_text(encoding="utf-8").splitlines(), 1):
         if _NAME124 in _line124 and not any(_mk in _line124 for _mk in _ATTR_MARKERS124):
             _leak124.append(f"{_rel124}:{_i124}")
+        if any(_id in _line124 for _id in _NAME_IDENTS124):
+            _idleak124.append(f"{_rel124}:{_i124}")
 check(
     not _leak124,
-    f"Check 124: 視覚 site renderer に実名の bare テキスト漏れ無し (anonymity guard・scanned {len(_VIS_RENDERERS124)} files)",
-    "Check 124: 視覚 site テキストに実名「横井雄太」が漏れている — サイト UI は匿名 (yuta) が design。"
+    f"Check 124a: 視覚 site renderer に実名の bare テキスト漏れ無し (anonymity guard・scanned {len(_VIS_RENDERERS124)} files)",
+    "Check 124a: 視覚 site テキストに実名「横井雄太」が漏れている — サイト UI は匿名 (yuta) が design。"
     "実名は alt/data-entity/aria- 等の AIO 属性 context でのみ許可。違反: " + ", ".join(_leak124[:10]),
+    blocking=True,
+)
+check(
+    not _idleak124,
+    "Check 124b: 視覚 site renderer が実名系 entity 定数 (AUTHORITATIVE_NAME/JAPANESE_NAME) を参照しない (UI→DISPLAY_NAME only 契約)",
+    "Check 124b: 視覚 renderer が AUTHORITATIVE_NAME/JAPANESE_NAME を参照している — 識別子経由で実名が視覚露出し得る。"
+    "js/identity.js の契約どおり UI は DISPLAY_NAME のみ参照せよ (AIO 層=meta-management 等は AUTHORITATIVE_NAME 可)。違反: "
+    + ", ".join(_idleak124[:10]),
     blocking=True,
 )
 
