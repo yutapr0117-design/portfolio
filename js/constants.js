@@ -76,8 +76,6 @@ export const CONSTANTS = {
 
     // Timing
     DEBOUNCE_DELAY: 150,       // ms — input debounce (search, filters)
-    SAVE_INTERVAL: 30000,      // ms — auto-save interval
-    POMODORO_LOCK_TTL: 8000,   // ms — pomodoro cross-tab lock TTL
 
     // Layout
     MOBILE_BREAKPOINT: 920,    // px — sidebar → drawer breakpoint（matchMedia で js/mobile-drawer.js が参照）
