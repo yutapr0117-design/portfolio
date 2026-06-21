@@ -73,3 +73,12 @@ baseline: 対象 4 テスト（command palette 2 本 + notes + palette a11y）gr
 | import/upsert (apps.js 861-889) | upsert は単一 Map で更新+追加を集約（#192 fix 正しい）。strict/append/upsert いずれも 889 で normalize され profile/appsData も sanitize（safeUrl で javascript:/data: 遮断） | 正しく安全 |
 
 **結論: 実バグ無し。** 上記は過去に実バグが出た近傍を含む genuine な深掘りで、いずれも既存 fix（#154/#192/#139）+ 中央集約正規化で堅牢だった。**捏造 fix は作らない**（推奨前検証の原則）。本記録は次 AI が同 surface を再 hunt せずに済むための audit-trail（flywheel = onboarding 精度）。次の genuine vein は別 surface / メタ層 / research へ。
+
+## 8. Plan5/6（条件付き）の disposition（2026-06-21）
+
+**reflect-then-organize**: 5/6 は元々「genuine gap が出た時のみ」と定義した条件付きプラン。捏造を避けるため各々の条件を honest に評価した。
+
+- **Plan5 = 実装（genuine と判明）**: Check 122 + .gitignore の privacy guard を office/文書/アーカイブ形式へ拡張（rtf/odt/ods/odp/pages/key/numbers/csv + zip/7z/rar/tar/gz/tgz を追加）。`git ls-files` でこれらが**一切 tracked されていない**ことを事前確認＝**false-positive ゼロ**。画像（png/jpg/webp）は webp asset / playwright baseline で正規利用するため**意図的に対象外**（当初懸念した brittle 化は、画像を除外し未使用の文書/アーカイブ形式のみに絞ることで回避）。契約書・提案書・議事録が取り得る形式 + 私的書類をまとめ得るアーカイブの誤コミット vector を更に塞ぐ genuine な forward-protection。
+- **Plan6 = defer-with-reason（honest・捏造回避）**: research 適用は本 run では見送る。理由 (research-application-policy の defer-with-reason に該当): (a) **公/私 境界**で公開面の padding は不可ゆえ research の適用先を公開 surface に出せない、(b) 最強の research veins（WCAG 2.2 / Core Web Vitals / AIO C6 enrichment / IETF AIPREF）は deferred backlog で**既に audit 済み**（largely satisfied / not-adopted-by-design）、(c) code への適用には genuine な新規 gap が要るが Plan4 の bug-hunt で近傍は堅牢と確認済み、(d) 明確な適用先の無い外部 fetch research は padding リスク。→ **genuine な research-applicable gap が将来出たら apply する**（停止でなく、現時点で non-padding な適用先が無いという honest な triage）。
+
+**本セッションの委任プラン群（Q2 + Plan1〜6）は以上で完了。** Q2 / Plan1（Session Record #21）/ Plan2（Check 123）/ Plan3（mutation-sample 3/3）/ Plan4（bug-hunt 実バグ無し）/ Plan5（privacy guard 拡張）= 実施、Plan6 = defer-with-reason。停止権限は人間のみゆえ、次の指示または自走継続の判断を仰ぐ。

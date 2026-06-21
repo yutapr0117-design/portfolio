@@ -626,9 +626,11 @@ authoritative inventory and is kept in sync with the implementation below):
        history / offer letters / labor-condition sheets) are LOCAL-ONLY input for generating the
        abstracted, privacy-safe docs/evidence/real-work-claims.md. Committing an original would
        leak sensitive PII (personal identifiers beyond the public real name, client/project names,
-       salary, labor conditions). The shipped repo is Vanilla JS/MD with no legitimate
-       .pdf/.docx/.doc/.xlsx/.pptx, so this Check asserts (via `git ls-files`) that none of those
-       suffixes is tracked — defense-in-depth alongside the .gitignore blanket ignore. (BLOCKING)
+       salary, labor conditions). The shipped repo is Vanilla JS/MD/images/JSON only, so office /
+       document / archive formats (pdf/docx/doc/xlsx/pptx/rtf/odt/ods/odp/pages/key/numbers/csv +
+       zip/7z/rar/tar/gz/tgz) have no legitimate use; this Check asserts (via `git ls-files`) that
+       none is tracked — defense-in-depth alongside the .gitignore blanket ignore. Images
+       (png/jpg/webp) are intentionally excluded (legitimately used). (BLOCKING)
   123. operating-model description coherence (site ↔ AIO): Session #21 corrected the
        "conversational Claude" 実態↔記述 drift and recorded the current operating model
        (construction phase = conversational → now Claude Code autonomous self-driving with
@@ -4711,10 +4713,17 @@ except Exception as _e121:
 # 本人の経歴書類 (履歴書・職務経歴書・内定通知書・労働条件表 等) は、抽象化済み evidence
 # (docs/evidence/real-work-claims.md) を生成するためのローカル入力に過ぎず、原本を公開リポジトリへ
 # commit すると機微情報 (氏名以外の個人特定情報・顧客名・案件名・年収・労働条件) の漏洩になる。
-# shipped repo は Vanilla JS/MD で正規の .pdf/.docx/.doc/.xlsx/.pptx は存在しないため、これらの拡張子が
-# tracked されていないことを BLOCKING で機械強制する (.gitignore のブランケット ignore と二重防御。
-# `git add .` は settings で deny 済みだが、明示 add の取りこぼしや将来の再投入もここで閉じる)。
-_PRIVATE_DOC_SUFFIXES = (".pdf", ".docx", ".doc", ".xlsx", ".pptx")
+# shipped repo は Vanilla JS/MD/画像/JSON のみで、office/文書/アーカイブ形式は一切正規利用が無いため、
+# これらの拡張子が tracked されていないことを BLOCKING で機械強制する (.gitignore のブランケット ignore と
+# 二重防御。`git add .` は settings で deny 済みだが、明示 add の取りこぼしや将来の再投入もここで閉じる)。
+# 対象は MS Office (pdf/docx/doc/xlsx/pptx) + 文書 (rtf/odt/ods/odp/pages/key/numbers/csv) +
+# アーカイブ (zip/7z/rar/tar/gz/tgz)。画像 (png/jpg/webp) は webp asset / playwright baseline で
+# 正規利用するため意図的に対象外 (false-positive 回避)。
+_PRIVATE_DOC_SUFFIXES = (
+    ".pdf", ".docx", ".doc", ".xlsx", ".pptx",
+    ".rtf", ".odt", ".ods", ".odp", ".pages", ".key", ".numbers", ".csv",
+    ".zip", ".7z", ".rar", ".tar", ".gz", ".tgz",
+)
 _private_hits = sorted(p for p in _member_paths if p.lower().endswith(_PRIVATE_DOC_SUFFIXES))
 check(
     not _private_hits,

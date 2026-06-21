@@ -40,9 +40,27 @@ CLAUDE.local.md
 # safe blanket guard against committing any such source doc. Re-identification /
 # 身バレ防止: the originals are processed locally then deleted; only ABSTRACTED
 # claims (ranges, role types, deliverable types — no company/client/project names)
-# are ever committed. Check 122 machine-enforces that no .pdf/.docx is ever tracked.
+# are ever committed. Check 122 machine-enforces that no office/document/archive
+# format (pdf/docx/.../zip/...) is ever tracked. Images (png/jpg/webp) are excluded
+# (legitimately used: webp asset / playwright baselines).
 *.pdf
 *.docx
 *.doc
 *.xlsx
 *.pptx
+# Office / document formats (no legitimate repo use — could carry contract/proposal/minutes content)
+*.rtf
+*.odt
+*.ods
+*.odp
+*.pages
+*.key
+*.numbers
+*.csv
+# Archives (could bundle private documents)
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+*.tgz
