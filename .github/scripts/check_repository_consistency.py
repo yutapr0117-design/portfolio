@@ -639,6 +639,13 @@ authoritative inventory and is kept in sync with the implementation below):
        keeps the markers (現在の運用モデル + Claude Code + 自走); 123b asserts llms-full.txt keeps
        (Current Operating Model + Claude Code + self-driving). This is the public-surface version
        of the operating-model presence enforcement (canon itself is enforced by 102a-f). (BLOCKING)
+  124. site visible-text anonymity guard: the site UI is deliberately anonymized to "yuta" for
+       general-public privacy, while the real name (横井雄太) is exposed only in the AIO/entity
+       layer (sr-only / JSON-LD / meta / alt / data-entity attributes / llms-full.txt). This Check
+       asserts that in the visible page renderers (js/components.js, js/pages.js, js/apps.js) the
+       real name appears ONLY on lines carrying an attribute marker (alt:/data-entity/data-ai-entity/
+       aria-), never as a bare visible h() text node — structurally preventing the real-name-leak
+       class (an AI added it to visible operating-model text in Session #21; corrected). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4761,6 +4768,33 @@ check(
     "Check 123b: llms-full.txt が Current Operating Model (Claude Code self-driving) を保持 (AIO↔canon coherence)",
     "Check 123b: llms-full.txt から現運用モデル記述が失われた — AIO authority が旧編成のみへ drift する。"
     "'Current Operating Model'/'Claude Code'/'self-driving' の marker を維持せよ (C6 semantic・編集は要承認)",
+    blocking=True,
+)
+
+# ── 124. site visible-text anonymity guard (BLOCKING) ─────────────────────────
+# サイト UI は一般向けにプライバシー設計上「yuta」へ匿名化し、実名「横井雄太」は AIO/entity 層
+# (sr-only / JSON-LD / meta / alt / data-entity 属性・llms-full.txt) のみで露出する二層構造を取る
+# (リポジトリ=エンジニア/AI 向けで実名可・サイト視覚面=一般人向けで匿名)。Session #21 で AI が運用モデル
+# section の視覚本文に実名を漏らした (即是正) ため、視覚 page renderer (components/pages/apps) において
+# 実名が「属性 context (alt/data-entity/aria-/data-ai-entity)」以外の bare な h() テキスト行に出ないことを
+# BLOCKING で機械強制し、視覚 UI への実名漏れ class を構造的に封じる。AIO 属性内の実名は entity 帰属の
+# ため意図的に許可する。
+_VIS_RENDERERS124 = ["js/components.js", "js/pages.js", "js/apps.js"]
+_NAME124 = "横井雄太"
+_ATTR_MARKERS124 = ("alt:", "data-entity", "data-ai-entity", "aria-")
+_leak124 = []
+for _rel124 in _VIS_RENDERERS124:
+    _f124 = ROOT / _rel124
+    if not _f124.exists():
+        continue
+    for _i124, _line124 in enumerate(_f124.read_text(encoding="utf-8").splitlines(), 1):
+        if _NAME124 in _line124 and not any(_mk in _line124 for _mk in _ATTR_MARKERS124):
+            _leak124.append(f"{_rel124}:{_i124}")
+check(
+    not _leak124,
+    f"Check 124: 視覚 site renderer に実名の bare テキスト漏れ無し (anonymity guard・scanned {len(_VIS_RENDERERS124)} files)",
+    "Check 124: 視覚 site テキストに実名「横井雄太」が漏れている — サイト UI は匿名 (yuta) が design。"
+    "実名は alt/data-entity/aria- 等の AIO 属性 context でのみ許可。違反: " + ", ".join(_leak124[:10]),
     blocking=True,
 )
 
