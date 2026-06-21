@@ -14,7 +14,7 @@
 ## 現況スナップショット
 
 - **Pipeline-Version**: v74
-- **最新 Session Record**: #20（`AI2AI.md`）
+- **最新 Session Record**: #21（`AI2AI.md`）
 - **CI ゲート**: `npm run verify`（consistency Check + AIO digest + binary metadata + CSS lint + ESLint + node --check）が exit 0 で全緑が前提。behavior e2e が BLOCKING、homepage pixel screenshot は ADVISORY（§3(B)）。
 
 ## どこを見れば詳細が分かるか（live な真値の所在）
