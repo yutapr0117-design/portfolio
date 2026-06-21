@@ -629,6 +629,14 @@ authoritative inventory and is kept in sync with the implementation below):
        salary, labor conditions). The shipped repo is Vanilla JS/MD with no legitimate
        .pdf/.docx/.doc/.xlsx/.pptx, so this Check asserts (via `git ls-files`) that none of those
        suffixes is tracked — defense-in-depth alongside the .gitignore blanket ignore. (BLOCKING)
+  123. operating-model description coherence (site ↔ AIO): Session #21 corrected the
+       "conversational Claude" 実態↔記述 drift and recorded the current operating model
+       (construction phase = conversational → now Claude Code autonomous self-driving with
+       decisive human control as needed) on BOTH the public site (js/components.js ai-knowhow)
+       and the AIO layer (llms-full.txt Dynamic AI Team Model). 123a asserts js/components.js
+       keeps the markers (現在の運用モデル + Claude Code + 自走); 123b asserts llms-full.txt keeps
+       (Current Operating Model + Claude Code + self-driving). This is the public-surface version
+       of the operating-model presence enforcement (canon itself is enforced by 102a-f). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4714,6 +4722,36 @@ check(
     "Check 122: private source document(s) tracked in repository — 機微情報漏洩リスク。原本は "
     "ローカルのみで扱い、抽象化済み evidence のみ commit せよ。tracked 違反: "
     + ", ".join(_private_hits[:10]) + (" …" if len(_private_hits) > 10 else ""),
+    blocking=True,
+)
+
+# ── 123. operating-model description coherence (site ↔ AIO) (BLOCKING) ─────────
+# Session #21 で「対話型 Claude」記述の実態↔記述 drift を是正し、現在の運用モデル
+# (構築期=対話型 → 現在=Claude Code 自律自走 + 人間は必要時に決定的に制御) をサイト
+# (js/components.js ai-knowhow) と AIO 層 (llms-full.txt Dynamic AI Team Model) の双方へ
+# 超正確に記述した。この修正が将来 silent に旧記述へ巻き戻る (= flywheel を劣化させる
+# onboarding 税 + entity 記述の不正確化) のを防ぐため、両面が現運用モデルの marker を
+# 保持することを BLOCKING で機械強制する。canon (AI2AI.md STEP 3 Operating Model) は
+# Check 102a-f が別途強制しており、本 Check はその「公開 surface 版」(102b の site/AIO 面)。
+_comp123 = ROOT / "js" / "components.js"
+_comp123_t = _comp123.read_text(encoding="utf-8") if _comp123.exists() else ""
+_site_ok123 = ("現在の運用モデル" in _comp123_t) and ("Claude Code" in _comp123_t) and ("自走" in _comp123_t)
+check(
+    _site_ok123,
+    "Check 123a: js/components.js が現運用モデル (現在の運用モデル + Claude Code + 自走) を保持 (site↔canon coherence)",
+    "Check 123a: js/components.js から現運用モデルの記述が失われた — 「対話型 Claude」だけの旧記述へ "
+    "drift すると実態↔記述乖離 + entity 不正確化。'現在の運用モデル'/'Claude Code'/'自走' の marker を維持せよ "
+    "(Session #21 で是正した運用モデル記述。canon は Check 102 が別途強制)",
+    blocking=True,
+)
+_llms123 = ROOT / "llms-full.txt"
+_llms123_t = _llms123.read_text(encoding="utf-8") if _llms123.exists() else ""
+_aio_ok123 = ("Current Operating Model" in _llms123_t) and ("Claude Code" in _llms123_t) and ("self-driving" in _llms123_t)
+check(
+    _aio_ok123,
+    "Check 123b: llms-full.txt が Current Operating Model (Claude Code self-driving) を保持 (AIO↔canon coherence)",
+    "Check 123b: llms-full.txt から現運用モデル記述が失われた — AIO authority が旧編成のみへ drift する。"
+    "'Current Operating Model'/'Claude Code'/'self-driving' の marker を維持せよ (C6 semantic・編集は要承認)",
     blocking=True,
 )
 
