@@ -655,6 +655,14 @@ authoritative inventory and is kept in sync with the implementation below):
        Session #21 (POMODORO_LOCK_TTL / SAVE_INTERVAL were never-activated and removed); prevents the
        never-activated-constant class from re-accumulating. ALL-CAPS snake keys are distinctive so the
        reference grep is robust (a comment mention also counts — conservative under-flagging). (BLOCKING)
+  126. ESLint bug-catcher safety-net presence: this config intentionally does NOT inherit
+       eslint:recommended (non-destructive migration), so a silently-dropped pure bug-catcher lets
+       real bugs slip past CI (#186: missing no-dupe-keys let a quiz dup-class bug ship). Beyond
+       Check 50d (which guards no-dupe-keys alone), this Check asserts a representative safety-net set
+       of the recommended pure bug-catchers added in PR #187/#234 (no-import-assign, no-unsafe-finally,
+       no-invalid-regexp, no-const-assign, valid-typeof, use-isnan, no-fallthrough, no-cond-assign,
+       getter-return, …) remains declared in eslint.config.mjs — locking the safety net against
+       silent regression (the #186 class). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4846,6 +4854,33 @@ if _const125.exists():
     )
 else:
     check(False, "Check 125: js/constants.js present", "Check 125: js/constants.js が見つからない", blocking=True)
+
+# ── 126. ESLint bug-catcher safety-net presence (BLOCKING) ────────────────────
+# 本 config は eslint:recommended を敢えて継承せず明示列挙する方針 (非破壊性維持) のため、純粋
+# bug-catcher が silent に欠落/除去されると実バグが CI を素通りする (#186: no-dupe-keys 欠落で
+# quiz 重複 class バグが流出した実例)。Check 50d が no-dupe-keys 単体を守るのに加え、本 Check は
+# PR #187 + #234 で追補した recommended pure bug-catcher の代表 safety-net 集合が eslint.config.mjs
+# に残存することを BLOCKING で機械強制し、「安全網そのものの silent な後退」を #186 class として封じる。
+_eslint126 = ROOT / "eslint.config.mjs"
+if _eslint126.exists():
+    _cfg126 = _eslint126.read_text(encoding="utf-8")
+    _REQUIRED_BUGCATCHERS126 = [
+        "no-dupe-keys", "no-import-assign", "no-unsafe-finally", "no-invalid-regexp",
+        "no-const-assign", "valid-typeof", "use-isnan", "no-fallthrough", "no-cond-assign",
+        "getter-return", "no-func-assign", "no-obj-calls", "no-dupe-args", "no-self-assign",
+    ]
+    _missing126 = [r for r in _REQUIRED_BUGCATCHERS126
+                   if re.search(r"['\"]" + re.escape(r) + r"['\"]\s*:", _cfg126) is None]
+    check(
+        not _missing126,
+        f"Check 126: eslint.config.mjs が recommended bug-catcher safety-net {len(_REQUIRED_BUGCATCHERS126)} 件を保持",
+        "Check 126: eslint.config.mjs から pure bug-catcher が silent に欠落 — 安全網の後退 (#186 class: "
+        "欠落ルールで実バグが CI を素通る)。次のルールを 'error' で復元せよ: " + ", ".join(_missing126),
+        blocking=True,
+    )
+else:
+    check(False, "Check 126: eslint.config.mjs present",
+          "Check 126: eslint.config.mjs が見つからない — bug-catcher safety-net を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
