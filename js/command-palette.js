@@ -139,10 +139,14 @@ export function createCommandPalette({ Router, h, createIcon, State }) {
         host.style.display = 'block';
         // focus trap: Tab/Shift+Tab は input ↔ list で循環、矢印で選択、Enter で遷移、Esc で閉じる
         trapHandler = function (e) {
+            // IME 変換中 (e.isComposing) は全キーを IME に委ねる。日本語でプロジェクト名等を検索する際、
+            // 変換確定の Enter が _choose (遷移) を誤発火する footgun と、矢印が変換候補選択を横取りするのを防ぐ。
+            // (CLAUDE.md 教訓 B「日本語が主対象ゆえ全 Enter-submit に IME ガード必須」/ Check 112 と同クラス)
+            if (e.isComposing) { return; }
             if (e.key === 'Escape') { e.preventDefault(); close(); return; }
             if (e.key === 'ArrowDown') { e.preventDefault(); activeIdx = Math.min(activeIdx + 1, rendered.length - 1); _highlight(); return; }
             if (e.key === 'ArrowUp') { e.preventDefault(); activeIdx = Math.max(activeIdx - 1, 0); _highlight(); return; }
-            if (e.key === 'Enter') { e.preventDefault(); _choose(activeIdx); return; }
+            if (e.key === 'Enter' && !e.isComposing) { e.preventDefault(); _choose(activeIdx); return; }
         };
         document.addEventListener('keydown', trapHandler);
         inputEl.focus();
