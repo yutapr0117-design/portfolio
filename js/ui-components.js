@@ -81,7 +81,8 @@ function getIcons() {
 // ===== Helper: Create SVG Icon =====
 // v69: SVGアイコンパスのパース方法を安全化。
 // paths は静的な定数文字列（getIcons()で管理）であり外部入力ではないが、
-// innerHTML の代わりに DOMParser を使うことで XSS リスクを構造的にゼロにする。
+// innerHTML も DOMParser も使わず、純粋な DOM API (createElementNS + 正規表現による静的属性抽出)
+// で SVG を構築することで XSS リスクを構造的にゼロにする (v70 で DOMParser を廃止。詳細は下の実装注)。
 export function createIcon(name, size = 20) {
     const paths = getIcons()[name];
     if (!paths) { return document.createTextNode(''); }
