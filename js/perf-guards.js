@@ -21,10 +21,10 @@
  * 【非破壊性】
  *   - Layout Thrashing Guard の setProperty / setAttribute('style', ...) フックは
  *     byte-equivalent（rAF バッチ化のタイミングのみ抜本的に介入）
- *   - Media Lifecycle Guard の MutationObserver による blobURL 解放 + URL.createObjectURL
- *     hook も byte-equivalent
+ *   - Media Lifecycle Guard は MutationObserver による audio/video の blob: src 解放のみ機能。
+ *     never-activated だった IntersectionObserver(lazy load) / _blobMap(img-video 追跡) /
+ *     URL.createObjectURL フックは vestigial として除去済 (機能変化なし=全て dead だった)。
  *   - AIDK Kernel / AIO 正本層 / style.css は無変更
- *   - これら 2 ガードは IIFE → function declaration への置換のみで挙動は完全同一
  */
 export function createPerfGuards() {
     // ─────────────────────────────────────────────────────────────────────────
@@ -77,41 +77,26 @@ export function createPerfGuards() {
 
     // ─────────────────────────────────────────────────────────────────────────
     // 改善文書c Section 9: メディアアセット ライフサイクル管理（Media Lifecycle Guard）
-    // DOM から削除された img / audio / video 要素の ObjectURL / AudioBuffer を
-    // 自動解放してメモリリークを根絶する非破壊実装。
-    // 注意: IntersectionObserver (_intersectionObserver) は deferred-src
-    // lazy loading 用に生成しているが、observe() を呼び出す箇所が現時点では
-    // 存在しないため、実際には lazy loading は機能していない。
-    // 現在の役割は MutationObserver によるメディアリソース解放（cleanup/lifecycle guard）のみ。
+    // DOM から削除された audio / video 要素の blob: src を MutationObserver で自動解放し、
+    // メモリリークを防ぐ。
+    // NOTE: かつて存在した IntersectionObserver(lazy loading) / _blobMap(img-video blob 追跡) /
+    //   URL.createObjectURL フックは、いずれも配線されたことが一度もない never-activated な
+    //   設計残骸 (vestigial) だった (git -S で _blobMap.set / _intersectionObserver.observe /
+    //   data-deferred-src の設定箇所が全履歴で不在を確認) ため除去した。createObjectURL は
+    //   要素参照を取れず _blobMap を populate できない構造的に未完の実装で、img/video の
+    //   blob 追跡分岐は常に dead だった。実機能していた audio/video の el.src 解放のみ残す。
     // ─────────────────────────────────────────────────────────────────────────
     function installMediaLifecycleGuard() {
         'use strict';
-        const _blobMap = new WeakMap(); // element → blobURL
 
-        // IntersectionObserver: ビューポート外では src を遅延
-        const _ioOptions = { rootMargin: '200px' };
-        const _intersectionObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                const el = entry.target;
-                if (entry.isIntersecting) {
-                    const deferred = el.getAttribute('data-deferred-src');
-                    if (deferred) {
-                        el.src = deferred;
-                        el.removeAttribute('data-deferred-src');
-                    }
-                    _intersectionObserver.unobserve(el);
-                }
-            });
-        }, _ioOptions);
-
-        // MutationObserver: DOM 削除時にリソース解放
+        // MutationObserver: DOM 削除時に audio/video の blob: src を解放
         const _removalObserver = new MutationObserver(function(mutations) {
             mutations.forEach(function(m) {
                 m.removedNodes.forEach(function(node) {
                     if (!node || node.nodeType !== 1) { return; }
                     _releaseMediaNode(node);
                     if (node.querySelectorAll) {
-                        node.querySelectorAll('img, audio, video').forEach(_releaseMediaNode);
+                        node.querySelectorAll('audio, video').forEach(_releaseMediaNode);
                     }
                 });
             });
@@ -120,13 +105,6 @@ export function createPerfGuards() {
         function _releaseMediaNode(el) {
             if (!el || el.nodeType !== 1) { return; }
             const tag = el.tagName;
-            if (tag === 'IMG' || tag === 'VIDEO') {
-                const blobUrl = _blobMap.get(el);
-                if (blobUrl) {
-                    try { URL.revokeObjectURL(blobUrl); } catch (e) { /* noop */ }
-                    _blobMap.delete(el);
-                }
-            }
             if (tag === 'AUDIO' || tag === 'VIDEO') {
                 try {
                     if (el.src && el.src.startsWith('blob:')) {
@@ -145,14 +123,6 @@ export function createPerfGuards() {
         }
         if (document.body) { _start(); }
         else { document.addEventListener('DOMContentLoaded', _start); }
-
-        // グローバル ObjectURL 生成をフックして追跡
-        const _origCreateObjectURL = URL.createObjectURL;
-        URL.createObjectURL = function(obj) {
-            const url = _origCreateObjectURL.call(URL, obj);
-            // 呼び出し元の el 参照は取れないため、Blob URL は _releaseMediaNode で補足
-            return url;
-        };
     }
 
     return { installLayoutThrashingGuard, installMediaLifecycleGuard };
