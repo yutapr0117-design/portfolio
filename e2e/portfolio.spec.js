@@ -2508,6 +2508,25 @@ test('Notes textarea retains focus while typing (focus-loss regression)', async 
   await expect(ta.first()).toHaveValue(/ZZZ$/);
 });
 
+// ===== Topbar data-action button double-fire 回帰防止 =====
+// topbar の menuBtn/themeBtnTop/bgm-btn-top は data-action を持ち ActionDelegator が処理する。
+// 以前は main.js init が同じボタンに直接 click リスナーも付けており、1 クリックで各ハンドラが
+// 二重発火していた (theme が 1 クリックで 2 段送り＝1 つ飛ばし / drawer 二重 open で
+// __lockBodyScroll が scrollY=0 を読み閉じると先頭ジャンプ / BGM 二重 toggle)。直接リスナーを
+// 撤去し ActionDelegator に一本化。本テストは theme が 1 クリックで「ちょうど 1 段」進むことで
+// 単発発火を検証する (二重発火だと system→dark→light で 'light' に飛ぶ)。topbar は mobile 表示。
+test('Topbar theme button advances exactly one step per click (double-fire regression)', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 700 });
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  const btn = page.locator('#themeBtnTop');
+  await expect(btn).toBeVisible();
+  const before = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
+  expect(before).toBe('system');
+  await btn.click();
+  const after = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
+  expect(after).toBe('dark');
+});
+
 // ===== 7.1: axe-core 自動アクセシビリティ監査 — render-neutral critical 回帰防止 =====
 // axe-core で WCAG 2a/2aa/21a/21aa を全主要ルートでスキャンし、render-neutral に修正可能な
 // critical 違反群がゼロであることを機械強制する。本 increment で是正したバグの回帰防止:
