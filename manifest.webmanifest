@@ -1,0 +1,20 @@
+{
+  "name": "yuta — AI-Driven PM Portfolio",
+  "short_name": "yuta PM",
+  "description": "AI が自走し、人間が統治する engineering ポートフォリオ。AI が実装〜検証〜デプロイまで自走し、機械統治された一貫性チェック群が担保する。サイト自体がその生成物。",
+  "lang": "ja",
+  "start_url": "/portfolio/",
+  "scope": "/portfolio/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b0f19",
+  "theme_color": "#6366f1",
+  "icons": [
+    {
+      "src": "/portfolio/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
