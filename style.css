@@ -1608,6 +1608,16 @@
         } /* end @layer components */
 
         @layer utilities {
+        /* ===== content-visibility: 長文 ai-knowhow の offscreen セクション描画コスト削減 =====
+           ページ root .page-knowhow の直下 section に適用。offscreen の section をスキップし
+           初期描画を軽くする (見た目は不変=render-neutral・§3 baseline ゲート非該当)。
+           contain-intrinsic-size: auto <fallback> は初回描画後の実寸を記憶しスクロール跳ねを抑える。
+           AIO クローラのインデックス・Ctrl+F には影響しない安全範囲に限定。 */
+        .page-knowhow > section {
+            content-visibility: auto;
+            contain-intrinsic-size: auto 800px;
+        }
+
         /* ===== v69: Utility Classes — inline style を撤去するための共通クラス群 ===== */
         /* これらを使うことで JS 側の style: {} オブジェクトを class 属性に置き換えられる */
 

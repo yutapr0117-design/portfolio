@@ -1053,7 +1053,7 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
             );
         }
 
-        return h('article', { class: 'flex flex-col gap-6 max-w-3xl' },
+        return h('article', { class: 'flex flex-col gap-6 max-w-3xl page-knowhow' },
 
             // ══ ヘッダー ══
             h('header', { class: 'flex flex-col gap-2', 'data-ai-section': 'ai-knowhow' },
