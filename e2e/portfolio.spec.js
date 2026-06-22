@@ -510,6 +510,7 @@ test('Projects search filters to a subset then clears back to the full list', as
   await page.waitForLoadState('domcontentloaded');
 
   const cards = page.locator('.grid-projects article.card');
+  await expect(cards.first()).toBeVisible(); // [FIX] SPA 描画完了を auto-wait してから数える (snapshot count flake 防止)
   const total = await cards.count();
   expect(total, 'projects page should list multiple projects initially').toBeGreaterThan(1);
 
@@ -933,6 +934,7 @@ test('Quiz search filters question blocks and shows empty state on no match', as
   await page.waitForLoadState('domcontentloaded');
 
   const blocks = page.locator('.quiz-question-block');
+  await expect(blocks.first()).toBeVisible(); // [FIX] SPA 描画完了を auto-wait してから数える (snapshot count flake 防止)
   const initial = await blocks.count();
   expect(initial, 'quiz should render question blocks initially').toBeGreaterThan(0);
 
@@ -2178,6 +2180,9 @@ test('All sidebar nav links resolve to valid (non-not-found) routes', async ({ p
   await page.goto('/');
   await page.waitForLoadState('domcontentloaded');
 
+  // [FIX] sidebar はモジュール実行後に描画されるため、domcontentloaded 直後の evaluateAll は
+  // 描画前で空になり得る (CI 間欠 flake)。最初の nav-link 描画を auto-wait してから収集する。
+  await expect(page.locator('a.nav-link').first()).toBeVisible();
   const hrefs = await page.locator('a.nav-link:visible').evaluateAll(
     els => els.map(e => e.getAttribute('href')).filter(Boolean)
   );
