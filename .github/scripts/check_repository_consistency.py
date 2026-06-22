@@ -706,6 +706,40 @@ ROOT = Path(__file__).resolve().parents[2]
 errors: list[str] = []
 warnings: list[str] = []
 
+# All source files that contribute numbered Check sections. The self-integrity Checks
+# (45 docstring↔section bijection / 70 runbook count / 105 map bijection) aggregate the
+# section headers AND the docstring inventory across ALL of these files, so the 4800-line
+# monolith can be split into domain modules (each carrying its own checks + their docstring
+# N. lines) without breaking self-integrity. Today: just this file. Extracting a module =
+# append it here + move its sections + their docstring lines into it.
+CHECK_SOURCE_FILES: list = [
+    ROOT / ".github" / "scripts" / "check_repository_consistency.py",
+]
+
+
+def _aggregate_check_numbers():
+    """(inventory_nums, section_nums) sorted, aggregated across CHECK_SOURCE_FILES.
+
+    inventory_nums = `  N. ` lines in each file's module docstring (first triple-quoted block).
+    section_nums   = the `# <box-drawing> N.` section-header numbers in each file's body.
+    Self-integrity Checks 45/70/105 use this so the bijection spans every split check module.
+    """
+    _sec_re = re.compile(r'^#\s*──\s*(\d+)\.', re.MULTILINE)
+    _inv_re = re.compile(r'^\s{2}(\d+)\.\s', re.MULTILINE)
+    _doc_re = re.compile(r'"""(.*?)"""', re.DOTALL)
+    inv: list = []
+    sec: list = []
+    for _src in CHECK_SOURCE_FILES:
+        if not _src.exists():
+            continue
+        _txt = _src.read_text(encoding="utf-8")
+        _dm = _doc_re.search(_txt)
+        _doc = _dm.group(1) if _dm else ""
+        _body = _txt[_dm.end():] if _dm else _txt
+        inv.extend(int(n) for n in _inv_re.findall(_doc))
+        sec.extend(int(n) for n in _sec_re.findall(_body))
+    return sorted(inv), sorted(sec)
+
 
 def check(condition: bool, msg_ok: str, msg_fail: str, blocking: bool = True) -> None:
     if condition:
@@ -1946,20 +1980,11 @@ check(len(_canary_values) == 1,
 # header to be counted on both sides. The assertion is about structural agreement of the
 # documentation, never about the behaviour of any individual check.
 #
-# We read THIS source file from disk (not via introspection) so the check sees exactly
-# the committed bytes a reviewer would read.
-_selfsrc = (ROOT / ".github" / "scripts" / "check_repository_consistency.py").read_text(encoding="utf-8")
-# Isolate the module docstring (first triple-quoted block) from the executable body so
-# the two number sets are extracted from genuinely different regions of the file.
-_doc_m = re.search(r'"""(.*?)"""', _selfsrc, re.DOTALL)
-if _doc_m:
-    _docstring45 = _doc_m.group(1)
-    _body45 = _selfsrc[_doc_m.end():]
-    # Inventory numbers: lines like "  N. " at the top level of the docstring.
-    _inv45 = sorted(int(n) for n in re.findall(r'^\s{2}(\d+)\.\s', _docstring45, re.MULTILINE))
-    # Section-header numbers: lines like "# ── N." in the body (── = U+2500 box drawing).
-    _sec45 = sorted(int(n) for n in re.findall(r'^#\s*\u2500\u2500\s*(\d+)\.', _body45, re.MULTILINE))
-
+# We read the check source files from disk (not via introspection) so the check sees exactly
+# the committed bytes a reviewer would read. CHECK_SOURCE_FILES lets the inventory/section
+# bijection span multiple modules once check.py is split into cohesive files.
+_inv45, _sec45 = _aggregate_check_numbers()
+if _inv45 or _sec45:
     def _contiguous(seq):
         # True when seq is exactly [1, 2, ..., max] with no gaps and no duplicates.
         return bool(seq) and seq == list(range(1, seq[-1] + 1))
@@ -3172,10 +3197,8 @@ check(
 # を見るのに対し、本 Check は「実装ファイル ↔ runbook §9」の cross-document 整合性を担う。
 # 新 Check 追加時に runbook を更新し忘れる drift を pre-commit で構造的に閉じる。
 _runbook70 = ROOT / "docs" / "architecture" / "total-check-runbook.md"
-_self70 = ROOT / ".github" / "scripts" / "check_repository_consistency.py"
-if _runbook70.exists() and _self70.exists():
-    _self_src70 = _self70.read_text(encoding="utf-8")
-    _section_nums70 = [int(m) for m in re.findall(r"^# ── (\d+)\.\s", _self_src70, re.MULTILINE)]
+if _runbook70.exists() and CHECK_SOURCE_FILES:
+    _, _section_nums70 = _aggregate_check_numbers()
     _actual_max70 = max(_section_nums70) if _section_nums70 else 0
     _runbook_src70 = _runbook70.read_text(encoding="utf-8")
     _runbook_match70 = re.search(r"consistency Check 総数\s*\|\s*\*\*(\d+)\*\*", _runbook_src70)
@@ -4266,11 +4289,11 @@ check(
 # and require the two sets to coincide exactly — so the inventory a reviewer reads can never
 # drift from what the script actually enforces.
 _map105 = ROOT / "docs" / "architecture" / "check-repository-consistency-map.md"
-_self105 = ROOT / ".github" / "scripts" / "check_repository_consistency.py"
-if _map105.exists() and _self105.exists():
+if _map105.exists() and CHECK_SOURCE_FILES:
     _mapsrc105 = _map105.read_text(encoding="utf-8")
     _map_nums105 = {int(m) for m in re.findall(r"^\|\s*(\d+)[a-z]?\s*\|", _mapsrc105, re.MULTILINE)}
-    _impl_nums105 = {int(m) for m in re.findall(r"^#\s*──\s*(\d+)\.", _self105.read_text(encoding="utf-8"), re.MULTILINE)}
+    _, _impl_sec105 = _aggregate_check_numbers()
+    _impl_nums105 = set(_impl_sec105)
     _only_map105 = sorted(_map_nums105 - _impl_nums105)
     _only_impl105 = sorted(_impl_nums105 - _map_nums105)
     check(
