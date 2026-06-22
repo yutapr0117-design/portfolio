@@ -2527,6 +2527,36 @@ test('Topbar theme button advances exactly one step per click (double-fire regre
   expect(after).toBe('dark');
 });
 
+// ===== SPA route-change focus management (WCAG 2.4.3) =====
+// SPA は route 遷移で #content を作り直すため、ナビ後に focus が body へ落ち、キーボード/SR ユーザが
+// 文脈を失う。route 遷移時のみ新ページ h1 へ focus を移す (isRouteChange=Router 由来のみ true)。
+// State.update 由来の同一ルート再描画 (検索/notes 入力) では focus を動かさない (#258 非回帰)。
+test('Route change moves focus to the new page heading (a11y WCAG 2.4.3)', async ({ page }) => {
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  await page.evaluate(() => { location.hash = '#/contact'; });
+  await expect(page.locator('#content h1', { hasText: 'Contact' })).toBeVisible();
+  await page.waitForTimeout(150);
+  const active = await page.evaluate(() => ({
+    tag: document.activeElement && document.activeElement.tagName,
+    text: document.activeElement && document.activeElement.textContent,
+  }));
+  expect(active.tag).toBe('H1');
+  expect(active.text).toContain('Contact');
+});
+
+test('Same-route State re-render does NOT move focus (route-focus / #258 non-regression)', async ({ page }) => {
+  await page.goto('/#/quiz?type=aws', { waitUntil: 'domcontentloaded' });
+  const input = page.locator('input[aria-label="問題検索"]');
+  await expect(input.first()).toBeVisible();
+  await input.first().click();
+  await page.keyboard.type('ec', { delay: 40 });
+  // route 不変ゆえ route-focus は発火せず、focus は input のまま (検索もライブで効く)
+  const active = await page.evaluate(() => document.activeElement && document.activeElement.getAttribute('aria-label'));
+  expect(active).toBe('問題検索');
+  await expect(input.first()).toHaveValue('ec');
+});
+
 // ===== 7.1: axe-core 自動アクセシビリティ監査 — render-neutral critical 回帰防止 =====
 // axe-core で WCAG 2a/2aa/21a/21aa を全主要ルートでスキャンし、render-neutral に修正可能な
 // critical 違反群がゼロであることを機械強制する。本 increment で是正したバグの回帰防止:
