@@ -318,6 +318,7 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
     // ===== AIDK DiagnosticsRail — ?debug=1 オーバーレイ =====
     const DiagnosticsRail = (() => {
         let _el = null;
+        let _keyBound = false;  // keydown リスナーの多重登録防止 (show() は debug toggle 毎に呼ばれる)
 
         function _appendDiagText(parent, text, className) {
             const span = document.createElement('span');
@@ -411,9 +412,13 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
                 _el._timer = setInterval(_update, 2000);
             }
             _update();
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'd' || e.key === 'D') { _update(); }
-            });
+            // 一度だけ登録 (旧実装は show() 毎に addEventListener していてリスナーが累積していた)
+            if (!_keyBound) {
+                _keyBound = true;
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'd' || e.key === 'D') { _update(); }
+                });
+            }
         }
 
         function hide() {
