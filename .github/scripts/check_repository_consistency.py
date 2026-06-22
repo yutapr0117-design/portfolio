@@ -663,6 +663,15 @@ authoritative inventory and is kept in sync with the implementation below):
        no-invalid-regexp, no-const-assign, valid-typeof, use-isnan, no-fallthrough, no-cond-assign,
        getter-return, …) remains declared in eslint.config.mjs — locking the safety net against
        silent regression (the #186 class). (BLOCKING)
+  127. AIO digest tool binary re-bake guard: update_aio_digests.py MUST gate its WebP/MP3 date
+       re-baking behind _binary_edited() (a `git diff --quiet HEAD -- <path>` check) so binary
+       internal dates are re-synced ONLY when the binary file itself was genuinely edited — never
+       merely because an unrelated text digest (the weekly monitoring log) changed. The earlier
+       logic re-baked on every digest change, producing a new hash the monitoring workflow recorded
+       into the manifest but never committed the rewritten binary for → manifest sha256 desynced
+       from the committed binary every weekly run, reddening the BLOCKING digest gate on the next
+       PR. This Check locks the guard in place (presence of _binary_edited + its use gating the
+       re-bake) so the desync class cannot silently return. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4904,6 +4913,39 @@ if _eslint126.exists():
 else:
     check(False, "Check 126: eslint.config.mjs present",
           "Check 126: eslint.config.mjs が見つからない — bug-catcher safety-net を検証できない", blocking=True)
+
+# ── 127. AIO digest tool binary re-bake guard (BLOCKING) ──────────────────────
+# update_aio_digests.py は WebP/MP3 の内部日付メタ (XMP/ID3) 再書き込みを、binary ファイル自体が
+# 実際に編集された時のみ行わねばならない。旧実装は「source_of_truth に binary entry が存在するか」
+# だけを見て毎回再書き込みを発火させ、無関係なテキスト digest (週次 aio-monitoring ログ) 更新の
+# たびに binary hash を変え、その新 hash を manifest に記録する一方 aio-monitoring.yml は書き換えた
+# binary を git add しないため、commit 境界で manifest 記録 sha と実バイナリ sha が毎週 desync し、
+# 次 PR の BLOCKING digest gate (check_aio_digests.py) が赤化していた。本 Check は再発防止として、
+# (a) _binary_edited helper の存在、(b) その helper が `git diff --quiet HEAD` で実編集を判定すること、
+# (c) date 再書き込みが _binary_edited() でガードされていること、を presence で機械強制する。
+_digtool127 = ROOT / ".github" / "scripts" / "update_aio_digests.py"
+if _digtool127.exists():
+    _src127 = _digtool127.read_text(encoding="utf-8")
+    _has_helper127 = re.search(r"def\s+_binary_edited\s*\(", _src127) is not None
+    _has_gitdiff127 = "git" in _src127 and "diff" in _src127 and "--quiet" in _src127 and "HEAD" in _src127
+    _has_gate127 = re.search(r"if\s+_binary_edited\s*\(", _src127) is not None
+    _missing127 = []
+    if not _has_helper127:
+        _missing127.append("_binary_edited() helper 定義")
+    if not _has_gitdiff127:
+        _missing127.append("`git diff --quiet HEAD` による実編集判定")
+    if not _has_gate127:
+        _missing127.append("date 再書き込みを `if _binary_edited(...)` でガード")
+    check(
+        not _missing127,
+        "Check 127: update_aio_digests.py が binary 日付再書き込みを _binary_edited() (git HEAD diff) でガード",
+        "Check 127: update_aio_digests.py の binary re-bake guard が後退 — manifest↔binary 毎週 desync の "
+        "回帰リスク (f2335ce で根治した class)。次を復元せよ: " + ", ".join(_missing127),
+        blocking=True,
+    )
+else:
+    check(False, "Check 127: update_aio_digests.py present",
+          "Check 127: update_aio_digests.py が見つからない — digest tool の binary guard を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
