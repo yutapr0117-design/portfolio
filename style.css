@@ -1253,24 +1253,12 @@
             gap: var(--space-8);
         }
 
-        .mt-1 {
-            margin-top: var(--space-1);
-        }
-
-        .mt-2 {
-            margin-top: var(--space-2);
-        }
-
         .mt-3 {
             margin-top: var(--space-3);
         }
 
         .mt-4 {
             margin-top: var(--space-4);
-        }
-
-        .mt-6 {
-            margin-top: var(--space-6);
         }
 
         .mb-1 {
@@ -1293,20 +1281,12 @@
             padding: var(--space-4);
         }
 
-        .p-6 {
-            padding: var(--space-6);
-        }
-
         .w-full {
             width: 100%;
         }
 
         .max-w-2xl {
             max-width: 42rem;
-        }
-
-        .max-w-4xl {
-            max-width: 56rem;
         }
 
         .cursor-pointer {
@@ -1934,9 +1914,7 @@
 
         /* Column flex layouts with gap */
         .col-gap-sm  { gap: 4px;  }
-        .col-gap-md  { gap: 8px;  }
         .col-gap-10  { gap: 10px; }
-        .col-gap-1rem { gap: 1rem; }
 
         /* Row flex layouts */
         .row-gap-8   { display: flex; align-items: center; gap: 8px;  margin-bottom: 12px; }
@@ -2139,9 +2117,6 @@
         /*       unsafe-inline を完全削除することは現アーキテクチャと両立しない。              */
         /*       v73 CSP hardening origin record: unsafe-inline 除去の設計検討が開始された。  */
         /*       v74 Secure-by-Design baseline: JS-CSS separation完了。unsafe-inline排除済み。 */
-        .u-ai-display-none { display: none !important; }
-        .u-ai-mt-16 { margin-top: 16px !important; }
-        .u-ai-text-center { text-align: center !important; }
         .u-ai-contain-layout-style { contain: layout style !important; }
         .u-ai-flex-1 { flex: 1 !important; }
 
