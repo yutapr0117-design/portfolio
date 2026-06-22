@@ -299,7 +299,7 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
                     h('div', { class: 'card flex flex-col h-full shadow-sm hover-shadow-md transition' },
                         h('div', { class: 'card-body flex flex-col h-full' },
                             h('h3', { class: 'h4 mb-3' }, 'Case Studies（AI-Driven PMの成果）'),
-                            h('p', { class: 'text-muted text-sm mb-6 flex-grow' }, 'AIを使ってどんな成果を出してきたか、代表的な事例だけをまとめています。'),
+                            h('p', { class: 'text-muted text-sm mb-6 flex-grow' }, 'AI を自走させ・統治して出してきた成果を、代表的な事例だけまとめています。'),
                             h('button', { 
                                 class: 'btn btn-primary btn-sm w-full mt-auto',
                                 onclick: () => {
