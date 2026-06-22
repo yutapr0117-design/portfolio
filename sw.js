@@ -146,7 +146,9 @@ self.addEventListener('fetch', function(event) {
                 // 表示=従来挙動と等価)。online 時の挙動は不変。
                 const networkFetch = fetch(request).then(function(response) {
                     if (response && response.ok) {
-                        cache.put(request, response.clone());
+                        // cache.put は fire-and-forget。quota 超過等で reject すると SW 内で
+                        // unhandledrejection になる (#84 と同 class) ため .catch で握りつぶす。
+                        cache.put(request, response.clone()).catch(function() { /* quota 等は無視 */ });
                     }
                     return response;
                 }).catch(function() { return cached; });
