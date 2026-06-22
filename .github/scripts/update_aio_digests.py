@@ -26,6 +26,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 import hashlib
 import json
+import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -62,6 +63,24 @@ MANIFEST_FILE = ROOT / ".well-known" / "aio-manifest.json"
 
 def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _binary_edited(path: Path) -> bool:
+    """True only when the binary file itself differs from git HEAD (a genuine binary edit).
+
+    Used to gate binary date-metadata re-baking: dates must be re-synced ONLY when the
+    binary was actually edited in this working tree, never merely because some unrelated
+    text digest (e.g. the weekly monitoring log) changed. Falls back to False (no re-bake)
+    when git is unavailable, which is the safe / non-mutating choice.
+    """
+    try:
+        r = subprocess.run(
+            ["git", "diff", "--quiet", "HEAD", "--", str(path)],
+            cwd=str(ROOT),
+        )
+        return r.returncode != 0
+    except Exception:
+        return False
 
 
 def write_if_changed(path: Path, new_bytes: bytes) -> bool:
@@ -141,27 +160,28 @@ def update_manifest() -> list[str]:
         # B1 案: binary が変わったら xmp:ModifyDate / xmp:MetadataDate / MP3 TXXX
         # AIO:MetadataLastModified も同期更新する (binary 編集の sha256 が変わったら
         # その binary 内日付メタも同期させる)
-        binary_paths = {"yuta-yokoi-ai-pm-orchestration-system.webp", "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3"}
-        binary_changed = False
-        for section in ("source_of_truth",):
-            for entry in data.get(section, []):
-                if entry.get("path") in binary_paths:
-                    # この entry は今回 digest 更新で sha が書き換わった可能性がある
-                    binary_changed = True
-                    break
-        if binary_changed:
+        # Re-bake a binary's internal date metadata ONLY when the binary FILE ITSELF was
+        # genuinely edited in this working tree (differs from git HEAD) — NOT merely because
+        # some unrelated text digest (e.g. the weekly monitoring log) changed. The previous
+        # logic set this True whenever a binary entry merely *existed*, so every log-only run
+        # rewrote the WebP/MP3 XMP·ID3 dates → a new hash got recorded into the manifest while
+        # the monitoring workflow never staged the rewritten binary → the committed manifest
+        # sha256 desynced from the committed binary on every weekly run (BLOCKING digest gate
+        # then reddened the next PR). Gating on a real binary edit makes the manifest record
+        # the actually-committed binary, and the date re-bake fires only when intended.
+        webp = ROOT / "yuta-yokoi-ai-pm-orchestration-system.webp"
+        mp3 = ROOT / "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3"
+        if _binary_edited(webp) or _binary_edited(mp3):
             try:
                 from _lib_io import update_webp_xmp_dates, update_mp3_metadata_date
-                webp = ROOT / "yuta-yokoi-ai-pm-orchestration-system.webp"
-                mp3 = ROOT / "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3"
-                if webp.exists():
+                if webp.exists() and _binary_edited(webp):
                     if update_webp_xmp_dates(webp, now_iso):
                         print(f"  WebP XMP dates synced to {now_iso}")
                         # digest を再計算 (binary が変わったので)
                         for entry in data["source_of_truth"]:
                             if entry.get("path") == "yuta-yokoi-ai-pm-orchestration-system.webp":
                                 entry["sha256"] = sha256_file(webp)
-                if mp3.exists():
+                if mp3.exists() and _binary_edited(mp3):
                     if update_mp3_metadata_date(mp3, now_iso):
                         print(f"  MP3 ID3 metadata date synced to {now_iso}")
                         for entry in data["source_of_truth"]:
