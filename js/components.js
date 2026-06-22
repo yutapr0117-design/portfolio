@@ -194,7 +194,7 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
                         h('div', { class: 'hero-copy' },
 
                             h('span', { class: 'hero-eyebrow' },
-                                'Outcome-Driven AI Orchestration'
+                                'AI 自走 × 人間統治の Engineering'
                             ),
 
                             h('h1', {
@@ -202,7 +202,7 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
                                 'data-ai-content': 'lead',
                                 'data-speakable': 'true'
                             },
-                                h('em', {}, 'AIを制御し、プロダクトを成立させるPM')
+                                h('em', {}, 'AI を自走させ、統治する PM')
                             ),
 
                             h('p', {
@@ -210,7 +210,7 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
                                 'data-ai-content': 'tagline',
                                 'data-speakable': 'true'
                             },
-                                'AIを開発リソースとして統合し、設計・制約・検証・公開までを一貫して統制'
+                                'AI が実装・検証・マージ・本番デプロイまで自走。機械統治された一貫性チェック群と behavior テストが担保し、このサイト自体がその生成物である。'
                             ),
 
                             h('p', {
