@@ -677,6 +677,14 @@ authoritative inventory and is kept in sync with the implementation below):
        from the committed binary every weekly run, reddening the BLOCKING digest gate on the next
        PR. This Check locks the guard in place (presence of _binary_edited + its use gating the
        re-bake) so the desync class cannot silently return. (BLOCKING)
+  128. Command palette ↔ router app-route coherence: the command palette (js/command-palette.js)
+       advertises itself as cross-cutting quick-nav, so every built-in app the router can route to
+       (`apps/<app>` — the whitelist in js/router.js: task/todo/pomodoro/ai/notes) must have a
+       matching `hash: 'apps/<app>'` destination in the palette's NAV list. Without this, an app
+       added to the router but forgotten in the palette becomes unreachable via Cmd/Ctrl+K (exactly
+       how the Markdown notes app was missing until this Check was added). The router's app
+       whitelist is parsed as the source of truth so the palette can never silently fall behind it.
+       (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -4974,6 +4982,39 @@ if _digtool127.exists():
 else:
     check(False, "Check 127: update_aio_digests.py present",
           "Check 127: update_aio_digests.py が見つからない — digest tool の binary guard を検証できない", blocking=True)
+
+# ── 128. Command palette ↔ router app-route coherence (BLOCKING) ───────────────
+# command-palette (js/command-palette.js) は「横断 quick-nav」を標榜するため、router
+# (js/router.js) が route できる全 built-in app (`apps/<app>` = router の whitelist
+# task/todo/pomodoro/ai/notes) に対応する `hash: 'apps/<app>'` destination を NAV に持た
+# ねばならない。router に app を足して palette を更新し忘れると Cmd/Ctrl+K からその app へ
+# 到達できなくなる (実際 Markdown notes app が本 Check 追加まで NAV から欠落していた)。
+# router の app whitelist を source of truth として parse し、palette が silent に遅れない
+# ことを機械強制する。
+_router128 = ROOT / "js" / "router.js"
+_palette128 = ROOT / "js" / "command-palette.js"
+if _router128.exists() and _palette128.exists():
+    _router_src128 = _router128.read_text(encoding="utf-8")
+    _palette_src128 = _palette128.read_text(encoding="utf-8")
+    # router の app whitelist: `['task', 'todo', 'pomodoro', 'ai', 'notes'].includes(app)`
+    _wl_m128 = re.search(r"\[([^\]]*)\]\.includes\(\s*app\s*\)", _router_src128)
+    _apps128 = []
+    if _wl_m128:
+        _apps128 = re.findall(r"['\"]([a-z]+)['\"]", _wl_m128.group(1))
+    _missing128 = [a for a in _apps128
+                   if (f"apps/{a}'" not in _palette_src128 and f'apps/{a}"' not in _palette_src128)]
+    check(
+        bool(_apps128) and not _missing128,
+        f"Check 128: command-palette NAV が router の全 {len(_apps128)} built-in app ({', '.join(_apps128)}) を網羅",
+        f"Check 128: command-palette NAV に router app route が欠落: {_missing128} — "
+        f"`{{ label: '...', hash: 'apps/<app>' }}` を NAV へ追加せよ (Cmd+K で到達不能になる)"
+        if _apps128 else
+        "Check 128: router.js の app whitelist (`[...].includes(app)`) を parse できない — coherence 検証が無効化された",
+        blocking=True,
+    )
+else:
+    check(False, "Check 128: router.js / command-palette.js present",
+          "Check 128: router.js または command-palette.js が見つからない — palette↔router coherence を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
