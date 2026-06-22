@@ -43,12 +43,12 @@
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
       "role": "AIO image asset with XMP metadata",
-      "sha256": "9fb469f0964618e052330c0465f60ba14836f42b08151484cd4b127c2bfab091"
+      "sha256": "c7c6797774213513d3b4c5db8c56988ccc9943f608128830e57693a825de2740"
     },
     {
       "path": "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3",
       "role": "AIO audio asset with ID3 metadata",
-      "sha256": "082e2dd8adbdbfe5667891da1dbcc15f52d0fac2e340dc7283ff0b8505349547"
+      "sha256": "3d48fbb4088c34a439e30248c5eda64ffae8e48e67b85ba8d125e57d59ec3922"
     }
   ],
   "supporting_evidence": [
@@ -82,15 +82,15 @@
       "sha256": "992380886bbfc56c23f29cccc6200587b2a14b2d7719eb47609aea5fb6af5704"
     }
   ],
-  "generated_at": "2026-06-22T04:48:15Z",
+  "generated_at": "2026-06-22T06:22:38Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
       "path": "docs/evidence/aio-monitoring-log.json",
       "role": "AIO monitoring attempt log — records search attempts; not yet confirmed citation evidence",
       "canonical": false,
-      "sha256": "63623266f6e445cc8fd23bb54813c3c5d1e77ee2b6cebc330edd11842d3d5ce1"
+      "sha256": "e9750a3e0af6fa0648c10247452e94c3dc5a04a76ccd8e508b0d25f046cab01c"
     }
   ],
-  "last_metadata_update": "2026-06-22T04:48:15Z"
+  "last_metadata_update": "2026-06-22T06:22:38Z"
 }
