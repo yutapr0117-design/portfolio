@@ -222,8 +222,8 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
                             h('ul', { class: 'hero-value-list', 'aria-label': 'Value Points' },
                                 h('li', {},
                                     h('span', {},
-                                        h('strong', {}, 'AI-driven development execution: '),
-                                        '73回の遷移（v1→v74）を経て、設計からデプロイまでをAIチームで完遂。'
+                                        h('strong', {}, 'AI self-driving execution: '),
+                                        'AI が実装・検証・マージ・本番デプロイまで自走し、次の一手の案出しも AI が担う。人間はコードを一行も書かない。'
                                     )
                                 ),
                                 h('li', {},
@@ -235,7 +235,7 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
                                 h('li', {},
                                     h('span', {},
                                         h('strong', {}, 'Real production deployment: '),
-                                        'GitHub Pages上で実際に稼働。技術検証に留まらない「動く資産」としての成果。'
+                                        'GitHub Pages 上で実際に稼働。このサイト自体が、その自走 AI エンジニアリングの生成物である。'
                                     )
                                 )
                             ),
