@@ -803,10 +803,12 @@
             }
             // ────────────────────────────────────────────────────────────
 
-            // Mobile menu (既存リスナーを維持 — ActionDelegator と併存可)
-            document.getElementById('menuBtn')?.addEventListener('click', openDrawer);
+            // Mobile menu: menuBtn(data-action="drawer:open") / themeBtnTop(data-action="theme:cycle")
+            // は ActionDelegator が処理するため直接リスナーは付けない。両方付けると 1 クリックで
+            // ハンドラが二重発火し、drawer 二重 open で __lockBodyScroll が scrollY=0 を読んで閉じると
+            // ページ先頭へジャンプ / theme が 1 クリックで 2 段送り（1 つ飛ばし）になる実バグだった。
+            // overlay は data-action を持たないため直接リスナーで閉じる。
             document.getElementById('overlay')?.addEventListener('click', closeDrawer);
-            document.getElementById('themeBtnTop')?.addEventListener('click', Theme.cycle);
 
             // Escape key
             document.addEventListener('keydown', (e) => {
@@ -831,9 +833,9 @@
             render();
 
             // ===== BGM Initialization =====
+            // bgm-btn-top は data-action="bgm:toggle" を持ち ActionDelegator が処理するため
+            // 直接リスナーは付けない（付けると 1 クリックで二重 toggle になる）。
             BGM.init();
-            const topBgmBtn = document.getElementById('bgm-btn-top');
-            if (topBgmBtn) topBgmBtn.addEventListener('click', BGM.toggle);
 
         }
 

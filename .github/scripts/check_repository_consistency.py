@@ -685,6 +685,15 @@ authoritative inventory and is kept in sync with the implementation below):
        how the Markdown notes app was missing until this Check was added). The router's app
        whitelist is parsed as the source of truth so the palette can never silently fall behind it.
        (BLOCKING)
+  129. Topbar data-action button double-fire guard: the topbar buttons menuBtn / themeBtnTop /
+       bgm-btn-top carry `data-action` attributes that the AIDK ActionDelegator handles via a single
+       delegated document click listener. main.js init MUST NOT ALSO attach a direct
+       `addEventListener('click', ...)` to these buttons — doing so makes a single click fire the
+       handler twice (the confirmed bug: theme advanced two steps per click skipping a theme; the
+       mobile drawer opened twice, corrupting __lockBodyScroll's saved scrollY to 0 so closing it
+       jumped the page to the top; BGM toggled twice). This Check asserts main.js contains no direct
+       click-listener wiring for any of the three delegated topbar button ids, locking the
+       single-source (ActionDelegator) contract so the double-fire class cannot return. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5015,6 +5024,34 @@ if _router128.exists() and _palette128.exists():
 else:
     check(False, "Check 128: router.js / command-palette.js present",
           "Check 128: router.js または command-palette.js が見つからない — palette↔router coherence を検証できない", blocking=True)
+
+# ── 129. Topbar data-action button double-fire guard (BLOCKING) ────────────────
+# topbar の menuBtn / themeBtnTop / bgm-btn-top は data-action を持ち AIDK ActionDelegator が
+# 単一の delegated click リスナーで処理する。main.js init がこれらに直接 addEventListener('click')
+# も付けると 1 クリックで二重発火する (theme が 2 段送り / drawer 二重 open で scroll 復元が先頭
+# ジャンプ / BGM 二重 toggle の実バグだった)。本 Check は main.js にこれら 3 ボタンへの直接 click
+# リスナー配線が無いことを presence-negative で機械強制し、ActionDelegator 単一経路契約を守る。
+_main129 = ROOT / "main.js"
+_TOPBAR_DELEGATED_IDS129 = ["menuBtn", "themeBtnTop", "bgm-btn-top"]
+if _main129.exists():
+    _src129 = _main129.read_text(encoding="utf-8")
+    _viol129 = []
+    for _line129 in _src129.splitlines():
+        if "addEventListener('click'" in _line129 or 'addEventListener("click"' in _line129:
+            for _id129 in _TOPBAR_DELEGATED_IDS129:
+                if f"'{_id129}'" in _line129 or f'"{_id129}"' in _line129:
+                    _viol129.append(_id129)
+    check(
+        not _viol129,
+        "Check 129: main.js は topbar data-action ボタン (menuBtn/themeBtnTop/bgm-btn-top) に直接 click リスナーを付けていない (ActionDelegator 単一経路)",
+        f"Check 129: main.js が data-action ボタンに直接 click リスナーを重複登録している: {sorted(set(_viol129))} — "
+        "二重発火 (theme 2 段送り / drawer scroll 先頭ジャンプ / BGM 二重 toggle) になるため直接リスナーを撤去し "
+        "data-action + ActionDelegator に一本化せよ",
+        blocking=True,
+    )
+else:
+    check(False, "Check 129: main.js present",
+          "Check 129: main.js が見つからない — topbar double-fire guard を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
