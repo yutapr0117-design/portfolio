@@ -694,6 +694,16 @@ authoritative inventory and is kept in sync with the implementation below):
        jumped the page to the top; BGM toggled twice). This Check asserts main.js contains no direct
        click-listener wiring for any of the three delegated topbar button ids, locking the
        single-source (ActionDelegator) contract so the double-fire class cannot return. (BLOCKING)
+  130. Live-input oninput focus-loss guard: an `oninput:` handler in shipped JS must NOT call
+       `State.update(` — State.update → notify → State.subscribe(render) clears #content and
+       rebuilds the whole page, destroying the focused input on every keystroke (the confirmed bug
+       that made the quiz search and Markdown notes inputs unusable: only the first char landed
+       before focus was lost). High-frequency live inputs must persist via `State.updateSilently(`
+       (no re-render) and update their own sub-DOM manually (cf. ProjectsPage renderGrid). This
+       Check brace-balances each oninput handler body and fails if it contains a `State.update(`
+       call (updateSilently is allowed — the literal `State.update(` does not match
+       `State.updateSilently(`), structurally guarding the whole class beyond the per-input e2e
+       tests. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5052,6 +5062,61 @@ if _main129.exists():
 else:
     check(False, "Check 129: main.js present",
           "Check 129: main.js が見つからない — topbar double-fire guard を検証できない", blocking=True)
+
+# ── 130. Live-input oninput focus-loss guard (BLOCKING) ───────────────────────
+# shipped JS の `oninput:` ハンドラは State.update( を呼んではならない。State.update → notify →
+# State.subscribe(render) が #content を clear して全再描画し、focused input を毎キーストローク破棄
+# するため focus を失う (quiz 検索 / Markdown notes が使用不能だった実バグ)。高頻度 live-input は
+# State.updateSilently( (再描画しない) で永続化し、自前で sub-DOM を更新せよ (cf. ProjectsPage
+# renderGrid)。本 Check は各 oninput ハンドラ本体を brace-balance で抽出し State.update( を含むなら
+# fail する (updateSilently は許可。リテラル "State.update(" は "State.updateSilently(" に一致しない)。
+def _extract_handler_body130(text, start):
+    _arrow = text.find("=>", start)
+    _fn = text.find("function", start)
+    # arrow か function、近い方を本体開始の手掛かりにする (どちらも無ければ空)
+    _cands = [c for c in (_arrow, _fn) if c != -1]
+    if not _cands:
+        return ""
+    _h = min(_cands)
+    _i = text.find("{", _h)
+    # arrow 単一式 (=> expr, 中括弧なし) は次の改行までを本体とみなす
+    _arrow_nl = text.find("\n", _h)
+    if _i == -1 or (_arrow != -1 and _i > (_arrow_nl if _arrow_nl != -1 else len(text))):
+        _nl = text.find("\n", _h)
+        return text[_h:_nl if _nl != -1 else len(text)]
+    _depth = 0
+    _j = _i
+    while _j < len(text):
+        if text[_j] == "{":
+            _depth += 1
+        elif text[_j] == "}":
+            _depth -= 1
+            if _depth == 0:
+                return text[_i:_j + 1]
+        _j += 1
+    return text[_i:]
+_js130 = sorted((ROOT / "js").rglob("*.js"))
+_viol130 = []
+_oninput_count130 = 0
+for _f130 in _js130:
+    _txt130 = _f130.read_text(encoding="utf-8")
+    _pos130 = 0
+    while True:
+        _oi130 = _txt130.find("oninput", _pos130)
+        if _oi130 == -1:
+            break
+        _pos130 = _oi130 + 7
+        _oninput_count130 += 1
+        _body130 = _extract_handler_body130(_txt130, _oi130)
+        if "State.update(" in _body130:
+            _viol130.append(str(_f130.relative_to(ROOT)))
+check(
+    not _viol130,
+    f"Check 130: 全 {_oninput_count130} 個の oninput ハンドラが State.update( を呼ばない (live-input focus-loss 防止)",
+    f"Check 130: oninput ハンドラが State.update( を呼んでおり focus-loss を起こす module: {sorted(set(_viol130))} — "
+    "State.updateSilently( + sub-DOM 手動更新へ変更せよ (State.update は全再描画で focused input を破棄する)",
+    blocking=True,
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
