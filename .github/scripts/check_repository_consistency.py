@@ -554,13 +554,18 @@ authoritative inventory and is kept in sync with the implementation below):
        'domcontentloaded' + expect() auto-wait instead; only the screenshot capture legitimately
        needs networkidle (font/image load determinism). This Check blocks reintroduction of the
        hang-flake class. (BLOCKING)
-  112. js/apps.js IME composition guard: every Enter-submit handler in the app inputs
-       (task / todo / ai) must carry an IME composition guard on the same line as the
-       `e.key === 'Enter'` test — either `!e.isComposing` or a manual `!todoComposing` flag.
-       Without it, a Japanese user confirming an IME conversion with Enter prematurely
-       submits the unconfirmed text (the footgun fixed for task in PR #151 and ai in PR #152;
-       todo already had the guard). This Check blocks reintroduction of the IME premature-submit
-       class by requiring "Composing" to appear on any line testing for the Enter key. (BLOCKING)
+  112. Shipped-JS IME composition guard: Enter-key handlers must not act on an Enter that is
+       confirming an IME conversion. 112a (precise) — every Enter-submit handler in js/apps.js
+       (task / todo / ai) carries the guard on the same line as the `e.key === 'Enter'` test
+       (`!e.isComposing` or a manual `!todoComposing` flag); fixed for task in PR #151 and ai in
+       PR #152 (todo already had it). 112b (general net) — ANY shipped JS module that tests for
+       the Enter key (`e.key === 'Enter'`) must also reference an IME composition guard
+       (`isComposing`/`Composing`) somewhere in that file. This catches the same footgun in
+       modules outside apps.js — e.g. the command palette's keydown trap, where a Japanese
+       project-name search + Enter would otherwise navigate instead of confirming the conversion.
+       Without the guard a Japanese user confirming a conversion with Enter triggers a premature
+       submit/navigation. This Check blocks reintroduction of the IME premature-submit class
+       across all shipped JS. (BLOCKING)
   113. commit/PR handoff discipline presence in canon: BOTH the model-agnostic canon
        AI2AI.md (STEP 5.5) AND the Claude router CLAUDE.md (§5) must retain the handoff-first
        commit/PR discipline (theme-batched PRs, `gh pr merge --rebase`, commit-count-is-output-
@@ -4503,12 +4508,16 @@ if _spec111.exists():
 else:
     check(False, "", "Check 111: e2e/portfolio.spec.js not found — networkidle guard を検証できない", blocking=True)
 
-# ── 112. js/apps.js IME composition guard (BLOCKING) ──────────────────────────
-# task/todo/ai の入力 Enter ハンドラは IME 変換確定の Enter (e.isComposing) で submit してはならない。
-# 日本語入力で変換候補を Enter 確定した際に未確定テキストが誤って追加/送信される footgun を防ぐため、
-# `e.key === 'Enter'` を判定する行には必ず composition ガード ('Composing' = e.isComposing または
-# 手動 todoComposing) を同一行に併記する。task は PR #151、ai は PR #152 で修正済み (todo は既存対応)。
-# 本 Check は IME premature-submit クラスの再発を pre-commit でブロックする。
+# ── 112. Shipped-JS IME composition guard (BLOCKING) ──────────────────────────
+# Enter ハンドラは IME 変換確定の Enter (e.isComposing) で submit/遷移してはならない。日本語入力で
+# 変換候補を Enter 確定した際に未確定テキストが誤って追加/送信されたり画面遷移する footgun を防ぐ。
+# 112a (精密): js/apps.js の task/todo/ai 入力は `e.key === 'Enter'` を判定する行に必ず composition
+#   ガード ('Composing' = e.isComposing または手動 todoComposing) を同一行に併記する (task=PR #151 /
+#   ai=PR #152 で修正・todo は既存対応)。
+# 112b (一般網): apps.js 以外も含む全 shipped JS module で、`e.key === 'Enter'` を判定する file は
+#   同 file 内で IME composition ガード (isComposing/Composing) を参照していなければならない。
+#   command-palette の keydown trap のように apps.js 外で日本語検索 + Enter が遷移を誤発火する同クラスの
+#   footgun を構造的に捕捉する (本 Check 拡張時に command-palette.js の未ガード Enter を発見・修正)。
 _apps112 = ROOT / "js" / "apps.js"
 if _apps112.exists():
     _lines112 = _apps112.read_text(encoding="utf-8").splitlines()
@@ -4523,15 +4532,34 @@ if _apps112.exists():
         # 両側非空ガード: Enter ハンドラが 1 つも見つからない (構造変更/gutting) 場合に vacuous pass
         # するのを防ぐ。task/todo/ai の 3 入力があるため Enter ハンドラは常に存在するはず。
         _enter112 > 0 and not _viol112,
-        f"Check 112: js/apps.js — {_enter112} 個の Enter-submit ハンドラすべてが IME composition ガードを持つ",
-        f"Check 112: js/apps.js: IME composition ガード無しの Enter-submit が line {_viol112} に存在 — "
+        f"Check 112a: js/apps.js — {_enter112} 個の Enter-submit ハンドラすべてが IME composition ガードを持つ",
+        f"Check 112a: js/apps.js: IME composition ガード無しの Enter-submit が line {_viol112} に存在 — "
         f"`&& !e.isComposing` を追加せよ (日本語 IME 変換確定の誤 submit を防ぐ。PR #151/#152 参照)"
         if _viol112 else
-        "Check 112: js/apps.js に Enter-submit ハンドラが見つからない (構造変更の可能性) — IME guard 検証が無効化された",
+        "Check 112a: js/apps.js に Enter-submit ハンドラが見つからない (構造変更の可能性) — IME guard 検証が無効化された",
         blocking=True,
     )
 else:
-    check(False, "", "Check 112: js/apps.js not found — IME composition guard を検証できない", blocking=True)
+    check(False, "", "Check 112a: js/apps.js not found — IME composition guard を検証できない", blocking=True)
+# 112b — 全 shipped JS module 横断の一般網: Enter ハンドラを持つ file は IME ガードを参照すること。
+_js_files112 = sorted((ROOT / "js").rglob("*.js"))
+_enter_unguarded112 = []
+_enter_files112 = 0
+for _f112 in _js_files112:
+    _txt112 = _f112.read_text(encoding="utf-8")
+    if "e.key === 'Enter'" in _txt112 or 'e.key === "Enter"' in _txt112:
+        _enter_files112 += 1
+        if "isComposing" not in _txt112 and "Composing" not in _txt112:
+            _enter_unguarded112.append(str(_f112.relative_to(ROOT)))
+check(
+    _enter_files112 > 0 and not _enter_unguarded112,
+    f"Check 112b: Enter ハンドラを持つ {_enter_files112} 個の shipped JS module すべてが IME composition ガードを参照",
+    f"Check 112b: IME composition ガードを参照しない Enter ハンドラ module: {_enter_unguarded112} — "
+    f"`e.isComposing` ガードを追加せよ (日本語 IME 変換確定の誤 submit/遷移を防ぐ)"
+    if _enter_unguarded112 else
+    "Check 112b: Enter ハンドラを持つ shipped JS module が 1 つも無い (構造変更の可能性) — IME guard 一般網が無効化された",
+    blocking=True,
+)
 
 # ── 113. commit/PR handoff discipline presence in canon (BLOCKING) ────────────
 # 「AI は交換可能なメンバ」軸の核 = AI→AI 引き継ぎ。commit/PR 規律 (fine commit ×厚い what+why ×
