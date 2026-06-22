@@ -758,7 +758,9 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                 // live preview を innerHTML 無しで差し替え
                 while (preview.firstChild) { preview.removeChild(preview.firstChild); }
                 renderMarkdown(val).forEach(n => preview.appendChild(n));
-                State.update(s => { s.appsData.notes = val.slice(0, 20000); });
+                // updateSilently: State.update だと notify→全再描画で textarea が破棄され毎キーストローク
+                // で focus 喪失する (確認済バグ)。preview は上で手動更新済みゆえ再描画は不要。
+                State.updateSilently(s => { s.appsData.notes = val.slice(0, 20000); });
             }
         });
 

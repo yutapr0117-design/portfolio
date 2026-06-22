@@ -7,8 +7,10 @@
  * 関数の引数で受け取ることで、葉契約（Check 47c: import ゼロ）を維持しつつ State の挙動と
  * 公開 API を完全に byte-equivalent に保つ。
  *
- * 【公開 API（抽出前後で byte-equivalent）】
- *   { get, set, update, subscribe, saveNow }
+ * 【公開 API】
+ *   { get, set, update, updateSilently, subscribe, saveNow }
+ *   updateSilently は live-input (notes/quiz search) 用に notify せず persist する（再描画で
+ *   focused input が破棄される focus-loss を防ぐ。呼び出し側が sub-DOM を手動更新する契約）。
  *
  * 【依存（引数で注入）】
  *   - CONSTANTS: { DEBUG, TAB_ID, STORAGE_KEY, DEBOUNCE_DELAY }
@@ -113,11 +115,10 @@ export function createState({ CONSTANTS, Store, Storage, Toast }) {
         return obj;
     }
 
-    function update(fn) {
-        // Safe-ish "mutable draft" update:
-        // - clone commonly-mutated branches deeply enough to avoid shared references
-        // - in DEBUG, deep-freeze the current state to catch accidental writes
-        const draft = {
+    // Safe-ish "mutable draft": clone commonly-mutated branches deeply enough to avoid shared
+    // references with the live state, so callers can mutate the draft freely.
+    function _buildDraft() {
+        return {
             ...data,
             profile: data.profile ? { ...data.profile } : data.profile,
             projects: cloneProjects(data.projects),
@@ -126,14 +127,33 @@ export function createState({ CONSTANTS, Store, Storage, Toast }) {
                 : { hiddenIds: [] },
             appsData: cloneAppsData(data.appsData)
         };
+    }
 
+    function update(fn) {
+        const draft = _buildDraft();
         if (CONSTANTS.DEBUG) {
             // Catch accidental writes to the original state (best-effort, bounded depth)
             try { deepFreezeLimited(data, 4); } catch { }
         }
-
         fn(draft);
         set(draft);
+    }
+
+    // High-frequency live-input persistence WITHOUT a full re-render. set() → notify() drives
+    // State.subscribe(render), and render() clear()s #content and rebuilds the page — which
+    // destroys the focused input on every keystroke (a confirmed focus-loss bug on the quiz
+    // search and Markdown notes inputs). For inputs that must persist on each keystroke while
+    // keeping focus, commit the draft + schedule a save but DO NOT notify. Callers MUST update
+    // their own affected sub-DOM manually (cf. ProjectsPage's renderGrid / NotesPage's manual
+    // preview), because no render will fire to reflect the change.
+    function updateSilently(fn) {
+        const draft = _buildDraft();
+        if (CONSTANTS.DEBUG) {
+            try { deepFreezeLimited(data, 4); } catch { }
+        }
+        fn(draft);
+        data = { ...draft, lastModified: Date.now(), modifiedBy: CONSTANTS.TAB_ID };
+        scheduleSave();
     }
 
     function subscribe(callback) {
@@ -186,5 +206,5 @@ export function createState({ CONSTANTS, Store, Storage, Toast }) {
         }
     });
 
-    return { get, set, update, subscribe, saveNow };
+    return { get, set, update, updateSilently, subscribe, saveNow };
 }

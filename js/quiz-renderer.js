@@ -26,12 +26,7 @@
 export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData }) {
     function QuizPage() {
         const state = State.get();
-        const quizSearch = state.appsData.quizSearch || "";
-
-        function handleSearch(e) {
-            const val = e.target.value;
-            State.update(s => { s.appsData.quizSearch = val; });
-        }
+        const initialSearch = state.appsData.quizSearch || "";
 
         const route = Router.getRoute();
         const quizType = route.query.type || 'aws';
@@ -45,172 +40,184 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
         };
         const quizConfig = QUIZ_DATA_MAP[quizType] || QUIZ_DATA_MAP.aws;
         const pageTitle = quizConfig.title;  // v40: BUGFIX - Define pageTitle from QUIZ_DATA_MAP
-        let quizData = quizConfig.data;      // v40: BUGFIX - Use let for reassignment
+        const sourceData = quizConfig.data;
         const isArchitecture = quizType === 'architecture';
 
         const box = h("div", { class: "col col-centered" });
 
         box.appendChild(h("h1", { class: "h2", text: pageTitle }));
 
-        // Search Input
+        // Search Input — listHost のみを手動再描画し input 自体は再生成しない (focus 保持)。
+        // 旧実装は oninput→State.update→全再描画で input が破棄され、1 文字目で focus を失い
+        // 検索が事実上使えなかった (確認済バグ)。ProjectsPage と同じ「リスト部分だけ独立」方式へ。
+        const searchInput = h("input", {
+            type: "text",
+            class: "input pl-10",
+            placeholder: "問題を検索...",
+            value: initialSearch,
+            'aria-label': '問題検索',
+            oninput: (e) => {
+                const val = e.target.value;
+                State.updateSilently(s => { s.appsData.quizSearch = val; });
+                renderList(val);
+            }
+        });
         box.appendChild(h("div", { class: "mb-6" },
             h("div", { class: "relative" },
-                h("input", {
-                    type: "text",
-                    class: "input pl-10",
-                    placeholder: "問題を検索...",
-                    value: quizSearch,
-                    'aria-label': '問題検索',
-                    oninput: handleSearch
-                }),
+                searchInput,
                 h("div", {
                     class: "absolute left-3 top-1/2 -translate-y-1/2 text-muted pointer-events-none"
                 }, createIcon("search", 18))
             )
         ));
 
-        // v40: QUIZ_DATA_MAP moved above for early pageTitle definition
+        // 検索結果を載せるホスト (input の外。oninput でここだけ作り直す)
+        const listHost = h("div", {});
+        box.appendChild(listHost);
 
-
-        // Filter quizData based on search query
-        const filteredQuizData = {};
-        const query = quizSearch.toLowerCase().trim();
-
-        Object.keys(quizData).forEach(section => {
-            const questions = quizData[section].filter(q => {
-                if (!query) {return true;}
-                const titleMatch = q.title.toLowerCase().includes(query);
-                const idMatch = q.id.toLowerCase().includes(query);
-                const contentMatch = q.content ? q.content.some(line => line.toLowerCase().includes(query)) : false;
-                const situationMatch = q.situation ? q.situation.some(line => line.toLowerCase().includes(query)) : false;
-                const questionMatch = q.question ? q.question.toLowerCase().includes(query) : false;
-                return titleMatch || idMatch || contentMatch || situationMatch || questionMatch;
+        function _filterBy(rawQuery) {
+            const query = String(rawQuery || '').toLowerCase().trim();
+            const filtered = {};
+            Object.keys(sourceData).forEach(section => {
+                const questions = sourceData[section].filter(q => {
+                    if (!query) {return true;}
+                    const titleMatch = q.title.toLowerCase().includes(query);
+                    const idMatch = q.id.toLowerCase().includes(query);
+                    const contentMatch = q.content ? q.content.some(line => line.toLowerCase().includes(query)) : false;
+                    const situationMatch = q.situation ? q.situation.some(line => line.toLowerCase().includes(query)) : false;
+                    const questionMatch = q.question ? q.question.toLowerCase().includes(query) : false;
+                    return titleMatch || idMatch || contentMatch || situationMatch || questionMatch;
+                });
+                if (questions.length > 0) {
+                    filtered[section] = questions;
+                }
             });
-            if (questions.length > 0) {
-                filteredQuizData[section] = questions;
+            return { filtered, query };
+        }
+
+        function renderList(rawQuery) {
+            while (listHost.firstChild) { listHost.removeChild(listHost.firstChild); }
+            const { filtered: quizData, query } = _filterBy(rawQuery);
+
+            // 0件時UI
+            if (query && Object.keys(quizData).length === 0) {
+                listHost.appendChild(h("div", {
+                    class: 'card panel-empty',
+                    role: 'status',
+                    'aria-live': 'polite'
+                }, '「' + query + '」に一致する問題は見つかりませんでした。'));
+                return;
             }
-        });
-        quizData = filteredQuizData;
 
-        // 0件時UI
-        if (query && Object.keys(quizData).length === 0) {
-            box.appendChild(h("div", {
-                class: 'card panel-empty',
-                role: 'status',
-                'aria-live': 'polite'
-            }, '「' + query + '」に一致する問題は見つかりませんでした。'));
-            const contactBox2 = h("div", { class: "card p col col-gap" });
-            contactBox2.appendChild(h("div", { class: "h3", text: "模範解答について" }));
-            contactBox2.appendChild(h("div", { class: "muted" }, "模範解答をご希望の方は、以下のフォームからお気軽にご連絡ください。"));
-            box.appendChild(contactBox2);
-            return box;
-        }
+            // ===== v29: 意思決定問題集 — 構造化レンダリング =====
+            if (isArchitecture) {
+                const wrapper = h("div", { class: "quiz-page-wrapper" });
 
-        // ===== v29: 意思決定問題集 — 構造化レンダリング =====
-        if (isArchitecture) {
-            const wrapper = h("div", { class: "quiz-page-wrapper" });
+                // intro banner
+                const introBanner = h("div", {
+                    class: 'card card--gradient-primary'
+                },
+                    h("div", { class: 'text-overline' }, "設計判断問題集（SREサバイバル）"),
+                    h("div", { class: 'text-body-relaxed' },
+                        "実務で起きる「誘惑的な技術的判断ミス」を題材にした問題集。各問はステークホルダーの主張とともに提示される。トレードオフを整理し、現場指揮官として意思決定を下せ。"
+                    )
+                );
+                wrapper.appendChild(introBanner);
 
-            // intro banner
-            const introBanner = h("div", {
-                class: 'card card--gradient-primary'
-            },
-                h("div", { class: 'text-overline' }, "設計判断問題集（SREサバイバル）"),
-                h("div", { class: 'text-body-relaxed' },
-                    "実務で起きる「誘惑的な技術的判断ミス」を題材にした問題集。各問はステークホルダーの主張とともに提示される。トレードオフを整理し、現場指揮官として意思決定を下せ。"
-                )
-            );
-            wrapper.appendChild(introBanner);
+                Object.keys(quizData).forEach((section, sIdx) => {
+                    const questions = quizData[section];
+                    const icons = ['🏛️', '🗄️', '🔌', '⚖️', '🚨', '🔁'];
 
-            Object.keys(quizData).forEach((section, sIdx) => {
-                const questions = quizData[section];
-                const icons = ['🏛️', '🗄️', '🔌', '⚖️', '🚨', '🔁'];
+                    const sCard = h("div", { class: "quiz-section-card" });
 
-                const sCard = h("div", { class: "quiz-section-card" });
+                    const sHeader = h("div", { class: "quiz-section-header" });
+                    sHeader.appendChild(h("div", { class: "quiz-section-icon" }, icons[sIdx] || '📌'));
+                    sHeader.appendChild(h("div", { class: "quiz-section-title" }, section));
+                    sCard.appendChild(sHeader);
 
-                const sHeader = h("div", { class: "quiz-section-header" });
-                sHeader.appendChild(h("div", { class: "quiz-section-icon" }, icons[sIdx] || '📌'));
-                sHeader.appendChild(h("div", { class: "quiz-section-title" }, section));
-                sCard.appendChild(sHeader);
+                    questions.forEach((q) => {
+                        const qBlock = h("div", { class: "quiz-question-block" });
 
-                questions.forEach((q) => {
-                    const qBlock = h("div", { class: "quiz-question-block" });
+                        // Q header
+                        const qHeader = h("div", { class: "quiz-q-header" });
+                        qHeader.appendChild(h("div", { class: "quiz-q-badge" }, q.id));
+                        qHeader.appendChild(h("div", { class: "quiz-q-title" }, q.title));
+                        qBlock.appendChild(qHeader);
 
-                    // Q header
-                    const qHeader = h("div", { class: "quiz-q-header" });
-                    qHeader.appendChild(h("div", { class: "quiz-q-badge" }, q.id));
-                    qHeader.appendChild(h("div", { class: "quiz-q-title" }, q.title));
-                    qBlock.appendChild(qHeader);
+                        // 状況ゾーン
+                        const sitZone = h("div", { class: "quiz-zone" });
+                        sitZone.appendChild(h("div", { class: "quiz-zone-label situation" }, "📋 状況"));
+                        const sitBody = h("div", { class: "quiz-zone-body" });
+                        q.situation.forEach(line => {
+                            sitBody.appendChild(h("p", { text: line }));
+                        });
+                        sitZone.appendChild(sitBody);
+                        qBlock.appendChild(sitZone);
 
-                    // 状況ゾーン
-                    const sitZone = h("div", { class: "quiz-zone" });
-                    sitZone.appendChild(h("div", { class: "quiz-zone-label situation" }, "📋 状況"));
-                    const sitBody = h("div", { class: "quiz-zone-body" });
-                    q.situation.forEach(line => {
-                        sitBody.appendChild(h("p", { text: line }));
+                        // ステークホルダーゾーン
+                        const shZone = h("div", { class: "quiz-zone" });
+                        shZone.appendChild(h("div", { class: "quiz-zone-label stakeholder" }, "💬 ステークホルダーの主張"));
+                        q.stakeholders.forEach(sh => {
+                            const quote = h("div", { class: "quiz-stakeholder-quote" });
+                            quote.appendChild(h("span", { class: "quiz-stakeholder-name" }, sh.name + ":"));
+                            quote.appendChild(h("span", { text: "「" + sh.quote + "」" }));
+                            shZone.appendChild(quote);
+                        });
+                        qBlock.appendChild(shZone);
+
+                        // 問ゾーン
+                        const qZone = h("div", { class: "quiz-zone" });
+                        qZone.appendChild(h("div", { class: "quiz-zone-label question" }, "🎯 問"));
+                        qZone.appendChild(h("div", { class: "quiz-question-prompt" }, q.question));
+                        qBlock.appendChild(qZone);
+
+                        sCard.appendChild(qBlock);
                     });
-                    sitZone.appendChild(sitBody);
-                    qBlock.appendChild(sitZone);
 
-                    // ステークホルダーゾーン
-                    const shZone = h("div", { class: "quiz-zone" });
-                    shZone.appendChild(h("div", { class: "quiz-zone-label stakeholder" }, "💬 ステークホルダーの主張"));
-                    q.stakeholders.forEach(sh => {
-                        const quote = h("div", { class: "quiz-stakeholder-quote" });
-                        quote.appendChild(h("span", { class: "quiz-stakeholder-name" }, sh.name + ":"));
-                        quote.appendChild(h("span", { text: "「" + sh.quote + "」" }));
-                        shZone.appendChild(quote);
-                    });
-                    qBlock.appendChild(shZone);
-
-                    // 問ゾーン
-                    const qZone = h("div", { class: "quiz-zone" });
-                    qZone.appendChild(h("div", { class: "quiz-zone-label question" }, "🎯 問"));
-                    qZone.appendChild(h("div", { class: "quiz-question-prompt" }, q.question));
-                    qBlock.appendChild(qZone);
-
-                    sCard.appendChild(qBlock);
+                    wrapper.appendChild(sCard);
                 });
 
-                wrapper.appendChild(sCard);
-            });
+                listHost.appendChild(wrapper);
+            } else {
+                // ===== v29: 既存問題集 — 改良レンダリング =====
+                const wrapper = h("div", { class: "quiz-page-wrapper" });
+                Object.keys(quizData).sort().forEach(section => {
+                    const sCard = h("div", { class: "quiz-section-card" });
 
-            box.appendChild(wrapper);
-        } else {
-            // ===== v29: 既存問題集 — 改良レンダリング =====
-            const wrapper = h("div", { class: "quiz-page-wrapper" });
-            Object.keys(quizData).sort().forEach(section => {
-                const sCard = h("div", { class: "quiz-section-card" });
+                    const sHeader = h("div", { class: "quiz-section-header" });
+                    sHeader.appendChild(h("div", { class: "quiz-section-icon" }, "📝"));
+                    sHeader.appendChild(h("div", { class: "quiz-section-title" }, section));
+                    sCard.appendChild(sHeader);
 
-                const sHeader = h("div", { class: "quiz-section-header" });
-                sHeader.appendChild(h("div", { class: "quiz-section-icon" }, "📝"));
-                sHeader.appendChild(h("div", { class: "quiz-section-title" }, section));
-                sCard.appendChild(sHeader);
+                    const questions = quizData[section];
+                    questions.forEach((q) => {
+                        const qBlock = h("div", { class: "quiz-question-block" });
 
-                const questions = quizData[section];
-                questions.forEach((q) => {
-                    const qBlock = h("div", { class: "quiz-question-block" });
+                        const qHeader = h("div", { class: "quiz-q-header" });
+                        qHeader.appendChild(h("div", { class: "quiz-q-badge" }, q.id));
+                        qHeader.appendChild(h("div", { class: "quiz-q-title" }, q.title.replace(q.id + '. ', '')));
+                        qBlock.appendChild(qHeader);
 
-                    const qHeader = h("div", { class: "quiz-q-header" });
-                    qHeader.appendChild(h("div", { class: "quiz-q-badge" }, q.id));
-                    qHeader.appendChild(h("div", { class: "quiz-q-title" }, q.title.replace(q.id + '. ', '')));
-                    qBlock.appendChild(qHeader);
+                        q.content.forEach(line => {
+                            if (!line.trim()) {return;}
+                            // Check if it's a label line (ends with ':' or is a short header)
+                            const isLabel = /^(状況|問|Challenge|Core Knowledge|境界点|Reboot vs|Stop|ASG|io2|gp[23]|注意|現場|意図|ポイント|解説|補足)[：:。]?/.test(line) || (line.endsWith(':') && line.length < 50);
+                            qBlock.appendChild(h("div", {
+                                class: "quiz-content-line text-prewrap" + (isLabel ? " is-label" : "")
+                            }, line));
+                        });
 
-                    q.content.forEach(line => {
-                        if (!line.trim()) {return;}
-                        // Check if it's a label line (ends with ':' or is a short header)
-                        const isLabel = /^(状況|問|Challenge|Core Knowledge|境界点|Reboot vs|Stop|ASG|io2|gp[23]|注意|現場|意図|ポイント|解説|補足)[：:。]?/.test(line) || (line.endsWith(':') && line.length < 50);
-                        qBlock.appendChild(h("div", {
-                            class: "quiz-content-line text-prewrap" + (isLabel ? " is-label" : "")
-                        }, line));
+                        sCard.appendChild(qBlock);
                     });
 
-                    sCard.appendChild(qBlock);
+                    wrapper.appendChild(sCard);
                 });
-
-                wrapper.appendChild(sCard);
-            });
-            box.appendChild(wrapper);
+                listHost.appendChild(wrapper);
+            }
         }
+
+        // 初回描画 (永続化された検索語を反映)
+        renderList(initialSearch);
 
         // Contact form section
         const contactBox = h("div", { class: "card p col col-gap" });

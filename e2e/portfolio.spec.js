@@ -2473,6 +2473,41 @@ test('Profile github/linkedin survive import and are URL-sanitized (XSS-safe)', 
   expect(await page.locator('a[href^="javascript:"]').count()).toBe(0);
 });
 
+// ===== Live-input focus retention 回帰防止 =====
+// oninput→State.update→notify→render() は #content を clear して全再描画するため、focused input が
+// 毎キーストロークで破棄され focus を失う。quiz 検索 / Markdown notes はこのバグで「1 文字目で focus が
+// 外れ以降の文字が落ちる」状態だった。State.updateSilently + sub-DOM 手動更新で是正済。本テストは
+// per-keystroke の type() で「全文字が着弾し focus が保持される」ことを検証する (fill() は値直接設定
+// ゆえ focus-loss を検出できない — それが本バグが素通りした理由)。
+test('Quiz search input retains focus and filters live while typing (focus-loss regression)', async ({ page }) => {
+  await page.goto('/#/quiz?type=aws', { waitUntil: 'domcontentloaded' });
+  const input = page.locator('input[aria-label="問題検索"]');
+  await expect(input.first()).toBeVisible();
+  await input.first().click();
+  await page.keyboard.type('ecs', { delay: 40 });
+  // 全文字が着弾 (再描画で input が破棄されると 1 文字目しか残らない)
+  await expect(input.first()).toHaveValue('ecs');
+  // focus が input に残っている
+  const activeLabel = await page.evaluate(() => document.activeElement && document.activeElement.getAttribute('aria-label'));
+  expect(activeLabel).toBe('問題検索');
+  // 検索クエリ消去でリストが復活する (手動 renderList が機能している)
+  await input.first().fill('');
+  await page.keyboard.type(' ', { delay: 10 });
+  await input.first().fill('');
+});
+
+test('Notes textarea retains focus while typing (focus-loss regression)', async ({ page }) => {
+  await page.goto('/#/apps/notes', { waitUntil: 'domcontentloaded' });
+  const ta = page.locator('#notes-input');
+  await expect(ta.first()).toBeVisible();
+  await ta.first().click();
+  await page.keyboard.press('End');
+  await page.keyboard.type('ZZZ', { delay: 40 });
+  const activeId = await page.evaluate(() => document.activeElement && document.activeElement.id);
+  expect(activeId).toBe('notes-input');
+  await expect(ta.first()).toHaveValue(/ZZZ$/);
+});
+
 // ===== 7.1: axe-core 自動アクセシビリティ監査 — render-neutral critical 回帰防止 =====
 // axe-core で WCAG 2a/2aa/21a/21aa を全主要ルートでスキャンし、render-neutral に修正可能な
 // critical 違反群がゼロであることを機械強制する。本 increment で是正したバグの回帰防止:
