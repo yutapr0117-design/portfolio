@@ -33,6 +33,7 @@ export function createCommandPalette({ Router, h, createIcon, State }) {
         { label: 'Quick TODO', hash: 'apps/todo' },
         { label: 'Pomodoro Timer（ポモドーロ）', hash: 'apps/pomodoro' },
         { label: 'AI Assist（ローカル AI）', hash: 'apps/ai' },
+        { label: 'Markdown ノート', hash: 'apps/notes' },
         { label: 'Quiz（問題集）', hash: 'quiz' },
         { label: 'AI Know-how（AI 開発ノウハウ）', hash: 'ai-knowhow' },
         { label: 'Role Split（人間 vs AI 分担）', hash: 'role-split' },
