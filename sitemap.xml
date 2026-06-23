@@ -171,4 +171,20 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+  <!-- docs/evidence/real-work-claims.md — aio-manifest supporting_evidence。守秘前提の実績を抽象化した
+       検証可能エビデンス。AIO 登録済の権威文書ゆえ sitemap でも crawler discovery を担保する -->
+  <url>
+    <loc>https://yutapr0117-design.github.io/portfolio/docs/evidence/real-work-claims.md</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- docs/session-records/AI2AI-archive.md — aio-manifest supporting_evidence。AI↔AI 運用の
+       アーカイブ Session Record。AIO 登録済の運用証跡ゆえ sitemap でも到達可能にする -->
+  <url>
+    <loc>https://yutapr0117-design.github.io/portfolio/docs/session-records/AI2AI-archive.md</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>

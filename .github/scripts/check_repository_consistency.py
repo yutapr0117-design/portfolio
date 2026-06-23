@@ -712,6 +712,15 @@ authoritative inventory and is kept in sync with the implementation below):
        normalizePath wraps decodeURIComponent in a try/catch so a malformed URL can never throw out
        of the SW. The fix had no e2e/Check guard (service workers are hard to e2e), so this static
        presence check is its regression guard. (BLOCKING)
+  132. AIO evidence ↔ sitemap discoverability: every text document registered as authoritative
+       evidence in .well-known/aio-manifest.json (source_of_truth / supporting_evidence /
+       observational_evidence whose path ends in .md / .txt / .json) must also appear as a <loc> in
+       sitemap.xml. The manifest declares a doc authoritative for AI crawlers, but a crawler that
+       discovers the site via sitemap.xml will never reach a registered doc that is absent from the
+       sitemap — a silent discoverability gap (real-work-claims.md and AI2AI-archive.md were
+       registered but missing from the sitemap until this Check was added). Binary assets
+       (.webp/.mp3) are excluded (images/audio are not sitemap-indexed text). This makes
+       "registered-as-evidence ⟹ sitemap-discoverable" an enforced invariant. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5172,6 +5181,38 @@ if _sw131.exists():
 else:
     check(False, "Check 131: sw.js present",
           "Check 131: sw.js が見つからない — SW decodeURIComponent guard を検証できない", blocking=True)
+
+# ── 132. AIO evidence ↔ sitemap discoverability (BLOCKING) ────────────────────
+# aio-manifest.json に authoritative evidence として登録された text doc (.md/.txt/.json) は
+# sitemap.xml の <loc> にも載っていなければならない。manifest は AI crawler 向けに doc を権威と
+# 宣言するが、sitemap 経由で discovery する crawler は sitemap 未掲載の登録 doc に到達できない
+# (silent discoverability gap。real-work-claims.md / AI2AI-archive.md が登録済なのに sitemap 欠落
+# だった)。binary (.webp/.mp3) は sitemap-index 対象外ゆえ除外。「evidence 登録 ⟹ sitemap 到達可」
+# を機械強制する。
+_manifest132 = ROOT / ".well-known" / "aio-manifest.json"
+_sitemap132 = ROOT / "sitemap.xml"
+if _manifest132.exists() and _sitemap132.exists():
+    _mdata132 = json.loads(_manifest132.read_text(encoding="utf-8"))
+    _sitemap_src132 = _sitemap132.read_text(encoding="utf-8")
+    _ev_paths132 = []
+    for _sec132 in ("source_of_truth", "supporting_evidence", "observational_evidence"):
+        for _e132 in _mdata132.get(_sec132, []):
+            _p132 = _e132.get("path", "")
+            if _p132.endswith((".md", ".txt", ".json")):
+                _ev_paths132.append(_p132)
+    _missing132 = [p for p in _ev_paths132 if ("/" + p + "<") not in _sitemap_src132 and ("/" + p + "\n") not in _sitemap_src132 and (p + "</loc>") not in _sitemap_src132]
+    check(
+        bool(_ev_paths132) and not _missing132,
+        f"Check 132: aio-manifest の text evidence {len(_ev_paths132)} 件すべてが sitemap.xml に <loc> 掲載 (crawler discoverability)",
+        f"Check 132: aio-manifest 登録 evidence が sitemap.xml に欠落: {_missing132} — "
+        "登録済 doc は sitemap.xml にも <loc> を追加せよ (sitemap 経由 crawler が到達できない discoverability gap)"
+        if _ev_paths132 else
+        "Check 132: aio-manifest から text evidence path を抽出できない (manifest 構造を確認せよ)",
+        blocking=True,
+    )
+else:
+    check(False, "Check 132: aio-manifest.json / sitemap.xml present",
+          "Check 132: aio-manifest.json または sitemap.xml が無い — AIO evidence↔sitemap 整合を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
