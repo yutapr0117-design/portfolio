@@ -1,7 +1,7 @@
 ---
 file: js/perf-guards.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-06-23
 canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-s)
 ---
 
@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-s)
 
 ## What
 
-Performance Guards factory module (161 行)。`createPerfGuards()` を export。Layout Thrashing 防止 + Media Lifecycle 管理の 2 つの DOM API prototype hook を含む。
+Performance Guards factory module (129 行)。`createPerfGuards()` を export。Layout Thrashing 防止 (setProperty / setAttribute('style') を rAF バッチ化) + Media Lifecycle 管理 (DOM 削除時に audio/video の blob: src を MutationObserver で解放) の 2 guard を含む。Media guard はかつて IntersectionObserver(lazy load) / _blobMap(img-video blob 追跡) / URL.createObjectURL フックも持っていたが、いずれも never-activated な vestigial だったため除去済 (実機能は audio/video の blob src 解放のみ)。
 
 ## Why
 
@@ -30,7 +30,7 @@ main.js
 - **factory pattern** (Check 56, 61)
 - **closure-deps = none**, 引数注入なし (DOM prototype を直接 hook)
 - **Check 47**: import/export bijection
-- **Check 52**: 161 行 ≤ 250
+- **Check 52**: 129 行 ≤ 250
 
 ## Change impact
 

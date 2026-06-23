@@ -1,7 +1,7 @@
 ---
 file: js/state.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-20
+last-updated: 2026-06-23
 canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-h) / js/storage.js
 ---
 
@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-h) / js/stor
 
 ## What
 
-State factory module (190 行)。`createState({ CONSTANTS, Store, Storage, Toast })` を export。clone-on-update による状態隔離 + subscriber pattern + cross-tab sync + debounced auto-save を含む。
+State factory module (210 行)。`createState({ CONSTANTS, Store, Storage, Toast })` を export。clone-on-update による状態隔離 + subscriber pattern + cross-tab sync + debounced auto-save + 再描画を起こさない `updateSilently`（live-input 用）を含む。
 
 ## Why
 
@@ -25,6 +25,10 @@ main.js
        └─ State.update(fn)      → ドラフトを clone → fn(draft) → set(draft)
             └─ subscribers に通知 → UI 再描画
             └─ debounced で Storage.set (auto-save)
+       └─ State.updateSilently(fn) → ドラフト commit + scheduleSave するが notify せず
+            (= 再描画しない)。高頻度 live-input (quiz 検索 / notes 入力) が毎キーストロークの
+            全再描画で focused input を破棄し focus を失うのを防ぐ。呼び出し側が sub-DOM を
+            手動更新する契約 (cf. ProjectsPage renderGrid)。Check 130 が oninput→update を禁止。
        └─ State.set(newData)    → 置換 + notify + scheduleSave
        └─ State.subscribe(fn)   → 変更通知購読 (unsubscribe を返す)
        └─ State.saveNow()       → 即時永続化 (visibilitychange 等)
@@ -40,7 +44,7 @@ main.js
 
 - **factory pattern** (Check 56, 61), closure-deps = none
 - **Check 47**: import/export bijection
-- **Check 52**: 190 行 ≤ 320
+- **Check 52**: 210 行 ≤ 320
 
 ## Audience-specific notes
 
