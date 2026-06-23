@@ -236,6 +236,37 @@ test('Unknown route shows a comprehensible Not Found page with working recovery 
   expect(fatal, `NotFound recovery caused a fatal: ${fatal}`).toBeNull();
 });
 
+// ===== ErrorBoundary: FatalPage 描画 + 復旧フロー (resilience) =====
+// window.__fatalError が立つと _renderCore は FatalPage を描画する (ErrorBoundary)。以前は
+// home(#/) で fatal が起きると「ホームへ」(Router.navigate('')) が同一 hash ゆえ hashchange 不発火
+// で再描画されず FatalPage から復旧できないバグがあった (window.render() を明示呼びして是正)。
+// 既存 e2e は __fatalError===null (fatal が起きないこと) ばかり検証し、FatalPage 自体の描画 +
+// 復旧フローは未カバーだった。本テストは fatal を注入して FatalPage が出る → ホームへ で復旧、を検証。
+test('FatalPage renders on a fatal error and ホームへ recovers (home-route)', async ({ page }) => {
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  // 致命的エラーを注入して再描画 → FatalPage
+  await page.evaluate(() => { window.__fatalError = new Error('E2E_FATAL_PROBE'); window.render(); });
+  await expect(page.locator('#content h1', { hasText: '致命的エラー' })).toBeVisible();
+  await expect(page.getByText('E2E_FATAL_PROBE').first()).toBeVisible();
+  // 「ホームへ」で復旧 (home-route の同一 hash でも window.render() で再描画される)
+  await page.getByRole('button', { name: 'ホームへ' }).click();
+  await expect(page.locator('#content h1', { hasText: '致命的エラー' })).toHaveCount(0);
+  const fatal = await page.evaluate(() => window.__fatalError);
+  expect(fatal).toBeNull();
+  await expect(page.locator('.hero-section')).toBeVisible();
+});
+
+test('FatalPage ホームへ recovers from a non-home route too', async ({ page }) => {
+  await page.goto('/#/about', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  await page.evaluate(() => { window.__fatalError = new Error('E2E_FATAL_ABOUT'); window.render(); });
+  await expect(page.locator('#content h1', { hasText: '致命的エラー' })).toBeVisible();
+  await page.getByRole('button', { name: 'ホームへ' }).click();
+  await expect(page.locator('#content h1', { hasText: '致命的エラー' })).toHaveCount(0);
+  await expect(page.locator('.hero-section')).toBeVisible();
+});
+
 // ===== 7.1: ルートエンティティアンカー = 機械可読なエンティティ権威 + 曖昧性排除 (AIO 第一目標) =====
 // injectRouteEntityAnchor (meta-management.js) は #ai-route-entity-anchor (sr-only / aria-hidden) に
 // ルート毎のエンティティ宣言を注入する: 横井雄太 / Yuta Yokoi への帰属、「実装は AI 生成・設計判断は
