@@ -979,7 +979,14 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
                 )
             ),
             h('div', { class: 'flex flex-wrap gap-2' },
-                h('button', { class: 'btn btn-secondary', onclick: () => { window.__fatalError = null; Router.navigate(''); } }, 'ホームへ'),
+                h('button', { class: 'btn btn-secondary', onclick: () => {
+                    // __fatalError を解除してホームへ。home(#/) で fatal が起きた場合 Router.navigate('')
+                    // は同一 hash ゆえ hashchange が発火せず再描画されない (FatalPage から復旧できない
+                    // バグだった) ため、明示的に window.render() も呼んで確実に再描画する。
+                    window.__fatalError = null;
+                    Router.navigate('');
+                    if (typeof window.render === 'function') { window.render(); }
+                } }, 'ホームへ'),
                 h('button', { class: 'btn btn-danger', onclick: clearAllData }, 'データを削除して再起動')
             )
         );
