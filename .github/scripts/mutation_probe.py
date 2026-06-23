@@ -71,6 +71,12 @@ MUTATIONS = [
         "find": "'no-dupe-keys': 'error',",
         "replace": "'no-dupe-keys-DISABLED': 'error',",
     },
+    {
+        "name": "Check 131 (SW decode guard): un-guard decodeURIComponent in sw.js normalizePath",
+        "file": ROOT / "sw.js",
+        "find": "    try {\n        decoded = decodeURIComponent(pathname);\n    } catch {\n        decoded = pathname;\n    }",
+        "replace": "    decoded = decodeURIComponent(pathname);",
+    },
 ]
 
 
