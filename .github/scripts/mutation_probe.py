@@ -101,6 +101,12 @@ MUTATIONS = [
         "find": "https://yutapr0117-design.github.io/portfolio/docs/evidence/real-work-claims.md",
         "replace": "https://yutapr0117-design.github.io/portfolio/docs/evidence/real-work-claims-REMOVED.md",
     },
+    {
+        "name": "Check 133 (AIO guard wiring): remove the aio-guard.js <script> tag from index.html",
+        "file": ROOT / "index.html",
+        "find": '<script src="./aio-guard.js"></script>',
+        "replace": "<!-- aio-guard.js PROBE-REMOVED -->",
+    },
 ]
 
 
