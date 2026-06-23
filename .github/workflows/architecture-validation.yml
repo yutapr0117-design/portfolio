@@ -428,6 +428,31 @@ jobs:
           fi
           echo "::notice::ESLint PASS — 0 errors, $WARN_COUNT advisory warning(s) (no-var/curly on main.js/sw.js, tracked for incremental modernisation; non-blocking)."
           grep -E "warning" /tmp/eslint-output.txt | head -10 || true
+          # ── ESLint warning baseline regression guard (the real enforcement behind Check 60) ──
+          # Check 60 (ADVISORY) only asserts the baseline MARKER exists in file-size-budget.md;
+          # by design it delegates the actual count comparison to this CI step (a Check cannot
+          # cheaply run ESLint). Until now this step merely PRINTED $WARN_COUNT and never compared
+          # it to the baseline, so the "regression guard" name was vacuous: warnings could creep
+          # up indefinitely while CI stayed green (0 errors). We now read the single-source baseline
+          # N from `<!-- ESLINT-BASELINE-DATA N -->` and:
+          #   WARN_COUNT >  N → BLOCKING fail (new lint debt — main.js modernisation debt is tracked
+          #                     but must not GROW past the ratcheted floor)
+          #   WARN_COUNT <  N → notice (ratchet opportunity: lower the marker to lock in the gain)
+          #   WARN_COUNT == N → pass (floor held)
+          # The existing tracked debt (the current baseline) stays non-blocking; only regressions fail.
+          BASELINE=$(grep -oE "<!--[[:space:]]*ESLINT-BASELINE-DATA[[:space:]]+[0-9]+[[:space:]]*-->" docs/architecture/file-size-budget.md | grep -oE "[0-9]+" | head -1)
+          if [ -z "$BASELINE" ]; then
+            echo "::error::BLOCKING: ESLINT-BASELINE-DATA marker not found in docs/architecture/file-size-budget.md — cannot enforce regression guard."
+            exit 1
+          fi
+          echo "::notice::ESLint warning baseline = $BASELINE (single source: file-size-budget.md), actual = $WARN_COUNT."
+          if [ "$WARN_COUNT" -gt "$BASELINE" ]; then
+            echo "::error::BLOCKING: ESLint warnings regressed: $WARN_COUNT > baseline $BASELINE. New lint debt introduced. Fix the new warning(s) or, if intentional, ratchet the baseline UP with a documented rationale."
+            exit 1
+          fi
+          if [ "$WARN_COUNT" -lt "$BASELINE" ]; then
+            echo "::notice::ESLint warnings ($WARN_COUNT) below baseline ($BASELINE) — ratchet opportunity: lower ESLINT-BASELINE-DATA to $WARN_COUNT to lock in the gain."
+          fi
           # Flat-config sanity: eslint.config.mjs must be syntactically valid ESM.
           # (Replaces the former `.eslintrc.json` JSON parse check; flat config is
           #  JavaScript/ESM, not JSON, so we validate it with `node --check`.)

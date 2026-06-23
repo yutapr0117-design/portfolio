@@ -2980,13 +2980,18 @@ else:
     warnings.append("Check 59: file-size-budget.md not found — §2/§4 set check skipped")
 
 # ── 60. ESLint warning baseline regression guard (ADVISORY) ───────────────────
-# file-size-budget.md の <!-- ESLINT-BASELINE-DATA --> ブロックに記録された warning 数 baseline
-# 以下であることを ADVISORY で監視する。baseline ファイルが見つからない場合や正規表現で値を
+# file-size-budget.md の <!-- ESLINT-BASELINE-DATA --> ブロックに warning 数 baseline が記録
+# されていることを ADVISORY で確認する。baseline ファイルが見つからない場合や正規表現で値を
 # 取れない場合は ADVISORY skip（環境制約のため exit に影響しない）。本 Check は CI 内で直接
 # `npm run lint` を実行せず、代わりに baseline 値が記録されていることだけを確認する（実測値
-# の取得は CI 全体の ESLint scan ステップが担う）。これは「baseline 値が消えた／コメントアウト
-# された」ことを ADVISORY で検出する役割で、warning 件数の実測比較は CI workflow 側で行う
-# 設計（Check 単体での実装複雑度を抑え、責務を分離する）。
+# の取得と比較は CI 全体の ESLint scan ステップが担う）。これは「baseline 値が消えた／コメント
+# アウトされた」ことを ADVISORY で検出する役割で、warning 件数の実測比較は CI workflow 側で
+# 行う設計（Check 単体での実装複雑度を抑え、責務を分離する）。
+# 実効強制（regression の実 gate）: architecture-validation.yml の ESLint scan step が本 marker
+# を single source として読み、`WARN_COUNT > baseline → BLOCKING fail` で warning 増加（新規
+# lint 負債）を CI で落とす。本 Check は「marker が存在し CI が比較できる状態」を保証する presence
+# 層、CI step がその marker を使った count 比較層、という二層で「regression guard」を honest に
+# 成立させる（以前は CI step が WARN_COUNT を表示するだけで比較せず guard が vacuous だった）。
 _baseline60 = re.search(r"<!--\s*ESLINT-BASELINE-DATA\s+(\d+)\s+-->", _bsrc59 if _budget59.exists() else "")
 if _baseline60:
     _baseline_n60 = int(_baseline60.group(1))
