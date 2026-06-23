@@ -514,6 +514,22 @@ test('Command palette searches projects and jumps to a project detail', async ({
   await expect(page.locator('#command-palette-host')).toHaveAttribute('aria-hidden', 'true');
 });
 
+// command palette から Markdown ノートアプリ (apps/notes) へ遷移できることを behavioral に検証。
+// Check 128 は NAV エントリの「存在」を静的に強制するが、実遷移は未カバーだった。notes は A 群で
+// 後追加され Cmd+K から到達不能だったバグ (#257) の回帰防止 = 実 destination が機能することを担保。
+test('Command palette navigates to the Markdown notes app', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  await page.keyboard.press('Control+k');
+  await page.locator('.cmdk-input').fill('ノート');
+  const notesItem = page.locator('.cmdk-item', { hasText: 'ノート' }).first();
+  await expect(notesItem).toBeVisible();
+  await notesItem.click();
+  // notes アプリへ遷移 (textarea#notes-input が出る) + パレットが閉じる
+  await expect(page.locator('#notes-input')).toBeVisible();
+  await expect(page.locator('#command-palette-host')).toHaveAttribute('aria-hidden', 'true');
+});
+
 // ===== 7.2: Projects 検索の 0 件マッチ empty-state =====
 // ProjectsPage の renderGrid は getFilteredProjects() が空のとき「条件に一致するプロジェクトは
 // ありません。」(role=status, aria-live) を表示し件数を 合計 0 件 にする。検索フォーカス維持は
