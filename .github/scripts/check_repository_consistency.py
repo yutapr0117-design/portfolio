@@ -731,6 +731,18 @@ authoritative inventory and is kept in sync with the implementation below):
        non-blocking CI advisory caught this. This Check asserts index.html contains a
        <script src="./aio-guard.js"> reference, making "guard file exists ⟹ guard is wired" an
        enforced invariant (regression guard for the AIO self-repair monitor). (BLOCKING)
+  134. Root script wiring completeness: index.html must keep loading the root scripts it depends
+       on (theme-init.js / karte-init.js / main.js) via a <script src> reference. Like Check 133
+       (aio-guard.js), the mirror-bijection only asserts the FILE exists — nothing enforced that the
+       <script> tag remains. Removal degrades SILENTLY: theme-init.js is the pre-paint FOUC guard
+       (its loss is a flash of unstyled/wrong-theme content that no behavior e2e asserts, and the
+       screenshot e2e is now ADVISORY per §3(B) so it would not block); karte-init.js silently
+       disables analytics; main.js is the SPA entry point (e2e catches its loss, but a static check
+       makes the entry-point wiring explicit and survives an e2e outage). error-suppressor.js is
+       NOT covered here because it is inlined (Check 7/7b enforce its inline byte-identity + CSP
+       hash), and aio-guard.js is covered by Check 133. This makes "root script file exists ⟹ it is
+       wired into index.html" an enforced invariant for the remaining external root scripts.
+       (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5253,6 +5265,38 @@ if _index133.exists():
 else:
     check(False, "Check 133: index.html present",
           "Check 133: index.html が無い — aio-guard.js の配線を検証できない", blocking=True)
+
+# ── 134. Root script wiring completeness (BLOCKING) ───────────────────────────
+# index.html が依存する root スクリプト (theme-init.js / karte-init.js / main.js) を
+# <script src> で実際に load し続けることを BLOCKING 強制する。Check 133 (aio-guard.js) と
+# 同様、mirror-bijection は FILE 存在しか見ず <script> タグの残存は強制されない。タグ除去は
+# silent に劣化する: theme-init.js は pre-paint FOUC ガード (除去すると未スタイル/誤テーマの
+# 一瞬の flash になるが behavior e2e は検査せず、screenshot e2e は §3(B) で advisory ゆえ block
+# しない)、karte-init.js は analytics を無音停止、main.js は SPA エントリポイント (除去は e2e が
+# 捕捉するが静的 check でエントリ配線を明示し e2e 不在時も生存させる)。error-suppressor.js は
+# inline ゆえ対象外 (Check 7/7b が inline byte-identity + CSP hash を強制)、aio-guard.js は
+# Check 133 が担当。「root script file 存在 ⟹ index.html に配線済」を残る外部 root script へ
+# invariant 化する。
+_index134 = ROOT / "index.html"
+if _index134.exists():
+    _html134 = _index134.read_text(encoding="utf-8")
+    _required134 = ["theme-init.js", "karte-init.js", "main.js"]
+    _unwired134 = [
+        _s for _s in _required134
+        if not re.search(r'<script\b[^>]*\bsrc\s*=\s*["\']\.?/?' + re.escape(_s) + r'["\']', _html134)
+    ]
+    check(
+        not _unwired134,
+        f"Check 134: index.html が依存 root script {_required134} をすべて <script src> 配線 (silent degradation 防止)",
+        f"Check 134: index.html に <script src> 配線が欠落: {_unwired134} — "
+        "これらは除去しても file が残り verify 緑のまま silent に劣化する "
+        "(theme-init.js=FOUC / karte-init.js=analytics / main.js=SPA entry)。index.html へ "
+        "<script src> 参照を戻せ",
+        blocking=True,
+    )
+else:
+    check(False, "Check 134: index.html present",
+          "Check 134: index.html が無い — root script の配線を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
