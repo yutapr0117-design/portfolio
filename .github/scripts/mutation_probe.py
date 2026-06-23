@@ -113,6 +113,12 @@ MUTATIONS = [
         "find": '<script src="./theme-init.js"></script>',
         "replace": "<!-- theme-init.js PROBE-REMOVED -->",
     },
+    {
+        "name": "Check 135 (stylesheet wiring): remove the style.css <link> tag from index.html",
+        "file": ROOT / "index.html",
+        "find": '<link rel="stylesheet" href="./style.css">',
+        "replace": "<!-- style.css PROBE-REMOVED -->",
+    },
 ]
 
 
