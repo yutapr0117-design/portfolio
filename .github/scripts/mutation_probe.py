@@ -59,6 +59,18 @@ MUTATIONS = [
         "find": "State.updateSilently(s => { s.appsData.notes",
         "replace": "State.update(s => { s.appsData.notes",
     },
+    {
+        "name": "Check 125 (dead-constant): add an unreferenced constant to js/constants.js",
+        "file": ROOT / "js" / "constants.js",
+        "find": "STORAGE_KEY: 'portfolio_enhanced_v45',",
+        "replace": "STORAGE_KEY: 'portfolio_enhanced_v45',\n    PROBE_UNUSED_CONST: 'mutation-probe',",
+    },
+    {
+        "name": "Check 126/50d (ESLint bug-catcher): drop no-dupe-keys from eslint.config.mjs",
+        "file": ROOT / "eslint.config.mjs",
+        "find": "'no-dupe-keys': 'error',",
+        "replace": "'no-dupe-keys-DISABLED': 'error',",
+    },
 ]
 
 
