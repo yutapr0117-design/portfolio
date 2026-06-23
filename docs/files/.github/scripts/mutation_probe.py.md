@@ -27,7 +27,7 @@ npm run mutation-probe  →  python3 .github/scripts/mutation_probe.py
   3. 全実行後に gate が GREEN へ戻ることを確認 (ファイル汚れ残り検出)
 ```
 
-現行 mutation: Check 45 (section bijection) / 112a (IME guard) / 129 (topbar double-fire) / 130 (oninput focus-loss)。
+現行 mutation: Check 45 (section bijection) / 112a (IME guard) / 129 (topbar double-fire) / 130 (oninput focus-loss) / 125 (dead-constant) / 126・50d (ESLint no-dupe-keys)。
 
 ## Change impact
 
