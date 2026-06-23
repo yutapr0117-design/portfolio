@@ -95,6 +95,12 @@ MUTATIONS = [
         "find": "test('AIO asset anchor must be hidden",
         "replace": "test.only('AIO asset anchor must be hidden",
     },
+    {
+        "name": "Check 132 (AIO evidence↔sitemap): drop a registered evidence doc from sitemap.xml",
+        "file": ROOT / "sitemap.xml",
+        "find": "https://yutapr0117-design.github.io/portfolio/docs/evidence/real-work-claims.md",
+        "replace": "https://yutapr0117-design.github.io/portfolio/docs/evidence/real-work-claims-REMOVED.md",
+    },
 ]
 
 
