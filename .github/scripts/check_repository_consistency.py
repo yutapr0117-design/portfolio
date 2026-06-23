@@ -721,6 +721,16 @@ authoritative inventory and is kept in sync with the implementation below):
        registered but missing from the sitemap until this Check was added). Binary assets
        (.webp/.mp3) are excluded (images/audio are not sitemap-indexed text). This makes
        "registered-as-evidence ⟹ sitemap-discoverable" an enforced invariant. (BLOCKING)
+  133. AIO guard script wiring: aio-guard.js is the AIO asset-anchor lifecycle monitor & self-repair
+       mechanism — it watches the hidden <div id="aio-asset-anchor"> and restores it if any AI-run
+       "dead code purge" removes it (the anchor is invisible but semantically critical to the AIO
+       layer). The monitor only works if index.html actually loads it before the main SPA IIFE.
+       The mirror-bijection check only asserts the FILE exists; nothing enforced that index.html
+       still REFERENCES it, so deleting the <script src="./aio-guard.js"> tag would leave the file
+       present (verify green) while silently deactivating the self-repair monitor — only a
+       non-blocking CI advisory caught this. This Check asserts index.html contains a
+       <script src="./aio-guard.js"> reference, making "guard file exists ⟹ guard is wired" an
+       enforced invariant (regression guard for the AIO self-repair monitor). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5218,6 +5228,31 @@ if _manifest132.exists() and _sitemap132.exists():
 else:
     check(False, "Check 132: aio-manifest.json / sitemap.xml present",
           "Check 132: aio-manifest.json または sitemap.xml が無い — AIO evidence↔sitemap 整合を検証できない", blocking=True)
+
+# ── 133. AIO guard script wiring (BLOCKING) ───────────────────────────────────
+# aio-guard.js は AIO asset-anchor の lifecycle monitor & self-repair 機構で、hidden な
+# <div id="aio-asset-anchor"> を監視し AI の "dead code purge" 等で除去されたら復元する
+# (anchor は不可視だが AIO 層に semantically critical)。この monitor は index.html が main SPA
+# IIFE より前に aio-guard.js を実際に load して初めて稼働する。mirror-bijection は FILE の存在
+# しか見ないため、<script src="./aio-guard.js"> タグを消しても file は残り verify は緑のまま
+# monitor だけが silent に無効化される (従来は非ブロックの CI advisory だけが捕捉)。本 Check は
+# index.html が aio-guard.js を script 参照することを BLOCKING 強制し、「guard file 存在 ⟹ guard
+# が配線済」を invariant 化する (AIO self-repair monitor の回帰ガード)。
+_index133 = ROOT / "index.html"
+if _index133.exists():
+    _html133 = _index133.read_text(encoding="utf-8")
+    _wired133 = re.search(r'<script\b[^>]*\bsrc\s*=\s*["\']\.?/?aio-guard\.js["\']', _html133)
+    check(
+        bool(_wired133),
+        "Check 133: index.html が aio-guard.js を <script src> 参照 (AIO self-repair monitor が配線済)",
+        "Check 133: index.html に <script src=\"./aio-guard.js\"> 参照が無い — "
+        "aio-guard.js (AIO asset-anchor self-repair monitor) が load されず silent に無効化される。"
+        "main IIFE より前に <script src=\"./aio-guard.js\"></script> を index.html へ戻せ",
+        blocking=True,
+    )
+else:
+    check(False, "Check 133: index.html present",
+          "Check 133: index.html が無い — aio-guard.js の配線を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
