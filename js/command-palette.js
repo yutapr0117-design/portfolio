@@ -138,7 +138,8 @@ export function createCommandPalette({ Router, h, createIcon, State }) {
         inputEl.value = '';
         host.setAttribute('aria-hidden', 'false');
         host.style.display = 'block';
-        // focus trap: Tab/Shift+Tab は input ↔ list で循環、矢印で選択、Enter で遷移、Esc で閉じる
+        // focus trap: Tab/Shift+Tab は overlay 内 focusable (input) に focus を保持 (背景へ抜けない)、
+        // 矢印で list 候補を選択、Enter で遷移、Esc で閉じる
         trapHandler = function (e) {
             // IME 変換中 (e.isComposing) は全キーを IME に委ねる。日本語でプロジェクト名等を検索する際、
             // 変換確定の Enter が _choose (遷移) を誤発火する footgun と、矢印が変換候補選択を横取りするのを防ぐ。
@@ -148,6 +149,22 @@ export function createCommandPalette({ Router, h, createIcon, State }) {
             if (e.key === 'ArrowDown') { e.preventDefault(); activeIdx = Math.min(activeIdx + 1, rendered.length - 1); _highlight(); return; }
             if (e.key === 'ArrowUp') { e.preventDefault(); activeIdx = Math.max(activeIdx - 1, 0); _highlight(); return; }
             if (e.key === 'Enter' && !e.isComposing) { e.preventDefault(); _choose(activeIdx); return; }
+            if (e.key === 'Tab') {
+                // focus trap (mobile-drawer __trapFocus と同パターン): overlay 内の focusable に
+                // focus を保持し、aria-modal="true" の背景へ Tab で抜けるのを防ぐ。本 palette の
+                // focusable は input のみ (list 候補は arrow で操作・tabindex 無し) ゆえ first===last
+                // となり Tab/Shift+Tab とも input に留まる。将来 focusable が増えても wrap で循環する。
+                const focusable = host.querySelectorAll(
+                    'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+                );
+                if (focusable.length) {
+                    const first = focusable[0];
+                    const last = focusable[focusable.length - 1];
+                    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+                }
+                return;
+            }
         };
         document.addEventListener('keydown', trapHandler);
         inputEl.focus();
