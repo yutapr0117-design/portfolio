@@ -743,6 +743,16 @@ authoritative inventory and is kept in sync with the implementation below):
        hash), and aio-guard.js is covered by Check 133. This makes "root script file exists ⟹ it is
        wired into index.html" an enforced invariant for the remaining external root scripts.
        (BLOCKING)
+  135. Stylesheet wiring: index.html must keep loading the local stylesheet style.css via a
+       <link rel="stylesheet" href="./style.css">. This is the highest-impact member of the same
+       "file exists ⟹ file wired" class as Checks 133/134 — if the link is removed, the ENTIRE site
+       renders unstyled, yet the loss is silent to every gate: the behavior e2e only asserts content
+       presence / routes (an unstyled page still has its text), the screenshot e2e is ADVISORY per
+       §3(B), and no consistency check covered the link. style.css existence (Check 108 mirror) and
+       byte-budget (Check 52/120) were enforced, but never its <link> wiring. External font
+       stylesheets are intentionally NOT required (their loss degrades gracefully to fallback
+       fonts). This makes "style.css exists ⟹ it is linked in index.html" an enforced invariant.
+       (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5297,6 +5307,35 @@ if _index134.exists():
 else:
     check(False, "Check 134: index.html present",
           "Check 134: index.html が無い — root script の配線を検証できない", blocking=True)
+
+# ── 135. Stylesheet wiring (BLOCKING) ─────────────────────────────────────────
+# index.html がローカル stylesheet style.css を <link rel="stylesheet" href="./style.css">
+# で load し続けることを BLOCKING 強制する。これは Check 133/134 と同じ「file 存在 ⟹ file 配線」
+# class の中で最も影響が大きい: link を消すとサイト全体が未スタイルで描画されるが、損失は全
+# gate に対し silent — behavior e2e は content presence / route しか検査せず (未スタイルでも
+# テキストは存在)、screenshot e2e は §3(B) で advisory、consistency check も link を被覆して
+# いなかった。style.css の存在 (Check 108 mirror) と byte 予算 (Check 52/120) は強制済だが
+# <link> 配線は未強制だった。外部 font stylesheet は対象外 (除去しても fallback font へ graceful
+# degradation するため)。「style.css 存在 ⟹ index.html に link 済」を invariant 化する。
+_index135 = ROOT / "index.html"
+if _index135.exists():
+    _html135 = _index135.read_text(encoding="utf-8")
+    _linked135 = re.search(
+        r'<link\b[^>]*\brel\s*=\s*["\']stylesheet["\'][^>]*\bhref\s*=\s*["\']\.?/?style\.css["\']'
+        r'|<link\b[^>]*\bhref\s*=\s*["\']\.?/?style\.css["\'][^>]*\brel\s*=\s*["\']stylesheet["\']',
+        _html135,
+    )
+    check(
+        bool(_linked135),
+        "Check 135: index.html が style.css を <link rel=stylesheet> 配線 (unstyled site 防止)",
+        "Check 135: index.html に <link rel=\"stylesheet\" href=\"./style.css\"> が無い — "
+        "link を消すとサイト全体が未スタイルになるが behavior e2e は content しか見ず "
+        "screenshot は advisory ゆえ silent。index.html へ stylesheet link を戻せ",
+        blocking=True,
+    )
+else:
+    check(False, "Check 135: index.html present",
+          "Check 135: index.html が無い — stylesheet の配線を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
