@@ -493,6 +493,44 @@ test('Command palette (Ctrl+K) opens, filters, navigates, and closes', async ({ 
   expect(fatal, `command palette caused a fatal: ${fatal}`).toBeNull();
 });
 
+// ===== 7.2: コマンドパレットの focus trap が Tab で背景へ抜けない (回帰) =====
+// palette panel は aria-modal="true" role="dialog" で、開いている間 focus を overlay 内に
+// 封じ込めるべき (docstring も明言)。修正前は trapHandler が Tab を一切処理せず、唯一の
+// focusable な input から Tab を押すと背景コンテンツへ focus が抜けていた (ARIA modal 違反)。
+// Tab/Shift+Tab 後も focus が #command-palette-host 内に留まることを検証する。
+test('Command palette traps Tab focus inside the modal (a11y regression)', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const host = page.locator('#command-palette-host');
+  await page.keyboard.press('Control+k');
+  await expect(host).toHaveAttribute('aria-hidden', 'false');
+  await expect(page.locator('.cmdk-input')).toBeFocused();
+
+  // Tab を複数回押しても focus が overlay 内 (#command-palette-host 配下) に留まる。
+  // (注: cmdk-list <ul> は overflow スクローラとして Tab-focusable なため、Tab 1 回では
+  //  input→UL で偶然 host 内に留まり区別できない。修正前は 2 回目の Tab で UL→背景へ抜ける。
+  //  複数回 Tab して初めて trap の有無を検出できる＝vacuous でない回帰テスト。)
+  for (let i = 0; i < 4; i++) { await page.keyboard.press('Tab'); }
+  let inside = await page.evaluate(() => {
+    const h = document.getElementById('command-palette-host');
+    return !!h && h.contains(document.activeElement);
+  });
+  expect(inside, 'repeated Tab should not move focus outside the open command palette').toBe(true);
+
+  // Shift+Tab でも同様 (逆方向の trap)
+  for (let i = 0; i < 4; i++) { await page.keyboard.press('Shift+Tab'); }
+  inside = await page.evaluate(() => {
+    const h = document.getElementById('command-palette-host');
+    return !!h && h.contains(document.activeElement);
+  });
+  expect(inside, 'repeated Shift+Tab should not move focus outside the open command palette').toBe(true);
+
+  await page.keyboard.press('Escape');
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `command palette focus trap caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: コマンドパレットがプロジェクトも検索対象にする (omni-nav) =====
 // createCommandPalette は固定 NAV に State の現在プロジェクト一覧を加えて検索する。プロジェクト名で
 // 絞り込み → 選択で projects/<slug> の詳細へ飛べることを検証する (top-nav 専用でない omni-nav)。
