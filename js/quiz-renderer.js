@@ -86,7 +86,13 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
                     const contentMatch = q.content ? q.content.some(line => line.toLowerCase().includes(query)) : false;
                     const situationMatch = q.situation ? q.situation.some(line => line.toLowerCase().includes(query)) : false;
                     const questionMatch = q.question ? q.question.toLowerCase().includes(query) : false;
-                    return titleMatch || idMatch || contentMatch || situationMatch || questionMatch;
+                    // architecture quiz のステークホルダー主張 (name/quote) は画面描画されるが
+                    // 従来フィルタ対象外で「見えるのに検索できない」状態だった。可視テキストを検索可能にする。
+                    const stakeholderMatch = q.stakeholders ? q.stakeholders.some(sh =>
+                        (sh.name && sh.name.toLowerCase().includes(query)) ||
+                        (sh.quote && sh.quote.toLowerCase().includes(query))
+                    ) : false;
+                    return titleMatch || idMatch || contentMatch || situationMatch || questionMatch || stakeholderMatch;
                 });
                 if (questions.length > 0) {
                     filtered[section] = questions;

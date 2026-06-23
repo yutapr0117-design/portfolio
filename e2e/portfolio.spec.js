@@ -1021,6 +1021,32 @@ test('Quiz architecture type renders structured stakeholder/question zones (?typ
   expect(fatal, `architecture quiz render caused a fatal: ${fatal}`).toBeNull();
 });
 
+// ===== 7.2: architecture quiz 検索が stakeholder 主張テキストを被覆する (回帰) =====
+// architecture quiz は stakeholder の name/quote を画面描画するが、検索フィルタが従来
+// title/id/content/situation/question しか見ておらず「画面に見えるのに検索できない」状態
+// だった (visible-but-unsearchable バグ)。'GAFA' は architecture データ全体で CTO の quote に
+// 1 度だけ出る stakeholder-only 語。検索でその問題ブロックがヒットし empty-state にならない
+// ことを実検証する (修正前は 0 件 + panel-empty 表示だった)。
+test('Quiz architecture search matches stakeholder quote text (visible-but-unsearchable regression)', async ({ page }) => {
+  await page.goto('/#/quiz?type=architecture');
+  await page.waitForLoadState('domcontentloaded');
+
+  const blocks = page.locator('.quiz-question-block');
+  await expect(blocks.first()).toBeVisible();
+
+  // stakeholder quote にのみ存在する語で検索
+  const search = page.locator('input[aria-label="問題検索"]');
+  await expect(search).toBeVisible();
+  await search.fill('GAFA');
+
+  // 該当問題がヒットし、空状態にならない (修正前はここで 0 件 + panel-empty だった)
+  await expect(blocks).toHaveCount(1);
+  await expect(page.locator('.panel-empty')).toHaveCount(0);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `architecture quiz stakeholder search caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: quiz 模範解答問い合わせフォームの空入力バリデーション =====
 // QuizPage の問い合わせフォームは送信時に name/email 必須を検証し、欠落時「お名前とメール
 // アドレスを入力してください」エラー toast を出す (mailto は開かない)。この validation 分岐は
