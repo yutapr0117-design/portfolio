@@ -77,6 +77,24 @@ MUTATIONS = [
         "find": "    try {\n        decoded = decodeURIComponent(pathname);\n    } catch {\n        decoded = pathname;\n    }",
         "replace": "    decoded = decodeURIComponent(pathname);",
     },
+    {
+        "name": "Check 118 (PAGE_META coverage): rename the app-notes PAGE_META key (route loses metadata)",
+        "file": ROOT / "js" / "page-meta.js",
+        "find": "'app-notes': { title: 'Markdown Notes'",
+        "replace": "'app-notes-PROBE': { title: 'Markdown Notes'",
+    },
+    {
+        "name": "Check 111 (e2e no-networkidle): use waitForLoadState('networkidle') in a behavior test",
+        "file": ROOT / "e2e" / "portfolio.spec.js",
+        "find": "waitForLoadState('domcontentloaded')",
+        "replace": "waitForLoadState('networkidle')",
+    },
+    {
+        "name": "Check 114 (e2e no-.only): add test.only (would silently skip the rest of the suite)",
+        "file": ROOT / "e2e" / "portfolio.spec.js",
+        "find": "test('AIO asset anchor must be hidden",
+        "replace": "test.only('AIO asset anchor must be hidden",
+    },
 ]
 
 
