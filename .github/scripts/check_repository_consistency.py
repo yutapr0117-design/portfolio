@@ -704,6 +704,14 @@ authoritative inventory and is kept in sync with the implementation below):
        call (updateSilently is allowed — the literal `State.update(` does not match
        `State.updateSilently(`), structurally guarding the whole class beyond the per-input e2e
        tests. (BLOCKING)
+  131. Service-worker decodeURIComponent guard: sw.js intercepts EVERY fetch and runs every
+       request's pathname through normalizePath → decodeURIComponent, which throws a URIError on a
+       malformed percent-escape (e.g. '/portfolio/%'). Without a guard, such a request makes the SW
+       fetch handler throw — an uncaught error inside the service worker on a hot path that touches
+       all requests (the bug fixed in the sw normalize hardening). This Check asserts sw.js's
+       normalizePath wraps decodeURIComponent in a try/catch so a malformed URL can never throw out
+       of the SW. The fix had no e2e/Check guard (service workers are hard to e2e), so this static
+       presence check is its regression guard. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5117,6 +5125,53 @@ check(
     "State.updateSilently( + sub-DOM 手動更新へ変更せよ (State.update は全再描画で focused input を破棄する)",
     blocking=True,
 )
+
+# ── 131. Service-worker decodeURIComponent guard (BLOCKING) ───────────────────
+# sw.js は全 fetch を intercept し、各リクエストの pathname を normalizePath→decodeURIComponent に
+# 通す。decodeURIComponent は不正な % エスケープ ('/portfolio/%' 等) で URIError を throw するため、
+# ガード無しだと そうした URL リクエストで SW fetch ハンドラが uncaught error になる (全リクエストを
+# 触る hot path)。本 Check は sw.js の normalizePath が decodeURIComponent を try/catch で囲むことを
+# presence で機械強制する。この修正は e2e/Check ガードが無かった (service worker は e2e 困難) ため、
+# 本静的 presence check がその回帰ガードになる。
+_sw131 = ROOT / "sw.js"
+if _sw131.exists():
+    _swsrc131 = _sw131.read_text(encoding="utf-8")
+    # normalizePath 関数本体を抽出 (function normalizePath(...) { ... })
+    _m131 = re.search(r"function\s+normalizePath\s*\([^)]*\)\s*\{", _swsrc131)
+    _ok131 = False
+    if _m131:
+        # 関数本体を brace-balance で抽出
+        _i131 = _swsrc131.index("{", _m131.start())
+        _depth131 = 0
+        _body131 = ""
+        for _k131 in range(_i131, len(_swsrc131)):
+            _c131 = _swsrc131[_k131]
+            if _c131 == "{":
+                _depth131 += 1
+            elif _c131 == "}":
+                _depth131 -= 1
+                if _depth131 == 0:
+                    _body131 = _swsrc131[_i131:_k131 + 1]
+                    break
+        # body に decodeURIComponent があるなら try と catch も同 body 内に存在すること
+        if "decodeURIComponent" in _body131:
+            _ok131 = ("try" in _body131 and "catch" in _body131)
+        else:
+            # decodeURIComponent を使わない実装なら throw リスク無し ＝ guard 不要で OK
+            _ok131 = True
+    check(
+        _m131 is not None and _ok131,
+        "Check 131: sw.js normalizePath が decodeURIComponent を try/catch でガード (不正 % URL で SW が throw しない)",
+        "Check 131: sw.js normalizePath が decodeURIComponent を try/catch で囲んでいない — 不正な % エスケープ URL "
+        "('/portfolio/%') で SW fetch ハンドラが URIError を throw する (全リクエストを触る hot path)。try/catch で "
+        "raw pathname へフォールバックせよ"
+        if _m131 else
+        "Check 131: sw.js に normalizePath 関数が見つからない (構造変更の可能性) — decodeURIComponent guard を検証できない",
+        blocking=True,
+    )
+else:
+    check(False, "Check 131: sw.js present",
+          "Check 131: sw.js が見つからない — SW decodeURIComponent guard を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
