@@ -51,7 +51,17 @@ function isBotRequest(request) {
 }
 
 function normalizePath(pathname) {
-    return decodeURIComponent(pathname).replace(/\/+$/, '');
+    // decodeURIComponent は不正な % シーケンス (例 '/portfolio/%' や '/portfolio/%zz') で URIError を
+    // throw する。本 SW は fetch ハンドラで全リクエストの pathname を normalizePath→isAIOFile に
+    // 通すため、ガードしないと不正 URL リクエストのたびに SW 内 uncaught error になる。decode 失敗時は
+    // raw pathname にフォールバックする (その URL は AIO_FILES と一致しない＝素通し＝従来挙動と等価)。
+    let decoded;
+    try {
+        decoded = decodeURIComponent(pathname);
+    } catch {
+        decoded = pathname;
+    }
+    return decoded.replace(/\/+$/, '');
 }
 
 function isAIOFile(url) {
