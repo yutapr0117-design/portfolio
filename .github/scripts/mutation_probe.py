@@ -107,6 +107,12 @@ MUTATIONS = [
         "find": '<script src="./aio-guard.js"></script>',
         "replace": "<!-- aio-guard.js PROBE-REMOVED -->",
     },
+    {
+        "name": "Check 134 (root script wiring): remove the theme-init.js <script> tag from index.html",
+        "file": ROOT / "index.html",
+        "find": '<script src="./theme-init.js"></script>',
+        "replace": "<!-- theme-init.js PROBE-REMOVED -->",
+    },
 ]
 
 
