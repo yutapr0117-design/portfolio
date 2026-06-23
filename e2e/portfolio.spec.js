@@ -2527,6 +2527,33 @@ test('Topbar theme button advances exactly one step per click (double-fire regre
   expect(after).toBe('dark');
 });
 
+// ===== SPA route-change focus management (WCAG 2.4.3) =====
+// SPA は route 遷移で #content を作り直すため、ナビ後に focus が body へ落ちキーボード/SR ユーザが
+// 文脈を失う。route 遷移時のみ新ページ h1 へ focus を移す (isRouteChange=hash 変化 かつ
+// _focusWasLost=clear 後 activeElement が body の時のみ)。State.update 由来の同一ルート再描画では
+// 動かさず (#258 非回帰)、#content 外の生存要素 (command palette input) からは奪わない。
+test('Route change moves focus to the new page heading (a11y WCAG 2.4.3)', async ({ page }) => {
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  await page.evaluate(() => { location.hash = '#/contact'; });
+  await expect(page.locator('#content h1', { hasText: 'Contact' })).toBeVisible();
+  await page.waitForTimeout(150);
+  const active = await page.evaluate(() => ({
+    tag: document.activeElement && document.activeElement.tagName,
+    text: document.activeElement && document.activeElement.textContent,
+  }));
+  expect(active.tag).toBe('H1');
+  expect(active.text).toContain('Contact');
+});
+
+test('Route-focus does NOT steal focus from an open command palette (steal-flake regression)', async ({ page }) => {
+  // route 変更 render が palette open の input focus と race して focus を奪う flake の回帰防止。
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.keyboard.press('Control+k');
+  await expect(page.locator('#command-palette-host')).toHaveAttribute('aria-hidden', 'false');
+  await expect(page.locator('.cmdk-input')).toBeFocused();
+});
+
 // ===== 7.1: axe-core 自動アクセシビリティ監査 — render-neutral critical 回帰防止 =====
 // axe-core で WCAG 2a/2aa/21a/21aa を全主要ルートでスキャンし、render-neutral に修正可能な
 // critical 違反群がゼロであることを機械強制する。本 increment で是正したバグの回帰防止:

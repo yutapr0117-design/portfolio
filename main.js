@@ -557,7 +557,7 @@
                 try {
                     const transition = document.startViewTransition(async () => {
                         try {
-                            await _renderCore();
+                            await _renderCore(isRouteTransition);
                             _lastRoutePath = currentRoutePath;
                         } catch (e) {
                             window.__fatalError = e;
@@ -585,13 +585,13 @@
                     _vtInFlight = false;
                     if (_isViewTransitionError(err)) {
                         console.warn('[portfolio] startViewTransition fallback:', err);
-                        _renderCore().then(() => {
+                        _renderCore(isRouteTransition).then(() => {
                             _lastRoutePath = currentRoutePath;
                             _consumePendingRoute();
                         });
                     } else {
                         window.__fatalError = _normalizeError(err);
-                        _renderCore().then(() => {
+                        _renderCore(isRouteTransition).then(() => {
                             _lastRoutePath = currentRoutePath;
                         });
                     }
@@ -600,13 +600,13 @@
                 // 実行中は最新の route のみ保持して、transition 完了後に 1 回だけ反映する
                 _vtPendingPath = currentRoutePath;
             } else {
-                _renderCore().then(() => {
+                _renderCore(isRouteTransition).then(() => {
                     _lastRoutePath = currentRoutePath;
                 });
             }
         }
 
-        async function _renderCore() {
+        async function _renderCore(isRouteChange = false) {
             // 改善文書b 4: Abort any previous render in flight before starting a new one.
             // This prevents memory leaks from stale async render chains.
             _renderAbortController.abort();
@@ -714,6 +714,25 @@
 
             if (page) {
                 content.appendChild(page);
+            }
+
+            // a11y (WCAG 2.4.3): route 遷移時のみ新ページ見出しへ focus を移す。SPA は #content を
+            // 作り直すため、ナビ後に focus が body へ落ちキーボード/SR ユーザが文脈を失う。2 条件で限定:
+            //   (1) isRouteChange (render() が渡す isRouteTransition=hash 変化) — State.update 由来の
+            //       同一ルート再描画 (検索/notes 入力/todo filter 等) では focus を動かさない (#258 非回帰)。
+            //   (2) _focusWasLost (clear(content) 後の activeElement が body/html/null) — focus を「奪う」
+            //       のでなく「失われた時に復元」する。command palette / drawer の input など #content 外の
+            //       生存要素が focus 中なら奪わない (route render が palette open の input focus と race し
+            //       focus を奪う flake を防ぐ)。
+            // tabindex=-1 + preventScroll。:focus-visible 採用ゆえ programmatic focus に視覚リングは出ない。
+            const _ae = document.activeElement;
+            const _focusWasLost = !_ae || _ae === document.body || _ae === document.documentElement;
+            if (isRouteChange && content && _focusWasLost) {
+                const _focusTarget = content.querySelector('h1') || content;
+                if (_focusTarget) {
+                    if (!_focusTarget.hasAttribute('tabindex')) { _focusTarget.setAttribute('tabindex', '-1'); }
+                    try { _focusTarget.focus({ preventScroll: true }); } catch { /* noop */ }
+                }
             }
 
             // Guard: skip meta/state sync if render was superseded
