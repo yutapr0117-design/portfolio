@@ -125,6 +125,12 @@ MUTATIONS = [
         "find": "['task', 'todo', 'pomodoro', 'ai', 'notes'].includes(raw.demoRoute)",
         "replace": "['task', 'todo', 'pomodoro', 'ai'].includes(raw.demoRoute)",
     },
+    {
+        "name": "Check 128 (cmdk↔router coverage): break the apps/notes NAV hash in command-palette.js",
+        "file": ROOT / "js" / "command-palette.js",
+        "find": "{ label: 'Markdown ノート', hash: 'apps/notes' },",
+        "replace": "{ label: 'Markdown ノート', hash: 'apps/notes-PROBE' },",
+    },
 ]
 
 
