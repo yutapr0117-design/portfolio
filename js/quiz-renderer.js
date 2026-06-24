@@ -79,8 +79,14 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
             const query = String(rawQuery || '').toLowerCase().trim();
             const filtered = {};
             Object.keys(sourceData).forEach(section => {
+                // section 見出し (画面に描画される章タイトル。例「第4章：可用性とFinOps（コスト）の天秤」)
+                // も検索対象にする。タイトルにのみ含まれる topic 語 (FinOps / 可用性 / 泥沼 等) で検索した
+                // とき「見えるのに 0 件」になる visible-but-unsearchable drift (#285 の stakeholder と同 class)
+                // を防ぐ。section 名が一致したら、その章の全問を残す。
+                const sectionMatch = !query || section.toLowerCase().includes(query);
                 const questions = sourceData[section].filter(q => {
                     if (!query) {return true;}
+                    if (sectionMatch) {return true;}
                     const titleMatch = q.title.toLowerCase().includes(query);
                     const idMatch = q.id.toLowerCase().includes(query);
                     const contentMatch = q.content ? q.content.some(line => line.toLowerCase().includes(query)) : false;

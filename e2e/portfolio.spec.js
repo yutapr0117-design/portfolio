@@ -1085,6 +1085,34 @@ test('Quiz architecture search matches stakeholder quote text (visible-but-unsea
   expect(fatal, `architecture quiz stakeholder search caused a fatal: ${fatal}`).toBeNull();
 });
 
+// ===== 7.2: quiz 検索が section 見出し (章タイトル) テキストを被覆する (回帰) =====
+// quiz は各 section の章タイトル (例「第4章：可用性とFinOps（コスト）の天秤」) を section header
+// として画面描画するが、検索フィルタ _filterBy は per-question フィールド (title/id/content/
+// situation/question/stakeholder) しか見ておらず section 名を対象外にしていた。タイトルにのみ
+// 含まれる topic 語で検索すると「見えるのに 0 件」になる (#285 の stakeholder と同 class)。
+// 'FinOps' は architecture データ全体で第4章タイトルに 1 度だけ出る section-only 語。検索でその章が
+// ヒットし empty-state にならないことを実検証する (修正前は 0 件 + panel-empty 表示だった)。
+test('Quiz search matches section-header (chapter title) text (visible-but-unsearchable regression)', async ({ page }) => {
+  await page.goto('/#/quiz?type=architecture');
+  await page.waitForLoadState('domcontentloaded');
+
+  const blocks = page.locator('.quiz-question-block');
+  await expect(blocks.first()).toBeVisible();
+
+  // section 章タイトルにのみ存在する語で検索
+  const search = page.locator('input[aria-label="問題検索"]');
+  await expect(search).toBeVisible();
+  await search.fill('FinOps');
+
+  // 該当章がヒットし、空状態にならない (修正前はここで 0 件 + panel-empty だった)
+  await expect(page.locator('.quiz-section-title', { hasText: 'FinOps' })).toBeVisible();
+  await expect(blocks.first()).toBeVisible();
+  await expect(page.locator('.panel-empty')).toHaveCount(0);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `quiz section-header search caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: quiz 模範解答問い合わせフォームの空入力バリデーション =====
 // QuizPage の問い合わせフォームは送信時に name/email 必須を検証し、欠落時「お名前とメール
 // アドレスを入力してください」エラー toast を出す (mailto は開かない)。この validation 分岐は
