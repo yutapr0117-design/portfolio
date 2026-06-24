@@ -143,6 +143,12 @@ MUTATIONS = [
         "find": "case 'app-notes':",
         "replace": "case 'app-notes-PROBE':",
     },
+    {
+        "name": "Check 138 (sidebar↔router coverage): drop the apps/notes sidebar nav link in components.js",
+        "file": ROOT / "js" / "components.js",
+        "find": "label: 'Markdown ノート', path: 'apps/notes'",
+        "replace": "label: 'Markdown ノート', path: 'apps/notes-PROBE'",
+    },
 ]
 
 

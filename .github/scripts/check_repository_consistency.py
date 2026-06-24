@@ -772,6 +772,14 @@ authoritative inventory and is kept in sync with the implementation below):
        parses the router whitelist and the set of main.js `case 'app-<X>':` labels and asserts bijection,
        making "router can route app X ⟹ main.js can render app X" a directly enforced invariant (the
        missing direct edge in the app-route coherence mesh of Check 58/118/128/136). (BLOCKING)
+  138. Sidebar app-nav ↔ router app whitelist coverage: the Sidebar (js/components.js) lab-nav lists
+       built-in apps as `path: 'apps/<app>'` quick-nav links, and AppsPage lists every app as a card.
+       Like the command palette (Check 128), the sidebar must cover every router-routable app — when the
+       Markdown notes app was added (A-group) it was added to AppsPage + the palette (#257) but FORGOTTEN
+       in the sidebar, so notes was the only built-in app unreachable from the persistent left nav. This
+       Check parses the router whitelist and the sidebar's `path: 'apps/<app>'` entries and asserts every
+       router app appears in the sidebar, making "router can route app X ⟹ X is in the sidebar nav" an
+       enforced invariant (the sidebar counterpart of Check 128). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5428,6 +5436,39 @@ if _router137.exists() and _main137.exists():
 else:
     check(False, "Check 137: js/router.js and main.js present",
           "Check 137: js/router.js または main.js が無い — router↔switch coherence を検証できない", blocking=True)
+
+# ── 138. Sidebar app-nav ↔ router app whitelist coverage (BLOCKING) ────────────
+# Sidebar (js/components.js) の lab-nav は built-in app を `path: 'apps/<app>'` の quick-nav
+# リンクとして列挙し、AppsPage は全 app をカードで列挙する。command palette (Check 128) と同様、
+# sidebar も router が route 可能な全 app を被覆すべきである。A 群で Markdown notes app を追加した際、
+# AppsPage と palette (#257) には足したが sidebar には足し忘れ、notes だけが常設左ナビから到達不能
+# だった。router whitelist と sidebar の `path: 'apps/<app>'` エントリを parse し、router の全 app が
+# sidebar に出ることを強制し「router が app X を route 可能 ⟹ X は sidebar nav にある」を invariant
+# 化する (Check 128 の sidebar 版)。
+_router138 = ROOT / "js" / "router.js"
+_comp138 = ROOT / "js" / "components.js"
+if _router138.exists() and _comp138.exists():
+    _rsrc138 = _router138.read_text(encoding="utf-8")
+    _csrc138 = _comp138.read_text(encoding="utf-8")
+    _rm138 = re.search(r"\[([^\]]*)\]\.includes\(\s*app\s*\)", _rsrc138)
+    _router_apps138 = set(re.findall(r"['\"]([a-z0-9_-]+)['\"]", _rm138.group(1))) if _rm138 else set()
+    # sidebar の quick-nav リンクは `path: 'apps/<app>'` リテラル (AppsPage は `apps/${id}` テンプレ
+    # ゆえ非該当)。apps index ('apps' 単体) は app ではないので slash 付きのみ抽出。
+    _sidebar_apps138 = set(re.findall(r"path:\s*['\"]apps/([a-z0-9_-]+)['\"]", _csrc138))
+    _missing138 = _router_apps138 - _sidebar_apps138
+    check(
+        bool(_router_apps138) and not _missing138,
+        f"Check 138: sidebar nav が router の全 app を被覆 ({sorted(_router_apps138)})",
+        f"Check 138: sidebar app-nav に router app route が欠落: {sorted(_missing138)} — "
+        f"js/components.js の Sidebar labItems に `{{ ..., path: 'apps/<app>', ... }}` を追加せよ "
+        f"(常設左ナビから到達不能になる・#257 と同 class)"
+        if _router_apps138 else
+        "Check 138: router.js の app whitelist (`[...].includes(app)`) を parse できない — coverage 検証が無効化された",
+        blocking=True,
+    )
+else:
+    check(False, "Check 138: js/router.js and js/components.js present",
+          "Check 138: js/router.js または js/components.js が無い — sidebar↔router coverage を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
