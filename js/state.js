@@ -13,8 +13,8 @@
  *   focused input が破棄される focus-loss を防ぐ。呼び出し側が sub-DOM を手動更新する契約）。
  *
  * 【依存（引数で注入）】
- *   - CONSTANTS: { DEBUG, TAB_ID, STORAGE_KEY, DEBOUNCE_DELAY }
- *   - Store: { load() }
+ *   - CONSTANTS: { DEBUG, TAB_ID, STORAGE_KEY, DEBOUNCE_DELAY, SCHEMA_VERSION }
+ *   - Store: { load(), validateAndNormalize() }  ← cross-tab 採用時に load() と同じ正規化を通す
  *   - Storage: { set(key, value) }
  *   - Toast: { show(message, type?, durationMs?) }
  *
@@ -23,7 +23,9 @@
  *     deep-freeze による状態隔離の挙動は不変
  *   - subscriber 配列の add/remove と notify の順序も不変
  *   - localStorage への save debounce (CONSTANTS.DEBOUNCE_DELAY) と visibilitychange での
- *     saveNow / cross-tab storage event handling も不変
+ *     saveNow は不変。cross-tab storage event handling は Stage 5-h 抽出時は byte-equivalent
+ *     だったが、後の bug-fix で「採用前に load() と同じ schema 検証 + validateAndNormalize を通す」
+ *     よう変更済 (別バージョン tab の未正規化 store を raw 採用して render crash する #93 class を封じる)
  *   - 既存の Playwright behavior テスト（state 永続・cross-tab・schema-mismatch 等）が緑のまま
  *
  * 【副作用（既存挙動と等価）】
@@ -198,7 +200,14 @@ export function createState({ CONSTANTS, Store, Storage, Toast }) {
                 // Ignore writes originating from this tab
                 if (incoming.modifiedBy === CONSTANTS.TAB_ID) {return;}
                 if (incoming.lastModified > data.lastModified) {
-                    data = incoming;
+                    // [FIX] 別タブが書いた store を生のまま採用しない。load() / import が必ず通す
+                    // 正規化を cross-tab だけが省いており、別バージョン (デプロイ跨ぎで 2 タブ) が書いた
+                    // 異 schema / 欠損フィールドの store を raw 採用 → render が未定義参照で FatalPage
+                    // crash する (#93 と同 class = 未正規化外部データの取り込み)。load() と同じく
+                    // schema 不一致は採用を見送り (現タブの正常 state を保持＝非破壊・データ欠落なし)、
+                    // 一致時のみ validateAndNormalize で欠損を backfill してから採用する。
+                    if (incoming.schemaVersion !== CONSTANTS.SCHEMA_VERSION) {return;}
+                    data = Store.validateAndNormalize(incoming);
                     notify();
                     Toast.show('別タブで更新されました', 'info');
                 }
