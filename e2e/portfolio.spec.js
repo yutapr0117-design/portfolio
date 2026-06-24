@@ -1346,6 +1346,52 @@ test('Cross-tab sync: a task added in one tab appears in another tab', async ({ 
   await tabB.close();
 });
 
+// ===== 7.1d: クロスタブ同期は別 schema / 欠損 store を raw 採用せず crash しない =====
+// state.js の 'storage' リスナーは別タブの新しい書き込みを採用するが、load()/import が必ず通す
+// 正規化 (schema 検証 + validateAndNormalize) を以前は省いていた。デプロイ跨ぎで 2 タブを開くと、
+// 旧バージョンのタブが別 schema / 欠損フィールドの store を書き、新バージョンのタブがそれを raw 採用
+// → render が未定義参照 (例 appsData.tasks) で FatalPage crash する (#93 = 未正規化外部データ取り込み
+// と同 class)。本テストは synthetic StorageEvent で「より新しいが schema 不一致 + appsData 欠落」な
+// 書き込みを注入し、(1) FatalPage crash しない (2) 不正データを採用せず現タブの正常 state を保持する
+// ことを検証する。修正前は (1) が fatal で落ちるため非 vacuous。
+test('Cross-tab sync ignores a foreign-schema/malformed store without crashing', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+
+  // 既存タスクを 1 件作って「現タブの正常 state」を確立する
+  const ownTitle = 'E2E-XTAB-OWN-TASK-6620';
+  const input = page.locator('#task-input');
+  await expect(input).toBeVisible();
+  await input.fill(ownTitle);
+  await input.press('Enter');
+  await expect(page.getByText(ownTitle)).toBeVisible();
+
+  // 別タブからの「より新しいが schema 不一致 + appsData 欠落」な書き込みを synthetic に注入する。
+  // STORAGE_KEY / SCHEMA_VERSION は js/constants.js の値 (Check 100 が theme-init と一致を強制)。
+  await page.evaluate(() => {
+    const malformed = JSON.stringify({
+      schemaVersion: 1,              // 現行 (12) と不一致 = デプロイ跨ぎの旧 store を模す
+      type: 'full-store',
+      lastModified: 9999999999999,   // data.lastModified より十分新しい (採用条件を満たす)
+      modifiedBy: 'E2E-OTHER-TAB',   // 自タブ TAB_ID と異なる (別タブ判定)
+      theme: 'dark'
+      // appsData / projects 等を意図的に欠落させる (raw 採用すると render が落ちる)
+    });
+    window.dispatchEvent(new StorageEvent('storage', {
+      key: 'portfolio_enhanced_v45',
+      newValue: malformed
+    }));
+  });
+
+  // (1) FatalPage crash していない
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `cross-tab malformed store caused a fatal render: ${fatal}`).toBeNull();
+
+  // (2) 不正データは採用されず現タブの state は保持される (タスクが消えていない・page は機能する)
+  await expect(page.getByText(ownTitle)).toBeVisible();
+  await expect(page.locator('#task-input')).toBeVisible();
+});
+
 // ===== 7.2: TODO アプリの追加→完了トグル→一括削除フロー Behavior Check =====
 // #/apps/todo は TodoPage (task とは別 factory / 別 State slice) で、addTodo (Enter) /
 // toggleTodo (checkbox) / clearCompleted (「完了済み削除」一括操作) という distinct な
