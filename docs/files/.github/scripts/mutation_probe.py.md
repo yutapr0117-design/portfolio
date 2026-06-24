@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/mutation_probe.py
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-23
+last-updated: 2026-06-24
 canonical-ref: .github/scripts/check_repository_consistency.py (gate) / package.json (mutation-probe)
 ---
 
@@ -27,7 +27,7 @@ npm run mutation-probe  →  python3 .github/scripts/mutation_probe.py
   3. 全実行後に gate が GREEN へ戻ることを確認 (ファイル汚れ残り検出)
 ```
 
-現行 mutation (11 件): Check 45 (section bijection) / 112a (IME guard) / 129 (topbar double-fire) / 130 (oninput focus-loss) / 125 (dead-constant) / 126・50d (ESLint no-dupe-keys) / 131 (SW decode guard) / 118 (PAGE_META coverage) / 111 (e2e no-networkidle) / 114 (e2e no-.only) / 132 (AIO evidence↔sitemap)。
+現行 mutation (16 件): Check 45 (section bijection) / 112a (IME guard) / 129 (topbar double-fire) / 130 (oninput focus-loss) / 125 (dead-constant) / 126・50d (ESLint no-dupe-keys) / 131 (SW decode guard) / 118 (PAGE_META coverage) / 111 (e2e no-networkidle) / 114 (e2e no-.only) / 132 (AIO evidence↔sitemap) / 133 (AIO guard wiring) / 134 (root script wiring) / 135 (stylesheet wiring) / 136 (demoRoute↔router coherence) / 128 (cmdk↔router coverage)。件数は MUTATIONS の OUTPUT であり権威ではない (権威は probe 実行時の "applying N curated mutations" 出力)。
 
 ## Change impact
 
