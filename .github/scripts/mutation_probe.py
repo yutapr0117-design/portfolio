@@ -149,6 +149,12 @@ MUTATIONS = [
         "find": "label: 'Markdown ノート', path: 'apps/notes'",
         "replace": "label: 'Markdown ノート', path: 'apps/notes-PROBE'",
     },
+    {
+        "name": "Check 139 (AppsPage↔router coverage): drop notes from the AppsPage app index array",
+        "file": ROOT / "js" / "components.js",
+        "find": "{ id: 'notes', title: 'Markdown ノート'",
+        "replace": "{ id: 'notes-PROBE', title: 'Markdown ノート'",
+    },
 ]
 
 
