@@ -762,6 +762,16 @@ authoritative inventory and is kept in sync with the implementation below):
        strip). This Check parses both arrays and asserts the store demoRoute whitelist equals the router
        app whitelist, making "router supports app X ⟹ X is a valid project demoRoute" an enforced
        invariant. (BLOCKING)
+  137. router app whitelist ↔ main.js render switch coherence: router.js resolves apps/<app> to
+       route.name `app-<app>` for app in its whitelist, and main.js's renderer switch consumes that
+       route.name via `case 'app-<app>':` to render the app component. Check 128 (cmdk) and 136 (store)
+       constrain the PRODUCER side of the router whitelist, but the CONSUMER side (main.js switch) is
+       only tied INDIRECTLY through ALL_ROUTES (Check 58) — so updating router + cmdk + store while
+       forgetting main.js/ALL_ROUTES leaves every Check green yet makes apps/<app> fall through to
+       not-found (a SILENT 404 while the palette and project demos still offer the route). This Check
+       parses the router whitelist and the set of main.js `case 'app-<X>':` labels and asserts bijection,
+       making "router can route app X ⟹ main.js can render app X" a directly enforced invariant (the
+       missing direct edge in the app-route coherence mesh of Check 58/118/128/136). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5384,6 +5394,40 @@ if _router136.exists() and _store136.exists():
 else:
     check(False, "Check 136: js/router.js and js/store.js present",
           "Check 136: js/router.js または js/store.js が無い — demoRoute coherence を検証できない", blocking=True)
+
+# ── 137. router app whitelist ↔ main.js render switch coherence (BLOCKING) ──────
+# router.js は `apps/<app>` を app ∈ whitelist のとき route.name=`app-<app>` に解決し、main.js の
+# renderer switch がその route.name を `case 'app-<app>':` で受けて app コンポーネントを描画する。
+# Check 128 (cmdk) / 136 (store) は router whitelist の「提供側」を縛るが、「消費側」の main.js switch
+# は ALL_ROUTES 経由 (Check 58) でしか間接的に縛られない。ゆえに router + cmdk + store だけ更新して
+# main.js/ALL_ROUTES を忘れると、全 Check 緑のまま apps/<app> が default(not-found) へ落ち silent に
+# 404 化する (palette/project demo は依然その route を提示する)。router whitelist と main.js の
+# `case 'app-<X>':` 集合を parse し bijection を強制し、「router が app X を route 可能 ⟹ main.js が
+# app X を描画可能」を直接 invariant 化する (Check 58/118/128/136 の app-route coherence mesh に
+# 欠けていた直接 edge)。
+_router137 = ROOT / "js" / "router.js"
+_main137 = ROOT / "main.js"
+if _router137.exists() and _main137.exists():
+    _rsrc137 = _router137.read_text(encoding="utf-8")
+    _msrc137 = _main137.read_text(encoding="utf-8")
+    _rm137 = re.search(r"\[([^\]]*)\]\.includes\(\s*app\s*\)", _rsrc137)
+    _router_apps137 = set(re.findall(r"['\"]([a-z0-9_-]+)['\"]", _rm137.group(1))) if _rm137 else set()
+    _main_app_cases137 = set(re.findall(r"case\s+['\"]app-([a-z0-9_-]+)['\"]\s*:", _msrc137))
+    _missing137 = _router_apps137 - _main_app_cases137  # router が生成するが main.js が描画不能 → silent 404
+    _extra137 = _main_app_cases137 - _router_apps137     # main.js に case はあるが router が生成しない → dead case
+    check(
+        bool(_router_apps137) and bool(_main_app_cases137) and not _missing137 and not _extra137,
+        f"Check 137: main.js の case 'app-<app>' == router app whitelist ({sorted(_router_apps137)})",
+        f"Check 137: router ↔ main.js render switch drift — main.js に case 欠落 (silent 404): {sorted(_missing137)} / "
+        f"main.js のみ (dead case): {sorted(_extra137)}。main.js renderer switch の `case 'app-<app>':` を "
+        f"router.js の app whitelist と一致させよ (apps/<app> の silent not-found を防ぐ)"
+        if (_router_apps137 and _main_app_cases137) else
+        "Check 137: router.js の app whitelist (`[...].includes(app)`) または main.js の `case 'app-<X>':` を parse できない",
+        blocking=True,
+    )
+else:
+    check(False, "Check 137: js/router.js and main.js present",
+          "Check 137: js/router.js または main.js が無い — router↔switch coherence を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
