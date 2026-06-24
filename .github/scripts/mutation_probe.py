@@ -155,6 +155,12 @@ MUTATIONS = [
         "find": "{ id: 'notes', title: 'Markdown ノート'",
         "replace": "{ id: 'notes-PROBE', title: 'Markdown ノート'",
     },
+    {
+        "name": "Check 140 (Settings demo selector↔router coverage): drop the notes demo option in apps.js",
+        "file": ROOT / "js" / "apps.js",
+        "find": "h('option', { value: 'ai' }, 'ai'),\n                                        h('option', { value: 'notes' }, 'notes')",
+        "replace": "h('option', { value: 'ai' }, 'ai')",
+    },
 ]
 
 

@@ -1100,7 +1100,8 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                                         h('option', { value: 'task' }, 'task'),
                                         h('option', { value: 'todo' }, 'todo'),
                                         h('option', { value: 'pomodoro' }, 'pomodoro'),
-                                        h('option', { value: 'ai' }, 'ai')
+                                        h('option', { value: 'ai' }, 'ai'),
+                                        h('option', { value: 'notes' }, 'notes')
                                     )
                                 ),
                                 h('div', { class: 'flex items-end' },

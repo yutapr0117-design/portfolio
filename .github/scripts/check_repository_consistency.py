@@ -789,6 +789,17 @@ authoritative inventory and is kept in sync with the implementation below):
        scopes to the AppsPage `const apps = [...]` array, parses its `id: '<app>'` entries, and asserts
        every router app appears, completing the app-route coherence mesh so all three producer surfaces
        (palette/sidebar/AppsPage) track the router whitelist. (BLOCKING)
+  140. Settings demo selector ↔ router app whitelist coverage: The Settings page manual-add form
+       (js/apps.js SettingsPage) lets a user create a project and pick which app it demos via a
+       `<select>` whose onchange writes `settingsNewDemo`. Its `<option value='<app>'>` list is the WRITE
+       surface that decides which apps a hand-created project can ever link as a demoRoute. store.js
+       normalizeProject accepts demoRoute ∈ router whitelist (Check 136) and the router can route every
+       app, but if this selector drifts (a new app added to router/store/main.js/cmdk/sidebar/AppsPage but
+       forgotten here), that app is silently unselectable as a demo — the exact recurring class where
+       notes was forgotten in the store/sidebar/AppsPage/palette (#257/#292/#293). This Check scopes to
+       the demo selector block, parses its non-empty `value: '<app>'` options, and asserts they equal the
+       router whitelist (the empty "Demoなし" option is allowed), so every routable app stays selectable
+       as a project demo. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5511,6 +5522,49 @@ if _router139.exists() and _comp139.exists():
 else:
     check(False, "Check 139: js/router.js and js/components.js present",
           "Check 139: js/router.js または js/components.js が無い — AppsPage↔router coverage を検証できない", blocking=True)
+
+# ── 140. Settings demo selector ↔ router app whitelist coverage (BLOCKING) ──────
+# Settings の手動追加フォーム (js/apps.js SettingsPage) は、ユーザーがプロジェクトを作成し、その
+# プロジェクトがどの app をデモするかを `<select>` (onchange が settingsNewDemo を書き込む) で選ばせる。
+# この `<option value='<app>'>` リストは「手動作成プロジェクトが demoRoute に持てる app」を決める
+# WRITE 面である。store.js normalizeProject は demoRoute ∈ router whitelist を許容し (Check 136)、
+# router は全 app を route できるが、このセレクタが drift する (新 app を router/store/main.js/cmdk/
+# sidebar/AppsPage に足したがここを忘れる) と、その app は demo として silent に選択不能になる — notes が
+# store/sidebar/AppsPage/palette で忘れられた #257/#292/#293 と同一の再発クラス。デモセレクタブロックに
+# scope して非空の `value: '<app>'` オプションを parse し、router whitelist と一致することを強制する
+# (空の "Demoなし" オプションは許可)。これで全 routable app がプロジェクト demo として選択可能に保たれる。
+_apps140 = ROOT / "js" / "apps.js"
+_router140 = ROOT / "js" / "router.js"
+if _apps140.exists() and _router140.exists():
+    _asrc140 = _apps140.read_text(encoding="utf-8")
+    _rsrc140 = _router140.read_text(encoding="utf-8")
+    _rm140 = re.search(r"\[([^\]]*)\]\.includes\(\s*app\s*\)", _rsrc140)
+    _router_apps140 = set(re.findall(r"['\"]([a-z0-9_-]+)['\"]", _rm140.group(1))) if _rm140 else set()
+    # settingsNewDemo を書き込む onchange を持つ select の option 群に scope。anchor は distinctive な
+    # aria-label、終端は次の addProjectManual 配線 (フォームの「追加」ボタン)。
+    _anchor140 = _asrc140.find("'Demo アプリの種類'")
+    _block140 = ""
+    if _anchor140 != -1:
+        _endpos140 = _asrc140.find("addProjectManual", _anchor140)
+        _block140 = _asrc140[_anchor140:_endpos140 if _endpos140 != -1 else _anchor140 + 800]
+    # value: settingsNewDemo (無引用符) は対象外。value: '' (Demoなし) は空ゆえ除外。
+    _demo_opts140 = set(v for v in re.findall(r"value:\s*['\"]([a-z0-9_-]*)['\"]", _block140) if v)
+    _missing140 = _router_apps140 - _demo_opts140
+    _extra140 = _demo_opts140 - _router_apps140
+    check(
+        bool(_router_apps140) and bool(_demo_opts140) and not _missing140 and not _extra140,
+        f"Check 140: Settings demo selector options == router app whitelist ({sorted(_router_apps140)})",
+        f"Check 140: Settings demo selector ↔ router app whitelist drift — selector に欠落 (demo 選択不能): "
+        f"{sorted(_missing140)} / selector のみ (dead option): {sorted(_extra140)}。js/apps.js SettingsPage の "
+        f"Demo セレクタに `h('option', {{ value: '<app>' }}, '<app>')` を追加/削除し router whitelist と一致させよ "
+        f"(全 routable app をプロジェクト demo として選択可能に保つ・#257 と同 class)"
+        if (_router_apps140 and _demo_opts140) else
+        "Check 140: router.js の app whitelist または Settings の Demo セレクタ option を parse できない (構造を確認せよ)",
+        blocking=True,
+    )
+else:
+    check(False, "Check 140: js/apps.js and js/router.js present",
+          "Check 140: js/apps.js または js/router.js が無い — Settings demo selector coverage を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
