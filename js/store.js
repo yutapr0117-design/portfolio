@@ -364,7 +364,7 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
             },
             relatedProjectIds: (raw.relatedProjectIds || []).filter(Boolean).slice(0, 20),
             links: (raw.links || []).filter(l => l && l.label && sanitizeUrl(l.url)).slice(0, 30),
-            demoRoute: ['task', 'todo', 'pomodoro', 'ai'].includes(raw.demoRoute) ? raw.demoRoute : null
+            demoRoute: ['task', 'todo', 'pomodoro', 'ai', 'notes'].includes(raw.demoRoute) ? raw.demoRoute : null
         };
     }
 
