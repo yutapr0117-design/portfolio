@@ -137,6 +137,12 @@ MUTATIONS = [
         "find": "if _binary_edited(webp) or _binary_edited(mp3):",
         "replace": "if True:  # PROBE: ungated re-bake reproduces #252 weekly desync",
     },
+    {
+        "name": "Check 137 (router↔switch coherence): break a main.js app-route case (silent apps/<app> 404)",
+        "file": ROOT / "main.js",
+        "find": "case 'app-notes':",
+        "replace": "case 'app-notes-PROBE':",
+    },
 ]
 
 
