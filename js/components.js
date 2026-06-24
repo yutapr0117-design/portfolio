@@ -60,6 +60,7 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
             { icon: 'list',        label: 'クイックTODO',  path: 'apps/todo',          active: route.name === 'app-todo' },
             { icon: 'clock',       label: 'ポモドーロ',    path: 'apps/pomodoro',      active: route.name === 'app-pomodoro' },
             { icon: 'brain',       label: 'AI アシスト',   path: 'apps/ai',            active: route.name === 'app-ai' },
+            { icon: 'edit',        label: 'Markdown ノート', path: 'apps/notes',       active: route.name === 'app-notes' },
             { icon: 'cloud',       label: 'AWS 問題集',    path: 'quiz?type=aws',      active: route.name === 'quiz' && (!route.query.type || route.query.type === 'aws') },
             { icon: 'clipboard',   label: 'PM 問題集',     path: 'quiz?type=pm',       active: route.name === 'quiz' && route.query.type === 'pm' },
             { icon: 'award',       label: '品質・プロセス', path: 'quiz?type=quality', active: route.name === 'quiz' && route.query.type === 'quality' },
