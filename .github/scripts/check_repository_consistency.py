@@ -753,6 +753,15 @@ authoritative inventory and is kept in sync with the implementation below):
        stylesheets are intentionally NOT required (their loss degrades gracefully to fallback
        fonts). This makes "style.css exists ⟹ it is linked in index.html" an enforced invariant.
        (BLOCKING)
+  136. demoRoute ↔ router app whitelist coherence: store.js normalizeProject() validates an imported
+       project's demoRoute against a hardcoded app whitelist, and router.js resolves apps/<app> routes
+       against its own hardcoded whitelist. These two lists must stay in sync — if router gains an app
+       (e.g. 'notes' was added for the A-group Markdown notes app) but the store whitelist is not
+       updated, importing a project whose demoRoute names the new app SILENTLY drops it to null (the
+       demo button vanishes — a data-fidelity loss of the same class as Check 128 and the #139 profile
+       strip). This Check parses both arrays and asserts the store demoRoute whitelist equals the router
+       app whitelist, making "router supports app X ⟹ X is a valid project demoRoute" an enforced
+       invariant. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5336,6 +5345,45 @@ if _index135.exists():
 else:
     check(False, "Check 135: index.html present",
           "Check 135: index.html が無い — stylesheet の配線を検証できない", blocking=True)
+
+# ── 136. demoRoute ↔ router app whitelist coherence (BLOCKING) ─────────────────
+# store.js normalizeProject() は import したプロジェクトの demoRoute を hardcode された app
+# whitelist で検証し、router.js は apps/<app> ルートを自身の hardcode whitelist で解決する。
+# 両者は同期している必要がある — router に app が増えた (例: A 群で notes app 追加) のに store
+# 側 whitelist を更新し忘れると、その新 app を demoRoute に持つプロジェクトを import した際に
+# silent に null へ落ち、デモボタンが消える (Check 128 / #139 と同じ data-fidelity loss)。両配列を
+# parse し store demoRoute whitelist == router app whitelist を強制し、「router が app X を
+# サポート ⟹ X は有効な demoRoute」を invariant 化する。
+_router136 = ROOT / "js" / "router.js"
+_store136 = ROOT / "js" / "store.js"
+if _router136.exists() and _store136.exists():
+    _rsrc136 = _router136.read_text(encoding="utf-8")
+    _ssrc136 = _store136.read_text(encoding="utf-8")
+    # router: [...].includes(app)
+    _rm136 = re.search(r"\[([^\]]*)\]\.includes\(app\)", _rsrc136)
+    # store: [...].includes(raw.demoRoute)
+    _sm136 = re.search(r"\[([^\]]*)\]\.includes\(raw\.demoRoute\)", _ssrc136)
+
+    def _parse_list136(_raw):
+        return set(re.findall(r"['\"]([a-z0-9_-]+)['\"]", _raw or ""))
+
+    _router_apps136 = _parse_list136(_rm136.group(1) if _rm136 else "")
+    _store_apps136 = _parse_list136(_sm136.group(1) if _sm136 else "")
+    _missing136 = _router_apps136 - _store_apps136
+    _extra136 = _store_apps136 - _router_apps136
+    check(
+        bool(_router_apps136) and bool(_store_apps136) and not _missing136 and not _extra136,
+        f"Check 136: store demoRoute whitelist == router app whitelist ({sorted(_router_apps136)})",
+        f"Check 136: demoRoute ↔ router app whitelist drift — router のみ: {sorted(_missing136)} / "
+        f"store のみ: {sorted(_extra136)}。store.js normalizeProject の demoRoute whitelist を "
+        f"router.js の app whitelist と一致させよ (import 時の demoRoute silent-drop を防ぐ)"
+        if (_router_apps136 and _store_apps136) else
+        "Check 136: router/store の app whitelist 配列を parse できない (両ファイルの構造を確認せよ)",
+        blocking=True,
+    )
+else:
+    check(False, "Check 136: js/router.js and js/store.js present",
+          "Check 136: js/router.js または js/store.js が無い — demoRoute coherence を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
