@@ -131,6 +131,12 @@ MUTATIONS = [
         "find": "{ label: 'Markdown ノート', hash: 'apps/notes' },",
         "replace": "{ label: 'Markdown ノート', hash: 'apps/notes-PROBE' },",
     },
+    {
+        "name": "Check 127 (digest binary re-bake guard): remove the _binary_edited gate (the #252 regression)",
+        "file": ROOT / ".github" / "scripts" / "update_aio_digests.py",
+        "find": "if _binary_edited(webp) or _binary_edited(mp3):",
+        "replace": "if True:  # PROBE: ungated re-bake reproduces #252 weekly desync",
+    },
 ]
 
 
