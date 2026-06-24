@@ -119,6 +119,12 @@ MUTATIONS = [
         "find": '<link rel="stylesheet" href="./style.css">',
         "replace": "<!-- style.css PROBE-REMOVED -->",
     },
+    {
+        "name": "Check 136 (demoRoute↔router coherence): drop 'notes' from store.js demoRoute whitelist",
+        "file": ROOT / "js" / "store.js",
+        "find": "['task', 'todo', 'pomodoro', 'ai', 'notes'].includes(raw.demoRoute)",
+        "replace": "['task', 'todo', 'pomodoro', 'ai'].includes(raw.demoRoute)",
+    },
 ]
 
 
