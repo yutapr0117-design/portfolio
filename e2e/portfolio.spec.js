@@ -267,6 +267,31 @@ test('FatalPage ホームへ recovers from a non-home route too', async ({ page 
   await expect(page.locator('.hero-section')).toBeVisible();
 });
 
+// ===== 7.1: グローバル安全網は正常描画された FatalPage を覆わない (silent-failure 専用) =====
+// fatal-overlay.js の最終安全網 (Shadow DOM) は 2 秒毎の setInterval で __fatalError をチェックする。
+// __fatalError は FatalPage 描画後もセットされたまま (クリアは「ホームへ」のみ) ゆえ、有無だけで判定
+// すると正常な in-app FatalPage を 2 秒後に覆い、その復旧ボタン (ホームへ/データ削除) を押せなくして
+// 全リロードを強制してしまうバグがあった。安全網は「FatalPage を含む全防御層をすり抜けた silent
+// failure」専用なので FatalPage マーカー (#fallback-details) が無いときだけ起動すべき。(A) FatalPage
+// 描画後 2 秒超でも安全網が出ないこと、(B) FatalPage が出ない silent failure では安全網が出ること、を検証。
+test('Global safety net does not cover a rendered FatalPage but still fires on silent failure', async ({ page }) => {
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  // (A) fatal 注入 → FatalPage 描画。安全網 interval(2s) を超えて待っても安全網は出ない。
+  await page.evaluate(() => { window.__fatalError = new Error('E2E_SAFETYNET_PROBE'); window.render(); });
+  await expect(page.locator('#fallback-details')).toBeVisible(); // FatalPage 描画確認
+  await page.waitForTimeout(2500); // safety-net interval(2s) を超えて待つ
+  expect(await page.evaluate(() => !!document.getElementById('portfolio-safety-net-host')),
+    'safety net must NOT cover a working FatalPage').toBe(false);
+  await expect(page.locator('#fallback-details')).toBeVisible(); // FatalPage は健在
+
+  // (B) silent failure を模す: FatalPage マーカーを除去 (= in-app 復旧 UI が出なかった状態)。
+  // __fatalError は依然セットゆえ、次の interval tick で安全網が起動するはず (intent 保持を実証)。
+  await page.evaluate(() => document.getElementById('fallback-details')?.remove());
+  await expect(page.locator('#portfolio-safety-net-host')).toBeAttached({ timeout: 3000 });
+});
+
 // ===== 7.1: ルートエンティティアンカー = 機械可読なエンティティ権威 + 曖昧性排除 (AIO 第一目標) =====
 // injectRouteEntityAnchor (meta-management.js) は #ai-route-entity-anchor (sr-only / aria-hidden) に
 // ルート毎のエンティティ宣言を注入する: 横井雄太 / Yuta Yokoi への帰属、「実装は AI 生成・設計判断は
