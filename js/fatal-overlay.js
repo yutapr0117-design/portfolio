@@ -207,9 +207,17 @@ export function createFatalOverlay({ render }) {
                 } catch { /* Safety net itself failed — nothing more we can do */ }
             }
 
-            // 既存のfatal overlayと協調: __fatalErrorが2秒経っても未処理なら安全網を起動
+            // 既存のfatal overlayと協調: __fatalErrorが2秒経っても未処理なら安全網を起動。
+            // [FIX] __fatalError は FatalPage 描画後もセットされたまま (クリアは FatalPage の「ホームへ」
+            // のみ・components.js)。__fatalError の有無だけで判定すると、正常に描画された in-app の
+            // FatalPage を 2 秒後に Shadow DOM 安全網が覆い、その復旧ボタン (ホームへ / データ削除) を
+            // 押せなくして全リロードを強制してしまう。安全網は「FatalPage を含む他の全防御層をすり抜けた
+            // silent failure」専用ゆえ、FatalPage マーカー (#fallback-details・FatalPage 固有) が
+            // 描画されていないときだけ起動する。
             setInterval(function() {
-                if (window.__fatalError && !document.getElementById('portfolio-safety-net-host')) {
+                if (window.__fatalError
+                    && !document.getElementById('portfolio-safety-net-host')
+                    && !document.getElementById('fallback-details')) {
                     _showSafetyNet(window.__fatalError);
                 }
             }, 2000);
