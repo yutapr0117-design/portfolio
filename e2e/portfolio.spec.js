@@ -953,6 +953,49 @@ test('Mobile drawer traps focus within the dialog (WCAG modal focus trap)', asyn
   expect(await page.evaluate(() => !!document.activeElement?.closest('#app'))).toBe(false);
 });
 
+// ===== 7.2: ドロワーを開放中に再 open しても閉じた時に scroll 位置が保たれる (scroll-clobber 回帰) =====
+// #menuBtn は #topbar 内 = #app の外にあり __setAppInert の inert 対象外ゆえ drawer 開放中も
+// クリック可能。menuBtn は toggle でなく常に openDrawer を呼ぶため、開放中に再クリックすると
+// __lockBodyScroll(true) が body=position:fixed 状態の window.scrollY(=0) を読み __drawerScrollY を
+// 0 に上書きし、close 時に先頭へジャンプする (#262 と同 scroll-clobber 症状・別トリガ)。openDrawer の
+// idempotency ガードでこれを封じる。プログラム的 click (overlay 越しでも ActionDelegator へ bubble) で
+// 再 open を再現し、閉じた後に元の scroll 位置が復元されることを実検証する。
+test('Re-opening the drawer while open preserves scroll position on close (scroll-clobber regression)', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/hiring-risk');
+  await page.waitForLoadState('domcontentloaded');
+
+  // SPA の render() が #content を描画し終える (= ページが十分高くなる) のを待ってからスクロールする。
+  // domcontentloaded は render 前に発火するため、待たずに scrollTo すると #content が空で scrollY=0 になる。
+  await expect(page.getByText('採用リスク低減')).toBeVisible();
+
+  // 長いページで下方へスクロール (instant: CSS scroll-behavior:smooth のアニメーションを避け同期確定)。
+  await page.evaluate(() => window.scrollTo({ top: 400, left: 0, behavior: 'instant' }));
+  const before = await page.evaluate(() => Math.round(window.scrollY));
+  expect(before, 'precondition: page must be scrollable so the test is non-vacuous').toBeGreaterThan(0);
+
+  // open #1 → __drawerScrollY = before。programmatic click を使う: Playwright の通常 click は
+  // actionability で要素を可視化するためページを scroll(=scrollY を 0 にリセット)してしまい、
+  // sticky な menuBtn をタップする実機挙動 (scroll 維持) と乖離するため。
+  await page.evaluate(() => document.getElementById('menuBtn').click());
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
+
+  // 開放中に再 open を試みる (programmatic click は overlay 越しでも ActionDelegator へ bubble する)。
+  // 修正前は __drawerScrollY が 0 に上書きされる。
+  await page.evaluate(() => document.getElementById('menuBtn').click());
+
+  // Escape で閉じる → scroll が復元される (smooth アニメーションの settle を poll で待つ)
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'true');
+
+  // 修正前は __drawerScrollY=0 ゆえ先頭(0)へ戻り poll が before に到達せず fail する。
+  await expect.poll(() => page.evaluate(() => Math.round(window.scrollY)),
+    { message: `scroll must restore to ${before}, not jump to top` }).toBe(before);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `drawer re-open caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: ドロワー overlay(背景)クリックで閉じる (モーダル backdrop dismiss) =====
 // main.js は #overlay のクリックで closeDrawer を呼ぶ (main.js:800)。Escape / nav-link クローズ
 // とは別の「背景クリックで閉じる」モーダル標準挙動で未カバーだった。開いて overlay をクリック →

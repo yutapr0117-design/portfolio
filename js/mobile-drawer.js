@@ -141,6 +141,15 @@ export function createMobileDrawer({ CONSTANTS, clear, Sidebar }) {
 
         if (!drawer || !overlay) {return;}
 
+        // [FIX] 既に開いている場合は再入しない (idempotency)。#menuBtn は #topbar 内＝#app の外に
+        // あり __setAppInert の inert 対象外ゆえ、drawer 開放中も menuBtn はクリック可能。menuBtn は
+        // toggle でなく常に openDrawer を呼ぶため、開放中の再クリックで __lockBodyScroll(true) が
+        // body=position:fixed 状態の window.scrollY (=0) を読み __drawerScrollY を 0 に上書きし、
+        // close 時に window.scrollTo(0,0) で先頭へジャンプする scroll-clobber バグになる (#262 と
+        // 同症状・別トリガ)。再入を防ぐと __trapFocus の二重 addEventListener leak も同時に封じる。
+        // (command-palette open() の `if (isOpen()) return` と同じ idempotency ガード)
+        if (drawer.getAttribute('aria-hidden') === 'false') {return;}
+
         __drawerLastFocused = document.activeElement;
 
         clear(drawer);
