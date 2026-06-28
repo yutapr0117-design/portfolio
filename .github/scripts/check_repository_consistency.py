@@ -934,6 +934,15 @@ authoritative inventory and is kept in sync with the implementation below):
        of Check 154 (description coherence) for the title axis. The `<title>` tag is intentionally
        allowed to differ (different length budget for SERP vs cards), so this Check restricts to
        og/twitter pair only. Both meta tags must be present and equal. (BLOCKING)
+  156. og:type valid enumeration + og:site_name presence: the index.html `<meta property="og:type">`
+       must have a content value in the small valid OG type enumeration used by this site
+       ('website' or 'article' — the only types referenced by meta-management.js's dynamic injection
+       per SITE_CONFIG.ARTICLE_ROUTES), and `<meta property="og:site_name">` must be present (any
+       non-empty value). Silent removal of og:site_name strips the site identifier from card
+       previews (entity context loss); an invalid og:type value (typo / removed enumeration member)
+       leaves social crawlers fallback to a generic preview, losing article-vs-page disambiguation.
+       This Check is a presence + enumeration sanity gate, complementing the dynamic-injection
+       coverage of Check 148 (ARTICLE_ROUTES ⊆ PAGE_META). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6381,6 +6390,48 @@ if _idx155.exists():
 else:
     check(False, "Check 155: index.html present",
           "Check 155: index.html が無い — title 整合を検証できない",
+          blocking=True)
+
+# ── 156. og:type valid enumeration + og:site_name presence (BLOCKING) ─────────
+# index.html の og:type content が valid OG type enumeration ('website' or
+# 'article' — meta-management.js の dynamic injection / SITE_CONFIG.ARTICLE_ROUTES
+# で扱う唯一の type 集合) であり、og:site_name meta が presence であることを
+# BLOCKING 強制する。og:site_name 欠落は card preview から site 識別子を奪い
+# entity context が失われ、og:type の invalid 値 (typo / 列挙外) は social
+# crawler が generic preview にフォールバックし article-vs-page 区別が失われる。
+# presence + enumeration sanity の二段。Check 148 (ARTICLE_ROUTES ⊆ PAGE_META)
+# の dynamic injection 軸を補完する static surface 検証。
+_idx156 = ROOT / "index.html"
+if _idx156.exists():
+    _isrc156 = _idx156.read_text(encoding="utf-8")
+    _ogt156_m = re.search(
+        r'<meta\s+property=["\']og:type["\']\s+content=["\']([^"\']+)["\']', _isrc156
+    )
+    _ogs156_m = re.search(
+        r'<meta\s+property=["\']og:site_name["\']\s+content=["\']([^"\']+)["\']', _isrc156
+    )
+    _ogt156 = _ogt156_m.group(1) if _ogt156_m else None
+    _ogs156 = _ogs156_m.group(1) if _ogs156_m else None
+    _valid_types156 = {"website", "article"}
+    _ok156 = (
+        _ogt156 in _valid_types156
+        and _ogs156 is not None
+        and _ogs156.strip() != ""
+    )
+    check(
+        _ok156,
+        f"Check 156: og:type={_ogt156!r} ∈ {_valid_types156} + og:site_name 存在 ({_ogs156!r})",
+        (f"Check 156: og 整合性 fail: og:type={_ogt156!r} (valid={_valid_types156}) / "
+         f"og:site_name={_ogs156!r}. og:type は 'website'/'article' のいずれか・"
+         "og:site_name は非空文字列 (card preview の site 識別子) 必須。"
+         "index.html の <meta property=og:type> / <meta property=og:site_name> を修正せよ"
+         if (_ogt156 is not None or _ogs156 is not None) else
+         "Check 156: og:type / og:site_name meta を抽出できない"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 156: index.html present",
+          "Check 156: index.html が無い — og:type/og:site_name 整合を検証できない",
           blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
