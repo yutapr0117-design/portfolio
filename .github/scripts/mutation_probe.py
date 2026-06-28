@@ -211,6 +211,12 @@ MUTATIONS = [
         "find": "uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6",
         "replace": "uses: actions/checkout@v6",
     },
+    {
+        "name": "Check 146 (relatedProjectIds integrity): point a relatedProjectId at a non-existent project",
+        "file": ROOT / "js" / "store.js",
+        "find": '["p16", "p17", "p18"], [], "ai"',
+        "replace": '["p16", "p17", "p99"], [], "ai"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
