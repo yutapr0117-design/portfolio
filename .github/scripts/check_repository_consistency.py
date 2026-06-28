@@ -960,6 +960,13 @@ authoritative inventory and is kept in sync with the implementation below):
        without any console error or behavior-test signal, and the regression is hard to bisect
        later (the missing hints are just slow, not broken). Three-marker presence check; any one
        missing fails. (BLOCKING)
+  159. JSON-LD `@context` cross-surface coherence: every `"@context"` (or `'@context'`) value in
+       JSON-LD scattered across index.html (static blocks) + main.js + js/meta-management.js
+       (dynamic injections) must be the single canonical value `https://schema.org`. Drift to a
+       trailing slash, an http:// variant, or a different schema vocabulary is SILENT — JSON
+       parses, the block ships, but AI/SEO crawlers fail to recognize the schema and the entire
+       structured-data signal collapses to "unknown vocabulary". Collected into a single set with
+       cardinality 1 expected (the universally accepted canonical URL). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6528,6 +6535,45 @@ if _idx158.exists():
 else:
     check(False, "Check 158: index.html present",
           "Check 158: index.html が無い — Google Fonts hint presence を検証できない",
+          blocking=True)
+
+# ── 159. JSON-LD @context cross-surface coherence (BLOCKING) ───────────────────
+# 全 JSON-LD `@context` 値 (index.html 静的 ∪ main.js 動的 ∪ js/meta-management.js
+# 動的) が canonical 値 'https://schema.org' 一つに揃うことを BLOCKING 強制する。
+# drift (trailing slash / http: / 別 schema vocabulary) は SILENT — JSON 自体は
+# parse できるが AI/SEO crawler が schema を recognize できず structured-data signal
+# 全体が unknown vocabulary 扱いで崩壊する。全 surface から値を抽出し set
+# cardinality が 1 で且つ canonical 値であることを検証。
+_idx159 = ROOT / "index.html"
+_main159 = ROOT / "main.js"
+_meta159 = ROOT / "js" / "meta-management.js"
+if _idx159.exists() and _main159.exists() and _meta159.exists():
+    _ctx159: set[str] = set()
+    _count159 = 0
+    for _p159 in [_idx159, _main159, _meta159]:
+        _src159 = _p159.read_text(encoding="utf-8")
+        for _v159 in re.findall(
+            r"""['"]@context['"]\s*:\s*['"]([^'"]+)['"]""", _src159
+        ):
+            _ctx159.add(_v159)
+            _count159 += 1
+    _expected159 = "https://schema.org"
+    _ok159 = _count159 > 0 and _ctx159 == {_expected159}
+    check(
+        _ok159,
+        f"Check 159: JSON-LD @context {_count159} 件すべて canonical {_expected159!r}",
+        (f"Check 159: @context drift: 観測値={_ctx159} (期待={_expected159!r}) — "
+         "JSON-LD は parse できるが AI/SEO crawler が schema vocabulary を recognize できず "
+         "structured-data signal 全体が unknown 扱いで崩壊する。"
+         "index.html / main.js / js/meta-management.js の @context を 'https://schema.org' "
+         "に統一せよ"
+         if _count159 > 0 else
+         "Check 159: JSON-LD @context が一件も見つからない (vacuous-fail)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 159: index.html + main.js + js/meta-management.js present",
+          "Check 159: JSON-LD @context coherence 検証に必要な 3 source のいずれかが無い",
           blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
