@@ -918,6 +918,15 @@ authoritative inventory and is kept in sync with the implementation below):
        canonical-URL invariant to the image surface of OG/Twitter cards (the visual portion of any
        external mention of the site). Both meta tags must be present; either drifting from the
        canonical prefix fails the Check. (BLOCKING)
+  154. og:description ↔ twitter:description coherence + 3-way presence: the index.html `<meta
+       property="og:description">` and `<meta name="twitter:description">` content must be
+       byte-identical (both are card-preview descriptions with the same length budget), and
+       `<meta name="description">` (the longer SERP-targeted description) must also be present.
+       Drift between og: and twitter: descriptions is SILENT — different social/AI crawlers show
+       different card text for the same page (LinkedIn/Slack vs Twitter), splitting the entity
+       narrative. The `<meta name="description">` is intentionally a different (longer) string for
+       SERP/AI crawler ingestion, so this Check does NOT require it to match og/twitter; only that
+       it exists (vacuous-guard against silent removal). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6284,6 +6293,50 @@ if _idx153.exists():
 else:
     check(False, "Check 153: index.html present",
           "Check 153: index.html が無い — image URL canonical 整合を検証できない",
+          blocking=True)
+
+# ── 154. description 3-way presence + og/twitter coherence (BLOCKING) ─────────
+# index.html の og:description と twitter:description content が byte-identical
+# (card preview の同尺 description)、かつ <meta name="description"> も presence
+# 必須を BLOCKING 強制する。drift は SILENT — LinkedIn/Slack 等 OG consumer と
+# Twitter 等 twitter: consumer が同じ page を別 card text で見せ entity narrative
+# が split する。<meta name="description"> は SERP/AI crawler 向けに intentionally
+# 長文ゆえ og/twitter と一致は強制しない (presence のみ vacuous-guard)。
+_idx154 = ROOT / "index.html"
+if _idx154.exists():
+    _isrc154 = _idx154.read_text(encoding="utf-8")
+    _meta154_m = re.search(
+        r'<meta\s+name=["\']description["\']\s+content=["\']([^"\']+)["\']', _isrc154
+    )
+    _og154_m = re.search(
+        r'<meta\s+property=["\']og:description["\']\s+content=["\']([^"\']+)["\']', _isrc154
+    )
+    _tw154_m = re.search(
+        r'<meta\s+name=["\']twitter:description["\']\s+content=["\']([^"\']+)["\']', _isrc154
+    )
+    _meta154 = _meta154_m.group(1) if _meta154_m else None
+    _og154 = _og154_m.group(1) if _og154_m else None
+    _tw154 = _tw154_m.group(1) if _tw154_m else None
+    _all_present154 = _meta154 and _og154 and _tw154
+    _og_tw_match154 = _og154 == _tw154 if (_og154 and _tw154) else False
+    check(
+        bool(_all_present154) and _og_tw_match154,
+        f"Check 154: description 3 surface presence ✓ + og==twitter byte-identical ✓",
+        (f"Check 154: description drift / 欠落: meta-description {'OK' if _meta154 else '欠落'} / "
+         f"og:description {'OK' if _og154 else '欠落'} / twitter:description "
+         f"{'OK' if _tw154 else '欠落'} / og==twitter: {_og_tw_match154}。"
+         "og:description と twitter:description は card preview 同尺で byte-identical 必須 "
+         "(LinkedIn/Slack vs Twitter で別 card text を見せると entity narrative が split)。"
+         "<meta name=\"description\"> は SERP 向けに別文字列でよいが presence は必須"
+         if _all_present154 else
+         f"Check 154: 必須 meta description が欠落 "
+         f"(name=description={_meta154 is not None} / og:description={_og154 is not None} / "
+         f"twitter:description={_tw154 is not None})"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 154: index.html present",
+          "Check 154: index.html が無い — description 整合を検証できない",
           blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
