@@ -277,6 +277,12 @@ MUTATIONS = [
         "find": '<meta property="og:type" content="website" />',
         "replace": '<meta property="og:type" content="probe-invalid-type" />',
     },
+    {
+        "name": "Check 157 (mobile/PWA meta presence): remove the viewport meta tag",
+        "file": ROOT / "index.html",
+        "find": '<meta name="viewport" content="width=device-width, initial-scale=1" />',
+        "replace": "<!-- viewport PROBE-REMOVED -->",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
