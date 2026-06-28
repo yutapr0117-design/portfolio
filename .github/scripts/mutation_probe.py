@@ -205,6 +205,12 @@ MUTATIONS = [
         "find": '    "ChatGPT2ChatGPT.md":                        ROOT / "ChatGPT2ChatGPT.md",\n',
         "replace": "",
     },
+    {
+        "name": "Check 145 (action SHA-pin): revert a pinned action ref to a mutable @v tag",
+        "file": ROOT / ".github" / "workflows" / "architecture-validation.yml",
+        "find": "uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6",
+        "replace": "uses: actions/checkout@v6",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
