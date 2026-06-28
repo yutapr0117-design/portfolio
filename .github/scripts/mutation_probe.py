@@ -289,6 +289,12 @@ MUTATIONS = [
         "find": '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />',
         "replace": "<!-- gstatic preconnect PROBE-REMOVED -->",
     },
+    {
+        "name": "Check 159 (JSON-LD @context coherence): drift @context to trailing-slash variant in main.js",
+        "file": ROOT / "main.js",
+        "find": "'@context': 'https://schema.org',",
+        "replace": "'@context': 'https://schema.org/',",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
