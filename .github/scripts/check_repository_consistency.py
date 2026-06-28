@@ -882,6 +882,14 @@ authoritative inventory and is kept in sync with the implementation below):
        dangling Speakable selectors). This Check parses the array literal in main.js, parses
        PAGE_META top-level keys (4-space-indented `key: {` form), and asserts ARTICLE_ROUTES is
        non-empty, PAGE_META is non-empty, and the subset holds. (BLOCKING)
+  149. Canonical URL three-way coherence (`<link rel="canonical">` ↔ aio-manifest.json
+       entity.canonical_url ↔ main.js SITE_CONFIG.CANONICAL_URL): the canonical URL string must be
+       byte-identical across all three primary declaration surfaces. Drift is SILENT but corrupts
+       AIO entity identity — AI crawlers see conflicting canonical signals from different surfaces
+       and cannot anchor the entity to one URL (the entire AIO surface is built on this single
+       string being the authoritative identifier). Check 62 already enforces manifest ↔ llms-full.txt
+       coherence; this Check closes the third edge (the link rel=canonical + the runtime SITE_CONFIG
+       used by dynamic JSON-LD injection). Trailing slashes and origin must match exactly. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6041,6 +6049,49 @@ else:
     check(False, "Check 148: main.js + js/page-meta.js present",
           "Check 148: main.js もしくは js/page-meta.js が無い — ARTICLE_ROUTES 整合性を検証できない",
           blocking=True)
+
+# ── 149. Canonical URL three-way coherence (BLOCKING) ──────────────────────────
+# canonical URL は AIO entity identifier の単一源。3 surface (index.html
+# <link rel=canonical> href / aio-manifest.json entity.canonical_url / main.js
+# SITE_CONFIG.CANONICAL_URL) が drift すると AI crawler が複数の canonical signal を
+# 見て entity を一つの URL に anchor できず AIO 全体が崩れる。Check 62 が manifest ↔
+# llms-full.txt 整合を強制済なので、本 Check は残る 2 edge (link[rel=canonical] と
+# SITE_CONFIG) を manifest と byte-identical に固定する。trailing slash / origin も完全一致必須。
+_idx149 = ROOT / "index.html"
+_man149 = ROOT / ".well-known" / "aio-manifest.json"
+_main149 = ROOT / "main.js"
+if _idx149.exists() and _man149.exists() and _main149.exists():
+    _isrc149 = _idx149.read_text(encoding="utf-8")
+    _msrc149 = _main149.read_text(encoding="utf-8")
+    try:
+        _mdata149 = json.loads(_man149.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _mdata149 = {}
+    _link149_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc149
+    )
+    _link149 = _link149_m.group(1) if _link149_m else None
+    _manifest149 = _mdata149.get("entity", {}).get("canonical_url")
+    _sc149_m = re.search(r"CANONICAL_URL:\s*['\"]([^'\"]+)['\"]", _msrc149)
+    _site_config149 = _sc149_m.group(1) if _sc149_m else None
+    _all_extracted149 = all([_link149, _manifest149, _site_config149])
+    _all_match149 = _all_extracted149 and (_link149 == _manifest149 == _site_config149)
+    check(
+        _all_match149,
+        f"Check 149: canonical URL 3-way 一致 ({_link149!r})",
+        (f"Check 149: canonical URL drift: link[rel=canonical]={_link149!r} / "
+         f"aio-manifest.entity.canonical_url={_manifest149!r} / "
+         f"main.js SITE_CONFIG.CANONICAL_URL={_site_config149!r}. "
+         "AI crawler が一つの entity を複数 canonical signal で見て identity が崩れる。"
+         "3 surface を完全一致させよ (trailing slash / origin も含めて byte-identical)"
+         if _all_extracted149 else
+         "Check 149: 3 surface のいずれかから canonical URL を抽出できない "
+         f"(link={_link149} / manifest={_manifest149} / SITE_CONFIG={_site_config149})"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 149: index.html + aio-manifest.json + main.js present",
+          "Check 149: canonical URL 検証に必要な 3 source のいずれかが無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
