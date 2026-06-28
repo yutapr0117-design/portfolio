@@ -847,6 +847,16 @@ authoritative inventory and is kept in sync with the implementation below):
        attack surface. This Check parses every uses: ref and asserts a 40-hex SHA (local `./` actions
        are exempt), preventing regression to mutable tags; the human-readable `# vN` comment stays
        and dependabot (github-actions, Check 68) keeps the pins current. (BLOCKING)
+  146. Default projects' relatedProjectIds are referentially intact: every id listed in a
+       defaultProjects entry's relatedProjectIds (store.js) must reference an actually-existing
+       default project id. A dangling reference (a typo'd or removed-project id) is SILENT: the
+       related-projects UI falls back to autoRelatedCandidates (a similarity score), which quietly
+       fills the gap so the section still looks populated — the curator's explicit, intended
+       relation is lost with no visible symptom (the graceful-fallback-masks-a-bug class, cf. the
+       NotFound/FatalPage vacuous-pass lesson). This Check collects the project-id set (proj() first
+       arg) and every pNN id referenced in a relatedProjectIds array literal, asserting no reference
+       is dangling (and that some references exist, so it can't pass vacuously). Sibling of Check 141
+       (which guards id/slug uniqueness); this guards referential integrity. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5857,6 +5867,42 @@ if _wf_dir145.is_dir():
 else:
     check(False, "Check 145: .github/workflows ディレクトリ present",
           "Check 145: .github/workflows が無い — action SHA-pin を検証できない", blocking=True)
+
+# ── 146. Default projects' relatedProjectIds are referentially intact (BLOCKING) ─
+# defaultProjects (store.js) の各エントリの relatedProjectIds に列挙される全 id が、実在する
+# default project id を参照することを強制。dangling 参照 (typo / 削除済 project の id) は SILENT:
+# 関連プロジェクト UI は autoRelatedCandidates (類似度スコア) で欠落を埋めるため section は
+# populated に見え、curator の明示的・意図的な関連付けが無症状で失われる (graceful-fallback が
+# bug を masking する class・cf. NotFound/FatalPage の vacuous-pass 教訓)。本 Check は project-id
+# 集合 (proj() 第1引数) と relatedProjectIds 配列リテラル内の全 pNN 参照を収集し、dangling が無い
+# こと (かつ参照が 1 件以上存在し vacuous に pass しないこと) を検証する。Check 141 (id/slug
+# 一意性) の兄弟で、こちらは referential integrity を守る。
+_store146 = ROOT / "js" / "store.js"
+if _store146.exists():
+    _src146 = _store146.read_text(encoding="utf-8")
+    _ids146 = set(re.findall(r'proj\(\s*"([a-z0-9_]+)"', _src146))
+    # relatedProjectIds = pNN のみから成る配列リテラル (store.js で純 pNN 配列は relatedIds のみ)
+    _ref146 = set()
+    for _arr146 in re.findall(r'\[((?:\s*"p[0-9]+"\s*,?)+)\]', _src146):
+        for _r146 in re.findall(r'"(p[0-9]+)"', _arr146):
+            _ref146.add(_r146)
+    _dangling146 = sorted(_ref146 - _ids146)
+    check(
+        bool(_ids146) and bool(_ref146) and not _dangling146,
+        f"Check 146: defaultProjects の relatedProjectIds は全て実在 project を参照 "
+        f"({len(_ids146)} projects, {len(_ref146)} 参照, dangling 0)",
+        (f"Check 146: dangling relatedProjectId 検出: {_dangling146} — 実在しない project を "
+         "参照している。関連プロジェクト UI は autoRelatedCandidates (類似度 fallback) で欠落を "
+         "silent に埋めるため curator の明示的関連付け意図が無言で失われる。store.js の "
+         "defaultProjects で参照先 id を修正せよ"
+         if _ids146 and _ref146 else
+         "Check 146: store.js から project id / relatedProjectIds を抽出できない "
+         "(defaultProjects の構造を確認せよ)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 146: js/store.js present",
+          "Check 146: js/store.js が無い — relatedProjectIds 整合性を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
