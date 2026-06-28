@@ -241,6 +241,12 @@ MUTATIONS = [
         "find": '<meta property="og:url" content="https://yutapr0117-design.github.io/portfolio/" />',
         "replace": '<meta property="og:url" content="https://yutapr0117-design.github.io/portfolio-PROBE-OG-DRIFT/" />',
     },
+    {
+        "name": "Check 151 (e2e test title uniqueness): duplicate an existing test title",
+        "file": ROOT / "e2e" / "portfolio.spec.js",
+        "find": "test('Homepage renders without console errors'",
+        "replace": "test('AIO asset anchor must be hidden (non-visual)'",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
