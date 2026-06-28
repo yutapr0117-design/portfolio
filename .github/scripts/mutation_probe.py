@@ -268,6 +268,27 @@ E2E_MUTATIONS = [
         "replace": "if (!isRouteChange && content && _focusWasLost) {",
         "test": "Route change moves focus to the new page heading",
     },
+    {
+        "name": "behavior: resilience — localStorage quota 超過の握り潰し (storage.set try/catch) の喪失",
+        "file": ROOT / "js" / "storage.js",
+        "find": "        try {\n            // codeql[js/clear-text-storage-of-sensitive-data] - False positive:\n            // Stores portfolio UI state (task list, theme, pomodoro history).\n            // No credentials, tokens, or PII are stored in localStorage.\n            localStorage.setItem(key, value);\n            return true;\n        } catch {\n            return false;\n        }",
+        "replace": "        localStorage.setItem(key, value);\n        return true;",
+        "test": "Task app degrades gracefully when localStorage write quota",
+    },
+    {
+        "name": "behavior: a11y — mobile drawer focus-trap (WCAG modal) の喪失 (Tab が背景へ漏れる)",
+        "file": ROOT / "js" / "mobile-drawer.js",
+        "find": "if (e.key !== 'Tab') {return;}",
+        "replace": "if (e.key !== 'Tab-DISABLED') {return;}",
+        "test": "Mobile drawer traps focus within the dialog",
+    },
+    {
+        "name": "behavior: a11y — command palette focus-trap の喪失 (Tab が背景へ漏れる)",
+        "file": ROOT / "js" / "command-palette.js",
+        "find": "else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }",
+        "replace": "else if (!e.shiftKey && document.activeElement === last) { /* trap disabled */ }",
+        "test": "Command palette traps Tab focus inside the modal",
+    },
 ]
 
 
