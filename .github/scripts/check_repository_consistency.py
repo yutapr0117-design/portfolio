@@ -872,6 +872,16 @@ authoritative inventory and is kept in sync with the implementation below):
        asserts each remaining #id/.class token exists in the corpus by word-boundary literal scan.
        Fails vacuously if SPEAKABLE_SELECTORS cannot be extracted or yields zero non-generic tokens
        to check. (BLOCKING)
+  148. SITE_CONFIG.ARTICLE_ROUTES ⊆ PAGE_META keys (Article JSON-LD route coherence): every route
+       name listed in SITE_CONFIG.ARTICLE_ROUTES (main.js — the routes that get og:type=article and
+       an injected Article JSON-LD node) must exist as a top-level key in PAGE_META (js/page-meta.js).
+       A dangling ARTICLE_ROUTES entry is SILENT: applyMeta() early-returns when meta is missing,
+       leaving fullTitle/desc empty; injectStructuredData() still runs (it does not consult
+       PAGE_META) and emits an Article node with empty headline/description — a silently malformed
+       AIO surface with no console error and no behavior-test signal (sibling class to Check 147
+       dangling Speakable selectors). This Check parses the array literal in main.js, parses
+       PAGE_META top-level keys (4-space-indented `key: {` form), and asserts ARTICLE_ROUTES is
+       non-empty, PAGE_META is non-empty, and the subset holds. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5988,6 +5998,48 @@ if _meta147.exists():
 else:
     check(False, "Check 147: js/meta-management.js present",
           "Check 147: js/meta-management.js が無い — Speakable selector 整合性を検証できない",
+          blocking=True)
+
+# ── 148. SITE_CONFIG.ARTICLE_ROUTES ⊆ PAGE_META keys (BLOCKING) ─────────────────
+# SITE_CONFIG.ARTICLE_ROUTES (main.js) は injectStructuredData が「og:type=article かつ
+# Article JSON-LD ノード注入」を適用する route 集合。route 名が PAGE_META (js/page-meta.js)
+# に無いと applyMeta が早期 return し fullTitle/desc が空のまま、injectStructuredData は
+# (PAGE_META を参照せずに) Article JSON-LD を空 headline/description で注入する silent
+# AIO 不整合 (console error 無し・behavior e2e 非検出)。本 Check は ARTICLE_ROUTES の
+# 全 route 名が PAGE_META top-level keys に存在することを BLOCKING 強制し、ARTICLE_ROUTES
+# が空 / 抽出不可 / PAGE_META が空 / dangling >0 なら fail。Check 147 (dangling Speakable
+# selector) の AIO 配線版兄弟。
+_main148 = ROOT / "main.js"
+_meta148 = ROOT / "js" / "page-meta.js"
+if _main148.exists() and _meta148.exists():
+    _msrc148 = _main148.read_text(encoding="utf-8")
+    _psrc148 = _meta148.read_text(encoding="utf-8")
+    _ar148 = re.search(r"ARTICLE_ROUTES:\s*\[([^\]]+)\]", _msrc148)
+    _routes148: list[str] = []
+    if _ar148:
+        _routes148 = re.findall(r"['\"]([^'\"]+)['\"]", _ar148.group(1))
+    # PAGE_META top-level key = 4-space indent + (quoted|bare) ident + `:` + `{`
+    # 値オブジェクトの内側は 8-space indent なので 4-space 完全一致で top-level だけを拾える。
+    _pm_keys148: set[str] = set()
+    for _k148 in re.findall(r"^\s{4}'?([A-Za-z][\w-]*)'?:\s*\{", _psrc148, re.MULTILINE):
+        _pm_keys148.add(_k148)
+    _dangling148 = sorted(r for r in _routes148 if r not in _pm_keys148)
+    check(
+        bool(_routes148) and bool(_pm_keys148) and not _dangling148,
+        f"Check 148: ARTICLE_ROUTES ({_routes148}) すべて PAGE_META keys "
+        f"({len(_pm_keys148)} 件) に存在 (Article JSON-LD 整合性)",
+        (f"Check 148: dangling ARTICLE_ROUTES: {_dangling148} — PAGE_META に存在しない route 名。"
+         "applyMeta は早期 return し fullTitle/desc が空のまま Article JSON-LD が空 headline/"
+         "description で silent に注入される。main.js SITE_CONFIG.ARTICLE_ROUTES から dead "
+         "route を除去するか js/page-meta.js PAGE_META に対応 entry を追加せよ"
+         if _routes148 and _pm_keys148 else
+         "Check 148: ARTICLE_ROUTES もしくは PAGE_META keys を抽出できない "
+         "(main.js / js/page-meta.js の構造を確認せよ)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 148: main.js + js/page-meta.js present",
+          "Check 148: main.js もしくは js/page-meta.js が無い — ARTICLE_ROUTES 整合性を検証できない",
           blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
