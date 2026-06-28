@@ -295,6 +295,12 @@ MUTATIONS = [
         "find": "'@context': 'https://schema.org',",
         "replace": "'@context': 'https://schema.org/',",
     },
+    {
+        "name": "Check 160 (sw.js path canonical-pathname): drift an AIO_FILES path off canonical prefix",
+        "file": ROOT / "sw.js",
+        "find": "'/portfolio/llms.txt'",
+        "replace": "'/different-prefix/llms.txt'",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
