@@ -307,6 +307,12 @@ MUTATIONS = [
         "find": "User-agent: *\nAllow: /llms-full.txt",
         "replace": "User-agent: *\nDisallow: /\nAllow: /llms-full.txt",
     },
+    {
+        "name": "Check 162 (.gitignore baseline): remove node_modules/ rule",
+        "file": ROOT / ".gitignore",
+        "find": "node_modules/\n",
+        "replace": "",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
