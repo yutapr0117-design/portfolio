@@ -828,6 +828,16 @@ authoritative inventory and is kept in sync with the implementation below):
        workflow's push paths — either as a literal entry or via a `prefix/**` glob — keeping "the
        files the manifest digests" wired to "the automation that maintains those digests" (the
        producer/consumer-drift / file-exists≠file-wired class, cf. Check 132/142). (BLOCKING)
+  144. Digest-regen tool's file map matches the manifest: update_aio_digests.py is the automation
+       that recomputes manifest sha256 digests, and the EXACT set of files it can refresh is the
+       hardcoded MANIFEST_PATH_TO_LOCAL dict. Check 143 guarantees the WORKFLOW fires on a digested
+       file's change, but once fired the tool can only refresh files present in this dict. If a
+       manifest entry has a sha256 but no dict key, the workflow fires yet that file's digest is
+       never recomputed — and since the tool can't fix it, the BLOCKING check_aio_digests.py gate
+       becomes un-auto-fixable (a human must hand-compute the sha256). This Check asserts the dict's
+       key set is a bijection with the manifest's digested-path set (every dict key is a digested
+       manifest path AND every digested manifest path is a dict key), closing the consumer-side edge
+       of the digest-automation chain (paths→tool-dict→manifest), cf. Check 143. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5736,6 +5746,67 @@ else:
     check(False, "Check 143: aio-manifest.json と auto-update-aio-digests.yml present",
           "Check 143: aio-manifest.json または auto-update-aio-digests.yml が無い — "
           "digest 自動化カバレッジを検証できない", blocking=True)
+
+# ── 144. Digest-regen tool's file map matches the manifest (BLOCKING) ───────────
+# update_aio_digests.py は manifest sha256 を再計算する自動化で、再生成できる file 集合は
+# ハードコードの MANIFEST_PATH_TO_LOCAL dict が正本。Check 143 は WORKFLOW の発火を保証するが、
+# 発火後 tool が refresh できるのは本 dict にある file だけ。manifest entry が sha256 を持つのに
+# dict key が無いと、workflow は発火しても該当 digest は再計算されず、tool が直せないため BLOCKING
+# check_aio_digests.py gate が auto-fix 不能 (人手で sha256 計算が必要) になる。本 Check は dict の
+# key 集合が manifest の digested-path 集合と bijection (全 dict key が digested manifest path かつ
+# 全 digested manifest path が dict key) であることを強制し、digest-automation chain
+# (paths→tool-dict→manifest) の consumer 側エッジを閉じる (cf. Check 143)。
+_manifest144 = ROOT / ".well-known" / "aio-manifest.json"
+_tool144 = ROOT / ".github" / "scripts" / "update_aio_digests.py"
+if _manifest144.exists() and _tool144.exists():
+    _mdata144 = json.loads(_manifest144.read_text(encoding="utf-8"))
+    _manifest_digested144 = set()
+    for _cat144 in ("source_of_truth", "supporting_evidence", "observational_evidence"):
+        for _e144 in _mdata144.get(_cat144, []):
+            _p144 = _e144.get("path")
+            if _p144 and _e144.get("sha256"):
+                _manifest_digested144.add(_p144)
+    # ast で MANIFEST_PATH_TO_LOCAL の dict literal key 群を抽出 (import 副作用を避ける)。
+    _tool_keys144 = set()
+    _parse_ok144 = False
+    try:
+        _tree144 = ast.parse(_tool144.read_text(encoding="utf-8"))
+        for _node144 in ast.walk(_tree144):
+            if isinstance(_node144, ast.AnnAssign):
+                _target144 = _node144.target
+            elif isinstance(_node144, ast.Assign):
+                _target144 = _node144.targets[0] if _node144.targets else None
+            else:
+                continue
+            if (isinstance(_target144, ast.Name)
+                    and _target144.id == "MANIFEST_PATH_TO_LOCAL"
+                    and isinstance(_node144.value, ast.Dict)):
+                for _k144 in _node144.value.keys:
+                    if isinstance(_k144, ast.Constant) and isinstance(_k144.value, str):
+                        _tool_keys144.add(_k144.value)
+                _parse_ok144 = True
+    except SyntaxError:
+        _parse_ok144 = False
+    _missing_in_tool144 = sorted(_manifest_digested144 - _tool_keys144)
+    _orphan_in_tool144 = sorted(_tool_keys144 - _manifest_digested144)
+    check(
+        _parse_ok144 and bool(_manifest_digested144)
+        and not _missing_in_tool144 and not _orphan_in_tool144,
+        f"Check 144: update_aio_digests.py の MANIFEST_PATH_TO_LOCAL ({len(_tool_keys144)} keys) は "
+        f"manifest の digested-path 集合と bijection (digest 再生成 tool が全 manifest file を被覆)",
+        (f"Check 144: digest-regen tool ↔ manifest drift — manifest にあり tool dict に無い "
+         f"(再生成不能 = gate auto-fix 不能): {_missing_in_tool144} / tool dict にあり manifest に無い "
+         f"(orphan): {_orphan_in_tool144}。update_aio_digests.py の MANIFEST_PATH_TO_LOCAL を manifest の "
+         f"digested entry と一致させよ"
+         if _parse_ok144 and _manifest_digested144 else
+         "Check 144: MANIFEST_PATH_TO_LOCAL を ast で抽出できない、または manifest digested path が空 "
+         "(update_aio_digests.py / aio-manifest.json の構造を確認せよ)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 144: aio-manifest.json と update_aio_digests.py present",
+          "Check 144: aio-manifest.json または update_aio_digests.py が無い — "
+          "digest-regen tool カバレッジを検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
