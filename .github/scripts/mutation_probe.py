@@ -289,6 +289,13 @@ E2E_MUTATIONS = [
         "replace": "else if (!e.shiftKey && document.activeElement === last) { /* trap disabled */ }",
         "test": "Command palette traps Tab focus inside the modal",
     },
+    {
+        "name": "behavior: pomodoro complete (#121) — getRemaining の stale-closure 化で timer が永遠に未完了",
+        "file": ROOT / "js" / "apps.js",
+        "find": "            const rt = State.get().appsData.pomodoro.runtime;\n            if (rt.isActive && rt.endAtMs) {",
+        "replace": "            const rt = pomo.runtime;\n            if (rt.isActive && rt.endAtMs) {",
+        "test": "Pomodoro completes when the clock reaches zero",
+    },
 ]
 
 
