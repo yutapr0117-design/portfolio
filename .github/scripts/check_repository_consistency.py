@@ -974,6 +974,12 @@ authoritative inventory and is kept in sync with the implementation below):
        SW continues to register but its hardcoded paths no longer match any incoming request URLs,
        so SW-cached AIO file requests silently miss the SW interception layer. Skips literal `/`
        (root). (BLOCKING)
+  161. robots.txt User-agent: * baseline presence: robots.txt must declare a `User-agent: *` block
+       and that block must permit crawling (no `Disallow: /` directive in it). Silent regression to
+       `Disallow: /` would deindex the entire site from all generic crawlers (AI + search) — a
+       category-collapse for an AIO-first site that the behavior e2e cannot detect (it runs against
+       localhost, not the deployed crawl policy). This Check parses the `User-agent: *` section
+       (up to the next `User-agent:` line) and asserts no full-site disallow is present. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6634,6 +6640,52 @@ else:
     check(False, "Check 160: sw.js + index.html present",
           "Check 160: sw.js もしくは index.html が無い — SW path coherence を検証できない",
           blocking=True)
+
+# ── 161. robots.txt User-agent: * baseline (no full-site disallow) (BLOCKING) ──
+# robots.txt が `User-agent: *` を持ち、そのブロック内に `Disallow: /` (全 site
+# 拒否) が無いことを BLOCKING 強制する。silent な `Disallow: /` 化は全 generic
+# crawler (AI + search) からの deindex を意味し AIO-first サイトには category-
+# collapse。behavior e2e は localhost に走るため crawl policy の劣化を検出できない。
+# `User-agent: *` の section (次の `User-agent:` 行まで) を抽出して full-site
+# disallow の存在を否定する。
+_rb161 = ROOT / "robots.txt"
+if _rb161.exists():
+    _rbsrc161 = _rb161.read_text(encoding="utf-8")
+    _lines161 = _rbsrc161.splitlines()
+    _section161: list[str] = []
+    _in_star161 = False
+    for _ln161 in _lines161:
+        _stripped161 = _ln161.strip()
+        if _stripped161.startswith("#") or not _stripped161:
+            continue
+        if _stripped161.lower().startswith("user-agent:"):
+            _agent161 = _stripped161.split(":", 1)[1].strip()
+            _in_star161 = _agent161 == "*"
+            continue
+        if _in_star161:
+            _section161.append(_stripped161)
+    _has_star161 = _in_star161 or len(_section161) > 0 or any(
+        ln.strip().lower() == "user-agent: *" for ln in _lines161
+    )
+    _full_disallow161 = any(
+        _ln.lower().startswith("disallow:")
+        and _ln.split(":", 1)[1].strip() == "/"
+        for _ln in _section161
+    )
+    _ok161 = _has_star161 and not _full_disallow161
+    check(
+        _ok161,
+        f"Check 161: robots.txt `User-agent: *` block presence + no full-site Disallow",
+        (f"Check 161: robots.txt User-agent: * 不在 / 全 site Disallow 検出 "
+         f"(presence={_has_star161} / full-disallow={_full_disallow161})。"
+         "Disallow: / は AI + search crawler 双方からの全 site deindex を意味し AIO の "
+         "全 discovery を category-collapse させる。robots.txt を修正し generic crawler を "
+         "許容せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 161: robots.txt present",
+          "Check 161: robots.txt が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
