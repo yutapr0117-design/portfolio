@@ -896,6 +896,12 @@ authoritative inventory and is kept in sync with the implementation below):
        canonical link, and AI/social crawlers may resolve to a different entity URL than the
        authoritative one. Extends the Check 149 canonical-URL invariant to the social/OG surface,
        which is the most-shared external mention of the site. (BLOCKING)
+  151. e2e test() title uniqueness: every `test('...', ...)` title in e2e/portfolio.spec.js must be
+       unique. Duplicate titles are SILENT in some Playwright reporters (the second run silently
+       overrides the first's record) and always reduce diagnostic clarity — a class of
+       vacuous-test-pair where one test's failure may be misattributed or masked by the other's
+       pass. This Check parses all `test('...'` direct invocations and asserts the title multiset
+       has no duplicates. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6130,6 +6136,36 @@ if _idx150.exists():
 else:
     check(False, "Check 150: index.html present",
           "Check 150: index.html が無い — og:url canonical 整合を検証できない", blocking=True)
+
+# ── 151. e2e test() title uniqueness (BLOCKING) ───────────────────────────────
+# e2e/portfolio.spec.js の全 `test('...', ...)` title が一意であることを BLOCKING
+# 強制する。重複 title は Playwright reporter によっては silent に上書き
+# (同名の二件目が記録される / report 上で結果区別がつかない) し、vacuous-test-pair
+# の class を生む — 片方の fail が他方の pass で masked されたり、誰がどちらの
+# 期待を表しているか読めない。test() 直接呼び出しのみ対象 (test.skip/.fixme/.describe
+# は対象外 — title 衝突の影響範囲が異なる)。e2e 空 / 重複 >0 なら fail。
+_e2e151 = ROOT / "e2e" / "portfolio.spec.js"
+if _e2e151.exists():
+    _src151 = _e2e151.read_text(encoding="utf-8")
+    _titles151 = re.findall(r"^\s*test\(\s*['\"]([^'\"]+)['\"]", _src151, re.MULTILINE)
+    _seen151: dict[str, int] = {}
+    for _t151 in _titles151:
+        _seen151[_t151] = _seen151.get(_t151, 0) + 1
+    _dupes151 = sorted(t for t, c in _seen151.items() if c > 1)
+    check(
+        bool(_titles151) and not _dupes151,
+        f"Check 151: e2e {len(_titles151)} 件の test() title すべて一意",
+        (f"Check 151: 重複 e2e test title: {_dupes151} — Playwright reporter で "
+         "silent 上書き / 同名で結果区別不能になり vacuous-test-pair を生む。"
+         "e2e/portfolio.spec.js で title を一意化せよ"
+         if _titles151 else
+         "Check 151: e2e/portfolio.spec.js に test() が一つも見つからない (vacuous-fail)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 151: e2e/portfolio.spec.js present",
+          "Check 151: e2e/portfolio.spec.js が無い — test title 一意性を検証できない",
+          blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
