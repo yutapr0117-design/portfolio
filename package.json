@@ -13,6 +13,7 @@
     "check": "python3 .github/scripts/check_repository_consistency.py && python3 .github/scripts/check_aio_digests.py && python3 .github/scripts/check_binary_aio_metadata.py",
     "status": "python3 .github/scripts/generate_status.py",
     "mutation-probe": "python3 .github/scripts/mutation_probe.py",
+    "mutation-probe-e2e": "python3 .github/scripts/mutation_probe.py --e2e",
     "verify": "npm run check && npm run lint:css && npm run lint && npm run lint:js"
   },
   "devDependencies": {
