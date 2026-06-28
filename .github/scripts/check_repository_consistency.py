@@ -927,6 +927,13 @@ authoritative inventory and is kept in sync with the implementation below):
        narrative. The `<meta name="description">` is intentionally a different (longer) string for
        SERP/AI crawler ingestion, so this Check does NOT require it to match og/twitter; only that
        it exists (vacuous-guard against silent removal). (BLOCKING)
+  155. og:title ↔ twitter:title coherence: the index.html `<meta property="og:title">` and
+       `<meta name="twitter:title">` content must be byte-identical. Both are card-preview titles
+       with the same length budget; drift is SILENT — LinkedIn/Slack/OG consumers see one title
+       while Twitter shows another, splitting the entity headline across social surfaces. Sibling
+       of Check 154 (description coherence) for the title axis. The `<title>` tag is intentionally
+       allowed to differ (different length budget for SERP vs cards), so this Check restricts to
+       og/twitter pair only. Both meta tags must be present and equal. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6337,6 +6344,43 @@ if _idx154.exists():
 else:
     check(False, "Check 154: index.html present",
           "Check 154: index.html が無い — description 整合を検証できない",
+          blocking=True)
+
+# ── 155. og:title ↔ twitter:title byte-identical (BLOCKING) ────────────────────
+# index.html の og:title と twitter:title content が byte-identical であることを
+# BLOCKING 強制する。両者は card preview の同尺 title で drift は SILENT —
+# LinkedIn/Slack/OG consumer と Twitter で別 headline を見せ entity の見え方が
+# split する。Check 154 (description coherence) の title 軸兄弟。`<title>` tag は
+# SERP vs card で intentionally 異なる尺ゆえ scope から外し og/twitter の pair のみ
+# 強制する。両 meta presence + byte-identical 必須。
+_idx155 = ROOT / "index.html"
+if _idx155.exists():
+    _isrc155 = _idx155.read_text(encoding="utf-8")
+    _og155_m = re.search(
+        r'<meta\s+property=["\']og:title["\']\s+content=["\']([^"\']+)["\']', _isrc155
+    )
+    _tw155_m = re.search(
+        r'<meta\s+name=["\']twitter:title["\']\s+content=["\']([^"\']+)["\']', _isrc155
+    )
+    _og155 = _og155_m.group(1) if _og155_m else None
+    _tw155 = _tw155_m.group(1) if _tw155_m else None
+    _ok155 = (
+        _og155 is not None and _tw155 is not None and _og155 == _tw155
+    )
+    check(
+        _ok155,
+        f"Check 155: og:title == twitter:title byte-identical ({_og155!r})",
+        (f"Check 155: title drift: og:title={_og155!r} / twitter:title={_tw155!r} — "
+         "LinkedIn/Slack OG consumer と Twitter で別 headline を見せ entity の見え方が split。"
+         "index.html の og:title と twitter:title content を byte-identical に統一せよ"
+         if _og155 and _tw155 else
+         f"Check 155: og:title もしくは twitter:title meta が欠落 "
+         f"(og={_og155 is not None} / twitter={_tw155 is not None})"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 155: index.html present",
+          "Check 155: index.html が無い — title 整合を検証できない",
           blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
