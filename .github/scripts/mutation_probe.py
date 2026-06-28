@@ -173,6 +173,14 @@ MUTATIONS = [
         "find": "        script-src 'self'\n                   'sha256-h3mQOofrAGcb+CTl7pupnDKXvGRPj3gcHJb4Mt0eSeM='",
         "replace": "        script-src 'self' 'unsafe-inline'\n                   'sha256-h3mQOofrAGcb+CTl7pupnDKXvGRPj3gcHJb4Mt0eSeM='",
     },
+    {
+        # privacy guard 検証: 視覚 renderer の bare テキストに実名を注入。実名は AIO 層で既出ゆえ秘匿性は
+        # 無く、本 mutation は即 restore され commit されない。mutation_probe.py は Check 124 の走査対象外。
+        "name": "Check 124a (anonymity/privacy): leak real name into a visual renderer's bare h1 text",
+        "file": ROOT / "js" / "components.js",
+        "find": "h('h1', { class: 'h1' }, 'Contact')",
+        "replace": "h('h1', { class: 'h1' }, 'Contact 横井雄太')",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
