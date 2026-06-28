@@ -167,6 +167,12 @@ MUTATIONS = [
         "find": "h('option', { value: 'ai' }, 'ai'),\n                                        h('option', { value: 'notes' }, 'notes')",
         "replace": "h('option', { value: 'ai' }, 'ai')",
     },
+    {
+        "name": "Check 115 (CSP security baseline): inject 'unsafe-inline' into script-src (XSS defense weakening)",
+        "file": ROOT / "index.html",
+        "find": "        script-src 'self'\n                   'sha256-h3mQOofrAGcb+CTl7pupnDKXvGRPj3gcHJb4Mt0eSeM='",
+        "replace": "        script-src 'self' 'unsafe-inline'\n                   'sha256-h3mQOofrAGcb+CTl7pupnDKXvGRPj3gcHJb4Mt0eSeM='",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
