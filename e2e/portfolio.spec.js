@@ -2010,6 +2010,57 @@ test('Settings snapshot can be cleared back to the unsaved state', async ({ page
   await expect(page.getByText('スナップショットは未保存です。')).toBeVisible();
 });
 
+// ===== 7.2: JSON インポート (upsert) のラウンドトリップ — 新規 project 追加 + profile 保全 =====
+// Settings の importJSON は file アップロードを起点に projects を append/upsert/strict でマージし、
+// 末尾で validateAndNormalize を通す data-integrity 経路。export 側はテスト済だが round-trip の
+// 危険な半分 = import 側は未カバーで、ここは過去に 2 大データ損失バグの発生源だった:
+//   #192 = upsert モードが「未知 id を push 後に Map.values() で上書き」して新規 project を破棄、
+//   #139 = validateAndNormalize が profile の github/linkedin/location を strip。
+// 本テストは upsert モードで「新規 project + profile フィールド」を含む JSON を setInputFiles で
+// アップロードし、(1) 新規 project が公開一覧に追加される (#192 guard)、(2) profile の github が
+// Contact に保持表示される (#139 guard)、を実検証する。import 経路が壊れたら退行検知。
+test('Settings JSON import (upsert) adds a new project and preserves profile fields (round-trip)', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  // upsert モードを選択 (#192 が起きたモード)。対象 = Profile + Projects (既定で全 ON)。
+  await page.getByLabel('インポートモード').selectOption('upsert');
+
+  const projName = 'E2E-IMPORT-UPSERT-PROJ-5571';
+  const ghUrl = 'https://github.com/e2e-import-test';
+  const payload = {
+    schemaVersion: 12,
+    type: 'full-store',
+    // profile.name はテストで非アサート。Check 58 の route 抽出 (name:'<lowercase>') と衝突しないよう
+    // 大文字始まりにする (小文字literal だと profile name が e2e route と誤認され Check 58 が赤化する)。
+    profile: { name: 'ImportUser', title: 'AI-Driven PM', bio: '', email: 'x@example.com', github: ghUrl, linkedin: '', location: 'E2E-CITY-5571' },
+    projects: [
+      { id: 'p_e2e_import_5571', slug: 'e2e-import-upsert-5571', name: projName, category: 'User Added', summary: 'imported via upsert', tech: ['JS'], tags: [], demoRoute: null },
+    ],
+  };
+
+  // file input (accept=application/json) へ in-memory バッファをアップロード
+  await page.getByLabel('インポートする JSON ファイルを選択').setInputFiles({
+    name: 'backup.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify(payload)),
+  });
+  await expect(page.locator('#toast-container').getByText('インポートが完了しました')).toBeVisible();
+
+  // (1) #192 guard: upsert で新規 project が破棄されず公開一覧に追加される
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByText(projName).first()).toBeVisible();
+
+  // (2) #139 guard: validateAndNormalize が profile.github を strip せず Contact に保持表示する
+  await page.goto('/#/contact');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByRole('link', { name: ghUrl })).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `JSON import caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: スナップショット復元のラウンドトリップ (保存→変更→復元で巻き戻る) =====
 // save テスト (#上) は保存と保存日時表示の往復を見るが、復元 (restoreSnapshot → State.set(snap.data))
 // で「保存時点へ実際に巻き戻る」中核機能は未カバーだった。これはユーザの undo/復旧の data-integrity
