@@ -35,6 +35,13 @@ on:
       - 'sitemap.xml'
       - 'e2e/**'
       - 'playwright.config.cjs'
+      # The e2e toolchain itself lives in the dependency manifest: @playwright/test
+      # (the runner) and @axe-core/playwright (a11y assertions) plus their transitive
+      # deps can change e2e BEHAVIOR without any shipped-site file changing. Without
+      # these in the trigger, a dep bump would skip the BLOCKING behavior gate and
+      # ship an unverified test-toolchain change. Check 142 enforces their presence.
+      - 'package.json'
+      - 'package-lock.json'
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
