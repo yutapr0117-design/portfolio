@@ -265,6 +265,12 @@ MUTATIONS = [
         "find": '<meta name="twitter:description" content="人間はコードを一行も書かず、AIが実装〜検証〜デプロイまで自走。機械統治された一貫性チェック群が担保し、サイト自体がその生成物である Vanilla JS SPA。" />',
         "replace": '<meta name="twitter:description" content="PROBE: drifted twitter description that no longer matches og:description." />',
     },
+    {
+        "name": "Check 155 (og↔twitter title): drift twitter:title from og:title",
+        "file": ROOT / "index.html",
+        "find": '<meta name="twitter:title" content="AI-Driven PM yuta — AI が自走し、人間が統治する engineering ポートフォリオ" />',
+        "replace": '<meta name="twitter:title" content="PROBE: drifted twitter title that no longer matches og:title" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
