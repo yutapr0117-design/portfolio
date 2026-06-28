@@ -247,6 +247,12 @@ MUTATIONS = [
         "find": "test('Homepage renders without console errors'",
         "replace": "test('AIO asset anchor must be hidden (non-visual)'",
     },
+    {
+        "name": "Check 152 (<html lang>↔inLanguage): drift a JSON-LD inLanguage in main.js to 'en'",
+        "file": ROOT / "main.js",
+        "find": "'inLanguage': 'ja',",
+        "replace": "'inLanguage': 'en',",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
