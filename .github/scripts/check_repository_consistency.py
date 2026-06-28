@@ -967,6 +967,13 @@ authoritative inventory and is kept in sync with the implementation below):
        parses, the block ships, but AI/SEO crawlers fail to recognize the schema and the entire
        structured-data signal collapses to "unknown vocabulary". Collected into a single set with
        cardinality 1 expected (the universally accepted canonical URL). (BLOCKING)
+  160. sw.js hardcoded paths share the canonical URL pathname: every absolute path string in sw.js
+       that starts with a `/<segment>/` form (e.g. the AIO_FILES list) must use the same first
+       path-segment as the `<link rel="canonical">` href's pathname (e.g. `/portfolio/`). Drift is
+       SILENT — if the GitHub Pages project is renamed (or the canonical URL's path changes), the
+       SW continues to register but its hardcoded paths no longer match any incoming request URLs,
+       so SW-cached AIO file requests silently miss the SW interception layer. Skips literal `/`
+       (root). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6574,6 +6581,58 @@ if _idx159.exists() and _main159.exists() and _meta159.exists():
 else:
     check(False, "Check 159: index.html + main.js + js/meta-management.js present",
           "Check 159: JSON-LD @context coherence 検証に必要な 3 source のいずれかが無い",
+          blocking=True)
+
+# ── 160. sw.js hardcoded paths share the canonical URL pathname (BLOCKING) ─────
+# sw.js が hardcode する `/<segment>/...` 形式の絶対パス (AIO_FILES 等) が、
+# index.html の <link rel=canonical> href の pathname と同じ first segment を
+# 使うことを BLOCKING 強制する。drift は SILENT — GitHub Pages の project rename
+# や canonical URL の path 変更で SW は登録され続けるが hardcoded paths が
+# incoming request URL と一致せず SW 介入層を silent に miss する。
+# 文字列リテラル中の `'/<segment>/...'` (quoted) のみ対象。literal '/' (root) は skip。
+_sw160 = ROOT / "sw.js"
+_idx160 = ROOT / "index.html"
+if _sw160.exists() and _idx160.exists():
+    _isrc160 = _idx160.read_text(encoding="utf-8")
+    _swsrc160 = _sw160.read_text(encoding="utf-8")
+    _link160 = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc160
+    )
+    _canon_path160 = None
+    if _link160:
+        # parse pathname (e.g. https://yutapr0117-design.github.io/portfolio/ -> /portfolio/)
+        from urllib.parse import urlparse as _urlparse160
+        _canon_path160 = _urlparse160(_link160.group(1)).path
+    # extract quoted absolute paths in sw.js: '/foo/...' or "/foo/..."
+    _hardcoded160: list[str] = re.findall(r"""['"](/[^\s'"]+)['"]""", _swsrc160)
+    # filter to only those starting with a segment (skip bare '/')
+    _segment_paths160 = [p for p in _hardcoded160 if re.match(r"^/[A-Za-z][\w-]*/", p)]
+    _drift160: list[str] = []
+    if _canon_path160 and _canon_path160 != "/":
+        for _p160 in _segment_paths160:
+            if not _p160.startswith(_canon_path160):
+                _drift160.append(_p160)
+    _ok160 = (
+        _canon_path160 is not None
+        and len(_segment_paths160) > 0
+        and not _drift160
+    )
+    check(
+        _ok160,
+        f"Check 160: sw.js hardcoded paths ({len(_segment_paths160)} 件) all start with "
+        f"canonical pathname {_canon_path160!r}",
+        (f"Check 160: sw.js path drift: canonical pathname={_canon_path160!r} / "
+         f"non-matching paths={_drift160}. canonical URL の pathname と一致しない hardcoded "
+         "path は SW interception で incoming request と一致せず silent miss する。"
+         "sw.js の path prefix を canonical URL pathname に揃えるか canonical URL を修正せよ"
+         if _canon_path160 and _segment_paths160 else
+         f"Check 160: canonical pathname もしくは sw.js segment paths が空 "
+         f"(canonical={_canon_path160} / paths={len(_segment_paths160)})"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 160: sw.js + index.html present",
+          "Check 160: sw.js もしくは index.html が無い — SW path coherence を検証できない",
           blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
