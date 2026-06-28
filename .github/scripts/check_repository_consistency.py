@@ -807,6 +807,17 @@ authoritative inventory and is kept in sync with the implementation below):
        dedup in addProjectManual, but the hardcoded defaults have NO such protection — a future data edit
        introducing a duplicate slug/id would ship a silently-unreachable project. This Check parses the
        proj(...) seed entries and asserts both id-set and slug-set are collision-free. (BLOCKING)
+  142. Playwright e2e gate covers its own toolchain: playwright-regression.yml (the BLOCKING
+       behavior/functionality e2e gate) is path-filtered to shipped-site files so it skips on
+       unrelated commits. But the e2e TOOLCHAIN itself — @playwright/test (the runner) and
+       @axe-core/playwright (a11y assertions) plus transitive deps — lives in the dependency
+       manifest, and a bump there can change e2e behavior with NO shipped-site file changing.
+       Without package.json/package-lock.json in the trigger, such a bump skips the behavior gate
+       and ships an unverified test-toolchain change (observed: PR #318 bumped @axe-core/playwright
+       and playwright-validation never ran). This Check asserts both manifest files are present in
+       the workflow's pull_request paths filter, keeping "the gate that proves e2e behavior"
+       wired to "the files that can change e2e behavior" (the CI-trigger version of the
+       file-exists≠file-wired class, cf. Check 133/134/135). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5602,6 +5613,54 @@ if _store141.exists():
 else:
     check(False, "Check 141: js/store.js present",
           "Check 141: js/store.js が無い — default-project uniqueness を検証できない", blocking=True)
+
+# ── 142. Playwright e2e gate covers its own toolchain (BLOCKING) ────────────────
+# playwright-regression.yml は BLOCKING な behavior/functionality e2e gate だが、CI コスト
+# 節約のため shipped-site ファイルへの path filter で発火する。しかし e2e の挙動を決める
+# ツールチェーン本体 — @playwright/test (runner) と @axe-core/playwright (a11y) + transitive
+# deps — は dependency manifest (package.json / package-lock.json) にあり、その bump は
+# shipped-site ファイルを一切変えずに e2e 挙動を変えうる。trigger に manifest が無いと、dep
+# bump 時に behavior gate が skip され未検証の test-toolchain 変更が出荷される (実例: PR #318 が
+# @axe-core/playwright を bump したが playwright-validation が一度も走らなかった)。本 Check は
+# pull_request の paths filter に両 manifest が存在することを強制し、「e2e 挙動を証明する gate」を
+# 「e2e 挙動を変えうるファイル」に配線し続ける (file-exists≠file-wired class の CI-trigger 版・
+# cf. Check 133/134/135)。
+_pwf142 = ROOT / ".github" / "workflows" / "playwright-regression.yml"
+if _pwf142.exists():
+    _wsrc142 = _pwf142.read_text(encoding="utf-8")
+    # `paths:` ブロックの `- '...'` エントリを (インデント連続する範囲で) 抽出。
+    _paths142 = []
+    _in_paths142 = False
+    _paths_indent142 = None
+    for _line142 in _wsrc142.splitlines():
+        _stripped142 = _line142.strip()
+        if re.match(r"^paths:\s*$", _stripped142):
+            _in_paths142 = True
+            _paths_indent142 = len(_line142) - len(_line142.lstrip())
+            continue
+        if _in_paths142:
+            if _stripped142.startswith("- "):
+                _paths142.append(_stripped142[2:].strip().strip("'\""))
+            elif _stripped142 == "" or _stripped142.startswith("#"):
+                continue  # blank/comment lines stay inside the list
+            else:
+                # 非リスト行 (= dedent して次キーへ) で paths ブロック終了
+                _in_paths142 = False
+    _missing142 = [m for m in ("package.json", "package-lock.json") if m not in _paths142]
+    check(
+        not _missing142,
+        "Check 142: playwright-regression.yml paths filter は e2e ツールチェーン manifest "
+        "(package.json + package-lock.json) を含む (dep bump で behavior gate が再実行される)",
+        f"Check 142: playwright-regression.yml の paths filter に {_missing142} が無い — "
+        "e2e ツールチェーン (@playwright/test / @axe-core/playwright + transitive deps) の "
+        "bump 時に BLOCKING behavior gate が skip され未検証で出荷される (file-exists≠file-wired "
+        "class・cf. Check 133/134/135)。paths に両 manifest を追加せよ",
+        blocking=True,
+    )
+else:
+    check(False, "Check 142: .github/workflows/playwright-regression.yml present",
+          "Check 142: playwright-regression.yml が無い — e2e gate toolchain coverage を検証できない",
+          blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

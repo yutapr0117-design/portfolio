@@ -187,6 +187,12 @@ MUTATIONS = [
         "find": 'proj("p02", "todo-list"',
         "replace": 'proj("p02", "task-manager"',
     },
+    {
+        "name": "Check 142 (e2e gate toolchain coverage): drop package.json from playwright-regression.yml paths",
+        "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
+        "find": "      - 'package.json'\n      - 'package-lock.json'",
+        "replace": "      - 'package-lock.json'",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
