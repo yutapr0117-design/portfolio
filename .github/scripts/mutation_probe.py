@@ -199,6 +199,12 @@ MUTATIONS = [
         "find": '      - "docs/evidence/real-work-claims.md"\n',
         "replace": "",
     },
+    {
+        "name": "Check 144 (digest-regen tool↔manifest): drop a manifest file from update_aio_digests.py MANIFEST_PATH_TO_LOCAL",
+        "file": ROOT / ".github" / "scripts" / "update_aio_digests.py",
+        "find": '    "ChatGPT2ChatGPT.md":                        ROOT / "ChatGPT2ChatGPT.md",\n',
+        "replace": "",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
