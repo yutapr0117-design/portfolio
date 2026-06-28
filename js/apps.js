@@ -33,9 +33,11 @@
  *   - window グローバル経由: render (window.render として後段で代入される)
  *
  * 【非破壊性】
- *   - 5 関数の DOM 出力・class 名・style・aria 属性は byte-equivalent
+ *   - 抽出時は 5 関数の DOM 出力・class 名・style・aria 属性が byte-equivalent。その後 A 群で NotesPage を
+ *     追加（公開 API は 6 関数）、bug-fix で各種挙動を精緻化済（PomodoroPage stale-closure #121/134 /
+ *     SettingsPage upsert data-loss #192 / IME ガード #151/152 / slug 衝突 #154 / AIPage prompt bound #230 /
+ *     SettingsPage 手動追加フォームの Demo セレクタに notes option 追加 #294 等）。
  *   - localStorage への副作用順序（State.update 経由）も不変
- *   - SettingsPage のインポート/エクスポート挙動も byte-equivalent
  *   - AIDK Kernel / AIO 正本層には影響しない
  */
 export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme, Brand, Store, Storage, CONSTANTS, generateId, clamp, slugify }) {

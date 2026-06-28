@@ -18,7 +18,10 @@
  *     js/quiz/{aws,pm,quality,architecture}-quiz-data.js
  *
  * 【非破壊性】
- *   - QuizPage の DOM 出力・選択ロジック・スコア計算は byte-equivalent
+ *   - QuizPage の DOM 出力・選択ロジック・スコア計算は抽出時 byte-equivalent。検索フィルタ _filterBy は
+ *     後の bug-fix で対象フィールドを拡張済（#285=stakeholder name/quote、#296=section 章タイトル。
+ *     いずれも「画面に描画されるのに検索できない」visible-but-unsearchable drift の是正で、対象を増やす
+ *     単調拡大ゆえ既存ヒットは不変）。
  *   - 4 quiz domain (AWS / PM / Quality / Architecture) の lookup table は不変
  *   - State.appsData.quizSearch 等の永続化への副作用も不変
  *   - AIDK Kernel / AIO 正本層 / style.css は無変更
