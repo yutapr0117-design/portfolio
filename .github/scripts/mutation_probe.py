@@ -283,6 +283,12 @@ MUTATIONS = [
         "find": '<meta name="viewport" content="width=device-width, initial-scale=1" />',
         "replace": "<!-- viewport PROBE-REMOVED -->",
     },
+    {
+        "name": "Check 158 (Google Fonts hints): remove the gstatic.com preconnect link",
+        "file": ROOT / "index.html",
+        "find": '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />',
+        "replace": "<!-- gstatic preconnect PROBE-REMOVED -->",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
