@@ -980,6 +980,12 @@ authoritative inventory and is kept in sync with the implementation below):
        category-collapse for an AIO-first site that the behavior e2e cannot detect (it runs against
        localhost, not the deployed crawl policy). This Check parses the `User-agent: *` section
        (up to the next `User-agent:` line) and asserts no full-site disallow is present. (BLOCKING)
+  162. `.gitignore` baseline ignore-rules for CI/build artifacts: `.gitignore` must declare ignore
+       rules for `node_modules/`, `__pycache__/`, `/test-results/`, `/playwright-report/`, and
+       `/blob-report/`. Silent removal would allow accidental `git add <file>` of CI artifacts and
+       node_modules (hundreds of MB) to land in the repo. Check 37 catches the artifact files
+       themselves after they're tracked, but this Check protects the gate upstream so they never
+       arrive in the staging area. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6686,6 +6692,34 @@ if _rb161.exists():
 else:
     check(False, "Check 161: robots.txt present",
           "Check 161: robots.txt が無い", blocking=True)
+
+# ── 162. .gitignore baseline ignore-rules for CI/build artifacts (BLOCKING) ────
+# .gitignore が node_modules / __pycache__ / test-results / playwright-report /
+# blob-report の 5 ルールすべて宣言することを BLOCKING 強制する。silent 削除は
+# 偶発的 `git add` で CI artifact (数百 MB 級) や node_modules を staging に
+# 載せうる。Check 37 は tracked 後の artifact ファイルを検出するが、本 Check は
+# その upstream の gate を守り artifact が staging 領域に着く前に防ぐ。
+_gi162 = ROOT / ".gitignore"
+if _gi162.exists():
+    _gisrc162 = _gi162.read_text(encoding="utf-8")
+    _required162 = [
+        "node_modules/",
+        "__pycache__/",
+        "/test-results/",
+        "/playwright-report/",
+        "/blob-report/",
+    ]
+    _missing162 = [r for r in _required162 if r not in _gisrc162]
+    check(
+        not _missing162,
+        f"Check 162: .gitignore baseline 5 rule 全て presence",
+        f"Check 162: .gitignore baseline 欠落: {_missing162} — 偶発 `git add` で "
+        "CI artifact や node_modules が staging に着く。.gitignore に該当 rule を復元せよ",
+        blocking=True,
+    )
+else:
+    check(False, "Check 162: .gitignore present",
+          "Check 162: .gitignore が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
