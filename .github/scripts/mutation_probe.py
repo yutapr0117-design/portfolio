@@ -212,6 +212,13 @@ E2E_MUTATIONS = [
         "replace": "",
         "test": "External target=_blank links are hardened",
     },
+    {
+        "name": "behavior: AIO/SEO の route 毎 document.title 注入の喪失 (リポジトリ中核 bet)",
+        "file": ROOT / "js" / "meta-management.js",
+        "find": "        document.title = fullTitle;\n",
+        "replace": "",
+        "test": "Each route updates document.title",
+    },
 ]
 
 
