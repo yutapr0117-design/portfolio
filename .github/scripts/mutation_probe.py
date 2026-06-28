@@ -247,6 +247,27 @@ E2E_MUTATIONS = [
         "replace": "if (data.schemaVersion === CONSTANTS.SCHEMA_VERSION) {",
         "test": "Store migrates safely on schema version mismatch",
     },
+    {
+        "name": "behavior: IME composition guard の喪失 (日本語変換確定 Enter の誤 submit・主対象言語)",
+        "file": ROOT / "js" / "apps.js",
+        "find": "if (e.key === 'Enter' && !e.isComposing) {\n                                addTask(e.target.value);",
+        "replace": "if (e.key === 'Enter') {\n                                addTask(e.target.value);",
+        "test": "Task input ignores Enter during IME composition",
+    },
+    {
+        "name": "behavior: live-input focus-loss guard の喪失 (oninput が全再描画で focus を破棄)",
+        "file": ROOT / "js" / "apps.js",
+        "find": "State.updateSilently(s => { s.appsData.notes = val.slice(0, 20000); });",
+        "replace": "State.update(s => { s.appsData.notes = val.slice(0, 20000); });",
+        "test": "Notes textarea retains focus while typing",
+    },
+    {
+        "name": "behavior: a11y route-focus (WCAG 2.4.3) の喪失 (route 遷移で新ページ h1 へ focus 移らず)",
+        "file": ROOT / "main.js",
+        "find": "if (isRouteChange && content && _focusWasLost) {",
+        "replace": "if (!isRouteChange && content && _focusWasLost) {",
+        "test": "Route change moves focus to the new page heading",
+    },
 ]
 
 
