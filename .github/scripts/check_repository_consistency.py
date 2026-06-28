@@ -952,6 +952,14 @@ authoritative inventory and is kept in sync with the implementation below):
        iOS Add-to-Home-Screen uses a downscaled screenshot, missing theme-color → mobile address
        bar / OS card chrome stays default. Each of these is shipped today; this Check enforces
        presence-only (content correctness is out of scope) as a vacuous-removal guard. (BLOCKING)
+  158. Google Fonts preconnect / dns-prefetch presence (CWV first-paint guard): index.html must
+       keep `<link rel="preconnect" href="https://fonts.googleapis.com">`, `<link rel="preconnect"
+       href="https://fonts.gstatic.com">`, and `<link rel="dns-prefetch" href="https://
+       fonts.googleapis.com">`. The site loads Google Fonts CSS + binary; these resource hints save
+       ~100-200ms of DNS+TLS+handshake latency on first paint. Silent removal regresses LCP/FCP
+       without any console error or behavior-test signal, and the regression is hard to bisect
+       later (the missing hints are just slow, not broken). Three-marker presence check; any one
+       missing fails. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6483,6 +6491,43 @@ if _idx157.exists():
 else:
     check(False, "Check 157: index.html present",
           "Check 157: index.html が無い — mobile/PWA meta presence を検証できない",
+          blocking=True)
+
+# ── 158. Google Fonts preconnect / dns-prefetch presence (BLOCKING) ────────────
+# CWV first-paint guard: index.html が Google Fonts への preconnect 2 件
+# (fonts.googleapis.com + fonts.gstatic.com) と dns-prefetch 1 件
+# (fonts.googleapis.com) を保持することを BLOCKING 強制する。silent 除去は LCP/FCP
+# を ~100-200ms 劣化させるが console error も behavior-test signal も出ず、後で
+# bisect しにくい (壊れていない・ただ遅い)。
+_idx158 = ROOT / "index.html"
+if _idx158.exists():
+    _isrc158 = _idx158.read_text(encoding="utf-8")
+    _hints158 = {
+        "preconnect fonts.googleapis.com": re.search(
+            r'<link\s+rel=["\']preconnect["\']\s+href=["\']https://fonts\.googleapis\.com["\']',
+            _isrc158,
+        ) is not None,
+        "preconnect fonts.gstatic.com": re.search(
+            r'<link\s+rel=["\']preconnect["\']\s+href=["\']https://fonts\.gstatic\.com["\']',
+            _isrc158,
+        ) is not None,
+        "dns-prefetch fonts.googleapis.com": re.search(
+            r'<link\s+rel=["\']dns-prefetch["\']\s+href=["\']https://fonts\.googleapis\.com["\']',
+            _isrc158,
+        ) is not None,
+    }
+    _missing158 = sorted(k for k, present in _hints158.items() if not present)
+    check(
+        not _missing158,
+        f"Check 158: Google Fonts resource hint 3 件すべて presence",
+        f"Check 158: Google Fonts resource hint 欠落: {_missing158} — LCP/FCP を "
+        "~100-200ms silent 劣化させる (DNS+TLS+handshake)。index.html <head> に "
+        "preconnect/dns-prefetch を復元せよ",
+        blocking=True,
+    )
+else:
+    check(False, "Check 158: index.html present",
+          "Check 158: index.html が無い — Google Fonts hint presence を検証できない",
           blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
