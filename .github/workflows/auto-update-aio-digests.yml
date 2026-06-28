@@ -31,6 +31,7 @@ on:
       - "Claude2Claude.md"
       - "ChatGPT2ChatGPT.md"
       - "docs/evidence/ai-pioneer-identity-review.md"
+      - "docs/evidence/real-work-claims.md"
       - "docs/evidence/aio-monitoring-log.json"
       - "docs/session-records/**"
       - "docs/incident-artifacts/**"
