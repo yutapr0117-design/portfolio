@@ -22,8 +22,11 @@
  *     - window.__fatalError = null を初期化
  *     - window.addEventListener('error', ...) を登録
  *     - window.addEventListener('unhandledrejection', ...) を登録
- *     - setInterval で 2秒ごとに window.__fatalError をチェックして Shadow DOM safety net を出す
- *   - これらは元 main.js IIFE 評価時の即時実行と等価
+ *     - setInterval で 2秒ごとに「window.__fatalError がセット かつ in-app FatalPage 未描画
+ *       (#fallback-details 不在)」を判定し、満たす場合のみ Shadow DOM safety net を出す
+ *       (後の bug-fix で #fallback-details 条件を追加。正常描画された FatalPage を安全網が覆って
+ *        復旧ボタンをブロックするのを防ぎ、安全網を真の silent failure 専用に限定した)
+ *   - これらは元 main.js IIFE 評価時の即時実行と等価（setInterval の起動条件のみ上記 bug-fix で精緻化）
  *
  * 【非破壊性】
  *   - エラー判定ロジック（_isFatalError / _isViewTransitionError）は byte-equivalent

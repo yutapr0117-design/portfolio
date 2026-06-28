@@ -24,7 +24,10 @@
  * factory closure 内に同じ位置で declare することで、抽出前後の挙動は byte-equivalent。
  *
  * 【非破壊性】
- *   - 8 関数の DOM 出力・aria 属性・focus 管理・body scroll lock は byte-equivalent
+ *   - 抽出時は 8 関数の DOM 出力・aria 属性・focus 管理・body scroll lock が byte-equivalent
+ *     だったが、後の bug-fix で openDrawer に idempotency ガード（drawer aria-hidden==='false' なら
+ *     再入しない）を追加済（#menuBtn が #app 外で inert 非対象ゆえ開放中の再 open が __drawerScrollY を
+ *     0 上書きし close 時に先頭ジャンプする scroll-clobber を封じる・command-palette open() と同型）。
  *   - rel=noopener / referrerpolicy の付与ロジックも不変
  *   - Escape キーで closeDrawer、Tab/Shift+Tab で focusable 要素間のループも不変
  *   - AIDK Kernel / AIO 正本層 / style.css は無変更
