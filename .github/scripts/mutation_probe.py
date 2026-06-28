@@ -205,6 +205,13 @@ E2E_MUTATIONS = [
         "replace": "",
         "test": "safety net does not cover",
     },
+    {
+        "name": "behavior: 外部リンク noopener 強制 (tabnabbing 防御) の喪失",
+        "file": ROOT / "js" / "mobile-drawer.js",
+        "find": "                if (!rel.includes('noopener')) {rel.push('noopener');}\n",
+        "replace": "",
+        "test": "External target=_blank links are hardened",
+    },
 ]
 
 
