@@ -910,6 +910,14 @@ authoritative inventory and is kept in sync with the implementation below):
        search and AIO. This Check collects all values into a single set and asserts cardinality 1
        (single canonical language), with `<html lang>` present and at least one JSON-LD inLanguage
        declaration found. (BLOCKING)
+  153. og:image / twitter:image origin uses canonical URL prefix: every index.html `<meta
+       property="og:image">` and `<meta name="twitter:image">` content URL must start with the
+       `<link rel="canonical">` href (sharing the same origin + path prefix). Drift is SILENT — the
+       social/OG card preview shows an image from a different origin, breaking the entity-asset
+       coupling and possibly serving a stale or third-party image. Extends the Check 149/150
+       canonical-URL invariant to the image surface of OG/Twitter cards (the visual portion of any
+       external mention of the site). Both meta tags must be present; either drifting from the
+       canonical prefix fails the Check. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6227,6 +6235,56 @@ if _idx152.exists() and _main152.exists() and _meta152.exists():
 else:
     check(False, "Check 152: index.html + main.js + js/meta-management.js present",
           "Check 152: 言語 coherence 検証に必要な 3 source のいずれかが無い", blocking=True)
+
+# ── 153. og:image / twitter:image origin uses canonical URL prefix (BLOCKING) ──
+# index.html の `<meta property="og:image">` と `<meta name="twitter:image">` content
+# URL が `<link rel=canonical>` href を prefix として持つことを BLOCKING 強制する。
+# drift は SILENT — social/OG card preview が別 origin の image を提示し
+# entity-asset coupling を破壊、stale や third-party image を見せうる。
+# Check 149/150 の canonical-URL invariant を image surface (OG/Twitter card の
+# 視覚部分) に拡張する。両 meta が必須で片方でも canonical prefix から外れたら fail。
+_idx153 = ROOT / "index.html"
+if _idx153.exists():
+    _isrc153 = _idx153.read_text(encoding="utf-8")
+    _link153_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc153
+    )
+    _canon153 = _link153_m.group(1) if _link153_m else None
+    _og_img153_m = re.search(
+        r'<meta\s+property=["\']og:image["\']\s+content=["\']([^"\']+)["\']', _isrc153
+    )
+    _tw_img153_m = re.search(
+        r'<meta\s+name=["\']twitter:image["\']\s+content=["\']([^"\']+)["\']', _isrc153
+    )
+    _og_img153 = _og_img153_m.group(1) if _og_img153_m else None
+    _tw_img153 = _tw_img153_m.group(1) if _tw_img153_m else None
+    _drift153: list[str] = []
+    if _canon153:
+        if _og_img153 and not _og_img153.startswith(_canon153):
+            _drift153.append(f"og:image={_og_img153!r}")
+        if _tw_img153 and not _tw_img153.startswith(_canon153):
+            _drift153.append(f"twitter:image={_tw_img153!r}")
+    _ok153 = (
+        _canon153 is not None
+        and _og_img153 is not None
+        and _tw_img153 is not None
+        and not _drift153
+    )
+    check(
+        _ok153,
+        f"Check 153: og:image / twitter:image は canonical ({_canon153!r}) を prefix",
+        (f"Check 153: 画像 URL canonical prefix drift: canonical={_canon153!r} / {_drift153} "
+         "— OG/Twitter card preview が別 origin の image を見せ entity-asset coupling が崩れる。"
+         "index.html の og:image / twitter:image を canonical URL prefix で始まる絶対 URL へ統一せよ"
+         if _canon153 and _og_img153 and _tw_img153 else
+         f"Check 153: canonical / og:image / twitter:image を抽出できない "
+         f"(canonical={_canon153} / og:image={_og_img153} / twitter:image={_tw_img153})"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 153: index.html present",
+          "Check 153: index.html が無い — image URL canonical 整合を検証できない",
+          blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
