@@ -943,6 +943,15 @@ authoritative inventory and is kept in sync with the implementation below):
        leaves social crawlers fallback to a generic preview, losing article-vs-page disambiguation.
        This Check is a presence + enumeration sanity gate, complementing the dynamic-injection
        coverage of Check 148 (ARTICLE_ROUTES ⊆ PAGE_META). (BLOCKING)
+  157. Mobile / PWA baseline meta presence: the index.html `<head>` must declare a non-negotiable
+       baseline of platform meta tags — `<meta charset="utf-8">`, `<meta name="viewport">`,
+       `<meta name="theme-color">` (any media variant), `<link rel="icon">`, and `<link
+       rel="apple-touch-icon">`. Silent removal causes regressions that mostly do not break the
+       behavior e2e: missing viewport → mobile zoom is broken (no `width=device-width` scale=1),
+       missing icon → browser tab and bookmark show a generic globe, missing apple-touch-icon →
+       iOS Add-to-Home-Screen uses a downscaled screenshot, missing theme-color → mobile address
+       bar / OS card chrome stays default. Each of these is shipped today; this Check enforces
+       presence-only (content correctness is out of scope) as a vacuous-removal guard. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6432,6 +6441,48 @@ if _idx156.exists():
 else:
     check(False, "Check 156: index.html present",
           "Check 156: index.html が無い — og:type/og:site_name 整合を検証できない",
+          blocking=True)
+
+# ── 157. Mobile / PWA baseline meta presence (BLOCKING) ────────────────────────
+# index.html の <head> に非交渉 baseline meta が必ず存在することを BLOCKING 強制
+# する: charset / viewport / theme-color / icon / apple-touch-icon。これらの
+# silent 除去は behavior e2e にほぼ非検出だが、viewport 欠落=モバイルズーム破綻 /
+# icon 欠落=タブが generic globe / apple-touch-icon 欠落=iOS ホーム追加が縮小
+# screenshot / theme-color 欠落=モバイルアドレスバーがデフォルト色、と劣化する。
+# 全 5 marker が現状 shipped 済ゆえ presence-only (内容は scope 外) の
+# vacuous-removal guard。
+_idx157 = ROOT / "index.html"
+if _idx157.exists():
+    _isrc157 = _idx157.read_text(encoding="utf-8")
+    _markers157 = {
+        "<meta charset>": re.search(r'<meta\s+charset\s*=', _isrc157, re.IGNORECASE) is not None,
+        "<meta name=viewport>": re.search(
+            r'<meta\s+name=["\']viewport["\']', _isrc157, re.IGNORECASE
+        ) is not None,
+        "<meta name=theme-color>": re.search(
+            r'<meta\s+name=["\']theme-color["\']', _isrc157, re.IGNORECASE
+        ) is not None,
+        "<link rel=icon>": re.search(
+            r'<link\s+rel=["\']icon["\']', _isrc157, re.IGNORECASE
+        ) is not None,
+        "<link rel=apple-touch-icon>": re.search(
+            r'<link\s+rel=["\']apple-touch-icon["\']', _isrc157, re.IGNORECASE
+        ) is not None,
+    }
+    _missing157 = sorted(k for k, present in _markers157.items() if not present)
+    check(
+        not _missing157,
+        f"Check 157: mobile/PWA baseline meta {len(_markers157)} 件すべて presence "
+        f"({sorted(_markers157.keys())})",
+        f"Check 157: mobile/PWA baseline meta 欠落: {_missing157} — silent 削除で "
+        "モバイル/PWA 体験が劣化する (viewport=zoom 破綻 / icon=タブ globe / "
+        "apple-touch-icon=iOS 縮小 screenshot / theme-color=アドレスバー default / "
+        "charset=文字化けリスク)。index.html <head> に該当 meta を再追加せよ",
+        blocking=True,
+    )
+else:
+    check(False, "Check 157: index.html present",
+          "Check 157: index.html が無い — mobile/PWA meta presence を検証できない",
           blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
