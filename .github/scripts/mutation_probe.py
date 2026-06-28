@@ -294,7 +294,7 @@ E2E_MUTATIONS = [
         "file": ROOT / "js" / "apps.js",
         "find": "            const rt = State.get().appsData.pomodoro.runtime;\n            if (rt.isActive && rt.endAtMs) {",
         "replace": "            const rt = pomo.runtime;\n            if (rt.isActive && rt.endAtMs) {",
-        "test": "Pomodoro completes when the clock reaches zero",
+        "test": "Pomodoro completes at zero",
     },
 ]
 
