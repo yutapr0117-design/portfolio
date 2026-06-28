@@ -838,6 +838,15 @@ authoritative inventory and is kept in sync with the implementation below):
        key set is a bijection with the manifest's digested-path set (every dict key is a digested
        manifest path AND every digested manifest path is a dict key), closing the consumer-side edge
        of the digest-automation chain (paths→tool-dict→manifest), cf. Check 143. (BLOCKING)
+  145. GitHub Actions are pinned to a full commit SHA: every `uses: owner/repo@ref` in
+       .github/workflows/*.yml must pin `ref` to a full-length 40-hex commit SHA, never a mutable
+       tag (@v6) or branch (@main). A mutable tag can be silently re-pointed (or hijacked) upstream
+       so a workflow runs different code with no repo change — the supply-chain analog of the silent
+       weakening this repo already guards against (Check 67 permissions / 76 settings deny / 115 CSP
+       anti-weakening). Third-party actions (e.g. peter-evans/create-pull-request) are the highest
+       attack surface. This Check parses every uses: ref and asserts a 40-hex SHA (local `./` actions
+       are exempt), preventing regression to mutable tags; the human-readable `# vN` comment stays
+       and dependabot (github-actions, Check 68) keeps the pins current. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5807,6 +5816,47 @@ else:
     check(False, "Check 144: aio-manifest.json と update_aio_digests.py present",
           "Check 144: aio-manifest.json または update_aio_digests.py が無い — "
           "digest-regen tool カバレッジを検証できない", blocking=True)
+
+# ── 145. GitHub Actions are pinned to a full commit SHA (BLOCKING) ──────────────
+# GitHub 公式 hardening は action を full-length commit SHA に pin することを推奨する。
+# 版数タグ (@v6) や branch (@main) は可変で、上流が tag を別 commit へ移動 (or 侵害) すると
+# repo を一切変えずに workflow が別コードを実行しうる (supply-chain risk)。本 Check は
+# .github/workflows/*.yml の全 `uses: owner/repo@ref` の ref が 40-hex commit SHA であることを
+# 強制し、mutable tag への後退を封じる (local `./` action は exempt)。可読性の `# vN` コメントは
+# 残り、dependabot (github-actions・Check 68) が pin を最新に保つ。第三者 action が最大の attack
+# surface。Check 67/76/115 と同 security-baseline の supply-chain 版。
+_wf_dir145 = ROOT / ".github" / "workflows"
+if _wf_dir145.is_dir():
+    _uses_re145 = re.compile(r"^\s*uses:\s*(\S+)")
+    _sha_re145 = re.compile(r"^[0-9a-f]{40}$")
+    _unpinned145 = []
+    for _wf145 in sorted(_wf_dir145.glob("*.yml")):
+        for _i145, _line145 in enumerate(_wf145.read_text(encoding="utf-8").splitlines(), 1):
+            _m145 = _uses_re145.match(_line145)
+            if not _m145:
+                continue
+            _ref145 = _m145.group(1)
+            if _ref145.startswith("./") or _ref145.startswith("docker://"):
+                continue  # local / docker action は SHA-pin 対象外
+            if "@" not in _ref145:
+                _unpinned145.append(f"{_wf145.name}:{_i145} ({_ref145} — @ref 無し)")
+                continue
+            _pin145 = _ref145.rsplit("@", 1)[1]
+            if not _sha_re145.match(_pin145):
+                _unpinned145.append(f"{_wf145.name}:{_i145} ({_ref145})")
+    check(
+        not _unpinned145,
+        "Check 145: 全 GitHub Actions `uses:` が full-length commit SHA に pin されている "
+        "(mutable tag / branch なし・supply-chain hardening)",
+        "Check 145: SHA pin されていない action ref がある: "
+        f"{_unpinned145} — 版数タグ/branch は可変で上流の tag 移動・侵害で無告知に別コードを "
+        "実行しうる。`uses: owner/repo@<40-hex SHA> # vN` 形式へ pin せよ (SHA は "
+        "`gh api repos/<owner>/<repo>/git/ref/tags/<tag>` で解決)",
+        blocking=True,
+    )
+else:
+    check(False, "Check 145: .github/workflows ディレクトリ present",
+          "Check 145: .github/workflows が無い — action SHA-pin を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
