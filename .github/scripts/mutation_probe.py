@@ -219,6 +219,20 @@ E2E_MUTATIONS = [
         "replace": "",
         "test": "Each route updates document.title",
     },
+    {
+        "name": "behavior: resilience — corrupt localStorage 耐性 (storage.parse の JSON 例外ガード) の喪失",
+        "file": ROOT / "js" / "storage.js",
+        "find": "        try {\n            return JSON.parse(data);\n        } catch {\n            return null;\n        }",
+        "replace": "        return JSON.parse(data);",
+        "test": "App recovers gracefully from corrupt localStorage",
+    },
+    {
+        "name": "behavior: resilience — schema 不一致時の旧データ退避+default リセットの喪失",
+        "file": ROOT / "js" / "store.js",
+        "find": "if (data.schemaVersion !== CONSTANTS.SCHEMA_VERSION) {",
+        "replace": "if (data.schemaVersion === CONSTANTS.SCHEMA_VERSION) {",
+        "test": "Store migrates safely on schema version mismatch",
+    },
 ]
 
 
