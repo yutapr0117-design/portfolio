@@ -301,6 +301,12 @@ MUTATIONS = [
         "find": "'/portfolio/llms.txt'",
         "replace": "'/different-prefix/llms.txt'",
     },
+    {
+        "name": "Check 161 (robots.txt UA-* baseline): add Disallow: / to User-agent: * block",
+        "file": ROOT / "robots.txt",
+        "find": "User-agent: *\nAllow: /llms-full.txt",
+        "replace": "User-agent: *\nDisallow: /\nAllow: /llms-full.txt",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
