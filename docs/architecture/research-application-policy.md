@@ -1,7 +1,7 @@
 # research-application-policy.md
 
 ```
-Last-Updated  : 2026-06-07
+Last-Updated  : 2026-06-28
 Maintained-By : AI agents under Yuta Yokoi (横井雄太) orchestration
 Subject       : 外部調査（リサーチ）の運用規律——「リサーチは全適用までがリサーチ」
 Canonical-Ref : AI2AI.md (canonical) / llms-full.txt (ground truth)
@@ -45,6 +45,8 @@ Status        : 本 increment で新設。CLAUDE.md（thin router）から参照
 **(A) 適用済み（apply）:** 改善に繋がり、かつ今すぐ非破壊で適用できるもの。同 increment で適用しきる。例（本 increment）＝ESLint v9.39.4 → v10.4.1 への移行（flat config のため設定変更不要・lint 出力 0 errors / 120 warnings 不変を実測確認・engines.node を v10 要件へ更新・Check 54 で @eslint/js とのメジャー一致を機械強制）。
 
 **(B) 適用不要だが検証済み（verify）:** 現物が既に当該標準に準拠しており、変更不要なもの。「変更が無かった」のではなく「現行性を検証した」結果として記録する。これは null result ではなく、現行性・機械可読性を価値とするこのリポジトリにおける成果物である。例（過去 increment）＝robots.txt の granular AI-bot モデル・Node 24・CSP / Trusted Types が 2026 標準に対し現行であることの検証。
+
+- **llms.txt / AI-crawler discoverability の現行性検証（2026-06-28）:** 2026 時点の調査で、(i) llms.txt 採用率は ~10%（18ヶ月後）に留まり、(ii) **AI 検索クローラ（GPTBot/ClaudeBot/PerplexityBot/OAI-SearchBot/Google-Extended）は llms.txt をほぼ fetch せず HTML を直接クロール**（500M bot 訪問中 llms.txt 直叩きは ~408 件）、(iii) Google は非対応を明言・Anthropic/OpenAI/Perplexity も自動読込未コミット、(iv) genuine な実利用は **B2A（Business-to-Agent）= IDE エージェント（Claude Code/Cursor/Windsurf/Copilot/Cline/Aider）が docs サイトで /llms.txt・/llms-full.txt を参照**、と判明。**本リポジトリは既に root の `/llms.txt`+`/llms-full.txt`（標準配置）と、AI 検索クローラが実際に読む HTML 内 structured data（JSON-LD/entity anchor/meta）の二段構えを持ち、調査が示す現実に整合**。新規採用すべき標準/endpoint は無し。低クローラ uptake は §7「`confirmed_citation_events = 0` は by design = 高確率レーンへの早期ポジション」と整合し、本調査がその姿勢の妥当性を 2026 市場データで裏付けた。公開 AIO content はオーナー方針で terminal ゆえ content 変更も行わない＝**verify-currency（apply なし）**。（出典: SE Ranking 採用率調査 / OtterlyAI GEO study / Search Engine Land llms.txt proposal。再調査は本日付以降に標準が動いた場合のみ。）
 
 **(C) 適用保留（defer）— 理由必須:** 改善に繋がりうるが、今は安全に適用できないもの。**保留の正当な理由と、適用条件・次の一手を必ず文書化する**（確認逃げと区別するため）。正当な保留理由は次の三つに限る。
 - **安全ゲート:** Playwright 視覚回帰 baseline 未取得のため、`style.css` / `main.js` の render 系を触ると非破壊性を機械的に証明できないもの（例＝WCAG 2.2 の target size 24×24・focus appearance、Core Web Vitals の CLS/LCP 是正）。baseline 取得後に着手する（`major-update-readiness.md` 参照）。
