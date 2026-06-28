@@ -229,6 +229,12 @@ MUTATIONS = [
         "find": "ARTICLE_ROUTES: ['ai-knowhow']",
         "replace": "ARTICLE_ROUTES: ['ai-knowhow-PROBE-DANGLING']",
     },
+    {
+        "name": "Check 149 (canonical URL 3-way): drift SITE_CONFIG.CANONICAL_URL from <link rel=canonical> & manifest",
+        "file": ROOT / "main.js",
+        "find": "CANONICAL_URL: 'https://yutapr0117-design.github.io/portfolio/',",
+        "replace": "CANONICAL_URL: 'https://yutapr0117-design.github.io/portfolio-PROBE-DRIFT/',",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
