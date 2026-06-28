@@ -181,6 +181,12 @@ MUTATIONS = [
         "find": "h('h1', { class: 'h1' }, 'Contact')",
         "replace": "h('h1', { class: 'h1' }, 'Contact 横井雄太')",
     },
+    {
+        "name": "Check 141 (default-project uniqueness): duplicate a default project slug (silent-unreachable detail)",
+        "file": ROOT / "js" / "store.js",
+        "find": 'proj("p02", "todo-list"',
+        "replace": 'proj("p02", "task-manager"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────

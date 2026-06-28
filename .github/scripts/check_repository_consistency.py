@@ -800,6 +800,13 @@ authoritative inventory and is kept in sync with the implementation below):
        the demo selector block, parses its non-empty `value: '<app>'` options, and asserts they equal the
        router whitelist (the empty "Demoなし" option is allowed), so every routable app stays selectable
        as a project demo. (BLOCKING)
+  141. Default-project slug & id uniqueness: store.js defaultProjects (the hardcoded proj("pNN","slug",…)
+       seed list) must have unique ids AND unique slugs. ProjectDetailPage resolves a project via
+       find(p.slug === slug) and returns the FIRST match, so a duplicate slug silently makes the later
+       project's detail page unreachable (the #154 class). User-added projects get a runtime slug-suffix
+       dedup in addProjectManual, but the hardcoded defaults have NO such protection — a future data edit
+       introducing a duplicate slug/id would ship a silently-unreachable project. This Check parses the
+       proj(...) seed entries and asserts both id-set and slug-set are collision-free. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5565,6 +5572,36 @@ if _apps140.exists() and _router140.exists():
 else:
     check(False, "Check 140: js/apps.js and js/router.js present",
           "Check 140: js/apps.js または js/router.js が無い — Settings demo selector coverage を検証できない", blocking=True)
+
+# ── 141. Default-project slug & id uniqueness (BLOCKING) ────────────────────────
+# store.js の defaultProjects は `proj("pNN", "slug", ...)` でハードコードされた seed list。
+# ProjectDetailPage は find(p.slug === slug) で最初の一致のみを返すため、slug が重複すると後者の
+# プロジェクト詳細ページが silent に到達不能になる (#154 と同 class)。user-added プロジェクトは
+# addProjectManual が runtime で slug-suffix dedup するが、ハードコード defaults には同保護が無く、
+# 将来のデータ編集で重複 slug/id を入れると silently-unreachable なプロジェクトを出荷してしまう。
+# proj(...) seed を parse し、id 集合と slug 集合がともに衝突無しであることを BLOCKING 強制する。
+_store141 = ROOT / "js" / "store.js"
+if _store141.exists():
+    _ssrc141 = _store141.read_text(encoding="utf-8")
+    # proj("p01", "task-manager", ... の先頭 2 引数 (id, slug) を抽出
+    _projs141 = re.findall(r'proj\(\s*"([a-z0-9_]+)"\s*,\s*"([a-z0-9-]+)"', _ssrc141)
+    _ids141 = [p[0] for p in _projs141]
+    _slugs141 = [p[1] for p in _projs141]
+    _dup_ids141 = sorted({x for x in _ids141 if _ids141.count(x) > 1})
+    _dup_slugs141 = sorted({x for x in _slugs141 if _slugs141.count(x) > 1})
+    check(
+        bool(_projs141) and not _dup_ids141 and not _dup_slugs141,
+        f"Check 141: default projects ({len(_projs141)}) have unique ids and slugs (no silent-unreachable detail)",
+        f"Check 141: default-project 重複検出 — 重複 id: {_dup_ids141} / 重複 slug: {_dup_slugs141}。"
+        f"ProjectDetailPage は find(p.slug===slug) で先頭のみ返すため重複 slug は後者の詳細ページを到達不能化する "
+        f"(#154 class)。store.js の defaultProjects で id/slug を一意にせよ"
+        if _projs141 else
+        "Check 141: store.js の proj(...) seed を parse できない (defaultProjects の構造を確認せよ)",
+        blocking=True,
+    )
+else:
+    check(False, "Check 141: js/store.js present",
+          "Check 141: js/store.js が無い — default-project uniqueness を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
