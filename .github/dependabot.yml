@@ -12,6 +12,13 @@ updates:
     labels:
       - "dependencies"
       - "ci"
+    # 全 action を 1 PR に集約 (npm の dev-dependencies grouping と対称)。action は SHA pin
+    # (Check 145) のため dependabot が各 action の SHA 更新 PR を個別に開くと監査負荷が増える。
+    # grouping で月次・低ノイズの 1 PR にまとめ、audit-only 運用モデルの監査対象を最小化する。
+    groups:
+      github-actions:
+        patterns:
+          - "*"
 
   # npm (dev-tooling only) — Phase 2-A で package.json / package-lock.json を導入したため、
   # その dev tool（eslint / stylelint / @playwright/test / http-server）の更新も Dependabot で受け取る。
