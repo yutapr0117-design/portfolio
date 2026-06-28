@@ -151,12 +151,12 @@ def update_manifest() -> list[str]:
             changed_any_digest = True
 
     if changed_any_digest:
-        # Only update generated_at when digests actually change
+        # Only update generated_at when digests actually change. generated_at は manifest の
+        # 生成時刻 (任意 digest 変更で更新可・Check 91 とは非 coupling)。last_metadata_update は
+        # 下の binary 再 bake 時のみ更新する (理由は該当箇所のコメント参照)。
         now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         data["generated_at"] = now_iso
-        # 8 案: top-level last_metadata_update を真値として記録
-        # (C6 derived-value 例外条項 A 案 に基づく自動更新フィールド)
-        data["last_metadata_update"] = now_iso
+        _binaries_rebaked = False
         # B1 案: binary が変わったら xmp:ModifyDate / xmp:MetadataDate / MP3 TXXX
         # AIO:MetadataLastModified も同期更新する (binary 編集の sha256 が変わったら
         # その binary 内日付メタも同期させる)
@@ -176,6 +176,7 @@ def update_manifest() -> list[str]:
                 from _lib_io import update_webp_xmp_dates, update_mp3_metadata_date
                 if webp.exists() and _binary_edited(webp):
                     if update_webp_xmp_dates(webp, now_iso):
+                        _binaries_rebaked = True
                         print(f"  WebP XMP dates synced to {now_iso}")
                         # digest を再計算 (binary が変わったので)
                         for entry in data["source_of_truth"]:
@@ -183,12 +184,20 @@ def update_manifest() -> list[str]:
                                 entry["sha256"] = sha256_file(webp)
                 if mp3.exists() and _binary_edited(mp3):
                     if update_mp3_metadata_date(mp3, now_iso):
+                        _binaries_rebaked = True
                         print(f"  MP3 ID3 metadata date synced to {now_iso}")
                         for entry in data["source_of_truth"]:
                             if entry.get("path") == "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3":
                                 entry["sha256"] = sha256_file(mp3)
             except ImportError:
                 print("WARNING: _lib_io not importable — binary date sync skipped")
+        # last_metadata_update は AIO METADATA (binary XMP/ID3) の最終変更日を表す derived value で
+        # あり、Check 91 が binary 内日付と coupling する。binary を実際に再 bake した時だけ now() へ
+        # 更新し、それ以外 (text digest のみ変更=Session Record 追記等) は既存値 (= 不変な binary 日付)
+        # を保つ。無条件 bump すると text-only 編集で last_metadata_update≠binary 日付の drift を生み
+        # Check 91 を赤化させる (#252 で binary 再 bake を gate した後に顕在化した class)。
+        if _binaries_rebaked:
+            data["last_metadata_update"] = now_iso
     # else: do not rewrite aio-manifest.json only to refresh generated_at
 
     data.setdefault("manifest_version", "1.0")
