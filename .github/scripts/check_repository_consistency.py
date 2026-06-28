@@ -818,6 +818,16 @@ authoritative inventory and is kept in sync with the implementation below):
        the workflow's pull_request paths filter, keeping "the gate that proves e2e behavior"
        wired to "the files that can change e2e behavior" (the CI-trigger version of the
        file-exists≠file-wired class, cf. Check 133/134/135). (BLOCKING)
+  143. Auto-digest workflow covers every digested manifest file: .well-known/aio-manifest.json
+       registers source_of_truth / supporting_evidence / observational_evidence entries each with a
+       sha256 digest. auto-update-aio-digests.yml is the automation that regenerates those digests
+       on a push to main, and it is path-filtered. If a digested file is absent from that paths
+       filter, editing it on main won't auto-refresh its digest (observed drift: real-work-claims.md
+       was added to the manifest in Session #21 but never to the workflow paths). This Check asserts
+       every manifest entry that has BOTH a repo-relative path AND a sha256 is covered by the
+       workflow's push paths — either as a literal entry or via a `prefix/**` glob — keeping "the
+       files the manifest digests" wired to "the automation that maintains those digests" (the
+       producer/consumer-drift / file-exists≠file-wired class, cf. Check 132/142). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5661,6 +5671,71 @@ else:
     check(False, "Check 142: .github/workflows/playwright-regression.yml present",
           "Check 142: playwright-regression.yml が無い — e2e gate toolchain coverage を検証できない",
           blocking=True)
+
+# ── 143. Auto-digest workflow covers every digested manifest file (BLOCKING) ────
+# .well-known/aio-manifest.json は source_of_truth / supporting_evidence /
+# observational_evidence の各エントリを sha256 digest 付きで登録する。
+# auto-update-aio-digests.yml はそれらの digest を main への push 時に自動再生成する自動化で、
+# path filter で発火する。digested file がその paths に無いと、main 上でその file を編集しても
+# digest が自動更新されない (実 drift: real-work-claims.md は Session #21 で manifest に追加された
+# が workflow paths には未追加だった)。本 Check は、repo-relative path と sha256 を both 持つ全
+# manifest エントリが workflow の push paths に literal か `prefix/**` glob で被覆されることを強制し、
+# 「manifest が digest 付きで宣言する file」を「その digest を維持する自動化」に配線し続ける
+# (producer/consumer-drift / file-exists≠file-wired class・cf. Check 132/142)。
+_manifest143 = ROOT / ".well-known" / "aio-manifest.json"
+_autowf143 = ROOT / ".github" / "workflows" / "auto-update-aio-digests.yml"
+if _manifest143.exists() and _autowf143.exists():
+    _mdata143 = json.loads(_manifest143.read_text(encoding="utf-8"))
+    # digest 付き repo-relative path を全カテゴリから収集 (URL-only / path 無しは除外)。
+    _digested143 = []
+    for _cat143 in ("source_of_truth", "supporting_evidence", "observational_evidence"):
+        for _e143 in _mdata143.get(_cat143, []):
+            _p143 = _e143.get("path")
+            if _p143 and _e143.get("sha256"):
+                _digested143.append(_p143)
+    # workflow の push `paths:` ブロックを (Check 142 と同方式で) テキスト抽出。
+    _wfsrc143 = _autowf143.read_text(encoding="utf-8")
+    _wfpaths143 = []
+    _in_paths143 = False
+    for _line143 in _wfsrc143.splitlines():
+        _s143 = _line143.strip()
+        if re.match(r"^paths:\s*$", _s143):
+            _in_paths143 = True
+            continue
+        if _in_paths143:
+            if _s143.startswith("- "):
+                _wfpaths143.append(_s143[2:].strip().strip("'\""))
+            elif _s143 == "" or _s143.startswith("#"):
+                continue
+            else:
+                _in_paths143 = False
+
+    def _covered143(path, patterns):
+        for _pat143 in patterns:
+            if _pat143 == path:
+                return True
+            if _pat143.endswith("/**") and (
+                path == _pat143[:-3] or path.startswith(_pat143[:-2])
+            ):
+                return True
+        return False
+
+    _uncovered143 = sorted({p for p in _digested143 if not _covered143(p, _wfpaths143)})
+    check(
+        bool(_digested143) and not _uncovered143,
+        f"Check 143: auto-update-aio-digests.yml の paths は digest 付き manifest file "
+        f"{len(_digested143)} 件を全被覆 (digest 維持の自動化に配線済)",
+        f"Check 143: digest 付き manifest file が auto-update-aio-digests.yml の paths から漏れている: "
+        f"{_uncovered143} — main 上で編集しても digest が自動再生成されない producer/consumer drift "
+        f"(cf. Check 132/142)。workflow の push paths に literal か prefix/** で追加せよ"
+        if _digested143 else
+        "Check 143: aio-manifest.json から digest 付き path を 1 件も抽出できない (manifest 構造を確認せよ)",
+        blocking=True,
+    )
+else:
+    check(False, "Check 143: aio-manifest.json と auto-update-aio-digests.yml present",
+          "Check 143: aio-manifest.json または auto-update-aio-digests.yml が無い — "
+          "digest 自動化カバレッジを検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
