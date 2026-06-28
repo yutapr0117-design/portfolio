@@ -223,6 +223,12 @@ MUTATIONS = [
         "find": "'#role-split-table'",
         "replace": "'#role-split-table-PROBE-DANGLING'",
     },
+    {
+        "name": "Check 148 (ARTICLE_ROUTES↔PAGE_META): point ARTICLE_ROUTES at a route not in PAGE_META",
+        "file": ROOT / "main.js",
+        "find": "ARTICLE_ROUTES: ['ai-knowhow']",
+        "replace": "ARTICLE_ROUTES: ['ai-knowhow-PROBE-DANGLING']",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
