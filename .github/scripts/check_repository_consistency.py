@@ -857,6 +857,21 @@ authoritative inventory and is kept in sync with the implementation below):
        arg) and every pNN id referenced in a relatedProjectIds array literal, asserting no reference
        is dangling (and that some references exist, so it can't pass vacuously). Sibling of Check 141
        (which guards id/slug uniqueness); this guards referential integrity. (BLOCKING)
+  147. Speakable cssSelector tokens point to live shipped elements: every #id / .class token in
+       js/meta-management.js's SPEAKABLE_SELECTORS literal (the route-keyed AIO wiring that drives
+       JSON-LD SpeakableSpecification) must appear as a literal token somewhere in the shipped DOM
+       corpus (index.html ∪ js/*.js ∪ main.js, minus meta-management.js itself to avoid self-match).
+       A dangling selector (referencing an element that no renderer emits) is SILENT: the
+       SpeakableSpecification still ships, but voice assistants find no node and silently fail to
+       extract — an AIO precision regression with no console error and no behavior-test signal. This
+       is a demonstrated bug-class: the [FIX] history block above SPEAKABLE_SELECTORS (L152-156)
+       records hand-removal of dead .hero-tagline / .core-thesis selectors and a .role-split-table
+       → #role-split-table correction, never systematized. This Check parses the object literal
+       (arrays only, so route keys are not mis-scanned), exempts generic catch-alls (h1 /
+       [data-speakable] / .sr-only / .sr-only[data-ai-entity] and attribute-only selectors), and
+       asserts each remaining #id/.class token exists in the corpus by word-boundary literal scan.
+       Fails vacuously if SPEAKABLE_SELECTORS cannot be extracted or yields zero non-generic tokens
+       to check. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -5903,6 +5918,77 @@ if _store146.exists():
 else:
     check(False, "Check 146: js/store.js present",
           "Check 146: js/store.js が無い — relatedProjectIds 整合性を検証できない", blocking=True)
+
+# ── 147. Speakable cssSelector tokens point to live shipped elements (BLOCKING) ─
+# js/meta-management.js の SPEAKABLE_SELECTORS は AI 音声アシスタント (JSON-LD
+# SpeakableSpecification) が抽出対象とする DOM ノードを route ごとに宣言する AIO 配線。
+# selector が指す要素が shipped DOM に実在しないと、宣言上は speakable でも実際の DOM ノードが
+# 無く抽出が silent に空振りする AIO 精度劣化になる (console error なし・behavior e2e 非検出)。
+# 同ファイル L152-156 の [FIX] コメントが過去の手動修正履歴 (.hero-tagline / .core-thesis を除去 /
+# .role-split-table → #role-split-table) を残す demonstrated bug-class だが、これまで未 systematize
+# だった。本 Check は SPEAKABLE_SELECTORS object literal の各配列内文字列を抽出し、generic
+# catch-all (h1 / [data-speakable] / .sr-only / .sr-only[data-ai-entity] と属性のみセレクタ) を
+# 除く各 #id / .class token が shipped 面 (index.html ∪ js/*.js ∪ main.js のうち
+# meta-management.js 自身を除く) に literal で実在することを BLOCKING 強制する。
+# SPEAKABLE_SELECTORS が空 / 抽出不可 / 非 generic token ゼロ なら vacuous-fail。
+_meta147 = ROOT / "js" / "meta-management.js"
+if _meta147.exists():
+    _msrc147 = _meta147.read_text(encoding="utf-8")
+    _block147 = re.search(r"const SPEAKABLE_SELECTORS\s*=\s*\{([^}]*)\}", _msrc147)
+    _selectors147: list[str] = []
+    if _block147:
+        # block 内の全 quoted string を拾う (route 名 key も含むが、_m147 regex が #/. 始まりだけ通すので
+        # 'home' 等の key は自然に skip される — `\[...\]` で囲もうとすると `[data-speakable]` 内の `]`
+        # で早期終了し silent に末尾 selector を取りこぼす real footgun を回避する)
+        for _sel147 in re.findall(r"['\"]([^'\"]+)['\"]", _block147.group(1)):
+            _selectors147.append(_sel147)
+    # generic catch-all — どんな well-formed page でも常に matche する想定で exempt
+    _generic147 = {"h1", "[data-speakable]", ".sr-only", ".sr-only[data-ai-entity]"}
+    # shipped 面 corpus を構築 (self-match を避けるため meta-management.js は除く)
+    _corpus147_paths: list[Path] = [ROOT / "index.html", ROOT / "main.js"]
+    _corpus147_paths += sorted((ROOT / "js").glob("*.js"))
+    _corpus147 = ""
+    for _p147 in _corpus147_paths:
+        if _p147.name == "meta-management.js":
+            continue
+        if _p147.exists():
+            _corpus147 += _p147.read_text(encoding="utf-8") + "\n"
+    _dangling147: list[str] = []
+    _checked147 = 0
+    for _sel147 in _selectors147:
+        if _sel147 in _generic147:
+            continue
+        # 属性のみセレクタ ([attr] / [attr=val]) は catch-all 的に扱い exempt
+        if _sel147.startswith("["):
+            continue
+        # 先頭 #id か .class の token を抽出 (.foo.bar や #foo.bar は最初の token のみ評価)
+        _m147 = re.match(r"^([#.])([A-Za-z][\w-]*)", _sel147)
+        if not _m147:
+            # 形式が想定外なら scope 外として skip (false-positive 回避)
+            continue
+        _token147 = _m147.group(2)
+        _checked147 += 1
+        # shipped 面に literal で 1 件以上存在するか (word-boundary)
+        if not re.search(r"\b" + re.escape(_token147) + r"\b", _corpus147):
+            _dangling147.append(_sel147)
+    check(
+        bool(_selectors147) and _checked147 > 0 and not _dangling147,
+        f"Check 147: SPEAKABLE_SELECTORS の全 selector が shipped 面に実在 "
+        f"({len(_selectors147)} selectors, {_checked147} non-generic checked, dangling 0)",
+        (f"Check 147: dangling Speakable selector: {_dangling147} — 宣言した cssSelector が "
+         "shipped DOM (index.html ∪ js/* ∪ main.js) に実在しない。AI 音声アシスタントが "
+         "SpeakableSpecification 経由で抽出に失敗し silent に空振りする (console error 無し・"
+         "behavior e2e 非検出)。js/meta-management.js の SPEAKABLE_SELECTORS を実在 id/class へ "
+         "修正するか dead selector を除去せよ (cf. 同ファイル L152-156 [FIX] history)"
+         if _selectors147 and _checked147 > 0 else
+         "Check 147: js/meta-management.js から SPEAKABLE_SELECTORS の非 generic token を抽出 "
+         "できない (object literal 構造 / generic 集合 を確認せよ)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 147: js/meta-management.js present",
+          "Check 147: js/meta-management.js が無い — Speakable selector 整合性を検証できない",
+          blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
