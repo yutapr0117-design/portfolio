@@ -193,6 +193,12 @@ MUTATIONS = [
         "find": "      - 'package.json'\n      - 'package-lock.json'",
         "replace": "      - 'package-lock.json'",
     },
+    {
+        "name": "Check 143 (auto-digest coverage): drop real-work-claims.md from auto-update-aio-digests.yml paths",
+        "file": ROOT / ".github" / "workflows" / "auto-update-aio-digests.yml",
+        "find": '      - "docs/evidence/real-work-claims.md"\n',
+        "replace": "",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
