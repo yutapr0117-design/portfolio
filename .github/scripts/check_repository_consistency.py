@@ -890,6 +890,12 @@ authoritative inventory and is kept in sync with the implementation below):
        string being the authoritative identifier). Check 62 already enforces manifest ↔ llms-full.txt
        coherence; this Check closes the third edge (the link rel=canonical + the runtime SITE_CONFIG
        used by dynamic JSON-LD injection). Trailing slashes and origin must match exactly. (BLOCKING)
+  150. og:url ↔ canonical URL coherence: the index.html `<meta property="og:url">` content must be
+       byte-identical to the `<link rel="canonical">` href. Drift is SILENT — the OG/social card
+       preview (LinkedIn / Slack unfurl / Twitter / Discord) shows a different URL than the
+       canonical link, and AI/social crawlers may resolve to a different entity URL than the
+       authoritative one. Extends the Check 149 canonical-URL invariant to the social/OG surface,
+       which is the most-shared external mention of the site. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6092,6 +6098,38 @@ if _idx149.exists() and _man149.exists() and _main149.exists():
 else:
     check(False, "Check 149: index.html + aio-manifest.json + main.js present",
           "Check 149: canonical URL 検証に必要な 3 source のいずれかが無い", blocking=True)
+
+# ── 150. og:url ↔ canonical URL coherence (BLOCKING) ──────────────────────────
+# index.html `<meta property="og:url">` content と `<link rel=canonical>` href が
+# byte-identical であることを BLOCKING 強制する。drift は SILENT — OG/social card
+# preview (LinkedIn / Slack unfurl / Twitter / Discord) が canonical link と別の URL
+# を提示し AI/social crawler の entity 識別が崩れる。Check 149 の canonical-URL
+# invariant を最も外部 mention の多い OG surface に拡張する。
+_idx150 = ROOT / "index.html"
+if _idx150.exists():
+    _isrc150 = _idx150.read_text(encoding="utf-8")
+    _og150 = re.search(
+        r'<meta\s+property=["\']og:url["\']\s+content=["\']([^"\']+)["\']', _isrc150
+    )
+    _link150 = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc150
+    )
+    _og150v = _og150.group(1) if _og150 else None
+    _link150v = _link150.group(1) if _link150 else None
+    check(
+        _og150v is not None and _link150v is not None and _og150v == _link150v,
+        f"Check 150: og:url == <link rel=canonical> ({_og150v!r})",
+        (f"Check 150: og:url ({_og150v!r}) != canonical ({_link150v!r}) — "
+         "OG card preview と canonical link が別 URL を提示し AI/social crawler の "
+         "entity 識別に drift。index.html の og:url と <link rel=canonical> を一致させよ "
+         "(Check 149 で manifest + SITE_CONFIG とも byte-identical を強制済)"
+         if _og150v and _link150v else
+         "Check 150: og:url もしくは <link rel=canonical> を抽出できない (index.html を確認せよ)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 150: index.html present",
+          "Check 150: index.html が無い — og:url canonical 整合を検証できない", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
