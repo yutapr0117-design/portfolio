@@ -902,6 +902,14 @@ authoritative inventory and is kept in sync with the implementation below):
        vacuous-test-pair where one test's failure may be misattributed or masked by the other's
        pass. This Check parses all `test('...'` direct invocations and asserts the title multiset
        has no duplicates. (BLOCKING)
+  152. `<html lang>` ↔ JSON-LD `inLanguage` coherence: the index.html `<html lang>` attribute and
+       every JSON-LD `"inLanguage": "..."` declaration across index.html, main.js, and
+       js/meta-management.js must declare the same language code. Drift is SILENT — AI/SEO crawlers
+       see conflicting language signals (e.g. `<html lang="ja">` but JSON-LD `inLanguage: "en"`)
+       and may misclassify the content's primary language, degrading discovery in language-scoped
+       search and AIO. This Check collects all values into a single set and asserts cardinality 1
+       (single canonical language), with `<html lang>` present and at least one JSON-LD inLanguage
+       declaration found. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6166,6 +6174,59 @@ else:
     check(False, "Check 151: e2e/portfolio.spec.js present",
           "Check 151: e2e/portfolio.spec.js が無い — test title 一意性を検証できない",
           blocking=True)
+
+# ── 152. <html lang> ↔ JSON-LD inLanguage coherence (BLOCKING) ─────────────────
+# index.html `<html lang>` 属性と全 JSON-LD `inLanguage` 宣言 (index.html / main.js /
+# js/meta-management.js) が同一の言語コードであることを BLOCKING 強制する。drift は
+# SILENT — AI/SEO crawler が conflicting な言語 signal を見て primary language を
+# 誤分類し、言語スコープ検索 (Google "site:" lang filter / AI search) と AIO で
+# discovery が劣化する。本 Check は全 surface から値を集めて単一集合の cardinality
+# が 1 であることを検証 (canonical 言語が一つに保たれる)。
+_idx152 = ROOT / "index.html"
+_main152 = ROOT / "main.js"
+_meta152 = ROOT / "js" / "meta-management.js"
+if _idx152.exists() and _main152.exists() and _meta152.exists():
+    _isrc152 = _idx152.read_text(encoding="utf-8")
+    _msrc152 = _main152.read_text(encoding="utf-8")
+    _mtsrc152 = _meta152.read_text(encoding="utf-8")
+    _html_lang152_m = re.search(
+        r'<html[^>]+\blang\s*=\s*["\']([a-zA-Z][\w-]*)["\']', _isrc152
+    )
+    _html_lang152 = _html_lang152_m.group(1) if _html_lang152_m else None
+    _in_lang152: list[tuple[str, str]] = []  # (where, value)
+    for _src152, _label152 in [
+        (_isrc152, "index.html"),
+        (_msrc152, "main.js"),
+        (_mtsrc152, "js/meta-management.js"),
+    ]:
+        for _val152 in re.findall(
+            r"['\"]inLanguage['\"]\s*:\s*['\"]([a-zA-Z][\w-]*)['\"]", _src152
+        ):
+            _in_lang152.append((_label152, _val152))
+    _all_lang152: set[str] = {v for (_, v) in _in_lang152}
+    if _html_lang152:
+        _all_lang152.add(_html_lang152)
+    _ok152 = (
+        _html_lang152 is not None
+        and len(_in_lang152) > 0
+        and len(_all_lang152) == 1
+    )
+    check(
+        _ok152,
+        f"Check 152: <html lang>={_html_lang152!r} と {len(_in_lang152)} 件の "
+        f"JSON-LD inLanguage が全て {_all_lang152} で一致",
+        (f"Check 152: 言語コード drift: <html lang>={_html_lang152!r} / "
+         f"JSON-LD inLanguage={_in_lang152} / 全集合={_all_lang152}。AI/SEO crawler "
+         "が conflicting 言語 signal で primary language を誤分類する。index.html "
+         "<html lang> と全 JSON-LD inLanguage を同一言語コードへ統一せよ"
+         if _html_lang152 and _in_lang152 else
+         f"Check 152: 言語宣言を抽出できない (<html lang>={_html_lang152} / "
+         f"inLanguage 件数={len(_in_lang152)}) — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 152: index.html + main.js + js/meta-management.js present",
+          "Check 152: 言語 coherence 検証に必要な 3 source のいずれかが無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
