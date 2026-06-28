@@ -271,6 +271,12 @@ MUTATIONS = [
         "find": '<meta name="twitter:title" content="AI-Driven PM yuta — AI が自走し、人間が統治する engineering ポートフォリオ" />',
         "replace": '<meta name="twitter:title" content="PROBE: drifted twitter title that no longer matches og:title" />',
     },
+    {
+        "name": "Check 156 (og:type enumeration): set og:type to an invalid enumeration value",
+        "file": ROOT / "index.html",
+        "find": '<meta property="og:type" content="website" />',
+        "replace": '<meta property="og:type" content="probe-invalid-type" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
