@@ -253,6 +253,12 @@ MUTATIONS = [
         "find": "'inLanguage': 'ja',",
         "replace": "'inLanguage': 'en',",
     },
+    {
+        "name": "Check 153 (og:image canonical prefix): drift og:image origin off canonical",
+        "file": ROOT / "index.html",
+        "find": '<meta property="og:image" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" />',
+        "replace": '<meta property="og:image" content="https://example.com/probe-other-origin.webp" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
