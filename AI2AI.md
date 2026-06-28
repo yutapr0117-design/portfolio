@@ -962,3 +962,45 @@ C1 外部FW追加なし ✅ / C2 IIFE 未変更 ✅ / C3 ErrorBoundary 未変更
 - 無限自走を継続（停止権限は人間のみ）。**公開面は padding しない**（公/私 境界）。doc/comment 精度は flywheel の load-bearing work として常に同期。Check 総数の真値は `total-check-runbook.md` §9。
 
 ---
+
+## [HANDOFF] Session Record #22 — 2026-06-28 (Claude Opus 4.8, shipped-JS 全網羅 behavioral bug-hunt + behavior 安全網 自己検証 + handoff/canon 同期)
+
+```
+Handoff-From    : Claude Opus 4.8 (Anthropic) — Claude Code
+Handoff-To      : Next AI agent (same project, different session)
+Session-Date    : 2026-06-25〜28
+Orchestrator    : Yuta Yokoi (横井雄太)
+Task            : オーケストレーターからの「全委任・非常に効率良く・完全自走」指示の下、shipped JS の全 interactive/stateful モジュールを網羅的に再読して実バグ/gap を発見・修正し、各々を非 vacuous な BLOCKING テスト/Check で systematize。さらに behavior e2e 安全網の自己検証機構を新設し、handoff/canon 層を同期した。
+```
+
+### このセッションで完了したこと（PR #294〜#302・全 rebase-merge・main 全緑）
+
+- **🟡 Settings demo selector の write-面 coherence gap（#294・Check 140）**: 手動追加フォームの Demo `<select>` に `notes` が欠落（router/store whitelist は許容するのに手動作成で選べない・#257/#292/#293 と同 class）。`<option notes>` 追加 + Check 140（demo selector option == router whitelist）で app-route coherence mesh の read 面（palette/sidebar/AppsPage）に対する write 面を被覆。mutation_probe 20→21。
+- **🔴 cross-tab 未正規化採用（#295・#93 class）**: state.js の `storage` リスナーが他タブ store を `data = incoming` で生採用。load()/import が必ず通す正規化を cross-tab だけ省く唯一の未正規化 ingestion 経路で、デプロイ跨ぎの別 schema/欠損 store で FatalPage crash。load() を mirror（schema 不一致は採用見送り=非破壊・一致時のみ validateAndNormalize）+ 非 vacuous BLOCKING e2e。
+- **🟡 quiz section 見出し検索漏れ（#296・#285 class）**: `_filterBy` が画面表示の section 章タイトル（「第4章：可用性とFinOps…」等）を対象外で "FinOps"/"可用性" 検索が 0 件。section 名一致を追加 + 非 vacuous BLOCKING e2e。
+- **🔴 drawer 再 open scroll-clobber（#297・#262 class 別トリガ）**: #menuBtn は #topbar 内＝#app の外で `__setAppInert` の inert 対象外ゆえ drawer 開放中もクリック可能、再 open で `__lockBodyScroll(true)` が body=fixed の scrollY=0 を読み `__drawerScrollY` を 0 上書き→close で先頭ジャンプ。openDrawer に idempotency ガード（command-palette open() と同型）+ 非 vacuous BLOCKING e2e。
+- **🟡 安全網が正常 FatalPage を覆う（#298）**: fatal-overlay の最終安全網（Shadow DOM・全画面・pointer-events:auto）が 2 秒毎に `__fatalError` だけを見て起動するが、__fatalError は FatalPage 描画後もセットされたまま（クリアは「ホームへ」のみ）ゆえ正常な FatalPage を 2 秒後に覆い復旧ボタンをブロック。setInterval 条件に「FatalPage マーカー #fallback-details 不在」を追加し silent-failure 限定化 + 非 vacuous BLOCKING e2e。
+- **🟢 meta-QA: mutation_probe に `--e2e` モード新設（#299）**: consistency 安全網だけを自己検証していた mutation_probe に behavior e2e 安全網の検証を追加（`npm run mutation-probe-e2e`）。上記 (2)〜(5) の bug class を再現し対応する特定 e2e が「clean で pass・mutated で fail」の二段で確実に捕捉することを institutionalize（4/4 caught）。本セッションで 4 e2e を追加するたび手動実施した非 vacuous 検証を恒久化。
+- **🟢 handoff/canon/doc 同期（#300/#301/#302）**: CLAUDE.md §7 に本 run を記録（#300）。本セッションの bug-fix で生じた 4 葉モジュール docstring の「byte-equivalent」drift を honest 化（#301）。export 側のみ被覆だった JSON import (upsert) round-trip を e2e 化し #192（upsert data-loss）/#139（profile strip）両 class を恒久ガード（#302・非 vacuous）。外部 handoff 文書（.claude/plans）も更新。
+
+### 設計判断の記録 — 本セッションの最重要な学び（再発防止教訓）
+
+- **read 面の coherence mesh を閉じても write 面（作成フォーム等）が drift する**。producer/consumer 双方を縛れ（#294）。
+- **外部入力 ingestion 経路（load/import/cross-tab）は全て同じ正規化を通せ**。一つでも省くと #93 class（未正規化データ→render crash）が再発（#295）。
+- **Playwright の通常 click は actionability で page を scroll する**ため sticky 要素のタップ実機挙動は programmatic click（`el.click()` を evaluate）で検証。smooth scroll 下では `behavior:'instant'` + `expect.poll`（#297）。
+- **フラグ（__fatalError 等）は「起きた」と「復旧 UI が失敗した」を混同するな**。安全網は後者でのみ起動すべき（#298）。**stateful な open 系関数は idempotency ガードを持て**（#297）。
+- **「画面に描画する全テキスト」と「検索が対象にするテキスト」は drift しやすい**（#296・#285 と反復）。新可視フィールド追加時は検索フィルタも同期。
+- **e2e payload の `name: '<lowercase>'` literal は Check 58 の route 抽出正規表現に誤マッチする**ため大文字始まりにする（#302 で実際に踏んで回避）。
+- **推奨前に現物検証で padding を回避**: appsData import 専用 e2e を検討したが、notes 永続（reload→normalizeAppsData）は既存テスト、tasks は #7.1c が validateAndNormalize 経由で被覆済と確認し、冗長ゆえ見送った。
+
+### C1〜C7 制約の遵守確認
+
+C1 外部FW追加なし ✅ / C2 IIFE 未変更 ✅ / C3 ErrorBoundary 強化（安全網を silent-failure 限定化）✅ / C4 FW 再提案なし ✅ / C5 人間はコード未記述（実装は Claude Opus 4.8）✅ / C6 AIO 正本層は無変更（本 run は code/test/meta のみ・公開面は terminal 維持）✅ / C7 KARTE CDN SRI 非適用維持 ✅。
+
+### 未解消スコープ（次のエージェントへの申し送り）
+
+- **shipped-JS の behavioral bug-hunt は網羅済**（全 interactive/stateful モジュール再読・5 件修正・残りは robust 確認）。新機能追加時のみ再 hunt（4 レンズ + 「producer/consumer 双方」「全 ingestion 経路で同じ正規化」「stateful open は idempotency」）。
+- 次の genuine vein: research 適用（公 AIO 面は terminal ゆえ code-health/tooling/meta 層対象）/ より深い invariant 機械強制（runtime ハードナーと重複する static Check は padding ゆえ避ける）。
+- 無限自走を継続（停止権限は人間のみ）。公開面は padding しない（公/私 境界）。Check 総数の真値は `total-check-runbook.md` §9。
+
+---
