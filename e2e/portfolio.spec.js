@@ -2347,6 +2347,41 @@ test('Pomodoro start counts down and pause halts it (deterministic clock)', asyn
   await expect(timer).toHaveText(tPaused);
 });
 
+// ===== 7.2: ポモドーロの 0 到達 → 完了 (complete) Behavior Check — #121 回帰 (page.clock) =====
+// 本コードベース最重要の歴史的バグ #121: startTimer の interval が render 毎キャプチャの stale な
+// closure 変数 (pomo/getRemaining) を読み、完了判定が常に false になって timer が「永遠に完了しない」
+// (表示は 0 まで進むが complete() が発火せず停止・history 記録・完了通知が起きない)。修正は
+// getRemaining/getDuration が State.get() で live を読む。start/pause/reset/mode は被覆済だが
+// この complete (0 到達) 経路 = #121 そのものは直接未カバーだった。work=1 分へ短縮し開始 → 61 秒進めて
+// complete() 発火を検証する: 完了後は isActive 解除 (開始ボタンへ戻る) + remaining が満了値へ復帰
+// (#121 だと一時停止のまま 00:00 で stuck)。toast はこの fastForward 中に auto-dismiss するため
+// persistent state (button / timer) で判定する。
+test('Pomodoro completes when the clock reaches zero and stops (deterministic clock, #121 regression)', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+
+  // work を 1 分へ短縮 (完了まで ~60 tick で fastForward を軽量化)
+  const workInput = page.getByLabel('集中時間（分）');
+  await workInput.fill('1');
+  await workInput.blur();
+
+  const timer = page.locator('.font-mono.text-stat').first();
+  await expect(timer).toHaveText('01:00'); // 設定が remaining に反映 (非稼働 + work mode)
+
+  // 開始 → 61 秒進める → 0 到達で complete() 発火
+  await page.getByRole('button', { name: '開始' }).click();
+  await page.clock.fastForward(61000);
+
+  // #121 回帰判定: 完了したので「開始」ボタンへ戻り (isActive=false)、timer は満了値 01:00 へリセット。
+  // バグ時は「一時停止」のまま 00:00 で stuck になり以下が fail する。
+  await expect(page.getByRole('button', { name: '開始' })).toBeVisible();
+  await expect(timer).toHaveText('01:00');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `pomodoro completion caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: ポモドーロ reset ボタン (満了値へ復帰 + 停止) =====
 // reset() は stopTimer + remainingSec をモード duration へ戻す。switchMode (モード切替) や complete
 // (0 到達) とは別経路で、稼働中の「リセット」ボタン押下は未カバーだった。開始→進める→リセットで
