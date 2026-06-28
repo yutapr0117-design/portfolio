@@ -235,6 +235,12 @@ MUTATIONS = [
         "find": "CANONICAL_URL: 'https://yutapr0117-design.github.io/portfolio/',",
         "replace": "CANONICAL_URL: 'https://yutapr0117-design.github.io/portfolio-PROBE-DRIFT/',",
     },
+    {
+        "name": "Check 150 (og:url↔canonical): drift og:url content from <link rel=canonical>",
+        "file": ROOT / "index.html",
+        "find": '<meta property="og:url" content="https://yutapr0117-design.github.io/portfolio/" />',
+        "replace": '<meta property="og:url" content="https://yutapr0117-design.github.io/portfolio-PROBE-OG-DRIFT/" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
