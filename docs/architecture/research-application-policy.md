@@ -50,6 +50,7 @@ Status        : 本 increment で新設。CLAUDE.md（thin router）から参照
 
 **(C) 適用保留（defer）— 理由必須:** 改善に繋がりうるが、今は安全に適用できないもの。**保留の正当な理由と、適用条件・次の一手を必ず文書化する**（確認逃げと区別するため）。正当な保留理由は次の三つに限る。
 - **安全ゲート:** Playwright 視覚回帰 baseline 未取得のため、`style.css` / `main.js` の render 系を触ると非破壊性を機械的に証明できないもの（例＝WCAG 2.2 の target size 24×24・focus appearance、Core Web Vitals の CLS/LCP 是正）。baseline 取得後に着手する（`major-update-readiness.md` 参照）。
+- **安全ゲート（test-infra）— cross-browser（webkit/Safari）e2e（2026-06-28 調査）:** Safari エンジンでの graceful-degradation 検証は genuine に価値があるが、現テストハーネス（`http-server` で HTTP localhost 配信）では実行できない。根因＝本番 HTTPS では正しい CSP `upgrade-insecure-requests`（index.html・Check 115/C6 で保護され緩和不可）が、HTTP-localhost で webkit に http→https 強制 upgrade を起こし local module（main.js / js/*.js）の load を TLS 失敗させ、SPA が描画されない（`window.render` undefined・`#content` 空）。chromium は localhost を secure context として寛容に扱うため発生しない。**本番（HTTPS GitHub Pages）では upgrade は no-op ゆえ Safari は正常で、これは prod バグではなく test-env artifact**であることを webkit ローカル実測で確認済。適用には HTTPS test serving（自己署名証明書 + `ignoreHTTPSErrors`）等のテスト基盤投資が必要で、rabbit-hole かつ efficiency と相反するため、明示的スコープ決定（major update 等）まで保留する。
 - **標準未確定:** Internet-Draft 等で構文が批准前のもの（例＝IETF AIPREF `Content-Usage`）。RFC 化時に適用する。ただし「draft だから」を機械的な保留理由にしない——**戦略整合の判断を先に行う**（次項）。
 - **戦略不整合:** 標準そのものが、このリポジトリの確定戦略と方向が逆のもの。例＝AIPREF `Content-Usage` は利用を**制限**する機構だが、本リポジトリの robots.txt は学習ボットを**意図的に許可**し「public experiment intended to be learned from by AI models」と宣言している（最大許可方針）。restriction 機構を permissive な現物へ足すのは既定の言い直し（無益）か許可意図との矛盾であり、適用しない。これは draft 段階か否かと独立した、戦略整合の判断である。
 
