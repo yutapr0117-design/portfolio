@@ -259,6 +259,12 @@ MUTATIONS = [
         "find": '<meta property="og:image" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" />',
         "replace": '<meta property="og:image" content="https://example.com/probe-other-origin.webp" />',
     },
+    {
+        "name": "Check 154 (og↔twitter description): drift twitter:description from og:description",
+        "file": ROOT / "index.html",
+        "find": '<meta name="twitter:description" content="人間はコードを一行も書かず、AIが実装〜検証〜デプロイまで自走。機械統治された一貫性チェック群が担保し、サイト自体がその生成物である Vanilla JS SPA。" />',
+        "replace": '<meta name="twitter:description" content="PROBE: drifted twitter description that no longer matches og:description." />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
