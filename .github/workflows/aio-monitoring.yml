@@ -43,10 +43,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: '3.12'
 
@@ -96,7 +96,7 @@ jobs:
       #   (2) ラベル付き Issue 作成を試行し、失敗時はラベルなしで再作成（通知の確実性を担保）
       - name: Notify citation change
         if: steps.monitor.outputs.citation_change == 'increase' || steps.monitor.outputs.citation_change == 'decrease'
-        uses: actions/github-script@v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
         with:
           script: |
             const change = '${{ steps.monitor.outputs.citation_change }}';
