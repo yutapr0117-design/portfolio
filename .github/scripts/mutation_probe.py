@@ -208,14 +208,20 @@ MUTATIONS = [
     {
         "name": "Check 145 (action SHA-pin): revert a pinned action ref to a mutable @v tag",
         "file": ROOT / ".github" / "workflows" / "architecture-validation.yml",
-        "find": "uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6",
-        "replace": "uses: actions/checkout@v6",
+        "find": "uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0",
+        "replace": "uses: actions/checkout@v7",
     },
     {
         "name": "Check 146 (relatedProjectIds integrity): point a relatedProjectId at a non-existent project",
         "file": ROOT / "js" / "store.js",
         "find": '["p16", "p17", "p18"], [], "ai"',
         "replace": '["p16", "p17", "p99"], [], "ai"',
+    },
+    {
+        "name": "Check 147 (Speakable selector wiring): break a Speakable cssSelector to a dead element",
+        "file": ROOT / "js" / "meta-management.js",
+        "find": "'#role-split-table'",
+        "replace": "'#role-split-table-PROBE-DANGLING'",
     },
 ]
 
