@@ -1091,6 +1091,14 @@ authoritative inventory and is kept in sync with the implementation below):
        could surface a stale view while the app has actually been updated, or vice
        versa). Sibling Check of 179 for the timestamp axis of the ai:* meta surface.
        (BLOCKING)
+  181. main.js SITE_CONFIG.LAST_UPDATED is ISO-8601 (YYYY-MM-DD) and a real calendar
+       date: the LAST_UPDATED string in main.js SITE_CONFIG must match strict
+       `YYYY-MM-DD` and parse as a valid date. Free-form / locale-specific formats
+       (e.g. '2026/05/31', '5/31/26') would silently survive Check 180 (byte-identical
+       check) and propagate to ai:last-modified, but AI/SEO crawlers expect ISO-8601
+       and would either drop the freshness signal entirely or misparse the date.
+       Centralizes the format invariant at the source (SITE_CONFIG) so all downstream
+       coherence (Check 91 / 180) implicitly inherits ISO-8601 correctness. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7479,6 +7487,41 @@ if _idx180.exists() and _main180.exists():
 else:
     check(False, "Check 180: index.html + main.js present",
           "Check 180: index.html または main.js が無い", blocking=True)
+
+# ── 181. main.js SITE_CONFIG.LAST_UPDATED is strict ISO-8601 (BLOCKING) ────────
+# main.js SITE_CONFIG.LAST_UPDATED が `YYYY-MM-DD` strict ISO-8601 で実在カレンダー日付
+# であることを BLOCKING 強制。free-form / locale-specific format ('2026/05/31',
+# '5/31/26' 等) は Check 180 (byte-identical) を素通りし ai:last-modified に伝播するが、
+# AI/SEO crawler は ISO-8601 期待ゆえ freshness signal を drop or 誤 parse する。
+# 中心 (SITE_CONFIG) で format を縛り downstream coherence (Check 91/180) が自動継承。
+from datetime import date as _date181
+_main181 = ROOT / "main.js"
+if _main181.exists():
+    _msrc181 = _main181.read_text(encoding="utf-8")
+    _lu181_m = re.search(r"LAST_UPDATED:\s*['\"]([^'\"]+)['\"]", _msrc181)
+    _lu181 = _lu181_m.group(1) if _lu181_m else None
+    _iso_ok181 = False
+    _parse_err181 = None
+    if _lu181 and re.match(r"^\d{4}-\d{2}-\d{2}$", _lu181):
+        try:
+            _y, _m, _d = _lu181.split("-")
+            _date181(int(_y), int(_m), int(_d))
+            _iso_ok181 = True
+        except (ValueError, TypeError) as _e:
+            _parse_err181 = str(_e)
+    check(
+        _iso_ok181,
+        f"Check 181: SITE_CONFIG.LAST_UPDATED={_lu181!r} は ISO-8601 (YYYY-MM-DD) かつ実在日付",
+        (f"Check 181: SITE_CONFIG.LAST_UPDATED={_lu181!r} が ISO-8601 (YYYY-MM-DD) 形式または実在日付でない "
+         f"({_parse_err181 or 'regex mismatch'}) — ai:last-modified に伝播し AI/SEO crawler が "
+         "freshness signal を drop / 誤 parse する。'YYYY-MM-DD' (例 '2026-05-31') 形式に揃えよ"
+         if _lu181 else
+         "Check 181: SITE_CONFIG.LAST_UPDATED が抽出不可"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 181: main.js present",
+          "Check 181: main.js が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
