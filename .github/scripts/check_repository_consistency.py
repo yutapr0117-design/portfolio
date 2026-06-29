@@ -1032,6 +1032,12 @@ authoritative inventory and is kept in sync with the implementation below):
        from CLAUDE.md §1, which explicitly distinguish this entity from namesakes in other fields.
        Drift silently weakens the disambiguation signal — AI crawlers may conflate this entity
        with academic Yuta Yokoi researchers in agriculture/chemistry/medicine/etc. (BLOCKING)
+  171. index.html `ai:*` meta URL tags share canonical URL prefix: the four URL-bearing
+       `<meta name="ai:*">` tags in index.html (`ai:context`, `ai:entrypoint`, `ai:canonical`,
+       `ai:aio-manifest`) must each have a content URL starting with the canonical URL prefix
+       (from `<link rel="canonical">`), and `ai:canonical` must equal canonical exactly. Drift
+       silently desynchronizes the AIO meta layer from the canonical-URL family (e.g. AI crawler
+       following `ai:context` hits a 404 if a sibling-project path is mistakenly used). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7057,6 +7063,50 @@ if _man170.exists():
 else:
     check(False, "Check 170: aio-manifest.json present",
           "Check 170: .well-known/aio-manifest.json が無い", blocking=True)
+
+# ── 171. index.html ai:* meta URL tags share canonical URL prefix (BLOCKING) ───
+# index.html の URL を持つ 4 つの `<meta name="ai:*">` (ai:context, ai:entrypoint,
+# ai:canonical, ai:aio-manifest) が canonical URL prefix で始まり、ai:canonical は
+# canonical 完全一致を BLOCKING 強制する。drift は SILENT に AIO meta layer を
+# canonical URL family から desync させ (sibling-project path を誤用すると AI
+# crawler が ai:context を fetch して 404)。
+_idx171 = ROOT / "index.html"
+if _idx171.exists():
+    _isrc171 = _idx171.read_text(encoding="utf-8")
+    _canon171_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc171
+    )
+    _canon171 = _canon171_m.group(1) if _canon171_m else None
+    _required171 = ["ai:context", "ai:entrypoint", "ai:canonical", "ai:aio-manifest"]
+    _ai_urls171: dict[str, str | None] = {}
+    for _name171 in _required171:
+        _m171 = re.search(
+            rf'<meta\s+name=["\']{re.escape(_name171)}["\']\s+content=["\']([^"\']+)["\']',
+            _isrc171,
+        )
+        _ai_urls171[_name171] = _m171.group(1) if _m171 else None
+    _problems171: list[str] = []
+    for _name171, _url171 in _ai_urls171.items():
+        if _url171 is None:
+            _problems171.append(f"{_name171}=<missing>")
+        elif _canon171 and not _url171.startswith(_canon171):
+            _problems171.append(f"{_name171}={_url171!r} (not prefix of canonical)")
+    # ai:canonical exact match
+    if _canon171 and _ai_urls171.get("ai:canonical") and _ai_urls171["ai:canonical"] != _canon171:
+        _problems171.append(f"ai:canonical={_ai_urls171['ai:canonical']!r} != {_canon171!r}")
+    _ok171 = _canon171 is not None and not _problems171
+    check(
+        _ok171,
+        f"Check 171: 4 ai:* URL meta タグ全て canonical prefix + ai:canonical 完全一致",
+        f"Check 171: ai:* meta URL drift: canonical={_canon171!r} / problems={_problems171} — "
+        "AI crawler が ai:context / ai:aio-manifest を fetch して 404 になり AIO meta layer の "
+        "discovery 効果が崩壊する。index.html の ai:* meta を canonical URL 系列に揃えよ",
+        blocking=True,
+    )
+else:
+    check(False, "Check 171: index.html present",
+          "Check 171: index.html が無い — ai:* meta coherence を検証できない",
+          blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
