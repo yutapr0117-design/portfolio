@@ -1140,6 +1140,13 @@ authoritative inventory and is kept in sync with the implementation below):
        crawlers that read `<meta name="author">` would see a different entity).
        Sibling of Check 173 (js/identity.js AUTHOR) and Check 172 (aio-manifest
        entity name variants) for the HTML <meta name=author> surface. (BLOCKING)
+  187. `<meta property="og:locale">` language code matches `<html lang>`: the
+       language sub-tag of og:locale (e.g. `ja_JP` → `ja`) must equal the
+       `<html lang>` attribute (e.g. `ja`). Drift would silently send conflicting
+       language signals to social/OG crawlers (LinkedIn/Slack/Facebook unfurl) vs
+       browsers and SEO crawlers — preview cards would localize to a different
+       audience than the page itself. Sibling of Check 152 (lang ↔ JSON-LD
+       inLanguage) for the og:locale surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7773,6 +7780,43 @@ if _idx186.exists():
 else:
     check(False, "Check 186: index.html present",
           "Check 186: index.html が無い", blocking=True)
+
+# ── 187. og:locale language sub-tag matches <html lang> (BLOCKING) ────────────
+# index.html `<meta property="og:locale">` の language sub-tag (例 ja_JP → ja)
+# が `<html lang>` 属性 (例 ja) と一致することを BLOCKING 強制。drift は SILENT に
+# OG crawler (LinkedIn/Slack/Facebook unfurl) と browser/SEO crawler へ別言語
+# signal を送り、preview card が page と別の audience へ localize される。
+# Check 152 (lang ↔ JSON-LD inLanguage) の og:locale 軸版。
+_idx187 = ROOT / "index.html"
+if _idx187.exists():
+    _isrc187 = _idx187.read_text(encoding="utf-8")
+    _lang187_m = re.search(r'<html\s+[^>]*lang=["\']([^"\']+)["\']', _isrc187)
+    _ogl187_m = re.search(
+        r'<meta\s+property=["\']og:locale["\']\s+content=["\']([^"\']+)["\']', _isrc187
+    )
+    _lang187 = _lang187_m.group(1) if _lang187_m else None
+    _ogl187 = _ogl187_m.group(1) if _ogl187_m else None
+    # og:locale の language sub-tag (underscore 区切りの先頭)
+    _ogl_lang187 = _ogl187.split("_")[0] if _ogl187 else None
+    _ok187 = (
+        _lang187 is not None
+        and _ogl_lang187 is not None
+        and _lang187 == _ogl_lang187
+    )
+    check(
+        _ok187,
+        f"Check 187: og:locale={_ogl187!r} (lang={_ogl_lang187!r}) == <html lang>={_lang187!r}",
+        (f"Check 187: og:locale language drift: og:locale={_ogl187!r} (lang={_ogl_lang187!r}) / "
+         f"<html lang>={_lang187!r} — OG crawler が page と別 audience へ localize。"
+         "og:locale の language sub-tag を <html lang> と揃えよ"
+         if _lang187 and _ogl187 else
+         f"Check 187: og:locale / <html lang> 抽出不可 "
+         f"(og:locale={_ogl187} / html lang={_lang187})"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 187: index.html present",
+          "Check 187: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
