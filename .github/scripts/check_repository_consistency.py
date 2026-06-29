@@ -1281,6 +1281,14 @@ authoritative inventory and is kept in sync with the implementation below):
        canonical title (Check 66 covers `<title>`, this covers JSON-LD
        WebSite.name surface). Sibling of Check 156 (og:site_name presence)
        for the JSON-LD WebSite.name axis. (BLOCKING)
+  205. JSON-LD `url` fields all use HTTPS: every `"url": "<URL>"` in index.html
+       JSON-LD must start with `https://` (negative invariant — no http://).
+       Drift to http:// would silently downgrade AI/SEO crawler URL signals
+       (browser Mixed Content blocking, search engines penalising insecure
+       URLs, AI crawlers treating http vs https as different origins). Check
+       185 (canonical link HTTPS) anchors only the canonical URL declaration;
+       this Check extends scheme-anchor invariant to every JSON-LD url
+       property across all entity blocks. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8603,6 +8611,34 @@ if _idx204.exists():
 else:
     check(False, "Check 204: index.html present",
           "Check 204: index.html が無い", blocking=True)
+
+# ── 205. JSON-LD url fields all use HTTPS (BLOCKING) ──────────────────────────
+# index.html 静的 JSON-LD 内の全 `"url": "<URL>"` の値が `https://` で始まる
+# ことを BLOCKING 強制 (negative invariant)。drift は SILENT に AI/SEO crawler の
+# URL signal を downgrade (Mixed Content block / search insecure penalty /
+# AI crawler が http vs https を別 origin と認識)。Check 185 (canonical link
+# HTTPS) の JSON-LD 全 entity の url field 軸版。
+_idx205 = ROOT / "index.html"
+if _idx205.exists():
+    _isrc205 = _idx205.read_text(encoding="utf-8")
+    # find all "url": "<value>" inside JSON-LD blocks (within <script
+    # type="application/ld+json">...</script>). simplest: scan whole file.
+    _all_urls205 = re.findall(r'"url":\s*"([^"]+)"', _isrc205)
+    _http205 = [u for u in _all_urls205 if u.startswith("http://")]
+    _ok205 = len(_all_urls205) > 0 and not _http205
+    check(
+        _ok205,
+        f"Check 205: JSON-LD url field {len(_all_urls205)} 件全て https://",
+        (f"Check 205: JSON-LD url field に http:// scheme drift: {_http205!r} — "
+         "AI/SEO crawler の URL signal 劣化 (Mixed Content / scheme split)。"
+         "JSON-LD url を全て https:// に揃えよ"
+         if _http205 else
+         "Check 205: JSON-LD url field 0 件 — vacuous-gate"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 205: index.html present",
+          "Check 205: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
