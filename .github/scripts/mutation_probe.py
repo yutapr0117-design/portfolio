@@ -571,6 +571,12 @@ MUTATIONS = [
         "find": 'src="https://cdn-edge.karte.io/f87bbc255c0125330de2b71f9944ee07/edge.js"',
         "replace": 'src="http://cdn-edge.karte.io/f87bbc255c0125330de2b71f9944ee07/edge.js"',
     },
+    {
+        "name": "Check 208 (JSON-LD date ISO-8601): drift dateModified to locale format",
+        "file": ROOT / "index.html",
+        "find": '"dateModified": "2026-05-04"',
+        "replace": '"dateModified": "2026/05/04"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
