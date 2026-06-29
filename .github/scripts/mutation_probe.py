@@ -373,6 +373,12 @@ MUTATIONS = [
         "find": '      "Yokoi Yuta",\n      "yuta"',
         "replace": '      "Yokoi Yuta"',
     },
+    {
+        "name": "Check 173 (AUTHOR canonical): drift DISPLAY_NAME from 'yuta'",
+        "file": ROOT / "js" / "identity.js",
+        "find": "DISPLAY_NAME:       'yuta',",
+        "replace": "DISPLAY_NAME:       'probe-drifted',",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
