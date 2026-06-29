@@ -1374,6 +1374,16 @@ authoritative inventory and is kept in sync with the implementation below):
        (HTML src/href HTTPS) for the JSON-LD sameAs external-link surface.
        (BLOCKING)
 
+  215. `<meta name="ai:last-modified">` and SITE_CONFIG.LAST_UPDATED are
+       strict ISO-8601 YYYY-MM-DD (format + real calendar date): both date
+       sources (the ai:* AIO meta and the main.js SITE_CONFIG constant)
+       must match a strict `^\d{4}-\d{2}-\d{2}$` regex AND parse as a real
+       calendar date. Check 180 enforces byte-equality between the two but
+       both could silently drift together to a non-ISO format (e.g.
+       `2026/06/30` or `2026-13-01`) corrupting recency signals. Sibling of
+       Check 208 (JSON-LD date ISO-8601) for the ai:* / SITE_CONFIG date
+       surface. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9083,6 +9093,51 @@ if _idx214.exists():
 else:
     check(False, "Check 214: index.html present",
           "Check 214: index.html が無い", blocking=True)
+
+# ── 215. ai:last-modified + SITE_CONFIG.LAST_UPDATED strict ISO-8601 (BLOCKING) ─
+# index.html `<meta name="ai:last-modified">` content と main.js
+# SITE_CONFIG.LAST_UPDATED が strict ISO-8601 (YYYY-MM-DD regex + 実在カレンダー日付)
+# であることを BLOCKING 強制。Check 180 は両者の byte-equality を見るが、両方が
+# 同時に非 ISO format へ drift する可能性は別 invariant。format drift は SILENT に
+# AI/SEO crawler の recency-weighted retrieval を corruption (parse 失敗 / 誤 parse)。
+from datetime import date as _date215
+_idx215 = ROOT / "index.html"
+_main215 = ROOT / "main.js"
+if _idx215.exists() and _main215.exists():
+    _isrc215 = _idx215.read_text(encoding="utf-8")
+    _msrc215 = _main215.read_text(encoding="utf-8")
+    _ai_lm215_m = re.search(
+        r'<meta\s+name=["\']ai:last-modified["\']\s+content=["\']([^"\']+)["\']', _isrc215
+    )
+    _site_lm215_m = re.search(
+        r"LAST_UPDATED:\s*['\"]([^'\"]+)['\"]", _msrc215
+    )
+    _ai_lm215 = _ai_lm215_m.group(1) if _ai_lm215_m else None
+    _site_lm215 = _site_lm215_m.group(1) if _site_lm215_m else None
+    _bad215: list[str] = []
+    for _label, _v in (("ai:last-modified", _ai_lm215), ("SITE_CONFIG.LAST_UPDATED", _site_lm215)):
+        if _v is None:
+            _bad215.append(f"{_label}=抽出不可")
+            continue
+        if not re.match(r"^\d{4}-\d{2}-\d{2}$", _v):
+            _bad215.append(f"{_label}={_v!r} (format)")
+            continue
+        try:
+            _y, _mo, _d = _v.split("-")
+            _date215(int(_y), int(_mo), int(_d))
+        except (ValueError, TypeError) as _e:
+            _bad215.append(f"{_label}={_v!r} ({_e})")
+    _ok215 = not _bad215
+    check(
+        _ok215,
+        f"Check 215: ai:last-modified={_ai_lm215!r} / SITE_CONFIG.LAST_UPDATED={_site_lm215!r} 共に strict ISO-8601 YYYY-MM-DD",
+        (f"Check 215: ISO-8601 drift: {_bad215!r} — AI/SEO recency 信号が "
+         "parse 失敗 / 誤 parse に corruption。strict YYYY-MM-DD へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 215: index.html + main.js present",
+          "Check 215: index.html もしくは main.js が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
