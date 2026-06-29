@@ -1108,6 +1108,14 @@ authoritative inventory and is kept in sync with the implementation below):
        still passes but the URL 404s when AI crawlers fetch it — silent discovery
        collapse. Sibling of Check 163/164 (icon/og:image file resolution) for the
        ai:* meta surface. (BLOCKING)
+  183. sitemap.xml `<lastmod>` values are strict ISO-8601 YYYY-MM-DD: every
+       `<lastmod>` element in sitemap.xml must match strict `YYYY-MM-DD` and parse as
+       a valid calendar date. The W3C Datetime / sitemap protocol both allow more
+       liberal formats (`YYYY-MM-DDThh:mm:ss+00:00`, `YYYY/MM/DD`, etc.), but most
+       crawlers normalize to date-only and locale formats break parsers silently.
+       Centralizing on strict YYYY-MM-DD avoids ambiguity. Sibling of Check 65 (docs
+       ISO-8601) and Check 181 (SITE_CONFIG.LAST_UPDATED ISO-8601) for the sitemap
+       surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7593,6 +7601,40 @@ if _idx182.exists():
 else:
     check(False, "Check 182: index.html present",
           "Check 182: index.html が無い", blocking=True)
+
+# ── 183. sitemap.xml <lastmod> values are strict ISO-8601 YYYY-MM-DD (BLOCKING) ─
+# sitemap.xml の全 `<lastmod>` 要素値が strict `YYYY-MM-DD` regex + 実在カレンダー
+# 日付であることを BLOCKING 強制。W3C Datetime / sitemap protocol は liberal format
+# 許容 (YYYY-MM-DDThh:mm:ss / YYYY/MM/DD 等) だが locale-specific 形式は crawler の
+# parser を silent に壊す。Check 65/181 の sitemap 軸版。
+from datetime import date as _date183
+_sm183 = ROOT / "sitemap.xml"
+if _sm183.exists():
+    _smsrc183 = _sm183.read_text(encoding="utf-8")
+    _lastmods183 = re.findall(r"<lastmod>([^<]+)</lastmod>", _smsrc183)
+    _bad183: list[str] = []
+    for _v in _lastmods183:
+        if not re.match(r"^\d{4}-\d{2}-\d{2}$", _v):
+            _bad183.append(f"{_v!r} (format)")
+            continue
+        try:
+            _y, _m, _d = _v.split("-")
+            _date183(int(_y), int(_m), int(_d))
+        except (ValueError, TypeError) as _e:
+            _bad183.append(f"{_v!r} ({_e})")
+    _ok183 = len(_lastmods183) > 0 and not _bad183
+    check(
+        _ok183,
+        f"Check 183: sitemap.xml <lastmod> {len(_lastmods183)} 件全て ISO-8601 (YYYY-MM-DD) かつ実在日付",
+        (f"Check 183: sitemap.xml <lastmod> 不正値: {'; '.join(_bad183)} — "
+         "crawler date parser を silent に壊す。strict YYYY-MM-DD に揃えよ"
+         if _bad183 else
+         "Check 183: sitemap.xml に <lastmod> 0 件 — vacuous-gate"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 183: sitemap.xml present",
+          "Check 183: sitemap.xml が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
