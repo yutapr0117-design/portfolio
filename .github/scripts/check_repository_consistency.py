@@ -1050,6 +1050,12 @@ authoritative inventory and is kept in sync with the implementation below):
        contains both "Yuta Yokoi" and "横井雄太". Drift would silently break the shipped JS layer
        that renders entity-bearing JSON-LD (Person @type) and sr-only entity anchors. Sibling to
        Check 172 on the aio-manifest side. (BLOCKING)
+  174. `<meta name="theme-color">` values exist as literals in style.css: every theme-color content
+       value in index.html (multiple media-scoped variants permitted) must appear as a literal
+       string somewhere in style.css, ensuring the mobile address bar / OS card chrome color
+       matches a real brand color present in the stylesheet. Drift silently desyncs the OS chrome
+       from the visual brand (the address bar shows a color the site no longer uses anywhere).
+       (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7187,6 +7193,33 @@ if _id173.exists():
 else:
     check(False, "Check 173: js/identity.js present",
           "Check 173: js/identity.js が無い", blocking=True)
+
+# ── 174. <meta name=theme-color> values exist in style.css (BLOCKING) ──────────
+# index.html の全 theme-color content 値が style.css に literal で存在することを
+# BLOCKING 強制する。drift は SILENT に OS chrome (モバイルアドレスバー / OS card)
+# を visual brand から desync させ、アドレスバーが site が使わない色を表示する。
+_idx174 = ROOT / "index.html"
+_css174 = ROOT / "style.css"
+if _idx174.exists() and _css174.exists():
+    _isrc174 = _idx174.read_text(encoding="utf-8")
+    _csrc174 = _css174.read_text(encoding="utf-8")
+    _colors174 = re.findall(
+        r'<meta\s+name=["\']theme-color["\']\s+content=["\']([^"\']+)["\']', _isrc174
+    )
+    _missing174 = [c for c in _colors174 if c not in _csrc174]
+    check(
+        bool(_colors174) and not _missing174,
+        f"Check 174: theme-color 値 {_colors174} 全て style.css に literal で存在",
+        (f"Check 174: theme-color drift: {_missing174} が style.css に literal で存在しない — "
+         "モバイルアドレスバー色が visual brand と desync。index.html theme-color を style.css の "
+         "実 brand 色に揃えよ"
+         if _colors174 else
+         "Check 174: theme-color meta が見つからない (vacuous; Check 157 と一致確認)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 174: index.html + style.css present",
+          "Check 174: index.html もしくは style.css が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

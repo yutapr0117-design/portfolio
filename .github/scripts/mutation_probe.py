@@ -379,6 +379,12 @@ MUTATIONS = [
         "find": "DISPLAY_NAME:       'yuta',",
         "replace": "DISPLAY_NAME:       'probe-drifted',",
     },
+    {
+        "name": "Check 174 (theme-color in style.css): drift theme-color to a color not in style.css",
+        "file": ROOT / "index.html",
+        "find": '<meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)" />',
+        "replace": '<meta name="theme-color" content="#ff00ff" media="(prefers-color-scheme: light)" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
