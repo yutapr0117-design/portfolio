@@ -1307,6 +1307,15 @@ authoritative inventory and is kept in sync with the implementation below):
        (no console error in production builds, just missing functionality).
        Sibling of Check 205/206 (JSON-LD url/@id HTTPS) for the HTML element
        attribute axis. (BLOCKING)
+  208. JSON-LD date fields are strict ISO-8601 YYYY-MM-DD: every
+       `"datePublished"` / `"dateModified"` / `"dateCreated"` value in
+       index.html JSON-LD must match strict `YYYY-MM-DD` regex AND parse as a
+       valid calendar date. Drift to locale formats (`2026/05/31`, `5/31/26`)
+       would silently corrupt freshness signals — Schema.org / Search Console
+       consume these dates to determine recency-weighted ranking, and
+       non-ISO-8601 dates either fail to parse (dropping freshness signal) or
+       misparse (showing wrong "last updated"). Sibling of Check 183 (sitemap
+       lastmod ISO-8601) for the JSON-LD date surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8711,6 +8720,45 @@ if _idx207.exists():
 else:
     check(False, "Check 207: index.html present",
           "Check 207: index.html が無い", blocking=True)
+
+# ── 208. JSON-LD date fields are strict ISO-8601 YYYY-MM-DD (BLOCKING) ────────
+# index.html 静的 JSON-LD 内の全 `"datePublished"`/`"dateModified"`/`"dateCreated"`
+# 値が strict `YYYY-MM-DD` regex かつ実在カレンダー日付であることを BLOCKING 強制。
+# drift は SILENT に Schema.org / Search Console の recency-weighted ranking 用
+# freshness signal を corruption (locale 形式は parse 失敗 or 誤 parse)。Check 183
+# (sitemap lastmod ISO-8601) の JSON-LD date 軸版。
+from datetime import date as _date208
+_idx208 = ROOT / "index.html"
+if _idx208.exists():
+    _isrc208 = _idx208.read_text(encoding="utf-8")
+    _date_fields208 = ["datePublished", "dateModified", "dateCreated"]
+    _dates208 = []
+    for _fld in _date_fields208:
+        for _m in re.finditer(rf'"{_fld}":\s*"([^"]+)"', _isrc208):
+            _dates208.append((_fld, _m.group(1)))
+    _bad208: list[str] = []
+    for _fld, _v in _dates208:
+        if not re.match(r"^\d{4}-\d{2}-\d{2}$", _v):
+            _bad208.append(f"{_fld}={_v!r} (format)")
+            continue
+        try:
+            _y, _mo, _d = _v.split("-")
+            _date208(int(_y), int(_mo), int(_d))
+        except (ValueError, TypeError) as _e:
+            _bad208.append(f"{_fld}={_v!r} ({_e})")
+    _ok208 = len(_dates208) > 0 and not _bad208
+    check(
+        _ok208,
+        f"Check 208: JSON-LD date field {len(_dates208)} 件全て ISO-8601 (YYYY-MM-DD) かつ実在日付",
+        (f"Check 208: JSON-LD date field 不正値: {'; '.join(_bad208)} — "
+         "Schema.org freshness signal 破壊。strict YYYY-MM-DD に揃えよ"
+         if _bad208 else
+         "Check 208: JSON-LD date field 0 件 — vacuous-gate"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 208: index.html present",
+          "Check 208: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
