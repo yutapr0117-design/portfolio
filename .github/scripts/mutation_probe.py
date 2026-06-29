@@ -517,6 +517,12 @@ MUTATIONS = [
         "find": '"jobTitle": "AI-Driven Project Manager / IT Consultant / KERNEL Framework Designer",',
         "replace": '"jobTitle": "AI-Driven Project Manager / IT Consultant",',
     },
+    {
+        "name": "Check 199 (Person.knowsAbout anchors): drop KERNEL Framework from Person.knowsAbout",
+        "file": ROOT / "index.html",
+        "find": '"KERNEL Framework",\n                        "LLM Cost Optimization",',
+        "replace": '"LLM Cost Optimization",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
