@@ -1056,6 +1056,10 @@ authoritative inventory and is kept in sync with the implementation below):
        matches a real brand color present in the stylesheet. Drift silently desyncs the OS chrome
        from the visual brand (the address bar shows a color the site no longer uses anywhere).
        (BLOCKING)
+  175. package.json `private: true` + name baseline: package.json must declare `"private": true`
+       and `"name": "portfolio-aio"`. Silent removal of `private: true` would allow `npm publish`
+       to succeed and leak internal dev config to the public npm registry — a security regression
+       with no console error. The `name` value anchors npm tooling identification. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7220,6 +7224,35 @@ if _idx174.exists() and _css174.exists():
 else:
     check(False, "Check 174: index.html + style.css present",
           "Check 174: index.html もしくは style.css が無い", blocking=True)
+
+# ── 175. package.json private: true + name baseline (BLOCKING) ─────────────────
+# package.json が `"private": true` と `"name": "portfolio-aio"` を保持することを
+# BLOCKING 強制する。private: true 削除は `npm publish` を成功させ内部 dev config
+# を public npm registry に流出させる security regression (console error 無し)。
+# name は npm tool 識別の anchor。
+_pkg175 = ROOT / "package.json"
+if _pkg175.exists():
+    try:
+        _pdata175 = json.loads(_pkg175.read_text(encoding="utf-8"))
+        _problems175: list[str] = []
+        if _pdata175.get("private") is not True:
+            _problems175.append(f"private={_pdata175.get('private')!r} (must be True)")
+        if _pdata175.get("name") != "portfolio-aio":
+            _problems175.append(f"name={_pdata175.get('name')!r} (must be 'portfolio-aio')")
+        check(
+            not _problems175,
+            "Check 175: package.json private: true + name 'portfolio-aio' OK",
+            f"Check 175: package.json baseline drift: {_problems175} — "
+            "private 削除で `npm publish` が成功し内部 dev config が public npm registry に "
+            "流出する security regression。package.json を修正せよ",
+            blocking=True,
+        )
+    except json.JSONDecodeError as e:
+        check(False, f"Check 175: package.json parse",
+              f"Check 175: package.json JSON parse 失敗: {e}", blocking=True)
+else:
+    check(False, "Check 175: package.json present",
+          "Check 175: package.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

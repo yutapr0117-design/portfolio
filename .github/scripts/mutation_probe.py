@@ -385,6 +385,12 @@ MUTATIONS = [
         "find": '<meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)" />',
         "replace": '<meta name="theme-color" content="#ff00ff" media="(prefers-color-scheme: light)" />',
     },
+    {
+        "name": "Check 175 (package.json private/name): drop private:true from package.json",
+        "file": ROOT / "package.json",
+        "find": '"private": true,',
+        "replace": '"private": false,',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
