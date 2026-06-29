@@ -1356,6 +1356,16 @@ authoritative inventory and is kept in sync with the implementation below):
        canonical pathname) / Check 39 (sitemap loc resolves) for the
        manifest icon surface. (BLOCKING)
 
+  213. HTML `<link rel="icon">` / `<link rel="apple-touch-icon">` href starts
+       with canonical URL pathname (non-data: only): every non-data: href in
+       these tags must start with the canonical URL pathname (e.g.
+       `/portfolio/`). Drift (e.g. `/icon.svg` without the `/portfolio/`
+       prefix) would silently 404 on production GitHub Pages deploy where the
+       site is served under the canonical pathname. Check 163 covers
+       file-existence; Check 213 covers canonical-pathname-prefix coherence.
+       Sibling of Check 210 / 212 (manifest start_url/scope/icons canonical
+       pathname) for the HTML head icon-link surface. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -8990,6 +9000,53 @@ if _idx212.exists() and _mani212.exists():
 else:
     check(False, "Check 212: index.html + manifest.webmanifest present",
           "Check 212: index.html もしくは manifest.webmanifest が無い", blocking=True)
+
+# ── 213. <link rel=icon/apple-touch-icon> href canonical pathname (BLOCKING) ──
+# index.html の <link rel="icon"> / <link rel="apple-touch-icon"> の href
+# (non-data: のみ) が canonical URL pathname (例 /portfolio/) で始まることを
+# BLOCKING 強制。drift は SILENT に production GitHub Pages で 404。
+from urllib.parse import urlparse as _urlparse213
+_idx213 = ROOT / "index.html"
+if _idx213.exists():
+    _isrc213 = _idx213.read_text(encoding="utf-8")
+    _canon213_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc213
+    )
+    _canon213 = _canon213_m.group(1) if _canon213_m else None
+    _canon_path213 = _urlparse213(_canon213).path if _canon213 else None
+    _hrefs213: list[tuple[str, str]] = []
+    for _m in re.finditer(
+        r'<link\s+rel=["\'](icon|apple-touch-icon)["\'][^>]*\shref=["\']([^"\']+)["\']',
+        _isrc213,
+    ):
+        _hrefs213.append((_m.group(1), _m.group(2)))
+    # also handle type=...; rel between attributes
+    for _m in re.finditer(
+        r'<link\s+rel=["\'](icon|apple-touch-icon)["\'][^>]*?\stype=["\'][^"\']+["\'][^>]*?\shref=["\']([^"\']+)["\']',
+        _isrc213,
+    ):
+        if (_m.group(1), _m.group(2)) not in _hrefs213:
+            _hrefs213.append((_m.group(1), _m.group(2)))
+    _drifts213: list[str] = []
+    if not _canon_path213:
+        _drifts213.append("canonical pathname 抽出不可")
+    _non_data213 = [(_r, _h) for _r, _h in _hrefs213 if not _h.startswith("data:")]
+    if not _non_data213:
+        _drifts213.append("非 data: な <link rel=icon/apple-touch-icon> 0 件")
+    for _r, _h in _non_data213:
+        if _canon_path213 and not _h.startswith(_canon_path213):
+            _drifts213.append(f"<link rel={_r}> href={_h!r} canonical pathname {_canon_path213!r} 不一致")
+    _ok213 = not _drifts213
+    check(
+        _ok213,
+        f"Check 213: <link rel=icon/apple-touch-icon> non-data: href {len(_non_data213)} 件全て canonical pathname {_canon_path213!r} prefix",
+        (f"Check 213: <link rel=icon/apple-touch-icon> href drift: {_drifts213!r} — "
+         "production GitHub Pages で 404 化。canonical pathname prefix へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 213: index.html present",
+          "Check 213: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
