@@ -403,6 +403,12 @@ MUTATIONS = [
         "find": "**Version:** v74",
         "replace": "**Version:** v999",
     },
+    {
+        "name": "Check 178 (ai:repository derivation): drift ai:repository off canonical-derived GitHub URL",
+        "file": ROOT / "index.html",
+        "find": '<meta name="ai:repository" content="https://github.com/yutapr0117-design/portfolio" />',
+        "replace": '<meta name="ai:repository" content="https://github.com/probe-other-owner/portfolio" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
