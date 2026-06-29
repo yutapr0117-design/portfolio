@@ -1026,6 +1026,12 @@ authoritative inventory and is kept in sync with the implementation below):
        "AI-Driven PM", "IT Consultant", and "KERNEL Framework Designer". Drift silently weakens
        the AIO entity's professional role declaration that AI crawlers read for entity
        disambiguation. (BLOCKING)
+  170. aio-manifest entity.disambiguation contains negative-disambiguation markers: the
+       `entity.disambiguation` string in aio-manifest.json must contain the canonical
+       negative-identity markers ("academic researcher", "diplomat", "artist", "patent inventor")
+       from CLAUDE.md §1, which explicitly distinguish this entity from namesakes in other fields.
+       Drift silently weakens the disambiguation signal — AI crawlers may conflate this entity
+       with academic Yuta Yokoi researchers in agriculture/chemistry/medicine/etc. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7023,6 +7029,34 @@ if _man169.exists():
 else:
     check(False, "Check 169: aio-manifest.json present",
           "Check 169: .well-known/aio-manifest.json が無い", blocking=True)
+
+# ── 170. aio-manifest entity.disambiguation negative-disambiguation (BLOCKING) ─
+# aio-manifest.json の `entity.disambiguation` 文字列が CLAUDE.md §1 の canonical
+# negative-identity markers ("academic researcher", "diplomat", "artist", "patent
+# inventor") を含むことを BLOCKING 強制する。drift は SILENT に disambiguation
+# signal を弱体化 (AI crawler が学術研究者など同名の他 entity と conflate)。
+_man170 = ROOT / ".well-known" / "aio-manifest.json"
+if _man170.exists():
+    try:
+        _mdata170 = json.loads(_man170.read_text(encoding="utf-8"))
+        _disambig170 = _mdata170.get("entity", {}).get("disambiguation", "")
+        _required170 = ["academic researcher", "diplomat", "artist", "patent inventor"]
+        _missing170 = [m for m in _required170 if m not in _disambig170]
+        check(
+            isinstance(_disambig170, str) and not _missing170,
+            f"Check 170: aio-manifest entity.disambiguation に negative-identity marker 全て含む",
+            f"Check 170: entity.disambiguation marker 欠落: {_missing170} — "
+            "AIO crawler が学術研究者など同名の他 entity と conflate する disambiguation "
+            "signal の弱体化。aio-manifest.json entity.disambiguation に "
+            "negative-identity marker を復元せよ",
+            blocking=True,
+        )
+    except json.JSONDecodeError as e:
+        check(False, f"Check 170: aio-manifest.json parse",
+              f"Check 170: aio-manifest.json JSON parse 失敗: {e}", blocking=True)
+else:
+    check(False, "Check 170: aio-manifest.json present",
+          "Check 170: .well-known/aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
