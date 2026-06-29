@@ -1247,6 +1247,14 @@ authoritative inventory and is kept in sync with the implementation below):
        primary @id drifts but references don't, the entity graph fragments
        into disjoint nodes. The trailing-slash + #person fragment derivation
        is mechanically checkable. (BLOCKING)
+  201. JSON-LD WebSite/WebPage `@id` derive from canonical URL: in index.html
+       JSON-LD, the primary WebSite block's `@id` must equal canonical URL +
+       "#website" and the primary WebPage block's `@id` must equal canonical
+       URL + "#webpage". Drift would fragment the entity graph in the same
+       way Check 200 catches for Person — secondary `isPartOf:{"@id":...
+       #website}` and `mainEntity:{"@id":...#webpage}` references would
+       point to dead anchors. Completes the Person/WebSite/WebPage @id
+       anchor triangle that started in Check 200. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8421,6 +8429,50 @@ if _idx200.exists():
 else:
     check(False, "Check 200: index.html present",
           "Check 200: index.html が無い", blocking=True)
+
+# ── 201. JSON-LD WebSite/WebPage @id derive from canonical URL (BLOCKING) ─────
+# index.html 静的 JSON-LD の primary WebSite block の `@id` が canonical URL +
+# "#website" と一致、primary WebPage block の `@id` が canonical URL +
+# "#webpage" と一致することを BLOCKING 強制。drift は Check 200 同様 entity
+# graph 分断 (isPartOf/mainEntity が dead anchor を指す)。Person/WebSite/WebPage
+# @id anchor triangle 完成。
+_idx201 = ROOT / "index.html"
+if _idx201.exists():
+    _isrc201 = _idx201.read_text(encoding="utf-8")
+    _canon201_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc201
+    )
+    _canon201 = _canon201_m.group(1) if _canon201_m else None
+    def _extract_id201(_type_label):
+        _m = re.search(rf'"@type":\s*"{_type_label}"', _isrc201)
+        if not _m:
+            return None
+        _scope = _isrc201[_m.start():_m.start() + 400]
+        _id_m = re.search(r'"@id":\s*"([^"]+)"', _scope)
+        return _id_m.group(1) if _id_m else None
+    _site_id201 = _extract_id201("WebSite")
+    _page_id201 = _extract_id201("WebPage")
+    _expected_site201 = (_canon201 + "#website") if _canon201 else None
+    _expected_page201 = (_canon201 + "#webpage") if _canon201 else None
+    _drifts201 = []
+    if _site_id201 != _expected_site201:
+        _drifts201.append(f"WebSite.@id={_site_id201!r} ≠ {_expected_site201!r}")
+    if _page_id201 != _expected_page201:
+        _drifts201.append(f"WebPage.@id={_page_id201!r} ≠ {_expected_page201!r}")
+    _ok201 = _canon201 is not None and not _drifts201
+    check(
+        _ok201,
+        f"Check 201: WebSite/WebPage @id 両方とも canonical 派生 ({_expected_site201!r} / {_expected_page201!r})",
+        (f"Check 201: JSON-LD WebSite/WebPage @id drift: {'; '.join(_drifts201)} — "
+         "entity graph 分断 (isPartOf / mainEntity の dead anchor)。canonical URL + "
+         "'#website'/'#webpage' に揃えよ"
+         if _drifts201 else
+         "Check 201: canonical URL 抽出不可"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 201: index.html present",
+          "Check 201: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
