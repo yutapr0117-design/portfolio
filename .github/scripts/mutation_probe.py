@@ -343,6 +343,12 @@ MUTATIONS = [
         "find": "  schedule:\n    - cron: '0 1 * * 1'  # 毎週月曜 JST 10:00（UTC 01:00）",
         "replace": "  # schedule PROBE-REMOVED",
     },
+    {
+        "name": "Check 168 (entity.architecture markers): drop ErrorBoundary from entity.architecture",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"Boring Technology (Vanilla JS SPA, IIFE, ErrorBoundary)"',
+        "replace": '"Boring Technology (Vanilla JS SPA, IIFE, NoBoundary-PROBE)"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
