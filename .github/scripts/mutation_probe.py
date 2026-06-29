@@ -505,6 +505,12 @@ MUTATIONS = [
         "find": '"@id": "https://nkgr.co.jp/#organization",\n                  "name": "株式会社日本経営",',
         "replace": '"@id": "https://nkgr.co.jp/#organization",\n                  "name": "Acme Corp",',
     },
+    {
+        "name": "Check 197 (Organization url): drift nkgr Organization.url from https://nkgr.co.jp/",
+        "file": ROOT / "index.html",
+        "find": '"alternateName": ["日本経営", "Nihon Keiei", "Japan Management Co., Ltd.", "日本経営グループ"],\n                  "url": "https://nkgr.co.jp/",',
+        "replace": '"alternateName": ["日本経営", "Nihon Keiei", "Japan Management Co., Ltd.", "日本経営グループ"],\n                  "url": "https://probe-drift.example/",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
