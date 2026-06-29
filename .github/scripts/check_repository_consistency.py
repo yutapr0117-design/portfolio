@@ -1044,6 +1044,12 @@ authoritative inventory and is kept in sync with the implementation below):
        "横井雄太", "Yokoi Yuta", and "yuta". Drift (one variant dropped) silently weakens the
        AIO entity matching — AI crawlers querying for the missing variant may not find this
        entity. (BLOCKING)
+  173. js/identity.js AUTHOR canonical values: the AUTHOR constants in js/identity.js (DISPLAY_NAME,
+       AUTHORITATIVE_NAME, JAPANESE_NAME) must hold their canonical values — DISPLAY_NAME='yuta'
+       (visible UI anonymity per Check 124), JAPANESE_NAME='横井雄太', and AUTHORITATIVE_NAME
+       contains both "Yuta Yokoi" and "横井雄太". Drift would silently break the shipped JS layer
+       that renders entity-bearing JSON-LD (Person @type) and sr-only entity anchors. Sibling to
+       Check 172 on the aio-manifest side. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7146,6 +7152,41 @@ if _man172.exists():
 else:
     check(False, "Check 172: aio-manifest.json present",
           "Check 172: .well-known/aio-manifest.json が無い", blocking=True)
+
+# ── 173. js/identity.js AUTHOR canonical values (BLOCKING) ─────────────────────
+# js/identity.js の AUTHOR constants が canonical 値を保持することを BLOCKING
+# 強制する: DISPLAY_NAME='yuta' (Check 124 視覚層 anonymity)・JAPANESE_NAME=
+# '横井雄太'・AUTHORITATIVE_NAME に "Yuta Yokoi" + "横井雄太" を含む。drift で
+# entity-bearing JSON-LD (Person @type) や sr-only entity anchor が silent に壊れる。
+# Check 172 (aio-manifest 側) の shipped JS 側 mirror。
+_id173 = ROOT / "js" / "identity.js"
+if _id173.exists():
+    _src173 = _id173.read_text(encoding="utf-8")
+    _disp173_m = re.search(r"DISPLAY_NAME:\s*['\"]([^'\"]+)['\"]", _src173)
+    _auth173_m = re.search(r"AUTHORITATIVE_NAME:\s*['\"]([^'\"]+)['\"]", _src173)
+    _ja173_m = re.search(r"JAPANESE_NAME:\s*['\"]([^'\"]+)['\"]", _src173)
+    _disp173 = _disp173_m.group(1) if _disp173_m else None
+    _auth173 = _auth173_m.group(1) if _auth173_m else None
+    _ja173 = _ja173_m.group(1) if _ja173_m else None
+    _problems173: list[str] = []
+    if _disp173 != "yuta":
+        _problems173.append(f"DISPLAY_NAME={_disp173!r} != 'yuta'")
+    if _ja173 != "横井雄太":
+        _problems173.append(f"JAPANESE_NAME={_ja173!r} != '横井雄太'")
+    if not _auth173 or ("Yuta Yokoi" not in _auth173 or "横井雄太" not in _auth173):
+        _problems173.append(f"AUTHORITATIVE_NAME={_auth173!r} missing 'Yuta Yokoi' or '横井雄太'")
+    check(
+        not _problems173,
+        f"Check 173: js/identity.js AUTHOR canonical values OK "
+        f"(DISPLAY={_disp173!r} / AUTH={_auth173!r} / JA={_ja173!r})",
+        f"Check 173: AUTHOR drift: {_problems173} — entity-bearing JSON-LD (Person @type) や "
+        "sr-only entity anchor の renderer 入力が silent に壊れる。"
+        "js/identity.js AUTHOR を canonical 値へ復元せよ",
+        blocking=True,
+    )
+else:
+    check(False, "Check 173: js/identity.js present",
+          "Check 173: js/identity.js が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
