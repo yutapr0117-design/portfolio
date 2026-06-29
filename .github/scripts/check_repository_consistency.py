@@ -1274,6 +1274,13 @@ authoritative inventory and is kept in sync with the implementation below):
        first-name search alignment and Knowledge Panel name display.
        Sibling of Check 195 (Person.alternateName variants) for the
        structured name-decomposition axis. (BLOCKING)
+  204. JSON-LD WebSite `name` contains site brand markers: in the primary
+       JSON-LD WebSite block, the `name` string must contain BOTH "yuta"
+       (display brand) AND "AI-Driven PM" (positioning identifier). Drift
+       would silently desync the AI/SEO WebSite-level brand signal from the
+       canonical title (Check 66 covers `<title>`, this covers JSON-LD
+       WebSite.name surface). Sibling of Check 156 (og:site_name presence)
+       for the JSON-LD WebSite.name axis. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8560,6 +8567,42 @@ if _idx203.exists():
 else:
     check(False, "Check 203: index.html present",
           "Check 203: index.html が無い", blocking=True)
+
+# ── 204. JSON-LD WebSite name contains site brand markers (BLOCKING) ──────────
+# index.html 静的 JSON-LD の primary WebSite block の `name` string が site
+# brand marker ("yuta" + "AI-Driven PM") を共に含むことを BLOCKING 強制。
+# drift は SILENT に WebSite-level brand signal を canonical title (Check 66)
+# から desync させ AI/SEO crawler の site identity 認識を弱体化。Check 156
+# (og:site_name) の JSON-LD WebSite.name 軸版。
+_idx204 = ROOT / "index.html"
+if _idx204.exists():
+    _isrc204 = _idx204.read_text(encoding="utf-8")
+    _site204_m = re.search(r'"@type":\s*"WebSite"', _isrc204)
+    _site_name204 = None
+    if _site204_m:
+        _line_start = _isrc204.rfind("\n", 0, _site204_m.start()) + 1
+        _indent = _isrc204[_line_start:_site204_m.start()]
+        _all_sites = [m.start() for m in re.finditer(r'"@type":\s*"WebSite"', _isrc204)]
+        _next = next((p for p in _all_sites if p > _site204_m.start()), len(_isrc204))
+        _scope = _isrc204[_site204_m.start():_next]
+        _n = re.search(r'\n' + re.escape(_indent) + r'"name":\s*"([^"]+)"', _scope)
+        _site_name204 = _n.group(1) if _n else None
+    _required204 = ["yuta", "AI-Driven PM"]
+    _missing204 = [m for m in _required204 if _site_name204 and m not in _site_name204] if _site_name204 else _required204
+    _ok204 = _site_name204 is not None and not _missing204
+    check(
+        _ok204,
+        f"Check 204: primary WebSite.name が brand markers {_required204} 全て含む ({_site_name204!r})",
+        (f"Check 204: primary WebSite.name に必須 brand marker {_missing204} 欠落 "
+         f"(現 name={_site_name204!r}) — WebSite-level brand signal が canonical title "
+         "から desync。'yuta' + 'AI-Driven PM' を含む形に揃えよ"
+         if _site_name204 else
+         "Check 204: primary WebSite.name 抽出不可"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 204: index.html present",
+          "Check 204: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
