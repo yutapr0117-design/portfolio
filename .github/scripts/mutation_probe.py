@@ -577,6 +577,12 @@ MUTATIONS = [
         "find": '"dateModified": "2026-05-04"',
         "replace": '"dateModified": "2026/05/04"',
     },
+    {
+        "name": "Check 209 (potentialAction target canonical prefix): drift ReadAction target to sibling project",
+        "file": ROOT / "index.html",
+        "find": '"https://yutapr0117-design.github.io/portfolio/",\n                              "https://yutapr0117-design.github.io/portfolio/llms.txt"',
+        "replace": '"https://yutapr0117-design.github.io/portfolio-PROBE-DRIFT/",\n                              "https://yutapr0117-design.github.io/portfolio/llms.txt"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
