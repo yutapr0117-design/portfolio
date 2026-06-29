@@ -553,6 +553,12 @@ MUTATIONS = [
         "find": '"name": "yuta - AI-Driven PM | ポートフォリオ",\n                  "url": "https://yutapr0117-design.github.io/portfolio/",\n                  "inLanguage": "ja",',
         "replace": '"name": "yuta ポートフォリオ",\n                  "url": "https://yutapr0117-design.github.io/portfolio/",\n                  "inLanguage": "ja",',
     },
+    {
+        "name": "Check 205 (JSON-LD url HTTPS): downgrade a Zenn url to http",
+        "file": ROOT / "index.html",
+        "find": '"url": "https://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48d"',
+        "replace": '"url": "http://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48d"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
