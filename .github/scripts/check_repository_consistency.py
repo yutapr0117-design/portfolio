@@ -1163,6 +1163,14 @@ authoritative inventory and is kept in sync with the implementation below):
        backed by these) — a catastrophic AIO discovery failure invisible to
        browser/console/behavior e2e. Companion to Check 161 (robots.txt full-site
        disallow guard) for the HTML meta robots surface. (BLOCKING)
+  190. `.nojekyll` file presence (GitHub Pages Jekyll bypass): the repository root
+       must contain an empty `.nojekyll` file. Without it, GitHub Pages runs
+       Jekyll on the deployed content — Jekyll silently ignores files / directories
+       starting with `_` (e.g. `docs/files/_template.md`, `_assets/`), strips
+       certain metadata, and applies layout munging. Loss of `.nojekyll` is
+       invisible to browser/console/behavior e2e (the homepage still renders) but
+       breaks underscore-prefixed paths silently. Presence-only check (file may be
+       empty). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7908,6 +7916,23 @@ if _idx189.exists():
 else:
     check(False, "Check 189: index.html present",
           "Check 189: index.html が無い", blocking=True)
+
+# ── 190. .nojekyll file presence (GitHub Pages Jekyll bypass) (BLOCKING) ──────
+# repo root の `.nojekyll` file 存在を BLOCKING 強制。GitHub Pages は本 file が
+# 無いと Jekyll 処理を稼働させ、`_` 始まりの file/directory (例
+# `docs/files/_template.md`、`_assets/`) を silent に skip する。本 site は
+# underscore-prefix path を含むため本 file 欠落は invisible 破壊 (homepage は
+# 描画されるが特定 path が 404 化)。presence-only (file は空でも OK)。
+_nj190 = ROOT / ".nojekyll"
+_ok190 = _nj190.exists() and _nj190.is_file()
+check(
+    _ok190,
+    "Check 190: .nojekyll file presence (GitHub Pages Jekyll bypass)",
+    "Check 190: .nojekyll file が repo root に無い — GitHub Pages が Jekyll 処理を "
+    "稼働させ _-prefix path (例 _template.md / _assets/) が silent に 404 化。"
+    "`touch .nojekyll` で空 file を作成し commit せよ",
+    blocking=True,
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
