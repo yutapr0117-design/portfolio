@@ -463,6 +463,12 @@ MUTATIONS = [
         "find": '<meta property="og:locale" content="ja_JP" />',
         "replace": '<meta property="og:locale" content="en_US" />',
     },
+    {
+        "name": "Check 188 (robots Sitemap resolves): drift Sitemap URL to dangling file",
+        "file": ROOT / "robots.txt",
+        "find": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml",
+        "replace": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap-PROBE-MISSING.xml",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
