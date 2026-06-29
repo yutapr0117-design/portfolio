@@ -451,6 +451,12 @@ MUTATIONS = [
         "find": '<link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/"',
         "replace": '<link rel="canonical" href="http://yutapr0117-design.github.io/portfolio/"',
     },
+    {
+        "name": "Check 186 (meta author entity): drop 横井雄太 from <meta name=author>",
+        "file": ROOT / "index.html",
+        "find": '<meta name="author" content="Yuta Yokoi (横井雄太)" />',
+        "replace": '<meta name="author" content="Yuta Yokoi" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
