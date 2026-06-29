@@ -415,6 +415,12 @@ MUTATIONS = [
         "find": '<meta name="ai:version" content="v74" />',
         "replace": '<meta name="ai:version" content="v999" />',
     },
+    {
+        "name": "Check 180 (ai:last-modified coherence): drift ai:last-modified off SITE_CONFIG.LAST_UPDATED",
+        "file": ROOT / "index.html",
+        "find": '<meta name="ai:last-modified" content="2026-05-31" />',
+        "replace": '<meta name="ai:last-modified" content="1999-01-01" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
