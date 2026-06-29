@@ -541,6 +541,12 @@ MUTATIONS = [
         "find": '<link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" />',
         "replace": '<link rel="canonical" href="https://yutapr0117-design.github.io/portfolio" />',
     },
+    {
+        "name": "Check 203 (Person givenName/familyName): swap familyName to wrong value",
+        "file": ROOT / "index.html",
+        "find": '"givenName": "雄太",\n                  "familyName": "横井",',
+        "replace": '"givenName": "雄太",\n                  "familyName": "佐藤",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
