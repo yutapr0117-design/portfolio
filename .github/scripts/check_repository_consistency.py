@@ -1099,6 +1099,15 @@ authoritative inventory and is kept in sync with the implementation below):
        and would either drop the freshness signal entirely or misparse the date.
        Centralizes the format invariant at the source (SITE_CONFIG) so all downstream
        coherence (Check 91 / 180) implicitly inherits ISO-8601 correctness. (BLOCKING)
+  182. ai:* meta URL endpoints resolve to actual repo files: the URL content of
+       `<meta name="ai:context">`, `<meta name="ai:entrypoint">`, and
+       `<meta name="ai:aio-manifest">` must map (via canonical-URL strip) to an
+       existing repo file. Check 171 enforces only the canonical URL *prefix*; if the
+       path after the prefix drifts (e.g. `llms-full.txt` renamed to
+       `llms-context.txt` but ai:context not updated, or the manifest moved), 171
+       still passes but the URL 404s when AI crawlers fetch it — silent discovery
+       collapse. Sibling of Check 163/164 (icon/og:image file resolution) for the
+       ai:* meta surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7522,6 +7531,68 @@ if _main181.exists():
 else:
     check(False, "Check 181: main.js present",
           "Check 181: main.js が無い", blocking=True)
+
+# ── 182. ai:* meta URL endpoints resolve to actual repo files (BLOCKING) ──────
+# index.html の `<meta name="ai:context">`, `<meta name="ai:entrypoint">`,
+# `<meta name="ai:aio-manifest">` content URL が canonical URL prefix を strip した
+# repo-relative path で実在 file に resolve することを BLOCKING 強制。Check 171 は
+# prefix のみ検証で、prefix 後の path drift (例 llms-full.txt → llms-context.txt
+# rename + meta 未更新) は素通り→AI crawler が 404 で discovery 崩壊。Check 163/164
+# (icon/og:image resolves) の ai:* meta 軸版。
+_idx182 = ROOT / "index.html"
+if _idx182.exists():
+    _isrc182 = _idx182.read_text(encoding="utf-8")
+    _canon182_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc182
+    )
+    _canon182 = _canon182_m.group(1) if _canon182_m else None
+    _ai_meta_names182 = ["ai:context", "ai:entrypoint", "ai:aio-manifest"]
+    _dangling182: list[str] = []
+    _extracted182: list[tuple[str, str]] = []
+    for _name in _ai_meta_names182:
+        _m = re.search(
+            rf'<meta\s+name=["\']{re.escape(_name)}["\']\s+content=["\']([^"\']+)["\']',
+            _isrc182,
+        )
+        if not _m:
+            _dangling182.append(f"{_name}=<missing>")
+            continue
+        _url = _m.group(1)
+        _extracted182.append((_name, _url))
+        if _canon182 and _url.startswith(_canon182):
+            _rel = _url[len(_canon182):]
+        elif _canon182:
+            # Try without trailing slash
+            _cs = _canon182.rstrip("/") + "/"
+            if _url.startswith(_cs):
+                _rel = _url[len(_cs):]
+            else:
+                _dangling182.append(f"{_name}={_url} (canonical prefix 不一致)")
+                continue
+        else:
+            _dangling182.append(f"{_name}={_url} (canonical 抽出不可)")
+            continue
+        _target = ROOT / _rel.lstrip("/")
+        if not _target.exists():
+            _dangling182.append(f"{_name}={_url} → {_rel} (file 不在)")
+    _ok182 = (
+        _canon182 is not None
+        and len(_extracted182) == len(_ai_meta_names182)
+        and not _dangling182
+    )
+    check(
+        _ok182,
+        f"Check 182: ai:* meta URL 3 endpoint 全て実 file に resolve "
+        f"({', '.join(n for n, _ in _extracted182)})",
+        (f"Check 182: ai:* meta URL endpoint 不整合: "
+         f"{'; '.join(_dangling182)} — AI crawler が fetch して 404 discovery 崩壊。"
+         "ai:context / ai:entrypoint / ai:aio-manifest content URL を canonical 配下の "
+         "実在 file に揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 182: index.html present",
+          "Check 182: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
