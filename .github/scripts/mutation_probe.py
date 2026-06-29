@@ -493,6 +493,12 @@ MUTATIONS = [
         "find": '"url": "https://yutapr0117-design.github.io/portfolio/",\n                  "name": "yuta - AI-Driven PM | ポートフォリオ",\n                  "inLanguage": "ja",\n                  "isPartOf":',
         "replace": '"url": "https://yutapr0117-design.github.io/portfolio/probe-webpage-drift/",\n                  "name": "yuta - AI-Driven PM | ポートフォリオ",\n                  "inLanguage": "ja",\n                  "isPartOf":',
     },
+    {
+        "name": "Check 195 (Person.alternateName variants): drop 横井雄太 from primary Person.alternateName",
+        "file": ROOT / "index.html",
+        "find": '"alternateName": [\n                        "横井雄太",\n                        "ユウタ",',
+        "replace": '"alternateName": [\n                        "ユウタ",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
