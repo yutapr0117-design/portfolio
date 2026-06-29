@@ -595,6 +595,12 @@ MUTATIONS = [
         "find": '"contentUrl": "https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp"',
         "replace": '"contentUrl": "https://cdn.probe-drift.example/yuta-yokoi-ai-pm-orchestration-system.webp"',
     },
+    {
+        "name": "Check 212 (manifest icons[].src canonical pathname + exist): drift icon src to nonexistent path",
+        "file": ROOT / "manifest.webmanifest",
+        "find": '"src": "/portfolio/icon.svg"',
+        "replace": '"src": "/portfolio/icon-PROBE-MISSING.svg"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
