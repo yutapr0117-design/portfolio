@@ -1201,6 +1201,14 @@ authoritative inventory and is kept in sync with the implementation below):
        (the WebPage block is the most-directly-page-mapped JSON-LD entity).
        Completes the Person/WebSite/WebPage URL-coherence triangle for the
        canonical-URL anchor (Checks 192 + 193 + 194). (BLOCKING)
+  195. JSON-LD Person `alternateName` contains canonical name variants: in the
+       primary JSON-LD Person block in index.html, the `alternateName` array
+       must contain BOTH "横井雄太" AND "Yokoi Yuta" (canonical name variants
+       from CLAUDE.md §1). Drift would silently weaken AI entity-matching for
+       queries using these variants (Google/AI search by 横井雄太 / Yokoi
+       Yuta wouldn't anchor back to this Person entity). Sibling of Check 172
+       (aio-manifest entity.name_alt) and Check 173 (js/identity.js AUTHOR) for
+       the JSON-LD Person.alternateName surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8119,6 +8127,51 @@ if _idx194.exists():
 else:
     check(False, "Check 194: index.html present",
           "Check 194: index.html が無い", blocking=True)
+
+# ── 195. JSON-LD Person alternateName contains canonical variants (BLOCKING) ──
+# index.html 静的 JSON-LD の primary Person block の `alternateName` array が
+# CLAUDE.md §1 canonical name variants ("横井雄太" + "Yokoi Yuta") を共に含む
+# ことを BLOCKING 強制。drift は SILENT に AI entity-matching を弱体化
+# (Google/AI search で 横井雄太 / Yokoi Yuta query が本 Person entity に anchor
+# しない)。Check 172 (manifest entity.name_alt) / 173 (identity.js AUTHOR) の
+# JSON-LD Person.alternateName 軸版。
+_idx195 = ROOT / "index.html"
+if _idx195.exists():
+    _isrc195 = _idx195.read_text(encoding="utf-8")
+    _required195 = ["横井雄太", "Yokoi Yuta"]
+    _person_alt195 = []
+    _type_positions195 = [m.start() for m in re.finditer(r'"@type":', _isrc195)]
+    for _m in re.finditer(r'"@type":\s*"Person"', _isrc195):
+        _start = _m.start()
+        _next = next((p for p in _type_positions195 if p > _start), len(_isrc195))
+        _scope = _isrc195[_start:_next]
+        _line_start = _isrc195.rfind("\n", 0, _start) + 1
+        _indent = _isrc195[_line_start:_start]
+        # match `\n<indent>"alternateName": [ ... ]` (multi-line array literal)
+        _arr = re.search(
+            r'\n' + re.escape(_indent) + r'"alternateName":\s*\[([^\]]*)\]', _scope
+        )
+        if _arr:
+            _names = re.findall(r'"([^"]+)"', _arr.group(1))
+            _person_alt195.append(_names)
+    # check primary (first) Person.alternateName covers required variants
+    _primary195 = _person_alt195[0] if _person_alt195 else []
+    _missing195 = [n for n in _required195 if n not in _primary195]
+    _ok195 = len(_person_alt195) > 0 and not _missing195
+    check(
+        _ok195,
+        f"Check 195: primary Person.alternateName が canonical variants {_required195} を網羅 "
+        f"({len(_primary195)} entries)",
+        (f"Check 195: primary Person.alternateName に必須 variant {_missing195} 欠落 "
+         f"(現 alternateName={_primary195!r}) — AI entity matching を弱体化。"
+         "JSON-LD Person.alternateName array に必須 variant を追加せよ"
+         if _person_alt195 else
+         "Check 195: JSON-LD primary Person block alternateName 抽出不可"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 195: index.html present",
+          "Check 195: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
