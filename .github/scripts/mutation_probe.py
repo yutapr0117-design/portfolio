@@ -559,6 +559,12 @@ MUTATIONS = [
         "find": '"url": "https://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48d"',
         "replace": '"url": "http://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48d"',
     },
+    {
+        "name": "Check 206 (JSON-LD @id HTTPS): downgrade hero-image @id to http",
+        "file": ROOT / "index.html",
+        "find": '"@id": "https://yutapr0117-design.github.io/portfolio/#hero-image"',
+        "replace": '"@id": "http://yutapr0117-design.github.io/portfolio/#hero-image"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
