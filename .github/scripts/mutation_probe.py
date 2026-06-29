@@ -481,6 +481,12 @@ MUTATIONS = [
         "find": '"url": "https://yutapr0117-design.github.io/portfolio/",\n                  "image":',
         "replace": '"url": "https://yutapr0117-design.github.io/portfolio/probe-drift/",\n                  "image":',
     },
+    {
+        "name": "Check 193 (WebSite.url canonical): drift WebSite.url to a different page",
+        "file": ROOT / "index.html",
+        "find": '"url": "https://yutapr0117-design.github.io/portfolio/",\n                  "inLanguage": "ja",',
+        "replace": '"url": "https://yutapr0117-design.github.io/portfolio/probe-website-drift/",\n                  "inLanguage": "ja",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
