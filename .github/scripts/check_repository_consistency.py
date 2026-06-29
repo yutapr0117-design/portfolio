@@ -1014,6 +1014,13 @@ authoritative inventory and is kept in sync with the implementation below):
        `schedule.cron:` trigger. Silent removal stops the weekly AIO discovery/citation
        observability loop without any visible regression — the workflow just stops firing, and
        observability data goes stale. (BLOCKING)
+  168. aio-manifest entity.architecture references C1/C2/C3 markers: the
+       `entity.architecture` string in aio-manifest.json must contain the three architectural
+       constraint markers "Vanilla JS", "IIFE", and "ErrorBoundary" (corresponding to C1/C2/C3 in
+       AI2AI.md STEP 2). Drift would silently weaken the AIO entity's architectural identity
+       declaration — AI crawlers reading the manifest would no longer see this site as a Boring-
+       Technology Vanilla JS SPA. Mirror of CLAUDE.md §1 architecture statement on the manifest
+       side. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6949,6 +6956,36 @@ if _aiowf167.exists():
 else:
     check(False, "Check 167: aio-monitoring.yml present",
           "Check 167: .github/workflows/aio-monitoring.yml が無い", blocking=True)
+
+# ── 168. aio-manifest entity.architecture references C1/C2/C3 markers (BLOCKING) ─
+# aio-manifest.json の `entity.architecture` 文字列が C1/C2/C3 architectural
+# constraint markers ("Vanilla JS", "IIFE", "ErrorBoundary") を含むことを BLOCKING
+# 強制する。drift は SILENT に AIO entity の architectural identity 宣言を弱体化する
+# (AI crawler が manifest 経由で本 site を Boring-Technology Vanilla JS SPA と認識
+# できなくなる)。CLAUDE.md §1 architecture statement の manifest 側 mirror。
+_man168 = ROOT / ".well-known" / "aio-manifest.json"
+if _man168.exists():
+    try:
+        _mdata168 = json.loads(_man168.read_text(encoding="utf-8"))
+        _arch168 = _mdata168.get("entity", {}).get("architecture", "")
+        _markers168 = ["Vanilla JS", "IIFE", "ErrorBoundary"]
+        _missing168 = [m for m in _markers168 if m not in _arch168]
+        check(
+            isinstance(_arch168, str) and not _missing168,
+            f"Check 168: aio-manifest entity.architecture に C1/C2/C3 marker 全て含む "
+            f"({_arch168!r})",
+            f"Check 168: entity.architecture marker 欠落: {_missing168} (value={_arch168!r}) — "
+            "AIO entity の architectural identity 宣言が weak 化し AI crawler が "
+            "Vanilla JS SPA / IIFE / ErrorBoundary の構造を認識できない。"
+            "aio-manifest.json の entity.architecture を修正せよ",
+            blocking=True,
+        )
+    except json.JSONDecodeError as e:
+        check(False, f"Check 168: aio-manifest.json parse",
+              f"Check 168: aio-manifest.json JSON parse 失敗: {e}", blocking=True)
+else:
+    check(False, "Check 168: aio-manifest.json present",
+          "Check 168: .well-known/aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
