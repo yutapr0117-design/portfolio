@@ -319,6 +319,12 @@ MUTATIONS = [
         "find": '<link rel="icon" type="image/svg+xml" href="/portfolio/icon.svg" />',
         "replace": '<link rel="icon" type="image/svg+xml" href="/portfolio/icon-PROBE-MISSING.svg" />',
     },
+    {
+        "name": "Check 164 (og:image resolves): drift og:image to a non-existent file",
+        "file": ROOT / "index.html",
+        "find": '<meta property="og:image" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" />',
+        "replace": '<meta property="og:image" content="https://yutapr0117-design.github.io/portfolio/og-image-PROBE-MISSING.webp" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
