@@ -1289,6 +1289,15 @@ authoritative inventory and is kept in sync with the implementation below):
        185 (canonical link HTTPS) anchors only the canonical URL declaration;
        this Check extends scheme-anchor invariant to every JSON-LD url
        property across all entity blocks. (BLOCKING)
+  206. JSON-LD `@id` URI fields all use HTTPS: every `"@id": "<URI>"` in
+       index.html JSON-LD must start with `https://` (URN/other-scheme @ids
+       are not used in this site). Drift to http:// would silently fragment
+       the JSON-LD entity graph because @id is matched by string-equality —
+       a Person @id with http:// would not equal references to https://#person
+       elsewhere, splitting entities into disjoint nodes. Sibling of Check 205
+       (url HTTPS) for the @id axis; complements Check 176 (own-origin @ids
+       use canonical prefix, which is https) for the external-origin @ids
+       (nkgr.co.jp/#organization etc.) that 176 does not check. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8639,6 +8648,32 @@ if _idx205.exists():
 else:
     check(False, "Check 205: index.html present",
           "Check 205: index.html が無い", blocking=True)
+
+# ── 206. JSON-LD @id URI fields all use HTTPS (BLOCKING) ──────────────────────
+# index.html 静的 JSON-LD 内の全 `"@id": "<URI>"` の値が `https://` で始まる
+# ことを BLOCKING 強制 (URN/other scheme は本 site で未使用)。drift は SILENT に
+# entity graph を分断 (string-equality で参照される @id が http vs https で別
+# entity 扱いになる)。Check 205 (url HTTPS) の @id 軸版・Check 176 (own-origin
+# canonical prefix) の external-origin (nkgr.co.jp 等) 補完。
+_idx206 = ROOT / "index.html"
+if _idx206.exists():
+    _isrc206 = _idx206.read_text(encoding="utf-8")
+    _all_ids206 = re.findall(r'"@id":\s*"([^"]+)"', _isrc206)
+    _http206 = [u for u in _all_ids206 if u.startswith("http://")]
+    _ok206 = len(_all_ids206) > 0 and not _http206
+    check(
+        _ok206,
+        f"Check 206: JSON-LD @id field {len(_all_ids206)} 件全て https://",
+        (f"Check 206: JSON-LD @id field に http:// scheme drift: {_http206!r} — "
+         "entity graph 分断 (string-equality 参照で http vs https が別 entity 扱い)。"
+         "JSON-LD @id を全て https:// に揃えよ"
+         if _http206 else
+         "Check 206: JSON-LD @id field 0 件 — vacuous-gate"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 206: index.html present",
+          "Check 206: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
