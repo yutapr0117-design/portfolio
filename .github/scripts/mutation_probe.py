@@ -547,6 +547,12 @@ MUTATIONS = [
         "find": '"givenName": "雄太",\n                  "familyName": "横井",',
         "replace": '"givenName": "雄太",\n                  "familyName": "佐藤",',
     },
+    {
+        "name": "Check 204 (WebSite.name brand markers): drop AI-Driven PM from WebSite.name",
+        "file": ROOT / "index.html",
+        "find": '"name": "yuta - AI-Driven PM | ポートフォリオ",\n                  "url": "https://yutapr0117-design.github.io/portfolio/",\n                  "inLanguage": "ja",',
+        "replace": '"name": "yuta ポートフォリオ",\n                  "url": "https://yutapr0117-design.github.io/portfolio/",\n                  "inLanguage": "ja",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
