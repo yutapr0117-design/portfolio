@@ -391,6 +391,12 @@ MUTATIONS = [
         "find": '"private": true,',
         "replace": '"private": false,',
     },
+    {
+        "name": "Check 176 (JSON-LD @id canonical prefix): drift a #person @id to sibling project",
+        "file": ROOT / "index.html",
+        "find": '"@id": "https://yutapr0117-design.github.io/portfolio/#person",',
+        "replace": '"@id": "https://yutapr0117-design.github.io/portfolio-PROBE-DRIFT/#person",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────

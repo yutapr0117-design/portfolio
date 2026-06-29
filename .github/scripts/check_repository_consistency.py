@@ -1060,6 +1060,13 @@ authoritative inventory and is kept in sync with the implementation below):
        and `"name": "portfolio-aio"`. Silent removal of `private: true` would allow `npm publish`
        to succeed and leak internal dev config to the public npm registry — a security regression
        with no console error. The `name` value anchors npm tooling identification. (BLOCKING)
+  176. index.html static JSON-LD `@id` URLs share canonical URL prefix (own-origin only): every
+       `"@id": "URL"` in index.html where URL is on this site's origin
+       (yutapr0117-design.github.io) must start with the canonical URL prefix (from
+       `<link rel="canonical">`). External-origin @id (e.g. nkgr.co.jp for Organization) are
+       exempt. Drift would silently break JSON-LD entity graph linking when canonical URL path
+       changes (e.g. project rename); the entity's #person/#webpage/#website anchors would still
+       use the old prefix and AI crawlers couldn't follow the graph. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7253,6 +7260,41 @@ if _pkg175.exists():
 else:
     check(False, "Check 175: package.json present",
           "Check 175: package.json が無い", blocking=True)
+
+# ── 176. index.html JSON-LD @id own-origin canonical prefix (BLOCKING) ─────────
+# index.html 静的 JSON-LD の全 `"@id": "URL"` のうち、URL が本サイト origin
+# (yutapr0117-design.github.io) を含むものは canonical URL prefix で始まることを
+# BLOCKING 強制する。external origin (例: nkgr.co.jp) は exempt。drift は SILENT
+# に JSON-LD entity graph linking を破壊 (canonical path 変更時に #person/#webpage
+# anchor が旧 prefix を引きずり AI crawler が graph を辿れない)。
+_idx176 = ROOT / "index.html"
+if _idx176.exists():
+    _isrc176 = _idx176.read_text(encoding="utf-8")
+    _canon176_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc176
+    )
+    _canon176 = _canon176_m.group(1) if _canon176_m else None
+    _ids176 = re.findall(r'"@id"\s*:\s*"([^"]+)"', _isrc176)
+    _own_origin176 = "yutapr0117-design.github.io"
+    _own_ids176 = [u for u in _ids176 if _own_origin176 in u]
+    _drift176 = [u for u in _own_ids176 if _canon176 and not u.startswith(_canon176)]
+    _ok176 = _canon176 is not None and bool(_own_ids176) and not _drift176
+    check(
+        _ok176,
+        f"Check 176: index.html JSON-LD @id (own-origin {len(_own_ids176)} 件) 全て "
+        f"canonical {_canon176!r} prefix",
+        (f"Check 176: @id prefix drift: canonical={_canon176!r} / drifted={_drift176[:3]}... "
+         f"({len(_drift176)} 件) — JSON-LD entity graph linking が崩壊し AI crawler が "
+         "#person/#webpage anchor を辿れない。index.html の @id を canonical prefix に揃えよ"
+         if _canon176 and _own_ids176 else
+         f"Check 176: canonical もしくは own-origin @id 抽出不可 "
+         f"(canonical={_canon176} / own_ids={len(_own_ids176)})"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 176: index.html present",
+          "Check 176: index.html が無い — JSON-LD @id coherence を検証できない",
+          blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
