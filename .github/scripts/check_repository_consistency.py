@@ -993,6 +993,12 @@ authoritative inventory and is kept in sync with the implementation below):
        browser falls back to a default globe icon and the apple-touch-icon path returns 404 on iOS
        Add-to-Home (which then uses a downscaled site screenshot instead of the curated icon).
        data: URI hrefs (inline SVG fallbacks) are exempt. (BLOCKING)
+  164. og:image / twitter:image content URL resolves to an actual file: the index.html
+       `<meta property="og:image">` and `<meta name="twitter:image">` content URLs must resolve to
+       existing repo files (after stripping the canonical URL prefix to get the local path). A
+       dangling image is SILENT — social/OG card previews show a broken image with no console
+       error or behavior-test signal. Extends Check 153 (canonical URL prefix) and Check 163
+       (icon href resolves) to the social card image surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6779,6 +6785,55 @@ if _idx163.exists():
 else:
     check(False, "Check 163: index.html present",
           "Check 163: index.html が無い — icon href 解決を検証できない",
+          blocking=True)
+
+# ── 164. og:image / twitter:image content URL resolves to actual file (BLOCKING) ─
+# index.html の og:image / twitter:image content URL が実 repo file に resolve
+# することを BLOCKING 強制する。dangling は SILENT — social/OG card preview が
+# broken image を提示し console error も behavior-test signal も出ない。
+# Check 153 (canonical URL prefix) と Check 163 (icon href resolves) を OG image
+# surface に拡張。canonical URL prefix を strip して repo-relative path に map。
+_idx164 = ROOT / "index.html"
+if _idx164.exists():
+    _isrc164 = _idx164.read_text(encoding="utf-8")
+    _link164 = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc164
+    )
+    _canon164 = _link164.group(1) if _link164 else None
+    _img_metas164: list[tuple[str, str]] = []  # (name, content)
+    _og164 = re.search(
+        r'<meta\s+property=["\']og:image["\']\s+content=["\']([^"\']+)["\']', _isrc164
+    )
+    if _og164:
+        _img_metas164.append(("og:image", _og164.group(1)))
+    _tw164 = re.search(
+        r'<meta\s+name=["\']twitter:image["\']\s+content=["\']([^"\']+)["\']', _isrc164
+    )
+    if _tw164:
+        _img_metas164.append(("twitter:image", _tw164.group(1)))
+    _missing164: list[str] = []
+    for _name164, _url164 in _img_metas164:
+        _local164 = _url164
+        if _canon164 and _url164.startswith(_canon164):
+            _local164 = _url164[len(_canon164):]
+        elif _url164.startswith("/"):
+            _local164 = _url164.lstrip("/")
+        _target164 = ROOT / _local164
+        if not _target164.exists():
+            _missing164.append(f"{_name164}={_url164!r} -> {_local164} (not found)")
+    check(
+        bool(_img_metas164) and not _missing164,
+        f"Check 164: og:image / twitter:image {len(_img_metas164)} 件 全て実 file に resolve",
+        (f"Check 164: dangling social image: {_missing164} — OG/Twitter card preview が "
+         "broken image を見せ silent に entity-asset coupling 壊れる。"
+         "index.html の og:image / twitter:image content を実在 file へ修正せよ"
+         if _img_metas164 else
+         "Check 164: og:image / twitter:image meta が見つからない (vacuous)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 164: index.html present",
+          "Check 164: index.html が無い — image URL 解決を検証できない",
           blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
