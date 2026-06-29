@@ -607,6 +607,12 @@ MUTATIONS = [
         "find": '<link rel="apple-touch-icon" href="/portfolio/icon.svg" />',
         "replace": '<link rel="apple-touch-icon" href="/icon.svg" />',
     },
+    {
+        "name": "Check 214 (JSON-LD sameAs HTTPS): downgrade github URL to HTTP",
+        "file": ROOT / "index.html",
+        "find": '"https://github.com/yutapr0117-design"',
+        "replace": '"http://github.com/yutapr0117-design"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
