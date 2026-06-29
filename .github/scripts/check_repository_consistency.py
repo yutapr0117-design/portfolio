@@ -1397,6 +1397,20 @@ authoritative inventory and is kept in sync with the implementation below):
        /201 enforce that primary @ids derive from canonical URL; Check 216
        enforces that every reference actually resolves. (BLOCKING)
 
+  217. JSON-LD `@id` definitions are unique within each `@graph` (BLOCKING):
+       in index.html static JSON-LD, no two top-level nodes of the same
+       `@graph` array (per `<script type="application/ld+json">` block) may
+       claim the same `@id` (with `@type` + `@id`). Drift (e.g. two
+       Article nodes both claiming `#article-1`, or accidentally reusing
+       `#hero-image` for two assets in the same block) would silently make
+       AI / knowledge-graph consumers ambiguous about which node is
+       canonical — references via Check 216 would resolve to any one of
+       the duplicates non-deterministically. Context-redundant Person
+       re-definition across separate JSON-LD blocks (a self-contained
+       Article that re-states its creator) is allowed and intentional.
+       Sibling of Check 141 (default-project slug/id uniqueness) for the
+       JSON-LD entity graph. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9217,6 +9231,59 @@ if _idx216.exists():
 else:
     check(False, "Check 216: index.html present",
           "Check 216: index.html が無い", blocking=True)
+
+# ── 217. JSON-LD @id definitions are unique within each @graph (BLOCKING) ─────
+# index.html 静的 JSON-LD の各 `<script type=application/ld+json>` block 内の
+# top-level `@graph` 配列で、`@type` + `@id` を持つ defining node が同一 @id を
+# 重複宣言しないことを BLOCKING 強制 (block を跨いだ context-redundant な Person
+# 再定義は許容)。同一 graph 内の重複は SILENT に AI/知識グラフ consumer の参照解決を
+# 非決定化。Check 216 (referential integrity) の sibling。
+_idx217 = ROOT / "index.html"
+if _idx217.exists():
+    _isrc217 = _idx217.read_text(encoding="utf-8")
+    _blocks217 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc217,
+        flags=re.DOTALL,
+    )
+    from collections import Counter as _Counter217
+    _all_dupes217: list[str] = []
+    _total_ids217 = 0
+    for _bi, _blk in enumerate(_blocks217):
+        try:
+            _data217 = json.loads(_blk)
+        except json.JSONDecodeError:
+            continue
+        # top-level @graph 配列の最上位 element だけ確認 (nested embedded entities は
+        # context-redundant とみなし許容)
+        _graph217 = _data217.get("@graph") if isinstance(_data217, dict) else None
+        if not isinstance(_graph217, list):
+            continue
+        _ids = []
+        for _node in _graph217:
+            if (
+                isinstance(_node, dict)
+                and "@type" in _node
+                and isinstance(_node.get("@id"), str)
+            ):
+                _ids.append(_node["@id"])
+        _total_ids217 += len(_ids)
+        for _id, _n in _Counter217(_ids).items():
+            if _n > 1:
+                _all_dupes217.append(f"block{_bi}:{_id}×{_n}")
+    _ok217 = _total_ids217 > 0 and not _all_dupes217
+    check(
+        _ok217,
+        f"Check 217: JSON-LD @graph top-level defining @id {_total_ids217} 件 全て block 内 unique",
+        (f"Check 217: 同一 @graph 内重複 @id: {_all_dupes217!r} — AI/知識グラフが "
+         "参照を非決定的に解決。同一 block 内では @id を unique へ揃えよ"
+         if _all_dupes217 else
+         "Check 217: JSON-LD @graph top-level defining @id 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 217: index.html present",
+          "Check 217: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
