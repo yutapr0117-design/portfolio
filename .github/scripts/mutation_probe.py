@@ -427,6 +427,12 @@ MUTATIONS = [
         "find": "LAST_UPDATED:  '2026-05-31',",
         "replace": "LAST_UPDATED:  '2026/05/31',",
     },
+    {
+        "name": "Check 182 (ai:* meta endpoint resolves): drift ai:context path to dangling file",
+        "file": ROOT / "index.html",
+        "find": '<meta name="ai:context" content="https://yutapr0117-design.github.io/portfolio/llms-full.txt" />',
+        "replace": '<meta name="ai:context" content="https://yutapr0117-design.github.io/portfolio/llms-PROBE-MISSING.txt" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
