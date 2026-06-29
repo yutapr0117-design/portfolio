@@ -583,6 +583,12 @@ MUTATIONS = [
         "find": '"https://yutapr0117-design.github.io/portfolio/",\n                              "https://yutapr0117-design.github.io/portfolio/llms.txt"',
         "replace": '"https://yutapr0117-design.github.io/portfolio-PROBE-DRIFT/",\n                              "https://yutapr0117-design.github.io/portfolio/llms.txt"',
     },
+    {
+        "name": "Check 210 (manifest start_url canonical pathname): drift start_url to sibling path",
+        "file": ROOT / "manifest.webmanifest",
+        "find": '"start_url": "/portfolio/"',
+        "replace": '"start_url": "/portfolio-PROBE-DRIFT/"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
