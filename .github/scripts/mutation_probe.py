@@ -625,6 +625,12 @@ MUTATIONS = [
         "find": '"primaryImageOfPage": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#hero-image"',
         "replace": '"primaryImageOfPage": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#dangling-PROBE-DRIFT"',
     },
+    {
+        "name": "Check 217 (JSON-LD @id uniqueness within @graph): duplicate AudioObject @id with TechArticle @id",
+        "file": ROOT / "index.html",
+        "find": '"@id": "https://yutapr0117-design.github.io/portfolio/#portfolio-bgm",',
+        "replace": '"@id": "https://yutapr0117-design.github.io/portfolio/#ai-context",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
