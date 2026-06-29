@@ -1078,6 +1078,12 @@ authoritative inventory and is kept in sync with the implementation below):
        owner+repo are derived from the canonical URL (hostname's first segment + URL path's
        first segment). Drift would silently point AI crawlers to the wrong GitHub repo when
        canonical URL changes (project rename / fork). (BLOCKING)
+  179. `<meta name="ai:version">` matches main.js SITE_CONFIG.VERSION: the version string
+       declared to AI crawlers in `<meta name="ai:version">` must equal SITE_CONFIG.VERSION
+       in main.js. Drift would silently desync the AI-facing version signal from the
+       running app's pipeline version, so AI agents would believe they're crawling a
+       different version than what's actually deployed. Extends the version-coherence mesh
+       (Check 1/2/3/19/177) to the index.html ai:* meta surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7389,6 +7395,45 @@ if _idx178.exists():
 else:
     check(False, "Check 178: index.html present",
           "Check 178: index.html が無い", blocking=True)
+
+# ── 179. <meta name=ai:version> matches main.js SITE_CONFIG.VERSION (BLOCKING) ─
+# index.html の `<meta name="ai:version">` content と main.js SITE_CONFIG.VERSION が
+# byte-identical であることを BLOCKING 強制。drift は SILENT に AI-facing version
+# signal を deploy 中の version から desync (AI agent は ai:version を読んで pipeline
+# version を判断するため、誤値 = 旧 release の挙動を期待して crawl)。Check 177 が
+# llms-full.txt 軸を被覆するのに対し本 Check は ai:* meta 軸を被覆。
+_idx179 = ROOT / "index.html"
+_main179 = ROOT / "main.js"
+if _idx179.exists() and _main179.exists():
+    _isrc179 = _idx179.read_text(encoding="utf-8")
+    _msrc179 = _main179.read_text(encoding="utf-8")
+    _ai_ver179_m = re.search(
+        r'<meta\s+name=["\']ai:version["\']\s+content=["\']([^"\']+)["\']', _isrc179
+    )
+    _site_ver179_m = re.search(
+        r"VERSION:\s*['\"]([^'\"]+)['\"]", _msrc179
+    )
+    _ai_ver179 = _ai_ver179_m.group(1) if _ai_ver179_m else None
+    _site_ver179 = _site_ver179_m.group(1) if _site_ver179_m else None
+    _ok179 = (
+        _ai_ver179 is not None
+        and _site_ver179 is not None
+        and _ai_ver179 == _site_ver179
+    )
+    check(
+        _ok179,
+        f"Check 179: ai:version={_ai_ver179!r} == main.js SITE_CONFIG.VERSION={_site_ver179!r}",
+        (f"Check 179: ai:version drift: ai:version={_ai_ver179!r} / "
+         f"SITE_CONFIG.VERSION={_site_ver179!r} — AI crawler に旧 version を信じさせる。"
+         "index.html ai:version を SITE_CONFIG.VERSION と揃えよ"
+         if _ai_ver179 and _site_ver179 else
+         f"Check 179: ai:version / SITE_CONFIG.VERSION 抽出不可 "
+         f"(ai:version={_ai_ver179} / SITE_CONFIG.VERSION={_site_ver179})"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 179: index.html + main.js present",
+          "Check 179: index.html または main.js が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
