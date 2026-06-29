@@ -1084,6 +1084,13 @@ authoritative inventory and is kept in sync with the implementation below):
        running app's pipeline version, so AI agents would believe they're crawling a
        different version than what's actually deployed. Extends the version-coherence mesh
        (Check 1/2/3/19/177) to the index.html ai:* meta surface. (BLOCKING)
+  180. `<meta name="ai:last-modified">` matches main.js SITE_CONFIG.LAST_UPDATED: the
+       last-modified date in `<meta name="ai:last-modified">` must equal SITE_CONFIG
+       .LAST_UPDATED in main.js. Drift would silently lie to AI crawlers about freshness,
+       confusing recency-weighted retrieval (e.g. AI search ranking by ai:last-modified
+       could surface a stale view while the app has actually been updated, or vice
+       versa). Sibling Check of 179 for the timestamp axis of the ai:* meta surface.
+       (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7434,6 +7441,44 @@ if _idx179.exists() and _main179.exists():
 else:
     check(False, "Check 179: index.html + main.js present",
           "Check 179: index.html または main.js が無い", blocking=True)
+
+# ── 180. <meta name=ai:last-modified> matches main.js SITE_CONFIG.LAST_UPDATED (BLOCKING) ─
+# index.html の `<meta name="ai:last-modified">` content と main.js
+# SITE_CONFIG.LAST_UPDATED が byte-identical であることを BLOCKING 強制。drift は
+# SILENT に AI crawler の freshness signal を破壊し、recency-weighted retrieval に
+# stale-view または不当に新しい view を見せうる。Check 179 (ai:version) の timestamp 軸版。
+_idx180 = ROOT / "index.html"
+_main180 = ROOT / "main.js"
+if _idx180.exists() and _main180.exists():
+    _isrc180 = _idx180.read_text(encoding="utf-8")
+    _msrc180 = _main180.read_text(encoding="utf-8")
+    _ai_lm180_m = re.search(
+        r'<meta\s+name=["\']ai:last-modified["\']\s+content=["\']([^"\']+)["\']', _isrc180
+    )
+    _site_lm180_m = re.search(
+        r"LAST_UPDATED:\s*['\"]([^'\"]+)['\"]", _msrc180
+    )
+    _ai_lm180 = _ai_lm180_m.group(1) if _ai_lm180_m else None
+    _site_lm180 = _site_lm180_m.group(1) if _site_lm180_m else None
+    _ok180 = (
+        _ai_lm180 is not None
+        and _site_lm180 is not None
+        and _ai_lm180 == _site_lm180
+    )
+    check(
+        _ok180,
+        f"Check 180: ai:last-modified={_ai_lm180!r} == main.js SITE_CONFIG.LAST_UPDATED={_site_lm180!r}",
+        (f"Check 180: ai:last-modified drift: ai:last-modified={_ai_lm180!r} / "
+         f"SITE_CONFIG.LAST_UPDATED={_site_lm180!r} — AI crawler の freshness 信号が "
+         "deploy 実時刻から desync。index.html ai:last-modified を SITE_CONFIG.LAST_UPDATED と揃えよ"
+         if _ai_lm180 and _site_lm180 else
+         f"Check 180: ai:last-modified / SITE_CONFIG.LAST_UPDATED 抽出不可 "
+         f"(ai:last-modified={_ai_lm180} / SITE_CONFIG.LAST_UPDATED={_site_lm180})"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 180: index.html + main.js present",
+          "Check 180: index.html または main.js が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
