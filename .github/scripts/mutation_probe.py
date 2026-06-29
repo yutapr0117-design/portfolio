@@ -535,6 +535,12 @@ MUTATIONS = [
         "find": '"@type": "WebSite",\n                  "@id": "https://yutapr0117-design.github.io/portfolio/#website",',
         "replace": '"@type": "WebSite",\n                  "@id": "https://yutapr0117-design.github.io/portfolio/#probe-website-drift",',
     },
+    {
+        "name": "Check 202 (canonical trailing slash): drop trailing slash from canonical URL",
+        "file": ROOT / "index.html",
+        "find": '<link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" />',
+        "replace": '<link rel="canonical" href="https://yutapr0117-design.github.io/portfolio" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
