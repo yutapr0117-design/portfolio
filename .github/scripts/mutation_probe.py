@@ -457,6 +457,12 @@ MUTATIONS = [
         "find": '<meta name="author" content="Yuta Yokoi (横井雄太)" />',
         "replace": '<meta name="author" content="Yuta Yokoi" />',
     },
+    {
+        "name": "Check 187 (og:locale matches html lang): drift og:locale language to en",
+        "file": ROOT / "index.html",
+        "find": '<meta property="og:locale" content="ja_JP" />',
+        "replace": '<meta property="og:locale" content="en_US" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
