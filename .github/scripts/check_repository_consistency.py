@@ -1266,6 +1266,14 @@ authoritative inventory and is kept in sync with the implementation below):
        characters and the path tail would start with `/`, breaking
        repo-relative resolution. The trailing-slash invariant is the implicit
        contract those Checks depend on. (BLOCKING)
+  203. JSON-LD Person `givenName`/`familyName` canonical decomposition: in
+       the primary JSON-LD Person block, `givenName` must equal "雄太" and
+       `familyName` must equal "横井" (the canonical Japanese-order name
+       decomposition from CLAUDE.md §1). Drift would silently send wrong
+       name parts to Schema.org-aware AI/SEO crawlers, breaking last-name /
+       first-name search alignment and Knowledge Panel name display.
+       Sibling of Check 195 (Person.alternateName variants) for the
+       structured name-decomposition axis. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8513,6 +8521,45 @@ if _idx202.exists():
 else:
     check(False, "Check 202: index.html present",
           "Check 202: index.html が無い", blocking=True)
+
+# ── 203. JSON-LD Person givenName/familyName canonical decomposition (BLOCKING) ─
+# index.html 静的 JSON-LD の primary Person block の `givenName` が "雄太"・
+# `familyName` が "横井" であることを BLOCKING 強制 (CLAUDE.md §1 canonical
+# 日本語名 decomposition)。drift は SILENT に Schema.org-aware AI/SEO crawler
+# へ誤名前要素を送り Knowledge Panel name display を破壊。Check 195 (alternateName)
+# の structured name-decomposition 軸版。
+_idx203 = ROOT / "index.html"
+if _idx203.exists():
+    _isrc203 = _idx203.read_text(encoding="utf-8")
+    _person203_m = re.search(r'"@type":\s*"Person"', _isrc203)
+    _given203 = None
+    _family203 = None
+    if _person203_m:
+        _line_start = _isrc203.rfind("\n", 0, _person203_m.start()) + 1
+        _indent = _isrc203[_line_start:_person203_m.start()]
+        _all_persons = [m.start() for m in re.finditer(r'"@type":\s*"Person"', _isrc203)]
+        _next = next((p for p in _all_persons if p > _person203_m.start()), len(_isrc203))
+        _scope = _isrc203[_person203_m.start():_next]
+        _g = re.search(r'\n' + re.escape(_indent) + r'"givenName":\s*"([^"]+)"', _scope)
+        _f = re.search(r'\n' + re.escape(_indent) + r'"familyName":\s*"([^"]+)"', _scope)
+        _given203 = _g.group(1) if _g else None
+        _family203 = _f.group(1) if _f else None
+    _expected_g203 = "雄太"
+    _expected_f203 = "横井"
+    _ok203 = _given203 == _expected_g203 and _family203 == _expected_f203
+    check(
+        _ok203,
+        f"Check 203: primary Person givenName={_given203!r} / familyName={_family203!r} canonical 一致",
+        (f"Check 203: primary Person name decomposition drift: "
+         f"givenName={_given203!r} (expected {_expected_g203!r}) / "
+         f"familyName={_family203!r} (expected {_expected_f203!r}) — "
+         "Schema.org 構造化名要素が canonical CLAUDE.md §1 から desync。"
+         "JSON-LD givenName/familyName を canonical 値に揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 203: index.html present",
+          "Check 203: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
