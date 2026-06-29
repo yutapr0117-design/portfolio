@@ -1217,6 +1217,12 @@ authoritative inventory and is kept in sync with the implementation below):
        declaration shared by WebP XMP (Check 81) / MP3 ID3 (82) / aio-manifest
        (83) / README (84) / Claude2Claude (85). Completes the affiliation-name
        coherence mesh with the JSON-LD surface. (BLOCKING)
+  197. JSON-LD Organization (nkgr.co.jp) `url` = "https://nkgr.co.jp/": in the
+       Organization block from Check 196, the `url` property must be
+       `https://nkgr.co.jp/` (the canonical Organization URL from CLAUDE.md
+       §1). Drift would silently send AI/social crawlers to the wrong
+       Organization homepage, breaking employee→employer URL resolution. URL
+       axis sibling of Check 196 (name axis). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8225,6 +8231,44 @@ if _idx196.exists():
 else:
     check(False, "Check 196: index.html present",
           "Check 196: index.html が無い", blocking=True)
+
+# ── 197. JSON-LD Organization (nkgr.co.jp) url = https://nkgr.co.jp/ (BLOCKING) ─
+# index.html 静的 JSON-LD の Organization block (Check 196 と同 block) の `url`
+# property が "https://nkgr.co.jp/" (CLAUDE.md §1 canonical Organization URL) と
+# 一致することを BLOCKING 強制。drift は SILENT に AI/social crawler を別 home
+# へ誘導し employee→employer URL 解決を破壊。Check 196 (name 軸) の URL 軸版。
+_idx197 = ROOT / "index.html"
+if _idx197.exists():
+    _isrc197 = _idx197.read_text(encoding="utf-8")
+    # locate the canonical nkgr Organization block: @type=Organization + @id=
+    # nkgr.co.jp/#organization + has both name and url (not the worksFor stub
+    # which only has @id reference). Use Check 196's pattern (4-line block
+    # signature) to anchor on the full block.
+    _org197_m = re.search(
+        r'"@id":\s*"https://nkgr\.co\.jp/#organization",\s*\n\s*"name":\s*"株式会社日本経営"',
+        _isrc197,
+    )
+    _org_url197 = None
+    if _org197_m:
+        _scope = _isrc197[_org197_m.start():_org197_m.start() + 800]
+        _u = re.search(r'"url":\s*"([^"]+)"', _scope)
+        if _u:
+            _org_url197 = _u.group(1)
+    _expected197 = "https://nkgr.co.jp/"
+    _ok197 = _org_url197 == _expected197
+    check(
+        _ok197,
+        f"Check 197: JSON-LD Organization (nkgr.co.jp).url = {_expected197!r}",
+        (f"Check 197: JSON-LD Organization (nkgr.co.jp).url = {_org_url197!r} ≠ "
+         f"{_expected197!r} — AI/social crawler が別 Organization home へ誘導。"
+         "CLAUDE.md §1 canonical Organization URL に揃えよ"
+         if _org_url197 else
+         "Check 197: JSON-LD Organization (nkgr.co.jp) url 抽出不可"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 197: index.html present",
+          "Check 197: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
