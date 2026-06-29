@@ -1298,6 +1298,15 @@ authoritative inventory and is kept in sync with the implementation below):
        (url HTTPS) for the @id axis; complements Check 176 (own-origin @ids
        use canonical prefix, which is https) for the external-origin @ids
        (nkgr.co.jp/#organization etc.) that 176 does not check. (BLOCKING)
+  207. index.html external `src=`/`href=` attributes all use HTTPS: every
+       absolute-URL `src="<URL>"` or `href="<URL>"` in index.html that starts
+       with a scheme must start with `https://` (negative invariant — no
+       http://). Drift to http:// for external sub-resources (Karte CDN,
+       Google Fonts CSS, etc.) would silently trigger browser Mixed Content
+       blocking on the HTTPS site — the sub-resource silently fails to load
+       (no console error in production builds, just missing functionality).
+       Sibling of Check 205/206 (JSON-LD url/@id HTTPS) for the HTML element
+       attribute axis. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8674,6 +8683,34 @@ if _idx206.exists():
 else:
     check(False, "Check 206: index.html present",
           "Check 206: index.html が無い", blocking=True)
+
+# ── 207. index.html external src/href attributes all use HTTPS (BLOCKING) ─────
+# index.html の `src="<URL>"` / `href="<URL>"` で absolute URL (scheme 付き) の
+# 全てが `https://` で始まることを BLOCKING 強制 (negative invariant)。drift は
+# SILENT に Mixed Content blocking で sub-resource load 失敗 (production console
+# error 抑制化で気付きにくい)。Check 205/206 (JSON-LD url/@id HTTPS) の HTML
+# 属性 axis 版。
+_idx207 = ROOT / "index.html"
+if _idx207.exists():
+    _isrc207 = _idx207.read_text(encoding="utf-8")
+    # Extract src=/href= values where value starts with a scheme (e.g.
+    # https?:// or //) — only flag http:// (relative paths and data: URIs
+    # are exempt).
+    _all_attrs207 = re.findall(
+        r'(?:src|href)\s*=\s*["\'](http://[^"\']+)["\']', _isrc207
+    )
+    _ok207 = len(_all_attrs207) == 0
+    check(
+        _ok207,
+        "Check 207: index.html src=/href= 属性に http:// 不在 (Mixed Content guard)",
+        (f"Check 207: index.html src=/href= 属性に http:// scheme: {_all_attrs207!r} — "
+         "browser Mixed Content blocking で sub-resource silent load 失敗。"
+         "全 absolute URL を https:// に揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 207: index.html present",
+          "Check 207: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
