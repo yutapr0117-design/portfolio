@@ -1132,6 +1132,14 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 149 (3-way canonical coherence) catches partial drift, but if all 3
        surfaces flip to HTTP it passes — this check anchors the scheme itself.
        (BLOCKING)
+  186. `<meta name="author">` content contains canonical entity identifiers: the
+       `<meta name="author">` content in index.html must contain BOTH "Yuta Yokoi"
+       AND "横井雄太" (the canonical name pair from CLAUDE.md §1). Drift would
+       silently desync the HTML-surface author signal from the entity identity
+       (sr-only / JSON-LD / AIO surfaces remain correct, but generic SEO/HTML
+       crawlers that read `<meta name="author">` would see a different entity).
+       Sibling of Check 173 (js/identity.js AUTHOR) and Check 172 (aio-manifest
+       entity name variants) for the HTML <meta name=author> surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7734,6 +7742,37 @@ if _idx185.exists():
 else:
     check(False, "Check 185: index.html present",
           "Check 185: index.html が無い", blocking=True)
+
+# ── 186. <meta name=author> contains canonical entity identifiers (BLOCKING) ──
+# index.html `<meta name="author">` content が canonical entity name 2 件
+# ("Yuta Yokoi" + "横井雄太") を共に含むことを BLOCKING 強制。drift は SILENT に
+# HTML 層 author signal を entity identity から desync させ generic SEO/HTML
+# crawler (= author meta を読む層) が別 entity を見る。Check 173 (js/identity.js
+# AUTHOR) / Check 172 (manifest entity name variants) の HTML <meta name=author>
+# surface 版。
+_idx186 = ROOT / "index.html"
+if _idx186.exists():
+    _isrc186 = _idx186.read_text(encoding="utf-8")
+    _author186_m = re.search(
+        r'<meta\s+name=["\']author["\']\s+content=["\']([^"\']+)["\']', _isrc186
+    )
+    _author186 = _author186_m.group(1) if _author186_m else None
+    _required186 = ["Yuta Yokoi", "横井雄太"]
+    _missing186 = [n for n in _required186 if _author186 and n not in _author186] if _author186 else _required186
+    _ok186 = _author186 is not None and not _missing186
+    check(
+        _ok186,
+        f"Check 186: <meta name=author> に canonical entity name 全件含む ({_author186!r})",
+        (f"Check 186: <meta name=author>={_author186!r} に必須名 {_missing186} 欠落 — "
+         "HTML 層 author signal が entity identity から desync。CLAUDE.md §1 canonical name "
+         "('Yuta Yokoi' + '横井雄太') を共に含めよ"
+         if _author186 else
+         "Check 186: <meta name=author> meta が抽出不可"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 186: index.html present",
+          "Check 186: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
