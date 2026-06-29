@@ -589,6 +589,12 @@ MUTATIONS = [
         "find": '"start_url": "/portfolio/"',
         "replace": '"start_url": "/portfolio-PROBE-DRIFT/"',
     },
+    {
+        "name": "Check 211 (JSON-LD contentUrl canonical prefix): drift contentUrl to external CDN",
+        "file": ROOT / "index.html",
+        "find": '"contentUrl": "https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp"',
+        "replace": '"contentUrl": "https://cdn.probe-drift.example/yuta-yokoi-ai-pm-orchestration-system.webp"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
