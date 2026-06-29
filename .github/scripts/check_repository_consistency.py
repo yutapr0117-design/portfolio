@@ -1171,6 +1171,16 @@ authoritative inventory and is kept in sync with the implementation below):
        invisible to browser/console/behavior e2e (the homepage still renders) but
        breaks underscore-prefixed paths silently. Presence-only check (file may be
        empty). (BLOCKING)
+  191. CNAME file absence (canonical URL is github.io subdomain): the repository
+       root must NOT contain a `CNAME` file (negative invariant). The canonical
+       URL (`https://yutapr0117-design.github.io/portfolio/`) is a GitHub Pages
+       subdomain, not a custom domain. Adding a CNAME file would silently
+       redirect GitHub Pages deployment to that custom domain — if the domain
+       is unconfigured / unowned, the entire site 404s; if it's owned but
+       unconfigured, AIO entity canonical URL diverges from the actual served
+       URL (silent breaking of every URL coherence Check). Companion of Check
+       190 (.nojekyll presence) — the two are the structural baseline for
+       canonical GitHub Pages deployment. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7931,6 +7941,25 @@ check(
     "Check 190: .nojekyll file が repo root に無い — GitHub Pages が Jekyll 処理を "
     "稼働させ _-prefix path (例 _template.md / _assets/) が silent に 404 化。"
     "`touch .nojekyll` で空 file を作成し commit せよ",
+    blocking=True,
+)
+
+# ── 191. CNAME file absence (canonical URL is github.io subdomain) (BLOCKING) ─
+# repo root に `CNAME` file が存在しないことを BLOCKING 強制 (negative invariant)。
+# canonical URL (yutapr0117-design.github.io/portfolio/) は GitHub Pages subdomain
+# ゆえ CNAME 追加は silent に deployment を custom domain へ redirect する
+# (未所有 → 全 site 404 / 所有未設定 → AIO entity canonical URL ↔ 実 URL 分裂で
+# URL coherence Check が cascade 崩壊)。Check 190 (.nojekyll) と並ぶ GitHub Pages
+# canonical deployment baseline。
+_cname191 = ROOT / "CNAME"
+_ok191 = not _cname191.exists()
+check(
+    _ok191,
+    "Check 191: CNAME file 不在 (canonical URL は github.io subdomain)",
+    "Check 191: CNAME file が repo root に存在 — GitHub Pages が custom domain へ "
+    "deployment を redirect し canonical URL (yutapr0117-design.github.io/portfolio/) と "
+    "分裂。custom domain 採用は AIO entity canonical URL の全 surface 同期更新を伴うため "
+    "本 Check は意図的に CNAME を禁止。CNAME を削除せよ",
     blocking=True,
 )
 
