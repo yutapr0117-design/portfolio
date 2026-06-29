@@ -523,6 +523,12 @@ MUTATIONS = [
         "find": '"KERNEL Framework",\n                        "LLM Cost Optimization",',
         "replace": '"LLM Cost Optimization",',
     },
+    {
+        "name": "Check 200 (Person.@id canonical): drift primary Person.@id to wrong fragment",
+        "file": ROOT / "index.html",
+        "find": '"@type": "Person",\n                  "@id": "https://yutapr0117-design.github.io/portfolio/#person",',
+        "replace": '"@type": "Person",\n                  "@id": "https://yutapr0117-design.github.io/portfolio/#probe-drift",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
