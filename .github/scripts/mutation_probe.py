@@ -421,6 +421,12 @@ MUTATIONS = [
         "find": '<meta name="ai:last-modified" content="2026-05-31" />',
         "replace": '<meta name="ai:last-modified" content="1999-01-01" />',
     },
+    {
+        "name": "Check 181 (LAST_UPDATED ISO-8601): drift SITE_CONFIG.LAST_UPDATED to locale format",
+        "file": ROOT / "main.js",
+        "find": "LAST_UPDATED:  '2026-05-31',",
+        "replace": "LAST_UPDATED:  '2026/05/31',",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
