@@ -613,6 +613,12 @@ MUTATIONS = [
         "find": '"https://github.com/yutapr0117-design"',
         "replace": '"http://github.com/yutapr0117-design"',
     },
+    {
+        "name": "Check 215 (ai:last-modified ISO-8601 strict): drift to locale format",
+        "file": ROOT / "index.html",
+        "find": '<meta name="ai:last-modified" content="2026-05-31" />',
+        "replace": '<meta name="ai:last-modified" content="2026/05/31" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
