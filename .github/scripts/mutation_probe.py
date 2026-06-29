@@ -433,6 +433,12 @@ MUTATIONS = [
         "find": '<meta name="ai:context" content="https://yutapr0117-design.github.io/portfolio/llms-full.txt" />',
         "replace": '<meta name="ai:context" content="https://yutapr0117-design.github.io/portfolio/llms-PROBE-MISSING.txt" />',
     },
+    {
+        "name": "Check 183 (sitemap lastmod ISO-8601): drift first lastmod to locale format",
+        "file": ROOT / "sitemap.xml",
+        "find": "<lastmod>2026-05-31</lastmod>",
+        "replace": "<lastmod>2026/05/31</lastmod>",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
