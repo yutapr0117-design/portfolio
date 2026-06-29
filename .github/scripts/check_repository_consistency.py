@@ -1325,6 +1325,17 @@ authoritative inventory and is kept in sync with the implementation below):
        (og:image canonical prefix) / Check 171 (ai:* canonical prefix) for
        the potentialAction.target surface. (BLOCKING)
 
+  210. manifest.webmanifest `start_url` / `scope` match canonical URL pathname:
+       the PWA manifest's `start_url` and `scope` fields must equal the
+       pathname portion of `<link rel=canonical>` href (e.g. canonical
+       `https://yutapr0117-design.github.io/portfolio/` → pathname `/portfolio/`).
+       Drift would silently install the PWA pointing at a different URL than
+       the AIO canonical entity URL, splitting authority signals between two
+       URLs (the PWA install lands somewhere AI/search engines do not treat
+       as the entity's canonical home). Sibling of Check 150 (og:url ↔
+       canonical) / Check 138 (entity url) for the manifest install surface.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -8817,6 +8828,56 @@ if _idx209.exists():
 else:
     check(False, "Check 209: index.html present",
           "Check 209: index.html が無い", blocking=True)
+
+# ── 210. manifest.webmanifest start_url / scope == canonical pathname (BLOCKING) ─
+# index.html `<link rel=canonical>` href の pathname (例 /portfolio/) と
+# manifest.webmanifest の start_url / scope が一致することを BLOCKING 強制。drift は
+# SILENT に PWA install が canonical URL とは別の URL を home に持つことになり、
+# entity authority が二分される (AI/search は canonical を entity 識別子とする)。
+from urllib.parse import urlparse as _urlparse210
+_idx210 = ROOT / "index.html"
+_mani210 = ROOT / "manifest.webmanifest"
+if _idx210.exists() and _mani210.exists():
+    _isrc210 = _idx210.read_text(encoding="utf-8")
+    _canon210_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc210
+    )
+    _canon210 = _canon210_m.group(1) if _canon210_m else None
+    _canon_path210 = _urlparse210(_canon210).path if _canon210 else None
+    try:
+        _mdata210 = json.loads(_mani210.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as _e:
+        _mdata210 = None
+        _parse_err210: str | None = str(_e)
+    else:
+        _parse_err210 = None
+    _start210 = _mdata210.get("start_url") if isinstance(_mdata210, dict) else None
+    _scope210 = _mdata210.get("scope") if isinstance(_mdata210, dict) else None
+    _drifts210: list[str] = []
+    if _canon_path210 is None:
+        _drifts210.append("canonical pathname 抽出不可")
+    if _parse_err210:
+        _drifts210.append(f"manifest JSON parse 失敗: {_parse_err210}")
+    if _start210 is None:
+        _drifts210.append("start_url 欠落")
+    elif _canon_path210 and _start210 != _canon_path210:
+        _drifts210.append(f"start_url={_start210!r} != canonical pathname={_canon_path210!r}")
+    if _scope210 is None:
+        _drifts210.append("scope 欠落")
+    elif _canon_path210 and _scope210 != _canon_path210:
+        _drifts210.append(f"scope={_scope210!r} != canonical pathname={_canon_path210!r}")
+    _ok210 = not _drifts210
+    check(
+        _ok210,
+        f"Check 210: manifest.webmanifest start_url={_start210!r} / scope={_scope210!r} == canonical pathname={_canon_path210!r}",
+        (f"Check 210: manifest drift: {_drifts210!r} — PWA install が canonical URL "
+         "と異なる URL を home にし entity authority が二分。manifest.webmanifest の "
+         "start_url / scope を canonical pathname (例 /portfolio/) に揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 210: index.html + manifest.webmanifest present",
+          "Check 210: index.html もしくは manifest.webmanifest が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
