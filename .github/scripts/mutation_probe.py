@@ -511,6 +511,12 @@ MUTATIONS = [
         "find": '"alternateName": ["日本経営", "Nihon Keiei", "Japan Management Co., Ltd.", "日本経営グループ"],\n                  "url": "https://nkgr.co.jp/",',
         "replace": '"alternateName": ["日本経営", "Nihon Keiei", "Japan Management Co., Ltd.", "日本経営グループ"],\n                  "url": "https://probe-drift.example/",',
     },
+    {
+        "name": "Check 198 (Person.jobTitle role markers): drop KERNEL marker from Person.jobTitle",
+        "file": ROOT / "index.html",
+        "find": '"jobTitle": "AI-Driven Project Manager / IT Consultant / KERNEL Framework Designer",',
+        "replace": '"jobTitle": "AI-Driven Project Manager / IT Consultant",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
