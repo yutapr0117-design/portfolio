@@ -439,6 +439,12 @@ MUTATIONS = [
         "find": "<lastmod>2026-05-31</lastmod>",
         "replace": "<lastmod>2026/05/31</lastmod>",
     },
+    {
+        "name": "Check 184 (sw.js AIO_FILES resolve): drift AIO_FILES path to dangling file",
+        "file": ROOT / "sw.js",
+        "find": "const AIO_FILES = ['/portfolio/llms.txt', '/portfolio/llms-full.txt'];",
+        "replace": "const AIO_FILES = ['/portfolio/llms-PROBE-MISSING.txt', '/portfolio/llms-full.txt'];",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
