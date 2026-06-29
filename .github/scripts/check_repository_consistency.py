@@ -1316,6 +1316,14 @@ authoritative inventory and is kept in sync with the implementation below):
        non-ISO-8601 dates either fail to parse (dropping freshness signal) or
        misparse (showing wrong "last updated"). Sibling of Check 183 (sitemap
        lastmod ISO-8601) for the JSON-LD date surface. (BLOCKING)
+  209. JSON-LD potentialAction `target` URLs share canonical URL prefix: in
+       index.html JSON-LD, every `target` URL inside any `potentialAction`
+       block must start with the canonical URL prefix. Drift (e.g.
+       ReadAction.target pointing at sibling project path) would silently
+       advertise the wrong page to AI/voice assistants that consume
+       potentialAction (the action would land on a 404). Sibling of Check 153
+       (og:image canonical prefix) / Check 171 (ai:* canonical prefix) for
+       the potentialAction.target surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8759,6 +8767,56 @@ if _idx208.exists():
 else:
     check(False, "Check 208: index.html present",
           "Check 208: index.html が無い", blocking=True)
+
+# ── 209. JSON-LD potentialAction target shares canonical URL prefix (BLOCKING) ─
+# index.html 静的 JSON-LD 内の全 `potentialAction` block の `target` URL が
+# canonical URL prefix で始まることを BLOCKING 強制。drift は SILENT に AI/voice
+# assistant の action を間違った page (404 等) へ誘導。Check 153/171 の
+# potentialAction.target 軸版。
+_idx209 = ROOT / "index.html"
+if _idx209.exists():
+    _isrc209 = _idx209.read_text(encoding="utf-8")
+    _canon209_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc209
+    )
+    _canon209 = _canon209_m.group(1) if _canon209_m else None
+    # find each potentialAction block scope (from `"potentialAction":` to next
+    # closing `}` at the same indent — approx via lookahead of ~600 chars).
+    _drifts209: list[str] = []
+    _target_count209 = 0
+    for _m in re.finditer(r'"potentialAction":', _isrc209):
+        _scope = _isrc209[_m.start():_m.start() + 1500]
+        for _t in re.finditer(r'"target":\s*(?:\[([^\]]*)\]|"([^"]+)")', _scope):
+            if _t.group(1) is not None:
+                # array form: extract each quoted URL
+                for _u in re.findall(r'"([^"]+)"', _t.group(1)):
+                    _target_count209 += 1
+                    if _canon209 and not _u.startswith(_canon209):
+                        _drifts209.append(f"target={_u!r}")
+            else:
+                _u = _t.group(2)
+                _target_count209 += 1
+                if _canon209 and not _u.startswith(_canon209):
+                    _drifts209.append(f"target={_u!r}")
+            break  # only first target per potentialAction block
+    _ok209 = (
+        _canon209 is not None
+        and _target_count209 > 0
+        and not _drifts209
+    )
+    check(
+        _ok209,
+        f"Check 209: potentialAction.target {_target_count209} 件全て canonical prefix {_canon209!r} で始まる",
+        (f"Check 209: potentialAction.target drift: {_drifts209!r} ≠ canonical prefix "
+         f"{_canon209!r} — AI/voice assistant action が wrong page 誘導 (404)。"
+         "target URL を canonical 配下に揃えよ"
+         if _drifts209 else
+         "Check 209: canonical / potentialAction.target 抽出不可 / 0 件"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 209: index.html present",
+          "Check 209: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
