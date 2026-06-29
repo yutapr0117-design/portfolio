@@ -313,6 +313,12 @@ MUTATIONS = [
         "find": "node_modules/\n",
         "replace": "",
     },
+    {
+        "name": "Check 163 (icon href resolves): drift <link rel=icon> href to a non-existent file",
+        "file": ROOT / "index.html",
+        "find": '<link rel="icon" type="image/svg+xml" href="/portfolio/icon.svg" />',
+        "replace": '<link rel="icon" type="image/svg+xml" href="/portfolio/icon-PROBE-MISSING.svg" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────

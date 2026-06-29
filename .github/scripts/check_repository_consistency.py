@@ -986,6 +986,13 @@ authoritative inventory and is kept in sync with the implementation below):
        node_modules (hundreds of MB) to land in the repo. Check 37 catches the artifact files
        themselves after they're tracked, but this Check protects the gate upstream so they never
        arrive in the staging area. (BLOCKING)
+  163. `<link rel="icon">` / `<link rel="apple-touch-icon">` href resolves to an actual file:
+       every non-data: href in `<link rel="icon">` and `<link rel="apple-touch-icon">` tags in
+       index.html must resolve to an existing repo file (the canonical URL pathname is stripped to
+       map href to repo-relative path). A dangling href ships a broken icon and is SILENT: the
+       browser falls back to a default globe icon and the apple-touch-icon path returns 404 on iOS
+       Add-to-Home (which then uses a downscaled site screenshot instead of the curated icon).
+       data: URI hrefs (inline SVG fallbacks) are exempt. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6720,6 +6727,59 @@ if _gi162.exists():
 else:
     check(False, "Check 162: .gitignore present",
           "Check 162: .gitignore が無い", blocking=True)
+
+# ── 163. <link rel=icon> / apple-touch-icon href resolves to actual file (BLOCKING) ─
+# index.html の `<link rel="icon">` / `<link rel="apple-touch-icon">` の非 data:
+# href が実在 repo file に resolve することを BLOCKING 強制する。dangling は SILENT —
+# ブラウザは default globe icon に fall back し、apple-touch-icon は iOS Add-to-Home
+# で 404 →縮小 screenshot に fallback する。data: URI (inline SVG fallback) は exempt。
+# canonical URL pathname を href から strip して repo-relative path に map する。
+_idx163 = ROOT / "index.html"
+if _idx163.exists():
+    _isrc163 = _idx163.read_text(encoding="utf-8")
+    _link163 = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc163
+    )
+    _canon_path163 = "/"
+    if _link163:
+        from urllib.parse import urlparse as _urlparse163
+        _canon_path163 = _urlparse163(_link163.group(1)).path or "/"
+    _icon_hrefs163: list[tuple[str, str]] = []  # (rel, href)
+    for _m163 in re.finditer(
+        r'<link\s+rel=["\'](icon|apple-touch-icon)["\']\s+(?:type=["\'][^"\']*["\']\s+)?href=["\']([^"\']+)["\']',
+        _isrc163,
+    ):
+        _icon_hrefs163.append((_m163.group(1), _m163.group(2)))
+    _missing163: list[str] = []
+    _checked163 = 0
+    for _rel163, _href163 in _icon_hrefs163:
+        if _href163.startswith("data:"):
+            continue
+        _checked163 += 1
+        # strip canonical pathname prefix if matches (e.g. /portfolio/icon.svg -> icon.svg)
+        _local163 = _href163
+        if _canon_path163 != "/" and _href163.startswith(_canon_path163):
+            _local163 = _href163[len(_canon_path163):]
+        elif _href163.startswith("/"):
+            _local163 = _href163.lstrip("/")
+        _target163 = ROOT / _local163
+        if not _target163.exists():
+            _missing163.append(f"{_rel163}={_href163!r} -> {_local163} (not found)")
+    check(
+        bool(_icon_hrefs163) and _checked163 > 0 and not _missing163,
+        f"Check 163: <link rel=icon|apple-touch-icon> href {_checked163} 件 "
+        f"全て実 file に resolve ({len(_icon_hrefs163)} link 中 data: exempt)",
+        (f"Check 163: dangling icon href: {_missing163} — ブラウザは default globe / "
+         "iOS Add-to-Home は 縮小 screenshot に silent fallback する。"
+         "index.html の <link rel=icon> / <link rel=apple-touch-icon> href を実在ファイルへ修正せよ"
+         if _icon_hrefs163 else
+         "Check 163: <link rel=icon> も <link rel=apple-touch-icon> も見つからない (vacuous)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 163: index.html present",
+          "Check 163: index.html が無い — icon href 解決を検証できない",
+          blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
