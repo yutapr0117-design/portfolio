@@ -1147,6 +1147,14 @@ authoritative inventory and is kept in sync with the implementation below):
        browsers and SEO crawlers — preview cards would localize to a different
        audience than the page itself. Sibling of Check 152 (lang ↔ JSON-LD
        inLanguage) for the og:locale surface. (BLOCKING)
+  188. robots.txt `Sitemap:` URL resolves to actual repo file: the `Sitemap:`
+       directive URL in robots.txt must (after stripping the canonical URL
+       pathname) map to an existing repo file. Check 63 enforces origin coherence
+       but not the path tail — rename of `sitemap.xml` (e.g. to `sitemap-v2.xml`)
+       without updating robots.txt would silently 404 the sitemap pointer, so
+       crawlers like Googlebot would skip indexing every URL the sitemap was meant
+       to declare. Sibling of Check 182/184 (ai:* / sw.js endpoint resolves) for
+       the robots.txt surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7817,6 +7825,51 @@ if _idx187.exists():
 else:
     check(False, "Check 187: index.html present",
           "Check 187: index.html が無い", blocking=True)
+
+# ── 188. robots.txt Sitemap URL resolves to actual repo file (BLOCKING) ───────
+# robots.txt の `Sitemap:` directive URL が canonical URL pathname を strip した
+# repo-relative path で実在 file に resolve することを BLOCKING 強制。Check 63 は
+# origin 整合のみで path tail drift (sitemap.xml → sitemap-v2.xml rename + robots
+# 未更新) を素通る。crawler (Googlebot 等) は sitemap pointer を 404 で skip し
+# sitemap が宣言する全 URL を index しない。Check 182/184 の robots.txt 軸版。
+_rb188 = ROOT / "robots.txt"
+_idx188 = ROOT / "index.html"
+if _rb188.exists() and _idx188.exists():
+    _rbsrc188 = _rb188.read_text(encoding="utf-8")
+    _isrc188 = _idx188.read_text(encoding="utf-8")
+    _canon188_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc188
+    )
+    _canon_path188 = ""
+    if _canon188_m:
+        from urllib.parse import urlparse as _urlparse188
+        _canon_path188 = _urlparse188(_canon188_m.group(1)).path  # e.g. "/portfolio/"
+    _sitemap188_urls = re.findall(r"(?im)^\s*Sitemap:\s*(\S+)", _rbsrc188)
+    _dangling188: list[str] = []
+    for _u in _sitemap188_urls:
+        from urllib.parse import urlparse as _up
+        _pth = _up(_u).path
+        if _canon_path188 and _pth.startswith(_canon_path188):
+            _rel = _pth[len(_canon_path188):]
+        else:
+            _rel = _pth.lstrip("/")
+        _target = ROOT / _rel
+        if not _target.exists():
+            _dangling188.append(f"{_u} → {_rel} (file 不在)")
+    _ok188 = len(_sitemap188_urls) > 0 and not _dangling188
+    check(
+        _ok188,
+        f"Check 188: robots.txt Sitemap: {len(_sitemap188_urls)} 件全て実 file に resolve",
+        (f"Check 188: robots.txt Sitemap: 不整合: {'; '.join(_dangling188)} — "
+         "crawler が sitemap pointer を 404 で skip し sitemap 宣言 URL を index しない。"
+         "robots.txt Sitemap: directive を canonical 配下の実在 file に揃えよ"
+         if _dangling188 else
+         "Check 188: robots.txt に Sitemap: directive 0 件 — vacuous-gate"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 188: robots.txt + index.html present",
+          "Check 188: robots.txt または index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
