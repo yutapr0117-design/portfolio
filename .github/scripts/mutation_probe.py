@@ -367,6 +367,12 @@ MUTATIONS = [
         "find": '<meta name="ai:context" content="https://yutapr0117-design.github.io/portfolio/llms-full.txt" />',
         "replace": '<meta name="ai:context" content="https://probe-other-origin.example.com/llms-full.txt" />',
     },
+    {
+        "name": "Check 172 (entity name variants): drop yuta from entity.name_alt",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '      "Yokoi Yuta",\n      "yuta"',
+        "replace": '      "Yokoi Yuta"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────

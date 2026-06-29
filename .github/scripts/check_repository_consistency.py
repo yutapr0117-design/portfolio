@@ -1038,6 +1038,12 @@ authoritative inventory and is kept in sync with the implementation below):
        (from `<link rel="canonical">`), and `ai:canonical` must equal canonical exactly. Drift
        silently desynchronizes the AIO meta layer from the canonical-URL family (e.g. AI crawler
        following `ai:context` hits a 404 if a sibling-project path is mistakenly used). (BLOCKING)
+  172. aio-manifest entity name variants cover canonical identifiers: the combined
+       (`entity.name` + `entity.name_ja` + `entity.name_alt`) fields in aio-manifest.json must
+       collectively cover all 4 canonical name identifiers from CLAUDE.md §1: "Yuta Yokoi",
+       "横井雄太", "Yokoi Yuta", and "yuta". Drift (one variant dropped) silently weakens the
+       AIO entity matching — AI crawlers querying for the missing variant may not find this
+       entity. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7107,6 +7113,39 @@ else:
     check(False, "Check 171: index.html present",
           "Check 171: index.html が無い — ai:* meta coherence を検証できない",
           blocking=True)
+
+# ── 172. aio-manifest entity name variants cover canonical identifiers (BLOCKING) ─
+# aio-manifest.json の entity.name + entity.name_ja + entity.name_alt が CLAUDE.md
+# §1 の canonical name identifier 4 件 ("Yuta Yokoi", "横井雄太", "Yokoi Yuta",
+# "yuta") を網羅することを BLOCKING 強制する。drift は SILENT に AIO entity
+# matching を弱体化 — AI crawler が drop された variant で query しても本 entity
+# が hit しない。
+_man172 = ROOT / ".well-known" / "aio-manifest.json"
+if _man172.exists():
+    try:
+        _mdata172 = json.loads(_man172.read_text(encoding="utf-8"))
+        _entity172 = _mdata172.get("entity", {})
+        _name_parts172 = [_entity172.get("name", ""), _entity172.get("name_ja", "")]
+        _name_alt172 = _entity172.get("name_alt", [])
+        if isinstance(_name_alt172, list):
+            _name_parts172.extend(str(x) for x in _name_alt172)
+        _joined172 = " | ".join(str(p) for p in _name_parts172)
+        _required172 = ["Yuta Yokoi", "横井雄太", "Yokoi Yuta", "yuta"]
+        _missing172 = [m for m in _required172 if m not in _joined172]
+        check(
+            not _missing172,
+            f"Check 172: aio-manifest entity name variants が canonical identifier 4 件全て網羅",
+            f"Check 172: entity name 4 variants 欠落: {_missing172} — AIO entity matching が "
+            "弱体化し AI crawler が drop された name variant で query しても本 entity が hit しない。"
+            "aio-manifest.json entity.name / name_ja / name_alt に variant を復元せよ",
+            blocking=True,
+        )
+    except json.JSONDecodeError as e:
+        check(False, f"Check 172: aio-manifest.json parse",
+              f"Check 172: aio-manifest.json JSON parse 失敗: {e}", blocking=True)
+else:
+    check(False, "Check 172: aio-manifest.json present",
+          "Check 172: .well-known/aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
