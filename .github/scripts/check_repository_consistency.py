@@ -1181,6 +1181,12 @@ authoritative inventory and is kept in sync with the implementation below):
        URL (silent breaking of every URL coherence Check). Companion of Check
        190 (.nojekyll presence) — the two are the structural baseline for
        canonical GitHub Pages deployment. (BLOCKING)
+  192. JSON-LD Person `url` matches canonical URL: in the static JSON-LD Person
+       block in index.html, the `url` property must equal the canonical URL
+       (`<link rel="canonical">` href). Drift would silently desync the entity's
+       declared homepage from the canonical page that crawlers actually index,
+       breaking AI/social crawler entity-to-page linking. Sibling of Check 176
+       (@id own-origin canonical prefix) for the `url` property axis. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7962,6 +7968,58 @@ check(
     "本 Check は意図的に CNAME を禁止。CNAME を削除せよ",
     blocking=True,
 )
+
+# ── 192. JSON-LD Person url matches canonical URL (BLOCKING) ──────────────────
+# index.html 静的 JSON-LD の Person block の `url` property が canonical URL
+# (`<link rel="canonical">` href) と一致することを BLOCKING 強制。drift は SILENT に
+# entity の declared homepage を canonical page から desync させ AI/social crawler
+# の entity-to-page linking を破壊。Check 176 (@id own-origin canonical prefix) の
+# `url` property 軸版。
+_idx192 = ROOT / "index.html"
+if _idx192.exists():
+    _isrc192 = _idx192.read_text(encoding="utf-8")
+    _canon192_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc192
+    )
+    _canon192 = _canon192_m.group(1) if _canon192_m else None
+    # Person block: find `"@type": "Person"` then collect within block the first url
+    # Person block scope: from `"@type": "Person"` to the next `"@type":` (or
+    # end of file). Within that scope we look for a `"url":` at the SAME
+    # indentation as `"@type":` (Person's own property, not a nested sub-block).
+    _person_blocks192 = []
+    _type_positions192 = [m.start() for m in re.finditer(r'"@type":', _isrc192)]
+    for _m in re.finditer(r'"@type":\s*"Person"', _isrc192):
+        _start = _m.start()
+        # find next @type position after this Person
+        _next = next((p for p in _type_positions192 if p > _start), len(_isrc192))
+        _scope = _isrc192[_start:_next]
+        # detect Person's own indentation: the spaces before `"@type":` on its line
+        _line_start = _isrc192.rfind("\n", 0, _start) + 1
+        _indent = _isrc192[_line_start:_start]  # spaces (or tabs) before `"@type":`
+        # match `\n<indent>"url": "..."` (same-indent sibling, not nested)
+        _u = re.search(
+            r'\n' + re.escape(_indent) + r'"url":\s*"([^"]+)"', _scope
+        )
+        if _u:
+            _person_blocks192.append(_u.group(1))
+    _drifts192 = [u for u in _person_blocks192 if _canon192 and u != _canon192]
+    _ok192 = (
+        _canon192 is not None
+        and len(_person_blocks192) > 0
+        and not _drifts192
+    )
+    check(
+        _ok192,
+        f"Check 192: JSON-LD Person.url {len(_person_blocks192)} 件全て canonical URL と一致 ({_canon192!r})",
+        (f"Check 192: JSON-LD Person.url drift: {_drifts192!r} ≠ canonical={_canon192!r} — "
+         "AI crawler の entity-to-page linking 破壊。Person.url を canonical URL と揃えよ"
+         if _drifts192 else
+         "Check 192: JSON-LD Person block or canonical 抽出不可"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 192: index.html present",
+          "Check 192: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
