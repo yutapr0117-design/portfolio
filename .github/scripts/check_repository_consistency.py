@@ -1230,6 +1230,14 @@ authoritative inventory and is kept in sync with the implementation below):
        professional role declaration on AI/search-engine entity panels.
        Sibling of Check 169 (aio-manifest entity.role) for the JSON-LD
        Person.jobTitle surface. (BLOCKING)
+  199. JSON-LD Person `knowsAbout` contains technical positioning anchors: in
+       the primary JSON-LD Person block, the `knowsAbout` array must contain
+       BOTH "KERNEL Framework" AND "Vanilla JavaScript SPA" (the unique
+       technical positioning anchors that distinguish this entity from
+       generic AI / PM practitioners). Drift would silently weaken AI search
+       discovery for queries like "KERNEL Framework" or "Vanilla JavaScript
+       SPA AI" (knowsAbout feeds Knowledge Panel topics & expert-finder
+       systems). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8318,6 +8326,49 @@ if _idx198.exists():
 else:
     check(False, "Check 198: index.html present",
           "Check 198: index.html が無い", blocking=True)
+
+# ── 199. JSON-LD Person knowsAbout contains technical anchors (BLOCKING) ──────
+# index.html 静的 JSON-LD の primary Person block の `knowsAbout` array が
+# unique 技術 positioning anchor ("KERNEL Framework" + "Vanilla JavaScript SPA")
+# を共に含むことを BLOCKING 強制。drift は SILENT に AI search discovery
+# (KERNEL Framework / Vanilla JavaScript SPA AI query) を弱体化。knowsAbout は
+# Knowledge Panel topics と expert-finder system の feed source。
+_idx199 = ROOT / "index.html"
+if _idx199.exists():
+    _isrc199 = _idx199.read_text(encoding="utf-8")
+    _person199_m = re.search(r'"@type":\s*"Person"', _isrc199)
+    _know_topics199 = []
+    if _person199_m:
+        _line_start = _isrc199.rfind("\n", 0, _person199_m.start()) + 1
+        _indent = _isrc199[_line_start:_person199_m.start()]
+        # scope to the NEXT primary Person block (not nested @type entries
+        # like Article sameAs items which share the Person block scope).
+        _all_persons = [m.start() for m in re.finditer(r'"@type":\s*"Person"', _isrc199)]
+        _next = next((p for p in _all_persons if p > _person199_m.start()), len(_isrc199))
+        _scope = _isrc199[_person199_m.start():_next]
+        # knowsAbout array starts at sibling indent and contains string entries
+        _kw = re.search(
+            r'\n' + re.escape(_indent) + r'"knowsAbout":\s*\[([^\]]*)\]', _scope
+        )
+        if _kw:
+            _know_topics199 = re.findall(r'"([^"]+)"', _kw.group(1))
+    _required199 = ["KERNEL Framework", "Vanilla JavaScript SPA"]
+    _missing199 = [t for t in _required199 if t not in _know_topics199]
+    _ok199 = len(_know_topics199) > 0 and not _missing199
+    check(
+        _ok199,
+        f"Check 199: primary Person.knowsAbout が technical anchors {_required199} を網羅 "
+        f"({len(_know_topics199)} topics)",
+        (f"Check 199: primary Person.knowsAbout に必須 anchor {_missing199} 欠落 "
+         f"(現 knowsAbout={_know_topics199!r}) — AI search Knowledge Panel での "
+         "expert-topic 紐付けが弱体化。canonical 技術 anchor を knowsAbout に含めよ"
+         if _know_topics199 else
+         "Check 199: primary Person.knowsAbout 抽出不可"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 199: index.html present",
+          "Check 199: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
