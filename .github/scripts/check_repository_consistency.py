@@ -1073,6 +1073,11 @@ authoritative inventory and is kept in sync with the implementation below):
        AI/agent ingesting llms-full.txt would think they're seeing a different version than
        what's actually deployed. Extends the version-coherence mesh (Check 1/2/3/19) to the
        llms-full.txt surface. (BLOCKING)
+  178. `<meta name="ai:repository">` derives from canonical URL: the GitHub repo URL in
+       `<meta name="ai:repository">` must equal `https://github.com/<owner>/<repo>` where
+       owner+repo are derived from the canonical URL (hostname's first segment + URL path's
+       first segment). Drift would silently point AI crawlers to the wrong GitHub repo when
+       canonical URL changes (project rename / fork). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7332,6 +7337,58 @@ if _lf177.exists() and _main177.exists():
 else:
     check(False, "Check 177: llms-full.txt + main.js present",
           "Check 177: llms-full.txt もしくは main.js が無い", blocking=True)
+
+# ── 178. <meta name=ai:repository> derives from canonical URL (BLOCKING) ───────
+# `<meta name="ai:repository">` の content URL が canonical URL から派生する
+# GitHub repo URL (`https://github.com/<owner>/<repo>`) と一致することを BLOCKING
+# 強制する。owner+repo は canonical URL の hostname 第 1 segment (例
+# yutapr0117-design.github.io → yutapr0117-design) と URL path 第 1 segment
+# (例 /portfolio/ → portfolio) から導出。drift は SILENT に AI crawler を別 repo
+# へ誘導する。
+_idx178 = ROOT / "index.html"
+if _idx178.exists():
+    _isrc178 = _idx178.read_text(encoding="utf-8")
+    _canon178_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc178
+    )
+    _repo178_m = re.search(
+        r'<meta\s+name=["\']ai:repository["\']\s+content=["\']([^"\']+)["\']', _isrc178
+    )
+    _canon178 = _canon178_m.group(1) if _canon178_m else None
+    _ai_repo178 = _repo178_m.group(1) if _repo178_m else None
+    _expected178 = None
+    if _canon178:
+        from urllib.parse import urlparse as _urlparse178
+        _parsed178 = _urlparse178(_canon178)
+        # hostname e.g. yutapr0117-design.github.io → owner = yutapr0117-design
+        _host_parts178 = (_parsed178.hostname or "").split(".")
+        _owner178 = _host_parts178[0] if _host_parts178 else ""
+        # path e.g. /portfolio/ → repo = portfolio
+        _path_parts178 = [p for p in (_parsed178.path or "").split("/") if p]
+        _repo_name178 = _path_parts178[0] if _path_parts178 else ""
+        if _owner178 and _repo_name178:
+            _expected178 = f"https://github.com/{_owner178}/{_repo_name178}"
+    _ok178 = (
+        _canon178 is not None
+        and _ai_repo178 is not None
+        and _expected178 is not None
+        and _ai_repo178 == _expected178
+    )
+    check(
+        _ok178,
+        f"Check 178: ai:repository={_ai_repo178!r} は canonical URL 由来 ({_expected178!r})",
+        (f"Check 178: ai:repository drift: ai:repository={_ai_repo178!r} / "
+         f"expected={_expected178!r} (canonical={_canon178!r} から導出) — "
+         "AI crawler が別 GitHub repo へ誘導される。index.html ai:repository を "
+         "canonical URL 由来 GitHub URL に揃えよ"
+         if _canon178 and _ai_repo178 else
+         f"Check 178: canonical / ai:repository 抽出不可 "
+         f"(canonical={_canon178} / ai:repository={_ai_repo178})"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 178: index.html present",
+          "Check 178: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
