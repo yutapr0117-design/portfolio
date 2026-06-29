@@ -355,6 +355,12 @@ MUTATIONS = [
         "find": '"KERNEL Framework Designer"',
         "replace": '"PROBE-Generic-Role"',
     },
+    {
+        "name": "Check 170 (entity.disambiguation): strip academic researcher negative marker",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": "NOT an academic researcher in agriculture, chemistry, medicine, entomology, or computer science.",
+        "replace": "PROBE: negative marker removed.",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
