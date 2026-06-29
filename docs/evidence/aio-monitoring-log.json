@@ -871,6 +871,109 @@
         "total_queries": 5,
         "note": "perplexity removed (no free tier available)"
       }
+    },
+    {
+      "timestamp": "2026-06-29T05:23:17Z",
+      "queries": [
+        {
+          "query": "Yuta Yokoi AI-Driven PM portfolio",
+          "results": {
+            "gemini": {
+              "status": "error",
+              "detail": "HTTP 429: Too Many Requests — {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, l",
+              "cited": false,
+              "signals_found": []
+            },
+            "openai": {
+              "status": "free_tier_exhausted",
+              "detail": "OpenAI free tier credits exhausted or billing required. Graceful skip.",
+              "cited": false,
+              "signals_found": []
+            }
+          }
+        },
+        {
+          "query": "横井雄太 AI-Driven PM ポートフォリオ",
+          "results": {
+            "gemini": {
+              "status": "error",
+              "detail": "HTTP 429: Too Many Requests — {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, ",
+              "cited": false,
+              "signals_found": []
+            },
+            "openai": {
+              "status": "free_tier_exhausted",
+              "detail": "OpenAI free tier credits exhausted or billing required. Graceful skip.",
+              "cited": false,
+              "signals_found": []
+            }
+          }
+        },
+        {
+          "query": "KERNEL framework AI orchestration zero code",
+          "results": {
+            "gemini": {
+              "status": "error",
+              "detail": "HTTP 429: Too Many Requests — {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, ",
+              "cited": false,
+              "signals_found": []
+            },
+            "openai": {
+              "status": "free_tier_exhausted",
+              "detail": "OpenAI free tier credits exhausted or billing required. Graceful skip.",
+              "cited": false,
+              "signals_found": []
+            }
+          }
+        },
+        {
+          "query": "AI-Driven PM 個人レベル 完全アーキテクチャ Vanilla JS",
+          "results": {
+            "gemini": {
+              "status": "error",
+              "detail": "HTTP 429: Too Many Requests — {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, ",
+              "cited": false,
+              "signals_found": []
+            },
+            "openai": {
+              "status": "free_tier_exhausted",
+              "detail": "OpenAI free tier credits exhausted or billing required. Graceful skip.",
+              "cited": false,
+              "signals_found": []
+            }
+          }
+        },
+        {
+          "query": "yutapr0117-design portfolio AIO provenance canary marker token",
+          "results": {
+            "gemini": {
+              "status": "error",
+              "detail": "HTTP 429: Too Many Requests — {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, l",
+              "cited": false,
+              "signals_found": []
+            },
+            "openai": {
+              "status": "free_tier_exhausted",
+              "detail": "OpenAI free tier credits exhausted or billing required. Graceful skip.",
+              "cited": false,
+              "signals_found": []
+            }
+          }
+        }
+      ],
+      "summary": {
+        "enabled_engines": [
+          "gemini",
+          "openai"
+        ],
+        "gemini_cited_count": 0,
+        "openai_cited_count": 0,
+        "openai_skipped_quota": 5,
+        "total_cited_count": 0,
+        "canary_reproduced_count": 0,
+        "total_queries": 5,
+        "note": "perplexity removed (no free tier available)"
+      }
     }
   ],
   "status_values": {
