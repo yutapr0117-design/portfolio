@@ -499,6 +499,12 @@ MUTATIONS = [
         "find": '"alternateName": [\n                        "横井雄太",\n                        "ユウタ",',
         "replace": '"alternateName": [\n                        "ユウタ",',
     },
+    {
+        "name": "Check 196 (Organization name): drift nkgr Organization.name from 株式会社日本経営",
+        "file": ROOT / "index.html",
+        "find": '"@id": "https://nkgr.co.jp/#organization",\n                  "name": "株式会社日本経営",',
+        "replace": '"@id": "https://nkgr.co.jp/#organization",\n                  "name": "Acme Corp",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
