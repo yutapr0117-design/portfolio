@@ -565,6 +565,12 @@ MUTATIONS = [
         "find": '"@id": "https://yutapr0117-design.github.io/portfolio/#hero-image"',
         "replace": '"@id": "http://yutapr0117-design.github.io/portfolio/#hero-image"',
     },
+    {
+        "name": "Check 207 (HTML src/href HTTPS): downgrade Karte CDN src to http",
+        "file": ROOT / "index.html",
+        "find": 'src="https://cdn-edge.karte.io/f87bbc255c0125330de2b71f9944ee07/edge.js"',
+        "replace": 'src="http://cdn-edge.karte.io/f87bbc255c0125330de2b71f9944ee07/edge.js"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
