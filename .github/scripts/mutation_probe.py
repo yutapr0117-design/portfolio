@@ -349,6 +349,12 @@ MUTATIONS = [
         "find": '"Boring Technology (Vanilla JS SPA, IIFE, ErrorBoundary)"',
         "replace": '"Boring Technology (Vanilla JS SPA, IIFE, NoBoundary-PROBE)"',
     },
+    {
+        "name": "Check 169 (entity.role markers): drop KERNEL Framework Designer from entity.role",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"KERNEL Framework Designer"',
+        "replace": '"PROBE-Generic-Role"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────

@@ -1021,6 +1021,11 @@ authoritative inventory and is kept in sync with the implementation below):
        declaration — AI crawlers reading the manifest would no longer see this site as a Boring-
        Technology Vanilla JS SPA. Mirror of CLAUDE.md §1 architecture statement on the manifest
        side. (BLOCKING)
+  169. aio-manifest entity.role contains canonical role markers: the `entity.role` list in
+       aio-manifest.json must contain the three canonical role identifiers from CLAUDE.md §1:
+       "AI-Driven PM", "IT Consultant", and "KERNEL Framework Designer". Drift silently weakens
+       the AIO entity's professional role declaration that AI crawlers read for entity
+       disambiguation. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6986,6 +6991,38 @@ if _man168.exists():
 else:
     check(False, "Check 168: aio-manifest.json present",
           "Check 168: .well-known/aio-manifest.json が無い", blocking=True)
+
+# ── 169. aio-manifest entity.role contains canonical role markers (BLOCKING) ───
+# aio-manifest.json の `entity.role` list が CLAUDE.md §1 の canonical role
+# identifier 3 件 ("AI-Driven PM", "IT Consultant", "KERNEL Framework Designer") を
+# 含むことを BLOCKING 強制する。drift は SILENT に AIO entity の professional role
+# 宣言を弱体化 (AI crawler の entity disambiguation 精度劣化)。
+_man169 = ROOT / ".well-known" / "aio-manifest.json"
+if _man169.exists():
+    try:
+        _mdata169 = json.loads(_man169.read_text(encoding="utf-8"))
+        _role169 = _mdata169.get("entity", {}).get("role", [])
+        _required169 = ["AI-Driven PM", "IT Consultant", "KERNEL Framework Designer"]
+        if not isinstance(_role169, list):
+            _role169 = [str(_role169)]
+        _role_joined169 = " | ".join(str(r) for r in _role169)
+        _missing169 = [m for m in _required169 if m not in _role_joined169]
+        check(
+            not _missing169,
+            f"Check 169: aio-manifest entity.role に canonical role marker 全て含む "
+            f"({_role169!r})",
+            f"Check 169: entity.role marker 欠落: {_missing169} (value={_role169!r}) — "
+            "AIO entity の professional role 宣言が弱体化し AI crawler の "
+            "entity disambiguation 精度が劣化。aio-manifest.json entity.role に "
+            "canonical role identifier を復元せよ",
+            blocking=True,
+        )
+    except json.JSONDecodeError as e:
+        check(False, f"Check 169: aio-manifest.json parse",
+              f"Check 169: aio-manifest.json JSON parse 失敗: {e}", blocking=True)
+else:
+    check(False, "Check 169: aio-manifest.json present",
+          "Check 169: .well-known/aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
