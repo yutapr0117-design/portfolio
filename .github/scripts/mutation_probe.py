@@ -337,6 +337,12 @@ MUTATIONS = [
         "find": "<loc>https://yutapr0117-design.github.io/portfolio/llms.txt</loc>",
         "replace": "<loc>https://yutapr0117-design.github.io/portfolio-PROBE-DRIFT/llms.txt</loc>",
     },
+    {
+        "name": "Check 167 (aio-monitoring schedule): remove the cron schedule from aio-monitoring.yml",
+        "file": ROOT / ".github" / "workflows" / "aio-monitoring.yml",
+        "find": "  schedule:\n    - cron: '0 1 * * 1'  # 毎週月曜 JST 10:00（UTC 01:00）",
+        "replace": "  # schedule PROBE-REMOVED",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────

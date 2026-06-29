@@ -1010,6 +1010,10 @@ authoritative inventory and is kept in sync with the implementation below):
        origin). Check 63 enforces origin alignment only; this Check tightens to the full canonical
        URL (origin + base path). Drift to a sibling project path (e.g. `/portfolio2/about`) is
        SILENT — sitemap crawlers index URLs that 404 on the deployed site. (BLOCKING)
+  167. `aio-monitoring.yml` weekly schedule presence: the AIO monitoring workflow must declare a
+       `schedule.cron:` trigger. Silent removal stops the weekly AIO discovery/citation
+       observability loop without any visible regression — the workflow just stops firing, and
+       observability data goes stale. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6924,6 +6928,27 @@ if _sm166.exists() and _idx166.exists():
 else:
     check(False, "Check 166: sitemap.xml + index.html present",
           "Check 166: sitemap.xml もしくは index.html が無い", blocking=True)
+
+# ── 167. aio-monitoring.yml weekly schedule presence (BLOCKING) ────────────────
+# AIO 監視 workflow が `schedule.cron:` trigger を持つことを BLOCKING 強制する。
+# silent 削除で週次 AIO discovery / citation observability loop が停止し
+# observability データが stale 化する (workflow が単に発火しない silent 劣化)。
+_aiowf167 = ROOT / ".github" / "workflows" / "aio-monitoring.yml"
+if _aiowf167.exists():
+    _src167 = _aiowf167.read_text(encoding="utf-8")
+    _has_schedule167 = re.search(r"^\s*schedule:\s*$", _src167, re.MULTILINE) is not None
+    _has_cron167 = re.search(r"^\s*-\s*cron:\s*['\"][^'\"]+['\"]", _src167, re.MULTILINE) is not None
+    check(
+        _has_schedule167 and _has_cron167,
+        "Check 167: aio-monitoring.yml has schedule.cron trigger (weekly AIO monitoring)",
+        f"Check 167: aio-monitoring.yml の schedule/cron trigger 欠落 "
+        f"(schedule={_has_schedule167} / cron={_has_cron167}) — silent 削除で週次 AIO "
+        "監視が停止し observability データが stale 化。schedule + cron rule を復元せよ",
+        blocking=True,
+    )
+else:
+    check(False, "Check 167: aio-monitoring.yml present",
+          "Check 167: .github/workflows/aio-monitoring.yml が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
