@@ -469,6 +469,12 @@ MUTATIONS = [
         "find": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml",
         "replace": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap-PROBE-MISSING.xml",
     },
+    {
+        "name": "Check 189 (meta robots noindex): drift meta robots to noindex",
+        "file": ROOT / "index.html",
+        "find": '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />',
+        "replace": '<meta name="robots" content="noindex, follow" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
