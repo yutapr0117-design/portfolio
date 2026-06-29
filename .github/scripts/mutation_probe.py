@@ -409,6 +409,12 @@ MUTATIONS = [
         "find": '<meta name="ai:repository" content="https://github.com/yutapr0117-design/portfolio" />',
         "replace": '<meta name="ai:repository" content="https://github.com/probe-other-owner/portfolio" />',
     },
+    {
+        "name": "Check 179 (ai:version coherence): drift ai:version off SITE_CONFIG.VERSION",
+        "file": ROOT / "index.html",
+        "find": '<meta name="ai:version" content="v74" />',
+        "replace": '<meta name="ai:version" content="v999" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
