@@ -1238,6 +1238,15 @@ authoritative inventory and is kept in sync with the implementation below):
        discovery for queries like "KERNEL Framework" or "Vanilla JavaScript
        SPA AI" (knowsAbout feeds Knowledge Panel topics & expert-finder
        systems). (BLOCKING)
+  200. JSON-LD Person `@id` derives from canonical URL: in the primary
+       JSON-LD Person block, the `@id` must equal canonical URL + "#person"
+       (e.g. `https://yutapr0117-design.github.io/portfolio/#person`).
+       Drift would silently break the JSON-LD entity graph anchor: secondary
+       Person references (e.g. `{"@id": "...#person"}` inside creator /
+       author / about properties) reference this @id by string equality; if
+       primary @id drifts but references don't, the entity graph fragments
+       into disjoint nodes. The trailing-slash + #person fragment derivation
+       is mechanically checkable. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8369,6 +8378,49 @@ if _idx199.exists():
 else:
     check(False, "Check 199: index.html present",
           "Check 199: index.html が無い", blocking=True)
+
+# ── 200. JSON-LD Person @id derives from canonical URL (BLOCKING) ─────────────
+# index.html 静的 JSON-LD の primary Person block の `@id` が canonical URL +
+# "#person" と一致することを BLOCKING 強制。drift は SILENT に JSON-LD entity
+# graph を分断 (secondary Person references が string-equality で primary @id を
+# 引くため primary だけ drift すると孤立 node を生む)。Check 176 (own-origin
+# canonical prefix) の Person @id 完全一致軸版。
+_idx200 = ROOT / "index.html"
+if _idx200.exists():
+    _isrc200 = _idx200.read_text(encoding="utf-8")
+    _canon200_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc200
+    )
+    _canon200 = _canon200_m.group(1) if _canon200_m else None
+    _person200_m = re.search(r'"@type":\s*"Person"', _isrc200)
+    _person_id200 = None
+    if _person200_m:
+        # @id should be within ~200 chars after @type for primary Person block
+        _scope = _isrc200[_person200_m.start():_person200_m.start() + 400]
+        _id = re.search(r'"@id":\s*"([^"]+)"', _scope)
+        if _id:
+            _person_id200 = _id.group(1)
+    _expected200 = (_canon200 + "#person") if _canon200 else None
+    _ok200 = (
+        _canon200 is not None
+        and _person_id200 is not None
+        and _person_id200 == _expected200
+    )
+    check(
+        _ok200,
+        f"Check 200: primary Person.@id = canonical+#person ({_expected200!r})",
+        (f"Check 200: primary Person.@id drift: @id={_person_id200!r} ≠ "
+         f"canonical+'#person'={_expected200!r} — JSON-LD entity graph 分断 "
+         "(secondary Person references が primary @id を引けない)。"
+         "primary Person.@id を canonical URL + '#person' に揃えよ"
+         if _person_id200 and _canon200 else
+         f"Check 200: canonical URL or primary Person.@id 抽出不可 "
+         f"(canonical={_canon200} / Person.@id={_person_id200})"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 200: index.html present",
+          "Check 200: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
