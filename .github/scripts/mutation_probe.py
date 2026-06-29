@@ -331,6 +331,12 @@ MUTATIONS = [
         "find": '"anchor": "https://yutapr0117-design.github.io/portfolio/.well-known/api-catalog"',
         "replace": '"anchor": "https://probe-other-origin.example.com/api-catalog"',
     },
+    {
+        "name": "Check 166 (sitemap <loc> canonical prefix): drift a <loc> off canonical prefix",
+        "file": ROOT / "sitemap.xml",
+        "find": "<loc>https://yutapr0117-design.github.io/portfolio/llms.txt</loc>",
+        "replace": "<loc>https://yutapr0117-design.github.io/portfolio-PROBE-DRIFT/llms.txt</loc>",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────

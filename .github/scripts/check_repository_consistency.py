@@ -1005,6 +1005,11 @@ authoritative inventory and is kept in sync with the implementation below):
        drift / malformed file silently breaks AI crawler discovery of authoritative API endpoints
        (the catalog is the entry point that points to mcp.json / agent-skills / aio-manifest /
        llms-full). (BLOCKING)
+  166. sitemap.xml `<loc>` URLs all start with canonical URL prefix: every `<loc>` URL in
+       sitemap.xml must start with the `<link rel="canonical">` href value (full prefix, not just
+       origin). Check 63 enforces origin alignment only; this Check tightens to the full canonical
+       URL (origin + base path). Drift to a sibling project path (e.g. `/portfolio2/about`) is
+       SILENT — sitemap crawlers index URLs that 404 on the deployed site. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -6886,6 +6891,39 @@ else:
     check(False, "Check 165: .well-known/api-catalog + index.html present",
           "Check 165: .well-known/api-catalog もしくは index.html が無い",
           blocking=True)
+
+# ── 166. sitemap.xml <loc> URLs all start with canonical URL prefix (BLOCKING) ─
+# sitemap.xml の全 `<loc>` URL が `<link rel=canonical>` href を full prefix と
+# して持つことを BLOCKING 強制する。Check 63 は origin-only 整合だが、本 Check は
+# canonical URL の full prefix (origin + base path) で揃える。drift (sibling
+# project path 等) は SILENT — sitemap crawler が 404 する URL を index する。
+_sm166 = ROOT / "sitemap.xml"
+_idx166 = ROOT / "index.html"
+if _sm166.exists() and _idx166.exists():
+    _isrc166 = _idx166.read_text(encoding="utf-8")
+    _smsrc166 = _sm166.read_text(encoding="utf-8")
+    _canon166_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc166
+    )
+    _canon166 = _canon166_m.group(1) if _canon166_m else None
+    _locs166 = re.findall(r"<loc>([^<]+)</loc>", _smsrc166)
+    _drift166 = [u for u in _locs166 if _canon166 and not u.startswith(_canon166)]
+    _ok166 = _canon166 is not None and bool(_locs166) and not _drift166
+    check(
+        _ok166,
+        f"Check 166: sitemap.xml {len(_locs166)} 件 <loc> 全て canonical prefix で始まる "
+        f"({_canon166!r})",
+        (f"Check 166: <loc> prefix drift: canonical={_canon166!r} / drifted={_drift166[:3]}... "
+         f"({len(_drift166)} 件) — sitemap crawler が 404 する URL を index する。"
+         "sitemap.xml の <loc> を canonical URL prefix に揃えるか canonical を修正せよ"
+         if _canon166 and _locs166 else
+         f"Check 166: canonical もしくは <loc> 抽出不可 "
+         f"(canonical={_canon166} / locs={len(_locs166)})"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 166: sitemap.xml + index.html present",
+          "Check 166: sitemap.xml もしくは index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
