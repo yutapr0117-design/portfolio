@@ -1155,6 +1155,14 @@ authoritative inventory and is kept in sync with the implementation below):
        crawlers like Googlebot would skip indexing every URL the sitemap was meant
        to declare. Sibling of Check 182/184 (ai:* / sw.js endpoint resolves) for
        the robots.txt surface. (BLOCKING)
+  189. `<meta name="robots">` does not contain `noindex` / `none`: the
+       `<meta name="robots">` content in index.html must NOT contain `noindex` or
+       `none` (negative invariant — presence-of-allow rather than absence-of-deny
+       is implicit in non-noindex). A silent drift to `noindex` would deindex the
+       entire site from all search engines (Google/Bing/DuckDuckGo + AI search
+       backed by these) — a catastrophic AIO discovery failure invisible to
+       browser/console/behavior e2e. Companion to Check 161 (robots.txt full-site
+       disallow guard) for the HTML meta robots surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7870,6 +7878,36 @@ if _rb188.exists() and _idx188.exists():
 else:
     check(False, "Check 188: robots.txt + index.html present",
           "Check 188: robots.txt または index.html が無い", blocking=True)
+
+# ── 189. <meta name=robots> does not contain noindex / none (BLOCKING) ────────
+# index.html `<meta name="robots">` content が `noindex` / `none` を含まないことを
+# BLOCKING 強制 (negative invariant)。silent な noindex drift は全 search engine
+# (Google/Bing/DuckDuckGo + これを backend にする AI search) からのサイト全 deindex
+# = AIO discovery 致命傷で、browser/console/behavior e2e に non-visible。Check 161
+# (robots.txt full-site disallow guard) の HTML meta robots 軸版。
+_idx189 = ROOT / "index.html"
+if _idx189.exists():
+    _isrc189 = _idx189.read_text(encoding="utf-8")
+    _robots189_m = re.search(
+        r'<meta\s+name=["\']robots["\']\s+content=["\']([^"\']+)["\']', _isrc189
+    )
+    _robots189 = _robots189_m.group(1).lower() if _robots189_m else None
+    _forbidden189 = ["noindex", "none"]
+    _hits189 = [tok for tok in _forbidden189 if _robots189 and tok in _robots189] if _robots189 else []
+    _ok189 = _robots189 is not None and not _hits189
+    check(
+        _ok189,
+        f"Check 189: <meta name=robots>={_robots189!r} に noindex/none 不在 (index 許容)",
+        (f"Check 189: <meta name=robots>={_robots189!r} に禁止 token {_hits189} 検出 — "
+         "サイト全 deindex (Google/Bing + AI search) で AIO discovery 致命傷。"
+         "noindex/none を除去せよ"
+         if _hits189 else
+         "Check 189: <meta name=robots> 抽出不可"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 189: index.html present",
+          "Check 189: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
