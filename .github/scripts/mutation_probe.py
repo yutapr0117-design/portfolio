@@ -397,6 +397,12 @@ MUTATIONS = [
         "find": '"@id": "https://yutapr0117-design.github.io/portfolio/#person",',
         "replace": '"@id": "https://yutapr0117-design.github.io/portfolio-PROBE-DRIFT/#person",',
     },
+    {
+        "name": "Check 177 (llms-full Version): drift llms-full Version marker off SITE_CONFIG.VERSION",
+        "file": ROOT / "llms-full.txt",
+        "find": "**Version:** v74",
+        "replace": "**Version:** v999",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────

@@ -1067,6 +1067,12 @@ authoritative inventory and is kept in sync with the implementation below):
        exempt. Drift would silently break JSON-LD entity graph linking when canonical URL path
        changes (e.g. project rename); the entity's #person/#webpage/#website anchors would still
        use the old prefix and AI crawlers couldn't follow the graph. (BLOCKING)
+  177. llms-full.txt `**Version:**` matches main.js SITE_CONFIG.VERSION: the version marker in
+       llms-full.txt's authority header must equal `SITE_CONFIG.VERSION` from main.js. Drift would
+       silently desync the AI-authoritative context's stated version from the live site —
+       AI/agent ingesting llms-full.txt would think they're seeing a different version than
+       what's actually deployed. Extends the version-coherence mesh (Check 1/2/3/19) to the
+       llms-full.txt surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7295,6 +7301,37 @@ else:
     check(False, "Check 176: index.html present",
           "Check 176: index.html が無い — JSON-LD @id coherence を検証できない",
           blocking=True)
+
+# ── 177. llms-full.txt Version marker == main.js SITE_CONFIG.VERSION (BLOCKING) ─
+# llms-full.txt authority header の `**Version:**` 値が main.js SITE_CONFIG.VERSION
+# と一致することを BLOCKING 強制する。drift は SILENT に AI-authoritative context
+# の version 宣言を live site から desync させる (AI/agent が llms-full.txt を
+# 読み込んでも deploy 中の version と違う番号を信じる)。Check 1/2/3/19 の
+# version-coherence mesh を llms-full.txt に拡張。
+_lf177 = ROOT / "llms-full.txt"
+_main177 = ROOT / "main.js"
+if _lf177.exists() and _main177.exists():
+    _lsrc177 = _lf177.read_text(encoding="utf-8")
+    _msrc177 = _main177.read_text(encoding="utf-8")
+    _lver177_m = re.search(r"\*\*Version:\*\*\s*(v[0-9]+)", _lsrc177)
+    _sver177_m = re.search(r"VERSION:\s*['\"](v[0-9]+)['\"]", _msrc177)
+    _lver177 = _lver177_m.group(1) if _lver177_m else None
+    _sver177 = _sver177_m.group(1) if _sver177_m else None
+    _ok177 = _lver177 is not None and _sver177 is not None and _lver177 == _sver177
+    check(
+        _ok177,
+        f"Check 177: llms-full.txt Version={_lver177!r} == main.js SITE_CONFIG.VERSION={_sver177!r}",
+        (f"Check 177: version drift: llms-full.txt={_lver177!r} / SITE_CONFIG={_sver177!r} — "
+         "AI/agent が llms-full.txt を読み込んでも deploy 中の version と違う番号を信じる "
+         "(AI-authoritative context の version 宣言が live site から desync)。"
+         "llms-full.txt の **Version:** または main.js SITE_CONFIG.VERSION を同期せよ"
+         if _lver177 and _sver177 else
+         f"Check 177: version 抽出不可 (llms-full={_lver177} / SITE_CONFIG={_sver177})"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 177: llms-full.txt + main.js present",
+          "Check 177: llms-full.txt もしくは main.js が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
