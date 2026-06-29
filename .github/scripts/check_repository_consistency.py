@@ -1366,6 +1366,14 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 210 / 212 (manifest start_url/scope/icons canonical
        pathname) for the HTML head icon-link surface. (BLOCKING)
 
+  214. JSON-LD `sameAs` URLs all use HTTPS: in index.html static JSON-LD,
+       every URL inside any `"sameAs": [...]` array must start with `https://`.
+       Drift would silently weaken AI/SEO trust signals (mixed-content
+       warnings, authenticity-grade degradation in knowledge graph
+       evaluation). Sibling of Check 206 (JSON-LD `@id` HTTPS) / Check 207
+       (HTML src/href HTTPS) for the JSON-LD sameAs external-link surface.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9047,6 +9055,34 @@ if _idx213.exists():
 else:
     check(False, "Check 213: index.html present",
           "Check 213: index.html が無い", blocking=True)
+
+# ── 214. JSON-LD sameAs URLs all HTTPS (BLOCKING) ─────────────────────────────
+# index.html 静的 JSON-LD 内の全 `sameAs` array の URL が `https://` で始まることを
+# BLOCKING 強制。drift は SILENT に AI/SEO の authenticity-grade を下げる
+# (mixed-content / 認証低下)。Check 206 (@id HTTPS) / Check 207 (HTML src/href HTTPS)
+# の sameAs external-link 軸版。
+_idx214 = ROOT / "index.html"
+if _idx214.exists():
+    _isrc214 = _idx214.read_text(encoding="utf-8")
+    _same_arrays214 = re.findall(r'"sameAs":\s*\[([^\]]*)\]', _isrc214)
+    _urls214: list[str] = []
+    for _arr in _same_arrays214:
+        for _u in re.findall(r'"([^"]+)"', _arr):
+            _urls214.append(_u)
+    _bad214 = [u for u in _urls214 if not u.startswith("https://")]
+    _ok214 = len(_urls214) > 0 and not _bad214
+    check(
+        _ok214,
+        f"Check 214: JSON-LD sameAs URL {len(_urls214)} 件全て HTTPS",
+        (f"Check 214: JSON-LD sameAs に non-HTTPS URL: {_bad214!r} — "
+         "AI/SEO authenticity-grade 劣化。https:// へ揃えよ"
+         if _bad214 else
+         "Check 214: JSON-LD sameAs URL 抽出不可 / 0 件"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 214: index.html present",
+          "Check 214: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
