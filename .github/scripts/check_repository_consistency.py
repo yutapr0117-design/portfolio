@@ -1209,6 +1209,14 @@ authoritative inventory and is kept in sync with the implementation below):
        Yuta wouldn't anchor back to this Person entity). Sibling of Check 172
        (aio-manifest entity.name_alt) and Check 173 (js/identity.js AUTHOR) for
        the JSON-LD Person.alternateName surface. (BLOCKING)
+  196. JSON-LD Organization (nkgr.co.jp) `name` = "株式会社日本経営": in
+       index.html, the JSON-LD Organization block with `@id` containing
+       `nkgr.co.jp/#organization` must have `name` "株式会社日本経営" (the
+       canonical affiliation name from CLAUDE.md §1). Drift would silently
+       desync the JSON-LD Organization entity from the canonical affiliation
+       declaration shared by WebP XMP (Check 81) / MP3 ID3 (82) / aio-manifest
+       (83) / README (84) / Claude2Claude (85). Completes the affiliation-name
+       coherence mesh with the JSON-LD surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8172,6 +8180,51 @@ if _idx195.exists():
 else:
     check(False, "Check 195: index.html present",
           "Check 195: index.html が無い", blocking=True)
+
+# ── 196. JSON-LD Organization (nkgr.co.jp) name = 株式会社日本経営 (BLOCKING) ─
+# index.html 静的 JSON-LD の `@id` が nkgr.co.jp/#organization を含む Organization
+# block の `name` が "株式会社日本経営" (CLAUDE.md §1 canonical affiliation 名) と
+# 一致することを BLOCKING 強制。drift は SILENT に JSON-LD Organization entity を
+# canonical affiliation 宣言 (Check 81-85 で multi-surface 強制) から desync させる。
+# 本 Check は affiliation-name coherence mesh を JSON-LD surface まで拡張。
+_idx196 = ROOT / "index.html"
+if _idx196.exists():
+    _isrc196 = _idx196.read_text(encoding="utf-8")
+    # find Organization block with @id containing nkgr.co.jp/#organization
+    _org196_m = re.search(
+        r'"@type":\s*"Organization"[^{]*?"@id":\s*"[^"]*nkgr\.co\.jp[^"]*#organization"',
+        _isrc196,
+        re.DOTALL,
+    )
+    if not _org196_m:
+        # try the other ordering: @id then @type
+        _org196_m = re.search(
+            r'"@id":\s*"[^"]*nkgr\.co\.jp[^"]*#organization"[^{]*?"@type":\s*"Organization"',
+            _isrc196,
+            re.DOTALL,
+        )
+    _org_name196 = None
+    if _org196_m:
+        # scope from match start onwards ~600 chars to find name
+        _scope = _isrc196[_org196_m.start():_org196_m.start() + 600]
+        _n = re.search(r'"name":\s*"([^"]+)"', _scope)
+        if _n:
+            _org_name196 = _n.group(1)
+    _expected196 = "株式会社日本経営"
+    _ok196 = _org_name196 == _expected196
+    check(
+        _ok196,
+        f"Check 196: JSON-LD Organization (nkgr.co.jp).name = {_expected196!r}",
+        (f"Check 196: JSON-LD Organization (nkgr.co.jp).name = {_org_name196!r} ≠ "
+         f"{_expected196!r} — affiliation-name coherence (Check 81-85 と Multi-surface) "
+         "から JSON-LD surface が drift。CLAUDE.md §1 canonical affiliation 名に揃えよ"
+         if _org_name196 else
+         "Check 196: JSON-LD Organization (nkgr.co.jp) block / name 抽出不可"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 196: index.html present",
+          "Check 196: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
