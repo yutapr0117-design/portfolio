@@ -601,6 +601,12 @@ MUTATIONS = [
         "find": '"src": "/portfolio/icon.svg"',
         "replace": '"src": "/portfolio/icon-PROBE-MISSING.svg"',
     },
+    {
+        "name": "Check 213 (link rel=icon href canonical pathname): drift apple-touch-icon to root-relative",
+        "file": ROOT / "index.html",
+        "find": '<link rel="apple-touch-icon" href="/portfolio/icon.svg" />',
+        "replace": '<link rel="apple-touch-icon" href="/icon.svg" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
