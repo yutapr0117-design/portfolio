@@ -1336,6 +1336,16 @@ authoritative inventory and is kept in sync with the implementation below):
        canonical) / Check 138 (entity url) for the manifest install surface.
        (BLOCKING)
 
+  211. JSON-LD `contentUrl` / `thumbnailUrl` fields share canonical URL prefix:
+       in index.html static JSON-LD, every `"contentUrl": "..."` and
+       `"thumbnailUrl": "..."` value (ImageObject / MediaObject / AudioObject)
+       must start with the canonical URL prefix (own-origin assets). Drift
+       (e.g. contentUrl pointing at a CDN or sibling project) would silently
+       advertise non-canonical asset URLs to AI/SEO crawlers, splitting
+       authority. Sibling of Check 153 (og:image canonical prefix) / Check
+       171 (ai:* canonical prefix) / Check 209 (potentialAction.target
+       canonical prefix) for the JSON-LD media-asset surface. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -8878,6 +8888,47 @@ if _idx210.exists() and _mani210.exists():
 else:
     check(False, "Check 210: index.html + manifest.webmanifest present",
           "Check 210: index.html もしくは manifest.webmanifest が無い", blocking=True)
+
+# ── 211. JSON-LD contentUrl / thumbnailUrl share canonical URL prefix (BLOCKING) ─
+# index.html 静的 JSON-LD 内の全 `contentUrl` / `thumbnailUrl` 値が canonical URL
+# prefix で始まることを BLOCKING 強制。drift は SILENT に AI/SEO crawler へ
+# non-canonical な asset URL を流し authority を二分。Check 153/171/209 と同
+# canonical-prefix family の JSON-LD media-asset 軸版。
+_idx211 = ROOT / "index.html"
+if _idx211.exists():
+    _isrc211 = _idx211.read_text(encoding="utf-8")
+    _canon211_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc211
+    )
+    _canon211 = _canon211_m.group(1) if _canon211_m else None
+    _url_fields211 = ["contentUrl", "thumbnailUrl"]
+    _urls211: list[tuple[str, str]] = []
+    for _fld in _url_fields211:
+        for _m in re.finditer(rf'"{_fld}":\s*"([^"]+)"', _isrc211):
+            _urls211.append((_fld, _m.group(1)))
+    _drifts211: list[str] = []
+    if _canon211:
+        for _fld, _v in _urls211:
+            if not _v.startswith(_canon211):
+                _drifts211.append(f"{_fld}={_v!r}")
+    _ok211 = (
+        _canon211 is not None
+        and len(_urls211) > 0
+        and not _drifts211
+    )
+    check(
+        _ok211,
+        f"Check 211: JSON-LD contentUrl/thumbnailUrl {len(_urls211)} 件全て canonical prefix {_canon211!r} で始まる",
+        (f"Check 211: JSON-LD media-asset URL drift: {_drifts211!r} ≠ canonical "
+         f"prefix {_canon211!r} — AI/SEO crawler が non-canonical asset URL を取得し "
+         "entity authority が二分。contentUrl / thumbnailUrl を canonical 配下に揃えよ"
+         if _drifts211 else
+         "Check 211: canonical / contentUrl/thumbnailUrl 抽出不可 / 0 件"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 211: index.html present",
+          "Check 211: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
