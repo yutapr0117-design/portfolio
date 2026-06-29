@@ -1124,6 +1124,14 @@ authoritative inventory and is kept in sync with the implementation below):
        updated), the SW would attempt to SWR a non-existent endpoint forever and
        silently 404 every cache miss while looking healthy. Sibling of Check 182
        (ai:* meta endpoint resolves) for the service-worker AIO surface. (BLOCKING)
+  185. Canonical URL uses HTTPS scheme: the `<link rel="canonical">` href in
+       index.html must start with `https://`. Drift to `http://` would silently
+       degrade SEO/security signals — browsers warn "Not Secure", crawlers may treat
+       the page as a different origin from HTTPS variants and split entity identity,
+       and Mixed Content blocks would silently break sub-resource loads in places.
+       Check 149 (3-way canonical coherence) catches partial drift, but if all 3
+       surfaces flip to HTTP it passes — this check anchors the scheme itself.
+       (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7697,6 +7705,35 @@ if _sw184.exists() and _idx184.exists():
 else:
     check(False, "Check 184: sw.js + index.html present",
           "Check 184: sw.js または index.html が無い", blocking=True)
+
+# ── 185. Canonical URL uses HTTPS scheme (BLOCKING) ────────────────────────────
+# index.html `<link rel="canonical">` href が `https://` で始まることを BLOCKING
+# 強制。`http://` drift は SILENT に SEO / security signal を劣化させる
+# (browser の "Not Secure" 警告 / crawler が HTTPS variant と別 origin と認識し
+# entity 同一性を split / Mixed Content block で sub-resource silent 失敗)。
+# Check 149 は 3 surface 一致を保証するが 3 surface 同時 HTTP 化を素通る scheme
+# 自体の anchor。
+_idx185 = ROOT / "index.html"
+if _idx185.exists():
+    _isrc185 = _idx185.read_text(encoding="utf-8")
+    _canon185_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc185
+    )
+    _canon185 = _canon185_m.group(1) if _canon185_m else None
+    _ok185 = _canon185 is not None and _canon185.startswith("https://")
+    check(
+        _ok185,
+        f"Check 185: canonical URL は HTTPS scheme ({_canon185!r})",
+        (f"Check 185: canonical URL が HTTPS でない: {_canon185!r} — "
+         "browser 'Not Secure' 警告 / crawler entity split / Mixed Content block。"
+         "`https://` 始まりに揃えよ"
+         if _canon185 else
+         "Check 185: canonical URL 抽出不可"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 185: index.html present",
+          "Check 185: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
