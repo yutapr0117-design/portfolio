@@ -1194,6 +1194,13 @@ authoritative inventory and is kept in sync with the implementation below):
        WebSite-to-page anchor and confusing Search Console "About this result"
        enrichment. Sibling of Check 192 (Person.url) for the WebSite axis.
        (BLOCKING)
+  194. JSON-LD WebPage `url` matches canonical URL: in static JSON-LD WebPage
+       blocks in index.html, the `url` property must equal the canonical URL.
+       Drift would silently desync the page entity's declared URL from the
+       canonical page, breaking AI/search-engine page-to-canonical resolution
+       (the WebPage block is the most-directly-page-mapped JSON-LD entity).
+       Completes the Person/WebSite/WebPage URL-coherence triangle for the
+       canonical-URL anchor (Checks 192 + 193 + 194). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8070,6 +8077,48 @@ if _idx193.exists():
 else:
     check(False, "Check 193: index.html present",
           "Check 193: index.html が無い", blocking=True)
+
+# ── 194. JSON-LD WebPage url matches canonical URL (BLOCKING) ─────────────────
+# index.html 静的 JSON-LD の WebPage block の `url` property が canonical URL と
+# 一致することを BLOCKING 強制。drift は SILENT に page entity の declared URL を
+# canonical page から desync し AI/search-engine の page-to-canonical 解決を
+# 破壊。Check 192/193 と並ぶ Person/WebSite/WebPage URL coherence triangle 完成。
+_idx194 = ROOT / "index.html"
+if _idx194.exists():
+    _isrc194 = _idx194.read_text(encoding="utf-8")
+    _canon194_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc194
+    )
+    _canon194 = _canon194_m.group(1) if _canon194_m else None
+    _page_blocks194 = []
+    _type_positions194 = [m.start() for m in re.finditer(r'"@type":', _isrc194)]
+    for _m in re.finditer(r'"@type":\s*"WebPage"', _isrc194):
+        _start = _m.start()
+        _next = next((p for p in _type_positions194 if p > _start), len(_isrc194))
+        _scope = _isrc194[_start:_next]
+        _line_start = _isrc194.rfind("\n", 0, _start) + 1
+        _indent = _isrc194[_line_start:_start]
+        _u = re.search(r'\n' + re.escape(_indent) + r'"url":\s*"([^"]+)"', _scope)
+        if _u:
+            _page_blocks194.append(_u.group(1))
+    _drifts194 = [u for u in _page_blocks194 if _canon194 and u != _canon194]
+    _ok194 = (
+        _canon194 is not None
+        and len(_page_blocks194) > 0
+        and not _drifts194
+    )
+    check(
+        _ok194,
+        f"Check 194: JSON-LD WebPage.url {len(_page_blocks194)} 件全て canonical URL と一致 ({_canon194!r})",
+        (f"Check 194: JSON-LD WebPage.url drift: {_drifts194!r} ≠ canonical={_canon194!r} — "
+         "page entity ↔ canonical page 解決破壊。WebPage.url を canonical URL と揃えよ"
+         if _drifts194 else
+         "Check 194: JSON-LD WebPage block or canonical 抽出不可"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 194: index.html present",
+          "Check 194: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
