@@ -325,6 +325,12 @@ MUTATIONS = [
         "find": '<meta property="og:image" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" />',
         "replace": '<meta property="og:image" content="https://yutapr0117-design.github.io/portfolio/og-image-PROBE-MISSING.webp" />',
     },
+    {
+        "name": "Check 165 (api-catalog anchor): drift api-catalog anchor off canonical origin",
+        "file": ROOT / ".well-known" / "api-catalog",
+        "find": '"anchor": "https://yutapr0117-design.github.io/portfolio/.well-known/api-catalog"',
+        "replace": '"anchor": "https://probe-other-origin.example.com/api-catalog"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
