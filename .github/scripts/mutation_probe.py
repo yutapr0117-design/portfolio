@@ -619,6 +619,12 @@ MUTATIONS = [
         "find": '<meta name="ai:last-modified" content="2026-05-31" />',
         "replace": '<meta name="ai:last-modified" content="2026/05/31" />',
     },
+    {
+        "name": "Check 216 (JSON-LD @id cross-ref resolves): drift primaryImageOfPage to dangling @id",
+        "file": ROOT / "index.html",
+        "find": '"primaryImageOfPage": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#hero-image"',
+        "replace": '"primaryImageOfPage": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#dangling-PROBE-DRIFT"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
