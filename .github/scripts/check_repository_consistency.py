@@ -1384,6 +1384,19 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 208 (JSON-LD date ISO-8601) for the ai:* / SITE_CONFIG date
        surface. (BLOCKING)
 
+  216. JSON-LD `@id` cross-references resolve to defined nodes in the same
+       graph (referential integrity): in index.html static JSON-LD blocks,
+       any `{"@id": "..."}` reference appearing as the value of common
+       reference properties (`author`, `about`, `isPartOf`, `mainEntity`,
+       `creator`, `reviewedBy`, `publisher`, `primaryImageOfPage`) must
+       point to an `@id` that is defined by some other node in the same
+       JSON-LD graph (a node having BOTH `@type` and `@id`). Drift would
+       silently fragment the entity graph: AI knowledge-graph consumers
+       follow `@id` references and find dead anchors, breaking the linked
+       structure of Person/WebSite/WebPage/Organization claims. Check 200
+       /201 enforce that primary @ids derive from canonical URL; Check 216
+       enforces that every reference actually resolves. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9138,6 +9151,72 @@ if _idx215.exists() and _main215.exists():
 else:
     check(False, "Check 215: index.html + main.js present",
           "Check 215: index.html もしくは main.js が無い", blocking=True)
+
+# ── 216. JSON-LD @id cross-references resolve (referential integrity) (BLOCKING) ─
+# index.html 静的 JSON-LD 内の参照系 property (author/about/isPartOf/mainEntity/
+# creator/reviewedBy/publisher/primaryImageOfPage) の `{"@id": "..."}` 参照が、
+# 同じ graph 内のどこかで `@type` + `@id` を持つ node により定義されていることを
+# BLOCKING 強制。drift は SILENT に entity graph を断片化 — AI/知識グラフ consumer
+# が dead anchor を踏み Person/WebSite/WebPage/Organization 主張の linkage が壊れる。
+_REF_PROPS216 = {
+    "author", "about", "isPartOf", "mainEntity", "creator",
+    "reviewedBy", "publisher", "primaryImageOfPage",
+}
+_idx216 = ROOT / "index.html"
+if _idx216.exists():
+    _isrc216 = _idx216.read_text(encoding="utf-8")
+    _blocks216 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc216,
+        flags=re.DOTALL,
+    )
+    _defined_ids216: set[str] = set()
+    _ref_ids216: list[tuple[str, str]] = []
+    def _walk216(node: object, parent_key: str | None = None) -> None:
+        if isinstance(node, dict):
+            _is_def = "@type" in node and "@id" in node and isinstance(node.get("@id"), str)
+            if _is_def:
+                _defined_ids216.add(node["@id"])
+            # reference: object containing ONLY @id (or @id + minor) appearing under ref-prop
+            if (
+                parent_key in _REF_PROPS216
+                and "@id" in node
+                and "@type" not in node
+                and isinstance(node.get("@id"), str)
+            ):
+                _ref_ids216.append((parent_key, node["@id"]))
+            for k, v in node.items():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk216(item, k)
+                else:
+                    _walk216(v, k)
+        elif isinstance(node, list):
+            for item in node:
+                _walk216(item, parent_key)
+    for _blk in _blocks216:
+        try:
+            _data216 = json.loads(_blk)
+        except json.JSONDecodeError:
+            continue
+        _walk216(_data216)
+    _dangling216 = [
+        f"{_prop}:{_rid}" for _prop, _rid in _ref_ids216
+        if _rid not in _defined_ids216
+    ]
+    _ok216 = len(_ref_ids216) > 0 and not _dangling216
+    check(
+        _ok216,
+        f"Check 216: JSON-LD 参照 @id {len(_ref_ids216)} 件全て graph 内 defined @id ({len(_defined_ids216)} 個) に解決",
+        (f"Check 216: dangling @id 参照: {_dangling216!r} — entity graph が断片化し "
+         "AI/知識グラフが dead anchor を踏む。参照先 node を JSON-LD 内に定義するか参照を訂正せよ"
+         if _dangling216 else
+         "Check 216: JSON-LD 参照 @id 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 216: index.html present",
+          "Check 216: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
