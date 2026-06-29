@@ -1346,6 +1346,16 @@ authoritative inventory and is kept in sync with the implementation below):
        171 (ai:* canonical prefix) / Check 209 (potentialAction.target
        canonical prefix) for the JSON-LD media-asset surface. (BLOCKING)
 
+  212. manifest.webmanifest `icons[].src` is canonical-pathname-prefixed and
+       each referenced file is committed: every icon `src` in manifest must
+       start with canonical URL pathname (e.g. `/portfolio/`) AND the file
+       (mapped to repo root by stripping the pathname prefix) must exist.
+       Drift would silently make PWA install fail to load icons (icon path
+       points outside the canonical scope, or the file was removed without
+       updating manifest). Sibling of Check 210 (manifest start_url/scope
+       canonical pathname) / Check 39 (sitemap loc resolves) for the
+       manifest icon surface. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -8929,6 +8939,57 @@ if _idx211.exists():
 else:
     check(False, "Check 211: index.html present",
           "Check 211: index.html が無い", blocking=True)
+
+# ── 212. manifest.webmanifest icons src canonical pathname + 実在 (BLOCKING) ───
+# manifest.webmanifest の全 `icons[].src` が canonical URL pathname (例 /portfolio/)
+# で始まること + pathname を strip して repo root へ map した path が実在することを
+# BLOCKING 強制。drift は SILENT に PWA install が icon を 404 で取得失敗。
+from urllib.parse import urlparse as _urlparse212
+_idx212 = ROOT / "index.html"
+_mani212 = ROOT / "manifest.webmanifest"
+if _idx212.exists() and _mani212.exists():
+    _isrc212 = _idx212.read_text(encoding="utf-8")
+    _canon212_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc212
+    )
+    _canon212 = _canon212_m.group(1) if _canon212_m else None
+    _canon_path212 = _urlparse212(_canon212).path if _canon212 else None
+    try:
+        _mdata212 = json.loads(_mani212.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _mdata212 = None
+    _icons212 = (
+        _mdata212.get("icons", []) if isinstance(_mdata212, dict) else []
+    )
+    _icon_srcs212 = [
+        _ic.get("src") for _ic in _icons212
+        if isinstance(_ic, dict) and isinstance(_ic.get("src"), str)
+    ]
+    _drifts212: list[str] = []
+    if not _canon_path212:
+        _drifts212.append("canonical pathname 抽出不可")
+    if not _icon_srcs212:
+        _drifts212.append("icons[].src 0 件")
+    for _src in _icon_srcs212:
+        if _canon_path212 and not _src.startswith(_canon_path212):
+            _drifts212.append(f"src={_src!r} canonical pathname {_canon_path212!r} 不一致")
+            continue
+        if _canon_path212:
+            _rel = _src[len(_canon_path212):]
+            _f = ROOT / _rel
+            if not _f.exists():
+                _drifts212.append(f"src={_src!r} → {_rel!r} がリポジトリに無い")
+    _ok212 = not _drifts212
+    check(
+        _ok212,
+        f"Check 212: manifest icons[].src {len(_icon_srcs212)} 件全て canonical pathname {_canon_path212!r} prefix かつ実在",
+        (f"Check 212: manifest icons drift: {_drifts212!r} — PWA install が "
+         "icon を 404 で取得失敗。icons[].src を canonical pathname + 実在 file へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 212: index.html + manifest.webmanifest present",
+          "Check 212: index.html もしくは manifest.webmanifest が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
