@@ -361,6 +361,12 @@ MUTATIONS = [
         "find": "NOT an academic researcher in agriculture, chemistry, medicine, entomology, or computer science.",
         "replace": "PROBE: negative marker removed.",
     },
+    {
+        "name": "Check 171 (ai:* meta URL prefix): drift ai:context off canonical prefix",
+        "file": ROOT / "index.html",
+        "find": '<meta name="ai:context" content="https://yutapr0117-design.github.io/portfolio/llms-full.txt" />',
+        "replace": '<meta name="ai:context" content="https://probe-other-origin.example.com/llms-full.txt" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
