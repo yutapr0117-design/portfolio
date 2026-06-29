@@ -1116,6 +1116,14 @@ authoritative inventory and is kept in sync with the implementation below):
        Centralizing on strict YYYY-MM-DD avoids ambiguity. Sibling of Check 65 (docs
        ISO-8601) and Check 181 (SITE_CONFIG.LAST_UPDATED ISO-8601) for the sitemap
        surface. (BLOCKING)
+  184. sw.js AIO_FILES paths resolve to actual repo files: every path listed in
+       sw.js's `AIO_FILES` array (the special SWR fetch-intercept list) must map (via
+       canonical-URL pathname strip) to an existing repo file. Check 160 enforces
+       only the first-segment pathname coherence; if the path tail drifts (e.g.
+       `/portfolio/llms.txt` renamed to `/portfolio/llms-entry.txt` but sw.js not
+       updated), the SW would attempt to SWR a non-existent endpoint forever and
+       silently 404 every cache miss while looking healthy. Sibling of Check 182
+       (ai:* meta endpoint resolves) for the service-worker AIO surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -7635,6 +7643,60 @@ if _sm183.exists():
 else:
     check(False, "Check 183: sitemap.xml present",
           "Check 183: sitemap.xml が無い", blocking=True)
+
+# ── 184. sw.js AIO_FILES paths resolve to actual repo files (BLOCKING) ────────
+# sw.js の `AIO_FILES = [...]` 配列内文字列を抽出し、index.html canonical URL の
+# pathname (例 /portfolio/) を strip した repo-relative path で実在 file に resolve
+# することを BLOCKING 強制。Check 160 (pathname 第 1 segment 整合) は素通る path
+# tail drift (例 /portfolio/llms.txt → /portfolio/llms-entry.txt rename + sw.js
+# 未更新) を捕捉し SW の SWR 404 silent fail を防ぐ。Check 182 (ai:* meta 解決)
+# の SW 軸版。
+_sw184 = ROOT / "sw.js"
+_idx184 = ROOT / "index.html"
+if _sw184.exists() and _idx184.exists():
+    _swsrc184 = _sw184.read_text(encoding="utf-8")
+    _isrc184 = _idx184.read_text(encoding="utf-8")
+    _canon184_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc184
+    )
+    _canon_path184 = ""
+    if _canon184_m:
+        from urllib.parse import urlparse as _urlparse184
+        _canon_path184 = _urlparse184(_canon184_m.group(1)).path  # e.g. "/portfolio/"
+    _aio_files184_m = re.search(
+        r"const\s+AIO_FILES\s*=\s*\[([^\]]+)\]", _swsrc184
+    )
+    _aio_paths184: list[str] = []
+    if _aio_files184_m:
+        _aio_paths184 = re.findall(r"['\"]([^'\"]+)['\"]", _aio_files184_m.group(1))
+    _dangling184: list[str] = []
+    for _p in _aio_paths184:
+        if _canon_path184 and _p.startswith(_canon_path184):
+            _rel = _p[len(_canon_path184):]
+        else:
+            _rel = _p.lstrip("/")
+        _target = ROOT / _rel
+        if not _target.exists():
+            _dangling184.append(f"{_p} → {_rel} (file 不在)")
+    _ok184 = (
+        _canon_path184 != ""
+        and len(_aio_paths184) > 0
+        and not _dangling184
+    )
+    check(
+        _ok184,
+        f"Check 184: sw.js AIO_FILES {len(_aio_paths184)} 件全て実 file に resolve "
+        f"(canonical path '{_canon_path184}' を strip)",
+        (f"Check 184: sw.js AIO_FILES 不整合: {'; '.join(_dangling184)} — "
+         "SW が rename 後 endpoint を SWR で fetch して silent 404。AIO_FILES の path tail を canonical 配下の "
+         "実在 file に揃えよ"
+         if _dangling184 else
+         "Check 184: sw.js AIO_FILES 抽出不可 / canonical pathname 抽出不可 / 0 件 — vacuous-gate"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 184: sw.js + index.html present",
+          "Check 184: sw.js または index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
