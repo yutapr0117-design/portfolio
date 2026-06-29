@@ -445,6 +445,12 @@ MUTATIONS = [
         "find": "const AIO_FILES = ['/portfolio/llms.txt', '/portfolio/llms-full.txt'];",
         "replace": "const AIO_FILES = ['/portfolio/llms-PROBE-MISSING.txt', '/portfolio/llms-full.txt'];",
     },
+    {
+        "name": "Check 185 (canonical HTTPS): drift canonical scheme to HTTP",
+        "file": ROOT / "index.html",
+        "find": '<link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/"',
+        "replace": '<link rel="canonical" href="http://yutapr0117-design.github.io/portfolio/"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
