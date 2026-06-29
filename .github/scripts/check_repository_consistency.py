@@ -1255,6 +1255,17 @@ authoritative inventory and is kept in sync with the implementation below):
        #website}` and `mainEntity:{"@id":...#webpage}` references would
        point to dead anchors. Completes the Person/WebSite/WebPage @id
        anchor triangle that started in Check 200. (BLOCKING)
+  202. Canonical URL pathname ends with `/`: the `<link rel="canonical">`
+       href pathname must end with a trailing slash. Drift (canonical →
+       `.../portfolio` without slash) would silently break every Check that
+       uses canonical URL as a prefix for repo-relative path stripping
+       (Check 153 / 164 / 166 / 171 / 182 / 184 / 188): URLs like
+       `https://.../portfolio/llms-full.txt` would no longer share a clean
+       prefix with `.../portfolio` (no slash), and `startswith` checks would
+       still pass (string prefix), but `[len(prefix):]` would strip too few
+       characters and the path tail would start with `/`, breaking
+       repo-relative resolution. The trailing-slash invariant is the implicit
+       contract those Checks depend on. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8473,6 +8484,35 @@ if _idx201.exists():
 else:
     check(False, "Check 201: index.html present",
           "Check 201: index.html が無い", blocking=True)
+
+# ── 202. Canonical URL pathname ends with `/` (BLOCKING) ──────────────────────
+# index.html `<link rel="canonical">` href の pathname が `/` で終わることを
+# BLOCKING 強制。trailing slash の喪失は Check 153/164/166/171/182/184/188 が
+# 暗黙に依存する prefix 契約を破壊し、startswith は通るが repo-relative path
+# stripping が壊れる。
+from urllib.parse import urlparse as _urlparse202
+_idx202 = ROOT / "index.html"
+if _idx202.exists():
+    _isrc202 = _idx202.read_text(encoding="utf-8")
+    _canon202_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc202
+    )
+    _canon202 = _canon202_m.group(1) if _canon202_m else None
+    _canon202_path = _urlparse202(_canon202).path if _canon202 else ""
+    _ok202 = bool(_canon202_path) and _canon202_path.endswith("/")
+    check(
+        _ok202,
+        f"Check 202: canonical URL pathname が `/` で終わる ({_canon202_path!r})",
+        (f"Check 202: canonical URL pathname={_canon202_path!r} が trailing slash 無し — "
+         "Check 153/164/166/171/182/184/188 の prefix-strip 契約を破壊。"
+         "canonical URL を `/portfolio/` のように `/` で終わらせよ"
+         if _canon202 else
+         "Check 202: canonical URL 抽出不可"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 202: index.html present",
+          "Check 202: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
