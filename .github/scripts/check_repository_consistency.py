@@ -1223,6 +1223,13 @@ authoritative inventory and is kept in sync with the implementation below):
        §1). Drift would silently send AI/social crawlers to the wrong
        Organization homepage, breaking employee→employer URL resolution. URL
        axis sibling of Check 196 (name axis). (BLOCKING)
+  198. JSON-LD Person `jobTitle` contains canonical role markers: in the
+       primary JSON-LD Person block, the `jobTitle` string must contain BOTH
+       "IT Consultant" AND "KERNEL Framework Designer" (canonical role markers
+       from CLAUDE.md §1). Drift would silently weaken the Person entity's
+       professional role declaration on AI/search-engine entity panels.
+       Sibling of Check 169 (aio-manifest entity.role) for the JSON-LD
+       Person.jobTitle surface. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -8269,6 +8276,48 @@ if _idx197.exists():
 else:
     check(False, "Check 197: index.html present",
           "Check 197: index.html が無い", blocking=True)
+
+# ── 198. JSON-LD Person jobTitle contains canonical role markers (BLOCKING) ───
+# index.html 静的 JSON-LD の primary Person block の `jobTitle` string が
+# CLAUDE.md §1 canonical role markers ("IT Consultant" + "KERNEL Framework
+# Designer") を共に含むことを BLOCKING 強制。drift は SILENT に AI/search-engine
+# entity panel 上の professional role 宣言を弱体化。Check 169 (manifest entity.role)
+# の JSON-LD Person.jobTitle 軸版。
+_idx198 = ROOT / "index.html"
+if _idx198.exists():
+    _isrc198 = _idx198.read_text(encoding="utf-8")
+    # locate primary Person block by `"@type": "Person"` then look for jobTitle
+    # within scope (Person block can be ~3KB; jobTitle is sibling-indent).
+    _person198_m = re.search(r'"@type":\s*"Person"', _isrc198)
+    _jobtitle198 = None
+    if _person198_m:
+        _line_start = _isrc198.rfind("\n", 0, _person198_m.start()) + 1
+        _indent = _isrc198[_line_start:_person198_m.start()]
+        # find next "@type": (next entity boundary)
+        _all_types = [m.start() for m in re.finditer(r'"@type":', _isrc198)]
+        _next = next((p for p in _all_types if p > _person198_m.start()), len(_isrc198))
+        _scope = _isrc198[_person198_m.start():_next]
+        _jt = re.search(
+            r'\n' + re.escape(_indent) + r'"jobTitle":\s*"([^"]+)"', _scope
+        )
+        if _jt:
+            _jobtitle198 = _jt.group(1)
+    _required198 = ["IT Consultant", "KERNEL Framework Designer"]
+    _missing198 = [m for m in _required198 if _jobtitle198 and m not in _jobtitle198] if _jobtitle198 else _required198
+    _ok198 = _jobtitle198 is not None and not _missing198
+    check(
+        _ok198,
+        f"Check 198: primary Person.jobTitle が canonical role markers {_required198} を網羅",
+        (f"Check 198: primary Person.jobTitle に必須 marker {_missing198} 欠落 "
+         f"(現 jobTitle={_jobtitle198!r}) — AI/search entity panel の role 宣言を弱体化。"
+         "CLAUDE.md §1 canonical role markers を jobTitle に含めよ"
+         if _jobtitle198 else
+         "Check 198: primary Person.jobTitle 抽出不可"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 198: index.html present",
+          "Check 198: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
