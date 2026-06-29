@@ -529,6 +529,12 @@ MUTATIONS = [
         "find": '"@type": "Person",\n                  "@id": "https://yutapr0117-design.github.io/portfolio/#person",',
         "replace": '"@type": "Person",\n                  "@id": "https://yutapr0117-design.github.io/portfolio/#probe-drift",',
     },
+    {
+        "name": "Check 201 (WebSite.@id canonical): drift WebSite.@id to wrong fragment",
+        "file": ROOT / "index.html",
+        "find": '"@type": "WebSite",\n                  "@id": "https://yutapr0117-design.github.io/portfolio/#website",',
+        "replace": '"@type": "WebSite",\n                  "@id": "https://yutapr0117-design.github.io/portfolio/#probe-website-drift",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
