@@ -308,6 +308,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 232 | `<meta name=ai:*>` content の absolute URL が全て https:// で始まる。http:// drift で AI crawler が Mixed Content blocking で AIO routing 喪失するのを BLOCKING で阻止。Check 207 (HTML src/href HTTPS) の ai:* content 軸 | BLOCKING |
 | 233 | `<meta name=asset:*>` content の absolute URL が全て https:// で始まる。http:// drift で AI/SEO crawler が Mixed Content blocking で asset fetch 失敗・authenticity 劣化を BLOCKING で阻止。Check 232 の asset:* 軸 | BLOCKING |
 | 234 | `<meta name=asset:*>` content の absolute URL が canonical URL prefix で始まる。非 canonical drift で AI/SEO crawler が non-canonical asset を正規扱いし entity authority 二分を BLOCKING で阻止。Check 171 (ai:* canonical prefix) の asset:* 軸 | BLOCKING |
+| 235 | JSON-LD Article/TechArticle の `@id` 付き full definition が Schema.org 必須 field (headline+author+datePublished) を持つ。silent 欠落で Google rich-result 失格 + AI search Article snippet 劣化を BLOCKING で阻止。subjectOf/citation 外部参照 (`@id` 無し) は exempt | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 
