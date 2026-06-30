@@ -1814,6 +1814,16 @@ authoritative inventory and is kept in sync with the implementation below):
        (eval/timer-string/document.write) for the production-cleanliness
        axis. (BLOCKING)
 
+  263. Shipped JS no `debugger;` + no `alert(`: main.js + sw.js +
+       js/**/*.js + root scripts MUST NOT contain `debugger;` statement
+       or `alert(` call. Both are dev-debug-only patterns:
+       - `debugger;` pauses execution when DevTools open (production UX-break
+         for users running with DevTools)
+       - `alert(` is modal-blocking (legitimate `confirm()` for delete UX is
+         allowed, `alert` rarely fits production UX)
+       Sibling of Check 262 (no console.log) for the production-cleanliness
+       axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11587,6 +11597,36 @@ check(
      "production debug-statement leak。console.error/warn/info/debug を使うか除去せよ"
      if _offenders262 else
      "Check 262: shipped JS 0 件 — vacuous-fail"),
+    blocking=True,
+)
+
+# ── 263. Shipped JS no debugger; statement + no alert( call (BLOCKING) ────────
+# main.js + sw.js + js/**/*.js + root scripts に `debugger;` statement と
+# `alert(` 呼び出しが共に 0 であることを BLOCKING 強制 (negative invariant)。
+# 共に dev-debug-only pattern。confirm() は意図的に許可 (削除確認 UX)。
+_offenders263: list[tuple[str, str]] = []
+_dbg_pat263 = re.compile(r"\bdebugger\s*;|\balert\s*\(")
+for _p in _eval_targets239:  # reuse Check 239 target list
+    try:
+        _src = _p.read_text(encoding="utf-8")
+    except (FileNotFoundError, PermissionError):
+        continue
+    _stripped = re.sub(r"/\*.*?\*/", "", _src, flags=re.DOTALL)
+    _stripped = re.sub(r"//[^\n]*", "", _stripped)
+    _stripped = re.sub(r"'(?:\\.|[^'\\])*'", "''", _stripped)
+    _stripped = re.sub(r'"(?:\\.|[^"\\])*"', '""', _stripped)
+    _stripped = re.sub(r"`(?:\\.|[^`\\])*`", "``", _stripped)
+    _m = _dbg_pat263.search(_stripped)
+    if _m:
+        _offenders263.append((str(Path(_p).relative_to(ROOT)), _m.group(0)))
+_ok263 = len(_eval_targets239) > 0 and not _offenders263
+check(
+    _ok263,
+    f"Check 263: shipped JS ({len(_eval_targets239)} 件) に debugger; / alert( 0",
+    (f"Check 263: dev-debug pattern を含む shipped JS: {_offenders263!r} — "
+     "debugger; / alert( は production UX-break。除去せよ (confirm() は許可)"
+     if _offenders263 else
+     "Check 263: shipped JS 0 件 — vacuous-fail"),
     blocking=True,
 )
 
