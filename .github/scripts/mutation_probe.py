@@ -889,6 +889,12 @@ MUTATIONS = [
         "find": '"width": "1200",',
         "replace": '"width": "huge",',
     },
+    {
+        "name": "Check 261 (primary BGM AudioObject required): strip encodingFormat key",
+        "file": ROOT / "index.html",
+        "find": '"encodingFormat": "audio/mpeg",',
+        "replace": '"xncodingFormat": "audio/mpeg",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
