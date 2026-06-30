@@ -1556,6 +1556,14 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 207 (HTML src/href HTTPS) for the ai:* meta
        content surface. (BLOCKING)
 
+  233. `<meta name="asset:*">` content URLs all use HTTPS: every
+       `<meta name="asset:image:*|asset:audio:*">` content value that is
+       an absolute URL (scheme prefix) MUST start with `https://`. Drift
+       to `http://` would silently make AI / SEO crawler fetch the
+       canonical asset over insecure transport — Mixed Content blocking
+       and authenticity-grade degradation. Sibling of Check 232 (ai:*
+       content HTTPS) for the asset:* meta surface. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10054,6 +10062,31 @@ if _idx232.exists():
 else:
     check(False, "Check 232: index.html present",
           "Check 232: index.html が無い", blocking=True)
+
+# ── 233. <meta name=asset:*> content URLs all HTTPS (BLOCKING) ────────────────
+# index.html `<meta name="asset:*">` content attribute の absolute URL (scheme 付き)
+# が全て `https://` で始まることを BLOCKING 強制 (negative invariant)。Check 232
+# (ai:* content HTTPS) の asset:* axis 版。drift は SILENT に AI/SEO crawler が
+# asset を Mixed Content blocking で fetch 失敗し authenticity-grade 劣化。
+_idx233 = ROOT / "index.html"
+if _idx233.exists():
+    _isrc233 = _idx233.read_text(encoding="utf-8")
+    _asset_urls233 = re.findall(
+        r'<meta\s+name=["\']asset:[^"\']+["\'][^>]*content=["\'](http://[^"\']+)["\']',
+        _isrc233,
+    )
+    _ok233 = len(_asset_urls233) == 0
+    check(
+        _ok233,
+        "Check 233: <meta name=asset:*> content に http:// 不在 (AIO asset HTTPS guard)",
+        (f"Check 233: <meta name=asset:*> content に http:// URL: {_asset_urls233!r} — "
+         "AI/SEO crawler が Mixed Content blocking で asset fetch 失敗、authenticity 劣化。"
+         "https:// に揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 233: index.html present",
+          "Check 233: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
