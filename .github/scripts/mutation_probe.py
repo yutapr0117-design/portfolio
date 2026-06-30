@@ -643,6 +643,12 @@ MUTATIONS = [
         "find": '    "llms.txt":       ROOT / "llms.txt",',
         "replace": '    "llms-UNREGISTERED.txt":       ROOT / "llms.txt",',
     },
+    {
+        "name": "Check 220 (manifest.lang == <html lang>): drift manifest.lang to en",
+        "file": ROOT / "manifest.webmanifest",
+        "find": '"lang": "ja",',
+        "replace": '"lang": "en",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
