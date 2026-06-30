@@ -841,6 +841,12 @@ MUTATIONS = [
         "find": "self.addEventListener('fetch',",
         "replace": "self.addEventListener('xfetch',",
     },
+    {
+        "name": "Check 253 (main.js SW register call-site): rename sw.js path to broken",
+        "file": ROOT / "main.js",
+        "find": "navigator.serviceWorker.register('./sw.js', { scope: './' })",
+        "replace": "navigator.serviceWorker.register('./BROKEN-PATH.js', { scope: './' })",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
