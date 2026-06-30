@@ -763,6 +763,12 @@ MUTATIONS = [
         "find": "export const AUTHOR = {",
         "replace": "const probeEval = eval('null');\nexport const AUTHOR = {",
     },
+    {
+        "name": "Check 240 (no setTimeout string arg): inject phony setTimeout with string into identity.js",
+        "file": ROOT / "js" / "identity.js",
+        "find": "export const AUTHOR = {",
+        "replace": "setTimeout('void 0', 0);\nexport const AUTHOR = {",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
