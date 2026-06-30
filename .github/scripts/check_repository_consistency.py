@@ -1583,6 +1583,15 @@ authoritative inventory and is kept in sync with the implementation below):
        `citation`) are exempt — they represent "this URL is an Article"
        rather than a self-described Article. (BLOCKING)
 
+  236. aio-manifest.json `generated_at` is strict RFC 3339 datetime AND
+       affiliation `start_date` is strict YYYY-MM-DD: the `generated_at`
+       top-level field must match `^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$`
+       and `entity.affiliation.start_date` must match `^\d{4}-\d{2}-\d{2}$`
+       AND parse as a real calendar date/time. Sibling of Check 93
+       (last_metadata_update format) for the generated_at + start_date
+       fields. Drift would silently corrupt recency / employment-timeline
+       signals consumed by AI/SEO. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10193,6 +10202,58 @@ if _idx235.exists():
 else:
     check(False, "Check 235: index.html present",
           "Check 235: index.html が無い", blocking=True)
+
+# ── 236. aio-manifest.json generated_at + start_date strict format (BLOCKING) ─
+# aio-manifest.json `generated_at` が RFC 3339 (YYYY-MM-DDTHH:MM:SSZ) で
+# `entity.affiliation.start_date` が YYYY-MM-DD で実在 datetime/date であることを
+# BLOCKING 強制。Check 93 (last_metadata_update format) の generated_at +
+# start_date 軸補完。drift は SILENT に recency / 雇用 timeline 信号を corruption。
+from datetime import date as _date236, datetime as _dt236
+_man236 = ROOT / ".well-known" / "aio-manifest.json"
+if _man236.exists():
+    try:
+        _md236 = json.loads(_man236.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as _e236:
+        _md236 = None
+    _bad236: list[str] = []
+    if isinstance(_md236, dict):
+        _gen236 = _md236.get("generated_at")
+        if not isinstance(_gen236, str):
+            _bad236.append(f"generated_at 欠落 / 非 string ({_gen236!r})")
+        elif not re.match(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$", _gen236):
+            _bad236.append(f"generated_at={_gen236!r} (format)")
+        else:
+            try:
+                _dt236.strptime(_gen236, "%Y-%m-%dT%H:%M:%SZ")
+            except ValueError as _e:
+                _bad236.append(f"generated_at={_gen236!r} ({_e})")
+        _sd236 = (
+            _md236.get("entity", {}).get("affiliation", {}).get("start_date")
+            if isinstance(_md236.get("entity"), dict) else None
+        )
+        if not isinstance(_sd236, str):
+            _bad236.append(f"affiliation.start_date 欠落 / 非 string ({_sd236!r})")
+        elif not re.match(r"^\d{4}-\d{2}-\d{2}$", _sd236):
+            _bad236.append(f"affiliation.start_date={_sd236!r} (format)")
+        else:
+            try:
+                _y, _mo, _d = _sd236.split("-")
+                _date236(int(_y), int(_mo), int(_d))
+            except (ValueError, TypeError) as _e:
+                _bad236.append(f"affiliation.start_date={_sd236!r} ({_e})")
+    else:
+        _bad236.append("aio-manifest parse 失敗")
+    _ok236 = not _bad236
+    check(
+        _ok236,
+        f"Check 236: aio-manifest generated_at + affiliation.start_date 共に strict ISO format",
+        (f"Check 236: 違反: {_bad236!r} — recency/雇用 timeline 信号 corruption。"
+         "strict ISO format へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 236: aio-manifest.json present",
+          "Check 236: aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
