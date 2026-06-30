@@ -1682,6 +1682,14 @@ authoritative inventory and is kept in sync with the implementation below):
        site-structure ingestion. Sibling of Check 245 (FAQPage Q&A) for
        the BreadcrumbList required-structure surface. (BLOCKING)
 
+  247. JSON-LD ImageObject/AudioObject/VideoObject have required fields:
+       every node with `@type in {ImageObject, AudioObject, VideoObject}`
+       MUST have `name` AND at least one of `contentUrl` / `url`. Drift
+       (e.g. silent strip of name) would silently break Google Image/
+       Audio rich-result and AI/SEO entity-asset linkage. Sibling of
+       Check 245 (FAQPage) / Check 246 (BreadcrumbList) for the
+       MediaObject required-structure surface. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10746,6 +10754,63 @@ if _idx246.exists():
 else:
     check(False, "Check 246: index.html present",
           "Check 246: index.html が無い", blocking=True)
+
+# ── 247. JSON-LD ImageObject/AudioObject/VideoObject 必須 fields (BLOCKING) ───
+# index.html JSON-LD で `@type in {ImageObject, AudioObject, VideoObject}` の
+# node が `name` AND (`contentUrl` OR `url`) を持つことを BLOCKING 強制。drift で
+# Google Image/Audio rich-result 失格 + AI/SEO entity-asset linkage 破壊。
+_MEDIA_TYPES247 = {"ImageObject", "AudioObject", "VideoObject"}
+_idx247 = ROOT / "index.html"
+if _idx247.exists():
+    _isrc247 = _idx247.read_text(encoding="utf-8")
+    _blocks247 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc247,
+        flags=re.DOTALL,
+    )
+    _violations247: list[str] = []
+    _media_count247 = 0
+    def _walk247(node: object, path: str) -> None:
+        global _media_count247
+        if isinstance(node, dict):
+            _t = node.get("@type")
+            if isinstance(_t, str) and _t in _MEDIA_TYPES247:
+                _media_count247 += 1
+                _missing = []
+                if not isinstance(node.get("name"), str) or not node.get("name", "").strip():
+                    _missing.append("name")
+                if "contentUrl" not in node and "url" not in node:
+                    _missing.append("contentUrl|url")
+                if _missing:
+                    _violations247.append(f"{path} {_t}: missing {_missing!r}")
+            for k, v in node.items():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk247(item, f"{path}.{k}")
+                else:
+                    _walk247(v, f"{path}.{k}")
+        elif isinstance(node, list):
+            for i, item in enumerate(node):
+                _walk247(item, f"{path}[{i}]")
+    for _bi, _blk in enumerate(_blocks247):
+        try:
+            _data247 = json.loads(_blk)
+        except json.JSONDecodeError:
+            continue
+        _walk247(_data247, f"block{_bi}")
+    _ok247 = _media_count247 > 0 and not _violations247
+    check(
+        _ok247,
+        f"Check 247: MediaObject {_media_count247} 件全て name + contentUrl|url 保有",
+        (f"Check 247: 違反: {_violations247!r} — Google Image/Audio rich-result 失格 "
+         "+ AI/SEO entity-asset linkage 破壊。name + contentUrl|url を揃えよ"
+         if _violations247 else
+         "Check 247: MediaObject 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 247: index.html present",
+          "Check 247: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
