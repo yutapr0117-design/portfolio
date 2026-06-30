@@ -943,6 +943,12 @@ MUTATIONS = [
         "find": '(_HERO_WEBP269, 200_000, "hero.webp"),',
         "replace": '(_HERO_WEBP269, 1, "hero.webp"),',
     },
+    {
+        "name": "Check 270 (text asset byte budget): tighten style.css budget to 1 byte (simulates over-budget)",
+        "file": CHECK,
+        "find": '(ROOT / "style.css", 100_000, "style.css"),',
+        "replace": '(ROOT / "style.css", 1, "style.css"),',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
