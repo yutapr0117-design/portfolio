@@ -667,6 +667,12 @@ MUTATIONS = [
         "find": '"isPartOf": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#website"',
         "replace": '"isPartOf": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#hero-image"',
     },
+    {
+        "name": "Check 224 (meta description length [30, 300]): truncate to 5 chars",
+        "file": ROOT / "index.html",
+        "find": '<meta name="description" content="yuta（AI-Driven PM）のポートフォリオ。人間はコードを一行も書かず、AIが実装〜検証〜デプロイまで自走し、機械統治された一貫性チェック群と behavior e2e がそれを担保する。サイト自体が、その自走 AI エンジニアリングの生成物である。" />',
+        "replace": '<meta name="description" content="short" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
