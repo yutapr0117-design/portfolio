@@ -1657,6 +1657,14 @@ authoritative inventory and is kept in sync with the implementation below):
        date surface — BLOCKING here because LAST_UPDATED is the entity's
        primary canonical-version anchor. (BLOCKING)
 
+  244. Every top-level node in JSON-LD `@graph` has `@type`: in index.html
+       JSON-LD blocks, every direct top-level element of any `@graph`
+       array MUST have a non-empty `@type` field. Drift (anonymous node)
+       silently makes AI/SEO consumers ignore the node (no type → cannot
+       reason about entity) and breaks Schema.org graph traversal.
+       Sibling of Check 217 (top-level @id uniqueness) for the top-level
+       @type presence axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10546,6 +10554,46 @@ if _main243.exists() and _idx243.exists():
 else:
     check(False, "Check 243: main.js + index.html present",
           "Check 243: main.js もしくは index.html が無い", blocking=True)
+
+# ── 244. JSON-LD @graph 全 top-level node has @type (BLOCKING) ────────────────
+# index.html の各 JSON-LD <script> block の top-level `@graph` 配列の全 element に
+# 非空 `@type` がある (anonymous node 不在) ことを BLOCKING 強制。drift で AI/SEO
+# が無 type node を無視し Schema.org graph traversal 不能。
+_idx244 = ROOT / "index.html"
+if _idx244.exists():
+    _isrc244 = _idx244.read_text(encoding="utf-8")
+    _blocks244 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc244,
+        flags=re.DOTALL,
+    )
+    _violations244: list[str] = []
+    _total244 = 0
+    for _bi, _blk in enumerate(_blocks244):
+        try:
+            _data244 = json.loads(_blk)
+        except json.JSONDecodeError:
+            continue
+        _g244 = _data244.get("@graph") if isinstance(_data244, dict) else None
+        if not isinstance(_g244, list):
+            continue
+        for _j, _n in enumerate(_g244):
+            _total244 += 1
+            if not isinstance(_n, dict) or not isinstance(_n.get("@type"), str) or not _n.get("@type"):
+                _violations244.append(f"block{_bi}.@graph[{_j}] missing/empty @type")
+    _ok244 = _total244 > 0 and not _violations244
+    check(
+        _ok244,
+        f"Check 244: JSON-LD @graph top-level node {_total244} 件全て @type 保有",
+        (f"Check 244: @type 不在 node: {_violations244!r} — AI/SEO 無視されて "
+         "Schema.org graph traversal 破壊。各 top-level node に @type を付与せよ"
+         if _violations244 else
+         "Check 244: @graph top-level node 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 244: index.html present",
+          "Check 244: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
