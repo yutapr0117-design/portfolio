@@ -781,6 +781,12 @@ MUTATIONS = [
         "find": "media=\"print\" onload=\"this.media='all'\"",
         "replace": "media=\"print\" onload=\"alert(1)\"",
     },
+    {
+        "name": "Check 243 (LAST_UPDATED not future): drift SITE_CONFIG.LAST_UPDATED to 2099-12-31",
+        "file": ROOT / "main.js",
+        "find": "LAST_UPDATED:  '2026-05-31',",
+        "replace": "LAST_UPDATED:  '2099-12-31',",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
