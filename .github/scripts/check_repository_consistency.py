@@ -1503,6 +1503,16 @@ authoritative inventory and is kept in sync with the implementation below):
        Length sanity sibling of Check 224 (description) / 225 (title) for
        the Open Graph surface. (BLOCKING)
 
+  227. JSON-LD Person `name` matches canonical entity name: every node in
+       index.html static JSON-LD with `"@type": "Person"` MUST have `name`
+       equal to one of the canonical entity identifiers from CLAUDE.md §1:
+       "Yuta Yokoi", "横井雄太", or "Yokoi Yuta". Drift (e.g. accidentally
+       changing one of the 3 Person blocks' name to a typo or generic
+       "Anonymous") would silently fragment AI/SEO entity identity across
+       JSON-LD blocks. Sibling of Check 195 (Person alternateName) /
+       Check 203 (Person givenName/familyName) for the Person `name`
+       primary field. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9805,6 +9815,55 @@ if _idx226.exists():
 else:
     check(False, "Check 226: index.html present",
           "Check 226: index.html が無い", blocking=True)
+
+# ── 227. JSON-LD Person name == canonical entity name (BLOCKING) ──────────────
+# index.html 静的 JSON-LD の全 `"@type": "Person"` node の `name` が
+# canonical entity identifier ("Yuta Yokoi" / "横井雄太" / "Yokoi Yuta") の
+# いずれかに一致することを BLOCKING 強制。drift は SILENT に AI/SEO の entity
+# identity を block 跨ぎで断片化。
+_CANONICAL_PERSON_NAMES227 = {"Yuta Yokoi", "横井雄太", "Yokoi Yuta"}
+_idx227 = ROOT / "index.html"
+if _idx227.exists():
+    _isrc227 = _idx227.read_text(encoding="utf-8")
+    _blocks227 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc227,
+        flags=re.DOTALL,
+    )
+    _names227: list[str] = []
+    def _walk227(node: object) -> None:
+        if isinstance(node, dict):
+            if node.get("@type") == "Person" and isinstance(node.get("name"), str):
+                _names227.append(node["name"])
+            for v in node.values():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk227(item)
+                else:
+                    _walk227(v)
+        elif isinstance(node, list):
+            for item in node:
+                _walk227(item)
+    for _blk in _blocks227:
+        try:
+            _data227 = json.loads(_blk)
+        except json.JSONDecodeError:
+            continue
+        _walk227(_data227)
+    _bad227 = [n for n in _names227 if n not in _CANONICAL_PERSON_NAMES227]
+    _ok227 = len(_names227) > 0 and not _bad227
+    check(
+        _ok227,
+        f"Check 227: JSON-LD Person.name {len(_names227)} 件全て canonical 名 ('Yuta Yokoi'/'横井雄太'/'Yokoi Yuta') に一致",
+        (f"Check 227: 非 canonical Person.name: {_bad227!r} — AI/SEO entity identity "
+         "が断片化。canonical 名へ揃えよ"
+         if _bad227 else
+         "Check 227: Person.name 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 227: index.html present",
+          "Check 227: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
