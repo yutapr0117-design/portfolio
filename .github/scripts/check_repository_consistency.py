@@ -1735,6 +1735,15 @@ authoritative inventory and is kept in sync with the implementation below):
        without registration the SW is dead code. Sibling of Check 252
        (SW handlers) for the SW registration call-site axis. (BLOCKING)
 
+  254. .well-known/index.json skill name uniqueness + digest format:
+       every entry in `.well-known/index.json` `skills[]` MUST satisfy:
+       (a) non-empty `name` field, all unique within the file;
+       (b) `digest` field matches `^sha-256:[0-9a-f]{64}$`. Drift would
+       silently break agent-skills discovery (duplicate name causes
+       conflict, malformed digest causes mismatch). Sibling of Check 5
+       (.well-known/index.json byte-identical mirror) for the schema
+       structural validity axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11042,6 +11051,50 @@ if _main253.exists():
 else:
     check(False, "Check 253: main.js present",
           "Check 253: main.js が無い", blocking=True)
+
+# ── 254. .well-known/index.json skill name uniqueness + digest format (BLOCKING) ─
+# .well-known/index.json の skills[] 各 entry の name が非空+block 内 unique で、
+# digest が `sha-256:<64-hex>` regex に一致することを BLOCKING 強制。Check 5
+# (byte-identical mirror) の schema structural validity 軸。
+_widx254 = ROOT / ".well-known" / "index.json"
+if _widx254.exists():
+    try:
+        _wd254 = json.loads(_widx254.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as _e254:
+        _wd254 = None
+    _skills254 = _wd254.get("skills", []) if isinstance(_wd254, dict) else []
+    _bad254: list[str] = []
+    _names254: list[str] = []
+    _digest_re254 = re.compile(r"^sha-256:[0-9a-f]{64}$")
+    for _i, _s in enumerate(_skills254):
+        if not isinstance(_s, dict):
+            _bad254.append(f"skills[{_i}]: non-dict")
+            continue
+        _nm = _s.get("name")
+        if not isinstance(_nm, str) or not _nm.strip():
+            _bad254.append(f"skills[{_i}]: name 欠落/空")
+        else:
+            _names254.append(_nm)
+        _dg = _s.get("digest")
+        if not isinstance(_dg, str) or not _digest_re254.match(_dg):
+            _bad254.append(f"skills[{_i}].digest={_dg!r} format 不正 (sha-256:<64-hex>)")
+    from collections import Counter as _Counter254
+    _dupes254 = [n for n, c in _Counter254(_names254).items() if c > 1]
+    if _dupes254:
+        _bad254.append(f"name 重複: {_dupes254!r}")
+    _ok254 = len(_skills254) > 0 and not _bad254
+    check(
+        _ok254,
+        f"Check 254: .well-known/index.json skills ({len(_skills254)} 件) 全て name 一意 + digest 形式正",
+        (f"Check 254: 違反: {_bad254!r} — agent-skills discovery 破壊。"
+         "name 一意 + digest=sha-256:<64-hex> へ整理"
+         if _bad254 else
+         "Check 254: .well-known/index.json skills 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 254: .well-known/index.json present",
+          "Check 254: .well-known/index.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
