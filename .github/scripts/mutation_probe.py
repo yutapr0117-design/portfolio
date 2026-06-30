@@ -871,6 +871,12 @@ MUTATIONS = [
         "find": '"jobTitle": "AI-Driven Project Manager / IT Consultant / KERNEL Framework Designer",',
         "replace": '"xobTitle": "AI-Driven Project Manager / IT Consultant / KERNEL Framework Designer",',
     },
+    {
+        "name": "Check 258 (primary WebSite required): strip potentialAction key",
+        "file": ROOT / "index.html",
+        "find": '"potentialAction": {\n                        "@type": "ReadAction",',
+        "replace": '"xotentialAction": {\n                        "@type": "ReadAction",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
