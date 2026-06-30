@@ -1466,6 +1466,17 @@ authoritative inventory and is kept in sync with the implementation below):
        safety); Check 216 with type-safety added for agent-slot
        references. (BLOCKING)
 
+  223. JSON-LD `isPartOf` refs resolve to `WebSite` | `WebPage` |
+       `CreativeWork` (type-safety): in index.html static JSON-LD, any
+       `{"@id": "..."}` reference under `isPartOf` MUST point to a node
+       whose `@type` is `WebSite`, `WebPage`, or `CreativeWork` (the
+       Schema.org-permitted containers). Drift (e.g. isPartOf →
+       `#hero-image` after rename) would silently make AI / SEO consumers
+       claim a WebPage / Article is part of an image, breaking hierarchical
+       site structure for knowledge-graph rendering. Sibling of Check 221
+       (image-slot) / Check 222 (agent-slot) type-safety for the structural
+       isPartOf-slot. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9613,6 +9624,68 @@ if _idx222.exists():
 else:
     check(False, "Check 222: index.html present",
           "Check 222: index.html が無い", blocking=True)
+
+# ── 223. JSON-LD isPartOf refs resolve to WebSite|WebPage|CreativeWork (BLOCKING) ─
+# index.html 静的 JSON-LD で `isPartOf` の `{"@id":...}` 参照が、同 graph 内で
+# `@type in {WebSite, WebPage, CreativeWork}` の node に解決することを BLOCKING 強制。
+# Check 221 (image-slot) / Check 222 (agent-slot) の isPartOf 構造軸版。
+_ISPARTOF_OK_TYPES223 = {"WebSite", "WebPage", "CreativeWork"}
+_idx223 = ROOT / "index.html"
+if _idx223.exists():
+    _isrc223 = _idx223.read_text(encoding="utf-8")
+    _blocks223 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc223,
+        flags=re.DOTALL,
+    )
+    _typeof223: dict[str, str] = {}
+    _ip_refs223: list[str] = []
+    def _walk223(node: object, parent_key: str | None = None) -> None:
+        if isinstance(node, dict):
+            _t = node.get("@type")
+            _id = node.get("@id")
+            if isinstance(_t, str) and isinstance(_id, str):
+                _typeof223[_id] = _t
+            if (
+                parent_key == "isPartOf"
+                and isinstance(_id, str)
+                and "@type" not in node
+            ):
+                _ip_refs223.append(_id)
+            for k, v in node.items():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk223(item, k)
+                else:
+                    _walk223(v, k)
+        elif isinstance(node, list):
+            for item in node:
+                _walk223(item, parent_key)
+    for _blk in _blocks223:
+        try:
+            _data223 = json.loads(_blk)
+        except json.JSONDecodeError:
+            continue
+        _walk223(_data223)
+    _wrong_type223: list[str] = []
+    for _rid in _ip_refs223:
+        _resolved_type = _typeof223.get(_rid)
+        if _resolved_type not in _ISPARTOF_OK_TYPES223:
+            _wrong_type223.append(f"isPartOf@id={_rid}: type={_resolved_type!r}")
+    _ok223 = len(_ip_refs223) > 0 and not _wrong_type223
+    check(
+        _ok223,
+        f"Check 223: JSON-LD isPartOf refs {len(_ip_refs223)} 件全て WebSite|WebPage|CreativeWork へ解決",
+        (f"Check 223: type 不一致 isPartOf refs: {_wrong_type223!r} — AI/SEO が "
+         "page/article を非構造 entity へ contain させ階層が破壊。"
+         "参照先 node の @type を WebSite|WebPage|CreativeWork へ揃えるか refs を訂正せよ"
+         if _wrong_type223 else
+         "Check 223: isPartOf refs 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 223: index.html present",
+          "Check 223: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
