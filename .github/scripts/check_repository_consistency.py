@@ -1768,6 +1768,15 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 256 (primary WebPage) for the primary Person
        required-fields axis. (BLOCKING)
 
+  258. primary JSON-LD WebSite has inLanguage + potentialAction: in
+       index.html static JSON-LD, the primary WebSite node (`@id ==
+       canonical + "#website"`) MUST have `inLanguage` (str) AND
+       `potentialAction` (dict/list). Drift would silently remove the
+       site-level language signal and the AI/voice action descriptor
+       from the WebSite root entity. Sibling of Check 256 (primary
+       WebPage) / Check 257 (primary Person) for the primary WebSite
+       required-fields axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11262,6 +11271,64 @@ if _idx257.exists():
 else:
     check(False, "Check 257: index.html present",
           "Check 257: index.html が無い", blocking=True)
+
+# ── 258. primary WebSite has inLanguage + potentialAction (BLOCKING) ──────────
+# index.html 静的 JSON-LD の primary WebSite node (@id == canonical+#website) が
+# inLanguage (str) + potentialAction (dict|list) を持つことを BLOCKING 強制。
+# drift で site-level 言語信号 + AI/voice action descriptor 喪失。Check 256/257
+# の primary WebSite 軸版。
+_idx258 = ROOT / "index.html"
+if _idx258.exists():
+    _isrc258 = _idx258.read_text(encoding="utf-8")
+    _canon258_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc258
+    )
+    _canon258 = _canon258_m.group(1) if _canon258_m else None
+    _expected_wid258 = (_canon258 or "") + "#website"
+    _blocks258 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc258,
+        flags=re.DOTALL,
+    )
+    _primary_ws258 = None
+    def _walk258(node: object) -> None:
+        global _primary_ws258
+        if isinstance(node, dict):
+            if node.get("@type") == "WebSite" and node.get("@id") == _expected_wid258 and _primary_ws258 is None:
+                _primary_ws258 = node
+            for v in node.values():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk258(item)
+                else:
+                    _walk258(v)
+        elif isinstance(node, list):
+            for item in node:
+                _walk258(item)
+    for _blk in _blocks258:
+        try:
+            _walk258(json.loads(_blk))
+        except json.JSONDecodeError:
+            continue
+    _missing258: list[str] = []
+    if _primary_ws258 is None:
+        _missing258.append(f"primary WebSite @id={_expected_wid258!r} 不在")
+    else:
+        if not isinstance(_primary_ws258.get("inLanguage"), str):
+            _missing258.append("inLanguage 欠落")
+        if not isinstance(_primary_ws258.get("potentialAction"), (dict, list)):
+            _missing258.append("potentialAction 欠落")
+    _ok258 = not _missing258
+    check(
+        _ok258,
+        f"Check 258: primary WebSite ({_expected_wid258}) has inLanguage + potentialAction",
+        (f"Check 258: 違反: {_missing258!r} — site-level 言語 / action descriptor 喪失。"
+         "primary WebSite に 2 field を揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 258: index.html present",
+          "Check 258: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
