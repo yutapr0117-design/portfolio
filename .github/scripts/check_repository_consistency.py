@@ -1493,6 +1493,16 @@ authoritative inventory and is kept in sync with the implementation below):
        canonical entity identifier in title; Check 225 enforces length
        sanity. (BLOCKING)
 
+  226. og:title length in [10, 90] AND og:description length in [30, 250]:
+       Open Graph card preview tools (Facebook/LinkedIn/Slack/Discord)
+       render social cards using these fields. Title <10 = card title
+       sparse; >90 = silent truncation by Facebook. Description <30 =
+       suppressed preview; >250 = truncated. Both extremes corrupt the
+       social-card entity preview. og:title byte-identical to twitter:title
+       via Check 155, so this Check transitively covers Twitter as well.
+       Length sanity sibling of Check 224 (description) / 225 (title) for
+       the Open Graph surface. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9755,6 +9765,46 @@ if _idx225.exists():
 else:
     check(False, "Check 225: index.html present",
           "Check 225: index.html が無い", blocking=True)
+
+# ── 226. og:title [10, 90] + og:description [30, 250] length (BLOCKING) ───────
+# index.html `og:title` length [10, 90] / `og:description` length [30, 250] を
+# BLOCKING 強制。Facebook/LinkedIn/Slack/Discord の social card preview で
+# 短すぎ表示抑制 / 長すぎ silent truncate を阻止。Check 155 (og↔twitter byte-id)
+# によって twitter card にも同時適用。Check 224/225 の Open Graph 軸版。
+_idx226 = ROOT / "index.html"
+if _idx226.exists():
+    _isrc226 = _idx226.read_text(encoding="utf-8")
+    _og_t226 = re.search(
+        r'<meta\s+property=["\']og:title["\'][^>]*content=["\']([^"\']+)["\']', _isrc226
+    )
+    _og_d226 = re.search(
+        r'<meta\s+property=["\']og:description["\'][^>]*content=["\']([^"\']+)["\']', _isrc226
+    )
+    _bad226: list[str] = []
+    if _og_t226:
+        _lt = len(_og_t226.group(1))
+        if not (10 <= _lt <= 90):
+            _bad226.append(f"og:title length={_lt} (band [10, 90] 違反)")
+    else:
+        _bad226.append("og:title 抽出不可")
+    if _og_d226:
+        _ld = len(_og_d226.group(1))
+        if not (30 <= _ld <= 250):
+            _bad226.append(f"og:description length={_ld} (band [30, 250] 違反)")
+    else:
+        _bad226.append("og:description 抽出不可")
+    _ok226 = not _bad226
+    check(
+        _ok226,
+        f"Check 226: og:title length={len(_og_t226.group(1)) if _og_t226 else 0} / "
+        f"og:description length={len(_og_d226.group(1)) if _og_d226 else 0} 共に SEO-sane band 内",
+        (f"Check 226: og length 違反: {_bad226!r} — "
+         "social card preview が短すぎ抑制 / 長すぎ silent truncate。band 内へ調整せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 226: index.html present",
+          "Check 226: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
