@@ -1777,6 +1777,14 @@ authoritative inventory and is kept in sync with the implementation below):
        WebPage) / Check 257 (primary Person) for the primary WebSite
        required-fields axis. (BLOCKING)
 
+  259. primary JSON-LD Organization (nkgr.co.jp) has name + url +
+       alternateName + description + employee: the canonical Organization
+       node (`@id == "https://nkgr.co.jp/#organization"`) MUST have all
+       5 fields. Drift would silently strip employer-rich data from
+       AI/SEO consumers (worksFor target loses richness, knowledge-graph
+       Organization card shrinks). Sibling of Check 257 (primary Person)
+       for the primary Organization required-fields axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11329,6 +11337,67 @@ if _idx258.exists():
 else:
     check(False, "Check 258: index.html present",
           "Check 258: index.html が無い", blocking=True)
+
+# ── 259. primary Organization (nkgr.co.jp) 必須 5 fields (BLOCKING) ──────────
+# index.html JSON-LD の primary Organization node
+# (@id == "https://nkgr.co.jp/#organization") が name + url + alternateName +
+# description + employee 5 field を持つことを BLOCKING 強制。drift で employer-rich
+# data 喪失 → knowledge-graph Organization card 縮小。Check 257 の Organization 軸版。
+_PRIMARY_ORG_ID259 = "https://nkgr.co.jp/#organization"
+_idx259 = ROOT / "index.html"
+if _idx259.exists():
+    _isrc259 = _idx259.read_text(encoding="utf-8")
+    _blocks259 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc259,
+        flags=re.DOTALL,
+    )
+    _primary_org259 = None
+    def _walk259(node: object) -> None:
+        global _primary_org259
+        if isinstance(node, dict):
+            if (
+                node.get("@type") == "Organization"
+                and node.get("@id") == _PRIMARY_ORG_ID259
+                and _primary_org259 is None
+            ):
+                _primary_org259 = node
+            for v in node.values():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk259(item)
+                else:
+                    _walk259(v)
+        elif isinstance(node, list):
+            for item in node:
+                _walk259(item)
+    for _blk in _blocks259:
+        try:
+            _walk259(json.loads(_blk))
+        except json.JSONDecodeError:
+            continue
+    _missing259: list[str] = []
+    if _primary_org259 is None:
+        _missing259.append(f"primary Organization @id={_PRIMARY_ORG_ID259!r} 不在")
+    else:
+        for _f in ("name", "url", "description"):
+            if not isinstance(_primary_org259.get(_f), str) or not _primary_org259[_f].strip():
+                _missing259.append(f"{_f} 欠落/空")
+        if not isinstance(_primary_org259.get("alternateName"), list) or not _primary_org259["alternateName"]:
+            _missing259.append("alternateName 欠落/空 list")
+        if not isinstance(_primary_org259.get("employee"), (dict, list, str)):
+            _missing259.append("employee 欠落")
+    _ok259 = not _missing259
+    check(
+        _ok259,
+        f"Check 259: primary Organization ({_PRIMARY_ORG_ID259}) has 5 required fields",
+        (f"Check 259: 違反: {_missing259!r} — employer-rich data 喪失 → "
+         "knowledge-graph Organization card 縮小。primary Organization に 5 field を揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 259: index.html present",
+          "Check 259: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
