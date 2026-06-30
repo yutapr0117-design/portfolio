@@ -1513,6 +1513,14 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 203 (Person givenName/familyName) for the Person `name`
        primary field. (BLOCKING)
 
+  228. sitemap.xml `<changefreq>` values are valid per Sitemap Protocol:
+       every `<changefreq>` element in sitemap.xml must contain one of the
+       7 spec-allowed values: `always`, `hourly`, `daily`, `weekly`,
+       `monthly`, `yearly`, `never`. Drift (e.g. `weakly` typo,
+       `biweekly`, or empty) would silently make crawlers ignore the
+       crawl-frequency hint — the URL is still discovered but the freshness
+       hint that improves recrawl scheduling is lost. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9864,6 +9872,33 @@ if _idx227.exists():
 else:
     check(False, "Check 227: index.html present",
           "Check 227: index.html が無い", blocking=True)
+
+# ── 228. sitemap.xml <changefreq> values are spec-valid (BLOCKING) ────────────
+# sitemap.xml 全 `<changefreq>` 要素の content が Sitemap Protocol 規定の 7 値
+# (always/hourly/daily/weekly/monthly/yearly/never) のいずれかであることを
+# BLOCKING 強制。drift (typo / 不正値) は SILENT に crawler が freshness hint を
+# 無視 → recrawl scheduling が劣化。
+_VALID_CHANGEFREQ228 = {
+    "always", "hourly", "daily", "weekly", "monthly", "yearly", "never",
+}
+_sitemap228 = ROOT / "sitemap.xml"
+if _sitemap228.exists():
+    _ssrc228 = _sitemap228.read_text(encoding="utf-8")
+    _freqs228 = re.findall(r"<changefreq>([^<]+)</changefreq>", _ssrc228)
+    _bad228 = [f for f in _freqs228 if f not in _VALID_CHANGEFREQ228]
+    _ok228 = len(_freqs228) > 0 and not _bad228
+    check(
+        _ok228,
+        f"Check 228: sitemap.xml changefreq {len(_freqs228)} 件全て spec-valid 値",
+        (f"Check 228: spec 外 changefreq: {_bad228!r} — crawler が freshness hint "
+         "を無視。Sitemap Protocol 規定値 ({always|hourly|daily|weekly|monthly|yearly|never}) へ揃えよ"
+         if _bad228 else
+         "Check 228: sitemap.xml <changefreq> 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 228: sitemap.xml present",
+          "Check 228: sitemap.xml が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
