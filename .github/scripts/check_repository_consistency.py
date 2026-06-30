@@ -1547,6 +1547,15 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 169 (aio-manifest entity.role canonical markers) for the
        SITE_CONFIG.ROLE_TITLE axis. (BLOCKING)
 
+  232. `<meta name="ai:*">` content URLs all use HTTPS: every
+       `<meta name="ai:context|entrypoint|canonical|repository|aio-manifest|
+       ...">` content value that is an absolute URL (scheme prefix) MUST
+       start with `https://`. Drift to `http://` would silently downgrade
+       the AIO routing layer's transport security — AI crawlers following
+       these URLs hit Mixed Content blocking on HTTPS-served pages.
+       Sibling of Check 207 (HTML src/href HTTPS) for the ai:* meta
+       content surface. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10022,6 +10031,29 @@ if _main231.exists():
 else:
     check(False, "Check 231: main.js present",
           "Check 231: main.js が無い", blocking=True)
+
+# ── 232. <meta name=ai:*> content URLs all HTTPS (BLOCKING) ───────────────────
+# index.html `<meta name="ai:...">` content attribute の absolute URL (scheme 付き)
+# が全て `https://` で始まることを BLOCKING 強制 (negative invariant)。drift は
+# SILENT に AIO routing layer を downgrade し AI crawler が Mixed Content blocking。
+_idx232 = ROOT / "index.html"
+if _idx232.exists():
+    _isrc232 = _idx232.read_text(encoding="utf-8")
+    _ai_urls232 = re.findall(
+        r'<meta\s+name=["\']ai:[^"\']+["\'][^>]*content=["\'](http://[^"\']+)["\']',
+        _isrc232,
+    )
+    _ok232 = len(_ai_urls232) == 0
+    check(
+        _ok232,
+        "Check 232: <meta name=ai:*> content に http:// 不在 (AIO routing HTTPS guard)",
+        (f"Check 232: <meta name=ai:*> content に http:// URL: {_ai_urls232!r} — "
+         "AI crawler が Mixed Content blocking で AIO routing 喪失。https:// に揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 232: index.html present",
+          "Check 232: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
