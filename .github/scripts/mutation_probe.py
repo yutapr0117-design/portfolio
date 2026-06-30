@@ -775,6 +775,12 @@ MUTATIONS = [
         "find": "export const AUTHOR = {",
         "replace": "document.write('');\nexport const AUTHOR = {",
     },
+    {
+        "name": "Check 242 (inline handler allowlist): drift onload to non-allowlisted alert",
+        "file": ROOT / "index.html",
+        "find": "media=\"print\" onload=\"this.media='all'\"",
+        "replace": "media=\"print\" onload=\"alert(1)\"",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
