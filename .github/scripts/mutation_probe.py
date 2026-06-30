@@ -709,6 +709,12 @@ MUTATIONS = [
         "find": "<priority>0.9</priority>",
         "replace": "<priority>1.0</priority>",
     },
+    {
+        "name": "Check 231 (SITE_CONFIG.ROLE_TITLE canonical): drift to Random Role",
+        "file": ROOT / "main.js",
+        "find": "ROLE_TITLE:    'AI-Driven PM',",
+        "replace": "ROLE_TITLE:    'Random Role PROBE',",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
