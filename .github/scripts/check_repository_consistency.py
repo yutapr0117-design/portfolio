@@ -1485,6 +1485,14 @@ authoritative inventory and is kept in sync with the implementation below):
        crawler card. Check 154 enforces presence + og/twitter coherence;
        Check 224 enforces sanity of length. (BLOCKING)
 
+  225. HTML `<title>` content length in SEO-sane band [10, 70]: the index
+       .html `<title>` content character length must fall in [10, 70].
+       Below 10 = title too sparse for SERP rendering; above 70 = silent
+       truncation with ellipsis on Google SERP. Both extremes corrupt the
+       primary entity card in search results. Check 66 enforces presence of
+       canonical entity identifier in title; Check 225 enforces length
+       sanity. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9722,6 +9730,31 @@ if _idx224.exists():
 else:
     check(False, "Check 224: index.html present",
           "Check 224: index.html が無い", blocking=True)
+
+# ── 225. <title> content length in [10, 70] (BLOCKING) ────────────────────────
+# index.html <title> content の character length が [10, 70] に収まることを
+# BLOCKING 強制。<10 = sparse 過ぎ SERP 表示不適 / >70 = SERP で末尾 truncate。
+# Check 66 (canonical 名 presence) を補完する length sanity 軸。
+_idx225 = ROOT / "index.html"
+if _idx225.exists():
+    _isrc225 = _idx225.read_text(encoding="utf-8")
+    _title225_m = re.search(r"<title>([^<]+)</title>", _isrc225)
+    _title225 = _title225_m.group(1) if _title225_m else None
+    _len225 = len(_title225) if isinstance(_title225, str) else 0
+    _ok225 = _title225 is not None and 10 <= _len225 <= 70
+    check(
+        _ok225,
+        f"Check 225: <title> length={_len225} (SEO-sane band [10, 70])",
+        (f"Check 225: title length={_len225} (band [10, 70] 違反) — "
+         f"{'sparse 過ぎ SERP 表示不適' if _len225 < 10 else '70 超えで SERP 末尾 truncate'}。"
+         "title 長を band 内へ調整せよ"
+         if _title225 is not None else
+         "Check 225: <title> が無い"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 225: index.html present",
+          "Check 225: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
