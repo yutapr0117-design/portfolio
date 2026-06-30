@@ -703,6 +703,12 @@ MUTATIONS = [
         "find": "<priority>1.0</priority>",
         "replace": "<priority>1.5</priority>",
     },
+    {
+        "name": "Check 230 (sitemap exactly 1 priority=1.0 == canonical): duplicate 1.0 on a 0.9 entry",
+        "file": ROOT / "sitemap.xml",
+        "find": "<priority>0.9</priority>",
+        "replace": "<priority>1.0</priority>",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
