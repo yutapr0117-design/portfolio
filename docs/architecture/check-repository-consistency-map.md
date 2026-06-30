@@ -334,6 +334,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 258 | primary JSON-LD WebSite node (`@id == canonical+#website`) が inLanguage + potentialAction を持つ。drift で site-level 言語 / action descriptor 喪失を BLOCKING で阻止。Check 256/257 の primary WebSite 軸版 | BLOCKING |
 | 259 | primary JSON-LD Organization node (`@id == https://nkgr.co.jp/#organization`) が name + url + alternateName + description + employee 5 fields を持つ。drift で employer-rich data 喪失 → knowledge-graph Organization card 縮小を BLOCKING で阻止。Check 257 の Organization 軸版 | BLOCKING |
 | 260 | primary hero ImageObject node (`@id == canonical+#hero-image`) が caption (str) + width (numeric) + height (numeric) + encodingFormat (str) 4 fields を持つ。drift で Google Image rich-result + CWV LCP preload + accessibility 劣化を BLOCKING で阻止。Check 247 の hero-image 軸版 | BLOCKING |
+| 261 | primary BGM AudioObject node (`@id == canonical+#portfolio-bgm`) が encodingFormat (str) + creator (dict/str) を持つ。drift で AI search audio classification + attribution 喪失を BLOCKING で阻止。Check 260 の audio 軸版 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 
