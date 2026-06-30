@@ -1521,6 +1521,13 @@ authoritative inventory and is kept in sync with the implementation below):
        crawl-frequency hint — the URL is still discovered but the freshness
        hint that improves recrawl scheduling is lost. (BLOCKING)
 
+  229. sitemap.xml `<priority>` values are float in [0.0, 1.0] (Sitemap
+       Protocol): every `<priority>` element in sitemap.xml must parse as
+       a float in the closed interval [0.0, 1.0]. Drift (e.g. `1.5` typo
+       or `"high"`) is invalid per spec — crawlers silently fall back to
+       the default 0.5, ignoring the priority signal entirely. Sibling of
+       Check 228 (changefreq spec-valid) for the priority field. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9899,6 +9906,37 @@ if _sitemap228.exists():
 else:
     check(False, "Check 228: sitemap.xml present",
           "Check 228: sitemap.xml が無い", blocking=True)
+
+# ── 229. sitemap.xml <priority> values in [0.0, 1.0] (BLOCKING) ───────────────
+# sitemap.xml 全 `<priority>` 要素の content が float [0.0, 1.0] にあることを
+# BLOCKING 強制。drift (1.5 / "high" / 負値) は spec 違反で crawler が silent に
+# default 0.5 へ fallback → priority hint 喪失。Check 228 (changefreq) の priority 軸。
+_sitemap229 = ROOT / "sitemap.xml"
+if _sitemap229.exists():
+    _ssrc229 = _sitemap229.read_text(encoding="utf-8")
+    _prios229 = re.findall(r"<priority>([^<]+)</priority>", _ssrc229)
+    _bad229: list[str] = []
+    for _p in _prios229:
+        try:
+            _v = float(_p)
+        except ValueError:
+            _bad229.append(f"{_p!r} (not float)")
+            continue
+        if not (0.0 <= _v <= 1.0):
+            _bad229.append(f"{_p!r} (out of [0.0, 1.0])")
+    _ok229 = len(_prios229) > 0 and not _bad229
+    check(
+        _ok229,
+        f"Check 229: sitemap.xml priority {len(_prios229)} 件全て float in [0.0, 1.0]",
+        (f"Check 229: spec 外 priority: {_bad229!r} — crawler が default 0.5 へ "
+         "fallback し priority hint 喪失。spec 規定 float [0.0, 1.0] へ揃えよ"
+         if _bad229 else
+         "Check 229: sitemap.xml <priority> 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 229: sitemap.xml present",
+          "Check 229: sitemap.xml が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
