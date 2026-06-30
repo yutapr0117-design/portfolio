@@ -1759,6 +1759,15 @@ authoritative inventory and is kept in sync with the implementation below):
        primary page entity. Sibling of Check 235 (Article required fields)
        for the primary WebPage required-fields axis. (BLOCKING)
 
+  257. primary JSON-LD Person has jobTitle + image + sameAs + worksFor +
+       description: in index.html static JSON-LD, the primary Person node
+       (`@id == canonical + "#person"`) MUST have all 5 fields: jobTitle
+       (str), image (dict/string), sameAs (list), worksFor (dict/string),
+       description (str). Drift would silently strip entity-rich-profile
+       data from AI/SEO consumers (knowledge-graph card would shrink).
+       Sibling of Check 256 (primary WebPage) for the primary Person
+       required-fields axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11189,6 +11198,70 @@ if _idx256.exists():
 else:
     check(False, "Check 256: index.html present",
           "Check 256: index.html が無い", blocking=True)
+
+# ── 257. primary Person 必須 5 fields (BLOCKING) ──────────────────────────────
+# index.html 静的 JSON-LD の primary Person node (@id == canonical+#person) が
+# jobTitle (str) / image (dict|str) / sameAs (list) / worksFor (dict|str) /
+# description (str) 全 5 field を持つことを BLOCKING 強制。drift で entity-rich
+# profile data 喪失 → knowledge-graph card 縮小。Check 256 の primary Person 軸版。
+_idx257 = ROOT / "index.html"
+if _idx257.exists():
+    _isrc257 = _idx257.read_text(encoding="utf-8")
+    _canon257_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc257
+    )
+    _canon257 = _canon257_m.group(1) if _canon257_m else None
+    _expected_pid257 = (_canon257 or "") + "#person"
+    _blocks257 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc257,
+        flags=re.DOTALL,
+    )
+    _primary_p257 = None
+    def _walk257(node: object) -> None:
+        global _primary_p257
+        if isinstance(node, dict):
+            if node.get("@type") == "Person" and node.get("@id") == _expected_pid257 and _primary_p257 is None:
+                _primary_p257 = node
+            for v in node.values():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk257(item)
+                else:
+                    _walk257(v)
+        elif isinstance(node, list):
+            for item in node:
+                _walk257(item)
+    for _blk in _blocks257:
+        try:
+            _walk257(json.loads(_blk))
+        except json.JSONDecodeError:
+            continue
+    _missing257: list[str] = []
+    if _primary_p257 is None:
+        _missing257.append(f"primary Person @id={_expected_pid257!r} 不在")
+    else:
+        _str_fields = ("jobTitle", "description")
+        for _f in _str_fields:
+            if not isinstance(_primary_p257.get(_f), str) or not _primary_p257[_f].strip():
+                _missing257.append(f"{_f} 欠落/空")
+        if not isinstance(_primary_p257.get("image"), (dict, str)):
+            _missing257.append("image 欠落")
+        if not isinstance(_primary_p257.get("sameAs"), list) or not _primary_p257["sameAs"]:
+            _missing257.append("sameAs 欠落/空 list")
+        if not isinstance(_primary_p257.get("worksFor"), (dict, str)):
+            _missing257.append("worksFor 欠落")
+    _ok257 = not _missing257
+    check(
+        _ok257,
+        f"Check 257: primary Person ({_expected_pid257}) has 5 required fields",
+        (f"Check 257: 違反: {_missing257!r} — entity-rich profile 喪失で knowledge-graph "
+         "card 縮小。primary Person に 5 field を揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 257: index.html present",
+          "Check 257: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
