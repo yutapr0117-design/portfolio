@@ -1713,6 +1713,14 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 250 enforces BCP-47 syntactic validity of the canonical
        source value. (BLOCKING)
 
+  251. JSON-LD `potentialAction` block has required `@type` + `target`:
+       every `potentialAction` block in index.html static JSON-LD MUST
+       have a non-empty `@type` (Schema.org Action subclass — e.g.
+       ReadAction / SearchAction) AND a `target` field (URL string or
+       array). Drift would silently break AI/voice assistant action
+       invocation. Sibling of Check 209 (target canonical prefix) for
+       the potentialAction required-fields axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10907,6 +10915,69 @@ if _idx250.exists():
 else:
     check(False, "Check 250: index.html present",
           "Check 250: index.html が無い", blocking=True)
+
+# ── 251. JSON-LD potentialAction has required @type + target (BLOCKING) ───────
+# index.html JSON-LD の全 `potentialAction` block が `@type` (Schema.org Action
+# subclass) AND `target` を持つことを BLOCKING 強制。drift で AI/voice assistant の
+# action invocation 破壊。Check 209 (target canonical prefix) の required-fields 軸。
+_idx251 = ROOT / "index.html"
+if _idx251.exists():
+    _isrc251 = _idx251.read_text(encoding="utf-8")
+    _blocks251 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc251,
+        flags=re.DOTALL,
+    )
+    _violations251: list[str] = []
+    _pa_count251 = 0
+    def _walk251(node: object, path: str) -> None:
+        global _pa_count251
+        if isinstance(node, dict):
+            for k, v in node.items():
+                if k == "potentialAction":
+                    if isinstance(v, dict):
+                        _pa_count251 += 1
+                        if not isinstance(v.get("@type"), str) or not v.get("@type", "").strip():
+                            _violations251.append(f"{path}.potentialAction @type 欠落/空")
+                        if "target" not in v:
+                            _violations251.append(f"{path}.potentialAction target 欠落")
+                    elif isinstance(v, list):
+                        for _i, _it in enumerate(v):
+                            _pa_count251 += 1
+                            if not isinstance(_it, dict):
+                                _violations251.append(f"{path}.potentialAction[{_i}] non-dict")
+                                continue
+                            if not isinstance(_it.get("@type"), str) or not _it.get("@type", "").strip():
+                                _violations251.append(f"{path}.potentialAction[{_i}] @type 欠落/空")
+                            if "target" not in _it:
+                                _violations251.append(f"{path}.potentialAction[{_i}] target 欠落")
+                if isinstance(v, list):
+                    for item in v:
+                        _walk251(item, f"{path}.{k}")
+                else:
+                    _walk251(v, f"{path}.{k}")
+        elif isinstance(node, list):
+            for i, item in enumerate(node):
+                _walk251(item, f"{path}[{i}]")
+    for _bi, _blk in enumerate(_blocks251):
+        try:
+            _data251 = json.loads(_blk)
+        except json.JSONDecodeError:
+            continue
+        _walk251(_data251, f"block{_bi}")
+    _ok251 = _pa_count251 > 0 and not _violations251
+    check(
+        _ok251,
+        f"Check 251: potentialAction {_pa_count251} block 全て @type + target 保有",
+        (f"Check 251: 違反: {_violations251!r} — AI/voice assistant action invocation 破壊。"
+         "@type (Schema.org Action subclass) + target を付与せよ"
+         if _violations251 else
+         "Check 251: potentialAction 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 251: index.html present",
+          "Check 251: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
