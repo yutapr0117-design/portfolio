@@ -1638,6 +1638,15 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 239 (no eval/Function) / Check 240 (no
        eval-equivalent timer) for the document-write surface. (BLOCKING)
 
+  242. index.html inline `on*=` event handlers are restricted to the
+       documented CSP-allowlisted pattern: every `on*=` attribute outside
+       of HTML comments MUST match exactly `onload="this.media='all'"`
+       (the documented async font-loading pattern that is whitelisted via
+       CSP `'unsafe-hashes'`). Drift introduces an XSS entry vector that
+       bypasses CSP `script-src` (inline event handlers execute as
+       scripts). Sibling of Check 239/240/241 (eval/Function/timer/
+       document.write) for the inline-event-handler surface. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10461,6 +10470,31 @@ check(
      "Check 241: shipped JS 0 件 — vacuous-fail"),
     blocking=True,
 )
+
+# ── 242. index.html inline on*= handlers are restricted to allowlist (BLOCKING) ─
+# index.html の全 `on*="..."` 属性 (HTML comment 外) が CSP unsafe-hashes で
+# whitelist された 1 パターン `onload="this.media='all'"` のみであることを
+# BLOCKING 強制。drift は CSP script-src を bypass する XSS entry vector。
+_ALLOWED_INLINE_HANDLERS242 = {"onload=\"this.media='all'\""}
+_idx242 = ROOT / "index.html"
+if _idx242.exists():
+    _isrc242 = _idx242.read_text(encoding="utf-8")
+    _stripped242 = re.sub(r"<!--.*?-->", "", _isrc242, flags=re.DOTALL)
+    _handlers242 = re.findall(r'\bon[a-z]+\s*=\s*"[^"]*"', _stripped242)
+    _bad242 = [h for h in _handlers242 if h not in _ALLOWED_INLINE_HANDLERS242]
+    _ok242 = len(_handlers242) > 0 and not _bad242
+    check(
+        _ok242,
+        f"Check 242: index.html inline on*= handlers {len(_handlers242)} 件全て allowlist 内",
+        (f"Check 242: allowlist 外 inline handler: {_bad242!r} — CSP script-src "
+         "bypass の XSS vector。allowlist は onload=\"this.media='all'\" のみ"
+         if _bad242 else
+         "Check 242: inline handler 0 件 — vacuous-fail (font async load の期待値は 2 件)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 242: index.html present",
+          "Check 242: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
