@@ -925,6 +925,12 @@ MUTATIONS = [
         "find": '"description": "横井雄太（Yuta Yokoi / Yokoi Yuta）が設計・統治する、AIが自走する機械統治された engineering システム。AIが実装・検証・マージ・本番デプロイまで自走し、人間はコードを一行も書かず統治と監査を担う。このサイト自体がその生成物である。",',
         "replace": '"description": "tiny",',
     },
+    {
+        "name": "Check 267 (entity name length [3,200]): truncate hero ImageObject name to 'x'",
+        "file": ROOT / "index.html",
+        "find": '"name": "AI-Driven PM Portfolio Architecture Vision",',
+        "replace": '"name": "x",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
