@@ -1796,6 +1796,15 @@ authoritative inventory and is kept in sync with the implementation below):
        (MediaObject required) for the hero-image required-fields axis.
        (BLOCKING)
 
+  261. primary BGM AudioObject has encodingFormat + creator: in index.html
+       static JSON-LD, the primary BGM AudioObject node (`@id == canonical
+       + "#portfolio-bgm"`) MUST have `encodingFormat` (non-empty str)
+       AND `creator` (dict or string @id reference). Drift would silently
+       degrade AI search audio classification (no encodingFormat → mime
+       type unknown) and remove attribution (no creator → audio uploaded
+       by "Anonymous"). Sibling of Check 260 (hero image) for the
+       primary audio required-fields axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11481,6 +11490,67 @@ if _idx260.exists():
 else:
     check(False, "Check 260: index.html present",
           "Check 260: index.html が無い", blocking=True)
+
+# ── 261. primary BGM AudioObject 必須 fields (BLOCKING) ───────────────────────
+# index.html JSON-LD の primary BGM AudioObject (@id == canonical+#portfolio-bgm)
+# が encodingFormat (str) + creator (dict|str) を持つことを BLOCKING 強制。drift で
+# AI search audio classification + attribution 喪失。Check 260 の audio 軸版。
+_idx261 = ROOT / "index.html"
+if _idx261.exists():
+    _isrc261 = _idx261.read_text(encoding="utf-8")
+    _canon261_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc261
+    )
+    _canon261 = _canon261_m.group(1) if _canon261_m else None
+    _expected_bid261 = (_canon261 or "") + "#portfolio-bgm"
+    _blocks261 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc261,
+        flags=re.DOTALL,
+    )
+    _primary_bgm261 = None
+    def _walk261(node: object) -> None:
+        global _primary_bgm261
+        if isinstance(node, dict):
+            if (
+                node.get("@type") == "AudioObject"
+                and node.get("@id") == _expected_bid261
+                and _primary_bgm261 is None
+            ):
+                _primary_bgm261 = node
+            for v in node.values():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk261(item)
+                else:
+                    _walk261(v)
+        elif isinstance(node, list):
+            for item in node:
+                _walk261(item)
+    for _blk in _blocks261:
+        try:
+            _walk261(json.loads(_blk))
+        except json.JSONDecodeError:
+            continue
+    _missing261: list[str] = []
+    if _primary_bgm261 is None:
+        _missing261.append(f"primary BGM AudioObject @id={_expected_bid261!r} 不在")
+    else:
+        if not isinstance(_primary_bgm261.get("encodingFormat"), str) or not _primary_bgm261["encodingFormat"].strip():
+            _missing261.append("encodingFormat 欠落/空")
+        if not isinstance(_primary_bgm261.get("creator"), (dict, str)):
+            _missing261.append("creator 欠落")
+    _ok261 = not _missing261
+    check(
+        _ok261,
+        f"Check 261: primary BGM AudioObject ({_expected_bid261}) has encodingFormat + creator",
+        (f"Check 261: 違反: {_missing261!r} — AI search audio classification + "
+         "attribution 喪失。encodingFormat (str) + creator (dict/str) を揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 261: index.html present",
+          "Check 261: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
