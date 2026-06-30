@@ -853,6 +853,12 @@ MUTATIONS = [
         "find": '"digest": "sha-256:f67161e413efce3e2853ccd411f5ea71f5be99a3dcebab6e8cf93b02b08edecd"',
         "replace": '"digest": "sha-256:DEADBEEF"',
     },
+    {
+        "name": "Check 255 (DOCTYPE html5 declaration): strip DOCTYPE from first line",
+        "file": ROOT / "index.html",
+        "find": "<!DOCTYPE html>\n<!--\n## Pioneer Declaration",
+        "replace": "<!--\n## Pioneer Declaration",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
