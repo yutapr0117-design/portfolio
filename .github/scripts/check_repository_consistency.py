@@ -1690,6 +1690,13 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 245 (FAQPage) / Check 246 (BreadcrumbList) for the
        MediaObject required-structure surface. (BLOCKING)
 
+  248. `<meta charset>` value is `utf-8` (case-insensitive): the index
+       .html `<meta charset>` attribute MUST resolve to `utf-8` exactly
+       (case-insensitive accepts UTF-8 / utf-8). Drift to e.g.
+       `shift_jis` or `iso-8859-1` silently mojibake Japanese content and
+       break canonical entity name display. Check 157 enforces presence;
+       Check 248 enforces value canonicality. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10811,6 +10818,27 @@ if _idx247.exists():
 else:
     check(False, "Check 247: index.html present",
           "Check 247: index.html が無い", blocking=True)
+
+# ── 248. <meta charset> value is utf-8 (case-insensitive) (BLOCKING) ──────────
+# index.html `<meta charset="...">` の値が utf-8 (case-insensitive) であることを
+# BLOCKING 強制。drift で Japanese mojibake → canonical entity 名表示破壊。
+# Check 157 は presence、Check 248 は value canonicality 軸。
+_idx248 = ROOT / "index.html"
+if _idx248.exists():
+    _isrc248 = _idx248.read_text(encoding="utf-8")
+    _cm248 = re.search(r'<meta\s+charset\s*=\s*["\']?([^"\'\s>]+)', _isrc248, re.IGNORECASE)
+    _cv248 = _cm248.group(1) if _cm248 else None
+    _ok248 = isinstance(_cv248, str) and _cv248.lower() == "utf-8"
+    check(
+        _ok248,
+        f"Check 248: <meta charset>={_cv248!r} == utf-8 (case-insensitive)",
+        (f"Check 248: charset 値違反: {_cv248!r} — Japanese mojibake で canonical "
+         "entity 名表示破壊。utf-8 (case-insensitive) へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 248: index.html present",
+          "Check 248: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
