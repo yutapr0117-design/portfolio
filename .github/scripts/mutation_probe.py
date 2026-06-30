@@ -817,6 +817,12 @@ MUTATIONS = [
         "find": '<meta charset="utf-8" />',
         "replace": '<meta charset="shift_jis" />',
     },
+    {
+        "name": "Check 249 (viewport mobile baseline): drift to fixed width=900",
+        "file": ROOT / "index.html",
+        "find": '<meta name="viewport" content="width=device-width, initial-scale=1" />',
+        "replace": '<meta name="viewport" content="width=900" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
