@@ -691,6 +691,12 @@ MUTATIONS = [
         "find": '"@type": "Person",\n                  "@id": "https://yutapr0117-design.github.io/portfolio/#person",\n                  "name": "Yuta Yokoi"',
         "replace": '"@type": "Person",\n                  "@id": "https://yutapr0117-design.github.io/portfolio/#person",\n                  "name": "Anonymous PROBE"',
     },
+    {
+        "name": "Check 228 (sitemap changefreq spec-valid): drift weekly to typo weakly",
+        "file": ROOT / "sitemap.xml",
+        "find": "<changefreq>weekly</changefreq>",
+        "replace": "<changefreq>weakly</changefreq>",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
