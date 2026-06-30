@@ -1674,6 +1674,14 @@ authoritative inventory and is kept in sync with the implementation below):
        (Article required fields) for the FAQPage required-structure
        surface. (BLOCKING)
 
+  246. JSON-LD BreadcrumbList `itemListElement` Schema.org structure:
+       every BreadcrumbList's `itemListElement` array MUST contain
+       ListItem entries, each with `@type == "ListItem"`, an integer
+       `position`, a non-empty `name`, and an `item` (URL or @id ref).
+       Drift would silently break Google breadcrumb rich-result and AI
+       site-structure ingestion. Sibling of Check 245 (FAQPage Q&A) for
+       the BreadcrumbList required-structure surface. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10673,6 +10681,71 @@ if _idx245.exists():
 else:
     check(False, "Check 245: index.html present",
           "Check 245: index.html が無い", blocking=True)
+
+# ── 246. JSON-LD BreadcrumbList itemListElement Schema.org 構造 (BLOCKING) ────
+# index.html JSON-LD 全 BreadcrumbList の `itemListElement` 配列が ListItem +
+# position(int) + name(非空 str) + item(URL/string) を満たすことを BLOCKING 強制。
+# drift で Google breadcrumb rich-result + AI site-structure ingestion 破壊。
+_idx246 = ROOT / "index.html"
+if _idx246.exists():
+    _isrc246 = _idx246.read_text(encoding="utf-8")
+    _blocks246 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc246,
+        flags=re.DOTALL,
+    )
+    _violations246: list[str] = []
+    _items_count246 = 0
+    def _walk246(node: object, path: str) -> None:
+        global _items_count246
+        if isinstance(node, dict):
+            if node.get("@type") == "BreadcrumbList":
+                _ile = node.get("itemListElement")
+                if not isinstance(_ile, list) or not _ile:
+                    _violations246.append(f"{path}: itemListElement 欠落/空")
+                else:
+                    for _i, _it in enumerate(_ile):
+                        _items_count246 += 1
+                        if not isinstance(_it, dict):
+                            _violations246.append(f"{path}.itemListElement[{_i}] non-dict")
+                            continue
+                        if _it.get("@type") != "ListItem":
+                            _violations246.append(f"{path}.itemListElement[{_i}] @type != ListItem")
+                        if not isinstance(_it.get("position"), int):
+                            _violations246.append(f"{path}.itemListElement[{_i}] position not int")
+                        _n = _it.get("name")
+                        if not isinstance(_n, str) or not _n.strip():
+                            _violations246.append(f"{path}.itemListElement[{_i}] name 欠落/空")
+                        if "item" not in _it:
+                            _violations246.append(f"{path}.itemListElement[{_i}] item 欠落")
+            for k, v in node.items():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk246(item, f"{path}.{k}")
+                else:
+                    _walk246(v, f"{path}.{k}")
+        elif isinstance(node, list):
+            for i, item in enumerate(node):
+                _walk246(item, f"{path}[{i}]")
+    for _bi, _blk in enumerate(_blocks246):
+        try:
+            _data246 = json.loads(_blk)
+        except json.JSONDecodeError:
+            continue
+        _walk246(_data246, f"block{_bi}")
+    _ok246 = _items_count246 > 0 and not _violations246
+    check(
+        _ok246,
+        f"Check 246: BreadcrumbList itemListElement {_items_count246} 件全て Schema.org 構造正",
+        (f"Check 246: 違反: {_violations246!r} — Google breadcrumb rich-result 失格 "
+         "+ AI site-structure ingestion 破壊。ListItem+position+name+item へ揃えよ"
+         if _violations246 else
+         "Check 246: BreadcrumbList items 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 246: index.html present",
+          "Check 246: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
