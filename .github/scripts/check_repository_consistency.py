@@ -1622,6 +1622,14 @@ authoritative inventory and is kept in sync with the implementation below):
        functionality. Sibling of Check 115 (CSP anti-weakening) for the
        JS source-level enforcement. (BLOCKING)
 
+  240. Shipped JS: setTimeout / setInterval first arg is NEVER a string
+       (no eval-equivalent): the first arg to `setTimeout` / `setInterval`
+       MUST always be a function (arrow or named), never a string. String
+       arg is parsed via `eval`-equivalent semantics — a known security
+       anti-pattern that bypasses CSP's static script restrictions.
+       Sibling of Check 239 (no eval/Function) for the eval-equivalent
+       timer-callback surface. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10388,6 +10396,32 @@ check(
      "CSP 'unsafe-eval' を要求し runtime 破壊 (Check 115 が reject)。除去せよ"
      if _offenders239 else
      "Check 239: shipped JS 0 件 — vacuous-fail"),
+    blocking=True,
+)
+
+# ── 240. Shipped JS no setTimeout/setInterval string first arg (BLOCKING) ─────
+# main.js + sw.js + js/**/*.js + root scripts に setTimeout('...', ...) /
+# setInterval('...', ...) のような string 第 1 引数 (eval-equivalent) が無いことを
+# BLOCKING 強制 (negative invariant)。Check 239 の timer-callback 軸補完。
+_offenders240: list[str] = []
+_timer_pat240 = re.compile(r"set(?:Timeout|Interval)\s*\(\s*['\"`]")
+for _p in _eval_targets239:  # reuse Check 239 target list
+    try:
+        _src = _p.read_text(encoding="utf-8")
+    except (FileNotFoundError, PermissionError):
+        continue
+    _stripped = re.sub(r"/\*.*?\*/", "", _src, flags=re.DOTALL)
+    _stripped = re.sub(r"//[^\n]*", "", _stripped)
+    if _timer_pat240.search(_stripped):
+        _offenders240.append(str(Path(_p).relative_to(ROOT)))
+_ok240 = len(_eval_targets239) > 0 and not _offenders240
+check(
+    _ok240,
+    f"Check 240: shipped JS ({len(_eval_targets239)} 件) に setTimeout/setInterval 文字列第 1 引数 0",
+    (f"Check 240: 文字列引数 timer を含む shipped JS: {_offenders240!r} — "
+     "eval-equivalent semantics で CSP 'unsafe-eval' 要求。第 1 引数を関数に揃えよ"
+     if _offenders240 else
+     "Check 240: shipped JS 0 件 — vacuous-fail"),
     blocking=True,
 )
 
