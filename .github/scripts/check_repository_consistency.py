@@ -1744,6 +1744,13 @@ authoritative inventory and is kept in sync with the implementation below):
        (.well-known/index.json byte-identical mirror) for the schema
        structural validity axis. (BLOCKING)
 
+  255. index.html starts with `<!DOCTYPE html>` (HTML5 declaration):
+       the index.html file MUST start with `<!DOCTYPE html>` (case-
+       insensitive, ignoring leading BOM/whitespace). Drift silently
+       triggers browser quirks mode — CSS box model regression, line-
+       height drift, layout breakage. Sibling of Check 157 (head meta
+       baseline) for the document-mode declaration axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11095,6 +11102,26 @@ if _widx254.exists():
 else:
     check(False, "Check 254: .well-known/index.json present",
           "Check 254: .well-known/index.json が無い", blocking=True)
+
+# ── 255. index.html starts with <!DOCTYPE html> (HTML5 declaration) (BLOCKING) ─
+# index.html が `<!DOCTYPE html>` (case-insensitive, leading BOM/whitespace 無視)
+# で始まることを BLOCKING 強制。drift で browser quirks mode 発火 → CSS box model
+# 退行 / line-height drift / layout 破壊。Check 157 の document-mode declaration 軸。
+_idx255 = ROOT / "index.html"
+if _idx255.exists():
+    _isrc255 = _idx255.read_text(encoding="utf-8")
+    _head255 = _isrc255.lstrip("﻿").lstrip()
+    _ok255 = bool(re.match(r"<!DOCTYPE\s+html\s*>", _head255, re.IGNORECASE))
+    check(
+        _ok255,
+        "Check 255: index.html starts with <!DOCTYPE html> (HTML5)",
+        ("Check 255: index.html が <!DOCTYPE html> で始まらない — browser quirks "
+         "mode 発火で CSS box model 退行・layout 破壊。先頭に <!DOCTYPE html> を配置"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 255: index.html present",
+          "Check 255: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
