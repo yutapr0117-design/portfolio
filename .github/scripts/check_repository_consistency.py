@@ -1834,6 +1834,14 @@ authoritative inventory and is kept in sync with the implementation below):
        only comment markers are guarded. Sibling of Check 262/263
        (production-cleanliness) for the comment-cruft axis. (BLOCKING)
 
+  265. Shipped JS uses strict equality (no `==` / `!=`): main.js + sw.js
+       + js/**/*.js + root scripts MUST NOT contain loose equality
+       (`==` / `!=`) — only strict (`===` / `!==`). String literals and
+       comments are exempt. Drift can introduce subtle bugs (e.g.
+       `'0' == 0 === true`). Sibling of Check 262/263/264
+       (production-cleanliness) for the equality-strictness axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11675,6 +11683,36 @@ check(
      "incomplete dev-time note leak。task 化して comment は除去せよ"
      if _offenders264 else
      "Check 264: shipped JS 0 件 — vacuous-fail"),
+    blocking=True,
+)
+
+# ── 265. Shipped JS strict equality (no `==` / `!=`) (BLOCKING) ───────────────
+# main.js + sw.js + js/**/*.js + root scripts に loose equality (`==` / `!=`)
+# 演算子が無いことを BLOCKING 強制 (negative invariant)。strict (===/!==) のみ。
+# string literal / comment 内の `==` 等は exempt。
+_offenders265: list[str] = []
+# `==` and `!=` not preceded by =/!/</> and not followed by =
+_loose_pat265 = re.compile(r"(?<![=!<>])==(?!=)|(?<![=!<>])!=(?!=)")
+for _p in _eval_targets239:  # reuse Check 239 target list
+    try:
+        _src = _p.read_text(encoding="utf-8")
+    except (FileNotFoundError, PermissionError):
+        continue
+    _stripped = re.sub(r"/\*.*?\*/", "", _src, flags=re.DOTALL)
+    _stripped = re.sub(r"//[^\n]*", "", _stripped)
+    _stripped = re.sub(r"'(?:\\.|[^'\\])*'", "''", _stripped)
+    _stripped = re.sub(r'"(?:\\.|[^"\\])*"', '""', _stripped)
+    _stripped = re.sub(r"`(?:\\.|[^`\\])*`", "``", _stripped)
+    if _loose_pat265.search(_stripped):
+        _offenders265.append(str(Path(_p).relative_to(ROOT)))
+_ok265 = len(_eval_targets239) > 0 and not _offenders265
+check(
+    _ok265,
+    f"Check 265: shipped JS ({len(_eval_targets239)} 件) に loose equality (==/!=) 0",
+    (f"Check 265: loose equality を含む shipped JS: {_offenders265!r} — "
+     "type coercion bugs の温床。===/!== へ変更"
+     if _offenders265 else
+     "Check 265: shipped JS 0 件 — vacuous-fail"),
     blocking=True,
 )
 
