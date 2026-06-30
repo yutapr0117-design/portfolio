@@ -1859,6 +1859,14 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 266 (entity description length) for the JSON-LD
        entity name axis. (BLOCKING)
 
+  268. JSON-LD Article / TechArticle headline length in [10, 110]:
+       every Article/TechArticle node with `headline` field MUST have
+       length in [10, 110] character. Schema.org / Google Article
+       rich-result spec recommends headline <= 110 char (else card
+       truncates). <10 = sparse / no value for SERP card. Sibling of
+       Check 235 (Article required fields) for the headline length axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11842,6 +11850,59 @@ if _idx267.exists():
 else:
     check(False, "Check 267: index.html present",
           "Check 267: index.html が無い", blocking=True)
+
+# ── 268. JSON-LD Article/TechArticle headline length in [10, 110] (BLOCKING) ──
+# index.html JSON-LD Article/TechArticle node の headline 値長が [10, 110] 内
+# (Schema.org / Google Article rich-result spec) であることを BLOCKING 強制。
+# Check 235 (Article 必須 fields) の headline length 軸版。
+_HEADLINE_TYPES268 = {"Article", "TechArticle", "NewsArticle", "BlogPosting"}
+_idx268 = ROOT / "index.html"
+if _idx268.exists():
+    _isrc268 = _idx268.read_text(encoding="utf-8")
+    _blocks268 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc268,
+        flags=re.DOTALL,
+    )
+    _violations268: list[str] = []
+    _checked268 = 0
+    def _walk268(node: object, path: str) -> None:
+        global _checked268
+        if isinstance(node, dict):
+            _t = node.get("@type")
+            _h = node.get("headline")
+            if isinstance(_t, str) and _t in _HEADLINE_TYPES268 and isinstance(_h, str):
+                _checked268 += 1
+                _ln = len(_h)
+                if not (10 <= _ln <= 110):
+                    _violations268.append(f"{path} {_t}: headline len={_ln}")
+            for k, v in node.items():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk268(item, f"{path}.{k}")
+                else:
+                    _walk268(v, f"{path}.{k}")
+        elif isinstance(node, list):
+            for i, item in enumerate(node):
+                _walk268(item, f"{path}[{i}]")
+    for _bi, _blk in enumerate(_blocks268):
+        try:
+            _walk268(json.loads(_blk), f"block{_bi}")
+        except json.JSONDecodeError:
+            continue
+    _ok268 = _checked268 > 0 and not _violations268
+    check(
+        _ok268,
+        f"Check 268: Article/TechArticle headline ({_checked268} 件) 全て [10, 110] 内",
+        (f"Check 268: 違反: {_violations268!r} — Google rich-result card truncate "
+         "or sparse。Schema.org spec の <= 110 char に揃えよ"
+         if _violations268 else
+         "Check 268: headline 付き Article 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 268: index.html present",
+          "Check 268: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
