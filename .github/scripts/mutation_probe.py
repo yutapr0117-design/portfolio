@@ -697,6 +697,12 @@ MUTATIONS = [
         "find": "<changefreq>weekly</changefreq>",
         "replace": "<changefreq>weakly</changefreq>",
     },
+    {
+        "name": "Check 229 (sitemap priority [0.0, 1.0]): drift 1.0 to out-of-range 1.5",
+        "file": ROOT / "sitemap.xml",
+        "find": "<priority>1.0</priority>",
+        "replace": "<priority>1.5</priority>",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
