@@ -1421,6 +1421,18 @@ authoritative inventory and is kept in sync with the implementation below):
        signals and undermining trust. Sibling of Check 208 (ISO-8601 format)
        for the JSON-LD date semantic ordering surface. (BLOCKING)
 
+  219. aio-manifest.json declared paths ⊆ check_aio_digests.py
+       MANIFEST_PATH_TO_LOCAL keys: every `path` value in aio-manifest.json
+       `source_of_truth` / `supporting_evidence` / `observational_evidence`
+       MUST appear as a key in `MANIFEST_PATH_TO_LOCAL` dict of
+       `.github/scripts/check_aio_digests.py`. Drift (e.g. aio-guardian adds
+       a new evidence entry to the manifest but forgets to register it in
+       check_aio_digests.py's local-path map) would silently skip digest
+       verification for the new path — the manifest could declare any
+       sha256, and the tool would never check the actual file against it.
+       This invariant catches silent digest-chain gaps that bypass C6.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9351,6 +9363,59 @@ if _idx218.exists():
 else:
     check(False, "Check 218: index.html present",
           "Check 218: index.html が無い", blocking=True)
+
+# ── 219. aio-manifest.json paths ⊆ check_aio_digests.py MANIFEST_PATH_TO_LOCAL (BLOCKING) ─
+# aio-manifest.json の `source_of_truth` / `supporting_evidence` /
+# `observational_evidence` の全 `path` が check_aio_digests.py の
+# `MANIFEST_PATH_TO_LOCAL` dict の key に登録されていることを BLOCKING 強制。
+# 未登録 path は digest 検証されず、aio-guardian が新 evidence を manifest へ追加
+# しても check_aio_digests に登録忘れがあれば silent に digest gap が生じる。
+_mani219 = ROOT / ".well-known" / "aio-manifest.json"
+_chk_aio219 = ROOT / ".github" / "scripts" / "check_aio_digests.py"
+if _mani219.exists() and _chk_aio219.exists():
+    try:
+        _mdata219 = json.loads(_mani219.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as _e:
+        _mdata219 = None
+        _err219: str | None = str(_e)
+    else:
+        _err219 = None
+    _declared219: list[str] = []
+    if isinstance(_mdata219, dict):
+        for _sec in ("source_of_truth", "supporting_evidence", "observational_evidence"):
+            _entries = _mdata219.get(_sec, [])
+            if isinstance(_entries, list):
+                for _e in _entries:
+                    if isinstance(_e, dict) and isinstance(_e.get("path"), str):
+                        _declared219.append(_e["path"])
+    _chksrc219 = _chk_aio219.read_text(encoding="utf-8")
+    # MANIFEST_PATH_TO_LOCAL 内の key 文字列を抽出 (key の literal "..."" のみ)
+    _map_block219_m = re.search(
+        r"MANIFEST_PATH_TO_LOCAL:[^=]*=\s*\{(.*?)\}", _chksrc219, flags=re.DOTALL
+    )
+    _registered219: set[str] = set()
+    if _map_block219_m:
+        for _km in re.finditer(r'^\s*"([^"]+)":', _map_block219_m.group(1), flags=re.M):
+            _registered219.add(_km.group(1))
+    _missing219 = [p for p in _declared219 if p not in _registered219]
+    _ok219 = (
+        _err219 is None
+        and len(_declared219) > 0
+        and bool(_registered219)
+        and not _missing219
+    )
+    check(
+        _ok219,
+        f"Check 219: aio-manifest declared paths ({len(_declared219)} 件) 全て check_aio_digests MANIFEST_PATH_TO_LOCAL ({len(_registered219)} 件) に登録",
+        (f"Check 219: 未登録 path: {_missing219!r}"
+         f" / manifest parse error: {_err219!r}"
+         " — check_aio_digests.py で digest 検証されず silent gap。"
+         "MANIFEST_PATH_TO_LOCAL に追加せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 219: aio-manifest.json + check_aio_digests.py present",
+          "Check 219: aio-manifest.json もしくは check_aio_digests.py が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
