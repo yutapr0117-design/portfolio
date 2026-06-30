@@ -847,6 +847,12 @@ MUTATIONS = [
         "find": "navigator.serviceWorker.register('./sw.js', { scope: './' })",
         "replace": "navigator.serviceWorker.register('./BROKEN-PATH.js', { scope: './' })",
     },
+    {
+        "name": "Check 254 (.well-known/index.json digest format): drift digest to malformed length",
+        "file": ROOT / ".well-known" / "index.json",
+        "find": '"digest": "sha-256:f67161e413efce3e2853ccd411f5ea71f5be99a3dcebab6e8cf93b02b08edecd"',
+        "replace": '"digest": "sha-256:DEADBEEF"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
