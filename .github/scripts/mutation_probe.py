@@ -793,6 +793,12 @@ MUTATIONS = [
         "find": '                  "@type": "Person",',
         "replace": '                  "@xtype": "Person",',
     },
+    {
+        "name": "Check 245 (FAQPage Q&A structure): strip name from first Question",
+        "file": ROOT / "index.html",
+        "find": '"name": "yutapr0117-design の AI-Driven PM Portfolio の作成者は誰ですか？"',
+        "replace": '"xname": "yutapr0117-design の AI-Driven PM Portfolio の作成者は誰ですか？"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
