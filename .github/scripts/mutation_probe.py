@@ -673,6 +673,12 @@ MUTATIONS = [
         "find": '<meta name="description" content="yuta（AI-Driven PM）のポートフォリオ。人間はコードを一行も書かず、AIが実装〜検証〜デプロイまで自走し、機械統治された一貫性チェック群と behavior e2e がそれを担保する。サイト自体が、その自走 AI エンジニアリングの生成物である。" />',
         "replace": '<meta name="description" content="short" />',
     },
+    {
+        "name": "Check 225 (<title> length [10, 70]): truncate to 5 chars",
+        "file": ROOT / "index.html",
+        "find": '<title>AI-Driven PM yuta｜AI が自走し人間が統治する engineering ポートフォリオ</title>',
+        "replace": '<title>short</title>',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
