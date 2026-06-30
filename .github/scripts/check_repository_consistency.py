@@ -1454,6 +1454,18 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 216 (referential integrity) with type-safety added
        for image-slot references. (BLOCKING)
 
+  222. JSON-LD `author` / `creator` / `reviewedBy` / `copyrightHolder` /
+       `employee` refs resolve to Person OR Organization (type-safety):
+       in index.html static JSON-LD, any `{"@id": "..."}` reference under
+       these "agent-slot" properties MUST point to a node whose `@type` is
+       `Person` or `Organization`. Drift (e.g. author referring to
+       `#hero-image` or `#website` after rename) would silently make AI /
+       SEO consumers attribute authorship to an image or website node,
+       breaking the entity-graph "who created this" claim and corrupting
+       knowledge-graph attribution. Sibling of Check 221 (image-slot type
+       safety); Check 216 with type-safety added for agent-slot
+       references. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9534,6 +9546,73 @@ if _idx221.exists():
 else:
     check(False, "Check 221: index.html present",
           "Check 221: index.html が無い", blocking=True)
+
+# ── 222. JSON-LD author/creator/reviewedBy/copyrightHolder/employee refs Person|Organization (BLOCKING) ─
+# index.html 静的 JSON-LD で `author` / `creator` / `reviewedBy` /
+# `copyrightHolder` / `employee` の `{"@id":...}` 参照が、同 graph 内で
+# `@type in {Person, Organization}` の node に解決することを BLOCKING 強制。
+# Check 221 (image-slot type safety) の agent-slot 軸版。drift は SILENT に
+# AI/SEO consumer が著者帰属を image や website へ誤帰属し knowledge-graph 攻撃。
+_AGENT_REF_PROPS222 = {
+    "author", "creator", "reviewedBy", "copyrightHolder", "employee",
+}
+_AGENT_OK_TYPES222 = {"Person", "Organization"}
+_idx222 = ROOT / "index.html"
+if _idx222.exists():
+    _isrc222 = _idx222.read_text(encoding="utf-8")
+    _blocks222 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc222,
+        flags=re.DOTALL,
+    )
+    _typeof222: dict[str, str] = {}
+    _agent_refs222: list[tuple[str, str]] = []
+    def _walk222(node: object, parent_key: str | None = None) -> None:
+        if isinstance(node, dict):
+            _t = node.get("@type")
+            _id = node.get("@id")
+            if isinstance(_t, str) and isinstance(_id, str):
+                _typeof222[_id] = _t
+            if (
+                parent_key in _AGENT_REF_PROPS222
+                and isinstance(_id, str)
+                and "@type" not in node
+            ):
+                _agent_refs222.append((parent_key, _id))
+            for k, v in node.items():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk222(item, k)
+                else:
+                    _walk222(v, k)
+        elif isinstance(node, list):
+            for item in node:
+                _walk222(item, parent_key)
+    for _blk in _blocks222:
+        try:
+            _data222 = json.loads(_blk)
+        except json.JSONDecodeError:
+            continue
+        _walk222(_data222)
+    _wrong_type222: list[str] = []
+    for _prop, _rid in _agent_refs222:
+        _resolved_type = _typeof222.get(_rid)
+        if _resolved_type not in _AGENT_OK_TYPES222:
+            _wrong_type222.append(f"{_prop}@id={_rid}: type={_resolved_type!r}")
+    _ok222 = len(_agent_refs222) > 0 and not _wrong_type222
+    check(
+        _ok222,
+        f"Check 222: JSON-LD agent-slot refs {len(_agent_refs222)} 件全て Person|Organization へ解決",
+        (f"Check 222: type 不一致 agent refs: {_wrong_type222!r} — AI/SEO で "
+         "著者帰属が non-agent entity に誤帰属し knowledge-graph 破壊。"
+         "参照先 node の @type を Person|Organization へ揃えるか refs を訂正せよ"
+         if _wrong_type222 else
+         "Check 222: agent-slot refs 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 222: index.html present",
+          "Check 222: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
