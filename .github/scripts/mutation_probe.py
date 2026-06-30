@@ -637,6 +637,12 @@ MUTATIONS = [
         "find": '"datePublished": "2026-01-01",\n                  "dateModified": "2026-05-24"',
         "replace": '"datePublished": "2026-09-01",\n                  "dateModified": "2026-05-24"',
     },
+    {
+        "name": "Check 219 (aio-manifest paths ⊆ MANIFEST_PATH_TO_LOCAL): unregister llms.txt from local map",
+        "file": ROOT / ".github" / "scripts" / "check_aio_digests.py",
+        "find": '    "llms.txt":       ROOT / "llms.txt",',
+        "replace": '    "llms-UNREGISTERED.txt":       ROOT / "llms.txt",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
