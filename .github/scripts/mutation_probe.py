@@ -877,6 +877,12 @@ MUTATIONS = [
         "find": '"potentialAction": {\n                        "@type": "ReadAction",',
         "replace": '"xotentialAction": {\n                        "@type": "ReadAction",',
     },
+    {
+        "name": "Check 259 (primary Organization required): strip alternateName key",
+        "file": ROOT / "index.html",
+        "find": '"alternateName": ["日本経営", "Nihon Keiei", "Japan Management Co., Ltd.", "日本経営グループ"],',
+        "replace": '"xlternateName": ["日本経営", "Nihon Keiei", "Japan Management Co., Ltd.", "日本経営グループ"],',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
