@@ -931,6 +931,12 @@ MUTATIONS = [
         "find": '"name": "AI-Driven PM Portfolio Architecture Vision",',
         "replace": '"name": "x",',
     },
+    {
+        "name": "Check 268 (Article headline length [10,110]): truncate TechArticle headline to 'x'",
+        "file": ROOT / "index.html",
+        "find": '"headline": "AI-Driven PM Portfolio — PM-led AI Orchestration Experiment by Yuta Yokoi (横井雄太)",',
+        "replace": '"headline": "x",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
