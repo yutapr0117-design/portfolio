@@ -1442,6 +1442,18 @@ authoritative inventory and is kept in sync with the implementation below):
        JSON-LD inLanguage) / Check 187 (og:locale ↔ <html lang>) for the
        manifest install layer. (BLOCKING)
 
+  221. JSON-LD `image` / `primaryImageOfPage` references resolve to
+       `ImageObject` (type-safety): in index.html static JSON-LD, any
+       `{"@id": "..."}` reference appearing as `image` or
+       `primaryImageOfPage` MUST point to a node whose `@type` is
+       `ImageObject` (allowing for subclasses by string match). Drift
+       (e.g. image referring to `#person` or `#website` after rename)
+       would silently make AI / SEO consumers retrieve a non-image entity
+       when expecting an image asset — breaking image-card rendering,
+       OG-style preview fallbacks, and knowledge-graph image extraction.
+       Sibling of Check 216 (referential integrity) with type-safety added
+       for image-slot references. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9458,6 +9470,70 @@ if _idx220.exists() and _mani220.exists():
 else:
     check(False, "Check 220: index.html + manifest.webmanifest present",
           "Check 220: index.html もしくは manifest.webmanifest が無い", blocking=True)
+
+# ── 221. JSON-LD image / primaryImageOfPage refs resolve to ImageObject (BLOCKING) ─
+# index.html 静的 JSON-LD で `image` / `primaryImageOfPage` の `{"@id":...}` 参照が、
+# 同 graph 内で `@type == "ImageObject"` の node に解決することを BLOCKING 強制。
+# Check 216 (referential integrity) に「参照先 @type が ImageObject」の type-safety を追加。
+# drift は SILENT に AI/SEO consumer が non-image entity を image slot で取得し、
+# image-card rendering / OG preview / 知識グラフ image extraction を破壊。
+_idx221 = ROOT / "index.html"
+if _idx221.exists():
+    _isrc221 = _idx221.read_text(encoding="utf-8")
+    _blocks221 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc221,
+        flags=re.DOTALL,
+    )
+    _IMAGE_REF_PROPS221 = {"image", "primaryImageOfPage"}
+    _typeof221: dict[str, str] = {}
+    _img_refs221: list[tuple[str, str]] = []
+    def _walk221(node: object, parent_key: str | None = None) -> None:
+        if isinstance(node, dict):
+            _t = node.get("@type")
+            _id = node.get("@id")
+            if isinstance(_t, str) and isinstance(_id, str):
+                _typeof221[_id] = _t
+            if (
+                parent_key in _IMAGE_REF_PROPS221
+                and isinstance(_id, str)
+                and "@type" not in node
+            ):
+                _img_refs221.append((parent_key, _id))
+            for k, v in node.items():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk221(item, k)
+                else:
+                    _walk221(v, k)
+        elif isinstance(node, list):
+            for item in node:
+                _walk221(item, parent_key)
+    for _blk in _blocks221:
+        try:
+            _data221 = json.loads(_blk)
+        except json.JSONDecodeError:
+            continue
+        _walk221(_data221)
+    _wrong_type221: list[str] = []
+    for _prop, _rid in _img_refs221:
+        _resolved_type = _typeof221.get(_rid)
+        if _resolved_type != "ImageObject":
+            _wrong_type221.append(f"{_prop}@id={_rid}: type={_resolved_type!r}")
+    _ok221 = len(_img_refs221) > 0 and not _wrong_type221
+    check(
+        _ok221,
+        f"Check 221: JSON-LD image/primaryImageOfPage refs {len(_img_refs221)} 件全て ImageObject @type へ解決",
+        (f"Check 221: type 不一致 image refs: {_wrong_type221!r} — AI/SEO が "
+         "non-image entity を image slot で取得し card rendering 破壊。"
+         "参照先 node の @type を ImageObject へ揃えるか refs を訂正せよ"
+         if _wrong_type221 else
+         "Check 221: image/primaryImageOfPage refs 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 221: index.html present",
+          "Check 221: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
