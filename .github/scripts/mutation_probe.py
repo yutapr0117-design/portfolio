@@ -631,6 +631,12 @@ MUTATIONS = [
         "find": '"@id": "https://yutapr0117-design.github.io/portfolio/#portfolio-bgm",',
         "replace": '"@id": "https://yutapr0117-design.github.io/portfolio/#ai-context",',
     },
+    {
+        "name": "Check 218 (datePublished <= dateModified): drift datePublished after dateModified",
+        "file": ROOT / "index.html",
+        "find": '"datePublished": "2026-01-01",\n                  "dateModified": "2026-05-24"',
+        "replace": '"datePublished": "2026-09-01",\n                  "dateModified": "2026-05-24"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
