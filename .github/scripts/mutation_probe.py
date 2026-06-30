@@ -655,6 +655,12 @@ MUTATIONS = [
         "find": '"image": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#hero-image"',
         "replace": '"image": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#person"',
     },
+    {
+        "name": "Check 222 (agent-slot type Person|Organization): drift CreativeWork.author to #hero-image",
+        "file": ROOT / "index.html",
+        "find": '"name": "Architecture Governance Evidence — Human-led AI implementation control",\n                  "url": "https://yutapr0117-design.github.io/portfolio/",\n                  "author": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#person"',
+        "replace": '"name": "Architecture Governance Evidence — Human-led AI implementation control",\n                  "url": "https://yutapr0117-design.github.io/portfolio/",\n                  "author": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#hero-image"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
