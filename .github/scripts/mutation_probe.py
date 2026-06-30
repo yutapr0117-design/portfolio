@@ -733,6 +733,12 @@ MUTATIONS = [
         "find": '<meta name="asset:audio:canonical" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3" />',
         "replace": '<meta name="asset:audio:canonical" content="https://cdn.probe-drift.example/yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3" />',
     },
+    {
+        "name": "Check 235 (Article required fields): drift TechArticle datePublished to typo key",
+        "file": ROOT / "index.html",
+        "find": '"name": "Authoritative AI full context — Yuta Yokoi (横井雄太) canonical ground truth"\n                        }\n                  ],\n                  "datePublished": "2026-01-01",',
+        "replace": '"name": "Authoritative AI full context — Yuta Yokoi (横井雄太) canonical ground truth"\n                        }\n                  ],\n                  "datePublishedTYPO": "2026-01-01",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
