@@ -823,6 +823,12 @@ MUTATIONS = [
         "find": '<meta name="viewport" content="width=device-width, initial-scale=1" />',
         "replace": '<meta name="viewport" content="width=900" />',
     },
+    {
+        "name": "Check 250 (<html lang> BCP-47): drift to underscore ja_JP",
+        "file": ROOT / "index.html",
+        "find": '<html lang="ja" data-theme="system" data-brand="indigo">',
+        "replace": '<html lang="ja_JP" data-theme="system" data-brand="indigo">',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
