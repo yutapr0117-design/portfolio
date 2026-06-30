@@ -1538,6 +1538,15 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 150 (og:url ↔ canonical) for the sitemap entry-point axis.
        (BLOCKING)
 
+  231. main.js SITE_CONFIG.ROLE_TITLE matches canonical entity role: the
+       `ROLE_TITLE` value in main.js SITE_CONFIG MUST equal one of the 3
+       canonical entity roles from CLAUDE.md §1: "AI-Driven PM" /
+       "IT Consultant" / "KERNEL Framework Designer". Drift silently
+       misrepresents the entity in JS-rendered UI (used in page titles
+       and meta descriptions emitted by the SPA renderer). Sibling of
+       Check 169 (aio-manifest entity.role canonical markers) for the
+       SITE_CONFIG.ROLE_TITLE axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9988,6 +9997,31 @@ if _sitemap230.exists() and _idx230.exists():
 else:
     check(False, "Check 230: sitemap.xml + index.html present",
           "Check 230: sitemap.xml もしくは index.html が無い", blocking=True)
+
+# ── 231. main.js SITE_CONFIG.ROLE_TITLE == canonical role (BLOCKING) ──────────
+# main.js SITE_CONFIG.ROLE_TITLE が canonical entity role 3 値 ("AI-Driven PM" /
+# "IT Consultant" / "KERNEL Framework Designer") のいずれかに一致することを
+# BLOCKING 強制。drift は SILENT に SPA renderer 出力 (title / meta) で entity を誤表現。
+_CANONICAL_ROLES231 = {
+    "AI-Driven PM", "IT Consultant", "KERNEL Framework Designer",
+}
+_main231 = ROOT / "main.js"
+if _main231.exists():
+    _msrc231 = _main231.read_text(encoding="utf-8")
+    _role231_m = re.search(r"ROLE_TITLE:\s*['\"]([^'\"]+)['\"]", _msrc231)
+    _role231 = _role231_m.group(1) if _role231_m else None
+    _ok231 = _role231 is not None and _role231 in _CANONICAL_ROLES231
+    check(
+        _ok231,
+        f"Check 231: SITE_CONFIG.ROLE_TITLE={_role231!r} が canonical role に一致",
+        (f"Check 231: SITE_CONFIG.ROLE_TITLE={_role231!r} 非 canonical — "
+         "SPA renderer 出力 (title/meta) で entity 役割が誤表現。"
+         "{'AI-Driven PM','IT Consultant','KERNEL Framework Designer'} のいずれかへ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 231: main.js present",
+          "Check 231: main.js が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
