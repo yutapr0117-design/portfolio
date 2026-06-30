@@ -1842,6 +1842,15 @@ authoritative inventory and is kept in sync with the implementation below):
        (production-cleanliness) for the equality-strictness axis.
        (BLOCKING)
 
+  266. JSON-LD entity description length in [20, 1000]: every Person /
+       Organization / ImageObject / CreativeWork node with a `description`
+       field must have its description in [20, 1000] character length.
+       Below 20: too brief to be useful for AI/SEO. Above 1000: usually
+       indicates copy-paste of full body text into description (Google
+       Schema.org spec recommends concise summary). Sibling of Check 224
+       (meta description length) for the JSON-LD entity description axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11715,6 +11724,59 @@ check(
      "Check 265: shipped JS 0 件 — vacuous-fail"),
     blocking=True,
 )
+
+# ── 266. JSON-LD entity description length in [20, 1000] (BLOCKING) ───────────
+# index.html JSON-LD で Person/Organization/ImageObject/CreativeWork node の
+# description 値長が [20, 1000] character 内であることを BLOCKING 強制。
+# 下限以下: too brief / 上限以上: copy-paste over-long。Check 224 の JSON-LD 軸版。
+_DESC_TYPES266 = {"Person", "Organization", "ImageObject", "CreativeWork"}
+_idx266 = ROOT / "index.html"
+if _idx266.exists():
+    _isrc266 = _idx266.read_text(encoding="utf-8")
+    _blocks266 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc266,
+        flags=re.DOTALL,
+    )
+    _violations266: list[str] = []
+    _checked266 = 0
+    def _walk266(node: object, path: str) -> None:
+        global _checked266
+        if isinstance(node, dict):
+            _t = node.get("@type")
+            _d = node.get("description")
+            if isinstance(_t, str) and _t in _DESC_TYPES266 and isinstance(_d, str):
+                _checked266 += 1
+                _ln = len(_d)
+                if not (20 <= _ln <= 1000):
+                    _violations266.append(f"{path} {_t}: description len={_ln} (band [20, 1000] 違反)")
+            for k, v in node.items():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk266(item, f"{path}.{k}")
+                else:
+                    _walk266(v, f"{path}.{k}")
+        elif isinstance(node, list):
+            for i, item in enumerate(node):
+                _walk266(item, f"{path}[{i}]")
+    for _bi, _blk in enumerate(_blocks266):
+        try:
+            _walk266(json.loads(_blk), f"block{_bi}")
+        except json.JSONDecodeError:
+            continue
+    _ok266 = _checked266 > 0 and not _violations266
+    check(
+        _ok266,
+        f"Check 266: JSON-LD entity description ({_checked266} 件) 全て [20, 1000] 内",
+        (f"Check 266: 違反: {_violations266!r} — too brief で AI/SEO 入力不足 / "
+         "too long で copy-paste 過剰。20〜1000 char へ調整せよ"
+         if _violations266 else
+         "Check 266: description 付き entity 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 266: index.html present",
+          "Check 266: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

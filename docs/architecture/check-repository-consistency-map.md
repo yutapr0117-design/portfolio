@@ -339,6 +339,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 263 | shipped JS に `debugger;` statement / `alert(` 呼び出しが共に 0 (confirm() は許可)。dev-debug pattern leak で production UX-break を BLOCKING で阻止。Check 262 の dev-debug 軸 | BLOCKING |
 | 264 | shipped JS の comment 内に dev-cruft marker (TODO/FIXME/HACK/XXX) が 0 (string literal の "TODO" は exempt)。incomplete dev-time note leak を BLOCKING で阻止。Check 262/263 と同 family の comment-cruft 軸 | BLOCKING |
 | 265 | shipped JS が strict equality (===/!==) のみ使用 (loose `==`/`!=` 0、string/comment 内は exempt)。type coercion bugs (`'0'==0===true` 等) を BLOCKING で阻止。Check 262/263/264 の equality-strictness 軸 | BLOCKING |
+| 266 | JSON-LD で Person/Organization/ImageObject/CreativeWork node の description 値長が [20, 1000] 内。too brief (AI/SEO 不足) / too long (copy-paste 過剰) を BLOCKING で阻止。Check 224 (meta description length) の JSON-LD 軸版 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 
