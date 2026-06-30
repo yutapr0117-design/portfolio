@@ -685,6 +685,12 @@ MUTATIONS = [
         "find": '<meta property="og:title" content="AI-Driven PM yuta — AI が自走し、人間が統治する engineering ポートフォリオ" />',
         "replace": '<meta property="og:title" content="xx" />',
     },
+    {
+        "name": "Check 227 (Person.name canonical): drift Person.name to Anonymous",
+        "file": ROOT / "index.html",
+        "find": '"@type": "Person",\n                  "@id": "https://yutapr0117-design.github.io/portfolio/#person",\n                  "name": "Yuta Yokoi"',
+        "replace": '"@type": "Person",\n                  "@id": "https://yutapr0117-design.github.io/portfolio/#person",\n                  "name": "Anonymous PROBE"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
