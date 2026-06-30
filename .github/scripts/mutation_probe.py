@@ -805,6 +805,12 @@ MUTATIONS = [
         "find": '"@type": "ListItem",\n                              "position": 1,',
         "replace": '"@type": "ListItem",\n                              "position": "1",',
     },
+    {
+        "name": "Check 247 (MediaObject required fields): strip name from hero ImageObject",
+        "file": ROOT / "index.html",
+        "find": '"name": "AI-Driven PM Portfolio Architecture Vision"',
+        "replace": '"xname": "AI-Driven PM Portfolio Architecture Vision"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
