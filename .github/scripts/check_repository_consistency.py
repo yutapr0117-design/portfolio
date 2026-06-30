@@ -1630,6 +1630,14 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 239 (no eval/Function) for the eval-equivalent
        timer-callback surface. (BLOCKING)
 
+  241. Shipped JS no `document.write` / `document.writeln` calls: these
+       legacy APIs are deprecated, break HTML5 parser sniffing, expose
+       XSS vectors when fed untrusted strings, and are flagged by browser
+       intervention as anti-patterns. Drift would silently introduce one
+       of the most security-fragile DOM APIs into the shipped runtime.
+       Sibling of Check 239 (no eval/Function) / Check 240 (no
+       eval-equivalent timer) for the document-write surface. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10422,6 +10430,35 @@ check(
      "eval-equivalent semantics で CSP 'unsafe-eval' 要求。第 1 引数を関数に揃えよ"
      if _offenders240 else
      "Check 240: shipped JS 0 件 — vacuous-fail"),
+    blocking=True,
+)
+
+# ── 241. Shipped JS no document.write / document.writeln (BLOCKING) ───────────
+# main.js + sw.js + js/**/*.js + root scripts に `document.write(` /
+# `document.writeln(` 呼び出しが 0 であることを BLOCKING 強制 (negative invariant)。
+# legacy API: deprecated / HTML5 parser sniff 破壊 / XSS vector / browser intervention 対象。
+_offenders241: list[str] = []
+_docwrite_pat241 = re.compile(r"document\s*\.\s*write(?:ln)?\s*\(")
+for _p in _eval_targets239:  # reuse target list
+    try:
+        _src = _p.read_text(encoding="utf-8")
+    except (FileNotFoundError, PermissionError):
+        continue
+    _stripped = re.sub(r"/\*.*?\*/", "", _src, flags=re.DOTALL)
+    _stripped = re.sub(r"//[^\n]*", "", _stripped)
+    _stripped = re.sub(r"'(?:\\.|[^'\\])*'", "''", _stripped)
+    _stripped = re.sub(r'"(?:\\.|[^"\\])*"', '""', _stripped)
+    _stripped = re.sub(r"`(?:\\.|[^`\\])*`", "``", _stripped)
+    if _docwrite_pat241.search(_stripped):
+        _offenders241.append(str(Path(_p).relative_to(ROOT)))
+_ok241 = len(_eval_targets239) > 0 and not _offenders241
+check(
+    _ok241,
+    f"Check 241: shipped JS ({len(_eval_targets239)} 件) に document.write/writeln 呼び出し 0",
+    (f"Check 241: document.write を含む shipped JS: {_offenders241!r} — "
+     "deprecated/HTML5 parser sniff 破壊/XSS vector。createElement+appendChild に置換せよ"
+     if _offenders241 else
+     "Check 241: shipped JS 0 件 — vacuous-fail"),
     blocking=True,
 )
 
