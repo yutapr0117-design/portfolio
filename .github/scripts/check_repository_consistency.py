@@ -1647,6 +1647,16 @@ authoritative inventory and is kept in sync with the implementation below):
        scripts). Sibling of Check 239/240/241 (eval/Function/timer/
        document.write) for the inline-event-handler surface. (BLOCKING)
 
+  243. main.js SITE_CONFIG.LAST_UPDATED + ai:last-modified are NOT in the
+       future: both date fields (synced via Check 17/180) MUST be on or
+       before today. Drift to a future date silently corrupts AI/SEO
+       recency-weighted retrieval (entity ranked as "from the future")
+       and reveals temporal model integrity issues. This site does not
+       schedule pre-publish dates; future is always a bug. Sibling of
+       Check 36 (sitemap lastmod future WARNING) for the canonical-version
+       date surface — BLOCKING here because LAST_UPDATED is the entity's
+       primary canonical-version anchor. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10495,6 +10505,47 @@ if _idx242.exists():
 else:
     check(False, "Check 242: index.html present",
           "Check 242: index.html が無い", blocking=True)
+
+# ── 243. SITE_CONFIG.LAST_UPDATED + ai:last-modified NOT future (BLOCKING) ────
+# main.js SITE_CONFIG.LAST_UPDATED と <meta name="ai:last-modified"> content が
+# 共に today より未来でないことを BLOCKING 強制。Check 36 (sitemap lastmod 未来
+# WARNING) と異なり本サイトは pre-schedule しない設計のため BLOCKING。
+from datetime import date as _date243
+_main243 = ROOT / "main.js"
+_idx243 = ROOT / "index.html"
+if _main243.exists() and _idx243.exists():
+    _msrc243 = _main243.read_text(encoding="utf-8")
+    _isrc243 = _idx243.read_text(encoding="utf-8")
+    _site243_m = re.search(r"LAST_UPDATED:\s*['\"]([^'\"]+)['\"]", _msrc243)
+    _ai_lm243_m = re.search(
+        r'<meta\s+name=["\']ai:last-modified["\']\s+content=["\']([^"\']+)["\']', _isrc243
+    )
+    _site243 = _site243_m.group(1) if _site243_m else None
+    _ai_lm243 = _ai_lm243_m.group(1) if _ai_lm243_m else None
+    _today243 = _date243.today()
+    _futures243: list[str] = []
+    for _label, _v in (("SITE_CONFIG.LAST_UPDATED", _site243), ("ai:last-modified", _ai_lm243)):
+        if not isinstance(_v, str):
+            _futures243.append(f"{_label}=抽出不可")
+            continue
+        try:
+            _d = _date243.fromisoformat(_v[:10])
+        except ValueError:
+            # Check 215 が format を担う。本 check は format violation で fail せず skip。
+            continue
+        if _d > _today243:
+            _futures243.append(f"{_label}={_v!r} (today={_today243.isoformat()} より未来)")
+    _ok243 = not _futures243
+    check(
+        _ok243,
+        f"Check 243: SITE_CONFIG.LAST_UPDATED + ai:last-modified 共に today ({_today243.isoformat()}) 以前",
+        (f"Check 243: 未来日 detected: {_futures243!r} — AI/SEO recency が "
+         "「未来から来た content」と誤認し ranking corruption。today 以下へ修正"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 243: main.js + index.html present",
+          "Check 243: main.js もしくは index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
