@@ -1873,6 +1873,11 @@ authoritative inventory and is kept in sync with the implementation below):
        mobile bandwidth budget. Sibling of Check 120 (shipped JS byte
        weight budget) for the binary asset axis. (BLOCKING)
 
+  270. canonical text asset size budget: style.css <= 100_000 bytes AND
+       index.html <= 200_000 bytes. Drift = silent file bloat from
+       accidental copy-paste / dead-code accretion. Sibling of Check 120
+       (JS) / 269 (binary) for the text asset size axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11934,6 +11939,30 @@ check(
     f"Check 269: canonical binary assets ({len(_BUDGETS269)} 件) all within byte budget",
     (f"Check 269: 違反: {_violations269!r} — CWV LCP / mobile bandwidth 劣化。"
      "binary を再圧縮 or budget を上げる contract 更新"),
+    blocking=True,
+)
+
+# ── 270. canonical text asset byte budget (BLOCKING) ──────────────────────────
+# style.css <= 100_000 bytes AND index.html <= 200_000 bytes を BLOCKING 強制。
+# Check 120 (JS) / 269 (binary) の text asset 軸版。
+_BUDGETS270 = [
+    (ROOT / "style.css", 100_000, "style.css"),
+    (ROOT / "index.html", 200_000, "index.html"),
+]
+_violations270: list[str] = []
+for _p, _budget, _label in _BUDGETS270:
+    if not _p.exists():
+        _violations270.append(f"{_label} ({_p.name}) 不在")
+        continue
+    _sz = _p.stat().st_size
+    if _sz > _budget:
+        _violations270.append(f"{_label}={_sz} bytes (budget {_budget})")
+_ok270 = not _violations270
+check(
+    _ok270,
+    f"Check 270: canonical text assets ({len(_BUDGETS270)} 件) all within byte budget",
+    (f"Check 270: 違反: {_violations270!r} — silent file bloat 検出。"
+     "dead-code 削除 or budget を上げる contract 更新"),
     blocking=True,
 )
 
