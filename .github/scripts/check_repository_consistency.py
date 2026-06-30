@@ -1433,6 +1433,15 @@ authoritative inventory and is kept in sync with the implementation below):
        This invariant catches silent digest-chain gaps that bypass C6.
        (BLOCKING)
 
+  220. manifest.webmanifest `lang` matches HTML `<html lang>`: the PWA
+       manifest's `lang` field MUST equal the index.html `<html lang>`
+       attribute (e.g. both `ja`). Drift would silently make the installed
+       PWA report a different language than the rendered HTML — screen
+       readers, OS-level language selectors, and AI/SEO consumers see
+       conflicting language signals. Sibling of Check 152 (<html lang> ↔
+       JSON-LD inLanguage) / Check 187 (og:locale ↔ <html lang>) for the
+       manifest install layer. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9416,6 +9425,39 @@ if _mani219.exists() and _chk_aio219.exists():
 else:
     check(False, "Check 219: aio-manifest.json + check_aio_digests.py present",
           "Check 219: aio-manifest.json もしくは check_aio_digests.py が無い", blocking=True)
+
+# ── 220. manifest.webmanifest lang == <html lang> (BLOCKING) ──────────────────
+# manifest.webmanifest `lang` field と index.html `<html lang>` attribute が
+# strict 一致することを BLOCKING 強制。drift は SILENT に PWA install で OS/screen
+# reader/AI/SEO consumer に異なる言語信号を流す。Check 152 (<html lang> ↔
+# JSON-LD inLanguage) / Check 187 (og:locale ↔ <html lang>) の manifest install 軸版。
+_idx220 = ROOT / "index.html"
+_mani220 = ROOT / "manifest.webmanifest"
+if _idx220.exists() and _mani220.exists():
+    _isrc220 = _idx220.read_text(encoding="utf-8")
+    _html_lang220_m = re.search(r'<html\s+lang=["\']([^"\']+)["\']', _isrc220)
+    _html_lang220 = _html_lang220_m.group(1) if _html_lang220_m else None
+    try:
+        _mdata220 = json.loads(_mani220.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as _e220:
+        _mdata220 = None
+    _mani_lang220 = _mdata220.get("lang") if isinstance(_mdata220, dict) else None
+    _ok220 = (
+        _html_lang220 is not None
+        and _mani_lang220 is not None
+        and _html_lang220 == _mani_lang220
+    )
+    check(
+        _ok220,
+        f"Check 220: manifest.lang={_mani_lang220!r} == <html lang>={_html_lang220!r}",
+        (f"Check 220: language drift: manifest.lang={_mani_lang220!r}, "
+         f"<html lang>={_html_lang220!r} — PWA install と HTML render で言語信号が "
+         "split。manifest.lang を <html lang> と同一値へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 220: index.html + manifest.webmanifest present",
+          "Check 220: index.html もしくは manifest.webmanifest が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
