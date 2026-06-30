@@ -1805,6 +1805,15 @@ authoritative inventory and is kept in sync with the implementation below):
        by "Anonymous"). Sibling of Check 260 (hero image) for the
        primary audio required-fields axis. (BLOCKING)
 
+  262. Shipped JS no `console.log(` calls (allow console.error / warn /
+       debug / info): main.js + sw.js + js/**/*.js + root scripts MUST
+       NOT contain `console.log(` literal calls. `console.log` is the
+       debug-statement leak pattern in production code; the project
+       allows `console.error` / `warn` (legitimate observability) but
+       restricts the verbose-debug form. Sibling of Check 239/240/241
+       (eval/timer-string/document.write) for the production-cleanliness
+       axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11551,6 +11560,35 @@ if _idx261.exists():
 else:
     check(False, "Check 261: index.html present",
           "Check 261: index.html が無い", blocking=True)
+
+# ── 262. Shipped JS no console.log calls (BLOCKING) ───────────────────────────
+# main.js + sw.js + js/**/*.js + root scripts に `console.log(` 呼び出しが 0
+# であることを BLOCKING 強制 (negative invariant)。console.error/warn/info/debug は
+# 許可 (production observability)、log は debug-statement leak の anti-pattern。
+_offenders262: list[str] = []
+_log_pat262 = re.compile(r"\bconsole\s*\.\s*log\s*\(")
+for _p in _eval_targets239:  # reuse Check 239 target list (31 file)
+    try:
+        _src = _p.read_text(encoding="utf-8")
+    except (FileNotFoundError, PermissionError):
+        continue
+    _stripped = re.sub(r"/\*.*?\*/", "", _src, flags=re.DOTALL)
+    _stripped = re.sub(r"//[^\n]*", "", _stripped)
+    _stripped = re.sub(r"'(?:\\.|[^'\\])*'", "''", _stripped)
+    _stripped = re.sub(r'"(?:\\.|[^"\\])*"', '""', _stripped)
+    _stripped = re.sub(r"`(?:\\.|[^`\\])*`", "``", _stripped)
+    if _log_pat262.search(_stripped):
+        _offenders262.append(str(Path(_p).relative_to(ROOT)))
+_ok262 = len(_eval_targets239) > 0 and not _offenders262
+check(
+    _ok262,
+    f"Check 262: shipped JS ({len(_eval_targets239)} 件) に console.log 呼び出し 0",
+    (f"Check 262: console.log を含む shipped JS: {_offenders262!r} — "
+     "production debug-statement leak。console.error/warn/info/debug を使うか除去せよ"
+     if _offenders262 else
+     "Check 262: shipped JS 0 件 — vacuous-fail"),
+    blocking=True,
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
