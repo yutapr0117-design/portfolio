@@ -1697,6 +1697,13 @@ authoritative inventory and is kept in sync with the implementation below):
        break canonical entity name display. Check 157 enforces presence;
        Check 248 enforces value canonicality. (BLOCKING)
 
+  249. `<meta name="viewport">` content has mobile baseline directives:
+       the index.html `<meta name="viewport">` content MUST contain
+       `width=device-width` AND `initial-scale=1`. Drift (e.g. fixed
+       `width=900`) silently breaks mobile rendering (zoom locked,
+       content cropped). Check 157 enforces presence; Check 249 enforces
+       canonical mobile-baseline content. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10839,6 +10846,37 @@ if _idx248.exists():
 else:
     check(False, "Check 248: index.html present",
           "Check 248: index.html が無い", blocking=True)
+
+# ── 249. <meta name=viewport> content has mobile baseline (BLOCKING) ──────────
+# index.html `<meta name="viewport">` content が `width=device-width` AND
+# `initial-scale=1` を含むことを BLOCKING 強制。drift で mobile rendering 破壊
+# (zoom 固定 / content cropped)。Check 157 (presence) の value 軸補完。
+_idx249 = ROOT / "index.html"
+if _idx249.exists():
+    _isrc249 = _idx249.read_text(encoding="utf-8")
+    _vm249 = re.search(
+        r'<meta\s+name=["\']viewport["\'][^>]*content=["\']([^"\']+)["\']', _isrc249
+    )
+    _vv249 = _vm249.group(1) if _vm249 else None
+    _missing249: list[str] = []
+    if not isinstance(_vv249, str):
+        _missing249.append("viewport 抽出不可")
+    else:
+        if "width=device-width" not in _vv249:
+            _missing249.append("width=device-width 不在")
+        if not re.search(r"initial-scale\s*=\s*1(\.0+)?\b", _vv249):
+            _missing249.append("initial-scale=1 不在")
+    _ok249 = not _missing249
+    check(
+        _ok249,
+        f"Check 249: <meta name=viewport> content has mobile baseline ({_vv249!r})",
+        (f"Check 249: viewport content 違反: {_missing249!r} — mobile rendering 破壊"
+         " (zoom 固定/content cropped)。width=device-width + initial-scale=1 を付与"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 249: index.html present",
+          "Check 249: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
