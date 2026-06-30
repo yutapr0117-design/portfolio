@@ -901,6 +901,12 @@ MUTATIONS = [
         "find": "export const AUTHOR = {",
         "replace": "console.log('probe');\nexport const AUTHOR = {",
     },
+    {
+        "name": "Check 263 (no debugger;/alert(): inject phony debugger statement",
+        "file": ROOT / "js" / "identity.js",
+        "find": "export const AUTHOR = {",
+        "replace": "debugger;\nexport const AUTHOR = {",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
