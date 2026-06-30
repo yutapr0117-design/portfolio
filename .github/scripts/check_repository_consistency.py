@@ -1728,6 +1728,13 @@ authoritative inventory and is kept in sync with the implementation below):
        SWR). Sibling of Check 19 (CACHE_NAME version) for the SW
        lifecycle handler presence axis. (BLOCKING)
 
+  253. main.js registers `navigator.serviceWorker.register('./sw.js'`:
+       main.js MUST contain a `navigator.serviceWorker.register('./sw.js'`
+       call. Silent removal would mean sw.js exists but never installs
+       on visiting browsers — Check 252 confirms the SW has handlers, but
+       without registration the SW is dead code. Sibling of Check 252
+       (SW handlers) for the SW registration call-site axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11012,6 +11019,29 @@ if _sw252.exists():
 else:
     check(False, "Check 252: sw.js present",
           "Check 252: sw.js が無い", blocking=True)
+
+# ── 253. main.js calls navigator.serviceWorker.register('./sw.js' (BLOCKING) ──
+# main.js が `navigator.serviceWorker.register('./sw.js'` を呼ぶことを BLOCKING
+# 強制。silent 欠落で sw.js handler は存在しても install されず offline+SWR 機能
+# 全停止。Check 252 (handler presence) の register call-site 軸。
+_main253 = ROOT / "main.js"
+if _main253.exists():
+    _msrc253 = _main253.read_text(encoding="utf-8")
+    _has253 = re.search(
+        r"navigator\s*\.\s*serviceWorker\s*\.\s*register\s*\(\s*['\"]\./sw\.js['\"]",
+        _msrc253,
+    ) is not None
+    check(
+        _has253,
+        "Check 253: main.js が navigator.serviceWorker.register('./sw.js'...) を呼ぶ",
+        ("Check 253: main.js に navigator.serviceWorker.register('./sw.js') 呼び出しが無い — "
+         "sw.js handlers (Check 252) は存在しても install されず offline+SWR 停止。"
+         "main.js の SW 登録 call-site を復元せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 253: main.js present",
+          "Check 253: main.js が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
