@@ -895,6 +895,12 @@ MUTATIONS = [
         "find": '"encodingFormat": "audio/mpeg",',
         "replace": '"xncodingFormat": "audio/mpeg",',
     },
+    {
+        "name": "Check 262 (no console.log): inject phony console.log into identity.js",
+        "file": ROOT / "js" / "identity.js",
+        "find": "export const AUTHOR = {",
+        "replace": "console.log('probe');\nexport const AUTHOR = {",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
