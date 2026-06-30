@@ -1564,6 +1564,14 @@ authoritative inventory and is kept in sync with the implementation below):
        and authenticity-grade degradation. Sibling of Check 232 (ai:*
        content HTTPS) for the asset:* meta surface. (BLOCKING)
 
+  234. `<meta name="asset:*">` content URLs (absolute) share canonical URL
+       prefix: every `<meta name="asset:*">` content value that is an
+       absolute URL MUST start with the canonical URL prefix. Drift (e.g.
+       asset:image:canonical pointing at a CDN or sibling project) would
+       silently advertise non-canonical asset URLs to AI/SEO, splitting
+       authority and breaking entity-asset linkage. Sibling of Check 171
+       (ai:* canonical prefix) for the asset:* meta surface. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10087,6 +10095,42 @@ if _idx233.exists():
 else:
     check(False, "Check 233: index.html present",
           "Check 233: index.html が無い", blocking=True)
+
+# ── 234. <meta name=asset:*> content URLs (absolute) share canonical prefix (BLOCKING) ─
+# index.html `<meta name="asset:*">` content attribute の absolute URL (http(s):// で
+# 始まる値) が canonical URL prefix で始まることを BLOCKING 強制。drift は SILENT に
+# AI/SEO へ non-canonical asset URL を流し entity authority を二分。Check 171
+# (ai:* canonical prefix) の asset:* 軸版。
+_idx234 = ROOT / "index.html"
+if _idx234.exists():
+    _isrc234 = _idx234.read_text(encoding="utf-8")
+    _canon234_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc234
+    )
+    _canon234 = _canon234_m.group(1) if _canon234_m else None
+    _asset_urls234 = re.findall(
+        r'<meta\s+name=["\']asset:[^"\']+["\'][^>]*content=["\'](https?://[^"\']+)["\']',
+        _isrc234,
+    )
+    _drifts234: list[str] = []
+    if _canon234 is None:
+        _drifts234.append("canonical URL 抽出不可")
+    if not _asset_urls234:
+        _drifts234.append("asset:* 絶対 URL 0 件 — vacuous-fail")
+    for _u in _asset_urls234:
+        if _canon234 and not _u.startswith(_canon234):
+            _drifts234.append(f"asset URL={_u!r} canonical prefix 不一致")
+    _ok234 = not _drifts234
+    check(
+        _ok234,
+        f"Check 234: <meta name=asset:*> 絶対 URL {len(_asset_urls234)} 件全て canonical prefix {_canon234!r} で始まる",
+        (f"Check 234: drift: {_drifts234!r} — AI/SEO crawler が non-canonical asset を "
+         "正規扱いし entity authority 二分。canonical prefix に揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 234: index.html present",
+          "Check 234: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
