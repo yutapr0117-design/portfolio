@@ -799,6 +799,12 @@ MUTATIONS = [
         "find": '"name": "yutapr0117-design の AI-Driven PM Portfolio の作成者は誰ですか？"',
         "replace": '"xname": "yutapr0117-design の AI-Driven PM Portfolio の作成者は誰ですか？"',
     },
+    {
+        "name": "Check 246 (BreadcrumbList structure): drift position int to string",
+        "file": ROOT / "index.html",
+        "find": '"@type": "ListItem",\n                              "position": 1,',
+        "replace": '"@type": "ListItem",\n                              "position": "1",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
