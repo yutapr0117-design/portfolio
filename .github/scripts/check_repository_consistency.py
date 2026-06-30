@@ -1665,6 +1665,15 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 217 (top-level @id uniqueness) for the top-level
        @type presence axis. (BLOCKING)
 
+  245. JSON-LD FAQPage `mainEntity[]` Q&A structure validity: every
+       FAQPage node's `mainEntity` array MUST contain non-empty Question
+       entries, each with `@type == "Question"` + non-empty `name` + an
+       `acceptedAnswer` object with `@type == "Answer"` + non-empty
+       `text`. Drift would silently break Google FAQ rich-result
+       eligibility + AI search FAQ ingestion. Sibling of Check 235
+       (Article required fields) for the FAQPage required-structure
+       surface. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10594,6 +10603,76 @@ if _idx244.exists():
 else:
     check(False, "Check 244: index.html present",
           "Check 244: index.html が無い", blocking=True)
+
+# ── 245. JSON-LD FAQPage mainEntity Q&A structure validity (BLOCKING) ─────────
+# index.html JSON-LD の全 FAQPage node の `mainEntity` 配列が Schema.org Q&A 構造
+# (Question + name + acceptedAnswer(Answer + text)) を満たすことを BLOCKING 強制。
+# drift は SILENT に Google FAQ rich-result 失格 + AI search FAQ ingestion 破壊。
+_idx245 = ROOT / "index.html"
+if _idx245.exists():
+    _isrc245 = _idx245.read_text(encoding="utf-8")
+    _blocks245 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc245,
+        flags=re.DOTALL,
+    )
+    _violations245: list[str] = []
+    _q_count245 = 0
+    def _walk245(node: object, path: str) -> None:
+        global _q_count245
+        if isinstance(node, dict):
+            if node.get("@type") == "FAQPage":
+                _me = node.get("mainEntity")
+                if not isinstance(_me, list) or not _me:
+                    _violations245.append(f"{path}: FAQPage.mainEntity 欠落/空")
+                else:
+                    for _i, _q in enumerate(_me):
+                        _q_count245 += 1
+                        if not isinstance(_q, dict):
+                            _violations245.append(f"{path}.mainEntity[{_i}] non-dict")
+                            continue
+                        if _q.get("@type") != "Question":
+                            _violations245.append(f"{path}.mainEntity[{_i}] @type != Question")
+                        _n = _q.get("name")
+                        if not isinstance(_n, str) or not _n.strip():
+                            _violations245.append(f"{path}.mainEntity[{_i}] name 欠落/空")
+                        _a = _q.get("acceptedAnswer")
+                        if not isinstance(_a, dict):
+                            _violations245.append(f"{path}.mainEntity[{_i}] acceptedAnswer 欠落")
+                        else:
+                            if _a.get("@type") != "Answer":
+                                _violations245.append(f"{path}.mainEntity[{_i}].acceptedAnswer @type != Answer")
+                            _t = _a.get("text")
+                            if not isinstance(_t, str) or not _t.strip():
+                                _violations245.append(f"{path}.mainEntity[{_i}].acceptedAnswer.text 欠落/空")
+            for k, v in node.items():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk245(item, f"{path}.{k}")
+                else:
+                    _walk245(v, f"{path}.{k}")
+        elif isinstance(node, list):
+            for i, item in enumerate(node):
+                _walk245(item, f"{path}[{i}]")
+    for _bi, _blk in enumerate(_blocks245):
+        try:
+            _data245 = json.loads(_blk)
+        except json.JSONDecodeError:
+            continue
+        _walk245(_data245, f"block{_bi}")
+    _ok245 = _q_count245 > 0 and not _violations245
+    check(
+        _ok245,
+        f"Check 245: FAQPage mainEntity Q&A {_q_count245} 件全て Schema.org 構造正",
+        (f"Check 245: 違反: {_violations245!r} — Google FAQ rich-result 失格 + "
+         "AI FAQ ingestion 破壊。Question+name+acceptedAnswer(Answer+text) 構造へ揃えよ"
+         if _violations245 else
+         "Check 245: FAQPage mainEntity Q 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 245: index.html present",
+          "Check 245: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
