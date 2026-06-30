@@ -1592,6 +1592,17 @@ authoritative inventory and is kept in sync with the implementation below):
        fields. Drift would silently corrupt recency / employment-timeline
        signals consumed by AI/SEO. (BLOCKING)
 
+  237. js/*.js leaf modules have ZERO ESM imports (no inter-leaf coupling):
+       every leaf JS module under `js/` MUST have no top-level `import`
+       statements. main.js is the SOLE orchestrator that imports leaves.
+       This structural invariant prevents:
+         - circular leaf↔leaf dependencies (impossible by construction)
+         - hidden coupling between leaves (architectural drift)
+         - bundling complexity that breaks Vanilla SPA constraint (C1)
+       Drift (a leaf importing another leaf) would silently create the
+       first cross-leaf edge in the dependency graph, opening the door
+       to cycle formation. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10254,6 +10265,38 @@ if _man236.exists():
 else:
     check(False, "Check 236: aio-manifest.json present",
           "Check 236: aio-manifest.json が無い", blocking=True)
+
+# ── 237. js/*.js leaf modules have ZERO ESM imports (BLOCKING) ────────────────
+# js/*.js (および js/quiz/*.js) の全 leaf module が top-level `import` を
+# 一切持たないことを BLOCKING 強制 (negative invariant)。main.js のみが orchestrator。
+# leaf 間 import = 循環依存の入口・hidden coupling・bundling 複雑化 (C1 違反入口)。
+import glob as _glob237
+_leaf_paths237 = (
+    _glob237.glob(str(ROOT / "js" / "*.js"))
+    + _glob237.glob(str(ROOT / "js" / "quiz" / "*.js"))
+)
+_offenders237: list[str] = []
+for _lp in _leaf_paths237:
+    try:
+        _lsrc = open(_lp, encoding="utf-8").read()
+    except (FileNotFoundError, PermissionError):
+        continue
+    # Strip block comments to avoid false-positive on `import` inside comments
+    _stripped = re.sub(r"/\*.*?\*/", "", _lsrc, flags=re.DOTALL)
+    _stripped = re.sub(r"^\s*//.*$", "", _stripped, flags=re.M)
+    # top-level import statements: `import ... from '...'` or `import '...'`
+    if re.search(r"(?:^|\n)\s*import\s+", _stripped):
+        _offenders237.append(str(Path(_lp).relative_to(ROOT)))
+_ok237 = len(_leaf_paths237) > 0 and not _offenders237
+check(
+    _ok237,
+    f"Check 237: js/ leaf modules {len(_leaf_paths237)} 件全て import 文 0 (zero coupling)",
+    (f"Check 237: import 文を持つ leaf module: {_offenders237!r} — "
+     "leaf↔leaf coupling で循環依存の入口を作る。main.js 経由のみで orchestrate せよ"
+     if _offenders237 else
+     "Check 237: leaf module 0 件 — vacuous-fail"),
+    blocking=True,
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
