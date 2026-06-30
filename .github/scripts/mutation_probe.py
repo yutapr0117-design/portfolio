@@ -787,6 +787,12 @@ MUTATIONS = [
         "find": "LAST_UPDATED:  '2026-05-31',",
         "replace": "LAST_UPDATED:  '2099-12-31',",
     },
+    {
+        "name": "Check 244 (top-level @graph @type): strip @type from primary Person (top-level)",
+        "file": ROOT / "index.html",
+        "find": '                  "@type": "Person",',
+        "replace": '                  "@xtype": "Person",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
