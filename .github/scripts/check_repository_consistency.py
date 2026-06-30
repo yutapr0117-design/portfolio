@@ -1612,6 +1612,16 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 17/180 (date sync) for the head singleton uniqueness axis.
        (BLOCKING)
 
+  239. Shipped JS does NOT contain `eval(` or `new Function(` calls:
+       main.js + sw.js + all `js/**/*.js` + root scripts (aio-guard /
+       theme-init / karte-init / error-suppressor) MUST NOT contain
+       `eval(`, `Function(`, or `new Function(` literal patterns
+       (security baseline). Drift would silently introduce a CSP
+       `script-src 'unsafe-eval'` requirement at runtime — which the
+       current CSP rejects, causing browser console errors and broken
+       functionality. Sibling of Check 115 (CSP anti-weakening) for the
+       JS source-level enforcement. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10338,6 +10348,48 @@ if _idx238.exists():
 else:
     check(False, "Check 238: index.html present",
           "Check 238: index.html が無い", blocking=True)
+
+# ── 239. Shipped JS no eval / Function call (BLOCKING) ────────────────────────
+# main.js + sw.js + js/**/*.js + root scripts (aio-guard/theme-init/karte-init/
+# error-suppressor) に `eval(` / `new Function(` / `Function(` 呼び出しが無いことを
+# BLOCKING 強制 (negative invariant)。drift で CSP の 'unsafe-eval' を要求し
+# 既存 CSP (Check 115) が reject し runtime 破壊。
+_eval_targets239: list[Path] = []
+for _p in [ROOT / "main.js", ROOT / "sw.js", ROOT / "aio-guard.js",
+           ROOT / "theme-init.js", ROOT / "karte-init.js",
+           ROOT / "error-suppressor.js"]:
+    if _p.exists():
+        _eval_targets239.append(_p)
+_eval_targets239 += [Path(p) for p in _glob237.glob(str(ROOT / "js" / "*.js"))]
+_eval_targets239 += [Path(p) for p in _glob237.glob(str(ROOT / "js" / "quiz" / "*.js"))]
+_offenders239: list[str] = []
+_eval_pat239 = re.compile(r"(?:^|[^a-zA-Z0-9_$.])(eval\s*\(|new\s+Function\s*\(|(?<![a-zA-Z0-9_$.])Function\s*\()")
+for _p in _eval_targets239:
+    try:
+        _src = _p.read_text(encoding="utf-8")
+    except (FileNotFoundError, PermissionError):
+        continue
+    # Strip /* ... */ comments and // ... comments to avoid false-positive on
+    # documentation mentions of eval/Function.
+    _stripped = re.sub(r"/\*.*?\*/", "", _src, flags=re.DOTALL)
+    _stripped = re.sub(r"//[^\n]*", "", _stripped)
+    # Also strip string literals (single/double/template) to avoid catching
+    # `"eval("` 等 documentation in strings.
+    _stripped = re.sub(r"'(?:\\.|[^'\\])*'", "''", _stripped)
+    _stripped = re.sub(r'"(?:\\.|[^"\\])*"', '""', _stripped)
+    _stripped = re.sub(r"`(?:\\.|[^`\\])*`", "``", _stripped)
+    if _eval_pat239.search(_stripped):
+        _offenders239.append(str(Path(_p).relative_to(ROOT)))
+_ok239 = len(_eval_targets239) > 0 and not _offenders239
+check(
+    _ok239,
+    f"Check 239: shipped JS ({len(_eval_targets239)} 件) に eval/new Function 呼び出し 0",
+    (f"Check 239: eval/Function 呼び出しを含む shipped JS: {_offenders239!r} — "
+     "CSP 'unsafe-eval' を要求し runtime 破壊 (Check 115 が reject)。除去せよ"
+     if _offenders239 else
+     "Check 239: shipped JS 0 件 — vacuous-fail"),
+    blocking=True,
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
