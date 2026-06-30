@@ -1867,6 +1867,12 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 235 (Article required fields) for the headline length axis.
        (BLOCKING)
 
+  269. canonical binary asset size budget: hero.webp <= 200_000 bytes
+       AND BGM.mp3 <= 1_000_000 bytes. Drift (image / audio re-encoded to
+       a larger size accidentally) would silently degrade LCP / CWV /
+       mobile bandwidth budget. Sibling of Check 120 (shipped JS byte
+       weight budget) for the binary asset axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11903,6 +11909,33 @@ if _idx268.exists():
 else:
     check(False, "Check 268: index.html present",
           "Check 268: index.html が無い", blocking=True)
+
+# ── 269. canonical binary asset size budget (BLOCKING) ────────────────────────
+# canonical hero.webp <= 200_000 bytes AND BGM.mp3 <= 1_000_000 bytes を
+# BLOCKING 強制 (CWV LCP / mobile bandwidth budget)。Check 120 (JS byte weight)
+# の binary asset 軸版。
+_HERO_WEBP269 = ROOT / "yuta-yokoi-ai-pm-orchestration-system.webp"
+_BGM_MP3_269 = ROOT / "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3"
+_BUDGETS269 = [
+    (_HERO_WEBP269, 200_000, "hero.webp"),
+    (_BGM_MP3_269, 1_000_000, "BGM.mp3"),
+]
+_violations269: list[str] = []
+for _p, _budget, _label in _BUDGETS269:
+    if not _p.exists():
+        _violations269.append(f"{_label} ({_p.name}) 不在")
+        continue
+    _sz = _p.stat().st_size
+    if _sz > _budget:
+        _violations269.append(f"{_label}={_sz} bytes (budget {_budget})")
+_ok269 = not _violations269
+check(
+    _ok269,
+    f"Check 269: canonical binary assets ({len(_BUDGETS269)} 件) all within byte budget",
+    (f"Check 269: 違反: {_violations269!r} — CWV LCP / mobile bandwidth 劣化。"
+     "binary を再圧縮 or budget を上げる contract 更新"),
+    blocking=True,
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
