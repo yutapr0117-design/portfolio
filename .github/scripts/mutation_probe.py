@@ -757,6 +757,12 @@ MUTATIONS = [
         "find": '<link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" />',
         "replace": '<link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" />\n    <link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/PROBE-DUPLICATE/" />',
     },
+    {
+        "name": "Check 239 (no eval/Function in shipped JS): inject phony eval into identity.js",
+        "file": ROOT / "js" / "identity.js",
+        "find": "export const AUTHOR = {",
+        "replace": "const probeEval = eval('null');\nexport const AUTHOR = {",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
