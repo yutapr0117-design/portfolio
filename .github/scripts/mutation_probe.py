@@ -739,6 +739,12 @@ MUTATIONS = [
         "find": '"name": "Authoritative AI full context — Yuta Yokoi (横井雄太) canonical ground truth"\n                        }\n                  ],\n                  "datePublished": "2026-01-01",',
         "replace": '"name": "Authoritative AI full context — Yuta Yokoi (横井雄太) canonical ground truth"\n                        }\n                  ],\n                  "datePublishedTYPO": "2026-01-01",',
     },
+    {
+        "name": "Check 236 (aio-manifest start_date ISO): drift to locale format",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"start_date": "2026-06-11"',
+        "replace": '"start_date": "2026/06/11"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
