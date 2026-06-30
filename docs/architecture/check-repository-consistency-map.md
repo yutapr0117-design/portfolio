@@ -342,6 +342,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 266 | JSON-LD で Person/Organization/ImageObject/CreativeWork node の description 値長が [20, 1000] 内。too brief (AI/SEO 不足) / too long (copy-paste 過剰) を BLOCKING で阻止。Check 224 (meta description length) の JSON-LD 軸版 | BLOCKING |
 | 267 | JSON-LD で @id + name 両備の entity (Person/Org/Image/WebSite/WebPage/TechArticle/CreativeWork/AudioObject) の name 値長が [3, 200] 内。<3=stub/empty / >200=copy-paste over-long を BLOCKING で阻止。Check 266 の entity name 軸版 | BLOCKING |
 | 268 | JSON-LD Article/TechArticle/NewsArticle/BlogPosting の headline 値長が [10, 110] 内 (Schema.org / Google rich-result spec)。drift で SERP card truncate / sparse を BLOCKING で阻止。Check 235 (Article 必須 fields) の headline length 軸版 | BLOCKING |
+| 269 | canonical hero.webp <= 200_000 bytes AND BGM.mp3 <= 1_000_000 bytes (CWV LCP / mobile bandwidth budget)。drift で LCP/CWV 劣化を BLOCKING で阻止。Check 120 (JS byte weight) の binary asset 軸版 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 
