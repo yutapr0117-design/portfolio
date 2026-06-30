@@ -811,6 +811,12 @@ MUTATIONS = [
         "find": '"name": "AI-Driven PM Portfolio Architecture Vision"',
         "replace": '"xname": "AI-Driven PM Portfolio Architecture Vision"',
     },
+    {
+        "name": "Check 248 (charset utf-8): drift charset to shift_jis",
+        "file": ROOT / "index.html",
+        "find": '<meta charset="utf-8" />',
+        "replace": '<meta charset="shift_jis" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
