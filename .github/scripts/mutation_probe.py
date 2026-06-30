@@ -745,6 +745,12 @@ MUTATIONS = [
         "find": '"start_date": "2026-06-11"',
         "replace": '"start_date": "2026/06/11"',
     },
+    {
+        "name": "Check 237 (js/ leaf zero import): inject phony import into identity.js",
+        "file": ROOT / "js" / "identity.js",
+        "find": "export const AUTHOR = {",
+        "replace": "import { CONSTANTS } from './constants.js';\nexport const AUTHOR = {",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
