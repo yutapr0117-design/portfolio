@@ -865,6 +865,12 @@ MUTATIONS = [
         "find": '"/html/head/title"\n                        ]\n                  },\n                  "datePublished": "2026-01-01",\n                  "dateModified": "2026-05-24"',
         "replace": '"/html/head/title"\n                        ]\n                  },\n                  "datePublished": "2026-01-01",\n                  "xateModified": "2026-05-24"',
     },
+    {
+        "name": "Check 257 (primary Person required): strip jobTitle from primary Person",
+        "file": ROOT / "index.html",
+        "find": '"jobTitle": "AI-Driven Project Manager / IT Consultant / KERNEL Framework Designer",',
+        "replace": '"xobTitle": "AI-Driven Project Manager / IT Consultant / KERNEL Framework Designer",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
