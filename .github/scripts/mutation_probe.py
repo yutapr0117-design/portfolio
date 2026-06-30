@@ -649,6 +649,12 @@ MUTATIONS = [
         "find": '"lang": "ja",',
         "replace": '"lang": "en",',
     },
+    {
+        "name": "Check 221 (image ref ImageObject type-safe): drift Person.image to #person (non-image)",
+        "file": ROOT / "index.html",
+        "find": '"image": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#hero-image"',
+        "replace": '"image": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#person"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
