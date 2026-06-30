@@ -1603,6 +1603,15 @@ authoritative inventory and is kept in sync with the implementation below):
        first cross-leaf edge in the dependency graph, opening the door
        to cycle formation. (BLOCKING)
 
+  238. HTML head singleton tags each appear exactly once: index.html must
+       contain exactly 1 of each of `<title>`, `<link rel="canonical">`,
+       `<meta name="description">`, `<meta property="og:url">`,
+       `<meta property="og:title">`. Multiple instances are SILENT class
+       drift — browsers/crawlers pick "first" or "last" non-deterministically
+       and the duplicate dilutes the canonical entity signal. Sibling of
+       Check 17/180 (date sync) for the head singleton uniqueness axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10297,6 +10306,38 @@ check(
      "Check 237: leaf module 0 件 — vacuous-fail"),
     blocking=True,
 )
+
+# ── 238. HTML head singleton tags appear exactly once (BLOCKING) ──────────────
+# index.html の head 内 singleton tag (title / link rel=canonical /
+# meta name=description / meta property=og:url / meta property=og:title) が
+# それぞれちょうど 1 件で存在することを BLOCKING 強制。複数 instance は SILENT
+# に browser/crawler が「first」「last」を非決定的に選び canonical signal を希釈。
+_idx238 = ROOT / "index.html"
+if _idx238.exists():
+    _isrc238 = _idx238.read_text(encoding="utf-8")
+    _patterns238 = [
+        ("<title>", r"<title>[^<]+</title>"),
+        ('<link rel="canonical">', r'<link\s+rel=["\']canonical["\']'),
+        ('<meta name="description">', r'<meta\s+name=["\']description["\']'),
+        ('<meta property="og:url">', r'<meta\s+property=["\']og:url["\']'),
+        ('<meta property="og:title">', r'<meta\s+property=["\']og:title["\']'),
+    ]
+    _bad238: list[str] = []
+    for _label, _pat in _patterns238:
+        _n = len(re.findall(_pat, _isrc238))
+        if _n != 1:
+            _bad238.append(f"{_label} count={_n} (expected 1)")
+    _ok238 = not _bad238
+    check(
+        _ok238,
+        f"Check 238: HTML head singleton tags 全て exactly 1 件",
+        (f"Check 238: singleton 違反: {_bad238!r} — browser/crawler が非決定的に "
+         "選択し canonical signal が希釈。各 head singleton tag を exactly 1 件へ整理"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 238: index.html present",
+          "Check 238: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
