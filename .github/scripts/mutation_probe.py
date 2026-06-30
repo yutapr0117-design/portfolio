@@ -727,6 +727,12 @@ MUTATIONS = [
         "find": '<meta name="asset:image:canonical" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" />',
         "replace": '<meta name="asset:image:canonical" content="http://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" />',
     },
+    {
+        "name": "Check 234 (asset:* canonical prefix): drift asset:audio:canonical to external CDN",
+        "file": ROOT / "index.html",
+        "find": '<meta name="asset:audio:canonical" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3" />',
+        "replace": '<meta name="asset:audio:canonical" content="https://cdn.probe-drift.example/yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
