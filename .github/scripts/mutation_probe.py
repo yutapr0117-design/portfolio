@@ -907,6 +907,12 @@ MUTATIONS = [
         "find": "export const AUTHOR = {",
         "replace": "debugger;\nexport const AUTHOR = {",
     },
+    {
+        "name": "Check 264 (no TODO/FIXME/HACK/XXX in comments): inject FIXME comment",
+        "file": ROOT / "js" / "identity.js",
+        "find": "export const AUTHOR = {",
+        "replace": "// FIXME: probe-mutation\nexport const AUTHOR = {",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
