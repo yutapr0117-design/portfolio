@@ -769,6 +769,12 @@ MUTATIONS = [
         "find": "export const AUTHOR = {",
         "replace": "setTimeout('void 0', 0);\nexport const AUTHOR = {",
     },
+    {
+        "name": "Check 241 (no document.write): inject phony document.write into identity.js",
+        "file": ROOT / "js" / "identity.js",
+        "find": "export const AUTHOR = {",
+        "replace": "document.write('');\nexport const AUTHOR = {",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
