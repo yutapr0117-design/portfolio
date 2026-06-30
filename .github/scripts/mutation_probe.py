@@ -937,6 +937,12 @@ MUTATIONS = [
         "find": '"headline": "AI-Driven PM Portfolio — PM-led AI Orchestration Experiment by Yuta Yokoi (横井雄太)",',
         "replace": '"headline": "x",',
     },
+    {
+        "name": "Check 269 (binary asset byte budget): tighten hero.webp budget to 1 byte (simulates over-budget)",
+        "file": CHECK,
+        "find": '(_HERO_WEBP269, 200_000, "hero.webp"),',
+        "replace": '(_HERO_WEBP269, 1, "hero.webp"),',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
