@@ -1751,6 +1751,14 @@ authoritative inventory and is kept in sync with the implementation below):
        height drift, layout breakage. Sibling of Check 157 (head meta
        baseline) for the document-mode declaration axis. (BLOCKING)
 
+  256. Primary JSON-LD WebPage has `dateModified` + `inLanguage` +
+       `isPartOf`: in index.html static JSON-LD, the primary WebPage node
+       (`@id == canonical + "#webpage"`) MUST have `dateModified` (string),
+       `inLanguage` (string), AND `isPartOf` (object/string). Drift would
+       silently remove recency / language / hierarchy signals from the
+       primary page entity. Sibling of Check 235 (Article required fields)
+       for the primary WebPage required-fields axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11122,6 +11130,65 @@ if _idx255.exists():
 else:
     check(False, "Check 255: index.html present",
           "Check 255: index.html が無い", blocking=True)
+
+# ── 256. primary WebPage has dateModified + inLanguage + isPartOf (BLOCKING) ──
+# index.html 静的 JSON-LD の primary WebPage node (@id == canonical+#webpage) が
+# `dateModified` + `inLanguage` + `isPartOf` を持つことを BLOCKING 強制。drift で
+# recency/language/hierarchy 信号 silent 喪失。Check 235 の primary WebPage 軸版。
+_idx256 = ROOT / "index.html"
+if _idx256.exists():
+    _isrc256 = _idx256.read_text(encoding="utf-8")
+    _canon256_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc256
+    )
+    _canon256 = _canon256_m.group(1) if _canon256_m else None
+    _expected_wid256 = (_canon256 or "") + "#webpage"
+    _blocks256 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc256,
+        flags=re.DOTALL,
+    )
+    _primary_wp256 = None
+    def _walk256(node: object) -> None:
+        global _primary_wp256
+        if isinstance(node, dict):
+            if node.get("@type") == "WebPage" and node.get("@id") == _expected_wid256:
+                _primary_wp256 = node
+            for v in node.values():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk256(item)
+                else:
+                    _walk256(v)
+        elif isinstance(node, list):
+            for item in node:
+                _walk256(item)
+    for _blk in _blocks256:
+        try:
+            _walk256(json.loads(_blk))
+        except json.JSONDecodeError:
+            continue
+    _missing256: list[str] = []
+    if _primary_wp256 is None:
+        _missing256.append(f"primary WebPage @id={_expected_wid256!r} 不在")
+    else:
+        if not isinstance(_primary_wp256.get("dateModified"), str):
+            _missing256.append("dateModified 欠落")
+        if not isinstance(_primary_wp256.get("inLanguage"), str):
+            _missing256.append("inLanguage 欠落")
+        if not isinstance(_primary_wp256.get("isPartOf"), (dict, str)):
+            _missing256.append("isPartOf 欠落")
+    _ok256 = not _missing256
+    check(
+        _ok256,
+        f"Check 256: primary WebPage ({_expected_wid256}) has dateModified + inLanguage + isPartOf",
+        (f"Check 256: 違反: {_missing256!r} — recency/language/hierarchy 信号喪失。"
+         "primary WebPage に 3 field を揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 256: index.html present",
+          "Check 256: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
