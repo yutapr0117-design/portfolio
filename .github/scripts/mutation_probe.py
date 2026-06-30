@@ -883,6 +883,12 @@ MUTATIONS = [
         "find": '"alternateName": ["日本経営", "Nihon Keiei", "Japan Management Co., Ltd.", "日本経営グループ"],',
         "replace": '"xlternateName": ["日本経営", "Nihon Keiei", "Japan Management Co., Ltd.", "日本経営グループ"],',
     },
+    {
+        "name": "Check 260 (hero ImageObject required): drift width to non-numeric",
+        "file": ROOT / "index.html",
+        "find": '"width": "1200",',
+        "replace": '"width": "huge",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
