@@ -336,6 +336,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 260 | primary hero ImageObject node (`@id == canonical+#hero-image`) が caption (str) + width (numeric) + height (numeric) + encodingFormat (str) 4 fields を持つ。drift で Google Image rich-result + CWV LCP preload + accessibility 劣化を BLOCKING で阻止。Check 247 の hero-image 軸版 | BLOCKING |
 | 261 | primary BGM AudioObject node (`@id == canonical+#portfolio-bgm`) が encodingFormat (str) + creator (dict/str) を持つ。drift で AI search audio classification + attribution 喪失を BLOCKING で阻止。Check 260 の audio 軸版 | BLOCKING |
 | 262 | shipped JS (main.js + sw.js + js/**/*.js + root scripts) に `console.log(` 呼び出しが 0 (console.error/warn/info/debug は許可)。production debug-statement leak を BLOCKING で阻止。Check 239/240/241 の production-cleanliness 軸 | BLOCKING |
+| 263 | shipped JS に `debugger;` statement / `alert(` 呼び出しが共に 0 (confirm() は許可)。dev-debug pattern leak で production UX-break を BLOCKING で阻止。Check 262 の dev-debug 軸 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 
