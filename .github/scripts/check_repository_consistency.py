@@ -1785,6 +1785,17 @@ authoritative inventory and is kept in sync with the implementation below):
        Organization card shrinks). Sibling of Check 257 (primary Person)
        for the primary Organization required-fields axis. (BLOCKING)
 
+  260. primary hero ImageObject has caption + width + height +
+       encodingFormat: in index.html static JSON-LD, the primary hero
+       ImageObject node (`@id == canonical + "#hero-image"`) MUST have
+       caption (non-empty str), width + height (numeric-parsable string
+       or int), encodingFormat (non-empty str). Drift would silently
+       degrade Google Image rich-result eligibility (width/height
+       required for CWV LCP-image preload coordination, caption required
+       for accessibility / Google Lens). Sibling of Check 247
+       (MediaObject required) for the hero-image required-fields axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11398,6 +11409,78 @@ if _idx259.exists():
 else:
     check(False, "Check 259: index.html present",
           "Check 259: index.html が無い", blocking=True)
+
+# ── 260. primary hero ImageObject 必須 4 fields (BLOCKING) ────────────────────
+# index.html JSON-LD の primary hero ImageObject node (@id == canonical+#hero-image)
+# が caption (非空 str) + width (numeric-parsable) + height (numeric-parsable) +
+# encodingFormat (非空 str) を持つことを BLOCKING 強制。drift で Google Image
+# rich-result + CWV LCP preload + accessibility 劣化。Check 247 の hero-image 軸版。
+_idx260 = ROOT / "index.html"
+if _idx260.exists():
+    _isrc260 = _idx260.read_text(encoding="utf-8")
+    _canon260_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc260
+    )
+    _canon260 = _canon260_m.group(1) if _canon260_m else None
+    _expected_hid260 = (_canon260 or "") + "#hero-image"
+    _blocks260 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc260,
+        flags=re.DOTALL,
+    )
+    _primary_hero260 = None
+    def _walk260(node: object) -> None:
+        global _primary_hero260
+        if isinstance(node, dict):
+            if (
+                node.get("@type") == "ImageObject"
+                and node.get("@id") == _expected_hid260
+                and _primary_hero260 is None
+            ):
+                _primary_hero260 = node
+            for v in node.values():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk260(item)
+                else:
+                    _walk260(v)
+        elif isinstance(node, list):
+            for item in node:
+                _walk260(item)
+    for _blk in _blocks260:
+        try:
+            _walk260(json.loads(_blk))
+        except json.JSONDecodeError:
+            continue
+    _missing260: list[str] = []
+    if _primary_hero260 is None:
+        _missing260.append(f"primary hero ImageObject @id={_expected_hid260!r} 不在")
+    else:
+        for _f in ("caption", "encodingFormat"):
+            if not isinstance(_primary_hero260.get(_f), str) or not _primary_hero260[_f].strip():
+                _missing260.append(f"{_f} 欠落/空")
+        for _f in ("width", "height"):
+            _v = _primary_hero260.get(_f)
+            try:
+                if isinstance(_v, str):
+                    int(_v)
+                elif isinstance(_v, int):
+                    pass
+                else:
+                    raise ValueError("not numeric")
+            except (TypeError, ValueError):
+                _missing260.append(f"{_f}={_v!r} 非 numeric/欠落")
+    _ok260 = not _missing260
+    check(
+        _ok260,
+        f"Check 260: primary hero ImageObject has caption + width + height + encodingFormat",
+        (f"Check 260: 違反: {_missing260!r} — Google Image rich-result + CWV LCP + "
+         "accessibility 劣化。caption(str) + width/height(numeric) + encodingFormat(str) を揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 260: index.html present",
+          "Check 260: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
