@@ -1851,6 +1851,14 @@ authoritative inventory and is kept in sync with the implementation below):
        (meta description length) for the JSON-LD entity description axis.
        (BLOCKING)
 
+  267. JSON-LD entity name length in [3, 200]: every Person / Organization
+       / ImageObject / WebSite / WebPage / TechArticle / CreativeWork /
+       AudioObject node with `@id` AND `name` field must have name length
+       in [3, 200] character. Drift: <3 = stub/empty (entity disambiguation
+       impossible); >200 = copy-paste over-long (often body text leaked).
+       Sibling of Check 266 (entity description length) for the JSON-LD
+       entity name axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11777,6 +11785,63 @@ if _idx266.exists():
 else:
     check(False, "Check 266: index.html present",
           "Check 266: index.html が無い", blocking=True)
+
+# ── 267. JSON-LD entity name length in [3, 200] (BLOCKING) ────────────────────
+# index.html JSON-LD で @id + name 両備の entity (Person/Organization/Image/
+# WebSite/WebPage/TechArticle/CreativeWork/AudioObject) の name 値長が
+# [3, 200] 内であることを BLOCKING 強制。Check 266 の entity name 軸版。
+_NAME_TYPES267 = {"Person", "Organization", "ImageObject", "WebSite", "WebPage",
+                   "TechArticle", "CreativeWork", "AudioObject"}
+_idx267 = ROOT / "index.html"
+if _idx267.exists():
+    _isrc267 = _idx267.read_text(encoding="utf-8")
+    _blocks267 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc267,
+        flags=re.DOTALL,
+    )
+    _violations267: list[str] = []
+    _checked267 = 0
+    def _walk267(node: object, path: str) -> None:
+        global _checked267
+        if isinstance(node, dict):
+            _t = node.get("@type")
+            _n = node.get("name")
+            if (
+                isinstance(_t, str) and _t in _NAME_TYPES267
+                and node.get("@id") and isinstance(_n, str)
+            ):
+                _checked267 += 1
+                _ln = len(_n)
+                if not (3 <= _ln <= 200):
+                    _violations267.append(f"{path} {_t}: name len={_ln} value={_n[:30]!r}")
+            for k, v in node.items():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk267(item, f"{path}.{k}")
+                else:
+                    _walk267(v, f"{path}.{k}")
+        elif isinstance(node, list):
+            for i, item in enumerate(node):
+                _walk267(item, f"{path}[{i}]")
+    for _bi, _blk in enumerate(_blocks267):
+        try:
+            _walk267(json.loads(_blk), f"block{_bi}")
+        except json.JSONDecodeError:
+            continue
+    _ok267 = _checked267 > 0 and not _violations267
+    check(
+        _ok267,
+        f"Check 267: JSON-LD entity name ({_checked267} 件) 全て [3, 200] 内",
+        (f"Check 267: 違反: {_violations267!r} — <3=stub / >200=copy-paste over-long。"
+         "[3, 200] へ調整"
+         if _violations267 else
+         "Check 267: name 付き entity 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 267: index.html present",
+          "Check 267: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
