@@ -715,6 +715,12 @@ MUTATIONS = [
         "find": "ROLE_TITLE:    'AI-Driven PM',",
         "replace": "ROLE_TITLE:    'Random Role PROBE',",
     },
+    {
+        "name": "Check 232 (ai:* content HTTPS): downgrade ai:context URL to HTTP",
+        "file": ROOT / "index.html",
+        "find": '<meta name="ai:context" content="https://yutapr0117-design.github.io/portfolio/llms-full.txt" />',
+        "replace": '<meta name="ai:context" content="http://yutapr0117-design.github.io/portfolio/llms-full.txt" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
