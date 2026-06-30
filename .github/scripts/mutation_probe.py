@@ -751,6 +751,12 @@ MUTATIONS = [
         "find": "export const AUTHOR = {",
         "replace": "import { CONSTANTS } from './constants.js';\nexport const AUTHOR = {",
     },
+    {
+        "name": "Check 238 (HTML head singleton tags): duplicate canonical link",
+        "file": ROOT / "index.html",
+        "find": '<link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" />',
+        "replace": '<link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" />\n    <link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/PROBE-DUPLICATE/" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
