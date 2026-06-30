@@ -835,6 +835,12 @@ MUTATIONS = [
         "find": '"potentialAction": {\n                        "@type": "ReadAction",',
         "replace": '"potentialAction": {\n                        "@xtype": "ReadAction",',
     },
+    {
+        "name": "Check 252 (sw.js install+activate+fetch handlers): rename fetch listener to xfetch",
+        "file": ROOT / "sw.js",
+        "find": "self.addEventListener('fetch',",
+        "replace": "self.addEventListener('xfetch',",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
