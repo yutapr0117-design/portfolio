@@ -919,6 +919,12 @@ MUTATIONS = [
         "find": "export const AUTHOR = {",
         "replace": "const probeLoose = 1 == 1;\nexport const AUTHOR = {",
     },
+    {
+        "name": "Check 266 (entity description length [20,1000]): truncate primary Person description",
+        "file": ROOT / "index.html",
+        "find": '"description": "横井雄太（Yuta Yokoi / Yokoi Yuta）が設計・統治する、AIが自走する機械統治された engineering システム。AIが実装・検証・マージ・本番デプロイまで自走し、人間はコードを一行も書かず統治と監査を担う。このサイト自体がその生成物である。",',
+        "replace": '"description": "tiny",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
