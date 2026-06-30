@@ -913,6 +913,12 @@ MUTATIONS = [
         "find": "export const AUTHOR = {",
         "replace": "// FIXME: probe-mutation\nexport const AUTHOR = {",
     },
+    {
+        "name": "Check 265 (strict equality): inject loose == into identity.js",
+        "file": ROOT / "js" / "identity.js",
+        "find": "export const AUTHOR = {",
+        "replace": "const probeLoose = 1 == 1;\nexport const AUTHOR = {",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
