@@ -1528,6 +1528,16 @@ authoritative inventory and is kept in sync with the implementation below):
        the default 0.5, ignoring the priority signal entirely. Sibling of
        Check 228 (changefreq spec-valid) for the priority field. (BLOCKING)
 
+  230. sitemap.xml has exactly one `<url>` with `<priority>1.0</priority>`,
+       matching canonical URL: the sitemap must reserve `priority=1.0`
+       (Sitemap Protocol's maximum) for THE single canonical homepage. Drift
+       (multiple priority=1.0 entries, or priority=1.0 on a non-canonical
+       URL) silently splits the SEO "this is the primary entry point"
+       signal across multiple URLs, diluting the canonical authority for
+       AI/search crawlers. Sibling of Check 229 (priority range) /
+       Check 150 (og:url ↔ canonical) for the sitemap entry-point axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9937,6 +9947,47 @@ if _sitemap229.exists():
 else:
     check(False, "Check 229: sitemap.xml present",
           "Check 229: sitemap.xml が無い", blocking=True)
+
+# ── 230. sitemap.xml ちょうど 1 <url> が <priority>1.0</priority> 且つ canonical (BLOCKING) ─
+# sitemap.xml の `<priority>1.0</priority>` が含まれる <url> が ちょうど 1 件で、
+# その <loc> が canonical URL と一致することを BLOCKING 強制。drift (priority=1.0
+# が複数 / non-canonical) は SILENT に「primary entry point」signal を分散させ
+# canonical authority を希釈。
+_sitemap230 = ROOT / "sitemap.xml"
+_idx230 = ROOT / "index.html"
+if _sitemap230.exists() and _idx230.exists():
+    _ssrc230 = _sitemap230.read_text(encoding="utf-8")
+    _isrc230 = _idx230.read_text(encoding="utf-8")
+    _canon230_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc230
+    )
+    _canon230 = _canon230_m.group(1) if _canon230_m else None
+    # 各 <url> block を抽出
+    _url_blocks230 = re.findall(r"<url>(.*?)</url>", _ssrc230, flags=re.DOTALL)
+    _p1_locs230: list[str] = []
+    for _ub in _url_blocks230:
+        if re.search(r"<priority>\s*1\.0\s*</priority>", _ub):
+            _loc_m = re.search(r"<loc>([^<]+)</loc>", _ub)
+            if _loc_m:
+                _p1_locs230.append(_loc_m.group(1))
+    _violations230: list[str] = []
+    if _canon230 is None:
+        _violations230.append("canonical URL 抽出不可")
+    if len(_p1_locs230) != 1:
+        _violations230.append(f"priority=1.0 count={len(_p1_locs230)} (expected 1)")
+    elif _canon230 and _p1_locs230[0] != _canon230:
+        _violations230.append(f"priority=1.0 loc={_p1_locs230[0]!r} != canonical={_canon230!r}")
+    _ok230 = not _violations230
+    check(
+        _ok230,
+        f"Check 230: sitemap.xml priority=1.0 が 1 件で canonical URL ({_canon230!r}) に一致",
+        (f"Check 230: 違反: {_violations230!r} — 「primary entry point」signal が "
+         "分散し canonical authority 希釈。priority=1.0 は canonical homepage 1 件のみへ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 230: sitemap.xml + index.html present",
+          "Check 230: sitemap.xml もしくは index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
