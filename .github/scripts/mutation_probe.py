@@ -829,6 +829,12 @@ MUTATIONS = [
         "find": '<html lang="ja" data-theme="system" data-brand="indigo">',
         "replace": '<html lang="ja_JP" data-theme="system" data-brand="indigo">',
     },
+    {
+        "name": "Check 251 (potentialAction required @type + target): strip @type ReadAction",
+        "file": ROOT / "index.html",
+        "find": '"potentialAction": {\n                        "@type": "ReadAction",',
+        "replace": '"potentialAction": {\n                        "@xtype": "ReadAction",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
