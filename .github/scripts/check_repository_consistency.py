@@ -1824,6 +1824,16 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 262 (no console.log) for the production-cleanliness
        axis. (BLOCKING)
 
+  264. Shipped JS comments contain no TODO/FIXME/HACK/XXX markers:
+       main.js + sw.js + js/**/*.js + root scripts must NOT have any
+       comment containing the dev-cruft markers `TODO`, `FIXME`, `HACK`,
+       `XXX` (word-boundary, case-sensitive). Drift = leftover dev-time
+       notes leak into production codebase — incomplete work shipped
+       without follow-up. String literals containing the word "TODO"
+       (e.g. user-facing "クイック TODO" feature name) are exempt;
+       only comment markers are guarded. Sibling of Check 262/263
+       (production-cleanliness) for the comment-cruft axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11627,6 +11637,44 @@ check(
      "debugger; / alert( は production UX-break。除去せよ (confirm() は許可)"
      if _offenders263 else
      "Check 263: shipped JS 0 件 — vacuous-fail"),
+    blocking=True,
+)
+
+# ── 264. Shipped JS comments no TODO/FIXME/HACK/XXX (BLOCKING) ────────────────
+# main.js + sw.js + js/**/*.js + root scripts の comment 内に dev-cruft marker
+# (TODO/FIXME/HACK/XXX, word-boundary, case-sensitive) が無いことを BLOCKING 強制。
+# string literal の "TODO" 等は exempt (e.g. user-facing app 名)。
+_offenders264: list[tuple[str, str]] = []
+_cruft_pat264 = re.compile(r"\b(TODO|FIXME|HACK|XXX)\b")
+for _p in _eval_targets239:  # reuse Check 239 target list (31 file)
+    try:
+        _src = _p.read_text(encoding="utf-8")
+    except (FileNotFoundError, PermissionError):
+        continue
+    # Strip string/template literals first to avoid false-positive on
+    # user-facing strings containing "TODO" (e.g. app name "クイックTODO").
+    _stripped = re.sub(r"'(?:\\.|[^'\\])*'", "''", _src)
+    _stripped = re.sub(r'"(?:\\.|[^"\\])*"', '""', _stripped)
+    _stripped = re.sub(r"`(?:\\.|[^`\\])*`", "``", _stripped)
+    # Collect only comment regions (// ... and /* ... */).
+    _comments: list[str] = []
+    for _m in re.finditer(r"/\*.*?\*/", _stripped, flags=re.DOTALL):
+        _comments.append(_m.group(0))
+    for _m in re.finditer(r"//[^\n]*", _stripped):
+        _comments.append(_m.group(0))
+    for _c in _comments:
+        _m2 = _cruft_pat264.search(_c)
+        if _m2:
+            _offenders264.append((str(Path(_p).relative_to(ROOT)), _m2.group(0)))
+            break
+_ok264 = len(_eval_targets239) > 0 and not _offenders264
+check(
+    _ok264,
+    f"Check 264: shipped JS comments ({len(_eval_targets239)} 件) に TODO/FIXME/HACK/XXX 0",
+    (f"Check 264: dev-cruft marker を含む shipped JS comment: {_offenders264!r} — "
+     "incomplete dev-time note leak。task 化して comment は除去せよ"
+     if _offenders264 else
+     "Check 264: shipped JS 0 件 — vacuous-fail"),
     blocking=True,
 )
 
