@@ -1721,6 +1721,13 @@ authoritative inventory and is kept in sync with the implementation below):
        invocation. Sibling of Check 209 (target canonical prefix) for
        the potentialAction required-fields axis. (BLOCKING)
 
+  252. sw.js registers `install` + `activate` + `fetch` event handlers:
+       service-worker code MUST register all 3 event listeners. Drift
+       (silent removal of any) breaks SW lifecycle (no install → no
+       cache prefill, no activate → no cleanup, no fetch → no offline /
+       SWR). Sibling of Check 19 (CACHE_NAME version) for the SW
+       lifecycle handler presence axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10978,6 +10985,33 @@ if _idx251.exists():
 else:
     check(False, "Check 251: index.html present",
           "Check 251: index.html が無い", blocking=True)
+
+# ── 252. sw.js registers install + activate + fetch handlers (BLOCKING) ───────
+# sw.js が install / activate / fetch 3 event handler を全て登録することを
+# BLOCKING 強制。silent 欠落で SW lifecycle 破壊 (precache 不能 / cleanup 不能 /
+# offline+SWR 不能)。Check 19 (CACHE_NAME version) の SW handler presence 軸。
+_sw252 = ROOT / "sw.js"
+if _sw252.exists():
+    _ssrc252 = _sw252.read_text(encoding="utf-8")
+    _required_evts252 = ["install", "activate", "fetch"]
+    _missing252: list[str] = []
+    for _e in _required_evts252:
+        _pat = re.compile(
+            r'(?:self|globalThis)\s*\.\s*addEventListener\s*\(\s*[\'"]' + re.escape(_e) + r'[\'"]'
+        )
+        if not _pat.search(_ssrc252):
+            _missing252.append(_e)
+    _ok252 = not _missing252
+    check(
+        _ok252,
+        f"Check 252: sw.js registers {_required_evts252!r} handlers (all 3)",
+        (f"Check 252: missing SW handlers: {_missing252!r} — SW lifecycle 破壊 "
+         "(precache/cleanup/offline 不能)。self.addEventListener で 3 event 全登録"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 252: sw.js present",
+          "Check 252: sw.js が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
