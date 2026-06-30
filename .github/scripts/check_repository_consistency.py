@@ -1704,6 +1704,15 @@ authoritative inventory and is kept in sync with the implementation below):
        content cropped). Check 157 enforces presence; Check 249 enforces
        canonical mobile-baseline content. (BLOCKING)
 
+  250. `<html lang>` value is valid BCP-47 tag: the index.html `<html
+       lang="...">` attribute MUST match BCP-47 regex
+       `^[a-zA-Z]{2,3}(?:-[a-zA-Z0-9]{1,8})*$`. Drift (e.g. `jp` non-spec
+       2-letter / `JAPANESE` ALL-CAPS word / `ja_JP` underscore) silently
+       breaks browser language selection, screen-reader voice, AI/SEO
+       language signal. Check 152/187/220 enforce inter-surface equality;
+       Check 250 enforces BCP-47 syntactic validity of the canonical
+       source value. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10877,6 +10886,27 @@ if _idx249.exists():
 else:
     check(False, "Check 249: index.html present",
           "Check 249: index.html が無い", blocking=True)
+
+# ── 250. <html lang> value is BCP-47 valid (BLOCKING) ─────────────────────────
+# index.html `<html lang="...">` 値が BCP-47 regex に一致することを BLOCKING 強制。
+# Check 152/187/220 (inter-surface 一致) を補完する syntactic 軸。
+_idx250 = ROOT / "index.html"
+if _idx250.exists():
+    _isrc250 = _idx250.read_text(encoding="utf-8")
+    _hl250_m = re.search(r'<html\s+lang=["\']([^"\']+)["\']', _isrc250)
+    _hl250 = _hl250_m.group(1) if _hl250_m else None
+    _bcp47_re250 = re.compile(r"^[a-zA-Z]{2,3}(?:-[a-zA-Z0-9]{1,8})*$")
+    _ok250 = isinstance(_hl250, str) and bool(_bcp47_re250.match(_hl250))
+    check(
+        _ok250,
+        f"Check 250: <html lang>={_hl250!r} is BCP-47 valid",
+        (f"Check 250: <html lang>={_hl250!r} 非 BCP-47 — browser 言語選択 / screen reader / "
+         "AI/SEO 言語信号 silent 破壊。BCP-47 (例 'ja' / 'ja-JP' / 'en-US') へ訂正"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 250: index.html present",
+          "Check 250: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
