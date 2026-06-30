@@ -721,6 +721,12 @@ MUTATIONS = [
         "find": '<meta name="ai:context" content="https://yutapr0117-design.github.io/portfolio/llms-full.txt" />',
         "replace": '<meta name="ai:context" content="http://yutapr0117-design.github.io/portfolio/llms-full.txt" />',
     },
+    {
+        "name": "Check 233 (asset:* content HTTPS): downgrade asset:image:canonical URL to HTTP",
+        "file": ROOT / "index.html",
+        "find": '<meta name="asset:image:canonical" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" />',
+        "replace": '<meta name="asset:image:canonical" content="http://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
