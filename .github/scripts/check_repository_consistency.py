@@ -1411,6 +1411,16 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 141 (default-project slug/id uniqueness) for the
        JSON-LD entity graph. (BLOCKING)
 
+  218. JSON-LD `datePublished` <= `dateModified` per node (BLOCKING):
+       in index.html static JSON-LD, every node containing BOTH
+       `datePublished` and `dateModified` must satisfy
+       `datePublished <= dateModified` (semantic invariant from Schema.org).
+       Drift (e.g. modifying datePublished forward without updating
+       dateModified) would silently make AI / SEO crawlers believe the page
+       was modified BEFORE it was published — corrupting recency / freshness
+       signals and undermining trust. Sibling of Check 208 (ISO-8601 format)
+       for the JSON-LD date semantic ordering surface. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9284,6 +9294,63 @@ if _idx217.exists():
 else:
     check(False, "Check 217: index.html present",
           "Check 217: index.html が無い", blocking=True)
+
+# ── 218. JSON-LD datePublished <= dateModified per node (BLOCKING) ────────────
+# index.html 静的 JSON-LD で datePublished + dateModified を両方持つ node の
+# datePublished <= dateModified を BLOCKING 強制。drift は SILENT に AI/SEO crawler
+# が "publish 前に modify された" 矛盾信号を取得し recency/trust が破壊。Check 208
+# (ISO-8601 format) の date 順序 semantic 軸版。
+from datetime import date as _date218
+_idx218 = ROOT / "index.html"
+if _idx218.exists():
+    _isrc218 = _idx218.read_text(encoding="utf-8")
+    _blocks218 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc218,
+        flags=re.DOTALL,
+    )
+    _violations218: list[str] = []
+    _checked_pairs218 = 0
+    def _walk218(node: object, path: str) -> None:
+        global _checked_pairs218
+        if isinstance(node, dict):
+            _dp = node.get("datePublished")
+            _dm = node.get("dateModified")
+            if isinstance(_dp, str) and isinstance(_dm, str):
+                try:
+                    _dp_d = _date218.fromisoformat(_dp[:10])
+                    _dm_d = _date218.fromisoformat(_dm[:10])
+                    _checked_pairs218 += 1
+                    if _dp_d > _dm_d:
+                        _violations218.append(
+                            f"{path}: datePublished={_dp!r} > dateModified={_dm!r}"
+                        )
+                except ValueError:
+                    pass  # Check 208 が format violation を担当
+            for k, v in node.items():
+                _walk218(v, f"{path}.{k}")
+        elif isinstance(node, list):
+            for i, item in enumerate(node):
+                _walk218(item, f"{path}[{i}]")
+    for _bi, _blk in enumerate(_blocks218):
+        try:
+            _data218 = json.loads(_blk)
+        except json.JSONDecodeError:
+            continue
+        _walk218(_data218, f"block{_bi}")
+    _ok218 = _checked_pairs218 > 0 and not _violations218
+    check(
+        _ok218,
+        f"Check 218: JSON-LD datePublished <= dateModified — {_checked_pairs218} 件全て OK",
+        (f"Check 218: 順序違反: {_violations218!r} — AI/SEO crawler が 'publish 前に "
+         "modify' 矛盾信号を取得し recency/trust 破壊。datePublished <= dateModified を満たすよう揃えよ"
+         if _violations218 else
+         "Check 218: datePublished+dateModified 両備の node 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 218: index.html present",
+          "Check 218: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
