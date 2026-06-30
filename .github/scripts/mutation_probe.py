@@ -859,6 +859,12 @@ MUTATIONS = [
         "find": "<!DOCTYPE html>\n<!--\n## Pioneer Declaration",
         "replace": "<!--\n## Pioneer Declaration",
     },
+    {
+        "name": "Check 256 (primary WebPage required): strip dateModified from WebPage block",
+        "file": ROOT / "index.html",
+        "find": '"/html/head/title"\n                        ]\n                  },\n                  "datePublished": "2026-01-01",\n                  "dateModified": "2026-05-24"',
+        "replace": '"/html/head/title"\n                        ]\n                  },\n                  "datePublished": "2026-01-01",\n                  "xateModified": "2026-05-24"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
