@@ -1572,6 +1572,17 @@ authoritative inventory and is kept in sync with the implementation below):
        authority and breaking entity-asset linkage. Sibling of Check 171
        (ai:* canonical prefix) for the asset:* meta surface. (BLOCKING)
 
+  235. JSON-LD Article/TechArticle nodes with `@id` (full definitions) have
+       Schema.org required fields headline + author + datePublished:
+       in index.html static JSON-LD, every Article/TechArticle node that
+       has an `@id` (treated as a "full" definition rather than an external
+       reference) MUST include `headline`, `author`, and `datePublished`.
+       Drift (silent omission) would make Google rich-result eligibility
+       fail and degrade AI search Article snippet generation. Article
+       references WITHOUT `@id` (external URL pointers in `subjectOf` /
+       `citation`) are exempt — they represent "this URL is an Article"
+       rather than a self-described Article. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -10131,6 +10142,57 @@ if _idx234.exists():
 else:
     check(False, "Check 234: index.html present",
           "Check 234: index.html が無い", blocking=True)
+
+# ── 235. JSON-LD Article/TechArticle with @id has headline+author+datePublished (BLOCKING) ─
+# index.html 静的 JSON-LD で `@type in {Article, TechArticle}` かつ `@id` を持つ
+# (full definition) node が Schema.org 必須 field (headline + author +
+# datePublished) を持つことを BLOCKING 強制。@id 無し (subjectOf/citation の
+# 外部 URL 参照) は self-description でないため exempt。drift は Google rich-result
+# 失格 + AI search Article snippet 劣化。
+_REQUIRED_ARTICLE_FIELDS235 = ("headline", "author", "datePublished")
+_idx235 = ROOT / "index.html"
+if _idx235.exists():
+    _isrc235 = _idx235.read_text(encoding="utf-8")
+    _blocks235 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc235,
+        flags=re.DOTALL,
+    )
+    _violations235: list[str] = []
+    _full_count235 = 0
+    def _walk235(node: object, path: str) -> None:
+        global _full_count235
+        if isinstance(node, dict):
+            _t = node.get("@type")
+            if isinstance(_t, str) and _t in ("Article", "TechArticle") and "@id" in node:
+                _full_count235 += 1
+                _missing = [f for f in _REQUIRED_ARTICLE_FIELDS235 if f not in node]
+                if _missing:
+                    _violations235.append(f"{path} {_t}@id={node.get('@id')!r}: missing {_missing!r}")
+            for k, v in node.items():
+                _walk235(v, f"{path}.{k}")
+        elif isinstance(node, list):
+            for i, item in enumerate(node):
+                _walk235(item, f"{path}[{i}]")
+    for _bi, _blk in enumerate(_blocks235):
+        try:
+            _data235 = json.loads(_blk)
+        except json.JSONDecodeError:
+            continue
+        _walk235(_data235, f"block{_bi}")
+    _ok235 = _full_count235 > 0 and not _violations235
+    check(
+        _ok235,
+        f"Check 235: Article/TechArticle full def ({_full_count235} 件) 全て headline+author+datePublished を持つ",
+        (f"Check 235: 必須 field 欠落: {_violations235!r} — Google rich-result 失格 + "
+         "AI search Article snippet 劣化。Schema.org 必須 field を追加せよ"
+         if _violations235 else
+         "Check 235: @id 付き Article/TechArticle 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 235: index.html present",
+          "Check 235: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
