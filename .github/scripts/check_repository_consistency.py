@@ -1477,6 +1477,14 @@ authoritative inventory and is kept in sync with the implementation below):
        (image-slot) / Check 222 (agent-slot) type-safety for the structural
        isPartOf-slot. (BLOCKING)
 
+  224. `<meta name="description">` content length in SEO-sane band: the
+       index.html `<meta name="description">` content character length must
+       be within [30, 300] characters. Below 30 = SERP snippet preview
+       suppressed by Google (too short to extract); above 300 = silently
+       truncated with ellipsis in SERP. Both extremes corrupt the SEO/AI
+       crawler card. Check 154 enforces presence + og/twitter coherence;
+       Check 224 enforces sanity of length. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -9686,6 +9694,34 @@ if _idx223.exists():
 else:
     check(False, "Check 223: index.html present",
           "Check 223: index.html が無い", blocking=True)
+
+# ── 224. <meta name=description> content length in [30, 300] (BLOCKING) ───────
+# index.html `<meta name="description">` content の character length が
+# SEO-sane band [30, 300] であることを BLOCKING 強制。<30 = SERP snippet preview
+# 抑制 (短すぎ抽出不能) / >300 = 静かに truncate (...)。Check 154 (presence) を
+# 補完する length sanity 軸。
+_idx224 = ROOT / "index.html"
+if _idx224.exists():
+    _isrc224 = _idx224.read_text(encoding="utf-8")
+    _desc224_m = re.search(
+        r'<meta\s+name=["\']description["\']\s+content=["\']([^"\']+)["\']', _isrc224
+    )
+    _desc224 = _desc224_m.group(1) if _desc224_m else None
+    _len224 = len(_desc224) if isinstance(_desc224, str) else 0
+    _ok224 = _desc224 is not None and 30 <= _len224 <= 300
+    check(
+        _ok224,
+        f"Check 224: <meta name=description> length={_len224} (SEO-sane band [30, 300])",
+        (f"Check 224: description length={_len224} (band [30, 300] 違反) — "
+         f"{'抽出不能で SERP snippet 抑制' if _len224 < 30 else '300 超えで SERP 末尾 truncate'}。"
+         "description 長を band 内へ調整せよ"
+         if _desc224 is not None else
+         "Check 224: <meta name=description> が無い"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 224: index.html present",
+          "Check 224: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
