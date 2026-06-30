@@ -679,6 +679,12 @@ MUTATIONS = [
         "find": '<title>AI-Driven PM yuta｜AI が自走し人間が統治する engineering ポートフォリオ</title>',
         "replace": '<title>short</title>',
     },
+    {
+        "name": "Check 226 (og:title length [10, 90]): truncate to 3 chars",
+        "file": ROOT / "index.html",
+        "find": '<meta property="og:title" content="AI-Driven PM yuta — AI が自走し、人間が統治する engineering ポートフォリオ" />',
+        "replace": '<meta property="og:title" content="xx" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
