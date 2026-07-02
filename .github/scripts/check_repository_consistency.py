@@ -2157,6 +2157,12 @@ authoritative inventory and is kept in sync with the implementation below):
        image:image) for the sitemap.xml namespace-declaration axis.
        (BLOCKING)
 
+  309. .well-known/aio-manifest.json all URLs use HTTPS: the manifest
+       JSON MUST NOT contain any `http://` URL (negative invariant).
+       Drift silently downgrades AIO discovery transport security.
+       Sibling of Check 232/233/234 (ai:* / asset:* HTTPS) for the
+       aio-manifest.json HTTPS axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13460,6 +13466,25 @@ if _sitemap308.exists():
 else:
     check(False, "Check 308: sitemap.xml present",
           "Check 308: sitemap.xml が無い", blocking=True)
+
+# ── 309. aio-manifest.json all URLs HTTPS (BLOCKING) ──────────────────────────
+# .well-known/aio-manifest.json に `http://` URL が 0 であることを BLOCKING 強制
+# (negative invariant)。Check 232/233/234 の aio-manifest.json HTTPS 軸版。
+_mani309 = ROOT / ".well-known" / "aio-manifest.json"
+if _mani309.exists():
+    _msrc309 = _mani309.read_text(encoding="utf-8")
+    _http_urls309 = re.findall(r'"(http://[^"]+)"', _msrc309)
+    _ok309 = len(_http_urls309) == 0
+    check(
+        _ok309,
+        "Check 309: aio-manifest.json に http:// URL 不在 (HTTPS-only)",
+        (f"Check 309: aio-manifest.json に http:// URL: {_http_urls309!r} — "
+         "AIO discovery transport が insecure に downgrade。全 URL を https:// へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 309: aio-manifest.json present",
+          "Check 309: aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
