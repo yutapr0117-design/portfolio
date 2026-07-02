@@ -2021,6 +2021,14 @@ authoritative inventory and is kept in sync with the implementation below):
        219 (path ⊆ MANIFEST_PATH_TO_LOCAL) for the evidence list
        structural axis. (BLOCKING)
 
+  290. aio-manifest entity.role is EXACTLY the 3 canonical values (strict):
+       the `entity.role` list in `.well-known/aio-manifest.json` MUST be
+       exactly `{"AI-Driven PM", "IT Consultant", "KERNEL Framework
+       Designer"}` (as a set — no extras, no missing, no duplicates).
+       Check 169 enforces substring presence but drift to `[..., "Extra
+       Role"]` still passes 169 yet corrupts AIO entity role parity.
+       Check 290 covers strict set-equality. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12783,6 +12791,35 @@ if _mani289.exists():
 else:
     check(False, "Check 289: aio-manifest.json present",
           "Check 289: aio-manifest.json が無い", blocking=True)
+
+# ── 290. aio-manifest entity.role strict set-equality (BLOCKING) ──────────────
+# .well-known/aio-manifest.json entity.role が canonical 3 role の set と strict
+# 一致することを BLOCKING 強制。Check 169 (substring presence) の strict axis 版。
+_CANONICAL_ROLES290 = {"AI-Driven PM", "IT Consultant", "KERNEL Framework Designer"}
+_mani290 = ROOT / ".well-known" / "aio-manifest.json"
+if _mani290.exists():
+    try:
+        _mdata290 = json.loads(_mani290.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _mdata290 = None
+    _roles290 = None
+    if isinstance(_mdata290, dict):
+        _roles290 = _mdata290.get("entity", {}).get("role")
+    _ok290 = (
+        isinstance(_roles290, list)
+        and set(_roles290) == _CANONICAL_ROLES290
+        and len(_roles290) == len(_CANONICAL_ROLES290)  # no duplicates
+    )
+    check(
+        _ok290,
+        f"Check 290: aio-manifest entity.role={_roles290!r} == canonical 3 role set (strict)",
+        (f"Check 290: entity.role drift: got={_roles290!r}, expected set="
+         f"{sorted(_CANONICAL_ROLES290)!r} — extras/missing/duplicates。canonical 3 role のみへ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 290: aio-manifest.json present",
+          "Check 290: aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
