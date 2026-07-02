@@ -1159,6 +1159,12 @@ MUTATIONS = [
         "find": '<meta name="theme-color" content="#818cf8" media="(prefers-color-scheme: dark)" />',
         "replace": '<!-- dark theme-color PROBE-REMOVED -->',
     },
+    {
+        "name": "Check 306 (index.html closes </html>): drop closing </html> tag",
+        "file": ROOT / "index.html",
+        "find": "</body>\n\n</html>",
+        "replace": "</body>\n\n<!-- </html> PROBE-REMOVED -->",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
