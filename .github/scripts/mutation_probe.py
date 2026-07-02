@@ -1057,6 +1057,12 @@ MUTATIONS = [
         "find": "ARTICLE_ROUTES: ['ai-knowhow'],",
         "replace": "ARTICLE_ROUTES: ['ai-knowhow-GHOST-PROBE'],",
     },
+    {
+        "name": "Check 289 (aio-manifest evidence counts/uniqueness): duplicate llms.txt path in source_of_truth",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"path": "AI2AI.md",',
+        "replace": '"path": "llms.txt",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
