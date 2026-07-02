@@ -1069,6 +1069,12 @@ MUTATIONS = [
         "find": '"role": [\n      "AI-Driven PM",\n      "IT Consultant",\n      "KERNEL Framework Designer"\n    ],',
         "replace": '"role": [\n      "AI-Driven PM",\n      "IT Consultant",\n      "KERNEL Framework Designer",\n      "Extra Role PROBE"\n    ],',
     },
+    {
+        "name": "Check 291 (entity.name_alt strict set-equality): drift to add Extra Name",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"name_alt": [\n      "Yokoi Yuta",\n      "yuta"\n    ],',
+        "replace": '"name_alt": [\n      "Yokoi Yuta",\n      "yuta",\n      "Extra Name PROBE"\n    ],',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
