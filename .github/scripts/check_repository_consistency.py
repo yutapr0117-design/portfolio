@@ -1945,6 +1945,13 @@ authoritative inventory and is kept in sync with the implementation below):
        insecure transport. Sibling of Check 278 (sitemap.xml loc HTTPS)
        for the robots.txt sitemap-directive HTTPS axis. (BLOCKING)
 
+  280. main.js SITE_CONFIG CANONICAL_URL + REPO_URL use HTTPS: both URL
+       string literals in SITE_CONFIG MUST start with `https://`. Drift
+       to `http://` in either would silently downgrade JS-emitted URL
+       references (JSON-LD injection / SPA meta emission all use these).
+       Sibling of Check 279 (robots.txt Sitemap: HTTPS) for the JS
+       SITE_CONFIG URL-scheme axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12413,6 +12420,33 @@ if _robots279.exists():
 else:
     check(False, "Check 279: robots.txt present",
           "Check 279: robots.txt が無い", blocking=True)
+
+# ── 280. main.js SITE_CONFIG CANONICAL_URL + REPO_URL HTTPS (BLOCKING) ────────
+# main.js SITE_CONFIG CANONICAL_URL + REPO_URL 両 URL string literal が `https://`
+# で始まることを BLOCKING 強制。Check 279 の JS SITE_CONFIG URL-scheme 軸版。
+_main280 = ROOT / "main.js"
+if _main280.exists():
+    _msrc280 = _main280.read_text(encoding="utf-8")
+    _canon_lit280 = re.search(r"CANONICAL_URL:\s*['\"]([^'\"]+)['\"]", _msrc280)
+    _repo_lit280 = re.search(r"REPO_URL:\s*['\"]([^'\"]+)['\"]", _msrc280)
+    _bad280: list[str] = []
+    for _lbl, _m in (("CANONICAL_URL", _canon_lit280), ("REPO_URL", _repo_lit280)):
+        if _m is None:
+            _bad280.append(f"{_lbl} 抽出不可")
+            continue
+        _v = _m.group(1)
+        if not _v.startswith("https://"):
+            _bad280.append(f"{_lbl}={_v!r}")
+    _ok280 = not _bad280
+    check(
+        _ok280,
+        f"Check 280: SITE_CONFIG CANONICAL_URL + REPO_URL 共に https://",
+        (f"Check 280: 違反: {_bad280!r} — JS 側 URL emission が insecure に。https:// へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 280: main.js present",
+          "Check 280: main.js が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
