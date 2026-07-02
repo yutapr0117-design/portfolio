@@ -350,6 +350,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 274 | .well-known/aio-manifest.json entity.name が index.html JSON-LD primary Person.name (`@id == canonical+#person`) と strict 一致。両者 drift で entity identity split を BLOCKING で阻止。Check 172 (name variants combined) の direct-equality 軸版 | BLOCKING |
 | 275 | .well-known/aio-manifest.json entity.affiliation.organization_name が index.html JSON-LD primary Organization (`@id == https://nkgr.co.jp/#organization`) name と strict 一致。両者 drift で employer identity split を BLOCKING で阻止。Check 274 の Organization 軸版 | BLOCKING |
 | 276 | .well-known/aio-manifest.json entity.affiliation.organization_url が index.html JSON-LD primary Organization url と strict 一致。両者 drift で canonical URL split を BLOCKING で阻止。Check 275 の url 軸版 | BLOCKING |
+| 277 | .well-known/aio-manifest.json entity.authoritative_context が canonical URL + "llms-full.txt" と strict 一致。drift で AI/agent authoritative-context ingestion 誤 route を BLOCKING で阻止。Check 274/275/276 の authoritative-context 軸版 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 
