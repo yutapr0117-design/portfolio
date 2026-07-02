@@ -373,6 +373,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 297 | sitemap.xml で `<priority>1.0</priority>` を持つ canonical entry が loc/lastmod/changefreq/priority + `<image:image>` 全 5 要素を含む。structural completeness 崩壊 drift を BLOCKING で阻止。Check 230 (canonical priority=1.0 uniqueness) の structural 軸版 | BLOCKING |
 | 298 | index.html `<meta property=og:image:width>` / `og:image:height` content が positive integer に parse できる。numeric drift で social card layout collapse を BLOCKING で阻止。Check 20 (presence) の numeric-value 軸版 | BLOCKING |
 | 299 | index.html `<meta name=twitter:card>` content が Twitter spec 4 値 (summary / summary_large_image / player / app) のいずれか。drift で Twitter link-preview default fallback を BLOCKING で阻止。Check 155 の twitter:card 軸版 | BLOCKING |
+| 300 | index.html `<meta property=og:image:alt>` content が "横井雄太" AND "AI-Driven PM" 両 marker を含む。accessibility alt-text から entity attribution / role signal 喪失を BLOCKING で阻止。Check 20 (presence) の content-value 軸版 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 
