@@ -1983,6 +1983,13 @@ authoritative inventory and is kept in sync with the implementation below):
        derivation) for the ai:context / ai:entrypoint exact-URL
        derivation axis. (BLOCKING)
 
+  285. main.js SITE_CONFIG.VERSION strict format `v\d+`: the VERSION
+       string literal MUST match `^v\d+$` (single lowercase 'v' followed
+       by one or more digits). Check 2 (ai:version == SITE_CONFIG.VERSION)
+       ensures parity but format itself is a separate invariant. Drift to
+       e.g. `V74` / `v74.1` / `v-74` silently breaks downstream regexes
+       and human recognition. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12608,6 +12615,26 @@ if _idx284.exists():
 else:
     check(False, "Check 284: index.html present",
           "Check 284: index.html が無い", blocking=True)
+
+# ── 285. main.js SITE_CONFIG.VERSION strict format v\d+ (BLOCKING) ────────────
+# main.js SITE_CONFIG.VERSION 値が `^v\d+$` (小文字 v + 数字) regex に一致することを
+# BLOCKING 強制。Check 2 (parity) の format 軸版。
+_main285 = ROOT / "main.js"
+if _main285.exists():
+    _msrc285 = _main285.read_text(encoding="utf-8")
+    _ver285_m = re.search(r"VERSION:\s*['\"]([^'\"]+)['\"]", _msrc285)
+    _ver285 = _ver285_m.group(1) if _ver285_m else None
+    _ok285 = isinstance(_ver285, str) and bool(re.match(r"^v\d+$", _ver285))
+    check(
+        _ok285,
+        f"Check 285: SITE_CONFIG.VERSION={_ver285!r} matches ^v\\d+$",
+        (f"Check 285: SITE_CONFIG.VERSION={_ver285!r} format 違反 — v<数字> 以外は "
+         "downstream regex/parser を破壊。'v74' 等 canonical format へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 285: main.js present",
+          "Check 285: main.js が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
