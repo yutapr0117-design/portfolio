@@ -1939,6 +1939,12 @@ authoritative inventory and is kept in sync with the implementation below):
        intervention on HTTPS-hosted crawler contexts). Sibling of Check
        206/207/214 for the sitemap loc HTTPS-only axis. (BLOCKING)
 
+  279. robots.txt `Sitemap:` directive URL uses HTTPS: every `Sitemap:`
+       line in robots.txt MUST advertise an `https://` URL. Drift to
+       `http://` would silently make crawlers fetch the sitemap over
+       insecure transport. Sibling of Check 278 (sitemap.xml loc HTTPS)
+       for the robots.txt sitemap-directive HTTPS axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12385,6 +12391,28 @@ if _sitemap278.exists():
 else:
     check(False, "Check 278: sitemap.xml present",
           "Check 278: sitemap.xml が無い", blocking=True)
+
+# ── 279. robots.txt Sitemap: directive URL HTTPS (BLOCKING) ───────────────────
+# robots.txt の全 `Sitemap:` directive の URL が `https://` で始まることを
+# BLOCKING 強制。Check 278 の robots.txt sitemap-directive 軸版。
+_robots279 = ROOT / "robots.txt"
+if _robots279.exists():
+    _rsrc279 = _robots279.read_text(encoding="utf-8")
+    _smaps279 = re.findall(r"^Sitemap:\s*(\S+)", _rsrc279, flags=re.MULTILINE)
+    _bad279 = [u for u in _smaps279 if u.startswith("http://")]
+    _ok279 = len(_smaps279) > 0 and not _bad279
+    check(
+        _ok279,
+        f"Check 279: robots.txt Sitemap: URL {len(_smaps279)} 件全て HTTPS",
+        (f"Check 279: robots.txt に non-HTTPS Sitemap: {_bad279!r} — crawler が "
+         "insecure transport で sitemap fetch。https:// に揃えよ"
+         if _bad279 else
+         "Check 279: robots.txt Sitemap: 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 279: robots.txt present",
+          "Check 279: robots.txt が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
