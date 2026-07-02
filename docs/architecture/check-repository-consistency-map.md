@@ -353,6 +353,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 277 | .well-known/aio-manifest.json entity.authoritative_context が canonical URL + "llms-full.txt" と strict 一致。drift で AI/agent authoritative-context ingestion 誤 route を BLOCKING で阻止。Check 274/275/276 の authoritative-context 軸版 | BLOCKING |
 | 278 | sitemap.xml 全 `<loc>` URL が `https://` で始まる。http:// drift で crawler が insecure transport fetch するのを BLOCKING で阻止。Check 206/207/214 と同 family の sitemap loc HTTPS 軸 | BLOCKING |
 | 279 | robots.txt 全 `Sitemap:` directive URL が `https://` で始まる。http:// drift で crawler が insecure transport で sitemap fetch を BLOCKING で阻止。Check 278 の robots.txt sitemap-directive HTTPS 軸版 | BLOCKING |
+| 280 | main.js SITE_CONFIG CANONICAL_URL + REPO_URL 両 URL literal が `https://` で始まる。JS 側 URL emission が insecure に drift するのを BLOCKING で阻止。Check 279 の JS SITE_CONFIG URL-scheme 軸版 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 
