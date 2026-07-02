@@ -344,6 +344,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 268 | JSON-LD Article/TechArticle/NewsArticle/BlogPosting の headline 値長が [10, 110] 内 (Schema.org / Google rich-result spec)。drift で SERP card truncate / sparse を BLOCKING で阻止。Check 235 (Article 必須 fields) の headline length 軸版 | BLOCKING |
 | 269 | canonical hero.webp <= 200_000 bytes AND BGM.mp3 <= 1_000_000 bytes (CWV LCP / mobile bandwidth budget)。drift で LCP/CWV 劣化を BLOCKING で阻止。Check 120 (JS byte weight) の binary asset 軸版 | BLOCKING |
 | 270 | style.css <= 100_000 bytes AND index.html <= 200_000 bytes。silent file bloat (copy-paste / dead-code 累積) を BLOCKING で阻止。Check 120 (JS) / 269 (binary) の text asset 軸版 | BLOCKING |
+| 271 | main.js <= 100_000 / sw.js <= 20_000 / 4 root scripts each <= 10_000 bytes。silent script bloat を BLOCKING で阻止。Check 120 (JS 総 weight) の per-file 軸版 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 
