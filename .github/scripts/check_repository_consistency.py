@@ -2127,6 +2127,14 @@ authoritative inventory and is kept in sync with the implementation below):
        (theme-color literals in style.css) for the theme-color value-
        format axis. (BLOCKING)
 
+  305. `<meta name="theme-color">` has both light AND dark media
+       variants: index.html MUST contain one theme-color for
+       `media="(prefers-color-scheme: light)"` AND one for
+       `media="(prefers-color-scheme: dark)"`. Drift silently makes
+       mobile browser chrome color inconsistent between OS-level
+       light/dark modes. Sibling of Check 304 (theme-color hex format)
+       for the theme-color media-coverage axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13330,6 +13338,38 @@ if _idx304.exists():
 else:
     check(False, "Check 304: index.html present",
           "Check 304: index.html が無い", blocking=True)
+
+# ── 305. <meta name=theme-color> covers both light + dark media (BLOCKING) ────
+# index.html に `<meta name=theme-color media="(prefers-color-scheme: light)">`
+# AND `<meta name=theme-color media="(prefers-color-scheme: dark)">` 両方が
+# 存在することを BLOCKING 強制。Check 304 の media-coverage 軸版。
+_idx305 = ROOT / "index.html"
+if _idx305.exists():
+    _isrc305 = _idx305.read_text(encoding="utf-8")
+    _tc_light305 = re.search(
+        r'<meta\s+name=["\']theme-color["\'][^>]*media=["\']\(prefers-color-scheme:\s*light\)["\']',
+        _isrc305,
+    )
+    _tc_dark305 = re.search(
+        r'<meta\s+name=["\']theme-color["\'][^>]*media=["\']\(prefers-color-scheme:\s*dark\)["\']',
+        _isrc305,
+    )
+    _missing305 = []
+    if not _tc_light305:
+        _missing305.append("theme-color for light media")
+    if not _tc_dark305:
+        _missing305.append("theme-color for dark media")
+    _ok305 = not _missing305
+    check(
+        _ok305,
+        f"Check 305: theme-color has both light + dark media variants",
+        (f"Check 305: 欠落: {_missing305!r} — mobile browser chrome color が "
+         "OS-level light/dark mode 遷移で inconsistent。両 media variant を追加"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 305: index.html present",
+          "Check 305: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
