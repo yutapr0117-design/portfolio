@@ -1099,6 +1099,12 @@ MUTATIONS = [
         "find": '<meta name="publisher" content="Yuta Yokoi (横井雄太)" />',
         "replace": '<meta name="publisher" content="Yuta Yokoi" />',
     },
+    {
+        "name": "Check 296 (link rel=alternate for AIO): remove llms-full.txt alternate",
+        "file": ROOT / "index.html",
+        "find": '<link rel="alternate" type="text/plain" title="Authoritative System Prompt (Yuta Yokoi / 横井雄太)" href="./llms-full.txt" />',
+        "replace": '<!-- llms-full.txt alternate PROBE-REMOVED -->',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
