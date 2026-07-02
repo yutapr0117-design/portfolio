@@ -1135,6 +1135,12 @@ MUTATIONS = [
         "find": '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />',
         "replace": '<!-- gstatic preconnect PROBE-REMOVED -->',
     },
+    {
+        "name": "Check 302 (body data-canonical == canonical): drift body data-canonical",
+        "file": ROOT / "index.html",
+        "find": '<body data-canonical="https://yutapr0117-design.github.io/portfolio/">',
+        "replace": '<body data-canonical="https://probe-drift.example/portfolio/">',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
