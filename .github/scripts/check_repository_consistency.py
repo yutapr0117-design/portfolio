@@ -1952,6 +1952,13 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 279 (robots.txt Sitemap: HTTPS) for the JS
        SITE_CONFIG URL-scheme axis. (BLOCKING)
 
+  281. main.js SITE_CONFIG.REPO_URL == HTML `<meta name="ai:repository">`:
+       the JS-side canonical repo URL and the AIO meta-declared repo URL
+       MUST match exactly. Drift silently makes JS-emitted code
+       references diverge from the AI crawler discovery layer. Sibling of
+       Check 280 (SITE_CONFIG URL scheme) for the SITE_CONFIG.REPO_URL ↔
+       ai:repository equality axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12447,6 +12454,37 @@ if _main280.exists():
 else:
     check(False, "Check 280: main.js present",
           "Check 280: main.js が無い", blocking=True)
+
+# ── 281. main.js SITE_CONFIG.REPO_URL == HTML ai:repository (BLOCKING) ────────
+# main.js SITE_CONFIG.REPO_URL の値と index.html `<meta name="ai:repository">` の
+# content が strict 一致することを BLOCKING 強制。Check 280 の direct-equality 軸版。
+_main281 = ROOT / "main.js"
+_idx281 = ROOT / "index.html"
+if _main281.exists() and _idx281.exists():
+    _msrc281 = _main281.read_text(encoding="utf-8")
+    _isrc281 = _idx281.read_text(encoding="utf-8")
+    _repo_lit281_m = re.search(r"REPO_URL:\s*['\"]([^'\"]+)['\"]", _msrc281)
+    _ai_repo281_m = re.search(
+        r'<meta\s+name=["\']ai:repository["\']\s+content=["\']([^"\']+)["\']', _isrc281
+    )
+    _repo_lit281 = _repo_lit281_m.group(1) if _repo_lit281_m else None
+    _ai_repo281 = _ai_repo281_m.group(1) if _ai_repo281_m else None
+    _ok281 = (
+        isinstance(_repo_lit281, str)
+        and isinstance(_ai_repo281, str)
+        and _repo_lit281 == _ai_repo281
+    )
+    check(
+        _ok281,
+        f"Check 281: SITE_CONFIG.REPO_URL={_repo_lit281!r} == ai:repository={_ai_repo281!r}",
+        (f"Check 281: repo URL drift: SITE_CONFIG.REPO_URL={_repo_lit281!r} / "
+         f"ai:repository={_ai_repo281!r} — JS 側 code URL と AI 側 discovery が"
+         " split。両者を canonical GitHub URL へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 281: main.js + index.html present",
+          "Check 281: main.js もしくは index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
