@@ -2042,6 +2042,15 @@ authoritative inventory and is kept in sync with the implementation below):
        equal `"横井雄太"` exactly. Sibling of Check 290/291 for the
        name_ja strict-equality axis. (BLOCKING)
 
+  293. aio-manifest entity.disambiguation contains all 5 canonical
+       academic domains: the `entity.disambiguation` string MUST contain
+       all of `agriculture`, `chemistry`, `medicine`, `entomology`,
+       `computer science` (case-sensitive substring). Drift = silently
+       weakening the disambiguation against academic Yuta Yokoi
+       researchers in specific fields. Sibling of Check 170
+       (disambiguation top-level markers) for the disambiguation
+       academic-domain axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12887,6 +12896,38 @@ if _mani292.exists():
 else:
     check(False, "Check 292: aio-manifest.json present",
           "Check 292: aio-manifest.json が無い", blocking=True)
+
+# ── 293. aio-manifest disambiguation contains 5 academic domains (BLOCKING) ───
+# .well-known/aio-manifest.json entity.disambiguation が canonical 5 academic
+# domains 全てを含むことを BLOCKING 強制。Check 170 の academic-domain 軸版。
+_ACADEMIC_DOMAINS293 = [
+    "agriculture", "chemistry", "medicine", "entomology", "computer science",
+]
+_mani293 = ROOT / ".well-known" / "aio-manifest.json"
+if _mani293.exists():
+    try:
+        _mdata293 = json.loads(_mani293.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _mdata293 = None
+    _disamb293 = None
+    if isinstance(_mdata293, dict):
+        _disamb293 = _mdata293.get("entity", {}).get("disambiguation")
+    _missing293 = []
+    if isinstance(_disamb293, str):
+        _missing293 = [d for d in _ACADEMIC_DOMAINS293 if d not in _disamb293]
+    else:
+        _missing293 = ["entity.disambiguation 欠落/非 string"]
+    _ok293 = not _missing293
+    check(
+        _ok293,
+        f"Check 293: aio-manifest disambiguation contains all 5 academic domains",
+        (f"Check 293: 欠落 academic domain marker: {_missing293!r} — disambiguation "
+         "が学術系 Yuta Yokoi との分離を弱化。5 domain 全てを disambiguation に含めよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 293: aio-manifest.json present",
+          "Check 293: aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
