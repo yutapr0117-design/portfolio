@@ -1141,6 +1141,12 @@ MUTATIONS = [
         "find": '<body data-canonical="https://yutapr0117-design.github.io/portfolio/">',
         "replace": '<body data-canonical="https://probe-drift.example/portfolio/">',
     },
+    {
+        "name": "Check 303 (html data-theme=system + data-brand valid): drift data-brand to invalid",
+        "file": ROOT / "index.html",
+        "find": '<html lang="ja" data-theme="system" data-brand="indigo">',
+        "replace": '<html lang="ja" data-theme="system" data-brand="PROBE-INVALID">',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
