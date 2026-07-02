@@ -2120,6 +2120,13 @@ authoritative inventory and is kept in sync with the implementation below):
        fallback. Sibling of Check 302 for the html root attribute axis.
        (BLOCKING)
 
+  304. All `<meta name="theme-color">` values are 6-digit hex colors:
+       every `<meta name="theme-color">` content in index.html MUST match
+       `^#[0-9a-fA-F]{6}$`. Drift = mobile browser chrome color falls
+       back to default (loses brand cohesion). Sibling of Check 174
+       (theme-color literals in style.css) for the theme-color value-
+       format axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13297,6 +13304,32 @@ if _idx303.exists():
 else:
     check(False, "Check 303: index.html present",
           "Check 303: index.html が無い", blocking=True)
+
+# ── 304. <meta name=theme-color> content values are 6-digit hex (BLOCKING) ────
+# index.html の全 `<meta name="theme-color">` content が `^#[0-9a-fA-F]{6}$`
+# regex に一致することを BLOCKING 強制。Check 174 (style.css literal) の
+# value-format 軸版。
+_idx304 = ROOT / "index.html"
+if _idx304.exists():
+    _isrc304 = _idx304.read_text(encoding="utf-8")
+    _tc_vals304 = re.findall(
+        r'<meta\s+name=["\']theme-color["\'][^>]*content=["\']([^"\']+)["\']',
+        _isrc304,
+    )
+    _bad304 = [v for v in _tc_vals304 if not re.match(r"^#[0-9a-fA-F]{6}$", v)]
+    _ok304 = len(_tc_vals304) > 0 and not _bad304
+    check(
+        _ok304,
+        f"Check 304: <meta name=theme-color> {len(_tc_vals304)} 件全て 6-digit hex",
+        (f"Check 304: 非 hex theme-color: {_bad304!r} — mobile browser chrome color "
+         "が default fallback。#XXXXXX 形式へ揃えよ"
+         if _bad304 else
+         "Check 304: <meta name=theme-color> 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 304: index.html present",
+          "Check 304: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
