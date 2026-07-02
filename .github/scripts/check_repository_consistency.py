@@ -1878,6 +1878,13 @@ authoritative inventory and is kept in sync with the implementation below):
        accidental copy-paste / dead-code accretion. Sibling of Check 120
        (JS) / 269 (binary) for the text asset size axis. (BLOCKING)
 
+  271. root JS byte budget: main.js <= 100_000 bytes AND sw.js <= 20_000
+       bytes AND {aio-guard/theme-init/karte-init/error-suppressor}.js
+       each <= 10_000 bytes. Drift = silent script bloat pushing
+       parse/execute time beyond mobile-CPU budget. Sibling of Check 120
+       (JS byte weight sum) for the per-file JS byte budget axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11962,6 +11969,35 @@ check(
     _ok270,
     f"Check 270: canonical text assets ({len(_BUDGETS270)} 件) all within byte budget",
     (f"Check 270: 違反: {_violations270!r} — silent file bloat 検出。"
+     "dead-code 削除 or budget を上げる contract 更新"),
+    blocking=True,
+)
+
+# ── 271. root JS byte budget (BLOCKING) ───────────────────────────────────────
+# main.js <= 100_000 / sw.js <= 20_000 / 4 root scripts each <= 10_000 bytes を
+# BLOCKING 強制。silent script bloat による parse/execute time 増大を阻止。
+# Check 120 (JS 総 weight) の per-file 軸版。
+_BUDGETS271 = [
+    (ROOT / "main.js", 100_000, "main.js"),
+    (ROOT / "sw.js", 20_000, "sw.js"),
+    (ROOT / "aio-guard.js", 10_000, "aio-guard.js"),
+    (ROOT / "theme-init.js", 10_000, "theme-init.js"),
+    (ROOT / "karte-init.js", 10_000, "karte-init.js"),
+    (ROOT / "error-suppressor.js", 10_000, "error-suppressor.js"),
+]
+_violations271: list[str] = []
+for _p, _budget, _label in _BUDGETS271:
+    if not _p.exists():
+        _violations271.append(f"{_label} 不在")
+        continue
+    _sz = _p.stat().st_size
+    if _sz > _budget:
+        _violations271.append(f"{_label}={_sz} bytes (budget {_budget})")
+_ok271 = not _violations271
+check(
+    _ok271,
+    f"Check 271: root JS ({len(_BUDGETS271)} 件) all within per-file byte budget",
+    (f"Check 271: 違反: {_violations271!r} — silent script bloat 検出。"
      "dead-code 削除 or budget を上げる contract 更新"),
     blocking=True,
 )
