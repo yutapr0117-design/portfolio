@@ -1959,6 +1959,15 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 280 (SITE_CONFIG URL scheme) for the SITE_CONFIG.REPO_URL ↔
        ai:repository equality axis. (BLOCKING)
 
+  282. main.js SITE_CONFIG.CANONICAL_URL == HTML `<meta name="ai:canonical">`
+       content: the JS-side canonical URL and the AIO meta-declared
+       canonical URL MUST match exactly. Check 149 covers three-way
+       equality across `<link rel="canonical">` / aio-manifest /
+       SITE_CONFIG.CANONICAL_URL, but the parallel ai:canonical meta axis
+       is separate. Sibling of Check 281 (REPO_URL ↔ ai:repository) for
+       the SITE_CONFIG.CANONICAL_URL ↔ ai:canonical direct-equality axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12485,6 +12494,37 @@ if _main281.exists() and _idx281.exists():
 else:
     check(False, "Check 281: main.js + index.html present",
           "Check 281: main.js もしくは index.html が無い", blocking=True)
+
+# ── 282. main.js SITE_CONFIG.CANONICAL_URL == HTML ai:canonical (BLOCKING) ────
+# main.js SITE_CONFIG.CANONICAL_URL 値と index.html `<meta name="ai:canonical">` の
+# content が strict 一致することを BLOCKING 強制。Check 281 の canonical URL 軸版。
+_main282 = ROOT / "main.js"
+_idx282 = ROOT / "index.html"
+if _main282.exists() and _idx282.exists():
+    _msrc282 = _main282.read_text(encoding="utf-8")
+    _isrc282 = _idx282.read_text(encoding="utf-8")
+    _cu_lit282_m = re.search(r"CANONICAL_URL:\s*['\"]([^'\"]+)['\"]", _msrc282)
+    _ai_cu282_m = re.search(
+        r'<meta\s+name=["\']ai:canonical["\']\s+content=["\']([^"\']+)["\']', _isrc282
+    )
+    _cu_lit282 = _cu_lit282_m.group(1) if _cu_lit282_m else None
+    _ai_cu282 = _ai_cu282_m.group(1) if _ai_cu282_m else None
+    _ok282 = (
+        isinstance(_cu_lit282, str)
+        and isinstance(_ai_cu282, str)
+        and _cu_lit282 == _ai_cu282
+    )
+    check(
+        _ok282,
+        f"Check 282: SITE_CONFIG.CANONICAL_URL={_cu_lit282!r} == ai:canonical={_ai_cu282!r}",
+        (f"Check 282: canonical URL drift: SITE_CONFIG.CANONICAL_URL={_cu_lit282!r} / "
+         f"ai:canonical={_ai_cu282!r} — JS 側 canonical と AI 側 discovery が split。"
+         "両者を同一 canonical URL へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 282: main.js + index.html present",
+          "Check 282: main.js もしくは index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
