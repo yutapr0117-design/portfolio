@@ -961,6 +961,12 @@ MUTATIONS = [
         "find": "_LEAF_BUDGET272 = 100_000",
         "replace": "_LEAF_BUDGET272 = 1",
     },
+    {
+        "name": "Check 273 (JSON-LD dates NOT future): drift datePublished to 2099-12-31",
+        "file": ROOT / "index.html",
+        "find": '"datePublished": "2026-04-14"',
+        "replace": '"datePublished": "2099-12-31"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
