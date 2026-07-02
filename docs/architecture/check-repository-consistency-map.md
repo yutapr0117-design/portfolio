@@ -365,6 +365,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 289 | aio-manifest.json source_of_truth (>=3) + supporting_evidence (>=1) + observational_evidence (>=1) 各 minimum count + list 内 path 一意性。accidental shrinkage / duplicate ingestion を BLOCKING で阻止。Check 219 (path ⊆ MANIFEST_PATH_TO_LOCAL) の structural axis 版 | BLOCKING |
 | 290 | .well-known/aio-manifest.json entity.role が canonical 3 role の set (AI-Driven PM / IT Consultant / KERNEL Framework Designer) と strict 一致。extras/missing/duplicates を BLOCKING で阻止。Check 169 (substring presence) の strict set-equality 軸版 | BLOCKING |
 | 291 | .well-known/aio-manifest.json entity.name_alt が canonical variant set (Yokoi Yuta / yuta) と strict 一致。extras/missing/duplicates を BLOCKING で阻止。Check 172 (combined name-variants) の strict set-equality 軸版 | BLOCKING |
+| 292 | .well-known/aio-manifest.json entity.name_ja が canonical Japanese 名 '横井雄太' と strict 一致。drift を BLOCKING で阻止。Check 290/291 の name_ja strict-equality 軸版 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 
