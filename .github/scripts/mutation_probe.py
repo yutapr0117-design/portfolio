@@ -1075,6 +1075,12 @@ MUTATIONS = [
         "find": '"name_alt": [\n      "Yokoi Yuta",\n      "yuta"\n    ],',
         "replace": '"name_alt": [\n      "Yokoi Yuta",\n      "yuta",\n      "Extra Name PROBE"\n    ],',
     },
+    {
+        "name": "Check 292 (entity.name_ja == 横井雄太 strict): drift to typo",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"name_ja": "横井雄太",',
+        "replace": '"name_ja": "横井雄太PROBE",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
