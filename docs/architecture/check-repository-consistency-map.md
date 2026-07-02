@@ -379,6 +379,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 303 | index.html `<html data-theme>` == "system" AND `<html data-brand>` ∈ {"indigo","classic"}。FOUC-prevention initial paint / brand fallback drift を BLOCKING で阻止。Check 302 の html root attribute 軸版 | BLOCKING |
 | 304 | index.html 全 `<meta name=theme-color>` content が `^#[0-9a-fA-F]{6}$` regex に一致。mobile browser chrome default fallback drift を BLOCKING で阻止。Check 174 (style.css literal) の value-format 軸版 | BLOCKING |
 | 305 | index.html に `<meta name=theme-color media="(prefers-color-scheme: light)">` AND `dark` 両 media variant 存在。OS-level light/dark mode 遷移で inconsistent 化を BLOCKING で阻止。Check 304 の media-coverage 軸版 | BLOCKING |
+| 306 | index.html の trailing 空白行を除いた最終行が `</html>` で終わる。truncated HTML / build error による incomplete markup を BLOCKING で阻止。Check 255 (DOCTYPE opening) の structural-closure 軸版 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 

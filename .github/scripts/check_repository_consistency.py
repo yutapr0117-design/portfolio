@@ -2135,6 +2135,12 @@ authoritative inventory and is kept in sync with the implementation below):
        light/dark modes. Sibling of Check 304 (theme-color hex format)
        for the theme-color media-coverage axis. (BLOCKING)
 
+  306. index.html ends with closing `</html>` tag: the last non-empty
+       line of index.html MUST be `</html>` (trailing whitespace/newline
+       allowed). Drift = truncated HTML from Edit failure / build error
+       silently ships incomplete markup. Sibling of Check 255 (DOCTYPE
+       opening) for the HTML structural-closure axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13370,6 +13376,25 @@ if _idx305.exists():
 else:
     check(False, "Check 305: index.html present",
           "Check 305: index.html が無い", blocking=True)
+
+# ── 306. index.html ends with </html> (BLOCKING) ──────────────────────────────
+# index.html の trailing 空白行を除いた最終行が `</html>` で終わることを BLOCKING
+# 強制。Check 255 (DOCTYPE opening) の structural-closure 軸版。
+_idx306 = ROOT / "index.html"
+if _idx306.exists():
+    _isrc306 = _idx306.read_text(encoding="utf-8")
+    _rstripped306 = _isrc306.rstrip()
+    _ok306 = _rstripped306.endswith("</html>")
+    check(
+        _ok306,
+        "Check 306: index.html ends with </html>",
+        (f"Check 306: index.html 末尾が </html> でない (last 30 chars={_rstripped306[-30:]!r}) — "
+         "truncated HTML / build error suspect"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 306: index.html present",
+          "Check 306: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
