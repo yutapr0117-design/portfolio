@@ -1045,6 +1045,12 @@ MUTATIONS = [
         "find": "const CACHE_NAME = 'portfolio-aio-v74';",
         "replace": "const CACHE_NAME = 'portfolio-cache-v74';",
     },
+    {
+        "name": "Check 287 (manifest_version format ^\\d+\\.\\d+$): drift to non-semver 1",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"manifest_version": "1.0",',
+        "replace": '"manifest_version": "1",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
