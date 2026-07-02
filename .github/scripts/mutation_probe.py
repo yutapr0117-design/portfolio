@@ -1009,6 +1009,12 @@ MUTATIONS = [
         "find": "REPO_URL:      'https://github.com/yutapr0117-design/portfolio',",
         "replace": "REPO_URL:      'http://github.com/yutapr0117-design/portfolio',",
     },
+    {
+        "name": "Check 281 (SITE_CONFIG.REPO_URL == ai:repository): drift ai:repository content",
+        "file": ROOT / "index.html",
+        "find": '<meta name="ai:repository" content="https://github.com/yutapr0117-design/portfolio" />',
+        "replace": '<meta name="ai:repository" content="https://github.com/PROBE-DRIFT/portfolio" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
