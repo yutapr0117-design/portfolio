@@ -2037,6 +2037,11 @@ authoritative inventory and is kept in sync with the implementation below):
        of Check 290 (role strict set-equality) for the name_alt axis.
        (BLOCKING)
 
+  292. aio-manifest entity.name_ja == "横井雄太" (strict equality):
+       the `entity.name_ja` value in .well-known/aio-manifest.json MUST
+       equal `"横井雄太"` exactly. Sibling of Check 290/291 for the
+       name_ja strict-equality axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12858,6 +12863,30 @@ if _mani291.exists():
 else:
     check(False, "Check 291: aio-manifest.json present",
           "Check 291: aio-manifest.json が無い", blocking=True)
+
+# ── 292. aio-manifest entity.name_ja == "横井雄太" (strict) (BLOCKING) ────────
+# .well-known/aio-manifest.json entity.name_ja が canonical Japanese 名
+# "横井雄太" と strict 一致することを BLOCKING 強制。Check 290/291 の name_ja 軸版。
+_mani292 = ROOT / ".well-known" / "aio-manifest.json"
+if _mani292.exists():
+    try:
+        _mdata292 = json.loads(_mani292.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _mdata292 = None
+    _nja292 = None
+    if isinstance(_mdata292, dict):
+        _nja292 = _mdata292.get("entity", {}).get("name_ja")
+    _ok292 = isinstance(_nja292, str) and _nja292 == "横井雄太"
+    check(
+        _ok292,
+        f"Check 292: aio-manifest entity.name_ja={_nja292!r} == '横井雄太' (strict)",
+        (f"Check 292: name_ja drift: got={_nja292!r}, expected='横井雄太' — "
+         "canonical Japanese 名へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 292: aio-manifest.json present",
+          "Check 292: aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
