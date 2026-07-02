@@ -2141,6 +2141,13 @@ authoritative inventory and is kept in sync with the implementation below):
        silently ships incomplete markup. Sibling of Check 255 (DOCTYPE
        opening) for the HTML structural-closure axis. (BLOCKING)
 
+  307. sitemap.xml opens with XML declaration + closes with `</urlset>`:
+       sitemap.xml MUST start with `<?xml version="1.0" encoding="UTF-8"?>`
+       and end with `</urlset>` (trailing whitespace allowed). Drift =
+       structurally malformed sitemap parses as invalid → crawler drops
+       entire sitemap. Sibling of Check 306 (index.html structural
+       closure) for the sitemap.xml structural axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13395,6 +13402,30 @@ if _idx306.exists():
 else:
     check(False, "Check 306: index.html present",
           "Check 306: index.html が無い", blocking=True)
+
+# ── 307. sitemap.xml opens with XML decl + closes with </urlset> (BLOCKING) ───
+# sitemap.xml が `<?xml version="1.0" encoding="UTF-8"?>` で始まり `</urlset>`
+# で終わることを BLOCKING 強制。Check 306 (index.html structural closure) の
+# sitemap.xml structural axis 版。
+_sitemap307 = ROOT / "sitemap.xml"
+if _sitemap307.exists():
+    _ssrc307 = _sitemap307.read_text(encoding="utf-8")
+    _bad307: list[str] = []
+    if not _ssrc307.lstrip().startswith('<?xml version="1.0" encoding="UTF-8"?>'):
+        _bad307.append("XML declaration 欠落/drift")
+    if not _ssrc307.rstrip().endswith("</urlset>"):
+        _bad307.append("</urlset> closing 欠落")
+    _ok307 = not _bad307
+    check(
+        _ok307,
+        "Check 307: sitemap.xml opens with XML decl + closes with </urlset>",
+        (f"Check 307: 違反: {_bad307!r} — sitemap.xml structural malformation。"
+         "crawler 全 sitemap drop リスク"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 307: sitemap.xml present",
+          "Check 307: sitemap.xml が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
