@@ -1111,6 +1111,12 @@ MUTATIONS = [
         "find": "    <image:image>\n      <image:loc>https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp</image:loc>",
         "replace": "    <image:xmage>\n      <image:loc>https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp</image:loc>",
     },
+    {
+        "name": "Check 298 (og:image:width numeric): drift og:image:width to non-numeric",
+        "file": ROOT / "index.html",
+        "find": '<meta property="og:image:width" content="1536" />',
+        "replace": '<meta property="og:image:width" content="huge" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
