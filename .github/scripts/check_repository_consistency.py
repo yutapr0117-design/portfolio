@@ -1899,6 +1899,14 @@ authoritative inventory and is kept in sync with the implementation below):
        (datePublished <= dateModified) for the JSON-LD date not-future
        axis. (BLOCKING)
 
+  274. aio-manifest `entity.name` matches primary Person `name` (JSON-LD):
+       the `.well-known/aio-manifest.json` `entity.name` value MUST equal
+       the primary JSON-LD Person `name` (where `@id == canonical +
+       "#person"`) — currently both `"Yuta Yokoi"`. Drift silently splits
+       the entity identity between the AIO manifest layer and the
+       JSON-LD layer. Sibling of Check 172 (entity name variants combined)
+       for the manifest ↔ JSON-LD name direct-equality axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12093,6 +12101,73 @@ if _idx273.exists():
 else:
     check(False, "Check 273: index.html present",
           "Check 273: index.html が無い", blocking=True)
+
+# ── 274. aio-manifest entity.name == primary Person.name (JSON-LD) (BLOCKING) ─
+# .well-known/aio-manifest.json の entity.name が index.html JSON-LD の primary
+# Person node (@id == canonical+#person) の name と strict 一致することを BLOCKING
+# 強制。Check 172 (name variants combined) の direct-equality 軸版。
+_mani274 = ROOT / ".well-known" / "aio-manifest.json"
+_idx274 = ROOT / "index.html"
+if _mani274.exists() and _idx274.exists():
+    try:
+        _mdata274 = json.loads(_mani274.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _mdata274 = None
+    _entity_name274 = None
+    if isinstance(_mdata274, dict):
+        _entity_name274 = _mdata274.get("entity", {}).get("name")
+    _isrc274 = _idx274.read_text(encoding="utf-8")
+    _canon274_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc274
+    )
+    _canon274 = _canon274_m.group(1) if _canon274_m else None
+    _expected_pid274 = (_canon274 or "") + "#person"
+    _blocks274 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc274,
+        flags=re.DOTALL,
+    )
+    _primary_pname274 = None
+    def _walk274(node: object) -> None:
+        global _primary_pname274
+        if isinstance(node, dict):
+            if (
+                node.get("@type") == "Person"
+                and node.get("@id") == _expected_pid274
+                and _primary_pname274 is None
+                and isinstance(node.get("name"), str)
+            ):
+                _primary_pname274 = node["name"]
+            for v in node.values():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk274(item)
+                else:
+                    _walk274(v)
+        elif isinstance(node, list):
+            for item in node:
+                _walk274(item)
+    for _blk in _blocks274:
+        try:
+            _walk274(json.loads(_blk))
+        except json.JSONDecodeError:
+            continue
+    _ok274 = (
+        isinstance(_entity_name274, str)
+        and isinstance(_primary_pname274, str)
+        and _entity_name274 == _primary_pname274
+    )
+    check(
+        _ok274,
+        f"Check 274: aio-manifest entity.name={_entity_name274!r} == primary Person.name={_primary_pname274!r}",
+        (f"Check 274: name drift: aio-manifest.entity.name={_entity_name274!r}, "
+         f"JSON-LD primary Person.name={_primary_pname274!r} — entity identity split。"
+         "両者を同一 canonical name へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 274: aio-manifest.json + index.html present",
+          "Check 274: aio-manifest.json もしくは index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
