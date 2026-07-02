@@ -2029,6 +2029,14 @@ authoritative inventory and is kept in sync with the implementation below):
        Role"]` still passes 169 yet corrupts AIO entity role parity.
        Check 290 covers strict set-equality. (BLOCKING)
 
+  291. aio-manifest entity.name_alt strict set-equality: the
+       `entity.name_alt` list in .well-known/aio-manifest.json MUST be
+       exactly `{"Yokoi Yuta", "yuta"}` (as a set — no extras, no
+       missing, no duplicates). Check 172 covers combined name-variants
+       coverage but strict set-equality is a separate invariant. Sibling
+       of Check 290 (role strict set-equality) for the name_alt axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12820,6 +12828,36 @@ if _mani290.exists():
 else:
     check(False, "Check 290: aio-manifest.json present",
           "Check 290: aio-manifest.json が無い", blocking=True)
+
+# ── 291. aio-manifest entity.name_alt strict set-equality (BLOCKING) ──────────
+# .well-known/aio-manifest.json entity.name_alt が canonical variant set
+# ("Yokoi Yuta", "yuta") と strict 一致することを BLOCKING 強制。Check 290 の
+# name_alt 軸版。
+_CANONICAL_NAME_ALT291 = {"Yokoi Yuta", "yuta"}
+_mani291 = ROOT / ".well-known" / "aio-manifest.json"
+if _mani291.exists():
+    try:
+        _mdata291 = json.loads(_mani291.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _mdata291 = None
+    _names291 = None
+    if isinstance(_mdata291, dict):
+        _names291 = _mdata291.get("entity", {}).get("name_alt")
+    _ok291 = (
+        isinstance(_names291, list)
+        and set(_names291) == _CANONICAL_NAME_ALT291
+        and len(_names291) == len(_CANONICAL_NAME_ALT291)
+    )
+    check(
+        _ok291,
+        f"Check 291: aio-manifest entity.name_alt={_names291!r} == canonical variant set (strict)",
+        (f"Check 291: name_alt drift: got={_names291!r}, expected set="
+         f"{sorted(_CANONICAL_NAME_ALT291)!r} — extras/missing/duplicates。canonical variants のみへ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 291: aio-manifest.json present",
+          "Check 291: aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
