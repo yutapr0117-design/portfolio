@@ -1081,6 +1081,12 @@ MUTATIONS = [
         "find": '"name_ja": "横井雄太",',
         "replace": '"name_ja": "横井雄太PROBE",',
     },
+    {
+        "name": "Check 293 (disambiguation 5 academic domains): drift to strip entomology",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": "agriculture, chemistry, medicine, entomology, or computer science",
+        "replace": "agriculture, chemistry, medicine, or computer science",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
