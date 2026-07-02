@@ -1033,6 +1033,12 @@ MUTATIONS = [
         "find": '<meta name="ai:entrypoint" content="https://yutapr0117-design.github.io/portfolio/llms.txt" />',
         "replace": '<meta name="ai:entrypoint" content="https://yutapr0117-design.github.io/portfolio/PROBE-DRIFT.txt" />',
     },
+    {
+        "name": "Check 285 (SITE_CONFIG.VERSION format v\\d+): drift VERSION to uppercase V74",
+        "file": ROOT / "main.js",
+        "find": "VERSION:       'v74',",
+        "replace": "VERSION:       'V74',",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
