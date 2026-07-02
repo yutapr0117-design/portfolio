@@ -1885,6 +1885,12 @@ authoritative inventory and is kept in sync with the implementation below):
        (JS byte weight sum) for the per-file JS byte budget axis.
        (BLOCKING)
 
+  272. js leaf module byte budget: every `js/**/*.js` file MUST be <=
+       100_000 bytes. Drift = a leaf module bloating past canonical
+       size, defeating the Stage 5 factory extraction goal (physically
+       split main.js into small orchestrable leaves). Sibling of Check
+       271 (root JS) for the leaf JS byte budget axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -11999,6 +12005,32 @@ check(
     f"Check 271: root JS ({len(_BUDGETS271)} 件) all within per-file byte budget",
     (f"Check 271: 違反: {_violations271!r} — silent script bloat 検出。"
      "dead-code 削除 or budget を上げる contract 更新"),
+    blocking=True,
+)
+
+# ── 272. js/*.js leaf module byte budget (BLOCKING) ───────────────────────────
+# js/**/*.js の全 leaf module が 100_000 bytes 以下であることを BLOCKING 強制。
+# Stage 5 factory 抽出の物理分割 goal を silent bloat から防衛。Check 271 の
+# leaf 軸版。
+_LEAF_BUDGET272 = 100_000
+_leaf_paths272 = (
+    _glob237.glob(str(ROOT / "js" / "*.js"))
+    + _glob237.glob(str(ROOT / "js" / "quiz" / "*.js"))
+)
+_violations272: list[str] = []
+for _lp in _leaf_paths272:
+    _p = Path(_lp)
+    _sz = _p.stat().st_size
+    if _sz > _LEAF_BUDGET272:
+        _violations272.append(f"{_p.relative_to(ROOT)}={_sz} bytes (budget {_LEAF_BUDGET272})")
+_ok272 = len(_leaf_paths272) > 0 and not _violations272
+check(
+    _ok272,
+    f"Check 272: js leaf modules ({len(_leaf_paths272)} 件) all <= {_LEAF_BUDGET272} bytes",
+    (f"Check 272: 違反: {_violations272!r} — leaf bloat で Stage 5 分割 goal 崩壊。"
+     "更に細分化 or budget contract 更新"
+     if _violations272 else
+     "Check 272: leaf module 0 件 — vacuous-fail"),
     blocking=True,
 )
 
