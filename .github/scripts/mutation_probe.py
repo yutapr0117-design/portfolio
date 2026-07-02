@@ -1147,6 +1147,12 @@ MUTATIONS = [
         "find": '<html lang="ja" data-theme="system" data-brand="indigo">',
         "replace": '<html lang="ja" data-theme="system" data-brand="PROBE-INVALID">',
     },
+    {
+        "name": "Check 304 (theme-color hex format): drift to named color",
+        "file": ROOT / "index.html",
+        "find": '<meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)" />',
+        "replace": '<meta name="theme-color" content="rebeccapurple" media="(prefers-color-scheme: light)" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
