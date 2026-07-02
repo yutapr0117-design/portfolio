@@ -1976,6 +1976,13 @@ authoritative inventory and is kept in sync with the implementation below):
        location. Sibling of Check 282 for the ai:aio-manifest exact-URL
        derivation axis. (BLOCKING)
 
+  284. HTML `<meta name="ai:context">` == canonical+"llms-full.txt" AND
+       `<meta name="ai:entrypoint">` == canonical+"llms.txt": the two
+       ai:* discovery meta URLs MUST match their canonical exact
+       derivations. Sibling of Check 283 (ai:aio-manifest exact
+       derivation) for the ai:context / ai:entrypoint exact-URL
+       derivation axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12564,6 +12571,43 @@ if _idx283.exists():
 else:
     check(False, "Check 283: index.html present",
           "Check 283: index.html が無い", blocking=True)
+
+# ── 284. ai:context + ai:entrypoint exact-URL derivation (BLOCKING) ───────────
+# index.html `<meta name="ai:context">` == canonical + "llms-full.txt" AND
+# `<meta name="ai:entrypoint">` == canonical + "llms.txt" を BLOCKING 強制。
+# Check 283 の ai:context / ai:entrypoint 軸版。
+_idx284 = ROOT / "index.html"
+if _idx284.exists():
+    _isrc284 = _idx284.read_text(encoding="utf-8")
+    _canon284_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc284
+    )
+    _canon284 = _canon284_m.group(1) if _canon284_m else ""
+    _pairs284 = [
+        ("ai:context", "llms-full.txt"),
+        ("ai:entrypoint", "llms.txt"),
+    ]
+    _bad284: list[str] = []
+    for _name, _suffix in _pairs284:
+        _m = re.search(
+            rf'<meta\s+name=["\']{re.escape(_name)}["\']\s+content=["\']([^"\']+)["\']',
+            _isrc284,
+        )
+        _v = _m.group(1) if _m else None
+        _expected = _canon284 + _suffix
+        if _v != _expected:
+            _bad284.append(f"{_name}={_v!r} (expected {_expected!r})")
+    _ok284 = not _bad284
+    check(
+        _ok284,
+        f"Check 284: ai:context + ai:entrypoint 全 exact-URL derivation OK",
+        (f"Check 284: 違反: {_bad284!r} — AI/agent discovery 経路が canonical exact "
+         "location から drift。canonical + suffix に揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 284: index.html present",
+          "Check 284: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
