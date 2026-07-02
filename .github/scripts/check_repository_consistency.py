@@ -2148,6 +2148,15 @@ authoritative inventory and is kept in sync with the implementation below):
        entire sitemap. Sibling of Check 306 (index.html structural
        closure) for the sitemap.xml structural axis. (BLOCKING)
 
+  308. sitemap.xml `<urlset>` declares both sitemap + image namespaces:
+       the sitemap.xml `<urlset>` opening tag MUST declare both
+       `xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"` AND
+       `xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"`.
+       Drift = `<image:image>` blocks parsed as unknown → Google Image
+       sitemap coverage collapses. Sibling of Check 297 (canonical entry
+       image:image) for the sitemap.xml namespace-declaration axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13426,6 +13435,31 @@ if _sitemap307.exists():
 else:
     check(False, "Check 307: sitemap.xml present",
           "Check 307: sitemap.xml が無い", blocking=True)
+
+# ── 308. sitemap.xml <urlset> declares both namespaces (BLOCKING) ─────────────
+# sitemap.xml の <urlset> tag が sitemap + image 両方の xmlns 宣言を含むことを
+# BLOCKING 強制。Check 297 (canonical entry <image:image>) の namespace 軸版。
+_sitemap308 = ROOT / "sitemap.xml"
+if _sitemap308.exists():
+    _ssrc308 = _sitemap308.read_text(encoding="utf-8")
+    _required_ns308 = [
+        ('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"', "sitemap 0.9"),
+        ('xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"', "image 1.1"),
+    ]
+    _urlset308_m = re.search(r"<urlset\s+[^>]*>", _ssrc308, flags=re.DOTALL)
+    _urlset308 = _urlset308_m.group(0) if _urlset308_m else ""
+    _missing308 = [_label for _pat, _label in _required_ns308 if _pat not in _urlset308]
+    _ok308 = not _missing308 and bool(_urlset308_m)
+    check(
+        _ok308,
+        f"Check 308: sitemap.xml <urlset> declares both sitemap + image namespaces",
+        (f"Check 308: 欠落 xmlns: {_missing308!r} — <image:image> block が unknown "
+         "parse で Google Image sitemap coverage 崩壊"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 308: sitemap.xml present",
+          "Check 308: sitemap.xml が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
