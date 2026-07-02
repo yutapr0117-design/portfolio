@@ -2086,6 +2086,13 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 20 (presence) for the og:image:width/height
        numeric-value axis. (BLOCKING)
 
+  299. `<meta name="twitter:card">` content is a valid Twitter card type:
+       the index.html `<meta name="twitter:card">` content MUST be one of
+       `summary`, `summary_large_image`, `player`, `app` (Twitter spec).
+       Drift = Twitter falls back to link-preview default. Sibling of
+       Check 155 (og:title ↔ twitter:title) for the twitter:card value
+       axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13121,6 +13128,30 @@ if _idx298.exists():
 else:
     check(False, "Check 298: index.html present",
           "Check 298: index.html が無い", blocking=True)
+
+# ── 299. <meta name=twitter:card> spec-valid content (BLOCKING) ───────────────
+# index.html `<meta name="twitter:card">` content が Twitter spec 4 値
+# (summary / summary_large_image / player / app) のいずれかであることを BLOCKING
+# 強制。Check 155 の twitter:card 軸版。
+_VALID_TWITTER_CARDS299 = {"summary", "summary_large_image", "player", "app"}
+_idx299 = ROOT / "index.html"
+if _idx299.exists():
+    _isrc299 = _idx299.read_text(encoding="utf-8")
+    _tc299_m = re.search(
+        r'<meta\s+name=["\']twitter:card["\']\s+content=["\']([^"\']+)["\']', _isrc299
+    )
+    _tc299 = _tc299_m.group(1) if _tc299_m else None
+    _ok299 = isinstance(_tc299, str) and _tc299 in _VALID_TWITTER_CARDS299
+    check(
+        _ok299,
+        f"Check 299: twitter:card={_tc299!r} is valid card type",
+        (f"Check 299: twitter:card={_tc299!r} not in {sorted(_VALID_TWITTER_CARDS299)!r} — "
+         "Twitter が link-preview default fallback。spec-valid 値に揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 299: index.html present",
+          "Check 299: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
