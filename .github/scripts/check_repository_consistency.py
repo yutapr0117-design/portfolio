@@ -2013,6 +2013,14 @@ authoritative inventory and is kept in sync with the implementation below):
        non-existent route. Sibling of Check 137 (router↔switch case
        coverage) for the ARTICLE_ROUTES ↔ router cases axis. (BLOCKING)
 
+  289. aio-manifest.json evidence list minimum counts + path uniqueness:
+       `source_of_truth[]` MUST have >= 3 entries, `supporting_evidence[]`
+       and `observational_evidence[]` MUST each have >= 1 entry, and
+       within each list, `path` values must be unique. Drift = accidental
+       shrinkage or duplicate-entry ingestion problems. Sibling of Check
+       219 (path ⊆ MANIFEST_PATH_TO_LOCAL) for the evidence list
+       structural axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12731,6 +12739,50 @@ if _main288.exists() and _router288.exists():
 else:
     check(False, "Check 288: main.js + js/router.js present",
           "Check 288: main.js もしくは js/router.js が無い", blocking=True)
+
+# ── 289. aio-manifest evidence list counts + path uniqueness (BLOCKING) ───────
+# aio-manifest.json の source_of_truth (>= 3) + supporting_evidence (>= 1) +
+# observational_evidence (>= 1) 各 minimum count と、各 list 内 path 一意性を
+# BLOCKING 強制。Check 219 の structural axis 版。
+_mani289 = ROOT / ".well-known" / "aio-manifest.json"
+if _mani289.exists():
+    try:
+        _mdata289 = json.loads(_mani289.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _mdata289 = None
+    _requirements289 = [
+        ("source_of_truth", 3),
+        ("supporting_evidence", 1),
+        ("observational_evidence", 1),
+    ]
+    _violations289: list[str] = []
+    if isinstance(_mdata289, dict):
+        for _key, _minc in _requirements289:
+            _lst = _mdata289.get(_key, [])
+            if not isinstance(_lst, list):
+                _violations289.append(f"{_key} は list でない")
+                continue
+            if len(_lst) < _minc:
+                _violations289.append(f"{_key} count={len(_lst)} < {_minc}")
+            # path uniqueness
+            _paths = [e.get("path") for e in _lst if isinstance(e, dict) and isinstance(e.get("path"), str)]
+            from collections import Counter as _Counter289
+            _dupes = [p for p, c in _Counter289(_paths).items() if c > 1]
+            if _dupes:
+                _violations289.append(f"{_key} 重複 path: {_dupes!r}")
+    else:
+        _violations289.append("aio-manifest parse 失敗")
+    _ok289 = not _violations289
+    check(
+        _ok289,
+        f"Check 289: aio-manifest evidence lists minimum counts + path uniqueness OK",
+        (f"Check 289: 違反: {_violations289!r} — evidence structural sanity 崩壊。"
+         "minimum count と path uniqueness を復旧"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 289: aio-manifest.json present",
+          "Check 289: aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

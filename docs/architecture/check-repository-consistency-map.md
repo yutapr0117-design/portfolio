@@ -362,6 +362,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 286 | sw.js CACHE_NAME が `^portfolio-aio-v\d+$` regex に一致。portfolio-cache-v74 等 semantic contract 崩壊 drift を BLOCKING で阻止。Check 19 (version parity) の format 軸版 | BLOCKING |
 | 287 | .well-known/aio-manifest.json manifest_version が `^\d+\.\d+$` regex (major.minor) に一致。非 semver drift で schema consumer parse 失敗を BLOCKING で阻止。Check 285/286 の manifest_version 軸版 | BLOCKING |
 | 288 | main.js SITE_CONFIG.ARTICLE_ROUTES 配列の全 string 要素が js/router.js の `case '<route>':` に出現。ghost route (og:type=article dead pointer) を BLOCKING で阻止。Check 137 (router↔switch case coverage) の ARTICLE_ROUTES 軸版 | BLOCKING |
+| 289 | aio-manifest.json source_of_truth (>=3) + supporting_evidence (>=1) + observational_evidence (>=1) 各 minimum count + list 内 path 一意性。accidental shrinkage / duplicate ingestion を BLOCKING で阻止。Check 219 (path ⊆ MANIFEST_PATH_TO_LOCAL) の structural axis 版 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 
