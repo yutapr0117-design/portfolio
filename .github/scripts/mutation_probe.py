@@ -1123,6 +1123,12 @@ MUTATIONS = [
         "find": '<meta name="twitter:card" content="summary_large_image" />',
         "replace": '<meta name="twitter:card" content="big_card_PROBE" />',
     },
+    {
+        "name": "Check 300 (og:image:alt canonical markers): strip 横井雄太 from alt",
+        "file": ROOT / "index.html",
+        "find": '<meta property="og:image:alt" content="横井雄太 AI-Driven PM Portfolio — v1→v74 AIチームオーケストレーション実証" />',
+        "replace": '<meta property="og:image:alt" content="AI-Driven PM Portfolio — v1→v74 AIチームオーケストレーション実証" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
