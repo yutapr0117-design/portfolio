@@ -1933,6 +1933,12 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 274/275/276 for the manifest authoritative-context
        URL derivation axis. (BLOCKING)
 
+  278. sitemap.xml all `<loc>` URLs use HTTPS: every `<loc>` value in
+       sitemap.xml MUST start with `https://`. Drift to `http://` would
+       silently expose crawler paths on insecure transport (Mixed Content
+       intervention on HTTPS-hosted crawler contexts). Sibling of Check
+       206/207/214 for the sitemap loc HTTPS-only axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12357,6 +12363,28 @@ if _mani277.exists() and _idx277.exists():
 else:
     check(False, "Check 277: aio-manifest.json + index.html present",
           "Check 277: aio-manifest.json もしくは index.html が無い", blocking=True)
+
+# ── 278. sitemap.xml all <loc> URLs use HTTPS (BLOCKING) ──────────────────────
+# sitemap.xml の全 <loc> URL が `https://` で始まることを BLOCKING 強制 (negative
+# invariant: http:// 0)。drift で crawler が非 secure transport で URL を取得。
+_sitemap278 = ROOT / "sitemap.xml"
+if _sitemap278.exists():
+    _ssrc278 = _sitemap278.read_text(encoding="utf-8")
+    _locs278 = re.findall(r"<loc>([^<]+)</loc>", _ssrc278)
+    _bad278 = [u for u in _locs278 if u.startswith("http://")]
+    _ok278 = len(_locs278) > 0 and not _bad278
+    check(
+        _ok278,
+        f"Check 278: sitemap.xml <loc> URLs {len(_locs278)} 件全て HTTPS",
+        (f"Check 278: sitemap.xml に non-HTTPS <loc>: {_bad278!r} — crawler が "
+         "insecure transport で fetch。https:// に揃えよ"
+         if _bad278 else
+         "Check 278: sitemap.xml <loc> 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 278: sitemap.xml present",
+          "Check 278: sitemap.xml が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
