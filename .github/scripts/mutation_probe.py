@@ -979,6 +979,12 @@ MUTATIONS = [
         "find": '"organization_name": "株式会社日本経営",',
         "replace": '"organization_name": "PROBE Company Ltd",',
     },
+    {
+        "name": "Check 276 (aio-manifest affiliation.organization_url == Org.url): drift org_url in manifest",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"organization_url": "https://nkgr.co.jp/",',
+        "replace": '"organization_url": "https://probe-drift.example/",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
