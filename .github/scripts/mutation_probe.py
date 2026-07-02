@@ -973,6 +973,12 @@ MUTATIONS = [
         "find": '"name": "Yuta Yokoi",\n    "name_ja": "横井雄太",',
         "replace": '"name": "Anonymous PROBE",\n    "name_ja": "横井雄太",',
     },
+    {
+        "name": "Check 275 (aio-manifest affiliation.organization_name == Org.name): drift org_name in manifest",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"organization_name": "株式会社日本経営",',
+        "replace": '"organization_name": "PROBE Company Ltd",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
