@@ -2057,6 +2057,12 @@ authoritative inventory and is kept in sync with the implementation below):
        of Check 293 for the disambiguation non-academic-domain axis.
        (BLOCKING)
 
+  295. HTML `<meta name="publisher">` content contains canonical entity
+       names: the `<meta name="publisher">` content in index.html MUST
+       contain BOTH `"Yuta Yokoi"` AND `"横井雄太"`. Sibling of Check 186
+       (author meta) for the publisher meta canonical-name axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12965,6 +12971,35 @@ if _mani294.exists():
 else:
     check(False, "Check 294: aio-manifest.json present",
           "Check 294: aio-manifest.json が無い", blocking=True)
+
+# ── 295. HTML meta publisher contains canonical names (BLOCKING) ──────────────
+# index.html `<meta name="publisher">` content が canonical entity name 両方
+# ("Yuta Yokoi" AND "横井雄太") を含むことを BLOCKING 強制。Check 186 (author meta)
+# の publisher 軸版。
+_idx295 = ROOT / "index.html"
+if _idx295.exists():
+    _isrc295 = _idx295.read_text(encoding="utf-8")
+    _pub295_m = re.search(
+        r'<meta\s+name=["\']publisher["\']\s+content=["\']([^"\']+)["\']', _isrc295
+    )
+    _pub295 = _pub295_m.group(1) if _pub295_m else None
+    _required295 = ["Yuta Yokoi", "横井雄太"]
+    _missing295 = []
+    if isinstance(_pub295, str):
+        _missing295 = [n for n in _required295 if n not in _pub295]
+    else:
+        _missing295 = ["publisher meta 欠落"]
+    _ok295 = not _missing295
+    check(
+        _ok295,
+        f"Check 295: <meta name=publisher> content={_pub295!r} contains 両 canonical name",
+        (f"Check 295: 欠落 canonical name: {_missing295!r} — publisher meta が "
+         "entity 帰属を薄める。'Yuta Yokoi (横井雄太)' 形式へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 295: index.html present",
+          "Check 295: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
