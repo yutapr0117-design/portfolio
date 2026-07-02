@@ -997,6 +997,12 @@ MUTATIONS = [
         "find": "<loc>https://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>",
         "replace": "<loc>http://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>",
     },
+    {
+        "name": "Check 279 (robots.txt Sitemap: HTTPS): downgrade Sitemap: URL to http",
+        "file": ROOT / "robots.txt",
+        "find": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml",
+        "replace": "Sitemap: http://yutapr0117-design.github.io/portfolio/sitemap.xml",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
