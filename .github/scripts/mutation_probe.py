@@ -1153,6 +1153,12 @@ MUTATIONS = [
         "find": '<meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)" />',
         "replace": '<meta name="theme-color" content="rebeccapurple" media="(prefers-color-scheme: light)" />',
     },
+    {
+        "name": "Check 305 (theme-color light+dark coverage): remove dark theme-color",
+        "file": ROOT / "index.html",
+        "find": '<meta name="theme-color" content="#818cf8" media="(prefers-color-scheme: dark)" />',
+        "replace": '<!-- dark theme-color PROBE-REMOVED -->',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
