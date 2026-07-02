@@ -2100,6 +2100,13 @@ authoritative inventory and is kept in sync with the implementation below):
        20 (og:image:alt presence) for the og:image:alt content-value axis.
        (BLOCKING)
 
+  301. index.html `<link rel="preconnect">` for Google Fonts hosts: both
+       `href="https://fonts.googleapis.com"` AND
+       `href="https://fonts.gstatic.com"` MUST exist as preconnect hints.
+       Silent removal degrades LCP / CWV because font stylesheets and
+       woff2 files come from different hosts. Sibling of Check 73a
+       (preload as= attribute) for the preconnect axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13187,6 +13194,33 @@ if _idx300.exists():
 else:
     check(False, "Check 300: index.html present",
           "Check 300: index.html が無い", blocking=True)
+
+# ── 301. <link rel=preconnect> for Google Fonts hosts (BLOCKING) ──────────────
+# index.html に `<link rel=preconnect href=https://fonts.googleapis.com>` AND
+# `<link rel=preconnect href=https://fonts.gstatic.com>` 両方が存在することを
+# BLOCKING 強制。CWV LCP / font waterfall 最適化のため。Check 73a の preconnect 軸版。
+_idx301 = ROOT / "index.html"
+if _idx301.exists():
+    _isrc301 = _idx301.read_text(encoding="utf-8")
+    _required_preconn301 = ["https://fonts.googleapis.com", "https://fonts.gstatic.com"]
+    _missing301 = []
+    for _href in _required_preconn301:
+        _pat = re.compile(
+            r'<link\s+rel=["\']preconnect["\'][^>]*href=["\']' + re.escape(_href) + r'["\']'
+        )
+        if not _pat.search(_isrc301):
+            _missing301.append(_href)
+    _ok301 = not _missing301
+    check(
+        _ok301,
+        "Check 301: index.html has <link rel=preconnect> for both fonts.googleapis.com and fonts.gstatic.com",
+        (f"Check 301: 欠落 preconnect href: {_missing301!r} — CWV LCP / font "
+         "waterfall 劣化。両 preconnect link を復元"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 301: index.html present",
+          "Check 301: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
