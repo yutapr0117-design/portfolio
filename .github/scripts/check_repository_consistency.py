@@ -2107,6 +2107,12 @@ authoritative inventory and is kept in sync with the implementation below):
        woff2 files come from different hosts. Sibling of Check 73a
        (preload as= attribute) for the preconnect axis. (BLOCKING)
 
+  302. `<body data-canonical>` attribute matches `<link rel=canonical>`
+       href: the `<body>` tag `data-canonical` attribute MUST equal the
+       canonical URL. Drift silently misroutes JS reader hydration and
+       runtime canonical detection. Sibling of Check 149 (canonical
+       URL three-way coherence) for the body attribute axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13221,6 +13227,36 @@ if _idx301.exists():
 else:
     check(False, "Check 301: index.html present",
           "Check 301: index.html が無い", blocking=True)
+
+# ── 302. <body data-canonical> == <link rel=canonical> href (BLOCKING) ────────
+# index.html の <body> tag data-canonical 属性が <link rel=canonical> href と
+# strict 一致することを BLOCKING 強制。Check 149 の body attribute 軸版。
+_idx302 = ROOT / "index.html"
+if _idx302.exists():
+    _isrc302 = _idx302.read_text(encoding="utf-8")
+    _canon302_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc302
+    )
+    _canon302 = _canon302_m.group(1) if _canon302_m else None
+    _body_canon302_m = re.search(
+        r'<body\s+[^>]*data-canonical=["\']([^"\']+)["\']', _isrc302
+    )
+    _body_canon302 = _body_canon302_m.group(1) if _body_canon302_m else None
+    _ok302 = (
+        isinstance(_canon302, str)
+        and isinstance(_body_canon302, str)
+        and _canon302 == _body_canon302
+    )
+    check(
+        _ok302,
+        f"Check 302: <body data-canonical>={_body_canon302!r} == <link rel=canonical>={_canon302!r}",
+        (f"Check 302: canonical drift: body-attr={_body_canon302!r} / link-rel={_canon302!r} "
+         "— JS reader hydration が canonical から drift。両者を strict 一致へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 302: index.html present",
+          "Check 302: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
