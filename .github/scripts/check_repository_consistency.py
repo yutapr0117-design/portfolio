@@ -1924,6 +1924,15 @@ authoritative inventory and is kept in sync with the implementation below):
        for the manifest ↔ JSON-LD Organization url direct-equality axis.
        (BLOCKING)
 
+  277. aio-manifest entity.authoritative_context == canonical + llms-full.txt:
+       the `.well-known/aio-manifest.json` `entity.authoritative_context`
+       value MUST equal `<canonical>llms-full.txt` (canonical URL prefix +
+       "llms-full.txt" — currently
+       "https://yutapr0117-design.github.io/portfolio/llms-full.txt").
+       Drift silently misroute AI/agent authoritative-context ingestion.
+       Sibling of Check 274/275/276 for the manifest authoritative-context
+       URL derivation axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12314,6 +12323,40 @@ if _mani276.exists() and _idx276.exists():
 else:
     check(False, "Check 276: aio-manifest.json + index.html present",
           "Check 276: aio-manifest.json もしくは index.html が無い", blocking=True)
+
+# ── 277. aio-manifest entity.authoritative_context == canonical+llms-full.txt (BLOCKING) ─
+# .well-known/aio-manifest.json の entity.authoritative_context 値が
+# canonical URL + "llms-full.txt" に一致することを BLOCKING 強制。
+_mani277 = ROOT / ".well-known" / "aio-manifest.json"
+_idx277 = ROOT / "index.html"
+if _mani277.exists() and _idx277.exists():
+    try:
+        _mdata277 = json.loads(_mani277.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _mdata277 = None
+    _auth_ctx277 = None
+    if isinstance(_mdata277, dict):
+        _auth_ctx277 = _mdata277.get("entity", {}).get("authoritative_context")
+    _isrc277 = _idx277.read_text(encoding="utf-8")
+    _canon277_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc277
+    )
+    _canon277 = _canon277_m.group(1) if _canon277_m else None
+    _expected277 = (_canon277 or "") + "llms-full.txt"
+    _ok277 = (
+        isinstance(_auth_ctx277, str)
+        and _auth_ctx277 == _expected277
+    )
+    check(
+        _ok277,
+        f"Check 277: aio-manifest entity.authoritative_context={_auth_ctx277!r} == canonical+llms-full.txt={_expected277!r}",
+        (f"Check 277: authoritative_context drift: aio-manifest={_auth_ctx277!r} / "
+         f"expected={_expected277!r} — AI/agent authoritative-context ingestion 誤 route"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 277: aio-manifest.json + index.html present",
+          "Check 277: aio-manifest.json もしくは index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
