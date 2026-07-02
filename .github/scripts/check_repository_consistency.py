@@ -1907,6 +1907,14 @@ authoritative inventory and is kept in sync with the implementation below):
        JSON-LD layer. Sibling of Check 172 (entity name variants combined)
        for the manifest ↔ JSON-LD name direct-equality axis. (BLOCKING)
 
+  275. aio-manifest affiliation.organization_name == JSON-LD Organization
+       `name` (nkgr.co.jp/#organization): the `.well-known/aio-manifest.json`
+       `entity.affiliation.organization_name` value MUST equal the JSON-LD
+       primary Organization node `name` where `@id ==
+       "https://nkgr.co.jp/#organization"` (currently both "株式会社日本経営").
+       Sibling of Check 274 (Person name equality) for the manifest ↔
+       JSON-LD Organization name direct-equality axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12168,6 +12176,71 @@ if _mani274.exists() and _idx274.exists():
 else:
     check(False, "Check 274: aio-manifest.json + index.html present",
           "Check 274: aio-manifest.json もしくは index.html が無い", blocking=True)
+
+# ── 275. aio-manifest affiliation.organization_name == JSON-LD Org.name (BLOCKING) ─
+# .well-known/aio-manifest.json の entity.affiliation.organization_name が
+# index.html JSON-LD primary Organization node (@id ==
+# https://nkgr.co.jp/#organization) の name と strict 一致することを BLOCKING 強制。
+# Check 274 の Organization 軸版。
+_PRIMARY_ORG_ID275 = "https://nkgr.co.jp/#organization"
+_mani275 = ROOT / ".well-known" / "aio-manifest.json"
+_idx275 = ROOT / "index.html"
+if _mani275.exists() and _idx275.exists():
+    try:
+        _mdata275 = json.loads(_mani275.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _mdata275 = None
+    _aff_org275 = None
+    if isinstance(_mdata275, dict):
+        _aff_org275 = (
+            _mdata275.get("entity", {}).get("affiliation", {}).get("organization_name")
+        )
+    _isrc275 = _idx275.read_text(encoding="utf-8")
+    _blocks275 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc275,
+        flags=re.DOTALL,
+    )
+    _primary_org_name275 = None
+    def _walk275(node: object) -> None:
+        global _primary_org_name275
+        if isinstance(node, dict):
+            if (
+                node.get("@type") == "Organization"
+                and node.get("@id") == _PRIMARY_ORG_ID275
+                and _primary_org_name275 is None
+                and isinstance(node.get("name"), str)
+            ):
+                _primary_org_name275 = node["name"]
+            for v in node.values():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk275(item)
+                else:
+                    _walk275(v)
+        elif isinstance(node, list):
+            for item in node:
+                _walk275(item)
+    for _blk in _blocks275:
+        try:
+            _walk275(json.loads(_blk))
+        except json.JSONDecodeError:
+            continue
+    _ok275 = (
+        isinstance(_aff_org275, str)
+        and isinstance(_primary_org_name275, str)
+        and _aff_org275 == _primary_org_name275
+    )
+    check(
+        _ok275,
+        f"Check 275: aio-manifest affiliation.organization_name={_aff_org275!r} == JSON-LD Organization.name={_primary_org_name275!r}",
+        (f"Check 275: Organization name drift: aio-manifest={_aff_org275!r} / "
+         f"JSON-LD={_primary_org_name275!r} — employer identity split。両者を同一値へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 275: aio-manifest.json + index.html present",
+          "Check 275: aio-manifest.json もしくは index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
