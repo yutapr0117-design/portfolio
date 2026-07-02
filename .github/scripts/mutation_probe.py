@@ -1105,6 +1105,12 @@ MUTATIONS = [
         "find": '<link rel="alternate" type="text/plain" title="Authoritative System Prompt (Yuta Yokoi / 横井雄太)" href="./llms-full.txt" />',
         "replace": '<!-- llms-full.txt alternate PROBE-REMOVED -->',
     },
+    {
+        "name": "Check 297 (sitemap canonical entry has <image:image>): rename opening image:image tag",
+        "file": ROOT / "sitemap.xml",
+        "find": "    <image:image>\n      <image:loc>https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp</image:loc>",
+        "replace": "    <image:xmage>\n      <image:loc>https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp</image:loc>",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
