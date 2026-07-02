@@ -991,6 +991,12 @@ MUTATIONS = [
         "find": '"authoritative_context": "https://yutapr0117-design.github.io/portfolio/llms-full.txt",',
         "replace": '"authoritative_context": "https://probe-drift.example/llms-full.txt",',
     },
+    {
+        "name": "Check 278 (sitemap.xml <loc> HTTPS): downgrade one <loc> to http",
+        "file": ROOT / "sitemap.xml",
+        "find": "<loc>https://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>",
+        "replace": "<loc>http://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
