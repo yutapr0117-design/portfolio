@@ -367,6 +367,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 291 | .well-known/aio-manifest.json entity.name_alt が canonical variant set (Yokoi Yuta / yuta) と strict 一致。extras/missing/duplicates を BLOCKING で阻止。Check 172 (combined name-variants) の strict set-equality 軸版 | BLOCKING |
 | 292 | .well-known/aio-manifest.json entity.name_ja が canonical Japanese 名 '横井雄太' と strict 一致。drift を BLOCKING で阻止。Check 290/291 の name_ja strict-equality 軸版 | BLOCKING |
 | 293 | .well-known/aio-manifest.json entity.disambiguation が 5 academic domains (agriculture/chemistry/medicine/entomology/computer science) を全て含む。学術系 Yuta Yokoi との分離弱化 drift を BLOCKING で阻止。Check 170 の academic-domain 軸版 | BLOCKING |
+| 294 | .well-known/aio-manifest.json entity.disambiguation が 4 non-academic markers (diplomat/artist/musician/patent inventor) を全て含む。非学術系 Yuta Yokoi との分離弱化 drift を BLOCKING で阻止。Check 293 の non-academic 軸版 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 

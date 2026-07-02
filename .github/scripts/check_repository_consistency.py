@@ -2051,6 +2051,12 @@ authoritative inventory and is kept in sync with the implementation below):
        (disambiguation top-level markers) for the disambiguation
        academic-domain axis. (BLOCKING)
 
+  294. aio-manifest disambiguation contains all 4 non-academic markers:
+       `entity.disambiguation` MUST contain all of `diplomat`, `artist`,
+       `musician`, `patent inventor` (case-sensitive substring). Sibling
+       of Check 293 for the disambiguation non-academic-domain axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12928,6 +12934,37 @@ if _mani293.exists():
 else:
     check(False, "Check 293: aio-manifest.json present",
           "Check 293: aio-manifest.json が無い", blocking=True)
+
+# ── 294. disambiguation 4 non-academic markers (BLOCKING) ─────────────────────
+# .well-known/aio-manifest.json entity.disambiguation が 4 non-academic markers
+# (diplomat/artist/musician/patent inventor) を全て含むことを BLOCKING 強制。
+# Check 293 の non-academic 軸版。
+_NON_ACADEMIC294 = ["diplomat", "artist", "musician", "patent inventor"]
+_mani294 = ROOT / ".well-known" / "aio-manifest.json"
+if _mani294.exists():
+    try:
+        _mdata294 = json.loads(_mani294.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _mdata294 = None
+    _disamb294 = None
+    if isinstance(_mdata294, dict):
+        _disamb294 = _mdata294.get("entity", {}).get("disambiguation")
+    if isinstance(_disamb294, str):
+        _missing294 = [d for d in _NON_ACADEMIC294 if d not in _disamb294]
+    else:
+        _missing294 = ["entity.disambiguation 欠落/非 string"]
+    _ok294 = not _missing294
+    check(
+        _ok294,
+        f"Check 294: aio-manifest disambiguation contains all 4 non-academic markers",
+        (f"Check 294: 欠落 non-academic marker: {_missing294!r} — disambiguation "
+         "が非学術系 Yuta Yokoi (外交官/芸術家/音楽家/発明家) との分離を弱化。"
+         "4 marker 全てを disambiguation に含めよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 294: aio-manifest.json present",
+          "Check 294: aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
