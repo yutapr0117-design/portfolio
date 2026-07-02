@@ -1015,6 +1015,12 @@ MUTATIONS = [
         "find": '<meta name="ai:repository" content="https://github.com/yutapr0117-design/portfolio" />',
         "replace": '<meta name="ai:repository" content="https://github.com/PROBE-DRIFT/portfolio" />',
     },
+    {
+        "name": "Check 282 (SITE_CONFIG.CANONICAL_URL == ai:canonical): drift ai:canonical content",
+        "file": ROOT / "index.html",
+        "find": '<meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />',
+        "replace": '<meta name="ai:canonical" content="https://probe-drift.example/portfolio/" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
