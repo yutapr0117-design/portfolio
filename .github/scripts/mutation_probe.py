@@ -1051,6 +1051,12 @@ MUTATIONS = [
         "find": '"manifest_version": "1.0",',
         "replace": '"manifest_version": "1",',
     },
+    {
+        "name": "Check 288 (ARTICLE_ROUTES ⊆ router cases): rename ai-knowhow in ARTICLE_ROUTES to ghost",
+        "file": ROOT / "main.js",
+        "find": "ARTICLE_ROUTES: ['ai-knowhow'],",
+        "replace": "ARTICLE_ROUTES: ['ai-knowhow-GHOST-PROBE'],",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
