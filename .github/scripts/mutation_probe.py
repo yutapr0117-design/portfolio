@@ -1003,6 +1003,12 @@ MUTATIONS = [
         "find": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml",
         "replace": "Sitemap: http://yutapr0117-design.github.io/portfolio/sitemap.xml",
     },
+    {
+        "name": "Check 280 (SITE_CONFIG URLs HTTPS): downgrade REPO_URL to http",
+        "file": ROOT / "main.js",
+        "find": "REPO_URL:      'https://github.com/yutapr0117-design/portfolio',",
+        "replace": "REPO_URL:      'http://github.com/yutapr0117-design/portfolio',",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
