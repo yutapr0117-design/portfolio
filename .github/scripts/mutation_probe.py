@@ -1063,6 +1063,12 @@ MUTATIONS = [
         "find": '"path": "AI2AI.md",',
         "replace": '"path": "llms.txt",',
     },
+    {
+        "name": "Check 290 (entity.role strict set-equality): drift to add Extra Role",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"role": [\n      "AI-Driven PM",\n      "IT Consultant",\n      "KERNEL Framework Designer"\n    ],',
+        "replace": '"role": [\n      "AI-Driven PM",\n      "IT Consultant",\n      "KERNEL Framework Designer",\n      "Extra Role PROBE"\n    ],',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
