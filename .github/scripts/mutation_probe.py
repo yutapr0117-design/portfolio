@@ -1171,6 +1171,12 @@ MUTATIONS = [
         "find": '<?xml version="1.0" encoding="UTF-8"?>',
         "replace": '<!-- XML declaration PROBE-REMOVED -->',
     },
+    {
+        "name": "Check 308 (sitemap.xml <urlset> namespaces): drop image xmlns",
+        "file": ROOT / "sitemap.xml",
+        "find": '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
+        "replace": '        xmlns:PROBE-NS="http://www.google.com/schemas/sitemap-image/1.1">',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
