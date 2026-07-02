@@ -2063,6 +2063,13 @@ authoritative inventory and is kept in sync with the implementation below):
        (author meta) for the publisher meta canonical-name axis.
        (BLOCKING)
 
+  296. index.html has `<link rel="alternate">` for both AIO canonical
+       routes: `href="./llms.txt"` AND `href="./llms-full.txt"` MUST
+       exist as `<link rel="alternate">` tags in index.html. Drift =
+       silent removal of canonical AIO discovery entrypoint from the
+       HTML head. Sibling of Check 283/284 (ai:* exact URL derivation)
+       for the alternate link discovery-entrypoint axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13000,6 +13007,33 @@ if _idx295.exists():
 else:
     check(False, "Check 295: index.html present",
           "Check 295: index.html が無い", blocking=True)
+
+# ── 296. <link rel=alternate> for AIO canonical routes (BLOCKING) ─────────────
+# index.html に `<link rel="alternate" ... href="./llms.txt">` AND
+# `<link rel="alternate" ... href="./llms-full.txt">` が存在することを BLOCKING
+# 強制。Check 283/284 の alternate link discovery-entrypoint 軸版。
+_idx296 = ROOT / "index.html"
+if _idx296.exists():
+    _isrc296 = _idx296.read_text(encoding="utf-8")
+    _required_alts296 = ["./llms.txt", "./llms-full.txt"]
+    _missing296 = []
+    for _href in _required_alts296:
+        _pat = re.compile(
+            r'<link\s+rel=["\']alternate["\'][^>]*href=["\']' + re.escape(_href) + r'["\']'
+        )
+        if not _pat.search(_isrc296):
+            _missing296.append(_href)
+    _ok296 = not _missing296
+    check(
+        _ok296,
+        "Check 296: index.html has <link rel=alternate> for both llms.txt and llms-full.txt",
+        (f"Check 296: 欠落 alternate link href: {_missing296!r} — AIO discovery "
+         "entrypoint が HTML head から欠落。<link rel=alternate href=./llms.txt|llms-full.txt> を追加"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 296: index.html present",
+          "Check 296: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
