@@ -2005,6 +2005,14 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 285/286 (SITE_CONFIG.VERSION / CACHE_NAME) for
        the manifest_version format axis. (BLOCKING)
 
+  288. main.js SITE_CONFIG.ARTICLE_ROUTES entries all resolve to router
+       cases in js/router.js: every string element in the
+       ARTICLE_ROUTES array MUST appear as `case '<route>':` in
+       js/router.js. Drift = a ghost route name → og:type=article dead
+       pointer / meta-management applies Article JSON-LD to a
+       non-existent route. Sibling of Check 137 (router↔switch case
+       coverage) for the ARTICLE_ROUTES ↔ router cases axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12695,6 +12703,34 @@ if _mani287.exists():
 else:
     check(False, "Check 287: aio-manifest.json present",
           "Check 287: aio-manifest.json が無い", blocking=True)
+
+# ── 288. SITE_CONFIG.ARTICLE_ROUTES entries ⊆ js/router.js switch cases (BLOCKING) ─
+# main.js SITE_CONFIG.ARTICLE_ROUTES 配列の全 string 要素が js/router.js の
+# `case '<route>':` に出現することを BLOCKING 強制。Check 137 の ARTICLE_ROUTES 軸版。
+_main288 = ROOT / "main.js"
+_router288 = ROOT / "js" / "router.js"
+if _main288.exists() and _router288.exists():
+    _msrc288 = _main288.read_text(encoding="utf-8")
+    _rsrc288 = _router288.read_text(encoding="utf-8")
+    _ar288_m = re.search(r"ARTICLE_ROUTES:\s*(\[[^\]]*\])", _msrc288)
+    _ar288: list[str] = []
+    if _ar288_m:
+        _ar288 = re.findall(r"['\"]([^'\"]+)['\"]", _ar288_m.group(1))
+    _cases288 = set(re.findall(r"case\s+['\"]([^'\"]+)['\"]", _rsrc288))
+    _missing288 = [r for r in _ar288 if r not in _cases288]
+    _ok288 = len(_ar288) > 0 and not _missing288
+    check(
+        _ok288,
+        f"Check 288: ARTICLE_ROUTES ({_ar288!r}) 全て js/router.js switch cases に出現",
+        (f"Check 288: ghost route: {_missing288!r} — og:type=article dead pointer。"
+         "ARTICLE_ROUTES から除去 or js/router.js に case 追加"
+         if _missing288 else
+         "Check 288: ARTICLE_ROUTES 0 件 — vacuous-fail (article route が全く無い)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 288: main.js + js/router.js present",
+          "Check 288: main.js もしくは js/router.js が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
