@@ -2070,6 +2070,14 @@ authoritative inventory and is kept in sync with the implementation below):
        HTML head. Sibling of Check 283/284 (ai:* exact URL derivation)
        for the alternate link discovery-entrypoint axis. (BLOCKING)
 
+  297. sitemap.xml canonical (priority=1.0) entry structural completeness:
+       the sitemap.xml `<url>` entry with `<priority>1.0</priority>` MUST
+       contain `<loc>`, `<lastmod>`, `<changefreq>`, `<priority>`, AND at
+       least one `<image:image>` child. Drift = the canonical entry
+       silently loses image sitemap coverage. Sibling of Check 230
+       (canonical priority=1.0 uniqueness) for the canonical entry
+       structural-completeness axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13034,6 +13042,38 @@ if _idx296.exists():
 else:
     check(False, "Check 296: index.html present",
           "Check 296: index.html が無い", blocking=True)
+
+# ── 297. sitemap.xml canonical priority=1.0 entry structural completeness (BLOCKING) ─
+# sitemap.xml で <priority>1.0</priority> を持つ <url> entry が loc / lastmod /
+# changefreq / priority + <image:image> 全 5 要素を持つことを BLOCKING 強制。
+# Check 230 (canonical priority=1.0 uniqueness) の structural completeness 軸版。
+_sitemap297 = ROOT / "sitemap.xml"
+if _sitemap297.exists():
+    _ssrc297 = _sitemap297.read_text(encoding="utf-8")
+    _canonical_entry297 = None
+    for _url_block in re.findall(r"<url>(.*?)</url>", _ssrc297, flags=re.DOTALL):
+        if re.search(r"<priority>\s*1\.0\s*</priority>", _url_block):
+            _canonical_entry297 = _url_block
+            break
+    _missing297 = []
+    if _canonical_entry297 is None:
+        _missing297.append("priority=1.0 entry 不在")
+    else:
+        _required_tags297 = ["<loc>", "<lastmod>", "<changefreq>", "<priority>", "<image:image>"]
+        for _tag in _required_tags297:
+            if _tag not in _canonical_entry297:
+                _missing297.append(f"canonical entry から {_tag} 欠落")
+    _ok297 = not _missing297
+    check(
+        _ok297,
+        f"Check 297: sitemap canonical entry has all required tags + <image:image>",
+        (f"Check 297: 違反: {_missing297!r} — canonical entry の structural "
+         "completeness 崩壊。5 tag 全てを canonical entry に含めよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 297: sitemap.xml present",
+          "Check 297: sitemap.xml が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
