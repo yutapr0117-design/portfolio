@@ -949,6 +949,12 @@ MUTATIONS = [
         "find": '(ROOT / "style.css", 100_000, "style.css"),',
         "replace": '(ROOT / "style.css", 1, "style.css"),',
     },
+    {
+        "name": "Check 271 (root JS byte budget): tighten main.js budget to 1 byte (simulates over-budget)",
+        "file": CHECK,
+        "find": '(ROOT / "main.js", 100_000, "main.js"),',
+        "replace": '(ROOT / "main.js", 1, "main.js"),',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
