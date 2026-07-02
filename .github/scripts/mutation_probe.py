@@ -1165,6 +1165,12 @@ MUTATIONS = [
         "find": "</body>\n\n</html>",
         "replace": "</body>\n\n<!-- </html> PROBE-REMOVED -->",
     },
+    {
+        "name": "Check 307 (sitemap.xml XML decl + </urlset> closure): drop XML declaration",
+        "file": ROOT / "sitemap.xml",
+        "find": '<?xml version="1.0" encoding="UTF-8"?>',
+        "replace": '<!-- XML declaration PROBE-REMOVED -->',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
