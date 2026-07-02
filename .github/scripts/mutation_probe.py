@@ -967,6 +967,12 @@ MUTATIONS = [
         "find": '"datePublished": "2026-04-14"',
         "replace": '"datePublished": "2099-12-31"',
     },
+    {
+        "name": "Check 274 (aio-manifest entity.name == Person.name): drift entity.name in manifest",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"name": "Yuta Yokoi",\n    "name_ja": "横井雄太",',
+        "replace": '"name": "Anonymous PROBE",\n    "name_ja": "横井雄太",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
