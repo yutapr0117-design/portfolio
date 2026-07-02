@@ -1129,6 +1129,12 @@ MUTATIONS = [
         "find": '<meta property="og:image:alt" content="横井雄太 AI-Driven PM Portfolio — v1→v74 AIチームオーケストレーション実証" />',
         "replace": '<meta property="og:image:alt" content="AI-Driven PM Portfolio — v1→v74 AIチームオーケストレーション実証" />',
     },
+    {
+        "name": "Check 301 (preconnect fonts): remove fonts.gstatic.com preconnect",
+        "file": ROOT / "index.html",
+        "find": '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />',
+        "replace": '<!-- gstatic preconnect PROBE-REMOVED -->',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
