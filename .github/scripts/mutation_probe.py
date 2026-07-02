@@ -1177,6 +1177,12 @@ MUTATIONS = [
         "find": '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
         "replace": '        xmlns:PROBE-NS="http://www.google.com/schemas/sitemap-image/1.1">',
     },
+    {
+        "name": "Check 309 (aio-manifest HTTPS-only): downgrade nkgr URL to http",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"organization_url": "https://nkgr.co.jp/",',
+        "replace": '"organization_url": "http://nkgr.co.jp/",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
