@@ -2078,6 +2078,14 @@ authoritative inventory and is kept in sync with the implementation below):
        (canonical priority=1.0 uniqueness) for the canonical entry
        structural-completeness axis. (BLOCKING)
 
+  298. og:image:width and og:image:height values are numeric integers:
+       the index.html `<meta property="og:image:width">` /
+       `<meta property="og:image:height">` content values MUST parse as
+       positive integers. Drift = social card layout collapses (Facebook
+       falls back to default sizing when width/height are non-numeric).
+       Sibling of Check 20 (presence) for the og:image:width/height
+       numeric-value axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13074,6 +13082,45 @@ if _sitemap297.exists():
 else:
     check(False, "Check 297: sitemap.xml present",
           "Check 297: sitemap.xml が無い", blocking=True)
+
+# ── 298. og:image:width / og:image:height are positive integers (BLOCKING) ────
+# index.html `<meta property="og:image:width">` / `og:image:height` content が
+# positive integer に parse できることを BLOCKING 強制。Check 20 (presence) の
+# numeric-value 軸版。
+_idx298 = ROOT / "index.html"
+if _idx298.exists():
+    _isrc298 = _idx298.read_text(encoding="utf-8")
+    _pairs298 = [
+        ("og:image:width", None),
+        ("og:image:height", None),
+    ]
+    _bad298: list[str] = []
+    for _name, _ in _pairs298:
+        _m = re.search(
+            r'<meta\s+property=["\']' + re.escape(_name) + r'["\']\s+content=["\']([^"\']+)["\']',
+            _isrc298,
+        )
+        if _m is None:
+            _bad298.append(f"{_name} 抽出不可")
+            continue
+        _v = _m.group(1)
+        try:
+            _n = int(_v)
+            if _n <= 0:
+                _bad298.append(f"{_name}={_v!r} <= 0")
+        except ValueError:
+            _bad298.append(f"{_name}={_v!r} not int")
+    _ok298 = not _bad298
+    check(
+        _ok298,
+        f"Check 298: og:image:width + og:image:height 両方 positive integer",
+        (f"Check 298: 違反: {_bad298!r} — social card layout collapse。"
+         "og:image:width/height を正整数 string に揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 298: index.html present",
+          "Check 298: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
