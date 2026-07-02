@@ -955,6 +955,12 @@ MUTATIONS = [
         "find": '(ROOT / "main.js", 100_000, "main.js"),',
         "replace": '(ROOT / "main.js", 1, "main.js"),',
     },
+    {
+        "name": "Check 272 (leaf module byte budget): tighten _LEAF_BUDGET272 to 1 byte (simulates over-budget)",
+        "file": CHECK,
+        "find": "_LEAF_BUDGET272 = 100_000",
+        "replace": "_LEAF_BUDGET272 = 1",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
