@@ -2113,6 +2113,13 @@ authoritative inventory and is kept in sync with the implementation below):
        runtime canonical detection. Sibling of Check 149 (canonical
        URL three-way coherence) for the body attribute axis. (BLOCKING)
 
+  303. `<html data-theme>` == "system" AND `<html data-brand>` in
+       {"indigo", "classic"}: index.html `<html>` initial data-theme +
+       data-brand attribute values MUST match canonical starter values.
+       Drift silently changes FOUC-prevention initial paint / brand
+       fallback. Sibling of Check 302 for the html root attribute axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13257,6 +13264,39 @@ if _idx302.exists():
 else:
     check(False, "Check 302: index.html present",
           "Check 302: index.html が無い", blocking=True)
+
+# ── 303. <html data-theme=system> AND <html data-brand> valid (BLOCKING) ──────
+# index.html `<html>` の initial data-theme == "system" かつ data-brand ∈
+# {"indigo","classic"} を BLOCKING 強制。Check 302 の html root attribute 軸版。
+_VALID_BRANDS303 = {"indigo", "classic"}
+_idx303 = ROOT / "index.html"
+if _idx303.exists():
+    _isrc303 = _idx303.read_text(encoding="utf-8")
+    _html_tag303_m = re.search(r"<html\s+([^>]+)>", _isrc303)
+    _dt303 = None
+    _db303 = None
+    if _html_tag303_m:
+        _attrs = _html_tag303_m.group(1)
+        _dt_m = re.search(r'data-theme=["\']([^"\']+)["\']', _attrs)
+        _db_m = re.search(r'data-brand=["\']([^"\']+)["\']', _attrs)
+        _dt303 = _dt_m.group(1) if _dt_m else None
+        _db303 = _db_m.group(1) if _db_m else None
+    _bad303: list[str] = []
+    if _dt303 != "system":
+        _bad303.append(f"data-theme={_dt303!r} != 'system'")
+    if _db303 not in _VALID_BRANDS303:
+        _bad303.append(f"data-brand={_db303!r} not in {sorted(_VALID_BRANDS303)!r}")
+    _ok303 = not _bad303
+    check(
+        _ok303,
+        f"Check 303: <html data-theme>={_dt303!r} + data-brand={_db303!r} match canonical initial values",
+        (f"Check 303: 違反: {_bad303!r} — FOUC-prevention initial paint / brand "
+         "fallback が canonical initial values から drift"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 303: index.html present",
+          "Check 303: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
