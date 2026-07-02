@@ -1915,6 +1915,15 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 274 (Person name equality) for the manifest ↔
        JSON-LD Organization name direct-equality axis. (BLOCKING)
 
+  276. aio-manifest affiliation.organization_url == JSON-LD Organization
+       `url`: the `.well-known/aio-manifest.json`
+       `entity.affiliation.organization_url` value MUST equal the JSON-LD
+       primary Organization node `url` (`@id ==
+       https://nkgr.co.jp/#organization`, currently both
+       "https://nkgr.co.jp/"). Sibling of Check 275 (Organization name)
+       for the manifest ↔ JSON-LD Organization url direct-equality axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12241,6 +12250,70 @@ if _mani275.exists() and _idx275.exists():
 else:
     check(False, "Check 275: aio-manifest.json + index.html present",
           "Check 275: aio-manifest.json もしくは index.html が無い", blocking=True)
+
+# ── 276. aio-manifest affiliation.organization_url == JSON-LD Org.url (BLOCKING) ─
+# .well-known/aio-manifest.json の entity.affiliation.organization_url が
+# index.html JSON-LD primary Organization (@id == https://nkgr.co.jp/#organization)
+# の url と strict 一致することを BLOCKING 強制。Check 275 の url 軸版。
+_PRIMARY_ORG_ID276 = "https://nkgr.co.jp/#organization"
+_mani276 = ROOT / ".well-known" / "aio-manifest.json"
+_idx276 = ROOT / "index.html"
+if _mani276.exists() and _idx276.exists():
+    try:
+        _mdata276 = json.loads(_mani276.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _mdata276 = None
+    _aff_url276 = None
+    if isinstance(_mdata276, dict):
+        _aff_url276 = (
+            _mdata276.get("entity", {}).get("affiliation", {}).get("organization_url")
+        )
+    _isrc276 = _idx276.read_text(encoding="utf-8")
+    _blocks276 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc276,
+        flags=re.DOTALL,
+    )
+    _primary_org_url276 = None
+    def _walk276(node: object) -> None:
+        global _primary_org_url276
+        if isinstance(node, dict):
+            if (
+                node.get("@type") == "Organization"
+                and node.get("@id") == _PRIMARY_ORG_ID276
+                and _primary_org_url276 is None
+                and isinstance(node.get("url"), str)
+            ):
+                _primary_org_url276 = node["url"]
+            for v in node.values():
+                if isinstance(v, list):
+                    for item in v:
+                        _walk276(item)
+                else:
+                    _walk276(v)
+        elif isinstance(node, list):
+            for item in node:
+                _walk276(item)
+    for _blk in _blocks276:
+        try:
+            _walk276(json.loads(_blk))
+        except json.JSONDecodeError:
+            continue
+    _ok276 = (
+        isinstance(_aff_url276, str)
+        and isinstance(_primary_org_url276, str)
+        and _aff_url276 == _primary_org_url276
+    )
+    check(
+        _ok276,
+        f"Check 276: aio-manifest affiliation.organization_url={_aff_url276!r} == JSON-LD Organization.url={_primary_org_url276!r}",
+        (f"Check 276: Organization url drift: aio-manifest={_aff_url276!r} / "
+         f"JSON-LD={_primary_org_url276!r} — canonical URL split。両者を同一値へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 276: aio-manifest.json + index.html present",
+          "Check 276: aio-manifest.json もしくは index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
