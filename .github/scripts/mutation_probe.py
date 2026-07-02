@@ -985,6 +985,12 @@ MUTATIONS = [
         "find": '"organization_url": "https://nkgr.co.jp/",',
         "replace": '"organization_url": "https://probe-drift.example/",',
     },
+    {
+        "name": "Check 277 (aio-manifest authoritative_context == canonical+llms-full.txt): drift to probe URL",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"authoritative_context": "https://yutapr0117-design.github.io/portfolio/llms-full.txt",',
+        "replace": '"authoritative_context": "https://probe-drift.example/llms-full.txt",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
