@@ -1998,6 +1998,13 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 285 (SITE_CONFIG.VERSION format) for the sw.js
        CACHE_NAME format axis. (BLOCKING)
 
+  287. aio-manifest.json `manifest_version` strict format `^\d+\.\d+$`:
+       the `.well-known/aio-manifest.json` `manifest_version` field MUST
+       match `^\d+\.\d+$` (major.minor form). Drift to non-semver strings
+       silently breaks manifest schema consumers that parse this field.
+       Sibling of Check 285/286 (SITE_CONFIG.VERSION / CACHE_NAME) for
+       the manifest_version format axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12663,6 +12670,31 @@ if _sw286.exists():
 else:
     check(False, "Check 286: sw.js present",
           "Check 286: sw.js が無い", blocking=True)
+
+# ── 287. aio-manifest.json manifest_version strict format ^\d+\.\d+$ (BLOCKING) ─
+# .well-known/aio-manifest.json の manifest_version 値が `^\d+\.\d+$` regex
+# (major.minor) に一致することを BLOCKING 強制。Check 285/286 の manifest_version
+# 軸版。
+_mani287 = ROOT / ".well-known" / "aio-manifest.json"
+if _mani287.exists():
+    try:
+        _mdata287 = json.loads(_mani287.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _mdata287 = None
+    _mver287 = None
+    if isinstance(_mdata287, dict):
+        _mver287 = _mdata287.get("manifest_version")
+    _ok287 = isinstance(_mver287, str) and bool(re.match(r"^\d+\.\d+$", _mver287))
+    check(
+        _ok287,
+        f"Check 287: aio-manifest.json manifest_version={_mver287!r} matches ^\\d+\\.\\d+$",
+        (f"Check 287: manifest_version={_mver287!r} format 違反 — schema consumer が "
+         "parse 失敗。'major.minor' form へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 287: aio-manifest.json present",
+          "Check 287: aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

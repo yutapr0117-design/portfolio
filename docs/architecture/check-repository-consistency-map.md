@@ -360,6 +360,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 284 | index.html `<meta name=ai:context>` == canonical+"llms-full.txt" AND `<meta name=ai:entrypoint>` == canonical+"llms.txt" と strict 一致。drift で AI/agent discovery 経路が canonical exact location から drift するのを BLOCKING で阻止。Check 283 の ai:context/entrypoint 軸版 | BLOCKING |
 | 285 | main.js SITE_CONFIG.VERSION が `^v\d+$` regex (小文字 v + 数字) に一致。V74/v74.1/v-74 等 format drift で downstream regex/parser 破壊を BLOCKING で阻止。Check 2 (ai:version parity) の format 軸版 | BLOCKING |
 | 286 | sw.js CACHE_NAME が `^portfolio-aio-v\d+$` regex に一致。portfolio-cache-v74 等 semantic contract 崩壊 drift を BLOCKING で阻止。Check 19 (version parity) の format 軸版 | BLOCKING |
+| 287 | .well-known/aio-manifest.json manifest_version が `^\d+\.\d+$` regex (major.minor) に一致。非 semver drift で schema consumer parse 失敗を BLOCKING で阻止。Check 285/286 の manifest_version 軸版 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 
