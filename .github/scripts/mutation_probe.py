@@ -1117,6 +1117,12 @@ MUTATIONS = [
         "find": '<meta property="og:image:width" content="1536" />',
         "replace": '<meta property="og:image:width" content="huge" />',
     },
+    {
+        "name": "Check 299 (twitter:card spec-valid): drift to invalid card type",
+        "file": ROOT / "index.html",
+        "find": '<meta name="twitter:card" content="summary_large_image" />',
+        "replace": '<meta name="twitter:card" content="big_card_PROBE" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
