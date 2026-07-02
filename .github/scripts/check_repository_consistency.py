@@ -1891,6 +1891,14 @@ authoritative inventory and is kept in sync with the implementation below):
        split main.js into small orchestrable leaves). Sibling of Check
        271 (root JS) for the leaf JS byte budget axis. (BLOCKING)
 
+  273. JSON-LD `datePublished` / `dateModified` / `dateCreated` NOT in
+       future: every date value in index.html static JSON-LD MUST be on
+       or before today. Drift silently corrupts AI/SEO recency-weighted
+       retrieval (this site does not schedule pre-publish). Sibling of
+       Check 243 (SITE_CONFIG/ai:last-modified not future) / Check 218
+       (datePublished <= dateModified) for the JSON-LD date not-future
+       axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12033,6 +12041,58 @@ check(
      "Check 272: leaf module 0 件 — vacuous-fail"),
     blocking=True,
 )
+
+# ── 273. JSON-LD dates NOT in future (BLOCKING) ───────────────────────────────
+# index.html JSON-LD の全 `datePublished` / `dateModified` / `dateCreated` 値が
+# today 以下であることを BLOCKING 強制。Check 243 (SITE_CONFIG/ai:last-modified
+# not future) の JSON-LD date 軸版。
+from datetime import date as _date273
+_idx273 = ROOT / "index.html"
+if _idx273.exists():
+    _isrc273 = _idx273.read_text(encoding="utf-8")
+    _today273 = _date273.today()
+    _date_fields273 = ("datePublished", "dateModified", "dateCreated")
+    _blocks273 = re.findall(
+        r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        _isrc273,
+        flags=re.DOTALL,
+    )
+    _futures273: list[str] = []
+    _total_dates273 = 0
+    def _walk273(node: object, path: str) -> None:
+        global _total_dates273
+        if isinstance(node, dict):
+            for _f in _date_fields273:
+                _v = node.get(_f)
+                if isinstance(_v, str):
+                    _total_dates273 += 1
+                    try:
+                        _d = _date273.fromisoformat(_v[:10])
+                    except ValueError:
+                        continue  # Check 208 が format を担う
+                    if _d > _today273:
+                        _futures273.append(f"{path}.{_f}={_v!r}")
+            for k, v in node.items():
+                _walk273(v, f"{path}.{k}")
+        elif isinstance(node, list):
+            for i, item in enumerate(node):
+                _walk273(item, f"{path}[{i}]")
+    for _bi, _blk in enumerate(_blocks273):
+        try:
+            _walk273(json.loads(_blk), f"block{_bi}")
+        except json.JSONDecodeError:
+            continue
+    _ok273 = _total_dates273 > 0 and not _futures273
+    check(
+        _ok273,
+        f"Check 273: JSON-LD date ({_total_dates273} 件) 全て today ({_today273.isoformat()}) 以前",
+        (f"Check 273: 未来日 detected: {_futures273!r} — AI/SEO recency 誤認 / "
+         "ranking corruption。today 以下へ修正"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 273: index.html present",
+          "Check 273: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
