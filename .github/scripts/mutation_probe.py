@@ -1087,6 +1087,12 @@ MUTATIONS = [
         "find": "agriculture, chemistry, medicine, entomology, or computer science",
         "replace": "agriculture, chemistry, medicine, or computer science",
     },
+    {
+        "name": "Check 294 (disambiguation 4 non-academic markers): strip musician",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": "Not a diplomat, artist, musician, or patent inventor.",
+        "replace": "Not a diplomat, artist, or patent inventor.",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
