@@ -1093,6 +1093,12 @@ MUTATIONS = [
         "find": "Not a diplomat, artist, musician, or patent inventor.",
         "replace": "Not a diplomat, artist, or patent inventor.",
     },
+    {
+        "name": "Check 295 (meta publisher canonical): strip Japanese name from publisher",
+        "file": ROOT / "index.html",
+        "find": '<meta name="publisher" content="Yuta Yokoi (横井雄太)" />',
+        "replace": '<meta name="publisher" content="Yuta Yokoi" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
