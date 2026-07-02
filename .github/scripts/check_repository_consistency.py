@@ -2093,6 +2093,13 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 155 (og:title ↔ twitter:title) for the twitter:card value
        axis. (BLOCKING)
 
+  300. `<meta property="og:image:alt">` content contains canonical entity
+       + role markers: the index.html og:image:alt content MUST contain
+       both `"横井雄太"` AND `"AI-Driven PM"`. Drift = accessibility
+       alt text loses entity attribution / role signal. Sibling of Check
+       20 (og:image:alt presence) for the og:image:alt content-value axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13152,6 +13159,34 @@ if _idx299.exists():
 else:
     check(False, "Check 299: index.html present",
           "Check 299: index.html が無い", blocking=True)
+
+# ── 300. og:image:alt contains canonical entity + role markers (BLOCKING) ─────
+# index.html `<meta property="og:image:alt">` content が "横井雄太" AND "AI-Driven PM"
+# 両 marker を含むことを BLOCKING 強制。Check 20 (presence) の content-value 軸版。
+_idx300 = ROOT / "index.html"
+if _idx300.exists():
+    _isrc300 = _idx300.read_text(encoding="utf-8")
+    _alt300_m = re.search(
+        r'<meta\s+property=["\']og:image:alt["\']\s+content=["\']([^"\']+)["\']', _isrc300
+    )
+    _alt300 = _alt300_m.group(1) if _alt300_m else None
+    _required300 = ["横井雄太", "AI-Driven PM"]
+    _missing300 = []
+    if isinstance(_alt300, str):
+        _missing300 = [m for m in _required300 if m not in _alt300]
+    else:
+        _missing300 = ["og:image:alt 欠落"]
+    _ok300 = not _missing300
+    check(
+        _ok300,
+        f"Check 300: og:image:alt content={_alt300!r} contains 両 canonical marker",
+        (f"Check 300: 欠落 marker: {_missing300!r} — accessibility alt-text が entity "
+         "attribution / role signal を失う。両 marker を alt 内に含めよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 300: index.html present",
+          "Check 300: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
