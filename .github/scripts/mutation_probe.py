@@ -1039,6 +1039,12 @@ MUTATIONS = [
         "find": "VERSION:       'v74',",
         "replace": "VERSION:       'V74',",
     },
+    {
+        "name": "Check 286 (CACHE_NAME format portfolio-aio-v\\d+): drift to portfolio-cache-v74",
+        "file": ROOT / "sw.js",
+        "find": "const CACHE_NAME = 'portfolio-aio-v74';",
+        "replace": "const CACHE_NAME = 'portfolio-cache-v74';",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
