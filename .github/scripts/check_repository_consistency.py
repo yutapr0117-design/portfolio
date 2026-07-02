@@ -1968,6 +1968,14 @@ authoritative inventory and is kept in sync with the implementation below):
        the SITE_CONFIG.CANONICAL_URL ↔ ai:canonical direct-equality axis.
        (BLOCKING)
 
+  283. HTML `<meta name="ai:aio-manifest">` content == canonical +
+       ".well-known/aio-manifest.json": the ai:aio-manifest meta content
+       MUST equal canonical URL prefix + ".well-known/aio-manifest.json"
+       exactly. Check 184 verifies the path resolves to some existing
+       file; Check 283 asserts it targets the canonical `.well-known/`
+       location. Sibling of Check 282 for the ai:aio-manifest exact-URL
+       derivation axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12525,6 +12533,37 @@ if _main282.exists() and _idx282.exists():
 else:
     check(False, "Check 282: main.js + index.html present",
           "Check 282: main.js もしくは index.html が無い", blocking=True)
+
+# ── 283. HTML ai:aio-manifest == canonical + .well-known/aio-manifest.json (BLOCKING) ─
+# index.html `<meta name="ai:aio-manifest">` content が
+# canonical URL + ".well-known/aio-manifest.json" と strict 一致することを
+# BLOCKING 強制。Check 184 (path resolves) の exact derivation 軸版。
+_idx283 = ROOT / "index.html"
+if _idx283.exists():
+    _isrc283 = _idx283.read_text(encoding="utf-8")
+    _canon283_m = re.search(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc283
+    )
+    _canon283 = _canon283_m.group(1) if _canon283_m else None
+    _ai_aiom283_m = re.search(
+        r'<meta\s+name=["\']ai:aio-manifest["\']\s+content=["\']([^"\']+)["\']', _isrc283
+    )
+    _ai_aiom283 = _ai_aiom283_m.group(1) if _ai_aiom283_m else None
+    _expected283 = (_canon283 or "") + ".well-known/aio-manifest.json"
+    _ok283 = (
+        isinstance(_ai_aiom283, str)
+        and _ai_aiom283 == _expected283
+    )
+    check(
+        _ok283,
+        f"Check 283: ai:aio-manifest={_ai_aiom283!r} == canonical+.well-known/aio-manifest.json={_expected283!r}",
+        (f"Check 283: ai:aio-manifest drift: {_ai_aiom283!r} / expected={_expected283!r} "
+         "— AIO discovery が canonical .well-known/ location 外を参照。訂正せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 283: index.html present",
+          "Check 283: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
