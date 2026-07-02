@@ -1990,6 +1990,14 @@ authoritative inventory and is kept in sync with the implementation below):
        e.g. `V74` / `v74.1` / `v-74` silently breaks downstream regexes
        and human recognition. (BLOCKING)
 
+  286. sw.js CACHE_NAME strict format `^portfolio-aio-v\d+$`: the CACHE
+       _NAME literal MUST match `^portfolio-aio-v\d+$` exactly. Check 19
+       ensures version parity with ai:version, but the constant format
+       itself is a separate invariant (a rename to `portfolio-cache-v74`
+       still parses via Check 19 regex but breaks the semantic contract).
+       Sibling of Check 285 (SITE_CONFIG.VERSION format) for the sw.js
+       CACHE_NAME format axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -12635,6 +12643,26 @@ if _main285.exists():
 else:
     check(False, "Check 285: main.js present",
           "Check 285: main.js が無い", blocking=True)
+
+# ── 286. sw.js CACHE_NAME strict format ^portfolio-aio-v\d+$ (BLOCKING) ───────
+# sw.js CACHE_NAME 値が `^portfolio-aio-v\d+$` regex に一致することを BLOCKING
+# 強制。Check 19 (version parity) の format 軸版。
+_sw286 = ROOT / "sw.js"
+if _sw286.exists():
+    _ssrc286 = _sw286.read_text(encoding="utf-8")
+    _cache_lit286_m = re.search(r"CACHE_NAME\s*=\s*['\"]([^'\"]+)['\"]", _ssrc286)
+    _cache_lit286 = _cache_lit286_m.group(1) if _cache_lit286_m else None
+    _ok286 = isinstance(_cache_lit286, str) and bool(re.match(r"^portfolio-aio-v\d+$", _cache_lit286))
+    check(
+        _ok286,
+        f"Check 286: sw.js CACHE_NAME={_cache_lit286!r} matches ^portfolio-aio-v\\d+$",
+        (f"Check 286: sw.js CACHE_NAME={_cache_lit286!r} format 違反 — semantic contract "
+         "崩壊。'portfolio-aio-v<数字>' へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 286: sw.js present",
+          "Check 286: sw.js が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
