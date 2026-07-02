@@ -1021,6 +1021,12 @@ MUTATIONS = [
         "find": '<meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />',
         "replace": '<meta name="ai:canonical" content="https://probe-drift.example/portfolio/" />',
     },
+    {
+        "name": "Check 283 (ai:aio-manifest == canonical+.well-known/aio-manifest.json): drift path",
+        "file": ROOT / "index.html",
+        "find": '<meta name="ai:aio-manifest" content="https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json" />',
+        "replace": '<meta name="ai:aio-manifest" content="https://yutapr0117-design.github.io/portfolio/PROBE-PATH/aio-manifest.json" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
