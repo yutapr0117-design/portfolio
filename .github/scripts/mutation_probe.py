@@ -1363,6 +1363,12 @@ MUTATIONS = [
         "find": '"width": "1536",\n                  "height": "1024",',
         "replace": '"width": "1200",\n                  "height": "1024",',
     },
+    {
+        "name": "Check 340 (JSON-LD encodingFormat MIME == actual): drift hero encodingFormat image/webp → image/png",
+        "file": ROOT / "index.html",
+        "find": '"encodingFormat": "image/webp",\n                  "width": "1536",',
+        "replace": '"encodingFormat": "image/png",\n                  "width": "1536",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
