@@ -1291,6 +1291,12 @@ MUTATIONS = [
         "find": '<meta name="referrer" content="strict-origin-when-cross-origin" />',
         "replace": '<meta name="referrer" content="strict-origin-when-cross-origin" />\n    <meta http-equiv="refresh" content="0;url=./" />',
     },
+    {
+        "name": "Check 328 (no <base>): inject <base href=/other/> after referrer",
+        "file": ROOT / "index.html",
+        "find": '<meta name="referrer" content="strict-origin-when-cross-origin" />',
+        "replace": '<meta name="referrer" content="strict-origin-when-cross-origin" />\n    <base href="/other/" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
