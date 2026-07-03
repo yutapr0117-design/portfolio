@@ -2415,6 +2415,15 @@ authoritative inventory and is kept in sync with the implementation below):
        user's home screen / app switcher. Sibling of Check 124 (visible
        renderer anonymity) for the PWA-surface anonymity axis. (BLOCKING)
 
+  334. `manifest.webmanifest` `orientation` MUST be in the W3C Web App
+       Manifest spec enumeration: `{any, natural, landscape,
+       landscape-primary, landscape-secondary, portrait, portrait-primary,
+       portrait-secondary}`. Drift = a typo (`landscpae` / `horizontal`)
+       is spec-invalid; the UA ignores it and falls back to the platform
+       default, silently losing the intended orientation lock. Sibling of
+       Check 315 (display enum) / Check 316 (icons purpose enum) for the
+       webmanifest structural correctness axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14441,6 +14450,37 @@ if _webman333.exists():
 else:
     check(False, "Check 333: manifest.webmanifest present",
           "Check 333: manifest.webmanifest が無い", blocking=True)
+
+# ── 334. webmanifest orientation in W3C enum (BLOCKING) ──────────────────────
+_webman334 = ROOT / "manifest.webmanifest"
+if _webman334.exists():
+    try:
+        _wm334 = json.loads(_webman334.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _wm334 = None
+    if _wm334 is not None:
+        _orient334 = str(_wm334.get("orientation", ""))
+        _valid_orient334 = {
+            "any", "natural", "landscape", "landscape-primary",
+            "landscape-secondary", "portrait", "portrait-primary",
+            "portrait-secondary",
+        }
+        # orientation は optional。存在する場合のみ enum 照合。
+        _ok334 = (_orient334 == "") or (_orient334 in _valid_orient334)
+        check(
+            _ok334,
+            f"Check 334: webmanifest orientation={_orient334!r} は W3C enum 内 (or 未設定)",
+            (f"Check 334: webmanifest orientation={_orient334!r} が spec-invalid — "
+             f"allowed={sorted(_valid_orient334)}。typo は UA が無視し platform default "
+             "へ silent fallback。正規の値へ修正せよ"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 334: manifest.webmanifest parseable",
+              "Check 334: manifest.webmanifest が JSON parse 不能", blocking=True)
+else:
+    check(False, "Check 334: manifest.webmanifest present",
+          "Check 334: manifest.webmanifest が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
