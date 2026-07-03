@@ -2447,6 +2447,18 @@ authoritative inventory and is kept in sync with the implementation below):
        isolation. Sibling of Check 155 (og:title ↔ twitter:title) for the
        social-card image-coherence axis. (BLOCKING)
 
+  337. Canonical binary assets MUST have magic bytes matching their file
+       extension: `yuta-yokoi-ai-pm-orchestration-system.webp` MUST start
+       with RIFF....WEBP (bytes 0-3 = `RIFF`, bytes 8-11 = `WEBP`), and
+       `yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3` MUST start
+       with `ID3` or an MPEG frame-sync (`0xFF 0xEx`/`0xFx`). Drift = a
+       file gets replaced by a different format while keeping its
+       extension (e.g. a PNG saved as `.webp`); the byte-budget check
+       (Check 269) passes since it only measures size, but strict crawlers
+       and browsers that sniff content-type reject or mis-render it.
+       Sibling of Check 269 (binary byte budget) / Check 42 (digest chain)
+       for the binary-asset format-integrity axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14569,6 +14581,39 @@ if _html336.exists():
 else:
     check(False, "Check 336: index.html present",
           "Check 336: index.html が無い", blocking=True)
+
+# ── 337. Canonical binary assets magic-byte format integrity (BLOCKING) ──────
+_webp337 = ROOT / "yuta-yokoi-ai-pm-orchestration-system.webp"
+_mp3_337 = ROOT / "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3"
+_fmt_problems337: list[str] = []
+if _webp337.is_file():
+    _wh337 = _webp337.read_bytes()[:12]
+    if not (_wh337[0:4] == b"RIFF" and _wh337[8:12] == b"WEBP"):
+        _fmt_problems337.append(
+            f"{_webp337.name} が WebP magic bytes (RIFF....WEBP) を持たない: "
+            f"head={_wh337[:12]!r}")
+else:
+    _fmt_problems337.append(f"{_webp337.name} が存在しない")
+if _mp3_337.is_file():
+    _mh337 = _mp3_337.read_bytes()[:3]
+    _is_id3 = _mh337[0:3] == b"ID3"
+    _is_frame_sync = (len(_mh337) >= 2 and _mh337[0] == 0xFF
+                      and (_mh337[1] & 0xE0) == 0xE0)
+    if not (_is_id3 or _is_frame_sync):
+        _fmt_problems337.append(
+            f"{_mp3_337.name} が MP3 magic bytes (ID3 or frame-sync 0xFFEx) を持たない: "
+            f"head={_mh337!r}")
+else:
+    _fmt_problems337.append(f"{_mp3_337.name} が存在しない")
+check(
+    not _fmt_problems337,
+    "Check 337: canonical binary assets (hero.webp / BGM.mp3) の magic bytes が拡張子と一致",
+    (f"Check 337: binary asset format-integrity 違反: {_fmt_problems337!r} — "
+     "拡張子は保ったまま中身が別 format に差し替わると Check 269 (byte budget) を "
+     "通過するが content-type sniff する crawler/browser が reject/mis-render。"
+     "正規 format のファイルへ差し戻せ"),
+    blocking=True,
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
