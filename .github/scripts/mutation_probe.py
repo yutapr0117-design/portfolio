@@ -1315,6 +1315,12 @@ MUTATIONS = [
         "find": '<meta name="referrer" content="strict-origin-when-cross-origin" />',
         "replace": '<meta name="referrer" content="strict-origin-when-cross-origin" />\n    <a href="javascript:alert(1)">rogue</a>',
     },
+    {
+        "name": "Check 332 (root classic scripts no ESM): inject import statement at top of aio-guard.js",
+        "file": ROOT / "aio-guard.js",
+        "find": "(function aioGuard() {",
+        "replace": "import 'nothing';\n(function aioGuard() {",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
