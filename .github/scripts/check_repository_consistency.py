@@ -2308,6 +2308,19 @@ authoritative inventory and is kept in sync with the implementation below):
        last_metadata_update not future) / Check 236 (start_date ISO
        format) for the affiliation start_date recency axis. (BLOCKING)
 
+  325. `index.html` `<meta name="referrer">` MUST be present AND its
+       content value MUST be in the W3C Referrer Policy enumeration:
+       `{no-referrer, no-referrer-when-downgrade, origin,
+       origin-when-cross-origin, same-origin, strict-origin,
+       strict-origin-when-cross-origin, unsafe-url}`. Drift = missing
+       meta silently falls back to browser default (typically
+       `strict-origin-when-cross-origin` on modern UAs, but older/embedded
+       browsers may leak full URL); a typo (`same origin`) is spec-
+       invalid and browsers ignore silently, again falling back to
+       default. Sibling of Check 115 (CSP hardening baseline) / Check 249
+       (viewport spec compliance) for the HTTP-header-equivalent security
+       meta axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14086,6 +14099,36 @@ if _mani324.exists():
 else:
     check(False, "Check 324: aio-manifest.json present",
           "Check 324: aio-manifest.json が無い", blocking=True)
+
+# ── 325. index.html <meta name="referrer"> valid enum (BLOCKING) ─────────────
+_html325 = ROOT / "index.html"
+if _html325.exists():
+    _hs325 = _html325.read_text(encoding="utf-8")
+    _stripped325 = re.sub(r"<!--.*?-->", "", _hs325, flags=re.DOTALL)
+    _m325a = re.search(
+        r'<meta\s+name="referrer"[^>]*content="([^"]+)"', _stripped325)
+    _m325b = re.search(
+        r'<meta\s+content="([^"]+)"[^>]*name="referrer"', _stripped325)
+    _val325 = None
+    if _m325a: _val325 = _m325a.group(1)
+    elif _m325b: _val325 = _m325b.group(1)
+    _valid_enum325 = {
+        "no-referrer", "no-referrer-when-downgrade", "origin",
+        "origin-when-cross-origin", "same-origin", "strict-origin",
+        "strict-origin-when-cross-origin", "unsafe-url",
+    }
+    _ok325 = _val325 is not None and _val325 in _valid_enum325
+    check(
+        _ok325,
+        f"Check 325: <meta name=\"referrer\"> content={_val325!r} ∈ W3C enum",
+        (f"Check 325: <meta name=\"referrer\"> {'missing' if _val325 is None else f'invalid={_val325!r}'} — "
+         f"allowed={sorted(_valid_enum325)}。missing/invalid は browser default fallback "
+         "(古い browser で full URL leak リスク)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 325: index.html present",
+          "Check 325: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
