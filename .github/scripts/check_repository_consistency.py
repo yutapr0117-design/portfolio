@@ -2187,6 +2187,15 @@ authoritative inventory and is kept in sync with the implementation below):
        (missing new entry that was intended). Sibling of Check 217
        (@graph @id uniqueness) for the sitemap.xml `<loc>` axis. (BLOCKING)
 
+  313. aio-manifest.json `generated_at` + `last_metadata_update` MUST NOT
+       be in the future (relative to today, JST). Drift = timezone-slip
+       or manual edit yielding a future timestamp, which AI crawlers
+       interpret as "content from the future" and either reject as
+       untrusted or over-index (recency ranking corruption). Sibling of
+       Check 243 (SITE_CONFIG.LAST_UPDATED not future) / Check 273
+       (JSON-LD dates not future) / Check 311 (sitemap.xml <lastmod> not
+       future) for the aio-manifest.json date axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13598,6 +13607,46 @@ if _sitemap312.exists():
 else:
     check(False, "Check 312: sitemap.xml present",
           "Check 312: sitemap.xml が無い", blocking=True)
+
+# ── 313. aio-manifest.json generated_at + last_metadata_update NOT future ─────
+# (BLOCKING) — TZ ずれや誤編集による未来 timestamp を封じる。Check 243/273/311
+# の aio-manifest.json 日付軸版。
+_mani313 = ROOT / ".well-known" / "aio-manifest.json"
+if _mani313.exists():
+    from datetime import date as _date313
+    try:
+        _md313 = json.loads(_mani313.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _md313 = None
+    if _md313 is not None:
+        _today313 = _date313.today()
+        _futures313: list[str] = []
+        for _field in ("generated_at", "last_metadata_update"):
+            _v = _md313.get(_field, "")
+            if not _v:
+                continue
+            _m = re.match(r"^(\d{4}-\d{2}-\d{2})", _v)
+            if not _m:
+                continue
+            try:
+                if _date313.fromisoformat(_m.group(1)) > _today313:
+                    _futures313.append(f"{_field}={_v!r}")
+            except ValueError:
+                pass
+        _ok313 = not _futures313
+        check(
+            _ok313,
+            f"Check 313: aio-manifest.json generated_at + last_metadata_update 未来日付なし (today={_today313.isoformat()})",
+            (f"Check 313: aio-manifest.json 未来日付 detected: {_futures313!r} — "
+             "AI crawler の recency ranking が corruption。today 以下へ修正"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 313: aio-manifest.json parseable",
+              "Check 313: aio-manifest.json が JSON parse 不能", blocking=True)
+else:
+    check(False, "Check 313: aio-manifest.json present",
+          "Check 313: aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
