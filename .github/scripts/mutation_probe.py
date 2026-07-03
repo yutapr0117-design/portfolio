@@ -1309,6 +1309,12 @@ MUTATIONS = [
         "find": '<meta name="referrer" content="strict-origin-when-cross-origin" />',
         "replace": '<meta name="referrer" content="strict-origin-when-cross-origin" />\n    <iframe src="https://evil.example.com/"></iframe>',
     },
+    {
+        "name": "Check 331 (no javascript: URL scheme): inject <a href=javascript:alert(1)> after referrer",
+        "file": ROOT / "index.html",
+        "find": '<meta name="referrer" content="strict-origin-when-cross-origin" />',
+        "replace": '<meta name="referrer" content="strict-origin-when-cross-origin" />\n    <a href="javascript:alert(1)">rogue</a>',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
