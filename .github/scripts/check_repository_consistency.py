@@ -2332,6 +2332,17 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 158 (Google Fonts preconnect) for the preload structural
        correctness axis. (BLOCKING)
 
+  327. `index.html` MUST NOT contain any `<meta http-equiv="refresh">`
+       element. Drift = an accidental redirect meta creates:
+       (a) SEO harm — Google treats meta refresh with 0-second delay as
+           a soft 301 but with delay > 0 loses PageRank transfer,
+       (b) a11y regression — screen readers cannot cancel automatic
+           refreshes, WCAG 2.2.1 (Timing Adjustable) violation,
+       (c) AI crawler confusion — content and metadata point at different
+           URLs.
+       Sibling of Check 325 (referrer policy) / Check 322 (inline style)
+       for the HTML negative-invariant surface axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14174,6 +14185,27 @@ if _html326.exists():
 else:
     check(False, "Check 326: index.html present",
           "Check 326: index.html が無い", blocking=True)
+
+# ── 327. index.html has zero <meta http-equiv="refresh"> (BLOCKING) ──────────
+_html327 = ROOT / "index.html"
+if _html327.exists():
+    _hs327 = _html327.read_text(encoding="utf-8")
+    _stripped327 = re.sub(r"<!--.*?-->", "", _hs327, flags=re.DOTALL)
+    _refresh327 = re.findall(
+        r'<meta\s+[^>]*http-equiv\s*=\s*["\']refresh["\']', _stripped327)
+    _count327 = len(_refresh327)
+    _ok327 = _count327 == 0
+    check(
+        _ok327,
+        "Check 327: index.html <meta http-equiv=\"refresh\"> 0 件 (SEO/a11y 有害要素排除)",
+        (f"Check 327: <meta http-equiv=\"refresh\"> が {_count327} 件検出 — "
+         "SEO 有害 (PageRank 転移損失) / a11y 有害 (WCAG 2.2.1 timing 違反) / "
+         "AI crawler の URL 混乱。redirect は server-side or SPA router に移行"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 327: index.html present",
+          "Check 327: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
