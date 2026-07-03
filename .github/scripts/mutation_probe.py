@@ -1201,6 +1201,12 @@ MUTATIONS = [
         "find": "<loc>https://yutapr0117-design.github.io/portfolio/README.md</loc>",
         "replace": "<loc>https://yutapr0117-design.github.io/portfolio/ChatGPT2ChatGPT.md</loc>",
     },
+    {
+        "name": "Check 313 (aio-manifest date not future): push generated_at to 2099",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"generated_at": "2026-06-29T05:23:40Z",',
+        "replace": '"generated_at": "2099-06-29T05:23:40Z",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
