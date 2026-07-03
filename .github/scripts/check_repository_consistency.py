@@ -2225,6 +2225,17 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 212 (icons[].src canonical) for the webmanifest icons
        structural correctness axis. (BLOCKING)
 
+  317. `.well-known/aio-manifest.json` every `sha256` field (in
+       source_of_truth[], supporting_evidence[], observational_evidence[])
+       MUST match strict `^[0-9a-f]{64}$` (lowercase, exactly 64 hex
+       chars). Drift = truncated (63 chars) / uppercase / space-embedded
+       digest silently accepted by permissive `sha256sum -c` variants but
+       rejected by strict hash-verification tooling. Also masks the
+       cause when a Check like Check 42 (aio-manifest digest chain) fails
+       — is it wrong content or wrong format? Sibling of Check 42 (digest
+       chain) / Check 236 (generated_at RFC 3339) for the aio-manifest
+       digest-field structural correctness axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13782,6 +13793,41 @@ if _webman316.exists():
 else:
     check(False, "Check 316: manifest.webmanifest present",
           "Check 316: manifest.webmanifest が無い", blocking=True)
+
+# ── 317. aio-manifest.json all sha256 fields strict 64-hex format (BLOCKING) ─
+_mani317 = ROOT / ".well-known" / "aio-manifest.json"
+if _mani317.exists():
+    try:
+        _md317 = json.loads(_mani317.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _md317 = None
+    if _md317 is not None:
+        _sha_re317 = re.compile(r"^[0-9a-f]{64}$")
+        _bad_sha317: list[str] = []
+        _total_sha317 = 0
+        for _key in ("source_of_truth", "supporting_evidence", "observational_evidence"):
+            for _i, _entry in enumerate(_md317.get(_key, [])):
+                _v = _entry.get("sha256", "")
+                if not _v:
+                    continue
+                _total_sha317 += 1
+                if not _sha_re317.match(_v):
+                    _bad_sha317.append(f"{_key}[{_i}].sha256={_v!r}")
+        _ok317 = (not _bad_sha317) and _total_sha317 > 0
+        check(
+            _ok317,
+            f"Check 317: aio-manifest.json sha256 field {_total_sha317} 件すべて strict ^[0-9a-f]{{64}}$ 形式",
+            (f"Check 317: aio-manifest.json sha256 形式違反: {_bad_sha317!r} — "
+             "truncated / uppercase / space-embedded digest。"
+             "厳密な lowercase 64-hex 形式へ揃えよ"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 317: aio-manifest.json parseable",
+              "Check 317: aio-manifest.json が JSON parse 不能", blocking=True)
+else:
+    check(False, "Check 317: aio-manifest.json present",
+          "Check 317: aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
