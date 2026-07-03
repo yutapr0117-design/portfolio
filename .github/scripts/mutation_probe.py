@@ -1189,6 +1189,12 @@ MUTATIONS = [
         "find": "_TOTAL_BUDGET310 = 2_000_000",
         "replace": "_TOTAL_BUDGET310 = 1",
     },
+    {
+        "name": "Check 311 (sitemap <lastmod> format): break YYYY-MM-DD to YYYY/MM/DD",
+        "file": ROOT / "sitemap.xml",
+        "find": "<lastmod>2026-05-31</lastmod>",
+        "replace": "<lastmod>2026/05/31</lastmod>",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
