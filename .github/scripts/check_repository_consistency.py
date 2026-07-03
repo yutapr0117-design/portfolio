@@ -2321,6 +2321,17 @@ authoritative inventory and is kept in sync with the implementation below):
        (viewport spec compliance) for the HTTP-header-equivalent security
        meta axis. (BLOCKING)
 
+  326. `index.html` every `<link rel="preload" as="X">` `as` value MUST
+       be in the HTML5 preload destination enumeration: `{audio,
+       document, embed, fetch, font, image, object, script, style, track,
+       video, worker}`. Drift = a typo (`styles` / `img`) silently makes
+       the browser IGNORE the preload hint (per spec, invalid as= yields
+       ignored preload) → first-paint regression, wasted download or
+       double-fetch. Check 73a enforces `as=` presence; this Check
+       enforces its VALUE. Sibling of Check 73a (as= presence) /
+       Check 158 (Google Fonts preconnect) for the preload structural
+       correctness axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14129,6 +14140,40 @@ if _html325.exists():
 else:
     check(False, "Check 325: index.html present",
           "Check 325: index.html が無い", blocking=True)
+
+# ── 326. <link rel="preload" as="X"> as value in HTML5 enum (BLOCKING) ───────
+_html326 = ROOT / "index.html"
+if _html326.exists():
+    _hs326 = _html326.read_text(encoding="utf-8")
+    _stripped326 = re.sub(r"<!--.*?-->", "", _hs326, flags=re.DOTALL)
+    _preload_tags326 = re.findall(
+        r'<link\s+[^>]*rel="preload"[^>]*>', _stripped326)
+    _valid_as326 = {
+        "audio", "document", "embed", "fetch", "font", "image",
+        "object", "script", "style", "track", "video", "worker",
+    }
+    _bad_as326: list[str] = []
+    _total_as326 = 0
+    for _tag in _preload_tags326:
+        _m_as = re.search(r'\bas="([^"]+)"', _tag)
+        if not _m_as:
+            continue  # Check 73a が as= 不在を担当
+        _total_as326 += 1
+        _val = _m_as.group(1)
+        if _val not in _valid_as326:
+            _bad_as326.append(f"as={_val!r} in tag={_tag[:80]!r}")
+    _ok326 = (not _bad_as326) and _total_as326 > 0
+    check(
+        _ok326,
+        f"Check 326: <link rel=\"preload\"> as= {_total_as326} 件すべて HTML5 enum 内",
+        (f"Check 326: as= 値違反: {_bad_as326!r} — "
+         f"allowed={sorted(_valid_as326)}。preload spec 違反で browser が hint を "
+         "silent ignore し first-paint 回帰"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 326: index.html present",
+          "Check 326: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
