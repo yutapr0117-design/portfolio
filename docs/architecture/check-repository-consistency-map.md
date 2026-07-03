@@ -385,6 +385,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 309 | .well-known/aio-manifest.json に `http://` URL が 0 (HTTPS-only)。AIO discovery transport downgrade drift を BLOCKING で阻止。Check 232/233/234 の aio-manifest.json 軸版 | BLOCKING |
 | 310 | 全 shipped asset (index.html + style.css + all root JS + all leaf JS + hero.webp + BGM.mp3) 合計 byte size が <= 2_000_000。per-file 通過でも total で mobile cell-network 圧迫する drift を BLOCKING で阻止。Check 269/270/271/272 の total 軸版 | BLOCKING |
 | 311 | sitemap.xml の全 `<lastmod>` が strict `YYYY-MM-DD` 形式かつ future date を含まない。malformed date silent accept / crawl priority 不正操作 drift を BLOCKING で阻止。Check 208/273/243 の sitemap.xml `<lastmod>` 軸版 | BLOCKING |
+| 312 | sitemap.xml の全 `<loc>` URL が unique (重複無し)。copy-paste drift / lastmod・priority silent overwrite を BLOCKING で阻止。Check 217 (@graph @id uniqueness) の sitemap.xml `<loc>` 軸版 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 

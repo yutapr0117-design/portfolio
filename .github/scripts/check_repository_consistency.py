@@ -2179,6 +2179,14 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 273 (JSON-LD dates not future) / Check 243 (LAST_UPDATED not
        future) for the sitemap.xml `<lastmod>` axis. (BLOCKING)
 
+  312. sitemap.xml `<loc>` URLs MUST be unique (no duplicate entries).
+       Drift = accidental copy-paste yielding two `<url>` blocks for the
+       same URL, which per sitemaps.org RFC is undefined behavior and
+       many crawlers de-duplicate at the cost of losing whichever metadata
+       (lastmod/priority) came second. Also masks structural mistakes
+       (missing new entry that was intended). Sibling of Check 217
+       (@graph @id uniqueness) for the sitemap.xml `<loc>` axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13564,6 +13572,32 @@ if _sitemap311.exists():
 else:
     check(False, "Check 311: sitemap.xml present",
           "Check 311: sitemap.xml が無い", blocking=True)
+
+# ── 312. sitemap.xml <loc> URLs are unique (BLOCKING) ────────────────────────
+# 全 <loc> が重複無しであることを強制。copy-paste drift や
+# lastmod/priority 上書きの silent loss を封じる。
+_sitemap312 = ROOT / "sitemap.xml"
+if _sitemap312.exists():
+    _sm_src312 = _sitemap312.read_text(encoding="utf-8")
+    _locs312 = re.findall(r"<loc>([^<]+)</loc>", _sm_src312)
+    _seen312: set[str] = set()
+    _dupes312: list[str] = []
+    for _u in _locs312:
+        if _u in _seen312 and _u not in _dupes312:
+            _dupes312.append(_u)
+        _seen312.add(_u)
+    _ok312 = (not _dupes312) and len(_locs312) > 0
+    check(
+        _ok312,
+        f"Check 312: sitemap.xml <loc> {len(_locs312)} 件すべて unique",
+        (f"Check 312: sitemap.xml <loc> 重複: {_dupes312!r} — "
+         "copy-paste drift / lastmod/priority silent overwrite。"
+         "重複エントリを削除せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 312: sitemap.xml present",
+          "Check 312: sitemap.xml が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
