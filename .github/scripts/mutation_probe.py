@@ -886,7 +886,7 @@ MUTATIONS = [
     {
         "name": "Check 260 (hero ImageObject required): drift width to non-numeric",
         "file": ROOT / "index.html",
-        "find": '"width": "1200",',
+        "find": '"width": "1536",',
         "replace": '"width": "huge",',
     },
     {
@@ -1356,6 +1356,12 @@ MUTATIONS = [
         "file": ROOT / "index.html",
         "find": '<meta property="og:image:width" content="1536" />',
         "replace": '<meta property="og:image:width" content="1537" />',
+    },
+    {
+        "name": "Check 339 (JSON-LD hero ImageObject dims == actual): revert width to stale 1200",
+        "file": ROOT / "index.html",
+        "find": '"width": "1536",\n                  "height": "1024",',
+        "replace": '"width": "1200",\n                  "height": "1024",',
     },
 ]
 
