@@ -1207,6 +1207,12 @@ MUTATIONS = [
         "find": '"generated_at": "2026-06-29T05:23:40Z",',
         "replace": '"generated_at": "2099-06-29T05:23:40Z",',
     },
+    {
+        "name": "Check 314 (webmanifest theme_color coherence): drift theme_color to unrelated hex",
+        "file": ROOT / "manifest.webmanifest",
+        "find": '"theme_color": "#6366f1",',
+        "replace": '"theme_color": "#ff0000",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
