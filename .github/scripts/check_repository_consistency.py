@@ -2483,6 +2483,17 @@ authoritative inventory and is kept in sync with the implementation below):
        dims == actual) for the JSON-LD ImageObject dimension-truth axis.
        (BLOCKING)
 
+  340. Every JSON-LD `ImageObject` / `AudioObject` `encodingFormat` MIME
+       for the hero WebP / BGM MP3 MUST match the ACTUAL binary format
+       (webp→`image/webp`, mp3→`audio/mpeg`, from magic bytes). Drift =
+       the JSON-LD declares a MIME (`image/png`, `audio/wav`) that
+       disagrees with the real bytes — AI crawlers ingest a wrong
+       content-type for the entity's primary media, and consumers that
+       trust the declared MIME mis-decode. Check 337 verifies the magic
+       bytes match the extension; this closes the JSON-LD MIME leg of the
+       same truth. Sibling of Check 337 (magic bytes) / Check 339 (JSON-LD
+       dims) for the binary-asset declaration-truth axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14748,6 +14759,66 @@ if _webp339.is_file() and _html339.is_file():
 else:
     check(False, "Check 339: hero WebP + index.html present",
           "Check 339: hero WebP または index.html が無い", blocking=True)
+
+# ── 340. JSON-LD encodingFormat MIME == actual binary format (BLOCKING) ──────
+_webp340 = ROOT / "yuta-yokoi-ai-pm-orchestration-system.webp"
+_mp3_340 = ROOT / "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3"
+_html340 = ROOT / "index.html"
+if _html340.is_file():
+    # 実バイナリの magic-byte 由来の期待 MIME を確定
+    _expected_mime340: dict[str, str] = {}
+    if _webp340.is_file():
+        _wb = _webp340.read_bytes()[:12]
+        if _wb[0:4] == b"RIFF" and _wb[8:12] == b"WEBP":
+            _expected_mime340[_webp340.name] = "image/webp"
+    if _mp3_340.is_file():
+        _mb = _mp3_340.read_bytes()[:3]
+        if _mb[0:3] == b"ID3" or (len(_mb) >= 2 and _mb[0] == 0xFF
+                                  and (_mb[1] & 0xE0) == 0xE0):
+            _expected_mime340[_mp3_340.name] = "audio/mpeg"
+    _problems340: list[str] = []
+    _checked340 = 0
+    for _m in re.finditer(
+            r'<script type="application/ld\+json">(.*?)</script>',
+            _html340.read_text(encoding="utf-8"), re.DOTALL):
+        try:
+            _ld340 = json.loads(_m.group(1))
+        except json.JSONDecodeError:
+            continue
+
+        def _walk340(_o):
+            global _checked340
+            if isinstance(_o, dict):
+                if (_o.get("@type") in ("ImageObject", "AudioObject")
+                        and "encodingFormat" in _o):
+                    _url = str(_o.get("contentUrl", "") or _o.get("url", ""))
+                    for _fname, _mime in _expected_mime340.items():
+                        if _fname in _url:
+                            _checked340 += 1
+                            _declared = str(_o.get("encodingFormat", ""))
+                            if _declared != _mime:
+                                _problems340.append(
+                                    f"@id={_o.get('@id','?')} encodingFormat="
+                                    f"{_declared!r} != 実 format {_mime!r} ({_fname})")
+                for _v in _o.values():
+                    _walk340(_v)
+            elif isinstance(_o, list):
+                for _v in _o:
+                    _walk340(_v)
+        _walk340(_ld340)
+    _ok340 = (not _problems340) and _checked340 > 0
+    check(
+        _ok340,
+        f"Check 340: JSON-LD encodingFormat MIME ({_checked340} 件) が実 binary format と一致",
+        (f"Check 340: encodingFormat MIME drift: {_problems340!r} — "
+         "JSON-LD が実バイナリと異なる MIME を宣言。AI crawler が誤 content-type を "
+         "ingest / 宣言 MIME を信じる consumer が mis-decode。実 format へ同期せよ "
+         "(C6 semantic ゆえ orchestrator 承認経由)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 340: index.html present",
+          "Check 340: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
