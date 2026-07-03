@@ -2205,6 +2205,16 @@ authoritative inventory and is kept in sync with the implementation below):
        format) / Check 305 (light+dark media coverage) for the
        webmanifest ↔ meta cross-surface color-identity axis. (BLOCKING)
 
+  315. manifest.webmanifest `display` MUST be in W3C spec enumeration:
+       `{fullscreen, standalone, minimal-ui, browser}`. `background_color`
+       MUST be a 6-digit hex color (`#RRGGBB`). Drift = a typo (e.g.
+       `standlone`) silently degrades PWA install prompt to `browser`
+       fallback (all "installed" UX signals lost); a malformed
+       background_color triggers OS-default gray on the splash screen.
+       Sibling of Check 304 (theme-color hex format) / Check 210
+       (start_url/scope canonical) for the webmanifest structural
+       correctness axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13694,6 +13704,36 @@ if _webman314.exists() and _html314_path.exists():
 else:
     check(False, "Check 314: manifest.webmanifest + index.html present",
           "Check 314: manifest.webmanifest or index.html が無い", blocking=True)
+
+# ── 315. webmanifest display enum + background_color 6-digit hex (BLOCKING) ──
+_webman315 = ROOT / "manifest.webmanifest"
+if _webman315.exists():
+    try:
+        _wm315 = json.loads(_webman315.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _wm315 = None
+    if _wm315 is not None:
+        _display315 = str(_wm315.get("display", ""))
+        _bg315 = str(_wm315.get("background_color", ""))
+        _valid_display315 = {"fullscreen", "standalone", "minimal-ui", "browser"}
+        _display_ok315 = _display315 in _valid_display315
+        _bg_ok315 = bool(re.match(r"^#[0-9a-fA-F]{6}$", _bg315))
+        _ok315 = _display_ok315 and _bg_ok315
+        check(
+            _ok315,
+            f"Check 315: webmanifest display={_display315!r} ∈ enum + background_color={_bg315!r} 6-digit hex",
+            (f"Check 315: webmanifest 違反: "
+             f"display={_display315!r} (allowed={sorted(_valid_display315)}) / "
+             f"background_color={_bg315!r} (must match ^#[0-9a-fA-F]{{6}}$) — "
+             "PWA install prompt drift or splash-screen OS-default gray fallback"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 315: manifest.webmanifest parseable",
+              "Check 315: manifest.webmanifest が JSON parse 不能", blocking=True)
+else:
+    check(False, "Check 315: manifest.webmanifest present",
+          "Check 315: manifest.webmanifest が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
