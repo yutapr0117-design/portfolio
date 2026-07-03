@@ -2171,6 +2171,14 @@ authoritative inventory and is kept in sync with the implementation below):
        cell-network target. Sibling of Check 269/270/271/272 for the
        total shipped weight axis. (BLOCKING)
 
+  311. sitemap.xml `<lastmod>` values MUST all match strict `YYYY-MM-DD`
+       format AND MUST NOT be in the future (relative to today, JST). Drift
+       = malformed date silently accepted by permissive Google/Bing parsers
+       but rejected by strict crawlers, or a future date manipulating
+       crawl priority. Sibling of Check 208 (JSON-LD dates ISO-8601) /
+       Check 273 (JSON-LD dates not future) / Check 243 (LAST_UPDATED not
+       future) for the sitemap.xml `<lastmod>` axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13524,6 +13532,38 @@ check(
      "budget contract 更新"),
     blocking=True,
 )
+
+# ── 311. sitemap.xml <lastmod> strict YYYY-MM-DD AND not future (BLOCKING) ────
+# 全 <lastmod> が strict YYYY-MM-DD 形式かつ today 以下であることを強制。
+# malformed date や future date による crawl priority 操作 drift を封じる。
+_sitemap311 = ROOT / "sitemap.xml"
+if _sitemap311.exists():
+    from datetime import date as _date311
+    _sm_src311 = _sitemap311.read_text(encoding="utf-8")
+    _lastmods311 = re.findall(r"<lastmod>([^<]+)</lastmod>", _sm_src311)
+    _strict_re311 = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+    _bad_fmt311 = [v for v in _lastmods311 if not _strict_re311.match(v)]
+    _today311 = _date311.today()
+    _future311: list[str] = []
+    for _v in _lastmods311:
+        if _strict_re311.match(_v):
+            try:
+                if _date311.fromisoformat(_v) > _today311:
+                    _future311.append(_v)
+            except ValueError:
+                _bad_fmt311.append(_v)
+    _ok311 = (not _bad_fmt311) and (not _future311) and len(_lastmods311) > 0
+    check(
+        _ok311,
+        f"Check 311: sitemap.xml <lastmod> {len(_lastmods311)} 件すべて YYYY-MM-DD 形式かつ未来日付なし",
+        (f"Check 311: sitemap.xml <lastmod> 違反: bad_format={_bad_fmt311!r} / "
+         f"future_dates={_future311!r} — 厳格 crawler に reject される or "
+         "crawl priority 不正操作。strict YYYY-MM-DD で今日以前の値へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 311: sitemap.xml present",
+          "Check 311: sitemap.xml が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
