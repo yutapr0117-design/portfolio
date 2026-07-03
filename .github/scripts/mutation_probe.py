@@ -1261,6 +1261,12 @@ MUTATIONS = [
         "find": '<link rel="stylesheet" href="./style.css">',
         "replace": '<link rel="stylesheet" href="./style.css">\n    <style>body{background:red}</style>',
     },
+    {
+        "name": "Check 323 (index.html no style= attr): inject style=color:red on canonical stylesheet link",
+        "file": ROOT / "index.html",
+        "find": '<link rel="stylesheet" href="./style.css">',
+        "replace": '<link rel="stylesheet" href="./style.css" style="color:red">',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
