@@ -1225,6 +1225,12 @@ MUTATIONS = [
         "find": '"purpose": "any maskable"',
         "replace": '"purpose": "any mask"',
     },
+    {
+        "name": "Check 317 (aio-manifest sha256 format): uppercase hex in first source_of_truth sha256",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"sha256": "a13166f6a9d61fddaddf4bf08b39fbb536ad7d90656ca722b0477a406763b3a1"',
+        "replace": '"sha256": "A13166f6a9d61fddaddf4bf08b39fbb536ad7d90656ca722b0477a406763b3a1"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
