@@ -2382,6 +2382,15 @@ authoritative inventory and is kept in sync with the implementation below):
        hardening) for the HTML external-embed attack-surface axis.
        (BLOCKING)
 
+  331. `index.html` MUST NOT contain any HTML attribute whose value starts
+       with `javascript:` (e.g. `href="javascript:..."`, `src="javascript:..."`,
+       `formaction="javascript:..."`). Drift = a JS URL scheme silently
+       bypasses CSP `script-src` (executes in the anchor's context) and
+       forms a persistent XSS vector even under strict CSP. Sibling of
+       Check 239 (no eval/Function) / Check 242 (inline `on*=` handler
+       allowlist) / Check 323 (no `style=`) for the HTML JS-URL-scheme
+       zero-tolerance axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14317,6 +14326,29 @@ if _html330.exists():
 else:
     check(False, "Check 330: index.html present",
           "Check 330: index.html が無い", blocking=True)
+
+# ── 331. index.html no attribute="javascript:..." (BLOCKING) ─────────────────
+_html331 = ROOT / "index.html"
+if _html331.exists():
+    _hs331 = _html331.read_text(encoding="utf-8")
+    _stripped331 = re.sub(r"<!--.*?-->", "", _hs331, flags=re.DOTALL)
+    # 任意の attribute="javascript:..." を検出
+    _js_urls331 = re.findall(
+        r'\b[a-zA-Z-]+\s*=\s*"javascript:[^"]*"',
+        _stripped331, flags=re.IGNORECASE)
+    _count331 = len(_js_urls331)
+    _ok331 = _count331 == 0
+    check(
+        _ok331,
+        "Check 331: index.html attribute=\"javascript:...\" 0 件 (JS-URL-scheme 排除)",
+        (f"Check 331: JS URL scheme 検出: {_js_urls331[:3]!r} — "
+         "CSP script-src bypass、XSS 永続 vector。javascript: を削除し "
+         "addEventListener + プログラム的遷移へ書き換えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 331: index.html present",
+          "Check 331: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
