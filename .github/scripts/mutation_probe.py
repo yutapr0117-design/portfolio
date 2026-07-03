@@ -1213,6 +1213,12 @@ MUTATIONS = [
         "find": '"theme_color": "#6366f1",',
         "replace": '"theme_color": "#ff0000",',
     },
+    {
+        "name": "Check 315 (webmanifest display enum): typo standalone → standlone",
+        "file": ROOT / "manifest.webmanifest",
+        "find": '"display": "standalone",',
+        "replace": '"display": "standlone",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
