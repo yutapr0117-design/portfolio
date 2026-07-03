@@ -2471,6 +2471,18 @@ authoritative inventory and is kept in sync with the implementation below):
        int) / Check 337 (magic bytes) for the hero-image dimension-truth
        axis. (BLOCKING)
 
+  339. Every JSON-LD `ImageObject` for the hero WebP that declares
+       `width` / `height` MUST match the ACTUAL pixel dimensions of the
+       hero WebP file. Drift = the image is re-exported at a new
+       resolution and og:image (Check 338) gets updated but the JSON-LD
+       ImageObject width/height stays stale — AI crawlers / knowledge
+       graphs then ingest a wrong dimension for the entity's primary
+       image. (This Check was born from a real drift found 2026-07-04:
+       JSON-LD declared 1200x630 while the file was 1536x1024, corrected
+       under C6 orchestrator approval.) Sibling of Check 338 (og:image
+       dims == actual) for the JSON-LD ImageObject dimension-truth axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14682,6 +14694,60 @@ if _webp338.is_file() and _html338.is_file():
 else:
     check(False, "Check 338: hero WebP + index.html present",
           "Check 338: hero WebP または index.html が無い", blocking=True)
+
+# ── 339. JSON-LD hero ImageObject width/height == actual WebP dims (BLOCKING) ─
+_webp339 = ROOT / "yuta-yokoi-ai-pm-orchestration-system.webp"
+_html339 = ROOT / "index.html"
+if _webp339.is_file() and _html339.is_file():
+    _dims339 = _parse_webp_dims338(_webp339)
+    _hero_name339 = "yuta-yokoi-ai-pm-orchestration-system.webp"
+    _problems339: list[str] = []
+    _checked339 = 0
+    if _dims339 is None:
+        _problems339.append("hero WebP 寸法を parse できない")
+    else:
+        _aw339, _ah339 = _dims339
+        for _m in re.finditer(
+                r'<script type="application/ld\+json">(.*?)</script>',
+                _html339.read_text(encoding="utf-8"), re.DOTALL):
+            try:
+                _ld339 = json.loads(_m.group(1))
+            except json.JSONDecodeError:
+                continue
+
+            def _walk339(_o):
+                global _checked339
+                if isinstance(_o, dict):
+                    if (_o.get("@type") == "ImageObject"
+                            and _hero_name339 in str(_o.get("contentUrl", ""))
+                            and ("width" in _o or "height" in _o)):
+                        _w = str(_o.get("width", ""))
+                        _h = str(_o.get("height", ""))
+                        _checked339 += 1
+                        if _w and _w != str(_aw339):
+                            _problems339.append(
+                                f"@id={_o.get('@id','?')} width={_w!r} != 実寸 {_aw339}")
+                        if _h and _h != str(_ah339):
+                            _problems339.append(
+                                f"@id={_o.get('@id','?')} height={_h!r} != 実寸 {_ah339}")
+                    for _v in _o.values():
+                        _walk339(_v)
+                elif isinstance(_o, list):
+                    for _v in _o:
+                        _walk339(_v)
+            _walk339(_ld339)
+    check(
+        not _problems339,
+        f"Check 339: JSON-LD hero ImageObject 寸法 ({_checked339} 件) が実 WebP 実寸 {_dims339} と一致",
+        (f"Check 339: JSON-LD ImageObject 寸法 drift: {_problems339!r} — "
+         "hero 再エクスポートで実寸が変わったのに JSON-LD が stale。AI crawler / "
+         "knowledge graph が誤寸法を ingest。JSON-LD を実寸へ同期せよ (C6 semantic ゆえ "
+         "orchestrator 承認経由)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 339: hero WebP + index.html present",
+          "Check 339: hero WebP または index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
