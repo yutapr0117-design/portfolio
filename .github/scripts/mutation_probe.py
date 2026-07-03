@@ -1231,6 +1231,12 @@ MUTATIONS = [
         "find": '"sha256": "a13166f6a9d61fddaddf4bf08b39fbb536ad7d90656ca722b0477a406763b3a1"',
         "replace": '"sha256": "A13166f6a9d61fddaddf4bf08b39fbb536ad7d90656ca722b0477a406763b3a1"',
     },
+    {
+        "name": "Check 318 (aio-manifest evidence required fields): empty role in first source_of_truth entry",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"role": "short AI routing context",',
+        "replace": '"role": "",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
