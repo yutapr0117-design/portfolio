@@ -2275,6 +2275,19 @@ authoritative inventory and is kept in sync with the implementation below):
        tags) / Check C1 baseline for the CSS surface no-external-load
        axis. (BLOCKING)
 
+  322. `index.html` MUST contain zero inline `<style>` element blocks
+       (single-stylesheet contract). Drift = a snippet of CSS crept into
+       HTML, silently violating:
+       (a) the "single canonical style.css" invariant used by Check 52
+           (byte budget) / Check 174 (theme-color literals) — those
+           checks scan only style.css, so inline styles bypass them,
+       (b) CSP `style-src` hardening — inline `<style>` requires either
+           `'unsafe-inline'` (dangerous) or a per-block SHA-256 hash.
+       Note: inline `style="..."` HTML attributes are covered by
+       Check 242 (inline handler allowlist). Sibling of Check 321
+       (CSS @import) / Check 52 (style.css byte budget) for the CSS
+       shipping-surface single-source-of-truth axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13974,6 +13987,28 @@ if _css321.exists():
 else:
     check(False, "Check 321: style.css present",
           "Check 321: style.css が無い", blocking=True)
+
+# ── 322. index.html has zero inline <style> element blocks (BLOCKING) ────────
+_html322 = ROOT / "index.html"
+if _html322.exists():
+    _hs322 = _html322.read_text(encoding="utf-8")
+    # HTML コメント除去 (<!-- ... -->) してからスキャン
+    _stripped322 = re.sub(r"<!--.*?-->", "", _hs322, flags=re.DOTALL)
+    _style_blocks322 = re.findall(r"(?is)<style\b[^>]*>.*?</style>", _stripped322)
+    _count322 = len(_style_blocks322)
+    _ok322 = _count322 == 0
+    check(
+        _ok322,
+        "Check 322: index.html inline <style> block 0 件 (single-stylesheet 契約遵守)",
+        (f"Check 322: index.html に inline <style> block が {_count322} 件検出 — "
+         "single canonical style.css 契約違反 / Check 52・174 が bypass される / "
+         "CSP style-src 'unsafe-inline' or per-hash 必要。inline <style> を "
+         "style.css へ移せ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 322: index.html present",
+          "Check 322: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
