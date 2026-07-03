@@ -1267,6 +1267,12 @@ MUTATIONS = [
         "find": '<link rel="stylesheet" href="./style.css">',
         "replace": '<link rel="stylesheet" href="./style.css" style="color:red">',
     },
+    {
+        "name": "Check 324 (affiliation start_date not future): push start_date to 2099",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"start_date": "2026-06-11"',
+        "replace": '"start_date": "2099-06-11"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
