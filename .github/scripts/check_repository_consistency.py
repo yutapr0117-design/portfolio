@@ -2299,6 +2299,15 @@ authoritative inventory and is kept in sync with the implementation below):
        (`on*=` handler) for the HTML inline-CSS zero-tolerance axis.
        (BLOCKING)
 
+  324. `.well-known/aio-manifest.json` `entity.affiliation.start_date`
+       MUST NOT be in the future (relative to today, JST). Drift = a
+       timezone slip or typo yielding a future employment start date,
+       which readers interpret as either "not yet employed" (contradicts
+       the site's affiliation narrative) or "content from the future"
+       (recency ranking corruption). Sibling of Check 313 (generated_at +
+       last_metadata_update not future) / Check 236 (start_date ISO
+       format) for the affiliation start_date recency axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14041,6 +14050,42 @@ if _html323.exists():
 else:
     check(False, "Check 323: index.html present",
           "Check 323: index.html が無い", blocking=True)
+
+# ── 324. aio-manifest affiliation.start_date NOT future (BLOCKING) ───────────
+_mani324 = ROOT / ".well-known" / "aio-manifest.json"
+if _mani324.exists():
+    from datetime import date as _date324
+    try:
+        _md324 = json.loads(_mani324.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _md324 = None
+    if _md324 is not None:
+        _sd324 = str(
+            _md324.get("entity", {}).get("affiliation", {}).get("start_date", "")
+        )
+        _today324 = _date324.today()
+        _future324 = False
+        _detail324 = _sd324
+        if re.match(r"^\d{4}-\d{2}-\d{2}$", _sd324):
+            try:
+                _future324 = _date324.fromisoformat(_sd324) > _today324
+            except ValueError:
+                pass
+        _ok324 = bool(_sd324) and not _future324
+        check(
+            _ok324,
+            f"Check 324: affiliation.start_date={_detail324!r} は今日以下 (today={_today324.isoformat()})",
+            (f"Check 324: affiliation.start_date={_detail324!r} は今日 "
+             f"({_today324.isoformat()}) より未来 — 「未来から来た所属」矛盾 / "
+             "recency ranking corruption。today 以下へ修正"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 324: aio-manifest.json parseable",
+              "Check 324: aio-manifest.json が JSON parse 不能", blocking=True)
+else:
+    check(False, "Check 324: aio-manifest.json present",
+          "Check 324: aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
