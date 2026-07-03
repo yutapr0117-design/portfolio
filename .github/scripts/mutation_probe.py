@@ -1249,6 +1249,12 @@ MUTATIONS = [
         "find": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml",
         "replace": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml\nSitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml",
     },
+    {
+        "name": "Check 321 (style.css no @import): inject rogue @import at top of file",
+        "file": ROOT / "style.css",
+        "find": "@layer reset, tokens, base, layout, components, pages, utilities;",
+        "replace": "@import url('https://cdn.example.com/rogue.css');\n        @layer reset, tokens, base, layout, components, pages, utilities;",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
