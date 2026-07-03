@@ -2196,6 +2196,15 @@ authoritative inventory and is kept in sync with the implementation below):
        (JSON-LD dates not future) / Check 311 (sitemap.xml <lastmod> not
        future) for the aio-manifest.json date axis. (BLOCKING)
 
+  314. manifest.webmanifest `theme_color` MUST equal at least one
+       `<meta name="theme-color">` content value in index.html. Drift =
+       PWA install screen / OS status bar shows a different color than
+       the in-browser address bar. Cross-surface coherence between the
+       webmanifest (installed-app appearance) and the meta tag
+       (in-browser appearance). Sibling of Check 304 (theme-color hex
+       format) / Check 305 (light+dark media coverage) for the
+       webmanifest ↔ meta cross-surface color-identity axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13647,6 +13656,44 @@ if _mani313.exists():
 else:
     check(False, "Check 313: aio-manifest.json present",
           "Check 313: aio-manifest.json が無い", blocking=True)
+
+# ── 314. manifest.webmanifest theme_color == index.html meta theme-color ─────
+# (BLOCKING) — PWA install screen と in-browser address bar の色 drift 封じ。
+_webman314 = ROOT / "manifest.webmanifest"
+_html314_path = ROOT / "index.html"
+if _webman314.exists() and _html314_path.exists():
+    try:
+        _wm314 = json.loads(_webman314.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _wm314 = None
+    if _wm314 is not None:
+        _wm_theme314 = str(_wm314.get("theme_color", "")).lower()
+        _html314 = _html314_path.read_text(encoding="utf-8")
+        _meta_themes314 = [
+            m.group(1).lower() for m in re.finditer(
+                r'<meta\s+name="theme-color"[^>]*content="([^"]+)"', _html314)
+        ]
+        # 逆順 (content が先) の書き方にも対応
+        _meta_themes314 += [
+            m.group(1).lower() for m in re.finditer(
+                r'<meta\s+content="([^"]+)"[^>]*name="theme-color"', _html314)
+        ]
+        _ok314 = bool(_wm_theme314) and _wm_theme314 in _meta_themes314
+        check(
+            _ok314,
+            f"Check 314: manifest.webmanifest theme_color={_wm_theme314!r} は index.html meta theme-color {_meta_themes314!r} と cross-surface 一致",
+            (f"Check 314: manifest.webmanifest theme_color={_wm_theme314!r} が "
+             f"index.html <meta name=\"theme-color\"> 値集合 {_meta_themes314!r} に含まれない — "
+             "PWA install screen と in-browser address bar の色 drift。"
+             "webmanifest 側 or meta 側どちらかを揃えよ"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 314: manifest.webmanifest parseable",
+              "Check 314: manifest.webmanifest が JSON parse 不能", blocking=True)
+else:
+    check(False, "Check 314: manifest.webmanifest + index.html present",
+          "Check 314: manifest.webmanifest or index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
