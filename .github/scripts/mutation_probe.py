@@ -1339,6 +1339,12 @@ MUTATIONS = [
         "find": '<link rel="manifest" href="/portfolio/manifest.webmanifest" />',
         "replace": '<link rel="manifest" href="/portfolio/manifest-nonexistent-mutation-probe.webmanifest" />',
     },
+    {
+        "name": "Check 336 (og:image==twitter:image): drift twitter:image to canonical icon.svg (valid+resolves, only breaks equality)",
+        "file": ROOT / "index.html",
+        "find": '<meta name="twitter:image" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp"',
+        "replace": '<meta name="twitter:image" content="https://yutapr0117-design.github.io/portfolio/icon.svg"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
