@@ -2370,6 +2370,18 @@ authoritative inventory and is kept in sync with the implementation below):
        for the HTML modernity + hygiene negative-invariant axis.
        (BLOCKING)
 
+  330. `index.html` MUST NOT contain `<iframe>`, `<object>`, or `<embed>`
+       elements. Drift = an accidental external-content embed:
+       (a) opens a cross-origin attack surface (embedded document can
+           trigger click-jacking, phishing, or drive-by download),
+       (b) requires expanding CSP `frame-src` / `object-src` allowlists,
+       (c) inconsistent rendering (Safari's plugin sandbox differs from
+           Chrome, screen readers announce inconsistently),
+       (d) breaks the "Boring Technology single-document SPA" narrative.
+       Sibling of Check 329 (HTML4 deprecated) / Check 115 (CSP
+       hardening) for the HTML external-embed attack-surface axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14281,6 +14293,30 @@ if _html329.exists():
 else:
     check(False, "Check 329: index.html present",
           "Check 329: index.html が無い", blocking=True)
+
+# ── 330. index.html has no <iframe>/<object>/<embed> (BLOCKING) ──────────────
+_html330 = ROOT / "index.html"
+if _html330.exists():
+    _hs330 = _html330.read_text(encoding="utf-8")
+    _stripped330 = re.sub(r"<!--.*?-->", "", _hs330, flags=re.DOTALL)
+    _embed_tags330 = ("iframe", "object", "embed")
+    _found330: dict[str, int] = {}
+    for _tag in _embed_tags330:
+        _matches = re.findall(rf'<{_tag}\b', _stripped330, flags=re.IGNORECASE)
+        if _matches:
+            _found330[_tag] = len(_matches)
+    _ok330 = not _found330
+    check(
+        _ok330,
+        f"Check 330: index.html <iframe>/<object>/<embed> 0 件 (external-embed 攻撃面排除)",
+        (f"Check 330: external-embed 要素検出: {_found330!r} — "
+         "click-jacking / CSP frame-src 拡張 / render 差 / SPA narrative 崩壊。"
+         "external content は WebView 化するか削除せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 330: index.html present",
+          "Check 330: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
