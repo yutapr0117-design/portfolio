@@ -1255,6 +1255,12 @@ MUTATIONS = [
         "find": "@layer reset, tokens, base, layout, components, pages, utilities;",
         "replace": "@import url('https://cdn.example.com/rogue.css');\n        @layer reset, tokens, base, layout, components, pages, utilities;",
     },
+    {
+        "name": "Check 322 (index.html no inline <style>): inject rogue <style> after link stylesheet",
+        "file": ROOT / "index.html",
+        "find": '<link rel="stylesheet" href="./style.css">',
+        "replace": '<link rel="stylesheet" href="./style.css">\n    <style>body{background:red}</style>',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
