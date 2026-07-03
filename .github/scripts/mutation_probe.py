@@ -1243,6 +1243,12 @@ MUTATIONS = [
         "find": '"path": "AI2AI.md",',
         "replace": '"path": "AI2AI-nonexistent-mutation-probe.md",',
     },
+    {
+        "name": "Check 320 (robots.txt Sitemap cardinality): duplicate Sitemap: directive",
+        "file": ROOT / "robots.txt",
+        "find": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml",
+        "replace": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml\nSitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
