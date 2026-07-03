@@ -2247,6 +2247,16 @@ authoritative inventory and is kept in sync with the implementation below):
        for the aio-manifest evidence-entry structural completeness axis.
        (BLOCKING)
 
+  319. `.well-known/aio-manifest.json` every evidence entry `path` MUST
+       resolve to an actually existing file at ROOT/<path>. Drift = a
+       rename or deletion leaves an entry claiming digest coverage of a
+       phantom file. Check 219 verifies `path ⊆ whitelist keys` but the
+       whitelist itself could point at deleted files; this Check closes
+       that leak by hitting the filesystem directly. Sibling of
+       Check 219 (path ⊆ MANIFEST_PATH_TO_LOCAL) / Check 42 (digest
+       chain resolves) for the aio-manifest evidence-path existence
+       axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13873,6 +13883,40 @@ if _mani318.exists():
 else:
     check(False, "Check 318: aio-manifest.json present",
           "Check 318: aio-manifest.json が無い", blocking=True)
+
+# ── 319. aio-manifest evidence.path resolves to existing file (BLOCKING) ─────
+_mani319 = ROOT / ".well-known" / "aio-manifest.json"
+if _mani319.exists():
+    try:
+        _md319 = json.loads(_mani319.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _md319 = None
+    if _md319 is not None:
+        _missing319: list[str] = []
+        _total319 = 0
+        for _key in ("source_of_truth", "supporting_evidence", "observational_evidence"):
+            for _i, _e in enumerate(_md319.get(_key, [])):
+                _p = str(_e.get("path", "")).strip()
+                if not _p:
+                    continue
+                _total319 += 1
+                if not (ROOT / _p).is_file():
+                    _missing319.append(f"{_key}[{_i}].path={_p!r}")
+        _ok319 = (not _missing319) and _total319 > 0
+        check(
+            _ok319,
+            f"Check 319: aio-manifest.json evidence.path {_total319} 件すべて existing file",
+            (f"Check 319: aio-manifest.json evidence.path が実 file に解決しない: {_missing319!r} — "
+             "rename/deletion で phantom evidence entry。manifest から entry を消すか "
+             "実 file を配置せよ"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 319: aio-manifest.json parseable",
+              "Check 319: aio-manifest.json が JSON parse 不能", blocking=True)
+else:
+    check(False, "Check 319: aio-manifest.json present",
+          "Check 319: aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
