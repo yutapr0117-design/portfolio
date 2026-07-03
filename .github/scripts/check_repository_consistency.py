@@ -2436,6 +2436,17 @@ authoritative inventory and is kept in sync with the implementation below):
        / Check 134 (root script wiring) for the webmanifest link-wiring
        axis. (BLOCKING)
 
+  336. `<meta property="og:image">` and `<meta name="twitter:image">`
+       content URLs MUST be byte-identical (single canonical social-card
+       image). Drift = og:image and twitter:image point at two different
+       (individually valid, canonical, resolving) images — a Twitter card
+       preview shows one image while LinkedIn/Slack/Facebook OG consumers
+       show another, fracturing the entity's visual identity across social
+       surfaces. Check 153 (both canonical-prefixed) / Check 164 (both
+       resolve to a file) allow this drift because each URL is valid in
+       isolation. Sibling of Check 155 (og:title ↔ twitter:title) for the
+       social-card image-coherence axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14531,6 +14542,33 @@ if _html335.exists():
 else:
     check(False, "Check 335: index.html present",
           "Check 335: index.html が無い", blocking=True)
+
+# ── 336. og:image == twitter:image byte-identical (BLOCKING) ─────────────────
+_html336 = ROOT / "index.html"
+if _html336.exists():
+    _hs336 = _html336.read_text(encoding="utf-8")
+    _stripped336 = re.sub(r"<!--.*?-->", "", _hs336, flags=re.DOTALL)
+    _og336 = re.search(
+        r'<meta\s+property="og:image"\s+content="([^"]+)"', _stripped336)
+    _tw336 = re.search(
+        r'<meta\s+name="twitter:image"\s+content="([^"]+)"', _stripped336)
+    _og_v336 = _og336.group(1) if _og336 else None
+    _tw_v336 = _tw336.group(1) if _tw336 else None
+    _ok336 = (_og_v336 is not None
+              and _tw_v336 is not None
+              and _og_v336 == _tw_v336)
+    check(
+        _ok336,
+        f"Check 336: og:image == twitter:image (byte-identical single social-card image)",
+        (f"Check 336: og:image / twitter:image drift: "
+         f"og:image={_og_v336!r} != twitter:image={_tw_v336!r} — "
+         "Twitter card と OG (LinkedIn/Slack/FB) が別 image を表示し entity "
+         "visual identity が SNS ごとに分裂。単一 canonical image へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 336: index.html present",
+          "Check 336: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
