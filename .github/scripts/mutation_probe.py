@@ -1183,6 +1183,12 @@ MUTATIONS = [
         "find": '"organization_url": "https://nkgr.co.jp/",',
         "replace": '"organization_url": "http://nkgr.co.jp/",',
     },
+    {
+        "name": "Check 310 (total shipped weight): tighten _TOTAL_BUDGET310 to 1 byte (simulates over-budget)",
+        "file": CHECK,
+        "find": "_TOTAL_BUDGET310 = 2_000_000",
+        "replace": "_TOTAL_BUDGET310 = 1",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
