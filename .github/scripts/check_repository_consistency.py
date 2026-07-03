@@ -2267,6 +2267,14 @@ authoritative inventory and is kept in sync with the implementation below):
        HTTPS) for the robots.txt Sitemap-directive cardinality axis.
        (BLOCKING)
 
+  321. `style.css` MUST contain zero CSS `@import` statements. Boring
+       Technology contract (C1) forbids external CSS library loading; an
+       `@import url(...)` would pull an external stylesheet at parse time
+       and introduce render-blocking network dependency + CSP surface
+       expansion. Sibling of Check 1 (no external framework CSS `<link>`
+       tags) / Check C1 baseline for the CSS surface no-external-load
+       axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13945,6 +13953,27 @@ if _robots320.exists():
 else:
     check(False, "Check 320: robots.txt present",
           "Check 320: robots.txt が無い", blocking=True)
+
+# ── 321. style.css has zero @import statements (BLOCKING) ────────────────────
+_css321 = ROOT / "style.css"
+if _css321.exists():
+    _css_src321 = _css321.read_text(encoding="utf-8")
+    # /* @import */ のようなコメント内は除外して数える
+    _stripped321 = re.sub(r"/\*.*?\*/", "", _css_src321, flags=re.DOTALL)
+    _imports321 = re.findall(r"(?m)^\s*@import\b", _stripped321)
+    _count321 = len(_imports321)
+    _ok321 = _count321 == 0
+    check(
+        _ok321,
+        "Check 321: style.css @import 0 件 (Boring Technology 契約遵守)",
+        (f"Check 321: style.css に @import が {_count321} 件検出 — "
+         "外部 CSS load = 実装時の render-blocking / CSP 拡張。"
+         "Boring Technology (C1) 契約違反。@import を削除せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 321: style.css present",
+          "Check 321: style.css が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
