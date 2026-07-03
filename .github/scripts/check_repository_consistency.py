@@ -2406,6 +2406,15 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 239 (no eval) / Check 43d (main.js single IIFE)
        for the shipped-JS module-boundary integrity axis. (BLOCKING)
 
+  333. `manifest.webmanifest` `name` / `short_name` / `description` MUST
+       NOT contain the real name (`横井雄太` / `Yokoi Yuta` / `Yuta Yokoi`).
+       The PWA install prompt / app launcher label is a general-public UI
+       surface subject to the same anonymity contract as the visual site
+       (Check 124 — UI displays "yuta", real name is AIO/entity layer
+       only). Drift = a webmanifest edit leaks the real name onto every
+       user's home screen / app switcher. Sibling of Check 124 (visible
+       renderer anonymity) for the PWA-surface anonymity axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14399,6 +14408,39 @@ check(
      "全 statement を script 内 local で完結させよ"),
     blocking=True,
 )
+
+# ── 333. webmanifest name/short_name/description real-name anonymity (BLOCKING) ─
+# PWA install prompt / app launcher は一般ユーザー向け UI 面ゆえ Check 124 と同じ
+# 匿名契約 (実名は AIO/entity 層のみ) を webmanifest にも強制。
+_webman333 = ROOT / "manifest.webmanifest"
+if _webman333.exists():
+    try:
+        _wm333 = json.loads(_webman333.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _wm333 = None
+    if _wm333 is not None:
+        _realnames333 = ("横井雄太", "Yokoi Yuta", "Yuta Yokoi")
+        _leak333: list[str] = []
+        for _field in ("name", "short_name", "description"):
+            _v = str(_wm333.get(_field, ""))
+            for _rn in _realnames333:
+                if _rn in _v:
+                    _leak333.append(f"{_field} に {_rn!r}")
+        _ok333 = not _leak333
+        check(
+            _ok333,
+            "Check 333: webmanifest name/short_name/description に実名漏れ無し (PWA 匿名契約)",
+            (f"Check 333: webmanifest に実名漏れ: {_leak333!r} — PWA install prompt / "
+             "app launcher は一般向け UI 面。実名は AIO/entity 層のみ (Check 124 と同契約)。"
+             "'yuta' 表記へ修正せよ"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 333: manifest.webmanifest parseable",
+              "Check 333: manifest.webmanifest が JSON parse 不能", blocking=True)
+else:
+    check(False, "Check 333: manifest.webmanifest present",
+          "Check 333: manifest.webmanifest が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
