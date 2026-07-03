@@ -2284,9 +2284,20 @@ authoritative inventory and is kept in sync with the implementation below):
        (b) CSP `style-src` hardening — inline `<style>` requires either
            `'unsafe-inline'` (dangerous) or a per-block SHA-256 hash.
        Note: inline `style="..."` HTML attributes are covered by
-       Check 242 (inline handler allowlist). Sibling of Check 321
+       Check 323 (per-element style attribute). Sibling of Check 321
        (CSS @import) / Check 52 (style.css byte budget) for the CSS
        shipping-surface single-source-of-truth axis. (BLOCKING)
+
+  323. `index.html` MUST contain zero `style="..."` HTML attributes
+       (per-element inline style). Drift = a scoped style attribute
+       drifts into the shipped HTML, bypassing style.css SSoT (Check 52
+       byte budget / Check 174 theme-color literals don't scan HTML) and
+       requiring CSP `style-src 'unsafe-inline'` hash exceptions.
+       Check 242 covers `on*=` inline handlers; Check 322 covers `<style>`
+       element blocks; this Check completes the trio for zero-tolerance
+       inline CSS. Sibling of Check 322 (`<style>` block) / Check 242
+       (`on*=` handler) for the HTML inline-CSS zero-tolerance axis.
+       (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -14009,6 +14020,27 @@ if _html322.exists():
 else:
     check(False, "Check 322: index.html present",
           "Check 322: index.html が無い", blocking=True)
+
+# ── 323. index.html has zero style="..." attributes (BLOCKING) ───────────────
+_html323 = ROOT / "index.html"
+if _html323.exists():
+    _hs323 = _html323.read_text(encoding="utf-8")
+    # HTML コメントを除外してからスキャン
+    _stripped323 = re.sub(r"<!--.*?-->", "", _hs323, flags=re.DOTALL)
+    _style_attrs323 = re.findall(r'\bstyle\s*=\s*"[^"]*"', _stripped323)
+    _count323 = len(_style_attrs323)
+    _ok323 = _count323 == 0
+    check(
+        _ok323,
+        "Check 323: index.html style=\"...\" attribute 0 件 (single-stylesheet 契約完全遵守)",
+        (f"Check 323: index.html に style=\"...\" attribute が {_count323} 件検出: "
+         f"{[a[:80] for a in _style_attrs323[:3]]!r} — style.css SSoT 破綻 / "
+         "CSP style-src 'unsafe-inline' 要求。スタイルを style.css へ移せ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 323: index.html present",
+          "Check 323: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
