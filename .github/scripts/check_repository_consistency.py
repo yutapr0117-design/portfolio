@@ -2236,6 +2236,17 @@ authoritative inventory and is kept in sync with the implementation below):
        chain) / Check 236 (generated_at RFC 3339) for the aio-manifest
        digest-field structural correctness axis. (BLOCKING)
 
+  318. `.well-known/aio-manifest.json` every evidence entry (in
+       source_of_truth[], supporting_evidence[], observational_evidence[])
+       MUST have all three required fields `{path, role, sha256}` present
+       AND non-empty. Drift = a missing `role` yields silent "unlabeled
+       evidence" (AI crawler cannot interpret purpose); a missing `path`
+       breaks the digest chain resolution (Check 42 fails with confusing
+       "file not found" for an entry that shouldn't exist). Sibling of
+       Check 289 (evidence count + uniqueness) / Check 317 (sha256 format)
+       for the aio-manifest evidence-entry structural completeness axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13828,6 +13839,40 @@ if _mani317.exists():
 else:
     check(False, "Check 317: aio-manifest.json present",
           "Check 317: aio-manifest.json が無い", blocking=True)
+
+# ── 318. aio-manifest.json evidence entries required fields (BLOCKING) ───────
+_mani318 = ROOT / ".well-known" / "aio-manifest.json"
+if _mani318.exists():
+    try:
+        _md318 = json.loads(_mani318.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _md318 = None
+    if _md318 is not None:
+        _req_fields318 = ("path", "role", "sha256")
+        _missing318: list[str] = []
+        _total_entries318 = 0
+        for _key in ("source_of_truth", "supporting_evidence", "observational_evidence"):
+            for _i, _e in enumerate(_md318.get(_key, [])):
+                _total_entries318 += 1
+                for _f in _req_fields318:
+                    _v = _e.get(_f, "")
+                    if not str(_v).strip():
+                        _missing318.append(f"{_key}[{_i}].{_f}=<empty|missing>")
+        _ok318 = (not _missing318) and _total_entries318 > 0
+        check(
+            _ok318,
+            f"Check 318: aio-manifest.json evidence entry {_total_entries318} 件すべて {{path, role, sha256}} 完備",
+            (f"Check 318: aio-manifest.json evidence entry 必須 field 欠落: {_missing318!r} — "
+             "unlabeled evidence / digest chain 解決不可。全 entry に "
+             "path + role + sha256 を non-empty で揃えよ"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 318: aio-manifest.json parseable",
+              "Check 318: aio-manifest.json が JSON parse 不能", blocking=True)
+else:
+    check(False, "Check 318: aio-manifest.json present",
+          "Check 318: aio-manifest.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
