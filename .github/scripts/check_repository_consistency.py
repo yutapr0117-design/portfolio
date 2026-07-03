@@ -2356,6 +2356,20 @@ authoritative inventory and is kept in sync with the implementation below):
        style) for the HTML SPA-integrity negative-invariant axis.
        (BLOCKING)
 
+  329. `index.html` MUST NOT contain any HTML4 obsolete / deprecated
+       element: `<frame>`, `<frameset>`, `<applet>`, `<font>`, `<center>`,
+       `<blink>`, `<marquee>`, `<big>`, `<strike>`. Drift = an
+       accidental deprecated element:
+       (a) breaks HTML5 validators and static analyzers,
+       (b) yields inconsistent rendering across UAs (some ignore, some
+           polyfill with layout differences),
+       (c) contradicts the site's "modern Boring Technology" narrative,
+       (d) `<applet>` is a Java plugin attack surface, `<frame>` breaks
+           SPA hash router.
+       Sibling of Check 328 (no `<base>`) / Check 327 (no meta refresh)
+       for the HTML modernity + hygiene negative-invariant axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14240,6 +14254,33 @@ if _html328.exists():
 else:
     check(False, "Check 328: index.html present",
           "Check 328: index.html が無い", blocking=True)
+
+# ── 329. index.html has no HTML4 deprecated tags (BLOCKING) ──────────────────
+_html329 = ROOT / "index.html"
+if _html329.exists():
+    _hs329 = _html329.read_text(encoding="utf-8")
+    _stripped329 = re.sub(r"<!--.*?-->", "", _hs329, flags=re.DOTALL)
+    _deprecated329 = (
+        "frame", "frameset", "applet", "font", "center",
+        "blink", "marquee", "big", "strike",
+    )
+    _found329: dict[str, int] = {}
+    for _tag in _deprecated329:
+        _matches = re.findall(rf'<{_tag}\b', _stripped329, flags=re.IGNORECASE)
+        if _matches:
+            _found329[_tag] = len(_matches)
+    _ok329 = not _found329
+    check(
+        _ok329,
+        f"Check 329: index.html HTML4 deprecated tag 0 件 (対象 {len(_deprecated329)} 種類)",
+        (f"Check 329: HTML4 deprecated tag 検出: {_found329!r} — "
+         "HTML5 validator 破綻 / UA 描画差 / Boring Technology 契約矛盾。"
+         "現代的な semantic tag へ置換せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 329: index.html present",
+          "Check 329: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
