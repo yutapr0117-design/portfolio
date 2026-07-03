@@ -1333,6 +1333,12 @@ MUTATIONS = [
         "find": '"orientation": "any",',
         "replace": '"orientation": "horizontal",',
     },
+    {
+        "name": "Check 335 (manifest link wiring): drift <link rel=manifest> href to non-existent file",
+        "file": ROOT / "index.html",
+        "find": '<link rel="manifest" href="/portfolio/manifest.webmanifest" />',
+        "replace": '<link rel="manifest" href="/portfolio/manifest-nonexistent-mutation-probe.webmanifest" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
