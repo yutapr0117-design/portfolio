@@ -1327,6 +1327,12 @@ MUTATIONS = [
         "find": '"short_name": "yuta PM",',
         "replace": '"short_name": "横井雄太 PM",',
     },
+    {
+        "name": "Check 334 (webmanifest orientation enum): typo any → horizontal",
+        "file": ROOT / "manifest.webmanifest",
+        "find": '"orientation": "any",',
+        "replace": '"orientation": "horizontal",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
