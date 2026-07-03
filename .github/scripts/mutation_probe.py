@@ -1345,6 +1345,12 @@ MUTATIONS = [
         "find": '<meta name="twitter:image" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp"',
         "replace": '<meta name="twitter:image" content="https://yutapr0117-design.github.io/portfolio/icon.svg"',
     },
+    {
+        "name": "Check 337 (binary magic bytes): meta-mutate expected WEBP magic to XXXX (simulates format corruption)",
+        "file": CHECK,
+        "find": '_wh337[8:12] == b"WEBP"',
+        "replace": '_wh337[8:12] == b"XXXX"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
