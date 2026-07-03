@@ -1219,6 +1219,12 @@ MUTATIONS = [
         "find": '"display": "standalone",',
         "replace": '"display": "standlone",',
     },
+    {
+        "name": "Check 316 (webmanifest icons purpose enum): typo maskable → mask",
+        "file": ROOT / "manifest.webmanifest",
+        "find": '"purpose": "any maskable"',
+        "replace": '"purpose": "any mask"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
