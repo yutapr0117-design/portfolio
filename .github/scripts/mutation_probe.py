@@ -1273,6 +1273,12 @@ MUTATIONS = [
         "find": '"start_date": "2026-06-11"',
         "replace": '"start_date": "2099-06-11"',
     },
+    {
+        "name": "Check 325 (referrer policy enum): typo strict-origin → strict origin (space)",
+        "file": ROOT / "index.html",
+        "find": '<meta name="referrer" content="strict-origin-when-cross-origin" />',
+        "replace": '<meta name="referrer" content="strict origin when cross origin" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
