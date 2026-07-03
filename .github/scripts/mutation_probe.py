@@ -1195,6 +1195,12 @@ MUTATIONS = [
         "find": "<lastmod>2026-05-31</lastmod>",
         "replace": "<lastmod>2026/05/31</lastmod>",
     },
+    {
+        "name": "Check 312 (sitemap <loc> uniqueness): duplicate ChatGPT2ChatGPT.md loc into README.md loc",
+        "file": ROOT / "sitemap.xml",
+        "find": "<loc>https://yutapr0117-design.github.io/portfolio/README.md</loc>",
+        "replace": "<loc>https://yutapr0117-design.github.io/portfolio/ChatGPT2ChatGPT.md</loc>",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
