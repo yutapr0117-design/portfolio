@@ -2424,6 +2424,18 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 315 (display enum) / Check 316 (icons purpose enum) for the
        webmanifest structural correctness axis. (BLOCKING)
 
+  335. `index.html` MUST contain a `<link rel="manifest">` whose href
+       resolves (after stripping the canonical URL pathname prefix) to the
+       actual `manifest.webmanifest` file in the repo. Drift = removing
+       the link tag OR drifting its href silently disables the entire PWA
+       install capability — no install prompt, no home-screen icon, no
+       standalone launch — and NO gate catches it (behavior e2e does not
+       test PWA install; the screenshot is advisory). Check 210–316 verify
+       the webmanifest's CONTENT but assume it is wired; this Check closes
+       the wiring leak. Sibling of Check 135 (stylesheet `<link>` wiring)
+       / Check 134 (root script wiring) for the webmanifest link-wiring
+       axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14481,6 +14493,44 @@ if _webman334.exists():
 else:
     check(False, "Check 334: manifest.webmanifest present",
           "Check 334: manifest.webmanifest が無い", blocking=True)
+
+# ── 335. index.html <link rel="manifest"> resolves to webmanifest (BLOCKING) ─
+_html335 = ROOT / "index.html"
+if _html335.exists():
+    _hs335 = _html335.read_text(encoding="utf-8")
+    _stripped335 = re.sub(r"<!--.*?-->", "", _hs335, flags=re.DOTALL)
+    _m335 = re.search(
+        r'<link\s+[^>]*rel="manifest"[^>]*>', _stripped335)
+    _href335 = None
+    if _m335:
+        _mh = re.search(r'href="([^"]+)"', _m335.group(0))
+        if _mh:
+            _href335 = _mh.group(1)
+    _resolved335 = None
+    if _href335:
+        # canonical prefix (/portfolio/) と ./ を剥がして repo-relative へ正規化
+        _rel335 = _href335
+        for _pfx in ("https://yutapr0117-design.github.io/portfolio/",
+                     "/portfolio/", "./", "/"):
+            if _rel335.startswith(_pfx):
+                _rel335 = _rel335[len(_pfx):]
+                break
+        _resolved335 = ROOT / _rel335
+    _ok335 = (_href335 is not None
+              and _resolved335 is not None
+              and _resolved335.is_file())
+    check(
+        _ok335,
+        f"Check 335: <link rel=\"manifest\"> href={_href335!r} が実 webmanifest file に解決",
+        (f"Check 335: <link rel=\"manifest\"> "
+         f"{'不在' if _href335 is None else f'href={_href335!r} が file 解決しない'} — "
+         "PWA install capability が全 gate に silent で無効化 (install prompt / "
+         "home-screen icon / standalone 起動 喪失)。link tag と href を復元せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 335: index.html present",
+          "Check 335: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
