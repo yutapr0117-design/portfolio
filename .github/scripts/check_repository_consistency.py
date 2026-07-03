@@ -2343,6 +2343,19 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 325 (referrer policy) / Check 322 (inline style)
        for the HTML negative-invariant surface axis. (BLOCKING)
 
+  328. `index.html` MUST NOT contain any `<base>` element. Drift = an
+       accidental `<base href="/other/">` silently rewrites the resolution
+       of every relative URL in the document, breaking:
+       (a) SPA routing — `./#/route` hash-navigation depends on the
+           current document URL not the `<base>` href,
+       (b) `./` asset references (icon.svg, main.js, style.css) resolve
+           to a different origin/path than intended,
+       (c) canonical URL semantics: JSON-LD @id + `<link rel="canonical">`
+           become de-synced with the document's effective base.
+       Sibling of Check 327 (no meta refresh) / Check 322 (no inline
+       style) for the HTML SPA-integrity negative-invariant axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14206,6 +14219,27 @@ if _html327.exists():
 else:
     check(False, "Check 327: index.html present",
           "Check 327: index.html が無い", blocking=True)
+
+# ── 328. index.html has zero <base> element (BLOCKING) ───────────────────────
+_html328 = ROOT / "index.html"
+if _html328.exists():
+    _hs328 = _html328.read_text(encoding="utf-8")
+    _stripped328 = re.sub(r"<!--.*?-->", "", _hs328, flags=re.DOTALL)
+    # <base> element (self-closing含む) を検出。<baseline> のような word boundary case を除外。
+    _base_tags328 = re.findall(r'<base\b[^>]*>', _stripped328, flags=re.IGNORECASE)
+    _count328 = len(_base_tags328)
+    _ok328 = _count328 == 0
+    check(
+        _ok328,
+        "Check 328: index.html <base> element 0 件 (SPA relative URL 整合)",
+        (f"Check 328: <base> element が {_count328} 件検出: {_base_tags328[:2]!r} — "
+         "全 relative URL 解決が壊れ SPA hash router / ./asset 参照 / canonical "
+         "semantics が破綻。<base> を削除して document URL に依拠せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 328: index.html present",
+          "Check 328: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
