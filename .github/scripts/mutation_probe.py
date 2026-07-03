@@ -1237,6 +1237,12 @@ MUTATIONS = [
         "find": '"role": "short AI routing context",',
         "replace": '"role": "",',
     },
+    {
+        "name": "Check 319 (aio-manifest evidence.path filesystem): rename AI2AI.md path to non-existent",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"path": "AI2AI.md",',
+        "replace": '"path": "AI2AI-nonexistent-mutation-probe.md",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
