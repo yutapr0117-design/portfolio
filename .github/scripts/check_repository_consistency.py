@@ -2257,6 +2257,16 @@ authoritative inventory and is kept in sync with the implementation below):
        chain resolves) for the aio-manifest evidence-path existence
        axis. (BLOCKING)
 
+  320. `robots.txt` MUST contain exactly one `Sitemap:` directive line.
+       Per RFC 9309 (Robots Exclusion Protocol) multiple Sitemap:
+       directives are permitted, but our project contract expects a
+       single canonical sitemap.xml. Drift = duplicate `Sitemap:` lines
+       yield inconsistent crawler behavior (some crawl all, some pick
+       last), or 0 lines silently loses AIO discovery. Sibling of
+       Check 35 (Sitemap: directive presence) / Check 279 (Sitemap:
+       HTTPS) for the robots.txt Sitemap-directive cardinality axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13917,6 +13927,24 @@ if _mani319.exists():
 else:
     check(False, "Check 319: aio-manifest.json present",
           "Check 319: aio-manifest.json が無い", blocking=True)
+
+# ── 320. robots.txt Sitemap: directive count == 1 (BLOCKING) ─────────────────
+_robots320 = ROOT / "robots.txt"
+if _robots320.exists():
+    _rt_src320 = _robots320.read_text(encoding="utf-8")
+    _sitemap_lines320 = re.findall(r"(?m)^Sitemap:\s+\S+", _rt_src320)
+    _count320 = len(_sitemap_lines320)
+    _ok320 = _count320 == 1
+    check(
+        _ok320,
+        f"Check 320: robots.txt Sitemap: directive count = {_count320} (contract: exactly 1)",
+        (f"Check 320: robots.txt Sitemap: directive 件数 {_count320} は契約違反 (要 1 件) — "
+         "0=AIO discovery 喪失 / 2+=crawler 挙動不定 (some crawl all, some pick last)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 320: robots.txt present",
+          "Check 320: robots.txt が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
