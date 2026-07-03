@@ -1351,6 +1351,12 @@ MUTATIONS = [
         "find": '_wh337[8:12] == b"WEBP"',
         "replace": '_wh337[8:12] == b"XXXX"',
     },
+    {
+        "name": "Check 338 (og:image dims == actual): drift og:image:width 1536 → 1537 (still positive int, passes 298)",
+        "file": ROOT / "index.html",
+        "find": '<meta property="og:image:width" content="1536" />',
+        "replace": '<meta property="og:image:width" content="1537" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
