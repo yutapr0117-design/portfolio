@@ -383,6 +383,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 307 | sitemap.xml が `<?xml version="1.0" encoding="UTF-8"?>` で始まり `</urlset>` で終わる。structural malformation で crawler 全 sitemap drop を BLOCKING で阻止。Check 306 (index.html) の sitemap.xml structural 軸版 | BLOCKING |
 | 308 | sitemap.xml の `<urlset>` tag が `xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"` AND `xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"` 両 namespace 宣言を含む。欠落で `<image:image>` block が unknown parse し Google Image sitemap coverage 崩壊を BLOCKING で阻止 | BLOCKING |
 | 309 | .well-known/aio-manifest.json に `http://` URL が 0 (HTTPS-only)。AIO discovery transport downgrade drift を BLOCKING で阻止。Check 232/233/234 の aio-manifest.json 軸版 | BLOCKING |
+| 310 | 全 shipped asset (index.html + style.css + all root JS + all leaf JS + hero.webp + BGM.mp3) 合計 byte size が <= 2_000_000。per-file 通過でも total で mobile cell-network 圧迫する drift を BLOCKING で阻止。Check 269/270/271/272 の total 軸版 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 

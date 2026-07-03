@@ -2163,6 +2163,14 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 232/233/234 (ai:* / asset:* HTTPS) for the
        aio-manifest.json HTTPS axis. (BLOCKING)
 
+  310. Total shipped byte weight <= 2_000_000 bytes: sum of index.html +
+       style.css + all root JS (main/sw/4 root scripts) + all leaf JS
+       (js/**/*.js) + hero.webp + BGM.mp3 MUST be within the shipping
+       total budget. Drift = per-file budget checks (269/270/271/272)
+       stay green but the total silently balloons past the 2 MB mobile
+       cell-network target. Sibling of Check 269/270/271/272 for the
+       total shipped weight axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13485,6 +13493,37 @@ if _mani309.exists():
 else:
     check(False, "Check 309: aio-manifest.json present",
           "Check 309: aio-manifest.json が無い", blocking=True)
+
+# ── 310. Total shipped byte weight <= 2_000_000 bytes (BLOCKING) ──────────────
+# 全 shipped asset (index.html + style.css + all root JS + all leaf JS + hero.webp
+# + BGM.mp3) の合計 byte size が 2_000_000 以下であることを BLOCKING 強制。
+# Check 269/270/271/272 (per-file budget) の total 軸版。
+_TOTAL_BUDGET310 = 2_000_000
+_shipped_files310 = [
+    ROOT / "index.html", ROOT / "style.css",
+    ROOT / "main.js", ROOT / "sw.js",
+    ROOT / "aio-guard.js", ROOT / "theme-init.js",
+    ROOT / "karte-init.js", ROOT / "error-suppressor.js",
+    _HERO_WEBP269, _BGM_MP3_269,
+]
+_shipped_files310 += [Path(_p) for _p in _glob237.glob(str(ROOT / "js" / "*.js"))]
+_shipped_files310 += [Path(_p) for _p in _glob237.glob(str(ROOT / "js" / "quiz" / "*.js"))]
+_total_size310 = 0
+_missing310: list[str] = []
+for _p in _shipped_files310:
+    if not _p.exists():
+        _missing310.append(str(_p.relative_to(ROOT)))
+        continue
+    _total_size310 += _p.stat().st_size
+_ok310 = not _missing310 and _total_size310 <= _TOTAL_BUDGET310
+check(
+    _ok310,
+    f"Check 310: total shipped weight = {_total_size310} bytes (budget {_TOTAL_BUDGET310})",
+    (f"Check 310: 違反: total={_total_size310} > budget {_TOTAL_BUDGET310} bytes / "
+     f"missing files={_missing310!r} — mobile cell-network 圧迫。dead-code 削除 or "
+     "budget contract 更新"),
+    blocking=True,
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
