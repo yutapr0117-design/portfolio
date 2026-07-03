@@ -1279,6 +1279,12 @@ MUTATIONS = [
         "find": '<meta name="referrer" content="strict-origin-when-cross-origin" />',
         "replace": '<meta name="referrer" content="strict origin when cross origin" />',
     },
+    {
+        "name": "Check 326 (preload as= enum): typo as=image → as=img on hero webp",
+        "file": ROOT / "index.html",
+        "find": '<link rel="preload" href="./yuta-yokoi-ai-pm-orchestration-system.webp" as="image" fetchpriority="high" />',
+        "replace": '<link rel="preload" href="./yuta-yokoi-ai-pm-orchestration-system.webp" as="img" fetchpriority="high" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
