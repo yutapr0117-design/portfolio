@@ -2459,6 +2459,18 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 269 (binary byte budget) / Check 42 (digest chain)
        for the binary-asset format-integrity axis. (BLOCKING)
 
+  338. `<meta property="og:image:width">` / `og:image:height` declared
+       values MUST equal the ACTUAL pixel dimensions of the hero WebP
+       (parsed directly from the VP8X/VP8/VP8L chunk header — no external
+       library). Drift = the hero image is re-exported at a different
+       resolution but the meta tags are not updated; social-card
+       consumers that trust the declared dimensions render the card with
+       a wrong aspect ratio (letterboxing / cropping) or reject the image.
+       Check 298 verifies the values are positive integers but not that
+       they match reality. Sibling of Check 298 (og:image dims positive
+       int) / Check 337 (magic bytes) for the hero-image dimension-truth
+       axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14614,6 +14626,62 @@ check(
      "正規 format のファイルへ差し戻せ"),
     blocking=True,
 )
+
+# ── 338. og:image:width/height == actual hero WebP dimensions (BLOCKING) ─────
+def _parse_webp_dims338(_path):
+    """外部ライブラリ不要で WebP の pixel 寸法を先頭 chunk から parse。"""
+    _b = _path.read_bytes()[:40]
+    if _b[0:4] != b"RIFF" or _b[8:12] != b"WEBP":
+        return None
+    _fourcc = _b[12:16]
+    if _fourcc == b"VP8X":
+        _w = 1 + int.from_bytes(_b[24:27], "little")
+        _h = 1 + int.from_bytes(_b[27:30], "little")
+        return (_w, _h)
+    if _fourcc == b"VP8 ":
+        _w = int.from_bytes(_b[26:28], "little") & 0x3FFF
+        _h = int.from_bytes(_b[28:30], "little") & 0x3FFF
+        return (_w, _h)
+    if _fourcc == b"VP8L":
+        _bits = int.from_bytes(_b[21:25], "little")
+        _w = (_bits & 0x3FFF) + 1
+        _h = ((_bits >> 14) & 0x3FFF) + 1
+        return (_w, _h)
+    return None
+
+_webp338 = ROOT / "yuta-yokoi-ai-pm-orchestration-system.webp"
+_html338 = ROOT / "index.html"
+if _webp338.is_file() and _html338.is_file():
+    _dims338 = _parse_webp_dims338(_webp338)
+    _hs338 = re.sub(r"<!--.*?-->", "", _html338.read_text(encoding="utf-8"),
+                    flags=re.DOTALL)
+    _mw338 = re.search(
+        r'<meta\s+property="og:image:width"\s+content="(\d+)"', _hs338)
+    _mh338 = re.search(
+        r'<meta\s+property="og:image:height"\s+content="(\d+)"', _hs338)
+    _declared_w338 = int(_mw338.group(1)) if _mw338 else None
+    _declared_h338 = int(_mh338.group(1)) if _mh338 else None
+    _problems338: list[str] = []
+    if _dims338 is None:
+        _problems338.append("hero WebP 寸法を parse できない (未対応 chunk)")
+    elif _declared_w338 is None or _declared_h338 is None:
+        _problems338.append("og:image:width / og:image:height meta が欠落")
+    else:
+        _aw338, _ah338 = _dims338
+        if (_aw338, _ah338) != (_declared_w338, _declared_h338):
+            _problems338.append(
+                f"宣言 {_declared_w338}x{_declared_h338} != 実寸 {_aw338}x{_ah338}")
+    check(
+        not _problems338,
+        f"Check 338: og:image:width/height が実 hero WebP 実寸と一致 ({_dims338})",
+        (f"Check 338: og:image 寸法 drift: {_problems338!r} — "
+         "hero 再エクスポートで実寸が変わったのに meta 未更新。social-card が "
+         "誤 aspect ratio (letterbox/crop) or reject。meta を実寸へ同期せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 338: hero WebP + index.html present",
+          "Check 338: hero WebP または index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
