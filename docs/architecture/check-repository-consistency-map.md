@@ -405,6 +405,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 329 | index.html に HTML4 deprecated tag (`<frame>` `<frameset>` `<applet>` `<font>` `<center>` `<blink>` `<marquee>` `<big>` `<strike>`) が 0 件。HTML5 validator 破綻 / UA 描画差 / Boring Technology 矛盾 / `<applet>` Java 攻撃面を BLOCKING で阻止。Check 328/327 の HTML modernity + hygiene 軸版 | BLOCKING |
 | 330 | index.html に `<iframe>` / `<object>` / `<embed>` 要素が 0 件。click-jacking / CSP frame-src 拡張 / render 差 / SPA narrative 崩壊 drift を BLOCKING で阻止。Check 329/115 の HTML external-embed 攻撃面軸版 | BLOCKING |
 | 331 | index.html に `attribute="javascript:..."` (href/src/formaction 等の JS URL scheme) が 0 件。CSP script-src bypass の XSS 永続 vector を BLOCKING で阻止。Check 239/242/323 の HTML JS-URL-scheme zero-tolerance 軸版 | BLOCKING |
+| 332 | root classic script (aio-guard/theme-init/karte-init/error-suppressor.js) に `import`/`export` statement が 0 件。<script type="module"> でなく classic script として load されるため ESM 文は silent parse error → theme FOUC / error suppress 破綻 / AIO monitor 停止 の drift を BLOCKING で阻止。Check 239/43d の shipped-JS module-boundary integrity 軸版 | BLOCKING |
 
 ### カテゴリ F — 自己統治・テスト健全性・保守ガバナンス（self-governance / test health / maintainability）
 

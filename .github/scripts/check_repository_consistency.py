@@ -2391,6 +2391,21 @@ authoritative inventory and is kept in sync with the implementation below):
        allowlist) / Check 323 (no `style=`) for the HTML JS-URL-scheme
        zero-tolerance axis. (BLOCKING)
 
+  332. Root scripts (`aio-guard.js`, `theme-init.js`, `karte-init.js`,
+       `error-suppressor.js`) MUST NOT contain `import` or `export`
+       statements. index.html loads these as CLASSIC `<script>` (not
+       `<script type="module">`) so any ESM statement causes a silent
+       parse error and the whole script is dropped. Drift class:
+       - theme-init.js parse-fail = FOUC on first paint (pre-paint theme
+         attribute never applied)
+       - error-suppressor.js parse-fail = known-benign errors surface as
+         FatalPage
+       - aio-guard.js parse-fail = AIO asset-anchor self-repair monitor
+         disabled
+       - karte-init.js parse-fail = analytics stub unavailable
+       Sibling of Check 239 (no eval) / Check 43d (main.js single IIFE)
+       for the shipped-JS module-boundary integrity axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14349,6 +14364,41 @@ if _html331.exists():
 else:
     check(False, "Check 331: index.html present",
           "Check 331: index.html が無い", blocking=True)
+
+# ── 332. Root classic-script files have no import/export (BLOCKING) ──────────
+_root_classic332 = [
+    ROOT / "aio-guard.js",
+    ROOT / "theme-init.js",
+    ROOT / "karte-init.js",
+    ROOT / "error-suppressor.js",
+]
+_bad_esm332: dict[str, list[str]] = {}
+_missing332: list[str] = []
+for _f in _root_classic332:
+    if not _f.exists():
+        _missing332.append(str(_f.relative_to(ROOT)))
+        continue
+    _src = _f.read_text(encoding="utf-8")
+    # コメント行 (// および /* */) を strip
+    _stripped = re.sub(r"//[^\n]*", "", _src)
+    _stripped = re.sub(r"/\*.*?\*/", "", _stripped, flags=re.DOTALL)
+    _lines = []
+    for _kw in ("import", "export"):
+        _hits = re.findall(rf"(?m)^\s*{_kw}\b", _stripped)
+        if _hits:
+            _lines.append(f"{_kw}={len(_hits)}")
+    if _lines:
+        _bad_esm332[str(_f.relative_to(ROOT))] = _lines
+_ok332 = (not _bad_esm332) and (not _missing332)
+check(
+    _ok332,
+    f"Check 332: root classic scripts {len(_root_classic332)} 件すべて ESM statement 0 (classic script contract)",
+    (f"Check 332: root classic script に ESM statement: {_bad_esm332!r} / "
+     f"missing files={_missing332!r} — <script type=\"module\"> でなく "
+     "classic script として load されるので import/export は silent parse error。"
+     "全 statement を script 内 local で完結させよ"),
+    blocking=True,
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
