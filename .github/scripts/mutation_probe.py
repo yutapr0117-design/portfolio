@@ -1321,6 +1321,12 @@ MUTATIONS = [
         "find": "(function aioGuard() {",
         "replace": "import 'nothing';\n(function aioGuard() {",
     },
+    {
+        "name": "Check 333 (webmanifest anonymity): leak real name into short_name",
+        "file": ROOT / "manifest.webmanifest",
+        "find": '"short_name": "yuta PM",',
+        "replace": '"short_name": "横井雄太 PM",',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
