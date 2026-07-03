@@ -1285,6 +1285,12 @@ MUTATIONS = [
         "find": '<link rel="preload" href="./yuta-yokoi-ai-pm-orchestration-system.webp" as="image" fetchpriority="high" />',
         "replace": '<link rel="preload" href="./yuta-yokoi-ai-pm-orchestration-system.webp" as="img" fetchpriority="high" />',
     },
+    {
+        "name": "Check 327 (no meta refresh): inject <meta http-equiv=refresh content=0;url=./> after referrer",
+        "file": ROOT / "index.html",
+        "find": '<meta name="referrer" content="strict-origin-when-cross-origin" />',
+        "replace": '<meta name="referrer" content="strict-origin-when-cross-origin" />\n    <meta http-equiv="refresh" content="0;url=./" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
