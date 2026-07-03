@@ -1297,6 +1297,12 @@ MUTATIONS = [
         "find": '<meta name="referrer" content="strict-origin-when-cross-origin" />',
         "replace": '<meta name="referrer" content="strict-origin-when-cross-origin" />\n    <base href="/other/" />',
     },
+    {
+        "name": "Check 329 (no HTML4 deprecated): inject <marquee>rogue</marquee> after referrer",
+        "file": ROOT / "index.html",
+        "find": '<meta name="referrer" content="strict-origin-when-cross-origin" />',
+        "replace": '<meta name="referrer" content="strict-origin-when-cross-origin" />\n    <marquee>rogue</marquee>',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
