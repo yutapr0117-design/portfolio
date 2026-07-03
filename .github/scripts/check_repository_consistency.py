@@ -2215,6 +2215,16 @@ authoritative inventory and is kept in sync with the implementation below):
        (start_url/scope canonical) for the webmanifest structural
        correctness axis. (BLOCKING)
 
+  316. manifest.webmanifest `icons[].purpose` tokens MUST all be in W3C
+       spec enumeration `{any, maskable, monochrome}`, and `icons[].sizes`
+       MUST match strict format `<W>x<H>` (positive integers) or `any`.
+       Drift = a typo (e.g. `mask`) silently makes the icon unusable for
+       adaptive-icon rendering (Android/ChromeOS home-screen falls back
+       to a generic icon), and a malformed sizes value causes UAs to
+       reject the icon entry. Sibling of Check 315 (display enum) /
+       Check 212 (icons[].src canonical) for the webmanifest icons
+       structural correctness axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -13734,6 +13744,44 @@ if _webman315.exists():
 else:
     check(False, "Check 315: manifest.webmanifest present",
           "Check 315: manifest.webmanifest が無い", blocking=True)
+
+# ── 316. webmanifest icons[].purpose enum + sizes format (BLOCKING) ──────────
+_webman316 = ROOT / "manifest.webmanifest"
+if _webman316.exists():
+    try:
+        _wm316 = json.loads(_webman316.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _wm316 = None
+    if _wm316 is not None:
+        _icons316 = _wm316.get("icons", [])
+        _valid_purpose316 = {"any", "maskable", "monochrome"}
+        _bad_purpose316: list[str] = []
+        _bad_sizes316: list[str] = []
+        _sizes_re316 = re.compile(r"^(any|\d+x\d+(\s+\d+x\d+)*)$")
+        for _i, _ic in enumerate(_icons316):
+            _purpose = str(_ic.get("purpose", "any"))
+            for _tok in _purpose.split():
+                if _tok not in _valid_purpose316:
+                    _bad_purpose316.append(f"icons[{_i}].purpose 内 token={_tok!r}")
+            _sizes = str(_ic.get("sizes", ""))
+            if not _sizes_re316.match(_sizes):
+                _bad_sizes316.append(f"icons[{_i}].sizes={_sizes!r}")
+        _ok316 = (not _bad_purpose316) and (not _bad_sizes316) and len(_icons316) > 0
+        check(
+            _ok316,
+            f"Check 316: webmanifest icons {len(_icons316)} 件すべて purpose ∈ enum + sizes 形式適合",
+            (f"Check 316: webmanifest icons 違反: "
+             f"purpose_bad={_bad_purpose316!r} (allowed={sorted(_valid_purpose316)}) / "
+             f"sizes_bad={_bad_sizes316!r} (must match 'any' or '<W>x<H>' or space-separated list) — "
+             "adaptive-icon が unusable / UA が icon entry を reject"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 316: manifest.webmanifest parseable",
+              "Check 316: manifest.webmanifest が JSON parse 不能", blocking=True)
+else:
+    check(False, "Check 316: manifest.webmanifest present",
+          "Check 316: manifest.webmanifest が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
