@@ -2504,6 +2504,17 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 155 (og↔twitter title) / Check 336 (og↔twitter
        image) for the social-card field-presence axis. (BLOCKING)
 
+  342. `robots.txt` MUST NOT contain a catastrophic block: no bare
+       `Disallow: /` (whole-site block) and no `Disallow:` targeting the
+       AIO-critical paths (`llms.txt`, `llms-full.txt`, `sitemap.xml`,
+       `.well-known/`). The entire project is an AIO-first bet — its
+       value depends on being maximally crawlable by AI/search agents. A
+       stray whole-site or AIO-path Disallow would silently kill the
+       strategy, and no behavior e2e / screenshot gate inspects robots.txt
+       semantics. Sibling of Check 35 (Sitemap present) / Check 161
+       (User-agent baseline) for the robots.txt crawl-permission
+       integrity axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14855,6 +14866,35 @@ if _html341.is_file():
 else:
     check(False, "Check 341: index.html present",
           "Check 341: index.html が無い", blocking=True)
+
+# ── 342. robots.txt has no catastrophic Disallow (BLOCKING) ──────────────────
+_robots342 = ROOT / "robots.txt"
+if _robots342.is_file():
+    _rt342 = _robots342.read_text(encoding="utf-8")
+    _disallows342 = re.findall(r"(?mi)^\s*Disallow:\s*(\S*)\s*$", _rt342)
+    _catastrophic342: list[str] = []
+    _aio_critical342 = ("llms.txt", "llms-full.txt", "sitemap.xml", ".well-known")
+    for _d in _disallows342:
+        _d_stripped = _d.strip()
+        # bare "/" = 全サイト block
+        if _d_stripped == "/":
+            _catastrophic342.append("Disallow: / (全サイト block)")
+        # AIO-critical path を含む Disallow
+        for _crit in _aio_critical342:
+            if _crit in _d_stripped:
+                _catastrophic342.append(f"Disallow: {_d_stripped} (AIO-critical: {_crit})")
+    _ok342 = not _catastrophic342
+    check(
+        _ok342,
+        f"Check 342: robots.txt に破滅的 Disallow なし ({len(_disallows342)} 件の Disallow を検査)",
+        (f"Check 342: robots.txt に破滅的 Disallow: {_catastrophic342!r} — "
+         "AIO-first 戦略は最大 crawl 可能性が前提。全サイト or AIO-critical path の "
+         "Disallow は戦略を silent に殺す。該当 Disallow 行を削除せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 342: robots.txt present",
+          "Check 342: robots.txt が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
