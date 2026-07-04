@@ -110,6 +110,7 @@
         import { createAIKnowhowPage } from './js/ai-knowhow-page.js';
         import { createHomePage } from './js/home-page.js';
         import { createProjectsPage } from './js/projects-page.js';
+        import { createProjectDetailPage } from './js/project-detail-page.js';
         // v80+ Stage 5-n: Productivity Apps Components (TaskPage / TodoPage / PomodoroPage /
         //   AIPage / SettingsPage) を factory pattern で葉モジュール抽出。各 page の private
         //   state も factory closure 内に閉じ込める（揮発性 UI 状態は元と同位置で保持）。
@@ -426,18 +427,19 @@
         // closeDrawer は _drawer holder 経由で late-bound（Sidebar 内 event handler が呼ぶときに解決）。
         // clear / CONSTANTS / tokenize は既に import / declared 済み。
         const {
-            Sidebar, ProjectDetailPage, AppsPage,
+            Sidebar, AppsPage,
             AboutPage, ResumePage, ContactPage, FatalPage, ContactCTA
         } = createComponents({
             h, createIcon, Toast, BGM, AUTHOR, Router, State, Theme, Brand, Store,
             tokenize, CONSTANTS, clear,
             closeDrawer: () => _drawer.closeDrawer?.()
         });
-        // 肥大化解消: AIKnowhowPage / HomePage / ProjectsPage は js/{...}-page.js へ分離。
-        // ContactCTA (共有 helper) を createComponents 生成後に注入して従来どおり生成 (byte-equivalent)。
+        // 肥大化解消: AIKnowhowPage / HomePage / ProjectsPage / ProjectDetailPage は
+        // js/{...}-page.js へ分離。ContactCTA (共有 helper) を createComponents 生成後に注入 (byte-equivalent)。
         const AIKnowhowPage = createAIKnowhowPage({ h, createIcon, ContactCTA });
         const HomePage = createHomePage({ h, Router, State, ContactCTA });
         const ProjectsPage = createProjectsPage({ h, createIcon, Router, State, tokenize, clear });
+        const ProjectDetailPage = createProjectDetailPage({ h, createIcon, Router, State, Store });
 
         // ===== v80+ Stage 5-j: Page components factory instantiation =====
         //   ContactCTA は Stage 5-m で createComponents から供給される。それを createPages
