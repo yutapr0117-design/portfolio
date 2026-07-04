@@ -1447,6 +1447,12 @@ MUTATIONS = [
         "find": "const tagRe = /<(\\w+)([^>]*?)\\/>/g;",
         "replace": "const _rogue = new DOMParser();\n    const tagRe = /<(\\w+)([^>]*?)\\/>/g;",
     },
+    {
+        "name": "Check 354 (external script CSP authz): drop cdn-edge.karte.io from CSP script-src (script tag stays)",
+        "file": ROOT / "index.html",
+        "find": "https://cdn-edge.karte.io https://static.karte.io;",
+        "replace": "https://static.karte.io;",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
