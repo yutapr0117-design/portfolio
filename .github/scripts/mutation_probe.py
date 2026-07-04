@@ -1477,6 +1477,12 @@ MUTATIONS = [
         "find": "<image:loc>https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp</image:loc>",
         "replace": "<image:loc>https://yutapr0117-design.github.io/portfolio/yuta-yokoi-nonexistent-mutation-probe.webp</image:loc>",
     },
+    {
+        "name": "Check 359 (BGM audio wiring): drift bgm-audio src to non-existent mp3 (id stays)",
+        "file": ROOT / "index.html",
+        "find": 'src="./yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3"',
+        "replace": 'src="./yuta-yokoi-sakura-swing-nonexistent-mutation-probe.mp3"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
