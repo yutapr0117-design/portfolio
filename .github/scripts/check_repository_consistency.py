@@ -2515,6 +2515,17 @@ authoritative inventory and is kept in sync with the implementation below):
        (User-agent baseline) for the robots.txt crawl-permission
        integrity axis. (BLOCKING)
 
+  343. EVERY `.well-known/**/*.json` file MUST parse as valid JSON. This
+       is a comprehensive discovery-layer parse guard: individual checks
+       (3=mcp.json, 254=index.json, 42=aio-manifest) parse specific files,
+       but a NEW `.well-known` JSON file (or a growing agent-skills subdir)
+       gets no parse coverage until someone writes a bespoke check. A JSON
+       syntax error in any discovery file silently breaks agentic
+       discovery for the AI agents that consume it. This Check auto-covers
+       every current and future `.well-known` JSON. Sibling of Check 32
+       (index.html JSON-LD parses) / Check 79 (.mcp.json parses) for the
+       discovery-layer JSON-parse-integrity axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14895,6 +14906,29 @@ if _robots342.is_file():
 else:
     check(False, "Check 342: robots.txt present",
           "Check 342: robots.txt が無い", blocking=True)
+
+# ── 343. All .well-known/**/*.json parse as valid JSON (BLOCKING) ────────────
+_wk_dir343 = ROOT / ".well-known"
+if _wk_dir343.is_dir():
+    _wk_jsons343 = sorted(_wk_dir343.rglob("*.json"))
+    _bad_json343: list[str] = []
+    for _jf in _wk_jsons343:
+        try:
+            json.loads(_jf.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, UnicodeDecodeError) as _e:
+            _bad_json343.append(f"{_jf.relative_to(ROOT)}: {str(_e)[:50]}")
+    _ok343 = (not _bad_json343) and len(_wk_jsons343) > 0
+    check(
+        _ok343,
+        f"Check 343: .well-known/**/*.json {len(_wk_jsons343)} 件すべて valid JSON",
+        (f"Check 343: .well-known JSON parse 失敗: {_bad_json343!r} — "
+         "discovery-layer の JSON 構文エラーは AI agent の agentic discovery を "
+         "silent に破壊。JSON 構文を修正せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 343: .well-known/ present",
+          "Check 343: .well-known/ ディレクトリが無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
