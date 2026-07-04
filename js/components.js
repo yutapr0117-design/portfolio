@@ -1,15 +1,15 @@
 /**
- * js/components.js — UI page components (Sidebar / AppsPage / AboutPage 等 /
- * (HomePage / ProjectsPage / ProjectDetailPage は肥大化解消で js/*-page.js へ分離済)
- * (HomePage / ProjectsPage は肥大化解消で js/{home,projects}-page.js へ分離済)
- * (HomePage は肥大化解消で js/home-page.js へ分離済)
- * ProjectDetailPage / AppsPage / AboutPage / ResumePage / ContactPage /
- * FatalPage / ContactCTA) — v80+ Stage 5-m extraction via factory pattern
- * (AIKnowhowPage は肥大化解消で js/ai-knowhow-page.js へ分離済)
+ * js/components.js — UI page components
+ * (Sidebar / AppsPage / AboutPage / ResumePage / ContactPage / FatalPage / ContactCTA)
+ * — v80+ Stage 5-m extraction via factory pattern
  *
- * main.js の 11 個の UI page render 関数を依存注入 (factory pattern) で物理分割した
- * 葉モジュール。Brand / Store / State / Theme / Meta Management と同じく、すべての closure
- * 依存を `createComponents` 関数の引数で受け取ることで、葉契約 (Check 47c: import ゼロ) を
+ * 元は main.js の UI page render 関数群を factory pattern で物理分割した葉モジュール。
+ * その後の肥大化解消 (1,000 行しきい値・2026-07) で、当初含んでいた HomePage /
+ * ProjectsPage / ProjectDetailPage / AIKnowhowPage を個別葉モジュール (js/home-page.js /
+ * js/projects-page.js / js/project-detail-page.js / js/ai-knowhow-page.js) へさらに分離した。
+ * 現在の公開 API は下記 7 関数 (return 文と一致)。
+ * Brand / Store / State / Theme / Meta Management と同じく、すべての closure 依存を
+ * `createComponents` 関数の引数で受け取ることで、葉契約 (Check 47c: import ゼロ) を
  * 維持しつつ各関数の挙動と公開 API を完全に byte-equivalent に保つ。
  *
  * 【公開 API（抽出前後で byte-equivalent）】
@@ -28,20 +28,19 @@
  *   - Theme: js/theme.js factory instance
  *   - Brand: js/brand.js factory instance
  *   - Store: js/store.js factory instance
- *   - tokenize: js/pure-utils.js (ProjectsPage 検索のスコアリング)
  *   - CONSTANTS: js/constants.js
  *   - clear: main.js IIFE の純粋関数 (DOM の子要素を全削除)
  *   - closeDrawer: js/mobile-drawer.js (ナビリンク選択時にドロワーを閉じる)
  *
  * 【非破壊性】
- *   - 11 関数の DOM 出力・class 名・style・aria 属性は byte-equivalent
+ *   - 上記 7 関数の DOM 出力・class 名・style・aria 属性は byte-equivalent
  *   - イベントハンドラの動作・State.update への副作用も不変
- *   - Sidebar / HomePage / ProjectsPage の検索フィルタ・並び替えは挙動不変
- *   - ProjectDetailPage の関連プロジェクト類似度計算は Store.autoRelatedCandidates 経由で不変
- *   - (AIKnowhowPage は js/ai-knowhow-page.js へ分離。article schema route 表示は不変)
+ *   - Sidebar の nav 項目・active 判定は挙動不変
+ *   - (HomePage / ProjectsPage / ProjectDetailPage / AIKnowhowPage は個別葉モジュールへ分離済。
+ *      検索フィルタ・並び替え・関連プロジェクト類似度・article schema route 表示は各分離先で不変)
  *   - AIDK Kernel / AIO 正本層には影響しない
  */
-export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, State, Theme, Brand, Store, tokenize, CONSTANTS, clear, closeDrawer }) {
+export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, State, Theme, Brand, Store, CONSTANTS, clear, closeDrawer }) {
     function Sidebar(isDrawer = false) {
         const state = State.get();
         const route = Router.getRoute();

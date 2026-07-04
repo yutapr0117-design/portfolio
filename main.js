@@ -434,13 +434,15 @@
         //   AboutPage / ResumePage / ContactPage / FatalPage / AIKnowhowPage / ContactCTA を
         //   js/components.js へ factory pattern で抽出。挙動 byte-equivalent。
         // closeDrawer は _drawer holder 経由で late-bound（Sidebar 内 event handler が呼ぶときに解決）。
-        // clear / CONSTANTS / tokenize は既に import / declared 済み。
+        // clear / CONSTANTS は既に import / declared 済み。
+        // (tokenize は ProjectsPage 分離で createComponents から不要になり除去。ProjectsPage 用に
+        //  createProjectsPage へ直接渡す・下記参照)
         const {
             Sidebar, AppsPage,
             AboutPage, ResumePage, ContactPage, FatalPage, ContactCTA
         } = createComponents({
             h, createIcon, Toast, BGM, AUTHOR, Router, State, Theme, Brand, Store,
-            tokenize, CONSTANTS, clear,
+            CONSTANTS, clear,
             closeDrawer: () => _drawer.closeDrawer?.()
         });
         // 肥大化解消: AIKnowhowPage / HomePage / ProjectsPage / ProjectDetailPage は
