@@ -25,12 +25,11 @@
  *
  * 【依存（引数で注入）】
  *   - h, createIcon, Toast: js/ui-components.js
- *   - AUTHOR: js/identity.js
- *   - Router: js/router.js
  *   - State: js/state.js factory instance
- *   - Theme: js/theme.js factory instance
- *   - Brand: js/brand.js factory instance
+ *   - Brand: js/brand.js factory instance (Settings のブランド切替)
  *   - Store: js/store.js factory instance
+ *   (AUTHOR / Router / Theme は AIPage / PomodoroPage 等の分離後 createApps 本体で未使用に
+ *    なったため除去した。各 leaf module は必要な依存を自前の factory で受け取る)
  *   - Storage: js/storage.js (Settings の snapshot 保存/復元で Storage.parse/set/remove)
  *   - CONSTANTS: js/constants.js
  *   - generateId, clamp, slugify: js/pure-utils.js
@@ -44,7 +43,7 @@
  *   - localStorage への副作用順序（State.update 経由）も不変
  *   - AIDK Kernel / AIO 正本層には影響しない
  */
-export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme, Brand, Store, Storage, CONSTANTS, generateId, clamp, slugify }) {
+export function createApps({ h, createIcon, Toast, State, Brand, Store, Storage, CONSTANTS, generateId, clamp, slugify }) {
     // ===== Component: Apps Hub =====
 
     // ===== Component: Task App =====

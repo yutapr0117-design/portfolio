@@ -21,16 +21,16 @@
  *   HiringRiskPage / RoleSplitPage で使用される。
  *
  * 【依存（引数で注入）】
- *   - h, createIcon, Toast, BGM: js/ui-components.js
+ *   - h, createIcon, BGM: js/ui-components.js
  *   - AUTHOR: js/identity.js
  *   - Router: js/router.js
  *   - State: js/state.js factory instance
  *   - Theme: js/theme.js factory instance
- *   - Brand: js/brand.js factory instance
- *   - Store: js/store.js factory instance
  *   - CONSTANTS: js/constants.js
  *   - clear: main.js IIFE の純粋関数 (DOM の子要素を全削除)
  *   - closeDrawer: js/mobile-drawer.js (ナビリンク選択時にドロワーを閉じる)
+ *   (Toast / Brand / Store は HomePage / ProjectsPage / AIKnowhowPage 等の分離後 createComponents
+ *    本体で未使用になったため除去した。各 leaf module は必要な依存を自前の factory で受け取る)
  *
  * 【非破壊性】
  *   - 上記 7 関数の DOM 出力・class 名・style・aria 属性は byte-equivalent
@@ -40,7 +40,7 @@
  *      検索フィルタ・並び替え・関連プロジェクト類似度・article schema route 表示は各分離先で不変)
  *   - AIDK Kernel / AIO 正本層には影響しない
  */
-export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, State, Theme, Brand, Store, CONSTANTS, clear, closeDrawer }) {
+export function createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Theme, CONSTANTS, clear, closeDrawer }) {
     function Sidebar(isDrawer = false) {
         const state = State.get();
         const route = Router.getRoute();
