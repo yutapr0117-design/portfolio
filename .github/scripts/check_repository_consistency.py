@@ -2725,6 +2725,16 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 234 (asset:* canonical prefix) / Check 164
        (og:image resolves) for the AIO-asset-canonical resolution axis.
        (BLOCKING)
+  361. Every shipped JS leaf module (`js/*.js` ∪ `js/quiz/*.js`) MUST be
+       registered in docs/architecture/file-size-budget.md §4 BUDGET-DATA
+       with a line budget. Check 71 guarantees registered⟹exists; this is
+       the symmetric exists⟹registered, so together they bijection the
+       js-leaf surface against BUDGET-DATA. Without it a new leaf module
+       (e.g. a js/<x>-page.js born from a bloat-reduction extraction) stays
+       silently unbudgeted, escaping the Check 52 advisory and able to grow
+       unbounded — the exact gap file-size-budget.md §5 flagged as a
+       deferred extension. Machine-enforces the owner-accepted 1,000-line
+       threshold discipline (keep bloat from recurring). (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -15710,6 +15720,45 @@ if _idx360.is_file():
 else:
     check(False, "Check 360: index.html present",
           "Check 360: index.html が無い", blocking=True)
+
+# ── 361. shipped JS leaf-module BUDGET-DATA registration coverage (BLOCKING) ──
+# 全 shipped JS leaf module (js/*.js ∪ js/quiz/*.js) が file-size-budget.md §4
+# BUDGET-DATA に行数予算として登録されていることを機械強制する。Check 71 が
+# 「BUDGET-DATA に登録された path は実在する」(registered ⟹ exists) を保証するのに対し、
+# 本 Check はその対称「shipped JS が存在する ⟹ 登録済み」(exists ⟹ registered) を担い、
+# 両者で js leaf module 面の bijection を成す。これが無いと新規 leaf module (bloat-reduction
+# の抽出で生まれる js/<x>-page.js など) が BUDGET-DATA に登録されないまま silent に
+# 「行数予算なし」になり、Check 52 advisory の網から外れて無制限に成長し得る
+# (file-size-budget.md §5 が deferred 拡張候補として認識していた gap)。owner 受諾の
+# 1,000 行しきい値 (bloat を「生じないように」する規律) を機械強制へ昇華する Check。
+_budget361 = ROOT / "docs" / "architecture" / "file-size-budget.md"
+if _budget361.exists():
+    _bsrc361 = _budget361.read_text(encoding="utf-8")
+    _bblock361 = re.search(r"<!--\s*BUDGET-DATA(.*?)-->", _bsrc361, re.DOTALL)
+    _registered361: set[str] = set()
+    if _bblock361:
+        for _line361 in _bblock361.group(1).strip().split("\n"):
+            _line361 = _line361.strip()
+            if not _line361 or _line361.startswith("#"):
+                continue
+            _parts361 = [p.strip() for p in _line361.split("|")]
+            if len(_parts361) >= 3:
+                _registered361.add(_parts361[0])
+    _shipped361 = sorted(
+        p.relative_to(ROOT).as_posix()
+        for p in list((ROOT / "js").glob("*.js")) + list((ROOT / "js" / "quiz").glob("*.js"))
+    )
+    _unregistered361 = [p for p in _shipped361 if p not in _registered361]
+    check(
+        not _unregistered361 and len(_shipped361) > 0,
+        f"Check 361: all {len(_shipped361)} shipped JS leaf modules (js/*.js ∪ js/quiz/*.js) "
+        "are registered in file-size-budget.md §4 BUDGET-DATA",
+        f"Check 361: shipped JS leaf module(s) missing from §4 BUDGET-DATA: {_unregistered361}. "
+        "新 leaf モジュールは file-size-budget.md §2 表 + §4 BUDGET-DATA に行数予算を登録せよ "
+        "(Check 52 silent-unbudgeted 防止 / bloat を「生じないように」する 1,000 行しきい値の機械強制)",
+    )
+else:
+    warnings.append("Check 361: file-size-budget.md not found — JS budget coverage skipped")
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
