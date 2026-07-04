@@ -1459,6 +1459,12 @@ MUTATIONS = [
         "find": "connect-src 'self' https://cdn-edge.karte.io ",
         "replace": "connect-src 'self' ",
     },
+    {
+        "name": "Check 356 (font CSP pair): drop fonts.gstatic.com from font-src (style-src unchanged)",
+        "file": ROOT / "index.html",
+        "find": "font-src 'self' https://fonts.gstatic.com",
+        "replace": "font-src 'self'",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
