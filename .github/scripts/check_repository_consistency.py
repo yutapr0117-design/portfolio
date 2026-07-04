@@ -2608,6 +2608,16 @@ authoritative inventory and is kept in sync with the implementation below):
        (speculation-rules hash) / Check 242 (handler allowlist) for the
        inline-CSP-hash integrity axis. (BLOCKING)
 
+  351. EVERY `<url>` block in sitemap.xml MUST contain EXACTLY ONE `<loc>`
+       element. `<loc>` is required by the sitemaps.org schema; a `<url>`
+       block missing it is invalid and crawlers silently drop that entry
+       (the URL disappears from discovery), while a block with two `<loc>`
+       is undefined behavior. Check 312 guards `<loc>` uniqueness ACROSS
+       blocks (no duplicate URLs); this guards the per-block cardinality
+       (each block has one). Sibling of Check 312 (loc uniqueness) /
+       Check 307 (sitemap XML structure) for the sitemap url-block
+       structural-completeness axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -15235,6 +15245,31 @@ if _idx350.is_file():
 else:
     check(False, "Check 350: index.html present",
           "Check 350: index.html が無い", blocking=True)
+
+# ── 351. Every sitemap <url> block has exactly one <loc> (BLOCKING) ──────────
+_sitemap351 = ROOT / "sitemap.xml"
+if _sitemap351.is_file():
+    _sm351 = _sitemap351.read_text(encoding="utf-8")
+    _url_blocks351 = re.findall(r"<url>.*?</url>", _sm351, re.DOTALL)
+    _bad351: list[str] = []
+    for _i, _blk in enumerate(_url_blocks351):
+        _loc_count = _blk.count("<loc>")
+        if _loc_count != 1:
+            _m = re.search(r"<loc>([^<]*)</loc>", _blk)
+            _hint = _m.group(1) if _m else "(loc 無し)"
+            _bad351.append(f"url[{_i}] loc={_loc_count} 個 ({_hint})")
+    _ok351 = (not _bad351) and len(_url_blocks351) > 0
+    check(
+        _ok351,
+        f"Check 351: sitemap.xml の全 <url> block ({len(_url_blocks351)} 件) が <loc> を厳密 1 個持つ",
+        (f"Check 351: <url> block の loc cardinality 違反: {_bad351!r} — "
+         "loc は sitemap 仕様の必須要素。欠落 block は crawler に silent drop され "
+         "discovery から消える / 複数 loc は undefined behavior。各 block に loc 1 個へ修正せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 351: sitemap.xml present",
+          "Check 351: sitemap.xml が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
