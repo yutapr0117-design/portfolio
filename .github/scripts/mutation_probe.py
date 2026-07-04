@@ -1411,6 +1411,12 @@ MUTATIONS = [
         "find": '        run: npx playwright test --config=playwright.config.cjs --grep-invert "screenshot regression" --reporter=list',
         "replace": '        continue-on-error: true\n        run: npx playwright test --config=playwright.config.cjs --grep-invert "screenshot regression" --reporter=list',
     },
+    {
+        "name": "Check 348 (CI PR trigger): remove pull_request trigger from architecture-validation.yml",
+        "file": ROOT / ".github" / "workflows" / "architecture-validation.yml",
+        "find": "  push:\n    branches: [ \"main\" ]\n  pull_request:\n    branches: [ \"main\" ]",
+        "replace": "  push:\n    branches: [ \"main\" ]\n  workflow_dispatch:",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
