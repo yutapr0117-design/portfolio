@@ -2643,6 +2643,18 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 43c (Trusted Types) for the createIcon Trusted-Types-boundary
        axis. (BLOCKING)
 
+  354. Every external `<script src="https://...">` host in index.html
+       (currently the KARTE `cdn-edge.karte.io` analytics loader) MUST
+       appear in the CSP `script-src` directive. This machine-enforces the
+       C7 contract ("KARTE gets no SRI; its connection is restricted by
+       CSP instead"). Drift = the KARTE host is dropped from `script-src`
+       (or the loader URL host changes) while the `<script>` tag remains,
+       so Chrome CSP-blocks the loader — analytics silently dies (the
+       queue-stub buffers forever) with only a console error that no
+       behavior e2e observes. Sibling of Check 63 (crawler origin
+       alignment) / Check 115 (CSP baseline) for the external-script
+       CSP-authorization axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -15347,6 +15359,43 @@ if _uic353.is_file():
 else:
     check(False, "Check 353: js/ui-components.js present",
           "Check 353: js/ui-components.js が無い", blocking=True)
+
+# ── 354. external <script src> hosts are authorized in CSP script-src (BLOCKING) ─
+# C7 契約 (KARTE は SRI 無し・CSP で接続制限) を機械強制。外部 script host が
+# script-src から消えると Chrome が loader を CSP-block し analytics が silent 死。
+_idx354 = ROOT / "index.html"
+if _idx354.is_file():
+    _h354 = _idx354.read_text(encoding="utf-8")
+    _h354_nc = re.sub(r"<!--.*?-->", "", _h354, flags=re.DOTALL)
+    # CSP script-src directive を抽出 (content は double-quote 内・値に single quote を含む)
+    _csp_m354 = re.search(r'Content-Security-Policy"\s+content="([^"]*)"',
+                          _h354_nc, re.DOTALL)
+    _script_src354 = ""
+    if _csp_m354:
+        for _d in _csp_m354.group(1).split(";"):
+            if _d.strip().startswith("script-src"):
+                _script_src354 = _d
+                break
+    # 外部 <script src="https://host/..."> の host を全抽出
+    _ext_hosts354 = set(re.findall(
+        r'<script[^>]*\ssrc="https://([^/"]+)', _h354_nc))
+    _unauthorized354 = sorted(
+        _host for _host in _ext_hosts354
+        if f"https://{_host}" not in _script_src354)
+    _ok354 = (not _unauthorized354) and bool(_script_src354)
+    check(
+        _ok354,
+        f"Check 354: 外部 script host {sorted(_ext_hosts354)} すべて CSP script-src で authorize",
+        (f"Check 354: CSP script-src が外部 script host を authorize しない: {_unauthorized354!r} — "
+         "C7 契約違反。KARTE 等の loader が Chrome に CSP-block され analytics が silent 死 "
+         "(queue-stub が永久 buffer)。host を script-src へ追加せよ"
+         if _script_src354 else
+         "Check 354: CSP script-src directive が見つからない"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 354: index.html present",
+          "Check 354: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
