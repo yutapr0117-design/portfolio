@@ -1471,6 +1471,12 @@ MUTATIONS = [
         "find": 'rel="preload" href="./yuta-yokoi-ai-pm-orchestration-system.webp"',
         "replace": 'rel="preload" href="./yuta-yokoi-nonexistent-mutation-probe.webp"',
     },
+    {
+        "name": "Check 358 (image-sitemap coherence): drift sitemap image:loc to non-existent file",
+        "file": ROOT / "sitemap.xml",
+        "find": "<image:loc>https://yutapr0117-design.github.io/portfolio/yuta-yokoi-ai-pm-orchestration-system.webp</image:loc>",
+        "replace": "<image:loc>https://yutapr0117-design.github.io/portfolio/yuta-yokoi-nonexistent-mutation-probe.webp</image:loc>",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
