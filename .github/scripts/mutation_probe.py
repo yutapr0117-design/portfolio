@@ -1381,6 +1381,12 @@ MUTATIONS = [
         "find": "Allow: /\n",
         "replace": "Allow: /\nDisallow: /\n",
     },
+    {
+        "name": "Check 343 (.well-known JSON parse): inject JSON syntax error into mcp.json (double comma)",
+        "file": ROOT / ".well-known" / "mcp.json",
+        "find": '"mcpVersion": "1.0",',
+        "replace": '"mcpVersion": "1.0",,',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
