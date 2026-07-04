@@ -2691,6 +2691,17 @@ authoritative inventory and is kept in sync with the implementation below):
        (modulepreload resolution) / Check 326 (preload as= value) for the
        preload href-resolution axis. (BLOCKING)
 
+  358. sitemap.xml image-sitemap coherence: every `<image:loc>` URL MUST
+       (a) resolve (after stripping the canonical prefix) to an existing
+       local file, AND (b) the `<meta property="og:image">` content URL
+       MUST appear among the `<image:loc>` set (hero cross-surface
+       agreement). Drift = renaming the hero asset and updating og:image
+       but missing the sitemap `<image:loc>` (or vice versa) points Google
+       Images at a 404 / a different image than the social card. Sibling
+       of Check 164 (og:image resolves) / Check 297 (canonical entry has
+       image:image) for the image-sitemap resolution+coherence axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -15554,6 +15565,44 @@ if _idx357.is_file():
 else:
     check(False, "Check 357: index.html present",
           "Check 357: index.html が無い", blocking=True)
+
+# ── 358. sitemap <image:loc> resolution + og:image coherence (BLOCKING) ──────
+_sitemap358 = ROOT / "sitemap.xml"
+_idx358 = ROOT / "index.html"
+if _sitemap358.is_file() and _idx358.is_file():
+    _sm358 = _sitemap358.read_text(encoding="utf-8")
+    _image_locs358 = re.findall(r"<image:loc>([^<]+)</image:loc>", _sm358)
+    _problems358: list[str] = []
+    # (a) 各 image:loc が実 file に解決
+    for _url in _image_locs358:
+        _rel = _url.strip()
+        for _pfx in ("https://yutapr0117-design.github.io/portfolio/",
+                     "/portfolio/", "./", "/"):
+            if _rel.startswith(_pfx):
+                _rel = _rel[len(_pfx):]
+                break
+        if not (ROOT / _rel).is_file():
+            _problems358.append(f"image:loc {_url.strip()!r} が file 解決しない")
+    # (b) og:image が image:loc 集合に含まれる (hero cross-surface 一致)
+    _h358 = re.sub(r"<!--.*?-->", "", _idx358.read_text(encoding="utf-8"), flags=re.DOTALL)
+    _og358 = re.search(r'<meta\s+property="og:image"\s+content="([^"]+)"', _h358)
+    if _og358:
+        _og_url358 = _og358.group(1)
+        if _og_url358 not in [u.strip() for u in _image_locs358]:
+            _problems358.append(
+                f"og:image {_og_url358!r} が image:loc 集合 {[u.strip() for u in _image_locs358]!r} に不在")
+    _ok358 = (not _problems358) and len(_image_locs358) > 0
+    check(
+        _ok358,
+        f"Check 358: sitemap image:loc {len(_image_locs358)} 件が実 file 解決 + og:image と cross-surface 一致",
+        (f"Check 358: image-sitemap coherence drift: {_problems358!r} — "
+         "hero rename で og:image / image:loc の片方が取り残されると Google Images が "
+         "404 / social card と別画像を指す。両者を hero canonical URL へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 358: sitemap.xml + index.html present",
+          "Check 358: sitemap.xml または index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
