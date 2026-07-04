@@ -2679,6 +2679,18 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 301 (Google Fonts preconnect) for the
        external-font CSP-authorization axis. (BLOCKING)
 
+  357. Every LOCAL `<link rel="preload">` href in index.html (relative
+       `./x` or canonical `/portfolio/x`, i.e. not a cross-origin
+       `https://` URL) MUST resolve to an existing file in the working
+       tree. Check 53 covers `rel="modulepreload"`; this covers plain
+       `rel="preload"` (currently the hero WebP LCP preload). Drift =
+       renaming the hero asset while updating og:image / sitemap but
+       missing the preload href leaves a 404 preload — wasted bandwidth
+       AND the hero LCP element is not actually preloaded (LCP
+       regression), silently (screenshot advisory). Sibling of Check 53
+       (modulepreload resolution) / Check 326 (preload as= value) for the
+       preload href-resolution axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -15501,6 +15513,47 @@ if _idx356.is_file():
 else:
     check(False, "Check 356: index.html present",
           "Check 356: index.html が無い", blocking=True)
+
+# ── 357. local <link rel="preload"> href resolves to a file (BLOCKING) ───────
+# Check 53 は modulepreload を被覆。本 Check は plain preload (hero WebP LCP) の
+# local href が実 file に解決することを強制。href drift で 404 preload = LCP miss。
+_idx357 = ROOT / "index.html"
+if _idx357.is_file():
+    _h357 = _idx357.read_text(encoding="utf-8")
+    _h357_nc = re.sub(r"<!--.*?-->", "", _h357, flags=re.DOTALL)
+    _preload_tags357 = re.findall(r'<link\s+[^>]*rel="preload"[^>]*>', _h357_nc)
+    _missing357: list[str] = []
+    _checked357 = 0
+    for _tag in _preload_tags357:
+        _mh = re.search(r'href="([^"]+)"', _tag)
+        if not _mh:
+            continue
+        _href = _mh.group(1)
+        # cross-origin (https://) は working tree で解決不可ゆえ scope 外
+        if _href.startswith("http://") or _href.startswith("https://"):
+            continue
+        _checked357 += 1
+        _rel = _href
+        for _pfx in ("/portfolio/", "./", "/"):
+            if _rel.startswith(_pfx):
+                _rel = _rel[len(_pfx):]
+                break
+        if not (ROOT / _rel).is_file():
+            _missing357.append(f"{_href} (→ {_rel})")
+    _ok357 = (not _missing357) and _checked357 > 0
+    check(
+        _ok357,
+        f"Check 357: local preload href {_checked357} 件すべて実 file に解決",
+        (f"Check 357: local preload href が file 解決しない: {_missing357!r} — "
+         "hero asset rename 等で preload href が取り残されると 404 preload = 帯域浪費 + "
+         "hero LCP element が preload されず LCP 回帰 (silent)。href を実 file へ揃えよ"
+         if _checked357 > 0 else
+         "Check 357: local (非 cross-origin) preload href が 0 件 (hero WebP preload の期待値)"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 357: index.html present",
+          "Check 357: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
