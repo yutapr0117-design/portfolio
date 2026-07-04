@@ -2629,6 +2629,20 @@ authoritative inventory and is kept in sync with the implementation below):
        silently. Sibling of Check 239 (no eval) / Check 43 (protected
        blocks) for the shipped-JS XSS-boundary integrity axis. (BLOCKING)
 
+  353. `js/ui-components.js` MUST NOT contain actual `DOMParser` usage
+       (only comments documenting its removal are allowed). `createIcon()`
+       builds SVG via `createElementNS` + static regex attribute
+       extraction precisely to avoid `DOMParser.parseFromString`, which
+       invokes the Trusted Types `createHTML` handler and violates the
+       `require-trusted-types-for 'script'` CSP (Check 43c/115). Drift =
+       reverting createIcon to DOMParser re-introduces the Trusted Types
+       violation silently (icons still render, so behavior e2e stays
+       green). Note: main.js legitimately uses DOMParser inside its
+       protected innerHTML-interceptor sanitizer, so this Check is scoped
+       to ui-components.js only. Sibling of Check 352 (h innerHTML) /
+       Check 43c (Trusted Types) for the createIcon Trusted-Types-boundary
+       axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -15308,6 +15322,31 @@ if _uic352.is_file():
 else:
     check(False, "Check 352: js/ui-components.js present",
           "Check 352: js/ui-components.js が無い", blocking=True)
+
+# ── 353. js/ui-components.js has no actual DOMParser usage (BLOCKING) ────────
+# createIcon() は createElementNS + regex で SVG を組み Trusted Types 適合を保つ。
+# DOMParser 復活は TT 違反を silent 再導入 (icon は描画され behavior e2e 緑のまま)。
+# main.js は innerHTML-interceptor sanitizer で DOMParser を正当使用ゆえ scope 外。
+_uic353 = ROOT / "js" / "ui-components.js"
+if _uic353.is_file():
+    _usrc353 = _uic353.read_text(encoding="utf-8")
+    # コメント (// と /* */) を除去してから実コードの DOMParser を検出
+    _code353 = re.sub(r"/\*.*?\*/", "", _usrc353, flags=re.DOTALL)
+    _code353 = re.sub(r"//[^\n]*", "", _code353)
+    _domparser353 = re.findall(r"\bDOMParser\b", _code353)
+    _ok353 = not _domparser353
+    check(
+        _ok353,
+        "Check 353: js/ui-components.js 実コードに DOMParser 不在 (createIcon Trusted Types 適合)",
+        (f"Check 353: js/ui-components.js 実コードに DOMParser 使用 ({len(_domparser353)} 件) — "
+         "createIcon が DOMParser.parseFromString に戻ると Trusted Types createHTML handler を "
+         "呼び require-trusted-types-for 'script' CSP (Check 43c/115) 違反を silent 再導入。"
+         "createElementNS + regex 抽出へ戻せ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 353: js/ui-components.js present",
+          "Check 353: js/ui-components.js が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
