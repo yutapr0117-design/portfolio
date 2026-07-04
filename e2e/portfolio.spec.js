@@ -2455,6 +2455,41 @@ test('Pomodoro reset button restores full duration and stops (deterministic cloc
 // 「セッション完了！」toast を出して runtime を満了状態 (isActive=false / remainingSec=duration)
 // に戻す。集中時間を 1 分に設定し fake clock で 0 到達まで進め、完了通知 + 「開始」へ戻る (停止) +
 // 満了表示への復帰を決定的に検証する。集中→0 という apps の自動完了サイクルの保証。
+// ===== 7.2: ポモドーロ稼働中の reload で interval が resume する (frozen 回帰) =====
+// pomodoroTimer は createApps factory 変数ゆえ reload で null に戻るが、runtime.isActive は
+// endAtMs>now なら normalize が保持する。startTimer は start() ボタンからのみ呼ばれ auto-resume が
+// 無かったため、reload 後は「一時停止表示 (isActive=true) だが countdown が frozen で complete() が
+// 永遠に発火しない」stuck 状態だった。PomodoroPage render 時に isActive かつ interval 不在なら
+// resume する fix の回帰検知。reload 後に clock を進めても表示が更新される (=resume) ことを検証。
+test('Pomodoro resumes ticking after a reload mid-run (frozen-timer guard)', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+
+  const timer = page.locator('.font-mono.text-stat').first();
+  await expect(timer).toBeVisible();
+
+  // 開始 → 稼働中 (一時停止ボタン表示)
+  await page.getByRole('button', { name: '開始' }).click();
+  await page.clock.fastForward(2000);
+  await expect(page.getByRole('button', { name: '一時停止' })).toBeVisible();
+
+  // リロード: state は isActive=true で復元されるが interval は失われる
+  await page.clock.install();
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+  // isActive が保持され「一時停止」表示 (稼働中扱い)
+  await expect(page.getByRole('button', { name: '一時停止' })).toBeVisible();
+
+  // clock を進める → resume していれば表示が更新される (frozen なら不変で fail)
+  const tReload = (await timer.textContent()).trim();
+  await page.clock.fastForward(3000);
+  await expect(timer).not.toHaveText(tReload);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `pomodoro resume caused a fatal: ${fatal}`).toBeNull();
+});
+
 test('Pomodoro completes at zero: shows done toast and resets to full duration (deterministic clock)', async ({ page }) => {
   await page.clock.install();
   await page.goto('/#/apps/pomodoro');
