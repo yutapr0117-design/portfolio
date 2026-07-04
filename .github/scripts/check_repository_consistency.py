@@ -2559,6 +2559,19 @@ authoritative inventory and is kept in sync with the implementation below):
        coupling) / Check 345 (verify-chain completeness) for the
        CI-invokes-the-guard axis. (BLOCKING)
 
+  347. `.github/workflows/playwright-regression.yml` MUST invoke the
+       behavior e2e (`playwright test ... --grep-invert "screenshot
+       regression"`) in a `run:` step, AND that step MUST NOT be marked
+       `continue-on-error` (it is the BLOCKING functionality gate per
+       Session Record #20 §3B). Drift = removing the behavior invocation
+       OR flipping its step to `continue-on-error: true` silently turns
+       the functionality gate advisory — every route-renders / no-fatal
+       assertion stops blocking merges while CI stays green. Check 142
+       guards the paths filter but not the invocation itself. This is the
+       behavior-gate twin of Check 346 (consistency-gate). Sibling of
+       Check 142 (e2e toolchain coverage) / Check 346 (CI invokes the
+       consistency guard) for the CI-invokes-the-guard axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -15049,6 +15062,45 @@ if _wf346.is_file():
 else:
     check(False, "Check 346: architecture-validation.yml present",
           "Check 346: architecture-validation.yml が無い", blocking=True)
+
+# ── 347. CI behavior e2e gate is invoked AND blocking (BLOCKING) ─────────────
+# meta-guard (behavior-gate 版): behavior e2e が実行され、かつ continue-on-error
+# でない (= BLOCKING) ことを守る。Check 346 の consistency-gate 版に対する双子。
+_pwf347 = ROOT / ".github" / "workflows" / "playwright-regression.yml"
+if _pwf347.is_file():
+    _lines347 = _pwf347.read_text(encoding="utf-8").splitlines()
+    _behavior_run_idx347 = -1
+    for _i, _ln in enumerate(_lines347):
+        if _ln.lstrip().startswith("#"):
+            continue
+        if ("playwright test" in _ln
+                and 'grep-invert "screenshot regression"' in _ln):
+            _behavior_run_idx347 = _i
+            break
+    _problems347: list[str] = []
+    if _behavior_run_idx347 < 0:
+        _problems347.append("behavior e2e invocation (grep-invert screenshot regression) が無い")
+    else:
+        # behavior run 行から step 先頭 (- name:) まで遡り、その間に
+        # continue-on-error: true が無いことを確認 (= BLOCKING step)。
+        _j = _behavior_run_idx347
+        while _j >= 0 and "- name:" not in _lines347[_j]:
+            if re.search(r"continue-on-error:\s*true", _lines347[_j]):
+                _problems347.append("behavior step が continue-on-error: true (advisory 化)")
+            _j -= 1
+    _ok347 = not _problems347
+    check(
+        _ok347,
+        "Check 347: playwright-regression.yml が behavior e2e を BLOCKING gate として実行",
+        (f"Check 347: behavior gate drift: {_problems347!r} — "
+         "behavior e2e invocation の除去 or continue-on-error 化で機能性 gate が "
+         "silent に advisory 化 (route-renders / no-fatal assertion が merge を "
+         "gate しなくなる)。BLOCKING invocation を復元せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 347: playwright-regression.yml present",
+          "Check 347: playwright-regression.yml が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
