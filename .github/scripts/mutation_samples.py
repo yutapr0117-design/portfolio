@@ -888,4 +888,11 @@ E2E_MUTATIONS = [
         "replace": "            State.set(snap.data);",
         "test": "Snapshot restore normalizes",
     },
+    {
+        "name": "behavior: TodoPage が ErrorBoundary a11y 属性を leak (role=alert / dangling aria-errormessage)",
+        "file": ROOT / "js" / "apps.js",
+        "find": "        return h('div', { class: 'flex flex-col gap-4 max-w-2xl' },\n            h('header', { class: 'flex items-center gap-3' },\n                createIcon('list', 28),",
+        "replace": "        return h('div', { class: 'flex flex-col gap-4 max-w-2xl error-boundary-fallback', role: 'alert', 'aria-errormessage': 'fallback-details' },\n            h('header', { class: 'flex items-center gap-3' },\n                createIcon('list', 28),",
+        "test": "carries no leaked ErrorBoundary",
+    },
 ]
