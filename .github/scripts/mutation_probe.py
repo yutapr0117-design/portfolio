@@ -1399,6 +1399,12 @@ MUTATIONS = [
         "find": '"verify": "npm run check && npm run lint:css && npm run lint && npm run lint:js"',
         "replace": '"verify": "npm run check && npm run lint && npm run lint:js"',
     },
+    {
+        "name": "Check 346 (CI invokes guard): replace consistency-check run step with a no-op",
+        "file": ROOT / ".github" / "workflows" / "architecture-validation.yml",
+        "find": "run: python3 .github/scripts/check_repository_consistency.py",
+        "replace": "run: echo skip-consistency-check-mutation-probe",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
