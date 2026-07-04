@@ -2549,6 +2549,16 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 50b (flat-config lint invocation) for the verify-chain
        completeness axis. (BLOCKING)
 
+  346. `.github/workflows/architecture-validation.yml` MUST invoke
+       `python3 .github/scripts/check_repository_consistency.py` in a
+       `run:` step. This is the meta-guard that protects the guard itself:
+       the entire consistency suite (300+ Checks) only gates PRs because
+       CI runs this one line. Deleting or commenting it out silently
+       disables EVERY consistency Check at once while CI still goes green —
+       the ultimate vacuous-gate. Sibling of Check 55 (CI lint-target
+       coupling) / Check 345 (verify-chain completeness) for the
+       CI-invokes-the-guard axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -15011,6 +15021,34 @@ if _pkg345.is_file():
 else:
     check(False, "Check 345: package.json present",
           "Check 345: package.json が無い", blocking=True)
+
+# ── 346. CI workflow invokes the consistency guard itself (BLOCKING) ─────────
+# meta-guard: 全 consistency Check が PR を gate するのは CI がこの 1 行を走らせる
+# からのみ。この invocation が消えると全 Check が silent に無効化される。
+_wf346 = ROOT / ".github" / "workflows" / "architecture-validation.yml"
+if _wf346.is_file():
+    _wsrc346 = _wf346.read_text(encoding="utf-8")
+    # コメント行 (# で始まる) を除外して実 run: step の invocation を探す
+    _run_lines346 = [
+        _ln for _ln in _wsrc346.splitlines()
+        if "check_repository_consistency.py" in _ln
+        and not _ln.lstrip().startswith("#")
+    ]
+    _invokes346 = any(
+        re.search(r"python3?\s+\.github/scripts/check_repository_consistency\.py", _ln)
+        for _ln in _run_lines346
+    )
+    check(
+        _invokes346,
+        "Check 346: architecture-validation.yml が check_repository_consistency.py を実行",
+        "Check 346: architecture-validation.yml に consistency guard の invocation "
+        "(`python3 .github/scripts/check_repository_consistency.py` の run: step) が無い — "
+        "全 consistency Check が silent に無効化される ultimate vacuous-gate。invocation を復元せよ",
+        blocking=True,
+    )
+else:
+    check(False, "Check 346: architecture-validation.yml present",
+          "Check 346: architecture-validation.yml が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
