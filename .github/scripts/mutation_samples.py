@@ -756,6 +756,12 @@ _MUTATIONS_TAIL = [
         "find": 'name="asset:audio:canonical" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3"',
         "replace": 'name="asset:audio:canonical" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-sakura-swing-nonexistent-mutation-probe.mp3"',
     },
+    {
+        "name": "Check 361 (JS budget coverage): unregister a shipped leaf module from §4 BUDGET-DATA",
+        "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+        "find": "js/ai-page.js | 300 | advisory",
+        "replace": "# js/ai-page.js budget line removed by mutation probe",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。
