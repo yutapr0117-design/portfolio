@@ -1369,6 +1369,12 @@ MUTATIONS = [
         "find": '"encodingFormat": "image/webp",\n                  "width": "1536",',
         "replace": '"encodingFormat": "image/png",\n                  "width": "1536",',
     },
+    {
+        "name": "Check 341 (social meta non-empty): empty twitter:image:alt content",
+        "file": ROOT / "index.html",
+        "find": '<meta name="twitter:image:alt" content="横井雄太 AI-Driven PM Portfolio — v1→v74 AIチームオーケストレーション実証" />',
+        "replace": '<meta name="twitter:image:alt" content="" />',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
