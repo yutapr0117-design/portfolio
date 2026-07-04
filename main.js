@@ -435,13 +435,13 @@
         //   js/components.js へ factory pattern で抽出。挙動 byte-equivalent。
         // closeDrawer は _drawer holder 経由で late-bound（Sidebar 内 event handler が呼ぶときに解決）。
         // clear / CONSTANTS は既に import / declared 済み。
-        // (tokenize は ProjectsPage 分離で createComponents から不要になり除去。ProjectsPage 用に
-        //  createProjectsPage へ直接渡す・下記参照)
+        // (tokenize / Toast / Brand / Store は HomePage/ProjectsPage/AIKnowhowPage 等の分離で
+        //  createComponents 本体から不要になり除去。各 leaf module が自前の factory で受け取る)
         const {
             Sidebar, AppsPage,
             AboutPage, ResumePage, ContactPage, FatalPage, ContactCTA
         } = createComponents({
-            h, createIcon, Toast, BGM, AUTHOR, Router, State, Theme, Brand, Store,
+            h, createIcon, BGM, AUTHOR, Router, State, Theme,
             CONSTANTS, clear,
             closeDrawer: () => _drawer.closeDrawer?.()
         });
@@ -472,7 +472,7 @@
         //   todoFilter / todoComposing / pomodoroTimer / aiLoading / settings*）も
         //   factory closure 内へ移動（揮発性 UI 状態は元と同位置で保持される・挙動 byte-equivalent）。
         const { TaskPage, TodoPage, NotesPage, SettingsPage } = createApps({
-            h, createIcon, Toast, AUTHOR, Router, State, Theme, Brand, Store, Storage, CONSTANTS,
+            h, createIcon, Toast, State, Brand, Store, Storage, CONSTANTS,
             generateId, clamp, slugify
         });
         // 2026-07-04 bloat-reduction: AIPage は別葉モジュール createAIPage で生成 (依存は h/createIcon/State/CONSTANTS のみ)
