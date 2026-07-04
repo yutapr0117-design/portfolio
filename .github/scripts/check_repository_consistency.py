@@ -2494,6 +2494,16 @@ authoritative inventory and is kept in sync with the implementation below):
        same truth. Sibling of Check 337 (magic bytes) / Check 339 (JSON-LD
        dims) for the binary-asset declaration-truth axis. (BLOCKING)
 
+  341. Every `<meta property="og:*">` / `<meta name="twitter:*">` tag in
+       index.html MUST have a NON-EMPTY `content` value. Drift = an empty
+       `content=""` (e.g. from a templating slip) silently breaks the
+       specific social-card field — the card renders with a blank title /
+       missing image / no description, and no gate catches it (Check 224–
+       226 check length ranges but only for the specific tags they name;
+       a blank content on any other og/twitter tag slips through).
+       Sibling of Check 155 (og↔twitter title) / Check 336 (og↔twitter
+       image) for the social-card field-presence axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14819,6 +14829,32 @@ if _html340.is_file():
 else:
     check(False, "Check 340: index.html present",
           "Check 340: index.html が無い", blocking=True)
+
+# ── 341. All og:* / twitter:* meta content non-empty (BLOCKING) ──────────────
+_html341 = ROOT / "index.html"
+if _html341.is_file():
+    _s341 = re.sub(r"<!--.*?-->", "", _html341.read_text(encoding="utf-8"),
+                   flags=re.DOTALL)
+    _empty341: list[str] = []
+    _total341 = 0
+    for _m in re.finditer(
+            r'<meta\s+(?:property|name)="((?:og|twitter):[^"]+)"\s+content="([^"]*)"',
+            _s341):
+        _total341 += 1
+        if not _m.group(2).strip():
+            _empty341.append(_m.group(1))
+    _ok341 = (not _empty341) and _total341 > 0
+    check(
+        _ok341,
+        f"Check 341: og:* / twitter:* meta {_total341} 件すべて content 非空",
+        (f"Check 341: 空 content の social meta: {_empty341!r} — "
+         "空 content は該当 social-card field を silent 破壊 (blank title / "
+         "missing image / no description)。実値を入れよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 341: index.html present",
+          "Check 341: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
