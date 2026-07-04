@@ -287,7 +287,14 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
             return true;
         });
 
-        return h('div', { class: 'flex flex-col gap-4 max-w-2xl error-boundary-fallback', role: 'alert', 'aria-invalid': 'true', 'aria-errormessage': 'fallback-details', 'aria-description': 'Architecture constraint successfully caught an unstable state transition.' },
+        // [FIX] TodoPage のルートに紛れ込んでいた ErrorBoundary/FatalPage 用の a11y 属性群を除去。
+        // 通常の ToDo アプリなのに role="alert" / aria-invalid="true" / aria-errormessage="fallback-details"
+        // / class="error-boundary-fallback" / aria-description="…unstable state transition" を持っており
+        // (copy-paste leak・実 FatalPage ですら error-boundary-fallback を使っておらず本箇所のみに存在)、
+        // スクリーンリーダーが ToDo ページ全体を「エラーアラート・invalid」として読み上げ、
+        // aria-errormessage は TodoPage に存在しない #fallback-details を指す dangling 参照だった。
+        // レイアウト class のみ残し a11y セマンティクスを正常化する (視覚描画は不変)。
+        return h('div', { class: 'flex flex-col gap-4 max-w-2xl' },
             h('header', { class: 'flex items-center gap-3' },
                 createIcon('list', 28),
                 h('h1', { class: 'h1' }, 'クイックTODO')

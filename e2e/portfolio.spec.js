@@ -1556,6 +1556,23 @@ test('Snapshot restore normalizes a foreign-schema/partial snapshot without cras
 // toggleTodo (checkbox) / clearCompleted (「完了済み削除」一括操作) という distinct な
 // コードパスを持つ。task テスト (#91) が add+persist を見るのに対し、本テストは toggle と
 // bulk 削除という別 operation class を実ブラウザで動的検証する。
+// ===== 7.2b: TodoPage が ErrorBoundary/FatalPage の a11y 属性を誤って持たない (copy-paste leak 回帰ガード) =====
+// TodoPage のルート div に role="alert" / aria-invalid="true" / aria-errormessage="fallback-details" /
+// class="error-boundary-fallback" / aria-description="…unstable state transition" が紛れ込んでおり
+// (実 FatalPage ですら error-boundary-fallback を使わず本箇所のみに存在＝leak)、スクリーンリーダーが
+// TODO ページ全体をエラーアラート・invalid として読み上げ、aria-errormessage は TodoPage に存在しない
+// #fallback-details を指す dangling 参照だった。fix は a11y 属性を除去 (視覚不変)。本テストは todo ルートで
+// これらの error-boundary 痕跡が存在しないことを検証する (fix を戻すと count 1 で fail = 非 vacuous)。
+test('Todo page carries no leaked ErrorBoundary a11y attributes (role=alert leak)', async ({ page }) => {
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByRole('heading', { name: 'クイックTODO' })).toBeVisible();
+  // error-boundary-fallback class / aria-errormessage="fallback-details" は FatalPage 専用の痕跡で、
+  // 正常な TODO ページには 1 つも存在してはならない (leak なら各 count が 1)。
+  expect(await page.locator('.error-boundary-fallback').count()).toBe(0);
+  expect(await page.locator('[aria-errormessage="fallback-details"]').count()).toBe(0);
+});
+
 test('Todo app add, complete-toggle, then clear-completed removes the item', async ({ page }) => {
   await page.goto('/#/apps/todo');
   await page.waitForLoadState('domcontentloaded');
