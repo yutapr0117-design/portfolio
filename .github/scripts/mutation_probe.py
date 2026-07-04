@@ -1441,6 +1441,12 @@ MUTATIONS = [
         "find": "throw new Error('[h] innerHTML is strictly prohibited in this architecture.');",
         "replace": "el.innerHTML = String(value);",
     },
+    {
+        "name": "Check 353 (createIcon no DOMParser): inject actual new DOMParser() into createIcon body",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "const tagRe = /<(\\w+)([^>]*?)\\/>/g;",
+        "replace": "const _rogue = new DOMParser();\n    const tagRe = /<(\\w+)([^>]*?)\\/>/g;",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
