@@ -868,9 +868,19 @@ E2E_MUTATIONS = [
     },
     {
         "name": "behavior: pomodoro complete (#121) — getRemaining の stale-closure 化で timer が永遠に未完了",
-        "file": ROOT / "js" / "apps.js",
+        # 2026-07-04 bloat-reduction: PomodoroPage は js/apps.js → js/pomodoro-page.js へ分離した
+        # (#558)。find-anchor もそこへ移動したため file を追従させる (抽出で anchor が orphan 化した
+        # 実例・mutation-probe --e2e が検出)。
+        "file": ROOT / "js" / "pomodoro-page.js",
         "find": "            const rt = State.get().appsData.pomodoro.runtime;\n            if (rt.isActive && rt.endAtMs) {",
         "replace": "            const rt = pomo.runtime;\n            if (rt.isActive && rt.endAtMs) {",
         "test": "Pomodoro completes at zero",
+    },
+    {
+        "name": "behavior: snapshot 復元が正規化を通さず生採用して schema 不一致/欠損で crash (#93/#295 class)",
+        "file": ROOT / "js" / "apps.js",
+        "find": "            State.set(Store.validateAndNormalize(snap.data));",
+        "replace": "            State.set(snap.data);",
+        "test": "Snapshot restore normalizes",
     },
 ]

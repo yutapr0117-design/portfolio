@@ -507,7 +507,14 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
                 Toast.show(`注意: schemaVersion が一致しません（${snap.data.schemaVersion}→${CONSTANTS.SCHEMA_VERSION}）`, 'warning');
             }
 
-            State.set(snap.data);
+            // [FIX] snapshot data は必ず正規化を通してから採用する (#93/#295 class:
+            // 「外部入力 ingestion 経路は全て同じ正規化を通せ」)。importJSON は
+            // validateAndNormalize を通すのに restore だけ生 State.set していた未被覆経路。
+            // getSnapshot は旧 schema の legacy-snapshot を明示サポートし schema mismatch も
+            // 上で warn するため、旧版が保存した欠損/型揺れ snapshot を生採用すると renderer が
+            // 期待するフィールド不在で FatalPage crash し得た。normalize が安全側に丸めて防ぐ
+            // (valid な snapshot は不変で通過ゆえ非破壊)。
+            State.set(Store.validateAndNormalize(snap.data));
             Toast.show('スナップショットを復元しました');
         }
         function clearSnapshot() {

@@ -1515,6 +1515,42 @@ test('Cross-tab sync ignores a foreign-schema/malformed store without crashing',
   await expect(page.locator('#task-input')).toBeVisible();
 });
 
+// ===== 7.1e: snapshot 復元は schema 不一致 / 欠損 snapshot を正規化して crash しない (#93/#295 class) =====
+// SettingsPage の restoreSnapshot は importJSON (validateAndNormalize を通す) と違い
+// State.set(snap.data) を生採用する未被覆 ingestion 経路だった。getSnapshot は旧 schema の
+// legacy-snapshot を明示サポートし schema mismatch も warn するため、旧版が保存した projects/appsData
+// 欠落 snapshot を復元すると state.projects.map 等でフィールド不在により SettingsPage 自身の render が
+// crash し得た (#93/#295 と同 class = 外部入力 ingestion は全て正規化を通せ)。fix は restore も
+// validateAndNormalize を通す。本テストは欠損 snapshot を注入 → 復元 → (1) FatalPage crash しない
+// (2) settings が描画され続ける、を検証する (修正前は state.projects.map で落ちるため非 vacuous)。
+test('Snapshot restore normalizes a foreign-schema/partial snapshot without crashing', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  // 旧版が保存した「schema 不一致 + projects/appsData 欠落」snapshot を localStorage に注入する。
+  // SNAPSHOT_KEY は js/constants.js の 'portfolio_snapshot_v45' (raw key・Storage は JSON 文字列を格納)。
+  await page.evaluate(() => {
+    localStorage.setItem('portfolio_snapshot_v45', JSON.stringify({
+      at: Date.now(),
+      data: { schemaVersion: 1 }   // 現行 (12) と不一致・projects/appsData 等を意図的に欠落
+    }));
+  });
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+
+  // 復元ボタン (snap があれば enabled) を押す
+  const restoreBtn = page.getByRole('button', { name: '復元' });
+  await expect(restoreBtn).toBeEnabled();
+  await restoreBtn.click();
+
+  // (1) FatalPage crash していない
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `snapshot restore of a partial snapshot caused a fatal render: ${fatal}`).toBeNull();
+
+  // (2) settings が描画され続ける (正規化で projects 等が backfill され render が成立)
+  await expect(page.getByRole('heading', { name: 'Settings' })).toBeVisible();
+});
+
 // ===== 7.2: TODO アプリの追加→完了トグル→一括削除フロー Behavior Check =====
 // #/apps/todo は TodoPage (task とは別 factory / 別 State slice) で、addTodo (Enter) /
 // toggleTodo (checkbox) / clearCompleted (「完了済み削除」一括操作) という distinct な
