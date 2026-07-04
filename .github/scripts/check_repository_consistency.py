@@ -2538,6 +2538,17 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 321 (no @import) for the CSS cascade-integrity
        axis. (BLOCKING)
 
+  345. The package.json `verify` aggregate script MUST chain ALL four
+       verification layers: `check`, `lint:css`, `lint`, `lint:js` (each
+       referenced as an `npm run <name>`). `verify` is the primary gate
+       run before every delivery (CLAUDE.md §5). Dropping one `&& npm run
+       <layer>` link silently disables a whole verification layer in the
+       aggregate — e.g. losing `lint:css` stops CSS linting from running
+       under `npm run verify` while `verify` still exits 0, a classic
+       vacuous-gate drift. Sibling of Check 46 (lint JS coverage) /
+       Check 50b (flat-config lint invocation) for the verify-chain
+       completeness axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14968,6 +14979,38 @@ if _css344.is_file():
 else:
     check(False, "Check 344: style.css present",
           "Check 344: style.css が無い", blocking=True)
+
+# ── 345. package.json verify chains all 4 verification layers (BLOCKING) ─────
+_pkg345 = ROOT / "package.json"
+if _pkg345.is_file():
+    try:
+        _pj345 = json.loads(_pkg345.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _pj345 = None
+    if _pj345 is not None:
+        _verify345 = str(_pj345.get("scripts", {}).get("verify", ""))
+        _required_layers345 = ("check", "lint:css", "lint", "lint:js")
+        _missing345: list[str] = []
+        for _layer in _required_layers345:
+            # `npm run <layer>` を単語境界で厳密検出 (lint と lint:css/lint:js の誤検出を防ぐ)
+            if not re.search(rf"npm run {re.escape(_layer)}(?![:\w])", _verify345):
+                _missing345.append(_layer)
+        _ok345 = not _missing345
+        check(
+            _ok345,
+            f"Check 345: package.json verify が全 4 検証層を連結 ({_verify345!r})",
+            (f"Check 345: verify チェーンに欠落: {_missing345!r} — "
+             "verify は delivery 前の主要 gate。1 link 欠落で該当検証層が "
+             "npm run verify で silent に skip される vacuous-gate drift。"
+             "`&& npm run <layer>` を復元せよ"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 345: package.json parseable",
+              "Check 345: package.json が JSON parse 不能", blocking=True)
+else:
+    check(False, "Check 345: package.json present",
+          "Check 345: package.json が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
