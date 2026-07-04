@@ -2583,6 +2583,17 @@ authoritative inventory and is kept in sync with the implementation below):
        invocation) / Check 347 (behavior invocation) for the
        CI-triggers-the-guard axis. (BLOCKING)
 
+  349. `icon.svg` (the favicon / PWA icon, declared `type="image/svg+xml"`
+       in both index.html `<link rel="icon">` and manifest.webmanifest)
+       MUST actually be a well-formed SVG: its content starts with `<?xml`
+       or `<svg` (after optional BOM/whitespace) AND contains a `</svg>`
+       close tag AND the `xmlns="http://www.w3.org/2000/svg"` namespace.
+       Drift = a non-SVG file saved as `icon.svg` (a PNG, a truncated
+       export); the declared `image/svg+xml` MIME lies, browsers reject
+       the favicon (generic globe) and the PWA install icon fails.
+       Sibling of Check 337 (hero/BGM magic bytes) for the icon-asset
+       format-integrity axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -15153,6 +15164,33 @@ check(
      "pull_request: branches: [main] を復元せよ"),
     blocking=True,
 )
+
+# ── 349. icon.svg is a well-formed SVG (BLOCKING) ────────────────────────────
+_icon349 = ROOT / "icon.svg"
+if _icon349.is_file():
+    _isvg349 = _icon349.read_text(encoding="utf-8", errors="replace")
+    _head349 = _isvg349.lstrip("﻿ \t\r\n")
+    _problems349: list[str] = []
+    if not (_head349.startswith("<?xml") or _head349.startswith("<svg")):
+        _problems349.append(f"先頭が <?xml/<svg でない (head={_head349[:30]!r})")
+    if "<svg" not in _isvg349:
+        _problems349.append("<svg 要素が無い")
+    if "</svg>" not in _isvg349:
+        _problems349.append("</svg> close tag が無い")
+    if 'xmlns="http://www.w3.org/2000/svg"' not in _isvg349:
+        _problems349.append("SVG namespace 宣言が無い")
+    _ok349 = not _problems349
+    check(
+        _ok349,
+        "Check 349: icon.svg が well-formed SVG (declared image/svg+xml と実体一致)",
+        (f"Check 349: icon.svg format 違反: {_problems349!r} — "
+         "declared type=\"image/svg+xml\" が実体と食い違い、browser が favicon を "
+         "reject (generic globe) / PWA install icon 失敗。正規 SVG へ差し戻せ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 349: icon.svg present",
+          "Check 349: icon.svg が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
