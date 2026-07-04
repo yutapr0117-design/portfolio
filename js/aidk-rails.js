@@ -49,7 +49,10 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
             route_slug:    '',
             route_hash:    '#/',
             // ── ui namespace ──
-            ui_drawer_open:    false,
+            // NOTE (dead-code sweep 2026-07-04): ui_drawer_open (never-activated 残骸) を除去。
+            //   git -S で `ui_drawer_open = true` の書き込みは全履歴で不在＝一度も配線されず、
+            //   対応する a11yRail の inert branch は dead だった。drawer 開放時の #app inert は
+            //   mobile-drawer.js の __setAppInert が実機構として担っており重複も不要。
             ui_theme:          'system',
             ui_active_filter:  '',
             ui_is_loading:     false,
@@ -111,7 +114,6 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
         const _map = {
             route_name:        ['meta', 'aio', 'a11y'],
             route_slug:        ['meta', 'aio'],
-            ui_drawer_open:    ['a11y'],
             a11y_announcement: ['a11y'],
             diag_debug_mode:   ['diag']
         };
@@ -146,13 +148,9 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
                     });
                 }
             }
-            if (key === 'ui_drawer_open') {
-                const app = document.getElementById('app');
-                if (app) {
-                    if (value) { app.setAttribute('inert', ''); }
-                    else { app.removeAttribute('inert'); }
-                }
-            }
+            // NOTE (dead-code sweep 2026-07-04): ui_drawer_open branch を除去。never-activated
+            //   だった (state key は一度も true に set されず)。#app inert は drawer 開閉時に
+            //   mobile-drawer.js の __setAppInert が担う実機構ゆえ本 rail は不要だった。
         }
 
         function _diagRail(key, value) {
@@ -381,7 +379,6 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
             _appendDiagSectionLabel(_el, 'RouteState');
             _appendDiagLine(_el, 'route_name', RS.route_name, 'u-ai-diag-val-green');
             _appendDiagLine(_el, 'route_slug', RS.route_slug || '—', 'u-ai-diag-val-green');
-            _appendDiagLine(_el, 'ui_drawer_open', RS.ui_drawer_open, 'u-ai-diag-val-green');
             _appendDiagLine(_el, 'ui_theme', RS.ui_theme, 'u-ai-diag-val-green');
 
             _appendDiagHr(_el);
