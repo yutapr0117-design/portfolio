@@ -1465,6 +1465,12 @@ MUTATIONS = [
         "find": "font-src 'self' https://fonts.gstatic.com",
         "replace": "font-src 'self'",
     },
+    {
+        "name": "Check 357 (local preload href resolution): drift hero preload href to non-existent file",
+        "file": ROOT / "index.html",
+        "find": 'rel="preload" href="./yuta-yokoi-ai-pm-orchestration-system.webp"',
+        "replace": 'rel="preload" href="./yuta-yokoi-nonexistent-mutation-probe.webp"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
