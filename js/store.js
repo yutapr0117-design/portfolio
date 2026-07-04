@@ -527,9 +527,20 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
         }
 
         // AI History
+        // [FIX] import / cross-tab 経由の ingestion では prompt / response の文字列長が
+        // 未 bound だった (write 側 apps.js は prompt を AI_MESSAGE で bound 済だが、
+        // load/import/cross-tab の正規化はこのチョークポイントを通る)。他アプリ
+        // (tasks.title / todos.text / notes) と同様に normalize 側でも文字列長を
+        // slice し、巨大 prompt/response が localStorage を bloat させる #230 class の
+        // ingestion 側 gap を閉じる (entry 数 80 上限は従来どおり)。
         if (data.ai?.history) {
             result.ai.history = data.ai.history
                 .filter(h => h && h.prompt && h.response)
+                .map(h => ({
+                    ...h,
+                    prompt: String(h.prompt).slice(0, CONSTANTS.LIMITS.AI_MESSAGE),
+                    response: String(h.response).slice(0, CONSTANTS.LIMITS.AI_MESSAGE)
+                }))
                 .slice(-80);
         }
 
