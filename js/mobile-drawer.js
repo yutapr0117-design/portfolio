@@ -46,6 +46,19 @@ export function createMobileDrawer({ CONSTANTS, clear, Sidebar }) {
         if (topbar) {
             topbar.style.display = isMobile ? 'flex' : 'none';
         }
+
+        // [FIX] drawer 開放中に mobile→desktop へリサイズすると、openDrawer が付与した
+        //   inline `display:block` は media query より優先されるため drawer/overlay が desktop で
+        //   残り、__setAppInert(true)+__lockBodyScroll(true) のまま app が inert・scroll lock された
+        //   stuck 状態になる (topbar=display:none で menuBtn も隠れる。overlay click / Escape でしか
+        //   脱出できない broken UX)。desktop 遷移時に開いている drawer を明示的に閉じて isolation を
+        //   解除する。closeDrawer は関数宣言ゆえ hoist され本関数から呼べる。
+        if (!isMobile) {
+            const drawer = document.getElementById('drawer');
+            if (drawer && drawer.getAttribute('aria-hidden') === 'false') {
+                closeDrawer();
+            }
+        }
     }
 
 
