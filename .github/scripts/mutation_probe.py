@@ -1417,6 +1417,12 @@ MUTATIONS = [
         "find": "  push:\n    branches: [ \"main\" ]\n  pull_request:\n    branches: [ \"main\" ]",
         "replace": "  push:\n    branches: [ \"main\" ]\n  workflow_dispatch:",
     },
+    {
+        "name": "Check 349 (icon.svg format): corrupt SVG root tag to <png (simulates non-SVG saved as icon.svg)",
+        "file": ROOT / "icon.svg",
+        "find": '<svg xmlns="http://www.w3.org/2000/svg"',
+        "replace": '<png xmlns="http://www.w3.org/2000/svg"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
