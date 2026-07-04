@@ -2572,6 +2572,17 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 142 (e2e toolchain coverage) / Check 346 (CI invokes the
        consistency guard) for the CI-invokes-the-guard axis. (BLOCKING)
 
+  348. Both BLOCKING gate workflows (`architecture-validation.yml` and
+       `playwright-regression.yml`) MUST declare a `pull_request` trigger
+       targeting the `main` branch in their `on:` block. This completes
+       the meta-guard family: Check 346/347 verify the gates are INVOKED
+       and BLOCKING, but a workflow whose `pull_request:` trigger is
+       removed simply never runs on PRs — the `run:` step is present yet
+       never executes, so PRs merge un-gated while CI shows no failure
+       (there is nothing to fail). Sibling of Check 346 (consistency
+       invocation) / Check 347 (behavior invocation) for the
+       CI-triggers-the-guard axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -15101,6 +15112,47 @@ if _pwf347.is_file():
 else:
     check(False, "Check 347: playwright-regression.yml present",
           "Check 347: playwright-regression.yml が無い", blocking=True)
+
+# ── 348. Both gate workflows trigger on pull_request → main (BLOCKING) ───────
+# meta-guard (trigger 層): 346/347 は invocation を守るが、pull_request トリガが
+# 消えると workflow が PR で発火せず run: step は存在するのに実行されない。
+def _has_pr_main_trigger348(_path):
+    if not _path.is_file():
+        return None
+    _src = _path.read_text(encoding="utf-8")
+    # `on:` ブロックを次の top-level key (行頭非空白 + `:`) まで切り出す
+    _m = re.search(r"(?ms)^on:\s*\n(.*?)(?=^\S)", _src)
+    if not _m:
+        # `on:` が inline (on: [push, pull_request]) の可能性
+        _inline = re.search(r"(?m)^on:\s*(.+)$", _src)
+        _block = _inline.group(1) if _inline else ""
+    else:
+        _block = _m.group(1)
+    _has_pr = "pull_request" in _block
+    _has_main = '"main"' in _block or "'main'" in _block or re.search(r"\bmain\b", _block)
+    return bool(_has_pr and _has_main)
+
+_wf348 = {
+    "architecture-validation.yml": ROOT / ".github" / "workflows" / "architecture-validation.yml",
+    "playwright-regression.yml": ROOT / ".github" / "workflows" / "playwright-regression.yml",
+}
+_bad348: list[str] = []
+for _name348, _p348 in _wf348.items():
+    _res348 = _has_pr_main_trigger348(_p348)
+    if _res348 is None:
+        _bad348.append(f"{_name348} が存在しない")
+    elif not _res348:
+        _bad348.append(f"{_name348} に pull_request→main トリガが無い")
+_ok348 = not _bad348
+check(
+    _ok348,
+    "Check 348: 両 gate workflow が pull_request→main トリガを宣言",
+    (f"Check 348: gate trigger drift: {_bad348!r} — "
+     "pull_request トリガが消えると workflow が PR で発火せず run: step が "
+     "存在しても実行されない (PR が un-gated で merge)。on: に "
+     "pull_request: branches: [main] を復元せよ"),
+    blocking=True,
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
