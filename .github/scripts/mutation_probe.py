@@ -1483,6 +1483,12 @@ MUTATIONS = [
         "find": 'src="./yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3"',
         "replace": 'src="./yuta-yokoi-sakura-swing-nonexistent-mutation-probe.mp3"',
     },
+    {
+        "name": "Check 360 (asset canonical resolution): drift asset:audio:canonical filename (keeps prefix, passes 234)",
+        "file": ROOT / "index.html",
+        "find": 'name="asset:audio:canonical" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3"',
+        "replace": 'name="asset:audio:canonical" content="https://yutapr0117-design.github.io/portfolio/yuta-yokoi-sakura-swing-nonexistent-mutation-probe.mp3"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
