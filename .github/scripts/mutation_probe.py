@@ -1435,6 +1435,12 @@ MUTATIONS = [
         "find": "<loc>https://yutapr0117-design.github.io/portfolio/README.md</loc>",
         "replace": "<loc>https://yutapr0117-design.github.io/portfolio/README.md</loc>\n    <loc>https://yutapr0117-design.github.io/portfolio/README-mutation-probe-extra.md</loc>",
     },
+    {
+        "name": "Check 352 (h innerHTML fail-closed): replace prohibition throw with an innerHTML sink assignment",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "throw new Error('[h] innerHTML is strictly prohibited in this architecture.');",
+        "replace": "el.innerHTML = String(value);",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
