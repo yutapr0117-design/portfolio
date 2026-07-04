@@ -1,7 +1,8 @@
 /**
- * js/apps.js — Productivity Apps (TaskPage / TodoPage / PomodoroPage / NotesPage /
- * SettingsPage) — v80+ Stage 5-n extraction via factory pattern
- * (v80+ bloat-reduction 2026-07-04 — AIPage を js/ai-page.js へ分離)
+ * js/apps.js — Productivity Apps (TaskPage / TodoPage / NotesPage / SettingsPage)
+ * — v80+ Stage 5-n extraction via factory pattern
+ * (v80+ bloat-reduction 2026-07-04 — AIPage を js/ai-page.js / PomodoroPage を
+ *  js/pomodoro-page.js へ分離)
  *
  * main.js の Apps Component 5 関数（合計 5 ページ）と関連 closure state を依存注入で
  * 物理分割した葉モジュール。Brand / Store / State / Theme / Meta Management /
@@ -10,8 +11,9 @@
  * 完全に byte-equivalent に保つ。
  *
  * 【公開 API（抽出前後で byte-equivalent）】
- *   const { TaskPage, TodoPage, PomodoroPage, NotesPage, SettingsPage } = createApps({...});
- *   (AIPage は js/ai-page.js の createAIPage で別途生成)
+ *   const { TaskPage, TodoPage, NotesPage, SettingsPage } = createApps({...});
+ *   (AIPage は js/ai-page.js の createAIPage / PomodoroPage は js/pomodoro-page.js の
+ *    createPomodoroPage で別途生成)
  *
  * 【factory closure 内の private state（揮発性 UI 状態の維持）】
  *   - taskFilter (const), todoFilter / todoComposing (let)
@@ -354,228 +356,10 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
         );
     }
 
-    // ===== Component: Pomodoro App =====
-    let pomodoroTimer = null;
-
-    function PomodoroPage() {
-        const pomo = State.get().appsData.pomodoro;
-
-        function formatTime(sec) {
-            const m = Math.floor(sec / 60);
-            const s = sec % 60;
-            return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-        }
-
-        function getDuration(mode) {
-            // [FIX] live state を読む (getRemaining と同根の stale-closure 対策): startTimer の
-            // interval は start() 時の closure に固定され、その closure の `pomo.settings` は稼働中に
-            // 設定変更されても古いまま。complete() が getDuration で remainingSec をリセットする際に
-            // 旧設定値を使うバグになるため、必ず最新 settings を参照する。
-            const settings = State.get().appsData.pomodoro.settings;
-            return (mode === 'work' ? settings.work :
-                mode === 'short-break' ? settings.short : settings.long) * 60;
-        }
-
-        function getRemaining() {
-            // [FIX] live state を読む: startTimer の interval は start() 時の closure に固定され、
-            // その closure の `pomo` は再描画後に stale (isActive=false の旧 runtime) になる。
-            // クロージャ変数を読むと interval の完了判定が常に remainingSec を返し complete() が
-            // 永遠に発火しない (表示は毎 tick の window.render が live を読むので 0 まで進むが
-            // 停止・history 記録・完了通知が起きない) ため、ここは必ず最新 runtime を参照する。
-            const rt = State.get().appsData.pomodoro.runtime;
-            if (rt.isActive && rt.endAtMs) {
-                return Math.max(0, Math.ceil((rt.endAtMs - Date.now()) / 1000));
-            }
-            return rt.remainingSec;
-        }
-
-        function start() {
-            const remaining = getRemaining();
-            State.update(s => {
-                s.appsData.pomodoro.runtime.isActive = true;
-                s.appsData.pomodoro.runtime.endAtMs = Date.now() + remaining * 1000;
-            });
-            startTimer();
-        }
-
-        function pause() {
-            State.update(s => {
-                s.appsData.pomodoro.runtime.isActive = false;
-                s.appsData.pomodoro.runtime.endAtMs = null;
-                s.appsData.pomodoro.runtime.remainingSec = getRemaining();
-            });
-            stopTimer();
-        }
-
-        function reset() {
-            stopTimer();
-            const duration = getDuration(pomo.runtime.mode);
-            State.update(s => {
-                s.appsData.pomodoro.runtime.isActive = false;
-                s.appsData.pomodoro.runtime.endAtMs = null;
-                s.appsData.pomodoro.runtime.remainingSec = duration;
-            });
-        }
-
-        function complete() {
-            stopTimer();
-            const duration = getDuration(pomo.runtime.mode);
-            State.update(s => {
-                s.appsData.pomodoro.history.push({
-                    timestamp: Date.now(),
-                    durationMinutes: Math.floor(duration / 60),
-                    type: s.appsData.pomodoro.runtime.mode,
-                    linkedTaskId: s.appsData.pomodoro.runtime.linkedTaskId
-                });
-                s.appsData.pomodoro.history = s.appsData.pomodoro.history.slice(-200);
-                s.appsData.pomodoro.runtime.isActive = false;
-                s.appsData.pomodoro.runtime.endAtMs = null;
-                s.appsData.pomodoro.runtime.remainingSec = duration;
-            });
-            Toast.show('セッション完了！', 'success');
-        }
-
-        function switchMode(mode) {
-            stopTimer();
-            const duration = getDuration(mode);
-            State.update(s => {
-                s.appsData.pomodoro.runtime.mode = mode;
-                s.appsData.pomodoro.runtime.isActive = false;
-                s.appsData.pomodoro.runtime.endAtMs = null;
-                s.appsData.pomodoro.runtime.remainingSec = duration;
-            });
-        }
-
-        function startTimer() {
-            if (pomodoroTimer) {clearInterval(pomodoroTimer);}
-            pomodoroTimer = setInterval(() => {
-                const remaining = getRemaining();
-                if (remaining <= 0) {
-                    complete();
-                    window.render(); // グローバルを描画
-                } else if (Router.getRoute().name === 'app-pomodoro') {
-                    window.render(); // グローバルを描画
-                }
-            }, 1000);
-        }
-
-        function stopTimer() {
-            if (pomodoroTimer) {
-                clearInterval(pomodoroTimer);
-                pomodoroTimer = null;
-            }
-        }
-
-        const modes = [
-            { id: 'work', label: '集中' },
-            { id: 'short-break', label: '短休憩' },
-            { id: 'long-break', label: '長休憩' }
-        ];
-
-        const remaining = getRemaining();
-        const isActive = pomo.runtime.isActive;
-
-        // [FIX] リロード/再初期化で active タイマーの interval が失われる問題を修正。
-        // pomodoroTimer は createApps factory 変数ゆえ reload で null に戻るが、runtime.isActive は
-        // endAtMs>now なら normalize (store.js) が保持する。startTimer は start() ボタンからのみ
-        // 呼ばれ auto-resume が無かったため、reload 後は「一時停止ボタン表示 (isActive=true) だが
-        // countdown が frozen で complete() が永遠に発火しない」stuck 状態になっていた。isActive
-        // かつ interval 不在 (pomodoroTimer===null) のときだけ resume する (稼働中の毎秒再描画では
-        // pomodoroTimer!==null ゆえ二重 interval にならない・complete/pause 後は isActive=false)。
-        if (isActive && !pomodoroTimer) {
-            startTimer();
-        }
-
-        function buildUI() {
-            return h('div', { class: 'flex flex-col gap-4 max-w-xl' },
-                h('header', { class: 'flex items-center gap-3' },
-                    createIcon('clock', 28),
-                    h('h1', { class: 'h1' }, 'ポモドーロタイマー')
-                ),
-
-                // Timer Display
-                h('section', { class: 'card' },
-                    h('div', { class: 'card-body text-center' },
-                        h('div', { class: 'flex justify-center gap-2 mb-6' },
-                            ...modes.map(m =>
-                                h('button', {
-                                    class: ['btn', pomo.runtime.mode === m.id ? 'btn-primary' : 'btn-secondary'],
-                                    onclick: () => switchMode(m.id)
-                                }, m.label)
-                            )
-                        ),
-                        h('div', {
-                            class: 'font-mono mb-6 text-stat'
-                        }, formatTime(remaining)),
-                        h('div', { class: 'flex justify-center gap-3' },
-                            h('button', {
-                                class: 'btn btn-primary btn-lg',
-                                onclick: isActive ? pause : start
-                            }, isActive ? h('span', {}, createIcon('pause', 20), ' 一時停止') : h('span', {}, createIcon('play', 20), ' 開始')),
-                            h('button', {
-                                class: 'btn btn-secondary',
-                                onclick: reset,
-                                'aria-label': 'リセット'
-                            }, createIcon('rotate', 20))
-                        )
-                    )
-                ),
-
-                // Settings
-                h('section', { class: 'card' },
-                    h('div', { class: 'card-body' },
-                        h('h2', { class: 'h3 mb-4' }, '設定（分）'),
-                        h('div', { class: 'grid grid-cols-3 gap-4' },
-                            h('div', {},
-                                h('label', { class: 'text-small text-muted mb-1 block' }, '集中'),
-                                h('input', {
-                                    type: 'number',
-                                    class: 'input',
-                                    'aria-label': '集中時間（分）',
-                                    value: pomo.settings.work,
-                                    min: 1, max: 180,
-                                    onchange: (e) => State.update(s => {
-                                        s.appsData.pomodoro.settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 180);
-                                        if (!s.appsData.pomodoro.runtime.isActive && s.appsData.pomodoro.runtime.mode === 'work') {
-                                            s.appsData.pomodoro.runtime.remainingSec = s.appsData.pomodoro.settings.work * 60;
-                                        }
-                                    })
-                                })
-                            ),
-                            h('div', {},
-                                h('label', { class: 'text-small text-muted mb-1 block' }, '短休憩'),
-                                h('input', {
-                                    type: 'number',
-                                    class: 'input',
-                                    'aria-label': '短休憩時間（分）',
-                                    value: pomo.settings.short,
-                                    min: 1, max: 60,
-                                    onchange: (e) => State.update(s => {
-                                        s.appsData.pomodoro.settings.short = clamp(parseInt(e.target.value, 10) || 5, 1, 60);
-                                    })
-                                })
-                            ),
-                            h('div', {},
-                                h('label', { class: 'text-small text-muted mb-1 block' }, '長休憩'),
-                                h('input', {
-                                    type: 'number',
-                                    class: 'input',
-                                    'aria-label': '長休憩時間（分）',
-                                    value: pomo.settings.long,
-                                    min: 1, max: 120,
-                                    onchange: (e) => State.update(s => {
-                                        s.appsData.pomodoro.settings.long = clamp(parseInt(e.target.value, 10) || 15, 1, 120);
-                                    })
-                                })
-                            )
-                        )
-                    )
-                )
-            );
-        }
-
-        return buildUI();
-    }
+    // ▼ PomodoroPage (ポモドーロタイマー) は肥大化解消のため js/pomodoro-page.js
+    //   (createPomodoroPage factory) へ分離した (2026-07-04)。private state は pomodoroTimer
+    //   (interval id) 1 個で自己完結。stale-closure 対策 (#121/#134) と reload auto-resume は
+    //   移設後も維持。main.js が createPomodoroPage で生成し合成する。挙動は byte-equivalent。
 
     // ▼ AIPage (AI アシスト・ローカル版) は肥大化解消のため js/ai-page.js
     //   (createAIPage factory) へ分離した (2026-07-04)。private state は aiLoading 1 個で
@@ -1036,5 +820,5 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
 
 
 
-    return { TaskPage, TodoPage, PomodoroPage, NotesPage, SettingsPage };
+    return { TaskPage, TodoPage, NotesPage, SettingsPage };
 }

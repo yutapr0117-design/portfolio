@@ -121,6 +121,9 @@
         // v80+ bloat-reduction (2026-07-04): AIPage (AI アシスト) を js/apps.js から
         //   js/ai-page.js へ分離。private state が aiLoading 1 個で自己完結ゆえ最安全単位。
         import { createAIPage } from './js/ai-page.js';
+        // v80+ bloat-reduction (2026-07-04): PomodoroPage を js/apps.js から js/pomodoro-page.js へ分離。
+        //   private state が pomodoroTimer (interval id) 1 個で自己完結。stale-closure 対策 (#121/#134) 温存。
+        import { createPomodoroPage } from './js/pomodoro-page.js';
         // v80+ Stage 5-o: Quiz Renderer (QuizPage + 4 quiz domain lookup) を factory pattern で葉モジュール抽出。
         import { createQuizRenderer } from './js/quiz-renderer.js';
         // v80+ Stage 5-l: AIDK Rail 5 IIFE (RouteState / EffectRails / BindingRegistry /
@@ -466,12 +469,14 @@
         //   へ factory pattern で抽出。各 page の private state（taskFilter /
         //   todoFilter / todoComposing / pomodoroTimer / aiLoading / settings*）も
         //   factory closure 内へ移動（揮発性 UI 状態は元と同位置で保持される・挙動 byte-equivalent）。
-        const { TaskPage, TodoPage, PomodoroPage, NotesPage, SettingsPage } = createApps({
+        const { TaskPage, TodoPage, NotesPage, SettingsPage } = createApps({
             h, createIcon, Toast, AUTHOR, Router, State, Theme, Brand, Store, Storage, CONSTANTS,
             generateId, clamp, slugify
         });
         // 2026-07-04 bloat-reduction: AIPage は別葉モジュール createAIPage で生成 (依存は h/createIcon/State/CONSTANTS のみ)
         const { AIPage } = createAIPage({ h, createIcon, State, CONSTANTS });
+        // 2026-07-04 bloat-reduction: PomodoroPage は別葉モジュール createPomodoroPage で生成 (依存は h/createIcon/State/Router/Toast/clamp)
+        const { PomodoroPage } = createPomodoroPage({ h, createIcon, State, Router, Toast, clamp });
 
 
         // ===== v80+ Stage 5-o: Quiz Renderer =====
