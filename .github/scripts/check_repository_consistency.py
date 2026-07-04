@@ -3466,7 +3466,11 @@ for _layer33 in _ZENN_LAYERS:
         # main.js + js/components.js を結合して検査
         if _JS_SHIPPED_AGGREGATE is None:
             _agg33 = ""
-            for _aux33 in (_p33, ROOT / "js" / "components.js"):
+            # 肥大化解消でページが js/<name>-page.js へ分離されたため、featuring layer
+            # (Zenn slug) を含みうる全ページ leaf を集約に含める (HomePage→home-page.js 等)。
+            for _aux33 in (_p33, ROOT / "js" / "components.js",
+                           ROOT / "js" / "home-page.js",
+                           ROOT / "js" / "ai-knowhow-page.js"):
                 if _aux33.exists():
                     _agg33 += _aux33.read_text(encoding="utf-8") + "\n"
             _JS_SHIPPED_AGGREGATE = _agg33
