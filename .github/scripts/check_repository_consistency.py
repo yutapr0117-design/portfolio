@@ -2666,6 +2666,19 @@ authoritative inventory and is kept in sync with the implementation below):
        (script-src authorization) for the external-script
        connect-authorization axis. (BLOCKING)
 
+  356. Google Fonts CSP pair: every external `<link rel="stylesheet"
+       href="https://host">` host in index.html MUST be in CSP
+       `style-src` (currently `fonts.googleapis.com`), AND — because the
+       Google Fonts CSS `@font-face src` points at `fonts.gstatic.com` —
+       `font-src` MUST include `https://fonts.gstatic.com`. Drift =
+       dropping googleapis from style-src CSP-blocks the font stylesheet
+       (no @font-face at all), or dropping gstatic from font-src
+       CSP-blocks the woff2 fetches (text falls back to system fonts).
+       Both are silent (screenshot advisory; behavior e2e does not diff
+       computed font-family). Font twin of Check 354/355 (script CSP).
+       Sibling of Check 301 (Google Fonts preconnect) for the
+       external-font CSP-authorization axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -15443,6 +15456,51 @@ if _idx355.is_file():
 else:
     check(False, "Check 355: index.html present",
           "Check 355: index.html が無い", blocking=True)
+
+# ── 356. Google Fonts CSP pair: style-src + font-src (BLOCKING) ──────────────
+# 354/355 の font 版: 外部 font stylesheet host は style-src、woff2 host
+# (fonts.gstatic.com) は font-src で許可される必要がある。片方欠落で font 破綻。
+_idx356 = ROOT / "index.html"
+if _idx356.is_file():
+    _h356 = _idx356.read_text(encoding="utf-8")
+    _h356_nc = re.sub(r"<!--.*?-->", "", _h356, flags=re.DOTALL)
+    _csp_m356 = re.search(r'Content-Security-Policy"\s+content="([^"]*)"',
+                          _h356_nc, re.DOTALL)
+    _style_src356 = ""
+    _font_src356 = ""
+    if _csp_m356:
+        for _d in _csp_m356.group(1).split(";"):
+            _ds = _d.strip()
+            if _ds.startswith("style-src"):
+                _style_src356 = _d
+            elif _ds.startswith("font-src"):
+                _font_src356 = _d
+    # 外部 stylesheet host (data: 除く https://) を抽出
+    _ext_css_hosts356 = set(re.findall(
+        r'<link[^>]*rel="stylesheet"[^>]*href="https://([^/"]+)', _h356_nc))
+    _problems356: list[str] = []
+    for _host in sorted(_ext_css_hosts356):
+        if f"https://{_host}" not in _style_src356:
+            _problems356.append(f"style-src に {_host} 不在")
+    # Google Fonts を使う場合、woff2 の gstatic を font-src に要求
+    if "fonts.googleapis.com" in _ext_css_hosts356:
+        if "https://fonts.gstatic.com" not in _font_src356:
+            _problems356.append("font-src に fonts.gstatic.com 不在 (woff2 fetch が block)")
+    _ok356 = (not _problems356) and bool(_style_src356)
+    check(
+        _ok356,
+        f"Check 356: 外部 font stylesheet host {sorted(_ext_css_hosts356)} が style-src + gstatic が font-src で authorize",
+        (f"Check 356: font CSP wiring drift: {_problems356!r} — "
+         "style-src から font stylesheet host が消えると @font-face 全滅、font-src から "
+         "gstatic が消えると woff2 が block されシステムフォント fallback。silent (screenshot "
+         "advisory)。CSP を復元せよ"
+         if _style_src356 else
+         "Check 356: CSP style-src directive が見つからない"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 356: index.html present",
+          "Check 356: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
