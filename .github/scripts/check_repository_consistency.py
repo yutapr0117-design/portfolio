@@ -2655,6 +2655,17 @@ authoritative inventory and is kept in sync with the implementation below):
        alignment) / Check 115 (CSP baseline) for the external-script
        CSP-authorization axis. (BLOCKING)
 
+  355. Every external `<script src="https://...">` host in index.html MUST
+       ALSO appear in the CSP `connect-src` directive. The analytics
+       loader (KARTE edge.js) fetches its runtime config and beacons from
+       its own origin; being authorized to LOAD (script-src, Check 354)
+       but not to CONNECT (connect-src) means the script loads yet all its
+       XHR/fetch calls are CSP-blocked — analytics half-breaks silently
+       (config never fetched, events never sent). Check 354 covers the
+       load leg; this covers the connect leg. Sibling of Check 354
+       (script-src authorization) for the external-script
+       connect-authorization axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -15396,6 +15407,42 @@ if _idx354.is_file():
 else:
     check(False, "Check 354: index.html present",
           "Check 354: index.html が無い", blocking=True)
+
+# ── 355. external <script src> hosts authorized in CSP connect-src (BLOCKING) ─
+# 354 の twin: loader (KARTE edge.js) は自 origin から config を fetch/beacon する。
+# LOAD 許可 (script-src) でも CONNECT 不許可 (connect-src) だと通信が CSP-block され
+# analytics が半壊 (config 取得不能・event 未送信) の silent drift。
+_idx355 = ROOT / "index.html"
+if _idx355.is_file():
+    _h355 = _idx355.read_text(encoding="utf-8")
+    _h355_nc = re.sub(r"<!--.*?-->", "", _h355, flags=re.DOTALL)
+    _csp_m355 = re.search(r'Content-Security-Policy"\s+content="([^"]*)"',
+                          _h355_nc, re.DOTALL)
+    _connect_src355 = ""
+    if _csp_m355:
+        for _d in _csp_m355.group(1).split(";"):
+            if _d.strip().startswith("connect-src"):
+                _connect_src355 = _d
+                break
+    _ext_hosts355 = set(re.findall(
+        r'<script[^>]*\ssrc="https://([^/"]+)', _h355_nc))
+    _unauthorized355 = sorted(
+        _host for _host in _ext_hosts355
+        if f"https://{_host}" not in _connect_src355)
+    _ok355 = (not _unauthorized355) and bool(_connect_src355)
+    check(
+        _ok355,
+        f"Check 355: 外部 script host {sorted(_ext_hosts355)} すべて CSP connect-src で authorize",
+        (f"Check 355: CSP connect-src が外部 script host を authorize しない: {_unauthorized355!r} — "
+         "loader は LOAD 許可 (script-src) でも CONNECT 不許可だと XHR/fetch が CSP-block され "
+         "analytics 半壊 (config 取得不能・event 未送信)。host を connect-src へ追加せよ"
+         if _connect_src355 else
+         "Check 355: CSP connect-src directive が見つからない"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 355: index.html present",
+          "Check 355: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
