@@ -2702,6 +2702,17 @@ authoritative inventory and is kept in sync with the implementation below):
        image:image) for the image-sitemap resolution+coherence axis.
        (BLOCKING)
 
+  359. BGM audio wiring: index.html MUST contain an `<audio id="bgm-audio">`
+       element (the id that the `BGM` manager in js/ui-components.js reads
+       via `getElementById('bgm-audio')`), AND its `src` MUST resolve to
+       an existing local file. Drift = removing/renaming the id silently
+       no-ops the BGM toggle (`_audio()` returns null); a stale src
+       (renaming the mp3 while updating JSON-LD/sitemap/asset:audio:canonical
+       but missing the `<audio src>`) makes playback 404 with only a
+       `console.warn('BGM play failed')` that no behavior e2e observes.
+       Sibling of Check 357 (preload resolution) / Check 335 (manifest
+       link wiring) for the BGM audio element-wiring axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -15603,6 +15614,49 @@ if _sitemap358.is_file() and _idx358.is_file():
 else:
     check(False, "Check 358: sitemap.xml + index.html present",
           "Check 358: sitemap.xml または index.html が無い", blocking=True)
+
+# ── 359. BGM <audio id="bgm-audio"> element wiring + src resolution (BLOCKING) ─
+# BGM manager (js/ui-components.js) は getElementById('bgm-audio') に依存。
+# element 不在で toggle が silent no-op、src drift で playback 404。
+_idx359 = ROOT / "index.html"
+if _idx359.is_file():
+    _h359 = _idx359.read_text(encoding="utf-8")
+    _h359_nc = re.sub(r"<!--.*?-->", "", _h359, flags=re.DOTALL)
+    _problems359: list[str] = []
+    # (a) <audio ... id="bgm-audio" ...> が存在する
+    _audio_m359 = re.search(r'<audio\b[^>]*\bid="bgm-audio"[^>]*>', _h359_nc, re.DOTALL)
+    if not _audio_m359:
+        # 属性順序が id が先のケースにも対応
+        _audio_m359 = re.search(r'<audio\b(?=[^>]*\bid="bgm-audio")[^>]*>', _h359_nc, re.DOTALL)
+    if not _audio_m359:
+        _problems359.append('<audio id="bgm-audio"> element が不在 (BGM manager の getElementById が null)')
+    else:
+        # (b) src が実 file に解決
+        _src_m359 = re.search(r'src="([^"]+)"', _audio_m359.group(0))
+        if not _src_m359:
+            _problems359.append('<audio id="bgm-audio"> に src 属性が無い')
+        else:
+            _src359 = _src_m359.group(1)
+            _rel359 = _src359
+            for _pfx in ("https://yutapr0117-design.github.io/portfolio/",
+                         "/portfolio/", "./", "/"):
+                if _rel359.startswith(_pfx):
+                    _rel359 = _rel359[len(_pfx):]
+                    break
+            if not (ROOT / _rel359).is_file():
+                _problems359.append(f'bgm-audio src {_src359!r} が file 解決しない (→ {_rel359})')
+    _ok359 = not _problems359
+    check(
+        _ok359,
+        "Check 359: <audio id=\"bgm-audio\"> 存在 + src が実 mp3 file に解決 (BGM 配線)",
+        (f"Check 359: BGM audio wiring drift: {_problems359!r} — "
+         "id 除去で BGM toggle が silent no-op、src drift で playback 404 "
+         "(console.warn のみ・behavior e2e 非検査)。element と src を復元せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 359: index.html present",
+          "Check 359: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
