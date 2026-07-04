@@ -2010,6 +2010,53 @@ test('Settings snapshot can be cleared back to the unsaved state', async ({ page
   await expect(page.getByText('スナップショットは未保存です。')).toBeVisible();
 });
 
+// ===== 7.2: AI history ingestion の文字列長 bound (import/cross-tab 側 #230 class) =====
+// write 側 (apps.js) は prompt を AI_MESSAGE(5000) で bound 済だが、load/import/cross-tab の
+// 正規化 (normalizeAppsData) は従来 entry 数(80) だけ bound し個々の prompt/response の文字列長を
+// bound していなかった。巨大 prompt を含む store を seed → load(validateAndNormalize) を通し、
+// 正規化後に prompt/response が AI_MESSAGE 以下へ切り詰められることを実検証する (localStorage
+// bloat を招く ingestion 側 gap の退行検知)。
+test('AI history strings are length-bounded on normalize ingestion (#230 class)', async ({ page }) => {
+  // load() が通る前に localStorage を巨大 prompt/response 入りの正しい schema で seed
+  await page.addInitScript(() => {
+    try {
+      const big = 'x'.repeat(20000);
+      localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+        schemaVersion: 12,
+        type: 'full-store',
+        appsData: { ai: { history: [{ prompt: big, response: big, timestamp: 1 }] } },
+        theme: 'system',
+        lastModified: 1,
+      }));
+    } catch (e) { /* noop */ }
+  });
+  // settings の「正規化」ボタンは validateAndNormalize を明示実行し、正規化後の store を
+  // localStorage へ保存確定する (load 直後は in-memory ゆえ localStorage 未反映のため、この経路で
+  // 永続化を確定させてから読み戻す)。
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  const normSection = page.locator('section.card').filter({ has: page.getByRole('heading', { name: '整合性チェック / 正規化' }) });
+  await normSection.getByRole('button', { name: '実行' }).click();
+  await expect(page.locator('#toast-container').getByText('正規化を完了しました')).toBeVisible();
+
+  // 正規化後、ai.history の prompt/response が AI_MESSAGE(5000) 以下へ bound されている。
+  // 保存は debounce (scheduleSave) されるため expect.poll で localStorage 反映を待つ。
+  await expect.poll(async () => {
+    return await page.evaluate(() => {
+      try {
+        const s = JSON.parse(localStorage.getItem('portfolio_enhanced_v45') || '{}');
+        const h = (s.appsData && s.appsData.ai && s.appsData.ai.history) || [];
+        if (!h.length) { return -1; }
+        return Math.max(...h.map(e => Math.max(String(e.prompt || '').length, String(e.response || '').length)));
+      } catch (e) { return -2; }
+    });
+  }, { timeout: 8000 }).toBe(5000); // 20000 → AI_MESSAGE(5000) へ厳密 bound (entry 保持 + 切詰)
+
+  // crash していない
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `normalize caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: JSON インポート (upsert) のラウンドトリップ — 新規 project 追加 + profile 保全 =====
 // Settings の importJSON は file アップロードを起点に projects を append/upsert/strict でマージし、
 // 末尾で validateAndNormalize を通す data-integrity 経路。export 側はテスト済だが round-trip の
