@@ -1,5 +1,6 @@
 /**
- * js/components.js — UI page components (Sidebar / ProjectDetailPage /
+ * js/components.js — UI page components (Sidebar / AppsPage / AboutPage 等 /
+ * (HomePage / ProjectsPage / ProjectDetailPage は肥大化解消で js/*-page.js へ分離済)
  * (HomePage / ProjectsPage は肥大化解消で js/{home,projects}-page.js へ分離済)
  * (HomePage は肥大化解消で js/home-page.js へ分離済)
  * ProjectDetailPage / AppsPage / AboutPage / ResumePage / ContactPage /
@@ -13,7 +14,7 @@
  *
  * 【公開 API（抽出前後で byte-equivalent）】
  *   const Components = createComponents({...});
- *   const { Sidebar, ProjectDetailPage, AppsPage, AboutPage,
+ *   const { Sidebar, AppsPage, AboutPage,
  *           ResumePage, ContactPage, FatalPage, ContactCTA } = Components;
  *
  *   ContactCTA はさらに js/pages.js (createPages の引数) へも引き渡され、
@@ -182,161 +183,6 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
         );
 
         return content;
-    }
-
-    function ProjectDetailPage(slug) {
-        const state = State.get();
-        const project = state.projects.find(p => p.slug === slug);
-
-        if (!project) {
-            return h('div', { class: 'flex flex-col gap-4' },
-                h('h1', { class: 'h1' }, 'プロジェクトが見つかりません'),
-                h('button', {
-                    class: 'btn btn-secondary',
-                    onclick: () => Router.navigate('projects')
-                }, '一覧へ戻る')
-            );
-        }
-
-        const related = state.projects.filter(p =>
-            project.relatedProjectIds?.includes(p.id) && p.id !== project.id
-        );
-
-        const autoRelated = Store.autoRelatedCandidates(project, state.projects, 8);
-        return h('article', { class: 'flex flex-col gap-6' },
-            // Header
-            h('header', {},
-                h('button', {
-                    class: 'btn btn-ghost btn-sm mb-4',
-                    onclick: () => Router.navigate('projects')
-                }, '← 一覧に戻る'),
-                h('div', { class: 'flex flex-wrap gap-2 mb-3' },
-                    h('span', { class: 'badge badge-primary' }, project.category),
-                    project.demoRoute ? h('span', { class: 'badge badge-success' }, 'デモあり') : null
-                ),
-                h('h1', { class: 'h1 mb-3' }, project.name),
-                h('p', { class: 'text-muted mb-4' }, project.summary),
-                h('div', { class: 'flex flex-wrap gap-2' },
-                    ...(project.tags || []).map(tag =>
-                        h('span', { class: 'badge badge-secondary' }, '#' + tag)
-                    )
-                )
-            ),
-
-            // Content Grid
-            h('div', { class: 'grid-2col grid--align-start' },
-                // Left Column
-                h('div', { class: 'flex flex-col gap-4' },
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body' },
-                            h('h3', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },
-                                createIcon('alert', 20),
-                                '課題'
-                            )),
-                            h('p', { class: 'text-muted text-prewrap' }, project.problem)
-                        )
-                    ),
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body' },
-                            h('h3', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },
-                                createIcon('brain', 20),
-                                'アプローチ'
-                            )),
-                            h('p', { class: 'text-muted text-prewrap' }, project.approach)
-                        )
-                    ),
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body' },
-                            h('h3', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },
-                                createIcon('apps', 20),
-                                'アーキテクチャ'
-                            )),
-                            h('p', { class: 'text-muted font-mono text-small text-prewrap' },
-                                project.architecture?.overview || '(未登録)'
-                            )
-                        )
-                    )
-                ),
-
-                // Right Column
-                h('div', { class: 'flex flex-col gap-4' },
-                    h('section', { class: 'card' },
-                        h('div', { class: 'card-body' },
-                            h('h3', { class: 'h3 mb-3' }, '使用技術'),
-                            h('div', { class: 'flex flex-wrap gap-2' },
-                                ...(project.tech || []).map(t =>
-                                    h('span', { class: 'badge badge-secondary' }, t)
-                                )
-                            )
-                        )
-                    ),
-                    project.demoRoute ? h('section', {
-                        class: 'card border-primary-faint'
-                    },
-                        h('div', { class: 'card-body' },
-                            h('h3', { class: 'h3 mb-2' }, 'デモ'),
-                            h('p', { class: 'text-small text-muted mb-3' }, 'このプロジェクトはポートフォリオ内で実際に動作します。'),
-                            h('button', {
-                                class: 'btn btn-primary',
-                                onclick: () => Router.navigate(`apps/${project.demoRoute}`)
-                            }, 'アプリを起動')
-                        )
-                    ) : null,
-                    related.length > 0 ? h('section', { class: 'card' },
-                        h('div', { class: 'card-body' },
-                            h('h3', { class: 'h3 mb-3' }, '関連プロジェクト'),
-                            h('ul', { class: 'list-readable' },
-                                ...related.map(r =>
-                                    h('li', { class: 'mb-2' },
-                                        h('button', {
-                                            class: 'btn btn-ghost btn-sm',
-                                            onclick: () => Router.navigate(`projects/${r.slug}`)
-                                        }, r.name)
-                                    )
-                                )
-                            )
-                        )
-                    ) : null
-                )
-            ),
-
-            // Metrics
-            h('section', { class: 'card' },
-                h('div', { class: 'card-body' },
-                    h('h3', { class: 'h3 mb-4' }, 'メトリクス'),
-                    project.outcome?.metrics?.length ? h('div', { class: 'grid grid-cols-3' },
-                        ...project.outcome.metrics.map(m =>
-                            h('div', { class: 'text-center p-4' },
-                                h('div', {
-                                    class: 'h2 mb-1 color-primary'
-                                }, m.value),
-                                h('div', { class: 'text-small text-muted' }, m.label)
-                            )
-                        )
-                    ) : h('p', { class: 'text-muted' }, 'メトリクスは未登録です。')
-                )
-            )
-
-            ,
-            autoRelated.length > 0 ? h('section', { class: 'card' },
-                h('div', { class: 'card-body' },
-                    h('h3', { class: 'h3 mb-3' }, 'おすすめ（自動）'),
-                    h('p', { class: 'text-muted mb-3' }, 'カテゴリ/タグ/技術/本文の近さから自動で近いプロジェクトを提案します。'),
-                    h('ul', { class: 'list-clean' },
-                        ...autoRelated.map(r =>
-                            h('li', { class: 'mb-2' },
-                                h('button', {
-                                    class: 'btn btn-ghost btn-sm',
-                                    onclick: () => Router.navigate(`projects/${r.slug}`)
-                                },
-                                    createIcon('sparkles', 16),
-                                    h('span', { class: 'icon-gap' }, r.name)
-                                )
-                            )
-                        )
-                    )
-                )
-            ) : null);
     }
 
     function AppsPage() {
@@ -603,6 +449,6 @@ export function createComponents({ h, createIcon, Toast, BGM, AUTHOR, Router, St
         );
     }
 
-    return { Sidebar, ProjectDetailPage, AppsPage,
+    return { Sidebar, AppsPage,
              AboutPage, ResumePage, ContactPage, FatalPage, ContactCTA };
 }
