@@ -1453,6 +1453,12 @@ MUTATIONS = [
         "find": "https://cdn-edge.karte.io https://static.karte.io;",
         "replace": "https://static.karte.io;",
     },
+    {
+        "name": "Check 355 (external script connect-src authz): drop cdn-edge.karte.io from connect-src (script-src keeps it, passes 354)",
+        "file": ROOT / "index.html",
+        "find": "connect-src 'self' https://cdn-edge.karte.io ",
+        "replace": "connect-src 'self' ",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
