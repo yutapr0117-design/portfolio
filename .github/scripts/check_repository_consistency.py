@@ -2713,6 +2713,19 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 357 (preload resolution) / Check 335 (manifest
        link wiring) for the BGM audio element-wiring axis. (BLOCKING)
 
+  360. Every `<meta name="asset:*:canonical">` content URL (currently
+       `asset:image:canonical` → hero WebP, `asset:audio:canonical` → BGM
+       MP3) MUST resolve (after stripping the canonical prefix) to an
+       existing local file. Check 234 verifies these URLs share the
+       canonical prefix but NOT that they point at a real file — so a
+       rename that updates the filename in the URL while leaving the
+       prefix intact stays green under 234 yet declares an AIO canonical
+       asset that 404s. AI crawlers that fetch the declared canonical
+       asset get a dead link, corrupting the entity's asset authority.
+       Sibling of Check 234 (asset:* canonical prefix) / Check 164
+       (og:image resolves) for the AIO-asset-canonical resolution axis.
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -15657,6 +15670,37 @@ if _idx359.is_file():
 else:
     check(False, "Check 359: index.html present",
           "Check 359: index.html が無い", blocking=True)
+
+# ── 360. asset:*:canonical meta URLs resolve to real files (BLOCKING) ────────
+# Check 234 は canonical prefix を守るが実 file 解決は未検証。rename で
+# canonical-prefixed だが 404 な AIO canonical asset を declare しうる gap を封じる。
+_idx360 = ROOT / "index.html"
+if _idx360.is_file():
+    _h360 = re.sub(r"<!--.*?-->", "", _idx360.read_text(encoding="utf-8"), flags=re.DOTALL)
+    _asset_canon360 = re.findall(
+        r'<meta\s+name="(asset:[^"]*canonical)"\s+content="(https://[^"]+)"', _h360)
+    _missing360: list[str] = []
+    for _name, _url in _asset_canon360:
+        _rel = _url
+        for _pfx in ("https://yutapr0117-design.github.io/portfolio/",
+                     "/portfolio/", "./", "/"):
+            if _rel.startswith(_pfx):
+                _rel = _rel[len(_pfx):]
+                break
+        if not (ROOT / _rel).is_file():
+            _missing360.append(f"{_name} → {_url} (file 解決せず)")
+    _ok360 = (not _missing360) and len(_asset_canon360) > 0
+    check(
+        _ok360,
+        f"Check 360: asset:*:canonical meta {len(_asset_canon360)} 件すべて実 file に解決",
+        (f"Check 360: asset canonical が file 解決しない: {_missing360!r} — "
+         "canonical prefix (Check 234) は通るが実 file が無い = AI crawler が fetch すると "
+         "dead link で entity の asset authority が壊れる。実 file へ揃えよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 360: index.html present",
+          "Check 360: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
