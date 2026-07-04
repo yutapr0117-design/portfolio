@@ -2618,6 +2618,17 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 307 (sitemap XML structure) for the sitemap url-block
        structural-completeness axis. (BLOCKING)
 
+  352. `js/ui-components.js` `h()` (the single DOM builder used by every
+       render path) MUST retain its fail-closed innerHTML prohibition:
+       the `html` attribute key branch MUST `throw` (not assign
+       `el.innerHTML`). `h()` is the architectural XSS boundary — all
+       user/state text flows through it as `createTextNode`. If the throw
+       is replaced by an `el.innerHTML = value` assignment, every call
+       site that passes an `html` attr becomes an XSS sink and the entire
+       no-innerHTML contract (Boring Technology + Trusted Types) collapses
+       silently. Sibling of Check 239 (no eval) / Check 43 (protected
+       blocks) for the shipped-JS XSS-boundary integrity axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -15270,6 +15281,33 @@ if _sitemap351.is_file():
 else:
     check(False, "Check 351: sitemap.xml present",
           "Check 351: sitemap.xml が無い", blocking=True)
+
+# ── 352. h() retains fail-closed innerHTML prohibition (BLOCKING) ────────────
+# h() は全 render 経路が使う単一 DOM builder = アーキテクチャの XSS 境界。
+# 'html' attr key branch が throw であること (el.innerHTML 代入でないこと) を強制。
+_uic352 = ROOT / "js" / "ui-components.js"
+if _uic352.is_file():
+    _usrc352 = _uic352.read_text(encoding="utf-8")
+    _problems352: list[str] = []
+    # (a) innerHTML prohibition throw が存在する
+    if "innerHTML is strictly prohibited" not in _usrc352:
+        _problems352.append("innerHTML-prohibition throw が消えている")
+    # (b) el.innerHTML への代入が存在しない (XSS sink 化の直接兆候)
+    if re.search(r"\.innerHTML\s*=", _usrc352):
+        _problems352.append(".innerHTML = 代入が存在 (XSS sink)")
+    _ok352 = not _problems352
+    check(
+        _ok352,
+        "Check 352: js/ui-components.js h() が fail-closed innerHTML 禁止 (throw 保持 + .innerHTML= 代入なし)",
+        (f"Check 352: XSS 境界 drift: {_problems352!r} — "
+         "h() の 'html' key branch が throw でなくなる or .innerHTML= 代入が入ると "
+         "全 h() call site が XSS sink 化し no-innerHTML 契約 (Trusted Types) が崩壊。"
+         "throw new Error('[h] innerHTML is strictly prohibited...') を復元せよ"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 352: js/ui-components.js present",
+          "Check 352: js/ui-components.js が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
