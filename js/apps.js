@@ -622,22 +622,32 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
             const type = analyzeInput(input);
 
             setTimeout(() => {
-                const response = generateResponse(input, type);
-                State.update(s => {
-                    s.appsData.ai.history.push({
-                        // [FIX] prompt を AI_MESSAGE 上限で bound する (他アプリの入力 slice と同様)。
-                        // 従来は無制限保存で、巨大入力が ai.history (last 80) に蓄積し localStorage を
-                        // bloat させ得た。AI_MESSAGE 定数は元来この制限用だが配線が失われていた (Check 125 が検出)。
-                        prompt: input.slice(0, CONSTANTS.LIMITS.AI_MESSAGE),
-                        response,
-                        timestamp: Date.now()
+                // [FIX] aiLoading の解除を finally で保証する fail-safe。従来は通常経路末尾で
+                //   aiLoading=false を代入していたため、generateResponse / State.update が万一 throw
+                //   すると aiLoading が true のまま残り、submit ガード (if (aiLoading) return) が
+                //   以後の全 submit をブロックして AI ページが恒久 submit 不能に stuck した
+                //   (pomodoro/drawer と同じ「フラグをエラー経路でリセットしない」stuck-state class)。
+                //   throw が起きても必ず入力可能へ復帰させる。
+                try {
+                    const response = generateResponse(input, type);
+                    State.update(s => {
+                        s.appsData.ai.history.push({
+                            // [FIX] prompt を AI_MESSAGE 上限で bound する (他アプリの入力 slice と同様)。
+                            // 従来は無制限保存で、巨大入力が ai.history (last 80) に蓄積し localStorage を
+                            // bloat させ得た。AI_MESSAGE 定数は元来この制限用だが配線が失われていた (Check 125 が検出)。
+                            prompt: input.slice(0, CONSTANTS.LIMITS.AI_MESSAGE),
+                            response,
+                            timestamp: Date.now()
+                        });
+                        s.appsData.ai.history = s.appsData.ai.history.slice(-80);
                     });
-                    s.appsData.ai.history = s.appsData.ai.history.slice(-80);
-                });
-                aiLoading = false;
-                // State.update が内部で notify() するため window.render() は自動で呼ばれる
-                // 応答完了後に再度入力できるようフォーカスを復元
-                setTimeout(() => document.getElementById('ai-input')?.focus(), 0);
+                } finally {
+                    aiLoading = false;
+                    // 万一の throw で State.update の notify が走らない場合でもローディング表示を解除。
+                    try { window.render(); } catch { /* noop */ }
+                    // 応答完了後に再度入力できるようフォーカスを復元
+                    setTimeout(() => document.getElementById('ai-input')?.focus(), 0);
+                }
             }, 300);
         }
 
