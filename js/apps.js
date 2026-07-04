@@ -473,6 +473,17 @@ export function createApps({ h, createIcon, Toast, AUTHOR, Router, State, Theme,
         const remaining = getRemaining();
         const isActive = pomo.runtime.isActive;
 
+        // [FIX] リロード/再初期化で active タイマーの interval が失われる問題を修正。
+        // pomodoroTimer は createApps factory 変数ゆえ reload で null に戻るが、runtime.isActive は
+        // endAtMs>now なら normalize (store.js) が保持する。startTimer は start() ボタンからのみ
+        // 呼ばれ auto-resume が無かったため、reload 後は「一時停止ボタン表示 (isActive=true) だが
+        // countdown が frozen で complete() が永遠に発火しない」stuck 状態になっていた。isActive
+        // かつ interval 不在 (pomodoroTimer===null) のときだけ resume する (稼働中の毎秒再描画では
+        // pomodoroTimer!==null ゆえ二重 interval にならない・complete/pause 後は isActive=false)。
+        if (isActive && !pomodoroTimer) {
+            startTimer();
+        }
+
         function buildUI() {
             return h('div', { class: 'flex flex-col gap-4 max-w-xl' },
                 h('header', { class: 'flex items-center gap-3' },
