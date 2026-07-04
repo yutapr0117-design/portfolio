@@ -1423,6 +1423,12 @@ MUTATIONS = [
         "find": '<svg xmlns="http://www.w3.org/2000/svg"',
         "replace": '<png xmlns="http://www.w3.org/2000/svg"',
     },
+    {
+        "name": "Check 350 (inline handler CSP hash): corrupt the handler hash in CSP (handler unchanged, passes 242)",
+        "file": ROOT / "index.html",
+        "find": "'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc='",
+        "replace": "'sha256-CORRUPTED7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc='",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
