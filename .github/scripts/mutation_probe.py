@@ -1375,6 +1375,12 @@ MUTATIONS = [
         "find": '<meta name="twitter:image:alt" content="横井雄太 AI-Driven PM Portfolio — v1→v74 AIチームオーケストレーション実証" />',
         "replace": '<meta name="twitter:image:alt" content="" />',
     },
+    {
+        "name": "Check 342 (robots no catastrophic Disallow): inject whole-site Disallow: /",
+        "file": ROOT / "robots.txt",
+        "find": "Allow: /\n",
+        "replace": "Allow: /\nDisallow: /\n",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
