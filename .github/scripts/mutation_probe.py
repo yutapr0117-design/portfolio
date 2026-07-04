@@ -1429,6 +1429,12 @@ MUTATIONS = [
         "find": "'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc='",
         "replace": "'sha256-CORRUPTED7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc='",
     },
+    {
+        "name": "Check 351 (sitemap url has one loc): add a second unique loc to README.md url block (passes 312 uniqueness)",
+        "file": ROOT / "sitemap.xml",
+        "find": "<loc>https://yutapr0117-design.github.io/portfolio/README.md</loc>",
+        "replace": "<loc>https://yutapr0117-design.github.io/portfolio/README.md</loc>\n    <loc>https://yutapr0117-design.github.io/portfolio/README-mutation-probe-extra.md</loc>",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
