@@ -73,6 +73,7 @@ Status        : Plan D「物理移動なし、README で grouping を提供」�
 - `improvement-notes-claude-v80-phase3-continuous-improvement-run.md`
 - `improvement-notes-claude-v80-phase4-operating-model-and-a-group-run.md`
 - `improvement-notes-claude-v80-phase4-privacy-evidence-and-operating-model-record.md`
+- `improvement-notes-claude-v80-phase4-bloat-reduction-and-behavioral-bughunt.md`
 
 ---
 
