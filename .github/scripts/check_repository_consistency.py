@@ -2594,6 +2594,20 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 337 (hero/BGM magic bytes) for the icon-asset
        format-integrity axis. (BLOCKING)
 
+  350. The inline event-handler `onload="this.media='all'"` (the async
+       font-loading trick) MUST have its exact-content SHA-256 hash
+       present in the CSP `script-src` (authorized via `'unsafe-hashes'`).
+       Check 7b/7c cover the two inline `<script>` blocks; this covers the
+       third CSP hash — the inline handler. Drift = editing the handler
+       value (e.g. `this.media='screen'`) without recomputing the CSP
+       hash makes Chrome BLOCK the handler, so the print-media stylesheet
+       never flips to `all` and the fonts never load (FOUC / wrong font),
+       silently. Computed from live handler content (not a constant), so
+       both a removed hash and an edited-without-rehash handler are
+       caught. Sibling of Check 7b (suppressor hash) / Check 7c
+       (speculation-rules hash) / Check 242 (handler allowlist) for the
+       inline-CSP-hash integrity axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -15191,6 +15205,36 @@ if _icon349.is_file():
 else:
     check(False, "Check 349: icon.svg present",
           "Check 349: icon.svg が無い", blocking=True)
+
+# ── 350. inline onload handler CSP hash present + matches content (BLOCKING) ──
+# Check 7b/7c は 2 つの inline <script> block を被覆。本 Check は 3 つ目の CSP
+# hash = inline event handler `this.media='all'` を被覆。handler を編集して
+# hash を再計算しないと Chrome が block しフォント非同期ロードが silent 破綻。
+_idx350 = ROOT / "index.html"
+if _idx350.is_file():
+    _h350 = _idx350.read_text(encoding="utf-8")
+    _h350_nc = re.sub(r"<!--.*?-->", "", _h350, flags=re.DOTALL)
+    # font async-load handler の onload 属性値を実体から抽出
+    _m350 = re.search(r"onload=\"(this\.media='[^']*')\"", _h350_nc)
+    if _m350 is not None:
+        _handler_content350 = _m350.group(1)
+        _handler_hash350 = _lib_csp_sri_hash(_handler_content350)
+        check(
+            f"'{_handler_hash350}'" in _h350,
+            f"Check 350: CSP が inline handler {_handler_content350!r} を authorize (content hash {_handler_hash350})",
+            (f"Check 350: CSP が inline handler {_handler_content350!r} を authorize しない — "
+             f"computed {_handler_hash350} が script-src に不在。handler を編集して CSP hash を "
+             "再計算し忘れると Chrome が block しフォント非同期ロードが破綻 (FOUC)。"
+             f"'{_handler_hash350}' を script-src へ追加せよ"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 350: inline onload handler present",
+              "Check 350: index.html に onload=\"this.media='...'\" handler が無い "
+              "(font async-load pattern の期待値)", blocking=True)
+else:
+    check(False, "Check 350: index.html present",
+          "Check 350: index.html が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
