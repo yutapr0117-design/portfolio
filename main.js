@@ -68,6 +68,9 @@
         // 暗黙参照としていた（ReferenceError 隠れバグ）。Stage 5-j で factory pattern に修正し、
         // 依存を引数注入で解消（葉契約維持）。
         import { createPages } from './js/pages.js';
+        // v80+ bloat-reduction (2026-07-04): HiringRiskPage (採用リスク低減 / 最大ページ) +
+        //   専用 helper を js/pages.js から js/hiring-risk-page.js へ分離。pages.js の肥大化を解消。
+        import { createHiringRiskPage } from './js/hiring-risk-page.js';
         // v80+ Stage 5-c: Safe Storage（localStorage ラッパ）を葉モジュールへ抽出。
         //   closure-deps = none（localStorage と引数のみ。CONSTANTS 等の IIFE クロージャ非参照）。
         import { Storage } from './js/storage.js';
@@ -442,9 +445,11 @@
         const ProjectDetailPage = createProjectDetailPage({ h, createIcon, Router, State, Store });
 
         // ===== v80+ Stage 5-j: Page components factory instantiation =====
-        //   ContactCTA は Stage 5-m で createComponents から供給される。それを createPages
-        //   の引数に渡して HiringRiskPage / RoleSplitPage / NotFoundPage を合成する。
-        const { HiringRiskPage, RoleSplitPage, NotFoundPage } = createPages({ h, createIcon, Router, ContactCTA });
+        //   ContactCTA は Stage 5-m で createComponents から供給される。それを createPages /
+        //   createHiringRiskPage の引数に渡して各ページを合成する。
+        //   (2026-07-04 bloat-reduction: HiringRiskPage は別葉モジュール createHiringRiskPage へ分離)
+        const HiringRiskPage = createHiringRiskPage({ h, createIcon, Router, ContactCTA }).HiringRiskPage;
+        const { RoleSplitPage, NotFoundPage } = createPages({ h, createIcon, Router, ContactCTA });
 
 
         // ===== Component: Home Page =====
