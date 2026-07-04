@@ -2735,6 +2735,17 @@ authoritative inventory and is kept in sync with the implementation below):
        unbounded — the exact gap file-size-budget.md §5 flagged as a
        deferred extension. Machine-enforces the owner-accepted 1,000-line
        threshold discipline (keep bloat from recurring). (BLOCKING)
+  362. Every mutation in mutation_samples.py (MUTATIONS ∪ E2E_MUTATIONS)
+       MUST have its `find` anchor resolve in its target `file`. The
+       mutation-probe / -e2e runners are NOT invoked by any CI workflow
+       (completeness verification is manual), so a leaf extraction or
+       refactor that moves/removes the anchored code leaves the anchor
+       silently orphaned until someone runs the probe by hand — quietly
+       hollowing out the completeness-critic's net. Real example: #558
+       moved PomodoroPage js/apps.js → js/pomodoro-page.js and orphaned
+       the pomodoro E2E mutation anchor. This lifts anchor integrity into
+       the BLOCKING verify gate so refactors must keep mutation_samples.py
+       in sync. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -15759,6 +15770,40 @@ if _budget361.exists():
     )
 else:
     warnings.append("Check 361: file-size-budget.md not found — JS budget coverage skipped")
+
+# ── 362. mutation_samples find-anchor resolution (BLOCKING) ───────────────────
+# mutation_samples.py の全 mutation (MUTATIONS ∪ E2E_MUTATIONS) の `find` anchor が対象 file に
+# 実在することを機械強制する。mutation-probe / mutation-probe-e2e は CI workflow から呼ばれない
+# (完全性検証は手動実行) ため、leaf 抽出やリファクタで anchor の対象コードが別 file へ移動/消滅
+# しても、手動で probe を回すまで anchor は silent に orphan 化し、completeness-critic (安全網の
+# 安全網) の網が知らぬ間に穴だらけになる。実例: #558 で PomodoroPage を js/apps.js →
+# js/pomodoro-page.js へ分離した際、pomodoro E2E mutation の anchor が apps.js から消え orphan 化
+# した (mutation-probe --e2e を手動実行して初めて発覚)。本 Check は anchor 整合性を verify 時の
+# BLOCKING gate へ引き上げ、抽出/リファクタ時に mutation_samples.py の追従を強制する。
+try:
+    import importlib as _importlib362
+    _ms362 = _importlib362.import_module("mutation_samples")
+    _orphans362: list[str] = []
+    for _lst362, _lbl362 in ((_ms362.MUTATIONS, "MUTATIONS"), (_ms362.E2E_MUTATIONS, "E2E_MUTATIONS")):
+        for _m362 in _lst362:
+            _f362 = _m362["file"]
+            try:
+                _txt362 = _f362.read_text(encoding="utf-8")
+            except OSError:
+                _orphans362.append(f"[{_lbl362}] {_m362['name'][:55]} → file 不在: {_f362}")
+                continue
+            if _m362["find"] not in _txt362:
+                _orphans362.append(f"[{_lbl362}] {_m362['name'][:55]} → find-anchor 不在 in {_f362.name}")
+    check(
+        not _orphans362,
+        f"Check 362: all {len(_ms362.MUTATIONS) + len(_ms362.E2E_MUTATIONS)} mutation find-anchors "
+        "(MUTATIONS ∪ E2E_MUTATIONS) resolve in their target files",
+        f"Check 362: orphaned mutation find-anchor(s): {_orphans362[:5]}. "
+        "リファクタ/抽出で anchor の対象コードが別 file へ移動/消滅した — mutation_samples.py の該当 "
+        "file/find を現行コードへ追従させよ (mutation-probe は CI 非実行ゆえ本 Check が anchor 整合を守る)",
+    )
+except ImportError as _e362:
+    warnings.append(f"Check 362: mutation_samples import failed ({_e362}) — anchor resolution skipped")
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

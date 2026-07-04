@@ -762,6 +762,11 @@ _MUTATIONS_TAIL = [
         "find": "js/ai-page.js | 300 | advisory",
         "replace": "# js/ai-page.js budget line removed by mutation probe",
     },
+    # 注: Check 362 (mutation anchor resolution) の curated meta-mutation は敢えて置かない。
+    # anchor を orphan 化する mutation は mutation_samples.py 自身の `"find":` 行を quote する
+    # 自己参照になり、mutation_probe の replace(find, replace, 1) が先頭 (= その mutation 自身の
+    # find 値) に当たって挙動が不安定になるため。Check 362 の非 vacuous 性は手動で実証済
+    # (mutation の file を誤り先へ変えると Check 362 が RED・restore で緑)。
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。
