@@ -106,6 +106,8 @@
         //   h/createIcon/Toast/BGM/AUTHOR/Router/State/Theme/Brand/Store を引数注入。
         //   ContactCTA は js/pages.js (createPages の ContactCTA 引数) にも引き渡される。
         import { createComponents } from './js/components.js';
+        // 肥大化解消: AIKnowhowPage (最大の単一ページ) を js/components.js から分離。
+        import { createAIKnowhowPage } from './js/ai-knowhow-page.js';
         // v80+ Stage 5-n: Productivity Apps Components (TaskPage / TodoPage / PomodoroPage /
         //   AIPage / SettingsPage) を factory pattern で葉モジュール抽出。各 page の private
         //   state も factory closure 内に閉じ込める（揮発性 UI 状態は元と同位置で保持）。
@@ -423,12 +425,15 @@
         // clear / CONSTANTS / tokenize は既に import / declared 済み。
         const {
             Sidebar, HomePage, ProjectsPage, ProjectDetailPage, AppsPage,
-            AboutPage, ResumePage, ContactPage, FatalPage, AIKnowhowPage, ContactCTA
+            AboutPage, ResumePage, ContactPage, FatalPage, ContactCTA
         } = createComponents({
             h, createIcon, Toast, BGM, AUTHOR, Router, State, Theme, Brand, Store,
             tokenize, CONSTANTS, clear,
             closeDrawer: () => _drawer.closeDrawer?.()
         });
+        // 肥大化解消: AIKnowhowPage は js/ai-knowhow-page.js へ分離。ContactCTA (共有 helper) を
+        // createComponents 生成後に注入して従来どおり生成する (挙動 byte-equivalent)。
+        const AIKnowhowPage = createAIKnowhowPage({ h, createIcon, ContactCTA });
 
         // ===== v80+ Stage 5-j: Page components factory instantiation =====
         //   ContactCTA は Stage 5-m で createComponents から供給される。それを createPages

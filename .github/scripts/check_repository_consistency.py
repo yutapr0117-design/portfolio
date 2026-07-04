@@ -6879,13 +6879,18 @@ check(
 # onboarding 税 + entity 記述の不正確化) のを防ぐため、両面が現運用モデルの marker を
 # 保持することを BLOCKING で機械強制する。canon (AI2AI.md STEP 3 Operating Model) は
 # Check 102a-f が別途強制しており、本 Check はその「公開 surface 版」(102b の site/AIO 面)。
-_comp123 = ROOT / "js" / "components.js"
-_comp123_t = _comp123.read_text(encoding="utf-8") if _comp123.exists() else ""
+# NOTE (肥大化解消 2026-07-04): 運用モデル記述は ai-knowhow ページ内容にあり、そのページは
+# js/components.js から js/ai-knowhow-page.js へ分離された。marker の実在場所が移動しただけで
+# 「サイトに現運用モデル記述あり」invariant は不変ゆえ、両ファイルの union を scan する。
+_comp123_files = [ROOT / "js" / "components.js", ROOT / "js" / "ai-knowhow-page.js"]
+_comp123_t = "".join(
+    _f.read_text(encoding="utf-8") for _f in _comp123_files if _f.exists()
+)
 _site_ok123 = ("現在の運用モデル" in _comp123_t) and ("Claude Code" in _comp123_t) and ("自走" in _comp123_t)
 check(
     _site_ok123,
-    "Check 123a: js/components.js が現運用モデル (現在の運用モデル + Claude Code + 自走) を保持 (site↔canon coherence)",
-    "Check 123a: js/components.js から現運用モデルの記述が失われた — 「対話型 Claude」だけの旧記述へ "
+    "Check 123a: site (js/components.js ∪ ai-knowhow-page.js) が現運用モデル (現在の運用モデル + Claude Code + 自走) を保持 (site↔canon coherence)",
+    "Check 123a: site 層 (components.js / ai-knowhow-page.js) から現運用モデルの記述が失われた — 「対話型 Claude」だけの旧記述へ "
     "drift すると実態↔記述乖離 + entity 不正確化。'現在の運用モデル'/'Claude Code'/'自走' の marker を維持せよ "
     "(Session #21 で是正した運用モデル記述。canon は Check 102 が別途強制)",
     blocking=True,
