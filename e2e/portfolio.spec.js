@@ -955,6 +955,33 @@ test('Mobile drawer opens with ARIA, isolates background, and closes on Escape',
   await expect(menuBtn).toBeFocused();
 });
 
+// ===== 7.2: drawer 開放中に mobile→desktop リサイズすると閉じて isolation 解除される (stuck 回帰) =====
+// openDrawer は drawer/overlay に inline display:block を付与するが、これは media query より優先される。
+// 従来 syncMobileDrawer は topbar 表示のみ切替で drawer を閉じなかったため、mobile で drawer を開いた
+// まま desktop へリサイズすると drawer/overlay が残り __setAppInert(true)+__lockBodyScroll(true) の
+// stuck 状態 (app inert・scroll lock・topbar 非表示で menuBtn も隠れる) になった。desktop 遷移時に
+// 開いている drawer を閉じて isolation を解除する fix の回帰検知。
+test('Mobile drawer closes and releases isolation on resize to desktop (stuck-state guard)', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+
+  // mobile で drawer を開く → 背景隔離 (inert) が有効
+  await page.locator('#menuBtn').click();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
+  await expect(page.locator('#app')).toHaveAttribute('aria-hidden', 'true');
+
+  // desktop へリサイズ (resize→debounce(syncMobileDrawer)) → drawer が閉じ isolation 解除
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'true');
+  await expect(page.locator('#app')).not.toHaveAttribute('aria-hidden', 'true');
+  // body scroll lock (position:fixed) が解除されている
+  await expect.poll(async () => page.evaluate(() => document.body.style.position || '')).not.toBe('fixed');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `resize caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 7.2: モバイルドロワーの focus trap (Tab が #drawer 内に閉じ込められる・WCAG 2.4.3 モーダル) =====
 // __trapFocus は開いたドロワー内で Tab/Shift+Tab を focusable 要素間でループさせ、focus が背景
 // (inert 化された #app) へ漏れないようにする。Escape クローズは被覆済みだがこの focus-trap (モーダル
