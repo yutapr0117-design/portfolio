@@ -1405,6 +1405,12 @@ MUTATIONS = [
         "find": "run: python3 .github/scripts/check_repository_consistency.py",
         "replace": "run: echo skip-consistency-check-mutation-probe",
     },
+    {
+        "name": "Check 347 (CI behavior gate blocking): flip behavior e2e step to continue-on-error (advisory)",
+        "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
+        "find": '        run: npx playwright test --config=playwright.config.cjs --grep-invert "screenshot regression" --reporter=list',
+        "replace": '        continue-on-error: true\n        run: npx playwright test --config=playwright.config.cjs --grep-invert "screenshot regression" --reporter=list',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
