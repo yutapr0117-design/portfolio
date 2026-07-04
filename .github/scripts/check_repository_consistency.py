@@ -2526,6 +2526,18 @@ authoritative inventory and is kept in sync with the implementation below):
        (index.html JSON-LD parses) / Check 79 (.mcp.json parses) for the
        discovery-layer JSON-parse-integrity axis. (BLOCKING)
 
+  344. Every `@layer <name> { ... }` block in style.css MUST use a name
+       that appears in the top-level `@layer a, b, c;` declaration
+       statement. CSS cascade layers get their precedence from that
+       declaration order; a block that references an UNDECLARED layer
+       silently creates it at first-use position (appended after all
+       declared layers), reordering the cascade and causing style
+       precedence regressions (a `components` rule losing to a stray
+       undeclared layer). Screenshot is advisory and behavior e2e does
+       not diff computed styles, so this drift is otherwise silent.
+       Sibling of Check 321 (no @import) for the CSS cascade-integrity
+       axis. (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -14929,6 +14941,33 @@ if _wk_dir343.is_dir():
 else:
     check(False, "Check 343: .well-known/ present",
           "Check 343: .well-known/ ディレクトリが無い", blocking=True)
+
+# ── 344. style.css @layer blocks ⊆ declared layer list (BLOCKING) ────────────
+_css344 = ROOT / "style.css"
+if _css344.is_file():
+    _csrc344 = _css344.read_text(encoding="utf-8")
+    # 宣言文 `@layer a, b, c;` (block を伴わない) を抽出
+    _decl_m344 = re.search(r"@layer\s+([a-z][a-z0-9,\s-]*?)\s*;", _csrc344, re.IGNORECASE)
+    _declared344: set[str] = set()
+    if _decl_m344:
+        _declared344 = {x.strip() for x in _decl_m344.group(1).split(",") if x.strip()}
+    # 使用ブロック `@layer name {` を抽出
+    _used344 = set(re.findall(r"@layer\s+([a-z][a-z0-9-]*)\s*\{", _csrc344, re.IGNORECASE))
+    _undeclared344 = sorted(_used344 - _declared344)
+    _ok344 = bool(_declared344) and not _undeclared344
+    check(
+        _ok344,
+        f"Check 344: style.css @layer block {sorted(_used344)} すべて宣言 {sorted(_declared344)} 内",
+        (f"Check 344: 未宣言 @layer block: {_undeclared344!r} — "
+         f"宣言文 = {sorted(_declared344)}。未宣言 layer は first-use 位置 (末尾) で "
+         "生成され cascade 順序が壊れ style precedence 回帰。宣言文へ追加せよ"
+         if _declared344 else
+         "Check 344: style.css に @layer 宣言文が無い"),
+        blocking=True,
+    )
+else:
+    check(False, "Check 344: style.css present",
+          "Check 344: style.css が無い", blocking=True)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
