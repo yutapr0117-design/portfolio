@@ -1393,6 +1393,12 @@ MUTATIONS = [
         "find": "@layer reset, tokens, base, layout, components, pages, utilities;",
         "replace": "@layer reset, tokens, base, layout, components, pages, utilities;\n        @layer rogue { .rogue { color: red; } }",
     },
+    {
+        "name": "Check 345 (verify chain complete): drop lint:css link from verify script",
+        "file": ROOT / "package.json",
+        "find": '"verify": "npm run check && npm run lint:css && npm run lint && npm run lint:js"',
+        "replace": '"verify": "npm run check && npm run lint && npm run lint:js"',
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
