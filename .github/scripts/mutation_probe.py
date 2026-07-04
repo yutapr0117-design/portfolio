@@ -1387,6 +1387,12 @@ MUTATIONS = [
         "find": '"mcpVersion": "1.0",',
         "replace": '"mcpVersion": "1.0",,',
     },
+    {
+        "name": "Check 344 (CSS @layer declared): inject undeclared @layer rogue block after declaration",
+        "file": ROOT / "style.css",
+        "find": "@layer reset, tokens, base, layout, components, pages, utilities;",
+        "replace": "@layer reset, tokens, base, layout, components, pages, utilities;\n        @layer rogue { .rogue { color: red; } }",
+    },
 ]
 
 # ── Behavior e2e mutations (--e2e モード) ──────────────────────────────────────
