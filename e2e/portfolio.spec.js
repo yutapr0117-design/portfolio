@@ -2137,6 +2137,50 @@ test('AI history strings are length-bounded on normalize ingestion (#230 class)'
   expect(fatal, `normalize caused a fatal: ${fatal}`).toBeNull();
 });
 
+// ===== 7.1f: normalizeAppsData は ai.history / pomodoro.history が非配列でも crash しない (#93/#295/#561 class) =====
+// normalizeAppsData は「どんな入力でも throw しない総関数」契約を持つ (tasks/todos は Array.isArray で
+// ガード済)。だが ai.history は旧 `if (data.ai?.history)`・pomodoro.history は旧 `if (data.pomodoro.history)`
+// と truthy 判定のみで、別 schema / 破損 store がこれらを非配列 (文字列等) で持つと ai は `.filter` が
+// TypeError を throw → validateAndNormalize が例外 → load()(state.js init)/cross-tab/import/snapshot-restore
+// の全 ingestion 経路が FatalPage crash する。本テストは current schema(12) + ai.history=文字列 の store を
+// addInitScript で seed し load() を通して (1) FatalPage crash しない (2) app(ai ページ)が描画され続ける
+// ことを検証する。修正前は load() が init で throw し fatal になるため非 vacuous。
+test('normalizeAppsData tolerates a non-array ai/pomodoro history without crashing (#93 class)', async ({ page }) => {
+  // load() が state.js init で走る前に、current schema だが history を非配列で持つ破損 store を seed。
+  await page.addInitScript(() => {
+    try {
+      localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+        schemaVersion: 12,           // 現行と一致 = schema guard を通過し validateAndNormalize へ到達する
+        type: 'full-store',
+        appsData: {
+          ai: { history: 'CORRUPT-NON-ARRAY' },       // 旧実装は .filter で TypeError → crash
+          pomodoro: { history: 'CORRUPT-NON-ARRAY' }  // 旧実装は String.slice で型崩れ
+        },
+        theme: 'system',
+        lastModified: 1,
+      }));
+    } catch (e) { /* noop */ }
+  });
+
+  await page.goto('/#/apps/ai');
+  await page.waitForLoadState('domcontentloaded');
+
+  // (1) FatalPage crash していない (修正前は init の load() が throw)
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `non-array history ingestion caused a fatal render: ${fatal}`).toBeNull();
+
+  // (2) AI ページが描画され続ける (非配列 history は空配列にフォールバックし page は機能する)。
+  //     修正前は load() が state.js init で throw し app が boot しないため #ai-input は描画されない。
+  await expect(page.locator('#ai-input')).toBeVisible();
+
+  // (3) ポモドーロページも同様に描画され続ける (pomodoro.history 非配列でも crash しない)
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('.font-mono.text-stat').first()).toBeVisible();
+  const fatal2 = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal2, `non-array pomodoro.history caused a fatal render: ${fatal2}`).toBeNull();
+});
+
 // ===== 7.2: JSON インポート (upsert) のラウンドトリップ — 新規 project 追加 + profile 保全 =====
 // Settings の importJSON は file アップロードを起点に projects を append/upsert/strict でマージし、
 // 末尾で validateAndNormalize を通す data-integrity 経路。export 側はテスト済だが round-trip の

@@ -895,4 +895,11 @@ E2E_MUTATIONS = [
         "replace": "        return h('div', { class: 'flex flex-col gap-4 max-w-2xl error-boundary-fallback', role: 'alert', 'aria-errormessage': 'fallback-details' },\n            h('header', { class: 'flex items-center gap-3' },\n                createIcon('list', 28),",
         "test": "carries no leaked ErrorBoundary",
     },
+    {
+        "name": "behavior: normalizeAppsData の ai.history Array.isArray ガード喪失 (非配列 .filter で TypeError → 全 ingestion 経路 crash・#93/#295/#561 class)",
+        "file": ROOT / "js" / "store.js",
+        "find": "        if (Array.isArray(data.ai?.history)) {",
+        "replace": "        if (data.ai?.history) {",
+        "test": "normalizeAppsData tolerates a non-array",
+    },
 ]
