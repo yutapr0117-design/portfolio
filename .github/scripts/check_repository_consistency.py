@@ -11,7 +11,6 @@ authoritative inventory and is kept in sync with the implementation below):
   3.  mcp.json server.version major matches ai:version
   4.  llms.txt / .well-known/llms.txt / llms_well-known.txt / .well-known/llms_well-known.txt are byte-identical
   5.  .well-known/index.json == .well-known/agent-skills/index.json (byte-identical)
-  6.  style.css has no stale "Current release: v73" or "NEXT_PLANNED_RELEASE" markers
   7.  index.html CSP meta appears before inline suppressor script (error-suppressor inlined)
   7b. index.html CSP authorizes inline suppressor (hash recomputed from live content)
   7c. index.html CSP authorizes inline speculation rules (hash recomputed from live content)
@@ -205,13 +204,6 @@ authoritative inventory and is kept in sync with the implementation below):
       化した姉妹 Check で、baseline 値が極端に大きい drift も同時に検出する。Plan A の
       「絶対防衛線」を main.js / sw.js の AIDK Kernel 保護領域に手を入れることなく達成する
       設計。baseline marker が消失している場合も BLOCKING で fail。(BLOCKING)
-  73. index.html accessibility/CWV HTML-attribute contract: index.html の HTML 属性のみで
-      完結する WCAG 2.2 / Core Web Vitals 契約を機械強制する。Playwright visual baseline
-      不変が前提のため、pixel diff を発生させない HTML 属性のみを対象とする (現状の good
-      practice を契約化して drift 防止): (73a) 全 <link rel="preload"> に as= 属性必須
-      (preload 仕様で as 無指定は無効); (73b) 全 <img> 要素に alt= 属性必須 (WCAG 1.1.1
-      Level A); (73c) hero 画像の preload に fetchpriority="high" 指定 (LCP 改善契約の
-      固定)。Plan B の HTML 属性スコープを BLOCKING 化。(BLOCKING)
   100. theme-init.js hardcoded storage keys ↔ js/constants.js STORAGE_KEY / js/brand.js KEY:
        the FOUC-prevention pre-paint script theme-init.js runs synchronously in <head> BEFORE
        main.js (ESM, async) loads, so it intentionally hardcodes the localStorage keys instead of
@@ -223,16 +215,6 @@ authoritative inventory and is kept in sync with the implementation below):
        why-only comment-injection pass (the comment documents the duplication; this Check enforces
        it). Asserts theme-init.js reads exactly the canonical STORAGE_KEY (100a) and Brand.KEY
        (100b). (BLOCKING)
-  101. style.css Windows High Contrast Mode (forced-colors) focus support: style.css contains a
-       `@media (forced-colors: active)` block that restores a visible outline-based focus indicator
-       for focus selectors. WHY: in forced-colors mode (Windows High Contrast Mode) box-shadow is
-       NOT painted, so any focus indicator expressed only via box-shadow (e.g. `.skip-link:focus`,
-       which sets `outline: none; box-shadow: var(--focus-ring)`) disappears, failing WCAG 2.4.7
-       (Focus Visible) / 1.4.1 for HCM users. This Check locks in the forced-colors fallback so a
-       future edit cannot silently strip it. The block is render-neutral (inert outside HCM), so it
-       never affects the Playwright visual baseline — i.e. it is exempt from the §3 baseline gate.
-       Discovered + systematized during the why-only comment-injection track (same pattern as
-       Check 100). (BLOCKING)
   102. Core operating-model policy is documented in canon: AI2AI.md STEP 3 carries the
        "Operating Model — AI Self-Driving / Human Control-and-Audit-Only"（核心運用ポリシー）
        statement, and CLAUDE.md §7 references it. WHY: the repository's core governance contract
@@ -254,12 +236,6 @@ authoritative inventory and is kept in sync with the implementation below):
        CLAUDE.md §5; externalizing reasoning breaks the 102e exhaustion fallacy, proven 2026-06-21
        when the AI self-generated 10 ideas and triaged 6 as autonomously executable with zero human
        input) so it cannot drift out. (BLOCKING)
-  103. style.css prefers-contrast (higher-contrast preference) support: style.css contains a
-       `@media (prefers-contrast: more)` block that strengthens borders / muted text / focus for
-       users who request higher contrast (WCAG 1.4.11 Non-text Contrast 強化). Like Check 101
-       (forced-colors), the block is render-neutral — inert unless the OS preference is active — so
-       it never affects the Playwright visual baseline (§3 gate exempt). This Check locks in the
-       higher-contrast fallback so a future edit cannot silently strip it. (BLOCKING)
   104. verify-gate scripts carry a Python 3.10+ version guard: every `.github/scripts/*.py`
        script invoked through an npm script (derived from package.json `scripts`, not a
        hardcoded list — like Check 46 for JS files) contains a `sys.version_info < (3, 10)`
@@ -390,16 +366,6 @@ authoritative inventory and is kept in sync with the implementation below):
        from the committed binary every weekly run, reddening the BLOCKING digest gate on the next
        PR. This Check locks the guard in place (presence of _binary_edited + its use gating the
        re-bake) so the desync class cannot silently return. (BLOCKING)
-  135. Stylesheet wiring: index.html must keep loading the local stylesheet style.css via a
-       <link rel="stylesheet" href="./style.css">. This is the highest-impact member of the same
-       "file exists ⟹ file wired" class as Checks 133/134 — if the link is removed, the ENTIRE site
-       renders unstyled, yet the loss is silent to every gate: the behavior e2e only asserts content
-       presence / routes (an unstyled page still has its text), the screenshot e2e is ADVISORY per
-       §3(B), and no consistency check covered the link. style.css existence (Check 108 mirror) and
-       byte-budget (Check 52/120) were enforced, but never its <link> wiring. External font
-       stylesheets are intentionally NOT required (their loss degrades gracefully to fallback
-       fonts). This makes "style.css exists ⟹ it is linked in index.html" an enforced invariant.
-       (BLOCKING)
   141. Default-project slug & id uniqueness: store.js defaultProjects (the hardcoded proj("pNN","slug",…)
        seed list) must have unique ids AND unique slugs. ProjectDetailPage resolves a project via
        find(p.slug === slug) and returns the FIRST match, so a duplicate slug silently makes the later
@@ -570,12 +536,6 @@ authoritative inventory and is kept in sync with the implementation below):
        origin). Check 63 enforces origin alignment only; this Check tightens to the full canonical
        URL (origin + base path). Drift to a sibling project path (e.g. `/portfolio2/about`) is
        SILENT — sitemap crawlers index URLs that 404 on the deployed site. (BLOCKING)
-  174. `<meta name="theme-color">` values exist as literals in style.css: every theme-color content
-       value in index.html (multiple media-scoped variants permitted) must appear as a literal
-       string somewhere in style.css, ensuring the mobile address bar / OS card chrome color
-       matches a real brand color present in the stylesheet. Drift silently desyncs the OS chrome
-       from the visual brand (the address bar shows a color the site no longer uses anywhere).
-       (BLOCKING)
   181. main.js SITE_CONFIG.LAST_UPDATED is ISO-8601 (YYYY-MM-DD) and a real calendar
        date: the LAST_UPDATED string in main.js SITE_CONFIG must match strict
        `YYYY-MM-DD` and parse as a valid date. Free-form / locale-specific formats
@@ -792,38 +752,6 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 232/233/234 (ai:* / asset:* HTTPS) for the
        aio-manifest.json HTTPS axis. (BLOCKING)
 
-  321. `style.css` MUST contain zero CSS `@import` statements. Boring
-       Technology contract (C1) forbids external CSS library loading; an
-       `@import url(...)` would pull an external stylesheet at parse time
-       and introduce render-blocking network dependency + CSP surface
-       expansion. Sibling of Check 1 (no external framework CSS `<link>`
-       tags) / Check C1 baseline for the CSS surface no-external-load
-       axis. (BLOCKING)
-
-  322. `index.html` MUST contain zero inline `<style>` element blocks
-       (single-stylesheet contract). Drift = a snippet of CSS crept into
-       HTML, silently violating:
-       (a) the "single canonical style.css" invariant used by Check 52
-           (byte budget) / Check 174 (theme-color literals) — those
-           checks scan only style.css, so inline styles bypass them,
-       (b) CSP `style-src` hardening — inline `<style>` requires either
-           `'unsafe-inline'` (dangerous) or a per-block SHA-256 hash.
-       Note: inline `style="..."` HTML attributes are covered by
-       Check 323 (per-element style attribute). Sibling of Check 321
-       (CSS @import) / Check 52 (style.css byte budget) for the CSS
-       shipping-surface single-source-of-truth axis. (BLOCKING)
-
-  323. `index.html` MUST contain zero `style="..."` HTML attributes
-       (per-element inline style). Drift = a scoped style attribute
-       drifts into the shipped HTML, bypassing style.css SSoT (Check 52
-       byte budget / Check 174 theme-color literals don't scan HTML) and
-       requiring CSP `style-src 'unsafe-inline'` hash exceptions.
-       Check 242 covers `on*=` inline handlers; Check 322 covers `<style>`
-       element blocks; this Check completes the trio for zero-tolerance
-       inline CSS. Sibling of Check 322 (`<style>` block) / Check 242
-       (`on*=` handler) for the HTML inline-CSS zero-tolerance axis.
-       (BLOCKING)
-
   338. `<meta property="og:image:width">` / `og:image:height` declared
        values MUST equal the ACTUAL pixel dimensions of the hero WebP
        (parsed directly from the VP8X/VP8/VP8L chunk header — no external
@@ -858,18 +786,6 @@ authoritative inventory and is kept in sync with the implementation below):
        bytes match the extension; this closes the JSON-LD MIME leg of the
        same truth. Sibling of Check 337 (magic bytes) / Check 339 (JSON-LD
        dims) for the binary-asset declaration-truth axis. (BLOCKING)
-
-  344. Every `@layer <name> { ... }` block in style.css MUST use a name
-       that appears in the top-level `@layer a, b, c;` declaration
-       statement. CSS cascade layers get their precedence from that
-       declaration order; a block that references an UNDECLARED layer
-       silently creates it at first-use position (appended after all
-       declared layers), reordering the cascade and causing style
-       precedence regressions (a `components` rule losing to a stray
-       undeclared layer). Screenshot is advisory and behavior e2e does
-       not diff computed styles, so this drift is otherwise silent.
-       Sibling of Check 321 (no @import) for the CSS cascade-integrity
-       axis. (BLOCKING)
 
   348. Both BLOCKING gate workflows (`architecture-validation.yml` and
        `playwright-regression.yml`) MUST declare a `pull_request` trigger
@@ -906,19 +822,6 @@ authoritative inventory and is kept in sync with the implementation below):
        caught. Sibling of Check 7b (suppressor hash) / Check 7c
        (speculation-rules hash) / Check 242 (handler allowlist) for the
        inline-CSP-hash integrity axis. (BLOCKING)
-
-  356. Google Fonts CSP pair: every external `<link rel="stylesheet"
-       href="https://host">` host in index.html MUST be in CSP
-       `style-src` (currently `fonts.googleapis.com`), AND — because the
-       Google Fonts CSS `@font-face src` points at `fonts.gstatic.com` —
-       `font-src` MUST include `https://fonts.gstatic.com`. Drift =
-       dropping googleapis from style-src CSP-blocks the font stylesheet
-       (no @font-face at all), or dropping gstatic from font-src
-       CSP-blocks the woff2 fetches (text falls back to system fonts).
-       Both are silent (screenshot advisory; behavior e2e does not diff
-       computed font-family). Font twin of Check 354/355 (script CSP).
-       Sibling of Check 301 (Google Fonts preconnect) for the
-       external-font CSP-authorization axis. (BLOCKING)
 
   360. Every `<meta name="asset:*:canonical">` content URL (currently
        `asset:image:canonical` → hero WebP, `asset:audio:canonical` → BGM
@@ -1011,6 +914,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_ci_verify.py",  # split: 345-347
     ROOT / ".github" / "scripts" / "checks_meta_validity.py",  # split: 341-343
     ROOT / ".github" / "scripts" / "checks_asset_resolve.py",  # split: 357-359
+    ROOT / ".github" / "scripts" / "checks_css.py",  # split: style.css / CSS contract (6/73/101/103/135/174/321-323/344/356・ctx-enrich style)
     ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # split: shipped-JS static analysis + byte budgets (237/239-241/262-265/269-272/310)
     ROOT / ".github" / "scripts" / "checks_e2e_infra.py",  # split: e2e/Playwright test-infra hygiene (110/111/114/116/117)
 ]
@@ -1082,6 +986,13 @@ aio_mon    = read(".github/scripts/aio_monitoring.py")
 
 mcp_data   = json.loads(read(".well-known/mcp.json"))
 
+# ── ctx enrichment for split modules that read shared global content (check.py split track) ──
+# split-out checks_* modules that need the pre-loaded style.css (etc.) content unpack it from ctx
+# (avoids re-reading). Added AFTER the globals load so the value already exists on _ctx. Only the
+# content actually consumed by an extracted module is attached here — extend as further glob-
+# dependent categories (html / mainjs / ai2ai / mcp_data) are split out in later phases.
+_ctx.style = style
+
 # ── 1. ai:version == Pipeline-Version ────────────────────────────────────────
 html_v    = extract(r'name="ai:version"\s+content="(v\d+)"', html)
 ai2ai_v   = extract(r"Pipeline-Version\s*:\s*(v\d+)", ai2ai)
@@ -1136,17 +1047,13 @@ check(
     ".well-known/index.json and .well-known/agent-skills/index.json differ",
 )
 
-# ── 6. style.css stale markers ───────────────────────────────────────────────
-check(
-    "Current release: v73" not in style,
-    "style.css: no stale 'Current release: v73' marker",
-    "style.css: stale 'Current release: v73' marker found",
-)
-check(
-    "NEXT_PLANNED_RELEASE" not in style,
-    "style.css: no 'NEXT_PLANNED_RELEASE' marker",
-    "style.css: stale 'NEXT_PLANNED_RELEASE' marker found",
-)
+# ── 6/73/101/103/135/174/321-323/344/356. style.css / CSS contract → checks_css.py ──
+# (check.py split track・first ctx-enrich module。style glob を _ctx.style 経由で消費。forced-colors/HCM/
+#  prefers-contrast a11y(101/103)/theme-color(174)/a11y-CWV attr(73)/@import·inline·@layer(321-323/344)/
+#  Google-Fonts CSP(356)/token baseline(6/135)。非連続・style 以外の cross-section 結合なし。6 位置で
+#  list 順連続実行。CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。)
+import checks_css as _checks_css
+_checks_css.run(_ctx)
 
 # ── 7. CSP meta before inline suppressor script ───────────────────────────────
 # error-suppressor.js is now inlined in <head> to eliminate the network-fetch
@@ -2697,55 +2604,6 @@ else:
         "Plan A 絶対防衛線が消失している。baseline marker を追加せよ",
     )
 
-# ── 73. index.html accessibility/CWV HTML-attribute contract (BLOCKING) ──────
-# index.html の機械強制 HTML accessibility / Core Web Vitals 契約。Plan B の HTML
-# 属性のみで完結する範囲を BLOCKING 化することで、style.css に触れずに WCAG 2.2 /
-# CWV シグナルを構造的に固定する。Playwright visual baseline 不変が前提のため、
-# pixel diff を発生させない HTML 属性のみを対象とする (現状の good practice を
-# 契約化して drift 防止):
-#   (73a) 全 <link rel="preload"> に `as=` 属性必須 (preload 仕様で as 無指定は無効)
-#   (73b) 全 <img> 要素に `alt=` 属性必須 (WCAG 1.1.1 Level A)
-#   (73c) hero 画像 (yuta-yokoi-ai-pm-orchestration-system.webp) に
-#         `fetchpriority="high"` を指定 (LCP 改善契約の固定)
-_html73 = read("index.html")
-# HTML コメント (<!-- ... -->) を pre-strip。コメント内に literal `<img>` や preload tag を
-# 記述している可能性があり、それらは実際の DOM 要素ではない (browser は描画しない) ため
-# accessibility / CWV 契約の対象外。Check 7b/7c が同じ pattern で comment-strip 済み。
-_html_no_comments73 = re.sub(r"<!--.*?-->", "", _html73, flags=re.DOTALL)
-
-_preload73 = re.findall(r"<link[^>]*\brel=\"preload\"[^>]*>", _html_no_comments73)
-_preload_no_as73 = [p for p in _preload73 if not re.search(r"\bas=", p)]
-check(
-    not _preload_no_as73,
-    f"Check 73a: all {len(_preload73)} <link rel=\"preload\"> tags have an `as=` attribute (WCAG/CWV)",
-    f"Check 73a: <link rel=\"preload\"> without `as=` attribute: {_preload_no_as73} — "
-    f"preload は as 無指定だと無効 (Chrome は warning を出す)。as=script/style/image/font 等を指定せよ",
-)
-
-_img73 = re.findall(r"<img\b[^>]*>", _html_no_comments73)
-_img_no_alt73 = [t for t in _img73 if not re.search(r"\balt=", t)]
-check(
-    not _img_no_alt73,
-    f"Check 73b: all {len(_img73)} <img> tags have an `alt=` attribute (WCAG 1.1.1 Level A)",
-    f"Check 73b: <img> without `alt=` attribute: {_img_no_alt73} — "
-    f"WCAG 1.1.1 Level A 違反。装飾画像は alt=\"\" でも明示せよ",
-)
-
-_HERO_IMG_73 = "yuta-yokoi-ai-pm-orchestration-system.webp"
-_hero_pattern73 = re.compile(
-    rf"<link[^>]*href=\"[./]*{re.escape(_HERO_IMG_73)}\"[^>]*>",
-    re.IGNORECASE,
-)
-_hero_tags73 = _hero_pattern73.findall(_html_no_comments73)
-_hero_has_fp73 = any("fetchpriority=\"high\"" in t for t in _hero_tags73)
-check(
-    _hero_has_fp73 and len(_hero_tags73) > 0,
-    f"Check 73c: hero image ({_HERO_IMG_73}) preload has fetchpriority=\"high\" (LCP 契約)",
-    f"Check 73c: hero image preload missing fetchpriority=\"high\" — "
-    f"Core Web Vitals LCP 改善契約。<link rel=\"preload\" href=\"./{_HERO_IMG_73}\" "
-    f"as=\"image\" fetchpriority=\"high\"> を維持せよ",
-)
-
 # ── 74-80. dev-tooling / .claude config-file integrity checks → checks_tooling.py ──
 # (check.py split track・category "dev-tooling/.claude config". _lib_io helper API (74) /
 #  incident README inventory (75) / .claude settings baseline (76) / commands (77) / agents (78)
@@ -2830,38 +2688,6 @@ else:
         "",
         "Check 100: theme-init.js / js/constants.js / js/brand.js のいずれかが見つからず "
         "storage-key consistency を検証できない",
-        blocking=True,
-    )
-
-# ── 101. style.css forced-colors (HCM) focus support (BLOCKING) ──────────────
-# Windows High Contrast Mode (`@media (forced-colors: active)`) では box-shadow が描画されず
-# author color が system color に置換される。focus 表示を box-shadow のみに依存している箇所
-# (.skip-link:focus は outline:none + box-shadow) は HCM で消え WCAG 2.4.7 / 1.4.1 違反になる。
-# style.css に forced-colors 専用の outline-based focus fallback が存在することを BLOCKING で
-# 固定し、将来の編集で silently strip されるのを防ぐ。このブロックは forced-colors モードでのみ
-# 有効で通常描画 (CI baseline) に非影響ゆえ §3 baseline ゲート非該当 (render-neutral)。
-# why-only comment-injection track で発見・systematize (Check 100 と同 pattern)。
-_css101 = ROOT / "style.css"
-if _css101.exists():
-    _src101 = _css101.read_text(encoding="utf-8")
-    _fc101 = re.search(r"@media\s*\(\s*forced-colors\s*:\s*active\s*\)", _src101)
-    _focus_in_fc101 = False
-    if _fc101:
-        # forced-colors at-rule 開始から十分な window を見て、focus selector + outline 復帰を確認。
-        _window101 = _src101[_fc101.start():_fc101.start() + 800]
-        _focus_in_fc101 = (":focus" in _window101) and ("outline" in _window101)
-    check(
-        bool(_fc101) and _focus_in_fc101,
-        "Check 101: style.css has a forced-colors (HCM) block restoring outline-based focus (WCAG 2.4.7/1.4.1)",
-        "Check 101: style.css is missing the @media (forced-colors: active) focus fallback — "
-        "High Contrast Mode users lose the focus indicator (box-shadow is not painted in HCM)",
-        blocking=True,
-    )
-else:
-    check(
-        False,
-        "",
-        "Check 101: style.css not found — forced-colors focus support を検証できない",
         blocking=True,
     )
 
@@ -2950,30 +2776,6 @@ else:
         False,
         "",
         "Check 102: AI2AI.md / CLAUDE.md のいずれかが見つからず operating-model policy を検証できない",
-        blocking=True,
-    )
-
-# ── 103. style.css prefers-contrast (higher-contrast) support (BLOCKING) ─────
-# ユーザーが OS で「より高いコントラスト」を要求した時のみ有効化する fallback (境界線/補助
-# テキスト/focus を濃く・太く) が style.css に存在することを固定。WCAG 1.4.11 Non-text Contrast
-# 強化。Check 101 (forced-colors) と同じく render-neutral (当該設定が非アクティブな通常描画 =
-# CI baseline には非影響) ゆえ §3 baseline ゲート非該当。将来 silently strip されるのを防ぐ。
-_css103 = ROOT / "style.css"
-if _css103.exists():
-    _src103 = _css103.read_text(encoding="utf-8")
-    _pc103 = re.search(r"@media\s*\(\s*prefers-contrast\s*:\s*more\s*\)", _src103)
-    check(
-        bool(_pc103),
-        "Check 103: style.css has a prefers-contrast: more block (WCAG 1.4.11 higher-contrast support)",
-        "Check 103: style.css is missing the @media (prefers-contrast: more) fallback — "
-        "higher-contrast-preference users lose the strengthened borders/focus contrast",
-        blocking=True,
-    )
-else:
-    check(
-        False,
-        "",
-        "Check 103: style.css not found — prefers-contrast support を検証できない",
         blocking=True,
     )
 
@@ -3544,35 +3346,6 @@ _checks_behavioral.run(_ctx)
 import checks_wiring as _checks_wiring
 _checks_wiring.run(_ctx)
 
-
-# ── 135. Stylesheet wiring (BLOCKING) ─────────────────────────────────────────
-# index.html がローカル stylesheet style.css を <link rel="stylesheet" href="./style.css">
-# で load し続けることを BLOCKING 強制する。これは Check 133/134 と同じ「file 存在 ⟹ file 配線」
-# class の中で最も影響が大きい: link を消すとサイト全体が未スタイルで描画されるが、損失は全
-# gate に対し silent — behavior e2e は content presence / route しか検査せず (未スタイルでも
-# テキストは存在)、screenshot e2e は §3(B) で advisory、consistency check も link を被覆して
-# いなかった。style.css の存在 (Check 108 mirror) と byte 予算 (Check 52/120) は強制済だが
-# <link> 配線は未強制だった。外部 font stylesheet は対象外 (除去しても fallback font へ graceful
-# degradation するため)。「style.css 存在 ⟹ index.html に link 済」を invariant 化する。
-_index135 = ROOT / "index.html"
-if _index135.exists():
-    _html135 = _index135.read_text(encoding="utf-8")
-    _linked135 = re.search(
-        r'<link\b[^>]*\brel\s*=\s*["\']stylesheet["\'][^>]*\bhref\s*=\s*["\']\.?/?style\.css["\']'
-        r'|<link\b[^>]*\bhref\s*=\s*["\']\.?/?style\.css["\'][^>]*\brel\s*=\s*["\']stylesheet["\']',
-        _html135,
-    )
-    check(
-        bool(_linked135),
-        "Check 135: index.html が style.css を <link rel=stylesheet> 配線 (unstyled site 防止)",
-        "Check 135: index.html に <link rel=\"stylesheet\" href=\"./style.css\"> が無い — "
-        "link を消すとサイト全体が未スタイルになるが behavior e2e は content しか見ず "
-        "screenshot は advisory ゆえ silent。index.html へ stylesheet link を戻せ",
-        blocking=True,
-    )
-else:
-    check(False, "Check 135: index.html present",
-          "Check 135: index.html が無い — stylesheet の配線を検証できない", blocking=True)
 
 # ── 136-140. app-route whitelist coherence-mesh → checks_app_route.py ──
 # (check.py split track・category "app-route mesh". js/router.js の app whitelist を single
@@ -4537,33 +4310,6 @@ else:
 import checks_aio_entity as _checks_aio_entity
 _checks_aio_entity.run(_ctx)
 
-
-# ── 174. <meta name=theme-color> values exist in style.css (BLOCKING) ──────────
-# index.html の全 theme-color content 値が style.css に literal で存在することを
-# BLOCKING 強制する。drift は SILENT に OS chrome (モバイルアドレスバー / OS card)
-# を visual brand から desync させ、アドレスバーが site が使わない色を表示する。
-_idx174 = ROOT / "index.html"
-_css174 = ROOT / "style.css"
-if _idx174.exists() and _css174.exists():
-    _isrc174 = _idx174.read_text(encoding="utf-8")
-    _csrc174 = _css174.read_text(encoding="utf-8")
-    _colors174 = re.findall(
-        r'<meta\s+name=["\']theme-color["\']\s+content=["\']([^"\']+)["\']', _isrc174
-    )
-    _missing174 = [c for c in _colors174 if c not in _csrc174]
-    check(
-        bool(_colors174) and not _missing174,
-        f"Check 174: theme-color 値 {_colors174} 全て style.css に literal で存在",
-        (f"Check 174: theme-color drift: {_missing174} が style.css に literal で存在しない — "
-         "モバイルアドレスバー色が visual brand と desync。index.html theme-color を style.css の "
-         "実 brand 色に揃えよ"
-         if _colors174 else
-         "Check 174: theme-color meta が見つからない (vacuous; Check 157 と一致確認)"),
-        blocking=True,
-    )
-else:
-    check(False, "Check 174: index.html + style.css present",
-          "Check 174: index.html もしくは style.css が無い", blocking=True)
 
 # ── 175-180. index.html meta/asset URL resolution & AIO routing coherence checks (175-180) → checks_meta_url.py ──
 # (check.py split track. 連続 self-contained クラスタ・自前 read_text・READ-ONLY。元の実行位置を保持。
@@ -5608,70 +5354,6 @@ import checks_sitemap_manifest as _checks_sitemap_manifest
 _checks_sitemap_manifest.run(_ctx)
 
 
-# ── 321. style.css has zero @import statements (BLOCKING) ────────────────────
-_css321 = ROOT / "style.css"
-if _css321.exists():
-    _css_src321 = _css321.read_text(encoding="utf-8")
-    # /* @import */ のようなコメント内は除外して数える
-    _stripped321 = re.sub(r"/\*.*?\*/", "", _css_src321, flags=re.DOTALL)
-    _imports321 = re.findall(r"(?m)^\s*@import\b", _stripped321)
-    _count321 = len(_imports321)
-    _ok321 = _count321 == 0
-    check(
-        _ok321,
-        "Check 321: style.css @import 0 件 (Boring Technology 契約遵守)",
-        (f"Check 321: style.css に @import が {_count321} 件検出 — "
-         "外部 CSS load = 実装時の render-blocking / CSP 拡張。"
-         "Boring Technology (C1) 契約違反。@import を削除せよ"),
-        blocking=True,
-    )
-else:
-    check(False, "Check 321: style.css present",
-          "Check 321: style.css が無い", blocking=True)
-
-# ── 322. index.html has zero inline <style> element blocks (BLOCKING) ────────
-_html322 = ROOT / "index.html"
-if _html322.exists():
-    _hs322 = _html322.read_text(encoding="utf-8")
-    # HTML コメント除去 (<!-- ... -->) してからスキャン
-    _stripped322 = re.sub(r"<!--.*?-->", "", _hs322, flags=re.DOTALL)
-    _style_blocks322 = re.findall(r"(?is)<style\b[^>]*>.*?</style>", _stripped322)
-    _count322 = len(_style_blocks322)
-    _ok322 = _count322 == 0
-    check(
-        _ok322,
-        "Check 322: index.html inline <style> block 0 件 (single-stylesheet 契約遵守)",
-        (f"Check 322: index.html に inline <style> block が {_count322} 件検出 — "
-         "single canonical style.css 契約違反 / Check 52・174 が bypass される / "
-         "CSP style-src 'unsafe-inline' or per-hash 必要。inline <style> を "
-         "style.css へ移せ"),
-        blocking=True,
-    )
-else:
-    check(False, "Check 322: index.html present",
-          "Check 322: index.html が無い", blocking=True)
-
-# ── 323. index.html has zero style="..." attributes (BLOCKING) ───────────────
-_html323 = ROOT / "index.html"
-if _html323.exists():
-    _hs323 = _html323.read_text(encoding="utf-8")
-    # HTML コメントを除外してからスキャン
-    _stripped323 = re.sub(r"<!--.*?-->", "", _hs323, flags=re.DOTALL)
-    _style_attrs323 = re.findall(r'\bstyle\s*=\s*"[^"]*"', _stripped323)
-    _count323 = len(_style_attrs323)
-    _ok323 = _count323 == 0
-    check(
-        _ok323,
-        "Check 323: index.html style=\"...\" attribute 0 件 (single-stylesheet 契約完全遵守)",
-        (f"Check 323: index.html に style=\"...\" attribute が {_count323} 件検出: "
-         f"{[a[:80] for a in _style_attrs323[:3]]!r} — style.css SSoT 破綻 / "
-         "CSP style-src 'unsafe-inline' 要求。スタイルを style.css へ移せ"),
-        blocking=True,
-    )
-else:
-    check(False, "Check 323: index.html present",
-          "Check 323: index.html が無い", blocking=True)
-
 # ── 324-337. index.html standards/safety hygiene + webmanifest + asset integrity checks (324-337) → checks_html_standards.py ──
 # (check.py split track. 連続 self-contained クラスタ・自前 read_text・READ-ONLY。元の実行位置を保持。
 #  CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。global→nonlocal 変換 0 箇所。)
@@ -5856,33 +5538,6 @@ import checks_meta_validity as _checks_meta_validity
 _checks_meta_validity.run(_ctx)
 
 
-# ── 344. style.css @layer blocks ⊆ declared layer list (BLOCKING) ────────────
-_css344 = ROOT / "style.css"
-if _css344.is_file():
-    _csrc344 = _css344.read_text(encoding="utf-8")
-    # 宣言文 `@layer a, b, c;` (block を伴わない) を抽出
-    _decl_m344 = re.search(r"@layer\s+([a-z][a-z0-9,\s-]*?)\s*;", _csrc344, re.IGNORECASE)
-    _declared344: set[str] = set()
-    if _decl_m344:
-        _declared344 = {x.strip() for x in _decl_m344.group(1).split(",") if x.strip()}
-    # 使用ブロック `@layer name {` を抽出
-    _used344 = set(re.findall(r"@layer\s+([a-z][a-z0-9-]*)\s*\{", _csrc344, re.IGNORECASE))
-    _undeclared344 = sorted(_used344 - _declared344)
-    _ok344 = bool(_declared344) and not _undeclared344
-    check(
-        _ok344,
-        f"Check 344: style.css @layer block {sorted(_used344)} すべて宣言 {sorted(_declared344)} 内",
-        (f"Check 344: 未宣言 @layer block: {_undeclared344!r} — "
-         f"宣言文 = {sorted(_declared344)}。未宣言 layer は first-use 位置 (末尾) で "
-         "生成され cascade 順序が壊れ style precedence 回帰。宣言文へ追加せよ"
-         if _declared344 else
-         "Check 344: style.css に @layer 宣言文が無い"),
-        blocking=True,
-    )
-else:
-    check(False, "Check 344: style.css present",
-          "Check 344: style.css が無い", blocking=True)
-
 # ── 345-347. CI verification-chain wiring checks — verify layers / consistency guard / behavior e2e gate (345-347) → checks_ci_verify.py ──
 # (check.py split track. 連続 self-contained クラスタ・自前 read_text・READ-ONLY。元の実行位置を保持。
 #  CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。global→nonlocal 変換 0 箇所。)
@@ -5994,51 +5649,6 @@ else:
 import checks_csp_security as _checks_csp_security
 _checks_csp_security.run(_ctx)
 
-
-# ── 356. Google Fonts CSP pair: style-src + font-src (BLOCKING) ──────────────
-# 354/355 の font 版: 外部 font stylesheet host は style-src、woff2 host
-# (fonts.gstatic.com) は font-src で許可される必要がある。片方欠落で font 破綻。
-_idx356 = ROOT / "index.html"
-if _idx356.is_file():
-    _h356 = _idx356.read_text(encoding="utf-8")
-    _h356_nc = re.sub(r"<!--.*?-->", "", _h356, flags=re.DOTALL)
-    _csp_m356 = re.search(r'Content-Security-Policy"\s+content="([^"]*)"',
-                          _h356_nc, re.DOTALL)
-    _style_src356 = ""
-    _font_src356 = ""
-    if _csp_m356:
-        for _d in _csp_m356.group(1).split(";"):
-            _ds = _d.strip()
-            if _ds.startswith("style-src"):
-                _style_src356 = _d
-            elif _ds.startswith("font-src"):
-                _font_src356 = _d
-    # 外部 stylesheet host (data: 除く https://) を抽出
-    _ext_css_hosts356 = set(re.findall(
-        r'<link[^>]*rel="stylesheet"[^>]*href="https://([^/"]+)', _h356_nc))
-    _problems356: list[str] = []
-    for _host in sorted(_ext_css_hosts356):
-        if f"https://{_host}" not in _style_src356:
-            _problems356.append(f"style-src に {_host} 不在")
-    # Google Fonts を使う場合、woff2 の gstatic を font-src に要求
-    if "fonts.googleapis.com" in _ext_css_hosts356:
-        if "https://fonts.gstatic.com" not in _font_src356:
-            _problems356.append("font-src に fonts.gstatic.com 不在 (woff2 fetch が block)")
-    _ok356 = (not _problems356) and bool(_style_src356)
-    check(
-        _ok356,
-        f"Check 356: 外部 font stylesheet host {sorted(_ext_css_hosts356)} が style-src + gstatic が font-src で authorize",
-        (f"Check 356: font CSP wiring drift: {_problems356!r} — "
-         "style-src から font stylesheet host が消えると @font-face 全滅、font-src から "
-         "gstatic が消えると woff2 が block されシステムフォント fallback。silent (screenshot "
-         "advisory)。CSP を復元せよ"
-         if _style_src356 else
-         "Check 356: CSP style-src directive が見つからない"),
-        blocking=True,
-    )
-else:
-    check(False, "Check 356: index.html present",
-          "Check 356: index.html が無い", blocking=True)
 
 # ── 357-359. shipped-asset resolution wiring checks — preload href / sitemap image:loc + og:image / BGM audio (357-359) → checks_asset_resolve.py ──
 # (check.py split track. 連続 self-contained クラスタ・自前 read_text・READ-ONLY。元の実行位置を保持。
