@@ -17,11 +17,12 @@ Canonical-Ref : CLAUDE.md §7 / AI2AI.md Session Record / total-check-runbook.md
 ## 0. 30 秒サマリ（BLUF）
 
 - **合意した肥大化解消トラック**: A 以外の全ファイルを 1,000 行以下にし、その後 CI で ≤1,000 を監査化（防止 capstone）。順序 = **C（check.py 最優先 → e2e spec）→ B（style.css / index.html / docs）→ capstone**。
-- **check.py 分割は 29 phase 完遂**（Phase 1-5 は前セッション / Phase 6-29 は 2026-07-05 後続セッション）: monolith **15,913 → 6,965 行（−8,948・約 56%減）**。**26 個の category module 確立**（…既存 21 + `checks_shipped_hygiene.py`(242-249) / `checks_jsonld_primary.py`(256-261) / `checks_jsonld_refs.py`(216-219) / `checks_sw_pwa.py`(251-254) / `checks_csp_security.py`(351-355)）。全 phase で `npm run verify` exit 0、自己整合 Check 45/70/105 が全 module 横断で緑。
+- **check.py 分割は 34 phase 完遂**（Phase 1-5 は前セッション / Phase 6-34 は 2026-07-05 後続セッション）: monolith **15,913 → 5,710 行（−10,203・約 64%減）**。**28 個の category module 確立**（…既存 26 + `checks_shipped_static.py`(237/239-241/262-265/269-272/310・逆結合 full-set) / `checks_css.py`(6/73/101/103/135/174/321-323/344/356・初 ctx-enrich)）。全 phase で `npm run verify` exit 0、自己整合 Check 45/70/105 が全 module 横断で緑。
+- **確立した全技術（次担当が使う道具箱）**: (1) 連続 self-contained 抽出（大多数）、(2) 非連続 coupled-group 抽出（esm 47/56/57/61・e2e_infra・shipped_static）、(3) `global`→`nonlocal` 変換（nested accumulator）、(4) mutation-anchor 追従（`"file": CHECK` を新 module へ・Check 362）、(5) **逆結合 full-set 抽出**（クラスタ内定義 var の外部消費者も含めて一括抽出・shipped_static の 310）、(6) **ctx-enrich**（monolith が globals load 後に `_ctx.<name> = <name>` を attach → module が unpack・checks_css の style が初例）。全て extract→全出力 `sort|diff` の byte-identical + exit code + Check 362 の安全網で検証。
 - **効率化ツール確立（Phase 15-20）**: (1) `/tmp/freevars*.py` = **annotation+def-aware free-variable 分析**（`_x: type = ...` 注釈定義・`def _fn` nested 関数を defined 認識・使用のみの外部 `_var` と global-content 依存を検出）。(2) `/tmp/split_tool.py` = 汎用抽出器（start-section・end-exclusive・stem・desc・prev-anchor・imports を取り、block 抽出 + `global`→`nonlocal` 変換 + wire 配線 + CHECK_SOURCE_FILES 登録 + inventory 移動を自動化）。(3) **全 check 出力 diff 検証**（`python3 check.py 2>/dev/null | grep -E '^(OK|ERROR|WARNING):' | sort` の抽出前後 diff で 364 出力の byte-identical を証明）。
 - **#253 の「物理分割 net-negative」を覆した**: `exec` 不使用の **`run(ctx)` 明示 context 注入**（check/errors/warnings を同一オブジェクト参照で渡す）で挙動 byte-equivalent を実証。
-- **現状（Phase 29 終了時）**: main clean・origin 同期・open PR ゼロ・consistency exit 0・**check.py 6,965 行**。
-- **残りの抽出可能な freevars4-clean 連続 run（ctx-enrich 不要・そのまま抽出可）**: 341-343 / 345-347 / 349 / 357-359。
+- **現状（Phase 34 終了時）**: main clean・origin 同期・open PR ゼロ・consistency exit 0・**check.py 5,710 行**。
+- **残りの ctx-enrich で解放可能な glob-dependent カテゴリ（checks_css と同パターン・monolith 側に `_ctx.<name>=<name>` を足して module で unpack）**: `html` glob=7/8/14/17/20/115/152/187/220/250/255/303/306 / `mainjs`=2/17 / `ai2ai`=1/14 / `mcp_data`=3 / version 系(html_v/ai2ai_v/mainjs_v)=1/2/3/19。**注意: version 系(html_v 等)は Check 1/2/3 の body 内で computed される → それらを使う下流 check を同 module に含めるか `_ctx` に computed 値を足す。section が read/extract を使うなら必ず unpack（Check 73 の教訓）。** 残る単発 clean=189/349/360、helper 同梱=350(`_lib_csp_sri_hash`)/190・201(`_walkNNN`)。自己整合 aggregator + load/ctx-setup infra は不動点残置。
 - **残り monolith の性質（ここから先は質的に別作業）**: (a) **自己整合 aggregator（Check 45/70/105 の `_aggregate_check_numbers`）= 不動点・残置必須**。(b) **ctx-enrich が必要な gap**: `style` glob=344/356 / `html` glob=174/187/220/250/255 → `_ctx` に html/style を追加して抽出。(c) **helper/cross-section 共有 gap**: `_lib_csp_sri_hash`(350) / `_walkNNN`・`_src`・`_assets`・`_template`(190/201) → 共有 helper を module へ同梱するか `_ctx` に足す。(d) **load/ctx-setup infra**（冒頭の global content read + `_ctx` 構築 + 各 module の `run(_ctx)` dispatch）= 残置。
 - **Phase 33（#618・完遂）: shipped-JS static-analysis クラスタを full-set 一括抽出**。237/239-241/262-265/269-272 は 3 重の逆結合で単純部分抽出が 2 度 crash した（安全網 extract→NameError で判明）: (1) `import glob as _glob237`（237 内）を **271/272** が使用、(2) `_eval_targets239`（shipped-JS list・239 内）を 240/241/262-265 が共有、(3) **`_HERO_WEBP269`/`_BGM_MP3_269`（269 内定義）を Check 310（total shipped weight）が消費**（逆結合）。**解決 = 消費者 Check 310 も含めた full-set `[237,239-241,262-265,269-272,310]`（13 checks）を一括抽出**し全共有 var を module-local 化 → `checks_shipped_static.py`（27 個目 module）。`from pathlib import Path` 追加が必要（Check 239 が Path 使用・NameError で判明）。mutation-anchor 5 件（269/270/271/272/310 の `"file": CHECK` budget-value mutation）を新 module へ追従（Check 362）。**教訓（最重要・逆結合）: free-var analyzer は「クラスタ内で定義され外部で使われる var」を検出しない。抽出前に `grep -nw '<cluster内定義 var>' check.py` で外部消費者を確認し、消費者も cluster に含めよ（消費者が非隣接でも）。stdlib（Path 等）import 漏れも安全網が捕捉。**
 - **信頼できる analyzer は `/tmp/freevars4.py`（annotation+def-aware）**。既知の唯一の false-positive は **tuple-unpack**（`_y, _mo, _d = _v.split("-")` を defined 認識せず該当 section を誤 gap 化）だが保守的（safe）に倒れるだけ。tuple 対応を試みた freevars5 は逆に誤検知が増え不良だった → **freevars4 + extract→全出力 diff + exit code の安全網を最終判定とする**（疑わしい tuple-gap section は含めて試し diff で確認・208 が実例で clean だった）。
@@ -80,9 +81,11 @@ Canonical-Ref : CLAUDE.md §7 / AI2AI.md Session Record / total-check-runbook.md
 
 ---
 
-## 3. Phase 1-29 の実施記録（何をどの module へ・PR #）
+## 3. Phase 1-34 の実施記録（何をどの module へ・PR #）
 
-monolith **15,913 → 6,965 行**（29 phase・−8,948・約 56%減）。
+monolith **15,913 → 5,710 行**（34 phase・−10,203・約 64%減）。
+
+**Phase 30-34（要点）**: 30(ci_verify 345-347・#615) / 31(meta_validity 341-343・#616) / 32(asset_resolve 357-359・#617) / **33(shipped_static 237/239-241/262-265/269-272/310・13 checks・逆結合 full-set・#618)** / **34(css 6/73/101/103/135/174/321-323/344/356・11 checks・初 ctx-enrich・#619)**。詳細な module 内訳は各 mirror doc（`docs/files/.github/scripts/checks_*.py.md`）参照。以下は Phase 1-29 の表（歴史的記録）。
 
 | Phase | PR | 抽出 Check | 移動先 module | monolith 行数 | 備考 |
 |---|---|---|---|---|---|
