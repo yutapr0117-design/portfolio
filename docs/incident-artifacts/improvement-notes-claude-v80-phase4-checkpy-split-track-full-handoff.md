@@ -17,10 +17,12 @@ Canonical-Ref : CLAUDE.md §7 / AI2AI.md Session Record / total-check-runbook.md
 ## 0. 30 秒サマリ（BLUF）
 
 - **合意した肥大化解消トラック**: A 以外の全ファイルを 1,000 行以下にし、その後 CI で ≤1,000 を監査化（防止 capstone）。順序 = **C（check.py 最優先 → e2e spec）→ B（style.css / index.html / docs）→ capstone**。
-- **check.py 分割は 24 phase 完遂**（Phase 1-5 は前セッション / Phase 6-24 は 2026-07-05 後続セッション）: monolith **15,913 → 8,444 行（−7,469・約 47%減）**。**21 個の category module 確立**（…既存 17 + `checks_jsonld_entity.py`(191-200) / `checks_jsonld_meta.py`(221-235) / `checks_meta_url.py`(175-180) / `checks_canonical_https.py`(202-214)）。全 phase で `npm run verify` exit 0、自己整合 Check 45/70/105 が全 module 横断で緑。
+- **check.py 分割は 29 phase 完遂**（Phase 1-5 は前セッション / Phase 6-29 は 2026-07-05 後続セッション）: monolith **15,913 → 6,965 行（−8,948・約 56%減）**。**26 個の category module 確立**（…既存 21 + `checks_shipped_hygiene.py`(242-249) / `checks_jsonld_primary.py`(256-261) / `checks_jsonld_refs.py`(216-219) / `checks_sw_pwa.py`(251-254) / `checks_csp_security.py`(351-355)）。全 phase で `npm run verify` exit 0、自己整合 Check 45/70/105 が全 module 横断で緑。
 - **効率化ツール確立（Phase 15-20）**: (1) `/tmp/freevars*.py` = **annotation+def-aware free-variable 分析**（`_x: type = ...` 注釈定義・`def _fn` nested 関数を defined 認識・使用のみの外部 `_var` と global-content 依存を検出）。(2) `/tmp/split_tool.py` = 汎用抽出器（start-section・end-exclusive・stem・desc・prev-anchor・imports を取り、block 抽出 + `global`→`nonlocal` 変換 + wire 配線 + CHECK_SOURCE_FILES 登録 + inventory 移動を自動化）。(3) **全 check 出力 diff 検証**（`python3 check.py 2>/dev/null | grep -E '^(OK|ERROR|WARNING):' | sort` の抽出前後 diff で 364 出力の byte-identical を証明）。
 - **#253 の「物理分割 net-negative」を覆した**: `exec` 不使用の **`run(ctx)` 明示 context 注入**（check/errors/warnings を同一オブジェクト参照で渡す）で挙動 byte-equivalent を実証。
-- **現状（Phase 24 終了時）**: main clean・origin 同期・open PR ゼロ・consistency exit 0・**check.py 8,444 行**。
+- **現状（Phase 29 終了時）**: main clean・origin 同期・open PR ゼロ・consistency exit 0・**check.py 6,965 行**。
+- **残りの抽出可能な freevars4-clean 連続 run（ctx-enrich 不要・そのまま抽出可）**: 341-343 / 345-347 / 349 / 357-359。
+- **残り monolith の性質（ここから先は質的に別作業）**: (a) **自己整合 aggregator（Check 45/70/105 の `_aggregate_check_numbers`）= 不動点・残置必須**。(b) **ctx-enrich が必要な gap**: `style` glob=344/356 / `html` glob=174/187/220/250/255 → `_ctx` に html/style を追加して抽出。(c) **helper/cross-section 共有 gap**: `_lib_csp_sri_hash`(350) / `_walkNNN`・`_glob237`・`_src`・`_assets`・`_template`(190/201/237-241/262-265/269-272) → 共有 helper を module へ同梱するか `_ctx` に足す。(d) **load/ctx-setup infra**（冒頭の global content read + `_ctx` 構築 + 各 module の `run(_ctx)` dispatch）= 残置。
 - **信頼できる analyzer は `/tmp/freevars4.py`（annotation+def-aware）**。既知の唯一の false-positive は **tuple-unpack**（`_y, _mo, _d = _v.split("-")` を defined 認識せず該当 section を誤 gap 化）だが保守的（safe）に倒れるだけ。tuple 対応を試みた freevars5 は逆に誤検知が増え不良だった → **freevars4 + extract→全出力 diff + exit code の安全網を最終判定とする**（疑わしい tuple-gap section は含めて試し diff で確認・208 が実例で clean だった）。
 - **mutation-anchor 追従の判別**: 抽出 Check の mutation が **shipped file**(index.html/sitemap.xml/manifest/package.json 等) を mutate する場合は追従不要（find-anchor が移動しない）。**check.py の *check コード自体* を mutate する場合のみ**（Phase 20 の Check 337 型 = `"file": CHECK`）該当 mutation の `"file"` を新 module へ更新。`grep -n "Check NNN" mutation_samples*.py` で `"file": CHECK` かを判別。
 - **抽出時の 2 大追従作業（忘れると BLOCKING 赤）**: (1) **`global`→`nonlocal` 変換**（nested walker/counter が section-local accumulator を mutate する section。module-level では `global` だが run() 内では `nonlocal`。忘れると `NameError` で全 run abort・安全網 exit 1・Phase 18 で実例）。(2) **mutation-anchor 追従**（抽出した Check に `mutation_samples.py` の entry があると `find` anchor が check.py から移動し **Check 362** が orphan を BLOCKING 検知。該当 mutation の `"file"` を新 module へ更新。`grep -n "Check NNN" mutation_samples*.py` で確認・Phase 20 で実例）。さらに **mutation-probe 単独実行は 2 分 timeout の SIGTERM で shipped file(manifest.webmanifest 等)を mutated 残留** → `git checkout <file>` で復元（memory `feedback_mutation_probe_verify_race`。verify 前に `git status` で shipped 変更ゼロを確認せよ）。
@@ -77,9 +79,9 @@ Canonical-Ref : CLAUDE.md §7 / AI2AI.md Session Record / total-check-runbook.md
 
 ---
 
-## 3. Phase 1-24 の実施記録（何をどの module へ・PR #）
+## 3. Phase 1-29 の実施記録（何をどの module へ・PR #）
 
-monolith **15,913 → 8,444 行**（24 phase・−7,469・約 47%減）。
+monolith **15,913 → 6,965 行**（29 phase・−8,948・約 56%減）。
 
 | Phase | PR | 抽出 Check | 移動先 module | monolith 行数 | 備考 |
 |---|---|---|---|---|---|
@@ -107,8 +109,13 @@ monolith **15,913 → 8,444 行**（24 phase・−7,469・約 47%減）。
 | 22 | #605 | 221-235 | `checks_jsonld_meta.py`（新規・19 個目） | 10,025→9,298 | 連続 self-contained・JSON-LD ref-type + meta length + sitemap value（global→nonlocal 1=235） |
 | 23 | #606 | 175-180 | `checks_meta_url.py`（新規・20 個目） | 9,298→9,047 | 連続 self-contained・package.json + AIO version/repository meta coherence |
 | 24 | #607 | 202-214 | `checks_canonical_https.py`（新規・21 個目） | 9,047→8,444 | 連続 self-contained・canonical URL/HTTPS/manifest-icon（208 tuple-gap も clean と実証） |
+| 25 | #609 | 242-249 | `checks_shipped_hygiene.py`（新規・22 個目） | 8,444→8,036 | 連続 self-contained・index.html hygiene + JSON-LD structure（global→nonlocal 3=245/246/247） |
+| 26 | #610 | 256-261 | `checks_jsonld_primary.py`（新規・23 個目） | 8,036→7,615 | 連続 self-contained・JSON-LD primary-node required fields（global→nonlocal 6） |
+| 27 | #611 | 216-219 | `checks_jsonld_refs.py`（新規・24 個目） | 7,615→7,345 | 連続 self-contained・JSON-LD referential integrity（global→nonlocal 1=218） |
+| 28 | #612 | 251-254 | `checks_sw_pwa.py`（新規・25 個目） | 7,345→7,165 | 連続 self-contained・SW/PWA registration + potentialAction/well-known（global→nonlocal 1） |
+| 29 | #613 | 351-355 | `checks_csp_security.py`（新規・26 個目） | 7,165→6,965 | 連続 self-contained・shipped-JS security + CSP script authz（356 は style glob で残置） |
 
-**現在の module 内訳**（21 module）:
+**現在の module 内訳**（26 module）:
 - `checks_maintainability.py`= Check **16, 28, 29, 30, 42, 52, 71, 361, 362, 363, 364**（maintainability / test-health / file-size governance）。
 - `checks_structural.py`= Check **48, 49, 50, 51**（structural parse / CI wiring / tooling）。
 - `checks_esm.py`= Check **47, 56, 57, 61**（main.js ⇄ js/ 葉モジュール ESM 契約 + factory・`_modules47`/`_main_src47` を module-local 化）。
@@ -130,6 +137,11 @@ monolith **15,913 → 8,444 行**（24 phase・−7,469・約 47%減）。
 - `checks_jsonld_meta.py`= Check **221-235**（JSON-LD ref 型解決 / description・title・og length / Person.name / sitemap changefreq・priority / ROLE_TITLE / ai:*・asset:* URL / Article fields。global→nonlocal 1=235）。
 - `checks_meta_url.py`= Check **175-180**（package.json private/name / JSON-LD @id canonical / llms-full Version / ai:repository・version・last-modified）。
 - `checks_canonical_https.py`= Check **202-214**（canonical trailing slash / given-family name / brand markers / url・@id・src HTTPS / date ISO / potentialAction / manifest start_url・icons / link icon / sameAs HTTPS）。
+- `checks_shipped_hygiene.py`= Check **242-249**（inline handler allowlist / date 未来なし / @graph node @type / FAQPage / BreadcrumbList / MediaObject fields / charset / viewport。global→nonlocal 3）。
+- `checks_jsonld_primary.py`= Check **256-261**（primary WebPage / Person / WebSite / Organization / hero ImageObject / BGM AudioObject 必須 fields。global→nonlocal 6）。
+- `checks_jsonld_refs.py`= Check **216-219**（@id refs resolve / @id unique / datePublished<=dateModified / manifest paths ⊆ MANIFEST_PATH_TO_LOCAL。global→nonlocal 1）。
+- `checks_sw_pwa.py`= Check **251-254**（potentialAction @type+target / sw handlers / SW register / well-known skill。global→nonlocal 1）。
+- `checks_csp_security.py`= Check **351-355**（sitemap loc 厳密 1 / h() innerHTML fail-closed / DOMParser 不在 / script-src・connect-src host authz）。
 
 **次の一手（未着手・reflect-then-organize 済）**: freevars4-clean な残り連続 run を継続抽出（216-219[4・218 global] / 242-249[8・245-247 global] / 251-254[4] / 256-261[6・global] / 266-268[3] / 341-347 / 351-359 等）。gap の多くは (a) html/style glob 依存（ctx-enrich 要）、(b) `_walkNNN`/`_glob237` 等の cross-section 共有 nested-fn/var（helper を module へ同梱 or ctx enrich 要）。**残 monolith は自己整合 Check 45/70/105 の aggregator（不動点・残置必須）+ 上記 gap 群 + load/ctx-setup infra。C 完了後は e2e spec 分割 → B（style.css/index.html/docs）→ capstone（≤1,000 CI 監査化）の順（§5-§7）。**
 
