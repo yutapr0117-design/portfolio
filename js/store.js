@@ -485,7 +485,11 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
                     title: String(t.title).slice(0, CONSTANTS.LIMITS.TASK_TITLE),
                     status: ['backlog', 'in-progress', 'done'].includes(t.status) ? t.status : 'backlog',
                     priority: ['low', 'med', 'high'].includes(t.priority) ? t.priority : 'med',
-                    tags: (t.tags || []).filter(Boolean).slice(0, 10),
+                    // [FIX] Array.isArray ガード必須 (#93/#295/#561/#568/#572 と同じ ingestion 全経路正規化 class)。
+                    // data.tasks 自体は Array.isArray 済だが、個々の task.tags が非配列 (文字列等) だと
+                    // `(t.tags || [])` が置換せず `.filter` が TypeError を throw → validateAndNormalize 例外 →
+                    // import/cross-tab/snapshot の ingestion で FatalPage crash。非配列は空配列にフォールバック。
+                    tags: (Array.isArray(t.tags) ? t.tags : []).filter(Boolean).slice(0, 10),
                     createdAt: Number(t.createdAt) || Date.now(),
                     updatedAt: Number(t.updatedAt) || Date.now()
                 }))

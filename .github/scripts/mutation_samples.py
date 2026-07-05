@@ -910,4 +910,11 @@ E2E_MUTATIONS = [
         "replace": "            tech: (raw.tech || []).filter(Boolean).slice(0, 12),",
         "test": "normalizeProject tolerates a non-array",
     },
+    {
+        "name": "behavior: normalizeAppsData の task.tags Array.isArray ガード喪失 (非配列 tags .filter で TypeError → import/ingestion crash・#93/#295/#561/#568/#572 class)",
+        "file": ROOT / "js" / "store.js",
+        "find": "                    tags: (Array.isArray(t.tags) ? t.tags : []).filter(Boolean).slice(0, 10),",
+        "replace": "                    tags: (t.tags || []).filter(Boolean).slice(0, 10),",
+        "test": "normalizeAppsData tolerates a non-array",
+    },
 ]
