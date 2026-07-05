@@ -2181,6 +2181,44 @@ test('normalizeAppsData tolerates a non-array ai/pomodoro history without crashi
   expect(fatal2, `non-array pomodoro.history caused a fatal render: ${fatal2}`).toBeNull();
 });
 
+// ===== 7.1g: normalizeProject は project の tech/tags/links が非配列でも crash しない (#93/#295/#561/#568 class) =====
+// normalizeProject は untrusted import project を正規化する総関数だが、tech/tags/highlights/
+// relatedProjectIds/links を旧 `(raw.tech || [])` = truthy 判定のみで扱っていた。import/cross-tab/
+// snapshot の project がこれらを非配列 (文字列等) で持つと `|| []` が置換せず `.filter` が TypeError を
+// throw → validateAndNormalize が例外 → load()(state.js init) 等が FatalPage crash する。default の
+// proj() builder は Array.isArray でガード済だが本 normalizer は漏れていた。本テストは current
+// schema(12) + project.tech=文字列 の store を seed し load() を通して (1) crash しない (2) Projects
+// ページに project card が描画される (非配列 field は空配列にフォールバック) ことを検証する。
+// 修正前は load() が init で throw し app が boot しないため card が描画されず RED = 非 vacuous。
+test('normalizeProject tolerates a non-array project field without crashing (#93 class)', async ({ page }) => {
+  await page.addInitScript(() => {
+    try {
+      localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+        schemaVersion: 12,
+        type: 'full-store',
+        projects: [
+          // 破損 project: tech/tags/links が非配列 (旧 .filter で TypeError)
+          { id: 'corrupt1', slug: 'corrupt-one', name: '破損プロジェクト', tech: 'NOT-AN-ARRAY', tags: 42, links: { a: 1 } }
+        ],
+        theme: 'system',
+        lastModified: 1,
+      }));
+    } catch (e) { /* noop */ }
+  });
+
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+
+  // (1) FatalPage crash していない (修正前は init の load()→normalizeProject が throw)
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `non-array project field caused a fatal render: ${fatal}`).toBeNull();
+
+  // (2) Projects ページに project card が描画される (defaults + 破損 project が正規化されて残る)
+  const cards = page.locator('.grid-projects article.card');
+  await expect(cards.first()).toBeVisible();
+  expect(await cards.count(), 'projects should render after normalizing a corrupt project').toBeGreaterThan(1);
+});
+
 // ===== 7.2: JSON インポート (upsert) のラウンドトリップ — 新規 project 追加 + profile 保全 =====
 // Settings の importJSON は file アップロードを起点に projects を append/upsert/strict でマージし、
 // 末尾で validateAndNormalize を通す data-integrity 経路。export 側はテスト済だが round-trip の

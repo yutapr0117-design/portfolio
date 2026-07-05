@@ -355,15 +355,21 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
                     ? raw.outcome.metrics.slice(0, 12).filter(m => m && m.label && m.value)
                     : []
             },
-            tech: (raw.tech || []).filter(Boolean).slice(0, 12),
-            tags: (raw.tags || []).filter(Boolean).slice(0, 12),
-            highlights: (raw.highlights || []).filter(Boolean).slice(0, 20),
+            // [FIX] Array.isArray ガード必須 (#93/#295/#561/#568 と同じ「外部 ingestion は全経路正規化」class)。
+            // 旧 `(raw.tech || [])` は truthy 判定のみで、import/cross-tab/snapshot の project が tech/tags/
+            // highlights/relatedProjectIds/links を非配列 (文字列/数値/オブジェクト) で持つと `|| []` が置換せず
+            // `.filter` が `TypeError: ... is not a function` を throw → validateAndNormalize が例外 → FatalPage crash。
+            // default の proj() builder は既に `Array.isArray(tech) ? tech : []` でガード済 (本 normalizer は
+            // untrusted import を処理するゆえ同じガードが必須だった)。非配列は空配列にフォールバック。
+            tech: (Array.isArray(raw.tech) ? raw.tech : []).filter(Boolean).slice(0, 12),
+            tags: (Array.isArray(raw.tags) ? raw.tags : []).filter(Boolean).slice(0, 12),
+            highlights: (Array.isArray(raw.highlights) ? raw.highlights : []).filter(Boolean).slice(0, 20),
             architecture: {
                 overview: String(raw.architecture?.overview || '').slice(0, 2000),
                 mermaid: raw.architecture?.mermaid || null
             },
-            relatedProjectIds: (raw.relatedProjectIds || []).filter(Boolean).slice(0, 20),
-            links: (raw.links || []).filter(l => l && l.label && sanitizeUrl(l.url)).slice(0, 30),
+            relatedProjectIds: (Array.isArray(raw.relatedProjectIds) ? raw.relatedProjectIds : []).filter(Boolean).slice(0, 20),
+            links: (Array.isArray(raw.links) ? raw.links : []).filter(l => l && l.label && sanitizeUrl(l.url)).slice(0, 30),
             demoRoute: ['task', 'todo', 'pomodoro', 'ai', 'notes'].includes(raw.demoRoute) ? raw.demoRoute : null
         };
     }

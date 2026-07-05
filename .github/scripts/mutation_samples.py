@@ -903,4 +903,11 @@ E2E_MUTATIONS = [
         "replace": "        if (data.ai?.history) {",
         "test": "normalizeAppsData tolerates a non-array",
     },
+    {
+        "name": "behavior: normalizeProject の tech Array.isArray ガード喪失 (非配列 project field .filter で TypeError → import/ingestion crash・#93/#295/#561/#568 class)",
+        "file": ROOT / "js" / "store.js",
+        "find": "            tech: (Array.isArray(raw.tech) ? raw.tech : []).filter(Boolean).slice(0, 12),",
+        "replace": "            tech: (raw.tech || []).filter(Boolean).slice(0, 12),",
+        "test": "normalizeProject tolerates a non-array",
+    },
 ]
