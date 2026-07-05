@@ -43,19 +43,24 @@ Canonical-Ref: docs/architecture/file-size-budget.md（BUDGET-DATA 真値）/ CL
 - shipped code（サイト挙動 + 最頻編集面）を最優先で完遂した。残存は tooling/generated/設計制約で、shipped より context 負荷が低いか、分割が net-negative/high-risk。
 - 「生じないように」は doc/memory の規約でなく **Check 361（BLOCKING）で機械強制**した。これが本セッションの最重要成果（recurrence を人手でなく CI が防ぐ）。
 
-## Addendum — 2026-07-05 議論タイム: 残存 disposition の再確認 + 防止の機械化
+## Addendum — 2026-07-05 議論タイム: C-first で残存肥大化の解消を再開（合意・disposition 更新）
 
-オーナーが**議論タイム**（指示でなく合意形成）を設け、論点「全ファイルが 1,000 行以下に収まったか？ 分割でファイル数が増えるのは問題無い」を提示。これに対し AI が全 tracked ファイルの現物実測（1,000 行超 = 11 件）を提示し、性質で 3 分類して honest に回答:
+オーナーが**議論タイム**（指示でなく対等な合意形成）を設け、論点「全ファイルが 1,000 行以下に収まったか？ 分割でファイル数が増えるのは問題無い」を提示。AI が全 tracked ファイル実測（1,000 行超 = 11 件）を性質で 3 分類:
 
-- **A. 行数が無意味/触れない（4 件・対象外）**: `.mp3`（バイナリ・`wc -l` は改行バイト数）/ `package-lock.json`（npm 自動生成）/ `main.js`（保護 kernel・Check 43）/ `llms-full.txt`（C6 AIO 正本）。
-- **B. no-build 単一ファイル設計（3 群）**: `style.css` / `index.html` / canon・archive docs（`AI2AI.md` / `AI2AI-archive.md` / `ChatGPT2ChatGPT.md`）。分割は request 増 or build 導入 or cold-start 1-read 前提の破壊とトレードオフ。
+- **A. 行数が無意味/触れない（4 件・対象外・不変）**: `.mp3`（バイナリ・`wc -l` は改行バイト数）/ `package-lock.json`（npm 自動生成）/ `main.js`（保護 kernel・Check 43）/ `llms-full.txt`（C6 AIO 正本）。
+- **B. no-build 単一ファイル設計（3 群）**: `style.css` / `index.html` / canon・archive docs（`AI2AI.md` / `AI2AI-archive.md` / `ChatGPT2ChatGPT.md`）。
 - **C. 真の code bloat・AI 最頻編集面（2 件）**: `check_repository_consistency.py`（実測 15,913）/ `e2e/portfolio.spec.js`（実測 3,475）。
 
-**合意結果（owner 裁可）**: 「現状維持で別 vein へ」。**owner が『ファイル数増加は問題無い』と明示的に再検討を促した上で、なお全 11 件の defer を再確認した** — すなわち本 disposition は stale な defer ではなく「明示的再検討を経た合意 defer」。理由の再確認:
-- C（check.py / e2e）: 分割リスク（自己整合 4 面 bijection・9-check name-coupling を壊す blast-radius）> 現 bloat コスト。将来やるなら §残存表の de-risk 経路（明示 ctx 注入 or 9-check glob 化を先に）を小さく PoC 実証してから。
-- B: no-build（C1 boring-tech）設計思想の維持を優先。
-- A: 物理的/契約的に対象外。
-- **Check 363 のスコープ（shipped JS ロジック leaf `js/*.js` ≤1,000）が合意された強制境界**であり、全ファイル一律 1,000 行ではない。
+**合意結果（owner 見解 = AI 見解一致・全面合意）**: **残存肥大化の解消を再開する。順序は C → B。A は触らない。全 non-A ファイルが ≤1,000 に収まったら Check（CI）で ≤1,000 を機械監査化する（防止の capstone）。** ファイル数が分割で増えるのは問題無い（bloat 削減が目的）。→ **本 record 冒頭表の「defer-with-reason」は C/B について SUPERSEDED**（A のみ defer 継続）。
+
+**最優先 = `check_repository_consistency.py`**。ただし repo で最も壊すと痛いファイル（自己言及的: 自身の構造を検証する Check 45/70/105 を内包）ゆえ、**安全プロトコル**で段階実施:
+
+1. **Phase 0（土台）**: 自己整合 Check 45（docstring↔`# ── N.` section の 1..N 連番 bijection）/ 70（runbook §9 == 実装 max）/ 105（check-map↔実装 bijection）を、既存の `CHECK_SOURCE_FILES` list + `_aggregate_check_numbers()`（#253 で敷いた横断集約 foundation）で**複数ファイル横断集約**する形に作り替える。list=[本体1つ] のまま緑 = **挙動不変・非破壊**で「割れる土台」を先に用意。
+2. **Phase 1（PoC・net-positive 実証）**: 最も孤立した 1 カテゴリを `checks/<category>.py` へ**明示 ctx 注入方式**（各 module が `run(ctx)` を export・共有 `ctx`=errors/warnings/ROOT/check() を渡す。`exec()` は使わない = #253 の脆さ回避）で抽出。**全 Check 緑 + 45/70/105 横断成立**を実証。覆せなければ honest に defer 継続。
+3. **Phase 2+**: カテゴリごとに 1 PR ずつ・各 verify=0。15,913 行 → 8〜10 カテゴリ module へ。**複数セッション跨ぎの sustained track**（一撃分割厳禁・着実に一つずつ）。
+4. **C 完了後 B**、最後に **capstone**: Check 363 の `JS-LEAF-CEILING` を全 non-A ファイル対象の `LINE-CEILING` へ一般化し ≤1,000 を CI 機械監査化。
+
+**Check 363 のスコープ（shipped JS ロジック leaf `js/*.js` ≤1,000）は現行の強制境界だが、capstone で全 non-A へ拡張予定**。#253 の「check.py split = net-negative」評価は、`exec` 前提だったため覆す方針（明示 ctx 注入 + 割る前に自己整合を横断集約化する Phase 0 で de-risk）。
 
 ## Addendum — 防止の機械化（本 record 執筆後に追加された Check）
 
