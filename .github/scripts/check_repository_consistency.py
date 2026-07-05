@@ -2746,6 +2746,20 @@ authoritative inventory and is kept in sync with the implementation below):
        the pomodoro E2E mutation anchor. This lifts anchor integrity into
        the BLOCKING verify gate so refactors must keep mutation_samples.py
        in sync. (BLOCKING)
+  363. No shipped JS *logic* leaf module (`js/*.js`, non-recursive) may
+       exceed the hard line ceiling declared by the JS-LEAF-CEILING marker
+       in docs/architecture/file-size-budget.md (currently 1,000). This is
+       the BLOCKING enforcement of the owner-accepted 1,000-line bloat
+       threshold: whereas Check 52 (BUDGET-DATA) is an ADVISORY per-file
+       loose budget that only warns, this is a hard gate that fails the
+       build so an over-threshold logic leaf must be split before merge —
+       the same two-layer design as Check 60 (advisory early-warning layer
+       + BLOCKING hard-gate layer). Scope excludes js/quiz/*.js (pure quiz
+       data, where content growth is valuable, observed only by advisory)
+       and main.js (protected kernel, not under js/, guarded by Check 43 /
+       strong-advisory). Machine-enforces "keep bloat from arising" for the
+       behavior-code surface, protecting the AI self-improvement loop that
+       unbounded logic-leaf growth would threaten. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -15804,6 +15818,40 @@ try:
     )
 except ImportError as _e362:
     warnings.append(f"Check 362: mutation_samples import failed ({_e362}) — anchor resolution skipped")
+
+# ── 363. shipped JS logic-leaf hard line ceiling (BLOCKING) ───────────────────
+# shipped JS *ロジック* leaf module (js/*.js・非再帰) の行数が JS-LEAF-CEILING marker
+# (file-size-budget.md) の宣言するハード上限 (現行 1,000) を越えないことを機械強制する。
+# Check 52 (BUDGET-DATA) が per-file の loose な ADVISORY 予算で「緩やかに観測」(超過は warning のみ)
+# するのに対し、本 Check は owner 受諾の 1,000 行しきい値を BLOCKING gate として強制し、越えた
+# ロジック leaf は merge 前に分割させる (Check 60 と同型の advisory 早期警告層 + BLOCKING ハード
+# ゲート層の二層設計)。スコープは js/*.js 直下のロジック leaf のみ: js/quiz/*.js (純データ・設問追加は
+# 価値ある成長ゆえ advisory 観測に委ねる) と main.js (保護 kernel・js/ 直下でない・Check 43 で別途保護)
+# は除外する。肥大化放置が脅かす「AI 無限改善自走」を behavior-code 面で守る「生じないように」の機械化。
+_budget363 = ROOT / "docs" / "architecture" / "file-size-budget.md"
+if _budget363.exists():
+    _bsrc363 = _budget363.read_text(encoding="utf-8")
+    _m363 = re.search(r"<!--\s*JS-LEAF-CEILING\s+(\d+)\s*-->", _bsrc363)
+    if _m363:
+        _ceiling363 = int(_m363.group(1))
+        _over363: list[str] = []
+        for _p363 in sorted((ROOT / "js").glob("*.js")):
+            _n363 = len(_p363.read_text(encoding="utf-8").splitlines())
+            if _n363 > _ceiling363:
+                _over363.append(f"{_p363.relative_to(ROOT).as_posix()} ({_n363} > {_ceiling363})")
+        check(
+            not _over363,
+            f"Check 363: all shipped JS logic leaves (js/*.js) are within the "
+            f"{_ceiling363}-line hard ceiling (JS-LEAF-CEILING)",
+            f"Check 363: js/*.js logic leaf(s) exceed the {_ceiling363}-line hard ceiling: {_over363}. "
+            "owner 受諾の 1,000 行しきい値超過 — factory pattern で葉モジュールへ分割してから merge せよ "
+            "(肥大化を『生じないように』する BLOCKING 防止層。恒久的に越えるべき正当理由があれば "
+            "file-size-budget.md の JS-LEAF-CEILING marker を rationale 付きで owner 裁可のもと引き上げる)",
+        )
+    else:
+        warnings.append("Check 363: JS-LEAF-CEILING marker not found in file-size-budget.md — ceiling check skipped")
+else:
+    warnings.append("Check 363: file-size-budget.md not found — JS leaf ceiling skipped")
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
