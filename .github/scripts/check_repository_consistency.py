@@ -2760,6 +2760,18 @@ authoritative inventory and is kept in sync with the implementation below):
        strong-advisory). Machine-enforces "keep bloat from arising" for the
        behavior-code surface, protecting the AI self-improvement loop that
        unbounded logic-leaf growth would threaten. (BLOCKING)
+  364. store.js's ingestion normalizers (validateAndNormalize /
+       normalizeAppsData / normalizeProject) MUST NOT use the
+       `(X || []).<throwing-array-method>` idiom. They are total functions
+       over untrusted external data (import / cross-tab / snapshot / load)
+       and must never throw on a non-array input. `(X || [])` fails to
+       replace a non-array *truthy* value (a string / number / object), so
+       the following .filter/.map/.forEach/.some/.reduce throws a TypeError
+       and every ingestion path FatalPage-crashes — #568 (ai/pomodoro
+       history), #572 (project tech/tags/links), #573 (task.tags) were the
+       real bugs of this class. The safe form is `(Array.isArray(X) ? X :
+       [])`. This lifts the per-instance fixes into a structural guard so
+       the class cannot be silently reintroduced. (BLOCKING)
 
 Exit codes:
   0 — all checks passed
@@ -15853,6 +15865,37 @@ if _budget363.exists():
         warnings.append("Check 363: JS-LEAF-CEILING marker not found in file-size-budget.md — ceiling check skipped")
 else:
     warnings.append("Check 363: file-size-budget.md not found — JS leaf ceiling skipped")
+
+# ── 364. store.js ingestion normalizer array-op safety (BLOCKING) ─────────────
+# store.js の正規化子 (validateAndNormalize / normalizeAppsData / normalizeProject) は import /
+# cross-tab / snapshot / load から来る untrusted な外部データを正規化する総関数で、非配列を渡されても
+# throw してはならない。`(X || []).<array-method>` idiom は X が非配列の *truthy* 値 (文字列/数値/
+# オブジェクト) だと `|| []` が置換せず、後続の throwing array-method (filter/map/forEach/some/reduce...) が
+# `TypeError: ... is not a function` を投げ、全 ingestion 経路が FatalPage crash する。#568 (ai/pomodoro
+# history) / #572 (project tech/tags/links) / #573 (task.tags) が同一 class の実バグ。安全形は
+# `(Array.isArray(X) ? X : [])`。本 Check は per-instance の fix を「idiom 再混入の構造防止」へ昇華する
+# (肥大化 Check 363 と同じ「解消したら再発も防ぐ」規律の ingestion-safety 版)。
+_store364 = ROOT / "js" / "store.js"
+if _store364.exists():
+    _ssrc364 = _store364.read_text(encoding="utf-8")
+    # `<property-access> || []) . <throwing array-method>` を検出 (slice は文字列でも throw しないため除外)。
+    # 直前を `\w` (識別子/プロパティアクセス末尾) に限定することで、`str.match(...) || []` のような
+    # method-call 結果 (`)` で終わる・match は Array|null 契約ゆえ安全) を false-positive にしない。
+    # 危険なのは `raw.tech || []` 等の untrusted プロパティアクセスが非配列 truthy を返す場合のみ。
+    _unsafe364 = re.findall(
+        r"\w\s*\|\|\s*\[\]\s*\)\s*\.\s*(filter|map|forEach|some|every|reduce|flatMap|find|findIndex)\b",
+        _ssrc364,
+    )
+    check(
+        not _unsafe364,
+        "Check 364: store.js の正規化子に unsafe `(X || []).<throwing array-method>` idiom が無い "
+        "(ingestion-crash class の構造防止)",
+        f"Check 364: store.js に unsafe idiom `(X || []).<throwing array-method>` が {len(_unsafe364)} 件 "
+        f"({sorted(set(_unsafe364))})。非配列 truthy 入力で TypeError を投げ ingestion 全経路が FatalPage "
+        "crash する (#568/#572/#573 class)。`(Array.isArray(X) ? X : [])` へ書き換えよ",
+    )
+else:
+    warnings.append("Check 364: js/store.js not found — ingestion normalizer safety skipped")
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
