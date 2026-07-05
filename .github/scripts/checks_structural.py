@@ -4,7 +4,8 @@ checks_structural.py — structural parse / CI wiring / tooling integrity checks
 
 Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES (Checks 45/70/105
 span this file). run(ctx) receives shared check()/ROOT/read/errors/warnings (同一参照・exec 不使用).
-NOTE: Check 47 は _modules47 (js-leaf source-of-truth) を Check 56/57/61 と共有するため monolith 残置。
+NOTE: Check 47/56/57/61 (_modules47 js-leaf source-of-truth を共有する coupled cluster) は
+Phase 6 で checks_esm.py へ一括抽出済 (このモジュールとは別ファイル)。
 
 Check inventory (Check 45 enforces sync with the `# \u2500\u2500 N.` sections in run()):
   48. Playwright baseline-commit pipeline permission coupling: if
