@@ -614,7 +614,7 @@ _MUTATIONS_TAIL = [
     },
     {
         "name": "Check 337 (binary magic bytes): meta-mutate expected WEBP magic to XXXX (simulates format corruption)",
-        "file": CHECK,
+        "file": ROOT / ".github" / "scripts" / "checks_html_standards.py",  # Check 337 は checks_html_standards.py へ抽出済 (check.py split Phase 20)
         "find": '_wh337[8:12] == b"WEBP"',
         "replace": '_wh337[8:12] == b"XXXX"',
     },
