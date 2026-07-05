@@ -17,9 +17,11 @@ Canonical-Ref : CLAUDE.md §7 / AI2AI.md Session Record / total-check-runbook.md
 ## 0. 30 秒サマリ（BLUF）
 
 - **合意した肥大化解消トラック**: A 以外の全ファイルを 1,000 行以下にし、その後 CI で ≤1,000 を監査化（防止 capstone）。順序 = **C（check.py 最優先 → e2e spec）→ B（style.css / index.html / docs）→ capstone**。
-- **check.py 分割は 16 phase 完遂**（Phase 1-5 は前セッション / Phase 6-16 は 2026-07-05 後続セッション）: monolith **15,913 → 12,948 行（−2,965）**。**13 個の category module 確立**（`checks_maintainability.py` / `checks_structural.py` / `checks_esm.py` / `checks_tooling.py` / `checks_entity.py` / `checks_docs_mirror.py` / `checks_aio_derived.py` / `checks_app_route.py` / `checks_ci_supply.py` / `checks_behavioral.py` / `checks_e2e_infra.py` / `checks_shipped_structure.py` / `checks_wiring.py`）。全 phase で `npm run verify` exit 0、自己整合 Check 45/70/105 が全 module 横断で緑。
+- **check.py 分割は 20 phase 完遂**（Phase 1-5 は前セッション / Phase 6-20 は 2026-07-05 後続セッション）: monolith **15,913 → 10,505 行（−5,408・約 34%減）**。**17 個の category module 確立**（…既存 13 + `checks_aio_entity.py`(167-173) / `checks_seo_coherence.py`(273-302・30 checks) / `checks_sitemap_manifest.py`(311-320) / `checks_html_standards.py`(324-337)）。全 phase で `npm run verify` exit 0、自己整合 Check 45/70/105 が全 module 横断で緑。
+- **効率化ツール確立（Phase 15-20）**: (1) `/tmp/freevars*.py` = **annotation+def-aware free-variable 分析**（`_x: type = ...` 注釈定義・`def _fn` nested 関数を defined 認識・使用のみの外部 `_var` と global-content 依存を検出）。(2) `/tmp/split_tool.py` = 汎用抽出器（start-section・end-exclusive・stem・desc・prev-anchor・imports を取り、block 抽出 + `global`→`nonlocal` 変換 + wire 配線 + CHECK_SOURCE_FILES 登録 + inventory 移動を自動化）。(3) **全 check 出力 diff 検証**（`python3 check.py 2>/dev/null | grep -E '^(OK|ERROR|WARNING):' | sort` の抽出前後 diff で 364 出力の byte-identical を証明）。
 - **#253 の「物理分割 net-negative」を覆した**: `exec` 不使用の **`run(ctx)` 明示 context 注入**（check/errors/warnings を同一オブジェクト参照で渡す）で挙動 byte-equivalent を実証。
-- **現状（Phase 16 終了時）**: main clean・origin 同期・open PR ゼロ・consistency exit 0・**check.py 12,948 行**。
+- **現状（Phase 20 終了時）**: main clean・origin 同期・open PR ゼロ・consistency exit 0・**check.py 10,505 行**。
+- **抽出時の 2 大追従作業（忘れると BLOCKING 赤）**: (1) **`global`→`nonlocal` 変換**（nested walker/counter が section-local accumulator を mutate する section。module-level では `global` だが run() 内では `nonlocal`。忘れると `NameError` で全 run abort・安全網 exit 1・Phase 18 で実例）。(2) **mutation-anchor 追従**（抽出した Check に `mutation_samples.py` の entry があると `find` anchor が check.py から移動し **Check 362** が orphan を BLOCKING 検知。該当 mutation の `"file"` を新 module へ更新。`grep -n "Check NNN" mutation_samples*.py` で確認・Phase 20 で実例）。さらに **mutation-probe 単独実行は 2 分 timeout の SIGTERM で shipped file(manifest.webmanifest 等)を mutated 残留** → `git checkout <file>` で復元（memory `feedback_mutation_probe_verify_race`。verify 前に `git status` で shipped 変更ゼロを確認せよ）。
 - **最重要ツール（Phase 15 で確立）: free-variable 分析**。抽出前に候補範囲の「使用のみ・未定義の `_`-var」を必ず検出せよ。DEFINED-var スコープ検査は shared-infra 結合（`_member_paths`=tracked-files リスト・`_binary_edited`=helper 等、monolith 上流で計算/定義される変数）を見逃す。122-124 の抽出試行が Check 122 の `_member_paths` 依存で全 run abort した（安全網が検知）反省から導入。`/tmp/freevars2.py` 型（full-comment skip + `_`-prefix used-not-defined 検出 + global-content 検出）を走らせ、**外部 `_var` と global-content 依存が両方ゼロ**を確認してから抽出する。
 - **確立した 2 パターン**: (i) **coupled-group 一括抽出**（Phase 6 = `_modules47` 共有の 47/56/57/61 をリスト定義＋全消費者ごと抽出＝結合解消）、(ii) **連続 self-contained クラスタ抽出**（Phase 7-13 の主軸。各 Check が対象ファイルを自前 read_text し global content 依存なし・連続ゆえ reorder なし＝最も安全）。
 - **確立した強力な検証手法（Phase 13 で導入）**: 汎用 scratch 局所変数（`_i`/`_h` 等）を含むクラスタは、抽出前後で `python3 check.py 2>&1 | grep -E '^(OK|ERROR|WARNING):' | sort` を取り `diff` して **Check 52 の行数表示のみ差分＝全 364 出力 byte-identical** を確認する（exit code だけでなく全 check 結果の不変を証明）。
@@ -73,9 +75,9 @@ Canonical-Ref : CLAUDE.md §7 / AI2AI.md Session Record / total-check-runbook.md
 
 ---
 
-## 3. Phase 1-16 の実施記録（何をどの module へ・PR #）
+## 3. Phase 1-20 の実施記録（何をどの module へ・PR #）
 
-monolith **15,913 → 12,948 行**（16 phase・−2,965）。
+monolith **15,913 → 10,505 行**（20 phase・−5,408・約 34%減）。
 
 | Phase | PR | 抽出 Check | 移動先 module | monolith 行数 | 備考 |
 |---|---|---|---|---|---|
@@ -95,8 +97,12 @@ monolith **15,913 → 12,948 行**（16 phase・−2,965）。
 | 14 | #595 | 110/111/114/116/117 | `checks_e2e_infra.py`（新規・11 個目） | 13,280→13,161 | **非連続**抽出・e2e/Playwright test-infra hygiene（112/113/115 は別テーマ/html 依存で残置） |
 | 15 | #596 | 118-120 | `checks_shipped_structure.py`（新規・12 個目） | 13,161→13,058 | 連続 self-contained・shipped-JS structural coherence & byte budget（**free-var 分析を確立**） |
 | 16 | #597 | 132-134 | `checks_wiring.py`（新規・13 個目） | 13,058→12,948 | 連続 self-contained・shipped-asset & AIO wiring/discoverability（135 は style 依存で残置） |
+| 17 | #599 | 167-173 | `checks_aio_entity.py`（新規・14 個目） | 12,948→12,696 | 連続 self-contained・AIO manifest entity-field & identity coherence（annotation-aware 分析を確立） |
+| 18 | #600 | 273-302 | `checks_seo_coherence.py`（新規・15 個目） | 12,696→11,483 | **最大削減 −1,213**・30 checks・AIO/SEO URL-canonical-format coherence（`global`→`nonlocal` 変換確立） |
+| 19 | #601 | 311-320 | `checks_sitemap_manifest.py`（新規・16 個目） | 11,483→11,070 | 連続 self-contained・sitemap & manifest format/validity（split_tool.py 確立） |
+| 20 | #602 | 324-337 | `checks_html_standards.py`（新規・17 個目） | 11,070→10,505 | 連続 self-contained・index.html standards/hygiene + asset integrity（mutation-anchor 追従を確立） |
 
-**現在の module 内訳**（13 module）:
+**現在の module 内訳**（17 module）:
 - `checks_maintainability.py`= Check **16, 28, 29, 30, 42, 52, 71, 361, 362, 363, 364**（maintainability / test-health / file-size governance）。
 - `checks_structural.py`= Check **48, 49, 50, 51**（structural parse / CI wiring / tooling）。
 - `checks_esm.py`= Check **47, 56, 57, 61**（main.js ⇄ js/ 葉モジュール ESM 契約 + factory・`_modules47`/`_main_src47` を module-local 化）。
@@ -110,6 +116,10 @@ monolith **15,913 → 12,948 行**（16 phase・−2,965）。
 - `checks_e2e_infra.py`= Check **110, 111, 114, 116, 117**（e2e A11Y routes / no-networkidle / no-.only / playwright.config reuseExistingServer / screenshot tolerance。**非連続**）。
 - `checks_shipped_structure.py`= Check **118-120**（PAGE_META route coverage / factory docstring dependency coherence / shipped JS+CSS byte-weight budget）。
 - `checks_wiring.py`= Check **132-134**（AIO evidence↔sitemap discoverability / aio-guard.js script wiring / root-script wiring completeness）。
+- `checks_aio_entity.py`= Check **167-173**（aio-monitoring schedule / entity.architecture・role・disambiguation / ai:* meta canonical / name variants / identity.js AUTHOR）。
+- `checks_seo_coherence.py`= Check **273-302**（30 checks・canonical URL / HTTPS-only / manifest↔JSON-LD entity 等価 / strict format / og・twitter・meta coherence。global→nonlocal 4 箇所変換）。
+- `checks_sitemap_manifest.py`= Check **311-320**（sitemap lastmod/loc / manifest dates・theme_color・display・icons / aio-manifest sha256・evidence / robots Sitemap count）。
+- `checks_html_standards.py`= Check **324-337**（referrer/preload/no-refresh/no-base/no-deprecated/no-iframe/no-js-URL / root script no import / webmanifest anonymity・orientation・resolve / og==twitter / binary magic bytes。mutation-anchor 追従: 337）。
 
 **実行配線の現物**（check.py 内・行番号は Phase 9 後で drift しうる・`grep 'run(_ctx)' check.py` で再取得）:
 - `CHECK_SOURCE_FILES`: monolith + 6 module path を列挙。
