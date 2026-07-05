@@ -17,11 +17,13 @@ Canonical-Ref : CLAUDE.md §7 / AI2AI.md Session Record / total-check-runbook.md
 ## 0. 30 秒サマリ（BLUF）
 
 - **合意した肥大化解消トラック**: A 以外の全ファイルを 1,000 行以下にし、その後 CI で ≤1,000 を監査化（防止 capstone）。順序 = **C（check.py 最優先 → e2e spec）→ B（style.css / index.html / docs）→ capstone**。
-- **check.py 分割は 9 phase 完遂**（Phase 1-5 は前セッション / Phase 6-9 は 2026-07-05 後続セッション）: monolith **15,913 → 14,053 行（−1,860）**。**6 つの category module 確立**（`checks_maintainability.py` / `checks_structural.py` / `checks_esm.py` / `checks_tooling.py` / `checks_entity.py` / `checks_docs_mirror.py`）。全 phase で `npm run verify` exit 0、自己整合 Check 45/70/105 が全 module 横断で緑。
+- **check.py 分割は 13 phase 完遂**（Phase 1-5 は前セッション / Phase 6-13 は 2026-07-05 後続セッション）: monolith **15,913 → 13,280 行（−2,633）**。**10 個の category module 確立**（`checks_maintainability.py` / `checks_structural.py` / `checks_esm.py` / `checks_tooling.py` / `checks_entity.py` / `checks_docs_mirror.py` / `checks_aio_derived.py` / `checks_app_route.py` / `checks_ci_supply.py` / `checks_behavioral.py`）。全 phase で `npm run verify` exit 0、自己整合 Check 45/70/105 が全 module 横断で緑。
 - **#253 の「物理分割 net-negative」を覆した**: `exec` 不使用の **`run(ctx)` 明示 context 注入**（check/errors/warnings を同一オブジェクト参照で渡す）で挙動 byte-equivalent を実証。
-- **現状（Phase 9 終了時）**: main clean・origin 同期・open PR ゼロ・consistency exit 0・**check.py 14,053 行**。
-- **Phase 6-9 で確立した 2 パターン**: (i) **coupled-group 一括抽出**（Phase 6 = `_modules47` 共有の 47/56/57/61 をリスト定義＋全消費者ごと抽出＝結合解消）、(ii) **連続 self-contained クラスタ抽出**（Phase 7 = tooling 74-80 / Phase 8 = entity 81-90 / Phase 9 = docs-mirror 96-99。各 Check が対象ファイルを自前 read_text し global content 依存なし・連続ゆえ reorder なし＝最も安全）。
-- **次の一手（未着手・reflect-then-organize 済）**: (a) 残る連続 self-contained クラスタを継続抽出（候補: 92-95 AIO C6 derived-value/date-tools / 104-114 verify-gate・e2e guard・canon policy / 116-146 の各テーマ束）、または (b) `_ctx` を global content（html/mainjs/ai2ai/style/mcp_data）で enrich して html 系大カテゴリ（813 参照で最大の塊）を抽出。**depmap の落とし穴: コメント内 "index.html" の `.html` や文字列リテラル `"main.js"` が bare-word global 検知を誤発火させる（81/96 が実例）— 実コードの依存を確認せよ。**
+- **現状（Phase 13 終了時）**: main clean・origin 同期・open PR ゼロ・consistency exit 0・**check.py 13,280 行**。
+- **確立した 2 パターン**: (i) **coupled-group 一括抽出**（Phase 6 = `_modules47` 共有の 47/56/57/61 をリスト定義＋全消費者ごと抽出＝結合解消）、(ii) **連続 self-contained クラスタ抽出**（Phase 7-13 の主軸。各 Check が対象ファイルを自前 read_text し global content 依存なし・連続ゆえ reorder なし＝最も安全）。
+- **確立した強力な検証手法（Phase 13 で導入）**: 汎用 scratch 局所変数（`_i`/`_h` 等）を含むクラスタは、抽出前後で `python3 check.py 2>&1 | grep -E '^(OK|ERROR|WARNING):' | sort` を取り `diff` して **Check 52 の行数表示のみ差分＝全 364 出力 byte-identical** を確認する（exit code だけでなく全 check 結果の不変を証明）。
+- **教訓（Phase 12）**: 抽出コードが使う stdlib（re/json 以外の `ast` 等）は module import 必須。初回抽出で `NameError` が出たら stdlib import 漏れを疑え（安全網が確実に exit 1 で捕捉）。
+- **次の一手（未着手・reflect-then-organize 済）**: (a) 残る連続 self-contained クラスタを継続抽出（候補: 132 AIO sitemap / 133-134 wiring・135 は style 依存で ctx enrich 要 / 126-127 ESLint safety-net・AIO digest re-bake / 141+146 default-project integrity・非連続 / 104/106/107/109 CI/node config・**105/108 は self-integrity 系で慎重に**）、または (b) `_ctx` を global content（html/mainjs/ai2ai/style/mcp_data）で enrich して html 系大カテゴリ（813 参照で最大の塊）を抽出。**depmap の落とし穴: コメント内 "index.html" の `.html` や文字列リテラル `"main.js"` が bare-word global 検知を誤発火させる（81/96 が実例）— full-comment skip + inline comment strip + 文字列/属性除外で実コード依存を確認せよ。**
 
 ---
 
@@ -69,9 +71,9 @@ Canonical-Ref : CLAUDE.md §7 / AI2AI.md Session Record / total-check-runbook.md
 
 ---
 
-## 3. Phase 1-9 の実施記録（何をどの module へ・PR #）
+## 3. Phase 1-13 の実施記録（何をどの module へ・PR #）
 
-monolith **15,913 → 14,053 行**（9 phase・−1,860）。
+monolith **15,913 → 13,280 行**（13 phase・−2,633）。
 
 | Phase | PR | 抽出 Check | 移動先 module | monolith 行数 | 備考 |
 |---|---|---|---|---|---|
@@ -84,14 +86,22 @@ monolith **15,913 → 14,053 行**（9 phase・−1,860）。
 | 7 | #586 | 74-80 | `checks_tooling.py`（新規・4 個目） | 14,717→14,476 | 連続 self-contained・dev-tooling/.claude config file integrity |
 | 8 | #587 | 81-90 | `checks_entity.py`（新規・5 個目） | 14,476→14,251 | 連続 self-contained・entity/Organization cross-surface（READ-ONLY・C6 対象外） |
 | 9 | #588 | 96-99 | `checks_docs_mirror.py`（新規・6 個目） | 14,251→14,053 | 連続 self-contained・docs/files ミラー統治 |
+| 10 | #590 | 91-95 | `checks_aio_derived.py`（新規・7 個目） | 14,053→13,930 | 連続 self-contained・AIO C6 derived-value & date-tooling（READ-ONLY・C6 対象外） |
+| 11 | #591 | 136-140 | `checks_app_route.py`（新規・8 個目） | 13,930→13,711 | 連続 self-contained・app-route whitelist coherence-mesh（`_NNN` 命名徹底で最も安全） |
+| 12 | #592 | 142-145 | `checks_ci_supply.py`（新規・9 個目） | 13,711→13,467 | 連続 self-contained・CI/workflow coverage & supply-chain（144 が `ast` 使用・import 追加） |
+| 13 | #593 | 128-131 | `checks_behavioral.py`（新規・10 個目） | 13,467→13,280 | 連続 self-contained・shipped-JS behavioral regression guards（scratch 変数・全出力 diff で検証） |
 
-**現在の module 内訳**（6 module）:
+**現在の module 内訳**（10 module）:
 - `checks_maintainability.py`= Check **16, 28, 29, 30, 42, 52, 71, 361, 362, 363, 364**（maintainability / test-health / file-size governance）。
 - `checks_structural.py`= Check **48, 49, 50, 51**（structural parse / CI wiring / tooling）。
 - `checks_esm.py`= Check **47, 56, 57, 61**（main.js ⇄ js/ 葉モジュール ESM 契約 + factory・`_modules47`/`_main_src47` を module-local 化）。
 - `checks_tooling.py`= Check **74, 75, 76, 77, 78, 79, 80**（_lib_io helper / incident README / .claude settings/commands/agents/skills / .mcp.json）。
 - `checks_entity.py`= Check **81-90**（WebP/MP3 Org / manifest affiliation・entity / README・Claude2Claude Org / CLAUDE.md cold-start / LICENSE / governance files / .claude entity。READ-ONLY presence 検査ゆえ C6 編集ではない＝aio-guardian 不要）。
 - `checks_docs_mirror.py`= Check **96, 97, 98, 99**（shipped-code 1-to-1 docs bijection / frontmatter / 5-axis section / README+template）。
+- `checks_aio_derived.py`= Check **91-95**（binary date freshness / C6 derived-value canon / manifest last_metadata_update / update_aio tools / _lib_io date helpers。READ-ONLY・C6 対象外）。
+- `checks_app_route.py`= Check **136-140**（demoRoute / main.js switch / Sidebar / AppsPage / Settings demo ↔ router app whitelist。app-route coherence mesh）。
+- `checks_ci_supply.py`= Check **142-145**（Playwright toolchain gate / auto-digest workflow coverage / digest-regen tool map / GitHub Actions full-SHA pin。`import re, json, ast`）。
+- `checks_behavioral.py`= Check **128-131**（cmdk↔router / topbar double-fire / oninput focus-loss / sw decodeURIComponent。shipped-JS behavioral guard）。
 
 **実行配線の現物**（check.py 内・行番号は Phase 9 後で drift しうる・`grep 'run(_ctx)' check.py` で再取得）:
 - `CHECK_SOURCE_FILES`: monolith + 6 module path を列挙。
