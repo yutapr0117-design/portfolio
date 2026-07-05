@@ -13,7 +13,8 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 
 - **Phase 1（#577）**: Check 361-364（js-leaf BUDGET-DATA 登録 / mutation anchor 解決 / js-leaf 1,000 行上限 / store.js ingestion array-op 安全）。
 - **Phase 2（#579）**: Check 52（file-size budget advisory）+ 71（BUDGET-DATA path existence）を追加（file-size governance cluster を集約）。**非連番 Check の抽出 + 既存 module への join パターン**を確立。
-- **Phase 3（本 PR）**: Check 28（e2e no nested test）+ 29（Playwright baseline-generation linkage）+ 30（maintainability anchor docs 存在）を追加（test-health cluster・連続ブロック 3281-3393 の一括抽出）。
+- **Phase 3（#581）**: Check 28（e2e no nested test）+ 29（Playwright baseline-generation linkage）+ 30（maintainability anchor docs 存在）を追加（test-health cluster・連続ブロック 3281-3393 の一括抽出）。
+- **Phase 4（本 PR）**: Check 16（e2e screenshot baseline-skip guard）+ 42（docs artifact placement/naming hygiene 42a/42b）を追加（非連番・test/docs health）。monolith 15,507→15,426。
 
 ## Why
 
