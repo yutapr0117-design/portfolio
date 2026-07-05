@@ -7502,7 +7502,8 @@ else:
 # store/sidebar/AppsPage/palette で忘れられた #257/#292/#293 と同一の再発クラス。デモセレクタブロックに
 # scope して非空の `value: '<app>'` オプションを parse し、router whitelist と一致することを強制する
 # (空の "Demoなし" オプションは許可)。これで全 routable app がプロジェクト demo として選択可能に保たれる。
-_apps140 = ROOT / "js" / "apps.js"
+# 2026-07-05: SettingsPage を js/apps.js → js/settings-page.js へ分離したため Demo セレクタの探索先を追従。
+_apps140 = ROOT / "js" / "settings-page.js"
 _router140 = ROOT / "js" / "router.js"
 if _apps140.exists() and _router140.exists():
     _asrc140 = _apps140.read_text(encoding="utf-8")
@@ -7524,7 +7525,7 @@ if _apps140.exists() and _router140.exists():
         bool(_router_apps140) and bool(_demo_opts140) and not _missing140 and not _extra140,
         f"Check 140: Settings demo selector options == router app whitelist ({sorted(_router_apps140)})",
         f"Check 140: Settings demo selector ↔ router app whitelist drift — selector に欠落 (demo 選択不能): "
-        f"{sorted(_missing140)} / selector のみ (dead option): {sorted(_extra140)}。js/apps.js SettingsPage の "
+        f"{sorted(_missing140)} / selector のみ (dead option): {sorted(_extra140)}。js/settings-page.js SettingsPage の "
         f"Demo セレクタに `h('option', {{ value: '<app>' }}, '<app>')` を追加/削除し router whitelist と一致させよ "
         f"(全 routable app をプロジェクト demo として選択可能に保つ・#257 と同 class)"
         if (_router_apps140 and _demo_opts140) else
@@ -7532,8 +7533,8 @@ if _apps140.exists() and _router140.exists():
         blocking=True,
     )
 else:
-    check(False, "Check 140: js/apps.js and js/router.js present",
-          "Check 140: js/apps.js または js/router.js が無い — Settings demo selector coverage を検証できない", blocking=True)
+    check(False, "Check 140: js/settings-page.js and js/router.js present",
+          "Check 140: js/settings-page.js または js/router.js が無い — Settings demo selector coverage を検証できない", blocking=True)
 
 # ── 141. Default-project slug & id uniqueness (BLOCKING) ────────────────────────
 # store.js の defaultProjects は `proj("pNN", "slug", ...)` でハードコードされた seed list。

@@ -138,8 +138,9 @@ MUTATIONS_ARCHIVE = [
         "replace": "{ id: 'notes-PROBE', title: 'Markdown ノート'",
     },
     {
-        "name": "Check 140 (Settings demo selector↔router coverage): drop the notes demo option in apps.js",
-        "file": ROOT / "js" / "apps.js",
+        "name": "Check 140 (Settings demo selector↔router coverage): drop the notes demo option in settings-page.js",
+        # 2026-07-05: SettingsPage を js/apps.js → js/settings-page.js へ分離したため anchor file を追従 (#558 class)
+        "file": ROOT / "js" / "settings-page.js",
         "find": "h('option', { value: 'ai' }, 'ai'),\n                                        h('option', { value: 'notes' }, 'notes')",
         "replace": "h('option', { value: 'ai' }, 'ai')",
     },
