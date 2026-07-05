@@ -12,7 +12,8 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 `check_repository_consistency.py`（元 15,913 行の中央 registry）から切り出した最初の split module。file-size / maintainability / test-health 系の Check を内包し、`run(ctx)` で monolith から呼ばれる。
 
 - **Phase 1（#577）**: Check 361-364（js-leaf BUDGET-DATA 登録 / mutation anchor 解決 / js-leaf 1,000 行上限 / store.js ingestion array-op 安全）。
-- **Phase 2（本 PR）**: Check 52（file-size budget advisory）+ 71（BUDGET-DATA path existence）を追加（file-size governance cluster を集約）。**非連番 Check の抽出 + 既存 module への join パターン**を確立。
+- **Phase 2（#579）**: Check 52（file-size budget advisory）+ 71（BUDGET-DATA path existence）を追加（file-size governance cluster を集約）。**非連番 Check の抽出 + 既存 module への join パターン**を確立。
+- **Phase 3（本 PR）**: Check 28（e2e no nested test）+ 29（Playwright baseline-generation linkage）+ 30（maintainability anchor docs 存在）を追加（test-health cluster・連続ブロック 3281-3393 の一括抽出）。
 
 ## Why
 

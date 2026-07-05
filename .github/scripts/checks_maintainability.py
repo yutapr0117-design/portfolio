@@ -10,6 +10,9 @@ checks stay behavior-identical (same errors/warnings list objects, no exec, no m
 coupling — the #253 "net-negative" concern is avoided by explicit ctx injection, not exec()).
 
 Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() below; Check 45 enforces):
+  28. e2e/portfolio.spec.js has no test() nested inside another test()
+  29. Playwright baseline-generation linkage intact (snapshot workflow <-> spec env signal)
+  30. v80+ maintainability anchor docs present (repository-maintainability-map / main-js-extraction-map)
   52. File-size budget advisory: each file listed in the machine-readable BUDGET-DATA block of
       docs/architecture/file-size-budget.md whose budget is a concrete integer must have a current
       line count at or below that budget. This is the bloat-governance counterpart to the staged
@@ -90,6 +93,119 @@ def run(ctx):
     ROOT = ctx.ROOT
     check = ctx.check
     warnings = ctx.warnings
+
+    # ── 28. P0-02: e2e/portfolio.spec.js — no test() nested inside another test() ─
+    _spec_path_28 = ROOT / "e2e" / "portfolio.spec.js"
+    if _spec_path_28.exists():
+        _spec_lines_28 = _spec_path_28.read_text(encoding="utf-8").splitlines()
+
+        # Verify the 'No Trusted Types' test exists at all
+        _has_ttt = any(
+            "No Trusted Types or CSP violations in console" in ln
+            for ln in _spec_lines_28
+        )
+        check(
+            _has_ttt,
+            "e2e/portfolio.spec.js: 'No Trusted Types or CSP violations in console' test exists",
+            "e2e/portfolio.spec.js: 'No Trusted Types or CSP violations in console' test is missing",
+        )
+
+        # Detect test() nested inside another test() by tracking brace depth.
+        # Only top-level test() calls (column 0, matching ^test\() are tracked as test-openers.
+        # Parameterised tests inside a for-loop are indented and do NOT match ^test\(,
+        # so they are intentionally excluded from this check.
+        import re as _re_spec28
+        _brace_depth_28 = 0
+        _test_start_depth_28 = None   # None = not currently inside a top-level test()
+        _nesting_errors_28: list[str] = []
+
+        # 文字列リテラル / コメントを除去してから brace を数える stripper。素朴な count("{") は
+        # 文字列・コメント内の brace も数えてしまい false-positive を生む（例: テストデータの
+        # 破損 JSON 文字列 'NOT{VALID' の孤立 `{`）。これを構造ブレースのみ数えるよう堅牢化する。
+        # 順序が重要: まず文字列を除去 (内部の // や /* を巻き込む) → 次に // と /* */ コメント除去。
+        _str_re28 = _re_spec28.compile(r"'(?:\\.|[^'\\])*'|\"(?:\\.|[^\"\\])*\"|`(?:\\.|[^`\\])*`")
+        _blockc_re28 = _re_spec28.compile(r"/\*.*?\*/")
+
+        def _strip_js_literals_28(line: str) -> str:
+            line = _str_re28.sub("", line)        # 文字列リテラル除去 (escape 対応)
+            line = _blockc_re28.sub("", line)     # 単一行 /* ... */ 除去
+            line = _re_spec28.sub(r"//.*$", "", line)  # 行コメント除去
+            return line
+
+        for _ln28, _line28 in enumerate(_spec_lines_28, 1):
+            _code28 = _strip_js_literals_28(_line28)
+            # A top-level test() definition starts at column 0 (元行で判定: 列 0 固定ゆえ strip 不要)
+            if _re_spec28.match(r"^test\s*\(", _line28):
+                if _test_start_depth_28 is not None:
+                    _nesting_errors_28.append(
+                        f"line {_ln28}: test() opened while previous test() "
+                        f"(started at brace-depth {_test_start_depth_28}) is not yet closed"
+                    )
+                _test_start_depth_28 = _brace_depth_28  # record depth *before* this line
+
+            # 構造ブレースのみ数える (文字列/コメント内の brace は strip 済みゆえ無視される)
+            _brace_depth_28 += _code28.count("{") - _code28.count("}")
+
+            # When brace depth returns to the level before the test opened, the test is closed
+            if _test_start_depth_28 is not None and _brace_depth_28 <= _test_start_depth_28:
+                _test_start_depth_28 = None
+
+        check(
+            len(_nesting_errors_28) == 0,
+            "e2e/portfolio.spec.js: all test() definitions are top-level (no nesting detected)",
+            "e2e/portfolio.spec.js: nested test() detected — " + "; ".join(_nesting_errors_28[:3]),
+        )
+    else:
+        warnings.append("P0-02: e2e/portfolio.spec.js not found — test-nesting check skipped")
+
+    # ── 29. P0-01: Playwright baseline-generation linkage is intact ─────────────
+    # The baseline generation flow only works if BOTH sides agree on the env signal:
+    #   - update-playwright-snapshots.yml passes PLAYWRIGHT_UPDATE_SNAPSHOTS
+    #   - e2e/portfolio.spec.js reads it and does NOT skip the screenshot test in that mode
+    # Without this, --update-snapshots runs but the skip-guard prevents capture (deadlock).
+    _snap_wf = ROOT / ".github" / "workflows" / "update-playwright-snapshots.yml"
+    _spec_29 = ROOT / "e2e" / "portfolio.spec.js"
+    if _snap_wf.exists() and _spec_29.exists():
+        _wf_txt = _snap_wf.read_text(encoding="utf-8")
+        _spec_txt = _spec_29.read_text(encoding="utf-8")
+        check(
+            "PLAYWRIGHT_UPDATE_SNAPSHOTS" in _wf_txt,
+            "update-playwright-snapshots.yml: passes PLAYWRIGHT_UPDATE_SNAPSHOTS env",
+            "update-playwright-snapshots.yml: PLAYWRIGHT_UPDATE_SNAPSHOTS env missing — baseline generation will skip the screenshot test (P0-01 deadlock)",
+        )
+        check(
+            "PLAYWRIGHT_UPDATE_SNAPSHOTS" in _spec_txt,
+            "e2e/portfolio.spec.js: reads PLAYWRIGHT_UPDATE_SNAPSHOTS (baseline-generation mode aware)",
+            "e2e/portfolio.spec.js: does not read PLAYWRIGHT_UPDATE_SNAPSHOTS — screenshot test cannot run in baseline-generation mode (P0-01 deadlock)",
+        )
+        # The screenshot skip-guard must not be closed by baselineExists() alone:
+        # it must also allow the snapshot-update mode to bypass the skip.
+        _guard_ok = bool(
+            re.search(
+                r"!baselineExists\([^)]*\)\s*&&\s*!isSnapshotUpdateMode\(\)",
+                _spec_txt,
+            )
+        )
+        check(
+            _guard_ok,
+            "e2e/portfolio.spec.js: screenshot skip-guard combines baselineExists() with isSnapshotUpdateMode()",
+            "e2e/portfolio.spec.js: screenshot skip-guard is not gated by isSnapshotUpdateMode() — baseline can never be generated (P0-01 deadlock)",
+        )
+    else:
+        warnings.append("P0-01: update-playwright-snapshots.yml or e2e/portfolio.spec.js not found — baseline-linkage check skipped")
+
+    # ── 30. v80+ Stage 0/1: architecture maintainability docs are present ────────
+    # These docs anchor the staged main.js decomposition and the repository update map.
+    # Their absence means a later AI agent has no extraction/maintainability contract to follow.
+    for _arch_doc in (
+        "docs/architecture/repository-maintainability-map.md",
+        "docs/architecture/main-js-extraction-map.md",
+    ):
+        check(
+            (ROOT / _arch_doc).exists(),
+            f"{_arch_doc} present (v80+ maintainability anchor)",
+            f"{_arch_doc} missing — v80+ staged maintainability doc absent",
+        )
 
     # ── 52. File-size budget advisory (ADVISORY / non-blocking) ──────────────────
     # Bloat-governance counterpart to the v80+ staged split. We parse the machine-readable
