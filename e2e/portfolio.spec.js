@@ -2154,7 +2154,8 @@ test('normalizeAppsData tolerates a non-array ai/pomodoro history without crashi
         type: 'full-store',
         appsData: {
           ai: { history: 'CORRUPT-NON-ARRAY' },       // 旧実装は .filter で TypeError → crash
-          pomodoro: { history: 'CORRUPT-NON-ARRAY' }  // 旧実装は String.slice で型崩れ
+          pomodoro: { history: 'CORRUPT-NON-ARRAY' },  // 旧実装は String.slice で型崩れ
+          tasks: [{ title: '破損タスク', tags: 'NOT-AN-ARRAY' }]  // task.tags 非配列 → 旧 .filter で TypeError → crash
         },
         theme: 'system',
         lastModified: 1,
@@ -2179,6 +2180,13 @@ test('normalizeAppsData tolerates a non-array ai/pomodoro history without crashi
   await expect(page.locator('.font-mono.text-stat').first()).toBeVisible();
   const fatal2 = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal2, `non-array pomodoro.history caused a fatal render: ${fatal2}`).toBeNull();
+
+  // (4) タスクページも描画され続ける (task.tags 非配列でも normalize が空配列にフォールバックし crash しない)
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#task-input')).toBeVisible();
+  const fatal3 = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal3, `non-array task.tags caused a fatal render: ${fatal3}`).toBeNull();
 });
 
 // ===== 7.1g: normalizeProject は project の tech/tags/links が非配列でも crash しない (#93/#295/#561/#568 class) =====
