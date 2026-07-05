@@ -509,7 +509,11 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
                     long: clamp(Number(data.pomodoro.settings.long) || 15, 1, 120)
                 };
             }
-            if (data.pomodoro.history) {
+            // [FIX] Array.isArray ガード必須。旧 `if (data.pomodoro.history)` は truthy 判定のみで、
+            // 別 schema / 破損 store が history を非配列 (文字列等) で持つと String.prototype.slice が
+            // 発火し「配列のはずが文字列」に型崩れ → 後続 PomodoroPage の history.map で crash する。
+            // tasks/todos と同じく Array.isArray でガードし、非配列は default (空配列) にフォールバック。
+            if (Array.isArray(data.pomodoro.history)) {
                 result.pomodoro.history = data.pomodoro.history.slice(-200);
             }
             if (data.pomodoro.runtime) {
@@ -533,7 +537,13 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
         // (tasks.title / todos.text / notes) と同様に normalize 側でも文字列長を
         // slice し、巨大 prompt/response が localStorage を bloat させる #230 class の
         // ingestion 側 gap を閉じる (entry 数 80 上限は従来どおり)。
-        if (data.ai?.history) {
+        // [FIX] Array.isArray ガード必須 (#93/#295/#561 と同じ「外部 ingestion は全経路正規化」class)。
+        // 旧 `if (data.ai?.history)` は truthy 判定のみで、別 schema / 破損 store が ai.history を
+        // 非配列 (文字列/数値/オブジェクト) で持つと `.filter` が `TypeError: ... is not a function` を
+        // throw し validateAndNormalize が例外 → load()/cross-tab(state.js)/import/snapshot-restore/
+        // settings 正規化ボタンの全 ingestion 経路が FatalPage crash する。tasks/todos と同じく
+        // Array.isArray でガードし、非配列は default (空配列) にフォールバックする総関数契約を守る。
+        if (Array.isArray(data.ai?.history)) {
             result.ai.history = data.ai.history
                 .filter(h => h && h.prompt && h.response)
                 .map(h => ({
