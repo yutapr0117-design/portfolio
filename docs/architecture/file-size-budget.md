@@ -49,7 +49,8 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 |---|---:|---:|---|---|
 | `main.js` | 1,086 | 6,400 | `strong-advisory` | Stage 5-q/r/s 後の最終状態。累計 7,785→1,086 行（**−86%**）。残部は AIDK Kernel + view-transition/render core (Check 43 で保護) |
 | `js/aidk-rails.js` | 425 | 550 | `advisory` | Stage 5-l (AIDK Rail) 新設。AIDK Rail 5 IIFE 合体 factory (RouteState/EffectRails/BindingRegistry/ActionDelegator/DiagnosticsRail)。closure-deps = none + 引数注入。命名: PR #37。Stage 5-l は本 entry (AIDK Rail) を指し、PR #33 の Meta Management は changelog 上では 5-k' と呼称（命名衝突を honest dating で記録） |
-| `js/apps.js` | 824 | 1,000 | `advisory` | Stage 5-n 新設。Productivity Apps factory（TaskPage/TodoPage/NotesPage/SettingsPage + private state）。**2026-07-04 bloat-reduction: AIPage → js/ai-page.js / PomodoroPage → js/pomodoro-page.js へ分離し 1,030→824 行**。budget を owner 受諾の 1,000 行しきい値へ tighten |
+| `js/apps.js` | 458 | 650 | `advisory` | Stage 5-n 新設。Productivity Apps factory（TaskPage/TodoPage/NotesPage + private state）。**2026-07-04 bloat-reduction: AIPage → js/ai-page.js / PomodoroPage → js/pomodoro-page.js。2026-07-05: SettingsPage → js/settings-page.js へ分離し 837→458 行**。budget を実態 +headroom へ tighten |
+| `js/settings-page.js` | 408 | 500 | `advisory` | 2026-07-05 bloat-reduction 分離 (js/apps.js より・最大 page ~373 行)。Settings factory（import/export/snapshot/手動追加/正規化）。private state = settings* (let × 7)。restore/import は Store.validateAndNormalize を通す (#93/#295/#561) |
 | `js/brand.js` | 65 | 120 | `advisory` | Stage 5-f 新設。Brand manager（primary palette/font switcher）factory。closure-deps = none（葉契約）+ Storage を引数注入 |
 | `js/components.js` | 454 | 600 | `advisory` | Stage 5-m 新設。UI page components factory。**bloat-reduction: HomePage / ProjectsPage / ProjectDetailPage / AIKnowhowPage を個別葉モジュール (js/home-page.js 等) へ分離し 1,335→454 行**。budget を実態へ tighten |
 | `js/ai-knowhow-page.js` | 316 | 450 | `advisory` | bloat-reduction 分離。AI 活用ノウハウページ factory。closure-deps = none + 引数注入 |
@@ -176,6 +177,7 @@ js/pages.js | 400 | advisory
 js/perf-guards.js | 250 | advisory
 js/pure-utils.js | 400 | advisory
 js/quiz-renderer.js | 350 | advisory
+js/settings-page.js | 500 | advisory
 js/state.js | 320 | advisory
 js/storage.js | 120 | advisory
 js/store.js | 650 | advisory
