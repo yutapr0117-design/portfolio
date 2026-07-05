@@ -206,25 +206,25 @@ _MUTATIONS_TAIL = [
     },
     {
         "name": "Check 269 (binary asset byte budget): tighten hero.webp budget to 1 byte (simulates over-budget)",
-        "file": CHECK,
+        "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 269 は checks_shipped_static.py へ抽出済 (split Phase 33)
         "find": '(_HERO_WEBP269, 200_000, "hero.webp"),',
         "replace": '(_HERO_WEBP269, 1, "hero.webp"),',
     },
     {
         "name": "Check 270 (text asset byte budget): tighten style.css budget to 1 byte (simulates over-budget)",
-        "file": CHECK,
+        "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 270 は checks_shipped_static.py へ抽出済 (split Phase 33)
         "find": '(ROOT / "style.css", 100_000, "style.css"),',
         "replace": '(ROOT / "style.css", 1, "style.css"),',
     },
     {
         "name": "Check 271 (root JS byte budget): tighten main.js budget to 1 byte (simulates over-budget)",
-        "file": CHECK,
+        "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 271 は checks_shipped_static.py へ抽出済 (split Phase 33)
         "find": '(ROOT / "main.js", 100_000, "main.js"),',
         "replace": '(ROOT / "main.js", 1, "main.js"),',
     },
     {
         "name": "Check 272 (leaf module byte budget): tighten _LEAF_BUDGET272 to 1 byte (simulates over-budget)",
-        "file": CHECK,
+        "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 272 は checks_shipped_static.py へ抽出済 (split Phase 33)
         "find": "_LEAF_BUDGET272 = 100_000",
         "replace": "_LEAF_BUDGET272 = 1",
     },
@@ -452,7 +452,7 @@ _MUTATIONS_TAIL = [
     },
     {
         "name": "Check 310 (total shipped weight): tighten _TOTAL_BUDGET310 to 1 byte (simulates over-budget)",
-        "file": CHECK,
+        "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 310 は checks_shipped_static.py へ抽出済 (split Phase 33)
         "find": "_TOTAL_BUDGET310 = 2_000_000",
         "replace": "_TOTAL_BUDGET310 = 1",
     },
