@@ -17,10 +17,11 @@ Canonical-Ref : CLAUDE.md §7 / AI2AI.md Session Record / total-check-runbook.md
 ## 0. 30 秒サマリ（BLUF）
 
 - **合意した肥大化解消トラック**: A 以外の全ファイルを 1,000 行以下にし、その後 CI で ≤1,000 を監査化（防止 capstone）。順序 = **C（check.py 最優先 → e2e spec）→ B（style.css / index.html / docs）→ capstone**。
-- **check.py 分割は 5 phase 完遂**: monolith **15,913 → 15,066 行**。2 つの category module 確立（`checks_maintainability.py` 535 行 / `checks_structural.py` 387 行）。全 phase で `npm run verify` exit 0、自己整合 Check 45/70/105 が 3 ファイル横断で緑。
+- **check.py 分割は 9 phase 完遂**（Phase 1-5 は前セッション / Phase 6-9 は 2026-07-05 後続セッション）: monolith **15,913 → 14,053 行（−1,860）**。**6 つの category module 確立**（`checks_maintainability.py` / `checks_structural.py` / `checks_esm.py` / `checks_tooling.py` / `checks_entity.py` / `checks_docs_mirror.py`）。全 phase で `npm run verify` exit 0、自己整合 Check 45/70/105 が全 module 横断で緑。
 - **#253 の「物理分割 net-negative」を覆した**: `exec` 不使用の **`run(ctx)` 明示 context 注入**（check/errors/warnings を同一オブジェクト参照で渡す）で挙動 byte-equivalent を実証。
-- **現状**: main clean・origin 同期・open PR ゼロ・consistency exit 0。**readily-self-contained なクラスタは抽出し尽くした**。Phase 6+ は質的に難度が上がる（後述 §4）。
-- **次の一手（未着手・reflect-then-organize 済）**: (a) `_ctx` を global content（html/mainjs/ai2ai/style/mcp_data）で enrich して大カテゴリ（AIO 系 B / version A / SEO C）を抽出可能にする、または (b) shared-infra 変数を共有する coupled check-group（`_modules47` を共有する 47/56/57/61 等）を一括抽出する。
+- **現状（Phase 9 終了時）**: main clean・origin 同期・open PR ゼロ・consistency exit 0・**check.py 14,053 行**。
+- **Phase 6-9 で確立した 2 パターン**: (i) **coupled-group 一括抽出**（Phase 6 = `_modules47` 共有の 47/56/57/61 をリスト定義＋全消費者ごと抽出＝結合解消）、(ii) **連続 self-contained クラスタ抽出**（Phase 7 = tooling 74-80 / Phase 8 = entity 81-90 / Phase 9 = docs-mirror 96-99。各 Check が対象ファイルを自前 read_text し global content 依存なし・連続ゆえ reorder なし＝最も安全）。
+- **次の一手（未着手・reflect-then-organize 済）**: (a) 残る連続 self-contained クラスタを継続抽出（候補: 92-95 AIO C6 derived-value/date-tools / 104-114 verify-gate・e2e guard・canon policy / 116-146 の各テーマ束）、または (b) `_ctx` を global content（html/mainjs/ai2ai/style/mcp_data）で enrich して html 系大カテゴリ（813 参照で最大の塊）を抽出。**depmap の落とし穴: コメント内 "index.html" の `.html` や文字列リテラル `"main.js"` が bare-word global 検知を誤発火させる（81/96 が実例）— 実コードの依存を確認せよ。**
 
 ---
 
@@ -68,9 +69,9 @@ Canonical-Ref : CLAUDE.md §7 / AI2AI.md Session Record / total-check-runbook.md
 
 ---
 
-## 3. Phase 1-5 の実施記録（何をどの module へ・PR #）
+## 3. Phase 1-9 の実施記録（何をどの module へ・PR #）
 
-monolith **15,913 → 15,066 行**（5 phase）。
+monolith **15,913 → 14,053 行**（9 phase・−1,860）。
 
 | Phase | PR | 抽出 Check | 移動先 module | monolith 行数 | 備考 |
 |---|---|---|---|---|---|
@@ -78,22 +79,25 @@ monolith **15,913 → 15,066 行**（5 phase）。
 | 2 | #579 | 52 + 71 | checks_maintainability.py（join） | 15,622→? | 非連番抽出 + 既存 module join パターン確立。file-size governance cluster |
 | 3 | #581 | 28 + 29 + 30 | checks_maintainability.py（join） | ?→? | test-health cluster・連続ブロック一括抽出 |
 | 4 | #582 | 16 + 42 | checks_maintainability.py（join） | 15,507→15,426 | 非連番・test/docs health |
-| 5 | #583 | 48 + 49 + 50 + 51 | `checks_structural.py`（新規・2 個目の module） | →15,066 | structural / CI wiring / tooling（category E）。多 module パターン確立 |
+| 5 | #583 | 48 + 49 + 50 + 51 | `checks_structural.py`（新規・2 個目） | →15,066 | structural / CI wiring / tooling（category E）。多 module パターン確立 |
+| 6 | #585 | 47 + 56 + 57 + 61 | `checks_esm.py`（新規・3 個目） | 15,066→14,717 | **coupled-group 一括抽出**（`_modules47`+`_main_src47` 共有クラスタをリスト定義ごと抽出＝結合解消） |
+| 7 | #586 | 74-80 | `checks_tooling.py`（新規・4 個目） | 14,717→14,476 | 連続 self-contained・dev-tooling/.claude config file integrity |
+| 8 | #587 | 81-90 | `checks_entity.py`（新規・5 個目） | 14,476→14,251 | 連続 self-contained・entity/Organization cross-surface（READ-ONLY・C6 対象外） |
+| 9 | #588 | 96-99 | `checks_docs_mirror.py`（新規・6 個目） | 14,251→14,053 | 連続 self-contained・docs/files ミラー統治 |
 
-**現在の module 内訳**:
-- `checks_maintainability.py`（535 行）= Check **16, 28, 29, 30, 42, 52, 71, 361, 362, 363, 364**（maintainability / test-health / file-size governance）。
-- `checks_structural.py`（387 行）= Check **48, 49, 50, 51**（structural parse / CI wiring / tooling）。
-  - 48: Playwright baseline-commit pipeline permission coupling
-  - 49: index.html JSON-LD worksFor ↔ Organization linkage integrity
-  - 50: ESLint flat-config migration integrity（50a-…）
-  - 51: active-runbook Playwright baseline-generation version が pin と一致
+**現在の module 内訳**（6 module）:
+- `checks_maintainability.py`= Check **16, 28, 29, 30, 42, 52, 71, 361, 362, 363, 364**（maintainability / test-health / file-size governance）。
+- `checks_structural.py`= Check **48, 49, 50, 51**（structural parse / CI wiring / tooling）。
+- `checks_esm.py`= Check **47, 56, 57, 61**（main.js ⇄ js/ 葉モジュール ESM 契約 + factory・`_modules47`/`_main_src47` を module-local 化）。
+- `checks_tooling.py`= Check **74, 75, 76, 77, 78, 79, 80**（_lib_io helper / incident README / .claude settings/commands/agents/skills / .mcp.json）。
+- `checks_entity.py`= Check **81-90**（WebP/MP3 Org / manifest affiliation・entity / README・Claude2Claude Org / CLAUDE.md cold-start / LICENSE / governance files / .claude entity。READ-ONLY presence 検査ゆえ C6 編集ではない＝aio-guardian 不要）。
+- `checks_docs_mirror.py`= Check **96, 97, 98, 99**（shipped-code 1-to-1 docs bijection / frontmatter / 5-axis section / README+template）。
 
-**実行配線の現物**（check.py 内）:
-- `CHECK_SOURCE_FILES`: check.py:2688-2691
-- `_aggregate_check_numbers` + `_sec_re`: check.py:2695-2717
-- `_ctx` 定義: check.py:2746
-- `checks_structural.run(_ctx)`: check.py:4084-4089（元の Check 47 の後・53 の前を保持）
-- `checks_maintainability.run(_ctx)`: check.py:15047-15050（元の 361-364 の位置）
+**実行配線の現物**（check.py 内・行番号は Phase 9 後で drift しうる・`grep 'run(_ctx)' check.py` で再取得）:
+- `CHECK_SOURCE_FILES`: monolith + 6 module path を列挙。
+- `_aggregate_check_numbers` + `_sec_re`: `^\s*#\s*──\s*(\d+)\.` で全 module 横断集約。
+- `_ctx` 定義: `SimpleNamespace(ROOT, check, read, read_bytes, extract, errors, warnings)`。
+- 各 module の `run(_ctx)` 呼び出しは **元の Check 位置を保持**（esm=47 位置 / tooling=74 位置 / entity=81 位置 / docs_mirror=96 位置 / structural=47 の後 / maintainability=361 位置）。
 
 ---
 
