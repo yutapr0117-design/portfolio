@@ -107,6 +107,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_wiring.py",  # split: shipped-asset & AIO wiring/discoverability (132-134)
     ROOT / ".github" / "scripts" / "checks_aio_entity.py",  # split: AIO manifest entity-field & identity coherence (167-173)
     ROOT / ".github" / "scripts" / "checks_seo_coherence.py",  # split: AIO/SEO URL-canonical-format coherence (273-302)
+    ROOT / ".github" / "scripts" / "checks_seo_coherence_b.py",  # split: seo_coherence part B (288-302・module 自身の 2 分割で ≤1,000)
     ROOT / ".github" / "scripts" / "checks_sitemap_manifest.py",  # split: 311-320
     ROOT / ".github" / "scripts" / "checks_html_standards.py",  # split: 324-337
     ROOT / ".github" / "scripts" / "checks_jsonld_entity.py",  # split: 191-200
@@ -837,7 +838,8 @@ import checks_jsonld_primary as _checks_jsonld_primary
 _checks_jsonld_primary.run(_ctx)
 
 
-# ── 273-302. AIO/SEO cross-surface URL, canonical & format coherence → checks_seo_coherence.py ──
+# ── 273-287 / 288-302. AIO/SEO cross-surface URL/canonical/format coherence → checks_seo_coherence.py + _b.py ──
+# (module 自身が 30-check で >1,000 行だったため 273-287(part A)/288-302(part B)の 2 module に分割し各 ≤1,000 に)
 # (check.py split track・category "SEO/URL coherence". canonical URL / HTTPS-only / manifest↔JSON-LD
 #  entity equality / strict format (VERSION/CACHE_NAME/manifest_version) / og/twitter/meta coherence の
 #  30 Check。連続 self-contained (annotation+def-aware free-var 分析でゼロ確認・READ-ONLY)。nested walker の
@@ -845,6 +847,8 @@ _checks_jsonld_primary.run(_ctx)
 #  元の実行位置 (272 の後・303 の前) を保持。CHECK_SOURCE_FILES 登録で横断集約。)
 import checks_seo_coherence as _checks_seo_coherence
 _checks_seo_coherence.run(_ctx)
+import checks_seo_coherence_b as _checks_seo_coherence_b
+_checks_seo_coherence_b.run(_ctx)
 
 
 # ── 311-320. sitemap & manifest format/validity coherence checks (311-320) → checks_sitemap_manifest.py ──

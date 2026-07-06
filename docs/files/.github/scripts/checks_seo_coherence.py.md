@@ -9,9 +9,9 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 
 ## What
 
-`check_repository_consistency.py` 分割トラックの 15 個目の split module。AIO/SEO の cross-surface URL・canonical・format coherence を強制する大型連続クラスタ Check **273-302**（30 Check）を内包し、`run(ctx)` で monolith から呼ばれる。
+`check_repository_consistency.py` 分割トラックの 15 個目の split module。AIO/SEO の cross-surface URL・canonical・format coherence を強制するクラスタの **part A（Check 273-287）** を内包し、`run(ctx)` で monolith から呼ばれる。**（Phase 52 で ≤1,000 のため 2 分割: 288-302 は `checks_seo_coherence_b.py`。元は 273-302 の 30-check・1,252 行だった。）**
 
-テーマ: canonical URL 一貫性 / HTTPS-only / manifest↔JSON-LD entity 等価 / strict format 契約（VERSION / CACHE_NAME / manifest_version）/ og・twitter・meta coherence。代表例 — 273(JSON-LD date 未来なし) / 274-277(manifest↔JSON-LD entity/Org 等価) / 278-284(HTTPS + SITE_CONFIG↔ai:* URL 等価) / 285-287(strict format) / 288-294(ARTICLE_ROUTES / entity role・name・disambiguation) / 295-302(publisher / alternate / sitemap / og:image / twitter:card / preconnect / data-canonical)。
+テーマ: canonical URL 一貫性 / HTTPS-only / manifest↔JSON-LD entity 等価 / strict format 契約。part A の内訳 — 273(JSON-LD date 未来なし) / 274-277(manifest↔JSON-LD entity/Org 等価) / 278-284(HTTPS + SITE_CONFIG↔ai:* URL 等価) / 285-287(strict format: VERSION / CACHE_NAME / manifest_version)。part B(288-302: ARTICLE_ROUTES / entity / disambiguation / publisher / og-twitter meta)は `checks_seo_coherence_b.py`。
 
 ## Why
 
