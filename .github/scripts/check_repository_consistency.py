@@ -93,12 +93,6 @@ authoritative inventory and is kept in sync with the implementation below):
        (backtick-quoted filenames). The human-facing CI index thus cannot silently fall behind
        when a workflow is added or removed — the counterpart of Check 75 (incident README
        inventory) / Check 105 (check-map) for the CI workflow surface. (BLOCKING)
-  108. docs/files mirror ↔ tracked-files full bijection: EVERY tracked repository file (per
-       `git ls-files`, excluding docs/files itself) has a 1-to-1 multi-audience doc mirror at
-       `docs/files/<path>.md`, and every mirror (except the README.md inventory and _template.md)
-       has a live source file. Check 96 only guards the 33 Phase-1 shipped-code files; this Check
-       extends the bijection to ALL tracked files, so a newly added file without a mirror, or an
-       orphan mirror left after a source is deleted/renamed, is caught structurally. (BLOCKING)
   109. living-doc Check-count hardcode drift guard: orientation/governance docs that describe the
        CURRENT repository state (root CLAUDE.md / README.md / CHANGELOG.md / Claude2Claude.md /
        .claude/CLAUDE.md / .claude/README.md / .claude/agents/*.md / .claude/skills/*/SKILL.md /
@@ -135,15 +129,6 @@ authoritative inventory and is kept in sync with the implementation below):
        and asserts it byte-matches the committed STATUS.md (regenerate-and-compare, same idea as
        the AIO digest checks). A hand-edited or stale dashboard is misinformation that degrades
        the flywheel, so freshness is machine-enforced. Fix: `npm run status`. (BLOCKING)
-  122. no private source documents tracked: personal career source documents (resume / career
-       history / offer letters / labor-condition sheets) are LOCAL-ONLY input for generating the
-       abstracted, privacy-safe docs/evidence/real-work-claims.md. Committing an original would
-       leak sensitive PII (personal identifiers beyond the public real name, client/project names,
-       salary, labor conditions). The shipped repo is Vanilla JS/MD/images/JSON only, so office /
-       document / archive formats (pdf/docx/doc/xlsx/pptx/rtf/odt/ods/odp/pages/key/numbers/csv +
-       zip/7z/rar/tar/gz/tgz) have no legitimate use; this Check asserts (via `git ls-files`) that
-       none is tracked — defense-in-depth alongside the .gitignore blanket ignore. Images
-       (png/jpg/webp) are intentionally excluded (legitimately used). (BLOCKING)
   123. operating-model description coherence (site ↔ AIO): Session #21 corrected the
        "conversational Claude" 実態↔記述 drift and recorded the current operating model
        (construction phase = conversational → now Claude Code autonomous self-driving with
@@ -409,6 +394,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_ci_verify.py",  # split: 345-347
     ROOT / ".github" / "scripts" / "checks_meta_validity.py",  # split: 341-343
     ROOT / ".github" / "scripts" / "checks_asset_resolve.py",  # split: 357-359
+    ROOT / ".github" / "scripts" / "checks_tracked_files.py",  # split: tracked-files mirror bijection + private-document guard (108/122・ctx-enrich _member_paths)
     ROOT / ".github" / "scripts" / "checks_eslint_budget.py",  # split: ESLint warning-baseline & file-size-budget governance trio (59/60/72)
     ROOT / ".github" / "scripts" / "checks_structural_ci.py",  # split: kernel/canary structural integrity + CI lint-coupling (43/44/46/53/54/55/58)
     ROOT / ".github" / "scripts" / "checks_repo_hygiene.py",  # split: repository hygiene / doc-dating / artifact / lock-sync (31-41 minus 37)
@@ -503,6 +489,53 @@ _ctx.ai2ai = ai2ai
 _ctx.mainjs = mainjs
 _ctx.mcp_data = mcp_data
 _ctx.aio_mon = aio_mon
+
+# ── setup: repository member-paths producer (relocated from Check 37 for consumer sharing) ──
+# `_member_paths` (git ls-files / pruned walk) は Check 37(artifact scan) が producer だが 108/122 等の
+# consumer も参照する共有 setup-global。checks 実行前に一度計算し `_ctx._member_paths` へ attach する
+# (byte-equivalent: git ls-files はいつ呼んでも同結果)。分割 module は `_member_paths = ctx._member_paths` で unpack。
+FORBIDDEN_GENERATED_PATH_PARTS = {
+    "__pycache__",
+    "node_modules",
+    "test-results",
+    "playwright-report",
+    "blob-report",
+    ".pytest_cache",
+}
+FORBIDDEN_GENERATED_NAMES = {
+    ".DS_Store",
+    "Thumbs.db",
+    "npm-debug.log",
+}
+FORBIDDEN_GENERATED_SUFFIXES = (".pyc", ".pyo")
+
+
+def _repo_member_paths() -> list[str]:
+    """Repo-relative POSIX paths that constitute the repository.
+
+    Prefer `git ls-files` (authoritative: excludes untracked/ignored runtime dirs).
+    Fall back to a pruned filesystem walk for ZIP/zipball contexts without .git."""
+    try:
+        proc = subprocess.run(
+            ["git", "ls-files", "-z"],
+            cwd=str(ROOT), capture_output=True, timeout=30,
+        )
+        if proc.returncode == 0 and proc.stdout:
+            return [p for p in proc.stdout.decode("utf-8", "replace").split("\0") if p]
+    except (OSError, subprocess.SubprocessError):
+        pass
+    import os as _os37
+    _prune = {".git"} | FORBIDDEN_GENERATED_PATH_PARTS
+    out: list[str] = []
+    for dirpath, dirnames, filenames in _os37.walk(ROOT):
+        dirnames[:] = [d for d in dirnames if d not in _prune]
+        for fn in filenames:
+            out.append((Path(dirpath) / fn).relative_to(ROOT).as_posix())
+    return out
+
+
+_member_paths = _repo_member_paths()
+_ctx._member_paths = _member_paths
 
 # ── 1/2/3/19. app-version cross-surface coherence → checks_version.py ──
 # (check.py split track・ctx-enrich module。html/ai2ai/mainjs/mcp_data を _ctx 経由で消費。ai:version==
@@ -746,47 +779,6 @@ _checks_repo_hygiene.run(_ctx)
 # would false-positive on those in CI). For non-git contexts (ZIP/zipball export with
 # no .git), it falls back to a filesystem walk that prunes those same ignored runtime
 # dirs so a local `npm ci` / py_compile in the export cannot cause false positives.
-FORBIDDEN_GENERATED_PATH_PARTS = {
-    "__pycache__",
-    "node_modules",
-    "test-results",
-    "playwright-report",
-    "blob-report",
-    ".pytest_cache",
-}
-FORBIDDEN_GENERATED_NAMES = {
-    ".DS_Store",
-    "Thumbs.db",
-    "npm-debug.log",
-}
-FORBIDDEN_GENERATED_SUFFIXES = (".pyc", ".pyo")
-
-
-def _repo_member_paths() -> list[str]:
-    """Repo-relative POSIX paths that constitute the repository.
-
-    Prefer `git ls-files` (authoritative: excludes untracked/ignored runtime dirs).
-    Fall back to a pruned filesystem walk for ZIP/zipball contexts without .git."""
-    try:
-        proc = subprocess.run(
-            ["git", "ls-files", "-z"],
-            cwd=str(ROOT), capture_output=True, timeout=30,
-        )
-        if proc.returncode == 0 and proc.stdout:
-            return [p for p in proc.stdout.decode("utf-8", "replace").split("\0") if p]
-    except (OSError, subprocess.SubprocessError):
-        pass
-    import os as _os37
-    _prune = {".git"} | FORBIDDEN_GENERATED_PATH_PARTS
-    out: list[str] = []
-    for dirpath, dirnames, filenames in _os37.walk(ROOT):
-        dirnames[:] = [d for d in dirnames if d not in _prune]
-        for fn in filenames:
-            out.append((Path(dirpath) / fn).relative_to(ROOT).as_posix())
-    return out
-
-
-_member_paths = _repo_member_paths()
 _artifact_hits = []
 for _p in _member_paths:
     _name = _p.rsplit("/", 1)[-1]
@@ -1214,31 +1206,13 @@ if _runbook107.exists() and _wfdir107.exists():
 else:
     check(False, "", "Check 107: runbook or workflows dir not found — workflow inventory を検証できない", blocking=True)
 
-# ── 108. docs/files mirror ↔ tracked-files full bijection (BLOCKING) ──────────
-# The repo documents EVERY tracked file with a 1-to-1 mirror at docs/files/<path>.md
-# (multi-audience: AI / new hire / auditor / recruiter / researcher). Check 96 only enforces
-# the 33 Phase-1 shipped-code files, leaving the other ~100 mirrors unguarded: a new file added
-# without a mirror, or an orphan mirror left after a source file is deleted/renamed, would erode
-# the "every file is documented" guarantee silently. This Check extends the bijection to the
-# FULL tracked set. Authoritative source = `git ls-files` via the already-computed `_member_paths`
-# (so untracked node_modules/__pycache__ never false-positive). README.md (the inventory, Check
-# 99) and _template.md are the only docs/files entries that are not themselves mirrors.
-_src108 = {f for f in _member_paths if not f.startswith("docs/files/")}
-_mirror108 = set()
-for _f108 in _member_paths:
-    if _f108.startswith("docs/files/") and _f108.endswith(".md"):
-        if _f108.rsplit("/", 1)[-1] in ("README.md", "_template.md"):
-            continue
-        _mirror108.add(_f108[len("docs/files/"):-len(".md")])
-_missing_mirror108 = sorted(_src108 - _mirror108)
-_orphan_mirror108 = sorted(_mirror108 - _src108)
-check(
-    bool(_src108) and _src108 == _mirror108,
-    f"Check 108: all {len(_src108)} tracked files have a 1-to-1 docs/files mirror (full bijection)",
-    f"Check 108: docs/files mirror drift — tracked but undocumented (missing mirror): {_missing_mirror108}; "
-    f"orphan mirror (doc with no source file): {_orphan_mirror108}. docs/files/<path>.md を同期せよ",
-    blocking=True,
-)
+# ── 108/122. tracked-files mirror bijection + private-document guard → checks_tracked_files.py ──
+# (check.py split track・ctx-enrich _member_paths。108=docs/files mirror↔tracked-files FULL bijection /
+#  122=private-source-document guard。両者とも setup-global _member_paths(Phase 46 で 37 から setup 領域へ
+#  移設し _ctx._member_paths attach)を消費。Check 37(artifact scan)は FORBIDDEN 定数も使うため残置。
+#  108 位置で list 順連続実行。CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。)
+import checks_tracked_files as _checks_tracked_files
+_checks_tracked_files.run(_ctx)
 
 # ── 109. living-doc Check-count hardcode drift guard (BLOCKING) ────────────────
 # stale な「現在の Check 総数」を prose にハードコードする drift class を構造的に封じる。この
@@ -1419,31 +1393,6 @@ except Exception as _e121:
         f"Check 121: STATUS.md 鮮度を検証できない (generate_status import 失敗等): {_e121}",
         blocking=True,
     )
-
-# ── 122. no private source documents tracked (BLOCKING) ───────────────────────
-# 本人の経歴書類 (履歴書・職務経歴書・内定通知書・労働条件表 等) は、抽象化済み evidence
-# (docs/evidence/real-work-claims.md) を生成するためのローカル入力に過ぎず、原本を公開リポジトリへ
-# commit すると機微情報 (氏名以外の個人特定情報・顧客名・案件名・年収・労働条件) の漏洩になる。
-# shipped repo は Vanilla JS/MD/画像/JSON のみで、office/文書/アーカイブ形式は一切正規利用が無いため、
-# これらの拡張子が tracked されていないことを BLOCKING で機械強制する (.gitignore のブランケット ignore と
-# 二重防御。`git add .` は settings で deny 済みだが、明示 add の取りこぼしや将来の再投入もここで閉じる)。
-# 対象は MS Office (pdf/docx/doc/xlsx/pptx) + 文書 (rtf/odt/ods/odp/pages/key/numbers/csv) +
-# アーカイブ (zip/7z/rar/tar/gz/tgz)。画像 (png/jpg/webp) は webp asset / playwright baseline で
-# 正規利用するため意図的に対象外 (false-positive 回避)。
-_PRIVATE_DOC_SUFFIXES = (
-    ".pdf", ".docx", ".doc", ".xlsx", ".pptx",
-    ".rtf", ".odt", ".ods", ".odp", ".pages", ".key", ".numbers", ".csv",
-    ".zip", ".7z", ".rar", ".tar", ".gz", ".tgz",
-)
-_private_hits = sorted(p for p in _member_paths if p.lower().endswith(_PRIVATE_DOC_SUFFIXES))
-check(
-    not _private_hits,
-    f"Check 122: no private source documents (.pdf/.docx/...) tracked (scanned {len(_member_paths)} paths)",
-    "Check 122: private source document(s) tracked in repository — 機微情報漏洩リスク。原本は "
-    "ローカルのみで扱い、抽象化済み evidence のみ commit せよ。tracked 違反: "
-    + ", ".join(_private_hits[:10]) + (" …" if len(_private_hits) > 10 else ""),
-    blocking=True,
-)
 
 # ── 123. operating-model description coherence (site ↔ AIO) (BLOCKING) ─────────
 # Session #21 で「対話型 Claude」記述の実態↔記述 drift を是正し、現在の運用モデル
