@@ -16,7 +16,7 @@ from mutation_samples_common import ROOT, CHECK  # noqa: F401 (entry 内で参�
 MUTATIONS_ARCHIVE = [
     {
         "name": "Check 45 (docstring↔section bijection): break a section-header number",
-        "file": CHECK,
+        "file": ROOT / ".github" / "scripts" / "checks_version.py",  # Check 1 の section header は checks_version.py へ抽出済 (split Phase 36)。Check 45 は全 module 横断集約ゆえ module 内 header 破壊も検知
         "find": "# ── 1. ai:version",
         "replace": "# ── 998. ai:version",
     },

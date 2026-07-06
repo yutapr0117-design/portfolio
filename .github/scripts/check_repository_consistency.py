@@ -6,9 +6,6 @@ Verifies that key version, date, and structural invariants hold across the repos
 
 Checks performed (the numbering is historical/incremental; this list is the
 authoritative inventory and is kept in sync with the implementation below):
-  1.  ai:version (index.html) == Pipeline-Version (AI2AI.md)
-  2.  ai:version == SITE_CONFIG.VERSION or main.js VERSION string
-  3.  mcp.json server.version major matches ai:version
   4.  llms.txt / .well-known/llms.txt / llms_well-known.txt / .well-known/llms_well-known.txt are byte-identical
   5.  .well-known/index.json == .well-known/agent-skills/index.json (byte-identical)
   7.  index.html CSP meta appears before inline suppressor script (error-suppressor inlined)
@@ -23,7 +20,6 @@ authoritative inventory and is kept in sync with the implementation below):
   15. Project Pages robots/.well-known constraint documented (llms-full.txt / AI2AI.md / README.md)
   17. ai:last-modified (index.html) == SITE_CONFIG.LAST_UPDATED (main.js)
   18. sitemap.xml root <lastmod> == ai:last-modified (per-URL lastmod policy)
-  19. sw.js CACHE_NAME version == ai:version
   21. llms alias files Last-Updated are in sync
   22. AI2AI.md Session Record headers are in ascending order
   23. .github/workflows/*.yml and dependabot.yml parse without YAML syntax errors
@@ -845,6 +841,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_ci_verify.py",  # split: 345-347
     ROOT / ".github" / "scripts" / "checks_meta_validity.py",  # split: 341-343
     ROOT / ".github" / "scripts" / "checks_asset_resolve.py",  # split: 357-359
+    ROOT / ".github" / "scripts" / "checks_version.py",  # split: app-version cross-surface coherence (1/2/3/19・ctx-enrich)
     ROOT / ".github" / "scripts" / "checks_html.py",  # split: index.html document/meta baseline & lang coherence (8/20/115/152/187/220/250/255/303/306・ctx-enrich html)
     ROOT / ".github" / "scripts" / "checks_css.py",  # split: style.css / CSS contract (6/73/101/103/135/174/321-323/344/356・ctx-enrich style)
     ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # split: shipped-JS static analysis + byte budgets (237/239-241/262-265/269-272/310)
@@ -925,34 +922,16 @@ mcp_data   = json.loads(read(".well-known/mcp.json"))
 # dependent categories (html / mainjs / ai2ai / mcp_data) are split out in later phases.
 _ctx.style = style
 _ctx.html = html
+_ctx.ai2ai = ai2ai
+_ctx.mainjs = mainjs
+_ctx.mcp_data = mcp_data
 
-# ── 1. ai:version == Pipeline-Version ────────────────────────────────────────
-html_v    = extract(r'name="ai:version"\s+content="(v\d+)"', html)
-ai2ai_v   = extract(r"Pipeline-Version\s*:\s*(v\d+)", ai2ai)
-check(
-    html_v is not None and ai2ai_v is not None and html_v == ai2ai_v,
-    f"ai:version ({html_v}) == Pipeline-Version ({ai2ai_v})",
-    f"ai:version mismatch: index.html={html_v}, AI2AI.md={ai2ai_v}",
-)
-
-# ── 2. main.js VERSION string ────────────────────────────────────────────────
-mainjs_v = extract(r"VERSION:\s*['\"]?(v\d+)['\"]?", mainjs)
-if mainjs_v:
-    check(
-        html_v == mainjs_v,
-        f"main.js VERSION ({mainjs_v}) == ai:version ({html_v})",
-        f"main.js VERSION mismatch: main.js={mainjs_v}, index.html={html_v}",
-    )
-
-# ── 3. mcp.json server.version major ─────────────────────────────────────────
-mcp_v     = mcp_data.get("server", {}).get("version", "")
-mcp_major = mcp_v.split(".")[0] if mcp_v else None
-html_major = html_v.lstrip("v") if html_v else None
-check(
-    mcp_major is not None and mcp_major == html_major,
-    f"mcp.json server.version major ({mcp_major}) == ai:version major ({html_major})",
-    f"mcp.json server.version major ({mcp_major}) != ai:version major ({html_major})",
-)
+# ── 1/2/3/19. app-version cross-surface coherence → checks_version.py ──
+# (check.py split track・ctx-enrich module。html/ai2ai/mainjs/mcp_data を _ctx 経由で消費。ai:version==
+#  Pipeline-Version(1)/main.js VERSION(2)/mcp.json server.version(3)/sw.js CACHE_NAME(19)。共有=html_v
+#  (Check 1 で extract・2/3/19 が再利用)。1 位置で list 順連続実行。CHECK_SOURCE_FILES 登録で横断集約。)
+import checks_version as _checks_version
+_checks_version.run(_ctx)
 
 # ── 4. llms alias files byte-identical ───────────────────────────────────────
 llms_paths = [
@@ -1191,15 +1170,6 @@ try:
         warnings.append("sitemap.xml: root URL entry not found for per-URL lastmod check")
 except ET.ParseError:
     pass  # already caught in check 9
-
-# ── 19. sw.js CACHE_NAME matches app version ──────────────────────────────────
-sw_js = read("sw.js")
-sw_cache = extract(r"CACHE_NAME = 'portfolio-aio-(v\d+)'" , sw_js)
-check(
-    sw_cache is not None and html_v is not None and sw_cache == html_v,
-    f"sw.js CACHE_NAME version ({sw_cache}) == ai:version ({html_v})",
-    f"sw.js CACHE_NAME mismatch: sw.js={sw_cache}, index.html ai:version={html_v}",
-)
 
 # ── 21. llms alias files Last-Updated sync ───────────────────────────────────
 llms_date_pattern = r"Last-Updated: ([0-9-]+)"
