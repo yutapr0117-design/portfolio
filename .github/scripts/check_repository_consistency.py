@@ -8,15 +8,10 @@ Checks performed (the numbering is historical/incremental; this list is the
 authoritative inventory and is kept in sync with the implementation below):
   4.  llms.txt / .well-known/llms.txt / llms_well-known.txt / .well-known/llms_well-known.txt are byte-identical
   5.  .well-known/index.json == .well-known/agent-skills/index.json (byte-identical)
-  7.  index.html CSP meta appears before inline suppressor script (error-suppressor inlined)
-  7b. index.html CSP authorizes inline suppressor (hash recomputed from live content)
-  7c. index.html CSP authorizes inline speculation rules (hash recomputed from live content)
   9.  sitemap.xml is valid XML
   10. All .github/scripts/*.py parse without syntax errors
-  11. aio_monitoring.py summary dict contains 'enabled_engines' and 'total_cited_count'
   12. No stale "72回/72回以上" in current-description files (history lines exempt)
   13. "70超" appears only in history/log context
-  14. v1→v74 canonical declaration present in index.html or AI2AI.md
   15. Project Pages robots/.well-known constraint documented (llms-full.txt / AI2AI.md / README.md)
   17. ai:last-modified (index.html) == SITE_CONFIG.LAST_UPDATED (main.js)
   18. sitemap.xml root <lastmod> == ai:last-modified (per-URL lastmod policy)
@@ -736,20 +731,6 @@ authoritative inventory and is kept in sync with the implementation below):
        Sibling of Check 337 (hero/BGM magic bytes) for the icon-asset
        format-integrity axis. (BLOCKING)
 
-  350. The inline event-handler `onload="this.media='all'"` (the async
-       font-loading trick) MUST have its exact-content SHA-256 hash
-       present in the CSP `script-src` (authorized via `'unsafe-hashes'`).
-       Check 7b/7c cover the two inline `<script>` blocks; this covers the
-       third CSP hash — the inline handler. Drift = editing the handler
-       value (e.g. `this.media='screen'`) without recomputing the CSP
-       hash makes Chrome BLOCK the handler, so the print-media stylesheet
-       never flips to `all` and the fonts never load (FOUC / wrong font),
-       silently. Computed from live handler content (not a constant), so
-       both a removed hash and an edited-without-rehash handler are
-       caught. Sibling of Check 7b (suppressor hash) / Check 7c
-       (speculation-rules hash) / Check 242 (handler allowlist) for the
-       inline-CSP-hash integrity axis. (BLOCKING)
-
   360. Every `<meta name="asset:*:canonical">` content URL (currently
        `asset:image:canonical` → hero WebP, `asset:audio:canonical` → BGM
        MP3) MUST resolve (after stripping the canonical prefix) to an
@@ -841,6 +822,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_ci_verify.py",  # split: 345-347
     ROOT / ".github" / "scripts" / "checks_meta_validity.py",  # split: 341-343
     ROOT / ".github" / "scripts" / "checks_asset_resolve.py",  # split: 357-359
+    ROOT / ".github" / "scripts" / "checks_source_coherence.py",  # split: cross-file source coherence + CSP-hash (7/11/14/350・ctx-enrich)
     ROOT / ".github" / "scripts" / "checks_version.py",  # split: app-version cross-surface coherence (1/2/3/19・ctx-enrich)
     ROOT / ".github" / "scripts" / "checks_html.py",  # split: index.html document/meta baseline & lang coherence (8/20/115/152/187/220/250/255/303/306・ctx-enrich html)
     ROOT / ".github" / "scripts" / "checks_css.py",  # split: style.css / CSS contract (6/73/101/103/135/174/321-323/344/356・ctx-enrich style)
@@ -925,6 +907,7 @@ _ctx.html = html
 _ctx.ai2ai = ai2ai
 _ctx.mainjs = mainjs
 _ctx.mcp_data = mcp_data
+_ctx.aio_mon = aio_mon
 
 # ── 1/2/3/19. app-version cross-surface coherence → checks_version.py ──
 # (check.py split track・ctx-enrich module。html/ai2ai/mainjs/mcp_data を _ctx 経由で消費。ai:version==
@@ -967,17 +950,12 @@ check(
 import checks_css as _checks_css
 _checks_css.run(_ctx)
 
-# ── 7. CSP meta before inline suppressor script ───────────────────────────────
-# error-suppressor.js is now inlined in <head> to eliminate the network-fetch
-# timing gap that caused intermittent "message channel closed" console errors.
-_INLINE_SUPPRESSOR_ANCHOR = "window.addEventListener('unhandledrejection'"
-pos_csp = html.find('<meta http-equiv="Content-Security-Policy"')
-pos_err = html.find(_INLINE_SUPPRESSOR_ANCHOR)
-check(
-    pos_csp != -1 and pos_err != -1 and pos_csp < pos_err,
-    f"CSP meta (pos {pos_csp}) appears before inline suppressor (pos {pos_err})",
-    f"CSP meta must appear before inline suppressor (CSP={pos_csp}, inline={pos_err})",
-)
+# ── 7/11/14/350. cross-file source coherence + CSP-hash → checks_source_coherence.py ──
+# (check.py split track・ctx-enrich。html/ai2ai/aio_mon を _ctx 経由・_lib_io.csp_sri_hash helper 同梱。
+#  CSP meta 順序(7)/AIO-monitoring shape(11)/v1→v74 transitions(14)/CSP inline hash(350)。date-sync 17/18
+#  は html_date+root_lastmod 共有ゆえ別 mini-cluster に残置。7 位置で list 順連続実行。CHECK_SOURCE_FILES 登録。)
+import checks_source_coherence as _checks_source_coherence
+_checks_source_coherence.run(_ctx)
 
 # ── 7b/7c. inline-script CSP hashes are present AND match actual content ──────
 # Both the inline suppressor and the inline speculation-rules block are subject to
@@ -1052,19 +1030,6 @@ for py_path in sorted((ROOT / ".github/scripts").glob("*.py")):
         errors.append(f"{py_path.name}: Python syntax error: {e}")
         print(f"ERROR: {py_path.name}: Python syntax error: {e}")
 
-# ── 11. aio_monitoring.py summary dict ───────────────────────────────────────
-check(
-    "enabled_engines" in aio_mon,
-    "aio_monitoring.py: 'enabled_engines' present in summary",
-    "aio_monitoring.py: 'enabled_engines' missing from summary (P0-06)",
-)
-check(
-    "total_cited_count" in aio_mon,
-    "aio_monitoring.py: 'total_cited_count' present in summary",
-    "aio_monitoring.py: 'total_cited_count' missing from summary (P0-06)",
-)
-
-
 # ── 12. No stale 72回/72回以上 in current-description context ─────────────────
 # History records (e2e comments, version history lines) are exempt — we only
 # check the files that form the "current description" layer.
@@ -1109,14 +1074,6 @@ check(
     len(stale_70_hits) == 0,
     "No current-description '70超' outside history context",
     f"'70超' found outside history context: {stale_70_hits}",
-)
-
-# ── 14. v1→v74 / 73 transitions consistency ─────────────────────────────────
-has_v74_declaration = "v1→v74" in html or "v1→v74" in ai2ai
-check(
-    has_v74_declaration,
-    "v1→v74 canonical declaration present in index.html or AI2AI.md",
-    "v1→v74 canonical declaration missing — add to index.html or AI2AI.md",
 )
 
 # ── 15. Project Pages robots/.well-known constraint documented ───────────────
@@ -5244,36 +5201,6 @@ if _icon349.is_file():
 else:
     check(False, "Check 349: icon.svg present",
           "Check 349: icon.svg が無い", blocking=True)
-
-# ── 350. inline onload handler CSP hash present + matches content (BLOCKING) ──
-# Check 7b/7c は 2 つの inline <script> block を被覆。本 Check は 3 つ目の CSP
-# hash = inline event handler `this.media='all'` を被覆。handler を編集して
-# hash を再計算しないと Chrome が block しフォント非同期ロードが silent 破綻。
-_idx350 = ROOT / "index.html"
-if _idx350.is_file():
-    _h350 = _idx350.read_text(encoding="utf-8")
-    _h350_nc = re.sub(r"<!--.*?-->", "", _h350, flags=re.DOTALL)
-    # font async-load handler の onload 属性値を実体から抽出
-    _m350 = re.search(r"onload=\"(this\.media='[^']*')\"", _h350_nc)
-    if _m350 is not None:
-        _handler_content350 = _m350.group(1)
-        _handler_hash350 = _lib_csp_sri_hash(_handler_content350)
-        check(
-            f"'{_handler_hash350}'" in _h350,
-            f"Check 350: CSP が inline handler {_handler_content350!r} を authorize (content hash {_handler_hash350})",
-            (f"Check 350: CSP が inline handler {_handler_content350!r} を authorize しない — "
-             f"computed {_handler_hash350} が script-src に不在。handler を編集して CSP hash を "
-             "再計算し忘れると Chrome が block しフォント非同期ロードが破綻 (FOUC)。"
-             f"'{_handler_hash350}' を script-src へ追加せよ"),
-            blocking=True,
-        )
-    else:
-        check(False, "Check 350: inline onload handler present",
-              "Check 350: index.html に onload=\"this.media='...'\" handler が無い "
-              "(font async-load pattern の期待値)", blocking=True)
-else:
-    check(False, "Check 350: index.html present",
-          "Check 350: index.html が無い", blocking=True)
 
 # ── 351-355. shipped-JS security + CSP script authorization checks — sitemap loc / innerHTML fail-closed / DOMParser absence / script-src+connect-src host authz (351-355) → checks_csp_security.py ──
 # (check.py split track. 連続 self-contained クラスタ・自前 read_text・READ-ONLY。元の実行位置を保持。
