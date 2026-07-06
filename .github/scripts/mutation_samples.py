@@ -469,10 +469,14 @@ _MUTATIONS_TAIL = [
         "replace": "<loc>https://yutapr0117-design.github.io/portfolio/ChatGPT2ChatGPT.md</loc>",
     },
     {
-        "name": "Check 313 (aio-manifest date not future): push generated_at to 2099",
+        "name": "Check 313 (aio-manifest date not future): push last_metadata_update to 2099",
+        # NOTE: target last_metadata_update (changes only on binary-metadata edits) rather than
+        # generated_at (rewritten every week by the aio-monitoring bot, which drifts this anchor
+        # and reds Check 362 on the next PR). Check 313 validates BOTH fields, so mutating the
+        # stable one is an equivalent regression probe without the weekly drift.
         "file": ROOT / ".well-known" / "aio-manifest.json",
-        "find": '"generated_at": "2026-06-29T05:23:40Z",',
-        "replace": '"generated_at": "2099-06-29T05:23:40Z",',
+        "find": '"last_metadata_update": "2026-06-22T10:08:32Z"',
+        "replace": '"last_metadata_update": "2099-06-22T10:08:32Z"',
     },
     {
         "name": "Check 314 (webmanifest theme_color coherence): drift theme_color to unrelated hex",
