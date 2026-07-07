@@ -148,6 +148,8 @@ def run(ctx):
         "jsconfig.json",
         "docs/evidence/aio-monitoring-log.json",
         "e2e/portfolio.spec.js-snapshots/homepage-baseline-chromium-linux.png",
+        # aio-monitoring-log rotation archive (2026-07-07)
+        "docs/evidence/aio-monitoring-log-archive.json",
         # Session handoff (本セッション末尾で AI-agnostic な引き継ぎ書を追加)
         "docs/incident-artifacts/improvement-notes-claude-v80-phase2-session-handoff-comment-injection.md",
         # why-only comment-injection increment record (handoff §10 の実行記録)
