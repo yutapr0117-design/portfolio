@@ -142,6 +142,7 @@ def run(ctx):
         "docs/incident-artifacts/improvement-notes-claude-v80-phase2-self-documentation-integrity.md",
         "docs/incident-artifacts/update-portfolio.v70-experiment.yml",
         "docs/session-records/AI2AI-archive.md",
+        "docs/session-records/AI2AI-archive-old.md",
         "docs/session-records/incident-artifacts-archive-v74.md",
         # Final audit 漏れ補完 (4) — grep ベース全数監査で発見
         ".well-known/api-catalog",

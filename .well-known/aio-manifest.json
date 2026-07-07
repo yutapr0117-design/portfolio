@@ -79,10 +79,10 @@
     {
       "path": "docs/session-records/AI2AI-archive.md",
       "role": "archive of past Session Records #1-#11; read-only historical evidence",
-      "sha256": "992380886bbfc56c23f29cccc6200587b2a14b2d7719eb47609aea5fb6af5704"
+      "sha256": "a04feb240c82037211411b29a6169633db2ae5de8fc3d678ea6f448eb809c70a"
     }
   ],
-  "generated_at": "2026-07-07T03:57:12Z",
+  "generated_at": "2026-07-07T04:13:22Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
