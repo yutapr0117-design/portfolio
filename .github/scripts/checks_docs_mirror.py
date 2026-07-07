@@ -157,6 +157,8 @@ def run(ctx):
         "docs/incident-artifacts/improvement-notes-claude-v80-phase2-why-only-comment-injection.md",
         # self-drive operating-model 確立セッションの引き継ぎ書 (PR #60〜#64)
         "docs/incident-artifacts/improvement-notes-claude-v80-phase2-session-handoff-self-drive-operating-model.md",
+        # 無限改善自走・全肥大化解消・防止 完全引き継ぎ書 (2026-07-07)
+        "docs/incident-artifacts/improvement-notes-claude-v80-infinite-improvement-and-bloat-elimination-handoff.md",
     ]
     _missing96 = []
     for _t in _phase1_targets96:
