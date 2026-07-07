@@ -43,7 +43,15 @@ export const Router = (() => {
                     route.query.cat = params.get('cat') || '';
                 } else {
                     route.name = 'project-detail';
-                    route.params.slug = parts[1];
+                    // decodeURIComponent が必要な理由: ブラウザが非 ASCII 文字 (日本語等) を
+                    // URL エンコードして location.hash に返すため、slugify で生成した生 slug
+                    // ('データ分析') と parts[1] ('%E3%83...' 形式) が不一致になる。
+                    // SW の normalizePath と同じパターンで try/catch を使う。
+                    try {
+                        route.params.slug = decodeURIComponent(parts[1]);
+                    } catch (_) {
+                        route.params.slug = parts[1];
+                    }
                 }
                 break;
             case 'apps':
