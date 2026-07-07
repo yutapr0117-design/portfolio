@@ -382,13 +382,19 @@ def run(ctx):
     # 残った場合（404 fallback テスト）の drift を pre-commit でブロック。
     # 注: e2e の ALL_ROUTES には 'not-found-fallback' のような alias を持つ要素があるので、
     # それは main.js 側の 'not-found' と等価とみなす特例マップを持つ。
-    _spec58 = ROOT / "e2e" / "portfolio.spec.js"
+    # ALL_ROUTES は e2e spec のテーマ別分割 (2026-07-07) で security-proxy.spec.js に移動したため、
+    # e2e/*.spec.js 全体を連結して照合する。
+    _specs58 = sorted((ROOT / "e2e").glob("*.spec.js"))
     _main58 = ROOT / "main.js"
-    if _spec58.exists() and _main58.exists():
-        _ssrc58 = _spec58.read_text(encoding="utf-8")
+    if _specs58 and _main58.exists():
+        _ssrc58 = "\n".join(p.read_text(encoding="utf-8") for p in _specs58)
         _msrc58 = _main58.read_text(encoding="utf-8")
         # ALL_ROUTES = [ { hash: '#/<name>', name: '<name>' }, ... ]
-        _e2e_routes58 = set(re.findall(r"name:\s*'([a-z][a-z0-9-]*)'", _ssrc58))
+        # 全 spec 連結ソースから ALL_ROUTES ブロックだけを切り出してから name を抽出する
+        # (他 spec の getByRole({ name: '...' }) 等を誤って route 名として拾わないため)。
+        _allm58 = re.search(r"const ALL_ROUTES\s*=\s*\[(.*?)\];", _ssrc58, re.DOTALL)
+        _allblk58 = _allm58.group(1) if _allm58 else ""
+        _e2e_routes58 = set(re.findall(r"name:\s*'([a-z][a-z0-9-]*)'", _allblk58))
         # main.js switch case '<name>':
         _main_routes58 = set(re.findall(r"case\s+'([a-z][a-z0-9-]+)'\s*:", _msrc58))
         # alias map: e2e label → main switch label
@@ -415,4 +421,4 @@ def run(ctx):
             f"to prevent the Stage 5-j hidden-ReferenceError class",
         )
     else:
-        warnings.append("Check 58: e2e/portfolio.spec.js or main.js not found — route set check skipped")
+        warnings.append("Check 58: e2e/*.spec.js or main.js not found — route set check skipped")

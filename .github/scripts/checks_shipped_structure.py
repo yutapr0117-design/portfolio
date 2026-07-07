@@ -49,11 +49,13 @@ def run(ctx):
     # なる。shipped route 集合は e2e の ALL_ROUTES (Check 58 が main.js と結ぶ curated 権威) の name を
     # 正規化して用い、PAGE_META keys が全 route を網羅する (⊇) ことを機械強制する。
     _pm118 = ROOT / "js" / "page-meta.js"
-    _spec118 = ROOT / "e2e" / "portfolio.spec.js"
-    if _pm118.exists() and _spec118.exists():
+    # ALL_ROUTES は e2e spec のテーマ別分割 (2026-07-07) で security-proxy.spec.js に移動したため、
+    # e2e/*.spec.js 全体を連結して ALL_ROUTES ブロックを切り出す。
+    _specs118 = sorted((ROOT / "e2e").glob("*.spec.js"))
+    if _pm118.exists() and _specs118:
         _pmsrc118 = _pm118.read_text(encoding="utf-8")
         _pmkeys118 = set(re.findall(r"^\s*'?([a-z][a-z0-9-]*)'?\s*:\s*\{", _pmsrc118, re.MULTILINE))
-        _ssrc118 = _spec118.read_text(encoding="utf-8")
+        _ssrc118 = "\n".join(p.read_text(encoding="utf-8") for p in _specs118)
         _allm118 = re.search(r"const ALL_ROUTES\s*=\s*\[(.*?)\];", _ssrc118, re.DOTALL)
         _names118 = set(re.findall(r"name:\s*'([^']+)'", _allm118.group(1))) if _allm118 else set()
         _alias118 = {"not-found-fallback": "not-found"}
@@ -66,7 +68,7 @@ def run(ctx):
             blocking=True,
         )
     else:
-        check(False, "", "Check 118: js/page-meta.js または e2e/portfolio.spec.js が見つからない — PAGE_META 網羅を検証できない", blocking=True)
+        check(False, "", "Check 118: js/page-meta.js または e2e/*.spec.js が見つからない — PAGE_META 網羅を検証できない", blocking=True)
 
     # ── 119. factory docstring dependency coherence (BLOCKING) ────────────────────
     # 各葉モジュールの factory `createX({ ...deps })` が引数で受け取る依存名のすべてが、その
