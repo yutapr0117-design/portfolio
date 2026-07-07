@@ -17,7 +17,7 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
       improvement-notes-*.md file lives outside docs/incident-artifacts/. Turns the
       placement convention documented in docs/README.md into an enforced invariant
       (artifact-placement governance increment). (BLOCKING)
-  28. e2e/portfolio.spec.js has no test() nested inside another test()
+  28. e2e/*.spec.js has no test() nested inside another test() (+ 'No Trusted Types' test present)
   29. Playwright baseline-generation linkage intact (snapshot workflow <-> spec env signal)
   30. v80+ maintainability anchor docs present (repository-maintainability-map / main-js-extraction-map)
   52. File-size budget advisory: each file listed in the machine-readable BUDGET-DATA block of
@@ -175,29 +175,27 @@ def run(ctx):
               "convention (docs/README.md) requires it to exist",
               blocking=True)
 
-    # ── 28. P0-02: e2e/portfolio.spec.js — no test() nested inside another test() ─
-    _spec_path_28 = ROOT / "e2e" / "portfolio.spec.js"
-    if _spec_path_28.exists():
-        _spec_lines_28 = _spec_path_28.read_text(encoding="utf-8").splitlines()
-
-        # Verify the 'No Trusted Types' test exists at all
+    # ── 28. P0-02: e2e/*.spec.js — no test() nested inside another test() ─
+    # spec テーマ別分割 (2026-07-07) 後は e2e/*.spec.js 全体を走査する。'No Trusted Types' テストは
+    # security-proxy.spec.js に移動したため presence 判定も全 spec 横断で行う。
+    _specs_28 = sorted((ROOT / "e2e").glob("*.spec.js"))
+    if _specs_28:
+        # Verify the 'No Trusted Types' test exists at all (across all spec files)
         _has_ttt = any(
-            "No Trusted Types or CSP violations in console" in ln
-            for ln in _spec_lines_28
+            "No Trusted Types or CSP violations in console" in _sp28.read_text(encoding="utf-8")
+            for _sp28 in _specs_28
         )
         check(
             _has_ttt,
-            "e2e/portfolio.spec.js: 'No Trusted Types or CSP violations in console' test exists",
-            "e2e/portfolio.spec.js: 'No Trusted Types or CSP violations in console' test is missing",
+            "e2e/*.spec.js: 'No Trusted Types or CSP violations in console' test exists",
+            "e2e/*.spec.js: 'No Trusted Types or CSP violations in console' test is missing",
         )
 
-        # Detect test() nested inside another test() by tracking brace depth.
+        # Detect test() nested inside another test() by tracking brace depth (per file).
         # Only top-level test() calls (column 0, matching ^test\() are tracked as test-openers.
         # Parameterised tests inside a for-loop are indented and do NOT match ^test\(,
         # so they are intentionally excluded from this check.
         import re as _re_spec28
-        _brace_depth_28 = 0
-        _test_start_depth_28 = None   # None = not currently inside a top-level test()
         _nesting_errors_28: list[str] = []
 
         # 文字列リテラル / コメントを除去してから brace を数える stripper。素朴な count("{") は
@@ -213,31 +211,35 @@ def run(ctx):
             line = _re_spec28.sub(r"//.*$", "", line)  # 行コメント除去
             return line
 
-        for _ln28, _line28 in enumerate(_spec_lines_28, 1):
-            _code28 = _strip_js_literals_28(_line28)
-            # A top-level test() definition starts at column 0 (元行で判定: 列 0 固定ゆえ strip 不要)
-            if _re_spec28.match(r"^test\s*\(", _line28):
-                if _test_start_depth_28 is not None:
-                    _nesting_errors_28.append(
-                        f"line {_ln28}: test() opened while previous test() "
-                        f"(started at brace-depth {_test_start_depth_28}) is not yet closed"
-                    )
-                _test_start_depth_28 = _brace_depth_28  # record depth *before* this line
+        for _sp28 in _specs_28:
+            _spec_lines_28 = _sp28.read_text(encoding="utf-8").splitlines()
+            _brace_depth_28 = 0
+            _test_start_depth_28 = None   # None = not currently inside a top-level test()
+            for _ln28, _line28 in enumerate(_spec_lines_28, 1):
+                _code28 = _strip_js_literals_28(_line28)
+                # A top-level test() definition starts at column 0 (元行で判定: 列 0 固定ゆえ strip 不要)
+                if _re_spec28.match(r"^test\s*\(", _line28):
+                    if _test_start_depth_28 is not None:
+                        _nesting_errors_28.append(
+                            f"{_sp28.name}:{_ln28}: test() opened while previous test() "
+                            f"(started at brace-depth {_test_start_depth_28}) is not yet closed"
+                        )
+                    _test_start_depth_28 = _brace_depth_28  # record depth *before* this line
 
-            # 構造ブレースのみ数える (文字列/コメント内の brace は strip 済みゆえ無視される)
-            _brace_depth_28 += _code28.count("{") - _code28.count("}")
+                # 構造ブレースのみ数える (文字列/コメント内の brace は strip 済みゆえ無視される)
+                _brace_depth_28 += _code28.count("{") - _code28.count("}")
 
-            # When brace depth returns to the level before the test opened, the test is closed
-            if _test_start_depth_28 is not None and _brace_depth_28 <= _test_start_depth_28:
-                _test_start_depth_28 = None
+                # When brace depth returns to the level before the test opened, the test is closed
+                if _test_start_depth_28 is not None and _brace_depth_28 <= _test_start_depth_28:
+                    _test_start_depth_28 = None
 
         check(
             len(_nesting_errors_28) == 0,
-            "e2e/portfolio.spec.js: all test() definitions are top-level (no nesting detected)",
-            "e2e/portfolio.spec.js: nested test() detected — " + "; ".join(_nesting_errors_28[:3]),
+            f"e2e/*.spec.js ({len(_specs_28)}): all test() definitions are top-level (no nesting detected)",
+            "e2e/*.spec.js: nested test() detected — " + "; ".join(_nesting_errors_28[:3]),
         )
     else:
-        warnings.append("P0-02: e2e/portfolio.spec.js not found — test-nesting check skipped")
+        warnings.append("P0-02: e2e/*.spec.js not found — test-nesting check skipped")
 
     # ── 29. P0-01: Playwright baseline-generation linkage is intact ─────────────
     # The baseline generation flow only works if BOTH sides agree on the env signal:

@@ -23,7 +23,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        A11Y_ROUTES's hash set equals ALL_ROUTES's hash set, so a route added to the route-render
        coverage (ALL_ROUTES) but forgotten in the a11y coverage (A11Y_ROUTES) is caught — no shipped
        route can silently escape automated accessibility scanning (the a11y counterpart of Check 58). (BLOCKING)
-  111. e2e no-networkidle guard: e2e/portfolio.spec.js must not call
+  111. e2e no-networkidle guard: no e2e/*.spec.js may call
        waitForLoadState('networkidle') anywhere except inside the screenshot regression test
        (recognised by a toHaveScreenshot call within a few lines). networkidle waits for ALL
        network to settle, but the site loads external Google Fonts and a service-worker SWR
@@ -32,7 +32,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        'domcontentloaded' + expect() auto-wait instead; only the screenshot capture legitimately
        needs networkidle (font/image load determinism). This Check blocks reintroduction of the
        hang-flake class. (BLOCKING)
-  114. e2e no-`.only` guard: e2e/portfolio.spec.js must contain no `test.only` /
+  114. e2e no-`.only` guard: no e2e/*.spec.js may contain `test.only` /
        `describe.only` / `test.describe.only`. A stray `.only` makes Playwright run ONLY that
        test and silently skip every other test, so CI passes green while the suite is gutted
        (a false-green footgun, the inverse of the vacuous-gate class). This Check blocks any
@@ -61,9 +61,11 @@ def run(ctx):
     # 足したのに A11Y_ROUTES へ足し忘れると「新ルートが a11y 未検証」の silent coverage gap が生じる。
     # 両配列の hash 集合が一致することを機械強制し、a11y カバレッジが shipped route 集合を常に追従する
     # ことを保証する (Check 58 の e2e↔main.js route 版の a11y 面)。
-    _spec110 = ROOT / "e2e" / "portfolio.spec.js"
-    if _spec110.exists():
-        _src110 = _spec110.read_text(encoding="utf-8")
+    # A11Y_ROUTES (a11y-axe.spec.js) と ALL_ROUTES (security-proxy.spec.js) は e2e spec の
+    # テーマ別分割 (2026-07-07) で別ファイルに移動したため、e2e/*.spec.js 全体を連結して照合する。
+    _specs110 = sorted((ROOT / "e2e").glob("*.spec.js"))
+    if _specs110:
+        _src110 = "\n".join(p.read_text(encoding="utf-8") for p in _specs110)
         _a11y_m110 = re.search(r"const A11Y_ROUTES\s*=\s*\[(.*?)\]", _src110, re.DOTALL)
         _all_m110 = re.search(r"const ALL_ROUTES\s*=\s*\[(.*?)\];", _src110, re.DOTALL)
         _a11y_set110 = set(re.findall(r"'([^']+)'", _a11y_m110.group(1))) if _a11y_m110 else set()
@@ -78,7 +80,7 @@ def run(ctx):
             blocking=True,
         )
     else:
-        check(False, "", "Check 110: e2e/portfolio.spec.js not found — a11y coverage bijection を検証できない", blocking=True)
+        check(False, "", "Check 110: e2e/*.spec.js not found — a11y coverage bijection を検証できない", blocking=True)
 
     # ── 111. e2e no-networkidle guard (BLOCKING) ──────────────────────────────────
     # `waitForLoadState('networkidle')` は全ネット通信が 500ms 落ち着くのを待つが、本サイトは外部
@@ -88,41 +90,46 @@ def run(ctx):
     # なのは screenshot capture (フォント/画像ロードの決定化が必要) のみ。本 Check は screenshot テスト
     # 以外での networkidle 再導入を pre-commit でブロックし flake クラスの再発を構造的に封じる。
     # 許容判定: networkidle 行の直後数行以内に toHaveScreenshot があれば screenshot テスト内とみなす。
-    _spec111 = ROOT / "e2e" / "portfolio.spec.js"
-    if _spec111.exists():
-        _lines111 = _spec111.read_text(encoding="utf-8").splitlines()
+    # spec テーマ別分割 (2026-07-07) 後は e2e/*.spec.js 全体を走査する。networkidle が正当なのは
+    # screenshot regression テスト (portfolio.spec.js に残置) のみ。
+    _specs111 = sorted((ROOT / "e2e").glob("*.spec.js"))
+    if _specs111:
         _viol111 = []
-        for _i111, _line111 in enumerate(_lines111):
-            if "waitForLoadState('networkidle')" in _line111 or 'waitForLoadState("networkidle")' in _line111:
-                _window111 = "\n".join(_lines111[_i111:_i111 + 6])
-                if "toHaveScreenshot" not in _window111:
-                    _viol111.append(_i111 + 1)
+        for _sp111 in _specs111:
+            _lines111 = _sp111.read_text(encoding="utf-8").splitlines()
+            for _i111, _line111 in enumerate(_lines111):
+                if "waitForLoadState('networkidle')" in _line111 or 'waitForLoadState("networkidle")' in _line111:
+                    _window111 = "\n".join(_lines111[_i111:_i111 + 6])
+                    if "toHaveScreenshot" not in _window111:
+                        _viol111.append(f"{_sp111.name}:{_i111 + 1}")
         check(
             not _viol111,
-            "Check 111: e2e/portfolio.spec.js uses waitForLoadState('networkidle') only in the screenshot regression test",
-            f"Check 111: e2e/portfolio.spec.js: waitForLoadState('networkidle') が screenshot テスト外の line {_viol111} に存在 — "
+            f"Check 111: e2e/*.spec.js ({len(_specs111)}) uses waitForLoadState('networkidle') only in the screenshot regression test",
+            f"Check 111: e2e/*.spec.js: waitForLoadState('networkidle') が screenshot テスト外の {_viol111} に存在 — "
             f"'domcontentloaded' + expect() auto-wait を使え (networkidle は外部 Fonts/SW で CI hang する。PR #132 参照)",
             blocking=True,
         )
     else:
-        check(False, "", "Check 111: e2e/portfolio.spec.js not found — networkidle guard を検証できない", blocking=True)
+        check(False, "", "Check 111: e2e/*.spec.js not found — networkidle guard を検証できない", blocking=True)
 
     # ── 114. e2e no-`.only` guard (BLOCKING) ──────────────────────────────────────
     # Playwright で test.only / describe.only が 1 つでも残ると、その test だけが走り他は全 skip され、
     # CI は緑のまま suite が空洞化する (false-green footgun = vacuous-gate の裏返し)。spec 内の
     # `(test|describe).only(` を検出して BLOCKING で禁止し、デバッグ用 .only の commit 漏れを封じる。
-    _spec114 = ROOT / "e2e" / "portfolio.spec.js"
-    if _spec114.exists():
-        _src114 = _spec114.read_text(encoding="utf-8")
-        _only114 = re.findall(r"\b(?:test|describe)(?:\.[A-Za-z]+)*\.only\s*\(", _src114)
+    _specs114 = sorted((ROOT / "e2e").glob("*.spec.js"))
+    if _specs114:
+        _only114 = []
+        for _sp114 in _specs114:
+            _src114 = _sp114.read_text(encoding="utf-8")
+            _only114 += [f"{_sp114.name}:{_m}" for _m in re.findall(r"\b(?:test|describe)(?:\.[A-Za-z]+)*\.only\s*\(", _src114)]
         check(
             not _only114,
-            "Check 114: e2e/portfolio.spec.js に test.only/describe.only が無い (false-green footgun 防止)",
-            f"Check 114: e2e/portfolio.spec.js に .only が {len(_only114)} 個ある — 全 suite が skip され CI が false-green 化する。.only を除去せよ",
+            f"Check 114: e2e/*.spec.js ({len(_specs114)}) に test.only/describe.only が無い (false-green footgun 防止)",
+            f"Check 114: e2e/*.spec.js に .only が {len(_only114)} 個ある ({_only114[:5]}) — 全 suite が skip され CI が false-green 化する。.only を除去せよ",
             blocking=True,
         )
     else:
-        check(False, "", "Check 114: e2e/portfolio.spec.js not found — no-.only guard を検証できない", blocking=True)
+        check(False, "", "Check 114: e2e/*.spec.js not found — no-.only guard を検証できない", blocking=True)
 
     # ── 116. playwright.config.cjs reuseExistingServer=false (BLOCKING) ────────────
     # reuseExistingServer:true だと既に起動中の dev server を再利用し、commit 前の stale 状態を検証して

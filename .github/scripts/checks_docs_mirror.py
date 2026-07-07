@@ -96,6 +96,14 @@ def run(ctx):
         "package-lock.json",
         "playwright.config.cjs",
         "e2e/portfolio.spec.js",
+        # e2e spec テーマ別分割 (2026-07-07・肥大化解消 3,475 行 → テーマ別 ≤647 行)
+        "e2e/aio-meta.spec.js", "e2e/fatal.spec.js", "e2e/projects.spec.js",
+        "e2e/command-palette.spec.js", "e2e/theme-sw.spec.js", "e2e/drawer.spec.js",
+        "e2e/quiz.spec.js", "e2e/apps-task.spec.js", "e2e/apps-settings.spec.js",
+        "e2e/apps-ai-notes.spec.js", "e2e/apps-pomodoro.spec.js",
+        "e2e/navigation-a11y.spec.js", "e2e/resilience.spec.js",
+        "e2e/focus-regression.spec.js", "e2e/a11y-axe.spec.js",
+        "e2e/security-proxy.spec.js",
         # Phase 4: binary assets (2)
         "yuta-yokoi-ai-pm-orchestration-system.webp",
         "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3",

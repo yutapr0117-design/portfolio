@@ -67,13 +67,13 @@ MUTATIONS_ARCHIVE = [
     },
     {
         "name": "Check 111 (e2e no-networkidle): use waitForLoadState('networkidle') in a behavior test",
-        "file": ROOT / "e2e" / "portfolio.spec.js",
+        "file": ROOT / "e2e" / "aio-meta.spec.js",
         "find": "waitForLoadState('domcontentloaded')",
         "replace": "waitForLoadState('networkidle')",
     },
     {
         "name": "Check 114 (e2e no-.only): add test.only (would silently skip the rest of the suite)",
-        "file": ROOT / "e2e" / "portfolio.spec.js",
+        "file": ROOT / "e2e" / "aio-meta.spec.js",
         "find": "test('AIO asset anchor must be hidden",
         "replace": "test.only('AIO asset anchor must be hidden",
     },
@@ -220,7 +220,7 @@ MUTATIONS_ARCHIVE = [
     },
     {
         "name": "Check 151 (e2e test title uniqueness): duplicate an existing test title",
-        "file": ROOT / "e2e" / "portfolio.spec.js",
+        "file": ROOT / "e2e" / "aio-meta.spec.js",
         "find": "test('Homepage renders without console errors'",
         "replace": "test('AIO asset anchor must be hidden (non-visual)'",
     },

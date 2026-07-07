@@ -15,6 +15,10 @@ __pycache__/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+# CI が生成/コミットするのは linux baseline のみ。ローカル実行 (macOS/Windows) で
+# 副作用的に生成される platform 別 baseline を誤 commit しないよう ignore する。
+e2e/**/*-darwin.png
+e2e/**/*-win32.png
 
 # ── OS / editor noise ──────────────────────────────────────────────────
 .DS_Store
