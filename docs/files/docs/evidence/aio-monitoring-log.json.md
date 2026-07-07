@@ -1,15 +1,15 @@
 ---
 file: docs/evidence/aio-monitoring-log.json
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-14
-canonical-ref: .github/scripts/aio_monitoring.py / .github/workflows/aio-monitoring.yml / Check 25
+last-updated: 2026-07-07
+canonical-ref: .github/scripts/aio_monitoring.py / .github/workflows/aio-monitoring.yml / Check 25 / docs/evidence/aio-monitoring-log-archive.json (古い runs)
 ---
 
 # docs/evidence/aio-monitoring-log.json
 
 ## What
 
-AIO 引用効果監視の **observation log**。週次 (aio-monitoring.yml) で `aio_monitoring.py` が AI engine (Gemini / OpenAI) に規定クエリを投げて canary token 引用観測を append-only で記録。`evidence_policy: "attempt_log_only"` で honest framing。`confirmed_citation_events: 0` を by design で維持。
+AIO 引用効果監視の **observation log（現行 runs 7–14、2026-05-18〜）**。週次 (aio-monitoring.yml) で `aio_monitoring.py` が AI engine (Gemini / OpenAI) に規定クエリを投げて canary token 引用観測を append-only で記録。`evidence_policy: "attempt_log_only"` で honest framing。`confirmed_citation_events: 0` を by design で維持。古い runs 1–6（2026-05-11〜05-12）は `aio-monitoring-log-archive.json` に分離済（log-rotation 2026-07-07）。
 
 ## Why
 
