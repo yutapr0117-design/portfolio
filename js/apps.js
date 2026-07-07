@@ -17,7 +17,7 @@
  *    createPomodoroPage / SettingsPage は js/settings-page.js の createSettingsPage で別途生成)
  *
  * 【factory closure 内の private state（揮発性 UI 状態の維持）】
- *   - taskFilter (const), todoFilter / todoComposing (let)
+ *   - taskFilter (const, priority のみ — q フィールドは UI 入力未配線だったため除去), todoFilter / todoComposing (let)
  *   (settings* は SettingsPage と共に js/settings-page.js へ移動した)
  *
  * これらは元 main.js IIFE 内の関数外宣言で、各 Page 関数の再呼出間で状態を保持していた。
@@ -45,9 +45,11 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
 
     // ===== Component: Task App =====
     // [FIX] 揮発性クロージャ問題の解決：UIステートをコンポーネント外に保持
-    // v80+ lint: 束縛自体は再代入されず .q / .priority のプロパティ変異のみのため const が正しい
-    // （再代入が無い束縛に let を使うと prefer-const に抵触する。挙動は不変）。
-    const taskFilter = { q: '', priority: 'all' };
+    // v80+ lint: 束縛自体は再代入されず .priority のプロパティ変異のみのため const が正しい。
+    // NOTE: q フィールドは getFilteredTasks で参照されていたが、UI に対応 input が存在せず
+    // q は常に '' のまま = !taskFilter.q は常に true = matchesQ は常に true = dead code。
+    // git -S 'taskFilter.q' で UI イベントによる代入歴ゼロを確認後に除去。
+    const taskFilter = { priority: 'all' };
 
     function TaskPage() {
 
@@ -96,13 +98,9 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
         }
 
         function getFilteredTasks() {
-            return State.get().appsData.tasks.filter(t => {
-                const matchesQ = !taskFilter.q ||
-                    t.title.toLowerCase().includes(taskFilter.q.toLowerCase()) ||
-                    t.tags.some(tag => tag.toLowerCase().includes(taskFilter.q.toLowerCase()));
-                const matchesPriority = taskFilter.priority === 'all' || t.priority === taskFilter.priority;
-                return matchesQ && matchesPriority;
-            });
+            return State.get().appsData.tasks.filter(t =>
+                taskFilter.priority === 'all' || t.priority === taskFilter.priority
+            );
         }
 
         // [FIX] シャドウイング問題の解決：名称を buildUI に変更
