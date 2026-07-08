@@ -1,15 +1,15 @@
 ---
 file: js/pomodoro-page.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-07-04
-canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/state.js (appsData.pomodoro) / js/store.js (normalize)
+last-updated: 2026-07-08
+canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/state.js (appsData.pomodoro) / js/store.js (normalize) / js/constants.js (LIMITS.POMODORO_HISTORY)
 ---
 
 # js/pomodoro-page.js
 
 ## What
 
-`route 'apps/pomodoro'` (ポモドーロタイマー — 集中/短休憩/長休憩 モード + 履歴記録) をレンダリングする葉モジュール。`createPomodoroPage({ h, createIcon, State, Router, Toast, clamp })` が `PomodoroPage()` 関数を返す factory。private state `pomodoroTimer` (interval id) と local helper (formatTime / getDuration / getRemaining / start / pause / reset / complete / switchMode / startTimer / stopTimer / buildUI) を内包する。
+`route 'apps/pomodoro'` (ポモドーロタイマー — 集中/短休憩/長休憩 モード + 履歴記録) をレンダリングする葉モジュール。`createPomodoroPage({ h, createIcon, State, Router, Toast, clamp, CONSTANTS })` が `PomodoroPage()` 関数を返す factory。private state `pomodoroTimer` (interval id) と local helper (formatTime / getDuration / getRemaining / start / pause / reset / complete / switchMode / startTimer / stopTimer / buildUI) を内包する。
 
 ## Why
 
@@ -17,12 +17,13 @@ canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/state.js (appsData
 
 ## How
 
-- `main.js` が `createPomodoroPage({ h, createIcon, State, Router, Toast, clamp })` で生成し、render dispatch (route 'apps/pomodoro') が `PomodoroPage()` を呼ぶ。
+- `main.js` が `createPomodoroPage({ h, createIcon, State, Router, Toast, clamp, CONSTANTS })` で生成し、render dispatch (route 'apps/pomodoro') が `PomodoroPage()` を呼ぶ。
 - 3 モード (work/short-break/long-break) を切替、`setInterval` (1 秒) で残り時間を再描画、0 で `complete()` が history に記録 + Toast 通知。
 
 ## Constraints
 
-- **葉契約 (Check 47c)**: ローカル ESM import ゼロ。h / createIcon / State / Router / Toast / clamp は全て引数注入。window.render / Date / setInterval / clearInterval はグローバル。
+- **葉契約 (Check 47c)**: ローカル ESM import ゼロ。h / createIcon / State / Router / Toast / clamp / CONSTANTS は全て引数注入。window.render / Date / setInterval / clearInterval はグローバル。
+- **履歴上限の単一ソース (Check 369)**: `complete()` の履歴 `.slice(-CONSTANTS.LIMITS.POMODORO_HISTORY)` は store.js normalize と同じ定数を参照する (マジックナンバー 200 を直接持たない)。この目的で `CONSTANTS` が factory 注入される。
 - **stale-closure 温存 (#121/#134)**: `getRemaining` / `getDuration` は必ず `State.get()` で live state を読む。start() 時 closure に固定された古い runtime/settings を読むと complete() が永遠に発火しない / 設定変更が反映されないバグになる。
 - **reload auto-resume 温存**: `isActive` かつ `pomodoroTimer` 不在時のみ `startTimer()` で resume (稼働中の毎秒再描画では二重 interval にならない)。
 - **非破壊**: 関数本体と private state は抽出元から無改変 (byte-equivalent)。behavior e2e (pomodoro reload resume / 完了) が保証。

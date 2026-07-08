@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-d)
 
 ## What
 
-実行時定数 module。STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID を export。closure-deps = none の純粋データ module。LIMITS には PROJECT_NAME / TODO_TEXT / AI_MESSAGE / **NOTES_TEXT** (20000) 等の各バリデーション上限が集中管理される。
+実行時定数 module。STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID を export。closure-deps = none の純粋データ module。LIMITS には PROJECT_NAME / TODO_TEXT / AI_MESSAGE / **NOTES_TEXT** (20000) / **AI_HISTORY** (80) / **POMODORO_HISTORY** (200) 等の各バリデーション上限・履歴保持件数が集中管理される。
 
 ## Why
 
@@ -27,12 +27,14 @@ main.js
 
 - **closure-deps = none** (純粋データ)
 - **Check 47**: import/export bijection
-- **Check 52**: 88 行 ≤ 150
+- **Check 52**: 87 行 ≤ 150
 
 ## Change impact
 
 - 定数値変更 → 参照する全 factory + 関連 e2e テスト
 - **NOTES_TEXT** 変更 → apps.js (NotesPage oninput) + store.js (validateAndNormalize) が CONSTANTS.LIMITS.NOTES_TEXT 経由で参照（Check 368 が直接 20000 リテラルを BLOCKING 禁止）
+- **AI_HISTORY** (80) 変更 → store.js (normalize) + ai-page.js (add) が CONSTANTS.LIMITS.AI_HISTORY 経由で参照（Check 369 が `.slice(-80)` マジックを BLOCKING 禁止）
+- **POMODORO_HISTORY** (200) 変更 → store.js (normalize) + pomodoro-page.js (complete) が CONSTANTS.LIMITS.POMODORO_HISTORY 経由で参照（Check 369 が `.slice(-200)` マジックを BLOCKING 禁止）
 
 ## Audience-specific notes
 

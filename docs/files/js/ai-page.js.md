@@ -1,7 +1,7 @@
 ---
 file: js/ai-page.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-07-04
+last-updated: 2026-07-08
 canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/state.js (appsData.ai) / js/constants.js (LIMITS.AI_MESSAGE)
 ---
 
@@ -18,10 +18,11 @@ canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/state.js (appsData
 ## How
 
 - `main.js` が `createAIPage({ h, createIcon, State, CONSTANTS })` で生成し、render dispatch (route 'apps/ai') が `AIPage()` を呼ぶ。
-- `submit()` は入力を analyzeInput で troubleshoot/design/general に分類し generateResponse でローカル応答を生成、`State.update` で ai.history (last 80) に push。
+- `submit()` は入力を analyzeInput で troubleshoot/design/general に分類し generateResponse でローカル応答を生成、`State.update` で ai.history (last `CONSTANTS.LIMITS.AI_HISTORY` = 80 件) に push。
 - **stuck-state fail-safe (#555)**: setTimeout 本体を try/finally で包み、generateResponse/State.update が throw しても finally で必ず `aiLoading=false` + 再描画 + focus 復元。
 - **IME ガード (#151/152 class)**: Enter submit は `!e.isComposing` で日本語変換確定の誤送信を防ぐ。
 - **prompt bound (#230)**: prompt を `CONSTANTS.LIMITS.AI_MESSAGE` で slice し localStorage bloat を防ぐ。
+- **履歴上限の単一ソース (Check 369)**: `ai.history` の `.slice(-CONSTANTS.LIMITS.AI_HISTORY)` は store.js normalize と同じ定数を参照する (マジックナンバー 80 を直接持たない)。
 
 ## Constraints
 
