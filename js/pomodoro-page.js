@@ -10,7 +10,7 @@
  * 挙動 byte-equivalent。
  *
  * 【公開 API（呼び出し側 main.js から見た形）】
- *   const { PomodoroPage } = createPomodoroPage({ h, createIcon, State, Router, Toast, clamp });
+ *   const { PomodoroPage } = createPomodoroPage({ h, createIcon, State, Router, Toast, clamp, CONSTANTS });
  *
  * 【依存（引数で注入）】
  *   - h: DOM builder (js/ui-components.js)
@@ -19,6 +19,7 @@
  *   - Router: hash router (js/router.js) — getRoute().name で稼働中ルート判定
  *   - Toast: 通知 (セッション完了)
  *   - clamp: 数値クランプ (設定分の範囲制限)
+ *   - CONSTANTS: LIMITS.POMODORO_HISTORY (履歴保持件数上限) 用 (js/constants.js)
  *   - window.render / Date / setInterval / clearInterval: グローバル
  *
  * 【非破壊性 / 過去修正の温存】
@@ -28,7 +29,7 @@
  *     (稼働中の毎秒再描画では二重 interval にならない)。
  *   - 関数本体は抽出元から byte-equivalent。葉契約 (Check 47c: import ゼロ) を維持。
  */
-export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp }) {
+export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp, CONSTANTS }) {
 
     // ===== Component: Pomodoro App =====
     let pomodoroTimer = null;
@@ -103,7 +104,8 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp 
                     type: s.appsData.pomodoro.runtime.mode,
                     linkedTaskId: s.appsData.pomodoro.runtime.linkedTaskId
                 });
-                s.appsData.pomodoro.history = s.appsData.pomodoro.history.slice(-200);
+                // 履歴保持件数は store.js normalize と同じ CONSTANTS.LIMITS.POMODORO_HISTORY 単一ソース (Check 369 が drift 防止)
+                s.appsData.pomodoro.history = s.appsData.pomodoro.history.slice(-CONSTANTS.LIMITS.POMODORO_HISTORY);
                 s.appsData.pomodoro.runtime.isActive = false;
                 s.appsData.pomodoro.runtime.endAtMs = null;
                 s.appsData.pomodoro.runtime.remainingSec = duration;

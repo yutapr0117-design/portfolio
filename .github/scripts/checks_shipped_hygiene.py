@@ -99,6 +99,14 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        20000 という値を参照しており、一方だけ変更した場合に silently drift する
        class (#672)。NOTES_TEXT を constants.js の LIMITS に定数化して二者を単一
        ソースへ集約した。本 Check は再発防止の構造封じ。(BLOCKING)
+  369. shipped JS の AI / pomodoro 履歴保持件数上限がマジックナンバーで
+       drift しないことを BLOCKING 強制。AI 履歴の 80 は store.js (normalize) と
+       ai-page.js (add) の 2 箇所、pomodoro 履歴の 200 は store.js (normalize) と
+       pomodoro-page.js (complete) の 2 箇所で同じ値を参照する。一方だけ変更すると
+       履歴保持件数が silently drift する (Check 368 の NOTES_TEXT と同型 class)。
+       AI_HISTORY / POMODORO_HISTORY を constants.js の LIMITS に定数化して各ペアを
+       単一ソースへ集約した。本 Check は `.slice(-80)` / `.slice(-200)` マジックの
+       再注入を構造的に禁止する。(BLOCKING)
 
 """
 import re
@@ -542,5 +550,31 @@ def run(ctx):
         " (マジックナンバー 20000 不在)",
         (f"Check 368: notes 上限 20000 のマジックナンバーが {_notes_violations368} に残存。"
          "CONSTANTS.LIMITS.NOTES_TEXT 経由に統一せよ (drift 防止 #672 class)"),
+        blocking=True,
+    )
+
+    # ── 369. AI/pomodoro 履歴上限マジックナンバー禁止 (CONSTANTS.LIMITS.*_HISTORY 経由必須) ──
+    # AI 履歴の 80 は store.js (normalize) + ai-page.js (add) の 2 箇所、pomodoro 履歴の 200 は
+    # store.js (normalize) + pomodoro-page.js (complete) の 2 箇所で同じ値を参照する。片方だけ
+    # 変更すると履歴保持件数が silently drift する (Check 368 の NOTES_TEXT と同型 class)。
+    # AI_HISTORY / POMODORO_HISTORY を LIMITS に定数化して各ペアを単一ソースへ集約した後、
+    # 本 Check が `.slice(-80)` / `.slice(-200)` マジックの再注入を BLOCKING で防ぐ。
+    _hist_magic369 = {
+        r"\.slice\(\s*-\s*80\s*\)": ("80", "CONSTANTS.LIMITS.AI_HISTORY"),
+        r"\.slice\(\s*-\s*200\s*\)": ("200", "CONSTANTS.LIMITS.POMODORO_HISTORY"),
+    }
+    _hist_files369 = [ROOT / "js" / "store.js", ROOT / "js" / "ai-page.js", ROOT / "js" / "pomodoro-page.js"]
+    _hist_violations369: list[str] = []
+    for _f369 in _hist_files369:
+        _src369 = _f369.read_text(encoding="utf-8", errors="replace")
+        for _pat369, (_val369, _const369) in _hist_magic369.items():
+            if re.search(_pat369, _src369):
+                _hist_violations369.append(f"{_f369.name}: .slice(-{_val369}) → {_const369} 経由に統一せよ")
+    check(
+        not _hist_violations369,
+        "Check 369: store.js / ai-page.js / pomodoro-page.js が履歴保持件数上限を "
+        "CONSTANTS.LIMITS.AI_HISTORY / POMODORO_HISTORY 経由で参照 (マジックナンバー 80/200 不在)",
+        (f"Check 369: 履歴上限マジックナンバーが残存: {_hist_violations369} "
+         "(履歴保持件数の drift 防止・Check 368 と同型 class)"),
         blocking=True,
     )

@@ -524,7 +524,7 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
             // 発火し「配列のはずが文字列」に型崩れ → 後続 PomodoroPage の history.map で crash する。
             // tasks/todos と同じく Array.isArray でガードし、非配列は default (空配列) にフォールバック。
             if (Array.isArray(data.pomodoro.history)) {
-                result.pomodoro.history = data.pomodoro.history.slice(-200);
+                result.pomodoro.history = data.pomodoro.history.slice(-CONSTANTS.LIMITS.POMODORO_HISTORY);
             }
             if (data.pomodoro.runtime) {
                 const rt = data.pomodoro.runtime;
@@ -561,7 +561,7 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
                     prompt: String(h.prompt).slice(0, CONSTANTS.LIMITS.AI_MESSAGE),
                     response: String(h.response).slice(0, CONSTANTS.LIMITS.AI_MESSAGE)
                 }))
-                .slice(-80);
+                .slice(-CONSTANTS.LIMITS.AI_HISTORY);
         }
 
         // Notes (Markdown 文字列・additive ゆえ schema bump 不要。上限で防御)
