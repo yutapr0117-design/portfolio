@@ -86,6 +86,19 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
        real bugs of this class. The safe form is `(Array.isArray(X) ? X :
        [])`. This lifts the per-instance fixes into a structural guard so
        the class cannot be silently reintroduced. (BLOCKING)
+  365. Capstone: every git-tracked text file (excluding the design-constraint
+       A group: style.css / index.html / main.js; AIO/C6 layer:
+       llms-full.txt / llms.txt / llms_well-known.txt; pure-data subtrees:
+       js/quiz/*.js / .well-known/**; binary extensions: png/jpg/webp/mp3 etc.;
+       e2e snapshot dirs) MUST be ≤1,000 lines. This is the top-level bloat
+       gate complementing the per-surface guards (Check 363 for js/*.js,
+       Check 52 ADVISORY, JS-LEAF-CEILING BLOCKING). check.py split (→920 lines),
+       e2e spec split (→max 647 lines), and B-track trim (AI2AI.md→951,
+       ChatGPT2ChatGPT.md→970) had to complete before this gate could first
+       pass (achieved 2026-07-08). Implemented via `git ls-files` so only
+       committed files are scanned — no untracked or gitignored noise.
+       Prevents any future increment from silently re-bloating any doc, check
+       module, workflow, or e2e spec beyond the threshold. (BLOCKING)
 """
 import re
 
@@ -535,3 +548,50 @@ def run(ctx):
         )
     else:
         warnings.append("Check 364: js/store.js not found — ingestion normalizer safety skipped")
+
+    # ── 365. Capstone: 全非 A 追跡テキストファイル ≤1,000 行 (BLOCKING) ─────────────
+    # AI 無限改善自走の持続可能性を守る Capstone。「肥大化を生じないように」する最上位 gate。
+    # check.py 分割 (920行) + e2e spec 分割 (max 647行) + B-track trim (AI2AI.md 951行・
+    # ChatGPT2ChatGPT.md 970行) が完了した 2026-07-08 に初めて全ファイルで通過できるようになった。
+    # git ls-files で committed files のみスキャン（untracked / .gitignore 対象は除外）。
+    import subprocess as _sp365
+    _a_names = frozenset([
+        "style.css", "index.html", "main.js",       # design-constraint A group
+        "llms-full.txt", "llms.txt", "llms_well-known.txt",  # AIO/C6（orchestrator 承認必須）
+        "package-lock.json",                         # npm 自動生成 lockfile（手動編集対象外）
+    ])
+    _bin_exts = frozenset([
+        ".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico",
+        ".mp3", ".woff", ".woff2", ".ttf", ".eot", ".gz", ".zip",
+    ])
+    _excl_pfx = ("js/quiz/", ".well-known/", "e2e/portfolio.spec.js-snapshots/")
+    _CEIL365 = 1000
+    try:
+        _ls365 = _sp365.run(
+            ["git", "ls-files"], cwd=str(ROOT), capture_output=True, text=True, check=True
+        )
+        _tracked365 = [ln.strip() for ln in _ls365.stdout.splitlines() if ln.strip()]
+        _over365 = []
+        for _rel in _tracked365:
+            _p365 = ROOT / _rel
+            if not _p365.is_file():
+                continue
+            if _p365.name in _a_names or _p365.suffix in _bin_exts:
+                continue
+            if any(_rel.startswith(pfx) for pfx in _excl_pfx):
+                continue
+            try:
+                _n365 = len(_p365.read_text(encoding="utf-8", errors="replace").splitlines())
+            except OSError:
+                continue
+            if _n365 > _CEIL365:
+                _over365.append(f"{_rel} ({_n365}行)")
+        check(
+            not _over365,
+            f"Check 365: 全非 A 追跡テキストファイル ≤{_CEIL365} 行 (capstone BLOCKING)",
+            f"Check 365: {len(_over365)} ファイルが {_CEIL365} 行超。肥大化解消後に merge せよ: "
+            + ", ".join(_over365[:5]),
+            blocking=True,
+        )
+    except Exception as _e365:
+        warnings.append(f"Check 365: git ls-files 実行失敗 — capstone skipped ({_e365})")
