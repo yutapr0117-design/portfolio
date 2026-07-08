@@ -319,7 +319,7 @@ export function createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Th
                         ) : null,
                         profile.linkedin ? h('div', { class: 'flex justify-between py-2' },
                             h('span', { class: 'text-muted' }, 'LinkedIn'),
-                            h('a', { href: profile.linkedin, target: '_blank', rel: 'noopener' }, profile.linkedin)
+                            h('a', { href: profile.linkedin, target: '_blank', rel: 'noopener noreferrer' }, profile.linkedin)
                         ) : null,
                         h('button', {
                             class: 'btn btn-primary mt-4',

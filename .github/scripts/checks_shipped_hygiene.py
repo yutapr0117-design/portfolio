@@ -1,5 +1,5 @@
 """
-checks_shipped_hygiene.py — shipped-JS/HTML security & hygiene checks — eval/setTimeout-string/document.write/console/loose-eq etc. (242-249)
+checks_shipped_hygiene.py — shipped-JS/HTML security & hygiene checks — eval/setTimeout-string/document.write/console/loose-eq etc. (242-249, 366)
 (extracted from check_repository_consistency.py — check.py split track).
 
 run(ctx) receives shared check()/ROOT by reference (exec 不使用) so exit code / BLOCKING propagation
@@ -72,6 +72,15 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `width=900`) silently breaks mobile rendering (zoom locked,
        content cropped). Check 157 enforces presence; Check 249 enforces
        canonical mobile-baseline content. (BLOCKING)
+
+  366. shipped JS (js/*.js non-recursive) の h() props で `target: '_blank'`
+       を含む行の ±2 行以内に `noreferrer` が現れることを BLOCKING 強制。
+       runtime は ui-components.js:h() が全 a[target=_blank] に
+       noopener+noreferrer を付与する二重防御だが、source レベルの省略は
+       「意図的に noreferrer を省いた」と誤読されるコード drift を生む
+       (実例: ContactPage LinkedIn #322 が rel:'noopener' のみで push)。
+       secureExternalLinks の mutation test (mutation_samples.py) とは独立した
+       静的ソース軸の防止層。(BLOCKING)
 
 """
 import re
@@ -431,3 +440,30 @@ def run(ctx):
     else:
         check(False, "Check 249: index.html present",
               "Check 249: index.html が無い", blocking=True)
+
+    # ── 366. shipped JS target='_blank' に ±2行以内で noreferrer あり (BLOCKING) ────
+    # js/*.js (非再帰・main.js 含む) の h() props 内で `target: '_blank'` を含む行の
+    # ±2 行以内に `noreferrer` が現れることを強制。runtime 多重防御 (ui-components.js
+    # h() 全 a[target=_blank] 強制 + secureExternalLinks patcher) はあるが source の
+    # 省略は「意図的 noreferrer 省略」と誤読されるコード drift を生む。
+    _violations366: list[str] = []
+    _hit_count366 = 0
+    for _f366 in sorted((ROOT / "js").glob("*.js")):
+        _lines366 = _f366.read_text(encoding="utf-8", errors="replace").splitlines()
+        for _li366, _ln366 in enumerate(_lines366):
+            if "target: '_blank'" not in _ln366:
+                continue
+            _hit_count366 += 1
+            _window366 = _lines366[max(0, _li366 - 2): _li366 + 3]
+            if any("noreferrer" in _wl for _wl in _window366):
+                continue
+            _violations366.append(f"{_f366.relative_to(ROOT)}:{_li366 + 1}")
+    check(
+        not _violations366,
+        f"Check 366: shipped JS {_hit_count366} 件の target='_blank' 全てに ±2行以内で noreferrer あり",
+        (f"Check 366: noreferrer 欠落 {len(_violations366)} 件: {_violations366!r} — "
+         "source drift は intentional 省略と誤読される。rel:'noopener noreferrer' へ揃えよ"
+         if _violations366 else
+         "Check 366: target='_blank' が shipped JS に 0 件 — vacuous-fail"),
+        blocking=True,
+    )
