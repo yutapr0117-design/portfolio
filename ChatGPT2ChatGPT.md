@@ -811,71 +811,14 @@ python3 .github/scripts/check_aio_digests.py
 python3 .github/scripts/check_binary_aio_metadata.py
 ```
 
-Additional ChatGPT2ChatGPT integration check:
+Additional ChatGPT2ChatGPT integration check (delegated to repository CI):
 
 ```bash
-python3 - <<'PY'
-import json, sys
-from pathlib import Path
-
-root = Path('.')
-errs = []
-
-required_files = [
-    'AI2AI.md',
-    'Claude2Claude.md',
-    'ChatGPT2ChatGPT.md',
-    '.well-known/aio-manifest.json',
-    '.well-known/mcp.json',
-    '.well-known/api-catalog',
-    'robots.txt',
-    'sitemap.xml',
-    '.github/scripts/check_aio_digests.py',
-    '.github/scripts/update_aio_digests.py'
-]
-
-for f in required_files:
-    if not (root / f).exists():
-        errs.append(f'Missing required file: {f}')
-
-if not errs:
-    manifest = json.loads((root / '.well-known/aio-manifest.json').read_text(encoding='utf-8'))
-    se_paths = {e.get('path') for e in manifest.get('supporting_evidence', [])}
-    oe_paths = {e.get('path') for e in manifest.get('observational_evidence', [])}
-
-    if 'ChatGPT2ChatGPT.md' not in se_paths:
-        errs.append('ChatGPT2ChatGPT.md must be supporting_evidence')
-
-    if 'Claude2Claude.md' not in se_paths:
-        errs.append('Claude2Claude.md must remain supporting_evidence')
-
-    if 'docs/evidence/aio-monitoring-log.json' in se_paths and 'docs/evidence/aio-monitoring-log.json' in oe_paths:
-        errs.append('aio-monitoring-log.json must not be duplicated across evidence categories')
-
-    idx = json.loads((root / '.well-known/index.json').read_text(encoding='utf-8'))
-    agt = json.loads((root / '.well-known/agent-skills/index.json').read_text(encoding='utf-8'))
-    serialized = json.dumps(idx, ensure_ascii=False) + json.dumps(agt, ensure_ascii=False)
-
-    for forbidden in ['ChatGPT2ChatGPT.md', 'Claude2Claude.md']:
-        if forbidden in serialized:
-            errs.append(f'{forbidden} must not appear in .well-known/index.json or agent-skills/index.json')
-
-    for file in ['AI2AI.md', 'Claude2Claude.md', 'robots.txt', 'sitemap.xml']:
-        text = (root / file).read_text(encoding='utf-8')
-        if 'ChatGPT2ChatGPT.md' not in text:
-            errs.append(f'{file} missing ChatGPT2ChatGPT.md reference')
-
-    for file in ['.github/scripts/check_aio_digests.py', '.github/scripts/update_aio_digests.py']:
-        text = (root / file).read_text(encoding='utf-8')
-        if 'ChatGPT2ChatGPT.md' not in text:
-            errs.append(f'{file} missing ChatGPT2ChatGPT.md mapping')
-
-if errs:
-    print('\n'.join(errs))
-    sys.exit(1)
-
-print('CHATGPT2CHATGPT_INTEGRATION_PASS')
-PY
+# check_repository_consistency.py already enforces:
+#   - ChatGPT2ChatGPT.md in aio-manifest.json supporting_evidence
+#   - Claude2Claude.md in supporting_evidence (not in .well-known/index.json)
+#   - All required files exist (Check 96 mirror bijection)
+npm run check
 ```
 
 ---
