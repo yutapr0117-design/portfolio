@@ -36,7 +36,7 @@ export function createAIKnowhowPage({ h, createIcon, ContactCTA }) {
             );
         }
 
-        function agentRow(name, role, free, note) {
+        function agentRow(name, free, note) {
             return h('div', {
                 class: 'block-bg-tertiary-pad14'
             },
@@ -128,22 +128,22 @@ export function createAIKnowhowPage({ h, createIcon, ContactCTA }) {
             },
                 h('div', { class: 'card-body flex flex-col gap-3' },
                     sectionHeader('🤖', '6エージェントの役割分担', C.primary),
-                    agentRow('Gemini', false, false,
+                    agentRow('Gemini', false,
                         '初期ドラフト（要件定義・ワイヤーフレーム）、BGM（Lyria 3）・画像生成、最終コードレビュー。マルチモーダル能力を活かしてプロジェクトの起点と終点を担う。'
                     ),
-                    agentRow('Kimi K2.5', 'init', true,
+                    agentRow('Kimi K2.5', true,
                         '基盤構築（0-to-1）。Thinkingモード有効で、h()関数・ハッシュルーター・CSS変数フレームワークをゼロから設計。「ゴールを提示してあとは任せる」スタイルが効果的。'
                     ),
-                    agentRow('Claude', 'design', true,
+                    agentRow('Claude', true,
                         '中盤〜後半の複雑ロジック設計。状態管理・フォーカス保持・SEOメタデータの動的生成を担当。「設計図を描く」役割に集中させ、実コード変更はManusとChatGPTに委譲する。'
                     ),
-                    agentRow('Manus', 'exec', true,
+                    agentRow('Manus', true,
                         '中盤〜後半の厳密実装。「余計なことを一切しない」堅実さが武器。1.6 Maxモードで起動し、CSS/UIの変更のみを精緻に実行。ロジックへの接触を明示的に禁じる。'
                     ),
-                    agentRow('Perplexity', 'review', true,
+                    agentRow('Perplexity', true,
                         'コードレビュー・セキュリティ監査専任。Deep Researchモードで「良い点・悪い点・全指摘事項」を網羅的に抽出。XSSやCSPの脆弱性を主要マイルストーン毎に監査。'
                     ),
-                    agentRow('ChatGPT', 'diff', false,
+                    agentRow('ChatGPT', false,
                         'Diff（差分）生成・統合。Perplexityの指摘とClaudeの設計書を受け取り、行番号に依存しない「関数ブロック単位の置換コード」のみを出力。コード統合時のヒューマンエラーを排除。'
                     )
                 )
