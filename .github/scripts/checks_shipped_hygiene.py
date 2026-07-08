@@ -107,6 +107,15 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        AI_HISTORY / POMODORO_HISTORY を constants.js の LIMITS に定数化して各ペアを
        単一ソースへ集約した。本 Check は `.slice(-80)` / `.slice(-200)` マジックの
        再注入を構造的に禁止する。(BLOCKING)
+  370. shipped JS の pomodoro 既定状態 (settings {work:25,short:5,long:15} +
+       runtime remainingSec 1500) が state.js (clone fallback) と store.js
+       (default + normalize clamp fallback) にマジックリテラルで重複せず
+       CONSTANTS.POMODORO_DEFAULT_SETTINGS / POMODORO_DEFAULT_REMAINING_SEC 経由で
+       参照されることを BLOCKING 強制。両ファイルが同じ既定値を独立に持つと片方だけ
+       変更した際に既定状態が silently drift する (Check 369 の履歴上限と同型の
+       cross-file default-object drift class)。定数化して単一ソースへ集約した後、
+       本 Check が `work: 25` / `remainingSec: 1500` / `|| 1500` マジックの再注入を
+       構造的に禁止する。(BLOCKING)
 
 """
 import re
@@ -576,5 +585,35 @@ def run(ctx):
         "CONSTANTS.LIMITS.AI_HISTORY / POMODORO_HISTORY 経由で参照 (マジックナンバー 80/200 不在)",
         (f"Check 369: 履歴上限マジックナンバーが残存: {_hist_violations369} "
          "(履歴保持件数の drift 防止・Check 368 と同型 class)"),
+        blocking=True,
+    )
+
+    # ── 370. pomodoro 既定状態マジックリテラル禁止 (CONSTANTS.POMODORO_DEFAULT_* 経由必須) ──
+    # pomodoro 既定状態 (settings {work:25,short:5,long:15} + runtime remainingSec 1500) は
+    # state.js (clone fallback) と store.js (default + normalize clamp fallback) の 2 ファイルで
+    # 同じ既定値を独立に持っていた。片方だけ変更すると既定状態が silently drift する (Check 369 の
+    # 履歴上限と同型の cross-file default-object drift class)。POMODORO_DEFAULT_SETTINGS /
+    # POMODORO_DEFAULT_REMAINING_SEC に定数化して単一ソースへ集約した後、本 Check が
+    # `work: 25` / `remainingSec: 1500` / `|| 1500` マジックの再注入を BLOCKING で防ぐ。
+    # 注: 共有定数オブジェクトの参照共有 mutation を避けるため利用側は必ず spread する
+    # ({ ...CONSTANTS.POMODORO_DEFAULT_SETTINGS })。
+    _pomo_magic370 = [
+        r"work:\s*25\b",              # settings {work:25,...} リテラルの再注入
+        r"remainingSec:\s*1500\b",    # runtime 既定 remainingSec の再注入
+        r"\|\|\s*1500\b",             # normalize clamp fallback の再注入
+    ]
+    _pomo_files370 = [ROOT / "js" / "state.js", ROOT / "js" / "store.js"]
+    _pomo_violations370: list[str] = []
+    for _f370 in _pomo_files370:
+        _src370 = _f370.read_text(encoding="utf-8", errors="replace")
+        for _pat370 in _pomo_magic370:
+            if re.search(_pat370, _src370):
+                _pomo_violations370.append(f"{_f370.name}: /{_pat370}/")
+    check(
+        not _pomo_violations370,
+        "Check 370: state.js / store.js が pomodoro 既定状態を CONSTANTS.POMODORO_DEFAULT_SETTINGS / "
+        "POMODORO_DEFAULT_REMAINING_SEC 経由で参照 (マジックリテラル {work:25...} / 1500 不在)",
+        (f"Check 370: pomodoro 既定状態マジックが残存: {_pomo_violations370} "
+         "(cross-file default-object drift 防止・Check 369 と同型 class)"),
         blocking=True,
     )

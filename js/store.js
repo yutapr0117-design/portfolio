@@ -59,12 +59,12 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
         ],
         pomodoro: {
             history: [],
-            settings: { work: 25, short: 5, long: 15 },
+            settings: { ...CONSTANTS.POMODORO_DEFAULT_SETTINGS },
             runtime: {
                 isActive: false,
                 mode: 'work',
                 endAtMs: null,
-                remainingSec: 1500,
+                remainingSec: CONSTANTS.POMODORO_DEFAULT_REMAINING_SEC,
                 linkedTaskId: null
             }
         },
@@ -534,7 +534,7 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
                     isActive,
                     mode,
                     endAtMs: isActive ? rt.endAtMs : null,
-                    remainingSec: clamp(Number(rt.remainingSec) || 1500, 0, 86400),
+                    remainingSec: clamp(Number(rt.remainingSec) || CONSTANTS.POMODORO_DEFAULT_REMAINING_SEC, 0, 86400),
                     linkedTaskId: rt.linkedTaskId || null
                 };
             }

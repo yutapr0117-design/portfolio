@@ -76,6 +76,12 @@ export const CONSTANTS = {
         MAX_TODOS: 1000,
     },
 
+    // Pomodoro 既定状態の単一ソース (state.js の clone fallback + store.js の default が参照・Check 370 が
+    // magic リテラル {work:25,short:5,long:15} / 1500 の直接使用を BLOCKING 禁止し cross-file drift を防ぐ)。
+    // オブジェクトは参照共有を避けるため利用側で必ず spread する ({ ...CONSTANTS.POMODORO_DEFAULT_SETTINGS })。
+    POMODORO_DEFAULT_SETTINGS: { work: 25, short: 5, long: 15 },  // 分: 集中/短休憩/長休憩
+    POMODORO_DEFAULT_REMAINING_SEC: 1500,                          // = work(25分) × 60 の初期残り秒
+
     // Timing
     DEBOUNCE_DELAY: 150,       // ms — input debounce (search, filters)
 

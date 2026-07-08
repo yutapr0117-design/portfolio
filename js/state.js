@@ -91,9 +91,9 @@ export function createState({ CONSTANTS, Store, Storage, Toast }) {
         const pomodoro = a.pomodoro ? {
             ...a.pomodoro,
             history: cloneArrObjects(a.pomodoro.history),
-            settings: a.pomodoro.settings ? { ...a.pomodoro.settings } : { work: 25, short: 5, long: 15 },
-            runtime: a.pomodoro.runtime ? { ...a.pomodoro.runtime } : { isActive: false, mode: 'work', endAtMs: null, remainingSec: 1500, linkedTaskId: null }
-        } : { history: [], settings: { work: 25, short: 5, long: 15 }, runtime: { isActive: false, mode: 'work', endAtMs: null, remainingSec: 1500, linkedTaskId: null } };
+            settings: a.pomodoro.settings ? { ...a.pomodoro.settings } : { ...CONSTANTS.POMODORO_DEFAULT_SETTINGS },
+            runtime: a.pomodoro.runtime ? { ...a.pomodoro.runtime } : { isActive: false, mode: 'work', endAtMs: null, remainingSec: CONSTANTS.POMODORO_DEFAULT_REMAINING_SEC, linkedTaskId: null }
+        } : { history: [], settings: { ...CONSTANTS.POMODORO_DEFAULT_SETTINGS }, runtime: { isActive: false, mode: 'work', endAtMs: null, remainingSec: CONSTANTS.POMODORO_DEFAULT_REMAINING_SEC, linkedTaskId: null } };
 
         return {
             ...a,
