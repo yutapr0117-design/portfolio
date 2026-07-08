@@ -36,6 +36,15 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        file-size-budget.md §4 BUDGET-DATA (Check 52/71 が強制) と `wc -l` であり、mirror doc は
        それを指すべき。本 Check は volatile な現在行数引用の再注入を BLOCKING で防ぎ、doc は
        単一ソースへ誘導する (「現在値は file-size-budget.md / wc -l が権威」形式)。(BLOCKING)
+  372. mirror-doc factory-dependency coverage: 各 `js/*.js` の factory `createXxx({...})` が
+       引数注入する全依存名 (単一文字 `h` を除く) が、対応する mirror doc
+       `docs/files/js/<x>.js.md` に whole-word で言及されていることを機械強制。factory の依存が
+       変わると Check 119 が *docstring* の【依存】節更新を BLOCKING 強制するが、docs/files の
+       *mirror doc* の依存記述は未強制で、#674 (pomodoro-page に CONSTANTS 注入 → mirror が
+       silent stale) を含め 9 mirror doc が stale/不完全な factory signature を持っていた
+       (例: store.js.md `createStore({Storage})` ← 実 8 依存 / theme.js.md `createTheme({Storage})`
+       ← 実 {State, Toast})。Check 119 の docstring 面に対する mirror-doc 面 (Check asymmetry の
+       是正)。依存の再注入時に mirror doc も同期させることを構造強制する。(BLOCKING)
 """
 import re
 import json
@@ -276,5 +285,38 @@ def run(ctx):
         f"Check 371: volatile な現在行数引用 (`**Check 52**: N 行 ≤`) が {_bad371[:5]} に残存。"
         "`**Check 52**: 行数予算 ≤ M 行（現在値は file-size-budget.md §4 / wc -l が権威）` 形式へ正規化せよ "
         "(drift-magnet の構造防止)",
+        blocking=True,
+    )
+
+    # ── 372. mirror-doc factory-dependency coverage (BLOCKING) ────────────────────
+    # 各 js/*.js の factory `createXxx({...})` が注入する全依存名 (単一文字 h を除く) が、対応する
+    # mirror doc に whole-word で言及されることを機械強制。factory 依存が変わると Check 119 が
+    # docstring の【依存】節更新を BLOCKING 強制するが、docs/files の mirror doc の依存記述は未強制で、
+    # #674 (pomodoro-page に CONSTANTS 注入 → mirror silent stale) を含め 9 mirror doc が stale/不完全な
+    # signature を持っていた。Check 119 の docstring 面に対する mirror-doc 面 (Check asymmetry の是正)。
+    _js372 = ROOT / "js"
+    _docsjs372 = ROOT / "docs" / "files" / "js"
+    _bad372 = []
+    if _js372.is_dir() and _docsjs372.is_dir():
+        for _jsf372 in sorted(_js372.glob("*.js")):
+            _src372 = _jsf372.read_text(encoding="utf-8", errors="replace")
+            _m372 = re.search(r"export function create[A-Za-z]+\(\{([^}]*)\}\)", _src372, re.DOTALL)
+            if not _m372:
+                continue
+            _deps372 = [d.strip() for d in _m372.group(1).split(",") if d.strip()]
+            _doc372 = _docsjs372 / f"{_jsf372.name}.md"
+            if not _doc372.exists():
+                continue  # Check 108 が mirror 存在を別途強制
+            _dtext372 = _doc372.read_text(encoding="utf-8", errors="replace")
+            _miss372 = [d for d in _deps372
+                        if len(d) > 1 and not re.search(r"\b" + re.escape(d) + r"\b", _dtext372)]
+            if _miss372:
+                _bad372.append(f"{_jsf372.name}.md: {_miss372}")
+    check(
+        not _bad372,
+        "Check 372: 各 js/*.js factory の全注入依存が対応 mirror doc に言及されている "
+        "(Check 119 docstring 面の mirror-doc 版)",
+        f"Check 372: mirror doc が factory 依存を未記載 (stale/不完全 signature): {_bad372[:5]}。"
+        "正しい createXxx({...}) signature へ同期せよ (#674 の Check asymmetry class)",
         blocking=True,
     )

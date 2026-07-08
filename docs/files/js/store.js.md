@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-g) / js/stor
 
 ## What
 
-Store factory module。`createStore({Storage})` を export。default data + load + validate + normalize + similarity 検索を含む。
+Store factory module。`createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone, slugify, sanitizeUrl, clamp })` を export。default data + load + validate + normalize + similarity 検索を含む。
 
 ## Why
 
@@ -20,7 +20,7 @@ main.js Stage 5-g で物理分割。サイトの persistence 系データ (setti
 ```
 main.js
   └─ import { createStore } from './js/store.js'
-  └─ const Store = createStore({ Storage })
+  └─ const Store = createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone, slugify, sanitizeUrl, clamp })
        └─ Store.load() / Store.save() / Store.get(key) / Store.set(key, value)
        └─ Store.similarity(a, b) で類似度検索 (検索 UI 等)
 ```

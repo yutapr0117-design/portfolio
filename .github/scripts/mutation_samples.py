@@ -686,6 +686,13 @@ _MUTATIONS_TAIL = [
         "replace": "**Check 52**: 219 行 ≤ 320",
         "test": "Check 371: mirror doc の Check 52 制約が volatile な現在行数を hardcode しない",
     },
+    {
+        "name": "Check 372: quiz-renderer.js.md の factory signature を stale 形へ戻し quiz data 依存 (awsQuizData 等) を落とす → mirror-doc factory-dep drift の BLOCKING 検証",
+        "file": ROOT / "docs" / "files" / "js" / "quiz-renderer.js.md",
+        "find": "createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData })",
+        "replace": "createQuizRenderer({ h, createIcon, Store, State, quizData: {} })",
+        "test": "Check 372: 各 js/*.js factory の全注入依存が対応 mirror doc に言及されている",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。

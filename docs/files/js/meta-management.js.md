@@ -22,7 +22,7 @@ main.js Stage 5-k' (changelog 命名) で物理分割。ページ毎の SEO meta
 ```
 main.js
   └─ import { createMetaManagement } from './js/meta-management.js'
-  └─ const { applyMeta } = createMetaManagement({ PAGE_META, AUTHOR, SITE_CONFIG })
+  └─ const { applyMeta } = createMetaManagement({ SITE_CONFIG, AUTHOR, PAGE_META, Router, State })
        └─ Router の change イベントで applyMeta(routeName) を呼ぶ
 ```
 

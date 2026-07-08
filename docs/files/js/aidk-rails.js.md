@@ -23,7 +23,7 @@ main.js 内に分散していた AIDK Rail 系 5 IIFE を Stage 5-l で物理分
 main.js
   └─ import { createAIDKRails } from './js/aidk-rails.js'
   └─ const { RouteState, EffectRails, BindingRegistry, ActionDelegator, DiagnosticsRail }
-        = createAIDKRails({ secureExternalLinks, openDrawer, closeDrawer, Theme, BGM })
+        = createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h, createIcon, Theme, BGM, secureExternalLinks, openDrawer, closeDrawer })
 ```
 
 葉モジュール契約: 自身は import 0 件 (`closure-deps = none`)。Check 47 で機械強制。
