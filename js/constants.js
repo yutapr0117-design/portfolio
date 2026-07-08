@@ -68,6 +68,7 @@ export const CONSTANTS = {
         TASK_TITLE: 200,
         TODO_TEXT: 300,
         AI_MESSAGE: 5000,
+        NOTES_TEXT: 20000,
         MAX_PROJECTS: 1000,
         MAX_TASKS: 500,
         MAX_TODOS: 1000,

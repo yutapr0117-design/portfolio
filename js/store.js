@@ -566,7 +566,7 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
 
         // Notes (Markdown 文字列・additive ゆえ schema bump 不要。上限で防御)
         if (typeof data.notes === 'string') {
-            result.notes = data.notes.slice(0, 20000);
+            result.notes = data.notes.slice(0, CONSTANTS.LIMITS.NOTES_TEXT);
         }
 
         return result;

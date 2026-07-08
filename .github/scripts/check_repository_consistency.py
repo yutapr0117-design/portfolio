@@ -98,7 +98,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_jsonld_meta.py",  # split: 221-235
     ROOT / ".github" / "scripts" / "checks_meta_url.py",  # split: 175-180
     ROOT / ".github" / "scripts" / "checks_canonical_https.py",  # split: 202-214
-    ROOT / ".github" / "scripts" / "checks_shipped_hygiene.py",  # split: 242-249, 366-367
+    ROOT / ".github" / "scripts" / "checks_shipped_hygiene.py",  # split: 242-249, 366-368
     ROOT / ".github" / "scripts" / "checks_jsonld_primary.py",  # split: 256-261
     ROOT / ".github" / "scripts" / "checks_jsonld_refs.py",  # split: 216-219
     ROOT / ".github" / "scripts" / "checks_sw_pwa.py",  # split: 251-254
@@ -675,7 +675,7 @@ _checks_shipped_content.run(_ctx)
 import checks_shipped_static as _checks_shipped_static
 _checks_shipped_static.run(_ctx)
 
-# ── 242-249, 366-367. shipped-JS/HTML security & hygiene checks — eval/setTimeout-string/document.write/console/loose-eq etc. (242-249, 366-367) → checks_shipped_hygiene.py ──
+# ── 242-249, 366-368. shipped-JS/HTML security & hygiene checks — eval/setTimeout-string/document.write/console/loose-eq etc. (242-249, 366-368) → checks_shipped_hygiene.py ──
 # (check.py split track. 連続 self-contained クラスタ・自前 read_text・READ-ONLY。元の実行位置を保持。
 #  CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。global→nonlocal 変換 3 箇所。)
 import checks_shipped_hygiene as _checks_shipped_hygiene

@@ -1,5 +1,5 @@
 """
-checks_shipped_hygiene.py — shipped-JS/HTML security & hygiene checks — eval/setTimeout-string/document.write/console/loose-eq etc. (242-249, 366, 367)
+checks_shipped_hygiene.py — shipped-JS/HTML security & hygiene checks — eval/setTimeout-string/document.write/console/loose-eq etc. (242-249, 366, 367, 368)
 (extracted from check_repository_consistency.py — check.py split track).
 
 run(ctx) receives shared check()/ROOT by reference (exec 不使用) so exit code / BLOCKING propagation
@@ -92,6 +92,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        属性追加するのを防ぐ)。apps.js / settings-page.js / projects-page.js の
        全 h('select') を #668〜#670 + 本 increment で修正済。本 Check は
        再発防止の構造封じ。(BLOCKING)
+
+  368. shipped JS の apps.js と store.js が notes 上限を CONSTANTS.LIMITS.NOTES_TEXT
+       経由で参照し、マジックナンバー `20000` を直接持たないことを BLOCKING 強制。
+       apps.js (NotesPage oninput) と store.js (validateAndNormalize) の両方が同じ
+       20000 という値を参照しており、一方だけ変更した場合に silently drift する
+       class (#672)。NOTES_TEXT を constants.js の LIMITS に定数化して二者を単一
+       ソースへ集約した。本 Check は再発防止の構造封じ。(BLOCKING)
 
 """
 import re
@@ -514,5 +521,26 @@ def run(ctx):
          f"{_violations367!r} — <select> に value content attribute は HTML 仕様上存在しない "
          "(el.setAttribute('value', x) は選択状態に反映されない #7cbc4d9 class)。"
          "各 <option> に `selected: val === cur ? true : undefined` を付与せよ"),
+        blocking=True,
+    )
+
+    # ── 368. notes 上限マジックナンバー禁止 (CONSTANTS.LIMITS.NOTES_TEXT 経由必須) ────────
+    # apps.js (NotesPage oninput) と store.js (validateAndNormalize) が両方 20000 を
+    # 直接 hardcode していた。片方だけ変更すると silently drift する class (#672)。
+    # NOTES_TEXT を LIMITS に定数化して両者を単一ソースへ集約した後、
+    # 本 Check が再注入を BLOCKING で防ぐ。
+    _notes_magic_files368 = [ROOT / "js" / "apps.js", ROOT / "js" / "store.js"]
+    _notes_violations368: list[str] = []
+    for _f368 in _notes_magic_files368:
+        _src368 = _f368.read_text(encoding="utf-8", errors="replace")
+        # slice(0, 20000) or val.slice(0,20000) patterns (notes 上限としての 20000 直接使用)
+        if re.search(r"\.slice\(\s*0\s*,\s*20000\s*\)", _src368):
+            _notes_violations368.append(_f368.name)
+    check(
+        not _notes_violations368,
+        "Check 368: apps.js / store.js が notes 上限を CONSTANTS.LIMITS.NOTES_TEXT 経由で参照"
+        " (マジックナンバー 20000 不在)",
+        (f"Check 368: notes 上限 20000 のマジックナンバーが {_notes_violations368} に残存。"
+         "CONSTANTS.LIMITS.NOTES_TEXT 経由に統一せよ (drift 防止 #672 class)"),
         blocking=True,
     )
