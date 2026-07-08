@@ -672,6 +672,13 @@ _MUTATIONS_TAIL = [
         "replace": ".slice(-80);",
         "test": "Check 369: store.js / ai-page.js / pomodoro-page.js が履歴保持件数上限を CONSTANTS.LIMITS.*_HISTORY 経由で参照",
     },
+    {
+        "name": "Check 370: store.js の pomodoro 既定 settings を CONSTANTS からマジック {work:25...} へ戻す → 既定状態 drift の BLOCKING 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "settings: { ...CONSTANTS.POMODORO_DEFAULT_SETTINGS },",
+        "replace": "settings: { work: 25, short: 5, long: 15 },",
+        "test": "Check 370: state.js / store.js が pomodoro 既定状態を CONSTANTS.POMODORO_DEFAULT_* 経由で参照",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。
