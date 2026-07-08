@@ -843,4 +843,25 @@ E2E_MUTATIONS = [
         "replace": "                                        h('option', { value: 'upsert' }, 'upsert（更新+追加）'),",
         "test": "Settings import mode select retains visual selection after re-render",
     },
+    {
+        "name": "fix regression: task priority filter select visual selection — selected 条件を除去すると再描画後に 'all' に戻る (#7cbc4d9 class)",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                        h('option', { value: 'high', text: 'High', selected: taskFilter.priority === 'high' ? true : undefined }),",
+        "replace": "                        h('option', { value: 'high', text: 'High' }),",
+        "test": "Task priority filter select retains visual selection after re-render",
+    },
+    {
+        "name": "fix regression: task per-card priority select visual selection — selected 条件を除去すると再描画後に 'high' に戻る (#7cbc4d9 class)",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                                            h('option', { value: 'low', text: 'Low', selected: task.priority === 'low' ? true : undefined })",
+        "replace": "                                            h('option', { value: 'low', text: 'Low' })",
+        "test": "Task per-card priority select retains visual selection after re-render",
+    },
+    {
+        "name": "fix regression: todo filter select visual selection — selected 条件を除去すると再描画後に 'all' に戻る (#7cbc4d9 class)",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                            h('option', { value: 'active', text: '未完了', selected: todoFilter === 'active' ? true : undefined }),",
+        "replace": "                            h('option', { value: 'active', text: '未完了' }),",
+        "test": "Todo filter select retains visual selection after re-render",
+    },
 ]

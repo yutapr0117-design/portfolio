@@ -292,11 +292,10 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                                 h('select', {
                                     id: 'brandSelect',
                                     class: 'input',
-                                    value: Brand.get(),
                                     onchange: (e) => { Brand.set(e.target.value); window.render(); }
                                 },
-                                    h('option', { value: 'indigo' }, 'Indigo'),
-                                    h('option', { value: 'classic' }, 'Classic Blue + Inter')
+                                    h('option', { value: 'indigo', selected: Brand.get() === 'indigo' ? true : undefined }, 'Indigo'),
+                                    h('option', { value: 'classic', selected: Brand.get() === 'classic' ? true : undefined }, 'Classic Blue + Inter')
                                 ),
                                 h('span', { class: 'badge badge-secondary' }, '即時反映')
                             )

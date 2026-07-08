@@ -133,16 +133,15 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                     h('select', {
                         class: 'input',
                         'aria-label': '優先度で絞り込み',
-                        value: taskFilter.priority,
                         onchange: (e) => {
                             taskFilter.priority = e.target.value;
                             window.render(); // グローバルレンダーを呼び出し
                         }
                     },
-                        h('option', { value: 'all', text: '優先度: 全て' }),
-                        h('option', { value: 'high', text: 'High' }),
-                        h('option', { value: 'med', text: 'Med' }),
-                        h('option', { value: 'low', text: 'Low' })
+                        h('option', { value: 'all', text: '優先度: 全て', selected: taskFilter.priority === 'all' ? true : undefined }),
+                        h('option', { value: 'high', text: 'High', selected: taskFilter.priority === 'high' ? true : undefined }),
+                        h('option', { value: 'med', text: 'Med', selected: taskFilter.priority === 'med' ? true : undefined }),
+                        h('option', { value: 'low', text: 'Low', selected: taskFilter.priority === 'low' ? true : undefined })
                     )
                 )
             ));
@@ -199,12 +198,11 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                                             class: 'input btn-sm',
                                             'aria-label': 'タスクの優先度',
                                             style: 'width:auto;padding:0.25rem 0.5rem;font-size:0.75rem;',
-                                            value: task.priority,
                                             onchange: (e) => updateTask(task.id, { priority: e.target.value })
                                         },
-                                            h('option', { value: 'high', text: 'High' }),
-                                            h('option', { value: 'med', text: 'Med' }),
-                                            h('option', { value: 'low', text: 'Low' })
+                                            h('option', { value: 'high', text: 'High', selected: task.priority === 'high' ? true : undefined }),
+                                            h('option', { value: 'med', text: 'Med', selected: task.priority === 'med' ? true : undefined }),
+                                            h('option', { value: 'low', text: 'Low', selected: task.priority === 'low' ? true : undefined })
                                         ),
                                         h('div', { class: 'flex gap-1' },
                                             h('button', {
@@ -314,12 +312,11 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                         h('select', {
                             class: 'input w-auto',
                             'aria-label': 'TODO を絞り込み',
-                            value: todoFilter,
                             onchange: (e) => { todoFilter = e.target.value; window.render(); }
                         },
-                            h('option', { value: 'all', text: '全て' }),
-                            h('option', { value: 'active', text: '未完了' }),
-                            h('option', { value: 'completed', text: '完了' })
+                            h('option', { value: 'all', text: '全て', selected: todoFilter === 'all' ? true : undefined }),
+                            h('option', { value: 'active', text: '未完了', selected: todoFilter === 'active' ? true : undefined }),
+                            h('option', { value: 'completed', text: '完了', selected: todoFilter === 'completed' ? true : undefined })
                         ),
                         h('button', {
                             class: 'btn btn-secondary btn-sm',
