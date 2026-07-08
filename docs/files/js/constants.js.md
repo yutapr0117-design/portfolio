@@ -1,7 +1,7 @@
 ---
 file: js/constants.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-07-08
 canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-d)
 ---
 
@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-d)
 
 ## What
 
-実行時定数 module (88 行)。STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID を export。closure-deps = none の純粋データ module。
+実行時定数 module。STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID を export。closure-deps = none の純粋データ module。LIMITS には PROJECT_NAME / TODO_TEXT / AI_MESSAGE / **NOTES_TEXT** (20000) 等の各バリデーション上限が集中管理される。
 
 ## Why
 
@@ -32,6 +32,7 @@ main.js
 ## Change impact
 
 - 定数値変更 → 参照する全 factory + 関連 e2e テスト
+- **NOTES_TEXT** 変更 → apps.js (NotesPage oninput) + store.js (validateAndNormalize) が CONSTANTS.LIMITS.NOTES_TEXT 経由で参照（Check 368 が直接 20000 リテラルを BLOCKING 禁止）
 
 ## Audience-specific notes
 

@@ -737,8 +737,8 @@ E2E_MUTATIONS = [
     {
         "name": "behavior: live-input focus-loss guard の喪失 (oninput が全再描画で focus を破棄)",
         "file": ROOT / "js" / "apps.js",
-        "find": "State.updateSilently(s => { s.appsData.notes = val.slice(0, 20000); });",
-        "replace": "State.update(s => { s.appsData.notes = val.slice(0, 20000); });",
+        "find": "State.updateSilently(s => { s.appsData.notes = val.slice(0, CONSTANTS.LIMITS.NOTES_TEXT); });",
+        "replace": "State.update(s => { s.appsData.notes = val.slice(0, CONSTANTS.LIMITS.NOTES_TEXT); });",
         "test": "Notes textarea retains focus while typing",
     },
     {

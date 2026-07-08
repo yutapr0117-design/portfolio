@@ -426,7 +426,7 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                 renderMarkdown(val).forEach(n => preview.appendChild(n));
                 // updateSilently: State.update だと notify→全再描画で textarea が破棄され毎キーストローク
                 // で focus 喪失する (確認済バグ)。preview は上で手動更新済みゆえ再描画は不要。
-                State.updateSilently(s => { s.appsData.notes = val.slice(0, 20000); });
+                State.updateSilently(s => { s.appsData.notes = val.slice(0, CONSTANTS.LIMITS.NOTES_TEXT); });
             }
         });
 
