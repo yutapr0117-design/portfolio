@@ -6,8 +6,6 @@ Verifies that key version, date, and structural invariants hold across the repos
 
 Checks performed (the numbering is historical/incremental; this list is the
 authoritative inventory and is kept in sync with the implementation below):
-  17. ai:last-modified (index.html) == SITE_CONFIG.LAST_UPDATED (main.js)
-  18. sitemap.xml root <lastmod> == ai:last-modified (per-URL lastmod policy)
   37. No generated/cache artifacts (node_modules, __pycache__, *.pyc, test-results,
       playwright-report, blob-report, .DS_Store, …) are tracked in the repository.
       Authoritatively uses `git ls-files`; falls back to a pruned filesystem walk
@@ -133,6 +131,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # split: shipped-JS static analysis + byte budgets (237/239-241/262-265/269-272/310)
     ROOT / ".github" / "scripts" / "checks_e2e_infra.py",  # split: e2e/Playwright test-infra hygiene (110/111/114/116/117)
     ROOT / ".github" / "scripts" / "checks_file_aliases.py",  # split: file alias byte-equality & required-presence (4/5/190)
+    ROOT / ".github" / "scripts" / "checks_date_sync.py",  # split: date-sync coherence (17/18)
 ]
 
 
@@ -352,43 +351,12 @@ _checks_html.run(_ctx)
 import checks_misc_governance as _checks_misc_governance
 _checks_misc_governance.run(_ctx)
 
-# ── 17. Date sync: ai:last-modified == SITE_CONFIG.LAST_UPDATED ──────────────
-html_date = extract(r'name="ai:last-modified" content="([0-9-]+)"', html)
-mainjs_date = extract(r'LAST_UPDATED:\s+[\'"]([0-9-]+)[\'"]' , mainjs)
-check(
-    html_date is not None and mainjs_date is not None and html_date == mainjs_date,
-    f"ai:last-modified ({html_date}) == SITE_CONFIG.LAST_UPDATED ({mainjs_date})",
-    f"Date sync mismatch: index.html ai:last-modified={html_date}, main.js LAST_UPDATED={mainjs_date}",
-)
-
-# ── 18. sitemap.xml: root <lastmod> == ai:last-modified (per-URL policy) ──────
-# Policy (v74 maintenance finalizer):
-#   - Root URL (/): lastmod MUST match ai:last-modified / SITE_CONFIG.LAST_UPDATED
-#   - AIO document URLs: lastmod may reflect their own update date (honest per-URL)
-#   - Binary asset URLs: lastmod may follow asset baseline policy (intentional lag)
-#   - Mixed dates across the sitemap are ALLOWED and expected after AIO doc updates
-try:
-    sitemap_tree = ET.parse(ROOT / "sitemap.xml")
-    ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-    CANONICAL_ROOT = "https://yutapr0117-design.github.io/portfolio/"
-    root_lastmod: str | None = None
-    for url_el in sitemap_tree.findall(".//sm:url", ns):
-        loc_el = url_el.find("sm:loc", ns)
-        lastmod_el = url_el.find("sm:lastmod", ns)
-        if loc_el is not None and lastmod_el is not None:
-            if loc_el.text and loc_el.text.rstrip("/") == CANONICAL_ROOT.rstrip("/"):
-                root_lastmod = lastmod_el.text
-                break
-    if html_date and root_lastmod is not None:
-        check(
-            root_lastmod == html_date,
-            f"sitemap.xml root <lastmod> ({root_lastmod}) == ai:last-modified ({html_date})",
-            f"Date sync: sitemap.xml root lastmod={root_lastmod} vs ai:last-modified={html_date}",
-        )
-    elif html_date:
-        warnings.append("sitemap.xml: root URL entry not found for per-URL lastmod check")
-except ET.ParseError:
-    pass  # already caught in check 9
+# ── 17/18. date-sync coherence (ai:last-modified / SITE_CONFIG.LAST_UPDATED / sitemap root lastmod) → checks_date_sync.py ──
+# (check.py split track・ctx-enrich. Check 17 が html_date を定義し Check 18 が消費する coupled-var
+#  cluster。html (ctx.html) / mainjs (ctx.mainjs) / ROOT / warnings の 4 依存を ctx 経由で取得。
+#  17 位置で list 順連続実行。CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。)
+import checks_date_sync as _checks_date_sync
+_checks_date_sync.run(_ctx)
 
 # ── 21-27. AIO/AI2AI/llms freshness & session-record governance sync → checks_governance_sync.py ──
 # (check.py split track. llms alias Last-Updated(21)/AI2AI record order(22)/YAML syntax(23)/llms-full
