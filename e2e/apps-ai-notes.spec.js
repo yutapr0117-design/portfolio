@@ -40,10 +40,16 @@ test('Markdown notes app live-previews (innerHTML-free) and persists', async ({ 
   await expect(preview.locator('code.md-code', { hasText: 'inlineコード' })).toBeVisible();
   await expect(preview.locator('ul.md-ul li', { hasText: '項目A' })).toBeVisible();
 
-  // リロード後も永続 (appsData.notes)
+  // リロード後も永続 (appsData.notes): preview AND textarea の両方を確認
+  // [FIX] h() の textarea 特殊処理 (el.value = src) を追加するまで textarea は
+  // setAttribute('value', ...) で attribute を書くだけで el.value は "" になっていた
+  // (HTML spec: textarea に value content attribute は存在しない)。
+  // 修正後は preview だけでなく textarea の value も永続する。
   await page.reload();
   await page.waitForLoadState('domcontentloaded');
   await expect(page.locator('.md-preview h1', { hasText: 'E2E-NOTE-見出し-7733' })).toBeVisible();
+  // textarea の value が再描画後も復元されること (fix の regression gate)
+  await expect(page.locator('#notes-input')).toHaveValue(/E2E-NOTE-見出し-7733/);
 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `notes app caused a fatal: ${fatal}`).toBeNull();
