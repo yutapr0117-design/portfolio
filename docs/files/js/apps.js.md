@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-n) / docs/ar
 
 ## What
 
-Productivity Apps 5 関数の合成 factory module (1,030 行)。`createApps({deps})` を export。TaskPage / TodoPage / PomodoroPage / AIPage / SettingsPage の 5 ページ component + private state を含む。
+Productivity Apps 5 関数の合成 factory module。`createApps({deps})` を export。TaskPage / TodoPage / PomodoroPage / AIPage / SettingsPage の 5 ページ component + private state を含む。
 
 ## Why
 
@@ -28,7 +28,7 @@ main.js
 
 - **factory pattern** (Check 56, 61)
 - **Check 47**: import/export bijection
-- **Check 52**: 1,030 行 ≤ 1,200
+- **Check 52**: 行数予算 ≤ 1,200 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 - **select visual selection — `selected:` on options (#7cbc4d9 class)**: `h('select', { value: ... })` は HTML 仕様上 `el.setAttribute('value', ...)` となり `<select>` の選択状態に反映されない。task priority filter / per-card priority / todo filter の各 select で各 `<option>` に `selected: value === cur ? true : undefined` を付与する (h() の undefined-skip line 128 が非選択 option に属性を付けるのを防ぐ)。
 
 ## Change impact

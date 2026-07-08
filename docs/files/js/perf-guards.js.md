@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-s)
 
 ## What
 
-Performance Guards factory module (129 行)。`createPerfGuards()` を export。Layout Thrashing 防止 (setProperty / setAttribute('style') を rAF バッチ化) + Media Lifecycle 管理 (DOM 削除時に audio/video の blob: src を MutationObserver で解放) の 2 guard を含む。Media guard はかつて IntersectionObserver(lazy load) / _blobMap(img-video blob 追跡) / URL.createObjectURL フックも持っていたが、いずれも never-activated な vestigial だったため除去済 (実機能は audio/video の blob src 解放のみ)。
+Performance Guards factory module。`createPerfGuards()` を export。Layout Thrashing 防止 (setProperty / setAttribute('style') を rAF バッチ化) + Media Lifecycle 管理 (DOM 削除時に audio/video の blob: src を MutationObserver で解放) の 2 guard を含む。Media guard はかつて IntersectionObserver(lazy load) / _blobMap(img-video blob 追跡) / URL.createObjectURL フックも持っていたが、いずれも never-activated な vestigial だったため除去済 (実機能は audio/video の blob src 解放のみ)。
 
 ## Why
 
@@ -30,7 +30,7 @@ main.js
 - **factory pattern** (Check 56, 61)
 - **closure-deps = none**, 引数注入なし (DOM prototype を直接 hook)
 - **Check 47**: import/export bijection
-- **Check 52**: 129 行 ≤ 250
+- **Check 52**: 行数予算 ≤ 250 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Change impact
 

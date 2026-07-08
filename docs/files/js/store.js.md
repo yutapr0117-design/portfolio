@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-g) / js/stor
 
 ## What
 
-Store factory module (512 行)。`createStore({Storage})` を export。default data + load + validate + normalize + similarity 検索を含む。
+Store factory module。`createStore({Storage})` を export。default data + load + validate + normalize + similarity 検索を含む。
 
 ## Why
 
@@ -34,7 +34,7 @@ main.js
 
 - **factory pattern** (Check 56, 61), closure-deps = none
 - **Check 47**: import/export bijection
-- **Check 52**: 512 行 ≤ 600
+- **Check 52**: 行数予算 ≤ 600 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Audience-specific notes
 

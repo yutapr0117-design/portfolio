@@ -32,7 +32,7 @@ main.js
 
 - **closure-deps = none** (純データ)
 - **Check 47**: import/export bijection
-- **Check 52**: 271 行 ≤ 350
+- **Check 52**: 行数予算 ≤ 350 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Audience-specific notes
 

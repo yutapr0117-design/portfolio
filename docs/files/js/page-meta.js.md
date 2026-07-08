@@ -27,7 +27,7 @@ js/meta-management.js
 
 - **closure-deps = none** (純粋データ)
 - **Check 47**: import/export bijection
-- **Check 52**: 63 行 ≤ 120
+- **Check 52**: 行数予算 ≤ 120 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 - **AIO-adjacent**: meta は AI クローラが見る surface — Check 87 等で entity 名の整合を機械強制
 
 ## Change impact

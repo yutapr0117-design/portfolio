@@ -9,13 +9,13 @@ canonical-ref: AI2AI.md (canon C1-C7) / CLAUDE.md §3 (kernel 保護) / docs/arc
 
 ## What
 
-このリポジトリで配信される SPA (Single Page Application) の **最後の monolithic ファイル**であり、AIDK (AI Development Kernel) Isolated Kernel と View Transition Proxy と Trusted Types Policy と single top-level IIFE を含む **不可侵領域** (DO NOT EDIT) と、24 個の葉モジュール (`js/*.js` / `js/quiz/*.js`) を合成する factory 呼び出し本体。Stage 5 物理分割を経て 7,785 行 → **1,086 行 (−86%)** に縮小済み。
+このリポジトリで配信される SPA (Single Page Application) の **最後の monolithic ファイル**であり、AIDK (AI Development Kernel) Isolated Kernel と View Transition Proxy と Trusted Types Policy と single top-level IIFE を含む **不可侵領域** (DO NOT EDIT) と、24 個の葉モジュール (`js/*.js` / `js/quiz/*.js`) を合成する factory 呼び出し本体。Stage 5 物理分割を経て 7,785 行から大幅に縮小 (Stage 5 完了時点 1,086 行・−86%)。以降は factory 配線の追加で微増するが strong-advisory 予算 6,400 行の範囲内 (現在値は `wc -l` が権威)。
 
 ## Why
 
 このファイルの存在理由は **AIDK Kernel の物理的安全領域** を確保するため。
 
-歴史的に main.js は 7,785 行に肥大化していたが、Stage 5 で 16 個の小さな増分 (Stage 5-c〜5-s) を経て葉モジュールを段階的に抽出した。残った 1,086 行は技術的に **「これ以上分割すると Kernel が壊れる」** という工学的限界に達した部分:
+歴史的に main.js は 7,785 行に肥大化していたが、Stage 5 で 16 個の小さな増分 (Stage 5-c〜5-s) を経て葉モジュールを段階的に抽出した。残った本体 (Stage 5 完了時点 1,086 行) は技術的に **「これ以上分割すると Kernel が壊れる」** という工学的限界に達した部分:
 
 - **AIDK Kernel proper**: View Transition API の同期実行・error boundary・graceful degradation
 - **startViewTransitionProxy** (L150 周辺): Chrome の View Transition API の競合 / timeout を吸収
@@ -51,7 +51,7 @@ index.html
 - **Check 19**: sw.js CACHE_NAME と ai:version が一致
 - **Check 43a-d**: AIDK Kernel header / startViewTransitionProxy / Trusted Types Policy / single IIFE 構造の存在を機械強制
 - **Check 47**: js/ leaf module からの import/export bijection を機械強制 (24 modules)
-- **Check 52**: 1,086 行 ≤ 6,400 (strong-advisory budget)
+- **Check 52**: 行数予算 ≤ 6,400 行（現在値は file-size-budget.md §4 / `wc -l` が権威） (strong-advisory budget)
 - **編集承認**: AIDK Kernel proper (L129-1000+) は **DO NOT EDIT 領域**。触る場合は orchestrator 明示承認必要
 
 ## Change impact

@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-e) / llms-fu
 
 ## What
 
-AUTHOR (DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME) 純データ module (36 行)。closure-deps = none。
+AUTHOR (DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME) 純データ module。closure-deps = none。
 
 ## Why
 
@@ -30,7 +30,7 @@ main.js / 各 factory module
 - **closure-deps = none** (純粋データ)
 - **C6 隣接**: entity 名は llms-full.txt / JSON-LD と整合する canon の reflection。semantic 編集は orchestrator 承認必要
 - **Check 47**: import/export bijection
-- **Check 52**: 36 行 ≤ 80
+- **Check 52**: 行数予算 ≤ 80 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Change impact
 

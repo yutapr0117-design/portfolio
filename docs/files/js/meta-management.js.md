@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-k') / js/pag
 
 ## What
 
-Meta Management factory module (201 行)。`createMetaManagement({deps})` を export。updateDocumentHead / announceRouteForAccessibility / injectRouteEntityAnchor / injectStructuredData / applyMeta facade を含む。
+Meta Management factory module。`createMetaManagement({deps})` を export。updateDocumentHead / announceRouteForAccessibility / injectRouteEntityAnchor / injectStructuredData / applyMeta facade を含む。
 
 ## Why
 
@@ -30,7 +30,7 @@ main.js
 
 - **factory pattern** (Check 56, 61), closure-deps = none
 - **Check 47**: import/export bijection
-- **Check 52**: 201 行 ≤ 280
+- **Check 52**: 行数予算 ≤ 280 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Change impact
 

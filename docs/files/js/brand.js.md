@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-f) / js/stor
 
 ## What
 
-Brand manager factory module (65 行)。`createBrand({Storage})` を export。primary palette / font switcher を管理する factory。
+Brand manager factory module。`createBrand({Storage})` を export。primary palette / font switcher を管理する factory。
 
 ## Why
 
@@ -29,7 +29,7 @@ main.js
 - **factory pattern** (Check 56, 61)
 - **closure-deps = none** (引数で Storage を注入)
 - **Check 47**: import/export bijection
-- **Check 52**: 65 行 ≤ 120
+- **Check 52**: 行数予算 ≤ 120 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Change impact
 

@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-r)
 
 ## What
 
-Fatal overlay + Global Safety Net factory module (217 行)。`createFatalOverlay({render})` を export。fatal error 判定ロジック + Shadow DOM フォールバック UI + `setInterval` ウォッチャを含む。
+Fatal overlay + Global Safety Net factory module。`createFatalOverlay({render})` を export。fatal error 判定ロジック + Shadow DOM フォールバック UI + `setInterval` ウォッチャを含む。
 
 ## Why
 
@@ -28,7 +28,7 @@ main.js
 
 - **factory pattern** (Check 56, 61), dual-binding factory return (helpers + install)
 - **Check 47**: import/export bijection
-- **Check 52**: 217 行 ≤ 300
+- **Check 52**: 行数予算 ≤ 300 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Change impact
 
