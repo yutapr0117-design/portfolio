@@ -177,7 +177,10 @@ export function createProjectsPage({ h, createIcon, Router, State, tokenize, cle
                     },
                         ...categories.map(c => h('option', {
                             value: c,
-                            text: c === 'All' ? '全カテゴリー' : c
+                            text: c === 'All' ? '全カテゴリー' : c,
+                            // selected 属性で初期描画時の選択状態を反映 (h() は setAttribute 経由のため
+                            // select の value: cat では選択が反映されない — option 側で明示が必要)
+                            selected: c === cat ? true : undefined
                         }))
                     )
                 )

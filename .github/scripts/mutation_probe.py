@@ -30,6 +30,7 @@ if sys.version_info < (3, 10):
     print("ERROR: mutation_probe.py requires Python 3.10+ (got %d.%d)" % sys.version_info[:2])
     sys.exit(1)
 
+import re
 import subprocess
 from pathlib import Path
 
@@ -55,8 +56,10 @@ def run_gate() -> int:
 
 def run_e2e_test(pattern: str) -> int:
     """Run a single Playwright behavior test by -g pattern; return exit code (0 = pass/green)."""
+    # re.escape ensures test titles with regex metacharacters (e.g. '(?q=)', '+', '.')
+    # are treated as literal strings in Playwright's --grep JavaScript regex engine.
     r = subprocess.run(
-        ["npx", "playwright", "test", "--config=playwright.config.cjs", "-g", pattern],
+        ["npx", "playwright", "test", "--config=playwright.config.cjs", "-g", re.escape(pattern)],
         cwd=str(ROOT),
         capture_output=True,
         text=True,
