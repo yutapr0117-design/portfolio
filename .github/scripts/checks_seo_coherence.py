@@ -110,24 +110,24 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        derivation) for the ai:context / ai:entrypoint exact-URL
        derivation axis. (BLOCKING)
 
-  285. main.js SITE_CONFIG.VERSION strict format `v\d+`: the VERSION
-       string literal MUST match `^v\d+$` (single lowercase 'v' followed
+  285. main.js SITE_CONFIG.VERSION strict format `v\\d+`: the VERSION
+       string literal MUST match `^v\\d+$` (single lowercase 'v' followed
        by one or more digits). Check 2 (ai:version == SITE_CONFIG.VERSION)
        ensures parity but format itself is a separate invariant. Drift to
        e.g. `V74` / `v74.1` / `v-74` silently breaks downstream regexes
        and human recognition. (BLOCKING)
 
-  286. sw.js CACHE_NAME strict format `^portfolio-aio-v\d+$`: the CACHE
-       _NAME literal MUST match `^portfolio-aio-v\d+$` exactly. Check 19
+  286. sw.js CACHE_NAME strict format `^portfolio-aio-v\\d+$`: the CACHE
+       _NAME literal MUST match `^portfolio-aio-v\\d+$` exactly. Check 19
        ensures version parity with ai:version, but the constant format
        itself is a separate invariant (a rename to `portfolio-cache-v74`
        still parses via Check 19 regex but breaks the semantic contract).
        Sibling of Check 285 (SITE_CONFIG.VERSION format) for the sw.js
        CACHE_NAME format axis. (BLOCKING)
 
-  287. aio-manifest.json `manifest_version` strict format `^\d+\.\d+$`:
+  287. aio-manifest.json `manifest_version` strict format `^\\d+\\.\\d+$`:
        the `.well-known/aio-manifest.json` `manifest_version` field MUST
-       match `^\d+\.\d+$` (major.minor form). Drift to non-semver strings
+       match `^\\d+\\.\\d+$` (major.minor form). Drift to non-semver strings
        silently breaks manifest schema consumers that parse this field.
        Sibling of Check 285/286 (SITE_CONFIG.VERSION / CACHE_NAME) for
        the manifest_version format axis. (BLOCKING)
