@@ -167,7 +167,6 @@ export function createProjectsPage({ h, createIcon, Router, State, tokenize, cle
                     ),
                     h('select', {
                         class: 'input',
-                        value: cat,
                         'aria-label': 'カテゴリフィルター',
                         onchange: (e) => {
                             cat = e.target.value;
@@ -178,8 +177,8 @@ export function createProjectsPage({ h, createIcon, Router, State, tokenize, cle
                         ...categories.map(c => h('option', {
                             value: c,
                             text: c === 'All' ? '全カテゴリー' : c,
-                            // selected 属性で初期描画時の選択状態を反映 (h() は setAttribute 経由のため
-                            // select の value: cat では選択が反映されない — option 側で明示が必要)
+                            // <select> に value content attribute は HTML 仕様上存在しない (Check 367)。
+                            // 選択状態は各 option の selected: で反映する (h() undefined-skip が非選択を除外)。
                             selected: c === cat ? true : undefined
                         }))
                     )

@@ -1,5 +1,5 @@
 """
-checks_shipped_hygiene.py — shipped-JS/HTML security & hygiene checks — eval/setTimeout-string/document.write/console/loose-eq etc. (242-249, 366)
+checks_shipped_hygiene.py — shipped-JS/HTML security & hygiene checks — eval/setTimeout-string/document.write/console/loose-eq etc. (242-249, 366, 367)
 (extracted from check_repository_consistency.py — check.py split track).
 
 run(ctx) receives shared check()/ROOT by reference (exec 不使用) so exit code / BLOCKING propagation
@@ -81,6 +81,17 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (実例: ContactPage LinkedIn #322 が rel:'noopener' のみで push)。
        secureExternalLinks の mutation test (mutation_samples.py) とは独立した
        静的ソース軸の防止層。(BLOCKING)
+
+  367. shipped JS (js/*.js 非再帰) の h('select', ...) 呼び出しで第2引数の
+       attrs オブジェクトに `value:` キーが現れないことを BLOCKING 強制。
+       `<select>` 要素には HTML 仕様上 `value` content attribute が存在しない。
+       h('select', { value: x }) は el.setAttribute('value', x) を呼び、
+       <select> の選択状態には一切反映されない (#7cbc4d9 class)。
+       正しい実装は各 <option> に `selected: val === cur ? true : undefined`
+       を付与すること (h() の undefined-skip line 128 が非選択 option に
+       属性追加するのを防ぐ)。apps.js / settings-page.js / projects-page.js の
+       全 h('select') を #668〜#670 + 本 increment で修正済。本 Check は
+       再発防止の構造封じ。(BLOCKING)
 
 """
 import re
@@ -465,5 +476,43 @@ def run(ctx):
          "source drift は intentional 省略と誤読される。rel:'noopener noreferrer' へ揃えよ"
          if _violations366 else
          "Check 366: target='_blank' が shipped JS に 0 件 — vacuous-fail"),
+        blocking=True,
+    )
+
+    # ── 367. shipped JS h('select', ...) に value: attr を禁止 (HTML 仕様違反) ──────
+    # `<select>` 要素には HTML 仕様上 `value` content attribute が存在しない。
+    # h('select', { value: x }) は el.setAttribute('value', x) を呼び、<select> の
+    # 選択状態には一切反映されない (#7cbc4d9 class)。修正: 各 <option> に
+    # `selected: val === cur ? true : undefined` を付与する (h() の undefined-skip
+    # line 128 が非選択 option に属性追加するのを防ぐ)。
+    # apps.js / settings-page.js / projects-page.js の全 h('select') を
+    # #668〜#670 + 本 increment で修正済。本 Check は再発防止の構造封じ。
+    #
+    # 手法: h('select', の直後から最初の h('option', までのテキストに
+    # `(?<![.\w])value\s*:` (オブジェクトキーとしての value:) を探す。
+    # `e.target.value` は `;` で終わり `:` が後続しないため false-positive にならない。
+    _violations367: list[tuple[str, int]] = []
+    _select_pat367 = re.compile(r"h\('select'")
+    _value_key_pat367 = re.compile(r"(?<![.\w])value\s*:")
+    _option_pat367 = re.compile(r"h\('option'")
+    _js_files367 = sorted((ROOT / "js").glob("*.js"))
+    for _f367 in _js_files367:
+        _src367 = _f367.read_text(encoding="utf-8", errors="replace")
+        for _m367 in _select_pat367.finditer(_src367):
+            _pos367 = _m367.end()
+            _tail367 = _src367[_pos367:]
+            _opt_m367 = _option_pat367.search(_tail367)
+            _before_option367 = _tail367[:_opt_m367.start()] if _opt_m367 else _tail367[:300]
+            if _value_key_pat367.search(_before_option367):
+                _line367 = _src367[:_m367.start()].count("\n") + 1
+                _violations367.append((str(_f367.relative_to(ROOT)), _line367))
+    check(
+        not _violations367,
+        f"Check 367: shipped JS h('select') の attrs に value: キーなし "
+        f"({len(_js_files367)} files scanned)",
+        (f"Check 367: h('select') に value: attr が {len(_violations367)} 件: "
+         f"{_violations367!r} — <select> に value content attribute は HTML 仕様上存在しない "
+         "(el.setAttribute('value', x) は選択状態に反映されない #7cbc4d9 class)。"
+         "各 <option> に `selected: val === cur ? true : undefined` を付与せよ"),
         blocking=True,
     )

@@ -1,7 +1,7 @@
 ---
 file: js/projects-page.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-07-04
+last-updated: 2026-07-08
 canonical-ref: js/components.js (抽出元) / main.js (配線) / js/pure-utils.js (tokenize)
 ---
 
@@ -25,6 +25,7 @@ canonical-ref: js/components.js (抽出元) / main.js (配線) / js/pure-utils.j
 - **葉契約 (Check 47c)**: ローカル ESM import ゼロ。h / createIcon / Router / State / tokenize / clear は全て引数注入。
 - **非破壊**: 関数本体は抽出元から無改変。検索/フィルタ/並び替えの focus 保持挙動は不変で behavior e2e (route 'projects' + 検索操作) が保証。
 - **import bijection (Check 47)**: main.js の `import { createProjectsPage }` ↔ 本ファイルの `export function createProjectsPage` が一致。
+- **select visual selection — `selected:` on options (Check 367 / #7cbc4d9 class)**: カテゴリフィルター `<select>` の attrs に `value:` キーを持たない。`<select>` に value content attribute は HTML 仕様上存在しない。各 `<option>` に `selected: c === cat ? true : undefined` で選択状態を反映する (h() undefined-skip line 128 が非選択 option に属性追加するのを防ぐ)。
 
 ## Change impact
 
