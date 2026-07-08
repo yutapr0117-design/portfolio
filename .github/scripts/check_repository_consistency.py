@@ -132,6 +132,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_e2e_infra.py",  # split: e2e/Playwright test-infra hygiene (110/111/114/116/117)
     ROOT / ".github" / "scripts" / "checks_file_aliases.py",  # split: file alias byte-equality & required-presence (4/5/190)
     ROOT / ".github" / "scripts" / "checks_date_sync.py",  # split: date-sync coherence (17/18)
+    ROOT / ".github" / "scripts" / "checks_csp_hashes.py",  # split: inline-script CSP hash verification (7b/7c)
 ]
 
 
@@ -290,54 +291,12 @@ _checks_css.run(_ctx)
 import checks_source_coherence as _checks_source_coherence
 _checks_source_coherence.run(_ctx)
 
-# ── 7b/7c. inline-script CSP hashes are present AND match actual content ──────
-# Both the inline suppressor and the inline speculation-rules block are subject to
-# script-src CSP in Chrome. Each requires its exact-content SHA-256 hash in script-src.
-# We compute the hash from the live content (not a hardcoded constant) so this check
-# catches BOTH a removed hash AND content edited without recomputing the hash —
-# the exact failure mode that produced "Applying inline speculation rules violates ... script-src".
-def _csp_sri_hash(content: str) -> str:
-    """互換 alias — 実装は `_lib_io.csp_sri_hash` に統合 (Plan C helper 抽出)."""
-    return _lib_csp_sri_hash(content)
-
-# Strip HTML comments first: comments may contain literal <script>...</script> strings
-# (e.g. the CSP architecture note documents the speculationrules tag), which would
-# otherwise corrupt regex-based extraction. The browser never hashes comment text.
-_html_nc = re.sub(r"<!--.*?-->", "", html, flags=re.DOTALL)
-
-# 7b. inline suppressor (plain <script> containing the unhandledrejection listener)
-_plain_scripts = re.findall(r"<script>(.*?)</script>", _html_nc, re.DOTALL)
-_sup_content = next((s for s in _plain_scripts if "unhandledrejection" in s), None)
-if _sup_content is not None:
-    _sup_hash = _csp_sri_hash(_sup_content)
-    check(
-        f"'{_sup_hash}'" in html,
-        f"index.html CSP authorizes inline suppressor (content hash {_sup_hash})",
-        f"index.html CSP does NOT authorize inline suppressor — computed {_sup_hash} "
-        f"is absent from script-src. Inline content and CSP hash are out of sync.",
-    )
-else:
-    check(
-        False,
-        "",
-        "index.html: inline suppressor <script> block not found "
-        "(expected a plain <script> containing 'unhandledrejection').",
-    )
-
-# 7c. inline speculation rules (<script type="speculationrules">)
-_m_spec = re.search(r'<script type="speculationrules">(.*?)</script>', _html_nc, re.DOTALL)
-if _m_spec is not None:
-    _spec_hash = _csp_sri_hash(_m_spec.group(1))
-    check(
-        f"'{_spec_hash}'" in html,
-        f"index.html CSP authorizes inline speculation rules (content hash {_spec_hash})",
-        f"index.html CSP does NOT authorize inline speculation rules — computed {_spec_hash} "
-        f"is absent from script-src. Chrome will block prerender with "
-        f"\"Applying inline speculation rules violates ... script-src\". "
-        f"Add '{_spec_hash}' to script-src (recompute if the JSON was edited).",
-    )
-else:
-    warnings.append("index.html: speculationrules block not found — Check 7c skipped")
+# ── 7b/7c. inline-script CSP hashes → checks_csp_hashes.py ──────────────────
+# (check.py split track・ctx-enrich。html を _ctx.html 経由・_lib_io.csp_sri_hash を module 内 import。
+#  suppressor(7b)/speculationrules(7c)の 2 件を re + csp_sri_hash で検証する自己完結 cluster。
+#  7b 位置で list 順連続実行。CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。)
+import checks_csp_hashes as _checks_csp_hashes
+_checks_csp_hashes.run(_ctx)
 
 # ── 8/20/115/152/187/220/250/255/303/306. index.html document/meta baseline & lang coherence → checks_html.py ──
 # (check.py split track・ctx-enrich module。html glob を _ctx.html 経由で消費。security meta(8/115)/
