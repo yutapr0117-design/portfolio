@@ -88,17 +88,21 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
        the class cannot be silently reintroduced. (BLOCKING)
   365. Capstone: every git-tracked text file (excluding the design-constraint
        A group: style.css / index.html / main.js; AIO/C6 layer:
-       llms-full.txt / llms.txt / llms_well-known.txt; pure-data subtrees:
-       js/quiz/*.js / .well-known/**; binary extensions: png/jpg/webp/mp3 etc.;
-       e2e snapshot dirs) MUST be ≤1,000 lines. This is the top-level bloat
-       gate complementing the per-surface guards (Check 363 for js/*.js,
-       Check 52 ADVISORY, JS-LEAF-CEILING BLOCKING). check.py split (→920 lines),
-       e2e spec split (→max 647 lines), and B-track trim (AI2AI.md→951,
-       ChatGPT2ChatGPT.md→970) had to complete before this gate could first
-       pass (achieved 2026-07-08). Implemented via `git ls-files` so only
-       committed files are scanned — no untracked or gitignored noise.
-       Prevents any future increment from silently re-bloating any doc, check
-       module, workflow, or e2e spec beyond the threshold. (BLOCKING)
+       llms-full.txt / llms.txt / llms_well-known.txt; npm lockfile:
+       package-lock.json; bot-managed append logs: aio-monitoring-log.json /
+       aio-monitoring-log-archive.json (weekly bot appends ~95 lines/entry and
+       cannot be bounded without rotation — excluded as pure evidence logs);
+       pure-data subtrees: js/quiz/*.js / .well-known/**; binary extensions:
+       png/jpg/webp/mp3 etc.; e2e snapshot dirs) MUST be ≤1,000 lines.
+       This is the top-level bloat gate complementing the per-surface guards
+       (Check 363 for js/*.js, Check 52 ADVISORY, JS-LEAF-CEILING BLOCKING).
+       check.py split (→920 lines), e2e spec split (→max 647 lines), and
+       B-track trim (AI2AI.md→951, ChatGPT2ChatGPT.md→970) had to complete
+       before this gate could first pass (achieved 2026-07-08). Implemented
+       via `git ls-files` so only committed files are scanned — no untracked
+       or gitignored noise. Prevents any future increment from silently
+       re-bloating any doc, check module, workflow, or e2e spec beyond the
+       threshold. (BLOCKING)
 """
 import re
 
@@ -559,6 +563,11 @@ def run(ctx):
         "style.css", "index.html", "main.js",       # design-constraint A group
         "llms-full.txt", "llms.txt", "llms_well-known.txt",  # AIO/C6（orchestrator 承認必須）
         "package-lock.json",                         # npm 自動生成 lockfile（手動編集対象外）
+        # bot-managed append logs: weekly aio-monitoring.yml が ~95 行/エントリで追記する
+        # 純粋な evidence ログ。人間が手動編集する文書ではなく log-rotation なしの append-only
+        # ゆえ「1,000 行ハードゲート」の対象外とする。
+        "aio-monitoring-log.json",
+        "aio-monitoring-log-archive.json",
     ])
     _bin_exts = frozenset([
         ".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico",
