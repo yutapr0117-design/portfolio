@@ -74,7 +74,7 @@
       "path": "ChatGPT2ChatGPT.md",
       "role": "analysis evidence and model-agnostic repository analysis pipeline; non-canonical and subordinate to AI2AI.md",
       "canonical": false,
-      "sha256": "1527f0dbfa1c9884f7e61d51fd9eee92597817d83eff5bd57f4f7a5588d2ab51"
+      "sha256": "08ce78b6dc1bb5ef52f09354da8dbda72ff56cc73e2db09039aa383a9c3daa5d"
     },
     {
       "path": "docs/session-records/AI2AI-archive.md",
@@ -82,7 +82,7 @@
       "sha256": "a04feb240c82037211411b29a6169633db2ae5de8fc3d678ea6f448eb809c70a"
     }
   ],
-  "generated_at": "2026-07-07T04:13:22Z",
+  "generated_at": "2026-07-08T01:21:27Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
