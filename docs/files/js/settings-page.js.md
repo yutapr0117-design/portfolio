@@ -1,7 +1,7 @@
 ---
 file: js/settings-page.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-07-05
+last-updated: 2026-07-08
 canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/store.js (validateAndNormalize) / js/storage.js (snapshot)
 ---
 
@@ -26,6 +26,7 @@ canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/store.js (validate
 - **外部 ingestion 全経路正規化 (#93/#295/#561)**: `restoreSnapshot` / `importJSON` は必ず `Store.validateAndNormalize` を通す。生 `State.set(snap.data)` は別 schema/欠損データで FatalPage crash するため禁止。behavior e2e (snapshot restore normalizes) が保証。
 - **upsert data-loss 温存 (#192)**: importJSON の upsert モードは 1 つの Map に更新も追加も集約し新規 id を確実に残す。
 - **Demo セレクタ coherence (#294 / Check 140)**: 手動追加フォームの Demo `<select>` option は router whitelist と一致させる (task/todo/pomodoro/ai/notes)。
+- **select visual selection — `selected:` on options (#7cbc4d9 class)**: `h('select', { value: ... })` は HTML 仕様上 `el.setAttribute('value', ...)` となり `<select>` の選択状態に反映されない。import mode / demo select とも各 `<option>` に `selected: value === cur ? true : undefined` を付与 (h() の undefined-skip が非選択 option に属性を付けるのを防ぐ)。再描画後の visual 選択保持を behavior e2e が BLOCKING 強制。
 - **非破壊**: 関数本体と private state は抽出元から無改変 (byte-equivalent)。
 - **import bijection (Check 47)**: main.js の `import { createSettingsPage }` ↔ 本ファイルの `export function createSettingsPage` が一致。
 

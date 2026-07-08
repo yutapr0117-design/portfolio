@@ -836,4 +836,11 @@ E2E_MUTATIONS = [
         "replace": "        } else if (key === 'value' && tag === 'NEVER_MATCH_INTENTIONAL_BREAK') {",
         "test": "Markdown notes app live-previews (innerHTML-free) and persists",
     },
+    {
+        "name": "fix regression: settings import mode select visual selection — selected 条件を除去すると再描画後に 'append' に戻る (#7cbc4d9 class)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "                                        h('option', { value: 'upsert', selected: settingsImportMode === 'upsert' ? true : undefined }, 'upsert（更新+追加）'),",
+        "replace": "                                        h('option', { value: 'upsert' }, 'upsert（更新+追加）'),",
+        "test": "Settings import mode select retains visual selection after re-render",
+    },
 ]

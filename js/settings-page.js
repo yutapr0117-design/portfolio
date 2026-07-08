@@ -243,10 +243,10 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                             h('div', { class: 'grid grid-cols-2 gap-3' },
                                 h('div', {},
                                     h('label', { class: 'text-sm text-muted' }, 'モード'),
-                                    h('select', { class: 'input', 'aria-label': 'インポートモード', onchange: (e) => { settingsImportMode = e.target.value; window.render(); }, value: settingsImportMode },
-                                        h('option', { value: 'append' }, 'append（追加のみ）'),
-                                        h('option', { value: 'upsert' }, 'upsert（更新+追加）'),
-                                        h('option', { value: 'strict' }, 'strict（全置換）')
+                                    h('select', { class: 'input', 'aria-label': 'インポートモード', onchange: (e) => { settingsImportMode = e.target.value; window.render(); } },
+                                        h('option', { value: 'append', selected: settingsImportMode === 'append' ? true : undefined }, 'append（追加のみ）'),
+                                        h('option', { value: 'upsert', selected: settingsImportMode === 'upsert' ? true : undefined }, 'upsert（更新+追加）'),
+                                        h('option', { value: 'strict', selected: settingsImportMode === 'strict' ? true : undefined }, 'strict（全置換）')
                                     )
                                 ),
                                 h('div', {},
@@ -349,13 +349,13 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                                 ),
                                 h('div', {},
                                     h('label', { class: 'text-sm text-muted' }, 'Demo（任意）'),
-                                    h('select', { class: 'input', 'aria-label': 'Demo アプリの種類', onchange: (e) => { settingsNewDemo = e.target.value; }, value: settingsNewDemo },
-                                        h('option', { value: '' }, 'Demoなし'),
-                                        h('option', { value: 'task' }, 'task'),
-                                        h('option', { value: 'todo' }, 'todo'),
-                                        h('option', { value: 'pomodoro' }, 'pomodoro'),
-                                        h('option', { value: 'ai' }, 'ai'),
-                                        h('option', { value: 'notes' }, 'notes')
+                                    h('select', { class: 'input', 'aria-label': 'Demo アプリの種類', onchange: (e) => { settingsNewDemo = e.target.value; } },
+                                        h('option', { value: '', selected: settingsNewDemo === '' ? true : undefined }, 'Demoなし'),
+                                        h('option', { value: 'task', selected: settingsNewDemo === 'task' ? true : undefined }, 'task'),
+                                        h('option', { value: 'todo', selected: settingsNewDemo === 'todo' ? true : undefined }, 'todo'),
+                                        h('option', { value: 'pomodoro', selected: settingsNewDemo === 'pomodoro' ? true : undefined }, 'pomodoro'),
+                                        h('option', { value: 'ai', selected: settingsNewDemo === 'ai' ? true : undefined }, 'ai'),
+                                        h('option', { value: 'notes', selected: settingsNewDemo === 'notes' ? true : undefined }, 'notes')
                                     )
                                 ),
                                 h('div', { class: 'flex items-end' },

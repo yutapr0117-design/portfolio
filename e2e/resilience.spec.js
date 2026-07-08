@@ -282,3 +282,33 @@ test('Profile github/linkedin survive import and are URL-sanitized (XSS-safe)', 
   // 危険スキームの linkedin は描画されない (サニタイズで '' に落ちて条件描画が抑止)
   expect(await page.locator('a[href^="javascript:"]').count()).toBe(0);
 });
+
+
+// ===== 7.2: import mode select が再描画後も visual 選択を保持する (#7cbc4d9 class) =====
+// settingsImportMode select の onchange は window.render() を直接呼び設定ページを完全再描画する。
+// 修正前は h('select', { value: settingsImportMode }) が el.setAttribute('value', ...) 経由となり、
+// <select> の value は content attribute に反映されない HTML 仕様のため初回再描画で最初の option
+// ('append') に戻っていた。修正後は各 option に selected: mode===cur ? true : undefined で
+// h() の undefined-skip (line 128) を活用する — projects-page と同パターン。
+test('Settings import mode select retains visual selection after re-render (#7cbc4d9 class)', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  const sel = page.locator('select[aria-label="インポートモード"]');
+  await expect(sel).toBeVisible();
+
+  // 初期値 'append'
+  await expect(sel).toHaveValue('append');
+
+  // 'upsert' に変更 — onchange が settingsImportMode='upsert' + window.render() を発火
+  await sel.selectOption('upsert');
+  // 再描画後も 'upsert' のまま (fix 前はここで 'append' に戻った)
+  await expect(sel).toHaveValue('upsert');
+
+  // 'strict' も同様に保持される
+  await sel.selectOption('strict');
+  await expect(sel).toHaveValue('strict');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `import mode select caused a fatal: ${fatal}`).toBeNull();
+});
