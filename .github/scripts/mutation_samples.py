@@ -921,4 +921,11 @@ E2E_MUTATIONS = [
         "replace": "                    tags: (t.tags || []).filter(Boolean).slice(0, 10),",
         "test": "normalizeAppsData tolerates a non-array",
     },
+    {
+        "name": "Check 366: ContactPage LinkedIn の rel:'noopener noreferrer' から noreferrer を除去 (source drift 再発・静的 source 軸の防止層の回帰)",
+        "file": ROOT / "js" / "components.js",
+        "find": "                            h('a', { href: profile.linkedin, target: '_blank', rel: 'noopener noreferrer' }, profile.linkedin)",
+        "replace": "                            h('a', { href: profile.linkedin, target: '_blank', rel: 'noopener' }, profile.linkedin)",
+        "test": "Check 366: shipped JS target='_blank' に ±2行以内で noreferrer あり",
+    },
 ]
