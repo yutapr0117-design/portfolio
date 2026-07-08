@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-i) / theme-i
 
 ## What
 
-Theme factory module。`createTheme({Storage})` を export。system / dark / light の cycle + `matchMedia('(prefers-color-scheme: dark)')` listener を含む。
+Theme factory module。`createTheme({ State, Toast })` を export。system / dark / light の cycle + `matchMedia('(prefers-color-scheme: dark)')` listener を含む。
 
 ## Why
 
@@ -20,7 +20,7 @@ main.js Stage 5-i で物理分割。`theme-init.js` (起動最早期の FOUC 防
 ```
 main.js
   └─ import { createTheme } from './js/theme.js'
-  └─ const Theme = createTheme({ Storage })
+  └─ const Theme = createTheme({ State, Toast })
        └─ Theme.cycle()       // system → dark → light → system
        └─ Theme.set('dark')   // 直接指定
        └─ matchMedia listener で system 変更を自動反映

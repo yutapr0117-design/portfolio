@@ -21,7 +21,7 @@ main.js から Stage 5-n で物理分割した productivity 系ページ群。cl
 main.js
   └─ import { createApps } from './js/apps.js'
   └─ const { TaskPage, TodoPage, PomodoroPage, AIPage, SettingsPage }
-        = createApps({ h, createIcon, Router, Storage, Store, Theme, BGM })
+        = createApps({ h, createIcon, Toast, State, CONSTANTS, generateId, clamp })
 ```
 
 ## Constraints

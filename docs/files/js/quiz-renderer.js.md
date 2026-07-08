@@ -22,10 +22,7 @@ main.js
   └─ import { createQuizRenderer } from './js/quiz-renderer.js'
   └─ import architectureQuizData from './js/quiz/architecture-quiz-data.js'
   └─ ... + 3 domains
-  └─ const QuizPage = createQuizRenderer({
-        h, createIcon, Store, State,
-        quizData: { architecture, aws, pm, quality }
-     })
+  └─ const QuizPage = createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData })
 ```
 
 Router が `#/quiz` route に到達したら QuizPage を render。

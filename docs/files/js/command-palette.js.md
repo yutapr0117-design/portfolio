@@ -20,7 +20,7 @@ Cmd/Ctrl+K で開くキーボード駆動の横断ナビゲーション overlay 
 ```
 main.js
   └─ import { createCommandPalette } from './js/command-palette.js'
-  └─ const CommandPalette = createCommandPalette({ Router, h, createIcon })
+  └─ const CommandPalette = createCommandPalette({ Router, h, createIcon, State })
   └─ CommandPalette.init()   // global Cmd/Ctrl+K keydown を登録（他キーは素通し）
        └─ open(): overlay 生成/表示 → focus trap (Tab/↑↓/Enter/Esc) → inputEl.focus()
        └─ _choose(i): close() → Router.navigate(dest.hash)

@@ -21,7 +21,7 @@ Stage 5-m で main.js から物理分割。Mobile Drawer (`js/mobile-drawer.js`)
 main.js
   └─ import { createComponents } from './js/components.js'
   └─ const { Sidebar, HomePage, ..., ContactCTA }
-        = createComponents({ h, createIcon, Router, tokenize, CONSTANTS, _drawer, ... })
+        = createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Theme, CONSTANTS, clear, closeDrawer })
 ```
 
 ## Constraints
