@@ -829,4 +829,11 @@ E2E_MUTATIONS = [
         "replace": "        let cat = 'All';",
         "test": "Projects page restores category filter from URL deep-link (?cat=)",
     },
+    {
+        "name": "fix regression: h() textarea value — el.value 設定を el.setAttribute に戻す → reload 後に notes textarea が空 (el.value は IDL property、content attribute 経由では設定不能)",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "        } else if (key === 'value' && tag === 'textarea') {",
+        "replace": "        } else if (key === 'value' && tag === 'NEVER_MATCH_INTENTIONAL_BREAK') {",
+        "test": "Markdown notes app live-previews (innerHTML-free) and persists",
+    },
 ]

@@ -149,6 +149,11 @@ export function h(tag, attrs = {}, ...children) {
             });
         } else if (key.startsWith('on') && typeof value === 'function') {
             el.addEventListener(key.slice(2).toLowerCase(), value);
+        } else if (key === 'value' && tag === 'textarea') {
+            // <textarea> has no 'value' content attribute in the HTML spec; setAttribute('value', ...)
+            // sets the attribute but does NOT affect el.value (confirmed: Chrome returns "" after
+            // setAttribute). Use the IDL property directly so saved notes appear on re-render.
+            el.value = String(value);
         } else if (key === 'text') {
             el.textContent = String(value);
         } else if (key === 'html') {
