@@ -815,4 +815,18 @@ E2E_MUTATIONS = [
         "replace": "        if (false) {",
         "test": "ProjectDetailPage shows not-found message and returns to list for nonexistent slug",
     },
+    {
+        "name": "behavior: ProjectsPage URL deep-link ?q= 復元の喪失 (route.query.q を無視して常に空文字を初期 q にする → 直接到達時に検索状態が復元されず input が空)",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "        let q = route.query.q || '';",
+        "replace": "        let q = '';",
+        "test": "Projects page restores search query from URL deep-link (?q=)",
+    },
+    {
+        "name": "behavior: ProjectsPage URL deep-link ?cat= 復元の喪失 (route.query.cat を無視して常に 'All' を初期 cat にする → 直接到達時にカテゴリフィルタが復元されず select が 'All')",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "        let cat = route.query.cat || 'All';",
+        "replace": "        let cat = 'All';",
+        "test": "Projects page restores category filter from URL deep-link (?cat=)",
+    },
 ]

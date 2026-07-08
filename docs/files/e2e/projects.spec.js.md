@@ -1,7 +1,7 @@
 ---
 file: e2e/projects.spec.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-07-07
+last-updated: 2026-07-08
 canonical-ref: playwright.config.cjs / .github/workflows/playwright-regression.yml / js/pages.js / js/store.js / js/router.js
 ---
 
@@ -9,7 +9,7 @@ canonical-ref: playwright.config.cjs / .github/workflows/playwright-regression.y
 
 ## What
 
-Projects 一覧 / 検索 / detail 導線の e2e。Projects 検索フォーカス維持・empty-state・fill→clear ライフサイクル・タグクリックフィルタ・カテゴリフィルタ + URL ディープリンク・card→detail→back 導線・autoRelated 遷移・home 注目プロジェクト遷移・thesis 系ページ (role-split / hiring-risk / ai-knowhow) の key コンテンツ presence を検証する。
+Projects 一覧 / 検索 / detail 導線の e2e。Projects 検索フォーカス維持・empty-state・fill→clear ライフサイクル・タグクリックフィルタ・カテゴリフィルタ + URL ディープリンク (q=/cat= 初期状態復元)・card→detail→back 導線・autoRelated 遷移・home 注目プロジェクト遷移・thesis 系ページ (role-split / hiring-risk / ai-knowhow) の key コンテンツ presence・ProjectDetailPage not-found 状態 + 復帰 を検証する (合計 14 テスト)。
 
 ## Why
 

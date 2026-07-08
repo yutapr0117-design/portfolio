@@ -227,6 +227,51 @@ test('AI-knowhow page renders its lead heading', async ({ page }) => {
 });
 
 
+// ===== 7.2: URL ディープリンクから検索クエリを復元 (q= param) =====
+// ProjectsPage は `let q = route.query.q || ''` で初期 q を決め、input の value: q で入力欄に
+// 反映し、renderGrid() で絞り込んだ状態で初期描画する。「URL をコピーして共有」「ブラウザ戻る」
+// などで ?q=xxx に直接到達した場合に検索状態が復元されることが前提だが、この「初期復元」経路は
+// 既存テストが全て goto('/#/projects') → fill() でフィルタするパターンであり、URL から直接
+// 到達する分岐は被覆されていなかった (route.query.q の代入が消えても既存 e2e が通る vacuous gap)。
+test('Projects page restores search query from URL deep-link (?q=)', async ({ page }) => {
+  await page.goto('/#/projects?q=ポモドーロ');
+  await page.waitForLoadState('domcontentloaded');
+
+  // route.query.q が input の初期 value に復元されていること (deep-link restore の核心 assertion)
+  const searchInput = page.locator('input[type="text"]').first();
+  await expect(searchInput).toHaveValue('ポモドーロ');
+
+  // 絞り込みが実際に機能していること (input 値を set するだけで filter が動かない退行も検知)
+  await expect(page.locator('.grid-projects article.card').first()).toBeVisible();
+});
+
+
+// ===== 7.2: URL ディープリンクからカテゴリフィルタを復元 (cat= param) =====
+// ProjectsPage は `let cat = route.query.cat || 'All'` で初期カテゴリを決め、renderGrid() で
+// 絞り込んだ状態で初期描画する。option 側の selected 属性で select の視覚選択も反映する。
+// ?cat=xxx への直接到達時にフィルタ状態が復元されることを検証する。
+// 注意: 一度 projects に来て selectOption 後に同じ URL へ goto しても DOM 状態が残るため vacuous に
+// なる。ホーム(/) → deep-link の 2 段 goto で必ず fresh な SPA 初期化を経ること。
+test('Projects page restores category filter from URL deep-link (?cat=)', async ({ page }) => {
+  // 1. 最初の実カテゴリ名を取得 (select の option 値をページ描画前に確認)
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  const catSelect = page.locator('select[aria-label="カテゴリフィルター"]');
+  const firstRealCat = await catSelect.locator('option').nth(1).getAttribute('value');
+
+  // 2. ホームへ移動して既存 DOM 状態を破棄 → deep-link で直接到達 (hashchange 経由で fresh 初期化)
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  await page.goto(`/#/projects?cat=${encodeURIComponent(firstRealCat)}`);
+  await page.waitForLoadState('domcontentloaded');
+
+  // 3. option の selected 属性により select が cat= の値で視覚的に選択されていること
+  await expect(catSelect).toHaveValue(firstRealCat);
+  // 4. 絞り込みが実際に機能していること
+  await expect(page.locator('.grid-projects article.card').first()).toBeVisible();
+});
+
+
 // ===== 7.2: ProjectDetailPage の "not found" 状態 + 復帰ナビ =====
 // ProjectDetailPage(slug) は state.projects.find(p => p.slug === slug) が null のとき
 // 「プロジェクトが見つかりません」h1 + 「一覧へ戻る」ボタンを描画する。
