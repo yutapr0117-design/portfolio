@@ -68,6 +68,8 @@ export const CONSTANTS = {
         TASK_TITLE: 200,
         TODO_TEXT: 300,
         AI_MESSAGE: 5000,
+        AI_HISTORY: 80,          // AI アシスタント履歴の保持エントリ数上限（store.js normalize + ai-page.js add の単一ソース）
+        POMODORO_HISTORY: 200,   // ポモドーロ完了履歴の保持エントリ数上限（store.js normalize + pomodoro-page.js complete の単一ソース）
         NOTES_TEXT: 20000,
         MAX_PROJECTS: 1000,
         MAX_TASKS: 500,

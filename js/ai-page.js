@@ -82,13 +82,14 @@ export function createAIPage({ h, createIcon, State, CONSTANTS }) {
                     State.update(s => {
                         s.appsData.ai.history.push({
                             // [FIX] prompt を AI_MESSAGE 上限で bound する (他アプリの入力 slice と同様)。
-                            // 従来は無制限保存で、巨大入力が ai.history (last 80) に蓄積し localStorage を
+                            // 従来は無制限保存で、巨大入力が ai.history (last AI_HISTORY 件) に蓄積し localStorage を
                             // bloat させ得た。AI_MESSAGE 定数は元来この制限用だが配線が失われていた (Check 125 が検出)。
                             prompt: input.slice(0, CONSTANTS.LIMITS.AI_MESSAGE),
                             response,
                             timestamp: Date.now()
                         });
-                        s.appsData.ai.history = s.appsData.ai.history.slice(-80);
+                        // 履歴保持件数は store.js normalize と同じ CONSTANTS.LIMITS.AI_HISTORY 単一ソース (Check 369 が drift 防止)
+                        s.appsData.ai.history = s.appsData.ai.history.slice(-CONSTANTS.LIMITS.AI_HISTORY);
                     });
                 } finally {
                     aiLoading = false;

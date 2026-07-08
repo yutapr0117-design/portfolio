@@ -665,6 +665,13 @@ _MUTATIONS_TAIL = [
         "replace": "                    h('select', {\n                        class: 'input',\n                        value: cat,\n                        'aria-label': 'カテゴリフィルター',",
         "test": "Check 367: shipped JS h('select') の attrs に value: キーなし",
     },
+    {
+        "name": "Check 369: store.js の AI 履歴 slice を CONSTANTS.LIMITS.AI_HISTORY からマジック -80 へ戻す → 履歴上限 drift の BLOCKING 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": ".slice(-CONSTANTS.LIMITS.AI_HISTORY);",
+        "replace": ".slice(-80);",
+        "test": "Check 369: store.js / ai-page.js / pomodoro-page.js が履歴保持件数上限を CONSTANTS.LIMITS.*_HISTORY 経由で参照",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。
