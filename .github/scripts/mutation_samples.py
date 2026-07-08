@@ -658,6 +658,13 @@ _MUTATIONS_TAIL = [
         "replace": "                            h('a', { href: profile.linkedin, target: '_blank', rel: 'noopener' }, profile.linkedin)",
         "test": "Check 366: shipped JS target='_blank' に ±2行以内で noreferrer あり",
     },
+    {
+        "name": "Check 367: projects-page.js の h('select') に value: cat を再注入 → h('select') attrs に value: キーが禁止であることの BLOCKING 検証",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "                    h('select', {\n                        class: 'input',\n                        'aria-label': 'カテゴリフィルター',",
+        "replace": "                    h('select', {\n                        class: 'input',\n                        value: cat,\n                        'aria-label': 'カテゴリフィルター',",
+        "test": "Check 367: shipped JS h('select') の attrs に value: キーなし",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。
