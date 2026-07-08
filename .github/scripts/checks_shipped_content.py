@@ -8,8 +8,8 @@ propagation are byte-equivalent. 各 Check は対象 file を自前 read。annot
 Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()):
   236. aio-manifest.json `generated_at` is strict RFC 3339 datetime AND
        affiliation `start_date` is strict YYYY-MM-DD: the `generated_at`
-       top-level field must match `^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$`
-       and `entity.affiliation.start_date` must match `^\d{4}-\d{2}-\d{2}$`
+       top-level field must match `^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$`
+       and `entity.affiliation.start_date` must match `^\\d{4}-\\d{2}-\\d{2}$`
        AND parse as a real calendar date/time. Sibling of Check 93
        (last_metadata_update format) for the generated_at + start_date
        fields. Drift would silently corrupt recency / employment-timeline

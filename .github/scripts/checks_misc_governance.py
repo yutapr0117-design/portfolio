@@ -35,7 +35,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
   215. `<meta name="ai:last-modified">` and SITE_CONFIG.LAST_UPDATED are
        strict ISO-8601 YYYY-MM-DD (format + real calendar date): both date
        sources (the ai:* AIO meta and the main.js SITE_CONFIG constant)
-       must match a strict `^\d{4}-\d{2}-\d{2}$` regex AND parse as a real
+       must match a strict `^\\d{4}-\\d{2}-\\d{2}$` regex AND parse as a real
        calendar date. Check 180 enforces byte-equality between the two but
        both could silently drift together to a non-ISO format (e.g.
        `2026/06/30` or `2026-13-01`) corrupting recency signals. Sibling of
