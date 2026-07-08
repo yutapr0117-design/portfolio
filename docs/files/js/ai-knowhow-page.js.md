@@ -1,7 +1,7 @@
 ---
 file: js/ai-knowhow-page.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-07-04
+last-updated: 2026-07-08
 canonical-ref: js/components.js (抽出元) / main.js (配線) / js/ui-components.js (h/createIcon)
 ---
 
