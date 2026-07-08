@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-l) / docs/ar
 
 ## What
 
-AIDK (AI Development Kernel) Rail 5 IIFE の合体 factory module (425 行)。`createAIDKRails({deps})` を export。RouteState / EffectRails / BindingRegistry / ActionDelegator / DiagnosticsRail の 5 つの内部 IIFE を合成する factory pattern モジュール。
+AIDK (AI Development Kernel) Rail 5 IIFE の合体 factory module。`createAIDKRails({deps})` を export。RouteState / EffectRails / BindingRegistry / ActionDelegator / DiagnosticsRail の 5 つの内部 IIFE を合成する factory pattern モジュール。
 
 ## Why
 
@@ -33,7 +33,7 @@ main.js
 - **C2 IIFE**: 内部 5 個の IIFE 構造を保つ
 - **factory pattern** (Check 56, 61): `export function createAIDKRails({...})` の object 引数形 + docstring に "factory pattern" マーカー
 - **Check 47**: main.js との import/export bijection
-- **Check 52**: 425 行 ≤ 550 (行数予算)
+- **Check 52**: 行数予算 ≤ 550 行（現在値は file-size-budget.md §4 / `wc -l` が権威） (行数予算)
 
 ## Change impact
 

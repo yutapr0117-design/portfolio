@@ -32,7 +32,7 @@ main.js
 - **closure-deps = none** (h / createIcon / Router / ContactCTA を注入)
 - **Check 47**: import/export bijection
 - **Check 56**: factory invocation orphan 防止 (Stage 5-j class)
-- **Check 52**: 650 行 ≤ 750
+- **Check 52**: 行数予算 ≤ 750 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Change impact
 

@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 2)
 
 ## What
 
-純ユーティリティ module (277 行)。escape / tokenize / clamp / debounce / throttle / id 生成 等の副作用ゼロ関数群を export。Stage 2 で最初に抽出された安定 module。
+純ユーティリティ module。escape / tokenize / clamp / debounce / throttle / id 生成 等の副作用ゼロ関数群を export。Stage 2 で最初に抽出された安定 module。
 
 ## Why
 
@@ -29,7 +29,7 @@ main.js / 各 factory module
 
 - **closure-deps = none**, factory pattern なし (純関数 named export)
 - **Check 47**: import/export bijection
-- **Check 52**: 277 行 ≤ 400
+- **Check 52**: 行数予算 ≤ 400 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Change impact
 

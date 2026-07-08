@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-i) / theme-i
 
 ## What
 
-Theme factory module (65 行)。`createTheme({Storage})` を export。system / dark / light の cycle + `matchMedia('(prefers-color-scheme: dark)')` listener を含む。
+Theme factory module。`createTheme({Storage})` を export。system / dark / light の cycle + `matchMedia('(prefers-color-scheme: dark)')` listener を含む。
 
 ## Why
 
@@ -35,7 +35,7 @@ main.js
 
 - **factory pattern** (Check 56, 61), closure-deps = none
 - **Check 47**: import/export bijection
-- **Check 52**: 65 行 ≤ 120
+- **Check 52**: 行数予算 ≤ 120 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Audience-specific notes
 

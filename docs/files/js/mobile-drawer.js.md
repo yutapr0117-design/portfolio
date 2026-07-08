@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-q) / js/comp
 
 ## What
 
-Mobile Drawer factory module (200 行)。`createMobileDrawer({deps})` を export。syncMobileDrawer / secureExternalLinks / focus trap / body scroll lock / openDrawer / closeDrawer を含む。
+Mobile Drawer factory module。`createMobileDrawer({deps})` を export。syncMobileDrawer / secureExternalLinks / focus trap / body scroll lock / openDrawer / closeDrawer を含む。
 
 ## Why
 
@@ -29,7 +29,7 @@ main.js
 - **factory pattern** (Check 56, 61)
 - **late-binding holder**: 循環依存解決
 - **Check 47**: import/export bijection
-- **Check 52**: 200 行 ≤ 280
+- **Check 52**: 行数予算 ≤ 280 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Change impact
 

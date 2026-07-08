@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-m) / js/mobi
 
 ## What
 
-UI page components factory module (453 行)。`createComponents({deps})` を export。Sidebar / HomePage / ProjectsPage / ProjectDetailPage / AppsPage / AboutPage / ResumePage / ContactPage / FatalPage / AIKnowhowPage / ContactCTA を合成する。
+UI page components factory module。`createComponents({deps})` を export。Sidebar / HomePage / ProjectsPage / ProjectDetailPage / AppsPage / AboutPage / ResumePage / ContactPage / FatalPage / AIKnowhowPage / ContactCTA を合成する。
 
 ## Why
 
@@ -29,7 +29,7 @@ main.js
 - **factory pattern** (Check 56, 61)
 - **closure-deps = none** + late-binding holder
 - **Check 47**: import/export bijection
-- **Check 52**: 453 行 ≤ 1,500（Check 363 ceiling 1,000 以内）
+- **Check 52**: 行数予算 ≤ 1,500 行（現在値は file-size-budget.md §4 / `wc -l` が権威）（Check 363 ceiling 1,000 以内）
 
 ## Change impact
 

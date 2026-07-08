@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-c)
 
 ## What
 
-Safe localStorage wrapper module (74 行)。`Storage` object を named export。private browsing / quota exceeded / disabled storage 等の例外を安全に吸収。
+Safe localStorage wrapper module。`Storage` object を named export。private browsing / quota exceeded / disabled storage 等の例外を安全に吸収。
 
 ## Why
 
@@ -36,7 +36,7 @@ main.js / state.js / store.js / brand.js / theme.js etc.
 
 - **closure-deps = none**, factory pattern なし (純粋 named export object)
 - **Check 47**: import/export bijection
-- **Check 52**: 74 行 ≤ 120
+- **Check 52**: 行数予算 ≤ 120 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 - **CodeQL**: localStorage.setItem に false-positive 抑制 comment (`js/clear-text-storage-of-sensitive-data` 警告)
 
 ## Audience-specific notes

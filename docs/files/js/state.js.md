@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-h) / js/stor
 
 ## What
 
-State factory module (210 行)。`createState({ CONSTANTS, Store, Storage, Toast })` を export。clone-on-update による状態隔離 + subscriber pattern + cross-tab sync + debounced auto-save + 再描画を起こさない `updateSilently`（live-input 用）を含む。
+State factory module。`createState({ CONSTANTS, Store, Storage, Toast })` を export。clone-on-update による状態隔離 + subscriber pattern + cross-tab sync + debounced auto-save + 再描画を起こさない `updateSilently`（live-input 用）を含む。
 
 ## Why
 
@@ -44,7 +44,7 @@ main.js
 
 - **factory pattern** (Check 56, 61), closure-deps = none
 - **Check 47**: import/export bijection
-- **Check 52**: 210 行 ≤ 320
+- **Check 52**: 行数予算 ≤ 320 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Audience-specific notes
 

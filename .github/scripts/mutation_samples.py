@@ -679,6 +679,13 @@ _MUTATIONS_TAIL = [
         "replace": "settings: { work: 25, short: 5, long: 15 },",
         "test": "Check 370: state.js / store.js が pomodoro 既定状態を CONSTANTS.POMODORO_DEFAULT_* 経由で参照",
     },
+    {
+        "name": "Check 371: state.js.md に volatile 現在行数引用 (**Check 52**: N 行 ≤ M) を再注入 → mirror-doc line-count drift-magnet の BLOCKING 検証",
+        "file": ROOT / "docs" / "files" / "js" / "state.js.md",
+        "find": "**Check 52**: 行数予算 ≤ 320 行",
+        "replace": "**Check 52**: 219 行 ≤ 320",
+        "test": "Check 371: mirror doc の Check 52 制約が volatile な現在行数を hardcode しない",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。

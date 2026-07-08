@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 4)
 
 ## What
 
-UI building blocks module (303 行)。`h` (hyperscript) / `createIcon` (SVG icon factory) / Toast notification / BGM control 等の low-level builder を named export。Stage 4 安定 module。
+UI building blocks module。`h` (hyperscript) / `createIcon` (SVG icon factory) / Toast notification / BGM control 等の low-level builder を named export。Stage 4 安定 module。
 
 ## Why
 
@@ -35,7 +35,7 @@ main.js / 各 factory module
 
 - **closure-deps = none**, factory pattern なし (Stage 4 時点では純 named export)
 - **Check 47**: import/export bijection
-- **Check 52**: 303 行 ≤ 400
+- **Check 52**: 行数予算 ≤ 400 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Audience-specific notes
 

@@ -29,6 +29,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
       `## Audience-specific notes`) を持つことを機械強制 (`_template.md` 整合)。(BLOCKING)
   99. docs/files/README.md + _template.md presence: 1 対 1 docs の inventory (README.md) と
       template (_template.md) が両方存在することを機械強制。(BLOCKING)
+  371. mirror-doc volatile line-count citation guard: docs/files/**/*.md の Check 52 制約行が
+       ハードコードした「現在行数」(`**Check 52**: N 行 ≤ M`) を含まないことを機械強制。現在行数は
+       ファイル編集ごとに drift するが機械強制されておらず (私が本 session で 3 度手修正した drift-magnet)、
+       25 mirror doc + 17 "module (N 行)" self-ref が実際に stale 化していた。行数の権威は
+       file-size-budget.md §4 BUDGET-DATA (Check 52/71 が強制) と `wc -l` であり、mirror doc は
+       それを指すべき。本 Check は volatile な現在行数引用の再注入を BLOCKING で防ぎ、doc は
+       単一ソースへ誘導する (「現在値は file-size-budget.md / wc -l が権威」形式)。(BLOCKING)
 """
 import re
 import json
@@ -244,4 +251,30 @@ def run(ctx):
         _inventory99.exists() and _template99.exists(),
         "Check 99: docs/files/README.md (inventory) と _template.md (5-軸 template) が両方存在",
         f"Check 99: missing — README.md={_inventory99.exists()}, _template.md={_template99.exists()}",
+    )
+
+    # ── 371. mirror-doc volatile line-count citation guard (BLOCKING) ─────────────
+    # mirror doc の Check 52 制約行が現在行数 (`**Check 52**: N 行 ≤ M`) をハードコードすると、
+    # 対象ファイルの編集ごとに drift するが機械強制されていなかった (25 mirror doc + 17 "module
+    # (N 行)" self-ref が実際に stale 化・私が本 session で 3 度手修正した drift-magnet)。行数の
+    # 権威は file-size-budget.md §4 BUDGET-DATA (Check 52/71) と `wc -l` であり、mirror doc は
+    # それを指すべき。本 Check は volatile な現在行数引用 (`**Check 52**: <数字> 行 ≤`) の再注入を
+    # BLOCKING で防ぐ。正規形は `**Check 52**: 行数予算 ≤ M 行（現在値は file-size-budget.md / wc -l が権威）`。
+    _docs371 = ROOT / "docs" / "files"
+    _bad371 = []
+    if _docs371.is_dir():
+        _re371 = re.compile(r"\*\*Check 52\*\*:\s*[0-9][0-9,]*\s*行\s*≤")
+        for _md371 in _docs371.rglob("*.md"):
+            if _md371.name in ("README.md", "_template.md"):
+                continue
+            if _re371.search(_md371.read_text(encoding="utf-8", errors="replace")):
+                _bad371.append(_md371.relative_to(_docs371).as_posix())
+    check(
+        not _bad371,
+        "Check 371: mirror doc の Check 52 制約が volatile な現在行数を hardcode しない "
+        "(行数権威は file-size-budget.md / wc -l)",
+        f"Check 371: volatile な現在行数引用 (`**Check 52**: N 行 ≤`) が {_bad371[:5]} に残存。"
+        "`**Check 52**: 行数予算 ≤ M 行（現在値は file-size-budget.md §4 / wc -l が権威）` 形式へ正規化せよ "
+        "(drift-magnet の構造防止)",
+        blocking=True,
     )

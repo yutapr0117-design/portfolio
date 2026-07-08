@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-o) / js/quiz
 
 ## What
 
-Quiz Renderer factory module (259 行)。`createQuizRenderer({deps})` を export。QuizPage + 4 domain (architecture / aws / pm / quality) の lookup table を含む。
+Quiz Renderer factory module。`createQuizRenderer({deps})` を export。QuizPage + 4 domain (architecture / aws / pm / quality) の lookup table を含む。
 
 ## Why
 
@@ -39,7 +39,7 @@ Router が `#/quiz` route に到達したら QuizPage を render。
 
 - **factory pattern** (Check 56, 61), closure-deps = none
 - **Check 47**: import/export bijection
-- **Check 52**: 259 行 ≤ 350
+- **Check 52**: 行数予算 ≤ 350 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Audience-specific notes
 

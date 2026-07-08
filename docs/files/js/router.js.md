@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5) / js/state.
 
 ## What
 
-Hash-based SPA ルーター module (175 行)。`Router` object を named export。`window.location.hash` を観測して route change event を発火する Vanilla 実装。
+Hash-based SPA ルーター module。`Router` object を named export。`window.location.hash` を観測して route change event を発火する Vanilla 実装。
 
 ## Why
 
@@ -32,7 +32,7 @@ main.js
 - **C2 IIFE**: 内部論理は IIFE で隔離
 - **closure-deps = none**
 - **Check 47**: import/export bijection
-- **Check 52**: 175 行 ≤ 250
+- **Check 52**: 行数予算 ≤ 250 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Change impact
 
