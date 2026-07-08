@@ -140,9 +140,10 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 140 (Settings demo selector↔router coverage): drop the notes demo option in settings-page.js",
         # 2026-07-05: SettingsPage を js/apps.js → js/settings-page.js へ分離したため anchor file を追従 (#558 class)
+        # 2026-07-08: demo select の selected: 修正 (#7cbc4d9 class) で option に selected attr 追加 → anchor 追従
         "file": ROOT / "js" / "settings-page.js",
-        "find": "h('option', { value: 'ai' }, 'ai'),\n                                        h('option', { value: 'notes' }, 'notes')",
-        "replace": "h('option', { value: 'ai' }, 'ai')",
+        "find": "h('option', { value: 'ai', selected: settingsNewDemo === 'ai' ? true : undefined }, 'ai'),\n                                        h('option', { value: 'notes', selected: settingsNewDemo === 'notes' ? true : undefined }, 'notes')",
+        "replace": "h('option', { value: 'ai', selected: settingsNewDemo === 'ai' ? true : undefined }, 'ai')",
     },
     {
         "name": "Check 115 (CSP security baseline): inject 'unsafe-inline' into script-src (XSS defense weakening)",
