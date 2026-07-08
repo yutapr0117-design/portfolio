@@ -6,10 +6,6 @@ Verifies that key version, date, and structural invariants hold across the repos
 
 Checks performed (the numbering is historical/incremental; this list is the
 authoritative inventory and is kept in sync with the implementation below):
-  37. No generated/cache artifacts (node_modules, __pycache__, *.pyc, test-results,
-      playwright-report, blob-report, .DS_Store, …) are tracked in the repository.
-      Authoritatively uses `git ls-files`; falls back to a pruned filesystem walk
-      for non-git contexts (ZIP/zipball export). (BLOCKING)
   45. This check file's self-documentation matches its implementation: the numbered
       entries in THIS module docstring (the "N. ..." inventory above) and the numbered
       "# ── N." section-header comments in the code body describe the same set of checks,
@@ -133,6 +129,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_file_aliases.py",  # split: file alias byte-equality & required-presence (4/5/190)
     ROOT / ".github" / "scripts" / "checks_date_sync.py",  # split: date-sync coherence (17/18)
     ROOT / ".github" / "scripts" / "checks_csp_hashes.py",  # split: inline-script CSP hash verification (7b/7c)
+    ROOT / ".github" / "scripts" / "checks_artifact_scan.py",  # split: generated/cache artifact tracking guard (37)
 ]
 
 
@@ -331,33 +328,11 @@ _checks_governance_sync.run(_ctx)
 import checks_repo_hygiene as _checks_repo_hygiene
 _checks_repo_hygiene.run(_ctx)
 
-# ── 37. No generated/cache artifacts are tracked in the repository (BLOCKING) ──
-# .gitignore prevents *new* accidental staging, but it does NOT detect artifacts
-# that are already tracked, nor ones that slipped into a distributed ZIP. This check
-# makes re-introduction a hard CI failure. It judges *repository membership*, so the
-# source of truth is `git ls-files` — which correctly ignores the runtime node_modules/
-# and __pycache__/ that CI itself creates via `npm ci` / py_compile (a naive os.walk
-# would false-positive on those in CI). For non-git contexts (ZIP/zipball export with
-# no .git), it falls back to a filesystem walk that prunes those same ignored runtime
-# dirs so a local `npm ci` / py_compile in the export cannot cause false positives.
-_artifact_hits = []
-for _p in _member_paths:
-    _name = _p.rsplit("/", 1)[-1]
-    if set(_p.split("/")) & FORBIDDEN_GENERATED_PATH_PARTS:
-        _artifact_hits.append(_p)
-    elif _name in FORBIDDEN_GENERATED_NAMES:
-        _artifact_hits.append(_p)
-    elif _p.endswith(FORBIDDEN_GENERATED_SUFFIXES):
-        _artifact_hits.append(_p)
-
-check(
-    not _artifact_hits,
-    f"Check 37: no generated/cache artifacts tracked in repository (scanned {len(_member_paths)} paths)",
-    "Check 37: generated/cache artifact(s) present in repository tree — remove from Git and "
-    "keep them in .gitignore: " + ", ".join(sorted(_artifact_hits)[:10])
-    + (" …" if len(_artifact_hits) > 10 else ""),
-    blocking=True,
-)
+# ── 37: No generated/cache artifacts are tracked in the repository → checks_artifact_scan.py ──
+# (check.py split track。ctx._member_paths を消費。FORBIDDEN_* 定数は module 内に複製 (安定定数・
+#  単一責任。Check 45/70/105 で整合が機械強制される)。37 位置で list 順連続実行。CHECK_SOURCE_FILES 登録。)
+import checks_artifact_scan as _checks_artifact_scan
+_checks_artifact_scan.run(_ctx)
 
 # ── 43/44/46/53/54/55/58/60. kernel/canary structural integrity + CI lint-coupling → checks_structural_ci.py ──
 # (check.py split track. AIDK kernel(43)/canary(44)/lint scripts(46)/modulepreload(53)/eslint major(54)/
