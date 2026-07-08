@@ -6,8 +6,6 @@ Verifies that key version, date, and structural invariants hold across the repos
 
 Checks performed (the numbering is historical/incremental; this list is the
 authoritative inventory and is kept in sync with the implementation below):
-  4.  llms.txt / .well-known/llms.txt / llms_well-known.txt / .well-known/llms_well-known.txt are byte-identical
-  5.  .well-known/index.json == .well-known/agent-skills/index.json (byte-identical)
   17. ai:last-modified (index.html) == SITE_CONFIG.LAST_UPDATED (main.js)
   18. sitemap.xml root <lastmod> == ai:last-modified (per-URL lastmod policy)
   37. No generated/cache artifacts (node_modules, __pycache__, *.pyc, test-results,
@@ -38,14 +36,6 @@ authoritative inventory and is kept in sync with the implementation below):
        Check 45 (docstring ↔ section bijection): it catches the "added a Check but forgot the
        map row" drift class structurally, so the human-facing check inventory can never fall
        silently behind the implementation. (BLOCKING)
-  190. `.nojekyll` file presence (GitHub Pages Jekyll bypass): the repository root
-       must contain an empty `.nojekyll` file. Without it, GitHub Pages runs
-       Jekyll on the deployed content — Jekyll silently ignores files / directories
-       starting with `_` (e.g. `docs/files/_template.md`, `_assets/`), strips
-       certain metadata, and applies layout munging. Loss of `.nojekyll` is
-       invisible to browser/console/behavior e2e (the homepage still renders) but
-       breaks underscore-prefixed paths silently. Presence-only check (file may be
-       empty). (BLOCKING)
 """
 
 import ast
@@ -142,6 +132,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_css.py",  # split: style.css / CSS contract (6/73/101/103/135/174/321-323/344/356・ctx-enrich style)
     ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # split: shipped-JS static analysis + byte budgets (237/239-241/262-265/269-272/310)
     ROOT / ".github" / "scripts" / "checks_e2e_infra.py",  # split: e2e/Playwright test-infra hygiene (110/111/114/116/117)
+    ROOT / ".github" / "scripts" / "checks_file_aliases.py",  # split: file alias byte-equality & required-presence (4/5/190)
 ]
 
 
@@ -277,31 +268,13 @@ _ctx._member_paths = _member_paths
 import checks_version as _checks_version
 _checks_version.run(_ctx)
 
-# ── 4. llms alias files byte-identical ───────────────────────────────────────
-llms_paths = [
-    "llms.txt",
-    ".well-known/llms.txt",
-    "llms_well-known.txt",
-    ".well-known/llms_well-known.txt",
-]
-llms_bytes = [(p, read_bytes(p)) for p in llms_paths if (ROOT / p).exists()]
-if len(llms_bytes) >= 2:
-    ref_path, ref_bytes = llms_bytes[0]
-    for p, b in llms_bytes[1:]:
-        check(
-            b == ref_bytes,
-            f"{p} is byte-identical to {ref_path}",
-            f"llms alias mismatch: {p} differs from {ref_path}",
-        )
-
-# ── 5. .well-known/index.json == agent-skills/index.json ─────────────────────
-idx_bytes = read_bytes(".well-known/index.json")
-ask_bytes = read_bytes(".well-known/agent-skills/index.json")
-check(
-    idx_bytes == ask_bytes,
-    ".well-known/index.json == .well-known/agent-skills/index.json",
-    ".well-known/index.json and .well-known/agent-skills/index.json differ",
-)
+# ── 4/5/190. file alias byte-equality & required-presence → checks_file_aliases.py ──
+# (check.py split track・self-contained cluster: ROOT/check/read_bytes のみ必要・global content 依存なし。
+#  llms alias 一致(4) / .well-known/index.json alias 一致(5) / .nojekyll 存在(190)。
+#  Check 190 は元位置(762行)から本 import へ引き取り (独立・下流への共有値なし・位置無関係)。
+#  4 位置で list 順連続実行。CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。)
+import checks_file_aliases as _checks_file_aliases
+_checks_file_aliases.run(_ctx)
 
 # ── 6/73/101/103/135/174/321-323/344/356. style.css / CSS contract → checks_css.py ──
 # (check.py split track・first ctx-enrich module。style glob を _ctx.style 経由で消費。forced-colors/HCM/
@@ -758,23 +731,6 @@ _checks_meta_url.run(_ctx)
 #  187 は checks_html.py 抽出済・190 は setup-global _assets 依存ゆえ残置。181 位置で list 順連続実行。CHECK_SOURCE_FILES 登録。)
 import checks_seo_baseline as _checks_seo_baseline
 _checks_seo_baseline.run(_ctx)
-
-# ── 190. .nojekyll file presence (GitHub Pages Jekyll bypass) (BLOCKING) ──────
-# repo root の `.nojekyll` file 存在を BLOCKING 強制。GitHub Pages は本 file が
-# 無いと Jekyll 処理を稼働させ、`_` 始まりの file/directory (例
-# `docs/files/_template.md`、`_assets/`) を silent に skip する。本 site は
-# underscore-prefix path を含むため本 file 欠落は invisible 破壊 (homepage は
-# 描画されるが特定 path が 404 化)。presence-only (file は空でも OK)。
-_nj190 = ROOT / ".nojekyll"
-_ok190 = _nj190.exists() and _nj190.is_file()
-check(
-    _ok190,
-    "Check 190: .nojekyll file presence (GitHub Pages Jekyll bypass)",
-    "Check 190: .nojekyll file が repo root に無い — GitHub Pages が Jekyll 処理を "
-    "稼働させ _-prefix path (例 _template.md / _assets/) が silent に 404 化。"
-    "`touch .nojekyll` で空 file を作成し commit せよ",
-    blocking=True,
-)
 
 # ── 191-200. JSON-LD Person/WebSite/WebPage/Organization canonical entity coherence checks (191-200) → checks_jsonld_entity.py ──
 # (check.py split track. 連続 self-contained クラスタ・自前 read_text・READ-ONLY。元の実行位置を保持。
