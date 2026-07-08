@@ -225,3 +225,24 @@ test('AI-knowhow page renders its lead heading', async ({ page }) => {
   await page.waitForLoadState('domcontentloaded');
   await expect(page.getByRole('heading', { name: /AI開発ノウハウ/ })).toBeVisible();
 });
+
+
+// ===== 7.2: ProjectDetailPage の "not found" 状態 + 復帰ナビ =====
+// ProjectDetailPage(slug) は state.projects.find(p => p.slug === slug) が null のとき
+// 「プロジェクトが見つかりません」h1 + 「一覧へ戻る」ボタンを描画する。
+// この !project 分岐は他のテストでカバーされておらず、バグが発生してもサイレントに素通りする gap だった。
+// (security-proxy.spec.js は実在 slug の描画のみを確認; aio-meta.spec.js は NotFoundPage (別コンポーネント) のみ)
+test('ProjectDetailPage shows not-found message and returns to list for nonexistent slug', async ({ page }) => {
+  await page.goto('/#/projects/nonexistent-slug-99999');
+  await page.waitForLoadState('domcontentloaded');
+
+  // !project 分岐で「プロジェクトが見つかりません」h1 が描画されること
+  await expect(page.getByRole('heading', { name: 'プロジェクトが見つかりません' })).toBeVisible();
+
+  // 行き止まりでなく「一覧へ戻る」ボタンが存在すること
+  await expect(page.getByRole('button', { name: '一覧へ戻る' })).toBeVisible();
+
+  // 「一覧へ戻る」クリックで projects 一覧ページへ遷移すること
+  await page.getByRole('button', { name: '一覧へ戻る' }).click();
+  await expect(page.locator('.grid-projects')).toBeVisible();
+});

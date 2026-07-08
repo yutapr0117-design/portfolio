@@ -771,6 +771,13 @@ _MUTATIONS_TAIL = [
     # 自己参照になり、mutation_probe の replace(find, replace, 1) が先頭 (= その mutation 自身の
     # find 値) に当たって挙動が不安定になるため。Check 362 の非 vacuous 性は手動で実証済
     # (mutation の file を誤り先へ変えると Check 362 が RED・restore で緑)。
+    {
+        "name": "Check 366: ContactPage LinkedIn の rel:'noopener noreferrer' から noreferrer を除去 (source drift 再発・静的 source 軸の防止層の回帰)",
+        "file": ROOT / "js" / "components.js",
+        "find": "                            h('a', { href: profile.linkedin, target: '_blank', rel: 'noopener noreferrer' }, profile.linkedin)",
+        "replace": "                            h('a', { href: profile.linkedin, target: '_blank', rel: 'noopener' }, profile.linkedin)",
+        "test": "Check 366: shipped JS target='_blank' に ±2行以内で noreferrer あり",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。
@@ -922,10 +929,10 @@ E2E_MUTATIONS = [
         "test": "normalizeAppsData tolerates a non-array",
     },
     {
-        "name": "Check 366: ContactPage LinkedIn の rel:'noopener noreferrer' から noreferrer を除去 (source drift 再発・静的 source 軸の防止層の回帰)",
-        "file": ROOT / "js" / "components.js",
-        "find": "                            h('a', { href: profile.linkedin, target: '_blank', rel: 'noopener noreferrer' }, profile.linkedin)",
-        "replace": "                            h('a', { href: profile.linkedin, target: '_blank', rel: 'noopener' }, profile.linkedin)",
-        "test": "Check 366: shipped JS target='_blank' に ±2行以内で noreferrer あり",
+        "name": "behavior: ProjectDetailPage の !project null-guard 喪失 (非存在 slug で guard が発火せず undefined への property access で crash → 「プロジェクトが見つかりません」未描画)",
+        "file": ROOT / "js" / "project-detail-page.js",
+        "find": "        if (!project) {",
+        "replace": "        if (false) {",
+        "test": "ProjectDetailPage shows not-found message and returns to list for nonexistent slug",
     },
 ]
