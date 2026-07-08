@@ -152,6 +152,58 @@ test('Task priority filter narrows the board by priority', async ({ page }) => {
 });
 
 
+// ===== 7.2: task per-card priority select が再描画後も visual 選択を保持する (#7cbc4d9 class) =====
+// updateTask は State.update() を呼び全再描画を発生させる。修正前は h('select', { value: task.priority })
+// が el.setAttribute('value', ...) となり HTML 仕様上 <select> の選択状態に無効なため再描画後に
+// 最初の option ('high') に戻り、'med'/'low' を設定したタスクが UI 上で 'high' に見えていた。
+// 修正後は各 option に selected: priority===cur ? true : undefined を付与する。
+test('Task per-card priority select retains visual selection after re-render (#7cbc4d9 class)', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+
+  const input = page.locator('#task-input');
+  await input.fill('PRIORITY-SELECT-FIX-TASK-4401');
+  await input.press('Enter');
+  await expect(page.getByText('PRIORITY-SELECT-FIX-TASK-4401')).toBeVisible();
+
+  // Change priority to 'low' → updateTask → State.update → full re-render
+  const cardSel = page.locator('article', { hasText: 'PRIORITY-SELECT-FIX-TASK-4401' }).getByLabel('タスクの優先度');
+  await cardSel.selectOption('low');
+  // 再描画後も 'low' のまま (fix 前はここで 'high' に戻った)
+  await expect(cardSel).toHaveValue('low');
+
+  // 'med' も同様に保持される
+  await cardSel.selectOption('med');
+  await expect(cardSel).toHaveValue('med');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `priority select caused a fatal: ${fatal}`).toBeNull();
+});
+
+
+// ===== 7.2: task priority filter select が再描画後も visual 選択を保持する (#7cbc4d9 class) =====
+// taskFilter.priority select の onchange は window.render() を直接呼ぶため同クラスのバグが発生。
+// filter select が再描画後も選択した priority を visual に保持することを検証する。
+test('Task priority filter select retains visual selection after re-render (#7cbc4d9 class)', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+
+  const filter = page.getByLabel('優先度で絞り込み');
+  await expect(filter).toBeVisible();
+
+  // 'high' に変更 → window.render() → 再描画後も 'high'
+  await filter.selectOption('high');
+  await expect(filter).toHaveValue('high');
+
+  // 'low' に変更 → 再描画後も 'low'
+  await filter.selectOption('low');
+  await expect(filter).toHaveValue('low');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `priority filter select caused a fatal: ${fatal}`).toBeNull();
+});
+
+
 // ===== 7.1b: localStorage QuotaExceeded 時の graceful degradation =====
 // State の保存経路 (state.js scheduleSave/saveNow) は Storage.set が false を返したとき
 // notifyStorageError() でユーザーに通知し、in-memory state はそのまま維持する設計
@@ -462,4 +514,28 @@ test('Todo filter switches the visible set by active/completed/all', async ({ pa
   await filter.selectOption('all');
   await expect(page.getByText(done)).toBeVisible();
   await expect(page.getByText(active)).toBeVisible();
+});
+
+
+// ===== 7.2: TODO filter select が再描画後も visual 選択を保持する (#7cbc4d9 class) =====
+// todoFilter select の onchange は window.render() を直接呼ぶため再描画が走り、修正前は
+// h('select', { value: todoFilter }) の setAttribute('value', ...) が無効で最初の option
+// ('all') に戻っていた。修正後は各 option に selected: filter===cur ? true : undefined を付与。
+test('Todo filter select retains visual selection after re-render (#7cbc4d9 class)', async ({ page }) => {
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+
+  const filter = page.locator('select[aria-label="TODO を絞り込み"]');
+  await expect(filter).toBeVisible();
+
+  // 'active' に変更 → window.render() → 再描画後も 'active'
+  await filter.selectOption('active');
+  await expect(filter).toHaveValue('active');
+
+  // 'completed' に変更 → 再描画後も 'completed'
+  await filter.selectOption('completed');
+  await expect(filter).toHaveValue('completed');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `todo filter select caused a fatal: ${fatal}`).toBeNull();
 });

@@ -1,7 +1,7 @@
 ---
 file: js/apps.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-07-08
 canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-n) / docs/architecture/repository-maintainability-map.md
 ---
 
@@ -29,6 +29,7 @@ main.js
 - **factory pattern** (Check 56, 61)
 - **Check 47**: import/export bijection
 - **Check 52**: 1,030 行 ≤ 1,200
+- **select visual selection — `selected:` on options (#7cbc4d9 class)**: `h('select', { value: ... })` は HTML 仕様上 `el.setAttribute('value', ...)` となり `<select>` の選択状態に反映されない。task priority filter / per-card priority / todo filter の各 select で各 `<option>` に `selected: value === cur ? true : undefined` を付与する (h() の undefined-skip line 128 が非選択 option に属性を付けるのを防ぐ)。
 
 ## Change impact
 
