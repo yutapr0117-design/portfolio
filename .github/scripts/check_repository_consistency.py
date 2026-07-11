@@ -565,12 +565,13 @@ _checks_shipped_structure.run(_ctx)
 import checks_safety_guards as _checks_safety_guards
 _checks_safety_guards.run(_ctx)
 
-# ── 128-131. shipped-JS behavioral regression guards → checks_behavioral.py ──
+# ── 128-131, 373. shipped-JS behavioral regression guards → checks_behavioral.py ──
 # (check.py split track・category "behavioral guards". command-palette↔router coherence (128) /
 #  topbar data-action double-fire (129) / live-input oninput focus-loss (130) / sw
-#  decodeURIComponent try/catch (131)。連続 self-contained クラスタ — 各 Check は shipped-JS
-#  (js/*.js / main.js / sw.js) を自前 read_text (no global content dep)。元の実行位置 (127 の後・
-#  132 の前) を保持。CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。)
+#  decodeURIComponent try/catch (131) / store default-appsData field ⟹ normalizeAppsData preserve
+#  round-trip (373・quizSearch reload persist drop fix)。各 Check は shipped-JS (js/*.js / main.js /
+#  sw.js) を自前 read_text (no global content dep)。元の実行位置 (127 の後・132 の前) を保持。
+#  CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。)
 import checks_behavioral as _checks_behavioral
 _checks_behavioral.run(_ctx)
 

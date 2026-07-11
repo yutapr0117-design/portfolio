@@ -2,11 +2,13 @@
 checks_behavioral.py — shipped-JS behavioral regression guards
 (extracted from check_repository_consistency.py — check.py split track・category "behavioral guards").
 
-This module owns the contiguous cluster of Checks 128-131 that statically enforce shipped-JS
+This module owns the cluster of Checks 128-131 (plus 373) that statically enforce shipped-JS
 runtime UX invariants discovered from real bugs: command-palette ↔ router app-route coherence
 (128), topbar data-action button double-fire guard (129), live-input oninput focus-loss guard
-(130, via brace-balance parsing of oninput handlers), and service-worker decodeURIComponent
-try/catch guard (131). Each Check reads its own shipped-JS target files directly (js/*.js,
+(130, via brace-balance parsing of oninput handlers), service-worker decodeURIComponent
+try/catch guard (131), and store default-appsData field ⟹ normalizeAppsData preserve round-trip
+(373, guarding the producer/consumer persist drift that silently dropped quizSearch on reload).
+Each Check reads its own shipped-JS target files directly (js/*.js,
 main.js, sw.js) via Path.read_text(); none depends on the monolith's global html/style/mainjs
 content, so the cluster is self-contained and needs no ctx enrichment. Check 130's brace-parser
 uses generic scratch locals (_i/_j/_h/_depth/_nl/…) that are reassigned before use within the
@@ -52,6 +54,22 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        normalizePath wraps decodeURIComponent in a try/catch so a malformed URL can never throw out
        of the SW. The fix had no e2e/Check guard (service workers are hard to e2e), so this static
        presence check is its regression guard. (BLOCKING)
+  373. Store default-appsData field ⟹ normalizeAppsData preserve round-trip: js/store.js
+       normalizeAppsData(data) is the choke point every ingestion path (load / import / cross-tab /
+       snapshot-restore / settings 正規化) runs through, and it rebuilds appsData from
+       deepClone(defaultAppsData) then re-applies each user field from `data.<field>`. If a field
+       exists in defaultAppsData (the persisted shape) but normalizeAppsData never reads it back,
+       that field is SILENTLY reset to its default on every reload even though callers persist it —
+       exactly the confirmed quizSearch bug: QuizPage wrote the search term via
+       State.updateSilently(s => s.appsData.quizSearch = val) (which schedules a localStorage save)
+       and read it back on init to restore, but normalizeAppsData preserved tasks/todos/pomodoro/ai/
+       notes and dropped quizSearch, so the "永続化された検索語を反映" restore silently failed each
+       reload (a half-wired persist of the #294/#568 producer/consumer drift class). This Check
+       brace-parses defaultAppsData's top-level keys and asserts every one is referenced as
+       `data.<key>` inside the normalizeAppsData body (line comments stripped to avoid a comment-only
+       vacuous pass), making "a field is persisted ⟹ normalize reads it back" an enforced invariant
+       so no future appsData field can be added to the store default yet silently lost on reload.
+       (BLOCKING)
 """
 import re
 
@@ -222,3 +240,120 @@ def run(ctx):
     else:
         check(False, "Check 131: sw.js present",
               "Check 131: sw.js が見つからない — SW decodeURIComponent guard を検証できない", blocking=True)
+
+    # ── 373. Store default-appsData field ⟹ normalizeAppsData preserve round-trip (BLOCKING) ──
+    # store.js normalizeAppsData(data) は全 ingestion 経路 (load/import/cross-tab/snapshot-restore/
+    # settings 正規化) が通るチョークポイントで、appsData を deepClone(defaultAppsData) から再構築し
+    # 各ユーザーフィールドを `data.<field>` から再適用する。あるフィールドが defaultAppsData (永続化
+    # される shape) にあるのに normalizeAppsData が読み戻さないと、呼び出し側が永続化していても reload
+    # 毎に default へ silent リセットされる — quizSearch の実バグそのもの (QuizPage が updateSilently で
+    # 書き込み init で読み戻すのに normalize が tasks/todos/pomodoro/ai/notes だけ preserve し quizSearch
+    # を drop していた・#294/#568 と同 producer/consumer drift class)。defaultAppsData の top-level key を
+    # brace-parse し、各 key が normalizeAppsData 本体で `data.<key>` として参照されることを強制する
+    # (行コメントは除去して「コメントに書いただけ」の vacuous pass を防ぐ)。これで「フィールドが永続化
+    # される ⟹ normalize が読み戻す」を invariant 化し、将来 store default に足したフィールドが reload で
+    # silent に失われる class を封じる。
+    _store373 = ROOT / "js" / "store.js"
+    if _store373.exists():
+        _src373 = _store373.read_text(encoding="utf-8")
+
+        def _balanced_obj373(text, marker):
+            # marker 以降の最初の '{' から brace-balance して中身 (exclusive) を返す。文字列/テンプレートは skip。
+            _idx = text.find(marker)
+            if _idx == -1:
+                return None
+            _b = text.find("{", _idx)
+            if _b == -1:
+                return None
+            _depth = 0
+            _instr = None
+            _k = _b
+            while _k < len(text):
+                _c = text[_k]
+                if _instr:
+                    if _c == "\\":
+                        _k += 2
+                        continue
+                    if _c == _instr:
+                        _instr = None
+                elif _c in "\"'`":
+                    _instr = _c
+                elif _c == "{":
+                    _depth += 1
+                elif _c == "}":
+                    _depth -= 1
+                    if _depth == 0:
+                        return text[_b + 1:_k]
+                _k += 1
+            return None
+
+        def _top_keys373(body):
+            # body 内 depth==0 の `key:` を抽出 (ネスト obj/array 内の key は無視)。
+            _keys = []
+            _depth = 0
+            _instr = None
+            _at_key = True
+            _k = 0
+            while _k < len(body):
+                _c = body[_k]
+                if _instr:
+                    if _c == "\\":
+                        _k += 2
+                        continue
+                    if _c == _instr:
+                        _instr = None
+                    _k += 1
+                    continue
+                if _c in "\"'`":
+                    _instr = _c
+                    _k += 1
+                    continue
+                if _c in "{[(":
+                    _depth += 1
+                    _k += 1
+                    continue
+                if _c in "}])":
+                    _depth -= 1
+                    _k += 1
+                    continue
+                if _depth == 0 and _c == ",":
+                    _at_key = True
+                    _k += 1
+                    continue
+                if _depth == 0 and _at_key and not _c.isspace():
+                    _m373 = re.match(r"([A-Za-z_$][\w$]*)\s*:", body[_k:])
+                    if _m373:
+                        _keys.append(_m373.group(1))
+                        _at_key = False
+                        _k += _m373.end()
+                        continue
+                    _at_key = False
+                _k += 1
+            return _keys
+
+        _default_body373 = _balanced_obj373(_src373, "const defaultAppsData")
+        _keys373 = _top_keys373(_default_body373) if _default_body373 else []
+        # normalizeAppsData 本体を `function normalizeAppsData` 〜 `return result;` の text region で切り出す
+        # (`return result;` は normalizeAppsData 固有。validateAndNormalize は `return store;`)。行コメントは
+        # 除去 (この region に `//` を含む文字列 URL は無いため素朴除去で安全)。
+        _ns373 = _src373.find("function normalizeAppsData")
+        _ne373 = _src373.find("return result;", _ns373) if _ns373 != -1 else -1
+        _norm_body373 = re.sub(r"//[^\n]*", "", _src373[_ns373:_ne373]) if (_ns373 != -1 and _ne373 != -1) else None
+        _unpreserved373 = [
+            _key for _key in _keys373
+            if _norm_body373 is None or not re.search(r"\bdata\." + re.escape(_key) + r"\b", _norm_body373)
+        ]
+        check(
+            bool(_keys373) and _norm_body373 is not None and not _unpreserved373,
+            f"Check 373: normalizeAppsData が defaultAppsData の全 {len(_keys373)} フィールド ({', '.join(_keys373)}) を preserve (persist round-trip)",
+            f"Check 373: defaultAppsData のフィールドが normalizeAppsData で preserve されていない: {sorted(_unpreserved373)} — "
+            "store.js normalizeAppsData に `data.<field>` の正規化/保存を追加せよ。write は QuizPage 等が "
+            "State.updateSilently で永続化するのに reload の normalize が strip する producer/consumer drift で、"
+            "quizSearch が毎 reload で捨てられていた実バグ (#294/#568 と同 class) を封じる"
+            if (_keys373 and _norm_body373 is not None) else
+            "Check 373: store.js の defaultAppsData / normalizeAppsData を parse できない (構造変更の可能性)",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 373: js/store.js present",
+              "Check 373: js/store.js が無い — appsData persist round-trip coherence を検証できない", blocking=True)
