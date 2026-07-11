@@ -42,6 +42,14 @@ import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+# stale-.pyc false-RED 防止: check.py は多数の checks_*.py sibling module を import するが、
+# それらの __pycache__/*.pyc が旧ロジックをキャッシュして現行 .py を上書き実行し、ローカルで
+# 既存ファイル無変更のまま BLOCKING が偽 RED になる事故が複数回起きた (例: Check 337 webp
+# magic bytes 判定が旧 re ベース版でキャッシュされ、無傷の webp を誤検知)。CI は clean checkout
+# ゆえ無影響だが、ローカル自走の調査時間を浪費する。以降の import で .pyc を一切書かせないことで
+# 「今後 .pyc が生成されない ⟹ stale 化しえない」を構造的に保証する (実行速度への影響は無視可)。
+sys.dont_write_bytecode = True
+
 # 純 I/O helper は sibling module `_lib_io.py` に抽出 (check-repository-consistency-
 # map.md §4 で予告された helper-first 抽出の第一歩)。sibling import は Python が
 # 実行スクリプトのディレクトリを自動 sys.path に含めるため、特別な path 操作不要。
