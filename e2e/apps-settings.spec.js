@@ -606,6 +606,47 @@ test('Settings JSON import (upsert) adds a new project and preserves profile fie
 });
 
 
+// ===== 7.2: strict モードで malformed projects を import しても壊れない (未テストの ingestion 経路 coverage) =====
+// 既存 import テストは upsert + valid data のみ。strict（全置換）モードで parsed.projects に null/非
+// オブジェクト entry を含む malformed JSON を import する経路は未カバーだった。strict は
+// `merged.projects = parsed.projects` の生代入で normalize を通ってから State.set される（restoreSnapshot と
+// 同じ「外部 ingestion は adopt する前に validateAndNormalize を通せ」#295/#561 invariant・importJSON も
+// 本 increment で raw State.update→後 normalize から normalize-before-commit へ整合させた）。malformed
+// strict import 後に (1) FatalPage に落ちず設定 UI が生きている、(2) 正規化で null/文字列 entry は除去され
+// valid entry は残る、を実検証し、この ingestion 経路が壊れたら（normalize が外れる等）退行検知する。
+// upsert/append は p.id を deref するため malformed entry で commit 前に throw し error toast になる別経路。
+test('Settings strict import of malformed projects stays graceful (untested ingestion path)', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  // strict（全置換）を選択。null / 非オブジェクト entry を含む malformed projects を送る。
+  await page.getByLabel('インポートモード').selectOption('strict');
+  const payload = {
+    schemaVersion: 12,
+    type: 'full-store',
+    projects: [null, 'not-an-object', { id: 'p_e2e_ok_8801', name: 'OK-STRICT-8801', category: 'User Added' }],
+  };
+  await page.getByLabel('インポートする JSON ファイルを選択').setInputFiles({
+    name: 'malformed.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify(payload)),
+  });
+  await expect(page.locator('#toast-container').getByText('インポートが完了しました')).toBeVisible();
+
+  // 修正前は生 projects の render crash で __fatalError が set され FatalPage に stuck していた。
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `malformed strict import caused a fatal: ${fatal}`).toBeNull();
+
+  // 設定 UI が生きている (FatalPage でなく正規の設定画面が描画されている)
+  await expect(page.getByRole('heading', { name: '整合性チェック / 正規化' })).toBeVisible();
+
+  // 正規化で malformed entry (null / 文字列) は除去され、valid entry は残る
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByText('OK-STRICT-8801').first()).toBeVisible();
+});
+
+
 // ===== 7.2: スナップショット復元のラウンドトリップ (保存→変更→復元で巻き戻る) =====
 // save テスト (#上) は保存と保存日時表示の往復を見るが、復元 (restoreSnapshot → State.set(snap.data))
 // で「保存時点へ実際に巻き戻る」中核機能は未カバーだった。これはユーザの undo/復旧の data-integrity
