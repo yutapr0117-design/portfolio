@@ -713,6 +713,12 @@ _MUTATIONS_TAIL = [
         "find": "        if (typeof data.quizSearch === 'string') {\n            result.quizSearch = data.quizSearch.slice(0, CONSTANTS.LIMITS.QUIZ_SEARCH);\n        }",
         "replace": "        // [mutation-probe] quizSearch preserve removed to exercise Check 373",
     },
+    {
+        "name": "Check 374 (importJSON normalize-before-adopt): commit を State.update へ戻す → 生 ingestion が render に届く normalize-before-adopt 違反 (#295/#561 class)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "                    State.set(Store.validateAndNormalize(merged));",
+        "replace": "                    State.update(s => { Object.assign(s, Store.validateAndNormalize(merged)); });",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。
