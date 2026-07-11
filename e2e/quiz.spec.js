@@ -126,6 +126,39 @@ test('Quiz contact form shows validation error on empty submit', async ({ page }
 });
 
 
+// ===== 7.2: quiz 検索語が reload を跨いで復元される (producer/consumer normalize drift 回帰) =====
+// QuizPage は検索語を State.updateSilently(s => s.appsData.quizSearch = val) で localStorage へ
+// 永続化書き込みし、init で state.appsData.quizSearch を読み戻して復元する (docstring「永続化された
+// 検索語を反映」)。しかし store.js normalizeAppsData は tasks/todos/pomodoro/ai/notes を preserve
+// するのに quizSearch だけ preserve せず、reload 時の load()→validateAndNormalize が毎回 "" に捨てて
+// いた (書き込みは永続化されるのに読み戻しが normalize で strip される半配線)。fill→debounce flush→
+// reload で検索語 input の value が復元されることを実検証する (修正前はここで空だった＝非 vacuous)。
+test('Quiz search term persists across reload (normalize preserve regression)', async ({ page }) => {
+  await page.goto('/#/quiz');
+  await page.waitForLoadState('domcontentloaded');
+
+  const search = page.locator('input[aria-label="問題検索"]');
+  await expect(search).toBeVisible();
+
+  // 検索語を入力 → updateSilently が scheduleSave(DEBOUNCE_DELAY=150ms) で localStorage へ永続化
+  await search.fill('EC2');
+  await expect(search).toHaveValue('EC2');
+  await page.waitForTimeout(300); // debounce(150ms) flush を待って localStorage への書き込みを確定させる
+
+  // reload: load()→validateAndNormalize→normalizeAppsData を通る (quizSearch の読み戻し経路)
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+
+  // 修正前は normalizeAppsData が quizSearch を drop し input が空になっていた。修正後は復元される。
+  const search2 = page.locator('input[aria-label="問題検索"]');
+  await expect(search2).toBeVisible();
+  await expect(search2).toHaveValue('EC2');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `quiz search restore caused a fatal: ${fatal}`).toBeNull();
+});
+
+
 // ===== 7.2: quiz pm / quality タイプのデータファイル描画カバレッジ =====
 // QUIZ_DATA_MAP は aws / pm / quality / architecture の 4 データファイルを引く。aws(default) と
 // architecture は被覆済みだが、pm(pmQuizData) / quality(qualityQuizData) はどのテストでも未訪問で

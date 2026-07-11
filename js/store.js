@@ -569,6 +569,18 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
             result.notes = data.notes.slice(0, CONSTANTS.LIMITS.NOTES_TEXT);
         }
 
+        // Quiz search term (producer/consumer drift fix・#294/#568 と同 class)。
+        // QuizPage は検索語を State.updateSilently(s => s.appsData.quizSearch = val) で localStorage へ
+        // 永続化書き込みし、init で state.appsData.quizSearch を読み戻して復元する (docstring「永続化された
+        // 検索語を反映」)。しかし本 normalize は result=deepClone(defaultAppsData) (quizSearch:"") の後、
+        // tasks/todos/pomodoro/ai/notes は preserve するのに quizSearch だけ preserve せず、reload 時の
+        // load()→validateAndNormalize→normalizeAppsData が毎回 "" に捨てていた (書き込みは永続化されるのに
+        // 読み戻しが normalize で strip される半配線＝復元機能の silent 失敗)。notes と同じ additive string
+        // として preserve し、QUIZ_SEARCH 上限で bound する (transient 検索語ゆえ短い上限)。
+        if (typeof data.quizSearch === 'string') {
+            result.quizSearch = data.quizSearch.slice(0, CONSTANTS.LIMITS.QUIZ_SEARCH);
+        }
+
         return result;
     }
 
