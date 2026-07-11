@@ -77,6 +77,7 @@ Status        : Plan D「物理移動なし、README で grouping を提供」�
 - `improvement-notes-claude-v80-phase4-store-ingestion-guard-and-bloat-ceiling.md`
 - `improvement-notes-claude-v80-phase4-checkpy-split-track-full-handoff.md`
 - `improvement-notes-claude-v80-infinite-improvement-and-bloat-elimination-handoff.md`
+- `improvement-notes-claude-v80-phase4-bloat-elimination-complete-and-behavioral-direction-handoff.md`
 
 ---
 
