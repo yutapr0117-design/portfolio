@@ -121,30 +121,41 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
             reader.onload = (e) => {
                 try {
                     const parsed = JSON.parse(e.target.result);
-                    State.update(s => {
-                        if (settingsIncludeProfile && parsed.profile) {s.profile = parsed.profile;}
-                        if (settingsIncludeProjects && Array.isArray(parsed.projects)) {
-                            if (settingsImportMode === 'strict') {s.projects = parsed.projects;}
-                            else if (settingsImportMode === 'upsert') {
-                                // upsert（UI ラベル「更新+追加」）: 既存 id は更新、未知 id は追加。
-                                // [FIX] 旧実装は未知 id を s.projects.push したのち Map.values() で
-                                // 上書きしており、push した新規プロジェクトが破棄されていた
-                                // (UI が約束する「追加」が機能しないデータ欠落バグ)。1 つの Map に
-                                // 更新も追加も集約することで新規 id も確実に残す。
-                                const map = new Map(s.projects.map(p => [p.id, p]));
-                                parsed.projects.forEach(p => map.set(p.id, p));
-                                s.projects = Array.from(map.values());
-                            } else {
-                                // append（追加のみ）: 未知 id だけ追加し、既存は変更しない。
-                                const existing = new Set(s.projects.map(p => p.id));
-                                parsed.projects.forEach(p => { if (!existing.has(p.id)) {s.projects.push(p);} });
-                            }
+                    // [FIX] 外部 JSON を State.update で生のまま commit しない (normalize-before-commit)。
+                    // 旧実装は生 parsed を State.update で adopt → notify→render() が走った後で
+                    // validateAndNormalize していた。strict モードは `s.projects = parsed.projects` の生代入
+                    // ゆえ、生データが render に届く経路があった (malformed entry が SettingsPage の
+                    // p.name/p.id dereference を crash させうる)。現状は render の abort ordering (State.set の
+                    // 2 度目 render が 1 度目の生 render を SettingsPage 到達前に abort) で偶発的に守られて
+                    // いたが、data-safety を incidental な描画順に依存させず、restoreSnapshot と同じ
+                    // 「adopt する前に正規化を通せ」(#295/#561 invariant) に importJSON も整合させる。
+                    // 現在 state を base にマージした結果を validateAndNormalize してから単一 State.set で
+                    // commit することで、生データが render に届く窓を構造的に無くす (Check 374 が再発防止)。
+                    const base = State.get();
+                    const merged = { ...base };
+                    if (settingsIncludeProfile && parsed.profile) { merged.profile = parsed.profile; }
+                    if (settingsIncludeProjects && Array.isArray(parsed.projects)) {
+                        if (settingsImportMode === 'strict') {
+                            merged.projects = parsed.projects;
+                        } else if (settingsImportMode === 'upsert') {
+                            // upsert（UI ラベル「更新+追加」）: 既存 id は更新、未知 id は追加。
+                            // 1 つの Map に更新も追加も集約することで新規 id も確実に残す (#192 の
+                            // 「push 後に Map.values() で上書きして新規を破棄」バグを回避した形を維持)。
+                            const map = new Map(base.projects.map(p => [p.id, p]));
+                            parsed.projects.forEach(p => map.set(p.id, p));
+                            merged.projects = Array.from(map.values());
+                        } else {
+                            // append（追加のみ）: 未知 id だけ追加し、既存は変更しない。
+                            const existing = new Set(base.projects.map(p => p.id));
+                            const appended = base.projects.slice();
+                            parsed.projects.forEach(p => { if (!existing.has(p.id)) { appended.push(p); } });
+                            merged.projects = appended;
                         }
-                        if (settingsIncludeApps && parsed.appsData) {s.appsData = parsed.appsData;}
-                    });
+                    }
+                    if (settingsIncludeApps && parsed.appsData) { merged.appsData = parsed.appsData; }
 
-                    // [CRITICAL FIX] インポート直後に必ず正規化を通し、不正なデータ構造によるクラッシュを防ぐ
-                    State.set(Store.validateAndNormalize(State.get()));
+                    // 正規化してから単一 commit。生データは一切 render に届かない。
+                    State.set(Store.validateAndNormalize(merged));
 
                     Toast.show('インポートが完了しました');
                 } catch (err) {
