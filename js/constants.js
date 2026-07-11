@@ -67,6 +67,7 @@ export const CONSTANTS = {
         IMPACT: 1200,
         TASK_TITLE: 200,
         TODO_TEXT: 300,
+        QUIZ_SEARCH: 200,        // クイズ検索語の保持上限（store.js normalize が quizSearch を preserve する際の bound・単一ソース）
         AI_MESSAGE: 5000,
         AI_HISTORY: 80,          // AI アシスタント履歴の保持エントリ数上限（store.js normalize + ai-page.js add の単一ソース）
         POMODORO_HISTORY: 200,   // ポモドーロ完了履歴の保持エントリ数上限（store.js normalize + pomodoro-page.js complete の単一ソース）
