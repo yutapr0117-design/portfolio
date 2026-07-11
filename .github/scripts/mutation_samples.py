@@ -693,6 +693,20 @@ _MUTATIONS_TAIL = [
         "replace": "createQuizRenderer({ h, createIcon, Store, State, quizData: {} })",
         "test": "Check 372: 各 js/*.js factory の全注入依存が対応 mirror doc に言及されている",
     },
+    {
+        "name": "Check 364: store.js の Array.isArray ガードを unsafe な `(raw.tech || []).filter` idiom へ戻す → ingestion-crash class 構造防止の BLOCKING 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "tech: (Array.isArray(raw.tech) ? raw.tech : []).filter(Boolean).slice(0, 12),",
+        "replace": "tech: (raw.tech || []).filter(Boolean).slice(0, 12),",
+        "test": "Check 364: store.js の正規化子に unsafe `(X || []).<throwing array-method>` idiom が無い",
+    },
+    {
+        "name": "Check 368: store.js の notes 上限を CONSTANTS.LIMITS.NOTES_TEXT からマジック 20000 へ戻す → notes 上限 drift の BLOCKING 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "result.notes = data.notes.slice(0, CONSTANTS.LIMITS.NOTES_TEXT);",
+        "replace": "result.notes = data.notes.slice(0, 20000);",
+        "test": "Check 368: apps.js / store.js が notes 上限を CONSTANTS.LIMITS.NOTES_TEXT 経由で参照",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。
