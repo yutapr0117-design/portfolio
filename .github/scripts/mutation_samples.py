@@ -707,6 +707,12 @@ _MUTATIONS_TAIL = [
         "replace": "result.notes = data.notes.slice(0, 20000);",
         "test": "Check 368: apps.js / store.js が notes 上限を CONSTANTS.LIMITS.NOTES_TEXT 経由で参照",
     },
+    {
+        "name": "Check 373 (appsData persist round-trip): drop quizSearch preserve from normalizeAppsData → reload で検索語が silent に失われる producer/consumer drift (#294/#568 class)",
+        "file": ROOT / "js" / "store.js",
+        "find": "        if (typeof data.quizSearch === 'string') {\n            result.quizSearch = data.quizSearch.slice(0, CONSTANTS.LIMITS.QUIZ_SEARCH);\n        }",
+        "replace": "        // [mutation-probe] quizSearch preserve removed to exercise Check 373",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。
@@ -912,5 +918,12 @@ E2E_MUTATIONS = [
         "find": "                            h('option', { value: 'active', text: '未完了', selected: todoFilter === 'active' ? true : undefined }),",
         "replace": "                            h('option', { value: 'active', text: '未完了' }),",
         "test": "Todo filter select retains visual selection after re-render",
+    },
+    {
+        "name": "behavior: quiz 検索語の reload 跨ぎ復元の喪失 (normalizeAppsData が quizSearch を preserve せず reload で空になる producer/consumer drift・#294/#568 class)",
+        "file": ROOT / "js" / "store.js",
+        "find": "        if (typeof data.quizSearch === 'string') {\n            result.quizSearch = data.quizSearch.slice(0, CONSTANTS.LIMITS.QUIZ_SEARCH);\n        }",
+        "replace": "        // quizSearch preserve removed (mutation)",
+        "test": "Quiz search term persists across reload",
     },
 ]
