@@ -2,12 +2,14 @@
 checks_behavioral.py — shipped-JS behavioral regression guards
 (extracted from check_repository_consistency.py — check.py split track・category "behavioral guards").
 
-This module owns the cluster of Checks 128-131 (plus 373) that statically enforce shipped-JS
+This module owns the cluster of Checks 128-131 (plus 373, 374) that statically enforce shipped-JS
 runtime UX invariants discovered from real bugs: command-palette ↔ router app-route coherence
 (128), topbar data-action button double-fire guard (129), live-input oninput focus-loss guard
 (130, via brace-balance parsing of oninput handlers), service-worker decodeURIComponent
 try/catch guard (131), and store default-appsData field ⟹ normalizeAppsData preserve round-trip
-(373, guarding the producer/consumer persist drift that silently dropped quizSearch on reload).
+(373, guarding the producer/consumer persist drift that silently dropped quizSearch on reload),
+and settings-page importJSON normalize-before-adopt ingestion guard (374, keeping raw external JSON
+from reaching render — the ingestion counterpart of 130).
 Each Check reads its own shipped-JS target files directly (js/*.js,
 main.js, sw.js) via Path.read_text(); none depends on the monolith's global html/style/mainjs
 content, so the cluster is self-contained and needs no ctx enrichment. Check 130's brace-parser
@@ -70,6 +72,17 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        vacuous pass), making "a field is persisted ⟹ normalize reads it back" an enforced invariant
        so no future appsData field can be added to the store default yet silently lost on reload.
        (BLOCKING)
+  374. settings-page.js importJSON normalize-before-adopt ingestion guard: importJSON ingests
+       external JSON. If it commits the raw parsed data via State.update(...), the notify → render()
+       cycle paints un-normalized data (e.g. malformed projects with a null/non-object entry that
+       SettingsPage dereferences via p.name/p.id and crashes on). restoreSnapshot already follows the
+       established "normalize external input before adopting it" invariant (#295/#561) by committing
+       State.set(Store.validateAndNormalize(...)); importJSON must too, rather than relying on the
+       incidental render-abort ordering (the second normalize render aborting the first raw render
+       before it reaches SettingsPage) for data-safety. This Check brace-parses the importJSON
+       function body and asserts it does NOT call State.update( and DOES route through
+       validateAndNormalize, structurally preventing re-introduction of raw ingestion that reaches
+       render (the ingestion counterpart of Check 130's oninput no-State.update guard). (BLOCKING)
 """
 import re
 
@@ -357,3 +370,52 @@ def run(ctx):
     else:
         check(False, "Check 373: js/store.js present",
               "Check 373: js/store.js が無い — appsData persist round-trip coherence を検証できない", blocking=True)
+
+    # ── 374. settings-page.js importJSON normalize-before-adopt ingestion guard (BLOCKING) ──
+    # importJSON は外部 JSON を取り込む ingestion 経路。生の parsed を State.update で adopt すると
+    # notify→render() が正規化前の生データ (malformed projects 等) を描画しうる (strict モードの
+    # `merged.projects = parsed.projects` 生代入が malformed entry を SettingsPage の p.name/p.id
+    # dereference へ通し crash させうる)。restoreSnapshot は既に「外部 ingestion は adopt する前に
+    # validateAndNormalize を通せ」(#295/#561) に従い State.set(Store.validateAndNormalize(...)) で
+    # commit する。importJSON も incidental な render-abort ordering (State.set の 2 度目 render が
+    # 1 度目の生 render を SettingsPage 到達前に abort する) に data-safety を依存させず、同じ
+    # normalize-before-commit へ整合させる。本 Check は importJSON 関数本体を brace-balance で抽出し、
+    # State.update( を含まず validateAndNormalize を通すことを強制する (raw ingestion 描画の再混入を
+    # 構造封じ・Check 130 の oninput no-State.update と同型の ingestion 版)。
+    _sp374 = ROOT / "js" / "settings-page.js"
+    if _sp374.exists():
+        _src374 = _sp374.read_text(encoding="utf-8")
+        _m374 = re.search(r"function\s+importJSON\s*\(", _src374)
+        _ok374 = False
+        _has_update374 = True
+        _has_norm374 = False
+        if _m374:
+            _i374 = _src374.find("{", _m374.start())
+            _depth374 = 0
+            _body374 = ""
+            for _k374 in range(_i374, len(_src374)):
+                _c374 = _src374[_k374]
+                if _c374 == "{":
+                    _depth374 += 1
+                elif _c374 == "}":
+                    _depth374 -= 1
+                    if _depth374 == 0:
+                        _body374 = _src374[_i374:_k374 + 1]
+                        break
+            _has_update374 = "State.update(" in _body374
+            _has_norm374 = "validateAndNormalize" in _body374
+            _ok374 = (not _has_update374) and _has_norm374
+        check(
+            _m374 is not None and _ok374,
+            "Check 374: settings-page.js importJSON は生を State.update で adopt せず validateAndNormalize してから State.set (normalize-before-commit ingestion)",
+            ("Check 374: settings-page.js importJSON の ingestion が normalize-before-commit でない — "
+             + ("State.update( を呼んでおり生データが render に届きうる" if _has_update374 else "validateAndNormalize を通していない")
+             + "。マージ結果を Store.validateAndNormalize してから単一 State.set( で commit せよ "
+             "(restoreSnapshot と同じ #295/#561 ingestion invariant・Check 130 の ingestion 版)")
+            if _m374 else
+            "Check 374: settings-page.js に importJSON 関数が見つからない (構造変更の可能性)",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 374: js/settings-page.js present",
+              "Check 374: js/settings-page.js が無い — importJSON ingestion guard を検証できない", blocking=True)
