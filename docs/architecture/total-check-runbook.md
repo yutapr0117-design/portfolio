@@ -268,7 +268,7 @@ echo "ALL LOCAL CHECKS PASSED"
 | `.well-known/aio-manifest.json` の証跡カウント | source_of_truth 5 / supporting_evidence 4 / observational_evidence 1 |
 | `index.html` 構造化データ | JSON-LD ブロック 2 / `ai:` meta タグ 8（ハイフン付き含む）|
 | `npm audit` / `--omit=dev` | 0 件 / 0 件 |
-| `main.js` | **1,086 行**（Stage 5 全 sub-phase（5-c〜5-s + 5-l + 5-q + 5-r）最終完遂。Stage 0 累計 7,785→1,086 行（**−6,699 行 / −86%**）。残るは AIDK Kernel proper + startViewTransitionProxy + Trusted Types policy + view-transition / render core + SITE_CONFIG + protected blocks + init のみ。Check 43 が IIFE と kernel の存在を機械強制）|
+| `main.js` | Stage 5 完了時点 **1,086 行**（Stage 0 累計 7,785→1,086 行 = **−6,699 行 / −86%** の歴史的 milestone）。以降は factory 配線の追加で微増するが strong-advisory 予算 6,400 行の範囲内（現在値の権威 = `wc -l main.js`）。残るは AIDK Kernel proper + startViewTransitionProxy + Trusted Types policy + view-transition / render core + SITE_CONFIG + protected blocks + init のみ。Check 43 が IIFE と kernel の存在を機械強制 |
 | `js/ui-components.js` | 303 行（Stage 4 新設。DOM ビルダー h・SVG アイコン createIcon・Toast・BGM の葉モジュール）|
 | `js/router.js` | 175 行（Stage 5 新設。hash-based SPA ルーター。closure-deps = none）|
 | `js/page-meta.js` | 63 行（Stage 5 新設。per-page SEO メタ単一ソース（AI SURFACE）。closure-deps = none）|
