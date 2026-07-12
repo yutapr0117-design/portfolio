@@ -6,6 +6,9 @@
  * 既存 Router.navigate を呼ぶだけの純追加機能（route cascade 無し）。overlay DOM は初回 open 時に
  * 動的生成して body へ append する（index.html を変更しない）。
  *
+ * 本モジュールは factory pattern（createCommandPalette({deps}) が公開 API を返す）で構築された
+ * 依存注入型の葉モジュールである。
+ *
  * 【公開 API（main.js から合成）】
  *   const CommandPalette = createCommandPalette({ Router, h, createIcon });
  *   CommandPalette.init();   // global Cmd/Ctrl+K keydown を登録

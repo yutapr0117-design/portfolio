@@ -1,8 +1,8 @@
 /**
  * js/settings-page.js — Settings Page (import/export/snapshot/manual project add + normalize)
  *
- * @fileoverview v80+ bloat-reduction (2026-07-05): js/apps.js から SettingsPage を factory
- * pattern で分離した葉モジュール。createApps が肥大化 (837 行) していたため、最大の page
+ * @fileoverview v80+ bloat-reduction (2026-07-05): js/apps.js から SettingsPage を
+ * factory pattern で分離した葉モジュール。createApps が肥大化 (837 行) していたため、最大の page
  * (SettingsPage ~373 行) を独立葉へ抽出し apps.js を ~464 行へ縮小する (Check 363 の 1,000 行
  * ハード上限に対する headroom 確保・肥大化「生じないように」の解消側)。
  *
