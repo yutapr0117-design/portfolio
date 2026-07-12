@@ -47,6 +47,32 @@ test('Theme toggle cycles data-theme and persists across reload', async ({ page 
 });
 
 
+// ===== theme='system' の runtime OS-color-scheme 追従 (system-follow regression) =====
+// theme.js init は matchMedia('(prefers-color-scheme: dark)') の 'change' を購読し、選択が
+// 'system' のとき OS テーマ変化に追従して apply('system') を再実行する (data-theme='system' の
+// まま .dark クラスだけを OS に合わせ toggle)。theme-cycle / FOUC テストは「クリック切替」と
+// 「保存済み初期適用」を見るが、この "起動後に OS テーマが変わったら追従する" runtime listener
+// (js/theme.js の matchMedia change ハンドラ) は未カバーだった。default theme は 'system' ゆえ
+// seed 不要。emulateMedia で OS テーマを切替え、.dark が追従することを検証する。listener を除去
+// すると .dark が更新されず RED になる non-vacuous ガード。
+test('Theme "system" follows runtime OS color-scheme changes', async ({ page }) => {
+  await page.emulateMedia({ colorScheme: 'light' });
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  const html = page.locator('html');
+  // default = 'system'。light OS ではダークではない
+  await expect(html).toHaveAttribute('data-theme', 'system');
+  await expect(html).not.toHaveClass(/\bdark\b/);
+  // OS→dark: system-follow listener が .dark を付与 (選択は 'system' のまま)
+  await page.emulateMedia({ colorScheme: 'dark' });
+  await expect(html).toHaveClass(/\bdark\b/);
+  await expect(html).toHaveAttribute('data-theme', 'system');
+  // OS→light: .dark が外れる
+  await page.emulateMedia({ colorScheme: 'light' });
+  await expect(html).not.toHaveClass(/\bdark\b/);
+});
+
+
 // ===== 7.1: theme-init.js の FOUC pre-paint (保存 dark テーマの初期適用) =====
 // theme-init.js は main.js (ESM) ロード前に localStorage の theme を読み data-theme / .dark を
 // pre-paint 適用し FOUC (light→dark のちらつき) を防ぐ。theme-cycle テストは「クリックで切替→永続」
