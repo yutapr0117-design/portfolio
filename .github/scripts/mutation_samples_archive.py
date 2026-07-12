@@ -861,4 +861,58 @@ MUTATIONS_ARCHIVE = [
         "find": '"alternateName": ["日本経営", "Nihon Keiei", "Japan Management Co., Ltd.", "日本経営グループ"],',
         "replace": '"xlternateName": ["日本経営", "Nihon Keiei", "Japan Management Co., Ltd.", "日本経営グループ"],',
     },
+    {
+        "name": "Check 260 (hero ImageObject required): drift width to non-numeric",
+        "file": ROOT / "index.html",
+        "find": '"width": "1536",',
+        "replace": '"width": "huge",',
+    },
+    {
+        "name": "Check 261 (primary BGM AudioObject required): strip encodingFormat key",
+        "file": ROOT / "index.html",
+        "find": '"encodingFormat": "audio/mpeg",',
+        "replace": '"xncodingFormat": "audio/mpeg",',
+    },
+    {
+        "name": "Check 262 (no console.log): inject phony console.log into identity.js",
+        "file": ROOT / "js" / "identity.js",
+        "find": "export const AUTHOR = {",
+        "replace": "console.log('probe');\nexport const AUTHOR = {",
+    },
+    {
+        "name": "Check 263 (no debugger;/alert(): inject phony debugger statement",
+        "file": ROOT / "js" / "identity.js",
+        "find": "export const AUTHOR = {",
+        "replace": "debugger;\nexport const AUTHOR = {",
+    },
+    {
+        "name": "Check 264 (no TODO/FIXME/HACK/XXX in comments): inject FIXME comment",
+        "file": ROOT / "js" / "identity.js",
+        "find": "export const AUTHOR = {",
+        "replace": "// FIXME: probe-mutation\nexport const AUTHOR = {",
+    },
+    {
+        "name": "Check 265 (strict equality): inject loose == into identity.js",
+        "file": ROOT / "js" / "identity.js",
+        "find": "export const AUTHOR = {",
+        "replace": "const probeLoose = 1 == 1;\nexport const AUTHOR = {",
+    },
+    {
+        "name": "Check 266 (entity description length [20,1000]): truncate primary Person description",
+        "file": ROOT / "index.html",
+        "find": '"description": "横井雄太（Yuta Yokoi / Yokoi Yuta）が設計・統治する、AIが自走する機械統治された engineering システム。AIが実装・検証・マージ・本番デプロイまで自走し、人間はコードを一行も書かず統治と監査を担う。このサイト自体がその生成物である。",',
+        "replace": '"description": "tiny",',
+    },
+    {
+        "name": "Check 267 (entity name length [3,200]): truncate hero ImageObject name to 'x'",
+        "file": ROOT / "index.html",
+        "find": '"name": "AI-Driven PM Portfolio Architecture Vision",',
+        "replace": '"name": "x",',
+    },
+    {
+        "name": "Check 268 (Article headline length [10,110]): truncate TechArticle headline to 'x'",
+        "file": ROOT / "index.html",
+        "find": '"headline": "AI-Driven PM Portfolio — PM-led AI Orchestration Experiment by Yuta Yokoi (横井雄太)",',
+        "replace": '"headline": "x",',
+    },
 ]
