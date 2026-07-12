@@ -1,8 +1,8 @@
 /**
  * js/project-detail-page.js — ProjectDetailPage レンダラ (v80+ 肥大化解消: components.js から抽出)
  *
- * js/components.js からプロジェクト詳細ページ ProjectDetailPage(slug) (~154 行) を factory
- * pattern で葉モジュールへ分離。挙動 byte-equivalent (関数本体を無改変で移設)。
+ * js/components.js からプロジェクト詳細ページ ProjectDetailPage(slug) (~154 行) を
+ * factory pattern で葉モジュールへ分離。挙動 byte-equivalent (関数本体を無改変で移設)。
  *
  * 【依存 (引数注入)】
  *   - h, createIcon : DOM ビルダー / SVG アイコン (js/ui-components.js)
