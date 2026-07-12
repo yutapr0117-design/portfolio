@@ -115,6 +115,16 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
        parses every e2e test title from e2e/*.spec.js, asserting each E2E_MUTATIONS `test` field is a
        substring of a real test title — the e2e-title twin of Check 362's find-anchor resolution,
        making "a mutation names a behavior test ⟹ that test exists" an enforced invariant. (BLOCKING)
+  380. mutation_samples no-op guard (`replace` ≠ `find`): every mutation in MUTATIONS ∪ E2E_MUTATIONS
+       must have a `replace` string DIFFERENT from its `find`. A mutation whose replace equals its
+       find is a no-op — applying it changes nothing, so the gate stays GREEN and mutation_probe
+       reports it as SURVIVED (a false coverage gap), while at verify time it is completely silent
+       (Check 362 only checks the find anchor exists, 379 only the test-field). A no-op mutation thus
+       silently provides FALSE coverage: it looks like it exercises a bug class but tests nothing.
+       This is easy to introduce accidentally (a botched edit that leaves find==replace). This Check
+       asserts find != replace for every entry, completing the mutation-integrity mesh (362 = find
+       anchor resolves in target file / 379 = test-field resolves to a real e2e test / 380 = replace
+       actually mutates) so no dead mutation can silently erode the completeness-critic. (BLOCKING)
 """
 import re
 
@@ -652,3 +662,31 @@ def run(ctx):
         )
     except ImportError as _e379:
         warnings.append(f"Check 379: mutation_samples import failed ({_e379}) — test-field resolution skipped")
+
+    # ── 380. mutation_samples no-op guard (`replace` ≠ `find`) (BLOCKING) ──────────
+    # MUTATIONS ∪ E2E_MUTATIONS の各 entry は `replace` が `find` と異なる必要がある。find==replace の
+    # mutation は no-op で、適用しても何も変わらず gate が GREEN のままゆえ mutation_probe は SURVIVED
+    # (偽の coverage gap) と報告するが、verify 時は完全に silent (Check 362 は find anchor 存在のみ、
+    # 379 は test-field のみを見る)。no-op mutation は「バグ class を叩いているように見えて何も test して
+    # いない」偽カバレッジを silent に提供する。編集ミスで find==replace を残すと容易に混入する
+    # (本 Check 導入の契機も Check 379 の self-referential mutation を除去する過程で一時的に find==replace
+    # を作った実例)。find != replace を全 entry に強制し、mutation-integrity mesh (362=find anchor 解決 /
+    # 379=test-field 解決 / 380=replace が実際に mutate する) を閉じ、dead mutation が completeness-critic
+    # を silent に侵食するのを防ぐ。
+    try:
+        import importlib as _importlib380
+        _ms380 = _importlib380.import_module("mutation_samples")
+        _noop380 = []
+        for _lst380, _lbl380 in ((_ms380.MUTATIONS, "MUTATIONS"), (_ms380.E2E_MUTATIONS, "E2E_MUTATIONS")):
+            for _m380 in _lst380:
+                if _m380.get("find", "") == _m380.get("replace", "__SENTINEL_NO_REPLACE__"):
+                    _noop380.append(f"[{_lbl380}] {_m380['name'][:55]}")
+        check(
+            not _noop380,
+            f"Check 380: all {len(_ms380.MUTATIONS) + len(_ms380.E2E_MUTATIONS)} mutations have replace != find (no no-op / false-coverage mutation)",
+            f"Check 380: no-op mutation(s) (find == replace): {_noop380[:5]} — replace が find と同一で "
+            "適用しても何も変わらない偽カバレッジ。mutation_probe は SURVIVED と報告するが verify では silent。"
+            "replace を find と異なる実 mutation へ修正するか、機能しない mutation なら除去せよ",
+        )
+    except ImportError as _e380:
+        warnings.append(f"Check 380: mutation_samples import failed ({_e380}) — no-op guard skipped")
