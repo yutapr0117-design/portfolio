@@ -13,7 +13,7 @@ Cmd/Ctrl+K で開くキーボード駆動の横断ナビゲーション overlay 
 
 ## Why
 
-検索 input・category・タグに続く第 4 のナビ導線として、キーボードのみで全主要ルートへ即移動できる UX を提供する。route cascade（PAGE_META/ALL_ROUTES/a11y coverage）を避けるため overlay 方式（新ルート無し）を採用。focus-trap・keyboard nav・a11y（role=dialog/listbox/option）を Vanilla JS で実装し、エンジニアリング（設計力）を実証する。
+検索 input・category・タグに続く第 4 のナビ導線として、キーボードのみで全主要ルートへ即移動できる UX を提供する。route cascade（PAGE_META/ALL_ROUTES/a11y coverage）を避けるため overlay 方式（新ルート無し）を採用。focus-trap・keyboard nav・a11y（role=dialog + WAI-ARIA combobox: input=role=combobox / aria-controls / aria-activedescendant を active option へ同期 + listbox/option）を Vanilla JS で実装し、エンジニアリング（設計力）を実証する。
 
 ## How (usage)
 

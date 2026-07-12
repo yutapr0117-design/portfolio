@@ -22,6 +22,9 @@
  *     `(meta|ctrl)+k` のみを横取りし preventDefault、それ以外は素通し。
  *   - 開いている間だけ focus を overlay 内に trap し、閉じたら直前 focus を復元する。
  *   - DOM 副作用は body 末尾の #command-palette-host に限定（render の #content には触れない）。
+ *   - WAI-ARIA combobox: input は role=combobox + aria-controls=cmdk-listbox で、focus を input に
+ *     留めたまま ↑↓ が listbox を操作する。SR が active option をアナウンスできるよう input の
+ *     aria-activedescendant を _renderList / _highlight が active option の id（cmdk-opt-<i>）へ同期する。
  */
 export function createCommandPalette({ Router, h, createIcon, State }) {
     // 横断ナビの固定行き先（curated quick-nav）。label は人間可読、hash は Router.navigate 引数。
@@ -76,10 +79,14 @@ export function createCommandPalette({ Router, h, createIcon, State }) {
         while (listEl.firstChild) { listEl.removeChild(listEl.firstChild); }
         if (!rendered.length) {
             listEl.appendChild(h('li', { class: 'cmdk-empty', role: 'status' }, '一致する行き先はありません'));
+            // [A11Y] 候補ゼロでは active option が存在しないため activedescendant を外す (dangling id 参照防止)。
+            if (inputEl) { inputEl.removeAttribute('aria-activedescendant'); }
             return;
         }
         rendered.forEach((d, i) => {
             listEl.appendChild(h('li', {
+                // [A11Y] id は input の aria-activedescendant が指す先 (option ごとに安定した cmdk-opt-<i>)。
+                id: 'cmdk-opt-' + i,
                 class: 'cmdk-item' + (i === activeIdx ? ' is-active' : ''),
                 role: 'option',
                 'aria-selected': i === activeIdx ? 'true' : 'false',
@@ -87,6 +94,8 @@ export function createCommandPalette({ Router, h, createIcon, State }) {
                 onclick: () => _choose(i),
             }, createIcon('arrowUpRight', 16), h('span', { class: 'icon-gap' }, d.label)));
         });
+        // [A11Y] 描画直後は activeIdx=0 が active。input の activedescendant を先頭 option へ同期。
+        if (inputEl) { inputEl.setAttribute('aria-activedescendant', 'cmdk-opt-' + activeIdx); }
     }
 
     function _highlight() {
@@ -97,6 +106,9 @@ export function createCommandPalette({ Router, h, createIcon, State }) {
         });
         const activeLi = listEl.children[activeIdx];
         if (activeLi && activeLi.scrollIntoView) { activeLi.scrollIntoView({ block: 'nearest' }); }
+        // [A11Y] arrow 移動に合わせ input の aria-activedescendant を新しい active option へ同期
+        //   (SR が focus を移さずに現在候補をアナウンスできる WAI-ARIA combobox の要件)。
+        if (inputEl && activeLi && activeLi.id) { inputEl.setAttribute('aria-activedescendant', activeLi.id); }
     }
 
     function _choose(i) {
@@ -116,11 +128,20 @@ export function createCommandPalette({ Router, h, createIcon, State }) {
         inputEl = h('input', {
             type: 'text',
             class: 'cmdk-input',
+            // [A11Y] WAI-ARIA combobox パターン: focus は input に留まり ↑↓ が listbox を操作するため、
+            //   SR が arrow 移動中の active option を読み上げるには role=combobox + aria-controls +
+            //   aria-activedescendant (active option の id を指す) が必須。option の aria-selected 単独では
+            //   focus が option へ移らないため一部 SR/browser で active 変化がアナウンスされない。
+            //   aria-activedescendant は _renderList / _highlight が activeIdx に同期更新する。
+            role: 'combobox',
+            'aria-expanded': 'true',
+            'aria-controls': 'cmdk-listbox',
+            'aria-autocomplete': 'list',
             'aria-label': 'コマンドパレット: 行き先を検索',
             placeholder: '行き先を検索… (Esc で閉じる)',
             oninput: (e) => _renderList(e.target.value),
         });
-        listEl = h('ul', { class: 'cmdk-list', role: 'listbox', 'aria-label': '行き先候補' });
+        listEl = h('ul', { id: 'cmdk-listbox', class: 'cmdk-list', role: 'listbox', 'aria-label': '行き先候補' });
         const panel = h('div', {
             class: 'cmdk-panel', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'コマンドパレット',
         }, inputEl, listEl);
