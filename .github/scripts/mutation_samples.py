@@ -725,6 +725,12 @@ _MUTATIONS_TAIL = [
         "find": "                                        }, createIcon('trash', 14))",
         "replace": "                                        }, createIcon('trsah', 14))",
     },
+    {
+        "name": "Check 376 (data-action → ActionDelegator resolution): 既存 data-action='drawer:open' を未登録 action へ typo → silent no-op wiring gap (menu ボタン無反応)",
+        "file": ROOT / "index.html",
+        "find": 'data-action="drawer:open"',
+        "replace": 'data-action="drawr:open"',
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。

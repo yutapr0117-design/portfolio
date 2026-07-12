@@ -2,7 +2,7 @@
 checks_wiring.py — shipped-asset & AIO wiring / discoverability checks
 (extracted from check_repository_consistency.py — check.py split track・category "wiring/discovery").
 
-This module owns the cluster of Checks 132-134 (plus 375) that assert shipped assets and AIO
+This module owns the cluster of Checks 132-134 (plus 375, 376) that assert shipped assets and AIO
 evidence are actually wired up and discoverable (not merely present): AIO evidence ↔ sitemap
 discoverability (132), aio-guard.js `<script src>` wiring (133), root-script wiring
 completeness (134), and shipped-JS createIcon name → icon-registry resolution (375, the
@@ -61,6 +61,20 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        flow through `createIcon(item.icon)` / `createIcon(app.icon)` — across shipped JS (js/*.js) and
        asserts each resolves to a registry key, making "icon name used ⟹ defined" an enforced
        invariant so a typo can never silently blank an icon. (BLOCKING)
+  376. data-action → ActionDelegator handler resolution: the AIDK ActionDelegator (js/aidk-rails.js)
+       is a single document-level click delegator — an element carrying `data-action="X"` triggers
+       `_handlers[X]` on click, and if X is not a registered handler key the lookup returns undefined
+       and the click is a SILENT no-op (no throw, no console error, no e2e failure). A typo'd action
+       (e.g. `data-action="drawr:open"` on the topbar menu button) therefore makes a critical control
+       — menu / theme / BGM — do nothing, and slips past verify AND the behavior e2e AND the advisory
+       screenshot. This is the same silent-wiring class as Check 375 (icon) / 133 / 134, applied to
+       data-action producers ("an action is used ⟹ a handler is defined"). This Check parses the
+       ActionDelegator `_handlers` object keys plus any `register('X', ...)` calls (the handler
+       registry) and every `data-action="X"` / `'data-action': 'X'` producer in index.html and shipped
+       JS, and asserts every producer resolves to a handler. The reverse (handler ⟹ producer) is NOT
+       enforced: `drawer:close` is an intentionally symmetric unused handler (the drawer closes via
+       direct onclick / Escape / nav-click), so this is a used⟹defined guard, not a bijection.
+       (BLOCKING)
 """
 import re
 import json
@@ -215,3 +229,70 @@ def run(ctx):
     else:
         check(False, "Check 375: js/ui-components.js present",
               "Check 375: js/ui-components.js が無い — createIcon の icon-registry 解決を検証できない", blocking=True)
+
+    # ── 376. data-action → ActionDelegator handler resolution (BLOCKING) ───────────
+    # AIDK ActionDelegator (js/aidk-rails.js) は document 単一 click 委譲器で、`data-action="X"` を
+    # 持つ要素の click が `_handlers[X]` を発火する。X が未登録 handler key だと lookup が undefined
+    # を返し click は silent no-op (throw も console error も e2e 失敗も無い)。typo した action
+    # (`data-action="drawr:open"` 等) は menu/theme/BGM の critical control を無反応にするのに verify
+    # も behavior e2e も advisory screenshot も素通りする。Check 375 (icon) / 133 / 134 と同じ
+    # silent-wiring class を data-action producer 面 (「action が使われる ⟹ handler が定義済」) に
+    # 適用する。ActionDelegator の `_handlers` object キー + `register('X', ...)` 呼び出しを handler
+    # registry として parse し、index.html + shipped JS の全 `data-action="X"` / `'data-action': 'X'`
+    # producer を集めて各々が handler に解決することを強制する。逆方向 (handler ⟹ producer) は
+    # 強制しない: `drawer:close` は意図的に symmetric な unused handler (drawer は直接 onclick /
+    # Escape / nav-click で閉じる) ゆえ used⟹defined ガードで bijection ではない。
+    _rails376 = ROOT / "js" / "aidk-rails.js"
+    _index376 = ROOT / "index.html"
+    if _rails376.exists() and _index376.exists():
+        _railsrc376 = _rails376.read_text(encoding="utf-8")
+        # _handlers = { 'a:b': ..., ... } の object body を brace-balance で抽出し key を集める
+        _hm376 = re.search(r"_handlers\s*=\s*\{", _railsrc376)
+        _hkeys376 = set()
+        if _hm376:
+            _hi376 = _railsrc376.find("{", _hm376.start())
+            _hd376 = 0
+            _hbody376 = ""
+            for _hk376 in range(_hi376, len(_railsrc376)):
+                _hc376 = _railsrc376[_hk376]
+                if _hc376 == "{":
+                    _hd376 += 1
+                elif _hc376 == "}":
+                    _hd376 -= 1
+                    if _hd376 == 0:
+                        _hbody376 = _railsrc376[_hi376:_hk376 + 1]
+                        break
+            _hkeys376 = set(re.findall(r"['\"]([A-Za-z][\w:-]*)['\"]\s*:", _hbody376))
+        # 動的登録 register('X', ...) も handler registry に含める (将来 producer 網羅性のため)
+        _hkeys376 |= set(re.findall(r"\.register\(\s*['\"]([A-Za-z][\w:-]*)['\"]", _railsrc376))
+        # producer: index.html の data-action="X" + shipped JS の data-action / 'data-action': 'X'。
+        # コメントは除去する (aidk-rails.js の docstring `// AIは data-action="ACTION_NAME"` 等が
+        # 説明用リテラルを producer と誤検出する false-positive を防ぐ。JS は行コメント `//`、HTML は
+        # `<!-- -->` を strip)。
+        _producers376 = {}  # action -> source file
+        _html376 = re.sub(r"<!--.*?-->", "", _index376.read_text(encoding="utf-8"), flags=re.DOTALL)
+        for _pm376 in re.finditer(r"data-action\s*=\s*['\"]([A-Za-z][\w:-]*)['\"]", _html376):
+            _producers376.setdefault(_pm376.group(1), "index.html")
+        for _f376 in sorted((ROOT / "js").glob("*.js")):
+            _t376 = re.sub(r"//[^\n]*", "", _f376.read_text(encoding="utf-8"))
+            for _pat376 in (r"data-action\s*=\s*['\"]([A-Za-z][\w:-]*)['\"]",
+                            r"['\"]data-action['\"]\s*:\s*['\"]([A-Za-z][\w:-]*)['\"]"):
+                for _pm376b in re.finditer(_pat376, _t376):
+                    _producers376.setdefault(_pm376b.group(1), str(_f376.relative_to(ROOT)))
+        _unresolved376 = sorted(
+            f"{_a376} ({_producers376[_a376]})" for _a376 in _producers376 if _a376 not in _hkeys376
+        )
+        check(
+            bool(_hkeys376) and bool(_producers376) and not _unresolved376,
+            f"Check 376: 全 data-action producer ({len(_producers376)} 種) が ActionDelegator handler ({len(_hkeys376)} key) に解決 (silent no-op 防止)",
+            f"Check 376: data-action が ActionDelegator handler に未解決: {_unresolved376} — "
+            "ActionDelegator は未登録 action で silent no-op になるため typo が全 gate を素通りして "
+            "ボタンが無反応化する。js/aidk-rails.js の ActionDelegator _handlers に該当 action を追加するか、"
+            "producer 側の data-action の typo を修正せよ"
+            if (_hkeys376 and _producers376) else
+            "Check 376: ActionDelegator の _handlers キーまたは data-action producer を parse できない (構造変更の可能性)",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 376: js/aidk-rails.js and index.html present",
+              "Check 376: js/aidk-rails.js または index.html が無い — data-action の handler 解決を検証できない", blocking=True)
