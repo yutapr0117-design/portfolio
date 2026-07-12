@@ -113,3 +113,27 @@ test('Command palette navigates to the Markdown notes app', async ({ page }) => 
   await expect(page.locator('#notes-input')).toBeVisible();
   await expect(page.locator('#command-palette-host')).toHaveAttribute('aria-hidden', 'true');
 });
+
+// ===== WAI-ARIA combobox: aria-activedescendant が arrow 移動に同期 (a11y regression) =====
+// cmdk は focus を input に留めたまま ↑↓ で listbox を操作する combobox パターン。SR が active
+// option をアナウンスするには input の aria-activedescendant が active option の id へ同期していな
+// ければならない (option の aria-selected 単独では focus が移らず一部 SR で読み上げられない)。
+// 本テストは open 直後に先頭 option (cmdk-opt-0) を指し、ArrowDown で cmdk-opt-1 へ同期することを
+// 検証する。fix (aria-activedescendant 同期) を戻すと属性が更新されず RED になる non-vacuous ガード。
+test('Command palette input tracks active option via aria-activedescendant', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  const cmdInput = page.locator('.cmdk-input');
+  await page.keyboard.press('Control+k');
+  await expect(page.locator('#command-palette-host')).toHaveAttribute('aria-hidden', 'false');
+  // combobox セマンティクスが配線されている
+  await expect(cmdInput).toHaveAttribute('role', 'combobox');
+  await expect(cmdInput).toHaveAttribute('aria-controls', 'cmdk-listbox');
+  // 描画直後は先頭 option が active
+  await expect(cmdInput).toHaveAttribute('aria-activedescendant', 'cmdk-opt-0');
+  // ArrowDown で 2 番目の option へ active が移り、activedescendant も同期する
+  await page.keyboard.press('ArrowDown');
+  await expect(cmdInput).toHaveAttribute('aria-activedescendant', 'cmdk-opt-1');
+  // 指し先の option が実在し aria-selected=true である (dangling id 参照でない)
+  await expect(page.locator('#cmdk-opt-1')).toHaveAttribute('aria-selected', 'true');
+});
