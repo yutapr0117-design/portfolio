@@ -731,6 +731,12 @@ _MUTATIONS_TAIL = [
         "find": 'data-action="drawer:open"',
         "replace": 'data-action="drawr:open"',
     },
+    {
+        "name": "Check 377 (非 app route.name → main.js case): main.js の case 'project-detail' を typo → router が解決する route が silent 404 化 (project-detail は Check 58 除外ゆえ 377 を isolate)",
+        "file": ROOT / "main.js",
+        "find": "case 'project-detail':",
+        "replace": "case 'project-detailX':",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。

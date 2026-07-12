@@ -2,11 +2,13 @@
 checks_app_route.py — app-route whitelist coherence-mesh checks
 (extracted from check_repository_consistency.py — check.py split track・category "app-route mesh").
 
-This module owns the contiguous cluster of Checks 136-140 that hold the SPA's app-route
+This module owns the cluster of Checks 136-140 (plus 377) that hold the SPA's app-route
 whitelist (js/router.js `[...].includes(app)`) as the single source of truth and machine-enforce
 that every producer/consumer of the app list stays in agreement: store.js demoRoute (136),
 main.js render switch (137), Sidebar app-nav (138), AppsPage app index (139), and the Settings
-demo selector (140). Each Check reads its own target files directly (js/router.js, main.js,
+demo selector (140). Check 377 extends the same router→main.js coherence edge to NON-app routes:
+every literal route.name the router's _parseRoute produces resolves to a main.js render case (the
+non-app twin of 137's app-route edge). Each Check reads its own target files directly (js/router.js, main.js,
 js/components.js, js/settings-page.js) via Path.read_text(); none depends on the monolith's
 global html/style/mainjs content, so the cluster is self-contained and needs no ctx enrichment.
 Every local is `_NNN`-suffixed and confined to its section.
@@ -63,6 +65,20 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        the demo selector block, parses its non-empty `value: '<app>'` options, and asserts they equal the
        router whitelist (the empty "Demoなし" option is allowed), so every routable app stays selectable
        as a project demo. (BLOCKING)
+  377. Non-app route.name ↔ main.js render switch coherence: router.js _parseRoute() resolves each
+       URL hash to a literal route.name (route.name = '<name>' for projects/about/resume/quiz/
+       hiring-risk/ai-knowhow/role-split/settings/contact/apps/not-found + the initial name: 'home'),
+       and main.js's renderer switch consumes it via `case '<name>':`. Check 137 is the app-route
+       (`app-<app>`) twin of this edge, but the NON-app route.names are only tied INDIRECTLY through
+       Check 58 (main.js cases ⟺ e2e ALL_ROUTES). So adding a new router route (e.g.
+       route.name = 'blog') while forgetting BOTH the main.js `case 'blog':` AND the e2e ALL_ROUTES
+       entry leaves every Check green (Check 58 stays set-equal on the old set) yet makes /#/blog fall
+       through the switch default to NotFoundPage — a SILENT 404 for a route the router itself
+       resolves. This Check parses every literal route.name the router produces (the `route.name =
+       '<name>'` assignments + the initial `name: '<name>'`; the dynamic `app-${app}` names are Check
+       137's domain and excluded) and asserts each has a matching main.js `case '<name>':`, making
+       "router resolves route X ⟹ main.js can render X" a directly enforced invariant for non-app
+       routes (the missing non-app edge of the route coherence mesh 58/137). (BLOCKING)
 """
 import re
 
@@ -253,3 +269,41 @@ def run(ctx):
     else:
         check(False, "Check 140: js/settings-page.js and js/router.js present",
               "Check 140: js/settings-page.js または js/router.js が無い — Settings demo selector coverage を検証できない", blocking=True)
+
+    # ── 377. Non-app route.name ↔ main.js render switch coherence (BLOCKING) ────────
+    # router.js _parseRoute() は URL hash を literal route.name に解決し (route.name = '<name>' for
+    # projects/about/resume/quiz/hiring-risk/ai-knowhow/role-split/settings/contact/apps/not-found +
+    # 初期 name: 'home')、main.js の renderer switch が `case '<name>':` で受ける。Check 137 は
+    # app-route (`app-<app>`) 版のこの edge だが、非 app route.name は Check 58 (main.js cases ⟺ e2e
+    # ALL_ROUTES) 経由でしか間接的に縛られない。ゆえに router に新 route (例 route.name = 'blog') を
+    # 足して main.js の `case 'blog':` と e2e ALL_ROUTES の両方を忘れると、全 Check 緑 (Check 58 は旧
+    # 集合で set-equal のまま) なのに /#/blog が switch default→NotFoundPage へ落ち silent に 404 化する
+    # (router 自身が解決する route なのに)。router が生成する全 literal route.name (`route.name =
+    # '<name>'` 代入 + 初期 `name: '<name>'`。動的 `app-${app}` は Check 137 の担当ゆえ除外) を parse し
+    # 各々が main.js `case '<name>':` を持つことを強制し、「router が route X を解決 ⟹ main.js が X を
+    # 描画可能」を非 app route に対し直接 invariant 化する (route coherence mesh 58/137 の欠けた非 app edge)。
+    _router377 = ROOT / "js" / "router.js"
+    _main377 = ROOT / "main.js"
+    if _router377.exists() and _main377.exists():
+        _rsrc377 = _router377.read_text(encoding="utf-8")
+        _msrc377 = _main377.read_text(encoding="utf-8")
+        # router literal route.name: `route.name = '<name>'` + 初期 route object の `name: '<name>'`
+        _rnames377 = set(re.findall(r"route\.name\s*=\s*'([a-z][a-z0-9-]*)'", _rsrc377))
+        _rnames377 |= set(re.findall(r"\bname:\s*'([a-z][a-z0-9-]*)'", _rsrc377))
+        # main.js switch case '<name>':
+        _mcases377 = set(re.findall(r"case\s+'([a-z][a-z0-9-]+)'\s*:", _msrc377))
+        # 動的 app-<app> route.name は Check 137 の担当ゆえ本 Check の対象外 (router は literal で持たない)
+        _missing377 = sorted(_n for _n in _rnames377 if _n not in _mcases377)
+        check(
+            bool(_rnames377) and bool(_mcases377) and not _missing377,
+            f"Check 377: router の全非 app route.name ({len(_rnames377)}) が main.js の case を持つ ({sorted(_rnames377)})",
+            f"Check 377: router route.name ↔ main.js switch drift — main.js に case 欠落 (silent 404): {_missing377} — "
+            "main.js renderer switch に `case '<name>': page = <Page>();` を追加せよ (router が解決する route が "
+            "default→NotFoundPage へ落ちる silent 404 を防ぐ・Check 137 の非 app 版)"
+            if (_rnames377 and _mcases377) else
+            "Check 377: router.js の route.name 代入または main.js の `case '<name>':` を parse できない (構造変更の可能性)",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 377: js/router.js and main.js present",
+              "Check 377: js/router.js または main.js が無い — 非 app route.name↔render case coherence を検証できない", blocking=True)

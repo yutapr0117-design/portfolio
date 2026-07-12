@@ -588,12 +588,14 @@ import checks_wiring as _checks_wiring
 _checks_wiring.run(_ctx)
 
 
-# ── 136-140. app-route whitelist coherence-mesh → checks_app_route.py ──
+# ── 136-140, 377. app-route whitelist coherence-mesh → checks_app_route.py ──
 # (check.py split track・category "app-route mesh". js/router.js の app whitelist を single
 #  source of truth に、demoRoute (136) / main.js render switch (137) / Sidebar app-nav (138) /
 #  AppsPage app index (139) / Settings demo selector (140) の全 producer/consumer 整合を強制。
-#  連続 self-contained クラスタ — 各 Check は対象 file を自前 read_text (no global content dep)。
-#  元の実行位置 (135 の後・141 の前) を保持。CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。)
+#  377 は同 router→main.js edge を非 app route.name へ拡張 (router の全 literal route.name ⟹
+#  main.js case・137 の非 app twin・silent 404 防止)。self-contained クラスタ — 各 Check は対象
+#  file を自前 read_text (no global content dep)。元の実行位置を保持。CHECK_SOURCE_FILES 登録で
+#  45/70/105 横断集約。)
 import checks_app_route as _checks_app_route
 _checks_app_route.run(_ctx)
 
