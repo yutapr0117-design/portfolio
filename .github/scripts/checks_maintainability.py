@@ -103,6 +103,18 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
        or gitignored noise. Prevents any future increment from silently
        re-bloating any doc, check module, workflow, or e2e spec beyond the
        threshold. (BLOCKING)
+  379. mutation_samples E2E_MUTATIONS `test`-field resolution: every E2E_MUTATIONS entry carries a
+       `test` field that mutation_probe's `--e2e` runner feeds to Playwright as a `-g` (grep)
+       pattern to select the behavior test that must catch the mutated bug. If that field is a typo
+       or names a since-renamed/deleted test, `playwright -g "<typo>"` matches ZERO tests and both
+       the baseline and mutated runs "pass" (0 tests ran) — so the mutation's non-vacuity validation
+       is silently disabled and the completeness-critic (the safety net's safety net) loses that
+       edge. Check 362 verifies each mutation's `find` ANCHOR resolves in the target file, but the
+       parallel `test`-name reference was unenforced, and mutation-probe-e2e is not run in CI so a
+       typo stays silent until someone runs it manually. This Check imports mutation_samples and
+       parses every e2e test title from e2e/*.spec.js, asserting each E2E_MUTATIONS `test` field is a
+       substring of a real test title — the e2e-title twin of Check 362's find-anchor resolution,
+       making "a mutation names a behavior test ⟹ that test exists" an enforced invariant. (BLOCKING)
 """
 import re
 
@@ -604,3 +616,39 @@ def run(ctx):
         )
     except Exception as _e365:
         warnings.append(f"Check 365: git ls-files 実行失敗 — capstone skipped ({_e365})")
+
+    # ── 379. mutation_samples E2E_MUTATIONS `test`-field resolution (BLOCKING) ─────
+    # E2E_MUTATIONS の各 entry は `test` フィールドを持ち、mutation_probe の --e2e runner がそれを
+    # Playwright の `-g` grep パターンとして渡し「mutated バグを捕捉すべき behavior test」を選ぶ。
+    # この test 名が typo / rename・削除済だと `playwright -g "<typo>"` が 0 test マッチし、baseline も
+    # mutated も「pass」(0 test 実行) になる — つまり その mutation の非 vacuity 検証が silent に無効化し、
+    # completeness-critic (安全網の安全網) がその edge を失う。Check 362 は各 mutation の `find` ANCHOR
+    # が対象 file に解決することを検証するが、並行する `test`-名参照は未強制で、mutation-probe-e2e は
+    # CI 非実行ゆえ typo は手動実行まで silent。本 Check は mutation_samples を import し e2e/*.spec.js の
+    # 全 test タイトルを parse して、各 E2E_MUTATIONS の `test` フィールドが実在タイトルの substring で
+    # あることを強制する (Check 362 の find-anchor resolution に対する e2e-title twin)。
+    try:
+        import importlib as _importlib379
+        _ms379 = _importlib379.import_module("mutation_samples")
+        _titles379 = []
+        for _spec379 in sorted((ROOT / "e2e").glob("*.spec.js")):
+            _src379 = _spec379.read_text(encoding="utf-8")
+            for _tm379 in re.finditer(r"""test\(\s*(['"])(.+?)\1""", _src379):
+                _titles379.append(_tm379.group(2))
+        _unresolved379 = []
+        for _m379 in _ms379.E2E_MUTATIONS:
+            _t379 = _m379.get("test", "")
+            if not _t379 or not any(_t379 in _title379 for _title379 in _titles379):
+                _unresolved379.append(f"{_m379['name'][:50]} → test='{_t379}'")
+        check(
+            bool(_titles379) and not _unresolved379,
+            f"Check 379: all {len(_ms379.E2E_MUTATIONS)} E2E_MUTATIONS `test` fields resolve to a real e2e test title ({len(_titles379)} titles)",
+            f"Check 379: E2E_MUTATIONS の `test` フィールドが実 e2e test にマッチしない: {_unresolved379[:5]} — "
+            "test 名の typo / rename・削除で `playwright -g` が 0 test マッチし mutation の非 vacuity 検証が "
+            "silent 無効化する。e2e/*.spec.js の実 test 名へ追従させよ (Check 362 の find-anchor の e2e-title 版)"
+            if _titles379 else
+            "Check 379: e2e/*.spec.js から test タイトルを parse できない (構造変更の可能性)",
+            blocking=True,
+        )
+    except ImportError as _e379:
+        warnings.append(f"Check 379: mutation_samples import failed ({_e379}) — test-field resolution skipped")
