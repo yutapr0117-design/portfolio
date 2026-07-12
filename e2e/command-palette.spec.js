@@ -137,3 +137,25 @@ test('Command palette input tracks active option via aria-activedescendant', asy
   // 指し先の option が実在し aria-selected=true である (dangling id 参照でない)
   await expect(page.locator('#cmdk-opt-1')).toHaveAttribute('aria-selected', 'true');
 });
+
+// ===== close 後に focus を起動元へ復元する (WCAG 2.4.3 focus order / a11y regression) =====
+// palette は open 時に lastFocused=document.activeElement を保持し、close 時に lastFocused.focus()
+// で直前 focus を復元する。open 時の focus-trap / restore は別テストが input への focus を見るが、
+// 「Esc で閉じた後に開く前の要素へ focus が戻る」復元経路は未カバーだった。復元を欠くと SR/keyboard
+// ユーザーは閉じた後に focus を失い body へ落ちる (文脈喪失)。常在の .skip-link を起動元 focus にし、
+// Ctrl+K→Esc 後に .skip-link へ focus が戻ることを検証する。close() の lastFocused.focus() を外すと
+// RED になる non-vacuous ガード。
+test('Command palette restores focus to the opener on close (a11y regression)', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  const opener = page.locator('.skip-link');
+  await opener.focus();
+  await expect(opener).toBeFocused();
+  // 開く → input へ focus が移る
+  await page.keyboard.press('Control+k');
+  await expect(page.locator('.cmdk-input')).toBeFocused();
+  // Esc で閉じる → 起動元 (.skip-link) へ focus が復元される
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#command-palette-host')).toHaveAttribute('aria-hidden', 'true');
+  await expect(opener).toBeFocused();
+});
