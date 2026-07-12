@@ -24,7 +24,7 @@ const A11Y_ROUTES = ['#/', '#/projects', '#/about', '#/contact', '#/resume', '#/
 // 本テストで違反ゼロを機械強制する rule の allowlist（= 既に render-neutral に修正済の rule）。
 // color-contrast / color-contrast-enhanced / heading-order / link-in-text-block 等の未修正
 // （baseline-gated or 別 increment）rule は analyze 結果に含まれても本 allowlist 外ゆえ無視する。
-const A11Y_RENDER_NEUTRAL_RULES = ['aria-valid-attr-value', 'select-name', 'button-name', 'label', 'page-has-heading-one', 'heading-order'];
+const A11Y_RENDER_NEUTRAL_RULES = ['aria-valid-attr-value', 'select-name', 'button-name', 'label', 'page-has-heading-one', 'heading-order', 'aria-allowed-attr', 'aria-required-attr', 'aria-roles', 'duplicate-id-aria', 'aria-required-children', 'aria-required-parent'];
 for (const route of A11Y_ROUTES) {
   test(`a11y axe: ${route} has no render-neutral critical violations`, async ({ page }) => {
     await page.goto(`/${route}`);
