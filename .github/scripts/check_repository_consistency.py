@@ -281,11 +281,12 @@ _checks_version.run(_ctx)
 import checks_file_aliases as _checks_file_aliases
 _checks_file_aliases.run(_ctx)
 
-# ── 6/73/101/103/135/174/321-323/344/356. style.css / CSS contract → checks_css.py ──
+# ── 6/73/101/103/135/174/321-323/344/356/378. style.css / CSS contract → checks_css.py ──
 # (check.py split track・first ctx-enrich module。style glob を _ctx.style 経由で消費。forced-colors/HCM/
 #  prefers-contrast a11y(101/103)/theme-color(174)/a11y-CWV attr(73)/@import·inline·@layer(321-323/344)/
-#  Google-Fonts CSP(356)/token baseline(6/135)。非連続・style 以外の cross-section 結合なし。6 位置で
-#  list 順連続実行。CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。)
+#  Google-Fonts CSP(356)/token baseline(6/135)/MOBILE_BREAKPOINT JS↔CSS coherence(378・constants.js も直読)。
+#  非連続・style 以外の cross-section 結合なし。6 位置で list 順連続実行。CHECK_SOURCE_FILES 登録で
+#  45/70/105 横断集約。)
 import checks_css as _checks_css
 _checks_css.run(_ctx)
 
