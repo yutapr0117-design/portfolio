@@ -689,6 +689,13 @@ _MUTATIONS_TAIL = [
         "find": "MOBILE_BREAKPOINT: 920,",
         "replace": "MOBILE_BREAKPOINT: 960,",
     },
+    # NOTE: Check 379 (E2E_MUTATIONS test-field resolution) には consistency mutation を登録しない。
+    # 本 Check は mutation_samples.py 自身の E2E_MUTATIONS `test` フィールドを検証するため、それを狙う
+    # mutation は「find 文字列が自 entry の find フィールドにも現れる」self-reference になり、
+    # mutation_probe の `replace(find, replace, 1)` (first-only) が実 E2E entry でなく自 mutation の find
+    # を先に打って実 target を無傷にする＝機能しない。ゆえに Check 379 の非 vacuity は手動検証で担保
+    # (実 test フィールドを replace-all で typo→check RED→保存コピーから復元。commit メッセージに記録)。
+    # 118 の Check が mutation 未保有ゆえ mutation 不在は規約違反ではない。
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。

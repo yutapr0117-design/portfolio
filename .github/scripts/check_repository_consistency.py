@@ -771,9 +771,11 @@ import checks_asset_resolve as _checks_asset_resolve
 _checks_asset_resolve.run(_ctx)
 
 
-# ── 361-364. maintainability/test-health checks → checks_maintainability.py ──
-# (extracted Phase 1 PoC. Registered in CHECK_SOURCE_FILES so self-integrity Checks 45/70/105
-#  aggregate its inventory + sections. Runs here — same position/order as before — via ctx.)
+# ── 52/71/361-365, 379. maintainability/test-health/file-size checks → checks_maintainability.py ──
+# (extracted Phase 1 PoC + joins. file-size governance (52/71) / js-leaf budget (361-363) /
+#  store ingestion array-op safety (364) / capstone ≤1000 (365) / E2E_MUTATIONS test-field
+#  resolution (379・Check 362 の e2e-title twin)。Registered in CHECK_SOURCE_FILES so self-integrity
+#  Checks 45/70/105 aggregate its inventory + sections. Runs here — same position/order — via ctx.)
 import checks_maintainability as _checks_maintainability
 _checks_maintainability.run(_ctx)
 
