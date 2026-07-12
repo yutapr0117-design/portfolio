@@ -902,4 +902,11 @@ E2E_MUTATIONS = [
         "replace": "        // quizSearch preserve removed (mutation)",
         "test": "Quiz search term persists across reload",
     },
+    {
+        "name": "behavior: pomodoro 休憩時間 live-update の喪失 (short 設定 onchange の remainingSec 即更新を除去 → 休憩モード idle で設定変更しても表示が古いまま・work との非対称)",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": "                                        if (!s.appsData.pomodoro.runtime.isActive && s.appsData.pomodoro.runtime.mode === 'short-break') {\n                                            s.appsData.pomodoro.runtime.remainingSec = s.appsData.pomodoro.settings.short * 60;\n                                        }\n",
+        "replace": "",
+        "test": "Pomodoro break-duration change updates the idle timer display",
+    },
 ]

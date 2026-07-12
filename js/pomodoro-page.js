@@ -230,6 +230,13 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
                                     min: 1, max: 60,
                                     onchange: (e) => State.update(s => {
                                         s.appsData.pomodoro.settings.short = clamp(parseInt(e.target.value, 10) || 5, 1, 60);
+                                        // [FIX] work 設定と対称: 短休憩モードで idle 中に短休憩時間を変えたら
+                                        // 表示中の remainingSec も即更新する。従来は work だけこの更新があり
+                                        // short/long は欠落していたため、短休憩/長休憩モードで idle 中に設定を
+                                        // 変えても表示が古い duration のまま (start すると旧設定長で始まる) 非対称だった。
+                                        if (!s.appsData.pomodoro.runtime.isActive && s.appsData.pomodoro.runtime.mode === 'short-break') {
+                                            s.appsData.pomodoro.runtime.remainingSec = s.appsData.pomodoro.settings.short * 60;
+                                        }
                                     })
                                 })
                             ),
@@ -243,6 +250,11 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
                                     min: 1, max: 120,
                                     onchange: (e) => State.update(s => {
                                         s.appsData.pomodoro.settings.long = clamp(parseInt(e.target.value, 10) || 15, 1, 120);
+                                        // [FIX] work 設定と対称 (short と同じ): 長休憩モードで idle 中に長休憩時間を
+                                        // 変えたら表示中の remainingSec も即更新する (従来 long は更新欠落だった)。
+                                        if (!s.appsData.pomodoro.runtime.isActive && s.appsData.pomodoro.runtime.mode === 'long-break') {
+                                            s.appsData.pomodoro.runtime.remainingSec = s.appsData.pomodoro.settings.long * 60;
+                                        }
                                     })
                                 })
                             )
