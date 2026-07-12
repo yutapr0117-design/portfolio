@@ -183,10 +183,12 @@ jobs:
       # Python triple-escaping caused SyntaxError in CI. The .py file has no escaping
       # issues and covers all canonical-version checks plus llms alias byte-identity,
       # CSP position, JS module bijection, AIO entity URL, CI permission baseline, and
-      # the full Check 1-71 inventory. v80+ CI hygiene: this is the SINGLE blocking
+      # the full Check inventory (all Checks — the current total is the single authority
+      # in total-check-runbook.md §9, enforced by Check 70; do NOT hardcode a range here,
+      # which drifts as Checks are added). v80+ CI hygiene: this is the SINGLE blocking
       # invocation of the script in this workflow (the historical step-30 duplicate
       # was removed). If new checks are added, they are picked up here automatically.
-      - name: "BLOCKING: Repository consistency check (Check 1-71, all canonical invariants)"
+      - name: "BLOCKING: Repository consistency check (all canonical invariants)"
         run: python3 .github/scripts/check_repository_consistency.py
 
       - name: Verify Async Font Loading (Core Web Vitals)
