@@ -188,3 +188,30 @@ test('Pomodoro completion uses the latest focus-duration setting changed mid-run
   // 修正前は stale 設定で 01:00 に戻っていた。修正後は最新の 02:00。
   await expect(timer).toHaveText('02:00');
 });
+
+
+// ===== 7.2: 休憩モードで idle 中に休憩時間を変更 → 表示が即更新される (work との対称性回帰) =====
+// 設定 onchange は work だけ「idle かつ mode 一致なら remainingSec を即更新」していたが short/long は
+// 欠落しており、短休憩/長休憩モードで idle 中に設定を変えても表示が古い duration のまま (start すると
+// 旧設定長で始まる) 非対称バグだった。短休憩モードで short を 10 分に変更し、表示が 05:00→10:00 へ即
+// 更新されることを検証する (修正前は 05:00 のままで fail＝非 vacuous)。work の live-update と対称化。
+test('Pomodoro break-duration change updates the idle timer display (symmetry with focus)', async ({ page }) => {
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+
+  const timer = page.locator('.font-mono.text-stat').first();
+  await expect(timer).toBeVisible();
+
+  // 短休憩モードへ (idle・既定 short=5 → 05:00)
+  await page.getByRole('button', { name: '短休憩', exact: true }).click();
+  await expect(timer).toHaveText('05:00');
+
+  // idle 中に短休憩時間を 10 分へ変更 → 表示が即 10:00 に更新される (修正前は 05:00 のまま)
+  const shortInput = page.getByLabel('短休憩時間（分）');
+  await shortInput.fill('10');
+  await shortInput.blur();
+  await expect(timer).toHaveText('10:00');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `pomodoro break-duration change caused a fatal: ${fatal}`).toBeNull();
+});
