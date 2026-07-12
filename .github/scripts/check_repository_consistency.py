@@ -577,12 +577,13 @@ import checks_behavioral as _checks_behavioral
 _checks_behavioral.run(_ctx)
 
 
-# ── 132-134, 375. shipped-asset & AIO wiring / discoverability → checks_wiring.py ──
+# ── 132-134, 375, 376. shipped-asset & AIO wiring / discoverability → checks_wiring.py ──
 # (check.py split track・category "wiring/discovery". AIO evidence↔sitemap discoverability (132) /
 #  aio-guard.js script wiring (133) / root-script wiring completeness (134) / createIcon name →
-#  icon-registry resolution (375・silent broken-icon 防止)。self-contained クラスタ (free-var ゼロ
-#  確認)・自前 read_text (no global content dep)。135 (stylesheet wiring) は global style 依存ゆえ
-#  monolith 残置。元の実行位置 (131 の後・135 の前) を保持。CHECK_SOURCE_FILES 登録。)
+#  icon-registry resolution (375・silent broken-icon 防止) / data-action → ActionDelegator handler
+#  resolution (376・silent no-op 防止)。self-contained クラスタ (free-var ゼロ確認)・自前 read_text
+#  (no global content dep)。135 (stylesheet wiring) は global style 依存ゆえ monolith 残置。
+#  元の実行位置 (131 の後・135 の前) を保持。CHECK_SOURCE_FILES 登録。)
 import checks_wiring as _checks_wiring
 _checks_wiring.run(_ctx)
 
