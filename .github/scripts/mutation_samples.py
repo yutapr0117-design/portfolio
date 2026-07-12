@@ -683,6 +683,12 @@ _MUTATIONS_TAIL = [
         "find": "case 'project-detail':",
         "replace": "case 'project-detailX':",
     },
+    {
+        "name": "Check 378 (MOBILE_BREAKPOINT JS↔CSS coherence): JS MOBILE_BREAKPOINT を CSS @media(920) から drift → sidebar+topbar 同時表示の broken responsive layout gap",
+        "file": ROOT / "js" / "constants.js",
+        "find": "MOBILE_BREAKPOINT: 920,",
+        "replace": "MOBILE_BREAKPOINT: 960,",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。

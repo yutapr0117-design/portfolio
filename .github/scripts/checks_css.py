@@ -2,8 +2,9 @@
 checks_css.py — style.css / CSS contract checks (glob-content: style)
 (extracted from check_repository_consistency.py — check.py split track・category "CSS contract"・first ctx-enrich module).
 
-Non-contiguous cluster of Checks 6/73/101/103/135/174/321/322/323/344/356 that read the pre-loaded
-`style.css` content (the monolith's `style` global). This is the FIRST split module to consume a
+Non-contiguous cluster of Checks 6/73/101/103/135/174/321/322/323/344/356/378 that read the pre-loaded
+`style.css` content (the monolith's `style` global). Check 378 also reads js/constants.js directly to
+enforce the JS↔CSS responsive-breakpoint coherence (MOBILE_BREAKPOINT ↔ sidebar-hide @media). This is the FIRST split module to consume a
 shared global-content value via ctx-enrichment: the monolith attaches `_ctx.style = style` after the
 globals load, and this module unpacks `style = ctx.style` in run(). Themes: forced-colors / HCM /
 prefers-contrast a11y support (101/103), theme-color literals (174), a11y/CWV attribute contract
@@ -110,6 +111,19 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        computed font-family). Font twin of Check 354/355 (script CSP).
        Sibling of Check 301 (Google Fonts preconnect) for the
        external-font CSP-authorization axis. (BLOCKING)
+  378. MOBILE_BREAKPOINT (JS) ↔ style.css sidebar-hide media query coherence: the sidebar→drawer
+       responsive switch is encoded in TWO layers that must agree. js/mobile-drawer.js decides
+       isMobile via `window.matchMedia('(max-width: ${CONSTANTS.MOBILE_BREAKPOINT}px)')` and shows the
+       mobile topbar (with the drawer menu button) when it matches; style.css hides the desktop
+       sidebar via `@media (max-width: <N>px) { .sidebar { display: none } }`. When
+       MOBILE_BREAKPOINT and the CSS breakpoint drift (e.g. someone bumps the JS constant to 960 but
+       leaves the CSS at 920), there is a viewport-width band where JS shows the topbar while CSS
+       still shows the sidebar (both visible = broken responsive layout) or vice-versa — and no gate
+       catches it (behavior e2e does not diff layout at breakpoints; the screenshot is advisory).
+       This Check parses CONSTANTS.MOBILE_BREAKPOINT and the max-width of the unique
+       `.sidebar { display: none }` media query and asserts they are equal, making the JS↔CSS
+       breakpoint a single coherent value (the JS↔CSS cross-layer twin of the magic-number
+       single-source Checks 368/369/370). (BLOCKING)
 
 """
 import re
@@ -431,3 +445,51 @@ def run(ctx):
     else:
         check(False, "Check 356: index.html present",
               "Check 356: index.html が無い", blocking=True)
+
+    # ── 378. MOBILE_BREAKPOINT (JS) ↔ style.css sidebar-hide media query coherence (BLOCKING) ──
+    # sidebar→drawer レスポンシブ切替は 2 レイヤに二重エンコードされ一致必須。js/mobile-drawer.js は
+    # `matchMedia('(max-width: ${CONSTANTS.MOBILE_BREAKPOINT}px)')` で isMobile を判定し mobile topbar
+    # (drawer メニューボタン) を表示、style.css は `@media (max-width: Npx) { .sidebar { display: none } }`
+    # で desktop sidebar を隠す。MOBILE_BREAKPOINT と CSS breakpoint が drift すると (JS 定数を 960 に
+    # したが CSS を 920 のまま等)、JS が topbar を出すのに CSS が sidebar を残す (両表示=broken layout)
+    # viewport 幅帯が生じ、どの gate も捕捉しない (behavior e2e は breakpoint 幅のレイアウトを diff せず
+    # screenshot は advisory)。CONSTANTS.MOBILE_BREAKPOINT と唯一の `.sidebar { display: none }` media
+    # query の max-width を parse し一致を強制する (magic-number single-source Check 368/369/370 の
+    # JS↔CSS cross-layer twin)。
+    _cjs378 = ROOT / "js" / "constants.js"
+    if _cjs378.exists() and style:
+        _mb378 = re.search(r"MOBILE_BREAKPOINT:\s*(\d+)", _cjs378.read_text(encoding="utf-8"))
+        _mbv378 = int(_mb378.group(1)) if _mb378 else None
+        # .sidebar { display: none } を含む @media (max-width: Npx) ブロックの N を集める
+        _css_bp378 = []
+        for _mm378 in re.finditer(r"@media[^{]*\(max-width:\s*(\d+)px\)[^{]*\{", style):
+            _n378 = int(_mm378.group(1))
+            _i378 = style.find("{", _mm378.start())
+            _d378 = 0
+            _body378 = ""
+            for _k378 in range(_i378, len(style)):
+                if style[_k378] == "{":
+                    _d378 += 1
+                elif style[_k378] == "}":
+                    _d378 -= 1
+                    if _d378 == 0:
+                        _body378 = style[_i378:_k378 + 1]
+                        break
+            if re.search(r"\.sidebar\s*\{[^}]*display:\s*none", _body378):
+                _css_bp378.append(_n378)
+        _ok378 = (_mbv378 is not None) and (_css_bp378 == [_mbv378])
+        check(
+            _ok378,
+            f"Check 378: CONSTANTS.MOBILE_BREAKPOINT ({_mbv378}) == style.css sidebar-hide media query (max-width: {_mbv378}px)",
+            f"Check 378: MOBILE_BREAKPOINT ↔ CSS breakpoint drift — JS MOBILE_BREAKPOINT={_mbv378} / "
+            f"CSS .sidebar display:none breakpoints={_css_bp378}。両者は同一 breakpoint (sidebar→drawer 切替) を "
+            "二重にエンコードしており、drift すると JS の topbar 表示 (matchMedia MOBILE_BREAKPOINT) と CSS の "
+            "sidebar 非表示 (@media max-width) が食い違い sidebar と topbar が同時表示される broken responsive "
+            "layout になる。js/constants.js の MOBILE_BREAKPOINT と style.css の @media を一致させよ (Check 370 の JS↔CSS 版)"
+            if (_mbv378 is not None and _css_bp378) else
+            "Check 378: MOBILE_BREAKPOINT または .sidebar{display:none} を含む @media (max-width) を parse できない (構造変更の可能性)",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 378: js/constants.js present and style loaded",
+              "Check 378: js/constants.js が無いか style.css 未ロード — MOBILE_BREAKPOINT↔CSS coherence を検証できない", blocking=True)
