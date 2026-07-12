@@ -2,11 +2,13 @@
 checks_wiring.py — shipped-asset & AIO wiring / discoverability checks
 (extracted from check_repository_consistency.py — check.py split track・category "wiring/discovery").
 
-This module owns the contiguous cluster of Checks 132-134 that assert shipped assets and AIO
+This module owns the cluster of Checks 132-134 (plus 375) that assert shipped assets and AIO
 evidence are actually wired up and discoverable (not merely present): AIO evidence ↔ sitemap
-discoverability (132), aio-guard.js `<script src>` wiring (133), and root-script wiring
-completeness (134). Each Check reads its own target files directly (index.html, sitemap.xml,
-aio-manifest.json) via Path.read_text(); a free-variable analysis confirms zero external `_`-vars
+discoverability (132), aio-guard.js `<script src>` wiring (133), root-script wiring
+completeness (134), and shipped-JS createIcon name → icon-registry resolution (375, the
+"used icon name ⟹ it is actually defined" wiring twin of 133/134's "file exists ⟹ wired").
+Each Check reads its own target files directly (index.html, sitemap.xml,
+aio-manifest.json, js/*.js) via Path.read_text(); a free-variable analysis confirms zero external `_`-vars
 and no global html/style/mainjs dependency, so the cluster is self-contained and needs no ctx
 enrichment. NOTE: Check 135 (stylesheet wiring) is the natural sibling but reads the global
 `style` content, so it stays in the monolith until a ctx-enrich phase.
@@ -47,6 +49,18 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        hash), and aio-guard.js is covered by Check 133. This makes "root script file exists ⟹ it is
        wired into index.html" an enforced invariant for the remaining external root scripts.
        (BLOCKING)
+  375. Shipped-JS createIcon name → icon-registry resolution: createIcon(name) (js/ui-components.js)
+       looks up getIcons()[name] and, when the name is not a registry key, SILENTLY returns an empty
+       text node — no throw, no console error, no e2e failure. A typo'd icon name (e.g.
+       createIcon('lightbub') or a data field icon: 'trsah') therefore renders an invisible icon on
+       an icon-only button (delete/close/menu affordances vanish) and slips past verify AND the
+       behavior e2e AND the advisory screenshot. This is the same silent-wiring class as 133/134
+       ("file exists ⟹ it is wired") applied to icon usage ("an icon name is used ⟹ it is actually
+       defined"). This Check parses the getIcons() object's registry keys and every literal icon name
+       reaching createIcon — both direct `createIcon('X')` calls and the `icon: 'X'` data fields that
+       flow through `createIcon(item.icon)` / `createIcon(app.icon)` — across shipped JS (js/*.js) and
+       asserts each resolves to a registry key, making "icon name used ⟹ defined" an enforced
+       invariant so a typo can never silently blank an icon. (BLOCKING)
 """
 import re
 import json
@@ -144,3 +158,60 @@ def run(ctx):
     else:
         check(False, "Check 134: index.html present",
               "Check 134: index.html が無い — root script の配線を検証できない", blocking=True)
+
+    # ── 375. Shipped-JS createIcon name → icon-registry resolution (BLOCKING) ──────
+    # createIcon(name) (js/ui-components.js) は getIcons()[name] を引き、name が registry key で
+    # ないとき silent に空 text node を返す (throw も console error も e2e 失敗も無い)。typo した
+    # icon 名 (createIcon('lightbub') や data field icon: 'trsah') は icon-only ボタン (削除/閉じる/
+    # メニュー) のアイコンを不可視化するのに verify も behavior e2e も advisory screenshot も素通り
+    # する。133/134 の「file 存在 ⟹ 配線済」と同じ silent-wiring class を icon 使用面 (「icon 名が
+    # 使われる ⟹ 実際に定義済」) に適用する。getIcons() の registry key と、createIcon へ届く全
+    # literal icon 名 (直接 `createIcon('X')` 呼び出し + `createIcon(item.icon)`/`createIcon(app.icon)`
+    # へ流れる data field `icon: 'X'`) を shipped JS (js/*.js) から parse し、各々が registry key に
+    # 解決することを強制する。
+    _uic375 = ROOT / "js" / "ui-components.js"
+    if _uic375.exists():
+        _uicsrc375 = _uic375.read_text(encoding="utf-8")
+        # getIcons() 関数本体を brace-balance で抽出し、registry key (obj の `key:` / `'key':`) を集める
+        _gm375 = re.search(r"function\s+getIcons\s*\(\s*\)\s*\{", _uicsrc375)
+        _keys375 = set()
+        if _gm375:
+            _gi375 = _uicsrc375.find("{", _gm375.start())
+            _gd375 = 0
+            _gbody375 = ""
+            for _gk375 in range(_gi375, len(_uicsrc375)):
+                _gc375 = _uicsrc375[_gk375]
+                if _gc375 == "{":
+                    _gd375 += 1
+                elif _gc375 == "}":
+                    _gd375 -= 1
+                    if _gd375 == 0:
+                        _gbody375 = _uicsrc375[_gi375:_gk375 + 1]
+                        break
+            # 各 key は `name: '<svg .../>'` または `'na-me': '...'` 形式で SVG 文字列値を持つ
+            _keys375 = set(re.findall(r"['\"]?([A-Za-z][\w-]*)['\"]?\s*:\s*['\"`]", _gbody375))
+        # shipped JS 全体から createIcon への literal icon 名を収集 (直接呼び出し + icon: data field)
+        _used375 = {}  # name -> "file" (最初の出現 file を記録)
+        for _f375 in sorted((ROOT / "js").glob("*.js")):
+            _t375 = _f375.read_text(encoding="utf-8")
+            for _pat375 in (r"createIcon\(\s*['\"]([A-Za-z][\w-]*)['\"]",
+                            r"\bicon\s*:\s*['\"]([A-Za-z][\w-]*)['\"]"):
+                for _mm375 in re.finditer(_pat375, _t375):
+                    _used375.setdefault(_mm375.group(1), str(_f375.relative_to(ROOT)))
+        _unresolved375 = sorted(
+            f"{_n375} ({_used375[_n375]})" for _n375 in _used375 if _n375 not in _keys375
+        )
+        check(
+            bool(_keys375) and not _unresolved375,
+            f"Check 375: shipped JS の全 literal icon 名 ({len(_used375)} 種) が getIcons() registry ({len(_keys375)} key) に解決 (silent broken-icon 防止)",
+            f"Check 375: createIcon へ届く icon 名が registry に未定義: {_unresolved375} — "
+            "createIcon(name) は未定義 name で silent に空アイコンを返すため typo が全 gate を素通りして "
+            "アイコンが不可視化する。js/ui-components.js の getIcons() に該当 icon を追加するか、使用側の "
+            "名前の typo を修正せよ"
+            if _keys375 else
+            "Check 375: js/ui-components.js の getIcons() から registry key を parse できない (構造変更の可能性)",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 375: js/ui-components.js present",
+              "Check 375: js/ui-components.js が無い — createIcon の icon-registry 解決を検証できない", blocking=True)

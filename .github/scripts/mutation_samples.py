@@ -719,6 +719,12 @@ _MUTATIONS_TAIL = [
         "find": "                    State.set(Store.validateAndNormalize(merged));",
         "replace": "                    State.update(s => { Object.assign(s, Store.validateAndNormalize(merged)); });",
     },
+    {
+        "name": "Check 375 (createIcon icon-registry resolution): 既存 createIcon('trash') を未定義 name へ typo → silent 空アイコン wiring gap (icon-only ボタンが不可視化)",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                                        }, createIcon('trash', 14))",
+        "replace": "                                        }, createIcon('trsah', 14))",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。
