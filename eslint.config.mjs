@@ -168,6 +168,8 @@ export default [
       'no-unsafe-negation': 'error',            // `!key in obj` / `!a instanceof B`（`!`の作用域誤り）
       'no-compare-neg-zero': 'error',           // `x === -0`（=== は -0 と 0 を区別しない＝意図不達）
       'no-async-promise-executor': 'error',     // `new Promise(async …)`（executor 内 reject が握り潰される）
+      'no-useless-catch': 'error',              // try/catch が例外をそのまま再 throw するだけ（無意味・recommended）
+      'no-unreachable-loop': 'error',           // ループ本体が必ず break/return し 1 回しか回らない（ロジック事故・recommended）
       // ── recommended pure bug-catcher 追補 第2弾（research: eslint.org 現行 recommended で verify-currency・2026-06-22）──
       // 上記 #187 の 8 件に続き、eslint:recommended の「Possible Problems」中の純粋 bug-catcher で
       // 本 config 未登録のものを追補。導入時点で全対象に新規 error/warning 0 件＝件数の真値不変（実測確認）。
