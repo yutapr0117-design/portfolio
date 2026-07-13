@@ -62,6 +62,14 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
       キーワードが含まれていることを機械強制する。これは「factory として抽出した経緯」を
       後続 AI / 人間レビュアーが file 単体を読むだけで認識できることを保証し、抽出経緯の
       ドキュメント drift を構造的に閉じる。(BLOCKING)
+  381. main.js js/ static import ⟹ _modules47 registration: Check 47 は _modules47 を反復して
+      「_modules47 ⟹ main.js import」方向を強制するが、逆方向（main.js が静的 import する js/
+      モジュール ⟹ _modules47 登録）は未強制だった。この非対称ゆえ、葉抽出で新モジュールを
+      main.js import + lint + modulepreload に足しても _modules47 への追加を忘れると Check 57
+      （preload↔_modules47）/ 61（factory doc）が被覆せず、modulepreload 漏れ（初期ロード
+      waterfall 遅延）が silent 発生する（#706 で 9 モジュールがこの drift で漏れていた）。main.js の
+      `from './js/X.js'` 集合 ⊆ _modules47 を強制し、Check 57 の「登録 ⟹ modulepreloaded」と合わせ
+      「import ⟹ preloaded」loop を構造的に閉じ再発防止する。(BLOCKING)
 """
 import re
 
@@ -392,4 +400,29 @@ def run(ctx):
         f"Check 61: factory-pattern modules missing 'factory pattern' marker in docstring: "
         f"{_doc_drift61} — add a header comment noting that the module uses the factory pattern, "
         f"for the benefit of future readers (AI or human).",
+    )
+
+    # ── 381. main.js js/ static import ⟹ _modules47 registration (BLOCKING) ────────
+    # Check 47 は _modules47 を反復して「_modules47 の各モジュールを main.js が import する」
+    # 方向を強制するが、逆方向（main.js が静的 import する js/ モジュールが _modules47 に登録
+    # 済み）は未強制だった。この非対称ゆえ、葉抽出で新モジュールを main.js import + lint +
+    # modulepreload に足しても _modules47 への追加を忘れると、Check 57（preload ↔ _modules47）と
+    # Check 61（factory doc）が新モジュールを被覆せず、かつ modulepreload 漏れ（初期ロード
+    # waterfall 遅延）が silent に発生する（#706 で実際に 9 モジュールがこの drift で漏れていた）。
+    # 本 Check は main.js の `from './js/X.js'` 静的 import 集合が _modules47 の登録集合の部分集合で
+    # あることを強制し「main.js が import ⟹ _modules47 登録済み」を機械化する。Check 57 の
+    # 「_modules47 登録 ⟹ modulepreload 済み」と合わせ「import ⟹ preloaded」loop を構造的に閉じ、
+    # #706 の drift class の再発を防ぐ。
+    _imports381 = set(re.findall(r"from\s+['\"]\./(js/[^'\"]+\.js)['\"]", _main_src47))
+    _registered381 = {spec.replace("./", "") for spec, _ in _modules47}
+    _unregistered381 = sorted(_imports381 - _registered381)
+    check(
+        bool(_imports381) and not _unregistered381,
+        f"Check 381: all {len(_imports381)} js/ modules main.js statically imports are registered "
+        f"in _modules47 (import ⟹ registered; with Check 57 closes import ⟹ modulepreloaded)",
+        f"Check 381: main.js imports js/ modules absent from _modules47: {_unregistered381} — "
+        f"add them to _modules47 in checks_esm.py (and their modulepreload in index.html per Check 57) "
+        f"so leaf extraction cannot silently drop modulepreload (#706 drift class)"
+        if _imports381 else
+        "Check 381: main.js から js/ 静的 import を抽出できない (import 構造の変更を確認せよ)",
     )

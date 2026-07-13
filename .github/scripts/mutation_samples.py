@@ -696,6 +696,12 @@ _MUTATIONS_TAIL = [
     # を先に打って実 target を無傷にする＝機能しない。ゆえに Check 379 の非 vacuity は手動検証で担保
     # (実 test フィールドを replace-all で typo→check RED→保存コピーから復元。commit メッセージに記録)。
     # 118 の Check が mutation 未保有ゆえ mutation 不在は規約違反ではない。
+    {
+        "name": "Check 381 (main.js import ⟹ _modules47 registration): checks_esm.py の _modules47 から command-palette.js 登録行を除去 → main.js が静的 import するのに未登録 = modulepreload 漏れ drift (#706 class) を Check 381/57 mesh が捕捉。checks_esm.py は mutation_samples.py と別 file ゆえ self-reference trap 無し",
+        "file": ROOT / ".github" / "scripts" / "checks_esm.py",
+        "find": '        ("./js/command-palette.js",       ROOT / "js" / "command-palette.js"),\n',
+        "replace": "",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。
