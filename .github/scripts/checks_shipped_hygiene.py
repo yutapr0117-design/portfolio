@@ -114,8 +114,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        参照されることを BLOCKING 強制。両ファイルが同じ既定値を独立に持つと片方だけ
        変更した際に既定状態が silently drift する (Check 369 の履歴上限と同型の
        cross-file default-object drift class)。定数化して単一ソースへ集約した後、
-       本 Check が `work: 25` / `remainingSec: 1500` / `|| 1500` マジックの再注入を
-       構造的に禁止する。(BLOCKING)
+       本 Check が `work: 25` / `remainingSec: 1500` / `|| 1500` (runtime) および settings
+       normalize clamp fallback `settings.work) || 25` / `settings.short) || 5` /
+       `settings.long) || 15` マジックの再注入を構造的に禁止する。(BLOCKING)
 
 """
 import re
@@ -594,13 +595,19 @@ def run(ctx):
     # 同じ既定値を独立に持っていた。片方だけ変更すると既定状態が silently drift する (Check 369 の
     # 履歴上限と同型の cross-file default-object drift class)。POMODORO_DEFAULT_SETTINGS /
     # POMODORO_DEFAULT_REMAINING_SEC に定数化して単一ソースへ集約した後、本 Check が
-    # `work: 25` / `remainingSec: 1500` / `|| 1500` マジックの再注入を BLOCKING で防ぐ。
+    # `work: 25` / `remainingSec: 1500` / `|| 1500` (runtime) および settings normalize clamp
+    # fallback `settings.work) || 25` / `settings.short) || 5` / `settings.long) || 15` マジックの
+    # 再注入を BLOCKING で防ぐ (runtime remainingSec は POMODORO_DEFAULT_REMAINING_SEC を参照するのに
+    # settings fallback だけ magic が残っていた非対称 gap を後から閉じた)。
     # 注: 共有定数オブジェクトの参照共有 mutation を避けるため利用側は必ず spread する
     # ({ ...CONSTANTS.POMODORO_DEFAULT_SETTINGS })。
     _pomo_magic370 = [
-        r"work:\s*25\b",              # settings {work:25,...} リテラルの再注入
-        r"remainingSec:\s*1500\b",    # runtime 既定 remainingSec の再注入
-        r"\|\|\s*1500\b",             # normalize clamp fallback の再注入
+        r"work:\s*25\b",                       # settings {work:25,...} リテラルの再注入
+        r"remainingSec:\s*1500\b",             # runtime 既定 remainingSec の再注入
+        r"\|\|\s*1500\b",                      # runtime remainingSec normalize clamp fallback の再注入
+        r"settings\.work\)\s*\|\|\s*\d",       # settings.work normalize clamp fallback magic (|| 25) の再注入
+        r"settings\.short\)\s*\|\|\s*\d",      # settings.short normalize clamp fallback magic (|| 5) の再注入
+        r"settings\.long\)\s*\|\|\s*\d",       # settings.long normalize clamp fallback magic (|| 15) の再注入
     ]
     _pomo_files370 = [ROOT / "js" / "state.js", ROOT / "js" / "store.js"]
     _pomo_violations370: list[str] = []
