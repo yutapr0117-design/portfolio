@@ -20,7 +20,9 @@
  *   - defaultProfile / defaultProjects / defaultAppsData の各 default 値は文字列まで byte-equivalent
  *   - localStorage schema (key 'portfolio_enhanced_v45') は不変
  *   - LIMITS による slice 上限・validateAndNormalize の挙動は不変
- *   - autoRelatedCandidates のローカル tokenizeForSimilarity も byte-equivalent
+ *   - autoRelatedCandidates のローカル tokenizeForSimilarity は抽出時点では byte-equivalent
+ *     だったが、後の品質 fix で CJK run を bigram 分割するよう意図的に変更した
+ *     (日本語 textScore が silently 無効だった defect の是正・関数内 [FIX] コメント参照)
  */
 export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone, slugify, sanitizeUrl, clamp }) {
     // Default Data
@@ -377,10 +379,27 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
     // ===== Similarity-based recommendations (v2 feature, adapted) =====
     function tokenizeForSimilarity(s) {
         const str = String(s || '');
-        const parts = (str.match(/[A-Za-z0-9]+|[\u3040-\u30ff\u4e00-\u9fff]+/g) || [])
-            .map(x => x.toLowerCase().trim())
-            .filter(x => x.length >= 2);
-        return Array.from(new Set(parts)).slice(0, 200);
+        const runs = str.match(/[A-Za-z0-9]+|[\u3040-\u30ff\u4e00-\u9fff]+/g) || [];
+        const tokens = [];
+        for (const run of runs) {
+            const w = run.toLowerCase().trim();
+            if (!w) { continue; }
+            if (/[\u3040-\u30ff\u4e00-\u9fff]/.test(w)) {
+                // [FIX] CJK run は overlapping bigram (2-gram) に分割する (library-free CJK indexing)。
+                // 従来は連続 CJK を 1 トークンに丸めていたため、日本語プロジェクト間で埋め込まれた語
+                // (例「設計判断」内の「設計」) が一致せず textScore (similarityScore の重み 0.15) が
+                // 日本語で silently 死んでいた (crash ではないが主対象言語で類似度成分が無効)。形態素
+                // 解析ライブラリは C1 (外部ライブラリ禁止) ゆえ使えないため、検索エンジンでも標準の
+                // CJK bigram 索引で部分一致を可能にする。長さ 1 の CJK は従来同様 skip。
+                for (let i = 0; i + 2 <= w.length; i++) {
+                    tokens.push(w.slice(i, i + 2));
+                }
+            } else if (w.length >= 2) {
+                // Latin / 数字は語単位のまま (従来挙動)。
+                tokens.push(w);
+            }
+        }
+        return Array.from(new Set(tokens)).slice(0, 200);
     }
 
     function jaccard(a, b) {
