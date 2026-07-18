@@ -513,10 +513,15 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
         // Pomodoro
         if (data.pomodoro) {
             if (data.pomodoro.settings) {
+                // [FIX] 既定値フォールバックはマジック 25/5/15 でなく単一ソース定数を参照する。
+                // 従来は magic literal で、CONSTANTS.POMODORO_DEFAULT_SETTINGS を変更しても normalize
+                // 側が追従せず既定値が silently drift しえた (runtime remainingSec 側は既に
+                // POMODORO_DEFAULT_REMAINING_SEC を参照しており、settings 側だけ残っていた非対称)。
+                // Check 370 が settings fallback magic の再注入も構造封じ。
                 result.pomodoro.settings = {
-                    work: clamp(Number(data.pomodoro.settings.work) || 25, 1, 180),
-                    short: clamp(Number(data.pomodoro.settings.short) || 5, 1, 60),
-                    long: clamp(Number(data.pomodoro.settings.long) || 15, 1, 120)
+                    work: clamp(Number(data.pomodoro.settings.work) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.work, 1, 180),
+                    short: clamp(Number(data.pomodoro.settings.short) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.short, 1, 60),
+                    long: clamp(Number(data.pomodoro.settings.long) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.long, 1, 120)
                 };
             }
             // [FIX] Array.isArray ガード必須。旧 `if (data.pomodoro.history)` は truthy 判定のみで、
