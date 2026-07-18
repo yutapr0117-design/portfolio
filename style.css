@@ -8,6 +8,10 @@
         /* ===== CSS Custom Properties - Design System ===== */
         @layer tokens {
         :root {
+            /* [FIX] color-scheme: native form control / scrollbar を現行テーマに追従させる。
+               無いと dark テーマでも input/scrollbar が light 描画になる視覚不整合が出る。
+               data-theme(手動切替)に合わせて上書きするため meta でなく CSS プロパティで宣言。 */
+            color-scheme: light;
             /* --- Color Palette --- */
             --color-primary-rgb: 99, 102, 241;
             /* Indigo */
@@ -118,6 +122,7 @@
         /* Dark Theme - High contrast and comfort */
         /* NOTE: --color-primary* は Brand が決める。テーマは背景・テキストのみ変更。 */
         [data-theme="dark"] {
+            color-scheme: dark;
             --bg-body: #020617;
             --bg-secondary: #0f172a;
             --bg-tertiary: #1e293b;
@@ -142,6 +147,7 @@
         /* System preference detection */
         @media (prefers-color-scheme: dark) {
             [data-theme="system"] {
+                color-scheme: dark;
                 --bg-body: #020617;
                 --bg-secondary: #0f172a;
                 --bg-tertiary: #1e293b;
