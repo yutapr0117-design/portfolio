@@ -307,7 +307,7 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
                 name: String(data.profile.name || store.profile.name).slice(0, CONSTANTS.LIMITS.PROJECT_NAME),
                 title: String(data.profile.title || store.profile.title).slice(0, CONSTANTS.LIMITS.CATEGORY),
                 bio: String(data.profile.bio || store.profile.bio).slice(0, 5000),
-                email: String(data.profile.email || store.profile.email),
+                email: String(data.profile.email || store.profile.email).slice(0, 254), // RFC 5321 の最大長。name/title/bio と同様に bound (import bloat 防止)
                 // schema 定義済みフィールドの取りこぼし防止 (従来 strip され import で消えていた)
                 github: safeUrl(data.profile.github, store.profile.github),
                 linkedin: safeUrl(data.profile.linkedin, store.profile.linkedin),
@@ -583,7 +583,10 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
                 .map(h => ({
                     ...h,
                     prompt: String(h.prompt).slice(0, CONSTANTS.LIMITS.AI_MESSAGE),
-                    response: String(h.response).slice(0, CONSTANTS.LIMITS.AI_MESSAGE)
+                    response: String(h.response).slice(0, CONSTANTS.LIMITS.AI_MESSAGE),
+                    // timestamp を数値化 (tasks.createdAt と同型)。corrupt/欠損 import で
+                    // AIPage の new Date(timestamp).toLocaleTimeString() が 'Invalid Date' 表示になるのを防ぐ。
+                    timestamp: Number(h.timestamp) || Date.now()
                 }))
                 .slice(-CONSTANTS.LIMITS.AI_HISTORY);
         }
