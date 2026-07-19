@@ -12,6 +12,11 @@
                無いと dark テーマでも input/scrollbar が light 描画になる視覚不整合が出る。
                data-theme(手動切替)に合わせて上書きするため meta でなく CSS プロパティで宣言。 */
             color-scheme: light;
+            /* [FIX] accent-color: native form control (checkbox/radio/range/progress) の
+               チェック色を既定青でなくブランド色 (--color-primary) に統一する。inherit する
+               ため :root で宣言すると全 form control へ波及し、Brand 切替 (indigo/classic) にも
+               追従する。todo 完了チェック・settings の import チェックが対象。 */
+            accent-color: var(--color-primary);
             /* --- Color Palette --- */
             --color-primary-rgb: 99, 102, 241;
             /* Indigo */
