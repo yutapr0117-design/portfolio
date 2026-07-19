@@ -7,7 +7,7 @@
     "MAX_THINKING_TOKENS": "31999"
   },
   "permissions": {
-    "defaultMode": "acceptEdits",
+    "defaultMode": "bypassPermissions",
     "allow": [
       "Read",
       "Glob",
