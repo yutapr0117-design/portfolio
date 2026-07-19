@@ -83,13 +83,22 @@ test('Homepage renders without console errors', async ({ page }) => {
   // テストインフラ起因のノイズで app-logic エラーではない。必須リソース欠落は render 系テスト
   // (h1 可視 / screenshot) が別途検出するため、ここでは除外して flake を排除する。
   const isEnvNoise = (e) => e.includes('Failed to load resource') || e.includes('net::');
+  // third-party ノイズ判定: KARTE (分析サービス) が connect-src 未登録の telemetry エンドポイント
+  // (例 client-log.karte.io/dd/metrics) へ接続を試み、CSP が正しくブロックすると console に CSP
+  // 違反エラーが出る。これは CSP がセキュリティ境界として意図どおり動作している結果であり (C7:
+  // KARTE 接続は CSP で制限する方針)、当サイトの app-logic バグではなく KARTE 側の外部挙動ノイズ。
+  // karte.io ドメイン かつ CSP 違反文言のものだけを narrow に除外し、当サイト自身の CSP 違反や
+  // 非 KARTE の third-party 違反は引き続き検出させる (security 境界は不変・テストの検出意図を保持)。
+  const isKarteCspNoise = (e) => e.includes('karte.io') &&
+    (e.includes('Content Security Policy') || e.includes('Refused to connect') || e.includes('violates'));
 
   // app 由来の致命的 console エラーのみ抽出 (既存の非致命フィルタ + 環境ノイズ除外)
   const fatalConsole = consoleErrors.filter(e =>
     !e.includes('non-fatal') &&
     !e.includes('View Transition') &&
     !e.includes('SW') &&
-    !isEnvNoise(e)
+    !isEnvNoise(e) &&
+    !isKarteCspNoise(e)
   );
   // pageerror (未捕捉例外) は環境ノイズ除外せず常に失敗対象
   const fatalErrors = [...pageErrors, ...fatalConsole];
