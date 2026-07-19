@@ -22,8 +22,10 @@ test('Route-focus does NOT steal focus from an open command palette (steal-flake
 // ため本テストでは対象外（render-neutral に直せる違反のみを今は機械強制する）。
 const A11Y_ROUTES = ['#/', '#/projects', '#/about', '#/contact', '#/resume', '#/apps', '#/settings', '#/quiz', '#/apps/task', '#/apps/todo', '#/apps/pomodoro', '#/apps/ai', '#/apps/notes', '#/hiring-risk', '#/ai-knowhow', '#/role-split', '#/not-found'];
 // 本テストで違反ゼロを機械強制する rule の allowlist（= 既に render-neutral に修正済の rule）。
-// color-contrast / color-contrast-enhanced / heading-order / link-in-text-block 等の未修正
-// （baseline-gated or 別 increment）rule は analyze 結果に含まれても本 allowlist 外ゆえ無視する。
+// color-contrast / color-contrast-enhanced / link-in-text-block 等の未修正（baseline-gated or
+// 別 increment）rule は analyze 結果に含まれても本 allowlist 外ゆえ無視する。
+// 注: heading-order は render-neutral (DOM 構造で修正可・pixel 不変) ゆえ allowlist に含め
+// enforce 済 — 以前この例示リストに誤って混じっていた doc-code drift を是正した。
 const A11Y_RENDER_NEUTRAL_RULES = ['aria-valid-attr-value', 'select-name', 'button-name', 'label', 'page-has-heading-one', 'heading-order', 'aria-allowed-attr', 'aria-required-attr', 'aria-roles', 'duplicate-id-aria', 'aria-required-children', 'aria-required-parent'];
 for (const route of A11Y_ROUTES) {
   test(`a11y axe: ${route} has no render-neutral critical violations`, async ({ page }) => {
