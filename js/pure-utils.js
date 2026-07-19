@@ -132,7 +132,7 @@ export function throttle(fn, limit) {
 /**
  * tokenize — 文字列を検索・類似度用のトークン配列へ分解する。
  *
- * 日本語（ひらがな U+3040–309F / カタカナ U+30A0–30FF / 漢字 U+4E00–9FAF）と英数字・
+ * 日本語（ひらがな U+3040–309F / カタカナ U+30A0–30FF / 漢字 U+4E00–9FFF）と英数字・
  * ハイフンを「語」として残し、それ以外の区切り文字で分割。小文字化し空要素を除去する。
  *
  * 非破壊メモ: `String(s || "")` で null/undefined/数値も安全に文字列化してから処理する
@@ -145,7 +145,7 @@ export function tokenize(s) {
     return String(s || "")
         .toLowerCase()
         // 「語を構成しない文字」の連続で分割。\w と日本語レンジ・ハイフンは語側に残す。
-        .split(/[^\w\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF\-]+/)
+        .split(/[^\w\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF\-]+/)
         .filter(Boolean); // 分割で生じる空文字を除去
 }
 
@@ -167,7 +167,7 @@ export function slugify(str) {
     return s
         .replace(/[\s_]+/g, '-') // 空白・アンダースコア（連続含む）→ ハイフン 1 個
         // 語構成外文字を除去（\w・ハイフン・日本語レンジは残す）
-        .replace(/[^\w\-\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF]/g, '')
+        .replace(/[^\w\-\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]/g, '')
         || `p-${generateId().slice(0, 8)}`; // 空になったら一意フォールバック
 }
 
