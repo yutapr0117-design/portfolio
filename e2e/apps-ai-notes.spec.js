@@ -56,13 +56,14 @@ test('Markdown notes app live-previews (innerHTML-free) and persists', async ({ 
 });
 
 
-// ===== 7.2: AI アシストの analyzeInput キーワード分岐 (troubleshoot/design/general) =====
-// analyzeInput は入力に含まれるキーワードで応答タイプを 3 分岐する: 「エラー/バグ/失敗」→
-// troubleshoot、「設計/計画/構成」→ design、それ以外 → general。既存 AI テスト (#上) は
+// ===== 7.2: AI アシストの analyzeInput キーワード分岐 (troubleshoot/design/breakdown/writing/general) =====
+// analyzeInput は入力に含まれるキーワードで応答タイプを 5 分岐する: 「エラー/バグ/失敗」→
+// troubleshoot、「設計/計画/構成」→ design、「分解/タスク/手順/ステップ/段取り」→ breakdown、
+// 「文章/書い/説明/ライティング/文言」→ writing、それ以外 → general。既存 AI テスト (#上) は
 // prompt が履歴に出ることのみ見ており、この分類ロジック (generateResponse の type 別出力) は
 // 未カバーだった。各キーワードで送信し、対応する応答マーカーが描画されることを実検証する。
 // 分類ロジックが壊れたら (例: キーワード変更で全部 general に倒れる) 退行を捕まえる。
-test('AI assist routes prompts to troubleshoot/design/general responses by keyword', async ({ page }) => {
+test('AI assist routes prompts to troubleshoot/design/breakdown/writing/general responses by keyword', async ({ page }) => {
   await page.goto('/#/apps/ai');
   await page.waitForLoadState('domcontentloaded');
 
@@ -79,6 +80,16 @@ test('AI assist routes prompts to troubleshoot/design/general responses by keywo
   await input.fill('新機能の設計を相談したい');
   await submit.click();
   await expect(page.getByText('[AI分析: 設計支援]')).toBeVisible();
+
+  // 「分解/タスク/手順」→ breakdown (placeholder が示唆する用途)
+  await input.fill('デプロイ手順を分解して');
+  await submit.click();
+  await expect(page.getByText('[AI分析: タスク分解]')).toBeVisible();
+
+  // 「文章/書い/説明」→ writing (placeholder が示唆する用途)
+  await input.fill('説明文を書いて');
+  await submit.click();
+  await expect(page.getByText('[AI分析: 文章生成支援]')).toBeVisible();
 
   // キーワードなし → general
   await input.fill('こんにちは');
