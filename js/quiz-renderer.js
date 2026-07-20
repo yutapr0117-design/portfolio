@@ -239,8 +239,8 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
         contactBox.appendChild(h("div", { class: "h3", text: "模範解答について" }));
         contactBox.appendChild(h("div", { class: "muted" }, "模範解答をご希望の方は、以下のフォームからお気軽にご連絡ください。"));
 
-        const nameInput = h("input", { class: "input", type: "text", placeholder: "お名前", 'aria-label': 'お名前' });
-        const emailInput = h("input", { class: "input", type: "email", placeholder: "メールアドレス", 'aria-label': 'メールアドレス' });
+        const nameInput = h("input", { class: "input", type: "text", placeholder: "お名前", autocomplete: "name", 'aria-label': 'お名前' });
+        const emailInput = h("input", { class: "input", type: "email", placeholder: "メールアドレス", autocomplete: "email", 'aria-label': 'メールアドレス' });
         const messageInput = h("textarea", { class: "input textarea-resize-v", rows: 4, placeholder: "メッセージ（任意）", 'aria-label': 'メッセージ' });
 
         const submitBtn = h("button", {

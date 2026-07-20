@@ -117,6 +117,10 @@ test('Quiz contact form shows validation error on empty submit', async ({ page }
   await page.goto('/#/quiz');
   await page.waitForLoadState('domcontentloaded');
 
+  // WCAG 1.3.5 (Identify Input Purpose): 個人情報 input は autocomplete トークンを持つ
+  await expect(page.getByLabel('お名前')).toHaveAttribute('autocomplete', 'name');
+  await expect(page.getByLabel('メールアドレス')).toHaveAttribute('autocomplete', 'email');
+
   // 名前/メール未入力で送信
   await page.getByRole('button', { name: '送信' }).click();
   await expect(page.locator('#toast-container').getByText('お名前とメールアドレスを入力してください')).toBeVisible();
