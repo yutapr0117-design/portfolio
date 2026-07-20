@@ -54,7 +54,7 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
         // 旧実装は oninput→State.update→全再描画で input が破棄され、1 文字目で focus を失い
         // 検索が事実上使えなかった (確認済バグ)。ProjectsPage と同じ「リスト部分だけ独立」方式へ。
         const searchInput = h("input", {
-            type: "text",
+            type: "search",
             class: "input pl-10",
             placeholder: "問題を検索...",
             value: initialSearch,

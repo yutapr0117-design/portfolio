@@ -6,7 +6,7 @@ test('Projects search input retains focus during filtering', async ({ page }) =>
   await page.goto('/#/projects');
   await page.waitForLoadState('domcontentloaded');
 
-  const searchInput = page.locator('input[type="text"]').first();
+  const searchInput = page.getByLabel('プロジェクト検索');
   await searchInput.click();
   await searchInput.type('AI', { delay: 50 });
 
@@ -24,7 +24,7 @@ test('Projects search shows an empty state when nothing matches', async ({ page 
   await page.goto('/#/projects');
   await page.waitForLoadState('domcontentloaded');
 
-  const searchInput = page.locator('input[type="text"]').first();
+  const searchInput = page.getByLabel('プロジェクト検索');
   await searchInput.fill('zzz-no-such-project-xyz-9999');
 
   await expect(page.getByText('条件に一致するプロジェクトはありません。')).toBeVisible();
@@ -47,7 +47,7 @@ test('Projects search filters to a subset then clears back to the full list', as
   const total = await cards.count();
   expect(total, 'projects page should list multiple projects initially').toBeGreaterThan(1);
 
-  const search = page.locator('input[type="text"]').first();
+  const search = page.getByLabel('プロジェクト検索');
   await search.fill('ポモドーロ');
   // 絞り込まれる: 全件未満かつ 1 件以上 (default では p03 のみ該当)
   await expect.poll(async () => await cards.count()).toBeLessThan(total);
@@ -75,7 +75,7 @@ test('Clicking a project card tag filters projects by that tag', async ({ page }
   await tagBtn.click();
 
   // 検索入力にタグが入り、URL に q= 反映、絞り込み結果 >=1
-  await expect(page.locator('input[type="text"]').first()).toHaveValue(tagText);
+  await expect(page.getByLabel('プロジェクト検索')).toHaveValue(tagText);
   await expect(page).toHaveURL(/[?&]q=/);
   await expect(page.locator('.grid-projects article.card').first()).toBeVisible();
 });
@@ -238,7 +238,7 @@ test('Projects page restores search query from URL deep-link (?q=)', async ({ pa
   await page.waitForLoadState('domcontentloaded');
 
   // route.query.q が input の初期 value に復元されていること (deep-link restore の核心 assertion)
-  const searchInput = page.locator('input[type="text"]').first();
+  const searchInput = page.getByLabel('プロジェクト検索');
   await expect(searchInput).toHaveValue('ポモドーロ');
 
   // 絞り込みが実際に機能していること (input 値を set するだけで filter が動かない退行も検知)

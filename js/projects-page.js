@@ -120,7 +120,7 @@ export function createProjectsPage({ h, createIcon, Router, State, tokenize, cle
                                         class: 'badge badge-secondary',
                                         onclick: () => {
                                             q = tag; cat = 'All';
-                                            const inputEl = container.querySelector('input[type="text"]');
+                                            const inputEl = container.querySelector('input[aria-label="プロジェクト検索"]'); // type 非依存 (type=search でも解決)
                                             const selectEl = container.querySelector('select');
                                             if (inputEl) {inputEl.value = tag;}
                                             if (selectEl) {selectEl.value = 'All';}
@@ -153,7 +153,7 @@ export function createProjectsPage({ h, createIcon, Router, State, tokenize, cle
                             class: 'absolute left-3 top-1/2 transform -translate-y-1/2 color-muted'
                         }, createIcon('search', 18)),
                         h('input', {
-                            type: 'text',
+                            type: 'search',
                             class: 'input pl-10',
                             placeholder: '検索（名前/概要/タグ/技術/カテゴリ）...',
                             value: q,
