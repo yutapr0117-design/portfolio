@@ -118,6 +118,7 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                     h('input', {
                         id: 'task-input',
                         class: 'input',
+                        enterkeyhint: 'done',
                         placeholder: '新しいタスクを入力...',
                         onkeydown: (e) => {
                             // [FIX] IME 変換確定の Enter (e.isComposing) では追加しない。日本語入力で
@@ -297,6 +298,7 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                     h('input', {
                         id: 'todo-input',
                         class: 'input',
+                        enterkeyhint: 'done',
                         placeholder: '入力してEnter（IME対応）...',
                         oncompositionstart: () => todoComposing = true,
                         oncompositionend: () => todoComposing = false,

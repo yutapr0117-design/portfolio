@@ -166,6 +166,7 @@ export function createAIPage({ h, createIcon, State, CONSTANTS }) {
                             h('input', {
                                 id: 'ai-input',
                                 class: 'input',
+                                enterkeyhint: 'send',
                                 placeholder: '例：デプロイ手順を分解して、タスク管理アプリの説明文を書いて...',
                                 disabled: aiLoading,
                                 onkeydown: (e) => {
