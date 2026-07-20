@@ -193,6 +193,11 @@
 
         html {
             scroll-behavior: smooth;
+            /* [FIX] scrollbar-gutter: stable — ルート scroll にスクロールバー幅を常時予約し、
+               route 遷移で短いページ(スクロールバー無)→長いページ(スクロールバー有)へ移る際の
+               コンテンツ横シフトを防ぐ (CLS/Core Web Vitals の実改善)。overlay スクロールバー
+               (モバイル等)では無効果ゆえ非破壊。 */
+            scrollbar-gutter: stable;
             -webkit-text-size-adjust: 100%;
             tab-size: 4;
         }
