@@ -81,7 +81,7 @@ export function createAIPage({ h, createIcon, State, CONSTANTS }) {
     書きたい内容の要点をお知らせいただければ、たたき台を提案できます。`;
             }
             return `[AI分析: 一般支援]
-    タスク分解、文章生成、ポートフォリオ作成支援などに対応しています。
+    トラブルシューティング・設計支援・タスク分解・文章生成に対応しています。
     具体的なご質問をお聞かせください。`;
         }
 
@@ -139,7 +139,7 @@ export function createAIPage({ h, createIcon, State, CONSTANTS }) {
                     h('div', { class: 'card-body flex flex-col gap-4' },
                         ai.history.length === 0 ?
                             h('p', { class: 'text-muted text-center py-8' },
-                                '会話を始めましょう。タスク分解、設計支援、トラブルシューティングなどが可能です。'
+                                '会話を始めましょう。トラブルシューティング・設計支援・タスク分解・文章生成に対応しています。'
                             ) :
                             ai.history.flatMap(histItem => [
                                 h('div', { class: 'flex flex-col gap-1' },
