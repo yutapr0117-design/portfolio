@@ -2192,3 +2192,38 @@
             font-family: var(--font-mono, monospace); font-size: 0.85em;
             background: var(--bg-subtle, rgba(148,163,184,0.18)); padding: 0.1em 0.35em; border-radius: 4px;
         }
+
+        /* ===== 印刷 (@media print) — resume/about 等を紙に出す際、ナビ chrome を隠し
+           インクを節約し、外部リンクの URL を紙面に出して参照可能にする。
+           画面描画には無影響 (print 時のみ適用) ゆえ screenshot/behavior に非影響。 */
+        @media print {
+            /* 操作系 chrome は印刷不要 (flex レイアウトゆえ sidebar 非表示で main が全幅化) */
+            #sidebar, #topbar, #drawer, #overlay, #page-announcement,
+            [data-bgm-btn], #command-palette-host, #portfolio-safety-net-host {
+                display: none !important;
+            }
+            html, body {
+                background: #fff !important;
+                color: #000 !important;
+            }
+            .main-content {
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                min-height: 0 !important;
+            }
+            a { color: #000 !important; }
+            /* 外部リンクは URL を紙面に併記 (印刷物でリンク先が分かるように) */
+            a[href^="http"]::after {
+                content: " (" attr(href) ")";
+                font-size: 0.85em;
+                color: #555;
+                word-break: break-all;
+            }
+            /* カードは影を消し薄い枠線に、ページ跨ぎで分断しない */
+            .card {
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+                break-inside: avoid;
+            }
+        }
