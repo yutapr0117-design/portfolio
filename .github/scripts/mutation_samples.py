@@ -936,4 +936,11 @@ E2E_MUTATIONS = [
         "replace": "",
         "test": "AI assist routes prompts to troubleshoot/design/breakdown/writing/general",
     },
+    {
+        "name": "a11y: contact form の autocomplete=name 喪失 (nameInput から autocomplete 除去 → WCAG 1.3.5 の Identify Input Purpose 退行・#722 で追加した属性の非 vacuity 検証)",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": 'placeholder: "お名前", autocomplete: "name",',
+        "replace": 'placeholder: "お名前",',
+        "test": "Quiz contact form shows validation error on empty submit",
+    },
 ]
