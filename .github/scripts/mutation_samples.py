@@ -929,4 +929,11 @@ E2E_MUTATIONS = [
         "replace": "",
         "test": "Pomodoro break-duration change updates the idle timer display",
     },
+    {
+        "name": "behavior: AI keyword routing の breakdown 分岐喪失 (analyzeInput から breakdown keyword を除去 → 「分解して」が general に倒れ専用応答が出ない・#718 で追加した routing の非 vacuity 検証)",
+        "file": ROOT / "js" / "ai-page.js",
+        "find": "            if (p.includes('分解') || p.includes('タスク') || p.includes('手順') || p.includes('ステップ') || p.includes('段取り')) {return 'breakdown';}",
+        "replace": "",
+        "test": "AI assist routes prompts to troubleshoot/design/breakdown/writing/general",
+    },
 ]
