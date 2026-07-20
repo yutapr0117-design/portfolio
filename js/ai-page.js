@@ -128,7 +128,9 @@ export function createAIPage({ h, createIcon, State, CONSTANTS }) {
                                         class: 'self-start p-3 rounded-lg chat-bubble-other'
                                     }, histItem.response),
                                     h('span', { class: 'text-xs text-muted self-start' },
-                                        new Date(histItem.timestamp).toLocaleTimeString()
+                                        // [FIX] 時刻のみ (toLocaleTimeString) だと複数日にまたがる永続履歴で
+                                        // どの日か曖昧なため、date+time のコンパクト表示に変更 (秒は省略)。
+                                        new Date(histItem.timestamp).toLocaleString([], { dateStyle: 'short', timeStyle: 'short' })
                                     )
                                 )
                             ])
