@@ -34,6 +34,8 @@ export function createAIPage({ h, createIcon, State, CONSTANTS }) {
             const p = input.toLowerCase();
             if (p.includes('エラー') || p.includes('バグ') || p.includes('失敗')) {return 'troubleshoot';}
             if (p.includes('設計') || p.includes('計画') || p.includes('構成')) {return 'design';}
+            if (p.includes('分解') || p.includes('タスク') || p.includes('手順') || p.includes('ステップ') || p.includes('段取り')) {return 'breakdown';}
+            if (p.includes('文章') || p.includes('書い') || p.includes('説明') || p.includes('ライティング') || p.includes('文言')) {return 'writing';}
             return 'general';
         }
 
@@ -57,6 +59,26 @@ export function createAIPage({ h, createIcon, State, CONSTANTS }) {
     • 検証手段の設計
 
     設計書のテンプレートが必要であればお知らせください。`;
+            }
+            if (type === 'breakdown') {
+                return `[AI分析: タスク分解]
+    • ゴールと完了条件を定義
+    • 大タスクを独立した中タスクへ分割
+    • 各タスクの依存関係と順序を整理
+    • 見積もりとリスクを付与
+    • 検証可能な単位まで具体化
+
+    分解対象を具体的にお知らせいただければ、さらに詳細化できます。`;
+            }
+            if (type === 'writing') {
+                return `[AI分析: 文章生成支援]
+    • 目的と読者（誰に何を）を明確化
+    • 要点を箇条書きで抽出
+    • 構成（導入→本論→結論）を設計
+    • トーンと文体を統一
+    • 推敲（冗長・曖昧・重複の除去）
+
+    書きたい内容の要点をお知らせいただければ、たたき台を提案できます。`;
             }
             return `[AI分析: 一般支援]
     タスク分解、文章生成、ポートフォリオ作成支援などに対応しています。
