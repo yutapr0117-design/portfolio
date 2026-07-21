@@ -350,12 +350,16 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                             h('h2', { class: 'h3' }, '表示管理（Projects）'),
                             h('div', { class: 'grid grid-cols-1 gap-3' },
                                 h('div', {},
-                                    h('label', { class: 'text-sm text-muted' }, '名前'),
-                                    h('input', { class: 'input', placeholder: 'プロジェクト名', value: settingsNewName, oninput: (e) => { settingsNewName = e.target.value; } })
+                                    // [FIX] label↔input を for/id で関連付ける (WCAG 3.3.2 / 4.1.2)。
+                                    //   従来は visible <label> が for 無し・input が id 無しで未関連付けのため、
+                                    //   アクセシブル名が入力で消失する placeholder のみだった (SR 利用者はどの
+                                    //   フィールドか判別不能)。同ファイル brand select の for/id パターンに倣う。
+                                    h('label', { class: 'text-sm text-muted', for: 'settingsNewName' }, '名前'),
+                                    h('input', { id: 'settingsNewName', class: 'input', placeholder: 'プロジェクト名', value: settingsNewName, oninput: (e) => { settingsNewName = e.target.value; } })
                                 ),
                                 h('div', {},
-                                    h('label', { class: 'text-sm text-muted' }, 'Tech（カンマ区切り）'),
-                                    h('input', { class: 'input', placeholder: '例: JS,HTML,CSS', value: settingsNewTech, oninput: (e) => { settingsNewTech = e.target.value; } })
+                                    h('label', { class: 'text-sm text-muted', for: 'settingsNewTech' }, 'Tech（カンマ区切り）'),
+                                    h('input', { id: 'settingsNewTech', class: 'input', placeholder: '例: JS,HTML,CSS', value: settingsNewTech, oninput: (e) => { settingsNewTech = e.target.value; } })
                                 ),
                                 h('div', {},
                                     h('label', { class: 'text-sm text-muted' }, 'Demo（任意）'),

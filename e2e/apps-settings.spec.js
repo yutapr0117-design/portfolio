@@ -102,6 +102,27 @@ test('Settings can add a project manually and it appears on the Projects page', 
 });
 
 
+// ===== 7.2: 手動プロジェクト追加フォームの入力にアクセシブル名がある (WCAG 3.3.2 / 4.1.2) =====
+// 名前 / Tech 入力は visible <label> を持つが従来 for/id 未関連付けで、アクセシブル名が入力すると
+// 消失する placeholder のみだった (SR 利用者はどのフィールドか判別不能)。修正で label↔input を
+// for/id 関連付け (同ファイル brand select の既存パターン)。getByLabel は関連付けが正しい場合のみ
+// 入力を解決するため、本テストは関連付けの存在を検証する (for/id を外すと getByLabel が解決せず RED)。
+test('Manual project-add inputs have accessible names via associated labels (a11y)', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  // getByLabel は <label for> ↔ <input id> の関連付けが成立して初めて入力を解決する
+  const nameByLabel = page.getByLabel('名前', { exact: true });
+  const techByLabel = page.getByLabel('Tech（カンマ区切り）', { exact: true });
+  await expect(nameByLabel).toBeVisible();
+  await expect(techByLabel).toBeVisible();
+
+  // 解決した要素が実際の入力であることを確認 (fill できる = ラベルが入力に結び付いている)
+  await nameByLabel.fill('a11y-label-probe');
+  await expect(nameByLabel).toHaveValue('a11y-label-probe');
+});
+
+
 // ===== 7.2: 同名プロジェクト追加時の slug 一意化 (詳細ページ到達性) =====
 // slugify は決定的なので、同名プロジェクトを 2 つ追加すると slug が重複し、ProjectDetailPage の
 // find(p.slug===slug) が先頭のみ返して 2 つ目の詳細が到達不能になるバグがあった。修正で衝突時に
