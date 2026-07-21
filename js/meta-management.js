@@ -9,8 +9,9 @@
  * 【公開 API（抽出前後で byte-equivalent）】
  *   { applyMeta }
  *
- *   applyMeta(routeName, params, query) は他の 4 つの sub-function を順次呼ぶファサード。
- *   v69 の SRP 適用構造をそのまま保持。
+ *   applyMeta(routeName, params, query, isRouteChange) は他の 4 つの sub-function を順次呼ぶ
+ *   ファサード。v69 の SRP 適用構造をそのまま保持。isRouteChange=false (同一ページ再描画) の
+ *   場合はルート遷移アナウンス (announceRouteForAccessibility) をスキップし over-announce を防ぐ。
  *
  * 【依存（引数で注入）】
  *   - SITE_CONFIG: { CANONICAL_URL, ARTICLE_ROUTES, LAST_UPDATED, VERSION, ROLE_TITLE }
@@ -21,7 +22,8 @@
  *
  * 【非破壊性】
  *   - document.head の <title> / <meta> / OG / Twitter / canonical / robots 更新の挙動不変
- *   - aria-live #page-announcement のテキスト更新も不変
+ *   - aria-live #page-announcement のルート遷移アナウンスは実遷移時のみ発火するよう gate
+ *     (同一ページ State.update 再描画での over-announce を防ぐ。route 遷移時の挙動は不変)
  *   - #ai-route-entity-anchor の sr-only div 注入挙動も不変
  *   - Article + Speakable JSON-LD の構造とフィールド順序も byte-equivalent
  *   - PAGE_META に登録のないルートでの早期リターンも不変
@@ -187,7 +189,7 @@ export function createMetaManagement({ SITE_CONFIG, AUTHOR, PAGE_META, Router, S
      * 各サブ関数は独立しており、単体でテスト可能。
      * PAGE_META に登録のないルートは早期リターンする。
      */
-    function applyMeta(routeName, params = {}, query = {}) {
+    function applyMeta(routeName, params = {}, query = {}, isRouteChange = true) {
         const meta = PAGE_META[routeName];
         if (!meta) {return;}
         const context = { routeName, params, query, route: Router.getRoute(), state: State.get() };
@@ -196,7 +198,14 @@ export function createMetaManagement({ SITE_CONFIG, AUTHOR, PAGE_META, Router, S
         const fullTitle = title + ' | ' + AUTHOR.DISPLAY_NAME + ' - ' + SITE_CONFIG.ROLE_TITLE;
 
         updateDocumentHead(fullTitle, desc, routeName);
-        announceRouteForAccessibility(title);
+        // announceRouteForAccessibility は「ルート遷移」の transient 通知なので実遷移時のみ発火する。
+        //   applyMeta は _renderCore から State.update 由来の同一ページ再描画 (task 追加 / pomodoro
+        //   tick 等) でも呼ばれるため無条件発火だと SR に「○○ページを表示しています。」を状態変化の
+        //   たびに繰り返しアナウンスする over-announce ノイズ (WCAG 4.1.3 反パターン) を生んでいた。
+        //   RouteState.proxy.a11y_announcement 経路は既に proxy の値変化検知 (aidk-rails.js) で
+        //   route 変化時のみ発火しており、本アナウンス経路だけが未 gate だった。
+        //   デフォルト true は本 factory 外から旧シグネチャで呼ばれた場合に従来の announce 挙動を保つ。
+        if (isRouteChange) { announceRouteForAccessibility(title); }
         injectRouteEntityAnchor(title);
         injectStructuredData(routeName, fullTitle, desc);
     }

@@ -190,6 +190,44 @@ test('Route changes announce to the polite sr-only aria-live region (SPA a11y)',
 });
 
 
+// ===== 7.2: 同一ページの State.update 再描画で route アナウンスを繰り返さない (over-announce 防止) =====
+// applyMeta は _renderCore から呼ばれ、_renderCore は State.update 由来の「同一ページ再描画」
+// (task 追加 / pomodoro tick 等) でも走る。従来 applyMeta は announceRouteForAccessibility を
+// 無条件呼びしていたため、同一ページの状態変化のたびに #page-announcement へ「○○ページを
+// 表示しています。」を再書き込みし、SR 利用者へ同じルート名を繰り返しアナウンスする over-announce
+// ノイズ (WCAG 4.1.3 反パターン) を生んでいた。修正で applyMeta に isRouteChange を渡し、実ルート
+// 遷移時のみ announce するよう gate した。本テストは「同一ページで 3 回 State.update しても
+// route アナウンス (『表示しています』) が 1 度も再発火しない」ことを MutationObserver で検証する
+// (fix を戻すと 3 回発火し RED = 非 vacuous)。
+test('Same-page State.update does not re-announce the route (over-announce guard)', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#app input').first()).toBeVisible();
+
+  // #page-announcement の「表示しています」書き込み回数を MutationObserver で計測開始
+  await page.evaluate(() => {
+    window.__routeAnnounceCount = 0;
+    const el = document.getElementById('page-announcement');
+    new MutationObserver(() => {
+      if ((el.textContent || '').includes('表示しています')) { window.__routeAnnounceCount++; }
+    }).observe(el, { childList: true, characterData: true, subtree: true });
+  });
+
+  // 同一ページ (task) でタスクを 3 個追加 = State.update 再描画 3 回
+  const input = page.locator('#app input').first();
+  for (let i = 0; i < 3; i++) {
+    await input.fill('over-announce-guard-' + i);
+    await input.press('Enter');
+    await expect(page.getByText('over-announce-guard-' + i)).toBeVisible();
+  }
+  await page.waitForTimeout(150);
+
+  // 同一ページの State.update では route アナウンスが 1 度も再発火しないこと (fix 前は 3)
+  const count = await page.evaluate(() => window.__routeAnnounceCount);
+  expect(count).toBe(0);
+});
+
+
 // ===== 7.2: AI 入力の IME composition ガード (日本語入力の誤送信防止) =====
 // ai-input の Enter ハンドラは e.isComposing をチェックせず、日本語入力で IME 変換確定の Enter が
 // 未確定テキストを誤って submit していた (task と同クラスの実バグ)。修正で `!e.isComposing` ガードを
