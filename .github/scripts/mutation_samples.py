@@ -943,4 +943,25 @@ E2E_MUTATIONS = [
         "replace": 'placeholder: "お名前",',
         "test": "Quiz contact form shows validation error on empty submit",
     },
+    {
+        "name": "a11y: route アナウンスの over-announce gate 喪失 (isRouteChange ガードを外し無条件 announce に戻す → 同一ページ State.update 再描画で route 名を繰り返しアナウンス・WCAG 4.1.3 退行・#727 で追加した gate の非 vacuity 検証)",
+        "file": ROOT / "js" / "meta-management.js",
+        "find": "        if (isRouteChange) { announceRouteForAccessibility(title); }",
+        "replace": "        announceRouteForAccessibility(title);",
+        "test": "Same-page State.update does not re-announce the route",
+    },
+    {
+        "name": "a11y: settings 手動追加フォーム 名前入力の label 関連付け喪失 (input の id を除去 → visible <label for> と結び付かず getByLabel が解決不能・WCAG 3.3.2/4.1.2 退行・#728 で追加した関連付けの非 vacuity 検証)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "h('input', { id: 'settingsNewName', class: 'input'",
+        "replace": "h('input', { class: 'input'",
+        "test": "accessible names via associated labels",
+    },
+    {
+        "name": "a11y: project-detail 先頭セクション見出しの h2 喪失 (先頭 <h2 課題> を <h3> に戻す → h1(project.name)→h3 の見出しレベルスキップ・WCAG 1.3.1 / axe heading-order 退行・#731 で是正した見出しの非 vacuity 検証。first-only replace は先頭 = 課題 見出しに当たる)",
+        "file": ROOT / "js" / "project-detail-page.js",
+        "find": "h('h2', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },",
+        "replace": "h('h3', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },",
+        "test": "project detail (#/projects/:slug)",
+    },
 ]
