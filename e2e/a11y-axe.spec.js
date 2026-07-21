@@ -88,3 +88,30 @@ test('a11y axe: open command palette has no render-neutral critical violations',
     JSON.stringify(offenders.map(v => `${v.id}(${v.nodes.length})`))
   ).toHaveLength(0);
 });
+
+
+// ===== 7.1: プロジェクト詳細 (#/projects/:slug) の axe a11y (パラメータ化ルートの被覆) =====
+// A11Y_ROUTES ループは静的ルートのみ (Check 110 が A11Y_ROUTES ↔ ALL_ROUTES の bijection を強制する
+// ため slug 付きルートを配列に混ぜられない)。ProjectDetailPage は related links / architecture /
+// metrics + 複数セクション見出しを持つ別 render 面で、従来どの axe 面にも被覆されず、h1(project.name)
+// 直後に h2 を挟まず h3 が並ぶ見出しレベルスキップ (heading-order / WCAG 1.3.1) が逃れていた。
+// drawer-open / palette-open と同じ standalone パターンで、default プロジェクト 'task-manager' の実
+// slug を踏んで detail 面の render-neutral critical 違反ゼロを機械強制する (見出しを h3→h2 に戻すと
+// heading-order で RED = 非 vacuity)。
+test('a11y axe: project detail (#/projects/:slug) has no render-neutral critical violations', async ({ page }) => {
+  await page.goto('/#/projects/task-manager');
+  await page.waitForLoadState('domcontentloaded');
+  await page.waitForTimeout(150);
+  // 実プロジェクト詳細が描画されている (NotFound フォールバックでない) ことを確認してから scan
+  await expect(page.locator('h1')).not.toHaveText('プロジェクトが見つかりません');
+
+  const results = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'])
+    .analyze();
+  const offenders = results.violations.filter(v => A11Y_RENDER_NEUTRAL_RULES.includes(v.id));
+  expect(
+    offenders,
+    'project-detail render-neutral a11y violations: ' +
+    JSON.stringify(offenders.map(v => `${v.id}(${v.nodes.length}): ${v.nodes[0] && v.nodes[0].html.slice(0, 100)}`))
+  ).toHaveLength(0);
+});

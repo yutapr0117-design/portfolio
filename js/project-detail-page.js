@@ -62,7 +62,12 @@ export function createProjectDetailPage({ h, createIcon, Router, State, Store })
                 h('div', { class: 'flex flex-col gap-4' },
                     h('section', { class: 'card' },
                         h('div', { class: 'card-body' },
-                            h('h3', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },
+                            // [FIX] 各セクション見出しは <h2> (ページ h1=project.name 直下の唯一の
+                            //   サブ階層)。従来 <h3> で h1→h3 の見出しレベルスキップ (WCAG 1.3.1 /
+                            //   axe heading-order) だった。要素は h2、CSS class は 'h3' 維持ゆえ視覚
+                            //   サイズ不変 (render-neutral)。#/projects/:slug は A11Y_ROUTES 未被覆で
+                            //   本違反が axe を逃れていたため a11y-axe.spec.js に detail route を追加。
+                            h('h2', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },
                                 createIcon('alert', 20),
                                 '課題'
                             )),
@@ -71,7 +76,7 @@ export function createProjectDetailPage({ h, createIcon, Router, State, Store })
                     ),
                     h('section', { class: 'card' },
                         h('div', { class: 'card-body' },
-                            h('h3', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },
+                            h('h2', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },
                                 createIcon('brain', 20),
                                 'アプローチ'
                             )),
@@ -80,7 +85,7 @@ export function createProjectDetailPage({ h, createIcon, Router, State, Store })
                     ),
                     h('section', { class: 'card' },
                         h('div', { class: 'card-body' },
-                            h('h3', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },
+                            h('h2', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },
                                 createIcon('apps', 20),
                                 'アーキテクチャ'
                             )),
@@ -95,7 +100,7 @@ export function createProjectDetailPage({ h, createIcon, Router, State, Store })
                 h('div', { class: 'flex flex-col gap-4' },
                     h('section', { class: 'card' },
                         h('div', { class: 'card-body' },
-                            h('h3', { class: 'h3 mb-3' }, '使用技術'),
+                            h('h2', { class: 'h3 mb-3' }, '使用技術'),
                             h('div', { class: 'flex flex-wrap gap-2' },
                                 ...(project.tech || []).map(t =>
                                     h('span', { class: 'badge badge-secondary' }, t)
@@ -107,7 +112,7 @@ export function createProjectDetailPage({ h, createIcon, Router, State, Store })
                         class: 'card border-primary-faint'
                     },
                         h('div', { class: 'card-body' },
-                            h('h3', { class: 'h3 mb-2' }, 'デモ'),
+                            h('h2', { class: 'h3 mb-2' }, 'デモ'),
                             h('p', { class: 'text-small text-muted mb-3' }, 'このプロジェクトはポートフォリオ内で実際に動作します。'),
                             h('button', {
                                 class: 'btn btn-primary',
@@ -117,7 +122,7 @@ export function createProjectDetailPage({ h, createIcon, Router, State, Store })
                     ) : null,
                     related.length > 0 ? h('section', { class: 'card' },
                         h('div', { class: 'card-body' },
-                            h('h3', { class: 'h3 mb-3' }, '関連プロジェクト'),
+                            h('h2', { class: 'h3 mb-3' }, '関連プロジェクト'),
                             h('ul', { class: 'list-readable' },
                                 ...related.map(r =>
                                     h('li', { class: 'mb-2' },
@@ -136,7 +141,7 @@ export function createProjectDetailPage({ h, createIcon, Router, State, Store })
             // Metrics
             h('section', { class: 'card' },
                 h('div', { class: 'card-body' },
-                    h('h3', { class: 'h3 mb-4' }, 'メトリクス'),
+                    h('h2', { class: 'h3 mb-4' }, 'メトリクス'),
                     project.outcome?.metrics?.length ? h('div', { class: 'grid grid-cols-3' },
                         ...project.outcome.metrics.map(m =>
                             h('div', { class: 'text-center p-4' },
@@ -153,7 +158,7 @@ export function createProjectDetailPage({ h, createIcon, Router, State, Store })
             ,
             autoRelated.length > 0 ? h('section', { class: 'card' },
                 h('div', { class: 'card-body' },
-                    h('h3', { class: 'h3 mb-3' }, 'おすすめ（自動）'),
+                    h('h2', { class: 'h3 mb-3' }, 'おすすめ（自動）'),
                     h('p', { class: 'text-muted mb-3' }, 'カテゴリ/タグ/技術/本文の近さから自動で近いプロジェクトを提案します。'),
                     h('ul', { class: 'list-clean' },
                         ...autoRelated.map(r =>
