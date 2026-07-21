@@ -784,7 +784,13 @@
             // §1.2 INP最適化: ページコンテンツ追加後にスレッドを解放してからメタ更新
             await yieldToMain();
             // Update SEO via PAGE_META (v37: unified metadata management)
-            applyMeta(route.name, route.params || {}, route.query || {});
+            // isRouteChange を渡し「ルート遷移アナウンス」を実遷移時のみに限定する。
+            //   _renderCore は State.update 由来の同一ページ再描画 (task 追加 / pomodoro tick 等)
+            //   でも走るため、applyMeta 内の announceRouteForAccessibility を無条件呼びすると
+            //   SR 利用者へ「○○ページを表示しています。」が状態変化のたびに繰り返し読み上げられる
+            //   over-announce ノイズ (WCAG 4.1.3 反パターン) になっていた。head/entity-anchor/
+            //   JSON-LD 更新は idempotent ゆえ毎描画で無害だが、announce は transient なので gate する。
+            applyMeta(route.name, route.params || {}, route.query || {}, isRouteChange);
 
             // AIDK RouteState 同期: フラット名前空間UIステートをルート変更に追随させる
             try {
