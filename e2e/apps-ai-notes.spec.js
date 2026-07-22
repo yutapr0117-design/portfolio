@@ -6,6 +6,14 @@ const { test, expect } = require('@playwright/test');
 // State.update で appsData.ai.history に push し再描画する。task/todo とは別 State slice・別ロジック
 // (ローカル生成・非同期 setTimeout) の distinct な対話パス。送信した prompt が履歴に現れることで
 // submit→生成→State 反映→render の一連が壊れていないことを動的検証する。
+// [A11Y 3.3.2/4.1.2] ai 主入力も placeholder-only だった。getByLabel (aria-label 解決) で
+// 特定できることを実検証。aria-label 除去で RED (非 vacuous)。
+test('AI assist main input exposes an accessible name (not placeholder-only)', async ({ page }) => {
+  await page.goto('/#/apps/ai');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByLabel('AI アシスタントへの依頼を入力')).toHaveAttribute('id', 'ai-input');
+});
+
 test('AI assist app generates and renders a response for a prompt', async ({ page }) => {
   await page.goto('/#/apps/ai');
   await page.waitForLoadState('domcontentloaded');
