@@ -1,7 +1,7 @@
 ---
 file: js/pages.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-07-22
 canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-b → 5-j fix) / Stage 5-j 教訓
 ---
 
@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-b → 5-j fi
 
 ## What
 
-Page components factory (650 行)。`createPages({h, createIcon, Router, ContactCTA})` を export。Stage 5-b 抽出後、Stage 5-j で hidden ReferenceError バグが発覚し、factory pattern へリファクタした module。
+Page components factory (267 行)。`createPages({h, createIcon, Router, ContactCTA})` を export し、**RoleSplitPage / NotFoundPage の 2 つ**を返す。Stage 5-b 抽出後、Stage 5-j で hidden ReferenceError バグが発覚し factory pattern へリファクタ。2026-07-04 bloat-reduction で HiringRiskPage + 専用 helper を `js/hiring-risk-page.js` へ分離し 650→267 行へ縮小した。
 
 ## Why
 
@@ -22,8 +22,8 @@ Stage 5-b で main.js から物理分割した際、`h` / `createIcon` / `Router
 ```
 main.js
   └─ import { createPages } from './js/pages.js'
-  └─ const Pages = createPages({ h, createIcon, Router, ContactCTA })
-       └─ Router の change イベントで Pages.<RouteName>() を呼んで render
+  └─ const { RoleSplitPage, NotFoundPage } = createPages({ h, createIcon, Router, ContactCTA })
+       └─ Router の change イベントで各 Page 関数を呼んで render
 ```
 
 ## Constraints
@@ -32,7 +32,7 @@ main.js
 - **closure-deps = none** (h / createIcon / Router / ContactCTA を注入)
 - **Check 47**: import/export bijection
 - **Check 56**: factory invocation orphan 防止 (Stage 5-j class)
-- **Check 52**: 行数予算 ≤ 750 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
+- **Check 52**: 行数予算 ≤ 400 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 
 ## Change impact
 
