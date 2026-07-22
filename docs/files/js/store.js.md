@@ -1,7 +1,7 @@
 ---
 file: js/store.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-07-22
 canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-g) / js/storage.js
 ---
 
@@ -21,8 +21,10 @@ main.js Stage 5-g で物理分割。サイトの persistence 系データ (setti
 main.js
   └─ import { createStore } from './js/store.js'
   └─ const Store = createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone, slugify, sanitizeUrl, clamp })
-       └─ Store.load() / Store.save() / Store.get(key) / Store.set(key, value)
-       └─ Store.similarity(a, b) で類似度検索 (検索 UI 等)
+       └─ Store.load()                        // localStorage から読み込み + 正規化
+       └─ Store.createDefaultStore()          // 既定ストア生成
+       └─ Store.validateAndNormalize(data)    // 外部 ingestion の正規化 (総関数・load/import/cross-tab/snapshot が通る choke point)
+       └─ Store.autoRelatedCandidates(target, projects) // 類似度ベースの関連プロジェクト推薦
 ```
 
 ## Change impact
