@@ -33,12 +33,19 @@ test('Markdown notes app live-previews (innerHTML-free) and persists', async ({ 
   await expect(ta).toBeVisible();
   await ta.fill('# E2E-NOTE-見出し-7733\n\n**太字テキスト** と `inlineコード`\n\n- 項目A');
 
-  // プレビューが h() で構造化レンダリング (innerHTML 不使用) されること
+  // プレビューが h() で構造化レンダリング (innerHTML 不使用) されること。
+  // [FIX] Markdown 見出しは 2 段 demote される (# → h3・preview の h2「プレビュー」配下に nest)。
+  // 従来 `#` を <h1> で描画しページに h1 が 2 個 (app タイトル + note 見出し) 生じる heading-semantics
+  // 崩れ (default note "# メモ" で out-of-the-box 発生) を是正。視覚サイズは 'h1' class 維持で不変。
   const preview = page.locator('.md-preview');
-  await expect(preview.locator('h1', { hasText: 'E2E-NOTE-見出し-7733' })).toBeVisible();
+  await expect(preview.locator('h3', { hasText: 'E2E-NOTE-見出し-7733' })).toBeVisible();
   await expect(preview.locator('strong', { hasText: '太字テキスト' })).toBeVisible();
   await expect(preview.locator('code.md-code', { hasText: 'inlineコード' })).toBeVisible();
   await expect(preview.locator('ul.md-ul li', { hasText: '項目A' })).toBeVisible();
+  // ページ h1 はアプリタイトル「Markdown ノート」の 1 個のみ (note 見出しは h1 に昇格しない)。
+  // demote を戻すと note `#` が <h1> になり h1 が 2 個 → RED = 非 vacuity。
+  await expect(page.locator('h1')).toHaveCount(1);
+  await expect(preview.locator('h1')).toHaveCount(0);
 
   // リロード後も永続 (appsData.notes): preview AND textarea の両方を確認
   // [FIX] h() の textarea 特殊処理 (el.value = src) を追加するまで textarea は
@@ -47,7 +54,7 @@ test('Markdown notes app live-previews (innerHTML-free) and persists', async ({ 
   // 修正後は preview だけでなく textarea の value も永続する。
   await page.reload();
   await page.waitForLoadState('domcontentloaded');
-  await expect(page.locator('.md-preview h1', { hasText: 'E2E-NOTE-見出し-7733' })).toBeVisible();
+  await expect(page.locator('.md-preview h3', { hasText: 'E2E-NOTE-見出し-7733' })).toBeVisible();
   // textarea の value が再描画後も復元されること (fix の regression gate)
   await expect(page.locator('#notes-input')).toHaveValue(/E2E-NOTE-見出し-7733/);
 

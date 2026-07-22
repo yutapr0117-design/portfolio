@@ -398,9 +398,16 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
             const h2 = /^##\s+(.*)$/.exec(line);
             const h1 = /^#\s+(.*)$/.exec(line);
             const li = /^[-*]\s+(.*)$/.exec(line);
-            if (h3) { flushList(); out.push(h('h3', { class: 'h3' }, ..._renderMarkdownInline(h3[1]))); }
-            else if (h2) { flushList(); out.push(h('h2', { class: 'h2' }, ..._renderMarkdownInline(h2[1]))); }
-            else if (h1) { flushList(); out.push(h('h1', { class: 'h1' }, ..._renderMarkdownInline(h1[1]))); }
+            // [FIX] Markdown 見出しは要素レベルを 2 段 demote する (# → h3, ## → h4, ### → h5)。
+            //   preview はページ h1「Markdown ノート」→ セクション h2「プレビュー」の配下にあるため、
+            //   ユーザー note の `#` を <h1> で描画すると (1) ページに h1 が 2 個 (default note が
+            //   "# メモ" で始まるため out-of-the-box で発生) になり (2) h2「プレビュー」内に page-level
+            //   h1 が現れて見出し階層が document 構造を誤表現する (WCAG 1.3.1・SR の見出しナビを混乱)。
+            //   視覚サイズは 'h1'/'h2'/'h3' class 維持で不変 (render-neutral)。要素だけ h3/h4/h5 へ
+            //   降格し preview の h2 配下に正しく nest させる。
+            if (h3) { flushList(); out.push(h('h5', { class: 'h3' }, ..._renderMarkdownInline(h3[1]))); }
+            else if (h2) { flushList(); out.push(h('h4', { class: 'h2' }, ..._renderMarkdownInline(h2[1]))); }
+            else if (h1) { flushList(); out.push(h('h3', { class: 'h1' }, ..._renderMarkdownInline(h1[1]))); }
             else if (li) { (listBuf = listBuf || []).push(h('li', {}, ..._renderMarkdownInline(li[1]))); }
             else if (line.trim() === '') { flushList(); }
             else { flushList(); out.push(h('p', { class: 'text-prewrap' }, ..._renderMarkdownInline(line))); }
