@@ -9,7 +9,7 @@ canonical-ref: AI2AI.md (C6 AIO Integrity) / CLAUDE.md §3 (safety gates) / docs
 
 ## What
 
-SPA (Single Page Application) の **唯一の HTML エントリポイント**。GitHub Pages が配信する `/` で返るファイルで、CSP / Trusted Types Policy / JSON-LD Person + Organization + WebSite + Image + Audio / AIO `<meta>` タグ / preload / preconnect / inline `error-suppressor` / module preload / 全 24 葉モジュールの先読み宣言、を含む 1,265 行の宣言面。
+SPA (Single Page Application) の **唯一の HTML エントリポイント**。GitHub Pages が配信する `/` で返るファイルで、CSP / Trusted Types Policy / JSON-LD Person + Organization + WebSite + Image + Audio / AIO `<meta>` タグ / preload / preconnect / inline `error-suppressor` / module preload / 全 24 葉モジュールの先読み宣言、を含む宣言面（現在の行数は `wc -l index.html` が権威。固定値は pin しない）。
 
 ## Why
 
