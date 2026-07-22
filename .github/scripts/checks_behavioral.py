@@ -2,7 +2,7 @@
 checks_behavioral.py — shipped-JS behavioral regression guards
 (extracted from check_repository_consistency.py — check.py split track・category "behavioral guards").
 
-This module owns the cluster of Checks 128-131 (plus 373, 374) that statically enforce shipped-JS
+This module owns the cluster of Checks 128-131 (plus 373, 374, 382) that statically enforce shipped-JS
 runtime UX invariants discovered from real bugs: command-palette ↔ router app-route coherence
 (128), topbar data-action button double-fire guard (129), live-input oninput focus-loss guard
 (130, via brace-balance parsing of oninput handlers), service-worker decodeURIComponent
@@ -83,6 +83,15 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        function body and asserts it does NOT call State.update( and DOES route through
        validateAndNormalize, structurally preventing re-introduction of raw ingestion that reaches
        render (the ingestion counterpart of Check 130's oninput no-State.update guard). (BLOCKING)
+  382. Command palette ↔ router static top-level route coherence: Check 128 guards only the
+       `apps/<app>` app routes; the static top-level routes the router resolves (the `case '<name>':`
+       labels in js/router.js _parseRoute — projects/apps/settings/about/resume/contact/quiz/
+       hiring-risk/ai-knowhow/role-split) were unenforced against the palette NAV, so a newly added
+       static page could silently miss its `hash: '<name>'` entry and become unreachable via
+       Cmd/Ctrl+K (the same silent-discoverability-loss class as Check 128, which was added after the
+       Markdown notes app went missing). This Check parses the router switch's case labels as the
+       source of truth and asserts each has a matching `hash: '<name>'` destination in the palette
+       NAV, closing the app-only asymmetry of Check 128. (BLOCKING)
 """
 import re
 
@@ -419,3 +428,33 @@ def run(ctx):
     else:
         check(False, "Check 374: js/settings-page.js present",
               "Check 374: js/settings-page.js が無い — importJSON ingestion guard を検証できない", blocking=True)
+
+    # ── 382. Command palette ↔ router static top-level route coherence (BLOCKING) ──
+    # Check 128 は `apps/<app>` の app route のみ palette 網羅を強制する。router (_parseRoute) が
+    # switch(parts[0]) で解決する静的 top-level route (case '<name>': = projects/apps/settings/about/
+    # resume/contact/quiz/hiring-risk/ai-knowhow/role-split) は palette NAV に対し未強制で、新しい静的
+    # ページを router に足して palette への `hash: '<name>'` 追加を忘れると Cmd/Ctrl+K から到達できなく
+    # なる (Check 128 と同じ silent-discoverability-loss class の app-only 非対称)。router switch の
+    # case ラベルを source of truth として parse し、各々が palette NAV に `hash: '<name>'` を持つことを
+    # 機械強制して Check 128 の非対称を閉じる。
+    _router382 = ROOT / "js" / "router.js"
+    _palette382 = ROOT / "js" / "command-palette.js"
+    if _router382.exists() and _palette382.exists():
+        _router_src382 = _router382.read_text(encoding="utf-8")
+        _palette_src382 = _palette382.read_text(encoding="utf-8")
+        # _parseRoute の switch(parts[0]) の `case '<name>':` = 全 top-level 静的 route。
+        _cases382 = re.findall(r"case '([a-z][a-z-]*)':", _router_src382)
+        _missing382 = [c for c in _cases382
+                       if (f"hash: '{c}'" not in _palette_src382 and f'hash: "{c}"' not in _palette_src382)]
+        check(
+            bool(_cases382) and not _missing382,
+            f"Check 382: command-palette NAV が router の全 {len(_cases382)} 静的 top-level route ({', '.join(_cases382)}) を網羅",
+            (f"Check 382: command-palette NAV に router 静的 route が欠落: {_missing382} — "
+             "`{ label: '...', hash: '<route>' }` を NAV へ追加せよ (Cmd+K で到達不能になる・Check 128 の静的 route 版)")
+            if _cases382 else
+            "Check 382: router.js の switch case を parse できない — palette↔router 静的 route coherence が無効化された",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 382: router.js / command-palette.js present",
+              "Check 382: router.js または command-palette.js が見つからない — palette↔router 静的 route coherence を検証できない", blocking=True)
