@@ -1,7 +1,7 @@
 ---
 file: js/theme.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-07-22
 canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-i) / theme-init.js (FOUC 防止)
 ---
 
@@ -21,10 +21,13 @@ main.js Stage 5-i で物理分割。`theme-init.js` (起動最早期の FOUC 防
 main.js
   └─ import { createTheme } from './js/theme.js'
   └─ const Theme = createTheme({ State, Toast })
-       └─ Theme.cycle()       // system → dark → light → system
-       └─ Theme.set('dark')   // 直接指定
+       └─ Theme.init()        // 保存済みテーマを初期適用 + matchMedia listener 登録
+       └─ Theme.cycle()       // system → dark → light → system (永続化 + Toast)
+       └─ Theme.apply('dark') // 直接指定 (data-theme / dark class / theme-color / #themeBtnTop aria-label 更新)
        └─ matchMedia listener で system 変更を自動反映
 ```
+
+> 注: 公開 API は `{ apply, cycle, init }`。直接テーマ指定は `apply(theme)`（`set` は存在しない）。
 
 ## Change impact
 
