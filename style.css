@@ -1010,6 +1010,15 @@
             color: var(--text-muted);
             line-height: 1.6;
         }
+        /* [A11Y 1.4.1 Use of Color] hero-meta のインラインリンクは周囲テキスト内で
+           色 (.color-primary) のみで判別されていた (axe link-in-text-block serious)。
+           色トークンは変えず下線という非色アフォーダンスを付与して 1.4.1 を満たす。 */
+        .hero-meta a {
+            text-decoration: underline;
+        }
+        /* [A11Y 1.4.1 Use of Color] hero-meta のインラインリンクは周囲テキスト内で
+           色 (.color-primary) のみで判別されていた (axe link-in-text-block serious)。
+           色トークンは変えず下線という非色アフォーダンスを付与して 1.4.1 を満たす。 */
         .evidence-section {
             margin-top: var(--space-6);
         }
