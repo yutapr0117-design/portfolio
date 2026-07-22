@@ -1,7 +1,7 @@
 ---
 file: js/storage.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-07-22
 canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-c)
 ---
 
@@ -20,9 +20,9 @@ main.js Stage 5-c で最初に物理分割した module。localStorage 直接 ac
 ```
 main.js / state.js / store.js / brand.js / theme.js etc.
   └─ import { Storage } from './js/storage.js'
-  └─ Storage.setItem(key, value)  // 例外 swallow
-  └─ Storage.getItem(key)         // 失敗時 null
-  └─ Storage.removeItem(key)
+  └─ Storage.set(key, value)   // 例外 swallow
+  └─ Storage.get(key)          // 失敗時 null
+  └─ Storage.remove(key)
 ```
 
 `js/storage.js` を経由しない直接 `localStorage.*` 呼び出しは禁止 (例外で SPA が止まる)。

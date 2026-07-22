@@ -1,7 +1,7 @@
 ---
 file: js/ui-components.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-07-22
 canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 4)
 ---
 
@@ -22,8 +22,9 @@ main.js / 各 factory module
   └─ import { h, createIcon, Toast, BGM } from './js/ui-components.js'
   └─ const el = h('div', {class: 'card'}, ['Hello', h('br'), 'World'])
   └─ const icon = createIcon('chevron-down', 24)
-  └─ Toast.show('Saved!', { type: 'success' })
-  └─ BGM.play() / BGM.pause()
+  └─ Toast.show('Saved!', 'success')
+  └─ BGM.toggle()   // 再生/停止トグル (公開 API は { toggle, isOn, syncAll, init }・play/pause は内部)
+  └─ BGM.isOn()     // 現在の再生状態
 ```
 
 ## Change impact

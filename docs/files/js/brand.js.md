@@ -1,7 +1,7 @@
 ---
 file: js/brand.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-07-22
 canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-f) / js/storage.js
 ---
 
@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-f) / js/stor
 
 ## What
 
-Brand manager factory module。`createBrand({Storage})` を export。primary palette / font switcher を管理する factory。
+Brand manager factory module。`createBrand(Storage)` を export（位置引数で storage instance を受け取る）。primary palette / font switcher を管理する factory。
 
 ## Why
 
@@ -20,8 +20,11 @@ main.js から Stage 5-f で物理分割。brand (palette / font) 設定を loca
 ```
 main.js
   └─ import { createBrand } from './js/brand.js'
-  └─ const Brand = createBrand({ Storage })
-       └─ Brand.applyPalette('primary') etc.
+  └─ const Brand = createBrand(Storage)   // 位置引数 (storage instance・destructure ではない)
+       └─ Brand.init()          // 保存済みブランドを初期適用
+       └─ Brand.set('classic')  // ブランド切替 (永続化)
+       └─ Brand.get()           // 現在ブランド
+       └─ Brand.KEY             // localStorage キー定数
 ```
 
 ## Constraints
