@@ -915,4 +915,82 @@ MUTATIONS_ARCHIVE = [
         "find": '"headline": "AI-Driven PM Portfolio — PM-led AI Orchestration Experiment by Yuta Yokoi (横井雄太)",',
         "replace": '"headline": "x",',
     },
+    {
+        "name": "Check 269 (binary asset byte budget): tighten hero.webp budget to 1 byte (simulates over-budget)",
+        "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 269 は checks_shipped_static.py へ抽出済 (split Phase 33)
+        "find": '(_HERO_WEBP269, 200_000, "hero.webp"),',
+        "replace": '(_HERO_WEBP269, 1, "hero.webp"),',
+    },
+    {
+        "name": "Check 270 (text asset byte budget): tighten style.css budget to 1 byte (simulates over-budget)",
+        "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 270 は checks_shipped_static.py へ抽出済 (split Phase 33)
+        "find": '(ROOT / "style.css", 100_000, "style.css"),',
+        "replace": '(ROOT / "style.css", 1, "style.css"),',
+    },
+    {
+        "name": "Check 271 (root JS byte budget): tighten main.js budget to 1 byte (simulates over-budget)",
+        "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 271 は checks_shipped_static.py へ抽出済 (split Phase 33)
+        "find": '(ROOT / "main.js", 100_000, "main.js"),',
+        "replace": '(ROOT / "main.js", 1, "main.js"),',
+    },
+    {
+        "name": "Check 272 (leaf module byte budget): tighten _LEAF_BUDGET272 to 1 byte (simulates over-budget)",
+        "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 272 は checks_shipped_static.py へ抽出済 (split Phase 33)
+        "find": "_LEAF_BUDGET272 = 100_000",
+        "replace": "_LEAF_BUDGET272 = 1",
+    },
+    {
+        "name": "Check 273 (JSON-LD dates NOT future): drift datePublished to 2099-12-31",
+        "file": ROOT / "index.html",
+        "find": '"datePublished": "2026-04-14"',
+        "replace": '"datePublished": "2099-12-31"',
+    },
+    {
+        "name": "Check 274 (aio-manifest entity.name == Person.name): drift entity.name in manifest",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"name": "Yuta Yokoi",\n    "name_ja": "横井雄太",',
+        "replace": '"name": "Anonymous PROBE",\n    "name_ja": "横井雄太",',
+    },
+    {
+        "name": "Check 275 (aio-manifest affiliation.organization_name == Org.name): drift org_name in manifest",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"organization_name": "株式会社日本経営",',
+        "replace": '"organization_name": "PROBE Company Ltd",',
+    },
+    {
+        "name": "Check 276 (aio-manifest affiliation.organization_url == Org.url): drift org_url in manifest",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"organization_url": "https://nkgr.co.jp/",',
+        "replace": '"organization_url": "https://probe-drift.example/",',
+    },
+    {
+        "name": "Check 277 (aio-manifest authoritative_context == canonical+llms-full.txt): drift to probe URL",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"authoritative_context": "https://yutapr0117-design.github.io/portfolio/llms-full.txt",',
+        "replace": '"authoritative_context": "https://probe-drift.example/llms-full.txt",',
+    },
+    {
+        "name": "Check 278 (sitemap.xml <loc> HTTPS): downgrade one <loc> to http",
+        "file": ROOT / "sitemap.xml",
+        "find": "<loc>https://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>",
+        "replace": "<loc>http://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>",
+    },
+    {
+        "name": "Check 279 (robots.txt Sitemap: HTTPS): downgrade Sitemap: URL to http",
+        "file": ROOT / "robots.txt",
+        "find": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml",
+        "replace": "Sitemap: http://yutapr0117-design.github.io/portfolio/sitemap.xml",
+    },
+    {
+        "name": "Check 280 (SITE_CONFIG URLs HTTPS): downgrade REPO_URL to http",
+        "file": ROOT / "main.js",
+        "find": "REPO_URL:      'https://github.com/yutapr0117-design/portfolio',",
+        "replace": "REPO_URL:      'http://github.com/yutapr0117-design/portfolio',",
+    },
+    {
+        "name": "Check 281 (SITE_CONFIG.REPO_URL == ai:repository): drift ai:repository content",
+        "file": ROOT / "index.html",
+        "find": '<meta name="ai:repository" content="https://github.com/yutapr0117-design/portfolio" />',
+        "replace": '<meta name="ai:repository" content="https://github.com/PROBE-DRIFT/portfolio" />',
+    },
 ]
