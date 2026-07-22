@@ -30,14 +30,22 @@ test('Theme toggle cycles data-theme and persists across reload', async ({ page 
   const html = page.locator('html');
   const initial = await html.getAttribute('data-theme');
 
-  // テーマ切替ボタンは desktop (sidebar) と mobile (#themeBtnTop) の両方に存在し同じ
-  // aria-label を共有する。viewport で可視な方を選んでクリックする。
-  const themeBtn = page.locator('button[aria-label="ライトモードとダークモードを切り替える"]:visible').first();
+  // テーマ切替ボタンは desktop (#themeBtnSidebar) と mobile (#themeBtnTop) の両方に存在する。
+  // viewport で可視な方を選んでクリックする (id で locate。aria-label は現在テーマで動的に変わる
+  // ため locator に使わない)。
+  const themeBtn = page.locator('#themeBtnSidebar:visible, #themeBtnTop:visible').first();
   await expect(themeBtn).toBeVisible();
   await themeBtn.click();
 
   const afterClick = await html.getAttribute('data-theme');
   expect(afterClick, 'data-theme must change after toggling the theme button').not.toBe(initial);
+
+  // [a11y WCAG 4.1.2] 可視なテーマボタンの aria-label が現在テーマ状態を露出すること。
+  //   apply()/render 由来で「現在: <テーマ名>」に更新される (static 2 状態ラベルからの是正)。
+  //   theme.js の themeToggleAriaLabel を戻すと現在状態が露出せず RED = 非 vacuity。
+  const expectLabel = { system: 'システム設定', dark: 'ダーク', light: 'ライト' }[afterClick];
+  await expect(page.locator('#themeBtnSidebar:visible, #themeBtnTop:visible').first())
+    .toHaveAttribute('aria-label', `テーマを切り替える（現在: ${expectLabel}）`);
 
   // リロード後もテーマが永続化されていること（State → localStorage 往復）
   await page.reload();

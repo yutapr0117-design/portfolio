@@ -174,9 +174,15 @@ export function createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Th
                     )
                 ),
                 h('button', {
+                    id: 'themeBtnSidebar',
                     class: 'icon-btn',
                     onclick: Theme.cycle,
-                    'aria-label': 'ライトモードとダークモードを切り替える'
+                    // [FIX] aria-label を現在テーマで生成する (WCAG 4.1.2 Name/Role/Value)。従来は
+                    //   static「ライトモードとダークモードを切り替える」で 3 状態 cycle に対し 2 状態
+                    //   表記かつ現在状態非露出だった。文言は theme.js の themeToggleAriaLabel と対応
+                    //   (葉契約=import ゼロゆえ inline 複製)。sidebar は render 毎に現在テーマで再構築される。
+                    'aria-label': 'テーマを切り替える（現在: ' +
+                        (state.theme === 'system' ? 'システム設定' : state.theme === 'dark' ? 'ダーク' : 'ライト') + '）'
                 }, createIcon(state.theme === 'dark' || (state.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'sun' : 'moon'))
             )
         );

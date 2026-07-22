@@ -19,12 +19,23 @@
  *   - cycle の遷移順 (system → dark → light → system) と Toast 文言は byte-equivalent
  *   - init での matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ...) も
  *     不変（system 選択時のみ apply('system') 再呼び出し）
+ *   - [追加] apply() は #themeBtnTop の aria-label を現在テーマで更新する (WCAG 4.1.2)。従来の
+ *     static ラベル「ライトモードとダークモードを切り替える」は 3 状態 cycle に対し 2 状態表記で
+ *     不正確かつ現在状態非露出だった。描画 (data-theme/dark class/theme-color) は不変。
  *
  * 【副作用】
  *   - apply(theme): document.documentElement の DOM 副作用、meta theme-color の content 変更
  *   - init: window.matchMedia の change イベントリスナー登録
  *   - cycle: State.update() による永続化トリガと Toast.show による UI 通知
  */
+// テーマ切替ボタンの aria-label を現在テーマから生成する。表示名は cycle() の Toast 文言と揃える
+// (システム設定 / ダーク / ライト)。葉契約 (Check 47c: import ゼロ) ゆえ他葉へ export はせず、
+// components.js の sidebar ボタンは同一文言を inline で複製する (文言 drift は本コメントで対応関係を明示)。
+function themeToggleAriaLabel(theme) {
+    const label = theme === 'system' ? 'システム設定' : theme === 'dark' ? 'ダーク' : 'ライト';
+    return `テーマを切り替える（現在: ${label}）`;
+}
+
 export function createTheme({ State, Toast }) {
     function apply(theme) {
         document.documentElement.setAttribute('data-theme', theme);
@@ -38,6 +49,18 @@ export function createTheme({ State, Toast }) {
         const meta = document.querySelector('meta[name="theme-color"]');
         if (meta) {
             meta.content = isDark ? '#0b0f19' : '#ffffff';
+        }
+
+        // [FIX] topbar のテーマ切替ボタン (#themeBtnTop) の aria-label を現在テーマで更新する
+        //   (WCAG 4.1.2 Name/Role/Value)。従来は index.html の static ラベル
+        //   「ライトモードとダークモードを切り替える」で固定され、(a) 実際は system→dark→light の
+        //   3 状態 cycle なのに 2 状態表記で不正確、(b) 現在どのテーマかを露出しなかった。
+        //   このボタンは #content 外の永続要素ゆえ apply() (init + cycle + system-change で発火) で
+        //   直接更新する。sidebar 側ボタンは render 毎に components.js が現在テーマで再構築する。
+        //   getElementById は要素不在 (init 前タイミング等) では null → optional chaining で無害。
+        const topBtn = document.getElementById('themeBtnTop');
+        if (topBtn) {
+            topBtn.setAttribute('aria-label', themeToggleAriaLabel(theme));
         }
     }
 
