@@ -118,6 +118,9 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                     h('input', {
                         id: 'task-input',
                         class: 'input',
+                        // [A11Y 3.3.2/4.1.2] placeholder は入力開始で消え SR が accessible name として
+                        // 一貫して読まないため、恒久的な aria-label を付与する (可視ラベル無しデザイン維持)。
+                        'aria-label': '新しいタスクを入力',
                         enterkeyhint: 'done',
                         placeholder: '新しいタスクを入力...',
                         onkeydown: (e) => {
@@ -298,6 +301,8 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                     h('input', {
                         id: 'todo-input',
                         class: 'input',
+                        // [A11Y 3.3.2/4.1.2] placeholder-only を避け恒久 accessible name を付与。
+                        'aria-label': 'やることを入力',
                         enterkeyhint: 'done',
                         placeholder: '入力してEnter（IME対応）...',
                         oncompositionstart: () => todoComposing = true,

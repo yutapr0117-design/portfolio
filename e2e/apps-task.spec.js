@@ -6,6 +6,20 @@ const { test, expect } = require('@playwright/test');
 // localStorage (State auto-save) へ永続化する。apps セクションは従来「ルートが描画される」
 // テストのみで、実際のデータ操作 (add → 永続 → reload で復元) は未カバーだった。State の
 // Proxy 永続パスを実ブラウザで動的検証する (theme/drawer/quiz に続く interactive coverage)。
+// [A11Y 3.3.2/4.1.2] task/todo の主入力は可視ラベルを持たず placeholder のみだった。
+// placeholder は入力開始で消え SR が accessible name として一貫して読まないため、
+// getByLabel (aria-label 解決) が主入力を特定できることを実検証する。aria-label を
+// 除去すると getByLabel が要素を見つけられず本テストが RED になる (非 vacuous)。
+test('Task and Todo main inputs expose an accessible name (not placeholder-only)', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByLabel('新しいタスクを入力')).toHaveAttribute('id', 'task-input');
+
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByLabel('やることを入力')).toHaveAttribute('id', 'todo-input');
+});
+
 test('Task app adds a task and persists it across reload', async ({ page }) => {
   await page.goto('/#/apps/task');
   await page.waitForLoadState('domcontentloaded');

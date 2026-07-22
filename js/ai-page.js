@@ -166,6 +166,8 @@ export function createAIPage({ h, createIcon, State, CONSTANTS }) {
                             h('input', {
                                 id: 'ai-input',
                                 class: 'input',
+                                // [A11Y 3.3.2/4.1.2] placeholder-only を避け恒久 accessible name を付与。
+                                'aria-label': 'AI アシスタントへの依頼を入力',
                                 enterkeyhint: 'send',
                                 placeholder: '例：デプロイ手順を分解して、タスク管理アプリの説明文を書いて...',
                                 disabled: aiLoading,
