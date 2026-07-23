@@ -81,6 +81,7 @@ def run(ctx):
     check = ctx.check
     read = ctx.read
     extract = ctx.extract
+    errors = ctx.errors
 
     # ── 9. sitemap.xml valid XML ──────────────────────────────────────────────────
     try:

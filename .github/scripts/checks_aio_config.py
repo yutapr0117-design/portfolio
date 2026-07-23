@@ -77,6 +77,7 @@ def run(ctx):
     check = ctx.check
     read = ctx.read
     extract = ctx.extract
+    warnings = ctx.warnings
 
     # ── 62. AIO entity canonical_url cross-surface identity (BLOCKING) ────────────
     # aio-manifest.json の `entity.canonical_url` と llms-full.txt の `Canonical URL:` 値が
