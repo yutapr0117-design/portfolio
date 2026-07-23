@@ -71,6 +71,36 @@ test('Markdown notes app live-previews (innerHTML-free) and persists', async ({ 
 });
 
 
+// ===== 7.2: Markdown 見出しの 3 レベル demote (# → h3 / ## → h4 / ### → h5) =====
+// #737 で renderMarkdown は Markdown 見出しを 2 段 demote する (# → h3, ## → h4, ### → h5)。
+// 既存の notes テストは `#` (→ h3) 1 レベルしか検証しておらず、`##` (→ h4) / `###` (→ h5) の
+// 降格は未カバーだった。default note は "# メモ" (# のみ) ゆえ ##/### は既定コンテンツに現れず、
+// axe heading-order もユーザーが ##/### を打たない限り検出できない → ##→h2 等への退行が silent に
+// なる gap。3 レベル同時入力で各要素レベルを検証し、特に `##` が h2 に、`###` が h3 に戻る退行
+// (preview 内 h2/h3 が note 見出しになり heading-order/1.3.1 崩れ) を捕捉する。
+test('Markdown notes demotes all three heading levels (# → h3, ## → h4, ### → h5)', async ({ page }) => {
+  await page.goto('/#/apps/notes');
+  await page.waitForLoadState('domcontentloaded');
+
+  const ta = page.locator('#notes-input');
+  await expect(ta).toBeVisible();
+  await ta.fill('# NOTE-H1-8801\n## NOTE-H2-8802\n### NOTE-H3-8803');
+
+  const preview = page.locator('.md-preview');
+  // # → h3 / ## → h4 / ### → h5 (要素レベルは 2 段 demote・視覚 class は h1/h2/h3 維持)
+  await expect(preview.locator('h3', { hasText: 'NOTE-H1-8801' })).toBeVisible();
+  await expect(preview.locator('h4', { hasText: 'NOTE-H2-8802' })).toBeVisible();
+  await expect(preview.locator('h5', { hasText: 'NOTE-H3-8803' })).toBeVisible();
+  // ## / ### が h2 / h3 要素に戻る退行を封じる: preview 内に note 由来の h2 は存在しない
+  // (h2 はセクション見出し「プレビュー」1 個のみ・note の ## は h4 になる)。
+  await expect(preview.locator('h2', { hasText: 'NOTE-H2-8802' })).toHaveCount(0);
+  await expect(preview.locator('h3', { hasText: 'NOTE-H3-8803' })).toHaveCount(0);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `notes heading demote caused a fatal: ${fatal}`).toBeNull();
+});
+
+
 // ===== 7.2: AI アシストの analyzeInput キーワード分岐 (troubleshoot/design/breakdown/writing/general) =====
 // analyzeInput は入力に含まれるキーワードで応答タイプを 5 分岐する: 「エラー/バグ/失敗」→
 // troubleshoot、「設計/計画/構成」→ design、「分解/タスク/手順/ステップ/段取り」→ breakdown、
