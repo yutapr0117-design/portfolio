@@ -910,4 +910,32 @@ E2E_MUTATIONS = [
         "replace": "h('h3', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },",
         "test": "project detail (#/projects/:slug)",
     },
+    {
+        "name": "behavior: pomodoro 稼働中モード切替が停止しない (switchMode の isActive=false→true) → 切替後もタイマー稼働表示のまま countdown が続く running-timer-with-wrong-mode 退行 (#747 の非 vacuity 検証。mode=mode 行を含む find で switchMode 限定)",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": "                s.appsData.pomodoro.runtime.mode = mode;\n                s.appsData.pomodoro.runtime.isActive = false;",
+        "replace": "                s.appsData.pomodoro.runtime.mode = mode;\n                s.appsData.pomodoro.runtime.isActive = true;",
+        "test": "switching mode while running",
+    },
+    {
+        "name": "behavior: notes Markdown ## → h4 の 2 段 demote 喪失 (## を h2 要素へ戻す) → preview 内に note 由来 h2 が現れ heading-order/WCAG 1.3.1 崩れ (#748 の 3 レベル demote 非 vacuity 検証)",
+        "file": ROOT / "js" / "apps.js",
+        "find": "else if (h2) { flushList(); out.push(h('h4', { class: 'h2' }, ..._renderMarkdownInline(h2[1]))); }",
+        "replace": "else if (h2) { flushList(); out.push(h('h2', { class: 'h2' }, ..._renderMarkdownInline(h2[1]))); }",
+        "test": "demotes all three heading",
+    },
+    {
+        "name": "behavior: brand sanitize の ALLOWED ガード喪失 (return ALLOWED.has(v)?v:DEFAULT を return v へ) → 不正 brand 値 'garbage-not-json' が data-brand にそのまま残り DEFAULT へ fallback しない (#754 の非 vacuity 検証)",
+        "file": ROOT / "js" / "brand.js",
+        "find": "        return ALLOWED.has(v) ? v : DEFAULT;",
+        "replace": "        return v;",
+        "test": "recovers gracefully from corrupt",
+    },
+    {
+        "name": "behavior: theme cycle 三項遷移順の破壊 (system?dark:dark?light:system を system?light:... へ) → cycle が system→dark→light→system の順に一周しない (#755 の完全 cycle 順 非 vacuity 検証)",
+        "file": ROOT / "js" / "theme.js",
+        "find": "const next = current === 'system' ? 'dark' : current === 'dark' ? 'light' : 'system';",
+        "replace": "const next = current === 'system' ? 'light' : current === 'dark' ? 'system' : 'dark';",
+        "test": "3-state cycle order",
+    },
 ]
