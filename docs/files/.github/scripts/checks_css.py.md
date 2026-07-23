@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/checks_css.py
 audience: ai, human (新卒), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-07-05
+last-updated: 2026-07-23
 canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK_SOURCE_FILES) / docs/incident-artifacts/decision-v80-phase4-bloat-reduction-1000-line-threshold.md (C-first split protocol) / docs/incident-artifacts/improvement-notes-claude-v80-phase4-checkpy-split-track-full-handoff.md
 ---
 
@@ -9,9 +9,9 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 
 ## What
 
-`check_repository_consistency.py` 分割トラックの 28 個目の split module・**初の ctx-enrich module**。style.css / CSS contract を守る非連続クラスタ Check **6/73/101/103/135/174/321/322/323/344/356**（11 checks）を内包し、`run(ctx)` で monolith から呼ばれる。
+`check_repository_consistency.py` 分割トラックの 28 個目の split module・**初の ctx-enrich module**。style.css / CSS contract を守る非連続クラスタ Check **6/73/101/103/135/174/321/322/323/344/356/378/383/384**（14 checks）を内包し、`run(ctx)` で monolith から呼ばれる。
 
-- 6/135(design-token / stylesheet baseline) / 73(a11y-CWV attribute contract) / 101(forced-colors HCM focus) / 103(prefers-contrast) / 174(theme-color literals) / 321(@import 0) / 322(inline `<style>` 0) / 323(style attribute 0) / 344(@layer allowlist) / 356(Google Fonts CSP pair)。
+- 6/135(design-token / stylesheet baseline) / 73(a11y-CWV attribute contract) / 101(forced-colors HCM focus) / 103(prefers-contrast) / 174(theme-color literals) / 321(@import 0) / 322(inline `<style>` 0) / 323(style attribute 0) / 344(@layer allowlist) / 356(Google Fonts CSP pair) / 378(MOBILE_BREAKPOINT JS↔CSS coherence) / 383(prefers-reduced-motion global reset) / 384(base :focus-visible outline)。
 
 ## Why
 
@@ -20,7 +20,7 @@ owner 合意 C-first の check.py 段階分割（**Phase 34**・**ctx-enrich パ
 ## How
 
 - monolith: `_ctx` 定義（globals load 前）の後、globals load 直後に `_ctx.style = style` を attach（`# ctx enrichment for split modules` ブロック）。
-- **元の実行位置（Check 6 の位置・最小番号 target）**で `checks_css.run(_ctx)` を呼ぶ。11 checks は list 順で連続実行（順序非依存・全出力 diff で byte-identical 実証）。
+- **元の実行位置（Check 6 の位置・最小番号 target）**で `checks_css.run(_ctx)` を呼ぶ。14 checks は list 順で連続実行（順序非依存・全出力 diff で byte-identical 実証）。
 - `run()` は `ROOT`/`check`/**`style`**/`read`/`extract` を ctx から unpack し `import re, json`。
 - `_aggregate_check_numbers()` が `CHECK_SOURCE_FILES`（本ファイル含む）を横断集約。
 
@@ -44,7 +44,7 @@ owner 合意 C-first の check.py 段階分割（**Phase 34**・**ctx-enrich パ
 - 残る非-glob ターゲット: helper 同梱（`_lib_csp_sri_hash`=350 / `_walkNNN`=190/201）/ 単発(189/349/360)。自己整合 aggregator + load/ctx-setup infra は残置（不動点）。
 
 ### For human engineers（新卒レベル）
-- 巨大 1 ファイルを役割別に切り出す 28 個目・初の「共有データを渡して切り出す」方式。今回は「CSS(見た目の定義)が正しいか確かめる 11 の検査」を、事前に読み込んだ style.css の中身を渡す形で移した。
+- 巨大 1 ファイルを役割別に切り出す 28 個目・初の「共有データを渡して切り出す」方式。今回は「CSS(見た目の定義)が正しいか確かめる検査群」を、事前に読み込んだ style.css の中身を渡す形で移した（分離時 11・その後 378/383/384 を追加し現在 14）。
 
 ### For third parties / auditors
 - 各 PR で `npm run verify` exit 0・自己整合 Check 45/70/105 が monolith + 28 split module 横断で緑（Phase 34 で 6,100→5,710）。抽出前後の全 check 出力 diff で byte-equivalence を実証。ctx-enrich という新パターンの初適用を透明に記録。
