@@ -631,6 +631,18 @@ _MUTATIONS_TAIL = [
         "replace": "Number(data.pomodoro.settings.work) || 25",
         "test": "Check 370: state.js / store.js が pomodoro 既定状態を CONSTANTS.POMODORO_DEFAULT_* 経由で参照",
     },
+    {
+        "name": "Check 103 (prefers-contrast block presence): 実 @media (prefers-contrast: more) ブロックの開き波括弧を壊す → 修正後の Check 103 (`) {` 要求) が実ブロック不在を検出。修正前はコメント言及にマッチして vacuous に pass していた #278/#283 class の gate バグを封じたことの回帰防止 (checks_css.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
+        "file": ROOT / "style.css",
+        "find": "@media (prefers-contrast: more) {",
+        "replace": "@media (prefers-contrast: BROKEN) {",
+    },
+    {
+        "name": "Check 101 (forced-colors focus block presence): 実 @media (forced-colors: active) ブロックの開き波括弧を壊す → 修正後の Check 101 (`) {` 要求) が実ブロック不在を検出。コメント言及を first-match していた fragility を `{` 要求で解消したことの回帰防止 (checks_css.py は別 file ゆえ self-reference trap 無し)",
+        "file": ROOT / "style.css",
+        "find": "@media (forced-colors: active) {",
+        "replace": "@media (forced-colors: BROKEN) {",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。
