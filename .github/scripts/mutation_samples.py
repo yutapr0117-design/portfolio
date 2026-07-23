@@ -938,4 +938,11 @@ E2E_MUTATIONS = [
         "replace": "const next = current === 'system' ? 'light' : current === 'dark' ? 'system' : 'dark';",
         "test": "3-state cycle order",
     },
+    {
+        "name": "behavior: settings upsert import が更新も新規追加も反映しない data-loss (upsert 分岐の Array.from(map.values()) を base.projects.slice() へ) → import した既存更新 + 新規 project が両方消える (#192 data-loss 実バグ regression の非 vacuity 検証)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "                            merged.projects = Array.from(map.values());",
+        "replace": "                            merged.projects = base.projects.slice();",
+        "test": "upsert import updates existing",
+    },
 ]
