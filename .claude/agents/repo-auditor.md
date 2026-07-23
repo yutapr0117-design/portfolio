@@ -20,9 +20,9 @@ After reading, you have the spine. Do not bulk-`cat` the rest of the tree.
 ## Audit dimensions (prioritized)
 
 1. **Constraint integrity (C1–C7)**: any candidate violation? List with file path and exact line.
-2. **Check inventory drift**: does Check 45 self-integrity hold? Does `check_repository_consistency.py`'s docstring inventory match its `# ── N.` section headers and the `check-repository-consistency-map.md` table? Number of Checks = the runbook §9 value?
+2. **Check inventory drift**: does Check 45 self-integrity hold? Does the (split `checks_*.py` modules') docstring inventory match their `# ── N.` section headers and the `check-repository-consistency-map.md` table (Check 45/70/105)? Number of Checks = the runbook §9 value? **Also (NOT machine-enforced — Check 108 only verifies mirror existence, not content): does each split-module docs/files mirror that ENUMERATES its checks (e.g. `docs/files/.github/scripts/checks_css.py.md` "Check 6/73/…（N checks）") list the CURRENT set?** This enumeration silently drifts when a Check is added to a module (#752 class); compare against the module's `# ── N.` sections.
 3. **AIO published layer drift (C6)**: sha256 of `llms.txt` / `llms-full.txt` / `.well-known/llms.txt` / `aio-manifest.json` against the manifest's recorded sha. Any mismatch is a BLOCKING drift.
-4. **Stage 5 invariance**: `main.js` line count == file-size-budget §2 (currently 1,086) ± 10 lines; if it grew, flag it.
+4. **Stage 5 invariance**: `main.js` line count against `file-size-budget.md` §2 (`wc -l main.js` is authoritative — do NOT hardcode a number here; it grew from the Stage-5-completion 1,086 to ~1,196 via legitimate factory-wiring additions and drifts with each extraction). `main.js` is `strong-advisory` at 6,400; only flag if it approaches the budget OR if a growth added a FEATURE directly (not factory wiring / safety comments). Keep the budget §2 `main.js` snapshot in sync with `wc -l`.
 5. **Last-Updated freshness**: every `docs/architecture/*.md` `Last-Updated:` value within the active increment window.
 6. **CI workflow hygiene**: all 5 workflows declare top-level `permissions:` (Check 67); paths filters cover `js/**` (Stage 5 blind spot — Check 73).
 
