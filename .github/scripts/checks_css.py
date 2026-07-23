@@ -230,7 +230,12 @@ def run(ctx):
     _css101 = ROOT / "style.css"
     if _css101.exists():
         _src101 = _css101.read_text(encoding="utf-8")
-        _fc101 = re.search(r"@media\s*\(\s*forced-colors\s*:\s*active\s*\)", _src101)
+        # [vacuous-gate fix] `\s*\{` を要求して実ブロックのみにマッチさせる。style.css には
+        # `@media (forced-colors: active)` を **コメント内で言及**する行 (説明コメント) があり、
+        # 開き波括弧を要求しないと regex が first-match でそのコメントを掴む (実ブロック削除後も
+        # コメント + 隣接ルールの window が :focus+outline を拾えば vacuous に pass しうる)。実 CSS
+        # ブロックは必ず `) {` で始まるので `{` 要求でコメント言及を排除する (Check 103 と同 class)。
+        _fc101 = re.search(r"@media\s*\(\s*forced-colors\s*:\s*active\s*\)\s*\{", _src101)
         _focus_in_fc101 = False
         if _fc101:
             # forced-colors at-rule 開始から十分な window を見て、focus selector + outline 復帰を確認。
@@ -259,7 +264,13 @@ def run(ctx):
     _css103 = ROOT / "style.css"
     if _css103.exists():
         _src103 = _css103.read_text(encoding="utf-8")
-        _pc103 = re.search(r"@media\s*\(\s*prefers-contrast\s*:\s*more\s*\)", _src103)
+        # [vacuous-gate fix] `\s*\{` を要求して実ブロックのみにマッチさせる。従来 regex は
+        # `@media (prefers-contrast: more)` 文字列の存在 (bool) のみを見ており、style.css の説明
+        # コメント内の `@media (prefers-contrast: more)` 言及にもマッチしていた。ゆえに実 CSS
+        # ブロックを削除してもコメントが残れば OK のまま pass する vacuous-gate だった (実測確認)。
+        # WCAG 1.4.11 の higher-contrast サポートが silent に消える #278/#283 class。開き波括弧を
+        # 要求して実ブロック (`) {`) のみを presence の根拠にする。
+        _pc103 = re.search(r"@media\s*\(\s*prefers-contrast\s*:\s*more\s*\)\s*\{", _src103)
         check(
             bool(_pc103),
             "Check 103: style.css has a prefers-contrast: more block (WCAG 1.4.11 higher-contrast support)",
