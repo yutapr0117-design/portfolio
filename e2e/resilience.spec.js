@@ -26,6 +26,14 @@ test('App recovers gracefully from corrupt localStorage (no FatalPage)', async (
   // home が正常描画され NotFound でもない
   await expect(page.locator('.hero-section')).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Not Found', exact: true })).toHaveCount(0);
+
+  // [coverage] 不正な brand 値 ('garbage-not-json') が Brand.sanitize で DEFAULT='indigo' へ
+  // fallback すること。theme-init.js は pre-paint で raw 値を適用する (data-brand='garbage-...')
+  // が、main.js の Brand.init() が ALLOWED[indigo/classic] 外を DEFAULT へ sanitize して最終
+  // data-brand を確定する。従来テストは no-crash のみ検証し sanitize fallback を assert して
+  // いなかった (sanitize が regress しても crash しないため素通り)。Brand.sanitize の ALLOWED
+  // ガードを外すと data-brand が 'garbage-not-json' のままになり本アサーションが RED (非 vacuous)。
+  await expect(page.locator('html')).toHaveAttribute('data-brand', 'indigo');
 });
 
 
