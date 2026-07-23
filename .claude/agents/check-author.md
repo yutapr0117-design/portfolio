@@ -28,10 +28,13 @@ Check 45 requires these three to agree at all times. Edit them in the same edit 
 ### Step 4 — sync the maps
 - `docs/architecture/check-repository-consistency-map.md` — add a row in the appropriate category (A–F)
 - `docs/architecture/total-check-runbook.md` §9 "consistency Check 総数" — bump the number and append a one-line description
+- **If the Check lives in a split `checks_*.py` module whose docs/files mirror ENUMERATES its check list** (e.g. `docs/files/.github/scripts/checks_css.py.md` states "Check 6/73/…（14 checks）"), update that mirror's enumeration (both the number and the per-check description line) too. Check 108 only verifies the mirror EXISTS, not its content, so a stale check-list silently drifts (learned from #752: adding Checks 383/384/385 to checks_css.py / checks_maintainability.py left the mirror enumerations at the old counts, requiring a separate cleanup PR).
 
 ### Step 5 — verify
 - Check that the section-header numbers are still contiguous 1..N (Check 45a)
 - Check that the docstring entries are still contiguous 1..N (Check 45b)
+- Check that the docstring inventory and section headers describe the same N checks (Check 45c)
+- Check that the runbook §9 count == implementation max (Check 70) and the map documents exactly the implemented checks (Check 105)
 - Check that the row count in the map.md matches (Check 64 uniqueness)
 
 ## Design heuristics
