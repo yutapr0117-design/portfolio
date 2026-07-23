@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/checks_maintainability.py
 audience: ai, human (新卒), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-07-05
+last-updated: 2026-07-23
 canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK_SOURCE_FILES) / docs/incident-artifacts/decision-v80-phase4-bloat-reduction-1000-line-threshold.md (C-first split protocol)
 ---
 
@@ -9,7 +9,7 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 
 ## What
 
-`check_repository_consistency.py`（元 15,913 行の中央 registry）から切り出した最初の split module。file-size / maintainability / test-health 系の Check を内包し、`run(ctx)` で monolith から呼ばれる。
+`check_repository_consistency.py`（元 15,913 行の中央 registry）から切り出した最初の split module。file-size / maintainability / test-health / check-infra 系の Check を内包し、`run(ctx)` で monolith から呼ばれる。**現在の全 Check（15 個・番号の権威は `# ── N.` section と Check 45）**: 16 / 28 / 29 / 30 / 42 / 52 / 71 / 361 / 362 / 363 / 364 / 365 / 379 / 380 / 385。下記の Phase 履歴は分割トラックでの抽出経緯であり、365（全非 A テキスト ≤1,000 capstone）/ 379-380（mutation-integrity mesh）/ 385（checks_*.py ctx.warnings/errors unpack）は分割後に別 increment で追加した。
 
 - **Phase 1（#577）**: Check 361-364（js-leaf BUDGET-DATA 登録 / mutation anchor 解決 / js-leaf 1,000 行上限 / store.js ingestion array-op 安全）。
 - **Phase 2（#579）**: Check 52（file-size budget advisory）+ 71（BUDGET-DATA path existence）を追加（file-size governance cluster を集約）。**非連番 Check の抽出 + 既存 module への join パターン**を確立。
