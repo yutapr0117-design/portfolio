@@ -265,7 +265,18 @@ def run(ctx):
             f"両 ecosystem の月次更新は v80+ CI hygiene の基盤。両方を保持せよ",
         )
     else:
-        warnings.append("Check 68: .github/dependabot.yml not found — ecosystem coverage check skipped")
+        # [vacuous-gate fix] BLOCKING な Check 68 が対象を「必須」と規定する以上、file 不在は
+        # skip (warning) ではなく BLOCKING 失敗にする。従来は skip-on-missing だったため、必須の
+        # governance file である .github/dependabot.yml を削除しても consistency が緑のまま通り、
+        # dependabot の自動 dependency 更新が silent に失われる gap があった (Check 96 は mirror
+        # 存在のみ検証し source 存在は未強制)。#278/#283 と同じ「gate が claim を強制しない」class。
+        check(
+            False,
+            "",
+            "Check 68: .github/dependabot.yml が存在しない — npm / github-actions の月次自動更新は "
+            "v80+ CI hygiene の必須基盤。削除すると人手で依存更新を追う負債が silent に積み上がる。"
+            "file を復元せよ (BLOCKING Check の対象は必須ゆえ skip でなく失敗として扱う)",
+        )
 
     # ── 69. package.json engines.node ↔ CI node-version pin alignment (BLOCKING) ──
     # package.json `engines.node` が CI workflow の Node version pin (`node-version: '24'`) を
