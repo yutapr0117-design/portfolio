@@ -649,6 +649,12 @@ _MUTATIONS_TAIL = [
         "find": "    warnings = ctx.warnings",
         "replace": "    _warnings_unpack_removed = None",
     },
+    {
+        "name": "Check 68 (dependabot dual-ecosystem coverage): dependabot.yml の npm ecosystem 宣言を壊す → Check 68 が npm coverage 欠落を検出。file-missing パス (skip→fail 修正) は file 削除ゆえ mutation 不可で手動検証、本 mutation は content-check (npm/github-actions 両 ecosystem 必須) の非 vacuity を institutionalize",
+        "file": ROOT / ".github" / "dependabot.yml",
+        "find": 'package-ecosystem: "npm"',
+        "replace": 'package-ecosystem: "BROKEN"',
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。
