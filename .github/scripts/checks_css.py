@@ -2,7 +2,7 @@
 checks_css.py — style.css / CSS contract checks (glob-content: style)
 (extracted from check_repository_consistency.py — check.py split track・category "CSS contract"・first ctx-enrich module).
 
-Non-contiguous cluster of Checks 6/73/101/103/135/174/321/322/323/344/356/378/383 that read the pre-loaded
+Non-contiguous cluster of Checks 6/73/101/103/135/174/321/322/323/344/356/378/383/384 that read the pre-loaded
 `style.css` content (the monolith's `style` global). Check 378 also reads js/constants.js directly to
 enforce the JS↔CSS responsive-breakpoint coherence (MOBILE_BREAKPOINT ↔ sidebar-hide @media). This is the FIRST split module to consume a
 shared global-content value via ctx-enrichment: the monolith attaches `_ctx.style = style` after the
@@ -137,6 +137,14 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        103 (prefers-contrast), the block is render-neutral — inert unless the OS preference is active
        — so it never affects the Playwright visual baseline (§3 gate exempt). This Check locks in the
        global reduced-motion reset so a future edit cannot silently strip it. (BLOCKING)
+  384. style.css base :focus-visible outline: after stripping @media blocks, the top-level CSS must
+       contain a `:focus-visible { ... outline: <non-none/non-0> ... }` rule — the normal-mode
+       keyboard focus indicator (WCAG 2.4.7 Focus Visible, Level AA) that most keyboard users rely
+       on. Checks 101 (forced-colors) / 103 (prefers-contrast) guard only the @media HCM / high-
+       contrast variants; the BASE outline outside any @media was unenforced. If it is silently
+       stripped, keyboard focus becomes invisible in normal rendering (WCAG 2.4.7 fail) with no gate
+       catching it (behavior e2e does not assert focus-ring style; screenshot is advisory). Same
+       a11y-CSS presence class as Checks 383/101/103. (BLOCKING)
 
 """
 import re
@@ -543,3 +551,66 @@ def run(ctx):
     else:
         check(False, "Check 383: style.css present",
               "Check 383: style.css not found — prefers-reduced-motion support を検証できない", blocking=True)
+
+    # ── 384. style.css base :focus-visible outline (BLOCKING) ─────────────────────
+    # 通常モード (HCM/high-contrast でない) のキーボード focus indicator = base `:focus-visible`
+    # ルールの outline。WCAG 2.4.7 (Focus Visible, Level AA) の主指標で、キーボード利用者の大半が
+    # これに依存する。Check 101 (forced-colors) / 103 (prefers-contrast) は @media 内の HCM/高
+    # コントラスト変種のみを守るが、@media の外にある base の `:focus-visible { outline: ... }`
+    # 自体は無保護だった。これが silently strip されると通常描画でキーボード focus が不可視になり
+    # WCAG 2.4.7 違反になるが、behavior e2e は focus ring スタイルを検査せず screenshot は advisory
+    # ゆえ無検出。@media ブロックを除去した top-level CSS に outline を持つ :focus-visible ルールが
+    # 存在することを BLOCKING で固定する (Check 383 / 101 / 103 と同じ a11y-CSS presence class)。
+    _css384 = ROOT / "style.css"
+    if _css384.exists():
+        _src384 = _css384.read_text(encoding="utf-8")
+
+        # @media { ... } ブロックを brace-balance で除去し top-level ルールのみ残す
+        # (HCM/prefers-contrast 変種の :focus-visible を除外し base のみを検証対象にする)。
+        def _strip_media384(css):
+            out = []
+            i = 0
+            while i < len(css):
+                m = re.search(r"@media[^{]*\{", css[i:])
+                if not m:
+                    out.append(css[i:])
+                    break
+                out.append(css[i:i + m.start()])
+                _depth = 0
+                _end = i + m.end()
+                for _k in range(i + m.end() - 1, len(css)):
+                    if css[_k] == "{":
+                        _depth += 1
+                    elif css[_k] == "}":
+                        _depth -= 1
+                        if _depth == 0:
+                            _end = _k + 1
+                            break
+                i = _end
+            return "".join(out)
+
+        _top384 = _strip_media384(_src384)
+        # top-level の :focus-visible ルール (セレクタ末尾が :focus-visible) の outline を確認
+        _base_focus384 = False
+        for _fm384 in re.finditer(r":focus-visible\s*\{([^}]*)\}", _top384):
+            _body384 = _fm384.group(1)
+            _om384 = re.search(r"outline\s*:\s*([^;]+)", _body384)
+            if _om384:
+                _val384 = _om384.group(1).strip().lower()
+                # outline: none / 0 は「focus 非表示」ゆえ有効な指標として数えない
+                if ("none" not in _val384) and not re.match(r"0(\s|px|$)", _val384):
+                    _base_focus384 = True
+                    break
+        check(
+            _base_focus384,
+            "Check 384: style.css has a base :focus-visible outline (WCAG 2.4.7 keyboard focus indicator)",
+            "Check 384: style.css is missing a top-level `:focus-visible { outline: ... }` rule — this is the "
+            "normal-mode keyboard focus indicator (WCAG 2.4.7 Focus Visible). Checks 101/103 only guard the "
+            "forced-colors / prefers-contrast @media variants, NOT the base outline. Restore a top-level "
+            "`:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px }` (its removal is "
+            "silent to behavior e2e / advisory screenshot).",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 384: style.css present",
+              "Check 384: style.css not found — base :focus-visible outline を検証できない", blocking=True)
