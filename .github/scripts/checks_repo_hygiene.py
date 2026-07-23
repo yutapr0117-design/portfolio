@@ -48,6 +48,7 @@ def run(ctx):
     check = ctx.check
     read = ctx.read
     extract = ctx.extract
+    warnings = ctx.warnings
 
     # ── 31. Claude2Claude.md references AI2AI.md's current max Session Record ─────
     # Mechanizes the Claude2Claude.md "本文書の更新タイミング" rule: whenever a Session

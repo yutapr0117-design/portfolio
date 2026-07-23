@@ -125,6 +125,18 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
        asserts find != replace for every entry, completing the mutation-integrity mesh (362 = find
        anchor resolves in target file / 379 = test-field resolves to a real e2e test / 380 = replace
        actually mutates) so no dead mutation can silently erode the completeness-critic. (BLOCKING)
+  385. checks_*.py error-path ctx.warnings/ctx.errors unpack: every split check module
+       (`.github/scripts/checks_*.py`) that uses a BARE `warnings.append(...)` / `errors.append(...)`
+       (an error/skip path, e.g. "target file not found — check skipped") MUST also unpack
+       `warnings = ctx.warnings` / `errors = ctx.errors` in its `run(ctx)`. The shared warnings/errors
+       lists live on `ctx`; a module that appends to a bare `warnings`/`errors` name WITHOUT unpacking
+       raises `NameError` the moment that path executes (a target file is missing, PyYAML is absent,
+       etc.), crashing the ENTIRE consistency script with a traceback instead of emitting the intended
+       graceful warning. The bug is dormant while all files/deps are present (the error branch never
+       runs) so it survives normal verify — a latent crash. Discovered when deleting `.github/
+       dependabot.yml` made Check 68 raise NameError instead of skipping (5 modules had the missing
+       unpack: aio_config/governance_sync/repo_hygiene/structural_ci lacked warnings, misc_governance
+       lacked errors). This Check parses each module for bare append + missing unpack. (BLOCKING)
 """
 import re
 
@@ -690,3 +702,35 @@ def run(ctx):
         )
     except ImportError as _e380:
         warnings.append(f"Check 380: mutation_samples import failed ({_e380}) — no-op guard skipped")
+
+    # ── 385. checks_*.py error-path ctx.warnings/ctx.errors unpack (BLOCKING) ─────
+    # 分割 check module が bare `warnings.append` / `errors.append` を error/skip パスで使うのに
+    # `warnings = ctx.warnings` / `errors = ctx.errors` を run(ctx) で unpack していないと、その
+    # パス到達時 (target file 不在 / PyYAML 不在 等) に NameError で consistency script 全体が
+    # traceback で crash する (全ファイル/依存が揃う通常 verify では error 枝が走らず休眠する latent
+    # crash)。dependabot.yml 削除で Check 68 が NameError 化した実バグの systematize (5 module 修正)。
+    _scripts_dir385 = ROOT / ".github" / "scripts"
+    _bad385 = []
+    if _scripts_dir385.exists():
+        for _mp385 in sorted(_scripts_dir385.glob("checks_*.py")):
+            _msrc385 = _mp385.read_text(encoding="utf-8")
+            # bare `warnings.append(` / `errors.append(` を **行頭 (indent のみ)** で検出する。
+            # 行頭アンカーにより (a) `ctx.warnings.append(` (行頭が ctx.) と (b) f-string / コメント内の
+            # "bare errors.append without ..." のような文字列言及 (行頭が別トークン) を除外する
+            # — この Check 自身の説明文中の "errors.append" 言及で self-false-positive しない。
+            _bare_w385 = re.search(r"^\s*warnings\.append\(", _msrc385, re.M)
+            _bare_e385 = re.search(r"^\s*errors\.append\(", _msrc385, re.M)
+            _unpack_w385 = re.search(r"^\s*warnings\s*=\s*ctx\.warnings", _msrc385, re.M)
+            _unpack_e385 = re.search(r"^\s*errors\s*=\s*ctx\.errors", _msrc385, re.M)
+            if _bare_w385 and not _unpack_w385:
+                _bad385.append(f"{_mp385.name}: bare warnings.append without `warnings = ctx.warnings`")
+            if _bare_e385 and not _unpack_e385:
+                _bad385.append(f"{_mp385.name}: bare errors.append without `errors = ctx.errors`")
+    check(
+        not _bad385,
+        f"Check 385: all checks_*.py modules unpack ctx.warnings/ctx.errors before bare append ({len(_bad385)} offenders)",
+        f"Check 385: {_bad385[:6]} — module が bare `warnings.append(...)` / `errors.append(...)` を "
+        "error/skip パスで使うのに run(ctx) で `warnings = ctx.warnings` / `errors = ctx.errors` を "
+        "unpack していない。その枝が走ると NameError で consistency script 全体が crash する (通常は "
+        "全ファイル/依存が揃うため休眠)。`extract = ctx.extract` の直後に不足 unpack を追加せよ",
+    )

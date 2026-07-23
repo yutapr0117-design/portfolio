@@ -643,6 +643,12 @@ _MUTATIONS_TAIL = [
         "find": "@media (forced-colors: active) {",
         "replace": "@media (forced-colors: BROKEN) {",
     },
+    {
+        "name": "Check 385 (checks_*.py ctx.warnings/errors unpack): checks_aio_config.py の `warnings = ctx.warnings` unpack 行を除去 → bare warnings.append を持つのに unpack が無くなり Check 385 が検出。error-path NameError crash の latent bug (dependabot.yml 削除で Check 68 が NameError 化した実バグ) を封じた回帰防止 (Check 385 は checks_maintainability.py・本 mutation target は checks_aio_config.py ゆえ self-reference trap 無し)",
+        "file": ROOT / ".github" / "scripts" / "checks_aio_config.py",
+        "find": "    warnings = ctx.warnings",
+        "replace": "    _warnings_unpack_removed = None",
+    },
 ]
 
 # 公開 API: archive (古) + tail (新) の連結。mutation_probe.py が import する (順序 = 時系列)。

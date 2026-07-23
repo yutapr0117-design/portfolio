@@ -29,6 +29,7 @@ def run(ctx):
     check = ctx.check
     read = ctx.read
     extract = ctx.extract
+    warnings = ctx.warnings
 
     # ── 21. llms alias files Last-Updated sync ───────────────────────────────────
     llms_date_pattern = r"Last-Updated: ([0-9-]+)"

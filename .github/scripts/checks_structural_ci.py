@@ -81,6 +81,7 @@ def run(ctx):
     check = ctx.check
     read = ctx.read
     extract = ctx.extract
+    warnings = ctx.warnings
 
     # ── 43. main.js AIDK Isolated Kernel structural integrity (BLOCKING) ──────────
     # Until now, the AIDK Isolated Kernel ("DO NOT EDIT") was protected only by a code
