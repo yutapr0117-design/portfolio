@@ -215,3 +215,41 @@ test('Pomodoro break-duration change updates the idle timer display (symmetry wi
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `pomodoro break-duration change caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== 7.2: 稼働中のモード切替 → タイマー停止 + 新モード duration へリセット =====
+// 既存 mode-switch テストは idle 起点のみで、「稼働中に別モードへ切替」パスが未カバーだった。
+// switchMode() は isActive=false + remainingSec=新モード duration を live state に書き、稼働中の
+// タイマーを停止して新モードの満了値へリセットする (getRemaining は live state を読むため、
+// isActive=false になると countdown ではなく静的 remainingSec を返す)。もし switchMode が
+// isActive=false を落とすと、切替後もタイマーが「稼働中」表示 (一時停止ボタン) のまま残り、
+// 新モードの countdown が走る running-timer-with-wrong-mode 退行になる (mutation: isActive=false→true
+// で本テストが RED = 非 vacuous を実証済)。開始→3秒進める→短休憩へ切替で (a) 表示が短休憩満了
+// 05:00 にリセット、(b) 開始ボタンに戻る (停止)、(c) さらに時間を進めても 05:00 のまま (停止) を
+// fake clock で決定的に検証する。
+test('Pomodoro switching mode while running stops the timer and resets (deterministic clock)', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+
+  const timer = page.locator('.font-mono.text-stat').first();
+  await expect(timer).toHaveText('25:00'); // 既定 集中
+
+  // 開始 → 稼働中 (一時停止ボタンが出る) → 3 秒進めてカウントダウン確認
+  await page.getByRole('button', { name: '開始' }).click();
+  await expect(page.getByRole('button', { name: '一時停止' })).toBeVisible();
+  await page.clock.fastForward(3000);
+  await expect(timer).not.toHaveText('25:00');
+
+  // 稼働中に「短休憩」へ切替 → 停止 + 05:00 リセット
+  await page.getByRole('button', { name: '短休憩', exact: true }).click();
+  await expect(timer).toHaveText('05:00');                                  // (a) 新モード満了へリセット
+  await expect(page.getByRole('button', { name: '開始' })).toBeVisible();   // (b) 停止 (開始ボタンに戻る)
+  await expect(page.getByRole('button', { name: '一時停止' })).toHaveCount(0);
+
+  // (c) 停止しているので時間を進めても 05:00 のまま (旧 interval が生き残っていないこと)
+  await page.clock.fastForward(5000);
+  await expect(timer).toHaveText('05:00');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `mode switch while running caused a fatal: ${fatal}`).toBeNull();
+});
