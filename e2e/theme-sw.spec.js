@@ -55,6 +55,32 @@ test('Theme toggle cycles data-theme and persists across reload', async ({ page 
 });
 
 
+// ===== theme cycle の完全な 3 状態遷移順 (system → dark → light → system) =====
+// 既存の cycle テストは 1 クリックのみで「data-theme が変わる」ことしか見ておらず、cycle() の
+// 遷移順 (theme.js: current==='system'?'dark':current==='dark'?'light':'system') が壊れても
+// (例 system→light に変わる / 3 クリックで元に戻らない) 素通りする。default theme='system'
+// (store.js) から 3 クリックして dark→light→system と一周し初期状態へ戻ることを検証する。
+// cycle() の三項順を崩すと中間状態のアサーションが RED になる (非 vacuous)。
+test('Theme toggle follows the full 3-state cycle order (system → dark → light → system)', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const html = page.locator('html');
+  // 既定は 'system' (store.js 既定 theme)。前テストと独立の fresh context で確認する。
+  await expect(html).toHaveAttribute('data-theme', 'system');
+
+  const themeBtn = page.locator('#themeBtnSidebar:visible, #themeBtnTop:visible').first();
+  await expect(themeBtn).toBeVisible();
+
+  await themeBtn.click();
+  await expect(html).toHaveAttribute('data-theme', 'dark');    // system → dark
+  await themeBtn.click();
+  await expect(html).toHaveAttribute('data-theme', 'light');   // dark → light
+  await themeBtn.click();
+  await expect(html).toHaveAttribute('data-theme', 'system');  // light → system (一周)
+});
+
+
 // ===== theme='system' の runtime OS-color-scheme 追従 (system-follow regression) =====
 // theme.js init は matchMedia('(prefers-color-scheme: dark)') の 'change' を購読し、選択が
 // 'system' のとき OS テーマ変化に追従して apply('system') を再実行する (data-theme='system' の
