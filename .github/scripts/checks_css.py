@@ -2,7 +2,7 @@
 checks_css.py — style.css / CSS contract checks (glob-content: style)
 (extracted from check_repository_consistency.py — check.py split track・category "CSS contract"・first ctx-enrich module).
 
-Non-contiguous cluster of Checks 6/73/101/103/135/174/321/322/323/344/356/378 that read the pre-loaded
+Non-contiguous cluster of Checks 6/73/101/103/135/174/321/322/323/344/356/378/383 that read the pre-loaded
 `style.css` content (the monolith's `style` global). Check 378 also reads js/constants.js directly to
 enforce the JS↔CSS responsive-breakpoint coherence (MOBILE_BREAKPOINT ↔ sidebar-hide @media). This is the FIRST split module to consume a
 shared global-content value via ctx-enrichment: the monolith attaches `_ctx.style = style` after the
@@ -124,6 +124,19 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `.sidebar { display: none }` media query and asserts they are equal, making the JS↔CSS
        breakpoint a single coherent value (the JS↔CSS cross-layer twin of the magic-number
        single-source Checks 368/369/370). (BLOCKING)
+  383. style.css prefers-reduced-motion (vestibular a11y) support: style.css contains a
+       `@media (prefers-reduced-motion: reduce)` block whose GLOBAL reset neutralizes motion for
+       users who request reduced motion — a universal-selector rule that collapses
+       `animation-duration` AND `transition-duration` to a near-zero value. WHY: this is the
+       primary CSS-layer defense for WCAG 2.3.3 (Animation from Interactions) / vestibular-disorder
+       users, paired with the JS-layer View Transition bypass in main.js (dual-layer defense per
+       改善文書b §13.1). main.js already skips the View Transition API when the query matches, but
+       the global CSS reset is what neutralizes every other animation/transition site-wide; if it is
+       silently stripped, motion returns for reduced-motion users with NO gate catching it (behavior
+       e2e does not assert motion; the screenshot is advisory). Like Checks 101 (forced-colors) /
+       103 (prefers-contrast), the block is render-neutral — inert unless the OS preference is active
+       — so it never affects the Playwright visual baseline (§3 gate exempt). This Check locks in the
+       global reduced-motion reset so a future edit cannot silently strip it. (BLOCKING)
 
 """
 import re
@@ -493,3 +506,40 @@ def run(ctx):
     else:
         check(False, "Check 378: js/constants.js present and style loaded",
               "Check 378: js/constants.js が無いか style.css 未ロード — MOBILE_BREAKPOINT↔CSS coherence を検証できない", blocking=True)
+
+    # ── 383. style.css prefers-reduced-motion global reset (BLOCKING) ─────────────
+    # 前庭障害配慮 (WCAG 2.3.3) の CSS-layer 主防御。main.js が View Transition API を
+    # reduced-motion 時にバイパスする JS 層と対をなす dual-layer defense (改善文書b §13.1) だが、
+    # サイト全体の他アニメ/トランジションを実際に無効化するのは style.css の universal-selector
+    # global reset (`* { animation-duration: ~0; transition-duration: ~0 }`)。これが silently strip
+    # されると reduced-motion ユーザーに動きが戻るが、behavior e2e は動きを検査せず screenshot は
+    # advisory ゆえ無検出になる。Check 101 (forced-colors) / 103 (prefers-contrast) と同型で、
+    # このブロックは当該 OS 設定が非アクティブな通常描画では inert (render-neutral・§3 baseline
+    # gate 非該当) ゆえ将来編集での silent strip を BLOCKING で固定する。
+    _css383 = ROOT / "style.css"
+    if _css383.exists():
+        _src383 = _css383.read_text(encoding="utf-8")
+        _rm383 = re.search(r"@media\s*\(\s*prefers-reduced-motion\s*:\s*reduce\s*\)", _src383)
+        _global_reset383 = False
+        if _rm383:
+            # reduced-motion at-rule 開始から十分な window を見て、universal selector の
+            # global motion reset (animation-duration + transition-duration の両方) を確認。
+            _window383 = _src383[_rm383.start():_rm383.start() + 500]
+            _global_reset383 = (
+                ("*" in _window383)
+                and ("animation-duration" in _window383)
+                and ("transition-duration" in _window383)
+            )
+        check(
+            bool(_rm383) and _global_reset383,
+            "Check 383: style.css has a prefers-reduced-motion global reset (WCAG 2.3.3 vestibular a11y)",
+            "Check 383: style.css is missing the @media (prefers-reduced-motion: reduce) global reset — "
+            "the universal-selector rule collapsing animation-duration + transition-duration to ~0 is the "
+            "primary CSS-layer motion defense (paired with main.js View Transition bypass). Restore the "
+            "`@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.001ms; transition-duration: 0.001ms } }` "
+            "block (render-neutral / §3 baseline gate exempt).",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 383: style.css present",
+              "Check 383: style.css not found — prefers-reduced-motion support を検証できない", blocking=True)
