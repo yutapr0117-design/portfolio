@@ -84,7 +84,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `style.css` | 2,238 | 2,300 | `advisory` | baseline 後に section 分割を検討（cascade 破壊リスクのため baseline 前は分割しない） |
 | `.github/scripts/check_repository_consistency.py` | 796 | 4,750 | `advisory` | **2026-07 の check.py 分割トラックで実 Check ロジックを 53 個の `checks_*.py` module へ ctx 注入で分散済み**（15,913→796 行）。本体は薄い dispatcher（module 読み込み + 自己整合集約 Check 45/70/105 の不動点）に縮小した。ceiling 4,750 は分割前の +headroom 値で現状は大幅な余裕があり緩い（実効的な上限は Check 365 の全非 A テキスト ≤1,000 BLOCKING）。各カテゴリ Check は個別 `checks_*.py` 側の budget で管理 |
 | `.github/scripts/mutation_samples.py` | 889 | 950 | `advisory` | curated mutation データ (新しい側 tail + E2E)。**2026-07-04 log-rotation 分割: 1,597→870 行**。新規 mutation は本ファイル tail へ追記、~900 行超で archive へ rotate（2026-07-12: Check 373-377 追加で 954→899 行。2026-07-23: 967→889 行へ Check 269-281 を rotate）|
-| `.github/scripts/mutation_samples_archive.py` | 995 | 1,100 | `advisory` | curated mutation データ (古い側 / rotated)。log-rotation part 1。編集は rotate 時のみ（2026-07-12: 863→917 行。2026-07-23: 917→995 行へ Check 269-281 を受領）。**cold な append-only アーカイブゆえ hot な samples.py (950) より高い ceiling を持つ設計**（rotation を吸収するため 2026-07-23 に 950→1,100 へ緩和）|
+| `.github/scripts/mutation_samples_archive.py` | 995 | 1,000 | `advisory` | curated mutation データ (古い側 / rotated)。log-rotation part 1。編集は rotate 時のみ（2026-07-12: 863→917 行。2026-07-23: 917→995 行へ Check 269-281 を受領）。**⚠ ceiling は Check 365（全非 A テキスト ≤1,000 BLOCKING）に整合させ 1,000 とする**（2026-07-23 に一時 1,100 へ緩和したが Check 365 の 1,000 hard cap により unreachable と判明し是正）。現在 995 行で cap 近接 = **2-file log-rotation は実質枯渇**。これ以上 mutation を増やすには 3rd archive 新設 or 低価値 mutation の除去 or Check 365 の owner 裁可が必要（例: FatalPage 復旧 #269 regression の E2E_MUTATION 追加はこの capacity 制約で保留中）|
 | `.github/scripts/mutation_samples_common.py` | 12 | 60 | `advisory` | mutation_samples / archive 共有パス定数 (ROOT / CHECK)。循環回避 |
 | `.github/scripts/_lib_io.py` | 217 | 250 | `advisory` | 純 I/O helper sibling module (read / read_bytes / extract / csp_sri_hash + 日付 helper)。Check 74/95 で API 契約を BLOCKING 保護。budget を実態 +headroom へ同期 |
 | `index.html` | 1,317 | — | `protected` | CSP / JSON-LD / AI meta / AIO anchor の中核。AIO 承認なしに整理しない |
@@ -189,7 +189,7 @@ js/quiz/architecture-quiz-data.js | 250 | advisory
 style.css | 2300 | advisory
 .github/scripts/check_repository_consistency.py | 4750 | advisory
 .github/scripts/mutation_samples.py | 950 | advisory
-.github/scripts/mutation_samples_archive.py | 1100 | advisory
+.github/scripts/mutation_samples_archive.py | 1000 | advisory
 .github/scripts/mutation_samples_common.py | 60 | advisory
 .github/scripts/_lib_io.py | 250 | advisory
 index.html | - | protected
