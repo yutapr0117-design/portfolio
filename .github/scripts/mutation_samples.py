@@ -945,4 +945,11 @@ E2E_MUTATIONS = [
         "replace": "                            merged.projects = base.projects.slice();",
         "test": "upsert import updates existing",
     },
+    {
+        "name": "behavior: FatalPage『ホームへ』復旧の window.render() 明示呼び喪失 (home-route の同一 hash では Router.navigate('') が hashchange 不発火のため再描画されず FatalPage から復旧不能に戻る) → home で fatal 発生時『ホームへ』を押しても FatalPage が残る (#269 実バグ regression の非 vacuity 検証)",
+        "file": ROOT / "js" / "components.js",
+        "find": "if (typeof window.render === 'function') { window.render(); }",
+        "replace": "if (typeof window.render === 'function') { /* #269 mutation: render 抑止 */ }",
+        "test": "recovers (home-route)",
+    },
 ]
