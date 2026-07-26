@@ -217,21 +217,27 @@ test('Actions announce to the assertive sr-only aria-live region (screen reader 
 // ===== 7.2: SPA ルート変更の sr-only aria-live 通知 (screen reader a11y) =====
 // SPA はページ全体が再読込されないため、SR 利用者にルート変更を能動的に通知する必要がある
 // (SPA a11y の既知要件)。#page-announcement (sr-only, aria-live=polite) はルート遷移ごとに
-// RouteState の a11y_announcement バインディング (main.js, route.name ベースで「<route> ページを
-// 表示中」) で更新される。視覚 title 更新 (別テスト) とは別チャネルで未カバーだった。route 遷移で
-// polite 領域が現在 route 名に追従することを検証する。
-test('Route changes announce to the polite sr-only aria-live region (SPA a11y)', async ({ page }) => {
-  await page.goto('/#/projects');
-  await page.waitForLoadState('domcontentloaded');
-
+// meta-management.js の announceRouteForAccessibility が **PAGE_META の title**（"Task Manager" 等
+// の人間可読なページ名）で更新する。[FIX] 旧実装は aidk-rails _a11yRail が RouteState.a11y_announcement
+// (= main.js が `route.name` で set) を double-rAF で上書きし、SR 利用者に **内部 slug**
+// ("app-task"/"app-pomodoro"/"app-notes" 等) をアナウンスしていた。二重書き込みを解消し PAGE_META
+// title を単一 announcer とした。本テストは app ルートで **内部 slug でなく proper title** が
+// アナウンスされることを検証する (slug 露出の回帰を捕捉)。
+test('Route changes announce the PAGE_META title (not the internal route slug) to the polite aria-live region', async ({ page }) => {
   const announcer = page.locator('#page-announcement');
-  await expect(announcer).toHaveAttribute('aria-live', 'polite');
-  await expect.poll(async () => (await announcer.textContent()) || '').toContain('projects');
 
-  // 別ルートへ遷移すると announcement が現在 route 名に追従更新される
-  await page.goto('/#/about');
+  await page.goto('/#/apps/task');
   await page.waitForLoadState('domcontentloaded');
-  await expect.poll(async () => (await announcer.textContent()) || '').toContain('about');
+  await expect(announcer).toHaveAttribute('aria-live', 'polite');
+  // proper title "Task Manager" がアナウンスされ、内部 slug "app-task" は露出しないこと
+  await expect.poll(async () => (await announcer.textContent()) || '').toContain('Task Manager');
+  await expect.poll(async () => (await announcer.textContent()) || '').not.toContain('app-task');
+
+  // 別 app ルートへ遷移すると proper title に追従 (pomodoro の内部 slug "app-pomodoro" も非露出)
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+  await expect.poll(async () => (await announcer.textContent()) || '').toContain('Pomodoro Timer');
+  await expect.poll(async () => (await announcer.textContent()) || '').not.toContain('app-pomodoro');
 });
 
 
