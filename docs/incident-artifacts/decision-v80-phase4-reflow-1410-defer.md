@@ -71,6 +71,38 @@ apps/pomodoro / apps/notes / about / resume）は 320px で overflow=0（clean�
 
 ---
 
+## 5. 追跡調査（2026-07-27・verify-currency + 根因進展）
+
+無限改善自走 run の research/verify-currency レンズで本 deferred item を再測定した。
+
+- **still reproduces（verify-currency）**: viewport 375px で `document.documentElement.scrollWidth = 837`
+  （innerWidth 375 に対し **+462px** の横 overflow）。Playwright で 350ms settle 後に実測。**全 15 ルートを
+  信頼測定した結果、overflow は ai-knowhow のみ**（他 14 ルート = home/projects/about/settings/quiz/
+  apps 5種/hiring-risk/role-split/resume/contact は 375px で overflow=0）。**本 record の scope（ai-knowhow
+  単独）は正確**。（注意: 初回 120ms wait の probe は layout 未確定で false-negative「なし」を返した。
+  reflow 測定は ≥300ms settle させること。）
+- **overflow 要素の実体**: 幅>375 の leaf 側要素は `MAIN.main-content`(837) > `.container`(805) >
+  `article.flex flex-col gap-6 max-w-3xl`(805) の入れ子で、その中の H1/P/DIV も全て 805px。これら
+  text 要素は `white-space:normal` / `overflow-wrap:normal` で **intrinsic には広くない**（折り返せる）。
+  つまり 805px は **content 由来でなく layout（flex/margin chain）が確立した幅**であり、「~805px min-content
+  要素」仮説（§4）は誤りで、単一の wide 要素を探しても見つからない（診断を一歩進めた）。
+- **🔑 新根因: `.max-w-3xl` が style.css に未定義**。`js/ai-knowhow-page.js:87` と
+  `js/hiring-risk-page.js:103` は article に `max-w-3xl` を付与するが、**style.css には `.max-w-2xl`
+  (`max-width: 42rem`) しか定義がなく `.max-w-3xl` は存在しない**（JS が参照するが CSS 未定義のクラス
+  ＝ unstyled）。このため両ページの article は **max-width 制約を受けず**、role-split（`max-w-2xl`=42rem
+  で制約）と異なり desktop でも intended より広く描画される。
+  - **ただし 375px overflow の直接原因ではない**: `.max-w-3xl` を 48rem(768px) 相当で定義しても
+    768 > 375 ゆえ 375px の overflow 自体は解消しない（desktop 幅は intended へ是正されるが mobile は
+    別途 flex/margin chain の是正が必要）。hiring-risk も同じ未定義クラスを使うが 375px で overflow
+    しないのは、その content が狭く flex chain が 375px 内に収まるため。
+- **依然 C5・defer 継続**: `.max-w-3xl` を定義すると ai-knowhow / hiring-risk の article 幅が desktop で
+  変わる（視覚デザイン変更）ため C5 human ドメイン。375px overflow の完全 fix も flex layout の視覚変更を
+  伴う。よって **fix は引き続き human 裁可待ち**。本追跡は「診断未完」を「根因の CSS 未定義クラス特定 +
+  overflow は layout-driven と確定」へ前進させた（discover の深化）。
+
+---
+
 **Status: Deferred-with-reason.** 本 record は genuine な 1.4.10 finding を透明に記録し（discover）、
 C5 + 診断未完を理由に human 裁可へ委ねる（defer-with-reason）。fix は human 着手 or 次の AI 自走で
-根因特定後に apply する。
+根因特定後に apply する。§5（2026-07-27）で根因を `.max-w-3xl` 未定義 + layout-driven overflow まで
+特定したが、fix は視覚変更を伴うため引き続き C5 human 域。
