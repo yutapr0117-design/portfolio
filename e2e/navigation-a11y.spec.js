@@ -115,3 +115,47 @@ test('sr-only content (route announcer + AIO entity anchor) stays visually hidde
     expect(ebox.height, 'AIO entity anchor must stay visually hidden').toBeLessThanOrEqual(4);
   }
 });
+
+// ===== 7.3: 重なった再描画で #content の integrity が保たれる (no dup / no empty) =====
+// main.js の _renderCore は「clear(content) → build → appendChild(page)」を各描画で行い、
+// 重なった描画は AbortController lifecycle (新 render が前 render の signal を abort・前 render は
+// await 後の `_signal.aborted` で return) + clear-before-append で協調する。結果として、
+// 短時間に複数の render() が重なっても #content は「ちょうど 1 ページ」に収束し、二重描画
+// (h1 が複数) にも空 (h1 が 0) にもならない。この observable integrity 不変条件は e2e で未被覆
+// だった。**非 vacuity 実測**: clear(content) を除去すると 6 回の重なり描画が 6 ページ append され
+// h1 が 6 つになり toHaveCount(1) が RED (確認済)。abort-check 自体の除去は clear-before-append の
+// last-wins ゆえ本 observable では benign (これは overclaim しない — 本テストが守るのは integrity)。
+test('Overlapping re-renders keep #content intact — exactly one page, no dup/empty', async ({ page }) => {
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+
+  // 同一 microtask 内で複数 render() を発火 — 各 render が前の render を mid-flight で abort する
+  await page.evaluate(() => { for (let i = 0; i < 6; i++) { if (window.render) { window.render(); } } });
+
+  // 最終状態: プロジェクト一覧が「ちょうど 1 つ」描画され、空でも二重でもない
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toHaveCount(1);
+  await expect(page.locator('.grid-projects')).toBeVisible();
+  const fatal = await page.evaluate(() => window.__fatalError);
+  expect(fatal, `overlapping re-render caused a fatal: ${fatal}`).toBeNull();
+});
+
+// 重なった「ルート遷移」でも最終ルートが正しく描画される (hashchange 連打 → 最後の route が勝つ)。
+test('Rapid route switches settle on the final route intact (render abort under nav)', async ({ page }) => {
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  // 連続で hash を切り替え — router の transition-lock replay + _renderCore abort が協調する
+  await page.evaluate(() => {
+    location.hash = '#/projects';
+    location.hash = '#/about';
+    location.hash = '#/quiz';
+  });
+
+  // 最終ルート = quiz が「実際に」描画される (URL=quiz なのに表示=about のままの
+  // transition-lock replay desync = #167 FIX の回帰を捕捉するため quiz 固有要素で確認)。
+  await expect.poll(() => page.evaluate(() => location.hash)).toBe('#/quiz');
+  await expect(page.locator('input[aria-label="問題検索"]')).toBeVisible();
+  await expect(page.locator('#content h1')).toHaveCount(1);
+  const fatal = await page.evaluate(() => window.__fatalError);
+  expect(fatal, `rapid route switch caused a fatal: ${fatal}`).toBeNull();
+});
