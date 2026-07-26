@@ -120,6 +120,14 @@ export const Router = (() => {
         // query 部だけを filter へ入れる (旧 filter は全 path が入る誤値で render パスは常に空だった)。
         try {
             const _r = _parseRoute();
+            // [FIX] silent URL 更新後も getRoute() が URL と一致するよう currentRoute も同期する。
+            // 更新しないと currentRoute は直近 hashchange の値 (query.q='') のまま stale になり、
+            // その後の full re-render (State.subscribe(render) を駆動する notify() — 例: cross-tab
+            // storage sync (state.js) / 任意の State.update) が _renderCore→getRoute().query を
+            // stale で読み、ProjectsPage が q='' で再描画されて検索フィルタが消える一方 URL は
+            // ?q=.. のまま残る desync バグになる (data-ai-state drift #765 と同根の内部 route state 版)。
+            // notify() は呼ばない (silent 契約=再描画しないを維持)。次の再描画が正しい route を読むだけ。
+            currentRoute = _r;
             document.body.setAttribute('data-ai-state', JSON.stringify({
                 route: _r.name || 'home',
                 filter: (path && path.split('?')[1]) || '',
