@@ -1,5 +1,5 @@
 """
-checks_sitemap_manifest.py — sitemap & manifest format/validity coherence checks (311-320)
+checks_sitemap_manifest.py — sitemap & manifest format/validity coherence checks (311-320, 386)
 (extracted from check_repository_consistency.py — check.py split track).
 
 run(ctx) receives shared check()/ROOT by reference (exec 不使用) so exit code / BLOCKING propagation
@@ -103,9 +103,24 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        HTTPS) for the robots.txt Sitemap-directive cardinality axis.
        (BLOCKING)
 
+  386. sitemap.xml every page `<loc>` URL (the `<url><loc>` entries, NOT
+       `<image:loc>`) MUST resolve to an existing local file at ROOT.
+       Drift = renaming/deleting an advertised resource (llms-full.txt,
+       AI2AI.md, .well-known/*, docs/evidence/*, …) without updating
+       sitemap.xml, so the sitemap advertises a URL that 404s to AI
+       crawlers — a broken AIO discovery surface (the very thing the
+       sitemap exists to serve). Check 311 guards `<lastmod>` format and
+       Check 312 guards `<loc>` uniqueness, but neither hits the
+       filesystem; Check 358 resolves `<image:loc>` only. This closes the
+       page-`<loc>` existence leak. Sibling of Check 358 (image:loc
+       resolves) / Check 319 (aio-manifest evidence.path resolves) /
+       Check 133-135 (file-exists ⟹ wired) for the sitemap page-loc
+       existence axis. (BLOCKING)
+
 """
 import re
 import json
+from urllib.parse import unquote
 
 
 def run(ctx):
@@ -436,3 +451,38 @@ def run(ctx):
     else:
         check(False, "Check 320: robots.txt present",
               "Check 320: robots.txt が無い", blocking=True)
+
+    # ── 386. sitemap.xml page <loc> URLs resolve to existing local files (BLOCKING) ─
+    # 各 <url><loc> (image sitemap の <image:loc> は除外) を canonical origin+base prefix を
+    # 剥がしてローカル path に写像し、実 file として存在することを強制。rename/deletion で
+    # sitemap が phantom URL を advertise し AI crawler へ 404 を返す AIO discovery 破綻を防ぐ。
+    # Check 311/312 は format/uniqueness のみ・Check 358 は <image:loc> のみで、page <loc> の
+    # 存在は無検証だった leak を塞ぐ (Check 319 evidence.path / 133-135 wiring と同型)。
+    _sitemap386 = ROOT / "sitemap.xml"
+    if _sitemap386.is_file():
+        _sm386 = _sitemap386.read_text(encoding="utf-8")
+        # <loc>...</loc> のみ抽出 (<image:loc> は別タグゆえ本 regex に非マッチ)
+        _locs386 = re.findall(r"<loc>\s*([^<]+?)\s*</loc>", _sm386)
+        _missing386: list[str] = []
+        _total386 = 0
+        for _u in _locs386:
+            # canonical origin + GitHub Pages project base (/portfolio/) を剥がす
+            _rel = re.sub(r"^https?://[^/]+/portfolio/", "", _u.strip())
+            _rel = unquote(_rel)
+            _total386 += 1
+            # root URL (.../portfolio/) は index.html を指す
+            _target = (ROOT / "index.html") if _rel == "" else (ROOT / _rel)
+            if not _target.is_file():
+                _missing386.append(f"{_u!r} → {_rel or 'index.html'!r}")
+        _ok386 = (not _missing386) and _total386 > 0
+        check(
+            _ok386,
+            f"Check 386: sitemap.xml page <loc> {_total386} 件すべて existing local file に解決",
+            (f"Check 386: sitemap.xml <loc> が実 file に解決しない: {_missing386!r} — "
+             "rename/deletion で phantom URL を advertise し AI crawler へ 404。sitemap から "
+             "entry を消すか実 file を配置せよ"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 386: sitemap.xml present",
+              "Check 386: sitemap.xml が無い", blocking=True)
