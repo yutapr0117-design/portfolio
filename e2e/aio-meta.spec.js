@@ -375,6 +375,29 @@ test('Body data-ai-state reflects the current route (agentic surface)', async ({
   await expect.poll(routeOf).toBe('about');
 });
 
+// ===== 7.1b: silent フィルタ更新でも data-ai-state.route が正規化名を保つ =====
+// projects の検索/カテゴリ絞り込みは Router.replaceSilently('projects?q=...') で URL を静かに
+// 書き換える (再描画なし)。この silent パスは render パスと同じ route.name ('projects') を agentic
+// surface へ公開せねばならない。旧実装は生 path 'projects?q=...' を route へ入れ render パスと
+// drift していた。フィルタ後も route が 'projects' を保ち、filter に query が入ることを検証。
+test('Body data-ai-state keeps a clean route name after a silent projects filter', async ({ page }) => {
+  const stateOf = async () => page.evaluate(() => {
+    try { return JSON.parse(document.body.getAttribute('data-ai-state')); } catch { return null; }
+  });
+
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect.poll(async () => (await stateOf())?.route).toBe('projects');
+
+  // 検索入力 → syncURL() が replaceSilently('projects?q=...') を呼ぶ (silent パス)
+  const search = page.getByPlaceholder(/検索|search/i).first();
+  await search.fill('AI');
+
+  // route は正規化名 'projects' を保ち (生 'projects?q=AI' に drift しない)、filter に query が入る
+  await expect.poll(async () => (await stateOf())?.route).toBe('projects');
+  await expect.poll(async () => (await stateOf())?.filter).toContain('q=AI');
+});
+
 
 // ===== 7.2: prefers-reduced-motion でのナビゲーション (WCAG 2.3.3 / 前庭安全) =====
 // main.js は prefers-reduced-motion: reduce のとき View Transition を完全スキップする専用経路を
