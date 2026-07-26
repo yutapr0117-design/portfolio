@@ -245,6 +245,45 @@ test('Projects page restores search query from URL deep-link (?q=)', async ({ pa
   await expect(page.locator('.grid-projects article.card').first()).toBeVisible();
 });
 
+// ===== 7.1b: silent フィルタ後の full re-render で検索が消えない (route-state stale 退行) =====
+// projects の検索は Router.replaceSilently('projects?q=..') で URL を静かに書き換える (再描画なし)。
+// この silent 更新後に notify() 由来の full re-render (State.subscribe(render) — 例: cross-tab
+// storage sync / 任意 State.update / window.render()) が起きると、_renderCore は Router.getRoute()
+// から route を得るため、getRoute()(currentRoute) が silent 更新を反映していないと query.q が
+// stale('') で読まれ ProjectsPage が未フィルタで再描画され検索が消える一方 URL は ?q=.. のまま残る
+// desync バグになる。replaceSilently が currentRoute も同期することで防ぐ。window.render() は
+// notify() 駆動の full re-render を代表する決定的トリガとして使う (mechanism 非依存の退行検知)。
+test('Projects filter survives a full re-render after a silent URL update (getRoute stays in sync)', async ({ page }) => {
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+
+  const searchInput = page.getByLabel('プロジェクト検索');
+  await searchInput.fill('ポモドーロ');
+  await expect(searchInput).toHaveValue('ポモドーロ');
+  // silent 更新で URL に ?q= が乗る
+  await expect.poll(() => page.evaluate(() => location.hash)).toContain('q=');
+
+  // 現在の input に印を付け、full re-render が #content を作り直して input を置換した瞬間を
+  // 確定検知できるようにする (window.render() は promise を返さず async のため、単純な assert は
+  // 再構築前の旧 input='ポモドーロ' に即マッチして vacuous になる — 印の消滅を待って新 input を見る)。
+  await page.evaluate(() => {
+    const el = document.querySelector('[aria-label="プロジェクト検索"]');
+    if (el) { el.dataset.pretest = '1'; }
+  });
+  // notify() 由来の full re-render を強制 (cross-tab sync / State.update と同じ経路)
+  await page.evaluate(() => window.render && window.render());
+  // 印付き (旧) input が消える = #content 再構築完了
+  await page.waitForFunction(
+    () => !document.querySelector('[aria-label="プロジェクト検索"][data-pretest="1"]'),
+    { timeout: 5000 }
+  );
+
+  // 再構築後の新 input が検索を保持し (getRoute() が URL と同期)、URL とも整合していること
+  // (fix が無いと getRoute().query.q が stale('') で新 input は '' へリセットされ RED)。
+  await expect(page.getByLabel('プロジェクト検索')).toHaveValue('ポモドーロ');
+  await expect.poll(() => page.evaluate(() => location.hash)).toContain('q=');
+});
+
 
 // ===== 7.2: URL ディープリンクからカテゴリフィルタを復元 (cat= param) =====
 // ProjectsPage は `let cat = route.query.cat || 'All'` で初期カテゴリを決め、renderGrid() で
