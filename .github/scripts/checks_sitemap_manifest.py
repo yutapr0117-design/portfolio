@@ -1,5 +1,5 @@
 """
-checks_sitemap_manifest.py — sitemap & manifest format/validity coherence checks (311-320, 386)
+checks_sitemap_manifest.py — sitemap & manifest format/validity coherence checks (311-320, 386-387)
 (extracted from check_repository_consistency.py — check.py split track).
 
 run(ctx) receives shared check()/ROOT by reference (exec 不使用) so exit code / BLOCKING propagation
@@ -116,6 +116,21 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        resolves) / Check 319 (aio-manifest evidence.path resolves) /
        Check 133-135 (file-exists ⟹ wired) for the sitemap page-loc
        existence axis. (BLOCKING)
+
+  387. AIO discovery pointer files — `.well-known/api-catalog` (RFC 9727
+       linkset) and `.well-known/mcp.json` — every same-origin (canonical
+       origin + `/portfolio/`) URL reference (href / service-meta /
+       resource URLs) MUST resolve to an existing local file at ROOT.
+       These are the entry points AI agents actively DEREFERENCE to
+       discover the site's machine-readable resources; a dangling pointer
+       (file renamed/deleted without updating the catalog) gives the agent
+       a 404 for a declared service — silent breakage of the agent-facing
+       AIO discovery layer. Check 165 validates api-catalog structure
+       (JSON / linkset / anchor canonical) but NOT href existence; Check
+       386 covers sitemap.xml (search-crawler surface) but not these
+       (agent surface). Sibling of Check 386 (sitemap page-loc) / Check
+       165 (api-catalog structure) / Check 319 (evidence.path) for the
+       AIO agent-discovery pointer existence axis. (BLOCKING)
 
 """
 import re
@@ -486,3 +501,61 @@ def run(ctx):
     else:
         check(False, "Check 386: sitemap.xml present",
               "Check 386: sitemap.xml が無い", blocking=True)
+
+    # ── 387. AIO discovery pointer files' same-origin refs resolve to existing files (BLOCKING) ─
+    # api-catalog (RFC 9727 linkset) と mcp.json は AI エージェントが実際に dereference して
+    # サイトの機械可読リソースを discover する entry point。宣言された同一 origin URL が rename/
+    # deletion で dangling すると agent は 404 を受け取り agent-facing AIO discovery が silent に
+    # 壊れる。Check 165 は api-catalog の構造 (JSON/linkset/anchor) のみ・Check 386 は sitemap
+    # (search crawler 面) のみで、この agent 面 pointer の href 存在は無検証だった。
+    # 各 JSON を parse し全 string 値を再帰走査、canonical origin+/portfolio/ の URL を実 file 解決。
+    def _same_origin_rel387(_u):
+        if not isinstance(_u, str):
+            return None
+        if not re.match(r"^https?://[^/]+/portfolio/", _u):
+            return None  # external (schemas.agentskills.io 等) は対象外
+        return unquote(re.sub(r"^https?://[^/]+/portfolio/", "", _u.strip()))
+
+    def _walk387(_obj, _out):
+        if isinstance(_obj, str):
+            _r = _same_origin_rel387(_obj)
+            if _r is not None:
+                _out.append(_r)
+        elif isinstance(_obj, dict):
+            for _v in _obj.values():
+                _walk387(_v, _out)
+        elif isinstance(_obj, list):
+            for _v in _obj:
+                _walk387(_v, _out)
+
+    _missing387: list[str] = []
+    _total387 = 0
+    _absent387: list[str] = []
+    for _label387, _path387 in (
+        ("api-catalog", ROOT / ".well-known" / "api-catalog"),
+        ("mcp.json", ROOT / ".well-known" / "mcp.json"),
+    ):
+        if not _path387.is_file():
+            _absent387.append(_label387)
+            continue
+        try:
+            _data387 = json.loads(_path387.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            _absent387.append(f"{_label387}(JSON parse 不能)")
+            continue
+        _refs387: list[str] = []
+        _walk387(_data387, _refs387)
+        for _rel387 in sorted(set(_refs387)):
+            _total387 += 1
+            _tgt387 = (ROOT / "index.html") if _rel387 == "" else (ROOT / _rel387)
+            if not _tgt387.is_file():
+                _missing387.append(f"{_label387}: {_rel387!r}")
+    _ok387 = (not _missing387) and (not _absent387) and _total387 > 0
+    check(
+        _ok387,
+        f"Check 387: AIO discovery pointer (api-catalog + mcp.json) same-origin refs {_total387} 件すべて existing file に解決",
+        (f"Check 387: AIO discovery pointer が実 file に解決しない: missing={_missing387!r} / "
+         f"absent_or_unparseable={_absent387!r} — rename/deletion で agent が dereference する "
+         "api-catalog/mcp.json の pointer が dangling し 404。pointer を消すか実 file を配置せよ"),
+        blocking=True,
+    )

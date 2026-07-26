@@ -9,7 +9,7 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 
 ## What
 
-`check_repository_consistency.py` 分割トラックの 16 個目の split module。sitemap.xml / webmanifest / aio-manifest の format & validity coherence を守る連続クラスタ Check **311-320** ＋後から同テーマで追加した非連続 Check **386** を内包し、`run(ctx)` で monolith から呼ばれる。
+`check_repository_consistency.py` 分割トラックの 16 個目の split module。sitemap.xml / webmanifest / aio-manifest の format & validity coherence を守る連続クラスタ Check **311-320** ＋後から同テーマ（AIO discovery surface: advertise ⟹ 実在）で追加した非連続 Check **386-387** を内包し、`run(ctx)` で monolith から呼ばれる。
 
 - **311**: sitemap.xml `<lastmod>` strict YYYY-MM-DD かつ未来日付なし。
 - **312**: sitemap.xml `<loc>` unique。
@@ -22,6 +22,7 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 - **319**: aio-manifest evidence.path 実在。
 - **320**: robots.txt Sitemap: directive count == 1。
 - **386**: sitemap.xml の全ページ `<loc>`（`<image:loc>` 除く）が実在ローカル file に解決（rename/deletion で phantom URL を advertise し AI crawler へ 404 を返す AIO discovery 破綻を防ぐ・Check 358 image:loc / 319 evidence.path の page-loc existence 版）。
+- **387**: AIO discovery pointer（`.well-known/api-catalog` RFC 9727 linkset ＋ `.well-known/mcp.json`）の全 same-origin URL 参照が実在ローカル file に解決（agent が dereference する pointer が dangling→404 で agent-facing discovery が silent 破綻するのを防ぐ・Check 165 api-catalog 構造 / 386 sitemap の agent 面 pointer existence 版）。
 
 ## Why
 
@@ -37,7 +38,7 @@ owner 合意 C-first の check.py 段階分割（**Phase 19**）。311-320 は�
 ## Constraints
 
 - **module-global 結合なし**: 依存は全て `ctx` 経由。`re`/`json` のみ module import。`exec` 不使用。
-- **自己整合（Check 45/70/105）**: docstring inventory（`  311.`〜`  320.` ＋ `  386.`）と section（`# ── 311.`〜`320.` ＋ `386.`）は 1 対 1、monolith と合わせて bijection。
+- **自己整合（Check 45/70/105）**: docstring inventory（`  311.`〜`  320.` ＋ `  386.`/`  387.`）と section（`# ── 311.`〜`320.` ＋ `386.`/`387.`）は 1 対 1、monolith と合わせて bijection。
 - **Check 108**: 本 mirror doc が tracked-file bijection を満たす。
 
 ## Change impact
