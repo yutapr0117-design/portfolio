@@ -35,11 +35,15 @@
 const CACHE_NAME = 'portfolio-aio-v74';
 const AIO_FILES = ['/portfolio/llms.txt', '/portfolio/llms-full.txt'];
 
-// Known AI crawler UA substrings (conservative list — false positives are harmless)
+// Known AI crawler UA substrings (conservative list — false positives are harmless).
+// NOTE: 'claude' (not 'claudebot') を使うことで ClaudeBot / Claude-User (ユーザー依頼で URL を
+// 取得する Anthropic UA) / Claude-SearchBot / Claude-Web を 1 パターンで網羅する。'claudebot' だけ
+// だと Claude-User が cache-bypass されず SWR で stale な AIO を受け取っていた (robots.txt は
+// Claude-User を明示宣言しているのに sw.js の bot 判定が漏らしていた drift)。
 const BOT_UA_PATTERNS = [
-    'gptbot', 'chatgpt', 'claudebot', 'anthropic', 'perplexity',
+    'gptbot', 'chatgpt', 'claude', 'anthropic', 'perplexity',
     'bingbot', 'googlebot', 'baiduspider', 'duckduckbot', 'applebot',
-    'ia_archiver', 'archive.org', 'semrushbot', 'ahrefs', 'mj12bot',
+    'ia_archiver', 'archive.org', 'semrushbot', 'ahrefs', 'mj12bot', 'omgili',
     'python-requests', 'curl/', 'wget/', 'node-fetch', 'axios', 'scrapy',
     'llm', 'crawler', 'spider', 'bot'
 ];

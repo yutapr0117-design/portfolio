@@ -9,9 +9,10 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 
 ## What
 
-`check_repository_consistency.py` 分割トラックの 25 個目の split module。service-worker / PWA registration と potentialAction / well-known skill の構造を守る連続クラスタ Check **251-254** を内包し、`run(ctx)` で monolith から呼ばれる。
+`check_repository_consistency.py` 分割トラックの 25 個目の split module。service-worker / PWA registration と potentialAction / well-known skill の構造を守る連続クラスタ Check **251-254** ＋後から同 SW テーマで追加した非連続 Check **388** を内包し、`run(ctx)` で monolith から呼ばれる。
 
 - 251(JSON-LD potentialAction @type+target) / 252(sw.js install+activate+fetch handlers) / 253(main.js serviceWorker.register('./sw.js')) / 254(.well-known/index.json skill name uniqueness + digest format)。
+- 388(sw.js isBotRequest が既知 AI-fetch UA=GPTBot/ChatGPT-User/OAI-SearchBot/ClaudeBot/Claude-User/Claude-SearchBot/PerplexityBot/Googlebot/Bingbot/Applebot/CCBot を全て bot 判定し no-store の fresh AIO を返すことを強制。Claude-User が旧 'claudebot' で漏れ stale AIO 受領していた drift を 'claude' 化で是正)。
 
 ## Why
 

@@ -1,5 +1,5 @@
 """
-checks_sw_pwa.py — service-worker & PWA registration + potentialAction structure checks (251-254)
+checks_sw_pwa.py — service-worker & PWA registration + potentialAction structure checks (251-254, 388)
 (extracted from check_repository_consistency.py — check.py split track).
 
 run(ctx) receives shared check()/ROOT by reference (exec 不使用) so exit code / BLOCKING propagation
@@ -37,6 +37,23 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        conflict, malformed digest causes mismatch). Sibling of Check 5
        (.well-known/index.json byte-identical mirror) for the schema
        structural validity axis. (BLOCKING)
+
+  388. sw.js `isBotRequest` (via `BOT_UA_PATTERNS`) MUST detect every
+       known live-fetch AI-agent User-Agent as a bot, so those agents get
+       a cache-bypassed (`no-store`) FRESH copy of the AIO files
+       (llms.txt / llms-full.txt) instead of a stale-while-revalidate
+       cached body. The curated UA set is the AI agents that actively
+       DEREFERENCE URLs (GPTBot / ChatGPT-User / OAI-SearchBot / ClaudeBot
+       / Claude-User / Claude-SearchBot / PerplexityBot / Googlebot /
+       Bingbot / Applebot / CCBot). This Check parses BOT_UA_PATTERNS from
+       sw.js and replicates isBotRequest's substring match; a miss means
+       that agent silently receives potentially-stale AIO content — a
+       direct AIO-strategy regression. Discovered drift: `Claude-User`
+       (Anthropic's on-demand fetch UA, declared in robots.txt) matched
+       NONE of the old patterns ('claudebot' ⊄ 'claude-user', no bare
+       'claude', no 'bot' substring) → served stale AIO. Fixed by
+       broadening 'claudebot'→'claude'. Sibling of Check 252 (sw.js
+       handlers present) for the sw.js AI-agent freshness axis. (BLOCKING)
 
 """
 import re
@@ -203,3 +220,45 @@ def run(ctx):
     else:
         check(False, "Check 254: .well-known/index.json present",
               "Check 254: .well-known/index.json が無い", blocking=True)
+
+    # ── 388. sw.js isBotRequest detects known live-fetch AI-agent UAs (BLOCKING) ──
+    # sw.js は AIO ファイル (llms.txt/llms-full.txt) を bot には no-store で fresh 提供、humans には
+    # SWR で提供する。実際に URL を dereference する AI エージェント UA が BOT_UA_PATTERNS の
+    # いずれにも substring 一致しないと、その agent は SWR の stale なキャッシュ本文を受け取り
+    # (背景 revalidate は間に合わない) AIO 戦略が silent に劣化する。robots.txt が宣言し実 fetch する
+    # AI UA を curated し、sw.js の BOT_UA_PATTERNS を parse して isBotRequest の substring 判定を
+    # 再現、全 UA が検出されることを強制する。発見 drift: Claude-User が旧パターンのどれにも
+    # 非一致 ('claudebot'⊄'claude-user' / bare 'claude' なし / 'bot' 部分文字列なし) で stale AIO を
+    # 受け取っていた (→ 'claudebot'→'claude' で是正)。
+    _sw388 = ROOT / "sw.js"
+    if _sw388.is_file():
+        _ssrc388 = _sw388.read_text(encoding="utf-8")
+        _m388 = re.search(r"const\s+BOT_UA_PATTERNS\s*=\s*\[(.*?)\]", _ssrc388, re.DOTALL)
+        if not _m388:
+            check(False, "Check 388: sw.js BOT_UA_PATTERNS array parseable",
+                  "Check 388: sw.js に BOT_UA_PATTERNS 配列が見つからない — bot 判定の source が不在",
+                  blocking=True)
+        else:
+            _patterns388 = [
+                _s.lower() for _s in re.findall(r"['\"]([^'\"]+)['\"]", _m388.group(1))
+            ]
+            # 実際に URL を dereference する AI エージェント UA (robots.txt 宣言と整合)
+            _ai_uas388 = [
+                "GPTBot", "ChatGPT-User", "OAI-SearchBot", "ClaudeBot", "Claude-User",
+                "Claude-SearchBot", "PerplexityBot", "Googlebot", "Bingbot", "Applebot", "CCBot",
+            ]
+            _undetected388 = [
+                _ua for _ua in _ai_uas388
+                if not any(_p in _ua.lower() for _p in _patterns388)
+            ]
+            check(
+                not _undetected388,
+                f"Check 388: sw.js isBotRequest が既知 AI-fetch UA {len(_ai_uas388)} 件を全て bot 判定 (fresh AIO)",
+                (f"Check 388: sw.js BOT_UA_PATTERNS が検出しない AI-fetch UA: {_undetected388!r} — "
+                 "これらは cache-bypass されず SWR の stale AIO を受け取り AIO 戦略が劣化する。"
+                 "BOT_UA_PATTERNS に substring パターンを追加せよ (例 'claude' が Claude-* を網羅)"),
+                blocking=True,
+            )
+    else:
+        check(False, "Check 388: sw.js present",
+              "Check 388: sw.js が無い — AI-agent freshness を検証できない", blocking=True)
