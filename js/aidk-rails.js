@@ -139,15 +139,17 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
         }
 
         function _a11yRail(key, value) {
-            if (key === 'a11y_announcement' && value) {
-                const el = document.getElementById('page-announcement');
-                if (el) {
-                    requestAnimationFrame(() => {
-                        el.textContent = '';
-                        requestAnimationFrame(() => { el.textContent = value; });
-                    });
-                }
-            }
+            // [FIX] #page-announcement への DOM 書き込みは meta-management.js の
+            //   announceRouteForAccessibility(PAGE_META の title を使用) に一本化した。
+            //   旧実装は本 rail が `RouteState.proxy.a11y_announcement`(= main.js が `route.name` で
+            //   set) を double-rAF で #page-announcement へ書き、announceRouteForAccessibility の
+            //   single-rAF 書き込み(localized title)を上書きしていた。結果、announceRouteForAccessibility
+            //   が dead 化し、SR ユーザーには route.name の**内部 slug** ("app-task"/"app-pomodoro"/
+            //   "app-notes" 等) がアナウンスされていた (proper title は "Task Manager" 等)。二重書き込み
+            //   を解消し、PAGE_META title を使う announceRouteForAccessibility を単一 announcer とする。
+            //   RouteState.proxy.a11y_announcement の state 自体は agentic/diag 露出のため main.js が
+            //   引き続き set する (本 rail が DOM へは反映しないだけ)。
+            void key; void value;
             // NOTE (dead-code sweep 2026-07-04): ui_drawer_open branch を除去。never-activated
             //   だった (state key は一度も true に set されず)。#app inert は drawer 開閉時に
             //   mobile-drawer.js の __setAppInert が担う実機構ゆえ本 rail は不要だった。
