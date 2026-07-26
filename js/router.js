@@ -113,10 +113,16 @@ export const Router = (() => {
         const newUrl = location.pathname + location.search + '#/' + (path || '');
         history.replaceState(null, '', newUrl);
         // § Agentic State Notification: URL変更時にdata-ai-stateを同期
+        // [FIX] render パス (main.js) は route.name (正規化済みルート名 'projects' 等) を route へ
+        // 公開するが、旧 silent 実装は生 path ('projects?q=foo&cat=bar') を route へ入れており、
+        // projects フィルタ操作後に agentic surface の route が render パスと drift していた。
+        // replaceState 済みの location.hash を _parseRoute() で同じ解決に通し route 名を一致させ、
+        // query 部だけを filter へ入れる (旧 filter は全 path が入る誤値で render パスは常に空だった)。
         try {
+            const _r = _parseRoute();
             document.body.setAttribute('data-ai-state', JSON.stringify({
-                route: path || 'home',
-                filter: path || '',
+                route: _r.name || 'home',
+                filter: (path && path.split('?')[1]) || '',
                 loading: false
             }));
         } catch (_) {}
