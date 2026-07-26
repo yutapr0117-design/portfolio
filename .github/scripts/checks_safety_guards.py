@@ -1,5 +1,5 @@
 """
-checks_safety_guards.py — shipped-JS/AIO safety guards — operating-model coherence / anonymity / dead-const / ESLint safety-net / digest re-bake guard (123-127)
+checks_safety_guards.py — shipped-JS/AIO safety guards — operating-model coherence / anonymity / dead-const / ESLint safety-net / digest re-bake guard / theme aria-label coherence (123-127, 389)
 (extracted from check_repository_consistency.py — check.py split track).
 
 run(ctx) receives shared check()/ROOT/read/extract by reference (exec 不使用) so exit code / BLOCKING
@@ -47,6 +47,21 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        from the committed binary every weekly run, reddening the BLOCKING digest gate on the next
        PR. This Check locks the guard in place (presence of _binary_edited + its use gating the
        re-bake) so the desync class cannot silently return. (BLOCKING)
+
+  389. theme-toggle aria-label cross-file coherence (topbar ↔ sidebar): the theme toggle's
+       accessible name `テーマを切り替える（現在: <state>）` is built INDEPENDENTLY in two shipped
+       leaves — js/theme.js `themeToggleAriaLabel` (topbar #themeBtnTop) and js/components.js
+       (sidebar button, inline). The leaf contract forbids cross-leaf import (Check 47c), so the
+       string is deliberately duplicated and, per the in-code comment, drift was only guarded by
+       "本コメントで対応関係を明示" — i.e. NOT machine-enforced. If one leaf's wording drifts (e.g.
+       renaming the prefix or a state label in just one place), the same logical control announces
+       DIFFERENT accessible names in the topbar vs sidebar — a WCAG 4.1.2 (Name/Role/Value)
+       consistency defect that no behavior e2e (which does not diff accessible-name wording across
+       both surfaces) nor the advisory screenshot catches. This Check parses both leaves and requires
+       (a) the exact aria-label prefix `テーマを切り替える（現在:` present in both, AND (b) all three
+       state labels (`システム設定` / `ダーク` / `ライト`) present in the aria-label vicinity of each,
+       locking the duplication into agreement. Sibling of Check 100 (theme-init storage-key
+       duplication) for the theme cross-leaf string-duplication coherence axis. (BLOCKING)
 """
 import re
 import json
@@ -219,3 +234,41 @@ def run(ctx):
     else:
         check(False, "Check 127: update_aio_digests.py present",
               "Check 127: update_aio_digests.py が見つからない — digest tool の binary guard を検証できない", blocking=True)
+
+    # ── 389. theme-toggle aria-label cross-file coherence (topbar ↔ sidebar) (BLOCKING) ─
+    # theme toggle の accessible name `テーマを切り替える（現在: <state>）` は js/theme.js
+    # (topbar #themeBtnTop の themeToggleAriaLabel) と js/components.js (sidebar ボタン inline) で
+    # 独立に複製されている。葉契約 (Check 47c: import ゼロ) ゆえ共有できず、drift は in-code コメント
+    # のみで保護＝機械強制なしだった。片方の文言が drift すると同一機能ボタンが topbar/sidebar で
+    # 異なる accessible name を announce する WCAG 4.1.2 違反 (behavior e2e は両面の name 文言を
+    # diff せず screenshot は advisory ゆえ silent)。両葉を parse し (a) aria-label 接頭辞
+    # `テーマを切り替える（現在:` が両方に存在、(b) 3 state ラベルが各葉の aria-label 近傍に存在、を強制。
+    _theme389 = ROOT / "js" / "theme.js"
+    _comp389 = ROOT / "js" / "components.js"
+    if _theme389.is_file() and _comp389.is_file():
+        _prefix389 = "テーマを切り替える（現在:"
+        _labels389 = ["システム設定", "ダーク", "ライト"]
+        _problems389: list[str] = []
+        for _name389, _path389 in (("theme.js", _theme389), ("components.js", _comp389)):
+            _src389 = _path389.read_text(encoding="utf-8")
+            _pos389 = _src389.find(_prefix389)
+            if _pos389 < 0:
+                _problems389.append(f"{_name389}: aria-label 接頭辞 '{_prefix389}...' 不在")
+                continue
+            # 接頭辞の前後 (labels は theme.js では前・components.js では後にある) を window として照合
+            _win389 = _src389[max(0, _pos389 - 160):_pos389 + 260]
+            _miss389 = [_l for _l in _labels389 if _l not in _win389]
+            if _miss389:
+                _problems389.append(f"{_name389}: aria-label 近傍に state ラベル欠落 {_miss389!r}")
+        check(
+            not _problems389,
+            "Check 389: theme toggle の aria-label が topbar(theme.js) ↔ sidebar(components.js) で同一文言",
+            (f"Check 389: theme toggle aria-label が 2 葉間で drift: {_problems389!r} — 同一機能ボタンが "
+             "topbar/sidebar で異なる accessible name を announce し WCAG 4.1.2 (Name/Role/Value) 違反。"
+             "両葉 (js/theme.js themeToggleAriaLabel / js/components.js sidebar) の文言を一致させよ"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 389: js/theme.js + js/components.js present",
+              "Check 389: theme.js もしくは components.js が無い — theme aria-label coherence を検証できない",
+              blocking=True)

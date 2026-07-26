@@ -9,9 +9,10 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 
 ## What
 
-`check_repository_consistency.py` 分割トラックの 43 個目の split module。shipped-JS/AIO の安全ガードを守る連続クラスタ Check **123-127** を内包し、`run(ctx)` で monolith から呼ばれる。
+`check_repository_consistency.py` 分割トラックの 43 個目の split module。shipped-JS/AIO の安全ガードを守る連続クラスタ Check **123-127** ＋後から追加した非連続 Check **389**（theme aria-label cross-file coherence）を内包し、`run(ctx)` で monolith から呼ばれる。
 
 - 123(operating-model description coherence site ↔ AIO) / 124(site visible-text anonymity guard・実名を視覚 renderer に出さない) / 125(no dead CONSTANTS key) / 126(ESLint bug-catcher safety-net presence) / 127(AIO digest tool binary re-bake guard = `_binary_edited()` gate presence)。
+- 389(theme toggle aria-label `テーマを切り替える（現在: X）` が js/theme.js topbar ↔ js/components.js sidebar で同一文言＝葉契約で共有できず inline 複製された文字列の drift を機械強制。片方 drift で WCAG 4.1.2 accessible-name 不一致になるのを接頭辞 + 3 state ラベルの両葉 presence で封じる・Check 100 の theme cross-leaf 版)。
 
 ## Why
 
