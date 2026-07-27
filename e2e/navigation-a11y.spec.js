@@ -5,17 +5,29 @@ const { test, expect } = require('@playwright/test');
 // `<a href="#main-content" class="skip-link">` はキーボード利用者がナビを飛ばして本文へ直接
 // 到達する手段。focus → Enter で focus が #main-content (tabindex=-1) へ移ることを検証する。
 // また hash routing (#/...) と競合して NotFound に落ちたり focus が移らない退行も同時に防ぐ。
-test('Skip link moves focus to #main-content without breaking routing (WCAG 2.4.1)', async ({ page }) => {
-  await page.goto('/');
-  await page.waitForLoadState('domcontentloaded');
+// 【非 home 始点が必須】: 旧テストは home(`/`) 始点で「skip-link が hash を #main-content に変え
+// hashchange→router が home 再描画してユーザーを現在ページから飛ばす」バグを home→home ゆえ
+// vacuous に見逃していた。#/projects 始点にし、focus 移動 + 現在ルート(表示 h1・URL hash)の保持を
+// 同時検証する。main.js の skip-link preventDefault ハンドラを外すと home hero が描画され RED。
+test('Skip link moves focus to #main-content without navigating away from the current route (WCAG 2.4.1)', async ({ page }) => {
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => !!document.querySelector('#content h1, #content .h1'));
+  // 前提: Projects ページが描画されている
+  await expect(page.getByRole('heading', { name: 'プロジェクト一覧' })).toBeVisible();
 
   const skip = page.locator('.skip-link');
   await skip.focus();
   await expect(skip).toBeFocused();
 
   await skip.press('Enter');
-  // focus が #main-content へ移り、NotFoundPage に落ちていないこと
+  // (a) focus が #main-content へ移る
   await expect(page.locator('#main-content')).toBeFocused();
+  // (b) 現在ルートが保持される: Projects の見出しが残り、home hero へ誤遷移していない
+  await expect(page.getByRole('heading', { name: 'プロジェクト一覧' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'AI を自走させ、統治する PM' })).toHaveCount(0);
+  // (c) URL hash が #/projects のまま (native fragment 挙動で #main-content に desync しない)
+  await expect(page).toHaveURL(/#\/projects$/);
+  // (d) NotFoundPage に落ちていない
   await expect(page.getByRole('heading', { name: 'Not Found', exact: true })).toHaveCount(0);
 });
 

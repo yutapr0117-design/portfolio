@@ -868,6 +868,18 @@
             // overlay は data-action を持たないため直接リスナーで閉じる。
             document.getElementById('overlay')?.addEventListener('click', closeDrawer);
 
+            // Skip-link (WCAG 2.4.1 Bypass Blocks): `<a href="#main-content">` は fragment anchor
+            // だが、native 挙動だと click で location.hash が "#main-content" に変わり hashchange→
+            // router が非-"#/" hash を _parseRoute で home 扱いして再描画する。結果、非 home ページ
+            // (例 #/projects) で「本文へスキップ」を押すとユーザーが home へ誤遷移する実バグだった
+            // (WCAG 2.4.1 は focus を本文へ移すのみでページ遷移は誤り)。preventDefault して
+            // #main-content(tabindex=-1) へ直接 focus を移すことで、現在ルート(URL=#/...)を保持した
+            // まま本文へバイパスする。Enter 起動も anchor が click を dispatch するため同経路で処理。
+            document.querySelector('.skip-link')?.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('main-content')?.focus();
+            });
+
             // Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
