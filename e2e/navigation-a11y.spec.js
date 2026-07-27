@@ -196,3 +196,42 @@ test.describe('sidebar aria-current follows the current route (WCAG 2.4.8)', () 
     await expect.poll(currents).toContain('品質・プロセス');
   });
 });
+
+// ===== 7.5: sidebar の Lab nav グループ折りたたみトグル (WCAG 4.1.2 状態 + 折りたたみ + 永続化) =====
+// sidebar 下部の Lab グループ ("Lab▼") は nav-group-toggle で開閉する collapsible。toggleLab は
+// (1) aria-expanded を状態に追従 (WCAG 4.1.2 Name/Role/Value)、(2) body(#nav-lab-body) の
+// data-collapsed + maxHeight で実際に折りたたみ、(3) localStorage(portfolio_nav_lab_open_v69) へ永続化
+// する。この observable は e2e 未被覆で、aria-expanded が状態に追従しない / 折りたたみが効かない /
+// aria-controls が実在しない 等の回帰をどのテストも捕捉しなかった。home ルート (Lab は既定 collapsed)
+// で開閉を検証する。
+test.describe('sidebar Lab nav-group collapse toggle (WCAG 4.1.2 + collapse + persistence)', () => {
+  test.use({ viewport: { width: 1280, height: 900 } });
+  test('toggle flips aria-expanded, collapses #nav-lab-body, and persists', async ({ page }) => {
+    await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+    const toggle = page.locator('.nav-group-toggle').first();
+    await expect(toggle).toBeVisible();
+
+    // aria-controls が実在する body を指す (dangling 参照でない)
+    await expect(toggle).toHaveAttribute('aria-controls', 'nav-lab-body');
+    const body = page.locator('#nav-lab-body');
+    await expect(body).toHaveCount(1);
+
+    // home では Lab は既定で collapsed (aria-expanded=false / data-collapsed=true)
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    await expect(body).toHaveAttribute('data-collapsed', 'true');
+
+    // click で展開: aria-expanded=true / data-collapsed=false / maxHeight>0 / localStorage 永続化
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    await expect(body).toHaveAttribute('data-collapsed', 'false');
+    const maxH = await body.evaluate(el => parseFloat(getComputedStyle(el).maxHeight) || 0);
+    expect(maxH, '展開時は maxHeight>0 (実際に折りたたみが解除される)').toBeGreaterThan(0);
+    expect(await page.evaluate(() => localStorage.getItem('portfolio_nav_lab_open_v69'))).toBe('true');
+
+    // 再 click で collapse へ戻る (状態追従の双方向性)
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    await expect(body).toHaveAttribute('data-collapsed', 'true');
+    expect(await page.evaluate(() => localStorage.getItem('portfolio_nav_lab_open_v69'))).toBe('false');
+  });
+});
