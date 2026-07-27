@@ -422,3 +422,52 @@ test('Navigation works under prefers-reduced-motion (View Transition skipped)', 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `reduced-motion navigation caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== 7.2b: reduced-motion で View Transition が「実際にスキップされる」ことの behavioral 検証 =====
+// 上の 7.2 test は reduced-motion 経路で「ナビゲーションが壊れない」ことを検証するが、View Transition
+// が**実際に呼ばれない**(= 動きが抑制される WCAG 2.3.3 の核心) は未検証だった (VT が動いてもナビ自体は
+// 機能するため上の test は VT-skip 回帰を捕捉できない)。document.startViewTransition を spy し、
+// reduced-motion 遷移で呼び出し 0 回、no-preference 遷移で >0 回 を検証する。この 2 段構成が
+// **self-non-vacuity**: reduced で 0・normal で >0 の両方を要求するため、(i) VT が reduced で動けば
+// (a) が RED、(ii) spy が不作動なら (b) が RED となり、vacuous に pass しない (main.js の VT-skip は
+// 585 の pre-check + Check 43b 保護の startViewTransitionProxy 189-191 の二重防衛ゆえ単一行 break では
+// RED 化できず、対照測定 reduced=0/normal>0 で非 vacuity を実証する設計)。
+test('View Transition is skipped under reduced-motion but fires under no-preference (WCAG 2.3.3 motion suppression)', async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__vtSupported = typeof document.startViewTransition === 'function';
+    window.__vtCalls = 0;
+    if (window.__vtSupported) {
+      const orig = document.startViewTransition.bind(document);
+      document.startViewTransition = function (cb) { window.__vtCalls++; return orig(cb); };
+    }
+  });
+
+  // (a) reduced-motion: ルート遷移で startViewTransition が呼ばれない (動き抑制・前庭安全)
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+  await page.goto('/#/about', { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(200);
+  expect(
+    await page.evaluate(() => window.__vtCalls),
+    'reduced-motion では View Transition を完全スキップ (startViewTransition 呼び出し 0 回)'
+  ).toBe(0);
+
+  const supported = await page.evaluate(() => window.__vtSupported);
+
+  // (b) 対照: no-preference では遷移で startViewTransition が発火する (spy 作動 + reduced が抑制要因で
+  //     あることの実証 = 非 vacuity の self-demonstration)。reload で __vtCalls をリセット + 再 wrap。
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await page.goto('/#/about', { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(200);
+  const normalCalls = await page.evaluate(() => window.__vtCalls);
+  if (supported) {
+    expect(
+      normalCalls,
+      'no-preference では View Transition が発火 (spy が機能し (a) の 0 が抑制の結果であることを実証)'
+    ).toBeGreaterThan(0);
+  }
+});
