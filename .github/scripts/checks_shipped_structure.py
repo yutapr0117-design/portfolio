@@ -2,9 +2,10 @@
 checks_shipped_structure.py — shipped-JS structural coherence & byte-weight budget checks
 (extracted from check_repository_consistency.py — check.py split track・category "shipped structure").
 
-This module owns the contiguous cluster of Checks 118-120 that guard the shipped-JS module
+This module owns the cluster of Checks 118-120 (+ 390) that guard the shipped-JS module
 structure and asset size: PAGE_META route coverage (118), factory docstring dependency coherence
-(119), and the shipped JS+CSS byte-weight budget (120). Each Check reads its own target files
+(119), the shipped JS+CSS byte-weight budget (120), and router→PAGE_META direct coverage that
+closes Check 118's param-route blind spot (390). Each Check reads its own target files
 directly (main.js, js/*.js, style.css) via Path.read_text(); none depends on the monolith's
 global html/style/mainjs content, and a free-variable analysis confirms zero external `_`-vars,
 so the cluster is self-contained and needs no ctx enrichment.
@@ -35,6 +36,16 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        line-count budget (byte ≠ line). Catches runaway bloat (e.g. a huge file committed by
        mistake) that would inflate download/parse cost (LCP/CWV). Legitimate feature growth
        ratchets the ceiling up with a rationale, like the ESLint baseline. (BLOCKING)
+  390. router route.name ⊆ PAGE_META (param-route coverage): every route.name js/router.js's
+       `_parseRoute` can emit — literal `route.name = 'X'` assignments, the initial `{ name:
+       'home' }`, and the `['task','todo',...].includes(app)` whitelist expanded to `app-<x>` —
+       must be a top-level key in PAGE_META (js/page-meta.js). Check 118 derives its route set
+       from e2e ALL_ROUTES, which structurally omits param routes like `project-detail`, so that
+       entry was guarded by no Check: dropping it makes applyMeta early-return and every project
+       detail page (Case Study — the portfolio's #1 mission) ships with no title/desc/JSON-LD and
+       (since #773 made announceRouteForAccessibility the sole a11y announcer) no route
+       announcement. This ties router↔PAGE_META directly, bypassing ALL_ROUTES, machine-enforcing
+       page-meta.js:15's "不一致は MetaMgmt で silent fallback" invariant. (BLOCKING)
 """
 import re
 
@@ -134,5 +145,47 @@ def run(ctx):
             "Check 120: file-size-budget.md PERF-BUDGET-DATA marker present",
             "Check 120: file-size-budget.md に `<!-- PERF-BUDGET-DATA <N> -->` が無い — "
             "shipped JS+CSS の page-weight 保護が消失。marker を追加せよ",
+            blocking=True,
+        )
+
+    # ── 390. router route.name ⊆ PAGE_META (param-route coverage・Check 118 盲点補完) (BLOCKING) ──
+    # Check 118 は e2e ALL_ROUTES を権威に PAGE_META 網羅を強制するが、ALL_ROUTES は param 必須の動的
+    # route (project-detail) を構造的に含まないため、project-detail の PAGE_META エントリはどの Check にも
+    # 守られていない盲点だった。project-detail が PAGE_META から落ちると applyMeta が early-return し、
+    # 全プロジェクト詳細ページ (Case Study = ポートフォリオ #1 mission) が title/desc/JSON-LD なしで ship
+    # される silent AIO/SEO 回帰になる (#773 で announceRouteForAccessibility を唯一の a11y announcer に
+    # したため、PAGE_META 欠落は route アナウンス完全欠落も意味する)。本 Check は router.js `_parseRoute`
+    # が emit しうる全 route.name を直接 parse し、各々が PAGE_META の key に存在することを強制する
+    # — ALL_ROUTES を経由せず router↔PAGE_META を直結し param route を含む全 route を被覆する。
+    _router390 = ROOT / "js" / "router.js"
+    _pm390 = ROOT / "js" / "page-meta.js"
+    if _router390.exists() and _pm390.exists():
+        _rsrc390 = _router390.read_text(encoding="utf-8")
+        _pmsrc390 = _pm390.read_text(encoding="utf-8")
+        # (a) `route.name = 'X'` の literal 代入 (projects/project-detail/apps/settings/.../not-found)
+        _names390 = set(re.findall(r"route\.name\s*=\s*'([^']+)'", _rsrc390))
+        # (b) 初期 route オブジェクトの `{ name: 'home', ... }`
+        _init390 = re.search(r"route\s*=\s*\{\s*name:\s*'([^']+)'", _rsrc390)
+        if _init390:
+            _names390.add(_init390.group(1))
+        # (c) app whitelist `['task','todo',...].includes(app)` → `app-${app}` テンプレート展開
+        _wl390 = re.search(r"\[([^\]]*)\]\.includes\(app\)", _rsrc390)
+        if _wl390:
+            for _a390 in re.findall(r"'([^']+)'", _wl390.group(1)):
+                _names390.add(f"app-{_a390}")
+        # PAGE_META の top-level key (Check 118 と同じ抽出ロジック)
+        _pmkeys390 = set(re.findall(r"^\s*'?([a-z][a-z0-9-]*)'?\s*:\s*\{", _pmsrc390, re.MULTILINE))
+        _missing390 = sorted(_names390 - _pmkeys390)
+        check(
+            bool(_names390) and bool(_pmkeys390) and not _missing390,
+            f"Check 390: router が emit する全 {len(_names390)} route.name が PAGE_META に存在 (param route 含む・Check 118 盲点補完)",
+            f"Check 390: router.js が emit する route に PAGE_META 欠落: {_missing390} — applyMeta が early-return し title/desc/JSON-LD/route アナウンスが消失。js/page-meta.js に追加せよ (project-detail 等の param route は ALL_ROUTES 非経由ゆえ Check 118 では守れない)",
+            blocking=True,
+        )
+    else:
+        check(
+            False,
+            "",
+            "Check 390: js/router.js または js/page-meta.js が見つからない — router↔PAGE_META coherence を検証できない",
             blocking=True,
         )

@@ -9,11 +9,12 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 
 ## What
 
-`check_repository_consistency.py` 分割トラックの 12 個目の split module。shipped-JS のモジュール構造と資産サイズを守る連続クラスタ Check **118-120** を内包し、`run(ctx)` で monolith から呼ばれる。
+`check_repository_consistency.py` 分割トラックの 12 個目の split module。shipped-JS のモジュール構造と資産サイズを守るクラスタ Check **118-120（+ 390）** を内包し、`run(ctx)` で monolith から呼ばれる。
 
 - **Check 118**: PAGE_META route coverage（全 17 shipped route の metadata を PAGE_META が網羅）。
 - **Check 119**: factory docstring dependency coherence（全 factory の docstring【依存】節が署名の注入依存を網羅）。
 - **Check 120**: shipped JS+CSS byte-weight budget（page-weight / CWV 保護）。
+- **Check 390**: router route.name ⊆ PAGE_META（router.js `_parseRoute` が emit する全 route.name — literal 代入 + 初期 home + app whitelist 展開 — が PAGE_META に存在）。Check 118 が権威にする e2e ALL_ROUTES は param 必須の `project-detail` を構造的に含まず盲点だったのを、router↔PAGE_META 直結で被覆（Check 377 の PAGE_META twin）。
 
 ## Why
 
@@ -29,7 +30,7 @@ owner 合意 C-first の check.py 段階分割（**Phase 15**）。118-120 は�
 ## Constraints
 
 - **module-global 結合なし**: 依存は全て `ctx` 経由。`re` のみ module import。`exec` 不使用。free-var 分析で外部依存ゼロを確認済。
-- **自己整合（Check 45/70/105）**: 本 module の docstring inventory（`  118.`〜`  120.`）と `# ── N.` section は 1 対 1、monolith と合わせて 1..N 連番・map・runbook §9 と bijection。
+- **自己整合（Check 45/70/105）**: 本 module の docstring inventory（`  118.`〜`  120.` + `  390.`）と `# ── N.` section は 1 対 1、monolith と合わせて 1..N 連番・map・runbook §9 と bijection。Check 390 は非連番だが split module は非連続 Check を持てる（Check 45 は番号の連続性でなく inventory↔section の bijection と全 module 横断の 1..N 網羅を検証する）。
 - **Check 108**: 本 mirror doc が tracked-file bijection を満たす。
 
 ## Change impact
