@@ -185,3 +185,33 @@ test('Mobile drawer nav link navigates and auto-closes the drawer', async ({ pag
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `drawer nav caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== 7.3: レスポンシブ切替の behavioral 検証 — 全幅で sidebar XOR topbar menuBtn (broken band なし) =====
+// MOBILE_BREAKPOINT(=920) 前後で、desktop sidebar と mobile topbar の menuBtn は排他表示される
+// (@media max-width:920 で .sidebar{display:none}、JS は matchMedia で topbar を出す)。Check 378 は
+// JS 定数 ↔ CSS @media の**値の一致**を強制するが、CSS の display:none ルール自体の除去や menuBtn の
+// 誤非表示など「値は一致するが実 display 挙動が壊れる」回帰 (= sidebar+topbar 両表示 or 両非表示の
+// broken band・#262/#297 class) は捕捉しない。本テストは境界 (919/920/921) と代表幅で **ちょうど
+// 一方のみ可視** を実測し、実 display 挙動を behavioral に guard する。
+test('responsive: exactly one of {desktop sidebar, mobile menuBtn} is visible at every width (no broken band)', async ({ page }) => {
+  const probe = async (w) => {
+    await page.setViewportSize({ width: w, height: 800 });
+    await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(150);
+    return page.evaluate(() => {
+      const vis = (el) => !!el && getComputedStyle(el).display !== 'none' && el.getBoundingClientRect().width > 0;
+      return { sidebar: vis(document.querySelector('.sidebar')), menuBtn: vis(document.getElementById('menuBtn')) };
+    });
+  };
+  // 920 は @media max-width:920 (inclusive) ゆえ mobile 側、921 から desktop 側
+  for (const [w, mode] of [[390, 'mobile'], [919, 'mobile'], [920, 'mobile'], [921, 'desktop'], [1280, 'desktop']]) {
+    const s = await probe(w);
+    // 排他: ちょうど一方のみ (両表示=broken layout / 両非表示=ナビ喪失 を捕捉)
+    expect(s.sidebar !== s.menuBtn, `w=${w}: sidebar(${s.sidebar}) と menuBtn(${s.menuBtn}) は排他であるべき`).toBe(true);
+    if (mode === 'mobile') {
+      expect(s.menuBtn, `w=${w} は mobile ゆえ topbar menuBtn が可視`).toBe(true);
+    } else {
+      expect(s.sidebar, `w=${w} は desktop ゆえ sidebar が可視`).toBe(true);
+    }
+  }
+});
