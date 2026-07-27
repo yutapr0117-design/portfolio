@@ -159,3 +159,40 @@ test('Rapid route switches settle on the final route intact (render abort under 
   const fatal = await page.evaluate(() => window.__fatalError);
   expect(fatal, `rapid route switch caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== 7.4: sidebar nav の aria-current が現在ルートを正しく指し、遷移で追従する (WCAG 2.4.8) =====
+// sidebar の nav link は現在ルートに `aria-current="page"` を付け、SR/支援技術の利用者へ「今どこに
+// いるか」を伝える (WCAG 2.4.8 Location)。active 判定は route.name ベース (projects は startsWith で
+// project-detail も内包、quiz は route.query.type で AWS/PM/品質/設計を区別)。この observable は
+// e2e 未被覆で、active 判定が壊れても (例: 常時 active / 誤 item / 複数点灯) どのテストも捕捉しなかった。
+// desktop viewport (sidebar 表示) で各ルートの aria-current が「ちょうど 1 個・正しい nav ラベル」を
+// 指し、ルート遷移・quiz type 切替に追従することを検証する。
+test.describe('sidebar aria-current follows the current route (WCAG 2.4.8)', () => {
+  test.use({ viewport: { width: 1280, height: 900 } });
+  test('aria-current marks exactly the active nav item across routes and quiz types', async ({ page }) => {
+    const currents = async () => page.evaluate(() =>
+      [...document.querySelectorAll('.sidebar [aria-current="page"], nav [aria-current="page"]')]
+        .map(el => (el.textContent || '').trim())
+    );
+
+    for (const [route, label] of [
+      ['#/about', 'About'],
+      ['#/apps/task', 'タスク管理'],
+      ['#/apps/pomodoro', 'ポモドーロ'],
+      ['#/projects', 'プロジェクト'],
+      ['#/settings', '設定・データ'],
+    ]) {
+      await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
+      await expect.poll(currents).toContain(label);
+      // ちょうど 1 個 (誤って複数 nav が aria-current になる回帰を捕捉)
+      await expect.poll(async () => (await currents()).length).toBe(1);
+    }
+
+    // quiz は route.query.type で active nav が切り替わる (AWS 既定 / PM / 品質)
+    await page.goto('/#/quiz?type=pm', { waitUntil: 'domcontentloaded' });
+    await expect.poll(currents).toContain('PM 問題集');
+    await expect.poll(async () => (await currents()).length).toBe(1);
+    await page.goto('/#/quiz?type=quality', { waitUntil: 'domcontentloaded' });
+    await expect.poll(currents).toContain('品質・プロセス');
+  });
+});
