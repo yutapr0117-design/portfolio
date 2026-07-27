@@ -200,6 +200,22 @@ test.describe('sidebar aria-current follows the current route (WCAG 2.4.8)', () 
       await expect.poll(async () => (await currents()).length).toBe(1);
     }
 
+    // ── project-detail (sub-route) の aria-current ────────────────────────────────
+    // components.js の Projects nav は `active: route.name.startsWith('project')` で projects と
+    // project-detail の両方を active 化する唯一の非-exact-match ロジック。base #/projects だけの検証
+    // だと、これを `=== 'projects'` へ退行させても #/projects は両方マッチしてテストが緑のまま、全
+    // プロジェクト詳細ページの aria-current(WCAG 2.4.8 Location / 4.1.2) が silent に消える盲点だった。
+    // 【非 vacuous 化の要点】直前を #/about にして stale な「プロジェクト」active を消し、detail の
+    // h1 描画完了 (sidebar 再描画の同期点) を待ってから検査する。#/projects→detail を直列に並べると
+    // 同一ラベル「プロジェクト」の stale 状態を poll が拾って mutated でも緑になる (実測済) ため、
+    // 必ず異なるラベルの route を経由する。slug=task-manager は home の主デモ (demoRoute==='task') の
+    // 安定 default。startsWith 経路を `=== 'projects'` へ退行させると currents=[] で RED になる。
+    await page.goto('/#/about', { waitUntil: 'domcontentloaded' });
+    await expect.poll(currents).toEqual(['About']);
+    await page.goto('/#/projects/task-manager', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#content h1', { hasText: 'タスク管理アプリ' })).toBeVisible();
+    await expect.poll(currents).toEqual(['プロジェクト']);
+
     // quiz は route.query.type で active nav が切り替わる (AWS 既定 / PM / 品質)
     await page.goto('/#/quiz?type=pm', { waitUntil: 'domcontentloaded' });
     await expect.poll(currents).toContain('PM 問題集');
