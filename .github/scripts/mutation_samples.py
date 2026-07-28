@@ -506,4 +506,11 @@ E2E_MUTATIONS = [
         "replace": "if (typeof window.render === 'function') { /* #269 mutation: render 抑止 */ }",
         "test": "recovers (home-route)",
     },
+    {
+        "name": "behavior: pomodoro remainingSec=0 の ingestion round-trip fidelity — store.js normalize の 0 保持を `Number(x) || DEFAULT` footgun へ戻す → valid な remainingSec=0 (pause-at-zero / export・snapshot・cross-tab 由来) が DEFAULT(1500=25:00) に化け、リロード後に 00:00 が 25:00 へ silent に破壊される (0 は falsy ゆえ `||` が正当値を捨てる data-fidelity 実バグ regression の非 vacuity 検証)",
+        "file": ROOT / "js" / "store.js",
+        "find": "remainingSec: clamp(Number.isFinite(rt.remainingSec) ? rt.remainingSec : CONSTANTS.POMODORO_DEFAULT_REMAINING_SEC, 0, 86400),",
+        "replace": "remainingSec: clamp(Number(rt.remainingSec) || CONSTANTS.POMODORO_DEFAULT_REMAINING_SEC, 0, 86400),",
+        "test": "restores a persisted remainingSec of 0",
+    },
 ]

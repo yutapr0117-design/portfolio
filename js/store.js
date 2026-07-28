@@ -560,7 +560,9 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
                     isActive,
                     mode,
                     endAtMs: isActive ? rt.endAtMs : null,
-                    remainingSec: clamp(Number(rt.remainingSec) || CONSTANTS.POMODORO_DEFAULT_REMAINING_SEC, 0, 86400),
+                    // [FIX] `Number(x)||DEFAULT` は 0 が falsy ゆえ valid な remainingSec=0 を DEFAULT へ破壊する
+                    // footgun。Number.isFinite は型厳格 (数値 0 のみ true) ゆえ 0 を保持しつつ非数値を除外する。
+                    remainingSec: clamp(Number.isFinite(rt.remainingSec) ? rt.remainingSec : CONSTANTS.POMODORO_DEFAULT_REMAINING_SEC, 0, 86400),
                     linkedTaskId: rt.linkedTaskId || null
                 };
             }
