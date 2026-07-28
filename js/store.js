@@ -370,7 +370,9 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
                 overview: String(raw.architecture?.overview || '').slice(0, 2000),
                 mermaid: raw.architecture?.mermaid || null
             },
-            relatedProjectIds: (Array.isArray(raw.relatedProjectIds) ? raw.relatedProjectIds : []).filter(Boolean).slice(0, 20),
+            // [FIX] .map(String): id は String 正規化されるが要素を揃えないと import の数値 id 参照が
+            // 文字列 id と strict 不一致で related から silent に消え autoRelated 除外も外れる (desync)。
+            relatedProjectIds: (Array.isArray(raw.relatedProjectIds) ? raw.relatedProjectIds : []).filter(Boolean).map(String).slice(0, 20),
             links: (Array.isArray(raw.links) ? raw.links : []).filter(l => l && l.label && sanitizeUrl(l.url)).slice(0, 30),
             demoRoute: ['task', 'todo', 'pomodoro', 'ai', 'notes'].includes(raw.demoRoute) ? raw.demoRoute : null
         };
