@@ -64,7 +64,11 @@ export function createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Th
             { icon: 'clock',       label: 'ポモドーロ',    path: 'apps/pomodoro',      active: route.name === 'app-pomodoro' },
             { icon: 'brain',       label: 'AI アシスト',   path: 'apps/ai',            active: route.name === 'app-ai' },
             { icon: 'edit',        label: 'Markdown ノート', path: 'apps/notes',       active: route.name === 'app-notes' },
-            { icon: 'cloud',       label: 'AWS 問題集',    path: 'quiz?type=aws',      active: route.name === 'quiz' && (!route.query.type || route.query.type === 'aws') },
+            // [FIX] AWS active は QuizPage の `QUIZ_DATA_MAP[type] || aws` フォールバックを鏡写す:
+            //   type が pm/quality/architecture 以外 (空/aws/無効値) は AWS quiz が描画されるため AWS を active に。
+            //   旧 `!type || type==='aws'` は無効 type (#/quiz?type=zzz 等 stale bookmark/手打ち) で AWS が
+            //   表示されるのに nav が無 highlight になる control↔content desync だった (#781 の cat= と同 class)。
+            { icon: 'cloud',       label: 'AWS 問題集',    path: 'quiz?type=aws',      active: route.name === 'quiz' && !['pm', 'quality', 'architecture'].includes(route.query.type) },
             { icon: 'clipboard',   label: 'PM 問題集',     path: 'quiz?type=pm',       active: route.name === 'quiz' && route.query.type === 'pm' },
             { icon: 'award',       label: '品質・プロセス', path: 'quiz?type=quality', active: route.name === 'quiz' && route.query.type === 'quality' },
             { icon: 'zap',         label: '設計判断問題集', path: 'quiz?type=architecture', active: route.name === 'quiz' && route.query.type === 'architecture' },
