@@ -243,9 +243,19 @@ def run(ctx):
                     if _depth131 == 0:
                         _body131 = _swsrc131[_i131:_k131 + 1]
                         break
-            # body に decodeURIComponent があるなら try と catch も同 body 内に存在すること
-            if "decodeURIComponent" in _body131:
-                _ok131 = ("try" in _body131 and "catch" in _body131)
+            # [vacuous-gate fix] comment/文字列リテラルを除去してから substring 判定する。素の
+            # `"try"/"catch" in _body131` は、実 try/catch guard を除去してもコメント (例
+            # "かつては try/catch でガード" / "uncaught error のリスク") 内の "try"/"catch" 部分文字列で
+            # 満たされ vacuous pass しうる = guard 撤去 (#270 URIError 回帰) を silent 見逃す latent 穴。
+            # Check 353/239/373 と同じ comment-strip idiom で実コードに限定する。
+            _stripped131 = re.sub(r"/\*.*?\*/", "", _body131, flags=re.DOTALL)
+            _stripped131 = re.sub(r"//[^\n]*", "", _stripped131)
+            _stripped131 = re.sub(r"'(?:\\.|[^'\\])*'", "''", _stripped131)
+            _stripped131 = re.sub(r'"(?:\\.|[^"\\])*"', '""', _stripped131)
+            _stripped131 = re.sub(r"`(?:\\.|[^`\\])*`", "``", _stripped131)
+            # body に decodeURIComponent があるなら try と catch も同 body 内 (実コード) に存在すること
+            if "decodeURIComponent" in _stripped131:
+                _ok131 = ("try" in _stripped131 and "catch" in _stripped131)
             else:
                 # decodeURIComponent を使わない実装なら throw リスク無し ＝ guard 不要で OK
                 _ok131 = True
