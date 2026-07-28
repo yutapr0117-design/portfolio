@@ -21,14 +21,15 @@ span this file). run(ctx) receives shared check()/ROOT by reference (exec 不使
 semantics / BLOCKING propagation / exit code are byte-equivalent to the monolith.
 
 Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()):
-  128. Command palette ↔ router app-route coherence: the command palette (js/command-palette.js)
-       advertises itself as cross-cutting quick-nav, so every built-in app the router can route to
-       (`apps/<app>` — the whitelist in js/router.js: task/todo/pomodoro/ai/notes) must have a
-       matching `hash: 'apps/<app>'` destination in the palette's NAV list. Without this, an app
-       added to the router but forgotten in the palette becomes unreachable via Cmd/Ctrl+K (exactly
-       how the Markdown notes app was missing until this Check was added). The router's app
-       whitelist is parsed as the source of truth so the palette can never silently fall behind it.
-       (BLOCKING)
+  128. Command palette ↔ router app-route bijection: the command palette (js/command-palette.js)
+       advertises itself as cross-cutting quick-nav, so its `hash: 'apps/<app>'` NAV entries and the
+       router's app whitelist (js/router.js: task/todo/pomodoro/ai/notes) must agree in BOTH
+       directions. (a) missing (router - palette) — an app added to the router but forgotten in the
+       palette becomes unreachable via Cmd/Ctrl+K (how the Markdown notes app was missing until this
+       Check). (b) extra (palette - router) — a NAV entry for an app the router does not whitelist
+       navigates to apps/<app> → not-found = a dead 404 Cmd+K entry (the old one-directional Check
+       passed this direction silently, #788 AppsPage bijection class). The router whitelist is parsed
+       as source of truth and set-equality with the palette apps is asserted. (BLOCKING)
   129. Topbar data-action button double-fire guard: the topbar buttons menuBtn / themeBtnTop /
        bgm-btn-top carry `data-action` attributes that the AIDK ActionDelegator handles via a single
        delegated document click listener. main.js init MUST NOT ALSO attach a direct
@@ -100,7 +101,7 @@ def run(ctx):
     ROOT = ctx.ROOT
     check = ctx.check
 
-    # ── 128. Command palette ↔ router app-route coherence (BLOCKING) ───────────────
+    # ── 128. Command palette ↔ router app-route bijection (BLOCKING) ────────────────
     # command-palette (js/command-palette.js) は「横断 quick-nav」を標榜するため、router
     # (js/router.js) が route できる全 built-in app (`apps/<app>` = router の whitelist
     # task/todo/pomodoro/ai/notes) に対応する `hash: 'apps/<app>'` destination を NAV に持た
@@ -120,11 +121,18 @@ def run(ctx):
             _apps128 = re.findall(r"['\"]([a-z]+)['\"]", _wl_m128.group(1))
         _missing128 = [a for a in _apps128
                        if (f"apps/{a}'" not in _palette_src128 and f'apps/{a}"' not in _palette_src128)]
+        # 逆方向 (palette - router): palette NAV の `hash: 'apps/<x>'` が router whitelist に無いと、
+        # その NAV は Cmd+K 選択で apps/<x> へ navigate → not-found = 開くと 404 の dead entry
+        # (#788 AppsPage bijection と同 class・旧 Check は片側 router⊆palette のみで本方向を素通していた)。
+        _palette_apps128 = set(re.findall(r"hash:\s*['\"]apps/([a-z]+)['\"]", _palette_src128))
+        _extra128 = sorted(_palette_apps128 - set(_apps128))
         check(
-            bool(_apps128) and not _missing128,
-            f"Check 128: command-palette NAV が router の全 {len(_apps128)} built-in app ({', '.join(_apps128)}) を網羅",
-            f"Check 128: command-palette NAV に router app route が欠落: {_missing128} — "
-            f"`{{ label: '...', hash: 'apps/<app>' }}` を NAV へ追加せよ (Cmd+K で到達不能になる)"
+            bool(_apps128) and not _missing128 and not _extra128,
+            f"Check 128: command-palette NAV が router の全 {len(_apps128)} built-in app ({', '.join(_apps128)}) と bijection",
+            f"Check 128: command-palette NAV が router app whitelist と drift — "
+            f"欠落(Cmd+K で到達不能): {_missing128} / 余剰(選択で not-found へ飛ぶ dead entry): {_extra128}。"
+            f"NAV の `hash: 'apps/<app>'` を router whitelist と一致させよ "
+            f"(欠落は `{{ label: '...', hash: 'apps/<app>' }}` 追加 / 余剰は router 未登録 entry 除去)"
             if _apps128 else
             "Check 128: router.js の app whitelist (`[...].includes(app)`) を parse できない — coherence 検証が無効化された",
             blocking=True,
