@@ -45,15 +45,17 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        Check parses the router whitelist and the sidebar's `path: 'apps/<app>'` entries and asserts every
        router app appears in the sidebar, making "router can route app X ⟹ X is in the sidebar nav" an
        enforced invariant (the sidebar counterpart of Check 128). (BLOCKING)
-  139. AppsPage app index ↔ router app whitelist coverage: AppsPage (js/components.js) is the canonical
+  139. AppsPage app index ↔ router app whitelist bijection: AppsPage (js/components.js) is the canonical
        "アプリ一覧" index — it renders every built-in app as a card whose "開く" button navigates to
        apps/<id>. It is the third app-route PRODUCER surface (with the palette/Check 128 and the
-       sidebar/Check 138) but was the only one left unenforced. If the AppsPage `apps` array drifts from
-       the router whitelist (a new app added to router/main.js/cmdk/sidebar but forgotten here), that app
-       becomes undiscoverable from the canonical index even though it routes everywhere else. This Check
-       scopes to the AppsPage `const apps = [...]` array, parses its `id: '<app>'` entries, and asserts
-       every router app appears, completing the app-route coherence mesh so all three producer surfaces
-       (palette/sidebar/AppsPage) track the router whitelist. (BLOCKING)
+       sidebar/Check 138). This Check enforces the AppsPage `apps` array and the router whitelist in BOTH
+       directions: (a) missing (router - AppsPage) — a new app added to router/main.js/cmdk/sidebar but
+       forgotten here becomes undiscoverable from the canonical index though it routes everywhere else;
+       (b) extra (AppsPage - router) — a card added here for an app the router does not whitelist makes
+       "開く" navigate to apps/<id> → not-found = a dead 404 card (the old one-directional Check passed
+       this direction silently). It scopes to the AppsPage `const apps = [...]` array, parses its
+       `id: '<app>'` entries, and asserts set-equality with the router apps, completing the app-route
+       coherence mesh so all three producer surfaces (palette/sidebar/AppsPage) track the router whitelist. (BLOCKING)
   140. Settings demo selector ↔ router app whitelist coverage: The Settings page manual-add form
        (js/apps.js SettingsPage) lets a user create a project and pick which app it demos via a
        `<select>` whose onchange writes `settingsNewDemo`. Its `<option value='<app>'>` list is the WRITE
@@ -193,14 +195,18 @@ def run(ctx):
         check(False, "Check 138: js/router.js and js/components.js present",
               "Check 138: js/router.js または js/components.js が無い — sidebar↔router coverage を検証できない", blocking=True)
 
-    # ── 139. AppsPage app index ↔ router app whitelist coverage (BLOCKING) ──────────
+    # ── 139. AppsPage app index ↔ router app whitelist bijection (BLOCKING) ─────────
     # AppsPage (js/components.js) は canonical な「アプリ一覧」index で、全 built-in app をカードで描画し
     # 各「開く」ボタンが apps/<id> へ遷移する。command palette (Check 128) / sidebar (Check 138) と並ぶ
-    # 3 つ目の app-route producer 面だが、唯一未強制だった。AppsPage の `apps` 配列が router whitelist
-    # から drift する (router/main.js/cmdk/sidebar には新 app を足したが AppsPage を忘れる) と、その app は
-    # 他では route できるのに canonical index から発見不能になる。AppsPage の `const apps = [...]` 配列に
-    # scope して `id: '<app>'` を parse し、router の全 app が出ることを強制する。これで 3 producer 面
-    # (palette/sidebar/AppsPage) が全て router whitelist に追従し app-route coherence mesh が閉じる。
+    # 3 つ目の app-route producer 面。AppsPage の `apps` 配列と router whitelist の **双方向 (bijection)** を強制する:
+    #   (a) 欠落 (router - AppsPage): router/main.js/cmdk/sidebar に新 app を足したが AppsPage を忘れると、
+    #       その app は route できるのに canonical index から発見不能になる。
+    #   (b) 余剰 (AppsPage - router): AppsPage に router 未登録の app card を足すと、「開く」が apps/<id> へ
+    #       navigate → router whitelist 不一致で not-found 解決 = 開くと 404 の dead card になる (旧 Check は
+    #       (a) 片側のみ強制で本方向は素通しだった・phantom card mutation で実証)。
+    # AppsPage の `const apps = [...]` 配列に scope して `id: '<app>'` を parse し、router app 集合と一致
+    # (bijection) することを強制する。これで 3 producer 面 (palette/sidebar/AppsPage) が全て router whitelist に
+    # 追従し app-route coherence mesh が閉じる。
     _router139 = ROOT / "js" / "router.js"
     _comp139 = ROOT / "js" / "components.js"
     if _router139.exists() and _comp139.exists():
@@ -211,13 +217,15 @@ def run(ctx):
         # AppsPage の apps 配列に scope (他所の id: と混同しないため function AppsPage 内の const apps を抽出)
         _appspage139 = re.search(r"function AppsPage\(\)\s*\{.*?const apps\s*=\s*\[(.*?)\];", _csrc139, re.DOTALL)
         _appspage_apps139 = set(re.findall(r"id:\s*['\"]([a-z0-9_-]+)['\"]", _appspage139.group(1))) if _appspage139 else set()
-        _missing139 = _router_apps139 - _appspage_apps139
+        _missing139 = _router_apps139 - _appspage_apps139   # (a) router app 不在 = hub から発見不能
+        _extra139 = _appspage_apps139 - _router_apps139      # (b) phantom app = 「開く」が not-found へ飛ぶ dead card
         check(
-            bool(_router_apps139) and bool(_appspage_apps139) and not _missing139,
-            f"Check 139: AppsPage index が router の全 app を被覆 ({sorted(_router_apps139)})",
-            f"Check 139: AppsPage index に router app が欠落: {sorted(_missing139)} — "
-            f"js/components.js の AppsPage `const apps = [...]` に `{{ id: '<app>', title: ..., desc: ..., icon: ... }}` を追加せよ "
-            f"(canonical アプリ一覧から発見不能になる)"
+            bool(_router_apps139) and bool(_appspage_apps139) and not _missing139 and not _extra139,
+            f"Check 139: AppsPage index が router の app 集合と bijection ({sorted(_router_apps139)})",
+            f"Check 139: AppsPage index が router app whitelist と drift — "
+            f"欠落(hub から発見不能): {sorted(_missing139)} / 余剰(「開く」が not-found へ飛ぶ dead card): {sorted(_extra139)}。"
+            f"js/components.js の AppsPage `const apps = [...]` を router whitelist と一致させよ "
+            f"(欠落は `{{ id: '<app>', title: ..., desc: ..., icon: ... }}` を追加 / 余剰は router 未登録 card を除去)"
             if (_router_apps139 and _appspage_apps139) else
             "Check 139: router.js の app whitelist または AppsPage の `const apps = [...]` を parse できない (構造を確認せよ)",
             blocking=True,
