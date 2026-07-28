@@ -26,6 +26,11 @@ export function createProjectsPage({ h, createIcon, Router, State, tokenize, cle
 
         const categories = ['All', ...new Set(state.projects.map(p => p.category))];
 
+        // [FIX] 無効な URL query cat (stale bookmark / カテゴリ削除後) は 'All' へ正規化。放置すると
+        // <select> は option 不在で 'All' 表示なのに cat は無効値で空 filter = 「All なのに 0 件」desync
+        // (外部入力 validate discipline・#93/#295 と同族)。
+        if (cat !== 'All' && !categories.includes(cat)) { cat = 'All'; }
+
         // Uses the global tokenize() utility - no local duplicate
 
         function scoreProject(p, tokens) {
