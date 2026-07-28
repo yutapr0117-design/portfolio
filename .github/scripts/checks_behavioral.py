@@ -84,15 +84,17 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        function body and asserts it does NOT call State.update( and DOES route through
        validateAndNormalize, structurally preventing re-introduction of raw ingestion that reaches
        render (the ingestion counterpart of Check 130's oninput no-State.update guard). (BLOCKING)
-  382. Command palette ↔ router static top-level route coherence: Check 128 guards only the
-       `apps/<app>` app routes; the static top-level routes the router resolves (the `case '<name>':`
+  382. Command palette ↔ router static top-level route bijection: Check 128 guards the `apps/<app>`
+       app routes; this Check guards the static top-level routes the router resolves (the `case '<name>':`
        labels in js/router.js _parseRoute — projects/apps/settings/about/resume/contact/quiz/
-       hiring-risk/ai-knowhow/role-split) were unenforced against the palette NAV, so a newly added
-       static page could silently miss its `hash: '<name>'` entry and become unreachable via
-       Cmd/Ctrl+K (the same silent-discoverability-loss class as Check 128, which was added after the
-       Markdown notes app went missing). This Check parses the router switch's case labels as the
-       source of truth and asserts each has a matching `hash: '<name>'` destination in the palette
-       NAV, closing the app-only asymmetry of Check 128. (BLOCKING)
+       hiring-risk/ai-knowhow/role-split) against the palette NAV in BOTH directions. (a) missing (router
+       - palette) — a newly added static page could silently miss its `hash: '<name>'` entry and become
+       unreachable via Cmd/Ctrl+K (the silent-discoverability-loss class of Check 128, added after the
+       Markdown notes app went missing). (b) extra (palette - router) — a palette top-level `hash: '<x>'`
+       (excluding home '' and the `apps/<x>` routes of Check 128) that is not a router case navigates to
+       not-found = a dead 404 Cmd+K entry (the old one-directional Check passed this silently, #788/#789
+       bijection class). It parses the router switch case labels and the palette's top-level static hashes
+       and asserts set-equality, closing the app-only asymmetry of Check 128 in both directions. (BLOCKING)
 """
 import re
 
@@ -447,7 +449,7 @@ def run(ctx):
         check(False, "Check 374: js/settings-page.js present",
               "Check 374: js/settings-page.js が無い — importJSON ingestion guard を検証できない", blocking=True)
 
-    # ── 382. Command palette ↔ router static top-level route coherence (BLOCKING) ──
+    # ── 382. Command palette ↔ router static top-level route bijection (BLOCKING) ─
     # Check 128 は `apps/<app>` の app route のみ palette 網羅を強制する。router (_parseRoute) が
     # switch(parts[0]) で解決する静的 top-level route (case '<name>': = projects/apps/settings/about/
     # resume/contact/quiz/hiring-risk/ai-knowhow/role-split) は palette NAV に対し未強制で、新しい静的
@@ -464,11 +466,20 @@ def run(ctx):
         _cases382 = re.findall(r"case '([a-z][a-z-]*)':", _router_src382)
         _missing382 = [c for c in _cases382
                        if (f"hash: '{c}'" not in _palette_src382 and f'hash: "{c}"' not in _palette_src382)]
+        # 逆方向 (palette - router): palette NAV の top-level static hash (空=home と app route `apps/<x>` を
+        # 除外) が router switch case に無いと、その NAV は Cmd+K 選択で not-found へ飛ぶ dead entry
+        # (#788/#789 の app-route bijection と同 class・旧 Check は片側 router⊆palette のみで本方向を素通)。
+        _palette_static382 = set(
+            h for h in re.findall(r"hash:\s*['\"]([^'\"]*)['\"]", _palette_src382)
+            if h and "/" not in h  # 空 hash='' (home) と apps/<x> (Check 128 の domain) を除外
+        )
+        _extra382 = sorted(_palette_static382 - set(_cases382))
         check(
-            bool(_cases382) and not _missing382,
-            f"Check 382: command-palette NAV が router の全 {len(_cases382)} 静的 top-level route ({', '.join(_cases382)}) を網羅",
-            (f"Check 382: command-palette NAV に router 静的 route が欠落: {_missing382} — "
-             "`{ label: '...', hash: '<route>' }` を NAV へ追加せよ (Cmd+K で到達不能になる・Check 128 の静的 route 版)")
+            bool(_cases382) and not _missing382 and not _extra382,
+            f"Check 382: command-palette NAV が router の全 {len(_cases382)} 静的 top-level route ({', '.join(_cases382)}) と bijection",
+            (f"Check 382: command-palette NAV が router 静的 route と drift — "
+             f"欠落(Cmd+K で到達不能): {_missing382} / 余剰(選択で not-found へ飛ぶ dead entry): {_extra382}。"
+             "NAV の top-level `hash: '<route>'` を router switch case と一致させよ (Check 128 の静的 route 版)")
             if _cases382 else
             "Check 382: router.js の switch case を parse できない — palette↔router 静的 route coherence が無効化された",
             blocking=True,
