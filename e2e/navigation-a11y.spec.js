@@ -222,6 +222,16 @@ test.describe('sidebar aria-current follows the current route (WCAG 2.4.8)', () 
     await expect.poll(async () => (await currents()).length).toBe(1);
     await page.goto('/#/quiz?type=quality', { waitUntil: 'domcontentloaded' });
     await expect.poll(currents).toContain('品質・プロセス');
+
+    // 無効な quiz type (#/quiz?type=zzz = stale bookmark / 手打ち) は QuizPage が
+    // `QUIZ_DATA_MAP[type] || aws` で AWS へフォールバック描画する。AWS nav の active 述語
+    // (`type ∉ {pm,quality,architecture}`) はそのフォールバックを鏡写し、AWS quiz 描画時は必ず
+    // AWS nav を aria-current にする (control↔content desync 防止・#781 projects cat= と同 class)。
+    // 旧述語 `!type || type==='aws'` は無効 type で AWS 描画なのに nav 無 highlight の desync だった。
+    // 直前 #/quiz?type=quality (別ラベル) で stale を消し、AWS quiz h1 を sync point に非 vacuous 化。
+    await page.goto('/#/quiz?type=zzinvalid', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#content h1', { hasText: 'AWS問題集' })).toBeVisible();
+    await expect.poll(currents).toEqual(['AWS 問題集']);
   });
 });
 
