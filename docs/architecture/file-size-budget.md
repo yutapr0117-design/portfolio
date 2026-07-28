@@ -128,13 +128,17 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 700000 -->
+<!-- PERF-BUDGET-DATA 701000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
      分 + sanity headroom。runaway bloat (巨大ファイル誤コミット等) を BLOCKING で捕捉する。これは
      行数予算 (BUDGET-DATA / Check 52) とは別軸 (byte-weight ≠ line-count) で、実 download/parse 負荷を
-     守る。正当な機能成長で超えたら ESLint baseline 同様 rationale 付きでラチェット更新する。-->
+     守る。正当な機能成長で超えたら ESLint baseline 同様 rationale 付きでラチェット更新する。
+     ラチェット履歴: 700,000 → 701,000 (2026-07-28)。多数の behavioral bug-fix (URL query cat 正規化・
+     relatedProjectIds の String 正規化ほか) とその load-bearing な WHY コメント蓄積で実測が 700,183 bytes
+     に到達。巨大ファイル誤コミットでなく genuine な機能/堅牢性の成長ゆえ、実態 + 約 800 bytes の headroom
+     へラチェット (Check 120 メッセージの明示指示に従う)。-->
 
 <!-- JS-LEAF-CEILING 1000 -->
 <!-- shipped JS *ロジック* leaf module (`js/*.js`) の行数ハード上限 (Check 363・BLOCKING)。

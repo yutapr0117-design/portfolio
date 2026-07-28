@@ -707,3 +707,51 @@ test('Settings snapshot restore reverts state to the saved point', async ({ page
   await expect(page.getByText('SNAP-TASK-A-7700')).toBeVisible();
   await expect(page.getByText('SNAP-TASK-B-7701')).toHaveCount(0);
 });
+
+
+// ===== 関連プロジェクト: import の数値 id 参照が String 正規化される (relatedProjectIds type-coercion) =====
+// normalizeProject は id を `String(raw.id || ...)` で常に文字列化するが、relatedProjectIds の「要素」を
+// 正規化しないと、import/cross-tab/snapshot の数値 id 参照 (例 [9002]) が canonical な文字列 id 空間と
+// strict 不一致になり、ProjectDetailPage の `relatedProjectIds.includes(p.id)`(p.id=文字列) と
+// autoRelatedCandidates の `fixed.has(p.id)` が両方外れる → 手動関連が「関連プロジェクト」から silent に
+// 消える desync (#93/#295 の「外部 ingestion は全経路正規化」class の relatedProjectIds 版)。
+// A→B を数値 id で関連付け、A/B を低類似度 (別カテゴリ・タグ/技術/本文全て disjoint) にして autoRelated
+// 混入を排除 → B が「関連プロジェクト」に出るのは manual related 経路が生きている時のみ = 非 vacuous。
+test('Imported numeric relatedProjectIds resolve to string ids (related section shows the link)', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByLabel('インポートモード').selectOption('upsert');
+
+  const nameA = 'RelSourceProjE2E9001';
+  const nameB = 'RelTargetProjE2E9002';
+  const payload = {
+    schemaVersion: 12,
+    type: 'full-store',
+    projects: [
+      // id は数値、relatedProjectIds も数値 (import データが number id を持つ現実シナリオ)。
+      // A/B は category/tags/tech/summary が全 disjoint ゆえ similarityScore=0 → autoRelated には出ない。
+      { id: 9001, slug: 'e2e-rel-src-9001', name: nameA, category: 'ZetaCat', summary: 'alpha bravo charlie', tech: ['Xlang'], tags: ['xtag'], relatedProjectIds: [9002], demoRoute: null },
+      { id: 9002, slug: 'e2e-rel-tgt-9002', name: nameB, category: 'OmegaCat', summary: 'delta echo foxtrot', tech: ['Ylang'], tags: ['ytag'], relatedProjectIds: [], demoRoute: null },
+    ],
+  };
+  await page.getByLabel('インポートする JSON ファイルを選択').setInputFiles({
+    name: 'backup.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify(payload)),
+  });
+  await expect(page.locator('#toast-container').getByText('インポートが完了しました')).toBeVisible();
+
+  // A の詳細ページへ (slug で解決)
+  await page.goto('/#/projects/e2e-rel-src-9001');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: nameA })).toBeVisible();
+
+  // 「関連プロジェクト」card 内に B へのリンクが出る (String 正規化が効いている時のみ)。
+  const relatedCard = page.locator('#content section.card', {
+    has: page.getByRole('heading', { name: '関連プロジェクト' }),
+  });
+  await expect(relatedCard.getByRole('button', { name: nameB })).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `numeric relatedProjectIds import caused a fatal: ${fatal}`).toBeNull();
+});
