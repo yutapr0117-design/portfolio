@@ -75,6 +75,14 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        enforced: `drawer:close` is an intentionally symmetric unused handler (the drawer closes via
        direct onclick / Escape / nav-click), so this is a used⟹defined guard, not a bijection.
        (BLOCKING)
+  391. getElementById target → id definition resolution: every `getElementById('X')` literal in shipped
+       JS must point at an id that is actually defined — as index.html `id="X"`, a shipped-JS `id: 'X'`
+       h() prop, or a dynamic assignment (`el.id = 'X'` / `setAttribute('id','X')`). Renaming an id in
+       index.html or another module while leaving `getElementById('old')` behind makes the DOM lookup
+       return null and the button/feature a SILENT no-op (the behavior e2e only checks content render,
+       the screenshot is advisory, so a dead lookup slips through every gate). Same silent-wiring class
+       as #257 (palette NAV) / #262 (topbar). This is the DOM-id face of the used⟹defined wiring lens
+       of Check 375 (icon) / 376 (data-action) / 377 (route→case): target ⊆ defined. (BLOCKING)
 """
 import re
 import json
@@ -296,3 +304,40 @@ def run(ctx):
     else:
         check(False, "Check 376: js/aidk-rails.js and index.html present",
               "Check 376: js/aidk-rails.js または index.html が無い — data-action の handler 解決を検証できない", blocking=True)
+
+    # ── 391. getElementById target → id definition resolution (BLOCKING) ───────────
+    # 各 shipped JS の `getElementById('X')` リテラル target は、必ず index.html の `id="X"`・
+    # shipped JS の `id: 'X'` (h() prop)・動的生成 (`el.id = 'X'` / `setAttribute('id','X')`) の
+    # いずれかで定義される id を指していなければならない。id を index.html や別モジュールでリネーム
+    # したのに `getElementById('old')` を残すと、DOM lookup が null を返し、button/feature が silent
+    # no-op 化する (behavior e2e は content 描画のみ検査・screenshot は advisory ゆえ完全 silent。
+    # 実例 class: #257 palette NAV 欠落 / #262 topbar 二重発火などの wiring 系 discoverability 破壊)。
+    # Check 375 (createIcon→registry) / 376 (data-action→handler) / 377 (route→case) と同じ
+    # used⟹defined wiring レンズの DOM-id 面。target ⊆ defined を機械強制して dead lookup を封じる。
+    _html391 = ROOT / "index.html"
+    _shipped391 = [ROOT / "main.js"] + sorted((ROOT / "js").glob("*.js"))
+    _shipped391 = [p for p in _shipped391 if p.exists()]
+    if _html391.exists() and _shipped391:
+        _defined391 = set(re.findall(r'\bid="([a-zA-Z0-9_-]+)"', _html391.read_text(encoding="utf-8")))
+        _targets391 = {}
+        for _f391 in _shipped391:
+            _s391 = _f391.read_text(encoding="utf-8")
+            _defined391 |= set(re.findall(r"""\bid:\s*['"]([a-zA-Z0-9_-]+)['"]""", _s391))
+            _defined391 |= set(re.findall(r"""\.id\s*=\s*['"]([a-zA-Z0-9_-]+)['"]""", _s391))
+            _defined391 |= set(re.findall(r"""setAttribute\(\s*['"]id['"]\s*,\s*['"]([a-zA-Z0-9_-]+)['"]""", _s391))
+            for _t391 in re.findall(r"""getElementById\(\s*['"]([a-zA-Z0-9_-]+)['"]""", _s391):
+                _targets391.setdefault(_t391, str(_f391.relative_to(ROOT)))
+        _dead391 = sorted(f"{_t} ({_targets391[_t]})" for _t in _targets391 if _t not in _defined391)
+        check(
+            bool(_targets391) and not _dead391,
+            f"Check 391: 全 getElementById target ({len(_targets391)} 種) が定義済み id (index.html / shipped-JS id: / 動的 .id=) に解決 (dead DOM lookup 防止)",
+            f"Check 391: getElementById の target が未定義 id を指す (silent no-op): {_dead391} — "
+            "id を index.html や別モジュールでリネームしたのに getElementById('old') が残ると DOM lookup が "
+            "null を返し button/feature が無反応化する。定義側の id を復元するか getElementById の target を修正せよ"
+            if _targets391 else
+            "Check 391: shipped JS に getElementById target が見つからない — DOM-id wiring を検証できない",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 391: index.html and shipped JS present",
+              "Check 391: index.html または shipped JS が無い — getElementById の id 解決を検証できない", blocking=True)
