@@ -184,13 +184,21 @@ def run(ctx):
     _eslint126 = ROOT / "eslint.config.mjs"
     if _eslint126.exists():
         _cfg126 = _eslint126.read_text(encoding="utf-8")
+        # [vacuous-gate fix] `//` と `/* */` コメントを除去した実コードに対し判定する (#783 Check 131 /
+        # #784 Check 389 / #785 Check 127 と同 comment-match class)。eslint.config.mjs は 185 行超の
+        # 説明コメントを持ち、実 rule (`'no-dupe-keys': 'error'`) を除去してもそれを言及するコメント
+        # (例「// 旧は 'no-dupe-keys': 'error' だった」) が残ると `'<rule>':` パターンにマッチし vacuous
+        # pass = 安全網ルールの silent 後退 (#186 class: 欠落ルールで実バグが CI 素通り) を見逃す穴。
+        # rule 名は object key = 実コードゆえ comment-strip のみで穴を閉じる (文字列リテラルは温存)。
+        _cfgcode126 = re.sub(r"/\*.*?\*/", "", _cfg126, flags=re.DOTALL)
+        _cfgcode126 = re.sub(r"//[^\n]*", "", _cfgcode126)
         _REQUIRED_BUGCATCHERS126 = [
             "no-dupe-keys", "no-import-assign", "no-unsafe-finally", "no-invalid-regexp",
             "no-const-assign", "valid-typeof", "use-isnan", "no-fallthrough", "no-cond-assign",
             "getter-return", "no-func-assign", "no-obj-calls", "no-dupe-args", "no-self-assign",
         ]
         _missing126 = [r for r in _REQUIRED_BUGCATCHERS126
-                       if re.search(r"['\"]" + re.escape(r) + r"['\"]\s*:", _cfg126) is None]
+                       if re.search(r"['\"]" + re.escape(r) + r"['\"]\s*:", _cfgcode126) is None]
         check(
             not _missing126,
             f"Check 126: eslint.config.mjs が recommended bug-catcher safety-net {len(_REQUIRED_BUGCATCHERS126)} 件を保持",
