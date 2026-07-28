@@ -311,6 +311,26 @@ test('Projects page restores category filter from URL deep-link (?cat=)', async 
 });
 
 
+// URL の cat= が現存カテゴリに無い場合 (stale bookmark / 手打ち / カテゴリ削除後) は 'All' へ正規化する。
+// 修正前は <select> が該当 option 不在で先頭 'All' を表示するのに cat 変数は無効値のまま filter され
+// list が空 = control 表示 (全カテゴリー) と実 filter の desync でユーザーに「All なのに 0 件」と誤提示していた。
+// (外部入力 = URL query の validate discipline・#93/#295 の ingestion 正規化と同族)
+test('Projects page normalizes an invalid ?cat= to All (control↔filter desync guard)', async ({ page }) => {
+  // ホーム経由で fresh 初期化 → 存在しないカテゴリの deep-link で直接到達
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  await page.goto('/#/projects?cat=DevOpsNonExistent');
+  await page.waitForLoadState('domcontentloaded');
+
+  const catSelect = page.locator('select[aria-label="カテゴリフィルター"]');
+  // select は 'All' を表示している
+  await expect(catSelect).toHaveValue('All');
+  // 正規化により list は空でなくプロジェクトが表示される (修正前は 0 件・"条件に一致する…" が出て RED)
+  await expect(page.locator('.grid-projects article.card').first()).toBeVisible();
+  await expect(page.locator('#content', { hasText: '条件に一致するプロジェクトはありません' })).toHaveCount(0);
+});
+
+
 // ===== 7.2: ProjectDetailPage の "not found" 状態 + 復帰ナビ =====
 // ProjectDetailPage(slug) は state.projects.find(p => p.slug === slug) が null のとき
 // 「プロジェクトが見つかりません」h1 + 「一覧へ戻る」ボタンを描画する。
