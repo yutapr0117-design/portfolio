@@ -37,14 +37,15 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        parses the router whitelist and the set of main.js `case 'app-<X>':` labels and asserts bijection,
        making "router can route app X ⟹ main.js can render app X" a directly enforced invariant (the
        missing direct edge in the app-route coherence mesh of Check 58/118/128/136). (BLOCKING)
-  138. Sidebar app-nav ↔ router app whitelist coverage: the Sidebar (js/components.js) lab-nav lists
-       built-in apps as `path: 'apps/<app>'` quick-nav links, and AppsPage lists every app as a card.
-       Like the command palette (Check 128), the sidebar must cover every router-routable app — when the
-       Markdown notes app was added (A-group) it was added to AppsPage + the palette (#257) but FORGOTTEN
-       in the sidebar, so notes was the only built-in app unreachable from the persistent left nav. This
-       Check parses the router whitelist and the sidebar's `path: 'apps/<app>'` entries and asserts every
-       router app appears in the sidebar, making "router can route app X ⟹ X is in the sidebar nav" an
-       enforced invariant (the sidebar counterpart of Check 128). (BLOCKING)
+  138. Sidebar app-nav ↔ router app whitelist bijection: the Sidebar (js/components.js) lab-nav lists
+       built-in apps as `path: 'apps/<app>'` quick-nav links. Like the command palette (Check 128), the
+       sidebar's app paths and the router whitelist must agree in BOTH directions. (a) missing (router -
+       sidebar) — when the Markdown notes app was added (A-group) it was added to AppsPage + the palette
+       (#257) but FORGOTTEN in the sidebar, so notes was unreachable from the persistent left nav. (b)
+       extra (sidebar - router) — a `path: 'apps/<app>'` link for an app the router does not whitelist
+       navigates to not-found = a dead 404 nav link (the old one-directional Check passed this silently,
+       #788 AppsPage bijection class). This Check parses the router whitelist and the sidebar's
+       `path: 'apps/<app>'` entries and asserts set-equality (the sidebar counterpart of Check 128). (BLOCKING)
   139. AppsPage app index ↔ router app whitelist bijection: AppsPage (js/components.js) is the canonical
        "アプリ一覧" index — it renders every built-in app as a card whose "開く" button navigates to
        apps/<id>. It is the third app-route PRODUCER surface (with the palette/Check 128 and the
@@ -162,7 +163,7 @@ def run(ctx):
         check(False, "Check 137: js/router.js and main.js present",
               "Check 137: js/router.js または main.js が無い — router↔switch coherence を検証できない", blocking=True)
 
-    # ── 138. Sidebar app-nav ↔ router app whitelist coverage (BLOCKING) ────────────
+    # ── 138. Sidebar app-nav ↔ router app whitelist bijection (BLOCKING) ───────────
     # Sidebar (js/components.js) の lab-nav は built-in app を `path: 'apps/<app>'` の quick-nav
     # リンクとして列挙し、AppsPage は全 app をカードで列挙する。command palette (Check 128) と同様、
     # sidebar も router が route 可能な全 app を被覆すべきである。A 群で Markdown notes app を追加した際、
@@ -181,12 +182,17 @@ def run(ctx):
         # ゆえ非該当)。apps index ('apps' 単体) は app ではないので slash 付きのみ抽出。
         _sidebar_apps138 = set(re.findall(r"path:\s*['\"]apps/([a-z0-9_-]+)['\"]", _csrc138))
         _missing138 = _router_apps138 - _sidebar_apps138
+        # 逆方向 (sidebar - router): sidebar labItems の `path: 'apps/<x>'` が router whitelist に無いと、
+        # その nav-link は apps/<x> へ navigate → not-found = クリックで 404 の dead link
+        # (#788 AppsPage / Check 128 palette bijection と同 class・旧 Check は片側 router⊆sidebar のみ)。
+        _extra138 = _sidebar_apps138 - _router_apps138
         check(
-            bool(_router_apps138) and not _missing138,
-            f"Check 138: sidebar nav が router の全 app を被覆 ({sorted(_router_apps138)})",
-            f"Check 138: sidebar app-nav に router app route が欠落: {sorted(_missing138)} — "
-            f"js/components.js の Sidebar labItems に `{{ ..., path: 'apps/<app>', ... }}` を追加せよ "
-            f"(常設左ナビから到達不能になる・#257 と同 class)"
+            bool(_router_apps138) and not _missing138 and not _extra138,
+            f"Check 138: sidebar nav が router の app 集合と bijection ({sorted(_router_apps138)})",
+            f"Check 138: sidebar app-nav が router app whitelist と drift — "
+            f"欠落(常設左ナビから到達不能・#257 class): {sorted(_missing138)} / "
+            f"余剰(クリックで not-found へ飛ぶ dead link): {sorted(_extra138)}。"
+            f"js/components.js の Sidebar labItems の `path: 'apps/<app>'` を router whitelist と一致させよ"
             if _router_apps138 else
             "Check 138: router.js の app whitelist (`[...].includes(app)`) を parse できない — coverage 検証が無効化された",
             blocking=True,
