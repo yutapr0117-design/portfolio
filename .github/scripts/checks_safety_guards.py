@@ -214,9 +214,19 @@ def run(ctx):
     _digtool127 = ROOT / ".github" / "scripts" / "update_aio_digests.py"
     if _digtool127.exists():
         _src127 = _digtool127.read_text(encoding="utf-8")
-        _has_helper127 = re.search(r"def\s+_binary_edited\s*\(", _src127) is not None
-        _has_gitdiff127 = "git" in _src127 and "diff" in _src127 and "--quiet" in _src127 and "HEAD" in _src127
-        _has_gate127 = re.search(r"if\s+_binary_edited\s*\(", _src127) is not None
+        # [vacuous-gate fix] `#` コメントと `"""docstring"""` を除去した実コードに対し判定する
+        # (#783 Check 131 / #784 Check 389 と同 comment-match class)。素の判定は、実 `def _binary_edited`
+        # / `if _binary_edited(` guard を除去してもそれを言及するコメント (例「旧は if _binary_edited(...) で
+        # ガードしていた」) が残ると presence を満たし vacuous pass = un-gated re-bake (manifest↔binary
+        # 毎週 desync の f2335ce 回帰) を silent 見逃す穴。実測: gate 除去 + コメント残置で修正前 PASS。
+        # 注: `git`/`diff`/`--quiet`/`HEAD` は `def` 内 subprocess の通常文字列リテラル (実コード) ゆえ
+        # 文字列リテラルは除去しない — triple-quote docstring と `#` 行コメントのみ除去する。
+        _code127 = re.sub(r'"""(?:.|\n)*?"""', "", _src127)
+        _code127 = re.sub(r"'''(?:.|\n)*?'''", "", _code127)
+        _code127 = re.sub(r"#[^\n]*", "", _code127)
+        _has_helper127 = re.search(r"def\s+_binary_edited\s*\(", _code127) is not None
+        _has_gitdiff127 = "git" in _code127 and "diff" in _code127 and "--quiet" in _code127 and "HEAD" in _code127
+        _has_gate127 = re.search(r"if\s+_binary_edited\s*\(", _code127) is not None
         _missing127 = []
         if not _has_helper127:
             _missing127.append("_binary_edited() helper 定義")
