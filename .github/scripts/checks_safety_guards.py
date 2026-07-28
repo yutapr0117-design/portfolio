@@ -251,6 +251,14 @@ def run(ctx):
         _problems389: list[str] = []
         for _name389, _path389 in (("theme.js", _theme389), ("components.js", _comp389)):
             _src389 = _path389.read_text(encoding="utf-8")
+            # [vacuous-gate fix] comment のみ除去してから照合する (#783 Check 131 と同 class)。
+            # 実 aria-label 接頭辞 `テーマを切り替える（現在:` を除去してもそれを引用する説明コメント
+            # (例「aria-label は『テーマを切り替える（現在: <state>）』…システム設定/ダーク/ライト」)
+            # が残ると prefix + 3 label が window にマッチし vacuous pass = drift を silent 見逃す穴。
+            # 注: 実文言は string/template リテラル内ゆえ Check 131 と違い文字列リテラルは除去しない
+            # (除去すると実 aria-label が消え real code が誤 fail する)。comment strip のみで穴を閉じる。
+            _src389 = re.sub(r"/\*.*?\*/", "", _src389, flags=re.DOTALL)
+            _src389 = re.sub(r"//[^\n]*", "", _src389)
             _pos389 = _src389.find(_prefix389)
             if _pos389 < 0:
                 _problems389.append(f"{_name389}: aria-label 接頭辞 '{_prefix389}...' 不在")
