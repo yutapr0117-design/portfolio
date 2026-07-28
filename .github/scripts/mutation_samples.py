@@ -203,6 +203,12 @@ _MUTATIONS_TAIL = [
         "find": "id: 'evidence-heading'",
         "replace": "id: 'evidence-headingZZ'",
     },
+    {
+        "name": "Check 392 (aria idref→id definition wiring): home-page.js の id: 'aio-series-heading' 定義を rename → aria-labelledby: 'aio-series-heading' が dangling 化 = accessible name の関連付けが assistive tech 上で切れる WCAG 1.3.1/4.1.2 欠陥。id を片方でリネームすると screen reader が label 無しの control をアナウンスするが visual 無変化・behavior e2e 素通りで silent (#563/#728 class。aio-series-heading は getElementById 非対象ゆえ Check 391 と隔離・checks_wiring.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
+        "file": ROOT / "js" / "home-page.js",
+        "find": "id: 'aio-series-heading'",
+        "replace": "id: 'aio-series-headingZZ'",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。

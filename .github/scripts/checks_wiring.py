@@ -83,6 +83,16 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        the screenshot is advisory, so a dead lookup slips through every gate). Same silent-wiring class
        as #257 (palette NAV) / #262 (topbar). This is the DOM-id face of the used⟹defined wiring lens
        of Check 375 (icon) / 376 (data-action) / 377 (route→case): target ⊆ defined. (BLOCKING)
+  392. aria idref / <label for> → id definition resolution: every static-literal a11y id reference
+       (aria-labelledby / -describedby / -controls / -errormessage, plus <label for>) must point at a
+       defined id. A dangling aria idref is higher-severity than Check 391's dead getElementById: the
+       accessible name / description / control association silently breaks in assistive tech — a real
+       WCAG 1.3.1 / 4.1.2 defect (screen reader announces a control with no label) that is visually
+       invisible and slips past the behavior e2e (class of #563 a11y-attr leak / #728 label wiring).
+       The a11y-idref face of the used⟹defined wiring lens (Check 391 DOM-id twin). Dynamic idrefs
+       (aria-activedescendant='cmdk-opt-'+i template literals / setAttribute) are structurally
+       self-consistent so only static literals are enforced; `for` colon matching is single-line
+       [ \\t]* anchored to exclude the JS `for` keyword. (BLOCKING)
 """
 import re
 import json
@@ -341,3 +351,58 @@ def run(ctx):
     else:
         check(False, "Check 391: index.html and shipped JS present",
               "Check 391: index.html または shipped JS が無い — getElementById の id 解決を検証できない", blocking=True)
+
+    # ── 392. aria idref / <label for> → id definition resolution (BLOCKING) ────────
+    # 静的リテラルの a11y id 参照 (aria-labelledby / -describedby / -controls / -errormessage、
+    # および <label for>) は、必ず定義済み id を指していなければならない。dangling な aria idref は
+    # DOM lookup が null を返して silent no-op になる Check 391 (getElementById) より高 severity で、
+    # accessible name / description / control の関連付けが assistive tech 上で切れる実 WCAG 欠陥
+    # (1.3.1 Info and Relationships / 4.1.2 Name,Role,Value)。id を片方でリネームすると screen reader が
+    # ラベルを解決できず「label 無し」の control をアナウンスするが、visual には無変化・behavior e2e も
+    # 素通りする (実例 class: #563 の a11y 属性 leak / #728 の label 関連付け)。Check 391 の DOM-id
+    # used⟹defined wiring の a11y-idref 面。動的 id 参照 (aria-activedescendant='cmdk-opt-'+i 等の
+    # template literal / setAttribute) は構造上 self-consistent ゆえ対象外 = 静的リテラル参照のみ強制。
+    # `for` は JS キーワードと衝突するため colon 周りを単一行 [ \t]* に固定し for-loop 誤検出を排除。
+    _html392 = ROOT / "index.html"
+    _shipped392 = [p for p in ([ROOT / "main.js"] + sorted((ROOT / "js").glob("*.js"))) if p.exists()]
+    if _html392.exists() and _shipped392:
+        _sources392 = _shipped392 + [_html392]
+        _defined392 = set()
+        for _f392 in _sources392:
+            _s392 = _f392.read_text(encoding="utf-8")
+            _defined392 |= set(re.findall(r'\bid="([a-zA-Z0-9_-]+)"', _s392))
+            _defined392 |= set(re.findall(r"""\bid:\s*['"]([a-zA-Z0-9_-]+)['"]""", _s392))
+            _defined392 |= set(re.findall(r"""\.id\s*=\s*['"]([a-zA-Z0-9_-]+)['"]""", _s392))
+            _defined392 |= set(re.findall(r"""setAttribute\(\s*['"]id['"]\s*,\s*['"]([a-zA-Z0-9_-]+)['"]""", _s392))
+        _refs392 = {}  # idref value -> (attr, file)
+        _aria392 = ["aria-labelledby", "aria-describedby", "aria-controls", "aria-errormessage"]
+        for _f392 in _sources392:
+            _s392 = _f392.read_text(encoding="utf-8")
+            _rel392 = str(_f392.relative_to(ROOT))
+            for _attr392 in _aria392:
+                for _pat392 in (rf'{_attr392}="([^"]+)"',
+                                rf"""['"]?{re.escape(_attr392)}['"]?[ \t]*:[ \t]*['"]([^'"]+)['"]"""):
+                    for _m392 in re.findall(_pat392, _s392):
+                        for _idv392 in _m392.split():
+                            if re.fullmatch(r"[a-zA-Z0-9_-]+", _idv392):
+                                _refs392.setdefault(_idv392, (_attr392, _rel392))
+            # <label for>: HTML for="X" + h() 単一行 for: 'X' / 'for': 'X' (for-loop 誤検出を [ \t]* で排除)
+            for _pat392 in (r'\bfor="([a-zA-Z0-9_-]+)"',
+                            r"""['"]?for['"]?[ \t]*:[ \t]*['"]([a-zA-Z0-9_-]+)['"]"""):
+                for _m392 in re.findall(_pat392, _s392):
+                    _refs392.setdefault(_m392, ("for", _rel392))
+        _dangling392 = sorted(f"{_r} [{_refs392[_r][0]} in {_refs392[_r][1]}]"
+                              for _r in _refs392 if _r not in _defined392)
+        check(
+            bool(_refs392) and not _dangling392,
+            f"Check 392: 全 aria idref / label-for ({len(_refs392)} 種) が定義済み id に解決 (a11y 関連付け健全)",
+            f"Check 392: aria idref / label-for が未定義 id を指す (a11y 関連付け切れ・WCAG 1.3.1/4.1.2): {_dangling392} — "
+            "id を片方でリネームすると screen reader が accessible name/description/control を解決できず "
+            "ラベル無しの control をアナウンスする。定義側の id を復元するか idref を修正せよ"
+            if _refs392 else
+            "Check 392: shipped JS / index.html に静的 aria idref が見つからない — a11y idref wiring を検証できない",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 392: index.html and shipped JS present",
+              "Check 392: index.html または shipped JS が無い — aria idref の id 解決を検証できない", blocking=True)
