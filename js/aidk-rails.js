@@ -292,12 +292,12 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
             // 改善文書b 11.1: target.closest() による正確な要素捕捉。
             // e.target ではなく e.target.closest('[data-action]') で遡上検索するため、
             // ボタン内のSVGアイコンや<span>がクリックされた場合でも確実に発火する。
-            // さらに e.currentTarget.contains(target) でスコープ外への意図しない伝播を防ぐ。
+            // リスナーは document スコープゆえ closest が返す [data-action] は必ず document 配下で、
+            // containment チェックは不要 (将来スコープを絞った場合のみ e.currentTarget.contains(target)
+            // を足す)。
             document.addEventListener('click', (e) => {
                 const target = e.target.closest('[data-action]');
                 if (!target) { return; }
-                // containsガード: documentに紐付いたリスナーなので常にtrueだが、
-                // 将来スコープを絞った場合の安全弁として明示的に残す
                 const action = target.getAttribute('data-action');
                 if (!action) { return; }
                 const handler = _handlers[action];
