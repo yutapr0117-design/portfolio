@@ -253,3 +253,36 @@ test('Pomodoro switching mode while running stops the timer and resets (determin
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `mode switch while running caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: ポモドーロ remainingSec=0 の ingestion round-trip fidelity =====
+// store.js normalizeAppsData の `Number(rt.remainingSec) || DEFAULT` は 0 が falsy ゆえ、valid な
+// remainingSec=0 (pause-at-zero / 完了直前の export・snapshot・cross-tab 由来) を DEFAULT(1500=25:00)
+// に化けさせる round-trip fidelity 欠陥だった。remainingSec=0・isActive=false の永続 store を seed して
+// リロード相当で読ませ、タイマーが 00:00 のまま復元される (25:00 に化けない) ことを検証する。
+// 修正を戻すと 25:00 が表示され本 test が RED = 非 vacuous。
+test('Pomodoro restores a persisted remainingSec of 0 as 00:00 (ingestion does not clobber a valid zero)', async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+      schemaVersion: 12,
+      type: 'full-store',
+      appsData: {
+        pomodoro: {
+          settings: { work: 25, short: 5, long: 15 },
+          runtime: { isActive: false, mode: 'work', endAtMs: null, remainingSec: 0 },
+          history: []
+        }
+      }
+    }));
+  });
+
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+
+  const timer = page.locator('.font-mono.text-stat').first();
+  await expect(timer).toBeVisible();
+  await expect(timer).toHaveText('00:00');   // 修正前は Number(0)||DEFAULT → 25:00 に化ける
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `restoring remainingSec=0 caused a fatal: ${fatal}`).toBeNull();
+});
