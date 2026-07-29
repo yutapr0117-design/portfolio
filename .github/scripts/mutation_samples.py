@@ -541,4 +541,11 @@ E2E_MUTATIONS = [
         "replace": "work: CONSTANTS.POMODORO_DEFAULT_SETTINGS.work,",
         "test": "non-default settings persist across reload",
     },
+    {
+        "name": "behavior: h() boolean 子 skip の喪失 — ui-components.js の h() children ループから `typeof child === 'boolean'` skip を除去 → `cond && h(...)` が false のとき createTextNode('false') でリテラル 'false' が描画される実バグ (TodoPage の `filtered.length === 0 && h('p',…)` が todo 存在時に false → リスト末尾に可視 'false'。screenshot は advisory ゆえ素通りしていた) の非 vacuity 検証",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "if (child === undefined || child === null || typeof child === 'boolean') {return;}",
+        "replace": "if (child === undefined || child === null) {return;}",
+        "test": "does not render a literal",
+    },
 ]
