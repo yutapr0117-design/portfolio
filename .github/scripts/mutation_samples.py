@@ -527,4 +527,11 @@ E2E_MUTATIONS = [
         "replace": "completed: false,",
         "test": "completed state persists across reload",
     },
+    {
+        "name": "behavior: ai.history の normalize round-trip — store.js normalizeAppsData の ai.history 読み戻し guard を skip させる (`if (Array.isArray(data.ai?.history))` を false && で無効化) → 会話履歴が reload 後に silent 消失する (#294/#568/#684/#796/#797 = normalize が reload で field を drop する同 class。生成テストは同一セッション描画のみゆえ素通りする穴の非 vacuity 検証)",
+        "file": ROOT / "js" / "store.js",
+        "find": "if (Array.isArray(data.ai?.history)) {",
+        "replace": "if (false && Array.isArray(data.ai?.history)) {",
+        "test": "conversation history persists across reload",
+    },
 ]
