@@ -286,3 +286,32 @@ test('Pomodoro restores a persisted remainingSec of 0 as 00:00 (ingestion does n
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `restoring remainingSec=0 caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: pomodoro 非デフォルト settings が reload を跨いで永続する (settings normalize round-trip) =====
+// 集中/短休憩/長休憩時間の number input (onchange → settings.work/short/long) で設定した非デフォルト値が
+// localStorage → load → normalizeAppsData (`work: clamp(Number(...) || DEFAULT, 1, 180)` 等) の round-trip
+// を跨いで保持されることを検証する。既存 pomodoro テスト (mode 切替 / countdown / reset / interval-resume)
+// は非デフォルト settings 値の reload 永続を検証しない。normalize の settings 行を `work: DEFAULT.work` 等へ
+// regress するとユーザの custom 設定が reload 後に既定へ silent に戻るのに素通りする (#294/#568/#684/#796/
+// #797/#798 = normalize が reload で field を drop/default する同 class)。非デフォルト work=40 を設定→reload→
+// 保持を検証しこの穴を塞ぐ。
+test('Pomodoro non-default settings persist across reload (settings normalize round-trip)', async ({ page }) => {
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+
+  const workInput = page.getByLabel('集中時間（分）');
+  await expect(workInput).toBeVisible();
+  // 既定 25 から非デフォルト 40 へ変更 (onchange → settings.work → State.update → scheduleSave)
+  await workInput.fill('40');
+  await workInput.blur();
+  await expect(workInput).toHaveValue('40');
+
+  // reload (visibilitychange → saveNow で flush) → load → normalizeAppsData を跨いで work=40 保持
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByLabel('集中時間（分）')).toHaveValue('40');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `pomodoro settings reload persist caused a fatal: ${fatal}`).toBeNull();
+});
