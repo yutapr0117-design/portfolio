@@ -195,6 +195,40 @@ test('Task per-card priority select retains visual selection after re-render (#7
 });
 
 
+// ===== 7.2: task per-card priority 変更が reload を跨いで永続する (normalize round-trip) =====
+// updateTask で変更した非デフォルト priority ('high') が localStorage → load → normalizeAppsData の
+// round-trip を跨いで保持されることを検証する。既存の add-persist (#23) は既定 'med' のみ、per-card
+// visual (#174) は同一セッションのみ、filter (#134) は reload しない。store.js normalizeAppsData の
+// priority 正規化行 (`priority: [...].includes(t.priority) ? t.priority : 'med'`) を `priority: 'med'`
+// 等へ regress しても既存テストは全て緑で素通りする (#294/#568/#684 = normalize が reload で field を
+// drop/default する同 class)。非デフォルト priority を設定→reload→保持を検証し正規化 round-trip の穴を塞ぐ。
+test('Task per-card priority change persists across reload (normalize round-trip)', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+
+  const input = page.locator('#task-input');
+  await expect(input).toBeVisible();
+  const title = 'PRIORITY-PERSIST-TASK-8830';
+  await input.fill(title);
+  await input.press('Enter');
+  await expect(page.getByText(title)).toBeVisible();
+
+  // 既定 'med' から非デフォルト 'high' へ変更 (updateTask → State.update → scheduleSave)
+  const cardSel = page.locator('article', { hasText: title }).getByLabel('タスクの優先度');
+  await cardSel.selectOption('high');
+  await expect(cardSel).toHaveValue('high');
+
+  // reload (visibilitychange → saveNow で flush) → load → normalizeAppsData を跨いで 'high' が保持される
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+  const cardSelAfter = page.locator('article', { hasText: title }).getByLabel('タスクの優先度');
+  await expect(cardSelAfter).toHaveValue('high');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `priority reload persist caused a fatal: ${fatal}`).toBeNull();
+});
+
+
 // ===== 7.2: task priority filter select が再描画後も visual 選択を保持する (#7cbc4d9 class) =====
 // taskFilter.priority select の onchange は window.render() を直接呼ぶため同クラスのバグが発生。
 // filter select が再描画後も選択した priority を visual に保持することを検証する。
