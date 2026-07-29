@@ -587,3 +587,36 @@ test('Todo filter select retains visual selection after re-render (#7cbc4d9 clas
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `todo filter select caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: TODO の完了状態が reload を跨いで永続する (completed boolean normalize round-trip) =====
+// 完了トグルで立てた completed=true が localStorage → load → normalizeAppsData
+// (`completed: Boolean(t.completed)`) の round-trip を跨いで保持されることを検証する。既存 todo
+// テストは add+完了+一括削除 (#412 は完了 todo を clearCompleted で除去してから reload=削除永続を見る) /
+// filter / disabled で、「完了 todo を clear せず reload して completed が残る」検証は無かった。このため
+// normalize の `completed: Boolean(t.completed)` を `completed: false` 等へ regress すると全 todo が
+// reload 後 active に戻るが既存テストは全て緑で素通りする (#294/#568/#684/#796 = normalize が reload で
+// field を drop/default する同 class)。完了→reload→保持を検証しこの穴を塞ぐ。
+test('Todo completed state persists across reload (completed normalize round-trip)', async ({ page }) => {
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+
+  const input = page.locator('#todo-input');
+  await expect(input).toBeVisible();
+  const text = 'TODO-COMPLETED-PERSIST-7150';
+  await input.fill(text);
+  await input.press('Enter');
+
+  const checkbox = page.locator('article', { hasText: text }).locator('input[type="checkbox"]');
+  await checkbox.check();
+  await expect(checkbox).toBeChecked();
+
+  // reload (visibilitychange → saveNow で flush) → load → normalizeAppsData を跨いで completed=true 保持
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+  const checkboxAfter = page.locator('article', { hasText: text }).locator('input[type="checkbox"]');
+  await expect(checkboxAfter).toBeChecked();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `todo completed reload persist caused a fatal: ${fatal}`).toBeNull();
+});

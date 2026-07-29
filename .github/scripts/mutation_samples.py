@@ -520,4 +520,11 @@ E2E_MUTATIONS = [
         "replace": "priority: 'med',",
         "test": "priority change persists across reload",
     },
+    {
+        "name": "behavior: todo completed の normalize round-trip — store.js normalizeAppsData の `completed: Boolean(t.completed)` を `completed: false` へ戻す → 完了 todo が reload 後に全て active へ silent に戻る (#294/#568/#684/#796 = normalize が reload で field を drop/default する同 class。add-persist/filter/disabled/clear は完了状態を reload 跨ぎで検証しないゆえ素通りする穴の非 vacuity 検証)",
+        "file": ROOT / "js" / "store.js",
+        "find": "completed: Boolean(t.completed),",
+        "replace": "completed: false,",
+        "test": "completed state persists across reload",
+    },
 ]
