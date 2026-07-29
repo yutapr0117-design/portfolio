@@ -513,4 +513,11 @@ E2E_MUTATIONS = [
         "replace": "remainingSec: clamp(Number(rt.remainingSec) || CONSTANTS.POMODORO_DEFAULT_REMAINING_SEC, 0, 86400),",
         "test": "restores a persisted remainingSec of 0",
     },
+    {
+        "name": "behavior: task priority の normalize round-trip — store.js normalizeAppsData の priority 保持を `priority: 'med'` ハードコードへ戻す → 非デフォルト priority (high/low) が reload 後に silent に med へ default される (#294/#568/#684 = normalize が reload で field を drop/default する同 class。add-persist は既定 med・visual retention は同一セッションゆえ素通りする穴の非 vacuity 検証)",
+        "file": ROOT / "js" / "store.js",
+        "find": "priority: ['low', 'med', 'high'].includes(t.priority) ? t.priority : 'med',",
+        "replace": "priority: 'med',",
+        "test": "priority change persists across reload",
+    },
 ]
