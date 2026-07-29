@@ -620,3 +620,25 @@ test('Todo completed state persists across reload (completed normalize round-tri
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `todo completed reload persist caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: 条件描画 `cond && h()` の false 子が "false" として描画されない (h() boolean skip) =====
+// TodoPage は `filtered.length === 0 && h('p', 'TODOはありません')` で空状態を条件描画する。todo が
+// 存在する (filtered.length !== 0) と式は false を返し、これが親 h() の子として渡る。h() が boolean 子を
+// skip しないと createTextNode(String(false))='false' でリスト末尾にリテラル "false" が可視描画される
+// 実バグ (デフォルト store は seed todo を持つため初期表示で発現・screenshot は advisory ゆえ素通り)。
+// h() の children ループで boolean を skip する修正の回帰ガード。fix を戻すと "false" が現れ RED = 非 vacuous。
+test('Todo list with items does not render a literal "false" (h() skips boolean children)', async ({ page }) => {
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+
+  const input = page.locator('#todo-input');
+  await expect(input).toBeVisible();
+  await input.fill('NO-FALSE-RENDER-TODO-4821');
+  await input.press('Enter');
+  await expect(page.getByText('NO-FALSE-RENDER-TODO-4821')).toBeVisible();
+
+  // filtered.length !== 0 のとき条件描画の false 子が "false" テキストとして leak しないこと
+  const txt = await page.locator('#content').innerText();
+  expect(txt, 'a literal "false" leaked from a `cond && h()` child (h() must skip boolean children)').not.toMatch(/(^|\n)\s*false\s*(\n|$)/);
+});

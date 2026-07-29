@@ -178,7 +178,9 @@ export function h(tag, attrs = {}, ...children) {
         el.setAttribute('rel', 'noopener noreferrer');
     }
     children.flat().forEach(child => {
-        if (child === undefined || child === null) {return;}
+        // [FIX] boolean 子を skip (React 等と同挙動)。`cond && h(...)` は falsy 時 `false` を返し、
+        // 従来は createTextNode('false') でリテラル "false" が可視描画されていた (#TodoPage 空状態条件)。
+        if (child === undefined || child === null || typeof child === 'boolean') {return;}
         if (child instanceof Node) {
             el.appendChild(child);
         } else {
