@@ -534,4 +534,11 @@ E2E_MUTATIONS = [
         "replace": "if (false && Array.isArray(data.ai?.history)) {",
         "test": "conversation history persists across reload",
     },
+    {
+        "name": "behavior: pomodoro settings.work の normalize round-trip — store.js の `work: clamp(Number(...) || DEFAULT.work, 1, 180)` を `work: DEFAULT.work` ハードコードへ戻す → ユーザ設定の非デフォルト集中時間が reload 後に既定 25 へ silent に戻る (#294/#568/#684/#796/#797/#798 = normalize が reload で field を drop/default する同 class。mode/countdown/reset/interval-resume は非デフォルト settings 値の reload を検証しないゆえ素通りする穴の非 vacuity 検証)",
+        "file": ROOT / "js" / "store.js",
+        "find": "work: clamp(Number(data.pomodoro.settings.work) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.work, 1, 180),",
+        "replace": "work: CONSTANTS.POMODORO_DEFAULT_SETTINGS.work,",
+        "test": "non-default settings persist across reload",
+    },
 ]
