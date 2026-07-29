@@ -29,6 +29,34 @@ test('AI assist app generates and renders a response for a prompt', async ({ pag
 });
 
 
+// ===== 7.2: AI 会話履歴が reload を跨いで永続する (ai.history normalize round-trip) =====
+// AIPage は mount 時に State.get().appsData.ai.history を描画する。生成した会話が localStorage →
+// load → normalizeAppsData の round-trip を跨いで保持されることを検証する。既存の生成テストは同一
+// セッションで履歴描画を見るのみで reload しない。store.js normalizeAppsData が ai.history を読み
+// 戻さなく (guard skip / drop) なる regression で会話が reload 後に silent 消失するのに既存テストは
+// 素通りする (#294/#568/#684/#796/#797 = normalize が reload で field を drop する同 class)。生成→
+// reload→保持を検証しこの穴を塞ぐ。
+test('AI assist conversation history persists across reload (ai.history normalize round-trip)', async ({ page }) => {
+  await page.goto('/#/apps/ai');
+  await page.waitForLoadState('domcontentloaded');
+
+  const input = page.locator('#ai-input');
+  await expect(input).toBeVisible();
+  const prompt = 'AI-HISTORY-PERSIST-プロンプト-6640';
+  await input.fill(prompt);
+  await page.getByRole('button', { name: '送信', exact: true }).click();
+  await expect(page.getByText(prompt)).toBeVisible();
+
+  // reload (visibilitychange → saveNow で flush) → load → normalizeAppsData を跨いで会話が保持される
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByText(prompt)).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `ai history reload persist caused a fatal: ${fatal}`).toBeNull();
+});
+
+
 // ===== 7.2: Markdown ノートアプリ (innerHTML 不使用のライブプレビュー + 永続) =====
 // js/apps.js NotesPage は textarea の Markdown を h() のみ（innerHTML 不使用）で DOM へレンダリングし
 // live preview + localStorage 永続する純追加アプリ。# 見出し / **太字** / `code` / - リストを
