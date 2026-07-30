@@ -642,3 +642,38 @@ test('Todo list with items does not render a literal "false" (h() skips boolean 
   const txt = await page.locator('#content').innerText();
   expect(txt, 'a literal "false" leaked from a `cond && h()` child (h() must skip boolean children)').not.toMatch(/(^|\n)\s*false\s*(\n|$)/);
 });
+
+
+// ===== 7.1: import ingestion が MAX_TASKS 件数上限で切り詰められる (bloat/DoS ガード) =====
+// store.js normalizeAppsData は tasks を `.slice(0, CONSTANTS.LIMITS.MAX_TASKS)` (=500) で件数上限
+// 切り詰めする。これは import/cross-tab/snapshot 経由で巨大タスク配列が localStorage を bloat させ
+// 描画を重くする DoS を防ぐ ingestion ガード。文字列長 bound (AI_MESSAGE #230) は test 済だが件数
+// 上限 (MAX_TASKS/MAX_TODOS/MAX_PROJECTS) の切り詰めは未被覆だった。600 件を seed して load し、
+// 先頭 500 (TASK-CAP-000) は残り 501 件目以降 (TASK-CAP-599) は drop されることを検証する。
+// slice(0, MAX_TASKS) を除去すると 600 件全部残り TASK-CAP-599 が現れ本テストが RED (非 vacuous)。
+test('Import truncates tasks to MAX_TASKS (bloat/DoS ingestion guard)', async ({ page }) => {
+  await page.addInitScript(() => {
+    const tasks = [];
+    for (let i = 0; i < 600; i++) {
+      const n = String(i).padStart(3, '0');
+      tasks.push({ id: 't' + n, title: 'TASK-CAP-' + n, status: 'backlog', priority: 'med', tags: [] });
+    }
+    localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+      schemaVersion: 12, type: 'full-store', appsData: { tasks }
+    }));
+  });
+
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+
+  // 先頭 (index 0) は残る
+  await expect(page.getByText('TASK-CAP-000', { exact: true })).toBeVisible();
+  // MAX_TASKS(500) を超える index 599 は slice(0,500) で切り詰められ存在しない
+  await expect(page.getByText('TASK-CAP-599', { exact: true })).toHaveCount(0);
+  // ちょうど上限内の index 499 は残り、上限直上の index 500 は落ちる
+  await expect(page.getByText('TASK-CAP-499', { exact: true })).toBeVisible();
+  await expect(page.getByText('TASK-CAP-500', { exact: true })).toHaveCount(0);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `MAX_TASKS truncation caused a fatal: ${fatal}`).toBeNull();
+});
