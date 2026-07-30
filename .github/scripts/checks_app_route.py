@@ -82,6 +82,19 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        137's domain and excluded) and asserts each has a matching main.js `case '<name>':`, making
        "router resolves route X ⟹ main.js can render X" a directly enforced invariant for non-app
        routes (the missing non-app edge of the route coherence mesh 58/137). (BLOCKING)
+  394. router route.name ⟹ PAGE_META entry (per-route meta coherence): every route.name the router
+       resolves — the non-app literals (route.name = '<name>' + initial name: 'home') AND the app-<app>
+       names built from the router's app whitelist — must have a top-level entry in PAGE_META
+       (js/page-meta.js). meta-management's applyMeta(routeName) does `const meta = PAGE_META[routeName];
+       if (!meta) return;` — so a route with no PAGE_META entry silently KEEPS THE PREVIOUS route's
+       <title>/description/OG tags (applyMeta early-returns before touching the head), a stale-meta SEO
+       bug that renders fine (content e2e passes, screenshot advisory) and is invisible unless a test
+       asserts that specific route's title. Check 377 guards route ⟹ main.js CASE (it renders) and
+       Check 148 guards only the ARTICLE_ROUTES subset ⟹ PAGE_META; neither guards the full
+       route ⟹ PAGE_META meta edge. This is the meta face of the used⟹defined wiring lens
+       (375 icon / 376 data-action / 377 route→case / 391 getElementById / 392 aria idref / 393
+       CONSTANTS): route used ⟹ its PAGE_META is defined. The reverse (PAGE_META key ⟹ route) is NOT
+       enforced — an unused PAGE_META entry is dead config, not a silent bug. (BLOCKING)
 """
 import re
 
@@ -321,3 +334,44 @@ def run(ctx):
     else:
         check(False, "Check 377: js/router.js and main.js present",
               "Check 377: js/router.js または main.js が無い — 非 app route.name↔render case coherence を検証できない", blocking=True)
+
+    # ── 394. router route.name ⟹ PAGE_META entry (BLOCKING) ─────────────────────────
+    # router が解決する全 route.name は js/page-meta.js の PAGE_META に top-level entry を持たねば
+    # ならない。meta-management の applyMeta は `const meta = PAGE_META[routeName]; if (!meta) return;`
+    # ゆえ、entry 欠落 route は head を触らず early-return し、<title>/description/OG が**前 route の
+    # まま stale**になる (silent stale-meta SEO bug・content e2e は通り screenshot は advisory ゆえ
+    # 該当 route の title を assert するテストが無い限り不可視)。Check 377 は route ⟹ main.js CASE
+    # (描画)、Check 148 は ARTICLE_ROUTES subset ⟹ PAGE_META のみを縛り、full route ⟹ PAGE_META
+    # (meta) edge は未強制だった。used⟹defined wiring レンズ (375/376/377/391/392/393) の meta 面。
+    # 非 app literal (Check 377 と同方式) + app-<app> (router の app whitelist から構築) の両方を対象に
+    # する (app-<app> も PAGE_META entry が必要で、377 の非 app scope では漏れるため)。逆方向
+    # (PAGE_META key ⟹ route) は dead-config ゆえ非強制。
+    _router394 = ROOT / "js" / "router.js"
+    _pagemeta394 = ROOT / "js" / "page-meta.js"
+    if _router394.exists() and _pagemeta394.exists():
+        _rsrc394 = _router394.read_text(encoding="utf-8")
+        _psrc394 = _pagemeta394.read_text(encoding="utf-8")
+        # 非 app route.name (Check 377 と同じ抽出): `route.name = '<name>'` + 初期 `name: '<name>'`
+        _routes394 = set(re.findall(r"route\.name\s*=\s*'([a-z][a-z0-9-]*)'", _rsrc394))
+        _routes394 |= set(re.findall(r"\bname:\s*'([a-z][a-z0-9-]*)'", _rsrc394))
+        # app-<app> route.name: router の app whitelist 配列 `[...].includes(app)` から構築
+        _wl394 = re.search(r"\[([^\]]+)\]\.includes\(app\)", _rsrc394)
+        if _wl394:
+            for _app394 in re.findall(r"'([a-z][a-z0-9-]*)'", _wl394.group(1)):
+                _routes394.add(f"app-{_app394}")
+        # PAGE_META top-level keys (Check 148 と同方式: 4-space indent + (quoted|bare) ident + `:` + `{`)
+        _pmkeys394 = set(re.findall(r"^    '?([a-z][a-z0-9-]*)'?\s*:\s*\{", _psrc394, re.M))
+        _missing394 = sorted(_r for _r in _routes394 if _r not in _pmkeys394)
+        check(
+            bool(_routes394) and bool(_pmkeys394) and not _missing394,
+            f"Check 394: router の全 route.name ({len(_routes394)}) が PAGE_META entry を持つ (per-route meta coherence・silent stale-meta 防止)",
+            f"Check 394: PAGE_META entry 欠落 route: {_missing394} — applyMeta が `if (!meta) return` で "
+            "early-return し <title>/desc/OG が前 route のまま stale 化する silent SEO bug。"
+            "js/page-meta.js の PAGE_META に対応 entry を追加せよ (route ⟹ PAGE_META・377 の meta 面)"
+            if (_routes394 and _pmkeys394) else
+            "Check 394: router.js の route.name または js/page-meta.js の PAGE_META キーを parse できない (構造変更の可能性)",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 394: js/router.js and js/page-meta.js present",
+              "Check 394: js/router.js または js/page-meta.js が無い — route ⟹ PAGE_META coherence を検証できない", blocking=True)

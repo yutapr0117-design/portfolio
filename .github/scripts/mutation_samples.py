@@ -215,6 +215,12 @@ _MUTATIONS_TAIL = [
         "find": "CONSTANTS.LIMITS.MAX_TODOS",
         "replace": "CONSTANTS.LIMITS.MAX_TODOSXX",
     },
+    {
+        "name": "Check 394 (router route.name→PAGE_META entry wiring): page-meta.js の about entry キーを rename (aboutXX) → router の route.name 'about' が PAGE_META entry を失い、applyMeta が `if (!meta) return` で early-return → about ページの <title>/desc/OG が前 route のまま stale 化する silent SEO bug (Check 377 route→case / 393 CONSTANTS と同じ used⟹defined wiring の meta 面。checks_app_route.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
+        "file": ROOT / "js" / "page-meta.js",
+        "find": "    about: { title: 'About',",
+        "replace": "    aboutXX: { title: 'About',",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。
