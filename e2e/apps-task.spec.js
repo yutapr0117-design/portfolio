@@ -677,3 +677,36 @@ test('Import truncates tasks to MAX_TASKS (bloat/DoS ingestion guard)', async ({
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `MAX_TASKS truncation caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.1: import ingestion が MAX_TODOS 件数上限で切り詰められる (bloat/DoS ガード) =====
+// MAX_TASKS (#801) と同クラスで、store.js normalizeAppsData は todos を
+// `.slice(0, CONSTANTS.LIMITS.MAX_TODOS)` (=1000) で件数上限切り詰めする distinct な slice 行を持つ。
+// tasks/todos はユーザが作成する 2 つのリストアプリで、両方の件数上限ガードを behavior 被覆する
+// (projects は curated / ai・pomodoro history は auto 生成ゆえ本 class の対象外)。1050 件を seed して
+// 先頭 1000 (TODO-CAP-0000/0999) は残り上限直上以降 (TODO-CAP-1000/1049) は drop を検証する。
+// slice(0, MAX_TODOS) 除去で 1050 件全部残り TODO-CAP-1049 が現れ本テストが RED (非 vacuous)。
+test('Import truncates todos to MAX_TODOS (bloat/DoS ingestion guard)', async ({ page }) => {
+  await page.addInitScript(() => {
+    const todos = [];
+    for (let i = 0; i < 1050; i++) {
+      const n = String(i).padStart(4, '0');
+      todos.push({ id: 'd' + n, text: 'TODO-CAP-' + n, completed: false });
+    }
+    localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+      schemaVersion: 12, type: 'full-store', appsData: { todos }
+    }));
+  });
+
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+
+  await expect(page.getByText('TODO-CAP-0000', { exact: true })).toBeVisible();
+  await expect(page.getByText('TODO-CAP-0999', { exact: true })).toBeVisible();
+  // MAX_TODOS(1000) を超える index 1000/1049 は slice(0,1000) で切り詰められ存在しない
+  await expect(page.getByText('TODO-CAP-1000', { exact: true })).toHaveCount(0);
+  await expect(page.getByText('TODO-CAP-1049', { exact: true })).toHaveCount(0);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `MAX_TODOS truncation caused a fatal: ${fatal}`).toBeNull();
+});

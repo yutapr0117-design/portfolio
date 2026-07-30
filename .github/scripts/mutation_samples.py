@@ -555,4 +555,11 @@ E2E_MUTATIONS = [
         "replace": "                ;",
         "test": "truncates tasks to MAX_TASKS",
     },
+    {
+        "name": "behavior: MAX_TODOS 件数上限切り詰めの喪失 — store.js normalizeAppsData の todos `.slice(0, CONSTANTS.LIMITS.MAX_TODOS)` を除去 → 巨大 todo 配列が上限 1000 で切り詰められず bloat/描画劣化 DoS を招く。tasks(#801) と別の distinct slice 行ゆえ独立に regress しうる穴の非 vacuity 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "                .slice(0, CONSTANTS.LIMITS.MAX_TODOS);",
+        "replace": "                ;",
+        "test": "truncates todos to MAX_TODOS",
+    },
 ]
