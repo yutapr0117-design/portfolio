@@ -548,4 +548,11 @@ E2E_MUTATIONS = [
         "replace": "if (child === undefined || child === null) {return;}",
         "test": "does not render a literal",
     },
+    {
+        "name": "behavior: MAX_TASKS 件数上限切り詰めの喪失 — store.js normalizeAppsData の tasks `.slice(0, CONSTANTS.LIMITS.MAX_TASKS)` を除去 → import/cross-tab/snapshot 経由の巨大タスク配列が上限 500 で切り詰められず localStorage を bloat させ描画を重くする DoS ガードの喪失。文字列長 bound(#230) は test 済だが件数上限(MAX_TASKS/MAX_TODOS/MAX_PROJECTS)は未被覆だった穴の非 vacuity 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "                .slice(0, CONSTANTS.LIMITS.MAX_TASKS);",
+        "replace": "                ;",
+        "test": "truncates tasks to MAX_TASKS",
+    },
 ]
