@@ -216,7 +216,7 @@ _MUTATIONS_TAIL = [
         "replace": "CONSTANTS.LIMITS.MAX_TODOSXX",
     },
     {
-        "name": "Check 394 (router route.name→PAGE_META entry wiring): page-meta.js の about entry キーを rename (aboutXX) → router の route.name 'about' が PAGE_META entry を失い、applyMeta が `if (!meta) return` で early-return → about ページの <title>/desc/OG が前 route のまま stale 化する silent SEO bug (Check 377 route→case / 393 CONSTANTS と同じ used⟹defined wiring の meta 面。checks_app_route.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
+        "name": "Check 390 (router route.name ⊆ PAGE_META・param-route coverage): page-meta.js の about entry キーを rename (aboutXX) → router が emit する route.name 'about' が PAGE_META から欠落 → applyMeta が `if (!meta) return` で early-return し about ページの title/desc/JSON-LD/route アナウンスが消失する silent AIO/SEO 回帰 (Check 118 は ALL_ROUTES 経由ゆえ param route を守れない盲点を 390 が補完・checks_shipped_structure.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
         "file": ROOT / "js" / "page-meta.js",
         "find": "    about: { title: 'About',",
         "replace": "    aboutXX: { title: 'About',",
