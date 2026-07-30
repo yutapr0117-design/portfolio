@@ -209,6 +209,12 @@ _MUTATIONS_TAIL = [
         "find": "id: 'aio-series-heading'",
         "replace": "id: 'aio-series-headingZZ'",
     },
+    {
+        "name": "Check 393 (CONSTANTS.* reference→definition wiring): store.js の CONSTANTS.LIMITS.MAX_TODOS 参照を typo (MAX_TODOSXX) へ → js/constants.js に未定義の key を指す silent-undefined 化。typo は合法な property access ゆえ throw せず undefined へ評価され、.slice(0, undefined) が切り詰めを無効化 (DoS/bloat ガード沈黙) / setTimeout(fn, undefined) 即発火する silent bug (Check 375/376/377/391/392 の used⟹defined wiring レンズの CONSTANTS-access 面。checks_wiring.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
+        "file": ROOT / "js" / "store.js",
+        "find": "CONSTANTS.LIMITS.MAX_TODOS",
+        "replace": "CONSTANTS.LIMITS.MAX_TODOSXX",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。

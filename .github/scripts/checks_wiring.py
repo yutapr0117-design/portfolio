@@ -93,6 +93,24 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (aria-activedescendant='cmdk-opt-'+i template literals / setAttribute) are structurally
        self-consistent so only static literals are enforced; `for` colon matching is single-line
        [ \\t]* anchored to exclude the JS `for` keyword. (BLOCKING)
+  393. CONSTANTS.* reference → definition resolution: every `CONSTANTS.<KEY>` (and nested
+       `CONSTANTS.LIMITS.<M>` / `CONSTANTS.POMODORO_DEFAULT_SETTINGS.<M>`) reference in shipped JS
+       (main.js + js/*.js) must resolve to a key actually defined in js/constants.js. A typo'd
+       reference (e.g. `CONSTANTS.LIMITS.MAX_TASSK`, `CONSTANTS.DEBOUNCE_DELY`) is a valid JS property
+       access that silently evaluates to `undefined` — no throw, no ESLint error (property access on a
+       defined object is legal), no node --check failure. The consequence is a SILENT bug: `undefined`
+       as a `.slice(0, undefined)` bound defeats a DoS/bloat truncation guard (returns the whole array),
+       and `undefined` as a `setTimeout(fn, undefined)` delay fires immediately. This is the same
+       used⟹defined wiring lens as Check 375 (icon) / 376 (data-action) / 377 (route→case) / 391
+       (getElementById) / 392 (aria idref), applied to CONSTANTS access. The Check parses the top-level
+       CONSTANTS keys (4-space-indented `KEY:` in the export) and, for object-valued top keys
+       (LIMITS / POMODORO_DEFAULT_SETTINGS), their member keys via balanced-brace extraction; it then
+       validates seg1 (the top key) for every reference and seg2 only when seg1 is a known object key —
+       so a method chain on a scalar constant (`CONSTANTS.STORAGE_KEY.slice(...)`) is NOT mis-flagged.
+       Values that are IIFEs/expressions (TAB_ID / DEBUG, whose value starts with `(` not `{`) are
+       never treated as objects, so their internals never pollute the valid-key set. A cross-namespace
+       typo (`CONSTANTS.LIMITS.work`) is an accepted non-goal — the dominant misspelled-key class is
+       enforced, not an exhaustive per-namespace bijection. (BLOCKING)
 """
 import re
 import json
@@ -406,3 +424,68 @@ def run(ctx):
     else:
         check(False, "Check 392: index.html and shipped JS present",
               "Check 392: index.html または shipped JS が無い — aria idref の id 解決を検証できない", blocking=True)
+
+    # ── 393. CONSTANTS.* reference → definition resolution (BLOCKING) ───────────────
+    # 各 shipped JS の `CONSTANTS.<KEY>` (および `CONSTANTS.LIMITS.<M>` /
+    # `CONSTANTS.POMODORO_DEFAULT_SETTINGS.<M>`) 参照は、js/constants.js で実際に定義された key に
+    # 解決しなければならない。typo (例 CONSTANTS.LIMITS.MAX_TASSK) は合法な property access ゆえ
+    # 静かに undefined へ評価され、throw も ESLint error も node --check 失敗も起きない。結果は silent
+    # bug: undefined を `.slice(0, undefined)` の bound に使うと切り詰めが無効化し (配列全体を返す=
+    # DoS/bloat ガード沈黙)、`setTimeout(fn, undefined)` は即発火する。Check 375/376/377/391/392 と
+    # 同じ used⟹defined wiring レンズの CONSTANTS-access 面。top-level key と object-valued key
+    # (LIMITS / POMODORO_DEFAULT_SETTINGS) の member を balanced-brace で抽出し、seg1 (top key) は常に、
+    # seg2 は seg1 が既知 object key の時だけ検証する (scalar 定数への method chain
+    # `CONSTANTS.STORAGE_KEY.slice(...)` を誤検出しない)。値が IIFE/式 (TAB_ID / DEBUG=先頭が '(') の
+    # top key は object 扱いしないので内部が valid-key を汚染しない。cross-namespace typo
+    # (CONSTANTS.LIMITS.work) は非対象 = 主要な misspelled-key class のみ強制する。
+    _const393 = ROOT / "js" / "constants.js"
+    _shipped393 = [p for p in ([ROOT / "main.js"] + sorted((ROOT / "js").glob("*.js"))) if p.exists()]
+    if _const393.exists() and _shipped393:
+        _csrc393 = _const393.read_text(encoding="utf-8")
+
+        def _bal393(_s, _oi):
+            # _oi は開き '{' の index。対応する閉じ '}' までの内側テキストを返す (balanced)。
+            _d = 0
+            for _j in range(_oi, len(_s)):
+                if _s[_j] == "{":
+                    _d += 1
+                elif _s[_j] == "}":
+                    _d -= 1
+                    if _d == 0:
+                        return _s[_oi + 1:_j]
+            return _s[_oi + 1:]
+
+        # top-level CONSTANTS keys = export 内の 4-space-indent `KEY:` (nested member は 8-space ゆえ除外)
+        _top393 = set(re.findall(r"^    ([A-Za-z_]\w*)\s*:", _csrc393, re.M))
+        # object-valued top key (`KEY: {`) の member key を balanced-brace で抽出
+        _objmembers393 = {}
+        for _tk393 in _top393:
+            _mt393 = re.search(r"^    " + re.escape(_tk393) + r"\s*:\s*\{", _csrc393, re.M)
+            if _mt393:
+                _inner393 = _bal393(_csrc393, _mt393.end() - 1)
+                _objmembers393[_tk393] = set(re.findall(r"\b([A-Za-z_]\w*)\s*:", _inner393))
+
+        _bad393 = []
+        for _f393 in _shipped393:
+            _rel393 = str(_f393.relative_to(ROOT))
+            for _mm393 in re.finditer(r"\bCONSTANTS((?:\.[A-Za-z_]\w*)+)", _f393.read_text(encoding="utf-8")):
+                _segs393 = _mm393.group(1).lstrip(".").split(".")
+                _seg1_393 = _segs393[0]
+                if _seg1_393 not in _top393:
+                    _bad393.append(f"CONSTANTS.{_seg1_393} ({_rel393})")
+                elif len(_segs393) >= 2 and _seg1_393 in _objmembers393 and _segs393[1] not in _objmembers393[_seg1_393]:
+                    _bad393.append(f"CONSTANTS.{_seg1_393}.{_segs393[1]} ({_rel393})")
+        _bad393 = sorted(set(_bad393))
+        check(
+            bool(_top393) and not _bad393,
+            f"Check 393: 全 CONSTANTS.* 参照 (top {len(_top393)} 種 + LIMITS/POMODORO member) が js/constants.js の定義に解決 (typo→undefined silent bug 防止)",
+            f"Check 393: CONSTANTS.* 参照が js/constants.js の未定義 key を指す (silent undefined): {_bad393} — "
+            "typo は合法な property access ゆえ throw せず undefined に評価され、slice bound / setTimeout delay を "
+            "静かに壊す。js/constants.js に key を追加するか参照の typo を修正せよ"
+            if _top393 else
+            "Check 393: js/constants.js から top-level CONSTANTS key を抽出できない — CONSTANTS wiring を検証できない",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 393: js/constants.js and shipped JS present",
+              "Check 393: js/constants.js または shipped JS が無い — CONSTANTS 参照の解決を検証できない", blocking=True)
