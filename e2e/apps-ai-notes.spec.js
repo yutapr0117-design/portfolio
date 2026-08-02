@@ -292,6 +292,16 @@ test('Same-page State.update does not re-announce the route (over-announce guard
     }).observe(el, { childList: true, characterData: true, subtree: true });
   });
 
+  // [FIX] 初期 route アナウンスは announceRouteForAccessibility が requestAnimationFrame で
+  // deferred にテキストを書き込む (js/meta-management.js:82)。goto 後に observer を設置しても、
+  // この初期 rAF が observer 設置後に発火すると「初期ページ表示」のアナウンスを誤カウントし、
+  // 測定対象 (同一ページ State.update) と混ざる timing race があった (playwright のバージョン差で
+  // 断続的に count>0=誤 fail・site 挙動は不変)。初期アナウンスを settle させてから counter を 0 に
+  // reset し、以降の同一ページ State.update 由来のアナウンスのみを厳密に計測する — 回帰があれば
+  // 3 (3 回の State.update すべてが再アナウンス)、正常なら 0 になる正しい semantics を保つ。
+  await page.waitForTimeout(100);
+  await page.evaluate(() => { window.__routeAnnounceCount = 0; });
+
   // 同一ページ (task) でタスクを 3 個追加 = State.update 再描画 3 回
   const input = page.locator('#app input').first();
   for (let i = 0; i < 3; i++) {

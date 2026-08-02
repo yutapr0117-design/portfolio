@@ -19,12 +19,12 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
     "@eslint/js": "10.0.1",
-    "@playwright/test": "1.61.1",
+    "@playwright/test": "1.62.0",
     "axe-core": "^4.12.1",
-    "eslint": "10.6.0",
-    "globals": "17.7.0",
+    "eslint": "10.8.0",
+    "globals": "17.8.0",
     "http-server": "14.1.1",
-    "stylelint": "17.14.0"
+    "stylelint": "17.14.1"
   },
   "engines": {
     "node": "^20.19.0 || ^22.13.0 || >=24"
