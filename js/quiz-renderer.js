@@ -1,5 +1,6 @@
 /**
- * js/quiz-renderer.js — QuizPage renderer (4 quiz domain selector + question / answer flow)
+ * js/quiz-renderer.js — QuizPage renderer (URL ?type で 4 quiz domain 切替・問題を read-only 表示・
+ *   検索フィルタ・模範解答リクエスト contact form。採点/回答 flow は持たない)
  * (v80+ Stage 5-o extraction via factory pattern)
  *
  * main.js の QuizPage を依存注入で物理分割した葉モジュール。Brand / Store / State /
@@ -18,7 +19,7 @@
  *     js/quiz/{aws,pm,quality,architecture}-quiz-data.js
  *
  * 【非破壊性】
- *   - QuizPage の DOM 出力・選択ロジック・スコア計算は抽出時 byte-equivalent。検索フィルタ _filterBy は
+ *   - QuizPage の DOM 出力・quiz domain lookup (QUIZ_DATA_MAP)・レンダリングは抽出時 byte-equivalent。検索フィルタ _filterBy は
  *     後の bug-fix で対象フィールドを拡張済（#285=stakeholder name/quote、#296=section 章タイトル。
  *     いずれも「画面に描画されるのに検索できない」visible-but-unsearchable drift の是正で、対象を増やす
  *     単調拡大ゆえ既存ヒットは不変）。
