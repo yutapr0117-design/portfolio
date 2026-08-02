@@ -31,12 +31,23 @@ sitemap.xml    text eol=lf
 *.html    text eol=lf
 *.css     text eol=lf
 *.js      text eol=lf
+*.mjs     text eol=lf
+*.cjs     text eol=lf
 *.ts      text eol=lf
 *.json    text eol=lf
+*.webmanifest text eol=lf
 *.md      text eol=lf
 *.yml     text eol=lf
 *.yaml    text eol=lf
 *.txt     text eol=lf
+
+# ── CI / tooling scripts (Python consistency checks etc.) ────────────────────
+# .editorconfig declares LF for all files; .gitattributes must enforce it at the
+# git level too, else a Windows contributor with core.autocrlf=true could commit
+# CRLF into the 68 CI *.py scripts (functionally tolerated by Python but violating
+# the repo-wide LF policy and dirtying diffs). *.js/.mjs/.cjs above cover the JS
+# tooling configs (eslint.config.mjs / playwright.config.cjs).
+*.py      text eol=lf
 
 # ── Exports / build artifacts (keep binary) ──────────────────────────────────
 *.zip     binary
