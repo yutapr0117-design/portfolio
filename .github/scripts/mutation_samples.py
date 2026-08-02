@@ -221,6 +221,18 @@ _MUTATIONS_TAIL = [
         "find": "    about: { title: 'About',",
         "replace": "    aboutXX: { title: 'About',",
     },
+    {
+        "name": "Check 383 (prefers-reduced-motion global reset): style.css の universal reset から transition-duration を除去 → @media (prefers-reduced-motion: reduce) の global motion reset が不完全化し、前庭障害配慮 (WCAG 2.3.3) の CSS-layer 主防御が silent に破れる (behavior e2e は動きを検査せず screenshot advisory ゆえ無検出)。101/103 と同じ a11y-CSS presence class の mutation coverage を完成させる (checks_css.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
+        "file": ROOT / "style.css",
+        "find": "transition-duration: 0.001ms !important;",
+        "replace": "transition-property: all !important;",
+    },
+    {
+        "name": "Check 384 (base :focus-visible outline): style.css の base :focus-visible の outline を none 化 → 通常モードのキーボード focus indicator (WCAG 2.4.7) が silent に消失する (101/103 は forced-colors/prefers-contrast の @media 変種のみ守り base outline は無保護)。behavior e2e は focus ring を検査せず screenshot advisory ゆえ無検出。101/103/383 と同じ a11y-CSS presence class の mutation coverage を完成 (checks_css.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
+        "file": ROOT / "style.css",
+        "find": "outline: 2px solid var(--color-primary);",
+        "replace": "outline: none;",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。
