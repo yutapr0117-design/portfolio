@@ -162,6 +162,12 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                     Toast.show('JSONのパースに失敗しました', 'error');
                 }
             };
+            // [FIX] onerror も処理する。readAsText は mid-read のファイル消失・リムーバブル
+            // メディア/ネットワークドライブ切断等で失敗しうるが、従来 onerror 未処理で silent
+            // no-op (無反応) だった。parse 失敗 (onload catch) と同様に明示フィードバックを出す。
+            reader.onerror = () => {
+                Toast.show('ファイルの読み込みに失敗しました', 'error');
+            };
             reader.readAsText(file);
         }
 

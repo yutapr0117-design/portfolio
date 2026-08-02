@@ -668,6 +668,42 @@ test('Settings strict import of malformed projects stays graceful (untested inge
 });
 
 
+// ===== 7.2: import のファイル読み込み失敗 (FileReader onerror) に明示フィードバックを出す =====
+// importJSON は onload (parse+commit) と、その中の JSON.parse 失敗 (catch→error toast) は扱うが、
+// FileReader.readAsText 自体の読み込み失敗 (mid-read でファイルが消える / リムーバブルメディア・
+// ネットワークドライブ切断 / ブラウザのセキュリティ制約) は従来 onerror 未処理で silent no-op
+// (Toast も出ず無反応) になり、ユーザーは成功/失敗を判別できなかった。本テストは window.FileReader を
+// readAsText が必ず onerror を発火する stub へ差し替えて読み込み失敗を模し、明示エラー toast が
+// 出ることを検証する。onerror ハンドラを外すと toast が出ず RED になる (非 vacuous)。
+test('Settings JSON import surfaces an error toast when the file read itself fails (FileReader onerror)', async ({ page }) => {
+  // app スクリプトが new FileReader() する前に FileReader を stub へ差し替える。
+  await page.addInitScript(() => {
+    window.FileReader = class {
+      readAsText() {
+        // 実 FileReader と同じく非同期に error イベントを発火 (onload は呼ばない)。
+        setTimeout(() => { if (typeof this.onerror === 'function') { this.onerror(new Event('error')); } }, 0);
+      }
+    };
+  });
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  // 有効な JSON を選んでも、読み込み (readAsText) 段階で失敗する経路を通す。
+  await page.getByLabel('インポートする JSON ファイルを選択').setInputFiles({
+    name: 'backup.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from('{"schemaVersion":12,"type":"full-store"}'),
+  });
+
+  // 読み込み失敗の明示フィードバック (silent no-op でない)。
+  await expect(page.locator('#toast-container').getByText('ファイルの読み込みに失敗しました')).toBeVisible();
+
+  // 読み込み失敗はデータに触れないので FatalPage に落ちない (設定 UI が生存)。
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `FileReader onerror path caused a fatal: ${fatal}`).toBeNull();
+});
+
+
 // ===== 7.2: スナップショット復元のラウンドトリップ (保存→変更→復元で巻き戻る) =====
 // save テスト (#上) は保存と保存日時表示の往復を見るが、復元 (restoreSnapshot → State.set(snap.data))
 // で「保存時点へ実際に巻き戻る」中核機能は未カバーだった。これはユーザの undo/復旧の data-integrity
