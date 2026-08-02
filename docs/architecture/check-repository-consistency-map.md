@@ -142,7 +142,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 66 | index.html `<title>` に entity primary identifier（`yuta` または `横井`）を含む（AIO branding anchor） | BLOCKING |
 | 67 | 全 .github/workflows/*.yml に top-level `permissions:` ブロック明示（CWE-275 防止 / security baseline） | BLOCKING |
 | 68 | .github/dependabot.yml が `npm` + `github-actions` 両 ecosystem を update 対象に含む（月次更新の保証） | BLOCKING |
-| 69 | package.json `engines.node` が CI workflow の `node-version` pin を許容（ローカル/CI 分裂防止） | BLOCKING |
+| 69 | Node-version 3 宣言の整合: package.json `engines.node`（許容範囲）が CI workflow の `node-version` pin を含み、**かつ `.nvmrc`（nvm use のローカル開発版）が CI pin と同 major で一致**することを強制。3 宣言のいずれかが drift すると nvm ローカルと CI で実行 Node が分裂する silent env mismatch（eslint/playwright で顕在化しうる）を防ぐ | BLOCKING |
 | 70 | total-check-runbook.md §9 「consistency Check 総数」値が実装の最大 Check 番号と一致（cross-document 整合） | BLOCKING |
 | 71 | file-size-budget.md §4 BUDGET-DATA の各 path が実在（Check 52 silent-skip 防止） | BLOCKING |
 | 72 | file-size-budget.md ESLint baseline 値が sanity ceiling 200 以下（Plan A 絶対防衛線） | BLOCKING |

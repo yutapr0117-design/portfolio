@@ -60,11 +60,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
       update 対象に含むことを機械強制する。Dev tooling と GitHub Actions の自動更新は v80+ CI
       hygiene の基盤で、どちらかが欠落すると人手で月次更新を追跡する負債が積み上がる。設定
       ファイル drift を BLOCKING で防ぐ。(BLOCKING)
-  69. package.json engines.node ↔ CI node-version pin alignment: package.json `engines.node`
-      が CI workflow の Node version pin (`node-version: '24'`) を許容する範囲を含むことを機械
-      強制する。両者が drift していると CI は 24 でビルドするが package.json は別 version を
-      強制するため、ローカル開発と CI で実行 Node が分かれる inconsistency が生まれる。
-      setup-node@v6 の pin と engines が許容範囲で揃っていることを pre-commit で保証する。
+  69. Node-version declarations alignment (engines ⊇ CI pin, .nvmrc == CI pin): Node version は
+      リポジトリで 3 箇所に独立宣言される — package.json `engines.node` (許容範囲) / CI workflow の
+      setup-node pin (`node-version: '24'`) / `.nvmrc` (nvm use が読むローカル開発版)。engines が CI
+      pin を許容する範囲を含み、かつ .nvmrc が CI pin と同 major で一致することを機械強制する。
+      いずれかが drift すると CI は 24 でビルドするが engines/.nvmrc は別 version を指すため、ローカル
+      開発 (nvm) と CI で実行 Node が分裂する silent な env mismatch が生まれる (node-version 依存の
+      tooling=eslint/playwright で顕在化しうる)。engines⊇CI pin + .nvmrc==CI pin の両整合を保証する。
       (BLOCKING)
 """
 import re
@@ -278,12 +280,13 @@ def run(ctx):
             "file を復元せよ (BLOCKING Check の対象は必須ゆえ skip でなく失敗として扱う)",
         )
 
-    # ── 69. package.json engines.node ↔ CI node-version pin alignment (BLOCKING) ──
-    # package.json `engines.node` が CI workflow の Node version pin (`node-version: '24'`) を
-    # 許容する範囲を含むことを機械強制する。両者が drift していると CI は 24 でビルドするが
-    # package.json は別 version を強制するため、ローカル開発と CI で実行 Node が分かれる
-    # inconsistency が生まれる。setup-node@v6 の pin と engines が許容範囲で揃っていることを
-    # pre-commit で保証する。
+    # ── 69. Node-version declarations alignment (engines ⊇ CI pin, .nvmrc == CI pin) (BLOCKING) ──
+    # Node version はリポジトリで 3 箇所に独立宣言される: (1) package.json `engines.node` (許容範囲)、
+    # (2) CI workflow の setup-node pin (`node-version: '24'`)、(3) `.nvmrc` (nvm use が読むローカル
+    # 開発版・単一 major)。engines が CI pin を許容し、かつ .nvmrc が CI pin と一致していないと、
+    # ローカル開発 (nvm) と CI で実行 Node が分裂する inconsistency が生まれる (「ローカルで通るが
+    # CI で落ちる/逆」の silent な env mismatch。node-version 依存の tooling=eslint/playwright で顕在化
+    # しうる)。engines ⊇ CI pin の整合 + .nvmrc == CI pin の整合の両方を pre-commit で機械保証する。
     _pkg69 = ROOT / "package.json"
     _engines69 = ""
     _ci_nodes69 = []
@@ -305,9 +308,21 @@ def run(ctx):
         if not re.search(rf"(>=|\^|~|\b){_maj}(\b|\.)", _engines69):
             _satisfied69 = False
             _unsupported69.append(_maj)
+    # .nvmrc の major が CI pin と一致するか (存在時のみ強制・単一 CI pin 前提で集合一致)
+    _nvmrc69 = ROOT / ".nvmrc"
+    _nvmrc_major69 = ""
+    if _nvmrc69.exists():
+        _mnv69 = re.match(r"\s*v?(\d+)", _nvmrc69.read_text(encoding="utf-8"))
+        _nvmrc_major69 = _mnv69.group(1) if _mnv69 else ""
+    # .nvmrc が存在し major を抽出できたら、CI pin 集合に含まれること (CI と同 major の Node を開発で使う)
+    _nvmrc_ok69 = (not _nvmrc_major69) or (not _ci_majors69) or (_nvmrc_major69 in _ci_majors69)
     check(
-        _satisfied69 and _engines69,
-        f"Check 69: package.json engines.node ({_engines69!r}) covers all CI node-version pins ({sorted(_ci_majors69)})",
-        f"Check 69: package.json engines.node ({_engines69!r}) does NOT cover CI node-version pin major(s) {sorted(_unsupported69)}. "
-        f"setup-node@v6 の pin と engines が許容範囲で揃っていないとローカル開発と CI が分裂する",
+        _satisfied69 and bool(_engines69) and _nvmrc_ok69,
+        f"Check 69: node-version 整合 — engines.node ({_engines69!r}) ⊇ CI pins ({sorted(_ci_majors69)}) かつ .nvmrc ({_nvmrc_major69!r}) == CI pin",
+        (f"Check 69: node-version 宣言が drift — "
+         f"engines ({_engines69!r}) が CI pin major {sorted(_unsupported69)} を許容しない"
+         if not (_satisfied69 and _engines69) else
+         f"Check 69: .nvmrc ({_nvmrc_major69!r}) が CI node-version pin {sorted(_ci_majors69)} と不一致 — "
+         "nvm use のローカル Node と CI が分裂する。.nvmrc を CI pin と同 major に揃えよ "
+         "(engines / CI pin / .nvmrc の 3 宣言を同期)"),
     )
