@@ -129,7 +129,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 702000 -->
+<!-- PERF-BUDGET-DATA 703000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -143,7 +143,11 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      701,000 → 702,000 (2026-07-29)。h() DOM builder の boolean 子 skip 実バグ修正 (`cond && h(...)` が
      false 時にリテラル "false" を可視描画していた・TodoPage 空状態条件で todo 存在時に発現) の fix コード +
      WHY コメントで実測が 701,234 bytes に到達。genuine な user-visible bug fix ゆえ実態 + 約 766 bytes の
-     headroom へラチェット。-->
+     headroom へラチェット。
+     702,000 → 703,000 (2026-08-05)。pomodoro タイマー表示の a11y 強化 (role="timer" + 人間可読 aria-label
+     で SR に「集中 残り 25分00秒」の文脈を与える・従来は素の "25:00" で何のタイマーか不明・WCAG 1.3.1) の
+     機能コード + WHY コメントで実測が 702,401 bytes に到達。genuine な accessibility 機能成長ゆえ実態 +
+     約 599 bytes の headroom へラチェット。-->
 
 <!-- JS-LEAF-CEILING 1000 -->
 <!-- shipped JS *ロジック* leaf module (`js/*.js`) の行数ハード上限 (Check 363・BLOCKING)。
