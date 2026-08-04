@@ -209,13 +209,18 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                                             h('option', { value: 'low', text: 'Low', selected: task.priority === 'low' ? true : undefined })
                                         ),
                                         h('div', { class: 'flex gap-1' },
+                                            // [A11Y] 矢印グリフのみだと SR には「← ボタン」としか聞こえず、
+                                            //   タスクをステータス間で移動する目的が不明 (WCAG 2.4.4/4.1.2)。
+                                            //   移動先の方向を aria-label で明示する。
                                             h('button', {
                                                 class: 'btn btn-ghost btn-sm',
+                                                'aria-label': '前のステータスへ戻す',
                                                 disabled: task.status === 'backlog',
                                                 onclick: () => moveStatus(task, -1)
                                             }, '←'),
                                             h('button', {
                                                 class: 'btn btn-ghost btn-sm',
+                                                'aria-label': '次のステータスへ進める',
                                                 disabled: task.status === 'done',
                                                 onclick: () => moveStatus(task, 1)
                                             }, '→')

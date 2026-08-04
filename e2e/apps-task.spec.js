@@ -710,3 +710,33 @@ test('Import truncates todos to MAX_TODOS (bloat/DoS ingestion guard)', async ({
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `MAX_TODOS truncation caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: タスク移動ボタン (←/→) の SR アクセシビリティ (aria-label で目的明示) =====
+// カンバンのステータス移動ボタンは矢印グリフ (←/→) のみを content に持ち、従来 aria-label が
+// 無く SR には「← ボタン」としか聞こえず、タスクをステータス間で移動する目的が不明だった
+// (WCAG 2.4.4 Link Purpose / 4.1.2 Name,Role,Value)。方向を aria-label で明示する。本テストは
+// 追加したタスクの → ボタンが「次のステータスへ進める」の accessible name を持ち、クリックで実際に
+// ステータスが進む (backlog→in-progress) ことを検証する (aria-label を外すと getByRole 名前引きが
+// 失敗し RED = 非 vacuous)。
+test('Task move buttons expose an aria-label describing their purpose for screen readers', async ({ page }) => {
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  const input = page.locator('#task-input');
+  await input.fill('A11Y-MOVE-BTN-9021');
+  await input.press('Enter');
+  await expect(page.getByText('A11Y-MOVE-BTN-9021')).toBeVisible();
+
+  // 新規タスクは backlog(未着手)。「次のステータスへ進める」ボタンが accessible name で引ける。
+  const forwardBtn = page.getByRole('button', { name: '次のステータスへ進める' }).first();
+  await expect(forwardBtn).toBeVisible();
+  // 「前のステータスへ戻す」ボタンも存在する (backlog なので disabled)。
+  await expect(page.getByRole('button', { name: '前のステータスへ戻す' }).first()).toBeDisabled();
+
+  // クリックで実際にステータスが進む (backlog→in-progress)。進行中列にタスクが現れる。
+  await forwardBtn.click();
+  const inProgressCol = page.locator('section').filter({ has: page.getByRole('heading', { name: '進行中' }) });
+  await expect(inProgressCol.getByText('A11Y-MOVE-BTN-9021')).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `task move btn a11y caused a fatal: ${fatal}`).toBeNull();
+});
