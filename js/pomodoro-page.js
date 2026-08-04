@@ -183,7 +183,12 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
                             )
                         ),
                         h('div', {
-                            class: 'font-mono mb-6 text-stat'
+                            class: 'font-mono mb-6 text-stat',
+                            // [A11Y] role="timer"(暗黙 aria-live=off で非 chatty)+ 人間可読 aria-label で
+                            //   SR に文脈を与える(従来は素の "25:00" で何のタイマーか不明・WCAG 1.3.1)。
+                            role: 'timer',
+                            'aria-label': ((modes.find(m => m.id === pomo.runtime.mode) || {}).label || 'タイマー')
+                                + ' 残り ' + Math.floor(remaining / 60) + '分' + (remaining % 60) + '秒'
                         }, formatTime(remaining)),
                         h('div', { class: 'flex justify-center gap-3' },
                             h('button', {

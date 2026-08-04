@@ -315,3 +315,26 @@ test('Pomodoro non-default settings persist across reload (settings normalize ro
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `pomodoro settings reload persist caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: ポモドーロ タイマー表示の SR アクセシビリティ (role=timer + 文脈的 aria-label) =====
+// カウントダウン表示は視覚的に毎秒更新されるだけで、従来 role/aria-label が無く SR ユーザーには
+// 素の数字 "25:00" が何のタイマーか (残り時間か) 不明だった (WCAG 1.3.1)。role="timer" (暗黙
+// aria-live=off ゆえ毎秒アナウンスしない非 chatty) + mode/残り時間を人間可読にした aria-label を付与。
+// 本テストは (1) timer role が存在, (2) aria-label が mode(集中) と「残り」を含む, (3) mode 切替で
+// aria-label が追従する, を検証する (role/aria-label を外すと RED = 非 vacuous)。
+test('Pomodoro countdown exposes role=timer with a contextual aria-label for screen readers', async ({ page }) => {
+  await page.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
+
+  const timer = page.getByRole('timer');
+  await expect(timer).toBeVisible();
+  // 既定 mode=work(集中)。aria-label は「集中 残り N分M秒」形式で文脈を与える。
+  await expect(timer).toHaveAttribute('aria-label', /集中.*残り.*分.*秒/);
+
+  // mode を短休憩へ切替 → aria-label が追従する (素の数字では表現できない状態を SR へ露出)。
+  await page.getByRole('button', { name: '短休憩' }).click();
+  await expect(page.getByRole('timer')).toHaveAttribute('aria-label', /短休憩.*残り.*分.*秒/);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `pomodoro timer a11y caused a fatal: ${fatal}`).toBeNull();
+});
