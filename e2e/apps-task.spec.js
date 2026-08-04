@@ -87,11 +87,11 @@ test('Task moves across kanban columns and persists the status', async ({ page }
   const done = page.locator('section.card.bg-secondary').filter({ has: page.getByRole('heading', { name: '完了' }) });
 
   // 追加直後は未着手。→ で 進行中 へ
-  await page.locator('article', { hasText: title }).getByRole('button', { name: '→' }).click();
+  await page.locator('article', { hasText: title }).getByRole('button', { name: '次のステータスへ進める' }).click();
   await expect(inProgress.getByText(title)).toBeVisible();
 
   // もう一度 → で 完了 へ
-  await page.locator('article', { hasText: title }).getByRole('button', { name: '→' }).click();
+  await page.locator('article', { hasText: title }).getByRole('button', { name: '次のステータスへ進める' }).click();
   await expect(done.getByText(title)).toBeVisible();
 
   // リロード後も 完了 列に残る (status 永続)
