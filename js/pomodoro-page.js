@@ -178,6 +178,9 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
                             ...modes.map(m =>
                                 h('button', {
                                     class: ['btn', pomo.runtime.mode === m.id ? 'btn-primary' : 'btn-secondary'],
+                                    // [A11Y] 選択中モードは btn-primary の色(C5 視覚)のみで SR 非露出だった
+                                    //   (WCAG 4.1.2)。aria-pressed で選択状態を AT へ露出(BGM トグル同型)。
+                                    'aria-pressed': String(pomo.runtime.mode === m.id),
                                     onclick: () => switchMode(m.id)
                                 }, m.label)
                             )

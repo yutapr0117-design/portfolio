@@ -338,3 +338,27 @@ test('Pomodoro countdown exposes role=timer with a contextual aria-label for scr
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `pomodoro timer a11y caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.3: モード切替ボタンの選択状態 SR 露出 (aria-pressed) =====
+// 集中/短休憩/長休憩 の 3 ボタンは選択中モードを btn-primary の色(C5 視覚)のみで示しており、
+// SR ユーザーには現在どのモードが選択中か露出されなかった (WCAG 4.1.2 Name/Role/Value)。
+// 各ボタンに aria-pressed を付与し選択状態を AT へ露出する。本テストは (1) 既定で集中=true・
+// 他=false, (2) 短休憩クリックで選択が追従し集中=false/短休憩=true, を検証する
+// (aria-pressed を外すと選択ボタンの pressed 状態が消え RED = 非 vacuous)。
+test('Pomodoro mode buttons expose selected state via aria-pressed', async ({ page }) => {
+  await page.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
+
+  // 既定 mode=work(集中): 集中=pressed, 他は非 pressed。
+  await expect(page.getByRole('button', { name: '集中' })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByRole('button', { name: '短休憩' })).toHaveAttribute('aria-pressed', 'false');
+  await expect(page.getByRole('button', { name: '長休憩' })).toHaveAttribute('aria-pressed', 'false');
+
+  // 短休憩へ切替 → 選択状態が追従する。
+  await page.getByRole('button', { name: '短休憩' }).click();
+  await expect(page.getByRole('button', { name: '短休憩' })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByRole('button', { name: '集中' })).toHaveAttribute('aria-pressed', 'false');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `pomodoro mode aria-pressed caused a fatal: ${fatal}`).toBeNull();
+});
