@@ -343,3 +343,29 @@ test('AI input ignores Enter during IME composition (Japanese input safety)', as
   await page.clock.fastForward(500);
   await expect(page.getByText('[AI分析:').first()).toBeVisible();
 });
+
+
+// ===== 7.2: AI 応答完了が assertive aria-live 領域へアナウンスされる (WCAG 4.1.3 Status Messages) =====
+// AI 応答は非同期に history へ追加されるだけで、修正前は SR ユーザーに生成完了が伝わらなかった
+// (入力欄の再有効化は非 focus 要素では気付けない)。永続 assertive aria-live 領域 (#action-announcement・
+// Toast と同じ即時フィードバック経路) にステータスを書くことで応答到達を通知する。送信前は空、
+// 応答完了後に「AI が応答しました」が入ることを検証する (書き込みを外すと空のままで RED = 非 vacuous)。
+test('AI response completion announces to the assertive aria-live region (WCAG 4.1.3)', async ({ page }) => {
+  await page.goto('/#/apps/ai');
+  await page.waitForLoadState('domcontentloaded');
+
+  const announcer = page.locator('#action-announcement');
+  // 送信前は応答アナウンスが無い (前段の Toast 等が無いクリーン状態を確認)。
+  await expect(announcer).toHaveText('');
+
+  const input = page.locator('#ai-input');
+  await expect(input).toBeVisible();
+  await input.fill('E2E-AI-ANNOUNCE-バグ調査-7731');
+  await page.getByRole('button', { name: '送信', exact: true }).click();
+
+  // 応答完了後、assertive 領域に status message が入る。
+  await expect(announcer).toHaveText('AI が応答しました');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `ai announce caused a fatal: ${fatal}`).toBeNull();
+});
