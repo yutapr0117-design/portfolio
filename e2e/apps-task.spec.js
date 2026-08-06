@@ -810,3 +810,30 @@ test('Task card controls include the task title in their accessible name (unique
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `task card a11y caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: TODO の追加/削除が assertive aria-live 領域へアナウンスされる (WCAG 4.1.3・task 対称) =====
+// addTask/deleteTask は Toast(#action-announcement へ書き込む)で SR に成功を通知するのに、todo の
+// addTodo/deleteTodo だけ Toast が欠落し無通知だった (「1 ケースだけ処理・他を忘れる」asymmetry)。
+// task と対称に Toast を追加。追加/削除後に assertive 領域へ status message が入ることを検証する
+// (Toast を外すと空のままで RED = 非 vacuous)。
+test('Todo add and delete announce to the assertive aria-live region (WCAG 4.1.3, task symmetry)', async ({ page }) => {
+  await page.goto('/#/apps/todo', { waitUntil: 'domcontentloaded' });
+  const announcer = page.locator('#action-announcement');
+  await expect(announcer).toHaveText('');
+
+  const t = 'TODO-ANNOUNCE-掃除-8842';
+  await page.locator('#todo-input').fill(t);
+  await page.locator('#todo-input').press('Enter');
+  // 追加が assertive 領域へアナウンスされる。
+  await expect(announcer).toHaveText('TODOを追加しました');
+  await expect(page.getByText(t)).toBeVisible();
+
+  // 削除も同様にアナウンスされる (削除ボタンは aria-label「削除：<text>」で一意)。
+  await page.getByRole('button', { name: `削除：${t}`, exact: true }).click();
+  await expect(announcer).toHaveText('TODOを削除しました');
+  await expect(page.getByText(t)).toHaveCount(0);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `todo announce caused a fatal: ${fatal}`).toBeNull();
+});
