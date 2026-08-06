@@ -350,3 +350,34 @@ test('ProjectDetailPage shows not-found message and returns to list for nonexist
   await page.getByRole('button', { name: '一覧へ戻る' }).click();
   await expect(page.locator('.grid-projects')).toBeVisible();
 });
+
+
+// ===== 7.2: ProjectsPage カードの デモ/詳細を見る ボタンが accessible name に p.name を含み一意化 =====
+// #819/#820/#821 と同 class。一覧は複数カードを並べるが、修正前は各カードの「デモ」「詳細を見る」
+// ボタンが全カードで同一 accessible name (可視テキスト由来) を持ち、SR ユーザーがどのプロジェクトへ
+// 遷移するボタンか区別できなかった (WCAG 4.1.2)。可視テキストは維持しつつ aria-label に p.name を
+// suffix し一意化する (可視語を prefix に含むため WCAG 2.5.3 Label in Name も充足)。先頭 2 カードの
+// 見出し名を読み、その名前入りの「詳細を見る：<name>」ボタンが各々一意に存在することを検証する。
+test('Project card action buttons include the project name in their accessible name (unique per card)', async ({ page }) => {
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+
+  const cards = page.locator('article.card--flex-col');
+  await expect(cards.first()).toBeVisible();
+  const n0 = (await cards.nth(0).locator('h2').innerText()).trim();
+  const n1 = (await cards.nth(1).locator('h2').innerText()).trim();
+  expect(n0).not.toBe('');
+  expect(n1).not.toBe(n0); // 先頭 2 件は別プロジェクト (一意性検証の前提)
+
+  // 各カードの「詳細を見る」が見出し名込みの一意な accessible name で exact 引きできる。
+  await expect(page.getByRole('button', { name: `詳細を見る：${n0}`, exact: true })).toHaveCount(1);
+  await expect(page.getByRole('button', { name: `詳細を見る：${n1}`, exact: true })).toHaveCount(1);
+
+  // クリックで実際にその slug の詳細へ遷移する (aria-label 追加が導線を壊さない)。
+  await page.getByRole('button', { name: `詳細を見る：${n0}`, exact: true }).click();
+  await expect(page).toHaveURL(/#\/projects\/[^/]+$/);
+  await expect(page.getByRole('heading', { name: n0 }).first()).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `projects card a11y caused a fatal: ${fatal}`).toBeNull();
+});
