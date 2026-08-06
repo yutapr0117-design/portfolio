@@ -134,9 +134,12 @@ export function createProjectsPage({ h, createIcon, Router, State, tokenize, cle
                                     }, '#' + tag)
                                 )
                             ),
+                            // [A11Y 4.1.2] 「デモ」「詳細を見る」は全カードで同一 accessible name のため、
+                            //   SR ユーザーはどのプロジェクトのボタンか区別できなかった。可視テキストは維持し
+                            //   aria-label に p.name を suffix して一意化 (可視語を含むため WCAG 2.5.3 も充足)。
                             h('div', { class: 'flex gap-2 mt-auto' },
-                                p.demoRoute ? h('button', { class: 'btn btn-secondary btn-sm', onclick: () => Router.navigate(`apps/${p.demoRoute}`) }, 'デモ') : null,
-                                h('button', { class: 'btn btn-ghost btn-sm', onclick: () => Router.navigate(`projects/${p.slug}`) }, '詳細を見る')
+                                p.demoRoute ? h('button', { class: 'btn btn-secondary btn-sm', 'aria-label': 'デモ：' + p.name, onclick: () => Router.navigate(`apps/${p.demoRoute}`) }, 'デモ') : null,
+                                h('button', { class: 'btn btn-ghost btn-sm', 'aria-label': '詳細を見る：' + p.name, onclick: () => Router.navigate(`projects/${p.slug}`) }, '詳細を見る')
                             )
                         )
                     );
