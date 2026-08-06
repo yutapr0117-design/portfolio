@@ -791,3 +791,36 @@ test('Imported numeric relatedProjectIds resolve to string ids (related section 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `numeric relatedProjectIds import caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: プロジェクト行の 非表示/削除 ボタンが accessible name に p.name を含み一意化 =====
+// #819/#820 (todo/task) と同 class。settings のプロジェクト一覧は複数行を並べるが、修正前は各行の
+// トグル(「表示/非表示」)/削除(「削除」)ボタンが全行で同一 accessible name (可視テキスト由来) を持ち、
+// SR ユーザーがどのプロジェクトの操作か区別できなかった (WCAG 4.1.2)。可視テキストは維持しつつ
+// aria-label に p.name を suffix し一意化する (可視語を prefix に含むため WCAG 2.5.3 Label in Name も充足)。
+// 2 プロジェクト追加し各行の非表示/削除ボタンが name 込みの一意名で exact 引きできることを検証する。
+test('Settings project-row buttons include the project name in their accessible name (unique per row)', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  const p1 = 'SETTINGS-A11Y-NAME-ALFA-91';
+  const p2 = 'SETTINGS-A11Y-NAME-BETA-92';
+  await page.getByPlaceholder('プロジェクト名').fill(p1);
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect(page.locator('#toast-container').getByText('プロジェクトを追加しました')).toBeVisible();
+  await page.getByPlaceholder('プロジェクト名').fill(p2);
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+
+  // 非表示トグル: name 込みで各行一意に引ける (追加直後は非表示ボタン)。
+  await expect(page.getByRole('button', { name: `非表示：${p1}`, exact: true })).toHaveCount(1);
+  await expect(page.getByRole('button', { name: `非表示：${p2}`, exact: true })).toHaveCount(1);
+  // 削除ボタンも name 込みで一意。
+  await expect(page.getByRole('button', { name: `削除：${p1}`, exact: true })).toHaveCount(1);
+  await expect(page.getByRole('button', { name: `削除：${p2}`, exact: true })).toHaveCount(1);
+
+  // 非表示化後は toggle の accessible name が「表示：<name>」へ追従する。
+  await page.getByRole('button', { name: `非表示：${p1}`, exact: true }).click();
+  await expect(page.getByRole('button', { name: `表示：${p1}`, exact: true })).toHaveCount(1);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `settings project-row a11y caused a fatal: ${fatal}`).toBeNull();
+});
