@@ -824,3 +824,62 @@ test('Settings project-row buttons include the project name in their accessible 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `settings project-row a11y caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: import の対象 checkbox が未チェックのセクションを skip する (選択的 ingestion gate) =====
+// importJSON は `if (settingsIncludeProjects && ...)` 等で対象 checkbox(Profile/Projects/AppsData)ごとに
+// セクションを取り込むか判定する。既存 import テストは全 ON(既定)のみで、あるセクションを OFF にすると
+// そのセクションだけ skip される選択的 gate は未カバーだった。gate が壊れて常時取り込みになると、
+// ユーザーが意図的に除外したデータを上書きしてしまう。本テストは Projects を OFF・AppsData を ON にして
+// import し、(1) import 専用 project が公開一覧に出ない(=Projects skip)、(2) 既存の既定 project は残る、
+// (3) import 専用 task は反映される(=AppsData 取り込み・非 vacuous に import 経路が動いた証拠) を検証する。
+test('Settings import skips a section whose target checkbox is unchecked (selective gate)', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByLabel('インポートモード').selectOption('strict');
+
+  // 取り込み前の既定 project 名を 1 つ控える (Projects skip 後も残ることの確認用)。
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  const keptProject = (await page.locator('article.card--flex-col h2').first().innerText()).trim();
+  expect(keptProject).not.toBe('');
+
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  // Projects を OFF、AppsData を ON(既定), Profile は影響回避のため OFF にする。
+  await page.getByRole('checkbox', { name: 'Projects' }).uncheck();
+  await page.getByRole('checkbox', { name: 'Profile' }).uncheck();
+  await expect(page.getByRole('checkbox', { name: 'AppsData' })).toBeChecked();
+
+  const skippedProj = 'IMPORT-SECTION-GATE-PROJ-9930';
+  const importedTask = 'IMPORT-SECTION-GATE-TASK-9931';
+  const payload = {
+    schemaVersion: 12,
+    type: 'full-store',
+    projects: [
+      { id: 'p_gate_9930', slug: 'import-section-gate-9930', name: skippedProj, category: 'User Added', summary: 's', tech: ['JS'], tags: [], demoRoute: null },
+    ],
+    appsData: { tasks: [{ id: 't_gate_9931', title: importedTask, status: 'backlog', priority: 'med', createdAt: 1 }], todos: [], pomodoro: { history: [], settings: { focus: 25, short: 5, long: 15 }, runtime: {} }, ai: { history: [] }, notes: { content: '' } },
+  };
+  await page.getByLabel('インポートする JSON ファイルを選択').setInputFiles({
+    name: 'gate.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify(payload)),
+  });
+  await expect(page.locator('#toast-container').getByText('インポートが完了しました')).toBeVisible();
+
+  // (3) AppsData は ON ゆえ import 専用 task が反映される (import 経路が実際に動いた=非 vacuous)。
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByText(importedTask)).toBeVisible();
+
+  // (1)(2) Projects は OFF ゆえ import 専用 project は出ず、既存の既定 project は残る (skip が効いた)。
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByText(skippedProj)).toHaveCount(0);
+  await expect(page.getByText(keptProject).first()).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `selective import gate caused a fatal: ${fatal}`).toBeNull();
+});
