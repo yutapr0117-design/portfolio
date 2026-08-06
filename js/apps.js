@@ -347,7 +347,10 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                                 type: 'checkbox',
                                 checked: todo.completed,
                                 onchange: () => toggleTodo(todo.id),
-                                'aria-label': todo.completed ? '未完了に戻す' : '完了にする'
+                                // [A11Y 4.1.2] 各項目の checkbox が全項目で同一名 (「完了にする」) だと
+                                //   SR ユーザーはリスト内でどの項目を操作するか区別できない。todo.text を
+                                //   accessible name に含め「『牛乳を買う』を完了にする」のように一意化する。
+                                'aria-label': (todo.completed ? '未完了に戻す' : '完了にする') + '：' + todo.text
                             }),
                             h('span', {
                                 class: ['flex-1', todo.completed && 'text-muted'],
@@ -356,7 +359,8 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                             h('button', {
                                 class: 'icon-btn',
                                 onclick: () => deleteTodo(todo.id),
-                                'aria-label': '削除'
+                                // [A11Y 4.1.2] 削除ボタンも todo.text で一意化 (全項目「削除」だと区別不能)。
+                                'aria-label': '削除：' + todo.text
                             }, createIcon('x', 16))
                         )
                     )

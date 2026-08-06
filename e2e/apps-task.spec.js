@@ -740,3 +740,41 @@ test('Task move buttons expose an aria-label describing their purpose for screen
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `task move btn a11y caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: TODO の checkbox / 削除ボタンが accessible name に todo.text を含み一意化される =====
+// 各 TODO の完了トグル checkbox と削除ボタンは、修正前は全項目で同一 aria-label
+// (「完了にする」「削除」) を持ち、SR ユーザーがリスト内でどの TODO を操作するか区別できなかった
+// (WCAG 4.1.2 Name,Role,Value)。todo.text を accessible name に含め一意化する。2 件追加し、各々の
+// checkbox / 削除ボタンが「…：<そのtext>」で個別に引けることを検証する (text を外すと getByLabel の
+// 名前引きが両項目で衝突/失敗し RED = 非 vacuous)。
+test('Todo checkbox and delete button include the todo text in their accessible name', async ({ page }) => {
+  await page.goto('/#/apps/todo', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#todo-input')).toBeVisible();
+
+  const a = 'TODO-A11Y-NAME-ALPHA-71';
+  const b = 'TODO-A11Y-NAME-BRAVO-72';
+  // addTodo は全体再描画で #todo-input を作り直すため、1 件確定を待ってから毎回引き直して入力する。
+  await page.locator('#todo-input').fill(a);
+  await page.locator('#todo-input').press('Enter');
+  await expect(page.getByText(a)).toBeVisible();
+  await page.locator('#todo-input').fill(b);
+  await page.locator('#todo-input').press('Enter');
+  await expect(page.getByText(b)).toBeVisible();
+
+  // 各 checkbox が todo.text 込みの一意な accessible name で引ける (未完了時は「完了にする：<text>」)。
+  await expect(page.getByRole('checkbox', { name: `完了にする：${a}` })).toHaveCount(1);
+  await expect(page.getByRole('checkbox', { name: `完了にする：${b}` })).toHaveCount(1);
+  // 削除ボタンも同様に一意 (「削除：<text>」)。
+  await expect(page.getByRole('button', { name: `削除：${a}` })).toHaveCount(1);
+  await expect(page.getByRole('button', { name: `削除：${b}` })).toHaveCount(1);
+
+  // 完了トグル後は checkbox 名が「未完了に戻す：<text>」へ追従する。
+  // (再描画のたびに checkbox 要素が作り直され actionability 判定が不安定なため、onchange を
+  //  dispatchEvent で直接発火して toggleTodo を呼ぶ。名前の追従だけを検証する。)
+  await page.getByRole('checkbox', { name: `完了にする：${a}` }).dispatchEvent('change');
+  await expect(page.getByRole('checkbox', { name: `未完了に戻す：${a}` })).toHaveCount(1);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `todo item a11y caused a fatal: ${fatal}`).toBeNull();
+});
