@@ -193,14 +193,17 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                                         ),
                                         h('button', {
                                             class: 'icon-btn btn-sm icon-sm',
-                                            'aria-label': 'タスクを削除',
+                                            // [A11Y 4.1.2] 全タスクで同一名だと SR はどのタスクを削除するか
+                                            //   区別できない。task.title を accessible name に含め一意化する。
+                                            'aria-label': 'タスクを削除：' + task.title,
                                             onclick: () => deleteTask(task.id)
                                         }, createIcon('trash', 14))
                                     ),
                                     h('div', { class: 'flex items-center justify-between' },
                                         h('select', {
                                             class: 'input btn-sm',
-                                            'aria-label': 'タスクの優先度',
+                                            // [A11Y 4.1.2] task.title を含め、どのタスクの優先度セレクトか一意化。
+                                            'aria-label': 'タスクの優先度：' + task.title,
                                             style: 'width:auto;padding:0.25rem 0.5rem;font-size:0.75rem;',
                                             onchange: (e) => updateTask(task.id, { priority: e.target.value })
                                         },
@@ -211,16 +214,16 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                                         h('div', { class: 'flex gap-1' },
                                             // [A11Y] 矢印グリフのみだと SR には「← ボタン」としか聞こえず、
                                             //   タスクをステータス間で移動する目的が不明 (WCAG 2.4.4/4.1.2)。
-                                            //   移動先の方向を aria-label で明示する。
+                                            //   移動先の方向 + task.title を aria-label で明示し一意化する。
                                             h('button', {
                                                 class: 'btn btn-ghost btn-sm',
-                                                'aria-label': '前のステータスへ戻す',
+                                                'aria-label': '前のステータスへ戻す：' + task.title,
                                                 disabled: task.status === 'backlog',
                                                 onclick: () => moveStatus(task, -1)
                                             }, '←'),
                                             h('button', {
                                                 class: 'btn btn-ghost btn-sm',
-                                                'aria-label': '次のステータスへ進める',
+                                                'aria-label': '次のステータスへ進める：' + task.title,
                                                 disabled: task.status === 'done',
                                                 onclick: () => moveStatus(task, 1)
                                             }, '→')

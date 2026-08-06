@@ -129,7 +129,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 704000 -->
+<!-- PERF-BUDGET-DATA 705000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -151,7 +151,12 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      703,000 → 704,000 (2026-08-05)。pomodoro モード切替ボタン (集中/短休憩/長休憩) の選択状態 a11y 露出
      (aria-pressed で選択中モードを AT に露出・従来は btn-primary の色=C5 視覚のみで SR には選択不明・
      WCAG 4.1.2 Name/Role/Value) の機能コード + WHY コメントで実測が 703,306 bytes に到達。genuine な
-     accessibility 機能成長ゆえ実態 + 約 694 bytes の headroom へラチェット。-->
+     accessibility 機能成長ゆえ実態 + 約 694 bytes の headroom へラチェット。
+     704,000 → 705,000 (2026-08-07)。TODO 項目 (#819) に続き task カンバンの各カード操作要素
+     (削除ボタン・優先度 select・移動ボタン ←/→) の accessible name に task.title を suffix し、
+     全カード同一名だった状態を項目一意化 (WCAG 4.1.2・SR がどのタスクの操作か区別可能に)。
+     機能コード + WHY コメントで実測が 704,365 bytes に到達。genuine な accessibility 機能成長ゆえ
+     実態 + 約 635 bytes の headroom へラチェット。-->
 
 <!-- JS-LEAF-CEILING 1000 -->
 <!-- shipped JS *ロジック* leaf module (`js/*.js`) の行数ハード上限 (Check 363・BLOCKING)。

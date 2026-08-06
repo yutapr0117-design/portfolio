@@ -778,3 +778,35 @@ test('Todo checkbox and delete button include the todo text in their accessible 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `todo item a11y caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.1: タスクカードの削除/優先度/移動ボタンが accessible name に task.title を含み一意化 =====
+// カンバンは複数タスクを並べるが、修正前は各カードの削除ボタン(「タスクを削除」)/優先度 select
+// (「タスクの優先度」)/移動ボタン(「前/次のステータスへ…」)が全カードで同一 aria-label を持ち、
+// SR ユーザーがどのタスクの操作か区別できなかった (WCAG 4.1.2)。task.title を suffix し一意化する
+// (既存フレーズは prefix として残るため getByRole/getByLabel の substring 引きは非破壊)。2 タスク
+// 追加し各操作要素が title 込みの一意名で個別に引けることを検証 (title suffix を外すと衝突し RED)。
+test('Task card controls include the task title in their accessible name (unique per card)', async ({ page }) => {
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  const t1 = 'TASK-A11Y-NAME-ONE-81';
+  const t2 = 'TASK-A11Y-NAME-TWO-82';
+  await page.locator('#task-input').fill(t1);
+  await page.locator('#task-input').press('Enter');
+  await expect(page.getByText(t1)).toBeVisible();
+  await page.locator('#task-input').fill(t2);
+  await page.locator('#task-input').press('Enter');
+  await expect(page.getByText(t2)).toBeVisible();
+
+  // 削除ボタン: title 込みで各カード一意に引ける。
+  await expect(page.getByRole('button', { name: `タスクを削除：${t1}`, exact: true })).toHaveCount(1);
+  await expect(page.getByRole('button', { name: `タスクを削除：${t2}`, exact: true })).toHaveCount(1);
+  // 優先度 select: title 込みで一意 (getByLabel exact)。
+  await expect(page.getByLabel(`タスクの優先度：${t1}`, { exact: true })).toHaveCount(1);
+  await expect(page.getByLabel(`タスクの優先度：${t2}`, { exact: true })).toHaveCount(1);
+  // 移動ボタン: 「次のステータスへ進める：<title>」で一意。
+  await expect(page.getByRole('button', { name: `次のステータスへ進める：${t1}`, exact: true })).toHaveCount(1);
+  await expect(page.getByRole('button', { name: `次のステータスへ進める：${t2}`, exact: true })).toHaveCount(1);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `task card a11y caused a fatal: ${fatal}`).toBeNull();
+});
