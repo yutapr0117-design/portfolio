@@ -262,8 +262,13 @@ test.describe('sidebar Lab nav-group collapse toggle (WCAG 4.1.2 + collapse + pe
     await toggle.click();
     await expect(toggle).toHaveAttribute('aria-expanded', 'true');
     await expect(body).toHaveAttribute('data-collapsed', 'false');
-    const maxH = await body.evaluate(el => parseFloat(getComputedStyle(el).maxHeight) || 0);
-    expect(maxH, '展開時は maxHeight>0 (実際に折りたたみが解除される)').toBeGreaterThan(0);
+    // maxHeight は data-collapsed=false で 0→展開値へ CSS transition する。click 直後の即時測定は
+    // transition 途中で 0 を拾い間欠赤化する (reflow/transition probe は settle 待ちが必須)。
+    // expect.poll で maxHeight>0 に落ち着くまでリトライし、flake を排除しつつ「展開が効く」を検証。
+    await expect.poll(
+      async () => body.evaluate(el => parseFloat(getComputedStyle(el).maxHeight) || 0),
+      { message: '展開時は maxHeight>0 (実際に折りたたみが解除される)' }
+    ).toBeGreaterThan(0);
     expect(await page.evaluate(() => localStorage.getItem('portfolio_nav_lab_open_v69'))).toBe('true');
 
     // 再 click で collapse へ戻る (状態追従の双方向性)
