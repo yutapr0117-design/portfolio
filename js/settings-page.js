@@ -400,8 +400,11 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                                             isHidden ? h('span', { class: 'badge badge-green' }, 'hidden') : null
                                         ),
                                         h('div', { class: 'flex items-center gap-2' },
-                                            h('button', { class: 'btn btn-ghost btn-sm', onclick: () => toggleHiddenProject(p.id) }, isHidden ? '表示' : '非表示'),
-                                            h('button', { class: 'btn btn-danger btn-sm', disabled: isDefault, title: isDefault ? 'デフォルトは非表示のみ' : '', onclick: () => deleteProjectHard(p.id) }, '削除')
+                                            // [A11Y 4.1.2] 全プロジェクト行でボタン名が同一 (「表示/非表示」「削除」) だと
+                                            //   SR ユーザーはどのプロジェクトの操作か区別できない。可視テキストは維持しつつ
+                                            //   aria-label に p.name を含め一意化する (可視語を含むため WCAG 2.5.3 も充足)。
+                                            h('button', { class: 'btn btn-ghost btn-sm', 'aria-label': (isHidden ? '表示' : '非表示') + '：' + p.name, onclick: () => toggleHiddenProject(p.id) }, isHidden ? '表示' : '非表示'),
+                                            h('button', { class: 'btn btn-danger btn-sm', 'aria-label': '削除：' + p.name, disabled: isDefault, title: isDefault ? 'デフォルトは非表示のみ' : '', onclick: () => deleteProjectHard(p.id) }, '削除')
                                         )
                                     );
                                 })
