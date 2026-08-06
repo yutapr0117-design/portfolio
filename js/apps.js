@@ -262,6 +262,10 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                     dueDate: null
                 });
             });
+            // [A11Y 4.1.3] task の addTask と対称に完了通知を出す。従来 todo の add/delete だけ Toast が
+            //   欠落し、SR ユーザーに追加成功が伝わらず (Toast は #action-announcement へ書き込むため無通知)、
+            //   視覚フィードバックも task と非対称だった (「1 ケースだけ処理・他を忘れる」asymmetry)。
+            Toast.show('TODOを追加しました', 'success');
         }
 
         function toggleTodo(id) {
@@ -275,6 +279,8 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
             State.update(s => {
                 s.appsData.todos = s.appsData.todos.filter(t => t.id !== id);
             });
+            // [A11Y 4.1.3] deleteTask と対称に削除完了を通知 (上記 addTodo と同じ asymmetry 是正)。
+            Toast.show('TODOを削除しました', 'success');
         }
 
         function clearCompleted() {
