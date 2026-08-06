@@ -113,6 +113,12 @@ export function createAIPage({ h, createIcon, State, CONSTANTS }) {
                         // 履歴保持件数は store.js normalize と同じ CONSTANTS.LIMITS.AI_HISTORY 単一ソース (Check 369 が drift 防止)
                         s.appsData.ai.history = s.appsData.ai.history.slice(-CONSTANTS.LIMITS.AI_HISTORY);
                     });
+                    // [A11Y 4.1.3 Status Messages] 応答は非同期に history へ追加されるだけで、SR ユーザーには
+                    //   生成完了が伝わらなかった (入力欄の再有効化は非 focus 要素では気付けない)。永続 assertive
+                    //   aria-live 領域 (#action-announcement・Toast と同じ即時フィードバック経路・#content 外ゆえ
+                    //   再描画で消えない) にステータスを書き、応答到達を通知する (視覚描画は不変)。
+                    const announcer = document.getElementById('action-announcement');
+                    if (announcer) { announcer.textContent = 'AI が応答しました'; }
                 } finally {
                     aiLoading = false;
                     // 万一の throw で State.update の notify が走らない場合でもローディング表示を解除。

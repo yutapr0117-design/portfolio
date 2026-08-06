@@ -129,7 +129,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 706000 -->
+<!-- PERF-BUDGET-DATA 707000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -160,7 +160,11 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      705,000 → 706,000 (2026-08-07)。#821 に続き ProjectsPage の各カード操作ボタン (デモ・詳細を見る)
      の accessible name に p.name を suffix し、全カード同一名だった状態を一意化 (WCAG 4.1.2・SR が
      どのプロジェクトへ遷移するボタンか区別可能に)。機能コード + WHY コメントで実測が 705,423 bytes に
-     到達。genuine な accessibility 機能成長ゆえ実態 + 約 577 bytes の headroom へラチェット。-->
+     到達。genuine な accessibility 機能成長ゆえ実態 + 約 577 bytes の headroom へラチェット。
+     706,000 → 707,000 (2026-08-07)。AI アシストの応答完了を assertive aria-live 領域
+     (#action-announcement) へアナウンス (WCAG 4.1.3 Status Messages・従来は非同期応答が SR に無通知)。
+     機能コード + WHY コメントで実測が 706,154 bytes に到達。genuine な accessibility 機能成長ゆえ
+     実態 + 約 846 bytes の headroom へラチェット。-->
 
 <!-- JS-LEAF-CEILING 1000 -->
 <!-- shipped JS *ロジック* leaf module (`js/*.js`) の行数ハード上限 (Check 363・BLOCKING)。
