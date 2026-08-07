@@ -837,3 +837,35 @@ test('Todo add and delete announce to the assertive aria-live region (WCAG 4.1.3
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `todo announce caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.1: task move ボタンの done 境界 disabled (backlog 境界と対称) =====
+// カンバンの「次のステータスへ進める」は done で `disabled: task.status === 'done'`、「前のステータスへ
+// 戻す」は backlog で disabled。move-button テストは backlog 境界 (prev disabled) を見るが done 境界
+// (next disabled) は未カバーだった。moveStatus は clamp で範囲外遷移を防ぐが、disabled 属性はユーザ/SR
+// への「これ以上進めない」affordance で、外れると done でも次へ進めるかに見える UX 退行になる。タスクを
+// done まで進め、next が disabled・prev が有効になることを検証する (backlog 境界と対称の被覆)。
+test('Task move forward button is disabled at the done boundary (symmetry with backlog)', async ({ page }) => {
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  const title = 'TASK-DONE-BOUNDARY-9701';
+  await page.locator('#task-input').fill(title);
+  await page.locator('#task-input').press('Enter');
+  await expect(page.getByText(title)).toBeVisible();
+
+  const fwdName = `次のステータスへ進める：${title}`;
+  const backName = `前のステータスへ戻す：${title}`;
+  // backlog→in-progress→done へ 2 回進める (各クリックで再描画されるため都度引き直す)。
+  await page.getByRole('button', { name: fwdName, exact: true }).click();
+  await page.getByRole('button', { name: fwdName, exact: true }).click();
+
+  // done 列にタスクが入る。
+  const doneCol = page.locator('section').filter({ has: page.getByRole('heading', { name: '完了' }) });
+  await expect(doneCol.getByText(title)).toBeVisible();
+
+  // done 境界: next は disabled、prev は有効 (backlog 境界の鏡)。
+  await expect(page.getByRole('button', { name: fwdName, exact: true })).toBeDisabled();
+  await expect(page.getByRole('button', { name: backName, exact: true })).toBeEnabled();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `task done-boundary caused a fatal: ${fatal}`).toBeNull();
+});
