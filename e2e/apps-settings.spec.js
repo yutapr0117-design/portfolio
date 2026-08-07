@@ -848,9 +848,17 @@ test('Settings import skips a section whose target checkbox is unchecked (select
   await page.waitForLoadState('domcontentloaded');
 
   // Projects を OFF、AppsData を ON(既定), Profile は影響回避のため OFF にする。
+  // 各 checkbox の onchange は window.render() で settings ページ全体を再描画し file input を作り直す。
+  // uncheck 直後に setInputFiles すると、再描画で detach された古い input に file を set して onchange が
+  // 発火せず import が起きない race がある (CI 負荷下で間欠 fail)。最終状態を assert して再描画の settle を
+  // 保証してから setInputFiles する (checkbox 状態が確定=最後の render 完了の証跡)。
   await page.getByRole('checkbox', { name: 'Projects' }).uncheck();
+  await expect(page.getByRole('checkbox', { name: 'Projects' })).not.toBeChecked();
   await page.getByRole('checkbox', { name: 'Profile' }).uncheck();
+  await expect(page.getByRole('checkbox', { name: 'Profile' })).not.toBeChecked();
   await expect(page.getByRole('checkbox', { name: 'AppsData' })).toBeChecked();
+  // 再描画後の file input が actionable であることを確認 (detached な古い input を掴まない)。
+  await expect(page.getByLabel('インポートする JSON ファイルを選択')).toBeVisible();
 
   const skippedProj = 'IMPORT-SECTION-GATE-PROJ-9930';
   const importedTask = 'IMPORT-SECTION-GATE-TASK-9931';
