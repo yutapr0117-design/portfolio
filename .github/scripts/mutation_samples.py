@@ -754,4 +754,11 @@ E2E_MUTATIONS = [
         "replace": "if (cat !== 'All' && !categories.includes(cat)) { /* normalize removed */ }",
         "test": "normalizes an invalid ?cat= to All",
     },
+    {
+        "name": "behavior: skip-link の native-nav 抑止 (#779 WCAG 2.4.1) の喪失 — main.js skip-link click ハンドラの e.preventDefault() を除去 → native fragment 挙動で location.hash が '#main-content' に変わり router が非-'#/' hash を home 扱いで再描画 → 非 home ページ(#/projects)で「本文へスキップ」がユーザーを home へ誤遷移させる実バグ復活。main.js に preventDefault は 1 個(skip-link 専用)。既存 skip-link test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "main.js",
+        "find": "e.preventDefault();",
+        "replace": "/* preventDefault removed (#779 skip-link native-nav regression) */",
+        "test": "Skip link moves focus to #main-content",
+    },
 ]
