@@ -740,4 +740,11 @@ E2E_MUTATIONS = [
         "replace": "window.render();",
         "test": "retains focus during filtering",
     },
+    {
+        "name": "behavior: command-palette close 時の opener への focus 復元 (#700 WCAG 2.4.3) の喪失 — command-palette.js close() の lastFocused.focus() を除去 → palette を閉じても起動元へ focus が戻らず SR/キーボード利用者が文脈を失う a11y 退行。既存 focus-restore test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "command-palette.js",
+        "find": "if (lastFocused && lastFocused.focus) { try { lastFocused.focus(); } catch (e) { /* noop */ } }",
+        "replace": "if (lastFocused && lastFocused.focus) { try { /* focus removed */ } catch (e) { /* noop */ } }",
+        "test": "restores focus to the opener on close",
+    },
 ]
