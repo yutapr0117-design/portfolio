@@ -111,6 +111,22 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        never treated as objects, so their internals never pollute the valid-key set. A cross-namespace
        typo (`CONSTANTS.LIMITS.work`) is an accepted non-goal — the dominant misspelled-key class is
        enforced, not an exhaustive per-namespace bijection. (BLOCKING)
+  395. Router.navigate() literal target → router route-segment resolution: every literal
+       `Router.navigate('X')` call in shipped JS (main.js + js/*.js) must have its base path
+       segment (X stripped of `?query` and taken up to the first `/`) resolve to a top-level route
+       segment that router.js `_parseRoute` actually handles (a `case 'seg':` label, or the empty
+       string = home default). router.js parses an UNKNOWN first segment as `name:'home'` and
+       renders the homepage — so a typo'd nav target (`Router.navigate('rolesplit')`, a renamed route
+       left stale) SILENTLY sends the user to the home page instead of the intended destination, with
+       no throw, no console error, and no e2e failure (the behavior e2e asserts each route renders
+       when visited directly, not that every in-page nav button points at a live route; the
+       screenshot is advisory). Producer-side twin of Check 377 (route.name ⟹ a main.js render case):
+       377 guards the consumer (a parsed route has a renderer), 395 guards the producer (a nav call
+       targets a parseable route). Template-literal targets (`apps/${app}` / `projects/${slug}`) are
+       structurally dynamic and excluded; only no-`$` string literals are enforced, and JS line
+       comments are stripped so documentation examples never false-positive. Same used⟹defined wiring
+       lens as Check 375 (icon) / 376 (data-action) / 391 (getElementById) / 392 (aria idref) / 393
+       (CONSTANTS): navigate target ⊆ router-handled segments. (BLOCKING)
 """
 import re
 import json
@@ -489,3 +505,43 @@ def run(ctx):
     else:
         check(False, "Check 393: js/constants.js and shipped JS present",
               "Check 393: js/constants.js または shipped JS が無い — CONSTANTS 参照の解決を検証できない", blocking=True)
+
+    # ── 395. Router.navigate() literal target → router route-segment resolution (BLOCKING) ──
+    # 各 shipped JS の literal `Router.navigate('X')` は、base path segment (X から ?query を除き
+    # 最初の '/' まで) が router.js _parseRoute の扱う top-level route segment (`case 'seg':` label、
+    # または空文字=home default) に解決しなければならない。router.js は未知の第1 segment を
+    # name:'home' として parse しホームを描画するため、typo した nav target
+    # (`Router.navigate('rolesplit')`・リネーム後の stale target) はユーザーを意図先でなく silent に
+    # ホームへ送る (throw も console error も e2e 失敗も無い。behavior e2e は各ルートを直接訪問した
+    # 際の描画は見るが、in-page nav ボタンが live ルートを指すかは検査しない・screenshot は advisory)。
+    # Check 377 (route.name ⟹ main.js render case) の producer 面の双子: 377 は consumer (parse 済
+    # ルートに renderer が在る) を、395 は producer (nav 呼び出しが parse 可能ルートを指す) を守る。
+    # template literal target (`apps/${app}` / `projects/${slug}`) は構造上動的ゆえ除外し no-`$` の
+    # 文字列 literal のみ強制、JS 行コメントは strip して doc 例の false-positive を防ぐ。Check 375
+    # (icon) / 376 (data-action) / 391 / 392 / 393 と同じ used⟹defined wiring レンズの navigate 面。
+    _router395 = ROOT / "js" / "router.js"
+    _shipped395 = [p for p in ([ROOT / "main.js"] + sorted((ROOT / "js").glob("*.js"))) if p.exists()]
+    if _router395.exists() and _shipped395:
+        _rsrc395 = _router395.read_text(encoding="utf-8")
+        _segs395 = set(re.findall(r"case\s+['\"]([\w-]+)['\"]\s*:", _rsrc395))
+        _segs395.add("")  # 空 navigate('') = home default
+        _targets395 = {}  # target -> source file
+        for _f395 in _shipped395:
+            _t395 = re.sub(r"//[^\n]*", "", _f395.read_text(encoding="utf-8"))
+            for _m395 in re.finditer(r"""Router\.navigate\(\s*['"]([^'"$]+)['"]""", _t395):
+                _targets395.setdefault(_m395.group(1), str(_f395.relative_to(ROOT)))
+        _unresolved395 = sorted(
+            f"{_tg395} ({_targets395[_tg395]})" for _tg395 in _targets395
+            if _tg395.split("?")[0].split("/")[0] not in _segs395
+        )
+        check(
+            bool(_segs395) and not _unresolved395,
+            f"Check 395: 全 literal Router.navigate target ({len(_targets395)} 種) が router.js の route segment ({len(_segs395) - 1} case) に解決 (silent home fallthrough 防止)",
+            f"Check 395: Router.navigate の target が router.js の未定義 route segment を指す (silent home fallthrough): {_unresolved395} — "
+            "router.js は未知の第1 segment を home として parse するため typo/リネーム残骸が全 gate を素通りして "
+            "ユーザーをホームへ誤誘導する。router.js _parseRoute に該当 case を追加するか navigate target の typo を修正せよ",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 395: js/router.js and shipped JS present",
+              "Check 395: js/router.js または shipped JS が無い — Router.navigate target の解決を検証できない", blocking=True)

@@ -129,6 +129,12 @@ _MUTATIONS_TAIL = [
         "find": "MOBILE_BREAKPOINT: 920,",
         "replace": "MOBILE_BREAKPOINT: 960,",
     },
+    {
+        "name": "Check 395 (Router.navigate literal target → router route-segment): home-page.js の Router.navigate('role-split') を typo 'rolesplit' へ → router が未知 segment を home として parse し nav ボタンが silent にホームへ誤誘導する dead-nav wiring gap (producer 面の used⟹defined)",
+        "file": ROOT / "js" / "home-page.js",
+        "find": "Router.navigate('role-split')",
+        "replace": "Router.navigate('rolesplit')",
+    },
     # NOTE: Check 379 (E2E_MUTATIONS test-field resolution) には consistency mutation を登録しない。
     # 本 Check は mutation_samples.py 自身の E2E_MUTATIONS `test` フィールドを検証するため、それを狙う
     # mutation は「find 文字列が自 entry の find フィールドにも現れる」self-reference になり、
