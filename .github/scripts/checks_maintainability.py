@@ -125,6 +125,18 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
        asserts find != replace for every entry, completing the mutation-integrity mesh (362 = find
        anchor resolves in target file / 379 = test-field resolves to a real e2e test / 380 = replace
        actually mutates) so no dead mutation can silently erode the completeness-critic. (BLOCKING)
+  397. mutation_samples E2E_MUTATIONS `test`-field UNAMBIGUITY: every E2E_MUTATIONS `test` field must
+       be a substring of EXACTLY ONE e2e test title (not merely ≥1, which Check 379 already enforces).
+       mutation_probe's `--e2e` runner feeds the field to Playwright as `-g "<field>"`, which selects
+       EVERY test whose title contains that substring. If a field matches TWO+ titles, `-g` runs all
+       of them, and the mutation's non-vacuity attribution becomes ambiguous: the probe cannot tell
+       which test was meant to catch the mutation, and a mutation that leaves the INTENDED test green
+       can still be reported "caught" because an unrelated co-matched test fails (or vice-versa —
+       false SURVIVED if the intended test's failure is masked). Check 379 guards ≥1 (anchor resolves
+       at all); this Check tightens it to ==1 (anchor targets the one intended test), closing the
+       ambiguous-anchor face of the mutation-integrity mesh (362/379/380). A too-generic field like
+       `"unique slugs"` (which matched both the settings same-name test and the resilience
+       colliding-import test) is the failure mode this prevents. (BLOCKING)
   385. checks_*.py error-path ctx.warnings/ctx.errors unpack: every split check module
        (`.github/scripts/checks_*.py`) that uses a BARE `warnings.append(...)` / `errors.append(...)`
        (an error/skip path, e.g. "target file not found — check skipped") MUST also unpack
@@ -702,6 +714,41 @@ def run(ctx):
         )
     except ImportError as _e380:
         warnings.append(f"Check 380: mutation_samples import failed ({_e380}) — no-op guard skipped")
+
+    # ── 397. mutation_samples E2E_MUTATIONS `test`-field UNAMBIGUITY (==1) (BLOCKING) ──
+    # mutation_probe --e2e は `test` フィールドを `playwright -g "<field>"` に渡し、substring 一致する
+    # 全 test を実行する。field が 2+ title に一致すると複数 test が走り mutation の非 vacuity 帰属が
+    # 曖昧化する (意図 test が green のままでも co-match した無関係 test の fail で「caught」と誤報告 /
+    # 逆に意図 test の fail が masked され false SURVIVED)。Check 379 は ≥1 (anchor が解決する) を守る
+    # が、本 Check は ==1 (anchor が唯一の意図 test を指す) へ tighten し、mutation-integrity mesh
+    # (362/379/380) の ambiguous-anchor 面を閉じる。実例: `"unique slugs"` は settings same-name test と
+    # resilience colliding-import test の 2 件に一致していた (本 increment で `"same name yields unique
+    # slugs"` へ限定)。
+    try:
+        import importlib as _importlib397
+        _ms397 = _importlib397.import_module("mutation_samples")
+        _titles397 = []
+        for _spec397 in sorted((ROOT / "e2e").glob("*.spec.js")):
+            for _tm397 in re.finditer(r"""test\(\s*(['"])(.+?)\1""", _spec397.read_text(encoding="utf-8")):
+                _titles397.append(_tm397.group(2))
+        _ambiguous397 = []
+        for _m397 in _ms397.E2E_MUTATIONS:
+            _t397 = _m397.get("test", "")
+            _n397 = sum(1 for _ti397 in _titles397 if _t397 and _t397 in _ti397)
+            if _n397 != 1:
+                _ambiguous397.append(f"{_m397['name'][:45]} → test='{_t397}' matches {_n397} titles")
+        check(
+            bool(_titles397) and not _ambiguous397,
+            f"Check 397: all {len(_ms397.E2E_MUTATIONS)} E2E_MUTATIONS `test` fields match EXACTLY ONE e2e test title (unambiguous -g anchor)",
+            f"Check 397: E2E_MUTATIONS の `test` フィールドが一意の test title に解決しない (0 または 2+ 一致): {_ambiguous397[:5]} — "
+            "`playwright -g` が複数 test を走らせ mutation の非 vacuity 帰属が曖昧化する (Check 379 は ≥1 のみ強制)。"
+            "test フィールドを唯一の意図 test にだけ一致する固有 substring へ限定せよ"
+            if _titles397 else
+            "Check 397: e2e/*.spec.js から test タイトルを parse できない (構造変更の可能性)",
+            blocking=True,
+        )
+    except ImportError as _e397:
+        warnings.append(f"Check 397: mutation_samples import failed ({_e397}) — anchor-unambiguity skipped")
 
     # ── 385. checks_*.py error-path ctx.warnings/ctx.errors unpack (BLOCKING) ─────
     # 分割 check module が bare `warnings.append` / `errors.append` を error/skip パスで使うのに
