@@ -431,3 +431,34 @@ test('Markdown notes renders HTML/script as literal text (innerHTML-free XSS bou
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `notes XSS boundary caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: analyzeInput の複数キーワード一致時の優先順位 (first-match 順序) =====
+// analyzeInput は troubleshoot>design>breakdown>writing>general の順で first-match する。既存の
+// 分岐テストは各キーワードを単独で入れるため、複数タイプのキーワードが同時に含まれるときどれが勝つか
+// (=チェック順序) は未検証だった。順序を入れ替える regression (例: design を troubleshoot より先に判定)
+// が起きても単独キーワードは正しく分岐するため素通りする。複数キーワードを含む入力で優先順位を pin する。
+test('AI assist analyzeInput resolves multi-keyword input by first-match priority order', async ({ page }) => {
+  await page.goto('/#/apps/ai', { waitUntil: 'domcontentloaded' });
+  const input = page.locator('#ai-input');
+  const submit = page.getByRole('button', { name: '送信', exact: true });
+  await expect(input).toBeVisible();
+
+  // 「エラー」(troubleshoot) + 「設計」(design) → troubleshoot が先ゆえ勝つ。
+  await input.fill('エラーが出る新機能の設計');
+  await submit.click();
+  await expect(page.getByText('[AI分析: トラブルシューティング]')).toBeVisible();
+
+  // 「設計」(design) + 「タスク」(breakdown) → design が先ゆえ勝つ。
+  await input.fill('タスク管理アプリの設計');
+  await submit.click();
+  await expect(page.getByText('[AI分析: 設計支援]')).toBeVisible();
+
+  // 「手順」(breakdown) + 「説明」(writing) → breakdown が先ゆえ勝つ。
+  await input.fill('手順を説明して');
+  await submit.click();
+  await expect(page.getByText('[AI分析: タスク分解]')).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `AI multi-keyword priority caused a fatal: ${fatal}`).toBeNull();
+});
