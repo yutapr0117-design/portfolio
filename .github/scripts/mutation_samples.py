@@ -816,4 +816,11 @@ E2E_MUTATIONS = [
         "replace": "/* #692 short-break symmetry update removed */",
         "test": "break-duration change updates the idle timer",
     },
+    {
+        "name": "behavior: store.js の ingestion 側 ai.history prompt 文字列 bound (#230 class) の喪失 — normalizeAppsData の `prompt: String(h.prompt).slice(0, CONSTANTS.LIMITS.AI_MESSAGE)` から `.slice(0, AI_MESSAGE)` を外し生 `String(h.prompt)` に戻す → 巨大 prompt (20000 字) を含む store を load/import/cross-tab で取り込むと prompt が切り詰められず localStorage を bloat させる (write 側 apps.js は AI_MESSAGE で bound 済だが ingestion 側正規化が個々文字列長を bound しない未閉じ枝)。既存 length-bounded-on-normalize test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "prompt: String(h.prompt).slice(0, CONSTANTS.LIMITS.AI_MESSAGE),",
+        "replace": "prompt: String(h.prompt),",
+        "test": "AI history strings are length-bounded on normalize ingestion",
+    },
 ]
