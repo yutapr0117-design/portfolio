@@ -152,7 +152,11 @@ export function createProjectsPage({ h, createIcon, Router, State, tokenize, cle
                 h('div', { class: 'flex flex-wrap items-center justify-between gap-4 mb-4' },
                     h('div', {},
                         h('h1', { class: 'h1' }, 'プロジェクト一覧'),
-                        countDisplay = h('p', { class: 'text-muted' }, '')
+                        // [A11Y 4.1.3 Status Messages] 検索/カテゴリ絞り込みで件数 (`合計 N 件`) が変わっても
+                        //   従来は SR ユーザーへ通知されなかった (0 件 empty-state は role=status 済だが、非 0 件の
+                        //   件数変化は silent)。role=status + aria-live=polite で focus を移さずに件数変化を
+                        //   アナウンスする (視覚描画は不変・render-neutral)。
+                        countDisplay = h('p', { class: 'text-muted', role: 'status', 'aria-live': 'polite' }, '')
                     )
                 ),
                 h('div', { class: 'grid grid-cols-2 gap-4' },
