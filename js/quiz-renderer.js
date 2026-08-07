@@ -67,7 +67,10 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
             }
         });
         box.appendChild(h("div", { class: "mb-6" },
-            h("div", { class: "relative" },
+            // [A11Y] role='search' で検索入力を landmark 化する (ARIA APG search landmark)。
+            //   SR ユーザーが landmark ナビゲーションで検索領域へ直接ジャンプできる (WCAG 1.3.1)。
+            //   視覚描画は不変 (role 属性のみ・render-neutral)。ProjectsPage 検索と同型 (#879)。
+            h("div", { class: "relative", role: "search" },
                 searchInput,
                 h("div", {
                     class: "absolute left-3 top-1/2 -translate-y-1/2 text-muted pointer-events-none"

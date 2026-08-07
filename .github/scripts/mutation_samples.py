@@ -904,6 +904,13 @@ E2E_MUTATIONS = [
         "file": ROOT / "js" / "projects-page.js",
         "find": "h('div', { class: 'relative', role: 'search' },",
         "replace": "h('div', { class: 'relative' },",
-        "test": "exposed as an ARIA search landmark",
+        "test": "Projects search is exposed as an ARIA search landmark",
+    },
+    {
+        "name": "a11y: QuizPage の検索 landmark (role='search') の喪失 — quiz-renderer.js の検索 wrapper から `role: \"search\"` を外す → 検索入力が ARIA search landmark でなくなり SR ユーザーが landmark ナビで検索領域へジャンプできなくなる (WCAG 1.3.1・ARIA APG・ProjectsPage #879 と同型)。新設 quiz-search-landmark test に対応する mutation で safety-net を institutionalize する非 vacuity 検証",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "h(\"div\", { class: \"relative\", role: \"search\" },",
+        "replace": "h(\"div\", { class: \"relative\" },",
+        "test": "Quiz search is exposed as an ARIA search landmark",
     },
 ]

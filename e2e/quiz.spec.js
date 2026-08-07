@@ -179,3 +179,20 @@ test('Quiz pm and quality types render their data files', async ({ page }) => {
   await expect(page.locator('h1', { hasText: '品質・プロセス問題集' })).toBeVisible();
   await expect(page.locator('.quiz-question-block').first()).toBeVisible();
 });
+
+
+// ===== 7.2: quiz 検索が ARIA search landmark (role='search') で公開される (ARIA APG) =====
+// 検索入力を role='search' の landmark で包み、SR ユーザーが landmark ナビゲーションで検索領域へ
+// 直接ジャンプできる (WCAG 1.3.1)。ProjectsPage 検索 (#879) と同型。landmark が検索 input を
+// 内包することを検証する。
+test('Quiz search is exposed as an ARIA search landmark containing the query input', async ({ page }) => {
+  await page.goto('/#/quiz');
+  await page.waitForLoadState('domcontentloaded');
+
+  const searchLandmark = page.getByRole('search');
+  await expect(searchLandmark).toBeVisible();
+  await expect(searchLandmark.getByRole('searchbox', { name: '問題検索' })).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `quiz search landmark caused a fatal: ${fatal}`).toBeNull();
+});
