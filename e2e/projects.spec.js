@@ -381,3 +381,43 @@ test('Project card action buttons include the project name in their accessible n
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `projects card a11y caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: default プロジェクトの並べ替えが reload を跨いで保持される (mergeProjectsWithDefaults 順序保持) =====
+// settings の ↑↓ は state.projects を swap して並べ替え、表示順 (= state.projects 順) に反映する。
+// 従来 mergeProjectsWithDefaults は defaults を「元の定義順」で再構築し incoming 順を無視したため、
+// default project 同士の並べ替えが reload の normalize round-trip で silent に元順へ戻る data-fidelity
+// バグがあった (user 追加 project は incoming 順 append で保持されるので default だけが失われた)。
+// 先頭 default を 1 つ下げて描画順の入れ替えを確認 → reload → 入れ替えが保持されることを検証する。
+// localStorage は load で再書き込みされないため「描画順」(in-memory state.projects) を読む
+// (localStorage を読む検査は pre-reload の値を拾い vacuous になる)。
+test('Default project reorder persists across reload (mergeProjectsWithDefaults preserves saved order)', async ({ page }) => {
+  const rendered = () => page.evaluate(() =>
+    Array.from(document.querySelectorAll('.grid-projects article h2')).map(el => el.textContent.trim()));
+
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('.grid-projects article h2').first()).toBeVisible();
+  const initial = await rendered();
+
+  // settings で先頭 default 行を 1 つ下げる
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  const rows = page.locator('div.flex.items-center.justify-between.gap-2');
+  await rows.first().getByRole('button', { name: '↓' }).click();
+
+  // projects へ戻り描画順が入れ替わっている (先頭 2 件が swap)
+  await page.goto('/#/projects');
+  await expect(page.locator('.grid-projects article h2').first()).toBeVisible();
+  await expect.poll(async () => (await rendered()).slice(0, 2).join(',')).toBe([initial[1], initial[0]].join(','));
+  const afterSwap = await rendered();
+
+  // reload 後も入れ替えが保持される (normalize round-trip で元順へ戻らない)
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('.grid-projects article h2').first()).toBeVisible();
+  await expect.poll(async () => (await rendered()).slice(0, 3).join(',')).toBe(afterSwap.slice(0, 3).join(','));
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `default reorder persist caused a fatal: ${fatal}`).toBeNull();
+});
