@@ -920,4 +920,11 @@ E2E_MUTATIONS = [
         "replace": "countDisplay = h('p', { class: 'text-muted' }, '')",
         "test": "Projects result count is an aria-live status region",
     },
+    {
+        "name": "a11y: quiz 模範解答フォームの email 必須マーク (WCAG 3.3.2) の喪失 — quiz-renderer.js emailInput の `'aria-required': 'true'` を外す → submit の JS バリデーションで必須の メールアドレスが SR ユーザーに必須と露出されず、送信してエラー Toast が出るまで必須と分からない (Labels or Instructions の退行)。新設 form-required test に対応する mutation で safety-net を institutionalize する非 vacuity 検証",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "'aria-label': 'メールアドレス', 'aria-required': 'true' }",
+        "replace": "'aria-label': 'メールアドレス' }",
+        "test": "Quiz contact form marks name and email as aria-required",
+    },
 ]

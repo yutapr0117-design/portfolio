@@ -196,3 +196,22 @@ test('Quiz search is exposed as an ARIA search landmark containing the query inp
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `quiz search landmark caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: 模範解答フォームの必須フィールドが aria-required で露出される (WCAG 3.3.2) =====
+// お名前・メールアドレスは submit の JS バリデーションで必須だが、従来は aria-required 未指定で
+// SR ユーザーには送信してエラーが出るまで必須と分からなかった。aria-required='true' で必須状態を
+// 事前露出する (メッセージは optional ゆえ非該当)。name/email が required・message が非 required
+// であることを検証する。
+test('Quiz contact form marks name and email as aria-required (WCAG 3.3.2)', async ({ page }) => {
+  await page.goto('/#/quiz');
+  await page.waitForLoadState('domcontentloaded');
+
+  await expect(page.getByRole('textbox', { name: 'お名前' })).toHaveAttribute('aria-required', 'true');
+  await expect(page.getByRole('textbox', { name: 'メールアドレス' })).toHaveAttribute('aria-required', 'true');
+  // メッセージは任意ゆえ aria-required を持たない
+  await expect(page.getByRole('textbox', { name: 'メッセージ' })).not.toHaveAttribute('aria-required', 'true');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `quiz form required caused a fatal: ${fatal}`).toBeNull();
+});
