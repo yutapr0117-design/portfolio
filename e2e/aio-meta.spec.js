@@ -65,7 +65,18 @@ test('Homepage renders without console errors', async ({ page }) => {
   page.on('console', msg => {
     if (msg.type() === 'error') { consoleErrors.push(msg.text()); }
   });
-  page.on('pageerror', err => pageErrors.push(err.message));
+  page.on('pageerror', err => {
+    // KARTE (外部分析サービス) の edge.js が telemetry endpoint への fetch に失敗すると
+    // uncaught TypeError: Failed to fetch を投げ pageerror として捕捉される。これは third-party
+    // (cdn-edge.karte.io) の外部障害で当サイトの app-logic バグではない (C7: KARTE 接続は CSP で
+    // 制限する方針ゆえ CI で fetch が失敗しうる)。err.message は "Failed to fetch" のみで発生源が
+    // 不明だが err.stack は cdn-edge.karte.io を含むため、stack が KARTE 由来のものだけ narrow に
+    // 除外する。当サイト自身のコードから出た uncaught 例外 (stack が我々の file) は引き続き無条件で
+    // fatal 扱いし、app バグを検出する intent を保持する。
+    const stack = (err && err.stack) || '';
+    if (stack.toLowerCase().includes('karte')) { return; }
+    pageErrors.push(err.message);
+  });
 
   await page.goto('/');
   await page.waitForLoadState('domcontentloaded');
