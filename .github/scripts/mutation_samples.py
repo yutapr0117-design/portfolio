@@ -712,4 +712,11 @@ E2E_MUTATIONS = [
         "replace": "const settings = pomo.settings;",
         "test": "completion uses the latest focus-duration",
     },
+    {
+        "name": "behavior: AI 入力の IME composition ガード (#152) の喪失 — ai-page.js の Enter ハンドラから `&& !e.isComposing` を外す → 日本語入力で IME 変換確定の Enter が未確定テキストを誤 submit する (task IME #299 とは別 function・ai-input 独立の実バグ。日本語が主対象の本サイトで既存 test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証)",
+        "file": ROOT / "js" / "ai-page.js",
+        "find": "if (e.key === 'Enter' && !e.isComposing) {",
+        "replace": "if (e.key === 'Enter') {",
+        "test": "AI input ignores Enter during IME composition",
+    },
 ]
