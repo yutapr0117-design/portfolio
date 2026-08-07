@@ -402,3 +402,32 @@ test('Markdown inline renderer handles multiple bold/code markers with interleav
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `markdown multi-marker caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: Markdown notes が HTML/script を literal text として描画する (innerHTML-free 安全境界) =====
+// NotesPage の中核安全契約は「innerHTML 不使用・h() の text ノードのみ」で、ユーザが note に HTML を
+// 打っても DOM として解釈されず literal text になること。既存テストは strong/code/h3/li の構造化描画は
+// 見るが、この XSS 安全境界 (HTML 注入が実要素化しない・script が実行されない) は未検証だった。将来
+// 誤って innerHTML を導入すると silent に XSS 経路化するのを防ぐ。<b>/<script>/<img onerror> を含む
+// note を入力し、literal text が可視・注入 HTML が実要素化しない・スクリプト未実行・fatal なしを検証する。
+test('Markdown notes renders HTML/script as literal text (innerHTML-free XSS boundary)', async ({ page }) => {
+  await page.goto('/#/apps/notes', { waitUntil: 'domcontentloaded' });
+  const ta = page.locator('#notes-input');
+  await expect(ta).toBeVisible();
+  await ta.fill('<b>NOTBOLD-9501</b> <script>window.__xssNote=1</script> <img src=x onerror="window.__xssNote=2">');
+
+  const preview = page.locator('.md-preview');
+  // literal text が可視 (h() が textContent 経由で描画=タグがそのまま文字として見える)。
+  await expect(preview).toContainText('<b>NOTBOLD-9501</b>');
+  await expect(preview).toContainText('<script>window.__xssNote=1</script>');
+  // 注入 HTML が実 DOM 要素として解釈されていない (preview 内に b/script/img は生成されない)。
+  await expect(preview.locator('b')).toHaveCount(0);
+  await expect(preview.locator('script')).toHaveCount(0);
+  await expect(preview.locator('img')).toHaveCount(0);
+  // スクリプト/onerror が実行されていない。
+  const xss = await page.evaluate(() => window.__xssNote);
+  expect(xss, 'note の HTML/script は実行されてはならない (innerHTML-free)').toBeUndefined();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `notes XSS boundary caused a fatal: ${fatal}`).toBeNull();
+});
