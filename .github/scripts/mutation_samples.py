@@ -649,4 +649,11 @@ E2E_MUTATIONS = [
         "replace": "s.appsData.pomodoro.settings.long = parseInt(e.target.value, 10) || 15;",
         "test": "short/long break inputs clamp",
     },
+    {
+        "name": "behavior: AI submit の空/空白プロンプトガードの喪失 — ai-page.js submit の `!input.trim() ||` を外し aiLoading のみ残す → 空文字/空白のみの送信が握り潰されず空の会話を ai.history に積み UI/localStorage を汚す (settings の空入力バリデーションは test 済だが AI 空プロンプトガードは未被覆だった穴の非 vacuity 検証)",
+        "file": ROOT / "js" / "ai-page.js",
+        "find": "if (!input.trim() || aiLoading) {return;}",
+        "replace": "if (aiLoading) {return;}",
+        "test": "ignores empty and whitespace",
+    },
 ]

@@ -462,3 +462,37 @@ test('AI assist analyzeInput resolves multi-keyword input by first-match priorit
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `AI multi-keyword priority caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: AI submit の空/空白プロンプトガード (input validation) =====
+// submit() は `if (!input.trim() || aiLoading) return` で空文字/空白のみの入力を握り潰す。settings の
+// プロジェクト追加は空入力バリデーション(エラー Toast)を検証するが、AI の空プロンプトガードは未カバー
+// だった。ガードが外れると空/空白 submit が空の会話を history に積み UI/localStorage を汚す。空文字と
+// 空白のみを各々送信し、history に会話バブルが増えないことを検証する。
+test('AI assist ignores empty and whitespace-only prompts (no history entry created)', async ({ page }) => {
+  await page.goto('/#/apps/ai', { waitUntil: 'domcontentloaded' });
+  const input = page.locator('#ai-input');
+  const submit = page.getByRole('button', { name: '送信', exact: true });
+  await expect(input).toBeVisible();
+
+  // 初期は会話バブル 0。
+  await expect(page.locator('.chat-bubble-own')).toHaveCount(0);
+
+  // 空文字 submit → history 変化なし。
+  await input.fill('');
+  await submit.click();
+  await expect(page.locator('.chat-bubble-own')).toHaveCount(0);
+
+  // 空白のみ submit → trim で握り潰され history 変化なし。
+  await input.fill('   ');
+  await submit.click();
+  await expect(page.locator('.chat-bubble-own')).toHaveCount(0);
+
+  // 対照: 非空入力は 1 件積まれる (ガードが submit 自体を殺していない=非 vacuous な対照)。
+  await input.fill('有効な質問');
+  await submit.click();
+  await expect(page.locator('.chat-bubble-own')).toHaveCount(1);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `ai empty guard caused a fatal: ${fatal}`).toBeNull();
+});
