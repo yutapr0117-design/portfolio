@@ -789,4 +789,11 @@ E2E_MUTATIONS = [
         "replace": "if (false && drawer && drawer.getAttribute('aria-hidden') === 'false') {",
         "test": "resize to desktop",
     },
+    {
+        "name": "behavior: snapshot restore の正規化 (#561/#93/#295) の喪失 — settings-page.js restoreSnapshot の `State.set(Store.validateAndNormalize(snap.data))` を生 `State.set(snap.data)` に戻す → 旧版が保存した schema 不一致/projects・appsData 欠落 snapshot を復元すると renderer が state.projects.map 等で未定義参照し FatalPage crash (外部入力 ingestion は全て正規化を通せ class・importJSON は通すのに restore だけ生採用していた未被覆経路)。既存 snapshot-restore-normalize test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "State.set(Store.validateAndNormalize(snap.data));",
+        "replace": "State.set(snap.data);",
+        "test": "Snapshot restore normalizes a foreign-schema/partial snapshot",
+    },
 ]
