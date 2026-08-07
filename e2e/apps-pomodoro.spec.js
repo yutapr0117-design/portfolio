@@ -362,3 +362,28 @@ test('Pomodoro mode buttons expose selected state via aria-pressed', async ({ pa
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `pomodoro mode aria-pressed caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.1: pomodoro 集中時間 input の範囲外入力が clamp される (境界) =====
+// work 設定 onchange は clamp(parseInt(v)||25, 1, 180) で範囲外を丸める。既存テストは非デフォルト
+// 有効値(40)の reload 永続は見るが、範囲外入力の clamp 境界(上限 180 / 下限 1)は未カバーだった。
+// number input の max=180 属性は programmatic/paste の範囲外値を防がないため JS clamp が実防御で、
+// これが外れると 999 分などの不正 duration が設定され timer が壊れる。上限超過→180・下限未満→1 を検証。
+test('Pomodoro focus-duration input clamps out-of-range values to [1,180]', async ({ page }) => {
+  await page.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
+  const work = page.getByLabel('集中時間（分）');
+  await expect(work).toBeVisible();
+
+  // 上限超過 999 → 180 に clamp される (onchange は blur で発火)。
+  await work.fill('999');
+  await work.blur();
+  await expect(work).toHaveValue('180');
+
+  // 下限未満 -5 → 1 に clamp される (parseInt('-5')=-5 は truthy ゆえ || 25 を通らず clamp(−5,1,180)=1)。
+  await work.fill('-5');
+  await work.blur();
+  await expect(work).toHaveValue('1');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `pomodoro clamp caused a fatal: ${fatal}`).toBeNull();
+});

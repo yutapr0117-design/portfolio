@@ -628,4 +628,11 @@ E2E_MUTATIONS = [
         "replace": "disabled: false,",
         "test": "disabled at the done boundary",
     },
+    {
+        "name": "behavior: pomodoro 集中時間 input の範囲外 clamp の喪失 — pomodoro-page.js work onchange の clamp(...,1,180) を外し生 parseInt へ → 999 分等の範囲外値がそのまま settings.work に入り不正 duration の timer になる (number input max=180 は programmatic/paste を防がず JS clamp が実防御。上限/下限境界の非 vacuity 検証)",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": "s.appsData.pomodoro.settings.work = clamp(parseInt(e.target.value, 10) || 25, 1, 180);",
+        "replace": "s.appsData.pomodoro.settings.work = parseInt(e.target.value, 10) || 25;",
+        "test": "clamps out-of-range values",
+    },
 ]
