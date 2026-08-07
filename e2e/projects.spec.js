@@ -421,3 +421,40 @@ test('Default project reorder persists across reload (mergeProjectsWithDefaults 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `default reorder persist caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: プロジェクトの非表示 (projectPrefs.hiddenIds) が reload を跨いで保持される =====
+// settings の「非表示」は projectPrefs.hiddenIds に id を push し、ProjectsPage は
+// hiddenIds を filter して公開一覧から除く。既存の hide/unhide test は同一セッション内の
+// route 往復のみで、reload の normalize round-trip (store.js が projectPrefs.hiddenIds を
+// 読み戻すか) は未検証だった。hiddenIds が normalize で drop されると reload 後に非表示に
+// したプロジェクトが公開一覧へ復活する silent な persist-drift になる (#294/#568/#684/#871 と
+// 同 class)。非表示 → reload → 依然 公開一覧に不在、を検証する。
+test('Hidden project stays hidden on the public list across reload (projectPrefs.hiddenIds normalize round-trip)', async ({ page }) => {
+  const name = 'HIDE-PERSIST-PROJ-3170';
+
+  // 一意プロジェクトを追加し非表示にする
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByPlaceholder('プロジェクト名').fill(name);
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect(page.locator('#toast-container').getByText('プロジェクトを追加しました')).toBeVisible();
+  const row = page.locator('div.flex.items-center.justify-between.gap-2').filter({ hasText: name });
+  await row.getByRole('button', { name: '非表示' }).click();
+  await expect(row.getByRole('button', { name: '表示' })).toBeVisible();
+
+  // 公開一覧から消えている (同一セッション)
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('.grid-projects article h2').first()).toBeVisible();
+  await expect(page.getByText(name)).toHaveCount(0);
+
+  // reload しても非表示が保持される (normalize round-trip で hiddenIds が drop されない)
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('.grid-projects article h2').first()).toBeVisible();
+  await expect(page.getByText(name)).toHaveCount(0);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `hidden project persist caused a fatal: ${fatal}`).toBeNull();
+});
