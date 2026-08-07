@@ -891,3 +891,32 @@ test('Settings import skips a section whose target checkbox is unchecked (select
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `selective import gate caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: 設定の brand セレクタで選んだ値が localStorage へ書かれ reload を跨いで復元される =====
+// theme-sw.spec.js の brand テストは localStorage を直接 seed して theme-init.js の pre-paint 読み込み
+// (consumer 側) を検証するが、設定 UI の brand <select>(onchange→Brand.set→storage.set) が値を
+// 正しく WRITE する producer 側の round-trip は未カバーだった (#294/#825 と同じ producer/consumer 非対称)。
+// onchange の配線が壊れる / Brand.set が storage.set を呼ばない等の regression で、UI で選んだ brand が
+// reload 後に失われるのに既存テストは素通りする。UI で 'classic' を選択→data-brand 即時反映→reload→
+// 復元、を検証する。data-brand 属性のみ検証ゆえ視覚(C5)には非依存。
+test('Settings brand selector persists the chosen brand across reload (UI write round-trip)', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  // 既定は indigo。UI の <select> で classic を選ぶと data-brand が即時反映される (Brand.set→apply)。
+  await expect(page.locator('html')).toHaveAttribute('data-brand', 'indigo');
+  await page.getByLabel('ブランド').selectOption('classic');
+  await expect(page.locator('html')).toHaveAttribute('data-brand', 'classic');
+  // UI 経由の書き込みが localStorage に載っている (producer 側)。
+  expect(await page.evaluate(() => localStorage.getItem('portfolio_brand_v45'))).toBe('classic');
+
+  // reload → Brand.init が localStorage を読み戻し classic を復元する (consumer 側 round-trip)。
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await expect(page.locator('html')).toHaveAttribute('data-brand', 'classic');
+  // 設定 <select> の選択状態も復元値に追従する。
+  await expect(page.getByLabel('ブランド')).toHaveValue('classic');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `brand round-trip caused a fatal: ${fatal}`).toBeNull();
+});
