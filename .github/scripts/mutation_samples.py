@@ -691,4 +691,11 @@ E2E_MUTATIONS = [
         "replace": "email: String(data.profile.email || store.profile.email)",
         "test": "email is length-bounded",
     },
+    {
+        "name": "behavior: 同名プロジェクト追加時の slug 一意化 (#154) の喪失 — settings-page.js addProjectManual の `while (existing.has(slug))` を while(false) へ → 同名 2 件が同一 slug になり ProjectDetailPage の find(p.slug===slug) が先頭のみ返して片方の詳細が到達不能になる実バグ regression (既存の unique-slugs test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "while (existing.has(slug)) {",
+        "replace": "while (false) {",
+        "test": "unique slugs",
+    },
 ]
