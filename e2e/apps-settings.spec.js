@@ -957,3 +957,30 @@ test('Snapshot restore/clear buttons are disabled until a snapshot exists (affor
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `snapshot affordance caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: profile email の ingestion 文字列長 bound (import bloat 防止・#230/#801 class) =====
+// store.js normalizeAppsData/validateAndNormalize は profile.email を slice(0, 254)(RFC 5321 上限)で
+// bound し import bloat を防ぐ。AI history 文字列 bound(#230)・MAX_TASKS 件数 bound(#801)は test 済だが
+// profile email の文字列長 bound は未カバーだった。巨大 email を含む profile を import → Contact ページの
+// mailto リンク表示が 254 文字に切り詰められることを検証する (bound が外れると巨大文字列が href/表示に
+// 載り localStorage/DOM を bloat させる)。
+test('Profile email is length-bounded to 254 on import (ingestion bloat guard)', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  const hugeEmail = 'x'.repeat(300) + '@example.com'; // 312 文字 → 254 へ bound されるべき
+  await page.getByLabel('インポートする JSON ファイルを選択').setInputFiles({
+    name: 'profile-huge-email.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({ schemaVersion: 12, type: 'full-store', profile: { name: 'BoundUser', email: hugeEmail } })),
+  });
+  await expect(page.locator('#toast-container').getByText('インポートが完了しました')).toBeVisible();
+
+  await page.goto('/#/contact', { waitUntil: 'domcontentloaded' });
+  const emailLink = page.locator('a.font-mono[href^="mailto:"]').first();
+  await expect(emailLink).toBeVisible();
+  const len = (await emailLink.textContent() || '').length;
+  expect(len, `email は 254 へ bound されるべき (実測 ${len})`).toBe(254);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `profile email bound caused a fatal: ${fatal}`).toBeNull();
+});
