@@ -482,3 +482,21 @@ test('View Transition is skipped under reduced-motion but fires under no-prefere
     ).toBeGreaterThan(0);
   }
 });
+
+
+// ===== 7.1: 未知の *app* サブルート (apps/<unknown>) が NotFound になる (router whitelist else 分岐) =====
+// router は `apps/<app>` で app が ['task','todo','pomodoro','ai','notes'] whitelist に無いとき
+// route.name='not-found' にする (js/router.js の三項 else)。既存の未知ルートテストは top-level の
+// `/#/zzz-...` を見るが、この apps-whitelist else 分岐は distinct な code path で未カバーだった。
+// whitelist が壊れて未知 app を app-* 扱いすると存在しないアプリを描画しようとする退行になる。
+// 未知 app サブルートで NotFound の見出し+説明が出て ErrorBoundary に落ちないことを検証する。
+test('Unknown app subroute (apps/<unknown>) resolves to Not Found (router whitelist else branch)', async ({ page }) => {
+  await page.goto('/#/apps/nonexistent-app-9999', { waitUntil: 'domcontentloaded' });
+  await expect(page.getByRole('heading', { name: 'Not Found' })).toBeVisible();
+  await expect(page.getByText('指定されたページは見つかりません。')).toBeVisible();
+  // 復帰導線が機能する。
+  await page.getByRole('button', { name: 'ホームへ' }).click();
+  await expect(page.locator('.hero-section')).toBeVisible();
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `unknown app route caused a fatal: ${fatal}`).toBeNull();
+});

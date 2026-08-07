@@ -677,4 +677,11 @@ E2E_MUTATIONS = [
         "replace": "onclick: restoreSnapshot",
         "test": "disabled until a snapshot exists",
     },
+    {
+        "name": "behavior: router の unknown-app whitelist else 分岐の喪失 — router.js の `apps/<app>` で whitelist 外を 'not-found' にする else を 'app-task' へ → 存在しない app サブルート (apps/nonexistent) が task ページを描画し NotFound に落ちない (top-level unknown route とは別 code path の非 vacuity 検証)",
+        "file": ROOT / "js" / "router.js",
+        "find": ": 'not-found';",
+        "replace": ": 'app-task';",
+        "test": "Unknown app subroute",
+    },
 ]
