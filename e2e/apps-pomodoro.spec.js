@@ -387,3 +387,33 @@ test('Pomodoro focus-duration input clamps out-of-range values to [1,180]', asyn
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `pomodoro clamp caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.1: pomodoro 短休憩[1,60]/長休憩[1,120] input の範囲外 clamp 境界 =====
+// short/long 設定 onchange は work とは別 range で clamp する (short=1..60, long=1..120)。work の
+// 境界テスト(#838)とは range が異なり独立に regress しうる (例: long の上限を 180 に誤変更)。各々
+// 上限超過が正しい上限へ丸められることを検証し、pomodoro 3 設定すべての clamp 境界被覆を完成する。
+test('Pomodoro short/long break inputs clamp out-of-range to their own [1,60]/[1,120] ranges', async ({ page }) => {
+  await page.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
+
+  // 短休憩: 上限 60。999 → 60。
+  const short = page.getByLabel('短休憩時間（分）');
+  await expect(short).toBeVisible();
+  await short.fill('999');
+  await short.blur();
+  await expect(short).toHaveValue('60');
+  // 下限 1。-5 → 1。
+  await short.fill('-5');
+  await short.blur();
+  await expect(short).toHaveValue('1');
+
+  // 長休憩: 上限 120。999 → 120 (short の 60 とは別 range であることを pin)。
+  const long = page.getByLabel('長休憩時間（分）');
+  await expect(long).toBeVisible();
+  await long.fill('999');
+  await long.blur();
+  await expect(long).toHaveValue('120');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `pomodoro short/long clamp caused a fatal: ${fatal}`).toBeNull();
+});
