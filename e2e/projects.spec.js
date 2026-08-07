@@ -475,3 +475,27 @@ test('Projects search is exposed as an ARIA search landmark containing the query
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `search landmark caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: プロジェクト件数表示が status live region で絞り込み時にアナウンスされる (WCAG 4.1.3) =====
+// 検索/カテゴリ絞り込みで `合計 N 件` が変わっても、従来は SR ユーザーへ通知されなかった (非 0 件の
+// 件数変化は silent)。countDisplay を role=status + aria-live=polite にし、focus を移さず件数変化を
+// アナウンスする。live region が件数テキストを持ち、絞り込みで更新されることを検証する。
+test('Projects result count is an aria-live status region that updates on filtering (WCAG 4.1.3)', async ({ page }) => {
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+
+  // 件数表示は role=status + aria-live=polite の live region
+  const countStatus = page.locator('p[role="status"][aria-live="polite"]').filter({ hasText: '合計' });
+  await expect(countStatus).toBeVisible();
+  const before = (await countStatus.textContent()).trim();
+
+  // 検索で絞り込む → 件数テキストが更新される (live region が変化を announce)
+  const search = page.getByRole('searchbox', { name: 'プロジェクト検索' });
+  await search.fill('zzz-no-match-xyzzy-9999');
+  await expect(countStatus).toHaveText(/合計 0 件/);
+  expect((await countStatus.textContent()).trim()).not.toBe(before);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `count live region caused a fatal: ${fatal}`).toBeNull();
+});

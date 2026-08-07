@@ -913,4 +913,11 @@ E2E_MUTATIONS = [
         "replace": "h(\"div\", { class: \"relative\" },",
         "test": "Quiz search is exposed as an ARIA search landmark",
     },
+    {
+        "name": "a11y: ProjectsPage 件数表示の live region (WCAG 4.1.3) の喪失 — projects-page.js の countDisplay から `role: 'status', 'aria-live': 'polite'` を外す → 検索/カテゴリ絞り込みで `合計 N 件` が変わっても SR ユーザーへ通知されなくなる (非 0 件の件数変化が silent に戻る Status Messages 退行)。新設 count-live-region test に対応する mutation で safety-net を institutionalize する非 vacuity 検証",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "countDisplay = h('p', { class: 'text-muted', role: 'status', 'aria-live': 'polite' }, '')",
+        "replace": "countDisplay = h('p', { class: 'text-muted' }, '')",
+        "test": "Projects result count is an aria-live status region",
+    },
 ]
