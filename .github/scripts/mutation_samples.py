@@ -621,4 +621,11 @@ E2E_MUTATIONS = [
         "replace": "",
         "test": "first-match priority order",
     },
+    {
+        "name": "behavior: task move の done 境界 disabled affordance の喪失 — apps.js の「次のステータスへ進める」ボタン `disabled: task.status === 'done'` を false へ → done 列でも next が有効に見え「これ以上進めない」UX affordance が壊れる (moveStatus の clamp はデータを守るが disabled 属性は別レイヤーの affordance。backlog 境界と対称の done 境界被覆の非 vacuity 検証)",
+        "file": ROOT / "js" / "apps.js",
+        "find": "disabled: task.status === 'done',",
+        "replace": "disabled: false,",
+        "test": "disabled at the done boundary",
+    },
 ]
