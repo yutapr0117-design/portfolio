@@ -775,4 +775,11 @@ E2E_MUTATIONS = [
         "replace": "/* cross-tab schema guard removed (#295) */",
         "test": "foreign-schema/malformed store",
     },
+    {
+        "name": "behavior: quiz 検索の section 章タイトル被覆 (#296 visible-but-unsearchable) の喪失 — quiz-renderer.js _filterBy の `sectionMatch = !query || section.includes(query)` から section 一致項を除去 → 画面描画される section 章タイトル (例「第4章：可用性とFinOps…」) が検索対象外に戻り、タイトルにのみ含まれる語 (FinOps) で「見えるのに 0 件」drift が復活。既存 section-header-search test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "const sectionMatch = !query || section.toLowerCase().includes(query);",
+        "replace": "const sectionMatch = !query;",
+        "test": "section-header (chapter title)",
+    },
 ]
