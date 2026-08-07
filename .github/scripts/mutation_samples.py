@@ -803,4 +803,11 @@ E2E_MUTATIONS = [
         "replace": "if (data.ai?.history) {",
         "test": "tolerates a non-array ai/pomodoro history",
     },
+    {
+        "name": "behavior: pomodoro 短休憩 onchange の idle 表示即更新 (#692 work との対称性) の喪失 — pomodoro-page.js short-break onchange の `remainingSec = settings.short * 60` を除去 → 短休憩モードで idle 中に短休憩時間を変えても表示中の remainingSec が古い duration のまま (start すると旧設定長で始まる)。従来 work だけこの即更新があり short/long は欠落していた asymmetry 実バグ。既存 break-symmetry test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": "s.appsData.pomodoro.runtime.remainingSec = s.appsData.pomodoro.settings.short * 60;",
+        "replace": "/* #692 short-break symmetry update removed */",
+        "test": "break-duration change updates the idle timer",
+    },
 ]
