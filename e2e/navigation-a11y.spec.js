@@ -88,13 +88,13 @@ test('Route change moves focus to the new page heading (a11y WCAG 2.4.3)', async
   await expect(page.locator('#content h1').first()).toBeVisible();
   await page.evaluate(() => { location.hash = '#/contact'; });
   await expect(page.locator('#content h1', { hasText: 'Contact' })).toBeVisible();
-  await page.waitForTimeout(150);
-  const active = await page.evaluate(() => ({
-    tag: document.activeElement && document.activeElement.tagName,
-    text: document.activeElement && document.activeElement.textContent,
-  }));
-  expect(active.tag).toBe('H1');
-  expect(active.text).toContain('Contact');
+  // route 遷移後の focus 移動は render 内で非同期に起きる。固定 sleep(150ms) は負荷下で焦点移動より
+  // 早く評価すると flake るため、expect.poll で activeElement が Contact の H1 になるまでリトライする
+  // (焦点が移らない/誤要素へ移る regression では poll が timeout し RED = 非 vacuous を保つ)。
+  await expect.poll(async () => page.evaluate(() => {
+    const el = document.activeElement;
+    return !!(el && el.tagName === 'H1' && (el.textContent || '').includes('Contact'));
+  }), { message: 'route change must move focus to the new page Contact H1' }).toBe(true);
 });
 
 // ===== sr-only の視覚隠蔽契約 (a11y + AIO entity anchor 隠蔽) =====
