@@ -878,4 +878,11 @@ E2E_MUTATIONS = [
         "replace": "updateTask(task.id, { status: statuses[idx] });",
         "test": "moves across kanban columns and persists the status",
     },
+    {
+        "name": "behavior: task の優先度フィルタ (getFilteredTasks) の喪失 — apps.js の `taskFilter.priority === 'all' || t.priority === taskFilter.priority` を `true` に変え全タスクを常に通す → 優先度フィルタを high/low に絞ってもボードが絞り込まれず全件表示のまま (フィルタが no-op 化)。既存 priority-filter-narrows test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "apps.js",
+        "find": "taskFilter.priority === 'all' || t.priority === taskFilter.priority",
+        "replace": "true",
+        "test": "priority filter narrows the board by priority",
+    },
 ]
