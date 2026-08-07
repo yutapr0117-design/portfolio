@@ -885,8 +885,12 @@ test('Settings import skips a section whose target checkbox is unchecked (select
   // (1)(2) Projects は OFF ゆえ import 専用 project は出ず、既存の既定 project は残る (skip が効いた)。
   await page.goto('/#/projects');
   await page.waitForLoadState('domcontentloaded');
-  await expect(page.getByText(skippedProj)).toHaveCount(0);
+  // [非 vacuity] 先に既定 project の可視を待つ = projects grid の描画完了を保証してから absence を検査する。
+  //   `toHaveCount(0)` を描画前に評価すると async render とレースし、skippedProj がまだ無いだけで
+  //   即 pass する vacuous な absence アサーションになる (gate 除去 mutation を素通しする)。描画確定後に
+  //   0 件を確認して初めて「skip が効いた」を意味する。
   await expect(page.getByText(keptProject).first()).toBeVisible();
+  await expect(page.getByText(skippedProj)).toHaveCount(0);
 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `selective import gate caused a fatal: ${fatal}`).toBeNull();

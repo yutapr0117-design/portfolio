@@ -586,4 +586,25 @@ E2E_MUTATIONS = [
         "replace": "                ;",
         "test": "truncates todos to MAX_TODOS",
     },
+    {
+        "name": "behavior: settings import の対象 checkbox 選択的 gate の喪失 — settings-page.js の import が `settingsIncludeProjects && Array.isArray(parsed.projects)` から checkbox ガードを外し常時取り込みへ → Projects を OFF にしても import されユーザが意図的に除外したデータを上書きする (#825 で追加した選択的 gate の非 vacuity 検証。gate 除去で skippedProj が公開一覧に出現し count 0 が RED。テストは keptProject visible を先に待ち grid 描画を確定してから absence 検査する非 vacuous 順序)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "if (settingsIncludeProjects && Array.isArray(parsed.projects)) {",
+        "replace": "if (Array.isArray(parsed.projects)) {",
+        "test": "selective gate",
+    },
+    {
+        "name": "behavior: nav-lab collapse 状態の reload 復元喪失 — components.js isLabOpen() の localStorage 読み戻し `=== 'true'` を常時 false 化 → reload 後に Lab 展開状態が失われ collapsed へ戻る (#826 で追加した field-persist reload round-trip の非 vacuity 検証。read-back 喪失で展開→reload→展開維持が RED)",
+        "file": ROOT / "js" / "components.js",
+        "find": "return localStorage.getItem(labKey) === 'true';",
+        "replace": "return false;",
+        "test": "restores from localStorage across reload",
+    },
+    {
+        "name": "behavior: brand セレクタ UI の localStorage 書き込み喪失 — settings-page.js brand <select> の onchange から Brand.set を除去し window.render() のみへ → UI で選んだ brand が localStorage に書かれず reload 後に復元されない (#828 で追加した producer 側 round-trip の非 vacuity 検証。write 喪失で classic 選択→reload→data-brand 復元が RED)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "onchange: (e) => { Brand.set(e.target.value); window.render(); }",
+        "replace": "onchange: (e) => { window.render(); }",
+        "test": "UI write round-trip",
+    },
 ]
