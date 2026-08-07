@@ -796,4 +796,11 @@ E2E_MUTATIONS = [
         "replace": "State.set(snap.data);",
         "test": "Snapshot restore normalizes a foreign-schema/partial snapshot",
     },
+    {
+        "name": "behavior: store.js の非配列 ai.history ingestion guard (#568/#93) の喪失 — normalizeAppsData の `if (Array.isArray(data.ai?.history))` を旧 truthy 判定 `if (data.ai?.history)` に戻す → 別 schema/破損 store が ai.history を非配列 (文字列等) で持つと `.filter` が TypeError → validateAndNormalize 例外 → load()/cross-tab/import/snapshot-restore の全 ingestion 経路が FatalPage crash (normalizeAppsData の総関数契約違反)。既存 non-array-history-tolerance test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "if (Array.isArray(data.ai?.history)) {",
+        "replace": "if (data.ai?.history) {",
+        "test": "tolerates a non-array ai/pomodoro history",
+    },
 ]
