@@ -635,4 +635,18 @@ E2E_MUTATIONS = [
         "replace": "s.appsData.pomodoro.settings.work = parseInt(e.target.value, 10) || 25;",
         "test": "clamps out-of-range values",
     },
+    {
+        "name": "behavior: pomodoro 短休憩 input の範囲外 clamp[1,60] の喪失 — pomodoro-page.js short onchange の clamp(...,1,60) を外し生 parseInt へ → 999 分等が settings.short に入り work とは別 range の境界が壊れる (#838 work とは独立の range・独立 regress の非 vacuity 検証)",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": "s.appsData.pomodoro.settings.short = clamp(parseInt(e.target.value, 10) || 5, 1, 60);",
+        "replace": "s.appsData.pomodoro.settings.short = parseInt(e.target.value, 10) || 5;",
+        "test": "short/long break inputs clamp",
+    },
+    {
+        "name": "behavior: pomodoro 長休憩 input の範囲外 clamp[1,120] の喪失 — pomodoro-page.js long onchange の clamp(...,1,120) を外し生 parseInt へ → 999 分等が settings.long に入り short(60) とも別 range の上限 120 境界が壊れる (独立 regress の非 vacuity 検証)",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": "s.appsData.pomodoro.settings.long = clamp(parseInt(e.target.value, 10) || 15, 1, 120);",
+        "replace": "s.appsData.pomodoro.settings.long = parseInt(e.target.value, 10) || 15;",
+        "test": "short/long break inputs clamp",
+    },
 ]
