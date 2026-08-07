@@ -127,6 +127,18 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        comments are stripped so documentation examples never false-positive. Same used⟹defined wiring
        lens as Check 375 (icon) / 376 (data-action) / 391 (getElementById) / 392 (aria idref) / 393
        (CONSTANTS): navigate target ⊆ router-handled segments. (BLOCKING)
+  396. Router route.name ⟹ PAGE_META entry: every route.name that router.js `_parseRoute` can emit
+       (literal `route.name = 'X'` assignments, the initial `{ name: 'home' }` default, and the
+       `app-${app}` template expanded from the app whitelist) must have an entry in js/page-meta.js
+       PAGE_META. meta-management.js `applyMeta` does `const meta = PAGE_META[routeName]` and EARLY-
+       RETURNS when a route has no entry — so a route missing from PAGE_META SILENTLY loses its
+       `<title>` update, SEO meta (description/og), and the route-announcer title (a11y 2.4.2), with no
+       throw or console error (the behavior e2e renders each route but does not assert the title/meta
+       announcer; the screenshot is advisory). Consumer-side twin of Check 377 (route.name ⟹ a main.js
+       render case) and complement to Check 148 (ARTICLE_ROUTES ⊆ PAGE_META): closes the meta face of
+       the route mesh so adding a new router route (or a new `app-*` subroute) without a PAGE_META entry
+       fails the build instead of shipping a title-less/meta-less page. Same used⟹defined wiring lens as
+       Check 375/376/377/391/392/393/395. (BLOCKING)
 """
 import re
 import json
@@ -545,3 +557,43 @@ def run(ctx):
     else:
         check(False, "Check 395: js/router.js and shipped JS present",
               "Check 395: js/router.js または shipped JS が無い — Router.navigate target の解決を検証できない", blocking=True)
+
+    # ── 396. Router route.name ⟹ PAGE_META entry (BLOCKING) ──
+    # router.js _parseRoute が emit する全 route.name は js/page-meta.js の PAGE_META にエントリを
+    # 持たねばならない。meta-management.js applyMeta は `PAGE_META[routeName]` が無いルートで早期
+    # return するため、登録漏れのルートは <title> 更新 / SEO meta (desc/og) / route announcer title
+    # (a11y 2.4.2) を silent に失う (throw も console error も無い・behavior e2e は描画は見るが title/
+    # meta announcer は検査しない・screenshot advisory)。route.name の source: literal
+    # `route.name = 'X'` + 初期 `{ name: 'home' }` default + `app-${app}` template を app whitelist
+    # (`['task','todo',...]`) から展開。Check 377 (route.name ⟹ main.js render case) の consumer 面の
+    # 双子 + Check 148 (ARTICLE_ROUTES ⊆ PAGE_META) の補完で route mesh の meta 面を閉じる
+    # used⟹defined wiring。
+    _router396 = ROOT / "js" / "router.js"
+    _pagemeta396 = ROOT / "js" / "page-meta.js"
+    if _router396.exists() and _pagemeta396.exists():
+        _rsrc396 = re.sub(r"//[^\n]*", "", _router396.read_text(encoding="utf-8"))
+        _routenames396 = set(re.findall(r"route\.name\s*=\s*['\"]([\w-]+)['\"]", _rsrc396))
+        _routenames396.update(re.findall(r"\{\s*name:\s*['\"]([\w-]+)['\"]", _rsrc396))  # 初期 { name: 'home' }
+        _appwl396 = re.search(r"\[([^\]]*)\]\.includes\(app\)", _rsrc396)
+        if _appwl396 and re.search(r"app-\$\{app\}", _rsrc396):
+            for _a396 in re.findall(r"['\"]([\w-]+)['\"]", _appwl396.group(1)):
+                _routenames396.add(f"app-{_a396}")
+        _psrc396 = _pagemeta396.read_text(encoding="utf-8")
+        _mblock396 = re.search(r"export const PAGE_META\s*=\s*\{(.*)", _psrc396, re.S)
+        _metakeys396 = set()
+        if _mblock396:
+            for _line396 in _mblock396.group(1).splitlines():
+                _km396 = re.match(r"    (['\"]?)([A-Za-z][\w-]*)\1\s*:", _line396)
+                if _km396:
+                    _metakeys396.add(_km396.group(2))
+        _missing396 = sorted(_routenames396 - _metakeys396)
+        check(
+            bool(_routenames396) and bool(_metakeys396) and not _missing396,
+            f"Check 396: 全 router route.name ({len(_routenames396)} 種) が PAGE_META にエントリを持つ (applyMeta 早期 return による silent title/meta 欠落防止)",
+            f"Check 396: router.js が emit する route.name が PAGE_META に未登録 (applyMeta が早期 return し title/SEO meta/route announcer を silent 欠落): {_missing396} — "
+            "js/page-meta.js の PAGE_META に該当ルートの {title, desc} を追加せよ",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 396: js/router.js and js/page-meta.js present",
+              "Check 396: js/router.js または js/page-meta.js が無い — route.name ⟹ PAGE_META の解決を検証できない", blocking=True)
