@@ -243,8 +243,13 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
         contactBox.appendChild(h("div", { class: "h3", text: "模範解答について" }));
         contactBox.appendChild(h("div", { class: "muted" }, "模範解答をご希望の方は、以下のフォームからお気軽にご連絡ください。"));
 
-        const nameInput = h("input", { class: "input", type: "text", placeholder: "お名前", autocomplete: "name", 'aria-label': 'お名前' });
-        const emailInput = h("input", { class: "input", type: "email", placeholder: "メールアドレス", autocomplete: "email", 'aria-label': 'メールアドレス' });
+        // [A11Y 3.3.2 Labels or Instructions / 4.1.2] お名前・メールアドレスは submit の JS バリデーション
+        //   (`if (!name || !email)`) で必須だが、従来は required/aria-required 未指定で SR ユーザーには
+        //   送信してエラー Toast が出るまで必須と分からなかった。aria-required='true' で必須状態を事前に
+        //   露出する (メッセージは placeholder「（任意）」どおり optional ゆえ付与しない)。ARIA 属性のみ
+        //   ゆえ native validation UI を発火させず既存の Toast バリデーション挙動は不変 (render-neutral)。
+        const nameInput = h("input", { class: "input", type: "text", placeholder: "お名前", autocomplete: "name", 'aria-label': 'お名前', 'aria-required': 'true' });
+        const emailInput = h("input", { class: "input", type: "email", placeholder: "メールアドレス", autocomplete: "email", 'aria-label': 'メールアドレス', 'aria-required': 'true' });
         const messageInput = h("textarea", { class: "input textarea-resize-v", rows: 4, placeholder: "メッセージ（任意）", 'aria-label': 'メッセージ' });
 
         const submitBtn = h("button", {
