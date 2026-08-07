@@ -136,6 +136,11 @@ test('theme-init.js applies stored dark theme on initial load (FOUC prevention)'
 // ため offline 配信はテスト対象外。ここでは genuine な「SW が登録され active になり page を制御する」
 // ことを検証し、SW 登録/活性化の退行 (例: registration 失敗・activate 例外) を捕捉する。
 test('Service worker registers, activates, and controls the page', async ({ page }) => {
+  // SW の install→activate ライフサイクルは CI ランナーの負荷下で既定 30s を超え
+  // navigator.serviceWorker.ready が timeout する間欠 flake があった (BLOCKING gate を false-red 化)。
+  // SW 登録は本質的に遅くなりうる (app 側は健全) ため、この 1 テストに限り timeout を 60s へ広げて
+  // 負荷スパイクの余裕を持たせる。実 registration 失敗 (真の退行) は 60s でも解決せず捕捉される。
+  test.setTimeout(60000);
   await page.goto('/');
   await page.waitForLoadState('domcontentloaded');
   await page.evaluate(() => navigator.serviceWorker.ready);
