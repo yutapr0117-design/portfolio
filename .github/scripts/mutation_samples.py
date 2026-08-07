@@ -844,4 +844,11 @@ E2E_MUTATIONS = [
         "replace": "if (false && isActive && !pomodoroTimer) {",
         "test": "resumes ticking after a reload mid-run",
     },
+    {
+        "name": "behavior: settings のプロジェクト並べ替え (moveProject up/down) の喪失 — settings-page.js moveProject の境界ガード `if (idx + dir < 0 || idx + dir >= s.projects.length) {return;}` を `if (true || ...)` で常に return させ swap を無効化 → ↑↓ ボタンを押しても順序が変わらず、並べ替えが localStorage に反映されない (State.update の swap が dead になる)。既存 reorder test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "if (idx + dir < 0 || idx + dir >= s.projects.length) {return;}",
+        "replace": "if (true || idx + dir < 0 || idx + dir >= s.projects.length) {return;}",
+        "test": "Projects can be reordered with the up/down controls",
+    },
 ]
