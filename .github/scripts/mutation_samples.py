@@ -670,4 +670,11 @@ E2E_MUTATIONS = [
         "replace": "if (false) {return;}",
         "test": "ignore empty/whitespace-only input",
     },
+    {
+        "name": "behavior: snapshot 復元ボタンの未保存時 disabled affordance の喪失 — settings-page.js の 復元ボタン `disabled: !snap` を除去 → snapshot 未保存でも復元ボタンが有効に見え「復元するものが無い」affordance が壊れる (restoreSnapshot は no-op guard 済だが disabled 属性は別レイヤーの UX affordance。#836 task done 境界と同 class・snapshot 面の非 vacuity 検証)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "onclick: restoreSnapshot, disabled: !snap",
+        "replace": "onclick: restoreSnapshot",
+        "test": "disabled until a snapshot exists",
+    },
 ]
