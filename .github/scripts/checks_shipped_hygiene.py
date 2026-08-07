@@ -117,6 +117,15 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        本 Check が `work: 25` / `remainingSec: 1500` / `|| 1500` (runtime) および settings
        normalize clamp fallback `settings.work) || 25` / `settings.short) || 5` /
        `settings.long) || 15` マジックの再注入を構造的に禁止する。(BLOCKING)
+  394. pomodoro settings clamp *range* (work=[1,180] / short=[1,60] / long=[1,120])
+       が pomodoro-page.js (UI input onchange の即時 clamp) と store.js
+       (normalizeAppsData の ingestion clamp) の 2 レイヤで field 毎に一致することを
+       BLOCKING 強制。Check 370 は既定値 (25/5/15) のマジック再注入を禁止するが range
+       (180/60/120) は magic literal のまま両ファイルに重複しており未カバーだった。片方
+       だけ range を変えると (例: UI work max を 240 にしたが store は 180 のまま) UI で
+       入力できる値が reload/import 後に store normalize で再 clamp され silently 変わる
+       (2 層 clamp-range drift)。UI/store 双方から work/short/long の (min,max) を抽出し
+       一致を強制する (Check 370 default-object drift の clamp-range twin)。(BLOCKING)
 
 """
 import re
@@ -622,5 +631,39 @@ def run(ctx):
         "POMODORO_DEFAULT_REMAINING_SEC 経由で参照 (マジックリテラル {work:25...} / 1500 不在)",
         (f"Check 370: pomodoro 既定状態マジックが残存: {_pomo_violations370} "
          "(cross-file default-object drift 防止・Check 369 と同型 class)"),
+        blocking=True,
+    )
+
+    # ── 394. pomodoro settings clamp *range* の UI↔store 2 層一致 (cross-layer clamp-range drift 防止) ──
+    # pomodoro の集中/短休憩/長休憩の設定値は 2 レイヤで独立に clamp される: pomodoro-page.js の
+    # input onchange (UI 入力の即時 clamp) と store.js の normalizeAppsData (load/import/cross-tab/
+    # snapshot ingestion の clamp)。両者は field 毎に同じ range を持つ必要がある (work=[1,180] /
+    # short=[1,60] / long=[1,120])。Check 370 は既定値 (25/5/15) のマジック再注入を禁止するが range
+    # (180/60/120) は magic literal のまま両ファイルに重複しており未カバーだった。もし片方だけ range を
+    # 変更すると (例: UI work max を 240 にしたが store は 180 のまま)、UI で 240 を入力できるのに reload/
+    # import 後に store normalize が 180 へ再 clamp し、ユーザ設定が silently 変わる (2 層 clamp-range
+    # drift)。behavior e2e は特定の境界値しか検査せず中間帯の range 差は捕捉しない。UI と store の
+    # 各 field の clamp range を抽出して一致を BLOCKING 強制する (Check 370 default-object drift の
+    # clamp-range twin・Check 378 の JS↔CSS cross-layer coherence と同じ 2 レイヤ一致軸)。
+    _clamp_ui_re394 = re.compile(r"settings\.(work|short|long) = clamp\([^;]*?,\s*(\d+),\s*(\d+)\)")
+    _clamp_store_re394 = re.compile(r"(work|short|long): clamp\([^;]*?,\s*(\d+),\s*(\d+)\)")
+    _ui_src394 = (ROOT / "js" / "pomodoro-page.js").read_text(encoding="utf-8", errors="replace")
+    _store_src394 = (ROOT / "js" / "store.js").read_text(encoding="utf-8", errors="replace")
+    _ui_ranges394 = {m.group(1): (m.group(2), m.group(3)) for m in _clamp_ui_re394.finditer(_ui_src394)}
+    _store_ranges394 = {m.group(1): (m.group(2), m.group(3)) for m in _clamp_store_re394.finditer(_store_src394)}
+    _fields394 = {"work", "short", "long"}
+    # 両ファイルから 3 field すべてを抽出できること (regex が code 形と乖離したら発見漏れ防止) +
+    # 各 field の (min, max) が UI↔store で一致すること。
+    _mismatch394 = [
+        f"{_f}: UI{_ui_ranges394.get(_f)} != store{_store_ranges394.get(_f)}"
+        for _f in _fields394 if _ui_ranges394.get(_f) != _store_ranges394.get(_f)
+    ]
+    check(
+        _fields394 <= set(_ui_ranges394) and _fields394 <= set(_store_ranges394) and not _mismatch394,
+        "Check 394: pomodoro settings clamp range が pomodoro-page.js(UI) ↔ store.js(normalize) で "
+        f"field 毎に一致 (work/short/long: {_ui_ranges394})",
+        ("Check 394: pomodoro clamp-range が UI↔store で drift または抽出漏れ: "
+         f"UI={_ui_ranges394} store={_store_ranges394} mismatch={_mismatch394} "
+         "(2 層 clamp-range drift 防止・Check 370 の range twin)"),
         blocking=True,
     )
