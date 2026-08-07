@@ -837,4 +837,11 @@ E2E_MUTATIONS = [
         "replace": "relatedProjectIds: (Array.isArray(raw.relatedProjectIds) ? raw.relatedProjectIds : []).filter(Boolean).slice(0, 20),",
         "test": "Imported numeric relatedProjectIds resolve to string ids",
     },
+    {
+        "name": "behavior: pomodoro reload auto-resume (#121 frozen-timer guard) の喪失 — pomodoro-page.js の `if (isActive && !pomodoroTimer) { startTimer(); }` 条件を `false && ...` で無効化 → reload 後に isActive=true (endAtMs>now を normalize が保持) でも interval が再起動されず、「一時停止ボタン表示だが countdown が frozen で complete() が永遠に発火しない」stuck 状態が復活 (pomodoroTimer は factory 変数ゆえ reload で null に戻り start() ボタン経由でしか起動されなかった元バグ)。既存 frozen-timer-guard test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": "if (isActive && !pomodoroTimer) {",
+        "replace": "if (false && isActive && !pomodoroTimer) {",
+        "test": "resumes ticking after a reload mid-run",
+    },
 ]
