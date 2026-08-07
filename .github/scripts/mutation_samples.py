@@ -239,6 +239,12 @@ _MUTATIONS_TAIL = [
         "find": "outline: 2px solid var(--color-primary);",
         "replace": "outline: none;",
     },
+    {
+        "name": "Check 396 (route.name ⟹ PAGE_META entry): js/page-meta.js から 'contact' の PAGE_META エントリを除去 → router.js が emit する route.name 'contact' が PAGE_META に不在になり、meta-management.js applyMeta が早期 return して contact ルートの <title>/SEO meta/route announcer (a11y 2.4.2) が silent 欠落する。新ルート追加時の PAGE_META 登録漏れ class を BLOCKING で捕捉する Check 396 の非 vacuity 検証 (page-meta.js からのエントリ除去は Check 377=main.js case を trip せず 396 単独で捕捉する。checks_wiring.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
+        "file": ROOT / "js" / "page-meta.js",
+        "find": "    contact: { title: 'Contact', desc: 'お問い合わせ。メール・GitHub・LinkedIn。' },",
+        "replace": "    /* contact removed */",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。
