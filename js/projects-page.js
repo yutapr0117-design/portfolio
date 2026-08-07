@@ -156,7 +156,12 @@ export function createProjectsPage({ h, createIcon, Router, State, tokenize, cle
                     )
                 ),
                 h('div', { class: 'grid grid-cols-2 gap-4' },
-                    h('div', { class: 'relative' },
+                    // [A11Y] role='search' で検索入力を landmark 化する (ARIA APG search landmark)。
+                    //   SR ユーザーが landmark ナビゲーションで検索領域へ直接ジャンプできる (WCAG 1.3.1
+                    //   Info and Relationships)。視覚描画は不変 (role 属性のみ・render-neutral)。単一
+                    //   search ゆえ aria-label 不要 (内包する input の aria-label='プロジェクト検索' が
+                    //   landmark の意味を担う)。
+                    h('div', { class: 'relative', role: 'search' },
                         h('div', {
                             class: 'absolute left-3 top-1/2 transform -translate-y-1/2 color-muted'
                         }, createIcon('search', 18)),

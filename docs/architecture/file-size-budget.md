@@ -129,7 +129,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 708000 -->
+<!-- PERF-BUDGET-DATA 709000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -169,7 +169,11 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (settings ↑↓ で default project 同士を並べ替えても reload の normalize round-trip で元の定義順へ
      silent に戻る data-fidelity バグ・incoming 順を defaults 元順より優先する最小 fix) の実装コード +
      load-bearing な WHY コメントで実測が 707,853 bytes に到達。genuine な user-visible bug fix ゆえ
-     実態 + 約 147 bytes の headroom へラチェット。-->
+     実態 + 約 147 bytes の headroom へラチェット。
+     708,000 → 709,000 (2026-08-08)。ProjectsPage の検索入力を role='search' で ARIA search landmark
+     化 (SR ユーザーが landmark ナビで検索領域へ直接ジャンプ可能・WCAG 1.3.1・ARIA APG) の role 属性 +
+     WHY コメントで実測が 708,412 bytes に到達。genuine な accessibility 機能成長 (render-neutral) ゆえ
+     実態 + 約 588 bytes の headroom へラチェット。-->
 
 <!-- JS-LEAF-CEILING 1000 -->
 <!-- shipped JS *ロジック* leaf module (`js/*.js`) の行数ハード上限 (Check 363・BLOCKING)。

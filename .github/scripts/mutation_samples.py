@@ -899,4 +899,11 @@ E2E_MUTATIONS = [
         "replace": "if (false && data.projectPrefs && typeof data.projectPrefs === 'object' && Array.isArray(data.projectPrefs.hiddenIds)) {",
         "test": "Hidden project stays hidden on the public list across reload",
     },
+    {
+        "name": "a11y: ProjectsPage の検索 landmark (role='search') の喪失 — projects-page.js の検索 wrapper から `role: 'search'` を外す → 検索入力が ARIA search landmark でなくなり、SR ユーザーが landmark ナビゲーションで検索領域へジャンプできなくなる (WCAG 1.3.1・ARIA APG search landmark の退行)。新設 search-landmark test に対応する mutation で safety-net を institutionalize する非 vacuity 検証",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "h('div', { class: 'relative', role: 'search' },",
+        "replace": "h('div', { class: 'relative' },",
+        "test": "exposed as an ARIA search landmark",
+    },
 ]
