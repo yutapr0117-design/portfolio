@@ -768,4 +768,11 @@ E2E_MUTATIONS = [
         "replace": "return titleMatch || idMatch || contentMatch || situationMatch || questionMatch;",
         "test": "matches stakeholder quote text",
     },
+    {
+        "name": "behavior: cross-tab storage 取り込みの schema guard (#295/#93) の喪失 — state.js storage リスナーの `if (incoming.schemaVersion !== SCHEMA_VERSION) return` を除去 → デプロイ跨ぎ (別バージョン) の異 schema / 欠損 store が別タブから来ると採用見送りされず validateAndNormalize を通って現タブの正常 state を上書き → own task 消失 (欠損時は FatalPage crash もありうる #93 class)。既存 foreign-schema-ignore test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "state.js",
+        "find": "if (incoming.schemaVersion !== CONSTANTS.SCHEMA_VERSION) {return;}",
+        "replace": "/* cross-tab schema guard removed (#295) */",
+        "test": "foreign-schema/malformed store",
+    },
 ]
