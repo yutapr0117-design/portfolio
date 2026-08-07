@@ -459,18 +459,27 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
             .filter(p => p && typeof p === 'object')
             .map((p, idx) => normalizeProject(p, idx));
 
-        const incomingById = new Map(normalizedIncoming.map(p => [p.id, p]));
+        // [FIX] 並べ替え永続化: 従来は `normalizedDefaults.map(...)` で defaults を「元の定義順」で
+        // 再構築し incoming(=保存済み) の順序を無視していた。このため user 追加 project の並べ替えは
+        // incoming 順で append され保持される一方、settings の ↑↓ で default project 同士を並べ替えても
+        // reload の normalize round-trip で元の定義順へ silent に戻る data-fidelity バグがあった
+        // (画面表示順 = state.projects 順ゆえユーザーの並べ替え操作が失われる)。incoming 順を優先し、
+        // incoming に無い default だけを末尾へ補完することで、default/user を問わず並べ替えを保持する。
+        const defaultsById = new Map(normalizedDefaults.map(d => [d.id, d]));
 
-        const merged = normalizedDefaults.map(d => {
-            const inc = incomingById.get(d.id);
-            return inc ? ({ ...d, ...inc, id: d.id }) : d;
-        });
-
-        const mergedIds = new Set(merged.map(p => p.id));
+        const merged = [];
+        const mergedIds = new Set();
+        // 1. incoming(保存済み)順を保持 — default field は id で backfill し incoming の値を優先。
         for (const p of normalizedIncoming) {
-            if (!mergedIds.has(p.id)) {
-                merged.push(p);
-                mergedIds.add(p.id);
+            const d = defaultsById.get(p.id);
+            merged.push(d ? ({ ...d, ...p, id: d.id }) : p);
+            mergedIds.add(p.id);
+        }
+        // 2. incoming に存在しない default (初回ロード / 新規 baseline) を定義順で末尾補完 (lossless)。
+        for (const d of normalizedDefaults) {
+            if (!mergedIds.has(d.id)) {
+                merged.push(d);
+                mergedIds.add(d.id);
             }
         }
 

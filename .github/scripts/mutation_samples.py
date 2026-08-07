@@ -851,4 +851,11 @@ E2E_MUTATIONS = [
         "replace": "if (true || idx + dir < 0 || idx + dir >= s.projects.length) {return;}",
         "test": "Projects can be reordered with the up/down controls",
     },
+    {
+        "name": "behavior: default プロジェクト並べ替えの reload 永続 (mergeProjectsWithDefaults 順序保持) の喪失 — store.js の incoming 順優先 merge を default 定義順優先へ戻す (`for (const p of normalizedIncoming)` ループを `for (const d of normalizedDefaults)` へ) → settings ↑↓ で default project 同士を並べ替えても reload の normalize round-trip で元の定義順へ silent に戻る data-fidelity バグが復活 (user 追加 project は incoming 順 append で保持されるため default だけが失われる)。回帰 e2e に対応する mutation で safety-net を institutionalize する非 vacuity 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "        // 1. incoming(保存済み)順を保持 — default field は id で backfill し incoming の値を優先。\n        for (const p of normalizedIncoming) {\n            const d = defaultsById.get(p.id);\n            merged.push(d ? ({ ...d, ...p, id: d.id }) : p);\n            mergedIds.add(p.id);\n        }",
+        "replace": "        // MUTATION: revert to default-definition order (drops reorder persistence).\n        for (const d of normalizedDefaults) {\n            const p = normalizedIncoming.find(x => x.id === d.id);\n            merged.push(p ? ({ ...d, ...p, id: d.id }) : d);\n            mergedIds.add(d.id);\n        }",
+        "test": "Default project reorder persists across reload",
+    },
 ]
