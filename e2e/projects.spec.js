@@ -458,3 +458,20 @@ test('Hidden project stays hidden on the public list across reload (projectPrefs
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `hidden project persist caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: プロジェクト検索が search landmark (role='search') で公開される (ARIA APG) =====
+// 検索入力を role='search' の landmark で包み、SR ユーザーが landmark ナビゲーションで検索領域へ
+// 直接ジャンプできる (WCAG 1.3.1)。landmark が検索 input を内包することを検証する。
+test('Projects search is exposed as an ARIA search landmark containing the query input', async ({ page }) => {
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+
+  const searchLandmark = page.getByRole('search');
+  await expect(searchLandmark).toBeVisible();
+  // landmark が検索 input (aria-label='プロジェクト検索') を内包する
+  await expect(searchLandmark.getByRole('searchbox', { name: 'プロジェクト検索' })).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `search landmark caused a fatal: ${fatal}`).toBeNull();
+});
