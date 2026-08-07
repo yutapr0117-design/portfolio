@@ -705,4 +705,11 @@ E2E_MUTATIONS = [
         "replace": "return s;",
         "test": "URL-sanitized",
     },
+    {
+        "name": "behavior: pomodoro getDuration の live-state 参照 (#134) の喪失 — pomodoro-page.js getDuration の `State.get()...settings` を render 毎キャプチャの stale closure `pomo.settings` へ戻す → 稼働中に集中時間を変えても complete() の remainingSec リセットが旧設定値を使う (getRemaining #121 と同根の stale-closure バグ。既存 mid-run test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証)",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": "const settings = State.get().appsData.pomodoro.settings;",
+        "replace": "const settings = pomo.settings;",
+        "test": "completion uses the latest focus-duration",
+    },
 ]
