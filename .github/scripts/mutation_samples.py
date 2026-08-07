@@ -719,4 +719,11 @@ E2E_MUTATIONS = [
         "replace": "if (e.key === 'Enter') {",
         "test": "AI input ignores Enter during IME composition",
     },
+    {
+        "name": "behavior: TODO 入力の IME composition ガード (todoComposing flag) の喪失 — apps.js todo の Enter ハンドラから `&& !todoComposing` を外す → 日本語 IME 変換確定 Enter が未確定テキストを誤 submit する。task(e.isComposing)/ai(e.isComposing) とは異なり todo は手動 compositionstart/end フラグ機構ゆえ独立 regress しうる。既存 test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "apps.js",
+        "find": "if (e.key === 'Enter' && !todoComposing) {",
+        "replace": "if (e.key === 'Enter') {",
+        "test": "Todo input ignores Enter during IME composition",
+    },
 ]
