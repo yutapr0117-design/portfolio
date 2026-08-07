@@ -45,6 +45,7 @@ Status        : Plan D「物理移動なし、README で grouping を提供」�
 - `decision-v80-phase3-color-contrast-defer.md`
 - `decision-v80-phase4-bloat-reduction-1000-line-threshold.md`
 - `decision-v80-phase4-reflow-1410-defer.md`
+- `decision-v80-phase4-macos-tcc-downloads-self-drive-halt.md`
 
 ---
 
