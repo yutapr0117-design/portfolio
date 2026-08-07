@@ -823,4 +823,11 @@ E2E_MUTATIONS = [
         "replace": "prompt: String(h.prompt),",
         "test": "AI history strings are length-bounded on normalize ingestion",
     },
+    {
+        "name": "behavior: drawer overlay(背景)クリック close の喪失 — main.js init の `#overlay` click→closeDrawer 直接リスナー配線を no-op function に差し替え → モバイルドロワーを開いたまま背景 overlay をクリックしても閉じない (モーダル標準の backdrop dismiss が壊れる)。Escape/nav-link close は別経路ゆえ独立に regress しうる。既存 overlay-backdrop-click test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "main.js",
+        "find": "document.getElementById('overlay')?.addEventListener('click', closeDrawer);",
+        "replace": "document.getElementById('overlay')?.addEventListener('click', function () {});",
+        "test": "Mobile drawer closes on overlay (backdrop) click",
+    },
 ]
