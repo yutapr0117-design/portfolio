@@ -158,6 +158,43 @@ test('Pomodoro completes at zero: shows done toast and resets to full duration (
 });
 
 
+// ===== 7.2: 完了時に history エントリが session type + duration 付きで記録される =====
+// complete() は appsData.pomodoro.history に { type, durationMinutes, timestamp, linkedTaskId } を push
+// する。既存「completes at zero」test は toast/ボタン/表示リセットは見るが history 記録は未検証だった
+// (history は DOM に描画されないため見落とされていた behavior)。State.update → scheduleSave(debounce)
+// 後の localStorage を検証する (これは WRITE の永続確認であり、load-resync を期待する reload 検査とは
+// 異なる = vacuous ではない)。完了 session の type='work' と durationMinutes=1 が記録されることを pin する。
+test('Pomodoro completion records a history entry with the session type and duration', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+
+  const workInput = page.getByLabel('集中時間（分）');
+  await workInput.fill('1');
+  await workInput.blur();
+  const timer = page.locator('.font-mono.text-stat').first();
+  await expect(timer).toHaveText('01:00');
+
+  await page.getByRole('button', { name: '開始' }).click();
+  await page.clock.fastForward(61000); // 0 到達 → complete() が history へ push
+  await expect(page.locator('#toast-container').getByText('セッション完了！')).toBeVisible();
+
+  // scheduleSave の debounce (DEBOUNCE_DELAY=150ms) を flush してから localStorage の history を検証
+  await page.clock.fastForward(2000);
+  await expect.poll(async () => page.evaluate(() => {
+    try {
+      const s = JSON.parse(localStorage.getItem('portfolio_enhanced_v45') || '{}');
+      const h = (s.appsData && s.appsData.pomodoro && s.appsData.pomodoro.history) || [];
+      const last = h[h.length - 1];
+      return last ? `${last.type}:${last.durationMinutes}` : 'none';
+    } catch { return 'error'; }
+  })).toBe('work:1');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `pomodoro history record caused a fatal: ${fatal}`).toBeNull();
+});
+
+
 // ===== 7.2: 稼働中に集中時間を変更 → 完了時のリセットが新しい設定値を使う (stale-closure 修正) =====
 // getDuration も getRemaining と同じく render 毎キャプチャの closure `pomo` を読んでいたため、
 // タイマー稼働中 (interval は start() 時の closure に固定) に集中時間を変更すると、完了時の
