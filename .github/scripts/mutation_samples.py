@@ -885,4 +885,11 @@ E2E_MUTATIONS = [
         "replace": "true",
         "test": "priority filter narrows the board by priority",
     },
+    {
+        "name": "behavior: pomodoro 完了時の history エントリの session type 記録の喪失 — pomodoro-page.js complete() の history push で `type: s.appsData.pomodoro.runtime.mode` を固定リテラル `type: 'break'` に変え、記録される session type が実 mode を反映しなくなる → 完了した work セッションが 'break' として履歴に残り、集計/表示が誤る。新設 completion-history-record test に対応する mutation で safety-net を institutionalize する非 vacuity 検証",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": "type: s.appsData.pomodoro.runtime.mode,",
+        "replace": "type: 'break',",
+        "test": "records a history entry with the session type and duration",
+    },
 ]
