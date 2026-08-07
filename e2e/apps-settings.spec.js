@@ -924,3 +924,36 @@ test('Settings brand selector persists the chosen brand across reload (UI write 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `brand round-trip caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: snapshot の 復元/削除 ボタンが未保存時 disabled (disabled affordance) =====
+// 復元/削除ボタンは `disabled: !snap` で snapshot 未保存時は無効。restoreSnapshot/clearSnapshot は
+// snap 不在時 no-op だが、disabled 属性はユーザへの「まだ復元/削除するものが無い」affordance で、
+// 外れると空 snapshot に対し操作できるように見える UX 退行になる。既存の snapshot テストは save/
+// restore/clear の flow と「未保存です」表示は見るが、この disabled 状態は未カバーだった。未保存→
+// 両ボタン disabled、保存→有効、削除→再び disabled の遷移を検証する。
+test('Snapshot restore/clear buttons are disabled until a snapshot exists (affordance)', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.getByText('スナップショットは未保存です。')).toBeVisible();
+
+  const restoreBtn = page.getByRole('button', { name: '復元', exact: true });
+  const clearBtn = page.locator('button.btn-ghost', { hasText: '削除' });
+  // 未保存: 両ボタン disabled。
+  await expect(restoreBtn).toBeDisabled();
+  await expect(clearBtn).toBeDisabled();
+
+  // 保存 → 両ボタン有効。
+  await page.getByRole('button', { name: '保存', exact: true }).click();
+  await expect(page.locator('#toast-container').getByText('スナップショットを保存しました')).toBeVisible();
+  await expect(restoreBtn).toBeEnabled();
+  await expect(clearBtn).toBeEnabled();
+
+  // 削除 → 未保存へ戻り両ボタン再び disabled。
+  await clearBtn.click();
+  await expect(page.getByText('スナップショットは未保存です。')).toBeVisible();
+  await expect(restoreBtn).toBeDisabled();
+  await expect(clearBtn).toBeDisabled();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `snapshot affordance caused a fatal: ${fatal}`).toBeNull();
+});
