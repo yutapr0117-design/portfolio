@@ -684,4 +684,11 @@ E2E_MUTATIONS = [
         "replace": ": 'app-task';",
         "test": "Unknown app subroute",
     },
+    {
+        "name": "behavior: profile email の ingestion 文字列長 bound の喪失 — store.js normalize の email `.slice(0, 254)` を除去 → 巨大 email が truncate されず href/表示に載り localStorage/DOM を bloat させる (AI history 文字列 bound #230 / MAX_TASKS 件数 bound #801 と同じ ingestion bloat-guard class・profile email 面の非 vacuity 検証)",
+        "file": ROOT / "js" / "store.js",
+        "find": "email: String(data.profile.email || store.profile.email).slice(0, 254)",
+        "replace": "email: String(data.profile.email || store.profile.email)",
+        "test": "email is length-bounded",
+    },
 ]
