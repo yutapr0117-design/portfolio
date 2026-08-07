@@ -892,4 +892,11 @@ E2E_MUTATIONS = [
         "replace": "type: 'break',",
         "test": "records a history entry with the session type and duration",
     },
+    {
+        "name": "behavior: projectPrefs.hiddenIds の normalize round-trip 保持の喪失 — store.js validateAndNormalize の projectPrefs 読み戻しガード `if (data.projectPrefs && ... Array.isArray(data.projectPrefs.hiddenIds))` を `if (false && ...)` で無効化 → reload の normalize で hiddenIds が drop され、非表示にしたプロジェクトが公開一覧へ silent に復活する (#294/#568/#684/#871 の persist-drift class の projectPrefs 版)。新設 hidden-persist test に対応する mutation で safety-net を institutionalize する非 vacuity 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "if (data.projectPrefs && typeof data.projectPrefs === 'object' && Array.isArray(data.projectPrefs.hiddenIds)) {",
+        "replace": "if (false && data.projectPrefs && typeof data.projectPrefs === 'object' && Array.isArray(data.projectPrefs.hiddenIds)) {",
+        "test": "Hidden project stays hidden on the public list across reload",
+    },
 ]
