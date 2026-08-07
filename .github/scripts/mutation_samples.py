@@ -830,4 +830,11 @@ E2E_MUTATIONS = [
         "replace": "document.getElementById('overlay')?.addEventListener('click', function () {});",
         "test": "Mobile drawer closes on overlay (backdrop) click",
     },
+    {
+        "name": "behavior: relatedProjectIds 要素の String 正規化 (#782 id-coercion) の喪失 — store.js normalizeProject の `relatedProjectIds: (...).filter(Boolean).map(String).slice(0, 20)` から `.map(String)` を外す → import データが数値 id の relatedProjectIds を持つと、normalizeProject が id 自体は `String(raw.id)` で文字列化する一方 relatedProjectIds 要素は数値のまま残り、ProjectDetailPage の `relatedProjectIds.includes(p.id)` (p.id=文字列) と strict 不一致 → 関連プロジェクトリンクが silent に消える (#93/#295 の外部 ingestion 全経路正規化 class の relatedProjectIds 版)。既存 numeric-relatedProjectIds test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "relatedProjectIds: (Array.isArray(raw.relatedProjectIds) ? raw.relatedProjectIds : []).filter(Boolean).map(String).slice(0, 20),",
+        "replace": "relatedProjectIds: (Array.isArray(raw.relatedProjectIds) ? raw.relatedProjectIds : []).filter(Boolean).slice(0, 20),",
+        "test": "Imported numeric relatedProjectIds resolve to string ids",
+    },
 ]
