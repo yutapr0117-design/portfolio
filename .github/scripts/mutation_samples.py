@@ -761,4 +761,11 @@ E2E_MUTATIONS = [
         "replace": "/* preventDefault removed (#779 skip-link native-nav regression) */",
         "test": "Skip link moves focus to #main-content",
     },
+    {
+        "name": "behavior: quiz architecture 検索の stakeholder 被覆 (#285 visible-but-unsearchable) の喪失 — quiz-renderer.js _filterBy の return から `|| stakeholderMatch` を除去 → 画面に描画される stakeholder の name/quote (例 CTO の GAFA 発言) が検索対象外に戻り「見えるのに 0 件」drift が復活。既存 stakeholder-search test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "return titleMatch || idMatch || contentMatch || situationMatch || questionMatch || stakeholderMatch;",
+        "replace": "return titleMatch || idMatch || contentMatch || situationMatch || questionMatch;",
+        "test": "matches stakeholder quote text",
+    },
 ]
