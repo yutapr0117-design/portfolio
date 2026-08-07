@@ -733,4 +733,11 @@ E2E_MUTATIONS = [
         "replace": "State.update(s => { s.appsData.quizSearch = val; });",
         "test": "Quiz search input retains focus",
     },
+    {
+        "name": "behavior: projects 検索 live-input の focus-loss guard (#258) の喪失 — projects-page.js の oninput を部分更新 renderGrid() から全再描画 window.render() へ戻す → #content が作り直され検索 input が破棄されて 1 文字ごとに focus を失い検索使用不能になる実バグ。既存 focus-regression test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証 (quiz #258 と同 class・別 surface)",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "renderGrid(); // 部分更新でフォーカスを死守",
+        "replace": "window.render();",
+        "test": "retains focus during filtering",
+    },
 ]
