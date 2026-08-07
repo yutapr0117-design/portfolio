@@ -23,6 +23,15 @@ module.exports = defineConfig({
     baseURL: 'http://localhost:8080',
     trace: 'on-first-retry',
     screenshot: 'on',
+    // WHY env-gated serviceWorkers: mutation-probe (MUTATION_PROBE=1) 実行時のみ SW を block する。
+    // 通常 e2e/CI では SW を許可し実アプリ (SWR キャッシュ/オフライン層込み) を検証する。だが
+    // mutation-probe は「JS ロジックを 1 箇所壊して e2e が RED になるか」で安全網の非 vacuity を
+    // 検証するツールで、sw.js の SWR キャッシュが壊す前の旧 JS を配信すると mutated コードが
+    // 反映されず mutation を見逃す (net が「捕捉した/しない」を誤報告する) false-result を生む。
+    // probe 実行に限り SW を block し、毎ロード必ず network から mutated JS を取得させて結果を
+    // 決定的にする。E2E_MUTATIONS の全テストはアプリ*ロジック*を検証し SW 挙動には非依存ゆえ
+    // block しても clean baseline は緑のまま (SW はキャッシュ/オフライン層で機能性の前提でない)。
+    serviceWorkers: process.env.MUTATION_PROBE ? 'block' : undefined,
   },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
   webServer: {

@@ -30,6 +30,7 @@ if sys.version_info < (3, 10):
     print("ERROR: mutation_probe.py requires Python 3.10+ (got %d.%d)" % sys.version_info[:2])
     sys.exit(1)
 
+import os
 import re
 import subprocess
 from pathlib import Path
@@ -58,11 +59,16 @@ def run_e2e_test(pattern: str) -> int:
     """Run a single Playwright behavior test by -g pattern; return exit code (0 = pass/green)."""
     # re.escape ensures test titles with regex metacharacters (e.g. '(?q=)', '+', '.')
     # are treated as literal strings in Playwright's --grep JavaScript regex engine.
+    # MUTATION_PROBE=1: playwright.config.cjs がこれを見て serviceWorkers:'block' を有効化する。
+    # sw.js の SWR キャッシュが「壊す前」の旧 JS を配信して mutated コードを masking し、mutation を
+    # 見逃す false-result を防ぐ (probe を決定的にする)。通常 e2e/CI はこの env を持たず SW 有効のまま。
+    probe_env = {**os.environ, "MUTATION_PROBE": "1"}
     r = subprocess.run(
         ["npx", "playwright", "test", "--config=playwright.config.cjs", "-g", re.escape(pattern)],
         cwd=str(ROOT),
         capture_output=True,
         text=True,
+        env=probe_env,
     )
     return r.returncode
 
