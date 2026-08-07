@@ -747,4 +747,11 @@ E2E_MUTATIONS = [
         "replace": "if (lastFocused && lastFocused.focus) { try { /* focus removed */ } catch (e) { /* noop */ } }",
         "test": "restores focus to the opener on close",
     },
+    {
+        "name": "behavior: ProjectsPage の無効 ?cat= 正規化 (control↔filter desync guard) の喪失 — projects-page.js の `cat = 'All'` 再代入を除去 → 無効 URL query cat が正規化されず、<select> は option 不在で 'All' 表示なのに filter は無効値で 0 件 = 「All なのに空」desync が復活 (#93/#295 と同族の外部入力 validate discipline)。既存 desync-guard test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "if (cat !== 'All' && !categories.includes(cat)) { cat = 'All'; }",
+        "replace": "if (cat !== 'All' && !categories.includes(cat)) { /* normalize removed */ }",
+        "test": "normalizes an invalid ?cat= to All",
+    },
 ]
