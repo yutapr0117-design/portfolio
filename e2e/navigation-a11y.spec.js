@@ -277,4 +277,37 @@ test.describe('sidebar Lab nav-group collapse toggle (WCAG 4.1.2 + collapse + pe
     await expect(body).toHaveAttribute('data-collapsed', 'true');
     expect(await page.evaluate(() => localStorage.getItem('portfolio_nav_lab_open_v69'))).toBe('false');
   });
+
+  // 上のテストは localStorage への WRITE と同一セッション内のトグルを検証するが、reload を跨いだ
+  // RESTORE 経路 (components.js isLabOpen() が localStorage を読み戻し labOpen として初期描画へ反映)
+  // は未カバーだった。永続の read-back が壊れる (キー相違 / === 'true' 比較崩れ / labOpen 未反映) と
+  // reload 後に展開状態が失われるのに、write のみ見る既存テストは素通りする (#294/#568/#684 と同じ
+  // field-persist reload round-trip class)。home(#/・Lab は既定 collapsed)で展開→reload→展開維持、
+  // collapse→reload→collapse 維持、の両方向 restore を検証する。
+  test('Lab nav-group collapse state restores from localStorage across reload (persist round-trip)', async ({ page }) => {
+    await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+    const toggle = page.locator('.nav-group-toggle').first();
+    const body = page.locator('#nav-lab-body');
+    // 既定は collapsed。
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+
+    // 展開 → localStorage='true' → reload → 展開状態が復元される。
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    expect(await page.evaluate(() => localStorage.getItem('portfolio_nav_lab_open_v69'))).toBe('true');
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await expect(page.locator('.nav-group-toggle').first()).toHaveAttribute('aria-expanded', 'true');
+    await expect(page.locator('#nav-lab-body')).toHaveAttribute('data-collapsed', 'false');
+
+    // 折りたたみ → localStorage='false' → reload → collapsed が復元される。
+    await page.locator('.nav-group-toggle').first().click();
+    await expect(page.locator('.nav-group-toggle').first()).toHaveAttribute('aria-expanded', 'false');
+    expect(await page.evaluate(() => localStorage.getItem('portfolio_nav_lab_open_v69'))).toBe('false');
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await expect(page.locator('.nav-group-toggle').first()).toHaveAttribute('aria-expanded', 'false');
+    await expect(page.locator('#nav-lab-body')).toHaveAttribute('data-collapsed', 'true');
+
+    const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+    expect(fatal, `nav-lab restore caused a fatal: ${fatal}`).toBeNull();
+  });
 });
