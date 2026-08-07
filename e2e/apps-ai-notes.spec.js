@@ -369,3 +369,36 @@ test('AI response completion announces to the assertive aria-live region (WCAG 4
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `ai announce caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: Markdown inline renderer が 1 行内の複数マーカー + 間の平文を逐次処理する =====
+// _renderMarkdownInline は while ループで **bold** / `code` を 1 行内で逐次トークン化し、マーカー間
+// と末尾の平文も子ノードへ積む。既存テストは 1 bold + 1 code のみで、同一行に複数マーカーが並ぶ
+// ケース (ループの 2 周目以降 + 間/末尾の平文 slice) は未カバーだった。ループが if 化する等で 2 個目
+// 以降を落とす / 間の平文を欠落させる regression を捕捉する。1 行に bold×2 + code×2 + 前後/間/末尾の
+// 平文を入れ、全マーカーが個別要素で描画され平文セグメントも保持されることを検証する。
+test('Markdown inline renderer handles multiple bold/code markers with interleaved text on one line', async ({ page }) => {
+  await page.goto('/#/apps/notes', { waitUntil: 'domcontentloaded' });
+  const ta = page.locator('#notes-input');
+  await expect(ta).toBeVisible();
+  await ta.fill('先頭 **太字A** 中間 **太字B** つなぎ `コードX` それから `コードY` 末尾');
+
+  const preview = page.locator('.md-preview');
+  // bold×2 が個別 <strong> で描画される (ループ 2 周目も処理される)。
+  await expect(preview.locator('strong', { hasText: '太字A' })).toBeVisible();
+  await expect(preview.locator('strong', { hasText: '太字B' })).toBeVisible();
+  await expect(preview.locator('strong')).toHaveCount(2);
+  // code×2 が個別 <code.md-code> で描画される。
+  await expect(preview.locator('code.md-code', { hasText: 'コードX' })).toBeVisible();
+  await expect(preview.locator('code.md-code', { hasText: 'コードY' })).toBeVisible();
+  await expect(preview.locator('code.md-code')).toHaveCount(2);
+  // マーカー間 + 末尾の平文セグメントが欠落しない (段落テキスト全体に含まれる)。
+  const para = preview.locator('p').filter({ hasText: '先頭' });
+  await expect(para).toContainText('中間');
+  await expect(para).toContainText('つなぎ');
+  await expect(para).toContainText('それから');
+  await expect(para).toContainText('末尾');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `markdown multi-marker caused a fatal: ${fatal}`).toBeNull();
+});
