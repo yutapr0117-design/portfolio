@@ -858,4 +858,11 @@ E2E_MUTATIONS = [
         "replace": "        // MUTATION: revert to default-definition order (drops reorder persistence).\n        for (const d of normalizedDefaults) {\n            const p = normalizedIncoming.find(x => x.id === d.id);\n            merged.push(p ? ({ ...d, ...p, id: d.id }) : d);\n            mergedIds.add(d.id);\n        }",
         "test": "Default project reorder persists across reload",
     },
+    {
+        "name": "behavior: TODO の「完了をクリア」ボタンの affordance ガード (disabled until a todo is completed) の喪失 — apps.js TodoPage の `disabled: !todos.some(t => t.completed)` を `disabled: false` にし常時活性化 → 完了 todo が 1 件も無い状態でもボタンが押せてしまい、空 filter 操作 (実質 no-op だが誤操作導線) を許す affordance 契約の喪失。既存 clear-completed-disabled test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "apps.js",
+        "find": "disabled: !todos.some(t => t.completed),",
+        "replace": "disabled: false,",
+        "test": "Todo clear-completed button is disabled until a todo is completed",
+    },
 ]
