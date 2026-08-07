@@ -911,3 +911,32 @@ test('Task and Todo ignore empty/whitespace-only input (no item created)', async
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `task/todo empty guard caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.1: import ingestion が MAX_PROJECTS 件数上限で切り詰められる (bloat/DoS ガード) =====
+// store.js mergeProjectsWithDefaults は projects の件数を MAX_PROJECTS (=1000) で 2 層 cap する:
+// (1) normalizedIncoming を slice(0, MAX_PROJECTS)、(2) 最終 merged を slice(0, MAX_PROJECTS)。
+// MAX_TASKS/MAX_TODOS は単層 slice で test 済だが MAX_PROJECTS は未被覆だった。1050 件 (defaults 込みで
+// cap 超過) を seed して load し、先頭は残り 1000 件超の高 index (PROJ-CAP-1049) は drop されることを
+// 検証する。NOTE: 2 層 cap は冗長防御ゆえ片層 slice の除去は他層が self-heal し observable が変わらない
+// (mutation SURVIVED)。よって clean な単一 mutation を E2E_MUTATIONS へ登録できない (両 slice 除去で
+// 初めて 1049 が出現し RED = total cap failure に対する非 vacuity は手動実測済)。
+test('Import truncates projects to MAX_PROJECTS (bloat/DoS ingestion guard)', async ({ page }) => {
+  await page.addInitScript(() => {
+    const projects = [];
+    for (let i = 0; i < 1050; i++) {
+      const n = String(i).padStart(4, '0');
+      projects.push({ id: 'pcap' + n, slug: 'pcap-' + n, name: 'PROJ-CAP-' + n, category: 'Cap', summary: 's', tech: [], tags: [], demoRoute: null });
+    }
+    localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({ schemaVersion: 12, type: 'full-store', projects }));
+  });
+
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+
+  await expect(page.getByText('PROJ-CAP-0000', { exact: true })).toBeVisible();
+  await expect(page.getByText('PROJ-CAP-1049', { exact: true })).toHaveCount(0);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `MAX_PROJECTS truncation caused a fatal: ${fatal}`).toBeNull();
+});
