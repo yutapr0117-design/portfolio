@@ -614,4 +614,11 @@ E2E_MUTATIONS = [
         "replace": "if ((m = token.exec(rest)) !== null) {",
         "test": "multiple bold/code markers with interleaved text",
     },
+    {
+        "name": "behavior: AI analyzeInput の troubleshoot 優先分岐の喪失 — ai-page.js の troubleshoot チェック行を除去 → 「エラー」+「設計」を含む入力が design へ倒れ first-match 優先順位 (troubleshoot>design) が壊れる (複数キーワード一致時の優先順位を pin するテストの非 vacuity 検証。単独キーワードテストは順序入替を素通しする穴を埋める)",
+        "file": ROOT / "js" / "ai-page.js",
+        "find": "            if (p.includes('エラー') || p.includes('バグ') || p.includes('失敗')) {return 'troubleshoot';}\n",
+        "replace": "",
+        "test": "first-match priority order",
+    },
 ]
