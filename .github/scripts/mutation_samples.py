@@ -782,4 +782,11 @@ E2E_MUTATIONS = [
         "replace": "const sectionMatch = !query;",
         "test": "section-header (chapter title)",
     },
+    {
+        "name": "behavior: drawer の desktop リサイズ stuck-state guard の喪失 — mobile-drawer.js syncMobileDrawer の !isMobile 分岐で開放中 drawer を閉じる条件を無効化 → drawer 開放中に mobile→desktop へリサイズすると inline display:block が media query に勝って drawer/overlay が残り、__setAppInert(true)+__lockBodyScroll(true) のまま app が inert・scroll lock された stuck 状態 (topbar=display:none で menuBtn も隠れ overlay/Escape でしか脱出不能な broken UX) が復活。既存 stuck-state-guard test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
+        "file": ROOT / "js" / "mobile-drawer.js",
+        "find": "if (drawer && drawer.getAttribute('aria-hidden') === 'false') {",
+        "replace": "if (false && drawer && drawer.getAttribute('aria-hidden') === 'false') {",
+        "test": "resize to desktop",
+    },
 ]
