@@ -726,4 +726,11 @@ E2E_MUTATIONS = [
         "replace": "if (e.key === 'Enter') {",
         "test": "Todo input ignores Enter during IME composition",
     },
+    {
+        "name": "behavior: quiz 検索 live-input の focus-loss guard (#258) の喪失 — quiz-renderer.js の oninput を updateSilently から State.update へ戻す → 全再描画で input が破棄され 1 文字ごとに focus を失い検索が使えなくなる実バグ。既存 focus-regression test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証 (Check 130 の静的封じと behavior 面の二層)",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "State.updateSilently(s => { s.appsData.quizSearch = val; });",
+        "replace": "State.update(s => { s.appsData.quizSearch = val; });",
+        "test": "Quiz search input retains focus",
+    },
 ]
