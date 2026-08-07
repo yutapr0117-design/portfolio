@@ -869,3 +869,45 @@ test('Task move forward button is disabled at the done boundary (symmetry with b
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `task done-boundary caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.1: task/todo の空/空白入力ガード (addTask/addTodo の trim ガード) =====
+// addTask は `if (!title.trim()) return`、addTodo は `if (!text.trim()) return` で空文字/空白のみの
+// Enter を握り潰す。settings のプロジェクト追加は空入力バリデーションを検証するが、task/todo の空入力
+// ガードは未カバーだった。ガードが外れると空/空白 Enter が空タイトルの項目を積み UI/localStorage を汚す。
+// 各アプリで空・空白 Enter が項目数を増やさないこと + 対照の非空入力は +1 することを検証する
+// (seed 項目があるため絶対数でなくベースラインからの増分で判定)。
+test('Task and Todo ignore empty/whitespace-only input (no item created)', async ({ page }) => {
+  // --- Task ---
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  const taskInput = page.locator('#task-input');
+  await expect(taskInput).toBeVisible();
+  const taskCards = page.locator('article.bg-surface');
+  const baseTasks = await taskCards.count();
+  await taskInput.fill(''); await taskInput.press('Enter');
+  await expect(taskCards).toHaveCount(baseTasks);
+  await taskInput.fill('   '); await taskInput.press('Enter');
+  await expect(taskCards).toHaveCount(baseTasks);
+  // 対照: 非空は +1 (ガードが Enter-submit 自体を殺していない)。
+  await taskInput.fill('TASK-EMPTY-GUARD-CTRL'); await taskInput.press('Enter');
+  await expect(page.getByText('TASK-EMPTY-GUARD-CTRL')).toBeVisible();
+  await expect(taskCards).toHaveCount(baseTasks + 1);
+
+  // --- Todo ---
+  await page.goto('/#/apps/todo', { waitUntil: 'domcontentloaded' });
+  const todoInput = page.locator('#todo-input');
+  await expect(todoInput).toBeVisible();
+  const todoItems = page.locator('section.flex.flex-col.gap-2 article.card');
+  const baseTodos = await todoItems.count();
+  await todoInput.fill(''); await todoInput.press('Enter');
+  await expect(todoItems).toHaveCount(baseTodos);
+  await todoInput.fill('   '); await todoInput.press('Enter');
+  await expect(todoItems).toHaveCount(baseTodos);
+  // 対照: 非空は +1。
+  await todoInput.fill('TODO-EMPTY-GUARD-CTRL'); await todoInput.press('Enter');
+  await expect(page.getByText('TODO-EMPTY-GUARD-CTRL')).toBeVisible();
+  await expect(todoItems).toHaveCount(baseTodos + 1);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `task/todo empty guard caused a fatal: ${fatal}`).toBeNull();
+});
