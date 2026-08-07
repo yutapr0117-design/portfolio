@@ -607,4 +607,11 @@ E2E_MUTATIONS = [
         "replace": "onchange: (e) => { window.render(); }",
         "test": "UI write round-trip",
     },
+    {
+        "name": "behavior: notes Markdown inline renderer の複数マーカー逐次処理の喪失 — apps.js _renderMarkdownInline の while ループを if 化し 1 個目のマーカーのみ処理 → 同一行の 2 個目以降の **bold**/`code` とマーカー間/末尾の平文が preview から欠落する (#832 後継の markdown edge coverage。既存テストは 1 bold + 1 code のみで複数マーカー行を未検証だった穴の非 vacuity 検証)",
+        "file": ROOT / "js" / "apps.js",
+        "find": "while ((m = token.exec(rest)) !== null) {",
+        "replace": "if ((m = token.exec(rest)) !== null) {",
+        "test": "multiple bold/code markers with interleaved text",
+    },
 ]
