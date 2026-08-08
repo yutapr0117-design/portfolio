@@ -18,7 +18,18 @@
 export function createHomePage({ h, Router, State, ContactCTA }) {
     function HomePage() {
         const state = State.get();
-        const featured = state.projects.find(p => p.demoRoute === 'task') || state.projects[0];
+        // [FIX] 非表示 (Settings → projectPrefs.hiddenIds) を全公開 listing 面へ適用する。従来
+        //   hiddenIds を見ていたのは ProjectsPage (公開一覧) と SettingsPage (管理 UI) だけで、
+        //   home の「注目のプロジェクト」は素の state.projects から選んでいた。default project は
+        //   削除ボタンが disabled (「デフォルトは非表示のみ」) ＝非表示が唯一の非公開手段なのに、
+        //   既定の featured である p01 (demoRoute='task') を非表示にしても **トップページ最上位の
+        //   注目枠に出続け**、詳細/デモへの導線まで残る (一覧からは消えているため owner は気づけない)。
+        //   統計の「プロジェクト」件数も一覧の件数と食い違うため visible ベースへ揃える。
+        const hiddenIds = new Set(((state.projectPrefs && state.projectPrefs.hiddenIds) || []).map(String));
+        const visibleProjects = state.projects.filter(p => !hiddenIds.has(String(p.id)));
+        // 全件非表示は起こりうる (default も非表示のみで隠す運用) ため null 許容にし、
+        // 参照側で fallback を描く (無条件 dereference は FatalPage crash になる)。
+        const featured = visibleProjects.find(p => p.demoRoute === 'task') || visibleProjects[0] || null;
 
         return h('div', { class: 'flex flex-col gap-6' },
             // ===== v68: Hero Copy — Business Value & Outcomes =====
@@ -251,13 +262,14 @@ export function createHomePage({ h, Router, State, ContactCTA }) {
                 h('article', { class: 'card' },
                     h('div', { class: 'card-body' },
                         h('h3', { class: 'h3 mb-3' }, '注目のプロジェクト'),
-                        h('div', { class: 'flex gap-2 mb-3' },
+                        featured ? h('div', { class: 'flex gap-2 mb-3' },
                             h('span', { class: 'badge badge-primary' }, featured.category),
                             featured.demoRoute ? h('span', { class: 'badge badge-success' }, 'デモあり') : null
-                        ),
-                        h('p', { class: 'text-muted mb-4' }, featured.name),
-                        h('p', { class: 'text-small text-muted' }, featured.summary),
-                        h('div', { class: 'flex gap-2 mt-4' },
+                        ) : null,
+                        featured ? h('p', { class: 'text-muted mb-4' }, featured.name) : null,
+                        h('p', { class: 'text-small text-muted' },
+                            featured ? featured.summary : '公開中のプロジェクトはありません。'),
+                        featured ? h('div', { class: 'flex gap-2 mt-4' },
                             h('button', {
                                 class: 'btn btn-ghost btn-sm',
                                 onclick: () => Router.navigate(`projects/${featured.slug}`)
@@ -266,7 +278,7 @@ export function createHomePage({ h, Router, State, ContactCTA }) {
                                 class: 'btn btn-secondary btn-sm',
                                 onclick: () => Router.navigate(`apps/${featured.demoRoute}`)
                             }, 'デモ起動') : null
-                        )
+                        ) : null
                     )
                 ),
 
@@ -290,7 +302,7 @@ export function createHomePage({ h, Router, State, ContactCTA }) {
             h('section', { class: 'grid grid-cols-3' },
                 h('div', { class: 'card' },
                     h('div', { class: 'card-body text-center' },
-                        h('div', { class: 'h2 color-primary' }, String(state.projects.length)),
+                        h('div', { class: 'h2 color-primary' }, String(visibleProjects.length)),
                         h('div', { class: 'text-small text-muted' }, 'プロジェクト')
                     )
                 ),
