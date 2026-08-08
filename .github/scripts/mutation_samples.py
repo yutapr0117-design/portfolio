@@ -172,6 +172,12 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "Check 130 (live-input 記法族): js/quiz-renderer.js の検索 oninput を updateSilently から addEventListener('input') 経由の State.update へ書き換える → 毎キーストローク全再描画で focused input が破棄され検索が使用不能になる #258 class が別記法で再混入する。初版 Check は 'oninput' リテラルしか見ておらず本 mutation を素通ししていた (記法族検出への拡張の非 vacuity 検証)",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "        box.appendChild(h(\"div\", { class: \"mb-6\" },",
+        "replace": "        searchInput.addEventListener('input', (e) => { State.update(s => { s.appsData.quizSearch = e.target.value; }); });\n        box.appendChild(h(\"div\", { class: \"mb-6\" },",
+    },
+    {
         "name": "Check 112b (Enter 判定の記法族): js/ai-page.js の `e.key === 'Enter' && !e.isComposing` を code-family の無ガード記法 `e.code === 'Enter'` へ置換 → IME 変換確定の Enter で AI へ未確定テキストが誤送信される #151/#152 class が別綴りで再混入する。初版 Check はリテラル `e.key === 'Enter'` しか見ておらず本 mutation を素通ししていた (記法族検出への拡張の非 vacuity 検証)",
         "file": ROOT / "js" / "ai-page.js",
         "find": "if (e.key === 'Enter' && !e.isComposing) {",

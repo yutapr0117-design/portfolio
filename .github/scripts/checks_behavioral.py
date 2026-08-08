@@ -49,6 +49,16 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        call (updateSilently is allowed — the literal `State.update(` does not match
        `State.updateSilently(`), structurally guarding the whole class beyond the per-input e2e
        tests. (BLOCKING)
+       Detection covers BOTH notations and runs on COMMENT-STRIPPED code: the h() prop
+       (`oninput: …`) AND `addEventListener('input', …)`. The initial version matched only the
+       literal `oninput`, so an equivalent `el.addEventListener('input', e => State.update(…))`
+       — the very focus-destroying pattern this Check exists to stop — passed GREEN (measured).
+       It also counted `oninput` occurrences inside COMMENTS (8 reported vs 4 real handlers) and
+       could mis-analyse the next unrelated function body from a prose mention (measured: a WHY
+       comment alone turned an unrelated helper into a violation). Handlers passed by NAME
+       (`oninput: handleSearch`) are now resolved to their definition in the same file, and the
+       root entry `main.js` is scanned too. Honest limit: handlers defined in another module or
+       built dynamically are not followed. (BLOCKING)
   131. Service-worker decodeURIComponent guard: sw.js intercepts EVERY fetch and runs every
        request's pathname through normalizePath → decodeURIComponent, which throws a URIError on a
        malformed percent-escape (e.g. '/portfolio/%'). Without a guard, such a request makes the SW
@@ -203,11 +213,53 @@ def run(ctx):
                     return text[_i:_j + 1]
             _j += 1
         return text[_i:]
-    _js130 = sorted((ROOT / "js").rglob("*.js"))
+    def _code130(_t130):
+        """コメントを除去したコードのみを返す。
+
+        [FIX] 旧実装は生テキストから "oninput" を探していたため、**コメント中の言及**まで
+        ハンドラとして数え (実測: 実際の oninput prop は 4 個なのに 8 個と報告)、直後の無関係な
+        関数本体を誤って解析していた (実測: `// … oninput に渡す` というコメントだけで無関係な
+        関数が violation として RED になった)。Check 112/403 と同じ「説明文が Check を狂わせる」class。
+        """
+        _t130 = re.sub(r"/\*.*?\*/", "", _t130, flags=re.S)
+        return re.sub(r"//[^\n]*", "", _t130)
+
+    def _named_body130(_txt, _name):
+        """同一 file 内の名前付きハンドラ (function f(){} / const f = () => {}) の本体を返す。"""
+        _m = re.search(r"(?:function\s+%s\s*\(|(?:const|let|var)\s+%s\s*=)" % (re.escape(_name), re.escape(_name)), _txt)
+        if not _m:
+            return ""
+        return _extract_handler_body130(_txt, _m.start())
+
+    def _value_expr130(_txt, _pos):
+        """`oninput:` の直後の値式を depth 0 の ',' / '}' まで切り出す (名前付き参照の判定用)。"""
+        _c = _txt.find(":", _pos)
+        if _c == -1:
+            return ""
+        _i, _depth, _out = _c + 1, 0, []
+        while _i < len(_txt):
+            _ch = _txt[_i]
+            if _ch in "([{":
+                _depth += 1
+            elif _ch in ")]}":
+                if _depth == 0:
+                    break
+                _depth -= 1
+            elif _ch == "," and _depth == 0:
+                break
+            _out.append(_ch)
+            _i += 1
+        return "".join(_out).strip()
+
+    # [FIX] 走査対象: js/**.js に加えて root の shipped entry main.js も含める。
+    _js130 = sorted((ROOT / "js").rglob("*.js")) + [ROOT / "main.js"]
     _viol130 = []
     _oninput_count130 = 0
     for _f130 in _js130:
-        _txt130 = _f130.read_text(encoding="utf-8")
+        if not _f130.exists():
+            continue
+        _txt130 = _code130(_f130.read_text(encoding="utf-8"))
+        # (1) h() prop 記法: `oninput: ...`
         _pos130 = 0
         while True:
             _oi130 = _txt130.find("oninput", _pos130)
@@ -215,7 +267,27 @@ def run(ctx):
                 break
             _pos130 = _oi130 + 7
             _oninput_count130 += 1
-            _body130 = _extract_handler_body130(_txt130, _oi130)
+            _expr130 = _value_expr130(_txt130, _oi130)
+            # 名前付きハンドラ参照 (`oninput: handleSearch`) は同 file 内の定義本体を解決して解析する。
+            if re.fullmatch(r"[A-Za-z_$][\w$]*", _expr130):
+                _body130 = _named_body130(_txt130, _expr130)
+            else:
+                _body130 = _extract_handler_body130(_txt130, _oi130)
+            if "State.update(" in _body130:
+                _viol130.append(str(_f130.relative_to(ROOT)))
+        # (2) addEventListener('input', ...) 記法。
+        # [FIX] 旧実装は "oninput" リテラルだけを見ており、**同義の addEventListener('input', …) を
+        #   丸ごと見逃していた** (実測: `el.addEventListener('input', (e) => { State.update(...) })` を
+        #   leaf module に注入しても GREEN のままだった。これは毎キーストローク全再描画で focus を破棄する
+        #   実バグそのもの)。
+        for _m130 in re.finditer(r"addEventListener\(\s*['\"]input['\"]\s*,", _txt130):
+            _oninput_count130 += 1
+            _rest130 = _txt130[_m130.end():].lstrip()
+            _idm130 = re.match(r"([A-Za-z_$][\w$]*)\s*[),]", _rest130)
+            if _idm130:
+                _body130 = _named_body130(_txt130, _idm130.group(1))
+            else:
+                _body130 = _extract_handler_body130(_txt130, _m130.end())
             if "State.update(" in _body130:
                 _viol130.append(str(_f130.relative_to(ROOT)))
     check(
