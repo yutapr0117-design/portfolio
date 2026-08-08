@@ -251,6 +251,18 @@ _MUTATIONS_TAIL = [
         "find": "    for w in warnings:",
         "replace": "    for w in []:",
     },
+    {
+        "name": "Check 399 (mutation-probe catch 帰属): mutation_probe.py の ANCHOR_ORPHAN_MARKER 定数を rename → catch 判定が Check 362 (anchor orphan) を除外できなくなる。mutation 適用は必ず自身の find-anchor を消して Check 362 を RED にするため、帰属を失うと全 mutation が自動的に caught と報告され、安全網を検証するはずの probe が何も検証しない vacuous な meta-QA へ退行する。Check 399 の非 vacuity 検証 (checks_maintainability.py が検証する対象は mutation_probe.py ゆえ mutation_samples.py の self-reference trap 無し)",
+        "file": ROOT / ".github" / "scripts" / "mutation_probe.py",
+        "find": 'ANCHOR_ORPHAN_MARKER = "Check 362:"',
+        "replace": 'ANCHOR_ORPHAN_MARKER_RENAMED = "Check 362:"',
+    },
+    {
+        "name": "Check 400 (monolith module-level parse fail-soft): check_repository_consistency.py の module 直下へ try/except 非保護の `json.loads(read(...))` を注入 → 対象 file が壊れた瞬間に traceback で suite 全体が停止し、その破損を検出するはずの Check 自身を含む全 Check が未実行のまま skip される latent-crash class が再混入する (実測で Check 343 が一度も走らなかった gap)。Check 400 の非 vacuity 検証 (checks_maintainability.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
+        "file": ROOT / ".github" / "scripts" / "check_repository_consistency.py",
+        "find": "# ── ctx enrichment for split modules",
+        "replace": "_unguarded400 = json.loads(read(\".well-known/index.json\"))\n# ── ctx enrichment for split modules",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。

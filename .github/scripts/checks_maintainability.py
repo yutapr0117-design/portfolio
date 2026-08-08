@@ -160,6 +160,30 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
        loop 変数名に束縛して行う (`for w in warnings:` → `print(f"...::warning::{w}")`)。literal
        の有無だけを見るとループと無関係な固定文字列で vacuous に PASS しうるため。Check 385
        (advisory/error パスの latent crash 防止) と対で「助言層が実際に機能する」軸を守る。(BLOCKING)
+  399. mutation-probe の catch 帰属 (attribution): `mutation_probe.py` の consistency mode は
+       catch を **Check 362 (anchor orphan) 以外の error** で判定しなければならない
+       (`ANCHOR_ORPHAN_MARKER = "Check 362:"` 定数 + `caught_by_real_check()` を持ち、旧判定
+       `if run_gate() == 0:` を残さない)。probe は mutation を適用してから gate を走らせるが、
+       適用によりその mutation 自身の find-anchor が対象 file から消えるため Check 362 (全 mutation
+       の find-anchor が対象 file に解決することを検証) が **必ず** RED になる。ゆえに gate の
+       exit code だけで caught を判定すると、意図した Check が 1 つも発火しなくても全 mutation が
+       Check 362 の副作用で自動的に caught と報告され、「安全網が本当に回帰を捕捉するか」を検証する
+       はずの meta-QA が何も検証しない vacuous ツールへ退行する (Check 362 導入以降 実際にそうなって
+       いた)。実証: どの Check も見ない inert な prose を対象にした対照 mutation で gate は RED に
+       なり、その error は Check 362 の 1 件のみだった。`run_gate()` は (exit code, 出力) の tuple を
+       返すため旧判定が残ると常に False = 全件 SURVIVED へ静かに反転する — その退行実体も禁止する。
+       Check 362/379/380/397 が守る「mutation データの整合」に対し、本 Check は「probe の判定その
+       ものの健全性」を守る (mutation-integrity mesh の runner 面)。(BLOCKING)
+  400. monolith の module-level parse fail-soft: `check_repository_consistency.py` の module 直下
+       (indent 0) に try/except 非保護の `json.loads(...)` / `yaml.safe_load(...)` があってはならない。
+       対象 file が壊れた瞬間に traceback で **suite 全体** が停止し、その破損を検出するために書かれた
+       Check 自身を含む全 Check が未実行のまま skip される。exit 1 ゆえ merge は止まるが、(a) 診断が
+       Python の traceback で actionable でなく (b) crash 地点以降の Check が一切走らないため他の
+       drift を全て masking する — Check としては死んでいる。実測 (mutation-probe の catch 帰属を
+       正した直後に検出): `.well-known/mcp.json` に構文エラーを入れると module-level の
+       `mcp_data = json.loads(read(...))` が JSONDecodeError を送出し、まさにこの破損を検出する
+       Check 343 が一度も走らなかった。fail-soft な既定値 (空 dict 等) へ degrade させ、専任 Check に
+       診断させること。Check 385 (split module の error パス NameError) の global 面。(BLOCKING)
 """
 import re
 
@@ -817,4 +841,49 @@ def run(ctx):
         "`::warning::{w}` 形式で印字していない。件数のみの出力では ADVISORY Check が drift を検出しても "
         "どの invariant が緩んだか読めず (ローカル/CI ログ双方)、advisory 層が実質 vacuous になる。"
         "errors 側の `::error::{e}` 列挙と対称に `for w in warnings: print(f\"  ::warning::{w}\")` を保て",
+    )
+
+    # ── 399. mutation-probe の catch 帰属 (BLOCKING) ───────────────────────────────
+    # consistency mode の probe は mutation 適用後に gate を走らせるが、適用によりその mutation
+    # 自身の find-anchor が対象 file から消えるため Check 362 (anchor 解決) が **必ず** RED になる。
+    # exit code だけで caught を判定すると全 mutation が Check 362 の副作用で自動的に caught となり、
+    # 「意図した Check が本当に捕捉するか」を一切検証しない vacuous な meta-QA と化す (実証: どの
+    # Check も見ない inert prose を対象にした対照 mutation で gate の error は Check 362 の 1 件のみ)。
+    _probe399 = ROOT / ".github" / "scripts" / "mutation_probe.py"
+    _src399 = _probe399.read_text(encoding="utf-8") if _probe399.exists() else ""
+    _marker399 = re.search(r'^ANCHOR_ORPHAN_MARKER\s*=\s*"Check 362:"', _src399, re.M)
+    _attrib399 = "caught_by_real_check(" in _src399
+    # 旧 vacuous 判定 (`if run_gate() == 0:`) が残っていないこと。run_gate は tuple を返すため
+    # 残存すると常に False = 全件 caught へ静かに戻る (退行の実体をピンポイントで禁止する)。
+    _legacy399 = re.search(r"if\s+run_gate\(\)\s*==\s*0\s*:", _src399)
+    check(
+        bool(_src399) and bool(_marker399) and _attrib399 and not _legacy399,
+        "Check 399: mutation-probe の catch 判定が Check 362 (anchor orphan) を除外して帰属する",
+        "Check 399: mutation_probe.py の consistency mode が catch を Check 362 以外の error で "
+        "帰属していない (ANCHOR_ORPHAN_MARKER 定数 / caught_by_real_check() のいずれかが欠落、または "
+        "旧判定 `if run_gate() == 0:` が残存)。mutation 適用は必ず自身の find-anchor を消して Check 362 "
+        "を RED にするため、exit code だけの判定では全 mutation が自動的に caught になり probe が "
+        "「意図した Check が捕捉するか」を検証しない vacuous な meta-QA へ退行する",
+    )
+
+    # ── 400. monolith の module-level parse は fail-soft (BLOCKING) ────────────────
+    # check_repository_consistency.py の module 直下 (indent 0) で生 `json.loads(...)` を実行すると、
+    # 対象 file が壊れた瞬間に traceback で suite 全体が停止し、その失敗を検出するために書かれた
+    # Check 自身を含む全 Check が未実行のまま skip される (exit 1 で merge は止まるが診断は actionable
+    # でなく、crash 地点以降の drift を全て masking する)。実測: .well-known/mcp.json に構文エラーを
+    # 入れる mutation で Check 343 は一度も走らず traceback で停止していた。try/except で fail-soft へ
+    # degrade させ、専任 Check に actionable な診断を出させること。Check 385 (split module の error
+    # パス NameError) の global 面。
+    _mono400 = ROOT / ".github" / "scripts" / "check_repository_consistency.py"
+    _src400 = _mono400.read_text(encoding="utf-8") if _mono400.exists() else ""
+    # indent 0 の代入行のみを検出する (try 本体は 4-space indent ゆえ除外される)。
+    _bare400 = re.findall(r"^\w+\s*=\s*(?:json\.loads|yaml\.safe_load)\(", _src400, re.M)
+    check(
+        bool(_src400) and not _bare400,
+        f"Check 400: monolith の module-level parse が fail-soft ({len(_bare400)} unguarded)",
+        f"Check 400: check_repository_consistency.py の module 直下に try/except 非保護の "
+        f"`json.loads(...)` / `yaml.safe_load(...)` が {len(_bare400)} 件ある。対象 file が壊れた瞬間に "
+        "traceback で suite 全体が停止し、その破損を検出するはずの Check 自身を含む全 Check が未実行の "
+        "まま skip される (診断は actionable でなく、以降の drift を全て masking する)。try/except で "
+        "fail-soft な既定値へ degrade させ、専任 Check に診断させよ",
     )
