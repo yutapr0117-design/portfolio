@@ -215,3 +215,30 @@ test('Quiz contact form marks name and email as aria-required (WCAG 3.3.2)', asy
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `quiz form required caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: hiring-risk の CTA が「ラベルどおりの」問題集へ着地する (silent wrong-content) =====
+// QuizPage は `QUIZ_DATA_MAP[type] || QUIZ_DATA_MAP.aws` で描画するため、CTA の ?type= が typo/
+// 未定義でも例外にならず **AWS 問題集が黙って描画される**。「PM問題集を見る」を押して AWS の問題が
+// 出ても throw も console error も無く、既存 e2e (直接 URL で pm/quality を開く quiz.spec:171) は
+// CTA 経路を通らないため素通りする。Check 401a が静的 (リテラル ⟹ QUIZ_DATA_MAP キー) に守る面の
+// **behavioral 対**として、採用担当が実際にたどる導線でラベルと着地先が一致することを検証する。
+test('Hiring-risk CTAs land on the quiz named on the button (not the AWS fallback)', async ({ page }) => {
+  await page.goto('/#/hiring-risk');
+  await page.waitForLoadState('domcontentloaded');
+
+  // PM: ボタンのラベルどおり PM問題集 へ着地する (AWS フォールバックでない)
+  await page.getByRole('button', { name: 'PM問題集を見る' }).click();
+  await expect(page).toHaveURL(/#\/quiz\?type=pm$/);
+  await expect(page.locator('h1')).toHaveText('PM問題集');
+
+  // 品質: 同じく「品質・プロセス問題集」へ着地する
+  await page.goto('/#/hiring-risk');
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByRole('button', { name: '品質問題集を見る' }).click();
+  await expect(page).toHaveURL(/#\/quiz\?type=quality$/);
+  await expect(page.locator('h1')).toHaveText('品質・プロセス問題集');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `hiring-risk quiz CTA caused a fatal: ${fatal}`).toBeNull();
+});
