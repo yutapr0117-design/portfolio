@@ -205,7 +205,17 @@ mainjs     = read("main.js")
 style      = read("style.css")
 aio_mon    = read(".github/scripts/aio_monitoring.py")
 
-mcp_data   = json.loads(read(".well-known/mcp.json"))
+# [FIX] module-level の生 `json.loads` は、.well-known/mcp.json が壊れた瞬間に traceback で
+# suite 全体を停止させ、**その失敗を検出するために書かれた Check 343 自身を含む全 Check** を
+# 未実行のまま skip させていた (mutation-probe が「Check 343 が捕捉しない」として実測検出)。
+# exit 1 ゆえ merge は止まるが、診断は actionable でない Python traceback になり、かつ crash 地点
+# 以降の Check が全て走らないため他の drift を masking する。Check 385 (module の error パス
+# NameError) と同じ latent-crash class の global 面。fail-soft で空 dict へ degrade させ、Check 343
+# に actionable な診断を出させる (唯一の消費者 checks_version.py は .get チェーンで空 dict 安全)。
+try:
+    mcp_data = json.loads(read(".well-known/mcp.json"))
+except (json.JSONDecodeError, UnicodeDecodeError):
+    mcp_data = {}
 
 # ── ctx enrichment for split modules that read shared global content (check.py split track) ──
 # split-out checks_* modules that need the pre-loaded style.css (etc.) content unpack it from ctx

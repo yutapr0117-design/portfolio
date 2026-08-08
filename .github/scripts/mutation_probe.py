@@ -6,7 +6,12 @@
 過去に実際に修正した bug class を表す curated mutation を 1 つずつソースへ適用し、対応する gate
 (check_repository_consistency.py) が確かに RED になる (= 捕捉する) ことを確認して即座に復元する。
 
-- SURVIVED (gate が GREEN のまま) な mutation はカバレッジの穴を意味する。
+- SURVIVED (意図した Check が発火しなかった) な mutation はカバレッジの穴を意味する。
+- catch の帰属 (attribution): mutation 適用でその mutation 自身の find-anchor が消えるため
+  Check 362 (anchor 解決) は **必ず** RED になる。gate の exit code だけで caught を判定すると
+  全 mutation が Check 362 の副作用で自動的に caught になり、probe が何も検証しない vacuous な
+  meta-QA と化す。ゆえに caught は「Check 362 以外の error が 1 件以上ある」ことで判定する
+  (Check 399 がこの判定の維持を BLOCKING 強制)。
 - 非 vacuous 保証: 各 mutation は適用前に find-anchor の存在を assert する。anchor が消えていれば
   「probe 自身が drift した」と ERROR で報告する (mutation が no-op で偽 "caught" になるのを防ぐ)。
 - 安全性: 各 mutation は try/finally で必ず元へ復元し、全実行後に gate が GREEN へ戻ることも確認する。
@@ -44,15 +49,35 @@ from mutation_samples import MUTATIONS, E2E_MUTATIONS  # noqa: E402 (ROOT/CHECK 
 
 
 
-def run_gate() -> int:
-    """Run the consistency checker; return its exit code (0 = green)."""
+# [FIX] catch の帰属 (attribution)。mutation を適用すると、その mutation 自身の find-anchor が
+# 対象 file から消えるため Check 362 (mutation find-anchor 解決) が **必ず** RED になる。gate の
+# exit code だけで「捕捉」を判定すると全 mutation が Check 362 の副作用で自動的に caught となり、
+# 本 probe が検証したいはずの「意図した Check が本当に捕捉するか」を一切検証しない vacuous な
+# meta-QA と化す (Check 362 導入以降そうなっていた)。実証: どの Check も見ない inert な prose を
+# 対象にした対照 mutation で gate は RED になり、その error は Check 362 の 1 件のみだった。
+# ゆえに「捕捉」は **Check 362 以外の error が 1 件以上ある** ことで判定する。
+ANCHOR_ORPHAN_MARKER = "Check 362:"
+
+
+def run_gate() -> tuple[int, str]:
+    """Run the consistency checker; return (exit code, combined output). 0 = green."""
     r = subprocess.run(
         [sys.executable, str(CHECK)],
         cwd=str(ROOT),
         capture_output=True,
         text=True,
     )
-    return r.returncode
+    return r.returncode, (r.stdout or "") + (r.stderr or "")
+
+
+def caught_by_real_check(out: str) -> bool:
+    """True iff the gate reported >=1 error OTHER than the anchor-orphan artifact.
+
+    Check 362 は mutation 適用の副作用で必ず発火するため、これだけを根拠に caught と
+    数えてはならない (全 mutation が自動的に caught になり probe が無意味になる)。
+    """
+    errs = [ln for ln in out.splitlines() if "::error::" in ln]
+    return any(ANCHOR_ORPHAN_MARKER not in ln for ln in errs)
 
 
 def run_e2e_test(pattern: str) -> int:
@@ -79,12 +104,13 @@ def main() -> int:
         return 1
 
     # baseline: gate は実行前に GREEN でなければ結果が無意味。
-    if run_gate() != 0:
+    if run_gate()[0] != 0:
         print("ERROR: baseline gate is RED before any mutation — fix the repo first.")
         return 1
 
     survived: list[str] = []
     drifted: list[str] = []
+    crashed: list[str] = []
 
     print(f"mutation-probe: applying {len(MUTATIONS)} curated mutations...\n")
     for m in MUTATIONS:
@@ -96,16 +122,25 @@ def main() -> int:
             continue
         try:
             f.write_text(original.replace(m["find"], m["replace"], 1), encoding="utf-8")
-            if run_gate() == 0:
+            # 「捕捉」は Check 362 (anchor orphan) 以外の error があることで判定する。
+            # exit code だけを見ると mutation 適用の副作用で必ず RED になり全件 caught になる。
+            _rc, _out = run_gate()
+            if caught_by_real_check(_out):
+                print(f"  caught  : {m['name']}")
+            elif _rc != 0 and "Traceback (most recent call last)" in _out:
+                # gate は RED だが Check ではなく **traceback** で停止した。merge は止まるものの
+                # (a) 診断が Python の traceback で actionable でない (b) crash 地点以降の Check が
+                # 全て skip され他の drift を masking する — Check としては死んでいる状態。
+                crashed.append(m["name"])
+                print(f"  CRASHED : {m['name']}  <-- gate が traceback で停止 (Check 未到達)")
+            else:
                 survived.append(m["name"])
                 print(f"  SURVIVED: {m['name']}  <-- COVERAGE GAP")
-            else:
-                print(f"  caught  : {m['name']}")
         finally:
             f.write_text(original, encoding="utf-8")
 
     # 復元確認: 全 mutation 後に gate が GREEN へ戻ること (ファイルが汚れて残っていないこと)。
-    if run_gate() != 0:
+    if run_gate()[0] != 0:
         print("\nERROR: gate is RED after restore — source files may be left mutated! Check `git status`.")
         return 1
 
@@ -114,6 +149,11 @@ def main() -> int:
         print(f"{len(drifted)} mutation(s) DRIFTED (anchors missing) — update mutation_probe.py:")
         for d in drifted:
             print(f"  - {d}")
+        return 1
+    if crashed:
+        print(f"{len(crashed)} mutation(s) CRASHED the gate (traceback instead of a Check verdict):")
+        for c in crashed:
+            print(f"  - {c}")
         return 1
     if survived:
         print(f"{len(survived)} mutation(s) SURVIVED — the safety net has a gap:")
