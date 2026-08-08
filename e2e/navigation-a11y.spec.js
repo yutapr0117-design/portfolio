@@ -118,13 +118,19 @@ test('sr-only content (route announcer + AIO entity anchor) stays visually hidde
   expect(abox.width, '#page-announcement must stay visually hidden (sr-only 1x1)').toBeLessThanOrEqual(4);
   expect(abox.height, '#page-announcement must stay visually hidden (sr-only 1x1)').toBeLessThanOrEqual(4);
 
-  // AIO entity anchor (© footer entity) — AIO 戦略上 load-bearing な sr-only エンティティ情報
-  const entity = page.locator('#aio-footer-entity');
-  if (await entity.count()) {
+  // AIO entity anchor (© footer entity) / RAG チャンクアンカー — AIO 戦略上 load-bearing な
+  // sr-only エンティティ情報。
+  // [FIX] 従来は `if (await entity.count()) { ... }` の skip-on-missing で、要素を丸ごと削除すると
+  //   条件が false になりテストが**黙って PASS** する vacuous gate だった (実測: <div
+  //   id="aio-footer-entity"> を削除しても本テストは PASS・consistency も 0 errors)。存在を必須に
+  //   してから不可視性を検査する (presence は Check 403 が静的にも BLOCKING 強制)。
+  for (const id of ['#aio-footer-entity', '#aio-main-footer']) {
+    const entity = page.locator(id);
+    await expect(entity, `${id} must exist (AIO load-bearing anchor)`).toHaveCount(1);
     const ebox = await entity.boundingBox();
-    expect(ebox, 'AIO entity anchor should have a bounding box').not.toBeNull();
-    expect(ebox.width, 'AIO entity anchor must stay visually hidden').toBeLessThanOrEqual(4);
-    expect(ebox.height, 'AIO entity anchor must stay visually hidden').toBeLessThanOrEqual(4);
+    expect(ebox, `${id} should have a bounding box`).not.toBeNull();
+    expect(ebox.width, `${id} must stay visually hidden`).toBeLessThanOrEqual(4);
+    expect(ebox.height, `${id} must stay visually hidden`).toBeLessThanOrEqual(4);
   }
 });
 
