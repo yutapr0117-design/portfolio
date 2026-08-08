@@ -172,6 +172,12 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "Check 112b (Enter 判定の記法族): js/ai-page.js の `e.key === 'Enter' && !e.isComposing` を code-family の無ガード記法 `e.code === 'Enter'` へ置換 → IME 変換確定の Enter で AI へ未確定テキストが誤送信される #151/#152 class が別綴りで再混入する。初版 Check はリテラル `e.key === 'Enter'` しか見ておらず本 mutation を素通ししていた (記法族検出への拡張の非 vacuity 検証)",
+        "file": ROOT / "js" / "ai-page.js",
+        "find": "if (e.key === 'Enter' && !e.isComposing) {",
+        "replace": "if (e.code === 'Enter') {",
+    },
+    {
         "name": "Check 402 (多行 assertion 面): navigation-a11y.spec.js の nav-link ループから settle (h1 の toBeVisible) を除去 → goto 直後に多行 assertion で toHaveCount(0) を評価する形へ戻る。多行に折り返した assertion は Check 402 初版 (await expect と matcher が同一行であることを要求) の検出から漏れており、全 sidebar リンクが NotFound に落ちないことを検査する重要な gate が未保護だった。matcher 行ベース検出への拡張の非 vacuity 検証",
         "file": ROOT / "e2e" / "navigation-a11y.spec.js",
         "find": "    await expect(page.locator('h1').first(), `nav href ${href} でページが描画されない`).toBeVisible();\n",
