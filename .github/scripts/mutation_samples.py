@@ -172,6 +172,18 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "Check 401a (quiz?type ⟹ QUIZ_DATA_MAP キー): hiring-risk-page.js の `quiz?type=pm` を typo (pmm) へ → QuizPage が `|| QUIZ_DATA_MAP.aws` でフォールバックし、「PM問題集を見る」ボタンから黙って AWS 問題集が描画される silent wrong-content (Check 395 は base path segment のみ見て ?query を落とすため無防備だった used⟹defined wiring の query-value 面)。Check 401a の非 vacuity 検証 (checks_wiring.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
+        "file": ROOT / "js" / "hiring-risk-page.js",
+        "find": "path: 'quiz?type=pm',",
+        "replace": "path: 'quiz?type=pmm',",
+    },
+    {
+        "name": "Check 401b (sidebar AWS-active 除外集合 == QUIZ_DATA_MAP − aws): components.js の除外集合から 'architecture' を落とす → 設計判断問題集を開いている間 nav が「AWS 問題集」を active に光らせる control↔content desync (#781 class) が silent に発生する。Check 401b の非 vacuity 検証",
+        "file": ROOT / "js" / "components.js",
+        "find": "!['pm', 'quality', 'architecture'].includes(route.query.type)",
+        "replace": "!['pm', 'quality'].includes(route.query.type)",
+    },
+    {
         "name": "Check 399 (mutation-probe catch 帰属): mutation_probe.py の ANCHOR_ORPHAN_MARKER 定数を rename → catch 判定が Check 362 (anchor orphan) を除外できなくなる。mutation 適用は必ず自身の find-anchor を消して Check 362 を RED にするため、帰属を失うと全 mutation が自動的に caught と報告され、安全網を検証するはずの probe が何も検証しない vacuous な meta-QA へ退行する。Check 399 の非 vacuity 検証 (checks_maintainability.py が検証する対象は mutation_probe.py ゆえ mutation_samples.py の self-reference trap 無し)",
         "file": ROOT / ".github" / "scripts" / "mutation_probe.py",
         "find": 'ANCHOR_ORPHAN_MARKER = "Check 362:"',
