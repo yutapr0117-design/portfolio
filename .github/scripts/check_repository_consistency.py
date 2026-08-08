@@ -789,7 +789,15 @@ if errors:
     sys.exit(1)
 
 if warnings:
-    print(f"Repository consistency check passed with {len(warnings)} warning(s).")
+    # [FIX] 従来は件数だけを印字し warning 本文を一切出力しなかった (errors 側は
+    # `::error::` で本文を列挙するのに warnings 側だけ欠けていた asymmetry)。ADVISORY
+    # Check (56 箇所・13 module) が drift を検出しても "passed with 1 warning(s)" としか
+    # 出ず、ローカルでも CI ログでも「どの invariant が緩んでいるか」を読めない＝
+    # 読めない advisory は実質 vacuous な助言層だった。errors と対称に本文を列挙し、
+    # GitHub Actions の `::warning::` annotation として PR 上にも surface させる。
+    print(f"Repository consistency check passed with {len(warnings)} warning(s):")
+    for w in warnings:
+        print(f"  ::warning::{w}")
 else:
     print("Repository consistency check passed — all invariants hold.")
 
