@@ -66,36 +66,43 @@ export function createPages({ h, createIcon, Router, ContactCTA }) {
         }
 
         // 分担行 (Human列 / AI列)
+        // [A11Y 1.3.1] 分担表は div グリッドで組まれており table 要素を持たないため、SR には
+        //   「カテゴリ / 人間（Human）の役割 / AI の役割 / 設計 / システムアーキテクチャの決定 …」
+        //   という平坦なテキスト列にしか聞こえず、どのセルがどの列（人間 or AI）に属するかという
+        //   本ページの主題そのものが伝わらなかった。ARIA table roles は属性の付与のみで DOM 構造も
+        //   CSS も変えない render-neutral な是正ゆえ §3 baseline ゲート非該当。構造の正しさは
+        //   a11y-axe.spec.js の aria-required-children / aria-required-parent / aria-roles が
+        //   #/role-split で機械検証する。
         function splitRow(category, humanItems, aiItems) {
             return h('div', {
-                class: 'table-data-row'
+                class: 'table-data-row', role: 'row'
             },
-                // カテゴリラベル
+                // カテゴリラベル (= 行見出し。SR はセル読み上げ時にこれを文脈として併読する)
                 h('div', {
-                    class: 'cell-category'
+                    class: 'cell-category', role: 'rowheader'
                 }, category),
                 // Human列
                 h('div', {
-                    class: 'cell-human'
+                    class: 'cell-human', role: 'cell'
                 },
                     ...humanItems.map(item =>
                         h('div', {
                             class: 'cell-bullet-row'
                         },
-                            h('span', { class: 'text-bullet-human', style: { color: C.human } }, '✦'),
+                            h('span', { class: 'text-bullet-human', style: { color: C.human }, 'aria-hidden': 'true' }, '✦'),
                             h('span', {}, item)
                         )
                     )
                 ),
                 // AI列
                 h('div', {
-                    class: 'cell-ai'
+                    class: 'cell-ai', role: 'cell'
                 },
                     ...aiItems.map(item =>
                         h('div', {
                             class: 'cell-bullet-row'
                         },
-                            h('span', { class: 'text-bullet-ai', style: { color: C.ai } }, '✦'),
+                            h('span', { class: 'text-bullet-ai', style: { color: C.ai }, 'aria-hidden': 'true' }, '✦'),
                             h('span', {}, item)
                         )
                     )
@@ -106,13 +113,13 @@ export function createPages({ h, createIcon, Router, ContactCTA }) {
         // テーブルヘッダー行
         function tableHeader() {
             return h('div', {
-                class: 'table-header-row'
+                class: 'table-header-row', role: 'row'
             },
                 h('div', {
-                    class: 'cell-header-label'
+                    class: 'cell-header-label', role: 'columnheader'
                 }, 'カテゴリ'),
                 h('div', {
-                    class: 'cell-header-col'
+                    class: 'cell-header-col', role: 'columnheader'
                 },
                     h('div', {
                         class: 'dot-color-indicator', style: { background: C.human }
@@ -120,7 +127,7 @@ export function createPages({ h, createIcon, Router, ContactCTA }) {
                     h('span', { class: 'role-label' }, '人間（Human）の役割')
                 ),
                 h('div', {
-                    class: 'cell-header-col-last'
+                    class: 'cell-header-col-last', role: 'columnheader'
                 },
                     h('div', {
                         class: 'dot-color-indicator', style: { background: C.ai }
@@ -160,7 +167,7 @@ export function createPages({ h, createIcon, Router, ContactCTA }) {
 
             // ── 分担表 ──
             h('section', { class: 'card card--overflow-hidden', role: 'region', 'aria-label': 'Human vs AI 詳細分担表', id: 'role-split-table', itemprop: 'hasPart' },
-                h('div', { class: 'card-body card-body--no-pad' },
+                h('div', { class: 'card-body card-body--no-pad', role: 'table', 'aria-label': 'Human と AI の役割分担' },
                     tableHeader(),
                     splitRow('設計',
                         ['システムアーキテクチャの決定', 'SPA構成・ルーティング設計', 'コンポーネント責務の定義', '設計上のトレードオフ判断'],

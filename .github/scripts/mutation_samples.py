@@ -912,4 +912,11 @@ E2E_MUTATIONS = [
         "replace": "            pmX: { title: 'PM問題集', data: pmQuizData },",
         "test": "Hiring-risk CTAs land on the quiz named on the button",
     },
+    {
+        "name": "a11y: 分担表の ARIA table 構造の喪失 — pages.js splitRow のカテゴリセルから `role: 'rowheader'` を外す → 行見出しが失われ、SR はセル読み上げ時にどのカテゴリ行かの文脈を得られなくなる (分担表は div グリッドで table 要素を持たないため ARIA role が唯一の構造露出手段・WCAG 1.3.1)。axe は role の妥当性しか見ず role 除去は違反にならないため behavior e2e が唯一の gate。新設 table-semantics test の非 vacuity 検証",
+        "file": ROOT / "js" / "pages.js",
+        "find": "class: 'cell-category', role: 'rowheader'",
+        "replace": "class: 'cell-category'",
+        "test": "Role-split division table exposes ARIA table semantics",
+    },
 ]
