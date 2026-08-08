@@ -172,6 +172,12 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "Check 402 (多行 assertion 面): navigation-a11y.spec.js の nav-link ループから settle (h1 の toBeVisible) を除去 → goto 直後に多行 assertion で toHaveCount(0) を評価する形へ戻る。多行に折り返した assertion は Check 402 初版 (await expect と matcher が同一行であることを要求) の検出から漏れており、全 sidebar リンクが NotFound に落ちないことを検査する重要な gate が未保護だった。matcher 行ベース検出への拡張の非 vacuity 検証",
+        "file": ROOT / "e2e" / "navigation-a11y.spec.js",
+        "find": "    await expect(page.locator('h1').first(), `nav href ${href} でページが描画されない`).toBeVisible();\n",
+        "replace": "",
+    },
+    {
         "name": "Check 403 (sr-only AIO entity anchor presence): index.html の <footer id=\"aio-main-footer\"> の id を rename → AIO 戦略上 load-bearing な RAG チャンクアンカーが消失する。視覚的に不可視 (sr-only + aria-hidden) ゆえ screenshot も behavior e2e も従来は捕捉できなかった silent removal class (Check 133 の #aio-asset-anchor 保護と同型の entity-anchor 面)。Check 403 の非 vacuity 検証 (checks_wiring.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
         "file": ROOT / "index.html",
         "find": '<footer class="sr-only" aria-hidden="true" id="aio-main-footer">',

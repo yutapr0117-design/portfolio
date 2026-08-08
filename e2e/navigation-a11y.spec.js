@@ -70,6 +70,10 @@ test('All sidebar nav links resolve to valid (non-not-found) routes', async ({ p
   for (const href of hrefs) {
     await page.goto('/' + href); // href は '#/...' 形式
     await page.waitForLoadState('domcontentloaded');
+    // [FIX] 不在アサーションは初回 poll で成立すると再検査されないため、描画前に評価すると
+    //   「NotFound がまだ無い」を「NotFound ではない」と誤認して壊れた nav リンクでも PASS しうる
+    //   (多行 assertion ゆえ Check 402 初版の検出からも漏れていた)。h1 の描画を待って確定させる。
+    await expect(page.locator('h1').first(), `nav href ${href} でページが描画されない`).toBeVisible();
     await expect(
       page.getByRole('heading', { name: 'Not Found', exact: true }),
       `nav href ${href} は NotFound に落ちてはならない`
