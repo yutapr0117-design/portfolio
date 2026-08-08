@@ -139,6 +139,20 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        the route mesh so adding a new router route (or a new `app-*` subroute) without a PAGE_META entry
        fails the build instead of shipping a title-less/meta-less page. Same used⟹defined wiring lens as
        Check 375/376/377/391/392/393/395. (BLOCKING)
+  401. quiz?type= リテラル ⟹ QUIZ_DATA_MAP キー (401a) / sidebar 非 aws 集合の一致 (401b):
+       QuizPage は `QUIZ_DATA_MAP[quizType] || QUIZ_DATA_MAP.aws` で描画するため、リンク側の type が
+       typo/未定義でも **例外にならず AWS 問題集が描画される** — 「PM問題集」ボタンを押すと黙って AWS の
+       問題が出る silent wrong-content。401a は shipped JS/HTML の全 `quiz?type=X` リテラルが実キーへ
+       解決することを強制する (Check 375/376/377/393 と同じ used⟹defined wiring レンズの query-value 面。
+       Check 395 は Router.navigate の base path segment のみ見て ?query を落とすため本面は無防備だった)。
+       401b は sidebar の active 判定が持つ非 aws キーのハードコード集合 (`['pm','quality','architecture']`)
+       が map キー − {aws} と一致することを強制する — 5 つ目の quiz を足すと、その page は正しく描画される
+       のに nav は「AWS 問題集」を active に光らせる control↔content desync (#781 class) が silent に
+       生まれるため。両者とも throw せず「それらしく動く」ので behavior e2e も素通りする。
+       honest carve-out: 401a は行全体がコメントの行を除外する (components.js が「無効 type
+       #/quiz?type=zzz でも AWS が出る」というフォールバック挙動の説明を WHY コメントに書いており、
+       それを実リンクと誤検出するため — 実バグでなく設計記述を捕捉した false-positive)。行末
+       コメントは除外しない (コード行に紛れた実リテラルを見落とさないため)。(BLOCKING)
 """
 import re
 import json
@@ -597,3 +611,62 @@ def run(ctx):
     else:
         check(False, "Check 396: js/router.js and js/page-meta.js present",
               "Check 396: js/router.js または js/page-meta.js が無い — route.name ⟹ PAGE_META の解決を検証できない", blocking=True)
+
+    # ── 401. quiz?type= リテラル ⟹ QUIZ_DATA_MAP キー / sidebar 非 aws 集合の一致 (BLOCKING) ─────
+    # QuizPage は `QUIZ_DATA_MAP[quizType] || QUIZ_DATA_MAP.aws` で描画するため、リンク側の type が
+    # typo/未定義でも **例外にならず AWS 問題集が描画される**。「PM問題集」ボタンを押すと黙って AWS の
+    # 問題が出る silent wrong-content class (Check 375/376/377/393 と同じ used⟹defined wiring レンズ)。
+    # 401b は sidebar の active 判定が持つ非 aws キーのハードコード集合 (`['pm','quality','architecture']`)
+    # が map と一致することを強制する — 5 つ目の quiz を足すと、その page は正しく描画されるのに nav は
+    # 「AWS 問題集」を active に光らせる control↔content desync (#781 class) が silent に生まれるため。
+    _qr401 = ROOT / "js" / "quiz-renderer.js"
+    _cp401 = ROOT / "js" / "components.js"
+    if _qr401.exists() and _cp401.exists():
+        _qsrc401 = _qr401.read_text(encoding="utf-8")
+        _mblock401 = re.search(r"const QUIZ_DATA_MAP = \{(.*?)\};", _qsrc401, re.S)
+        _keys401 = set(re.findall(r"^\s*(\w+)\s*:", _mblock401.group(1), re.M)) if _mblock401 else set()
+
+        # 401a: shipped JS/HTML の全 `quiz?type=X` リテラルが map キーに解決する
+        _consumers401 = [ROOT / "main.js", ROOT / "index.html"] + sorted((ROOT / "js").glob("*.js"))
+        _used401 = {}
+        for _f401 in _consumers401:
+            if not _f401.exists():
+                continue
+            # honest carve-out: 行全体がコメントの行を除外する。components.js は「無効 type
+            # (#/quiz?type=zzz 等 stale bookmark/手打ち) でも AWS が出る」という**フォールバック挙動の
+            # 説明**を WHY コメントに書いており、それを実リンクと誤検出しないため (Check 364 と同じく
+            # 実バグでなく設計記述を捕捉した false-positive は honest に carve-out する)。行末コメントは
+            # 除外しない (コード行に紛れた実リテラルを見落とさないため)。
+            _body401 = "\n".join(
+                _ln401 for _ln401 in _f401.read_text(encoding="utf-8").splitlines()
+                if not re.match(r"\s*(//|\*|/\*|<!--)", _ln401))
+            for _t401 in re.findall(r"quiz\?type=([\w-]+)", _body401):
+                _used401.setdefault(_t401, []).append(_f401.name)
+        _unresolved401 = sorted(t for t in _used401 if t not in _keys401)
+        check(
+            bool(_keys401) and bool(_used401) and not _unresolved401,
+            f"Check 401a: 全 quiz?type= リテラル ({len(_used401)} 種) が QUIZ_DATA_MAP キー ({len(_keys401)} 種) に解決",
+            f"Check 401a: quiz?type= の type が QUIZ_DATA_MAP に未定義: "
+            f"{[(t, _used401[t]) for t in _unresolved401]} — QuizPage は `|| QUIZ_DATA_MAP.aws` で "
+            "フォールバックするため例外にならず、リンクのラベルと無関係な AWS 問題集が silent に描画される。"
+            "type を実キーへ直すか QUIZ_DATA_MAP に定義を足せ",
+            blocking=True,
+        )
+
+        # 401b: sidebar の active 判定が除外する非 aws キー集合 == map キー − {aws}
+        _csrc401 = _cp401.read_text(encoding="utf-8")
+        _excl401 = re.search(r"!\[([^\]]*)\]\.includes\(route\.query\.type\)", _csrc401)
+        _exclset401 = set(re.findall(r"'([\w-]+)'", _excl401.group(1))) if _excl401 else set()
+        _expect401 = _keys401 - {"aws"}
+        check(
+            bool(_excl401) and _exclset401 == _expect401,
+            f"Check 401b: sidebar の AWS-active 除外集合 {sorted(_exclset401)} == QUIZ_DATA_MAP − aws {sorted(_expect401)}",
+            f"Check 401b: components.js の AWS-active 除外集合 {sorted(_exclset401)} が QUIZ_DATA_MAP − aws "
+            f"{sorted(_expect401)} と不一致 (欠落={sorted(_expect401 - _exclset401)} / 余剰={sorted(_exclset401 - _expect401)})。"
+            "新しい quiz を足すと、その page は正しく描画されるのに nav は「AWS 問題集」を active に光らせる "
+            "control↔content desync が silent に生まれる (#781 class)。除外集合を map と同期せよ",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 401: js/quiz-renderer.js and js/components.js present",
+              "Check 401: js/quiz-renderer.js または js/components.js が無い — quiz?type wiring を検証できない", blocking=True)
