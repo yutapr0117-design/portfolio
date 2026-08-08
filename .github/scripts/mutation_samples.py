@@ -172,6 +172,12 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "Check 402 (e2e 不在アサーションの描画確定): resilience.spec.js の schema-mismatch テストから settle (`getByLabel('新しいタスクを入力')` の toBeVisible) を除去 → goto 直後に toHaveCount(0) を評価する形へ戻る。不在アサーションは初回 poll で成立すると再検査されないため、SPA の非同期描画とレースして「まだ描画されていない」を「無い」と誤認し vacuous に PASS する (#825/#830 class)。Check 402 の非 vacuity 検証 (checks_e2e_infra.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
+        "file": ROOT / "e2e" / "resilience.spec.js",
+        "find": "  await expect(page.getByLabel('新しいタスクを入力')).toBeVisible();\n  await expect(page.getByText('OLD-SCHEMA-TASK-9001')).toHaveCount(0);",
+        "replace": "  await expect(page.getByText('OLD-SCHEMA-TASK-9001')).toHaveCount(0);",
+    },
+    {
         "name": "Check 401a (quiz?type ⟹ QUIZ_DATA_MAP キー): hiring-risk-page.js の `quiz?type=pm` を typo (pmm) へ → QuizPage が `|| QUIZ_DATA_MAP.aws` でフォールバックし、「PM問題集を見る」ボタンから黙って AWS 問題集が描画される silent wrong-content (Check 395 は base path segment のみ見て ?query を落とすため無防備だった used⟹defined wiring の query-value 面)。Check 401a の非 vacuity 検証 (checks_wiring.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
         "file": ROOT / "js" / "hiring-risk-page.js",
         "find": "path: 'quiz?type=pm',",

@@ -81,7 +81,8 @@ test('Homepage renders without console errors', async ({ page }) => {
   await page.goto('/');
   await page.waitForLoadState('domcontentloaded');
 
-  // Fatal エラーがないことを確認
+  // Fatal エラーがないことを確認 (先に h1 を待って描画を確定させる・Check 402)
+  await expect(page.locator('h1').first()).toBeVisible();
   const fatalOverlay = page.locator('#portfolio-safety-net-host');
   await expect(fatalOverlay).toHaveCount(0);
 
@@ -188,6 +189,7 @@ test('Article routes inject JSON-LD Article + og:type and clean up on leave (AIO
   // 非 article ルートへ移動: Article script 除去 + og:type=website
   await page.goto('/#/projects');
   await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
   await expect(page.locator('script[data-ld="article"]')).toHaveCount(0);
   await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content', 'website');
 });

@@ -75,6 +75,8 @@ test('Store migrates safely on schema version mismatch (snapshots old data, rese
   // (2) 旧タスクは現行ストアに反映されない (defaults へ初期化)
   await page.goto('/#/apps/task');
   await page.waitForLoadState('domcontentloaded');
+  // 描画確定を待ってから不在検査 (未描画を「無い」と誤認する vacuous PASS 防止・Check 402)
+  await expect(page.getByLabel('新しいタスクを入力')).toBeVisible();
   await expect(page.getByText('OLD-SCHEMA-TASK-9001')).toHaveCount(0);
 });
 

@@ -465,6 +465,10 @@ test('Todo app add, complete-toggle, then clear-completed removes the item', asy
   // リロード後も削除が永続している (State auto-save)
   await page.reload();
   await page.waitForLoadState('domcontentloaded');
+  // [FIX] 不在アサーションは「まだ描画されていない」を「無い」と誤認して vacuous に PASS しうる
+  //   (toHaveCount(0) は初回 poll で成立すると再検査されない)。先に「必ず在るはず」の要素を待って
+  //   描画を確定させてから不在を検査する (#825/#830 class・Check 402 が構造強制)。
+  await expect(page.getByLabel('やることを入力')).toBeVisible();
   await expect(page.getByText(text)).toHaveCount(0);
 });
 

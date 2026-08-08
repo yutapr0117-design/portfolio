@@ -188,6 +188,10 @@ test('Hiding a project removes it from the public Projects list, unhide restores
   // 公開一覧から消える
   await page.goto('/#/projects');
   await page.waitForLoadState('domcontentloaded');
+  // [FIX] 不在アサーションは「まだ描画されていない」を「無い」と誤認して vacuous に PASS しうる
+  //   (toHaveCount(0) は初回 poll で成立すると再検査されない)。先に「必ず在るはず」の要素を待って
+  //   描画を確定させてから不在を検査する (#825/#830 class・Check 402 が構造強制)。
+  await expect(page.locator('.grid-projects article h2').first()).toBeVisible();
   await expect(page.getByText(name)).toHaveCount(0);
 
   // 再表示 → 公開一覧へ復帰
@@ -272,6 +276,7 @@ test('Deleting a user project (confirm accepted) removes it everywhere', async (
   // 公開一覧からも消える (永続削除)
   await page.goto('/#/projects');
   await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('.grid-projects article h2').first()).toBeVisible();
   await expect(page.getByText(name)).toHaveCount(0);
 });
 
@@ -347,6 +352,7 @@ test('Reset data restores defaults after confirm (destructive)', async ({ page }
   // タスクが消え defaults に戻る
   await page.goto('/#/apps/task');
   await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByLabel('新しいタスクを入力')).toBeVisible();
   await expect(page.getByText('RESET-TARGET-TASK-7788')).toHaveCount(0);
   // crash していない
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
