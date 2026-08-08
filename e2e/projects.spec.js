@@ -205,6 +205,38 @@ test('Role-split page renders the Human-vs-AI division table', async ({ page }) 
 });
 
 
+// ===== 7.2: 分担表が ARIA table として構造露出される (WCAG 1.3.1) =====
+// 分担表は div グリッドで組まれ table 要素を持たないため、SR には「カテゴリ / 人間（Human）の役割 /
+// AI の役割 / 設計 / システムアーキテクチャの決定 …」という平坦なテキスト列にしか聞こえず、どのセルが
+// どの列 (人間 or AI) に属するかという**本ページの主題そのもの**が伝わらなかった。ARIA table roles で
+// 構造を露出する (属性のみ = render-neutral)。axe (a11y-axe.spec.js) は role の妥当性しか見ないため、
+// 「表として読める」ことは role の実在と行/列見出しの対応でここに固定する。
+test('Role-split division table exposes ARIA table semantics (rows, column and row headers)', async ({ page }) => {
+  await page.goto('/#/role-split');
+  await page.waitForLoadState('domcontentloaded');
+
+  const table = page.getByRole('table', { name: 'Human と AI の役割分担' });
+  await expect(table).toBeVisible();
+
+  // 列見出し 3 つ (カテゴリ / 人間 / AI) が columnheader として露出する
+  const colHeaders = table.getByRole('columnheader');
+  await expect(colHeaders).toHaveCount(3);
+  await expect(colHeaders.nth(0)).toHaveText('カテゴリ');
+  await expect(colHeaders.nth(1)).toContainText('人間');
+  await expect(colHeaders.nth(2)).toContainText('AI');
+
+  // データ行は行見出し (カテゴリ名) + 2 セル (人間/AI) を持つ
+  const rows = table.getByRole('row');
+  await expect(rows).toHaveCount(9);                       // header 1 + data 8
+  const designRow = rows.filter({ has: page.getByRole('rowheader', { name: '設計', exact: true }) });
+  await expect(designRow.getByRole('cell')).toHaveCount(2);
+  await expect(designRow.getByRole('cell').first()).toContainText('システムアーキテクチャの決定');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `role-split table semantics caused a fatal: ${fatal}`).toBeNull();
+});
+
+
 // ===== 7.2: thesis ページの key コンテンツ presence (hiring-risk lead) =====
 // hiring-risk は採用側リスク低減という命題を h1「採用リスク低減」(data-ai-content='lead') で
 // 提示する。route-render とは別に、この lead 見出しが描画されることを検証し、ページが空/別内容に

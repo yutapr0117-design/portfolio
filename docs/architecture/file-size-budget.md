@@ -129,13 +129,21 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 714000 -->
+<!-- PERF-BUDGET-DATA 716000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
      分 + sanity headroom。runaway bloat (巨大ファイル誤コミット等) を BLOCKING で捕捉する。これは
      行数予算 (BUDGET-DATA / Check 52) とは別軸 (byte-weight ≠ line-count) で、実 download/parse 負荷を
      守る。正当な機能成長で超えたら ESLint baseline 同様 rationale 付きでラチェット更新する。
+     711,000 → 714,000 (2026-08-09)。非表示プロジェクトが home 注目枠 / 詳細推薦 / Cmd+K / カテゴリ
+     選択肢へ漏れていた実バグの修正 (4 listing 面へ hiddenIds を適用 + 全件非表示時の fallback) と
+     その WHY コメントで実測が 712,892 bytes に到達。genuine な user-visible bug fix ゆえ実態 +
+     約 1,100 bytes の headroom へラチェット。
+     714,000 → 716,000 (2026-08-09)。role-split 分担表への ARIA table roles 付与 (div グリッドで
+     table 要素を持たず SR に平坦なテキスト列としてしか伝わらなかった WCAG 1.3.1 の是正・属性のみ
+     ゆえ render-neutral) と WHY コメントで実測が 714,016 bytes に到達。genuine な a11y 改善ゆえ
+     実態 + 約 2,000 bytes の headroom へラチェット。
      ラチェット履歴: 700,000 → 701,000 (2026-07-28)。多数の behavioral bug-fix (URL query cat 正規化・
      relatedProjectIds の String 正規化ほか) とその load-bearing な WHY コメント蓄積で実測が 700,183 bytes
      に到達。巨大ファイル誤コミットでなく genuine な機能/堅牢性の成長ゆえ、実態 + 約 800 bytes の headroom
