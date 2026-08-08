@@ -87,7 +87,20 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        project-name search + Enter would otherwise navigate instead of confirming the conversion.
        Without the guard a Japanese user confirming a conversion with Enter triggers a premature
        submit/navigation. This Check blocks reintroduction of the IME premature-submit class
-       across all shipped JS. (BLOCKING)
+       across all shipped JS. Detection matches a NOTATION FAMILY, not one spelling: any receiver
+       name (e / ev / event / evt …) with `.key ===/!== 'Enter'`, `.code ===/!== 'Enter'|
+       'NumpadEnter'`, or `.keyCode ===/!== 13`. The initial version matched only the literal
+       `e.key === 'Enter'` and therefore missed equivalent handlers written differently — measured:
+       injecting `function h(ev) { if (ev.key !== 'Enter') { return; } … }` into a leaf module left
+       BOTH 112a and 112b GREEN (an unguarded Enter handler slipping past the very Check that
+       exists to stop the class that already bit this repo twice: #151/#152 apps, #255 palette).
+       Scope also includes the root shipped entry `main.js`, not just `js/**`. Honest limit: set
+       tests like `['Enter'].includes(x.key)` or comparisons via an intermediate variable are NOT
+       tracked (static-regex limit) — those are left to behavior e2e and review. Both the
+       Enter-handler detection and the guard-reference lookup run on COMMENT-STRIPPED code:
+       112b is file-level, so a mere mention of `isComposing` in a WHY comment kept it GREEN
+       even when the real handler was rewritten unguarded (measured on ai-page.js) — the same
+       "prose makes the Check vacuous" class as Check 403's changelog comment. (BLOCKING)
   113. commit/PR handoff discipline presence in canon: BOTH the model-agnostic canon
        AI2AI.md (STEP 5.5) AND the Claude router CLAUDE.md (§5) must retain the handoff-first
        commit/PR discipline (theme-batched PRs, `gh pr merge --rebase`, commit-count-is-output-
@@ -392,13 +405,36 @@ def run(ctx):
     #   同 file 内で IME composition ガード (isComposing/Composing) を参照していなければならない。
     #   command-palette の keydown trap のように apps.js 外で日本語検索 + Enter が遷移を誤発火する同クラスの
     #   footgun を構造的に捕捉する (本 Check 拡張時に command-palette.js の未ガード Enter を発見・修正)。
+    # [FIX] 検出は **記法の族** で行う。初版は `e.key === 'Enter'` という 1 つの綴りだけを見ており、
+    #   同義だが別綴りの Enter ハンドラを丸ごと見逃していた。実測: `function h(ev) { if (ev.key !==
+    #   'Enter') { return; } ... }` を leaf module に注入しても 112a/112b とも GREEN のままだった。
+    #   receiver 名 (e / ev / event / evt …) を問わず、`.key ===/!== 'Enter'` / `.code ===/!==
+    #   'Enter'|'NumpadEnter'` / `.keyCode ===/!== 13` を Enter 判定とみなす。
+    #   honest な射程: `['Enter'].includes(x.key)` のような集合判定や、判定を別変数へ退避してから
+    #   比較する書き方までは追わない (静的 regex の限界)。現実的な綴りを網羅し、それ以外は
+    #   behavior e2e + レビューに委ねる。
+    def _code112(_t112):
+        """コメントを除去したコードのみを返す。ガード参照/Enter 判定の両方をコードで判定するため。
+
+        [FIX] 112b は file 単位で 'Composing' の出現を見るため、**コメント中の言及だけで GREEN**
+        になっていた (実測: ai-page.js の実ハンドラを無ガード記法へ書き換えても、直上の WHY コメント
+        が isComposing に言及しているため素通りした)。Check 403 で踏んだのと同じ「説明文が Check を
+        vacuous にする」class。
+        """
+        _t112 = re.sub(r"/\*.*?\*/", "", _t112, flags=re.S)
+        return re.sub(r"//[^\n]*", "", _t112)
+
+    _ENTER_RE112 = re.compile(
+        r"\.(?:key\s*[!=]==?\s*['\"]Enter['\"]"
+        r"|code\s*[!=]==?\s*['\"](?:Enter|NumpadEnter)['\"]"
+        r"|keyCode\s*[!=]==?\s*13)")
     _apps112 = ROOT / "js" / "apps.js"
     if _apps112.exists():
-        _lines112 = _apps112.read_text(encoding="utf-8").splitlines()
+        _lines112 = _code112(_apps112.read_text(encoding="utf-8")).splitlines()
         _enter112 = 0
         _viol112 = []
         for _i112, _line112 in enumerate(_lines112):
-            if "e.key === 'Enter'" in _line112 or 'e.key === "Enter"' in _line112:
+            if _ENTER_RE112.search(_line112):
                 _enter112 += 1
                 if "Composing" not in _line112:
                     _viol112.append(_i112 + 1)
@@ -416,12 +452,16 @@ def run(ctx):
     else:
         check(False, "", "Check 112a: js/apps.js not found — IME composition guard を検証できない", blocking=True)
     # 112b — 全 shipped JS module 横断の一般網: Enter ハンドラを持つ file は IME ガードを参照すること。
-    _js_files112 = sorted((ROOT / "js").rglob("*.js"))
+    # [FIX] 走査対象に root の shipped entry (main.js) も含める。従来は js/**.js のみで、main.js に
+    #   keydown ハンドラが足された場合に一般網の外だった。
+    _js_files112 = sorted((ROOT / "js").rglob("*.js")) + [ROOT / "main.js"]
     _enter_unguarded112 = []
     _enter_files112 = 0
     for _f112 in _js_files112:
-        _txt112 = _f112.read_text(encoding="utf-8")
-        if "e.key === 'Enter'" in _txt112 or 'e.key === "Enter"' in _txt112:
+        if not _f112.exists():
+            continue
+        _txt112 = _code112(_f112.read_text(encoding="utf-8"))
+        if _ENTER_RE112.search(_txt112):
             _enter_files112 += 1
             if "isComposing" not in _txt112 and "Composing" not in _txt112:
                 _enter_unguarded112.append(str(_f112.relative_to(ROOT)))
