@@ -30,10 +30,17 @@
 export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData }) {
     function QuizPage() {
         const state = State.get();
-        const initialSearch = state.appsData.quizSearch || "";
 
         const route = Router.getRoute();
         const quizType = route.query.type || 'aws';
+
+        // [FIX] 永続化された検索語は「入力された quiz 種別」と一致するときだけ復元する。従来は
+        //   quizSearch 単一文字列を種別を問わず適用していたため、ある種別で検索したまま別の種別へ
+        //   切り替えると語が持ち越され、切替先が「一致する問題は見つかりませんでした」の空ページに
+        //   なっていた (sidebar の種別リンク / hiring-risk の CTA はどちらも主要導線)。
+        const initialSearch = (state.appsData.quizSearchType === quizType)
+            ? (state.appsData.quizSearch || "")
+            : "";
 
         // ===== v40: Quiz data lookup table for extensibility =====
         const QUIZ_DATA_MAP = {
@@ -62,7 +69,7 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
             'aria-label': '問題検索',
             oninput: (e) => {
                 const val = e.target.value;
-                State.updateSilently(s => { s.appsData.quizSearch = val; });
+                State.updateSilently(s => { s.appsData.quizSearch = val; s.appsData.quizSearchType = quizType; });
                 renderList(val);
             }
         });

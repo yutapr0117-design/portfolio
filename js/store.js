@@ -72,6 +72,7 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
         },
         ai: { history: [] },
         quizSearch: "",
+        quizSearchType: "",
         notes: "# メモ\n\nMarkdown で書けます。**太字**・`コード`・- リスト・見出し。"
     };
 
@@ -619,6 +620,14 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
         // として preserve し、QUIZ_SEARCH 上限で bound する (transient 検索語ゆえ短い上限)。
         if (typeof data.quizSearch === 'string') {
             result.quizSearch = data.quizSearch.slice(0, CONSTANTS.LIMITS.QUIZ_SEARCH);
+        }
+        // [FIX] 検索語の所属 quiz 種別。quizSearch は単一の文字列で全 quiz 種別に適用されていたため、
+        //   ある種別で検索したまま別の種別へ切り替えると検索語が持ち越され、切替先が「一致する問題は
+        //   見つかりませんでした」の空ページになっていた (実測: architecture で "CAP" 検索 → sidebar の
+        //   PM 問題集へ切替で PM が 0 件表示)。どの種別で入力された語かを併せて永続化し、種別が一致
+        //   するときだけ復元する。quizSearch と同じ additive string ゆえ preserve + bound。
+        if (typeof data.quizSearchType === 'string') {
+            result.quizSearchType = data.quizSearchType.slice(0, CONSTANTS.LIMITS.QUIZ_SEARCH);
         }
 
         return result;

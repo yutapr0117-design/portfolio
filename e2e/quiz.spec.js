@@ -163,6 +163,38 @@ test('Quiz search term persists across reload (normalize preserve regression)', 
 });
 
 
+// ===== 7.2: 検索語が quiz 種別を跨いで持ち越されない (空ページ着地の回帰) =====
+// quizSearch は単一の文字列で、種別 (aws/pm/quality/architecture) を問わず適用されていた。そのため
+// ある種別で検索したまま sidebar / CTA で別の種別へ切り替えると語が持ち越され、切替先が
+// 「一致する問題は見つかりませんでした」の**空ページ**になっていた (実測: architecture で 'CAP' →
+// PM へ切替で PM が 0 件)。quizSearchType を併せて永続化し種別一致時のみ復元する。
+test('Quiz search term does not leak across quiz types (empty-page landing regression)', async ({ page }) => {
+  await page.goto('/#/quiz?type=architecture');
+  await page.waitForLoadState('domcontentloaded');
+  const search = page.locator('input[aria-label="問題検索"]');
+  await expect(search).toBeVisible();
+  await search.fill('CAP');
+  await expect(search).toHaveValue('CAP');
+  await page.waitForTimeout(300); // updateSilently の debounce flush
+
+  // 別種別へ切替 → 検索語は持ち越されず、問題が描画される (空ページにならない)
+  await page.goto('/#/quiz?type=pm');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('h1')).toHaveText('PM問題集');
+  await expect(page.locator('input[aria-label="問題検索"]')).toHaveValue('');
+  await expect(page.getByText(/一致する問題は見つかりませんでした/)).toHaveCount(0);
+
+  // 元の種別へ戻ると、その種別で入力した語は復元される (種別ごとの記憶)
+  await page.goto('/#/quiz?type=architecture');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('h1')).toHaveText('設計判断問題集');
+  await expect(page.locator('input[aria-label="問題検索"]')).toHaveValue('CAP');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `quiz search scoping caused a fatal: ${fatal}`).toBeNull();
+});
+
+
 // ===== 7.2: quiz pm / quality タイプのデータファイル描画カバレッジ =====
 // QUIZ_DATA_MAP は aws / pm / quality / architecture の 4 データファイルを引く。aws(default) と
 // architecture は被覆済みだが、pm(pmQuizData) / quality(qualityQuizData) はどのテストでも未訪問で
