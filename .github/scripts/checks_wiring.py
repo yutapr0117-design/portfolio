@@ -153,6 +153,17 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        #/quiz?type=zzz でも AWS が出る」というフォールバック挙動の説明を WHY コメントに書いており、
        それを実リンクと誤検出するため — 実バグでなく設計記述を捕捉した false-positive)。行末
        コメントは除外しない (コード行に紛れた実リテラルを見落とさないため)。(BLOCKING)
+  403. sr-only AIO entity anchor presence: index.html は AIO 戦略上 load-bearing な sr-only
+       エンティティアンカー — `<div id="aio-footer-entity">` (著作権 / entity / canonical ブロック)
+       と `<footer id="aio-main-footer">` (RAG チャンクアンカー) — を **要素として** 保持しなければ
+       ならない。これらは視覚的に不可視 (sr-only + aria-hidden) ゆえ、除去しても (a) pixel
+       screenshot は無変化 (そもそも §3(B) で advisory)、(b) behavior e2e は素通り、(c) consistency も
+       無被覆で、完全に silent に消える。実測: `<div id="aio-footer-entity">` ブロックを丸ごと削除
+       しても behavior e2e は PASS し consistency は 0 errors だった (同時に、その e2e が
+       `if (await entity.count())` の skip-on-missing で vacuous だったことも判明し是正した)。
+       Check 133 (aio-guard.js の script 配線 → #aio-asset-anchor 保護) と同じ「不可視だが
+       load-bearing な AIO 要素」class の entity-anchor 面。判定は要素 (`<div ... id="...">`) を
+       見るため、changelog コメント中の id 言及では PASS しない。(BLOCKING)
 """
 import re
 import json
@@ -670,3 +681,34 @@ def run(ctx):
     else:
         check(False, "Check 401: js/quiz-renderer.js and js/components.js present",
               "Check 401: js/quiz-renderer.js または js/components.js が無い — quiz?type wiring を検証できない", blocking=True)
+
+    # ── 403. sr-only AIO entity anchor の presence (BLOCKING) ─────────────────────
+    # index.html の sr-only エンティティアンカー (<div id="aio-footer-entity"> の著作権/entity/
+    # canonical ブロックと <footer id="aio-main-footer"> の RAG チャンクアンカー) は AIO 戦略上
+    # load-bearing だが **視覚的に不可視** ゆえ、除去しても (a) pixel screenshot は無変化 (そもそも
+    # advisory)、(b) behavior e2e は素通り、(c) consistency も無被覆 —— 完全に silent に消える。
+    # 実測: <div id="aio-footer-entity"> ブロックを丸ごと削除しても e2e は PASS・consistency は
+    # 0 errors だった。Check 133 (aio-guard.js の script 配線) が #aio-asset-anchor を守るのと同じ
+    # 「不可視だが load-bearing な AIO 要素」class の entity-anchor 面を閉じる。
+    # 判定は **要素** を見る (changelog コメント中の id 言及では PASS しない)。
+    _html403 = ROOT / "index.html"
+    _raw403 = _html403.read_text(encoding="utf-8") if _html403.exists() else ""
+    # index.html 冒頭の changelog は HTML コメント内に `・<div id="aio-footer-entity">に…` のように
+    # 要素リテラルを含む。コメントを除去せずに素の regex を当てると、**要素を丸ごと削除しても
+    # コメントの言及だけで PASS する vacuous Check** になる (本 Check の非 vacuity 検証で実際に
+    # そうなっていたのを mutation で検出し是正した)。判定前に必ずコメントを剥がす。
+    _src403 = re.sub(r"<!--.*?-->", "", _raw403, flags=re.S)
+    _anchors403 = [
+        ("aio-footer-entity", r'<div[^>]*id="aio-footer-entity"'),
+        ("aio-main-footer", r'<footer[^>]*id="aio-main-footer"'),
+    ]
+    _missing403 = [_n403 for _n403, _re403 in _anchors403 if not re.search(_re403, _src403)]
+    check(
+        bool(_src403) and not _missing403,
+        f"Check 403: sr-only AIO entity anchor {[n for n, _ in _anchors403]} が index.html に要素として存在",
+        f"Check 403: sr-only AIO entity anchor が index.html から消失: {_missing403} — "
+        "著作権/entity/canonical ブロックと RAG チャンクアンカーは AIO 戦略上 load-bearing だが視覚的に "
+        "不可視ゆえ、除去しても screenshot・behavior e2e・consistency のいずれも従来は捕捉できなかった "
+        "(dead-code purge で silent に消える)。要素を復元せよ (本文の変更は C6 ゆえ aio-guardian 経由)",
+        blocking=True,
+    )

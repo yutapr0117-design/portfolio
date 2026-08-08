@@ -172,6 +172,12 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "Check 403 (sr-only AIO entity anchor presence): index.html の <footer id=\"aio-main-footer\"> の id を rename → AIO 戦略上 load-bearing な RAG チャンクアンカーが消失する。視覚的に不可視 (sr-only + aria-hidden) ゆえ screenshot も behavior e2e も従来は捕捉できなかった silent removal class (Check 133 の #aio-asset-anchor 保護と同型の entity-anchor 面)。Check 403 の非 vacuity 検証 (checks_wiring.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
+        "file": ROOT / "index.html",
+        "find": '<footer class="sr-only" aria-hidden="true" id="aio-main-footer">',
+        "replace": '<footer class="sr-only" aria-hidden="true" id="aio-main-footer-renamed">',
+    },
+    {
         "name": "Check 402 (e2e 不在アサーションの描画確定): resilience.spec.js の schema-mismatch テストから settle (`getByLabel('新しいタスクを入力')` の toBeVisible) を除去 → goto 直後に toHaveCount(0) を評価する形へ戻る。不在アサーションは初回 poll で成立すると再検査されないため、SPA の非同期描画とレースして「まだ描画されていない」を「無い」と誤認し vacuous に PASS する (#825/#830 class)。Check 402 の非 vacuity 検証 (checks_e2e_infra.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
         "file": ROOT / "e2e" / "resilience.spec.js",
         "find": "  await expect(page.getByLabel('新しいタスクを入力')).toBeVisible();\n  await expect(page.getByText('OLD-SCHEMA-TASK-9001')).toHaveCount(0);",
@@ -917,6 +923,13 @@ E2E_MUTATIONS = [
         "find": "            pm: { title: 'PM問題集', data: pmQuizData },",
         "replace": "            pmX: { title: 'PM問題集', data: pmQuizData },",
         "test": "Hiring-risk CTAs land on the quiz named on the button",
+    },
+    {
+        "name": "behavior: sr-only AIO entity anchor の silent removal — index.html の <div class=\"sr-only\" id=\"aio-footer-entity\"> の id を rename → 著作権/entity/canonical ブロックが DOM から消える。旧テストは `if (await entity.count())` の skip-on-missing で黙って PASS する vacuous gate だった (実測で確認し presence 必須へ是正)。是正版が実際に RED になることの検証",
+        "file": ROOT / "index.html",
+        "find": '<div class="sr-only" id="aio-footer-entity" aria-hidden="true">',
+        "replace": '<div class="sr-only" id="aio-footer-entity-renamed" aria-hidden="true">',
+        "test": "sr-only content (route announcer + AIO entity anchor) stays visually hidden",
     },
     {
         "name": "behavior: quiz 検索語の種別スコープ喪失 — quiz-renderer.js の initialSearch を quizSearchType 一致条件から素の quizSearch へ戻す → ある種別で検索したまま別種別へ切り替えると語が持ち越され、切替先が「一致する問題は見つかりませんでした」の空ページになる (sidebar の種別リンク / hiring-risk の CTA はどちらも主要導線)。実測で architecture の 'CAP' が PM へ持ち越され PM が 0 件表示になっていた実バグの回帰防止",
