@@ -535,3 +535,47 @@ test('Auto-recommendations exclude self and explicitly-related projects (no dupl
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `auto-related exclusion check caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: 非表示プロジェクトが「公開一覧以外の全 listing 面」からも消える =====
+// projectPrefs.hiddenIds を見ていたのは ProjectsPage (公開一覧) と SettingsPage (管理 UI) だけで、
+// home の「注目のプロジェクト」/ 詳細ページの推薦 (関連・おすすめ) / Cmd+K 候補は素の state.projects
+// から描いていた。default project は削除ボタンが disabled (「デフォルトは非表示のみ」) ＝非表示が
+// 唯一の非公開手段なのに、既定 featured の p01 を隠してもトップ最上位の注目枠に出続けるなど、
+// 「一覧だけの部分的な隠蔽」に留まっていた (producer/consumer mesh の read 面漏れ)。
+// 既定 featured である「タスク管理アプリ」(p01・p02 の関連にも入る) を隠し、3 面すべてから
+// 消えることを検証する。各面 fix の除去でこのテストが RED になる (mutation 登録済)。
+test('Hidden project disappears from home featured, detail recommendations and Cmd+K', async ({ page }) => {
+  const target = 'タスク管理アプリ';
+
+  // 既定 featured を非表示にする (aria-label は行ごとに一意 — #563 の a11y 対応による)
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByRole('button', { name: `非表示：${target}` }).click();
+  await expect(page.getByRole('button', { name: `表示：${target}` })).toBeVisible();
+
+  // (1) home の「注目のプロジェクト」に出ない (描画確定を待ってから不在検査)
+  await page.goto('/#/');
+  await page.waitForLoadState('domcontentloaded');
+  const featuredCard = page.locator('article.card').filter({ has: page.getByRole('heading', { name: '注目のプロジェクト' }) });
+  await expect(featuredCard).toBeVisible();
+  await expect(featuredCard.getByText(target)).toHaveCount(0);
+
+  // (2) 詳細ページの推薦に出ない (p02 todo-list は relatedProjectIds に p01 を持つ)
+  await page.goto('/#/projects/todo-list');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('h1', { hasText: 'TODOリスト' })).toBeVisible();
+  const recHeading = page.getByRole('heading', { name: 'おすすめ（自動）' });
+  await expect(recHeading).toBeVisible();   // 推薦セクション自体は描画されている (非 vacuous)
+  await expect(page.getByRole('button', { name: target })).toHaveCount(0);
+
+  // (3) Cmd+K の候補に出ない (候補リスト自体は描画されていることを先に確認)
+  await page.keyboard.press('Control+k');
+  await expect(page.locator('#command-palette-host')).toHaveAttribute('aria-hidden', 'false');
+  await page.locator('.cmdk-input').fill('タスク');
+  await expect(page.locator('.cmdk-item').first()).toBeVisible();
+  await expect(page.locator('.cmdk-item').filter({ hasText: target })).toHaveCount(0);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `hidden-project listing leak check caused a fatal: ${fatal}`).toBeNull();
+});

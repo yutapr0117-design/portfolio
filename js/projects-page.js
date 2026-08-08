@@ -24,7 +24,12 @@ export function createProjectsPage({ h, createIcon, Router, State, tokenize, cle
         let q = route.query.q || '';
         let cat = route.query.cat || 'All';
 
-        const categories = ['All', ...new Set(state.projects.map(p => p.category))];
+        // [FIX] カテゴリ選択肢も非表示を除いた集合から導出 (listing 面 mesh・home-page.js 参照)。
+        //   従来はカテゴリ全件を非表示にしても「選べるのに必ず 0 件」の option が残っていた。
+        const _hiddenForCats = new Set(((state.projectPrefs && state.projectPrefs.hiddenIds) || []).map(String));
+        const categories = ['All', ...new Set(state.projects
+            .filter(p => !_hiddenForCats.has(String(p.id)))
+            .map(p => p.category))];
 
         // [FIX] 無効な URL query cat (stale bookmark / カテゴリ削除後) は 'All' へ正規化。放置すると
         // <select> は option 不在で 'All' 表示なのに cat は無効値で空 filter = 「All なのに 0 件」desync

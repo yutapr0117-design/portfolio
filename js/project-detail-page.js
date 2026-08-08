@@ -31,11 +31,17 @@ export function createProjectDetailPage({ h, createIcon, Router, State, Store })
             );
         }
 
-        const related = state.projects.filter(p =>
+        // [FIX] 非表示 (projectPrefs.hiddenIds) を推薦面にも適用 (listing 面 mesh・home-page.js 参照)。
+        //   従来は素の state.projects から選び、非表示プロジェクトが推薦カードとして出続けていた。
+        //   直接 URL 閲覧は従来どおり許容 — hidden は listing の可視性制御でアクセス制御ではない。
+        const hiddenIds = new Set(((state.projectPrefs && state.projectPrefs.hiddenIds) || []).map(String));
+        const listable = state.projects.filter(p => !hiddenIds.has(String(p.id)));
+
+        const related = listable.filter(p =>
             project.relatedProjectIds?.includes(p.id) && p.id !== project.id
         );
 
-        const autoRelated = Store.autoRelatedCandidates(project, state.projects, 8);
+        const autoRelated = Store.autoRelatedCandidates(project, listable, 8);
         return h('article', { class: 'flex flex-col gap-6' },
             // Header
             h('header', {},

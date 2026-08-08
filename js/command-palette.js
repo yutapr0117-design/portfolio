@@ -65,9 +65,13 @@ export function createCommandPalette({ Router, h, createIcon, State }) {
     // 固定 NAV に「現在のプロジェクト一覧」を加えた検索対象を返す。プロジェクトは open 毎に
     // State から取得するので、追加/削除/import 後も最新が反映される (stale にならない)。
     function _allDestinations() {
-        const projects = (State && State.get().projects) || [];
+        // [FIX] 非表示 (projectPrefs.hiddenIds) を Cmd+K 候補にも適用 (listing 面 mesh・home-page.js
+        //   参照)。従来は公開一覧から消したプロジェクトが palette から検索・到達できた。
+        const _st = (State && State.get()) || {};
+        const projects = _st.projects || [];
+        const _hidden = new Set((((_st.projectPrefs && _st.projectPrefs.hiddenIds) || [])).map(String));
         const projItems = projects
-            .filter(p => p && p.slug && p.name)
+            .filter(p => p && p.slug && p.name && !_hidden.has(String(p.id)))
             .map(p => ({ label: 'プロジェクト: ' + p.name, hash: 'projects/' + p.slug }));
         return NAV.concat(projItems);
     }
