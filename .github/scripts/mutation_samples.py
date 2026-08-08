@@ -927,4 +927,11 @@ E2E_MUTATIONS = [
         "replace": "'aria-label': 'メールアドレス' }",
         "test": "Quiz contact form marks name and email as aria-required",
     },
+    {
+        "name": "behavior: 自動推薦の明示-related 除外の喪失 — store.js autoRelatedCandidates の候補 filter から `&& !fixed.has(p.id)` を外す → target.relatedProjectIds に既にある明示 related が推薦候補へ戻り、プロジェクト詳細の「関連プロジェクト」節と「おすすめ（自動）」節に同じプロジェクトが二重表示される (推薦枠 8 件が既知の関連で埋まり新規発見価値が失われる)。新設 auto-recommendation exclusion test に対応する mutation で safety-net を institutionalize する非 vacuity 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": ".filter(p => p && p.id && p.id !== target.id && !fixed.has(p.id))",
+        "replace": ".filter(p => p && p.id && p.id !== target.id)",
+        "test": "Auto-recommendations exclude self and explicitly-related projects",
+    },
 ]

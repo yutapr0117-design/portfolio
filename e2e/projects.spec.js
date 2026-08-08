@@ -499,3 +499,39 @@ test('Projects result count is an aria-live status region that updates on filter
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `count live region caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: 自動推薦が「自分自身」と「明示 related」を除外する (二重表示ガード) =====
+// Store.autoRelatedCandidates は `p.id !== target.id && !fixed.has(p.id)` で (a) 対象自身と
+// (b) target.relatedProjectIds に既にある明示 related を候補から落とす。この除外が壊れると
+// 「関連プロジェクト」節と「おすすめ（自動）」節に同じプロジェクトが二重表示され、さらに自分自身
+// への自己リンクが出る (実害: 推薦枠 8 件が既知の関連で埋まり新規発見価値が失われる)。従来の
+// autoRelated テストは「先頭ボタンが別 slug へ飛ぶ」だけを見ており、この除外 invariant は未カバー
+// だった。default p01(task-manager) は relatedProjectIds=["p02","p03","p04"] を実際に持ち、同一
+// カテゴリ Productivity ゆえ類似度 > 0 = 除外を外せば必ず両節に出る (非 vacuous)。
+test('Auto-recommendations exclude self and explicitly-related projects (no duplicate listing)', async ({ page }) => {
+  await page.goto('/#/projects/task-manager');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('h1', { hasText: 'タスク管理アプリ' })).toBeVisible();
+
+  const relSection = page.locator('section.card').filter({ has: page.getByRole('heading', { name: '関連プロジェクト' }) });
+  const recSection = page.locator('section.card').filter({ has: page.getByRole('heading', { name: 'おすすめ（自動）' }) });
+  await expect(relSection).toBeVisible();
+  await expect(recSection).toBeVisible();
+
+  // 両節ともに候補を持つ (空集合同士の積は自明に空 = vacuous になるため件数を先に要求)
+  const relNames = (await relSection.getByRole('button').allInnerTexts()).map(t => t.trim()).filter(Boolean);
+  const recNames = (await recSection.getByRole('button').allInnerTexts()).map(t => t.trim()).filter(Boolean);
+  expect(relNames.length, 'explicit related list must be non-empty').toBeGreaterThan(0);
+  expect(recNames.length, 'auto-recommendation list must be non-empty').toBeGreaterThan(0);
+
+  // (b) 明示 related は自動推薦から除外される → 2 節の積集合は空
+  const overlap = recNames.filter(n => relNames.includes(n));
+  expect(overlap, `auto-recommendations duplicated explicit related: ${overlap.join(', ')}`).toEqual([]);
+
+  // (a) 対象自身は自動推薦に出ない (自己リンク禁止)
+  expect(recNames, 'auto-recommendations must not include the project itself').not.toContain('タスク管理アプリ');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `auto-related exclusion check caused a fatal: ${fatal}`).toBeNull();
+});
