@@ -172,6 +172,12 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "Check 376 (producer 記法族・DOM API 面): js/mobile-drawer.js に DOM API 経由の typo した data-action producer (`el.dataset.action = 'drawr:open'`) を注入 → ActionDelegator が未登録 action を lookup して click が silent no-op になる (throw も console error も e2e 失敗も無い) 実バグ class。初版 Check は属性リテラルと h() prop の 2 綴りしか見ておらず DOM API 記法を素通ししていた (記法族検出への拡張の非 vacuity 検証)",
+        "file": ROOT / "js" / "mobile-drawer.js",
+        "find": "export function createMobileDrawer(",
+        "replace": "function _probeProducer(el) { el.dataset.action = 'drawr:open'; }\nvoid _probeProducer;\nexport function createMobileDrawer(",
+    },
+    {
         "name": "Check 130 (live-input 記法族): js/quiz-renderer.js の検索 oninput を updateSilently から addEventListener('input') 経由の State.update へ書き換える → 毎キーストローク全再描画で focused input が破棄され検索が使用不能になる #258 class が別記法で再混入する。初版 Check は 'oninput' リテラルしか見ておらず本 mutation を素通ししていた (記法族検出への拡張の非 vacuity 検証)",
         "file": ROOT / "js" / "quiz-renderer.js",
         "find": "        box.appendChild(h(\"div\", { class: \"mb-6\" },",

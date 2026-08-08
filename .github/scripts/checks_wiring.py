@@ -74,6 +74,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        JS, and asserts every producer resolves to a handler. The reverse (handler ⟹ producer) is NOT
        enforced: `drawer:close` is an intentionally symmetric unused handler (the drawer closes via
        direct onclick / Escape / nav-click), so this is a used⟹defined guard, not a bijection.
+       Producer detection covers a NOTATION FAMILY: the HTML/JSX-ish attribute literal
+       (`data-action="X"`), the h() prop (`'data-action': 'X'`), AND the DOM-API forms
+       `setAttribute('data-action', 'X')` / `el.dataset.action = 'X'`. The initial version matched
+       only the first two, so a typo'd action set through the DOM API passed GREEN (measured:
+       injecting both DOM-API forms with typo'd names left the Check green — exactly the silent
+       no-op button this Check exists to prevent). Scope includes the root entry `main.js`.
+       Honest limit: dynamically composed names (template literals / variables) are not tracked.
        (BLOCKING)
   391. getElementById target → id definition resolution: every `getElementById('X')` literal in shipped
        JS must point at an id that is actually defined — as index.html `id="X"`, a shipped-JS `id: 'X'`
@@ -362,10 +369,19 @@ def run(ctx):
         _html376 = re.sub(r"<!--.*?-->", "", _index376.read_text(encoding="utf-8"), flags=re.DOTALL)
         for _pm376 in re.finditer(r"data-action\s*=\s*['\"]([A-Za-z][\w:-]*)['\"]", _html376):
             _producers376.setdefault(_pm376.group(1), "index.html")
-        for _f376 in sorted((ROOT / "js").glob("*.js")):
+        # [FIX] producer の記法族を網羅する。従来は「属性リテラル」と「h() prop」の 2 綴りだけを見て
+        #   おり、DOM API 経由の producer — `setAttribute('data-action', 'X')` と
+        #   `el.dataset.action = 'X'` — を丸ごと見逃していた (実測: typo した action 名を両記法で
+        #   leaf module に注入しても GREEN のまま = silent no-op ボタンが素通りする)。走査対象に
+        #   root の main.js も追加する (従来 js/*.js のみ)。
+        for _f376 in sorted((ROOT / "js").glob("*.js")) + [ROOT / "main.js"]:
+            if not _f376.exists():
+                continue
             _t376 = re.sub(r"//[^\n]*", "", _f376.read_text(encoding="utf-8"))
             for _pat376 in (r"data-action\s*=\s*['\"]([A-Za-z][\w:-]*)['\"]",
-                            r"['\"]data-action['\"]\s*:\s*['\"]([A-Za-z][\w:-]*)['\"]"):
+                            r"['\"]data-action['\"]\s*:\s*['\"]([A-Za-z][\w:-]*)['\"]",
+                            r"setAttribute\(\s*['\"]data-action['\"]\s*,\s*['\"]([A-Za-z][\w:-]*)['\"]",
+                            r"dataset\.action\s*=\s*['\"]([A-Za-z][\w:-]*)['\"]"):
                 for _pm376b in re.finditer(_pat376, _t376):
                     _producers376.setdefault(_pm376b.group(1), str(_f376.relative_to(ROOT)))
         _unresolved376 = sorted(
