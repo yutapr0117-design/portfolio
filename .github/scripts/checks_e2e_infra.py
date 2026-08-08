@@ -59,6 +59,10 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `page.keyboard.press` は locator を持たず待たないので除外)。修正は「直前に positive を 1 行
        足す」だけで済むため false-positive でも実害が小さい。Check 111 (networkidle 禁止) /
        Check 130 (oninput の State.update 禁止) と同じ「e2e/実装の構造的落とし穴を静的に封じる」系。
+       検出は **matcher 自体** (`toHaveCount(0)` 等) を行単位で見る。初版は `await expect(` が
+       matcher と同一行にあることを要求しており、多行に折り返した assertion を丸ごと見逃していた
+       (実測: navigation-a11y.spec.js の nav-link ループ = 全 sidebar リンクが NotFound に落ちない
+       ことを検査する重要な gate が未検出だった)。行全体がコメントの行は判定から除外する。
        (BLOCKING)
 """
 import re
@@ -182,21 +186,29 @@ def run(ctx):
     # ゆえに不在アサーションの前には、直近の goto/reload 以降に「必ず在るはず」の要素を待つ
     # positive assertion (toBeVisible 等) か locator 相互作用 (click/fill 等は actionability 待ちを
     # 伴うため settle とみなす) が無ければならない。修正は「先に positive を 1 行足す」だけで済む。
-    _abs402 = re.compile(r"await expect\((?!.*not\.toHaveCount).*(?:toHaveCount\(0\)|not\.toBeVisible\(\)|not\.toBeAttached\(\))")
-    _pos402 = re.compile(r"await expect\(.*(?:toBeVisible|toHaveText|toContainText|toBeFocused|toHaveAttribute|toHaveURL|toHaveValue|toBeEnabled|toBeDisabled|toBeChecked)")
+    # [FIX] 初版は `await expect(...)` が **matcher と同一行** にあることを要求していたため、
+    #   多行に折り返した assertion (`await expect(\n  locator,\n  msg\n).toHaveCount(0);`) を
+    #   丸ごと見逃していた (実測: navigation-a11y.spec.js の nav-link ループ = 全 sidebar リンクが
+    #   NotFound に落ちないことを検査する重要な gate が未検出だった)。matcher 自体を検出対象にし、
+    #   行全体がコメントの行は producer/settle 判定から除外する (説明文中の記述で誤検出しないため)。
+    _abs402 = re.compile(r"(?<!not\.)(?:toHaveCount\(0\)|not\.toBeVisible\(\)|not\.toBeAttached\(\))")
+    _pos402 = re.compile(r"(?:toBeVisible|toHaveText|toContainText|toBeFocused|toHaveAttribute|toHaveURL|toHaveValue|toBeEnabled|toBeDisabled|toBeChecked)\(")
     _poscount402 = re.compile(r"toHaveCount\((?!0\))")
     _inter402 = re.compile(r"(?<!keyboard)\.(?:click|fill|type|check|uncheck|selectOption|hover|dblclick)\(")
     _nav402 = re.compile(r"page\.(?:goto|reload)\(")
+    _cmt402 = re.compile(r"\s*(?://|\*|/\*)")
     _e2e_dir402 = ROOT / "e2e"
     _bad402 = []
     if _e2e_dir402.is_dir():
         for _f402 in sorted(_e2e_dir402.glob("*.spec.js")):
             _lines402 = _f402.read_text(encoding="utf-8").splitlines()
             for _i402, _l402 in enumerate(_lines402):
-                if not _abs402.search(_l402):
+                if _cmt402.match(_l402) or not _abs402.search(_l402):
                     continue
                 _nav_at, _settle_at = -1, -1
                 for _j402 in range(max(0, _i402 - 14), _i402):
+                    if _cmt402.match(_lines402[_j402]):
+                        continue
                     if _nav402.search(_lines402[_j402]):
                         _nav_at = _j402
                     if (_pos402.search(_lines402[_j402]) or _poscount402.search(_lines402[_j402])
