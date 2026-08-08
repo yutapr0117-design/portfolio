@@ -697,8 +697,8 @@ E2E_MUTATIONS = [
     {
         "name": "behavior: quiz 検索 live-input の focus-loss guard (#258) の喪失 — quiz-renderer.js の oninput を updateSilently から State.update へ戻す → 全再描画で input が破棄され 1 文字ごとに focus を失い検索が使えなくなる実バグ。既存 focus-regression test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証 (Check 130 の静的封じと behavior 面の二層)",
         "file": ROOT / "js" / "quiz-renderer.js",
-        "find": "State.updateSilently(s => { s.appsData.quizSearch = val; });",
-        "replace": "State.update(s => { s.appsData.quizSearch = val; });",
+        "find": "State.updateSilently(s => { s.appsData.quizSearch = val; s.appsData.quizSearchType = quizType; });",
+        "replace": "State.update(s => { s.appsData.quizSearch = val; s.appsData.quizSearchType = quizType; });",
         "test": "Quiz search input retains focus",
     },
     {
@@ -917,6 +917,13 @@ E2E_MUTATIONS = [
         "find": "            pm: { title: 'PM問題集', data: pmQuizData },",
         "replace": "            pmX: { title: 'PM問題集', data: pmQuizData },",
         "test": "Hiring-risk CTAs land on the quiz named on the button",
+    },
+    {
+        "name": "behavior: quiz 検索語の種別スコープ喪失 — quiz-renderer.js の initialSearch を quizSearchType 一致条件から素の quizSearch へ戻す → ある種別で検索したまま別種別へ切り替えると語が持ち越され、切替先が「一致する問題は見つかりませんでした」の空ページになる (sidebar の種別リンク / hiring-risk の CTA はどちらも主要導線)。実測で architecture の 'CAP' が PM へ持ち越され PM が 0 件表示になっていた実バグの回帰防止",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "        const initialSearch = (state.appsData.quizSearchType === quizType)\n            ? (state.appsData.quizSearch || \"\")\n            : \"\";",
+        "replace": "        const initialSearch = state.appsData.quizSearch || \"\";",
+        "test": "Quiz search term does not leak across quiz types",
     },
     {
         "name": "a11y: 分担表の ARIA table 構造の喪失 — pages.js splitRow のカテゴリセルから `role: 'rowheader'` を外す → 行見出しが失われ、SR はセル読み上げ時にどのカテゴリ行かの文脈を得られなくなる (分担表は div グリッドで table 要素を持たないため ARIA role が唯一の構造露出手段・WCAG 1.3.1)。axe は role の妥当性しか見ず role 除去は違反にならないため behavior e2e が唯一の gate。新設 table-semantics test の非 vacuity 検証",
