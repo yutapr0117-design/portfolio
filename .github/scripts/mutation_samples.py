@@ -245,6 +245,12 @@ _MUTATIONS_TAIL = [
         "find": "    contact: { title: 'Contact', desc: 'お問い合わせ。メール・GitHub・LinkedIn。' },",
         "replace": "    /* contact removed */",
     },
+    {
+        "name": "Check 398 (advisory 可読性): check_repository_consistency.py の Result block で warning 本文の反復印字 `for w in warnings:` を潰す → ADVISORY Check (56 箇所・13 module) が drift を検出しても件数しか出ず、どの invariant が緩んだかがローカル/CI ログ双方で読めない状態へ退行する (読めない advisory = 実質 vacuous な助言層)。Check 398 の非 vacuity 検証 (checks_maintainability.py が検証する対象は check_repository_consistency.py ゆえ mutation_samples.py の self-reference trap 無し)",
+        "file": ROOT / ".github" / "scripts" / "check_repository_consistency.py",
+        "find": "    for w in warnings:",
+        "replace": "    for w in []:",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。

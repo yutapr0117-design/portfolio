@@ -149,6 +149,17 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
        dependabot.yml` made Check 68 raise NameError instead of skipping (5 modules had the missing
        unpack: aio_config/governance_sync/repo_hygiene/structural_ci lacked warnings, misc_governance
        lacked errors). This Check parses each module for bare append + missing unpack. (BLOCKING)
+  398. consistency の ADVISORY warning 本文出力: `check_repository_consistency.py` の Result block
+       は `warnings` を反復し各本文を `::warning::{w}` (GitHub Actions annotation) 形式で印字し
+       なければならない。従来は errors 側だけが `::error::{e}` で本文を列挙し、warnings 側は
+       `passed with N warning(s)` と件数のみを出して本文を捨てていた (「1 ケースだけ処理・他を
+       忘れる」asymmetry)。ADVISORY Check は 56 箇所・13 module に及び、drift を検出しても本文が
+       出ないためローカル実行でも CI ログでも「どの invariant が緩んでいるか」を読めず、対処の
+       起点が存在しない — 読めない advisory は実質 vacuous な助言層で、BLOCKING でない Check 群
+       (52 予算 / 60 ESLint baseline / 121 STATUS 鮮度 等) の早期警告価値がゼロになる。検証は
+       loop 変数名に束縛して行う (`for w in warnings:` → `print(f"...::warning::{w}")`)。literal
+       の有無だけを見るとループと無関係な固定文字列で vacuous に PASS しうるため。Check 385
+       (advisory/error パスの latent crash 防止) と対で「助言層が実際に機能する」軸を守る。(BLOCKING)
 """
 import re
 
@@ -780,4 +791,30 @@ def run(ctx):
         "error/skip パスで使うのに run(ctx) で `warnings = ctx.warnings` / `errors = ctx.errors` を "
         "unpack していない。その枝が走ると NameError で consistency script 全体が crash する (通常は "
         "全ファイル/依存が揃うため休眠)。`extract = ctx.extract` の直後に不足 unpack を追加せよ",
+    )
+
+    # ── 398. consistency の ADVISORY warning 本文出力 (BLOCKING) ───────────────────
+    # check_repository_consistency.py の Result block は errors 側を `::error::{e}` で本文列挙する
+    # のに、warnings 側は件数だけを印字し本文を捨てていた (asymmetry)。ADVISORY Check (56 箇所・
+    # 13 module) が drift を検出しても "passed with N warning(s)" としか出ず、ローカルでも CI ログ
+    # でも「どの invariant が緩んでいるか」が読めない = 読めない advisory は実質 vacuous な助言層。
+    # warning 本文を `::warning::` (GitHub Actions annotation) で列挙することを構造強制する。
+    _cons398 = ROOT / ".github" / "scripts" / "check_repository_consistency.py"
+    _src398 = _cons398.read_text(encoding="utf-8") if _cons398.exists() else ""
+    _loop398 = re.search(r"^\s*for\s+(\w+)\s+in\s+warnings\s*:\s*$", _src398, re.M)
+    _emit398 = False
+    if _loop398:
+        # loop 変数名に束縛して検証する (`for w in warnings:` → `print(f"...::warning::{w}")`)。
+        # literal 有無だけを見ると、ループと無関係な固定文字列で vacuous に PASS しうる。
+        _var398 = _loop398.group(1)
+        _tail398 = _src398[_loop398.end():]
+        _emit398 = bool(re.search(
+            r'^\s*print\(f?"[^"]*::warning::\{' + re.escape(_var398) + r'\}', _tail398, re.M))
+    check(
+        bool(_src398) and bool(_loop398) and _emit398,
+        "Check 398: consistency の ADVISORY warning 本文が ::warning:: annotation で列挙出力される",
+        "Check 398: check_repository_consistency.py の Result block が warnings を反復して本文を "
+        "`::warning::{w}` 形式で印字していない。件数のみの出力では ADVISORY Check が drift を検出しても "
+        "どの invariant が緩んだか読めず (ローカル/CI ログ双方)、advisory 層が実質 vacuous になる。"
+        "errors 側の `::error::{e}` 列挙と対称に `for w in warnings: print(f\"  ::warning::{w}\")` を保て",
     )
