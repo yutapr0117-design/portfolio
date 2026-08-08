@@ -305,6 +305,7 @@ test('Route project-detail renders for a known slug without errors', async ({ pa
   expect(pageErrors).toHaveLength(0);
 
   // NotFound fall-through ではなく実 ProjectDetailPage が描画されていること
-  await expect(page.getByRole('heading', { name: 'Not Found', exact: true })).toHaveCount(0);
+  // (positive を先に待って描画を確定させてから不在を検査する・Check 402)
   await expect(page.getByText('タスク管理アプリ')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Not Found', exact: true })).toHaveCount(0);
 });

@@ -47,6 +47,19 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        tolerance ceiling still matters so the advisory OBSERVATION stays meaningful: loosening it
        (e.g. 0.5) would make the observation blind to real visual drift. This Check caps the
        tolerance so the visual-regression signal cannot be gutted by a config tweak. (BLOCKING)
+  402. e2e 不在アサーションの描画確定ガード: `toHaveCount(0)` / `not.toBeVisible()` /
+       `not.toBeAttached()` は **初回 poll で成立するとそれ以上再検査されない**ため、SPA の非同期
+       描画とレースすると「まだ描画されていない」を「無い」と誤認して vacuous に PASS し、機能が
+       壊れていても緑になる (#825 が #830 でまさにこの理由により vacuous と発覚した実例がある)。
+       本 Check は各 e2e spec を走査し、不在アサーションの直前 14 行以内で「最後の goto/reload」の
+       後に settle が無いものを BLOCKING で禁止する。settle と認めるのは (a) positive な auto-wait
+       assertion (toBeVisible / toHaveText / toContainText / toHaveAttribute / toHaveURL /
+       toHaveValue / toBeFocused / toBeEnabled / toBeDisabled / toBeChecked / toHaveCount(n>0)) と
+       (b) locator 相互作用 (click/fill/type/check/selectOption/hover — actionability 待ちを伴う。
+       `page.keyboard.press` は locator を持たず待たないので除外)。修正は「直前に positive を 1 行
+       足す」だけで済むため false-positive でも実害が小さい。Check 111 (networkidle 禁止) /
+       Check 130 (oninput の State.update 禁止) と同じ「e2e/実装の構造的落とし穴を静的に封じる」系。
+       (BLOCKING)
 """
 import re
 
@@ -161,3 +174,42 @@ def run(ctx):
         )
     else:
         check(False, "", "Check 117: playwright.config.cjs not found — screenshot tolerance を検証できない", blocking=True)
+
+    # ── 402. e2e 不在アサーションの描画確定ガード (BLOCKING) ───────────────────────────
+    # `toHaveCount(0)` / `not.toBeVisible()` は **初回 poll で成立するとそれ以上再検査されない**。
+    # SPA の非同期描画とレースすると「まだ描画されていない」を「無い」と誤認して vacuous に PASS し、
+    # 機能が壊れていても緑になる (#825 が #830 でこの理由により vacuous と発覚した実例がある)。
+    # ゆえに不在アサーションの前には、直近の goto/reload 以降に「必ず在るはず」の要素を待つ
+    # positive assertion (toBeVisible 等) か locator 相互作用 (click/fill 等は actionability 待ちを
+    # 伴うため settle とみなす) が無ければならない。修正は「先に positive を 1 行足す」だけで済む。
+    _abs402 = re.compile(r"await expect\((?!.*not\.toHaveCount).*(?:toHaveCount\(0\)|not\.toBeVisible\(\)|not\.toBeAttached\(\))")
+    _pos402 = re.compile(r"await expect\(.*(?:toBeVisible|toHaveText|toContainText|toBeFocused|toHaveAttribute|toHaveURL|toHaveValue|toBeEnabled|toBeDisabled|toBeChecked)")
+    _poscount402 = re.compile(r"toHaveCount\((?!0\))")
+    _inter402 = re.compile(r"(?<!keyboard)\.(?:click|fill|type|check|uncheck|selectOption|hover|dblclick)\(")
+    _nav402 = re.compile(r"page\.(?:goto|reload)\(")
+    _e2e_dir402 = ROOT / "e2e"
+    _bad402 = []
+    if _e2e_dir402.is_dir():
+        for _f402 in sorted(_e2e_dir402.glob("*.spec.js")):
+            _lines402 = _f402.read_text(encoding="utf-8").splitlines()
+            for _i402, _l402 in enumerate(_lines402):
+                if not _abs402.search(_l402):
+                    continue
+                _nav_at, _settle_at = -1, -1
+                for _j402 in range(max(0, _i402 - 14), _i402):
+                    if _nav402.search(_lines402[_j402]):
+                        _nav_at = _j402
+                    if (_pos402.search(_lines402[_j402]) or _poscount402.search(_lines402[_j402])
+                            or _inter402.search(_lines402[_j402])):
+                        _settle_at = _j402
+                if _nav_at > _settle_at:
+                    _bad402.append(f"{_f402.name}:{_i402 + 1}")
+    check(
+        _e2e_dir402.is_dir() and not _bad402,
+        f"Check 402: e2e の不在アサーションはすべて描画確定後に評価される ({len(_bad402)} offenders)",
+        f"Check 402: goto/reload 直後に positive な settle 無しで不在アサーションを評価している箇所: "
+        f"{_bad402[:8]} — toHaveCount(0)/not.toBeVisible() は初回 poll で成立すると再検査されないため、"
+        "SPA の非同期描画とレースして「まだ描画されていない」を「無い」と誤認し vacuous に PASS する "
+        "(#825/#830 class)。直前に「必ず在るはず」の要素の toBeVisible 等を 1 行足して描画を確定させよ",
+        blocking=True,
+    )
