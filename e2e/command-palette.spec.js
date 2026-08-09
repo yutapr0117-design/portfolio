@@ -210,3 +210,49 @@ test('Opening the command palette closes the mobile drawer (never two modals at 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `overlay interaction caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 逆順 (palette 表示中に drawer を開く) でも「開くモーダルは常に 1 つ」 =====
+// palette を先に閉じる対の処理が drawer 側 (openDrawer) にも要る。command palette は overlay で
+// あって #app の inert 対象ではないため、**palette 表示中も #topbar の menuBtn はクリックでき**、
+// そのまま drawer が開くと aria-modal="true" が 2 つ同時に有効になる (実測: visibleModals=2)。
+// 片方向だけ塞ぐと「1 ケースだけ処理して他を忘れる」非対称バグとして残る (CLAUDE.md §7 の反復 class)。
+test('Opening the drawer closes the command palette (the reverse direction)', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const state = () => page.evaluate(() => {
+    const shown = (el) => {
+      if (!el) { return 'absent'; }
+      const r = el.getBoundingClientRect();
+      const cs = getComputedStyle(el);
+      return (cs.display !== 'none' && cs.visibility !== 'hidden' && r.width > 0 && r.right > 0) ? 'open' : 'closed';
+    };
+    return {
+      drawer: shown(document.getElementById('drawer')),
+      palette: shown(document.querySelector('.cmdk-panel')),
+      visibleModals: [...document.querySelectorAll('[aria-modal="true"]')].filter(el => {
+        const r = el.getBoundingClientRect();
+        const cs = getComputedStyle(el);
+        return cs.display !== 'none' && cs.visibility !== 'hidden' && r.width > 0 && r.right > 0;
+      }).length,
+    };
+  });
+
+  // palette を先に開く
+  await page.keyboard.press('Meta+k');
+  await expect.poll(async () => (await state()).palette).toBe('open');
+
+  // その状態で menuBtn を押す (実機タップ相当。Playwright の通常 click は actionability で
+  // スクロールしうるため programmatic click を使う — #297 で確立した手法)
+  await page.evaluate(() => document.getElementById('menuBtn').click());
+  await expect.poll(async () => (await state()).drawer).toBe('open');
+
+  const after = await state();
+  expect(after.palette, 'drawer を開いたら palette は閉じていなければならない (二重モーダル禁止)').toBe('closed');
+  expect(after.visibleModals, '可視な aria-modal は 1 つだけであること').toBe(1);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `reverse overlay interaction caused a fatal: ${fatal}`).toBeNull();
+});

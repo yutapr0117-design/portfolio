@@ -983,4 +983,11 @@ E2E_MUTATIONS = [
         "replace": "",
         "test": "Opening the command palette closes the mobile drawer",
     },
+    {
+        "name": "behavior: 二重モーダルの逆方向 — mobile-drawer.js の openDrawer() から closePalette() 呼び出しを除去 → command palette 表示中に menuBtn (topbar は #app の inert 対象外ゆえクリック可能) を押すと drawer が重なって開き aria-modal='true' が 2 つ同時に有効になる。片方向だけ塞ぐと『1 ケースだけ処理して他を忘れる』非対称バグとして残る class の回帰防止",
+        "file": ROOT / "js" / "mobile-drawer.js",
+        "find": "        if (typeof closePalette === 'function') { closePalette(); }\n",
+        "replace": "",
+        "test": "Opening the drawer closes the command palette",
+    },
 ]

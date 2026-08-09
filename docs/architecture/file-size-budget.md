@@ -148,7 +148,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 727000 -->
+<!-- PERF-BUDGET-DATA 728000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -159,6 +159,9 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      選択肢へ漏れていた実バグの修正 (4 listing 面へ hiddenIds を適用 + 全件非表示時の fallback) と
      その WHY コメントで実測が 712,892 bytes に到達。genuine な user-visible bug fix ゆえ実態 +
      約 1,100 bytes の headroom へラチェット。
+     727,000 → 728,000 (2026-08-10)。二重モーダル修正の **逆方向** (palette 表示中に menuBtn で drawer を開く経路。
+     topbar は #app の inert 対象外ゆえクリック可能で、実測 visibleModals=2)。openDrawer から closePalette() を
+     呼び、どちらの順序でも開くモーダルが常に 1 つになる。late-binding holder 配線と docstring 同期込みで実測 727,381 bytes。
      725,000 → 726,000 (2026-08-10)。**二重モーダル**の実バグ修正。mobile drawer が開いたまま Cmd/Ctrl+K を押すと
      aria-modal="true" の領域が 2 つ同時に有効になり (実測: drawer=open かつ palette=open)、SR にはどちらが現在の
      モーダルか判別できず、Escape 1 回で両方閉じていた (両者の Escape が同じ document keydown で走るため)。

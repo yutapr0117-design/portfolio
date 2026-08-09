@@ -20,7 +20,7 @@ main.js Stage 5-q で物理分割。`js/components.js` と循環依存を持つ�
 ```
 main.js
   └─ import { createMobileDrawer } from './js/mobile-drawer.js'
-  └─ const drawer = createMobileDrawer({ CONSTANTS, clear, Sidebar })
+  └─ const drawer = createMobileDrawer({ CONSTANTS, clear, Sidebar, closePalette })
   └─ Object.assign(_drawer, drawer)  // late-binding holder へ wire
 ```
 

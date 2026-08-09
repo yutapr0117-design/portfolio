@@ -820,9 +820,16 @@
         //   それらは syncMobileDrawer / openDrawer / closeDrawer 等に依存している。
         //   よって本 PR では Mobile Drawer factory を Sidebar 解決直後（= createComponents の
         //   直後）に呼び出し、_drawer holder へ即代入する形でフロー順を整える。
+        // command palette の late-binding holder (drawer より後に生成されるため)
+        const _palette = {};
         const {
             syncMobileDrawer, secureExternalLinks, openDrawer, closeDrawer
-        } = createMobileDrawer({ CONSTANTS, clear, Sidebar });
+        } = createMobileDrawer({
+            CONSTANTS, clear, Sidebar,
+            // command palette は本 factory より後に生成されるため late-binding holder 経由で解決する
+            // (_drawer holder と同じパターン)。二重モーダル防止のため drawer を開く前に palette を閉じる。
+            closePalette: () => _palette.close?.()
+        });
         Object.assign(_drawer, { syncMobileDrawer, secureExternalLinks, openDrawer, closeDrawer });
 
 
@@ -840,6 +847,8 @@
 
         // Command palette（Cmd/Ctrl+K 横断ナビ overlay）を合成。init() で global keydown を登録。
         const CommandPalette = createCommandPalette({ Router, h, createIcon, State, closeDrawer });
+        // createMobileDrawer へ渡した closePalette の late-binding を解決する (holder へ実体を代入)。
+        Object.assign(_palette, CommandPalette);
 
 
         // ===== Event Listeners =====
