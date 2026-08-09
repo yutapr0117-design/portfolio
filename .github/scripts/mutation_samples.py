@@ -924,6 +924,13 @@ E2E_MUTATIONS = [
         "test": "Quiz search term does not leak across quiz types",
     },
     {
+        "name": "behavior: プロジェクト詳細のデモ起動導線が壊れる — project-detail-page.js の「アプリを起動」を apps/<demoRoute> から誤 route (projects) へ差し替え → 閲覧者が作品を触るまでの主要ジャーニーが切れる。Check 136 は demoRoute 値が router whitelist にあることしか見ず、ボタンが実際に遷移してアプリが描画されるかは未被覆だった",
+        "file": ROOT / "js" / "project-detail-page.js",
+        "find": "onclick: () => Router.navigate(`apps/${project.demoRoute}`)",
+        "replace": "onclick: () => Router.navigate(`projects`)",
+        "test": "Project demo launch buttons open the embedded app",
+    },
+    {
         "name": "resilience: crypto.randomUUID 不在環境で項目追加が壊れる — js/pure-utils.js の generateId のフォールバック本体 (Math.random ベースの RFC 4122 テンプレート) を潰す → randomUUID はセキュアコンテキスト限定 API ゆえ http:// の LAN プレビュー (PC の http-server をスマホから開く等) で undefined になり、その閲覧経路でだけ項目追加が例外になる。なお feature-detection (typeof crypto...) を外すだけでは外側の try/catch が TypeError を吸収してフォールバックが働くため mutation として no-op = vacuous になる (実測済)。フォールバック本体を潰す形が正しい非 vacuity 検証",
         "file": ROOT / "js" / "pure-utils.js",
         "find": "    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {",
