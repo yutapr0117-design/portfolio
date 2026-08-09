@@ -37,6 +37,7 @@ main.js / 各 factory module
 - **closure-deps = none**, factory pattern なし (Stage 4 時点では純 named export)
 - **Check 47**: import/export bijection
 - **Check 52**: 行数予算 ≤ 400 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
+- **Check 411**: `querySelectorAll('[data-bgm-btn]')` の走査対象が実際に描画されていること。この属性は index.html の topbar ボタンにのみ、**値なしの bare 属性**として存在する（JS 側は一切出さない）。解決しなくなると BGM ボタンの aria-pressed / aria-label / アイコンの状態同期が静かに無効化される
 
 ## Audience-specific notes
 

@@ -33,6 +33,7 @@ main.js
 - **Check 47**: import/export bijection
 - **Check 56**: factory invocation orphan 防止 (Stage 5-j class)
 - **Check 52**: 行数予算 ≤ 400 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
+- **Check 411**: `splitRow` が描画する機械向けフック `data-ai-role`（split-row / human / ai）を保持すること。main.js の WebMCP ツールがこの属性で役割分担表を抽出する契約であり、外すと走査が 0 件になりツールの「現在の DOM 状態から抽出します」という宣言が嘘になる（class 名は装飾都合で変わりうるため契約に使わない）
 
 ## Change impact
 

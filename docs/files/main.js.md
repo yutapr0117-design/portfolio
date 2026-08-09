@@ -52,6 +52,8 @@ index.html
 - **Check 43a-d**: AIDK Kernel header / startViewTransitionProxy / Trusted Types Policy / single IIFE 構造の存在を機械強制
 - **Check 47**: js/ leaf module からの import/export bijection を機械強制 (24 modules)
 - **Check 52**: 行数予算 ≤ 6,400 行（現在値は file-size-budget.md §4 / `wc -l` が権威） (strong-advisory budget)
+- **Check 411**: `querySelectorAll('<sel>')` の走査対象が実描画（js/ の h() prop または index.html の属性）へ解決すること。WebMCP ツール `extract_human_vs_ai_role_split` は `[data-ai-role]` で役割分担表を抽出すると**自ら宣言している**ため、解決しないセレクタは走査 0 件＝宣言が嘘になる（実際にそうなっていたのを 2026-08-10 に是正）。
+- **Check 412**: 動的 JSON-LD（`_buildDynamicJsonLd`）が参照する `SITE_BASE + '#person'` / `'#website'` が index.html の JSON-LD 定義ノードへ解決すること。宙に浮いた参照は AI クローラが entity グラフの辺を辿れない状態になる。
 - **編集承認**: AIDK Kernel proper (L129-1000+) は **DO NOT EDIT 領域**。触る場合は orchestrator 明示承認必要
 
 ## Change impact

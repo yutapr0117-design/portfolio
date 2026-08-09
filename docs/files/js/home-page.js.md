@@ -25,6 +25,7 @@ canonical-ref: js/components.js (抽出元) / main.js (配線) / js/ui-component
 
 - **葉契約 (Check 47c)**: ローカル ESM import ゼロ。h / Router / State / ContactCTA は全て引数注入。
 - **非破壊**: 関数本体は抽出元から無改変。hero CTA の遷移 (Router) / プロフィール描画 (State) 挙動は不変で behavior e2e (route 'home' 訪問) が保証。
+- **匿名性ガード (Check 124)**: 実名「横井雄太」は `alt:` / `data-entity` の AIO 属性 context 内にのみ置くこと。bare な可視テキストへ移すとサイト UI の匿名（`yuta`）設計が壊れる。**本ファイルは shipped JS で実名リテラルを持つ数少ない視覚 renderer** であり、この制約が実質的に file 固有。
 - **import bijection (Check 47)**: main.js の `import { createHomePage }` ↔ 本ファイルの `export function createHomePage` が一致すること。
 
 ## Change impact

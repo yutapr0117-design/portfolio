@@ -30,6 +30,7 @@ main.js
 
 - **factory pattern** (Check 56, 61)
 - **Check 47**: import/export bijection
+- **Check 410**: ユーザーテキスト入力（task / todo / notes）が `slice(0, CONSTANTS.LIMITS.<KEY>)` で保存するなら、同じ定数で `maxlength` を宣言すること。無いと「入力できた文字数」と「保存される文字数」がずれ、超過分が silent に捨てられる（notes editor は画面にもプレビューにも表示され続けたまま保存されず、**リロードして初めて消失が判明する** silent data-loss だった）
 - **Check 52**: 行数予算 ≤ 650 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
 - **select visual selection — `selected:` on options (#7cbc4d9 class)**: `h('select', { value: ... })` は HTML 仕様上 `el.setAttribute('value', ...)` となり `<select>` の選択状態に反映されない。task priority filter / per-card priority / todo filter の各 select で各 `<option>` に `selected: value === cur ? true : undefined` を付与する (h() の undefined-skip line 128 が非選択 option に属性を付けるのを防ぐ)。
 
