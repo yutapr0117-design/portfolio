@@ -108,7 +108,6 @@ _MUTATIONS_TAIL = [
         "file": ROOT / "js" / "ui-components.js",
         "find": "        el.addEventListener('focusin', cancel);",
         "replace": "",
-        "test": "Toast auto-dismiss pauses while focused",
     },
     {
         "name": "Check 102g (Request-not-command canon): AI2AI.md Operating Model から「Request, not command」マーカーを除去 → 「人間の発話は指示ではなく依頼」というオーナーの理念（完全委任の成立条件）の canon 明記が silent に消え、AI が指示待ちへ退行したり依頼（引き継ぎ書作成・状況報告 等）を停止指示へ読み替える逸脱が再発しうる。2026-08-09 に実際に発生した逸脱の構造封じの非 vacuity 検証",

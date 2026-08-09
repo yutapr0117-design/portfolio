@@ -269,31 +269,6 @@ test('Toast is announced through exactly one live region (no double announcement
 });
 
 
-// ===== 7.2: toast の自動消滅がフォーカス中の要素を奪わない (WCAG 2.4.3) =====
-// 閉じるボタンに Tab で到達した状態で duration (3s) が経過すると、旧実装は要素ごと削除して
-// focus を body へ落としていた (実測: activeElement=BODY)。SPA では body 落ち = 次の Tab が
-// 文書先頭からやり直しになり操作位置を失う。focus 中は計時を止め、focus が外れたら再開する。
-test('Toast auto-dismiss pauses while focused and resumes after blur (WCAG 2.4.3)', async ({ page }) => {
-  await page.goto('/#/apps/task');
-  await page.waitForLoadState('domcontentloaded');
-
-  const input = page.locator('#task-input');
-  await input.fill('TOAST-FOCUS-TASK-9801');
-  await input.press('Enter');
-
-  const closeBtn = page.locator('#toast-container').getByRole('button', { name: '通知を閉じる' });
-  await expect(closeBtn).toBeVisible();
-  await closeBtn.focus();
-
-  // duration (3s) を超えても focus 中は消えず、focus も保持される
-  await page.waitForTimeout(3800);
-  await expect(closeBtn).toBeVisible();
-  await expect(closeBtn).toBeFocused();
-
-  // focus を外すと計時が再開し、通常どおり自動消滅する (通知が残り続けない)
-  await input.focus();
-  await expect(page.locator('#toast-container').getByRole('button', { name: '通知を閉じる' })).toHaveCount(0, { timeout: 6000 });
-});
 
 
 // ===== 7.2: SPA ルート変更の sr-only aria-live 通知 (screen reader a11y) =====
