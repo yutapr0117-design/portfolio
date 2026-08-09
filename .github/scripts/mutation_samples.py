@@ -918,6 +918,13 @@ E2E_MUTATIONS = [
         "test": "Quiz search term does not leak across quiz types",
     },
     {
+        "name": "a11y: settings 追加フォームの検証フィールド特定喪失 — settings-page.js の addProjectManual から aria-invalid の付与と focus 移動を除去 → SR 利用者は Toast のエラーだけ聞かされ「どの入力が不正か」を判別できない (WCAG 3.3.1 / 2.4.3・quiz フォーム #913 と同 class の残り 1 面)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "                if (nameEl) { nameEl.setAttribute('aria-invalid', 'true'); nameEl.focus(); }",
+        "replace": "",
+        "test": "Settings add-project form marks the empty name aria-invalid",
+    },
+    {
         "name": "a11y: quiz フォーム検証のフィールド特定喪失 — quiz-renderer.js の送信ハンドラから最初の不正フィールドへの focus 移動を除去 → SR 利用者は Toast のエラーだけ聞かされ「どのフィールドが不正か」を自力で探す羽目になる (WCAG 3.3.1 Error Identification / 2.4.3)。aria-invalid + focus 移動による識別の回帰防止",
         "file": ROOT / "js" / "quiz-renderer.js",
         "find": "                    (!name ? nameInput : emailInput).focus();",
