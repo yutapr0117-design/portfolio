@@ -30,10 +30,10 @@ jobs:
         # relying on the runner default, matching the '24' pin used by both
         # Playwright workflows. Node '24' is the Active LTS (Krypton, EOL
         # 2026-04-30 for the prior Node 20 line made the '20' pin EOL); '24'
-        # is supported by setup-node@v6 and current ESLint engines. `cache: 'npm'`
+        # is supported by setup-node@v7 and current ESLint engines. `cache: 'npm'`
         # keys the dependency cache on package-lock.json, so `npm ci` below
         # restores from cache on repeat runs.
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v6
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: '24'
           cache: 'npm'
