@@ -160,6 +160,15 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
        loop 変数名に束縛して行う (`for w in warnings:` → `print(f"...::warning::{w}")`)。literal
        の有無だけを見るとループと無関係な固定文字列で vacuous に PASS しうるため。Check 385
        (advisory/error パスの latent crash 防止) と対で「助言層が実際に機能する」軸を守る。(BLOCKING)
+  408. e2e spec budget registration: every `e2e/*.spec.js` must be registered in
+       docs/architecture/file-size-budget.md (§2 table + §4 BUDGET-DATA). Without an entry the only
+       thing guarding a spec's size is Check 365's hard 1,000-line BLOCKING ceiling, so a file grows
+       silently and then blocks a PR with no prior warning — measured on 2026-08-09, when
+       apps-settings.spec.js hit the ceiling in TWO consecutive cycles (1,032 then 1,021 lines) while
+       apps-task.spec.js sat 28 lines below it. Registering them makes Check 52 emit an ADVISORY
+       first (a two-layer design: advisory warning → blocking ceiling), and Check 398 now prints
+       advisory bodies so that warning actually reaches the operator. This is the e2e face of
+       Check 361 (js leaf registration). (BLOCKING)
   399. mutation-probe の catch 帰属 (attribution): `mutation_probe.py` の consistency mode は
        catch を **Check 362 (anchor orphan) 以外の error** で判定しなければならない
        (`ANCHOR_ORPHAN_MARKER = "Check 362:"` 定数 + `caught_by_real_check()` を持ち、旧判定
@@ -816,6 +825,32 @@ def run(ctx):
         "unpack していない。その枝が走ると NameError で consistency script 全体が crash する (通常は "
         "全ファイル/依存が揃うため休眠)。`extract = ctx.extract` の直後に不足 unpack を追加せよ",
     )
+
+    # ── 408. e2e spec の予算登録 (BLOCKING) ────────────────────────────────────────
+    # e2e/*.spec.js は Check 365 の 1,000 行 BLOCKING 上限だけが効いており、**超過するまで一切の
+    # 予告が無かった**。実測 (2026-08-09): apps-settings.spec.js で 2 サイクル連続 BLOCKING を踏み
+    # (1,032 行 → 1,021 行)、apps-task.spec.js は上限まで残り 28 行だった。file-size-budget.md の
+    # BUDGET-DATA へ登録すれば Check 52 が advisory で先に警告する二層になる (Check 398 で advisory
+    # 本文が読めるようになったため警告が実際に届く)。新しい spec が登録漏れで早期警告網の外へ
+    # 出るのを防ぐ (Check 361 = js leaf 面の e2e 版)。
+    _budget408 = ROOT / "docs" / "architecture" / "file-size-budget.md"
+    _e2e_dir408 = ROOT / "e2e"
+    if _budget408.exists() and _e2e_dir408.is_dir():
+        _bsrc408 = _budget408.read_text(encoding="utf-8")
+        _specs408 = sorted(f"e2e/{p408.name}" for p408 in _e2e_dir408.glob("*.spec.js"))
+        _missing408 = [p408 for p408 in _specs408
+                       if not re.search(r"^" + re.escape(p408) + r"\s*\|", _bsrc408, re.M)]
+        check(
+            bool(_specs408) and not _missing408,
+            f"Check 408: 全 {len(_specs408)} 個の e2e spec が file-size-budget.md の BUDGET-DATA に登録済 (早期警告網)",
+            f"Check 408: BUDGET-DATA 未登録の e2e spec: {_missing408} — 未登録だと Check 52 の advisory が効かず "
+            "Check 365 の 1,000 行 BLOCKING に予告なく当たる (実測: apps-settings.spec.js で 2 サイクル連続発生)。"
+            "docs/architecture/file-size-budget.md の §2 表と §4 BUDGET-DATA へ追加せよ",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 408: file-size-budget.md and e2e/ present",
+              "Check 408: file-size-budget.md または e2e/ が無い — e2e spec の予算登録を検証できない", blocking=True)
 
     # ── 398. consistency の ADVISORY warning 本文出力 (BLOCKING) ───────────────────
     # check_repository_consistency.py の Result block は errors 側を `::error::{e}` で本文列挙する

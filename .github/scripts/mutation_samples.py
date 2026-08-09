@@ -186,6 +186,12 @@ _MUTATIONS_TAIL = [
         "find": "# ── ctx enrichment for split modules",
         "replace": "_unguarded400 = json.loads(read(\".well-known/index.json\"))\n# ── ctx enrichment for split modules",
     },
+    {
+        "name": "Check 408 (e2e spec 予算登録): file-size-budget.md の BUDGET-DATA から e2e/quiz.spec.js の登録行を除去 → 当該 spec は Check 52 の advisory 対象外になり、Check 365 の 1,000 行 BLOCKING に予告なく当たる状態へ戻る (実測で 2 サイクル連続の BLOCKING を招いた早期警告欠落 class)",
+        "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+        "find": "e2e/quiz.spec.js | 900 | advisory\n",
+        "replace": "",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。
