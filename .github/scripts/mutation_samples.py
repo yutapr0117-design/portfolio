@@ -138,7 +138,12 @@ _MUTATIONS_TAIL = [
         "find": "Number(data.pomodoro.settings.work) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.work",
         "replace": "Number(data.pomodoro.settings.work) || 25",
     },
-
+    {
+        "name": "Check 395 (データ駆動 path 記法): hiring-risk の CTA データ配列で nav 先を typo させる (path: 'settings' → 'setting') → router は未知の第1 segment を home として parse するため、ボタンは throw も console error も出さずユーザーを silent にホームへ送る。literal だけを見る旧実装ではこの典型記法が素通りしていた (別記法見逃し class の navigate 面)",
+        "file": ROOT / "js" / "hiring-risk-page.js",
+        "find": "path: 'settings',",
+        "replace": "path: 'setting',",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。
