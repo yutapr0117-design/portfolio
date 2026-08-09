@@ -982,4 +982,11 @@ E2E_MUTATIONS = [
         "replace": "Router.navigate('projects')",
         "test": "In-page \"back to list\" preserves the active filter",
     },
+    {
+        "name": "a11y: topbar テーマボタンのラベル同期の喪失 — theme.js apply() から #themeBtnTop の aria-label 更新を除去 → mobile 利用者には『テーマを切り替える（現在: …）』が初期値のまま固定され、現在テーマが SR に露出しなくなる (WCAG 4.1.2)。sidebar 側は render 毎の再構築という **別機構** で更新されるため、desktop 前提の既存テストでは検出できなかった (実測: 削除しても既存 10 件は全緑) 未被覆面の回帰防止",
+        "file": ROOT / "js" / "theme.js",
+        "find": "            topBtn.setAttribute('aria-label', themeToggleAriaLabel(theme));",
+        "replace": "            void themeToggleAriaLabel;",
+        "test": "Topbar theme button exposes the current theme in its label on mobile",
+    },
 ]
