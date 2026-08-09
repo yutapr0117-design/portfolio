@@ -45,6 +45,15 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        CLAUDE.md §5; externalizing reasoning breaks the 102e exhaustion fallacy, proven 2026-06-21
        when the AI self-generated 10 ideas and triaged 6 as autonomously executable with zero human
        input) so it cannot drift out. (BLOCKING)
+       102g pins the owner's stated principle that a human utterance is a REQUEST, never a
+       command ("Request, not command"): the orchestrator does not issue orders — everything,
+       including direction, is phrased as a request. That is not tone but the precondition for
+       full delegation: while a commander exists the AI regresses to waiting for orders and the
+       control-and-audit-only model collapses. Losing this canon reintroduces two failures that
+       already happened here — waiting for instructions, and re-reading a request ("write a
+       handoff", "report status") as a STOP instruction (2026-08-09). Only stopping follows an
+       explicit human intent, whatever its phrasing. Presence is required in AI2AI.md Operating
+       Model AND CLAUDE.md §7.
   104. verify-gate scripts carry a Python 3.10+ version guard: every `.github/scripts/*.py`
        script invoked through an npm script (derived from package.json `scripts`, not a
        hardcoded list — like Check 46 for JS files) contains a `sys.version_info < (3, 10)`
@@ -240,6 +249,20 @@ def run(ctx):
             "Check 102f: 'reflect-then-organize'（自己見解→自己整理を品質ステップ化）の canon 明記が消えた — "
             "AI2AI.md Operating Model と CLAUDE.md §5 The loop の両方に存在させよ。"
             "これが消えると AI が枯渇誤謬(102e)のまま停止/padding へ滑る失敗モードに戻る",
+            blocking=True,
+        )
+        # 102g — 「人間の発話は指示ではなく依頼 (Request, not command)」= オーナーの理念。命令する主体が
+        # 居続けると AI は指示待ちへ退行し「制御と監査のみ」の運用が壊れるため、依頼形であることは語調で
+        # なく委任成立の条件である。この canon が silent に消えると AI は (a) 指示待ちに戻り (b) 依頼を
+        # 「指示」へ読み替える (実際に「引き継ぎ書を作って」を停止指示と解釈した逸脱が 2026-08-09 に発生)。
+        # AI2AI.md Operating Model と CLAUDE.md §7 の両方に存在させ presence を BLOCKING 強制する。
+        _102g = ("Request, not command" in _ai2ai_src102) and ("Request, not command" in _claude_src102)
+        check(
+            _102g,
+            "Check 102g: Request-not-command principle documented (AI2AI.md Operating Model + CLAUDE.md §7)",
+            "Check 102g: 「人間の発話は指示ではなく依頼 (Request, not command)」の canon 明記が消えた — "
+            "AI2AI.md Operating Model と CLAUDE.md §7 の両方に存在させよ。これが消えると AI が指示待ちへ退行し、"
+            "依頼 (引き継ぎ書作成・状況報告 等) を停止指示へ読み替える逸脱が再発する",
             blocking=True,
         )
     else:

@@ -104,6 +104,12 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "Check 102g (Request-not-command canon): AI2AI.md Operating Model から「Request, not command」マーカーを除去 → 「人間の発話は指示ではなく依頼」というオーナーの理念（完全委任の成立条件）の canon 明記が silent に消え、AI が指示待ちへ退行したり依頼（引き継ぎ書作成・状況報告 等）を停止指示へ読み替える逸脱が再発しうる。2026-08-09 に実際に発生した逸脱の構造封じの非 vacuity 検証",
+        "file": ROOT / "AI2AI.md",
+        "find": "Request, not command",
+        "replace": "Request-not-command",
+    },
+    {
         "name": "a11y: Toast の二重アナウンス再混入 — js/ui-components.js の toast コンテナへ aria-live を再付与 → 専用 sr-only 領域 #action-announcement (assertive) と視覚コンテナ (polite) の両方が同じ message を読み上げ、SR 利用者に同一通知が 2 回 (かつコンテナ側は内包する閉じるボタンの語まで含めて) 届く WCAG 4.1.3 の退行。単一通知チャネル化の回帰防止",
         "file": ROOT / "js" / "ui-components.js",
         "find": "            container.id = 'toast-container';",
