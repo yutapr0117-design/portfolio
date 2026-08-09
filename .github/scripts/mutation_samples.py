@@ -120,6 +120,12 @@ _MUTATIONS_TAIL = [
         "find": "'about': { '@id': SITE_BASE + '#person' },",
         "replace": "'about': { '@id': SITE_BASE + '#persona' },",
     },
+    {
+        "name": "Check 124a (匿名性ガードの導出 scope): 旧 scope 外だった js/home-page.js の data-entity 属性を bare な視覚テキストへ変える → サイト UI に実名が露出する。ハードコード 3 file の旧実装ではこの file 自体が走査対象外で GREEN のまま通っていた (Stage 5 の葉抽出に scope が追従しなかった class) の回帰防止",
+        "file": ROOT / "js" / "home-page.js",
+        "find": "'data-entity': 'Yuta Yokoi (横井雄太 / Yokoi Yuta)',",
+        "replace": "'title': 'Yuta Yokoi (横井雄太 / Yokoi Yuta)',",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。

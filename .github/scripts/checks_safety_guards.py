@@ -17,14 +17,28 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
   124. site visible-text anonymity guard: the site UI is deliberately anonymized to "yuta" for
        general-public privacy, while the real name (横井雄太) is exposed only in the AIO/entity
        layer (sr-only / JSON-LD / meta / alt / data-entity attributes / llms-full.txt). This Check
-       asserts that in the visible page renderers (js/components.js, js/pages.js, js/apps.js) the
-       real name appears ONLY on lines carrying an attribute marker (alt:/data-entity/data-ai-entity/
+       asserts that in the visible page renderers the real name appears ONLY on lines carrying an
+       attribute marker (alt:/data-entity/data-ai-entity/
        aria-), never as a bare visible h() text node (124a). 124b enforces js/identity.js's documented
        contract (UI → DISPLAY_NAME only): the visible renderers must NOT reference the real-name entity
        constants (AUTHORITATIVE_NAME/JAPANESE_NAME) either, closing the identifier-based leak path
        (literal grep alone would miss a variable-rendered name). Together they structurally prevent the
        real-name-leak class (an AI added the literal name to visible text in Session #21; corrected).
-       AIO layers (meta-management etc.) legitimately use AUTHORITATIVE_NAME and are out of scope. (BLOCKING)
+       AIO layers (meta-management etc.) legitimately use AUTHORITATIVE_NAME and are out of scope.
+       The scan set is DERIVED (every js/*.js plus main.js) minus a role-based allowlist
+       (js/identity.js which defines the constants, js/meta-management.js which is the AIO meta layer).
+       The original version hardcoded ["js/components.js","js/pages.js","js/apps.js"], and the Stage 5
+       leaf extractions since then spread the visible renderers across home-page / projects-page /
+       project-detail-page / hiring-risk-page / ai-knowhow-page / settings-page / ai-page /
+       pomodoro-page / quiz-renderer / ui-components / command-palette / mobile-drawer — none of which
+       the fixed list followed, so the anonymity guard was blind to MOST of the surface it exists to
+       protect (measured: js/home-page.js does carry the real-name literal, in legitimate alt/
+       data-entity attributes so nothing had actually leaked — but a bare text node there would have
+       passed GREEN; scanned files went 3 → 28). Deriving the set flips the polarity so a NEW renderer
+       is guarded by default (same lesson as Check 361's exists⟹registered). Comments are stripped
+       before matching so a WHY comment that merely names the constants is not a violation (measured:
+       main.js's three responsibility-split comments were); the line-comment regex uses `(?<!:)` so a
+       URL's "https://" survives (the trap hit in Check 412). (BLOCKING)
   125. no dead CONSTANTS key: every key in js/constants.js (top-level + nested `[A-Z_]+:` lines) must
        be referenced at least once from the other shipped JS. Systematizes the dead-constant cleanup of
        Session #21 (POMODORO_LOCK_TTL / SAVE_INTERVAL were never-activated and removed); prevents the
@@ -116,7 +130,20 @@ def run(ctx):
     # 実名が「属性 context (alt/data-entity/aria-/data-ai-entity)」以外の bare な h() テキスト行に出ないことを
     # BLOCKING で機械強制し、視覚 UI への実名漏れ class を構造的に封じる。AIO 属性内の実名は entity 帰属の
     # ため意図的に許可する。
-    _VIS_RENDERERS124 = ["js/components.js", "js/pages.js", "js/apps.js"]
+    # 走査範囲は **導出** する (旧実装は ["js/components.js","js/pages.js","js/apps.js"] の
+    # ハードコード 3 file だった)。Stage 5 以降の葉抽出で視覚 renderer は home-page / projects-page /
+    # project-detail-page / hiring-risk-page / ai-knowhow-page / settings-page / ai-page /
+    # pomodoro-page / quiz-renderer / ui-components / command-palette / mobile-drawer 等へ広がったが、
+    # 固定リストは追従せず **匿名性ガードが守るべき面のほとんどを見ていなかった** (実測: 実名リテラルを
+    # 持つ js/home-page.js が対象外だった。そこでの出現は alt/data-entity の正当な AIO 属性ゆえ実漏洩は
+    # 無かったが、bare テキストで書けば GREEN のまま通っていた)。
+    # 「新規 file は既定で守られる」極性にするため、全 shipped JS を対象とし、役割上 実名が正当な
+    # AIO/entity 層だけを allowlist で除外する (Check 361 の exists⟹registered と同じ極性反転)。
+    _ALLOW124 = {
+        "js/identity.js",         # 実名定数そのものを定義する単一ソース
+        "js/meta-management.js",  # AIO meta/JSON-LD 層 (entity 帰属のため実名が正当)
+    }
+    _SCAN124 = [f"js/{_p124.name}" for _p124 in sorted((ROOT / "js").glob("*.js"))] + ["main.js"]
     _NAME124 = "横井雄太"
     _ATTR_MARKERS124 = ("alt:", "data-entity", "data-ai-entity", "aria-")
     _leak124 = []
@@ -124,18 +151,26 @@ def run(ctx):
     # UI → DISPLAY_NAME only / AIO → AUTHORITATIVE_NAME etc. (js/identity.js の明文契約)。
     # 視覚 renderer が実名系の entity 定数を参照すると識別子経由で実名が視覚露出し得るため禁止。
     _NAME_IDENTS124 = ("AUTHORITATIVE_NAME", "JAPANESE_NAME")
-    for _rel124 in _VIS_RENDERERS124:
+    for _rel124 in _SCAN124:
+        if _rel124 in _ALLOW124:
+            continue
         _f124 = ROOT / _rel124
         if not _f124.exists():
             continue
-        for _i124, _line124 in enumerate(_f124.read_text(encoding="utf-8").splitlines(), 1):
-            if _NAME124 in _line124 and not any(_mk in _line124 for _mk in _ATTR_MARKERS124):
+        # コメントを除去してから走査する。契約を説明する WHY コメントが識別子名を含むだけで
+        # 違反扱いになる false-positive を避ける (Check 112/130 と同じ罠。実測: main.js の
+        # 責務分離コメント 3 行が該当した)。行コメントの `(?<!:)` は URL の "https://" を
+        # 削らないため (Check 412 で踏んだ罠)。
+        _src124 = re.sub(r"/\*.*?\*/", "", _f124.read_text(encoding="utf-8"), flags=re.S)
+        for _i124, _line124 in enumerate(_src124.splitlines(), 1):
+            _code124 = re.sub(r"(?<!:)//.*$", "", _line124)
+            if _NAME124 in _code124 and not any(_mk in _code124 for _mk in _ATTR_MARKERS124):
                 _leak124.append(f"{_rel124}:{_i124}")
-            if any(_id in _line124 for _id in _NAME_IDENTS124):
+            if any(_id in _code124 for _id in _NAME_IDENTS124):
                 _idleak124.append(f"{_rel124}:{_i124}")
     check(
         not _leak124,
-        f"Check 124a: 視覚 site renderer に実名の bare テキスト漏れ無し (anonymity guard・scanned {len(_VIS_RENDERERS124)} files)",
+        f"Check 124a: 視覚 site renderer に実名の bare テキスト漏れ無し (anonymity guard・scanned {len(_SCAN124) - len(_ALLOW124)} files)",
         "Check 124a: 視覚 site テキストに実名「横井雄太」が漏れている — サイト UI は匿名 (yuta) が design。"
         "実名は alt/data-entity/aria- 等の AIO 属性 context でのみ許可。違反: " + ", ".join(_leak124[:10]),
         blocking=True,
