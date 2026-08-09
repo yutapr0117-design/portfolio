@@ -322,3 +322,41 @@ test('Settings import mode select retains visual selection after re-render (#7cb
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `import mode select caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.1: localStorage 自体が使えない環境で SPA が動作する (private mode 等) =====
+// Safari のプライベートブラウジングやストレージ遮断設定では localStorage への **アクセス自体** が
+// SecurityError を投げる (quota 超過 = 書き込み失敗とは別クラス)。storage.js の try/catch と
+// theme-init.js の早期ガードがこれを吸収しているが、この堅牢性は e2e 未被覆で、将来 module scope に
+// 素の localStorage アクセスが 1 つ混ざるだけで **その環境の全ユーザーが白画面**になり得た。
+// localStorage getter が例外を投げる状態でトップが描画され fatal も pageerror も出ないことを固定する。
+test('SPA still renders when localStorage access itself throws (private-mode class)', async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(window, 'localStorage', {
+      configurable: true,
+      get() { throw new DOMException('The operation is insecure.', 'SecurityError'); }
+    });
+  });
+  const pageErrors = [];
+  page.on('pageerror', (e) => pageErrors.push(e.message));
+
+  await page.goto('/#/');
+  await page.waitForLoadState('domcontentloaded');
+
+  // 実コンテンツが描画される (白画面や FatalPage でない)
+  await expect(page.locator('h1').first()).toBeVisible();
+  await expect(page.locator('#content')).not.toBeEmpty();
+  await expect(page.locator('#fallback-details')).toHaveCount(0);
+
+  // 別ルートへ遷移しても壊れない (保存を伴う経路も含む)
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByLabel('やることを入力')).toBeVisible();
+  await page.getByLabel('やることを入力').fill('NO-STORAGE-TODO-9950');
+  await page.getByLabel('やることを入力').press('Enter');
+  await expect(page.getByText('NO-STORAGE-TODO-9950')).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `localStorage 不在で fatal: ${fatal}`).toBeNull();
+  expect(pageErrors, `localStorage 不在で uncaught error: ${pageErrors.join(' / ')}`).toEqual([]);
+});
