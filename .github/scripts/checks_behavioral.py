@@ -103,6 +103,18 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        tag) and `lastModified` (save timestamp). With all three faces enforced, "a field added to
        the persisted shape is always read back" becomes an invariant at every level. Line comments
        are stripped so a prose mention cannot vacuously satisfy it. (BLOCKING)
+  406. Toast auto-dismiss focus-pause contract: `Toast.show` in js/ui-components.js must pause its
+       dismiss timer on `focusin` and resume it on `focusout` (i.e. register both listeners and use
+       `clearTimeout`). A toast is removed from the DOM when its duration elapses; if the user has
+       tabbed to the close button ("通知を閉じる") at that moment the focused element itself
+       disappears and focus falls to `<body>` (measured: activeElement=BODY). In a SPA that means
+       the next Tab restarts from the top of the document — the keyboard user loses their place
+       (WCAG 2.4.3 Focus Order / 2.2.1 Timing Adjustable). WHY A STATIC CHECK: an e2e for this
+       depends on real focus working, but with parallel workers only one page can be the active
+       document and on the others focus is reported "inactive" so `focusin` never fires (measured:
+       `toBeFocused` fails with `unexpected value "inactive"`; `bringToFront()` does not help; 3 of
+       8 parallel repeats RED). A flaky test rots the gate, so the contract is pinned statically
+       instead. Comments are stripped before matching. (BLOCKING)
   374. settings-page.js importJSON normalize-before-adopt ingestion guard: importJSON ingests
        external JSON. If it commits the raw parsed data via State.update(...), the notify → render()
        cycle paints un-normalized data (e.g. malformed projects with a null/non-object entry that
@@ -570,6 +582,36 @@ def run(ctx):
     else:
         check(False, "Check 405: js/store.js present",
               "Check 405: js/store.js が無い — store top-level persist round-trip を検証できない", blocking=True)
+
+    # ── 406. Toast auto-dismiss focus-pause contract (BLOCKING) ───────────────────
+    # toast は duration 経過で DOM ごと削除されるため、閉じるボタン (aria-label='通知を閉じる') に
+    # Tab で到達した状態で時間切れになると **フォーカス中の要素ごと消え focus が body へ落ちる**
+    # (実測: activeElement=BODY)。SPA では body 落ち = 次の Tab が文書先頭からやり直しとなり操作位置を
+    # 失う (WCAG 2.4.3 / 2.2.1)。ゆえに Toast.show は focusin で計時を止め focusout で再開しなければ
+    # ならない。**なぜ静的 Check か**: この挙動の e2e は「実 focus が効くこと」に依存するが、並列
+    # ワーカーでは 1 ページしか active document になれず非アクティブ側では focus が "inactive" 扱いで
+    # focusin が届かない (実測: toBeFocused が `unexpected value "inactive"`・bringToFront でも解消せず
+    # 8 回中 3 回 RED)。flaky な e2e は gate を腐らせるため、契約 (listener + clearTimeout) を静的に
+    # 固定する方式を選んだ。
+    _uic406 = ROOT / "js" / "ui-components.js"
+    if _uic406.exists():
+        _src406 = re.sub(r"//[^\n]*", "", _uic406.read_text(encoding="utf-8"))
+        _has_in406 = re.search(r"addEventListener\(\s*['\"]focusin['\"]", _src406)
+        _has_out406 = re.search(r"addEventListener\(\s*['\"]focusout['\"]", _src406)
+        _has_clear406 = "clearTimeout(" in _src406
+        check(
+            bool(_has_in406) and bool(_has_out406) and _has_clear406,
+            "Check 406: Toast の自動消滅が focusin で停止し focusout で再開する (フォーカス奪取防止)",
+            "Check 406: js/ui-components.js の Toast に focus-pause 契約が無い "
+            f"(focusin={bool(_has_in406)} / focusout={bool(_has_out406)} / clearTimeout={_has_clear406}) — "
+            "閉じるボタンに Tab で到達した状態で duration が経過すると要素ごと削除され focus が body へ落ちる "
+            "(SPA では次の Tab が文書先頭からやり直し = 操作位置の喪失・WCAG 2.4.3)。"
+            "focusin で clearTimeout / focusout で再スケジュールを復元せよ",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 406: js/ui-components.js present",
+              "Check 406: js/ui-components.js が無い — Toast の focus-pause 契約を検証できない", blocking=True)
 
     # ── 374. settings-page.js importJSON normalize-before-adopt ingestion guard (BLOCKING) ──
     # importJSON は外部 JSON を取り込む ingestion 経路。生の parsed を State.update で adopt すると
