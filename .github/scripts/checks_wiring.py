@@ -60,7 +60,15 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        reaching createIcon — both direct `createIcon('X')` calls and the `icon: 'X'` data fields that
        flow through `createIcon(item.icon)` / `createIcon(app.icon)` — across shipped JS (js/*.js) and
        asserts each resolves to a registry key, making "icon name used ⟹ defined" an enforced
-       invariant so a typo can never silently blank an icon. (BLOCKING)
+       invariant so a typo can never silently blank an icon. Argument parsing takes the WHOLE
+       first-argument expression (up to the top-level comma), so a ternary like
+       `createIcon(open ? 'chevronUp' : 'chevronDwn', 16)` has BOTH branches validated — the
+       initial version only matched a single literal right after `createIcon(` and therefore
+       missed a typo in either branch (measured: injecting that exact call left the Check
+       GREEN, i.e. one toggle state silently renders no icon). Literals in the CONDITION part
+       (before the top-level `?`) are excluded so comparisons like `state.theme === 'dark' ?`
+       are not mistaken for icon names. Comments are stripped and the root entry `main.js` is
+       scanned too. (BLOCKING)
   376. data-action → ActionDelegator handler resolution: the AIDK ActionDelegator (js/aidk-rails.js)
        is a single document-level click delegator — an element carrying `data-action="X"` triggers
        `_handlers[X]` on click, and if X is not a registered handler key the lookup returns undefined
@@ -116,7 +124,12 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        so a method chain on a scalar constant (`CONSTANTS.STORAGE_KEY.slice(...)`) is NOT mis-flagged.
        Values that are IIFEs/expressions (TAB_ID / DEBUG, whose value starts with `(` not `{`) are
        never treated as objects, so their internals never pollute the valid-key set. A cross-namespace
-       typo (`CONSTANTS.LIMITS.work`) is an accepted non-goal — the dominant misspelled-key class is
+       Destructured access is followed too: `const { LIMITS } = CONSTANTS` / `const { LIMITS: L }
+       = CONSTANTS` maps the alias back to its top key and validates `alias.MEMBER`. The
+       initial version only matched dotted access starting at `CONSTANTS.`, so destructuring
+       let a typo through (measured: `const { LIMITS } = CONSTANTS; LIMITS.MAX_TASSK` stayed
+       GREEN). Comments are stripped so prose examples are not read as real references.
+       Cross-namespace typo (`CONSTANTS.LIMITS.work`) is an accepted non-goal — the dominant misspelled-key class is
        enforced, not an exhaustive per-namespace bijection. (BLOCKING)
   395. Router.navigate() literal target → router route-segment resolution: every literal
        `Router.navigate('X')` call in shipped JS (main.js + js/*.js) must have its base path
@@ -302,12 +315,51 @@ def run(ctx):
             _keys375 = set(re.findall(r"['\"]?([A-Za-z][\w-]*)['\"]?\s*:\s*['\"`]", _gbody375))
         # shipped JS 全体から createIcon への literal icon 名を収集 (直接呼び出し + icon: data field)
         _used375 = {}  # name -> "file" (最初の出現 file を記録)
-        for _f375 in sorted((ROOT / "js").glob("*.js")):
-            _t375 = _f375.read_text(encoding="utf-8")
-            for _pat375 in (r"createIcon\(\s*['\"]([A-Za-z][\w-]*)['\"]",
-                            r"\bicon\s*:\s*['\"]([A-Za-z][\w-]*)['\"]"):
-                for _mm375 in re.finditer(_pat375, _t375):
-                    _used375.setdefault(_mm375.group(1), str(_f375.relative_to(ROOT)))
+        # [FIX] 第 1 引数が **単一リテラルの場合しか見ていなかった**ため、三項など複数リテラルを含む
+        #   式 (`createIcon(open ? 'chevronUp' : 'chevronDwn', 16)`) の **片枝の typo を見逃していた**
+        #   (実測: 上記を leaf module に注入しても GREEN = トグルの片状態だけアイコンが消える silent
+        #   broken-icon が素通り)。第 1 引数式を top-level ',' まで切り出し、その中の全 literal を
+        #   検証対象にする。コメント除去 + 走査対象に root の main.js を追加。
+        def _first_arg375(_t, _pos):
+            """createIcon( の直後から top-level ',' または ')' までの第 1 引数式を返す。"""
+            _d, _out, _i = 0, [], _pos
+            while _i < len(_t):
+                _c = _t[_i]
+                if _c in "([{":
+                    _d += 1
+                elif _c in ")]}":
+                    if _d == 0:
+                        break
+                    _d -= 1
+                elif _c == "," and _d == 0:
+                    break
+                _out.append(_c)
+                _i += 1
+            return "".join(_out)
+
+        for _f375 in sorted((ROOT / "js").glob("*.js")) + [ROOT / "main.js"]:
+            if not _f375.exists():
+                continue
+            _t375 = re.sub(r"//[^\n]*", "", _f375.read_text(encoding="utf-8"))
+            for _cm375 in re.finditer(r"createIcon\(", _t375):
+                _arg375 = _first_arg375(_t375, _cm375.end())
+                # 三項の **値位置** のリテラルだけを icon 名とみなす。条件部のリテラル
+                # (`state.theme === 'dark' ? ...`) を icon 名と誤検出しないため、最初の top-level
+                # '?' より後ろだけを対象にする (実測: これが無いと 'dark'/'system' を icon 名と誤認)。
+                _d375, _q375 = 0, -1
+                for _ci375, _cc375 in enumerate(_arg375):
+                    if _cc375 in "([{":
+                        _d375 += 1
+                    elif _cc375 in ")]}":
+                        _d375 -= 1
+                    elif _cc375 == "?" and _d375 == 0:
+                        _q375 = _ci375
+                        break
+                _vals375 = _arg375[_q375 + 1:] if _q375 != -1 else _arg375
+                for _lm375 in re.finditer(r"['\"]([A-Za-z][\w-]*)['\"]", _vals375):
+                    _used375.setdefault(_lm375.group(1), str(_f375.relative_to(ROOT)))
+            for _mm375 in re.finditer(r"\bicon\s*:\s*['\"]([A-Za-z][\w-]*)['\"]", _t375):
+                _used375.setdefault(_mm375.group(1), str(_f375.relative_to(ROOT)))
         _unresolved375 = sorted(
             f"{_n375} ({_used375[_n375]})" for _n375 in _used375 if _n375 not in _keys375
         )
@@ -537,13 +589,35 @@ def run(ctx):
         _bad393 = []
         for _f393 in _shipped393:
             _rel393 = str(_f393.relative_to(ROOT))
-            for _mm393 in re.finditer(r"\bCONSTANTS((?:\.[A-Za-z_]\w*)+)", _f393.read_text(encoding="utf-8")):
+            # コメントは除去する (説明文中の `CONSTANTS.LIMITS.XXX` 例示を実参照と誤認しないため)。
+            _src393f = re.sub(r"//[^\n]*", "", _f393.read_text(encoding="utf-8"))
+            for _mm393 in re.finditer(r"\bCONSTANTS((?:\.[A-Za-z_]\w*)+)", _src393f):
                 _segs393 = _mm393.group(1).lstrip(".").split(".")
                 _seg1_393 = _segs393[0]
                 if _seg1_393 not in _top393:
                     _bad393.append(f"CONSTANTS.{_seg1_393} ({_rel393})")
                 elif len(_segs393) >= 2 and _seg1_393 in _objmembers393 and _segs393[1] not in _objmembers393[_seg1_393]:
                     _bad393.append(f"CONSTANTS.{_seg1_393}.{_segs393[1]} ({_rel393})")
+            # [FIX] 分割代入で namespace を取り出した参照も辿る。従来は `CONSTANTS.` で始まる
+            #   dotted access しか見ておらず、`const { LIMITS } = CONSTANTS; … LIMITS.MAX_TASSK` と
+            #   書けば typo が素通りしていた (実測: leaf module へ注入しても GREEN)。
+            #   `const { A, B: C } = CONSTANTS` の alias→top key 対応を作り、object-valued key の
+            #   member 参照だけを検証する (scalar key の alias は method chain と区別できないため対象外)。
+            for _dm393 in re.finditer(r"(?:const|let|var)\s*\{([^}]*)\}\s*=\s*CONSTANTS\b", _src393f):
+                for _pair393 in _dm393.group(1).split(","):
+                    _pp393 = [_x.strip() for _x in _pair393.split(":")]
+                    if not _pp393 or not _pp393[0]:
+                        continue
+                    _key393 = _pp393[0]
+                    _alias393 = _pp393[1] if len(_pp393) > 1 and _pp393[1] else _key393
+                    if _key393 not in _top393:
+                        _bad393.append(f"CONSTANTS.{_key393} (destructured, {_rel393})")
+                        continue
+                    if _key393 not in _objmembers393:
+                        continue
+                    for _am393 in re.finditer(r"\b" + re.escape(_alias393) + r"\.([A-Za-z_]\w*)", _src393f):
+                        if _am393.group(1) not in _objmembers393[_key393]:
+                            _bad393.append(f"CONSTANTS.{_key393}.{_am393.group(1)} (destructured as {_alias393}, {_rel393})")
         _bad393 = sorted(set(_bad393))
         check(
             bool(_top393) and not _bad393,
