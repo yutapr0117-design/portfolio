@@ -20,6 +20,20 @@
 // ===== Router =====
 export const Router = (() => {
     let currentRoute = _parseRoute();
+
+    // [UX] 直近の「プロジェクト一覧」ルートを query 込みで覚えておく。
+    //   詳細ページの「← 一覧に戻る」は Router.navigate('projects') とハードコードされており、
+    //   絞り込み (?q= / ?cat=) を落として全件へ戻していた。ブラウザの「戻る」は履歴に残った
+    //   query 付き URL へ復帰するため **同じ操作なのに結果が違う**という不整合になっていた
+    //   (実測: 1 件に絞った状態で詳細を開き in-page back → 18 件の全件表示に戻る)。
+    //   `getLastListPath()` が「戻り先」を単一ソースとして提供する。
+    let _lastListPath = 'projects';
+
+    function _rememberListPath() {
+        const raw = (location.hash || '').replace(/^#\/?/, '');
+        if (raw === 'projects' || raw.startsWith('projects?')) { _lastListPath = raw; }
+    }
+    _rememberListPath();
     let handlers = [];
 
     function _parseRoute() {
@@ -112,6 +126,7 @@ export const Router = (() => {
         }
         const newUrl = location.pathname + location.search + '#/' + (path || '');
         history.replaceState(null, '', newUrl);
+        _rememberListPath();
         // § Agentic State Notification: URL変更時にdata-ai-stateを同期
         // [FIX] render パス (main.js) は route.name (正規化済みルート名 'projects' 等) を route へ
         // 公開するが、旧 silent 実装は生 path ('projects?q=foo&cat=bar') を route へ入れており、
@@ -159,6 +174,7 @@ export const Router = (() => {
         try {
             const route = _parseRoute();
             currentRoute = route;
+            _rememberListPath();
             const handlersCopy = handlers.slice();
             for (const h of handlersCopy) {
                 try { await Promise.resolve(h(route)); } catch (e) { /* guard */ }
@@ -187,6 +203,8 @@ export const Router = (() => {
         navigate,
         replaceSilently,
         subscribe,
-        parse: _parseRoute
+        parse: _parseRoute,
+        // 詳細ページの「一覧に戻る」用。絞り込みを保持したまま一覧へ戻すための単一ソース。
+        getLastListPath: () => _lastListPath
     };
 })();

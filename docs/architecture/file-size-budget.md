@@ -148,7 +148,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 731000 -->
+<!-- PERF-BUDGET-DATA 733000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -159,6 +159,10 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      選択肢へ漏れていた実バグの修正 (4 listing 面へ hiddenIds を適用 + 全件非表示時の fallback) と
      その WHY コメントで実測が 712,892 bytes に到達。genuine な user-visible bug fix ゆえ実態 +
      約 1,100 bytes の headroom へラチェット。
+     731,000 → 733,000 (2026-08-10)。詳細ページの「← 一覧に戻る」が絞り込み (?q= / ?cat=) を捨てて全件へ戻していた
+     実 UX バグの修正 (実測: 1 件に絞って詳細を開き in-page back → 18 件。ブラウザ Back は保持するため同じ意味の操作で
+     結果が食い違っていた)。router に直近の一覧ルートを query 込みで保持する単一ソース (_lastListPath /
+     getLastListPath) と WHY コメントを追加し実測 732,168 bytes。
      730,000 → 731,000 (2026-08-10)。palette 開閉の scroll-clobber 修正 2 件。(1) closeDrawer に idempotency ガード
      (閉じている drawer を閉じるだけで __lockBodyScroll(false) が scrollTo(0,0) を実行し先頭へ飛んでいた・openDrawer 側
      #297 ガードの対)。(2) close の focus 復元を preventScroll 化 (lastFocused はしばしばページ冒頭の h1)。実測 730,892 bytes。

@@ -26,7 +26,7 @@ export function createProjectDetailPage({ h, createIcon, Router, State, Store })
                 h('h1', { class: 'h1' }, 'プロジェクトが見つかりません'),
                 h('button', {
                     class: 'btn btn-secondary',
-                    onclick: () => Router.navigate('projects')
+                    onclick: () => Router.navigate(Router.getLastListPath ? Router.getLastListPath() : 'projects')
                 }, '一覧へ戻る')
             );
         }
@@ -47,7 +47,7 @@ export function createProjectDetailPage({ h, createIcon, Router, State, Store })
             h('header', {},
                 h('button', {
                     class: 'btn btn-ghost btn-sm mb-4',
-                    onclick: () => Router.navigate('projects')
+                    onclick: () => Router.navigate(Router.getLastListPath ? Router.getLastListPath() : 'projects')
                 }, '← 一覧に戻る'),
                 h('div', { class: 'flex flex-wrap gap-2 mb-3' },
                     h('span', { class: 'badge badge-primary' }, project.category),

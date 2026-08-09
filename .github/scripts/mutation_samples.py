@@ -975,4 +975,11 @@ E2E_MUTATIONS = [
         "replace": "Router.navigate('projects' + ",
         "test": "Browser back/forward moves between routes and filtering does not pollute history",
     },
+    {
+        "name": "behavior: 詳細ページの『一覧に戻る』が絞り込みを捨てる回帰 — project-detail-page.js の戻り先を Router.getLastListPath() から 'projects' ハードコードへ戻す → ?q= / ?cat= を落として全件表示へ戻る。ブラウザの Back は履歴の query 付き URL へ復帰するため『同じ意味の操作なのに結果が違う』不整合になる (実測: 1 件に絞って詳細を開き in-page back → 18 件)",
+        "file": ROOT / "js" / "project-detail-page.js",
+        "find": "Router.navigate(Router.getLastListPath ? Router.getLastListPath() : 'projects')",
+        "replace": "Router.navigate('projects')",
+        "test": "In-page \"back to list\" preserves the active filter",
+    },
 ]
