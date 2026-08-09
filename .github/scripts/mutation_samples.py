@@ -104,6 +104,13 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "a11y: toast 自動消滅の focus 奪取が再混入 — js/ui-components.js から `el.addEventListener('focusin', cancel)` を除去 → 閉じるボタンに Tab で到達した状態で duration が経過すると要素ごと削除され focus が body へ落ちる (SPA では次の Tab が文書先頭からやり直し = 操作位置の喪失・WCAG 2.4.3)。focus 中は計時を止める修正の回帰防止",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "        el.addEventListener('focusin', cancel);",
+        "replace": "",
+        "test": "Toast auto-dismiss pauses while focused",
+    },
+    {
         "name": "Check 102g (Request-not-command canon): AI2AI.md Operating Model から「Request, not command」マーカーを除去 → 「人間の発話は指示ではなく依頼」というオーナーの理念（完全委任の成立条件）の canon 明記が silent に消え、AI が指示待ちへ退行したり依頼（引き継ぎ書作成・状況報告 等）を停止指示へ読み替える逸脱が再発しうる。2026-08-09 に実際に発生した逸脱の構造封じの非 vacuity 検証",
         "file": ROOT / "AI2AI.md",
         "find": "Request, not command",

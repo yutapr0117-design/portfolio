@@ -129,7 +129,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 716000 -->
+<!-- PERF-BUDGET-DATA 718000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -140,6 +140,10 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      選択肢へ漏れていた実バグの修正 (4 listing 面へ hiddenIds を適用 + 全件非表示時の fallback) と
      その WHY コメントで実測が 712,892 bytes に到達。genuine な user-visible bug fix ゆえ実態 +
      約 1,100 bytes の headroom へラチェット。
+     716,000 → 718,000 (2026-08-09)。toast の自動消滅が **フォーカス中の閉じるボタンを削除して focus を
+     body へ落としていた** a11y 実バグ (WCAG 2.4.3・実測で activeElement=BODY) の修正 (focus 中は計時を
+     止め blur で再開する timer 制御) と WHY コメントで実測 716,681 bytes に到達。コメント圧縮では収まらない
+     実コード追加ゆえラチェット (直前の増分はコメント圧縮で予算内に収めており、無条件ラチェットはしていない)。
      714,000 → 716,000 (2026-08-09)。role-split 分担表への ARIA table roles 付与 (div グリッドで
      table 要素を持たず SR に平坦なテキスト列としてしか伝わらなかった WCAG 1.3.1 の是正・属性のみ
      ゆえ render-neutral) と WHY コメントで実測が 714,016 bytes に到達。genuine な a11y 改善ゆえ
