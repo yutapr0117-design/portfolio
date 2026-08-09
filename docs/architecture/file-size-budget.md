@@ -99,7 +99,8 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/apps-pomodoro.spec.js` | 456 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-settings-io.spec.js` | 525 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-settings.spec.js` | 502 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
-| `e2e/apps-task.spec.js` | 972 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/apps-task.spec.js` | 648 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/apps-todo.spec.js` | 329 | 900 | `advisory` | behavior e2e spec (TODO アプリ面)。2026-08-09 に apps-task.spec.js の advisory 超過を受けて先回り分割 |
 | `e2e/command-palette.spec.js` | 161 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/drawer.spec.js` | 248 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/fatal.spec.js` | 60 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
@@ -293,6 +294,7 @@ e2e/apps-pomodoro.spec.js | 900 | advisory
 e2e/apps-settings-io.spec.js | 900 | advisory
 e2e/apps-settings.spec.js | 900 | advisory
 e2e/apps-task.spec.js | 900 | advisory
+e2e/apps-todo.spec.js | 900 | advisory
 e2e/command-palette.spec.js | 900 | advisory
 e2e/drawer.spec.js | 900 | advisory
 e2e/fatal.spec.js | 900 | advisory
