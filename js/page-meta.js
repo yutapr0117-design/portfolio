@@ -49,7 +49,9 @@ export const PAGE_META = {
                 quality: '品質・プロセス問題集',
                 architecture: '設計判断問題集'
             };
-            return map[type] || 'Quiz';
+            // [FIX] 継承キー ('constructor' 等) で関数が返り document.title が化けていた
+            //   (quiz-renderer の同 class fix と対) — own-key のみ採用する。
+            return Object.prototype.hasOwnProperty.call(map, type) ? map[type] : 'Quiz';
         },
         desc: 'AWS / PM / 品質 / 意思決定問題集。実務シナリオ×思考外部化ライブラリ。'
     },
