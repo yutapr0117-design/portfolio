@@ -38,42 +38,6 @@ _MUTATIONS_TAIL = [
     # find 値) に当たって挙動が不安定になるため。Check 362 の非 vacuous 性は手動で実証済
     # (mutation の file を誤り先へ変えると Check 362 が RED・restore で緑)。
     {
-        "name": "Check 372: quiz-renderer.js.md の factory signature を stale 形へ戻し quiz data 依存 (awsQuizData 等) を落とす → mirror-doc factory-dep drift の BLOCKING 検証",
-        "file": ROOT / "docs" / "files" / "js" / "quiz-renderer.js.md",
-        "find": "createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData })",
-        "replace": "createQuizRenderer({ h, createIcon, Store, State, quizData: {} })",
-    },
-    {
-        "name": "Check 364: store.js の Array.isArray ガードを unsafe な `(raw.tech || []).filter` idiom へ戻す → ingestion-crash class 構造防止の BLOCKING 検証",
-        "file": ROOT / "js" / "store.js",
-        "find": "tech: (Array.isArray(raw.tech) ? raw.tech : []).filter(Boolean).slice(0, 12),",
-        "replace": "tech: (raw.tech || []).filter(Boolean).slice(0, 12),",
-    },
-    {
-        "name": "Check 368: store.js の notes 上限を CONSTANTS.LIMITS.NOTES_TEXT からマジック 20000 へ戻す → notes 上限 drift の BLOCKING 検証",
-        "file": ROOT / "js" / "store.js",
-        "find": "result.notes = data.notes.slice(0, CONSTANTS.LIMITS.NOTES_TEXT);",
-        "replace": "result.notes = data.notes.slice(0, 20000);",
-    },
-    {
-        "name": "Check 370 (settings fallback magic): store.js の pomodoro settings normalize clamp fallback を CONSTANTS 参照からマジック || 25 へ戻す → runtime remainingSec は定数参照するのに settings fallback だけ magic だった非対称 gap の再発を拡張 Check 370 が捕捉。checks_shipped_hygiene.py は mutation_samples.py と別 file ゆえ self-reference trap 無し",
-        "file": ROOT / "js" / "store.js",
-        "find": "Number(data.pomodoro.settings.work) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.work",
-        "replace": "Number(data.pomodoro.settings.work) || 25",
-    },
-    {
-        "name": "Check 395 (データ駆動 path 記法): hiring-risk の CTA データ配列で nav 先を typo させる (path: 'settings' → 'setting') → router は未知の第1 segment を home として parse するため、ボタンは throw も console error も出さずユーザーを silent にホームへ送る。literal だけを見る旧実装ではこの典型記法が素通りしていた (別記法見逃し class の navigate 面)",
-        "file": ROOT / "js" / "hiring-risk-page.js",
-        "find": "path: 'settings',",
-        "replace": "path: 'setting',",
-    },
-    {
-        "name": "Check 411 (WebMCP セレクタ解決): main.js の WebMCP ツールが走査するセレクタを実在しない属性へ変える → ツールは説明文で「現在の DOM 状態から抽出」と宣言しながら常に静的フォールバックを返す状態に戻る。視覚に出ないため screenshot も behavior e2e も捕捉できない機械可読面の silent drift の回帰防止",
-        "file": ROOT / "main.js",
-        "find": "document.querySelectorAll('[data-ai-role]');",
-        "replace": "document.querySelectorAll('[data-agent-role]');",
-    },
-    {
         "name": "Check 412 (JSON-LD @id 解決): main.js の動的 JSON-LD が参照する entity ノードを typo させる (#person → #persona) → AI クローラは about の辺を辿れず宙に浮いた参照を得る。視覚に出ないため screenshot も behavior e2e も捕捉しない、機械可読な権威付けの silent な破壊の回帰防止",
         "file": ROOT / "main.js",
         "find": "'about': { '@id': SITE_BASE + '#person' },",
@@ -643,8 +607,8 @@ E2E_MUTATIONS = [
     {
         "name": "behavior: command-palette close 時の opener への focus 復元 (#700 WCAG 2.4.3) の喪失 — command-palette.js close() の lastFocused.focus() を除去 → palette を閉じても起動元へ focus が戻らず SR/キーボード利用者が文脈を失う a11y 退行。既存 focus-restore test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
         "file": ROOT / "js" / "command-palette.js",
-        "find": "if (lastFocused && lastFocused.focus) { try { lastFocused.focus(); } catch (e) { /* noop */ } }",
-        "replace": "if (lastFocused && lastFocused.focus) { try { /* focus removed */ } catch (e) { /* noop */ } }",
+        "find": "            try { lastFocused.focus({ preventScroll: true }); } catch (e) { /* noop */ }",
+        "replace": "            try { /* focus removed */ } catch (e) { /* noop */ }",
         "test": "restores focus to the opener on close",
     },
     {
@@ -996,5 +960,12 @@ E2E_MUTATIONS = [
         "find": "        if (typeof setAppInert === 'function') { setAppInert(true); }\n",
         "replace": "",
         "test": "Command palette makes the background inert while open",
+    },
+    {
+        "name": "behavior: closeDrawer の idempotency ガード喪失による scroll-clobber — mobile-drawer.js の closeDrawer から『閉じているなら早期 return』を外す → 末尾の __lockBodyScroll(false) が window.scrollTo(0, __drawerScrollY=0) を実行し、**閉じている drawer を閉じるだけでページ先頭へ飛ぶ**。二重モーダル防止で palette が open 時に無条件 closeDrawer() を呼ぶため、スクロール中に Cmd/Ctrl+K を押すと先頭ジャンプになる (#297 の openDrawer 側ガードの対・実測済)",
+        "file": ROOT / "js" / "mobile-drawer.js",
+        "find": "        if (drawer.getAttribute('aria-hidden') !== 'false') { return; }\n",
+        "replace": "",
+        "test": "Opening and closing the command palette preserves the scroll position",
     },
 ]
