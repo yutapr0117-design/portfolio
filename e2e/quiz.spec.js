@@ -195,6 +195,35 @@ test('Quiz search term does not leak across quiz types (empty-page landing regre
 });
 
 
+// ===== 7.2: quiz 検索の結果件数が live region でアナウンスされる (WCAG 4.1.3) =====
+// 従来は **0 件のときだけ** 空状態 div が role=status を持ち、**ヒット時は完全に無言**だった
+// (ProjectsPage は件数を status で通知しているのに quiz 側だけ非対称)。SR 利用者は絞り込みが
+// 効いたのか結果が何件なのか分からない。sr-only の status を 1 本用意し、ヒット時は件数を、
+// 0 件時はその旨を announce する (視覚表示は不変・空状態 div からは live 属性を外して二重読み上げを回避)。
+test('Quiz search announces the match count in a live region (WCAG 4.1.3)', async ({ page }) => {
+  await page.goto('/#/quiz?type=architecture');
+  await page.waitForLoadState('domcontentloaded');
+
+  const status = page.locator('div.sr-only[role="status"][aria-live="polite"]');
+  await expect(page.getByRole('searchbox', { name: '問題検索' })).toBeVisible();
+
+  // 初期描画では喋らない (無条件アナウンスの抑制)
+  await expect(status).toHaveText('');
+
+  // ヒット時: 件数がアナウンスされる (文言は _filterBy の正規化済みクエリ = 小文字を使う既存仕様)
+  await page.getByRole('searchbox', { name: '問題検索' }).fill('CAP');
+  await expect(status).toHaveText(/「cap」に一致する問題 [1-9][0-9]* 件/);
+
+  // 0 件時: 見つからない旨がアナウンスされる (空状態 div は live region ではない = 二重読み上げなし)
+  await page.getByRole('searchbox', { name: '問題検索' }).fill('zzz-no-match-9902');
+  await expect(status).toHaveText(/「zzz-no-match-9902」に一致する問題は見つかりませんでした。/);
+  await expect(page.locator('.panel-empty[role="status"]')).toHaveCount(0);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `quiz count live region caused a fatal: ${fatal}`).toBeNull();
+});
+
+
 // ===== 7.2: quiz pm / quality タイプのデータファイル描画カバレッジ =====
 // QUIZ_DATA_MAP は aws / pm / quality / architecture の 4 データファイルを引く。aws(default) と
 // architecture は被覆済みだが、pm(pmQuizData) / quality(qualityQuizData) はどのテストでも未訪問で
