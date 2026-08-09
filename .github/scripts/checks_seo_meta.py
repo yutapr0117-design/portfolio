@@ -135,6 +135,19 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        origin). Check 63 enforces origin alignment only; this Check tightens to the full canonical
        URL (origin + base path). Drift to a sibling project path (e.g. `/portfolio2/about`) is
        SILENT — sitemap crawlers index URLs that 404 on the deployed site. (BLOCKING)
+  412. JSON-LD @id reference → defined-node resolution: the index.html JSON-LD graph defines nodes
+       by `@id` and cross-links them with reference-only objects (`{"@id": ...}` with no other keys)
+       for about / isPartOf / author / publisher. A reference whose target is not defined leaves the
+       AI crawler with a dangling edge it cannot follow — the machine-readable authority graph (this
+       project's core bet) breaks SILENTLY: nothing visual changes, so neither the screenshot nor the
+       behavior e2e notices. The likeliest trigger is a C6-approved semantic edit that renames or
+       removes a node while a referencing site is missed. The dynamic JSON-LD built at runtime in
+       main.js (_buildDynamicJsonLd) references `SITE_BASE + '#person'` / `'#website'`, so those
+       fragments must resolve against the same defined set (a runtime-injected edge is still an edge
+       of the same graph); its own `#webpage-dynamic` node id is excluded since it is defined at
+       runtime, not in index.html. Measured at introduction: 12 defined / 5 static references /
+       2 dynamic references, all resolving. Same used⟹defined wiring lens as Checks 375 / 376 / 391 /
+       392 / 395 / 411, applied to the JSON-LD graph. (BLOCKING)
 """
 import re
 import json
@@ -857,3 +870,71 @@ def run(ctx):
     else:
         check(False, "Check 166: sitemap.xml + index.html present",
               "Check 166: sitemap.xml もしくは index.html が無い", blocking=True)
+
+    # ── 412. JSON-LD @id 参照 → 定義ノードへの解決 (BLOCKING) ──────────────────────
+    # index.html の JSON-LD グラフはノードを `@id` で定義し、他ノードから `{ "@id": ... }` の
+    # **参照だけの形**で相互リンクする (about / isPartOf / author / publisher 等)。参照先が
+    # 定義されていないと、AI クローラは entity グラフの辺を辿れず「宙に浮いた参照」を得る。
+    # これは本プロジェクトの中核賭け金 (機械可読な権威付け) が静かに壊れる状態でありながら、
+    # 視覚に一切出ないため screenshot も behavior e2e も捕捉しない。C6 承認済みの semantic 編集で
+    # ノードを rename / 削除した際に、参照側の更新漏れとして最も起きやすい。
+    # main.js の動的 JSON-LD (_buildDynamicJsonLd) が `SITE_BASE + '#person'` 等で参照する
+    # フラグメントも同じ定義集合に対して解決を要求する (実行時に注入される辺も同じグラフの一部)。
+    # Check 375 / 376 / 391 / 392 / 395 / 411 と同じ used⟹defined wiring レンズの JSON-LD 面。
+    _html412 = ROOT / "index.html"
+    _main412 = ROOT / "main.js"
+    if _html412.exists():
+        _blocks412 = re.findall(
+            r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',
+            _html412.read_text(encoding="utf-8"), re.S)
+        _defined412, _refs412, _bad412 = set(), [], []
+        for _bi412, _b412 in enumerate(_blocks412):
+            try:
+                _data412 = json.loads(_b412)
+            except (json.JSONDecodeError, UnicodeDecodeError) as _e412:
+                _bad412.append(f"block{_bi412}: {_e412}")
+                continue
+
+            def _walk412(_n412):
+                if isinstance(_n412, dict):
+                    _id412 = _n412.get("@id")
+                    if isinstance(_id412, str):
+                        # 定義 = @id 以外のキーを持つノード / 参照 = @id だけのノード
+                        (_defined412.add(_id412) if set(_n412.keys()) - {"@id"}
+                         else _refs412.append(_id412))
+                    for _v412 in _n412.values():
+                        _walk412(_v412)
+                elif isinstance(_n412, list):
+                    for _v412 in _n412:
+                        _walk412(_v412)
+
+            _walk412(_data412)
+        # 動的 JSON-LD (main.js) の参照フラグメントも同じ定義集合へ解決させる
+        _dyn412 = []
+        if _main412.exists():
+            # 行コメント除去。`(?<!:)` が無いと URL の "https://" まで削られ SITE_BASE の抽出が
+            # 壊れる (実測: 捕捉群がコード全体に伸びた)。
+            _msrc412 = re.sub(r"(?<!:)//[^\n]*", "", _main412.read_text(encoding="utf-8"))
+            _base412 = re.search(r"SITE_BASE\s*=\s*'([^']+)'", _msrc412)
+            if _base412:
+                for _f412 in re.findall(r"SITE_BASE\s*\+\s*'(#[\w-]+)'", _msrc412):
+                    _full412 = _base412.group(1) + _f412
+                    # 自ノードの定義 (#webpage-dynamic) は index.html には無くて当然ゆえ除外
+                    if _f412 != "#webpage-dynamic":
+                        _dyn412.append(_full412)
+        _dangling412 = sorted({_r412 for _r412 in _refs412 if _r412 not in _defined412})
+        _dangling_dyn412 = sorted({_d412 for _d412 in _dyn412 if _d412 not in _defined412})
+        check(
+            bool(_defined412) and not _bad412 and not _dangling412 and not _dangling_dyn412,
+            f"Check 412: JSON-LD の @id 参照が全て定義ノードへ解決 (定義 {len(_defined412)} / 静的参照 {len(set(_refs412))} / 動的参照 {len(set(_dyn412))})",
+            (f"Check 412: JSON-LD の @id 参照が宙に浮いている — 静的: {_dangling412} / 動的(main.js): {_dangling_dyn412} / "
+             f"parse 失敗: {_bad412}。AI クローラは entity グラフの辺を辿れず機械可読な権威付けが静かに壊れる "
+             "(視覚に出ないため screenshot も behavior e2e も捕捉しない)。参照先ノードを定義するか参照を修正せよ "
+             "(JSON-LD の semantic 編集は C6 ゆえ aio-guardian 経由)"
+             if _defined412 or _bad412 else
+             "Check 412: index.html から JSON-LD ノード定義を 1 つも抽出できない — @id 解決の検証が無効化された"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 412: index.html present",
+              "Check 412: index.html が無い — JSON-LD @id 解決を検証できない", blocking=True)
