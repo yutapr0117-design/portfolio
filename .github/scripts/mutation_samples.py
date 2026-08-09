@@ -924,6 +924,13 @@ E2E_MUTATIONS = [
         "test": "Quiz search term does not leak across quiz types",
     },
     {
+        "name": "resilience: localStorage 不在環境での白画面化 — js/storage.js の get() から try/catch を外し素の localStorage アクセスへ → プライベートブラウジング等で localStorage アクセス自体が SecurityError を投げる環境の全ユーザーがコンテンツ非描画 (白画面) になる。quota 超過 (書き込み失敗) とは別クラスの堅牢性の回帰防止",
+        "file": ROOT / "js" / "storage.js",
+        "find": "        try {\n            return localStorage.getItem(key);",
+        "replace": "        {\n            return localStorage.getItem(key);",
+        "test": "SPA still renders when localStorage access itself throws",
+    },
+    {
         "name": "a11y: settings 追加フォームの検証フィールド特定喪失 — settings-page.js の addProjectManual から aria-invalid の付与と focus 移動を除去 → SR 利用者は Toast のエラーだけ聞かされ「どの入力が不正か」を判別できない (WCAG 3.3.1 / 2.4.3・quiz フォーム #913 と同 class の残り 1 面)",
         "file": ROOT / "js" / "settings-page.js",
         "find": "                if (nameEl) { nameEl.setAttribute('aria-invalid', 'true'); nameEl.focus(); }",
