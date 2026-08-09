@@ -146,6 +146,18 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        not-found = a dead 404 Cmd+K entry (the old one-directional Check passed this silently, #788/#789
        bijection class). It parses the router switch case labels and the palette's top-level static hashes
        and asserts set-equality, closing the app-only asymmetry of Check 128 in both directions. (BLOCKING)
+  410. UI 入力上限 ⟹ 保存上限の一致 (input/textarea maxlength coherence): a UI-layer shipped JS file
+       (one that builds `h('input'` / `h('textarea'` elements) that persists user text via
+       `.slice(0, CONSTANTS.LIMITS.<KEY>)` MUST also declare `maxlength: CONSTANTS.LIMITS.<KEY>` for the
+       same KEY in the same file. Without it the field accepts more characters than are ever saved, so
+       the overflow is dropped silently at persist time. The Markdown notes editor was the severe case:
+       the textarea and its live preview kept rendering everything the user typed past NOTES_TEXT
+       (20,000) while `State.updateSilently` stored only the truncated prefix — the loss became visible
+       only on reload (the silent producer/consumer drift class of #684 quizSearch / #294, here between
+       the UI bound and the persistence bound rather than between two data layers). task/todo/ai were the
+       same asymmetry but visibly truncated on submit. Deriving both bounds from the one LIMITS constant
+       makes "what can be typed" == "what is saved" structural. store.js is excluded automatically since
+       it builds no input elements (it is the normalization layer, not a UI layer). (BLOCKING)
 """
 import re
 
@@ -736,3 +748,31 @@ def run(ctx):
     else:
         check(False, "Check 382: router.js / command-palette.js present",
               "Check 382: router.js または command-palette.js が見つからない — palette↔router 静的 route coherence を検証できない", blocking=True)
+
+    # ── 410. UI 入力上限 ⟹ 保存上限の一致 (maxlength coherence) (BLOCKING) ─────────
+    # 保存側が LIMITS.<KEY> で slice するのに UI 側に maxlength が無いと、「入力できた文字数」と
+    # 「保存される文字数」がずれ、超過分が黙って捨てられる (notes editor は画面にもプレビューにも
+    # 表示され続けたまま保存だけされず、リロードで初めて消失に気付く silent data-loss だった)。
+    # 対象は UI レイヤー = input/textarea を組み立てる shipped JS のみ (store.js は normalize 層で
+    # 入力要素を持たないため自動的に対象外)。
+    _ui410 = sorted((ROOT / "js").glob("*.js"))
+    _viol410, _pairs410 = [], 0
+    for _f410 in _ui410:
+        _src410 = _f410.read_text(encoding="utf-8")
+        if "h('input'" not in _src410 and "h('textarea'" not in _src410:
+            continue
+        _keys410 = set(re.findall(r"\.slice\(0,\s*CONSTANTS\.LIMITS\.([A-Z_]+)\)", _src410))
+        for _k410 in sorted(_keys410):
+            _pairs410 += 1
+            if not re.search(r"maxlength:\s*CONSTANTS\.LIMITS\." + _k410 + r"\b", _src410):
+                _viol410.append(f"{_f410.name}: LIMITS.{_k410}")
+    check(
+        _pairs410 > 0 and not _viol410,
+        f"Check 410: UI 入力 {_pairs410} 件の maxlength が保存側 LIMITS と同一定数で一致",
+        (f"Check 410: UI 上限と保存上限が drift — {_viol410}。"
+         "保存側が LIMITS.<KEY> で slice する入力には同じ定数で maxlength を付けよ "
+         "(無いと超過分が silent に捨てられ、リロードで初めて消失が判明する)")
+        if _pairs410 else
+        "Check 410: UI レイヤーの LIMITS slice を 1 件も検出できない — maxlength coherence が無効化された",
+        blocking=True,
+    )

@@ -148,7 +148,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 720000 -->
+<!-- PERF-BUDGET-DATA 721000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -159,6 +159,11 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      選択肢へ漏れていた実バグの修正 (4 listing 面へ hiddenIds を適用 + 全件非表示時の fallback) と
      その WHY コメントで実測が 712,892 bytes に到達。genuine な user-visible bug fix ゆえ実態 +
      約 1,100 bytes の headroom へラチェット。
+     720,000 → 721,000 (2026-08-09)。UI 入力の maxlength 欠落による silent truncation の修正。保存側は
+     LIMITS.<KEY> で slice するのに入力要素に上限が無く、超過分が黙って捨てられていた (notes editor は
+     画面にもプレビューにも表示され続けたままリロードで初めて消失が判明する silent data-loss)。4 入力
+     (task/todo/notes/ai) へ保存側と同一定数の maxlength + WHY コメントを追加し実測 720,182 bytes。
+     コメントは 2 度圧縮した上での実測ゆえ、約 800 bytes の headroom へ最小ラチェット。
      718,000 → 720,000 (2026-08-09)。task/todo のフィルタ変更が **SR に完全に無音**だった a11y 実測 gap
      (WCAG 4.1.3・変更後も通知領域には直前のアクション文言が残り #content 内 live region は 0 個) の修正。
      ui-components に announce() を抽出 (Toast から再利用ゆえ net ほぼ 0) + apps.js に getFilteredTodos /

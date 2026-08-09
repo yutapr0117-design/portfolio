@@ -525,3 +525,43 @@ test('AI assist ignores empty and whitespace-only prompts (no history entry crea
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `ai empty guard caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 入力できた文字数 == 保存される文字数 (maxlength ↔ LIMITS の一致・silent data-loss 防止) =====
+// NotesPage の oninput は `val.slice(0, CONSTANTS.LIMITS.NOTES_TEXT)` で保存するが、textarea 側に
+// maxlength が無いと超過分は「textarea にもライブプレビューにも表示され続けたまま保存だけされない」
+// 状態になり、ユーザーはリロードして初めて消失に気付く (本 class で唯一 silent だった面。task/todo/ai
+// は追加直後に切り詰め結果が一覧へ出るため即座に可視)。maxlength を保存側と同じ定数から与えることで
+// 「入力できる範囲 == 保存される範囲」を構造的に一致させた (静的面は Check 410)。
+//
+// 検証手段: keyboard.insertText は CDP の編集パイプラインを通るため maxlength が実効し、value は
+// 上限で頭打ちになる (実測: 20,050 文字投入 → value 長 20,000)。fill() は value を直接代入して
+// maxlength を迂回するため本テストでは使えない。
+test('Notes editor cannot hold more text than it persists (maxlength == LIMITS.NOTES_TEXT)', async ({ page }) => {
+  await page.goto('/#/apps/notes');
+  await page.waitForLoadState('domcontentloaded');
+
+  const ta = page.locator('#notes-input');
+  await expect(ta).toBeVisible();
+
+  // 保存側の上限 (CONSTANTS.LIMITS.NOTES_TEXT) を UI 属性として読み出す (値のハードコードを避ける)
+  const limit = parseInt(await ta.getAttribute('maxlength'), 10);
+  expect(limit, 'notes textarea が保存側と同じ上限を maxlength として公開している').toBeGreaterThan(0);
+
+  // 上限を 50 文字超える入力を実際の編集経路で投入
+  await ta.click();
+  await page.keyboard.insertText('あ'.repeat(limit + 50));
+
+  // 1. UI が上限で頭打ちになる (修正前は limit+50 文字がそのまま入り、保存だけが切り詰められていた)
+  const uiLength = await ta.evaluate(el => el.value.length);
+  expect(uiLength, 'textarea が保存できない文字まで受け付けてはならない').toBe(limit);
+
+  // 2. リロード後の永続値が UI 上の文字数と一致する = 黙って捨てられた分が存在しない
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+  const persistedLength = await page.locator('#notes-input').evaluate(el => el.value.length);
+  expect(persistedLength, '画面に入力できた文字数とリロード後に残る文字数が一致する').toBe(uiLength);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `notes maxlength test caused a fatal: ${fatal}`).toBeNull();
+});

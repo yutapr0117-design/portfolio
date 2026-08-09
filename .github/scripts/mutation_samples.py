@@ -961,4 +961,11 @@ E2E_MUTATIONS = [
         "replace": "            if (cat !== 'All' && !q) {\n                list = list.filter(p => p.category === cat);",
         "test": "Search and category filters compose",
     },
+    {
+        "name": "behavior: notes editor の silent data-loss 再混入 — apps.js の textarea から maxlength を外す → 保存側は LIMITS.NOTES_TEXT で slice するのに UI は無制限に受け付け、超過分は textarea にもライブプレビューにも表示され続けたまま保存されない (リロードして初めて消失が判明する silent data-loss)。UI 上限と永続化上限の一致 (Check 410 の behavioral 面) の回帰防止",
+        "file": ROOT / "js" / "apps.js",
+        "find": "            maxlength: CONSTANTS.LIMITS.NOTES_TEXT,",
+        "replace": "",
+        "test": "Notes editor cannot hold more text than it persists",
+    },
 ]

@@ -123,6 +123,9 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                         // 一貫して読まないため、恒久的な aria-label を付与する (可視ラベル無しデザイン維持)。
                         'aria-label': '新しいタスクを入力',
                         enterkeyhint: 'done',
+                        // [DATA] 保存側 (addTask) と同じ定数を UI 上限にし、入力できた文字数と保存
+                        // される文字数を一致させる。無いと超過分が黙って捨てられる (Check 410)。
+                        maxlength: CONSTANTS.LIMITS.TASK_TITLE,
                         placeholder: '新しいタスクを入力...',
                         onkeydown: (e) => {
                             // [FIX] IME 変換確定の Enter (e.isComposing) では追加しない。日本語入力で
@@ -333,6 +336,8 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                         // [A11Y 3.3.2/4.1.2] placeholder-only を避け恒久 accessible name を付与。
                         'aria-label': 'やることを入力',
                         enterkeyhint: 'done',
+                        // [DATA] addTodo の LIMITS.TODO_TEXT slice と UI 上限を一致させる (Check 410)。
+                        maxlength: CONSTANTS.LIMITS.TODO_TEXT,
                         placeholder: '入力してEnter（IME対応）...',
                         oncompositionstart: () => todoComposing = true,
                         oncompositionend: () => todoComposing = false,
@@ -468,6 +473,9 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
             class: 'input textarea-resize-v',
             rows: 16,
             'aria-label': 'Markdown ノート',
+            // [DATA] 本 class で唯一 silent だった面: maxlength が無いと超過分は画面にもプレビューにも
+            // 表示され続けたまま保存だけされず、リロードで初めて消失が判明した (Check 410)。
+            maxlength: CONSTANTS.LIMITS.NOTES_TEXT,
             placeholder: '# 見出し\n\n**太字** や `コード`、- リスト が使えます',
             value: src,
             oninput: (e) => {
