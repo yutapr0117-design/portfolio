@@ -394,3 +394,66 @@ test('Item creation still works when crypto.randomUUID is unavailable (insecure-
   expect(fatal, `randomUUID 不在で fatal: ${fatal}`).toBeNull();
   expect(pageErrors, `randomUUID 不在で uncaught error: ${pageErrors.join(' / ')}`).toEqual([]);
 });
+
+
+// ===== 複数アプリの状態が「同時に」共存してリロードを跨ぐ (cross-app 統合) =====
+// 各アプリの永続化は個別に e2e 被覆されているが、いずれも **そのアプリ単独** の往復しか見ていない。
+// 実際のユーザーは複数アプリを行き来し、State には task / todo / notes / quiz 検索語が同居する。
+// 片方の保存経路がもう片方を巻き戻す class の回帰 (draft の取り違え / normalize の落とし穴 /
+// scheduleSave の欠落による最後の silent 書き込みの喪失) は、単体テストを全て緑のまま通過する:
+//   - State.update 経由 (task/todo) と State.updateSilently 経由 (notes/quiz 検索語) は
+//     **別経路**であり、後者は notify せず scheduleSave だけで永続化する。
+//   - よって「update 経由は残るが updateSilently 経由だけ消える」退行が起こりうる。
+// 4 アプリを 1 セッションで触ってから 1 回だけリロードし、**全部が同時に残っている**ことを検証する。
+test('State written across four apps in one session all survives a single reload (no cross-app clobber)', async ({ page }) => {
+  const TASK = 'CROSSAPP-タスク-4821';
+  const TODO = 'CROSSAPP-TODO-4821';
+  const NOTE = '# CROSSAPP-ノート-4821';
+  const QUERY = 'CROSSAPP検索';
+
+  // 1. task (State.update 経由)
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await page.locator('#task-input').fill(TASK);
+  await page.locator('#task-input').press('Enter');
+  await expect(page.locator('#content')).toContainText(TASK);
+
+  // 2. todo (State.update 経由)
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+  await page.locator('#todo-input').fill(TODO);
+  await page.locator('#todo-input').press('Enter');
+  await expect(page.locator('#content')).toContainText(TODO);
+
+  // 3. notes (State.updateSilently 経由 — notify せず scheduleSave のみ)
+  await page.goto('/#/apps/notes');
+  await page.waitForLoadState('domcontentloaded');
+  await page.locator('#notes-input').fill(NOTE);
+
+  // 4. quiz 検索語 (State.updateSilently 経由・種別付きで保持される)
+  await page.goto('/#/quiz?type=aws');
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByRole('searchbox').first().fill(QUERY);
+
+  // 1 回だけリロード = 実ユーザーの離脱→再訪に相当
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+
+  // 4 つすべてが同時に残っていること (どれか 1 つでも消えれば cross-app clobber)
+  await expect(page.getByRole('searchbox').first()).toHaveValue(QUERY);
+
+  await page.goto('/#/apps/notes');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#notes-input')).toHaveValue(NOTE);
+
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content')).toContainText(TASK);
+
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content')).toContainText(TODO);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `cross-app persistence caused a fatal: ${fatal}`).toBeNull();
+});
