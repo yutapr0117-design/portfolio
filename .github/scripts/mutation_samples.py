@@ -38,42 +38,6 @@ _MUTATIONS_TAIL = [
     # find 値) に当たって挙動が不安定になるため。Check 362 の非 vacuous 性は手動で実証済
     # (mutation の file を誤り先へ変えると Check 362 が RED・restore で緑)。
     {
-        "name": "Check 402 (多行 assertion 面): navigation-a11y.spec.js の nav-link ループから settle (h1 の toBeVisible) を除去 → goto 直後に多行 assertion で toHaveCount(0) を評価する形へ戻る。多行に折り返した assertion は Check 402 初版 (await expect と matcher が同一行であることを要求) の検出から漏れており、全 sidebar リンクが NotFound に落ちないことを検査する重要な gate が未保護だった。matcher 行ベース検出への拡張の非 vacuity 検証",
-        "file": ROOT / "e2e" / "navigation-a11y.spec.js",
-        "find": "    await expect(page.locator('h1').first(), `nav href ${href} でページが描画されない`).toBeVisible();\n",
-        "replace": "",
-    },
-    {
-        "name": "Check 403 (sr-only AIO entity anchor presence): index.html の <footer id=\"aio-main-footer\"> の id を rename → AIO 戦略上 load-bearing な RAG チャンクアンカーが消失する。視覚的に不可視 (sr-only + aria-hidden) ゆえ screenshot も behavior e2e も従来は捕捉できなかった silent removal class (Check 133 の #aio-asset-anchor 保護と同型の entity-anchor 面)。Check 403 の非 vacuity 検証 (checks_wiring.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
-        "file": ROOT / "index.html",
-        "find": '<footer class="sr-only" aria-hidden="true" id="aio-main-footer">',
-        "replace": '<footer class="sr-only" aria-hidden="true" id="aio-main-footer-renamed">',
-    },
-    {
-        "name": "Check 402 (e2e 不在アサーションの描画確定): resilience.spec.js の schema-mismatch テストから settle (`getByLabel('新しいタスクを入力')` の toBeVisible) を除去 → goto 直後に toHaveCount(0) を評価する形へ戻る。不在アサーションは初回 poll で成立すると再検査されないため、SPA の非同期描画とレースして「まだ描画されていない」を「無い」と誤認し vacuous に PASS する (#825/#830 class)。Check 402 の非 vacuity 検証 (checks_e2e_infra.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
-        "file": ROOT / "e2e" / "resilience.spec.js",
-        "find": "  await expect(page.getByLabel('新しいタスクを入力')).toBeVisible();\n  await expect(page.getByText('OLD-SCHEMA-TASK-9001')).toHaveCount(0);",
-        "replace": "  await expect(page.getByText('OLD-SCHEMA-TASK-9001')).toHaveCount(0);",
-    },
-    {
-        "name": "Check 401a (quiz?type ⟹ QUIZ_DATA_MAP キー): hiring-risk-page.js の `quiz?type=pm` を typo (pmm) へ → QuizPage が `|| QUIZ_DATA_MAP.aws` でフォールバックし、「PM問題集を見る」ボタンから黙って AWS 問題集が描画される silent wrong-content (Check 395 は base path segment のみ見て ?query を落とすため無防備だった used⟹defined wiring の query-value 面)。Check 401a の非 vacuity 検証 (checks_wiring.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
-        "file": ROOT / "js" / "hiring-risk-page.js",
-        "find": "path: 'quiz?type=pm',",
-        "replace": "path: 'quiz?type=pmm',",
-    },
-    {
-        "name": "Check 401b (sidebar AWS-active 除外集合 == QUIZ_DATA_MAP − aws): components.js の除外集合から 'architecture' を落とす → 設計判断問題集を開いている間 nav が「AWS 問題集」を active に光らせる control↔content desync (#781 class) が silent に発生する。Check 401b の非 vacuity 検証",
-        "file": ROOT / "js" / "components.js",
-        "find": "!['pm', 'quality', 'architecture'].includes(route.query.type)",
-        "replace": "!['pm', 'quality'].includes(route.query.type)",
-    },
-    {
-        "name": "Check 399 (mutation-probe catch 帰属): mutation_probe.py の ANCHOR_ORPHAN_MARKER 定数を rename → catch 判定が Check 362 (anchor orphan) を除外できなくなる。mutation 適用は必ず自身の find-anchor を消して Check 362 を RED にするため、帰属を失うと全 mutation が自動的に caught と報告され、安全網を検証するはずの probe が何も検証しない vacuous な meta-QA へ退行する。Check 399 の非 vacuity 検証 (checks_maintainability.py が検証する対象は mutation_probe.py ゆえ mutation_samples.py の self-reference trap 無し)",
-        "file": ROOT / ".github" / "scripts" / "mutation_probe.py",
-        "find": 'ANCHOR_ORPHAN_MARKER = "Check 362:"',
-        "replace": 'ANCHOR_ORPHAN_MARKER_RENAMED = "Check 362:"',
-    },
-    {
         "name": "Check 400 (monolith module-level parse fail-soft): check_repository_consistency.py の module 直下へ try/except 非保護の `json.loads(read(...))` を注入 → 対象 file が壊れた瞬間に traceback で suite 全体が停止し、その破損を検出するはずの Check 自身を含む全 Check が未実行のまま skip される latent-crash class が再混入する (実測で Check 343 が一度も走らなかった gap)。Check 400 の非 vacuity 検証 (checks_maintainability.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
         "file": ROOT / ".github" / "scripts" / "check_repository_consistency.py",
         "find": "# ── ctx enrichment for split modules",
@@ -143,6 +107,12 @@ _MUTATIONS_TAIL = [
         "file": ROOT / "js" / "hiring-risk-page.js",
         "find": "path: 'settings',",
         "replace": "path: 'setting',",
+    },
+    {
+        "name": "Check 411 (WebMCP セレクタ解決): main.js の WebMCP ツールが走査するセレクタを実在しない属性へ変える → ツールは説明文で「現在の DOM 状態から抽出」と宣言しながら常に静的フォールバックを返す状態に戻る。視覚に出ないため screenshot も behavior e2e も捕捉できない機械可読面の silent drift の回帰防止",
+        "file": ROOT / "main.js",
+        "find": "document.querySelectorAll('[data-ai-role]');",
+        "replace": "document.querySelectorAll('[data-agent-role]');",
     },
 ]
 
@@ -993,5 +963,12 @@ E2E_MUTATIONS = [
         "find": "{ class: \"quiz-section-icon\", 'aria-hidden': 'true' }, icons[sIdx]",
         "replace": "{ class: \"quiz-section-icon\" }, icons[sIdx]",
         "test": "decorative emoji are hidden from the accessibility tree",
+    },
+    {
+        "name": "behavior: WebMCP の DOM 抽出契約の喪失 — js/pages.js splitRow の human 列から機械向けフック data-ai-role を外す → WebMCP ツールが役割分担表の human/ai を区別して抽出できなくなる (agentic 面の contract 破壊)",
+        "file": ROOT / "js" / "pages.js",
+        "find": "class: 'cell-human', role: 'cell', 'data-ai-role': 'human'",
+        "replace": "class: 'cell-human', role: 'cell'",
+        "test": "WebMCP role-split extraction selector resolves",
     },
 ]

@@ -75,7 +75,11 @@ export function createPages({ h, createIcon, Router, ContactCTA }) {
         //   #/role-split で機械検証する。
         function splitRow(category, humanItems, aiItems) {
             return h('div', {
-                class: 'table-data-row', role: 'row'
+                // [AIO/agentic] data-ai-role は WebMCP ツール
+                //   (main.js extract_human_vs_ai_role_split) が DOM から分担表を抽出するための
+                //   **機械向けの安定フック**。class 名は装飾都合で変わりうるため契約に使わない。
+                //   Check 411 が「ツールが走査するセレクタが実際に描画されること」を強制する。
+                class: 'table-data-row', role: 'row', 'data-ai-role': 'split-row'
             },
                 // カテゴリラベル (= 行見出し。SR はセル読み上げ時にこれを文脈として併読する)
                 h('div', {
@@ -83,7 +87,7 @@ export function createPages({ h, createIcon, Router, ContactCTA }) {
                 }, category),
                 // Human列
                 h('div', {
-                    class: 'cell-human', role: 'cell'
+                    class: 'cell-human', role: 'cell', 'data-ai-role': 'human'
                 },
                     ...humanItems.map(item =>
                         h('div', {
@@ -96,7 +100,7 @@ export function createPages({ h, createIcon, Router, ContactCTA }) {
                 ),
                 // AI列
                 h('div', {
-                    class: 'cell-ai', role: 'cell'
+                    class: 'cell-ai', role: 'cell', 'data-ai-role': 'ai'
                 },
                     ...aiItems.map(item =>
                         h('div', {

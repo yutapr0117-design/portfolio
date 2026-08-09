@@ -309,3 +309,34 @@ test('Route project-detail renders for a known slug without errors', async ({ pa
   await expect(page.getByText('タスク管理アプリ')).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Not Found', exact: true })).toHaveCount(0);
 });
+
+
+// ===== WebMCP (agentic accessibility) の DOM 抽出契約が実在する =====
+// main.js の WebMCP ツール extract_human_vs_ai_role_split は、自らの説明文で「役割分担表の現在の DOM 状態から
+// 証拠データを抽出します」と宣言し `document.querySelectorAll('[data-ai-role]')` で走査する。
+// 従来この走査は **一度も成功していなかった**: 元の 2 択セレクタ (`.role-split-item` / `[data-ai-role]`) は
+// どちらも querySelectorAll 自身以外にリポジトリのどこにも存在せず、ツールは常に静的フォールバック文字列を
+// 返していた (視覚に出ないため screenshot も他の behavior e2e も捕捉できない claim↔実装 drift)。
+// js/pages.js splitRow が機械向けの安定フックとして data-ai-role を描画することを保証する
+// (class 名は装飾都合で変わりうるため契約に使わない)。静的面は Check 411。
+// navigator.modelContext は Chromium に存在せずツール自体は登録されないため、e2e はツールが依存する
+// DOM 契約を検証する (ツール実行そのものはブラウザ側の未実装機能ゆえテスト不能)。
+test('WebMCP role-split extraction selector resolves to rendered markup (agentic contract)', async ({ page }) => {
+  await page.goto('/#/role-split');
+  await page.waitForLoadState('domcontentloaded');
+
+  // 描画確定を待ってから走査する (goto 直後の評価は async 描画とレースする)
+  await expect(page.locator('#content h1')).toBeVisible();
+
+  const hooks = page.locator('[data-ai-role]');
+  const count = await hooks.count();
+  expect(count, 'WebMCP ツールが走査するフックが 1 つも描画されていない = 抽出は常に静的フォールバックへ落ちる').toBeGreaterThan(0);
+
+  // human / ai 双方の列が機械可読に区別できる (分担表としての意味を保つ)
+  await expect(page.locator('[data-ai-role="human"]').first()).toBeVisible();
+  await expect(page.locator('[data-ai-role="ai"]').first()).toBeVisible();
+
+  // 抽出結果が空文字でない (フックはあるが中身が無い、という vacuous な充足を排除)
+  const text = await hooks.first().evaluate(el => el.textContent.trim());
+  expect(text.length, '抽出対象のテキストが空').toBeGreaterThan(0);
+});
