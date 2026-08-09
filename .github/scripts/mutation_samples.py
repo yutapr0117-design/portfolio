@@ -918,6 +918,13 @@ E2E_MUTATIONS = [
         "test": "Quiz search term does not leak across quiz types",
     },
     {
+        "name": "a11y: quiz フォーム検証のフィールド特定喪失 — quiz-renderer.js の送信ハンドラから最初の不正フィールドへの focus 移動を除去 → SR 利用者は Toast のエラーだけ聞かされ「どのフィールドが不正か」を自力で探す羽目になる (WCAG 3.3.1 Error Identification / 2.4.3)。aria-invalid + focus 移動による識別の回帰防止",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "                    (!name ? nameInput : emailInput).focus();",
+        "replace": "",
+        "test": "Quiz contact form marks the offending field aria-invalid",
+    },
+    {
         "name": "a11y: 分担表の ARIA table 構造の喪失 — pages.js splitRow のカテゴリセルから `role: 'rowheader'` を外す → 行見出しが失われ、SR はセル読み上げ時にどのカテゴリ行かの文脈を得られなくなる (分担表は div グリッドで table 要素を持たないため ARIA role が唯一の構造露出手段・WCAG 1.3.1)。axe は role の妥当性しか見ず role 除去は違反にならないため behavior e2e が唯一の gate。新設 table-semantics test の非 vacuity 検証",
         "file": ROOT / "js" / "pages.js",
         "find": "class: 'cell-category', role: 'rowheader'",

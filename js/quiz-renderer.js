@@ -277,8 +277,17 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
                 const email = emailInput.value.trim();
                 const message = messageInput.value.trim();
 
+                // [A11Y 3.3.1/2.4.3] 検証エラーは Toast だけでは「どのフィールドが不正か」が SR に伝わらず、
+                //   利用者はフォームを探し直すことになる。不正な入力へ aria-invalid を立て、最初の不正
+                //   フィールドへ focus を移す (属性 + focus のみ = 視覚描画は不変)。
+                const markInvalid = (el, bad) => {
+                    if (bad) { el.setAttribute('aria-invalid', 'true'); } else { el.removeAttribute('aria-invalid'); }
+                };
+                markInvalid(nameInput, !name);
+                markInvalid(emailInput, !email);
                 if (!name || !email) {
                     Toast.show("お名前とメールアドレスを入力してください", "error");
+                    (!name ? nameInput : emailInput).focus();
                     return;
                 }
 
