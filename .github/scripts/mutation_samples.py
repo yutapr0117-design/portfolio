@@ -38,113 +38,6 @@ _MUTATIONS_TAIL = [
     # find 値) に当たって挙動が不安定になるため。Check 362 の非 vacuous 性は手動で実証済
     # (mutation の file を誤り先へ変えると Check 362 が RED・restore で緑)。
     {
-        "name": "behavior: ResumePage の profile.title 描画喪失 — js/components.js の ResumePage の lead 見出しを State 由来から固定文字列へ置換 → import/設定した title が Resume に反映されなくなる。#/resume は内容レベルの e2e が皆無で route 訪問テストは「fatal なし・content 非空」で通るため、この描画退行は従来どの gate も捕捉できなかった (profile.title は sidebar と Resume の 2 箇所で描画されるデータ駆動値)",
-        "file": ROOT / "js" / "components.js",
-        "find": "h('h2', { class: 'h3 mb-4', 'data-ai-content': 'lead' }, State.get().profile.title),",
-        "replace": "h('h2', { class: 'h3 mb-4', 'data-ai-content': 'lead' }, 'Resume'),",
-        "test": "Imported profile.title renders on both the sidebar and the Resume page",
-    },
-    {
-        "name": "Check 375b (未使用アイコンの再蓄積): js/ui-components.js の getIcons() へ一度も使われないアイコン定義を追加 → 全ユーザーへ配信される dead weight が Check 120 の byte 予算を無言で圧迫する状態へ退行 (導入時に 16 件 1,996 bytes の never-wired 残骸を検出・除去した class の再発防止)",
-        "file": ROOT / "js" / "ui-components.js",
-        "find": "            trash: ",
-        "replace": "            zzUnusedProbe: `<path d=\"M1 1h2\"/>`,\n            trash: ",
-    },
-    {
-        "name": "Check 119b (docstring ⟹ 署名の逆方向 drift): js/ai-page.js の docstring【依存】節へ factory 署名に無い架空依存 (Router) を宣言 → 次の AI が onboarding substrate として読む docstring が誤った依存契約を教える (実装を読むまで気付けない)。119a は署名 ⟹ docstring 方向しか見ず本 drift を素通りしていた実測 gap の回帰防止",
-        "file": ROOT / "js" / "ai-page.js",
-        "find": " *   - announce: 唯一の SR 通知チャネル (js/ui-components.js) — 応答完了の status message",
-        "replace": " *   - announce: 唯一の SR 通知チャネル (js/ui-components.js) — 応答完了の status message\n *   - Router: ルーター (js/router.js)",
-    },
-    {
-        "name": "Check 407 (SR 通知チャネルの単一 writer): js/ai-page.js の announce() 呼び出しを #action-announcement への直書きへ戻す → 書き込み口が分散し、同じ内容が複数経路で流れる二重読み上げ (#901) と、チャネル実装変更時に取り残される bypass を招く。導入時に実在した bypass の回帰防止",
-        "file": ROOT / "js" / "ai-page.js",
-        "find": "                    announce('AI が応答しました');",
-        "replace": "                    const announcer = document.getElementById('action-announcement');\n                    if (announcer) { announcer.textContent = 'AI が応答しました'; }",
-    },
-    {
-        "name": "a11y: task/todo フィルタ変更の SR 通知喪失 — js/apps.js の todo フィルタ onchange から announceFilter 呼び出しを除去 → フィルタで一覧が変わっても SR には完全に無音 (通知領域には直前のアクション文言が残ったまま・#content 内 live region は 0 個) という実測 gap へ退行する (WCAG 4.1.3 Status Messages)",
-        "file": ROOT / "js" / "apps.js",
-        "find": "                                announceFilter('TODO', e.target.selectedOptions[0]?.text, getFilteredTodos().length);",
-        "replace": "",
-        "test": "Task and Todo filter changes are announced",
-    },
-    {
-        "name": "a11y: quiz 検索のヒット件数アナウンス喪失 — quiz-renderer.js の resultStatus からヒット時の件数文言を空文字へ戻す → 0 件時だけ喋りヒット時は無言という旧非対称に退行し、SR 利用者は絞り込みが効いたのか結果が何件なのか分からない (WCAG 4.1.3 Status Messages・ProjectsPage は件数を通知しているのに quiz だけ無言だった実 gap の回帰防止)",
-        "file": ROOT / "js" / "quiz-renderer.js",
-        "find": "                    : '「' + query + '」に一致する問題 ' + matchCount + ' 件')",
-        "replace": "                    : '')",
-        "test": "Quiz search announces the match count",
-    },
-    {
-        "name": "a11y: BGM ボタンの状態同期喪失 — js/ui-components.js の _syncAll から `btn.setAttribute('aria-pressed', String(_on))` を除去 → 再生中でも SR には常に「押されていない」と報告される (aria-pressed が false 固定)。BGM は behavior e2e 完全未カバーで Check 376 も action の解決しか見ないため、この退行はどの gate も通り抜けていた。新設 BGM a11y test の非 vacuity 検証",
-        "file": ROOT / "js" / "ui-components.js",
-        "find": "            btn.setAttribute('aria-pressed', String(_on));",
-        "replace": "",
-        "test": "BGM toggle syncs aria-pressed and aria-label",
-    },
-    {
-        "name": "a11y: toast 自動消滅の focus 奪取が再混入 — js/ui-components.js から `el.addEventListener('focusin', cancel)` を除去 → 閉じるボタンに Tab で到達した状態で duration が経過すると要素ごと削除され focus が body へ落ちる (SPA では次の Tab が文書先頭からやり直し = 操作位置の喪失・WCAG 2.4.3)。focus 中は計時を止める修正の回帰防止",
-        "file": ROOT / "js" / "ui-components.js",
-        "find": "        el.addEventListener('focusin', cancel);",
-        "replace": "",
-    },
-    {
-        "name": "Check 102g (Request-not-command canon): AI2AI.md Operating Model から「Request, not command」マーカーを除去 → 「人間の発話は指示ではなく依頼」というオーナーの理念（完全委任の成立条件）の canon 明記が silent に消え、AI が指示待ちへ退行したり依頼（引き継ぎ書作成・状況報告 等）を停止指示へ読み替える逸脱が再発しうる。2026-08-09 に実際に発生した逸脱の構造封じの非 vacuity 検証",
-        "file": ROOT / "AI2AI.md",
-        "find": "Request, not command",
-        "replace": "Request-not-command",
-    },
-    {
-        "name": "a11y: Toast の二重アナウンス再混入 — js/ui-components.js の toast コンテナへ aria-live を再付与 → 専用 sr-only 領域 #action-announcement (assertive) と視覚コンテナ (polite) の両方が同じ message を読み上げ、SR 利用者に同一通知が 2 回 (かつコンテナ側は内包する閉じるボタンの語まで含めて) 届く WCAG 4.1.3 の退行。単一通知チャネル化の回帰防止",
-        "file": ROOT / "js" / "ui-components.js",
-        "find": "            container.id = 'toast-container';",
-        "replace": "            container.id = 'toast-container';\n            container.setAttribute('aria-live', 'polite');",
-        "test": "Toast is announced through exactly one live region",
-    },
-    {
-        "name": "Check 405 (store top-level persist round-trip): store.js validateAndNormalize から `theme` の読み戻しブロックを除去 → import/設定した theme が reload 毎に 'system' へ silent に戻る data-fidelity バグ (quizSearch #684 / profile #139 / projectPrefs #294 と同 class の top-level 面)。Check 373/404 と合わせ 3 面完成させた本 Check の非 vacuity 検証",
-        "file": ROOT / "js" / "store.js",
-        "find": "        if (['light', 'dark', 'system'].includes(data.theme)) {\n            store.theme = data.theme;\n        }",
-        "replace": "",
-    },
-    {
-        "name": "Check 404 (profile persist round-trip): store.js validateAndNormalize の profile ブロックから `location` の読み戻し行を除去 → 設定/import で location を入れても reload の normalize が strip し default へ silent に戻る data-fidelity バグ (#139 で github/linkedin/location が実際にこれで消えていた実バグ class)。Check 373 の appsData 面に対する profile 面 twin の非 vacuity 検証",
-        "file": ROOT / "js" / "store.js",
-        "find": "                location: String(data.profile.location || store.profile.location || '').slice(0, 200),",
-        "replace": "",
-    },
-    {
-        "name": "Check 375 (icon 名・三項の片枝): js/components.js の BGM トグル `createIcon(BGM.isOn() ? 'volume2' : 'volumeX')` の片枝を typo → OFF 状態だけアイコンが空になる silent broken-icon (throw も console error も e2e 失敗も無く screenshot は advisory)。初版 Check は createIcon( 直後の単一リテラルしか見ておらず三項の片枝を素通ししていた (第 1 引数式全体の検証への拡張の非 vacuity 検証)",
-        "file": ROOT / "js" / "components.js",
-        "find": "createIcon(BGM.isOn() ? 'volume2' : 'volumeX')",
-        "replace": "createIcon(BGM.isOn() ? 'volume2' : 'volumeXX')",
-    },
-    {
-        "name": "Check 393 (CONSTANTS 参照・分割代入経路): js/storage.js に分割代入経由の typo 参照 (`const { LIMITS } = CONSTANTS; LIMITS.MAX_TASSK`) を注入 → 合法な property access ゆえ throw せず undefined に評価され slice bound / setTimeout delay を静かに壊す class が再混入する。初版 Check は `CONSTANTS.` で始まる dotted access しか見ておらず分割代入経路を素通ししていた (非 vacuity 検証)",
-        "file": ROOT / "js" / "storage.js",
-        "find": "export const Storage = {",
-        "replace": "function _probeConst(CONSTANTS) { const { LIMITS } = CONSTANTS; return LIMITS.MAX_TASSK; }\nvoid _probeConst;\nexport const Storage = {",
-    },
-    {
-        "name": "Check 376 (producer 記法族・DOM API 面): js/mobile-drawer.js に DOM API 経由の typo した data-action producer (`el.dataset.action = 'drawr:open'`) を注入 → ActionDelegator が未登録 action を lookup して click が silent no-op になる (throw も console error も e2e 失敗も無い) 実バグ class。初版 Check は属性リテラルと h() prop の 2 綴りしか見ておらず DOM API 記法を素通ししていた (記法族検出への拡張の非 vacuity 検証)",
-        "file": ROOT / "js" / "mobile-drawer.js",
-        "find": "export function createMobileDrawer(",
-        "replace": "function _probeProducer(el) { el.dataset.action = 'drawr:open'; }\nvoid _probeProducer;\nexport function createMobileDrawer(",
-    },
-    {
-        "name": "Check 130 (live-input 記法族): js/quiz-renderer.js の検索 oninput を updateSilently から addEventListener('input') 経由の State.update へ書き換える → 毎キーストローク全再描画で focused input が破棄され検索が使用不能になる #258 class が別記法で再混入する。初版 Check は 'oninput' リテラルしか見ておらず本 mutation を素通ししていた (記法族検出への拡張の非 vacuity 検証)",
-        "file": ROOT / "js" / "quiz-renderer.js",
-        "find": "        box.appendChild(h(\"div\", { class: \"mb-6\" },",
-        "replace": "        searchInput.addEventListener('input', (e) => { State.update(s => { s.appsData.quizSearch = e.target.value; }); });\n        box.appendChild(h(\"div\", { class: \"mb-6\" },",
-    },
-    {
-        "name": "Check 112b (Enter 判定の記法族): js/ai-page.js の `e.key === 'Enter' && !e.isComposing` を code-family の無ガード記法 `e.code === 'Enter'` へ置換 → IME 変換確定の Enter で AI へ未確定テキストが誤送信される #151/#152 class が別綴りで再混入する。初版 Check はリテラル `e.key === 'Enter'` しか見ておらず本 mutation を素通ししていた (記法族検出への拡張の非 vacuity 検証)",
-        "file": ROOT / "js" / "ai-page.js",
-        "find": "if (e.key === 'Enter' && !e.isComposing) {",
-        "replace": "if (e.code === 'Enter') {",
-    },
-    {
         "name": "Check 402 (多行 assertion 面): navigation-a11y.spec.js の nav-link ループから settle (h1 の toBeVisible) を除去 → goto 直後に多行 assertion で toHaveCount(0) を評価する形へ戻る。多行に折り返した assertion は Check 402 初版 (await expect と matcher が同一行であることを要求) の検出から漏れており、全 sidebar リンクが NotFound に落ちないことを検査する重要な gate が未保護だった。matcher 行ベース検出への拡張の非 vacuity 検証",
         "file": ROOT / "e2e" / "navigation-a11y.spec.js",
         "find": "    await expect(page.locator('h1').first(), `nav href ${href} でページが描画されない`).toBeVisible();\n",
@@ -191,13 +84,116 @@ _MUTATIONS_TAIL = [
         "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
         "find": "e2e/quiz.spec.js | 900 | advisory\n",
         "replace": "",
+    },    {
+        "name": "Check 366: ContactPage LinkedIn の rel:'noopener noreferrer' から noreferrer を除去 (source drift 再発・静的 source 軸の防止層の回帰)",
+        "file": ROOT / "js" / "components.js",
+        "find": "                            h('a', { href: profile.linkedin, target: '_blank', rel: 'noopener noreferrer' }, profile.linkedin)",
+        "replace": "                            h('a', { href: profile.linkedin, target: '_blank', rel: 'noopener' }, profile.linkedin)",
     },
+    {
+        "name": "Check 367: projects-page.js の h('select') に value: cat を再注入 → h('select') attrs に value: キーが禁止であることの BLOCKING 検証",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "                    h('select', {\n                        class: 'input',\n                        'aria-label': 'カテゴリフィルター',",
+        "replace": "                    h('select', {\n                        class: 'input',\n                        value: cat,\n                        'aria-label': 'カテゴリフィルター',",
+    },
+    {
+        "name": "Check 369: store.js の AI 履歴 slice を CONSTANTS.LIMITS.AI_HISTORY からマジック -80 へ戻す → 履歴上限 drift の BLOCKING 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": ".slice(-CONSTANTS.LIMITS.AI_HISTORY);",
+        "replace": ".slice(-80);",
+    },
+    {
+        "name": "Check 370: store.js の pomodoro 既定 settings を CONSTANTS からマジック {work:25...} へ戻す → 既定状態 drift の BLOCKING 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "settings: { ...CONSTANTS.POMODORO_DEFAULT_SETTINGS },",
+        "replace": "settings: { work: 25, short: 5, long: 15 },",
+    },
+    {
+        "name": "Check 371: state.js.md に volatile 現在行数引用 (**Check 52**: N 行 ≤ M) を再注入 → mirror-doc line-count drift-magnet の BLOCKING 検証",
+        "file": ROOT / "docs" / "files" / "js" / "state.js.md",
+        "find": "**Check 52**: 行数予算 ≤ 320 行",
+        "replace": "**Check 52**: 219 行 ≤ 320",
+    },
+    {
+        "name": "Check 372: quiz-renderer.js.md の factory signature を stale 形へ戻し quiz data 依存 (awsQuizData 等) を落とす → mirror-doc factory-dep drift の BLOCKING 検証",
+        "file": ROOT / "docs" / "files" / "js" / "quiz-renderer.js.md",
+        "find": "createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData })",
+        "replace": "createQuizRenderer({ h, createIcon, Store, State, quizData: {} })",
+    },
+    {
+        "name": "Check 364: store.js の Array.isArray ガードを unsafe な `(raw.tech || []).filter` idiom へ戻す → ingestion-crash class 構造防止の BLOCKING 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "tech: (Array.isArray(raw.tech) ? raw.tech : []).filter(Boolean).slice(0, 12),",
+        "replace": "tech: (raw.tech || []).filter(Boolean).slice(0, 12),",
+    },
+    {
+        "name": "Check 368: store.js の notes 上限を CONSTANTS.LIMITS.NOTES_TEXT からマジック 20000 へ戻す → notes 上限 drift の BLOCKING 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "result.notes = data.notes.slice(0, CONSTANTS.LIMITS.NOTES_TEXT);",
+        "replace": "result.notes = data.notes.slice(0, 20000);",
+    },
+    {
+        "name": "Check 370 (settings fallback magic): store.js の pomodoro settings normalize clamp fallback を CONSTANTS 参照からマジック || 25 へ戻す → runtime remainingSec は定数参照するのに settings fallback だけ magic だった非対称 gap の再発を拡張 Check 370 が捕捉。checks_shipped_hygiene.py は mutation_samples.py と別 file ゆえ self-reference trap 無し",
+        "file": ROOT / "js" / "store.js",
+        "find": "Number(data.pomodoro.settings.work) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.work",
+        "replace": "Number(data.pomodoro.settings.work) || 25",
+    },
+
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 E2E_MUTATIONS = [
+    {
+        "name": "behavior: nav-lab collapse 状態の reload 復元喪失 — components.js isLabOpen() の localStorage 読み戻し `=== 'true'` を常時 false 化 → reload 後に Lab 展開状態が失われ collapsed へ戻る (#826 で追加した field-persist reload round-trip の非 vacuity 検証。read-back 喪失で展開→reload→展開維持が RED)",
+        "file": ROOT / "js" / "components.js",
+        "find": "return localStorage.getItem(labKey) === 'true';",
+        "replace": "return false;",
+        "test": "Lab nav-group collapse state restores from localStorage across reload",
+    },
+    {
+        "name": "behavior: home 統計カウンタが実データを反映しなくなる — js/home-page.js の TODO カウンタを state.appsData.todos.length から固定値へ置換 → 追加/削除しても数字が動かない silent な描画退行 (Stats は 3 カウンタとも state 由来のデータ駆動面だが e2e 未被覆で、値が固定化しても route 訪問テストは通る)",
+        "file": ROOT / "js" / "home-page.js",
+        "find": "h('div', { class: 'h2 color-warning' }, String(state.appsData.todos.length)),",
+        "replace": "h('div', { class: 'h2 color-warning' }, '1'),",
+        "test": "Home stat counters reflect real data",
+    },
+    {
+        "name": "behavior: ResumePage の profile.title 描画喪失 — js/components.js の ResumePage の lead 見出しを State 由来から固定文字列へ置換 → import/設定した title が Resume に反映されなくなる。#/resume は内容レベルの e2e が皆無で route 訪問テストは「fatal なし・content 非空」で通るため、この描画退行は従来どの gate も捕捉できなかった (profile.title は sidebar と Resume の 2 箇所で描画されるデータ駆動値)",
+        "file": ROOT / "js" / "components.js",
+        "find": "h('h2', { class: 'h3 mb-4', 'data-ai-content': 'lead' }, State.get().profile.title),",
+        "replace": "h('h2', { class: 'h3 mb-4', 'data-ai-content': 'lead' }, 'Resume'),",
+        "test": "Imported profile.title renders on both the sidebar and the Resume page",
+    },
+    {
+        "name": "a11y: task/todo フィルタ変更の SR 通知喪失 — js/apps.js の todo フィルタ onchange から announceFilter 呼び出しを除去 → フィルタで一覧が変わっても SR には完全に無音 (通知領域には直前のアクション文言が残ったまま・#content 内 live region は 0 個) という実測 gap へ退行する (WCAG 4.1.3 Status Messages)",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                                announceFilter('TODO', e.target.selectedOptions[0]?.text, getFilteredTodos().length);",
+        "replace": "",
+        "test": "Task and Todo filter changes are announced",
+    },
+    {
+        "name": "a11y: quiz 検索のヒット件数アナウンス喪失 — quiz-renderer.js の resultStatus からヒット時の件数文言を空文字へ戻す → 0 件時だけ喋りヒット時は無言という旧非対称に退行し、SR 利用者は絞り込みが効いたのか結果が何件なのか分からない (WCAG 4.1.3 Status Messages・ProjectsPage は件数を通知しているのに quiz だけ無言だった実 gap の回帰防止)",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "                    : '「' + query + '」に一致する問題 ' + matchCount + ' 件')",
+        "replace": "                    : '')",
+        "test": "Quiz search announces the match count",
+    },
+    {
+        "name": "a11y: BGM ボタンの状態同期喪失 — js/ui-components.js の _syncAll から `btn.setAttribute('aria-pressed', String(_on))` を除去 → 再生中でも SR には常に「押されていない」と報告される (aria-pressed が false 固定)。BGM は behavior e2e 完全未カバーで Check 376 も action の解決しか見ないため、この退行はどの gate も通り抜けていた。新設 BGM a11y test の非 vacuity 検証",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "            btn.setAttribute('aria-pressed', String(_on));",
+        "replace": "",
+        "test": "BGM toggle syncs aria-pressed and aria-label",
+    },
+    {
+        "name": "a11y: Toast の二重アナウンス再混入 — js/ui-components.js の toast コンテナへ aria-live を再付与 → 専用 sr-only 領域 #action-announcement (assertive) と視覚コンテナ (polite) の両方が同じ message を読み上げ、SR 利用者に同一通知が 2 回 (かつコンテナ側は内包する閉じるボタンの語まで含めて) 届く WCAG 4.1.3 の退行。単一通知チャネル化の回帰防止",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "            container.id = 'toast-container';",
+        "replace": "            container.id = 'toast-container';\n            container.setAttribute('aria-live', 'polite');",
+        "test": "Toast is announced through exactly one live region",
+    },
     {
         "name": "behavior: cross-tab が別 schema/欠損 store を raw 採用して crash (#93 class)",
         "file": ROOT / "js" / "state.js",
@@ -551,13 +547,6 @@ E2E_MUTATIONS = [
         "find": "if (settingsIncludeProjects && Array.isArray(parsed.projects)) {",
         "replace": "if (Array.isArray(parsed.projects)) {",
         "test": "selective gate",
-    },
-    {
-        "name": "behavior: nav-lab collapse 状態の reload 復元喪失 — components.js isLabOpen() の localStorage 読み戻し `=== 'true'` を常時 false 化 → reload 後に Lab 展開状態が失われ collapsed へ戻る (#826 で追加した field-persist reload round-trip の非 vacuity 検証。read-back 喪失で展開→reload→展開維持が RED)",
-        "file": ROOT / "js" / "components.js",
-        "find": "return localStorage.getItem(labKey) === 'true';",
-        "replace": "return false;",
-        "test": "restores from localStorage across reload",
     },
     {
         "name": "behavior: brand セレクタ UI の localStorage 書き込み喪失 — settings-page.js brand <select> の onchange から Brand.set を除去し window.render() のみへ → UI で選んだ brand が localStorage に書かれず reload 後に復元されない (#828 で追加した producer 側 round-trip の非 vacuity 検証。write 喪失で classic 選択→reload→data-brand 復元が RED)",
