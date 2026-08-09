@@ -104,6 +104,13 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "a11y: BGM ボタンの状態同期喪失 — js/ui-components.js の _syncAll から `btn.setAttribute('aria-pressed', String(_on))` を除去 → 再生中でも SR には常に「押されていない」と報告される (aria-pressed が false 固定)。BGM は behavior e2e 完全未カバーで Check 376 も action の解決しか見ないため、この退行はどの gate も通り抜けていた。新設 BGM a11y test の非 vacuity 検証",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "            btn.setAttribute('aria-pressed', String(_on));",
+        "replace": "",
+        "test": "BGM toggle syncs aria-pressed and aria-label",
+    },
+    {
         "name": "a11y: toast 自動消滅の focus 奪取が再混入 — js/ui-components.js から `el.addEventListener('focusin', cancel)` を除去 → 閉じるボタンに Tab で到達した状態で duration が経過すると要素ごと削除され focus が body へ落ちる (SPA では次の Tab が文書先頭からやり直し = 操作位置の喪失・WCAG 2.4.3)。focus 中は計時を止める修正の回帰防止",
         "file": ROOT / "js" / "ui-components.js",
         "find": "        el.addEventListener('focusin', cancel);",
