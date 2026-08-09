@@ -104,6 +104,12 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "Check 405 (store top-level persist round-trip): store.js validateAndNormalize から `theme` の読み戻しブロックを除去 → import/設定した theme が reload 毎に 'system' へ silent に戻る data-fidelity バグ (quizSearch #684 / profile #139 / projectPrefs #294 と同 class の top-level 面)。Check 373/404 と合わせ 3 面完成させた本 Check の非 vacuity 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "        if (['light', 'dark', 'system'].includes(data.theme)) {\n            store.theme = data.theme;\n        }",
+        "replace": "",
+    },
+    {
         "name": "Check 404 (profile persist round-trip): store.js validateAndNormalize の profile ブロックから `location` の読み戻し行を除去 → 設定/import で location を入れても reload の normalize が strip し default へ silent に戻る data-fidelity バグ (#139 で github/linkedin/location が実際にこれで消えていた実バグ class)。Check 373 の appsData 面に対する profile 面 twin の非 vacuity 検証",
         "file": ROOT / "js" / "store.js",
         "find": "                location: String(data.profile.location || store.profile.location || '').slice(0, 200),",
