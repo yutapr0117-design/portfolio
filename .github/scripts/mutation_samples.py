@@ -971,4 +971,11 @@ E2E_MUTATIONS = [
         "replace": "class: 'cell-human', role: 'cell'",
         "test": "WebMCP role-split extraction selector resolves",
     },
+    {
+        "name": "behavior: ルート追従 JSON-LD の silent 喪失 — main.js の _installSemanticDriftGuard から MutationObserver の observe 配線を落とす → script[data-ld='dynamic-route'] がルート遷移で更新されなくなり、AI クローラは初期状態の structured data しか見なくなる。視覚に一切出ないため screenshot も他の e2e も consistency も捕捉できなかった silent-critical な AIO 配線 (#133/#134/#135 と同 class) の回帰防止",
+        "file": ROOT / "main.js",
+        "find": "                    _observer.observe(contentEl, { childList: true, subtree: false });",
+        "replace": "                    void _observer;",
+        "test": "dynamic JSON-LD is injected and tracks the current route",
+    },
 ]

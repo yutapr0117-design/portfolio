@@ -502,3 +502,54 @@ test('Unknown app subroute (apps/<unknown>) resolves to Not Found (router whitel
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `unknown app route caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== ルート追従の動的 JSON-LD (Semantic Drift Prevention) が実際に注入・更新される =====
+// main.js の _installSemanticDriftGuard は #content の childList を MutationObserver で監視し、
+// ルート遷移のたび `script[data-ld="dynamic-route"]` の構造化データを現在のコンテンツで書き直す。
+// 目的は「AI クローラがどの hash ルートでも文脈一致した structured data を見る」こと = 本リポジトリの
+// 中核 (機械可読性) の一部。
+// だが **この機構を守る gate は従来ひとつも無かった**: IIFE ごと消しても consistency は緑、
+// behavior e2e も緑、screenshot は advisory。視覚に一切出ないため完全に silent に失われる
+// (#133/#134/#135 で塞いだ「silent-critical な配線」class の AIO 面)。
+// 注: 注入は 300ms debounce + requestIdleCallback(timeout 2000) 経由ゆえ固定 wait では脆い。
+// expect.poll で「いずれ文脈一致する」ことを待つ (更新されなければ poll がタイムアウトして RED)。
+async function dynamicLdName(page) {
+  return page.evaluate(() => {
+    const el = document.querySelector('script[data-ld="dynamic-route"]');
+    if (!el) { return null; }
+    try { return JSON.parse(el.textContent).name; } catch { return 'INVALID_JSON'; }
+  });
+}
+
+test('Route-following dynamic JSON-LD is injected and tracks the current route (semantic drift guard)', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+
+  // 1 つ目のルート: h1 と JSON-LD の name が一致する (文脈一致 = 本機構の契約)
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1')).toHaveText('プロジェクト一覧');
+  await expect.poll(() => dynamicLdName(page), { timeout: 10000 }).toBe('プロジェクト一覧');
+
+  // 2 つ目のルートへ遷移すると **追従して書き換わる** (初回注入だけでは drift 防止にならない)
+  await page.goto('/#/about');
+  await page.waitForLoadState('domcontentloaded');
+  const aboutHeading = (await page.locator('#content h1').textContent()).trim();
+  await expect.poll(() => dynamicLdName(page), { timeout: 10000 }).toBe(aboutHeading);
+
+  // 構造化データとして妥当であること (JSON 破損や @type 欠落を弾く)
+  const ld = await page.evaluate(() => {
+    const el = document.querySelector('script[data-ld="dynamic-route"]');
+    return el ? JSON.parse(el.textContent) : null;
+  });
+  expect(ld['@context']).toBe('https://schema.org');
+  expect(ld['@type']).toBe('WebPage');
+  expect(ld.inLanguage).toBe('ja');
+  // entity ノードへの参照が保たれている (Person / WebSite への接続が AIO 上の意味を持つ)
+  expect(ld.about['@id']).toContain('#person');
+  expect(ld.isPartOf['@id']).toContain('#website');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `dynamic JSON-LD test caused a fatal: ${fatal}`).toBeNull();
+});
