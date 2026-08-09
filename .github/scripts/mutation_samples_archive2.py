@@ -837,4 +837,22 @@ MUTATIONS_ARCHIVE2 = [
         "find": "document.querySelectorAll('[data-ai-role]');",
         "replace": "document.querySelectorAll('[data-agent-role]');",
     },
+    {
+        "name": "Check 412 (JSON-LD @id 解決): main.js の動的 JSON-LD が参照する entity ノードを typo させる (#person → #persona) → AI クローラは about の辺を辿れず宙に浮いた参照を得る。視覚に出ないため screenshot も behavior e2e も捕捉しない、機械可読な権威付けの silent な破壊の回帰防止",
+        "file": ROOT / "main.js",
+        "find": "'about': { '@id': SITE_BASE + '#person' },",
+        "replace": "'about': { '@id': SITE_BASE + '#persona' },",
+    },
+    {
+        "name": "Check 124a (匿名性ガードの導出 scope): 旧 scope 外だった js/home-page.js の data-entity 属性を bare な視覚テキストへ変える → サイト UI に実名が露出する。ハードコード 3 file の旧実装ではこの file 自体が走査対象外で GREEN のまま通っていた (Stage 5 の葉抽出に scope が追従しなかった class) の回帰防止",
+        "file": ROOT / "js" / "home-page.js",
+        "find": "'data-entity': 'Yuta Yokoi (横井雄太 / Yokoi Yuta)',",
+        "replace": "'title': 'Yuta Yokoi (横井雄太 / Yokoi Yuta)',",
+    },
+    {
+        "name": "Check 411 (導出 scope): 旧 scope 外だった js/ui-components.js の BGM ボタン走査セレクタを typo させる ([data-bgm-btn] → [data-bgm-button]) → 走査が永遠に 0 件を返し BGM ボタンの配線が静かに無効化される。main.js 限定だった初版ではこの file 自体が対象外で GREEN のまま通っていた (scope が分割に追従しない class) の回帰防止",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "querySelectorAll('[data-bgm-btn]')",
+        "replace": "querySelectorAll('[data-bgm-button]')",
+    },
 ]

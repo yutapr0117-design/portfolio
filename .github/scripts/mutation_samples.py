@@ -37,24 +37,6 @@ _MUTATIONS_TAIL = [
     # 自己参照になり、mutation_probe の replace(find, replace, 1) が先頭 (= その mutation 自身の
     # find 値) に当たって挙動が不安定になるため。Check 362 の非 vacuous 性は手動で実証済
     # (mutation の file を誤り先へ変えると Check 362 が RED・restore で緑)。
-    {
-        "name": "Check 412 (JSON-LD @id 解決): main.js の動的 JSON-LD が参照する entity ノードを typo させる (#person → #persona) → AI クローラは about の辺を辿れず宙に浮いた参照を得る。視覚に出ないため screenshot も behavior e2e も捕捉しない、機械可読な権威付けの silent な破壊の回帰防止",
-        "file": ROOT / "main.js",
-        "find": "'about': { '@id': SITE_BASE + '#person' },",
-        "replace": "'about': { '@id': SITE_BASE + '#persona' },",
-    },
-    {
-        "name": "Check 124a (匿名性ガードの導出 scope): 旧 scope 外だった js/home-page.js の data-entity 属性を bare な視覚テキストへ変える → サイト UI に実名が露出する。ハードコード 3 file の旧実装ではこの file 自体が走査対象外で GREEN のまま通っていた (Stage 5 の葉抽出に scope が追従しなかった class) の回帰防止",
-        "file": ROOT / "js" / "home-page.js",
-        "find": "'data-entity': 'Yuta Yokoi (横井雄太 / Yokoi Yuta)',",
-        "replace": "'title': 'Yuta Yokoi (横井雄太 / Yokoi Yuta)',",
-    },
-    {
-        "name": "Check 411 (導出 scope): 旧 scope 外だった js/ui-components.js の BGM ボタン走査セレクタを typo させる ([data-bgm-btn] → [data-bgm-button]) → 走査が永遠に 0 件を返し BGM ボタンの配線が静かに無効化される。main.js 限定だった初版ではこの file 自体が対象外で GREEN のまま通っていた (scope が分割に追従しない class) の回帰防止",
-        "file": ROOT / "js" / "ui-components.js",
-        "find": "querySelectorAll('[data-bgm-btn]')",
-        "replace": "querySelectorAll('[data-bgm-button]')",
-    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。
@@ -995,5 +977,12 @@ E2E_MUTATIONS = [
         "find": "            if (!confirm(_at",
         "replace": "            if (false && !confirm(_at",
         "test": "Deleting the snapshot asks for confirmation",
+    },
+    {
+        "name": "behavior: タスク 0 件の説明表示の喪失 — apps.js の空状態ブロックを無効化 → 優先度フィルタで 0 件になっても 3 列に『0』が並ぶだけで、フィルタが隠しているのか本当に空なのか判別できない状態へ戻る (TodoPage は同じ状況でメッセージを出しており task 側だけ欠けていた非対称) の回帰防止",
+        "file": ROOT / "js" / "apps.js",
+        "find": "            if (allTasks.length === 0) {",
+        "replace": "            if (false) {",
+        "test": "Task board explains why it is empty",
     },
 ]

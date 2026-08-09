@@ -148,7 +148,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 734000 -->
+<!-- PERF-BUDGET-DATA 735000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -159,6 +159,9 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      選択肢へ漏れていた実バグの修正 (4 listing 面へ hiddenIds を適用 + 全件非表示時の fallback) と
      その WHY コメントで実測が 712,892 bytes に到達。genuine な user-visible bug fix ゆえ実態 +
      約 1,100 bytes の headroom へラチェット。
+     734,000 → 735,000 (2026-08-10)。タスク 0 件時の説明表示を追加 (TodoPage には空状態メッセージがあるのに task 側だけ
+     欠けており、優先度フィルタで 0 件になると 3 列に「0」が並ぶだけでフィルタ由来か本当に空かが判別できなかった)。
+     フィルタ由来/真に空で文言を分け解除方法まで示す。WHY コメント込みで実測 734,541 bytes。
      733,000 → 734,000 (2026-08-10)。破壊的操作の確認ガードの非対称是正。プロジェクト 1 件の削除と全リセットは
      confirm を通すのに **スナップショット削除だけ無確認**で、ユーザー唯一の復元点が確認なしに消えていた。
      保存日時を含む文言 (何を失うかが判る) + WHY コメントで実測 733,384 bytes。
