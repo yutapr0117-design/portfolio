@@ -29,6 +29,15 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        next AI read a wrong dependency contract — an onboarding tax that degrades the flywheel.
        Dep names are matched on word boundaries to avoid single-char (`h`) false positives.
        (BLOCKING)
+       119a is the signature ⟹ docstring direction; 119b is the REVERSE (docstring ⟹ signature):
+       a docstring must not declare a dependency the factory never receives. 119 alone let that
+       drift through — measured in #908, where an edit script failed midway so the docstring
+       already declared `announce` while the signature did not, and the Check stayed GREEN.
+       The next AI reads the docstring as its onboarding substrate, so a phantom dependency
+       teaches a wrong contract that is only discoverable by reading the implementation.
+       119b only reads the bullet-leading identifiers (` *   - a, b: description`), so
+       parenthetical notes about REMOVED deps and non-identifier bullets ("window グローバル経由")
+       are ignored — false-positive count on the current repo was measured as 0 before adopting.
   120. shipped JS+CSS byte-weight budget: the total bytes of the browser-downloaded payload
        (main.js + js/**/*.js + style.css) must stay <= the PERF-BUDGET-DATA ceiling in
        file-size-budget.md. §3(B) made the pixel screenshot advisory, thinning real page-weight
@@ -108,10 +117,48 @@ def run(ctx):
             _dep_problems119.append(f"{_facfile119.name}: docstring【依存】節に欠落 {_miss119}")
     check(
         not _dep_problems119,
-        f"Check 119: 全 {_checked119} factory の docstring【依存】節が署名の注入依存を網羅 (onboarding 精度 / flywheel 保護)",
-        "Check 119: factory 署名の依存が docstring【依存】節に欠落 (依存契約 drift): "
+        f"Check 119a: 全 {_checked119} factory の docstring【依存】節が署名の注入依存を網羅 (署名 ⟹ docstring)",
+        "Check 119a: factory 署名の依存が docstring【依存】節に欠落 (依存契約 drift): "
         + "; ".join(_dep_problems119)
         + " — 署名に dep を足したら同ファイルの【依存（引数で注入）】節にも追記せよ",
+        blocking=True,
+    )
+
+    # 119b — 逆方向 (docstring ⟹ 署名)。119a は「署名にあるのに docstring に無い」だけを見るため、
+    # **docstring が実在しない依存を宣言している** drift は素通りしていた (実測: #908 で編集スクリプトが
+    # 途中で失敗し docstring だけ先に announce を宣言、署名は未更新のまま — 119 は GREEN だった)。
+    # 次の AI は docstring を onboarding substrate として読むので、存在しない依存の宣言は誤った依存契約を
+    # 教える (実装を読むまで気付けない)。判定対象は【依存】節の **箇条書き先頭の識別子** のみ
+    # (` *   - name1, name2: 説明` 形式)。除去済み依存を説明する括弧書きや「window グローバル経由」等の
+    # 非識別子は対象外 = 現行 repo で false-positive 0 を実測してから導入した。
+    _phantom119 = []
+    for _facfile119b in sorted((ROOT / "js").glob("*.js")):
+        _facsrc119b = _facfile119b.read_text(encoding="utf-8")
+        _facm119b = re.search(r"export function create\w+\(\{\s*([^}]*?)\}\)", _facsrc119b)
+        if not _facm119b:
+            continue
+        _sig119b = {d.strip() for d in _facm119b.group(1).replace("\n", " ").split(",") if d.strip()}
+        _secm119b = re.search(r"【依存[^】]*】(.*?)(?:【|\*/)", _facsrc119b, re.DOTALL)
+        _declared119b = set()
+        if _secm119b:
+            for _line119b in _secm119b.group(1).split("\n"):
+                _b119b = re.match(r"\s*\*\s*-\s*([^:：]+)[:：]", _line119b)
+                if not _b119b:
+                    continue
+                for _name119b in _b119b.group(1).split(","):
+                    _name119b = _name119b.strip()
+                    if re.fullmatch(r"[A-Za-z_$][\w$]*", _name119b):
+                        _declared119b.add(_name119b)
+        _extra119b = sorted(_declared119b - _sig119b)
+        if _extra119b:
+            _phantom119.append(f"{_facfile119b.name}: docstring が宣言する非実在依存 {_extra119b}")
+    check(
+        not _phantom119,
+        "Check 119b: docstring【依存】節が宣言する依存はすべて factory 署名に実在 (docstring ⟹ 署名)",
+        "Check 119b: docstring が factory 署名に無い依存を宣言している (逆方向の依存契約 drift): "
+        + "; ".join(_phantom119)
+        + " — 次の AI は docstring を onboarding substrate として読むため、存在しない依存の宣言は誤った"
+        " 契約を教える。署名へ追加するか docstring から除去せよ",
         blocking=True,
     )
 

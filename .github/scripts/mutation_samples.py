@@ -104,6 +104,12 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "Check 119b (docstring ⟹ 署名の逆方向 drift): js/ai-page.js の docstring【依存】節へ factory 署名に無い架空依存 (Router) を宣言 → 次の AI が onboarding substrate として読む docstring が誤った依存契約を教える (実装を読むまで気付けない)。119a は署名 ⟹ docstring 方向しか見ず本 drift を素通りしていた実測 gap の回帰防止",
+        "file": ROOT / "js" / "ai-page.js",
+        "find": " *   - announce: 唯一の SR 通知チャネル (js/ui-components.js) — 応答完了の status message",
+        "replace": " *   - announce: 唯一の SR 通知チャネル (js/ui-components.js) — 応答完了の status message\n *   - Router: ルーター (js/router.js)",
+    },
+    {
         "name": "Check 407 (SR 通知チャネルの単一 writer): js/ai-page.js の announce() 呼び出しを #action-announcement への直書きへ戻す → 書き込み口が分散し、同じ内容が複数経路で流れる二重読み上げ (#901) と、チャネル実装変更時に取り残される bypass を招く。導入時に実在した bypass の回帰防止",
         "file": ROOT / "js" / "ai-page.js",
         "find": "                    announce('AI が応答しました');",
