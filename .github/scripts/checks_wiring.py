@@ -138,7 +138,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        GREEN). Comments are stripped so prose examples are not read as real references.
        Cross-namespace typo (`CONSTANTS.LIMITS.work`) is an accepted non-goal — the dominant misspelled-key class is
        enforced, not an exhaustive per-namespace bijection. (BLOCKING)
-  395. Router.navigate() literal target → router route-segment resolution: every literal
+  395. Router.navigate() target (literal + データ駆動 path) → router route-segment resolution: every
        `Router.navigate('X')` call in shipped JS (main.js + js/*.js) must have its base path
        segment (X stripped of `?query` and taken up to the first `/`) resolve to a top-level route
        segment that router.js `_parseRoute` actually handles (a `case 'seg':` label, or the empty
@@ -154,6 +154,15 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        comments are stripped so documentation examples never false-positive. Same used⟹defined wiring
        lens as Check 375 (icon) / 376 (data-action) / 391 (getElementById) / 392 (aria idref) / 393
        (CONSTANTS): navigate target ⊆ router-handled segments. (BLOCKING)
+       Detection covers BOTH notations. The literal-only version missed the repo's OTHER, more common
+       notation: a file that calls `Router.navigate(<identifier>)` keeps its destinations in a data
+       array as `path: '<route>'` (the sidebar in js/components.js and the CTA cards in
+       js/hiring-risk-page.js — 12 of the 19 enforced targets), so a typo there (`path: 'setting'`)
+       passed GREEN and silently sent the user home. Files calling navigate with an identifier
+       therefore also have their `path:` string literals resolved. Measured: mutating
+       `path: 'settings'` → `path: 'setting'` turns this Check RED. The same "static Check sees only
+       one spelling" hole as Checks 112 / 130 / 375 / 376 / 393 / 402. Palette destinations use
+       `hash:` and are already covered by the Check 128 / 382 router bijections. (BLOCKING)
   396. Router route.name ⟹ PAGE_META entry: every route.name that router.js `_parseRoute` can emit
        (literal `route.name = 'X'` assignments, the initial `{ name: 'home' }` default, and the
        `app-${app}` template expanded from the app whitelist) must have an entry in js/page-meta.js
@@ -653,7 +662,7 @@ def run(ctx):
         check(False, "Check 393: js/constants.js and shipped JS present",
               "Check 393: js/constants.js または shipped JS が無い — CONSTANTS 参照の解決を検証できない", blocking=True)
 
-    # ── 395. Router.navigate() literal target → router route-segment resolution (BLOCKING) ──
+    # ── 395. Router.navigate() target (literal + データ駆動 path) → router route-segment resolution (BLOCKING) ──
     # 各 shipped JS の literal `Router.navigate('X')` は、base path segment (X から ?query を除き
     # 最初の '/' まで) が router.js _parseRoute の扱う top-level route segment (`case 'seg':` label、
     # または空文字=home default) に解決しなければならない。router.js は未知の第1 segment を
@@ -677,13 +686,20 @@ def run(ctx):
             _t395 = re.sub(r"//[^\n]*", "", _f395.read_text(encoding="utf-8"))
             for _m395 in re.finditer(r"""Router\.navigate\(\s*['"]([^'"$]+)['"]""", _t395):
                 _targets395.setdefault(_m395.group(1), str(_f395.relative_to(ROOT)))
+            # データ駆動記法: `Router.navigate(<識別子>)` を呼ぶ file は nav 先を literal でなく
+            # データ配列の `path: '<route>'` で持つ (sidebar / hiring-risk の CTA)。literal だけを
+            # 見ると、その典型記法の typo (`path: 'setting'`) が全 gate を素通りして silent home
+            # fallthrough を起こす — Check 112/130/375/376/393 と同じ「別記法の見逃し」class。
+            if re.search(r"Router\.navigate\(\s*[A-Za-z_$][\w.$]*\s*\)", _t395):
+                for _mp395 in re.finditer(r"""\bpath:\s*['"]([^'"$]*)['"]""", _t395):
+                    _targets395.setdefault(_mp395.group(1), str(_f395.relative_to(ROOT)))
         _unresolved395 = sorted(
             f"{_tg395} ({_targets395[_tg395]})" for _tg395 in _targets395
             if _tg395.split("?")[0].split("/")[0] not in _segs395
         )
         check(
             bool(_segs395) and not _unresolved395,
-            f"Check 395: 全 literal Router.navigate target ({len(_targets395)} 種) が router.js の route segment ({len(_segs395) - 1} case) に解決 (silent home fallthrough 防止)",
+            f"Check 395: 全 Router.navigate target ({len(_targets395)} 種・literal + データ駆動 path) が router.js の route segment ({len(_segs395) - 1} case) に解決 (silent home fallthrough 防止)",
             f"Check 395: Router.navigate の target が router.js の未定義 route segment を指す (silent home fallthrough): {_unresolved395} — "
             "router.js は未知の第1 segment を home として parse するため typo/リネーム残骸が全 gate を素通りして "
             "ユーザーをホームへ誤誘導する。router.js _parseRoute に該当 case を追加するか navigate target の typo を修正せよ",
