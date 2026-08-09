@@ -17,6 +17,16 @@
 - **最新 Session Record**: #22（`AI2AI.md`）
 - **CI ゲート**: `npm run verify`（consistency Check + AIO digest + binary metadata + CSS lint + ESLint + node --check）が exit 0 で全緑が前提。behavior e2e が BLOCKING、homepage pixel screenshot は ADVISORY（§3(B)）。
 
+## 監査（スマホからの確認導線）
+
+> バッジは main の最新状態を **live に** 表示します（緑＝AI の自走が非破壊で通っている）。
+
+- ![architecture-validation.yml](https://github.com/yutapr0117-design/portfolio/actions/workflows/architecture-validation.yml/badge.svg?branch=main) — [architecture-validation.yml の実行履歴](https://github.com/yutapr0117-design/portfolio/actions/workflows/architecture-validation.yml)
+- ![playwright-regression.yml](https://github.com/yutapr0117-design/portfolio/actions/workflows/playwright-regression.yml/badge.svg?branch=main) — [playwright-regression.yml の実行履歴](https://github.com/yutapr0117-design/portfolio/actions/workflows/playwright-regression.yml)
+- **全ワークフローの実行履歴**: https://github.com/yutapr0117-design/portfolio/actions
+- **未マージの PR（AI が今出しているもの）**: https://github.com/yutapr0117-design/portfolio/pulls
+- **公開サイト（機能性の目視確認）**: https://yutapr0117-design.github.io/portfolio/
+
 ## どこを見れば詳細が分かるか（live な真値の所在）
 
 - **cold-start で全体把握**: `CLAUDE.md` §7（ハンドオフ）→ `AI2AI.md` 最新 Session Record。

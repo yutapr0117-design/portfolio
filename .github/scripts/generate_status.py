@@ -55,6 +55,36 @@ def build_status() -> str:
     sr_nums = [int(n) for n in re.findall(r"Session Record #(\d+)", ai2ai)]
     latest_sr = max(sr_nums) if sr_nums else "(none)"
 
+    # ── 監査導線 (audit links) ────────────────────────────────────────────────
+    # オーナーの runtime 役割は「制御 (goal/priority 提示) と監査 (CI オールグリーン確認)」だが、
+    # STATUS.md には URL が 1 つも無く、スマホでその監査を実行する手段が無かった。
+    # 全て **導出** する: canonical site URL (CLAUDE.md) から owner/repo を割り出し、
+    # PR/push で走る = merge を守るゲートの workflow を `on:` トリガから判定して badge にする。
+    # ハードコードすると workflow の増減に追従できない (Check 124/411 で踏んだ scope drift の同型)。
+    site = _read("CLAUDE.md")
+    m_site = re.search(r"https://([\w-]+)\.github\.io/([\w-]+)/", site)
+    slug = f"{m_site.group(1)}/{m_site.group(2)}" if m_site else ""
+    site_url = m_site.group(0) if m_site else ""
+    gate_workflows = []
+    wf_dir = ROOT / ".github" / "workflows"
+    if wf_dir.exists():
+        for wf in sorted(wf_dir.glob("*.yml")):
+            head = wf.read_text(encoding="utf-8")[:800]
+            # pull_request で起動する = PR の merge 可否を左右するゲート
+            if re.search(r"^\s*pull_request:", head, re.M):
+                gate_workflows.append(wf.name)
+    audit_lines = []
+    if slug:
+        for wf in gate_workflows:
+            audit_lines.append(
+                f"- ![{wf}](https://github.com/{slug}/actions/workflows/{wf}/badge.svg?branch=main) "
+                f"— [{wf} の実行履歴](https://github.com/{slug}/actions/workflows/{wf})"
+            )
+        audit_lines.append(f"- **全ワークフローの実行履歴**: https://github.com/{slug}/actions")
+        audit_lines.append(f"- **未マージの PR（AI が今出しているもの）**: https://github.com/{slug}/pulls")
+        if site_url:
+            audit_lines.append(f"- **公開サイト（機能性の目視確認）**: {site_url}")
+
     lines = [
         "# STATUS — リポジトリ現況 (owner-facing BLUF)",
         "",
@@ -74,6 +104,12 @@ def build_status() -> str:
         f"- **Pipeline-Version**: {version}",
         f"- **最新 Session Record**: #{latest_sr}（`AI2AI.md`）",
         "- **CI ゲート**: `npm run verify`（consistency Check + AIO digest + binary metadata + CSS lint + ESLint + node --check）が exit 0 で全緑が前提。behavior e2e が BLOCKING、homepage pixel screenshot は ADVISORY（§3(B)）。",
+        "",
+        "## 監査（スマホからの確認導線）",
+        "",
+        "> バッジは main の最新状態を **live に** 表示します（緑＝AI の自走が非破壊で通っている）。",
+        "",
+        *audit_lines,
         "",
         "## どこを見れば詳細が分かるか（live な真値の所在）",
         "",
