@@ -334,3 +334,38 @@ test('Quiz contact form marks the offending field aria-invalid and focuses it (W
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `form error identification caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 外部入力 ?type= のプロトタイプ継承キーで quiz が表示不能になる回帰の防止 =====
+// QuizPage は `?type=` を QUIZ_DATA_MAP の添字にして問題集を選ぶ。素の `MAP[type] || fallback` は
+// プロトタイプ継承キー ('constructor' / 'toString' / '__proto__' / 'valueOf' / 'hasOwnProperty') に対し
+// **truthy な非 config 値** (Object コンストラクタ等) を返すため fallback が効かず、sourceData が
+// undefined のまま Object.keys(undefined) が throw → **ErrorBoundary の FatalPage でページ全体が
+// 表示不能**になっていた (実測: "Cannot convert undefined or null to object")。
+// 同じ添字が js/page-meta.js のタイトル解決にもあり、そちらは document.title が
+// "function Object() { [native code] }" に化けていた (AIO 面の可視 drift)。
+// 外部入力を object の添字に使う箇所は自前キーだけを採用する (#350 の不正 ?cat= 正規化と同 class)。
+const PROTO_KEYS = ['constructor', 'toString', '__proto__', 'valueOf', 'hasOwnProperty'];
+for (const key of PROTO_KEYS) {
+  // NOTE: 題名を template literal でなく文字列連結で書く。Check 379 / 397 (mutation の test
+  //   フィールドが実 test title に一意解決することの強制) は `test('…')` の引用符リテラルのみを
+  //   parse するため、backtick 題名は「解決不能」として false RED になる (safe-fail だが
+  //   パラメタライズド test に mutation を登録できなくなる)。
+  test('Quiz falls back to the default set for prototype-inherited ?type=' + key + ' (no fatal)', async ({ page }) => {
+    // ホーム経由の 2 段 goto で fresh 初期化 (同一 URL 再訪の DOM 残留で vacuous になるのを避ける)
+    await page.goto('/');
+    await page.waitForLoadState('domcontentloaded');
+    await page.goto(`/#/quiz?type=${key}`);
+    await page.waitForLoadState('domcontentloaded');
+
+    // 1. 既定 (AWS) の問題集にフォールバックして描画される
+    await expect(page.locator('#content h1')).toHaveText('AWS問題集');
+    // 2. FatalPage ではない (代替ページは弱い合否条件を vacuous に通すため negative assertion を併用)
+    await expect(page.locator('#fallback-details')).toHaveCount(0);
+    // 3. ページタイトルが関数の文字列化に化けていない (page-meta 側の同 class fix)
+    await expect(page).toHaveTitle(/^Quiz \|/);
+
+    const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+    expect(fatal, `?type=${key} caused a fatal: ${fatal}`).toBeNull();
+  });
+}

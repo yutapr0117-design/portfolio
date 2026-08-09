@@ -49,7 +49,12 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
             quality: { title: '品質・プロセス問題集', data: qualityQuizData },
             architecture: { title: '設計判断問題集', data: architectureQuizData }
         };
-        const quizConfig = QUIZ_DATA_MAP[quizType] || QUIZ_DATA_MAP.aws;
+        // [FIX] URL 由来の外部入力を添字にするため own-key のみ採用する。素の `MAP[type] || fallback`
+        //   は継承キー ('constructor' 等) で truthy な非 config 値を返して fallback を素通りし、
+        //   Object.keys(undefined) が throw → FatalPage で表示不能だった (実測・#350 と同 class)。
+        const quizConfig = Object.prototype.hasOwnProperty.call(QUIZ_DATA_MAP, quizType)
+            ? QUIZ_DATA_MAP[quizType]
+            : QUIZ_DATA_MAP.aws;
         const pageTitle = quizConfig.title;  // v40: BUGFIX - Define pageTitle from QUIZ_DATA_MAP
         const sourceData = quizConfig.data;
         const isArchitecture = quizType === 'architecture';

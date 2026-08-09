@@ -973,4 +973,11 @@ E2E_MUTATIONS = [
         "replace": "",
         "test": "Notes editor cannot hold more text than it persists",
     },
+    {
+        "name": "behavior: quiz の外部入力 ?type= がプロトタイプ継承キーで crash する回帰 — quiz-renderer.js の hasOwnProperty ガードを素の `MAP[type] || fallback` へ戻す → 'constructor' 等は truthy な非 config 値 (Object コンストラクタ) を返して fallback を素通りし、sourceData が undefined のまま Object.keys(undefined) が throw → FatalPage でページ全体が表示不能になる (実測)。外部入力を object 添字に使う際の own-key 検証の回帰防止",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "        const quizConfig = Object.prototype.hasOwnProperty.call(QUIZ_DATA_MAP, quizType)\n            ? QUIZ_DATA_MAP[quizType]\n            : QUIZ_DATA_MAP.aws;",
+        "replace": "        const quizConfig = QUIZ_DATA_MAP[quizType] || QUIZ_DATA_MAP.aws;",
+        "test": "prototype-inherited",
+    },
 ]
