@@ -199,3 +199,42 @@ test('System theme follows the OS prefers-color-scheme (live)', async ({ page })
   await page.emulateMedia({ colorScheme: 'dark' });
   await expect(html).toHaveClass(/\bdark\b/);
 });
+
+
+// ===== topbar (mobile) のテーマボタンも現在テーマを露出する (WCAG 4.1.2) =====
+// テーマ切替ボタンは 2 つあり、ラベル更新の機構が **別々** である:
+//   - #themeBtnSidebar (desktop): components.js が render のたびに現在テーマで再構築する
+//   - #themeBtnTop     (mobile) : #content 外の永続要素ゆえ theme.js の apply() が直接更新する
+// 既存テストは `#themeBtnSidebar:visible, #themeBtnTop:visible` の .first() を見るため、
+// 既定の desktop viewport では **sidebar しか検証していなかった**。実測: apply() の
+// topBtn.setAttribute を丸ごと削除しても既存 10 件はすべて緑のまま (= mobile 側は未被覆)。
+// mobile viewport に固定して topbar 側の機構を直接検証する。
+test('Topbar theme button exposes the current theme in its label on mobile (WCAG 4.1.2)', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const topBtn = page.locator('#themeBtnTop');
+  await expect(topBtn).toBeVisible();
+
+  const labelFor = (theme) => `テーマを切り替える（現在: ${theme}）`;
+
+  // 初期は system。ここで固定ラベルでないことを確認しておかないと以降が vacuous になる
+  await expect(topBtn).toHaveAttribute('aria-label', labelFor('システム設定'));
+
+  // cycle: system → dark → light → system。**毎段でラベルが追従する**
+  await topBtn.click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await expect(topBtn).toHaveAttribute('aria-label', labelFor('ダーク'));
+
+  await topBtn.click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  await expect(topBtn).toHaveAttribute('aria-label', labelFor('ライト'));
+
+  await topBtn.click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'system');
+  await expect(topBtn).toHaveAttribute('aria-label', labelFor('システム設定'));
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `topbar theme label test caused a fatal: ${fatal}`).toBeNull();
+});
