@@ -976,4 +976,11 @@ E2E_MUTATIONS = [
         "replace": "                    if (false) {return;}",
         "test": "Cross-tab update does not destroy an in-progress edit",
     },
+    {
+        "name": "behavior: 二重モーダル (drawer + command palette) の再発 — command-palette.js の open() から closeDrawer() 呼び出しを除去 → mobile drawer が開いたまま Cmd/Ctrl+K を押すと aria-modal='true' の領域が 2 つ同時に有効になり、SR にはどちらが現在のモーダルか判別できない。さらに両者の Escape ハンドラが同じ document keydown で走るため Escape 1 回で両方閉じる (#262 の二重発火と同族・実測済)",
+        "file": ROOT / "js" / "command-palette.js",
+        "find": "        if (typeof closeDrawer === 'function') { closeDrawer(); }\n",
+        "replace": "",
+        "test": "Opening the command palette closes the mobile drawer",
+    },
 ]

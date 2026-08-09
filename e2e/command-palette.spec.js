@@ -159,3 +159,54 @@ test('Command palette restores focus to the opener on close (a11y regression)', 
   await expect(page.locator('#command-palette-host')).toHaveAttribute('aria-hidden', 'true');
   await expect(opener).toBeFocused();
 });
+
+
+// ===== drawer が開いている状態で Cmd/Ctrl+K を押しても「開くモーダルは常に 1 つ」 =====
+// 修正前は mobile drawer と command palette が **同時に開き**、aria-modal="true" の領域が 2 つ
+// 同時に有効になっていた (実測: drawer=open かつ palette=open)。SR にはどちらが現在のモーダルか
+// 判別できず、両者の focus trap も同時に動く。さらに Escape ハンドラが両方とも document keydown で
+// 走るため **Escape 1 回で両方閉じる** (preventDefault は同一要素上の他リスナーを止めない・
+// #262 の二重発火と同族)。palette の open() が先に drawer を閉じることで根本を断つ。
+// 注: drawer は position:fixed のため offsetParent が null になり `offsetParent !== null` 方式の
+// 可視判定は誤って "閉じている" と報告する。getBoundingClientRect + computed style で判定する。
+test('Opening the command palette closes the mobile drawer (never two modals at once)', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const state = () => page.evaluate(() => {
+    const shown = (el) => {
+      if (!el) { return 'absent'; }
+      const r = el.getBoundingClientRect();
+      const cs = getComputedStyle(el);
+      return (cs.display !== 'none' && cs.visibility !== 'hidden' && r.width > 0 && r.right > 0) ? 'open' : 'closed';
+    };
+    return {
+      drawer: shown(document.getElementById('drawer')),
+      palette: shown(document.querySelector('.cmdk-panel')),
+      // palette の入力は id を持たず class 識別 (実測: className='cmdk-input')。
+      // id を期待すると常に '' で false-red になる。
+      focus: (document.activeElement && String(document.activeElement.className || '')) || '',
+    };
+  });
+
+  // drawer を開く (この時点では drawer だけが開いている)
+  await page.locator('#menuBtn').click();
+  await expect.poll(async () => (await state()).drawer).toBe('open');
+
+  // Cmd+K で palette を開く → drawer は閉じ、palette だけが開く
+  await page.keyboard.press('Meta+k');
+  await expect.poll(async () => (await state()).palette).toBe('open');
+  const both = await state();
+  expect(both.drawer, 'palette を開いたら drawer は閉じていなければならない (二重モーダル禁止)').toBe('closed');
+  expect(both.focus, 'focus は palette の入力にある').toContain('cmdk-input');
+
+  // 可視な aria-modal は常に 1 つ以下
+  const visibleModals = await page.evaluate(() => [...document.querySelectorAll('[aria-modal="true"]')]
+    .filter(el => { const r = el.getBoundingClientRect(); const cs = getComputedStyle(el);
+      return cs.display !== 'none' && cs.visibility !== 'hidden' && r.width > 0 && r.right > 0; }).length);
+  expect(visibleModals, '可視な aria-modal は 1 つだけであること').toBe(1);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `overlay interaction caused a fatal: ${fatal}`).toBeNull();
+});
