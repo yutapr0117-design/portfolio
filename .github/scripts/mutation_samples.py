@@ -104,6 +104,13 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "a11y: Toast の二重アナウンス再混入 — js/ui-components.js の toast コンテナへ aria-live を再付与 → 専用 sr-only 領域 #action-announcement (assertive) と視覚コンテナ (polite) の両方が同じ message を読み上げ、SR 利用者に同一通知が 2 回 (かつコンテナ側は内包する閉じるボタンの語まで含めて) 届く WCAG 4.1.3 の退行。単一通知チャネル化の回帰防止",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "            container.id = 'toast-container';",
+        "replace": "            container.id = 'toast-container';\n            container.setAttribute('aria-live', 'polite');",
+        "test": "Toast is announced through exactly one live region",
+    },
+    {
         "name": "Check 405 (store top-level persist round-trip): store.js validateAndNormalize から `theme` の読み戻しブロックを除去 → import/設定した theme が reload 毎に 'system' へ silent に戻る data-fidelity バグ (quizSearch #684 / profile #139 / projectPrefs #294 と同 class の top-level 面)。Check 373/404 と合わせ 3 面完成させた本 Check の非 vacuity 検証",
         "file": ROOT / "js" / "store.js",
         "find": "        if (['light', 'dark', 'system'].includes(data.theme)) {\n            store.theme = data.theme;\n        }",

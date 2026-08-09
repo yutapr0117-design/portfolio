@@ -201,8 +201,10 @@ export const Toast = (() => {
         if (!container) {
             container = document.createElement('div');
             container.id = 'toast-container';
-            container.setAttribute('role', 'status');
-            container.setAttribute('aria-live', 'polite');
+            // [A11Y 4.1.3] 視覚コンテナは live region にしない。show() は専用 sr-only 領域
+            //   #action-announcement (assertive/atomic) へ同じ message を書くため、ここにも
+            //   aria-live を付けると同一通知が 2 回読まれる (しかも閉じるボタンの語まで混じる)。
+            //   通知チャネルは message のみを持つ #action-announcement に一本化する。
             container.style.cssText = `
                 position: fixed;
                 top: 1.5rem;
