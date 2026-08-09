@@ -177,6 +177,8 @@ export function createAIPage({ h, createIcon, State, CONSTANTS, announce }) {
                                 // [A11Y 3.3.2/4.1.2] placeholder-only を避け恒久 accessible name を付与。
                                 'aria-label': 'AI アシスタントへの依頼を入力',
                                 enterkeyhint: 'send',
+                                // [DATA] 送信時の LIMITS.AI_MESSAGE slice と UI 上限を一致させる (Check 410)。
+                                maxlength: CONSTANTS.LIMITS.AI_MESSAGE,
                                 placeholder: '例：デプロイ手順を分解して、タスク管理アプリの説明文を書いて...',
                                 disabled: aiLoading,
                                 onkeydown: (e) => {
