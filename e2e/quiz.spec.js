@@ -303,3 +303,34 @@ test('Hiring-risk CTAs land on the quiz named on the button (not the AWS fallbac
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `hiring-risk quiz CTA caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: 検証エラーが不正フィールドを特定できる (WCAG 3.3.1 Error Identification) =====
+// 従来は Toast を出すだけで、**どのフィールドが不正か** が SR に伝わらず利用者はフォームを探し直す
+// 必要があった (aria-invalid も focus 移動も無し)。不正な入力へ aria-invalid を立て、最初の不正
+// フィールドへ focus を移す。focus 判定は並列ワーカーで document が inactive でも安定するよう
+// document.activeElement の aria-label を評価して行う (toBeFocused の "inactive" 問題を回避)。
+test('Quiz contact form marks the offending field aria-invalid and focuses it (WCAG 3.3.1)', async ({ page }) => {
+  await page.goto('/#/quiz');
+  await page.waitForLoadState('domcontentloaded');
+
+  const nameInput = page.getByRole('textbox', { name: 'お名前' });
+  const emailInput = page.getByRole('textbox', { name: 'メールアドレス' });
+  await expect(nameInput).toBeVisible();
+
+  // 空のまま送信 → 名前が不正としてマークされ focus が移る
+  await page.getByRole('button', { name: '送信' }).click();
+  await expect(nameInput).toHaveAttribute('aria-invalid', 'true');
+  await expect(emailInput).toHaveAttribute('aria-invalid', 'true');
+  expect(await page.evaluate(() => document.activeElement?.getAttribute('aria-label'))).toBe('お名前');
+
+  // 名前だけ埋めて送信 → 名前のマークは外れ、メール側が不正として focus される
+  await nameInput.fill('E2E-NAME');
+  await page.getByRole('button', { name: '送信' }).click();
+  await expect(nameInput).not.toHaveAttribute('aria-invalid', 'true');
+  await expect(emailInput).toHaveAttribute('aria-invalid', 'true');
+  expect(await page.evaluate(() => document.activeElement?.getAttribute('aria-label'))).toBe('メールアドレス');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `form error identification caused a fatal: ${fatal}`).toBeNull();
+});
