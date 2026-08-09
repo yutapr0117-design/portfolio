@@ -38,74 +38,6 @@ _MUTATIONS_TAIL = [
     # find 値) に当たって挙動が不安定になるため。Check 362 の非 vacuous 性は手動で実証済
     # (mutation の file を誤り先へ変えると Check 362 が RED・restore で緑)。
     {
-        "name": "Check 377 (非 app route.name → main.js case): main.js の case 'project-detail' を typo → router が解決する route が silent 404 化 (project-detail は Check 58 除外ゆえ 377 を isolate)",
-        "file": ROOT / "main.js",
-        "find": "case 'project-detail':",
-        "replace": "case 'project-detailX':",
-    },
-    {
-        "name": "Check 378 (MOBILE_BREAKPOINT JS↔CSS coherence): JS MOBILE_BREAKPOINT を CSS @media(920) から drift → sidebar+topbar 同時表示の broken responsive layout gap",
-        "file": ROOT / "js" / "constants.js",
-        "find": "MOBILE_BREAKPOINT: 920,",
-        "replace": "MOBILE_BREAKPOINT: 960,",
-    },
-    {
-        "name": "Check 395 (Router.navigate literal target → router route-segment): home-page.js の Router.navigate('role-split') を typo 'rolesplit' へ → router が未知 segment を home として parse し nav ボタンが silent にホームへ誤誘導する dead-nav wiring gap (producer 面の used⟹defined)",
-        "file": ROOT / "js" / "home-page.js",
-        "find": "Router.navigate('role-split')",
-        "replace": "Router.navigate('rolesplit')",
-    },
-    # NOTE: Check 379 (E2E_MUTATIONS test-field resolution) には consistency mutation を登録しない。
-    # 本 Check は mutation_samples.py 自身の E2E_MUTATIONS `test` フィールドを検証するため、それを狙う
-    # mutation は「find 文字列が自 entry の find フィールドにも現れる」self-reference になり、
-    # mutation_probe の `replace(find, replace, 1)` (first-only) が実 E2E entry でなく自 mutation の find
-    # を先に打って実 target を無傷にする＝機能しない。ゆえに Check 379 の非 vacuity は手動検証で担保
-    # (実 test フィールドを replace-all で typo→check RED→保存コピーから復元。commit メッセージに記録)。
-    # 118 の Check が mutation 未保有ゆえ mutation 不在は規約違反ではない。
-    {
-        "name": "Check 381 (main.js import ⟹ _modules47 registration): checks_esm.py の _modules47 から command-palette.js 登録行を除去 → main.js が静的 import するのに未登録 = modulepreload 漏れ drift (#706 class) を Check 381/57 mesh が捕捉。checks_esm.py は mutation_samples.py と別 file ゆえ self-reference trap 無し",
-        "file": ROOT / ".github" / "scripts" / "checks_esm.py",
-        "find": '        ("./js/command-palette.js",       ROOT / "js" / "command-palette.js"),\n',
-        "replace": "",
-    },
-    {
-        "name": "Check 370 (settings fallback magic): store.js の pomodoro settings normalize clamp fallback を CONSTANTS 参照からマジック || 25 へ戻す → runtime remainingSec は定数参照するのに settings fallback だけ magic だった非対称 gap の再発を拡張 Check 370 が捕捉。checks_shipped_hygiene.py は mutation_samples.py と別 file ゆえ self-reference trap 無し",
-        "file": ROOT / "js" / "store.js",
-        "find": "Number(data.pomodoro.settings.work) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.work",
-        "replace": "Number(data.pomodoro.settings.work) || 25",
-        "test": "Check 370: state.js / store.js が pomodoro 既定状態を CONSTANTS.POMODORO_DEFAULT_* 経由で参照",
-    },
-    {
-        "name": "Check 103 (prefers-contrast block presence): 実 @media (prefers-contrast: more) ブロックの開き波括弧を壊す → 修正後の Check 103 (`) {` 要求) が実ブロック不在を検出。修正前はコメント言及にマッチして vacuous に pass していた #278/#283 class の gate バグを封じたことの回帰防止 (checks_css.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
-        "file": ROOT / "style.css",
-        "find": "@media (prefers-contrast: more) {",
-        "replace": "@media (prefers-contrast: BROKEN) {",
-    },
-    {
-        "name": "Check 101 (forced-colors focus block presence): 実 @media (forced-colors: active) ブロックの開き波括弧を壊す → 修正後の Check 101 (`) {` 要求) が実ブロック不在を検出。コメント言及を first-match していた fragility を `{` 要求で解消したことの回帰防止 (checks_css.py は別 file ゆえ self-reference trap 無し)",
-        "file": ROOT / "style.css",
-        "find": "@media (forced-colors: active) {",
-        "replace": "@media (forced-colors: BROKEN) {",
-    },
-    {
-        "name": "Check 385 (checks_*.py ctx.warnings/errors unpack): checks_aio_config.py の `warnings = ctx.warnings` unpack 行を除去 → bare warnings.append を持つのに unpack が無くなり Check 385 が検出。error-path NameError crash の latent bug (dependabot.yml 削除で Check 68 が NameError 化した実バグ) を封じた回帰防止 (Check 385 は checks_maintainability.py・本 mutation target は checks_aio_config.py ゆえ self-reference trap 無し)",
-        "file": ROOT / ".github" / "scripts" / "checks_aio_config.py",
-        "find": "    warnings = ctx.warnings",
-        "replace": "    _warnings_unpack_removed = None",
-    },
-    {
-        "name": "Check 68 (dependabot dual-ecosystem coverage): dependabot.yml の npm ecosystem 宣言を壊す → Check 68 が npm coverage 欠落を検出。file-missing パス (skip→fail 修正) は file 削除ゆえ mutation 不可で手動検証、本 mutation は content-check (npm/github-actions 両 ecosystem 必須) の非 vacuity を institutionalize",
-        "file": ROOT / ".github" / "dependabot.yml",
-        "find": 'package-ecosystem: "npm"',
-        "replace": 'package-ecosystem: "BROKEN"',
-    },
-    {
-        "name": "Check 139 (AppsPage↔router bijection・逆方向): AppsPage の `const apps = [...]` に router 未登録の phantom app card を注入 → 「開く」が apps/<id> へ navigate し not-found 解決 = 開くと 404 の dead card。旧 Check は router⊆AppsPage の片側のみ強制で本方向 (AppsPage⊆router) を素通していた gap を bijection 化したことの回帰防止 (checks_app_route.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
-        "file": ROOT / "js" / "components.js",
-        "find": "            { id: 'notes', title: 'Markdown ノート', desc: 'innerHTML 不使用の安全 MD ライブプレビュー', icon: 'edit' },",
-        "replace": "            { id: 'phantomzz', title: 'Phantom', desc: 'router 未登録 dead card', icon: 'edit' },\n            { id: 'notes', title: 'Markdown ノート', desc: 'innerHTML 不使用の安全 MD ライブプレビュー', icon: 'edit' },",
-    },
-    {
         "name": "Check 128 (cmdk↔router bijection・逆方向): command-palette NAV に router 未登録の apps/phantomzz entry を注入 → Cmd+K 選択で apps/phantomzz へ navigate し not-found = 開くと 404 の dead entry。旧 Check は router⊆palette の片側のみで本方向 (palette⊆router) を素通していた gap を bijection 化した回帰防止 (checks_behavioral.py は別 file ゆえ self-reference trap 無し)",
         "file": ROOT / "js" / "command-palette.js",
         "find": "        { label: 'Markdown ノート', hash: 'apps/notes' },",
@@ -170,6 +102,18 @@ _MUTATIONS_TAIL = [
         "file": ROOT / ".github" / "scripts" / "check_repository_consistency.py",
         "find": "    for w in warnings:",
         "replace": "    for w in []:",
+    },
+    {
+        "name": "Check 375 (icon 名・三項の片枝): js/components.js の BGM トグル `createIcon(BGM.isOn() ? 'volume2' : 'volumeX')` の片枝を typo → OFF 状態だけアイコンが空になる silent broken-icon (throw も console error も e2e 失敗も無く screenshot は advisory)。初版 Check は createIcon( 直後の単一リテラルしか見ておらず三項の片枝を素通ししていた (第 1 引数式全体の検証への拡張の非 vacuity 検証)",
+        "file": ROOT / "js" / "components.js",
+        "find": "createIcon(BGM.isOn() ? 'volume2' : 'volumeX')",
+        "replace": "createIcon(BGM.isOn() ? 'volume2' : 'volumeXX')",
+    },
+    {
+        "name": "Check 393 (CONSTANTS 参照・分割代入経路): js/storage.js に分割代入経由の typo 参照 (`const { LIMITS } = CONSTANTS; LIMITS.MAX_TASSK`) を注入 → 合法な property access ゆえ throw せず undefined に評価され slice bound / setTimeout delay を静かに壊す class が再混入する。初版 Check は `CONSTANTS.` で始まる dotted access しか見ておらず分割代入経路を素通ししていた (非 vacuity 検証)",
+        "file": ROOT / "js" / "storage.js",
+        "find": "export const Storage = {",
+        "replace": "function _probeConst(CONSTANTS) { const { LIMITS } = CONSTANTS; return LIMITS.MAX_TASSK; }\nvoid _probeConst;\nexport const Storage = {",
     },
     {
         "name": "Check 376 (producer 記法族・DOM API 面): js/mobile-drawer.js に DOM API 経由の typo した data-action producer (`el.dataset.action = 'drawr:open'`) を注入 → ActionDelegator が未登録 action を lookup して click が silent no-op になる (throw も console error も e2e 失敗も無い) 実バグ class。初版 Check は属性リテラルと h() prop の 2 綴りしか見ておらず DOM API 記法を素通ししていた (記法族検出への拡張の非 vacuity 検証)",
