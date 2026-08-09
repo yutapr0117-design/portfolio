@@ -523,3 +523,39 @@ test('Profile email is length-bounded to 254 on import (ingestion bloat guard)',
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `profile email bound caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== スナップショット削除は確認を求める (破壊的操作の非対称の是正) =====
+// プロジェクト 1 件の削除 (deleteProjectHard) と全リセット (resetData) は confirm を通すのに、
+// **スナップショット削除だけが無確認**だった。スナップショットは単一スロットでありユーザーの
+// 唯一の復元点なので、失う影響はむしろプロジェクト 1 件より大きい。
+// 「1 ケースだけ処理して他を忘れる」非対称 (CLAUDE.md §7 の反復 class) がデータ喪失面に
+// 残っていたもの。キャンセルで **本当に残る** ことまで検証する (確認を出すだけで実際には
+// 消えてしまう実装なら、確認は気休めにしかならない)。
+test('Deleting the snapshot asks for confirmation and cancelling keeps it', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  // スナップショットを保存 → 「削除」が押せる状態になる
+  await page.getByRole('button', { name: '保存' }).first().click();
+  const delBtn = page.getByRole('button', { name: '削除', exact: true });
+  await expect(delBtn).toBeEnabled();
+
+  // (1) 確認ダイアログが出る。文言に「何を失うか」が含まれる
+  let dialogMessage = null;
+  page.once('dialog', (d) => { dialogMessage = d.message(); d.dismiss(); });
+  await delBtn.click();
+  await expect.poll(() => dialogMessage, { timeout: 5000 }).not.toBeNull();
+  expect(dialogMessage, '復元できなくなる旨が伝わること').toContain('復元できなくなります');
+
+  // (2) キャンセルしたらスナップショットは残る (削除ボタンが有効なまま)
+  await expect(delBtn).toBeEnabled();
+
+  // (3) 承認したら実際に削除される (確認が「気休め」でないこと)
+  page.once('dialog', (d) => d.accept());
+  await delBtn.click();
+  await expect(page.getByRole('button', { name: '削除', exact: true })).toBeDisabled();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `snapshot delete confirm caused a fatal: ${fatal}`).toBeNull();
+});
