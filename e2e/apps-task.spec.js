@@ -944,3 +944,29 @@ test('Import truncates projects to MAX_PROJECTS (bloat/DoS ingestion guard)', as
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `MAX_PROJECTS truncation caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: フィルタ変更が SR に announce される (WCAG 4.1.3) =====
+// task/todo のフィルタ変更は視覚的には一覧が変わるのに **SR には完全に無音**だった (実測: 変更後も
+// 通知領域には直前のアクション文言が残ったままで、#content 内に live region は 0 個)。選択肢名と
+// 件数を唯一の通知チャネル #action-announcement (sr-only) へ流す。両アプリで検証する。
+test('Task and Todo filter changes are announced with the option name and count (WCAG 4.1.3)', async ({ page }) => {
+  const ann = page.locator('#action-announcement');
+
+  // TODO: 「完了」へ絞り込む → 選択肢名 + 件数が announce される
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByLabel('やることを入力')).toBeVisible();
+  await page.getByLabel('TODO を絞り込み').selectOption('completed');
+  await expect(ann).toHaveText(/^TODO: 完了 \d+ 件$/);
+
+  // Task: 優先度 High へ絞り込む → 同様に announce される
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByLabel('新しいタスクを入力')).toBeVisible();
+  await page.getByLabel('優先度で絞り込み').selectOption('high');
+  await expect(ann).toHaveText(/^優先度: High \d+ 件$/);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `filter announce caused a fatal: ${fatal}`).toBeNull();
+});

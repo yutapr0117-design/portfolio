@@ -104,6 +104,13 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "a11y: task/todo フィルタ変更の SR 通知喪失 — js/apps.js の todo フィルタ onchange から announceFilter 呼び出しを除去 → フィルタで一覧が変わっても SR には完全に無音 (通知領域には直前のアクション文言が残ったまま・#content 内 live region は 0 個) という実測 gap へ退行する (WCAG 4.1.3 Status Messages)",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                                announceFilter('TODO', e.target.selectedOptions[0]?.text, getFilteredTodos().length);",
+        "replace": "",
+        "test": "Task and Todo filter changes are announced",
+    },
+    {
         "name": "a11y: quiz 検索のヒット件数アナウンス喪失 — quiz-renderer.js の resultStatus からヒット時の件数文言を空文字へ戻す → 0 件時だけ喋りヒット時は無言という旧非対称に退行し、SR 利用者は絞り込みが効いたのか結果が何件なのか分からない (WCAG 4.1.3 Status Messages・ProjectsPage は件数を通知しているのに quiz だけ無言だった実 gap の回帰防止)",
         "file": ROOT / "js" / "quiz-renderer.js",
         "find": "                    : '「' + query + '」に一致する問題 ' + matchCount + ' 件')",

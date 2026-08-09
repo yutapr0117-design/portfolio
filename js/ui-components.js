@@ -194,6 +194,14 @@ export function h(tag, attrs = {}, ...children) {
 }
 
 // ===== AIDK Toast Notification System =====
+// [A11Y 4.1.3] 唯一の SR 通知チャネル。#action-announcement (sr-only / assertive / atomic) へ
+// message を書く。Toast だけでなくフィルタ変更のような「視覚では分かるが SR には無音」な状態変化も
+// ここへ流す (通知先を 1 本に保つ = 二重読み上げ #901 の再発防止)。
+export function announce(message) {
+    const live = document.getElementById('action-announcement');
+    if (live) { live.textContent = String(message === null || message === undefined ? '' : message); }
+}
+
 export const Toast = (() => {
     let container = null;
 
@@ -240,8 +248,7 @@ export const Toast = (() => {
         container.appendChild(el);
 
         // ARIA announcement (assertive for immediate feedback)
-        const live = document.getElementById('action-announcement');
-        if (live) { live.textContent = message; }
+        announce(message);
 
         // [A11Y 2.4.3/2.2.1] 自動消滅はフォーカス中だけ止める。閉じるボタンに Tab で到達した状態で
         //   duration が経過すると要素ごと削除され focus が body へ落ちる (実測: activeElement=BODY)。
