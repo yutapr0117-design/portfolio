@@ -454,3 +454,50 @@ test('Pomodoro short/long break inputs clamp out-of-range to their own [1,60]/[1
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `pomodoro short/long clamp caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 完了セッションの当日要約が表示される (記録しているのに見せていなかった面) =====
+// pomodoro は完了のたび history へ {timestamp, durationMinutes, type} を記録し
+// CONSTANTS.LIMITS.POMODORO_HISTORY で丸めて永続化するが、**画面のどこにも出ていなかった**
+// (export JSON にしか現れない)。ポモドーロで利用者が最も知りたいのは「今日いくつ集中セッションを
+// 終えたか」であり、記録しているのに見せないのは収集の意味が薄い。当日の要約 1 行を出す。
+// 集計の正しさ (今日の work だけを数え、前日分と休憩を除外する) を境界込みで検証する。
+//
+// NOTE: seed に page.reload() を使ってはいけない。reload は visibilitychange(hidden) →
+//   saveNow() を誘発し、**注入前の in-memory state が localStorage を上書きする**
+//   (実測: 注入しても反映されない)。addInitScript でアプリ起動前に seed すること。
+test('Pomodoro shows today\'s completed focus sessions (excludes yesterday and breaks)', async ({ page, context }) => {
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+
+  // 履歴ゼロなら「まだ無い」旨が出る (常時同じ文言なら以降が vacuous になるため先に確認)
+  await expect(page.locator('#content')).toContainText('まだ完了した集中セッションはありません');
+
+  // 実 store を 1 度書かせてから履歴を差し込む (schema/正規化を通る現実の形を使う)
+  await page.getByRole('button', { name: '短休憩' }).click();
+  await expect.poll(() => page.evaluate(() => localStorage.getItem('portfolio_enhanced_v45') !== null)).toBe(true);
+  const seeded = await page.evaluate(() => {
+    const store = JSON.parse(localStorage.getItem('portfolio_enhanced_v45'));
+    const now = Date.now();
+    const yesterday = now - 26 * 60 * 60 * 1000;
+    store.appsData.pomodoro.history = [
+      { timestamp: now, durationMinutes: 25, type: 'work', linkedTaskId: null },
+      { timestamp: now, durationMinutes: 25, type: 'work', linkedTaskId: null },
+      { timestamp: yesterday, durationMinutes: 25, type: 'work', linkedTaskId: null },  // 昨日 → 除外
+      { timestamp: now, durationMinutes: 5, type: 'short-break', linkedTaskId: null },  // 休憩 → 除外
+    ];
+    return JSON.stringify(store);
+  });
+
+  const fresh = await context.newPage();
+  await fresh.addInitScript((s) => { localStorage.setItem('portfolio_enhanced_v45', s); }, seeded);
+  await fresh.goto('/#/apps/pomodoro');
+  await fresh.waitForLoadState('domcontentloaded');
+
+  // 今日の work 2 件のみ (昨日 1 件と休憩 1 件は数えない) / 合計も work の分数だけ
+  await expect(fresh.locator('#content')).toContainText('集中セッション 2 回 / 合計 50 分');
+  await expect(fresh.locator('#content')).not.toContainText('まだ完了した集中セッションはありません');
+
+  const fatal = await fresh.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `pomodoro summary caused a fatal: ${fatal}`).toBeNull();
+});

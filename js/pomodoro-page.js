@@ -208,6 +208,29 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
                 ),
 
                 // Settings
+                // [UX] 完了セッションは history へ記録されているのに **画面のどこにも出ていなかった**
+                //   (export JSON にしか現れない)。ポモドーロで利用者が最も知りたいのは「今日いくつ
+                //   集中セッションを終えたか」であり、記録しているのに見せないのは収集の意味が薄い。
+                //   一覧ではなく当日の要約 1 行に留める (履歴 UI 全体は本増分の範囲外・過剰追加を避ける)。
+                //   live region は付けない — 完了時の通知は Toast が単一チャネルで担っている (#901 class)。
+                (() => {
+                    const _today = new Date(); _today.setHours(0, 0, 0, 0);
+                    const _start = _today.getTime();
+                    const _hist = Array.isArray(pomo.history) ? pomo.history : [];
+                    const _focusToday = _hist.filter(e => e && e.type === 'work' && e.timestamp >= _start).length;
+                    const _minutesToday = _hist
+                        .filter(e => e && e.type === 'work' && e.timestamp >= _start)
+                        .reduce((acc, e) => acc + (Number(e.durationMinutes) || 0), 0);
+                    return h('section', { class: 'card' },
+                        h('div', { class: 'card-body' },
+                            h('h2', { class: 'h3 mb-2' }, '今日の実績'),
+                            _focusToday === 0
+                                ? h('p', { class: 'text-muted' }, 'まだ完了した集中セッションはありません。')
+                                : h('p', {}, `集中セッション ${_focusToday} 回 / 合計 ${_minutesToday} 分`)
+                        )
+                    );
+                })(),
+
                 h('section', { class: 'card' },
                     h('div', { class: 'card-body' },
                         h('h2', { class: 'h3 mb-4' }, '設定（分）'),
