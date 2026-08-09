@@ -364,6 +364,10 @@ test('Settings snapshot can be cleared back to the unsaved state', async ({ page
   await expect(page.getByText(/保存日時:/)).toBeVisible();
 
   // 削除 (snapshot clear = btn-ghost の「削除」。project 削除は btn-danger なので衝突しない)
+  // NOTE: スナップショット削除は confirm を通す (唯一の復元点ゆえ他の破壊的操作と対称にした)。
+  //   Playwright は dialog を既定で dismiss する = 承認しないと削除自体が起きないため、
+  //   「削除できること」を検証する本 test では明示的に accept する。
+  page.once('dialog', (d) => d.accept());
   await page.locator('button.btn-ghost', { hasText: '削除' }).click();
   await expect(page.locator('#toast-container').getByText('スナップショットを削除しました')).toBeVisible();
 
@@ -463,6 +467,8 @@ test('Snapshot restore/clear buttons are disabled until a snapshot exists (affor
   await expect(clearBtn).toBeEnabled();
 
   // 削除 → 未保存へ戻り両ボタン再び disabled。
+  // confirm を承認する (既定の dismiss では削除が起きず affordance も変化しない)。
+  page.once('dialog', (d) => d.accept());
   await clearBtn.click();
   await expect(page.getByText('スナップショットは未保存です。')).toBeVisible();
   await expect(restoreBtn).toBeDisabled();
