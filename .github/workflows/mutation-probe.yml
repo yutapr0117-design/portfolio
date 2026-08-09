@@ -1,0 +1,101 @@
+name: Mutation Probe (safety-net self-check)
+
+# ======================================================================
+# 安全網そのものを検証する層を CI に載せる（週次）
+#
+# WHY THIS EXISTS
+#   consistency Check 群と behavior e2e は「実装の回帰」を守る。だが
+#   **その安全網自体が回帰していないか** は誰も守っていなかった。
+#   mutation probe は既知のバグを人工的に再注入し、対応する Check / e2e が
+#   実際に RED になることを確認する唯一の手段だが、**PR の CI では走らない**
+#   （consistency 側は数分、behavior 側は各 mutation ごとに playwright を
+#   起動するため 20〜30 分かかり、全 PR に載せると merge 待ちが破綻する）。
+#
+#   結果としてこの層は「気付いた人が手で走らせる」だけの状態で、実際に
+#   2026-08-10 の cross-tab 修正では、挙動を変えたことで **既存テストが
+#   延期パスを踏んで何を壊しても緑になる**（＝安全網が黙って鈍る）事故が
+#   起きていた。手で走らせて気付けたが、気付かなければ検出手段はゼロだった。
+#
+#   週次で全件を走らせ、SURVIVED（＝どの Check / e2e も捕捉しなかった
+#   mutation）が 1 件でもあれば **run を落として可視化する**。
+#
+# 走るもの:
+#   1. consistency probe … MUTATIONS を 1 件ずつ当て、check_repository_consistency.py が
+#      Check 362（anchor orphan）以外の error を出すことを確認する（帰属は Check 399 が強制）
+#   2. behavior probe …… E2E_MUTATIONS を 1 件ずつ当て、`test` フィールドが指す
+#      playwright テストが実際に fail することを確認する
+#
+# 失敗したときの読み方:
+#   SURVIVED = その mutation を誰も捕捉していない。安全網の穴か、
+#              対応するテストが鈍った（前提が崩れた）かのどちらか。
+#   CRASHED  = gate が traceback で停止した。「Check が働いた」ではなく
+#              「その Check は走らず以降も masking された」状態（Check 400 参照）。
+# ======================================================================
+
+on:
+  schedule:
+    - cron: '0 2 * * 1'  # 毎週月曜 JST 11:00（UTC 02:00）。aio-monitoring の 1 時間後にずらす
+  workflow_dispatch:      # 手動実行も可能
+
+permissions:
+  contents: read          # チェックアウトのみ。コミットも Issue 作成もしない
+
+# 手動実行が週次スケジュールと重なっても、probe は shipped file を一時的に書き換えて
+# 復元するため並行実行させない（同一ワークツリーではないが、無駄な二重実行を避ける）。
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  mutation-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60   # behavior probe は mutation ごとに playwright を起動するため長い
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v6
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Setup Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
+      # consistency 安全網の自己検証。MUTATION_PROBE=1 は probe 実行中であることを
+      # 下位ツールへ伝える（service worker のキャッシュ配信で mutated JS が効かず
+      # 偽 PASS になる罠の回避に使われる）。
+      - name: Consistency safety-net self-check
+        env:
+          MUTATION_PROBE: '1'
+        run: python3 .github/scripts/mutation_probe.py
+
+      # behavior 安全網の自己検証。consistency 側が落ちても behavior 側の結果は
+      # 知りたいので always() で走らせる（両方の穴を 1 回の run で把握する）。
+      - name: Behavior (e2e) safety-net self-check
+        if: always()
+        env:
+          MUTATION_PROBE: '1'
+        run: python3 .github/scripts/mutation_probe.py --e2e
+
+      # probe は失敗時に mutated なファイルを残しうる。ワークツリーが汚れたままなら
+      # 復元漏れなので明示的に失敗させる（次の run が汚染状態から始まるのを防ぐ意図の
+      # 表明であり、runner は使い捨てだが復元ロジックの回帰検出として機能する）。
+      - name: Assert working tree is restored
+        if: always()
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::mutation probe left the working tree modified — 復元ロジックの回帰"
+            git status --porcelain
+            exit 1
+          fi
+          echo "working tree clean — 全 mutation が復元された"

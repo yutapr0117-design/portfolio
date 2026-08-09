@@ -299,6 +299,7 @@ echo "ALL LOCAL CHECKS PASSED"
 | `update-playwright-snapshots.yml` | `workflow_dispatch`（手動のみ）| Playwright baseline PNG を生成して PR 化する唯一の正規経路。ローカル `--update-snapshots` は §3 ゲートで禁止ゆえ、視覚変更の baseline はここ経由 → 人間 merge。 |
 | `auto-update-aio-digests.yml` | `push` → main（AIO file path のみ）| AIO 正本層（`llms*` / `AI2AI.md` / WebP / MP3 / Claude2Claude.md 等）が main に入った時、digest 連鎖（C6 derived-value）を自動再計算・同期 commit する。 |
 | `aio-monitoring.yml` | `schedule`（毎週月 UTC 01:00）/ `workflow_dispatch` | AIO 引用観測の試行ログ収集。`confirmed_citation_events = 0` は設計通り（捏造禁止 / attempt_log_only）。 |
+| `mutation-probe.yml` | `schedule`（毎週月 UTC 02:00）/ `workflow_dispatch` | **安全網そのものの自己検証**。consistency probe（MUTATIONS）と behavior probe（E2E_MUTATIONS）を全件走らせ、SURVIVED（＝どの Check / e2e も捕捉しない mutation）が 1 件でもあれば run を落とす。PR の CI に載せない理由は behavior 側が mutation ごとに playwright を起動して 20〜30 分かかるため（全 PR に載せると merge 待ちが破綻する）。この層が手動実行のみだった間に、**挙動を変える修正が既存テストの前提を崩して「何を壊しても緑」にする**事故が実際に起きている（2026-08-10 の cross-tab 修正・手動 probe で気付いた）。最後に working tree が復元されているかも assert する |
 
 ---
 
