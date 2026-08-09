@@ -10,7 +10,7 @@
  * 依存注入型の葉モジュールである。
  *
  * 【公開 API（main.js から合成）】
- *   const CommandPalette = createCommandPalette({ Router, h, createIcon });
+ *   const CommandPalette = createCommandPalette({ Router, h, createIcon, State, closeDrawer });
  *   CommandPalette.init();   // global Cmd/Ctrl+K keydown を登録
  *
  * 【依存（引数で注入）】
@@ -18,6 +18,8 @@
  *   - h: js/ui-components.js（型安全 DOM ビルダー）
  *   - createIcon: js/ui-components.js（SVG アイコン）
  *   - State: js/state.js factory instance（open 時に現在のプロジェクト一覧を検索対象へ加える）
+ *   - closeDrawer: js/mobile-drawer.js（open 時に mobile drawer を閉じ、aria-modal の領域が
+ *     2 つ同時に有効になる二重モーダルを防ぐ。未注入でも動作するよう typeof ガードあり）
  *
  * 【不変条件】
  *   - 本モジュールは葉（ローカル ESM import ゼロ。Check 47c）。
@@ -29,7 +31,7 @@
  *     留めたまま ↑↓ が listbox を操作する。SR が active option をアナウンスできるよう input の
  *     aria-activedescendant を _renderList / _highlight が active option の id（cmdk-opt-<i>）へ同期する。
  */
-export function createCommandPalette({ Router, h, createIcon, State }) {
+export function createCommandPalette({ Router, h, createIcon, State, closeDrawer }) {
     // 横断ナビの固定行き先（curated quick-nav）。label は人間可読、hash は Router.navigate 引数。
     const NAV = [
         { label: 'Home（ホーム）', hash: '' },
@@ -161,6 +163,14 @@ export function createCommandPalette({ Router, h, createIcon, State }) {
     function open() {
         if (!host) { _build(); }
         if (isOpen()) { return; }
+        // [FIX] 二重モーダルの防止。mobile drawer が開いたまま Cmd/Ctrl+K を押すと、
+        //   aria-modal="true" の領域が 2 つ同時に有効になり (実測: drawer=open かつ palette=open)、
+        //   SR にはどちらが現在のモーダルか判別できない。さらに両者の Escape ハンドラが同じ
+        //   document keydown で走るため **Escape 1 回で両方閉じる** (preventDefault は同一要素上の
+        //   他リスナーを止めない・#262 の二重発火と同族)。開く前に drawer を閉じて「同時に開くのは
+        //   常に 1 つ」を保証する。drawer の close は focus を #menuBtn へ戻すため、直後に捕捉する
+        //   lastFocused も palette 閉止後の復帰先として妥当な要素になる。
+        if (typeof closeDrawer === 'function') { closeDrawer(); }
         lastFocused = document.activeElement;
         _renderList('');
         inputEl.value = '';
