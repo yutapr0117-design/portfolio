@@ -45,10 +45,26 @@ consistency Check 群と behavior e2e は「**実装の**回帰」を守る。�
 - `concurrency` で多重実行を抑止する。
 - Check 107（runbook §11 の workflow 一覧 ↔ ディスク上の workflow）と Check 108（`docs/files` mirror bijection）の対象。
 
+## 実 CI での検証済み実績（2026-08-10）
+
+新設した workflow を `workflow_dispatch` で実際に走らせ、**実 CI 上で全 step が緑になること**を確認済み（run `31331210733`）。本セッションで「宣言はあるが実際には動かない」class を 2 件（WebMCP の DOM 抽出 / ルート追従 JSON-LD の無 gate）見つけた直後だったため、**自分が同じものを増やしていないことを実測で確かめた**。
+
+| 項目 | 実測値 |
+| :-- | :-- |
+| 全体所要 | **34m18s** |
+| consistency probe | ✓（当時 300 mutations） |
+| behavior probe | ✓（当時 125 mutations） |
+| working tree assert | ✓（復元漏れなし） |
+
+**この数値の使いどころ**: `timeout-minutes: 60` に対し headroom は約 26 分（44%）。mutation は増分ごとに増える一方なので、**将来この timeout に静かに当たる**。当たってからでは「安全網の検証が止まっている」ことに気付きにくいので、目安として:
+
+- 所要が **45 分**を超えたら rotate（最古の mutation を `mutation_samples_archive*.py` へ）か job 分割を検討する。
+- 上の 34m18s は「300 + 125 = 425 mutations」時点の基準値。おおよそ **1 mutation ≒ 5 秒**として外挿できる。
+
 ## Change impact
 
 - mutation を追加/変更したら、この workflow が週次で検証する。ローカルでの非 vacuity 実測（CLEAN=pass / MUTATED=fail）は依然として増分ごとの義務であり、本 workflow はその**取りこぼしを拾う網**であって代替ではない。
-- 実行時間が伸びて `timeout-minutes: 60` に迫ったら、mutation の rotate（`mutation_samples_archive*.py` へ）か分割実行を検討する。
+- 実行時間が伸びて `timeout-minutes: 60` に迫ったら、mutation の rotate（`mutation_samples_archive*.py` へ）か分割実行を検討する（判断の基準値は上の実測実績を参照）。
 
 ## Audience-specific notes
 
