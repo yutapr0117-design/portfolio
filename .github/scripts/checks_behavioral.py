@@ -83,6 +83,16 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        vacuous pass), making "a field is persisted ⟹ normalize reads it back" an enforced invariant
        so no future appsData field can be added to the store default yet silently lost on reload.
        (BLOCKING)
+  404. Store default-profile field ⟹ validateAndNormalize preserve round-trip: the profile-face
+       twin of Check 373 (appsData face). Every top-level key of `defaultProfile` in js/store.js
+       must be read back as `data.profile.<key>` inside the `store.profile = { … }` normalisation
+       block. validateAndNormalize is the choke point every ingestion path goes through (load /
+       import / cross-tab / snapshot-restore / settings normalise); a field that lives in the
+       persisted shape but is not read back silently resets to its default on every reload.
+       THIS ALREADY HAPPENED: #139 stripped github / linkedin / location so importing them did
+       nothing — and the behavior e2e added then only guards those three fields, leaving any
+       NEWLY added profile field unprotected. Line comments are stripped so a prose mention
+       cannot vacuously satisfy the Check. (BLOCKING)
   374. settings-page.js importJSON normalize-before-adopt ingestion guard: importJSON ingests
        external JSON. If it commits the raw parsed data via State.update(...), the notify → render()
        cycle paints un-normalized data (e.g. malformed projects with a null/non-object entry that
@@ -471,6 +481,44 @@ def run(ctx):
     else:
         check(False, "Check 373: js/store.js present",
               "Check 373: js/store.js が無い — appsData persist round-trip coherence を検証できない", blocking=True)
+
+    # ── 404. Store default-profile field ⟹ validateAndNormalize preserve round-trip (BLOCKING) ──
+    # Check 373 (appsData 面) の profile 面。validateAndNormalize は全 ingestion 経路 (load / import /
+    # cross-tab / snapshot-restore / settings 正規化) が通るチョークポイントで、profile を
+    # `store.profile = { ...store.profile, <field>: … }` の形で再構築する。defaultProfile (永続化
+    # される shape) にあるフィールドを読み戻さないと、ユーザーが設定/import しても reload 毎に default へ
+    # silent に戻る。**これは既に一度起きた実バグ**: #139 で github / linkedin / location が strip され、
+    # import しても消えていた (behavior e2e は当時の 3 フィールドだけを守っており、**新しく足す
+    # フィールド**は無防備なまま)。defaultProfile の top-level key を brace-parse し、各 key が
+    # validateAndNormalize の profile ブロックで `data.profile.<key>` として参照されることを強制する。
+    if _store373.exists():
+        _profile_body404 = _balanced_obj373(_src373, "const defaultProfile")
+        _keys404 = _top_keys373(_profile_body404) if _profile_body404 else []
+        # profile 正規化ブロック = `store.profile = {` 〜 対応する閉じ '}' (行コメントは除去)。
+        _ps404 = _src373.find("store.profile = {")
+        _pblock404 = None
+        if _ps404 != -1:
+            _inner404 = _balanced_obj373(_src373[_ps404:], "store.profile =")
+            if _inner404 is not None:
+                _pblock404 = re.sub(r"//[^\n]*", "", _inner404)
+        _unpreserved404 = [
+            _k404 for _k404 in _keys404
+            if _pblock404 is None or not re.search(r"\bdata\.profile\." + re.escape(_k404) + r"\b", _pblock404)
+        ]
+        check(
+            bool(_keys404) and _pblock404 is not None and not _unpreserved404,
+            f"Check 404: validateAndNormalize が defaultProfile の全 {len(_keys404)} フィールド ({', '.join(_keys404)}) を preserve (profile persist round-trip)",
+            f"Check 404: defaultProfile のフィールドが validateAndNormalize で preserve されていない: {sorted(_unpreserved404)} — "
+            "store.js の `store.profile = { ... }` に `data.profile.<field>` の読み戻しを追加せよ。"
+            "設定/import しても reload の normalize が strip して default へ silent に戻る data-fidelity バグになる "
+            "(#139 で github/linkedin/location が実際にこれで消えていた)"
+            if (_keys404 and _pblock404 is not None) else
+            "Check 404: store.js の defaultProfile / store.profile 正規化ブロックを parse できない (構造変更の可能性)",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 404: js/store.js present",
+              "Check 404: js/store.js が無い — profile persist round-trip coherence を検証できない", blocking=True)
 
     # ── 374. settings-page.js importJSON normalize-before-adopt ingestion guard (BLOCKING) ──
     # importJSON は外部 JSON を取り込む ingestion 経路。生の parsed を State.update で adopt すると

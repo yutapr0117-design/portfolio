@@ -104,6 +104,12 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "Check 404 (profile persist round-trip): store.js validateAndNormalize の profile ブロックから `location` の読み戻し行を除去 → 設定/import で location を入れても reload の normalize が strip し default へ silent に戻る data-fidelity バグ (#139 で github/linkedin/location が実際にこれで消えていた実バグ class)。Check 373 の appsData 面に対する profile 面 twin の非 vacuity 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "                location: String(data.profile.location || store.profile.location || '').slice(0, 200),",
+        "replace": "",
+    },
+    {
         "name": "Check 375 (icon 名・三項の片枝): js/components.js の BGM トグル `createIcon(BGM.isOn() ? 'volume2' : 'volumeX')` の片枝を typo → OFF 状態だけアイコンが空になる silent broken-icon (throw も console error も e2e 失敗も無く screenshot は advisory)。初版 Check は createIcon( 直後の単一リテラルしか見ておらず三項の片枝を素通ししていた (第 1 引数式全体の検証への拡張の非 vacuity 検証)",
         "file": ROOT / "js" / "components.js",
         "find": "createIcon(BGM.isOn() ? 'volume2' : 'volumeX')",
