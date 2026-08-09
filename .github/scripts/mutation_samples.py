@@ -962,4 +962,11 @@ E2E_MUTATIONS = [
         "replace": "        _observer.observe(document.head, { childList: true, subtree: true });\n    }\n\n    // Attach to DOMContentLoaded",
         "test": "aio-guard restores the hidden AIO anchor after it is removed",
     },
+    {
+        "name": "behavior: cross-app 状態の clobber — store.js normalizeAppsData の notes 読み戻しを落とす → task/todo は残るのに notes だけリロードで消える。単体テストは各アプリを独立に見るため、4 アプリを 1 セッションで触ってから 1 回リロードする統合 e2e だけがこの「片方の経路だけ巻き戻る」class を捕捉する (静的面は Check 373)",
+        "file": ROOT / "js" / "store.js",
+        "find": "            result.notes = data.notes.slice(0, CONSTANTS.LIMITS.NOTES_TEXT);",
+        "replace": "            result.notes = '';",
+        "test": "four apps in one session all survives a single reload",
+    },
 ]
