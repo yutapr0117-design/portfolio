@@ -104,6 +104,12 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "Check 407 (SR 通知チャネルの単一 writer): js/ai-page.js の announce() 呼び出しを #action-announcement への直書きへ戻す → 書き込み口が分散し、同じ内容が複数経路で流れる二重読み上げ (#901) と、チャネル実装変更時に取り残される bypass を招く。導入時に実在した bypass の回帰防止",
+        "file": ROOT / "js" / "ai-page.js",
+        "find": "                    announce('AI が応答しました');",
+        "replace": "                    const announcer = document.getElementById('action-announcement');\n                    if (announcer) { announcer.textContent = 'AI が応答しました'; }",
+    },
+    {
         "name": "a11y: task/todo フィルタ変更の SR 通知喪失 — js/apps.js の todo フィルタ onchange から announceFilter 呼び出しを除去 → フィルタで一覧が変わっても SR には完全に無音 (通知領域には直前のアクション文言が残ったまま・#content 内 live region は 0 個) という実測 gap へ退行する (WCAG 4.1.3 Status Messages)",
         "file": ROOT / "js" / "apps.js",
         "find": "                                announceFilter('TODO', e.target.selectedOptions[0]?.text, getFilteredTodos().length);",
