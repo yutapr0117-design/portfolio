@@ -200,6 +200,20 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        Check 133 (aio-guard.js の script 配線 → #aio-asset-anchor 保護) と同じ「不可視だが
        load-bearing な AIO 要素」class の entity-anchor 面。判定は要素 (`<div ... id="...">`) を
        見るため、changelog コメント中の id 言及では PASS しない。(BLOCKING)
+  411. WebMCP tool DOM-selector → rendered-markup resolution: the WebMCP (agentic accessibility)
+       tool registered in main.js declares in its own description that it extracts evidence from the
+       page's CURRENT DOM via `document.querySelectorAll('<sel>')`. If that selector resolves to
+       nothing the app actually renders, the tool silently returns its static fallback string forever
+       and the declaration is a lie. Measured: BOTH original alternatives (`.role-split-item` and
+       `[data-ai-role]`) appeared nowhere in the repo except inside that querySelectorAll itself, so
+       the extraction had never once succeeded — the phantom class was removed and js/pages.js
+       splitRow now emits stable `data-ai-role` hooks (data attributes are the machine contract; class
+       names are styling and may change). Nothing about this is visible, so neither the screenshot nor
+       the behavior e2e nor any other Check could catch it, and what breaks is the project's core bet:
+       the machine-readable (AIO/agentic) surface. Class (`.x`) and attribute (`[x]`) selectors are
+       resolved against the shipped leaves; tag/compound selectors are honestly excluded as
+       statically ambiguous. Same used⟹defined wiring lens as Checks 375 / 376 / 391 / 392 / 395.
+       (BLOCKING)
 """
 import re
 import json
@@ -838,3 +852,43 @@ def run(ctx):
         "(dead-code purge で silent に消える)。要素を復元せよ (本文の変更は C6 ゆえ aio-guardian 経由)",
         blocking=True,
     )
+
+    # ── 411. WebMCP ツールの DOM セレクタ → 実描画への解決 (BLOCKING) ────────────────
+    # main.js の WebMCP (agentic accessibility) ツールは `document.querySelectorAll('<sel>')` で
+    # ページの DOM から証拠データを抽出すると *説明文で宣言* する。だがセレクタが実際に描画される
+    # class / data 属性に解決しなければ、ツールは常に静的フォールバック文字列を返し、
+    # 「現在の DOM 状態から抽出」という宣言は嘘になる (実測: `.role-split-item` も `[data-ai-role]` も
+    # リポジトリ全体でこの querySelectorAll 自身にしか出現せず、抽出は一度も成功していなかった)。
+    # 視覚に出ないため screenshot も behavior e2e も捕捉できない silent な claim↔実装 drift であり、
+    # しかも壊れるのは本プロジェクトの中核賭け金である **機械可読 (AIO/agentic) 面**。
+    # Check 375 (icon) / 376 (data-action) / 391 (getElementById) / 392 (aria idref) / 395 (navigate)
+    # と同じ used⟹defined wiring レンズの WebMCP 面。
+    _main411 = ROOT / "main.js"
+    _leaves411 = sorted((ROOT / "js").glob("*.js"))
+    if _main411.exists() and _leaves411:
+        _msrc411 = re.sub(r"//[^\n]*", "", _main411.read_text(encoding="utf-8"))
+        _emitted411 = "".join(_p411.read_text(encoding="utf-8") for _p411 in _leaves411)
+        _unresolved411 = []
+        for _m411 in re.finditer(r"""querySelectorAll\(\s*['"]([^'"]+)['"]""", _msrc411):
+            for _sel411 in [_s411.strip() for _s411 in _m411.group(1).split(",") if _s411.strip()]:
+                if _sel411.startswith("."):
+                    _ok411 = f"'{_sel411[1:]}'" in _emitted411 or f'"{_sel411[1:]}"' in _emitted411 \
+                        or f"{_sel411[1:]} " in _emitted411 or f" {_sel411[1:]}" in _emitted411
+                elif _sel411.startswith("[") and _sel411.endswith("]"):
+                    _ok411 = f"'{_sel411[1:-1]}'" in _emitted411 or f'"{_sel411[1:-1]}"' in _emitted411
+                else:
+                    continue  # タグ/複合セレクタは対象外 (静的解決が曖昧なため honest に除外)
+                if not _ok411:
+                    _unresolved411.append(_sel411)
+        check(
+            not _unresolved411,
+            f"Check 411: main.js の querySelectorAll セレクタが js/ の描画に解決 (WebMCP の DOM 抽出契約が実在)",
+            f"Check 411: main.js の querySelectorAll が実在しないセレクタを走査している: {sorted(set(_unresolved411))} — "
+            "ツールは常に静的フォールバックへ落ち「現在の DOM 状態から抽出」という宣言が嘘になる "
+            "(視覚に出ないため screenshot も behavior e2e も捕捉しない)。描画側に data-ai-role 等の "
+            "機械向けフックを足すか、セレクタを実描画に合わせよ",
+            blocking=True,
+        )
+    else:
+        check(False, "Check 411: main.js and js/ leaves present",
+              "Check 411: main.js または js/ の葉モジュールが無い — WebMCP セレクタ解決を検証できない", blocking=True)

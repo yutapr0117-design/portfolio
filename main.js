@@ -1108,10 +1108,14 @@
                     execute: async function(params) {
                         // 非破壊的なDOM走査: 実際のUIからテキストを抽出（要素が存在しないSPAルーティング状態も考慮）
                         var roleSplitData = "役割分担表のDOMノードが現在のSPAルート（" + window.location.hash + "）でアクティブではありません。";
-                        var roleElements = document.querySelectorAll('.role-split-item, [data-ai-role]');
+                        // js/pages.js の splitRow が描画する data-ai-role フックに解決する
+                        // (Check 411 が used⟹defined を強制)。旧セレクタは `.role-split-item` との
+                        // 2 択だったが、その class はリポジトリのどこにも描画されておらず (実測)、
+                        // 「現在の DOM 状態から抽出」と謳いながら常に静的フォールバックへ落ちていた。
+                        var roleElements = document.querySelectorAll('[data-ai-role]');
                         if (roleElements.length > 0) {
                             var extracted = Array.from(roleElements).map(function(el) { return el.textContent.trim(); });
-                            roleSplitData = params.format === 'json'
+                            roleSplitData = (params && params.format) === 'json'
                                 ? JSON.stringify({ human: "Architecture, System Design", ai: "Implementation, Assets", details: extracted })
                                 : extracted.join(" | ");
                         } else {
