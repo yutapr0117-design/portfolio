@@ -321,3 +321,53 @@ test.describe('sidebar Lab nav-group collapse toggle (WCAG 4.1.2 + collapse + pe
     expect(fatal, `nav-lab restore caused a fatal: ${fatal}`).toBeNull();
   });
 });
+
+
+// ===== ブラウザの戻る/進む (hash ルーティングの中核操作・従来 e2e 完全未被覆) =====
+// hash SPA では戻る/進むは hashchange 経由で router に届く。ここが壊れると「戻ると前のページの
+// URL になるのに描画は変わらない」「戻ると fatal」といった、利用者が最も戸惑う壊れ方をする。
+// 併せて **フィルタ操作が履歴を汚さないこと** を検証する: ProjectsPage の syncURL は
+// Router.replaceSilently を使い、検索語 1 文字ごとに履歴 entry を積まない設計になっている。
+// これが navigate (pushState) に変わると、3 文字打っただけで「戻る」を 3 回押さないとページを
+// 離れられない典型的な SPA 退行になる (実測: replaceSilently なら Back 1 回で前ページへ戻る)。
+test('Browser back/forward moves between routes and filtering does not pollute history', async ({ page }) => {
+  const routeState = () => page.evaluate(() => ({
+    hash: location.hash,
+    h1: (document.querySelector('#content h1') || {}).textContent || '',
+    fatal: window.__fatalError ? window.__fatalError.message : null,
+  }));
+
+  await page.goto('/#/about');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1')).toBeVisible();
+
+  await page.goto('/#/projects');
+  await expect(page.locator('#content h1')).toHaveText('プロジェクト一覧');
+
+  // 1. 戻ると URL だけでなく **描画も** 前のページに戻る (hashchange → render の配線)
+  //    NOTE: hash は再描画より先に変わる。hash を poll してから内容を 1 度読むと **再描画前の
+  //    stale な内容**を掴んでしまう (この test の初版で実際に踏んだ)。内容側の auto-retry する
+  //    assertion で待つこと。
+  await page.goBack();
+  await expect(page.locator('#content h1')).toContainText('About');
+  expect(await page.evaluate(() => location.hash)).toBe('#/about');
+  expect((await routeState()).fatal, 'back navigation caused a fatal').toBeNull();
+
+  // 2. 進むも同様
+  await page.goForward();
+  await expect.poll(async () => (await routeState()).hash).toBe('#/projects');
+  await expect(page.locator('#content h1')).toHaveText('プロジェクト一覧');
+
+  // 3. 検索を 3 文字打っても履歴は積まれない → Back 1 回で前ページ (#/about) へ戻る
+  const box = page.getByRole('searchbox', { name: 'プロジェクト検索' });
+  await box.click();
+  await page.keyboard.type('タスク');
+  await expect.poll(async () => (await routeState()).hash).toContain('q=');
+
+  await page.goBack();
+  await expect(page.locator('#content h1')).toContainText('About');
+  expect(await page.evaluate(() => location.hash), 'フィルタ操作が履歴を積んでいたら 1 回の Back では前ページへ戻れない').toBe('#/about');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `history navigation caused a fatal: ${fatal}`).toBeNull();
+});
