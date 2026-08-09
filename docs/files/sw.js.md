@@ -1,7 +1,7 @@
 ---
 file: sw.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-16
+last-updated: 2026-08-10
 canonical-ref: AI2AI.md (C1) / CLAUDE.md §3
 ---
 
@@ -35,6 +35,25 @@ main.js (init)
 - **Check 19**: `CACHE_NAME` のバージョン == `ai:version` (index.html)
 - **傍受対象を広げない**: AIO_FILES（llms.txt / llms-full.txt）以外を傍受リストに追加しない（実害が検証された場合を除く）。誤った介入は cache poisoning や stale UI を生む。
 - **編集承認**: sw.js 自体は AIO published-layer 外 (C6 範疇外) だが、CACHE_NAME 変更は version 連鎖 (Check 19) を伴う。
+- **Check 131**: `normalizePath` の `decodeURIComponent` は try/catch 必須（SW は全 request を触る hot path で、不正な percent-escape が URIError を投げると SW 内 uncaught error になる）。
+- **Check 184**: `AIO_FILES` の各 path が index.html canonical URL の pathname 起点で実 file に resolve すること。
+
+## 検証カバレッジの正直な限界（2026-08-10 実測）
+
+**傍受〜SWR〜BOM の機能経路には自動検証が無い。** 現状この SW を守っているのは:
+
+| 層 | 守る内容 |
+| :-- | :-- |
+| behavior e2e (`theme-sw.spec.js`) | 登録 → activate → `clients.claim()` による page 制御まで |
+| Check 19 / 131 / 184 | CACHE_NAME 版整合 / decodeURIComponent ガード / AIO_FILES の解決 |
+
+**登録されて動いていること**は検証されているが、**AIO ファイルを実際に傍受して SWR と BOM 付与を行うこと**は検証されていない。理由は環境の構造的制約:
+
+- `AIO_FILES` は本番パス `/portfolio/llms.txt` / `/portfolio/llms-full.txt` をハードコードしている（本番は `…github.io/portfolio/` 配下のため正しい）。
+- 一方 e2e の dev server は `npx http-server . -p 8080`（リポジトリ直下配信）で、`/portfolio/` は**存在しない**。したがってローカルでは `url.pathname` が一致せず、fetch handler は必ず early return する。
+- 実測: `/` を読み込んで `caches.keys()` を見ると **空**。これは「SW が壊れている」のではなく **app shell を意図的にキャッシュしない設計どおり**（この doc の §How のとおり）。
+
+**この gap を埋めたい後任へ**: dev server を `/portfolio/` 配下へマウントする（あるいは同名ディレクトリを用意する）と機能経路が e2e で叩けるようになる。ただし他の全 e2e の baseURL 前提を変えるため影響範囲は広い。安易に `AIO_FILES` を scope 相対へ「導出化」して解決しようとしないこと — 本番の傍受が静かに外れたら AIO 配信という中核が壊れ、しかもそれを検出する手段が今は無い（＝壊れたことに気付けない変更になる）。
 
 ## Change impact
 
