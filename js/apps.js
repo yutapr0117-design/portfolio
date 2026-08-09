@@ -24,7 +24,7 @@
  * factory closure 内に同じ位置で declare することで、抽出前後の挙動は byte-equivalent。
  *
  * 【依存（引数で注入）】
- *   - h, createIcon, Toast: js/ui-components.js
+ *   - h, createIcon, Toast, announce: js/ui-components.js (announce = sr-only 通知チャネルへの書き込み)
  *   - State: js/state.js factory instance
  *   - CONSTANTS: js/constants.js
  *   - generateId, clamp: js/pure-utils.js
@@ -40,7 +40,7 @@
  *   - localStorage への副作用順序（State.update 経由）も不変
  *   - AIDK Kernel / AIO 正本層には影響しない
  */
-export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId, clamp }) {
+export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId, clamp, announce }) {
     // ===== Component: Apps Hub =====
 
     // ===== Component: Task App =====
@@ -103,6 +103,7 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
             );
         }
 
+
         // [FIX] シャドウイング問題の解決：名称を buildUI に変更
         function buildUI() {
             const container = document.createElement('div');
@@ -140,6 +141,7 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                         onchange: (e) => {
                             taskFilter.priority = e.target.value;
                             window.render(); // グローバルレンダーを呼び出し
+                            announceFilter('優先度', e.target.selectedOptions[0]?.text, getFilteredTasks().length);
                         }
                     },
                         h('option', { value: 'all', text: '優先度: 全て', selected: taskFilter.priority === 'all' ? true : undefined }),
@@ -247,6 +249,23 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
     // ===== Component: Todo App =====
     // [FIX] 揮発性クロージャ問題の解決
     let todoFilter = 'all';
+
+    // TodoPage の絞り込み。render と filter onchange (件数アナウンス) の両方から使うため factory
+    // スコープに置く (TaskPage 内に置くと TodoPage から参照できず no-undef になる — ESLint が検出)。
+    function getFilteredTodos() {
+        return State.get().appsData.todos.filter(t => {
+            if (todoFilter === 'active') {return !t.completed;}
+            if (todoFilter === 'completed') {return t.completed;}
+            return true;
+        });
+    }
+
+    // [A11Y 4.1.3] フィルタ変更は一覧が変わるのに SR には無音だった (実測: 変更後も通知領域には
+    // 直前のアクション文言が残り #content 内 live region は 0 個)。選択肢名と件数を唯一の通知
+    // チャネル #action-announcement へ流す (通知先の一本化は #901 参照)。
+    function announceFilter(label, optionText, count) {
+        announce(`${label}: ${optionText || ''} ${count} 件`);
+    }
     let todoComposing = false;
 
     function TodoPage() {
@@ -291,11 +310,7 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
         }
 
         const todos = State.get().appsData.todos;
-        const filtered = todos.filter(t => {
-            if (todoFilter === 'active') {return !t.completed;}
-            if (todoFilter === 'completed') {return t.completed;}
-            return true;
-        });
+        const filtered = getFilteredTodos();
 
         // [FIX] TodoPage のルートに紛れ込んでいた ErrorBoundary/FatalPage 用の a11y 属性群を除去。
         // 通常の ToDo アプリなのに role="alert" / aria-invalid="true" / aria-errormessage="fallback-details"
@@ -333,7 +348,11 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                         h('select', {
                             class: 'input w-auto',
                             'aria-label': 'TODO を絞り込み',
-                            onchange: (e) => { todoFilter = e.target.value; window.render(); }
+                            onchange: (e) => {
+                                todoFilter = e.target.value;
+                                window.render();
+                                announceFilter('TODO', e.target.selectedOptions[0]?.text, getFilteredTodos().length);
+                            }
                         },
                             h('option', { value: 'all', text: '全て', selected: todoFilter === 'all' ? true : undefined }),
                             h('option', { value: 'active', text: '未完了', selected: todoFilter === 'active' ? true : undefined }),

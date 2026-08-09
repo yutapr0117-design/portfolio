@@ -57,7 +57,7 @@
         import { architectureQuizData } from './js/quiz/architecture-quiz-data.js';
         // v80+ Stage 4: UI コンポーネント（DOM ビルダー・アイコン・Toast・BGM）を葉モジュールへ抽出。
         //   closure-deps = none の純表示系のみを選別し、State/Storage/RouteState 依存コンポーネントは残置。
-        import { h, createIcon, Toast, BGM } from './js/ui-components.js';
+        import { h, createIcon, Toast, BGM, announce } from './js/ui-components.js';
         // v80+ Stage 5: Router（hash ルーティング）と PAGE_META（SEO メタ単一ソース）を葉モジュールへ抽出。
         //   Router: closure-deps = none（CONSTANTS.DEBUG は production dead code のため削除）。
         //   PAGE_META: 動的 title/desc は引数で state/params を受け取る純粋関数。closure-deps = none。
@@ -475,7 +475,7 @@
         //   todoFilter / todoComposing / pomodoroTimer / aiLoading / settings*）も
         //   factory closure 内へ移動（揮発性 UI 状態は元と同位置で保持される・挙動 byte-equivalent）。
         const { TaskPage, TodoPage, NotesPage } = createApps({
-            h, createIcon, Toast, State, CONSTANTS, generateId, clamp
+            h, createIcon, Toast, State, CONSTANTS, generateId, clamp, announce
         });
         // 2026-07-04 bloat-reduction: AIPage は別葉モジュール createAIPage で生成 (依存は h/createIcon/State/CONSTANTS のみ)
         const { AIPage } = createAIPage({ h, createIcon, State, CONSTANTS });

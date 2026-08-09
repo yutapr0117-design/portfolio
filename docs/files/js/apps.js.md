@@ -21,7 +21,7 @@ main.js から Stage 5-n で物理分割した productivity 系ページ群。cl
 main.js
   └─ import { createApps } from './js/apps.js'
   └─ const { TaskPage, TodoPage, NotesPage }
-        = createApps({ h, createIcon, Toast, State, CONSTANTS, generateId, clamp })
+        = createApps({ h, createIcon, Toast, State, CONSTANTS, generateId, clamp, announce })
   // AIPage は createAIPage (js/ai-page.js) / PomodoroPage は createPomodoroPage
   // (js/pomodoro-page.js) / SettingsPage は createSettingsPage (js/settings-page.js) で別途生成
 ```
