@@ -215,3 +215,34 @@ test('responsive: exactly one of {desktop sidebar, mobile menuBtn} is visible at
     }
   }
 });
+
+
+// ===== 7.2: BGM トグルの a11y 状態同期 (aria-pressed / aria-label) =====
+// topbar の BGM ボタン (#bgm-btn-top・data-action='bgm:toggle') は ui-components.js の BGM.toggle →
+// _syncAll() で aria-pressed と aria-label ('BGMを再生する'/'BGMを停止する') とアイコン (volume2/volumeX)
+// を状態同期する。これまで BGM は behavior e2e 完全未カバーで、_syncAll が呼ばれなくなっても
+// (a) SR には常に「押されていない」と報告され (b) ラベルとアイコンが実状態と食い違う、という退行が
+// どの gate も通り抜けた (Check 376 は action が handler に解決することしか見ない)。
+// 注: BGM ボタンは topbar = mobile 専用ゆえ mobile viewport で検証する (desktop では sidebar 表示)。
+test('BGM toggle syncs aria-pressed and aria-label with playback state (a11y)', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const btn = page.locator('#bgm-btn-top');
+  await expect(btn).toBeVisible();
+  await expect(btn).toHaveAttribute('aria-pressed', 'false');
+
+  // 再生 → pressed=true + 「停止する」ラベルへ同期
+  await btn.click();
+  await expect(btn).toHaveAttribute('aria-pressed', 'true');
+  await expect(btn).toHaveAttribute('aria-label', 'BGMを停止する');
+
+  // 停止 → pressed=false + 「再生する」ラベルへ戻る
+  await btn.click();
+  await expect(btn).toHaveAttribute('aria-pressed', 'false');
+  await expect(btn).toHaveAttribute('aria-label', 'BGMを再生する');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `BGM toggle caused a fatal: ${fatal}`).toBeNull();
+});
