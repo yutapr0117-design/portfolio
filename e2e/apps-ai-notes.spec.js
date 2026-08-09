@@ -242,6 +242,33 @@ test('Actions announce to the assertive sr-only aria-live region (screen reader 
 });
 
 
+// ===== 7.2: 通知チャネルが 1 本であること (二重アナウンス回帰) =====
+// Toast.show は専用の sr-only 領域 #action-announcement (assertive / atomic) に message を書き込む。
+// 視覚 toast のコンテナ #toast-container にも role=status + aria-live=polite が付いていたため、SR は
+// **同じ通知を 2 回** (polite + assertive) 読み上げていた。さらにコンテナ側の読み上げは内包する
+// 閉じるボタン (aria-label='通知を閉じる') まで含み、3 秒後の自動削除でも live region が再度変化する。
+// コンテナが live region でないこと + 専用領域では従来どおり announce されることを検証する。
+test('Toast is announced through exactly one live region (no double announcement)', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+
+  const input = page.locator('#task-input');
+  await input.fill('SINGLE-ANNOUNCE-TASK-9701');
+  await input.press('Enter');
+
+  // 視覚 toast は出る (描画確定を待ってから属性を検査する)
+  const container = page.locator('#toast-container');
+  await expect(container.getByText('タスクを追加しました')).toBeVisible();
+
+  // 視覚コンテナは live region ではない (二重読み上げの排除)
+  await expect(container).not.toHaveAttribute('aria-live', /.*/);
+  await expect(container).not.toHaveAttribute('role', /.*/);
+
+  // 通知は専用 sr-only 領域からのみ行われる
+  await expect(page.locator('#action-announcement')).toHaveText('タスクを追加しました');
+});
+
+
 // ===== 7.2: SPA ルート変更の sr-only aria-live 通知 (screen reader a11y) =====
 // SPA はページ全体が再読込されないため、SR 利用者にルート変更を能動的に通知する必要がある
 // (SPA a11y の既知要件)。#page-announcement (sr-only, aria-live=polite) はルート遷移ごとに
