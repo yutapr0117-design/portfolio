@@ -169,6 +169,21 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
        first (a two-layer design: advisory warning → blocking ceiling), and Check 398 now prints
        advisory bodies so that warning actually reaches the operator. This is the e2e face of
        Check 361 (js leaf registration). (BLOCKING)
+  409. Mutation registration-list separation: entries in `MUTATIONS` (the consistency safety-net
+       list, gated by check_repository_consistency.py) must NOT carry a `test` key, and every
+       `E2E_MUTATIONS` entry must carry one. `test` is the e2e identifier; putting a behaviour
+       mutation in the consistency list means (a) it never runs in the e2e probe, so that behaviour's
+       safety net is never verified, and (b) the consistency probe reports it SURVIVED forever
+       because no Check catches a pure behaviour change. Measured 2026-08-09: the consistency probe
+       reported 6 SURVIVED entries which turned out to be behaviour mutations filed in MUTATIONS —
+       one had even been carried into an archive file by log rotation. The same sweep found 10 legacy
+       consistency mutations whose `test` held a Check OK-message (an older convention that now
+       collides with the e2e meaning); those keys were removed. HONEST LIMIT: this Check cannot
+       detect a behaviour mutation filed in MUTATIONS *without* a `test` key — such an entry is
+       an orphan that verifies nothing anywhere (it can never run in the e2e probe, and the
+       consistency probe just reports it SURVIVED). One such entry existed and was found by
+       running `npm run mutation-probe`; that probe run is the detector for this residual case,
+       which is why it is worth running periodically. (BLOCKING)
   399. mutation-probe の catch 帰属 (attribution): `mutation_probe.py` の consistency mode は
        catch を **Check 362 (anchor orphan) 以外の error** で判定しなければならない
        (`ANCHOR_ORPHAN_MARKER = "Check 362:"` 定数 + `caught_by_real_check()` を持ち、旧判定
@@ -825,6 +840,32 @@ def run(ctx):
         "unpack していない。その枝が走ると NameError で consistency script 全体が crash する (通常は "
         "全ファイル/依存が揃うため休眠)。`extract = ctx.extract` の直後に不足 unpack を追加せよ",
     )
+
+    # ── 409. mutation の登録先 (consistency / e2e) の分離 (BLOCKING) ───────────────
+    # mutation は 2 系統ある: MUTATIONS (consistency 安全網用・gate = check_repository_consistency.py)
+    # と E2E_MUTATIONS (behavior 安全網用・gate = 特定の Playwright test)。**`test` フィールドは
+    # e2e 側の識別子**であり、consistency 側に置くと (a) その mutation は e2e probe で一度も走らず
+    # behavior 安全網が未検証のまま、(b) consistency probe では対応 Check が無いので SURVIVED として
+    # 恒久的に赤くなる。実測 (2026-08-09): consistency probe が 6 件 SURVIVED を報告し、追跡すると
+    # behavior mutation が MUTATIONS 側へ誤登録されていた (うち 1 件は log-rotation で archive へ流れ
+    # 込んでいた)。同時に旧慣習で Check の OK 文言を `test` に書いた consistency mutation も 10 件見つかり、
+    # 現行の意味 (e2e title) と衝突していたため除去した。ゆえに **MUTATIONS 側は `test` キーを持たない**
+    # ことを不変とする (E2E 側が持つことは Check 379/397 が別途強制)。
+    try:
+        import mutation_samples as _ms409
+        _bad409 = [m409.get("name", "?")[:60] for m409 in _ms409.MUTATIONS if "test" in m409]
+        _missing409 = [m409.get("name", "?")[:60] for m409 in _ms409.E2E_MUTATIONS if "test" not in m409]
+        check(
+            not _bad409 and not _missing409,
+            f"Check 409: mutation の登録先が分離 (MUTATIONS {len(_ms409.MUTATIONS)} 件は test 無し / E2E {len(_ms409.E2E_MUTATIONS)} 件は test 有り)",
+            f"Check 409: mutation の登録先が混線している — consistency 側に test を持つ entry: {_bad409[:5]} / "
+            f"e2e 側に test を欠く entry: {_missing409[:5]}。`test` は e2e mutation の識別子であり、"
+            "consistency 側に置くと e2e probe で一度も走らず behavior 安全網が未検証のまま、"
+            "consistency probe では SURVIVED として恒久的に赤くなる (2026-08-09 に 6 件の実害を検出)",
+            blocking=True,
+        )
+    except ImportError as _e409:
+        warnings.append(f"Check 409: mutation_samples import 失敗 ({_e409}) — 登録先分離の検証を skip")
 
     # ── 408. e2e spec の予算登録 (BLOCKING) ────────────────────────────────────────
     # e2e/*.spec.js は Check 365 の 1,000 行 BLOCKING 上限だけが効いており、**超過するまで一切の
