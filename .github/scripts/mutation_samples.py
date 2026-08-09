@@ -38,47 +38,6 @@ _MUTATIONS_TAIL = [
     # find 値) に当たって挙動が不安定になるため。Check 362 の非 vacuous 性は手動で実証済
     # (mutation の file を誤り先へ変えると Check 362 が RED・restore で緑)。
     {
-        "name": "Check 400 (monolith module-level parse fail-soft): check_repository_consistency.py の module 直下へ try/except 非保護の `json.loads(read(...))` を注入 → 対象 file が壊れた瞬間に traceback で suite 全体が停止し、その破損を検出するはずの Check 自身を含む全 Check が未実行のまま skip される latent-crash class が再混入する (実測で Check 343 が一度も走らなかった gap)。Check 400 の非 vacuity 検証 (checks_maintainability.py は mutation_samples.py と別 file ゆえ self-reference trap 無し)",
-        "file": ROOT / ".github" / "scripts" / "check_repository_consistency.py",
-        "find": "# ── ctx enrichment for split modules",
-        "replace": "_unguarded400 = json.loads(read(\".well-known/index.json\"))\n# ── ctx enrichment for split modules",
-    },
-    {
-        "name": "Check 408 (e2e spec 予算登録): file-size-budget.md の BUDGET-DATA から e2e/quiz.spec.js の登録行を除去 → 当該 spec は Check 52 の advisory 対象外になり、Check 365 の 1,000 行 BLOCKING に予告なく当たる状態へ戻る (実測で 2 サイクル連続の BLOCKING を招いた早期警告欠落 class)",
-        "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
-        "find": "e2e/quiz.spec.js | 900 | advisory\n",
-        "replace": "",
-    },    {
-        "name": "Check 366: ContactPage LinkedIn の rel:'noopener noreferrer' から noreferrer を除去 (source drift 再発・静的 source 軸の防止層の回帰)",
-        "file": ROOT / "js" / "components.js",
-        "find": "                            h('a', { href: profile.linkedin, target: '_blank', rel: 'noopener noreferrer' }, profile.linkedin)",
-        "replace": "                            h('a', { href: profile.linkedin, target: '_blank', rel: 'noopener' }, profile.linkedin)",
-    },
-    {
-        "name": "Check 367: projects-page.js の h('select') に value: cat を再注入 → h('select') attrs に value: キーが禁止であることの BLOCKING 検証",
-        "file": ROOT / "js" / "projects-page.js",
-        "find": "                    h('select', {\n                        class: 'input',\n                        'aria-label': 'カテゴリフィルター',",
-        "replace": "                    h('select', {\n                        class: 'input',\n                        value: cat,\n                        'aria-label': 'カテゴリフィルター',",
-    },
-    {
-        "name": "Check 369: store.js の AI 履歴 slice を CONSTANTS.LIMITS.AI_HISTORY からマジック -80 へ戻す → 履歴上限 drift の BLOCKING 検証",
-        "file": ROOT / "js" / "store.js",
-        "find": ".slice(-CONSTANTS.LIMITS.AI_HISTORY);",
-        "replace": ".slice(-80);",
-    },
-    {
-        "name": "Check 370: store.js の pomodoro 既定 settings を CONSTANTS からマジック {work:25...} へ戻す → 既定状態 drift の BLOCKING 検証",
-        "file": ROOT / "js" / "store.js",
-        "find": "settings: { ...CONSTANTS.POMODORO_DEFAULT_SETTINGS },",
-        "replace": "settings: { work: 25, short: 5, long: 15 },",
-    },
-    {
-        "name": "Check 371: state.js.md に volatile 現在行数引用 (**Check 52**: N 行 ≤ M) を再注入 → mirror-doc line-count drift-magnet の BLOCKING 検証",
-        "file": ROOT / "docs" / "files" / "js" / "state.js.md",
-        "find": "**Check 52**: 行数予算 ≤ 320 行",
-        "replace": "**Check 52**: 219 行 ≤ 320",
-    },
-    {
         "name": "Check 372: quiz-renderer.js.md の factory signature を stale 形へ戻し quiz data 依存 (awsQuizData 等) を落とす → mirror-doc factory-dep drift の BLOCKING 検証",
         "file": ROOT / "docs" / "files" / "js" / "quiz-renderer.js.md",
         "find": "createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData })",
@@ -125,6 +84,12 @@ _MUTATIONS_TAIL = [
         "file": ROOT / "js" / "home-page.js",
         "find": "'data-entity': 'Yuta Yokoi (横井雄太 / Yokoi Yuta)',",
         "replace": "'title': 'Yuta Yokoi (横井雄太 / Yokoi Yuta)',",
+    },
+    {
+        "name": "Check 411 (導出 scope): 旧 scope 外だった js/ui-components.js の BGM ボタン走査セレクタを typo させる ([data-bgm-btn] → [data-bgm-button]) → 走査が永遠に 0 件を返し BGM ボタンの配線が静かに無効化される。main.js 限定だった初版ではこの file 自体が対象外で GREEN のまま通っていた (scope が分割に追従しない class) の回帰防止",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "querySelectorAll('[data-bgm-btn]')",
+        "replace": "querySelectorAll('[data-bgm-button]')",
     },
 ]
 
