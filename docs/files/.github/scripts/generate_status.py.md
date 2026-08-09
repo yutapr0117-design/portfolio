@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/generate_status.py
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-21
+last-updated: 2026-08-10
 canonical-ref: STATUS.md (output) / Check 121 (freshness enforcement)
 ---
 
@@ -13,7 +13,7 @@ canonical-ref: STATUS.md (output) / Check 121 (freshness enforcement)
 
 ## Why
 
-AI-only 自走リポジトリで、オーナーがコードを読まずに現況を一目把握する手段（STATUS.md）を drift なく維持するため。hand-maintain な dashboard は stale 化し誤情報になる。生成を 1 つのスクリプトに集約し、`build_status()` を Check 121 が import して regenerate-compare することで鮮度を機械強制する。
+AI-only 自走リポジトリで、オーナーがコードを読まずに現況を一目把握する手段（STATUS.md）を drift なく維持するため。**オーナーの runtime 役割は「制御（goal/priority 提示）と監査（CI オールグリーン確認）」だが、STATUS.md には当初 URL が 1 つも無く、スマホでその監査を実行する手段が無かった**（2026-08-10 に監査導線を追加）。hand-maintain な dashboard は stale 化し誤情報になる。生成を 1 つのスクリプトに集約し、`build_status()` を Check 121 が import して regenerate-compare することで鮮度を機械強制する。
 
 ## How (usage)
 
@@ -21,6 +21,10 @@ AI-only 自走リポジトリで、オーナーがコードを読まずに現況
 npm run status   →  python3 .github/scripts/generate_status.py  →  main() → STATUS.md 書き出し
 build_status()   →  AI2AI.md から Pipeline-Version / 最新 Session Record # を正規表現で抽出し
                     エンティティ/運用モデル/ポインタを含む BLUF テキストを返す (決定論的・volatile 値なし)
+                 →  監査導線も **導出** する: CLAUDE.md の canonical URL から owner/repo を割り出し、
+                    `.github/workflows/*.yml` のうち `pull_request:` で起動するもの (= merge を守る
+                    ゲート) を live badge + 実行履歴リンクにする。全ワークフロー履歴 / 未マージ PR /
+                    公開サイトへのリンクも出す。ハードコードしないので workflow の増減に自動追従する
 Check 121        →  generate_status を import し build_status() == committed STATUS.md を検証
 ```
 
