@@ -243,9 +243,17 @@ export const Toast = (() => {
         const live = document.getElementById('action-announcement');
         if (live) { live.textContent = message; }
 
-        if (duration > 0) {
-            setTimeout(() => remove(el), duration);
-        }
+        // [A11Y 2.4.3/2.2.1] 自動消滅はフォーカス中だけ止める。閉じるボタンに Tab で到達した状態で
+        //   duration が経過すると要素ごと削除され focus が body へ落ちる (実測: activeElement=BODY)。
+        //   SPA では body 落ちは「次の Tab が文書先頭からやり直し」を意味し操作位置を失う。
+        //   focus が外れたら再度計時する (通知が残り続けない)。hover 停止は e2e の pointer 位置に
+        //   依存する挙動を持ち込むため採用しない。
+        let timer = null;
+        const schedule = () => { if (duration > 0 && !timer) { timer = setTimeout(() => remove(el), duration); } };
+        const cancel = () => { if (timer) { clearTimeout(timer); timer = null; } };
+        el.addEventListener('focusin', cancel);
+        el.addEventListener('focusout', schedule);
+        schedule();
 
         return el;
     }
