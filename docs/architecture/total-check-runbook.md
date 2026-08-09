@@ -267,7 +267,7 @@ echo "ALL LOCAL CHECKS PASSED"
 | llms alias unique sha | 1 |
 | `.well-known/aio-manifest.json` の証跡カウント | source_of_truth 5 / supporting_evidence 4 / observational_evidence 1 |
 | `index.html` 構造化データ | JSON-LD ブロック 2 / `ai:` meta タグ 8（ハイフン付き含む）|
-| `npm audit` / `--omit=dev` | 0 件 / 0 件 |
+| `npm audit` / `--omit=dev` | 0 件 / 0 件（2026-08-10 再測定。**この行は放置すると drift する**: 同日の測定で dev 依存に high 3 件（brace-expansion / js-yaml / nanoid の DoS 系）が出ていた。いずれも**配信物には到達しない** dev-only であり `--omit=dev` は当時も 0 件だったが、`npm audit fix` で package.json 不変・package-lock のみ 10 行（transitive パッチ 3 件）の更新をして 0 件へ戻した。ESLint warning 数 54 も不変であることを確認済み） |
 | `main.js` | Stage 5 完了時点 **1,086 行**（Stage 0 累計 7,785→1,086 行 = **−6,699 行 / −86%** の歴史的 milestone）。以降は factory 配線の追加で微増するが strong-advisory 予算 6,400 行の範囲内（現在値の権威 = `wc -l main.js`）。残るは AIDK Kernel proper + startViewTransitionProxy + Trusted Types policy + view-transition / render core + SITE_CONFIG + protected blocks + init のみ。Check 43 が IIFE と kernel の存在を機械強制 |
 | `js/ui-components.js` | 303 行（Stage 4 新設。DOM ビルダー h・SVG アイコン createIcon・Toast・BGM の葉モジュール）|
 | `js/router.js` | 175 行（Stage 5 新設。hash-based SPA ルーター。closure-deps = none）|
