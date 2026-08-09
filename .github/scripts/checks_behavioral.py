@@ -115,6 +115,15 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `toBeFocused` fails with `unexpected value "inactive"`; `bringToFront()` does not help; 3 of
        8 parallel repeats RED). A flaky test rots the gate, so the contract is pinned statically
        instead. Comments are stripped before matching. (BLOCKING)
+  407. Single-writer contract for the SR announcement channel: the sr-only `#action-announcement`
+       region is the ONE channel used to speak to screen readers. Only `announce()` in
+       js/ui-components.js may write to it; no other shipped JS may grab it via
+       `getElementById('action-announcement')` / `querySelector('#action-announcement')`. Multiple
+       writers cause (a) the same content arriving through two paths = double announcement (the real
+       Toast bug #901) and (b) bypasses that get left behind when the channel implementation
+       changes — exactly what had happened: ai-page.js wrote to the element directly while
+       everything else went through Toast. Comments are stripped and ui-components.js itself is
+       excluded (it hosts the legitimate writer). (BLOCKING)
   374. settings-page.js importJSON normalize-before-adopt ingestion guard: importJSON ingests
        external JSON. If it commits the raw parsed data via State.update(...), the notify → render()
        cycle paints un-normalized data (e.g. malformed projects with a null/non-object entry that
@@ -612,6 +621,33 @@ def run(ctx):
     else:
         check(False, "Check 406: js/ui-components.js present",
               "Check 406: js/ui-components.js が無い — Toast の focus-pause 契約を検証できない", blocking=True)
+
+    # ── 407. SR 通知チャネルの単一 writer 契約 (BLOCKING) ──────────────────────────
+    # sr-only の #action-announcement は SR への唯一の通知チャネル。書き込み口が分散すると
+    # (a) 同じ内容が複数経路で流れて二重読み上げになる (Toast の実バグ #901)、(b) チャネル実装を
+    # 変えたとき取り残される bypass が生まれる (実際 ai-page.js だけ getElementById で直書きしていた)。
+    # ゆえに **書き込みは ui-components.js の announce() だけ**に限定し、他の shipped JS が
+    # `#action-announcement` を getElementById/querySelector で掴んで textContent を書くことを禁止する。
+    # (e2e/テストや comment 内の言及は対象外 — shipped JS のコードのみを見る)
+    _uic407 = ROOT / "js" / "ui-components.js"
+    _shipped407 = [p407 for p407 in ([ROOT / "main.js"] + sorted((ROOT / "js").glob("*.js"))) if p407.exists()]
+    _writers407 = []
+    for _f407 in _shipped407:
+        if _f407.name == "ui-components.js":
+            continue  # announce() 本体が唯一の正当な writer
+        _src407 = re.sub(r"//[^\n]*", "", _f407.read_text(encoding="utf-8"))
+        if re.search(r"(?:getElementById\(\s*['\"]action-announcement['\"]|querySelector\(\s*['\"]#action-announcement['\"])", _src407):
+            _writers407.append(str(_f407.relative_to(ROOT)))
+    _has_announce407 = _uic407.exists() and re.search(r"export function announce\s*\(", _uic407.read_text(encoding="utf-8"))
+    check(
+        bool(_has_announce407) and not _writers407,
+        f"Check 407: SR 通知チャネル #action-announcement の writer は announce() のみ ({len(_writers407)} bypass)",
+        f"Check 407: #action-announcement へ直接アクセスする shipped JS がある: {_writers407} "
+        f"(announce() export={bool(_has_announce407)}) — 書き込み口が分散すると同じ内容が複数経路で流れて "
+        "二重読み上げになり (#901)、チャネル実装変更時に取り残される bypass も生まれる。"
+        "js/ui-components.js の announce() を factory 経由で注入して使え",
+        blocking=True,
+    )
 
     # ── 374. settings-page.js importJSON normalize-before-adopt ingestion guard (BLOCKING) ──
     # importJSON は外部 JSON を取り込む ingestion 経路。生の parsed を State.update で adopt すると

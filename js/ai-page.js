@@ -9,20 +9,21 @@
  * (最も安全な抽出単位)。これを別葉モジュールへ分離し apps.js を縮小する。挙動 byte-equivalent。
  *
  * 【公開 API（呼び出し側 main.js から見た形）】
- *   const { AIPage } = createAIPage({ h, createIcon, State, CONSTANTS });
+ *   const { AIPage } = createAIPage({ h, createIcon, State, CONSTANTS, announce });
  *
  * 【依存（引数で注入）】
  *   - h: DOM builder (js/ui-components.js)
  *   - createIcon: SVG アイコン生成 (js/ui-components.js)
  *   - State: アプリ状態ストア (js/state.js) — appsData.ai.history
  *   - CONSTANTS: LIMITS.AI_MESSAGE (prompt bound) 用 (js/constants.js)
+ *   - announce: 唯一の SR 通知チャネル (js/ui-components.js) — 応答完了の status message
  *   - window.render / document: グローバル (再描画・focus 復元)
  *
  * 【非破壊性】
  *   - AIPage 関数本体と private state (aiLoading) の挙動は抽出元から byte-equivalent
  *   - factory closure 内に閉じることで葉契約（Check 47c: import ゼロ）を維持
  */
-export function createAIPage({ h, createIcon, State, CONSTANTS }) {
+export function createAIPage({ h, createIcon, State, CONSTANTS, announce }) {
 
     // ===== Component: AI Assist Page =====
     let aiLoading = false;
@@ -117,8 +118,9 @@ export function createAIPage({ h, createIcon, State, CONSTANTS }) {
                     //   生成完了が伝わらなかった (入力欄の再有効化は非 focus 要素では気付けない)。永続 assertive
                     //   aria-live 領域 (#action-announcement・Toast と同じ即時フィードバック経路・#content 外ゆえ
                     //   再描画で消えない) にステータスを書き、応答到達を通知する (視覚描画は不変)。
-                    const announcer = document.getElementById('action-announcement');
-                    if (announcer) { announcer.textContent = 'AI が応答しました'; }
+                    // 通知は ui-components の announce() (唯一の SR 通知チャネル) 経由。従来はここだけ
+                    //   要素を直接掴んで書いており、チャネル実装変更時に取り残される bypass だった。
+                    announce('AI が応答しました');
                 } finally {
                     aiLoading = false;
                     // 万一の throw で State.update の notify が走らない場合でもローディング表示を解除。
