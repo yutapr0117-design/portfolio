@@ -651,3 +651,48 @@ test('Imported profile.title renders on both the sidebar and the Resume page (da
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `profile.title render caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: home の統計カウンタが実データを反映する (データ駆動の描画面) =====
+// home の Stats は projects / tasks / todos の 3 カウンタを state から描画するが e2e 未被覆で、
+// 値が固定化しても (state を読まなくなっても) どの gate も捕捉できなかった。TODO を 1 件追加すると
+// TODO カウンタが +1 され、プロジェクトを 1 件非表示にすると プロジェクトカウンタが −1 される
+// (後者は #886 で「非表示を全 listing 面へ適用」した際に visibleProjects ベースへ変えた面の behavioral 対)。
+async function homeStat(page, label) {
+  const card = page.locator('section.grid-cols-3 .card').filter({ hasText: label });
+  return Number((await card.locator('.h2').first().innerText()).trim());
+}
+
+test('Home stat counters reflect real data (todo add increments, hiding a project decrements)', async ({ page }) => {
+  await page.goto('/#/');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('section.grid-cols-3 .card').first()).toBeVisible();
+  const beforeTodos = await homeStat(page, 'TODO');
+  const beforeProjects = await homeStat(page, 'プロジェクト');
+
+  // TODO を 1 件追加 → TODO カウンタ +1
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByLabel('やることを入力').fill('HOME-STAT-TODO-8801');
+  await page.getByLabel('やることを入力').press('Enter');
+  await expect(page.getByText('HOME-STAT-TODO-8801')).toBeVisible();
+
+  await page.goto('/#/');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('section.grid-cols-3 .card').first()).toBeVisible();
+  expect(await homeStat(page, 'TODO'), 'TODO 追加で home の TODO カウンタが +1').toBe(beforeTodos + 1);
+
+  // プロジェクトを 1 件非表示 → プロジェクトカウンタ −1 (#886 の visibleProjects ベース化の behavioral 対)
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByRole('button', { name: '非表示：タスク管理アプリ' }).click();
+  await expect(page.getByRole('button', { name: '表示：タスク管理アプリ' })).toBeVisible();
+
+  await page.goto('/#/');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('section.grid-cols-3 .card').first()).toBeVisible();
+  expect(await homeStat(page, 'プロジェクト'), '非表示で home のプロジェクトカウンタが −1').toBe(beforeProjects - 1);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `home stats caused a fatal: ${fatal}`).toBeNull();
+});
