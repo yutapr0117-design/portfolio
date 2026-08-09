@@ -97,6 +97,17 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
             Toast.show('スナップショットを復元しました');
         }
         function clearSnapshot() {
+            // [FIX] 破壊的操作の確認ガードを他と対称にする。プロジェクト 1 件の削除
+            //   (deleteProject) と全リセット (resetData) は confirm を通すのに、**スナップショット
+            //   削除だけが無確認**だった。スナップショットは単一スロットでありユーザーの唯一の
+            //   復元点なので、失う影響はむしろプロジェクト 1 件より大きい。「1 ケースだけ処理して
+            //   他を忘れる」非対称 (CLAUDE.md §7 の反復 class) がデータ喪失面に残っていたもの。
+            //   文言は保存日時を含め「何を失うか」を明示する (単なる『削除しますか？』より判断できる)。
+            const _snap = Storage.parse(CONSTANTS.SNAPSHOT_KEY, null);
+            const _at = _snap && _snap.at ? new Date(_snap.at).toLocaleString() : null;
+            if (!confirm(_at
+                ? `スナップショット（保存日時: ${_at}）を削除しますか？\n復元できなくなります。`
+                : 'スナップショットを削除しますか？\n復元できなくなります。')) { return; }
             Storage.remove(CONSTANTS.SNAPSHOT_KEY);
             Toast.show('スナップショットを削除しました');
             State.update(s => { }); // 強制再描画

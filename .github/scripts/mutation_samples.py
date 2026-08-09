@@ -989,4 +989,11 @@ E2E_MUTATIONS = [
         "replace": "            void themeToggleAriaLabel;",
         "test": "Topbar theme button exposes the current theme in its label on mobile",
     },
+    {
+        "name": "behavior: スナップショット削除の確認ガード喪失 — settings-page.js clearSnapshot から confirm を除去 → ユーザー唯一の復元点が無確認で消える。プロジェクト 1 件の削除と全リセットは confirm を通すのに、より影響の大きいスナップショット削除だけ無確認だった非対称 (CLAUDE.md §7 の反復 class) の回帰防止",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "            if (!confirm(_at",
+        "replace": "            if (false && !confirm(_at",
+        "test": "Deleting the snapshot asks for confirmation",
+    },
 ]
