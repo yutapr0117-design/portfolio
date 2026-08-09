@@ -243,6 +243,20 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
             });
 
             container.appendChild(board);
+
+            // [UX] 0 件のときは理由まで示す。従来は 3 列とも「0」が並ぶだけで、**フィルタが
+            //   隠しているのか本当に空なのか判別できなかった** (TodoPage は同じ状況で
+            //   「TODOはありません。」を出しており、task 側だけ欠けていた非対称)。
+            //   フィルタ由来なら解除すれば戻ると判るよう文言を分ける。role=status は付けない —
+            //   フィルタ変更時の件数は announceFilter が単一チャネルへ通知済みで、ここに live
+            //   region を足すと二重読み上げになる (#901 と同 class)。
+            if (allTasks.length === 0) {
+                container.appendChild(h('p', {
+                    class: 'text-muted text-center py-8'
+                }, taskFilter.priority === 'all'
+                    ? 'タスクはありません。上の入力欄から追加できます。'
+                    : 'この優先度に一致するタスクはありません。絞り込みを「優先度: 全て」に戻すと表示されます。'));
+            }
             return container;
         }
 

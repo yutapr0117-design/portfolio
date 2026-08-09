@@ -696,3 +696,36 @@ test('Cross-tab update does not destroy an in-progress edit, and is adopted on b
   const fatal = await tabA.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `cross-tab defer caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== タスク 0 件のときに「なぜ空か」を示す (TodoPage との非対称の是正) =====
+// 従来は優先度フィルタで 0 件になっても 3 列に「0」が並ぶだけで、**フィルタが隠しているのか
+// 本当に空なのか判別できなかった**。TodoPage は同じ状況で「TODOはありません。」を出しており、
+// task 側だけが欠けていた (「1 ケースだけ処理して他を忘れる」非対称・CLAUDE.md §7 の反復 class)。
+// フィルタ由来か本当に空かで文言を分け、前者は解除方法まで示す。
+test('Task board explains why it is empty (filtered vs genuinely empty)', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  const filter = page.locator('select[aria-label="優先度で絞り込み"]');
+  await expect(filter).toBeVisible();
+
+  // 既定ではタスクがあるのでメッセージは出ない (常時表示なら以降が vacuous)
+  await expect(page.locator('#content')).not.toContainText('タスクはありません');
+
+  // (1) フィルタで 0 件 → 「絞り込みのせい」と判る文言
+  await filter.selectOption('med');
+  await expect(page.locator('#content')).toContainText('この優先度に一致するタスクはありません');
+
+  // (2) 絞り込みを戻すと消える
+  await filter.selectOption('all');
+  await expect(page.locator('#content')).not.toContainText('この優先度に一致するタスクはありません');
+
+  // (3) 本当に 0 件なら追加方法を示す文言 (フィルタ由来と区別できること)
+  await page.evaluate(() => {
+    document.querySelectorAll('button[aria-label^="タスクを削除"]').forEach((b) => b.click());
+  });
+  await expect(page.locator('#content')).toContainText('上の入力欄から追加できます');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `task empty-state caused a fatal: ${fatal}`).toBeNull();
+});
