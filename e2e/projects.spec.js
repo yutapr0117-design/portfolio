@@ -784,3 +784,50 @@ test('Project demo launch buttons open the embedded app (detail and home feature
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `demo launch caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 詳細ページの「← 一覧に戻る」が絞り込みを保持する (ブラウザ Back との整合) =====
+// 修正前は onclick が Router.navigate('projects') とハードコードで、?q= / ?cat= を落として
+// **全件表示へ戻していた** (実測: 1 件に絞った状態で詳細を開き in-page back → 18 件)。
+// 一方ブラウザの「戻る」は履歴に残った query 付き URL へ復帰するため、**同じ意味の操作なのに
+// 結果が違う**という不整合になっていた。利用者から見れば「絞り込みが勝手に消える」バグ。
+// Router が直近の一覧ルート (query 込み) を単一ソースとして保持し、両ボタンがそこへ戻る。
+// 「絞り込み無しで入ったのに前回の絞り込みが復活する」逆方向の誤りも同時に検証する。
+test('In-page "back to list" preserves the active filter (and does not resurrect a stale one)', async ({ page }) => {
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('.grid-projects article.card').first()).toBeVisible();
+
+  // 絞り込む → 1 件になることを確認 (件数が減らないと以降が vacuous)
+  await page.getByRole('searchbox', { name: 'プロジェクト検索' }).fill('タスク');
+  await page.locator('select[aria-label="カテゴリフィルター"]').selectOption('Productivity');
+  await expect(page.locator('.grid-projects article.card')).toHaveCount(1);
+
+  // 詳細へ → in-page の「一覧に戻る」
+  await page.locator('.grid-projects article.card').first().getByRole('button', { name: /詳細を見る/ }).click();
+  await expect(page).toHaveURL(/#\/projects\//);
+  await page.getByRole('button', { name: /一覧に戻る/ }).first().click();
+
+  // 絞り込みが保持されている (URL / 入力値 / 選択値 / 件数のすべて)
+  await expect(page.locator('.grid-projects article.card')).toHaveCount(1);
+  await expect(page.getByRole('searchbox', { name: 'プロジェクト検索' })).toHaveValue('タスク');
+  await expect(page.locator('select[aria-label="カテゴリフィルター"]')).toHaveValue('Productivity');
+  await expect(page).toHaveURL(/[?&]cat=Productivity/);
+
+  // 逆方向: 絞り込まずに詳細へ入ったら、戻り先は全件でなければならない
+  // (直近の一覧ルートを覚える実装が「前回の絞り込みを蘇らせる」誤りを起こしていないこと)
+  await page.goto('/#/projects');
+  // NOTE: 直前は絞り込み済み (1 件) の DOM が残っているため「1 枚目が見える」では待てない
+  //   (再描画前の stale な件数を読んでしまい実際に RED になった)。**増える方向の変化**なので
+  //   ここは poll が正しい (不変性の検査ではない)。
+  await expect.poll(() => page.locator('.grid-projects article.card').count()).toBeGreaterThan(1);
+  const total = await page.locator('.grid-projects article.card').count();
+
+  await page.locator('.grid-projects article.card').first().getByRole('button', { name: /詳細を見る/ }).click();
+  await expect(page).toHaveURL(/#\/projects\//);
+  await page.getByRole('button', { name: /一覧に戻る/ }).first().click();
+  await expect(page.locator('.grid-projects article.card')).toHaveCount(total);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `in-page back caused a fatal: ${fatal}`).toBeNull();
+});
