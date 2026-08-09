@@ -200,9 +200,11 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        Check 133 (aio-guard.js の script 配線 → #aio-asset-anchor 保護) と同じ「不可視だが
        load-bearing な AIO 要素」class の entity-anchor 面。判定は要素 (`<div ... id="...">`) を
        見るため、changelog コメント中の id 言及では PASS しない。(BLOCKING)
-  411. WebMCP tool DOM-selector → rendered-markup resolution: the WebMCP (agentic accessibility)
-       tool registered in main.js declares in its own description that it extracts evidence from the
-       page's CURRENT DOM via `document.querySelectorAll('<sel>')`. If that selector resolves to
+  411. querySelectorAll selector → rendered-markup resolution: a selector that matches nothing the
+       app ever renders makes its scan return 0 rows forever, silently disabling the feature built on
+       it. The trigger case was the WebMCP (agentic accessibility) tool in main.js, which declares in
+       its own description that it extracts evidence from the page's CURRENT DOM. If that selector
+       resolves to
        nothing the app actually renders, the tool silently returns its static fallback string forever
        and the declaration is a lie. Measured: BOTH original alternatives (`.role-split-item` and
        `[data-ai-role]`) appeared nowhere in the repo except inside that querySelectorAll itself, so
@@ -213,7 +215,19 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        the machine-readable (AIO/agentic) surface. Class (`.x`) and attribute (`[x]`) selectors are
        resolved against the shipped leaves; tag/compound selectors are honestly excluded as
        statically ambiguous. Same used⟹defined wiring lens as Checks 375 / 376 / 391 / 392 / 395.
-       (BLOCKING)
+       The scan set is DERIVED (main.js + every js/*.js), not just the file that happened to hold the
+       WebMCP tool, so moving the tool into a leaf cannot silently drop it out of coverage and every
+       other scan is held to the same contract (the polarity lesson of Checks 124 / 361: a NEW file is
+       guarded by default). The resolution corpus includes index.html, because static markup emits
+       attributes the JS never writes — measured: `[data-bgm-btn]` exists ONLY in index.html, and as a
+       BARE attribute (`<button data-bgm-btn id=…>`), so quoted-string matching alone reported a false
+       positive; attribute selectors are therefore also matched at HTML attribute position.
+       `_EXT_POINTS411` allowlists the AIDK BindingRegistry attributes (`data-bind-text/show/list`):
+       those are a documented agent-facing extension point ("AI は属性を付与するだけでよい") whose
+       emitter count is legitimately zero, so requiring an emitter would be a false positive on
+       intentional design. Measured non-vacuity in BOTH directions: a consumer-side typo
+       (`[data-bgm-btn]` → `[data-bgm-button]`) and an emitter-side removal (renaming the attribute in
+       index.html) each turn this Check RED. (BLOCKING)
 """
 import re
 import json
@@ -865,28 +879,52 @@ def run(ctx):
     # と同じ used⟹defined wiring レンズの WebMCP 面。
     _main411 = ROOT / "main.js"
     _leaves411 = sorted((ROOT / "js").glob("*.js"))
+    _html411 = ROOT / "index.html"
     if _main411.exists() and _leaves411:
-        _msrc411 = re.sub(r"//[^\n]*", "", _main411.read_text(encoding="utf-8"))
+        # 走査は全 shipped JS から **導出** する (初版は main.js 限定だった)。WebMCP ツールが葉へ
+        # 移っても守り続けるため、および ui-components 等の走査も同じ契約で縛るため。
+        # 新規 file が既定で守られる極性 (Check 124/361 と同じ) を最初から取る。
+        _scan411 = [_main411] + _leaves411
+        _src411 = "\n".join(re.sub(r"(?<!:)//[^\n]*", "", _p411.read_text(encoding="utf-8"))
+                            for _p411 in _scan411)
+        # 解決先の corpus には index.html も含める。topbar 等の静的マークアップが属性を出しており
+        # (実測: data-bgm-btn は index.html にのみ存在)、JS だけを見ると誤検出になる。
         _emitted411 = "".join(_p411.read_text(encoding="utf-8") for _p411 in _leaves411)
+        _emitted_html411 = _html411.read_text(encoding="utf-8") if _html411.exists() else ""
+        # 拡張点の allowlist: AIDK BindingRegistry の宣言的バインディング属性は
+        # 「AI は属性を付与するだけでよい」ための **agent 向け拡張点** であり、現時点で
+        # emitter が 0 なのは設計どおり (js/aidk-rails.js の設計コメントに明文化)。
+        # 契約破れではないため used⟹defined の対象外とする。
+        _EXT_POINTS411 = ("[data-bind-text]", "[data-bind-show]", "[data-bind-list]")
         _unresolved411 = []
-        for _m411 in re.finditer(r"""querySelectorAll\(\s*['"]([^'"]+)['"]""", _msrc411):
+        for _m411 in re.finditer(r"""querySelectorAll\(\s*['"]([^'"]+)['"]""", _src411):
             for _sel411 in [_s411.strip() for _s411 in _m411.group(1).split(",") if _s411.strip()]:
+                if _sel411 in _EXT_POINTS411:
+                    continue
                 if _sel411.startswith("."):
                     _ok411 = f"'{_sel411[1:]}'" in _emitted411 or f'"{_sel411[1:]}"' in _emitted411 \
                         or f"{_sel411[1:]} " in _emitted411 or f" {_sel411[1:]}" in _emitted411
                 elif _sel411.startswith("[") and _sel411.endswith("]"):
-                    _ok411 = f"'{_sel411[1:-1]}'" in _emitted411 or f'"{_sel411[1:-1]}"' in _emitted411
+                    _attr411 = _sel411[1:-1]
+                    # JS 側は h() の prop として引用符付きで出る。HTML 側は値なしの bare 属性
+                    # (`<button data-bgm-btn id=…>`) がありうるため属性位置の正規表現で照合する
+                    # (実測: data-bgm-btn は index.html にこの形でのみ存在し、引用符前提だと誤検出した)。
+                    _ok411 = (f"'{_attr411}'" in _emitted411 or f'"{_attr411}"' in _emitted411
+                              or bool(re.search(r"[\s]" + re.escape(_attr411) + r"(?=[\s=>])",
+                                                _emitted_html411)))
                 else:
                     continue  # タグ/複合セレクタは対象外 (静的解決が曖昧なため honest に除外)
                 if not _ok411:
                     _unresolved411.append(_sel411)
         check(
             not _unresolved411,
-            f"Check 411: main.js の querySelectorAll セレクタが js/ の描画に解決 (WebMCP の DOM 抽出契約が実在)",
-            f"Check 411: main.js の querySelectorAll が実在しないセレクタを走査している: {sorted(set(_unresolved411))} — "
-            "ツールは常に静的フォールバックへ落ち「現在の DOM 状態から抽出」という宣言が嘘になる "
-            "(視覚に出ないため screenshot も behavior e2e も捕捉しない)。描画側に data-ai-role 等の "
-            "機械向けフックを足すか、セレクタを実描画に合わせよ",
+            f"Check 411: 全 shipped JS ({len(_scan411)} file) の querySelectorAll セレクタが実描画に解決 (WebMCP の DOM 抽出契約が実在)",
+            f"Check 411: querySelectorAll が実在しないセレクタを走査している: {sorted(set(_unresolved411))} — "
+            "その走査は永遠に 0 件を返し、機能は静かに無効化される (WebMCP ツールなら「現在の DOM 状態から "
+            "抽出」という宣言が嘘になる)。視覚に出ないため screenshot も behavior e2e も捕捉しない。"
+            "描画側に data-ai-role 等の機械向けフックを足すか、セレクタを実描画 (js/ の h() prop または "
+            "index.html の属性) に合わせよ。agent 向け拡張点として emitter 0 が設計なら "
+            "_EXT_POINTS411 へ理由付きで追加せよ",
             blocking=True,
         )
     else:
