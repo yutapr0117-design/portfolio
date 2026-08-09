@@ -93,6 +93,24 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `AI2AI.md` | 846 | — | `protected` | AIO 正本（canonical）。削らない |
 | `docs/session-records/AI2AI-archive.md` | 1,513 | — | `archive-growth-ok` | セッション証跡。削らない |
 | `ChatGPT2ChatGPT.md` | 1,027 | — | `archive-growth-ok` | AI 間対話証跡。削らない |
+| `e2e/a11y-axe.spec.js` | 134 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/aio-meta.spec.js` | 504 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/apps-ai-notes.spec.js` | 527 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/apps-pomodoro.spec.js` | 456 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/apps-settings-io.spec.js` | 525 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/apps-settings.spec.js` | 502 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/apps-task.spec.js` | 972 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/command-palette.spec.js` | 161 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/drawer.spec.js` | 248 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/fatal.spec.js` | 60 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/focus-regression.spec.js` | 58 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/navigation-a11y.spec.js` | 323 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/portfolio.spec.js` | 44 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/projects.spec.js` | 698 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/quiz.spec.js` | 336 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/resilience.spec.js` | 324 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/security-proxy.spec.js` | 311 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/theme-sw.spec.js` | 201 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 
 予算（上限）は現行行数より少し上に置いてある。これは「いまの行数は許容範囲内であり、ここから大きく増やすな」という意図の表現である。`main.js` は Stage 5-b のページコンポーネント抽出により 5,905→5,292 行（−613 行）に縮小し、続く orphan-comment cleanup で 5,292→5,288 行（−4 行）に微縮小した。累計縮小量は 7,785→5,288 行（**−2,497 行 / −32%**）。次の縮小は service rails（Safe Storage / Store 等、baseline 取得済みのため Stage 5 残りの kernel/render 物理分割も技術的には可能）。
 
@@ -264,6 +282,28 @@ llms-full.txt | - | protected
 AI2AI.md | - | protected
 docs/session-records/AI2AI-archive.md | - | archive-growth-ok
 ChatGPT2ChatGPT.md | - | archive-growth-ok
+# e2e spec は Check 365 の 1,000 行 BLOCKING 上限だけが効いており、超過するまで一切の予告が
+# 無かった (2026-08-09 に apps-settings.spec.js で 2 度連続 BLOCKING を踏み、apps-task.spec.js は
+# 上限まで残り 28 行だった)。900 行の advisory を敷き、BLOCKING の前に Check 52 が警告する二層に
+# する (Check 398 で advisory 本文が読めるようになったため警告が実際に届く)。
+e2e/a11y-axe.spec.js | 900 | advisory
+e2e/aio-meta.spec.js | 900 | advisory
+e2e/apps-ai-notes.spec.js | 900 | advisory
+e2e/apps-pomodoro.spec.js | 900 | advisory
+e2e/apps-settings-io.spec.js | 900 | advisory
+e2e/apps-settings.spec.js | 900 | advisory
+e2e/apps-task.spec.js | 900 | advisory
+e2e/command-palette.spec.js | 900 | advisory
+e2e/drawer.spec.js | 900 | advisory
+e2e/fatal.spec.js | 900 | advisory
+e2e/focus-regression.spec.js | 900 | advisory
+e2e/navigation-a11y.spec.js | 900 | advisory
+e2e/portfolio.spec.js | 900 | advisory
+e2e/projects.spec.js | 900 | advisory
+e2e/quiz.spec.js | 900 | advisory
+e2e/resilience.spec.js | 900 | advisory
+e2e/security-proxy.spec.js | 900 | advisory
+e2e/theme-sw.spec.js | 900 | advisory
 -->
 
 ---
