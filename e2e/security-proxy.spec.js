@@ -102,6 +102,37 @@ test('AIO anchor persists in DOM after route navigation', async ({ page }) => {
 });
 
 
+// ===== aio-guard.js の自己修復が実際に働く (dead-code purge 耐性) =====
+// aio-guard.js の存在意義は「AI エージェントの dead-code purge 等で
+// <div id="aio-asset-anchor" hidden> が消されても復元すること」だが、既存 e2e は
+// **アンカーが存在すること**しか見ておらず、**修復動作そのもの**は一度も検証されていなかった。
+// Check 133 は `<script src="./aio-guard.js">` の配線を強制するが、guard のロジックが壊れても
+// (observe 対象が変わる / _cacheAnchor が早期 return する等) script タグは残るため Check は緑のまま。
+// = 「配線はあるが機能しない」class (#929 の WebMCP と同じレンズ)。
+// アンカーは視覚的に不可視 (hidden) ゆえ screenshot も他の e2e も失われたことに気付けない。
+test('aio-guard restores the hidden AIO anchor after it is removed (self-repair works, not just wired)', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const anchor = page.locator('#aio-asset-anchor');
+  await expect(anchor).toHaveCount(1);
+  // 復元が「空の殻」でないことを後で比べるため、元の意味内容を控える
+  const originalText = (await anchor.textContent()).trim();
+  expect(originalText.length, 'アンカーが意味内容を持つ (空なら以降の検査が vacuous になる)').toBeGreaterThan(0);
+
+  // dead-code purge を模して削除 → 確実に消えたことを先に確認する
+  await page.evaluate(() => document.getElementById('aio-asset-anchor').remove());
+  await expect(anchor).toHaveCount(1, { timeout: 5000 });
+
+  // 復元されたノードは hidden 属性と意味内容を保持している (殻だけ戻す実装では不十分)
+  await expect(anchor).toHaveAttribute('hidden', '');
+  expect((await anchor.textContent()).trim(), '復元されたアンカーが元の意味内容を失っている').toBe(originalText);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `aio-guard self-repair caused a fatal: ${fatal}`).toBeNull();
+});
+
+
 // ===== 7.2: early suppressor — unhandledrejection リスナーの動作確認 =====
 test('Early suppressor: unhandledrejection listener suppresses known patterns', async ({ page }) => {
   await page.goto('/');

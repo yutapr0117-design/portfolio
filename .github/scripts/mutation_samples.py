@@ -978,4 +978,11 @@ E2E_MUTATIONS = [
         "replace": "                    void _observer;",
         "test": "dynamic JSON-LD is injected and tracks the current route",
     },
+    {
+        "name": "behavior: aio-guard の自己修復が働かなくなる回帰 — aio-guard.js の MutationObserver 監視対象を document.body から document.head へ変える → hidden な AIO アンカーが削除されても復元されない。script 配線は残るため Check 133 は緑のまま (= 「配線はあるが機能しない」class・#929 WebMCP と同じレンズ)。視覚に出ない要素ゆえ screenshot も他の e2e も気付けない",
+        "file": ROOT / "aio-guard.js",
+        "find": "        _observer.observe(document.body, { childList: true, subtree: true });\n    }\n\n    // Attach to DOMContentLoaded",
+        "replace": "        _observer.observe(document.head, { childList: true, subtree: true });\n    }\n\n    // Attach to DOMContentLoaded",
+        "test": "aio-guard restores the hidden AIO anchor after it is removed",
+    },
 ]
