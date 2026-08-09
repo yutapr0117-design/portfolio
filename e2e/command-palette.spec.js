@@ -256,3 +256,47 @@ test('Opening the drawer closes the command palette (the reverse direction)', as
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `reverse overlay interaction caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== palette 表示中は背景 (#app) を inert + aria-hidden にする (drawer と同じ契約) =====
+// mobile drawer は開放時に __setAppInert(true) で背景を inert + aria-hidden + pointer-events:none に
+// するのに、command palette は行っていなかった (実測: drawer=inert true / palette=inert false)。
+// **同じ「モーダル」でありながら背景の扱いが非対称**という #262/#946 と同族の抜け。
+// aria-modal="true" だけに頼ると (a) aria-modal の解釈が AT/ブラウザ組み合わせで揺れ背景を読み
+// 進められる (b) 背景がポインタで操作できる。drawer と同じ唯一の実装を共有して揃えた。
+// close 側の解除も検証する — 解除漏れは「操作不能な app が residual に残る」最悪の失敗になるため。
+test('Command palette makes the background inert while open and restores it on close', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const appState = () => page.evaluate(() => {
+    const app = document.getElementById('app');
+    return {
+      inert: !!(app && app.hasAttribute('inert')),
+      ariaHidden: app ? app.getAttribute('aria-hidden') : null,
+      pointerEvents: app ? app.style.pointerEvents : '',
+    };
+  });
+
+  // 初期状態は背景が生きている (これを確認しないと「常に inert」でも緑になる vacuous テストになる)
+  const before = await appState();
+  expect(before.inert, '初期状態では背景は inert でない').toBe(false);
+  expect(before.ariaHidden, '初期状態では aria-hidden も付いていない').toBeNull();
+
+  await page.keyboard.press('Meta+k');
+  await expect.poll(async () => (await appState()).inert).toBe(true);
+  const open = await appState();
+  expect(open.ariaHidden, 'palette 表示中は背景が AT から隠される').toBe('true');
+  expect(open.pointerEvents, 'palette 表示中は背景がポインタ操作を受け付けない').toBe('none');
+
+  // 閉じたら必ず解除される
+  await page.keyboard.press('Escape');
+  await expect.poll(async () => (await appState()).inert).toBe(false);
+  const closed = await appState();
+  expect(closed.ariaHidden, 'close 後に aria-hidden が残ってはならない').toBeNull();
+  expect(closed.pointerEvents, 'close 後に pointer-events:none が残ってはならない').not.toBe('none');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `palette inert handling caused a fatal: ${fatal}`).toBeNull();
+});

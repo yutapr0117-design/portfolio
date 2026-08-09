@@ -10,7 +10,7 @@
  * 依存注入型の葉モジュールである。
  *
  * 【公開 API（main.js から合成）】
- *   const CommandPalette = createCommandPalette({ Router, h, createIcon, State, closeDrawer });
+ *   const CommandPalette = createCommandPalette({ Router, h, createIcon, State, closeDrawer, setAppInert });
  *   CommandPalette.init();   // global Cmd/Ctrl+K keydown を登録
  *
  * 【依存（引数で注入）】
@@ -18,6 +18,8 @@
  *   - h: js/ui-components.js（型安全 DOM ビルダー）
  *   - createIcon: js/ui-components.js（SVG アイコン）
  *   - State: js/state.js factory instance（open 時に現在のプロジェクト一覧を検索対象へ加える）
+ *   - setAppInert: js/mobile-drawer.js の __setAppInert（open/close で背景 #app の inert +
+ *     aria-hidden を切り替える。drawer と同じ唯一の実装を共有し複製 drift を避ける）
  *   - closeDrawer: js/mobile-drawer.js（open 時に mobile drawer を閉じ、aria-modal の領域が
  *     2 つ同時に有効になる二重モーダルを防ぐ。未注入でも動作するよう typeof ガードあり）
  *
@@ -31,7 +33,7 @@
  *     留めたまま ↑↓ が listbox を操作する。SR が active option をアナウンスできるよう input の
  *     aria-activedescendant を _renderList / _highlight が active option の id（cmdk-opt-<i>）へ同期する。
  */
-export function createCommandPalette({ Router, h, createIcon, State, closeDrawer }) {
+export function createCommandPalette({ Router, h, createIcon, State, closeDrawer, setAppInert }) {
     // 横断ナビの固定行き先（curated quick-nav）。label は人間可読、hash は Router.navigate 引数。
     const NAV = [
         { label: 'Home（ホーム）', hash: '' },
@@ -171,6 +173,12 @@ export function createCommandPalette({ Router, h, createIcon, State, closeDrawer
         //   常に 1 つ」を保証する。drawer の close は focus を #menuBtn へ戻すため、直後に捕捉する
         //   lastFocused も palette 閉止後の復帰先として妥当な要素になる。
         if (typeof closeDrawer === 'function') { closeDrawer(); }
+        // [A11Y] 背景 (#app) を inert + aria-hidden にする。mobile drawer は開放時にこれを行うのに
+        //   palette は行っておらず (実測: drawer=inert true / palette=inert false)、**同じ「モーダル」
+        //   でありながら背景の扱いが非対称**だった。aria-modal="true" だけに頼ると (a) aria-modal の
+        //   解釈が AT/ブラウザ組み合わせで揺れ、背景コンテンツを読み進められてしまう (b) 背景が
+        //   ポインタで操作できてしまう。drawer と同じ唯一の実装 (__setAppInert) を注入して揃える。
+        if (typeof setAppInert === 'function') { setAppInert(true); }
         lastFocused = document.activeElement;
         _renderList('');
         inputEl.value = '';
@@ -210,6 +218,8 @@ export function createCommandPalette({ Router, h, createIcon, State, closeDrawer
 
     function close() {
         if (!host) { return; }
+        // 背景の inert を必ず解除する (open と対。解除漏れは操作不能の app を残す最悪の失敗)
+        if (typeof setAppInert === 'function') { setAppInert(false); }
         host.setAttribute('aria-hidden', 'true');
         host.style.display = 'none';
         if (trapHandler) { document.removeEventListener('keydown', trapHandler); trapHandler = null; }

@@ -990,4 +990,11 @@ E2E_MUTATIONS = [
         "replace": "",
         "test": "Opening the drawer closes the command palette",
     },
+    {
+        "name": "a11y: palette 表示中の背景 inert の喪失 — command-palette.js の open() から setAppInert(true) を除去 → 背景 (#app) が AT からもポインタからも生きたままになり、aria-modal='true' の解釈が揺れる AT では背景コンテンツを読み進められる。drawer は同じ状況で inert 化しており、**同じモーダルなのに背景の扱いが非対称**だった class の回帰防止",
+        "file": ROOT / "js" / "command-palette.js",
+        "find": "        if (typeof setAppInert === 'function') { setAppInert(true); }\n",
+        "replace": "",
+        "test": "Command palette makes the background inert while open",
+    },
 ]
