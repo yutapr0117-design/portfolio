@@ -114,6 +114,12 @@ _MUTATIONS_TAIL = [
         "find": "document.querySelectorAll('[data-ai-role]');",
         "replace": "document.querySelectorAll('[data-agent-role]');",
     },
+    {
+        "name": "Check 412 (JSON-LD @id 解決): main.js の動的 JSON-LD が参照する entity ノードを typo させる (#person → #persona) → AI クローラは about の辺を辿れず宙に浮いた参照を得る。視覚に出ないため screenshot も behavior e2e も捕捉しない、機械可読な権威付けの silent な破壊の回帰防止",
+        "file": ROOT / "main.js",
+        "find": "'about': { '@id': SITE_BASE + '#person' },",
+        "replace": "'about': { '@id': SITE_BASE + '#persona' },",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。
