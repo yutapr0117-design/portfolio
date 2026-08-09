@@ -696,3 +696,31 @@ test('Home stat counters reflect real data (todo add increments, hiding a projec
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `home stats caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: プロジェクト → 実デモの起動導線 (ポートフォリオの主要ジャーニー) =====
+// 詳細ページの「アプリを起動」と home 注目枠の「デモ起動」はどちらも Router.navigate(`apps/<demoRoute>`)
+// で内蔵アプリへ飛ぶ。Check 136 は demoRoute の値が router の whitelist に含まれることを静的に守るが、
+// **ボタンが実際に遷移してアプリが描画されるか**は未被覆で、導線が壊れても (誤 route/ハンドラ欠落)
+// route 訪問テストは通ってしまう。閲覧者が「作品を触る」までの導線を実クリックで固定する。
+test('Project demo launch buttons open the embedded app (detail and home featured)', async ({ page }) => {
+  // (1) 詳細ページの「アプリを起動」→ task アプリが描画される
+  await page.goto('/#/projects/task-manager');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('h1', { hasText: 'タスク管理アプリ' })).toBeVisible();
+  await page.getByRole('button', { name: 'アプリを起動' }).click();
+  await expect(page).toHaveURL(/#\/apps\/task$/);
+  await expect(page.getByLabel('新しいタスクを入力')).toBeVisible();
+
+  // (2) home 注目枠の「デモ起動」→ 内蔵アプリへ遷移して描画される
+  await page.goto('/#/');
+  await page.waitForLoadState('domcontentloaded');
+  const featured = page.locator('article.card').filter({ has: page.getByRole('heading', { name: '注目のプロジェクト' }) });
+  await expect(featured).toBeVisible();
+  await featured.getByRole('button', { name: 'デモ起動' }).click();
+  await expect(page).toHaveURL(/#\/apps\/[a-z]+$/);
+  await expect(page.locator('#content h1, #content h2').first()).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `demo launch caused a fatal: ${fatal}`).toBeNull();
+});
