@@ -86,6 +86,11 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
         ));
 
         // 検索結果を載せるホスト (input の外。oninput でここだけ作り直す)
+        // [A11Y 4.1.3] 検索結果件数の live region。従来は 0 件のときだけ空状態 div が role=status を
+        //   持ち **ヒット時は無言**だった (ProjectsPage は件数を通知するのに quiz だけ非対称)。
+        //   listHost は毎キーストローク作り直されるため live region は外側の安定ノードに置く。sr-only。
+        const resultStatus = h("div", { class: 'sr-only', role: 'status', 'aria-live': 'polite' }, '');
+        box.appendChild(resultStatus);
         const listHost = h("div", {});
         box.appendChild(listHost);
 
@@ -124,14 +129,20 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
         function renderList(rawQuery) {
             while (listHost.firstChild) { listHost.removeChild(listHost.firstChild); }
             const { filtered: quizData, query } = _filterBy(rawQuery);
+            const matchCount = Object.keys(quizData).length;
 
-            // 0件時UI
-            if (query && Object.keys(quizData).length === 0) {
-                listHost.appendChild(h("div", {
-                    class: 'card panel-empty',
-                    role: 'status',
-                    'aria-live': 'polite'
-                }, '「' + query + '」に一致する問題は見つかりませんでした。'));
+            // 検索中のみ announce (初期描画で喋らない)。通知は resultStatus へ一本化する — 空状態 div
+            // にも live region を持たせると同じ内容が 2 回読まれる (Toast 二重アナウンス #901 と同 class)。
+            resultStatus.textContent = query
+                ? (matchCount === 0
+                    ? '「' + query + '」に一致する問題は見つかりませんでした。'
+                    : '「' + query + '」に一致する問題 ' + matchCount + ' 件')
+                : '';
+
+            // 0件時UI (視覚表示。読み上げは resultStatus が担当するため live region にはしない)
+            if (query && matchCount === 0) {
+                listHost.appendChild(h("div", { class: 'card panel-empty' },
+                    '「' + query + '」に一致する問題は見つかりませんでした。'));
                 return;
             }
 

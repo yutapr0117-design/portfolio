@@ -104,6 +104,13 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "a11y: quiz 検索のヒット件数アナウンス喪失 — quiz-renderer.js の resultStatus からヒット時の件数文言を空文字へ戻す → 0 件時だけ喋りヒット時は無言という旧非対称に退行し、SR 利用者は絞り込みが効いたのか結果が何件なのか分からない (WCAG 4.1.3 Status Messages・ProjectsPage は件数を通知しているのに quiz だけ無言だった実 gap の回帰防止)",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "                    : '「' + query + '」に一致する問題 ' + matchCount + ' 件')",
+        "replace": "                    : '')",
+        "test": "Quiz search announces the match count",
+    },
+    {
         "name": "a11y: BGM ボタンの状態同期喪失 — js/ui-components.js の _syncAll から `btn.setAttribute('aria-pressed', String(_on))` を除去 → 再生中でも SR には常に「押されていない」と報告される (aria-pressed が false 固定)。BGM は behavior e2e 完全未カバーで Check 376 も action の解決しか見ないため、この退行はどの gate も通り抜けていた。新設 BGM a11y test の非 vacuity 検証",
         "file": ROOT / "js" / "ui-components.js",
         "find": "            btn.setAttribute('aria-pressed', String(_on));",
