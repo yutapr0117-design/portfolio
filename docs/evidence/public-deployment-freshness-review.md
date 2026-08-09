@@ -166,6 +166,47 @@ exact HTTP status or error), (3) the recorded facts about the source of truth �
 nowhere**: per §0 and §5 it is never a reason to roll the repository back, and a `--markdown` block reports
 the canary only as a presence boolean so the log never becomes a second published copy of the token.
 
+### 2026-08-10 — 安全網 CI 化 run; public endpoint が **初めて `fresh` として観測された**
+
+本層の導入以降、公開エンドポイントの観測は 2026-06-05 / 2026-06-07 の 2 回とも `unobservable`
+(HTTP 403 Forbidden — 当時の実行環境の egress allowlist が `*.github.io` への outbound を許さなかった)
+であり、**公開面が正本と一致していることを実際に確認できたのは今回が初めて**である。
+今回の実行環境 (ローカル macOS・AI 自走用 setup) は当該 fetch が許可されており、
+`fetch_ok: True` / `public_last_updated: 2026-06-02` / canary expected・public ともに present で
+classification は `fresh`。前回観測から約 2 か月・その間に多数の increment が main へ入っているが、
+**AIO 正本層 (`llms*` / `.well-known/*` / JSON-LD / binary metadata) はいずれの increment でも
+変更していない** ため expected 値は 2026-06-02 のまま不変であり、公開面もそれと一致した。
+
+観測ブロックは `--markdown` の出力そのもの (canary は presence boolean のみ・リテラルは決して載せない):
+
+```text
+### Observation — 2026-08-09T19:18:27Z
+
+| field | value |
+|---|---|
+| `observed_at` | 2026-08-09T19:18:27Z |
+| `public_url` | https://yutapr0117-design.github.io/portfolio/llms.txt |
+| `source_of_truth` | working-copy llms.txt |
+| `expected_last_updated` | 2026-06-02 (from working-copy llms.txt) |
+| `fetch_ok` | True |
+| `public_last_updated` | 2026-06-02 |
+| `canary_present` (expected / public) | True / True |
+| `classification` | **fresh** |
+
+Notes:
+- The public surface matches the source of truth (Last-Updated and canary aligned).
+```
+
+Recorded facts about the source of truth at the time of this entry:
+
+- `llms.txt` は `Last-Updated: 2026-06-02` を宣言し provenance canary を 1 個含む (count 1)。
+  本 run の increment はいずれも AIO 正本層を touch していないため digest 再生成も無く、
+  expected な公開 `Last-Updated` は前エントリから不変。
+- 本 run で `mutation-probe.yml` (週次の安全網自己検証 workflow) を新設した。これは CI 層の追加であり
+  公開面には影響しない。
+- 検証は緑: `npm run verify` exit 0 / consistency mutation-probe **All 300 caught** /
+  behavior mutation-probe **All 125 caught** (0 SURVIVED)。
+
 ### 2026-06-07 — baseline-gate-doc-hardening increment; public endpoint re-observed as `unobservable` (HTTP 403)
 
 Re-running the observer from the working-copy verification environment produced exit 0 with classification
