@@ -172,7 +172,16 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
         }
 
         function addProjectManual() {
-            if (!settingsNewName.trim()) { Toast.show('プロジェクト名を入力してください', 'error'); return; }
+            // [A11Y 3.3.1/2.4.3] 検証エラーを Toast だけで伝えると SR は「どの入力が不正か」を判別できず
+            //   フォームを探し直すことになる。不正な入力へ aria-invalid を立て focus を移す
+            //   (quiz フォーム #913 と同じ扱い。属性 + focus のみ = 視覚描画は不変)。
+            const nameEl = document.getElementById('settingsNewName');
+            if (!settingsNewName.trim()) {
+                if (nameEl) { nameEl.setAttribute('aria-invalid', 'true'); nameEl.focus(); }
+                Toast.show('プロジェクト名を入力してください', 'error');
+                return;
+            }
+            if (nameEl) { nameEl.removeAttribute('aria-invalid'); }
             State.update(s => {
                 // [FIX] slug 衝突回避: slugify は決定的なので同名追加だと slug が重複し、
                 // ProjectDetailPage の find(p.slug===slug) が先頭のみ返して片方の詳細が到達不能に
