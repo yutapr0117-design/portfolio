@@ -369,3 +369,29 @@ for (const key of PROTO_KEYS) {
     expect(fatal, `?type=${key} caused a fatal: ${fatal}`).toBeNull();
   });
 }
+
+
+// ===== 装飾絵文字が支援技術に読み上げられない (WCAG 1.1.1 Non-text Content) =====
+// quiz の章アイコン (🏛️ 🗄️ 🔌 …) とゾーンラベルの接頭絵文字 (📋 状況 / 💬 … / 🎯 問) は純粋な装飾で、
+// 意味は隣接するテキストが担う。aria-hidden が無いと SR は章題の前に「classical building」等を読み上げ、
+// 全章・全問で意味の無い語が挟まる (実測: アクセシビリティツリーに絵文字がそのまま露出していた)。
+// axe は装飾テキストの露出をルール化していないため、本テストが唯一の gate。
+// 検証は DOM 属性ではなく **アクセシビリティツリー** を見る (属性の有無ではなく「AT に何が渡るか」が契約)。
+const QUIZ_DECORATIVE_EMOJI = ['🏛️', '🗄️', '🔌', '⚖️', '🚨', '🔁', '📌', '📝', '📋', '💬', '🎯'];
+test('Quiz decorative emoji are hidden from the accessibility tree (WCAG 1.1.1)', async ({ page }) => {
+  await page.goto('/#/quiz?type=architecture');
+  await page.waitForLoadState('domcontentloaded');
+
+  // 描画確定を待ってから不在検査する (goto 直後の評価は async 描画とレースし vacuous になる)
+  await expect(page.locator('#content h1')).toHaveText('設計判断問題集');
+  await expect(page.locator('.quiz-section-icon').first()).toBeVisible();
+
+  const snapshot = await page.locator('#content').ariaSnapshot();
+  const leaked = QUIZ_DECORATIVE_EMOJI.filter(e => snapshot.includes(e));
+  expect(leaked, `装飾絵文字がアクセシビリティツリーに露出: ${JSON.stringify(leaked)}`).toEqual([]);
+
+  // 視覚的には従来どおり表示され続ける (aria-hidden は描画に影響しない = 非破壊)
+  await expect(page.locator('.quiz-section-icon').first()).toContainText('🏛️');
+  // ラベルの意味語は AT に残る (絵文字だけを隠し、テキストは隠していないことの確認)
+  expect(snapshot).toContain('状況');
+});
