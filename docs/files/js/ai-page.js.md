@@ -29,6 +29,7 @@ canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/state.js (appsData
 - **葉契約 (Check 47c)**: ローカル ESM import ゼロ。h / createIcon / State / CONSTANTS は全て引数注入。window.render / document はグローバル。
 - **非破壊**: 関数本体と private state (aiLoading) は抽出元から無改変 (byte-equivalent)。behavior e2e (AI assist 応答生成 / AI history bound) が保証。
 - **import bijection (Check 47)**: main.js の `import { createAIPage }` ↔ 本ファイルの `export function createAIPage` が一致。
+- **入力上限の一致 (Check 410)**: prompt を `slice(0, LIMITS.AI_MESSAGE)` で保存するため、同じ定数で `maxlength` を宣言すること。「入力できる範囲」と「保存される範囲」を単一の定数から導く契約。
 - **IME ガード (Check 112b)** / **focus-loss ガード (Check 130)**: Enter ハンドラの isComposing 参照・oninput の State.update 非使用は本ファイルでも維持。
 
 ## Change impact
