@@ -360,3 +360,37 @@ test('SPA still renders when localStorage access itself throws (private-mode cla
   expect(fatal, `localStorage 不在で fatal: ${fatal}`).toBeNull();
   expect(pageErrors, `localStorage 不在で uncaught error: ${pageErrors.join(' / ')}`).toEqual([]);
 });
+
+
+// ===== 7.1: crypto.randomUUID 不在でも一意 ID 生成が壊れない (非セキュアコンテキスト) =====
+// `crypto.randomUUID` は **セキュアコンテキスト限定** API で、http:// の LAN プレビュー
+// (例: PC の http-server を同一 LAN のスマホから開く) では undefined になる。pure-utils.js の
+// generateId は Math.random ベースの RFC 4122 互換フォールバックを持つが e2e 未被覆で、
+// フォールバックを失うと **その閲覧経路でだけ** 項目追加が例外になり誰も気付けなかった。
+// randomUUID を undefined にした状態でプロジェクト追加が成功し uncaught error も出ないことを固定する。
+test('Item creation still works when crypto.randomUUID is unavailable (insecure-context class)', async ({ page }) => {
+  await page.addInitScript(() => {
+    try { Object.defineProperty(crypto, 'randomUUID', { configurable: true, value: undefined }); } catch (e) { /* noop */ }
+  });
+  const pageErrors = [];
+  page.on('pageerror', (e) => pageErrors.push(e.message));
+
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  expect(await page.evaluate(() => typeof crypto.randomUUID), 'probe 前提: randomUUID は不在').toBe('undefined');
+
+  const name = 'NO-UUID-PROJ-9960';
+  await page.getByPlaceholder('プロジェクト名').fill(name);
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect(page.locator('#toast-container').getByText('プロジェクトを追加しました')).toBeVisible();
+
+  // 公開一覧にも出る (= 生成した id/slug が正常に機能している)
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('.grid-projects article h2').first()).toBeVisible();
+  await expect(page.getByText(name).first()).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `randomUUID 不在で fatal: ${fatal}`).toBeNull();
+  expect(pageErrors, `randomUUID 不在で uncaught error: ${pageErrors.join(' / ')}`).toEqual([]);
+});

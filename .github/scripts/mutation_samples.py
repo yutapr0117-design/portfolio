@@ -924,6 +924,13 @@ E2E_MUTATIONS = [
         "test": "Quiz search term does not leak across quiz types",
     },
     {
+        "name": "resilience: crypto.randomUUID 不在環境で項目追加が壊れる — js/pure-utils.js の generateId のフォールバック本体 (Math.random ベースの RFC 4122 テンプレート) を潰す → randomUUID はセキュアコンテキスト限定 API ゆえ http:// の LAN プレビュー (PC の http-server をスマホから開く等) で undefined になり、その閲覧経路でだけ項目追加が例外になる。なお feature-detection (typeof crypto...) を外すだけでは外側の try/catch が TypeError を吸収してフォールバックが働くため mutation として no-op = vacuous になる (実測済)。フォールバック本体を潰す形が正しい非 vacuity 検証",
+        "file": ROOT / "js" / "pure-utils.js",
+        "find": "    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {",
+        "replace": "    return crypto.randomUUID();\n    // eslint-disable-next-line no-unreachable\n    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {",
+        "test": "Item creation still works when crypto.randomUUID is unavailable",
+    },
+    {
         "name": "resilience: localStorage 不在環境での白画面化 — js/storage.js の get() から try/catch を外し素の localStorage アクセスへ → プライベートブラウジング等で localStorage アクセス自体が SecurityError を投げる環境の全ユーザーがコンテンツ非描画 (白画面) になる。quota 超過 (書き込み失敗) とは別クラスの堅牢性の回帰防止",
         "file": ROOT / "js" / "storage.js",
         "find": "        try {\n            return localStorage.getItem(key);",
