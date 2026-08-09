@@ -985,4 +985,11 @@ E2E_MUTATIONS = [
         "replace": "            if (false) {",
         "test": "Task board explains why it is empty",
     },
+    {
+        "name": "behavior: ポモドーロ当日要約の集計誤り — pomodoro-page.js の当日フィルタ (timestamp >= 当日 0 時) を外す → 昨日以前の完了セッションまで『今日の実績』に数え、利用者が今日の進捗を誤認する。記録しているのに画面に出していなかった history を要約表示した増分の回帰防止",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": "e.type === 'work' && e.timestamp >= _start).length",
+        "replace": "e.type === 'work').length",
+        "test": "Pomodoro shows today",
+    },
 ]
