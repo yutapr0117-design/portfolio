@@ -104,6 +104,12 @@ _MUTATIONS_TAIL = [
         "replace": "    for w in []:",
     },
     {
+        "name": "Check 375b (未使用アイコンの再蓄積): js/ui-components.js の getIcons() へ一度も使われないアイコン定義を追加 → 全ユーザーへ配信される dead weight が Check 120 の byte 予算を無言で圧迫する状態へ退行 (導入時に 16 件 1,996 bytes の never-wired 残骸を検出・除去した class の再発防止)",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "            trash: ",
+        "replace": "            zzUnusedProbe: `<path d=\"M1 1h2\"/>`,\n            trash: ",
+    },
+    {
         "name": "Check 119b (docstring ⟹ 署名の逆方向 drift): js/ai-page.js の docstring【依存】節へ factory 署名に無い架空依存 (Router) を宣言 → 次の AI が onboarding substrate として読む docstring が誤った依存契約を教える (実装を読むまで気付けない)。119a は署名 ⟹ docstring 方向しか見ず本 drift を素通りしていた実測 gap の回帰防止",
         "file": ROOT / "js" / "ai-page.js",
         "find": " *   - announce: 唯一の SR 通知チャネル (js/ui-components.js) — 応答完了の status message",

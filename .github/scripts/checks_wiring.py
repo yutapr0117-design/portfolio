@@ -69,6 +69,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (before the top-level `?`) are excluded so comparisons like `state.theme === 'dark' ?`
        are not mistaken for icon names. Comments are stripped and the root entry `main.js` is
        scanned too. (BLOCKING)
+       375b is the REVERSE direction (defined ⟹ used): an icon sitting in the registry that no
+       call site ever names is dead weight shipped to every visitor. Measured when adopting it:
+       16 of 50 keys (1,996 bytes) were never wired — `git log -S "createIcon('<name>')"` returned
+       zero commits for each, so they were speculative additions, not lost wiring. They silently
+       ate into the Check 120 byte budget. If a future increment legitimately needs an icon
+       defined ahead of its use, add the call site in the same PR or carve it out explicitly —
+       do not delete the Check. (BLOCKING)
   376. data-action → ActionDelegator handler resolution: the AIDK ActionDelegator (js/aidk-rails.js)
        is a single document-level click delegator — an element carrying `data-action="X"` triggers
        `_handlers[X]` on click, and if X is not a registered handler key the lookup returns undefined
@@ -362,6 +369,19 @@ def run(ctx):
                 _used375.setdefault(_mm375.group(1), str(_f375.relative_to(ROOT)))
         _unresolved375 = sorted(
             f"{_n375} ({_used375[_n375]})" for _n375 in _used375 if _n375 not in _keys375
+        )
+        # [375b] 逆方向 (定義 ⟹ 使用)。registry に足したまま一度も使われないアイコンは全ユーザーへ
+        #   配信される dead weight (実測: 16 件 = 1,996 bytes が never-wired。git -S で createIcon('<name>')
+        #   を含む commit がゼロ＝lost-wiring でなく初版からの残骸と確認済)。Check 120 の byte 予算を
+        #   無言で圧迫するため「定義したら使う」を強制する。先行定義が必要なら本 Check を落とさず、
+        #   使用箇所を同 PR で足すか意図を明記して carve-out すること。
+        _unused375 = sorted(_keys375 - set(_used375))
+        check(
+            not _unused375,
+            f"Check 375b: getIcons() registry に未使用アイコンなし ({len(_keys375)} key すべて使用)",
+            f"Check 375b: 一度も使われないアイコンが registry にある: {_unused375} — 全ユーザーへ配信される "
+            "dead weight で Check 120 の byte 予算を無言で圧迫する。使用箇所を足すか registry から除去せよ",
+            blocking=True,
         )
         check(
             bool(_keys375) and not _unresolved375,
