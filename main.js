@@ -823,7 +823,7 @@
         // command palette の late-binding holder (drawer より後に生成されるため)
         const _palette = {};
         const {
-            syncMobileDrawer, secureExternalLinks, openDrawer, closeDrawer
+            syncMobileDrawer, secureExternalLinks, openDrawer, closeDrawer, setAppInert
         } = createMobileDrawer({
             CONSTANTS, clear, Sidebar,
             // command palette は本 factory より後に生成されるため late-binding holder 経由で解決する
@@ -846,7 +846,7 @@
         _fatalOverlay.install();
 
         // Command palette（Cmd/Ctrl+K 横断ナビ overlay）を合成。init() で global keydown を登録。
-        const CommandPalette = createCommandPalette({ Router, h, createIcon, State, closeDrawer });
+        const CommandPalette = createCommandPalette({ Router, h, createIcon, State, closeDrawer, setAppInert });
         // createMobileDrawer へ渡した closePalette の late-binding を解決する (holder へ実体を代入)。
         Object.assign(_palette, CommandPalette);
 

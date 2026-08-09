@@ -230,6 +230,9 @@ export function createMobileDrawer({ CONSTANTS, clear, Sidebar, closePalette }) 
 
     return {
         syncMobileDrawer, secureExternalLinks,
-        openDrawer, closeDrawer
+        openDrawer, closeDrawer,
+        // 背景 (#app) の inert 化は command palette も同じ契約を要する。実装を複製すると
+        // drift するため (Check 100 等が示す単一ソース原則) 唯一の実装をここから公開する。
+        setAppInert: __setAppInert
     };
 }
