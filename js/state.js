@@ -192,6 +192,46 @@ export function createState({ CONSTANTS, Store, Storage, Toast }) {
     });
     // [NOTE] beforeunload is deprecated for reliable state saving on mobile, rely on visibilitychange.
 
+    // ===== Cross-tab 採用の延期機構 =====
+    // 採用 (validateAndNormalize + notify) を 1 箇所に集約し、編集中は blur まで待つ。
+    // pending は最後の 1 件のみ保持する (中間状態を順に適用する意味は無く、最新が正)。
+    let _pendingIncoming = null;
+    let _pendingBlurTarget = null;
+
+    function _adopt(incoming) {
+        data = Store.validateAndNormalize(incoming);
+        notify();
+        Toast.show('別タブで更新されました', 'info');
+    }
+
+    function _isEditingElement(el) {
+        if (!el) { return false; }
+        if (el.isContentEditable) { return true; }
+        const tag = el.tagName;
+        if (tag === 'TEXTAREA') { return true; }
+        if (tag !== 'INPUT') { return false; }
+        // ボタン系 input は「編集中」ではない (押下で focus が乗るだけ)
+        return !['button', 'submit', 'reset', 'checkbox', 'radio', 'file'].includes(
+            (el.type || 'text').toLowerCase());
+    }
+
+    function _deferIfEditing(incoming) {
+        const el = document.activeElement;
+        if (!_isEditingElement(el)) { return false; }
+        _pendingIncoming = incoming;
+        if (_pendingBlurTarget !== el) {
+            _pendingBlurTarget = el;
+            el.addEventListener('blur', () => {
+                _pendingBlurTarget = null;
+                const pending = _pendingIncoming;
+                _pendingIncoming = null;
+                // blur までに自タブが更に書いていれば古い incoming は捨てる (last-writer-wins を維持)
+                if (pending && pending.lastModified > data.lastModified) { _adopt(pending); }
+            }, { once: true });
+        }
+        return true;
+    }
+
     // Cross-tab sync
     window.addEventListener('storage', (e) => {
         if (e.key === CONSTANTS.STORAGE_KEY && e.newValue) {
@@ -207,9 +247,14 @@ export function createState({ CONSTANTS, Store, Storage, Toast }) {
                     // schema 不一致は採用を見送り (現タブの正常 state を保持＝非破壊・データ欠落なし)、
                     // 一致時のみ validateAndNormalize で欠損を backfill してから採用する。
                     if (incoming.schemaVersion !== CONSTANTS.SCHEMA_VERSION) {return;}
-                    data = Store.validateAndNormalize(incoming);
-                    notify();
-                    Toast.show('別タブで更新されました', 'info');
+                    // [FIX] 入力中は採用を blur まで延期する。採用は notify() = #content 全再描画を
+                    //   伴うため、そのまま適用すると **利用者が今書いているテキストと focus が消える**
+                    //   (実測: 別タブでタスクを 1 件追加しただけで、こちらのタブの notes 編集中テキストが
+                    //   巻き戻り activeElement が body へ落ちた)。#258 の「再描画が focused input を
+                    //   破棄する」class が、自分のキーストロークではなく外部イベント起点で起きていた。
+                    //   延期しても失うものは無い: 採用は blur 時に lastModified を再判定して行う。
+                    if (_deferIfEditing(incoming)) {return;}
+                    _adopt(incoming);
                 }
             } catch { }
         }

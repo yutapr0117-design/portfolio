@@ -358,6 +358,12 @@ test('Cross-tab sync ignores a foreign-schema/malformed store without crashing',
   await input.press('Enter');
   await expect(page.getByText(ownTitle)).toBeVisible();
 
+  // [重要] 注入前に blur する。タスク追加の Enter 後は #task-input に focus が戻るため、
+  //   そのまま注入すると state.js の「編集中は cross-tab 採用を blur まで延期する」ガード
+  //   (in-progress edit の破壊を防ぐ実バグ修正) を通ってしまい、本テストが検証したい
+  //   **採用経路そのもの** が走らない = 何を壊しても緑になる vacuous テストになる。
+  await page.evaluate(() => document.activeElement && document.activeElement.blur());
+
   // 別タブからの「より新しいが schema 不一致 + appsData 欠落」な書き込みを synthetic に注入する。
   // STORAGE_KEY / SCHEMA_VERSION は js/constants.js の値 (Check 100 が theme-init と一致を強制)。
   await page.evaluate(() => {
@@ -645,4 +651,48 @@ test('Task and Todo filter changes are announced with the option name and count 
 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `filter announce caused a fatal: ${fatal}`).toBeNull();
+});
+
+
+// ===== cross-tab 更新が「入力中」のテキストと focus を破壊しない (実バグ #939 系) =====
+// storage イベントによる採用は notify() = #content 全再描画を伴う。従来はこれを無条件に適用して
+// いたため、**別タブでタスクを 1 件追加しただけで、こちらのタブで書きかけの notes が巻き戻り
+// activeElement が body へ落ちた**（実測）。#258 の「再描画が focused input を破棄する」class が、
+// 自分のキーストロークではなく外部イベント起点で起きていたもの。
+// 修正は「編集中なら採用を blur まで延期する」。延期であって破棄ではないため、cross-tab 更新自体は
+// 失われない — 後半でそれも検証する（延期が握り潰しになっていたら、それは別の退行になる）。
+test('Cross-tab update does not destroy an in-progress edit, and is adopted on blur', async ({ context }) => {
+  const tabA = await context.newPage();
+  await tabA.goto('/#/apps/notes');
+  await tabA.waitForLoadState('domcontentloaded');
+  await tabA.locator('#notes-input').click();
+  await tabA.keyboard.type('TAB-A-編集中');
+  // 自タブの debounce save を先に確定させ、incoming が「より新しい」状況を確実に作る
+  await tabA.waitForTimeout(700);
+
+  const tabB = await context.newPage();
+  await tabB.goto('/#/apps/task');
+  await tabB.waitForLoadState('domcontentloaded');
+  await tabB.locator('#task-input').fill('TAB-B-タスク');
+  await tabB.locator('#task-input').press('Enter');
+  await expect(tabB.locator('#content')).toContainText('TAB-B-タスク');
+
+  await tabA.bringToFront();
+  await tabA.waitForTimeout(600);
+
+  // 1. 書きかけのテキストが残っている (修正前はここで巻き戻っていた)
+  await expect(tabA.locator('#notes-input')).toHaveValue(/TAB-A-編集中/);
+  // 2. focus も奪われていない (toBeFocused は並列ワーカーで不安定なため activeElement を直接読む)
+  const focusedId = await tabA.evaluate(() => (document.activeElement && document.activeElement.id) || 'none');
+  expect(focusedId, 'cross-tab 更新が編集中フィールドから focus を奪った').toBe('notes-input');
+
+  // 3. blur すると保留していた cross-tab 更新が採用される (= 握り潰していない)
+  //    リロードすると localStorage の書き込み競合を見てしまうため、SPA 内遷移で in-memory state を見る
+  await tabA.evaluate(() => document.getElementById('notes-input')?.blur());
+  await tabA.waitForTimeout(700);
+  await tabA.evaluate(() => { location.hash = '#/apps/task'; });
+  await expect(tabA.locator('#content')).toContainText('TAB-B-タスク');
+
+  const fatal = await tabA.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `cross-tab defer caused a fatal: ${fatal}`).toBeNull();
 });
