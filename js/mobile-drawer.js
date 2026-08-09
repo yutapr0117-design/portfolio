@@ -14,6 +14,9 @@
  *   - CONSTANTS: js/constants.js (MOBILE_BREAKPOINT)
  *   - clear: main.js IIFE 内の純粋関数（DOM の子要素を全削除）
  *   - Sidebar: js/components.js factory instance の Sidebar 関数
+ *   - closePalette: js/command-palette.js の close（main.js が late-binding holder 経由で注入）。
+ *     openDrawer 時に command palette を閉じ、aria-modal の領域が 2 つ同時に有効になる二重モーダルを
+ *     防ぐ。palette 側 open() の closeDrawer と対をなす。未注入でも動作するよう typeof ガードあり
  *
  * 【factory closure 内の private state】
  *   - __drawerTrapHandler: focus trap のイベントハンドラ参照
@@ -37,7 +40,7 @@
  *   呼ぶため、本 factory の戻り値から secureExternalLinks を取り出して createAIDKRails の
  *   引数にも渡す（main.js の合成側で行う）。
  */
-export function createMobileDrawer({ CONSTANTS, clear, Sidebar }) {
+export function createMobileDrawer({ CONSTANTS, clear, Sidebar, closePalette }) {
     // ===== Mobile Drawer =====
     function syncMobileDrawer() {
         const isMobile = window.matchMedia(`(max-width: ${CONSTANTS.MOBILE_BREAKPOINT}px)`).matches;
@@ -156,6 +159,13 @@ export function createMobileDrawer({ CONSTANTS, clear, Sidebar }) {
         const menuBtn = document.getElementById('menuBtn');
 
         if (!drawer || !overlay) {return;}
+
+        // [FIX] 二重モーダルの防止 (逆方向)。command palette は overlay であって #app の inert 対象
+        //   ではないため、palette 表示中も #topbar の menuBtn はクリックでき、そのまま drawer が開くと
+        //   aria-modal="true" の領域が 2 つ同時に有効になる (実測: visibleModals=2)。palette 側の
+        //   open() が drawer を閉じる対の処理と合わせ、**どちらの順序でも開くモーダルは常に 1 つ**に
+        //   なる。片方向だけ塞ぐと「1 ケースだけ処理して他を忘れる」非対称バグになる (CLAUDE.md §7)。
+        if (typeof closePalette === 'function') { closePalette(); }
 
         // [FIX] 既に開いている場合は再入しない (idempotency)。#menuBtn は #topbar 内＝#app の外に
         // あり __setAppInert の inert 対象外ゆえ、drawer 開放中も menuBtn はクリック可能。menuBtn は
