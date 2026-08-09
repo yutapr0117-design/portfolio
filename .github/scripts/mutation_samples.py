@@ -987,4 +987,11 @@ E2E_MUTATIONS = [
         "replace": "                        case 'role-split':\n",
         "test": "renders without runtime errors",
     },
+    {
+        "name": "a11y: quiz 章アイコンの装飾絵文字が SR に読み上げられる回帰 — quiz-renderer.js の quiz-section-icon から aria-hidden を外す → アクセシビリティツリーに 🏛️ 等が露出し、SR は全章で章題の前に「classical building」等の無意味な語を読む (WCAG 1.1.1・axe は装飾テキスト露出をルール化しないため behavior e2e が唯一の gate)",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "{ class: \"quiz-section-icon\", 'aria-hidden': 'true' }, icons[sIdx]",
+        "replace": "{ class: \"quiz-section-icon\" }, icons[sIdx]",
+        "test": "decorative emoji are hidden from the accessibility tree",
+    },
 ]

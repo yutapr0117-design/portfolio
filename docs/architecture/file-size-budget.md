@@ -148,7 +148,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 721000 -->
+<!-- PERF-BUDGET-DATA 722000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -159,6 +159,10 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      選択肢へ漏れていた実バグの修正 (4 listing 面へ hiddenIds を適用 + 全件非表示時の fallback) と
      その WHY コメントで実測が 712,892 bytes に到達。genuine な user-visible bug fix ゆえ実態 +
      約 1,100 bytes の headroom へラチェット。
+     721,000 → 722,000 (2026-08-10)。quiz の装飾絵文字 (章アイコン 🏛️ 等 / ゾーンラベル接頭の 📋 💬 🎯) が
+     アクセシビリティツリーへそのまま露出し、SR が全章・全問で「classical building」等の無意味な語を読んでいた
+     WCAG 1.1.1 の実測 gap の修正。aria-hidden 属性 5 箇所 + 接頭絵文字を包む span 3 個 + WHY コメントで
+     実測 721,415 bytes。描画は不変 (aria-hidden は視覚に影響しない)。約 600 bytes の headroom へ最小ラチェット。
      720,000 → 721,000 (2026-08-09)。UI 入力の maxlength 欠落による silent truncation の修正。保存側は
      LIMITS.<KEY> で slice するのに入力要素に上限が無く、超過分が黙って捨てられていた (notes editor は
      画面にもプレビューにも表示され続けたままリロードで初めて消失が判明する silent data-loss)。4 入力

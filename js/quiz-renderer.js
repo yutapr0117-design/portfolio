@@ -172,8 +172,11 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
 
                     const sCard = h("div", { class: "quiz-section-card" });
 
+                    // [A11Y 1.1.1] 章アイコンとゾーンラベルの絵文字は純粋な装飾。aria-hidden が
+                    //   無いと SR は章題の前に「classical building」等を読み上げ、全章・全問で
+                    //   意味の無い語が挟まる (実測: アクセシビリティツリーに絵文字が露出)。
                     const sHeader = h("div", { class: "quiz-section-header" });
-                    sHeader.appendChild(h("div", { class: "quiz-section-icon" }, icons[sIdx] || '📌'));
+                    sHeader.appendChild(h("div", { class: "quiz-section-icon", 'aria-hidden': 'true' }, icons[sIdx] || '📌'));
                     sHeader.appendChild(h("div", { class: "quiz-section-title" }, section));
                     sCard.appendChild(sHeader);
 
@@ -188,7 +191,7 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
 
                         // 状況ゾーン
                         const sitZone = h("div", { class: "quiz-zone" });
-                        sitZone.appendChild(h("div", { class: "quiz-zone-label situation" }, "📋 状況"));
+                        sitZone.appendChild(h("div", { class: "quiz-zone-label situation" }, h("span", { 'aria-hidden': 'true' }, "📋 "), "状況"));
                         const sitBody = h("div", { class: "quiz-zone-body" });
                         q.situation.forEach(line => {
                             sitBody.appendChild(h("p", { text: line }));
@@ -198,7 +201,7 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
 
                         // ステークホルダーゾーン
                         const shZone = h("div", { class: "quiz-zone" });
-                        shZone.appendChild(h("div", { class: "quiz-zone-label stakeholder" }, "💬 ステークホルダーの主張"));
+                        shZone.appendChild(h("div", { class: "quiz-zone-label stakeholder" }, h("span", { 'aria-hidden': 'true' }, "💬 "), "ステークホルダーの主張"));
                         q.stakeholders.forEach(sh => {
                             const quote = h("div", { class: "quiz-stakeholder-quote" });
                             quote.appendChild(h("span", { class: "quiz-stakeholder-name" }, sh.name + ":"));
@@ -209,7 +212,7 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
 
                         // 問ゾーン
                         const qZone = h("div", { class: "quiz-zone" });
-                        qZone.appendChild(h("div", { class: "quiz-zone-label question" }, "🎯 問"));
+                        qZone.appendChild(h("div", { class: "quiz-zone-label question" }, h("span", { 'aria-hidden': 'true' }, "🎯 "), "問"));
                         qZone.appendChild(h("div", { class: "quiz-question-prompt" }, q.question));
                         qBlock.appendChild(qZone);
 
@@ -227,7 +230,7 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
                     const sCard = h("div", { class: "quiz-section-card" });
 
                     const sHeader = h("div", { class: "quiz-section-header" });
-                    sHeader.appendChild(h("div", { class: "quiz-section-icon" }, "📝"));
+                    sHeader.appendChild(h("div", { class: "quiz-section-icon", 'aria-hidden': 'true' }, "📝"));
                     sHeader.appendChild(h("div", { class: "quiz-section-title" }, section));
                     sCard.appendChild(sHeader);
 
