@@ -968,4 +968,11 @@ E2E_MUTATIONS = [
         "replace": "",
         "test": "Opening and closing the command palette preserves the scroll position",
     },
+    {
+        "name": "behavior: フィルタ操作が履歴を汚す回帰 — projects-page.js の syncURL を Router.replaceSilently から Router.navigate へ変える → 検索語 1 文字ごとに history entry が積まれ、3 文字打つと『戻る』を 3 回押さないとページを離れられない典型的な SPA 退行になる (replaceSilently は history.replaceState でこれを防いでいる)",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "Router.replaceSilently('projects' + ",
+        "replace": "Router.navigate('projects' + ",
+        "test": "Browser back/forward moves between routes and filtering does not pollute history",
+    },
 ]
