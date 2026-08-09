@@ -363,6 +363,66 @@ test('Projects page normalizes an invalid ?cat= to All (control↔filter desync 
 });
 
 
+// ===== 7.2: 検索 × カテゴリの併用 (AND 合成) と両 param の URL round-trip =====
+// getFilteredProjects() は hiddenIds → category → search score の順に「絞り込みを重ねる」ため、
+// 検索とカテゴリは AND で合成される。だが既存 e2e は q= と cat= を *個別* にしか検証しておらず、
+// 「一方が他方を上書き/リセットする」class の退行 (例: 検索時に cat を無視する / カテゴリ変更で q を
+// クリアする / syncURL がどちらか片方しか書かない) が素通りしていた。実データで q のみ=2 件 /
+// cat のみ=5 件 / 併用=1 件 と厳密に狭まることを実測済み。
+// 非 vacuous 設計: 件数をハードコードせず「併用 < 各単独」を assert する。カテゴリ側が無視されれば
+// combined == qOnly、検索側が無視されれば combined == catOnly となり、どちらの方向の退行も RED になる。
+test('Search and category filters compose (AND) and both survive a URL round-trip', async ({ page }) => {
+  const countOf = async () => {
+    const label = page.getByText(/合計 \d+ 件/);
+    await expect(label).toBeVisible();
+    return parseInt((await label.textContent()).match(/\d+/)[0], 10);
+  };
+
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+
+  const searchBox = page.getByRole('searchbox', { name: 'プロジェクト検索' });
+  const catSelect = page.locator('select[aria-label="カテゴリフィルター"]');
+
+  // 1. 検索のみ
+  await searchBox.fill('タスク');
+  const qOnly = await countOf();
+  expect(qOnly, '検索単独で 1 件以上ヒットする語であること').toBeGreaterThan(0);
+
+  // 2. カテゴリのみ (検索を消してから、ヒット件数が検索単独より多いカテゴリを選ぶ)
+  await searchBox.fill('');
+  await catSelect.selectOption('Productivity');
+  const catOnly = await countOf();
+  expect(catOnly, 'カテゴリ単独が検索単独より広いこと (併用の狭まりを検出可能にする前提)').toBeGreaterThan(qOnly);
+
+  // 3. 併用 = AND。どちらの単独よりも狭く、かつ空にならない
+  await searchBox.fill('タスク');
+  const combined = await countOf();
+  expect(combined, '併用結果が空でない').toBeGreaterThan(0);
+  expect(combined, 'カテゴリが無視されると qOnly と同数になる').toBeLessThan(qOnly);
+  expect(combined, '検索が無視されると catOnly と同数になる').toBeLessThan(catOnly);
+
+  // 4. URL に両 param が同時に載る (どちらか片方しか書かない syncURL 退行を検出)
+  await expect(page).toHaveURL(/[?&]q=/);
+  await expect(page).toHaveURL(/[?&]cat=Productivity/);
+
+  // 5. round-trip: ホーム経由で DOM を捨ててから deep-link 復帰しても両方の状態が戻る
+  //    (同一 URL への再 goto は DOM 残留で vacuous になるため 2 段 goto)
+  const deepLink = page.url().slice(page.url().indexOf('#'));
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  await page.goto('/' + deepLink);
+  await page.waitForLoadState('domcontentloaded');
+
+  await expect(page.getByRole('searchbox', { name: 'プロジェクト検索' })).toHaveValue('タスク');
+  await expect(page.locator('select[aria-label="カテゴリフィルター"]')).toHaveValue('Productivity');
+  expect(await countOf(), 'deep-link 復帰後も併用の絞り込み結果が一致する').toBe(combined);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `combined filtering caused a fatal: ${fatal}`).toBeNull();
+});
+
+
 // ===== 7.2: ProjectDetailPage の "not found" 状態 + 復帰ナビ =====
 // ProjectDetailPage(slug) は state.projects.find(p => p.slug === slug) が null のとき
 // 「プロジェクトが見つかりません」h1 + 「一覧へ戻る」ボタンを描画する。

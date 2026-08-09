@@ -954,4 +954,11 @@ E2E_MUTATIONS = [
         "replace": "class: 'cell-category'",
         "test": "Role-split division table exposes ARIA table semantics",
     },
+    {
+        "name": "behavior: 検索×カテゴリの AND 合成の喪失 — projects-page.js の getFilteredProjects で category 絞り込みを「検索語が無いときだけ」に狭める → カテゴリ選択中に検索するとカテゴリが無視され、選択中の <select> 表示と実際の結果が desync する (control↔filter desync・#350 と同族)。cat 単独 / q 単独の既存テストは通り続けるため、併用を検証する新テストだけが捕捉できる",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "            if (cat !== 'All') {\n                list = list.filter(p => p.category === cat);",
+        "replace": "            if (cat !== 'All' && !q) {\n                list = list.filter(p => p.category === cat);",
+        "test": "Search and category filters compose",
+    },
 ]
