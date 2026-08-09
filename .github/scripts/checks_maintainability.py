@@ -182,8 +182,14 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
        detect a behaviour mutation filed in MUTATIONS *without* a `test` key — such an entry is
        an orphan that verifies nothing anywhere (it can never run in the e2e probe, and the
        consistency probe just reports it SURVIVED). One such entry existed and was found by
-       running `npm run mutation-probe`; that probe run is the detector for this residual case,
-       which is why it is worth running periodically. (BLOCKING)
+       running `npm run mutation-probe`. 409b now closes that residual case STATICALLY via the
+       naming convention: a consistency mutation declares the Check it exercises by starting its
+       `name` with `Check <number>`, while behaviour mutations do not (they use behavior: /
+       a11y: / resilience: …). Measured when adopting it: 294/295 consistency and 115/115 e2e
+       entries already complied; the single exception was a naming omission on a mutation that
+       legitimately exercises Check 406. The probe remains the detector for a mutation that is
+       named correctly but exercises nothing — running it periodically still has value.
+       (BLOCKING)
   399. mutation-probe の catch 帰属 (attribution): `mutation_probe.py` の consistency mode は
        catch を **Check 362 (anchor orphan) 以外の error** で判定しなければならない
        (`ANCHOR_ORPHAN_MARKER = "Check 362:"` 定数 + `caught_by_real_check()` を持ち、旧判定
@@ -855,6 +861,24 @@ def run(ctx):
         import mutation_samples as _ms409
         _bad409 = [m409.get("name", "?")[:60] for m409 in _ms409.MUTATIONS if "test" in m409]
         _missing409 = [m409.get("name", "?")[:60] for m409 in _ms409.E2E_MUTATIONS if "test" not in m409]
+        # 409b — 命名規約による登録先の二重防御。consistency mutation は「どの Check を突くか」を name の
+        # 先頭 `Check <番号>` で宣言し、behavior mutation は宣言しない (behavior:/a11y:/resilience: 等)。
+        # これにより **`test` キーを持たない behavior mutation の誤登録** (409a では検出できず、どこでも
+        # 検証されない orphan になる) を静的に捕捉できる。実測 (2026-08-09): 規約適合は consistency
+        # 294/295・e2e 115/115 で、唯一の例外は Check 406 を突く正当な mutation の命名漏れだった。
+        _naming409 = [m409.get("name", "?")[:60] for m409 in _ms409.MUTATIONS
+                      if not re.match(r"^Check \d+", m409.get("name", ""))]
+        _naming409e = [m409.get("name", "?")[:60] for m409 in _ms409.E2E_MUTATIONS
+                       if re.match(r"^Check \d+", m409.get("name", ""))]
+        check(
+            not _naming409 and not _naming409e,
+            f"Check 409b: mutation の命名が登録先と一致 (consistency は 'Check <番号>' 始まり / e2e はそれ以外)",
+            f"Check 409b: 命名と登録先が不一致 — consistency 側で 'Check <番号>' 始まりでない: {_naming409[:5]} / "
+            f"e2e 側で 'Check <番号>' 始まり: {_naming409e[:5]}。consistency mutation は突く Check を name で宣言し、"
+            "behavior mutation は宣言しない。この規約により `test` キーを持たない behavior mutation の誤登録 "
+            "(どこでも検証されない orphan) を静的に捕捉する",
+            blocking=True,
+        )
         check(
             not _bad409 and not _missing409,
             f"Check 409: mutation の登録先が分離 (MUTATIONS {len(_ms409.MUTATIONS)} 件は test 無し / E2E {len(_ms409.E2E_MUTATIONS)} 件は test 有り)",

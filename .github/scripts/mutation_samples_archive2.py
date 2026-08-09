@@ -671,7 +671,7 @@ MUTATIONS_ARCHIVE2 = [
         "replace": "                    const announcer = document.getElementById('action-announcement');\n                    if (announcer) { announcer.textContent = 'AI が応答しました'; }",
     },
     {
-        "name": "a11y: toast 自動消滅の focus 奪取が再混入 — js/ui-components.js から `el.addEventListener('focusin', cancel)` を除去 → 閉じるボタンに Tab で到達した状態で duration が経過すると要素ごと削除され focus が body へ落ちる (SPA では次の Tab が文書先頭からやり直し = 操作位置の喪失・WCAG 2.4.3)。focus 中は計時を止める修正の回帰防止",
+        "name": "Check 406 (toast focus-pause 契約): js/ui-components.js から `el.addEventListener('focusin', cancel)` を除去 → 閉じるボタンに Tab で到達した状態で duration が経過すると要素ごと削除され focus が body へ落ちる (SPA では次の Tab が文書先頭からやり直し = 操作位置の喪失・WCAG 2.4.3)。focus 中は計時を止める修正の回帰防止",
         "file": ROOT / "js" / "ui-components.js",
         "find": "        el.addEventListener('focusin', cancel);",
         "replace": "",
