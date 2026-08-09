@@ -611,3 +611,43 @@ test('Hidden project disappears from home featured, detail recommendations and C
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `hidden-project listing leak check caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 7.2: import した profile.title が sidebar と Resume に描画される (data-fidelity 描画面) =====
+// profile.title は **sidebar (components.js) と ResumePage の 2 箇所** で描画されるデータ駆動値だが、
+// #/resume には内容レベルの e2e が皆無で、normalize が title を drop しても (=#139 class) / ResumePage が
+// 描画をやめても、route 訪問テストは「fatal なし・content 非空」で通ってしまい誰も気付けなかった。
+// import した title が両描画面に届くことを検証し、ingestion→render の経路を固定する。
+test('Imported profile.title renders on both the sidebar and the Resume page (data-fidelity)', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByLabel('インポートモード').selectOption('upsert');
+
+  // Check 58 の route 抽出 (name:'<lowercase>') と衝突しないよう大文字始まりにする
+  const title = 'E2E-RESUME-TITLE-7710';
+  await page.getByLabel('インポートする JSON ファイルを選択').setInputFiles({
+    name: 'profile.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({
+      schemaVersion: 12,
+      type: 'full-store',
+      profile: { name: 'ImportUser', title, bio: '', email: 'x@example.com', github: '', linkedin: '', location: 'Japan' },
+    })),
+  });
+  await expect(page.locator('#toast-container').getByText('インポートが完了しました')).toBeVisible();
+
+  // (1) Resume ページの lead 見出しに反映される (この route の唯一のデータ駆動コンテンツ)
+  await page.goto('/#/resume');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('h1', { hasText: 'Resume' })).toBeVisible();
+  await expect(page.locator('h2[data-ai-content="lead"]')).toHaveText(title);
+
+  // (2) sidebar のプロフィール表示にも同じ値が届く (desktop 幅で sidebar を可視化)
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto('/#/');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('.sidebar').getByText(title)).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `profile.title render caused a fatal: ${fatal}`).toBeNull();
+});
