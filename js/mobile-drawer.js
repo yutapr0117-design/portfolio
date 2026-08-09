@@ -209,6 +209,16 @@ export function createMobileDrawer({ CONSTANTS, clear, Sidebar, closePalette }) 
 
         if (!drawer || !overlay) {return;}
 
+        // [FIX] 閉じている状態での再入を弾く (openDrawer 側 #297 のガードの対。**片方にしか無かった**)。
+        //   本関数は末尾で __lockBodyScroll(false) を呼び、その中で window.scrollTo(0, __drawerScrollY)
+        //   が走る。drawer を一度も開いていなければ __drawerScrollY は 0 のままなので、**閉じている
+        //   drawer を閉じるだけでページ先頭へ飛ぶ**。実際 command palette が open() で無条件に
+        //   closeDrawer() を呼ぶ配線 (二重モーダル防止) を入れた結果、y=300 までスクロールした状態で
+        //   Cmd/Ctrl+K を押すと y=0 へジャンプする回帰が実測された (#297 と同じ scroll-clobber class)。
+        //   他の呼び出し元 (syncMobileDrawer / Escape ハンドラ) は既に aria-hidden を確認済みで、
+        //   overlay click は drawer 開放時のみ到達するため、このガードで挙動が変わるのは再入経路だけ。
+        if (drawer.getAttribute('aria-hidden') !== 'false') { return; }
+
         // Hide
         drawer.style.display = 'none';
         overlay.style.display = 'none';

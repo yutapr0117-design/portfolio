@@ -801,4 +801,40 @@ MUTATIONS_ARCHIVE2 = [
         "find": "**Check 52**: 行数予算 ≤ 320 行",
         "replace": "**Check 52**: 219 行 ≤ 320",
     },
+    {
+        "name": "Check 372: quiz-renderer.js.md の factory signature を stale 形へ戻し quiz data 依存 (awsQuizData 等) を落とす → mirror-doc factory-dep drift の BLOCKING 検証",
+        "file": ROOT / "docs" / "files" / "js" / "quiz-renderer.js.md",
+        "find": "createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData })",
+        "replace": "createQuizRenderer({ h, createIcon, Store, State, quizData: {} })",
+    },
+    {
+        "name": "Check 364: store.js の Array.isArray ガードを unsafe な `(raw.tech || []).filter` idiom へ戻す → ingestion-crash class 構造防止の BLOCKING 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "tech: (Array.isArray(raw.tech) ? raw.tech : []).filter(Boolean).slice(0, 12),",
+        "replace": "tech: (raw.tech || []).filter(Boolean).slice(0, 12),",
+    },
+    {
+        "name": "Check 368: store.js の notes 上限を CONSTANTS.LIMITS.NOTES_TEXT からマジック 20000 へ戻す → notes 上限 drift の BLOCKING 検証",
+        "file": ROOT / "js" / "store.js",
+        "find": "result.notes = data.notes.slice(0, CONSTANTS.LIMITS.NOTES_TEXT);",
+        "replace": "result.notes = data.notes.slice(0, 20000);",
+    },
+    {
+        "name": "Check 370 (settings fallback magic): store.js の pomodoro settings normalize clamp fallback を CONSTANTS 参照からマジック || 25 へ戻す → runtime remainingSec は定数参照するのに settings fallback だけ magic だった非対称 gap の再発を拡張 Check 370 が捕捉。checks_shipped_hygiene.py は mutation_samples.py と別 file ゆえ self-reference trap 無し",
+        "file": ROOT / "js" / "store.js",
+        "find": "Number(data.pomodoro.settings.work) || CONSTANTS.POMODORO_DEFAULT_SETTINGS.work",
+        "replace": "Number(data.pomodoro.settings.work) || 25",
+    },
+    {
+        "name": "Check 395 (データ駆動 path 記法): hiring-risk の CTA データ配列で nav 先を typo させる (path: 'settings' → 'setting') → router は未知の第1 segment を home として parse するため、ボタンは throw も console error も出さずユーザーを silent にホームへ送る。literal だけを見る旧実装ではこの典型記法が素通りしていた (別記法見逃し class の navigate 面)",
+        "file": ROOT / "js" / "hiring-risk-page.js",
+        "find": "path: 'settings',",
+        "replace": "path: 'setting',",
+    },
+    {
+        "name": "Check 411 (WebMCP セレクタ解決): main.js の WebMCP ツールが走査するセレクタを実在しない属性へ変える → ツールは説明文で「現在の DOM 状態から抽出」と宣言しながら常に静的フォールバックを返す状態に戻る。視覚に出ないため screenshot も behavior e2e も捕捉できない機械可読面の silent drift の回帰防止",
+        "file": ROOT / "main.js",
+        "find": "document.querySelectorAll('[data-ai-role]');",
+        "replace": "document.querySelectorAll('[data-agent-role]');",
+    },
 ]

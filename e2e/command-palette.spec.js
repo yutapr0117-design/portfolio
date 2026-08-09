@@ -300,3 +300,51 @@ test('Command palette makes the background inert while open and restores it on c
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `palette inert handling caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== palette の開閉がスクロール位置を壊さない (scroll-clobber 回帰防止) =====
+// 2 つの独立した原因で「Cmd/Ctrl+K を押したら / 閉じたらページ先頭へ飛ぶ」が起きていた:
+//  (1) open 側: 二重モーダル防止で palette が open() 時に closeDrawer() を無条件に呼ぶが、
+//      closeDrawer は末尾の __lockBodyScroll(false) で window.scrollTo(0, __drawerScrollY) を実行する。
+//      drawer を一度も開いていなければ __drawerScrollY=0 なので **閉じている drawer を閉じるだけで
+//      先頭へ飛ぶ**。openDrawer にはあった idempotency ガードが closeDrawer に無い非対称が原因
+//      (#297 のガードの対)。
+//  (2) close 側: focus 復元が素の focus() で、対象を viewport 内へスクロールしてしまう。lastFocused は
+//      しばしばページ冒頭の h1 (route 遷移で #267 が focus を移す先) なので、ほぼ必ず先頭ジャンプになる。
+//      main.js の route-focus と同じく preventScroll を使う。
+// drawer 経路が従来どおり位置を復元することも併せて確認する (片方の修正で他方を壊さない)。
+test('Opening and closing the command palette preserves the scroll position', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  // 十分な高さがあることを確認してからスクロールする (短いページでは常に 0 で vacuous になる)
+  await expect(page.locator('.grid-projects article.card').first()).toBeVisible();
+
+  await page.evaluate(() => window.scrollTo({ top: 300, behavior: 'instant' }));
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(300);
+
+  // open してもスクロール位置は動かない。
+  // **これは「変化しないこと」の検査**なので expect.poll で待ってはいけない: poll は最初の観測で
+  // 300 を見た瞬間に成功してしまい、その後に起きるジャンプを見逃す (実測: この書き方だと
+  // closeDrawer ガードを外す mutation が素通りした = vacuous)。スクロールが落ち着くまで待ってから
+  // 1 度だけ確定値を読む (memory: absence assertion は settle 後に評価する)。
+  await page.keyboard.press('Meta+k');
+  await expect(page.locator('.cmdk-panel')).toBeVisible();
+  await page.waitForTimeout(400);
+  expect(await page.evaluate(() => window.scrollY), 'palette を開いた瞬間に先頭へ飛んではならない').toBe(300);
+
+  // close しても戻らない (同じ理由で settle 後に 1 度だけ読む)
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(400);
+  expect(await page.evaluate(() => window.scrollY), 'palette を閉じた瞬間に先頭へ飛んではならない').toBe(300);
+
+  // drawer 経路の scroll 復元も不変 (#262/#297 の回帰防止を壊していないこと)
+  await page.evaluate(() => document.getElementById('menuBtn').click());
+  await page.waitForTimeout(400);
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(400);
+  expect(await page.evaluate(() => window.scrollY), 'drawer 経路の scroll 復元が壊れてはならない').toBe(300);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `scroll preservation test caused a fatal: ${fatal}`).toBeNull();
+});

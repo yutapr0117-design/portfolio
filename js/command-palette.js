@@ -223,7 +223,14 @@ export function createCommandPalette({ Router, h, createIcon, State, closeDrawer
         host.setAttribute('aria-hidden', 'true');
         host.style.display = 'none';
         if (trapHandler) { document.removeEventListener('keydown', trapHandler); trapHandler = null; }
-        if (lastFocused && lastFocused.focus) { try { lastFocused.focus(); } catch (e) { /* noop */ } }
+        // [FIX] preventScroll。素の focus() は対象要素を viewport 内へスクロールするため、
+        //   ページを下までスクロールした状態で palette を開いて閉じると **先頭へ飛ぶ**
+        //   (実測: y=300 で開閉 → y=0)。lastFocused はしばしばページ冒頭の h1 (route 遷移時に
+        //   #267 が focus を移す先) であり、その場合ほぼ必ず先頭ジャンプになる。
+        //   main.js の route-focus も同じ理由で preventScroll を使っている (同作法へ統一)。
+        if (lastFocused && lastFocused.focus) {
+            try { lastFocused.focus({ preventScroll: true }); } catch (e) { /* noop */ }
+        }
     }
 
     function init() {
