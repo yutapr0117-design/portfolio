@@ -134,6 +134,21 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
        `mcp_data = json.loads(read(...))` が JSONDecodeError を送出し、まさにこの破損を検出する
        Check 343 が一度も走らなかった。fail-soft な既定値 (空 dict 等) へ degrade させ、専任 Check に
        診断させること。Check 385 (split module の error パス NameError) の global 面。(BLOCKING)
+  413. runbook §9 tracked-file baseline freshness (ADVISORY): `total-check-runbook.md` §9 is the face
+       CLAUDE.md declares to be the SOURCE OF TRUTH for numbers ("if §7's numbers drift, §9 wins").
+       Yet several of its measured baselines have no machine enforcement, and the runbook itself
+       admits they "can drift while verify stays green (it actually drifted 243→567 over time)".
+       Re-measuring on 2026-08-10 found exactly that: tracked-file total 490→502 and non-docs/files
+       source 244→250. A document that CLAIMS to be the truth and silently goes stale is the worst
+       case, because readers trust it instead of re-measuring. This Check surfaces the divergence.
+       ADVISORY rather than BLOCKING because these values legitimately move whenever a file is added,
+       and forcing every PR to touch the runbook would be pure churn (the advisory-warning +
+       separate-hard-gate two-layer design of Check 60). Tolerance is an ABSOLUTE 5 files: the first
+       attempt used ±3%, which would NOT have caught the very 12-file drift that motivated this Check
+       — a gate whose threshold sits above its own motivating failure is worthless, so it was
+       measured and tightened. The `OK:` line count in §9 is deliberately OUT of scope: it is not
+       knowable from inside the same run (it is only final once the run ends), an honest limit of
+       self-measurement rather than an oversight. (ADVISORY)
 """
 import re
 
@@ -707,3 +722,54 @@ def run(ctx):
         "まま skip される (診断は actionable でなく、以降の drift を全て masking する)。try/except で "
         "fail-soft な既定値へ degrade させ、専任 Check に診断させよ",
     )
+
+    # ── 413. runbook §9 の tracked-file baseline 鮮度 (ADVISORY) ───────────────────
+    # `docs/architecture/total-check-runbook.md` §9 は CLAUDE.md が「数値の真値」と宣言する面で、
+    # §7 の数値が drift したときも §9 を正とする、と canon に書かれている。だが §9 の実測値には
+    # 機械強制が無いものがあり、runbook 自身が「verify 緑のまま drift しうる volatile baseline
+    # (実際 243→567 まで長期 drift していた)」と認めている。実際 2026-08-10 の再測定で
+    # 追跡ファイル総数 490→502 / 非 docs/files source 244→250 の drift を検出した。
+    # **真値を名乗る doc が黙って古くなる**のが最も害が大きい (読み手は再測定せず信じる) ため、
+    # 乖離を ADVISORY で可視化する。BLOCKING にしないのは、この値は file を 1 つ足すたびに動く
+    # 正当な volatile 値であり、全 PR に runbook 更新を強制すると churn になるから (Check 60 と
+    # 同じ「advisory 早期警告 + 別レイヤーの hard gate」二層設計の advisory 側)。
+    # 許容は **絶対 5 件**。当初 ±3% にしたが、それでは今回検出した 12 件の drift (490→502) を
+    # 見逃す設定であり、**動機となった drift を捕捉できない Check は無意味** (自作 gate の
+    # 非 vacuity を実測して発見)。5 件なら 1 セッション内の数件追加は黙認しつつ、放置された
+    # 乖離は必ず警告になる。
+    import subprocess as _sp413
+    _runbook413 = ROOT / "docs" / "architecture" / "total-check-runbook.md"
+    if _runbook413.exists():
+        _rb413 = _runbook413.read_text(encoding="utf-8")
+        _m_total413 = re.search(r"\|\s*追跡ファイル総数\s*\|\s*\*\*(\d+)\*\*", _rb413)
+        _m_src413 = re.search(r"source file が \*\*(\d+)\*\*", _rb413)
+        try:
+            _files413 = [ln for ln in _sp413.run(
+                ["git", "ls-files"], cwd=str(ROOT), capture_output=True, text=True, check=True
+            ).stdout.splitlines() if ln.strip()]
+        except Exception:  # noqa: BLE001 — git 不在環境では検証をスキップ (ADVISORY ゆえ fail-soft)
+            _files413 = []
+        if _files413 and _m_total413 and _m_src413:
+            _actual_total413 = len(_files413)
+            _actual_src413 = len([f for f in _files413 if not f.startswith("docs/files/")])
+            _rec_total413 = int(_m_total413.group(1))
+            _rec_src413 = int(_m_src413.group(1))
+            _drift413 = []
+            for _label413, _rec413, _act413 in (
+                ("追跡ファイル総数", _rec_total413, _actual_total413),
+                ("非 docs/files source", _rec_src413, _actual_src413),
+            ):
+                if abs(_act413 - _rec413) > 5:
+                    _drift413.append(f"{_label413}: 記載 {_rec413} vs 実測 {_act413}")
+            check(
+                not _drift413,
+                f"Check 413 (ADVISORY): runbook §9 の tracked-file baseline が実測と整合 "
+                f"(総数 {_actual_total413} / 非 docs/files source {_actual_src413})",
+                f"Check 413 (ADVISORY): runbook §9 の baseline が実測から乖離 — {' / '.join(_drift413)}。"
+                "§9 は CLAUDE.md が「数値の真値」と宣言する面であり、古い値は読み手を誤らせる。"
+                "再測定して §9 を同期せよ (権威 = `git ls-files | wc -l`)",
+                blocking=False,
+            )
+        else:
+            check(True, "Check 413 (ADVISORY): tracked-file baseline の検証をスキップ (git 不在または §9 の記載形式変更)",
+                  "", blocking=False)
