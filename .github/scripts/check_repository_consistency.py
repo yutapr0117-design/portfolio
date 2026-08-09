@@ -86,6 +86,7 @@ warnings: list[str] = []
 CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "check_repository_consistency.py",
     ROOT / ".github" / "scripts" / "checks_maintainability.py",  # split: maintainability/test-health/file-size
+    ROOT / ".github" / "scripts" / "checks_mutation_integrity.py",  # split: mutation 安全網の完全性 (meta-QA)
     ROOT / ".github" / "scripts" / "checks_structural.py",  # split: structural / CI wiring / tooling (48-51)
     ROOT / ".github" / "scripts" / "checks_esm.py",  # split: ESM contract cluster (47/56/57/61)
     ROOT / ".github" / "scripts" / "checks_tooling.py",  # split: dev-tooling/.claude config cluster (74-80)
@@ -789,6 +790,11 @@ _checks_asset_resolve.run(_ctx)
 #  aggregate its inventory + sections. Runs here — same position/order — via ctx.)
 import checks_maintainability as _checks_maintainability
 _checks_maintainability.run(_ctx)
+
+# ── 362/379/380/397/399/409. mutation 安全網そのものの完全性 → checks_mutation_integrity.py ──
+# mutation 定義が腐ると「緑 = 守られている」ではなく「緑 = 検証されていない」になる (#885)。
+import checks_mutation_integrity as _checks_mutation_integrity
+_checks_mutation_integrity.run(_ctx)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()

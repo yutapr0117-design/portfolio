@@ -29,7 +29,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        canonical link, and AI/social crawlers may resolve to a different entity URL than the
        authoritative one. Extends the Check 149 canonical-URL invariant to the social/OG surface,
        which is the most-shared external mention of the site. (BLOCKING)
-  151. e2e test() title uniqueness: every `test('...', ...)` title across all e2e/*.spec.js must be
+  151. e2e test() title uniqueness: every `test('...', ...)` title across all e2e/*.spec.js must be 題名抽出は引用符リテラルに加え backtick テンプレート (パラメタライズド loop) も対象で、後者は `${…}` を正規化したパターン 1 件として数える (旧実装はテンプレートが不可視で、同一パターンの loop を 2 つ書いても重複を検出できなかった)。
        unique. Duplicate titles are SILENT in some Playwright reporters (the second run silently
        overrides the first's record) and always reduce diagnostic clarity — a class of
        vacuous-test-pair where one test's failure may be misattributed or masked by the other's
@@ -234,8 +234,14 @@ def run(ctx):
     if _specs151:
         _titles151 = []
         for _sp151 in _specs151:
-            _titles151 += re.findall(r"^\s*test\(\s*['\"]([^'\"]+)['\"]",
-                                     _sp151.read_text(encoding="utf-8"), re.MULTILINE)
+            _src151 = _sp151.read_text(encoding="utf-8")
+            _titles151 += re.findall(r"^\s*test\(\s*['\"]([^'\"]+)['\"]", _src151, re.MULTILINE)
+            # backtick テンプレート題名 (パラメタライズド loop) も一意性の対象にする。旧実装は
+            # 引用符リテラルのみを見ており、同一パターンの loop を 2 つ書いても重複を検出できなかった。
+            # 展開後の個々の title ではなく `${…}` を正規化したパターン 1 件として数えるのが正しい
+            # (同じ loop の N 件は Playwright 上も別 title であり衝突しないため)。
+            _titles151 += [re.sub(r"\$\{[^}]*\}", "${}", _tpl151)
+                           for _tpl151 in re.findall(r"^\s*test\(\s*`([^`]*)`", _src151, re.MULTILINE)]
         _seen151: dict[str, int] = {}
         for _t151 in _titles151:
             _seen151[_t151] = _seen151.get(_t151, 0) + 1

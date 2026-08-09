@@ -980,4 +980,11 @@ E2E_MUTATIONS = [
         "replace": "        const quizConfig = QUIZ_DATA_MAP[quizType] || QUIZ_DATA_MAP.aws;",
         "test": "prototype-inherited",
     },
+    {
+        "name": "behavior: route-render gate 自体の非 vacuity — main.js render の case 'role-split' から page = RoleSplitPage() の代入を落とす (葉抽出で配線を落とす回帰 class) → page が undefined のまま appendChild され TypeError で #content 空 + pageerror。全ルートの描画健全性を守る中核 gate (security-proxy の ALL_ROUTES loop) が実際に RED になることの検証。この loop は題名が backtick テンプレートで、Check 379/397 が引用符リテラルしか parse しなかった間は mutation を登録できなかった",
+        "file": ROOT / "main.js",
+        "find": "                        case 'role-split':\n                            page = RoleSplitPage();\n",
+        "replace": "                        case 'role-split':\n",
+        "test": "renders without runtime errors",
+    },
 ]
