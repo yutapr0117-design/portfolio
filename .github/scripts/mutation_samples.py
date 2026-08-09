@@ -149,8 +149,8 @@ E2E_MUTATIONS = [
     {
         "name": "behavior: cross-tab が別 schema/欠損 store を raw 採用して crash (#93 class)",
         "file": ROOT / "js" / "state.js",
-        "find": "                    if (incoming.schemaVersion !== CONSTANTS.SCHEMA_VERSION) {return;}\n                    data = Store.validateAndNormalize(incoming);",
-        "replace": "                    data = incoming;",
+        "find": "                    if (incoming.schemaVersion !== CONSTANTS.SCHEMA_VERSION) {return;}\n",
+        "replace": "",
         "test": "Cross-tab sync ignores a foreign-schema",
     },
     {
@@ -968,5 +968,12 @@ E2E_MUTATIONS = [
         "find": "            result.notes = data.notes.slice(0, CONSTANTS.LIMITS.NOTES_TEXT);",
         "replace": "            result.notes = '';",
         "test": "four apps in one session all survives a single reload",
+    },
+    {
+        "name": "behavior: cross-tab 更新が編集中の入力を破壊する回帰 — state.js の storage リスナーから編集中の採用延期ガードを外す → 別タブがタスクを 1 件追加しただけで、こちらのタブで書きかけの notes が巻き戻り focus が body へ落ちる (#258 の『再描画が focused input を破棄する』class の外部イベント起点版・実測済)",
+        "file": ROOT / "js" / "state.js",
+        "find": "                    if (_deferIfEditing(incoming)) {return;}",
+        "replace": "                    if (false) {return;}",
+        "test": "Cross-tab update does not destroy an in-progress edit",
     },
 ]
