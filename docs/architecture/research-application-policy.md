@@ -78,6 +78,23 @@ Status        : 本 increment で新設。CLAUDE.md（thin router）から参照
   - **再現コマンド**: `AxeBuilder(page).withRules(['color-contrast']).analyze()` を各ルートで実行し、`violations[0].nodes[].any[0].data` の `fgColor` / `bgColor` / `contrastRatio` を集計する（本記録の数値はこの方法で取得）。
   - **適用条件**: オーナーが配色変更を裁可した時。その際は muted → `#68778c` を起点に、チップ背景側を白寄りへ寄せる案と見比べるのが早い。
 
+- **安全ゲート（C6・AIO 意味論）— Speakable `cssSelector` に実在しない `[data-speakable]` が宣言されている（2026-08-11 実測）:** `js/meta-management.js` の `SPEAKABLE_SELECTORS` は AI 音声アシスタント向けに「読み上げるべき要素」を宣言する **機械向け宣言**。全該当ルートで `querySelectorAll` を実際に走らせて件数を測ったところ、`[data-speakable]` は **home 以外で 0 件**だった。
+
+  | ルート | `h1` | `[data-speakable]` | 固有セレクタ | `.sr-only` |
+  | :-- | --: | --: | --: | --: |
+  | `home` | 1 | **2** | `.sr-only[data-ai-entity]` = 1 | — |
+  | `role-split` | 1 | **0** | `#role-split-table` = 1 | 7 |
+  | `ai-knowhow` | 1 | **0** | `.ai-summary-block` = 1 | 7 |
+  | `about` | 1 | **0** | — | 7 |
+  | 既定（他ルート） | 1 | **0** | — | 7 |
+
+  `data-speakable` 属性は **`js/home-page.js` の 2 箇所にしか存在しない**（`grep` で全走査）。つまり home 以外の宣言は #929（WebMCP の幻セレクタ）と同型の「**一度も対象を持たない宣言**」である。
+  - **実害の程度（honest）**: 解決しないセレクタは consumer に無視されるだけで、他のセレクタ（`h1` / `.sr-only` / 固有）は機能する。**読み上げ内容が壊れているわけではない**。問題は「宣言と実態の乖離」で、本リポジトリの中核賭け金（機械可読な権威付け）の面に嘘が残っていること。
+  - **保留理由（安全ゲート・C6）**: Speakable は AIO の意味論的宣言であり、**C6 は JSON-LD の semantic content の変更に orchestrator の書面承認を要求する**。「マッチしないセレクタを消すだけ」は実効挙動を変えない no-op だが、C6 の A1/A2 例外（日付・digest などの derived value）に列挙されていない以上、**派生値ではなく semantic 編集**として扱うのが保守的で正しい。#929 で幻セレクタを除去したのは WebMCP のツールコード（AIO JSON-LD 層ではない）だったため、同じ扱いにはできない。
+  - **提案する最小の修正**: `SPEAKABLE_SELECTORS` の `role-split` / `ai-knowhow` / `about` と既定フォールバックから `'[data-speakable]'` を除く（home は 2 件マッチするので残す）。あるいは逆に、各ルートの読み上げ対象へ `data-speakable` を付与する（こちらは「実態を宣言に合わせる」方向で、#929 の教訓では**推奨しない** — 存在しないものを後から作るのは実態に嘘を合わせる行為）。
+  - **同時に張るべき層**: 修正が承認されたら、**Speakable の各セレクタがそのルートで 1 件以上に解決する**ことを behavior e2e で固定する（Check 411 が main.js の `querySelectorAll` に対してやっているのと同じ used⟹defined レンズの Speakable 面）。今は宣言側が壊れているため、**先に Check を入れると恒久 RED になる**ので順序は修正が先。
+  - **再現コマンド**: 各ルートで `script[data-ld="speakable"]` を JSON parse し、`speakable.cssSelector` の各要素を `document.querySelectorAll(sel).length` で数える（本記録の数値はこの方法）。
+
 **(B) 適用不要だが検証済み（verify）:** 現物が既に当該標準に準拠しており、変更不要なもの。「変更が無かった」のではなく「現行性を検証した」結果として記録する。これは null result ではなく、現行性・機械可読性を価値とするこのリポジトリにおける成果物である。例（過去 increment）＝robots.txt の granular AI-bot モデル・Node 24・CSP / Trusted Types が 2026 標準に対し現行であることの検証。
 
 - **llms.txt / AI-crawler discoverability の現行性検証（2026-06-28）:** 2026 時点の調査で、(i) llms.txt 採用率は ~10%（18ヶ月後）に留まり、(ii) **AI 検索クローラ（GPTBot/ClaudeBot/PerplexityBot/OAI-SearchBot/Google-Extended）は llms.txt をほぼ fetch せず HTML を直接クロール**（500M bot 訪問中 llms.txt 直叩きは ~408 件）、(iii) Google は非対応を明言・Anthropic/OpenAI/Perplexity も自動読込未コミット、(iv) genuine な実利用は **B2A（Business-to-Agent）= IDE エージェント（Claude Code/Cursor/Windsurf/Copilot/Cline/Aider）が docs サイトで /llms.txt・/llms-full.txt を参照**、と判明。**本リポジトリは既に root の `/llms.txt`+`/llms-full.txt`（標準配置）と、AI 検索クローラが実際に読む HTML 内 structured data（JSON-LD/entity anchor/meta）の二段構えを持ち、調査が示す現実に整合**。新規採用すべき標準/endpoint は無し。低クローラ uptake は §7「`confirmed_citation_events = 0` は by design = 高確率レーンへの早期ポジション」と整合し、本調査がその姿勢の妥当性を 2026 市場データで裏付けた。公開 AIO content はオーナー方針で terminal ゆえ content 変更も行わない＝**verify-currency（apply なし）**。（出典: SE Ranking 採用率調査 / OtterlyAI GEO study / Search Engine Land llms.txt proposal。再調査は本日付以降に標準が動いた場合のみ。）
