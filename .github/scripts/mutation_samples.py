@@ -647,6 +647,13 @@ _E2E_TAIL = [
         "replace": "            --color-primary-rgb: 99, 102, 241;\n            /* Indigo (値の根拠は :root 側のコメント参照・WCAG 1.4.3 AA) */",
         "test": "WCAG 1.4.3: 各ブランドの primary は白に対し 4.5:1 以上",
     },
+    {
+        "name": "behavior: ダークテーマの適用が壊れる — style.css の [data-theme=\"system\"] セレクタを無効化 → OS がダークでもライトのまま描画される。ダーク走査の a11y テストは「実際にダークになっているか」を先に検査するので、壊れると『ダークを検査したつもりでライトを検査していた』vacuous な結果ではなく明示的な RED になる",
+        "file": ROOT / "style.css",
+        "find": "            [data-theme=\"system\"] {",
+        "replace": "            [data-theme=\"system-DISABLED\"] {",
+        "test": "a11y axe: ダークテーマの全ルートに render-neutral critical 違反が無い",
+    },
 ]
 
 

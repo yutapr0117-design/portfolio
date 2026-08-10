@@ -181,3 +181,39 @@ test('WCAG 1.4.3: 各ブランドの primary は白に対し 4.5:1 以上', asyn
     ).toBeGreaterThanOrEqual(4.5);
   }
 });
+
+
+// ===== ダークテーマの a11y (render-neutral critical) =====
+// 上の A11Y_ROUTES ループは **ライトテーマでしか走っていなかった**。ダークは利用者が選べる
+// 第一級のモードで、独自のトークン集合 (背景・前景・境界) を持ち、ARIA ではなく CSS 由来の
+// 違反 (contrast など) が別物になる。にもかかわらず **a11y 被覆はゼロ**だった。
+//
+// テーマの適用は **アプリ本来の経路** (OS の colorScheme に追従する既定の theme='system') を
+// 通す。`data-theme` を直接書き換えると、テーマ適用のロジックそのものが壊れていても
+// テストが通ってしまう (内部状態を偽装した vacuous な検査になる)。
+//
+// NOTE: 判定は既存と同じ **render-neutral な rule の allowlist** に限定する。ダークの
+//   color-contrast には未解決の違反が実在する (primary #6265f0 on #0f172a = 3.94 /
+//   muted #64748b on #0f172a = 3.75 など) が、それらは実際に色が変わる = C5 (設計) の領域で、
+//   research-application-policy.md に実測値つきで defer 記録済。ここでそれを gate にすると
+//   「直せない理由が記録済みの既知課題」で CI が恒久的に赤くなる。
+test('a11y axe: ダークテーマの全ルートに render-neutral critical 違反が無い', async ({ page }) => {
+  await page.emulateMedia({ colorScheme: 'dark' });
+  const offenders = [];
+  for (const route of A11Y_ROUTES) {
+    await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#content h1, #content h2').first()).toBeVisible();
+    // ダークが実際に効いていることを確認してから走査する (light のまま走らせると
+    // 「ダークを検査したつもりで light を検査していた」vacuous な結果になる)
+    const bg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+    expect(bg, `${route}: OS 追従でダーク背景にならなかった (bg=${bg})`).toBe('rgb(2, 6, 23)');
+
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'])
+      .analyze();
+    results.violations
+      .filter((v) => A11Y_RENDER_NEUTRAL_RULES.includes(v.id))
+      .forEach((v) => offenders.push(`${route}: ${v.id}(${v.nodes.length})`));
+  }
+  expect(offenders, `ダークテーマの render-neutral a11y violations: ${JSON.stringify(offenders)}`).toHaveLength(0);
+});
