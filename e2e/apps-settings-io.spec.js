@@ -559,3 +559,49 @@ test('Deleting the snapshot asks for confirmation and cancelling keeps it', asyn
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `snapshot delete confirm caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== profile 正規化: truthy な非文字列がフィールドを空にしない (外部 ingestion の型ガード) =====
+// 旧実装は `String(v || fallback)` だったため、`[]` や `{}` のような **truthy な非文字列** が
+// `||` を素通りし、`String([]) === ''` でフィールドが空になっていた。email が空になると
+// ContactPage からアドレス表示が消え、「メールを作成」ボタンが宛先の無い
+// `mailto:?subject=...` を開く (= 連絡導線が黙って壊れる)。name が `{}` の場合は表示名が
+// "[object Object]" になっていた。どちらも fatal を出さないので ErrorBoundary にも掛からず、
+// 視覚 baseline は ADVISORY ゆえ、**この behavior test 以外に捕捉層が無い**。
+// #93/#295/#561/#568/#572/#573 と同じ「外部 ingestion の型ガード」class の profile 面。
+test('Hostile profile import: a truthy non-string must not blank a field', async ({ page }) => {
+  const importProfile = async (profile) => {
+    await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#main-content h1').first()).toBeVisible();
+    await page.getByLabel('インポートする JSON ファイルを選択').setInputFiles({
+      name: 'hostile-profile.json',
+      mimeType: 'application/json',
+      buffer: Buffer.from(JSON.stringify({ profile })),
+    });
+    // NOTE: 2 回目の import 時にはまだ 1 回目の Toast が残っていることがあるため .first()
+    //   (strict mode violation を避ける)。ここでは「完了 Toast が出たこと」だけを待てば十分。
+    await expect(page.locator('#toast-container').getByText('インポートが完了しました').first()).toBeVisible();
+  };
+
+  // (1) email: [] — `[]` は truthy なので `||` の fallback を素通りし String([]) が '' になる
+  await importProfile({ email: [] });
+  await page.goto('/#/contact', { waitUntil: 'domcontentloaded' });
+  // NOTE: 先に「あるはずの要素」を待って描画を確定させてから中身を読む (Check 402)
+  await expect(page.locator('#content')).toContainText('Contact');
+  const emailLink = page.locator('#content a[href^="mailto:"]');
+  await expect(emailLink, 'email が空になり ContactPage から宛先が消えた').toHaveCount(1);
+  const href = await emailLink.getAttribute('href');
+  expect(href, `mailto に宛先が無い (href=${href})`).not.toBe('mailto:');
+  expect((href || '').length, `mailto の宛先が空 (href=${href})`).toBeGreaterThan('mailto:'.length);
+
+  // (2) name: {} — String({}) は "[object Object]" で、そのまま表示名として描画されていた
+  await importProfile({ name: {} });
+  await page.goto('/#/contact', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content')).toContainText('Contact');
+  await expect(
+    page.locator('#content'),
+    '非文字列の name がそのまま stringify されて表示された'
+  ).not.toContainText('[object Object]');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `hostile profile import caused a fatal: ${fatal}`).toBeNull();
+});

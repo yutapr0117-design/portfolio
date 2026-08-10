@@ -75,7 +75,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/pure-utils.js` | 277 | 400 | `advisory` | Stage 2 抽出済みの純ユーティリティ。安定 |
 | `js/quiz-renderer.js` | 280 | 350 | `advisory` | Stage 5-o 新設。Quiz Renderer factory（QuizPage + 4 domain lookup table）。closure-deps = none + 引数注入 |
 | `js/storage.js` | 74 | 120 | `advisory` | Stage 5-c 新設。Safe localStorage ラッパ。closure-deps = none |
-| `js/store.js` | 615 | 650 | `advisory` | Stage 5-g 新設。Store factory（default data + load/validate/normalize/similarity）。closure-deps = none（葉契約）+ 引数注入 |
+| `js/store.js` | 659 | 700 | `advisory` | Stage 5-g 新設。Store factory（default data + load/validate/normalize/similarity）。closure-deps = none（葉契約）+ 引数注入。2026-08-10 に profile 正規化の型ガード（truthy な非文字列がフィールドを空にする ingestion バグの修正）と safeUrl の欠落時 fallback 是正 + WHY コメントで 659 行へ。1,000 行の BLOCKING 上限（Check 363/365）には十分な余裕がある |
 | `js/theme.js` | 88 | 120 | `advisory` | Stage 5-i 新設。Theme factory（system/dark/light cycle + matchMedia listener）。closure-deps = none（葉契約）+ 引数注入 |
 | `js/quiz/aws-quiz-data.js` | 819 | 900 | `advisory` | Stage 3-b 分割済み。AWS 問題集（最大データセット） |
 | `js/quiz/pm-quiz-data.js` | 271 | 350 | `advisory` | Stage 3-b 分割済み。PM 問題集 |
@@ -148,7 +148,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 738000 -->
+<!-- PERF-BUDGET-DATA 739000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -159,6 +159,13 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      選択肢へ漏れていた実バグの修正 (4 listing 面へ hiddenIds を適用 + 全件非表示時の fallback) と
      その WHY コメントで実測が 712,892 bytes に到達。genuine な user-visible bug fix ゆえ実態 +
      約 1,100 bytes の headroom へラチェット。
+     738,000 → 739,000 (2026-08-10)。外部 JSON インポートの profile 正規化に型ガードを追加。旧実装の
+     `String(v || fallback)` は `[]` / `{}` のような **truthy な非文字列** が `||` を素通りし
+     `String([]) === ''` でフィールドを空にしていた (実測: `{"profile":{"email":[]}}` で ContactPage の
+     宛先が消え「メールを作成」が宛先の無い `mailto:` を開く / `{"profile":{"name":{}}}` で表示名が
+     "[object Object]" になる)。併せて safeUrl が受け取った fallback 引数を欠落時に使っていなかった
+     非対称も是正。WHY コメント込みで実測 738,376 bytes。fatal を出さず視覚 baseline も ADVISORY ゆえ
+     behavior test 以外に捕捉層が無い class なので、コメントは次の担当への必須情報として温存する。
      737,000 → 738,000 (2026-08-10)。WCAG 1.4.10 (Reflow) の 320px 横あふれを修正。`.app` が column flex に
      なる mobile media query 内で `.main-content` の左右 auto margin が cross 軸 auto margin となり
      `align-self: stretch` が無効化され、fit-content が min-content を下回れず item が viewport より
@@ -317,7 +324,7 @@ js/quiz-renderer.js | 350 | advisory
 js/settings-page.js | 500 | advisory
 js/state.js | 320 | advisory
 js/storage.js | 120 | advisory
-js/store.js | 650 | advisory
+js/store.js | 700 | advisory
 js/theme.js | 120 | advisory
 js/quiz/aws-quiz-data.js | 900 | advisory
 js/quiz/pm-quiz-data.js | 350 | advisory

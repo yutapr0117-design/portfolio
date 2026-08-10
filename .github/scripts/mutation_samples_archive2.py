@@ -691,7 +691,7 @@ MUTATIONS_ARCHIVE2 = [
     {
         "name": "Check 404 (profile persist round-trip): store.js validateAndNormalize の profile ブロックから `location` の読み戻し行を除去 → 設定/import で location を入れても reload の normalize が strip し default へ silent に戻る data-fidelity バグ (#139 で github/linkedin/location が実際にこれで消えていた実バグ class)。Check 373 の appsData 面に対する profile 面 twin の非 vacuity 検証",
         "file": ROOT / "js" / "store.js",
-        "find": "                location: String(data.profile.location || store.profile.location || '').slice(0, 200),",
+        "find": "                location: safeStr(data.profile.location, store.profile.location, 200),",
         "replace": "",
     },
     {

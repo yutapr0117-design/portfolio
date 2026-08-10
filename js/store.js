@@ -296,23 +296,44 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
 
         // Merge profile
         if (data.profile && typeof data.profile === 'object') {
+            // [FIX] 文字列フィールドは **文字列/数値のみ** を採用する。旧実装は `String(v || fallback)`
+            //   だったため、`[]` や `{}` のような **truthy な非文字列** が `||` を素通りし、
+            //   `String([]) === ''` で **フィールドが空になっていた**。実測では
+            //   `{"profile":{"email":[]}}` を取り込むと ContactPage のメールアドレスが消え、
+            //   「メールを作成」ボタンが宛先の無い `mailto:?subject=...` を開く状態になった
+            //   (`{"profile":{"name":{}}}` は表示名が "[object Object]" になっていた)。
+            //   falsy 値 (''/0/null/undefined) が fallback へ落ちる従来の挙動は維持する。
+            const safeStr = (v, fallback, max) => {
+                const cand = (typeof v === 'string' || typeof v === 'number') ? String(v) : '';
+                const s = (v && cand.trim() !== '') ? cand : String(fallback || '');
+                return s.slice(0, max);
+            };
             // github / linkedin は ContactPage で href として描画されるため、http(s) スキームのみ
             // 許可して javascript:/data: 等の XSS ベクタを遮断する (空文字はクリア扱いで許容)。
+            // [FIX] **フィールド自体が無い (undefined/null) 場合は fallback を使う**。旧実装は
+            //   受け取った `fallback` 引数を「非 http 文字列」のときしか使わず、欠落時は必ず ''
+            //   を返していたため、部分的な profile JSON (例 `{"profile":{"name":"X"}}`) を
+            //   取り込むと **github / linkedin だけが黙って消えた**。同じ object 内で
+            //   name/title/bio/email/location は fallback へ落ちるのに URL 2 つだけ空になる
+            //   非対称で、#139 (この 3 フィールドが strip されていた data-fidelity バグ) と同じ面。
+            //   **明示的な空文字はクリア扱いのまま**維持する (意図的な削除は通す)。
             const safeUrl = (v, fallback) => {
-                const s = String(v ?? '').trim();
+                if (v === undefined || v === null) {return String(fallback || '');}
+                const s = String(v).trim();
                 if (s === '') {return '';}
                 return /^https?:\/\//i.test(s) ? s.slice(0, 500) : String(fallback || '');
             };
             store.profile = {
                 ...store.profile,
-                name: String(data.profile.name || store.profile.name).slice(0, CONSTANTS.LIMITS.PROJECT_NAME),
-                title: String(data.profile.title || store.profile.title).slice(0, CONSTANTS.LIMITS.CATEGORY),
-                bio: String(data.profile.bio || store.profile.bio).slice(0, 5000),
-                email: String(data.profile.email || store.profile.email).slice(0, 254), // RFC 5321 の最大長。name/title/bio と同様に bound (import bloat 防止)
+                name: safeStr(data.profile.name, store.profile.name, CONSTANTS.LIMITS.PROJECT_NAME),
+                title: safeStr(data.profile.title, store.profile.title, CONSTANTS.LIMITS.CATEGORY),
+                bio: safeStr(data.profile.bio, store.profile.bio, 5000),
+                // RFC 5321 の最大長。name/title/bio と同様に bound (import bloat 防止)
+                email: safeStr(data.profile.email, store.profile.email, 254),
                 // schema 定義済みフィールドの取りこぼし防止 (従来 strip され import で消えていた)
                 github: safeUrl(data.profile.github, store.profile.github),
                 linkedin: safeUrl(data.profile.linkedin, store.profile.linkedin),
-                location: String(data.profile.location || store.profile.location || '').slice(0, 200),
+                location: safeStr(data.profile.location, store.profile.location, 200),
             };
         }
 
