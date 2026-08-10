@@ -633,6 +633,13 @@ _E2E_TAIL = [
         "replace": "                .filter(t => t && t.title)",
         "test": "Hostile appsData import: non-string title/text must not render as [object Object]",
     },
+    {
+        "name": "behavior: router の slug decode ガード喪失 — js/router.js の decodeURIComponent から try/catch を外す → 不正な percent-encoding を含む slug (`#/projects/%E0%A4%A`) で URIError が route 解決中に throw し、graceful な「見つかりません」ではなく ErrorBoundary 送りになる。hash は利用者が直接編集でき古いブックマークからも来る最外周の入力面で、SW の normalizePath (#270) と同じ「全リクエストを触る hot path の decode は try/catch 必須」class のルータ面",
+        "file": ROOT / "js" / "router.js",
+        "find": "                    try {\n                        route.params.slug = decodeURIComponent(parts[1]);\n                    } catch (_) {\n                        route.params.slug = parts[1];\n                    }",
+        "replace": "                    route.params.slug = decodeURIComponent(parts[1]);",
+        "test": "Router tolerates a malformed percent-encoded project slug",
+    },
 ]
 
 

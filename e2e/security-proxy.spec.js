@@ -379,3 +379,60 @@ test('WebMCP role-split extraction selector resolves to rendered markup (agentic
   const text = await hooks.first().evaluate(el => el.textContent.trim());
   expect(text.length, '抽出対象のテキストが空').toBeGreaterThan(0);
 });
+
+// ===== ルータの query / slug の敵対的入力に対する graceful degradation =====
+// hash とその query は **ユーザーが直接編集でき、古いブックマークからも来る** 最も外側の入力面
+// なのに、これまで e2e は「正常な値」しか通していなかった (CLAUDE.md §7 が未採掘 vein として
+// 名指ししていた面)。壊れた入力で fatal / 空ページ / "[object Object]" が出れば、利用者は
+// リンクを踏んだだけで壊れたサイトを見ることになる。
+//
+// NOTE: 個々の期待値 (件数など) は固定しない。ここで守りたいのは **「どんな入力でも
+//   壊れずに何かを表示する」** という性質であって、特定のフィルタ結果ではない。
+//   件数を固定するとデータ追加のたびに無関係に落ちる脆いテストになる。
+const HOSTILE_HASHES = [
+  ['空の q', '#/projects?q='],
+  ['極端に長い q', '#/projects?q=' + 'あ'.repeat(500)],
+  ['不正な percent-encoding', '#/projects?q=%E0%A4%A'],
+  ['q の中の ? と #', '#/projects?q=a?q=b%23c'],
+  ['存在しないカテゴリ', '#/projects?cat=NoSuchCategory'],
+  ['プロトタイプ継承キー (cat)', '#/projects?cat=constructor'],
+  ['プロトタイプ継承キー (q)', '#/projects?q=__proto__'],
+  ['同名パラメータの重複', '#/projects?q=a&q=b'],
+  ['? だけ / 末尾 &', '#/projects?'],
+  ['quiz type 空', '#/quiz?type='],
+  ['quiz type がプロトタイプ継承キー', '#/quiz?type=constructor'],
+  ['quiz type 不明値', '#/quiz?type=zzz'],
+];
+
+for (const [label, hash] of HOSTILE_HASHES) {
+  test(`Router tolerates a hostile hash query: ${label}`, async ({ page }) => {
+    await page.goto(`/${hash}`, { waitUntil: 'domcontentloaded' });
+    // 先に「あるはずの見出し」を待って描画を確定させてから中身を検査する (Check 402)
+    await expect(page.locator('#content h1, #content h2').first()).toBeVisible();
+
+    const st = await page.evaluate(() => {
+      const text = (document.getElementById('content')?.textContent || '').trim();
+      return {
+        fatal: window.__fatalError ? window.__fatalError.message : null,
+        len: text.length,
+        objectObject: (text.match(/\[object Object\]/g) || []).length,
+        polluted: ({}).polluted,
+      };
+    });
+    expect(st.fatal, `${label}: fatal になった (${st.fatal})`).toBeNull();
+    expect(st.len, `${label}: 実質空のページが描画された`).toBeGreaterThan(20);
+    expect(st.objectObject, `${label}: "[object Object]" が描画された`).toBe(0);
+    expect(st.polluted, `${label}: プロトタイプ汚染が起きた`).toBeUndefined();
+  });
+}
+
+// 不正な percent-encoding を含む **slug** は decodeURIComponent が URIError を投げる。
+// router 側の try/catch が外れると route 解決中に throw して ErrorBoundary 送りになるため、
+// 「見つかりません」の graceful なページに着地することを別途固定する (SW の normalizePath
+// #270 と同じ「全リクエストを触る hot path の decode は try/catch 必須」class のルータ面)。
+test('Router tolerates a malformed percent-encoded project slug', async ({ page }) => {
+  await page.goto('/#/projects/%E0%A4%A', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1')).toContainText('プロジェクトが見つかりません');
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `malformed slug caused a fatal: ${fatal}`).toBeNull();
+});
