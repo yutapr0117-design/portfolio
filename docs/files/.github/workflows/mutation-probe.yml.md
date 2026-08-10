@@ -13,7 +13,7 @@ canonical-ref: .github/scripts/mutation_probe.py (runner) / .github/scripts/muta
 
 > **2026-08-10: consistency と behavior を並列の別ジョブへ分割した。** 実測（run 31397732391）は
 > **全体 38m48s / consistency 約 10 分（306 mutations）/ behavior 約 29 分（143 mutations）** で、
-> 直列だったため wall-clock は両者の和になっていた。並列化で **約 29 分（= 遅い方）** になり 26% 短縮する。
+> 直列だったため wall-clock は両者の和になっていた。並列化で **約 29 分（= 遅い方）** になり 26% 短縮する見込みだった。**分割後の実測（run 31405115213・2026-08-10）は 30m14s**（consistency 9m03s / behavior 30m08s）で、予測どおり。**22% 短縮**（38m48s → 30m14s）。
 > 下の「45 分を超えたら rotate か分割を検討」の閾値には**まだ達していない**が、mutation は増分ごとに
 > 増える一方で、超えてから動くと「安全網の検証が止まっている」ことに気付きにくい（この workflow は
 > PR を止めないため、赤に気付けるのは STATUS.md のバッジだけ）。**閾値に当たる前に構造を直す。**
@@ -62,7 +62,7 @@ consistency Check 群と behavior e2e は「**実装の**回帰」を守る。�
 
 | 項目 | 実測値 |
 | :-- | :-- |
-| 全体所要 | **34m18s**（→ 2026-08-10 は 38m48s。分割後は約 29 分の見込み） |
+| 全体所要 | **34m18s**（425 mutations 時点）→ 38m48s（直列・449 mutations）→ **30m14s**（分割後・実測 run 31405115213） |
 | consistency probe | ✓（当時 300 mutations） |
 | behavior probe | ✓（当時 125 mutations） |
 | working tree assert | ✓（復元漏れなし） |
@@ -71,6 +71,21 @@ consistency Check 群と behavior e2e は「**実装の**回帰」を守る。�
 
 - 所要が **45 分**を超えたら rotate（最古の mutation を `mutation_samples_archive*.py` へ）か job 分割を検討する。
 - 上の 34m18s は「300 + 125 = 425 mutations」時点の基準値。おおよそ **1 mutation ≒ 5 秒**として外挿できる。
+
+## この workflow が実際に穴を見つけた記録（2026-08-10）
+
+STATUS.md にバッジを出した直後（#964）、週次 run が **failure** で **4 件の behavior mutation が
+SURVIVED** していた。PR CI では走らないため、**バッジが無ければ気付かないまま**だった。
+
+| 段階 | 判明したこと |
+| :-- | :-- |
+| 1 回目（失敗） | 4 SURVIVED。うち 2 件は **mutation の find が非一意**で `replace(..., 1)` が別の場所を壊していた（probe が的を外していた）。1 件は **inert により観測不能**な mutation（原理的に捕捉不可）。 |
+| #980 修正後 | **4 → 2**。anchor 一意化・実ガード（`setAppInert`）への付け替えが実 CI で効いた。**Check 420** で非一意 anchor を構造禁止（導入直後に 3 件目を検出）。 |
+| #984 修正後 | **2 → 0**。残りは snapshot restore テストが click 直後に `__fatalError` を**待ちなしで単発読み**していた race（ローカルでは再現せず CI 負荷でのみ露見）。 |
+
+**教訓**: この層は「安全網が本当に機能しているか」を検証する唯一の手段だが、**PR を止めないので
+赤が届かない**。バッジ（#964）→ 発見（#980）→ 根治（#984）→ 分割で高速化（#983）という連鎖は、
+**観測できるようにしたことが起点**だった。
 
 ## Change impact
 
