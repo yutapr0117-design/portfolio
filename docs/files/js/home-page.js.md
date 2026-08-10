@@ -1,7 +1,7 @@
 ---
 file: js/home-page.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-07-04
+last-updated: 2026-08-11
 canonical-ref: js/components.js (抽出元) / main.js (配線) / js/ui-components.js (h)
 ---
 
@@ -27,6 +27,20 @@ canonical-ref: js/components.js (抽出元) / main.js (配線) / js/ui-component
 - **非破壊**: 関数本体は抽出元から無改変。hero CTA の遷移 (Router) / プロフィール描画 (State) 挙動は不変で behavior e2e (route 'home' 訪問) が保証。
 - **匿名性ガード (Check 124)**: 実名「横井雄太」は `alt:` / `data-entity` の AIO 属性 context 内にのみ置くこと。bare な可視テキストへ移すとサイト UI の匿名（`yuta`）設計が壊れる。**本ファイルは shipped JS で実名リテラルを持つ数少ない視覚 renderer** であり、この制約が実質的に file 固有。
 - **import bijection (Check 47)**: main.js の `import { createHomePage }` ↔ 本ファイルの `export function createHomePage` が一致すること。
+- **in-page ジャンプの a11y (Check 421 / e2e)**: 「まずはこの3つだけ見てください」1 枚目の
+  「ケースを見る →」は `#evidence-heading` へ 1,000px 超スクロールする。ここには 2 つの契約がある。
+  - **WCAG 2.3.3** — CSSOM-View では **`behavior` を明示した時点で CSS の `scroll-behavior` は
+    参照されない**。つまり style.css の `@media (prefers-reduced-motion: reduce) { scroll-behavior: auto !important }`
+    は `scrollIntoView({behavior:'smooth'})` には**効かない**。JS 側で `matchMedia` を見て
+    `behavior: 'auto'` へ落とすこと。**Check 421 (BLOCKING)** がこの問い合わせの存在を強制する。
+    紛らわしいのは、**CSS の reduce override 自体は正しく働く**こと（実測で `window.scrollTo(0, 0)`
+    は reduce のとき即時に完了した）—— 効かないのは behavior を明示した呼び出しだけである。
+  - **WCAG 2.4.3** — `scrollIntoView` は viewport を動かすだけで focus は動かない。移動先が見えない
+    ユーザーには何も起きず、キーボードユーザーの次の Tab は画面外へ去ったボタンから続いてしまう。
+    `tabindex="-1"` を付けて `focus({ preventScroll: true })` すること（`preventScroll` を外すと
+    直前のスクロールを focus 側が打ち消す）。
+  どちらも **fatal を出さず視覚差分も出ない**ので、捕捉層は `e2e/navigation-a11y.spec.js` の 2 テストと
+  Check 421 だけである。
 
 ## Change impact
 

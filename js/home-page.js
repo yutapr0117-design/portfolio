@@ -151,7 +151,21 @@ export function createHomePage({ h, Router, State, ContactCTA }) {
                                 class: 'btn btn-primary btn-sm w-full mt-auto',
                                 onclick: () => {
                                     const el = document.getElementById('evidence-heading');
-                                    if (el) {el.scrollIntoView({ behavior: 'smooth' });}
+                                    if (!el) { return; }
+                                    // WCAG 2.3.3: CSSOM-View では `behavior` を明示した時点で CSS の
+                                    // scroll-behavior は参照されない。つまり style.css の
+                                    // `@media (prefers-reduced-motion: reduce) { scroll-behavior: auto !important }`
+                                    // はこの呼び出しには効かない (実測: reduce と no-preference で
+                                    // scrollY のアニメーション曲線が同一だった)。自前で問い合わせる。
+                                    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                                    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+                                    // WCAG 2.4.3: scrollIntoView は viewport を動かすだけで focus は
+                                    // 動かない。移動先が見えないユーザーには何も起きず、キーボード
+                                    // ユーザーの次の Tab は画面外へ去ったボタンから続いてしまう。
+                                    // 見出しへ focus を移して以降の操作をセクション内から続ける
+                                    // (preventScroll: true — 上の scroll をこの focus で打ち消さない)。
+                                    el.setAttribute('tabindex', '-1');
+                                    el.focus({ preventScroll: true });
                                 },
                                 'aria-label': 'ケーススタディセクションへ移動'
                             }, 'ケースを見る →')

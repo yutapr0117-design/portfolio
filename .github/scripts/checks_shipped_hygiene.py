@@ -155,6 +155,22 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        昇華する (Check 364 が `(X || []).<throwing method>` で同じ昇華をした ingestion-safety の
        文字列面)。走査前にコメントを除去し、機構を説明する記述自体を違反と誤検出しない。(BLOCKING)
 
+  421. shipped JS (`js/**/*.js` ∪ `main.js`) で **スクロールの `behavior` を `'smooth'` と
+       明示するファイルは、同じファイルで `prefers-reduced-motion` を問い合わせる**ことを
+       BLOCKING 強制する。CSSOM-View では **`behavior` を明示した時点で CSS の
+       `scroll-behavior` は参照されない**ため、style.css の
+       `@media (prefers-reduced-motion: reduce) { scroll-behavior: auto !important }` は
+       `scrollIntoView({behavior:'smooth'})` / `scrollTo({behavior:'smooth'})` には**効かない**。
+       動機は実測 (#993): home の「ケースを見る →」が reduce 環境でも no-preference と
+       **同一のアニメーション曲線** (t0=0 → t150≈475 → t600≈1075) で 1,000px 超をスクロール
+       していた。前庭障害のユーザーに影響する WCAG 2.3.3 の欠陥だが、**視覚 baseline は
+       ADVISORY・fatal も出ない**ので behavior test 以外に捕捉層が無い。CSS 側の reduce
+       override が「効いているように見える」ことが誤解を強める —— 同じ実測の中で
+       `window.scrollTo(0, 0)` は reduce のとき即時に完了しており、CSS override 自体は
+       正しく働いていた。効かないのは **behavior を明示した呼び出しだけ**である。走査前に
+       コメントを除去するので、機構を説明する記述が違反にも充足にもならない (Check 112 の
+       「コメント中の語で file 単位判定が GREEN 化する」失敗の回避)。(BLOCKING)
+
 """
 import re
 import json
@@ -759,5 +775,43 @@ def run(ctx):
          + " — truthy な非文字列 ([] / {}) が素通りし、フィールドが空になる (ContactPage の宛先が消える) か "
            "\"[object Object]\" がそのまま描画される。fatal を出さないので ErrorBoundary に掛からず、"
            "視覚 baseline は ADVISORY ゆえ behavior test 以外に捕捉層が無い。safeStr / safeStrList / isText を通せ"),
+        blocking=True,
+    )
+
+    # ── 421. behavior:'smooth' を明示する file は prefers-reduced-motion を問い合わせる ──
+    # CSSOM-View: `behavior` を明示すると CSS の scroll-behavior は参照されない。つまり
+    # style.css の reduce override (`scroll-behavior: auto !important`) は明示呼び出しには
+    # 効かない。実測 (#993) では reduce / no-preference でスクロール曲線が完全に一致していた。
+    # 'smooth' の綴りは三項 (`behavior: reduce ? 'auto' : 'smooth'`) にも現れるため、
+    # `behavior:` の直後だけを見る形にすると **正しく直した後のコードを見落として vacuous
+    # PASS する**。ゆえに検出は「その file に 'smooth' リテラルがあるか」で広く取り、
+    # 充足条件を「同 file が prefers-reduced-motion を問い合わせるか」に置く。
+    _files421 = sorted(list((ROOT / "js").glob("**/*.js"))) + [ROOT / "main.js"]
+    _viol421 = []
+    _guarded421 = []
+    for _f421 in _files421:
+        _rel421 = _f421.relative_to(ROOT).as_posix()
+        _src421 = _f421.read_text(encoding="utf-8", errors="replace")
+        # コメントを除去してから両方を判定する。除去しないと (a) 説明コメント中の 'smooth' が
+        # false RED を生み、(b) コメント中の prefers-reduced-motion が実装なしで GREEN にする。
+        _code421 = re.sub(r"/\*.*?\*/", "", _src421, flags=re.S)
+        _code421 = re.sub(r"(?<!:)//[^\n]*", "", _code421)
+        if not re.search(r"['\"]smooth['\"]", _code421):
+            continue
+        if re.search(r"prefers-reduced-motion", _code421):
+            _guarded421.append(_rel421)
+        else:
+            _viol421.append(_rel421)
+    check(
+        not _viol421,
+        f"Check 421: 明示 behavior:'smooth' を持つ shipped JS {len(_guarded421)} file が prefers-reduced-motion を問い合わせている",
+        ("Check 421: スクロールの behavior を 'smooth' と明示しているのに prefers-reduced-motion を "
+         "問い合わせていない shipped JS: " + ", ".join(_viol421)
+         + " — CSSOM-View では behavior を明示した時点で CSS の scroll-behavior は参照されないため、"
+           "style.css の @media (prefers-reduced-motion: reduce) { scroll-behavior: auto !important } は "
+           "この呼び出しに効かない (実測 #993: reduce と no-preference でスクロール曲線が同一)。"
+           "前庭障害のユーザーに影響する WCAG 2.3.3 の欠陥で、fatal も視覚差分も出ないため "
+           "behavior test 以外に捕捉層が無い。matchMedia('(prefers-reduced-motion: reduce)').matches を "
+           "見て behavior を 'auto' へ落とせ"),
         blocking=True,
     )
