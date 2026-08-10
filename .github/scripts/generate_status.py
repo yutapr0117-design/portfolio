@@ -66,13 +66,35 @@ def build_status() -> str:
     slug = f"{m_site.group(1)}/{m_site.group(2)}" if m_site else ""
     site_url = m_site.group(0) if m_site else ""
     gate_workflows = []
+    scheduled_workflows = []
     wf_dir = ROOT / ".github" / "workflows"
     if wf_dir.exists():
         for wf in sorted(wf_dir.glob("*.yml")):
-            head = wf.read_text(encoding="utf-8")[:800]
+            # WHY 全文から `on:` ブロックだけを切り出すか (2026-08-10 修正):
+            #   以前は先頭 800 文字だけを見ていたが、**長い WHY コメントヘッダを持つ workflow の
+            #   トリガが窓の外に落ちて silent に検出漏れ**していた (mutation-probe.yml は 33 行の
+            #   コメントの後に `on:` があり、丸ごと監査面から消えていた)。ここは「導出だから
+            #   ハードコードより安全」と書いてある箇所そのものなので、導出の走査範囲が実態を
+            #   覆っていないのは最も見つかりにくい嘘になる (Check 124/411 で踏んだ scope drift の再来)。
+            #   全文を読んだ上でコメント行を除去し、`on:` から次のトップレベルキーまでを対象にする
+            #   (paths フィルタ等に現れる語を誤検出しない)。
+            _txt = wf.read_text(encoding="utf-8")
+            _nocomment = "\n".join(
+                _l for _l in _txt.splitlines() if not _l.lstrip().startswith("#")
+            )
+            _m_on = re.search(r"^on:\s*$(.*?)(?=^\S)", _nocomment, re.M | re.S)
+            head = _m_on.group(1) if _m_on else _nocomment
             # pull_request で起動する = PR の merge 可否を左右するゲート
             if re.search(r"^\s*pull_request:", head, re.M):
                 gate_workflows.append(wf.name)
+            # schedule で起動する = PR を止めない = 誰も見なければ赤のまま放置される。
+            # WHY 別枠にするか: PR ゲートは落ちれば merge がブロックされ AI が即座に気付くが、
+            # 定期実行は **失敗が誰にも届かない**。しかもここに属するのは「他のどの層も
+            # 見ていないもの」ばかり (安全網そのものの自己検証 = mutation-probe / 公開 AIO 面の
+            # 週次監視 = aio-monitoring)。オーナーの runtime 役割が「監査」である以上、
+            # 監査面から丸ごと欠けている CI の class があってはならない。
+            if re.search(r"^\s*schedule:", head, re.M):
+                scheduled_workflows.append(wf.name)
     audit_lines = []
     if slug:
         for wf in gate_workflows:
@@ -80,6 +102,19 @@ def build_status() -> str:
                 f"- ![{wf}](https://github.com/{slug}/actions/workflows/{wf}/badge.svg?branch=main) "
                 f"— [{wf} の実行履歴](https://github.com/{slug}/actions/workflows/{wf})"
             )
+        if scheduled_workflows:
+            audit_lines.append("")
+            audit_lines.append(
+                "**定期実行（PR では走らない）** — 落ちても merge は止まらないので、"
+                "**赤に気付けるのはここだけ**です。"
+            )
+            audit_lines.append("")
+            for wf in scheduled_workflows:
+                audit_lines.append(
+                    f"- ![{wf}](https://github.com/{slug}/actions/workflows/{wf}/badge.svg?branch=main) "
+                    f"— [{wf} の実行履歴](https://github.com/{slug}/actions/workflows/{wf})"
+                )
+            audit_lines.append("")
         audit_lines.append(f"- **全ワークフローの実行履歴**: https://github.com/{slug}/actions")
         audit_lines.append(f"- **未マージの PR（AI が今出しているもの）**: https://github.com/{slug}/pulls")
         if site_url:

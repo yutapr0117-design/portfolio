@@ -1,7 +1,7 @@
 ---
 file: STATUS.md
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-21
+last-updated: 2026-08-10
 canonical-ref: .github/scripts/generate_status.py (generator) / Check 121
 ---
 
@@ -10,6 +10,15 @@ canonical-ref: .github/scripts/generate_status.py (generator) / Check 121
 ## What
 
 オーナー向けの **機械生成** リポジトリ現況 BLUF（root の `STATUS.md`）。スマホ（GitHub mobile）から一目で「今このリポジトリはどんな状態か」を把握できる短いカード。`.github/scripts/generate_status.py` が authoritative ソースから生成し、`npm run status` で再生成する。
+
+監査節には **2 群の workflow バッジ**が出る（どちらも導出でハードコードしない）:
+
+| 群 | 判定 | なぜ分けるか |
+| :-- | :-- | :-- |
+| PR ゲート | `on: pull_request:` | 落ちれば merge がブロックされ、AI が即座に気付く |
+| **定期実行** | `on: schedule:` | **PR を止めないので、赤くなっても誰にも届かない**。しかもここに属するのは「他のどの層も見ていないもの」ばかり（安全網そのものの自己検証 = `mutation-probe.yml` / 公開 AIO 面の週次監視 = `aio-monitoring.yml`）。**STATUS.md がこの class に気付ける唯一の場所** |
+
+2026-08-10 まで定期実行 2 本はバッジがゼロで、監査面から丸ごと欠けていた。網羅は **Check 415** が生成器と独立に強制する。
 
 ## Why
 

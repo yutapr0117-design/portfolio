@@ -22,10 +22,20 @@ npm run status   →  python3 .github/scripts/generate_status.py  →  main() �
 build_status()   →  AI2AI.md から Pipeline-Version / 最新 Session Record # を正規表現で抽出し
                     エンティティ/運用モデル/ポインタを含む BLUF テキストを返す (決定論的・volatile 値なし)
                  →  監査導線も **導出** する: CLAUDE.md の canonical URL から owner/repo を割り出し、
-                    `.github/workflows/*.yml` のうち `pull_request:` で起動するもの (= merge を守る
-                    ゲート) を live badge + 実行履歴リンクにする。全ワークフロー履歴 / 未マージ PR /
-                    公開サイトへのリンクも出す。ハードコードしないので workflow の増減に自動追従する
+                    `.github/workflows/*.yml` を 2 群に分けて live badge + 実行履歴リンクにする。
+                      (a) `pull_request:` で起動 = merge を守るゲート
+                      (b) `schedule:` で起動 = 定期実行。**PR を止めないので赤くても誰にも届かない**
+                          ため別枠 + 但し書きを付ける (安全網の自己検証 = mutation-probe / 週次 AIO
+                          監視 = aio-monitoring がここに属する)
+                    全ワークフロー履歴 / 未マージ PR / 公開サイトへのリンクも出す。
+                    **トリガ判定は全文からコメント行を除いた上で `on:` ブロックだけを走査する**
+                    (2026-08-10 修正: 以前は先頭 800 文字しか見ておらず、33 行の WHY コメントヘッダを
+                    持つ mutation-probe.yml は `on:` が窓の外に落ちて **導出から silent に消えていた**。
+                    「ハードコードしないので追従する」と謳う導出そのものが実態を覆っていなかった)
 Check 121        →  generate_status を import し build_status() == committed STATUS.md を検証
+Check 415        →  **生成器と独立に** workflow を直接 parse し、PR ゲート ∪ 定期実行の全 workflow が
+                    STATUS.md にバッジを持つことを検証 (121 は「STATUS.md が生成器の出力と一致するか」
+                    しか見ないため、生成器の導出バグ自体はこの層でしか捕まらない)
 ```
 
 ## Change impact
