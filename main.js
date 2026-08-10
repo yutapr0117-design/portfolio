@@ -423,8 +423,7 @@
             State, Toast, Router, CONSTANTS, applyMeta, h, createIcon,
             Theme, BGM,
             secureExternalLinks: (...args) => _drawer.secureExternalLinks?.(...args),
-            openDrawer: () => _drawer.openDrawer?.(),
-            closeDrawer: () => _drawer.closeDrawer?.()
+            openDrawer: () => _drawer.openDrawer?.()
         });
 
 
