@@ -246,3 +246,55 @@ test('BGM toggle syncs aria-pressed and aria-label with playback state (a11y)', 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `BGM toggle caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== 履歴移動で drawer が開いたまま残らない =====
+// drawer 内の nav リンクは自分で closeDrawer() を呼ぶが、**それ以外の経路でルートが変わると
+// drawer は開いたまま残っていた** (実測 #998)。mobile で drawer を開いてブラウザの「戻る」を
+// 押すと、背後のページだけが切り替わり drawer は開いたまま・#app は inert・body は scroll lock
+// のままになる。Android の戻るボタンは「開いているモーダルを閉じる」操作として使われるのに、
+// 実際には**見えない場所でページが遷移していた**。
+//
+// この経路は #997 で全ルートの重複 id を掃く test を書こうとして見つかった —— ルートを goto で
+// 渡り歩くと 2 つ目以降で #menuBtn のクリックが overlay に阻まれて timeout し、
+// 「前のルートで開けた drawer が残っている」ことが判った。
+test('drawer 開放中にブラウザの戻るでルートが変わったら drawer が閉じる', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+
+  await page.locator('#menuBtn').click();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
+
+  await page.goBack();
+  await expect(page.locator('#content h1', { hasText: 'AI を自走させ' })).toBeVisible();
+
+  // NOTE: 「閉じたこと」は変化なので expect の auto-wait でよいが、isolation の解除は
+  //   settle 後に 1 度だけ読む (不変性の検査に poll を使わない)。
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'true');
+  const state = await page.evaluate(() => ({
+    overlay: getComputedStyle(document.getElementById('overlay')).display,
+    inert: document.getElementById('app').hasAttribute('inert'),
+    bodyPosition: document.body.style.position
+  }));
+  expect(state.overlay, 'overlay が残り操作を阻む').toBe('none');
+  expect(state.inert, '背後のページが inert のままで操作できない').toBe(false);
+  expect(state.bodyPosition, 'body の scroll lock が解除されていない').toBe('');
+});
+
+// 逆方向の非破壊確認: drawer 内の nav リンク経由は従来どおり閉じる (hashchange の
+// リスナーを足したことで二重に closeDrawer が走るが、#948 の再入ガードで無害であること)。
+test('drawer 内の nav リンクからの遷移も従来どおり閉じる', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  await page.locator('#menuBtn').click();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
+
+  await page.locator('#drawernav-projects').click();
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'true');
+  const inert = await page.evaluate(() => document.getElementById('app').hasAttribute('inert'));
+  expect(inert).toBe(false);
+});
