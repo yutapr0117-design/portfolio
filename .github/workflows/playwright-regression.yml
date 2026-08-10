@@ -76,6 +76,14 @@ jobs:
       # functionality (loads / displays / comprehensible) must be protected, but pixel-level
       # visual regressions are acceptable. So functionality e2e blocks merges …
       - name: Run behavior / functionality tests (BLOCKING gate)
+        # E2E_HERMETIC=1: localhost 以外への DNS を即 NOTFOUND にして、BLOCKING ゲートを
+        # 第三者 CDN (KARTE / Google Fonts) から切り離す。実測では 1 ナビゲーションごとに
+        # 6 ホストへ 9 リクエストが飛び、goto の既定 waitUntil='load' がそれを待っていたため、
+        # ゲートの合否が外部の可用性・レイテンシに依存していた (2026-08-10 に .hero-section の
+        # 30s timeout として flake 化)。遮断後は goto 447ms → 39ms・fatal なし。
+        # 次ステップの screenshot は実フォントが要るので **意図的に付けない** (Check 416 参照)。
+        env:
+          E2E_HERMETIC: '1'
         run: npx playwright test --config=playwright.config.cjs --grep-invert "screenshot regression" --reporter=list
 
       # … and the homepage pixel screenshot is ADVISORY (observed, never blocking). An intentional

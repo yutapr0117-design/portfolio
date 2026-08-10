@@ -64,6 +64,21 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (実測: navigation-a11y.spec.js の nav-link ループ = 全 sidebar リンクが NotFound に落ちない
        ことを検査する重要な gate が未検出だった)。行全体がコメントの行は判定から除外する。
        (BLOCKING)
+
+  416. BLOCKING behavior ゲートが第三者 CDN から切り離されていること。実測では
+       1 ナビゲーションごとに **6 つの第三者ホストへ 9 リクエスト** が飛び (KARTE ×4 /
+       Google Fonts ×2)、`page.goto()` の既定 waitUntil='load' が **その完了を待って**いた。
+       suite 全体で ~334 ナビゲーションあるため、ゲートの合否が外部 CDN の可用性と
+       レイテンシに依存していた (2026-08-10 に `.hero-section` の 30s timeout として
+       実際に flake 化し、rerun 1 回で緑になった)。本 Check は
+       (a) playwright.config.cjs が `E2E_HERMETIC` を読んで `--host-resolver-rules` を
+           launchOptions に渡すこと、
+       (b) playwright-regression.yml の behavior ステップ (`--grep-invert
+           "screenshot regression"`) が `E2E_HERMETIC` を設定していること、
+       (c) screenshot ステップには **設定しない**こと (実フォントで撮られた baseline を
+           壊さないための意図的な非対称。ここが崩れると ADVISORY の視覚シグナルが
+           恒久的に無意味になる)
+       の 3 点を BLOCKING 強制する。env-gate 自体は MUTATION_PROBE と同じ作法。(BLOCKING)
 """
 import re
 
@@ -223,5 +238,43 @@ def run(ctx):
         f"{_bad402[:8]} — toHaveCount(0)/not.toBeVisible() は初回 poll で成立すると再検査されないため、"
         "SPA の非同期描画とレースして「まだ描画されていない」を「無い」と誤認し vacuous に PASS する "
         "(#825/#830 class)。直前に「必ず在るはず」の要素の toBeVisible 等を 1 行足して描画を確定させよ",
+        blocking=True,
+    )
+
+    # ── 416. BLOCKING behavior ゲートが第三者 CDN から切り離されている (BLOCKING) ────────
+    # 実測: 1 ナビゲーションごとに 6 ホストへ 9 リクエスト (KARTE / Google Fonts) が飛び、
+    # goto の既定 waitUntil='load' がそれを待っていた = ゲートの合否が外部依存。遮断後は
+    # goto 447ms → 39ms。screenshot ステップにだけは付けない (実フォント baseline を守る)。
+    _cfg416 = (ROOT / "playwright.config.cjs").read_text(encoding="utf-8", errors="replace")
+    _wf416p = ROOT / ".github" / "workflows" / "playwright-regression.yml"
+    _wf416 = _wf416p.read_text(encoding="utf-8", errors="replace") if _wf416p.exists() else ""
+    _cfg_ok416 = ("E2E_HERMETIC" in _cfg416) and ("host-resolver-rules" in _cfg416)
+    # NOTE: コメント行を先に落とす。初版はここを素の substring で見ており、**同じ step 内の
+    # 説明コメントに書いた "E2E_HERMETIC" を実設定と誤認して**、env を丸ごと削っても GREEN の
+    # ままだった (自分で非 vacuity を測って気付いた comment-match vacuous PASS)。
+    # 判定は「YAML の mapping キーとしての `E2E_HERMETIC:`」に限定する。
+    _wf_nc416 = "\n".join(_l for _l in _wf416.splitlines() if not _l.lstrip().startswith("#"))
+    _steps416 = re.split(r"\n      - name: ", _wf_nc416)
+    _behavior416 = [_st for _st in _steps416 if 'grep-invert "screenshot regression"' in _st]
+    _shot416 = [_st for _st in _steps416 if re.search(r'--grep\s+"screenshot regression"', _st)]
+    _env_re416 = re.compile(r"^\s*E2E_HERMETIC\s*:", re.M)
+    _beh_ok416 = bool(_behavior416) and all(_env_re416.search(_st) for _st in _behavior416)
+    _shot_ok416 = all(not _env_re416.search(_st) for _st in _shot416)
+    _why416 = []
+    if not _cfg_ok416:
+        _why416.append("playwright.config.cjs が E2E_HERMETIC / host-resolver-rules を持たない")
+    if not _behavior416:
+        _why416.append('behavior ステップ (--grep-invert "screenshot regression") が見つからない')
+    elif not _beh_ok416:
+        _why416.append("behavior ステップが E2E_HERMETIC を設定していない")
+    if not _shot_ok416:
+        _why416.append("screenshot ステップに E2E_HERMETIC が付いている (実フォント baseline が壊れる)")
+    check(
+        _cfg_ok416 and _beh_ok416 and _shot_ok416,
+        "Check 416: BLOCKING behavior ゲートが第三者 CDN から切り離されている (E2E_HERMETIC 配線)",
+        ("Check 416: behavior ゲートの hermetic 配線が崩れている: " + " / ".join(_why416)
+         + " — ゲートの合否が KARTE / Google Fonts の可用性に依存すると、"
+           "コードが正しくても外部起因で赤くなり (実測 2026-08-10 に flake)、"
+           "rerun 頼みの運用が常態化して安全網の信頼性が落ちる"),
         blocking=True,
     )

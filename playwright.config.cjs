@@ -33,7 +33,33 @@ module.exports = defineConfig({
     // block しても clean baseline は緑のまま (SW はキャッシュ/オフライン層で機能性の前提でない)。
     serviceWorkers: process.env.MUTATION_PROBE ? 'block' : undefined,
   },
-  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+  projects: [{
+    name: 'chromium',
+    use: {
+      ...devices['Desktop Chrome'],
+      // WHY env-gated hermetic mode (E2E_HERMETIC=1):
+      //   実測では 1 ナビゲーションごとに **6 つの第三者ホストへ 9 リクエスト** が飛ぶ
+      //   (KARTE: cdn-edge / static / b / mirror2、Google Fonts: fonts.googleapis.com /
+      //   fonts.gstatic.com)。しかも `page.goto()` の既定 waitUntil は 'load' なので、
+      //   **それらの完了を待つ**。suite 全体では ~334 ナビゲーション ＝ BLOCKING ゲートの
+      //   合否が第三者 CDN の可用性とレイテンシに依存していた (2026-08-10 に実際
+      //   `.hero-section` の 30s timeout として flake 化し、rerun 1 回で緑になった)。
+      //   Chromium の DNS ルールで localhost 以外を即 NOTFOUND にすると、外部は
+      //   **ハングせず即失敗**する。実測: goto の所要が 447ms → 39ms、アプリは fatal なし
+      //   (KARTE も Fonts も機能性の前提ではなく、behavior test は一切 assert していない)。
+      // WHY 既定 ON にしないか:
+      //   screenshot baseline は実フォントで撮られているため、フォントを遮断すると
+      //   ADVISORY の視覚シグナルが恒久的に無意味になる。CI は behavior と screenshot を
+      //   別ステップに分けている (--grep-invert / --grep "screenshot regression") ので、
+      //   **behavior ステップだけ** に env を立てる。ローカルの全件実行は従来どおり
+      //   (外部あり) で、CI 側だけが厳密になる = ローカルが CI より緩い安全な向き。
+      //   MUTATION_PROBE と同じ env-gate の作法 (Check 416 が behavior ステップでの
+      //   設定を機械強制する)。
+      launchOptions: process.env.E2E_HERMETIC
+        ? { args: ['--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE localhost'] }
+        : {},
+    },
+  }],
   webServer: {
     command: 'npx http-server . -p 8080 --silent',
     url: 'http://localhost:8080',
