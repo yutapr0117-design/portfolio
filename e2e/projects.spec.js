@@ -831,3 +831,53 @@ test('In-page "back to list" preserves the active filter (and does not resurrect
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `in-page back caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== 無効な ?cat= deep-link が 'All' へ正規化される (control\u2194content desync 防止) =====
+// js/projects-page.js の [FIX] が直したのは **stale bookmark / カテゴリ削除後** に無効な cat が
+// URL に残るケース。放置すると <select> は該当 option が無いので表示上 'All' になる一方、
+// フィルタは無効値のままなので **「全カテゴリーと表示されているのに 0 件」** という
+// control\u2194content desync になる (#781 と同族)。
+// 既存テストは *有効な* カテゴリ選択と URL 同期は見ているが、**無効値の deep-link は未被覆**だった。
+//
+// NOTE (この test を書く過程で踏んだ罠): 同一ルート内の hash 遷移は再描画を伴うため、
+//   `.card` の可視だけを待って読むと **前の描画の残骸** を読む (実測: cat=AI へ移った直後に
+//   select を読むと 'All' が返り、アプリのバグに見えた)。**変化の検査は expect.poll で待つ**。
+//   逆に「変化しないこと」の検査に poll を使ってはいけない (最初の観測で成功してしまう)。
+// NOTE: 件数はハードコードしない (プロジェクト追加で無関係に落ちる)。'All' と同じ件数かで見る。
+test('An unknown ?cat= deep-link normalizes to All (no control-content desync)', async ({ page }) => {
+  const selValue = () => page.evaluate(() => {
+    const sel = document.querySelector('#content select');
+    return sel ? sel.value : null;
+  });
+  const cardCount = () => page.locator('.grid-projects article.card').count();
+
+  // 基準: フィルタ無しの件数
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.grid-projects article.card').first()).toBeVisible();
+  await expect.poll(selValue).toBe('All');
+  const baseline = await cardCount();
+  expect(baseline, 'プロジェクトが 1 件も描画されていない').toBeGreaterThan(1);
+
+  // control: **有効な**カテゴリ deep-link は選択状態が復元され、件数が減る。
+  //   これが動いていないと以降の「'All' になる」検査は trivially 通り vacuous になる。
+  await page.goto('/#/projects?cat=AI', { waitUntil: 'domcontentloaded' });
+  await expect.poll(selValue, { message: '有効な cat の deep-link が select に復元されない — 以降が vacuous' })
+    .toBe('AI');
+  expect(await cardCount(), '有効な cat で絞り込まれていない').toBeLessThan(baseline);
+
+  // 無効値: stale bookmark / 削除済みカテゴリ / プロトタイプ継承キー
+  for (const bad of ['NoSuchCategory', 'constructor']) {
+    await page.goto(`/#/projects?cat=${bad}`, { waitUntil: 'domcontentloaded' });
+    // 直前が 'AI' なので、'All' への **変化** を待つ (poll が正しい使い方)
+    await expect.poll(selValue, { message: `cat=${bad} が 'All' へ正規化されていない` }).toBe('All');
+    await expect.poll(cardCount, {
+      message: `cat=${bad} で件数が 'All' と一致しない (control は All なのに中身が絞られている desync)`,
+    }).toBe(baseline);
+    // 次のループで 'AI' → 'All' の変化を作るため、有効値へ戻しておく
+    await page.goto('/#/projects?cat=AI', { waitUntil: 'domcontentloaded' });
+    await expect.poll(selValue).toBe('AI');
+  }
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `invalid cat deep-link caused a fatal: ${fatal}`).toBeNull();
+});
