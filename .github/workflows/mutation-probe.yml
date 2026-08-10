@@ -47,10 +47,58 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  mutation-probe:
+  # ────────────────────────────────────────────────────────────────────────────
+  # consistency と behavior を **並列の別ジョブ**にする (2026-08-10 分割)。
+  #
+  # WHY (実測に基づく・2026-08-10 の run 31397732391):
+  #     全体          38m48s  (14:21:44 → 15:00:32)
+  #     consistency   約 10 分 (306 mutations)
+  #     behavior      約 29 分 (143 mutations・playwright を mutation ごとに起動)
+  #   直列なので wall-clock は両者の和になっていた。**並列化で約 29 分**（= 遅い方）になり、
+  #   26% 短縮する。mirror doc が定めた「45 分を超えたら rotate か分割を検討」の閾値には
+  #   まだ達していないが、mutation は増分ごとに増える一方で、超えてから動くと
+  #   「安全網の検証が止まっている」ことに気付きにくい (この workflow は PR を止めないため、
+  #   赤に気付けるのは STATUS.md のバッジだけ)。**閾値に当たる前に構造を直す**。
+  #
+  #   分割のもう一つの利点は **どちらの層が壊れたのかがジョブ単位で分かる** こと
+  #   (従来は 1 つの赤としか見えず、ログを開くまで区別できなかった)。
+  #   両者は互いに独立 (別の安全網を検証する) ので直列である必然性が無く、
+  #   consistency 側は playwright を使わないので npm ci / browser install も不要になる。
+  # ────────────────────────────────────────────────────────────────────────────
+  consistency:
+    name: Consistency safety-net self-check
     runs-on: ubuntu-latest
-    timeout-minutes: 60   # behavior probe は mutation ごとに playwright を起動するため長い
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+      - name: Setup Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      # consistency probe は playwright を起動しないので npm ci / browser install は不要。
+      # (behavior 側だけが node/chromium を要る = 分割によって consistency の起動コストも減る)
+      - name: Run consistency probe
+        env:
+          MUTATION_PROBE: '1'
+        run: python3 .github/scripts/mutation_probe.py
+
+      - name: Assert working tree is restored
+        if: always()
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::mutation probe left the working tree modified — 復元ロジックの回帰"
+            git status --porcelain
+            exit 1
+          fi
+          echo "working tree clean — 全 mutation が復元された"
+
+  behavior:
+    name: Behavior (e2e) safety-net self-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 55   # mutation ごとに playwright を起動するため長い (分割後の実測で見直す)
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -71,25 +119,13 @@ jobs:
           npm ci
           npx playwright install --with-deps chromium
 
-      # consistency 安全網の自己検証。MUTATION_PROBE=1 は probe 実行中であることを
-      # 下位ツールへ伝える（service worker のキャッシュ配信で mutated JS が効かず
-      # 偽 PASS になる罠の回避に使われる）。
-      - name: Consistency safety-net self-check
-        env:
-          MUTATION_PROBE: '1'
-        run: python3 .github/scripts/mutation_probe.py
-
-      # behavior 安全網の自己検証。consistency 側が落ちても behavior 側の結果は
-      # 知りたいので always() で走らせる（両方の穴を 1 回の run で把握する）。
-      - name: Behavior (e2e) safety-net self-check
-        if: always()
+      # MUTATION_PROBE=1 は SW を block し (false SURVIVED 対策)、E2E_HERMETIC=1 は外部 CDN を
+      # 遮断する (false CAUGHT 対策)。どちらも mutation_probe.py が子プロセスへ渡す (Check 416)。
+      - name: Run behavior (e2e) probe
         env:
           MUTATION_PROBE: '1'
         run: python3 .github/scripts/mutation_probe.py --e2e
 
-      # probe は失敗時に mutated なファイルを残しうる。ワークツリーが汚れたままなら
-      # 復元漏れなので明示的に失敗させる（次の run が汚染状態から始まるのを防ぐ意図の
-      # 表明であり、runner は使い捨てだが復元ロジックの回帰検出として機能する）。
       - name: Assert working tree is restored
         if: always()
         run: |

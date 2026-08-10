@@ -11,7 +11,16 @@ canonical-ref: .github/scripts/mutation_probe.py (runner) / .github/scripts/muta
 
 **安全網そのものの自己検証**を週次で走らせる GitHub Actions ワークフロー。
 
-| ステップ | 内容 |
+> **2026-08-10: consistency と behavior を並列の別ジョブへ分割した。** 実測（run 31397732391）は
+> **全体 38m48s / consistency 約 10 分（306 mutations）/ behavior 約 29 分（143 mutations）** で、
+> 直列だったため wall-clock は両者の和になっていた。並列化で **約 29 分（= 遅い方）** になり 26% 短縮する。
+> 下の「45 分を超えたら rotate か分割を検討」の閾値には**まだ達していない**が、mutation は増分ごとに
+> 増える一方で、超えてから動くと「安全網の検証が止まっている」ことに気付きにくい（この workflow は
+> PR を止めないため、赤に気付けるのは STATUS.md のバッジだけ）。**閾値に当たる前に構造を直す。**
+> 分割のもう一つの利点は **どちらの層が壊れたのかがジョブ単位で分かる**こと（従来は 1 つの赤としか
+> 見えなかった）。consistency 側は playwright を使わないので `npm ci` / browser install も不要になる。
+
+| ジョブ / ステップ | 内容 |
 | :-- | :-- |
 | consistency probe | `MUTATIONS` を 1 件ずつ当て、`check_repository_consistency.py` が Check 362（anchor orphan）**以外**の error を出すことを確認 |
 | behavior probe | `E2E_MUTATIONS` を 1 件ずつ当て、`test` フィールドが指す playwright テストが実際に fail することを確認 |
@@ -40,6 +49,8 @@ consistency Check 群と behavior e2e は「**実装の**回帰」を守る。�
 
 ## Constraints
 
+- **2 ジョブは互いに独立**（別の安全網を検証する）ため直列である必然性が無い。片方が落ちても
+  もう片方の結果は知りたいので、`needs` で連結しない。
 - **`pull_request` トリガを持たせない。** 20〜30 分かかるため merge ゲートにすると自走のリズムが壊れる。`STATUS.md` の監査バッジは `pull_request:` を持つ workflow だけを「ゲート」として導出するため、この workflow はバッジ対象外になる（意図どおり）。
 - `permissions: contents: read` のみ（コミットも Issue 作成もしない・Check 68 の明示 permissions 要件）。
 - `concurrency` で多重実行を抑止する。
@@ -51,7 +62,7 @@ consistency Check 群と behavior e2e は「**実装の**回帰」を守る。�
 
 | 項目 | 実測値 |
 | :-- | :-- |
-| 全体所要 | **34m18s** |
+| 全体所要 | **34m18s**（→ 2026-08-10 は 38m48s。分割後は約 29 分の見込み） |
 | consistency probe | ✓（当時 300 mutations） |
 | behavior probe | ✓（当時 125 mutations） |
 | working tree assert | ✓（復元漏れなし） |
