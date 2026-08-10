@@ -802,6 +802,27 @@ _E2E_TAIL = [
         "replace": "                                            void 0;",
         "test": "WCAG 2.1.1: プロジェクトのタグ絞り込みは検索欄へ focus を移す",
     },
+    {
+        "name": "behavior: サイドバー nav の focus 復元 id が外れる (#997 の回帰) — _renderCore は #content だけでなく sidebar も毎回作り直すため、id が無いと同一ルート再描画のたびに nav の focus が body へ落ちる。ポモドーロ稼働中は毎秒再描画されるので、キーボード利用者はタイマーが動いている間サイドバーに focus を留めておけない",
+        "file": ROOT / "js" / "components.js",
+        "find": "                id: navId(item),\n",
+        "replace": "",
+        "test": "WCAG 2.1.1: ポモドーロ稼働中でもサイドバーに focus を留められる",
+    },
+    {
+        "name": "behavior: sidebar と drawer の Lab 本体 id が再び衝突する (#997 の回帰) — drawer を開くと同一 id の要素が 2 つ DOM 上に存在し、sidebar 側トグルの aria-controls が drawer 側を指す (支援技術が視覚的に隠れた別グループへ着地する)。focus 復元も getElementById を鍵にするので復元先が別物になりうる",
+        "file": ROOT / "js" / "components.js",
+        "find": "        const labBodyId = isDrawer ? 'drawer-nav-lab-body' : 'nav-lab-body';",
+        "replace": "        const labBodyId = 'nav-lab-body';",
+        "test": "sidebar と drawer の nav が id を衝突させない",
+    },
+    {
+        "name": "behavior: Lab トグルがハードコード id を掴む (#997 の回帰) — 自分の aria-controls を辿らずに getElementById('nav-lab-body') すると、sidebar と drawer が同時に存在する mobile で相手側の本体を開閉する。どちらが動くかが構築順という偶然に委ねられる",
+        "file": ROOT / "js" / "components.js",
+        "find": "                    const body = document.getElementById(e.currentTarget.getAttribute('aria-controls'));",
+        "replace": "                    const body = document.getElementById('nav-lab-body');",
+        "test": "drawer の Lab トグルは drawer 側の本体だけを開閉する",
+    },
 ]
 
 
