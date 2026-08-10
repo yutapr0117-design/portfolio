@@ -240,6 +240,10 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
                                 h('input', {
                                     type: 'number',
                                     class: 'input',
+                                    // [A11Y 2.1.1] 再描画後の focus 復元用 (main.js _renderCore)。
+                                    //   これが無いと ArrowUp の 1 回目で focus が body へ落ち、
+                                    //   2 回目以降が一切効かない (値を 1 段しか動かせない)。
+                                    id: 'pomo-setting-work',
                                     'aria-label': '集中時間（分）',
                                     value: pomo.settings.work,
                                     min: 1, max: 180,
@@ -256,6 +260,10 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
                                 h('input', {
                                     type: 'number',
                                     class: 'input',
+                                    // [A11Y 2.1.1] 再描画後の focus 復元用 (main.js _renderCore)。
+                                    //   これが無いと ArrowUp の 1 回目で focus が body へ落ち、
+                                    //   2 回目以降が一切効かない (値を 1 段しか動かせない)。
+                                    id: 'pomo-setting-short',
                                     'aria-label': '短休憩時間（分）',
                                     value: pomo.settings.short,
                                     min: 1, max: 60,
@@ -276,6 +284,10 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
                                 h('input', {
                                     type: 'number',
                                     class: 'input',
+                                    // [A11Y 2.1.1] 再描画後の focus 復元用 (main.js _renderCore)。
+                                    //   これが無いと ArrowUp の 1 回目で focus が body へ落ち、
+                                    //   2 回目以降が一切効かない (値を 1 段しか動かせない)。
+                                    id: 'pomo-setting-long',
                                     'aria-label': '長休憩時間（分）',
                                     value: pomo.settings.long,
                                     min: 1, max: 120,

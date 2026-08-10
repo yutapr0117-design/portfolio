@@ -190,6 +190,11 @@ export function createProjectsPage({ h, createIcon, Router, State, tokenize, cle
                     h('select', {
                         class: 'input',
                         'aria-label': 'カテゴリフィルター',
+                        // [A11Y 2.1.1] 再描画で消えた後に focus を戻すための安定ハンドル
+                        //   (main.js _renderCore が復元する / Check 422)。本ページの絞り込みは
+                        //   listHost の手動再描画で #content を作り直さないため現状は focus を
+                        //   失わないが、全再描画へ変わった瞬間に沈黙して壊れる面なので先に固定する。
+                        id: 'projects-category-filter',
                         onchange: (e) => {
                             cat = e.target.value;
                             renderGrid();

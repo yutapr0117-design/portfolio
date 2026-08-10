@@ -277,10 +277,14 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                     h('section', { class: 'card' },
                         h('div', { class: 'card-body flex flex-col gap-3' },
                             h('h2', { class: 'h3' }, 'インポート（欠損ゼロ）'),
+                            // [A11Y 2.1.1] 以下の select / checkbox に付けた id は「再描画で消えた後に
+                            //   focus を戻す」ための安定ハンドル (main.js _renderCore が復元する)。
+                            //   これらの onchange は window.render() で #content を作り直すため、id が
+                            //   無いと 1 つ切り替えるたび focus が body へ落ち、対象を続けて選べない。
                             h('div', { class: 'grid grid-cols-2 gap-3' },
                                 h('div', {},
                                     h('label', { class: 'text-sm text-muted' }, 'モード'),
-                                    h('select', { class: 'input', 'aria-label': 'インポートモード', onchange: (e) => { settingsImportMode = e.target.value; window.render(); } },
+                                    h('select', { class: 'input', id: 'settingsImportMode', 'aria-label': 'インポートモード', onchange: (e) => { settingsImportMode = e.target.value; window.render(); } },
                                         h('option', { value: 'append', selected: settingsImportMode === 'append' ? true : undefined }, 'append（追加のみ）'),
                                         h('option', { value: 'upsert', selected: settingsImportMode === 'upsert' ? true : undefined }, 'upsert（更新+追加）'),
                                         h('option', { value: 'strict', selected: settingsImportMode === 'strict' ? true : undefined }, 'strict（全置換）')
@@ -290,15 +294,15 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                                     h('label', { class: 'text-sm text-muted' }, '対象'),
                                     h('div', { class: 'flex flex-wrap gap-2' },
                                         h('label', { class: 'btn btn-ghost btn-sm' },
-                                            h('input', { type: 'checkbox', checked: settingsIncludeProfile, onchange: (e) => { settingsIncludeProfile = !!e.target.checked; window.render(); } }),
+                                            h('input', { type: 'checkbox', id: 'settingsIncludeProfile', checked: settingsIncludeProfile, onchange: (e) => { settingsIncludeProfile = !!e.target.checked; window.render(); } }),
                                             h('span', { class: 'icon-gap' }, 'Profile')
                                         ),
                                         h('label', { class: 'btn btn-ghost btn-sm' },
-                                            h('input', { type: 'checkbox', checked: settingsIncludeProjects, onchange: (e) => { settingsIncludeProjects = !!e.target.checked; window.render(); } }),
+                                            h('input', { type: 'checkbox', id: 'settingsIncludeProjects', checked: settingsIncludeProjects, onchange: (e) => { settingsIncludeProjects = !!e.target.checked; window.render(); } }),
                                             h('span', { class: 'icon-gap' }, 'Projects')
                                         ),
                                         h('label', { class: 'btn btn-ghost btn-sm' },
-                                            h('input', { type: 'checkbox', checked: settingsIncludeApps, onchange: (e) => { settingsIncludeApps = !!e.target.checked; window.render(); } }),
+                                            h('input', { type: 'checkbox', id: 'settingsIncludeApps', checked: settingsIncludeApps, onchange: (e) => { settingsIncludeApps = !!e.target.checked; window.render(); } }),
                                             h('span', { class: 'icon-gap' }, 'AppsData')
                                         )
                                     )
@@ -389,7 +393,7 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                                 ),
                                 h('div', {},
                                     h('label', { class: 'text-sm text-muted' }, 'Demo（任意）'),
-                                    h('select', { class: 'input', 'aria-label': 'Demo アプリの種類', onchange: (e) => { settingsNewDemo = e.target.value; } },
+                                    h('select', { class: 'input', id: 'settingsNewDemo', 'aria-label': 'Demo アプリの種類', onchange: (e) => { settingsNewDemo = e.target.value; } },
                                         h('option', { value: '', selected: settingsNewDemo === '' ? true : undefined }, 'Demoなし'),
                                         h('option', { value: 'task', selected: settingsNewDemo === 'task' ? true : undefined }, 'task'),
                                         h('option', { value: 'todo', selected: settingsNewDemo === 'todo' ? true : undefined }, 'todo'),
