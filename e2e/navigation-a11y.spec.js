@@ -550,3 +550,103 @@ test('WCAG 2.1.1: 絞り込み select を変更しても focus が select に残
   const active = await page.evaluate(() => (document.activeElement ? document.activeElement.id : null));
   expect(active, '絞り込みを変えるたび focus が body へ落ち、続きの Tab がドキュメント先頭からになる').toBe('task-filter-priority');
 });
+
+// ===== WCAG 2.1.1: 押すと自分自身が消えるボタン =====
+// #994 は change を持つコントロール (select / checkbox / number) を扱ったが、**同じことが
+// ボタンにも起きる**。onclick が `State.update` を呼べば #content が作り直され、そのボタン自身が
+// 消えて focus が body へ落ちる。実測 (#995): タスクの「次のステータスへ進める」・Todo と
+// タスクの削除・ポモドーロの開始/モード/リセット・プロジェクトのタグ絞り込みが全て BODY だった。
+//
+// 復元は **id を持っていた要素だけ** を対象にする opt-in にしてある。無条件にすると、毎秒
+// 再描画されるポモドーロ稼働中に「id の無い任意の要素」から h1 へ focus が飛び続けてしまう。
+// 元の要素へ戻せない 2 ケース (削除で消えた / 移動後に disabled になった) は #content の h1 へ
+// 落とす —— body に残すとドキュメント先頭からの Tab やり直しになるため。
+test('WCAG 2.1.1: ポモドーロを開始した後もキーボードで一時停止できる', async ({ page }) => {
+  await page.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'ポモドーロ' })).toBeVisible();
+
+  const toggle = page.locator('#pomo-toggle');
+  await expect(toggle).toContainText('開始');
+  await toggle.focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#pomo-toggle')).toContainText('一時停止');
+
+  // ここで focus を失うと、稼働中は毎秒再描画されるため復帰の機会も無く「開始したら
+  // キーボードでは止められない」状態になる。同じキーで戻せることを確かめる。
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#pomo-toggle')).toContainText('開始');
+
+  const active = await page.evaluate(() => (document.activeElement ? document.activeElement.id : null));
+  expect(active, '開始した瞬間に focus が失われている').toBe('pomo-toggle');
+});
+
+test('WCAG 2.1.1: タスクをキーボードだけで連続してステータス移動できる', async ({ page }) => {
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' })).toBeVisible();
+
+  // NOTE: locator に id を使わない。id を外す mutation で「要素が見つからない」ことによる失敗に
+  //   なってしまい、**focus が失われたこと**を検証できたのか帰属できなくなるため、アクセシブル名で
+  //   引いて activeElement 側もアクセシブル名で比べる。
+  const next = page.getByRole('button', { name: /^次のステータスへ進める：/ }).first();
+  await expect(next).toBeVisible();
+  const name = await next.getAttribute('aria-label');
+  const id = await next.getAttribute('id');
+  await next.focus();
+
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(400);
+  const mid = await page.evaluate(() => (document.activeElement ? document.activeElement.getAttribute('aria-label') : null));
+  expect(mid, '1 段動かすたびに focus が失われ、続けて動かせない').toBe(name);
+
+  // 2 回目で最終ステータスへ。ここでボタンは disabled になるので元へは戻せない。
+  // focus() は disabled 要素に対して黙って無効化されるため、**activeElement を読み直して**
+  // #content 内 (h1) へ退避できていることを確認する。
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(400);
+  await expect(page.locator('#' + id)).toBeDisabled();
+  const end = await page.evaluate(() => {
+    const a = document.activeElement;
+    return { tag: a ? a.tagName : 'null', inContent: !!(a && document.getElementById('content').contains(a)) };
+  });
+  expect(end.inContent, `最終ステータスへ移動後 focus が #content の外 (${end.tag}) にある`).toBe(true);
+});
+
+test('WCAG 2.1.1: 項目を削除しても focus が本文内に残る', async ({ page }) => {
+  await page.goto('/#/apps/todo', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'TODO' })).toBeVisible();
+
+  // locator に id を使わない理由は上の test の NOTE と同じ。
+  const del = page.getByRole('button', { name: /^削除：/ }).first();
+  await expect(del).toBeVisible();
+  await del.focus();
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(400);
+
+  // 削除ボタンは自分自身を消すので元の要素へは戻せない。body に残すとドキュメント先頭からの
+  // Tab やり直しになるため、少なくとも #content 内へ退避していることを要求する。
+  const res = await page.evaluate(() => {
+    const a = document.activeElement;
+    return { tag: a ? a.tagName : 'null', inContent: !!(a && document.getElementById('content').contains(a)) };
+  });
+  expect(res.inContent, `削除後に focus が #content の外 (${res.tag}) へ落ちている`).toBe(true);
+});
+
+test('WCAG 2.1.1: プロジェクトのタグ絞り込みは検索欄へ focus を移す', async ({ page }) => {
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+
+  const tag = page.getByRole('button', { name: '#ツール' }).first();
+  await expect(tag).toBeVisible();
+  await tag.focus();
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(400);
+
+  // このボタンは grid 内に居るので renderGrid() が自分自身を消す (_renderCore の復元経路は
+  // 通らない手動再描画)。検索欄へ移すと「タグを検索語に入れた」結果そのものが focus 先になる。
+  const res = await page.evaluate(() => {
+    const a = document.activeElement;
+    return { label: a ? a.getAttribute('aria-label') : null, value: a ? a.value : null };
+  });
+  expect(res.label, 'タグを押すと focus が body へ落ちる').toBe('プロジェクト検索');
+  expect(res.value).toBe('ツール');
+});
