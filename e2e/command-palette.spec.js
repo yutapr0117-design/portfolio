@@ -51,6 +51,14 @@ test('Command palette traps Tab focus inside the modal (a11y regression)', async
   await expect(host).toHaveAttribute('aria-hidden', 'false');
   await expect(page.locator('.cmdk-input')).toBeFocused();
 
+  // [2026-08-10 追記] **背景が inert であることを先に固定する**。#947 で開いている間 #app を
+  //   inert 化したため、背景に focusable が 1 つも無くなり、**ブラウザ自身が focus を palette 内へ
+  //   閉じ込める**。実測: palette 内の focusable は input 1 つのみで、Tab を 6 回押しても input から
+  //   動かない。つまり JS 側の wrap (`activeElement === last` → `first.focus()`) は **観測不能** で、
+  //   それだけを壊す mutation は原理的に捕捉できない (週次 probe が SURVIVED として検出した)。
+  //   実際に focus を閉じ込めているのは inert なので、**そちらを assert する**。
+  await expect(page.locator('#app')).toHaveAttribute('inert', '');
+
   // Tab を複数回押しても focus が overlay 内 (#command-palette-host 配下) に留まる。
   // (注: cmdk-list <ul> は overflow スクローラとして Tab-focusable なため、Tab 1 回では
   //  input→UL で偶然 host 内に留まり区別できない。修正前は 2 回目の Tab で UL→背景へ抜ける。
@@ -71,6 +79,10 @@ test('Command palette traps Tab focus inside the modal (a11y regression)', async
   expect(inside, 'repeated Shift+Tab should not move focus outside the open command palette').toBe(true);
 
   await page.keyboard.press('Escape');
+  // 閉じたら inert は解除される (解除漏れは背景全体が永久に操作不能になる重い回帰)
+  await expect(page.locator('#command-palette-host')).toHaveAttribute('aria-hidden', 'true');
+  await expect(page.locator('#app')).not.toHaveAttribute('inert', '');
+
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `command palette focus trap caused a fatal: ${fatal}`).toBeNull();
 });

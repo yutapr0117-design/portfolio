@@ -161,8 +161,14 @@ E2E_MUTATIONS_ARCHIVE = [
     {
         "name": "behavior: a11y — command palette focus-trap の喪失 (Tab が背景へ漏れる)",
         "file": ROOT / "js" / "command-palette.js",
-        "find": "else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }",
-        "replace": "else if (!e.shiftKey && document.activeElement === last) { /* trap disabled */ }",
+        # NOTE (2026-08-10 差し替え): 旧 mutation は JS の forward-wrap
+        #   (`activeElement === last` → `first.focus()`) を潰していたが、**それは観測不能**だった。
+        #   #947 で palette 開放中は #app が inert になり背景に focusable が 0 個になるため、
+        #   **ブラウザ自身が focus を閉じ込める**（実測: palette 内 focusable は input 1 つのみで
+        #   Tab を 6 回押しても動かない）。週次 probe が SURVIVED として検出したので、
+        #   **実際に閉じ込めている guard = setAppInert** を対象に付け替えた。
+        "find": "        if (typeof setAppInert === 'function') { setAppInert(true); }",
+        "replace": "        if (false) { setAppInert(true); }",
         "test": "Command palette traps Tab focus inside the modal",
     },
     {
@@ -312,8 +318,11 @@ E2E_MUTATIONS_ARCHIVE = [
     {
         "name": "a11y: project-detail 先頭セクション見出しの h2 喪失 (先頭 <h2 課題> を <h3> に戻す → h1(project.name)→h3 の見出しレベルスキップ・WCAG 1.3.1 / axe heading-order 退行・#731 で是正した見出しの非 vacuity 検証。first-only replace は先頭 = 課題 見出しに当たる)",
         "file": ROOT / "js" / "project-detail-page.js",
-        "find": "h('h2', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },",
-        "replace": "h('h3', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },",
+        # NOTE: この h2 の並びは **3 箇所** (課題 / アプローチ / アーキテクチャ) あり、素の式を
+        #   find にすると replace(find, replace, 1) が先頭だけを壊す。壊れる場所を明示するため
+        #   直後の createIcon('alert') まで含めて「課題」節に一意 anchor する (Check 420)。
+        "find": "h('h2', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },\n                                createIcon('alert', 20),",
+        "replace": "h('h3', { class: 'h3 mb-3' }, h('div', { class: 'flex items-center gap-2' },\n                                createIcon('alert', 20),",
         "test": "project detail (#/projects/:slug)",
     },
     {

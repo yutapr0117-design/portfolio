@@ -114,6 +114,19 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        legitimately exercises Check 406. The probe remains the detector for a mutation that is
        named correctly but exercises nothing — running it periodically still has value.
        (BLOCKING)
+
+  420. **E2E_MUTATIONS の `find` が対象 file 内で一意**であることを BLOCKING 強制。
+       `mutation_probe` は `src.replace(find, replace, 1)` ＝ **先頭 1 件しか置換しない**ため、
+       find が複数箇所にマッチすると **テストが通る経路とは別の場所が壊れ**、mutation は
+       silent に SURVIVED する（安全網に穴があるのではなく、穴を探す道具が的を外している）。
+       実例 2026-08-10: `Router.navigate(Router.getLastListPath ? … : 'projects')` は
+       project-detail-page.js に **2 箇所**（not-found 分岐の「一覧へ戻る」と詳細本体の
+       「← 一覧に戻る」）あり、mutation は前者だけを壊してテストは通り続けた。
+       **週次 mutation-probe が SURVIVED として検出**したが、それまで誰も気付いていない。
+       consistency 側 (`MUTATIONS`) は対象外 — あちらの Check は file 全体を走査するので
+       どの出現を壊しても捕捉され、非一意でも害が無い（実際 sitemap.xml / index.html には
+       正当な非一意 anchor が複数ある）。behavior 側だけが「特定の実行経路に当てる」性質を持つ。
+       (BLOCKING)
 """
 import re
 
@@ -338,4 +351,39 @@ def run(ctx):
         "旧判定 `if run_gate() == 0:` が残存)。mutation 適用は必ず自身の find-anchor を消して Check 362 "
         "を RED にするため、exit code だけの判定では全 mutation が自動的に caught になり probe が "
         "「意図した Check が捕捉するか」を検証しない vacuous な meta-QA へ退行する",
+    )
+
+
+    # ── 420. E2E_MUTATIONS の find が対象 file 内で一意 (probe が的を外さない) ──────────
+    # mutation_probe は replace(find, replace, 1) = 先頭 1 件しか置換しない。behavior mutation は
+    # 「テストが通る実行経路」に当てる必要があるため、find が複数箇所にマッチすると別の場所が
+    # 壊れて silent SURVIVED になる (2026-08-10 に週次 probe が実際に検出)。
+    # consistency 側は file 全体を走査する Check が受けるので非一意でも害が無く、対象外。
+    _dupe420 = []
+    _n_e2e420 = 0
+    try:
+        import importlib as _importlib420
+        import sys as _sys420
+        if str(ROOT / ".github" / "scripts") not in _sys420.path:
+            _sys420.path.insert(0, str(ROOT / ".github" / "scripts"))
+        _ms420 = _importlib420.import_module("mutation_samples")
+        _n_e2e420 = len(_ms420.E2E_MUTATIONS)
+        for _mu420 in _ms420.E2E_MUTATIONS:
+            _f420 = _mu420["file"]
+            if not _f420.exists():
+                continue  # anchor 不在は Check 362 の管轄
+            _n420 = _f420.read_text(encoding="utf-8", errors="replace").count(_mu420["find"])
+            if _n420 > 1:
+                _dupe420.append(f"{_f420.name}: x{_n420} ({_mu420['name'][:50]}…)")
+    except Exception as _e420:
+        _dupe420.append(f"mutation_samples を import できない: {_e420}")
+    check(
+        not _dupe420,
+        f"Check 420: E2E_MUTATIONS の find が全て対象 file 内で一意 ({_n_e2e420} 件)",
+        ("Check 420: find が対象 file 内で複数箇所にマッチする behavior mutation がある: "
+         + "; ".join(_dupe420[:5])
+         + " — mutation_probe は replace(find, replace, 1) で **先頭 1 件しか置換しない**ため、"
+           "テストが通る経路とは別の場所が壊れて silent SURVIVED になる。"
+           "周辺コード (直前の行・class 属性など) を find に含めて一意に anchor せよ"),
+        blocking=True,
     )
