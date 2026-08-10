@@ -2,7 +2,7 @@
 file: docs/incident-artifacts/improvement-notes-claude-v80-phase2-public-freshness-observation.md
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
 last-updated: 2026-06-13
-canonical-ref: Check 42 / check_public_deployment_freshness.py
+canonical-ref: Check 42 / .github/scripts/check_public_deployment_freshness.py
 ---
 
 # docs/incident-artifacts/improvement-notes-claude-v80-phase2-public-freshness-observation.md

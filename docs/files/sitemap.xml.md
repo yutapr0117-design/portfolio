@@ -2,7 +2,7 @@
 file: sitemap.xml
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
 last-updated: 2026-06-13
-canonical-ref: robots.txt / aio-manifest.json / Check 18/35/36/39/63
+canonical-ref: robots.txt / .well-known/aio-manifest.json / Check 18/35/36/39/63
 ---
 
 # sitemap.xml

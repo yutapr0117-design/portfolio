@@ -2,7 +2,7 @@
 file: docs/incident-artifacts/improvement-notes-claude-v80-phase4-store-ingestion-guard-and-bloat-ceiling.md
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
 last-updated: 2026-07-05
-canonical-ref: CLAUDE.md §7 / AI2AI.md (canon) / total-check-runbook.md §9
+canonical-ref: CLAUDE.md §7 / AI2AI.md (canon) / docs/architecture/total-check-runbook.md §9
 ---
 
 # improvement-notes-claude-v80-phase4-store-ingestion-guard-and-bloat-ceiling.md
