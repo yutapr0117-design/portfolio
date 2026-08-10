@@ -1,80 +1,40 @@
 /**
- * js/perf-guards.js — Performance guards (Layout Thrashing + Media Lifecycle)
+ * js/perf-guards.js — Performance guard (Media Lifecycle)
  * (v80+ Stage 5-s extraction via factory pattern)
  *
- * main.js の 2 つのパフォーマンスガード IIFE（_installLayoutThrashingGuard /
- * _installMediaLifecycleGuard）を依存注入なしの factory pattern で物理分割した
- * 葉モジュール。両方ともグローバルプロトタイプ（CSSStyleDeclaration / Element /
- * URL）を hook するだけのブラウザ非破壊オプティマイゼーションで、外部依存は
- * 一切ない（DOM API のみ）。
+ * main.js のパフォーマンスガード IIFE を依存注入なしの factory pattern で物理分割した
+ * 葉モジュール。外部依存は一切ない（DOM API のみ）。
  *
- * 【公開 API（抽出前後で byte-equivalent）】
+ * 【公開 API】
  *   const perfGuards = createPerfGuards();
- *   perfGuards.installLayoutThrashingGuard();
  *   perfGuards.installMediaLifecycleGuard();
  *
  * 【依存（引数で注入）】
- *   なし — DOM API（CSSStyleDeclaration / Element.prototype / URL / Mutation /
- *   IntersectionObserver）のみを使用する。葉契約（Check 47c: import ゼロ）と
+ *   なし — DOM API（MutationObserver / Element）のみを使用する。葉契約（Check 47c: import ゼロ）と
  *   合致する。
  *
+ * 【かつてあった Layout Thrashing Guard を除去した理由（2026-08-10）】
+ *   `CSSStyleDeclaration.prototype.setProperty` と `Element.prototype.setAttribute('style', …)` を
+ *   上書きし、書き込みを rAF まで遅延バッチする hook を持っていた。狙いは「素朴な同期スタイル
+ *   書き込みループの透過的な最適化」だったが、**一度も発火していなかった**。
+ *   - 実測（15 ルート走査 + drawer/palette/theme/入力の対話）で **setProperty 0 回 /
+ *     setAttribute('style') 0 回**。shipped JS は例外なく `el.style.x = …` か `style.cssText` を
+ *     使い、hook 自身の NOTE が明記するとおり**直接代入は hook 対象外**だったため。
+ *   - 一方コストは実在した: (i) アプリの**全** `setAttribute` 呼び出し（ARIA 更新など hot path）に
+ *     ラッパーが 1 段挟まる、(ii) `removeProperty` は hook されないので
+ *     `setProperty(x,v)` → `removeProperty(x)` の順で書くと**順序が反転して x が設定されたまま残る**、
+ *     (iii) DOM API が標準と異なる意味論になる。
+ *   - 実害も出た: e2e で候補 CSS を当てて同期で読む診断が**全て偽陰性**になり、
+ *     「要素を隠しても幅が変わらない ＝ コンテンツは無関係」と誤結論しかけた（1 サイクル分を無効化）。
+ *   利益ゼロ・実コストあり・診断を壊す、の三点で除去した。#261 で同ファイルの
+ *   never-activated な vestigial（IntersectionObserver / _blobMap / createObjectURL フック）を
+ *   除去したのと同じ判断を、一段深い層に適用したもの。
+ *
  * 【非破壊性】
- *   - Layout Thrashing Guard の setProperty / setAttribute('style', ...) フックは
- *     byte-equivalent（rAF バッチ化のタイミングのみ抜本的に介入）
  *   - Media Lifecycle Guard は MutationObserver による audio/video の blob: src 解放のみ機能。
- *     never-activated だった IntersectionObserver(lazy load) / _blobMap(img-video 追跡) /
- *     URL.createObjectURL フックは vestigial として除去済 (機能変化なし=全て dead だった)。
  *   - AIDK Kernel / AIO 正本層 / style.css は無変更
  */
 export function createPerfGuards() {
-    // ─────────────────────────────────────────────────────────────────────────
-    // 改善文書c Section 8: レイアウトスラッシング防止 — rAF Write-Batching Proxy
-    // Element.prototype.style の setter および setAttribute をフックし、
-    // スタイル変更要求を requestAnimationFrame 直前にバッチ適用する。
-    // AI 生成の素朴な同期スタイル書き込みループを透過的に最適化する非破壊実装。
-    // ─────────────────────────────────────────────────────────────────────────
-    function installLayoutThrashingGuard() {
-        'use strict';
-        const _writeQueue = [];
-        let _rafPending = false;
-
-        function _flushQueue() {
-            _rafPending = false;
-            const q = _writeQueue.splice(0);
-            for (let i = 0; i < q.length; i++) { q[i](); }
-        }
-
-        function _scheduleFlush() {
-            if (!_rafPending) {
-                _rafPending = true;
-                requestAnimationFrame(_flushQueue);
-            }
-        }
-
-        // CSSStyleDeclaration.setProperty をフックしてバッチ化
-        const _origSetProperty = CSSStyleDeclaration.prototype.setProperty;
-        CSSStyleDeclaration.prototype.setProperty = function(prop, value, priority) {
-            const self = this;
-            _writeQueue.push(function() { _origSetProperty.call(self, prop, value, priority); });
-            _scheduleFlush();
-        };
-
-        // NOTE: style プロパティの直接代入 (el.style.x = …) は getter/setter の直接
-        //       オーバーライドが制限されるためフックしない。setProperty フック (上記) +
-        //       DocumentFragment 戦略 (改善文書b 7.1) を主防衛とする。
-        // 追加: setAttribute('style', ...) フック
-        const _origSetAttr = Element.prototype.setAttribute;
-        Element.prototype.setAttribute = function(name, value) {
-            if (name === 'style') {
-                const self = this;
-                _writeQueue.push(function() { _origSetAttr.call(self, 'style', value); });
-                _scheduleFlush();
-            } else {
-                _origSetAttr.call(this, name, value);
-            }
-        };
-    }
-
     // ─────────────────────────────────────────────────────────────────────────
     // 改善文書c Section 9: メディアアセット ライフサイクル管理（Media Lifecycle Guard）
     // DOM から削除された audio / video 要素の blob: src を MutationObserver で自動解放し、
@@ -125,5 +85,5 @@ export function createPerfGuards() {
         else { document.addEventListener('DOMContentLoaded', _start); }
     }
 
-    return { installLayoutThrashingGuard, installMediaLifecycleGuard };
+    return { installMediaLifecycleGuard };
 }

@@ -126,6 +126,20 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        入力できる値が reload/import 後に store normalize で再 clamp され silently 変わる
        (2 層 clamp-range drift)。UI/store 双方から work/short/long の (min,max) を抽出し
        一致を強制する (Check 370 default-object drift の clamp-range twin)。(BLOCKING)
+  414. shipped leaf JS (`js/**/*.js`) が **組み込み prototype を書き換えない**ことを
+       BLOCKING 強制。`X.prototype.y = ...` / `Object.defineProperty(X.prototype, ...)` /
+       `Object.assign(X.prototype, ...)` の形で `Element` / `Node` / `HTMLElement` /
+       `CSSStyleDeclaration` / `EventTarget` / `Document` / `Array` / `Object` / `String` /
+       `Function` / `Promise` 等の組み込みを差し替えると、DOM/JS の意味論がサイト内だけ
+       非標準になる。これは「壊れる」形ではなく「黙って別物になる」形で効くため、
+       全 gate (consistency / behavior e2e / screenshot) を素通りする。実害の実例:
+       かつて perf-guards.js が `CSSStyleDeclaration.prototype.setProperty` と
+       `Element.prototype.setAttribute('style', …)` を rAF まで遅延バッチしていたため、
+       e2e で候補 CSS を当てて同期で読む診断が **全て偽陰性**になり (書き込み前の値が返る)、
+       レイアウト調査 1 サイクル分が無効化された (2026-08-10)。しかも shipped JS は例外なく
+       直接代入 (`el.style.x = …`) を使うので hook は **一度も発火しておらず利益はゼロ**だった。
+       main.js の保護領域 (innerHTML sanitizer / eventListener registry・Check 43 が別途強制) は
+       対象外で、葉モジュールのみを縛る。(BLOCKING)
 
 """
 import re
@@ -665,5 +679,45 @@ def run(ctx):
         ("Check 394: pomodoro clamp-range が UI↔store で drift または抽出漏れ: "
          f"UI={_ui_ranges394} store={_store_ranges394} mismatch={_mismatch394} "
          "(2 層 clamp-range drift 防止・Check 370 の range twin)"),
+        blocking=True,
+    )
+
+    # ── 414. shipped leaf JS が組み込み prototype を書き換えない (非標準 DOM 意味論の禁止) ──
+    # 「壊れる」のではなく「黙って別物になる」変更は全 gate を素通りする。実例: perf-guards.js が
+    # CSSStyleDeclaration.prototype.setProperty / Element.prototype.setAttribute('style', …) を
+    # rAF 遅延バッチしていたため、e2e で style を書いて同期で読む診断が全て偽陰性になり
+    # (書き込み前の値が返る) レイアウト調査 1 サイクルが無効化された (2026-08-10)。しかも shipped JS
+    # は例外なく直接代入を使うので hook は一度も発火せず利益はゼロだった。同型の再混入を構造的に
+    # 禁止する。main.js の保護領域 (Check 43 が別途強制) は対象外＝葉モジュールのみを縛る。
+    _BUILTINS414 = (
+        "Element", "HTMLElement", "Node", "EventTarget", "Document", "DocumentFragment",
+        "CSSStyleDeclaration", "CSSStyleSheet", "Window", "Array", "Object", "String",
+        "Number", "Function", "Promise", "Map", "Set", "JSON", "Date", "RegExp",
+    )
+    _proto_assign414 = re.compile(
+        r"\b(" + "|".join(_BUILTINS414) + r")\.prototype\.[A-Za-z_$][\w$]*\s*=(?!=)"
+    )
+    _proto_define414 = re.compile(
+        r"\b(?:Object\.defineProperty|Object\.defineProperties|Object\.assign)\s*\(\s*"
+        r"(?:" + "|".join(_BUILTINS414) + r")\.prototype\b"
+    )
+    _viol414 = []
+    for _f414 in sorted(list((ROOT / "js").glob("*.js")) + list((ROOT / "js").glob("**/*.js"))):
+        _rel414 = _f414.relative_to(ROOT).as_posix()
+        _src414 = _f414.read_text(encoding="utf-8", errors="replace")
+        # 行コメント / ブロックコメントを除去してから走査する (docstring で機構を説明している
+        # 記述そのものを違反と誤検出しない = comment-match による false RED の回避)。
+        _code414 = re.sub(r"/\*.*?\*/", "", _src414, flags=re.S)
+        _code414 = re.sub(r"(?<!:)//[^\n]*", "", _code414)
+        for _m414 in list(_proto_assign414.finditer(_code414)) + list(_proto_define414.finditer(_code414)):
+            _viol414.append(f"{_rel414}: {_m414.group(0).strip()}")
+    check(
+        not _viol414,
+        f"Check 414: shipped leaf JS ({len(list((ROOT / 'js').glob('**/*.js')))} file) が組み込み prototype を書き換えていない",
+        ("Check 414: shipped leaf JS が組み込み prototype を書き換えている: "
+         + "; ".join(sorted(set(_viol414))[:5])
+         + " — DOM/JS の意味論がサイト内だけ非標準になり、全 gate (consistency / behavior e2e / "
+           "screenshot) を素通りしたまま e2e の測定を偽陰性にする (2026-08-10 に実際 1 サイクル無効化)。"
+           "必要なら main.js の保護領域 (Check 43 の管轄) で行い、葉モジュールには置かない"),
         blocking=True,
     )

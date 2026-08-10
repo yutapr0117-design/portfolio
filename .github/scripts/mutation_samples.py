@@ -38,6 +38,12 @@ _MUTATIONS_TAIL = [
     # 自己参照になり、mutation_probe の replace(find, replace, 1) が先頭 (= その mutation 自身の
     # find 値) に当たって挙動が不安定になるため。Check 362 の非 vacuous 性は手動で実証済
     # (mutation の file を誤り先へ変えると Check 362 が RED・restore で緑)。
+    {
+        "name": "Check 414: 葉モジュールへの組み込み prototype 書き換えの再混入 — perf-guards.js に Element.prototype への代入を戻す → DOM の意味論がサイト内だけ非標準になる。かつて実在した hook (setProperty / setAttribute(\'style\') の rAF 遅延バッチ) は shipped JS が全て直接代入を使うため一度も発火せず利益ゼロだった一方、e2e で style を書いて同期で読む診断を全て偽陰性にし、レイアウト調査 1 サイクルを無効化した実害がある。この class は「壊れる」のではなく「黙って別物になる」ため consistency 以外のどの gate も捕捉しない",
+        "file": ROOT / "js" / "perf-guards.js",
+        "find": "    return { installMediaLifecycleGuard };",
+        "replace": "    Element.prototype.__reintroduced = 1;\n    return { installMediaLifecycleGuard };",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。
