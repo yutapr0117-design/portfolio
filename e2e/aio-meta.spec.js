@@ -553,3 +553,43 @@ test('Route-following dynamic JSON-LD is injected and tracks the current route (
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `dynamic JSON-LD test caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== Speakable の **固有セレクタ** が実在要素へ解決する (AIO 機械向け宣言の used\u21d2defined) =====
+// Speakable は AI 音声アシスタントへ「読み上げるべき要素」を宣言する機械向け面で、視覚に一切
+// 出ないため screenshot も通常の behavior test も素通りする (#929 で WebMCP の幻セレクタが
+// 一度も対象を持っていなかったのと同じ class)。ルート毎の **固有セレクタ** (home の
+// `.sr-only[data-ai-entity]` / role-split の `#role-split-table` / ai-knowhow の
+// `.ai-summary-block`) が実際に要素へ解決することを固定する。
+//
+// NOTE (意図的に検査しないもの): `[data-speakable]` は **home 以外で 0 件**であることを実測済。
+//   `data-speakable` 属性は js/home-page.js にしか存在しない。これは宣言と実態の乖離だが、
+//   Speakable は AIO の semantic content ゆえ **C6 (orchestrator の書面承認)** の領域で、
+//   AI 単独では直せない。実測値・提案する最小修正・順序 (宣言を直してから Check を張る) は
+//   docs/architecture/research-application-policy.md に defer として記録済。
+//   ここでそれを assert すると **恒久 RED** になるため対象外にしている。
+const SPEAKABLE_ROUTE_SELECTORS = [
+  ['#/', '.sr-only[data-ai-entity]'],
+  ['#/role-split', '#role-split-table'],
+  ['#/ai-knowhow', '.ai-summary-block'],
+];
+for (const [hash, selector] of SPEAKABLE_ROUTE_SELECTORS) {
+  test(`Speakable route selector resolves on ${hash} (${selector})`, async ({ page }) => {
+    await page.goto(`/${hash}`, { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#content h1, #content h2').first()).toBeVisible();
+
+    // (1) 宣言側: 注入された Speakable JSON-LD が当該セレクタを含む
+    const declared = await page.evaluate(() => {
+      const el = document.querySelector('script[data-ld="speakable"]');
+      if (!el) { return null; }
+      try { return JSON.parse(el.textContent).speakable.cssSelector; } catch (e) { return null; }
+    });
+    expect(declared, 'Speakable JSON-LD が注入されていない').not.toBeNull();
+    expect(declared, `${hash} の Speakable が ${selector} を宣言していない`).toContain(selector);
+
+    // (2) 実態側: そのセレクタが実際に要素へ解決する (宣言だけで実体が無い状態を禁じる)
+    await expect(
+      page.locator(selector),
+      `${hash}: Speakable が宣言する ${selector} が 1 件も解決しない (機械向け宣言が実態と乖離)`
+    ).not.toHaveCount(0);
+  });
+}

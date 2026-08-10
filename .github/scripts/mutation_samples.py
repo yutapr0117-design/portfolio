@@ -703,6 +703,16 @@ _E2E_TAIL = [
         "replace": "        if (false) { cat = 'All'; }",
         "test": "An unknown ?cat= deep-link normalizes to All (no control-content desync)",
     },
+    {
+        "name": "behavior: Speakable が宣言するセレクタの実体喪失 — js/pages.js の role-split 表から id を rename → Speakable JSON-LD は `#role-split-table` を宣言し続けるのに要素が存在しなくなり、AI 音声アシスタント向けの機械向け宣言が実態と乖離する (#929 の WebMCP 幻セレクタと同 class)。視覚に一切出ないため screenshot も通常の behavior test も素通りする",
+        "file": ROOT / "js" / "pages.js",
+        "find": "id: 'role-split-table'",
+        "replace": "id: 'role-split-table-RENAMED'",
+        # NOTE: 題名はテンプレートリテラルでルート毎に生成される。Check 379/397 は静的セグメントを
+        #   parse するので動的部分を含まない前半を指定する (3 インスタンスが走るが、role-split の
+        #   1 件が落ちれば suite 全体が FAIL = 捕捉として妥当)。
+        "test": "Speakable route selector resolves on",
+    },
 ]
 
 
