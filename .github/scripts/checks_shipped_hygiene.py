@@ -171,6 +171,20 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        コメントを除去するので、機構を説明する記述が違反にも充足にもならない (Check 112 の
        「コメント中の語で file 単位判定が GREEN 化する」失敗の回避)。(BLOCKING)
 
+  422. shipped JS の **`onchange` を持つ `<select>` / checkbox / number input は `id` を持つ**
+       ことを BLOCKING 強制する。これらのハンドラは `State.update` / `window.render()` で
+       `#content` を作り直す＝**コントロールが自分自身を DOM ごと消す**ため、focus が body へ
+       落ちる。main.js `_renderCore` は「clear の前に控えた id」で focus を復元するので、
+       **id を持たないコントロールだけが復元対象から漏れる**。実測 (#994) では task/todo の
+       絞り込み・タスクの優先度・TODO の完了チェック・ポモドーロの設定・Settings の
+       インポート対象がすべて change 後に activeElement=BODY だった (id を既に持っていた
+       `brandSelect` だけが復元されており、id の有無がそのまま分岐になっていた)。
+       number input は特に重く、ArrowUp の 1 回目で focus を失うため **2 回目以降が効かない**
+       (値を 1 段しか動かせない = 実質キーボード操作不能・WCAG 2.1.1)。
+       対象は「同じコントロールを続けて操作する」ものに限る —— `type='file'` は 1 回限りの
+       アクションなので除外する。走査はプロパティオブジェクトを brace-match して行い、事前に
+       コメントを除去する (説明コメント中の `id:` で vacuous PASS しない)。(BLOCKING)
+
 """
 import re
 import json
@@ -813,5 +827,64 @@ def run(ctx):
            "前庭障害のユーザーに影響する WCAG 2.3.3 の欠陥で、fatal も視覚差分も出ないため "
            "behavior test 以外に捕捉層が無い。matchMedia('(prefers-reduced-motion: reduce)').matches を "
            "見て behavior を 'auto' へ落とせ"),
+        blocking=True,
+    )
+
+    # ── 422. onchange を持つ select / checkbox / number input は focus 復元用の id を持つ ──
+    # これらのハンドラは State.update / window.render() で #content を作り直す = コントロールが
+    # 自分自身を DOM ごと消す。main.js _renderCore は「clear の前に控えた id」で focus を復元する
+    # ため、id を持たないコントロールだけが復元対象から漏れて focus が body へ落ちる (#994)。
+    def _props_span422(src, start):
+        """`h('tag', {` の `{` からプロパティオブジェクトの終端までを返す (文字列内の brace は無視)。"""
+        depth, i, n = 0, start, len(src)
+        quote = None
+        while i < n:
+            ch = src[i]
+            if quote:
+                if ch == "\\":
+                    i += 2
+                    continue
+                if ch == quote:
+                    quote = None
+            elif ch in "'\"`":
+                quote = ch
+            elif ch == "{":
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    return src[start:i + 1]
+            i += 1
+        return ""
+
+    _viol422 = []
+    _ok422 = 0
+    for _f422 in sorted((ROOT / "js").glob("**/*.js")):
+        _rel422 = _f422.relative_to(ROOT).as_posix()
+        _code422 = re.sub(r"/\*.*?\*/", "", _f422.read_text(encoding="utf-8", errors="replace"), flags=re.S)
+        _code422 = re.sub(r"(?<!:)//[^\n]*", "", _code422)
+        for _m422 in re.finditer(r"h\(\s*['\"](select|input)['\"]\s*,\s*(?=\{)", _code422):
+            _tag422 = _m422.group(1)
+            _props422 = _props_span422(_code422, _m422.end())
+            if "onchange" not in _props422:
+                continue
+            if _tag422 == "input":
+                # 「同じコントロールを続けて操作する」ものだけが対象。file は 1 回限りのアクション。
+                if not re.search(r"type\s*:\s*['\"](checkbox|number)['\"]", _props422):
+                    continue
+            if re.search(r"(^|[{,\s])id\s*:", _props422):
+                _ok422 += 1
+            else:
+                _label422 = re.search(r"'aria-label'\s*:\s*([^,\n]+)", _props422)
+                _viol422.append(f"{_rel422}: h('{_tag422}') " + (_label422.group(1).strip() if _label422 else "(aria-label 無し)"))
+    check(
+        not _viol422,
+        f"Check 422: onchange を持つ select / checkbox / number input {_ok422} 件が focus 復元用の id を持つ",
+        ("Check 422: onchange を持つのに focus 復元用の id が無いコントロール: " + "; ".join(_viol422)
+         + " — これらのハンドラは #content を作り直すので、コントロールが自分自身を DOM ごと消して "
+           "focus が body へ落ちる。main.js _renderCore の復元は id を鍵にしているため、id が無いものだけ "
+           "取り残される (実測 #994: id を持つ brandSelect だけが復元され、他は全て BODY だった)。"
+           "number input は ArrowUp の 1 回目で focus を失い 2 回目以降が効かない = 実質キーボード操作不能 "
+           "(WCAG 2.1.1)。一意で安定した id を付けよ (リスト項目は id を含めて一意化する)"),
         blocking=True,
     )

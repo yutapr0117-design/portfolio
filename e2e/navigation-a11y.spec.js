@@ -470,3 +470,83 @@ test('WCAG 2.4.3: in-page ジャンプが移動先へ focus を移す', async ({
   const y = await page.evaluate(() => window.scrollY);
   expect(y, 'focus は移ったがスクロールしていない (preventScroll が移動そのものを潰している)').toBeGreaterThan(300);
 });
+
+// ===== WCAG 2.1.1: 再描画で消えるコントロールの focus 復元 =====
+// SPA の `State.update` / `window.render()` は #content を作り直すため、change ハンドラを持つ
+// コントロール (select / checkbox / number input) は **自分で自分を消してしまう**。実測 (#994) では
+// task/todo の絞り込み・タスクの優先度・TODO の完了チェック・ポモドーロの設定のすべてで、
+// 変更直後の `document.activeElement` が **BODY** になっていた。
+//
+// マウス利用者には見えにくいが、キーボード利用者には重い:
+//   - focus が body へ落ちるので、続きの Tab は**ドキュメント先頭から**やり直しになる
+//   - number input は特に致命的で、ArrowUp の 1 回目で focus を失うため **2 回目以降が効かない**
+//     (＝値を 1 段しか動かせない = そのコントロールが実質キーボード操作不能)
+//
+// 修正は main.js `_renderCore` が「clear の前に focus 中の id を控え、同一ルート再描画で focus が
+// 失われていたら同じ id へ戻す」もの。「奪う」のではなく「失われた時だけ復元する」条件は
+// route-focus (#267) と共有していて、command palette の input などとは race しない。
+test('WCAG 2.1.1: ポモドーロの設定を ArrowUp で連続操作できる (focus が維持される)', async ({ page }) => {
+  await page.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'ポモドーロ' })).toBeVisible();
+
+  const work = page.locator('#pomo-setting-work');
+  await expect(work).toBeVisible();
+  const before = Number(await work.inputValue());
+
+  await work.focus();
+  await page.keyboard.press('ArrowUp');
+  await page.waitForTimeout(300);
+  await page.keyboard.press('ArrowUp');
+  await page.waitForTimeout(300);
+
+  // 2 回押したら 2 段上がること。focus を失うと 1 段で止まる (実測の壊れ方そのもの)。
+  await expect(page.locator('#pomo-setting-work')).toHaveValue(String(before + 2));
+
+  // NOTE: toBeFocused() は並列ワーカーで document が inactive になり間欠 RED になるため使わない。
+  const active = await page.evaluate(() => (document.activeElement ? document.activeElement.id : null));
+  expect(active, '設定変更のたびに focus が失われている (WCAG 2.1.1)').toBe('pomo-setting-work');
+});
+
+test('WCAG 2.1.1: TODO の完了チェックを Space で連続操作できる (focus が維持される)', async ({ page }) => {
+  await page.goto('/#/apps/todo', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'TODO' })).toBeVisible();
+
+  const box = page.locator('[id^="todo-check-"]').first();
+  await expect(box).toBeVisible();
+  const id = await box.getAttribute('id');
+  const wasChecked = await box.isChecked();
+
+  await box.focus();
+  await page.keyboard.press('Space');
+  await page.waitForTimeout(300);
+  await expect(page.locator('#' + id)).toBeChecked({ checked: !wasChecked });
+
+  // 2 回目の Space。focus を失っていると Space はページスクロールになり、状態は戻らない。
+  await page.keyboard.press('Space');
+  await page.waitForTimeout(300);
+  await expect(page.locator('#' + id)).toBeChecked({ checked: wasChecked });
+
+  const active = await page.evaluate(() => (document.activeElement ? document.activeElement.id : null));
+  expect(active, '1 件チェックするたび focus が失われ、次の項目へ進めない (WCAG 2.1.1)').toBe(id);
+});
+
+test('WCAG 2.1.1: 絞り込み select を変更しても focus が select に残る', async ({ page }) => {
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' })).toBeVisible();
+
+  // NOTE: ここで `selectOption()` を使ってはいけない。Playwright の selectOption は選択後に
+  //   focus を select に残さないため、**修正の有無にかかわらず** activeElement=BODY と読めてしまう
+  //   (実測: dispatch 版が復元を観測できたのに selectOption 版は BODY のままだった = 常に false RED)。
+  //   キーボードで選択肢を変えたときと同じ「focus したまま change が飛ぶ」形を自分で作る。
+  await page.evaluate(() => {
+    const el = document.getElementById('task-filter-priority');
+    el.focus();
+    el.value = 'high';
+    el.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+  await page.waitForTimeout(400);
+
+  await expect(page.locator('#task-filter-priority')).toHaveValue('high');
+  const active = await page.evaluate(() => (document.activeElement ? document.activeElement.id : null));
+  expect(active, '絞り込みを変えるたび focus が body へ落ち、続きの Tab がドキュメント先頭からになる').toBe('task-filter-priority');
+});

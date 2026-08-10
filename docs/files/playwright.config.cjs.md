@@ -1,7 +1,7 @@
 ---
 file: playwright.config.cjs
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-08-11
 canonical-ref: e2e/portfolio.spec.js / .github/workflows/playwright-regression.yml
 ---
 
@@ -49,6 +49,8 @@ npx playwright test --config=playwright.config.cjs
 | mutation の `-g` を緩い語で当てる | 別の test に当たって「pass」と読み違える（実際に一度誤読した） | **正確な test title** を使う（Check 397 が一意解決を強制） |
 | `evaluate` 内で `el.style.setProperty(...)` して**同じ evaluate の中で**結果を読む | **本サイトは `CSSStyleDeclaration.prototype.setProperty` と `setAttribute('style', …)` を上書きし、書き込みを `_writeQueue` へ積んで rAF でまとめて流す**（`js/perf-guards.js` の layout-thrash 対策）。同期で読むと**書き込み前の値**が返り、`getAttribute('style')` すら `null` のまま。結果、候補 CSS を当てても「何も変わらなかった」と読めてしまい、**診断が丸ごと偽陰性になる**（実際に 1 サイクル分の測定を無効にした）。`bypassCSP: true` でも直らない（CSP ではなくサイト自身の機構なので） | 書き込みと読み取りの間に **rAF を 2 回 await**（`page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))))`）。あるいは `style.css` を直接編集して測る。**`page.addStyleTag` は CSP で弾かれる**ので使えない |
 | `mutation_probe.py` に `--only` 等の**存在しないフラグ**を付けて 1 件だけ回したつもりになる | 引数解析は `"--e2e" in sys.argv` の形なので**未知のフラグは黙って無視され、全件（30 分超）が走り出す**。途中で kill すると **mutated なファイルがワークツリーに残る**（実際に `js/pomodoro-page.js` が残留した） | 単一 mutation の非 vacuity は**手で当てて外す**（該当箇所を消す → 正確な test title で `-g` 実行 → RED を確認 → 復元）。kill した後は必ず `git status --porcelain` で残留を確認する |
+| `selectOption()` で「変更後も focus が select に残るか」を検証する | Playwright の `selectOption()` は選択後に **focus を select に残さない**。そのため focus 復元の有無にかかわらず `activeElement` は BODY と読め、**修正済みでも落ちる false RED** になる（実測: 同じコントロールで dispatch 版は復元を観測できたのに selectOption 版は BODY のままだった） | キーボードで選択肢を変えたときと同じ「focus したまま change が飛ぶ」形を自分で作る（`el.focus(); el.value = …; el.dispatchEvent(new Event('change', {bubbles:true}))`） |
+| ルートを連続で `goto` して `#content h1` の visible だけ待つ | その条件は**前のルートの描画**で既に満たされているため、**前ページの DOM を掴んだまま**次の検査に入る（実測で projects の select を todo ページの検査が拾った） | `page.locator('#content h1', { hasText: '<そのページ固有の見出し>' })` を待つ。ルートごとに `test()` を分けるのも有効 |
 | 書き換えた状態のまま次のルートへ `goto` する | 上記のキューが**次のページで遅れて流れ**、無関係な巨大値（実測で overflow 28px → 935px）を生む。数値が前回と桁違いなら、まず自分の書き換えの残留を疑う | 読み取り専用で測るのが最も安全。書き換えたら rAF を待って**必ず元に戻し**、戻ったことを読み直して確認する |
 
 ## Change impact

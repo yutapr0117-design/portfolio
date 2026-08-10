@@ -86,6 +86,12 @@ _MUTATIONS_TAIL = [
         "find": "window.matchMedia('(prefers-reduced-motion: reduce)').matches",
         "replace": "false",
     },
+    {
+        "name": "Check 422: 再描画で消えるコントロールから focus 復元用の id が外れる — apps.js の絞り込み select から id を落とす → main.js _renderCore の復元は id を鍵にしているため、そのコントロールだけが取り残されて change のたび focus が body へ落ちる。マウスでは気付きにくく fatal も視覚差分も出ないので、静的にはこの Check だけが捕捉する",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                        id: 'task-filter-priority',\n",
+        "replace": "",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。
@@ -753,6 +759,20 @@ _E2E_TAIL = [
         "find": "el.focus({ preventScroll: true });",
         "replace": "void 0;",
         "test": "WCAG 2.4.3: in-page ジャンプが移動先へ focus を移す",
+    },
+    {
+        "name": "behavior: 再描画後の focus 復元機構が失われる (#994 の回帰) — main.js _renderCore の復元条件を潰す → change のたびコントロールが自分自身を DOM ごと消して focus が body へ落ちる。number input は ArrowUp の 1 回目で focus を失い 2 回目以降が効かない (値を 1 段しか動かせない = 実質キーボード操作不能)",
+        "file": ROOT / "main.js",
+        "find": "            if (_restoreFocusId && _focusWasLost) {",
+        "replace": "            if (false && _restoreFocusId && _focusWasLost) {",
+        "test": "WCAG 2.1.1: ポモドーロの設定を ArrowUp で連続操作できる",
+    },
+    {
+        "name": "behavior: 再描画前の focus 控えが失われる (#994 の回帰・復元の対) — main.js _renderCore が clear の前に控える id を常に null にする → 復元条件は残るが鍵が無くなり、同じく focus が body へ落ちる。Todo の完了チェックは 1 件チェックするたび focus を失い、次の項目を Space で続けてチェックできない",
+        "file": ROOT / "main.js",
+        "find": "                ? _prevActive.id : null;",
+        "replace": "                ? null : null;",
+        "test": "WCAG 2.1.1: TODO の完了チェックを Space で連続操作できる",
     },
 ]
 

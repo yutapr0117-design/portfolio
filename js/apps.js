@@ -140,6 +140,10 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                     }),
                     h('select', {
                         class: 'input',
+                        // [A11Y 2.1.1] id は「再描画で消えた後に focus を戻す」ための安定ハンドル
+                        //   (main.js _renderCore が _restoreFocusId で復元する)。id が無いと
+                        //   絞り込みを変えるたび focus が body へ落ち、キーボード操作が続かない。
+                        id: 'task-filter-priority',
                         'aria-label': '優先度で絞り込み',
                         onchange: (e) => {
                             taskFilter.priority = e.target.value;
@@ -207,6 +211,9 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                                     h('div', { class: 'flex items-center justify-between' },
                                         h('select', {
                                             class: 'input btn-sm',
+                                            // [A11Y 2.1.1] 再描画後の focus 復元用 (main.js _renderCore)。
+                                            //   カード毎に一意にするため task.id を含める。
+                                            id: 'task-priority-' + task.id,
                                             // [A11Y 4.1.2] task.title を含め、どのタスクの優先度セレクトか一意化。
                                             'aria-label': 'タスクの優先度：' + task.title,
                                             style: 'width:auto;padding:0.25rem 0.5rem;font-size:0.75rem;',
@@ -366,6 +373,8 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                     h('div', { class: 'flex gap-2 mt-4' },
                         h('select', {
                             class: 'input w-auto',
+                            // [A11Y 2.1.1] 再描画後の focus 復元用 (main.js _renderCore)。
+                            id: 'todo-filter',
                             'aria-label': 'TODO を絞り込み',
                             onchange: (e) => {
                                 todoFilter = e.target.value;
@@ -393,6 +402,10 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                             h('input', {
                                 type: 'checkbox',
                                 checked: todo.completed,
+                                // [A11Y 2.1.1] 再描画後の focus 復元用 (main.js _renderCore)。項目毎に一意。
+                                //   これが無いと 1 件チェックするたび focus が body へ落ち、
+                                //   次の項目を Space で続けてチェックできない。
+                                id: 'todo-check-' + todo.id,
                                 onchange: () => toggleTodo(todo.id),
                                 // [A11Y 4.1.2] 各項目の checkbox が全項目で同一名 (「完了にする」) だと
                                 //   SR ユーザーはリスト内でどの項目を操作するか区別できない。todo.text を

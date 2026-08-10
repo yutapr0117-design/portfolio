@@ -669,6 +669,18 @@
             const content = document.getElementById('content');
             const sidebarEl = document.getElementById('sidebar');
 
+            // a11y (WCAG 2.1.1 / 2.4.3): 同一ルート再描画で focus 中のコントロールを復元するため、
+            // **最初の clear より前に** id を控える。State.update は #content (と sidebar) を作り直す
+            // ので、focus 中の select / checkbox / number input は DOM ごと消え focus が body へ落ちる。
+            // 実測 (#994): task/todo の絞り込み・タスクの優先度・Todo の完了チェック・ポモドーロの
+            // 設定はいずれも change 後に activeElement=BODY になっていた。number input は特に重く、
+            // ArrowUp の 1 回目で focus を失うため **2 回目以降が一切効かない** (値が 1 段しか動かせない)。
+            // 復元は id を持つ要素に限る (id はこの復元のためだけに付いている安定ハンドル)。
+            const _prevActive = document.activeElement;
+            const _restoreFocusId = (!isRouteChange && _prevActive && _prevActive.id
+                && _prevActive !== document.body && _prevActive !== document.documentElement)
+                ? _prevActive.id : null;
+
             // § Agentic State Notification: aria-busy=true でローディング開始を宣言
             if (content) {
                 content.setAttribute('aria-busy', 'true');
@@ -779,6 +791,17 @@
             // tabindex=-1 + preventScroll。:focus-visible 採用ゆえ programmatic focus に視覚リングは出ない。
             const _ae = document.activeElement;
             const _focusWasLost = !_ae || _ae === document.body || _ae === document.documentElement;
+
+            // a11y (WCAG 2.1.1): 同一ルート再描画で消えたコントロールへ focus を戻す。route 遷移では
+            // 行わない (下の h1 復元が正しい文脈) ため isRouteChange の時点で _restoreFocusId は null。
+            // 「奪う」のではなく「失われた時だけ復元する」— #265 で route render が command palette の
+            // input と race して focus を奪った失敗の再発防止で、上の h1 復元と同じ条件を共有する。
+            if (_restoreFocusId && _focusWasLost) {
+                const _again = document.getElementById(_restoreFocusId);
+                // 再描画後に同じ id が無ければ何もしない (項目削除などで対象が消えた場合)。
+                if (_again) { try { _again.focus({ preventScroll: true }); } catch { /* noop */ } }
+            }
+
             if (isRouteChange && content && _focusWasLost) {
                 const _focusTarget = content.querySelector('h1') || content;
                 if (_focusTarget) {
