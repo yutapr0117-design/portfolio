@@ -2,7 +2,7 @@
 file: docs/evidence/real-work-claims.md
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
 last-updated: 2026-06-21
-canonical-ref: aio-manifest.json supporting_evidence / llms-full.txt (entity canon)
+canonical-ref: .well-known/aio-manifest.json supporting_evidence / llms-full.txt (entity canon)
 ---
 
 # docs/evidence/real-work-claims.md

@@ -45,6 +45,18 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (例: store.js.md `createStore({Storage})` ← 実 8 依存 / theme.js.md `createTheme({Storage})`
        ← 実 {State, Toast})。Check 119 の docstring 面に対する mirror-doc 面 (Check asymmetry の
        是正)。依存の再注入時に mirror doc も同期させることを構造強制する。(BLOCKING)
+
+  419. `docs/files/**/*.md` の frontmatter `canonical-ref:` に書かれた **ファイル参照が実在する**
+       ことを BLOCKING 強制。mirror doc は「この file を理解するには次を読め」という**読者の
+       導線**で、参照が解決しないとその導線は行き止まりになる。だが参照は本文ではなく
+       frontmatter にあるため人の目に触れにくく、リネーム/移動で silent に腐る
+       (実測 2026-08-10: 511 参照中 **7 件**が解決せず — いずれも `aio-manifest.json` /
+       `total-check-runbook.md` のような **裸のファイル名**で、リポジトリの他の記述は
+       repo-relative なフルパスを使うのに、そこだけ path が欠けていた)。
+       解決は「repo root からの相対」または「**その doc が説明している source file の
+       ディレクトリからの相対**」のどちらかで満たせばよい (兄弟モジュールを名前だけで
+       参照する既存の慣習を壊さないため)。`http(s)` は対象外。Check 108 (mirror bijection) が
+       *file の存在* を守るのに対し、本 Check は *mirror が指す先* を守る。(BLOCKING)
 """
 import re
 import json
@@ -318,5 +330,42 @@ def run(ctx):
         "(Check 119 docstring 面の mirror-doc 版)",
         f"Check 372: mirror doc が factory 依存を未記載 (stale/不完全 signature): {_bad372[:5]}。"
         "正しい createXxx({...}) signature へ同期せよ (#674 の Check asymmetry class)",
+        blocking=True,
+    )
+
+
+    # ── 419. docs/files の canonical-ref が実在ファイルを指す (読者導線の行き止まり防止) ──
+    # mirror doc の frontmatter は「この file を理解するには次を読め」という導線だが、本文でなく
+    # frontmatter にあるため人の目に触れにくく、リネーム/移動で silent に腐る。実測 2026-08-10 で
+    # 511 参照中 7 件が解決せず (いずれも repo-relative なフルパスでなく裸のファイル名だった)。
+    # 解決は root 相対 / 対象 source file のディレクトリ相対のどちらでもよい (兄弟参照の慣習を尊重)。
+    _EXT419 = r"(?:cjs|mjs|json|yaml|yml|html|py|js|md|txt|css)"
+    _tok419 = re.compile(r"[\w./\-]+\." + _EXT419 + r"\b")
+    _bad419 = []
+    _refs419 = 0
+    for _doc419 in sorted((ROOT / "docs" / "files").glob("**/*.md")):
+        _txt419 = _doc419.read_text(encoding="utf-8", errors="replace")
+        _fm419 = re.match(r"---\n(.*?)\n---\n", _txt419, re.S)
+        if not _fm419:
+            continue
+        _cr419 = re.search(r"^canonical-ref:\s*(.+)$", _fm419.group(1), re.M)
+        if not _cr419:
+            continue
+        _file419 = re.search(r"^file:\s*(.+)$", _fm419.group(1), re.M)
+        _srcdir419 = (ROOT / _file419.group(1).strip()).parent if _file419 else ROOT
+        for _t419 in _tok419.findall(_cr419.group(1)):
+            if _t419.startswith("http"):
+                continue
+            _refs419 += 1
+            if not any((_c419).exists() for _c419 in (ROOT / _t419.lstrip("/"), _srcdir419 / _t419)):
+                _bad419.append(f"{_doc419.relative_to(ROOT).as_posix()} → {_t419}")
+    check(
+        not _bad419,
+        f"Check 419: docs/files の canonical-ref が全て実在ファイルへ解決 ({_refs419} 参照)",
+        ("Check 419: canonical-ref が解決しない参照がある: " + "; ".join(_bad419[:5])
+         + " — mirror doc の frontmatter は『この file を理解するには次を読め』という読者の導線で、"
+           "解決しないと行き止まりになる。frontmatter は本文と違って人の目に触れにくく "
+           "リネーム/移動で silent に腐るため機械強制する。repo-relative なフルパスへ直すか、"
+           "対象 source file から見た相対パスにせよ"),
         blocking=True,
     )
