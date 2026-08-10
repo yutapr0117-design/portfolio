@@ -547,3 +547,64 @@ test('Default-project reorder survives a reload (normalize round-trip)', async (
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `reorder reload caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== WCAG 2.1.1: 並べ替え・表示切替をキーボードで続けて操作できる =====
+// #994/#995 の focus 復元は id を鍵にする opt-in なので、id の無いボタンは対象から漏れる。
+// Settings の「並び替え（Projects）」の ↑↓ は **1 回押すたびに focus が外れ、2 回目以降が
+// 効かなかった** (実測 #1000: 1 段動かしたところで止まる)。プロジェクトを何段も動かすのが
+// 本来の用途なので、実質キーボードでは使えない状態だった。
+//
+// 鍵を **idx ではなく p.id で作る**のが要点。idx で作ると、移動後にその位置へ来た
+// **別のプロジェクト**のボタンへ focus が移ってしまい、続けて押すと違う行が動く。
+test('WCAG 2.1.1: プロジェクトの並べ替えをキーボードで連続実行できる', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  const rows = () => page.evaluate(() =>
+    Array.from(document.querySelectorAll('#content .scroll-container-sm .text-sm')).slice(0, 6).map(e => e.textContent));
+  const before = await rows();
+
+  // 3 番目の項目の「↓」を 2 回押す。NOTE: locator に復元用 id を使わない (id を外す mutation が
+  //   「要素が見つからない」で落ちると、focus が失われたことを検証できたのか帰属できない)。
+  const down = page.locator('#content button', { hasText: /^↓$/ }).nth(2);
+  await down.scrollIntoViewIfNeeded();
+  await down.focus();
+  const movedName = before[2];
+
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(400);
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(400);
+
+  const after = await rows();
+  // 2 回押したら 2 段下がること。focus を失うと 1 段で止まる (実測の壊れ方そのもの)。
+  expect(after.indexOf(movedName), `「${movedName}」が 2 段下がっていない (before=${JSON.stringify(before)} after=${JSON.stringify(after)})`)
+    .toBe(before.indexOf(movedName) + 2);
+
+  // focus が「同じプロジェクトの ↓」に残っていること (idx 鍵だと別の行へ移る)
+  const active = await page.evaluate(() => (document.activeElement ? document.activeElement.id : null));
+  expect(active, '並べ替えのたびに focus が失われている').toMatch(/^settings-move-down-/);
+});
+
+test('WCAG 2.1.1: 表示切替ボタンは押した後も focus が残る', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  const btn = page.getByRole('button', { name: /^非表示：/ }).first();
+  await btn.scrollIntoViewIfNeeded();
+  const label = await btn.getAttribute('aria-label');
+  await btn.focus();
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(400);
+
+  // 押すとラベルが「表示：〜」へ変わる。同じ行のボタンに focus が残っていれば、
+  // もう一度 Enter で元に戻せる (= 続けて操作できる)。
+  const name = label.replace(/^非表示：/, '');
+  const activeLabel = await page.evaluate(() => (document.activeElement ? document.activeElement.getAttribute('aria-label') : null));
+  expect(activeLabel, '表示切替のたびに focus が失われ、続けて操作できない').toBe('表示：' + name);
+
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(400);
+  const back = await page.evaluate(() => (document.activeElement ? document.activeElement.getAttribute('aria-label') : null));
+  expect(back).toBe('非表示：' + name);
+});

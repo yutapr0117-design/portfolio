@@ -346,8 +346,8 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                         h('div', { class: 'card-body flex flex-col gap-3' },
                             h('h2', { class: 'h3' }, 'スナップショット'),
                             h('div', { class: 'flex flex-wrap gap-2' },
-                                h('button', { class: 'btn btn-secondary', onclick: setSnapshot }, '保存'),
-                                h('button', { class: 'btn btn-secondary', onclick: restoreSnapshot, disabled: !snap }, '復元'),
+                                h('button', { class: 'btn btn-secondary', id: 'settings-snapshot-save', onclick: setSnapshot }, '保存'),
+                                h('button', { class: 'btn btn-secondary', id: 'settings-snapshot-restore', onclick: restoreSnapshot, disabled: !snap }, '復元'),
                                 h('button', { class: 'btn btn-ghost', onclick: clearSnapshot, disabled: !snap }, '削除')
                             ),
                             snap
@@ -367,8 +367,14 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                                             h('span', { class: 'text-sm' }, p.name)
                                         ),
                                         h('div', { class: 'flex items-center gap-2' },
-                                            h('button', { class: 'btn btn-ghost btn-sm', onclick: () => moveProject(idx, -1), disabled: idx === 0 }, '↑'),
-                                            h('button', { class: 'btn btn-ghost btn-sm', onclick: () => moveProject(idx, +1), disabled: idx === state.projects.length - 1 }, '↓')
+                                            // [A11Y 2.1.1] id は再描画後の focus 復元ハンドル (main.js _renderCore)。
+                                            //   **idx ではなく p.id で鍵を作る**のが要点で、そうすると移動後も
+                                            //   「同じプロジェクトの ↓」へ focus が戻り、続けて押して何段でも
+                                            //   動かせる (idx で鍵を作ると、その位置に来た別プロジェクトの
+                                            //   ボタンへ focus が移ってしまう)。実測 (#1000): id が無いと
+                                            //   1 回押しただけで focus が外れ、2 回目以降が効かなかった。
+                                            h('button', { class: 'btn btn-ghost btn-sm', id: 'settings-move-up-' + p.id, onclick: () => moveProject(idx, -1), disabled: idx === 0 }, '↑'),
+                                            h('button', { class: 'btn btn-ghost btn-sm', id: 'settings-move-down-' + p.id, onclick: () => moveProject(idx, +1), disabled: idx === state.projects.length - 1 }, '↓')
                                         )
                                     )
                                 )
@@ -427,8 +433,8 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                                             // [A11Y 4.1.2] 全プロジェクト行でボタン名が同一 (「表示/非表示」「削除」) だと
                                             //   SR ユーザーはどのプロジェクトの操作か区別できない。可視テキストは維持しつつ
                                             //   aria-label に p.name を含め一意化する (可視語を含むため WCAG 2.5.3 も充足)。
-                                            h('button', { class: 'btn btn-ghost btn-sm', 'aria-label': (isHidden ? '表示' : '非表示') + '：' + p.name, onclick: () => toggleHiddenProject(p.id) }, isHidden ? '表示' : '非表示'),
-                                            h('button', { class: 'btn btn-danger btn-sm', 'aria-label': '削除：' + p.name, disabled: isDefault, title: isDefault ? 'デフォルトは非表示のみ' : '', onclick: () => deleteProjectHard(p.id) }, '削除')
+                                            h('button', { class: 'btn btn-ghost btn-sm', id: 'settings-toggle-hidden-' + p.id, 'aria-label': (isHidden ? '表示' : '非表示') + '：' + p.name, onclick: () => toggleHiddenProject(p.id) }, isHidden ? '表示' : '非表示'),
+                                            h('button', { class: 'btn btn-danger btn-sm', id: 'settings-delete-' + p.id, 'aria-label': '削除：' + p.name, disabled: isDefault, title: isDefault ? 'デフォルトは非表示のみ' : '', onclick: () => deleteProjectHard(p.id) }, '削除')
                                         )
                                     );
                                 })
