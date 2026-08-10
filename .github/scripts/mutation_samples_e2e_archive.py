@@ -207,7 +207,7 @@ E2E_MUTATIONS_ARCHIVE = [
     {
         "name": "behavior: normalizeAppsData の task.tags Array.isArray ガード喪失 (非配列 tags .filter で TypeError → import/ingestion crash・#93/#295/#561/#568/#572 class)",
         "file": ROOT / "js" / "store.js",
-        "find": "                    tags: (Array.isArray(t.tags) ? t.tags : []).filter(Boolean).slice(0, 10),",
+        "find": "                    tags: safeStrList(t.tags, 10, CONSTANTS.LIMITS.CATEGORY),",
         "replace": "                    tags: (t.tags || []).filter(Boolean).slice(0, 10),",
         "test": "normalizeAppsData tolerates a non-array",
     },

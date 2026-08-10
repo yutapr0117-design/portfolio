@@ -651,3 +651,66 @@ test('Hostile project import: non-string fields must not render as [object Objec
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `hostile project import caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== appsData 正規化: 必須テキストが非文字列でも "[object Object]" を描画しない =====
+// profile (#968) / projects (#969) と同じ class の appsData 面。`filter(t => t && t.title)` は
+// `{}` が truthy なので素通りし、後段の `String(t.title)` が "[object Object]" を作って
+// タスク一覧・TODO 一覧へ描画していた (実測: 各ルート 1 箇所)。
+// **この class は entry を落とすのが正** — 既存の「title/text が無い entry は落とす」挙動と
+// 同じ扱いに揃える (プレースホルダを捏造して「壊れた項目がある」ことを隠さない)。
+// fatal を出さないので ErrorBoundary に掛からず、視覚 baseline は ADVISORY ゆえ
+// **この behavior test 以外に捕捉層が無い**。
+test('Hostile appsData import: non-string title/text must not render as [object Object]', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#main-content h1').first()).toBeVisible();
+
+  await page.getByLabel('インポートする JSON ファイルを選択').setInputFiles({
+    name: 'hostile-apps.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({
+      appsData: {
+        // 壊れた entry と正当な entry を混在させ、前者だけが落ちることを見る
+        tasks: [{ id: 't_hostile', title: {}, tags: [{}] }, { id: 't_ok', title: 'task-kept-e2e' }],
+        todos: [{ id: 'd_hostile', text: {} }, { id: 'd_ok', text: 'todo-kept-e2e' }],
+      },
+    })),
+  });
+  await expect(page.locator('#toast-container').getByText('インポートが完了しました').first()).toBeVisible();
+
+  for (const [route, kept] of [['#/apps/task', 'task-kept-e2e'], ['#/apps/todo', 'todo-kept-e2e']]) {
+    await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
+    // NOTE: 先に「あるはずの正当値」を待って描画を確定させてから不在を検査する (Check 402)。
+    //   これは同時に「型ガードが過剰で正当な entry まで落としていない」ことの検査でもある。
+    await expect(
+      page.locator('#content'),
+      `${route}: 正当な entry が型ガードで落ちた (過剰なガード)`
+    ).toContainText(kept);
+    await expect(
+      page.locator('#content'),
+      `${route}: 非文字列の必須テキストが "[object Object]" として描画された`
+    ).not.toContainText('[object Object]');
+  }
+
+  // NOTE (非 vacuity 上の要点): 描画側の検査だけでは **filter の欠落を捕捉できない**。
+  //   `String(t.title)` を safeStr にした時点で `{}` は空文字になり "[object Object]" は
+  //   消えるため、filter を外しても DOM 検査は緑のままだった (最初に書いた版が実際そうなり、
+  //   mutation 2 本とも素通りした)。壊れた entry が **落ちている** ことは永続化側で確かめる。
+  //   さもないと「本文の無い空カードが残る」退行が無検査で通る。
+  const persisted = await page.evaluate(() => {
+    try { return JSON.parse(localStorage.getItem('portfolio_enhanced_v45')).appsData; } catch (e) { return null; }
+  });
+  expect(persisted, '永続化された appsData を読めない').not.toBeNull();
+  expect(
+    persisted.tasks.map(t => t.id),
+    '必須テキストが非文字列の task が落ちずに残っている (本文の無い空カードになる)'
+  ).not.toContain('t_hostile');
+  expect(
+    persisted.todos.map(t => t.id),
+    '必須テキストが非文字列の todo が落ちずに残っている'
+  ).not.toContain('d_hostile');
+  expect(persisted.tasks.map(t => t.id), '正当な task が落ちた').toContain('t_ok');
+  expect(persisted.todos.map(t => t.id), '正当な todo が落ちた').toContain('d_ok');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `hostile appsData import caused a fatal: ${fatal}`).toBeNull();
+});
