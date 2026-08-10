@@ -650,3 +650,73 @@ test('data-ai-state exposes a true->false loading lifecycle per route (agentic s
   expect(firstTrue, 'loading:true が見つからない').toBeGreaterThanOrEqual(0);
   expect(lastFalse, 'loading:true の後に loading:false が来ていない').toBeGreaterThan(firstTrue);
 });
+
+// ===== WebMCP ツールが実 DOM から抽出できる (agentic 面の実行被覆) =====
+// main.js は `navigator.modelContext.registerTool` が存在する場合だけ WebMCP ツールを登録する。
+// **どのブラウザもまだ WebMCP を実装していない**ため、この登録は実環境でも Playwright でも
+// 一度も起きず、`execute()` は **実行被覆ゼロ**だった。#929 では走査セレクタがリポジトリの
+// どこにも存在せず「現在の DOM 状態から抽出します」と謳いながら常に静的フォールバックを
+// 返していた — **宣言と実態の乖離が長期間 silent に残る典型**で、しかも壊れるのは
+// 本プロジェクトの中核賭け金 (機械可読な権威付け) の面。
+//
+// API を shim して **実際に execute() を呼ぶ**ことで、#929 の class を構造的に閉じる。
+test('WebMCP tool extracts from the live DOM on its route and falls back off-route', async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__mcpTools = [];
+    // 実ブラウザには存在しない API を shim する (登録経路自体を通すため)
+    window.navigator.modelContext = { registerTool: (t) => { window.__mcpTools.push(t); return true; } };
+  });
+
+  await page.goto('/#/role-split', { waitUntil: 'domcontentloaded' });
+  // 表が描画され切ってから測る (前ルートの残骸を読まないための positive anchor)
+  await expect(page.locator('#role-split-table')).toBeVisible();
+
+  const onRoute = await page.evaluate(async () => {
+    const tools = window.__mcpTools || [];
+    if (!tools.length) { return { registered: 0 }; }
+    const t = tools[0];
+    const text = (await t.execute({})).content[0].text || '';
+    const json = (await t.execute({ format: 'json' })).content[0].text || '';
+    let parsed = null;
+    try { parsed = JSON.parse(json); } catch (e) { /* noop */ }
+    return {
+      registered: tools.length,
+      name: t.name,
+      readOnly: !!(t.annotations && t.annotations.readOnlyHint),
+      hooks: document.querySelectorAll('[data-ai-role]').length,
+      text,
+      detailsCount: parsed && Array.isArray(parsed.details) ? parsed.details.length : -1,
+    };
+  });
+
+  expect(onRoute.registered, 'WebMCP ツールが 1 つも登録されない — 以降が vacuous').toBe(1);
+  expect(onRoute.name).toBe('extract_human_vs_ai_role_split');
+  expect(onRoute.readOnly, 'readOnlyHint が落ちている (エージェントが副作用ありと誤解する)').toBe(true);
+  expect(onRoute.hooks, 'data-ai-role フックが描画されていない').toBeGreaterThan(0);
+
+  // 実 DOM から抽出できていること = 静的フォールバック文字列ではないこと
+  expect(
+    onRoute.text.startsWith('Human: Architecture'),
+    'role-split 上なのに静的フォールバックを返した (走査セレクタが実描画に解決していない・#929 class)'
+  ).toBe(false);
+  expect(onRoute.text.length, '抽出結果が実質空').toBeGreaterThan(100);
+  // format=json 分岐が到達可能で、DOM 由来の details を含むこと
+  expect(onRoute.detailsCount, 'format=json が有効な JSON を返さない / details が空').toBeGreaterThan(0);
+
+  // 別ルートでは graceful に静的フォールバックへ落ちる (宣言どおりの挙動)
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.grid-projects article.card').first()).toBeVisible();
+  await expect.poll(
+    () => page.evaluate(() => document.querySelectorAll('[data-ai-role]').length),
+    { message: 'ルート遷移後も role-split のフックが DOM に残っている' }
+  ).toBe(0);
+
+  const offRoute = await page.evaluate(async () => {
+    const t = (window.__mcpTools || [])[0];
+    return ((await t.execute({})).content[0].text || '');
+  });
+  expect(
+    offRoute.startsWith('Human: Architecture'),
+    'フック不在のルートで静的フォールバックに落ちない (エージェントへ古いデータを返す)'
+  ).toBe(true);
+});

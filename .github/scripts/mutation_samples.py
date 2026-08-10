@@ -727,6 +727,13 @@ _E2E_TAIL = [
         "replace": "                    loading: true",
         "test": "data-ai-state exposes a true->false loading lifecycle per route",
     },
+    {
+        "name": "behavior: WebMCP の走査セレクタが実描画に解決しなくなる (#929 の再発) — main.js の [data-ai-role] を、リポジトリのどこにも描画されていない .role-split-item へ戻す → ツールは「現在の DOM 状態から抽出します」と謳いながら常に静的フォールバックを返す。WebMCP は実ブラウザに未実装で登録すらされないため、API を shim して execute() を実行する e2e が唯一の捕捉層",
+        "file": ROOT / "main.js",
+        "find": "document.querySelectorAll('[data-ai-role]')",
+        "replace": "document.querySelectorAll('.role-split-item')",
+        "test": "WebMCP tool extracts from the live DOM on its route and falls back off-route",
+    },
 ]
 
 
