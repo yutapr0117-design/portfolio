@@ -53,6 +53,20 @@ Status        : 本 increment で新設。CLAUDE.md（thin router）から参照
   - **回帰防止**: 視覚 baseline では原理的に検出できないため、behavior e2e（BLOCKING）で 320px 幅の 6 ルート（過去に溢れていた 4 + 対照 2）を検査し、mutation（`max-width: 100%` の除去）で RED を実測した。
   - **教訓**: 保留理由が「見た目が変わるので証明できない」の形をとるときは、**変更のスコープが視覚ゲートに到達するのかを先に確かめる**。ここでは media query の条件と screenshot の clip 幅を突き合わせるだけで、保留の前提が崩れた。
 
+- **axe-core 4.12.1 → 4.13.0 の適用と、そこで可視化された WCAG 1.4.3 (Contrast) の実測（2026-08-10）:** minor bump を「新ルールが実バグを暴くか」を先に測ってから適用した。既存 a11y ゲート（critical のみ）は **22 passed のまま**で新規 critical はゼロ。だが **フィルタを外して走査したところ `color-contrast`（serious）が全ルートで大量に出た** — このリポジトリの a11y ゲートは critical 限定なので、**1.4.3 は構造的にずっと未検査だった**（2026-06-16 の WCAG 監査記録も 1.4.3 には触れていない）。
+  - **適用した分（imperceptible ゆえ C5 に当たらないと判断）**: 既定ブランド indigo の `--color-primary-rgb` が白背景に対し **4.467** で、要求 4.5:1 を **0.04 だけ**下回っていた。各チャンネル −1 の `rgb(98,101,240)` で **4.527** となり AA を満たす。変化量は 1/255 ≒ 0.4% で知覚不能、かつ screenshot の許容 threshold 0.05 を大きく下回るため**視覚 baseline に影響しない**。実測の効果は `#/quiz` **63 → 4 ノード**、`#/` 41 → 21、3 ルート計 **132 → 53**。もう一方の brand `classic` `rgb(37,99,235)` は 5.169 で元から AA 達成。回帰は behavior e2e（トークン単体の契約）で固定した。
+  - **保留（安全ゲート・C5＝配色の設計判断）**: 残る違反は「実際に色が変わる」もので、単独では決められない。実測値と候補を残す。
+
+    | 組み合わせ | 実測比 | 要求 | 用途 | AA に必要な変更 |
+    | :-- | --: | --: | :-- | :-- |
+    | `#94a3b8` on `#ffffff` | 2.56 | 4.5 | muted / 補助テキスト | 各チャンネル −44（`#68778c`）＝**明確に濃くなる** |
+    | `#6265f0` on `#eff0fe` | 4.00 | 4.5 | 淡色チップ上の primary 文字 | 文字を濃くするか、チップ背景を白寄りにする |
+    | `#16a34a` on `#e8f6ed` | 2.95 | 4.5 | 成功系チップ | 同上（緑の再選定） |
+
+  - **なぜ AI 単独で適用しないか**: 上表はいずれも**知覚できる変化**で、サイトの見た目の性格を変える。CLAUDE.md §7 の「配色・余白の設計判断は C5（人間）の領域」に該当する。上の indigo 修正だけを適用したのは、**1/255 で知覚不能かつ視覚 baseline に非到達**という点で「設計の変更」ではなく「丸め誤差レベルの是正」と切り分けられたため。
+  - **再現コマンド**: `AxeBuilder(page).withRules(['color-contrast']).analyze()` を各ルートで実行し、`violations[0].nodes[].any[0].data` の `fgColor` / `bgColor` / `contrastRatio` を集計する（本記録の数値はこの方法で取得）。
+  - **適用条件**: オーナーが配色変更を裁可した時。その際は muted → `#68778c` を起点に、チップ背景側を白寄りへ寄せる案と見比べるのが早い。
+
 **(B) 適用不要だが検証済み（verify）:** 現物が既に当該標準に準拠しており、変更不要なもの。「変更が無かった」のではなく「現行性を検証した」結果として記録する。これは null result ではなく、現行性・機械可読性を価値とするこのリポジトリにおける成果物である。例（過去 increment）＝robots.txt の granular AI-bot モデル・Node 24・CSP / Trusted Types が 2026 標準に対し現行であることの検証。
 
 - **llms.txt / AI-crawler discoverability の現行性検証（2026-06-28）:** 2026 時点の調査で、(i) llms.txt 採用率は ~10%（18ヶ月後）に留まり、(ii) **AI 検索クローラ（GPTBot/ClaudeBot/PerplexityBot/OAI-SearchBot/Google-Extended）は llms.txt をほぼ fetch せず HTML を直接クロール**（500M bot 訪問中 llms.txt 直叩きは ~408 件）、(iii) Google は非対応を明言・Anthropic/OpenAI/Perplexity も自動読込未コミット、(iv) genuine な実利用は **B2A（Business-to-Agent）= IDE エージェント（Claude Code/Cursor/Windsurf/Copilot/Cline/Aider）が docs サイトで /llms.txt・/llms-full.txt を参照**、と判明。**本リポジトリは既に root の `/llms.txt`+`/llms-full.txt`（標準配置）と、AI 検索クローラが実際に読む HTML 内 structured data（JSON-LD/entity anchor/meta）の二段構えを持ち、調査が示す現実に整合**。新規採用すべき標準/endpoint は無し。低クローラ uptake は §7「`confirmed_citation_events = 0` は by design = 高確率レーンへの早期ポジション」と整合し、本調査がその姿勢の妥当性を 2026 市場データで裏付けた。公開 AIO content はオーナー方針で terminal ゆえ content 変更も行わない＝**verify-currency（apply なし）**。（出典: SE Ranking 採用率調査 / OtterlyAI GEO study / Search Engine Land llms.txt proposal。再調査は本日付以降に標準が動いた場合のみ。）

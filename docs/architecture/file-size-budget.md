@@ -148,7 +148,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 741000 -->
+<!-- PERF-BUDGET-DATA 742000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -159,6 +159,12 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      選択肢へ漏れていた実バグの修正 (4 listing 面へ hiddenIds を適用 + 全件非表示時の fallback) と
      その WHY コメントで実測が 712,892 bytes に到達。genuine な user-visible bug fix ゆえ実態 +
      約 1,100 bytes の headroom へラチェット。
+     741,000 → 742,000 (2026-08-10)。WCAG 1.4.3 (Contrast AA) の是正。既定ブランド indigo の
+     `--color-primary-rgb` が白背景に対し 4.467 で要求 4.5:1 を 0.04 下回っていたため、各チャンネル
+     -1 の rgb(98,101,240) (比 4.527) へ。1/255 = 知覚不能かつ screenshot 許容 0.05 に非到達ゆえ
+     視覚 baseline 不変。実測効果は #/quiz 63 → 4 ノード、3 ルート計 132 → 53。値の根拠を style.css の
+     WHY コメントに残したぶんの増加 (実測 741,750 bytes)。残る違反 (muted text 等) は C5 ゆえ
+     research-application-policy.md へ実測値つきで defer 記録。
      740,000 → 741,000 (2026-08-10)。profile (#968) / projects (#969) と同じ型ガード欠落を appsData へ展開。
      `filter(t => t && t.title)` は `{}` が truthy なので素通りし、`String(t.title)` が
      "[object Object]" をタスク/TODO 一覧へ描画していた (実測で各ルート 1 箇所)。必須テキストが
