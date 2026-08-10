@@ -96,9 +96,32 @@ export function createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Th
         // v56: <a href> でGooglebotのリンク発見を保証しつつSPAルーターへ委譲
         // 改善文書b 11.1: closest() による堅牢なナビゲーションリンク捕捉
         // アイコンSVGや子<span>がクリックされた場合も `.nav-link` まで遡上して確実に発火する
+        // [A11Y 2.1.1] id は「再描画で消えた後に focus を戻す」ための安定ハンドル
+        //   (main.js _renderCore が復元する)。_renderCore は #content だけでなく **sidebar も
+        //   毎回作り直す**ため、id が無いと同一ルート再描画のたびに nav の focus が body へ落ちる。
+        //   実測 (#997): ポモドーロ稼働中は毎秒再描画されるので、キーボード利用者は
+        //   **タイマーが動いている間サイドバーに focus を留めておけなかった**。
+        //   sidebar と drawer は同じ navLink を共有し **同時に DOM 上へ存在する** (mobile では
+        //   sidebar が display:none で残る) ので、接頭辞で id 衝突を避ける。
+        function navId(item) {
+            return (isDrawer ? 'drawernav-' : 'sidenav-') + (item.path || 'home').replace(/[^a-z0-9]+/gi, '-');
+        }
+
+        // [FIX] sidebar 側の id は既存のまま (`nav-lab-body` / `themeBtnSidebar`) にして、drawer 側だけ
+        //   別名にする。従来は両方が同じ id を持ち、drawer を開くと **同一 id の要素が 2 つ DOM 上に
+        //   存在**していた (実測 #997)。DOM 順で drawer が先に来るため実害は出ていなかったが:
+        //     - sidebar 側トグルの `aria-controls="nav-lab-body"` が **drawer 側の要素**を指す。
+        //       支援技術がその参照を辿ると、視覚的に隠れている別グループへ着地する (WCAG 1.3.1)。
+        //     - focus 復元 (main.js _renderCore) は getElementById を鍵にするので、id が一意で
+        //       ないと復元先が別物になりうる。
+        //   構築順という偶然に安全を委ねないため、id を分けたうえでトグルは自分の aria-controls を
+        //   辿るようにする (ハードコード id の getElementById をやめる)。
+        const labBodyId = isDrawer ? 'drawer-nav-lab-body' : 'nav-lab-body';
+
         function navLink(item) {
             return h('a', {
                 class: ['nav-link', item.active && 'active'],
+                id: navId(item),
                 href: '#/' + item.path,
                 onclick: (e) => {
                     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) { return; }
@@ -116,10 +139,14 @@ export function createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Th
         function navGroupToggleButton(label, open) {
             return h('button', {
                 class: 'nav-group-toggle',
+                // [A11Y 2.1.1] navLink と同じ理由の focus 復元ハンドル (接頭辞で drawer と衝突回避)。
+                id: (isDrawer ? 'drawernav' : 'sidenav') + '-lab-toggle',
                 'aria-expanded': String(open),
-                'aria-controls': 'nav-lab-body',
+                'aria-controls': labBodyId,
                 onclick(e) {
-                    const body = document.getElementById('nav-lab-body');
+                    // 自分の aria-controls を辿る (ハードコード id だと drawer と sidebar が
+                    // 同時に存在する mobile で相手側を掴む)。
+                    const body = document.getElementById(e.currentTarget.getAttribute('aria-controls'));
                     if (body) {toggleLab(e.currentTarget, body);}
                 }
             },
@@ -147,7 +174,7 @@ export function createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Th
             ...secondaryItems.map(navLink),
             navGroupToggleButton('Lab', labOpen),
             h('div', {
-                id: 'nav-lab-body', class: 'nav-group-body',
+                id: labBodyId, class: 'nav-group-body',
                 'data-collapsed': String(!labOpen),
                 style: labOpen ? '' : 'max-height:0'
             }, ...labItems.map(navLink)),                h('div', { class: 'divider' }),
@@ -178,7 +205,7 @@ export function createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Th
                     )
                 ),
                 h('button', {
-                    id: 'themeBtnSidebar',
+                    id: isDrawer ? 'themeBtnDrawer' : 'themeBtnSidebar',
                     class: 'icon-btn',
                     onclick: Theme.cycle,
                     // [FIX] aria-label を現在テーマで生成する (WCAG 4.1.2 Name/Role/Value)。従来は

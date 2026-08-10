@@ -227,7 +227,11 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        emitter count is legitimately zero, so requiring an emitter would be a false positive on
        intentional design. Measured non-vacuity in BOTH directions: a consumer-side typo
        (`[data-bgm-btn]` → `[data-bgm-button]`) and an emitter-side removal (renaming the attribute in
-       index.html) each turn this Check RED. (BLOCKING)
+       index.html) each turn this Check RED.
+       走査前にコメントを除去する —— しないと **説明コメント中の id 参照が実参照として
+       数えられ**、定義側がリテラルでなくなった瞬間に false RED を出す (2026-08-11 に実際に
+       発生: `aria-controls="nav-lab-body"` と書いた WHY コメントが dangling 参照と判定された)。
+       Check 112 / 421 / 422 と同じ「コメントは違反にも充足にもしない」規律の idref 面。(BLOCKING)
 
   418. Check 376 の逆方向 (定義 ⟹ 使用)。ActionDelegator の `_handlers` に登録されている
        全 handler key について、`data-action="X"` を持つ要素が index.html か shipped JS の
@@ -599,9 +603,21 @@ def run(ctx):
     _shipped392 = [p for p in ([ROOT / "main.js"] + sorted((ROOT / "js").glob("*.js"))) if p.exists()]
     if _html392.exists() and _shipped392:
         _sources392 = _shipped392 + [_html392]
+
+        def _strip_comments392(text, is_html):
+            """コメントを除去する。除去しないと **説明コメント中の id 参照が実参照として数えられ**、
+            定義側がリテラルでなくなった瞬間に false RED を出す (2026-08-11 に実際に発生:
+            `aria-controls="nav-lab-body"` と書いた WHY コメントが dangling 参照と判定された)。
+            Check 112 / 421 / 422 と同じ「コメントは違反にも充足にもしない」規律の idref 面。"""
+            if is_html:
+                return re.sub(r"<!--.*?-->", "", text, flags=re.S)
+            text = re.sub(r"/\*.*?\*/", "", text, flags=re.S)
+            # `https://` を行コメントと誤認しないため colon 直後の // は除外する (repo 共通の idiom)。
+            return re.sub(r"(?<!:)//[^\n]*", "", text)
+
         _defined392 = set()
         for _f392 in _sources392:
-            _s392 = _f392.read_text(encoding="utf-8")
+            _s392 = _strip_comments392(_f392.read_text(encoding="utf-8"), _f392.suffix == ".html")
             _defined392 |= set(re.findall(r'\bid="([a-zA-Z0-9_-]+)"', _s392))
             _defined392 |= set(re.findall(r"""\bid:\s*['"]([a-zA-Z0-9_-]+)['"]""", _s392))
             _defined392 |= set(re.findall(r"""\.id\s*=\s*['"]([a-zA-Z0-9_-]+)['"]""", _s392))
@@ -609,7 +625,7 @@ def run(ctx):
         _refs392 = {}  # idref value -> (attr, file)
         _aria392 = ["aria-labelledby", "aria-describedby", "aria-controls", "aria-errormessage"]
         for _f392 in _sources392:
-            _s392 = _f392.read_text(encoding="utf-8")
+            _s392 = _strip_comments392(_f392.read_text(encoding="utf-8"), _f392.suffix == ".html")
             _rel392 = str(_f392.relative_to(ROOT))
             for _attr392 in _aria392:
                 for _pat392 in (rf'{_attr392}="([^"]+)"',

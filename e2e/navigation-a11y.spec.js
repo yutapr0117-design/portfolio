@@ -650,3 +650,84 @@ test('WCAG 2.1.1: プロジェクトのタグ絞り込みは検索欄へ focus �
   expect(res.label, 'タグを押すと focus が body へ落ちる').toBe('プロジェクト検索');
   expect(res.value).toBe('ツール');
 });
+
+// ===== WCAG 2.1.1: サイドバーの focus は再描画を越えて残るか =====
+// `_renderCore` は #content だけでなく **sidebar も毎回作り直す**。ポモドーロは稼働中に毎秒
+// 再描画するので、id が無かった頃はキーボード利用者が **タイマーが動いている間サイドバーに
+// focus を留めておけなかった** (実測 #997: 開始した瞬間に BODY、focus し直しても 1 秒で BODY)。
+test('WCAG 2.1.1: ポモドーロ稼働中でもサイドバーに focus を留められる', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'ポモドーロ' })).toBeVisible();
+
+  // 実際の順番どおり「開始してからキーボードでサイドバーへ移動する」を再現する。
+  // NOTE: 先にサイドバーへ focus してから click() すると、**click 自体がボタンへ focus を移す**ので
+  //   何を検証しているのか分からなくなる (最初にこれで誤検出した)。
+  await page.locator('#pomo-toggle').click();
+  await expect(page.locator('#pomo-toggle')).toContainText('一時停止');
+
+  // NOTE: locator に復元用の id を使わない。id を外す mutation が「要素が見つからない」で
+  //   落ちると、**focus が失われたこと**を検証できたのか帰属できなくなる。href で引いて
+  //   activeElement 側も href で比べる (id が無くても両者は解決する)。
+  await page.locator('#sidebar a.nav-link[href="#/"]').focus();
+  const idOf = () => page.evaluate(() => {
+    const a = document.activeElement;
+    return a ? (a.getAttribute('href') || a.id || a.tagName) : null;
+  });
+  expect(await idOf()).toBe('#/');
+
+  // 2 tick 以上またいで観測する。NOTE: ここは「変化しないこと」の検査なので expect.poll を
+  //   使わない (poll は最初の観測で成立した瞬間に成功し、その後の喪失を見逃す)。
+  await page.waitForTimeout(2200);
+  expect(await idOf(), 'タイマーが動いている間サイドバーに focus を留められない (毎秒 body へ落ちる)').toBe('#/');
+});
+
+// sidebar と drawer は同じ navLink 実装を共有し、mobile では **両方が同時に DOM 上へ存在する**
+// (sidebar は display:none で残るだけ)。focus 復元は getElementById を鍵にしているため、
+// id が衝突すると復元先が別物になり、aria の id 参照も壊れる。
+test('sidebar と drawer の nav が id を衝突させない', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'ポモドーロ' })).toBeVisible();
+  await page.locator('#menuBtn').click();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
+
+  const dup = await page.evaluate(() => {
+    const seen = new Set(); const dups = [];
+    document.querySelectorAll('[id]').forEach(e => {
+      if (seen.has(e.id)) { dups.push(e.id); }
+      seen.add(e.id);
+    });
+    return dups;
+  });
+  expect(dup, `重複 id: ${dup.join(', ')}`).toEqual([]);
+  // drawer 側にも復元用の id が実在すること (接頭辞違いで両方揃っているのが正)
+  await expect(page.locator('#drawernav-home')).toHaveCount(1);
+  await expect(page.locator('#sidenav-home')).toHaveCount(1);
+});
+
+// drawer 側の Lab グループが「自分の」本体を開閉すること (相手側を掴んでいないこと)。
+// 従来は id がハードコードで sidebar と drawer が同じ `nav-lab-body` を持っていたため、
+// getElementById が DOM 順で先に来た方を返し、どちらのトグルがどちらを開けるかが
+// **構築順という偶然**に委ねられていた。
+test('drawer の Lab トグルは drawer 側の本体だけを開閉する', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  await page.locator('#menuBtn').click();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
+
+  const drawerBody = page.locator('#drawer-nav-lab-body');
+  const sidebarBody = page.locator('#nav-lab-body');
+  await expect(drawerBody).toHaveCount(1);
+  await expect(sidebarBody).toHaveCount(1);
+
+  const before = await sidebarBody.getAttribute('data-collapsed');
+  await page.locator('#drawernav-lab-toggle').click();
+  await page.waitForTimeout(300);
+
+  await expect(drawerBody).toHaveAttribute('data-collapsed', String(before !== 'true'));
+  // sidebar 側は触られていないこと (aria-controls を辿らずハードコード id を掴むと、ここが動く)
+  await expect(sidebarBody).toHaveAttribute('data-collapsed', String(before));
+  await expect(page.locator('#drawernav-lab-toggle')).toHaveAttribute('aria-controls', 'drawer-nav-lab-body');
+});
