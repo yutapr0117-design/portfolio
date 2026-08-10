@@ -296,18 +296,6 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
 
         // Merge profile
         if (data.profile && typeof data.profile === 'object') {
-            // [FIX] 文字列フィールドは **文字列/数値のみ** を採用する。旧実装は `String(v || fallback)`
-            //   だったため、`[]` や `{}` のような **truthy な非文字列** が `||` を素通りし、
-            //   `String([]) === ''` で **フィールドが空になっていた**。実測では
-            //   `{"profile":{"email":[]}}` を取り込むと ContactPage のメールアドレスが消え、
-            //   「メールを作成」ボタンが宛先の無い `mailto:?subject=...` を開く状態になった
-            //   (`{"profile":{"name":{}}}` は表示名が "[object Object]" になっていた)。
-            //   falsy 値 (''/0/null/undefined) が fallback へ落ちる従来の挙動は維持する。
-            const safeStr = (v, fallback, max) => {
-                const cand = (typeof v === 'string' || typeof v === 'number') ? String(v) : '';
-                const s = (v && cand.trim() !== '') ? cand : String(fallback || '');
-                return s.slice(0, max);
-            };
             // github / linkedin は ContactPage で href として描画されるため、http(s) スキームのみ
             // 許可して javascript:/data: 等の XSS ベクタを遮断する (空文字はクリア扱いで許容)。
             // [FIX] **フィールド自体が無い (undefined/null) 場合は fallback を使う**。旧実装は
@@ -361,22 +349,49 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
         return store;
     }
 
+    // [FIX] 外部 ingestion の文字列フィールドは **文字列/数値のみ** を採用する。
+    //   旧実装の `String(v || fallback)` は `[]` や `{}` のような **truthy な非文字列** に対して
+    //   `||` の fallback が働かず、そのまま `String(v)` されていた。実測での被害:
+    //     - `{"profile":{"email":[]}}`  → `String([]) === ''` で宛先が消え、ContactPage の
+    //       「メールを作成」が宛先の無い `mailto:?subject=...` を開く
+    //     - `{"projects":[{"name":{}}]}` → 一覧・詳細に **"[object Object]" がそのまま描画される**
+    //   どちらも fatal を出さないため ErrorBoundary に掛からず、視覚 baseline は ADVISORY ゆえ
+    //   behavior test 以外に捕捉層が無い (#93/#295/#561/#568/#572/#573 の型ガード class の文字列面)。
+    //   falsy 値 (''/0/null/undefined) が fallback へ落ちる従来の挙動は維持する。
+    function safeStr(v, fallback, max) {
+        const cand = (typeof v === 'string' || typeof v === 'number') ? String(v) : '';
+        const s = (v && cand.trim() !== '') ? cand : String(fallback || '');
+        return s.slice(0, max);
+    }
+    // 文字列配列 (tech / tags / highlights) の要素も同じ理由で型を絞る。`filter(Boolean)` は
+    // `{}` が truthy なので素通りし、チップとして "[object Object]" が描画されていた。
+    function safeStrList(v, max, itemMax) {
+        return (Array.isArray(v) ? v : [])
+            .filter(x => typeof x === 'string' || typeof x === 'number')
+            .map(x => String(x).slice(0, itemMax))
+            .filter(x => x.trim() !== '')
+            .slice(0, max);
+    }
+
     function normalizeProject(raw, idx) {
-        const id = String(raw.id || `p${idx}_${generateId()}`).slice(0, CONSTANTS.LIMITS.PROJECT_ID);
-        const slug = String(raw.slug || slugify(raw.name || id)).slice(0, 100);
+        const id = safeStr(raw.id, `p${idx}_${generateId()}`, CONSTANTS.LIMITS.PROJECT_ID);
+        const slug = safeStr(raw.slug, slugify(safeStr(raw.name, id, 200)), 100);
 
         return {
             id,
             slug,
-            name: String(raw.name || 'Untitled').slice(0, CONSTANTS.LIMITS.PROJECT_NAME),
-            category: String(raw.category || 'Misc').slice(0, CONSTANTS.LIMITS.CATEGORY),
-            summary: String(raw.summary || '').slice(0, CONSTANTS.LIMITS.SUMMARY),
-            problem: String(raw.problem || '').slice(0, CONSTANTS.LIMITS.PROBLEM),
-            approach: String(raw.approach || '').slice(0, CONSTANTS.LIMITS.APPROACH),
+            name: safeStr(raw.name, 'Untitled', CONSTANTS.LIMITS.PROJECT_NAME),
+            category: safeStr(raw.category, 'Misc', CONSTANTS.LIMITS.CATEGORY),
+            summary: safeStr(raw.summary, '', CONSTANTS.LIMITS.SUMMARY),
+            problem: safeStr(raw.problem, '', CONSTANTS.LIMITS.PROBLEM),
+            approach: safeStr(raw.approach, '', CONSTANTS.LIMITS.APPROACH),
             outcome: {
-                impact: String(raw.outcome?.impact || '').slice(0, CONSTANTS.LIMITS.IMPACT),
+                impact: safeStr(raw.outcome?.impact, '', CONSTANTS.LIMITS.IMPACT),
                 metrics: Array.isArray(raw.outcome?.metrics)
-                    ? raw.outcome.metrics.slice(0, 12).filter(m => m && m.label && m.value)
+                    ? raw.outcome.metrics.slice(0, 12).filter(m => m
+                        && (typeof m.label === 'string' || typeof m.label === 'number')
+                        && (typeof m.value === 'string' || typeof m.value === 'number')
+                        && String(m.label).trim() !== '' && String(m.value).trim() !== '')
                     : []
             },
             // [FIX] Array.isArray ガード必須 (#93/#295/#561/#568 と同じ「外部 ingestion は全経路正規化」class)。
@@ -385,17 +400,20 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
             // `.filter` が `TypeError: ... is not a function` を throw → validateAndNormalize が例外 → FatalPage crash。
             // default の proj() builder は既に `Array.isArray(tech) ? tech : []` でガード済 (本 normalizer は
             // untrusted import を処理するゆえ同じガードが必須だった)。非配列は空配列にフォールバック。
-            tech: (Array.isArray(raw.tech) ? raw.tech : []).filter(Boolean).slice(0, 12),
-            tags: (Array.isArray(raw.tags) ? raw.tags : []).filter(Boolean).slice(0, 12),
-            highlights: (Array.isArray(raw.highlights) ? raw.highlights : []).filter(Boolean).slice(0, 20),
+            tech: safeStrList(raw.tech, 12, CONSTANTS.LIMITS.CATEGORY),
+            tags: safeStrList(raw.tags, 12, CONSTANTS.LIMITS.CATEGORY),
+            highlights: safeStrList(raw.highlights, 20, CONSTANTS.LIMITS.SUMMARY),
             architecture: {
-                overview: String(raw.architecture?.overview || '').slice(0, 2000),
+                overview: safeStr(raw.architecture?.overview, '', 2000),
                 mermaid: raw.architecture?.mermaid || null
             },
             // [FIX] .map(String): id は String 正規化されるが要素を揃えないと import の数値 id 参照が
             // 文字列 id と strict 不一致で related から silent に消え autoRelated 除外も外れる (desync)。
             relatedProjectIds: (Array.isArray(raw.relatedProjectIds) ? raw.relatedProjectIds : []).filter(Boolean).map(String).slice(0, 20),
-            links: (Array.isArray(raw.links) ? raw.links : []).filter(l => l && l.label && sanitizeUrl(l.url)).slice(0, 30),
+            // label も同じ理由で文字列/数値に限定 (非文字列は "[object Object]" としてリンク文言に出る)
+            links: (Array.isArray(raw.links) ? raw.links : [])
+                .filter(l => l && (typeof l.label === 'string' || typeof l.label === 'number')
+                    && String(l.label).trim() !== '' && sanitizeUrl(l.url)).slice(0, 30),
             demoRoute: ['task', 'todo', 'pomodoro', 'ai', 'notes'].includes(raw.demoRoute) ? raw.demoRoute : null
         };
     }

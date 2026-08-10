@@ -810,8 +810,8 @@ MUTATIONS_ARCHIVE2 = [
     {
         "name": "Check 364: store.js の Array.isArray ガードを unsafe な `(raw.tech || []).filter` idiom へ戻す → ingestion-crash class 構造防止の BLOCKING 検証",
         "file": ROOT / "js" / "store.js",
-        "find": "tech: (Array.isArray(raw.tech) ? raw.tech : []).filter(Boolean).slice(0, 12),",
-        "replace": "tech: (raw.tech || []).filter(Boolean).slice(0, 12),",
+        "find": "relatedProjectIds: (Array.isArray(raw.relatedProjectIds) ? raw.relatedProjectIds : []).filter(Boolean).map(String).slice(0, 20),",
+        "replace": "relatedProjectIds: (raw.relatedProjectIds || []).filter(Boolean).map(String).slice(0, 20),",
     },
     {
         "name": "Check 368: store.js の notes 上限を CONSTANTS.LIMITS.NOTES_TEXT からマジック 20000 へ戻す → notes 上限 drift の BLOCKING 検証",
