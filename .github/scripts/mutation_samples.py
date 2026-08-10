@@ -823,6 +823,13 @@ _E2E_TAIL = [
         "replace": "                    const body = document.getElementById('nav-lab-body');",
         "test": "drawer の Lab トグルは drawer 側の本体だけを開閉する",
     },
+    {
+        "name": "behavior: 履歴移動で drawer が開いたまま残る (#998 の回帰) — drawer 内 nav リンク以外の経路でルートが変わると drawer が閉じず、背後のページだけが切り替わって #app は inert / body は scroll lock のまま残る。Android の戻るボタンは『開いているモーダルを閉じる』操作として使われるのに、実際には見えない場所でページが遷移する",
+        "file": ROOT / "js" / "mobile-drawer.js",
+        "find": "    window.addEventListener('hashchange', () => { closeDrawer(); });",
+        "replace": "    void 0;",
+        "test": "drawer 開放中にブラウザの戻るでルートが変わったら drawer が閉じる",
+    },
 ]
 
 

@@ -238,6 +238,15 @@ export function createMobileDrawer({ CONSTANTS, clear, Sidebar, closePalette }) 
         (menuBtn || __drawerLastFocused)?.focus?.();
     }
 
+    // [FIX] ルートが変わったら drawer を閉じる。drawer 内の nav リンクは自分で closeDrawer() を
+    //   呼ぶが、**それ以外の経路でルートが変わると drawer が開いたまま残る**。実測 (#998):
+    //   mobile で drawer を開いてブラウザの「戻る」を押すと、背後のページだけが切り替わり
+    //   drawer は開いたまま・#app は inert・body は scroll lock のままだった。Android の
+    //   戻るボタンは「開いているモーダルを閉じる」操作として使われるのに、実際には
+    //   **見えない場所でページが遷移していた**。
+    //   closeDrawer は閉じている時の再入を弾く (#948) ので、nav リンク経由の二重呼びは無害。
+    window.addEventListener('hashchange', () => { closeDrawer(); });
+
     return {
         syncMobileDrawer, secureExternalLinks,
         openDrawer, closeDrawer,
