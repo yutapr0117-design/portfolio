@@ -80,6 +80,12 @@ _MUTATIONS_TAIL = [
         "find": ".well-known/aio-manifest.json",
         "replace": ".well-known/NO-SUCH-manifest.json",
     },
+    {
+        "name": "Check 421: 明示 behavior:'smooth' の reduced-motion ガードが外れる — home-page.js の matchMedia 問い合わせを false へ潰す → CSSOM-View では behavior を明示した時点で CSS の scroll-behavior が参照されないため、style.css の reduce override では止まらず、前庭障害のユーザーにも 1,000px 超のアニメーションが走る (WCAG 2.3.3)。fatal も視覚差分も出ないので静的にはこの Check だけが捕捉する",
+        "file": ROOT / "js" / "home-page.js",
+        "find": "window.matchMedia('(prefers-reduced-motion: reduce)').matches",
+        "replace": "false",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。
@@ -733,6 +739,20 @@ _E2E_TAIL = [
         "find": "document.querySelectorAll('[data-ai-role]')",
         "replace": "document.querySelectorAll('.role-split-item')",
         "test": "WebMCP tool extracts from the live DOM on its route and falls back off-route",
+    },
+    {
+        "name": "behavior: home の in-page ジャンプが reduced-motion を無視する (#993 の回帰) — home-page.js の三項を `behavior: 'smooth'` へ戻す → reduce 環境でも no-preference と同一のアニメーション曲線で 1,000px 超スクロールする。CSS の reduce override は behavior 明示呼び出しには効かない (同じ実測で scrollTo(0,0) は reduce のとき即時＝CSS 側は正常に働いていた) ため、誤って「守られている」と読みやすい",
+        "file": ROOT / "js" / "home-page.js",
+        "find": "el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });",
+        "replace": "el.scrollIntoView({ behavior: 'smooth' });",
+        "test": "WCAG 2.3.3: reduced-motion では in-page ジャンプが即時になる",
+    },
+    {
+        "name": "behavior: in-page ジャンプ後に focus が移らなくなる (#993 の回帰) — home-page.js の focus() を潰す → viewport だけが 1,000px 動き、移動先が見えないユーザーには何も起きず、キーボードユーザーの次の Tab は画面外へ去ったボタンから続く (WCAG 2.4.3)",
+        "file": ROOT / "js" / "home-page.js",
+        "find": "el.focus({ preventScroll: true });",
+        "replace": "void 0;",
+        "test": "WCAG 2.4.3: in-page ジャンプが移動先へ focus を移す",
     },
 ]
 

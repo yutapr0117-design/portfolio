@@ -408,3 +408,65 @@ test('WCAG 1.4.10: 320px 幅でどのルートも横スクロールしない', a
     expect(fatal, `${route} で fatal: ${fatal}`).toBeNull();
   }
 });
+
+// ===== WCAG 2.3.3 / 2.4.3: home の in-page ジャンプボタン =====
+// home の「まずはこの3つだけ見てください」1 枚目のボタンは #evidence-heading へ 1,000px 超
+// スクロールする。ここには 2 つの欠陥があった (2026-08-11 #993 で実測して発見):
+//
+//  (1) WCAG 2.3.3 — `scrollIntoView({behavior:'smooth'})` は **behavior を明示している**ため、
+//      CSSOM-View 仕様により CSS の `scroll-behavior` は参照されない。つまり style.css の
+//      `@media (prefers-reduced-motion: reduce) { scroll-behavior: auto !important }` は
+//      **この呼び出しには効かない**。実測でも reduce / no-preference でスクロール曲線が
+//      完全に一致していた (t0=0 → t150≈475 → t600≈1075)。
+//      紛らわしいのは、同じ実測で `window.scrollTo(0, 0)` は reduce のとき即時に完了しており、
+//      **CSS の reduce override 自体は正しく働いていた**こと。効かないのは明示呼び出しだけ。
+//
+//  (2) WCAG 2.4.3 — `scrollIntoView` は viewport を動かすだけで focus は動かない。移動先が
+//      見えないユーザーには何も起きず、キーボードユーザーの次の Tab は画面外へ去った
+//      ボタンから続いてしまう。
+//
+// どちらも fatal を出さず、視覚 baseline は 1280x720 の 1 枚だけ (かつ ADVISORY) なので、
+// **捕捉層はこの behavior test しかない**。静的側は Check 421 が (1) を構造的に守る。
+test('WCAG 2.3.3: reduced-motion では in-page ジャンプが即時になる (アニメーションしない)', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  const btn = page.getByRole('button', { name: 'ケーススタディセクションへ移動' });
+  await expect(btn).toBeVisible();
+
+  // NOTE: 「アニメーションしないこと」は *不変性* ではなく「click と同じ tick で完了する」
+  // という一点の観測なので poll を使わない (poll は最初の観測で成立した瞬間に成功するため
+  // アニメーションの途中を拾って誤って緑になりうる)。click 直後の同期読み 1 回で判定する。
+  const scrolled = await page.evaluate(() => {
+    window.scrollTo(0, 0);
+    document.querySelector('[aria-label="ケーススタディセクションへ移動"]').click();
+    return window.scrollY;   // 即時なら既に目的地、smooth なら 0 付近のまま
+  });
+
+  expect(
+    scrolled,
+    `reduced-motion なのに click 直後の scrollY が ${scrolled}px しか進んでいない ` +
+    '= アニメーションしている (WCAG 2.3.3)。behavior を明示すると CSS の scroll-behavior は ' +
+    '参照されないので、JS 側で matchMedia を見て behavior:\'auto\' に落とす必要がある'
+  ).toBeGreaterThan(300);
+});
+
+test('WCAG 2.4.3: in-page ジャンプが移動先へ focus を移す', async ({ page }) => {
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  const btn = page.getByRole('button', { name: 'ケーススタディセクションへ移動' });
+  await expect(btn).toBeVisible();
+  await btn.click();
+
+  // NOTE: toBeFocused() は並列ワーカーで document が inactive になり間欠 RED になるため使わない
+  // (playwright.config.cjs の落とし穴表を参照)。activeElement を evaluate で直接読む。
+  await expect
+    .poll(async () => page.evaluate(() => (document.activeElement ? document.activeElement.id : null)))
+    .toBe('evidence-heading');
+
+  // スクロールも実際に到達していること (focus の preventScroll でスクロールを打ち消していない)
+  const y = await page.evaluate(() => window.scrollY);
+  expect(y, 'focus は移ったがスクロールしていない (preventScroll が移動そのものを潰している)').toBeGreaterThan(300);
+});
