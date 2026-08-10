@@ -614,6 +614,13 @@ _E2E_TAIL = [
         "replace": "            name: String(raw.name || 'Untitled').slice(0, CONSTANTS.LIMITS.PROJECT_NAME),",
         "test": "Hostile project import: non-string fields must not render as [object Object]",
     },
+    {
+        "name": "behavior: appsData の必須テキスト型ガード喪失 — normalizeAppsData の task filter を `isText(t.title)` から旧 `t.title` へ戻す → `{}` は truthy なので entry が落ちず、本文の無い空カードとして残る (旧実装ではさらに String(t.title) が \"[object Object]\" を描画していた)。NOTE: 描画側の検査だけでは捕捉できず (safeStr により空文字になるため)、永続化された appsData に壊れた entry が残っていないことの検査が本 mutation を捕捉する",
+        "file": ROOT / "js" / "store.js",
+        "find": "                .filter(t => t && isText(t.title))",
+        "replace": "                .filter(t => t && t.title)",
+        "test": "Hostile appsData import: non-string title/text must not render as [object Object]",
+    },
 ]
 
 

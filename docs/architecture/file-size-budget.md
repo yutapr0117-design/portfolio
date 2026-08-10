@@ -148,7 +148,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 740000 -->
+<!-- PERF-BUDGET-DATA 741000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -159,6 +159,11 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      選択肢へ漏れていた実バグの修正 (4 listing 面へ hiddenIds を適用 + 全件非表示時の fallback) と
      その WHY コメントで実測が 712,892 bytes に到達。genuine な user-visible bug fix ゆえ実態 +
      約 1,100 bytes の headroom へラチェット。
+     740,000 → 741,000 (2026-08-10)。profile (#968) / projects (#969) と同じ型ガード欠落を appsData へ展開。
+     `filter(t => t && t.title)` は `{}` が truthy なので素通りし、`String(t.title)` が
+     "[object Object]" をタスク/TODO 一覧へ描画していた (実測で各ルート 1 箇所)。必須テキストが
+     非文字列の entry は **落とす** (既存の「title が無い entry は落とす」挙動へ揃える)。
+     WHY コメント込みで実測 740,059 bytes。
      739,000 → 740,000 (2026-08-10)。profile で見つけた型ガード欠落と同じ class を projects の
      正規化へ展開。`String(raw.name || 'Untitled')` は `{}` が truthy なので fallback が働かず、
      **"[object Object]" が一覧カードと詳細ページへそのまま描画されていた** (実測で一覧 3 箇所 /

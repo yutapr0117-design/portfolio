@@ -365,6 +365,14 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
     }
     // 文字列配列 (tech / tags / highlights) の要素も同じ理由で型を絞る。`filter(Boolean)` は
     // `{}` が truthy なので素通りし、チップとして "[object Object]" が描画されていた。
+    // 必須テキスト (task.title / todo.text) の型判定。`filter(t => t && t.title)` は `{}` が truthy
+    // なので素通りし、後段の `String(t.title)` が "[object Object]" を作って一覧へ描画していた
+    // (実測: #/apps/task と #/apps/todo で各 1 箇所)。**この class は entry を落とすのが正**で、
+    // 既存の「title が無い entry は落とす」挙動と同じ扱いに揃える (プレースホルダで捏造しない)。
+    function isText(v) {
+        return (typeof v === 'string' || typeof v === 'number') && String(v).trim() !== '';
+    }
+
     function safeStrList(v, max, itemMax) {
         return (Array.isArray(v) ? v : [])
             .filter(x => typeof x === 'string' || typeof x === 'number')
@@ -549,17 +557,17 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
         // Tasks
         if (Array.isArray(data.tasks)) {
             result.tasks = data.tasks
-                .filter(t => t && t.title)
+                .filter(t => t && isText(t.title))
                 .map(t => ({
-                    id: String(t.id || generateId()),
-                    title: String(t.title).slice(0, CONSTANTS.LIMITS.TASK_TITLE),
+                    id: safeStr(t.id, generateId(), CONSTANTS.LIMITS.PROJECT_ID),
+                    title: safeStr(t.title, '', CONSTANTS.LIMITS.TASK_TITLE),
                     status: ['backlog', 'in-progress', 'done'].includes(t.status) ? t.status : 'backlog',
                     priority: ['low', 'med', 'high'].includes(t.priority) ? t.priority : 'med',
                     // [FIX] Array.isArray ガード必須 (#93/#295/#561/#568/#572 と同じ ingestion 全経路正規化 class)。
                     // data.tasks 自体は Array.isArray 済だが、個々の task.tags が非配列 (文字列等) だと
                     // `(t.tags || [])` が置換せず `.filter` が TypeError を throw → validateAndNormalize 例外 →
                     // import/cross-tab/snapshot の ingestion で FatalPage crash。非配列は空配列にフォールバック。
-                    tags: (Array.isArray(t.tags) ? t.tags : []).filter(Boolean).slice(0, 10),
+                    tags: safeStrList(t.tags, 10, CONSTANTS.LIMITS.CATEGORY),
                     createdAt: Number(t.createdAt) || Date.now(),
                     updatedAt: Number(t.updatedAt) || Date.now()
                 }))
@@ -569,10 +577,10 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
         // Todos
         if (Array.isArray(data.todos)) {
             result.todos = data.todos
-                .filter(t => t && t.text)
+                .filter(t => t && isText(t.text))
                 .map(t => ({
-                    id: String(t.id || generateId()),
-                    text: String(t.text).slice(0, CONSTANTS.LIMITS.TODO_TEXT),
+                    id: safeStr(t.id, generateId(), CONSTANTS.LIMITS.PROJECT_ID),
+                    text: safeStr(t.text, '', CONSTANTS.LIMITS.TODO_TEXT),
                     completed: Boolean(t.completed),
                     createdAt: Number(t.createdAt) || Date.now(),
                     dueDate: t.dueDate ? Number(t.dueDate) : null
