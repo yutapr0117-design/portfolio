@@ -371,3 +371,40 @@ test('Browser back/forward moves between routes and filtering does not pollute h
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `history navigation caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== WCAG 1.4.10 (Reflow): 320px 幅で横スクロールを発生させない =====
+// WHY この test が必要か:
+//   基底の `.main-content` は `max-width: 1200px; margin: 0 auto` で本文カラムを中央寄せする。
+//   ところが `@media (max-width: 920px)` で `.app` が `flex-direction: column` になると、その
+//   左右 margin が **cross 軸の auto margin** になる。flexbox 仕様上、cross 軸に auto margin を
+//   持つ flex item には `align-self: stretch` が適用されず fit-content でサイズが決まり、
+//   fit-content は min-content を下回れないため、本文の min-content が viewport を超えた
+//   ルートでは item 自体が viewport より広くなってページ全体が横に溢れていた
+//   (実測: role-split +51px / quiz +31px / hiring-risk +28px / pomodoro +16px)。
+//   修正は media query 内の `max-width: 100%` 1 行だが、**視覚 baseline では検出できない**
+//   (screenshot は 1280x720 clip = 920px 超なのでこの media query に到達しない) ため、
+//   回帰を捕まえられるのはこの behavior test だけ。
+//
+// NOTE: 幅を 320px にするのは WCAG 1.4.10 が「400% ズーム相当 = 320 CSS px」を基準にするため。
+test('WCAG 1.4.10: 320px 幅でどのルートも横スクロールしない', async ({ page }) => {
+  // 過去に実際あふれていた 4 ルート + あふれていなかった 2 ルート (対照)
+  const routes = ['#/role-split', '#/quiz', '#/hiring-risk', '#/apps/pomodoro', '#/', '#/projects'];
+  await page.setViewportSize({ width: 320, height: 800 });
+
+  for (const route of routes) {
+    await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
+    // NOTE: 不在系ではなく「描画され切ったか」を先に待つ。goto 直後に幅を読むと
+    // 非同期描画とレースして「まだ狭い」状態を「あふれていない」と誤認する。
+    await expect(page.locator('#main-content h1, #main-content h2').first()).toBeVisible();
+
+    const overflow = await page.evaluate(() => {
+      const de = document.documentElement;
+      return { doc: de.scrollWidth - de.clientWidth, main: Math.round(document.getElementById('main-content').getBoundingClientRect().width) };
+    });
+    expect(overflow.doc, `${route} が 320px 幅で横に ${overflow.doc}px あふれている (WCAG 1.4.10)`).toBe(0);
+    expect(overflow.main, `${route} の #main-content が viewport (320px) より広い`).toBeLessThanOrEqual(320);
+
+    const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+    expect(fatal, `${route} で fatal: ${fatal}`).toBeNull();
+  }
+});

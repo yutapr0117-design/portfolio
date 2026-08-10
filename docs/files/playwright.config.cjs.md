@@ -46,6 +46,9 @@ npx playwright test --config=playwright.config.cjs
 | `--reporter=line` の出力を `tail -N` で読む | **失敗一覧はサマリの後に出る**ため、`tail -2` だと `2 failed` の行が切れて `27 passed` だけが見え、**失敗を成功と誤読する**（実際に 2 度踏み、既存テストを壊したまま PR を出した） | `grep -E "failed\|passed"` で明示的に拾う |
 | `MUTATION_PROBE=1` を付けて SW 関連テストを回す | この env は **設計上 service worker を block** するため、SW 登録テストは必ず落ちる（config の env-gate 参照）。原因を製品側と誤診する | SW を含む検証は env なしで回す（CI と同条件） |
 | mutation の `-g` を緩い語で当てる | 別の test に当たって「pass」と読み違える（実際に一度誤読した） | **正確な test title** を使う（Check 397 が一意解決を強制） |
+| `evaluate` 内で `el.style.setProperty(...)` して**同じ evaluate の中で**結果を読む | **本サイトは `CSSStyleDeclaration.prototype.setProperty` と `setAttribute('style', …)` を上書きし、書き込みを `_writeQueue` へ積んで rAF でまとめて流す**（`js/perf-guards.js` の layout-thrash 対策）。同期で読むと**書き込み前の値**が返り、`getAttribute('style')` すら `null` のまま。結果、候補 CSS を当てても「何も変わらなかった」と読めてしまい、**診断が丸ごと偽陰性になる**（実際に 1 サイクル分の測定を無効にした）。`bypassCSP: true` でも直らない（CSP ではなくサイト自身の機構なので） | 書き込みと読み取りの間に **rAF を 2 回 await**（`page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))))`）。あるいは `style.css` を直接編集して測る。**`page.addStyleTag` は CSP で弾かれる**ので使えない |
+| `mutation_probe.py` に `--only` 等の**存在しないフラグ**を付けて 1 件だけ回したつもりになる | 引数解析は `"--e2e" in sys.argv` の形なので**未知のフラグは黙って無視され、全件（30 分超）が走り出す**。途中で kill すると **mutated なファイルがワークツリーに残る**（実際に `js/pomodoro-page.js` が残留した） | 単一 mutation の非 vacuity は**手で当てて外す**（該当箇所を消す → 正確な test title で `-g` 実行 → RED を確認 → 復元）。kill した後は必ず `git status --porcelain` で残留を確認する |
+| 書き換えた状態のまま次のルートへ `goto` する | 上記のキューが**次のページで遅れて流れ**、無関係な巨大値（実測で overflow 28px → 935px）を生む。数値が前回と桁違いなら、まず自分の書き換えの残留を疑う | 読み取り専用で測るのが最も安全。書き換えたら rAF を待って**必ず元に戻し**、戻ったことを読み直して確認する |
 
 ## Change impact
 

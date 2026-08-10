@@ -546,6 +546,21 @@
                 padding: var(--space-6) var(--space-4) var(--space-12);
                 /* v65: topbar固定高64pxに合わせてオフセット更新 */
                 min-height: calc(100dvh - 64px);
+                /* WCAG 1.4.10 (Reflow): 320px 幅で横スクロールを出さない。
+                   基底の .main-content は `max-width: 1200px; margin: 0 auto` で
+                   広い画面の本文カラムを中央寄せするが、この media query で .app が
+                   `flex-direction: column` になると **左右 margin が cross 軸の auto margin**
+                   になる。flexbox 仕様上、cross 軸に auto margin を持つ item には
+                   `align-self: stretch` が適用されず、代わりに fit-content で
+                   サイズが決まる。fit-content は min-content を下回れないため、
+                   本文の min-content が viewport を超えると item 自体が viewport より
+                   広くなり、ページ全体が横に溢れた（実測 320px 幅で最大 +51px）。
+                   `max-width: 100%` は fit-content をコンテナ幅で頭打ちにしてこれを断つ。
+                   `align-self: stretch` では直らない（auto margin が stretch を無効化する
+                   のが原因なので）ことは実測で確認済み。本ブロックは max-width:920px に
+                   スコープされ、screenshot baseline は 1280x720 clip ゆえ視覚 baseline に
+                   は非到達。 */
+                max-width: 100%;
             }
 
             .app {
