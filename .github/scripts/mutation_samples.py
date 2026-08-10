@@ -134,8 +134,8 @@ _E2E_TAIL = [
     {
         "name": "behavior: profile email の ingestion 文字列長 bound の喪失 — store.js normalize の email `.slice(0, 254)` を除去 → 巨大 email が truncate されず href/表示に載り localStorage/DOM を bloat させる (AI history 文字列 bound #230 / MAX_TASKS 件数 bound #801 と同じ ingestion bloat-guard class・profile email 面の非 vacuity 検証)",
         "file": ROOT / "js" / "store.js",
-        "find": "email: String(data.profile.email || store.profile.email).slice(0, 254)",
-        "replace": "email: String(data.profile.email || store.profile.email)",
+        "find": "email: safeStr(data.profile.email, store.profile.email, 254),",
+        "replace": "email: safeStr(data.profile.email, store.profile.email, 1e9),",
         "test": "email is length-bounded",
     },
     {
@@ -599,6 +599,13 @@ _E2E_TAIL = [
         "find": "は非到達。 */\n                max-width: 100%;",
         "replace": "は非到達。 */",
         "test": "WCAG 1.4.10: 320px 幅でどのルートも横スクロールしない",
+    },
+    {
+        "name": "behavior: profile 正規化の型ガード喪失 — store.js の safeStr を旧実装 `String(v || fallback)` に戻す → `[]` や `{}` のような truthy な非文字列が `||` を素通りし String([]) === '' でフィールドが空になる。email が空になると ContactPage から宛先表示が消え「メールを作成」が宛先の無い mailto: を開く (fatal を出さないので ErrorBoundary にも掛からず、視覚 baseline は ADVISORY ゆえ behavior test 以外に捕捉層が無い)",
+        "file": ROOT / "js" / "store.js",
+        "find": "                const s = (v && cand.trim() !== '') ? cand : String(fallback || '');",
+        "replace": "                const s = String(v || fallback || '');",
+        "test": "Hostile profile import: a truthy non-string must not blank a field",
     },
 ]
 
