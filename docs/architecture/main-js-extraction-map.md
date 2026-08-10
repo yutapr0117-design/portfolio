@@ -326,7 +326,9 @@ render は forward reference（factory 引数の wrapper 経由）で渡し、�
 
 #### 5-s：IIFE → function declaration への単純置換
 
-`_installLayoutThrashingGuard / _installMediaLifecycleGuard` は外部依存ゼロのグローバル prototype hook（`CSSStyleDeclaration.prototype.setProperty` / `Element.prototype.setAttribute('style', ...)` / `URL.createObjectURL` の rAF バッチ化と MutationObserver による blob revoke）。これらは元 IIFE 評価時の即時実行と等価な install 関数として exposed されるため、factory は依存注入なし（引数なし）でよい：
+`_installLayoutThrashingGuard / _installMediaLifecycleGuard` は外部依存ゼロのグローバル hook（前者は `CSSStyleDeclaration.prototype.setProperty` / `Element.prototype.setAttribute('style', ...)` の rAF バッチ化、後者は MutationObserver による blob revoke）。これらは元 IIFE 評価時の即時実行と等価な install 関数として exposed されるため、factory は依存注入なし（引数なし）でよい：
+
+> **後日談（2026-08-10）**: `installLayoutThrashingGuard` は **除去済み**。shipped JS が例外なく直接代入（`el.style.x = …`）を使うため hook は一度も発火せず（15 ルート走査 + 対話で実測 0 回）利益がゼロだった一方、全 `setAttribute` にラッパーが挟まり、e2e で style を書いて同期で読む診断を偽陰性にする実害があった。再混入は Check 414 が BLOCKING で禁止する。以下の記述は抽出当時の設計記録として残す。
 
 ```js
 export function createPerfGuards() {

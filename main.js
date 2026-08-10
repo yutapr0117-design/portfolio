@@ -1087,13 +1087,15 @@
             });
         })();
 
-        // ===== v80+ Stage 5-s: Performance Guards (Layout Thrashing + Media Lifecycle) =====
-        //   _installLayoutThrashingGuard / _installMediaLifecycleGuard 2 つのパフォーマンスガード
-        //   IIFE を js/perf-guards.js へ factory pattern で抽出。これらは外部依存なしの DOM API
-        //   グローバルプロトタイプ hook で、挙動 byte-equivalent。
-        //   元 IIFE → function declaration への置換のみで挙動は完全同一。
+        // ===== v80+ Stage 5-s: Performance Guard (Media Lifecycle) =====
+        //   _installMediaLifecycleGuard を js/perf-guards.js へ factory pattern で抽出。
+        //   外部依存なしで DOM から外れた audio/video の blob: src を解放する。
+        //   WHY ここに Layout Thrashing Guard が無いか: setProperty / setAttribute('style') を
+        //   rAF バッチ化する hook を持っていたが、shipped JS は例外なく直接代入 (el.style.x = …)
+        //   を使い hook 対象外だったため **一度も発火していなかった** (実測 0 回)。利益ゼロの一方で
+        //   全 setAttribute にラッパーが挟まり、DOM の意味論が標準と食い違い、e2e の診断を
+        //   偽陰性にする実害があったので除去した (理由の詳細は js/perf-guards.js の docstring)。
         const _perfGuards = createPerfGuards();
-        _perfGuards.installLayoutThrashingGuard();
         _perfGuards.installMediaLifecycleGuard();
 
 
