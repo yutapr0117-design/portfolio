@@ -10,8 +10,12 @@
  *   { apply, cycle, init }
  *
  * 【依存（引数で注入）】
- *   - State: { get(), update(fn) }
+ *   - State: { get(), update(fn), updateSilently(fn) }
  *   - Toast: { show(message, type?) }
+ *   - refreshChrome: テーマ切替後に **sidebar だけ** を再構築するコールバック (main.js が注入)。
+ *     theme 永続化に State.update を使うと notify → 全再描画 (#content を clear) が走り、
+ *     ページ内容と無関係な chrome 操作なのに **入力途中のテキストが消える** (実測: task/ai の
+ *     未送信入力が 0 文字化)。updateSilently + この callback で影響範囲を sidebar に限定する。
  *
  * 【非破壊性】
  *   - document.documentElement の data-theme 属性と classList.toggle('dark', ...) の挙動不変
@@ -36,7 +40,7 @@ function themeToggleAriaLabel(theme) {
     return `テーマを切り替える（現在: ${label}）`;
 }
 
-export function createTheme({ State, Toast }) {
+export function createTheme({ State, Toast, refreshChrome }) {
     function apply(theme) {
         document.documentElement.setAttribute('data-theme', theme);
 
@@ -67,7 +71,14 @@ export function createTheme({ State, Toast }) {
     function cycle() {
         const current = State.get().theme;
         const next = current === 'system' ? 'dark' : current === 'dark' ? 'light' : 'system';
-        State.update(s => s.theme = next);
+        // [FIX] `State.update` は notify → **全再描画 (#content を clear)** を起こす。テーマ切替は
+        //   ページ内容と無関係な chrome 操作なのに、その巻き添えで **入力途中のテキストが消えて**
+        //   いた (実測: task/ai の未送信入力が 8→0 文字・notes は永続化のため残るが focus は 3 つとも
+        //   失われた)。theme を描画に使うのは sidebar だけ (state.theme の参照箇所を全走査して確認)
+        //   なので、永続化は updateSilently で行い、**sidebar だけを再構築**する。
+        //   #258 (oninput の State.update) / #684 と同じ「全再描画を避けて必要な範囲だけ更新する」規律。
+        State.updateSilently(s => s.theme = next);
+        if (typeof refreshChrome === 'function') { refreshChrome(); }
         apply(next);
         Toast.show(`テーマ: ${next === 'system' ? 'システム設定' : next === 'dark' ? 'ダーク' : 'ライト'}`, 'info');
         return next;

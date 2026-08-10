@@ -373,7 +373,27 @@
         // ===== Theme Manager =====
         //   ▼ v80+ Stage 5-i: Theme は factory pattern で js/theme.js へ抽出。
         //     createTheme({State, Toast}) で合成（葉モジュール契約維持・公開 API と挙動は byte-equivalent）。
-        const Theme = createTheme({ State, Toast });
+        // refreshChrome: テーマ切替は #content を作り直さずに済ませる (入力途中のテキストと focus を
+        //   守る)。theme を描画に使うのは sidebar だけなので、そこだけ再構築すれば足りる。
+        const Theme = createTheme({
+            State,
+            Toast,
+            refreshChrome: () => {
+                const _sb = document.getElementById('sidebar');
+                if (!_sb) { return; }
+                // 押したボタン自身が再構築で消えるため focus が body へ落ちる (WCAG 2.4.3)。
+                // sidebar 内に focus があった場合だけ、同じ id の要素へ戻す。
+                // (sidebar 外に focus がある場合は奪わない — #267 で学んだ「奪うのではなく
+                //  失われた時だけ復元する」原則)
+                const _activeId = _sb.contains(document.activeElement) ? document.activeElement.id : null;
+                clear(_sb);
+                _sb.appendChild(Sidebar(false));
+                if (_activeId) {
+                    const _next = document.getElementById(_activeId);
+                    if (_next && _next.focus) { try { _next.focus({ preventScroll: true }); } catch (e) { /* noop */ } }
+                }
+            }
+        });
 
 
         // ===== BGM Manager =====

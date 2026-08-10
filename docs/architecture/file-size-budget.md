@@ -148,7 +148,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 742000 -->
+<!-- PERF-BUDGET-DATA 745000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -159,6 +159,12 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      選択肢へ漏れていた実バグの修正 (4 listing 面へ hiddenIds を適用 + 全件非表示時の fallback) と
      その WHY コメントで実測が 712,892 bytes に到達。genuine な user-visible bug fix ゆえ実態 +
      約 1,100 bytes の headroom へラチェット。
+     742,000 → 745,000 (2026-08-10)。🔴 テーマ切替が入力途中のテキストを消していた実バグの修正。
+     `Theme.cycle` の `State.update` は notify → 全再描画 (#content を clear) を起こし、ページ内容と
+     無関係な chrome 操作なのに未送信入力が消えていた (実測: task 8 文字 → 0 / ai 6 文字 → 0)。
+     updateSilently + sidebar だけ再構築する refreshChrome へ変更し、押したボタンへの focus 復元も追加。
+     WHY コメント込みで実測 744,359 bytes。fatal を出さず視覚 baseline も ADVISORY ゆえ behavior test
+     以外に捕捉層が無い class なので、根拠コメントは次の担当への必須情報として温存する。
      741,000 → 742,000 (2026-08-10)。WCAG 1.4.3 (Contrast AA) の是正。既定ブランド indigo の
      `--color-primary-rgb` が白背景に対し 4.467 で要求 4.5:1 を 0.04 下回っていたため、各チャンネル
      -1 の rgb(98,101,240) (比 4.527) へ。1/255 = 知覚不能かつ screenshot 許容 0.05 に非到達ゆえ
