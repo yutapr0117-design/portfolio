@@ -360,3 +360,57 @@ test('Opening and closing the command palette preserves the scroll position', as
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `scroll preservation test caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== 履歴移動で palette が開いたまま残らない (#998 の drawer 版と対) =====
+// `_choose` は自分で close() してから navigate するが、**それ以外の経路でルートが変わると
+// palette は開いたまま残っていた** (実測 #999)。palette を開いてブラウザの「戻る」を押すと、
+// 背後のページだけが切り替わり palette は開いたまま・#app は inert のままになる。
+// drawer 側 (#998) と同じ契約を palette にも揃える —— 両者は同じ「モーダル」なので、
+// 片方だけ直すと #947 (背景 inert が drawer だけだった) と同じ非対称が残る。
+test('palette 開放中にブラウザの戻るでルートが変わったら palette が閉じる', async ({ page }) => {
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+
+  await page.keyboard.press('Meta+k');
+  await expect(page.locator('.cmdk-input')).toBeVisible();
+
+  await page.goBack();
+  await expect(page.locator('#content h1', { hasText: 'AI を自走させ' })).toBeVisible();
+
+  await expect(page.locator('.cmdk-host')).toHaveAttribute('aria-hidden', 'true');
+  // isolation の解除は settle 後に 1 度だけ読む (不変性の検査に poll を使わない)。
+  const inert = await page.evaluate(() => document.getElementById('app').hasAttribute('inert'));
+  expect(inert, '背後のページが inert のままで操作できない').toBe(false);
+});
+
+// close() の再入ガード (open() 側ガードの対)。**ハンドラを hashchange に繋いだ結果、ガードの
+// 有無が観測できるようになった**: ガードが無いと閉じている palette に対しても close() が走り、
+// 末尾の `lastFocused.focus()` が **ルート遷移のたびに過去の要素へ focus を引き戻す**。
+// 実測 (#999): #menuBtn (topbar 内 = 再描画で消えない) を lastFocused に仕込むと、以後の
+// 全ルート遷移で focus が menuBtn へ戻り、新ページ h1 への route-focus (#267 / WCAG 2.4.3) が
+// 毎回打ち消された。lastFocused が #content 内の要素なら再描画で detach され focus() が
+// 無効化されるため気付けない —— **生き残る要素が lastFocused になった時だけ牙を剥く**。
+test('palette を一度使った後もルート遷移で新ページの見出しへ focus が移る', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+
+  // #menuBtn は #topbar 内 = 再描画で消えない要素。ここを lastFocused に仕込む。
+  await page.locator('#menuBtn').focus();
+  await page.keyboard.press('Meta+k');
+  await expect(page.locator('.cmdk-input')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.cmdk-host')).toHaveAttribute('aria-hidden', 'true');
+
+  // palette を経由しない普通のルート遷移
+  await page.evaluate(() => { document.activeElement.blur(); location.hash = '#/about'; });
+  await expect(page.locator('#content h1', { hasText: 'About' })).toBeVisible();
+
+  const active = await page.evaluate(() => {
+    const a = document.activeElement;
+    return a ? (a.id || a.tagName) : null;
+  });
+  expect(active, '閉じた palette の close() が focus を過去の要素へ引き戻し、route-focus を打ち消している').toBe('H1');
+});

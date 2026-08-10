@@ -830,6 +830,20 @@ _E2E_TAIL = [
         "replace": "    void 0;",
         "test": "drawer 開放中にブラウザの戻るでルートが変わったら drawer が閉じる",
     },
+    {
+        "name": "behavior: 履歴移動で command palette が開いたまま残る (#999 の回帰・#998 の drawer 版と対) — _choose 以外の経路でルートが変わると palette が閉じず、背後のページだけが切り替わって #app は inert のまま残る。両者は同じ『モーダル』なので片方だけ直すと #947 と同じ非対称が残る",
+        "file": ROOT / "js" / "command-palette.js",
+        "find": "        window.addEventListener('hashchange', () => { close(); });",
+        "replace": "        void 0;",
+        "test": "palette 開放中にブラウザの戻るでルートが変わったら palette が閉じる",
+    },
+    {
+        "name": "behavior: close() の再入ガードが外れる (#999 の回帰) — hashchange に繋いだ結果、閉じている palette へも close() が走り、末尾の lastFocused.focus() がルート遷移のたびに過去の要素へ focus を引き戻す。生き残る要素 (#menuBtn 等) が lastFocused だと新ページ h1 への route-focus (#267) が毎回打ち消される",
+        "file": ROOT / "js" / "command-palette.js",
+        "find": "        if (!isOpen()) { return; }\n        // 背景の inert を必ず解除する",
+        "replace": "        // 背景の inert を必ず解除する",
+        "test": "palette を一度使った後もルート遷移で新ページの見出しへ focus が移る",
+    },
 ]
 
 

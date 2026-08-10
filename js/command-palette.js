@@ -218,6 +218,13 @@ export function createCommandPalette({ Router, h, createIcon, State, closeDrawer
 
     function close() {
         if (!host) { return; }
+        // [FIX] 閉じている状態での再入を弾く (open() 側 #297 型ガードの対。**片方にしか無かった**
+        //   —— closeDrawer が #948 で塞いだのと同じ非対称)。本関数は末尾で lastFocused へ focus を
+        //   戻すため、**閉じている palette を閉じるだけで focus が過去の要素へ飛ぶ**。
+        //   drawer の openDrawer は二重モーダル防止で無条件に closePalette() を呼ぶ配線なので、
+        //   一度 palette を使った後に drawer を開くとこの経路に入る。hashchange で閉じる配線
+        //   (下記) もこのガードがあって初めて安全になる。
+        if (!isOpen()) { return; }
         // 背景の inert を必ず解除する (open と対。解除漏れは操作不能の app を残す最悪の失敗)
         if (typeof setAppInert === 'function') { setAppInert(false); }
         host.setAttribute('aria-hidden', 'true');
@@ -241,6 +248,15 @@ export function createCommandPalette({ Router, h, createIcon, State, closeDrawer
                 isOpen() ? close() : open();
             }
         });
+
+        // [FIX] ルートが変わったら palette を閉じる。_choose は自分で close() してから navigate
+        //   するが、**それ以外の経路でルートが変わると palette が開いたまま残る**。実測 (#999):
+        //   palette を開いてブラウザの「戻る」を押すと、背後のページだけが切り替わり palette は
+        //   開いたまま・#app は inert のままだった。戻るは「開いているモーダルを閉じる」操作
+        //   として使われるのに、実際には**見えない場所でページが遷移していた**。
+        //   drawer 側 (#998) と同じ契約を palette にも揃える (両者は同じ「モーダル」なので
+        //   片方だけ直すと #947 と同じ非対称が残る)。
+        window.addEventListener('hashchange', () => { close(); });
     }
 
     return { init, open, close };
