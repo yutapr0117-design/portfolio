@@ -316,6 +316,14 @@ test('Route project-detail renders for a known slug without errors', async ({ pa
     if (msg.type() === 'error') {
       const text = msg.text();
       if (/KARTE|Wicle|wicle|Failed to fetch|Trusted Type|Applying inline style violates/i.test(text)) { return; }
+      // 上のルート走査ループと同じ扱いを **この収集器にも** 適用する。ここだけ非自己オリジンの
+      // ネットワーク失敗を数えており、Google Fonts / KARTE が一瞬でも落ちれば (あるいは CI が
+      // 外部を遮断すれば) BLOCKING テストが赤くなる = 第三者 CDN 依存の flake だった。
+      // 失敗 URL が非自己オリジンのときだけ無視するので、同一オリジンの実回帰は隠さない
+      // (自前 module の失敗は pageerror を投げ #content が空になり、どちらも別途 assert 済)。
+      const _loc = (typeof msg.location === 'function') ? msg.location() : null;
+      const _url = (_loc && _loc.url) || '';
+      if (/Failed to load resource|net::ERR_/i.test(text) && _url && !/^https?:\/\/(localhost|127\.0\.0\.1)/i.test(_url)) { return; }
       consoleErrors.push(text);
     }
   });
