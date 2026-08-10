@@ -148,7 +148,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 737000 -->
+<!-- PERF-BUDGET-DATA 738000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -159,6 +159,12 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      選択肢へ漏れていた実バグの修正 (4 listing 面へ hiddenIds を適用 + 全件非表示時の fallback) と
      その WHY コメントで実測が 712,892 bytes に到達。genuine な user-visible bug fix ゆえ実態 +
      約 1,100 bytes の headroom へラチェット。
+     737,000 → 738,000 (2026-08-10)。WCAG 1.4.10 (Reflow) の 320px 横あふれを修正。`.app` が column flex に
+     なる mobile media query 内で `.main-content` の左右 auto margin が cross 軸 auto margin となり
+     `align-self: stretch` が無効化され、fit-content が min-content を下回れず item が viewport より
+     広くなっていた (実測 role-split +51px)。`max-width: 100%` の 1 行 + なぜ stretch では直らないかの
+     WHY コメントで実測 737,760 bytes。視覚 baseline では原理的に検出できない (screenshot は 1280x720
+     clip で当該 media query に到達しない) 欠陥ゆえ、コメントは次の担当への必須情報として温存する。
      735,000 → 737,000 (2026-08-10)。ポモドーロの完了履歴は記録・永続化されているのに **画面のどこにも出ていなかった**
      (export JSON にしか現れない) ため、当日の要約 1 行 (集中セッション N 回 / 合計 M 分) を追加。履歴一覧 UI 全体では
      なく要約に留め過剰追加を避けた。当日境界と休憩除外の集計 + WHY コメント込みで実測 736,368 bytes。

@@ -569,6 +569,13 @@ _E2E_TAIL = [
         "replace": "e.type === 'work').length",
         "test": "Pomodoro shows today",
     },
+    {
+        "name": "behavior: 320px 幅の横あふれ再発 — style.css の mobile media query から `max-width: 100%` を外す → .app が column flex になった際に .main-content の左右 auto margin が cross 軸 auto margin となり stretch が無効化され、fit-content が min-content を下回れず item が viewport より広くなる (WCAG 1.4.10 違反・実測 role-split +51px)。screenshot は 1280x720 clip でこの media query に到達しないため、捕捉できるのは behavior test だけ",
+        "file": ROOT / "style.css",
+        "find": "は非到達。 */\n                max-width: 100%;",
+        "replace": "は非到達。 */",
+        "test": "WCAG 1.4.10: 320px 幅でどのルートも横スクロールしない",
+    },
 ]
 
 
