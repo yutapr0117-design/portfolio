@@ -579,8 +579,13 @@ _E2E_TAIL = [
     {
         "name": "behavior: 詳細ページの『一覧に戻る』が絞り込みを捨てる回帰 — project-detail-page.js の戻り先を Router.getLastListPath() から 'projects' ハードコードへ戻す → ?q= / ?cat= を落として全件表示へ戻る。ブラウザの Back は履歴の query 付き URL へ復帰するため『同じ意味の操作なのに結果が違う』不整合になる (実測: 1 件に絞って詳細を開き in-page back → 18 件)",
         "file": ROOT / "js" / "project-detail-page.js",
-        "find": "Router.navigate(Router.getLastListPath ? Router.getLastListPath() : 'projects')",
-        "replace": "Router.navigate('projects')",
+        # NOTE: `getLastListPath` は **2 箇所** にある (not-found 分岐の「一覧へ戻る」と、
+        #   詳細ページ本体の「← 一覧に戻る」)。mutation_probe は replace(find, replace, 1) ＝
+        #   **先頭 1 件しか置換しない**ため、素の式を find にすると not-found 分岐だけが壊れ、
+        #   テストが通る経路には当たらず **silent SURVIVED** になる (週次 probe が検出)。
+        #   実ボタン側だけに一意に当たるよう、直前の class 属性まで含めて anchor する。
+        "find": "                    class: 'btn btn-ghost btn-sm mb-4',\n                    onclick: () => Router.navigate(Router.getLastListPath ? Router.getLastListPath() : 'projects')",
+        "replace": "                    class: 'btn btn-ghost btn-sm mb-4',\n                    onclick: () => Router.navigate('projects')",
         "test": "In-page \"back to list\" preserves the active filter",
     },
     {
