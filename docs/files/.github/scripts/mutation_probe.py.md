@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/mutation_probe.py
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-24
+last-updated: 2026-08-10
 canonical-ref: .github/scripts/check_repository_consistency.py (gate) / package.json (mutation-probe)
 ---
 
@@ -40,6 +40,17 @@ npm run mutation-probe  →  python3 .github/scripts/mutation_probe.py
 - **非 vacuous**: 各 mutation は適用前に find-anchor 存在を assert (no-op で偽 "caught" を防ぐ)
 - **安全性**: try/finally で必ず復元 + 全実行後の gate GREEN 確認
 - **Check 10**: py 構文妥当 / **Check 108**: docs/files mirror bijection (本ファイルがその mirror)
+- **e2e 子プロセスへ渡す env は 2 つ**（どちらも `probe_env` で明示・**Check 416 (d)** が (2) を機械強制）
+  1. `MUTATION_PROBE=1` — service worker を block する。sw.js の SWR キャッシュが「壊す前」の旧 JS を
+     配信すると mutated コードが masking され **false SURVIVED** になる。
+  2. `E2E_HERMETIC=1` — localhost 以外への DNS を即 NOTFOUND にする。外部 CDN
+     (KARTE / Google Fonts) の一時的な失敗で test が落ちると、probe はそれを
+     「mutation を捕捉した」と報告する ＝ **false CAUGHT**。**probe では通常の CI より重要**で、
+     安全網の自己検証そのものが嘘をつくうえ、週次実行ゆえ誰も rerun せず気付けない。
+     hermetic 下でも mutated が確実に FAIL することは 3 件で実測済（clean は全 PASS のまま）。
+
+  この 2 つは**対になっている**: 前者は「捕捉すべきものを見逃す」方向、後者は「捕捉していないのに
+  捕捉したと言う」方向の誤りを塞ぐ。片方だけでは probe の結論は信用できない。
 
 ## Audience-specific notes
 

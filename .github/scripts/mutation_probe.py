@@ -87,7 +87,15 @@ def run_e2e_test(pattern: str) -> int:
     # MUTATION_PROBE=1: playwright.config.cjs がこれを見て serviceWorkers:'block' を有効化する。
     # sw.js の SWR キャッシュが「壊す前」の旧 JS を配信して mutated コードを masking し、mutation を
     # 見逃す false-result を防ぐ (probe を決定的にする)。通常 e2e/CI はこの env を持たず SW 有効のまま。
-    probe_env = {**os.environ, "MUTATION_PROBE": "1"}
+    # E2E_HERMETIC=1: playwright.config.cjs がこれを見て Chromium の host-resolver-rules で
+    # localhost 以外を即 NOTFOUND にする。**probe では通常の CI 以上に重要**で、外部 CDN
+    # (KARTE / Google Fonts) の一時的な失敗で test が落ちると、probe はそれを
+    # 「mutation を捕捉した」と報告する = **false CAUGHT**。安全網の自己検証そのものが
+    # 嘘をつくことになり、しかも週次実行ゆえ誰も rerun しないので気付けない。
+    # 実測でも 1 ナビゲーションあたり 6 ホストへ 9 リクエストが飛び goto がそれを待っていた
+    # (447ms → 39ms)。probe は e2e を mutation ごとに起動するため所要短縮の効果も大きい。
+    # probe は screenshot test を実行しないので、実フォントを要する制約はここには無い。
+    probe_env = {**os.environ, "MUTATION_PROBE": "1", "E2E_HERMETIC": "1"}
     r = subprocess.run(
         ["npx", "playwright", "test", "--config=playwright.config.cjs", "-g", re.escape(pattern)],
         cwd=str(ROOT),

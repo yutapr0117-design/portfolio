@@ -77,8 +77,12 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
            "screenshot regression"`) が `E2E_HERMETIC` を設定していること、
        (c) screenshot ステップには **設定しない**こと (実フォントで撮られた baseline を
            壊さないための意図的な非対称。ここが崩れると ADVISORY の視覚シグナルが
-           恒久的に無意味になる)
-       の 3 点を BLOCKING 強制する。env-gate 自体は MUTATION_PROBE と同じ作法。(BLOCKING)
+           恒久的に無意味になる)、
+       (d) `mutation_probe.py` の e2e 実行も `E2E_HERMETIC` を渡すこと — **probe では通常の
+           CI 以上に重要**で、外部 CDN の一時失敗で test が落ちると probe はそれを
+           「mutation を捕捉した」と報告する = **false CAUGHT**。安全網の自己検証そのものが
+           嘘をつくうえ、週次実行ゆえ誰も rerun せず気付けない
+       の 4 点を BLOCKING 強制する。env-gate 自体は MUTATION_PROBE と同じ作法。(BLOCKING)
 """
 import re
 
@@ -260,7 +264,14 @@ def run(ctx):
     _env_re416 = re.compile(r"^\s*E2E_HERMETIC\s*:", re.M)
     _beh_ok416 = bool(_behavior416) and all(_env_re416.search(_st) for _st in _behavior416)
     _shot_ok416 = all(not _env_re416.search(_st) for _st in _shot416)
+    # (d) mutation probe の e2e 実行も hermetic であること。probe では外部起因の失敗が
+    # 「捕捉した」と誤報告される (false CAUGHT) ため、通常 CI より重要度が高い。
+    _probe416 = (ROOT / ".github" / "scripts" / "mutation_probe.py").read_text(encoding="utf-8", errors="replace")
+    _probe_nc416 = "\n".join(_l for _l in _probe416.splitlines() if not _l.lstrip().startswith("#"))
+    _probe_ok416 = bool(re.search(r'"E2E_HERMETIC"\s*:', _probe_nc416))
     _why416 = []
+    if not _probe_ok416:
+        _why416.append("mutation_probe.py の e2e 実行が E2E_HERMETIC を渡していない (外部起因の失敗が false CAUGHT になる)")
     if not _cfg_ok416:
         _why416.append("playwright.config.cjs が E2E_HERMETIC / host-resolver-rules を持たない")
     if not _behavior416:
@@ -270,7 +281,7 @@ def run(ctx):
     if not _shot_ok416:
         _why416.append("screenshot ステップに E2E_HERMETIC が付いている (実フォント baseline が壊れる)")
     check(
-        _cfg_ok416 and _beh_ok416 and _shot_ok416,
+        _cfg_ok416 and _beh_ok416 and _shot_ok416 and _probe_ok416,
         "Check 416: BLOCKING behavior ゲートが第三者 CDN から切り離されている (E2E_HERMETIC 配線)",
         ("Check 416: behavior ゲートの hermetic 配線が崩れている: " + " / ".join(_why416)
          + " — ゲートの合否が KARTE / Google Fonts の可用性に依存すると、"
