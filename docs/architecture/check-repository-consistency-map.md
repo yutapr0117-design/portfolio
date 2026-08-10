@@ -67,7 +67,7 @@ Status        : 本 increment で新設。物理分割はまだ行わない（�
 | # | 検査内容（要約） | 級 |
 |---|---|---|
 | 4 | llms 4 エイリアスが byte-identical | BLOCKING |
-| 5 | `.well-known/index.json` == `agent-skills/index.json`（byte-identical） | BLOCKING |
+| 5 | `.well-known/index.json` == `.well-known/agent-skills/index.json`（byte-identical） | BLOCKING |
 | 11 | `aio_monitoring.py` summary に `enabled_engines` / `total_cited_count` | BLOCKING |
 | 14 | v1→v74 canonical 宣言が index.html か AI2AI.md に存在 | BLOCKING |
 | 15 | Project Pages の robots/.well-known 制約が文書化されている | BLOCKING |
@@ -512,6 +512,36 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 52 | file-size budget advisory（BUDGET-DATA ブロックと現行行数の照合・main.js は strong-advisory） | **ADVISORY** |
 
 ---
+
+## 2.9 意図的に Check にしない面（brittle gate を足さないための記録）
+
+新しい Check を足す前に読むこと。**「機械的に検査できる」と「機械的に強制すべき」は別**で、
+ここに挙げた面は実測したうえで **Check にしないと決めた**。強制すると正しい記述を壊す。
+
+### prose 中のパス参照（インラインコードで書かれた `path/to/file.ext`）
+
+2026-08-10 に全 md 333 ファイルを走査し、パス様のインラインコード **494 箇所**のうち
+**56 箇所が解決しない**ことを実測した。だが**その大半は正しい記述**である:
+
+| 内訳 | 例 | なぜ正しいか |
+| :-- | :-- | :-- |
+| **歴史記述** | `js/quiz-data.js`（10 箇所） | Stage 3 で 1 ファイルへ抽出し Stage 3-b で 4 分割した**経緯**の記述。現存しないのは分割したからで、書き換えると**履歴を偽る** |
+| **仮定の例示** | `lib/version_checks.py` / `lib/aio_checks.py` | 「将来 `lib/` 分割を行う場合の候補（例: …）」という**意図的に存在しない**名前 |
+| **アーカイブ** | `docs/session-records/*` からの旧 incident-artifact 参照 | アーカイブは当時の状態を保存するもの |
+| **プレースホルダ** | `docs/files/...md.md` | `...` は説明用の省略記号でパスではない |
+
+**Check 化すると**、これらを「直す」圧力が生まれ、履歴の書き換え・例示の削除という
+**実態より悪い状態**を招く。逆に例外リストで守ろうとすると、リストの保守コストが
+守る価値を上回る（除外条件が「歴史か否か」という**意味の判断**で、機械には決められない）。
+
+**では何を強制するか**: `docs/files/**/*.md` の frontmatter `canonical-ref:`（**Check 419**）。
+こちらは「この file を理解するには次を読め」という**現在形の導線**しか書かれない面で、
+歴史も仮定も混ざらないため、解決性を機械強制しても正しい記述を壊さない。
+
+同じ走査で見つかった **1 件の genuine な不正確さ**（Check 5 の説明が
+`.well-known/agent-skills/index.json` を `agent-skills/index.json` と prefix 落ちで書いていた）は
+本 increment で修正済み。**「検査できる面すべてを gate にする」のではなく、
+gate にして安全な面だけを選ぶ**のがこのリポジトリの方針。
 
 ## 3. 級別サマリ（BLOCKING / ADVISORY）
 
