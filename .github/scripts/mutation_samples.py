@@ -672,6 +672,13 @@ _E2E_TAIL = [
         "replace": "        const normalizedIncoming = (Array.isArray(incomingProjects) ? incomingProjects : [])",
         "test": "Hostile-but-adoptable localStorage: every field type survives the boot path",
     },
+    {
+        "name": "behavior: cross-app — 全リセットが稼働中ポモドーロを止めない — settings-page.js の resetData を appsData 温存版へ改変 → 永続化された runtime.isActive が true のまま残り、『動いているのに endAtMs は初期化済み』の矛盾状態になる (走り続けた interval が初期化を上書きしうる)。ポモドーロは他ページに居ても走り続ける唯一の機能で、別アプリからの破壊的操作と交差する面。fatal を出さずに壊れるため behavior test 以外に捕捉層が無い",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "            State.set(Store.createDefaultStore());",
+        "replace": "            State.set({ ...Store.createDefaultStore(), appsData: State.get().appsData });",
+        "test": "Full reset stops a running pomodoro timer (cross-app interaction)",
+    },
 ]
 
 

@@ -501,3 +501,49 @@ test('Pomodoro shows today\'s completed focus sessions (excludes yesterday and b
   const fatal = await fresh.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `pomodoro summary caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== cross-app: 稼働中タイマー × settings の全リセット =====
+// アプリ間の相互作用は §7 が「未採掘 vein」として名指ししていた面。ポモドーロは
+// **他のページに居ても走り続ける唯一の機能**（setInterval + endAtMs 永続化）なので、
+// 別アプリからの破壊的操作と交差する。全リセットが runtime を止め損ねると:
+//   - 永続化された runtime は isActive=true のまま残り、次に開いたとき「動いているのに
+//     endAtMs は初期化済み」という矛盾状態になる
+//   - あるいは走り続けた interval がリセット後の state を上書きし、初期化が無効化される
+// どちらも fatal を出さずに壊れるため、この behavior test 以外に捕捉層が無い。
+test('Full reset stops a running pomodoro timer (cross-app interaction)', async ({ page }) => {
+  const pageErrors = [];
+  page.on('pageerror', (e) => pageErrors.push(e.message));
+
+  // (1) タイマーを実際に開始し、永続化された runtime が isActive であることを確認する
+  //     (ここが false なら以降は「止まっているものを止める」検査になり vacuous)
+  await page.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1')).toBeVisible();
+  await page.getByRole('button', { name: '開始' }).first().click();
+  await expect.poll(async () => page.evaluate(() => {
+    try { return JSON.parse(localStorage.getItem('portfolio_enhanced_v45')).appsData.pomodoro.runtime.isActive; } catch (e) { return null; }
+  }), { message: 'タイマーが開始されていない — 以降の検査が vacuous になる' }).toBe(true);
+
+  // (2) 別アプリ (settings) から全リセット
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1')).toBeVisible();
+  page.once('dialog', (d) => d.accept());
+  await page.getByRole('button', { name: '全リセット' }).click();
+  await expect(page.locator('#toast-container')).toContainText('初期化しました');
+
+  // (3) 永続化された runtime が停止していること
+  await expect.poll(async () => page.evaluate(() => {
+    try { return JSON.parse(localStorage.getItem('portfolio_enhanced_v45')).appsData.pomodoro.runtime.isActive; } catch (e) { return 'ERR'; }
+  }), { message: '全リセット後も runtime.isActive が true のまま (走り続けた interval が初期化を上書きしうる)' }).toBe(false);
+
+  // (4) ポモドーロへ戻ると停止状態の UI (「開始」ボタン) が出る
+  await page.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1')).toBeVisible();
+  await expect(
+    page.getByRole('button', { name: '開始' }).first(),
+    'リセット後も「一時停止」のまま = UI と state が乖離している'
+  ).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `cross-app reset caused a fatal: ${fatal}`).toBeNull();
+  expect(pageErrors, `cross-app reset raised page errors: ${JSON.stringify(pageErrors.slice(0, 2))}`).toHaveLength(0);
+});
