@@ -605,3 +605,49 @@ test('Hostile profile import: a truthy non-string must not blank a field', async
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `hostile profile import caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== project 正規化: 非文字列が "[object Object]" として描画されない =====
+// profile と同じ class の projects 面。`String(raw.name || 'Untitled')` は `{}` が truthy なので
+// fallback が働かず、そのまま `"[object Object]"` が一覧カードと詳細ページへ描画されていた
+// (実測: 一覧に 3 箇所 / 詳細に 4 箇所)。tech/tags/highlights の `filter(Boolean)` も `{}` を
+// 素通りさせ、チップとして同じ文字列が出ていた。fatal を出さないので ErrorBoundary に掛からず、
+// 視覚 baseline は ADVISORY ゆえ **この behavior test 以外に捕捉層が無い**。
+// 同時に「正当な値まで落としていない」ことも検査する (型ガードが過剰だと機能を壊すため)。
+test('Hostile project import: non-string fields must not render as [object Object]', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#main-content h1').first()).toBeVisible();
+
+  await page.getByLabel('インポートする JSON ファイルを選択').setInputFiles({
+    name: 'hostile-project.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({
+      projects: [{
+        id: 'p_hostile_e2e', slug: 'hostile-e2e', name: {}, category: [], summary: {},
+        // 非文字列と正当値を混在させ、前者だけが落ちることを見る
+        tech: [{}, null, 'tech-kept'], tags: [{}, 'tag-kept'], highlights: [{}, 'hl-kept'],
+        links: [{ label: {}, url: 'https://example.com' }],
+        outcome: { impact: {}, metrics: [{ label: {}, value: {} }] },
+        demoRoute: null, relatedProjectIds: [{}],
+      }],
+    })),
+  });
+  await expect(page.locator('#toast-container').getByText('インポートが完了しました').first()).toBeVisible();
+
+  // NOTE: 一覧カードは **tags** を描画し、tech は詳細ページにしか出ない。ルートごとに
+  //   「そのページに必ずあるはずの正当値」を positive anchor にして描画を確定させてから
+  //   不在を検査する (Check 402)。同じ anchor を使い回すと片方で必ず落ちる。
+  for (const [route, kept] of [['#/projects', 'tag-kept'], ['#/projects/hostile-e2e', 'tech-kept']]) {
+    await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
+    await expect(
+      page.locator('#content'),
+      `${route}: 正当な値が型ガードで落ちた (過剰なガード)`
+    ).toContainText(kept);
+    await expect(
+      page.locator('#content'),
+      `${route}: 非文字列フィールドが "[object Object]" として描画された`
+    ).not.toContainText('[object Object]');
+  }
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `hostile project import caused a fatal: ${fatal}`).toBeNull();
+});

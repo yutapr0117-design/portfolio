@@ -75,7 +75,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/pure-utils.js` | 277 | 400 | `advisory` | Stage 2 抽出済みの純ユーティリティ。安定 |
 | `js/quiz-renderer.js` | 280 | 350 | `advisory` | Stage 5-o 新設。Quiz Renderer factory（QuizPage + 4 domain lookup table）。closure-deps = none + 引数注入 |
 | `js/storage.js` | 74 | 120 | `advisory` | Stage 5-c 新設。Safe localStorage ラッパ。closure-deps = none |
-| `js/store.js` | 659 | 700 | `advisory` | Stage 5-g 新設。Store factory（default data + load/validate/normalize/similarity）。closure-deps = none（葉契約）+ 引数注入。2026-08-10 に profile 正規化の型ガード（truthy な非文字列がフィールドを空にする ingestion バグの修正）と safeUrl の欠落時 fallback 是正 + WHY コメントで 659 行へ。1,000 行の BLOCKING 上限（Check 363/365）には十分な余裕がある |
+| `js/store.js` | 692 | 750 | `advisory` | Stage 5-g 新設。Store factory（default data + load/validate/normalize/similarity）。closure-deps = none（葉契約）+ 引数注入。2026-08-10 に profile 正規化の型ガード（truthy な非文字列がフィールドを空にする ingestion バグの修正）と safeUrl の欠落時 fallback 是正 + WHY コメントで 659 行へ。1,000 行の BLOCKING 上限（Check 363/365）には十分な余裕がある |
 | `js/theme.js` | 88 | 120 | `advisory` | Stage 5-i 新設。Theme factory（system/dark/light cycle + matchMedia listener）。closure-deps = none（葉契約）+ 引数注入 |
 | `js/quiz/aws-quiz-data.js` | 819 | 900 | `advisory` | Stage 3-b 分割済み。AWS 問題集（最大データセット） |
 | `js/quiz/pm-quiz-data.js` | 271 | 350 | `advisory` | Stage 3-b 分割済み。PM 問題集 |
@@ -148,7 +148,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 739000 -->
+<!-- PERF-BUDGET-DATA 740000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -159,6 +159,13 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      選択肢へ漏れていた実バグの修正 (4 listing 面へ hiddenIds を適用 + 全件非表示時の fallback) と
      その WHY コメントで実測が 712,892 bytes に到達。genuine な user-visible bug fix ゆえ実態 +
      約 1,100 bytes の headroom へラチェット。
+     739,000 → 740,000 (2026-08-10)。profile で見つけた型ガード欠落と同じ class を projects の
+     正規化へ展開。`String(raw.name || 'Untitled')` は `{}` が truthy なので fallback が働かず、
+     **"[object Object]" が一覧カードと詳細ページへそのまま描画されていた** (実測で一覧 3 箇所 /
+     詳細 4 箇所)。tech/tags/highlights の `filter(Boolean)` も `{}` を素通りさせチップとして
+     同じ文字列を出していた。safeStr / safeStrList を共有ヘルパへ引き上げ、links.label と
+     outcome.metrics の label/value にも型を要求。WHY コメント込みで実測 739,399 bytes。
+     fatal を出さず視覚 baseline も ADVISORY ゆえ behavior test 以外に捕捉層が無い class。
      738,000 → 739,000 (2026-08-10)。外部 JSON インポートの profile 正規化に型ガードを追加。旧実装の
      `String(v || fallback)` は `[]` / `{}` のような **truthy な非文字列** が `||` を素通りし
      `String([]) === ''` でフィールドを空にしていた (実測: `{"profile":{"email":[]}}` で ContactPage の
@@ -324,7 +331,7 @@ js/quiz-renderer.js | 350 | advisory
 js/settings-page.js | 500 | advisory
 js/state.js | 320 | advisory
 js/storage.js | 120 | advisory
-js/store.js | 700 | advisory
+js/store.js | 750 | advisory
 js/theme.js | 120 | advisory
 js/quiz/aws-quiz-data.js | 900 | advisory
 js/quiz/pm-quiz-data.js | 350 | advisory

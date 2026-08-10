@@ -603,9 +603,16 @@ _E2E_TAIL = [
     {
         "name": "behavior: profile 正規化の型ガード喪失 — store.js の safeStr を旧実装 `String(v || fallback)` に戻す → `[]` や `{}` のような truthy な非文字列が `||` を素通りし String([]) === '' でフィールドが空になる。email が空になると ContactPage から宛先表示が消え「メールを作成」が宛先の無い mailto: を開く (fatal を出さないので ErrorBoundary にも掛からず、視覚 baseline は ADVISORY ゆえ behavior test 以外に捕捉層が無い)",
         "file": ROOT / "js" / "store.js",
-        "find": "                const s = (v && cand.trim() !== '') ? cand : String(fallback || '');",
-        "replace": "                const s = String(v || fallback || '');",
+        "find": "        const s = (v && cand.trim() !== '') ? cand : String(fallback || '');",
+        "replace": "        const s = String(v || fallback || '');",
         "test": "Hostile profile import: a truthy non-string must not blank a field",
+    },
+    {
+        "name": "behavior: project 正規化の型ガード喪失 — store.js の name を旧実装 `String(raw.name || 'Untitled')` に戻す → `{}` が truthy なので fallback が働かず \"[object Object]\" が一覧カードと詳細ページへそのまま描画される (実測で一覧 3 箇所 / 詳細 4 箇所)。fatal を出さないので ErrorBoundary に掛からず、視覚 baseline は ADVISORY ゆえ behavior test 以外に捕捉層が無い",
+        "file": ROOT / "js" / "store.js",
+        "find": "            name: safeStr(raw.name, 'Untitled', CONSTANTS.LIMITS.PROJECT_NAME),",
+        "replace": "            name: String(raw.name || 'Untitled').slice(0, CONSTANTS.LIMITS.PROJECT_NAME),",
+        "test": "Hostile project import: non-string fields must not render as [object Object]",
     },
 ]
 
