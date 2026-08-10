@@ -141,6 +141,20 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        main.js の保護領域 (innerHTML sanitizer / eventListener registry・Check 43 が別途強制) は
        対象外で、葉モジュールのみを縛る。(BLOCKING)
 
+  417. `js/store.js` (外部 ingestion の正規化チョークポイント) が、**untrusted な生値を
+       `String()` へ直接渡さない**ことと、**必須テキストの filter が型判定 `isText()` を
+       通す**ことを BLOCKING 強制する。動機は 2026-08-10 の 3 連続実バグで、いずれも
+       `String(v || fallback)` / `filter(t => t && t.title)` が **truthy な非文字列**
+       (`[]` / `{}`) を素通りさせたもの:
+         - profile (#968): `String([]) === ''` で email が空になり、ContactPage から宛先が
+           消え「メールを作成」が宛先の無い `mailto:` を開いた
+         - projects (#969): `String({})` が **"[object Object]" を一覧 3 箇所 / 詳細 4 箇所へ描画**
+         - appsData (#970): 同じ形で task/todo 一覧へ描画 (さらに壊れた entry が落ちずに残る)
+       いずれも fatal を出さないため ErrorBoundary に掛からず、視覚 baseline は ADVISORY ゆえ
+       **behavior test 以外に捕捉層が無い**。per-instance で 3 回潰した class は構造防止 Check へ
+       昇華する (Check 364 が `(X || []).<throwing method>` で同じ昇華をした ingestion-safety の
+       文字列面)。走査前にコメントを除去し、機構を説明する記述自体を違反と誤検出しない。(BLOCKING)
+
 """
 import re
 import json
@@ -719,5 +733,31 @@ def run(ctx):
          + " — DOM/JS の意味論がサイト内だけ非標準になり、全 gate (consistency / behavior e2e / "
            "screenshot) を素通りしたまま e2e の測定を偽陰性にする (2026-08-10 に実際 1 サイクル無効化)。"
            "必要なら main.js の保護領域 (Check 43 の管轄) で行い、葉モジュールには置かない"),
+        blocking=True,
+    )
+
+    # ── 417. store.js の untrusted 生値を String() へ直接渡さない (ingestion 文字列ガード) ──
+    # 2026-08-10 に profile / projects / appsData で 3 連続の実バグを出した class。
+    # `String(v || fallback)` は `[]` / `{}` のような **truthy な非文字列** に対して fallback が
+    # 効かず、`String([]) === ''` (フィールドが空になる) / `String({}) === "[object Object]"`
+    # (そのまま描画される) を生む。同様に `filter(t => t && t.title)` は `{}` を素通りさせ、
+    # 本文の無い entry を残す。per-instance で 3 回潰したので構造防止へ昇華する
+    # (Check 364 が `(X || []).<throwing method>` でやった昇華の文字列面)。
+    _src417 = (ROOT / "js" / "store.js").read_text(encoding="utf-8", errors="replace")
+    _code417 = re.sub(r"/\*.*?\*/", "", _src417, flags=re.S)
+    _code417 = re.sub(r"(?<!:)//[^\n]*", "", _code417)
+    # (a) untrusted な生値 (raw. / data. / 個々の entry t.) を String() へ直接渡さない
+    _direct417 = re.findall(r"String\(\s*(?:raw|data|t)\.[\w.?\[\]]*", _code417)
+    # (b) 必須テキストの filter は isText() を通す (truthy 判定だけの形を禁止)
+    _weak_filter417 = re.findall(r"filter\(\s*(\w+)\s*=>\s*\1\s*&&\s*\1\.(?:title|text)\s*\)", _code417)
+    _viol417 = [f"String() へ直接: {_m}" for _m in sorted(set(_direct417))] + \
+               [f"必須テキストの filter が isText() を通していない (変数 {_v})" for _v in sorted(set(_weak_filter417))]
+    check(
+        not _viol417,
+        "Check 417: js/store.js が untrusted 生値を String() へ直接渡さず、必須テキスト filter が isText() を通す",
+        ("Check 417: js/store.js の ingestion 文字列ガードが崩れている: " + "; ".join(_viol417)
+         + " — truthy な非文字列 ([] / {}) が素通りし、フィールドが空になる (ContactPage の宛先が消える) か "
+           "\"[object Object]\" がそのまま描画される。fatal を出さないので ErrorBoundary に掛からず、"
+           "視覚 baseline は ADVISORY ゆえ behavior test 以外に捕捉層が無い。safeStr / safeStrList / isText を通せ"),
         blocking=True,
     )
