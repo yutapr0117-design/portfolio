@@ -108,6 +108,18 @@ Status        : 本 increment で新設。CLAUDE.md（thin router）から参照
   - **この件を見つける前に踏んだ失敗**: 変更前に `'Quiz'` / `"Quiz"` をクォート付きで grep して「依存なし」と判断したが、**既存テストは正規表現 `/^Quiz \|/` で pin していた**ため見落とした。検出器の網が狭いと「無い」を誤って結論する（本セッションで 3 回目の同型ミス）。
   - **適用条件**: オーナーが「タブ名は描画内容と一致すべき」と裁可した場合。その際は page-meta の fallback を `map.aws` にし、#926 のテストの期待値も同時に更新する（片方だけ変えると必ず RED）。
 
+- **依存の現行性ラウンド（2026-08-11・測ってから適用）:** `npm audit` は **0 vulnerabilities**。`npm outdated` の 3 件を、#974 と同じ「**新版が実問題を暴くか先に測ってから適用**」の手順で処理した。
+
+  | パッケージ | 版 | 測定した観点 | 結果 |
+  | :-- | :-- | :-- | :-- |
+  | `eslint` | 10.8.0 → 10.8.1 | lint 出力の変化（新ルール／判定の揺れ） | **0 errors / 54 warnings で不変** |
+  | `globals` | 17.8.0 → 17.9.0 | 同上（`no-undef` の解決集合が変わりうる） | 同上・変化なし |
+  | `@playwright/test` | 1.62.0 → 1.62.1 | 同梱 Chromium 更新による **視覚 baseline** への影響 | 全 e2e **315 passed（screenshot 含む）** = baseline 再生成不要 |
+
+  - **なぜ screenshot が緑のままか（honest）**: patch bump で Chromium は 151.0.7922.34 に更新されたが、`toHaveScreenshot` の許容（threshold 0.05 / maxDiffPixelRatio 0.02）内に収まった。**「バージョンを上げたら baseline が必ず割れる」わけではない**ので、割れるかどうかは毎回測って判断する。
+  - **付随して要求された同期**: pin を上げると **Check 51**（runbook §7.4 の baseline 生成版数 ↔ `package.json` の pin 一致）が BLOCKING で RED になる。runbook 側を 1.62.1 へ同期して解消した。**この Check があるおかげで「pin だけ上げて手順書が古いまま」という drift が構造的に起きない**（過去に dependabot の bump がこれで赤くなった記録がある）。
+  - **dependabot との関係**: 本ラウンド時点で dependabot の未処理 PR は **0 件**。先回りで上げたので、次の bot PR は no-op になる。
+
 **(B) 適用不要だが検証済み（verify）:** 現物が既に当該標準に準拠しており、変更不要なもの。「変更が無かった」のではなく「現行性を検証した」結果として記録する。これは null result ではなく、現行性・機械可読性を価値とするこのリポジトリにおける成果物である。例（過去 increment）＝robots.txt の granular AI-bot モデル・Node 24・CSP / Trusted Types が 2026 標準に対し現行であることの検証。
 
 - **llms.txt / AI-crawler discoverability の現行性検証（2026-06-28）:** 2026 時点の調査で、(i) llms.txt 採用率は ~10%（18ヶ月後）に留まり、(ii) **AI 検索クローラ（GPTBot/ClaudeBot/PerplexityBot/OAI-SearchBot/Google-Extended）は llms.txt をほぼ fetch せず HTML を直接クロール**（500M bot 訪問中 llms.txt 直叩きは ~408 件）、(iii) Google は非対応を明言・Anthropic/OpenAI/Perplexity も自動読込未コミット、(iv) genuine な実利用は **B2A（Business-to-Agent）= IDE エージェント（Claude Code/Cursor/Windsurf/Copilot/Cline/Aider）が docs サイトで /llms.txt・/llms-full.txt を参照**、と判明。**本リポジトリは既に root の `/llms.txt`+`/llms-full.txt`（標準配置）と、AI 検索クローラが実際に読む HTML 内 structured data（JSON-LD/entity anchor/meta）の二段構えを持ち、調査が示す現実に整合**。新規採用すべき標準/endpoint は無し。低クローラ uptake は §7「`confirmed_citation_events = 0` は by design = 高確率レーンへの早期ポジション」と整合し、本調査がその姿勢の妥当性を 2026 市場データで裏付けた。公開 AIO content はオーナー方針で terminal ゆえ content 変更も行わない＝**verify-currency（apply なし）**。（出典: SE Ranking 採用率調査 / OtterlyAI GEO study / Search Engine Land llms.txt proposal。再調査は本日付以降に標準が動いた場合のみ。）
