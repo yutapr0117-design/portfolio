@@ -228,6 +228,17 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        intentional design. Measured non-vacuity in BOTH directions: a consumer-side typo
        (`[data-bgm-btn]` → `[data-bgm-button]`) and an emitter-side removal (renaming the attribute in
        index.html) each turn this Check RED. (BLOCKING)
+
+  418. Check 376 の逆方向 (定義 ⟹ 使用)。ActionDelegator の `_handlers` に登録されている
+       全 handler key について、`data-action="X"` を持つ要素が index.html か shipped JS の
+       いずれかに存在することを BLOCKING 強制する。発火経路の無い handler は **到達不能**で、
+       しかもその handler のためだけに依存を引きずる (実例: 2026-08-10 に除去した
+       `drawer:close` は main.js → late-binding holder → createAIDKRails の closeDrawer 引数、
+       という配線を丸ごと必要としていた。`git log -S` で `data-action="drawer:close"` は
+       **全履歴で 0 件** = 一度も配線されたことが無い never-wired な残骸と確認)。
+       icon 面は Check 375 (使用⟹定義) と 375b (定義⟹使用) で既に双方向だったのに、action 面
+       だけ片方向だった非対称を閉じる。producer 集合は Check 376 の抽出を共有する
+       (同じ抽出を二重に持つと drift するため)。(BLOCKING)
 """
 import re
 import json
@@ -445,8 +456,11 @@ def run(ctx):
     # 適用する。ActionDelegator の `_handlers` object キー + `register('X', ...)` 呼び出しを handler
     # registry として parse し、index.html + shipped JS の全 `data-action="X"` / `'data-action': 'X'`
     # producer を集めて各々が handler に解決することを強制する。逆方向 (handler ⟹ producer) は
-    # 強制しない: `drawer:close` は意図的に symmetric な unused handler (drawer は直接 onclick /
-    # Escape / nav-click で閉じる) ゆえ used⟹defined ガードで bijection ではない。
+    # **Check 418 が別途強制する**。従来ここには「`drawer:close` は意図的に symmetric な unused
+    # handler ゆえ bijection にしない」と書かれていたが、2026-08-10 に `git log -S` で
+    # `data-action="drawer:close"` が **全履歴で一度も存在しない** (= symmetry のための飾りであって
+    # 到達不能) と確認し、handler と threaded な closeDrawer 依存を除去した。これで action 面も
+    # icon 面 (Check 375 / 375b) と同じ双方向ガードになり、死んだ handler の蓄積を防げる。
     _rails376 = ROOT / "js" / "aidk-rails.js"
     _index376 = ROOT / "index.html"
     if _rails376.exists() and _index376.exists():
@@ -510,6 +524,28 @@ def run(ctx):
     else:
         check(False, "Check 376: js/aidk-rails.js and index.html present",
               "Check 376: js/aidk-rails.js または index.html が無い — data-action の handler 解決を検証できない", blocking=True)
+
+    # ── 418. ActionDelegator handler ⟹ data-action producer (定義 ⟹ 使用) ────────────
+    # Check 376 の逆方向。`_handlers` に登録されているのに `data-action="X"` を持つ要素が
+    # どこにも無い handler は **到達不能なコード**で、しかも依存を引きずる (実例: 除去した
+    # `drawer:close` は main.js → late-binding holder → createAIDKRails の closeDrawer 引数、
+    # という配線を丸ごと必要としていた)。icon 面では Check 375 (使用⟹定義) と 375b (定義⟹使用) が
+    # 既に双方向で守られており、action 面だけ片方向だった非対称を閉じる。
+    # producer 集合は Check 376 が集めたものをそのまま使う (同じ抽出を二重に持つと drift するため)。
+    if _rails376.exists() and _index376.exists():
+        _dead418 = sorted(_hkeys376 - set(_producers376))
+        check(
+            bool(_hkeys376) and not _dead418,
+            f"Check 418: ActionDelegator の全 handler ({len(_hkeys376)} key) に data-action producer が存在 (到達不能 handler なし)",
+            (f"Check 418: 発火経路の無い ActionDelegator handler がある: {_dead418} — "
+             "`data-action=\"X\"` を持つ要素がどこにも無い handler は到達不能で、"
+             "多くの場合その handler のためだけに依存 (factory 引数 / late-binding holder) を"
+             "引きずる。使わないなら handler と依存を除去し、必要なら producer 側に "
+             "data-action を付けて配線せよ (Check 376 の逆方向・icon 面の Check 375b と同型)"
+             if _hkeys376 else
+             "Check 418: ActionDelegator の _handlers を parse できない (構造変更の可能性)"),
+            blocking=True,
+        )
 
     # ── 391. getElementById target → id definition resolution (BLOCKING) ───────────
     # 各 shipped JS の `getElementById('X')` リテラル target は、必ず index.html の `id="X"`・

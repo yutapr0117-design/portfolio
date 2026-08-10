@@ -23,8 +23,10 @@
  *   - Theme: js/theme.js factory instance (ActionDelegator の 'theme:cycle' で Theme.cycle())
  *   - BGM: js/ui-components.js (ActionDelegator の 'bgm:toggle' で BGM.toggle())
  *   - secureExternalLinks: js/mobile-drawer.js (EffectRails が render 後に外部リンクを安全化)
- *   - openDrawer, closeDrawer: js/mobile-drawer.js
- *     (ActionDelegator の 'drawer:open' / 'drawer:close')
+ *   - openDrawer: js/mobile-drawer.js (ActionDelegator の 'drawer:open')
+ *     NOTE: closeDrawer は依存から外した。'drawer:close' を発火する data-action 属性を持つ要素は
+ *     全 git 履歴で一度も存在せず (never-wired)、閉じる導線は overlay / Escape / nav リンクが
+ *     mobile-drawer.js 側で直接処理するため委譲を経由しない。Check 418 が再混入を禁止する。
  *
  * 【相互依存の順序（評価時 binding が undefined でも runtime 呼び出し時には全 Rail 解決済み）】
  *   1. RouteState 定義: Proxy.set 内で BindingRegistry / EffectRails を参照するが、
@@ -41,7 +43,7 @@
  *   - AIDK Kernel (Check 43 で構造強制) には触れない（kernel proper はそのまま main.js に残置）
  *   - AIO 正本層 / style.css は無変更
  */
-export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h, createIcon, Theme, BGM, secureExternalLinks, openDrawer, closeDrawer }) {
+export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h, createIcon, Theme, BGM, secureExternalLinks, openDrawer }) {
     const RouteState = (() => {
         const _state = {
             // ── route namespace ──
@@ -283,7 +285,10 @@ export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h,
     const ActionDelegator = (() => {
         const _handlers = {
             'drawer:open':    () => { if (typeof openDrawer === 'function') { openDrawer(); } },
-            'drawer:close':   () => { if (typeof closeDrawer === 'function') { closeDrawer(); } },
+            // NOTE: かつて 'drawer:close' handler があったが、それを発火する data-action 属性を持つ
+            //   要素は **全 git 履歴で一度も存在しなかった** (`git log -S` で 0 件) never-wired な残骸。
+            //   drawer を閉じる導線は overlay クリック / Escape / nav リンクが mobile-drawer.js 側で
+            //   直接処理しており委譲を経由しない。Check 418 (定義 ⟹ 使用) が再混入を禁止する。
             'theme:cycle':    () => { if (typeof Theme !== 'undefined') { Theme.cycle(); } },
             'bgm:toggle':     () => { if (typeof BGM !== 'undefined') { BGM.toggle(); } }
         };
