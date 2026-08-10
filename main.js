@@ -798,8 +798,19 @@
             // input と race して focus を奪った失敗の再発防止で、上の h1 復元と同じ条件を共有する。
             if (_restoreFocusId && _focusWasLost) {
                 const _again = document.getElementById(_restoreFocusId);
-                // 再描画後に同じ id が無ければ何もしない (項目削除などで対象が消えた場合)。
                 if (_again) { try { _again.focus({ preventScroll: true }); } catch { /* noop */ } }
+                // 元の要素へ戻せないケースが 2 つある。どちらも focus は body に残るので、
+                // 「せめて #content の中へ」戻す (ドキュメント先頭からの Tab やり直しを避ける)。
+                //   (1) 対象が消えた — 削除ボタンは自分自身を消すので同じ id は二度と現れない
+                //   (2) 復元先が disabled になった — タスクを最終ステータスへ動かすと「次へ」が
+                //       disabled になり、disabled 要素への focus() は黙って無効化される
+                // 成否は「focus() を呼んだか」ではなく **activeElement を読み直して**判定する。
+                const _now = document.activeElement;
+                if (content && (!_now || _now === document.body || _now === document.documentElement)) {
+                    const _fb = content.querySelector('h1') || content;
+                    if (!_fb.hasAttribute('tabindex')) { _fb.setAttribute('tabindex', '-1'); }
+                    try { _fb.focus({ preventScroll: true }); } catch { /* noop */ }
+                }
             }
 
             if (isRouteChange && content && _focusWasLost) {

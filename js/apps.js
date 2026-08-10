@@ -204,6 +204,12 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                                             class: 'icon-btn btn-sm icon-sm',
                                             // [A11Y 4.1.2] 全タスクで同一名だと SR はどのタスクを削除するか
                                             //   区別できない。task.title を accessible name に含め一意化する。
+                                            // [A11Y 2.1.1] 削除ボタンは自分自身を消すので同じ id は
+                                            //   二度と現れない。それでも id を付けるのは、main.js
+                                            //   _renderCore の復元が **id を持っていた要素だけ**を対象に
+                                            //   するから (opt-in)。id があると「復元先が消えていた」経路に
+                                            //   入り、少なくとも #content の h1 へ戻る。
+                                            id: 'task-delete-' + task.id,
                                             'aria-label': 'タスクを削除：' + task.title,
                                             onclick: () => deleteTask(task.id)
                                         }, createIcon('trash', 14))
@@ -229,12 +235,17 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                                             //   移動先の方向 + task.title を aria-label で明示し一意化する。
                                             h('button', {
                                                 class: 'btn btn-ghost btn-sm',
+                                                // [A11Y 2.1.1] 再描画後の focus 復元用 (main.js _renderCore)。
+                                                //   これが無いとステータスを 1 つ動かすたび focus が body へ
+                                                //   落ち、backlog→進行中→done と続けて動かせない。
+                                                id: 'task-move-prev-' + task.id,
                                                 'aria-label': '前のステータスへ戻す：' + task.title,
                                                 disabled: task.status === 'backlog',
                                                 onclick: () => moveStatus(task, -1)
                                             }, '←'),
                                             h('button', {
                                                 class: 'btn btn-ghost btn-sm',
+                                                id: 'task-move-next-' + task.id,
                                                 'aria-label': '次のステータスへ進める：' + task.title,
                                                 disabled: task.status === 'done',
                                                 onclick: () => moveStatus(task, 1)
@@ -388,6 +399,8 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                         ),
                         h('button', {
                             class: 'btn btn-secondary btn-sm',
+                            // [A11Y 2.1.1] 押すと自身が disabled になるので復元は h1 へ落ちる (opt-in の id)。
+                            id: 'todo-clear-completed',
                             disabled: !todos.some(t => t.completed),
                             onclick: clearCompleted
                         }, '完了済み削除')
@@ -418,6 +431,8 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                             }, todo.text),
                             h('button', {
                                 class: 'icon-btn',
+                                // [A11Y 2.1.1] 削除で消える要素にも id を付ける理由は task 側のコメント参照。
+                                id: 'todo-delete-' + todo.id,
                                 onclick: () => deleteTodo(todo.id),
                                 // [A11Y 4.1.2] 削除ボタンも todo.text で一意化 (全項目「削除」だと区別不能)。
                                 'aria-label': '削除：' + todo.text

@@ -1,7 +1,7 @@
 ---
 file: main.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-08-11
 canonical-ref: AI2AI.md (canon C1-C7) / CLAUDE.md §3 (kernel 保護) / docs/architecture/main-js-extraction-map.md / docs/architecture/repository-maintainability-map.md
 ---
 
@@ -53,6 +53,20 @@ index.html
 - **Check 47**: js/ leaf module からの import/export bijection を機械強制 (24 modules)
 - **Check 52**: 行数予算 ≤ 6,400 行（現在値は file-size-budget.md §4 / `wc -l` が権威） (strong-advisory budget)
 - **Check 411**: `querySelectorAll('<sel>')` の走査対象が実描画（js/ の h() prop または index.html の属性）へ解決すること。WebMCP ツール `extract_human_vs_ai_role_split` は `[data-ai-role]` で役割分担表を抽出すると**自ら宣言している**ため、解決しないセレクタは走査 0 件＝宣言が嘘になる（実際にそうなっていたのを 2026-08-10 に是正）。
+- **`_renderCore` の focus 復元 (WCAG 2.1.1 / 2.4.3)**: SPA の再描画は `#content` を作り直すため、
+  操作したコントロールが**自分自身を DOM ごと消す**。`_renderCore` は 3 段で focus を面倒みる。
+  1. **clear より前に** focus 中の要素の `id` を控える（同一ルート再描画のときだけ）
+  2. 再描画後、focus が失われていたら同じ id へ戻す（`preventScroll: true`）
+  3. 戻せなかったら `#content` の h1 へ退避する —— 戻せないのは (a) 削除で対象が消えた
+     (b) 移動後に対象が `disabled` になった、の 2 ケース。成否は「focus() を呼んだか」ではなく
+     **`activeElement` を読み直して**判定する（disabled 要素への focus は黙って無効化されるため）
+  復元は **id を持っていた要素だけ**を対象にする opt-in である。無条件にすると、毎秒再描画される
+  ポモドーロ稼働中に「id の無い任意の要素」から h1 へ focus が飛び続けてしまう。
+  ルート遷移では行わない（新ページの h1 へ移すのが正しい文脈・#267）。「奪う」のではなく
+  「失われた時だけ戻す」条件は #265 で command palette の input と race した失敗の再発防止。
+  対象コントロールの id 付け忘れは **Check 422** が BLOCKING で守る（select / checkbox /
+  number input のみ。ボタンは「押すと再描画するか」を静的に判定できず、brittle な Check より
+  behavior e2e で被覆する方針）。
 - **Check 412**: 動的 JSON-LD（`_buildDynamicJsonLd`）が参照する `SITE_BASE + '#person'` / `'#website'` が index.html の JSON-LD 定義ノードへ解決すること。宙に浮いた参照は AI クローラが entity グラフの辺を辿れない状態になる。
 - **編集承認**: AIDK Kernel proper (L129-1000+) は **DO NOT EDIT 領域**。触る場合は orchestrator 明示承認必要
 

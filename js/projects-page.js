@@ -135,6 +135,13 @@ export function createProjectsPage({ h, createIcon, Router, State, tokenize, cle
                                             if (inputEl) {inputEl.value = tag;}
                                             if (selectEl) {selectEl.value = 'All';}
                                             renderGrid(); syncURL();
+                                            // [A11Y 2.1.1] このタグボタンは grid の中に居るので renderGrid() が
+                                            //   自分自身を消し、focus が body へ落ちてドキュメント先頭からの
+                                            //   Tab やり直しになる (実測 #995)。検索欄へ移すと「タグを検索語に
+                                            //   入れた」という結果そのものが focus 先になり、続けて絞り込める。
+                                            //   ここは _renderCore の復元経路 (#994) を通らない手動再描画ゆえ
+                                            //   個別に手当てする。
+                                            if (inputEl) { inputEl.focus({ preventScroll: true }); }
                                         }
                                     }, '#' + tag)
                                 )

@@ -178,6 +178,8 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
                             ...modes.map(m =>
                                 h('button', {
                                     class: ['btn', pomo.runtime.mode === m.id ? 'btn-primary' : 'btn-secondary'],
+                                    // [A11Y 2.1.1] 再描画後の focus 復元用 (main.js _renderCore)。
+                                    id: 'pomo-mode-' + m.id,
                                     // [A11Y] 選択中モードは btn-primary の色(C5 視覚)のみで SR 非露出だった
                                     //   (WCAG 4.1.2)。aria-pressed で選択状態を AT へ露出(BGM トグル同型)。
                                     'aria-pressed': String(pomo.runtime.mode === m.id),
@@ -196,10 +198,15 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
                         h('div', { class: 'flex justify-center gap-3' },
                             h('button', {
                                 class: 'btn btn-primary btn-lg',
+                                // [A11Y 2.1.1] 再描画後の focus 復元用 (main.js _renderCore)。これが無いと
+                                //   開始した瞬間に focus が body へ落ち、キーボードだけでは一時停止に
+                                //   戻れない (稼働中は毎秒再描画されるので復帰の機会も無い)。
+                                id: 'pomo-toggle',
                                 onclick: isActive ? pause : start
                             }, isActive ? h('span', {}, createIcon('pause', 20), ' 一時停止') : h('span', {}, createIcon('play', 20), ' 開始')),
                             h('button', {
                                 class: 'btn btn-secondary',
+                                id: 'pomo-reset',
                                 onclick: reset,
                                 'aria-label': 'リセット'
                             }, createIcon('rotate', 20))
