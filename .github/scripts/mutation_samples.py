@@ -679,6 +679,16 @@ _E2E_TAIL = [
         "replace": "            State.set({ ...Store.createDefaultStore(), appsData: State.get().appsData });",
         "test": "Full reset stops a running pomodoro timer (cross-app interaction)",
     },
+    {
+        "name": "behavior: テーマ切替が入力途中のテキストを巻き添えにする回帰 — js/theme.js の cycle を updateSilently から State.update へ戻す → notify で全再描画 (#content を clear) が走り、未送信の入力が消える (実測: task 8 文字 → 0 / ai 6 文字 → 0)。テーマはページ内容と無関係な chrome 操作なので巻き添えにしてはならない (#258 / #684 と同じ全再描画回避の規律)",
+        "file": ROOT / "js" / "theme.js",
+        "find": "        State.updateSilently(s => s.theme = next);",
+        "replace": "        State.update(s => s.theme = next);",
+        # NOTE: 題名はテンプレートリテラル (`... on ${route}`) で 3 ルート分ループ生成される。
+        #   Check 379/397 は静的セグメントを parse するので、**動的部分を含まない前半**を指定する
+        #   (3 インスタンス全てが同じコード経路を検証するため、どれが落ちても捕捉として妥当)。
+        "test": "Theme toggle does not discard in-flight input on",
+    },
 ]
 
 

@@ -238,3 +238,52 @@ test('Topbar theme button exposes the current theme in its label on mobile (WCAG
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `topbar theme label test caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== テーマ切替が入力途中のテキストと focus を巻き添えにしない =====
+// 🔴 実バグ (2026-08-10 修正前の実測): `Theme.cycle` は `State.update` で永続化しており、
+//   これは notify → **全再描画 (#content を clear)** を起こす。テーマはページ内容と無関係な
+//   chrome 操作なのに、その巻き添えで **未送信の入力テキストが消えて**いた:
+//     task 8 文字 → 0 / ai 6 文字 → 0 (notes は updateSilently で永続化済のため残った)
+//   さらに 3 つとも focus が body へ落ちていた。
+//   theme を描画に使うのは sidebar だけなので、永続化を updateSilently にし **sidebar だけ再構築**
+//   する形へ修正した (#258 / #684 と同じ「全再描画を避けて必要な範囲だけ更新」規律)。
+//   押したボタン自身が再構築で消えるため、sidebar 内に focus があった場合のみ同 id へ戻す
+//   (#267 の「奪うのではなく失われた時だけ復元する」原則)。
+for (const [route, selector, typed] of [
+  ['#/apps/task', '#content input.input', 'ミカクテイタスク'],
+  ['#/apps/ai', '#content input.input, #content textarea', 'シツモンブン'],
+  ['#/apps/notes', '#content textarea', 'ヘンシュウチュウ'],
+]) {
+  test(`Theme toggle does not discard in-flight input on ${route}`, async ({ page }) => {
+    await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#content h1')).toBeVisible();
+
+    const field = page.locator(selector).first();
+    await field.click();
+    await page.keyboard.type(typed);
+    // 種蒔きが効いていることを先に確認する (ここが空なら以降は vacuous)
+    await expect(field, '入力が反映されていない — 以降の検査が vacuous になる').toHaveValue(new RegExp(typed));
+
+    const themeBtn = page.locator('#themeBtnSidebar');
+    await expect(themeBtn).toBeVisible();
+    const before = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
+    await themeBtn.click();
+
+    // テーマが実際に切り替わったこと (切り替わっていなければ「再描画が起きない」のは当然で vacuous)
+    await expect.poll(async () => page.evaluate(() => document.documentElement.getAttribute('data-theme')),
+      { message: 'テーマが切り替わっていない — 再描画の有無を検査できない' }).not.toBe(before);
+
+    // 入力途中のテキストが残っていること (本体の回帰防止)
+    await expect(
+      page.locator(selector).first(),
+      'テーマ切替の巻き添えで未送信の入力が消えた'
+    ).toHaveValue(new RegExp(typed));
+
+    // 押したボタンへ focus が戻っていること (body へ落ちない)
+    const activeId = await page.evaluate(() => document.activeElement && document.activeElement.id);
+    expect(activeId, 'テーマ切替後に focus が body へ落ちた (WCAG 2.4.3)').toBe('themeBtnSidebar');
+
+    const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+    expect(fatal, `theme toggle caused a fatal: ${fatal}`).toBeNull();
+  });
+}
