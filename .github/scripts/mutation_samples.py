@@ -844,6 +844,27 @@ _E2E_TAIL = [
         "replace": "        // 背景の inert を必ず解除する",
         "test": "palette を一度使った後もルート遷移で新ページの見出しへ focus が移る",
     },
+    {
+        "name": "behavior: Settings 並べ替えボタンの focus 復元 id が外れる (#1000 の回帰) — 1 回押すたびに focus が外れ 2 回目以降が効かない。プロジェクトを何段も動かすのが本来の用途なので、実質キーボードでは使えなくなる",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "id: 'settings-move-down-' + p.id, ",
+        "replace": "",
+        "test": "WCAG 2.1.1: プロジェクトの並べ替えをキーボードで連続実行できる",
+    },
+    {
+        "name": "behavior: 並べ替えの focus 復元鍵を p.id から idx へ戻す (#1000 の回帰) — 移動後にその位置へ来た **別のプロジェクト**のボタンへ focus が移り、続けて押すと違う行が動く (実測では往復して元の順序に戻った)。リスト項目の復元鍵は位置ではなく同一性で作れ",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "id: 'settings-move-down-' + p.id,",
+        "replace": "id: 'settings-move-down-' + idx,",
+        "test": "WCAG 2.1.1: プロジェクトの並べ替えをキーボードで連続実行できる",
+    },
+    {
+        "name": "behavior: Settings 表示切替ボタンの focus 復元 id が外れる (#1000 の回帰) — 切り替えるたびに focus が body へ落ち、元に戻すのに毎回ドキュメント先頭から Tab し直しになる",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "id: 'settings-toggle-hidden-' + p.id, ",
+        "replace": "",
+        "test": "WCAG 2.1.1: 表示切替ボタンは押した後も focus が残る",
+    },
 ]
 
 
