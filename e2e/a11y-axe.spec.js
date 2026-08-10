@@ -132,3 +132,52 @@ test('Hero-meta inline link is distinguishable by underline (WCAG 1.4.1, not col
   const deco = await link.evaluate((el) => getComputedStyle(el).textDecorationLine);
   expect(deco).toContain('underline');
 });
+
+// ===== WCAG 1.4.3 (Contrast Minimum・AA): ブランド primary が白に対し 4.5:1 を満たす =====
+// axe の `color-contrast` は **serious** で報告されるが、このリポジトリの a11y ゲートは
+// **critical のみ**を対象にするため、contrast 不足は長らく素通りしていた (2026-08-10 に
+// axe-core 4.13.0 で全ルートを無フィルタ走査して初めて可視化された)。
+// 既定ブランド indigo は白背景に対し **4.467** で、要求 4.5:1 を **0.04 だけ** 下回っており、
+// 1 ルートあたり 15〜59 ノードが violation になっていた (quiz は 63 ノード中 59 が
+// 白文字 on primary のボタン)。各チャンネル -1 の rgb(98,101,240) で 4.527 となり AA を満たす。
+//
+// NOTE: axe 全体を gate にすると、**別クラスの未解決 violation** (muted text `#94a3b8` = 2.56 /
+//   淡色チップ上の primary = 4.0) まで巻き込んで落ちる。それらは実際に色が変わる = C5 (設計) の
+//   領域で、単独で決められない (research-application-policy.md に defer として実測値つきで記録済)。
+//   ここでは **トークン単体の契約** だけを固定する — 将来パレットを触ったときに
+//   「白に対する primary が AA を割る」退行だけは必ず赤くする、という最小で確実な層。
+test('WCAG 1.4.3: 各ブランドの primary は白に対し 4.5:1 以上', async ({ page }) => {
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.hero-section')).toBeVisible();
+
+  const results = await page.evaluate(() => {
+    const lin = (c) => { c /= 255; return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); };
+    const lum = (r, g, b) => 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+    const contrastVsWhite = (rgbTriplet) => {
+      const [r, g, b] = rgbTriplet;
+      const l = lum(r, g, b);
+      return (1.0 + 0.05) / (l + 0.05);
+    };
+    const root = document.documentElement;
+    const prev = root.getAttribute('data-brand');
+    const out = [];
+    for (const brand of ['classic', 'indigo']) {
+      root.setAttribute('data-brand', brand);
+      // --color-primary-rgb は "r, g, b" のカンマ区切り。computed から読むことで
+      // CSS 変数の実効値 (brand ごとの上書き込み) を検査する。
+      const raw = getComputedStyle(root).getPropertyValue('--color-primary-rgb').trim();
+      const triplet = raw.split(',').map((n) => Number(n.trim()));
+      out.push({ brand, raw, ratio: Math.round(contrastVsWhite(triplet) * 1000) / 1000 });
+    }
+    if (prev === null) { root.removeAttribute('data-brand'); } else { root.setAttribute('data-brand', prev); }
+    return out;
+  });
+
+  for (const r of results) {
+    expect(r.raw, `brand=${r.brand} の --color-primary-rgb を読めない`).toMatch(/^\d+\s*,\s*\d+\s*,\s*\d+$/);
+    expect(
+      r.ratio,
+      `brand=${r.brand} (rgb ${r.raw}) の白背景コントラストが ${r.ratio} で AA (4.5:1) 未満`
+    ).toBeGreaterThanOrEqual(4.5);
+  }
+});

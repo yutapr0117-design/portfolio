@@ -640,6 +640,13 @@ _E2E_TAIL = [
         "replace": "                    route.params.slug = decodeURIComponent(parts[1]);",
         "test": "Router tolerates a malformed percent-encoded project slug",
     },
+    {
+        "name": "behavior: ブランド primary の WCAG 1.4.3 (AA) 退行 — style.css の --color-primary-rgb を旧値 rgb(99,102,241) へ戻す → 白背景に対するコントラスト比が 4.467 となり要求 4.5:1 を下回る (1 ルートあたり 15〜59 ノードが axe の color-contrast violation)。axe の color-contrast は serious だが本リポジトリの a11y ゲートは critical 限定のため素通りする = トークン契約の e2e が唯一の捕捉層",
+        "file": ROOT / "style.css",
+        "find": "            --color-primary-rgb: 98, 101, 240;\n            /* Indigo (値の根拠は :root 側のコメント参照・WCAG 1.4.3 AA) */",
+        "replace": "            --color-primary-rgb: 99, 102, 241;\n            /* Indigo (値の根拠は :root 側のコメント参照・WCAG 1.4.3 AA) */",
+        "test": "WCAG 1.4.3: 各ブランドの primary は白に対し 4.5:1 以上",
+    },
 ]
 
 

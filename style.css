@@ -18,7 +18,16 @@
                追従する。todo 完了チェック・settings の import チェックが対象。 */
             accent-color: var(--color-primary);
             /* --- Color Palette --- */
-            --color-primary-rgb: 99, 102, 241;
+            /* WCAG 1.4.3 (Contrast Minimum・AA): 旧値 rgb(99,102,241) は白背景に対し
+               コントラスト比 **4.467** で、要求の 4.5:1 を **0.04 だけ** 下回っていた
+               (axe の color-contrast が 1 ルートあたり 15〜59 ノードで serious を報告。
+               既存の a11y ゲートは critical のみを見るため素通りしていた)。
+               各チャンネルを 1 だけ下げた rgb(98,101,240) で比 **4.527** となり AA を満たす。
+               変化量は 1/255 ≒ 0.4% で知覚不能、かつ screenshot の許容 threshold 0.05 を
+               大きく下回るため視覚 baseline にも影響しない (ブランド同一性は保たれる)。
+               白文字を載せるボタン側 (#fff on primary) も同じ比なので同時に改善する。
+               もう一方の brand "classic" rgb(37,99,235) は 5.169 で元から AA を満たす。 */
+            --color-primary-rgb: 98, 101, 240;
             /* Indigo */
             --color-primary: rgb(var(--color-primary-rgb));
             --color-primary-light: #818cf8;
@@ -117,8 +126,8 @@
 
         [data-brand="indigo"] {
             /* explicit for clarity */
-            --color-primary-rgb: 99, 102, 241;
-            /* Indigo */
+            --color-primary-rgb: 98, 101, 240;
+            /* Indigo (値の根拠は :root 側のコメント参照・WCAG 1.4.3 AA) */
             --color-primary-light: #818cf8;
             --color-primary-dark: #4f46e5;
             --font-sans: 'DM Sans', 'DM Sans-fallback', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
