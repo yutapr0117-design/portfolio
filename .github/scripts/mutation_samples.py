@@ -660,6 +660,13 @@ _E2E_TAIL = [
         "replace": "            [data-theme=\"system-DISABLED\"] {",
         "test": "a11y axe: ダークテーマの全ルートに render-neutral critical 違反が無い",
     },
+    {
+        "name": "behavior: 初回ロードの projects 要素フィルタ喪失 — mergeProjectsWithDefaults から `.filter(p => p && typeof p === 'object')` を外す → localStorage に `projects: [null, 0, 'x']` を持つ store (parse でき schemaVersion も一致するので **実際に adopt される**) で normalizeProject が null を dereference し boot が壊れる。import 経路 (#968-#970) とは別の入口 (JSON.parse・schemaVersion gate・boot 時 State.set) を通る面",
+        "file": ROOT / "js" / "store.js",
+        "find": "        const normalizedIncoming = (Array.isArray(incomingProjects) ? incomingProjects : [])\n            .filter(p => p && typeof p === 'object')",
+        "replace": "        const normalizedIncoming = (Array.isArray(incomingProjects) ? incomingProjects : [])",
+        "test": "Hostile-but-adoptable localStorage: every field type survives the boot path",
+    },
 ]
 
 

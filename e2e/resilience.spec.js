@@ -457,3 +457,75 @@ test('State written across four apps in one session all survives a single reload
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `cross-app persistence caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== 採用される経路の敵対的ストア（parse でき schema も一致するが各フィールドの型が壊れている） =====
+// 既存の resilience テストは「壊れた JSON」「schema 不一致」「storage 例外」を被覆するが、
+// いずれも **store が採用されない** 経路。ここで守るのはその逆 — **parse でき schemaVersion も
+// 一致するので実際に adopt され、normalize を通って描画まで到達する** 経路である。
+// #968 / #969 / #970 は import 側の同じ形（`[]` / `{}` / null が必須フィールドに入る）で
+// 実バグ（宛先の消えた mailto / "[object Object]" の描画）を出しており、初回ロードは
+// **import とは別の入口**（JSON.parse・schemaVersion gate・boot 時 State.set）を通る。
+//
+// **schemaVersion をハードコードしない**: 最初にアプリ自身へ 1 件保存させ、書き出された
+// schemaVersion を読み取ってから種を蒔く。ハードコードすると版数が上がった瞬間に全ケースが
+// 「schema 不一致 → 既定」経路へ落ち、**何も検査していないのに緑**になる（このテストを
+// 書く過程で実際にそうなった: 45 と決め打ちして 14 ケース全部が同じ経路を測っていた）。
+// さらに control ケース（正常な store）を先頭に置き、種蒔き自体が効いていることを毎回確認する。
+test('Hostile-but-adoptable localStorage: every field type survives the boot path', async ({ page }) => {
+  const KEY = 'portfolio_enhanced_v45';
+
+  // (1) アプリ自身に 1 度保存させ、現行 schemaVersion を実行時に得る
+  await page.goto('/#/apps/todo', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1')).toBeVisible();
+  await page.getByPlaceholder(/.*/).first().fill('schema-probe');
+  await page.keyboard.press('Enter');
+  await expect.poll(async () => page.evaluate((k) => {
+    try { return JSON.parse(localStorage.getItem(k)).schemaVersion; } catch (e) { return null; }
+  }, KEY)).not.toBeNull();
+  const V = await page.evaluate((k) => JSON.parse(localStorage.getItem(k)).schemaVersion, KEY);
+
+  const CASES = [
+    // control: 正常な store が **実際に採用される** ことを先に確認する（種蒔きの非 vacuity 検査）
+    ['control(正常)', { schemaVersion: V, projects: [{ id: 'p_seed', slug: 'seed-proj', name: 'SEEDED-PROJECT', category: 'Misc', summary: 's' }], appsData: {}, profile: {} }, true],
+    ['projects 欠落', { schemaVersion: V, appsData: {}, profile: {} }, false],
+    ['全フィールド null', { schemaVersion: V, projects: null, appsData: null, profile: null }, false],
+    ['projects が object', { schemaVersion: V, projects: { a: 1 }, appsData: {}, profile: {} }, false],
+    ['projects に null/数値/文字列 要素', { schemaVersion: V, projects: [null, 0, 'x'], appsData: {}, profile: {} }, false],
+    ['appsData.tasks が null 要素', { schemaVersion: V, projects: [], appsData: { tasks: [null, null] }, profile: {} }, false],
+    ['projectPrefs が文字列', { schemaVersion: V, projects: [], appsData: {}, profile: {}, projectPrefs: 'x' }, false],
+    ['hiddenIds が object', { schemaVersion: V, projects: [], appsData: {}, profile: {}, projectPrefs: { hiddenIds: { a: 1 } } }, false],
+    ['profile が配列', { schemaVersion: V, projects: [], appsData: {}, profile: [] }, false],
+    ['appsData が配列', { schemaVersion: V, projects: [], appsData: [], profile: {} }, false],
+    ['巨大 name (50k 文字)', { schemaVersion: V, projects: [{ id: 'p_big', slug: 'big', name: 'あ'.repeat(50000) }], appsData: {}, profile: {} }, false],
+    ['__proto__ を含む store', JSON.parse(`{"schemaVersion":${V},"__proto__":{"polluted":"YES"},"projects":[],"appsData":{},"profile":{}}`), false],
+  ];
+
+  for (const [label, store, expectSeed] of CASES) {
+    const ctx = await page.context().newPage();
+    await ctx.addInitScript(([k, v]) => { try { localStorage.setItem(k, v); } catch (e) { /* noop */ } }, [KEY, JSON.stringify(store)]);
+    await ctx.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+    await expect(ctx.locator('#content h1')).toBeVisible();
+
+    const st = await ctx.evaluate(() => {
+      const text = (document.getElementById('content')?.textContent || '');
+      return {
+        fatal: window.__fatalError ? window.__fatalError.message : null,
+        len: text.trim().length,
+        seeded: text.includes('SEEDED-PROJECT'),
+        objectObject: (text.match(/\[object Object\]/g) || []).length,
+        polluted: ({}).polluted,
+      };
+    });
+    await ctx.close();
+
+    expect(st.fatal, `${label}: boot が fatal になった (${st.fatal})`).toBeNull();
+    expect(st.len, `${label}: 実質空のページが描画された`).toBeGreaterThan(20);
+    expect(st.objectObject, `${label}: "[object Object]" が描画された`).toBe(0);
+    expect(st.polluted, `${label}: プロトタイプ汚染が起きた`).toBeUndefined();
+    if (expectSeed) {
+      // 種蒔き経路が生きていることの確認。ここが落ちたら以降のケースは
+      // 「adopt されない store」を測っているだけで無意味 (vacuous) になる。
+      expect(st.seeded, `${label}: 正常な store が採用されていない — 種蒔きが効いておらず、以降のケースは vacuous`).toBe(true);
+    }
+  }
+});
