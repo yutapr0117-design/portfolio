@@ -689,6 +689,13 @@ _E2E_TAIL = [
         #   (3 インスタンス全てが同じコード経路を検証するため、どれが落ちても捕捉として妥当)。
         "test": "Theme toggle does not discard in-flight input on",
     },
+    {
+        "name": "behavior: 既定プロジェクトの並べ替えが reload で失われる回帰 — mergeProjectsWithDefaults が incoming(保存済み)順の default を採らず、末尾補完だけにする旧実装へ戻す → settings の ↑↓ で既定プロジェクトを並べ替えても reload の normalize round-trip で定義順へ silent に戻る。画面表示順 = state.projects 順なので利用者の操作そのものが失われる。user 追加分は incoming 順で append され保持されるため **default だけが戻る非対称**で気付きにくい",
+        "file": ROOT / "js" / "store.js",
+        "find": "            merged.push(d ? ({ ...d, ...p, id: d.id }) : p);\n            mergedIds.add(p.id);",
+        "replace": "            if (!d) { merged.push(p); mergedIds.add(p.id); }",
+        "test": "Default-project reorder survives a reload (normalize round-trip)",
+    },
 ]
 
 

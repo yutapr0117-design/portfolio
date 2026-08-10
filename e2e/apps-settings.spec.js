@@ -506,3 +506,44 @@ test('Settings add-project form marks the empty name aria-invalid and focuses it
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `settings form error identification caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== 既定プロジェクトの並べ替えが reload を跨いで保持される (normalize round-trip の data-fidelity) =====
+// 上の reorder テストは **ユーザー追加**プロジェクトを **reload なし**で検査している。だが
+// store.js の [FIX] が直した実バグは **既定プロジェクト同士**の並べ替えが **reload 後**に
+// 元の定義順へ silent に戻るというもので、その失敗モードは上のテストでは踏めない
+// (旧実装は `normalizedDefaults` を定義順で再構築し incoming 順を無視していた。user 追加分は
+//  incoming 順で append されるため保持され、**default だけが戻る**という非対称だった)。
+//
+// **localStorage を読んではいけない**: reload 直後の localStorage は「保存済みのバイト列」であって
+//   正規化後の state ではない (アプリは state が変わるまで書き戻さない)。順序を壊す mutation を
+//   当てても localStorage は変わらず、**テストが vacuous になる** (この test の初版が実際そうだった)。
+//   ユーザーが見るのは描画順なので、**DOM の行順**を検査する。
+test('Default-project reorder survives a reload (normalize round-trip)', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1')).toBeVisible();
+
+  const rows = page.locator('div.flex.items-center.justify-between.gap-2');
+  const rowNames = async () => (await rows.allTextContents()).slice(0, 4).map((t) => t.replace(/[\u2191\u2193]/g, '').trim());
+
+  const before = await rowNames();
+  expect(before.length, 'プロジェクト行が読めない').toBeGreaterThan(2);
+
+  // 2 番目の行の「↑」で先頭 2 件を入れ替える (どちらも既定プロジェクト)
+  await rows.nth(1).getByRole('button', { name: '\u2191' }).click();
+
+  // 入れ替えが描画に反映されるまで待つ (ここが動いていないと以降は vacuous)
+  await expect.poll(rowNames, { message: '\u2191 操作が描画順に反映されていない — 以降の検査が vacuous' })
+    .not.toEqual(before);
+  const afterClick = await rowNames();
+
+  await page.reload();
+  await expect(page.locator('#content h1')).toBeVisible();
+
+  // reload 後も **同じ描画順** であること。旧実装ではここで定義順 (= before) へ戻っていた。
+  await expect.poll(rowNames, {
+    message: 'reload の normalize round-trip で既定プロジェクトの並べ替えが失われた',
+  }).toEqual(afterClick);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `reorder reload caused a fatal: ${fatal}`).toBeNull();
+});
