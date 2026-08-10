@@ -95,6 +95,19 @@ Status        : 本 increment で新設。CLAUDE.md（thin router）から参照
   - **同時に張るべき層**: 修正が承認されたら、**Speakable の各セレクタがそのルートで 1 件以上に解決する**ことを behavior e2e で固定する（Check 411 が main.js の `querySelectorAll` に対してやっているのと同じ used⟹defined レンズの Speakable 面）。今は宣言側が壊れているため、**先に Check を入れると恒久 RED になる**ので順序は修正が先。
   - **再現コマンド**: 各ルートで `script[data-ld="speakable"]` を JSON parse し、`speakable.cssSelector` の各要素を `document.querySelectorAll(sel).length` で数える（本記録の数値はこの方法）。
 
+- **観測（未適用・記録のみ）— quiz の `document.title` だけが renderer の fallback を鏡写していない（2026-08-11 実測）:** 無効な `?type=` に対し 3 つの面が別々に fallback を決めている。
+
+  | 面 | `?type=` 空 | `?type=zzz` / `constructor` |
+  | :-- | :-- | :-- |
+  | 描画（quiz-renderer） | AWS 問題集 | **AWS 問題集** |
+  | sidebar nav（components.js） | AWS を active | **AWS を active** |
+  | `document.title`（page-meta.js） | 「AWS問題集」 | **「Quiz」** |
+
+  つまり **同じ AWS 問題集を描画しているのに、空値なら「AWS問題集」・未知値なら「Quiz」** という内部の食い違いがある。`components.js:67` の `[FIX]` は「無効 type で AWS が表示されるのに nav が追従しないのは control↔content desync」と明記して nav を鏡写しに直しており、その原則を title に当てはめれば title も AWS にすべき、という論理は立つ。
+  - **なぜ変更しなかったか（honest）**: 実際に `map.aws` へ変えてみたところ、**#926 の既存テストが `/^Quiz \|/` を正規表現で pin していて 5 件 RED になった**。これは記録された期待値であり、覆すには「'Quiz' だと実害が出る」ことの測定が要る。'Quiz' は生成りの汎用語で**嘘ではない**（実際 quiz ページである）ため、実害を示せていない。**マージンの薄い改善で pinned expectation を覆さない**方を選んだ。
+  - **この件を見つける前に踏んだ失敗**: 変更前に `'Quiz'` / `"Quiz"` をクォート付きで grep して「依存なし」と判断したが、**既存テストは正規表現 `/^Quiz \|/` で pin していた**ため見落とした。検出器の網が狭いと「無い」を誤って結論する（本セッションで 3 回目の同型ミス）。
+  - **適用条件**: オーナーが「タブ名は描画内容と一致すべき」と裁可した場合。その際は page-meta の fallback を `map.aws` にし、#926 のテストの期待値も同時に更新する（片方だけ変えると必ず RED）。
+
 **(B) 適用不要だが検証済み（verify）:** 現物が既に当該標準に準拠しており、変更不要なもの。「変更が無かった」のではなく「現行性を検証した」結果として記録する。これは null result ではなく、現行性・機械可読性を価値とするこのリポジトリにおける成果物である。例（過去 increment）＝robots.txt の granular AI-bot モデル・Node 24・CSP / Trusted Types が 2026 標準に対し現行であることの検証。
 
 - **llms.txt / AI-crawler discoverability の現行性検証（2026-06-28）:** 2026 時点の調査で、(i) llms.txt 採用率は ~10%（18ヶ月後）に留まり、(ii) **AI 検索クローラ（GPTBot/ClaudeBot/PerplexityBot/OAI-SearchBot/Google-Extended）は llms.txt をほぼ fetch せず HTML を直接クロール**（500M bot 訪問中 llms.txt 直叩きは ~408 件）、(iii) Google は非対応を明言・Anthropic/OpenAI/Perplexity も自動読込未コミット、(iv) genuine な実利用は **B2A（Business-to-Agent）= IDE エージェント（Claude Code/Cursor/Windsurf/Copilot/Cline/Aider）が docs サイトで /llms.txt・/llms-full.txt を参照**、と判明。**本リポジトリは既に root の `/llms.txt`+`/llms-full.txt`（標準配置）と、AI 検索クローラが実際に読む HTML 内 structured data（JSON-LD/entity anchor/meta）の二段構えを持ち、調査が示す現実に整合**。新規採用すべき標準/endpoint は無し。低クローラ uptake は §7「`confirmed_citation_events = 0` は by design = 高確率レーンへの早期ポジション」と整合し、本調査がその姿勢の妥当性を 2026 市場データで裏付けた。公開 AIO content はオーナー方針で terminal ゆえ content 変更も行わない＝**verify-currency（apply なし）**。（出典: SE Ranking 採用率調査 / OtterlyAI GEO study / Search Engine Land llms.txt proposal。再調査は本日付以降に標準が動いた場合のみ。）

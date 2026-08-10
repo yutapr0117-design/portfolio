@@ -395,3 +395,44 @@ test('Quiz decorative emoji are hidden from the accessibility tree (WCAG 1.1.1)'
   // ラベルの意味語は AT に残る (絵文字だけを隠し、テキストは隠していないことの確認)
   expect(snapshot).toContain('状況');
 });
+
+// ===== quiz の document.title が **既知の安全な集合** に収まる (title 化け防止の網羅) =====
+// #926 は継承キー ('constructor' 等) で `map[type]` が関数を返し document.title が
+// 「function Object() { [native code] }」に化けるバグを own-key 検証で直した。既存テストは
+// 継承キー 3 種を個別に見ているが、**有効値・空値・未知値まで含めた全域**では見ていない。
+// title はタブ名・履歴・AI クローラが受け取る機械可読面なので、化けると影響が広い。
+//
+// NOTE (実測して分かった仕様・意図的に変更しない): `?type=` が **空** のときは
+//   `route.query.type || 'aws'` で AWS へ落ちるため title は「AWS問題集」になる一方、
+//   `?type=zzz` のような **未知キー**では汎用「Quiz」になる。どちらも描画は AWS 問題集なので
+//   title だけ食い違うが、**'Quiz' は #926 の既存テストが正規表現で pin している記録済みの
+//   期待値**であり、覆すだけの根拠 (実害の測定) が無いためここでは現状を固定する。
+//   3 面 (renderer / sidebar nav / title) のうち title だけ fallback を鏡写していない件は
+//   観測として docs へ残した。
+const QUIZ_TITLE_CASES = [
+  ['aws', 'AWS問題集'],
+  ['pm', 'PM問題集'],
+  ['quality', '品質・プロセス問題集'],
+  ['architecture', '設計判断問題集'],
+  ['', 'AWS問題集'],
+  ['zzz', 'Quiz'],
+  ['constructor', 'Quiz'],
+  ['__proto__', 'Quiz'],
+];
+for (const [type, expectedHead] of QUIZ_TITLE_CASES) {
+  test('Quiz document.title stays in the known-safe set for ?type=' + (type || '(empty)'), async ({ page }) => {
+    await page.goto('/#/quiz?type=' + type, { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#content h1')).toBeVisible();
+
+    await expect.poll(
+      async () => (await page.title()).split(' | ')[0].trim(),
+      { message: `?type=${type || '(empty)'}: document.title の見出し部が期待と違う` }
+    ).toBe(expectedHead);
+
+    // 関数ソースが漏れていないこと (#926 の回帰防止・全ケースで確認する)
+    const title = await page.title();
+    expect(title, 'title に関数ソースが漏れている').not.toContain('native code');
+    expect(title, 'title に function が漏れている').not.toContain('function');
+    expect(title, 'title が [object Object] 化している').not.toContain('[object');
+  });
+}
