@@ -419,12 +419,25 @@ test('Snapshot restore normalizes a foreign-schema/partial snapshot without cras
   await expect(restoreBtn).toBeEnabled();
   await restoreBtn.click();
 
-  // (1) FatalPage crash していない
+  // [FIX 2026-08-10] **順序が逆だった**。復元は State.set → notify → `await yieldToMain()` を挟む
+  //   非同期 render なので、click 直後に `__fatalError` を単発で読むと「まだ crash していない」を
+  //   「crash しない」と誤認する (このリポジトリが記録している absence-assertion race / Check 402 と
+  //   同じ class)。週次 probe が CI でのみ本 test の mutation を SURVIVED と報告した
+  //   (ローカルはフル probe でも 145/145 caught) 事象の、唯一特定できた timing 依存がこれ。
+  //   **先に「描画が成立したこと」を positive assertion で待ってから** fatal を読む。
+  //
+  //   NOTE: fatal 検査に expect.poll は使わない。ここで守るのは「fatal にならない」という
+  //   **不変性**で、poll は最初の観測で成功すると以降の変化を見逃す (§7 の教訓)。
+  //   settle させてから 1 度だけ読むのが正しい。
+
+  // (1) settings が描画され続ける (正規化で projects 等が backfill され render が成立)
+  await expect(page.getByRole('heading', { name: 'Settings' })).toBeVisible();
+  // FatalPage は #fallback-details を持つ。描画が確定した後に「無いこと」を確認する
+  await expect(page.locator('#fallback-details')).toHaveCount(0);
+
+  // (2) FatalPage crash していない (render 確定後に単発で読む)
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `snapshot restore of a partial snapshot caused a fatal render: ${fatal}`).toBeNull();
-
-  // (2) settings が描画され続ける (正規化で projects 等が backfill され render が成立)
-  await expect(page.getByRole('heading', { name: 'Settings' })).toBeVisible();
 });
 
 
