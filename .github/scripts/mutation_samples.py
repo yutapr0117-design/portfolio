@@ -44,6 +44,18 @@ _MUTATIONS_TAIL = [
         "find": "    return { installMediaLifecycleGuard };",
         "replace": "    Element.prototype.__reintroduced = 1;\n    return { installMediaLifecycleGuard };",
     },
+    {
+        # NOTE (honest): この mutation は Check 415 と Check 121 の **両方** を RED にする
+        # (STATUS.md を書き換えるので regenerate-compare も落ちる)。Check 415 が *単独で* 効く
+        # ケース = 「生成器が取りこぼし、その出力で STATUS.md も再生成されたので両者は一致して
+        # いるが監査面は不完全」は **2 ファイル同時の変更**であり find/replace 1 箇所では表現できない。
+        # そのケースの非 vacuity は手動で実証済 (生成器の走査を先頭 800 文字へ戻して `npm run status`
+        # で再生成 → Check 121 は緑のまま Check 415 が RED → 復元で緑)。
+        "name": "Check 415: 定期実行 workflow が監査面から欠落 — STATUS.md から mutation-probe.yml のバッジ行を削る → 週次で走る安全網の自己検証が赤くなってもオーナーに届かない。定期実行は PR を止めないため、STATUS.md の監査節が唯一の気付ける場所であり、そこから漏れると失敗が恒久的に不可視になる",
+        "file": ROOT / "STATUS.md",
+        "find": "- ![mutation-probe.yml](https://github.com/yutapr0117-design/portfolio/actions/workflows/mutation-probe.yml/badge.svg?branch=main)",
+        "replace": "",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。

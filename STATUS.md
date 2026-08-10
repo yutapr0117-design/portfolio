@@ -23,6 +23,12 @@
 
 - ![architecture-validation.yml](https://github.com/yutapr0117-design/portfolio/actions/workflows/architecture-validation.yml/badge.svg?branch=main) — [architecture-validation.yml の実行履歴](https://github.com/yutapr0117-design/portfolio/actions/workflows/architecture-validation.yml)
 - ![playwright-regression.yml](https://github.com/yutapr0117-design/portfolio/actions/workflows/playwright-regression.yml/badge.svg?branch=main) — [playwright-regression.yml の実行履歴](https://github.com/yutapr0117-design/portfolio/actions/workflows/playwright-regression.yml)
+
+**定期実行（PR では走らない）** — 落ちても merge は止まらないので、**赤に気付けるのはここだけ**です。
+
+- ![aio-monitoring.yml](https://github.com/yutapr0117-design/portfolio/actions/workflows/aio-monitoring.yml/badge.svg?branch=main) — [aio-monitoring.yml の実行履歴](https://github.com/yutapr0117-design/portfolio/actions/workflows/aio-monitoring.yml)
+- ![mutation-probe.yml](https://github.com/yutapr0117-design/portfolio/actions/workflows/mutation-probe.yml/badge.svg?branch=main) — [mutation-probe.yml の実行履歴](https://github.com/yutapr0117-design/portfolio/actions/workflows/mutation-probe.yml)
+
 - **全ワークフローの実行履歴**: https://github.com/yutapr0117-design/portfolio/actions
 - **未マージの PR（AI が今出しているもの）**: https://github.com/yutapr0117-design/portfolio/pulls
 - **公開サイト（機能性の目視確認）**: https://yutapr0117-design.github.io/portfolio/

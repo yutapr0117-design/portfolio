@@ -66,6 +66,22 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (og:image resolves) for the AIO-asset-canonical resolution axis.
        (BLOCKING)
 
+  415. `STATUS.md` の監査バッジ節が、**PR ゲート (`pull_request:`) と定期実行
+       (`schedule:`) の両方の workflow を漏れなく載せている**ことを BLOCKING 強制。
+       オーナーの runtime 役割は「制御と監査」で、STATUS.md の監査節がその唯一の
+       導線（スマホから一目で見る面）。ところが定期実行の workflow は **PR を止めない**
+       ため、赤くなっても誰にも届かない — しかもそこに属するのは「他のどの層も見ていない
+       もの」ばかり（安全網そのものの自己検証 = mutation-probe / 公開 AIO 面の週次監視 =
+       aio-monitoring）。実際 2026-08-10 時点で定期実行 2 本はバッジがゼロだった。
+       さらに generate_status.py のトリガ導出は各 workflow の**先頭 800 文字しか見ておらず**、
+       長い WHY コメントヘッダを持つ mutation-probe.yml は `on:` が窓の外に落ちて
+       **導出からも silent に消えていた**（「導出だからハードコードより安全」と書かれた
+       箇所そのものが実態を覆っていなかった = Check 124/411 で踏んだ scope drift の再来）。
+       本 Check は STATUS.md を **generate_status.py と独立に**（workflow を直接 parse して）
+       検証するので、生成器の導出バグ自体を捕捉できる（Check 121 の regenerate-compare は
+       「STATUS.md が生成器の出力と一致するか」しか見ず、生成器が正しいかは見ない）。
+       (BLOCKING)
+
 Exit codes:
   0 — all checks passed
   1 — one or more checks failed (BLOCKING)
@@ -362,3 +378,38 @@ def run(ctx):
     else:
         check(False, "Check 360: index.html present",
               "Check 360: index.html が無い", blocking=True)
+
+    # ── 415. STATUS.md 監査バッジが PR ゲート ∪ 定期実行 の全 workflow を網羅 (BLOCKING) ──
+    # オーナーの runtime 役割は「制御と監査」で、STATUS.md の監査節がその唯一の導線。だが
+    # 定期実行 (schedule) の workflow は PR を止めないため赤くても誰にも届かず、しかもそこに
+    # 属するのは「他のどの層も見ていないもの」ばかり (安全網の自己検証 / 公開 AIO 面の週次監視)。
+    # 本 Check は generate_status.py と **独立に** workflow を直接 parse して照合するので、
+    # 生成器側の導出バグ (先頭 800 文字しか見ず長いコメントヘッダの on: を取りこぼす等) 自体を
+    # 捕捉できる。Check 121 の regenerate-compare は「STATUS.md が生成器の出力と一致するか」
+    # しか見ず、生成器が正しいかは見ないため、この層が別途必要になる。
+    _status415 = (ROOT / "STATUS.md")
+    _wfdir415 = ROOT / ".github" / "workflows"
+    if _status415.exists() and _wfdir415.exists():
+        _status_txt415 = _status415.read_text(encoding="utf-8", errors="replace")
+        _need415 = []
+        for _wf415 in sorted(_wfdir415.glob("*.yml")):
+            _txt415 = _wf415.read_text(encoding="utf-8", errors="replace")
+            _nc415 = "\n".join(_l for _l in _txt415.splitlines() if not _l.lstrip().startswith("#"))
+            _mon415 = re.search(r"^on:\s*$(.*?)(?=^\S)", _nc415, re.M | re.S)
+            _onblock415 = _mon415.group(1) if _mon415 else _nc415
+            if re.search(r"^\s*(pull_request|schedule):", _onblock415, re.M):
+                _need415.append(_wf415.name)
+        _missing415 = [_w for _w in _need415 if f"/actions/workflows/{_w}/badge.svg" not in _status_txt415]
+        check(
+            not _missing415,
+            f"Check 415: STATUS.md 監査バッジが PR ゲート ∪ 定期実行の全 workflow を網羅 ({len(_need415)} 本)",
+            ("Check 415: STATUS.md の監査節にバッジが無い workflow がある: "
+             + ", ".join(_missing415)
+             + " — 定期実行は PR を止めないので、STATUS.md に出ていない workflow は"
+               "赤くなってもオーナーに届かない (安全網の自己検証や週次 AIO 監視がここに属する)。"
+               "`npm run status` で再生成せよ。生成器側の導出が取りこぼしている場合は"
+               "generate_status.py のトリガ走査範囲を疑うこと"),
+            blocking=True,
+        )
+    else:
+        check(False, "", "Check 415: STATUS.md または .github/workflows/ が見つからない", blocking=True)
