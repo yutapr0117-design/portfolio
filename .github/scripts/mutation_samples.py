@@ -696,6 +696,13 @@ _E2E_TAIL = [
         "replace": "            if (!d) { merged.push(p); mergedIds.add(p.id); }",
         "test": "Default-project reorder survives a reload (normalize round-trip)",
     },
+    {
+        "name": "behavior: 無効な ?cat= の正規化喪失 — projects-page.js の `cat` 妥当性チェックを外す → stale bookmark / 削除済みカテゴリの deep-link で <select> は option 不在ゆえ 'All' 表示なのにフィルタは無効値のまま = 「全カテゴリーと表示されているのに 0 件」の control↔content desync (#781 と同族)。既存テストは有効カテゴリの選択と URL 同期しか見ておらず未被覆だった",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "        if (cat !== 'All' && !categories.includes(cat)) { cat = 'All'; }",
+        "replace": "        if (false) { cat = 'All'; }",
+        "test": "An unknown ?cat= deep-link normalizes to All (no control-content desync)",
+    },
 ]
 
 
