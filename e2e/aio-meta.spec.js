@@ -593,3 +593,60 @@ for (const [hash, selector] of SPEAKABLE_ROUTE_SELECTORS) {
     ).not.toHaveCount(0);
   });
 }
+
+// ===== data-ai-state.loading のライフサイクル (agentic な「描画完了」信号) =====
+// `data-ai-state` は {route, filter, loading} を公開する機械可読面。既存テストは route と
+// filter を見ているが、**loading は未被覆**だった。AI エージェントにとって loading は
+// 「今読んで良いか / まだ描画中か」を判断する唯一の信号で、壊れ方は 2 通りある:
+//   (a) `loading:true` が一度も出ない → エージェントは描画中を検知できない
+//   (b) 最後が `loading:true` のまま → **永遠に読み込み中**と誤解して待ち続ける
+// どちらも視覚に一切出ないため screenshot も通常の behavior test も素通りする (#929 class)。
+//
+// NOTE: 属性の**単発読み**では瞬間値を取り逃す (実測: 単発だと常に loading:false しか見えない)。
+//   MutationObserver で **遷移の系列**を記録してから検証する。
+test('data-ai-state exposes a true->false loading lifecycle per route (agentic settle signal)', async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__aiStates = [];
+    const start = () => {
+      const mo = new MutationObserver(() => {
+        const v = document.body.getAttribute('data-ai-state');
+        if (v && window.__aiStates[window.__aiStates.length - 1] !== v) { window.__aiStates.push(v); }
+      });
+      mo.observe(document.body, { attributes: true, attributeFilter: ['data-ai-state'] });
+    };
+    if (document.body) { start(); } else { document.addEventListener('DOMContentLoaded', start); }
+  });
+
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.grid-projects article.card').first()).toBeVisible();
+  await page.goto('/#/quiz', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1')).toBeVisible();
+
+  // 遷移が記録されるまで待つ (0 件なら以降は vacuous)
+  await expect.poll(
+    async () => (await page.evaluate(() => (window.__aiStates || []).length)),
+    { message: 'data-ai-state の変化が 1 度も観測されない — observer が動いておらず以降が vacuous' }
+  ).toBeGreaterThan(1);
+
+  // 最終状態が settle するまで待つ (loading:false で終わること)
+  await expect.poll(async () => {
+    const s = await page.evaluate(() => (window.__aiStates || []).slice(-1)[0] || '');
+    try { return JSON.parse(s).loading; } catch (e) { return null; }
+  }, { message: '最終状態が loading:false にならない (エージェントが永遠に読み込み中と誤解する)' }).toBe(false);
+
+  const states = (await page.evaluate(() => window.__aiStates || [])).map((s) => {
+    try { return JSON.parse(s); } catch (e) { return null; }
+  }).filter(Boolean);
+
+  // (a) 描画中を示す loading:true が実際に公開される
+  expect(
+    states.some((s) => s.loading === true),
+    'loading:true が一度も公開されない (エージェントが描画中を検知できない)'
+  ).toBe(true);
+
+  // (b) true が false より先に現れる (順序が逆なら信号として使えない)
+  const firstTrue = states.findIndex((s) => s.loading === true);
+  const lastFalse = states.map((s) => s.loading).lastIndexOf(false);
+  expect(firstTrue, 'loading:true が見つからない').toBeGreaterThanOrEqual(0);
+  expect(lastFalse, 'loading:true の後に loading:false が来ていない').toBeGreaterThan(firstTrue);
+});

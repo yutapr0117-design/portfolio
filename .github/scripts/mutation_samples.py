@@ -720,6 +720,13 @@ _E2E_TAIL = [
         "replace": "            return map[type] || 'Quiz';",
         "test": "Quiz document.title stays in the known-safe set for ?type=",
     },
+    {
+        "name": "behavior: agentic な描画完了信号の喪失 — main.js の data-ai-state を最終状態も loading:true のままにする → AI エージェントが「永遠に読み込み中」と誤解して待ち続ける。data-ai-state は {route, filter, loading} を公開する機械可読面で、route/filter は既存テストが見ていたが loading のライフサイクルは未被覆だった。視覚に一切出ないため screenshot も通常の behavior test も素通りする",
+        "file": ROOT / "main.js",
+        "find": "                    loading: false",
+        "replace": "                    loading: true",
+        "test": "data-ai-state exposes a true->false loading lifecycle per route",
+    },
 ]
 
 
