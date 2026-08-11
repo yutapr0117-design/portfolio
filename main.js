@@ -680,6 +680,13 @@
             const _restoreFocusId = (!isRouteChange && _prevActive && _prevActive.id
                 && _prevActive !== document.body && _prevActive !== document.documentElement)
                 ? _prevActive.id : null;
+            // テキスト入力ならキャレット位置も控える。id だけ戻しても **キャレットは末尾へ飛ぶ**ため、
+            // 文章の途中を編集している最中に外部要因の再描画 (ポモドーロ完了・AI 応答の到着など) が
+            // 起きると、次に打った 1 文字が末尾へ入る。実測 (#1001): Markdown ノートで caret=3 から
+            // 再描画すると caret=54 (末尾) になり、続きの入力が末尾に着弾した。
+            // selectionStart は number/checkbox 等では null なので typeof で弾く。
+            const _restoreFocusSel = (_restoreFocusId && typeof _prevActive.selectionStart === 'number')
+                ? { start: _prevActive.selectionStart, end: _prevActive.selectionEnd } : null;
 
             // § Agentic State Notification: aria-busy=true でローディング開始を宣言
             if (content) {
@@ -798,7 +805,18 @@
             // input と race して focus を奪った失敗の再発防止で、上の h1 復元と同じ条件を共有する。
             if (_restoreFocusId && _focusWasLost) {
                 const _again = document.getElementById(_restoreFocusId);
-                if (_again) { try { _again.focus({ preventScroll: true }); } catch { /* noop */ } }
+                if (_again) {
+                    try { _again.focus({ preventScroll: true }); } catch { /* noop */ }
+                    // キャレットの復元。値が変わっている可能性があるので長さでクランプする
+                    // (復元できない場合でも末尾のままなので、現状より悪くはならない)。
+                    if (_restoreFocusSel && typeof _again.setSelectionRange === 'function') {
+                        const _len = String(_again.value ?? '').length;
+                        try {
+                            _again.setSelectionRange(Math.min(_restoreFocusSel.start, _len),
+                                Math.min(_restoreFocusSel.end, _len));
+                        } catch { /* type によっては setSelectionRange 不可 */ }
+                    }
+                }
                 // 元の要素へ戻せないケースが 2 つある。どちらも focus は body に残るので、
                 // 「せめて #content の中へ」戻す (ドキュメント先頭からの Tab やり直しを避ける)。
                 //   (1) 対象が消えた — 削除ボタンは自分自身を消すので同じ id は二度と現れない
