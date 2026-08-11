@@ -283,7 +283,7 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                             //   無いと 1 つ切り替えるたび focus が body へ落ち、対象を続けて選べない。
                             h('div', { class: 'grid grid-cols-2 gap-3' },
                                 h('div', {},
-                                    h('label', { class: 'text-sm text-muted' }, 'モード'),
+                                    h('label', { class: 'text-sm text-muted', for: 'settingsImportMode' }, 'モード'),
                                     h('select', { class: 'input', id: 'settingsImportMode', 'aria-label': 'インポートモード', onchange: (e) => { settingsImportMode = e.target.value; window.render(); } },
                                         h('option', { value: 'append', selected: settingsImportMode === 'append' ? true : undefined }, 'append（追加のみ）'),
                                         h('option', { value: 'upsert', selected: settingsImportMode === 'upsert' ? true : undefined }, 'upsert（更新+追加）'),
@@ -291,8 +291,8 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                                     )
                                 ),
                                 h('div', {},
-                                    h('label', { class: 'text-sm text-muted' }, '対象'),
-                                    h('div', { class: 'flex flex-wrap gap-2' },
+                                    h('span', { class: 'text-sm text-muted', id: 'settingsIncludeGroupLabel' }, '対象'),
+                                    h('div', { class: 'flex flex-wrap gap-2', role: 'group', 'aria-labelledby': 'settingsIncludeGroupLabel' },
                                         h('label', { class: 'btn btn-ghost btn-sm' },
                                             h('input', { type: 'checkbox', id: 'settingsIncludeProfile', checked: settingsIncludeProfile, onchange: (e) => { settingsIncludeProfile = !!e.target.checked; window.render(); } }),
                                             h('span', { class: 'icon-gap' }, 'Profile')
@@ -398,7 +398,7 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                                     h('input', { id: 'settingsNewTech', class: 'input', placeholder: '例: JS,HTML,CSS', value: settingsNewTech, oninput: (e) => { settingsNewTech = e.target.value; } })
                                 ),
                                 h('div', {},
-                                    h('label', { class: 'text-sm text-muted' }, 'Demo（任意）'),
+                                    h('label', { class: 'text-sm text-muted', for: 'settingsNewDemo' }, 'Demo（任意）'),
                                     h('select', { class: 'input', id: 'settingsNewDemo', 'aria-label': 'Demo アプリの種類', onchange: (e) => { settingsNewDemo = e.target.value; } },
                                         h('option', { value: '', selected: settingsNewDemo === '' ? true : undefined }, 'Demoなし'),
                                         h('option', { value: 'task', selected: settingsNewDemo === 'task' ? true : undefined }, 'task'),

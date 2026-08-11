@@ -947,6 +947,20 @@ _E2E_TAIL = [
         "replace": "h('article', { class: 'card' },",
         "test": "アプリ一覧がリストとしてアナウンスされる",
     },
+    {
+        "name": "behavior: ポモドーロ設定ラベルの for 結線が失われる (#1014 の回帰) — ラベル文字をクリック/タップしても入力欄が活性化せず、タップ標的も入力欄だけに縮む。入力欄側に aria-label があるため **axe は緑のまま** (axe は『label 要素が孤立していること』をルール化していない)",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": ", for: 'pomo-setting-long' }, '長休憩'),",
+        "replace": " }, '長休憩'),",
+        "test": "ポモドーロはラベル文字のクリックで入力欄が活性化する",
+    },
+    {
+        "name": "behavior: Settings の checkbox グループ名が宙に浮いた label へ戻る (#1014 の回帰) — 「対象」は 3 つの checkbox をまとめるグループ名で、単一 control を指す for は使えない。label のままだとどの control にも結び付かず、グループとしての関連付けも失われる",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "h('span', { class: 'text-sm text-muted', id: 'settingsIncludeGroupLabel' }, '対象'),",
+        "replace": "h('label', { class: 'text-sm text-muted' }, '対象'),",
+        "test": "Settings に宙に浮いた label が無い",
+    },
 ]
 
 
