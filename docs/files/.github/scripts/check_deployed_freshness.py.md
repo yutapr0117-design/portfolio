@@ -15,7 +15,8 @@ canonical-ref: .github/workflows/aio-monitoring.yml / .github/scripts/generate_s
 1. **版数の一致**: `main.js` の `SITE_CONFIG.VERSION` / `LAST_UPDATED` と、公開 `index.html` の
    `<meta name="ai:version">` / `<meta name="ai:last-modified">` を比較。
 2. **資産の到達性**: 公開 `index.html` が宣言している同一オリジンの参照（`href` / `src` / 絶対 URL の
-   `meta content`）と、`.well-known/` 配下の tracked file を**すべて実際に GET** して 200 を確認。
+   `meta content`）と、`.well-known/` 配下の tracked file と、**公開 `sitemap.xml` の `<loc>`** を
+   すべて実際に GET して 200 を確認（2026-08-11 時点で 62 件）。
 
 いずれも食い違えば exit 1。
 
@@ -50,6 +51,17 @@ canonical-ref: .github/workflows/aio-monitoring.yml / .github/scripts/generate_s
 `index.html` から参照されていない —— **参照グラフからは辿れないが 404 になれば致命的**という、
 canary として最も価値のある位置にある。
 
+### sitemap の `<loc>` を別枠にしている理由（`.md` が raw で配信される契約の canary）
+
+**Jekyll は `.md` を HTML へ変換して URL を変えてしまう**（`README.md` → `README.html`）。つまり
+`.nojekyll` が失われると **sitemap が指す `.md` が軒並み 404 になる** —— dot-directory が消えるのとは
+**別の経路**の失敗である。しかも sitemap には `AI2AI.md` / `README.md` /
+`docs/evidence/real-work-claims.md` など **AI クローラ向けの権威面**が並んでおり、これが届かなく
+なることは中核賭け金の毀損に直結する。
+
+リポジトリ側は **Check 386** が「`<loc>` が実在ファイルへ解決する」ことを既に強制している。
+ここで測るのは *配信されているか* という別の層（**存在 ≠ 配信**）。
+
 ## How (usage)
 
 ```
@@ -58,7 +70,7 @@ python3 .github/scripts/check_deployed_freshness.py
     ai:version       = 'v74'  (repo: 'v74')
     ai:last-modified = '2026-05-31'  (repo: '2026-05-31')
     OK: 公開サイトはリポジトリと同じ版を配信している
-    OK: 公開サイトが宣言している資産 54 件がすべて 200 で配信されている
+    OK: 公開サイトが宣言している資産 62 件 (index.html の参照 ∪ .well-known ∪ sitemap の <loc>) がすべて 200 で配信されている
 ```
 
 週次 `aio-monitoring.yml` の**最初のステップ**として走る（API キー切れ等で後段がスキップされても
