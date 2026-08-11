@@ -153,6 +153,33 @@ def _same_origin_refs(html, base):
     return out
 
 
+def _sitemap_locs(base):
+    """公開 sitemap.xml が宣言している URL を集める。
+
+    WHY 別枠にするか — **`.md` が raw で配信される契約の canary** だから。
+    Jekyll は `.md` を HTML へ変換して URL を変えてしまう (`README.md` → `README.html`) ので、
+    `.nojekyll` が失われると **sitemap が指す `.md` が軒並み 404 になる**。これは
+    `.well-known/` が消える dot-directory の失敗とは別の経路で、しかも sitemap には
+    `AI2AI.md` / `README.md` / `docs/evidence/real-work-claims.md` など **AI クローラ向けの
+    権威面**が並んでいる = このプロジェクトの中核賭け金が丸ごと届かなくなる。
+
+    リポジトリ側は Check 386 が「`<loc>` が実在ファイルへ解決する」ことを既に強制している。
+    ここで測るのは *配信されているか* という別の層 (存在 ≠ 配信)。
+    """
+    try:
+        req = urllib.request.Request(base + "sitemap.xml", headers={
+            "Cache-Control": "no-cache",
+            "User-Agent": "portfolio-deployed-freshness-check",
+        })
+        with urllib.request.urlopen(req, timeout=30) as r:
+            xml = r.read().decode("utf-8", "replace")
+    except Exception as e:  # noqa: BLE001
+        print(f"::error::公開 sitemap.xml を取得できない ({type(e).__name__}: {e})", flush=True)
+        return ["sitemap.xml"]  # 到達不能そのものを違反として下流に流す
+    # `<image:loc>` ではなくページの `<loc>` のみ。fragment はサーバへ送られないので落とす。
+    return [loc.split("#")[0] for loc in re.findall(r"<loc>([^<]+)</loc>", xml)]
+
+
 def _check_assets(html):
     """**宣言されている資産が実際に配信されているか**を測る。
 
@@ -161,7 +188,7 @@ def _check_assets(html):
     一部のパスだけが 404 になっても、全ゲートが緑のまま公開面だけが壊れる。
     """
     base = _site_url()
-    targets = _same_origin_refs(html, base) + _wellknown_paths()
+    targets = _same_origin_refs(html, base) + _wellknown_paths() + _sitemap_locs(base)
     seen, bad = set(), []
     for ref in targets:
         url = urljoin(base, ref)
@@ -190,7 +217,8 @@ def _check_assets(html):
               "見ないのでこの失敗は全ゲート緑のまま起きる", flush=True)
         return 1
 
-    print(f"OK: 公開サイトが宣言している資産 {len(seen)} 件がすべて 200 で配信されている")
+    print(f"OK: 公開サイトが宣言している資産 {len(seen)} 件 "
+          "(index.html の参照 ∪ .well-known ∪ sitemap の <loc>) がすべて 200 で配信されている")
     return 0
 
 
