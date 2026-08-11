@@ -884,6 +884,20 @@ _E2E_TAIL = [
         "replace": "                    if (false && _restoreFocusSel && typeof _again.setSelectionRange === 'function') {",
         "test": "Markdown ノート編集中の再描画でもキャレットが保たれる",
     },
+    {
+        "name": "behavior: @media print が丸ごと無効化される — 印刷時にナビ chrome が残り、暗色テーマのまま紙に出る。screenshot は screen media で撮るので到達せず、consistency は CSS の存在しか見ないため、この spec を書くまで捕捉層がゼロだった (#133/#134/#135 と同じ silent-critical class)",
+        "file": ROOT / "style.css",
+        "find": "        @media print {",
+        "replace": "        @media print-disabled {",
+        "test": "印刷時はナビ chrome が消え、本文が全幅で横あふれしない",
+    },
+    {
+        "name": "behavior: 印刷時の外部リンク URL 併記が失われる — 紙にはクリックできる要素が無いので、リンク先が本文に出ていないと参照できない。視覚 (screen) には一切出ないため print emulation 以外では観測できない",
+        "file": ROOT / "style.css",
+        "find": '                content: " (" attr(href) ")";',
+        "replace": '                content: "";',
+        "test": "印刷時は外部リンクの URL が紙面に併記される",
+    },
 ]
 
 

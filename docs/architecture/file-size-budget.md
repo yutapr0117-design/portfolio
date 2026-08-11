@@ -106,6 +106,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/fatal.spec.js` | 60 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/focus-regression.spec.js` | 58 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/navigation-a11y.spec.js` | 323 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/print.spec.js` | 75 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/portfolio.spec.js` | 44 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/projects.spec.js` | 698 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/quiz.spec.js` | 336 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
@@ -383,6 +384,7 @@ e2e/drawer.spec.js | 900 | advisory
 e2e/fatal.spec.js | 900 | advisory
 e2e/focus-regression.spec.js | 900 | advisory
 e2e/navigation-a11y.spec.js | 900 | advisory
+e2e/print.spec.js | 900 | advisory
 e2e/portfolio.spec.js | 900 | advisory
 e2e/projects.spec.js | 900 | advisory
 e2e/quiz.spec.js | 900 | advisory
