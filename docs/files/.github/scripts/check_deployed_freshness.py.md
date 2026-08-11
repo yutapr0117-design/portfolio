@@ -9,9 +9,15 @@ canonical-ref: .github/workflows/aio-monitoring.yml / .github/scripts/generate_s
 
 ## What
 
-公開サイト（GitHub Pages）が**リポジトリと同じ版を配信しているか**を検証するスクリプト。
-`main.js` の `SITE_CONFIG.VERSION` / `LAST_UPDATED` と、公開 `index.html` の
-`<meta name="ai:version">` / `<meta name="ai:last-modified">` を比較し、食い違えば exit 1。
+公開サイト（GitHub Pages）が**リポジトリと同じ版を配信しているか**、そして**宣言している資産が
+実際に配信されているか**を検証するスクリプト。2 つのパスから成る。
+
+1. **版数の一致**: `main.js` の `SITE_CONFIG.VERSION` / `LAST_UPDATED` と、公開 `index.html` の
+   `<meta name="ai:version">` / `<meta name="ai:last-modified">` を比較。
+2. **資産の到達性**: 公開 `index.html` が宣言している同一オリジンの参照（`href` / `src` / 絶対 URL の
+   `meta content`）と、`.well-known/` 配下の tracked file を**すべて実際に GET** して 200 を確認。
+
+いずれも食い違えば exit 1。
 
 ## Why
 
@@ -31,6 +37,19 @@ canonical-ref: .github/workflows/aio-monitoring.yml / .github/scripts/generate_s
 リポジトリが本体でサイトは付属物という位置づけでも、機能性（loads / displays / comprehensible）は
 死守する契約（`CLAUDE.md` §3(B)）なので、配信の陳腐化は検出できなければならない。
 
+### 資産の到達性を別パスにしている理由（`.nojekyll` の canary）
+
+**GitHub Pages の Jekyll 処理は `.` / `_` で始まるディレクトリを配信対象から落とす。** つまり
+`.nojekyll` が失われると **`.well-known/` が丸ごと 404 になる** —— このプロジェクトの中核賭け金で
+ある AIO 層が、リポジトリには存在したまま公開面からだけ消える。リポジトリ側の Check は
+`.nojekyll` という *file の存在* を見るだけで *その効果* は見ていないので、この失敗も
+**全ゲート緑のまま**起きる。
+
+`.well-known/` 配下は `git ls-files` から**導出**する（ハードコードすると追加時に drift する）。
+2026-08-11 時点で 7 件で、うち `.well-known/agent-skills/index.json` と `.well-known/mcp.json` は
+`index.html` から参照されていない —— **参照グラフからは辿れないが 404 になれば致命的**という、
+canary として最も価値のある位置にある。
+
 ## How (usage)
 
 ```
@@ -39,6 +58,7 @@ python3 .github/scripts/check_deployed_freshness.py
     ai:version       = 'v74'  (repo: 'v74')
     ai:last-modified = '2026-05-31'  (repo: '2026-05-31')
     OK: 公開サイトはリポジトリと同じ版を配信している
+    OK: 公開サイトが宣言している資産 54 件がすべて 200 で配信されている
 ```
 
 週次 `aio-monitoring.yml` の**最初のステップ**として走る（API キー切れ等で後段がスキップされても
