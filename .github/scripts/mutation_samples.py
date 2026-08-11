@@ -919,6 +919,13 @@ _E2E_TAIL = [
         "replace": "        if (false) {",
         "test": "開いている詳細ページのプロジェクトを削除しても FatalPage にならない",
     },
+    {
+        "name": "behavior: 読み物ページの節タイトルが見出し要素でなくなる (#1011 の回帰) — 4,000 文字・9 セクションの本文に見出しが H1 の 1 個だけになり、スクリーンリーダーの見出しジャンプで一切辿れない。axe は『長い本文に小見出しが無い』をルール化していないので a11y スキャンは緑のまま",
+        "file": ROOT / "js" / "ai-knowhow-page.js",
+        "find": "                h('h2', { class: 'text-head-lg' }, title)",
+        "replace": "                h('span', { class: 'text-head-lg' }, title)",
+        "test": "読み物ページの節タイトルが実際の見出し要素である",
+    },
 ]
 
 

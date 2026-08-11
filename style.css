@@ -2040,7 +2040,10 @@
         .text-sm-bold { font-weight: 600; font-size: 0.875rem; }
 
         /* 1.0625rem bold heading */
-        .text-head-lg { font-weight: 700; font-size: 1.0625rem; }
+        /* [A11Y] 節見出しを h2 で出すため (#1011)、見出し要素の既定タイポグラフィ
+           (詰まった line-height / 負の letter-spacing) を継承へ戻し、span だったときと
+           **描画を完全に一致**させる。span で使っている箇所は元から inherit 相当なので無影響。 */
+        .text-head-lg { font-weight: 700; font-size: 1.0625rem; line-height: inherit; letter-spacing: inherit; }
 
         /* Row flex no-wrap gap-8 (no margin-bottom) */
         .row-gap-8-nm { display: flex; align-items: center; gap: 8px; }
