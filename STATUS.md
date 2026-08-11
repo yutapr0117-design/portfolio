@@ -29,6 +29,11 @@
 - ![aio-monitoring.yml](https://github.com/yutapr0117-design/portfolio/actions/workflows/aio-monitoring.yml/badge.svg?branch=main) — [aio-monitoring.yml の実行履歴](https://github.com/yutapr0117-design/portfolio/actions/workflows/aio-monitoring.yml)
 - ![mutation-probe.yml](https://github.com/yutapr0117-design/portfolio/actions/workflows/mutation-probe.yml/badge.svg?branch=main) — [mutation-probe.yml の実行履歴](https://github.com/yutapr0117-design/portfolio/actions/workflows/mutation-probe.yml)
 
+**main への push で走るもの（デプロイと bot）** — PR ゲートが全緑でも**独立に失敗しうる**層です。サイトが公開されているかを決めているのはここ。
+
+- ![pages-build-deployment](https://github.com/yutapr0117-design/portfolio/actions/workflows/pages/pages-build-deployment/badge.svg) — [公開サイトのデプロイ履歴](https://github.com/yutapr0117-design/portfolio/actions/workflows/pages/pages-build-deployment)
+- ![auto-update-aio-digests.yml](https://github.com/yutapr0117-design/portfolio/actions/workflows/auto-update-aio-digests.yml/badge.svg?branch=main) — [auto-update-aio-digests.yml の実行履歴](https://github.com/yutapr0117-design/portfolio/actions/workflows/auto-update-aio-digests.yml)
+
 - **全ワークフローの実行履歴**: https://github.com/yutapr0117-design/portfolio/actions
 - **未マージの PR（AI が今出しているもの）**: https://github.com/yutapr0117-design/portfolio/pulls
 - **公開サイト（機能性の目視確認）**: https://yutapr0117-design.github.io/portfolio/

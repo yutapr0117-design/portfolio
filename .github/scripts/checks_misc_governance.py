@@ -84,7 +84,16 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 
 Exit codes:
   0 — all checks passed
-  1 — one or more checks failed (BLOCKING)
+  1 — one or more checks failed
+       2026-08-11 に対象を **PR ゲート ∪ 定期実行 ∪ main への push** へ拡張した。push だけで
+       起動する class は merge 済みの main に対して走るため **PR ゲートが全緑でも独立に失敗**
+       しうるのに、失敗が PR を止めないので誰にも届かない (実例 #252: bot の digest ロジックの
+       欠陥が毎週 manifest↔binary を desync させ、次の PR が赤くなって初めて発覚 = 発生から
+       発覚まで 1 週間)。さらに **GitHub 管理の `pages-build-deployment`** をリテラルで要求する。
+       これはリポジトリに file が無いので `.github/workflows/*.yml` の走査には絶対に出てこないが、
+       **サイトが公開されているかを決めているのはこの 1 本**で、全 PR ゲートが緑でもこれだけ
+       落ちればサイトは古いまま残る。導出できないものを導出漏れのまま放置するより、由来を
+       明記して固定する方が honest。(BLOCKING)
 """
 import re
 import json
@@ -397,18 +406,27 @@ def run(ctx):
             _nc415 = "\n".join(_l for _l in _txt415.splitlines() if not _l.lstrip().startswith("#"))
             _mon415 = re.search(r"^on:\s*$(.*?)(?=^\S)", _nc415, re.M | re.S)
             _onblock415 = _mon415.group(1) if _mon415 else _nc415
-            if re.search(r"^\s*(pull_request|schedule):", _onblock415, re.M):
+            # push (main) だけで起動する class も含める。merge 済みの main に対して走るため
+            # PR ゲートが全緑でも独立に失敗しうるのに、失敗が PR を止めないので誰にも届かない
+            # (実例 #252: bot の digest ロジックの欠陥が毎週 desync を起こし、次の PR が
+            # 赤くなって初めて発覚した = 発生から発覚まで 1 週間)。
+            if re.search(r"^\s*(pull_request|schedule|push):", _onblock415, re.M):
                 _need415.append(_wf415.name)
         _missing415 = [_w for _w in _need415 if f"/actions/workflows/{_w}/badge.svg" not in _status_txt415]
+        # GitHub 管理の dynamic workflow はリポジトリに file が無いので上の走査には絶対に
+        # 出てこない。だが **サイトが公開されているかを決めているのはこれ 1 本**で、全 PR ゲートが
+        # 緑でもこれだけ落ちればサイトは古いまま残る。導出できないものは由来を明記して固定する。
+        if "/actions/workflows/pages/pages-build-deployment/badge.svg" not in _status_txt415:
+            _missing415 = _missing415 + ["pages-build-deployment (GitHub 管理・公開サイトのデプロイ本体)"]
         check(
             not _missing415,
-            f"Check 415: STATUS.md 監査バッジが PR ゲート ∪ 定期実行の全 workflow を網羅 ({len(_need415)} 本)",
+            f"Check 415: STATUS.md 監査バッジが PR ゲート ∪ 定期実行 ∪ main への push の全 workflow を網羅 ({len(_need415)} 本 + Pages デプロイ)",
             ("Check 415: STATUS.md の監査節にバッジが無い workflow がある: "
              + ", ".join(_missing415)
-             + " — 定期実行は PR を止めないので、STATUS.md に出ていない workflow は"
-               "赤くなってもオーナーに届かない (安全網の自己検証や週次 AIO 監視がここに属する)。"
-               "`npm run status` で再生成せよ。生成器側の導出が取りこぼしている場合は"
-               "generate_status.py のトリガ走査範囲を疑うこと"),
+             + " — 定期実行と main への push は PR を止めないので、STATUS.md に出ていない workflow は"
+               "赤くなってもオーナーに届かない (安全網の自己検証 / 週次 AIO 監視 / **公開サイトの"
+               "デプロイ本体** がここに属する)。`npm run status` で再生成せよ。生成器側の導出が"
+               "取りこぼしている場合は generate_status.py のトリガ走査範囲を疑うこと"),
             blocking=True,
         )
     else:

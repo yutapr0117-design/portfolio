@@ -67,6 +67,7 @@ def build_status() -> str:
     site_url = m_site.group(0) if m_site else ""
     gate_workflows = []
     scheduled_workflows = []
+    push_workflows = []
     wf_dir = ROOT / ".github" / "workflows"
     if wf_dir.exists():
         for wf in sorted(wf_dir.glob("*.yml")):
@@ -95,6 +96,16 @@ def build_status() -> str:
             # 監査面から丸ごと欠けている CI の class があってはならない。
             if re.search(r"^\s*schedule:", head, re.M):
                 scheduled_workflows.append(wf.name)
+            # push (main) だけで起動する = PR でも定期でもない第 3 の class。
+            # WHY 別枠にするか: このクラスは **merge 済みの main に対して走る**ので、PR ゲートが
+            # 全緑でも独立に失敗しうる。しかも失敗しても PR を止めないので誰にも届かない。
+            # 実例として auto-update-aio-digests.yml は bot が main へ直 push する経路で、
+            # 2026-06-22 (#252) にその digest ロジックの欠陥が **毎週 manifest↔binary を desync させ、
+            # 次の PR を BLOCKING で赤化する**という形で初めて表面化した。赤の発生から発覚まで
+            # 1 週間かかったのは、この class に監査導線が無かったからである。
+            if (re.search(r"^\s*push:", head, re.M)
+                    and wf.name not in gate_workflows and wf.name not in scheduled_workflows):
+                push_workflows.append(wf.name)
     audit_lines = []
     if slug:
         for wf in gate_workflows:
@@ -115,6 +126,28 @@ def build_status() -> str:
                     f"— [{wf} の実行履歴](https://github.com/{slug}/actions/workflows/{wf})"
                 )
             audit_lines.append("")
+        # main への push で走るもの = デプロイ本体と bot。PR ゲートとも定期実行とも別の class。
+        # WHY pages-build-deployment をここに混ぜるか: **これはリポジトリ内に file が無い**
+        # (GitHub 管理の dynamic workflow) ので `.github/workflows/*.yml` の走査では絶対に
+        # 出てこない。しかしオーナーが最も知りたい「サイトは今ちゃんと公開されているか」を
+        # 決めているのはこれ 1 本であり、**全 PR ゲートが緑でもこれだけ落ちればサイトは古いまま**
+        # になる。導出できないものを導出漏れのまま放置するより、由来を明記して足す方が honest。
+        # badge URL は GitHub Actions API の `badge_url` が返す形と同一 (実測で確認済み)。
+        audit_lines.append(
+            "**main への push で走るもの（デプロイと bot）** — PR ゲートが全緑でも"
+            "**独立に失敗しうる**層です。サイトが公開されているかを決めているのはここ。"
+        )
+        audit_lines.append("")
+        audit_lines.append(
+            f"- ![pages-build-deployment](https://github.com/{slug}/actions/workflows/pages/pages-build-deployment/badge.svg) "
+            f"— [公開サイトのデプロイ履歴](https://github.com/{slug}/actions/workflows/pages/pages-build-deployment)"
+        )
+        for wf in push_workflows:
+            audit_lines.append(
+                f"- ![{wf}](https://github.com/{slug}/actions/workflows/{wf}/badge.svg?branch=main) "
+                f"— [{wf} の実行履歴](https://github.com/{slug}/actions/workflows/{wf})"
+            )
+        audit_lines.append("")
         audit_lines.append(f"- **全ワークフローの実行履歴**: https://github.com/{slug}/actions")
         audit_lines.append(f"- **未マージの PR（AI が今出しているもの）**: https://github.com/{slug}/pulls")
         if site_url:
