@@ -217,3 +217,61 @@ test('a11y axe: ダークテーマの全ルートに render-neutral critical 違
   }
   expect(offenders, `ダークテーマの render-neutral a11y violations: ${JSON.stringify(offenders)}`).toHaveLength(0);
 });
+
+// ===== ユーザー設定メディアの実効性 (forced-colors / prefers-contrast) =====
+// style.css には `@media (forced-colors: active)` と `@media (prefers-contrast: more)` があるが、
+// **この 2 つを検証している層が一つも無かった**:
+//   - screenshot は通常モードで撮るので、どちらのブロックにも到達しない (かつ ADVISORY)
+//   - Check 101 は forced-colors ブロックの **存在** を静的に強制するだけで、効果は見ない
+//   - prefers-contrast は静的にも動的にも無被覆だった
+// つまりブロックを丸ごと消しても全ゲートが緑のまま通る。どちらも Windows ハイコントラスト
+// モードや弱視のユーザーにだけ効く面なので、壊れても開発者の画面には一切現れない。
+//
+// 対象は **button** で測る。`<select>` に programmatic focus すると `:focus-visible` が
+// マッチせず (実測)、何を測っているのか分からなくなる。
+async function focusRing(page) {
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+  return page.evaluate(() => {
+    const btn = document.querySelector('#content button');
+    btn.focus();
+    const cs = getComputedStyle(btn);
+    const rs = getComputedStyle(document.documentElement);
+    return {
+      matchesFocusVisible: btn.matches(':focus-visible'),
+      outlineColor: cs.outlineColor,
+      outlineWidth: cs.outlineWidth,
+      border: rs.getPropertyValue('--border-color').trim(),
+      muted: rs.getPropertyValue('--text-muted').trim(),
+    };
+  });
+}
+
+test('ハイコントラストモードでフォーカスリングが system color になる (WCAG 1.4.1)', async ({ page }) => {
+  await page.emulateMedia({ forcedColors: 'active' });
+  const s = await focusRing(page);
+
+  expect(s.matchesFocusVisible, 'そもそも :focus-visible が当たっていない (測定対象が誤り)').toBe(true);
+  // 壊れ方の実測: フォールバックが無いと Chromium はブランド色を強制変換して
+  // `rgba(5, 0, 73, 0.8)` = **半透明** の暗い青を描く。HCM で最も困る「薄くて見えない」状態。
+  expect(s.outlineColor, `HCM でフォーカスリングが半透明になっている (${s.outlineColor}) — `
+    + 'system color (CanvasText) の不透明な outline を補う必要がある').not.toContain('rgba');
+  expect(s.outlineWidth, 'HCM でのフォーカスリングの太さが宣言と違う').toBe('2px');
+});
+
+test('高コントラスト設定で境界線と補助テキストが濃くなる (WCAG 1.4.11)', async ({ page }) => {
+  const normal = await focusRing(page);
+  await page.emulateMedia({ contrast: 'more' });
+  const more = await focusRing(page);
+
+  // 具体値をハードコードせず「通常時より変わっていること」で表現する
+  // (ブランド色や token の値を変えたときに、意味のない false RED を出さないため)。
+  expect(more.border, `高コントラスト設定で --border-color が変わっていない (${more.border})`)
+    .not.toBe(normal.border);
+  expect(more.muted, `高コントラスト設定で --text-muted が変わっていない (${more.muted})`)
+    .not.toBe(normal.muted);
+  // 補助テキストは境界線と同じ濃さまで寄せる設計 (薄いグレーのままだと読めない)
+  expect(more.muted).toBe(more.border);
+  expect(parseFloat(more.outlineWidth), 'フォーカスリングが太くなっていない')
+    .toBeGreaterThan(parseFloat(normal.outlineWidth));
+});
