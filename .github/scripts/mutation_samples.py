@@ -933,6 +933,20 @@ _E2E_TAIL = [
         "replace": "                    sHeader.appendChild(h(\"div\", { class: \"quiz-section-icon\", 'aria-hidden': 'true' }, \"\U0001F4DD\"));\n                    sHeader.appendChild(h(\"div\", { class: \"quiz-section-title\" }, section));",
         "test": "quiz の章題が実際の見出し要素である",
     },
+    {
+        "name": "behavior: プロジェクト一覧のリスト意味論が失われる (#1013 の回帰) — 18 件の同列カードが SR に「リスト・18 項目」とアナウンスされなくなり、リスト単位のジャンプ操作も効かなくなる。視覚には一切出ないので screenshot でも通常の behavior test でも捕捉できない",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "            gridContainer.setAttribute('role', 'list');",
+        "replace": "            void 0;",
+        "test": "プロジェクト一覧がリストとしてアナウンスされる",
+    },
+    {
+        "name": "behavior: アプリ一覧の listitem が失われる (#1013 の回帰) — role=list の中身が listitem でなくなり、項目数のアナウンスもリスト内移動も壊れる (axe の aria-required-children でも捕捉されうるが、こちらは項目数の一致まで見る)",
+        "file": ROOT / "js" / "components.js",
+        "find": "h('article', { class: 'card', role: 'listitem' },",
+        "replace": "h('article', { class: 'card' },",
+        "test": "アプリ一覧がリストとしてアナウンスされる",
+    },
 ]
 
 

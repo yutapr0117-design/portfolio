@@ -334,3 +334,39 @@ test('quiz の章題が実際の見出し要素である', async ({ page }) => {
 test('ai-knowhow の節タイトルが実際の見出し要素である', async ({ page }) => {
   assertLongReadStructure(await measureLongRead(page, '#/ai-knowhow', 'AI開発ノウハウ'), '#/ai-knowhow', 2000);
 });
+
+// ===== 同列カードの集合にリスト意味論があること (WCAG 1.3.1) =====
+// 実測 (#1013) で、全ルートに `ul` / `ol` / `role=list` が **1 つも無かった**。
+// projects は 18 件、apps は 5 件の同列カードが並ぶのに、スクリーンリーダーは
+// 「リスト・18 項目」とアナウンスできず、リスト単位のジャンプ操作も効かない。
+//
+// **`<ul>` へ置き換えず ARIA ロールで与える**のが要点。grid レイアウトの `display` を
+// 変えないので描画は構造上不変で、`<li>` 化して `display:list-item` とマーカーが入り
+// grid が崩れる、という副作用も無い。
+async function listSemantics(page, hash, heading) {
+  await page.goto(`/${hash}`, { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: heading })).toBeVisible();
+  return page.evaluate(() => {
+    const list = document.querySelector('#content [role="list"]');
+    return {
+      hasList: !!list,
+      items: list ? list.querySelectorAll(':scope > [role="listitem"]').length : 0,
+      cards: document.querySelectorAll('#content article').length,
+    };
+  });
+}
+
+test('プロジェクト一覧がリストとしてアナウンスされる', async ({ page }) => {
+  const s = await listSemantics(page, '#/projects', 'プロジェクト一覧');
+  expect(s.hasList, 'カードの集合にリスト意味論が無い — SR が「リスト・N 項目」を伝えられない').toBe(true);
+  // control: そもそもカードが並んでいることを確かめる (0 件なら何も検証していない)
+  expect(s.cards, 'カードが 1 枚も無い — この test の前提が崩れている').toBeGreaterThanOrEqual(5);
+  expect(s.items, `listitem の数 (${s.items}) がカード数 (${s.cards}) と一致しない`).toBe(s.cards);
+});
+
+test('アプリ一覧がリストとしてアナウンスされる', async ({ page }) => {
+  const s = await listSemantics(page, '#/apps', 'アプリ');
+  expect(s.hasList, 'カードの集合にリスト意味論が無い').toBe(true);
+  expect(s.cards, 'カードが 1 枚も無い — この test の前提が崩れている').toBeGreaterThanOrEqual(3);
+  expect(s.items, `listitem の数 (${s.items}) がカード数 (${s.cards}) と一致しない`).toBe(s.cards);
+});
