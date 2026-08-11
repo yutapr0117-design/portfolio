@@ -1,4 +1,18 @@
 const { test, expect } = require('@playwright/test');
+
+// ===== 通知の検証は sr-only の通知領域で行う (toast は 3 秒で自動消滅する) =====
+// [FIX] `#toast-container` のテキストを待つ assertion は **CI 負荷で間欠 RED** になる。
+//   Toast は `duration = 3000ms` で自動消滅するため、import / snapshot のような重い操作の
+//   あとに読むと「出て、消えたあと」に評価されうる (実測 #1018: CI で
+//   `インポートが完了しました` が element(s) not found で落ち、ローカル 3/3 + CI 再実行では緑)。
+//   `Toast.show` は必ず `announce(message)` で `#action-announcement` にも同じ文言を書き、
+//   そちらは **次の通知まで消えない**。通知チャネルは #901 でこの sr-only 領域へ一本化済みで
+//   (Check 407 が単一 writer を強制)、こちらを見るのが意味論的にも正しい。
+//   視覚 toast そのものの表示は apps-pomodoro.spec.js 側で引き続き検証している。
+async function expectNotified(page, text) {
+  await expect(page.locator('#action-announcement')).toContainText(text);
+}
+
 const fs = require('fs');
 
 
@@ -96,7 +110,7 @@ test('AI history strings are length-bounded on normalize ingestion (#230 class)'
   await page.waitForLoadState('domcontentloaded');
   const normSection = page.locator('section.card').filter({ has: page.getByRole('heading', { name: '整合性チェック / 正規化' }) });
   await normSection.getByRole('button', { name: '実行' }).click();
-  await expect(page.locator('#toast-container').getByText('正規化を完了しました')).toBeVisible();
+  await expectNotified(page, '正規化を完了しました');
 
   // 正規化後、ai.history の prompt/response が AI_MESSAGE(5000) 以下へ bound されている。
   // 保存は debounce (scheduleSave) されるため expect.poll で localStorage 反映を待つ。
@@ -244,7 +258,7 @@ test('Settings JSON import (upsert) adds a new project and preserves profile fie
     mimeType: 'application/json',
     buffer: Buffer.from(JSON.stringify(payload)),
   });
-  await expect(page.locator('#toast-container').getByText('インポートが完了しました')).toBeVisible();
+  await expectNotified(page, 'インポートが完了しました');
 
   // (1) #192 guard: upsert で新規 project が破棄されず公開一覧に追加される
   await page.goto('/#/projects');
@@ -286,7 +300,7 @@ test('Settings strict import of malformed projects stays graceful (untested inge
     mimeType: 'application/json',
     buffer: Buffer.from(JSON.stringify(payload)),
   });
-  await expect(page.locator('#toast-container').getByText('インポートが完了しました')).toBeVisible();
+  await expectNotified(page, 'インポートが完了しました');
 
   // 修正前は生 projects の render crash で __fatalError が set され FatalPage に stuck していた。
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
@@ -330,7 +344,7 @@ test('Settings JSON import surfaces an error toast when the file read itself fai
   });
 
   // 読み込み失敗の明示フィードバック (silent no-op でない)。
-  await expect(page.locator('#toast-container').getByText('ファイルの読み込みに失敗しました')).toBeVisible();
+  await expectNotified(page, 'ファイルの読み込みに失敗しました');
 
   // 読み込み失敗はデータに触れないので FatalPage に落ちない (設定 UI が生存)。
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
@@ -369,7 +383,7 @@ test('Settings snapshot restore reverts state to the saved point', async ({ page
   await page.goto('/#/settings');
   await page.waitForLoadState('domcontentloaded');
   await page.getByRole('button', { name: '復元', exact: true }).click();
-  await expect(page.locator('#toast-container').getByText('スナップショットを復元しました')).toBeVisible();
+  await expectNotified(page, 'スナップショットを復元しました');
 
   // 5. タスク画面: A は残り B は消える (= 保存時点へ revert)
   await page.goto('/#/apps/task');
@@ -409,7 +423,7 @@ test('Imported numeric relatedProjectIds resolve to string ids (related section 
     mimeType: 'application/json',
     buffer: Buffer.from(JSON.stringify(payload)),
   });
-  await expect(page.locator('#toast-container').getByText('インポートが完了しました')).toBeVisible();
+  await expectNotified(page, 'インポートが完了しました');
 
   // A の詳細ページへ (slug で解決)
   await page.goto('/#/projects/e2e-rel-src-9001');
@@ -476,7 +490,7 @@ test('Settings import skips a section whose target checkbox is unchecked (select
     mimeType: 'application/json',
     buffer: Buffer.from(JSON.stringify(payload)),
   });
-  await expect(page.locator('#toast-container').getByText('インポートが完了しました')).toBeVisible();
+  await expectNotified(page, 'インポートが完了しました');
 
   // (3) AppsData は ON ゆえ import 専用 task が反映される (import 経路が実際に動いた=非 vacuous)。
   await page.goto('/#/apps/task');
@@ -512,7 +526,7 @@ test('Profile email is length-bounded to 254 on import (ingestion bloat guard)',
     mimeType: 'application/json',
     buffer: Buffer.from(JSON.stringify({ schemaVersion: 12, type: 'full-store', profile: { name: 'BoundUser', email: hugeEmail } })),
   });
-  await expect(page.locator('#toast-container').getByText('インポートが完了しました')).toBeVisible();
+  await expectNotified(page, 'インポートが完了しました');
 
   await page.goto('/#/contact', { waitUntil: 'domcontentloaded' });
   const emailLink = page.locator('a.font-mono[href^="mailto:"]').first();
@@ -579,7 +593,7 @@ test('Hostile profile import: a truthy non-string must not blank a field', async
     });
     // NOTE: 2 回目の import 時にはまだ 1 回目の Toast が残っていることがあるため .first()
     //   (strict mode violation を避ける)。ここでは「完了 Toast が出たこと」だけを待てば十分。
-    await expect(page.locator('#toast-container').getByText('インポートが完了しました').first()).toBeVisible();
+    await expectNotified(page, 'インポートが完了しました');
   };
 
   // (1) email: [] — `[]` は truthy なので `||` の fallback を素通りし String([]) が '' になる
@@ -631,7 +645,7 @@ test('Hostile project import: non-string fields must not render as [object Objec
       }],
     })),
   });
-  await expect(page.locator('#toast-container').getByText('インポートが完了しました').first()).toBeVisible();
+  await expectNotified(page, 'インポートが完了しました');
 
   // NOTE: 一覧カードは **tags** を描画し、tech は詳細ページにしか出ない。ルートごとに
   //   「そのページに必ずあるはずの正当値」を positive anchor にして描画を確定させてから
@@ -675,7 +689,7 @@ test('Hostile appsData import: non-string title/text must not render as [object 
       },
     })),
   });
-  await expect(page.locator('#toast-container').getByText('インポートが完了しました').first()).toBeVisible();
+  await expectNotified(page, 'インポートが完了しました');
 
   for (const [route, kept] of [['#/apps/task', 'task-kept-e2e'], ['#/apps/todo', 'todo-kept-e2e']]) {
     await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
