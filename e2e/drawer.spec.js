@@ -194,15 +194,37 @@ test('Mobile drawer nav link navigates and auto-closes the drawer', async ({ pag
 // broken band・#262/#297 class) は捕捉しない。本テストは境界 (919/920/921) と代表幅で **ちょうど
 // 一方のみ可視** を実測し、実 display 挙動を behavioral に guard する。
 test('responsive: exactly one of {desktop sidebar, mobile menuBtn} is visible at every width (no broken band)', async ({ page }) => {
+  // [FIX] 「viewport を変えてから goto」→ 固定 150ms 待ち、をやめる。
+  //   実測 (#1018) で判ったこと: この順序だと **init 時点の viewport がまだ前の幅**で、
+  //   `syncMobileDrawer()` が mobile 判定のまま `topbar.style.display='flex'` を書く。
+  //   正しい値は **その後に届く resize イベント**で入るため、150ms はその到着に賭けていた
+  //   (CI で w=921 が sidebar と menuBtn の同時可視として間欠 RED になった)。
+  //   代わりに **一度 goto してから viewport を変え**、JS 側の反映が済むまで状態で待つ。
+  //   resize は `debounce(syncMobileDrawer, DEBOUNCE_DELAY)` 経由なので、150ms はその
+  //   debounce 値に賭けていたことになる。
+  //   NOTE: 途中で `#content h1` の visible を待つ案も試したが、index.html には AI クローラ向けの
+  //   **静的 h1 が既にある**ため JS init 前に満たされ、150ms より弱い待ちになって即 RED になった。
   const probe = async (w) => {
     await page.setViewportSize({ width: w, height: 800 });
-    await page.goto('/#/', { waitUntil: 'domcontentloaded' });
-    await page.waitForTimeout(150);
+    // resize → `debounce(syncMobileDrawer, DEBOUNCE_DELAY)` なので、幅を変えても JS 側の
+    // 反映は **遅れて**来る。旧実装の固定 150ms 待ちはこの debounce 値に賭けており、
+    // CI 負荷で追い越されて間欠 RED になっていた。ここは「変化」を待つので poll が正しい。
+    await expect.poll(
+      () => page.evaluate(() => {
+        const t = document.getElementById('topbar');
+        if (!t) { return false; }
+        const isMobile = window.matchMedia('(max-width: 920px)').matches;
+        return t.style.display === (isMobile ? 'flex' : 'none');
+      }),
+      { message: 'debounce された syncMobileDrawer が topbar の表示を更新しない' }
+    ).toBe(true);
     return page.evaluate(() => {
       const vis = (el) => !!el && getComputedStyle(el).display !== 'none' && el.getBoundingClientRect().width > 0;
       return { sidebar: vis(document.querySelector('.sidebar')), menuBtn: vis(document.getElementById('menuBtn')) };
     });
   };
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#sidenav-home')).toHaveCount(1);   // JS init 完了 (静的 HTML には無い要素)
   // 920 は @media max-width:920 (inclusive) ゆえ mobile 側、921 から desktop 側
   for (const [w, mode] of [[390, 'mobile'], [919, 'mobile'], [920, 'mobile'], [921, 'desktop'], [1280, 'desktop']]) {
     const s = await probe(w);
