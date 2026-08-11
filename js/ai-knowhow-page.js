@@ -32,7 +32,15 @@ export function createAIKnowhowPage({ h, createIcon, ContactCTA }) {
                 h('div', {
                     class: 'badge-layer--lg', style: { background: color }
                 }, icon),
-                h('span', { class: 'text-head-lg' }, title)
+                // [A11Y 1.3.1 / 2.4.6] 節見出しは **span ではなく h2** で出す。実測 (#1011) では
+                //   4,056 文字・9 セクションのこのページに **見出しが H1 の 1 個しか無く**、
+                //   スクリーンリーダーの主要なナビゲーション手段である「見出しジャンプ」で
+                //   本文が一切辿れなかった (section には role=region + aria-label があるので
+                //   ランドマーク移動は効くが、見出し一覧は空のまま)。
+                //   axe は「長い本文に小見出しが無い」をルール化していないため a11y-axe も緑だった。
+                //   親が display:flex ゆえ span は既に blockify されており、`* { margin: 0 }` の
+                //   reset もあるので **描画は完全に不変** (実測で 8 箇所の座標/サイズが一致)。
+                h('h2', { class: 'text-head-lg' }, title)
             );
         }
 
