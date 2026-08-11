@@ -370,3 +370,59 @@ test('アプリ一覧がリストとしてアナウンスされる', async ({ pa
   expect(s.cards, 'カードが 1 枚も無い — この test の前提が崩れている').toBeGreaterThanOrEqual(3);
   expect(s.items, `listitem の数 (${s.items}) がカード数 (${s.cards}) と一致しない`).toBe(s.cards);
 });
+
+// ===== ラベルが入力欄に結び付いていること (WCAG 1.3.1 / 3.3.2) =====
+// 実測 (#1014) で、**宙に浮いた `<label>` が 6 個**あった (ポモドーロの 集中/短休憩/長休憩、
+// Settings の モード/対象/Demo)。`for` も無く control も包んでいないので、
+//   - ラベル文字をクリック/タップしても何も起きない (通常はラベルで control を活性化できる)
+//   - タップ標的が入力欄だけに縮む
+// 入力欄側に `aria-label` があるため SR の読み上げ名は出ており、**axe も緑**だった
+// (axe は「label 要素が孤立していること」をルール化していない)。捕捉層はこの test だけ。
+//
+// 「対象」だけは 3 つの checkbox をまとめる **グループ名**で、単一 control を指す `for` は
+// 使えない。span + `role="group"` + `aria-labelledby` へ変えた (span は label と同じ inline
+// なので描画は不変)。
+// NOTE: test 題名は **静的リテラル**にする。テンプレートリテラルで組むと Check 379/397 が
+//   静的セグメントしか parse できず mutation の `test` アンカーを一意に解決できない
+//   (#1012 で同じ罠を踏み、今回も Check 379/397 が即座に検出してくれた)。
+async function labelWiring(page, hash, heading) {
+  await page.goto(`/${hash}`, { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: heading })).toBeVisible();
+  return page.evaluate(() => {
+    const labels = Array.from(document.querySelectorAll('#content label'));
+    return {
+      total: labels.length,
+      dangling: labels.filter(l => !l.getAttribute('for') && !l.querySelector('input,select,textarea'))
+        .map(l => (l.textContent || '').trim().slice(0, 14)),
+      broken: labels.filter(l => l.getAttribute('for') && !document.getElementById(l.getAttribute('for')))
+        .map(l => `${(l.textContent || '').trim().slice(0, 10)}→${l.getAttribute('for')}`),
+    };
+  });
+}
+
+function assertLabelWiring(s, label) {
+  // control: そもそも label が存在するページであること
+  expect(s.total, `${label}: label が 1 つも無い — この test の前提が崩れている`).toBeGreaterThanOrEqual(3);
+  expect(s.dangling, `${label}: どの control にも結び付いていない label: ${s.dangling.join(' / ')}`).toEqual([]);
+  expect(s.broken, `${label}: 存在しない id を指す label: ${s.broken.join(' / ')}`).toEqual([]);
+}
+
+test('ポモドーロに宙に浮いた label が無い', async ({ page }) => {
+  assertLabelWiring(await labelWiring(page, '#/apps/pomodoro', 'ポモドーロ'), '#/apps/pomodoro');
+});
+
+test('Settings に宙に浮いた label が無い', async ({ page }) => {
+  assertLabelWiring(await labelWiring(page, '#/settings', 'Settings'), '#/settings');
+});
+
+test('ポモドーロはラベル文字のクリックで入力欄が活性化する', async ({ page }) => {
+  await page.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'ポモドーロ' })).toBeVisible();
+
+  // NOTE: locator に `for` を含めない。`for` を外す mutation が「要素が見つからない」で
+  //   落ちると、**ラベルで入力欄を活性化できたか**を検証できたのか帰属できなくなる。
+  //   `label` 要素に絞って文字で引く (`getByText('長休憩')` はモード切替ボタンにも当たるため)。
+  await page.locator('#content label').filter({ hasText: '長休憩' }).first().click();
+  const active = await page.evaluate(() => (document.activeElement ? document.activeElement.id : null));
+  expect(active, 'ラベルをクリックしても入力欄が活性化しない (for が結ばれていない)').toBe('pomo-setting-long');
+});

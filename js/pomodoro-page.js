@@ -243,7 +243,10 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
                         h('h2', { class: 'h3 mb-4' }, '設定（分）'),
                         h('div', { class: 'grid grid-cols-3 gap-4' },
                             h('div', {},
-                                h('label', { class: 'text-small text-muted mb-1 block' }, '集中'),
+                                // [A11Y] `for` で入力欄と結ぶ。無いとラベル文字をクリック/タップしても
+                                //   何も起きず、タップ標的も入力欄だけに縮む (実測 #1014: 宙に浮いた
+                                //   label が 6 個あった)。id は focus 復元用 (#994) で既に付いている。
+                                h('label', { class: 'text-small text-muted mb-1 block', for: 'pomo-setting-work' }, '集中'),
                                 h('input', {
                                     type: 'number',
                                     class: 'input',
@@ -263,7 +266,10 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
                                 })
                             ),
                             h('div', {},
-                                h('label', { class: 'text-small text-muted mb-1 block' }, '短休憩'),
+                                // [A11Y] `for` で入力欄と結ぶ。無いとラベル文字をクリック/タップしても
+                                //   何も起きず、タップ標的も入力欄だけに縮む (実測 #1014: 宙に浮いた
+                                //   label が 6 個あった)。id は focus 復元用 (#994) で既に付いている。
+                                h('label', { class: 'text-small text-muted mb-1 block', for: 'pomo-setting-short' }, '短休憩'),
                                 h('input', {
                                     type: 'number',
                                     class: 'input',
@@ -287,7 +293,10 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
                                 })
                             ),
                             h('div', {},
-                                h('label', { class: 'text-small text-muted mb-1 block' }, '長休憩'),
+                                // [A11Y] `for` で入力欄と結ぶ。無いとラベル文字をクリック/タップしても
+                                //   何も起きず、タップ標的も入力欄だけに縮む (実測 #1014: 宙に浮いた
+                                //   label が 6 個あった)。id は focus 復元用 (#994) で既に付いている。
+                                h('label', { class: 'text-small text-muted mb-1 block', for: 'pomo-setting-long' }, '長休憩'),
                                 h('input', {
                                     type: 'number',
                                     class: 'input',
