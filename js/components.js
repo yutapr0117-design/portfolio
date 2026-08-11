@@ -235,9 +235,11 @@ export function createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Th
                 h('h1', { class: 'h1' }, 'アプリ'),
                 h('p', { class: 'text-muted' }, 'ポートフォリオに内蔵された実用的なツール')
             ),
-            h('div', { class: 'grid grid-cols-2' },
+            // [A11Y 1.3.1] 同列カードの集合にリスト意味論を与える (projects と同じ理由・#1013)。
+            //   ARIA ロールで与えるので grid レイアウトの display は変えない = 描画は構造上不変。
+            h('div', { class: 'grid grid-cols-2', role: 'list' },
                 ...apps.map(app =>
-                    h('article', { class: 'card' },
+                    h('article', { class: 'card', role: 'listitem' },
                         h('div', { class: 'card-body' },
                             h('div', { class: 'flex items-center gap-3 mb-3' },
                                 createIcon(app.icon, 24),
