@@ -135,24 +135,46 @@ test('aio-guard restores the hidden AIO anchor after it is removed (self-repair 
 
 // ===== 7.2: early suppressor — unhandledrejection リスナーの動作確認 =====
 test('Early suppressor: unhandledrejection listener suppresses known patterns', async ({ page }) => {
+  // [FIX] 旧実装は合成 `PromiseRejectionEvent` を dispatch して `ev.defaultPrevented` を見ていたが、
+  //   **リスナーが 1 つも無くても true になる**ため、suppressor を完全に除去しても PASS していた
+  //   (実測 #1017: inline suppressor を書き換えると CSP ハッシュ不一致で script ごとブロックされ、
+  //   コンソールに「Executing inline script violates…」が出る = リスナー皆無。それでも
+  //   `defaultPrevented` は true のままだった)。つまりこの gate は落ちようが無かった。
+  //   **本物の rejection を起こして「表に出ないこと」を観測する**形へ変える。
+  //
+  //   NOTE: mutation は登録していない。既知パターンの抑止は多層 (head の inline suppressor +
+  //   js/fatal-overlay.js の known-benign フィルタ) で、**どれか 1 つを潰しても抑止は続く**ため、
+  //   単一 file の mutation で RED にできないことを実測で確認した。RED を実測できない mutation を
+  //   安全網に混ぜない規律に従い、非 vacuity は下の control assertion で担保する。
+  const surfaced = [];
+  page.on('pageerror', err => surfaced.push(String(err.message)));
+  page.on('console', msg => { if (msg.type() === 'error') { surfaced.push(msg.text()); } });
+
   await page.goto('/');
   await page.waitForLoadState('domcontentloaded');
 
-  const wasSuppressed = await page.evaluate(() => {
-    const err = new Error('message channel closed before a response was received');
-    const event = new PromiseRejectionEvent('unhandledrejection', {
-      promise: Promise.reject(err),
-      reason: err,
-      cancelable: true,
-    });
-    window.dispatchEvent(event);
-    return event.defaultPrevented;
+  // (1) 既知パターン (拡張機能由来) — 抑止されるべき
+  await page.evaluate(() => {
+    Promise.reject(new Error('message channel closed before a response was received'));
+  });
+  // (2) control — **観測経路が生きていること**を同じ test の中で証明する。
+  //     これが無いと「rejection が観測できない環境」でも (1) が緑になり、また vacuous に戻る。
+  await page.evaluate(() => {
+    Promise.reject(new Error('ZZZ-CONTROL-unsuppressed-rejection'));
   });
 
+  // rejection の配送は非同期。settle してから 1 度だけ読む (不変性の検査に poll は使わない)。
+  await page.waitForTimeout(800);
+
   expect(
-    wasSuppressed,
-    'Early suppressor must call ev.preventDefault() for known extension error patterns'
-  ).toBe(true);
+    surfaced.filter(m => m.includes('ZZZ-CONTROL-unsuppressed-rejection')).length,
+    'control の rejection すら観測できていない — この test は何も検証できない状態にある'
+  ).toBeGreaterThan(0);
+
+  expect(
+    surfaced.filter(m => m.includes('message channel closed')),
+    'Early suppressor が既知パターンの unhandledrejection を抑止していない'
+  ).toEqual([]);
 });
 
 
