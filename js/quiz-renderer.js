@@ -177,7 +177,7 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
                     //   意味の無い語が挟まる (実測: アクセシビリティツリーに絵文字が露出)。
                     const sHeader = h("div", { class: "quiz-section-header" });
                     sHeader.appendChild(h("div", { class: "quiz-section-icon", 'aria-hidden': 'true' }, icons[sIdx] || '📌'));
-                    sHeader.appendChild(h("div", { class: "quiz-section-title" }, section));
+                    sHeader.appendChild(h("h2", { class: "quiz-section-title" }, section));
                     sCard.appendChild(sHeader);
 
                     questions.forEach((q) => {
@@ -231,7 +231,7 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
 
                     const sHeader = h("div", { class: "quiz-section-header" });
                     sHeader.appendChild(h("div", { class: "quiz-section-icon", 'aria-hidden': 'true' }, "📝"));
-                    sHeader.appendChild(h("div", { class: "quiz-section-title" }, section));
+                    sHeader.appendChild(h("h2", { class: "quiz-section-title" }, section));
                     sCard.appendChild(sHeader);
 
                     const questions = quizData[section];
@@ -266,7 +266,7 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
 
         // Contact form section
         const contactBox = h("div", { class: "card p col col-gap" });
-        contactBox.appendChild(h("div", { class: "h3", text: "模範解答について" }));
+        contactBox.appendChild(h("h2", { class: "h3", text: "模範解答について" }));
         contactBox.appendChild(h("div", { class: "muted" }, "模範解答をご希望の方は、以下のフォームからお気軽にご連絡ください。"));
 
         // [A11Y 3.3.2 Labels or Instructions / 4.1.2] お名前・メールアドレスは submit の JS バリデーション

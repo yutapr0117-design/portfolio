@@ -924,7 +924,14 @@ _E2E_TAIL = [
         "file": ROOT / "js" / "ai-knowhow-page.js",
         "find": "                h('h2', { class: 'text-head-lg' }, title)",
         "replace": "                h('span', { class: 'text-head-lg' }, title)",
-        "test": "読み物ページの節タイトルが実際の見出し要素である",
+        "test": "ai-knowhow の節タイトルが実際の見出し要素である",
+    },
+    {
+        "name": "behavior: quiz の章題が見出し要素でなくなる (#1012 の回帰) — 本文 24,500 文字のページに見出しが H1 の 1 個だけになり、スクリーンリーダーの見出しジャンプで 7 章のどこにも飛べない。NOTE: `quiz-section-title` の行は file 内に 2 箇所あり (architecture quiz 用と既存問題集用)、**既定の aws quiz が通るのは後者**。1 行だけの find だと前者に当たって偽 PASS するので、直前の icon 行を含めて一意にしている (Check 420 の要求そのもの)",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "                    sHeader.appendChild(h(\"div\", { class: \"quiz-section-icon\", 'aria-hidden': 'true' }, \"\U0001F4DD\"));\n                    sHeader.appendChild(h(\"h2\", { class: \"quiz-section-title\" }, section));",
+        "replace": "                    sHeader.appendChild(h(\"div\", { class: \"quiz-section-icon\", 'aria-hidden': 'true' }, \"\U0001F4DD\"));\n                    sHeader.appendChild(h(\"div\", { class: \"quiz-section-title\" }, section));",
+        "test": "quiz の章題が実際の見出し要素である",
     },
 ]
 
