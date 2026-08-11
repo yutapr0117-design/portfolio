@@ -48,7 +48,10 @@ test('印刷時はナビ chrome が消え、本文が全幅で横あふれしな
     expect(s.drawer, `${route}: 印刷でドロワーが残っている`).toBe('none');
     // sidebar が消えた分、本文が全幅化していること（1200px の画面幅制限が外れる）
     expect(s.mainWidth, `${route}: 本文が全幅化していない（sidebar 用の余白が残っている）`).toBeGreaterThan(1200);
-    expect(s.overflow, `${route}: 印刷で横に ${s.overflow}px あふれている`).toBe(0);
+    // NOTE: `toBe(0)` にしてはいけない。印刷メディアではスクロールバーの gutter が予約されない
+    //   ため `scrollWidth - clientWidth` が **負** になる環境がある (CI の Linux で -15px、
+    //   ローカル macOS では 0 だった)。検証したいのは「あふれていないこと」なので ≤ 0 で表す。
+    expect(s.overflow, `${route}: 印刷で横に ${s.overflow}px あふれている`).toBeLessThanOrEqual(0);
     expect(s.bodyBg, `${route}: 背景が白でない（暗色テーマのままだとインクを大量に消費する）`).toBe('rgb(255, 255, 255)');
 
     await page.emulateMedia({ media: null });

@@ -51,6 +51,7 @@ npx playwright test --config=playwright.config.cjs
 | `mutation_probe.py` に `--only` 等の**存在しないフラグ**を付けて 1 件だけ回したつもりになる | 引数解析は `"--e2e" in sys.argv` の形なので**未知のフラグは黙って無視され、全件（30 分超）が走り出す**。途中で kill すると **mutated なファイルがワークツリーに残る**（実際に `js/pomodoro-page.js` が残留した） | 単一 mutation の非 vacuity は**手で当てて外す**（該当箇所を消す → 正確な test title で `-g` 実行 → RED を確認 → 復元）。kill した後は必ず `git status --porcelain` で残留を確認する |
 | `selectOption()` で「変更後も focus が select に残るか」を検証する | Playwright の `selectOption()` は選択後に **focus を select に残さない**。そのため focus 復元の有無にかかわらず `activeElement` は BODY と読め、**修正済みでも落ちる false RED** になる（実測: 同じコントロールで dispatch 版は復元を観測できたのに selectOption 版は BODY のままだった） | キーボードで選択肢を変えたときと同じ「focus したまま change が飛ぶ」形を自分で作る（`el.focus(); el.value = …; el.dispatchEvent(new Event('change', {bubbles:true}))`） |
 | ルートを連続で `goto` して `#content h1` の visible だけ待つ | その条件は**前のルートの描画**で既に満たされているため、**前ページの DOM を掴んだまま**次の検査に入る（実測で projects の select を todo ページの検査が拾った） | `page.locator('#content h1', { hasText: '<そのページ固有の見出し>' })` を待つ。ルートごとに `test()` を分けるのも有効 |
+| 横あふれを `scrollWidth - clientWidth === 0` で検証する | **印刷メディアではスクロールバーの gutter が予約されない**ため、この差が **負** になる環境がある（実測: CI の Linux で `-15px` / ローカル macOS では `0`）。ローカル緑・CI 赤の false RED になる（2026-08-11 に実際に踏んだ） | 検証したいのは「あふれていないこと」なので `toBeLessThanOrEqual(0)` で表す。`toBe(0)` は「ぴったり同じ幅」という別の主張になっている |
 | 書き換えた状態のまま次のルートへ `goto` する | 上記のキューが**次のページで遅れて流れ**、無関係な巨大値（実測で overflow 28px → 935px）を生む。数値が前回と桁違いなら、まず自分の書き換えの残留を疑う | 読み取り専用で測るのが最も安全。書き換えたら rAF を待って**必ず元に戻し**、戻ったことを読み直して確認する |
 
 ## Change impact
