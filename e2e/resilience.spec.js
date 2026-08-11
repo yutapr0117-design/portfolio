@@ -529,3 +529,81 @@ test('Hostile-but-adoptable localStorage: every field type survives the boot pat
     }
   }
 });
+
+// ===== 足元の state が変わったときの詳細ページ =====
+// 詳細ページを開いたまま、その project が **別の画面から消える**経路がある
+// (Settings の削除 / 別タブの更新 / import)。project を無条件に dereference していると
+// ここで FatalPage になる —— #93 / #295 / #561 / #568 で繰り返し出た ingestion-crash と
+// 同じ形が「参照側」に出る版。実測 (#1008) では graceful に「見つかりません」へ落ちており
+// 正しいが、**この経路を踏むテストが一つも無かった**ので固定する。
+test('開いている詳細ページのプロジェクトを削除しても FatalPage にならない', async ({ page }) => {
+  // デフォルトは削除不可なので、ユーザー追加のプロジェクトを 1 件作る
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await page.locator('#settingsNewName').fill('消えるプロジェクト');
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect(page.getByRole('button', { name: '削除：消えるプロジェクト' })).toBeVisible();
+
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+  await page.getByRole('button', { name: '詳細を見る：消えるプロジェクト' }).first().click();
+  await expect(page.locator('#content h1', { hasText: '消えるプロジェクト' })).toBeVisible();
+  const detailUrl = page.url();
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  page.once('dialog', d => d.accept());
+  await page.getByRole('button', { name: '削除：消えるプロジェクト', exact: true }).first().click();
+  await expect(page.getByRole('button', { name: '削除：消えるプロジェクト' })).toHaveCount(0);
+
+  // 消えた詳細 URL へ戻る (ブックマークや履歴から来るのと同じ状況)
+  await page.goto(detailUrl, { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1')).toHaveText('プロジェクトが見つかりません');
+
+  // NOTE: fatal の検査は「起きていないこと」なので poll を使わず、上の positive assertion で
+  //   描画成立を待ってから 1 度だけ読む (#984 で踏んだ assertion race の回避)。
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `削除済みプロジェクトの詳細 URL で fatal: ${fatal}`).toBeNull();
+});
+
+// 非同期の応答待ち (AI ページの 300ms) の最中に、別ルートで全データをリセットする。
+// 応答が返ったときに参照する state は既に置き換わっているので、State.update の中で
+// 消えた枝を触ると crash する形になりうる。
+test('AI の応答待ちの最中に全リセットしても FatalPage にならない', async ({ page }) => {
+  await page.goto('/#/apps/ai', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1')).toBeVisible();
+  await page.locator('#ai-input').fill('設計について教えて');
+  await page.getByRole('button', { name: '送信', exact: true }).click();
+
+  // 応答が返る前に別ルートへ移り、全リセットする
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  page.once('dialog', d => d.accept());
+  await page.getByRole('button', { name: '全リセット', exact: true }).click();
+
+  // 応答の setTimeout(300ms) を確実に跨いでから、両ルートの健全性を確認する
+  await page.waitForTimeout(900);
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  let fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `全リセット直後に fatal: ${fatal}`).toBeNull();
+
+  await page.goto('/#/apps/ai', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1')).toBeVisible();
+  await expect(page.locator('#ai-input')).toBeVisible();
+  fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `リセット後の AI ページで fatal: ${fatal}`).toBeNull();
+
+  // control: そもそもリセットが効いていることを確かめる。これが無いと、リセットが
+  // 何らかの理由で走らなかった場合に「何も起きなかったから緑」という**何も検証しない緑**になる
+  // (schemaVersion 決め打ちで 14 ケース全滅させた過去の失敗と同型)。
+  const history = await page.evaluate(() => {
+    const raw = localStorage.getItem('portfolio_enhanced_v45');
+    if (!raw) { return 'no-store'; }
+    const d = JSON.parse(raw);
+    return (d.appsData && Array.isArray(d.appsData.ai && d.appsData.ai.history))
+      ? d.appsData.ai.history.length : 'no-history';
+  });
+  expect(history, `全リセットが効いていない (AI 履歴が残っている: ${history}) — `
+    + 'この test はリセットが走った上で fatal が出ないことを検証するものなので、'
+    + 'リセット自体が走っていないと何も検証していないことになる').not.toBeGreaterThan(0);
+});
