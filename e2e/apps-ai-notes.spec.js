@@ -565,3 +565,38 @@ test('Notes editor cannot hold more text than it persists (maxlength == LIMITS.N
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `notes maxlength test caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== WCAG 2.1.1: 外部要因の再描画でキャレットが末尾へ飛ばない =====
+// #994 の focus 復元は id を鍵に focus を戻すが、**キャレット位置までは戻らなかった**。文章の
+// 途中を編集している最中に外部要因の再描画が起きると、次に打った 1 文字が末尾へ着弾する。
+// 実測 (#1001): Markdown ノートで caret=3 の状態から再描画すると caret=54 (末尾) になり、
+// 続けて打った文字が末尾に入った。
+//
+// 発火経路はポモドーロ完了 (`pomodoro-page.js` の `complete()` → `window.render()`)。25 分
+// 書き続けたノートの真ん中で 1 文字ずれる、という壊れ方をする。ここではその `window.render()`
+// を直接呼んで同じ経路を通す (25 分待てないため)。
+//
+// NOTE: 当初は AI ページ (submit → 300ms 後の応答到着で再描画) でも同じ test を書いたが、
+//   **修正の有無にかかわらず caret=3 のままで vacuous だった**ため削除した。あちらは
+//   ai-page.js の finally が独自に `#ai-input` へ focus を戻す経路を持つ。
+//   「現実的な発火経路だから」という理由でテストを残すと、何も検証しない緑が 1 つ増える。
+test('Markdown ノート編集中の再描画でもキャレットが保たれる', async ({ page }) => {
+  await page.goto('/#/apps/notes', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  await page.locator('#notes-input').click();
+  await page.keyboard.type('ABCDEFGHIJ');
+  await page.evaluate(() => document.querySelector('#notes-input').setSelectionRange(3, 3));
+
+  await page.evaluate(() => window.render());
+  await page.waitForTimeout(600);
+
+  // focus が戻っていること (#994 の復元)
+  const activeId = await page.evaluate(() => (document.activeElement ? document.activeElement.id : null));
+  expect(activeId, '再描画で編集中の入力欄から focus が外れた').toBe('notes-input');
+
+  // 続けて 1 文字打ったとき、末尾ではなくキャレット位置へ入ること (壊れ方そのものを検証)
+  await page.keyboard.type('X');
+  const value = await page.evaluate(() => document.querySelector('#notes-input').value);
+  expect(value.slice(0, 4), `キャレット位置ではなく末尾へ着弾している: ${JSON.stringify(value.slice(-6))}`).toBe('# メX');
+});

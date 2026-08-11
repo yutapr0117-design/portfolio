@@ -865,6 +865,13 @@ _E2E_TAIL = [
         "replace": "",
         "test": "WCAG 2.1.1: 表示切替ボタンは押した後も focus が残る",
     },
+    {
+        "name": "behavior: 再描画後のキャレット復元が失われる (#1001 の回帰) — focus は id で戻るがキャレットは末尾へ飛ぶため、文章の途中を編集中に外部要因の再描画 (ポモドーロ完了) が起きると次に打った 1 文字が末尾へ着弾する。値もフォーカスも正しいので気付きにくい",
+        "file": ROOT / "main.js",
+        "find": "                    if (_restoreFocusSel && typeof _again.setSelectionRange === 'function') {",
+        "replace": "                    if (false && _restoreFocusSel && typeof _again.setSelectionRange === 'function') {",
+        "test": "Markdown ノート編集中の再描画でもキャレットが保たれる",
+    },
 ]
 
 
