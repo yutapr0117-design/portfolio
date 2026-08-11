@@ -277,39 +277,60 @@ test('高コントラスト設定で境界線と補助テキストが濃くな�
 });
 
 // ===== 長い本文に小見出しが実在すること (WCAG 1.3.1 / 2.4.6) =====
-// `#/ai-knowhow` は 4,000 文字・9 セクションの読み物だが、実測 (#1011) では
-// **見出しが H1 の 1 個しか無かった**。節タイトルは見た目だけ大きい `<span>` で描かれており、
-// スクリーンリーダーの主要なナビゲーション手段である「見出しジャンプ」で本文が一切辿れない。
-// section には `role=region` + `aria-label` があるのでランドマーク移動は効くが、見出し一覧は空。
+// 実測 (#1011 / #1012) で、読み物系の 2 ルートが **見出し H1 の 1 個だけ**だった:
+//   #/quiz        本文 24,500 文字 / 章題 7 個が `<div class="quiz-section-title">`
+//   #/ai-knowhow  本文  4,056 文字 / 節題 8 個が `<span class="text-head-lg">`
+// 節タイトルは見た目だけ大きい div/span で描かれており、アクセシビリティツリーに見出しとして
+// 現れない。スクリーンリーダーの主要なナビゲーション手段である「見出しジャンプ」で本文が
+// 一切辿れない状態だった (section の role=region + aria-label でランドマーク移動は効く)。
 //
 // **axe は「長い本文に小見出しが無い」をルール化していない**ため、同 spec の axe スキャンは
 // 緑のままだった (heading-order も『存在する見出しの順序』しか見ない)。捕捉層はこの test だけ。
-test('読み物ページの節タイトルが実際の見出し要素である', async ({ page }) => {
-  await page.goto('/#/ai-knowhow', { waitUntil: 'domcontentloaded' });
-  await expect(page.locator('#content h1')).toBeVisible();
-  // 他ルートの DOM を掴まないよう、このページ固有の見出しを待つ
-  await expect(page.locator('#content h1', { hasText: 'AI開発ノウハウ' })).toBeVisible();
+// NOTE: test 題名は **静的リテラル**にする。テンプレートリテラルで組むと Check 379/397 が
+//   静的セグメントしか parse できず、mutation の `test` アンカーを一意に解決できない
+//   (安全網に登録できない = この test が守られない)。
+async function measureLongRead(page, hash, heading) {
+  await page.goto(`/${hash}`, { waitUntil: 'domcontentloaded' });
+  // 他ルートの DOM を掴まないよう、このページ固有の見出しで待つ
+  // (連続 goto + 汎用 `#content h1` 待ちは前ルートの描画で満たされてしまう)。
+  await expect(page.locator('#content h1', { hasText: heading })).toBeVisible();
 
-  const s = await page.evaluate(() => {
+  return page.evaluate(() => {
     const content = document.getElementById('content');
-    const styledTitles = Array.from(content.querySelectorAll('.text-head-lg'));
+    // 「見出しに見える」= 太字かつ本文より大きく、短いテキストを持つ葉要素。
+    // 見出し要素でないものだけを違反として拾う。
+    const looksLikeHeading = Array.from(content.querySelectorAll('span,div,p,strong')).filter(e => {
+      if (e.querySelector('span,div,p,h1,h2,h3,h4,h5,h6')) { return false; }  // 葉のみ
+      const t = (e.textContent || '').trim();
+      if (!t || t.length > 40) { return false; }
+      const cs = getComputedStyle(e);
+      return parseFloat(cs.fontSize) >= 17 && parseInt(cs.fontWeight, 10) >= 600;
+    }).map(e => `${e.tagName}.${(e.className || '').slice(0, 24)}:${e.textContent.trim().slice(0, 18)}`);
+
     return {
       textLength: content.textContent.length,
       headings: Array.from(content.querySelectorAll('h1,h2,h3,h4,h5,h6')).map(h => h.tagName),
-      styledTitleCount: styledTitles.length,
-      // 「見出しに見えるのに見出し要素でない」もの = アクセシビリティツリーに出ない節タイトル
-      notHeadings: styledTitles.filter(e => !/^H[1-6]$/.test(e.tagName))
-        .map(e => e.tagName + ':' + e.textContent.trim().slice(0, 20)),
+      notHeadings: looksLikeHeading,
     };
   });
+}
 
+function assertLongReadStructure(s, label, minText) {
   // control: そもそも「長い読み物」であることを確かめる。短ければ見出しが少なくても問題ない
   // ので、この前提が崩れたまま緑になると何も検証していないことになる。
-  expect(s.textLength, '本文が短くなっている — この test の前提 (長い読み物) が崩れている').toBeGreaterThan(2000);
-  expect(s.styledTitleCount, '節タイトルが見つからない — セレクタが実態から外れている').toBeGreaterThanOrEqual(5);
-
-  expect(s.notHeadings, `見出しに見えるのに見出し要素でない節タイトル: ${s.notHeadings.join(' / ')} — `
-    + 'スクリーンリーダーの見出しジャンプで本文を辿れない (WCAG 1.3.1 / 2.4.6)').toEqual([]);
+  expect(s.textLength, `${label}: 本文が短くなっている — この test の前提 (長い読み物) が崩れている`)
+    .toBeGreaterThan(minText);
+  expect(s.notHeadings, `${label}: 見出しに見えるのに見出し要素でない節タイトル: `
+    + `${s.notHeadings.join(' / ')} — スクリーンリーダーの見出しジャンプで本文を辿れない`).toEqual([]);
   expect(s.headings.filter(t => t !== 'H1').length,
-    `見出しが H1 だけ (${s.headings.join(',')}) — 4,000 文字の本文に構造が露出していない`).toBeGreaterThanOrEqual(5);
+    `${label}: 見出しが H1 だけ (${s.headings.join(',')}) — 長い本文に構造が露出していない`)
+    .toBeGreaterThanOrEqual(5);
+}
+
+test('quiz の章題が実際の見出し要素である', async ({ page }) => {
+  assertLongReadStructure(await measureLongRead(page, '#/quiz', '問題集'), '#/quiz', 10000);
+});
+
+test('ai-knowhow の節タイトルが実際の見出し要素である', async ({ page }) => {
+  assertLongReadStructure(await measureLongRead(page, '#/ai-knowhow', 'AI開発ノウハウ'), '#/ai-knowhow', 2000);
 });
