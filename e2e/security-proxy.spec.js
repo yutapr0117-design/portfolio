@@ -167,9 +167,27 @@ test('No Trusted Types or CSP violations in console', async ({ page }) => {
   // #712 が aio-meta.spec.js に入れたのと同型の narrow 除外を本テストにも適用する (CSP は厳格維持)。
   // 注: ホスト名部分文字列判定 (text.includes('karte.io')) は CodeQL js/incomplete-url-substring-
   // sanitization を誤発火させるため、ドット無しの 'karte' + CSP 文言で判定し URL 部分文字列を避ける。
-  const isKarteCspNoise = (text) =>
-    (text.includes('Content Security Policy') || text.includes('Refused to connect')) &&
-    text.toLowerCase().includes('karte');
+  // [FIX] 除外は **ブロックされたリソースのホスト**で判定する。
+  //   旧実装は「メッセージ全体に 'karte' が含まれるか」で判定していたが、CSP 違反の
+  //   コンソールメッセージには **違反した directive の全文がそのまま載る**。この CSP は
+  //   script-src / connect-src で KARTE のホストを許可しているので、**あらゆる CSP 違反の
+  //   メッセージに 'karte' が現れ**、除外条件が常に真になっていた。
+  //   実測 (#1016): index.html に `<script src="data:…">` を注入して本物の違反を起こしても
+  //   **この test は PASS した** = セキュリティゲートが「絶対に落ちない」状態だった。
+  //   メッセージ先頭の引用符付き URL がブロック対象なので、そのホスト名だけを見る
+  //   (部分文字列判定を避けるので CodeQL の incomplete-url-substring-sanitization も回避できる)。
+  const blockedResource = (text) => {
+    const m = text.match(/'([^']+)'/);
+    return m ? m[1] : '';
+  };
+  const isKarteCspNoise = (text) => {
+    if (!(text.includes('Content Security Policy') || text.includes('Refused to connect'))) { return false; }
+    try {
+      return new URL(blockedResource(text)).hostname.endsWith('.karte.io');
+    } catch {
+      return false;
+    }
+  };
 
   page.on('console', msg => {
     const text = msg.text();
@@ -190,6 +208,16 @@ test('No Trusted Types or CSP violations in console', async ({ page }) => {
 
   await page.goto('/');
   await page.waitForLoadState('domcontentloaded');
+
+  // [FIX] settle を挟む。console / pageerror は CDP 経由で**非同期に**届くため、
+  //   `domcontentloaded` 直後に読むと **違反が起きていても配送前**で 0 件に見える。
+  //   実測 (#1016): index.html へ `<script src="data:…">` を注入して本物の CSP 違反を
+  //   起こしても **この test は PASS した**（手動プローブでは 800ms 待つと確実に観測できた）。
+  //   つまりセキュリティゲートが「絶対に落ちない」状態だった (#984 と同じ assertion race)。
+  //   まず描画成立を positive assertion で待ち、そのうえで配送分を settle させてから
+  //   1 度だけ読む (不変性の検査に expect.poll は使わない)。
+  await expect(page.locator('#content')).toBeVisible();
+  await page.waitForTimeout(700);
 
   expect(
     violations,

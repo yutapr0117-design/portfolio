@@ -961,6 +961,13 @@ _E2E_TAIL = [
         "replace": "h('label', { class: 'text-sm text-muted' }, '対象'),",
         "test": "Settings に宙に浮いた label が無い",
     },
+    {
+        "name": "behavior: CSP 違反検出ゲートが機能するかの自己検証 (#1016) — index.html に `data:` スクリプトを注入して **本物の CSP 違反**を起こす。旧実装は『メッセージ全体に karte が含まれるか』で除外していたが、CSP 違反メッセージには違反した directive の全文が載り、この CSP は KARTE ホストを許可しているため **あらゆる違反が除外され gate が絶対に落ちない**状態だった。ブロック対象 URL のホスト名で判定する形へ是正済み",
+        "file": ROOT / "index.html",
+        "find": "</head>",
+        "replace": "<script src=\"data:text/javascript,void 0\"></script>\n</head>",
+        "test": "No Trusted Types or CSP violations in console",
+    },
 ]
 
 
