@@ -50,6 +50,19 @@ jobs:
         with:
           python-version: '3.12'
 
+      # ── 公開サイトが「今の版」を配信しているかの検証 ─────────────────────
+      # WHY ここに置くか: デプロイ連鎖には「ジョブが成功したか」と「配信されている中身が
+      # 現在のものか」という **別々の失敗モード**がある。前者は pages-build-deployment の
+      # バッジ (STATUS.md / Check 415) が見ているが、後者を見る層がどこにも無かった:
+      # PR ゲートはローカルの http-server に対して走り公開サイトを一度も触らず、
+      # Check 2/17/180 は main.js と index.html が **リポジトリ内で** 一致することしか見ない。
+      # つまり「Pages が数週間前の成果物を配信し続けている」状態が全ゲート緑のまま成立しうる。
+      # 週次のこの workflow は既に main へ push する権限と定期実行を持ち、STATUS.md に
+      # バッジも出ているので、追加のインフラ無しで「赤が届く」層になる。
+      # クエリより **前** に置くのは、API キー切れ等で後段が skip されてもこの検証は必ず走らせるため。
+      - name: Verify the deployed site serves the current version
+        run: python3 .github/scripts/check_deployed_freshness.py
+
       # ── クエリ実行 & ログ記録 ──────────────────────────────────────────
       - name: Run AIO monitoring queries
         id: monitor

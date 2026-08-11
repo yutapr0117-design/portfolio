@@ -94,6 +94,17 @@ Exit codes:
        **サイトが公開されているかを決めているのはこの 1 本**で、全 PR ゲートが緑でもこれだけ
        落ちればサイトは古いまま残る。導出できないものを導出漏れのまま放置するより、由来を
        明記して固定する方が honest。(BLOCKING)
+  423. 公開サイトの版数検証 (`check_deployed_freshness.py`) が **週次 workflow に配線されて
+       いる**ことを BLOCKING 強制する。デプロイ連鎖には「ジョブが成功したか」と「配信されて
+       いる中身が現在のものか」という別々の失敗モードがあり、前者は pages-build-deployment の
+       バッジ (Check 415) が見ているが、後者を見る層は 2026-08-11 まで存在しなかった。
+       PR ゲートは **ローカルの http-server** に対して走るので公開サイトを一度も触らず、
+       Check 2/17/180 は main.js と index.html が **リポジトリ内で** 一致することしか見ない。
+       つまり「Pages が数週間前の成果物を配信し続けている」状態が **全ゲート緑のまま**
+       成立しうる。script が存在するだけでは走らないので、Check 133/134/135 と同じ
+       「存在 ≠ 配線」の穴を塞ぐ (file を消さずに workflow の 1 行を消せば silent に無効化
+       できてしまう)。(BLOCKING)
+
 """
 import re
 import json
@@ -431,3 +442,30 @@ def run(ctx):
         )
     else:
         check(False, "", "Check 415: STATUS.md または .github/workflows/ が見つからない", blocking=True)
+
+    # ── 423. 公開サイト版数検証の workflow 配線 (BLOCKING) ─────────────────────
+    # 「存在 ≠ 配線」の穴 (Check 133/134/135 と同 class)。script file が残っていても
+    # workflow の 1 行を消せば silent に無効化でき、mirror-bijection (Check 108) は
+    # file の存在しか見ないので気付けない。
+    _script423 = ROOT / ".github" / "scripts" / "check_deployed_freshness.py"
+    _wf423 = ROOT / ".github" / "workflows" / "aio-monitoring.yml"
+    if _script423.exists() and _wf423.exists():
+        _txt423 = _wf423.read_text(encoding="utf-8", errors="replace")
+        # コメント行を除去してから探す (説明コメント中の言及で vacuous PASS しないため)。
+        _code423 = "\n".join(_l for _l in _txt423.splitlines() if not _l.lstrip().startswith("#"))
+        _wired423 = "check_deployed_freshness.py" in _code423
+        check(
+            _wired423,
+            "Check 423: 公開サイトの版数検証が週次 workflow (aio-monitoring.yml) に配線されている",
+            ("Check 423: check_deployed_freshness.py が aio-monitoring.yml から呼ばれていない — "
+             "script が存在するだけでは走らない。PR ゲートはローカルの http-server に対して走るので "
+             "公開サイトを一度も触らず、Check 2/17/180 はリポジトリ内の一致しか見ないため、"
+             "この配線が切れると『Pages が古い成果物を配信し続けている』状態が全ゲート緑のまま成立する"),
+            blocking=True,
+        )
+    else:
+        check(False, "",
+              "Check 423: check_deployed_freshness.py または aio-monitoring.yml が見つからない — "
+              "公開サイトの版数検証の配線を確認できない",
+              blocking=True)
+
