@@ -898,6 +898,20 @@ _E2E_TAIL = [
         "replace": '                content: "";',
         "test": "印刷時は外部リンクの URL が紙面に併記される",
     },
+    {
+        "name": "behavior: forced-colors (HCM) のフォーカスリング fallback が失われる — Chromium はブランド色を強制変換して rgba(5, 0, 73, 0.8) = **半透明**の暗い青を描く (実測)。HCM で最も困る『薄くて見えない』状態そのもの。Check 101 はブロックの存在を静的に強制するだけで効果は見ず、screenshot は通常モードで撮るので到達しない",
+        "file": ROOT / "style.css",
+        "find": "        @media (forced-colors: active) {",
+        "replace": "        @media (forced-colors: nope) {",
+        "test": "ハイコントラストモードでフォーカスリングが system color になる",
+    },
+    {
+        "name": "behavior: prefers-contrast: more の token 上書きが失われる — 境界線と補助テキストが薄いグレーのまま残り、高コントラストを要求したユーザーに何も返さない。静的にも動的にも無被覆だった面",
+        "file": ROOT / "style.css",
+        "find": "        @media (prefers-contrast: more) {",
+        "replace": "        @media (prefers-contrast: nope) {",
+        "test": "高コントラスト設定で境界線と補助テキストが濃くなる",
+    },
 ]
 
 

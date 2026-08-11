@@ -93,7 +93,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `AI2AI.md` | 846 | — | `protected` | AIO 正本（canonical）。削らない |
 | `docs/session-records/AI2AI-archive.md` | 1,513 | — | `archive-growth-ok` | セッション証跡。削らない |
 | `ChatGPT2ChatGPT.md` | 1,027 | — | `archive-growth-ok` | AI 間対話証跡。削らない |
-| `e2e/a11y-axe.spec.js` | 134 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/a11y-axe.spec.js` | 277 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/aio-meta.spec.js` | 504 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-ai-notes.spec.js` | 527 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-pomodoro.spec.js` | 456 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
