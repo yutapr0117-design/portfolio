@@ -912,6 +912,13 @@ _E2E_TAIL = [
         "replace": "        @media (prefers-contrast: nope) {",
         "test": "高コントラスト設定で境界線と補助テキストが濃くなる",
     },
+    {
+        "name": "behavior: 詳細ページの not-found ガードが外れる — 開いている詳細ページの project が別画面 (Settings の削除 / 別タブ / import) から消える経路があり、無条件に dereference すると FatalPage になる。#93/#295/#561/#568 で繰り返した ingestion-crash の『参照側』版",
+        "file": ROOT / "js" / "project-detail-page.js",
+        "find": "        if (!project) {",
+        "replace": "        if (false) {",
+        "test": "開いている詳細ページのプロジェクトを削除しても FatalPage にならない",
+    },
 ]
 
 
