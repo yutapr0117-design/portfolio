@@ -93,6 +93,12 @@ _MUTATIONS_TAIL = [
         "replace": "/actions/workflows/pages/REMOVED/badge.svg",
     },
     {
+        "name": "Check 423: 公開サイト版数検証の配線が切れる — script file を残したまま workflow の 1 行を消せば silent に無効化でき、mirror-bijection (Check 108) は file の存在しか見ないので気付けない。この配線が切れると『Pages が古い成果物を配信し続けている』状態が全ゲート緑のまま成立する",
+        "file": ROOT / ".github" / "workflows" / "aio-monitoring.yml",
+        "find": "        run: python3 .github/scripts/check_deployed_freshness.py",
+        "replace": "        run: echo skipped",
+    },
+    {
         "name": "Check 422: 再描画で消えるコントロールから focus 復元用の id が外れる — apps.js の絞り込み select から id を落とす → main.js _renderCore の復元は id を鍵にしているため、そのコントロールだけが取り残されて change のたび focus が body へ落ちる。マウスでは気付きにくく fatal も視覚差分も出ないので、静的にはこの Check だけが捕捉する",
         "file": ROOT / "js" / "apps.js",
         "find": "                        id: 'task-filter-priority',\n",
