@@ -31,10 +31,13 @@ comprehensible) は死守する契約 (CLAUDE.md §3(B)) なので、配信の�
 「公開サイトに到達できない状態が続いている」ことの方が重大で、それこそ知りたい情報だから。
 """
 import re
+import subprocess
 import sys
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
+from urllib.parse import urljoin
 
 ROOT = Path(__file__).resolve().parents[2]
 ATTEMPTS = 3
@@ -114,6 +117,80 @@ def main():
         return 1
 
     print("OK: 公開サイトはリポジトリと同じ版を配信している")
+    return _check_assets(html)
+
+
+def _wellknown_paths():
+    """`.well-known/` 配下の tracked file を **導出**する (ハードコードは追加時に drift する)。
+
+    ここが dot-directory の canary になる: GitHub Pages の Jekyll 処理は `.` / `_` で始まる
+    ディレクトリを配信対象から落とすため、`.nojekyll` が失われると **`.well-known/` が丸ごと
+    404 になる**。リポジトリ側の Check は `.nojekyll` という *file の存在* を見るだけで、
+    その *効果* は見ていない。AIO 層はこのプロジェクトの中核資産なので、効果の方を測る。
+    """
+    try:
+        out = subprocess.run(["git", "ls-files", ".well-known"], cwd=ROOT,
+                             capture_output=True, text=True, check=True).stdout
+    except Exception:  # noqa: BLE001 — git が無い環境では canary を諦める (index.html 由来は残る)
+        return []
+    return [line.strip() for line in out.splitlines() if line.strip()]
+
+
+def _same_origin_refs(html, base):
+    """公開 index.html が宣言している同一オリジンの参照を集める。"""
+    refs = set()
+    for m in re.finditer(r'(?:href|src)="([^"]+)"', html):
+        refs.add(m.group(1))
+    for m in re.finditer(r'<meta[^>]+content="(https://[^"]+)"', html):
+        refs.add(m.group(1))
+    out = []
+    for r in sorted(refs):
+        if r.startswith(("#", "data:", "mailto:", "tel:")):
+            continue
+        if r.startswith("http") and not r.startswith(base.split("/portfolio/")[0]):
+            continue
+        out.append(r)
+    return out
+
+
+def _check_assets(html):
+    """**宣言されている資産が実際に配信されているか**を測る。
+
+    WHY: リポジトリ側の Check 群は「file がリポジトリに存在するか」「参照が repo 内で解決するか」
+    を見るが、**配信されているか**は誰も見ていない。Pages の設定変更や `.nojekyll` の喪失で
+    一部のパスだけが 404 になっても、全ゲートが緑のまま公開面だけが壊れる。
+    """
+    base = _site_url()
+    targets = _same_origin_refs(html, base) + _wellknown_paths()
+    seen, bad = set(), []
+    for ref in targets:
+        url = urljoin(base, ref)
+        if url in seen:
+            continue
+        seen.add(url)
+        try:
+            rq = urllib.request.Request(url, headers={
+                "Cache-Control": "no-cache",
+                "User-Agent": "portfolio-deployed-freshness-check",
+            })
+            with urllib.request.urlopen(rq, timeout=30) as resp:
+                if resp.status != 200:
+                    bad.append((ref, resp.status))
+        except urllib.error.HTTPError as e:
+            bad.append((ref, e.code))
+        except Exception as e:  # noqa: BLE001
+            bad.append((ref, type(e).__name__))
+
+    if bad:
+        for ref, code in bad:
+            print(f"::error::公開サイトで解決しない参照: {ref} ({code})", flush=True)
+        print("::error::index.html が宣言している資産 (と .well-known 配下) が配信されていない。"
+              "`.nojekyll` が失われると Jekyll 処理が `.` で始まるディレクトリを落とすため "
+              "**.well-known/ が丸ごと 404 になる** — リポジトリ側の Check は file の存在しか"
+              "見ないのでこの失敗は全ゲート緑のまま起きる", flush=True)
+        return 1
+
+    print(f"OK: 公開サイトが宣言している資産 {len(seen)} 件がすべて 200 で配信されている")
     return 0
 
 
