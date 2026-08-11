@@ -87,6 +87,12 @@ _MUTATIONS_TAIL = [
         "replace": "false",
     },
     {
+        "name": "Check 415: 公開サイトのデプロイ本体 (pages-build-deployment) が監査導線から消える — STATUS.md はオーナーの唯一の監査導線で、Pages デプロイはリポジトリに file が無いため generate_status.py の走査には出てこない。全 PR ゲートが緑でもこれだけ落ちればサイトは古いまま残るので、リテラルで固定して消えないようにする",
+        "file": ROOT / "STATUS.md",
+        "find": "/actions/workflows/pages/pages-build-deployment/badge.svg",
+        "replace": "/actions/workflows/pages/REMOVED/badge.svg",
+    },
+    {
         "name": "Check 422: 再描画で消えるコントロールから focus 復元用の id が外れる — apps.js の絞り込み select から id を落とす → main.js _renderCore の復元は id を鍵にしているため、そのコントロールだけが取り残されて change のたび focus が body へ落ちる。マウスでは気付きにくく fatal も視覚差分も出ないので、静的にはこの Check だけが捕捉する",
         "file": ROOT / "js" / "apps.js",
         "find": "                        id: 'task-filter-priority',\n",
