@@ -792,3 +792,49 @@ test('full export → 全リセット → import で状態が再現する (backu
   expect(after.projects, 'プロジェクト件数が一致しない').toBe(before.projects);
   expect(after.profileName, 'profile が import で戻らない').toBe(before.profileName);
 });
+
+// ===== 表示テーマも backup として往復すること =====
+// `theme` は full export に含まれるのに **import が無視**しており、「フルバックアップ」を
+// 復元しても表示テーマの設定だけが失われていた (実測 #1036: export に `theme:"dark"` が
+// 入っていても import 後の store は `"system"`)。export が書くキーを import が読まないのは
+// backup 契約の破れで、#139 (profile フィールドが strip される) と同じ data-fidelity class。
+//
+// 併せて **state を丸ごと置き換える経路 (import / 全リセット / snapshot 復元) は
+// Theme.cycle を通らない**ため、`data-theme` と `.dark` が古いまま残っていた
+// (リセット後も dark のままで、reload して初めて切り替わる)。描画の入口で state に追随させた。
+test('表示テーマが export → import で復元され、リセット直後の表示も stale にならない', async ({ page }) => {
+  await page.emulateMedia({ colorScheme: 'light' });
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  // 既定 system → dark へ
+  await page.evaluate(() => (document.getElementById('themeBtnSidebar') || document.getElementById('themeBtnTop')).click());
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'フルバックアップ', exact: true }).click(),
+  ]);
+  const file = await download.path();
+
+  page.once('dialog', d => d.accept());
+  await page.getByRole('button', { name: '全リセット', exact: true }).click();
+
+  // (1) リセット直後に表示が既定へ戻ること (従来は dark のまま残っていた)
+  await expect(page.locator('html'), 'リセットしても表示テーマが古いまま残っている')
+    .toHaveAttribute('data-theme', 'system');
+
+  await page.selectOption('#settingsImportMode', 'strict');
+  await page.setInputFiles('#content input[type="file"]', file);
+  await expectNotified(page, 'インポート');
+
+  // (2) backup のテーマが復元されること (store と表示の両方)
+  await expect(page.locator('html'), 'import しても表示テーマが復元されない')
+    .toHaveAttribute('data-theme', 'dark');
+  const stored = await page.evaluate(() => {
+    const raw = localStorage.getItem('portfolio_enhanced_v45');
+    return raw ? JSON.parse(raw).theme : null;
+  });
+  expect(stored, 'backup の theme が store へ復元されていない (export が書くキーを import が読んでいない)')
+    .toBe('dark');
+});

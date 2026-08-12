@@ -940,6 +940,20 @@ _E2E_TAIL = [
         "replace": "function exportFull() { downloadJSON({ ...State.get(), appsData: { ...State.get().appsData, notes: '' } }, ",
         "test": "full export → 全リセット → import で状態が再現する",
     },
+    {
+        "name": "behavior: import が theme を復元しなくなる (#1036 の回帰) — theme は full export に含まれるのに import が無視すると、フルバックアップを復元しても表示テーマの設定だけが黙って失われる (#139 の profile strip と同じ data-fidelity class)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "                    if (typeof parsed.theme === 'string') { merged.theme = parsed.theme; }\n",
+        "replace": "",
+        "test": "表示テーマが export → import で復元され",
+    },
+    {
+        "name": "behavior: DOM がテーマ state に追随しなくなる (#1036 の回帰) — import / 全リセット / snapshot 復元は Theme.cycle を通らないため、data-theme と .dark が古いまま残り reload するまで切り替わらない",
+        "file": ROOT / "main.js",
+        "find": "                if (_wantTheme && document.documentElement.getAttribute('data-theme') !== _wantTheme) {",
+        "replace": "                if (false && _wantTheme && document.documentElement.getAttribute('data-theme') !== _wantTheme) {",
+        "test": "表示テーマが export → import で復元され",
+    },
 ]
 
 

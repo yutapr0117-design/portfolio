@@ -665,6 +665,19 @@
             _renderAbortController = new AbortController();
             const _signal = _renderAbortController.signal;
 
+            // [FIX] DOM のテーマを state.theme に追随させる。import / 全リセット / snapshot 復元の
+            //   ような **state を丸ごと置き換える経路**は Theme.cycle を通らないため、
+            //   `data-theme` と `.dark` が古いまま残っていた (実測 #1036: dark のまま import した
+            //   backup が system になっても表示は dark で、reload して初めて切り替わる)。
+            //   ここは全再描画の入口なので、置換経路をすべてまとめて拾える単一点。
+            //   同値なら apply は冪等 (属性の再設定のみ) ゆえ毎描画呼んでも無害。
+            try {
+                const _wantTheme = State.get().theme;
+                if (_wantTheme && document.documentElement.getAttribute('data-theme') !== _wantTheme) {
+                    Theme.apply(_wantTheme);
+                }
+            } catch { /* テーマ同期は描画を止めない */ }
+
             const route = Router.getRoute();
             const content = document.getElementById('content');
             const sidebarEl = document.getElementById('sidebar');
