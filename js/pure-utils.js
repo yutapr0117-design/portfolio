@@ -275,3 +275,25 @@ export const yieldToMain = () => {
     // フォールバック: 0ms タイマーで 1 タスク分メインスレッドを明け渡す。
     return new Promise(resolve => setTimeout(resolve, 0));
 };
+
+/**
+ * langOfText — その文字列が「英語だけ」かを判定し、必要なら 'en' を返す (WCAG 3.1.2)。
+ *
+ * WHY: 文書は `html lang="ja"`。日本語文字を 1 つも含まない塊をそのまま置くと、日本語の
+ * スクリーンリーダーが **英語を日本語の音韻で読み上げる** (実測 #1020: quiz だけで 49 箇所)。
+ * 表示するテキストが data (利用者が編集できる profile / project) 由来のときは、コード側から
+ * 言語を決められないので **描画時にその文字列の文字種で判定する**のが唯一 honest な方法。
+ *
+ * WHY ここ (pure-utils) に置くか: 同じ判定を quiz-renderer / home-page / components の
+ * 3 箇所が必要とする。1 行の正規表現でもコピーすれば **invariant の二重化**になり、
+ * 片方だけ直す drift を生む (Check 100 が扱ったのと同じ class)。
+ *
+ * 固有名詞 (AWS のサービス名など) にも 'en' が付くが、英語音韻で読ませたいのはむしろ正しい。
+ *
+ * @param {string} text 判定対象
+ * @returns {string|undefined} 'en' もしくは undefined (= 属性を付けない)
+ */
+export function langOfText(text) {
+    const t = String(text ?? '');
+    return (!/[ぁ-んァ-ヶー一-龯]/.test(t) && /[A-Za-z]/.test(t)) ? 'en' : undefined;
+}

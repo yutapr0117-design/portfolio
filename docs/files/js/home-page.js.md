@@ -9,7 +9,7 @@ canonical-ref: js/components.js (抽出元) / main.js (配線) / js/ui-component
 
 ## What
 
-`route 'home'` (SPA トップ / hero + サマリー) をレンダリングする葉モジュール。`createHomePage({ h, Router, State, ContactCTA })` が `HomePage` 関数を返す factory。
+`route 'home'` (SPA トップ / hero + サマリー) をレンダリングする葉モジュール。`createHomePage({ h, Router, State, ContactCTA, langOfText })` が `HomePage` 関数を返す factory。
 
 ## Why
 
@@ -17,7 +17,7 @@ canonical-ref: js/components.js (抽出元) / main.js (配線) / js/ui-component
 
 ## How
 
-- `main.js` が `createComponents({...})` を実行後、共有 helper `ContactCTA` を取り出し、`createHomePage({ h, Router, State, ContactCTA })` で `HomePage` を生成する。
+- `main.js` が `createComponents({...})` を実行後、共有 helper `ContactCTA` を取り出し、`createHomePage({ h, Router, State, ContactCTA, langOfText })` で `HomePage` を生成する。
 - render dispatch (main.js の route 分岐 `case 'home'` 相当) で従来どおり `HomePage()` を呼ぶ。
 - 生成タイミングが createComponents の「後」なのは ContactCTA が createComponents 内で定義される共有 helper だから。
 

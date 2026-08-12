@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-m) / js/mobi
 
 ## What
 
-UI page components factory module。`createComponents({deps})` を export し、**Sidebar / AppsPage / AboutPage / ResumePage / ContactPage / FatalPage / ContactCTA の 7 つ**を合成する。bloat-reduction で HomePage → `js/home-page.js` / ProjectsPage → `js/projects-page.js` / ProjectDetailPage → `js/project-detail-page.js` / AIKnowhowPage → `js/ai-knowhow-page.js` を個別葉モジュールへ分離済（1,335→454 行）ゆえ、それら 4 ページは本 module には含まれない。
+UI page components factory module。`createComponents({deps, langOfText })` を export し、**Sidebar / AppsPage / AboutPage / ResumePage / ContactPage / FatalPage / ContactCTA の 7 つ**を合成する。bloat-reduction で HomePage → `js/home-page.js` / ProjectsPage → `js/projects-page.js` / ProjectDetailPage → `js/project-detail-page.js` / AIKnowhowPage → `js/ai-knowhow-page.js` を個別葉モジュールへ分離済（1,335→454 行）ゆえ、それら 4 ページは本 module には含まれない。
 
 ## Why
 
@@ -21,7 +21,7 @@ Stage 5-m で main.js から物理分割。Mobile Drawer (`js/mobile-drawer.js`)
 main.js
   └─ import { createComponents } from './js/components.js'
   └─ const { Sidebar, AppsPage, AboutPage, ResumePage, ContactPage, FatalPage, ContactCTA }
-        = createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Theme, CONSTANTS, clear, closeDrawer })
+        = createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Theme, CONSTANTS, clear, closeDrawer, langOfText })
   // HomePage / ProjectsPage / ProjectDetailPage / AIKnowhowPage は個別葉 (js/home-page.js 等) で生成
 ```
 

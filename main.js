@@ -43,7 +43,8 @@
             sanitizeUrl,   // http/https のみ通すセキュリティ境界（挙動不変厳守）
             safeFetchJSON, // fetch ラッパ（HTTP ステータス + JSON を厳密検証）
             deepClone,     // オブジェクト/配列/Date の深いコピー
-            yieldToMain    // INP 改善のためメインスレッドを解放（scheduler.yield 等）
+            yieldToMain,   // INP 改善のためメインスレッドを解放（scheduler.yield 等）
+            langOfText     // data 由来テキストの言語判定（WCAG 3.1.2・lang 属性用）
         } from './js/pure-utils.js';
         // v80+ Stage 3-b: 静的クイズデータ 4 つをドメイン別の葉モジュールへ細分化し直接 import する
         //   （Stage 3 の js/quiz-data.js 単一ファイルを AWS / PM / 品質 / 設計判断の 4 ファイルへ分割）。
@@ -465,12 +466,11 @@
         } = createComponents({
             h, createIcon, BGM, AUTHOR, Router, State, Theme,
             CONSTANTS, clear,
-            closeDrawer: () => _drawer.closeDrawer?.()
-        });
+            closeDrawer: () => _drawer.closeDrawer?.(), langOfText });
         // 肥大化解消: AIKnowhowPage / HomePage / ProjectsPage / ProjectDetailPage は
         // js/{...}-page.js へ分離。ContactCTA (共有 helper) を createComponents 生成後に注入 (byte-equivalent)。
         const AIKnowhowPage = createAIKnowhowPage({ h, createIcon, ContactCTA });
-        const HomePage = createHomePage({ h, Router, State, ContactCTA });
+        const HomePage = createHomePage({ h, Router, State, ContactCTA, langOfText });
         const ProjectsPage = createProjectsPage({ h, createIcon, Router, State, tokenize, clear });
         const ProjectDetailPage = createProjectDetailPage({ h, createIcon, Router, State, Store });
 
@@ -508,7 +508,7 @@
         // ===== v80+ Stage 5-o: Quiz Renderer =====
         //   QuizPage を js/quiz-renderer.js へ factory pattern で抽出。挙動 byte-equivalent。
         const { QuizPage } = createQuizRenderer({
-            h, createIcon, Toast, Router, State,
+            h, createIcon, Toast, Router, State, langOfText,
             awsQuizData, pmQuizData, qualityQuizData, architectureQuizData
         });
 
