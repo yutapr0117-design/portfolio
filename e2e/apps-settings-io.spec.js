@@ -838,3 +838,51 @@ test('表示テーマが export → import で復元され、リセット直後�
   expect(stored, 'backup の theme が store へ復元されていない (export が書くキーを import が読んでいない)')
     .toBe('dark');
 });
+
+// ===== 非表示設定も backup として往復すること（公開/非公開の意思） =====
+// `projectPrefs.hiddenIds` も full export に入るのに **import が無視**しており、backup を
+// 戻すと **意図的に隠したプロジェクトが再び公開状態になっていた** (実測 #1037)。
+// 既定プロジェクトは削除できず「非表示」が唯一の非公開手段 (#886) なので、これは単なる
+// 表示設定ではなく **公開/非公開の意思**が失われることを意味する。theme (#1036) と同じ
+// 「export が書くキーを import が読まない」class。
+test('非表示にしたプロジェクトが export → import 後も非表示のまま', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  const visibleCards = async () => {
+    await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+    return page.locator('#content article').count();
+  };
+  const allCount = await visibleCards();
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await page.getByRole('button', { name: /^非表示：/ }).first().click();
+  await expect(page.getByRole('button', { name: /^表示：/ }).first()).toBeVisible();
+
+  const hiddenCount = await visibleCards();
+  // control: そもそも非表示が効いていること
+  expect(hiddenCount, '非表示にしても一覧の件数が変わらない — 前提が崩れている').toBe(allCount - 1);
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'フルバックアップ', exact: true }).click(),
+  ]);
+  const file = await download.path();
+
+  page.once('dialog', d => d.accept());
+  await page.getByRole('button', { name: '全リセット', exact: true }).click();
+  expect(await visibleCards(), 'リセットで非表示が解除されていない — import の効果を測れない').toBe(allCount);
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await page.selectOption('#settingsImportMode', 'strict');
+  await page.setInputFiles('#content input[type="file"]', file);
+  await expectNotified(page, 'インポート');
+
+  expect(await visibleCards(),
+    'backup を戻したのに、意図的に隠したプロジェクトが再び公開されている').toBe(allCount - 1);
+});

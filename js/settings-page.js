@@ -170,6 +170,17 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                             parsed.projects.forEach(p => { if (!existing.has(p.id)) { appended.push(p); } });
                             merged.projects = appended;
                         }
+                        // [FIX] 非表示設定 (projectPrefs.hiddenIds) も一緒に復元する。
+                        //   これも export には入るのに import が無視しており、backup を戻すと
+                        //   **意図的に隠したプロジェクトが再び公開状態になっていた** (実測 #1037)。
+                        //   既定プロジェクトは削除できず「非表示」が唯一の非公開手段 (#886) なので、
+                        //   単なる表示設定ではなく**公開/非公開の意思**が失われることになる。
+                        //   projects セクションのチェックボックスで gate するのは、これが
+                        //   「どのプロジェクトを見せるか」という projects 側のデータだから
+                        //   (theme のような全体の表示設定とは別扱い)。
+                        if (parsed.projectPrefs && Array.isArray(parsed.projectPrefs.hiddenIds)) {
+                            merged.projectPrefs = { ...merged.projectPrefs, hiddenIds: parsed.projectPrefs.hiddenIds };
+                        }
                     }
                     if (settingsIncludeApps && parsed.appsData) { merged.appsData = parsed.appsData; }
 
