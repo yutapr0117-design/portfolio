@@ -127,11 +127,45 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
         function exportApps() { downloadJSON(State.get().appsData, `portfolio_apps_${Date.now()}.json`); }
         function exportProfile() { downloadJSON(State.get().profile, `portfolio_profile_${Date.now()}.json`); }
 
+        /**
+         * _normalizeImportShape — export が書く 4 つの形を full-state 形へ揃える。
+         *
+         *   full backup      : { schemaVersion, profile, projects, appsData, projectPrefs, theme, … }
+         *   Projectsのみ      : [ …projects ]                (素の配列)
+         *   AppsDataのみ      : { tasks, todos, pomodoro, ai, … }
+         *   Profileのみ       : { name, title, bio, email, … }
+         *
+         * 判定できない形は null を返し、呼び出し側がエラーを出す (silent no-op を作らない)。
+         */
+        function _normalizeImportShape(raw) {
+            if (Array.isArray(raw)) { return { projects: raw }; }
+            if (!raw || typeof raw !== 'object') { return null; }
+            const has = (...keys) => keys.some(k => Object.prototype.hasOwnProperty.call(raw, k));
+            // full-state 形 (これらのキーを持つなら他の判定より優先)
+            if (has('schemaVersion', 'projects', 'appsData', 'profile', 'projectPrefs')) { return raw; }
+            if (has('tasks', 'todos', 'pomodoro', 'ai', 'notes', 'quizSearch')) { return { appsData: raw }; }
+            if (has('name', 'title', 'bio', 'email', 'github', 'linkedin', 'location')) { return { profile: raw }; }
+            return null;
+        }
+
         function importJSON(file) {
             const reader = new FileReader();
             reader.onload = (e) => {
                 try {
-                    const parsed = JSON.parse(e.target.result);
+                    const rawParsed = JSON.parse(e.target.result);
+                    // [FIX] **部分 export したファイルを import し直せなかった** (実測 #1038)。
+                    //   `Projectsのみ` は projects の**素の配列**を、`AppsDataのみ` / `Profileのみ` は
+                    //   それぞれの**素のオブジェクト**を書き出すが、import は full-state 形
+                    //   (`parsed.projects` 等) しか見ていなかったため、
+                    //   **何も起きないのに「インポートが完了しました」と報告**していた。
+                    //   バックアップとして提示している機能が「戻せないファイル」を作り、しかも
+                    //   成功したと言うのは、失敗するより悪い (利用者は復元できたと信じる)。
+                    //   export が実際に書く 4 形をそのまま受け付ける。形は互いに素なので判定は決定的。
+                    const parsed = _normalizeImportShape(rawParsed);
+                    if (!parsed) {
+                        Toast.show('認識できない形式のファイルです', 'error');
+                        return;
+                    }
                     // [FIX] 外部 JSON を State.update で生のまま commit しない (normalize-before-commit)。
                     // 旧実装は生 parsed を State.update で adopt → notify→render() が走った後で
                     // validateAndNormalize していた。strict モードは `s.projects = parsed.projects` の生代入

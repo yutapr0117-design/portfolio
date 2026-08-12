@@ -886,3 +886,53 @@ test('非表示にしたプロジェクトが export → import 後も非表示�
   expect(await visibleCards(),
     'backup を戻したのに、意図的に隠したプロジェクトが再び公開されている').toBe(allCount - 1);
 });
+
+// ===== 部分 export したファイルも import で戻せること =====
+// `Projectsのみ` は projects の **素の配列**を、`AppsDataのみ` / `Profileのみ` はそれぞれの
+// **素のオブジェクト**を書き出すが、import は full-state 形 (`parsed.projects` 等) しか見て
+// おらず、**何も起きないのに「インポートが完了しました」と報告**していた (実測 #1038)。
+// バックアップとして提示している機能が「戻せないファイル」を作り、しかも成功したと言うのは
+// **失敗するより悪い** —— 利用者は復元できたと信じてしまう。
+test('部分 export (Projectsのみ) を import で戻せる', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  await page.locator('#settingsNewName').fill('部分往復テスト');
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect(page.getByRole('button', { name: '削除：部分往復テスト' })).toBeVisible();
+
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Projectsのみ', exact: true }).click(),
+  ]);
+  const file = await download.path();
+
+  page.once('dialog', d => d.accept());
+  await page.getByRole('button', { name: '全リセット', exact: true }).click();
+  // control: リセットで消えていること (消えていなければ import の効果を測れない)
+  await expect(page.getByRole('button', { name: '削除：部分往復テスト' })).toHaveCount(0);
+
+  await page.selectOption('#settingsImportMode', 'strict');
+  await page.setInputFiles('#content input[type="file"]', file);
+  await expectNotified(page, 'インポート');
+
+  await expect(page.getByRole('button', { name: '削除：部分往復テスト' }),
+    '部分 export したプロジェクトが import で戻らない (素の配列を受け付けていない)').toBeVisible();
+});
+
+// 認識できない形は **エラーとして伝える**。silent no-op に成功メッセージを付けない。
+test('認識できない形式の JSON は成功と report しない', async ({ page }, testInfo) => {
+  const fs = require('fs');
+  const path = require('path');
+  const bad = path.join(testInfo.outputDir, 'unrecognized.json');
+  fs.mkdirSync(testInfo.outputDir, { recursive: true });
+  fs.writeFileSync(bad, JSON.stringify({ somethingElse: 1 }));
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await page.setInputFiles('#content input[type="file"]', bad);
+
+  await expectNotified(page, '認識できない形式');
+  const ann = await page.evaluate(() => (document.getElementById('action-announcement') || {}).textContent);
+  expect(ann, '認識できない形式なのに「完了しました」と報告している').not.toContain('完了');
+});
