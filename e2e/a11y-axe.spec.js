@@ -555,3 +555,33 @@ test('絞り込みの件数が polite な status でアナウンスされる (as
       .toBe(assertiveBefore);
   }
 });
+
+// ===== 通知は目的別の小さな領域が担う（#content 全体を live region にしない） =====
+// `#content` にはかつて `aria-live="polite"` が付いていた（根拠コメントも decision record も
+// 無く、"全体微改善" というコミットで入っていた）。ここは**ページ本文そのもの**で quiz では
+// 24,500 文字あり、ルート遷移や State 更新のたびに丸ごと差し替わる。大きな live region は
+// スクリーンリーダーが本文全体を読み直す "chatty" なアンチパターンで、**ポモドーロ稼働中は
+// 毎秒再描画される**ため特に害が大きい (#1032)。
+//
+// 代わりに通知は目的別の小さな専用領域が担う。この test は「外したことで通知能力が
+// 失われていない」ことを同時に確かめる（control）。
+test('#content は live region ではなく、通知は専用領域が担う', async ({ page }) => {
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+
+  // (1) #content 自体は live region でない
+  const contentLive = await page.evaluate(() =>
+    document.getElementById('content').getAttribute('aria-live'));
+  expect(contentLive, '#content が live region になっている (本文全体が読み直される)').toBeNull();
+
+  // (2) control: ルート遷移の通知は生きている
+  await page.goto('/#/about', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'About' })).toBeVisible();
+  await expect(page.locator('#page-announcement')).toHaveText(/ページを表示しています/);
+
+  // (3) control: 状態メッセージ (件数) の通知も生きている
+  await page.goto('/#/apps/todo', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'TODO' })).toBeVisible();
+  await page.getByLabel('TODO を絞り込み').selectOption('completed');
+  await expect(page.locator('#content [role="status"][aria-live="polite"]')).toHaveText(/TODO: 完了 \d+ 件/);
+});
