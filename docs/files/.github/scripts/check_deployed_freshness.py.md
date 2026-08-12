@@ -18,6 +18,10 @@ canonical-ref: .github/workflows/aio-monitoring.yml / .github/scripts/generate_s
    `meta content`）と、`.well-known/` 配下の tracked file と、**公開 `sitemap.xml` の `<loc>`** を
    すべて実際に GET して 200 を確認（2026-08-11 時点で 62 件）。
 
+3. **完全性**: `.well-known/agent-skills/index.json` と `.well-known/aio-manifest.json` が
+   **公開している sha256** に対し、実際に配信されたバイト列のハッシュを突き合わせる
+   （テキスト資産のみ・2026-08-12 時点で 11 件）。
+
 いずれも食い違えば exit 1。
 
 ## Why
@@ -51,6 +55,21 @@ canonical-ref: .github/workflows/aio-monitoring.yml / .github/scripts/generate_s
 `index.html` から参照されていない —— **参照グラフからは辿れないが 404 になれば致命的**という、
 canary として最も価値のある位置にある。
 
+### digest 検証を別パスにしている理由（デプロイ失敗の 3 段目）
+
+デプロイの失敗モードは 3 段ある。
+
+1. **ジョブが失敗する** — `pages-build-deployment` のバッジ（Check 415）
+2. **版数が古い / 資産が届かない** — 本 script の前 2 パス
+3. **届いた中身が宣言と違う** ← このパス
+
+AIO 層は sha256 を**公開している**。整合性を検証するエージェントは digest が合わなければ
+資源を棄却するので、配信側でバイト列が変質すると（Pages の変換・部分デプロイ・キャッシュ混線）
+**200 は返るのに AIO 層だけが機能しない**。リポジトリ側の `check_aio_digests.py` は
+ローカルのファイルしか見ないため、この層は別途必要になる。
+
+binary は対象外にしてある（同じ URL の到達性は前段が見ており、数 MB を毎週取り直す価値が薄い）。
+
 ### sitemap の `<loc>` を別枠にしている理由（`.md` が raw で配信される契約の canary）
 
 **Jekyll は `.md` を HTML へ変換して URL を変えてしまう**（`README.md` → `README.html`）。つまり
@@ -71,6 +90,7 @@ python3 .github/scripts/check_deployed_freshness.py
     ai:last-modified = '2026-05-31'  (repo: '2026-05-31')
     OK: 公開サイトはリポジトリと同じ版を配信している
     OK: 公開サイトが宣言している資産 62 件 (index.html の参照 ∪ .well-known ∪ sitemap の <loc>) がすべて 200 で配信されている
+    OK: 公開されたテキスト資産 11 件が宣言 digest と一致している
 ```
 
 週次 `aio-monitoring.yml` の**最初のステップ**として走る（API キー切れ等で後段がスキップされても

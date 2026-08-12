@@ -30,6 +30,8 @@ comprehensible) は死守する契約 (CLAUDE.md §3(B)) なので、配信の�
 ネットワーク失敗はリトライしたうえで**失敗として扱う**。週次実行なので、一時的な瞬断より
 「公開サイトに到達できない状態が続いている」ことの方が重大で、それこそ知りたい情報だから。
 """
+import hashlib
+import json
 import re
 import subprocess
 import sys
@@ -219,6 +221,77 @@ def _check_assets(html):
 
     print(f"OK: 公開サイトが宣言している資産 {len(seen)} 件 "
           "(index.html の参照 ∪ .well-known ∪ sitemap の <loc>) がすべて 200 で配信されている")
+    return _check_digests(base)
+
+
+def _fetch_bytes(url):
+    req = urllib.request.Request(url, headers={
+        "Cache-Control": "no-cache",
+        "User-Agent": "portfolio-deployed-freshness-check",
+    })
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return r.read()
+
+
+def _check_digests(base):
+    """**配信されたバイト列が宣言どおりの中身か**を検証する。
+
+    デプロイの失敗モードは 3 段ある。ここは 3 段目:
+      1. ジョブが失敗する                  → pages-build-deployment のバッジ (Check 415)
+      2. 版数が古い / 資産が届かない        → 本 script の前段 (#1004 / #1005 / #1009)
+      3. **届いた中身が宣言と違う**          ← ここ
+
+    AIO 層は `.well-known/aio-manifest.json` と `.well-known/agent-skills/index.json` で
+    **sha256 を公開している**。整合性を検証するエージェントは digest が合わなければ資源を
+    棄却するので、配信側でバイト列が変質すると (Pages の変換・部分デプロイ・キャッシュ混線)
+    **200 は返るのに AIO 層だけが機能しない**。リポジトリ側の `check_aio_digests.py` は
+    ローカルのファイルしか見ないため、この層は別途必要になる。
+
+    テキスト資産のみを対象にする (binary は同じ URL 検証を前段が済ませており、
+    数 MB を毎週取り直す価値が薄い)。
+    """
+    targets = []  # (label, url, expected_sha256)
+    try:
+        skills = json.loads(_fetch_bytes(base + ".well-known/agent-skills/index.json").decode("utf-8"))
+        for sk in skills.get("skills", []):
+            dg = str(sk.get("digest", ""))
+            if dg.startswith("sha-256:"):
+                targets.append((f"agent-skills/{sk.get('name')}", sk["url"], dg.split(":", 1)[1]))
+    except Exception as e:  # noqa: BLE001
+        print(f"::error::公開 agent-skills/index.json を読めない ({type(e).__name__}: {e})", flush=True)
+        return 1
+
+    try:
+        manifest = json.loads(_fetch_bytes(base + ".well-known/aio-manifest.json").decode("utf-8"))
+        for key in ("source_of_truth", "supporting_evidence", "observational_evidence"):
+            for entry in manifest.get(key, []):
+                path = str(entry.get("path", ""))
+                sha = str(entry.get("sha256", ""))
+                if not path or not sha or not path.lower().endswith((".txt", ".md", ".json")):
+                    continue
+                targets.append((f"{key}/{path}", base + path, sha))
+    except Exception as e:  # noqa: BLE001
+        print(f"::error::公開 aio-manifest.json を読めない ({type(e).__name__}: {e})", flush=True)
+        return 1
+
+    bad = []
+    for label, url, expected in targets:
+        try:
+            actual = hashlib.sha256(_fetch_bytes(url)).hexdigest()
+        except Exception as e:  # noqa: BLE001
+            bad.append(f"{label}: 取得できない ({type(e).__name__})")
+            continue
+        if actual != expected:
+            bad.append(f"{label}: declared={expected[:16]}… actual={actual[:16]}…")
+
+    if bad:
+        for b in bad:
+            print(f"::error::配信されたバイト列が宣言 digest と一致しない — {b}", flush=True)
+        print("::error::整合性を検証する AI エージェントはこの資源を棄却する。200 は返るのに "
+              "AIO 層だけが機能しない状態で、リポジトリ側の check_aio_digests.py では捕捉できない", flush=True)
+        return 1
+
+    print(f"OK: 公開されたテキスト資産 {len(targets)} 件が宣言 digest と一致している")
     return 0
 
 
