@@ -144,6 +144,14 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                     // commit することで、生データが render に届く窓を構造的に無くす (Check 374 が再発防止)。
                     const base = State.get();
                     const merged = { ...base };
+                    // [FIX] theme は full export に含まれるのに import が無視しており、
+                    //   「フルバックアップ」を復元しても表示テーマの設定だけが失われていた
+                    //   (実測 #1036: export に theme:'dark' が入っていても import 後は 'system')。
+                    //   export が書くキーを import が読まないのは backup 契約の破れ。
+                    //   セクション別チェックボックス (Profile/Projects/AppsData) は「データ」の
+                    //   区分けなので、表示設定はどれにも属さず常に復元する (値は下の
+                    //   validateAndNormalize が既知の enum へ正規化する)。
+                    if (typeof parsed.theme === 'string') { merged.theme = parsed.theme; }
                     if (settingsIncludeProfile && parsed.profile) { merged.profile = parsed.profile; }
                     if (settingsIncludeProjects && Array.isArray(parsed.projects)) {
                         if (settingsImportMode === 'strict') {
