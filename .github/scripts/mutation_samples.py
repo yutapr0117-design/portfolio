@@ -919,6 +919,13 @@ _E2E_TAIL = [
         "replace": "path: 'quiz?type=pmm',",
         "test": "hiring-risk の問題集 CTA が宣言どおりの問題集へ着地する",
     },
+    {
+        "name": "behavior: 絞り込み件数の polite status が失われる (#1031 の回帰) — status role/aria-live を外すと件数変化が SR へ伝わらなくなる。従来は assertive 領域へ書いて読み上げを割り込んでいた非対称を、ProjectsPage/QuizPage と同じ polite なローカル status へ揃えたもの",
+        "file": ROOT / "js" / "apps.js",
+        "find": "h('div', { class: 'sr-only', role: 'status', 'aria-live': 'polite' },\n                        `優先度:",
+        "replace": "h('div', { class: 'sr-only' },\n                        `優先度:",
+        "test": "絞り込みの件数が polite な status でアナウンスされる",
+    },
 ]
 
 
