@@ -517,3 +517,41 @@ test('data 由来のテキストにも lang="en" が付く (home badge / resume 
   });
   expect(remaining, `英語だけなのに lang 指定が無い: ${remaining.join(' / ')}`).toEqual([]);
 });
+
+// ===== 絞り込みの件数は polite な status で伝えること (WCAG 4.1.3 / ARIA APG) =====
+// 従来 task/todo の件数は `announce()` 経由で `#action-announcement`
+// (`aria-live="assertive"`) へ書かれており、絞り込むたびに **スクリーンリーダーの読み上げを
+// 割り込んで**いた。assertive は緊急 (エラー等) に限るのが ARIA APG の作法で、件数は status。
+// ProjectsPage / QuizPage は既に polite なローカル status を持っており、**task/todo だけが
+// assertive** という非対称だった (実測 #1031)。
+test('絞り込みの件数が polite な status でアナウンスされる (assertive を使わない)', async ({ page }) => {
+  for (const [hash, heading, sel, expected] of [
+    ['#/apps/task', 'タスク', '#task-filter-priority', /優先度: High \d+ 件/],
+    ['#/apps/todo', 'TODO', '#todo-filter', /TODO: 未完了 \d+ 件/],
+  ]) {
+    await page.goto(`/${hash}`, { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#content h1', { hasText: heading })).toBeVisible();
+
+    const assertiveBefore = await page.evaluate(() =>
+      (document.getElementById('action-announcement') || {}).textContent);
+
+    // キーボードで選択肢を変えたときと同じ「focus したまま change が飛ぶ」形
+    await page.evaluate((s) => {
+      const el = document.querySelector(s);
+      el.focus();
+      el.value = Array.from(el.options).map(o => o.value)[1];
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+    }, sel);
+    await page.waitForTimeout(400);
+
+    const r = await page.evaluate(() => ({
+      assertive: (document.getElementById('action-announcement') || {}).textContent,
+      polite: Array.from(document.querySelectorAll('#content [role="status"][aria-live="polite"]'))
+        .map(e => e.textContent.trim()),
+    }));
+
+    expect(r.polite.join(' | '), `${hash}: polite な status に件数が出ていない`).toMatch(expected);
+    expect(r.assertive, `${hash}: 件数が assertive 領域へ書かれ、SR の読み上げを割り込んでいる`)
+      .toBe(assertiveBefore);
+  }
+});

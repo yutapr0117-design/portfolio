@@ -147,15 +147,24 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                         'aria-label': '優先度で絞り込み',
                         onchange: (e) => {
                             taskFilter.priority = e.target.value;
-                            window.render(); // グローバルレンダーを呼び出し
-                            announceFilter('優先度', e.target.selectedOptions[0]?.text, getFilteredTasks().length);
+                            window.render(); // グローバルレンダーを呼び出し (件数は polite status が伝える)
                         }
                     },
                         h('option', { value: 'all', text: '優先度: 全て', selected: taskFilter.priority === 'all' ? true : undefined }),
                         h('option', { value: 'high', text: 'High', selected: taskFilter.priority === 'high' ? true : undefined }),
                         h('option', { value: 'med', text: 'Med', selected: taskFilter.priority === 'med' ? true : undefined }),
                         h('option', { value: 'low', text: 'Low', selected: taskFilter.priority === 'low' ? true : undefined })
-                    )
+                    ),
+                    // [A11Y 4.1.3 Status Messages] 件数は **polite** な status で伝える。
+                    //   従来は announce() 経由で `#action-announcement` (aria-live="assertive") へ
+                    //   書いていたため、絞り込むたびにスクリーンリーダーの読み上げを**割り込んで**いた。
+                    //   assertive は緊急 (エラー等) に限るのが ARIA APG の作法で、件数は status。
+                    //   ProjectsPage / QuizPage は既に polite なローカル status を持っており、
+                    //   task/todo だけ assertive という非対称だった (実測 #1031)。
+                    //   描画のたびに文言が変わることで通知されるので、命令的な announce は不要。
+                    //   sr-only ゆえ視覚描画は不変。
+                    h('div', { class: 'sr-only', role: 'status', 'aria-live': 'polite' },
+                        `優先度: ${({ all: '全て', high: 'High', med: 'Med', low: 'Low' })[taskFilter.priority] || taskFilter.priority} ${getFilteredTasks().length} 件`)
                 )
             ));
 
@@ -295,12 +304,6 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
         });
     }
 
-    // [A11Y 4.1.3] フィルタ変更は一覧が変わるのに SR には無音だった (実測: 変更後も通知領域には
-    // 直前のアクション文言が残り #content 内 live region は 0 個)。選択肢名と件数を唯一の通知
-    // チャネル #action-announcement へ流す (通知先の一本化は #901 参照)。
-    function announceFilter(label, optionText, count) {
-        announce(`${label}: ${optionText || ''} ${count} 件`);
-    }
     let todoComposing = false;
 
     function TodoPage() {
@@ -389,14 +392,16 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                             'aria-label': 'TODO を絞り込み',
                             onchange: (e) => {
                                 todoFilter = e.target.value;
-                                window.render();
-                                announceFilter('TODO', e.target.selectedOptions[0]?.text, getFilteredTodos().length);
+                                window.render(); // 件数は下の polite status が伝える (task と同じ作法)
                             }
                         },
                             h('option', { value: 'all', text: '全て', selected: todoFilter === 'all' ? true : undefined }),
                             h('option', { value: 'active', text: '未完了', selected: todoFilter === 'active' ? true : undefined }),
                             h('option', { value: 'completed', text: '完了', selected: todoFilter === 'completed' ? true : undefined })
                         ),
+                        // [A11Y 4.1.3] 件数は polite な status で伝える (task 側のコメント参照・sr-only)。
+                        h('div', { class: 'sr-only', role: 'status', 'aria-live': 'polite' },
+                            `TODO: ${({ all: '全て', active: '未完了', completed: '完了' })[todoFilter] || todoFilter} ${getFilteredTodos().length} 件`),
                         h('button', {
                             class: 'btn btn-secondary btn-sm',
                             // [A11Y 2.1.1] 押すと自身が disabled になるので復元は h1 へ落ちる (opt-in の id)。

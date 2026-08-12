@@ -646,21 +646,23 @@ test('Import truncates projects to MAX_PROJECTS (bloat/DoS ingestion guard)', as
 // 通知領域には直前のアクション文言が残ったままで、#content 内に live region は 0 個)。選択肢名と
 // 件数を唯一の通知チャネル #action-announcement (sr-only) へ流す。両アプリで検証する。
 test('Task and Todo filter changes are announced with the option name and count (WCAG 4.1.3)', async ({ page }) => {
-  const ann = page.locator('#action-announcement');
+  // [FIX] 通知先を **polite なローカル status** へ変更した (#1031)。従来は
+  //   `#action-announcement` (aria-live="assertive") へ書いており、絞り込むたびに
+  //   スクリーンリーダーの読み上げを割り込んでいた。assertive は緊急 (エラー等) に限るのが
+  //   ARIA APG の作法で、件数は status。ProjectsPage / QuizPage は既に polite だった。
+  const politeStatus = () => page.locator('#content [role="status"][aria-live="polite"]');
 
-  // TODO: 「完了」へ絞り込む → 選択肢名 + 件数が announce される
   await page.goto('/#/apps/todo');
   await page.waitForLoadState('domcontentloaded');
   await expect(page.getByLabel('やることを入力')).toBeVisible();
   await page.getByLabel('TODO を絞り込み').selectOption('completed');
-  await expect(ann).toHaveText(/^TODO: 完了 \d+ 件$/);
+  await expect(politeStatus()).toHaveText(/^TODO: 完了 \d+ 件$/);
 
-  // Task: 優先度 High へ絞り込む → 同様に announce される
   await page.goto('/#/apps/task');
   await page.waitForLoadState('domcontentloaded');
   await expect(page.getByLabel('新しいタスクを入力')).toBeVisible();
   await page.getByLabel('優先度で絞り込み').selectOption('high');
-  await expect(ann).toHaveText(/^優先度: High \d+ 件$/);
+  await expect(politeStatus()).toHaveText(/^優先度: High \d+ 件$/);
 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `filter announce caused a fatal: ${fatal}`).toBeNull();
