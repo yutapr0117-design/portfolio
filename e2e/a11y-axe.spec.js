@@ -493,3 +493,27 @@ test('固定の英語文字列に lang="en" が付く (home / about)', async ({ 
       .map(e => (e.textContent || '').trim().slice(0, 24)));
   expect(overTagged, `日本語を含むのに lang="en" が付いている: ${overTagged.join(' / ')}`).toEqual([]);
 });
+
+// data 由来のテキスト (利用者が編集できる profile / project) にも同じ判定が効くこと。
+// 判定は js/pure-utils.js の `langOfText` に一本化されており、quiz / home / resume の
+// 3 箇所が注入で共有する (1 行の正規表現でもコピーすれば invariant の二重化になる)。
+test('data 由来のテキストにも lang="en" が付く (home badge / resume 職種)', async ({ page }) => {
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1')).toBeVisible();
+  await expect(page.locator('#content span.badge-primary').first()).toHaveAttribute('lang', 'en');
+
+  await page.goto('/#/resume', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Resume' })).toBeVisible();
+  await expect(page.locator('#content h2').first()).toHaveAttribute('lang', 'en');
+
+  // 英語だけなのに lang 指定が無い塊が resume に残っていないこと
+  const remaining = await page.evaluate(() => {
+    const c = document.getElementById('content');
+    return Array.from(c.querySelectorAll('h1,h2,h3,p,span,div,li,td,th,button'))
+      .filter(e => !e.querySelector('h1,h2,h3,p,span,div,li,td,th,button'))
+      .filter(e => { const t = (e.textContent || '').trim(); return t.length >= 12 && /^[\x20-\x7E]+$/.test(t) && /[A-Za-z]{4,}/.test(t); })
+      .filter(e => !e.closest('[lang="en"]'))
+      .map(e => `${e.tagName}:${e.textContent.trim().slice(0, 24)}`);
+  });
+  expect(remaining, `英語だけなのに lang 指定が無い: ${remaining.join(' / ')}`).toEqual([]);
+});

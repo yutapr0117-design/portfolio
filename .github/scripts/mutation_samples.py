@@ -905,6 +905,13 @@ _E2E_TAIL = [
         "replace": "                                class: 'text-caption'",
         "test": "固定の英語文字列に lang=",
     },
+    {
+        "name": "behavior: data 由来テキストの lang 判定が外れる (#1022 の回帰) — profile.title のような利用者編集データは静的に言語を決められないため描画時に判定している。外れると html lang=ja の文書内で英語が日本語の音韻で読み上げられる (WCAG 3.1.2)",
+        "file": ROOT / "js" / "components.js",
+        "find": ", lang: langOfText(State.get().profile.title) }",
+        "replace": " }",
+        "test": "data 由来のテキストにも lang=",
+    },
 ]
 
 

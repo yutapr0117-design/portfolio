@@ -16,6 +16,7 @@
  *   - Router: js/router.js
  *   - State: js/state.js factory instance
  *   - awsQuizData, pmQuizData, qualityQuizData, architectureQuizData:
+ *   - langOfText: data 由来テキストの言語判定 (js/pure-utils.js・WCAG 3.1.2 の lang 属性用)
  *     js/quiz/{aws,pm,quality,architecture}-quiz-data.js
  *
  * 【非破壊性】
@@ -27,15 +28,10 @@
  *   - State.appsData.quizSearch 等の永続化への副作用も不変
  *   - AIDK Kernel / AIO 正本層 / style.css は無変更
  */
-export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData }) {
-    // [A11Y 3.1.2 Language of Parts] 文書は html lang="ja" なので、**日本語文字を 1 つも含まない
-    //   塊**をそのまま置くと、日本語のスクリーンリーダーが英語を日本語の音韻で読み上げる
-    //   (実測 #1020: quiz だけで 49 箇所 — うち "Core Knowledge & Tech Lead's View:" が 34 回)。
-    //   行の言語は data (js/quiz/*.js) 側で混在するため静的には決められない。**描画時にその行の
-    //   文字種で判定する**のが唯一 honest な方法で、判定は「日本語文字が無く Latin 文字がある」。
-    //   AWS のサービス名のような固有名詞にも付くが、英語音韻で読ませたいのはむしろ正しい。
-    const JA_CHARS = /[ぁ-んァ-ヶー一-龯]/;
-    const langOfText = (t) => (!JA_CHARS.test(t) && /[A-Za-z]/.test(t) ? 'en' : undefined);
+export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData, langOfText }) {
+    // [A11Y 3.1.2] 言語判定は js/pure-utils.js の langOfText を注入して使う
+    //   (quiz / home / resume の 3 箇所が同じ判定を要するため、コピーすると
+    //    invariant の二重化になる。詳細な WHY は pure-utils 側の docstring)。
 
     function QuizPage() {
         const state = State.get();

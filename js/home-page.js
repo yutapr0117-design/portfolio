@@ -9,13 +9,14 @@
  *   - Router     : ルーター ({ navigate } 等) — hero CTA の遷移
  *   - State      : アプリ状態 ({ get() }) — プロフィール等の描画
  *   - ContactCTA : 末尾 CTA (js/components.js の共有 helper。main.js が生成後に注入)
+ *   - langOfText : data 由来テキストの言語判定 (js/pure-utils.js・WCAG 3.1.2 の lang 属性用)
  *
  * 【葉契約】ローカル ESM import ゼロ (Check 47c)。全依存を引数注入。
  * 【非破壊性】main.js が createComponents 実行後に ContactCTA を取り出し
  *   createHomePage({ h, Router, State, ContactCTA }) で HomePage を生成し
  *   render dispatch (route 'home') へ従来配線。挙動不変を behavior e2e が保証。
  */
-export function createHomePage({ h, Router, State, ContactCTA }) {
+export function createHomePage({ h, Router, State, ContactCTA, langOfText }) {
     function HomePage() {
         const state = State.get();
         // [FIX] 非表示 (Settings → projectPrefs.hiddenIds) を全公開 listing 面へ適用する。従来
@@ -280,7 +281,9 @@ export function createHomePage({ h, Router, State, ContactCTA }) {
                     h('div', { class: 'card-body' },
                         h('h3', { class: 'h3 mb-3' }, '注目のプロジェクト'),
                         featured ? h('div', { class: 'flex gap-2 mb-3' },
-                            h('span', { class: 'badge badge-primary' }, featured.category),
+                            // [A11Y 3.1.2] カテゴリは利用者が編集できる data 由来なので、リテラルではなく
+                            //   描画時に文字種で判定する (js/pure-utils.js の langOfText)。
+                            h('span', { class: 'badge badge-primary', lang: langOfText(featured.category) }, featured.category),
                             featured.demoRoute ? h('span', { class: 'badge badge-success' }, 'デモあり') : null
                         ) : null,
                         featured ? h('p', { class: 'text-muted mb-4' }, featured.name) : null,

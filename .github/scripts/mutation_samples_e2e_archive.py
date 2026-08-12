@@ -133,7 +133,7 @@ E2E_MUTATIONS_ARCHIVE = [
     {
         "name": "behavior: ResumePage の profile.title 描画喪失 — js/components.js の ResumePage の lead 見出しを State 由来から固定文字列へ置換 → import/設定した title が Resume に反映されなくなる。#/resume は内容レベルの e2e が皆無で route 訪問テストは「fatal なし・content 非空」で通るため、この描画退行は従来どの gate も捕捉できなかった (profile.title は sidebar と Resume の 2 箇所で描画されるデータ駆動値)",
         "file": ROOT / "js" / "components.js",
-        "find": "h('h2', { class: 'h3 mb-4', 'data-ai-content': 'lead' }, State.get().profile.title),",
+        "find": "h('h2', { class: 'h3 mb-4', 'data-ai-content': 'lead', lang: langOfText(State.get().profile.title) }, State.get().profile.title),",
         "replace": "h('h2', { class: 'h3 mb-4', 'data-ai-content': 'lead' }, 'Resume'),",
         "test": "Imported profile.title renders on both the sidebar and the Resume page",
     },
