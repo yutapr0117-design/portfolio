@@ -25,15 +25,34 @@ test('Quiz search input retains focus and filters live while typing (focus-loss 
 });
 
 
+// [FIX] focus だけを見ていると **この test は #994 の focus 復元機構に守られてしまい**、
+//   `updateSilently` → `State.update` へ戻す mutation を素通しする (週次 probe が SURVIVED として
+//   検出・#1024)。復元機構は「消えた後に戻す」ので、focus は結果的に維持されるからである。
+//   `updateSilently` が固有に保証しているのは **そもそも再描画しない** こと。
+//   よって **textarea の DOM ノードが 1 文字ごとに作り直されていないこと** を直接見る
+//   (再描画は #content を clear して作り直すので、同一ノードなら再描画は起きていない)。
 test('Notes textarea retains focus while typing (focus-loss regression)', async ({ page }) => {
   await page.goto('/#/apps/notes', { waitUntil: 'domcontentloaded' });
   const ta = page.locator('#notes-input');
   await expect(ta.first()).toBeVisible();
+
+  // 入力前のノードに印を付ける。再描画で作り直されると印は失われる。
+  await page.evaluate(() => { document.getElementById('notes-input').dataset.probeMark = 'kept'; });
+
   await ta.first().click();
   await page.keyboard.press('End');
   await page.keyboard.type('ZZZ', { delay: 40 });
-  const activeId = await page.evaluate(() => document.activeElement && document.activeElement.id);
-  expect(activeId).toBe('notes-input');
+
+  const s = await page.evaluate(() => {
+    const t = document.getElementById('notes-input');
+    return {
+      activeId: document.activeElement && document.activeElement.id,
+      sameNode: t.dataset.probeMark === 'kept',
+    };
+  });
+  expect(s.activeId).toBe('notes-input');
+  expect(s.sameNode, '1 文字ごとに textarea が作り直されている (oninput が全再描画を起こしている) — '
+    + 'focus は #994 の復元機構が戻すので focus だけでは検出できない').toBe(true);
   await expect(ta.first()).toHaveValue(/ZZZ$/);
 });
 

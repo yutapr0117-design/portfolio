@@ -675,17 +675,26 @@ test('Task and Todo filter changes are announced with the option name and count 
 // 修正は「編集中なら採用を blur まで延期する」。延期であって破棄ではないため、cross-tab 更新自体は
 // 失われない — 後半でそれも検証する（延期が握り潰しになっていたら、それは別の退行になる）。
 test('Cross-tab update does not destroy an in-progress edit, and is adopted on blur', async ({ context }) => {
+  // [FIX] タブを開く順序が重要。旧実装は **tabA が入力を保存し終えてから tabB を開いて**いたため、
+  //   tabB の in-memory state に既に "TAB-A-編集中" が入っており、採用しても**巻き戻すものが無かった**。
+  //   結果、採用延期ガードを外す mutation が素通りしていた (週次 probe が SURVIVED として検出・#1024)。
+  //   守りたいのは「別タブが *古い* notes を持ったまま書き込み、こちらの編集中テキストを巻き戻す」
+  //   状況なので、**tabB を先に開いて（＝古いスナップショットを持たせて）から tabA が入力する**。
   const tabA = await context.newPage();
   await tabA.goto('/#/apps/notes');
   await tabA.waitForLoadState('domcontentloaded');
-  await tabA.locator('#notes-input').click();
-  await tabA.keyboard.type('TAB-A-編集中');
-  // 自タブの debounce save を先に確定させ、incoming が「より新しい」状況を確実に作る
-  await tabA.waitForTimeout(700);
 
   const tabB = await context.newPage();
   await tabB.goto('/#/apps/task');
   await tabB.waitForLoadState('domcontentloaded');
+
+  // tabB が古い notes を持った状態で、tabA が編集を始める
+  await tabA.bringToFront();
+  await tabA.locator('#notes-input').click();
+  await tabA.keyboard.type('TAB-A-編集中');
+
+  // tabB が書き込む → tabA へ storage イベントが飛ぶ。ここで採用すると編集中テキストが巻き戻る。
+  await tabB.bringToFront();
   await tabB.locator('#task-input').fill('TAB-B-タスク');
   await tabB.locator('#task-input').press('Enter');
   await expect(tabB.locator('#content')).toContainText('TAB-B-タスク');
