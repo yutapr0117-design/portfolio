@@ -52,11 +52,23 @@ npx playwright test --config=playwright.config.cjs
 | `selectOption()` で「変更後も focus が select に残るか」を検証する | Playwright の `selectOption()` は選択後に **focus を select に残さない**。そのため focus 復元の有無にかかわらず `activeElement` は BODY と読め、**修正済みでも落ちる false RED** になる（実測: 同じコントロールで dispatch 版は復元を観測できたのに selectOption 版は BODY のままだった） | キーボードで選択肢を変えたときと同じ「focus したまま change が飛ぶ」形を自分で作る（`el.focus(); el.value = …; el.dispatchEvent(new Event('change', {bubbles:true}))`） |
 | ルートを連続で `goto` して `#content h1` の visible だけ待つ | その条件は**前のルートの描画**で既に満たされているため、**前ページの DOM を掴んだまま**次の検査に入る（実測で projects の select を todo ページの検査が拾った） | `page.locator('#content h1', { hasText: '<そのページ固有の見出し>' })` を待つ。ルートごとに `test()` を分けるのも有効 |
 | 横あふれを `scrollWidth - clientWidth === 0` で検証する | **印刷メディアではスクロールバーの gutter が予約されない**ため、この差が **負** になる環境がある（実測: CI の Linux で `-15px` / ローカル macOS では `0`）。ローカル緑・CI 赤の false RED になる（2026-08-11 に実際に踏んだ） | 検証したいのは「あふれていないこと」なので `toBeLessThanOrEqual(0)` で表す。`toBe(0)` は「ぴったり同じ幅」という別の主張になっている |
+| **`id` を持つ要素**について「focus が維持されること」だけを assert する | main.js `_renderCore` は **`id` を持っていた要素なら再描画後に focus を戻す**（#994）。つまり「再描画を起こさない」ことを守りたい test が、focus だけを見ていると**復元機構に守られて緑のまま**になる。実際に週次 probe が 2 件の SURVIVED として検出した（#1024） | **その保証が固有に持つ性質**を見る。再描画しないことを守るなら、要素に印（`dataset`）を付けて **同じ DOM ノードのままか**を見る。テキストが巻き戻らないことを守るなら**値**を見る |
 | 自動消滅する UI（toast）のテキストを待つ | `Toast.show` は `duration = 3000ms` で要素ごと消える。import / snapshot のような重い操作のあとに読むと **「出て、消えたあと」**に評価されて間欠 RED になる（2026-08-11 に CI で実際に発生） | 同じ文言が書かれる `#action-announcement`（sr-only・**次の通知まで消えない**）を見る。通知チャネルは #901 でここへ一本化済み |
 | debounce された処理を固定時間で待つ | `resize` → `debounce(syncMobileDrawer, DEBOUNCE_DELAY)` のように**遅れて反映される**処理を `waitForTimeout(150)` で待つと、CI 負荷で追い越されて間欠 RED になる（実測: w=921 で sidebar と menuBtn が同時可視） | **状態**を `expect.poll` で待つ（変化の検査なので poll が正しい）。待つ状態は「その処理が完了したことを示す値」を選ぶ |
 | 「JS init 完了」を `#content h1` の visible で待つ | **index.html には AI クローラ向けの静的 h1 が既にある**ため、JS が動く前に満たされる。150ms 待ちより**弱い**待ちになり、かえって RED を増やす（実測） | init 後にしか現れない要素（例: `#sidenav-home`）や、その処理が書き込む状態そのものを待つ |
 | viewport を変えてから `goto` する | init 時点の viewport が**まだ前の幅**のことがあり、`syncMobileDrawer()` が誤った側で確定する。正しい値は後続の resize イベント（debounce 付き）で入る | 先に `goto` してから `setViewportSize` し、JS 側の反映を状態で待つ |
 | 書き換えた状態のまま次のルートへ `goto` する | 上記のキューが**次のページで遅れて流れ**、無関係な巨大値（実測で overflow 28px → 935px）を生む。数値が前回と桁違いなら、まず自分の書き換えの残留を疑う | 読み取り専用で測るのが最も安全。書き換えたら rAF を待って**必ず元に戻し**、戻ったことを読み直して確認する |
+
+### 実測して「鈍っていない」と確認済みの focus テスト（再監査不要・2026-08-12）
+
+`#994` の focus 復元は **`id` を持つ要素だけ**が対象なので、id を持たない入力を見る test は
+鈍っていない。実測で確認したもの:
+
+- `Projects search input retains focus during filtering` → 全再描画へ退行させると **RED**
+- `Quiz search input retains focus and filters live while typing` → 同じく **RED**
+
+どちらの検索入力も `aria-label` だけで `id` を持たないため復元の対象外。
+逆に `#notes-input` は id を持つので復元され、focus だけの assertion では検出できなかった。
 
 ## Change impact
 
