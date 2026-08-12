@@ -731,3 +731,26 @@ test('drawer の Lab トグルは drawer 側の本体だけを開閉する', asy
   await expect(sidebarBody).toHaveAttribute('data-collapsed', String(before));
   await expect(page.locator('#drawernav-lab-toggle')).toHaveAttribute('aria-controls', 'drawer-nav-lab-body');
 });
+
+// ===== 静的ページの CTA が「宣言どおりの中身」へ着地すること =====
+// Check 395 は `path:` が **実在ルート**へ解決することを静的に強制するが、**query パラメータの
+// 中身までは見ない**。`quiz?type=pm` を `quiz?type=pmm` と打ち間違えても route は存在するので
+// Check は緑のまま、実際には **既定の AWS 問題集が silent に表示される** (#926 の own-key ガードで
+// crash はしないが、falls back するだけで誰にも伝わらない)。
+// 採用担当が hiring-risk から辿る導線なので、「PM 問題集を見る」で PM 問題集が出ることは
+// 主張そのもの。実測 (#1027) では 12 件の CTA すべてが期待どおりに着地していた。
+test('hiring-risk の問題集 CTA が宣言どおりの問題集へ着地する', async ({ page }) => {
+  for (const [label, expected] of [['PM問題集を見る', 'PM問題集'], ['品質問題集を見る', '品質・プロセス問題集']]) {
+    await page.goto('/#/hiring-risk', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#content h1', { hasText: '採用' })).toBeVisible();
+
+    await page.getByRole('button', { name: label, exact: true }).first().click();
+
+    // 着地先の見出しで「どの問題集か」を確かめる (route が存在するだけでは足りない)
+    await expect(page.locator('#content h1'),
+      `${label} が ${expected} 以外へ着地した (query の type が違う可能性)`).toContainText(expected);
+
+    const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+    expect(fatal, `${label} の遷移で fatal: ${fatal}`).toBeNull();
+  }
+});
