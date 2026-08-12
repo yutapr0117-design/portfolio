@@ -728,3 +728,67 @@ test('Hostile appsData import: non-string title/text must not render as [object 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `hostile appsData import caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== export → import の往復忠実性（バックアップとしての契約） =====
+// 既存テストは「部分 export が正しいスライスを落とす」ことと「手書き JSON の import」を
+// 見ているが、**アプリ自身が書き出したファイルを import し直して同じ状態に戻るか**は
+// 誰も見ていなかった。フル export は利用者にとって**バックアップ**なので、
+// export 側で 1 フィールド落ちる（あるいは import 側が無視する）だけで
+// **黙ってデータが失われる**。部分 export のテストも手書き JSON の import テストも、
+// この経路を通らないので気付けない。
+test('full export → 全リセット → import で状態が再現する (backup round-trip)', async ({ page }) => {
+  // 特徴的な状態を作る (既定データと区別できる値)
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' })).toBeVisible();
+  await page.getByLabel('新しいタスクを入力').fill('RT-タスク');
+  await page.getByLabel('新しいタスクを入力').press('Enter');
+  await expect(page.locator('#content')).toContainText('RT-タスク');
+
+  await page.goto('/#/apps/notes', { waitUntil: 'domcontentloaded' });
+  await page.locator('#notes-input').click();
+  await page.keyboard.type('RT-ノート');
+  await page.waitForTimeout(600);   // updateSilently の debounce save を確定させる
+
+  const snapshot = () => page.evaluate(() => {
+    const raw = localStorage.getItem('portfolio_enhanced_v45');
+    const d = raw ? JSON.parse(raw) : {};
+    return {
+      tasks: ((d.appsData || {}).tasks || []).map(t => t.title).sort(),
+      todos: ((d.appsData || {}).todos || []).map(t => t.text).sort(),
+      notes: String((d.appsData || {}).notes || ''),
+      projects: (d.projects || []).length,
+      profileName: (d.profile || {}).name,
+    };
+  });
+  const before = await snapshot();
+  expect(before.tasks, 'seed が入っていない — この test の前提が崩れている').toContain('RT-タスク');
+  expect(before.notes).toContain('RT-ノート');
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'フルバックアップ', exact: true }).click(),
+  ]);
+  const file = await download.path();
+
+  page.once('dialog', d => d.accept());
+  await page.getByRole('button', { name: '全リセット', exact: true }).click();
+  await page.waitForTimeout(600);
+
+  const wiped = await snapshot();
+  expect(wiped.tasks, 'リセットが効いていない — import の効果を測れない').not.toContain('RT-タスク');
+
+  await page.selectOption('#settingsImportMode', 'strict');
+  await page.setInputFiles('#content input[type="file"]', file);
+  await expectNotified(page, 'インポート');
+  await page.waitForTimeout(600);
+
+  const after = await snapshot();
+  expect(after.tasks, 'export したタスクが import で戻らない').toEqual(before.tasks);
+  expect(after.todos, 'export した TODO が import で戻らない').toEqual(before.todos);
+  expect(after.notes, 'export したノート本文が import で戻らない').toBe(before.notes);
+  expect(after.projects, 'プロジェクト件数が一致しない').toBe(before.projects);
+  expect(after.profileName, 'profile が import で戻らない').toBe(before.profileName);
+});
