@@ -954,6 +954,13 @@ _E2E_TAIL = [
         "replace": "                if (false && _wantTheme && document.documentElement.getAttribute('data-theme') !== _wantTheme) {",
         "test": "表示テーマが export → import で復元され",
     },
+    {
+        "name": "behavior: import が projectPrefs を復元しなくなる (#1037 の回帰) — backup を戻すと **意図的に隠したプロジェクトが再び公開状態になる**。既定プロジェクトは削除できず『非表示』が唯一の非公開手段 (#886) なので、単なる表示設定ではなく公開/非公開の意思が失われる",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "                        if (parsed.projectPrefs && Array.isArray(parsed.projectPrefs.hiddenIds)) {",
+        "replace": "                        if (false && parsed.projectPrefs && Array.isArray(parsed.projectPrefs.hiddenIds)) {",
+        "test": "非表示にしたプロジェクトが export → import 後も非表示のまま",
+    },
 ]
 
 
