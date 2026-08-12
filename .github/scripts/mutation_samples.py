@@ -912,6 +912,13 @@ _E2E_TAIL = [
         "replace": " }",
         "test": "data 由来のテキストにも lang=",
     },
+    {
+        "name": "behavior: hiring-risk の問題集 CTA の query type が typo る (#1027) — route は存在するので Check 395 は緑のまま、実際には既定の AWS 問題集が silent に表示される (#926 の own-key ガードで crash はせず falls back するだけ)。採用担当が辿る導線で「PM 問題集を見る」が別の問題集を出す",
+        "file": ROOT / "js" / "hiring-risk-page.js",
+        "find": "path: 'quiz?type=pm',",
+        "replace": "path: 'quiz?type=pmm',",
+        "test": "hiring-risk の問題集 CTA が宣言どおりの問題集へ着地する",
+    },
 ]
 
 
