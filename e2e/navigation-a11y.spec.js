@@ -754,3 +754,47 @@ test('hiring-risk の問題集 CTA が宣言どおりの問題集へ着地する
     expect(fatal, `${label} の遷移で fatal: ${fatal}`).toBeNull();
   }
 });
+
+// ===== ルート描画の実コストに上限を置く (runtime の perf 回帰ゲート) =====
+// Check 120 は **byte weight** を見るが、**描画にかかる時間**を見ている層は無かった。
+// 例えば quiz renderer に O(n²) が入っても、byte も行数も e2e の合否も変わらないまま
+// 体感だけが劣化する。
+//
+// 実測 (#1028) の内訳:
+//   通常 (View Transition あり) : 275〜307ms  ← ほぼ全部がアニメーション
+//   reduced-motion (transition skip): 11〜25ms  ← これが**実際の描画仕事**
+// つまり体感遅延の ~95% は意図的なアニメーションで、描画自体は 24,500 文字の quiz でも 25ms。
+//
+// アニメーション時間を含めると「意図的な演出」を測ることになり、閾値も CI 負荷で揺れる。
+// **reduced-motion で測る**ことで純粋な描画コストだけを見る。閾値は実測の 12〜27 倍の
+// 余裕を取り、桁が変わる回帰だけを捕まえる (微小な揺れで赤くならないように)。
+test('ルート描画の実コストが桁で悪化していない (reduced-motion で測定)', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1')).toBeVisible();
+
+  for (const hash of ['#/projects', '#/quiz', '#/apps/task']) {
+    const r = await page.evaluate(async (h) => {
+      const c = () => document.getElementById('content');
+      const before = c().textContent.length;
+      const t0 = performance.now();
+      location.hash = h;
+      // NOTE: aria-busy=false だけを待つと **前の描画で既に false** なので即座に成立する
+      //   (実測で全ルート 0ms・同じ node 数という無意味な値になった)。本文が入れ替わるまで待つ。
+      await new Promise((res) => {
+        const check = () => {
+          const el = c();
+          if (el && el.getAttribute('aria-busy') === 'false' && el.textContent.length !== before) { res(); }
+          else { requestAnimationFrame(check); }
+        };
+        check();
+      });
+      const el = c();
+      return { ms: Math.round(performance.now() - t0), chars: el.textContent.length };
+    }, hash);
+
+    // control: 実際に中身が描画されたこと (0 文字なら何も測っていない)
+    expect(r.chars, `${hash}: 本文が描画されていない — 測定が成立していない`).toBeGreaterThan(30);
+    expect(r.ms, `${hash} の描画が ${r.ms}ms — 実測基準 (11〜25ms) から桁で悪化している`).toBeLessThan(300);
+  }
+});
