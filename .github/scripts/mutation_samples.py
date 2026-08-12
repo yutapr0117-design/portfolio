@@ -926,6 +926,13 @@ _E2E_TAIL = [
         "replace": "h('div', { class: 'sr-only' },\n                        `優先度:",
         "test": "絞り込みの件数が polite な status でアナウンスされる",
     },
+    {
+        "name": "behavior: #content が再び live region になる (#1032 の回帰) — ページ本文そのもの (quiz では 24,500 文字) が live region になり、ルート遷移や State 更新のたびにスクリーンリーダーが本文全体を読み直す chatty なアンチパターンへ戻る。ポモドーロ稼働中は毎秒再描画されるため特に害が大きい",
+        "file": ROOT / "index.html",
+        "find": '<div class="container" id="content" aria-busy="false"></div>',
+        "replace": '<div class="container" id="content" aria-busy="false" aria-live="polite"></div>',
+        "test": "#content は live region ではなく、通知は専用領域が担う",
+    },
 ]
 
 
