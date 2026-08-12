@@ -386,6 +386,15 @@ test('Browser back/forward moves between routes and filtering does not pollute h
 //   回帰を捕まえられるのはこの behavior test だけ。
 //
 // NOTE: 幅を 320px にするのは WCAG 1.4.10 が「400% ズーム相当 = 320 CSS px」を基準にするため。
+//
+// NOTE (2026-08-12 実測・再調査不要): **利用者データが長い連続文字列でも**この契約は保たれる。
+//   プロジェクト名に改行機会の無い 120 文字を入れて projects / settings を 320px で測ったところ、
+//   document の overflow は **0** で、Settings の並べ替えリストは `overflow-x: auto` により
+//   **自分のコンテナ内でスクロール**していた (scrollWidth 1284 / clientWidth 238)。
+//   この「長文データ版」の test は**追加していない** —— containment を壊す mutation
+//   (media query 内の `max-width: 100%` 無効化) を当てても長文版は緑のままで、
+//   **RED を実測できないテストは安全網に混ぜない**規律に従った。
+//   同じ mutation で本 test は RED (role-split +51px) になるので、契約の番人はこちらで足りている。
 test('WCAG 1.4.10: 320px 幅でどのルートも横スクロールしない', async ({ page }) => {
   // 過去に実際あふれていた 4 ルート + あふれていなかった 2 ルート (対照)
   const routes = ['#/role-split', '#/quiz', '#/hiring-risk', '#/apps/pomodoro', '#/', '#/projects'];
@@ -798,3 +807,4 @@ test('ルート描画の実コストが桁で悪化していない (reduced-moti
     expect(r.ms, `${hash} の描画が ${r.ms}ms — 実測基準 (11〜25ms) から桁で悪化している`).toBeLessThan(300);
   }
 });
+
