@@ -426,3 +426,44 @@ test('ポモドーロはラベル文字のクリックで入力欄が活性化�
   const active = await page.evaluate(() => (document.activeElement ? document.activeElement.id : null));
   expect(active, 'ラベルをクリックしても入力欄が活性化しない (for が結ばれていない)').toBe('pomo-setting-long');
 });
+
+// ===== 英語だけの塊に lang="en" が付くこと (WCAG 3.1.2 Language of Parts) =====
+// 文書は `html lang="ja"`。日本語文字を 1 つも含まない塊をそのまま置くと、日本語の
+// スクリーンリーダーが **英語を日本語の音韻で読み上げる**。実測 (#1020) では quiz だけで
+// 49 箇所あり、うち "Core Knowledge & Tech Lead's View:" が 34 回繰り返されていた。
+//
+// 行の言語は data (js/quiz/*.js) 側で混在するので静的には決められない。描画時にその行の
+// 文字種で判定する (日本語文字が無く Latin 文字がある → en)。AWS のサービス名のような
+// 固有名詞にも付くが、英語音韻で読ませたいのはむしろ正しい。
+//
+// axe には該当ルールが無い (`html-lang-valid` は文書全体の lang しか見ない)。捕捉層はこの test だけ。
+test('quiz の英語だけの塊に lang="en" が付く', async ({ page }) => {
+  await page.goto('/#/quiz', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: '問題集' })).toBeVisible();
+
+  const s = await page.evaluate(() => {
+    const c = document.getElementById('content');
+    const leaves = Array.from(c.querySelectorAll('h1,h2,h3,p,span,div,li,td,th'))
+      .filter(e => !e.querySelector('h1,h2,h3,p,span,div,li,td,th'));
+    const isEnglishOnly = (t) => t.length >= 12 && /^[\x20-\x7E]+$/.test(t) && /[A-Za-z]{4,}/.test(t);
+    const JA = /[ぁ-んァ-ヶ一-龯]/;
+    return {
+      leafCount: leaves.length,
+      taggedEn: c.querySelectorAll('[lang="en"]').length,
+      // (a) 英語だけなのに lang 指定が無い塊
+      untagged: leaves.filter(e => isEnglishOnly((e.textContent || '').trim()) && !e.closest('[lang="en"]'))
+        .map(e => `${e.tagName}:${e.textContent.trim().slice(0, 30)}`),
+      // (b) 逆方向 — 日本語を含むのに lang="en" が付いている (過剰適用)
+      overTagged: Array.from(c.querySelectorAll('[lang="en"]'))
+        .filter(e => JA.test(e.textContent || ''))
+        .map(e => `${e.tagName}:${e.textContent.trim().slice(0, 30)}`),
+    };
+  });
+
+  // control: そもそも描画されていること (0 件なら何も検証していない)
+  expect(s.leafCount, '本文が描画されていない — この test の前提が崩れている').toBeGreaterThan(100);
+  expect(s.taggedEn, `lang="en" が付いた要素が少なすぎる (${s.taggedEn} 件) — 付与経路のどれかが落ちている`).toBeGreaterThanOrEqual(20);
+
+  expect(s.untagged, `英語だけなのに lang 指定が無い塊: ${s.untagged.slice(0, 4).join(' / ')}`).toEqual([]);
+  expect(s.overTagged, `日本語を含むのに lang="en" が付いている (過剰適用): ${s.overTagged.slice(0, 4).join(' / ')}`).toEqual([]);
+});

@@ -28,6 +28,15 @@
  *   - AIDK Kernel / AIO 正本層 / style.css は無変更
  */
 export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData }) {
+    // [A11Y 3.1.2 Language of Parts] 文書は html lang="ja" なので、**日本語文字を 1 つも含まない
+    //   塊**をそのまま置くと、日本語のスクリーンリーダーが英語を日本語の音韻で読み上げる
+    //   (実測 #1020: quiz だけで 49 箇所 — うち "Core Knowledge & Tech Lead's View:" が 34 回)。
+    //   行の言語は data (js/quiz/*.js) 側で混在するため静的には決められない。**描画時にその行の
+    //   文字種で判定する**のが唯一 honest な方法で、判定は「日本語文字が無く Latin 文字がある」。
+    //   AWS のサービス名のような固有名詞にも付くが、英語音韻で読ませたいのはむしろ正しい。
+    const JA_CHARS = /[ぁ-んァ-ヶー一-龯]/;
+    const langOfText = (t) => (!JA_CHARS.test(t) && /[A-Za-z]/.test(t) ? 'en' : undefined);
+
     function QuizPage() {
         const state = State.get();
 
@@ -240,7 +249,7 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
 
                         const qHeader = h("div", { class: "quiz-q-header" });
                         qHeader.appendChild(h("div", { class: "quiz-q-badge" }, q.id));
-                        qHeader.appendChild(h("div", { class: "quiz-q-title" }, q.title.replace(q.id + '. ', '')));
+                        qHeader.appendChild(h("div", { class: "quiz-q-title", lang: langOfText(q.title) }, q.title.replace(q.id + '. ', '')));
                         qBlock.appendChild(qHeader);
 
                         q.content.forEach(line => {
@@ -248,7 +257,8 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
                             // Check if it's a label line (ends with ':' or is a short header)
                             const isLabel = /^(状況|問|Challenge|Core Knowledge|境界点|Reboot vs|Stop|ASG|io2|gp[23]|注意|現場|意図|ポイント|解説|補足)[：:。]?/.test(line) || (line.endsWith(':') && line.length < 50);
                             qBlock.appendChild(h("div", {
-                                class: "quiz-content-line text-prewrap" + (isLabel ? " is-label" : "")
+                                class: "quiz-content-line text-prewrap" + (isLabel ? " is-label" : ""),
+                                lang: langOfText(line)
                             }, line));
                         });
 
