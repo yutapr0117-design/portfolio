@@ -467,3 +467,29 @@ test('quiz の英語だけの塊に lang="en" が付く', async ({ page }) => {
   expect(s.untagged, `英語だけなのに lang 指定が無い塊: ${s.untagged.slice(0, 4).join(' / ')}`).toEqual([]);
   expect(s.overTagged, `日本語を含むのに lang="en" が付いている (過剰適用): ${s.overTagged.slice(0, 4).join(' / ')}`).toEqual([]);
 });
+
+// ===== 固定の英語文字列にも lang="en" が付くこと (WCAG 3.1.2) =====
+// #1020 は data 由来の行 (quiz) を描画時判定で処理した。こちらは **コードに直書きされた
+// 英語文字列**で、判定の余地が無いのでリテラルに付ける。
+// 対象は実測 (#1021) で見つかった 5 箇所 — home の英文キャプション / hero の CTA 2 つ /
+// 「Verification & Evidence」見出し / About の h1。
+test('固定の英語文字列に lang="en" が付く (home / about)', async ({ page }) => {
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1')).toBeVisible();
+
+  await expect(page.locator('#content p.text-caption')).toHaveAttribute('lang', 'en');
+  await expect(page.locator('#content .cta-primary')).toHaveAttribute('lang', 'en');
+  await expect(page.locator('#content .cta-secondary')).toHaveAttribute('lang', 'en');
+  await expect(page.locator('#evidence-heading')).toHaveAttribute('lang', 'en');
+
+  await page.goto('/#/about', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'About' })).toBeVisible();
+  await expect(page.locator('#content h1')).toHaveAttribute('lang', 'en');
+
+  // 逆方向: 日本語の見出しに lang="en" が付いていないこと (過剰適用の検出)
+  const overTagged = await page.evaluate(() =>
+    Array.from(document.querySelectorAll('#content [lang="en"]'))
+      .filter(e => /[ぁ-んァ-ヶ一-龯]/.test(e.textContent || ''))
+      .map(e => (e.textContent || '').trim().slice(0, 24)));
+  expect(overTagged, `日本語を含むのに lang="en" が付いている: ${overTagged.join(' / ')}`).toEqual([]);
+});

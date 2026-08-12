@@ -898,6 +898,13 @@ _E2E_TAIL = [
         "replace": "                                lang: undefined",
         "test": "quiz の英語だけの塊に lang=",
     },
+    {
+        "name": "behavior: 固定英語文字列の lang=en が外れる (#1021 の回帰) — html lang=ja の文書内で英語キャプションが日本語の音韻で読み上げられる。axe に該当ルールが無く視覚にも出ないため behavior test だけが捕捉層",
+        "file": ROOT / "js" / "home-page.js",
+        "find": "                                class: 'text-caption', lang: 'en'",
+        "replace": "                                class: 'text-caption'",
+        "test": "固定の英語文字列に lang=",
+    },
 ]
 
 

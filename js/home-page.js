@@ -60,8 +60,11 @@ export function createHomePage({ h, Router, State, ContactCTA }) {
                                 'AI が実装・検証・マージ・本番デプロイまで自走。機械統治された一貫性チェック群と behavior テストが担保し、このサイト自体がその生成物である。'
                             ),
 
+                            // [A11Y 3.1.2] 文書は html lang="ja"。英語だけの塊に lang を付けないと
+                            //   日本語のスクリーンリーダーが英語を日本語の音韻で読み上げる (#1020 と同じ
+                            //   class・こちらは data 由来でなく固定文字列なのでリテラルで付ける)。
                             h('p', {
-                                class: 'text-caption'
+                                class: 'text-caption', lang: 'en'
                             },
                                 'Led AI-driven development from concept to production, including rejecting hallucinated architectures.'
                             ),
@@ -89,11 +92,11 @@ export function createHomePage({ h, Router, State, ContactCTA }) {
 
                             h('div', { class: 'hero-cta-row' },
                                 h('button', {
-                                    class: 'btn btn-primary cta-primary',
+                                    class: 'btn btn-primary cta-primary', lang: 'en',
                                     onclick: () => Router.navigate('role-split')
                                 }, 'View Case Study'),
                                 h('button', {
-                                    class: 'btn btn-secondary cta-secondary',
+                                    class: 'btn btn-secondary cta-secondary', lang: 'en',
                                     onclick: () => Router.navigate('ai-knowhow')
                                 }, 'Explore Architecture')
                             ),
@@ -203,7 +206,7 @@ export function createHomePage({ h, Router, State, ContactCTA }) {
             // ── Verification & Evidence + AIO Series（統合セクション）──
             // 旧: evidence-section と aio-series-section の2セクションが重複していたため統合
             h('section', { class: 'evidence-section', role: 'region', 'aria-label': 'AI-Driven PMとしての主なケーススタディ', 'aria-labelledby': 'evidence-heading' },
-                h('h2', { class: 'evidence-title', id: 'evidence-heading' }, 'Verification & Evidence'),
+                h('h2', { class: 'evidence-title', id: 'evidence-heading', lang: 'en' }, 'Verification & Evidence'),
                 h('p', { class: 'evidence-summary' },
                     '人間はコードを書かず、AIチームを統制してSPAを構築・公開。AIの設計逸脱を検知し差し戻した実証ケース。'
                 ),
