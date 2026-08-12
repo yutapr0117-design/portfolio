@@ -961,6 +961,20 @@ _E2E_TAIL = [
         "replace": "                        if (false && parsed.projectPrefs && Array.isArray(parsed.projectPrefs.hiddenIds)) {",
         "test": "非表示にしたプロジェクトが export → import 後も非表示のまま",
     },
+    {
+        "name": "behavior: 部分 export した素の配列を import が受け付けなくなる (#1038 の回帰) — `Projectsのみ` は projects の素の配列を書き出すので、full-state 形しか見ないと **何も起きないのに『インポートが完了しました』**と報告する。戻せないファイルを作って成功したと言うのは失敗するより悪い",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "            if (Array.isArray(raw)) { return { projects: raw }; }",
+        "replace": "            if (false && Array.isArray(raw)) { return { projects: raw }; }",
+        "test": "部分 export (Projectsのみ) を import で戻せる",
+    },
+    {
+        "name": "behavior: 認識できない形式を silent no-op として成功報告する (#1038 の回帰) — 形式判定が null を返さなくなると、何も適用されないまま『インポートが完了しました』が出る。利用者は復元できたと信じてしまう",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "            if (has('name', 'title', 'bio', 'email', 'github', 'linkedin', 'location')) { return { profile: raw }; }\n            return null;",
+        "replace": "            if (has('name', 'title', 'bio', 'email', 'github', 'linkedin', 'location')) { return { profile: raw }; }\n            return raw;",
+        "test": "認識できない形式の JSON は成功と report しない",
+    },
 ]
 
 
