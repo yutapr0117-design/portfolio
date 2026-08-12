@@ -259,7 +259,7 @@ export function createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Th
 
     function AboutPage() {
         return h('article', { class: 'flex flex-col gap-6 max-w-2xl', 'data-ai-section': 'about' },
-            h('header', {}, h('h1', { class: 'h1', 'data-ai-content': 'lead' }, 'About / Philosophy')),
+            h('header', {}, h('h1', { class: 'h1', 'data-ai-content': 'lead', lang: 'en' }, 'About / Philosophy')),
             
             // コア定義
             h('section', { class: 'card' },
