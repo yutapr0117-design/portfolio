@@ -968,6 +968,27 @@ _E2E_TAIL = [
         "replace": "<script src=\"data:text/javascript,void 0\"></script>\n</head>",
         "test": "No Trusted Types or CSP violations in console",
     },
+    {
+        "name": "behavior: soft-404 の noindex が外れる — 存在しないルートが index 可能になり、AI/検索クローラが『中身の無いページ』を実在ページとして取り込む。視覚には一切出ないため screenshot でも通常の behavior test でも捕捉できない AIO 面",
+        "file": ROOT / "js" / "meta-management.js",
+        "find": "            robotsEl.setAttribute('content', 'noindex, nofollow');",
+        "replace": "            robotsEl.setAttribute('content', 'index, follow');",
+        "test": "Robots meta protects against soft-404",
+    },
+    {
+        "name": "behavior: og:type のルート追従が失われる — article ルートでも og:type が website のまま残り、SNS/クローラが記事として解釈しなくなる。head の meta なので視覚ゲートは一切反応しない",
+        "file": ROOT / "js" / "meta-management.js",
+        "find": "        document.querySelector('meta[property=\"og:type\"]')?.setAttribute('content', ogType);",
+        "replace": "        void ogType;",
+        "test": "Article routes inject JSON-LD Article",
+    },
+    {
+        "name": "behavior: ルート entity anchor から曖昧性排除の宣言が消える — 同名の学術研究者等との混同を防ぐ文が失われ、AIO の中核である『エンティティを正しく解釈させる』賭けが弱まる。sr-only なので視覚には出ない",
+        "file": ROOT / "js" / "meta-management.js",
+        "find": "            ' Not affiliated with any academic researcher.';",
+        "replace": "            '';",
+        "test": "Route entity anchor declares entity authority",
+    },
 ]
 
 
