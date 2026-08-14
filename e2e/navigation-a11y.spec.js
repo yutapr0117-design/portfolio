@@ -147,6 +147,14 @@ test('sr-only content (route announcer + AIO entity anchor) stays visually hidde
 // だった。**非 vacuity 実測**: clear(content) を除去すると 6 回の重なり描画が 6 ページ append され
 // h1 が 6 つになり toHaveCount(1) が RED (確認済)。abort-check 自体の除去は clear-before-append の
 // last-wins ゆえ本 observable では benign (これは overclaim しない — 本テストが守るのは integrity)。
+// NOTE (mutation 非登録の理由): 本テストと下の 'Rapid route switches...' が守るのは
+//   **結果** (#content にページが必ず 1 枚・最終ルートが勝つ) であって、それを実現する
+//   AbortController 機構そのものではない。実測で `_renderAbortController.abort()` を no-op に
+//   しても、さらに 2 箇所の `_signal.aborted` ガードを両方外しても、どちらのテストも緑のまま
+//   だった —— ローカル/CI の速度では描画が事実上直列に終わるため abort が発火しない。
+//   テストが vacuous なのではなく、**abort 機構には behavioral な観測点が無い** (利用者に
+//   見える性質は「ページが 1 枚であること」で、それは abort が無くても成り立つ)。
+//   RED を実測できない mutation は安全網に混ぜない規律に従い登録しない。
 test('Overlapping re-renders keep #content intact — exactly one page, no dup/empty', async ({ page }) => {
   await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
