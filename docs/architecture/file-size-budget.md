@@ -98,7 +98,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/apps-ai-notes.spec.js` | 602 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-pomodoro.spec.js` | 549 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-settings-import-shape.spec.js` | 153 | 900 | `advisory` | behavior e2e spec (import が受け付ける形の契約面)。2026-08-14 に apps-settings-io.spec.js の advisory 超過を受けて先回り分割 |
-| `e2e/apps-settings-io.spec.js` | 888 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/apps-settings-io.spec.js` | 905 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-settings.spec.js` | 610 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-task.spec.js` | 765 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-todo.spec.js` | 329 | 900 | `advisory` | behavior e2e spec (TODO アプリ面)。2026-08-09 に apps-task.spec.js の advisory 超過を受けて先回り分割 |
