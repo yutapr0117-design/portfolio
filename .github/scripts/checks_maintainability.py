@@ -39,6 +39,13 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
       BUDGET-DATA から行を消し忘れると Check 52 が「存在しないファイル」を黙ってスキップし、
       削除後の monitoring drift が見えなくなる。本 Check は「BUDGET-DATA に登録された path は
       全て実在する」を BLOCKING で保証する。(BLOCKING)
+  424. file-size-budget.md §2 表の「実測行数」列が実測 (`wc -l`) と一致することを機械強制
+       する。§2 は人間可読な要約で、機械可読な真値は §4 BUDGET-DATA (Check 52/71 がパース)
+       ゆえ、§2 の数値は「一致は人間レビューで保つ」とだけ書かれ **誰も検証していなかった**。
+       実測すると 62 行中 44 行が stale (最大 366 行ズレ) で、列見出しが「実測行数」と
+       名乗りながら 71% が実測でない状態だった。cold-start の読者はこの表で headroom を
+       判断するため、間違った数値は無いより悪い。CLAUDE.md §7 の教訓「『生じないように』は
+       doc/convention でなく Check で機械強制せよ」の未適用箇所。(BLOCKING)
   361. Every shipped JS leaf module (`js/*.js` ∪ `js/quiz/*.js`) MUST be
        registered in docs/architecture/file-size-budget.md §4 BUDGET-DATA
        with a line budget. Check 71 guarantees registered⟹exists; this is
@@ -460,6 +467,37 @@ def run(ctx):
         )
     else:
         warnings.append("Check 71: file-size-budget.md not found — BUDGET-DATA existence check skipped")
+
+    # ── 424. file-size-budget.md §2 表の実測行数が実測と一致 (BLOCKING) ────────────
+    # §2 は人間可読な要約で、機械可読な真値は §4 BUDGET-DATA (Check 52/71 がパース) である。
+    # そのため §2 の数値は長らく「一致は人間レビューで保つ」とだけ書かれ、誰も検証して
+    # いなかった。実測したところ 62 行中 44 行が stale (最大 366 行ズレ) で、列見出しが
+    # 「実測行数」と名乗りながら 71% が実測でない状態だった。表を読んで headroom を判断する
+    # cold-start の読者にとって、間違った数値は無いより悪い。人間レビュー任せをやめて機械強制する。
+    _budget424 = ROOT / "docs" / "architecture" / "file-size-budget.md"
+    if _budget424.exists():
+        _src424 = _budget424.read_text(encoding="utf-8")
+        _stale424 = []
+        _checked424 = 0
+        for _m424 in re.finditer(r"^\| `([^`]+)` \| ([\d,]+) \| ([\d,]+) \| `", _src424, re.M):
+            _p424 = ROOT / _m424.group(1)
+            if not _p424.exists():
+                continue  # 存在検証は Check 71 の担当
+            _actual424 = len(_p424.read_text(encoding="utf-8", errors="replace").split("\n")) - 1
+            _rec424 = int(_m424.group(2).replace(",", ""))
+            _checked424 += 1
+            if _rec424 != _actual424:
+                _stale424.append(f"{_m424.group(1)}: 表={_rec424} 実測={_actual424}")
+        check(
+            not _stale424 and _checked424 > 0,
+            f"Check 424: file-size-budget.md §2 表の実測行数 {_checked424} 件が実測と一致",
+            f"Check 424: §2 表の実測行数が実測とズレている: {_stale424[:8]}"
+            + (f" (他 {len(_stale424) - 8} 件)" if len(_stale424) > 8 else "")
+            + "。行数を変えたファイルは §2 表の「実測行数」列も同じ commit で更新せよ "
+            f"(§4 BUDGET-DATA は予算値なので変更不要)",
+        )
+    else:
+        warnings.append("Check 424: file-size-budget.md not found — §2 line-count sync check skipped")
 
     # ── 361. shipped JS leaf-module BUDGET-DATA registration coverage (BLOCKING) ──
     # 全 shipped JS leaf module (js/*.js ∪ js/quiz/*.js) が file-size-budget.md §4

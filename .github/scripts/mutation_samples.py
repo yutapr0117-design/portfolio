@@ -104,6 +104,12 @@ _MUTATIONS_TAIL = [
         "find": "                        id: 'task-filter-priority',\n",
         "replace": "",
     },
+    {
+        "name": "Check 424: file-size-budget.md §2 表の実測行数が実測とズレても検出しない — §2 は人間可読な要約ゆえ長らく『一致は人間レビューで保つ』とだけ書かれ誰も検証しておらず、実測すると 62 行中 44 行が stale (最大 366 行ズレ) だった。cold-start の読者はこの表で headroom を判断するため間違った数値は無いより悪い",
+        "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+        "find": "| `js/identity.js` | 36 |",
+        "replace": "| `js/identity.js` | 37 |",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。
