@@ -22,6 +22,11 @@ test('Task and Todo main inputs expose an accessible name (not placeholder-only)
   await expect(page.getByLabel('やることを入力')).toHaveAttribute('id', 'todo-input');
 });
 
+// NOTE (非 vacuity の測り方): 保存経路は debounce (State.scheduleSave) と visibilitychange
+//   (State.saveNow) の **二重**で、reload は後者も通る。そのため scheduleSave 側だけを潰しても
+//   本テストは RED にならない —— テストが vacuous なのではなく冗長なだけ。実際に守っているものを
+//   測るには唯一の choke point である Storage.set の書き込みを潰せ (登録済み mutation はこの形)。
+//   同じ罠は MAX_PROJECTS の切り詰め (二重 slice) にもある。
 test('Task app adds a task and persists it across reload', async ({ page }) => {
   await page.goto('/#/apps/task');
   await page.waitForLoadState('domcontentloaded');
