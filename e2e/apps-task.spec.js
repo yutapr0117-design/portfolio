@@ -763,3 +763,35 @@ test('Task board explains why it is empty (filtered vs genuinely empty)', async 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `task empty-state caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 絞り込みの変更が「新しいタスク」の未送信テキストを消さない =====
+// 絞り込みは **表示だけの操作** なのに、従来は onchange が `window.render()` を呼んで
+// #content ごとページを作り直しており、その巻き添えで **打ちかけたタスク名が消えていた**
+// (実測: 8 文字 → 0)。絞り込んで既存タスクを確認してから続きを打つ、は自然な操作なので
+// 実害が大きい。#982 (テーマ切替が入力を消した) / #258 (oninput の全再描画) と同じ
+// 「無関係な操作の巻き添え」class で、ProjectsPage / QuizPage が既に採っている
+// listHost + 手動再描画へ揃えた。
+//
+// NOTE: `selectOption()` は選択後に focus を select に残さないため、focus 復元を測る用途では
+// 使えない (常に false RED になる)。ここでは値の保持を見るので影響しないが、キーボード相当の
+// 操作を再現するため change を明示的に dispatch する。
+test('タスクの絞り込みを変えても未送信の入力が消えない', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+
+  const draft = 'FILTER-DRAFT-KEEP-7701';
+  await page.locator('#task-input').fill(draft);
+
+  await page.locator('#task-filter-priority').evaluate((el) => {
+    el.focus();
+    el.value = 'high';
+    el.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+  // control: 絞り込みが実際に切り替わっていること (切り替わっていなければ何も検査していない)
+  await expect(page.locator('#task-filter-priority')).toHaveValue('high');
+
+  await expect(page.locator('#task-input'),
+    '絞り込みの巻き添えで未送信の入力が消えている').toHaveValue(draft);
+});

@@ -140,8 +140,8 @@ E2E_MUTATIONS_ARCHIVE = [
     {
         "name": "a11y: task/todo フィルタ変更の SR 通知喪失 — js/apps.js の todo 件数 status から role/aria-live を除去 (#1031 で assertive→polite へ移行済) → フィルタで一覧が変わっても SR には完全に無音 (通知領域には直前のアクション文言が残ったまま・#content 内 live region は 0 個) という実測 gap へ退行する (WCAG 4.1.3 Status Messages)",
         "file": ROOT / "js" / "apps.js",
-        "find": "h('div', { class: 'sr-only', role: 'status', 'aria-live': 'polite' },\n                            `TODO:",
-        "replace": "h('div', { class: 'sr-only' },\n                            `TODO:",
+        "find": "h('div', { class: 'sr-only', role: 'status', 'aria-live': 'polite', id: 'todo-filter-status' },",
+        "replace": "h('div', { class: 'sr-only', id: 'todo-filter-status' },",
         "test": "Task and Todo filter changes are announced",
     },
     {

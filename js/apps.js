@@ -51,6 +51,22 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
     // git -S 'taskFilter.q' で UI イベントによる代入歴ゼロを確認後に除去。
     const taskFilter = { priority: 'all' };
 
+    // TaskPage の絞り込み。render / 部分再描画 / 件数アナウンスの複数箇所から使うため factory
+    // スコープに置く (TaskPage 内に置くと外から参照できず no-undef になる — getFilteredTodos と同じ)。
+    function getFilteredTasks() {
+        return State.get().appsData.tasks.filter(t =>
+            taskFilter.priority === 'all' || t.priority === taskFilter.priority
+        );
+    }
+
+    function taskFilterStatusText() {
+        const label = ({ all: '全て', high: 'High', med: 'Med', low: 'Low' })[taskFilter.priority] || taskFilter.priority;
+        return `優先度: ${label} ${getFilteredTasks().length} 件`;
+    }
+
+    // listHost の中だけを作り直す関数。buildUI が描画のたびに新しい host を掴んで再代入する。
+    let renderTaskList = () => {};
+
     function TaskPage() {
 
         function addTask(title) {
@@ -97,13 +113,6 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
             }
         }
 
-        function getFilteredTasks() {
-            return State.get().appsData.tasks.filter(t =>
-                taskFilter.priority === 'all' || t.priority === taskFilter.priority
-            );
-        }
-
-
         // [FIX] シャドウイング問題の解決：名称を buildUI に変更
         function buildUI() {
             const container = document.createElement('div');
@@ -147,7 +156,13 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                         'aria-label': '優先度で絞り込み',
                         onchange: (e) => {
                             taskFilter.priority = e.target.value;
-                            window.render(); // グローバルレンダーを呼び出し (件数は polite status が伝える)
+                            // [FIX] 絞り込みは **表示だけの操作** なので全再描画しない。window.render() は
+                            //   #content を作り直すため、その巻き添えで **「新しいタスク」に打ちかけた
+                            //   未送信テキストが消えていた** (実測: 8 文字 → 0)。絞り込んで確認してから
+                            //   続きを打つのは自然な操作なので実害が大きい。#982 (テーマ切替が入力を消した)
+                            //   / #258 (oninput の全再描画) と同じ「無関係な操作の巻き添え」class。
+                            //   ProjectsPage / QuizPage が既に採る listHost + 手動再描画へ揃える。
+                            renderTaskList();
                         }
                     },
                         h('option', { value: 'all', text: '優先度: 全て', selected: taskFilter.priority === 'all' ? true : undefined }),
@@ -163,12 +178,16 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                     //   task/todo だけ assertive という非対称だった (実測 #1031)。
                     //   描画のたびに文言が変わることで通知されるので、命令的な announce は不要。
                     //   sr-only ゆえ視覚描画は不変。
-                    h('div', { class: 'sr-only', role: 'status', 'aria-live': 'polite' },
-                        `優先度: ${({ all: '全て', high: 'High', med: 'Med', low: 'Low' })[taskFilter.priority] || taskFilter.priority} ${getFilteredTasks().length} 件`)
+                    h('div', { class: 'sr-only', role: 'status', 'aria-live': 'polite', id: 'task-filter-status' },
+                        taskFilterStatusText())
                 )
             ));
 
-            // Kanban
+            // Kanban。絞り込みで作り直すのは **この listHost の中と件数 status だけ**。
+            const listHost = h('div', { id: 'task-list-host' });
+            container.appendChild(listHost);
+            renderTaskList = function () {
+            while (listHost.firstChild) { listHost.removeChild(listHost.firstChild); }
             const statuses = [
                 { id: 'backlog', label: '未着手' },
                 { id: 'in-progress', label: '進行中' },
@@ -269,7 +288,7 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                 board.appendChild(column);
             });
 
-            container.appendChild(board);
+            listHost.appendChild(board);
 
             // [UX] 0 件のときは理由まで示す。従来は 3 列とも「0」が並ぶだけで、**フィルタが
             //   隠しているのか本当に空なのか判別できなかった** (TodoPage は同じ状況で
@@ -278,12 +297,17 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
             //   フィルタ変更時の件数は announceFilter が単一チャネルへ通知済みで、ここに live
             //   region を足すと二重読み上げになる (#901 と同 class)。
             if (allTasks.length === 0) {
-                container.appendChild(h('p', {
+                listHost.appendChild(h('p', {
                     class: 'text-muted text-center py-8'
                 }, taskFilter.priority === 'all'
                     ? 'タスクはありません。上の入力欄から追加できます。'
                     : 'この優先度に一致するタスクはありません。絞り込みを「優先度: 全て」に戻すと表示されます。'));
             }
+            // 全再描画をやめた分、件数の polite status は明示的に更新する。
+            const statusEl = container.querySelector('#task-filter-status');
+            if (statusEl) { statusEl.textContent = taskFilterStatusText(); }
+            };
+            renderTaskList();
             return container;
         }
 
@@ -305,6 +329,15 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
     }
 
     let todoComposing = false;
+
+    function todoFilterStatusText() {
+        const label = ({ all: '全て', active: '未完了', completed: '完了' })[todoFilter] || todoFilter;
+        return `TODO: ${label} ${getFilteredTodos().length} 件`;
+    }
+
+    // listHost の中だけを作り直す関数 (TaskPage の renderTaskList と同じ形)。
+    let renderTodoList = () => {};
+    let todoListHost = null;
 
     function TodoPage() {
 
@@ -357,6 +390,18 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
         // スクリーンリーダーが ToDo ページ全体を「エラーアラート・invalid」として読み上げ、
         // aria-errormessage は TodoPage に存在しない #fallback-details を指す dangling 参照だった。
         // レイアウト class のみ残し a11y セマンティクスを正常化する (視覚描画は不変)。
+        renderTodoList = function () {
+            if (!todoListHost) { return; }
+            while (todoListHost.firstChild) { todoListHost.removeChild(todoListHost.firstChild); }
+            const list = getFilteredTodos();
+            list.forEach(todo => todoListHost.appendChild(buildTodoItem(todo)));
+            if (list.length === 0) {
+                todoListHost.appendChild(h('p', { class: 'text-muted text-center py-8' }, 'TODOはありません。'));
+            }
+            const statusEl = document.getElementById('todo-filter-status');
+            if (statusEl) { statusEl.textContent = todoFilterStatusText(); }
+        };
+
         return h('div', { class: 'flex flex-col gap-4 max-w-2xl' },
             h('header', { class: 'flex items-center gap-3' },
                 createIcon('list', 28),
@@ -392,7 +437,11 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                             'aria-label': 'TODO を絞り込み',
                             onchange: (e) => {
                                 todoFilter = e.target.value;
-                                window.render(); // 件数は下の polite status が伝える (task と同じ作法)
+                                // [FIX] task 側と同じ理由で全再描画しない。絞り込みは表示だけの操作なのに
+                                //   window.render() が #content を作り直し、**「新しい Todo」に打ちかけた
+                                //   未送信テキストが消えていた**。片方だけ直すと「1 ケースだけ処理して他を
+                                //   忘れる」非対称になるので task と対で直す。
+                                renderTodoList();
                             }
                         },
                             h('option', { value: 'all', text: '全て', selected: todoFilter === 'all' ? true : undefined }),
@@ -400,8 +449,8 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                             h('option', { value: 'completed', text: '完了', selected: todoFilter === 'completed' ? true : undefined })
                         ),
                         // [A11Y 4.1.3] 件数は polite な status で伝える (task 側のコメント参照・sr-only)。
-                        h('div', { class: 'sr-only', role: 'status', 'aria-live': 'polite' },
-                            `TODO: ${({ all: '全て', active: '未完了', completed: '完了' })[todoFilter] || todoFilter} ${getFilteredTodos().length} 件`),
+                        h('div', { class: 'sr-only', role: 'status', 'aria-live': 'polite', id: 'todo-filter-status' },
+                            todoFilterStatusText()),
                         h('button', {
                             class: 'btn btn-secondary btn-sm',
                             // [A11Y 2.1.1] 押すと自身が disabled になるので復元は h1 へ落ちる (opt-in の id)。
@@ -413,9 +462,16 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                 )
             ),
 
-            h('section', { class: 'flex flex-col gap-2' },
-                ...filtered.map(todo =>
-                    h('article', { class: 'card' },
+            todoListHost = h('section', { class: 'flex flex-col gap-2', id: 'todo-list-host' },
+                ...filtered.map(todo => buildTodoItem(todo)),
+                filtered.length === 0 && h('p', { class: 'text-muted text-center py-8' }, 'TODOはありません。')
+            )
+        );
+
+        // 1 項目分のテンプレ。初回描画と部分再描画の両方から使う (複製すると drift する)。
+        // 関数宣言ゆえ hoist され、上の return 式から呼べる。
+        function buildTodoItem(todo) {
+            return h('article', { class: 'card' },
                         h('div', { class: 'card-body flex items-center gap-3' },
                             h('input', {
                                 type: 'checkbox',
@@ -443,11 +499,8 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                                 'aria-label': '削除：' + todo.text
                             }, createIcon('x', 16))
                         )
-                    )
-                ),
-                filtered.length === 0 && h('p', { class: 'text-muted text-center py-8' }, 'TODOはありません。')
-            )
-        );
+                    );
+        }
     }
 
     // ▼ PomodoroPage (ポモドーロタイマー) は肥大化解消のため js/pomodoro-page.js
