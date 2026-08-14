@@ -185,9 +185,20 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                     //   セクション別チェックボックス (Profile/Projects/AppsData) は「データ」の
                     //   区分けなので、表示設定はどれにも属さず常に復元する (値は下の
                     //   validateAndNormalize が既知の enum へ正規化する)。
-                    if (typeof parsed.theme === 'string') { merged.theme = parsed.theme; }
-                    if (settingsIncludeProfile && parsed.profile) { merged.profile = parsed.profile; }
+                    // [FIX] **「対象」で除外された形のファイルを import すると、中身が丸ごと
+                    //   捨てられるのに「インポートが完了しました」と報告していた** (実測 #1040)。
+                    //   例: `AppsDataのみ` で書き出したファイルを、AppsData のチェックを外した
+                    //   状態で読み込むと、タスクは 1 件も置き換わらないのに成功メッセージが出る。
+                    //   #1039 で「形を認識できないファイル」の silent no-op は塞いだが、
+                    //   **形は認識できるのに選択で全部落ちる**残り半分が空いていた。どちらも
+                    //   「バックアップを戻したつもりで戻っていない」に見えるのは同じで、
+                    //   利用者が復元できたと信じてしまう点で失敗するより悪い。
+                    //   実際に 1 セクションでも適用したかを追跡し、0 件なら成功と言わない。
+                    let applied = false;
+                    if (typeof parsed.theme === 'string') { merged.theme = parsed.theme; applied = true; }
+                    if (settingsIncludeProfile && parsed.profile) { merged.profile = parsed.profile; applied = true; }
                     if (settingsIncludeProjects && Array.isArray(parsed.projects)) {
+                        applied = true;
                         if (settingsImportMode === 'strict') {
                             merged.projects = parsed.projects;
                         } else if (settingsImportMode === 'upsert') {
@@ -216,7 +227,12 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                             merged.projectPrefs = { ...merged.projectPrefs, hiddenIds: parsed.projectPrefs.hiddenIds };
                         }
                     }
-                    if (settingsIncludeApps && parsed.appsData) { merged.appsData = parsed.appsData; }
+                    if (settingsIncludeApps && parsed.appsData) { merged.appsData = parsed.appsData; applied = true; }
+
+                    if (!applied) {
+                        Toast.show('「対象」の選択に一致するデータがファイルにありませんでした', 'error');
+                        return;
+                    }
 
                     // 正規化してから単一 commit。生データは一切 render に届かない。
                     State.set(Store.validateAndNormalize(merged));

@@ -1,0 +1,141 @@
+const { test, expect } = require('@playwright/test');
+
+// ===== Settings の import が「どの形のファイルを、どこまで受け付けるか」の契約 =====
+// エクスポートは 4 つの形を書き出す (full backup / Projectsのみ / AppsDataのみ / Profileのみ)。
+// import 側がその一部しか受け付けないと、**バックアップとして提示している機能が
+// 「戻せないファイル」を作る**ことになる。しかも従来は戻せないときでも
+// 「インポートが完了しました」と報告していたため、利用者は復元できたと信じてしまう
+// (#1038/#1040)。本 spec はこの契約 —— 受け付ける形・受け付けない形・
+// 「対象」の選択で全部落ちる形 —— の 3 面をまとめて固定する。
+//
+// 元は apps-settings-io.spec.js にあったが、同 file が早期警告 (900 行) を超えたため
+// **BLOCKING (1,000 行) を踏む前に**このテーマの塊を切り出した (CLAUDE.md §7 の
+// 「advisory は BLOCKING を踏む前に効かせる」)。
+
+// 通知の検証は sr-only の通知領域で行う (toast は 3 秒で自動消滅するため CI 負荷で
+// 間欠 RED になる・#1018)。`#action-announcement` は次の通知まで消えない。
+async function expectNotified(page, text) {
+  await expect(page.locator('#action-announcement')).toContainText(text);
+}
+
+// ===== 部分 export したファイルも import で戻せること =====
+// `Projectsのみ` は projects の **素の配列**を、`AppsDataのみ` / `Profileのみ` はそれぞれの
+// **素のオブジェクト**を書き出すが、import は full-state 形 (`parsed.projects` 等) しか見て
+// おらず、**何も起きないのに「インポートが完了しました」と報告**していた (実測 #1038)。
+// バックアップとして提示している機能が「戻せないファイル」を作り、しかも成功したと言うのは
+// **失敗するより悪い** —— 利用者は復元できたと信じてしまう。
+test('部分 export (Projectsのみ) を import で戻せる', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  await page.locator('#settingsNewName').fill('部分往復テスト');
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect(page.getByRole('button', { name: '削除：部分往復テスト' })).toBeVisible();
+
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Projectsのみ', exact: true }).click(),
+  ]);
+  const file = await download.path();
+
+  page.once('dialog', d => d.accept());
+  await page.getByRole('button', { name: '全リセット', exact: true }).click();
+  // control: リセットで消えていること (消えていなければ import の効果を測れない)
+  await expect(page.getByRole('button', { name: '削除：部分往復テスト' })).toHaveCount(0);
+
+  await page.selectOption('#settingsImportMode', 'strict');
+  await page.setInputFiles('#content input[type="file"]', file);
+  await expectNotified(page, 'インポート');
+
+  await expect(page.getByRole('button', { name: '削除：部分往復テスト' }),
+    '部分 export したプロジェクトが import で戻らない (素の配列を受け付けていない)').toBeVisible();
+});
+
+// 認識できない形は **エラーとして伝える**。silent no-op に成功メッセージを付けない。
+test('認識できない形式の JSON は成功と report しない', async ({ page }, testInfo) => {
+  const fs = require('fs');
+  const path = require('path');
+  const bad = path.join(testInfo.outputDir, 'unrecognized.json');
+  fs.mkdirSync(testInfo.outputDir, { recursive: true });
+  fs.writeFileSync(bad, JSON.stringify({ somethingElse: 1 }));
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await page.setInputFiles('#content input[type="file"]', bad);
+
+  await expectNotified(page, '認識できない形式');
+  const ann = await page.evaluate(() => (document.getElementById('action-announcement') || {}).textContent);
+  expect(ann, '認識できない形式なのに「完了しました」と報告している').not.toContain('完了');
+});
+
+// ===== 「対象」の選択で中身が全部落ちるファイルも、成功と report しない =====
+// #1039 で「形を認識できないファイル」の silent no-op は塞いだが、**形は認識できるのに
+// 「対象」チェックボックスの選択で全部落ちる**残り半分が空いていた (実測 #1040:
+// `AppsDataのみ` のファイルを AppsData のチェックを外した状態で読み込むと、タスクは
+// 1 件も置き換わらないのに「インポートが完了しました」)。どちらも利用者からは
+// 「バックアップを戻したのに戻っていない」としか見えない。
+//
+// このテストは同時に `AppsDataのみ` の形 (素の appsData オブジェクト) を import が
+// 受け付けることも固定する —— #1039 の e2e は `Projectsのみ` の枝しか通っておらず、
+// 残り 2 枝は誰も踏んでいなかった。
+test('対象から外した形の import を成功と report しない', async ({ page }) => {
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  await page.getByLabel('新しいタスクを入力').fill('IMPORT-SHAPE-A');
+  await page.getByLabel('新しいタスクを入力').press('Enter');
+  await expect(page.locator('#content').getByText('IMPORT-SHAPE-A')).toBeVisible();
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'AppsDataのみ', exact: true }).click(),
+  ]);
+  const file = await download.path();
+
+  // AppsData を「対象」から外す。この状態でファイルの中身は全部落ちる。
+  // checkbox の onchange は window.render() で settings ページ全体を再描画し file input を
+  // 作り直すので、状態を assert して settle を保証してから先へ進む (detach された古い input に
+  // file を set すると onchange が発火せず import が起きない race がある・CI 負荷下で間欠 fail)。
+  await page.locator('#settingsIncludeApps').uncheck();
+  await expect(page.locator('#settingsIncludeApps')).not.toBeChecked();
+  await expect(page.getByLabel('インポートする JSON ファイルを選択')).toBeVisible();
+
+  // 別のタスクを足して状態を変えておく (import が効いたかを区別するため)
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  await page.getByLabel('新しいタスクを入力').fill('IMPORT-SHAPE-B');
+  await page.getByLabel('新しいタスクを入力').press('Enter');
+  await expect(page.locator('#content').getByText('IMPORT-SHAPE-B')).toBeVisible();
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  expect(await page.locator('#settingsIncludeApps').isChecked(),
+    'control: 対象から外れていなければ、この経路を測れない').toBe(false);
+  await page.setInputFiles('#content input[type="file"]', file);
+
+  await expectNotified(page, '対象');
+  const ann = await page.evaluate(() => (document.getElementById('action-announcement') || {}).textContent);
+  expect(ann, '中身が全部落ちたのに「完了しました」と報告している').not.toContain('完了');
+
+  // 実際に何も適用されていないこと (B が残り、A に巻き戻っていない)
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  await expect(page.locator('#content').getByText('IMPORT-SHAPE-B')).toBeVisible();
+
+  // 対象に戻せば、同じファイルが今度は実際に適用される (AppsDataのみ の形を受け付ける)
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await page.locator('#settingsIncludeApps').check();
+  await expect(page.locator('#settingsIncludeApps')).toBeChecked();
+  await expect(page.getByLabel('インポートする JSON ファイルを選択')).toBeVisible();
+  await page.setInputFiles('#content input[type="file"]', file);
+  await expectNotified(page, 'インポートが完了しました');
+
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  await expect(page.locator('#content').getByText('IMPORT-SHAPE-A'),
+    'AppsDataのみ の形が import で受け付けられていない').toBeVisible();
+  await expect(page.locator('#content').getByText('IMPORT-SHAPE-B'),
+    'appsData が置き換わっていない (import 後のタスクが export 時点のものになっていない)').toHaveCount(0);
+});
