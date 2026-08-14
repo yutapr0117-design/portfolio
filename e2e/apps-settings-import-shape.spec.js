@@ -151,3 +151,41 @@ test('対象から外した形の import を成功と report しない', async (
   await expect(page.locator('#content').getByText('IMPORT-SHAPE-B'),
     'appsData が置き換わっていない (import 後のタスクが export 時点のものになっていない)').toHaveCount(0);
 });
+
+// ===== 「モード」/「対象」の切替はページを作り直さない =====
+// これらのコントロールの値は import 実行時にしか読まれず、選択状態はブラウザが自分で
+// 更新するので、onchange で `window.render()` を呼んでも得るものが無い。むしろ
+// **#content ごと作り直されて隣の file input が差し替わる**ため、「対象を変えてすぐ
+// ファイルを選ぶ」という自然な操作で change が古い input に飛び、**import が起きない**。
+// 実際 CI で 2 度 RED になった (#1040 / #1053)。加えて focus も一度失われ、_renderCore が
+// id を鍵に戻す往復が必要になっていた (再描画しなければそもそも失われない・WCAG 2.1.1)。
+//
+// 「再描画されないこと」は目視でも既存テストでも観測できない (結果だけ見れば同じ) ので、
+// **要素の同一性**を直接見る。data 属性の印が生き残れば作り直されていない。
+// 非 vacuity: onchange に window.render() を戻すと印が消えて RED (実測)。
+test('モード / 対象の切替でページが作り直されない (file input の同一性が保たれる)', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  const mark = () => page.evaluate(() => {
+    document.querySelector('#content input[type="file"]').dataset.identityProbe = 'KEEP';
+  });
+  const survives = () => page.evaluate(() => (
+    document.querySelector('#content input[type="file"]').dataset.identityProbe || '(recreated)'
+  ));
+
+  // 「対象」チェックボックス
+  await mark();
+  await page.locator('#settingsIncludeApps').uncheck();
+  await expect(page.locator('#settingsIncludeApps')).not.toBeChecked();  // control: 実際に切り替わった
+  expect(await survives(), '対象の切替で file input が作り直されている').toBe('KEEP');
+  // 再描画されないので focus も失われない (従来は _renderCore が id で戻していた)
+  expect(await page.evaluate(() => document.activeElement && document.activeElement.id))
+    .toBe('settingsIncludeApps');
+
+  // 「モード」セレクト
+  await mark();
+  await page.locator('#settingsImportMode').selectOption('strict');
+  await expect(page.locator('#settingsImportMode')).toHaveValue('strict');  // control
+  expect(await survives(), 'モードの切替で file input が作り直されている').toBe('KEEP');
+});

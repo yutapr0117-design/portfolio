@@ -869,6 +869,13 @@ _E2E_TAIL = [
         "replace": "",
         "test": "palette / drawer / 検証エラーの一過性状態でも aria-* id 参照が解決する",
     },
+    {
+        "name": "behavior: 「対象」トグルが全再描画を起こす (#1040/#1053 の根本原因) — #content ごと作り直されて隣の file input が差し替わり、『対象を変えてすぐファイルを選ぶ』操作で change が古い input に飛んで import が起きない。結果だけ見れば同じなので目視でも通常のテストでも観測できず、要素の同一性を直接見る test だけが捕捉層",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "onchange: (e) => { settingsIncludeApps = !!e.target.checked; }",
+        "replace": "onchange: (e) => { settingsIncludeApps = !!e.target.checked; window.render(); }",
+        "test": "モード / 対象の切替でページが作り直されない (file input の同一性が保たれる)",
+    },
 ]
 
 
