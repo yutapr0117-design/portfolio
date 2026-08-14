@@ -898,6 +898,27 @@ _E2E_TAIL = [
         "replace": "        MAX_PROJECTS: 100000,",
         "test": "Import truncates projects to MAX_PROJECTS (bloat/DoS ingestion guard)",
     },
+    {
+        "name": "behavior: Markdown ノートの XSS 境界が innerHTML へ退行する — ノート本文はユーザーが自由に書ける唯一の長文入力で、innerHTML で描くと <script>/onerror が実行される。C1 の『ライブラリを入れない』制約を feature 化した innerHTML-free レンダラの中核契約であり、壊れても視覚的にはむしろ『markdown が効いた』ように見えるため気付けない",
+        "file": ROOT / "js" / "apps.js",
+        "find": "            else { flushList(); out.push(h('p', { class: 'text-prewrap' }, ..._renderMarkdownInline(line))); }",
+        "replace": "            else { flushList(); const _p = h('p', { class: 'text-prewrap' }); _p.innerHTML = line; out.push(_p); }",
+        "test": "Markdown notes renders HTML/script as literal text (innerHTML-free XSS boundary)",
+    },
+    {
+        "name": "behavior: cross-tab の storage リスナーが発火しなくなる — 複数タブで開いた時に片方の変更がもう片方へ伝わらず、後から保存したタブが相手の変更を上書きする (last-writer-wins が壊れ、利用者からは『さっき足したタスクが消えた』に見える)",
+        "file": ROOT / "js" / "state.js",
+        "find": "        if (e.key === CONSTANTS.STORAGE_KEY && e.newValue) {",
+        "replace": "        if (false && e.key === CONSTANTS.STORAGE_KEY && e.newValue) {",
+        "test": "Cross-tab sync: a task added in one tab appears in another tab",
+    },
+    {
+        "name": "behavior: localStorage への保存が no-op になる — reload で全データが消える最大級のデータ喪失。NOTE: 保存経路は debounce (scheduleSave) と visibilitychange (saveNow) の **二重**で、reload は後者も通るため **scheduleSave 側だけを潰しても RED にならない**。意味のある mutation は唯一の choke point である Storage.set の書き込みそのもの",
+        "file": ROOT / "js" / "storage.js",
+        "find": "            localStorage.setItem(key, value);",
+        "replace": "            void key; void value;",
+        "test": "Task app adds a task and persists it across reload",
+    },
 ]
 
 

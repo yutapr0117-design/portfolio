@@ -89,6 +89,12 @@ test('AIO anchor persists in DOM after initial load', async ({ page }) => {
 
 
 // ===== 7.1: AIOアンカー永続性 — ルート遷移後も保持されること =====
+// NOTE (mutation 非登録の理由): 本テストが守るのは「**ルート遷移の再描画がアンカーを消さない**」
+//   ことで、aio-guard.js の自己修復 (消されたら復元する) とは別の性質。実測で自己修復を無効化しても
+//   本テストは緑のまま —— この経路ではそもそもアンカーが消えないため自己修復が発火しないだけで、
+//   テストが vacuous なわけではない。RED にするには「レンダラがアンカーを消す」変更が要るが、
+//   それは 1 行の realistic な mutation として表現できないため登録しない (RED を実測できない
+//   mutation を安全網に混ぜない規律)。自己修復そのものは #932 の専用テストが被覆済み。
 test('AIO anchor persists in DOM after route navigation', async ({ page }) => {
   await page.goto('/');
   await page.waitForLoadState('domcontentloaded');
