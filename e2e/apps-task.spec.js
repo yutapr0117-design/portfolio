@@ -620,6 +620,11 @@ test('Task and Todo ignore empty/whitespace-only input (no item created)', async
 // 検証する。NOTE: 2 層 cap は冗長防御ゆえ片層 slice の除去は他層が self-heal し observable が変わらない
 // (mutation SURVIVED)。よって clean な単一 mutation を E2E_MUTATIONS へ登録できない (両 slice 除去で
 // 初めて 1049 が出現し RED = total cap failure に対する非 vacuity は手動実測済)。
+// NOTE (非 vacuity の測り方): 切り詰めは mergeProjectsWithDefaults 内で **二重に適用**されている
+//   (normalizedIncoming の slice と最終 merged の slice)。そのため **片方の slice を消すだけでは
+//   本テストは RED にならない** —— もう片方が受けるためで、テストが vacuous なのではない。
+//   実際に守っているものを測るには上限値 (CONSTANTS.LIMITS.MAX_PROJECTS) 自体を緩めよ
+//   (登録済み mutation はこの形)。同じ罠は「ガードが冗長に置かれている」箇所すべてにある。
 test('Import truncates projects to MAX_PROJECTS (bloat/DoS ingestion guard)', async ({ page }) => {
   await page.addInitScript(() => {
     const projects = [];
