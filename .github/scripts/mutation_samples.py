@@ -690,8 +690,8 @@ _E2E_TAIL = [
     {
         "name": "behavior: 絞り込み件数の polite status が失われる (#1031 の回帰) — status role/aria-live を外すと件数変化が SR へ伝わらなくなる。従来は assertive 領域へ書いて読み上げを割り込んでいた非対称を、ProjectsPage/QuizPage と同じ polite なローカル status へ揃えたもの",
         "file": ROOT / "js" / "apps.js",
-        "find": "h('div', { class: 'sr-only', role: 'status', 'aria-live': 'polite' },\n                        `優先度:",
-        "replace": "h('div', { class: 'sr-only' },\n                        `優先度:",
+        "find": "h('div', { class: 'sr-only', role: 'status', 'aria-live': 'polite', id: 'task-filter-status' },",
+        "replace": "h('div', { class: 'sr-only', id: 'task-filter-status' },",
         "test": "絞り込みの件数が polite な status でアナウンスされる",
     },
     {
@@ -875,6 +875,20 @@ _E2E_TAIL = [
         "find": "onchange: (e) => { settingsIncludeApps = !!e.target.checked; }",
         "replace": "onchange: (e) => { settingsIncludeApps = !!e.target.checked; window.render(); }",
         "test": "モード / 対象の切替でページが作り直されない (file input の同一性が保たれる)",
+    },
+    {
+        "name": "behavior: タスクの絞り込みが全再描画へ戻る — 表示だけの操作なのに #content を作り直すため、『新しいタスク』に打ちかけた未送信テキストが巻き添えで消える (#982 のテーマ切替 / #258 の oninput と同じ class)。絞り込んで確認してから続きを打つのは自然な操作なので実害が大きい",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                            renderTaskList();",
+        "replace": "                            window.render();",
+        "test": "タスクの絞り込みを変えても未送信の入力が消えない",
+    },
+    {
+        "name": "behavior: TODO の絞り込みが全再描画へ戻る — task 側と同じ巻き添えで未送信テキストが消える。片方だけ直すと「1 ケースだけ処理して他を忘れる」非対称になるため対で守る",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                                renderTodoList();",
+        "replace": "                                window.render();",
+        "test": "TODO の絞り込みを変えても未送信の入力が消えない",
     },
 ]
 

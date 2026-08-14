@@ -327,3 +327,24 @@ test('Todo add and delete announce to the assertive aria-live region (WCAG 4.1.3
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `todo announce caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== TODO 側も同じ (task と対で直した・「1 ケースだけ処理して他を忘れる」非対称の防止) =====
+test('TODO の絞り込みを変えても未送信の入力が消えない', async ({ page }) => {
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'TODO' }).first()).toBeVisible();
+
+  const draft = 'TODO-FILTER-DRAFT-KEEP-7702';
+  await page.locator('#todo-input').fill(draft);
+
+  await page.locator('#todo-filter').evaluate((el) => {
+    el.focus();
+    el.value = 'completed';
+    el.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+  await expect(page.locator('#todo-filter')).toHaveValue('completed');  // control
+
+  await expect(page.locator('#todo-input'),
+    '絞り込みの巻き添えで未送信の入力が消えている').toHaveValue(draft);
+});
