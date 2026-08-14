@@ -63,7 +63,7 @@ path 対応が機械的に推論可能 = AI / 人間どちらにとっても予�
 ## 4. Phase 1 完了分: shipped code (33 件)
 
 ### Root shipped (9)
-- [main.js](./main.js.md) — AIDK Isolated Kernel + factory composition (1,086 行)
+- [main.js](./main.js.md) — AIDK Isolated Kernel + factory composition（現在行数は `docs/architecture/file-size-budget.md` §2 が単一ソース＝Check 424 が `wc -l` 一致を強制。ここに複製すると独立に drift する）
 - [index.html](./index.html.md) — single-page SPA entry + AIO/JSON-LD/CSP の宣言面
 - [style.css](./style.css.md) — 全 CSS (2,156 行, baseline 後の section 分割候補)
 - [sw.js](./sw.js.md) — Service Worker (offline cache 戦略)
@@ -77,9 +77,9 @@ path 対応が機械的に推論可能 = AI / 人間どちらにとっても予�
 全 24 葉モジュールの一覧は `docs/architecture/repository-maintainability-map.md` § "Stage 5-c〜5-s" 参照。各々の独立 doc は `docs/files/js/<name>.js.md` に配置。
 
 - [js/aidk-rails.js](./js/aidk-rails.js.md) — AIDK Rail 5 IIFE 合体 factory
-- [js/apps.js](./js/apps.js.md) — Productivity Apps 5 関数 factory
+- [js/apps.js](./js/apps.js.md) — Productivity Apps factory（TaskPage / TodoPage / NotesPage）
 - [js/brand.js](./js/brand.js.md) — Brand manager factory
-- [js/components.js](./js/components.js.md) — UI page components 11 関数 factory
+- [js/components.js](./js/components.js.md) — UI page components factory（Sidebar / AppsPage / AboutPage / ResumePage / ContactPage / FatalPage / ContactCTA）
 - [js/constants.js](./js/constants.js.md) — 実行時定数
 - [js/fatal-overlay.js](./js/fatal-overlay.js.md) — Fatal overlay + Global Safety Net
 - [js/identity.js](./js/identity.js.md) — AUTHOR 純データ
