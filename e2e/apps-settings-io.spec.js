@@ -471,8 +471,25 @@ test('Settings import skips a section whose target checkbox is unchecked (select
   await expect(page.getByRole('checkbox', { name: 'Projects' })).not.toBeChecked();
   await page.getByRole('checkbox', { name: 'Profile' }).uncheck();
   await expect(page.getByRole('checkbox', { name: 'Profile' })).not.toBeChecked();
+
+  // [FIX] 上の「状態を assert して settle を待つ」だけでは **CI 負荷で間欠 RED** になる
+  //   (実測: `#action-announcement` が空 = import が一度も発火していない)。checkbox の
+  //   onchange が起こす再描画は `await yieldToMain()` を挟む**非同期**なので、checkbox の
+  //   状態 assert が通った時点ではまだ古い file input が生きており、そこへ file を set すると
+  //   **直後に detach されて change が誰にも届かない**。同じ罠は #1040 でも踏んだ。
+  //   一度ルートを離れて戻り、描画が確定した DOM を掴んでから set する
+  //   (「対象」チェックボックスは factory closure state なので遷移では消えない)。
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  // control: 遷移を跨いでも選択が保持されていること (保持されていなければ gate を測れない)
+  await expect(page.getByRole('checkbox', { name: 'Projects' })).not.toBeChecked();
+  await expect(page.getByRole('checkbox', { name: 'Profile' })).not.toBeChecked();
   await expect(page.getByRole('checkbox', { name: 'AppsData' })).toBeChecked();
-  // 再描画後の file input が actionable であることを確認 (detached な古い input を掴まない)。
   await expect(page.getByLabel('インポートする JSON ファイルを選択')).toBeVisible();
 
   const skippedProj = 'IMPORT-SECTION-GATE-PROJ-9930';
