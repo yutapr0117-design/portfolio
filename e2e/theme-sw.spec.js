@@ -121,12 +121,23 @@ test('theme-init.js applies stored dark theme on initial load (FOUC prevention)'
       }));
     } catch (e) { /* noop */ }
   });
+  // [FIX] **main.js を止めてから測る**。従来は素の goto 後に読んでいたため、main.js の
+  //   Theme.apply が後から同じ属性を付けており、**theme-init.js の復元を丸ごと殺しても
+  //   このテストは緑のまま**だった (実測) —— 「FOUC prevention」を名乗りながら、
+  //   適用が pre-paint かどうかを一切見ていない vacuous な gate。FOUC はまさに
+  //   screenshot が ADVISORY で捕捉できない silent な失敗なので、ここが唯一の捕捉層になる。
+  //   main.js を止めれば「theme-init.js だけが走った状態」になり、属性が付いていること
+  //   =pre-paint に付いたことの証明になる (theme-init.js は head の classic script)。
+  await page.route('**/main.js', (route) => route.abort());
   await page.goto('/');
   await page.waitForLoadState('domcontentloaded');
 
   const html = page.locator('html');
   await expect(html).toHaveAttribute('data-theme', 'dark');
   await expect(html).toHaveClass(/\bdark\b/);
+
+  // control: main.js が実際に止まっていること (止まっていなければ後段の適用と区別できない)
+  expect(await page.evaluate(() => typeof window.render), 'main.js が走っていると測定にならない').toBe('undefined');
 });
 
 
@@ -166,10 +177,14 @@ test('theme-init.js applies stored brand on initial load (brand FOUC prevention)
   await page.addInitScript(() => {
     try { localStorage.setItem('portfolio_brand_v45', 'classic'); } catch (e) { /* noop */ }
   });
+  // [FIX] theme 側と同じ理由で main.js を止めてから測る (従来は brand 復元を丸ごと殺しても
+  //   緑のままだった)。main.js 側の Brand 適用と区別できて初めて「pre-paint に付いた」と言える。
+  await page.route('**/main.js', (route) => route.abort());
   await page.goto('/');
   await page.waitForLoadState('domcontentloaded');
 
   await expect(page.locator('html')).toHaveAttribute('data-brand', 'classic');
+  expect(await page.evaluate(() => typeof window.render), 'main.js が走っていると測定にならない').toBe('undefined');
 });
 
 
