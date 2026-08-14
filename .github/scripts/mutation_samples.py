@@ -877,6 +877,27 @@ _E2E_TAIL = [
         "replace": "            if (false && has('tasks', 'todos', 'pomodoro', 'ai', 'notes', 'quizSearch')) { return { appsData: raw }; }",
         "test": "対象から外した形の import を成功と report しない",
     },
+    {
+        "name": "behavior: 全リセットの confirm ガードが消える — キャンセルしても全データが初期化される。破壊操作の確認は『押し間違い』ではなく『考え直した』を守るためのもので、これが効かないとキャンセルを押した利用者がデータを失う。最悪の silent failure なのに安全網の非 vacuity が未実証だった",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "            if (!confirm('すべてのデータを初期化しますか？')) {return;}\n",
+        "replace": "",
+        "test": "Canceling the reset confirm keeps data (data-safety)",
+    },
+    {
+        "name": "behavior: プロジェクト削除の confirm ガードが消える — キャンセルしても削除される。既定プロジェクトは削除できないため対象はユーザーが自分で追加したものだけで、復元手段は backup しか無い",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "            if (!confirm('本当に削除しますか？')) {return;}\n",
+        "replace": "",
+        "test": "Canceling the delete confirm keeps the project (data-safety)",
+    },
+    {
+        "name": "behavior: MAX_PROJECTS の件数上限が緩む — import/cross-tab/snapshot 経由で巨大な projects 配列が localStorage を bloat させ描画を重くする DoS ガードの喪失。NOTE: 切り詰めは mergeProjectsWithDefaults 内で **二重に適用**されている (normalizedIncoming の slice と最終 merged の slice) ため、**片方の slice を消すだけでは RED にならない** (もう片方が受ける)。意味のある mutation は上限値そのものを緩めること",
+        "file": ROOT / "js" / "constants.js",
+        "find": "        MAX_PROJECTS: 1000,",
+        "replace": "        MAX_PROJECTS: 100000,",
+        "test": "Import truncates projects to MAX_PROJECTS (bloat/DoS ingestion guard)",
+    },
 ]
 
 
