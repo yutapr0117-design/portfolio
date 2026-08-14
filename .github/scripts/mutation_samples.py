@@ -947,6 +947,20 @@ _E2E_TAIL = [
         "replace": "                const rawBrand = null;",
         "test": "theme-init.js applies stored brand on initial load (brand FOUC prevention)",
     },
+    {
+        "name": "behavior: slug 衝突の一意化が効かなくなる (#154 の回帰) — 同名プロジェクトを追加/取り込みすると slug が重複し、**片方の詳細ページへ到達できなくなる** (ルーターは先勝ちで解決するため後の 1 件が事実上消える)。一覧には両方出るので画面上は正常に見える",
+        "file": ROOT / "js" / "store.js",
+        "find": "            if (_seenSlugs.has(s)) {",
+        "replace": "            if (false && _seenSlugs.has(s)) {",
+        "test": "Importing projects with colliding slugs yields unique slugs (detail reachability)",
+    },
+    {
+        "name": "behavior: テーマ切替の巡回順が壊れる (#262 の症状面) — 1 クリックで 2 段進む / 逆順になる等。#262 は data-action の delegation と直接リスナーの二重発火が原因だったが、症状は『押した段数と表示が一致しない』で同じ。巡回順そのものを入れ替えて、段数を数える assertion が実際に効くことを実証する",
+        "file": ROOT / "js" / "theme.js",
+        "find": "        const next = current === 'system' ? 'dark' : current === 'dark' ? 'light' : 'system';",
+        "replace": "        const next = current === 'system' ? 'light' : current === 'dark' ? 'system' : 'dark';",
+        "test": "Topbar theme button advances exactly one step per click (double-fire regression)",
+    },
 ]
 
 
