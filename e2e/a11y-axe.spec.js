@@ -585,3 +585,87 @@ test('#content は live region ではなく、通知は専用領域が担う', a
   await page.getByLabel('TODO を絞り込み').selectOption('completed');
   await expect(page.locator('#content [role="status"][aria-live="polite"]')).toHaveText(/TODO: 完了 \d+ 件/);
 });
+
+
+// ===== 実行時の aria-* idref が実在要素に解決する (静的 Check 392 の動的面) =====
+// `aria-labelledby` / `aria-describedby` / `aria-controls` / `aria-activedescendant` /
+// `aria-errormessage` / `aria-owns` は **id 参照**であり、指す先が無いと支援技術は
+// その関連付けを黙って無視する —— 画面上は何も変わらず、axe にも該当ルールが無いため
+// **どの層も捕捉しない**。Check 392 は静的に idref を検証するが、**描画時に組み立てられる
+// id**（`cmdk-opt-<i>` のようにループで採番されるもの、条件付きで付け外しされるもの）は
+// ソースを読んでも解決できない。実際 #997 では `aria-controls` を変数化した瞬間に
+// Check 392 が false RED になっており、静的検査の射程はそこで尽きている。
+//
+// 危ないのは静止状態より **一過性の状態** —— palette を開いた瞬間、候補がゼロになった瞬間、
+// drawer を開いた瞬間、検証エラーが出た瞬間。これらは DOM が入れ替わるので、参照先だけが
+// 消えて属性が残る形の壊れ方をする。全 16 ルート + 主要な一過性状態で走査する。
+//
+// 非 vacuity: 実在しない id を指す要素を注入すると検出されることを control で実証済
+// (probe 実測: `DIV[aria-controls=nonexistent-target-xyz]` を検出)。
+const IDREF_ATTRS = ['aria-labelledby', 'aria-describedby', 'aria-controls',
+  'aria-activedescendant', 'aria-errormessage', 'aria-owns'];
+
+async function danglingIdrefs(page) {
+  return page.evaluate((attrs) => {
+    const out = [];
+    document.querySelectorAll('*').forEach((el) => attrs.forEach((a) => {
+      const v = el.getAttribute(a);
+      if (!v) { return; }
+      v.split(/\s+/).filter(Boolean).forEach((id) => {
+        if (!document.getElementById(id)) { out.push(el.tagName + '[' + a + '="' + id + '"]'); }
+      });
+    }));
+    return [...new Set(out)];
+  }, IDREF_ATTRS);
+}
+
+const IDREF_ROUTES = ['', '#/projects', '#/quiz', '#/about', '#/resume', '#/contact',
+  '#/role-split', '#/hiring-risk', '#/ai-knowhow', '#/apps', '#/apps/task', '#/apps/todo',
+  '#/apps/notes', '#/apps/ai', '#/apps/pomodoro', '#/settings'];
+
+test('全ルートの aria-* id 参照が実在要素へ解決する', async ({ page }) => {
+  for (const route of IDREF_ROUTES) {
+    await page.goto('/' + route, { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#content h1').first()).toBeVisible();
+    expect(await danglingIdrefs(page), `${route || 'home'} に解決しない aria-* id 参照がある`).toEqual([]);
+  }
+});
+
+test('palette / drawer / 検証エラーの一過性状態でも aria-* id 参照が解決する', async ({ page }) => {
+  // command palette: 開いた直後 → 矢印で active option を指した状態 → 候補ゼロ
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  await page.keyboard.press('Control+k');
+  const cmdkInput = page.locator('[role="combobox"]').first();
+  await expect(cmdkInput).toBeVisible();
+  expect(await danglingIdrefs(page), 'palette を開いた状態').toEqual([]);
+
+  await page.keyboard.press('ArrowDown');
+  // control: 矢印操作で active option が実際に指されていること (指していなければ何も検査していない)
+  await expect(cmdkInput).toHaveAttribute('aria-activedescendant', /.+/);
+  expect(await danglingIdrefs(page), 'palette で active option を指した状態').toEqual([]);
+
+  await cmdkInput.fill('zzzzzz-no-match-expected');
+  // control: 候補ゼロの表示になっていること (候補が残っていればこの状態を測れない)。
+  // 空表示も <li> として描かれるので role="option" で数える。
+  await expect(page.locator('#cmdk-listbox li[role="option"]')).toHaveCount(0);
+  await expect(page.locator('.cmdk-empty')).toBeVisible();
+  expect(await danglingIdrefs(page), 'palette の候補がゼロの状態').toEqual([]);
+  await page.keyboard.press('Escape');
+
+  // mobile drawer
+  await page.setViewportSize({ width: 390, height: 780 });
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  await page.locator('#menuBtn').click();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
+  expect(await danglingIdrefs(page), 'drawer を開いた状態').toEqual([]);
+
+  // 検証エラー (aria-errormessage が出る経路)
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect(page.locator('#settingsNewName')).toHaveAttribute('aria-invalid', 'true');
+  expect(await danglingIdrefs(page), '検証エラーが出ている状態').toEqual([]);
+});

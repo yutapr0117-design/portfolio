@@ -862,6 +862,13 @@ _E2E_TAIL = [
         "replace": "",
         "test": "Projects filter survives a full re-render after a silent URL update (getRoute stays in sync)",
     },
+    {
+        "name": "behavior: 候補ゼロの palette で aria-activedescendant が消えない (#699 の回帰) — input が存在しない option (cmdk-opt-0) を指したままになり、支援技術はその関連付けを黙って無視する。画面上は何も変わらず axe にも該当ルールが無いため、実行時の idref 走査以外に捕捉層が無い",
+        "file": ROOT / "js" / "command-palette.js",
+        "find": "            if (inputEl) { inputEl.removeAttribute('aria-activedescendant'); }",
+        "replace": "",
+        "test": "palette / drawer / 検証エラーの一過性状態でも aria-* id 参照が解決する",
+    },
 ]
 
 
