@@ -50,7 +50,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `main.js` | 1,196 | 6,400 | `strong-advisory` | Stage 5-q/r/s で 7,785→1,086 行（**−86%**）まで縮小。以降は葉抽出の factory 配線追加で微増し現在 1,196 行（機能の直接追加ではない・`wc -l` が権威）。残部は AIDK Kernel + view-transition/render core (Check 43 で保護) |
 | `js/aidk-rails.js` | 425 | 550 | `advisory` | Stage 5-l (AIDK Rail) 新設。AIDK Rail 5 IIFE 合体 factory (RouteState/EffectRails/BindingRegistry/ActionDelegator/DiagnosticsRail)。closure-deps = none + 引数注入。命名: PR #37。Stage 5-l は本 entry (AIDK Rail) を指し、PR #33 の Meta Management は changelog 上では 5-k' と呼称（命名衝突を honest dating で記録） |
 | `js/apps.js` | 458 | 650 | `advisory` | Stage 5-n 新設。Productivity Apps factory（TaskPage/TodoPage/NotesPage + private state）。**2026-07-04 bloat-reduction: AIPage → js/ai-page.js / PomodoroPage → js/pomodoro-page.js。2026-07-05: SettingsPage → js/settings-page.js へ分離し 837→458 行**。budget を実態 +headroom へ tighten |
-| `js/settings-page.js` | 408 | 500 | `advisory` | 2026-07-05 bloat-reduction 分離 (js/apps.js より・最大 page ~373 行)。Settings factory（import/export/snapshot/手動追加/正規化）。private state = settings* (let × 7)。restore/import は Store.validateAndNormalize を通す (#93/#295/#561) |
+| `js/settings-page.js` | 531 | 600 | `advisory` | 2026-07-05 bloat-reduction 分離 (js/apps.js より・最大 page ~373 行)。Settings factory（import/export/snapshot/手動追加/正規化）。private state = settings* (let × 7)。restore/import は Store.validateAndNormalize を通す (#93/#295/#561)。**2026-08-14: 記録値が 408 のまま drift していたのを実態 531 へ同期し advisory を 600 へラチェット** —— 増分の大半は #1035〜#1040 の backup 契約バグ 6 件を記録した WHY コメントで、ロジックの肥大ではない。ハードゲートは Check 365 (1,000 行) のまま |
 | `js/brand.js` | 65 | 120 | `advisory` | Stage 5-f 新設。Brand manager（primary palette/font switcher）factory。closure-deps = none（葉契約）+ Storage を引数注入 |
 | `js/components.js` | 454 | 600 | `advisory` | Stage 5-m 新設。UI page components factory。**bloat-reduction: HomePage / ProjectsPage / ProjectDetailPage / AIKnowhowPage を個別葉モジュール (js/home-page.js 等) へ分離し 1,335→454 行**。budget を実態へ tighten |
 | `js/ai-knowhow-page.js` | 316 | 450 | `advisory` | bloat-reduction 分離。AI 活用ノウハウページ factory。closure-deps = none + 引数注入 |
@@ -97,7 +97,8 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/aio-meta.spec.js` | 504 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-ai-notes.spec.js` | 527 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-pomodoro.spec.js` | 456 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
-| `e2e/apps-settings-io.spec.js` | 938 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/apps-settings-import-shape.spec.js` | 134 | 900 | `advisory` | behavior e2e spec (import が受け付ける形の契約面)。2026-08-14 に apps-settings-io.spec.js の advisory 超過を受けて先回り分割 |
+| `e2e/apps-settings-io.spec.js` | 888 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-settings.spec.js` | 502 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-task.spec.js` | 648 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-todo.spec.js` | 329 | 900 | `advisory` | behavior e2e spec (TODO アプリ面)。2026-08-09 に apps-task.spec.js の advisory 超過を受けて先回り分割 |
@@ -346,7 +347,7 @@ js/pages.js | 400 | advisory
 js/perf-guards.js | 250 | advisory
 js/pure-utils.js | 400 | advisory
 js/quiz-renderer.js | 350 | advisory
-js/settings-page.js | 500 | advisory
+js/settings-page.js | 600 | advisory
 js/state.js | 320 | advisory
 js/storage.js | 120 | advisory
 js/store.js | 750 | advisory
@@ -375,6 +376,7 @@ e2e/a11y-axe.spec.js | 900 | advisory
 e2e/aio-meta.spec.js | 900 | advisory
 e2e/apps-ai-notes.spec.js | 900 | advisory
 e2e/apps-pomodoro.spec.js | 900 | advisory
+e2e/apps-settings-import-shape.spec.js | 900 | advisory
 e2e/apps-settings-io.spec.js | 900 | advisory
 e2e/apps-settings.spec.js | 900 | advisory
 e2e/apps-task.spec.js | 900 | advisory
