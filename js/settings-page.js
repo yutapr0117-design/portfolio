@@ -352,8 +352,20 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                             //   無いと 1 つ切り替えるたび focus が body へ落ち、対象を続けて選べない。
                             h('div', { class: 'grid grid-cols-2 gap-3' },
                                 h('div', {},
+                                    // [FIX] これらの「モード」/「対象」コントロールの onchange は
+                                    //   **window.render() を呼ばない**。値は import 実行時にしか読まれず
+                                    //   (下の importJSON)、コントロール自身の選択状態はブラウザが既に
+                                    //   更新しているので、全再描画には何も得るものが無い。むしろ:
+                                    //   (1) #content ごと作り直すので **隣の file input が差し替わり**、
+                                    //       「対象を変えてすぐファイルを選ぶ」操作で change が
+                                    //       古い input に飛んで **import が起きない** (実測: CI で
+                                    //       #1053 が RED・#1040 でも同じレースを踏んだ)。
+                                    //   (2) focus が一度失われ _renderCore が id を鍵に戻す往復が要る。
+                                    //       再描画しなければそもそも失われない (WCAG 2.1.1)。
+                                    //   これらのフラグを読む描画は自分自身の selected/checked だけである
+                                    //   ことを全走査で確認済み。
                                     h('label', { class: 'text-sm text-muted', for: 'settingsImportMode' }, 'モード'),
-                                    h('select', { class: 'input', id: 'settingsImportMode', 'aria-label': 'インポートモード', onchange: (e) => { settingsImportMode = e.target.value; window.render(); } },
+                                    h('select', { class: 'input', id: 'settingsImportMode', 'aria-label': 'インポートモード', onchange: (e) => { settingsImportMode = e.target.value; } },
                                         h('option', { value: 'append', selected: settingsImportMode === 'append' ? true : undefined }, 'append（追加のみ）'),
                                         h('option', { value: 'upsert', selected: settingsImportMode === 'upsert' ? true : undefined }, 'upsert（更新+追加）'),
                                         h('option', { value: 'strict', selected: settingsImportMode === 'strict' ? true : undefined }, 'strict（全置換）')
@@ -363,15 +375,15 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                                     h('span', { class: 'text-sm text-muted', id: 'settingsIncludeGroupLabel' }, '対象'),
                                     h('div', { class: 'flex flex-wrap gap-2', role: 'group', 'aria-labelledby': 'settingsIncludeGroupLabel' },
                                         h('label', { class: 'btn btn-ghost btn-sm' },
-                                            h('input', { type: 'checkbox', id: 'settingsIncludeProfile', checked: settingsIncludeProfile, onchange: (e) => { settingsIncludeProfile = !!e.target.checked; window.render(); } }),
+                                            h('input', { type: 'checkbox', id: 'settingsIncludeProfile', checked: settingsIncludeProfile, onchange: (e) => { settingsIncludeProfile = !!e.target.checked; } }),
                                             h('span', { class: 'icon-gap' }, 'Profile')
                                         ),
                                         h('label', { class: 'btn btn-ghost btn-sm' },
-                                            h('input', { type: 'checkbox', id: 'settingsIncludeProjects', checked: settingsIncludeProjects, onchange: (e) => { settingsIncludeProjects = !!e.target.checked; window.render(); } }),
+                                            h('input', { type: 'checkbox', id: 'settingsIncludeProjects', checked: settingsIncludeProjects, onchange: (e) => { settingsIncludeProjects = !!e.target.checked; } }),
                                             h('span', { class: 'icon-gap' }, 'Projects')
                                         ),
                                         h('label', { class: 'btn btn-ghost btn-sm' },
-                                            h('input', { type: 'checkbox', id: 'settingsIncludeApps', checked: settingsIncludeApps, onchange: (e) => { settingsIncludeApps = !!e.target.checked; window.render(); } }),
+                                            h('input', { type: 'checkbox', id: 'settingsIncludeApps', checked: settingsIncludeApps, onchange: (e) => { settingsIncludeApps = !!e.target.checked; } }),
                                             h('span', { class: 'icon-gap' }, 'AppsData')
                                         )
                                     )
