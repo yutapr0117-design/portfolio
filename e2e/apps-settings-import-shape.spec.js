@@ -128,7 +128,19 @@ test('対象から外した形の import を成功と report しない', async (
   await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
   await page.locator('#settingsIncludeApps').check();
   await expect(page.locator('#settingsIncludeApps')).toBeChecked();
-  await expect(page.getByLabel('インポートする JSON ファイルを選択')).toBeVisible();
+  // [FIX] ここで直に setInputFiles すると **CI でだけ間欠 RED** になる (実測: 通知が前の
+  //   「対象の選択に一致するデータが…」のまま = change が発火していない)。checkbox の
+  //   onchange は window.render() で settings ページ全体を再描画して file input を作り直すが、
+  //   その再描画は非同期 (await yieldToMain) なので、checkbox の状態 assert が通った時点では
+  //   まだ古い input が生きている。そこへ file を set すると、**直後に detach されて change が
+  //   誰にも届かない**。上の 1 回目の import と同じく **一度ルートを離れて戻り**、描画が
+  //   確定した DOM を掴んでから set する (「対象」は factory closure state なので遷移で消えない)。
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  expect(await page.locator('#settingsIncludeApps').isChecked(),
+    'control: 対象に戻っていなければ、適用される経路を測れない').toBe(true);
   await page.setInputFiles('#content input[type="file"]', file);
   await expectNotified(page, 'インポートが完了しました');
 
