@@ -919,6 +919,34 @@ _E2E_TAIL = [
         "replace": "            void key; void value;",
         "test": "Task app adds a task and persists it across reload",
     },
+    {
+        "name": "behavior: Speakable の cssSelector がルート追従しなくなる — 全ルートで既定セレクタを返すと、AI 音声アシスタントは role-split の表 (#role-split-table) や ai-knowhow の要約ブロックを読み上げ対象として認識できない。視覚に一切出ない AIO 面ゆえ screenshot も behavior の描画検査も素通りする",
+        "file": ROOT / "js" / "meta-management.js",
+        "find": "        const cssSel = SPEAKABLE_SELECTORS[routeName] || ['h1', '[data-speakable]', '.sr-only'];",
+        "replace": "        const cssSel = ['h1', '[data-speakable]', '.sr-only'];",
+        "test": "Speakable JSON-LD updates cssSelector per route (AIO voice)",
+    },
+    {
+        "name": "behavior: silent な URL 更新で data-ai-state の route が汚れる — 絞り込みの query が route 名に混ざると、agentic surface を読むエージェントが 'projects?q=...' を route 名だと解釈する (#765 の drift class)。NOTE: main.js 側も data-ai-state を書くため、**通常のルート遷移を見るテストではこの mutation は隠れる**。router 経路だけを通る silent-filter のテストと対にすること",
+        "file": ROOT / "js" / "router.js",
+        "find": "                route: _r.name || 'home',",
+        "replace": "                route: 'projects?q=zzz',",
+        "test": "Body data-ai-state keeps a clean route name after a silent projects filter",
+    },
+    {
+        "name": "behavior: theme-init.js の theme 復元が効かなくなる — pre-paint に data-theme/.dark を付けられず、dark 利用者に **一瞬 light が見えてから切り替わる FOUC** が出る。main.js が後から適用するので最終状態は正しく、screenshot は ADVISORY ゆえ **この e2e 以外に捕捉層が無い**",
+        "file": ROOT / "theme-init.js",
+        "find": "                const rawState = localStorage.getItem('portfolio_enhanced_v45');",
+        "replace": "                const rawState = null;",
+        "test": "theme-init.js applies stored dark theme on initial load (FOUC prevention)",
+    },
+    {
+        "name": "behavior: theme-init.js の brand 復元が効かなくなる — pre-paint に data-brand を付けられず、既定ブランド色が一瞬見えてから切り替わる FOUC が出る (theme 側と同 class)",
+        "file": ROOT / "theme-init.js",
+        "find": "                const rawBrand = localStorage.getItem('portfolio_brand_v45');",
+        "replace": "                const rawBrand = null;",
+        "test": "theme-init.js applies stored brand on initial load (brand FOUC prevention)",
+    },
 ]
 
 
