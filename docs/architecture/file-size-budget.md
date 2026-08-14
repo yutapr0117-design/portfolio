@@ -43,7 +43,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 
 ## 2. 現行予算と実測行数（bloat-reduction 反映: 2026-07-04 更新 / 一部行は 2026-06-10 スナップショット）
 
-下表は人間可読な要約である。機械可読な真正ソースは §4 の `BUDGET-DATA` ブロックであり、Check 52 はそちらだけをパースする（本表が drift しても Check 52 の挙動は §4 に従う。両者の一致は人間レビューで保つ）。2026-07-04 の bloat-reduction (owner 受諾の 1,000 行しきい値) で pages.js / apps.js / components.js を分割し、生じた葉モジュール (ai-page / pomodoro-page / hiring-risk-page / home-page / ai-knowhow-page / projects-page / project-detail-page / command-palette) と mutation_samples 分割ファイルを §4 に登録・本表へ追記した。分割で縮小した行 (apps/components/pages) は budget を実態へ tighten し、Check 52 advisory が実効化するようにした。
+下表は人間可読な要約である。機械可読な真正ソースは §4 の `BUDGET-DATA` ブロックであり、Check 52 はそちらだけをパースする（本表が drift しても Check 52 の挙動は §4 に従う）。**本表の「実測行数」列は Check 424 (BLOCKING) が `wc -l` との一致を機械強制し、ファイル集合の一致は Check 59 (BLOCKING) が強制する。** 以前はどちらも「一致は人間レビューで保つ」としていたが、実測したところ 62 行中 44 行が stale (最大 366 行ズレ) で、列見出しが「実測行数」と名乗りながら 71% が実測でなかったため機械強制へ移した。2026-07-04 の bloat-reduction (owner 受諾の 1,000 行しきい値) で pages.js / apps.js / components.js を分割し、生じた葉モジュール (ai-page / pomodoro-page / hiring-risk-page / home-page / ai-knowhow-page / projects-page / project-detail-page / command-palette) と mutation_samples 分割ファイルを §4 に登録・本表へ追記した。分割で縮小した行 (apps/components/pages) は budget を実態へ tighten し、Check 52 advisory が実効化するようにした。
 
 | ファイル | 実測行数 | 予算（上限） | 予算種別 | 方針 |
 |---|---:|---:|---|---|
@@ -135,7 +135,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
 
 下の HTML コメントブロックは Markdown には描画されないが、diff には現れ、機械パースできる。各データ行のフォーマットは `<リポジトリ相対パス> | <予算（整数 または -）> | <予算種別>` である。上限が `-` の行は Check 52 の照合対象外（行数の上限なし）。`#` で始まる行はブロック内コメントとして無視される。
 
-予算を変更する場合は、このブロックを更新する（§2 の人間可読表も併せて手で同期する。両者の一致は人間レビューで保つ＝Check 52 は §4 のみをパースする）。
+予算を変更する場合は、このブロックを更新する（§2 の人間可読表の「予算」列も併せて同じ commit で更新する。Check 52 は §4 のみをパースするが、ファイル集合の一致は Check 59 が、§2 の「実測行数」列は Check 424 が BLOCKING で強制するので、同期漏れは CI が落ちて教えてくれる）。
 
 <!-- ESLINT-BASELINE-DATA 54 -->
 <!-- baseline は実測値をラチェットダウンで追従させる (改善で下回ったら下げて再回帰を防ぐ)。
