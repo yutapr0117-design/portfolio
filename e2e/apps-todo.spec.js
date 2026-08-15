@@ -348,3 +348,33 @@ test('TODO の絞り込みを変えても未送信の入力が消えない', asy
   await expect(page.locator('#todo-input'),
     '絞り込みの巻き添えで未送信の入力が消えている').toHaveValue(draft);
 });
+
+
+// ===== TODO 側も同じ (task と対で守る) =====
+test('TODO 入力の Enter 連打で同じ TODO が二重登録されない', async ({ page }) => {
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'TODO' }).first()).toBeVisible();
+
+  const input = page.locator('#todo-input');
+  await input.fill('RAPID-ENTER-TODO-9902');
+  await input.press('Enter');
+  await input.press('Enter');
+  await input.press('Enter');
+
+  // [重要] ここで直に件数を数えると **重複が描画される前に** `toHaveCount(1)` が成立して
+  //   しまい、バグがあっても緑になる (実測でこの形の vacuous テストを踏んだ)。
+  //   State の更新は keydown で同期に済んでいるので、**一度ルートを離れて戻り**、確定した
+  //   state から描き直させてから数える (時間待ちにも、描画の途中経過にも依存しない)。
+  //   NOTE: 同じ入力欄へ sentinel を足す方法も試したが、フルスイートの負荷下では
+  //   `fill` が再描画で detach された input を掴んで不安定だった (#1053 と同じ罠)。
+  await page.goto('/#/about');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'About' })).toBeVisible();
+  await page.goto('/#/apps/todo');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'TODO' }).first()).toBeVisible();
+
+  await expect(page.locator('#content').getByText('RAPID-ENTER-TODO-9902', { exact: true }),
+    'Enter の連打で同じ TODO が複数登録されている').toHaveCount(1);
+});

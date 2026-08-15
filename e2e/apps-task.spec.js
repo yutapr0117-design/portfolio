@@ -795,3 +795,37 @@ test('タスクの絞り込みを変えても未送信の入力が消えない',
   await expect(page.locator('#task-input'),
     '絞り込みの巻き添えで未送信の入力が消えている').toHaveValue(draft);
 });
+
+
+// ===== Enter の連打 / キーリピートで同じ項目が二重登録されない =====
+// 入力欄が空になるのは **再描画の副作用**だが、その再描画は非同期 (await yieldToMain) なので、
+// Enter を続けて押す / 押しっぱなしでキーリピートが走ると `e.target.value` はまだ元の文字列を
+// 持っており、**同じ値が何度も登録される** (実測: 3 回押して 3 件の同名タスク)。
+// 値を読んだら同期でクリアし、2 回目以降は空ガードが弾くようにした。
+test('タスク入力の Enter 連打で同じタスクが二重登録されない', async ({ page }) => {
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+
+  const input = page.locator('#task-input');
+  await input.fill('RAPID-ENTER-9901');
+  await input.press('Enter');
+  await input.press('Enter');
+  await input.press('Enter');
+
+  // [重要] ここで直に件数を数えると **重複が描画される前に** `toHaveCount(1)` が成立して
+  //   しまい、バグがあっても緑になる (実測でこの形の vacuous テストを踏んだ)。
+  //   State の更新は keydown で同期に済んでいるので、**一度ルートを離れて戻り**、確定した
+  //   state から描き直させてから数える (時間待ちにも、描画の途中経過にも依存しない)。
+  //   NOTE: 同じ入力欄へ sentinel を足す方法も試したが、フルスイートの負荷下では
+  //   `fill` が再描画で detach された input を掴んで不安定だった (#1053 と同じ罠)。
+  await page.goto('/#/about');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'About' })).toBeVisible();
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+
+  await expect(page.locator('#content').getByText('RAPID-ENTER-9901', { exact: true }),
+    'Enter の連打で同じタスクが複数登録されている').toHaveCount(1);
+});

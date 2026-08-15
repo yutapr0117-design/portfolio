@@ -224,8 +224,8 @@ E2E_MUTATIONS_ARCHIVE = [
     {
         "name": "behavior: IME composition guard の喪失 (日本語変換確定 Enter の誤 submit・主対象言語)",
         "file": ROOT / "js" / "apps.js",
-        "find": "if (e.key === 'Enter' && !e.isComposing) {\n                                addTask(e.target.value);",
-        "replace": "if (e.key === 'Enter') {\n                                addTask(e.target.value);",
+        "find": "if (e.key === 'Enter' && !e.isComposing) {",
+        "replace": "if (e.key === 'Enter') {",
         "test": "Task input ignores Enter during IME composition",
     },
     {
