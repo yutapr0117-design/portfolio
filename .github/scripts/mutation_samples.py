@@ -960,6 +960,13 @@ _E2E_TAIL = [
         "replace": "",
         "test": "手動追加のプロジェクト名が入力上限と保存上限で一致する",
     },
+    {
+        "name": "behavior: 手動追加が正規化を通さなくなる — normalizeProject は name を LIMITS.PROJECT_NAME、tech を『12 項目・各 LIMITS.CATEGORY 文字』で切るので、通さないと **追加直後は入力どおりに見えるのにリロードで黙って減る** (実測: Tech 20 個 → 12 個)。件数の制限は maxlength では表現できないため入力欄側だけでは揃えられない",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "            State.set(Store.validateAndNormalize(State.get()));\n            settingsNewName = '';",
+        "replace": "            settingsNewName = '';",
+        "test": "手動追加の Tech が件数上限どおりに保存される",
+    },
 ]
 
 
