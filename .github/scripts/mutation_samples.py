@@ -855,6 +855,27 @@ _E2E_TAIL = [
         "replace": "        return JSON.parse(data);",
         "test": "localStorage がどんな形で壊れていても既定 store で起動する",
     },
+    {
+        "name": "behavior: upsert import が新規 project を取り込まなくなる (#192 の回帰) — 既存 id の更新だけが効き、未知 id は黙って捨てられる。取り込んだつもりのプロジェクトが 1 件も増えないのに成功メッセージは出る",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "                            parsed.projects.forEach(p => map.set(p.id, p));\n",
+        "replace": "",
+        "test": "Settings JSON import (upsert) adds a new project and preserves profile fields (round-trip)",
+    },
+    {
+        "name": "behavior: strict import が置換しなくなる — 『全置換』を選んだのに現状のまま。モード選択が効かないので、利用者は取り込んだ内容が反映されない理由を特定できない",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "                            merged.projects = parsed.projects;",
+        "replace": "                            merged.projects = base.projects;",
+        "test": "Settings strict import replaces user-added layer but preserves defaults",
+    },
+    {
+        "name": "behavior: タスク削除が何も消さなくなる — 削除ボタンは押せてトーストも出るのにカードが残る。利用者からは『押しても効かない』としか見えない",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                s.appsData.tasks = s.appsData.tasks.filter(t => t.id !== id);",
+        "replace": "                void id;",
+        "test": "Task can be deleted from the board",
+    },
 ]
 
 
