@@ -881,3 +881,42 @@ test('An unknown ?cat= deep-link normalizes to All (no control-content desync)',
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `invalid cat deep-link caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 手動追加した最小構成のプロジェクト詳細に「見出しだけの空セクション」が無い =====
+// 手動追加のプロジェクトは problem / approach / tech が空のまま作られる (フォームがこの 3 つを
+// 受け取らない)。詳細ページはこれらを無条件に描くため、従来は **5 セクション中 3 つが
+// 見出しだけで中身が空**という状態になっていた (実測)。アーキテクチャは `|| '(未登録)'`、
+// メトリクスは専用文言を既に持っており、**この 3 つだけ処理されていない非対称**だった
+// (「1 ケースだけ処理して他を忘れる」class)。
+// 自分で追加したプロジェクトを開く = このアプリを試す人が最初にやることなので、
+// 空の見出しが並ぶのは印象面でも実害がある。
+test('手動追加したプロジェクトの詳細に空の見出しが残らない', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  const name = 'MINIMAL-DETAIL-9905';
+  await page.locator('#settingsNewName').fill(name);
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect(page.getByRole('button', { name: `削除：${name}` })).toBeVisible();  // control
+
+  // 一覧から詳細へ (slug は slugify 依存なので UI 経由で辿る)
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+  await page.locator('.grid-projects article.card').filter({ hasText: name }).getByRole('button').first().click();
+  await expect(page.locator('#content h1', { hasText: name })).toBeVisible();
+
+  // control: セクション見出しが実際に描かれている (0 個なら何も検査していない)
+  const headings = page.locator('#content h2');
+  expect(await headings.count(), 'control: 詳細セクションが描かれていない').toBeGreaterThan(2);
+
+  const empty = await page.evaluate(() => Array.from(document.querySelectorAll('#content h2'))
+    .filter((h) => {
+      const body = h.parentElement ? (h.parentElement.innerText || '') : '';
+      return body.replace(h.innerText || '', '').trim() === '';
+    })
+    .map((h) => (h.innerText || '').trim()));
+  expect(empty, `見出しだけで中身が空のセクション: ${empty.join(' / ')}`).toEqual([]);
+});

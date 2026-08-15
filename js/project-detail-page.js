@@ -77,7 +77,12 @@ export function createProjectDetailPage({ h, createIcon, Router, State, Store })
                                 createIcon('alert', 20),
                                 '課題'
                             )),
-                            h('p', { class: 'text-muted text-prewrap' }, project.problem)
+                            // [FIX] 未入力なら placeholder を出す。手動追加のプロジェクトは
+                            //   problem / approach / tech が空なので、従来は **見出しだけが並んで
+                            //   中身が何も無い**状態になっていた (実測: 5 セクション中 3 つ)。
+                            //   アーキテクチャは `|| '(未登録)'`、メトリクスは専用文言を既に持って
+                            //   おり、**この 3 つだけ処理されていない非対称**だった。
+                            h('p', { class: 'text-muted text-prewrap' }, project.problem || '(未登録)')
                         )
                     ),
                     h('section', { class: 'card' },
@@ -86,7 +91,7 @@ export function createProjectDetailPage({ h, createIcon, Router, State, Store })
                                 createIcon('brain', 20),
                                 'アプローチ'
                             )),
-                            h('p', { class: 'text-muted text-prewrap' }, project.approach)
+                            h('p', { class: 'text-muted text-prewrap' }, project.approach || '(未登録)')
                         )
                     ),
                     h('section', { class: 'card' },
@@ -107,11 +112,13 @@ export function createProjectDetailPage({ h, createIcon, Router, State, Store })
                     h('section', { class: 'card' },
                         h('div', { class: 'card-body' },
                             h('h2', { class: 'h3 mb-3' }, '使用技術'),
-                            h('div', { class: 'flex flex-wrap gap-2' },
-                                ...(project.tech || []).map(t =>
-                                    h('span', { class: 'badge badge-secondary' }, t)
+                            (project.tech || []).length
+                                ? h('div', { class: 'flex flex-wrap gap-2' },
+                                    ...project.tech.map(t =>
+                                        h('span', { class: 'badge badge-secondary' }, t)
+                                    )
                                 )
-                            )
+                                : h('p', { class: 'text-muted' }, '(未登録)')
                         )
                     ),
                     project.demoRoute ? h('section', {
