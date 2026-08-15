@@ -414,3 +414,53 @@ test('palette を一度使った後もルート遷移で新ページの見出し
   });
   expect(active, '閉じた palette の close() が focus を過去の要素へ引き戻し、route-focus を打ち消している').toBe('H1');
 });
+
+
+// ===== 追加直後のプロジェクトが Cmd+K で見つかる / 非表示にすると消える =====
+// palette の候補は「固定の行き先 + プロジェクト一覧」で構成される。プロジェクト側は
+// **利用者が増減させられる**ので、候補を factory 生成時に固めてしまうと
+// **追加したばかりのものが Cmd+K から到達できない**（#257 で notes が palette から
+// 抜けていたのと同じ「後から入ったものが mesh に載らない」class）。
+// 逆に非表示 (projectPrefs.hiddenIds) にしたものは候補から消える必要がある ——
+// 既定プロジェクトは削除できず「非表示」が唯一の非公開手段なので、palette に残ると
+// **一覧から隠したはずのものへ到達できてしまう** (#886 の read 面 mesh)。
+// 現状はどちらも正しいので、その両方向を固定する。
+test('Command palette reflects project add and hide immediately', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  const name = 'PALETTE-FRESHNESS-9903';
+  await page.locator('#settingsNewName').fill(name);
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  // control: 実際に追加された (追加できていなければ palette 側を測れない)
+  await expect(page.getByRole('button', { name: `削除：${name}` })).toBeVisible();
+
+  // (1) 追加直後に Cmd+K で見つかる
+  await page.keyboard.press('Control+k');
+  const input = page.locator('[role="combobox"]').first();
+  await expect(input).toBeVisible();
+  await input.fill('PALETTE-FRESHNESS');
+  await expect(page.locator('#cmdk-listbox li[role="option"]'),
+    '追加したばかりのプロジェクトが Cmd+K の候補に出ない').toHaveCount(1);
+  await expect(page.locator('#cmdk-listbox li[role="option"]').first()).toContainText(name);
+  await page.keyboard.press('Escape');
+
+  // (2) 非表示にすると候補から消える
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await page.getByRole('button', { name: new RegExp(`表示.*${name}|${name}.*表示`) }).first().click()
+    .catch(async () => { await page.locator('#content button[id^="settings-toggle-hidden-"]').first().click(); });
+  await expect.poll(async () => page.evaluate(() => {
+    try { return JSON.parse(localStorage.getItem('portfolio_enhanced_v45')).projectPrefs.hiddenIds.length; }
+    catch { return 0; }
+  })).toBeGreaterThan(0);
+
+  await page.keyboard.press('Control+k');
+  await expect(page.locator('[role="combobox"]').first()).toBeVisible();
+  await page.locator('[role="combobox"]').first().fill('PALETTE-FRESHNESS');
+  await expect(page.locator('#cmdk-listbox li[role="option"]'),
+    '非表示にしたプロジェクトが Cmd+K の候補に残っている').toHaveCount(0);
+  await expect(page.locator('.cmdk-empty')).toBeVisible();  // control: 候補ゼロの表示になっている
+});

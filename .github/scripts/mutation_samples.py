@@ -946,6 +946,13 @@ _E2E_TAIL = [
         "replace": "                                addTodo(e.target.value);",
         "test": "TODO 入力の Enter 連打で同じ TODO が二重登録されない",
     },
+    {
+        "name": "behavior: Cmd+K の候補に非表示プロジェクトが混ざる (#886 の read 面 mesh の回帰) — 既定プロジェクトは削除できず『非表示』が唯一の非公開手段なので、palette に残ると一覧から隠したはずのものへ到達できてしまう",
+        "file": ROOT / "js" / "command-palette.js",
+        "find": "        const _hidden = new Set((((_st.projectPrefs && _st.projectPrefs.hiddenIds) || [])).map(String));",
+        "replace": "        const _hidden = new Set();",
+        "test": "Command palette reflects project add and hide immediately",
+    },
 ]
 
 
