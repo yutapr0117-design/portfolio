@@ -897,6 +897,20 @@ _E2E_TAIL = [
         "replace": "            State.update(applyCompletion);",
         "test": "裏でタイマーが完了しても別アプリの未送信入力が消えない",
     },
+    {
+        "name": "behavior: 取り込んだタスクの id 一意化が失われる — 同 id の項目が並ぶと削除の filter が同 id を全て落とし、**1 件消したつもりが両方消える**。逆に更新は find が先頭しか拾わずもう片方に効かない。DOM 側でも task-delete-<id> 等が重複し focus 復元が別カードを掴む (#154 の slug 一意化と同型)",
+        "file": ROOT / "js" / "store.js",
+        "find": "            uniquifyIds(result.tasks);\n",
+        "replace": "",
+        "test": "同じ id のタスクを取り込んでも片方だけ削除できる",
+    },
+    {
+        "name": "behavior: 取り込んだプロジェクトの id 一意化が失われる — 削除・非表示が id で引くため同 id の別プロジェクトまで巻き添えになる。task 側と対で守らないと『1 ケースだけ処理して他を忘れる』非対称になる",
+        "file": ROOT / "js" / "store.js",
+        "find": "        uniquifyIds(merged);\n",
+        "replace": "",
+        "test": "同じ id のプロジェクトを取り込んでも片方だけ削除できる",
+    },
 ]
 
 

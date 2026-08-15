@@ -386,3 +386,76 @@ test('Hostile appsData import: non-string title/text must not render as [object 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `hostile appsData import caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 同じ id の項目を取り込んでも「1 件だけ操作する」が成り立つ =====
+// id は自前生成なら一意だが、**取り込みは信用できない入力**なので保証されない
+// (手編集の JSON / 別バージョンが書いた store / 壊れた localStorage)。同じ id の項目が
+// 並ぶと、id で操作する処理が巻き添えを起こす:
+//   - 削除: `filter(t => t.id !== id)` が **同 id を全て落とす** → 1 件消したつもりが両方消える
+//   - 更新: `find` は先頭しか拾わない → もう片方に効かない (逆向きの非対称)
+//   - DOM: `task-delete-<id>` 等が重複し、focus 復元 (getElementById) が別カードを掴む
+// 実測 (#1058): 同 id のタスク 2 件で片方を削除 → **2 件とも消えた**。
+// #154 で slug に対して同じことをしたのと同型なので、同じ「後から来た方に連番を振る」方式で
+// normalize が一意化する。
+test('同じ id のタスクを取り込んでも片方だけ削除できる', async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+      schemaVersion: 12, type: 'full-store',
+      appsData: {
+        tasks: [
+          { id: 'dup-ing-1', title: 'DUP-ING-A', status: 'backlog', priority: 'med', tags: [], createdAt: 1 },
+          { id: 'dup-ing-1', title: 'DUP-ING-B', status: 'backlog', priority: 'med', tags: [], createdAt: 2 }
+        ]
+      }
+    }));
+  });
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+
+  // control: 2 件とも描画されている (片方が落ちていたら削除の巻き添えを測れない)
+  await expect(page.locator('#content').getByText('DUP-ING-A')).toBeVisible();
+  await expect(page.locator('#content').getByText('DUP-ING-B')).toBeVisible();
+
+  // DOM id が重複していない (focus 復元が別カードを掴む原因)
+  const dups = await page.evaluate(() => {
+    const seen = new Map();
+    document.querySelectorAll('[id]').forEach((e) => seen.set(e.id, (seen.get(e.id) || 0) + 1));
+    return [...seen.entries()].filter(([, n]) => n > 1).map(([id]) => id);
+  });
+  expect(dups, `取り込みで DOM id が重複している: ${dups.join(', ')}`).toEqual([]);
+
+  await page.getByRole('button', { name: 'タスクを削除：DUP-ING-B' }).click();
+
+  await expect(page.locator('#content').getByText('DUP-ING-B'),
+    '削除した方が消えていない').toHaveCount(0);
+  await expect(page.locator('#content').getByText('DUP-ING-A'),
+    '1 件消したつもりが、同じ id の別項目まで巻き添えで消えている').toBeVisible();
+});
+
+// projects 側も同じ (削除・非表示が id で引く)。「1 ケースだけ処理して他を忘れる」非対称を作らない。
+test('同じ id のプロジェクトを取り込んでも片方だけ削除できる', async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+      schemaVersion: 12, type: 'full-store',
+      projects: [
+        { id: 'p-dup-ing', slug: 'p-dup-ing-a', name: 'PROJ-DUP-A', category: 'User Added', summary: 's', tech: [], tags: [], demoRoute: null },
+        { id: 'p-dup-ing', slug: 'p-dup-ing-b', name: 'PROJ-DUP-B', category: 'User Added', summary: 's', tech: [], tags: [], demoRoute: null }
+      ]
+    }));
+  });
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  await expect(page.getByRole('button', { name: '削除：PROJ-DUP-A' })).toBeVisible();  // control
+  await expect(page.getByRole('button', { name: '削除：PROJ-DUP-B' })).toBeVisible();
+
+  page.once('dialog', (d) => d.accept());
+  await page.getByRole('button', { name: '削除：PROJ-DUP-B' }).click();
+
+  await expect(page.getByRole('button', { name: '削除：PROJ-DUP-B' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: '削除：PROJ-DUP-A' }),
+    '1 件消したつもりが、同じ id の別プロジェクトまで巻き添えで消えている').toBeVisible();
+});
