@@ -918,6 +918,20 @@ _E2E_TAIL = [
         "replace": "        if (data.notes) {",
         "test": "残りの appsData フィールドに敵対的な型を流しても各ページが描画される",
     },
+    {
+        "name": "behavior: 非表示プロジェクトの除外が効かなくなる (#886 の回帰) — 既定プロジェクトは削除できず『非表示』が唯一の非公開手段なので、これは単なる表示設定でなく **公開/非公開の意思** が無視されること",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "            const hiddenIds = new Set(((state.projectPrefs && state.projectPrefs.hiddenIds) || []).map(String));",
+        "replace": "            const hiddenIds = new Set();",
+        "test": "Hiding a project removes it from the public Projects list, unhide restores it",
+    },
+    {
+        "name": "behavior: 完了済み削除が何も消さなくなる — ボタンは押せてトーストも出るのに一覧が変わらない。利用者からは『押しても効かない』にしか見えず、失敗も表示されない",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                s.appsData.todos = s.appsData.todos.filter(t => !t.completed);",
+        "replace": "                s.appsData.todos = s.appsData.todos.slice();",
+        "test": "Todo app add, complete-toggle, then clear-completed removes the item",
+    },
 ]
 
 
