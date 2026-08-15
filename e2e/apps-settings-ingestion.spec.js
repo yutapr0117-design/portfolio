@@ -459,3 +459,45 @@ test('同じ id のプロジェクトを取り込んでも片方だけ削除で�
   await expect(page.getByRole('button', { name: '削除：PROJ-DUP-A' }),
     '1 件消したつもりが、同じ id の別プロジェクトまで巻き添えで消えている').toBeVisible();
 });
+
+
+// ===== 残りのフィールドにも敵対的な型を流す (fatal / [object Object] を出さない) =====
+// 既存テストは profile / projects / task・todo のテキストを被覆していたが、
+// notes.content・pomodoro.settings/runtime・quizSearch・ai.history の要素・todos の要素は
+// **どの形も試されていなかった**。この class は fatal を出さずに壊れる (空欄になる /
+// `[object Object]` が描かれる) ため、ErrorBoundary にも視覚 baseline にも掛からない。
+// 現状はすべて graceful なので、**その graceful さを固定する** (今 graceful なのは
+// 既存ガードのおかげであって、自明ではない)。
+test('残りの appsData フィールドに敵対的な型を流しても各ページが描画される', async ({ page }) => {
+  const CASES = [
+    ['notes.content が配列', { notes: { content: [] } }, '#/apps/notes', 'Markdown'],
+    ['notes.content がオブジェクト', { notes: { content: {} } }, '#/apps/notes', 'Markdown'],
+    ['notes 自体が null', { notes: null }, '#/apps/notes', 'Markdown'],
+    ['pomodoro.settings が非数値', { pomodoro: { settings: { work: [], short: {}, long: 'x' }, history: [], runtime: {} } }, '#/apps/pomodoro', 'ポモドーロ'],
+    ['pomodoro.runtime が文字列', { pomodoro: { settings: {}, history: [], runtime: 'x' } }, '#/apps/pomodoro', 'ポモドーロ'],
+    ['quizSearch が配列', { quizSearch: [], quizSearchType: {} }, '#/quiz', '問題集'],
+    ['ai.history の要素が非オブジェクト', { ai: { history: [null, 'x', 5] } }, '#/apps/ai', 'AI'],
+    ['todos の要素が非オブジェクト', { todos: [null, 'x', 5] }, '#/apps/todo', 'TODO'],
+  ];
+
+  for (const [label, appsData, route, heading] of CASES) {
+    await page.addInitScript((ad) => {
+      localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+        schemaVersion: 12, type: 'full-store', appsData: ad
+      }));
+    }, appsData);
+    await page.goto('/' + route);
+    await page.waitForLoadState('domcontentloaded');
+
+    // 描画が確定してから読む (goto 直後に読むと「まだ無い」を「無い」と誤認する)
+    await expect(page.locator('#content h1', { hasText: heading }).first(),
+      `${label}: ページが描画されない`).toBeVisible();
+
+    const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+    expect(fatal, `${label}: FatalPage に落ちた — ${fatal}`).toBeNull();
+
+    const text = await page.locator('#content').textContent();
+    expect(text.includes('[object Object]'),
+      `${label}: 非文字列が [object Object] として描画されている`).toBe(false);
+  }
+});
