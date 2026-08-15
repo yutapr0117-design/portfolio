@@ -97,7 +97,15 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
         function complete() {
             stopTimer();
             const duration = getDuration(pomo.runtime.mode);
-            State.update(s => {
+            // [FIX] **見えていない画面まで作り直さない**。complete() は State.update →
+            //   notify → #content の全再描画を起こすが、タイマーは裏で走り続けるので
+            //   利用者が別のアプリを開いていることが普通にある。実測: タスク名を打っている
+            //   最中に完了すると、**操作していないのに入力が消えた** (POMO-DRAFT-KEEP → "")。
+            //   自分では何もしていないのに消えるので、#982 (テーマ切替) や #1055 (絞り込み)
+            //   より驚きが大きい。ポモドーロ画面を表示中だけ再描画し、それ以外は
+            //   updateSilently で state と保存だけ進める (次に開いたとき render が正しく読む)。
+            const onPomodoroRoute = Router.getRoute().name === 'app-pomodoro';
+            const applyCompletion = (s) => {
                 s.appsData.pomodoro.history.push({
                     timestamp: Date.now(),
                     durationMinutes: Math.floor(duration / 60),
@@ -109,7 +117,9 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
                 s.appsData.pomodoro.runtime.isActive = false;
                 s.appsData.pomodoro.runtime.endAtMs = null;
                 s.appsData.pomodoro.runtime.remainingSec = duration;
-            });
+            };
+            if (onPomodoroRoute) { State.update(applyCompletion); }
+            else { State.updateSilently(applyCompletion); }
             Toast.show('セッション完了！', 'success');
         }
 
@@ -129,8 +139,8 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
             pomodoroTimer = setInterval(() => {
                 const remaining = getRemaining();
                 if (remaining <= 0) {
+                    // 再描画するかは complete() が現在ルートを見て判断する (表示中のみ)。
                     complete();
-                    window.render(); // グローバルを描画
                 } else if (Router.getRoute().name === 'app-pomodoro') {
                     window.render(); // グローバルを描画
                 }

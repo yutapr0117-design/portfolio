@@ -890,6 +890,13 @@ _E2E_TAIL = [
         "replace": "                                window.render();",
         "test": "TODO の絞り込みを変えても未送信の入力が消えない",
     },
+    {
+        "name": "behavior: 裏で走るタイマーの完了が全再描画へ戻る — ポモドーロは別アプリを開いていても走り続けるため、完了の State.update が #content を作り直して **利用者が何も操作していないのに** 別ページの未送信入力を消す。自分の操作が引き金でない分、#982 (テーマ切替) や #1055 (絞り込み) より驚きが大きい",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": "            if (onPomodoroRoute) { State.update(applyCompletion); }\n            else { State.updateSilently(applyCompletion); }",
+        "replace": "            State.update(applyCompletion);",
+        "test": "裏でタイマーが完了しても別アプリの未送信入力が消えない",
+    },
 ]
 
 
