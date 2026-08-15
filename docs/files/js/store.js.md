@@ -37,6 +37,14 @@ main.js
 - **factory pattern** (Check 56, 61), closure-deps = none
 - **Check 47**: import/export bijection
 - **Check 52**: 行数予算 ≤ 600 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
+- **id の一意化 (#1058)**: 取り込んだ tasks / todos / projects は `uniquifyIds` で id を一意にする。
+  同じ id の項目が並ぶと **削除の `filter(t => t.id !== id)` が同 id を全て落として「1 件消したつもりが
+  両方消える」**、逆に更新は `find` が先頭しか拾わずもう片方に効かない。DOM 側でも
+  `task-delete-<id>` 等が重複し focus 復元が別カードを掴む。#154 の slug 一意化と同型で、方式も同じ
+  「**後から来た方に連番を振る**」(先に来た方の id を変えると既存の参照が壊れる)。projects は
+  **id → slug の順**で一意化する (slug の fallback が `p-${p.id}` なので順序が逆だと後追いになる)。
+- **Check 364 / 417**: `(X || []).<throwing method>` 禁止 / untrusted 生値を `String()` へ直接渡さない。
+  静的 Check が「書き方」を、`e2e/apps-settings-ingestion.spec.js` が「挙動」を固定する二層。
 
 ## Audience-specific notes
 

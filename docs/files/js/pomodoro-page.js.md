@@ -22,6 +22,11 @@ canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/state.js (appsData
 
 ## Constraints
 
+- **完了時の再描画は表示中だけ (#1056)**: タイマーは**別のアプリを開いていても走り続ける**ため、
+  `complete()` が無条件に `State.update` (= notify → `#content` の全再描画) すると、**利用者が何も
+  操作していないのに**別ページの未送信入力が消える。`Router.getRoute().name === 'app-pomodoro'` の
+  ときだけ `State.update`、それ以外は `updateSilently` で state と保存だけ進める (次に開いたとき
+  render が正しい状態を読む)。毎秒の tick 側は元から同じガードを持っており、**完了だけが非対称**だった。
 - **葉契約 (Check 47c)**: ローカル ESM import ゼロ。h / createIcon / State / Router / Toast / clamp / CONSTANTS は全て引数注入。window.render / Date / setInterval / clearInterval はグローバル。
 - **履歴上限の単一ソース (Check 369)**: `complete()` の履歴 `.slice(-CONSTANTS.LIMITS.POMODORO_HISTORY)` は store.js normalize と同じ定数を参照する (マジックナンバー 200 を直接持たない)。この目的で `CONSTANTS` が factory 注入される。
 - **stale-closure 温存 (#121/#134)**: `getRemaining` / `getDuration` は必ず `State.get()` で live state を読む。start() 時 closure に固定された古い runtime/settings を読むと complete() が永遠に発火しない / 設定変更が反映されないバグになる。
