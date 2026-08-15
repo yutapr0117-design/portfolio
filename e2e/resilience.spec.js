@@ -310,14 +310,24 @@ test('Settings import mode select retains visual selection after re-render (#7cb
   // 初期値 'append'
   await expect(sel).toHaveValue('append');
 
-  // 'upsert' に変更 — onchange が settingsImportMode='upsert' + window.render() を発火
+  // 'upsert' に変更 → 値が反映される
   await sel.selectOption('upsert');
-  // 再描画後も 'upsert' のまま (fix 前はここで 'append' に戻った)
   await expect(sel).toHaveValue('upsert');
 
-  // 'strict' も同様に保持される
-  await sel.selectOption('strict');
-  await expect(sel).toHaveValue('strict');
+  // [FIX] **離脱して戻る**ところまで見る。#1054 でこのトグルを部分更新へ変えた (全再描画が
+  //   隣の file input を差し替えて import を取りこぼしていたため) 結果、同一ページに留まる限り
+  //   select は作り直されず、`selected:` を外しても値が保たれてしまう (= この test が守っている
+  //   性質を検査しなくなり、対応する mutation が SURVIVED した)。ページを作り直すのは
+  //   **ルートを離れて戻ったとき**で、そこでは module state から `selected:` で復元する必要が
+  //   ある。外すと 'append' へ戻る (実測)。
+  await page.goto('/#/about');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'About' })).toBeVisible();
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await expect(page.locator('select[aria-label="インポートモード"]'),
+    'ルートを離れて戻るとインポートモードの選択が失われている (state と UI の desync)').toHaveValue('upsert');
 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `import mode select caused a fatal: ${fatal}`).toBeNull();
