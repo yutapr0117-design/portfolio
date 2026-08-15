@@ -141,7 +141,14 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                             // 変換候補を Enter 確定した際に未確定文字が誤ってタスク化される footgun を防ぐ
                             // (todo 入力の todoComposing ガードと同等の保護を task 入力にも付与)。
                             if (e.key === 'Enter' && !e.isComposing) {
-                                addTask(e.target.value);
+                                // [FIX] **値を読んだら同期でクリアする**。入力欄が空になるのは
+                                //   再描画の副作用だが、その再描画は非同期 (await yieldToMain) なので、
+                                //   Enter を続けて押す / 押しっぱなしでキーリピートが走ると
+                                //   **同じ値が何度も登録される** (実測: 3 回押して 3 件の同名タスク)。
+                                //   空文字は addTask の空ガードが弾くので、2 回目以降は無害になる。
+                                const _v = e.target.value;
+                                e.target.value = '';
+                                addTask(_v);
                                 // 全体再描画の直後にフォーカスを復元し、連続入力を可能にする
                                 setTimeout(() => document.getElementById('task-input')?.focus(), 0);
                             }
@@ -423,7 +430,10 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                         oncompositionend: () => todoComposing = false,
                         onkeydown: (e) => {
                             if (e.key === 'Enter' && !todoComposing) {
-                                addTodo(e.target.value);
+                                // [FIX] task 側と同じ理由で同期クリアする (連打・キーリピートでの二重登録防止)。
+                                const _v = e.target.value;
+                                e.target.value = '';
+                                addTodo(_v);
                                 // 全体再描画の直後にフォーカスを復元
                                 setTimeout(() => document.getElementById('todo-input')?.focus(), 0);
                             }

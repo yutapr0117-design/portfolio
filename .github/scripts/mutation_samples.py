@@ -932,6 +932,20 @@ _E2E_TAIL = [
         "replace": "                s.appsData.todos = s.appsData.todos.slice();",
         "test": "Todo app add, complete-toggle, then clear-completed removes the item",
     },
+    {
+        "name": "behavior: タスク入力の同期クリアが失われ Enter 連打で二重登録される — 入力欄が空になるのは再描画の副作用で、その再描画は非同期 (await yieldToMain)。連打やキーリピートでは e.target.value がまだ元の文字列を持つため同じ値が何度も登録される (実測: 3 回押して 3 件)",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                                const _v = e.target.value;\n                                e.target.value = '';\n                                addTask(_v);",
+        "replace": "                                addTask(e.target.value);",
+        "test": "タスク入力の Enter 連打で同じタスクが二重登録されない",
+    },
+    {
+        "name": "behavior: TODO 入力の同期クリアが失われ Enter 連打で二重登録される — task 側と同じ機構。片方だけ守ると『1 ケースだけ処理して他を忘れる』非対称になる",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                                const _v = e.target.value;\n                                e.target.value = '';\n                                addTodo(_v);",
+        "replace": "                                addTodo(e.target.value);",
+        "test": "TODO 入力の Enter 連打で同じ TODO が二重登録されない",
+    },
 ]
 
 
