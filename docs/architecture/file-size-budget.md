@@ -50,7 +50,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `main.js` | 1,307 | 6,400 | `strong-advisory` | Stage 5-q/r/s で 7,785→1,086 行（**−86%**）まで縮小。以降は葉抽出の factory 配線追加で微増し現在 1,196 行（機能の直接追加ではない・`wc -l` が権威）。残部は AIDK Kernel + view-transition/render core (Check 43 で保護) |
 | `js/aidk-rails.js` | 439 | 550 | `advisory` | Stage 5-l (AIDK Rail) 新設。AIDK Rail 5 IIFE 合体 factory (RouteState/EffectRails/BindingRegistry/ActionDelegator/DiagnosticsRail)。closure-deps = none + 引数注入。命名: PR #37。Stage 5-l は本 entry (AIDK Rail) を指し、PR #33 の Meta Management は changelog 上では 5-k' と呼称（命名衝突を honest dating で記録） |
 | `js/apps.js` | 622 | 650 | `advisory` | Stage 5-n 新設。Productivity Apps factory（TaskPage/TodoPage/NotesPage + private state）。**2026-07-04 bloat-reduction: AIPage → js/ai-page.js / PomodoroPage → js/pomodoro-page.js。2026-07-05: SettingsPage → js/settings-page.js へ分離し 837→458 行**。budget を実態 +headroom へ tighten |
-| `js/settings-page.js` | 558 | 600 | `advisory` | 2026-07-05 bloat-reduction 分離 (js/apps.js より・最大 page ~373 行)。Settings factory（import/export/snapshot/手動追加/正規化）。private state = settings* (let × 7)。restore/import は Store.validateAndNormalize を通す (#93/#295/#561)。**2026-08-14: 記録値が 408 のまま drift していたのを実態 531 へ同期し advisory を 600 へラチェット** —— 増分の大半は #1035〜#1040 の backup 契約バグ 6 件を記録した WHY コメントで、ロジックの肥大ではない。ハードゲートは Check 365 (1,000 行) のまま |
+| `js/settings-page.js` | 555 | 600 | `advisory` | 2026-07-05 bloat-reduction 分離 (js/apps.js より・最大 page ~373 行)。Settings factory（import/export/snapshot/手動追加/正規化）。private state = settings* (let × 7)。restore/import は Store.validateAndNormalize を通す (#93/#295/#561)。**2026-08-14: 記録値が 408 のまま drift していたのを実態 531 へ同期し advisory を 600 へラチェット** —— 増分の大半は #1035〜#1040 の backup 契約バグ 6 件を記録した WHY コメントで、ロジックの肥大ではない。ハードゲートは Check 365 (1,000 行) のまま |
 | `js/brand.js` | 65 | 120 | `advisory` | Stage 5-f 新設。Brand manager（primary palette/font switcher）factory。closure-deps = none（葉契約）+ Storage を引数注入 |
 | `js/components.js` | 495 | 600 | `advisory` | Stage 5-m 新設。UI page components factory。**bloat-reduction: HomePage / ProjectsPage / ProjectDetailPage / AIKnowhowPage を個別葉モジュール (js/home-page.js 等) へ分離し 1,335→454 行**。budget を実態へ tighten |
 | `js/ai-knowhow-page.js` | 324 | 450 | `advisory` | bloat-reduction 分離。AI 活用ノウハウページ factory。closure-deps = none + 引数注入 |
@@ -101,8 +101,8 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/apps-settings-ingestion.spec.js` | 503 | 900 | `advisory` | behavior e2e spec (外部 ingestion の正規化・型ガード面)。2026-08-15 に apps-settings-io.spec.js の advisory 超過を受けて先回り分割 |
 | `e2e/apps-settings-io.spec.js` | 535 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-settings.spec.js` | 675 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
-| `e2e/apps-task.spec.js` | 831 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
-| `e2e/apps-todo.spec.js` | 380 | 900 | `advisory` | behavior e2e spec (TODO アプリ面)。2026-08-09 に apps-task.spec.js の advisory 超過を受けて先回り分割 |
+| `e2e/apps-task.spec.js` | 841 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/apps-todo.spec.js` | 390 | 900 | `advisory` | behavior e2e spec (TODO アプリ面)。2026-08-09 に apps-task.spec.js の advisory 超過を受けて先回り分割 |
 | `e2e/command-palette.spec.js` | 466 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/drawer.spec.js` | 322 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/fatal.spec.js` | 60 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
@@ -112,7 +112,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/portfolio.spec.js` | 44 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/projects.spec.js` | 922 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/quiz.spec.js` | 438 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
-| `e2e/resilience.spec.js` | 651 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/resilience.spec.js` | 661 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/security-proxy.spec.js` | 494 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/theme-sw.spec.js` | 335 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 

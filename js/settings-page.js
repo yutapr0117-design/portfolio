@@ -263,14 +263,11 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
             }
             if (nameEl) { nameEl.removeAttribute('aria-invalid'); }
             State.update(s => {
-                // [FIX] slug 衝突回避: slugify は決定的なので同名追加だと slug が重複し、
-                // ProjectDetailPage の find(p.slug===slug) が先頭のみ返して片方の詳細が到達不能に
-                // なる。既存 slug と衝突する場合は -2, -3... を付与して一意化する。
-                const existing = new Set(s.projects.map(p => p.slug));
-                const base = slugify(settingsNewName);
-                let slug = base;
-                let n = 2;
-                while (existing.has(slug)) { slug = `${base}-${n}`; n++; }
+                // slug 衝突の一意化 (#154) は **store.js の normalize が単一ソース**で行う。
+                // #1064 で手動追加も `Store.validateAndNormalize` を通すようにしたため、ここで
+                // 同じ処理を持つと二重化になり、実際 mutation-probe で「インラインの重複を外しても
+                // 何も壊れない」(= 冗長ガード) と検出された。一意化の責務は store.js に一本化する。
+                const slug = slugify(settingsNewName);
                 s.projects.unshift({
                     id: 'p_user_' + generateId().slice(0, 6),
                     slug,

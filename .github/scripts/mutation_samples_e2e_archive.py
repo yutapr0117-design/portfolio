@@ -89,13 +89,6 @@ E2E_MUTATIONS_ARCHIVE = [
         "test": "email is length-bounded",
     },
     {
-        "name": "behavior: 同名プロジェクト追加時の slug 一意化 (#154) の喪失 — settings-page.js addProjectManual の `while (existing.has(slug))` を while(false) へ → 同名 2 件が同一 slug になり ProjectDetailPage の find(p.slug===slug) が先頭のみ返して片方の詳細が到達不能になる実バグ regression (既存の unique-slugs test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証)",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "while (existing.has(slug)) {",
-        "replace": "while (false) {",
-        "test": "same name yields unique slugs",
-    },
-    {
         "name": "behavior: profile github/linkedin の URL スキームサニタイズ (#139 XSS) の喪失 — store.js safeUrl の http(s) スキームチェックを外し raw 値をそのまま返す → import した javascript:/data: 等の危険スキーム URL が ContactPage の href に載り XSS ベクタになる (既存 URL-sanitized test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証)",
         "file": ROOT / "js" / "store.js",
         "find": "return /^https?:\\/\\//i.test(s) ? s.slice(0, 500) : String(fallback || '');",

@@ -246,13 +246,23 @@ test('Task priority filter select retains visual selection after re-render (#7cb
   const filter = page.getByLabel('優先度で絞り込み');
   await expect(filter).toBeVisible();
 
-  // 'high' に変更 → window.render() → 再描画後も 'high'
+  // 'high' に変更 → 値が反映される
   await filter.selectOption('high');
   await expect(filter).toHaveValue('high');
 
-  // 'low' に変更 → 再描画後も 'low'
-  await filter.selectOption('low');
-  await expect(filter).toHaveValue('low');
+  // [FIX] **離脱して戻る**ところまで見る。#1055 で絞り込みを部分再描画へ変えたため、
+  //   同一ページに留まる限り select は作り直されず、`selected:` を外しても値が保たれて
+  //   しまう (= この test が守っている性質を検査しなくなり、対応する mutation が
+  //   SURVIVED した)。ページを作り直すのは **ルートを離れて戻ったとき**で、そこでは
+  //   module state から `selected:` で復元する必要がある。外すと 'all' へ戻る (実測)。
+  await page.goto('/#/about');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'About' })).toBeVisible();
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  await expect(page.getByLabel('優先度で絞り込み'),
+    'ルートを離れて戻ると絞り込みの選択が失われている (state と UI の desync)').toHaveValue('high');
 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `priority filter select caused a fatal: ${fatal}`).toBeNull();
