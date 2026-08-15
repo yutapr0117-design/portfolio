@@ -876,6 +876,13 @@ _E2E_TAIL = [
         "replace": "                void id;",
         "test": "Task can be deleted from the board",
     },
+    {
+        "name": "behavior: 詳細ページの未入力 placeholder が失われる — 手動追加のプロジェクトは problem/approach/tech が空なので、**見出しだけで中身が無いセクション**が並ぶ。自分で追加したものを開くのはこのアプリを試す人が最初にやることなので印象面でも実害がある",
+        "file": ROOT / "js" / "project-detail-page.js",
+        "find": "project.problem || '(未登録)'",
+        "replace": "project.problem",
+        "test": "手動追加したプロジェクトの詳細に空の見出しが残らない",
+    },
 ]
 
 
