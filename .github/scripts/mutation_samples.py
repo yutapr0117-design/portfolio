@@ -974,6 +974,20 @@ _E2E_TAIL = [
         "replace": "    resume: { title: 'About',",
         "test": "All routes expose a unique, non-empty title and description (AIO)",
     },
+    {
+        "name": "behavior: スナップショット復元が state を採用しなくなる — ボタンは押せてトーストも出るのに何も戻らない。スナップショットは単一スロットの『唯一の復元点』なので、効かないことに気付くのは戻したい場面 = 最悪のタイミングになる",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "            State.set(Store.validateAndNormalize(snap.data));",
+        "replace": "            void snap;",
+        "test": "Settings snapshot restore reverts state to the saved point",
+    },
+    {
+        "name": "behavior: Service Worker の登録が行われなくなる — 2 回目以降の訪問で SWR キャッシュが効かず毎回ネットワークから取り直す。表示は正常なので体感以外に気付く手がかりが無い",
+        "file": ROOT / "main.js",
+        "find": "                navigator.serviceWorker.register('./sw.js', { scope: './' })",
+        "replace": "                Promise.resolve({ scope: 'x' })",
+        "test": "Service worker registers, activates, and controls the page",
+    },
 ]
 
 
