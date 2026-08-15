@@ -32,6 +32,15 @@ main.js
 - **Check 47**: import/export bijection
 - **Check 410**: ユーザーテキスト入力（task / todo / notes）が `slice(0, CONSTANTS.LIMITS.<KEY>)` で保存するなら、同じ定数で `maxlength` を宣言すること。無いと「入力できた文字数」と「保存される文字数」がずれ、超過分が silent に捨てられる（notes editor は画面にもプレビューにも表示され続けたまま保存されず、**リロードして初めて消失が判明する** silent data-loss だった）
 - **Check 52**: 行数予算 ≤ 650 行（現在値は file-size-budget.md §4 / `wc -l` が権威）
+- **絞り込みは全再描画しない (#1055)**: task / todo の絞り込み `onchange` は `window.render()` を
+  **呼ばない**。呼ぶと `#content` ごと作り直され、その巻き添えで「新しいタスク/TODO」に打ちかけた
+  **未送信テキストが消える** (実測: 8 文字 → 0)。`renderTaskList` / `renderTodoList` が listHost の
+  中と件数 status だけを更新する (ProjectsPage / QuizPage と同じ作法)。**簡素化のつもりで
+  `window.render()` へ戻すと実バグが復活する。**
+- **Enter は値を読んだら同期でクリア (#1061)**: 入力欄が空になるのは再描画の副作用で、その再描画は
+  非同期 (`await yieldToMain`)。連打やキーリピートでは `e.target.value` がまだ元の文字列を持つため
+  **同じ値が何度も登録される** (実測: 3 回押して 3 件)。`const _v = e.target.value; e.target.value = '';`
+  を先に行い、2 回目以降は空ガードに弾かせる。
 - **select visual selection — `selected:` on options (#7cbc4d9 class)**: `h('select', { value: ... })` は HTML 仕様上 `el.setAttribute('value', ...)` となり `<select>` の選択状態に反映されない。task priority filter / per-card priority / todo filter の各 select で各 `<option>` に `selected: value === cur ? true : undefined` を付与する (h() の undefined-skip line 128 が非選択 option に属性を付けるのを防ぐ)。
 
 ## Change impact

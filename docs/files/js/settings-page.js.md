@@ -23,7 +23,7 @@ canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/store.js (validate
 ## Constraints
 
 - **葉契約 (Check 47c)**: ローカル ESM import ゼロ。h / Toast / State / Brand / Store / Storage / CONSTANTS / generateId / slugify は全て引数注入。document / Blob / URL / FileReader はグローバル。
-- **外部 ingestion 全経路正規化 (#93/#295/#561)**: `restoreSnapshot` / `importJSON` は必ず `Store.validateAndNormalize` を通す。生 `State.set(snap.data)` は別 schema/欠損データで FatalPage crash するため禁止。behavior e2e (snapshot restore normalizes) が保証。
+- **外部 ingestion 全経路正規化 (#93/#295/#561) + 手動追加 (#1064)**: `restoreSnapshot` / `importJSON` / `addProjectManual` は必ず `Store.validateAndNormalize` を通す。手動追加も通すのは、`normalizeProject` が name を `LIMITS.PROJECT_NAME`・tech を「12 項目 × `LIMITS.CATEGORY` 文字」で切るため、通さないと **追加直後は入力どおりに見えるのにリロードで黙って減る**から (実測: Tech 20 個 → 12 個)。**件数の制限は maxlength では表現できない**ので入力欄側だけでは揃わない。境界の定義は store.js に一本化し、ここに定数を複製しないこと。生 `State.set(snap.data)` は別 schema/欠損データで FatalPage crash するため禁止。behavior e2e (snapshot restore normalizes) が保証。
 - **upsert data-loss 温存 (#192)**: importJSON の upsert モードは 1 つの Map に更新も追加も集約し新規 id を確実に残す。
 - **Demo セレクタ coherence (#294 / Check 140)**: 手動追加フォームの Demo `<select>` option は router whitelist と一致させる (task/todo/pomodoro/ai/notes)。
 - **select visual selection — `selected:` on options (#7cbc4d9 class)**: `h('select', { value: ... })` は HTML 仕様上 `el.setAttribute('value', ...)` となり `<select>` の選択状態に反映されない。import mode / demo / brand select の全 3 select で各 `<option>` に `selected: value === cur ? true : undefined` を付与 (h() の undefined-skip line 128 が非選択 option に属性を付けるのを防ぐ)。再描画後の visual 選択保持を behavior e2e が BLOCKING 強制。
