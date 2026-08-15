@@ -535,6 +535,10 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
         // slug のプロジェクトが混在すると slug が重複し、ProjectDetailPage の find(p.slug===slug) が
         // 先頭のみ返して片方の詳細が到達不能になる。全 load/import/normalize が通るこのチョークポイントで
         // slug を一意化する (先頭=defaults を優先保持し、後続の衝突分へ -2,-3... を付与)。
+        // id を先に一意化する。slug の fallback が `p-${p.id}` を使うため、id が重複したまま
+        // だと slug も重複し、下の slug 一意化が「本来別物なのに同じ slug」を後追いで直す形になる。
+        uniquifyIds(merged);
+
         const _seenSlugs = new Set();
         for (const p of merged) {
             let s = p.slug || `p-${p.id}`;
@@ -550,6 +554,30 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
         return merged.slice(0, CONSTANTS.LIMITS.MAX_PROJECTS);
     }
 
+
+    // [FIX] **同じ id の項目が複数あると、id で操作する処理が巻き添えを起こす**。
+    //   実測: 同 id のタスクを 2 件取り込んで片方を削除すると **両方消えた**
+    //   (`filter(t => t.id !== id)` が同 id を全て落とす)。優先度変更は逆に
+    //   `find` が先頭しか拾わないので **もう片方に効かない**。DOM 側でも
+    //   `task-delete-<id>` 等が重複し、focus 復元 (getElementById) が別カードを掴む。
+    //   id は自前生成なら一意だが、**取り込みは信用できない入力**なので保証されない
+    //   (手編集の JSON / 別バージョンが書いた store / 壊れた localStorage)。
+    //   #154 で slug に対して同じことをしたのと同型で、そちらと同じ「後から来た方に
+    //   連番を振る」方式に揃える (先に来た方の id を変えると既存の参照が壊れるため)。
+    function uniquifyIds(items) {
+        const seen = new Set();
+        items.forEach((it) => {
+            let id = it.id;
+            if (seen.has(id)) {
+                let n = 2;
+                while (seen.has(`${id}-${n}`)) { n++; }
+                id = `${id}-${n}`;
+                it.id = id;
+            }
+            seen.add(id);
+        });
+        return items;
+    }
 
     function normalizeAppsData(data) {
         const result = deepClone(defaultAppsData);
@@ -572,6 +600,7 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
                     updatedAt: Number(t.updatedAt) || Date.now()
                 }))
                 .slice(0, CONSTANTS.LIMITS.MAX_TASKS);
+            uniquifyIds(result.tasks);
         }
 
         // Todos
@@ -586,6 +615,7 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
                     dueDate: t.dueDate ? Number(t.dueDate) : null
                 }))
                 .slice(0, CONSTANTS.LIMITS.MAX_TODOS);
+            uniquifyIds(result.todos);
         }
 
         // Pomodoro
