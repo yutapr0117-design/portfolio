@@ -720,3 +720,57 @@ test('WebMCP tool extracts from the live DOM on its route and falls back off-rou
     'フック不在のルートで静的フォールバックに落ちない (エージェントへ古いデータを返す)'
   ).toBe(true);
 });
+
+
+// ===== 全ルートの title / description が一意で非空 =====
+// 既存テストは 3 ルートを個別のパターンで確認しているが、**全ルートを横断した一意性**は
+// 見ていなかった。PAGE_META の追加時に既存エントリをコピーして書き換え忘れると、
+// 2 つのルートが同じ title / description を名乗る —— AI クローラや検索にとっては
+// 「同じページが複数ある」ことになり、AIO を中核に据えたこのサイトでは実害が大きい。
+// しかも **見た目には一切出ない** (画面の内容は正しく変わる) ので、この種の gate 以外に
+// 気付く経路が無い。og:title の欠落も同様。
+//
+// canonical はハッシュ SPA ゆえ全ルートでサイトルートを指すのが設計どおりなので、
+// ここでは一意性を要求しない (指し先が正しいことだけ確認する)。
+test('All routes expose a unique, non-empty title and description (AIO)', async ({ page }) => {
+  const ROUTES = ['', '#/projects', '#/quiz', '#/about', '#/resume', '#/contact', '#/role-split',
+    '#/hiring-risk', '#/ai-knowhow', '#/apps', '#/apps/task', '#/apps/todo', '#/apps/notes',
+    '#/apps/ai', '#/apps/pomodoro', '#/settings'];
+
+  const seen = [];
+  let previousTitle = null;
+  for (const route of ROUTES) {
+    await page.goto('/' + route, { waitUntil: 'domcontentloaded' });
+    // [重要] `#content h1` の visible を待つのは **役に立たない** —— 前ルートの DOM で
+    //   既に満たされるため、全ルートで同じ値を読んでしまい「全部重複」という誤判定になる
+    //   (実測でこの形の誤りを踏んだ)。**変化**を待つのが正しく、ここでは title が
+    //   直前のルートと変わったことを待つ (title の更新が applyMeta の最後段)。
+    if (previousTitle !== null) {
+      await expect.poll(() => page.title(), { message: `${route}: title が更新されない` })
+        .not.toBe(previousTitle);
+    }
+    const meta = await page.evaluate(() => ({
+      title: document.title,
+      desc: (document.querySelector('meta[name="description"]') || {}).content || '',
+      og: (document.querySelector('meta[property="og:title"]') || {}).content || '',
+      canonical: (document.querySelector('link[rel="canonical"]') || {}).href || '',
+    }));
+    seen.push([route || 'home', meta]);
+    previousTitle = meta.title;
+  }
+
+  const empty = seen.filter(([, m]) => !m.title || !m.desc || !m.og).map(([r]) => r);
+  expect(empty, `title / description / og:title が空のルート: ${empty.join(', ')}`).toEqual([]);
+
+  for (const key of ['title', 'desc']) {
+    const values = seen.map(([, m]) => m[key]);
+    const dups = [...new Set(values.filter((v, i) => values.indexOf(v) !== i))];
+    const owners = dups.map((d) => seen.filter(([, m]) => m[key] === d).map(([r]) => r).join(' / '));
+    expect(dups, `${key} が重複しているルート: ${owners.join(' | ')}`).toEqual([]);
+  }
+
+  // canonical は全ルート共通でサイトルート (hash SPA の単一 canonical 戦略)
+  const canonicals = [...new Set(seen.map(([, m]) => m.canonical))];
+  expect(canonicals, 'canonical が単一のサイトルートを指していない').toHaveLength(1);
+  expect(canonicals[0]).toMatch(/yutapr0117-design\.github\.io\/portfolio\/$/);
+});

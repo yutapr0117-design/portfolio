@@ -967,6 +967,13 @@ _E2E_TAIL = [
         "replace": "            settingsNewName = '';",
         "test": "手動追加の Tech が件数上限どおりに保存される",
     },
+    {
+        "name": "behavior: 2 つのルートが同じ title を名乗る — PAGE_META へエントリを足すとき既存をコピーして書き換え忘れると起きる。AI クローラや検索には『同じページが複数ある』と見え、AIO を中核に据えたこのサイトでは実害が大きい。しかも画面の内容は正しく変わるので **見た目には一切出ない**",
+        "file": ROOT / "js" / "page-meta.js",
+        "find": "    resume: { title: 'Resume',",
+        "replace": "    resume: { title: 'About',",
+        "test": "All routes expose a unique, non-empty title and description (AIO)",
+    },
 ]
 
 
