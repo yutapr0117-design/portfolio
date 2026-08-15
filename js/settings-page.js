@@ -21,7 +21,7 @@
  *   - Brand: js/brand.js factory instance (ブランド切替)
  *   - Store: js/store.js factory instance (validateAndNormalize)
  *   - Storage: js/storage.js (snapshot parse/set/remove)
- *   - CONSTANTS: js/constants.js (SNAPSHOT_KEY / SCHEMA_VERSION)
+ *   - CONSTANTS: js/constants.js (SNAPSHOT_KEY / SCHEMA_VERSION / LIMITS.PROJECT_NAME)
  *   - generateId, slugify: js/pure-utils.js
  *
  * 不変条件:
@@ -472,7 +472,15 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                                     //   アクセシブル名が入力で消失する placeholder のみだった (SR 利用者はどの
                                     //   フィールドか判別不能)。同ファイル brand select の for/id パターンに倣う。
                                     h('label', { class: 'text-sm text-muted', for: 'settingsNewName' }, '名前'),
-                                    h('input', { id: 'settingsNewName', class: 'input', placeholder: 'プロジェクト名', value: settingsNewName, oninput: (e) => { settingsNewName = e.target.value; } })
+                                    // [DATA] 保存側の上限と入力できる範囲を一致させる。normalizeProject が
+                                    //   name を LIMITS.PROJECT_NAME で切り詰めるのに入力欄が無制限だと、
+                                    //   長い名前は **追加した直後は全部見えているのに、リロード後に黙って
+                                    //   短くなる** (実測: 200 文字 → 120 文字)。消えたことに気付くのが
+                                    //   後になるほど原因が分からない (#924 と同じ class)。
+                                    //   NOTE: Check 410 は「同じ file 内で LIMITS を使って slice している」
+                                    //   ことを条件に maxlength を要求するため、上限が store.js 側にある
+                                    //   このケースは射程外だった。
+                                    h('input', { id: 'settingsNewName', class: 'input', placeholder: 'プロジェクト名', maxlength: CONSTANTS.LIMITS.PROJECT_NAME, value: settingsNewName, oninput: (e) => { settingsNewName = e.target.value; } })
                                 ),
                                 h('div', {},
                                     h('label', { class: 'text-sm text-muted', for: 'settingsNewTech' }, 'Tech（カンマ区切り）'),

@@ -608,3 +608,38 @@ test('WCAG 2.1.1: 表示切替ボタンは押した後も focus が残る', asyn
   const back = await page.evaluate(() => (document.activeElement ? document.activeElement.getAttribute('aria-label') : null));
   expect(back).toBe('非表示：' + name);
 });
+
+
+// ===== 入力できる範囲と保存される範囲が一致する (silent truncation の防止) =====
+// `normalizeProject` は name を `LIMITS.PROJECT_NAME` で切り詰めるのに、手動追加の入力欄は
+// 無制限だった。そのため長い名前は **追加した直後は全部見えているのに、リロード後に黙って
+// 短くなる** (実測: 200 文字 → 120 文字)。消えたことに気付くのが後になるほど、利用者は
+// 原因を特定できない (#924 と同じ class)。
+// NOTE: Check 410 は「同じ file 内で LIMITS を使って slice している」ことを条件に maxlength を
+// 要求するため、上限が store.js 側にあるこのケースは静的検査の射程外 —— この behavior test が
+// 唯一の捕捉層になる。
+test('手動追加のプロジェクト名が入力上限と保存上限で一致する', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  const limit = await page.evaluate(() => Number(document.getElementById('settingsNewName').getAttribute('maxlength')));
+  expect(limit, '入力欄に上限が設定されていない').toBeGreaterThan(0);
+
+  await page.locator('#settingsNewName').fill('N'.repeat(limit + 80));
+  // control: 入力欄が上限で止めている (止まっていなければ保存側との一致を測れない)
+  expect((await page.locator('#settingsNewName').inputValue()).length).toBe(limit);
+
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+
+  // 正規化を通す (リロード = load 経路)。ここで縮むなら「入力できたのに保存されない」状態。
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  const rendered = await page.evaluate(() => {
+    const b = Array.from(document.querySelectorAll('#content button'))
+      .find((x) => /^削除：N+$/.test(x.getAttribute('aria-label') || ''));
+    return b ? (b.getAttribute('aria-label') || '').replace('削除：', '').length : -1;
+  });
+  expect(rendered, 'リロード後に名前が黙って短くなっている (入力上限と保存上限の不一致)').toBe(limit);
+});
