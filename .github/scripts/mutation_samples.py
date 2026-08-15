@@ -911,6 +911,13 @@ _E2E_TAIL = [
         "replace": "",
         "test": "同じ id のプロジェクトを取り込んでも片方だけ削除できる",
     },
+    {
+        "name": "behavior: notes の型ガードが truthy 判定へ緩む — `{}` は slice を持たないため TypeError → validateAndNormalize 例外 → 取り込み経路で FatalPage crash。`[]` なら crash しないが notes が配列のまま描画へ流れる (#568/#572 と同じ truthy 判定の穴)",
+        "file": ROOT / "js" / "store.js",
+        "find": "        if (typeof data.notes === 'string') {",
+        "replace": "        if (data.notes) {",
+        "test": "残りの appsData フィールドに敵対的な型を流しても各ページが描画される",
+    },
 ]
 
 
