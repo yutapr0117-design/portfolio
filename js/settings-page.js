@@ -282,6 +282,14 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                     demoRoute: settingsNewDemo || null
                 });
             });
+            // [DATA] **追加したものを保存される形へ正規化してから確定する**。normalizeProject は
+            //   name を LIMITS.PROJECT_NAME、tech を「12 項目・各 LIMITS.CATEGORY 文字」で切るので、
+            //   正規化を通さないと **追加直後は入力どおりに見えるのに、リロードで黙って減る**
+            //   (実測: Tech 20 個 → 12 個)。件数の制限は maxlength では表現できないため、
+            //   入力欄側の上限だけでは揃えられない。import / snapshot 復元と同じ
+            //   「adopt する前に正規化を通せ」(#295/#561) を手動追加にも適用する。
+            //   境界の定義は store.js に一本化されたままなので、ここに定数は複製しない。
+            State.set(Store.validateAndNormalize(State.get()));
             settingsNewName = ''; settingsNewTech = ''; settingsNewDemo = '';
             Toast.show('プロジェクトを追加しました');
         }

@@ -643,3 +643,33 @@ test('手動追加のプロジェクト名が入力上限と保存上限で一�
   });
   expect(rendered, 'リロード後に名前が黙って短くなっている (入力上限と保存上限の不一致)').toBe(limit);
 });
+
+
+// Tech は「1 項目 LIMITS.CATEGORY 文字・最大 12 項目」で切られる。件数の制限は maxlength では
+// 表現できないので、**追加を受けた時点で保存される形に揃える**しかない。揃えないと、追加直後は
+// 20 個の Tech がそのまま並ぶのに **リロードすると 12 個へ黙って減る** (名前の truncation と同じ class)。
+test('手動追加の Tech が件数上限どおりに保存される', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  await page.locator('#settingsNewName').fill('TECH-BOUND-9904');
+  await page.locator('#settingsNewTech').fill(Array.from({ length: 20 }, (_, i) => 'T' + i).join(','));
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect(page.getByRole('button', { name: '削除：TECH-BOUND-9904' })).toBeVisible();  // control
+
+  const stored = () => page.evaluate(() => {
+    try {
+      const p = (JSON.parse(localStorage.getItem('portfolio_enhanced_v45')).projects || [])
+        .find((x) => x.name === 'TECH-BOUND-9904');
+      return p ? p.tech.length : -1;
+    } catch { return -1; }
+  });
+
+  await expect.poll(stored, { message: '追加直後に保存された Tech の件数' }).toBe(12);
+
+  // 正規化を通しても件数が変わらない = 追加時点で保存される形になっている
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await expect.poll(stored, { message: 'リロード後の Tech 件数' }).toBe(12);
+});
