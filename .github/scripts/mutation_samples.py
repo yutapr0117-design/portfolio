@@ -953,6 +953,13 @@ _E2E_TAIL = [
         "replace": "        const _hidden = new Set();",
         "test": "Command palette reflects project add and hide immediately",
     },
+    {
+        "name": "behavior: 手動追加の名前入力から上限が外れる — normalizeProject が name を LIMITS.PROJECT_NAME で切るので、長い名前は追加直後は全部見えているのに **リロード後に黙って短くなる** (#924 と同じ silent truncation)。Check 410 は同一 file 内の slice を条件にするため、上限が store.js 側にあるこのケースは静的検査の射程外",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "maxlength: CONSTANTS.LIMITS.PROJECT_NAME, ",
+        "replace": "",
+        "test": "手動追加のプロジェクト名が入力上限と保存上限で一致する",
+    },
 ]
 
 
