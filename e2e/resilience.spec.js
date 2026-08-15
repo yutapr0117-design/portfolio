@@ -607,3 +607,45 @@ test('AI の応答待ちの最中に全リセットしても FatalPage になら
     + 'この test はリセットが走った上で fatal が出ないことを検証するものなので、'
     + 'リセット自体が走っていないと何も検証していないことになる').not.toBeGreaterThan(0);
 });
+
+
+// ===== localStorage がどんな形で壊れていても起動できる =====
+// 既存の resilience テストは「壊れた JSON / schema 不一致 / storage 例外」を見ているが、
+// **保存値の形そのものが想定外**のケース (トップレベルが配列 / 文字列 / 数値 / null / 空文字、
+// 未来の schemaVersion、projects が数値) は通っていなかった。
+// localStorage は利用者が devtools で編集でき、別バージョンや別タブが書き、拡張機能が
+// 触ることもある —— **アプリが最初に読む外部入力**なので、ここで落ちると
+// 「サイトが真っ白で何もできない」という最悪の壊れ方になる。しかも当人の環境でしか
+// 再現しないので報告からの特定も難しい。
+// 実測ではすべて既定 store へフォールバックして正常起動する。その graceful さを固定する。
+test('localStorage がどんな形で壊れていても既定 store で起動する', async ({ page }) => {
+  const CASES = [
+    ['壊れた JSON', '{"schemaVersion":12,'],
+    ['トップレベルが配列', '[1,2,3]'],
+    ['トップレベルが文字列', '"hello"'],
+    ['null リテラル', 'null'],
+    ['数値', '42'],
+    ['空文字', ''],
+    ['旧 schema', '{"schemaVersion":1,"projects":[]}'],
+    ['未来 schema', '{"schemaVersion":9999,"projects":[]}'],
+    ['projects が数値', '{"schemaVersion":12,"projects":42}'],
+  ];
+
+  for (const [label, raw] of CASES) {
+    await page.addInitScript((r) => {
+      try { localStorage.setItem('portfolio_enhanced_v45', r); } catch { /* noop */ }
+    }, raw);
+    await page.goto('/#/projects');
+    await page.waitForLoadState('domcontentloaded');
+
+    await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' }),
+      `${label}: プロジェクト一覧が描画されない`).toBeVisible();
+
+    const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+    expect(fatal, `${label}: FatalPage に落ちた — ${fatal}`).toBeNull();
+
+    // control: 既定 store へフォールバックしている (0 件なら「描画された」だけで中身が無い)
+    expect(await page.locator('.grid-projects article.card').count(),
+      `${label}: 既定プロジェクトが 1 件も出ていない`).toBeGreaterThan(1);
+  }
+});
