@@ -547,3 +547,54 @@ test('Full reset stops a running pomodoro timer (cross-app interaction)', async 
   expect(fatal, `cross-app reset caused a fatal: ${fatal}`).toBeNull();
   expect(pageErrors, `cross-app reset raised page errors: ${JSON.stringify(pageErrors.slice(0, 2))}`).toHaveLength(0);
 });
+
+
+// ===== 裏で走るタイマーの完了が、別のアプリで入力中のテキストを消さない =====
+// ポモドーロのタイマーは**別のアプリを開いていても走り続ける**。完了処理は State.update →
+// notify → #content の全再描画を起こすため、従来は **利用者が何も操作していないのに**
+// 別ページの未送信入力が消えていた (実測: タスク名 'POMO-DRAFT-KEEP' → "")。
+// 自分の操作が引き金でない分、#982 (テーマ切替) や #1055 (絞り込み) より驚きが大きい。
+// 表示中だけ再描画し、それ以外は updateSilently で state と保存だけ進める形へ是正した。
+//
+// 3 秒後に完了する runtime を seed して待つ (実時間。時計を偽装すると State/描画の
+// タイミングまで変わってしまい、測りたい「裏で完了したとき」の再現にならない)。
+test('裏でタイマーが完了しても別アプリの未送信入力が消えない', async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+      schemaVersion: 12, type: 'full-store',
+      appsData: {
+        pomodoro: {
+          history: [], settings: { work: 25, short: 5, long: 15 },
+          runtime: { isActive: true, mode: 'work', endAtMs: Date.now() + 3000, remainingSec: 3, linkedTaskId: null }
+        }
+      }
+    }));
+  });
+
+  // control 1: 稼働中の runtime が実際に採用されている (採用されていなければ完了が来ない)
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('[role="timer"]')).toBeVisible();
+
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+
+  const draft = 'POMO-COMPLETE-DRAFT-8801';
+  await page.locator('#task-input').fill(draft);
+
+  // 完了を跨ぐまで待つ (localStorage の isActive が false になったら完了済み)
+  await expect.poll(async () => page.evaluate(() => {
+    try { return JSON.parse(localStorage.getItem('portfolio_enhanced_v45')).appsData.pomodoro.runtime.isActive; }
+    catch { return null; }
+  }), { timeout: 15000 }).toBe(false);
+
+  // control 2: 完了処理が実際に走った (履歴が 1 件増えている)
+  expect(await page.evaluate(() => {
+    try { return JSON.parse(localStorage.getItem('portfolio_enhanced_v45')).appsData.pomodoro.history.length; }
+    catch { return -1; }
+  }), 'control: 完了処理が走っていなければ、この経路を測れない').toBe(1);
+
+  await expect(page.locator('#task-input'),
+    '裏のタイマー完了に巻き込まれて未送信の入力が消えている').toHaveValue(draft);
+});
