@@ -897,6 +897,13 @@ _E2E_TAIL = [
         "replace": "",
         "test": "稼働中ポモドーロはリロード後どのページに着地しても完了が記録される",
     },
+    {
+        "name": "保存 flush が外れて書きかけが失われる — 保存は debounce (150ms) 越しなので、最後の打鍵から 150ms 以内にリロード/タブ終了すると書きかけが消える。それを防ぐのは state.js の visibilitychange(hidden) → saveNow() の 1 本だけ。失われ方が『エラー』ではなく『戻ったら数文字前の状態』なので利用者は自分の打ち間違いと区別できず、fatal も視覚差分も出ないため behavior test 以外に捕捉層が無い",
+        "file": ROOT / "js" / "state.js",
+        "find": "        if (document.visibilityState === 'hidden') {saveNow();}",
+        "replace": "",
+        "test": "debounce 前にリロードしても書きかけのノートが失われない",
+    },
 ]
 
 
