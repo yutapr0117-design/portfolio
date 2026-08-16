@@ -111,6 +111,12 @@ _MUTATIONS_TAIL = [
         "find": "| `js/identity.js` | 36 |",
         "replace": "| `js/identity.js` | 37 |",
     },
+    {
+        "name": "Check 425: data-action と onclick が併存しても検出しない — ActionDelegator は data-action を単一の delegated リスナーで処理するので、同じ要素に onclick を足すと 1 クリックで必ず二重発火する (#262 の実バグ = theme 2 段送り / drawer scroll 先頭ジャンプ / BGM 二重 toggle)。Check 129 は main.js の topbar 3 ボタンしか見ないため他 file では素通りしていた",
+        "file": ROOT / "js" / "components.js",
+        "find": "                    dataset: { bgmBtn: '' },",
+        "replace": "                    dataset: { bgmBtn: '' },\n                    'data-action': 'bgm:toggle',",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。

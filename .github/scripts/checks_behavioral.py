@@ -39,6 +39,14 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        jumped the page to the top; BGM toggled twice). This Check asserts main.js contains no direct
        click-listener wiring for any of the three delegated topbar button ids, locking the
        single-source (ActionDelegator) contract so the double-fire class cannot return. (BLOCKING)
+  425. data-action ↔ onclick の併存禁止 (Check 129 の一般化): `data-action` を持つ要素は AIDK
+       ActionDelegator が **単一の delegated click リスナー**で処理する。同じ要素に `onclick:` も
+       付けると 1 クリックで **必ず二重発火**する (#262 の実バグ = theme が 2 段送り / drawer 二重
+       open で scroll 復元が先頭ジャンプ / BGM 二重 toggle)。Check 129 は **main.js の topbar 3 ボタン
+       だけ**を見ているため、他の shipped JS で同じ形を書いても素通りする。実際 BGM は topbar が
+       delegation・sidebar/drawer が onclick 直付けという 2 系統で配線されており、片方に他方を
+       足した瞬間に二重発火する状態にある。h() の props を brace-match し、両方を持つ組を禁じる。
+       (BLOCKING)
   130. Live-input oninput focus-loss guard: an `oninput:` handler in shipped JS must NOT call
        `State.update(` — State.update → notify → State.subscribe(render) clears #content and
        rebuilds the whole page, destroying the focused input on every keystroke (the confirmed bug
@@ -233,6 +241,48 @@ def run(ctx):
     else:
         check(False, "Check 129: main.js present",
               "Check 129: main.js が見つからない — topbar double-fire guard を検証できない", blocking=True)
+
+    # ── 425. data-action ↔ onclick の併存禁止 (BLOCKING) ──────────────────────────
+    # `data-action` を持つ要素は AIDK ActionDelegator が単一の delegated click リスナーで処理する。
+    # 同じ要素に `onclick:` も付けると 1 クリックで **必ず二重発火**する (#262 の実バグ)。
+    # Check 129 は main.js の topbar 3 ボタンだけを見ているため、他の shipped JS で同じ形を
+    # 書いても素通りする。実際 BGM は topbar=delegation / sidebar・drawer=onclick 直付けという
+    # 2 系統で配線されており、片方に他方を足した瞬間に二重発火する状態にある。
+    # 走査はコメント除去後に h() の props を brace-match して行う (説明コメント中の
+    # `onclick:` や `data-action` で誤検出しないため)。
+    _JS425 = sorted(list((ROOT / "js").glob("*.js"))) + [ROOT / "main.js"]
+    _viol425 = []
+    for _f425 in _JS425:
+        if not _f425.exists():
+            continue
+        _src425 = re.sub(r"//.*", "", _f425.read_text(encoding="utf-8"))
+        for _m425 in re.finditer(r"h\(\s*['\"][\w-]+['\"]\s*,\s*\{", _src425):
+            _i425 = _src425.index("{", _m425.start())
+            _depth425 = 0
+            _j425 = _i425
+            for _j425 in range(_i425, len(_src425)):
+                if _src425[_j425] == "{":
+                    _depth425 += 1
+                elif _src425[_j425] == "}":
+                    _depth425 -= 1
+                    if _depth425 == 0:
+                        break
+            _props425 = _src425[_i425:_j425 + 1]
+            _hasAction425 = (
+                "'data-action'" in _props425
+                or '"data-action"' in _props425
+                or re.search(r"dataset\s*:\s*\{[^}]*\baction\b", _props425)
+            )
+            if _hasAction425 and re.search(r"\bonclick\s*:", _props425):
+                _viol425.append(f"{_f425.name}: {_props425[:60].replace(chr(10), ' ')}")
+    check(
+        not _viol425,
+        f"Check 425: data-action と onclick を同時に持つ要素は無い ({len(_JS425)} files)",
+        f"Check 425: data-action と onclick が併存し 1 クリックで二重発火する: {_viol425[:4]} — "
+        "ActionDelegator が delegated に処理するので直接の onclick は撤去せよ "
+        "(#262 = theme 2 段送り / drawer scroll 先頭ジャンプ / BGM 二重 toggle の実バグ)",
+        blocking=True,
+    )
 
     # ── 130. Live-input oninput focus-loss guard (BLOCKING) ───────────────────────
     # shipped JS の `oninput:` ハンドラは State.update( を呼んではならない。State.update → notify →
