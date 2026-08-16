@@ -171,7 +171,11 @@ export function createHomePage({ h, Router, State, ContactCTA, langOfText }) {
                                     el.setAttribute('tabindex', '-1');
                                     el.focus({ preventScroll: true });
                                 },
-                                'aria-label': 'ケーススタディセクションへ移動'
+                                // WCAG 2.5.3 (Label in Name): アクセシブル名は可視テキストを
+                                // 含んでいなければならない。音声入力の利用者は「見えている文字」を
+                                // 読み上げて操作するため、名前が可視テキストと無関係だと
+                                // そのボタンを起動できない。可視テキストを先頭に置く。
+                                'aria-label': 'ケースを見る：ケーススタディセクションへ移動'
                             }, 'ケースを見る →')
                         )
                     ),
@@ -183,7 +187,7 @@ export function createHomePage({ h, Router, State, ContactCTA, langOfText }) {
                             h('button', { 
                                 class: 'btn btn-primary btn-sm w-full mt-auto',
                                 onclick: () => Router.navigate('role-split'),
-                                'aria-label': 'Human vs AI 分担表ページへ移動'
+                                'aria-label': '分担表を見る：Human vs AI 分担表ページへ移動'
                             }, '分担表を見る →')
                         )
                     ),
@@ -197,7 +201,7 @@ export function createHomePage({ h, Router, State, ContactCTA, langOfText }) {
                                 target: '_blank',
                                 rel: 'noopener noreferrer',
                                 class: 'btn btn-primary btn-sm w-full mt-auto flex items-center justify-center',
-                                'aria-label': 'ZennのAIO実践シリーズ・発展記事の一覧を新しいタブで開く'
+                                'aria-label': 'Zennで読む：AIO実践シリーズ・発展記事の一覧を新しいタブで開く'
                             }, 'Zennで読む →')
                         )
                     )

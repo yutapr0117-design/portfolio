@@ -457,7 +457,9 @@ test('WCAG 2.3.3: reduced-motion では in-page ジャンプが即時になる (
   // アニメーションの途中を拾って誤って緑になりうる)。click 直後の同期読み 1 回で判定する。
   const scrolled = await page.evaluate(() => {
     window.scrollTo(0, 0);
-    document.querySelector('[aria-label="ケーススタディセクションへ移動"]').click();
+    // NOTE: aria-label は WCAG 2.5.3 で可視テキストを先頭に含む形へ変えた (#1091) ので
+    // 完全一致セレクタは使わない。前方一致で「行き先」部分だけを見る。
+    document.querySelector('[aria-label*="ケーススタディセクションへ移動"]').click();
     return window.scrollY;   // 即時なら既に目的地、smooth なら 0 付近のまま
   });
 

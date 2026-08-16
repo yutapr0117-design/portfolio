@@ -768,3 +768,49 @@ test('アプリ一覧のボタン名が行き先ごとに一意になる', async
     .map((b) => (b.textContent || '').trim()));
   expect(visible.every((t) => t === '開く'), '可視ラベルが変わっている (描画不変のはず)').toBe(true);
 });
+
+
+// ===== WCAG 2.5.3 (Label in Name) — 可視テキスト ⊆ アクセシブル名 =====
+// axe には該当ルール label-content-name-mismatch があるが `enabled: false`（experimental）
+// なので、上の withTags(['wcag21a', ...]) スキャンでは**一度も走らない**。つまり Level A の
+// この SC はリポジトリ全体で未検査だった。明示的に enabled: true にして走らせる。
+//
+// なぜ実害があるか: 音声入力の利用者は「画面に見えている文字」を読み上げて操作する。
+// アクセシブル名が可視テキストを含まないと、見えているとおりに発話しても起動できない。
+// 実際に home の 3 つの CTA（「ケースを見る →」「分担表を見る →」「Zennで読む →」）が
+// 行き先だけを述べる aria-label を持っており、可視テキストと無関係だった。
+//
+// 1 テストで全ルートを歩くのは、このルールが大半のルートで inapplicable（対象要素なし）
+// ゆえ per-route テストに割ると CI 時間だけが増えるため。
+const LABEL_IN_NAME_ROUTES = ['/', '/#/projects', '/#/apps', '/#/apps/task', '/#/apps/todo',
+  '/#/apps/notes', '/#/apps/ai', '/#/apps/pomodoro', '/#/apps/settings', '/#/quiz',
+  '/#/about', '/#/resume', '/#/contact', '/#/role-split', '/#/hiring-risk', '/#/ai-knowhow'];
+test('可視テキストがアクセシブル名に含まれる (WCAG 2.5.3) — 全ルート', async ({ page }) => {
+  const offenders = [];
+  let checked = 0;
+  let prevHeading = null;
+  for (const route of LABEL_IN_NAME_ROUTES) {
+    await page.goto(route);
+    // stale-DOM 回避: hash 遷移は document を作り直さないので、汎用の「見出しが見える」待ちは
+    // **前ルートの DOM で充足してしまう**。見出しが前ルートと変わったことを待つ。
+    // （この待ちを入れる前は /#/projects が home を測り続け、対象 24 個を 3 個と誤計測していた）
+    await expect
+      .poll(() => page.locator('#content').getByRole('heading').first().textContent().catch(() => null))
+      .not.toBe(prevHeading);
+    prevHeading = await page.locator('#content').getByRole('heading').first().textContent();
+
+    const results = await new AxeBuilder({ page })
+      .options({
+        runOnly: { type: 'rule', values: ['label-content-name-mismatch'] },
+        rules: { 'label-content-name-mismatch': { enabled: true } },
+      })
+      .analyze();
+    for (const v of results.violations) {
+      for (const n of v.nodes) { offenders.push(`${route} :: ${n.html.slice(0, 120)}`); }
+    }
+    checked += results.passes.reduce((a, v) => a + v.nodes.length, 0);
+  }
+  // control: ルールが実際に対象要素を見つけている（inapplicable ばかりなら何も検査していない）
+  expect(checked, 'control: 検査対象の要素が 1 つも無い — ルールが走っていない疑い').toBeGreaterThan(10);
+  expect(offenders, `可視テキストを含まないアクセシブル名: ${JSON.stringify(offenders)}`).toEqual([]);
+});
