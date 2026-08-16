@@ -911,6 +911,13 @@ _E2E_TAIL = [
         "replace": "h('div', { class: 'aio-article-card' },",
         "test": "同質な項目の並びがリストとして公開される (記事シリーズ / Settings のプロジェクト行)",
     },
+    {
+        "name": "a11y: 役割分担表のセル内箇条書きからリスト意味論が失われる — 各セルに 3〜4 件並ぶのに listitem が無いと、SR 利用者は『このセルに何項目あるか』も項目の切れ目も掴めない。視覚的には ✦ の記号で分かるので目視では気付けず、axe にも該当ルールが無い",
+        "file": ROOT / "js" / "pages.js",
+        "find": "class: 'cell-bullet-row', role: 'listitem'\n                            },\n                                h('span', { class: 'text-bullet-human'",
+        "replace": "class: 'cell-bullet-row'\n                            },\n                                h('span', { class: 'text-bullet-human'",
+        "test": "役割分担表のセル内箇条書きがリストとして公開される",
+    },
 ]
 
 
