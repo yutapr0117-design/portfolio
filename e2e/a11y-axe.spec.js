@@ -739,3 +739,32 @@ test('同質な項目の並びがリストとして公開される (記事シリ
   // 並び替えと表示切替の 2 リスト × プロジェクト数
   expect(items, 'プロジェクト行が listitem として公開されていない').toBeGreaterThan(lists);
 });
+
+
+// ===== 同じ画面に「同じ名前で行き先が違う」操作要素を残さない =====
+// アプリ一覧の 5 つのボタンは全部「開く」という名前だった (実測)。カードの見出しが文脈を
+// 与えるとはいえ、SR 利用者がボタンだけを辿ると **5 個の「開く」が並び行き先を区別できない**
+// (WCAG 4.1.2)。リポジトリの慣習は「削除：<名前>」「上へ移動：<名前>」と **名前側に対象を
+// 含める**形で統一されている (#1085) ので、それに揃える。可視ラベルは「開く」のままなので
+// 描画は不変。
+//
+// NOTE: プロジェクト一覧のタグチップ (「#AI」が 4 個など) は **同じ名前で同じ動作** (そのタグで
+// 絞り込む) なので対象にしない —— 区別できないことが問題になるのは「名前が同じなのに
+// 行き先/効果が違う」ときだけで、機械的に全部を一意化すると意味論の水増しになる。
+test('アプリ一覧のボタン名が行き先ごとに一意になる', async ({ page }) => {
+  await page.goto('/#/apps');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'アプリ' })).toBeVisible();
+
+  const names = await page.evaluate(() => Array.from(document.querySelectorAll('#content button'))
+    .map((b) => b.getAttribute('aria-label') || (b.textContent || '').trim()));
+
+  expect(names.length, 'control: アプリのボタンが描画されていない').toBeGreaterThan(3);
+  expect(new Set(names).size,
+    `行き先が違うのに同じ名前のボタンがある (${names.length} 個中 ${new Set(names).size} 種類)`).toBe(names.length);
+
+  // 可視ラベルは「開く」のままである (名前の一意化で見た目を変えていない)
+  const visible = await page.evaluate(() => Array.from(document.querySelectorAll('#content button'))
+    .map((b) => (b.textContent || '').trim()));
+  expect(visible.every((t) => t === '開く'), '可視ラベルが変わっている (描画不変のはず)').toBe(true);
+});

@@ -248,8 +248,14 @@ export function createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Th
                                 h('h2', { class: 'h3' }, app.title)
                             ),
                             h('p', { class: 'text-muted mb-4' }, app.desc),
+                            // [A11Y 4.1.2] 名前に **どのアプリか** を含める。「開く」だけだと 5 個の
+                            //   ボタンが同じ名前になり、SR 利用者は一覧を辿っても行き先を区別できない
+                            //   (実測: 同名 x5)。カードの見出しが文脈を与えるとはいえ、リポジトリの
+                            //   慣習は「削除：<名前>」「上へ移動：<名前>」と**名前側に対象を含める**形で
+                            //   統一されている (#1085)。可視ラベルは「開く」のままなので描画は不変。
                             h('button', {
                                 class: 'btn btn-secondary',
+                                'aria-label': app.title + 'を開く',
                                 onclick: () => Router.navigate(`apps/${app.id}`)
                             }, '開く')
                         )
