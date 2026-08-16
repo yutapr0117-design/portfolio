@@ -305,6 +305,24 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
             //   name/title/bio/email/location は fallback へ落ちるのに URL 2 つだけ空になる
             //   非対称で、#139 (この 3 フィールドが strip されていた data-fidelity バグ) と同じ面。
             //   **明示的な空文字はクリア扱いのまま**維持する (意図的な削除は通す)。
+            // [FIX] メールアドレスは **mailto: の URL へそのまま連結される**ため、`?` や `&` を
+            //   含む値を通すと `mailto:me@example.com?bcc=evil@attacker.test` のように
+            //   **パラメータを注入できてしまう** (実測: 細工した profile を import させると、
+            //   利用者が「メールで相談する」を押しただけで攻撃者に BCC が入る)。
+            //   profile は import で外部から来る = 信用できない入力なので、URL を
+            //   `https?://` で絞る safeUrl と同じ発想で、**素朴なアドレスの形以外は既定値へ**戻す。
+            //   RFC 準拠の完全な検証は狙わない (誤って弾くより、注入に使える文字を通さないことが目的)。
+            const safeEmail = (v, fallback) => {
+                // [FIX] **文字列でない値は既定値へ戻す** (空にしない)。`String([]) === ''` なので
+                //   素朴に String() へ通すと truthy な非文字列が連絡先を空にしてしまう
+                //   —— #968 でまさにそれを直した箇所なので、ここで退行させない。
+                if (!isText(v)) { return String(fallback || ''); }
+                const t = String(v).trim();
+                if (t === '') { return ''; }
+                const ok = t.length <= 254
+                    && /^[^\s@?&#/\\<>"'`,;:]+@[^\s@?&#/\\<>"'`,;:]+\.[^\s@?&#/\\<>"'`,;:]+$/.test(t);
+                return ok ? t : String(fallback || '');
+            };
             const safeUrl = (v, fallback) => {
                 if (v === undefined || v === null) {return String(fallback || '');}
                 const s = String(v).trim();
@@ -317,7 +335,7 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
                 title: safeStr(data.profile.title, store.profile.title, CONSTANTS.LIMITS.CATEGORY),
                 bio: safeStr(data.profile.bio, store.profile.bio, 5000),
                 // RFC 5321 の最大長。name/title/bio と同様に bound (import bloat 防止)
-                email: safeStr(data.profile.email, store.profile.email, 254),
+                email: safeEmail(data.profile.email, store.profile.email),
                 // schema 定義済みフィールドの取りこぼし防止 (従来 strip され import で消えていた)
                 github: safeUrl(data.profile.github, store.profile.github),
                 linkedin: safeUrl(data.profile.linkedin, store.profile.linkedin),
