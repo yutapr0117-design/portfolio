@@ -43,6 +43,10 @@ main.js
   `task-delete-<id>` 等が重複し focus 復元が別カードを掴む。#154 の slug 一意化と同型で、方式も同じ
   「**後から来た方に連番を振る**」(先に来た方の id を変えると既存の参照が壊れる)。projects は
   **id → slug の順**で一意化する (slug の fallback が `p-${p.id}` なので順序が逆だと後追いになる)。
+- **`links` はスキーマ専用 (未描画)**: normalize / clone / export は通るが **どこにも描画されない**
+  (履歴上一度も描画されたことが無い・2026-08-16 に `git -S` で確認)。既定プロジェクトも持たず、
+  手動追加フォームも受け取らないので **import でのみ入ってくる**。`sanitizeUrl` を通しているため
+  「どこかに出る」と誤読しやすい。除去しないのは backup 互換を壊さないため
 - **Check 364 / 417**: `(X || []).<throwing method>` 禁止 / untrusted 生値を `String()` へ直接渡さない。
   静的 Check が「書き方」を、`e2e/apps-settings-ingestion.spec.js` が「挙動」を固定する二層。
 

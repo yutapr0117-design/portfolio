@@ -925,6 +925,13 @@ _E2E_TAIL = [
         "replace": "                email: safeStr(data.profile.email, store.profile.email, 254),",
         "test": "細工したメールアドレスが mailto へ注入されない",
     },
+    {
+        "name": "security: URL サニタイズが素朴な前方一致へ退行する — `startsWith('javascript:')` だと **大文字混在 (JaVaScRiPt:) や前後空白** ですり抜け、`data:` / `vbscript:` も素通りする。許可リスト方式 (^https?://) でなければ回避手口を塞げない",
+        "file": ROOT / "js" / "store.js",
+        "find": "                return /^https?:\\/\\//i.test(s) ? s.slice(0, 500) : String(fallback || '');",
+        "replace": "                return s.startsWith('javascript:') ? String(fallback || '') : s.slice(0, 500);",
+        "test": "URL サニタイズが大文字混在・前後空白・data:/vbscript: を弾く",
+    },
 ]
 
 

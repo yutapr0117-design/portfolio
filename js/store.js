@@ -437,6 +437,12 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
             // 文字列 id と strict 不一致で related から silent に消え autoRelated 除外も外れる (desync)。
             relatedProjectIds: (Array.isArray(raw.relatedProjectIds) ? raw.relatedProjectIds : []).filter(Boolean).map(String).slice(0, 20),
             // label も同じ理由で文字列/数値に限定 (非文字列は "[object Object]" としてリンク文言に出る)
+            // NOTE: `links` は **どこにも描画されていない** (履歴上一度も描画されたことが無く、
+            //   `links.map` は state.js の deep-clone のみ・2026-08-16 に git -S で確認)。
+            //   既定プロジェクトも持たず、手動追加フォームも受け取らないので、**import でのみ
+            //   入ってくる**スキーマ専用フィールド。normalize / clone / export は通るため
+            //   「サニタイズされている = どこかに出る」と誤読しやすいので明記しておく。
+            //   除去しないのは backup 互換 (利用者の export に含まれうる) を壊さないため。
             links: (Array.isArray(raw.links) ? raw.links : [])
                 .filter(l => l && (typeof l.label === 'string' || typeof l.label === 'number')
                     && String(l.label).trim() !== '' && sanitizeUrl(l.url)).slice(0, 30),
