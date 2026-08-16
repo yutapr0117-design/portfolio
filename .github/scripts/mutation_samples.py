@@ -876,6 +876,27 @@ _E2E_TAIL = [
         "replace": "project.problem",
         "test": "手動追加したプロジェクトの詳細に空の見出しが残らない",
     },
+    {
+        "name": "a11y: ポモドーロのモードボタンが選択状態を露出しなくなる — aria-pressed が常に false だと、支援技術の利用者には **今どのモードなのかが分からない**。視覚的には色で分かるので目視では気付けない (WCAG 4.1.2)",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": "                                    'aria-pressed': String(pomo.runtime.mode === m.id),",
+        "replace": "                                    'aria-pressed': 'false',",
+        "test": "Pomodoro mode buttons expose selected state via aria-pressed",
+    },
+    {
+        "name": "a11y: 残り時間が role=timer でなくなる — role=status だと更新のたびに読み上げが割り込む (毎秒)。timer は『時間の表示』として扱われ chatty にならない。視覚表示は同じなので目視では区別できない",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": "                            role: 'timer',",
+        "replace": "                            role: 'status',",
+        "test": "Pomodoro countdown exposes role=timer with a contextual aria-label for screen readers",
+    },
+    {
+        "name": "a11y: AI の応答完了がアナウンスされなくなる — 応答は非同期に履歴へ足されるだけなので、SR 利用者は **生成が終わったことに気付けない** (入力欄の再有効化は非 focus 要素では分からない・WCAG 4.1.3)",
+        "file": ROOT / "js" / "ai-page.js",
+        "find": "                    announce('AI が応答しました');",
+        "replace": "",
+        "test": "AI response completion announces to the assertive aria-live region (WCAG 4.1.3)",
+    },
 ]
 
 
