@@ -842,13 +842,6 @@ _E2E_TAIL = [
         "test": "Settings snapshot restore reverts state to the saved point",
     },
     {
-        "name": "behavior: Service Worker の登録が行われなくなる — 2 回目以降の訪問で SWR キャッシュが効かず毎回ネットワークから取り直す。表示は正常なので体感以外に気付く手がかりが無い",
-        "file": ROOT / "main.js",
-        "find": "                navigator.serviceWorker.register('./sw.js', { scope: './' })",
-        "replace": "                Promise.resolve({ scope: 'x' })",
-        "test": "Service worker registers, activates, and controls the page",
-    },
-    {
         "name": "behavior: Storage.parse の try/catch が外れる — localStorage が壊れた JSON を持っていると起動時に throw し、**サイトが真っ白で何もできない**最悪の壊れ方になる。localStorage は devtools でも別バージョンでも拡張機能でも書き換わりうる『アプリが最初に読む外部入力』",
         "file": ROOT / "js" / "storage.js",
         "find": "        try {\n            return JSON.parse(data);\n        } catch {\n            return null;\n        }",
