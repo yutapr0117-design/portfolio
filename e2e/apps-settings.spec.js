@@ -174,7 +174,9 @@ test('Projects can be reordered with the up/down controls', async ({ page }) => 
 
   // A の行の「↑」で A を 1 つ繰り上げ → A が B より前へ
   const rowA = page.locator('div.flex.items-center.justify-between.gap-2').filter({ hasText: A });
-  await rowA.getByRole('button', { name: '↑' }).click();
+  // [FIX] 名前でボタンを引く (#1085 で矢印だけの名前から「上へ移動：<名前>」へ一意化した)。
+  //   矢印は aria-hidden の装飾になったため、name: '↑' では解決しない。
+  await rowA.getByRole('button', { name: new RegExp('^上へ移動：') }).click();
   await expect.poll(async () => { const o = await orderAB(); return o.a < o.b && o.a >= 0; }).toBe(true);
 });
 
@@ -529,7 +531,8 @@ test('Default-project reorder survives a reload (normalize round-trip)', async (
   expect(before.length, 'プロジェクト行が読めない').toBeGreaterThan(2);
 
   // 2 番目の行の「↑」で先頭 2 件を入れ替える (どちらも既定プロジェクト)
-  await rows.nth(1).getByRole('button', { name: '\u2191' }).click();
+  // [FIX] #1085 で矢印は装飾になり、名前は「上へ移動：<名前>」へ一意化された。
+  await rows.nth(1).getByRole('button', { name: new RegExp('^上へ移動：') }).click();
 
   // 入れ替えが描画に反映されるまで待つ (ここが動いていないと以降は vacuous)
   await expect.poll(rowNames, { message: '\u2191 操作が描画順に反映されていない — 以降の検査が vacuous' })
@@ -566,7 +569,10 @@ test('WCAG 2.1.1: プロジェクトの並べ替えをキーボードで連続�
 
   // 3 番目の項目の「↓」を 2 回押す。NOTE: locator に復元用 id を使わない (id を外す mutation が
   //   「要素が見つからない」で落ちると、focus が失われたことを検証できたのか帰属できない)。
-  const down = page.locator('#content button', { hasText: /^↓$/ }).nth(2);
+  // [FIX] #1085 で矢印は aria-hidden の装飾になり、名前は「下へ移動：<名前>」へ一意化された。
+  //   locator に復元用 id を使わない方針は維持したいので、**名前**で引く
+  //   (id を外す mutation が『要素が見つからない』で落ちると、focus 喪失を検証できたか判らない)。
+  const down = page.getByRole('button', { name: new RegExp('^下へ移動：') }).nth(2);
   await down.scrollIntoViewIfNeeded();
   await down.focus();
   const movedName = before[2];
@@ -672,4 +678,35 @@ test('手動追加の Tech が件数上限どおりに保存される', async ({
   await page.reload({ waitUntil: 'domcontentloaded' });
   await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
   await expect.poll(stored, { message: 'リロード後の Tech 件数' }).toBe(12);
+});
+
+
+// ===== 並べ替えボタンの名前がどのプロジェクトか識別できる =====
+// 矢印だけだと 36 個のボタンが「↑」「↓」の 2 種類の名前しか持たず、SR 利用者はどれを
+// 操作するのか区別できない (実測: uniq な名前が 2 つだけだった)。同じ行の削除・非表示は
+// 既に「削除：<名前>」と一意化されており、**並べ替えだけ取り残されていた**非対称
+// (「1 ケースだけ処理して他を忘れる」class)。WCAG 4.1.2。
+// 視覚利用者には行の位置で自明なので、目視では気付けない種類の欠落。
+test('並べ替えボタンの名前がプロジェクトごとに一意になる', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  const names = await page.evaluate(() => Array.from(
+    document.querySelectorAll('#content button[id^="settings-move-"]')
+  ).map((b) => b.getAttribute('aria-label') || (b.textContent || '').trim()));
+
+  expect(names.length, 'control: 並べ替えボタンが描画されていない').toBeGreaterThan(4);
+  expect(new Set(names).size,
+    `並べ替えボタンの名前が重複している (${names.length} 個中 ${new Set(names).size} 種類)`).toBe(names.length);
+
+  // 方向とプロジェクト名の両方が名前に含まれる
+  expect(names.some((n) => n.startsWith('上へ移動：')), '上方向の名前が無い').toBe(true);
+  expect(names.some((n) => n.startsWith('下へ移動：')), '下方向の名前が無い').toBe(true);
+
+  // 矢印は装飾として隠され、名前に二重で出ない
+  const arrowExposed = await page.evaluate(() => Array.from(
+    document.querySelectorAll('#content button[id^="settings-move-"] span')
+  ).some((s) => s.getAttribute('aria-hidden') !== 'true'));
+  expect(arrowExposed, '矢印がアクセシビリティツリーへ露出している (二重読み上げ)').toBe(false);
 });

@@ -429,7 +429,8 @@ test('Default project reorder persists across reload (mergeProjectsWithDefaults 
   await page.goto('/#/settings');
   await page.waitForLoadState('domcontentloaded');
   const rows = page.locator('div.flex.items-center.justify-between.gap-2');
-  await rows.first().getByRole('button', { name: '↓' }).click();
+  // [FIX] 名前でボタンを引く (#1085 で「下へ移動：<名前>」へ一意化)。矢印は装飾になった。
+  await rows.first().getByRole('button', { name: new RegExp('^下へ移動：') }).click();
 
   // projects へ戻り描画順が入れ替わっている (先頭 2 件が swap)
   await page.goto('/#/projects');
