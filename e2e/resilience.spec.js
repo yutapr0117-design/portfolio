@@ -659,3 +659,52 @@ test('localStorage がどんな形で壊れていても既定 store で起動す
       `${label}: 既定プロジェクトが 1 件も出ていない`).toBeGreaterThan(1);
   }
 });
+
+
+// ===== URL サニタイズの古典的な回避手口が通らない =====
+// 上のテストは素の `javascript:` を見ているが、実際の攻撃では **大文字混在** や
+// **前後の空白** で単純な前方一致チェックをすり抜けようとする。`data:` / `vbscript:` も
+// 同じく描画されると危険。safeUrl は `.trim()` してから `^https?://` を試すので現状は
+// すべて弾けるが、「たまたま弾けている」のか「意図して弾いている」のかは実測しないと
+// 分からない —— 実装を素朴な `startsWith('javascript:')` へ変えると通ってしまう形なので、
+// **回避手口ごと**に固定する。
+//
+// 1 ケース 1 コンテキストで確認する (import は debounce 保存と絡み、同じページの使い回しでは
+// 条件が壊れる・#1080 で実測)。
+test('URL サニタイズが大文字混在・前後空白・data:/vbscript: を弾く', async ({ browser }) => {
+  const BYPASS = [
+    ['大文字混在', 'JaVaScRiPt:alert(1)'],
+    ['前後空白', '   javascript:alert(1)   '],
+    ['data スキーム', 'data:text/html,<script>alert(1)</script>'],
+    ['vbscript スキーム', 'vbscript:msgbox(1)'],
+  ];
+
+  const hrefsFor = async (github) => {
+    const context = await browser.newContext();
+    try {
+      const page = await context.newPage();
+      await page.addInitScript((v) => {
+        localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+          schemaVersion: 12, type: 'full-store',
+          profile: { title: 'T', bio: '', email: 'a@b.co', github: v, linkedin: '', location: '' }
+        }));
+      }, github);
+      await page.goto('/#/contact');
+      await page.waitForLoadState('domcontentloaded');
+      await expect(page.locator('#content h1').first()).toBeVisible();
+      return page.evaluate(() => Array.from(document.querySelectorAll('#content a')).map((a) => a.getAttribute('href')));
+    } finally {
+      await context.close();
+    }
+  };
+
+  for (const [label, value] of BYPASS) {
+    const hrefs = await hrefsFor(value);
+    expect(hrefs.some((h) => /^(javascript|data|vbscript):/i.test((h || '').trim())),
+      `${label}: 危険スキームの href が描画されている — ${JSON.stringify(hrefs)}`).toBe(false);
+  }
+
+  // control: 正常な URL は描画される (何でも落としていたら検査になっていない)
+  expect(await hrefsFor('https://github.com/e2e-bypass-control'),
+    'control: 正常な URL まで落としている').toContain('https://github.com/e2e-bypass-control');
+});
