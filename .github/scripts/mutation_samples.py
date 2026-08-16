@@ -904,6 +904,13 @@ _E2E_TAIL = [
         "replace": "class: \"quiz-stakeholder-quote\"",
         "test": "設計判断 quiz のステークホルダー意見がリストとして公開される",
     },
+    {
+        "name": "a11y: 記事シリーズのリスト意味論が失われる — 同じ形式の記事が 11 本並ぶのに listitem が無いと、SR 利用者は『何本あるか』も分からず項目単位で移動もできない。視覚的にはカードの体裁で区切りが分かるので目視では気付けず、axe にも該当ルールが無い",
+        "file": ROOT / "js" / "home-page.js",
+        "find": "h('div', { class: 'aio-article-card', role: 'listitem' },",
+        "replace": "h('div', { class: 'aio-article-card' },",
+        "test": "同質な項目の並びがリストとして公開される (記事シリーズ / Settings のプロジェクト行)",
+    },
 ]
 
 

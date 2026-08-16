@@ -445,9 +445,12 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                         h('div', { class: 'card-body flex flex-col gap-3' },
                             h('h2', { class: 'h3' }, '並び替え（Projects）'),
                             h('div', { class: 'text-muted text-sm' }, '上下ボタンで表示順を調整できます。'),
-                            h('div', { class: 'flex flex-col gap-2 scroll-container-sm' },
+                            // [A11Y 1.3.1] プロジェクト行は 18 件並ぶ同質なリスト。role が無いと
+                            //   SR 利用者は件数も項目の切れ目も掴めない。既存のラッパーへ role を
+                            //   足すだけなので DOM は増えず描画は不変。
+                            h('div', { class: 'flex flex-col gap-2 scroll-container-sm', role: 'list' },
                                 ...state.projects.map((p, idx) =>
-                                    h('div', { class: 'flex items-center justify-between gap-2' },
+                                    h('div', { class: 'flex items-center justify-between gap-2', role: 'listitem' },
                                         h('div', { class: 'flex items-center gap-2' },
                                             h('span', { class: 'badge badge-gray' }, String(idx + 1)),
                                             h('span', { class: 'text-sm' }, p.name)
@@ -512,12 +515,12 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                                 const hiddenCount = state.projects.length - visibleCount;
                                 return h('div', { class: 'text-muted text-sm' }, `表示: ${visibleCount} / 非表示: ${hiddenCount} / 総数: ${state.projects.length}`);
                             })(),
-                            h('div', { class: 'flex flex-col gap-2 scroll-container-md' },
+                            h('div', { class: 'flex flex-col gap-2 scroll-container-md', role: 'list' },
                                 ...state.projects.map(p => {
                                     const hidden = new Set(((state.projectPrefs && state.projectPrefs.hiddenIds) || []).map(String));
                                     const isHidden = hidden.has(String(p.id));
                                     const isDefault = defaultProjectIds.has(String(p.id));
-                                    return h('div', { class: 'flex items-center justify-between gap-2' },
+                                    return h('div', { class: 'flex items-center justify-between gap-2', role: 'listitem' },
                                         h('div', { class: 'flex items-center gap-2' },
                                             h('span', { class: 'badge badge-gray' }, isDefault ? 'default' : 'user'),
                                             h('span', { class: 'text-sm' }, p.name),
