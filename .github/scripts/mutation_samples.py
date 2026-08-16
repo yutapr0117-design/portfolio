@@ -932,6 +932,13 @@ _E2E_TAIL = [
         "replace": "                return s.startsWith('javascript:') ? String(fallback || '') : s.slice(0, 500);",
         "test": "URL サニタイズが大文字混在・前後空白・data:/vbscript: を弾く",
     },
+    {
+        "name": "behavior: 模範解答フォームのメッセージ上限が外れる — 入力は mailto の URL へ percent-encode されるので日本語 1 文字が 9 文字になる (実測: 500 文字で URL 4,852)。Windows の mailto は約 2,048 文字で切られるため、**本文が欠けるか、そもそもメールソフトが開かない** silent failure になる",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "placeholder: \"メッセージ（任意）\", maxlength: 120,",
+        "replace": "placeholder: \"メッセージ（任意）\",",
+        "test": "模範解答フォームの入力上限が mailto の実行限界を超えない",
+    },
 ]
 
 
