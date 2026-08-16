@@ -368,9 +368,16 @@ test('TODO 入力の Enter 連打で同じ TODO が二重登録されない', as
 
   const input = page.locator('#todo-input');
   await input.fill('RAPID-ENTER-TODO-9902');
-  await input.press('Enter');
-  await input.press('Enter');
-  await input.press('Enter');
+  // [重要] `press()` を 3 回呼ぶと、**1 回目が起こす再描画の速さ次第で 2 回目以降が
+  //   新しい空の入力欄に当たり**、バグがあっても重複が起きないことがある (実測: ローカルでは
+  //   再現するのに CI では mutation が SURVIVED した)。キーリピートは「再描画を待たずに
+  //   同じ要素へ連続で keydown が来る」現象なので、**同期的に 3 回 dispatch** して
+  //   その条件を正確に作る。
+  await input.evaluate((el) => {
+    for (let i = 0; i < 3; i++) {
+      el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+    }
+  });
 
   // [重要] ここで直に件数を数えると **重複が描画される前に** `toHaveCount(1)` が成立して
   //   しまい、バグがあっても緑になる (実測でこの形の vacuous テストを踏んだ)。
