@@ -814,3 +814,57 @@ test('可視テキストがアクセシブル名に含まれる (WCAG 2.5.3) —
   expect(checked, 'control: 検査対象の要素が 1 つも無い — ルールが走っていない疑い').toBeGreaterThan(10);
   expect(offenders, `可視テキストを含まないアクセシブル名: ${JSON.stringify(offenders)}`).toEqual([]);
 });
+
+
+// ===== 既定で無効な axe ルール (Level A/AA) を明示的に走らせる =====
+// axe は 105 ルール中 16 を `enabled: false` で出荷する (experimental / 廃止された SC /
+// AAA など理由はさまざま)。**タグは一致するのに走らない**ので、上の withTags スキャンが
+// 緑でも、これらの SC はリポジトリ全体で一度も検査されていない。#1091 で
+// label-content-name-mismatch (WCAG 2.5.3 Level A) の実違反 3 件がこの穴から出た。
+//
+// ここでは Level A/AA に属する 8 ルールを明示的に有効化して全ルートで走らせる。
+// AAA (color-contrast-enhanced / identical-links-same-purpose / meta-refresh-no-exceptions)、
+// best-practice、および WCAG 2.2 で廃止された duplicate-id / duplicate-id-active
+// (`wcag2a-obsolete` タグ) は対象外 —— 前者は目標水準を超え、後者は W3C 自身が取り下げた SC。
+//
+// **対象集合は axe から実行時に導出して照合する**。ハードコードした一覧だけだと、axe を
+// 上げて新しい disabled ルールが増えたときに黙って未検査のまま残る (Check 415 が
+// STATUS.md の workflow 網羅を生成器と独立に導出するのと同じ設計)。
+const AXE_AA_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22a', 'wcag22aa'];
+const DISABLED_AA_RULES = ['aria-roledescription', 'audio-caption', 'css-orientation-lock',
+  'label-content-name-mismatch', 'p-as-heading', 'table-fake-caption', 'target-size', 'td-has-header'];
+test('既定で無効な axe ルール (Level A/AA) を全ルートで走らせる', async ({ page }) => {
+  // (1) 対象集合が axe の現状と一致しているか (axe 更新への追従を機械化)
+  const derived = require('axe-core').getRules()
+    .filter((r) => r.enabled === false && r.tags.some((t) => AXE_AA_TAGS.includes(t)))
+    .map((r) => r.ruleId).sort();
+  expect(derived,
+    'axe の既定無効ルール (Level A/AA) が変わった。新しいルールを実測してから DISABLED_AA_RULES へ足すこと'
+  ).toEqual([...DISABLED_AA_RULES].sort());
+
+  const ruleOpts = {};
+  DISABLED_AA_RULES.forEach((id) => { ruleOpts[id] = { enabled: true }; });
+  const offenders = [];
+  // target-size (WCAG 2.2 AA) はタッチ標的の SC なので desktop だけでは意味がない。
+  // モバイル幅でも同じ集合を走らせる。
+  for (const viewport of [{ width: 1280, height: 720 }, { width: 390, height: 844 }]) {
+    await page.setViewportSize(viewport);
+    let prevHeading = null;
+    for (const route of LABEL_IN_NAME_ROUTES) {
+      await page.goto(route);
+      // stale-DOM 回避 (上の 2.5.3 テストと同じ理由)
+      await expect
+        .poll(() => page.locator('#content').getByRole('heading').first().textContent().catch(() => null))
+        .not.toBe(prevHeading);
+      prevHeading = await page.locator('#content').getByRole('heading').first().textContent();
+
+      const results = await new AxeBuilder({ page })
+        .options({ runOnly: { type: 'rule', values: DISABLED_AA_RULES }, rules: ruleOpts })
+        .analyze();
+      for (const v of results.violations) {
+        for (const n of v.nodes) { offenders.push(`${viewport.width}px ${route} [${v.id}] ${n.html.slice(0, 110)}`); }
+      }
+    }
+  }
+  expect(offenders, `既定で無効な axe ルールの違反: ${JSON.stringify(offenders)}`).toEqual([]);
+});
