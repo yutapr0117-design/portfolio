@@ -109,27 +109,6 @@ export function debounce(fn, delay) {
 }
 
 /**
- * throttle — 関数呼び出しを「limit ミリ秒に最大 1 回」に間引く（leading-edge 方式）。
- *
- * debounce が「静かになってから 1 回」なのに対し、throttle は「先頭の 1 回を即通し、その後
- * limit ミリ秒は無視」する。スクロール等、間隔を空けつつ反応はさせたい処理に向く。
- *
- * @param {Function} fn - スロットル対象の関数。
- * @param {number} limit - 最小発火間隔（ミリ秒）。
- * @returns {Function} スロットルされた関数。
- */
-export function throttle(fn, limit) {
-    let inThrottle; // true の間は発火を無視するゲート
-    return (...args) => {
-        if (!inThrottle) {
-            fn(...args);                                 // 先頭の 1 回を即実行
-            inThrottle = true;                           // ゲートを閉じる
-            setTimeout(() => inThrottle = false, limit); // limit 後に再度開く
-        }
-    };
-}
-
-/**
  * tokenize — 文字列を検索・類似度用のトークン配列へ分解する。
  *
  * 日本語（ひらがな U+3040–309F / カタカナ U+30A0–30FF / 漢字 U+4E00–9FFF）と英数字・

@@ -37,7 +37,6 @@
             generateId,    // UUID v4 生成（crypto.randomUUID フォールバック付き）
             clamp,         // 数値を [min,max] に丸める
             debounce,      // 連続呼び出しを「静粛後 1 回」に遅延
-            throttle,      // 呼び出しを「一定間隔に 1 回」へ間引く
             tokenize,      // 文字列を検索/類似度用トークンへ分解（日本語対応）
             slugify,       // 文字列を URL/識別子 slug へ正規化
             sanitizeUrl,   // http/https のみ通すセキュリティ境界（挙動不変厳守）
@@ -348,7 +347,7 @@
         // ===== Helper: Utilities =====
         // ▼ v80+ Stage 2: 以下の純粋ユーティリティは `js/pure-utils.js` へ物理分割し、
         //   本ファイル冒頭で import 済み（挙動・シグネチャはバイト等価で不変）:
-        //     generateId / clamp / debounce / throttle / tokenize /
+        //     generateId / clamp / debounce / tokenize /
         //     slugify / sanitizeUrl / safeFetchJSON / deepClone
         //   これらは引数のみで出力が決まり、本 IIFE のクロージャ状態にも DOM にも依存しない。
         //   各関数の詳細仕様・設計意図・セキュリティ境界（特に sanitizeUrl）は当該モジュール冒頭に記載。
