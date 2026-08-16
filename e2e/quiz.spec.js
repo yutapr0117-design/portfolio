@@ -436,3 +436,46 @@ for (const [type, expectedHead] of QUIZ_TITLE_CASES) {
     expect(title, 'title が [object Object] 化している').not.toContain('[object');
   });
 }
+
+
+// ===== 模範解答フォームの入力が mailto の実行限界を超えない =====
+// 3 つの入力は **`mailto:` の URL へ percent-encode して埋め込まれる**。日本語は 1 文字が
+// `%XX%XX%XX` の 9 文字になるため URL が急速に伸びる (実測: メッセージ 100 文字で URL 1,252 /
+// 500 文字で 4,852 / 4,000 文字で 36,352)。Windows の mailto 実行は **約 2,048 文字で切られる**
+// ので、上限が無いと長文を書いて送信したときに **本文が欠けるか、そもそもメールソフトが
+// 開かない** —— しかも利用者には何も伝わらない silent failure になる。
+// 「入力できる範囲」と「実際に送れる範囲」を一致させる (#924/#1063/#1064 と同じ規律)。
+//
+// 最悪ケース (全部日本語) の URL 長を実測して上限を決めてあるので、その前提が崩れていないか
+// (= 上限が外れたり緩められたりしていないか) を実際に組み立てて確認する。
+test('模範解答フォームの入力上限が mailto の実行限界を超えない', async ({ page }) => {
+  await page.goto('/#/quiz');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  // 各欄に上限を大きく超える値を入れる → maxlength で止まるはず
+  await page.getByLabel('お名前').fill('あ'.repeat(400));
+  await page.getByLabel('メールアドレス').fill('a'.repeat(400) + '@example.com');
+  await page.getByLabel('メッセージ').fill('あ'.repeat(2000));
+
+  const measured = await page.evaluate(() => {
+    const get = (label) => document.querySelector(`[aria-label="${label}"]`).value;
+    const name = get('お名前');
+    const email = get('メールアドレス');
+    const message = get('メッセージ');
+    // js/quiz-renderer.js の submit と同じ組み立て
+    const body = encodeURIComponent(`お名前: ${name}\nメールアドレス: ${email}\n\nメッセージ:\n${message || '(なし)'}`);
+    const subject = encodeURIComponent('AWS問題集の模範解答について');
+    return {
+      lengths: { name: name.length, email: email.length, message: message.length },
+      url: ('mailto:yuta.pr.0117@gmail.com?subject=' + subject + '&body=' + body).length,
+    };
+  });
+
+  // control: 実際に上限で止まっている (止まっていなければ URL 長の検査に意味が無い)
+  expect(measured.lengths.name, 'control: お名前に上限が効いていない').toBeLessThan(400);
+  expect(measured.lengths.message, 'control: メッセージに上限が効いていない').toBeLessThan(2000);
+
+  expect(measured.url,
+    `最悪ケースの mailto が実行限界を超える (実測 ${measured.url} 文字 / 目安 2048)`).toBeLessThan(2048);
+});

@@ -290,9 +290,19 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
         //   送信してエラー Toast が出るまで必須と分からなかった。aria-required='true' で必須状態を事前に
         //   露出する (メッセージは placeholder「（任意）」どおり optional ゆえ付与しない)。ARIA 属性のみ
         //   ゆえ native validation UI を発火させず既存の Toast バリデーション挙動は不変 (render-neutral)。
-        const nameInput = h("input", { class: "input", type: "text", placeholder: "お名前", autocomplete: "name", 'aria-label': 'お名前', 'aria-required': 'true' });
-        const emailInput = h("input", { class: "input", type: "email", placeholder: "メールアドレス", autocomplete: "email", 'aria-label': 'メールアドレス', 'aria-required': 'true' });
-        const messageInput = h("textarea", { class: "input textarea-resize-v", rows: 4, placeholder: "メッセージ（任意）", 'aria-label': 'メッセージ' });
+        // [DATA] この 3 つは **mailto: の URL へ percent-encode して埋め込まれる**。日本語は
+        //   1 文字が %XX%XX%XX の 9 文字になるため URL が急速に伸びる (実測: メッセージ 100 文字で
+        //   URL 1,252 / 500 文字で 4,852 / 4,000 文字で 36,352)。Windows の mailto 実行は
+        //   **約 2,048 文字で切られる**ので、長文を書いて送信すると **本文が欠けるか、そもそも
+        //   メールソフトが開かない** —— しかも利用者には何も伝わらない silent failure になる。
+        //   「入力できる範囲」と「実際に送れる範囲」を一致させる (#924/#1063/#1064 と同じ規律)。
+        //   上限は **最悪ケース (全部日本語) の URL 長を実測して**決めた:
+        //   name 50 / email 120 / message 120 で **1,969 文字** (2,048 の内側)。
+        //   email は RFC 上の最大 254 より短いが、実在するアドレスは 120 文字に十分収まる。
+        //   「理論上の最大長を通す」ことより「送信が黙って失敗しない」ことを優先した判断。
+        const nameInput = h("input", { class: "input", type: "text", placeholder: "お名前", autocomplete: "name", maxlength: 50, 'aria-label': 'お名前', 'aria-required': 'true' });
+        const emailInput = h("input", { class: "input", type: "email", placeholder: "メールアドレス", autocomplete: "email", maxlength: 120, 'aria-label': 'メールアドレス', 'aria-required': 'true' });
+        const messageInput = h("textarea", { class: "input textarea-resize-v", rows: 4, placeholder: "メッセージ（任意）", maxlength: 120, 'aria-label': 'メッセージ' });
 
         const submitBtn = h("button", {
             class: "btn btn-primary",
