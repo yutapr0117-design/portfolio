@@ -708,3 +708,40 @@ test('URL サニタイズが大文字混在・前後空白・data:/vbscript: を
   expect(await hrefsFor('https://github.com/e2e-bypass-control'),
     'control: 正常な URL まで落としている').toContain('https://github.com/e2e-bypass-control');
 });
+
+
+// ===== debounce 前に離脱しても書きかけが失われない (visibilitychange flush) =====
+// 保存は `scheduleSave()` の debounce (CONSTANTS.DEBOUNCE_DELAY = 150ms) 越しに行われるので、
+// 最後の打鍵から 150ms 以内にリロード/タブ終了すると **書きかけがそのまま消えうる**。
+// それを防いでいるのは state.js の visibilitychange(hidden) → saveNow() の 1 本だけで、
+// この increment まで **その機構を見ているテストが 1 つも無かった**。
+//
+// 失われ方が「エラー」ではなく「戻ったら数文字前の状態」なので、利用者は自分の打ち間違いと
+// 区別できない。fatal も視覚差分も出ないため behavior test 以外に捕捉層が無い。
+//
+// 非 vacuity は実測済み: visibilitychange リスナーを外すと本テストは RED になる。
+//
+// 測定上の注意 (実際に 1 度誤診した):
+//   textarea を click してから type すると **既定文のキャレット位置に挿入**されるので、
+//   `inputValue().slice(0, N)` で先頭だけ見ると挿入部に届かず「消えた」と誤読する。
+//   包含 (`toContain`) で見ること。
+test('debounce 前にリロードしても書きかけのノートが失われない', async ({ page }) => {
+  await page.goto('/#/apps/notes');
+  await expect(page.locator('#content h1')).toBeVisible();
+
+  const ta = page.locator('#content textarea').first();
+  await ta.click();
+  await page.keyboard.type('FLUSH-BEFORE-RELOAD');
+
+  // control: そもそも打鍵が textarea に届いている (届いていなければ以降は何も検査しない)
+  await expect(ta).toHaveValue(/FLUSH-BEFORE-RELOAD/);
+
+  // debounce を待たずに離脱する
+  await page.reload();
+  await expect(page.locator('#content h1')).toBeVisible();
+
+  await expect(page.locator('#content textarea').first(),
+    'debounce 前の離脱で書きかけが消えた — state.js の visibilitychange(hidden) → saveNow() が '
+    + '唯一の防波堤なので、そこが外れると最後の打鍵から 150ms 以内の入力が黙って失われる'
+  ).toHaveValue(/FLUSH-BEFORE-RELOAD/);
+});
