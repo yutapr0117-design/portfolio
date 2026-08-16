@@ -207,12 +207,22 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
                         // ステークホルダーゾーン
                         const shZone = h("div", { class: "quiz-zone" });
                         shZone.appendChild(h("div", { class: "quiz-zone-label stakeholder" }, h("span", { 'aria-hidden': 'true' }, "💬 "), "ステークホルダーの主張"));
+                        // [A11Y 1.3.1] 意見は 1 ゾーンに 2〜3 件並ぶ **同質なリスト**なので、
+                        //   リスト意味論を与える。無いと SR 利用者は「意見が何件あるか」も
+                        //   「どこからどこまでが 1 人の発言か」も掴めず、項目単位の移動もできない
+                        //   (視覚的には引用の体裁で区切りが分かる)。axe には該当ルールが無く、
+                        //   この e2e 以外に捕捉層が無い。#1013 で projects / apps のカードへ
+                        //   同じことをしたのと同型 —— そこで章カードを除外したのは「章」が
+                        //   リストというより文書構造だからで、意見の並びはリストで正しい。
+                        //   **ARIA ロールのみで DOM 構造は変えない**ので描画は不変。
+                        const shList = h("div", { role: "list", style: "display: contents;" });
                         q.stakeholders.forEach(sh => {
-                            const quote = h("div", { class: "quiz-stakeholder-quote" });
+                            const quote = h("div", { class: "quiz-stakeholder-quote", role: "listitem" });
                             quote.appendChild(h("span", { class: "quiz-stakeholder-name" }, sh.name + ":"));
                             quote.appendChild(h("span", { text: "「" + sh.quote + "」" }));
-                            shZone.appendChild(quote);
+                            shList.appendChild(quote);
                         });
+                        shZone.appendChild(shList);
                         qBlock.appendChild(shZone);
 
                         // 問ゾーン

@@ -897,6 +897,13 @@ _E2E_TAIL = [
         "replace": "",
         "test": "AI response completion announces to the assertive aria-live region (WCAG 4.1.3)",
     },
+    {
+        "name": "a11y: ステークホルダー意見のリスト意味論が失われる — 1 問に 2〜3 人分の意見が並ぶのに listitem が無いと、SR 利用者は『意見が何件あるか』も『どこからどこまでが 1 人の発言か』も掴めず項目単位で移動もできない。視覚的には引用の体裁で区切りが分かるので目視では気付けず、axe にも該当ルールが無い",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "class: \"quiz-stakeholder-quote\", role: \"listitem\"",
+        "replace": "class: \"quiz-stakeholder-quote\"",
+        "test": "設計判断 quiz のステークホルダー意見がリストとして公開される",
+    },
 ]
 
 
