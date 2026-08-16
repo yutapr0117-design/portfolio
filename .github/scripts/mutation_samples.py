@@ -117,6 +117,12 @@ _MUTATIONS_TAIL = [
         "find": "                    dataset: { bgmBtn: '' },",
         "replace": "                    dataset: { bgmBtn: '' },\n                    'data-action': 'bgm:toggle',",
     },
+    {
+        "name": "Check 426: 2 つのバイナリ資産の entity 帰属が食い違っても検出しない — asset:image:entity / asset:audio:entity は WebP と MP3 の帰属先を AI クローラへ宣言する meta で、片方だけ変えても視覚にも behavior にも一切出ない。実測 (2026-08-17) ではこの entity 宣言を見ている層が皆無で、書き換えても全 gate が緑だった (#930 と同じ『宣言はあるが見ている層がゼロ』class)。単独 mutation で 426c だけが発火することを確認済み",
+        "file": ROOT / "index.html",
+        "find": 'name="asset:audio:entity" content="Yuta Yokoi (横井雄太 / Yokoi Yuta)"',
+        "replace": 'name="asset:audio:entity" content="Someone Else"',
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。

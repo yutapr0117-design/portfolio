@@ -132,6 +132,29 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        Sibling of Check 285/286 (SITE_CONFIG.VERSION / CACHE_NAME) for
        the manifest_version format axis. (BLOCKING)
 
+  426. `asset:*` / `portfolio:identity:*` meta declarations coherence:
+       index.html declares the same facts a 4th and 5th time in the
+       `asset:image:*` / `asset:audio:*` / `portfolio:identity:*` meta
+       block, and — measured 2026-08-17 — **no Check and no e2e referenced
+       any of those names**, so the whole block could be deleted or drift
+       while every gate stayed green. Same class as the route-following
+       JSON-LD that had zero gate (#930). Four sub-parts, all BLOCKING:
+       (a) `portfolio:identity:canonical-url` == `ai:canonical`
+           (the 5th declaration site of the canonical URL; Checks
+           149/280/282 guard the other four).
+       (b) `asset:image:ai-context` == `asset:audio:ai-context`
+           == `ai:context` (authoritative-context URL).
+       (c) `asset:image:entity` == `asset:audio:entity` — the two binary
+           assets must attribute to the same entity string.
+       Measured additivity: each sub-part was mutated in isolation and only
+       its own error fired. The file-resolution axis is deliberately NOT
+       re-implemented here — Check 360 already owns it (the first draft
+       duplicated it, because the audit that found this gap grepped for
+       literal meta names and so could not see regex-based Checks).
+       NOTE: read-only assertions. This Check does not edit the AIO layer
+       (C6 untouched); it only stops it from drifting unobserved.
+       (BLOCKING)
+
 """
 import re
 import json
@@ -688,3 +711,50 @@ def run(ctx):
     else:
         check(False, "Check 287: aio-manifest.json present",
               "Check 287: aio-manifest.json が無い", blocking=True)
+
+    # ── 426. asset:* / portfolio:identity:* meta 宣言の cross-surface 整合 (BLOCKING) ─
+    # index.html は canonical URL / 権威コンテキスト URL / entity を asset:* と
+    # portfolio:identity:* の meta ブロックで 4 度目・5 度目に宣言している。実測
+    # (2026-08-17) では **どの Check にも e2e にもこれらの name が現れず**、ブロックごと
+    # 消しても全 gate が緑のままだった (#930 のルート追従 JSON-LD と同じ class)。
+    # 値は現状 drift していないが、見ている層がゼロなのが問題なので coherence を強制する。
+    _h426 = (ROOT / "index.html").read_text(encoding="utf-8")
+
+    def _meta426(name):
+        _m = re.search(
+            r'<meta\s+name="' + re.escape(name) + r'"\s+content="([^"]*)"', _h426)
+        return _m.group(1) if _m else None
+
+    _aiCanon426 = _meta426("ai:canonical")
+    _idCanon426 = _meta426("portfolio:identity:canonical-url")
+    check(
+        _idCanon426 is not None and _idCanon426 == _aiCanon426,
+        "Check 426a: portfolio:identity:canonical-url == ai:canonical "
+        f"({_idCanon426!r})",
+        (f"Check 426a: portfolio:identity:canonical-url={_idCanon426!r} が "
+         f"ai:canonical={_aiCanon426!r} と不一致 — 同じ canonical URL の 5 番目の "
+         "宣言箇所が drift している (他 4 箇所は Check 149/280/282 が守る)"),
+        blocking=True,
+    )
+
+    _aiCtx426 = _meta426("ai:context")
+    _imgCtx426 = _meta426("asset:image:ai-context")
+    _audCtx426 = _meta426("asset:audio:ai-context")
+    check(
+        _aiCtx426 is not None and _imgCtx426 == _aiCtx426 and _audCtx426 == _aiCtx426,
+        f"Check 426b: asset:image/audio:ai-context == ai:context ({_aiCtx426!r})",
+        (f"Check 426b: 権威コンテキスト URL が meta 間で不一致 — ai:context="
+         f"{_aiCtx426!r} / image={_imgCtx426!r} / audio={_audCtx426!r}。AI クローラが "
+         "資産経由で辿る先が本体と食い違う"),
+        blocking=True,
+    )
+
+    _imgEnt426 = _meta426("asset:image:entity")
+    _audEnt426 = _meta426("asset:audio:entity")
+    check(
+        _imgEnt426 is not None and _imgEnt426 == _audEnt426,
+        f"Check 426c: asset:image:entity == asset:audio:entity ({_imgEnt426!r})",
+        (f"Check 426c: 2 つのバイナリ資産の帰属先が食い違う — image={_imgEnt426!r} / "
+         f"audio={_audEnt426!r}"),
+        blocking=True,
+    )
