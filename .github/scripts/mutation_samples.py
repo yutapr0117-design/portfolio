@@ -874,6 +874,16 @@ _E2E_TAIL = [
         "replace": "'aria-label': 'Human vs AI 分担表ページへ移動'",
         "test": "可視テキストがアクセシブル名に含まれる (WCAG 2.5.3) — 全ルート",
     },
+    {
+        "name": "a11y: 既定で無効な axe ルールの違反が混入する — `aria-roledescription` を"
+                "semantic role の無い div に付けると、SR は要素の役割を独自名で読み上げるのに"
+                "ロールが無く意味が通らない (WCAG 4.1.2)。axe の該当ルールは enabled:false ゆえ"
+                "既存の withTags スキャンでは走らず、この専用テストだけが捕捉層",
+        "file": ROOT / "js" / "home-page.js",
+        "find": "h('div', { class: 'evidence-grid' }",
+        "replace": "h('div', { class: 'evidence-grid', 'aria-roledescription': 'グリッド' }",
+        "test": "既定で無効な axe ルール (Level A/AA) を全ルートで走らせる",
+    },
 ]
 
 
