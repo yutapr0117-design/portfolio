@@ -844,6 +844,13 @@ _E2E_TAIL = [
         "replace": "                        h('div', { class: 'card-body text-center text-muted' }, '')",
         "test": "Projects search shows an empty state when nothing matches",
     },
+    {
+        "name": "a11y: 並べ替えボタンの名前からプロジェクト名が消える — 36 個のボタンが『↑』『↓』の 2 種類の名前しか持たなくなり、SR 利用者はどれを操作するのか区別できない (WCAG 4.1.2)。視覚利用者には行の位置で自明なので目視では気付けない。同じ行の削除・非表示は既に一意化されており、並べ替えだけ取り残されていた非対称",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": ", 'aria-label': '上へ移動：' + p.name }",
+        "replace": " }",
+        "test": "並べ替えボタンの名前がプロジェクトごとに一意になる",
+    },
 ]
 
 

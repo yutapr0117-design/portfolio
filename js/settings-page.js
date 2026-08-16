@@ -462,8 +462,16 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                                             //   動かせる (idx で鍵を作ると、その位置に来た別プロジェクトの
                                             //   ボタンへ focus が移ってしまう)。実測 (#1000): id が無いと
                                             //   1 回押しただけで focus が外れ、2 回目以降が効かなかった。
-                                            h('button', { class: 'btn btn-ghost btn-sm', id: 'settings-move-up-' + p.id, onclick: () => moveProject(idx, -1), disabled: idx === 0 }, '↑'),
-                                            h('button', { class: 'btn btn-ghost btn-sm', id: 'settings-move-down-' + p.id, onclick: () => moveProject(idx, +1), disabled: idx === state.projects.length - 1 }, '↓')
+                                            // [A11Y 4.1.2] 名前に **どのプロジェクトか** を含める。矢印だけだと
+                                            //   36 個のボタンが「↑」「↓」の 2 種類の名前しか持たず、SR 利用者は
+                                            //   どれを操作するのか区別できない (実測: uniq な名前が 2 つだけ)。
+                                            //   同じ行の削除・非表示は既に「削除：<名前>」と一意化されており、
+                                            //   **並べ替えだけ取り残されていた**非対称。矢印そのものは装飾なので
+                                            //   aria-hidden にして二重読み上げを防ぐ (quiz の ✦ と同じ扱い)。
+                                            h('button', { class: 'btn btn-ghost btn-sm', id: 'settings-move-up-' + p.id, onclick: () => moveProject(idx, -1), disabled: idx === 0, 'aria-label': '上へ移動：' + p.name },
+                                                h('span', { 'aria-hidden': 'true' }, '↑')),
+                                            h('button', { class: 'btn btn-ghost btn-sm', id: 'settings-move-down-' + p.id, onclick: () => moveProject(idx, +1), disabled: idx === state.projects.length - 1, 'aria-label': '下へ移動：' + p.name },
+                                                h('span', { 'aria-hidden': 'true' }, '↓'))
                                         )
                                     )
                                 )
