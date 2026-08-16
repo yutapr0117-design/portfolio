@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 2)
 
 ## What
 
-純ユーティリティ module。escape / tokenize / clamp / debounce / throttle / id 生成 等の副作用ゼロ関数群を export。Stage 2 で最初に抽出された安定 module。
+純ユーティリティ module。escape / tokenize / clamp / debounce / id 生成 等の副作用ゼロ関数群を export。Stage 2 で最初に抽出された安定 module。
 
 ## Why
 
@@ -19,7 +19,7 @@ main.js から最初に切り出した pure function 群。Stage 2 で抽出さ�
 
 ```
 main.js / 各 factory module
-  └─ import { escape, tokenize, clamp, debounce, throttle, ... } from './js/pure-utils.js'
+  └─ import { escape, tokenize, clamp, debounce, ... } from './js/pure-utils.js'
        └─ 必要な関数を named import して呼ぶ
 ```
 
