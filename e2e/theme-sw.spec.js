@@ -177,6 +177,13 @@ test('theme-init.js applies stored dark theme on initial load (FOUC prevention)'
 // ライフサイクルを持つ。フルオフライン navigation は提供しない設計 (SWR・app-shell precache なし)
 // ため offline 配信はテスト対象外。ここでは genuine な「SW が登録され active になり page を制御する」
 // ことを検証し、SW 登録/活性化の退行 (例: registration 失敗・activate 例外) を捕捉する。
+// NOTE (mutation を登録できない理由): `mutation_probe` は **設計上 `MUTATION_PROBE=1` で
+//   Service Worker をブロックする** (SW が古い JS をキャッシュ配信すると mutation が効かず
+//   偽 SURVIVED になるため・#825/#829)。そのため本テストは probe 環境では **baseline から RED**
+//   になり、mutation を登録すると「target test が baseline で RED」として週次 probe を恒常的に
+//   赤くする (実測: 2026-08-15 の run でこれが起きた)。
+//   SW 登録の退行は本テスト自身が PR ゲートで守るので、mutation は登録しない。
+//   ローカルで非 vacuity を確かめるときは **env を付けずに** 実行すること。
 test('Service worker registers, activates, and controls the page', async ({ page }) => {
   // SW の install→activate ライフサイクルは CI ランナーの負荷下で既定 30s を超え
   // navigator.serviceWorker.ready が timeout する間欠 flake があった (BLOCKING gate を false-red 化)。
