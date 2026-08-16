@@ -261,8 +261,8 @@ E2E_MUTATIONS_ARCHIVE2 = [
         # (#558)。find-anchor もそこへ移動したため file を追従させる (抽出で anchor が orphan 化した
         # 実例・mutation-probe --e2e が検出)。
         "file": ROOT / "js" / "pomodoro-page.js",
-        "find": "            const rt = State.get().appsData.pomodoro.runtime;\n            if (rt.isActive && rt.endAtMs) {",
-        "replace": "            const rt = pomo.runtime;\n            if (rt.isActive && rt.endAtMs) {",
+        "find": "            return Math.max(0, Math.ceil((rt.endAtMs - Date.now()) / 1000));",
+        "replace": "            return rt.remainingSec;",
         "test": "Pomodoro completes at zero",
     },
     {

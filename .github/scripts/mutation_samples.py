@@ -649,8 +649,8 @@ _E2E_TAIL = [
     {
         "name": "behavior: 裏で走るタイマーの完了が全再描画へ戻る — ポモドーロは別アプリを開いていても走り続けるため、完了の State.update が #content を作り直して **利用者が何も操作していないのに** 別ページの未送信入力を消す。自分の操作が引き金でない分、#982 (テーマ切替) や #1055 (絞り込み) より驚きが大きい",
         "file": ROOT / "js" / "pomodoro-page.js",
-        "find": "            if (onPomodoroRoute) { State.update(applyCompletion); }\n            else { State.updateSilently(applyCompletion); }",
-        "replace": "            State.update(applyCompletion);",
+        "find": "        if (onPomodoroRoute) { State.update(applyCompletion); }\n        else { State.updateSilently(applyCompletion); }",
+        "replace": "        State.update(applyCompletion);",
         "test": "裏でタイマーが完了しても別アプリの未送信入力が消えない",
     },
     {
@@ -889,6 +889,13 @@ _E2E_TAIL = [
         "find": "h('div', { class: 'evidence-grid' }",
         "replace": "h('div', { class: 'evidence-grid', 'aria-roledescription': 'グリッド' }",
         "test": "既定で無効な axe ルール (Level A/AA) を全ルートで走らせる",
+    },
+    {
+        "name": "🔴 稼働中ポモドーロの復帰が描画に紐付き直す — main.js init の resumeIfActive() を外すと、リロード後に別ページにいる利用者の interval が誰にも作られず、25 分集中し続けても完了が history に記録されない。リロードしなければ裏で完了する (#1056 が扱った経路) ため『リロードを跨いだときだけ』挙動が違う非対称で、利用者から見ると原因に見当がつかない",
+        "file": ROOT / "main.js",
+        "find": "            resumeIfActive();\n",
+        "replace": "",
+        "test": "稼働中ポモドーロはリロード後どのページに着地しても完了が記録される",
     },
 ]
 

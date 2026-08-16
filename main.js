@@ -498,7 +498,7 @@
         // 2026-07-04 bloat-reduction: AIPage は別葉モジュール createAIPage で生成 (依存は h/createIcon/State/CONSTANTS のみ)
         const { AIPage } = createAIPage({ h, createIcon, State, CONSTANTS, announce });
         // 2026-07-04 bloat-reduction: PomodoroPage は別葉モジュール createPomodoroPage で生成 (依存は h/createIcon/State/Router/Toast/clamp/CONSTANTS)
-        const { PomodoroPage } = createPomodoroPage({ h, createIcon, State, Router, Toast, clamp, CONSTANTS });
+        const { PomodoroPage, resumeIfActive } = createPomodoroPage({ h, createIcon, State, Router, Toast, clamp, CONSTANTS });
         // 2026-07-05 bloat-reduction: SettingsPage は別葉モジュール createSettingsPage で生成
         //   (依存は h/Toast/State/Brand/Store/Storage/CONSTANTS/generateId/slugify)
         const { SettingsPage } = createSettingsPage({ h, Toast, State, Brand, Store, Storage, CONSTANTS, generateId, slugify });
@@ -993,6 +993,13 @@
 
             // Initial render
             render();
+
+            // ===== 稼働中ポモドーロの復帰 (ルート非依存) =====
+            // resume を描画に紐付けると、リロード後に**別ページにいる**利用者の interval が
+            // 誰にも作られず、集中し続けても完了が記録されない (実測: 別ページ着地 history=0 /
+            // ポモドーロ画面着地 history=1)。リロードしなければ裏で完了するので、リロードを
+            // 跨いだときだけ挙動が違う非対称だった。init で 1 度呼んでルート非依存にする。
+            resumeIfActive();
 
             // ===== BGM Initialization =====
             // bgm-btn-top は data-action="bgm:toggle" を持ち ActionDelegator が処理するため
