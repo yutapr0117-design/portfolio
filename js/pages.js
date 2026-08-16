@@ -89,12 +89,19 @@ export function createPages({ h, createIcon, Router, ContactCTA }) {
                 h('div', {
                     class: 'cell-human', role: 'cell', 'data-ai-role': 'human'
                 },
-                    ...humanItems.map(item =>
-                        h('div', {
-                            class: 'cell-bullet-row'
-                        },
-                            h('span', { class: 'text-bullet-human', style: { color: C.human }, 'aria-hidden': 'true' }, '✦'),
-                            h('span', {}, item)
+                    // [A11Y 1.3.1] セル内の箇条書きは 3〜4 件の同質な並び。role が無いと SR 利用者は
+                    //   「このセルに何項目あるか」も項目の切れ目も掴めない (視覚的には ✦ で分かる)。
+                    //   セル自身は role='cell' を保つ必要があるので **wrapper を 1 段挟むが
+                    //   `display: contents` でレイアウトからは外す** (#1076 で実証した形・
+                    //   素の div を挟むとページ高が変わる)。
+                    h('div', { role: 'list', style: 'display: contents;' },
+                        ...humanItems.map(item =>
+                            h('div', {
+                                class: 'cell-bullet-row', role: 'listitem'
+                            },
+                                h('span', { class: 'text-bullet-human', style: { color: C.human }, 'aria-hidden': 'true' }, '✦'),
+                                h('span', {}, item)
+                            )
                         )
                     )
                 ),
@@ -102,12 +109,14 @@ export function createPages({ h, createIcon, Router, ContactCTA }) {
                 h('div', {
                     class: 'cell-ai', role: 'cell', 'data-ai-role': 'ai'
                 },
-                    ...aiItems.map(item =>
-                        h('div', {
-                            class: 'cell-bullet-row'
-                        },
-                            h('span', { class: 'text-bullet-ai', style: { color: C.ai }, 'aria-hidden': 'true' }, '✦'),
-                            h('span', {}, item)
+                    h('div', { role: 'list', style: 'display: contents;' },
+                        ...aiItems.map(item =>
+                            h('div', {
+                                class: 'cell-bullet-row', role: 'listitem'
+                            },
+                                h('span', { class: 'text-bullet-ai', style: { color: C.ai }, 'aria-hidden': 'true' }, '✦'),
+                                h('span', {}, item)
+                            )
                         )
                     )
                 )

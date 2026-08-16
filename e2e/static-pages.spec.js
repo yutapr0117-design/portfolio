@@ -73,3 +73,32 @@ test('AI-knowhow page renders its lead heading', async ({ page }) => {
   await page.waitForLoadState('domcontentloaded');
   await expect(page.getByRole('heading', { name: /AI開発ノウハウ/ })).toBeVisible();
 });
+
+
+// ===== 役割分担表: セル内の箇条書きがリストとして読める =====
+// 各セルには 3〜4 件の箇条書きが並ぶ。role が無いと SR 利用者は「このセルに何項目あるか」も
+// 項目の切れ目も掴めない (視覚的には ✦ の記号で分かる)。表の意味論 (#929 で機械向け契約として
+// 固定した ARIA table) を壊さずに、セルの中だけへリストを足す。
+//
+// **wrapper は `display: contents`** —— セル自身は `role="cell"` を保つ必要があるので 1 段挟むが、
+// 素の div だとレイアウトが変わる (#1076 で実測)。ページ高が変更前と完全一致することと、
+// table / row / cell / rowheader の数が変わらないことの両方を確認する。
+test('役割分担表のセル内箇条書きがリストとして公開される', async ({ page }) => {
+  await page.goto('/#/role-split');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: '役割分担' })).toBeVisible();
+
+  const bullets = await page.locator('.cell-bullet-row').count();
+  expect(bullets, 'control: 箇条書きが描画されていない').toBeGreaterThan(10);
+
+  // 箇条書きが listitem として公開される
+  expect(await page.getByRole('listitem').count(),
+    'セル内の箇条書きが listitem として公開されていない').toBe(bullets);
+  expect(await page.getByRole('list').count(),
+    '箇条書きを束ねる list が無い').toBeGreaterThan(0);
+
+  // 表の意味論が壊れていない (#929 の機械向け契約)
+  expect(await page.getByRole('table').count(), '表の意味論が壊れた').toBe(1);
+  expect(await page.getByRole('cell').count(), 'セルが listitem に置き換わってしまった').toBeGreaterThan(8);
+  expect(await page.getByRole('rowheader').count(), '行見出しが失われた').toBeGreaterThan(4);
+});
