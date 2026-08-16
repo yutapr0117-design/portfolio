@@ -864,6 +864,16 @@ _E2E_TAIL = [
         "replace": "",
         "test": "アプリ一覧のボタン名が行き先ごとに一意になる",
     },
+    {
+        "name": "a11y: home の CTA が可視テキストを含まないアクセシブル名に戻る — 音声入力の利用者が"
+                "見えているとおり『分担表を見る』と発話しても起動できない (WCAG 2.5.3 Level A)。"
+                "axe の label-content-name-mismatch は enabled:false (experimental) ゆえ既存の"
+                "withTags スキャンでは走らず、この SC は専用テストを書くまで完全に未検査だった",
+        "file": ROOT / "js" / "home-page.js",
+        "find": "'aria-label': '分担表を見る：Human vs AI 分担表ページへ移動'",
+        "replace": "'aria-label': 'Human vs AI 分担表ページへ移動'",
+        "test": "可視テキストがアクセシブル名に含まれる (WCAG 2.5.3) — 全ルート",
+    },
 ]
 
 
