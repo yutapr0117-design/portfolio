@@ -320,3 +320,42 @@ test('drawer 内の nav リンクからの遷移も従来どおり閉じる', as
   const inert = await page.evaluate(() => document.getElementById('app').hasAttribute('inert'));
   expect(inert).toBe(false);
 });
+
+
+// ===== モバイルの drawer でも現在地 (aria-current) が示される =====
+// 既存の aria-current テストは **desktop viewport (sidebar 表示)** を見ている。だが
+// mobile では sidebar は `display:none` で、**drawer が唯一のナビゲーション**になる。
+// sidebar と drawer は同じ navLink 実装を共有するが、共有していることは
+// 「現在ルートの判定が drawer 側にも届いている」ことの保証にはならない (drawer は開くたびに
+// 組み直されるので、組み立て時の状態を読み損ねれば現在地が付かない)。
+// 現在地が分からないと SR 利用者は「今どこにいるか」をナビから得られなくなる (WCAG 2.4.8)。
+test('モバイルの drawer が現在ルートに aria-current を付け、遷移に追従する', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 780 });
+  await page.goto('/#/projects');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+
+  await page.locator('#menuBtn').click();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
+
+  const drawerCurrent = () => page.evaluate(() => Array.from(
+    document.querySelectorAll('#drawer [aria-current="page"]')
+  ).map((e) => e.id));
+
+  // control: drawer に nav リンクが実際に描かれている
+  expect(await page.locator('#drawer a[id^="drawernav-"]').count(),
+    'control: drawer に nav リンクが無い').toBeGreaterThan(3);
+
+  expect(await drawerCurrent(),
+    'drawer が現在ルートを示していない (mobile では drawer が唯一のナビ)').toEqual(['drawernav-projects']);
+
+  // 別ルートへ遷移して開き直すと追従する
+  await page.goto('/#/about');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'About' })).toBeVisible();
+  await page.locator('#menuBtn').click();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
+
+  expect(await drawerCurrent(),
+    'ルート遷移後も drawer の現在地が古いまま').toEqual(['drawernav-about']);
+});
