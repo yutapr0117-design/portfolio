@@ -30,6 +30,7 @@ from mutation_samples_common import ROOT, CHECK  # noqa: F401 (entry 内で参�
 from mutation_samples_archive import MUTATIONS_ARCHIVE
 from mutation_samples_archive2 import MUTATIONS_ARCHIVE2
 from mutation_samples_e2e_archive import E2E_MUTATIONS_ARCHIVE
+from mutation_samples_e2e_archive2 import E2E_MUTATIONS_ARCHIVE2
 
 # 新しい側の curated mutation (新規追記は本リスト末尾へ / 上記「追記規約」参照)。
 _MUTATIONS_TAIL = [
@@ -116,123 +117,6 @@ _MUTATIONS_TAIL = [
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
-    {
-        "name": "behavior: closeDrawer の idempotency ガード喪失による scroll-clobber — mobile-drawer.js の closeDrawer から『閉じているなら早期 return』を外す → 末尾の __lockBodyScroll(false) が window.scrollTo(0, __drawerScrollY=0) を実行し、**閉じている drawer を閉じるだけでページ先頭へ飛ぶ**。二重モーダル防止で palette が open 時に無条件 closeDrawer() を呼ぶため、スクロール中に Cmd/Ctrl+K を押すと先頭ジャンプになる (#297 の openDrawer 側ガードの対・実測済)",
-        "file": ROOT / "js" / "mobile-drawer.js",
-        "find": "        if (drawer.getAttribute('aria-hidden') !== 'false') { return; }\n",
-        "replace": "",
-        "test": "Opening and closing the command palette preserves the scroll position",
-    },
-    {
-        "name": "behavior: フィルタ操作が履歴を汚す回帰 — projects-page.js の syncURL を Router.replaceSilently から Router.navigate へ変える → 検索語 1 文字ごとに history entry が積まれ、3 文字打つと『戻る』を 3 回押さないとページを離れられない典型的な SPA 退行になる (replaceSilently は history.replaceState でこれを防いでいる)",
-        "file": ROOT / "js" / "projects-page.js",
-        "find": "Router.replaceSilently('projects' + ",
-        "replace": "Router.navigate('projects' + ",
-        "test": "Browser back/forward moves between routes and filtering does not pollute history",
-    },
-    {
-        "name": "behavior: 詳細ページの『一覧に戻る』が絞り込みを捨てる回帰 — project-detail-page.js の戻り先を Router.getLastListPath() から 'projects' ハードコードへ戻す → ?q= / ?cat= を落として全件表示へ戻る。ブラウザの Back は履歴の query 付き URL へ復帰するため『同じ意味の操作なのに結果が違う』不整合になる (実測: 1 件に絞って詳細を開き in-page back → 18 件)",
-        "file": ROOT / "js" / "project-detail-page.js",
-        # NOTE: `getLastListPath` は **2 箇所** にある (not-found 分岐の「一覧へ戻る」と、
-        #   詳細ページ本体の「← 一覧に戻る」)。mutation_probe は replace(find, replace, 1) ＝
-        #   **先頭 1 件しか置換しない**ため、素の式を find にすると not-found 分岐だけが壊れ、
-        #   テストが通る経路には当たらず **silent SURVIVED** になる (週次 probe が検出)。
-        #   実ボタン側だけに一意に当たるよう、直前の class 属性まで含めて anchor する。
-        "find": "                    class: 'btn btn-ghost btn-sm mb-4',\n                    onclick: () => Router.navigate(Router.getLastListPath ? Router.getLastListPath() : 'projects')",
-        "replace": "                    class: 'btn btn-ghost btn-sm mb-4',\n                    onclick: () => Router.navigate('projects')",
-        "test": "In-page \"back to list\" preserves the active filter",
-    },
-    {
-        "name": "a11y: topbar テーマボタンのラベル同期の喪失 — theme.js apply() から #themeBtnTop の aria-label 更新を除去 → mobile 利用者には『テーマを切り替える（現在: …）』が初期値のまま固定され、現在テーマが SR に露出しなくなる (WCAG 4.1.2)。sidebar 側は render 毎の再構築という **別機構** で更新されるため、desktop 前提の既存テストでは検出できなかった (実測: 削除しても既存 10 件は全緑) 未被覆面の回帰防止",
-        "file": ROOT / "js" / "theme.js",
-        "find": "            topBtn.setAttribute('aria-label', themeToggleAriaLabel(theme));",
-        "replace": "            void themeToggleAriaLabel;",
-        "test": "Topbar theme button exposes the current theme in its label on mobile",
-    },
-    {
-        "name": "behavior: スナップショット削除の確認ガード喪失 — settings-page.js clearSnapshot から confirm を除去 → ユーザー唯一の復元点が無確認で消える。プロジェクト 1 件の削除と全リセットは confirm を通すのに、より影響の大きいスナップショット削除だけ無確認だった非対称 (CLAUDE.md §7 の反復 class) の回帰防止",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "            if (!confirm(_at",
-        "replace": "            if (false && !confirm(_at",
-        "test": "Deleting the snapshot asks for confirmation",
-    },
-    {
-        "name": "behavior: タスク 0 件の説明表示の喪失 — apps.js の空状態ブロックを無効化 → 優先度フィルタで 0 件になっても 3 列に『0』が並ぶだけで、フィルタが隠しているのか本当に空なのか判別できない状態へ戻る (TodoPage は同じ状況でメッセージを出しており task 側だけ欠けていた非対称) の回帰防止",
-        "file": ROOT / "js" / "apps.js",
-        "find": "            if (allTasks.length === 0) {",
-        "replace": "            if (false) {",
-        "test": "Task board explains why it is empty",
-    },
-    {
-        "name": "behavior: ポモドーロ当日要約の集計誤り — pomodoro-page.js の当日フィルタ (timestamp >= 当日 0 時) を外す → 昨日以前の完了セッションまで『今日の実績』に数え、利用者が今日の進捗を誤認する。記録しているのに画面に出していなかった history を要約表示した増分の回帰防止",
-        "file": ROOT / "js" / "pomodoro-page.js",
-        "find": "e.type === 'work' && e.timestamp >= _start).length",
-        "replace": "e.type === 'work').length",
-        "test": "Pomodoro shows today",
-    },
-    {
-        "name": "behavior: 320px 幅の横あふれ再発 — style.css の mobile media query から `max-width: 100%` を外す → .app が column flex になった際に .main-content の左右 auto margin が cross 軸 auto margin となり stretch が無効化され、fit-content が min-content を下回れず item が viewport より広くなる (WCAG 1.4.10 違反・実測 role-split +51px)。screenshot は 1280x720 clip でこの media query に到達しないため、捕捉できるのは behavior test だけ",
-        "file": ROOT / "style.css",
-        "find": "は非到達。 */\n                max-width: 100%;",
-        "replace": "は非到達。 */",
-        "test": "WCAG 1.4.10: 320px 幅でどのルートも横スクロールしない",
-    },
-    {
-        "name": "behavior: profile 正規化の型ガード喪失 — store.js の safeStr を旧実装 `String(v || fallback)` に戻す → `[]` や `{}` のような truthy な非文字列が `||` を素通りし String([]) === '' でフィールドが空になる。email が空になると ContactPage から宛先表示が消え「メールを作成」が宛先の無い mailto: を開く (fatal を出さないので ErrorBoundary にも掛からず、視覚 baseline は ADVISORY ゆえ behavior test 以外に捕捉層が無い)",
-        "file": ROOT / "js" / "store.js",
-        "find": "        const s = (v && cand.trim() !== '') ? cand : String(fallback || '');",
-        "replace": "        const s = String(v || fallback || '');",
-        "test": "Hostile profile import: a truthy non-string must not blank a field",
-    },
-    {
-        "name": "behavior: project 正規化の型ガード喪失 — store.js の name を旧実装 `String(raw.name || 'Untitled')` に戻す → `{}` が truthy なので fallback が働かず \"[object Object]\" が一覧カードと詳細ページへそのまま描画される (実測で一覧 3 箇所 / 詳細 4 箇所)。fatal を出さないので ErrorBoundary に掛からず、視覚 baseline は ADVISORY ゆえ behavior test 以外に捕捉層が無い",
-        "file": ROOT / "js" / "store.js",
-        "find": "            name: safeStr(raw.name, 'Untitled', CONSTANTS.LIMITS.PROJECT_NAME),",
-        "replace": "            name: String(raw.name || 'Untitled').slice(0, CONSTANTS.LIMITS.PROJECT_NAME),",
-        "test": "Hostile project import: non-string fields must not render as [object Object]",
-    },
-    {
-        "name": "behavior: appsData の必須テキスト型ガード喪失 — normalizeAppsData の task filter を `isText(t.title)` から旧 `t.title` へ戻す → `{}` は truthy なので entry が落ちず、本文の無い空カードとして残る (旧実装ではさらに String(t.title) が \"[object Object]\" を描画していた)。NOTE: 描画側の検査だけでは捕捉できず (safeStr により空文字になるため)、永続化された appsData に壊れた entry が残っていないことの検査が本 mutation を捕捉する",
-        "file": ROOT / "js" / "store.js",
-        "find": "                .filter(t => t && isText(t.title))",
-        "replace": "                .filter(t => t && t.title)",
-        "test": "Hostile appsData import: non-string title/text must not render as [object Object]",
-    },
-    {
-        "name": "behavior: router の slug decode ガード喪失 — js/router.js の decodeURIComponent から try/catch を外す → 不正な percent-encoding を含む slug (`#/projects/%E0%A4%A`) で URIError が route 解決中に throw し、graceful な「見つかりません」ではなく ErrorBoundary 送りになる。hash は利用者が直接編集でき古いブックマークからも来る最外周の入力面で、SW の normalizePath (#270) と同じ「全リクエストを触る hot path の decode は try/catch 必須」class のルータ面",
-        "file": ROOT / "js" / "router.js",
-        "find": "                    try {\n                        route.params.slug = decodeURIComponent(parts[1]);\n                    } catch (_) {\n                        route.params.slug = parts[1];\n                    }",
-        "replace": "                    route.params.slug = decodeURIComponent(parts[1]);",
-        "test": "Router tolerates a malformed percent-encoded project slug",
-    },
-    {
-        "name": "behavior: ブランド primary の WCAG 1.4.3 (AA) 退行 — style.css の --color-primary-rgb を旧値 rgb(99,102,241) へ戻す → 白背景に対するコントラスト比が 4.467 となり要求 4.5:1 を下回る (1 ルートあたり 15〜59 ノードが axe の color-contrast violation)。axe の color-contrast は serious だが本リポジトリの a11y ゲートは critical 限定のため素通りする = トークン契約の e2e が唯一の捕捉層",
-        "file": ROOT / "style.css",
-        "find": "            --color-primary-rgb: 98, 101, 240;\n            /* Indigo (値の根拠は :root 側のコメント参照・WCAG 1.4.3 AA) */",
-        "replace": "            --color-primary-rgb: 99, 102, 241;\n            /* Indigo (値の根拠は :root 側のコメント参照・WCAG 1.4.3 AA) */",
-        "test": "WCAG 1.4.3: 各ブランドの primary は白に対し 4.5:1 以上",
-    },
-    {
-        "name": "behavior: ダークテーマの適用が壊れる — style.css の [data-theme=\"system\"] セレクタを無効化 → OS がダークでもライトのまま描画される。ダーク走査の a11y テストは「実際にダークになっているか」を先に検査するので、壊れると『ダークを検査したつもりでライトを検査していた』vacuous な結果ではなく明示的な RED になる",
-        "file": ROOT / "style.css",
-        "find": "            [data-theme=\"system\"] {",
-        "replace": "            [data-theme=\"system-DISABLED\"] {",
-        "test": "a11y axe: ダークテーマの全ルートに render-neutral critical 違反が無い",
-    },
-    {
-        "name": "behavior: 初回ロードの projects 要素フィルタ喪失 — mergeProjectsWithDefaults から `.filter(p => p && typeof p === 'object')` を外す → localStorage に `projects: [null, 0, 'x']` を持つ store (parse でき schemaVersion も一致するので **実際に adopt される**) で normalizeProject が null を dereference し boot が壊れる。import 経路 (#968-#970) とは別の入口 (JSON.parse・schemaVersion gate・boot 時 State.set) を通る面",
-        "file": ROOT / "js" / "store.js",
-        "find": "        const normalizedIncoming = (Array.isArray(incomingProjects) ? incomingProjects : [])\n            .filter(p => p && typeof p === 'object')",
-        "replace": "        const normalizedIncoming = (Array.isArray(incomingProjects) ? incomingProjects : [])",
-        "test": "Hostile-but-adoptable localStorage: every field type survives the boot path",
-    },
-    {
-        "name": "behavior: cross-app — 全リセットが稼働中ポモドーロを止めない — settings-page.js の resetData を appsData 温存版へ改変 → 永続化された runtime.isActive が true のまま残り、『動いているのに endAtMs は初期化済み』の矛盾状態になる (走り続けた interval が初期化を上書きしうる)。ポモドーロは他ページに居ても走り続ける唯一の機能で、別アプリからの破壊的操作と交差する面。fatal を出さずに壊れるため behavior test 以外に捕捉層が無い",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "            State.set(Store.createDefaultStore());",
-        "replace": "            State.set({ ...Store.createDefaultStore(), appsData: State.get().appsData });",
-        "test": "Full reset stops a running pomodoro timer (cross-app interaction)",
-    },
     {
         "name": "behavior: テーマ切替が入力途中のテキストを巻き添えにする回帰 — js/theme.js の cycle を updateSilently から State.update へ戻す → notify で全再描画 (#content を clear) が走り、未送信の入力が消える (実測: task 8 文字 → 0 / ai 6 文字 → 0)。テーマはページ内容と無関係な chrome 操作なので巻き添えにしてはならない (#258 / #684 と同じ全再描画回避の規律)",
         "file": ROOT / "js" / "theme.js",
@@ -939,8 +823,29 @@ _E2E_TAIL = [
         "replace": "placeholder: \"メッセージ（任意）\",",
         "test": "模範解答フォームの入力上限が mailto の実行限界を超えない",
     },
+    {
+        "name": "a11y: ルート遷移のアナウンスが空になる — SPA はページ全体が入れ替わっても『ページが変わった』ことが SR に伝わらない。polite な #page-announcement へタイトルを書くのが唯一の通知経路で、失われると利用者は今どこにいるか分からないまま操作を続けることになる",
+        "file": ROOT / "js" / "meta-management.js",
+        "find": "            pageAnnouncer.textContent = title + 'ページを表示しています。';",
+        "replace": "            pageAnnouncer.textContent = '';",
+        "test": "Route changes announce the PAGE_META title (not the internal route slug) to the polite aria-live region",
+    },
+    {
+        "name": "a11y: TODO 削除の完了通知が失われる — 視覚利用者は項目が消えたことで分かるが、SR 利用者には何も伝わらない。task 側と対で持つべき通知で、片方だけ欠けると『1 ケースだけ処理して他を忘れる』非対称になる (#901 で一本化した通知チャネル)",
+        "file": ROOT / "js" / "apps.js",
+        "find": "            Toast.show('TODOを削除しました', 'success');",
+        "replace": "",
+        "test": "Todo add and delete announce to the assertive aria-live region (WCAG 4.1.3, task symmetry)",
+    },
+    {
+        "name": "behavior: プロジェクト検索の 0 件表示が空になる — 一覧が消えただけの画面になり、『絞り込まれた結果ゼロ』なのか『読み込みに失敗した』のか判別できない。empty-state は role=status なので SR にも件数の変化として伝わる唯一の手掛かり",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "                        h('div', { class: 'card-body text-center text-muted' }, '条件に一致するプロジェクトはありません。')",
+        "replace": "                        h('div', { class: 'card-body text-center text-muted' }, '')",
+        "test": "Projects search shows an empty state when nothing matches",
+    },
 ]
 
 
 # 公開 API: e2e archive(古) + tail(新) の連結 (consistency 側 MUTATIONS と同じ log-rotation 方式)。
-E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
+E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
