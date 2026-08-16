@@ -598,3 +598,74 @@ test('裏でタイマーが完了しても別アプリの未送信入力が消�
   await expect(page.locator('#task-input'),
     '裏のタイマー完了に巻き込まれて未送信の入力が消えている').toHaveValue(draft);
 });
+
+
+// ===== 稼働中タイマーの復帰はルートに依存しない =====
+// 従来 auto-resume は PomodoroPage() の**描画中にしか走らなかった**ため、リロード後に
+// 別ページにいると interval が誰にも作られず、集中し続けても完了が記録されなかった。
+// 実測 (修正前): 別ページ着地 history=0 / isActive=true のまま・ポモドーロ画面着地
+// history=1 / isActive=false。リロードしなければ裏で完了する (#1056 が扱ったのがその経路)
+// ので、**リロードを跨いだときだけ**挙動が違う非対称だった。
+//
+// 測定の作り方:
+//   - 1 ケース 1 コンテキスト。同じページで localStorage を書き換えて reload すると、
+//     直前の描画が仕込んだ debounce 保存が後から書き戻して seed を潰す (実測で 1 度踏んだ)。
+//   - 期限は **未来** に置く。期限切れの runtime は store.js の normalize が isActive=false へ
+//     落とすので (観測していないセッションを credit しない設計)、過去に置くと何も検査しない。
+//   - reload 直後の localStorage は **保存済みバイト列**であって正規化後の state ではない。
+//     ここでは「完了が history へ書かれたか」を見るので、書き込みが起きた事実そのものが signal。
+const POMO_KEY = 'portfolio_enhanced_v45';
+
+async function pomodoroRunningSnapshot(browser) {
+  const ctx = await browser.newContext();
+  const page = await ctx.newPage();
+  await page.goto('/#/apps/pomodoro');
+  await expect(page.locator('#content h1')).toBeVisible();
+  await page.getByRole('button', { name: '開始' }).click();
+  await expect.poll(() => page.evaluate((k) => !!localStorage.getItem(k), POMO_KEY)).toBe(true);
+  await page.waitForTimeout(1200);   // debounce 保存を落ち着かせてから読む
+  const raw = await page.evaluate((k) => localStorage.getItem(k), POMO_KEY);
+  await ctx.close();
+  return raw;
+}
+
+async function pomodoroLandOn(browser, raw, route) {
+  const seeded = JSON.parse(raw);
+  seeded.appsData.pomodoro.runtime.endAtMs = Date.now() + 6000;
+  seeded.appsData.pomodoro.runtime.remainingSec = 6;
+  const ctx = await browser.newContext();
+  const page = await ctx.newPage();
+  await page.addInitScript(([k, v]) => { localStorage.setItem(k, v); }, [POMO_KEY, JSON.stringify(seeded)]);
+  await page.goto(route);
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  const result = await page.evaluate(async ([k]) => {
+    const deadline = Date.now() + 14000;
+    while (Date.now() < deadline) {
+      const st = JSON.parse(localStorage.getItem(k));
+      if ((st.appsData.pomodoro.history || []).length > 0) {
+        return { hist: st.appsData.pomodoro.history.length, active: st.appsData.pomodoro.runtime.isActive };
+      }
+      await new Promise((r) => setTimeout(r, 300));
+    }
+    const st = JSON.parse(localStorage.getItem(k));
+    return { hist: (st.appsData.pomodoro.history || []).length, active: st.appsData.pomodoro.runtime.isActive };
+  }, [POMO_KEY]);
+  await ctx.close();
+  return result;
+}
+
+test('稼働中ポモドーロはリロード後どのページに着地しても完了が記録される', async ({ browser }) => {
+  const raw = await pomodoroRunningSnapshot(browser);
+  // control: そもそも「稼働中」の状態を捕まえられているか (isActive でなければ以降は何も検査しない)
+  expect(JSON.parse(raw).appsData.pomodoro.runtime.isActive,
+    'control: 開始直後の state が稼働中になっていない').toBe(true);
+
+  const onRoute = await pomodoroLandOn(browser, raw, '/#/apps/pomodoro');
+  expect(onRoute.hist, 'ポモドーロ画面に着地したのに完了が記録されない').toBe(1);
+
+  const offRoute = await pomodoroLandOn(browser, raw, '/#/apps/task');
+  expect(offRoute.hist,
+    '別ページに着地すると完了が記録されない — resume が描画に紐付いており、'
+    + 'リロードを跨ぐと集中し続けても記録されない (init から resumeIfActive を呼ぶこと)').toBe(1);
+  expect(offRoute.active, '完了後も稼働中のまま残っている').toBe(false);
+});

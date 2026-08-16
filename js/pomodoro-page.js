@@ -34,6 +34,94 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
     // ===== Component: Pomodoro App =====
     let pomodoroTimer = null;
 
+
+    function getDuration(mode) {
+        // [FIX] live state を読む (getRemaining と同根の stale-closure 対策): startTimer の
+        // interval は start() 時の closure に固定され、その closure の `pomo.settings` は稼働中に
+        // 設定変更されても古いまま。complete() が getDuration で remainingSec をリセットする際に
+        // 旧設定値を使うバグになるため、必ず最新 settings を参照する。
+        const settings = State.get().appsData.pomodoro.settings;
+        return (mode === 'work' ? settings.work :
+            mode === 'short-break' ? settings.short : settings.long) * 60;
+    }
+
+    function getRemaining() {
+        // [FIX] live state を読む: startTimer の interval は start() 時の closure に固定され、
+        // その closure の `pomo` は再描画後に stale (isActive=false の旧 runtime) になる。
+        // クロージャ変数を読むと interval の完了判定が常に remainingSec を返し complete() が
+        // 永遠に発火しない (表示は毎 tick の window.render が live を読むので 0 まで進むが
+        // 停止・history 記録・完了通知が起きない) ため、ここは必ず最新 runtime を参照する。
+        const rt = State.get().appsData.pomodoro.runtime;
+        if (rt.isActive && rt.endAtMs) {
+            return Math.max(0, Math.ceil((rt.endAtMs - Date.now()) / 1000));
+        }
+        return rt.remainingSec;
+    }
+
+    function startTimer() {
+        if (pomodoroTimer) {clearInterval(pomodoroTimer);}
+        pomodoroTimer = setInterval(() => {
+            const remaining = getRemaining();
+            if (remaining <= 0) {
+                // 再描画するかは complete() が現在ルートを見て判断する (表示中のみ)。
+                complete();
+            } else if (Router.getRoute().name === 'app-pomodoro') {
+                window.render(); // グローバルを描画
+            }
+        }, 1000);
+    }
+
+    function stopTimer() {
+        if (pomodoroTimer) {
+            clearInterval(pomodoroTimer);
+            pomodoroTimer = null;
+        }
+    }
+
+    function complete() {
+        stopTimer();
+        // factory scope へ hoist したため描画時スナップショット `pomo` は参照できない。
+        // getDuration / getRemaining と同じく live state を読む (stale-closure 対策 #121/#134)。
+        const duration = getDuration(State.get().appsData.pomodoro.runtime.mode);
+        // [FIX] **見えていない画面まで作り直さない**。complete() は State.update →
+        //   notify → #content の全再描画を起こすが、タイマーは裏で走り続けるので
+        //   利用者が別のアプリを開いていることが普通にある。実測: タスク名を打っている
+        //   最中に完了すると、**操作していないのに入力が消えた** (POMO-DRAFT-KEEP → "")。
+        //   自分では何もしていないのに消えるので、#982 (テーマ切替) や #1055 (絞り込み)
+        //   より驚きが大きい。ポモドーロ画面を表示中だけ再描画し、それ以外は
+        //   updateSilently で state と保存だけ進める (次に開いたとき render が正しく読む)。
+        const onPomodoroRoute = Router.getRoute().name === 'app-pomodoro';
+        const applyCompletion = (s) => {
+            s.appsData.pomodoro.history.push({
+                timestamp: Date.now(),
+                durationMinutes: Math.floor(duration / 60),
+                type: s.appsData.pomodoro.runtime.mode,
+                linkedTaskId: s.appsData.pomodoro.runtime.linkedTaskId
+            });
+            // 履歴保持件数は store.js normalize と同じ CONSTANTS.LIMITS.POMODORO_HISTORY 単一ソース (Check 369 が drift 防止)
+            s.appsData.pomodoro.history = s.appsData.pomodoro.history.slice(-CONSTANTS.LIMITS.POMODORO_HISTORY);
+            s.appsData.pomodoro.runtime.isActive = false;
+            s.appsData.pomodoro.runtime.endAtMs = null;
+            s.appsData.pomodoro.runtime.remainingSec = duration;
+        };
+        if (onPomodoroRoute) { State.update(applyCompletion); }
+        else { State.updateSilently(applyCompletion); }
+        Toast.show('セッション完了！', 'success');
+    }
+
+    // [FIX] 稼働中タイマーの復帰を**描画から切り離す**。従来 auto-resume は PomodoroPage() の
+    // 描画中にしか走らなかったため、リロード後に別ページにいると interval が誰にも作られず、
+    // **集中し続けても完了が記録されない** (実測: 別ページ着地では history=0 / isActive=true の
+    // まま・ポモドーロ画面着地では history=1 / isActive=false)。リロードしなければ裏で完了する
+    // (#1056 が扱ったのはまさにその経路) ので、リロードを跨いだときだけ挙動が違う非対称だった。
+    // init から 1 度呼び、描画側も同じこの関数を呼ぶ (実装を単一化)。
+    // 期限切れのタイマーは store.js の normalize が isActive=false へ落とすので、ここには来ない
+    // (観測していないセッションを完了として credit しない設計)。
+    function resumeIfActive() {
+        const rt = State.get().appsData.pomodoro.runtime;
+        if (rt.isActive && !pomodoroTimer) { startTimer(); }
+    }
+
     function PomodoroPage() {
         const pomo = State.get().appsData.pomodoro;
 
@@ -43,28 +131,7 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
             return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
         }
 
-        function getDuration(mode) {
-            // [FIX] live state を読む (getRemaining と同根の stale-closure 対策): startTimer の
-            // interval は start() 時の closure に固定され、その closure の `pomo.settings` は稼働中に
-            // 設定変更されても古いまま。complete() が getDuration で remainingSec をリセットする際に
-            // 旧設定値を使うバグになるため、必ず最新 settings を参照する。
-            const settings = State.get().appsData.pomodoro.settings;
-            return (mode === 'work' ? settings.work :
-                mode === 'short-break' ? settings.short : settings.long) * 60;
-        }
 
-        function getRemaining() {
-            // [FIX] live state を読む: startTimer の interval は start() 時の closure に固定され、
-            // その closure の `pomo` は再描画後に stale (isActive=false の旧 runtime) になる。
-            // クロージャ変数を読むと interval の完了判定が常に remainingSec を返し complete() が
-            // 永遠に発火しない (表示は毎 tick の window.render が live を読むので 0 まで進むが
-            // 停止・history 記録・完了通知が起きない) ため、ここは必ず最新 runtime を参照する。
-            const rt = State.get().appsData.pomodoro.runtime;
-            if (rt.isActive && rt.endAtMs) {
-                return Math.max(0, Math.ceil((rt.endAtMs - Date.now()) / 1000));
-            }
-            return rt.remainingSec;
-        }
 
         function start() {
             const remaining = getRemaining();
@@ -94,34 +161,6 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
             });
         }
 
-        function complete() {
-            stopTimer();
-            const duration = getDuration(pomo.runtime.mode);
-            // [FIX] **見えていない画面まで作り直さない**。complete() は State.update →
-            //   notify → #content の全再描画を起こすが、タイマーは裏で走り続けるので
-            //   利用者が別のアプリを開いていることが普通にある。実測: タスク名を打っている
-            //   最中に完了すると、**操作していないのに入力が消えた** (POMO-DRAFT-KEEP → "")。
-            //   自分では何もしていないのに消えるので、#982 (テーマ切替) や #1055 (絞り込み)
-            //   より驚きが大きい。ポモドーロ画面を表示中だけ再描画し、それ以外は
-            //   updateSilently で state と保存だけ進める (次に開いたとき render が正しく読む)。
-            const onPomodoroRoute = Router.getRoute().name === 'app-pomodoro';
-            const applyCompletion = (s) => {
-                s.appsData.pomodoro.history.push({
-                    timestamp: Date.now(),
-                    durationMinutes: Math.floor(duration / 60),
-                    type: s.appsData.pomodoro.runtime.mode,
-                    linkedTaskId: s.appsData.pomodoro.runtime.linkedTaskId
-                });
-                // 履歴保持件数は store.js normalize と同じ CONSTANTS.LIMITS.POMODORO_HISTORY 単一ソース (Check 369 が drift 防止)
-                s.appsData.pomodoro.history = s.appsData.pomodoro.history.slice(-CONSTANTS.LIMITS.POMODORO_HISTORY);
-                s.appsData.pomodoro.runtime.isActive = false;
-                s.appsData.pomodoro.runtime.endAtMs = null;
-                s.appsData.pomodoro.runtime.remainingSec = duration;
-            };
-            if (onPomodoroRoute) { State.update(applyCompletion); }
-            else { State.updateSilently(applyCompletion); }
-            Toast.show('セッション完了！', 'success');
-        }
 
         function switchMode(mode) {
             stopTimer();
@@ -134,25 +173,7 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
             });
         }
 
-        function startTimer() {
-            if (pomodoroTimer) {clearInterval(pomodoroTimer);}
-            pomodoroTimer = setInterval(() => {
-                const remaining = getRemaining();
-                if (remaining <= 0) {
-                    // 再描画するかは complete() が現在ルートを見て判断する (表示中のみ)。
-                    complete();
-                } else if (Router.getRoute().name === 'app-pomodoro') {
-                    window.render(); // グローバルを描画
-                }
-            }, 1000);
-        }
 
-        function stopTimer() {
-            if (pomodoroTimer) {
-                clearInterval(pomodoroTimer);
-                pomodoroTimer = null;
-            }
-        }
 
         const modes = [
             { id: 'work', label: '集中' },
@@ -170,9 +191,7 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
         // countdown が frozen で complete() が永遠に発火しない」stuck 状態になっていた。isActive
         // かつ interval 不在 (pomodoroTimer===null) のときだけ resume する (稼働中の毎秒再描画では
         // pomodoroTimer!==null ゆえ二重 interval にならない・complete/pause 後は isActive=false)。
-        if (isActive && !pomodoroTimer) {
-            startTimer();
-        }
+        resumeIfActive();
 
         function buildUI() {
             return h('div', { class: 'flex flex-col gap-4 max-w-xl' },
@@ -336,5 +355,5 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
         return buildUI();
     }
 
-    return { PomodoroPage };
+    return { PomodoroPage, resumeIfActive };
 }
