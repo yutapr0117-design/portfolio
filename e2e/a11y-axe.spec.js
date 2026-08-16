@@ -703,3 +703,39 @@ test('設計判断 quiz のステークホルダー意見がリストとして�
   });
   expect(display, 'list wrapper がレイアウトへ影響している (描画が変わる)').toBe('contents');
 });
+
+
+// ===== 同質な項目の並びがリストとして読める (記事シリーズ / プロジェクト行) =====
+// SR 利用者にとって「何件あるか」「どこからどこまでが 1 項目か」は、視覚利用者が
+// カードの体裁から一目で得ている情報。role が無いとそれが得られず、項目単位の移動もできない。
+// axe には「同質な並びなのにリストでない」を検出するルールが無く、この e2e 以外に捕捉層が無い。
+// #1013 (projects / apps カード) → #1076 (quiz の意見) に続く同じ class の 3 例目。
+//
+// **既存のラッパーへ role を足すだけ**にしてあるので DOM は増えず描画は不変
+// (#1076 で新しい div を挟んだらページ高が変わったため、ここは要素を追加しない形にした)。
+// ページ高が変更前と完全一致することを実測済 (home 3414 / settings 2034)。
+test('同質な項目の並びがリストとして公開される (記事シリーズ / Settings のプロジェクト行)', async ({ page }) => {
+  // home: AIO 実践シリーズの記事カード
+  await page.goto('/#/');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  const articles = page.locator('#content .aio-article-card');
+  const articleCount = await articles.count();
+  expect(articleCount, 'control: 記事カードが描画されていない').toBeGreaterThan(2);
+  expect(await page.locator('#content [role="listitem"]').count(),
+    '記事カードが listitem として公開されていない').toBe(articleCount);
+  expect(await page.locator('#content [role="list"]').count(),
+    '記事カードを束ねる list が無い').toBeGreaterThan(0);
+
+  // settings: プロジェクトの並び替え行 / 表示切替行
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  const lists = await page.locator('#content [role="list"]').count();
+  expect(lists, 'プロジェクト行を束ねる list が無い').toBeGreaterThanOrEqual(2);
+  const items = await page.locator('#content [role="listitem"]').count();
+  // 並び替えと表示切替の 2 リスト × プロジェクト数
+  expect(items, 'プロジェクト行が listitem として公開されていない').toBeGreaterThan(lists);
+});

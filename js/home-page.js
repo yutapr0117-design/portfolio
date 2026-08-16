@@ -251,7 +251,12 @@ export function createHomePage({ h, Router, State, ContactCTA, langOfText }) {
                     h('p', { class: 'aio-series-sub-desc' },
                         'AI-Driven PM による「人間主導 multi-AI オーケストレーション」の完全記録。'
                     ),
-                    h('div', { class: 'aio-series-grid' },
+                    // [A11Y 1.3.1] 同じ形式の記事が 11 本並ぶ **同質なリスト**。role を与えないと
+                    //   SR 利用者は「何本あるか」も分からず項目単位で移動もできない (視覚的には
+                    //   カードの体裁で区切りが分かる)。**既存のラッパーへ role を足すだけ**なので
+                    //   DOM 構造は増えず描画は不変 (#1076 で新しい div を挟んだらページ高が
+                    //   変わったため、ここは要素を追加しない形にしてある)。
+                    h('div', { class: 'aio-series-grid', role: 'list' },
                         ...([
                             ['PRIMARY', 'AIO Bot Governance 分類編｜AIクローラーを一括りにするな（学習・検索・ユーザーfetch・AIエージェントを分けて制御）', 'https://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48d'],
                             ['実践編', 'AIO Bot Governance 実践編｜robots/WAF/CIDRでAIボットを本番制御する', 'https://zenn.dev/yuta_yokoi/articles/d99f8171bcf275'],
@@ -265,7 +270,7 @@ export function createHomePage({ h, Router, State, ContactCTA, langOfText }) {
                             ['第3弾', 'SPAに観測をどう入れるか｜GA4を使わなかった理由と構成', 'https://zenn.dev/yuta_yokoi/articles/49326c5c4e0aae'],
                             ['総括', 'AIO実践シリーズ総括｜全6本完結・6つの設計パターン', 'https://zenn.dev/yuta_yokoi/articles/6dad78f20f2505'],
                         ].map(([badge, title, url]) =>
-                            h('div', { class: 'aio-article-card' },
+                            h('div', { class: 'aio-article-card', role: 'listitem' },
                                 h('span', { class: 'aio-article-num' }, badge),
                                 h('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, title),
                                 h('span', { class: 'aio-article-arrow' }, 'Zenn →')
