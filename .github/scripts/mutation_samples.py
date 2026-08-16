@@ -918,6 +918,13 @@ _E2E_TAIL = [
         "replace": "class: 'cell-bullet-row'\n                            },\n                                h('span', { class: 'text-bullet-human'",
         "test": "役割分担表のセル内箇条書きがリストとして公開される",
     },
+    {
+        "name": "security: メールアドレスの検証が外れ mailto へパラメータを注入できる — profile は import で外部から来るので、細工した『バックアップ』を取り込んだ利用者が **『メールで相談する』を押しただけで攻撃者に BCC を送る**。`mailto:` は URL なので `?bcc=...` がそのまま効く",
+        "file": ROOT / "js" / "store.js",
+        "find": "                email: safeEmail(data.profile.email, store.profile.email),",
+        "replace": "                email: safeStr(data.profile.email, store.profile.email, 254),",
+        "test": "細工したメールアドレスが mailto へ注入されない",
+    },
 ]
 
 

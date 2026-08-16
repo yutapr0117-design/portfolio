@@ -225,8 +225,14 @@ test('Profile email is length-bounded to 254 on import (ingestion bloat guard)',
   await page.goto('/#/contact', { waitUntil: 'domcontentloaded' });
   const emailLink = page.locator('a.font-mono[href^="mailto:"]').first();
   await expect(emailLink).toBeVisible();
-  const len = (await emailLink.textContent() || '').length;
-  expect(len, `email は 254 へ bound されるべき (実測 ${len})`).toBe(254);
+  // [FIX] 契約変更 (#1080): 従来は 254 文字へ **切り詰めて**いたが、312 文字のアドレスを
+  //   254 で切ると `@` より前で切れて **アドレスですらない文字列**が保存される (実測: 300 個の
+  //   x のあとに @example.com なので、254 文字目はまだ x)。壊れた値を残すより既定値へ戻す方が
+  //   正しいので、safeEmail は「素朴なアドレスの形か長さ超過なら既定値」へ変更した。
+  //   bloat guard としての目的 (巨大な文字列を保存しない) は満たしたまま。
+  const text = (await emailLink.textContent() || '');
+  expect(text.length, `巨大な email が保存されている (実測 ${text.length} 文字)`).toBeLessThan(254);
+  expect(text, '既定値へ戻らず壊れたアドレスが残っている').toMatch(/^\S+@\S+\.\S+$/);
 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `profile email bound caused a fatal: ${fatal}`).toBeNull();
@@ -500,4 +506,58 @@ test('残りの appsData フィールドに敵対的な型を流しても各ペ�
     expect(text.includes('[object Object]'),
       `${label}: 非文字列が [object Object] として描画されている`).toBe(false);
   }
+});
+
+
+// ===== 細工したメールアドレスで mailto にパラメータを注入できない =====
+// メールアドレスは **`mailto:` の URL へそのまま連結される**ため、`?` や `&` を含む値を
+// 通すと `mailto:me@example.com?bcc=evil@attacker.test` のように **パラメータを注入できる**。
+// profile は import で外部から来る = 信用できない入力なので、共有された「バックアップ」を
+// 取り込んだ利用者が **「メールで相談する」を押しただけで攻撃者に BCC を送る**ことになる。
+// URL を `https?://` で絞る safeUrl と同じ発想で、素朴なアドレスの形以外は既定値へ戻す。
+//
+// NOTE: 文字列でない値 (`[]` 等) も **既定値へ戻す** —— `String([]) === ''` なので素朴に
+// String() へ通すと連絡先が空になる。#968 でまさにそれを直した箇所なので退行させない
+// (この test を書く過程で実際に一度踏んだ)。
+test('細工したメールアドレスが mailto へ注入されない', async ({ browser }) => {
+  // [重要] ケースごとに **新しいコンテキスト**を使う。同じページで localStorage を書き換えて
+  //   reload する方式は、**直前の描画が仕込んだ debounce 保存が後から書き戻して**条件が壊れる
+  //   (実測でこれを踏んだ)。`addInitScript` も累積して先に登録した値が残るため使えない。
+  //   1 ケース 1 コンテキストなら、アプリが最初に読む値を確実に決められる。
+  const hrefFor = async (email) => {
+    const context = await browser.newContext();
+    try {
+      const page = await context.newPage();
+      await page.addInitScript((v) => {
+        localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+          schemaVersion: 12, type: 'full-store',
+          profile: { name: 'X', title: 'T', bio: '', email: v, github: '', linkedin: '', location: '' }
+        }));
+      }, email);
+      await page.goto('/#/contact');
+      await page.waitForLoadState('domcontentloaded');
+      await expect(page.locator('#content h1').first()).toBeVisible();
+      return await page.locator('#content a[href^="mailto:"]').first().getAttribute('href');
+    } finally {
+      await context.close();
+    }
+  };
+
+  const HOSTILE = [
+    ['パラメータ注入', 'me@example.com?bcc=evil@attacker.test&subject=HACKED'],
+    ['空白入り', 'me@example.com nice'],
+    ['改行入り', 'me@example.com\nbcc:x@y.z'],
+    ['非文字列', []],
+  ];
+
+  for (const [label, value] of HOSTILE) {
+    const href = await hrefFor(value);
+    expect(href, `${label}: mailto が描画されていない`).toBeTruthy();
+    expect(href, `${label}: mailto にパラメータが注入されている — ${href}`).not.toContain('?');
+    expect(href, `${label}: mailto に空白や改行が入っている — ${href}`).toMatch(/^mailto:\S+@\S+$/);
+  }
+
+  // control: 正常なアドレスは素通りする (何でも既定値に潰していたら検査になっていない)
+  expect(await hrefFor('valid.user+tag@example.co.jp'),
+    'control: 正常なアドレスまで既定値へ潰している').toBe('mailto:valid.user+tag@example.co.jp');
 });

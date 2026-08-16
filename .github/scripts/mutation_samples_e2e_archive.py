@@ -82,13 +82,6 @@ E2E_MUTATIONS_ARCHIVE = [
         "test": "Unknown app subroute",
     },
     {
-        "name": "behavior: profile email の ingestion 文字列長 bound の喪失 — store.js normalize の email `.slice(0, 254)` を除去 → 巨大 email が truncate されず href/表示に載り localStorage/DOM を bloat させる (AI history 文字列 bound #230 / MAX_TASKS 件数 bound #801 と同じ ingestion bloat-guard class・profile email 面の非 vacuity 検証)",
-        "file": ROOT / "js" / "store.js",
-        "find": "email: safeStr(data.profile.email, store.profile.email, 254),",
-        "replace": "email: safeStr(data.profile.email, store.profile.email, 1e9),",
-        "test": "email is length-bounded",
-    },
-    {
         "name": "behavior: profile github/linkedin の URL スキームサニタイズ (#139 XSS) の喪失 — store.js safeUrl の http(s) スキームチェックを外し raw 値をそのまま返す → import した javascript:/data: 等の危険スキーム URL が ContactPage の href に載り XSS ベクタになる (既存 URL-sanitized test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証)",
         "file": ROOT / "js" / "store.js",
         "find": "return /^https?:\\/\\//i.test(s) ? s.slice(0, 500) : String(fallback || '');",
