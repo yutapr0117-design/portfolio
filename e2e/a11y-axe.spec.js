@@ -669,3 +669,37 @@ test('palette / drawer / 検証エラーの一過性状態でも aria-* id 参�
   await expect(page.locator('#settingsNewName')).toHaveAttribute('aria-invalid', 'true');
   expect(await danglingIdrefs(page), '検証エラーが出ている状態').toEqual([]);
 });
+
+
+// ===== 設計判断 quiz のステークホルダー意見がリストとして読める =====
+// 1 つの問いに 2〜3 人分の意見が並ぶ。リスト意味論が無いと SR 利用者は
+// **「意見が何件あるか」も「どこからどこまでが 1 人の発言か」も掴めず**、項目単位の
+// 移動もできない (視覚的には引用の体裁で区切りが分かる)。axe には該当ルールが無く、
+// この e2e 以外に捕捉層が無い。#1013 で projects / apps のカードへ同じことをしたのと同型。
+//
+// **描画不変にするため wrapper は `display: contents`** にしてある。素の div を挟むと
+// ブロックが 1 段増えてページ高が変わった (実測: 5919 → 5823px)。display:contents なら
+// レイアウトから外れつつロールは残る —— ページ高が完全に一致することと、
+// アクセシビリティツリーに list/listitem が出ることの両方を実測で確認済み。
+test('設計判断 quiz のステークホルダー意見がリストとして公開される', async ({ page }) => {
+  await page.goto('/#/quiz?type=architecture');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: '設計判断' })).toBeVisible();
+
+  // control: 意見そのものが描画されている (0 件ならリスト化を測れない)
+  const quotes = page.locator('.quiz-stakeholder-quote');
+  expect(await quotes.count(), 'control: ステークホルダーの意見が描画されていない').toBeGreaterThan(1);
+
+  // アクセシビリティツリー経由で解決する (getByRole は role 計算を通す)
+  const items = await page.getByRole('listitem').count();
+  expect(items, 'ステークホルダーの意見が listitem として公開されていない').toBe(await quotes.count());
+  expect(await page.getByRole('list').count(),
+    'ステークホルダーの意見を束ねる list が無い').toBeGreaterThan(0);
+
+  // 描画不変の担保: wrapper がレイアウトへ影響しない (display:contents)
+  const display = await page.evaluate(() => {
+    const li = document.querySelector('[role="listitem"]');
+    return li ? getComputedStyle(li.parentElement).display : null;
+  });
+  expect(display, 'list wrapper がレイアウトへ影響している (描画が変わる)').toBe('contents');
+});
