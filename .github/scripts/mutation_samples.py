@@ -932,6 +932,13 @@ _E2E_TAIL = [
         "replace": "",
         "test": "JavaScript 無効時に説明メッセージが表示される",
     },
+    {
+        "name": "normalize が非冪等になり保存のたび slug が伸びる — slug 重複解消の seen 集合を『取り込み中の全 slug』で初期化すると、各プロジェクトが**自分自身**と衝突したとみなされ、保存のたび `-2` が付く。既存のブックマークや共有リンクが全部 404 になるが、fatal は出ず一覧は普通に見えるので気付けない (#154 の slug 一意化と同じ面の非冪等版)",
+        "file": ROOT / "js" / "store.js",
+        "find": "        const _seenSlugs = new Set();",
+        "replace": "        const _seenSlugs = new Set(merged.map((x) => x.slug));",
+        "test": "既定プロジェクトの詳細が保存と読み戻しを跨いで変質しない",
+    },
 ]
 
 _MUTATIONS_TAIL.append({
