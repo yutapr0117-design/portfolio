@@ -104,12 +104,25 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
             Toast.show('タスクを削除しました', 'success');
         }
 
+        // [A11Y 4.1.3] ステータス移動は **視覚では分かるが SR には無音**だった。カードが別の列へ
+        //   動くだけで、ボタンのアクセシブル名 (「次のステータスへ進める：<タスク名>」) は
+        //   変わらないため、SR 利用者には **クリックが効いたのかどうかも分からない**。
+        //   実測 (2026-08-17): 追加・削除は Toast 経由で通知されるのに、移動だけ
+        //   `#action-announcement` が空のままだった (4 操作中 2 つが無音という非対称)。
+        //   Toast (視覚ポップアップ) ではなく `announce()` を直接使うのは、**移動は頻繁な操作**で
+        //   毎回ポップアップを出すと視覚利用者に煩わしいから。announce は sr-only の
+        //   唯一の通知チャネルで、「視覚では分かるが SR には無音」な状態変化を流す用途
+        //   (js/ui-components.js の docstring どおり・Check 407 が単一 writer を強制)。
+        const TASK_STATUS_LABEL = { 'backlog': '未着手', 'in-progress': '進行中', 'done': '完了' };
+
         function moveStatus(task, direction) {
             const statuses = ['backlog', 'in-progress', 'done'];
             const idx = statuses.indexOf(task.status);
             const newIdx = clamp(idx + direction, 0, statuses.length - 1);
             if (newIdx !== idx) {
-                updateTask(task.id, { status: statuses[newIdx] });
+                const next = statuses[newIdx];
+                updateTask(task.id, { status: next });
+                announce(`「${task.title}」を${TASK_STATUS_LABEL[next]}へ移動しました`);
             }
         }
 

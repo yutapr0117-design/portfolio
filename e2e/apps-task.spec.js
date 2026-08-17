@@ -850,3 +850,36 @@ test('タスク入力の Enter 連打で同じタスクが二重登録されな�
   await expect(page.locator('#content').getByText('RAPID-ENTER-9901', { exact: true }),
     'Enter の連打で同じタスクが複数登録されている').toHaveCount(1);
 });
+
+
+// ===== ステータス移動が SR に伝わる (WCAG 4.1.3) =====
+// カードが別の列へ動くだけで、ボタンのアクセシブル名 (「次のステータスへ進める：<タスク名>」)
+// は変わらない。つまり SR 利用者には **クリックが効いたのかどうかも分からなかった**。
+//
+// 実測 (2026-08-17・修正前): 4 つの主要操作のうち **追加・削除は Toast 経由で通知されるのに、
+// ステータス移動と優先度変更だけ `#action-announcement` が空のまま**だった。
+// 優先度は `<select>` なので選択結果をブラウザ自身が読み上げる (native)。**残る非対称は
+// ステータス移動 1 つ**で、これを `announce()` で埋めた。
+//
+// **Toast ではなく `announce()` を使う理由**: 移動は頻繁な操作なので毎回視覚ポップアップを
+// 出すと sighted user に煩わしい。`announce()` は sr-only の唯一の通知チャネルで、
+// 「視覚では分かるが SR には無音」な状態変化を流す用途 (Check 407 が単一 writer を強制)。
+test('タスクのステータス移動がスクリーンリーダーに通知される', async ({ page }) => {
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  const moveBtn = page.getByRole('button', { name: '次のステータスへ進める：ログの確認' });
+  // control: 対象のボタンが実在する (locator が空振りしたまま以降を検査しない)
+  await expect(moveBtn, 'control: ステータス移動ボタンが見つからない').toHaveCount(1);
+
+  await moveBtn.click();
+
+  await expect(page.locator('#action-announcement'),
+    'ステータス移動が SR へ通知されない — カードは動くがボタンのアクセシブル名は変わらないので、'
+    + 'SR 利用者にはクリックが効いたのかも分からない (WCAG 4.1.3)'
+  ).toHaveText('「ログの確認」を進行中へ移動しました');
+
+  // 視覚ポップアップは出さない (頻繁な操作なので Toast にしない設計)
+  expect(await page.locator('#toast-container').count(),
+    'ステータス移動で視覚 Toast が出ている — 頻繁な操作なので sr-only 通知にとどめる設計').toBe(0);
+});
