@@ -912,6 +912,13 @@ _E2E_TAIL = [
         "replace": "            <div>\n                <div class=\"container\">",
         "test": "JavaScript 有効時に noscript の内容が漏れない",
     },
+    {
+        "name": "タスクのステータス移動が SR へ無音に戻る — カードは別の列へ動くが、ボタンのアクセシブル名 (「次のステータスへ進める：<タスク名>」) は変わらないので、SR 利用者には **クリックが効いたのかどうかも分からない** (WCAG 4.1.3)。追加・削除は Toast 経由で通知されるのに移動だけ無音、という非対称だった",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                announce(`\u300c${task.title}\u300d\u3092${TASK_STATUS_LABEL[next]}\u3078\u79fb\u52d5\u3057\u307e\u3057\u305f`);\n",
+        "replace": "",
+        "test": "タスクのステータス移動がスクリーンリーダーに通知される",
+    },
 ]
 
 _MUTATIONS_TAIL.append({

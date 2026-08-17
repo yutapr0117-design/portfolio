@@ -168,8 +168,8 @@ E2E_MUTATIONS_ARCHIVE = [
     {
         "name": "behavior: task カンバンの status 遷移 (moveStatus) の喪失 — apps.js moveStatus の `updateTask(task.id, { status: statuses[newIdx] })` を `statuses[idx]` に変え遷移先を現在 status に固定 → ←/→ ボタンを押してもカードが列を移動せず status が変わらない (backlog→in-progress→done の遷移が dead)。既存 kanban-move-persist test に対応する mutation が未登録だった safety-net 補強の非 vacuity 検証",
         "file": ROOT / "js" / "apps.js",
-        "find": "updateTask(task.id, { status: statuses[newIdx] });",
-        "replace": "updateTask(task.id, { status: statuses[idx] });",
+        "find": "                updateTask(task.id, { status: next });",
+        "replace": "                updateTask(task.id, { status: statuses[idx] });",
         "test": "moves across kanban columns and persists the status",
     },
     {
