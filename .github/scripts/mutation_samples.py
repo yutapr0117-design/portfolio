@@ -912,6 +912,13 @@ _E2E_TAIL = [
         "replace": "",
         "test": "非表示は詳細の推薦とカテゴリ選択肢にも効く",
     },
+    {
+        "name": "一覧カードのデモが常に同じアプリへ飛ぶ — `apps/${p.demoRoute}` を固定値へ潰すと、どのカードのデモを押しても同じアプリが開く。**一覧は「作品を触る」までの最短導線**なので、閲覧者が最初に試す経路が死ぬ。Check 136 は demoRoute の値が router whitelist に含まれることを静的に守るが、**ボタンが正しいアプリへ遷移するか**は見ない",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "onclick: () => Router.navigate(`apps/${p.demoRoute}`) }, 'デモ')",
+        "replace": "onclick: () => Router.navigate('apps/task') }, 'デモ')",
+        "test": "一覧カードのデモボタンが対応する内蔵アプリを開く",
+    },
 ]
 
 _MUTATIONS_TAIL.append({

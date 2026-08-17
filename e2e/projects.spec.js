@@ -720,6 +720,33 @@ test('Project demo launch buttons open the embedded app (detail and home feature
 });
 
 
+// ===== 一覧カードの「デモ：<名前>」も同じ導線 (mesh の 3 面目) =====
+// 上のテストは **詳細と home の 2 面**を見ているが、公開一覧のカードにも同じ機能のボタンが
+// 6 個ある。同じ `demoRoute` を読む 3 つ目の面で、**別 file の別実装**なので独立に腐る
+// (hiddenIds の listing mesh を 4 面すべて被覆したのと同じ理由・#886/#1123)。
+//
+// 一覧は「作品を触る」までの最短導線なので、ここが壊れると**閲覧者が最初に試す経路**が
+// 死ぬ。Check 136 は demoRoute の値が router の whitelist に含まれることを静的に守るが、
+// **ボタンが実際に正しいアプリへ遷移するか**は見ない。
+test('一覧カードのデモボタンが対応する内蔵アプリを開く', async ({ page }) => {
+  await page.goto('/#/projects');
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+
+  // control: デモボタンが複数描画されている (1 つも無ければ以降は何も検査しない)
+  const demoButtons = page.getByRole('button', { name: /^デモ：/ });
+  expect(await demoButtons.count(), 'control: 一覧にデモボタンが無い').toBeGreaterThan(2);
+
+  // 「デモ：TODOリスト」は todo アプリへ (別プロジェクト = 別 demoRoute を選ぶことで
+  //  「常に同じアプリへ飛ぶ」退行も捕捉できる)
+  await page.getByRole('button', { name: 'デモ：TODOリスト' }).click();
+  await expect(page).toHaveURL(/#\/apps\/todo$/);
+  await expect(page.getByLabel('やることを入力')).toBeVisible();
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `一覧からのデモ起動で fatal: ${fatal}`).toBeNull();
+});
+
+
 // ===== 詳細ページの「← 一覧に戻る」が絞り込みを保持する (ブラウザ Back との整合) =====
 // 修正前は onclick が Router.navigate('projects') とハードコードで、?q= / ?cat= を落として
 // **全件表示へ戻していた** (実測: 1 件に絞った状態で詳細を開き in-page back → 18 件)。
