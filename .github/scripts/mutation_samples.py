@@ -130,48 +130,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "behavior: 再描画前の focus 控えが失われる (#994 の回帰・復元の対) — main.js _renderCore が clear の前に控える id を常に null にする → 復元条件は残るが鍵が無くなり、同じく focus が body へ落ちる。Todo の完了チェックは 1 件チェックするたび focus を失い、次の項目を Space で続けてチェックできない",
-        "file": ROOT / "main.js",
-        "find": "                ? _prevActive.id : null;",
-        "replace": "                ? null : null;",
-        "test": "WCAG 2.1.1: TODO の完了チェックを Space で連続操作できる",
-    },
-    {
-        "name": "behavior: ポモドーロ開始ボタンの focus 復元 id が外れる (#995 の回帰) — 開始した瞬間に focus が body へ落ち、稼働中は毎秒再描画されるため復帰の機会も無く『開始したらキーボードでは止められない』状態になる",
-        "file": ROOT / "js" / "pomodoro-page.js",
-        "find": "                                id: 'pomo-toggle',\n",
-        "replace": "",
-        "test": "WCAG 2.1.1: ポモドーロを開始した後もキーボードで一時停止できる",
-    },
-    {
-        "name": "behavior: タスク移動ボタンの focus 復元 id が外れる (#995 の回帰) — ステータスを 1 段動かすたび focus が body へ落ち、backlog→進行中→done と続けて動かせない (毎回ドキュメント先頭から Tab し直しになる)",
-        "file": ROOT / "js" / "apps.js",
-        "find": "                                                id: 'task-move-next-' + task.id,\n",
-        "replace": "",
-        "test": "WCAG 2.1.1: タスクをキーボードだけで連続してステータス移動できる",
-    },
-    {
-        "name": "behavior: 復元先が消えた時の #content 退避が失われる (#995 の回帰) — 削除ボタンは自分自身を消すので元の要素へ戻せない。退避が無いと focus は body に残り、続きの Tab がドキュメント先頭からやり直しになる",
-        "file": ROOT / "main.js",
-        "find": "                if (content && (!_now || _now === document.body || _now === document.documentElement)) {",
-        "replace": "                if (false && content && (!_now || _now === document.body || _now === document.documentElement)) {",
-        "test": "WCAG 2.1.1: 項目を削除しても focus が本文内に残る",
-    },
-    {
-        "name": "behavior: プロジェクトのタグ絞り込みが focus を捨てる (#995 の回帰) — このボタンは grid 内に居るので renderGrid() が自分自身を消す。_renderCore の復元経路を通らない手動再描画ゆえ、個別の focus 移動が無いと body へ落ちる",
-        "file": ROOT / "js" / "projects-page.js",
-        "find": "                                            if (inputEl) { inputEl.focus({ preventScroll: true }); }",
-        "replace": "                                            void 0;",
-        "test": "WCAG 2.1.1: プロジェクトのタグ絞り込みは検索欄へ focus を移す",
-    },
-    {
-        "name": "behavior: サイドバー nav の focus 復元 id が外れる (#997 の回帰) — _renderCore は #content だけでなく sidebar も毎回作り直すため、id が無いと同一ルート再描画のたびに nav の focus が body へ落ちる。ポモドーロ稼働中は毎秒再描画されるので、キーボード利用者はタイマーが動いている間サイドバーに focus を留めておけない",
-        "file": ROOT / "js" / "components.js",
-        "find": "                id: navId(item),\n",
-        "replace": "",
-        "test": "WCAG 2.1.1: ポモドーロ稼働中でもサイドバーに focus を留められる",
-    },
-    {
         "name": "behavior: sidebar と drawer の Lab 本体 id が再び衝突する (#997 の回帰) — drawer を開くと同一 id の要素が 2 つ DOM 上に存在し、sidebar 側トグルの aria-controls が drawer 側を指す (支援技術が視覚的に隠れた別グループへ着地する)。focus 復元も getElementById を鍵にするので復元先が別物になりうる",
         "file": ROOT / "js" / "components.js",
         "find": "        const labBodyId = isDrawer ? 'drawer-nav-lab-body' : 'nav-lab-body';",
@@ -946,6 +904,27 @@ _E2E_TAIL = [
         "find": "                                            q = tag; cat = 'All';",
         "replace": "                                            cat = 'All';",
         "test": "Clicking a project card tag filters projects by that tag",
+    },
+    {
+        "name": "本文中のリンクが色だけで判別される状態に戻る (WCAG 1.4.1) — hero-meta のインラインリンクから下線を外すと、周囲の文と **色でしか区別できなくなる**。色覚特性のある利用者やモノクロ表示では「そこがリンクだと分からない」。screenshot は ADVISORY なので pixel が変わっても止まらず、この computed-style テストだけが捕捉層",
+        "file": ROOT / "style.css",
+        "find": "        .hero-meta a {\n            text-decoration: underline;\n        }",
+        "replace": "        .hero-meta a {\n            text-decoration: none;\n        }",
+        "test": "Hero-meta inline link is distinguishable by underline (WCAG 1.4.1, not color-only)",
+    },
+    {
+        "name": "AI 入力の名前が placeholder だけに戻る (WCAG 4.1.2) — aria-label を外すと、SR は placeholder を名前として読む実装もあれば読まない実装もあり、**入力すると placeholder が消えるので名前まで消える**。「何を入力する欄か」が操作の途中で失われる",
+        "file": ROOT / "js" / "ai-page.js",
+        "find": "                                'aria-label': 'AI アシスタントへの依頼を入力',\n",
+        "replace": "",
+        "test": "AI assist main input exposes an accessible name (not placeholder-only)",
+    },
+    {
+        "name": "ポモドーロ設定の label が宙に浮く — `for` を外すと **ラベル文字をクリック/タップしても何も起きず**、タップ標的も縮む。入力欄側に aria-label があるため **axe は緑のまま**で、#1014 で 6 個まとめて直した class の再混入をこのテストだけが捕捉する",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": ", for: 'pomo-setting-work' }",
+        "replace": " }",
+        "test": "ポモドーロに宙に浮いた label が無い",
     },
 ]
 
