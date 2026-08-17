@@ -130,48 +130,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "behavior: sidebar と drawer の Lab 本体 id が再び衝突する (#997 の回帰) — drawer を開くと同一 id の要素が 2 つ DOM 上に存在し、sidebar 側トグルの aria-controls が drawer 側を指す (支援技術が視覚的に隠れた別グループへ着地する)。focus 復元も getElementById を鍵にするので復元先が別物になりうる",
-        "file": ROOT / "js" / "components.js",
-        "find": "        const labBodyId = isDrawer ? 'drawer-nav-lab-body' : 'nav-lab-body';",
-        "replace": "        const labBodyId = 'nav-lab-body';",
-        "test": "sidebar と drawer の nav が id を衝突させない",
-    },
-    {
-        "name": "behavior: Lab トグルがハードコード id を掴む (#997 の回帰) — 自分の aria-controls を辿らずに getElementById('nav-lab-body') すると、sidebar と drawer が同時に存在する mobile で相手側の本体を開閉する。どちらが動くかが構築順という偶然に委ねられる",
-        "file": ROOT / "js" / "components.js",
-        "find": "                    const body = document.getElementById(e.currentTarget.getAttribute('aria-controls'));",
-        "replace": "                    const body = document.getElementById('nav-lab-body');",
-        "test": "drawer の Lab トグルは drawer 側の本体だけを開閉する",
-    },
-    {
-        "name": "behavior: 履歴移動で drawer が開いたまま残る (#998 の回帰) — drawer 内 nav リンク以外の経路でルートが変わると drawer が閉じず、背後のページだけが切り替わって #app は inert / body は scroll lock のまま残る。Android の戻るボタンは『開いているモーダルを閉じる』操作として使われるのに、実際には見えない場所でページが遷移する",
-        "file": ROOT / "js" / "mobile-drawer.js",
-        "find": "    window.addEventListener('hashchange', () => { closeDrawer(); });",
-        "replace": "    void 0;",
-        "test": "drawer 開放中にブラウザの戻るでルートが変わったら drawer が閉じる",
-    },
-    {
-        "name": "behavior: 履歴移動で command palette が開いたまま残る (#999 の回帰・#998 の drawer 版と対) — _choose 以外の経路でルートが変わると palette が閉じず、背後のページだけが切り替わって #app は inert のまま残る。両者は同じ『モーダル』なので片方だけ直すと #947 と同じ非対称が残る",
-        "file": ROOT / "js" / "command-palette.js",
-        "find": "        window.addEventListener('hashchange', () => { close(); });",
-        "replace": "        void 0;",
-        "test": "palette 開放中にブラウザの戻るでルートが変わったら palette が閉じる",
-    },
-    {
-        "name": "behavior: close() の再入ガードが外れる (#999 の回帰) — hashchange に繋いだ結果、閉じている palette へも close() が走り、末尾の lastFocused.focus() がルート遷移のたびに過去の要素へ focus を引き戻す。生き残る要素 (#menuBtn 等) が lastFocused だと新ページ h1 への route-focus (#267) が毎回打ち消される",
-        "file": ROOT / "js" / "command-palette.js",
-        "find": "        if (!isOpen()) { return; }\n        // 背景の inert を必ず解除する",
-        "replace": "        // 背景の inert を必ず解除する",
-        "test": "palette を一度使った後もルート遷移で新ページの見出しへ focus が移る",
-    },
-    {
-        "name": "behavior: Settings 並べ替えボタンの focus 復元 id が外れる (#1000 の回帰) — 1 回押すたびに focus が外れ 2 回目以降が効かない。プロジェクトを何段も動かすのが本来の用途なので、実質キーボードでは使えなくなる",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "id: 'settings-move-down-' + p.id, ",
-        "replace": "",
-        "test": "WCAG 2.1.1: プロジェクトの並べ替えをキーボードで連続実行できる",
-    },
-    {
         "name": "behavior: 並べ替えの focus 復元鍵を p.id から idx へ戻す (#1000 の回帰) — 移動後にその位置へ来た **別のプロジェクト**のボタンへ focus が移り、続けて押すと違う行が動く (実測では往復して元の順序に戻った)。リスト項目の復元鍵は位置ではなく同一性で作れ",
         "file": ROOT / "js" / "settings-page.js",
         "find": "id: 'settings-move-down-' + p.id,",
@@ -946,6 +904,27 @@ _E2E_TAIL = [
         "find": '                        const shList = h("div", { role: "list", style: "display: contents;" });',
         "replace": '                        const shList = h("div", { style: "display: none;" });',
         "test": "Quiz architecture type renders structured stakeholder/question zones (?type query)",
+    },
+    {
+        "name": "role-split Speakable が dead class へ戻る — `#role-split-table` (実在 id) を `.role-split-table` (どこにも無い class) へ戻すと、音声アシスタントに『この表を読め』と指しながら **解決先が存在しない**。#929 で実際に見つかった「機械向け宣言が一度も成功していなかった」class そのもので、視覚にも behavior にも一切出ない",
+        "file": ROOT / "js" / "meta-management.js",
+        "find": "            'role-split':  ['h1', '#role-split-table', '[data-speakable]', '.sr-only'],",
+        "replace": "            'role-split':  ['h1', '.role-split-table', '[data-speakable]', '.sr-only'],",
+        "test": "Role-split Speakable references the actual table via #role-split-table (not a dead class)",
+    },
+    {
+        "name": "ai-knowhow の Speakable セレクタが解決しなくなる — home / role-split と**別のルート**の宣言で、独立に腐りうる (ページ側の class 名を変えれば片方だけ dead になる)。AIO 精度は route ごとに独立した契約なので、1 ルート被覆では他が守られない",
+        "file": ROOT / "js" / "meta-management.js",
+        "find": "            'ai-knowhow':  ['h1', '.ai-summary-block', '[data-speakable]', '.sr-only'],",
+        "replace": "            'ai-knowhow':  ['h1', '.ai-summary-block-missing', '[data-speakable]', '.sr-only'],",
+        "test": "ai-knowhow/about Speakable cssSelectors (non-baseline) resolve to real elements (AIO accuracy)",
+    },
+    {
+        "name": "絞り込み select の focus 復元用 id が外れる — main.js _renderCore の復元は **id を鍵にする**ので、id を失ったコントロールだけが取り残されて change のたび focus が body へ落ちる。キーボード利用者は絞り込みを 1 段変えるたびに文書先頭へ戻され、**2 回目以降の操作ができない**。Check 422 は静的に id の存在を守るが、こちらは復元が実際に働くことを見る",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                        id: 'task-filter-priority',\n",
+        "replace": "",
+        "test": "WCAG 2.1.1: 絞り込み select を変更しても focus が select に残る",
     },
 ]
 
