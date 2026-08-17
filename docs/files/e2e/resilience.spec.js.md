@@ -1,7 +1,7 @@
 ---
 file: e2e/resilience.spec.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-07-07
+last-updated: 2026-08-17
 canonical-ref: playwright.config.cjs / .github/workflows/playwright-regression.yml / js/store.js (validateAndNormalize) / js/settings-page.js
 ---
 
@@ -14,6 +14,25 @@ canonical-ref: playwright.config.cjs / .github/workflows/playwright-regression.y
 ## Why
 
 外部/破損データ ingestion の全経路が同じ正規化を通り crash しないこと (#93/#295 class) と import の data-fidelity を機能ゲートで守る。
+
+### 「壊れたデータ」以外の resilience も本 spec が持つ
+
+| 面 | 何を守るか | 由来 |
+| :-- | :-- | :-- |
+| 保存 flush | debounce (150ms) 前に離脱しても書きかけが失われない。守っているのは `state.js` の `visibilitychange(hidden) → saveNow()` の **1 本だけ** | #1095 |
+| JS 無効 | `<noscript>` に説明 + `llms-full.txt` への導線が出る。追加前は **#content 空・可視の見出し 0 個の白紙**だった | #1103 |
+
+どちらも「壊れ方がエラーとして出ない」class —— 前者は「戻ったら数文字前の状態」、
+後者は「白紙」で、利用者は原因を知る手がかりを得られない。
+
+**JS 無効テストを書くときの落とし穴 (実測)**:
+
+- `javaScriptEnabled: false` のコンテキストでは `expect(body).toContainText(...)` が
+  **`<noscript>` 配下を拾わず、中身が正しく描画されていても落ちる**
+  (同じ状態で `h1.allTextContents()` は正しく返る)。要素そのものを locator で指す
+- `a[href$="llms-full.txt"]` はスコープ無しだと **2 件**マッチする
+  (sr-only の AIO ブロックにも同じリンクがある)。`noscript` 配下にスコープしないと
+  **noscript が無くても通る vacuous な assertion** になる
 
 ## How (usage)
 
