@@ -925,6 +925,13 @@ _E2E_TAIL = [
         "replace": "        const lines = String(src || '').split('\\n');\n        lines.length = Math.min(lines.length, 500);",
         "test": "上限いっぱいのノートでもプレビューが末尾まで描画される",
     },
+    {
+        "name": "JavaScript 無効時の説明が消える — noscript の利用者向けブロックを外すと、JS を切った環境では #content が空・可視の見出し 0 個で **説明の無い白紙**に戻る (可視テキストは sr-only の AIO アンカーだけ)。SPA が動かないこと自体は設計どおりだが、§3(B) が死守すると定めた機能性は loads/displays/**comprehensible**",
+        "file": ROOT / "index.html",
+        "find": "                    <h1>JavaScript を有効にしてください</h1>",
+        "replace": "",
+        "test": "JavaScript 無効時に説明メッセージが表示される",
+    },
 ]
 
 _MUTATIONS_TAIL.append({

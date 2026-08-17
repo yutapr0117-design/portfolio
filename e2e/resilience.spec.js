@@ -745,3 +745,49 @@ test('debounce 前にリロードしても書きかけのノートが失われ�
     + '唯一の防波堤なので、そこが外れると最後の打鍵から 150ms 以内の入力が黙って失われる'
   ).toHaveValue(/FLUSH-BEFORE-RELOAD/);
 });
+
+
+// ===== JavaScript が無効でも「説明のある画面」を出す =====
+// 実測 (2026-08-17・修正前): JS を切ると `#content` は空のまま、可視の見出しは **0 個**、
+// 可視テキストは sr-only の AIO エンティティアンカーだけで、利用者には **説明の無い白紙**
+// にしか見えなかった。`<noscript>` は index.html に 2 つあるが、どちらもフォントの
+// stylesheet 用で利用者向けの文言は無かった。
+//
+// このサイトは Vanilla JS の SPA (C1) なので JS 無しで動かないこと自体は設計どおり。
+// だが **「白紙」と「動かない理由が書いてある」は別物**で、§3(B) が死守すると定めた
+// 機能性は loads / displays / **comprehensible**。採用担当が JS を切った環境で開いた
+// ときに何も分からないのは、その最後の 1 つを満たしていない。
+//
+// noscript の中身は **JS 有効時には要素として DOM に入らない**ので、通常描画も
+// screenshot baseline も不変 (同じテストで漏れが無いことも確認する)。
+test('JavaScript 無効時に説明メッセージが表示される', async ({ browser }) => {
+  const ctx = await browser.newContext({ javaScriptEnabled: false });
+  const page = await ctx.newPage();
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+
+  // NOTE: `expect(body).toContainText(...)` は使わない。javaScriptEnabled: false の
+  //   コンテキストでは Playwright の body テキスト抽出が noscript 配下を拾わず、
+  //   **中身が正しく描画されていても落ちる** (実測: 同じ状態で h1 の
+  //   allTextContents() は正しく返る)。要素そのものを locator で指す。
+  const heading = page.locator('h1');
+  expect(await heading.count(), 'JS 無効時に見出しが無い — 利用者には白紙にしか見えない').toBe(1);
+  expect(await heading.textContent(), 'JS 無効時の説明文が出ていない')
+    .toContain('JavaScript を有効にしてください');
+  // 機械可読な形で読みたい相手への導線も出す。
+  //   **noscript 配下にスコープする** —— index.html には sr-only の AIO ブロックにも
+  //   llms-full.txt へのリンクがあるので、スコープ無しだと noscript が無くても 1 件以上
+  //   マッチして **何も検査しない緑**になる (実測: スコープ無しは 2 件)。
+  expect(await page.locator('noscript a[href$="llms-full.txt"]').count(),
+    'JS 無効時に権威コンテキストへの導線が無い').toBe(1);
+
+  await ctx.close();
+});
+
+test('JavaScript 有効時に noscript の内容が漏れない', async ({ page }) => {
+  // 上のテストの対。noscript が誤って通常描画へ混入すると、全ページの先頭に
+  // 「JavaScript を有効にしてください」が出る (screenshot は ADVISORY なので気付けない)。
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  const leaked = await page.evaluate(() => document.body.innerText.includes('JavaScript を有効に'));
+  expect(leaked, 'noscript の内容が JS 有効時にも描画されている').toBe(false);
+});
