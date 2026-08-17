@@ -1,7 +1,7 @@
 ---
 file: e2e/apps-ai-notes.spec.js
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-07-07
+last-updated: 2026-08-17
 canonical-ref: playwright.config.cjs / .github/workflows/playwright-regression.yml / js/ai-page.js / js/apps.js (NotesPage) / Check 130 (focus-loss)
 ---
 
@@ -14,6 +14,30 @@ AI assist / Markdown notes アプリの e2e。AI assist の応答生成と描画
 ## Why
 
 AI/notes 機能の応答性・a11y 通知・IME 安全性を機能ゲートで守る。innerHTML 不使用の安全レンダリング (制約の feature 化) を検証。
+
+### 宣言上限での実測 (2026-08-17・再測定不要)
+
+既存テストは短いノートしか流していなかったため、「大きい入力で末尾が黙って落ちる」class が
+未被覆だった。`NOTES_TEXT = 20,000` 文字 + `MAX_TASKS = 500` を seed して実測した結果:
+
+| 測定 | 実測値 |
+| :-- | --: |
+| `#/apps/notes` 初期描画 | 83ms |
+| `#/apps/task` 初期描画 | 61ms |
+| notes 1 キーストロークの同期処理 | 5.3ms |
+| fatal | なし |
+
+**宣言上限での堅牢性は clean。**
+
+**perf 回帰ゲートは意図的に置いていない。** `renderMarkdown` をループ内 spread
+(`out = [...out, node]`) で O(n²) 化する *現実的な* 退行 (よくある "modernize" 事故) を
+実際に当てて測ったところ、初期描画は **84ms (clean は 83ms)** で差が出なかった。
+20,000 文字 (約 2,700 行) では配列コピーが軽すぎて計測に乗らない。閾値をどこに置いても
+この退行は捕まらないので、「上限での perf 回帰ゲート」を名乗る test は **名前だけの gate**
+になる (ルート描画コストの回帰は #1028 の専用テストが既定データで見ている)。
+
+代わりに固定したのは **完全性** —— 末尾まで描画されること・fatal が出ないこと。
+こちらは打ち切り退行で実際に RED を作れる。
 
 ## How (usage)
 
