@@ -923,3 +923,17 @@ _MUTATIONS_TAIL.append({
 
 # 公開 API: e2e archive(古) + tail(新) の連結 (consistency 側 MUTATIONS と同じ log-rotation 方式)。
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 142b: BLOCKING gate が自身の定義変更を検証しなくなる — playwright-regression.yml の paths から自己参照を外すと、job 構成 / env / step を書き換えても behavior gate が一度も走らずに merge できる (実測 #1099: この workflow を書き換えた PR で playwright-validation が起動しなかった)。package.json を trigger に入れているのと同一 class",
+    "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
+    "find": "      - '.github/workflows/playwright-regression.yml'\n",
+    "replace": "",
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 142c: push / pull_request の paths が非対称になる — 片方だけに path を足すと『PR では走るのに main では走らない』(逆も) 状態ができ、merge ゲートと監査バッジ (Check 427) の守備範囲がずれる。2 ブロック構成は #1099 で導入したもので、以後どちらか一方だけを編集する事故が起こりうる",
+    "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
+    "find": "  pull_request:\n    branches: [ \"main\" ]\n    paths:\n      - 'index.html'",
+    "replace": "  pull_request:\n    branches: [ \"main\" ]\n    paths:\n      - 'README.md'\n      - 'index.html'",
+})

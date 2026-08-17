@@ -98,7 +98,29 @@ def run(ctx):
                 else:
                     # 非リスト行 (= dedent して次キーへ) で paths ブロック終了
                     _in_paths142 = False
-        _missing142 = [m for m in ("package.json", "package-lock.json") if m not in _paths142]
+        # 142b: **このゲート自身の定義**も同じ理由で trigger に要る。job 構成 / env / step を
+        #   書き換えれば behavior gate の挙動そのものが変わるのに、自身が paths に無いと
+        #   「その変更だけは gate に検証されずに merge できる」(実測: #1099 がこの workflow を
+        #   書き換えたが playwright-validation は一度も走らなかった)。package.json と同一 class。
+        # 142c: push / pull_request の 2 ブロックは **同一** でなければならない。片方だけに
+        #   path を足すと、PR では走るのに main では走らない (またはその逆) という
+        #   非対称ができ、バッジ (Check 427) と merge ゲートの守備範囲がずれる。
+        _self142 = ".github/workflows/playwright-regression.yml"
+        _missing142 = [m for m in ("package.json", "package-lock.json", _self142) if m not in _paths142]
+        _blocks142 = re.findall(r"^\s*paths:\s*$((?:\n\s*(?:-\s.*|#.*|))*)", _wsrc142, re.M)
+        _norm142 = [
+            tuple(_l.strip()[2:].strip().strip("'\"") for _l in _b.splitlines()
+                  if _l.strip().startswith("- "))
+            for _b in _blocks142
+        ]
+        check(
+            len(_norm142) >= 2 and len(set(_norm142)) == 1,
+            f"Check 142c: playwright-regression.yml の push / pull_request paths が同一 ({len(_norm142)} ブロック)",
+            (f"Check 142c: paths ブロックが {len(_norm142)} 個で内容が一致しない — 片方だけに "
+             "path を足すと PR では走るのに main では走らない (逆も) 非対称ができ、"
+             "merge ゲートと監査バッジ (Check 427) の守備範囲がずれる"),
+            blocking=True,
+        )
         check(
             not _missing142,
             "Check 142: playwright-regression.yml paths filter は e2e ツールチェーン manifest "
