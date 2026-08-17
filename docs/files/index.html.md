@@ -1,7 +1,7 @@
 ---
 file: index.html
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-06-13
+last-updated: 2026-08-17
 canonical-ref: AI2AI.md (C6 AIO Integrity) / CLAUDE.md §3 (safety gates) / docs/architecture/total-check-runbook.md
 ---
 
@@ -43,6 +43,29 @@ GitHub Pages
             ├─ application root (main.js が DOM 生成)
             └─ inline JSON-LD (additional context)
 ```
+
+### JavaScript 無効時のフォールバック (2026-08-17 追加・#1103)
+
+`<main>` 内に利用者向けの `<noscript>` ブロックを置いている。追加前の実測:
+
+| | 値 |
+| :-- | :-- |
+| `#content` | 空 (children 0) |
+| 可視の見出し | **0 個** |
+| 可視テキスト | sr-only の AIO エンティティアンカーだけ |
+| 利用者に見えるもの | **説明の無い白紙** |
+
+`<noscript>` は他に 2 つあるが、どちらも**フォントの stylesheet 用**で利用者向けの
+文言は無かった。Vanilla JS の SPA (C1) ゆえ JS 無しで動かないこと自体は設計どおりだが、
+**「白紙」と「動かない理由が書いてある」は別物**で、§3(B) が死守すると定めた機能性は
+loads / displays / **comprehensible**。
+
+中身は説明文 + 権威コンテキスト (`llms-full.txt`) への導線。**JS 有効時は要素として
+DOM に入らない**ので通常描画も screenshot baseline も不変 (漏れが無いことも e2e で固定)。
+
+**関連する実測**: `index.html` に `<h1>` は **0 個**で、`git log -S'<h1' -- index.html` も
+空 —— 静的な h1 は**一度も存在したことがない**。落とし穴表がそれを前提にしていた記述は
+#1103 で訂正済み。JS 無効時にだけ noscript 内の h1 が 1 つ描画される。
 
 ## Constraints
 
