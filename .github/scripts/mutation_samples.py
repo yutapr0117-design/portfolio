@@ -926,6 +926,13 @@ _E2E_TAIL = [
         "replace": "",
         "test": "WCAG 2.1.1: 絞り込み select を変更しても focus が select に残る",
     },
+    {
+        "name": "AI 送信の連打ガードが外れる — `aiLoading` を条件から落とすと、キーリピートや連打で **描画が追いつく前に次の keydown が届き**、同じ会話が複数回 history に積まれる。1 回の送信が history エントリと 300ms の生成を伴うので、**会話ログが壊れ localStorage も無駄に膨らむ** (#1061 の task/todo Enter 連打と同 class の AI 面)",
+        "file": ROOT / "js" / "ai-page.js",
+        "find": "            if (!input.trim() || aiLoading) {return;}",
+        "replace": "            if (!input.trim()) {return;}",
+        "test": "AI 送信の連打で同じ会話が二重に積まれない",
+    },
 ]
 
 _MUTATIONS_TAIL.append({
