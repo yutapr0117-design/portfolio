@@ -795,3 +795,51 @@ test('非表示は home と Cmd+K にも効き、解除で両方に戻る', asyn
   expect(await onHome(), '表示に戻したのに home へ復帰しない (片方向だけの修正)').toBe(true);
   expect(await inPalette(), '表示に戻したのに Cmd+K へ復帰しない (片方向だけの修正)').toBe(true);
 });
+
+
+// ===== 非表示の listing mesh 残り 2 面 (詳細の推薦 / カテゴリ選択肢) =====
+// #886 で塞いだ 4 面のうち、公開一覧・home・Cmd+K は被覆済み。残る
+// **詳細ページの推薦**と**カテゴリ選択肢**は実装だけあって e2e が無かった。
+//
+// カテゴリ面は「そのカテゴリの project を全部隠す」まで変化しないので、既定で
+// 3 件しかない Security を 3 件とも隠して選択肢が消えることを見る。**1 件だけ隠して
+// 「変わらない」ことを確認しても何も検査していない**（他の 2 件が残るので当然変わらない）。
+test('非表示は詳細の推薦とカテゴリ選択肢にも効く', async ({ page }) => {
+  const SEC = ['p13', 'p14', 'p15'];
+
+  const recoHasTaskManager = async () => {
+    await page.goto('/#/projects/todo-list');
+    await expect(page.locator('#content h1', { hasText: 'TODOリスト' })).toBeVisible();
+    return (await page.locator('#content').innerText()).includes('タスク管理アプリ');
+  };
+  const categories = async () => {
+    await page.goto('/#/projects');
+    await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+    return page.evaluate(() =>
+      Array.from(document.querySelectorAll('#content select option')).map((o) => o.textContent));
+  };
+  const toggle = async (id) => {
+    await page.goto('/#/settings');
+    await expect(page.locator('#main-content h1').first()).toBeVisible();
+    await page.locator('#settings-toggle-hidden-' + id).click();
+  };
+
+  // --- 詳細ページの推薦 ---
+  // control: 隠す前は推薦に出ている
+  expect(await recoHasTaskManager(), 'control: 隠す前から推薦に出ていない').toBe(true);
+  await toggle('p01');
+  expect(await recoHasTaskManager(),
+    '非表示にしたのに詳細ページの推薦に出続けている (#886 の listing mesh)').toBe(false);
+  await toggle('p01');
+  expect(await recoHasTaskManager(), '表示に戻したのに推薦へ復帰しない').toBe(true);
+
+  // --- カテゴリ選択肢 ---
+  // control: 隠す前は Security がある
+  expect(await categories(), 'control: 隠す前から Security が無い').toContain('Security');
+  for (const id of SEC) { await toggle(id); }
+  expect(await categories(),
+    'そのカテゴリの project を全部隠したのに選択肢が残っている — 選んでも 0 件になる死んだ選択肢'
+  ).not.toContain('Security');
+  await toggle(SEC[0]);
+  expect(await categories(), '1 件戻したのにカテゴリ選択肢が復帰しない').toContain('Security');
+});
