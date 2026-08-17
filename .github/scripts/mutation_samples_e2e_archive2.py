@@ -528,4 +528,45 @@ E2E_MUTATIONS_ARCHIVE2 = [
         "replace": "if ((m = token.exec(rest)) !== null) {",
         "test": "multiple bold/code markers with interleaved text",
     },
+    {
+        "name": "behavior: テーマ切替が入力途中のテキストを巻き添えにする回帰 — js/theme.js の cycle を updateSilently から State.update へ戻す → notify で全再描画 (#content を clear) が走り、未送信の入力が消える (実測: task 8 文字 → 0 / ai 6 文字 → 0)。テーマはページ内容と無関係な chrome 操作なので巻き添えにしてはならない (#258 / #684 と同じ全再描画回避の規律)",
+        "file": ROOT / "js" / "theme.js",
+        "find": "        State.updateSilently(s => s.theme = next);",
+        "replace": "        State.update(s => s.theme = next);",
+        # NOTE: 題名はテンプレートリテラル (`... on ${route}`) で 3 ルート分ループ生成される。
+        #   Check 379/397 は静的セグメントを parse するので、**動的部分を含まない前半**を指定する
+        #   (3 インスタンス全てが同じコード経路を検証するため、どれが落ちても捕捉として妥当)。
+        "test": "Theme toggle does not discard in-flight input on",
+    },
+    {
+        "name": "behavior: 既定プロジェクトの並べ替えが reload で失われる回帰 — mergeProjectsWithDefaults が incoming(保存済み)順の default を採らず、末尾補完だけにする旧実装へ戻す → settings の ↑↓ で既定プロジェクトを並べ替えても reload の normalize round-trip で定義順へ silent に戻る。画面表示順 = state.projects 順なので利用者の操作そのものが失われる。user 追加分は incoming 順で append され保持されるため **default だけが戻る非対称**で気付きにくい",
+        "file": ROOT / "js" / "store.js",
+        "find": "            merged.push(d ? ({ ...d, ...p, id: d.id }) : p);\n            mergedIds.add(p.id);",
+        "replace": "            if (!d) { merged.push(p); mergedIds.add(p.id); }",
+        "test": "Default-project reorder survives a reload (normalize round-trip)",
+    },
+    {
+        "name": "behavior: 無効な ?cat= の正規化喪失 — projects-page.js の `cat` 妥当性チェックを外す → stale bookmark / 削除済みカテゴリの deep-link で <select> は option 不在ゆえ 'All' 表示なのにフィルタは無効値のまま = 「全カテゴリーと表示されているのに 0 件」の control↔content desync (#781 と同族)。既存テストは有効カテゴリの選択と URL 同期しか見ておらず未被覆だった",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "        if (cat !== 'All' && !categories.includes(cat)) { cat = 'All'; }",
+        "replace": "        if (false) { cat = 'All'; }",
+        "test": "An unknown ?cat= deep-link normalizes to All (no control-content desync)",
+    },
+    {
+        "name": "behavior: Speakable が宣言するセレクタの実体喪失 — js/pages.js の role-split 表から id を rename → Speakable JSON-LD は `#role-split-table` を宣言し続けるのに要素が存在しなくなり、AI 音声アシスタント向けの機械向け宣言が実態と乖離する (#929 の WebMCP 幻セレクタと同 class)。視覚に一切出ないため screenshot も通常の behavior test も素通りする",
+        "file": ROOT / "js" / "pages.js",
+        "find": "id: 'role-split-table'",
+        "replace": "id: 'role-split-table-RENAMED'",
+        # NOTE: 題名はテンプレートリテラルでルート毎に生成される。Check 379/397 は静的セグメントを
+        #   parse するので動的部分を含まない前半を指定する (3 インスタンスが走るが、role-split の
+        #   1 件が落ちれば suite 全体が FAIL = 捕捉として妥当)。
+        "test": "Speakable route selector resolves on",
+    },
+    {
+        "name": "behavior: quiz title の own-key ガード喪失 (#926 の回帰) — page-meta.js の hasOwnProperty 検証を `map[type] ||` へ戻す → `?type=constructor` などプロトタイプ継承キーで **関数オブジェクトが返り** document.title が「function Object() { [native code] }」に化ける。title はタブ名・履歴・AI クローラが受け取る機械可読面で、視覚の主要部には出ないため screenshot でも気付けない",
+        "file": ROOT / "js" / "page-meta.js",
+        "find": "            return Object.prototype.hasOwnProperty.call(map, type) ? map[type] : 'Quiz';",
+        "replace": "            return map[type] || 'Quiz';",
+        "test": "Quiz document.title stays in the known-safe set for ?type=",
+    },
 ]
