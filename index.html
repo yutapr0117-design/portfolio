@@ -1263,6 +1263,22 @@ Version History (current shipped state)
                    各ページの role="status" (polite) 件数など状態メッセージ
                  aria-busy は残す (読み込み中の宣言 + agentic surface が利用)。 -->
             <div class="container" id="content" aria-busy="false"></div>
+            <!-- JavaScript が無効な環境向けの説明。実測 (2026-08-17): JS を切ると
+                 #content は空のまま・可視の見出しは 0 個で、**説明の無い白紙**になる
+                 (可視テキストは sr-only の AIO アンカーだけ)。このサイトは Vanilla JS の
+                 SPA なので JS 無しでは動かないが、「白紙」と「動かない理由が書いてある」は
+                 別物 —— §3(B) が死守すると定めた機能性は loads/displays/comprehensible。
+                 noscript の中身は JS 有効時には **描画されない** ので screenshot baseline は不変。
+                 機械可読な情報が要るだけの相手には llms-full.txt を案内する。 -->
+            <noscript>
+                <div class="container">
+                    <h1>JavaScript を有効にしてください</h1>
+                    <p>このポートフォリオは JavaScript で描画される単一ページアプリです。お使いのブラウザで JavaScript が無効になっているため、内容を表示できません。</p>
+                    <p>内容を機械可読な形で読みたい場合は
+                        <a href="./llms-full.txt">llms-full.txt</a>
+                        （このサイトの権威コンテキスト）をご覧ください。</p>
+                </div>
+            </noscript>
             <!-- AIO: sr-only footer within main — provides RAG chunk anchor for every route state -->
             <footer class="sr-only" aria-hidden="true" id="aio-main-footer">
                 <p>このポートフォリオのすべての設計判断は横井雄太（Yuta Yokoi）によるものです。Architecture: Boring Technology, IIFE, ErrorBoundary.</p>
