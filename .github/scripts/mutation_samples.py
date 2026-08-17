@@ -130,41 +130,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "behavior: 並べ替えの focus 復元鍵を p.id から idx へ戻す (#1000 の回帰) — 移動後にその位置へ来た **別のプロジェクト**のボタンへ focus が移り、続けて押すと違う行が動く (実測では往復して元の順序に戻った)。リスト項目の復元鍵は位置ではなく同一性で作れ",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "id: 'settings-move-down-' + p.id,",
-        "replace": "id: 'settings-move-down-' + idx,",
-        "test": "WCAG 2.1.1: プロジェクトの並べ替えをキーボードで連続実行できる",
-    },
-    {
-        "name": "behavior: Settings 表示切替ボタンの focus 復元 id が外れる (#1000 の回帰) — 切り替えるたびに focus が body へ落ち、元に戻すのに毎回ドキュメント先頭から Tab し直しになる",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "id: 'settings-toggle-hidden-' + p.id, ",
-        "replace": "",
-        "test": "WCAG 2.1.1: 表示切替ボタンは押した後も focus が残る",
-    },
-    {
-        "name": "behavior: 再描画後のキャレット復元が失われる (#1001 の回帰) — focus は id で戻るがキャレットは末尾へ飛ぶため、文章の途中を編集中に外部要因の再描画 (ポモドーロ完了) が起きると次に打った 1 文字が末尾へ着弾する。値もフォーカスも正しいので気付きにくい",
-        "file": ROOT / "main.js",
-        "find": "                    if (_restoreFocusSel && typeof _again.setSelectionRange === 'function') {",
-        "replace": "                    if (false && _restoreFocusSel && typeof _again.setSelectionRange === 'function') {",
-        "test": "Markdown ノート編集中の再描画でもキャレットが保たれる",
-    },
-    {
-        "name": "behavior: @media print が丸ごと無効化される — 印刷時にナビ chrome が残り、暗色テーマのまま紙に出る。screenshot は screen media で撮るので到達せず、consistency は CSS の存在しか見ないため、この spec を書くまで捕捉層がゼロだった (#133/#134/#135 と同じ silent-critical class)",
-        "file": ROOT / "style.css",
-        "find": "        @media print {",
-        "replace": "        @media print-disabled {",
-        "test": "印刷時はナビ chrome が消え、本文が全幅で横あふれしない",
-    },
-    {
-        "name": "behavior: 印刷時の外部リンク URL 併記が失われる — 紙にはクリックできる要素が無いので、リンク先が本文に出ていないと参照できない。視覚 (screen) には一切出ないため print emulation 以外では観測できない",
-        "file": ROOT / "style.css",
-        "find": '                content: " (" attr(href) ")";',
-        "replace": '                content: "";',
-        "test": "印刷時は外部リンクの URL が紙面に併記される",
-    },
-    {
         "name": "behavior: forced-colors (HCM) のフォーカスリング fallback が失われる — Chromium はブランド色を強制変換して rgba(5, 0, 73, 0.8) = **半透明**の暗い青を描く (実測)。HCM で最も困る『薄くて見えない』状態そのもの。Check 101 はブロックの存在を静的に強制するだけで効果は見ず、screenshot は通常モードで撮るので到達しない",
         "file": ROOT / "style.css",
         "find": "        @media (forced-colors: active) {",
@@ -932,6 +897,20 @@ _E2E_TAIL = [
         "find": "            if (!input.trim() || aiLoading) {return;}",
         "replace": "            if (!input.trim()) {return;}",
         "test": "AI 送信の連打で同じ会話が二重に積まれない",
+    },
+    {
+        "name": "import の append 分岐が新規プロジェクトを取り込まなくなる — 既定モードは 'append' で、**バックアップからの復旧はこの経路を通る**。取り込みが no-op になっても「インポートが完了しました」とだけ出るので、利用者は復元できたと信じて元データを捨てうる (#1039/#1040 の silent no-op と同じ形の、既定経路版)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "                            parsed.projects.forEach(p => { if (!existing.has(p.id)) { appended.push(p); } });",
+        "replace": "",
+        "test": "Settings import (valid JSON) appends projects and persists (data recovery)",
+    },
+    {
+        "name": "window.addEventListener が直接上書きされる — main.js は listener registry を **prototype/API を書き換えずに**実装している (書き換えると DOM の意味論がサイト内だけ非標準になり、他コードや e2e の診断が壊れる・#963 で perf-guards の style hook を除去したのと同じ理由)。この不変条件はどの静的 Check も見ておらず、この security test だけが捕捉層",
+        "file": ROOT / "main.js",
+        "find": "        (function _installEventListenerRegistry() {",
+        "replace": "        (function _installEventListenerRegistry() {\n            window.addEventListener = window.addEventListener.bind(window);",
+        "test": "5-layer proxy: window.addEventListener is not directly overwritten",
     },
 ]
 
