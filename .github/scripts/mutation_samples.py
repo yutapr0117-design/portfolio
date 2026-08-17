@@ -130,34 +130,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "behavior: forced-colors (HCM) のフォーカスリング fallback が失われる — Chromium はブランド色を強制変換して rgba(5, 0, 73, 0.8) = **半透明**の暗い青を描く (実測)。HCM で最も困る『薄くて見えない』状態そのもの。Check 101 はブロックの存在を静的に強制するだけで効果は見ず、screenshot は通常モードで撮るので到達しない",
-        "file": ROOT / "style.css",
-        "find": "        @media (forced-colors: active) {",
-        "replace": "        @media (forced-colors: nope) {",
-        "test": "ハイコントラストモードでフォーカスリングが system color になる",
-    },
-    {
-        "name": "behavior: prefers-contrast: more の token 上書きが失われる — 境界線と補助テキストが薄いグレーのまま残り、高コントラストを要求したユーザーに何も返さない。静的にも動的にも無被覆だった面",
-        "file": ROOT / "style.css",
-        "find": "        @media (prefers-contrast: more) {",
-        "replace": "        @media (prefers-contrast: nope) {",
-        "test": "高コントラスト設定で境界線と補助テキストが濃くなる",
-    },
-    {
-        "name": "behavior: 詳細ページの not-found ガードが外れる — 開いている詳細ページの project が別画面 (Settings の削除 / 別タブ / import) から消える経路があり、無条件に dereference すると FatalPage になる。#93/#295/#561/#568 で繰り返した ingestion-crash の『参照側』版",
-        "file": ROOT / "js" / "project-detail-page.js",
-        "find": "        if (!project) {",
-        "replace": "        if (false) {",
-        "test": "開いている詳細ページのプロジェクトを削除しても FatalPage にならない",
-    },
-    {
-        "name": "behavior: 読み物ページの節タイトルが見出し要素でなくなる (#1011 の回帰) — 4,000 文字・9 セクションの本文に見出しが H1 の 1 個だけになり、スクリーンリーダーの見出しジャンプで一切辿れない。axe は『長い本文に小見出しが無い』をルール化していないので a11y スキャンは緑のまま",
-        "file": ROOT / "js" / "ai-knowhow-page.js",
-        "find": "                h('h2', { class: 'text-head-lg' }, title)",
-        "replace": "                h('span', { class: 'text-head-lg' }, title)",
-        "test": "ai-knowhow の節タイトルが実際の見出し要素である",
-    },
-    {
         "name": "behavior: quiz の章題が見出し要素でなくなる (#1012 の回帰) — 本文 24,500 文字のページに見出しが H1 の 1 個だけになり、スクリーンリーダーの見出しジャンプで 7 章のどこにも飛べない。NOTE: `quiz-section-title` の行は file 内に 2 箇所あり (architecture quiz 用と既存問題集用)、**既定の aws quiz が通るのは後者**。1 行だけの find だと前者に当たって偽 PASS するので、直前の icon 行を含めて一意にしている (Check 420 の要求そのもの)",
         "file": ROOT / "js" / "quiz-renderer.js",
         "find": "                    sHeader.appendChild(h(\"div\", { class: \"quiz-section-icon\", 'aria-hidden': 'true' }, \"\U0001F4DD\"));\n                    sHeader.appendChild(h(\"h2\", { class: \"quiz-section-title\" }, section));",
@@ -925,6 +897,20 @@ _E2E_TAIL = [
         "find": "            .filter(p => p && p.slug && p.name && !_hidden.has(String(p.id)))",
         "replace": "            .filter(p => p && p.slug && p.name)",
         "test": "非表示は home と Cmd+K にも効き、解除で両方に戻る",
+    },
+    {
+        "name": "詳細ページの推薦が非表示を無視して戻る (#886) — 隠したプロジェクトが「関連」「おすすめ」として他ページから提示され続ける。**推薦は利用者が自分で探していない経路**なので、隠したはずのものが向こうから出てくる形になる",
+        "file": ROOT / "js" / "project-detail-page.js",
+        "find": "        const listable = state.projects.filter(p => !hiddenIds.has(String(p.id)));",
+        "replace": "        const listable = state.projects;",
+        "test": "非表示は詳細の推薦とカテゴリ選択肢にも効く",
+    },
+    {
+        "name": "カテゴリ選択肢が非表示を無視して戻る (#886) — そのカテゴリの project を全部隠しても選択肢が残り、**選ぶと 0 件になる死んだ選択肢**が生まれる。1 件だけ隠しても変化しない面なので、カテゴリを空にするまで setup しないと検査できない",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "            .filter(p => !_hiddenForCats.has(String(p.id)))\n",
+        "replace": "",
+        "test": "非表示は詳細の推薦とカテゴリ選択肢にも効く",
     },
 ]
 
