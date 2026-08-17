@@ -918,6 +918,13 @@ _E2E_TAIL = [
         "replace": "        const _m = document.querySelector('meta[name=\"theme-color\"]');\n        if (_m) { _m.content = isDark ? '#0b0f19' : '#ffffff'; }",
         "test": "theme-color の実効値が OS=dark でもサイトのテーマと一致する",
     },
+    {
+        "name": "Markdown プレビューが大きいノートで途中打ち切りになる — renderMarkdown を先頭 500 行までに制限すると、宣言上限 (NOTES_TEXT = 20,000 文字) のノートで末尾が描画されなくなる。**エラーは出ない**ので利用者には「書いたはずの下の方が消えている」としか見えず、短いノートしか流さない既存テストでは検出できない",
+        "file": ROOT / "js" / "apps.js",
+        "find": "        const lines = String(src || '').split('\\n');",
+        "replace": "        const lines = String(src || '').split('\\n');\n        lines.length = Math.min(lines.length, 500);",
+        "test": "上限いっぱいのノートでもプレビューが末尾まで描画される",
+    },
 ]
 
 _MUTATIONS_TAIL.append({
