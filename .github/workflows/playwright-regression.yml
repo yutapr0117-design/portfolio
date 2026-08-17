@@ -53,6 +53,11 @@ on:
       # ship an unverified test-toolchain change. Check 142 enforces their presence.
       - 'package.json'
       - 'package-lock.json'
+      # このゲート自身の定義。job 構成 / env / step を書き換えれば behavior gate の
+      # 挙動そのものが変わるのに、自身が paths に無いと **その変更だけは gate に
+      # 検証されずに merge できる** (実測: #1099 がこの workflow を書き換えたが
+      # playwright-validation は一度も走らなかった)。package.json と同じ理由。
+      - '.github/workflows/playwright-regression.yml'
 
   pull_request:
     branches: [ "main" ]
@@ -83,6 +88,11 @@ on:
       # ship an unverified test-toolchain change. Check 142 enforces their presence.
       - 'package.json'
       - 'package-lock.json'
+      # このゲート自身の定義。job 構成 / env / step を書き換えれば behavior gate の
+      # 挙動そのものが変わるのに、自身が paths に無いと **その変更だけは gate に
+      # 検証されずに merge できる** (実測: #1099 がこの workflow を書き換えたが
+      # playwright-validation は一度も走らなかった)。package.json と同じ理由。
+      - '.github/workflows/playwright-regression.yml'
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
