@@ -952,3 +952,10 @@ _MUTATIONS_TAIL.append({
     "find": "  pull_request:\n    branches: [ \"main\" ]\n    paths:\n      - 'index.html'",
     "replace": "  pull_request:\n    branches: [ \"main\" ]\n    paths:\n      - 'README.md'\n      - 'index.html'",
 })
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 428: 未定義のカスタムプロパティをフォールバック無しで参照しても検出しない — `var(--x)` の `--x` が未定義だと宣言ごと invalid at computed-value time になり **プロパティが初期値へ落ちる**。実測では hover 背景が透明になり『持ち上げて強調する』はずの操作でカードが表面を失っていた。エラーも警告も出ず stylelint も通り screenshot は ADVISORY なので、この Check だけが捕捉層",
+    "file": ROOT / "style.css",
+    "find": "            background: var(--surface-hover);",
+    "replace": "            background: var(--card-bg);",
+})
