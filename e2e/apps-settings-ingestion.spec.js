@@ -271,13 +271,25 @@ test('Hostile profile import: a truthy non-string must not blank a field', async
   expect(href, `mailto に宛先が無い (href=${href})`).not.toBe('mailto:');
   expect((href || '').length, `mailto の宛先が空 (href=${href})`).toBeGreaterThan('mailto:'.length);
 
-  // (2) name: {} — String({}) は "[object Object]" で、そのまま表示名として描画されていた
-  await importProfile({ name: {} });
-  await page.goto('/#/contact', { waitUntil: 'domcontentloaded' });
-  await expect(page.locator('#content')).toContainText('Contact');
+  // (2) title: {} — String({}) は "[object Object]" で、そのまま描画されていた。
+  //   **検査対象は「その関数を実際に通り、かつそのページが描画するフィールド」から選ぶ。**
+  //   ここは元々 ContactPage で `name` を見ていたが、(a) ContactPage は `profile.name` を
+  //   描画せず (描くのは email / github / linkedin)、(b) github・linkedin は `safeStr` ではなく
+  //   `safeUrl` を通る —— つまり `safeStr` の型ガードを外しても `[object Object]` が現れる
+  //   余地が無く、**何も検査していなかった**。
+  //   2026-08-17 の週次 mutation-probe が、(1) が safeEmail の独立ガード (#1080) に守られる
+  //   ようになった結果ようやく SURVIVED として露出させた (修正が既存テストを「鈍らせる」class)。
+  //   `safeStr` を通り、かつ描画されるのは ResumePage の lead 見出し (profile.title)。
+  await importProfile({ title: {} });
+  await page.goto('/#/resume', { waitUntil: 'domcontentloaded' });
+  // NOTE: ResumePage には data-ai-content="lead" が 2 つある (h1 の Resume と h2 の title)。
+  //   profile.title を描画するのは h2 の方なので、タグまで含めて 1 つに絞る。
+  const lead = page.locator('#content h2[data-ai-content="lead"]');
+  // control: lead 見出しが描画されている (無ければ以降は何も検査しない・不在検査のレース対策)
+  await expect(lead, 'control: ResumePage の lead 見出しが描画されていない').toHaveCount(1);
   await expect(
-    page.locator('#content'),
-    '非文字列の name がそのまま stringify されて表示された'
+    lead,
+    '非文字列の title がそのまま stringify されて描画された (safeStr の型ガード喪失)'
   ).not.toContainText('[object Object]');
 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));

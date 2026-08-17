@@ -904,6 +904,13 @@ _E2E_TAIL = [
         "replace": "",
         "test": "debounce 前にリロードしても書きかけのノートが失われない",
     },
+    {
+        "name": "a11y: startViewTransitionProxy の reduced-motion 判定が外れる — proxy は『executeSafeTransition を経由せず素の document.startViewTransition を直接呼ぶ実装』でも reduce を尊重するための層 (Check 43b が名前を BLOCKING 監視)。ここが抜けると、その経路から前庭障害のユーザーへページ全体のクロスフェードが漏れる (WCAG 2.3.3)。render() 側のガードは別経路なのでこの穴を塞げない",
+        "file": ROOT / "main.js",
+        "find": "                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {\n                    try { if (typeof callback === 'function') callback(); }",
+        "replace": "                if (false) {\n                    try { if (typeof callback === 'function') callback(); }",
+        "test": "WCAG 2.3.3: 素の startViewTransition を直接呼んでも reduced-motion では実遷移しない",
+    },
 ]
 
 
