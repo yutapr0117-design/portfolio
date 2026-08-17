@@ -600,3 +600,53 @@ test('Markdown ノート編集中の再描画でもキャレットが保たれ�
   const value = await page.evaluate(() => document.querySelector('#notes-input').value);
   expect(value.slice(0, 4), `キャレット位置ではなく末尾へ着弾している: ${JSON.stringify(value.slice(-6))}`).toBe('# メX');
 });
+
+
+// ===== 上限いっぱいのノートでもプレビューが最後まで描画される =====
+// NOTES_TEXT = 20,000 文字が宣言された上限。既存のテストは短いノートしか流していないので、
+// 「大きい入力で末尾が黙って落ちる」class は誰も見ていなかった。**描画が途中で打ち切られても
+// エラーは出ず、利用者には「書いたはずの下の方が消えている」としか見えない**。
+//
+// **perf ゲートにはしていない (実測に基づく判断)**: renderMarkdown をループ内 spread で
+// O(n²) 化する現実的な退行を実際に当てて測ったところ、初期描画は **84ms (clean は 83ms)** で
+// 差が出なかった。20,000 文字 (約 2,700 行) では配列コピーが軽すぎて計測に乗らない。
+// 「上限での perf 回帰ゲート」を名乗る test を置いても**名前どおりの働きをしない**ので作らない
+// (ルート描画コストの回帰は #1028 の専用テストが既定データで見ている)。
+// ここで固定するのは **完全性** —— 末尾まで描画されること・fatal が出ないこと。
+test('上限いっぱいのノートでもプレビューが末尾まで描画される', async ({ page }) => {
+  const TAIL = 'ZZ-NOTES-TAIL-SENTINEL';
+  await page.goto('/#/apps/notes', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1')).toBeVisible();
+
+  const ta = page.locator('#notes-input');
+  await expect(ta).toBeVisible();
+
+  // 上限ちょうどになるよう組み立て、**末尾**に見出しとして sentinel を置く
+  const filled = await page.evaluate(async ([tail]) => {
+    const el = document.querySelector('#notes-input');
+    const max = 20000;
+    const suffix = `\n# ${tail}\n`;
+    let body = '';
+    // 先に max を **超える**まで積んでから切る (max-60 で止めると端数で足りなくなる)
+    while (body.length < max) { body += '# 章\n\n**太字** の段落。\n\n- 項目A\n- 項目B\n\n'; }
+    const md = body.slice(0, max - suffix.length) + suffix;
+    el.focus();
+    el.value = md;
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+    return { len: el.value.length, endsWith: el.value.trimEnd().endsWith(tail) };
+  }, [TAIL]);
+
+  // control: 上限ちょうどの入力が textarea に入り、末尾が sentinel であること
+  expect(filled.len, 'control: 上限ちょうどの入力が入っていない').toBe(20000);
+  expect(filled.endsWith, 'control: 末尾が sentinel になっていない').toBe(true);
+
+  // 末尾の見出しがプレビューに描画されている = 途中で打ち切られていない
+  await expect(
+    page.locator('.md-preview'),
+    'プレビューが末尾まで描画されていない — 大きいノートで描画が打ち切られると、'
+    + 'エラーは出ずに「書いたはずの下の方が消えている」状態になる'
+  ).toContainText(TAIL);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? String(window.__fatalError.message) : null));
+  expect(fatal, `上限いっぱいのノートで fatal: ${fatal}`).toBeNull();
+});
