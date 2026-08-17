@@ -926,6 +926,27 @@ _E2E_TAIL = [
         "replace": "            return;",
         "test": "5-layer proxy: document.startViewTransition is overridden by proxy",
     },
+    {
+        "name": "プロジェクト削除が何も消さなくなる — confirm を通したのに一覧から消えない。**破壊的操作は「効かない」方も実害**で、利用者は削除できたと思って別の作業へ移る (次に開いたとき残っていて初めて気付く)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "                s.projects = s.projects.filter(p => p.id !== id);",
+        "replace": "",
+        "test": "Deleting a user project (confirm accepted) removes it everywhere",
+    },
+    {
+        "name": "全リセットが何も戻さなくなる — 最も破壊的な操作の逆で、**「初期化しました」と報告するのに何も初期化されない**。壊れたデータを直すために押した利用者は、直ったと信じて同じ問題を踏み続ける (silent no-op に成功メッセージを付ける #1039/#1040 と同じ class)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "            State.set(Store.createDefaultStore());",
+        "replace": "",
+        "test": "Reset data restores defaults after confirm (destructive)",
+    },
+    {
+        "name": "タグをクリックしても絞り込まれなくなる — 検索語の設定を落とすと、カテゴリだけリセットされて一覧は全件のまま。**クリックは効いている (URL も検索欄も変わる) のに結果だけ変わらない**ので、利用者にはタグが壊れているのか一致が無いのか区別できない",
+        "file": ROOT / "js" / "projects-page.js",
+        "find": "                                            q = tag; cat = 'All';",
+        "replace": "                                            cat = 'All';",
+        "test": "Clicking a project card tag filters projects by that tag",
+    },
 ]
 
 _MUTATIONS_TAIL.append({
