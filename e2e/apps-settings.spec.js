@@ -710,3 +710,33 @@ test('並べ替えボタンの名前がプロジェクトごとに一意にな�
   ).some((s) => s.getAttribute('aria-hidden') !== 'true'));
   expect(arrowExposed, '矢印がアクセシビリティツリーへ露出している (二重読み上げ)').toBe(false);
 });
+
+
+// ===== プロジェクトの並べ替えが SR に伝わる (WCAG 4.1.3) =====
+// ボタンのアクセシブル名 (「下へ移動：<プロジェクト名>」) は移動後も変わらず、focus も
+// 同じボタンへ戻る (#1000)。つまり SR 利用者には **押しても何も起きていないのと
+// 区別がつかなかった** (実測 2026-08-17: `#action-announcement` が空のまま)。
+// task のステータス移動 (#1107) と同型の非対称。
+//
+// **位置と総数まで読む**のは、一覧を見渡せない利用者には「何番目へ動いたか」が唯一の
+// 手がかりだから。Toast (視覚ポップアップ) にしないのは並べ替えが連続操作だから。
+test('プロジェクトの並べ替えがスクリーンリーダーに通知される', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.reload();
+  await expect(page.locator('#main-content h1').first()).toBeVisible();
+
+  const down = page.getByRole('button', { name: '下へ移動：タスク管理アプリ' });
+  // control: 対象のボタンが実在する (空振りしたまま以降を検査しない)
+  await expect(down, 'control: 並べ替えボタンが見つからない').toHaveCount(1);
+
+  await down.click();
+
+  await expect(page.locator('#action-announcement'),
+    '並べ替えが SR へ通知されない — ボタン名は変わらず focus も戻るので、'
+    + 'SR 利用者には押しても何も起きていないのと区別がつかない (WCAG 4.1.3)'
+  ).toHaveText(/「タスク管理アプリ」を 2 番目へ移動しました（全 \d+ 件）/);
+
+  // 視覚ポップアップは出さない (連続操作なので Toast にしない設計)
+  expect(await page.locator('#toast-container').count(),
+    '並べ替えで視覚 Toast が出ている — 連続操作なので sr-only 通知にとどめる設計').toBe(0);
+});

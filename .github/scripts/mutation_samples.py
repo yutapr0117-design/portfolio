@@ -919,6 +919,13 @@ _E2E_TAIL = [
         "replace": "",
         "test": "タスクのステータス移動がスクリーンリーダーに通知される",
     },
+    {
+        "name": "プロジェクト並べ替えの SR 通知が無音に戻る — ボタンのアクセシブル名 (「下へ移動：<名前>」) は移動後も変わらず focus も同じボタンへ戻るので、SR 利用者には **押しても何も起きていないのと区別がつかない** (WCAG 4.1.3)。一覧を見渡せない利用者にとって「何番目へ動いたか」は唯一の手がかり",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "                moved = { name: temp.name, pos: idx + dir + 1, total: s.projects.length };\n",
+        "replace": "",
+        "test": "プロジェクトの並べ替えがスクリーンリーダーに通知される",
+    },
 ]
 
 _MUTATIONS_TAIL.append({
