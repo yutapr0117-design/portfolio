@@ -96,9 +96,21 @@ jobs:
           echo "working tree clean — 全 mutation が復元された"
 
   behavior:
-    name: Behavior (e2e) safety-net self-check
+    # [FIX] **シャーディング**。behavior probe は mutation ごとに Playwright を起動するため
+    #   所要が mutation 数にほぼ比例する。2026-08-17 に mutation を 240 → 289 件へ増やしたら
+    #   単一ジョブの実測が **55 分 17 秒**となり timeout-minutes: 55 に到達し **cancelled** で
+    #   打ち切られた。cancelled は success でも failure でもないので、**安全網の自己検証が
+    #   「結果不明」のまま静かに止まる**最悪の形になる (週次ゆえ誰も rerun しない)。
+    #   timeout を上げるだけでは mutation を足すたび再発するので shard で wall-clock を割る。
+    #   分割は `index % n` の決定的な剰余で、全 shard の和が必ず全 mutation を 1 回ずつ覆う
+    #   (mutation_probe.py の _parse_shard に単体検証あり)。
+    name: Behavior (e2e) safety-net self-check (shard ${{ matrix.shard }}/4)
     runs-on: ubuntu-latest
-    timeout-minutes: 55   # mutation ごとに playwright を起動するため長い (分割後の実測で見直す)
+    timeout-minutes: 30   # 4 分割後の想定は ~14 分。余裕を 2 倍取る
+    strategy:
+      fail-fast: false    # 1 shard が落ちても他 shard の結果を必ず得る (どこが vacuous か知りたい)
+      matrix:
+        shard: [1, 2, 3, 4]
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -124,7 +136,7 @@ jobs:
       - name: Run behavior (e2e) probe
         env:
           MUTATION_PROBE: '1'
-        run: python3 .github/scripts/mutation_probe.py --e2e
+        run: python3 .github/scripts/mutation_probe.py --e2e --shard ${{ matrix.shard }}/4
 
       - name: Assert working tree is restored
         if: always()
