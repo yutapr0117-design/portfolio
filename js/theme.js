@@ -50,10 +50,19 @@ export function createTheme({ State, Toast, refreshChrome }) {
         document.documentElement.classList.toggle('dark', isDark);
 
         // Update meta theme-color
-        const meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) {
+        // [FIX] index.html は `media="(prefers-color-scheme: light|dark)"` 付きの theme-color を
+        //   **2 本**宣言している (JS が動く前でも OS 設定に合った色を出すため)。旧実装は
+        //   `querySelector` で **先頭の 1 本 (light 用) だけ**を書き換えていたので、
+        //   **OS が dark のときは書き換えた meta の media が一致せず適用されなかった**。
+        //   実測 (2026-08-17・OS=dark / サイト=system→dark): light 用に '#0b0f19' が入るが
+        //   実効値は dark 用の '#818cf8' (ブランド紫) のままで、**選んだテーマがモバイルの
+        //   アドレスバー色に届くのは OS が light のときだけ**だった。
+        //   両方に同じ値を入れれば、どちらの media が一致しても選択したテーマの色になる
+        //   (media 属性は JS 到達前の初期表示のために残す)。
+        //   ページ本体の描画には影響しない (ブラウザ chrome の色のみ) ため screenshot baseline は不変。
+        document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
             meta.content = isDark ? '#0b0f19' : '#ffffff';
-        }
+        });
 
         // [FIX] topbar のテーマ切替ボタン (#themeBtnTop) の aria-label を現在テーマで更新する
         //   (WCAG 4.1.2 Name/Role/Value)。従来は index.html の static ラベル
