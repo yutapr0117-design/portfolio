@@ -374,6 +374,11 @@ test('content div transitions aria-busy correctly during navigation', async ({ p
 // main.js は描画完了 (requestAnimationFrame) 毎に document.body[data-ai-state] へ
 // {route, filter, loading} を JSON で書き込む。AI エージェントが DOM から現在状態を読める AIO-agentic
 // サーフェスだが未カバーだった。ルート遷移で data-ai-state.route が追従することを expect.poll で検証。
+// NOTE: 本テストには mutation を登録していない。`data-ai-state` の writer は **3 箇所**あり
+//   (main.js のローディング宣言・main.js の確定状態・js/router.js の URL 同期)、
+//   **どれか 1 つを潰しても他の 2 つが満たす**ため単一 anchor の mutation では RED にできない
+//   ことを実測した (2026-08-17)。defense-in-depth ゆえの構造的制約で、テストが vacuous
+//   なわけではない。RED を実測できないものは安全網に混ぜない (#1096 の reduced-motion と同型)。
 test('Body data-ai-state reflects the current route (agentic surface)', async ({ page }) => {
   const routeOf = async () => page.evaluate(() => {
     try { return JSON.parse(document.body.getAttribute('data-ai-state')).route; } catch { return null; }

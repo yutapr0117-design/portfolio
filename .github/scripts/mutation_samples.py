@@ -926,6 +926,20 @@ _E2E_TAIL = [
         "replace": "",
         "test": "プロジェクトの並べ替えがスクリーンリーダーに通知される",
     },
+    {
+        "name": "Speakable の cssSelector が実在しない要素を指す — 音声アシスタント向けの構造化データで、解決しないセレクタを宣言すると **読み上げる箇所が無い**まま「ここを読め」と主張することになる。視覚にも behavior にも一切出ないので、この AIO 精度テスト以外に捕捉層が無い (#929 の『機械向け宣言が一度も成功していなかった』class)",
+        "file": ROOT / "js" / "meta-management.js",
+        "find": "            'home':        ['h1', '[data-speakable]', '.sr-only[data-ai-entity]'],",
+        "replace": "            'home':        ['h1', '.hero-tagline-missing', '.sr-only[data-ai-entity]'],",
+        "test": "Home Speakable cssSelectors all resolve to real elements (AIO accuracy)",
+    },
+    {
+        "name": "AIO asset anchor が可視化する — hidden を外すと、AI クローラ向けの生のエンティティ記述 (Canonical Entity: … / Role: … など 1,300 文字超) が **全ページの本文として利用者に見えてしまう**。screenshot は ADVISORY なので気付けない",
+        "file": ROOT / "index.html",
+        "find": '<div id="aio-asset-anchor" hidden aria-hidden="true"',
+        "replace": '<div id="aio-asset-anchor" aria-hidden="true"',
+        "test": "AIO asset anchor must be hidden (non-visual)",
+    },
 ]
 
 _MUTATIONS_TAIL.append({
