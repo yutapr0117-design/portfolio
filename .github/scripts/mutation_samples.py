@@ -130,47 +130,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "behavior: テーマ切替が入力途中のテキストを巻き添えにする回帰 — js/theme.js の cycle を updateSilently から State.update へ戻す → notify で全再描画 (#content を clear) が走り、未送信の入力が消える (実測: task 8 文字 → 0 / ai 6 文字 → 0)。テーマはページ内容と無関係な chrome 操作なので巻き添えにしてはならない (#258 / #684 と同じ全再描画回避の規律)",
-        "file": ROOT / "js" / "theme.js",
-        "find": "        State.updateSilently(s => s.theme = next);",
-        "replace": "        State.update(s => s.theme = next);",
-        # NOTE: 題名はテンプレートリテラル (`... on ${route}`) で 3 ルート分ループ生成される。
-        #   Check 379/397 は静的セグメントを parse するので、**動的部分を含まない前半**を指定する
-        #   (3 インスタンス全てが同じコード経路を検証するため、どれが落ちても捕捉として妥当)。
-        "test": "Theme toggle does not discard in-flight input on",
-    },
-    {
-        "name": "behavior: 既定プロジェクトの並べ替えが reload で失われる回帰 — mergeProjectsWithDefaults が incoming(保存済み)順の default を採らず、末尾補完だけにする旧実装へ戻す → settings の ↑↓ で既定プロジェクトを並べ替えても reload の normalize round-trip で定義順へ silent に戻る。画面表示順 = state.projects 順なので利用者の操作そのものが失われる。user 追加分は incoming 順で append され保持されるため **default だけが戻る非対称**で気付きにくい",
-        "file": ROOT / "js" / "store.js",
-        "find": "            merged.push(d ? ({ ...d, ...p, id: d.id }) : p);\n            mergedIds.add(p.id);",
-        "replace": "            if (!d) { merged.push(p); mergedIds.add(p.id); }",
-        "test": "Default-project reorder survives a reload (normalize round-trip)",
-    },
-    {
-        "name": "behavior: 無効な ?cat= の正規化喪失 — projects-page.js の `cat` 妥当性チェックを外す → stale bookmark / 削除済みカテゴリの deep-link で <select> は option 不在ゆえ 'All' 表示なのにフィルタは無効値のまま = 「全カテゴリーと表示されているのに 0 件」の control↔content desync (#781 と同族)。既存テストは有効カテゴリの選択と URL 同期しか見ておらず未被覆だった",
-        "file": ROOT / "js" / "projects-page.js",
-        "find": "        if (cat !== 'All' && !categories.includes(cat)) { cat = 'All'; }",
-        "replace": "        if (false) { cat = 'All'; }",
-        "test": "An unknown ?cat= deep-link normalizes to All (no control-content desync)",
-    },
-    {
-        "name": "behavior: Speakable が宣言するセレクタの実体喪失 — js/pages.js の role-split 表から id を rename → Speakable JSON-LD は `#role-split-table` を宣言し続けるのに要素が存在しなくなり、AI 音声アシスタント向けの機械向け宣言が実態と乖離する (#929 の WebMCP 幻セレクタと同 class)。視覚に一切出ないため screenshot も通常の behavior test も素通りする",
-        "file": ROOT / "js" / "pages.js",
-        "find": "id: 'role-split-table'",
-        "replace": "id: 'role-split-table-RENAMED'",
-        # NOTE: 題名はテンプレートリテラルでルート毎に生成される。Check 379/397 は静的セグメントを
-        #   parse するので動的部分を含まない前半を指定する (3 インスタンスが走るが、role-split の
-        #   1 件が落ちれば suite 全体が FAIL = 捕捉として妥当)。
-        "test": "Speakable route selector resolves on",
-    },
-    {
-        "name": "behavior: quiz title の own-key ガード喪失 (#926 の回帰) — page-meta.js の hasOwnProperty 検証を `map[type] ||` へ戻す → `?type=constructor` などプロトタイプ継承キーで **関数オブジェクトが返り** document.title が「function Object() { [native code] }」に化ける。title はタブ名・履歴・AI クローラが受け取る機械可読面で、視覚の主要部には出ないため screenshot でも気付けない",
-        "file": ROOT / "js" / "page-meta.js",
-        "find": "            return Object.prototype.hasOwnProperty.call(map, type) ? map[type] : 'Quiz';",
-        "replace": "            return map[type] || 'Quiz';",
-        "test": "Quiz document.title stays in the known-safe set for ?type=",
-    },
-    {
         "name": "behavior: agentic な描画完了信号の喪失 — main.js の data-ai-state を最終状態も loading:true のままにする → AI エージェントが「永遠に読み込み中」と誤解して待ち続ける。data-ai-state は {route, filter, loading} を公開する機械可読面で、route/filter は既存テストが見ていたが loading のライフサイクルは未被覆だった。視覚に一切出ないため screenshot も通常の behavior test も素通りする",
         "file": ROOT / "main.js",
         "find": "                    loading: false",
@@ -938,6 +897,20 @@ _E2E_TAIL = [
         "find": "        const _seenSlugs = new Set();",
         "replace": "        const _seenSlugs = new Set(merged.map((x) => x.slug));",
         "test": "既定プロジェクトの詳細が保存と読み戻しを跨いで変質しない",
+    },
+    {
+        "name": "theme-color がテーマに関わらず常に暗色になる — `isDark ? A : B` を片方に潰す色の取り違えは、ライトテーマを選んだ利用者のモバイルのアドレスバーだけが暗いままになる。**変わるのはページの pixel ではなくブラウザ chrome の色なので screenshot では原理的に捕捉できない**。OS=dark 側のテストは同じ値のまま通るので、OS=light 側の対のテストだけが捕捉する",
+        "file": ROOT / "js" / "theme.js",
+        "find": "            meta.content = isDark ? '#0b0f19' : '#ffffff';",
+        "replace": "            meta.content = '#0b0f19';",
+        "test": "theme-color の実効値が OS=light でもサイトのテーマと一致する",
+    },
+    {
+        "name": "noscript ラッパーが外れて JS 有効時にも説明が描画される — `<noscript>` を素の要素へ置き換えると、**全ページの本文先頭に「JavaScript を有効にしてください」が常時出る**。screenshot は ADVISORY なので気付けず、behavior e2e も『中身がある』ことしか見ていなければ通ってしまう (この対のテストだけが漏れを見る)",
+        "file": ROOT / "index.html",
+        "find": "            <noscript>\n                <div class=\"container\">",
+        "replace": "            <div>\n                <div class=\"container\">",
+        "test": "JavaScript 有効時に noscript の内容が漏れない",
     },
 ]
 
