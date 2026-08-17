@@ -146,6 +146,22 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        catching it (behavior e2e does not assert focus-ring style; screenshot is advisory). Same
        a11y-CSS presence class as Checks 383/101/103. (BLOCKING)
 
+  428. CSS カスタムプロパティの used ⟹ defined (fallback 無しに限る):
+       `var(--x)` を **フォールバック無し**で書いたとき `--x` が
+       定義されていないと、その宣言は *invalid at computed-value
+       time* になり **プロパティごと初期値へ落ちる**。実測
+       (2026-08-17): `.aio-article-card:hover` / `.evidence-card:hover`
+       の `background: var(--card-bg)` がこの状態で、hover のたび
+       背景が light は `rgb(255,255,255)` → `rgba(0,0,0,0)`、dark は
+       `rgb(15,23,42)` → 透明 (body の `rgb(2,6,23)` が透ける) に
+       なっていた —— 「持ち上げて強調する」はずの hover で **カードが
+       表面を失う**逆の見え方。**エラーも警告も出ず、stylelint も
+       通り、screenshot は ADVISORY** なので誰も気付かない。
+       `var(--x, fallback)` 形は意図的な defensive 記法なので対象外
+       (実際 `--bg-elevated` / `--bg-subtle` はフォールバック付きで安全)。
+       icon (375) / data-action (376) / idref (392) / CONSTANTS (393)
+       と同じ used⟹defined 族の CSS 変数面。 (BLOCKING)
+
 """
 import re
 import json
@@ -625,3 +641,31 @@ def run(ctx):
     else:
         check(False, "Check 384: style.css present",
               "Check 384: style.css not found — base :focus-visible outline を検証できない", blocking=True)
+
+    # ── 428. CSS カスタムプロパティの used ⟹ defined (fallback 無しに限る) (BLOCKING) ──
+    # `var(--x)` をフォールバック無しで書いて `--x` が未定義だと、その宣言は
+    # *invalid at computed-value time* になり **プロパティごと初期値へ落ちる**。
+    # 実測 (2026-08-17): hover 背景が transparent へ落ちて「カードが表面を失う」見え方に
+    # なっていた。エラーも警告も出ず stylelint も通り screenshot は ADVISORY なので
+    # 誰も気付かない。`var(--x, fallback)` は意図的な defensive 記法ゆえ対象外。
+    _css428 = ROOT / "style.css"
+    if _css428.exists():
+        _src428 = re.sub(r"/\*.*?\*/", "", _css428.read_text(encoding="utf-8"), flags=re.S)
+        _defined428 = set(re.findall(r"(--[A-Za-z0-9_-]+)\s*:", _src428))
+        # JS が setProperty で注入する変数も「定義済み」として扱う (brand 切替など)
+        for _p428 in sorted((ROOT / "js").glob("*.js")) + [ROOT / "main.js", ROOT / "theme-init.js"]:
+            if _p428.exists():
+                _js428 = re.sub(r"//[^\n]*", "", _p428.read_text(encoding="utf-8"))
+                _defined428 |= set(re.findall(r"setProperty\(\s*['\"](--[A-Za-z0-9_-]+)", _js428))
+        # フォールバック無しの var() だけを対象にする (`var(--x)` で次が `,` でない)
+        _nofallback428 = set(re.findall(r"var\(\s*(--[A-Za-z0-9_-]+)\s*\)", _src428))
+        _undef428 = sorted(_nofallback428 - _defined428)
+        check(
+            not _undef428,
+            f"Check 428: フォールバック無しの var() {len(_nofallback428)} 種すべてが定義済み",
+            (f"Check 428: 未定義のカスタムプロパティをフォールバック無しで参照している: {_undef428} — "
+             "宣言ごと invalid at computed-value time になり **プロパティが初期値へ落ちる** "
+             "(背景なら transparent)。エラーも警告も出ず stylelint も通り screenshot は ADVISORY "
+             "なので誰も気付かない。定義するか `var(--x, fallback)` 形にせよ"),
+            blocking=True,
+        )

@@ -1086,7 +1086,14 @@
         }
         .aio-article-card:hover {
             border-color: var(--color-primary);
-            background: var(--card-bg);
+            /* [FIX] `--card-bg` はどこにも定義されていない。**フォールバックも無い**ため
+               宣言ごと invalid at computed-value time になり、背景が初期値 (transparent) へ
+               落ちていた。実測 (2026-08-17): hover でカード背景が
+                 light  rgb(255,255,255) → rgba(0,0,0,0)
+                 dark   rgb(15,23,42)    → rgba(0,0,0,0) (body の rgb(2,6,23) が透ける)
+               となり、「持ち上げて強調する」はずの hover で **カードが表面を失う**逆の
+               見え方になっていた。意図された値は両テーマで定義済みの --surface-hover。 */
+            background: var(--surface-hover);
             transform: translateY(-2px);
             box-shadow: var(--shadow-sm);
         }
@@ -1159,7 +1166,14 @@
         }
         .evidence-card:hover {
             border-color: var(--color-primary);
-            background: var(--card-bg);
+            /* [FIX] `--card-bg` はどこにも定義されていない。**フォールバックも無い**ため
+               宣言ごと invalid at computed-value time になり、背景が初期値 (transparent) へ
+               落ちていた。実測 (2026-08-17): hover でカード背景が
+                 light  rgb(255,255,255) → rgba(0,0,0,0)
+                 dark   rgb(15,23,42)    → rgba(0,0,0,0) (body の rgb(2,6,23) が透ける)
+               となり、「持ち上げて強調する」はずの hover で **カードが表面を失う**逆の
+               見え方になっていた。意図された値は両テーマで定義済みの --surface-hover。 */
+            background: var(--surface-hover);
             transform: translateY(-2px);
             box-shadow: var(--shadow-sm);
         }
