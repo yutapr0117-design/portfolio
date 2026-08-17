@@ -911,6 +911,13 @@ _E2E_TAIL = [
         "replace": "                if (false) {\n                    try { if (typeof callback === 'function') callback(); }",
         "test": "WCAG 2.3.3: 素の startViewTransition を直接呼んでも reduced-motion では実遷移しない",
     },
+    {
+        "name": "🔴 theme-color の更新が先頭 1 本だけに戻る — index.html は media 付きの theme-color を 2 本宣言しており、querySelector は先頭 (light 用) しか返さない。OS が dark のときは書き換えた meta の media が一致せず適用されないので、選んだテーマがモバイルのアドレスバー色に届かない。**変わるのはページの pixel ではなくブラウザ chrome の色なので screenshot では原理的に捕捉できない**",
+        "file": ROOT / "js" / "theme.js",
+        "find": "        document.querySelectorAll('meta[name=\"theme-color\"]').forEach((meta) => {\n            meta.content = isDark ? '#0b0f19' : '#ffffff';\n        });",
+        "replace": "        const _m = document.querySelector('meta[name=\"theme-color\"]');\n        if (_m) { _m.content = isDark ? '#0b0f19' : '#ffffff'; }",
+        "test": "theme-color の実効値が OS=dark でもサイトのテーマと一致する",
+    },
 ]
 
 _MUTATIONS_TAIL.append({

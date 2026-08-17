@@ -340,3 +340,55 @@ for (const [route, selector, typed] of [
     expect(fatal, `theme toggle caused a fatal: ${fatal}`).toBeNull();
   });
 }
+
+
+// ===== theme-color は「実効値」がサイトのテーマと一致する =====
+// index.html は `media="(prefers-color-scheme: light|dark)"` 付きの theme-color を **2 本**
+// 宣言している (JS が動く前でも OS 設定に合った色を出すため)。theme.js はテーマ切替のたび
+// これを書き換えるが、旧実装は `querySelector` で **先頭の 1 本 (light 用) だけ**を更新して
+// いたので、**OS が dark のときは書き換えた meta の media が一致せず適用されなかった**。
+//
+// 実測 (2026-08-17・OS=dark / サイト=system→dark): light 用に '#0b0f19' が入るのに実効値は
+// dark 用の '#818cf8' (ブランド紫) のままで、**選んだテーマがモバイルのアドレスバー色に
+// 届くのは OS が light のときだけ**だった。
+//
+// **この面は screenshot では原理的に捕捉できない** —— 変わるのはページの pixel ではなく
+// ブラウザ chrome の色。behavior test 以外に捕捉層が無い。
+//
+// 検査は「meta の content」ではなく **media が一致する方の content (= 実効値)** を見る。
+// content だけを見ると、適用されない meta に正しい値が入っているだけで緑になる
+// (まさに旧実装がその状態だった)。
+// NOTE: test 題名は **静的リテラル**にする。template literal で組み立てるとその題名へ
+//   mutation を登録できない (Check 379/397 が `-g` の一意解決を静的に検証するため)。
+//   共通処理は関数へ切り出す —— #1012/#1014 で 2 度踏んだ落とし穴。
+async function expectEffectiveThemeColor(page, os) {
+  await page.emulateMedia({ colorScheme: os });
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  const r = await page.evaluate(() => {
+    const metas = Array.from(document.querySelectorAll('meta[name="theme-color"]'));
+    // media が一致するものが実効値 (後勝ち)。media 無しは常に一致。
+    const eff = metas.filter((m) => !m.media || window.matchMedia(m.media).matches).pop();
+    return {
+      count: metas.length,
+      isDark: document.documentElement.classList.contains('dark'),
+      effective: eff ? eff.content.toLowerCase() : null,
+    };
+  });
+
+  // control: media 付きの複数宣言という前提が崩れていないか (1 本になったら検査の意味が変わる)
+  expect(r.count, 'control: theme-color meta が複数宣言でなくなっている').toBeGreaterThan(1);
+  expect(r.effective,
+    'theme-color の実効値がサイトのテーマと一致しない — '
+    + '適用されない方の meta だけを書き換えている疑い (querySelector は先頭 1 本しか返さない)'
+  ).toBe(r.isDark ? '#0b0f19' : '#ffffff');
+}
+
+test('theme-color の実効値が OS=dark でもサイトのテーマと一致する', async ({ page }) => {
+  await expectEffectiveThemeColor(page, 'dark');
+});
+
+test('theme-color の実効値が OS=light でもサイトのテーマと一致する', async ({ page }) => {
+  await expectEffectiveThemeColor(page, 'light');
+});
