@@ -29,6 +29,7 @@ Exit codes: 0 = 全 mutation を捕捉 (安全網健全) / 1 = SURVIVED あり�
 from __future__ import annotations
 
 import sys
+import time
 
 if sys.version_info < (3, 10):
     # check_repository_consistency.py 等と同様 3.10+ 専用 (PEP 604 等)。明示エラーで早期停止。
@@ -227,6 +228,12 @@ def e2e_main() -> int:
 
     print(f"mutation-probe (e2e): verifying {len(_targets)}/{len(E2E_MUTATIONS)} behavior mutations "
           f"(shard {_shard}/{_shards}) via Playwright...\n")
+    # [FIX] **所要時間を出す**。この probe は timeout に到達すると GitHub 上は cancelled になり、
+    #   success でも failure でもない = 「安全網が健全か結果不明」のまま静かに止まる
+    #   (2026-08-17 に実際に 55m17s / 30m15s の 2 回発生し、どちらも遡って初めて気付いた)。
+    #   毎回 wall-clock と 1 mutation あたりの平均を出しておけば、**timeout に達する前に**
+    #   「そろそろ分割数を上げる時期だ」と気付ける。
+    _t0 = time.monotonic()
     for m in _targets:
         f: Path = m["file"]
         original = f.read_text(encoding="utf-8")
@@ -251,6 +258,11 @@ def e2e_main() -> int:
             f.write_text(original, encoding="utf-8")
 
     print()
+    _elapsed = time.monotonic() - _t0
+    _per = (_elapsed / len(_targets)) if _targets else 0.0
+    print(f"\nelapsed: {_elapsed / 60:.1f} min for {len(_targets)} mutations "
+          f"({_per:.1f}s each) — timeout に近づいたら shard 数を上げる")
+
     if drifted:
         print(f"{len(drifted)} mutation(s) DRIFTED (anchors missing) — update mutation_probe.py:")
         for d in drifted:
@@ -266,7 +278,14 @@ def e2e_main() -> int:
         for s in survived:
             print(f"  - {s}")
         return 1
-    print(f"All {len(E2E_MUTATIONS)} behavior mutations were caught by the e2e net. Net is healthy. ✓")
+    # [FIX] shard 実行では **その shard が検証した件数**だけを主張する。
+    #   `--shard` 導入時に `len(E2E_MUTATIONS)` のままにしていたため、37 件しか回していない
+    #   shard が「All 289 behavior mutations were caught」と**偽の全件主張**を出していた。
+    #   ログだけ読んで「安全網は健全」と結論できてしまうので、範囲を明示する。
+    _scope = (f"All {len(_targets)} behavior mutations" if _shards == 1
+              else f"All {len(_targets)} behavior mutations in shard {_shard}/{_shards} "
+                   f"(of {len(E2E_MUTATIONS)} total)")
+    print(f"{_scope} were caught by the e2e net. Net is healthy. ✓")
     return 0
 
 
