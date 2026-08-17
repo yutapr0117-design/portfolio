@@ -130,41 +130,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "behavior: agentic な描画完了信号の喪失 — main.js の data-ai-state を最終状態も loading:true のままにする → AI エージェントが「永遠に読み込み中」と誤解して待ち続ける。data-ai-state は {route, filter, loading} を公開する機械可読面で、route/filter は既存テストが見ていたが loading のライフサイクルは未被覆だった。視覚に一切出ないため screenshot も通常の behavior test も素通りする",
-        "file": ROOT / "main.js",
-        "find": "                    loading: false",
-        "replace": "                    loading: true",
-        "test": "data-ai-state exposes a true->false loading lifecycle per route",
-    },
-    {
-        "name": "behavior: WebMCP の走査セレクタが実描画に解決しなくなる (#929 の再発) — main.js の [data-ai-role] を、リポジトリのどこにも描画されていない .role-split-item へ戻す → ツールは「現在の DOM 状態から抽出します」と謳いながら常に静的フォールバックを返す。WebMCP は実ブラウザに未実装で登録すらされないため、API を shim して execute() を実行する e2e が唯一の捕捉層",
-        "file": ROOT / "main.js",
-        "find": "document.querySelectorAll('[data-ai-role]')",
-        "replace": "document.querySelectorAll('.role-split-item')",
-        "test": "WebMCP tool extracts from the live DOM on its route and falls back off-route",
-    },
-    {
-        "name": "behavior: home の in-page ジャンプが reduced-motion を無視する (#993 の回帰) — home-page.js の三項を `behavior: 'smooth'` へ戻す → reduce 環境でも no-preference と同一のアニメーション曲線で 1,000px 超スクロールする。CSS の reduce override は behavior 明示呼び出しには効かない (同じ実測で scrollTo(0,0) は reduce のとき即時＝CSS 側は正常に働いていた) ため、誤って「守られている」と読みやすい",
-        "file": ROOT / "js" / "home-page.js",
-        "find": "el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });",
-        "replace": "el.scrollIntoView({ behavior: 'smooth' });",
-        "test": "WCAG 2.3.3: reduced-motion では in-page ジャンプが即時になる",
-    },
-    {
-        "name": "behavior: in-page ジャンプ後に focus が移らなくなる (#993 の回帰) — home-page.js の focus() を潰す → viewport だけが 1,000px 動き、移動先が見えないユーザーには何も起きず、キーボードユーザーの次の Tab は画面外へ去ったボタンから続く (WCAG 2.4.3)",
-        "file": ROOT / "js" / "home-page.js",
-        "find": "el.focus({ preventScroll: true });",
-        "replace": "void 0;",
-        "test": "WCAG 2.4.3: in-page ジャンプが移動先へ focus を移す",
-    },
-    {
-        "name": "behavior: 再描画後の focus 復元機構が失われる (#994 の回帰) — main.js _renderCore の復元条件を潰す → change のたびコントロールが自分自身を DOM ごと消して focus が body へ落ちる。number input は ArrowUp の 1 回目で focus を失い 2 回目以降が効かない (値を 1 段しか動かせない = 実質キーボード操作不能)",
-        "file": ROOT / "main.js",
-        "find": "            if (_restoreFocusId && _focusWasLost) {",
-        "replace": "            if (false && _restoreFocusId && _focusWasLost) {",
-        "test": "WCAG 2.1.1: ポモドーロの設定を ArrowUp で連続操作できる",
-    },
-    {
         "name": "behavior: 再描画前の focus 控えが失われる (#994 の回帰・復元の対) — main.js _renderCore が clear の前に控える id を常に null にする → 復元条件は残るが鍵が無くなり、同じく focus が body へ落ちる。Todo の完了チェックは 1 件チェックするたび focus を失い、次の項目を Space で続けてチェックできない",
         "file": ROOT / "main.js",
         "find": "                ? _prevActive.id : null;",
@@ -939,6 +904,27 @@ _E2E_TAIL = [
         "find": '<div id="aio-asset-anchor" hidden aria-hidden="true"',
         "replace": '<div id="aio-asset-anchor" aria-hidden="true"',
         "test": "AIO asset anchor must be hidden (non-visual)",
+    },
+    {
+        "name": "テーマ選択が永続化されなくなる — cycle() の updateSilently を外すと、切り替えた直後は正しく見えるのに **reload すると元に戻る**。「設定したのに戻っている」という形で出るので、利用者は自分の操作ミスと区別できない",
+        "file": ROOT / "js" / "theme.js",
+        "find": "        State.updateSilently(s => s.theme = next);",
+        "replace": "",
+        "test": "Theme toggle cycles data-theme and persists across reload",
+    },
+    {
+        "name": "theme='system' が OS のテーマ変更に追従しなくなる — matchMedia の change リスナーが state を見なくなると、OS をダークへ切り替えてもサイトはライトのまま。**リロードするまで直らない**ので、利用者からは「追従が壊れている」ではなく「たまに合わない」と見える",
+        "file": ROOT / "js" / "theme.js",
+        "find": "            if (State.get().theme === 'system') {",
+        "replace": "            if (false) {",
+        "test": "Theme \"system\" follows runtime OS color-scheme changes",
+    },
+    {
+        "name": "startViewTransition proxy が install されなくなる — proxy は『executeSafeTransition を経由せず素の API を直接呼ぶ実装』でも try/catch + timeout + reduced-motion が効くようにするための層 (Check 43b が名前の存在を BLOCKING 監視するが、**install されているかまでは見ない**)。抜けると ErrorBoundary (C3) の保証がその経路から漏れる",
+        "file": ROOT / "main.js",
+        "find": "            if (!document.startViewTransition) { return; } // 未対応環境はスキップ",
+        "replace": "            return;",
+        "test": "5-layer proxy: document.startViewTransition is overridden by proxy",
     },
 ]
 
