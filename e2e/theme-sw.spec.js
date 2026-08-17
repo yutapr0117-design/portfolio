@@ -392,3 +392,49 @@ test('theme-color の実効値が OS=dark でもサイトのテーマと一致�
 test('theme-color の実効値が OS=light でもサイトのテーマと一致する', async ({ page }) => {
   await expectEffectiveThemeColor(page, 'light');
 });
+
+
+// ===== Settings のブランド選択が実際に永続化される (write 面) =====
+// 既存のブランド関連テストは **読み取り側**しか見ていない ——
+//   - `theme-init.js applies stored brand on initial load` は localStorage を**直接 seed** して
+//     pre-paint 適用を検証する (書き込み経路を通らない)
+//   - a11y-axe のコントラスト検査は `data-brand` を**直接書き換える** (同上)
+// つまり **Settings の選択が保存されなくなっても、どちらも緑のまま通る**。
+// producer/consumer の producer 側が未被覆という #294 と同じ class。
+//
+// ブランドは配色の単一ソース (`--color-primary-rgb` から primary が導出される) なので、
+// 保存されないと **リロードのたび既定へ戻る**。「設定したのに戻っている」形で出るので、
+// 利用者は自分の操作ミスと区別できない。
+test('Settings のブランド選択がリロードを跨いで保持される', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.reload();
+  await expect(page.locator('#main-content h1').first()).toBeVisible();
+
+  const select = page.locator('#brandSelect');
+  await expect(select, 'control: ブランド選択が描画されていない').toHaveCount(1);
+
+  const before = await page.evaluate(() =>
+    getComputedStyle(document.documentElement).getPropertyValue('--color-primary-rgb').trim());
+
+  // キーボード相当の変更 (selectOption は focus を残さないので dispatch で作る)
+  await select.evaluate((el) => {
+    const next = Array.from(el.options).map((o) => o.value).find((v) => v !== el.value);
+    el.focus();
+    el.value = next;
+    el.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+
+  const after = await page.evaluate(() =>
+    getComputedStyle(document.documentElement).getPropertyValue('--color-primary-rgb').trim());
+  // control: 切替が実際に効いている (効いていなければ以降は何も検査していない)
+  expect(after, 'control: ブランドを変えても配色が変わらない').not.toBe(before);
+
+  await page.reload();
+  await expect(page.locator('#main-content h1').first()).toBeVisible();
+  const afterReload = await page.evaluate(() =>
+    getComputedStyle(document.documentElement).getPropertyValue('--color-primary-rgb').trim());
+
+  expect(afterReload,
+    'ブランド選択がリロードで既定へ戻っている — 配色の単一ソースなので「設定したのに戻る」形で出る'
+  ).toBe(after);
+});
