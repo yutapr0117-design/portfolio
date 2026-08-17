@@ -913,6 +913,13 @@ _E2E_TAIL = [
     },
 ]
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 427: BLOCKING の behavior gate が main で走らなくなり監査バッジが空白へ戻る — playwright-regression.yml から push(main) トリガを外すと、その workflow の run は PR の head 側にしか記録されず main に残らないため、STATUS.md の ?branch=main バッジが永久に 'no status' の空白になる。オーナーの唯一の監査導線に『緑』ではなく『何も分からない』が出るが、Check 415 は『バッジが在るか』しか見ないので素通りする",
+    "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
+    "find": "  push:\n    branches: [ \"main\" ]\n    paths:",
+    "replace": "  push_disabled:\n    branches: [ \"main\" ]\n    paths:",
+})
+
 
 # 公開 API: e2e archive(古) + tail(新) の連結 (consistency 側 MUTATIONS と同じ log-rotation 方式)。
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

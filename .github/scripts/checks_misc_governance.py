@@ -105,6 +105,19 @@ Exit codes:
        「存在 ≠ 配線」の穴を塞ぐ (file を消さずに workflow の 1 行を消せば silent に無効化
        できてしまう)。(BLOCKING)
 
+  427. STATUS.md の `?branch=main` バッジは push(main) トリガを持つ
+       workflow に限る: GitHub の workflow badge は指定ブランチ**上の
+       実行**からしか状態を作れない。schedule / workflow_dispatch は
+       既定ブランチで走るのでバッジを埋めるが、**`pull_request:` だけで
+       起動する workflow の run は PR の head 側に記録され main には
+       残らない**ため、`?branch=main` を付けると run が 1 件も無く
+       バッジは永久に "no status" の空白になる。実測 (2026-08-17)
+       では BLOCKING の behavior gate (playwright-regression.yml) が
+       まさにこの状態で、オーナーの唯一の監査導線に「緑」ではなく
+       「何も分からない」を出していた。Check 415 は「バッジが**在るか**」
+       しか見ないため、**在るのに何も映さない**この class は素通りする。
+       (BLOCKING)
+
 """
 import re
 import json
@@ -469,3 +482,47 @@ def run(ctx):
               "公開サイトの版数検証の配線を確認できない",
               blocking=True)
 
+
+    # ── 427. STATUS.md の ?branch=main バッジは push(main) トリガを持つ workflow に限る (BLOCKING) ──
+    # GitHub の workflow badge は「そのブランチ上の実行」からしか状態を作れない。
+    # `pull_request:` だけで起動する workflow の run は PR の head 側に記録され main には
+    # 残らないので、`?branch=main` を付けたバッジは **run が 1 件も無く永久に空白**になる。
+    # 実測 (2026-08-17): BLOCKING の behavior gate (playwright-regression.yml) がまさにこの
+    # 状態で、オーナーの唯一の監査導線に「緑」ではなく「何も分からない」を出していた。
+    # Check 415 は「バッジが**在るか**」しか見ないため、**在るのに何も映さない**この class は
+    # 素通りする (存在 ≠ 機能・Check 133/134/135 と同じ差)。
+    _status427 = ROOT / "STATUS.md"
+    _wfdir427 = ROOT / ".github" / "workflows"
+    if _status427.exists() and _wfdir427.exists():
+        _blank427 = []
+        for _m427 in re.finditer(r"/actions/workflows/([\w.-]+\.yml)/badge\.svg\?branch=main",
+                                 _status427.read_text(encoding="utf-8", errors="replace")):
+            _wf427 = _wfdir427 / _m427.group(1)
+            if not _wf427.exists():
+                _blank427.append(f"{_m427.group(1)} (workflow file 不在)")
+                continue
+            _nc427 = "\n".join(_l for _l in _wf427.read_text(encoding="utf-8", errors="replace").splitlines()
+                               if not _l.lstrip().startswith("#"))
+            _on427 = re.search(r"^on:\s*$(.*?)(?=^\S)", _nc427, re.M | re.S)
+            _blk427 = _on427.group(1) if _on427 else _nc427
+            # main 上に run を作るトリガがあるか。**`pull_request` だけが作らない** ——
+            # schedule / workflow_dispatch は既定ブランチで走るので main のバッジを埋める
+            # (実測: schedule のみの aio-monitoring.yml / mutation-probe.yml は "passing" を
+            #  表示していた。この Check の初版は push だけを条件にして 2 本を誤検出し、
+            #  実測がその場で前提を反証した)。
+            _push427 = re.search(r"^  push:\s*$(.*?)(?=^  \w|\Z)", _blk427, re.M | re.S)
+            _runs_on_main427 = bool(
+                (_push427 and re.search(r"\bmain\b", _push427.group(1)))
+                or re.search(r"^  (schedule|workflow_dispatch|repository_dispatch):", _blk427, re.M)
+            )
+            if not _runs_on_main427:
+                _blank427.append(_m427.group(1))
+        check(
+            not _blank427,
+            "Check 427: STATUS.md の ?branch=main バッジは全て push(main) トリガを持つ workflow を指す",
+            (f"Check 427: main での実行が起きない workflow に ?branch=main バッジを付けている: "
+             f"{_blank427} — run が 1 件も無いのでバッジは永久に 'no status' の空白になり、"
+             "オーナーの監査導線に『緑』ではなく『何も分からない』を出す。push(main) トリガを "
+             "足すか、バッジを出さないかのどちらかにせよ"),
+            blocking=True,
+        )

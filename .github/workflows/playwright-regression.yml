@@ -13,6 +13,47 @@ name: Playwright Visual Regression & Behavior Validation
 # ======================================================================
 
 on:
+  # [FIX] main への push でも走らせる。理由は 2 つある。
+  #   (1) **バッジが構造的に空白だった**。STATUS.md はオーナーの唯一の監査導線で、
+  #       バッジ URL は `?branch=main` を指す。この workflow は `pull_request:` しか
+  #       持たず main での実行が 0 件だったため、**BLOCKING の behavior gate だけが
+  #       「no status」の空白バッジ**になっていた (実測 2026-08-17)。全 PR ゲートが
+  #       緑でも、オーナーからは「緑」ではなく「何も分からない」状態だった。
+  #   (2) **merge 後の main そのものを検証する層が無かった**。PR ごとに緑でも、
+  #       別々の PR が main 上で相互作用して壊れることはありうる (PR は自分の
+  #       head でしか検証されない)。push トリガはその合流点を実際に確かめる。
+  #   paths フィルタは pull_request 側と同一にして、docs のみの merge で 5 分の
+  #   ジョブが無駄に走らないようにする。
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'index.html'
+      - 'main.js'
+      - 'js/**'
+      - 'style.css'
+      - 'aio-guard.js'
+      - 'error-suppressor.js'
+      - 'theme-init.js'
+      - 'karte-init.js'
+      - 'sw.js'
+      - 'yuta-yokoi-ai-pm-orchestration-system.webp'
+      - 'yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3'
+      - 'llms.txt'
+      - 'llms-full.txt'
+      - 'AI2AI.md'
+      - '.well-known/**'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'e2e/**'
+      - 'playwright.config.cjs'
+      # The e2e toolchain itself lives in the dependency manifest: @playwright/test
+      # (the runner) and @axe-core/playwright (a11y assertions) plus their transitive
+      # deps can change e2e BEHAVIOR without any shipped-site file changing. Without
+      # these in the trigger, a dep bump would skip the BLOCKING behavior gate and
+      # ship an unverified test-toolchain change. Check 142 enforces their presence.
+      - 'package.json'
+      - 'package-lock.json'
+
   pull_request:
     branches: [ "main" ]
     paths:
