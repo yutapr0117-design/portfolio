@@ -229,16 +229,28 @@ test('Quiz search announces the match count in a live region (WCAG 4.1.3)', asyn
 // architecture は被覆済みだが、pm(pmQuizData) / quality(qualityQuizData) はどのテストでも未訪問で
 // 0 カバレッジ = malformed でも未検知だった。?type= 経由で両者の title + question block 描画を検証し
 // 2 データファイルの renderability を守る (distinct data ゆえ非 padding)。
+// [FIX] 旧版は **見出しとブロックの存在しか見ていなかった**。見出しは QUIZ_DATA_MAP の
+//   `title` から出るので、`data:` を別の問題集へ取り違えても (map 内の copy-paste 事故)
+//   「PM問題集」の見出しで AWS の問題が並ぶ状態が **緑のまま通る** (実測: pm の data を
+//   awsQuizData へ差し替えても pass した)。**題名は「render their data files」と主張して
+//   いるのに、どのデータかを検証していなかった。** 各データ固有の本文で中身まで見る。
 test('Quiz pm and quality types render their data files', async ({ page }) => {
   await page.goto('/#/quiz?type=pm');
   await page.waitForLoadState('domcontentloaded');
   await expect(page.locator('h1', { hasText: 'PM問題集' })).toBeVisible();
   await expect(page.locator('.quiz-question-block').first()).toBeVisible();
+  // pm データ固有の本文 (aws/quality には無い)
+  await expect(page.locator('#content'),
+    'PM問題集の見出しなのに PM データが描画されていない — QUIZ_DATA_MAP の data 取り違え'
+  ).toContainText('要求が曖昧なまま始まりそうなとき');
 
   await page.goto('/#/quiz?type=quality');
   await page.waitForLoadState('domcontentloaded');
   await expect(page.locator('h1', { hasText: '品質・プロセス問題集' })).toBeVisible();
   await expect(page.locator('.quiz-question-block').first()).toBeVisible();
+  await expect(page.locator('#content'),
+    '品質問題集の見出しなのに品質データが描画されていない — QUIZ_DATA_MAP の data 取り違え'
+  ).toContainText('品質が落ち始めた兆候');
 });
 
 

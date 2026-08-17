@@ -130,41 +130,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "behavior: quiz の章題が見出し要素でなくなる (#1012 の回帰) — 本文 24,500 文字のページに見出しが H1 の 1 個だけになり、スクリーンリーダーの見出しジャンプで 7 章のどこにも飛べない。NOTE: `quiz-section-title` の行は file 内に 2 箇所あり (architecture quiz 用と既存問題集用)、**既定の aws quiz が通るのは後者**。1 行だけの find だと前者に当たって偽 PASS するので、直前の icon 行を含めて一意にしている (Check 420 の要求そのもの)",
-        "file": ROOT / "js" / "quiz-renderer.js",
-        "find": "                    sHeader.appendChild(h(\"div\", { class: \"quiz-section-icon\", 'aria-hidden': 'true' }, \"\U0001F4DD\"));\n                    sHeader.appendChild(h(\"h2\", { class: \"quiz-section-title\" }, section));",
-        "replace": "                    sHeader.appendChild(h(\"div\", { class: \"quiz-section-icon\", 'aria-hidden': 'true' }, \"\U0001F4DD\"));\n                    sHeader.appendChild(h(\"div\", { class: \"quiz-section-title\" }, section));",
-        "test": "quiz の章題が実際の見出し要素である",
-    },
-    {
-        "name": "behavior: プロジェクト一覧のリスト意味論が失われる (#1013 の回帰) — 18 件の同列カードが SR に「リスト・18 項目」とアナウンスされなくなり、リスト単位のジャンプ操作も効かなくなる。視覚には一切出ないので screenshot でも通常の behavior test でも捕捉できない",
-        "file": ROOT / "js" / "projects-page.js",
-        "find": "            gridContainer.setAttribute('role', 'list');",
-        "replace": "            void 0;",
-        "test": "プロジェクト一覧がリストとしてアナウンスされる",
-    },
-    {
-        "name": "behavior: アプリ一覧の listitem が失われる (#1013 の回帰) — role=list の中身が listitem でなくなり、項目数のアナウンスもリスト内移動も壊れる (axe の aria-required-children でも捕捉されうるが、こちらは項目数の一致まで見る)",
-        "file": ROOT / "js" / "components.js",
-        "find": "h('article', { class: 'card', role: 'listitem' },",
-        "replace": "h('article', { class: 'card' },",
-        "test": "アプリ一覧がリストとしてアナウンスされる",
-    },
-    {
-        "name": "behavior: ポモドーロ設定ラベルの for 結線が失われる (#1014 の回帰) — ラベル文字をクリック/タップしても入力欄が活性化せず、タップ標的も入力欄だけに縮む。入力欄側に aria-label があるため **axe は緑のまま** (axe は『label 要素が孤立していること』をルール化していない)",
-        "file": ROOT / "js" / "pomodoro-page.js",
-        "find": ", for: 'pomo-setting-long' }, '長休憩'),",
-        "replace": " }, '長休憩'),",
-        "test": "ポモドーロはラベル文字のクリックで入力欄が活性化する",
-    },
-    {
-        "name": "behavior: Settings の checkbox グループ名が宙に浮いた label へ戻る (#1014 の回帰) — 「対象」は 3 つの checkbox をまとめるグループ名で、単一 control を指す for は使えない。label のままだとどの control にも結び付かず、グループとしての関連付けも失われる",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "h('span', { class: 'text-sm text-muted', id: 'settingsIncludeGroupLabel' }, '対象'),",
-        "replace": "h('label', { class: 'text-sm text-muted' }, '対象'),",
-        "test": "Settings に宙に浮いた label が無い",
-    },
-    {
         "name": "behavior: CSP 違反検出ゲートが機能するかの自己検証 (#1016) — index.html に `data:` スクリプトを注入して **本物の CSP 違反**を起こす。旧実装は『メッセージ全体に karte が含まれるか』で除外していたが、CSP 違反メッセージには違反した directive の全文が載り、この CSP は KARTE ホストを許可しているため **あらゆる違反が除外され gate が絶対に落ちない**状態だった。ブロック対象 URL のホスト名で判定する形へ是正済み",
         "file": ROOT / "index.html",
         "find": "</head>",
@@ -925,6 +890,27 @@ _E2E_TAIL = [
         "find": "        const b = apply(brand);\n        storage.set(KEY, b);",
         "replace": "        apply(brand);",
         "test": "Settings のブランド選択がリロードを跨いで保持される",
+    },
+    {
+        "name": "QUIZ_DATA_MAP の data 取り違え — pm の `data:` を別の問題集へ差し替えると、**見出しは QUIZ_DATA_MAP の `title` から出るので「PM問題集」のまま**で、中身だけ別の問題集になる。旧テストは見出しとブロックの存在しか見ておらず **緑のまま通っていた** (実測)。map 内の copy-paste 事故で現実に起こりうる形",
+        "file": ROOT / "js" / "quiz-renderer.js",
+        "find": "            pm: { title: 'PM問題集', data: pmQuizData },",
+        "replace": "            pm: { title: 'PM問題集', data: awsQuizData },",
+        "test": "Quiz pm and quality types render their data files",
+    },
+    {
+        "name": "Cmd+K からプロジェクトが検索できなくなる — 候補生成でプロジェクトを落とすと、パレットは**全ルートから開ける横断導線**なので「どこからでもプロジェクトへ飛べる」経路が丸ごと死ぬ。ナビ項目は残るので**パレット自体は正常に見える**",
+        "file": ROOT / "js" / "command-palette.js",
+        "find": "            .filter(p => p && p.slug && p.name && !_hidden.has(String(p.id)))",
+        "replace": "            .filter(() => false)",
+        "test": "Command palette searches projects and jumps to a project detail",
+    },
+    {
+        "name": "矢印移動で aria-activedescendant が active option へ同期しなくなる — palette は focus を input に留めて ↑↓ で listbox を操作する combobox なので、**SR には activedescendant だけが「今どれが選ばれているか」を伝える**。視覚的なハイライトは残るため目視では気付けない (WCAG 4.1.2・#699)",
+        "file": ROOT / "js" / "command-palette.js",
+        "find": "        if (inputEl && activeLi && activeLi.id) { inputEl.setAttribute('aria-activedescendant', activeLi.id); }",
+        "replace": "",
+        "test": "Command palette input tracks active option via aria-activedescendant",
     },
 ]
 
