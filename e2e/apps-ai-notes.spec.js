@@ -650,3 +650,50 @@ test('上限いっぱいのノートでもプレビューが末尾まで描画�
   const fatal = await page.evaluate(() => (window.__fatalError ? String(window.__fatalError.message) : null));
   expect(fatal, `上限いっぱいのノートで fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== AI 送信の連打で会話が二重に積まれない =====
+// `submit()` は `aiLoading` を立てて入力/送信を disabled にするが、**キーリピートや連打では
+// 描画が追いつく前に次の keydown が届く**（#1061 で task/todo の Enter 連打が実バグ化した形）。
+// AI は 1 回の送信が history エントリと 300ms の生成を伴うので、二重登録は
+// **会話ログが壊れる + localStorage が無駄に膨らむ**形で残る。
+//
+// disabled 属性に頼らず **同期で連続 keydown を投げる**のが要点。`press()` を 3 回呼ぶと
+// 各回の間に再描画が挟まり、**実際のキーリピートを再現できない**（落とし穴表の既存行）。
+test('AI 送信の連打で同じ会話が二重に積まれない', async ({ page }) => {
+  await page.goto('/#/apps/ai');
+  await page.reload();
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  const input = page.locator('#ai-input');
+  await expect(input).toBeVisible();
+  await input.fill('RAPID-AI-SUBMIT-3301');
+
+  // キーリピート相当: 再描画を待たずに同期で 3 連投
+  await input.evaluate((el) => {
+    for (let i = 0; i < 3; i++) {
+      el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+    }
+  });
+
+  // 応答生成 (setTimeout 300ms) + debounce 保存を待ってから確定値を読む
+  await expect
+    .poll(() => page.evaluate(() => {
+      const raw = localStorage.getItem('portfolio_enhanced_v45');
+      if (!raw) { return -1; }
+      const h = (JSON.parse(raw).appsData || {}).ai;
+      return h && Array.isArray(h.history) ? h.history.length : -1;
+    }))
+    .toBeGreaterThan(0);
+
+  const entries = await page.evaluate(() => {
+    const h = JSON.parse(localStorage.getItem('portfolio_enhanced_v45')).appsData.ai.history;
+    return h.filter((x) => (x.prompt || '').includes('RAPID-AI-SUBMIT-3301')).length;
+  });
+  expect(entries,
+    'AI 送信の連打で同じ会話が複数回積まれた — 会話ログが壊れ localStorage も無駄に膨らむ'
+  ).toBe(1);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? String(window.__fatalError.message) : null));
+  expect(fatal, `連打で fatal: ${fatal}`).toBeNull();
+});
