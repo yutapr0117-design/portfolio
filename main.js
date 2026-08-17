@@ -501,7 +501,7 @@
         const { PomodoroPage, resumeIfActive } = createPomodoroPage({ h, createIcon, State, Router, Toast, clamp, CONSTANTS });
         // 2026-07-05 bloat-reduction: SettingsPage は別葉モジュール createSettingsPage で生成
         //   (依存は h/Toast/State/Brand/Store/Storage/CONSTANTS/generateId/slugify)
-        const { SettingsPage } = createSettingsPage({ h, Toast, State, Brand, Store, Storage, CONSTANTS, generateId, slugify });
+        const { SettingsPage } = createSettingsPage({ h, Toast, State, Brand, Store, Storage, CONSTANTS, generateId, slugify, announce });
 
 
         // ===== v80+ Stage 5-o: Quiz Renderer =====

@@ -23,13 +23,14 @@
  *   - Storage: js/storage.js (snapshot parse/set/remove)
  *   - CONSTANTS: js/constants.js (SNAPSHOT_KEY / SCHEMA_VERSION / LIMITS.PROJECT_NAME)
  *   - generateId, slugify: js/pure-utils.js
+ *   - announce: js/ui-components.js (sr-only の唯一の通知チャネル・Check 407 が単一 writer を強制)
  *
  * 不変条件:
  *   - 本モジュールは葉 (ローカル import ゼロ)。依存は createSettingsPage の引数で受け取る。
  *   - restoreSnapshot / importJSON は必ず Store.validateAndNormalize を通す (#93/#295/#561 class:
  *     外部入力 ingestion は全経路正規化)。抽出でこの契約を変えないこと。
  */
-export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CONSTANTS, generateId, slugify }) {
+export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CONSTANTS, generateId, slugify, announce }) {
     // ===== Component: Settings Page =====
     let settingsImportMode = 'append';
     let settingsIncludeProfile = true;
@@ -310,13 +311,24 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
             });
         }
 
+        // [A11Y 4.1.3] 並べ替えは **視覚では分かるが SR には無音**だった。ボタンのアクセシブル名
+        //   (「下へ移動：<プロジェクト名>」) は移動後も変わらず、focus も同じボタンへ戻る (#1000) ため、
+        //   SR 利用者には **押しても何も起きていないのと区別がつかない**。実測 (2026-08-17) で
+        //   `#action-announcement` が空のままだったことを確認した (task のステータス移動 #1107 と同型)。
+        //   位置と総数まで読むのは、**一覧を見渡せない利用者には「何番目へ動いたか」が唯一の手がかり**だから。
+        //   Toast (視覚ポップアップ) にしないのは、並べ替えが連続操作だから (#1107 と同じ判断)。
         function moveProject(idx, dir) {
+            let moved = null;
             State.update(s => {
                 if (idx + dir < 0 || idx + dir >= s.projects.length) {return;}
                 const temp = s.projects[idx];
                 s.projects[idx] = s.projects[idx + dir];
                 s.projects[idx + dir] = temp;
+                moved = { name: temp.name, pos: idx + dir + 1, total: s.projects.length };
             });
+            if (moved) {
+                announce(`「${moved.name}」を ${moved.pos} 番目へ移動しました（全 ${moved.total} 件）`);
+            }
         }
 
         function normalizeNow() {
