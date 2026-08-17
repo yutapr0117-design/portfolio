@@ -172,6 +172,32 @@ def main() -> int:
     return 0
 
 
+def _parse_shard() -> tuple[int, int]:
+    """`--shard i/n` を解析する。未指定は 1/1 (= 全件)。
+
+    分割は `index % n == i-1` の決定的な剰余で行う。連続ブロック分割ではなく剰余にするのは、
+    mutation の所要時間が file ごとに偏る (重い e2e が固まっている領域がある) ため、
+    剰余の方が各 shard の負荷が均されるから。
+    """
+    for a in sys.argv:
+        if a.startswith("--shard="):
+            spec = a.split("=", 1)[1]
+        elif a == "--shard":
+            idx = sys.argv.index(a)
+            spec = sys.argv[idx + 1] if idx + 1 < len(sys.argv) else "1/1"
+        else:
+            continue
+        try:
+            i, n = spec.split("/")
+            i, n = int(i), int(n)
+        except (ValueError, IndexError):
+            raise SystemExit(f"ERROR: invalid --shard spec {spec!r} (expected i/n)")
+        if not (1 <= i <= n):
+            raise SystemExit(f"ERROR: --shard {i}/{n} out of range")
+        return i, n
+    return 1, 1
+
+
 def e2e_main() -> int:
     """--e2e モード: behavior e2e (Playwright) 安全網の非 vacuous 検証。
 
@@ -183,8 +209,20 @@ def e2e_main() -> int:
     drifted: list[str] = []
     broken: list[str] = []
 
-    print(f"mutation-probe (e2e): verifying {len(E2E_MUTATIONS)} behavior mutations via Playwright...\n")
-    for m in E2E_MUTATIONS:
+    # [FIX] **シャーディング**。behavior probe は mutation ごとに Playwright を起動するため
+    #   所要時間が mutation 数にほぼ比例する。2026-08-17 に mutation を 240 → 289 件へ増やした
+    #   結果、単一ジョブの実測が **55 分 17 秒**となり `timeout-minutes: 55` に到達して
+    #   **cancelled** で打ち切られた。cancelled は success でも failure でもないので、
+    #   **安全網の自己検証が「結果不明」のまま静かに止まる**最悪の形になる
+    #   (しかも週次実行ゆえ誰も rerun しない)。timeout を上げるだけでは mutation を足すたび
+    #   同じことが再発するので、`--shard i/n` で分割して wall-clock を n 分の 1 にする。
+    #   分割は決定的 (index % n) で、全 shard の和が必ず全 mutation を 1 回ずつ覆う。
+    _shard, _shards = _parse_shard()
+    _targets = [m for i, m in enumerate(E2E_MUTATIONS) if i % _shards == _shard - 1]
+
+    print(f"mutation-probe (e2e): verifying {len(_targets)}/{len(E2E_MUTATIONS)} behavior mutations "
+          f"(shard {_shard}/{_shards}) via Playwright...\n")
+    for m in _targets:
         f: Path = m["file"]
         original = f.read_text(encoding="utf-8")
         if m["find"] not in original:
