@@ -31,6 +31,13 @@ npx playwright test --config=playwright.config.cjs
 
 ## このリポジトリの e2e で繰り返し踏んだ落とし穴（実測に基づく）
 
+> **不変性アサーションの棚卸し（2026-08-17 実測・再実行不要）**: 「操作 → settle も expect も
+> 挟まず単発 `evaluate` で読む」形は全 spec で **3 件**だけで、いずれも **同期更新される値**
+> （focus / textarea の value / documentElement の属性）を読んでおり安全。**静的 Check は
+> 作らない** —— この 3 件を RED にする brittle gate になるため（「どの操作が非同期再描画を
+> 起こすか」は静的に決まらない）。危険なのは *非同期再描画* が絡む場合だけで、その 1 件は
+> #1112 で修正済み。
+>
 > **不在アサーションの棚卸し（2026-08-17 実測）**: `not.toContainText` / `not.toBeVisible` /
 > `toHaveCount(0)` / `not.toContain` は全 spec で 95 箇所。うち「同じ test 内に先行する肯定
 > アサーションが無い」ものは **1 箇所だけ**で（cross-tab の negative baseline）、実測では
@@ -45,6 +52,7 @@ npx playwright test --config=playwright.config.cjs
 | `waitForLoadState('networkidle')` | 外部 Fonts / service worker の background fetch で CI が 30s ハングする flake（screenshot 以外では禁止・Check 111） | `domcontentloaded` + expect の auto-wait |
 | **「起きないこと」を非同期処理の直後に読む** | 検査対象が `await` を挟む非同期（`window.render()` は `yieldToMain()` を挟む）だと、切替直後の読み取りは**まだ起きていない状態**を掴む。つまり **実際には起きていても「起きていない」と読めて通る**。実測（2026-08-17）: 同じ mutation がローカルでは CAUGHT・週次 probe（CI）では **SURVIVED** になり、環境で結果が変わる race だった | **settle させてから 1 度だけ読む**。`await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))))` で「起きるなら起ききった」状態にする。poll は使えない（不変性の検査では最初の観測で成立してしまう） |
 | **不変性の検査に `expect.poll`** | poll は**最初の観測で条件を満たした瞬間に成功**するため、その後に起きる変化を見逃す。「スクロール位置が動かないこと」を poll で書いたら 2 つの実バグ mutation が**両方素通り**した | settle を待ってから **1 度だけ**確定値を読む |
+| （上 2 行の使い分け・2026-08-17 に実測して確定） | **違反が「一過性」か「持続」か**で正しい書き方が変わる。**一過性**（スクロールが動いてから戻る等）は poll だと途中を拾って通ってしまうので settle 後に 1 度読む。**持続**（入力が消えたまま・要素が別ノードに置き換わったまま）は、むしろ `toHaveValue` などの **auto-retry が正しく捕捉する** —— 実測: 絞り込みを全再描画へ戻す mutation は `toHaveValue` の retry で **5/5 決定的に fail** した。逆に retry の無い**単発 `evaluate`** は非同期処理の前に読んで false-pass する（#1112） | 「違反したら**その状態が残るか**」で選ぶ。残るなら auto-retry / 残らないなら settle して 1 度読む |
 | 不在の検査（`toHaveCount(0)`）を goto 直後に評価 | async 描画とレースし「まだ無い」を「無い」と誤認する | 先に「在るはず」の要素の visible を待って描画を確定させる |
 | **不在の検査の対象を、そのページが描画しないものにする** | 「`[object Object]` が出ないこと」を ContactPage で `profile.name` について検査していたが、**ContactPage は `name` を描画しない**（描くのは email / github / linkedin）。しかも github・linkedin は `safeStr` ではなく `safeUrl` を通る。つまり守りたい関数の型ガードを外しても**その文字列が現れる余地が無く、最初から何も検査していなかった**。もう 1 つのケースが生きている間は隠れており、そちらが独立ガード追加（#1080）で通らなくなって初めて週次 probe が SURVIVED として露出させた（#1096） | 検査対象は「**守りたい関数を実際に通り、かつそのページが描画するフィールド**」から選ぶ。選んだら `control`（その要素が実際に描画されている）を同じ test に置く —— 実際にこの control が 2 回落ちて思い込みを潰した |
 | `fill()` で入力を検証 | value を直接代入するため focus 喪失系のバグを検出できない（quiz 検索の focus 喪失が gate を素通りした） | 実キー入力の `type()` / `keyboard.insertText()` |
