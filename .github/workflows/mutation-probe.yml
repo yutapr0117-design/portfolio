@@ -104,13 +104,17 @@ jobs:
     #   timeout を上げるだけでは mutation を足すたび再発するので shard で wall-clock を割る。
     #   分割は `index % n` の決定的な剰余で、全 shard の和が必ず全 mutation を 1 回ずつ覆う
     #   (mutation_probe.py の _parse_shard に単体検証あり)。
-    name: Behavior (e2e) safety-net self-check (shard ${{ matrix.shard }}/4)
+    #   **4 分割では足りなかった (2026-08-17 実測)**: 14m56s / 17m22s / **30m15s** / 15m46s と
+    #   shard 3 だけ約 2 倍になり timeout 30 分に到達して cancelled。剰余は「均等な件数」を
+    #   作るが「均等な所要」は作らない (長い待ちを含むテストは 1 mutation で 30 秒超)。
+    #   8 分割へ上げて 1 shard の粒度を細かくし、最悪ケースを半減させる。
+    name: Behavior (e2e) safety-net self-check (shard ${{ matrix.shard }}/8)
     runs-on: ubuntu-latest
-    timeout-minutes: 30   # 4 分割後の想定は ~14 分。余裕を 2 倍取る
+    timeout-minutes: 30   # 8 分割後の最悪ケース想定 ~15 分 (4 分割の実測最悪 30m15s の半分) に 2 倍の余裕
     strategy:
       fail-fast: false    # 1 shard が落ちても他 shard の結果を必ず得る (どこが vacuous か知りたい)
       matrix:
-        shard: [1, 2, 3, 4]
+        shard: [1, 2, 3, 4, 5, 6, 7, 8]
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -136,7 +140,7 @@ jobs:
       - name: Run behavior (e2e) probe
         env:
           MUTATION_PROBE: '1'
-        run: python3 .github/scripts/mutation_probe.py --e2e --shard ${{ matrix.shard }}/4
+        run: python3 .github/scripts/mutation_probe.py --e2e --shard ${{ matrix.shard }}/8
 
       - name: Assert working tree is restored
         if: always()
