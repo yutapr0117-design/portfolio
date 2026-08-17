@@ -912,6 +912,20 @@ _E2E_TAIL = [
         "replace": "        (function _installEventListenerRegistry() {\n            window.addEventListener = window.addEventListener.bind(window);",
         "test": "5-layer proxy: window.addEventListener is not directly overwritten",
     },
+    {
+        "name": "home の注目枠が非表示を無視して戻る (#886) — 既定プロジェクトは削除できず「非表示」が唯一の非公開手段なので、隠したはずのものがトップの注目枠に出続けるのは **公開/非公開の意思**の喪失。ProjectsPage だけ塞いでも home が漏れる listing mesh の一角",
+        "file": ROOT / "js" / "home-page.js",
+        "find": "        const visibleProjects = state.projects.filter(p => !hiddenIds.has(String(p.id)));",
+        "replace": "        const visibleProjects = state.projects;",
+        "test": "非表示は home と Cmd+K にも効き、解除で両方に戻る",
+    },
+    {
+        "name": "Cmd+K 候補が非表示を無視して戻る (#886) — home とは**別 file の別フィルタ**なので独立に腐る。パレットは全ルートから開ける横断導線ゆえ、ここが漏れると非表示にしたプロジェクトへ誰でも到達できてしまう",
+        "file": ROOT / "js" / "command-palette.js",
+        "find": "            .filter(p => p && p.slug && p.name && !_hidden.has(String(p.id)))",
+        "replace": "            .filter(p => p && p.slug && p.name)",
+        "test": "非表示は home と Cmd+K にも効き、解除で両方に戻る",
+    },
 ]
 
 _MUTATIONS_TAIL.append({
