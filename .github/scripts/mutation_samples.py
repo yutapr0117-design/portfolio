@@ -919,6 +919,13 @@ _E2E_TAIL = [
         "replace": "onclick: () => Router.navigate('apps/task') }, 'デモ')",
         "test": "一覧カードのデモボタンが対応する内蔵アプリを開く",
     },
+    {
+        "name": "ブランド選択が保存されなくなる — `set()` から `storage.set` だけ落とすと **適用は効くのにリロードで既定へ戻る**。既存のブランド関連テストは localStorage を直接 seed する pre-paint 検証と `data-brand` を直接書き換えるコントラスト検査だけで、**write 面が未被覆**だったため素通りしていた (#294 の producer/consumer class)。配色の単一ソースなので「設定したのに戻っている」形で出る",
+        "file": ROOT / "js" / "brand.js",
+        "find": "        const b = apply(brand);\n        storage.set(KEY, b);",
+        "replace": "        apply(brand);",
+        "test": "Settings のブランド選択がリロードを跨いで保持される",
+    },
 ]
 
 _MUTATIONS_TAIL.append({
