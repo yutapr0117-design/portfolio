@@ -740,3 +740,58 @@ test('プロジェクトの並べ替えがスクリーンリーダーに通知�
   expect(await page.locator('#toast-container').count(),
     '並べ替えで視覚 Toast が出ている — 連続操作なので sr-only 通知にとどめる設計').toBe(0);
 });
+
+
+// ===== 非表示は「全 listing 面」に効き、解除で「全 listing 面」に戻る =====
+// #886 では、非表示 (projectPrefs.hiddenIds) を読んでいたのが **ProjectsPage と
+// SettingsPage だけ**で、**home の注目枠 / 詳細ページの推薦 / Cmd+K 候補 / カテゴリ選択肢**は
+// 素の state.projects から描いていた。既定プロジェクトは削除できず「非表示」が唯一の
+// 非公開手段なので、隠したはずのものがトップに出続けるのは **公開/非公開の意思**の喪失。
+//
+// 既存テストは **公開一覧 1 面**の往復しか見ていない。home と Cmd+K は実装だけあって
+// **どの e2e も見ていなかった**ので、ここで両方向 (隠す / 戻す) × 2 面を固定する。
+// 片方向だけ直す退行 (隠せるが戻らない / 隠れないが戻る) は利用者から見ると
+// 「設定が効いたり効かなかったりする」形で出る。
+test('非表示は home と Cmd+K にも効き、解除で両方に戻る', async ({ page }) => {
+  const NAME = 'タスク管理アプリ';
+
+  // NOTE: **そのページ固有の見出し**で待つ。`#content h1` の汎用待ちは hash 遷移では
+  //   **前ページ (settings) の DOM で満たされ**、settings の行に含まれる同じ名前を読んで
+  //   しまう (実測でこの罠に落ちた・落とし穴表の既存行)。
+  const onHome = async () => {
+    await page.goto('/#/');
+    await expect(page.locator('#content h1', { hasText: 'AI を自走させ' })).toBeVisible();
+    return (await page.locator('#content').innerText()).includes(NAME);
+  };
+  const inPalette = async () => {
+    await page.goto('/#/projects');
+    await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+    await page.keyboard.press('Control+k');
+    await expect(page.locator('#command-palette-host')).toHaveAttribute('aria-hidden', 'false');
+    await page.keyboard.type('タスク管理');
+    // 候補の再描画を待ってから読む
+    await expect.poll(() => page.evaluate(() =>
+      (document.querySelector('#cmdk-listbox') || { textContent: '' }).textContent.length)).toBeGreaterThan(0);
+    const hit = await page.evaluate(() =>
+      (document.querySelector('#cmdk-listbox') || { textContent: '' }).textContent.includes('タスク管理アプリ'));
+    await page.keyboard.press('Escape');
+    return hit;
+  };
+  const toggleHidden = async () => {
+    await page.goto('/#/settings');
+    await expect(page.locator('#main-content h1').first()).toBeVisible();
+    await page.locator('#settings-toggle-hidden-p01').click();
+  };
+
+  // control: 最初は両面に出ている (出ていなければ以降は何も検査しない)
+  expect(await onHome(), 'control: 非表示前から home に出ていない').toBe(true);
+  expect(await inPalette(), 'control: 非表示前から Cmd+K に出ていない').toBe(true);
+
+  await toggleHidden();
+  expect(await onHome(), '非表示にしたのに home の注目枠に出続けている (#886)').toBe(false);
+  expect(await inPalette(), '非表示にしたのに Cmd+K 候補に出続けている (#886)').toBe(false);
+
+  await toggleHidden();
+  expect(await onHome(), '表示に戻したのに home へ復帰しない (片方向だけの修正)').toBe(true);
+  expect(await inPalette(), '表示に戻したのに Cmd+K へ復帰しない (片方向だけの修正)').toBe(true);
+});
