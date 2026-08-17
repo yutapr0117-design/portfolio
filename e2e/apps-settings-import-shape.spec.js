@@ -170,9 +170,22 @@ test('モード / 対象の切替でページが作り直されない (file inpu
   const mark = () => page.evaluate(() => {
     document.querySelector('#content input[type="file"]').dataset.identityProbe = 'KEEP';
   });
-  const survives = () => page.evaluate(() => (
-    document.querySelector('#content input[type="file"]').dataset.identityProbe || '(recreated)'
+  // [FIX] **settle させてから 1 度だけ読む**。ここは「再描画が起きない」という *不変性* の
+  //   検査で、`window.render()` は `await yieldToMain()` を挟む **非同期**。切替直後に読むと
+  //   再描画が始まる前の古いノードを掴み、**再描画が起きていても KEEP のまま通る**。
+  //   実測 (2026-08-17): ローカルでは再描画が先に終わって捕捉できたが、週次 probe (CI) では
+  //   読み取りが先になり **SURVIVED** として報告された —— 同じ mutation が環境で結果を変える
+  //   race だった。rAF を 2 回待って「起きるなら起ききった」状態にしてから読む
+  //   (poll は不変性の検査には使えない: 最初の観測で成立した瞬間に成功してしまう)。
+  const settle = () => page.evaluate(() => new Promise(
+    (r) => requestAnimationFrame(() => requestAnimationFrame(r))
   ));
+  const survives = async () => {
+    await settle();
+    return page.evaluate(() => (
+      document.querySelector('#content input[type="file"]').dataset.identityProbe || '(recreated)'
+    ));
+  };
 
   // 「対象」チェックボックス
   await mark();
