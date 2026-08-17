@@ -31,6 +31,12 @@ npx playwright test --config=playwright.config.cjs
 
 ## このリポジトリの e2e で繰り返し踏んだ落とし穴（実測に基づく）
 
+> **不在アサーションの棚卸し（2026-08-17 実測）**: `not.toContainText` / `not.toBeVisible` /
+> `toHaveCount(0)` / `not.toContain` は全 spec で 95 箇所。うち「同じ test 内に先行する肯定
+> アサーションが無い」ものは **1 箇所だけ**で（cross-tab の negative baseline）、実測では
+> その時点で描画済みだったが `domcontentloaded` は描画を保証しないため明示的な待ちを足した。
+> 残りはすべて肯定アサーションが先行しており健全。**この監査は再実行しなくてよい**。
+
 テストは「壊れる」より **「鈍る」** 形で失われる（前提が崩れて緑のまま無力化する）。以下はいずれも
 **実際に vacuous なテストや false-red を生んだ**もので、書く前に知っておくと 1 サイクル節約できる。
 
@@ -39,6 +45,7 @@ npx playwright test --config=playwright.config.cjs
 | `waitForLoadState('networkidle')` | 外部 Fonts / service worker の background fetch で CI が 30s ハングする flake（screenshot 以外では禁止・Check 111） | `domcontentloaded` + expect の auto-wait |
 | **不変性の検査に `expect.poll`** | poll は**最初の観測で条件を満たした瞬間に成功**するため、その後に起きる変化を見逃す。「スクロール位置が動かないこと」を poll で書いたら 2 つの実バグ mutation が**両方素通り**した | settle を待ってから **1 度だけ**確定値を読む |
 | 不在の検査（`toHaveCount(0)`）を goto 直後に評価 | async 描画とレースし「まだ無い」を「無い」と誤認する | 先に「在るはず」の要素の visible を待って描画を確定させる |
+| **不在の検査の対象を、そのページが描画しないものにする** | 「`[object Object]` が出ないこと」を ContactPage で `profile.name` について検査していたが、**ContactPage は `name` を描画しない**（描くのは email / github / linkedin）。しかも github・linkedin は `safeStr` ではなく `safeUrl` を通る。つまり守りたい関数の型ガードを外しても**その文字列が現れる余地が無く、最初から何も検査していなかった**。もう 1 つのケースが生きている間は隠れており、そちらが独立ガード追加（#1080）で通らなくなって初めて週次 probe が SURVIVED として露出させた（#1096） | 検査対象は「**守りたい関数を実際に通り、かつそのページが描画するフィールド**」から選ぶ。選んだら `control`（その要素が実際に描画されている）を同じ test に置く —— 実際にこの control が 2 回落ちて思い込みを潰した |
 | `fill()` で入力を検証 | value を直接代入するため focus 喪失系のバグを検出できない（quiz 検索の focus 喪失が gate を素通りした） | 実キー入力の `type()` / `keyboard.insertText()` |
 | `toBeFocused()` | 並列ワーカーで document が inactive になり `unexpected value "inactive"` で間欠 RED（8 回中 3 回） | `document.activeElement` を `evaluate` で読む |
 | `offsetParent !== null` で可視判定 | **`position: fixed` の要素では常に null** になり、開いている drawer を「閉じている」と誤報告する | `getBoundingClientRect()` + computed style |

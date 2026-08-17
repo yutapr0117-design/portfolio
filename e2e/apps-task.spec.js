@@ -333,6 +333,10 @@ test('Cross-tab sync: a task added in one tab appears in another tab', async ({ 
   await tabB.waitForLoadState('domcontentloaded');
 
   // タブ B にはまだ存在しないことを確認 (negative baseline)
+  // NOTE: 不在アサーションの前に **描画が済んでいることを明示的に待つ**。
+  //   `domcontentloaded` は描画の完了を保証しないので、これが無いと「まだ描かれていない」を
+  //   「無い」と読んで baseline が素通りしうる (実測では描画済みだったが timing 依存だった)。
+  await expect(tabB.locator('#task-input')).toBeVisible();
   const title = 'E2E-CROSS-TAB-SYNC-TASK-5108';
   await expect(tabB.getByText(title)).toHaveCount(0);
 
