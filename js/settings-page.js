@@ -236,9 +236,28 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                     }
 
                     // 正規化してから単一 commit。生データは一切 render に届かない。
-                    State.set(Store.validateAndNormalize(merged));
+                    const normalized = Store.validateAndNormalize(merged);
+                    State.set(normalized);
 
-                    Toast.show('インポートが完了しました');
+                    // [FIX] **取り込めなかった件数を honest に報告する。**
+                    //   正規化は (a) 件数上限 (MAX_TASKS 500 / MAX_TODOS 1000 / MAX_PROJECTS 1000) の
+                    //   slice と (b) 必須フィールドを欠く entry の除去、の 2 つで entry を落とすが、
+                    //   従来はどちらの場合も無条件に「インポートが完了しました」と報告していた。
+                    //   実測 (2026-08-18): 505 件の tasks を含む JSON を取り込むと保存は 500 件で
+                    //   **5 件が黙って消え**、メッセージは「完了しました」。バックアップから復元した
+                    //   利用者は**失われたことに気付かないまま元データを捨てうる**。
+                    //   #1039/#1040 で塞いだ「何もしていないのに成功と言う」の *部分適用* 版で、
+                    //   silent なのは同じ。落ちた理由 (上限 / 不正 entry) は利用者にとって同じ
+                    //   「取り込まれなかった」なので、件数だけを正直に伝える。
+                    const _countOf = (o, k) => (o && Array.isArray(o[k]) ? o[k].length : 0);
+                    const _dropped = ['tasks', 'todos'].reduce(
+                        (n, k) => n + Math.max(0, _countOf(merged.appsData, k) - _countOf(normalized.appsData, k)), 0
+                    ) + Math.max(0, (Array.isArray(merged.projects) ? merged.projects.length : 0)
+                        - (Array.isArray(normalized.projects) ? normalized.projects.length : 0));
+
+                    Toast.show(_dropped > 0
+                        ? `インポートが完了しました（${_dropped} 件は取り込めませんでした）`
+                        : 'インポートが完了しました');
                 } catch (err) {
                     Toast.show('JSONのパースに失敗しました', 'error');
                 }

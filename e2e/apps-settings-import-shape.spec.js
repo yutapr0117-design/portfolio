@@ -202,3 +202,42 @@ test('モード / 対象の切替でページが作り直されない (file inpu
   await expect(page.locator('#settingsImportMode')).toHaveValue('strict');  // control
   expect(await survives(), 'モードの切替で file input が作り直されている').toBe('KEEP');
 });
+
+
+// ===== 上限超過の import は「完了しました」で済ませない =====
+// 正規化は (a) 件数上限 (MAX_TASKS 500) の slice と (b) 必須フィールドを欠く entry の除去、の
+// 2 つで entry を落とす。従来はどちらの場合も無条件に「インポートが完了しました」と報告して
+// おり、実測 (2026-08-18) では 505 件の tasks を取り込むと保存は 500 件で **5 件が黙って消え**、
+// メッセージは「完了しました」だった。バックアップから復元した利用者は **失われたことに
+// 気付かないまま元データを捨てうる**。#1039/#1040 で塞いだ「何もしていないのに成功と言う」の
+// *部分適用* 版で、silent なのは同じ。
+//
+// 検査先に #action-announcement を選ぶ理由: Toast は duration で自動消滅するため、そちらを
+// 待つ形は「実装内部の定数への賭け」になる (落とし穴表に記録済)。
+test('Over-limit import reports how many entries were dropped instead of claiming plain success', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByRole('button', { name: 'フルバックアップ' })).toBeVisible();
+
+  const announcement = () => page.evaluate(
+    () => (document.getElementById('action-announcement') || {}).textContent || '');
+
+  // control: 上限内なら従来どおり素の完了メッセージ (この control が無いと、
+  //   「常に件数を付ける」実装でも下の assertion が通ってしまう)
+  const within = Array.from({ length: 3 }, (_, i) => ({ id: 'w' + i, title: 'W' + i, status: 'todo' }));
+  await page.setInputFiles('input[type=file]', {
+    name: 'within.json', mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({ tasks: within, todos: [], notes: '', ai: {}, pomodoro: {} })),
+  });
+  await expect.poll(announcement, { timeout: 5000 }).toContain('インポートが完了しました');
+  expect(await announcement(), '上限内なのに件数が付いている').not.toContain('取り込めませんでした');
+
+  // 上限 (500) を 5 件超える取り込み → 落ちた件数が伝わる
+  const over = Array.from({ length: 505 }, (_, i) => ({ id: 'o' + i, title: 'O' + i, status: 'todo' }));
+  await page.setInputFiles('input[type=file]', {
+    name: 'over.json', mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({ tasks: over, todos: [], notes: '', ai: {}, pomodoro: {} })),
+  });
+  await expect.poll(announcement, { timeout: 5000 }).toContain('取り込めませんでした');
+  expect(await announcement()).toContain('5 件');
+});
