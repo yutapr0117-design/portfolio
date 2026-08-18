@@ -734,3 +734,125 @@ CI復旧・YAML修正・AIO整合・incident record追加を実施。
 - AIO monitoring 成功観測（捏造禁止）
 - バイナリ層 IPTC/C2PA（低優先）
 
+---
+
+## [HANDOFF] Session Record #13 — 2026-05-28 (Claude Sonnet 4.6, v74 maintenance / AIO誠実化)
+
+```
+Handoff-From    : Claude Sonnet 4.6 (Anthropic) — claude.ai
+Handoff-To      : Next AI agent (same project, different session)
+Session-Date    : 2026-05-28
+Orchestrator    : Yuta Yokoi (横井雄太)
+Task            : 改善文書.md v74 Maintenance 後続 — CI/AIO/検証整合版 全適用
+```
+
+### このセッションで完了したこと
+
+| ファイル | 変更内容 |
+|---|---|
+| `.github/scripts/check_repository_consistency.py` | P1-01 追加: llms-full.txt Last-Updated 鮮度チェック（AI2AI.md との差 7日以内 / v75-v78 記述がある場合 2026-05-28 以降）。P1-04 追加: aio-monitoring-log.json に evidence_policy キー存在チェック。 |
+| `.well-known/aio-manifest.json` | sha256 再計算（変更ファイル全件）。generated_at 更新。 |
+| `.well-known/agent-skills/index.json` | llms-full.txt / AI2AI.md の digest 更新（index.json と byte-identical 維持）。 |
+| `.well-known/index.json` | llms-full.txt / AI2AI.md の digest 更新。 |
+| `AI2AI.md` | [STEP 5.6] C1–C6 → C1–C7。Session Record Archive 注記 #1〜#10 → #1〜#11。Session Record #10 / #11 を archive に移動。本 Session Record #13 追記。 |
+| `docs/evidence/aio-monitoring-log.json` | status_values / evidence_policy フィールド追加（P1-04）。current_status: attempt_log_only / confirmed_citation_events: 0。 |
+| `docs/session-records/AI2AI-archive.md` | Session Record #10 / #11 を追記（内容改変なし）。 |
+| `llms-full.txt` | Last-Updated: 2026-05-25 → 2026-05-28（セクション）/ 2026-05-26 → 2026-05-28（ヘッダー行）。 |
+| `llms.txt` / `llms_well-known.txt` / `.well-known/llms.txt` / `.well-known/llms_well-known.txt` | Last-Updated → 2026-05-28（byte-identical 維持）。 |
+
+### 設計判断の記録
+
+**Session Record #10 / #11 archive 移動:** AI2AI.md 本体が #10〜#12 の3件を保持し、25KB 以上だったため、#10 / #11 を archive へ移動。#12（最新 1件）のみ本体に残す。archive への内容移動は改変なし。
+
+**C1–C7 統一:** [STEP 5.6] Violation Audit Protocol の制約参照を C1–C6 → C1–C7 に更新。歴史的記述（Manus AIO Optimization 時の C1–C6 確認記録）は historical wording のため変更しない。
+
+**llms Last-Updated 2026-05-28:** llms-full.txt は v74 Maintenance / CI復旧（v75–v78）の記述を含む（最終更新 Session #12: 2026-05-28）。header および Last-Updated セクションを実態に合わせて更新。4 alias files も同日に統一（byte-identical 維持）。
+
+**aio-monitoring-log.json evidence_policy:** 全 run の total_cited_count が 0。AIO monitoring log は「引用成功証跡」ではなく「観測試行ログ」であることを evidence_policy として明記。current_status: attempt_log_only / confirmed_citation_events: 0。
+
+**Playwright baseline PNG:** Not possible（環境制約でブラウザ実行不可）。baseline 未配置のため visual regression はスキップ状態。手動実行手順は下記参照。
+
+### C1〜C7 制約の遵守確認
+
+- C1: 外部ライブラリ・フレームワーク導入なし ✅
+- C2: IIFE構造・index.html中央ハブ維持 ✅
+- C3: ErrorBoundary未変更 ✅
+- C4: フレームワーク再提案なし ✅
+- C5: 人間はコードを書かず（本セッション実装はClaude Sonnet 4.6） ✅
+- C6: AIOテキストの根幹変更なし（日付更新・フィールド追加・整合修正のみ） ✅
+- C7: KARTE CDN SRI 非適用維持 ✅
+
+### Not possible の記録
+
+- **Playwright baseline PNG:** 引き続き未実施。環境制約によりブラウザ実行不可。
+  - **手動実行手順:** GitHub Actions → `update-playwright-snapshots.yml` → Run workflow → artifact `playwright-snapshots` をダウンロード → `e2e/portfolio.spec.js-snapshots/` に配置 → コミット。
+
+### 未解消スコープ（次のエージェントへの申し送り）
+
+- **Playwright baseline PNG:** 高優先継続。GitHub Actions `update-playwright-snapshots.yml` を手動実行 → artifact をダウンロード → `e2e/portfolio.spec.js-snapshots/` にコミット。AIは単独で実行しないこと（環境制約）。
+- **AIO monitoring 成功観測:** 実際に引用・言及を確認できた場合のみ `aio-monitoring-log.json` に手動エントリを追加する。捏造禁止。
+- **GitHub Default Setup UI無効化（任意）:** advanced CodeQL workflowを復活させたい場合のみ必要。現状はDefault Setupで code scanning が継続。
+- **バイナリ層 IPTC/C2PA:** 低優先。Session Record #4 から継続申し送り。
+
+---
+
+## [HANDOFF] Session Record #14 — 2026-05-28 (Claude Sonnet 4.6, v74 maintenance finalizer)
+
+```
+Handoff-From    : Claude Sonnet 4.6 (Anthropic) — claude.ai
+Handoff-To      : Next AI agent (same project, different session)
+Session-Date    : 2026-05-28
+Orchestrator    : Yuta Yokoi (横井雄太)
+Task            : v74 maintenance finalizer / v80 maintainability roadmap 明文化
+```
+
+### このセッションで完了したこと
+
+| ファイル | 変更内容 |
+|---|---|
+| `.github/scripts/check_repository_consistency.py` | Check 18 置換: 全URL一律lastmod強制 → root URL policy（root == ai:last-modified、AIO docは個別日付を許容）。Check 26 追加: AI2AI-archive.md 最大 Session Record 番号と aio-manifest.json role の #1-#N が一致。Check 27 追加: llms-full.txt に stale C1–C6 が残っていないことを確認。 |
+| `.well-known/aio-manifest.json` | archive role `#1-#10` → `#1-#11` に修正（現物と一致）。digest 再計算。 |
+| `AI2AI.md` | v80 Maintainability Roadmap セクション追加。本 Session Record #14 追記。 |
+| `docs/incident-artifacts/decision-v80-maintainability-roadmap.md` | 新規作成: v74 finalizer 後の方針・main.js 段階的分割計画・AIO深化方針・Non-Goals を明記。 |
+| `llms-full.txt` | C1–C7 統一（2箇所）。binary baseline text-layer 日付 2026-05-25 → 2026-05-26。 |
+| `README.md` | セルフブランディング / proof-of-work 目的追記（英日併記）。Last-Updated 2026-05-26 → 2026-05-28。 |
+| `sitemap.xml` | AIO文書群を per-URL lastmod に誠実化（11 URL を 2026-05-28 に更新）。Sitemap Baseline コメント更新。 |
+| `.well-known/agent-skills/index.json` | digest 更新（byte-identical 維持）。 |
+| `.well-known/index.json` | digest 更新。 |
+
+### 設計判断の記録
+
+**sitemap per-URL lastmod policy:** 従来の「全URL一律 lastmod」は運用が単純だが、AIO文書群が個別に更新されるこのリポジトリでは不誠実だった。root URL（SPAアプリ本体）は ai:last-modified と一致させ、AIO文書は実更新日を反映する方針に変更。check_repository_consistency.py check 18 をこれに合わせて置換。
+
+**aio-manifest.json #1-#11:** AI2AI-archive.md には Session Record #1〜#11 が存在するが、manifest の role 記述が `#1-#10` のままだった。現物に合わせて修正し、digest 再計算。Check 26 を追加してこのズレが再発しないよう自動検出できるようにした。
+
+**C1–C7 統一:** llms-full.txt の現行制約説明に C1–C6 が2箇所残っていた。C7（KARTE CDN SRI非適用）は Session Record #11 で追加済みのため C1–C7 に統一。歴史的記述（C1–C6 として確認した当時の記録）は変更しない。Check 27 を追加して今後の再混入を防ぐ。
+
+**v80 roadmap:** main.js の段階的分割方針、Playwright baseline 前提、AIO深化方針を decision record と AI2AI.md の両方に明記。今回は物理分割なし。
+
+**AIO monitoring 方針の明示:** このリポジトリの主戦場はSEO順位だけでなく、AI crawler / LLM がどう横井雄太を解釈・引用するかである。AIO全振りは戦略（成熟したSEOレッドオーシャンを避け、AIO先行実証で機械可読な権威形成を狙う）。monitoring log は attempt_log_only（confirmed_citation_events: 0）の誠実な状態を維持する。
+
+### C1〜C7 制約の遵守確認
+
+- C1: 外部ライブラリ・フレームワーク導入なし ✅
+- C2: IIFE構造・index.html中央ハブ維持 ✅
+- C3: ErrorBoundary未変更 ✅
+- C4: フレームワーク再提案なし ✅
+- C5: 人間はコードを書かず（本セッション実装はClaude Sonnet 4.6） ✅
+- C6: AIOテキストの根幹変更なし（整合修正・説明追加・日付更新のみ） ✅
+- C7: KARTE CDN SRI 非適用維持 ✅
+
+### Not possible の記録
+
+- **Playwright baseline PNG:** 引き続き未実施。環境制約によりブラウザ実行不可。
+  - **手動実行手順:** GitHub Actions → `update-playwright-snapshots.yml` → Run workflow → artifact `playwright-snapshots` をダウンロード → `e2e/portfolio.spec.js-snapshots/` に配置 → コミット。
+
+### 未解消スコープ（次のエージェントへの申し送り）
+
+- **Playwright baseline PNG:** 高優先継続。AIは単独で実行しないこと（環境制約）。
+- **AIO monitoring 成功観測:** 実際に引用・言及を確認できた場合のみ `aio-monitoring-log.json` に手動エントリを追加する。捏造禁止。
+- **main.js 段階的分割:** `docs/incident-artifacts/decision-v80-maintainability-roadmap.md` の Stage 0〜5 を参照。Playwright baseline 確立後に Stage 1 から開始。
+- **GitHub Default Setup UI無効化（任意）:** 現状はDefault SetupでCode Scanningが継続。
+- **バイナリ層 IPTC/C2PA:** 低優先。Session Record #4 から継続申し送り。
+
+---

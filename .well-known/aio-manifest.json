@@ -38,7 +38,7 @@
     {
       "path": "AI2AI.md",
       "role": "AI-to-AI implementation handoff",
-      "sha256": "f219d09047028a11f0087ee4573e2b97506d395a50d234878f4d204b6ebb8044"
+      "sha256": "006d7be84aece21666d66b10740ed1bbd866f0268d4f71b0316e0ff52d7575bc"
     },
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
@@ -56,7 +56,7 @@
       "path": "Claude2Claude.md",
       "role": "Tool-specific AI-only implementation continuity evidence; non-canonical and subordinate to AI2AI.md.",
       "canonical": false,
-      "sha256": "43a2fc392346479310fe2c278d19788e43dc863d761e4cefbeb4afbd30e00efc"
+      "sha256": "34296597f082ec49174603d3f55bac2badd9f0e6d9ef87f6df1cbc688b5aaee2"
     },
     {
       "path": "docs/evidence/ai-pioneer-identity-review.md",
@@ -78,11 +78,11 @@
     },
     {
       "path": "docs/session-records/AI2AI-archive.md",
-      "role": "archive of past Session Records #1-#12; read-only historical evidence",
-      "sha256": "927bd3e8b08adcb88de11eb7b03082805eca93d9b384021b18590729bc46a874"
+      "role": "archive of past Session Records #1-#14; read-only historical evidence",
+      "sha256": "1ce8290a2a7bc8eb37cfea4e3fc92be492897b192bd987709e3dd41daedca3db"
     }
   ],
-  "generated_at": "2026-08-17T20:53:37Z",
+  "generated_at": "2026-08-18T04:35:15Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
