@@ -933,6 +933,20 @@ _E2E_TAIL = [
         "replace": "        const autoRelated = [];",
         "test": "Project detail \"auto-recommended\" card navigates to another project (autoRelated)",
     },
+    {
+        "name": "AI 応答が空になる — `generateResponse` が空文字を返すようにすると、**利用者が受け取るもの (応答本文) が消える**のに prompt のエコーは残るので画面は動いて見える。旧テストは prompt の描画しか見ておらず緑のまま通っていた (#1126 の quiz と同じ『題名が主張していることを検証していない』class)",
+        "file": ROOT / "js" / "ai-page.js",
+        "find": "        function generateResponse(input, type) {",
+        "replace": "        function generateResponse(input, type) {\n            return '';",
+        "test": "AI assist app generates and renders a response for a prompt",
+    },
+    {
+        "name": "正規化ボタンが初期化になる — `validateAndNormalize` を `createDefaultStore` に置き換えると、**「正規化」を押しただけで利用者のデータが全部消える**。Toast は「正規化を完了しました」と出るので、消えたことに気付くのは次に一覧を開いたとき",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "            const norm = Store.validateAndNormalize(State.get());",
+        "replace": "            const norm = Store.createDefaultStore();",
+        "test": "Settings normalize button runs validateAndNormalize without data loss",
+    },
 ]
 
 _MUTATIONS_TAIL.append({

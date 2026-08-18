@@ -26,6 +26,29 @@ test('AI assist app generates and renders a response for a prompt', async ({ pag
 
   // 生成完了後、prompt が history (テキスト) として描画される (input value ではなく本文)
   await expect(page.getByText(prompt)).toBeVisible();
+
+  // [FIX] **応答そのものを検証する**。旧版は prompt の描画しか見ておらず、
+  //   `generateResponse` が空文字を返しても **緑のまま通っていた** (実測 2026-08-17)。
+  //   題名は「generates and renders a response」と主張しているのに、**利用者が実際に
+  //   受け取るもの (応答本文) を一度も見ていなかった** (#1126 の quiz と同じ class)。
+  //   応答は固定テンプレなので、AI 面の見出し記法で存在と非空を確かめる。
+  //   NOTE: 保存は debounce (150ms) 越しなので **poll で待つ**。prompt の描画直後に
+  //   localStorage を読むと空を掴む (control がその状態を実際に検出した)。
+  //   ここは「値が現れる」= 変化の検査なので poll が正しい用法。
+  const readLast = () => page.evaluate(() => {
+    const raw = localStorage.getItem('portfolio_enhanced_v45');
+    const h = raw ? (JSON.parse(raw).appsData.ai.history || []) : [];
+    const last = h[h.length - 1] || {};
+    return { prompt: last.prompt || '', response: last.response || '' };
+  });
+  await expect.poll(async () => (await readLast()).prompt).toContain(prompt);
+  const response = await readLast();
+  expect(response.prompt, 'control: 直近の履歴が今回の prompt ではない').toContain(prompt);
+  expect(response.response.length,
+    'AI 応答が空 — 「応答を生成して描画する」と主張しているのに応答本文を検証していなかった'
+  ).toBeGreaterThan(20);
+  await expect(page.locator('#content'),
+    '応答本文が画面に描画されていない').toContainText('[AI分析:');
 });
 
 
