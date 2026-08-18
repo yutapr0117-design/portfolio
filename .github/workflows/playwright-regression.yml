@@ -103,7 +103,12 @@ permissions:
 jobs:
   playwright-validation:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # [FIX] 15 → 20。理由は下の install step に個別 timeout を入れたことと対。install を
+    #   8 分で頭打ちにしたので、最悪ケースでも install 8 + behavior ~5 + screenshot ~1 で
+    #   収まる。15 のままだと install が上限まで粘った時に behavior の予算が残らず、
+    #   「gate が走れないまま job が cancel される」= 下で直している当の失敗モードを
+    #   job 側から再生産してしまう。通常時の実測は合計 6m25s。
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
@@ -117,7 +122,25 @@ jobs:
           # package-lock.json so `npm ci` restores from cache on repeat runs.
           cache: 'npm'
 
+      # [FIX] 依存インストールに **step 個別の timeout** を持たせる。付けないと、install が
+      #   詰まったときに job 全体の timeout-minutes が発火して job ごと cancel され、
+      #   後続の step は `skipped` になる —— このとき CI は BLOCKING gate の赤と
+      #   **見分けが付かない** 単なる `fail` を表示する (実測 2026-08-18 PR #1136:
+      #   install が 15m15s 粘って job が cancel され、behavior gate は一度も走っていない
+      #   のに playwright-validation が赤。rerun したら 6m25s で全緑 = 回帰はゼロだった)。
+      #   step 個別の timeout なら **その step だけが失敗** し、job は続行するので
+      #   下の "Explain failure attribution" が動いて帰属を書ける。
+      #   **この前提は推測せず実測した** (使い捨て probe PR #1137 で timeout を 1 分にして観測):
+      #     `##[error]The action 'Install Playwright and dependencies' has timed out after 1 minutes.`
+      #     → install の conclusion = **failure** (cancelled ではない) / behavior = skipped
+      #     → "Explain failure attribution" は **success で実行され**、
+      #        INSTALL_OUTCOME=failure / BEHAVIOR_OUTCOME=skipped を読んで正しい枝に入った。
+      #   もし step timeout が job ごと cancel する仕様だったら後続 step は動かず設計が丸ごと
+      #   崩れていた。ここは設計の土台なので実測で固めてある。
+      #   8 分の根拠: 通常の install 実測は約 2 分。4 倍の余裕で「遅い」と「詰まった」を分ける。
       - name: Install Playwright and dependencies
+        id: install
+        timeout-minutes: 8
         run: |
           npm ci
           npx playwright install --with-deps chromium
@@ -127,6 +150,7 @@ jobs:
       # functionality (loads / displays / comprehensible) must be protected, but pixel-level
       # visual regressions are acceptable. So functionality e2e blocks merges …
       - name: Run behavior / functionality tests (BLOCKING gate)
+        id: behavior
         # E2E_HERMETIC=1: localhost 以外への DNS を即 NOTFOUND にして、BLOCKING ゲートを
         # 第三者 CDN (KARTE / Google Fonts) から切り離す。実測では 1 ナビゲーションごとに
         # 6 ホストへ 9 リクエストが飛び、goto の既定 waitUntil='load' がそれを待っていたため、
@@ -143,6 +167,40 @@ jobs:
       - name: Run visual regression (ADVISORY — non-blocking, see Session Record #20 §3(B))
         continue-on-error: true
         run: npx playwright test --config=playwright.config.cjs --grep "screenshot regression" --reporter=list
+
+      # [FIX] 赤の **帰属** を job 自身に書かせる。この workflow は「BLOCKING gate」を名乗るが、
+      #   赤くなった理由が (a) gate が回帰を検出した のか (b) gate が一度も走らなかった のかは
+      #   従来ジョブ API を掘らないと分からなかった。オーナーの runtime 役割は「制御と監査」で、
+      #   監査の入口はバッジと CI の表示ゆえ、**区別できない赤は「検証された」と誤読される**。
+      #   (b) は「何も検証していない」であって「壊れている」ではない —— rerun が正しい対処で、
+      #   (a) の rerun は本物の回帰を握り潰す。まさに逆の対応が要るので取り違えは高くつく。
+      #   同じ class は #1127 (週次 probe が timeout で cancel され SURVIVED 検出が消えた) で
+      #   一度踏んでおり、これが 2 例目。
+      - name: Explain failure attribution
+        if: failure()
+        env:
+          INSTALL_OUTCOME: ${{ steps.install.outcome }}
+          BEHAVIOR_OUTCOME: ${{ steps.behavior.outcome }}
+        run: |
+          {
+            if [ "$BEHAVIOR_OUTCOME" = "failure" ]; then
+              echo "### ❌ BLOCKING behavior gate が回帰を検出しました"
+              echo ""
+              echo "gate は**実際に実行され**、失敗したテストがあります。"
+              echo "**rerun してはいけません** — 失敗したテストを読んで原因を直してください。"
+            elif [ "$INSTALL_OUTCOME" = "failure" ]; then
+              echo "### ⚠️ BLOCKING behavior gate は **一度も実行されていません**"
+              echo ""
+              echo "依存インストールが step timeout (8 分) に達したため中断しました。"
+              echo "これは**インフラの失敗であって回帰ではありません**（何も検証されていない）。"
+              echo "\`gh run rerun <run-id> --failed\` で再実行してください。"
+            else
+              echo "### ℹ️ behavior gate 以外の step が失敗しました"
+              echo ""
+              echo "install=\`$INSTALL_OUTCOME\` / behavior=\`$BEHAVIOR_OUTCOME\`"
+              echo "どの step が赤いかを確認してください（screenshot は ADVISORY ゆえ job を落としません）。"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload test results
         if: always()
