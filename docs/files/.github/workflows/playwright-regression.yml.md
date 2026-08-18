@@ -56,6 +56,28 @@ job 全体の timeout が発火し、behavior gate は一度も走らないま�
 `install => failure` / `behavior => skipped` / `Explain failure attribution => success` を確認した。
 job ごと cancel される仕様だったら後続 step は動かず、この設計は成立しなかった。
 
+## install step を「速くしよう」と思ったら先に読むこと（2026-08-18 実測）
+
+install は job 時間の大半を占め、CI 停滞の発生源でもある（本日 2 件: #1136 が 15m15s、
+#1143 が 8 分 step timeout）。だが**素朴な最適化はどちらも実測で否定された**。
+
+| 内訳 | 実測 |
+|---|---|
+| `npm ci` | **2s**（setup-node の npm cache が効いている） |
+| `--with-deps` の apt | **2m41s（全体の ~94%）** |
+| ブラウザ DL（Chromium + FFmpeg + headless shell） | **11s** |
+
+- **ブラウザを `actions/cache` する → 効果 11 秒。** 「ブラウザ DL が重いからキャッシュする」
+  という最初の仮説は実測で外れた。ボトルネックは apt 側。
+- **`--with-deps` を外す → 不可（probe PR #1144 で実測）。** Chromium は起動し 300+ テストの
+  うち 1 件を除いて通るが、`#/quiz` の描画コストが **636ms / 896ms（2 回とも再現）** と
+  実測基準 11〜25ms から桁で悪化する（おそらくフォント関連の共有ライブラリが欠け、
+  24,500 文字のページが遅い fallback 経路に落ちる）。**他の全テストは緑**だったので、
+  #1028 で足した描画コストのテスト 1 本だけが捕捉層だった。
+
+したがって install 停滞への正しい対処は「速くする」ではなく、**infra の赤と回帰の赤を
+区別して rerun させる**こと（上の帰属セクション）。
+
 ## Change impact
 
 - paths 拡張 → 新 shipped surface も視覚回帰対象
