@@ -130,62 +130,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "behavior: CSP 違反検出ゲートが機能するかの自己検証 (#1016) — index.html に `data:` スクリプトを注入して **本物の CSP 違反**を起こす。旧実装は『メッセージ全体に karte が含まれるか』で除外していたが、CSP 違反メッセージには違反した directive の全文が載り、この CSP は KARTE ホストを許可しているため **あらゆる違反が除外され gate が絶対に落ちない**状態だった。ブロック対象 URL のホスト名で判定する形へ是正済み",
-        "file": ROOT / "index.html",
-        "find": "</head>",
-        "replace": "<script src=\"data:text/javascript,void 0\"></script>\n</head>",
-        "test": "No Trusted Types or CSP violations in console",
-    },
-    {
-        "name": "behavior: soft-404 の noindex が外れる — 存在しないルートが index 可能になり、AI/検索クローラが『中身の無いページ』を実在ページとして取り込む。視覚には一切出ないため screenshot でも通常の behavior test でも捕捉できない AIO 面",
-        "file": ROOT / "js" / "meta-management.js",
-        "find": "            robotsEl.setAttribute('content', 'noindex, nofollow');",
-        "replace": "            robotsEl.setAttribute('content', 'index, follow');",
-        "test": "Robots meta protects against soft-404",
-    },
-    {
-        "name": "behavior: og:type のルート追従が失われる — article ルートでも og:type が website のまま残り、SNS/クローラが記事として解釈しなくなる。head の meta なので視覚ゲートは一切反応しない",
-        "file": ROOT / "js" / "meta-management.js",
-        "find": "        document.querySelector('meta[property=\"og:type\"]')?.setAttribute('content', ogType);",
-        "replace": "        void ogType;",
-        "test": "Article routes inject JSON-LD Article",
-    },
-    {
-        "name": "behavior: ルート entity anchor から曖昧性排除の宣言が消える — 同名の学術研究者等との混同を防ぐ文が失われ、AIO の中核である『エンティティを正しく解釈させる』賭けが弱まる。sr-only なので視覚には出ない",
-        "file": ROOT / "js" / "meta-management.js",
-        "find": "            ' Not affiliated with any academic researcher.';",
-        "replace": "            '';",
-        "test": "Route entity anchor declares entity authority",
-    },
-    {
-        "name": "behavior: 英語だけの行への lang=en 付与が失われる (#1020 の回帰) — html lang=ja の文書内で英語が日本語の音韻で読み上げられる (WCAG 3.1.2)。quiz だけで 49 箇所あり、うち 34 回は同じラベル。axe には該当ルールが無く (html-lang-valid は文書全体の lang しか見ない) 視覚にも出ないため、捕捉層は behavior test だけ",
-        "file": ROOT / "js" / "quiz-renderer.js",
-        "find": "                                lang: langOfText(line)",
-        "replace": "                                lang: undefined",
-        "test": "quiz の英語だけの塊に lang=",
-    },
-    {
-        "name": "behavior: 固定英語文字列の lang=en が外れる (#1021 の回帰) — html lang=ja の文書内で英語キャプションが日本語の音韻で読み上げられる。axe に該当ルールが無く視覚にも出ないため behavior test だけが捕捉層",
-        "file": ROOT / "js" / "home-page.js",
-        "find": "                                class: 'text-caption', lang: 'en'",
-        "replace": "                                class: 'text-caption'",
-        "test": "固定の英語文字列に lang=",
-    },
-    {
-        "name": "behavior: data 由来テキストの lang 判定が外れる (#1022 の回帰) — profile.title のような利用者編集データは静的に言語を決められないため描画時に判定している。外れると html lang=ja の文書内で英語が日本語の音韻で読み上げられる (WCAG 3.1.2)",
-        "file": ROOT / "js" / "components.js",
-        "find": ", lang: langOfText(State.get().profile.title) }",
-        "replace": " }",
-        "test": "data 由来のテキストにも lang=",
-    },
-    {
-        "name": "behavior: hiring-risk の問題集 CTA の query type が typo る (#1027) — route は存在するので Check 395 は緑のまま、実際には既定の AWS 問題集が silent に表示される (#926 の own-key ガードで crash はせず falls back するだけ)。採用担当が辿る導線で「PM 問題集を見る」が別の問題集を出す",
-        "file": ROOT / "js" / "hiring-risk-page.js",
-        "find": "path: 'quiz?type=pm',",
-        "replace": "path: 'quiz?type=pmm',",
-        "test": "hiring-risk の問題集 CTA が宣言どおりの問題集へ着地する",
-    },
-    {
         "name": "behavior: 絞り込み件数の polite status が失われる (#1031 の回帰) — status role/aria-live を外すと件数変化が SR へ伝わらなくなる。従来は assertive 領域へ書いて読み上げを割り込んでいた非対称を、ProjectsPage/QuizPage と同じ polite なローカル status へ揃えたもの",
         "file": ROOT / "js" / "apps.js",
         "find": "h('div', { class: 'sr-only', role: 'status', 'aria-live': 'polite', id: 'task-filter-status' },",
@@ -946,6 +890,27 @@ _E2E_TAIL = [
         "find": "            const norm = Store.validateAndNormalize(State.get());",
         "replace": "            const norm = Store.createDefaultStore();",
         "test": "Settings normalize button runs validateAndNormalize without data loss",
+    },
+    {
+        "name": "Toast が自動消滅しなくなる — 通知が画面に残り続け、**操作するたび積み上がって本文を覆う**。出ること自体は正常に見えるので、消えないことに気付くのは画面が埋まってから (focus 中は消さない #903 の一時停止契約とは別で、こちらは無条件に消えなくなる)",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "        const schedule = () => { if (duration > 0 && !timer) { timer = setTimeout(() => remove(el), duration); } };",
+        "replace": "        const schedule = () => {};",
+        "test": "Toast auto-dismisses after its duration (deterministic clock)",
+    },
+    {
+        "name": "TODO の絞り込みが効かなくなる — 「未完了」を選んでも完了済みが混ざったまま。**選択状態は変わる**ので操作は効いて見え、利用者には「絞り込みが壊れている」のか「該当が多い」のか区別できない",
+        "file": ROOT / "js" / "apps.js",
+        "find": "            if (todoFilter === 'active') {return !t.completed;}",
+        "replace": "            if (false) {return !t.completed;}",
+        "test": "Todo filter switches the visible set by active/completed/all",
+    },
+    {
+        "name": "Not Found ページの復旧導線が no-op になる — 存在しない URL に迷い込んだ利用者が **そこから抜け出せなくなる**。ページ自体は「見つかりません」と正しく出るので、**壊れているのはボタンだけ**で目視では気付けない (#269 で home の FatalPage 復旧が同じ形で壊れていた)",
+        "file": ROOT / "js" / "pages.js",
+        "find": "                h('button', { class: 'btn btn-secondary', onclick: () => Router.navigate('') }, 'ホームへ'),",
+        "replace": "                h('button', { class: 'btn btn-secondary', onclick: () => {} }, 'ホームへ'),",
+        "test": "Unknown route shows a comprehensible Not Found page with working recovery nav",
     },
 ]
 
