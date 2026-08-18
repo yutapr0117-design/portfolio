@@ -282,6 +282,12 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                 return;
             }
             if (nameEl) { nameEl.removeAttribute('aria-invalid'); }
+            // [FIX] 上限時は断る。task/todo (#1152) と同形で、従来は unshift 後の正規化
+            //   slice(0, MAX_PROJECTS) が最古を無通知で捨てていた。詳細は apps-settings.spec.js。
+            if (State.get().projects.length >= CONSTANTS.LIMITS.MAX_PROJECTS) {
+                Toast.show(`プロジェクトは ${CONSTANTS.LIMITS.MAX_PROJECTS} 件までです。不要なプロジェクトを削除してください`, 'error');
+                return;
+            }
             State.update(s => {
                 // slug 衝突の一意化 (#154) は **store.js の normalize が単一ソース**で行う。
                 // #1064 で手動追加も `Store.validateAndNormalize` を通すようにしたため、ここで

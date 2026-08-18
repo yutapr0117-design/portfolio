@@ -843,3 +843,43 @@ test('非表示は詳細の推薦とカテゴリ選択肢にも効く', async ({
   await toggle(SEC[0]);
   expect(await categories(), '1 件戻したのにカテゴリ選択肢が復帰しない').toContain('Security');
 });
+
+
+// ===== プロジェクト追加も上限時は断る (task/todo #1152 と同形) =====
+// `s.projects.unshift(...)` の後にロード時の正規化 `slice(0, MAX_PROJECTS)` が走るため、
+// 上限に達した状態で追加すると **最古のプロジェクトが無通知で消える**。到達には 1000 件が
+// 必要で実運用の可能性は低いが、**3 経路 (task / todo / project) のうち 1 つだけ無防備に
+// しておくのがこのリポジトリで class を再発させてきた形**なので閉じる。
+// seed は冪等にする (addInitScript は reload でも再実行される・落とし穴表参照)。
+test('Adding a project at the limit is refused with a reason', async ({ page }) => {
+  await page.addInitScript(() => {
+    if (localStorage.getItem('__seeded_plimit')) { return; }
+    const projects = Array.from({ length: 1000 }, (_, i) => ({
+      id: 'LP' + i, slug: 'lp-' + i, name: '既存プロジェクト ' + i, category: 'User Added', summary: '',
+    }));
+    localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({ schemaVersion: 12, projects }));
+    localStorage.setItem('__seeded_plimit', '1');
+  });
+
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByRole('button', { name: 'フルバックアップ' })).toBeVisible();
+
+  // control: 上限ちょうどで始まっている
+  const count = () => page.evaluate(
+    () => JSON.parse(localStorage.getItem('portfolio_enhanced_v45')).projects.length);
+  expect(await count(), 'seed が効いていない').toBe(1000);
+
+  await page.locator('#settingsNewName').fill('上限超過プロジェクト');
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+
+  await expect.poll(
+    () => page.evaluate(() => (document.getElementById('action-announcement') || {}).textContent || ''),
+    { timeout: 5000 }
+  ).toContain('1000 件までです');
+
+  expect(await count(), '断ったのに件数が変わっている').toBe(1000);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `project limit refusal caused a fatal: ${fatal}`).toBeNull();
+});
