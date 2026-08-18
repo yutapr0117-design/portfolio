@@ -40,7 +40,6 @@
             tokenize,      // 文字列を検索/類似度用トークンへ分解（日本語対応）
             slugify,       // 文字列を URL/識別子 slug へ正規化
             sanitizeUrl,   // http/https のみ通すセキュリティ境界（挙動不変厳守）
-            safeFetchJSON, // fetch ラッパ（HTTP ステータス + JSON を厳密検証）
             deepClone,     // オブジェクト/配列/Date の深いコピー
             yieldToMain,   // INP 改善のためメインスレッドを解放（scheduler.yield 等）
             langOfText     // data 由来テキストの言語判定（WCAG 3.1.2・lang 属性用）
@@ -348,7 +347,7 @@
         // ▼ v80+ Stage 2: 以下の純粋ユーティリティは `js/pure-utils.js` へ物理分割し、
         //   本ファイル冒頭で import 済み（挙動・シグネチャはバイト等価で不変）:
         //     generateId / clamp / debounce / tokenize /
-        //     slugify / sanitizeUrl / safeFetchJSON / deepClone
+        //     slugify / sanitizeUrl / deepClone
         //   これらは引数のみで出力が決まり、本 IIFE のクロージャ状態にも DOM にも依存しない。
         //   各関数の詳細仕様・設計意図・セキュリティ境界（特に sanitizeUrl）は当該モジュール冒頭に記載。
         //   ※ DOM を触る clear(node) と localStorage をラップする Storage は純粋でない（service
