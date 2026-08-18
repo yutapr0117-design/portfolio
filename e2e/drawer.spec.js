@@ -269,6 +269,44 @@ test('BGM toggle syncs aria-pressed and aria-label with playback state (a11y)', 
   expect(fatal, `BGM toggle caused a fatal: ${fatal}`).toBeNull();
 });
 
+// ===== BGM の再生失敗を利用者に伝える =====
+// `audio.play()` は拒否されうる (デコード失敗・資産の取得失敗・端末側の制約)。従来は
+// console.warn だけで、実測 (2026-08-18) では **toast も announcement も状態変化も一切出ず**、
+// 利用者から見ると「ボタンを押したのに何も起きない」だった。console は開発者向けの信号で
+// 利用者には見えない —— 同じ非対称をストレージ上限の警告でも踏んでいる (そちらは Toast があり
+// こちらだけ欠けていた)。BGM は topbar = mobile 専用の導線で、通信が不安定な環境ほど audio の
+// 読み込みに失敗しやすく、まさにその場面で無言になる。
+//
+// 検査先に #action-announcement を選ぶ理由: Toast は duration で自動消滅するため、そちらを
+// 待つ形は「実装内部の定数への賭け」になる (落とし穴表に記録済)。
+test('BGM reports a failed playback attempt instead of doing nothing visible', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  // play() だけを拒否させる (要素の読み込みや他の再生経路は壊さない)
+  await page.addInitScript(() => {
+    HTMLMediaElement.prototype.play = function () { return Promise.reject(new Error('NotSupportedError')); };
+  });
+  await page.goto('/#/');
+  await page.waitForLoadState('domcontentloaded');
+
+  const btn = page.locator('#bgm-btn-top');
+  await expect(btn).toBeVisible();
+  await expect(btn).toHaveAttribute('aria-pressed', 'false');
+
+  await btn.click();
+
+  // 失敗が利用者に届く
+  await expect.poll(
+    () => page.evaluate(() => (document.getElementById('action-announcement') || {}).textContent || ''),
+    { timeout: 5000 }
+  ).toContain('BGM を再生できませんでした');
+
+  // 「再生中」と嘘をつかない (状態は false のまま)
+  await expect(btn).toHaveAttribute('aria-pressed', 'false');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `BGM play failure caused a fatal: ${fatal}`).toBeNull();
+});
+
 // ===== 履歴移動で drawer が開いたまま残らない =====
 // drawer 内の nav リンクは自分で closeDrawer() を呼ぶが、**それ以外の経路でルートが変わると
 // drawer は開いたまま残っていた** (実測 #998)。mobile で drawer を開いてブラウザの「戻る」を

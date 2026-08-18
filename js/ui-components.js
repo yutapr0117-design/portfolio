@@ -289,7 +289,11 @@ export const BGM = (() => {
                 await audio.play();
                 _on = true;
             } catch (err) {
+                // [FIX] console.warn は開発者向けで利用者には見えない。従来は toast も
+                //   announcement も状態変化も出ず「押しても何も起きない」だった (実測 2026-08-18)。
+                //   _on は false のまま = 「再生中」と嘘をつかない。詳細は drawer.spec.js。
                 console.warn('BGM play failed:', err);
+                Toast.show('BGM を再生できませんでした', 'error');
                 return;
             }
         }
