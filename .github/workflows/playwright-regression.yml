@@ -133,7 +133,7 @@ jobs:
       #   8 分の根拠: 通常の install 実測は約 2 分。4 倍の余裕で「遅い」と「詰まった」を分ける。
       - name: Install Playwright and dependencies
         id: install
-        timeout-minutes: 8
+        timeout-minutes: 1
         run: |
           npm ci
           npx playwright install --with-deps chromium
