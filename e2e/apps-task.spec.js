@@ -314,6 +314,26 @@ test('Task app degrades gracefully when localStorage write quota is exceeded', a
     () => consoleErrors.some(t => t.includes('ストレージ上限')),
     { timeout: 5000 }
   ).toBe(true);
+
+  // (4) **利用者に届く警告**が出る。
+  //   (3) の console.error は開発者向けの信号で、利用者には一切見えない。つまり
+  //   notifyStorageError() から Toast.show() を落としても (3) は緑のままで、
+  //   **「保存できていない」と知らないままタブを閉じた利用者は作業を丸ごと失う**。
+  //   silent なデータ損失そのものなので、developer 向け信号だけを検査して
+  //   「通知される」と言ってはいけない。
+  //
+  //   検査先に #action-announcement を選ぶ理由: Toast.show() が announce() 経由で書く
+  //   sr-only 領域で、**次の通知まで消えない**。視覚 toast は duration で自動消滅するため、
+  //   そちらを待つ形は「実装内部の定数への賭け」になる (docs/files/playwright.config.cjs.md
+  //   の落とし穴表 — 同じ理由で 11 箇所を移した)。ここは「出現」の検査なので poll が正しい。
+  await expect.poll(
+    () => page.evaluate(() => (document.getElementById('action-announcement') || {}).textContent || ''),
+    { timeout: 5000 }
+  ).toContain('ストレージ上限');
+
+  // 視覚側も同時に確認する。SR 利用者は (4) の live region、目で見る利用者は toast が
+  // 唯一の警告経路で、どちらか一方だけでは「その利用者にとっては無言」になる。
+  await expect(page.locator('#toast-container').getByText('ストレージ上限', { exact: false })).toBeVisible();
 });
 
 
