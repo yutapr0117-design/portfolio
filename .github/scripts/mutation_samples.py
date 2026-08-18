@@ -934,6 +934,13 @@ _E2E_TAIL = [
         "replace": "if (false) {",
         "test": "Adding a task at the limit is refused with a reason",
     },
+    {
+        "name": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u8ffd\u52a0\u306e\u4e0a\u9650\u30ac\u30fc\u30c9\u55b6\u5931 \u2014\u2014 task/todo (#1152) \u3068\u540c\u5f62\u3067\u3001\u5916\u3059\u3068 unshift \u5f8c\u306e\u6b63\u898f\u5316 slice(0, MAX_PROJECTS) \u304c\u6700\u53e4\u306e\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u3092\u7121\u901a\u77e5\u3067\u6368\u3066\u308b",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "if (State.get().projects.length >= CONSTANTS.LIMITS.MAX_PROJECTS) {",
+        "replace": "if (false) {",
+        "test": "Adding a project at the limit is refused",
+    },
 ]
 
 
