@@ -78,6 +78,39 @@ Status        : 本 increment で新設。CLAUDE.md（thin router）から参照
   - **再現コマンド**: `AxeBuilder(page).withRules(['color-contrast']).analyze()` を各ルートで実行し、`violations[0].nodes[].any[0].data` の `fgColor` / `bgColor` / `contrastRatio` を集計する（本記録の数値はこの方法で取得）。
   - **適用条件**: オーナーが配色変更を裁可した時。その際は muted → `#68778c` を起点に、チップ背景側を白寄りへ寄せる案と見比べるのが早い。
 
+  - **⚠ ここまでの測定はすべて既定ブランド (indigo) のみだった（2026-08-18 に判明）。** サイトは
+    `indigo` / `classic` の 2 ブランドを持ち、`data-brand` で `--color-primary-rgb` と本文フォントが
+    切り替わる。**classic は一度も測られていなかった**ので `#/` で実測した:
+
+    | ブランド / テーマ | 違反ノード数 | 最悪比 |
+    | :-- | --: | --: |
+    | indigo / light（既定・#974 で 1/255 調整済） | 21 | 2.45 |
+    | indigo / dark | 64 | 1.76 |
+    | **classic / light** | **54** | **2.22** |
+    | **classic / dark** | **75** | **1.48** |
+
+    上位の失敗ペア（`#/`・件数順）:
+
+    | ブランド | 失敗ペア | 比 | 件数 |
+    | :-- | :-- | --: | --: |
+    | indigo | `#abadf6` on `#fcfdfe` @13px bold | 2.05 | 14 |
+    | indigo | `#c5cdd9` on `#fcfdfe` @11px bold | 1.57 | 11 |
+    | **classic** | **`#3c73ed` on `#fefeff` @13px bold** | **4.28** | **14** |
+    | classic | `#9facbf` on `#fefeff` @11px bold | 2.28 | 11 |
+
+    **意味するところ**: classic の primary 文字は **4.28 で AA (4.5) をわずかに下回る near-miss** で、
+    #974 で indigo を 4.467 → 4.527 に直したのと **同じ形**。だが #974 の調整は既定ブランドの
+    `--color-primary-rgb` にだけ入っており、**classic は取り残されている**。
+    ライト全体でも classic は既定の **2.5 倍**の違反ノードを持つ。
+
+    **なぜ今 AI 単独で直さないか**: indigo の時に「知覚不能」と切り分けられた根拠は **1/255（0.4%）**
+    という変化量だった。classic を 4.28 → 4.5 に上げるには輝度を ~6% 下げる必要があり、
+    1/255 では届かない＝**知覚できる配色変更**なので C5（人間の裁可）。
+
+    **次にこの面を触る人への含意**: 「ライトのコントラストを直す」増分を **既定ブランドだけに
+    適用して終わらせない**こと。2 ブランド × 2 テーマの 4 組すべてを測ってから裁可を仰ぐ
+    （上表がその 4 組のベースライン）。
+
 - **安全ゲート（C6・AIO 意味論）— Speakable `cssSelector` に実在しない `[data-speakable]` が宣言されている（2026-08-11 実測）:** `js/meta-management.js` の `SPEAKABLE_SELECTORS` は AI 音声アシスタント向けに「読み上げるべき要素」を宣言する **機械向け宣言**。全該当ルートで `querySelectorAll` を実際に走らせて件数を測ったところ、`[data-speakable]` は **home 以外で 0 件**だった。
 
   | ルート | `h1` | `[data-speakable]` | 固有セレクタ | `.sr-only` |
