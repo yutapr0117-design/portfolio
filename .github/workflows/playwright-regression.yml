@@ -151,12 +151,32 @@ jobs:
       #   したがって install 停滞 (本日 2 件: #1136 15m15s / #1143 8 分 timeout) への正しい
       #   対処は「速くする」ではなく、下の帰属レイヤで **infra の赤と回帰の赤を区別して
       #   rerun させる**こと。
+      # [FIX 2026-08-18] install の停滞は **1 回リトライすれば直る**。実測 (step API の
+      #   started_at/completed_at が権威。`gh run view --job=X --log` は run 全体のログを返すため
+      #   job への帰属に使ってはいけない —— これで一度誤読した):
+      #     停滞した 3 件 = 15m07s / 8m13s / 8m12s (いずれも timeout で打ち切り・作業は未完了)
+      #     その rerun 3 件 = すべて成功し 1m33s / 2m55s / 6m20s
+      #   つまり詰まるのは実行のたびに引き直される外部要因 (apt ミラー) で、同じ入力でも
+      #   次の試行はほぼ通る。本日 ~10 PR 中 3 件で発生し、その都度 rerun していた。
+      #   1 回の自動リトライで、その人手 (AI の 1 サイクル) を丸ごと不要にする。
+      #   per-attempt 300s の根拠: 成功時の実測は 1m33s〜2m55s で、その ~2〜3 倍。
+      #   step timeout 11 分 = 2 試行 (最大 10 分) + 余裕。job の 20 分にも収まる。
+      #   **`|| true` で握り潰さない** —— 2 回とも駄目なら step を失敗させ、下の帰属レイヤが
+      #   「gate は一度も実行されていない」と書く (無言で緑にするのが最悪)。
       - name: Install Playwright and dependencies
         id: install
-        timeout-minutes: 8
+        timeout-minutes: 11
         run: |
           npm ci
-          npx playwright install --with-deps chromium
+          ok=""
+          for i in 1 2; do
+            if timeout 300 npx playwright install --with-deps chromium; then ok=1; break; fi
+            echo "::warning::playwright install attempt $i stalled or failed — retrying (実測: 停滞は rerun でほぼ解消する)"
+          done
+          if [ -z "$ok" ]; then
+            echo "::error::playwright install が 2 回とも失敗した — BLOCKING gate は実行されない"
+            exit 1
+          fi
 
       # Behavior / functionality tests are the BLOCKING gate. Per Session Record #20 the
       # repository (not the rendered site) is the portfolio; the site is an appendage whose
