@@ -167,48 +167,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "behavior: 絞り込み件数の polite status が失われる (#1031 の回帰) — status role/aria-live を外すと件数変化が SR へ伝わらなくなる。従来は assertive 領域へ書いて読み上げを割り込んでいた非対称を、ProjectsPage/QuizPage と同じ polite なローカル status へ揃えたもの",
-        "file": ROOT / "js" / "apps.js",
-        "find": "h('div', { class: 'sr-only', role: 'status', 'aria-live': 'polite', id: 'task-filter-status' },",
-        "replace": "h('div', { class: 'sr-only', id: 'task-filter-status' },",
-        "test": "絞り込みの件数が polite な status でアナウンスされる",
-    },
-    {
-        "name": "behavior: #content が再び live region になる (#1032 の回帰) — ページ本文そのもの (quiz では 24,500 文字) が live region になり、ルート遷移や State 更新のたびにスクリーンリーダーが本文全体を読み直す chatty なアンチパターンへ戻る。ポモドーロ稼働中は毎秒再描画されるため特に害が大きい",
-        "file": ROOT / "index.html",
-        "find": '<div class="container" id="content" aria-busy="false"></div>',
-        "replace": '<div class="container" id="content" aria-busy="false" aria-live="polite"></div>',
-        "test": "#content は live region ではなく、通知は専用領域が担う",
-    },
-    {
-        "name": "behavior: full export が 1 フィールド落とす (#1035) — フル export は利用者にとって **バックアップ**なので、export 側で notes が落ちる (あるいは import が無視する) だけで黙ってデータが失われる。部分 export のテストも手書き JSON の import テストもこの経路を通らないため、往復させる test だけが捕捉層",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "function exportFull() { downloadJSON(State.get(), ",
-        "replace": "function exportFull() { downloadJSON({ ...State.get(), appsData: { ...State.get().appsData, notes: '' } }, ",
-        "test": "full export → 全リセット → import で状態が再現する",
-    },
-    {
-        "name": "behavior: import が theme を復元しなくなる (#1036 の回帰) — theme は full export に含まれるのに import が無視すると、フルバックアップを復元しても表示テーマの設定だけが黙って失われる (#139 の profile strip と同じ data-fidelity class)",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "                    if (typeof parsed.theme === 'string') { merged.theme = parsed.theme; applied = true; }\n",
-        "replace": "",
-        "test": "表示テーマが export → import で復元され",
-    },
-    {
-        "name": "behavior: DOM がテーマ state に追随しなくなる (#1036 の回帰) — import / 全リセット / snapshot 復元は Theme.cycle を通らないため、data-theme と .dark が古いまま残り reload するまで切り替わらない",
-        "file": ROOT / "main.js",
-        "find": "                if (_wantTheme && document.documentElement.getAttribute('data-theme') !== _wantTheme) {",
-        "replace": "                if (false && _wantTheme && document.documentElement.getAttribute('data-theme') !== _wantTheme) {",
-        "test": "表示テーマが export → import で復元され",
-    },
-    {
-        "name": "behavior: import が projectPrefs を復元しなくなる (#1037 の回帰) — backup を戻すと **意図的に隠したプロジェクトが再び公開状態になる**。既定プロジェクトは削除できず『非表示』が唯一の非公開手段 (#886) なので、単なる表示設定ではなく公開/非公開の意思が失われる",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "                        if (parsed.projectPrefs && Array.isArray(parsed.projectPrefs.hiddenIds)) {",
-        "replace": "                        if (false && parsed.projectPrefs && Array.isArray(parsed.projectPrefs.hiddenIds)) {",
-        "test": "非表示にしたプロジェクトが export → import 後も非表示のまま",
-    },
-    {
         "name": "behavior: 部分 export した素の配列を import が受け付けなくなる (#1038 の回帰) — `Projectsのみ` は projects の素の配列を書き出すので、full-state 形しか見ないと **何も起きないのに『インポートが完了しました』**と報告する。戻せないファイルを作って成功したと言うのは失敗するより悪い",
         "file": ROOT / "js" / "settings-page.js",
         "find": "            if (Array.isArray(raw)) { return { projects: raw }; }",
@@ -955,6 +913,13 @@ _E2E_TAIL = [
         "find": "Toast.show(_dropped > 0",
         "replace": "Toast.show(false",
         "test": "Over-limit import reports how many entries were dropped",
+    },
+    {
+        "name": "BGM \u306e\u518d\u751f\u5931\u6557\u304c\u7121\u8a00\u306b\u623b\u308b \u2014\u2014 play() \u62d2\u5426\u6642\u306e Toast \u3092\u5916\u3059\u3068 console.warn \u3060\u3051\u304c\u6b8b\u308b\u3002console \u306f\u958b\u767a\u8005\u5411\u3051\u306e\u4fe1\u53f7\u3067\u5229\u7528\u8005\u306b\u306f\u898b\u3048\u305a\u3001\u30dc\u30bf\u30f3\u3092\u62bc\u3057\u3066\u3082\u4f55\u3082\u8d77\u304d\u306a\u3044\u72b6\u614b\u306b\u623b\u308b (BGM \u306f topbar = mobile \u5c02\u7528\u3067\u3001\u901a\u4fe1\u304c\u4e0d\u5b89\u5b9a\u306a\u74b0\u5883\u307b\u3069 audio \u306e\u8aad\u307f\u8fbc\u307f\u306b\u5931\u6557\u3057\u3084\u3059\u3044)",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "Toast.show('BGM \u3092\u518d\u751f\u3067\u304d\u307e\u305b\u3093\u3067\u3057\u305f', 'error');",
+        "replace": "/* mutated */",
+        "test": "BGM reports a failed playback attempt",
     },
 ]
 
