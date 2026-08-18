@@ -927,6 +927,13 @@ _E2E_TAIL = [
         "replace": "/* mutated */",
         "test": "BGM reports a failed playback attempt",
     },
+    {
+        "name": "\u4e0a\u9650\u6642\u306e\u8ffd\u52a0\u304c\u6700\u53e4\u306e\u9805\u76ee\u3092\u7121\u901a\u77e5\u3067\u6368\u3066\u308b\u5f62\u3078\u623b\u308b \u2014\u2014 \u4e0a\u9650\u30ac\u30fc\u30c9\u3092\u5916\u3059\u3068 unshift \u5f8c\u306e\u6b63\u898f\u5316 slice(0, MAX) \u304c\u672b\u5c3e\uff1d\u6700\u53e4\u3092\u843d\u3068\u3059\u306e\u306b\u300c\u30bf\u30b9\u30af\u3092\u8ffd\u52a0\u3057\u307e\u3057\u305f\u300d\u3068\u3060\u3051\u4f1d\u3048\u308b\u305f\u3081\u3001\u5229\u7528\u8005\u306f\u81ea\u5206\u304c\u6d88\u3057\u305f\u306e\u3067\u306f\u306a\u3044\u9805\u76ee\u304c\u6e1b\u3063\u305f\u3053\u3068\u306b\u6c17\u4ed8\u3051\u306a\u3044",
+        "file": ROOT / "js" / "apps.js",
+        "find": "if (State.get().appsData.tasks.length >= CONSTANTS.LIMITS.MAX_TASKS) {",
+        "replace": "if (false) {",
+        "test": "Adding a task at the limit is refused with a reason",
+    },
 ]
 
 

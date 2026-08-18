@@ -903,3 +903,54 @@ test('タスクのステータス移動がスクリーンリーダーに通知�
   expect(await page.locator('#toast-container').count(),
     'ステータス移動で視覚 Toast が出ている — 頻繁な操作なので sr-only 通知にとどめる設計').toBe(0);
 });
+
+
+// ===== 上限に達したら「黙って最古を捨てる」のではなく理由を伝えて断る =====
+// 従来: 500 件 (MAX_TASKS) の状態で追加すると unshift で先頭に入り「タスクを追加しました」と
+// 通知されるが、次回ロード時の正規化 `slice(0, MAX_TASKS)` が **末尾＝最古のタスクを無通知で
+// 落としていた**。実測 (2026-08-18): 500 件で 1 件追加 → 新項目は残るがリロード後に「既存 499」が
+// 消滅。利用者は **自分が消したのではない項目が減ったこと**に気付けない。
+// 上限そのものは正当な保護なので、超える追加を受け付けたふりをせず理由を伝えて断る
+// (#1143 の import 切り捨てを「完了しました」で済ませないのと同じ規律)。
+//
+// seed は **冪等**にする: `addInitScript` は reload でも再実行されるため、素朴に書くと
+// リロード後の状態を自分で上書きしてしまい「新項目が消えた」という誤った観測になる
+// (実際に踏んだ・落とし穴表参照)。
+test('Adding a task at the limit is refused with a reason instead of silently evicting the oldest', async ({ page }) => {
+  await page.addInitScript(() => {
+    if (localStorage.getItem('__seeded_limit')) { return; }
+    const tasks = Array.from({ length: 500 }, (_, i) => ({
+      id: 'LIMIT-T' + i, title: '既存タスク ' + i, status: 'backlog', priority: 'med',
+    }));
+    localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+      schemaVersion: 12, appsData: { tasks, todos: [], notes: '', ai: {}, pomodoro: {} },
+    }));
+    localStorage.setItem('__seeded_limit', '1');
+  });
+
+  await page.goto('/#/apps/task');
+  await page.waitForLoadState('domcontentloaded');
+  const input = page.locator('#task-input');
+  await expect(input).toBeVisible();
+
+  // control: 上限ちょうどの状態で始まっている (これが崩れると以下は何も検査しない)
+  const count = () => page.evaluate(
+    () => JSON.parse(localStorage.getItem('portfolio_enhanced_v45')).appsData.tasks.length);
+  expect(await count(), 'seed が効いていない').toBe(500);
+
+  await input.fill('上限超過タスク');
+  await input.press('Enter');
+
+  // 断られたことが利用者に伝わる
+  await expect.poll(
+    () => page.evaluate(() => (document.getElementById('action-announcement') || {}).textContent || ''),
+    { timeout: 5000 }
+  ).toContain('500 件までです');
+
+  // 追加されていない = 既存データも減っていない
+  await expect(page.getByText('上限超過タスク')).toHaveCount(0);
+  expect(await count(), '断ったのに件数が変わっている').toBe(500);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `limit refusal caused a fatal: ${fatal}`).toBeNull();
+});
