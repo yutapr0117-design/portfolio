@@ -15,6 +15,21 @@ span this file). run(ctx) receives shared check()/ROOT/errors/warnings by refere
 so append semantics / BLOCKING propagation / exit code are byte-equivalent to the monolith.
 
 Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()):
+  429. Check 47 の一段深い版 (import されている ⟹ **実際に使われている**)。js/pure-utils.js の
+       全 export について、`import { … } from './js/pure-utils.js'` の宣言そのものを除いた
+       shipped JS (main.js ∪ js/*.js、pure-utils.js 自身とコメントを除く) に識別子の参照が
+       1 件以上あることを BLOCKING 強制する。Check 47 は「export ⟺ import」の bijection しか
+       見ないため、**import はされているが一度も呼ばれない** export を素通りさせる。実際に
+       `safeFetchJSON` (30 行の fetch ラッパ) が全履歴で呼び出し 0 件のまま残っていた
+       (`git log -S` で確認すると定義・docstring・import 行しか現れない never-wired な残骸で、
+       lost-wiring ではない)。ESLint も捕捉しない —— import 名は Check 47 のために main.js が
+       必ず import するので `no-unused-vars` から見れば「使用済み」に見える。本リポジトリは
+       バックエンドを持たない静的 SPA ゆえ fetch ラッパは今後も配線されず、置いておくだけで
+       (a) 読み手に「使われている機能」と誤読させ (b) Check 47 の bijection に守られて
+       永久に残る。icon 面 (375/375b)・action 面 (376/418) と同じ「定義 ⟹ 使用」の
+       pure-utility 面。走査前にコメントを除去する (コメント中の言及は使用ではない・
+       Check 112/392/421/422 と同じ規律)。(BLOCKING)
+
   47. main.js ⇄ js/ module ESM import/export contract: for each local module main.js imports
       from (js/brand.js, js/constants.js, js/identity.js, js/meta-management.js,
       js/page-meta.js, js/pages.js, js/pure-utils.js, js/router.js, js/state.js, js/storage.js,
@@ -426,3 +441,45 @@ def run(ctx):
         if _imports381 else
         "Check 381: main.js から js/ 静的 import を抽出できない (import 構造の変更を確認せよ)",
     )
+
+    # ── 429. pure-utils export ⟹ 実使用 (import されているだけでは足りない) ────────────
+    # Check 47 は「export ⟺ import」の bijection しか見ないので、**import はされているが
+    # 一度も呼ばれない** export を素通りさせる。実際に safeFetchJSON (30 行の fetch ラッパ) が
+    # 全履歴で呼び出し 0 件のまま残っていた。ESLint も捕捉しない —— Check 47 のために main.js が
+    # 必ず import する以上、`no-unused-vars` から見れば「使用済み」に見えるため。
+    # 走査前にコメントを除去する (コメント中の言及は使用ではない)。
+    _pu429 = ROOT / "js" / "pure-utils.js"
+    if _pu429.exists():
+        def _decomment429(text):
+            text = re.sub(r"/\*.*?\*/", "", text, flags=re.S)
+            return re.sub(r"(?<!:)//[^\n]*", "", text)
+
+        _exports429 = set(re.findall(r"export\s+(?:async\s+)?function\s+(\w+)", _pu429.read_text(encoding="utf-8")))
+        _exports429 |= set(re.findall(r"export\s+(?:const|let|var)\s+(\w+)", _pu429.read_text(encoding="utf-8")))
+
+        # main.js は import 宣言そのものを取り除いてから走査する (宣言は「使用」ではない)。
+        _main429 = re.sub(
+            r"""import\s*\{[^}]*\}\s*from\s*['"]\./js/pure-utils\.js['"];?""",
+            "", _main_src47, flags=re.S)
+        _hay429 = _decomment429(_main429)
+        for _leaf429 in sorted((ROOT / "js").glob("*.js")):
+            if _leaf429.name != "pure-utils.js":
+                _hay429 += "\n" + _decomment429(_leaf429.read_text(encoding="utf-8"))
+
+        _unused429 = sorted(n for n in _exports429
+                            if not re.search(r"\b" + re.escape(n) + r"\b", _hay429))
+        check(
+            bool(_exports429) and not _unused429,
+            f"Check 429: all {len(_exports429)} js/pure-utils.js exports are actually used in shipped JS "
+            f"(import ⟹ used; Check 47 only proves export ⟺ import)",
+            (f"Check 429: import されているだけで一度も使われない pure-utils export: {_unused429} — "
+             "Check 47 の bijection に守られて永久に残るため、`git log -S` で never-wired (残骸) か "
+             "lost-wiring (配線喪失) かを判別し、前者なら export と main.js の import 行を同時に除去、"
+             "後者なら呼び出し側を再配線せよ (icon 面 375b / action 面 418 と同じ「定義 ⟹ 使用」)"
+             if _exports429 else
+             "Check 429: js/pure-utils.js から export を抽出できない (構造変更の可能性)"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 429: js/pure-utils.js present",
+              "Check 429: js/pure-utils.js が無い — pure-utility の使用状況を検証できない", blocking=True)

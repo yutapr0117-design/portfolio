@@ -174,42 +174,6 @@ export function sanitizeUrl(url) {
 }
 
 /**
- * safeFetchJSON — fetch をラップし、HTTP ステータスと JSON パースを厳密に検証する。
- *
- * fetch() は 404/500 等の HTTP エラーでも Promise を **resolve** してしまうため、
- * 「ハッピーパスのみ」のコードは静かに壊れやすい。本ラッパーは
- *   - `response.ok` が false ならログを残して null、
- *   - JSON パース失敗もログを残して null、
- *   - ネットワーク断/CORS 例外もログを残して null、
- * を返し、呼び出し側を「成功時データ or null」という単純な契約に保つ。
- *
- * @param {string} url - 取得先 URL。
- * @param {RequestInit} [options={}] - fetch オプション。
- * @returns {Promise<any|null>} 成功時はパース済み JSON、失敗時は null。
- */
-export async function safeFetchJSON(url, options = {}) {
-    try {
-        const response = await fetch(url, options);
-        // fetch 特有の罠: HTTP エラーでも Promise は resolve される。明示的に弾く。
-        if (!response.ok) {
-            console.error('[safeFetch] HTTP error ' + response.status + ' for: ' + url);
-            return null;
-        }
-        // JSON パースエラーに対する防御（本文が JSON でない場合）。
-        try {
-            return await response.json();
-        } catch (parseErr) {
-            console.error('[safeFetch] JSON parse failed for: ' + url, parseErr);
-            return null;
-        }
-    } catch (networkErr) {
-        // CORS エラー・ネットワーク断・タイムアウト等。
-        console.error('[safeFetch] Network/CORS error for: ' + url, networkErr);
-        return null;
-    }
-}
-
-/**
  * deepClone — プレーンオブジェクト/配列/Date を再帰的に深いコピーする。
  *
  * 状態オブジェクトを破壊せずに複製したい場面（migration・スナップショット等）で使う。
