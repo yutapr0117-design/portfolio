@@ -949,6 +949,13 @@ _E2E_TAIL = [
         "replace": "                h('button', { class: 'btn btn-secondary', onclick: () => {} }, 'ホームへ'),",
         "test": "Unknown route shows a comprehensible Not Found page with working recovery nav",
     },
+    {
+        "name": "\u4e0a\u9650\u8d85\u904e\u306e import \u304c\u9ed9\u3063\u3066\u5207\u308a\u6368\u3066\u308b \u2014\u2014 \u6b63\u898f\u5316\u306f\u4ef6\u6570\u4e0a\u9650 (MAX_TASKS 500) \u3067 entry \u3092\u843d\u3068\u3059\u304c\u3001\u5831\u544a\u3092\u7d20\u306e\u300c\u5b8c\u4e86\u3057\u307e\u3057\u305f\u300d\u306b\u623b\u3059\u3068\u3001\u30d0\u30c3\u30af\u30a2\u30c3\u30d7\u304b\u3089\u5fa9\u5143\u3057\u305f\u5229\u7528\u8005\u306f\u5931\u308f\u308c\u305f\u3053\u3068\u306b\u6c17\u4ed8\u304b\u306a\u3044\u307e\u307e\u5143\u30c7\u30fc\u30bf\u3092\u6368\u3066\u3046\u308b (#1039/#1040 \u306e \u90e8\u5206\u9069\u7528 \u7248)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "Toast.show(_dropped > 0",
+        "replace": "Toast.show(false",
+        "test": "Over-limit import reports how many entries were dropped",
+    },
 ]
 
 
