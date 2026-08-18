@@ -941,6 +941,13 @@ _E2E_TAIL = [
         "replace": "if (false) {",
         "test": "Adding a project at the limit is refused",
     },
+    {
+        "name": "\u975e\u65e2\u5b9a\u30d6\u30e9\u30f3\u30c9 (classic = Inter \u3067\u7d04 5.9% \u5e45\u5e83) \u3067\u306e 320px \u30ea\u30d5\u30ed\u30fc\u5951\u7d04\u304c\u5931\u308f\u308c\u308b \u2014\u2014 920px media \u5185\u306e max-width \u3092\u5916\u3059\u3068 cross \u8ef8 auto margin \u306b\u3088\u308a fit-content \u304c viewport \u3092\u8d85\u3048\u308b\u3002\u65e2\u5b9a\u30d6\u30e9\u30f3\u30c9\u3060\u3051\u3092\u901a\u3059 gate \u3060\u3068\u3001\u5e45\u5e83\u306a\u30d5\u30a9\u30f3\u30c8\u3067\u3060\u3051\u3042\u3075\u308c\u308b\u56de\u5e30\u3092\u7d20\u901a\u308a\u3055\u305b\u308b",
+        "file": ROOT / "style.css",
+        "find": "                   \u306f\u975e\u5230\u9054\u3002 */\n                max-width: 100%;",
+        "replace": "                   \u306f\u975e\u5230\u9054\u3002 */\n                max-width: none;",
+        "test": "classic \u30d6\u30e9\u30f3\u30c9 (\u3088\u308a\u5e45\u5e83\u306a\u30d5\u30a9\u30f3\u30c8) \u3067\u3082\u3042\u3075\u308c\u306a\u3044",
+    },
 ]
 
 

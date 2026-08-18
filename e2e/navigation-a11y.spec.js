@@ -426,6 +426,36 @@ test('WCAG 1.4.10: 320px 幅でどのルートも横スクロールしない', a
   }
 });
 
+// 同じ契約を **より厳しい条件** でも通す。ブランド `classic` は本文フォントが Inter になり、
+// 既定 (DM Sans) より **約 5.9% 幅広**に描画される (実測 2026-08-18: 同一文字列の幅が
+// 248.31px → 262.98px)。既存の gate は既定ブランドしか通しておらず、
+// **非既定ブランドでだけあふれる回帰**を素通りさせる。実測では classic でも全ルート 0 だが、
+// 幅が広い側を通しておかないと gate が守っているのは「既定フォントでの契約」に留まる。
+//
+// NOTE: フォントが実際に切り替わっていることを control として確かめる。切り替わらなければ
+//   これは既定ブランドの test をもう 1 本増やしただけの vacuous なテストになる。
+test('WCAG 1.4.10: 320px 幅で classic ブランド (より幅広なフォント) でもあふれない', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('portfolio_brand_v45', 'classic'));
+  await page.setViewportSize({ width: 320, height: 800 });
+  await page.goto('/#/role-split', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#main-content h1, #main-content h2').first()).toBeVisible();
+
+  // control: ブランドが実際に適用され、Inter 系のフォントで描画されている
+  const applied = await page.evaluate(() => ({
+    brand: document.documentElement.getAttribute('data-brand'),
+    family: getComputedStyle(document.body).fontFamily,
+  }));
+  expect(applied.brand, 'classic ブランドが適用されていない').toBe('classic');
+  expect(applied.family, '本文フォントが Inter 系に切り替わっていない').toContain('Inter');
+
+  for (const route of ['#/role-split', '#/quiz', '#/hiring-risk', '#/apps/pomodoro']) {
+    await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#main-content h1, #main-content h2').first()).toBeVisible();
+    const doc = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    expect(doc, `${route} が classic ブランドの 320px 幅で横に ${doc}px あふれている`).toBe(0);
+  }
+});
+
 // ===== WCAG 2.1.1: 再描画で消えるコントロールの focus 復元 =====
 // SPA の `State.update` / `window.render()` は #content を作り直すため、change ハンドラを持つ
 // コントロール (select / checkbox / number input) は **自分で自分を消してしまう**。実測 (#994) では
