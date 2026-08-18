@@ -143,7 +143,7 @@ jobs:
         timeout-minutes: 8
         run: |
           npm ci
-          npx playwright install --with-deps chromium
+          npx playwright install chromium  # PROBE: --with-deps を外して apt 2m41s が本当に要るか実測
 
       # Behavior / functionality tests are the BLOCKING gate. Per Session Record #20 the
       # repository (not the rendered site) is the portfolio; the site is an appendage whose
