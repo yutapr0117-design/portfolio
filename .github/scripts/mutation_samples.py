@@ -912,6 +912,27 @@ _E2E_TAIL = [
         "replace": "",
         "test": "Command palette input tracks active option via aria-activedescendant",
     },
+    {
+        "name": "手動追加したプロジェクトが state に入らない — フォームは受け付けて成功を報告するのに一覧へ出ない。**利用者が入力した内容がどこにも残らない** silent no-op で、入力し直しても同じ結果になるため原因に辿り着けない",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "                s.projects.unshift({",
+        "replace": "                if (false) s.projects.unshift({",
+        "test": "Settings can add a project manually and it appears on the Projects page",
+    },
+    {
+        "name": "スナップショットが保存されないのに成功と報告する — `Storage.set` を握り潰すと「保存しました」が出て保存済み表示にもなるが、**復元しようとすると何も無い**。バックアップ機能で「成功したと報告するのに実際は保存されていない」のは最も危険な形 (#1039/#1040 の silent no-op と同 class)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "            const success = Storage.set(CONSTANTS.SNAPSHOT_KEY, JSON.stringify(snap));",
+        "replace": "            const success = true;",
+        "test": "Settings app saves a snapshot and reflects the saved-at status",
+    },
+    {
+        "name": "自動推薦 (autoRelated) が空になる — 詳細ページの「おすすめ」導線が消え、**閲覧者が次のプロジェクトへ回遊する経路**が死ぬ。明示的な関連 (relatedProjectIds) は残るのでセクション自体は表示され、**壊れて見えない**",
+        "file": ROOT / "js" / "project-detail-page.js",
+        "find": "        const autoRelated = Store.autoRelatedCandidates(project, listable, 8);",
+        "replace": "        const autoRelated = [];",
+        "test": "Project detail \"auto-recommended\" card navigates to another project (autoRelated)",
+    },
 ]
 
 _MUTATIONS_TAIL.append({
