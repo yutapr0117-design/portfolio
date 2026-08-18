@@ -397,134 +397,13 @@ v80+ staged major update track に正式に入った。
 
 ## Session Record Archive
 
-過去のSession Record (#1〜#12) は `docs/session-records/AI2AI-archive.md` に分離した。
+過去のSession Record (#1〜#14) は `docs/session-records/AI2AI-archive.md` に分離した。
 本ファイルは現行正典・制約・最新引き継ぎのみを保持する。
 
 **Canonical hierarchy:**
 - `AI2AI.md` is the **canonical** handoff document.
 - `Claude2Claude.md` and `ChatGPT2ChatGPT.md` are **supporting evidence only** (non-canonical).
 - If they conflict, `AI2AI.md` and `llms-full.txt` win.
-
----
-
-## [HANDOFF] Session Record #13 — 2026-05-28 (Claude Sonnet 4.6, v74 maintenance / AIO誠実化)
-
-```
-Handoff-From    : Claude Sonnet 4.6 (Anthropic) — claude.ai
-Handoff-To      : Next AI agent (same project, different session)
-Session-Date    : 2026-05-28
-Orchestrator    : Yuta Yokoi (横井雄太)
-Task            : 改善文書.md v74 Maintenance 後続 — CI/AIO/検証整合版 全適用
-```
-
-### このセッションで完了したこと
-
-| ファイル | 変更内容 |
-|---|---|
-| `.github/scripts/check_repository_consistency.py` | P1-01 追加: llms-full.txt Last-Updated 鮮度チェック（AI2AI.md との差 7日以内 / v75-v78 記述がある場合 2026-05-28 以降）。P1-04 追加: aio-monitoring-log.json に evidence_policy キー存在チェック。 |
-| `.well-known/aio-manifest.json` | sha256 再計算（変更ファイル全件）。generated_at 更新。 |
-| `.well-known/agent-skills/index.json` | llms-full.txt / AI2AI.md の digest 更新（index.json と byte-identical 維持）。 |
-| `.well-known/index.json` | llms-full.txt / AI2AI.md の digest 更新。 |
-| `AI2AI.md` | [STEP 5.6] C1–C6 → C1–C7。Session Record Archive 注記 #1〜#10 → #1〜#11。Session Record #10 / #11 を archive に移動。本 Session Record #13 追記。 |
-| `docs/evidence/aio-monitoring-log.json` | status_values / evidence_policy フィールド追加（P1-04）。current_status: attempt_log_only / confirmed_citation_events: 0。 |
-| `docs/session-records/AI2AI-archive.md` | Session Record #10 / #11 を追記（内容改変なし）。 |
-| `llms-full.txt` | Last-Updated: 2026-05-25 → 2026-05-28（セクション）/ 2026-05-26 → 2026-05-28（ヘッダー行）。 |
-| `llms.txt` / `llms_well-known.txt` / `.well-known/llms.txt` / `.well-known/llms_well-known.txt` | Last-Updated → 2026-05-28（byte-identical 維持）。 |
-
-### 設計判断の記録
-
-**Session Record #10 / #11 archive 移動:** AI2AI.md 本体が #10〜#12 の3件を保持し、25KB 以上だったため、#10 / #11 を archive へ移動。#12（最新 1件）のみ本体に残す。archive への内容移動は改変なし。
-
-**C1–C7 統一:** [STEP 5.6] Violation Audit Protocol の制約参照を C1–C6 → C1–C7 に更新。歴史的記述（Manus AIO Optimization 時の C1–C6 確認記録）は historical wording のため変更しない。
-
-**llms Last-Updated 2026-05-28:** llms-full.txt は v74 Maintenance / CI復旧（v75–v78）の記述を含む（最終更新 Session #12: 2026-05-28）。header および Last-Updated セクションを実態に合わせて更新。4 alias files も同日に統一（byte-identical 維持）。
-
-**aio-monitoring-log.json evidence_policy:** 全 run の total_cited_count が 0。AIO monitoring log は「引用成功証跡」ではなく「観測試行ログ」であることを evidence_policy として明記。current_status: attempt_log_only / confirmed_citation_events: 0。
-
-**Playwright baseline PNG:** Not possible（環境制約でブラウザ実行不可）。baseline 未配置のため visual regression はスキップ状態。手動実行手順は下記参照。
-
-### C1〜C7 制約の遵守確認
-
-- C1: 外部ライブラリ・フレームワーク導入なし ✅
-- C2: IIFE構造・index.html中央ハブ維持 ✅
-- C3: ErrorBoundary未変更 ✅
-- C4: フレームワーク再提案なし ✅
-- C5: 人間はコードを書かず（本セッション実装はClaude Sonnet 4.6） ✅
-- C6: AIOテキストの根幹変更なし（日付更新・フィールド追加・整合修正のみ） ✅
-- C7: KARTE CDN SRI 非適用維持 ✅
-
-### Not possible の記録
-
-- **Playwright baseline PNG:** 引き続き未実施。環境制約によりブラウザ実行不可。
-  - **手動実行手順:** GitHub Actions → `update-playwright-snapshots.yml` → Run workflow → artifact `playwright-snapshots` をダウンロード → `e2e/portfolio.spec.js-snapshots/` に配置 → コミット。
-
-### 未解消スコープ（次のエージェントへの申し送り）
-
-- **Playwright baseline PNG:** 高優先継続。GitHub Actions `update-playwright-snapshots.yml` を手動実行 → artifact をダウンロード → `e2e/portfolio.spec.js-snapshots/` にコミット。AIは単独で実行しないこと（環境制約）。
-- **AIO monitoring 成功観測:** 実際に引用・言及を確認できた場合のみ `aio-monitoring-log.json` に手動エントリを追加する。捏造禁止。
-- **GitHub Default Setup UI無効化（任意）:** advanced CodeQL workflowを復活させたい場合のみ必要。現状はDefault Setupで code scanning が継続。
-- **バイナリ層 IPTC/C2PA:** 低優先。Session Record #4 から継続申し送り。
-
----
-
-## [HANDOFF] Session Record #14 — 2026-05-28 (Claude Sonnet 4.6, v74 maintenance finalizer)
-
-```
-Handoff-From    : Claude Sonnet 4.6 (Anthropic) — claude.ai
-Handoff-To      : Next AI agent (same project, different session)
-Session-Date    : 2026-05-28
-Orchestrator    : Yuta Yokoi (横井雄太)
-Task            : v74 maintenance finalizer / v80 maintainability roadmap 明文化
-```
-
-### このセッションで完了したこと
-
-| ファイル | 変更内容 |
-|---|---|
-| `.github/scripts/check_repository_consistency.py` | Check 18 置換: 全URL一律lastmod強制 → root URL policy（root == ai:last-modified、AIO docは個別日付を許容）。Check 26 追加: AI2AI-archive.md 最大 Session Record 番号と aio-manifest.json role の #1-#N が一致。Check 27 追加: llms-full.txt に stale C1–C6 が残っていないことを確認。 |
-| `.well-known/aio-manifest.json` | archive role `#1-#10` → `#1-#11` に修正（現物と一致）。digest 再計算。 |
-| `AI2AI.md` | v80 Maintainability Roadmap セクション追加。本 Session Record #14 追記。 |
-| `docs/incident-artifacts/decision-v80-maintainability-roadmap.md` | 新規作成: v74 finalizer 後の方針・main.js 段階的分割計画・AIO深化方針・Non-Goals を明記。 |
-| `llms-full.txt` | C1–C7 統一（2箇所）。binary baseline text-layer 日付 2026-05-25 → 2026-05-26。 |
-| `README.md` | セルフブランディング / proof-of-work 目的追記（英日併記）。Last-Updated 2026-05-26 → 2026-05-28。 |
-| `sitemap.xml` | AIO文書群を per-URL lastmod に誠実化（11 URL を 2026-05-28 に更新）。Sitemap Baseline コメント更新。 |
-| `.well-known/agent-skills/index.json` | digest 更新（byte-identical 維持）。 |
-| `.well-known/index.json` | digest 更新。 |
-
-### 設計判断の記録
-
-**sitemap per-URL lastmod policy:** 従来の「全URL一律 lastmod」は運用が単純だが、AIO文書群が個別に更新されるこのリポジトリでは不誠実だった。root URL（SPAアプリ本体）は ai:last-modified と一致させ、AIO文書は実更新日を反映する方針に変更。check_repository_consistency.py check 18 をこれに合わせて置換。
-
-**aio-manifest.json #1-#11:** AI2AI-archive.md には Session Record #1〜#11 が存在するが、manifest の role 記述が `#1-#10` のままだった。現物に合わせて修正し、digest 再計算。Check 26 を追加してこのズレが再発しないよう自動検出できるようにした。
-
-**C1–C7 統一:** llms-full.txt の現行制約説明に C1–C6 が2箇所残っていた。C7（KARTE CDN SRI非適用）は Session Record #11 で追加済みのため C1–C7 に統一。歴史的記述（C1–C6 として確認した当時の記録）は変更しない。Check 27 を追加して今後の再混入を防ぐ。
-
-**v80 roadmap:** main.js の段階的分割方針、Playwright baseline 前提、AIO深化方針を decision record と AI2AI.md の両方に明記。今回は物理分割なし。
-
-**AIO monitoring 方針の明示:** このリポジトリの主戦場はSEO順位だけでなく、AI crawler / LLM がどう横井雄太を解釈・引用するかである。AIO全振りは戦略（成熟したSEOレッドオーシャンを避け、AIO先行実証で機械可読な権威形成を狙う）。monitoring log は attempt_log_only（confirmed_citation_events: 0）の誠実な状態を維持する。
-
-### C1〜C7 制約の遵守確認
-
-- C1: 外部ライブラリ・フレームワーク導入なし ✅
-- C2: IIFE構造・index.html中央ハブ維持 ✅
-- C3: ErrorBoundary未変更 ✅
-- C4: フレームワーク再提案なし ✅
-- C5: 人間はコードを書かず（本セッション実装はClaude Sonnet 4.6） ✅
-- C6: AIOテキストの根幹変更なし（整合修正・説明追加・日付更新のみ） ✅
-- C7: KARTE CDN SRI 非適用維持 ✅
-
-### Not possible の記録
-
-- **Playwright baseline PNG:** 引き続き未実施。環境制約によりブラウザ実行不可。
-  - **手動実行手順:** GitHub Actions → `update-playwright-snapshots.yml` → Run workflow → artifact `playwright-snapshots` をダウンロード → `e2e/portfolio.spec.js-snapshots/` に配置 → コミット。
-
-### 未解消スコープ（次のエージェントへの申し送り）
-
-- **Playwright baseline PNG:** 高優先継続。AIは単独で実行しないこと（環境制約）。
-- **AIO monitoring 成功観測:** 実際に引用・言及を確認できた場合のみ `aio-monitoring-log.json` に手動エントリを追加する。捏造禁止。
-- **main.js 段階的分割:** `docs/incident-artifacts/decision-v80-maintainability-roadmap.md` の Stage 0〜5 を参照。Playwright baseline 確立後に Stage 1 から開始。
-- **GitHub Default Setup UI無効化（任意）:** 現状はDefault SetupでCode Scanningが継続。
-- **バイナリ層 IPTC/C2PA:** 低優先。Session Record #4 から継続申し送り。
 
 ---
 
@@ -985,3 +864,35 @@ Task            : 「無限軽量改善自走ループ」の継続。毎サイ�
 - **grep が自分のエラーメッセージ本文を拾う** artifact に 2 度遭遇（#1093/#1100）。帰属は実際の error 行を読んで確定する。
 - **GitHub Actions 広域 503 障害下の運用**（3 回実測）: `rerun` は復旧後も `cannot be retried` / close→reopen では default-setup CodeQL は再実行されない / force-push は deny → **genuine な追加 commit が唯一の実効経路**。空 commit は padding なので、その PR に本来属する未記録の事実を載せる。同じ障害で pages デプロイも失敗しうるが **Pages は最後に成功したビルドを配信し続ける**ので、freshness check + 公開 JS の sha256 比較で「ジョブは赤 / 中身は正しい」を切り分ける。
 
+
+---
+
+## [HANDOFF] Session Record #24 — 2026-08-18 (Claude Opus 5, 「登録した ≠ 実行される」class の掃討 + CI の赤の帰属)
+
+```
+Handoff-From    : Claude Opus 5 (Anthropic) — Claude Code
+Handoff-To      : Next AI agent (same project, different session)
+Session-Date    : 2026-08-18
+Orchestrator    : Yuta Yokoi (横井雄太)
+Task            : 「無限軽量改善自走ループ」の継続。本セッションは **「登録したのに実行されていない / 報告と実態がずれている」** を軸に掘り、途中から **CI の赤そのものが帰属不能だった**問題に当たってそちらへ広げた。
+```
+
+### このセッションで完了したこと（PR #1136〜#1148・全 rebase-merge・main 全緑）
+
+- **🔴 mutation を 4 件「登録した」のに probe に一度も乗っていなかった（#1141・Check 430）**: `MUTATIONS = ARCHIVE + ARCHIVE2 + _TAIL` は **リスト連結で新しいリストを作る**ため、その代入行より後の `_MUTATIONS_TAIL.append(...)` は反映されない。Check 427 / 428 / 142b / 142c の 4 件がこの状態で、ファイルに entry があり commit も docs も「登録した」と書いてあるのに `MUTATIONS` に存在しなかった。**probe は自分が回した分について正しく "All N caught" と言うので欠落は無音**、しかも mutation-integrity の既存 3 Check（362 find-anchor / 379 test-field / 380 find≠replace）は**連結後**のリストしか見ないため検査対象にすら入らない。4 件をリテラルへ移し、連結済み長 == 構成要素長合計 を強制。移設後に probe を回して **All 318 caught** ＝ 一度も走ったことのなかった 4 件が初めて実際に機能した。
+- **🟢 同じ class を Check 層へ（#1142・Check 431）**: 54 個の `checks_*.py` はどれも docstring で「CHECK_SOURCE_FILES 経由で集約される」と**宣言している**が、それを検証する層が無かった（54=54=54 は偶然の一致）。**登録から欠ける**と自己整合 45/70/105 の集約から外れ、**run(_ctx) から欠ける**と runbook §9 の総数に数えられ Check 45 にも検証されるのに **一度も実行されない**。実在 ⟺ 登録 ⟺ 実行 の 3 集合一致を BLOCKING 化。**この Check の初版は `\b(checks_\w+)` で呼び出しを探し、実際の綴り `_checks_X.run(_ctx)` の先頭 `_` に阻まれて 54 件中 1 件しか拾えなかった** —— §7 が繰り返し記録している「静的 Check は自分が見ている綴りしか見ていない」を、まさにそれを塞ぐ Check の実装で踏んだ。
+- **🔴 CI の赤が「回帰」と「gate が走らなかった」で区別できなかった（#1138）**: 依存インストールが 15m15s 粘って **job 全体の timeout** が発火し、BLOCKING の behavior gate は一度も走らないまま `playwright-validation` が赤くなった（rerun したら全緑＝回帰ゼロ）。**正しい対処が正反対**（回帰なら rerun 禁止 / 未実行なら rerun）なのに見分けが付かない。install に **step 個別の timeout** を与えて停滞をその step の失敗に閉じ込め、`if: failure()` の帰属 step が `$GITHUB_STEP_SUMMARY` へ「どちらの赤か」と「取るべき対処」を書くようにした。**step timeout が step 失敗になるのか job cancel になるのかは設計の土台なので、使い捨て probe PR #1137 で実測してから採用した**（cancel だったら後続 step が動かず設計が崩れる）。この帰属レイヤはマージ数時間後に **実戦で 3 回**働いた。
+- **🔵 CI を「速くする」試みは 3 つとも実測で否定（#1145/#1148）**: ①ブラウザを `actions/cache` → 内訳を測ると DL は **11 秒**（apt が 2m41s = 94%）で無意味。②`--with-deps` を外す（probe #1144）→ Chromium は起動し 300+ テストも通るが **`#/quiz` の描画が 636ms / 896ms（2 回再現・基準 11〜25ms）** に悪化＝ **load-bearing**。この劣化を捕まえたのは #1028 の描画コストテスト **1 本だけ**だった。③in-job リトライ（#1146 で入れて #1148 で撤回）→ `timeout` が殺すのは npx だけで**子の apt-get が生き残って lock を握る**ため 2 回目は 2 秒で `Could not get lock` で即死し、さらに per-attempt timeout が **実測 6m20s の正常な install を 5 分で打ち切る**＝入れる前より悪い。**正しい対処は帰属レイヤ + rerun**（rerun は実測で毎回成功）。
+- **🔴 上限で切り捨てたのに「インポートが完了しました」（#1143）**: 505 件の tasks を取り込むと保存は 500 件で **5 件が黙って消え**、それでも素の完了メッセージ。import は利用者にとってバックアップからの復元なので、**失われたことに気付かないまま元データを捨てうる**。#1039/#1040 で塞いだ「何もしていないのに成功と言う」の *部分適用* 版。落ちた件数を添えて報告する形へ（理由が上限か不正 entry かは利用者には同じ「取り込まれなかった」なので件数だけを正直に伝える）。
+- **🔴 BGM の再生失敗が完全に無言（#1147）**: `audio.play()` 拒否時、toast も announcement も状態変化も出ず **console.warn だけ**＝利用者からは「押しても何も起きない」。BGM は topbar = mobile 専用の導線で、通信が不安定な環境ほど失敗しやすい。同じ非対称をストレージ上限の警告では持っていなかった（そちらは Toast あり）。
+- **🟢 安全網が「利用者に届いたか」を見ていなかった（#1139）**: quota 超過テストは通知の検査を **console.error だけ**で行っており、`Toast.show` を落としても全アサーションが緑のまま通った。console は開発者向けの信号で利用者には見えない。SR 経路（`#action-announcement`）と視覚経路（toast）の両方を検査する形へ。
+- **🟢 dead code と「定義 ⟹ 使用」（#1140・Check 429）**: `safeFetchJSON`（30 行の fetch ラッパ）が呼び出し 0 件で、`git log -S` で追うと定義・docstring・import 行しか現れない never-wired な残骸だった。**Check 47（export ⟺ import）と ESLint が互いを満たし合って永久に残す**構造（main.js が Check 47 のために必ず import するので `no-unused-vars` からは「使用済み」に見える）。icon 面（375/375b）・action 面（376/418）と同じ双方向へ。
+- **🟢 手順ミスを仕組みへ（#1136）**: `mutation_samples.py` の advisory を素通りして BLOCKING に当たる事故を 2 回起こしていた（#1067/#1135）。原因は「毎回その場で brace-aware な分割スクリプトを書き起こす」＝**手順が人の注意力に依存**していたこと。`npm run rotate-mutations` を新設し、本セッション内で **初めて実運用**して BLOCKING を踏む前に処理できた（980 → 938 行・総数不変）。
+
+### 次の AI への教訓（このセッションで実際に効いたもの）
+
+- **「登録した」と「実行される」は別。登録経路そのものに検査層が要る。** 本セッションだけで mutation 面（#1141）と Check モジュール面（#1142）の 2 つが出た。#885（probe の catch 帰属が自動成立していた）と同族で、いずれも**報告は正常に見える**。
+- **赤は「何が失敗したか」まで帰属させよ。** 「gate が落ちた」と「gate が走らなかった」は正しい対処が正反対。ジョブ API を掘らないと分からない状態は、監査する人にとって「検証された」と誤読される。
+- **最適化は実装する前に内訳を測れ。** 本セッションの CI 高速化は 3 案すべて実測で否定された。1 案は**実装しかけて**内訳を測って取りやめ、1 案は**実装して撤回**した（撤回も成果物として記録する）。
+- **計測系を 4 回疑い、4 回とも当たった。** `gh run view --job=X --log` は **run 全体のログを返す**ため、失敗 job のログを読んでいるつもりで**成功した rerun の時刻**を読み、誤った根本原因を出しかけた（時間の帰属は step API の `started_at`/`completed_at`）。他に settings の route を `/#/apps/settings` と誤認、見出し名の誤り、自作 Check の正規表現が実際の綴りを見ていない。**実バグに見えたら、まず自分の測り方を疑う。**
+- **予算の警告は、自分の冗長さを通すために上げない。** shipped JS へ 10 行の WHY コメントを書いたら Check 120（byte-weight）が捕捉した。**配信されるコードのコメントは 3 行へ削り、詳細な理由は配信されない e2e 側へ置いた**（shipped bytes は全訪問者が払うコスト）。残った +308 bytes は「無言だった失敗経路に利用者向けの信号を足した」正当な成長なので rationale 付きでラチェットした。
