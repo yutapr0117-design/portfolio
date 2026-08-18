@@ -32,6 +32,17 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        'domcontentloaded' + expect() auto-wait instead; only the screenshot capture legitimately
        needs networkidle (font/image load determinism). This Check blocks reintroduction of the
        hang-flake class. (BLOCKING)
+  432. e2e no-declarative-skip guard: `test.skip('title', fn)` / `test.describe.skip('title', fn)`
+       のように **第 1 引数が文字列リテラル** の skip を BLOCKING で禁止する。この形は
+       「テストごと宣言的に無効化する」もので、失敗しているテストを黙らせる最短経路でありながら
+       **CI は緑のまま**になり、覆っていたはずの挙動が誰にも気付かれず無防備になる
+       (Check 114 の `.only` = 他が全部 skip される、の裏返し。あちらは「1 本だけ走る」、
+       こちらは「1 本だけ走らない」)。**runtime の条件付き skip とは区別する**:
+       `test.skip(cond, 'reason')` を test 本体の中で呼ぶ形は第 1 引数が式なので対象外で、
+       実際 `portfolio.spec.js` の screenshot baseline 不在時 skip がこれに当たる (正当な用途)。
+       #1141 (登録したのに probe に乗っていなかった mutation) / #1142 (登録したのに実行されない
+       Check モジュール) と同じ **「登録されているのに実行されない」** class の e2e 面。(BLOCKING)
+
   114. e2e no-`.only` guard: no e2e/*.spec.js may contain `test.only` /
        `describe.only` / `test.describe.only`. A stray `.only` makes Playwright run ONLY that
        test and silently skip every other test, so CI passes green while the suite is gutted
@@ -289,3 +300,33 @@ def run(ctx):
            "rerun 頼みの運用が常態化して安全網の信頼性が落ちる"),
         blocking=True,
     )
+
+    # ── 432. e2e no-declarative-skip guard (BLOCKING) ─────────────────────────────
+    # `test.skip('title', fn)` は **テストごと宣言的に無効化する**形で、失敗を黙らせる最短経路
+    # なのに CI は緑のまま = 覆っていた挙動が無防備になったことに誰も気付けない (Check 114 の
+    # `.only` の裏返し: あちらは「1 本だけ走る」、こちらは「1 本だけ走らない」)。
+    # **runtime の条件付き skip は対象外**: `test.skip(cond, 'reason')` を test 本体で呼ぶ形は
+    # 第 1 引数が式ゆえ正当 (portfolio.spec.js の baseline 不在時 skip が実例)。
+    # 判定は「第 1 引数が文字列リテラルか」で行い、両者を構文的に分ける。
+    _specs432 = sorted((ROOT / "e2e").glob("*.spec.js"))
+    if _specs432:
+        _skip432 = []
+        _re432 = re.compile(r"""\b(?:test|describe)(?:\.[A-Za-z]+)*\.skip\s*\(\s*['"`]""")
+        for _sp432 in _specs432:
+            for _i432, _ln432 in enumerate(_sp432.read_text(encoding="utf-8").splitlines(), 1):
+                if _re432.search(_ln432):
+                    _skip432.append(f"{_sp432.name}:{_i432}")
+        check(
+            not _skip432,
+            f"Check 432: e2e/*.spec.js ({len(_specs432)}) に宣言的 skip (test.skip('title', fn)) が無い "
+            f"(条件付き runtime skip は対象外)",
+            (f"Check 432: 宣言的な test.skip が {len(_skip432)} 個ある ({_skip432[:5]}) — "
+             "テストごと無効化されているのに CI は緑のままで、覆っていた挙動が無防備になったことに"
+             "誰も気付けない。落ちるテストは黙らせずに直すか、削除して理由を spec に残せ。"
+             "実行時の条件で飛ばしたいなら test 本体の中で `test.skip(cond, 'reason')` を使う "
+             "(第 1 引数が式なら本 Check の対象外)"),
+            blocking=True,
+        )
+    else:
+        check(False, "", "Check 432: e2e/*.spec.js not found — declarative-skip guard を検証できない",
+              blocking=True)
