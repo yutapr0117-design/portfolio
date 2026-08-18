@@ -151,32 +151,27 @@ jobs:
       #   したがって install 停滞 (本日 2 件: #1136 15m15s / #1143 8 分 timeout) への正しい
       #   対処は「速くする」ではなく、下の帰属レイヤで **infra の赤と回帰の赤を区別して
       #   rerun させる**こと。
-      # [FIX 2026-08-18] install の停滞は **1 回リトライすれば直る**。実測 (step API の
-      #   started_at/completed_at が権威。`gh run view --job=X --log` は run 全体のログを返すため
-      #   job への帰属に使ってはいけない —— これで一度誤読した):
-      #     停滞した 3 件 = 15m07s / 8m13s / 8m12s (いずれも timeout で打ち切り・作業は未完了)
-      #     その rerun 3 件 = すべて成功し 1m33s / 2m55s / 6m20s
-      #   つまり詰まるのは実行のたびに引き直される外部要因 (apt ミラー) で、同じ入力でも
-      #   次の試行はほぼ通る。本日 ~10 PR 中 3 件で発生し、その都度 rerun していた。
-      #   1 回の自動リトライで、その人手 (AI の 1 サイクル) を丸ごと不要にする。
-      #   per-attempt 300s の根拠: 成功時の実測は 1m33s〜2m55s で、その ~2〜3 倍。
-      #   step timeout 11 分 = 2 試行 (最大 10 分) + 余裕。job の 20 分にも収まる。
-      #   **`|| true` で握り潰さない** —— 2 回とも駄目なら step を失敗させ、下の帰属レイヤが
-      #   「gate は一度も実行されていない」と書く (無言で緑にするのが最悪)。
+      # [計測で否定 2026-08-18] **in-job リトライは効かない (むしろ有害)。**一度実装して実測した:
+      #   試行 1 の `timeout` は npx を殺すが **子の apt-get が生き残って /var/lib/apt/lists/lock を
+      #   保持し続ける**ため、試行 2 は 2 秒で
+      #     `E: Could not get lock /var/lib/apt/lists/lock. It is held by process 2261 (apt-get)`
+      #     → `Installation process exited with code: 100`
+      #   と即死する (実測 PR #1147)。つまりリトライは **狙った失敗モードでだけ機能しない**。
+      #   加えて per-attempt の timeout は **実測で 6m20s かかった正常な install を 5 分で打ち切る** —
+      #   入れる前より悪い。apt を強制終了して dpkg を修復してから再試行する形は、
+      #   トランザクション途中の kill を伴い、CI の土台を壊すリスクの方が大きい。
+      #   一方 **runner を引き直す rerun は実測 3/3 で成功** (1m33s / 2m55s / 6m20s)。
+      #   したがって正しい対処は「job 内で粘る」ではなく **下の帰属レイヤで infra の赤と
+      #   回帰の赤を区別し、rerun させる**こと。速くする試みが全滅した経緯は mirror doc を参照。
+      #   step 個別 timeout の意義は変わらない: 停滞を **その step の失敗**に閉じ込め、
+      #   job ごと cancel されて後続の帰属 step まで skip されるのを防ぐ (#1136 の失敗モード)。
+      #   11 分の根拠: 成功時の実測上限 6m20s の ~1.7 倍。job の 20 分にも収まる。
       - name: Install Playwright and dependencies
         id: install
         timeout-minutes: 11
         run: |
           npm ci
-          ok=""
-          for i in 1 2; do
-            if timeout 300 npx playwright install --with-deps chromium; then ok=1; break; fi
-            echo "::warning::playwright install attempt $i stalled or failed — retrying (実測: 停滞は rerun でほぼ解消する)"
-          done
-          if [ -z "$ok" ]; then
-            echo "::error::playwright install が 2 回とも失敗した — BLOCKING gate は実行されない"
-            exit 1
-          fi
+          npx playwright install --with-deps chromium
 
       # Behavior / functionality tests are the BLOCKING gate. Per Session Record #20 the
       # repository (not the rendered site) is the portfolio; the site is an appendage whose

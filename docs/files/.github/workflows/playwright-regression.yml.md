@@ -76,9 +76,32 @@ install は job 時間の大半を占め、CI 停滞の発生源でもある（�
   #1028 で足した描画コストのテスト 1 本だけが捕捉層だった。
 
 したがって install 停滞への正しい対処は「速くする」ではなく、**infra の赤と回帰の赤を
-区別する**こと（上の帰属セクション）＋ **1 回の自動リトライ**である。
+区別する**こと（上の帰属セクション）。**in-job リトライは実測で否定された**（下記）。
 
-### なぜリトライが効くと言えるか（実測）
+### in-job リトライは実装して実測し、**撤回した**（PR #1146 → #1148）
+
+やってみた結果 **狙った失敗モードでだけ機能しない**ことが分かった:
+
+```
+attempt 1  → timeout 300s で npx を kill
+attempt 2  → 2 秒で即死
+  E: Could not get lock /var/lib/apt/lists/lock. It is held by process 2261 (apt-get)
+  Failed to install browsers / Error: Installation process exited with code: 100
+```
+
+`timeout` が殺すのは **npx だけ**で、その子の `apt-get` は生き残って apt の lock を握り続ける。
+さらに per-attempt の timeout は **実測で 6m20s かかった正常な install を 5 分で打ち切る** ——
+**入れる前より悪い**。apt を強制終了して `dpkg --configure -a` で修復してから再試行する形は、
+トランザクション途中の kill を伴い CI の土台を壊すリスクの方が大きいので採らない。
+
+一方 **runner を引き直す rerun は実測 3/3 で成功**（1m33s / 2m55s / 6m20s）。
+したがって正しい対処は「job 内で粘る」ではなく **帰属レイヤ + rerun**。
+
+なお **step 個別 timeout（11 分）の意義は変わらない**: 停滞を *その step の失敗* に閉じ込め、
+job ごと cancel されて後続の帰属 step まで skip されるのを防ぐ（#1136 の失敗モード）。
+11 分は成功時の実測上限 6m20s の ~1.7 倍。
+
+### 参考: rerun が効くことの実測
 
 | | install 所要 |
 |---|---|
@@ -86,10 +109,7 @@ install は job 時間の大半を占め、CI 停滞の発生源でもある（�
 | その rerun 3 件 | **すべて成功**し 1m33s / 2m55s / 6m20s |
 
 詰まるのは実行のたびに引き直される外部要因（apt ミラー）で、**同じ入力でも次の試行はほぼ通る**。
-本日 ~10 PR 中 3 件で発生し、その都度 rerun していた人手を自動リトライが不要にする。
-per-attempt 300s は成功時実測（1m33s〜2m55s）の ~2〜3 倍、step timeout 11 分は 2 試行 + 余裕。
-**`|| true` で握り潰さない** —— 2 回とも駄目なら step を失敗させ、帰属レイヤが
-「gate は一度も実行されていない」と書く（無言で緑にするのが最悪）。
+本日 ~12 PR 中 4 件で発生した。**発生したら rerun する**（上記のとおり in-job リトライは効かない）。
 
 > **計測の注意**: job への時間の帰属は **step API の `started_at` / `completed_at`** を使うこと。
 > `gh run view --job=X --log` は **run 全体のログを返す**ため、失敗 job のログを読んでいるつもりで
@@ -100,7 +120,7 @@ per-attempt 300s は成功時実測（1m33s〜2m55s）の ~2〜3 倍、step time
 
 - paths 拡張 → 新 shipped surface も視覚回帰対象
 - Chromium バージョン更新 → baseline 再取得 (update-playwright-snapshots.yml)
-- install の step timeout (8 分) を変えるときは job timeout (20 分) との差が
+- install の step timeout (11 分) を変えるときは job timeout (20 分) との差が
   behavior + screenshot の実測所要 (~6 分) を下回らないようにする
 
 ## Audience-specific notes
