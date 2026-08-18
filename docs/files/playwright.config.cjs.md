@@ -83,6 +83,19 @@ npx playwright test --config=playwright.config.cjs
 
 ### 実測して clean と確認済みの a11y 面（再監査不要・2026-08-18）
 
+- **ブランド × テーマの 4 組 × 16 ルート（2026-08-18）**: `indigo`/`classic` × `light`/`dark` の
+  すべてで axe の critical / serious 違反が **0**（`color-contrast` は C5 defer 済のため除外。
+  その数値は `research-application-policy.md` に 4 組ぶん記録済み）。
+
+  **これを恒久テストにしない理由**: ブランドが変えるのは色とフォントだけで、contrast を除いた
+  critical ルールに brand 固有の退行を作れる経路が無い。実際「壊して RED を作る」を試みても、
+  同じ破壊は既定ブランドの既存 a11y テストで先に RED になる ——
+  **検出力が増えないテストは安全網ではなく実行時間**なので追加しない
+  （`RED を実測できないものは登録しない` と同じ規律）。
+  一方 **リフローは追加した**: フォント差で描画幅が約 5.9% 変わり、既定では通るのに classic では
+  あふれる、という brand 固有の退行が原理的に作れる（実測でも mutation 時のあふれ量が
+  51px → 58px と実際に大きい）ため、そちらは検出力が増える。
+
 - **フォーカス順 vs 視覚順（WCAG 2.4.3）**: mobile 390px の Settings / Projects / Apps で Tab を 69 回追い、
   **DOM index の逆行 0**。並べ替えリストは DOM 順と視覚順が完全一致（`一致: true`）。
   座標ベースで観測された「逆行 5 回」は上表のとおり**計測 artifact**。
