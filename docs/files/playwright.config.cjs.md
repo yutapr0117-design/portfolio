@@ -79,6 +79,18 @@ npx playwright test --config=playwright.config.cjs
 | `addInitScript` をケースごとに登録して使い回す | **累積して先に登録した値が残る**（実測）。ケース 2 以降の条件が反映されず、全ケースが同じ条件で走る | **1 ケース 1 コンテキスト**（`browser.newContext()`）にする。アプリが最初に読む値を確実に決められる |
 | 同じページで `localStorage` を書き換えて `reload` する | **直前の描画が仕込んだ debounce 保存が後から書き戻す**ため、条件が壊れることがある（実測: 正常値を書いたのに既定値で起動した） | 上と同じく 1 ケース 1 コンテキスト。どうしても同一ページなら、書き込み後に保存が走らないことを確認してから reload する |
 | 「連打」を `press()` の連続で表現する | 1 回目が起こす**再描画の速さ次第で 2 回目以降が新しい空の要素に当たる**。ローカルで再現しても CI では再描画が勝ち、mutation が SURVIVED する（#1079 で実際に発生） | 再現したいのが「イベントが連続で届く」ことなら `evaluate` の中で**同期的に dispatch** する |
+| Tab 中に `rect.top + window.scrollY` で**絶対位置**を測る | focus 移動でブラウザが要素をスクロールインさせるが、このサイトは `scroll-behavior: smooth` なので**アニメーション途中の `scrollY`** が混ざる。実測（2026-08-18）: Settings を Tab で辿ると「焦点が 150〜200px 上へ戻る」が **5 回**観測され **WCAG 2.4.3 違反に見えた**。だが同じリストを静的に測ると DOM 順と視覚順は `一致: true` で、**Tab 順を DOM index で測り直すと逆行 0** —— 計測側の artifact だった | **順序の検証に座標を使わない**。DOM 内の位置（`Array.from(document.querySelectorAll('#content *')).indexOf(el)`）が単調増加かで見る。座標が要るなら scroll が止まってから読む |
+
+### 実測して clean と確認済みの a11y 面（再監査不要・2026-08-18）
+
+- **フォーカス順 vs 視覚順（WCAG 2.4.3）**: mobile 390px の Settings / Projects / Apps で Tab を 69 回追い、
+  **DOM index の逆行 0**。並べ替えリストは DOM 順と視覚順が完全一致（`一致: true`）。
+  座標ベースで観測された「逆行 5 回」は上表のとおり**計測 artifact**。
+- **見出し階層の飛び**: 全 16 ルートで飛びゼロ・先頭は必ず h1。
+- **正の `tabindex`**（DOM 順を壊す）: リポジトリ全体で **0 件**。
+- **`grid-auto-flow: column` / `column-count`**（視覚順を DOM 順からずらす）: **不使用**。
+  唯一の `flex-direction: column-reverse` は `.hero-section`（≤768px）で、内部の focusable が 1 つのため
+  焦点順に影響しない。
 
 ### 実測して「鈍っていない」と確認済みの focus テスト（再監査不要・2026-08-12）
 
