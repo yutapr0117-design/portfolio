@@ -130,6 +130,30 @@ _MUTATIONS_TAIL = [
         "replace": "syncMobileDrawer",
     },
 
+    {
+        "name": "Check 427: BLOCKING の behavior gate が main で走らなくなり監査バッジが空白へ戻る — playwright-regression.yml から push(main) トリガを外すと、その workflow の run は PR の head 側にしか記録されず main に残らないため、STATUS.md の ?branch=main バッジが永久に 'no status' の空白になる。オーナーの唯一の監査導線に『緑』ではなく『何も分からない』が出るが、Check 415 は『バッジが在るか』しか見ないので素通りする",
+        "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
+        "find": "  push:\n    branches: [ \"main\" ]\n    paths:",
+        "replace": "  push_disabled:\n    branches: [ \"main\" ]\n    paths:",
+    },
+    {
+        "name": "Check 142b: BLOCKING gate が自身の定義変更を検証しなくなる — playwright-regression.yml の paths から自己参照を外すと、job 構成 / env / step を書き換えても behavior gate が一度も走らずに merge できる (実測 #1099: この workflow を書き換えた PR で playwright-validation が起動しなかった)。package.json を trigger に入れているのと同一 class",
+        "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
+        "find": "      - '.github/workflows/playwright-regression.yml'\n",
+        "replace": "",
+    },
+    {
+        "name": "Check 142c: push / pull_request の paths が非対称になる — 片方だけに path を足すと『PR では走るのに main では走らない』(逆も) 状態ができ、merge ゲートと監査バッジ (Check 427) の守備範囲がずれる。2 ブロック構成は #1099 で導入したもので、以後どちらか一方だけを編集する事故が起こりうる",
+        "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
+        "find": "  pull_request:\n    branches: [ \"main\" ]\n    paths:\n      - 'index.html'",
+        "replace": "  pull_request:\n    branches: [ \"main\" ]\n    paths:\n      - 'README.md'\n      - 'index.html'",
+    },
+    {
+        "name": "Check 428: 未定義のカスタムプロパティをフォールバック無しで参照しても検出しない — `var(--x)` の `--x` が未定義だと宣言ごと invalid at computed-value time になり **プロパティが初期値へ落ちる**。実測では hover 背景が透明になり『持ち上げて強調する』はずの操作でカードが表面を失っていた。エラーも警告も出ず stylelint も通り screenshot は ADVISORY なので、この Check だけが捕捉層",
+        "file": ROOT / "style.css",
+        "find": "            background: var(--surface-hover);",
+        "replace": "            background: var(--card-bg);",
+    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。
@@ -921,13 +945,6 @@ _E2E_TAIL = [
     },
 ]
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 427: BLOCKING の behavior gate が main で走らなくなり監査バッジが空白へ戻る — playwright-regression.yml から push(main) トリガを外すと、その workflow の run は PR の head 側にしか記録されず main に残らないため、STATUS.md の ?branch=main バッジが永久に 'no status' の空白になる。オーナーの唯一の監査導線に『緑』ではなく『何も分からない』が出るが、Check 415 は『バッジが在るか』しか見ないので素通りする",
-    "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
-    "find": "  push:\n    branches: [ \"main\" ]\n    paths:",
-    "replace": "  push_disabled:\n    branches: [ \"main\" ]\n    paths:",
-})
-
 
 # 公開 API: e2e archive(古) + tail(新) の連結 (consistency 側 MUTATIONS と同じ log-rotation 方式)。
 _E2E_TAIL.append({
@@ -940,23 +957,4 @@ _E2E_TAIL.append({
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 142b: BLOCKING gate が自身の定義変更を検証しなくなる — playwright-regression.yml の paths から自己参照を外すと、job 構成 / env / step を書き換えても behavior gate が一度も走らずに merge できる (実測 #1099: この workflow を書き換えた PR で playwright-validation が起動しなかった)。package.json を trigger に入れているのと同一 class",
-    "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
-    "find": "      - '.github/workflows/playwright-regression.yml'\n",
-    "replace": "",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 142c: push / pull_request の paths が非対称になる — 片方だけに path を足すと『PR では走るのに main では走らない』(逆も) 状態ができ、merge ゲートと監査バッジ (Check 427) の守備範囲がずれる。2 ブロック構成は #1099 で導入したもので、以後どちらか一方だけを編集する事故が起こりうる",
-    "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
-    "find": "  pull_request:\n    branches: [ \"main\" ]\n    paths:\n      - 'index.html'",
-    "replace": "  pull_request:\n    branches: [ \"main\" ]\n    paths:\n      - 'README.md'\n      - 'index.html'",
-})
-
-_MUTATIONS_TAIL.append({
-    "name": "Check 428: 未定義のカスタムプロパティをフォールバック無しで参照しても検出しない — `var(--x)` の `--x` が未定義だと宣言ごと invalid at computed-value time になり **プロパティが初期値へ落ちる**。実測では hover 背景が透明になり『持ち上げて強調する』はずの操作でカードが表面を失っていた。エラーも警告も出ず stylelint も通り screenshot は ADVISORY なので、この Check だけが捕捉層",
-    "file": ROOT / "style.css",
-    "find": "            background: var(--surface-hover);",
-    "replace": "            background: var(--card-bg);",
-})

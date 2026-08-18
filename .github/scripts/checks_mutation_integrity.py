@@ -51,6 +51,19 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        substring of a real test title — the e2e-title twin of Check 362's find-anchor resolution,
        making "a mutation names a behavior test ⟹ that test exists" an enforced invariant. (BLOCKING)
 
+  430. mutation の **登録が実際に届いているか**。`MUTATIONS` / `E2E_MUTATIONS` は
+       `ARCHIVE + ARCHIVE2 + _TAIL` の **リスト連結で新しいリストを作る**ため、その代入行より
+       **後**に置かれた `_MUTATIONS_TAIL.append(...)` は連結済みリストに反映されず、
+       **登録したつもりの mutation が probe に一度も乗らない**。実測 (2026-08-18): Check 427 /
+       428 / 142b / 142c の 4 件がこの状態で、ファイルには entry があり commit も docs も
+       「mutation として登録した」と書いてあるのに `MUTATIONS` には存在しなかった。probe は
+       自分が回した分について正しく "All N caught" と報告するので、**欠落は一切の signal を
+       出さない** (Check 362=find anchor / 379=test-field / 380=find≠replace は連結後の
+       リストしか見ないため、届いていない entry は検査対象にすら入らない)。
+       `len(MUTATIONS) == len(MUTATIONS_ARCHIVE) + len(MUTATIONS_ARCHIVE2) + len(_MUTATIONS_TAIL)`
+       と E2E 版の等式を BLOCKING 強制し、「安全網に登録した」と「安全網が実際に検証する」の
+       ずれを構造的に閉じる (mutation-integrity mesh の登録経路面)。(BLOCKING)
+
   380. mutation_samples no-op guard (`replace` ≠ `find`): every mutation in MUTATIONS ∪ E2E_MUTATIONS
        must have a `replace` string DIFFERENT from its `find`. A mutation whose replace equals its
        find is a no-op — applying it changes nothing, so the gate stays GREEN and mutation_probe
@@ -387,3 +400,36 @@ def run(ctx):
            "周辺コード (直前の行・class 属性など) を find に含めて一意に anchor せよ"),
         blocking=True,
     )
+
+    # ── 430. mutation 登録が連結済みリストへ届いているか (BLOCKING) ──────────────────
+    # `MUTATIONS = ARCHIVE + ARCHIVE2 + _TAIL` は **新しいリストを作る**ので、この代入より後に
+    # 書いた `_MUTATIONS_TAIL.append(...)` は反映されない = 登録したつもりの mutation が probe に
+    # 一度も乗らない。実測 (2026-08-18) で Check 427/428/142b/142c の 4 件がこの状態だった。
+    # probe は自分が回した分について正しく "All N caught" と言うため **欠落は無音**で、
+    # Check 362/379/380 も連結後のリストしか見ないので検査対象にすら入らない。
+    try:
+        import importlib as _importlib430
+        _ms430 = _importlib430.import_module("mutation_samples")
+        _pairs430 = [
+            ("MUTATIONS", _ms430.MUTATIONS,
+             len(_ms430.MUTATIONS_ARCHIVE) + len(_ms430.MUTATIONS_ARCHIVE2) + len(_ms430._MUTATIONS_TAIL)),
+            ("E2E_MUTATIONS", _ms430.E2E_MUTATIONS,
+             len(_ms430.E2E_MUTATIONS_ARCHIVE) + len(_ms430.E2E_MUTATIONS_ARCHIVE2) + len(_ms430._E2E_TAIL)),
+        ]
+        _lost430 = [f"{n}: 連結済み {len(v)} 件 < 構成要素の合計 {e} 件 (差 {e - len(v)})"
+                    for n, v, e in _pairs430 if len(v) != e]
+        check(
+            not _lost430,
+            f"Check 430: mutation の登録が連結済みリストへ届いている "
+            f"(MUTATIONS={len(_ms430.MUTATIONS)} / E2E_MUTATIONS={len(_ms430.E2E_MUTATIONS)})",
+            (f"Check 430: 登録したのに probe に乗らない mutation がある: {_lost430} — "
+             "`MUTATIONS = ARCHIVE + ARCHIVE2 + _TAIL` はリストを新規作成するため、"
+             "**その代入行より後の `_TAIL.append(...)` は反映されない**。entry を "
+             "`_MUTATIONS_TAIL = [...]` / `_E2E_TAIL = [...]` のリテラル内へ移すこと "
+             "(rotate_mutation_samples.py もリテラルを前提に分割する)"),
+            blocking=True,
+        )
+    except Exception as _e430:
+        check(False, "Check 430: mutation_samples import",
+              f"Check 430: mutation_samples を import できない ({_e430}) — 登録経路を検証できない",
+              blocking=True)
