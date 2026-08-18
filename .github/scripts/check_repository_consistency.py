@@ -6,6 +6,20 @@ Verifies that key version, date, and structural invariants hold across the repos
 
 Checks performed (the numbering is historical/incremental; this list is the
 authoritative inventory and is kept in sync with the implementation below):
+  431. Check モジュールの **登録 ⟺ 実行 ⟺ 実在** 3 集合一致。`checks_*.py` は
+       (a) ディスク上に存在し、(b) `CHECK_SOURCE_FILES` に登録され、(c) `<module>.run(_ctx)` で
+       実行される、の 3 つが揃って初めて機能する。各 module の docstring は
+       "Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES" と
+       **宣言している**が、その宣言を検証する層は存在しなかった (実測 2026-08-18 時点では
+       54=54=54 で偶然そろっていただけ)。ずれると 2 方向に壊れる: **(b) だけ欠ける**と、
+       その module の Check は実行されるのに Check 45 (docstring↔section) / 70 (総数) /
+       105 (map bijection) の集約対象から外れ、自己整合の層が silent に穴を持つ。
+       **(c) だけ欠ける**方が重く、Check は runbook §9 の「総数」に数えられ Check 45 にも
+       検証されるのに **一度も実行されない** —— 「N 個の Check が守っている」という記述が
+       嘘になる。check.py の分割は sustained track で module が継続的に増えるため、
+       手で 3 箇所を同期し続ける前提そのものが drift 源。#1141 (mutation を登録したのに
+       probe に乗っていなかった) と同じ「登録した ≠ 実行される」class の Check 層面。(BLOCKING)
+
   45. This check file's self-documentation matches its implementation: the numbered
       entries in THIS module docstring (the "N. ..." inventory above) and the numbered
       "# ── N." section-header comments in the code body describe the same set of checks,
@@ -795,6 +809,41 @@ _checks_maintainability.run(_ctx)
 # mutation 定義が腐ると「緑 = 守られている」ではなく「緑 = 検証されていない」になる (#885)。
 import checks_mutation_integrity as _checks_mutation_integrity
 _checks_mutation_integrity.run(_ctx)
+
+
+# ── 431. Check モジュールの 登録 ⟺ 実行 ⟺ 実在 3 集合一致 (BLOCKING) ──────────────
+# `checks_*.py` は (a) 実在し (b) CHECK_SOURCE_FILES に登録され (c) run(_ctx) で実行される、
+# の 3 つが揃って初めて機能する。各 module の docstring は「CHECK_SOURCE_FILES 経由で集約される」
+# と宣言しているが、それを検証する層は無かった。(b) が欠けると自己整合 Check 45/70/105 の
+# 集約から外れ、(c) が欠けると **総数に数えられるのに一度も実行されない** Check ができる。
+# #1141 (登録したのに probe に乗らない mutation) と同じ「登録した ≠ 実行される」class。
+_self431 = (ROOT / ".github" / "scripts" / "check_repository_consistency.py").read_text(encoding="utf-8")
+_onfs431 = {p.name for p in (ROOT / ".github" / "scripts").glob("checks_*.py")}
+_listed431 = {p.name for p in CHECK_SOURCE_FILES if p.name.startswith("checks_")}
+# 実際の呼び出しは `import checks_X as _checks_X` → `_checks_X.run(_ctx)` の **先頭アンダースコア
+# 別名**。`\b(checks_\w+)` だと `_` が単語文字ゆえ `_checks_X` の先頭に境界が無く 54 件中 1 件しか
+# 拾えない (本 Check の初版で実際に踏んだ)。行頭からの形で拾い、綴りの揺れを想定に入れる。
+_called431 = {n + ".py" for n in re.findall(r"^\s*_?(checks_\w+)\.run\(_ctx\)", _self431, re.M)}
+_diff431 = []
+if _onfs431 - _listed431:
+    _diff431.append(f"実在するが CHECK_SOURCE_FILES 未登録 (自己整合 45/70/105 の集約対象外): {sorted(_onfs431 - _listed431)}")
+if _listed431 - _called431:
+    _diff431.append(f"登録済みだが run(_ctx) されない (総数に数えられるのに一度も実行されない): {sorted(_listed431 - _called431)}")
+if _called431 - _listed431:
+    _diff431.append(f"run(_ctx) されるが未登録: {sorted(_called431 - _listed431)}")
+if _listed431 - _onfs431:
+    _diff431.append(f"登録済みだがファイルが無い: {sorted(_listed431 - _onfs431)}")
+check(
+    bool(_onfs431) and not _diff431,
+    f"Check 431: check module registration bijection ({len(_onfs431)} on disk = "
+    f"{len(_listed431)} registered = {len(_called431)} invoked)",
+    ("Check 431: Check モジュールの 実在/登録/実行 がずれている: " + " / ".join(_diff431) + " — "
+     "新 module を切り出したら 3 箇所すべて (ファイル作成 / CHECK_SOURCE_FILES 追加 / "
+     "`import checks_X as _checks_X` + `_checks_X.run(_ctx)`) を同じ commit で揃えよ"
+     if _diff431 else
+     "Check 431: checks_*.py が 1 件も見つからない (配置の変更を確認せよ)"),
+    blocking=True,
+)
 
 # ── Result ────────────────────────────────────────────────────────────────────
 print()
