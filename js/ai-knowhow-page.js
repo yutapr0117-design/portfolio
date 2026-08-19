@@ -17,11 +17,14 @@
  */
 export function createAIKnowhowPage({ h, createIcon, ContactCTA }) {
     function AIKnowhowPage() {
+        // [A11Y 1.4.3] `badge-phase` 等は **白文字前提の識別バッジ** なので、背景にはテーマで
+        //   明暗が反転しない solid 変種を使う。意味色トークン (--color-success 等) は暗テーマで
+        //   明るくなる設計なので、そのまま背景にすると白文字が読めない (実測: 白 on #4ade80 = 1.74)。
         const C = {
             primary: 'var(--color-primary)',
-            success: 'var(--color-success)',
-            warning: 'var(--color-warning)',
-            info: 'var(--color-info)',
+            success: 'var(--solid-badge-success)',
+            warning: 'var(--solid-badge-warning)',
+            info: 'var(--solid-badge-info)',
             purple: '#7c3aed'
         };
 
@@ -51,7 +54,7 @@ export function createAIKnowhowPage({ h, createIcon, ContactCTA }) {
                 h('div', { class: 'role-desc-row' }, name),
                 h('div', { class: 'text-detail' }, note),
                 h('span', {
-                    class: 'free-paid-badge', style: { background: free ? 'rgba(22,163,74,0.12)' : 'rgba(217,119,6,0.12)', color: free ? 'var(--color-success)' : 'var(--color-warning)' }
+                    class: 'free-paid-badge', style: { background: free ? 'rgba(22,163,74,0.12)' : 'rgba(217,119,6,0.12)', color: free ? 'var(--on-tint-success)' : 'var(--on-tint-warning)' }
                 }, free ? '無課金' : '有料（最安）')
             );
         }

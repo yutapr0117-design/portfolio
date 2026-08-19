@@ -141,11 +141,13 @@ test('Hero-meta inline link is distinguishable by underline (WCAG 1.4.1, not col
 // 1 ルートあたり 15〜59 ノードが violation になっていた (quiz は 63 ノード中 59 が
 // 白文字 on primary のボタン)。各チャンネル -1 の rgb(98,101,240) で 4.527 となり AA を満たす。
 //
-// NOTE: axe 全体を gate にすると、**別クラスの未解決 violation** (muted text `#94a3b8` = 2.56 /
-//   淡色チップ上の primary = 4.0) まで巻き込んで落ちる。それらは実際に色が変わる = C5 (設計) の
-//   領域で、単独で決められない (research-application-policy.md に defer として実測値つきで記録済)。
-//   ここでは **トークン単体の契約** だけを固定する — 将来パレットを触ったときに
-//   「白に対する primary が AA を割る」退行だけは必ず赤くする、という最小で確実な層。
+// NOTE (2026-08-20 更新): かつてここには「muted text 2.56 / 淡色チップ上の primary 4.0 は
+//   色が変わる = C5 (設計) の領域なので defer」と書いてあったが、**それは委任範囲の読み違いだった**
+//   (canon: AI2AI.md STEP 3「オーナーは制限を一切課していない」)。実際に用途別トークンへ分離して
+//   **2 ブランド × 2 テーマ × 16 ルートで違反ゼロ**にしてある。下の
+//   `全ページの color-contrast 違反がゼロ` がその実体を gate している。
+//   本 test はその中でも **トークン単体の契約** を固定する層として残す (パレットを触ったときに
+//   どのページを見なくても即座に赤くなる、最小で確実な層)。
 test('WCAG 1.4.3: 各ブランドの primary は白に対し 4.5:1 以上', async ({ page }) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('.hero-section')).toBeVisible();
@@ -192,11 +194,10 @@ test('WCAG 1.4.3: 各ブランドの primary は白に対し 4.5:1 以上', asyn
 // 通す。`data-theme` を直接書き換えると、テーマ適用のロジックそのものが壊れていても
 // テストが通ってしまう (内部状態を偽装した vacuous な検査になる)。
 //
-// NOTE: 判定は既存と同じ **render-neutral な rule の allowlist** に限定する。ダークの
-//   color-contrast には未解決の違反が実在する (primary #6265f0 on #0f172a = 3.94 /
-//   muted #64748b on #0f172a = 3.75 など) が、それらは実際に色が変わる = C5 (設計) の領域で、
-//   research-application-policy.md に実測値つきで defer 記録済。ここでそれを gate にすると
-//   「直せない理由が記録済みの既知課題」で CI が恒久的に赤くなる。
+// NOTE (2026-08-20 更新): 判定は render-neutral な rule の allowlist に限定する。
+//   ダークの color-contrast はかつて未解決 (primary 3.94 / muted 3.75) で「C5 ゆえ defer」と
+//   書いてあったが、**それは委任範囲の読み違い**で、現在は用途別トークンへ分離して
+//   **違反ゼロ**にしてある。contrast は下の専用 test が全ブランド × 全テーマで gate する。
 test('a11y axe: ダークテーマの全ルートに render-neutral critical 違反が無い', async ({ page }) => {
   await page.emulateMedia({ colorScheme: 'dark' });
   const offenders = [];
@@ -867,4 +868,62 @@ test('既定で無効な axe ルール (Level A/AA) を全ルートで走らせ�
     }
   }
   expect(offenders, `既定で無効な axe ルールの違反: ${JSON.stringify(offenders)}`).toEqual([]);
+});
+
+
+// ===== WCAG 1.4.3 (Contrast Minimum・AA): 全ブランド × 全テーマで color-contrast 違反ゼロ =====
+// かつてこの面は「知覚できる配色変更は C5 (人間の領域)」として defer されていたが、**それは
+// 委任範囲の読み違い**だった (canon: AI2AI.md STEP 3「オーナーは制限を一切課していない」)。
+// 2026-08-20 に用途別の前景トークンへ分離して実際に違反ゼロへ到達させた:
+//
+//   --on-tint-*      淡いチップ (10% alpha) の上の文字。primary/success をそのまま使うと AA を割る
+//   --text-accent    プレーンな背景の上で primary を文字に使う箇所 (暗テーマでは明るい変種)
+//   --on-solid-fg    solid な **意味色** 背景の上の文字 (暗テーマでは意味色が明るくなるので暗い文字)
+//   --solid-badge-*  白文字前提の識別バッジ背景 (テーマで明暗が反転しない固定値)
+//
+// **色を 1 つ変えるだけでは直らない**のがこの面の要点で、用途ごとに前景を持たせないと必ず
+// どちらかのテーマで割れる (実測: 意味色を暗テーマで明るくしたら白文字が 1.44 まで落ちた)。
+//
+// ルートは「実際に違反が出ていた面」を代表として選ぶ。修正がトークン単位なので退行は複数ルートに
+// 同時に出る = 代表集合で十分に捕捉できる (全 16 ルート × 4 組は約 51 秒かかり、検出力に見合わない)。
+const CONTRAST_ROUTES = ['#/', '#/projects', '#/quiz', '#/about', '#/ai-knowhow', '#/hiring-risk', '#/settings'];
+
+// 題名は **静的リテラル** にする。template literal で組み立てると `playwright -g` から解決できず、
+// mutation を登録できない (Check 379/397 が BLOCKING で捕捉する・過去に 3 度踏んだ)。
+// 共通処理は関数へ切り出し、題名だけを 4 本書く。
+async function expectNoContrastViolations(page, brand, scheme) {
+  await page.addInitScript(([b]) => localStorage.setItem('portfolio_brand_v45', b), [brand]);
+  // reducedMotion: View Transition の不透明度アニメーション中に走査すると、合成された半透明色が
+  //   大量の偽陽性を生む (実測: 待ち 120ms なら 3 ルートで 594 件、settle 後は 30 件)。
+  await page.emulateMedia({ colorScheme: scheme, reducedMotion: 'reduce' });
+
+  const offenders = [];
+  for (const route of CONTRAST_ROUTES) {
+    await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#content h1, #content h2').first()).toBeVisible();
+    const res = await new AxeBuilder({ page }).withRules(['color-contrast']).analyze();
+    for (const v of res.violations) {
+      for (const n of v.nodes) {
+        const d = n.any[0] && n.any[0].data;
+        offenders.push(`${route}: ${d ? `${d.fgColor} on ${d.bgColor} = ${d.contrastRatio}` : n.target[0]}`);
+      }
+    }
+  }
+  expect(offenders, `AA を満たさない配色がある:\n${offenders.slice(0, 8).join('\n')}`).toEqual([]);
+}
+
+test('WCAG 1.4.3: indigo ライトの全ページで color-contrast 違反がゼロ', async ({ page }) => {
+  await expectNoContrastViolations(page, 'indigo', 'light');
+});
+
+test('WCAG 1.4.3: indigo ダークの全ページで color-contrast 違反がゼロ', async ({ page }) => {
+  await expectNoContrastViolations(page, 'indigo', 'dark');
+});
+
+test('WCAG 1.4.3: classic ライトの全ページで color-contrast 違反がゼロ', async ({ page }) => {
+  await expectNoContrastViolations(page, 'classic', 'light');
+});
+
+test('WCAG 1.4.3: classic ダークの全ページで color-contrast 違反がゼロ', async ({ page }) => {
+  await expectNoContrastViolations(page, 'classic', 'dark');
 });
