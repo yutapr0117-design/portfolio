@@ -948,6 +948,13 @@ _E2E_TAIL = [
         "replace": "                   \u306f\u975e\u5230\u9054\u3002 */\n                max-width: none;",
         "test": "classic \u30d6\u30e9\u30f3\u30c9 (\u3088\u308a\u5e45\u5e83\u306a\u30d5\u30a9\u30f3\u30c8) \u3067\u3082\u3042\u3075\u308c\u306a\u3044",
     },
+    {
+        "name": "\u6de1\u3044\u30c1\u30c3\u30d7\u306e\u4e0a\u306e\u6587\u5b57\u304c AA \u3092\u5272\u308b\u5f62\u3078\u623b\u308b \u2014\u2014 --on-tint-primary \u3092 --color-primary \u306b\u623b\u3059\u3068\u3001badge / active nav / hero-eyebrow \u306a\u3069 10% alpha \u306e\u80cc\u666f\u306e\u4e0a\u306e\u6587\u5b57\u304c 3.67\u301c4.48 \u3078\u843d\u3061\u308b (WCAG 1.4.3 AA)",
+        "file": ROOT / "style.css",
+        "find": "--on-tint-primary: var(--color-primary-dark);",
+        "replace": "--on-tint-primary: var(--color-primary);",
+        "test": "indigo \u30e9\u30a4\u30c8\u306e\u5168\u30da\u30fc\u30b8\u3067 color-contrast \u9055\u53cd\u304c\u30bc\u30ed",
+    },
 ]
 
 

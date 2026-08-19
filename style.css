@@ -33,13 +33,33 @@
             --color-primary-light: #818cf8;
             --color-primary-dark: #4f46e5;
 
-            --color-success-rgb: 22, 163, 74;
+            --color-success-rgb: 21, 128, 61;
             --color-success: rgb(var(--color-success-rgb));
-            --color-warning-rgb: 217, 119, 6;
+            /* [A11Y 1.4.3] 「淡いチップ (10% alpha) の上の文字」用の前景色。
+               --color-primary / --color-success をそのまま文字に使うと AA を割る
+               (実測: primary 4.0-4.48 / success 2.95)。背景・境界には従来どおり
+               --color-primary を使い、**文字にだけ**この変種を使う。 */
+            --on-tint-primary: var(--color-primary-dark);
+            /* プレーンな背景 (surface / body) 上で primary を **文字** に使う箇所用。
+               暗背景では明るい変種でないと AA を割る (実測: #6265f0 on #0f172a = 3.94)。 */
+            --text-accent: var(--color-primary);
+            --on-tint-success: #12692f;
+            --on-tint-info: #0e6d84;
+            --on-tint-warning: #8a5a06;
+            --on-tint-danger: #b91c1c;
+            /* solid な意味色背景 (btn-danger 等) の上の文字。暗テーマでは意味色自体が
+               明るくなるため、白のままだと 1.4〜1.7 まで落ちる (実測)。 */
+            --on-solid-fg: #ffffff;
+            /* 白文字前提の識別バッジ用。意味色トークンは暗テーマで明るくなるので、
+               バッジ背景にはテーマ非依存の暗い固定値を使う (実測: 白 on #4ade80 = 1.74)。 */
+            --solid-badge-success: #15803d;
+            --solid-badge-warning: #a45309;
+            --solid-badge-info: #0e6d84;
+            --color-warning-rgb: 164, 83, 9;
             --color-warning: rgb(var(--color-warning-rgb));
-            --color-danger-rgb: 220, 38, 38;
+            --color-danger-rgb: 185, 28, 28;
             --color-danger: rgb(var(--color-danger-rgb));
-            --color-info-rgb: 8, 145, 178;
+            --color-info-rgb: 14, 116, 144;
             --color-info: rgb(var(--color-info-rgb));
 
             /* --- Theme: Light (Default) --- */
@@ -51,8 +71,8 @@
 
             --text-primary: #0f172a;
             --text-secondary: #334155;
-            --text-tertiary: #64748b;
-            --text-muted: #94a3b8;
+            --text-tertiary: #5a6878;
+            --text-muted: #5f6875;
 
             --border-color: #e2e8f0;
             --border-color-strong: #cbd5e1;
@@ -146,7 +166,20 @@
             --text-primary: #f8fafc;
             --text-secondary: #cbd5e1;
             --text-tertiary: #94a3b8;
-            --text-muted: #64748b;
+            --text-muted: #9aa4b5;
+            /* [A11Y 1.4.3] 意味色は暗背景では明るい変種にする (文字・チップ背景の両方に効く) */
+            --color-success-rgb: 74, 222, 128;
+            --color-info-rgb: 103, 232, 249;
+            --color-warning-rgb: 251, 191, 36;
+            --color-danger-rgb: 252, 165, 165;
+            /* [A11Y 1.4.3] 暗背景では文字用 primary/success を明るい変種にする */
+            --on-tint-primary: #99a2fb;
+            --text-accent: var(--color-primary-light);
+            --on-tint-success: #4ade80;
+            --on-tint-info: #67e8f9;
+            --on-tint-warning: #fbbf24;
+            --on-tint-danger: #fca5a5;
+            --on-solid-fg: #0b1220;
 
             --border-color: #334155;
             --border-color-strong: #475569;
@@ -171,7 +204,20 @@
                 --text-primary: #f8fafc;
                 --text-secondary: #cbd5e1;
                 --text-tertiary: #94a3b8;
-                --text-muted: #64748b;
+                --text-muted: #9aa4b5;
+                /* [A11Y 1.4.3] 意味色は暗背景では明るい変種にする (文字・チップ背景の両方に効く) */
+                --color-success-rgb: 74, 222, 128;
+                --color-info-rgb: 103, 232, 249;
+                --color-warning-rgb: 251, 191, 36;
+                --color-danger-rgb: 252, 165, 165;
+                /* [A11Y 1.4.3] 暗背景では文字用 primary/success を明るい変種にする */
+                --on-tint-primary: #99a2fb;
+                --text-accent: var(--color-primary-light);
+                --on-tint-success: #4ade80;
+                --on-tint-info: #67e8f9;
+                --on-tint-warning: #fbbf24;
+                --on-tint-danger: #fca5a5;
+                --on-solid-fg: #0b1220;
 
                 --border-color: #334155;
                 --border-color-strong: #475569;
@@ -693,7 +739,7 @@
 
         .btn-danger {
             background: var(--color-danger);
-            color: #ffffff;
+            color: var(--on-solid-fg);
         }
 
         .btn-danger:hover:not(:disabled) {
@@ -789,12 +835,12 @@
 
         .badge-primary {
             background: rgba(var(--color-primary-rgb), 0.1);
-            color: var(--color-primary);
+            color: var(--on-tint-primary);
         }
 
         .badge-success {
             background: rgba(var(--color-success-rgb), 0.1);
-            color: var(--color-success);
+            color: var(--on-tint-success);
         }
 
         .badge-secondary {
@@ -849,7 +895,7 @@
 
         .nav-link.active {
             background: rgba(var(--color-primary-rgb), 0.1);
-            color: var(--color-primary);
+            color: var(--on-tint-primary);
             font-weight: 700;
         }
 
@@ -959,7 +1005,7 @@
             font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--color-primary);
+            color: var(--on-tint-primary);
             background: rgba(var(--color-primary-rgb), 0.08);
             border: 1px solid rgba(var(--color-primary-rgb), 0.2);
             padding: 3px 10px;
@@ -976,7 +1022,7 @@
         }
         .hero-headline em {
             font-style: normal;
-            color: var(--color-primary);
+            color: var(--text-accent);
         }
         .hero-subheadline {
             font-size: 0.9375rem;
@@ -1008,7 +1054,7 @@
             width: 20px;
             height: 20px;
             background: rgba(var(--color-primary-rgb), 0.1);
-            color: var(--color-primary);
+            color: var(--text-accent);
             border-radius: 50%;
             font-size: 0.6875rem;
             font-weight: 900;
@@ -1113,13 +1159,13 @@
             flex: 1;
         }
         .aio-article-card a:hover {
-            color: var(--color-primary);
+            color: var(--text-accent);
             text-decoration: underline;
         }
         .aio-article-arrow {
             font-size: 0.8125rem;
             font-weight: 700;
-            color: var(--color-primary);
+            color: var(--text-accent);
             margin-top: var(--space-3);
             display: inline-flex;
             align-items: center;
@@ -1186,9 +1232,9 @@
             gap: 0.5rem;
             color: var(--text-primary);
         }
-        .evidence-card.success h3 span { color: var(--color-success); }
-        .evidence-card.source h3 span { color: var(--color-primary); }
-        .evidence-card.failure h3 span { color: var(--color-danger); }
+        .evidence-card.success h3 span { color: var(--on-tint-success); }
+        .evidence-card.source h3 span { color: var(--on-tint-primary); }
+        .evidence-card.failure h3 span { color: var(--on-tint-danger); }
 
         .evidence-card p {
             font-size: 0.875rem;
@@ -1203,7 +1249,7 @@
             margin-top: var(--space-3);
             display: inline-flex;
             align-items: center;
-            color: var(--color-primary);
+            color: var(--text-accent);
             transition: opacity 0.2s;
         }
         .evidence-card a:hover {
@@ -1550,7 +1596,7 @@
 
         .quiz-zone-label.situation {
             background: var(--quiz-bg-info);
-            color: var(--color-info);
+            color: var(--on-tint-info);
             border: 1px solid rgba(8, 145, 178, 0.2);
         }
 
@@ -1562,7 +1608,7 @@
 
         .quiz-zone-label.question {
             background: var(--quiz-bg-warning);
-            color: var(--color-warning);
+            color: var(--on-tint-warning);
             border: 1px solid rgba(var(--color-warning-rgb), 0.2);
         }
 
@@ -1693,7 +1739,7 @@
         .text-detail-muted-relaxed { font-size: 0.8125rem; line-height: 1.6; color: var(--text-muted); }
         .text-label-xs-push { font-size: 0.75rem; color: var(--text-muted); margin-left: auto; }
         .text-body-relaxed { font-size: 0.9375rem; line-height: 1.75; color: var(--text-secondary); }
-        .text-info-label { font-weight: 700; font-size: 0.8125rem; color: var(--color-info); }
+        .text-info-label { font-weight: 700; font-size: 0.8125rem; color: var(--on-tint-info); }
         .text-bullet-human { font-weight: 700; flex-shrink: 0; }
         .text-bullet-ai { font-weight: 700; flex-shrink: 0; }
         .mb-1 { margin-bottom: 4px; }
@@ -1711,11 +1757,11 @@
         .badge-layer { color: #fff; border-radius: var(--radius-full); padding: 2px 12px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; }
         .badge-layer--lg { color: #fff; border-radius: var(--radius-full); padding: 2px 14px; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.06em; }
         .badge-phase { color: #fff; border-radius: var(--radius-full); padding: 1px 10px; font-size: 0.7rem; font-weight: 800; }
-        .badge-agent { font-size: 0.7rem; padding: 1px 8px; border-radius: var(--radius-full); background: rgba(var(--color-primary-rgb),0.1); color: var(--color-primary); font-weight: 600; }
+        .badge-agent { font-size: 0.7rem; padding: 1px 8px; border-radius: var(--radius-full); background: rgba(var(--color-primary-rgb),0.1); color: var(--on-tint-primary); font-weight: 600; }
         .badge-contact-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
         .badge-contact-section { display: inline-block; border-radius: var(--radius-full); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; }
-        .badge-tool-tier--paid { font-size: 0.8rem; padding: 3px 12px; border-radius: var(--radius-full); font-weight: 600; background: rgba(217,119,6,0.12); color: var(--color-warning); }
-        .badge-tool-tier--free { font-size: 0.8rem; padding: 3px 12px; border-radius: var(--radius-full); font-weight: 600; background: rgba(22,163,74,0.12); color: var(--color-success); }
+        .badge-tool-tier--paid { font-size: 0.8rem; padding: 3px 12px; border-radius: var(--radius-full); font-weight: 600; background: rgba(217,119,6,0.12); color: var(--on-tint-warning); }
+        .badge-tool-tier--free { font-size: 0.8rem; padding: 3px 12px; border-radius: var(--radius-full); font-weight: 600; background: rgba(22,163,74,0.12); color: var(--on-tint-success); }
         .free-paid-badge { font-size: 0.7rem; font-weight: 700; padding: 2px 10px; border-radius: var(--radius-full); white-space: nowrap; }
         .block-bg-tertiary-sm { display: flex; flex-direction: column; gap: 3px; padding: 10px 12px; background: var(--bg-tertiary); border-radius: var(--radius); }
         .block-bg-tertiary-md { display: flex; flex-direction: column; gap: 6px; padding: 12px; background: var(--bg-tertiary); border-radius: var(--radius); }
@@ -1743,7 +1789,7 @@
         .card--contact { background: linear-gradient(135deg, rgba(var(--color-primary-rgb),0.06) 0%, rgba(var(--color-primary-rgb),0.02) 100%); border-top: 3px solid var(--color-primary); border-radius: var(--radius-md); }
         .contact-section-badge { background: var(--color-primary); color: #fff; border-radius: var(--radius-full); padding: 2px 14px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; }
         .card--incident { margin-top: 20px; padding: 16px; background: rgba(239,68,68,0.05); border: 1px dashed var(--color-warning); border-radius: var(--radius); display: flex; flex-direction: column; gap: 8px; }
-        .btn-incident { align-self: flex-start; margin-top: 4px; background: var(--color-warning); color: #fff; border: none; font-weight: 700; }
+        .btn-incident { align-self: flex-start; margin-top: 4px; background: var(--color-warning); color: var(--on-solid-fg); border: none; font-weight: 700; }
         .wrap-with-border-top { border-top: 1px solid var(--border-color); padding-top: 12px; margin-top: 4px; display: flex; flex-wrap: wrap; gap: 8px; }
         .row-gap-4-items-start { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
 
@@ -1820,9 +1866,9 @@
         /* ===== v69 追加ユーティリティ（第2弾） ===== */
 
         /* Color accent helpers */
-        .color-primary { color: var(--color-primary); }
-        .color-success { color: var(--color-success); }
-        .color-warning { color: var(--color-warning); }
+        .color-primary { color: var(--text-accent); }
+        .color-success { color: var(--on-tint-success); }
+        .color-warning { color: var(--on-tint-warning); }
         .color-muted   { color: var(--text-muted); }
 
         /* Card accent borders */
@@ -1857,7 +1903,7 @@
         .text-cta-emphasis {
             font-size: 1.25rem;
             font-weight: 800;
-            color: var(--color-primary);
+            color: var(--text-accent);
         }
 
         /* Small label (risk/metric tables) */

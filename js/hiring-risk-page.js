@@ -92,11 +92,14 @@ export function createHiringRiskPage({ h, createIcon, Router, ContactCTA }) {
         }
 
         // カラー定義
+        // [A11Y 1.4.3] `badge-layer` は白文字前提の識別バッジ。意味色トークンは暗テーマで
+        //   明るくなる設計のため、背景にはテーマ非依存の solid 変種を使う
+        //   (実測: 白 on #4ade80 = 1.74 / #fbbf24 = 1.66 / #67e8f9 = 1.44)。
         const C = {
             primary: 'var(--color-primary)',
-            success: 'var(--color-success)',
-            warning: 'var(--color-warning)',
-            info: 'var(--color-info)',
+            success: 'var(--solid-badge-success)',
+            warning: 'var(--solid-badge-warning)',
+            info: 'var(--solid-badge-info)',
             purple: '#7c3aed'
         };
 
