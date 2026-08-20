@@ -927,6 +927,13 @@ _E2E_TAIL = [
         "replace": "            border-color: var(--border-color);",
         "test": "Invalid form fields are visually distinguishable",
     },
+    {
+        "name": "palette \u306e\u8996\u899a\u306e\u9078\u629e\u304c ARIA \u3068\u305a\u308c\u308b \u2014\u2014 is-active \u3092\u5148\u982d\u56fa\u5b9a\u306b\u3059\u308b\u3068\u3001SR \u306f 2 \u756a\u76ee\u3092\u8aad\u3080\u306e\u306b\u753b\u9762\u306f 1 \u756a\u76ee\u3092\u5149\u3089\u305b\u308b\u72b6\u614b\u306b\u306a\u308b\u3002\u65e2\u5b58\u306e activedescendant \u30c6\u30b9\u30c8\u306f ARIA \u540c\u58eb\u306e\u6574\u5408\u3057\u304b\u898b\u306a\u3044\u305f\u3081\u7dd1\u306e\u307e\u307e\u7d20\u901a\u308a\u3059\u308b",
+        "file": ROOT / "js" / "command-palette.js",
+        "find": "            li.classList.toggle('is-active', on);",
+        "replace": "            li.classList.toggle('is-active', i === 0);",
+        "test": "Command palette keeps visual, ARIA and activedescendant selection in sync",
+    },
 ]
 
 
