@@ -348,6 +348,48 @@ test('検索 0 件でもリストの意味論が壊れない (role=list の子�
   expect(await violations(), '0 件時に role=list の子へ role=status が入っている').toEqual([]);
 });
 
+// ===== 0 件を経由して結果が戻ったときにリストが復帰すること (WCAG 1.3.1) =====
+// 上の test は **`goto` で 0 件状態を作る**ため、ルート描画のたびにコンテナごと作り直され
+// **この経路を原理的に踏めない**。実際の利用者は同じページで入力を変えるだけで、
+// そのときは `renderGrid` しか走らない (絞り込みはページ全体を再描画しない)。
+//
+// 実測 (2026-08-21): `role='list'` は**構築時に一度だけ**付けられ、空状態分岐が
+// `removeAttribute('role')` で外していたため、**0 件を一度でも経由すると復帰しなかった**。
+// 結果が戻っても `role=listitem` の**親がいない孤児**が並び、axe
+// aria-required-parent (critical / wcag2a / wcag131) が 4 件。ルートを離れて戻るまで
+// 直らないので、絞り込みを使い続ける限りリスト単位のジャンプが効かない。
+//
+// command-palette (#1219) は同じ空状態処理を持つが**毎描画で listbox を付け直して**おり、
+// projects 側だけが非対称だった —— 同じ責務は対で確認せよ (§7 反復 class)。
+test('0 件を経由して結果が戻るとリストが復帰する (同一ページ内の絞り込み)', async ({ page }) => {
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content .grid-projects article').first()).toBeVisible();
+
+  const input = page.locator('#content input[aria-label="プロジェクト検索"]');
+  const parentViolations = async () => {
+    const r = await new AxeBuilder({ page }).withRules(['aria-required-parent']).analyze();
+    return r.violations.map((v) => `${v.id}:${v.nodes.length}`);
+  };
+
+  // control: 0 件を経由せずに絞り込んだ状態では壊れていない
+  //   (これが無いと「元から壊れている」のか「0 件経由で壊れた」のか帰属できない)
+  await input.fill('AI');
+  await expect(page.locator('#content .grid-projects article').first()).toBeVisible();
+  expect(await parentViolations(), 'control: 0 件を経由しない絞り込みで既に壊れている').toEqual([]);
+
+  // 0 件へ: ここで role が外れる (それ自体は上の test が担保する正しい挙動)
+  await input.fill('zzzznomatch');
+  await expect(page.locator('#content').getByText('条件に一致するプロジェクトはありません')).toBeVisible();
+
+  // 結果を戻す: リストが復帰していなければ listitem が孤児になる
+  await input.fill('AI');
+  await expect(page.locator('#content .grid-projects article').first()).toBeVisible();
+  expect(await page.locator('#content .grid-projects').getAttribute('role'),
+    '0 件を経由したあと role=list が復帰していない').toBe('list');
+  expect(await parentViolations(),
+    '0 件を経由したあと listitem の親が存在しない (孤児)').toEqual([]);
+});
+
 // ===== 非既定の状態でも構造 a11y が壊れないこと (既定値だけが偶然 clean を防ぐ) =====
 // 全ルートの axe 走査は **既定内容で実行される**ため、既定から外れた状態にしか現れない
 // 破れには**永久に到達しない**。実際この class で 2 件の実バグが出た:
