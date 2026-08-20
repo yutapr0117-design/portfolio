@@ -919,6 +919,20 @@ _E2E_TAIL = [
         "replace": "        .overlay {\n            display: block;",
         "test": "No fixed overlay covers an interactive element on any route",
     },
+    {
+        "name": "\u30d5\u30eb\u30d0\u30c3\u30af\u30a2\u30c3\u30d7\u304c state \u5168\u4f53\u3092\u542b\u307e\u306a\u304f\u306a\u308b \u2014\u2014 exportFull \u304c projects \u3060\u3051\u3092\u66f8\u304d\u51fa\u3059\u5f62\u3078\u623b\u308b\u3068\u3001\u5229\u7528\u8005\u306f\u300c\u30d0\u30c3\u30af\u30a2\u30c3\u30d7\u3092\u53d6\u3063\u305f\u300d\u3068\u4fe1\u3058\u3066\u5143\u30c7\u30fc\u30bf\u3092\u6368\u3066\u3046\u308b (\u5fa9\u5143\u6642\u306b tasks / notes / profile \u304c\u5168\u90e8\u6d88\u3048\u308b)",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "function exportFull() { downloadJSON(State.get(),",
+        "replace": "function exportFull() { downloadJSON({ projects: State.get().projects },",
+        "test": "Settings app exports a full backup as a valid JSON download",
+    },
+    {
+        "name": "profile.email \u306e\u9577\u3055\u4e0a\u9650\u304c\u5916\u308c\u308b \u2014\u2014 import \u306f\u5916\u90e8\u304b\u3089\u6765\u308b\u4fe1\u7528\u3067\u304d\u306a\u3044\u5165\u529b\u306a\u306e\u3067\u3001bound \u3092\u5916\u3059\u3068\u5DE8\u5927\u306a\u6587\u5b57\u5217\u304c\u305d\u306e\u307e\u307e localStorage \u3078\u5165\u308a\u3001\u5bb9\u91cf\u3092\u98df\u3044\u3064\u3076\u3057\u3066\u4ed6\u306e\u4fdd\u5b58\u3092\u58ca\u3059 (ingestion bloat guard)",
+        "file": ROOT / "js" / "store.js",
+        "find": "                const ok = t.length <= 254",
+        "replace": "                const ok = t.length <= 100000",
+        "test": "Profile email is length-bounded to 254 on import",
+    },
 ]
 
 
