@@ -357,6 +357,10 @@ test('ai-knowhow/about Speakable cssSelectors (non-baseline) resolve to real ele
 
 
 // ===== 7.2: aria-busy 状態遷移 Behavior Check =====
+// 機械向けの面 (視覚に一切出ない) なので、壊れても screenshot / behavior の他テストは
+// 緑のまま —— このテストだけが捕捉層。data-ai-state と違い書き手は **2 箇所のみ**
+// (開始時 true / 描画完了後 false) で冗長性が無いため、単一 mutation で RED を実測できる。
+// 2026-08-20 に false 側を潰して RED を確認し、安全網へ登録した。
 test('content div transitions aria-busy correctly during navigation', async ({ page }) => {
   await page.goto('/');
   await page.waitForLoadState('domcontentloaded');
