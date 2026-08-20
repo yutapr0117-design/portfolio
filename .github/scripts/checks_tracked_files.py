@@ -14,6 +14,18 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES 
 span this file). run(ctx) receives shared check()/ROOT/read/extract/_member_paths by reference.
 
 Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()):
+  434. verify が「不完全な視界」で緑にならない保証。Check 108 / 122 / 37 などは
+       `git ls-files` を真値にするため、**まだ git add していないファイルは走査対象にすら
+       入らない**。つまりローカルで新規ファイルを作って `npm run verify` を回すと、
+       そのファイルに関する invariant を **一つも検査しないまま緑**になり、CI (clean checkout
+       で commit 済みの状態を見る) で初めて赤くなる。実際に踏んだ (2026-08-20 #1169:
+       新規 spec の mirror doc 欠落を Check 108 が CI でだけ検出。ローカルは緑だった)。
+       そこで、mirror/bijection 系 Check が統治するディレクトリ (`js/` `e2e/`
+       `.github/scripts/` `docs/`) に **未追跡ファイルがあれば BLOCKING で止める**。
+       「verify の結果が信用できる状態でだけ verify を通す」ための前提条件チェックであり、
+       検査対象そのものではない。使い捨ての probe を置いたまま verify を回すのも同じ理由で
+       止まる (probe は消してから回す運用と一致する)。(BLOCKING)
+
   108. docs/files mirror ↔ tracked-files full bijection: EVERY tracked repository file (per
        `git ls-files`, excluding docs/files itself) has a 1-to-1 multi-audience doc mirror at
        `docs/files/<path>.md`, and every mirror (except the README.md inventory and _template.md)
@@ -32,6 +44,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 """
 import re
 import json
+import subprocess
 
 
 def run(ctx):
@@ -91,3 +104,32 @@ def run(ctx):
         + ", ".join(_private_hits[:10]) + (" …" if len(_private_hits) > 10 else ""),
         blocking=True,
     )
+
+    # ── 434. verify が「不完全な視界」で緑にならない保証 (BLOCKING) ─────────────────
+    # Check 108/122/37 は `git ls-files` を真値にするため、未追跡ファイルは走査対象に入らない。
+    # 新規ファイルを add せずに verify を回すと **そのファイルの invariant を一つも検査しないまま
+    # 緑** になり、CI で初めて赤くなる (2026-08-20 #1169 で実際に踏んだ)。
+    # mirror/bijection 系が統治するディレクトリに未追跡があれば止める。
+    _governed434 = ("js/", "e2e/", ".github/scripts/", "docs/")
+    try:
+        _out434 = subprocess.run(
+            ["git", "status", "--porcelain", "--untracked-files=all"],
+            cwd=ROOT, capture_output=True, text=True, timeout=30,
+        )
+        _untracked434 = sorted(
+            ln[3:].strip() for ln in _out434.stdout.splitlines()
+            if ln.startswith("?? ") and ln[3:].strip().startswith(_governed434)
+        )
+        check(
+            not _untracked434,
+            "Check 434: 統治対象ディレクトリに未追跡ファイルが無い (verify の視界が完全)",
+            (f"Check 434: 未追跡ファイルがあるため verify の視界が不完全: {_untracked434[:5]} — "
+             "Check 108/122/37 は `git ls-files` を真値にするので、**未追跡ファイルは検査されない**。"
+             "このまま緑になっても CI (clean checkout) で赤くなる (#1169 で実際に踏んだ)。"
+             "`git add` してから verify し直すか、使い捨ての probe なら削除せよ"),
+            blocking=True,
+        )
+    except Exception as _e434:
+        check(False, "Check 434: git status",
+              f"Check 434: git status を実行できない ({_e434}) — verify の視界を確認できない",
+              blocking=True)
