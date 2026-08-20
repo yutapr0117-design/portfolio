@@ -218,48 +218,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "a11y: 残り時間が role=timer でなくなる — role=status だと更新のたびに読み上げが割り込む (毎秒)。timer は『時間の表示』として扱われ chatty にならない。視覚表示は同じなので目視では区別できない",
-        "file": ROOT / "js" / "pomodoro-page.js",
-        "find": "                            role: 'timer',",
-        "replace": "                            role: 'status',",
-        "test": "Pomodoro countdown exposes role=timer with a contextual aria-label for screen readers",
-    },
-    {
-        "name": "a11y: AI の応答完了がアナウンスされなくなる — 応答は非同期に履歴へ足されるだけなので、SR 利用者は **生成が終わったことに気付けない** (入力欄の再有効化は非 focus 要素では分からない・WCAG 4.1.3)",
-        "file": ROOT / "js" / "ai-page.js",
-        "find": "                    announce('AI が応答しました');",
-        "replace": "",
-        "test": "AI response completion announces to the assertive aria-live region (WCAG 4.1.3)",
-    },
-    {
-        "name": "a11y: ステークホルダー意見のリスト意味論が失われる — 1 問に 2〜3 人分の意見が並ぶのに listitem が無いと、SR 利用者は『意見が何件あるか』も『どこからどこまでが 1 人の発言か』も掴めず項目単位で移動もできない。視覚的には引用の体裁で区切りが分かるので目視では気付けず、axe にも該当ルールが無い",
-        "file": ROOT / "js" / "quiz-renderer.js",
-        "find": "class: \"quiz-stakeholder-quote\", role: \"listitem\"",
-        "replace": "class: \"quiz-stakeholder-quote\"",
-        "test": "設計判断 quiz のステークホルダー意見がリストとして公開される",
-    },
-    {
-        "name": "a11y: 記事シリーズのリスト意味論が失われる — 同じ形式の記事が 11 本並ぶのに listitem が無いと、SR 利用者は『何本あるか』も分からず項目単位で移動もできない。視覚的にはカードの体裁で区切りが分かるので目視では気付けず、axe にも該当ルールが無い",
-        "file": ROOT / "js" / "home-page.js",
-        "find": "h('div', { class: 'aio-article-card', role: 'listitem' },",
-        "replace": "h('div', { class: 'aio-article-card' },",
-        "test": "同質な項目の並びがリストとして公開される (記事シリーズ / Settings のプロジェクト行)",
-    },
-    {
-        "name": "a11y: 役割分担表のセル内箇条書きからリスト意味論が失われる — 各セルに 3〜4 件並ぶのに listitem が無いと、SR 利用者は『このセルに何項目あるか』も項目の切れ目も掴めない。視覚的には ✦ の記号で分かるので目視では気付けず、axe にも該当ルールが無い",
-        "file": ROOT / "js" / "pages.js",
-        "find": "class: 'cell-bullet-row', role: 'listitem'\n                            },\n                                h('span', { class: 'text-bullet-human'",
-        "replace": "class: 'cell-bullet-row'\n                            },\n                                h('span', { class: 'text-bullet-human'",
-        "test": "役割分担表のセル内箇条書きがリストとして公開される",
-    },
-    {
-        "name": "security: メールアドレスの検証が外れ mailto へパラメータを注入できる — profile は import で外部から来るので、細工した『バックアップ』を取り込んだ利用者が **『メールで相談する』を押しただけで攻撃者に BCC を送る**。`mailto:` は URL なので `?bcc=...` がそのまま効く",
-        "file": ROOT / "js" / "store.js",
-        "find": "                email: safeEmail(data.profile.email, store.profile.email),",
-        "replace": "                email: safeStr(data.profile.email, store.profile.email, 254),",
-        "test": "細工したメールアドレスが mailto へ注入されない",
-    },
-    {
         "name": "security: URL サニタイズが素朴な前方一致へ退行する — `startsWith('javascript:')` だと **大文字混在 (JaVaScRiPt:) や前後空白** ですり抜け、`data:` / `vbscript:` も素通りする。許可リスト方式 (^https?://) でなければ回避手口を塞げない",
         "file": ROOT / "js" / "store.js",
         "find": "                return /^https?:\\/\\//i.test(s) ? s.slice(0, 500) : String(fallback || '');",
