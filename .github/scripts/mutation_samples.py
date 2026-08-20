@@ -293,7 +293,7 @@ _E2E_TAIL = [
     {
         "name": "behavior: 手動追加が正規化を通さなくなる — normalizeProject は name を LIMITS.PROJECT_NAME、tech を『12 項目・各 LIMITS.CATEGORY 文字』で切るので、通さないと **追加直後は入力どおりに見えるのにリロードで黙って減る** (実測: Tech 20 個 → 12 個)。件数の制限は maxlength では表現できないため入力欄側だけでは揃えられない",
         "file": ROOT / "js" / "settings-page.js",
-        "find": "            State.set(Store.validateAndNormalize(State.get()));\n            settingsNewName = '';",
+        "find": "            State.set(Store.validateAndNormalize(State.get()));",
         "replace": "            settingsNewName = '';",
         "test": "手動追加の Tech が件数上限どおりに保存される",
     },
@@ -939,6 +939,13 @@ _E2E_TAIL = [
         "find": "prompt: input.slice(0, CONSTANTS.LIMITS.AI_MESSAGE),",
         "replace": "prompt: input,",
         "test": "AI prompt is bounded by AI_MESSAGE when stored",
+    },
+    {
+        "name": "\u624b\u52d5\u8ffd\u52a0\u3067 Tech \u304c\u9ed9\u3063\u3066\u843d\u3061\u308b \u2014\u2014 \u5207\u308a\u6368\u3066\u306e\u5831\u544a\u3092\u7d20\u306e\u300c\u8ffd\u52a0\u3057\u307e\u3057\u305f\u300d\u3078\u623b\u3059\u3068\u300112 \u4ef6\u8d85\u904e / \u6587\u5b57\u6570\u8d85\u904e\u304c\u7121\u901a\u77e5\u3067\u5931\u308f\u308c\u308b (\u5b9f\u6e2c: 16 \u4ef6\u6295\u5165 \u2192 12 \u4ef6\u4fdd\u5b58\u30fb1 \u4ef6\u76ee 120 \u2192 80 \u6587\u5b57)\u3002\u4ef6\u6570\u4e0a\u9650\u306f maxlength \u3067\u306f\u8868\u73fe\u3067\u304d\u306a\u3044",
+        "file": ROOT / "js" / "settings-page.js",
+        "find": "            Toast.show(_dropped || _truncated",
+        "replace": "            Toast.show(false",
+        "test": "Manual project add reports dropped or truncated tech entries",
     },
 ]
 

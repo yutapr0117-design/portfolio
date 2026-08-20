@@ -920,3 +920,40 @@ test('Toasts have a surface and are visually distinguishable by type', async ({ 
   expect(ok.accent, 'エラーと成功で見た目が同じ (種別が伝わらない)').not.toBe(err.accent);
   expect(ok.bg, '成功通知に背景が無い').not.toBe('rgba(0, 0, 0, 0)');
 });
+
+
+// ===== 手動追加で Tech が黙って落ちない (silent truncation) =====
+// `tech` は保存時に「12 項目・各 LIMITS.CATEGORY 文字」で切られるが、従来は素の
+// 「プロジェクトを追加しました」だけだった。実測 (2026-08-20): 16 件・1 件目 120 文字を投入すると
+// **12 件だけ保存され 1 件目は 80 文字に切断**されるのに、利用者には何も伝わらなかった。
+//
+// **件数の上限は maxlength では表現できない**ので、入力欄側の宣言だけでは防げない
+// (Check 410 は「同一 file の slice ⟹ maxlength」を見るが、tech の slice は store.js 側にある)。
+// #1143 で import の切り捨てを「完了しました」で済ませないようにしたのと同じ規律。
+test('Manual project add reports dropped or truncated tech entries', async ({ page }) => {
+  const announcement = () => page.evaluate(
+    () => (document.getElementById('action-announcement') || {}).textContent || '');
+
+  const add = async (name, tech) => {
+    await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+    await expect(page.getByRole('button', { name: 'フルバックアップ' })).toBeVisible();
+    await page.locator('#settingsNewName').fill(name);
+    await page.locator('#settingsNewTech').fill(tech);
+    await page.getByRole('button', { name: '追加', exact: true }).click();
+  };
+
+  // control: 上限内なら従来どおり素の完了メッセージ (常に注記を付ける実装ではない)
+  await add('Tech 上限内テスト', 'React,Vue');
+  await expect.poll(announcement, { timeout: 5000 }).toContain('プロジェクトを追加しました');
+  expect(await announcement(), '上限内なのに注記が付いている').not.toContain('Tech:');
+
+  // 12 件を超え、かつ 1 件目が上限文字数を超える入力
+  const long = 'T'.repeat(120);
+  await add('Tech 超過テスト', [long, ...Array.from({ length: 15 }, (_, i) => 'x' + i)].join(','));
+  await expect.poll(announcement, { timeout: 5000 }).toContain('取り込めず');
+  const msg = await announcement();
+  expect(msg, '短縮された件数が伝わっていない').toContain('短縮');
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `manual add caused a fatal: ${fatal}`).toBeNull();
+});

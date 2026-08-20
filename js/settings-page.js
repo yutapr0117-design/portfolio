@@ -288,15 +288,17 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                 Toast.show(`プロジェクトは ${CONSTANTS.LIMITS.MAX_PROJECTS} 件までです。不要なプロジェクトを削除してください`, 'error');
                 return;
             }
+            // slug は追加後の照合にも使うので update の外で作る (中で宣言すると
+            //   スコープ外参照になり `slug is not defined` で FatalPage に落ちる・実測で踏んだ)。
+            const newSlug = slugify(settingsNewName);
             State.update(s => {
                 // slug 衝突の一意化 (#154) は **store.js の normalize が単一ソース**で行う。
                 // #1064 で手動追加も `Store.validateAndNormalize` を通すようにしたため、ここで
                 // 同じ処理を持つと二重化になり、実際 mutation-probe で「インラインの重複を外しても
                 // 何も壊れない」(= 冗長ガード) と検出された。一意化の責務は store.js に一本化する。
-                const slug = slugify(settingsNewName);
                 s.projects.unshift({
                     id: 'p_user_' + generateId().slice(0, 6),
-                    slug,
+                    slug: newSlug,
                     name: settingsNewName,
                     category: 'User Added',
                     summary: '', problem: '', approach: '',
@@ -313,8 +315,21 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
             //   「adopt する前に正規化を通せ」(#295/#561) を手動追加にも適用する。
             //   境界の定義は store.js に一本化されたままなので、ここに定数は複製しない。
             State.set(Store.validateAndNormalize(State.get()));
+
+            // [FIX] 正規化で **落ちたぶんを honest に報告する**。tech は「12 項目・各
+            //   LIMITS.CATEGORY 文字」で切られるが、従来は素の「プロジェクトを追加しました」
+            //   だけだった (実測 2026-08-20: 16 件投入 → 12 件保存・1 件目は 120 → 80 文字)。
+            //   件数上限は maxlength では表現できないので入力欄側だけでは防げない。
+            //   #1143 で import の切り捨てを「完了しました」で済ませないようにしたのと同じ規律。
+            const _saved = (State.get().projects.find(p => p.slug === newSlug) || {}).tech || [];
+            const _wanted = settingsNewTech ? settingsNewTech.split(',').map(t => t.trim()).filter(Boolean) : [];
+            const _dropped = Math.max(0, _wanted.length - _saved.length);
+            const _truncated = _saved.filter((t, i) => (_wanted[i] || '').length > t.length).length;
             settingsNewName = ''; settingsNewTech = ''; settingsNewDemo = '';
-            Toast.show('プロジェクトを追加しました');
+            Toast.show(_dropped || _truncated
+                ? `プロジェクトを追加しました（Tech: ${_dropped ? `${_dropped} 件を取り込めず` : ''}`
+                  + `${_dropped && _truncated ? '・' : ''}${_truncated ? `${_truncated} 件を短縮` : ''}しました）`
+                : 'プロジェクトを追加しました');
         }
 
         const defaultProjectIds = new Set(['p01', 'p02', 'p03', 'p04', 'p05', 'p06', 'p07', 'p08', 'p09', 'p10', 'p11', 'p12', 'p13', 'p14', 'p15', 'p16', 'p17', 'p18']);
