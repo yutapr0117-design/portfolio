@@ -18,6 +18,7 @@
  *   - h: js/ui-components.js（型安全 DOM ビルダー）
  *   - createIcon: js/ui-components.js（SVG アイコン）
  *   - State: js/state.js factory instance（open 時に現在のプロジェクト一覧を検索対象へ加える）
+ *   - announce: js/ui-components.js (sr-only の唯一の通知チャネル・候補 0 件を伝える)
  *   - setAppInert: js/mobile-drawer.js の __setAppInert（open/close で背景 #app の inert +
  *     aria-hidden を切り替える。drawer と同じ唯一の実装を共有し複製 drift を避ける）
  *   - closeDrawer: js/mobile-drawer.js（open 時に mobile drawer を閉じ、aria-modal の領域が
@@ -33,7 +34,7 @@
  *     留めたまま ↑↓ が listbox を操作する。SR が active option をアナウンスできるよう input の
  *     aria-activedescendant を _renderList / _highlight が active option の id（cmdk-opt-<i>）へ同期する。
  */
-export function createCommandPalette({ Router, h, createIcon, State, closeDrawer, setAppInert }) {
+export function createCommandPalette({ Router, h, createIcon, State, closeDrawer, setAppInert, announce }) {
     // 横断ナビの固定行き先（curated quick-nav）。label は人間可読、hash は Router.navigate 引数。
     const NAV = [
         { label: 'Home（ホーム）', hash: '' },
@@ -88,8 +89,24 @@ export function createCommandPalette({ Router, h, createIcon, State, closeDrawer
             : all;
         activeIdx = 0;
         while (listEl.firstChild) { listEl.removeChild(listEl.firstChild); }
+        listEl.setAttribute('role', 'listbox');
         if (!rendered.length) {
-            listEl.appendChild(h('li', { class: 'cmdk-empty', role: 'status' }, '一致する行き先はありません'));
+            // [A11Y] **listbox の中に option 以外を入れない。** `role="listbox"` の子として
+            //   許されるのは option (と group) だけで、空状態の `role="status"` を直接入れると
+            //   axe aria-required-children が
+            //   「Element has children which are not allowed: [role=status]」を出し、
+            //   **listbox の意味論そのものが壊れる** (#1214 の projects 一覧と同一構造)。
+            //   実測 (2026-08-20): Cmd+K で候補 0 件にすると違反 1 件。**既定状態 (入力なし) では
+            //   全候補が出る**ので、通常の a11y 走査では一度も踏まれない。
+            //   候補ゼロでは listbox として公開する対象自体が無いので role を外す。
+            //   `aria-controls` の参照先 (#cmdk-listbox) は id ごと残るので dangling にならない。
+            listEl.removeAttribute('role');
+            //   空状態の li に role="status" は付けない —— role を外した ul は素の list に
+            //   なるので、子は listitem (= 素の li) でなければならない。
+            //   0 件は **視覚では空リストで分かる**が SR には無音になるので announce で伝える
+            //   (他の検索 UI と同じ扱い・唯一の SR 通知チャネル)。
+            listEl.appendChild(h('li', { class: 'cmdk-empty' }, '一致する行き先はありません'));
+            if (announce) { announce('一致する行き先はありません'); }
             // [A11Y] 候補ゼロでは active option が存在しないため activedescendant を外す (dangling id 参照防止)。
             if (inputEl) { inputEl.removeAttribute('aria-activedescendant'); }
             return;

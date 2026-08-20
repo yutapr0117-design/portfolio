@@ -941,7 +941,7 @@
         _fatalOverlay.install();
 
         // Command palette（Cmd/Ctrl+K 横断ナビ overlay）を合成。init() で global keydown を登録。
-        const CommandPalette = createCommandPalette({ Router, h, createIcon, State, closeDrawer, setAppInert });
+        const CommandPalette = createCommandPalette({ Router, h, createIcon, State, closeDrawer, setAppInert, announce });
         // createMobileDrawer へ渡した closePalette の late-binding を解決する (holder へ実体を代入)。
         Object.assign(_palette, CommandPalette);
 

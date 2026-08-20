@@ -947,6 +947,14 @@ _E2E_TAIL.append({
     "test": "別タブの更新が稼働中のポモドーロを止めない",
 })
 
+_E2E_TAIL.append({
+    "name": "Cmd+K の候補 0 件で listbox の中へ空状態が入り意味論が壊れる —— 既定状態 (入力なし) では全候補が出るので通常の a11y 走査では一度も踏まれない (#1213/#1214 と同じ『既定値だけが偶然 clean』class)",
+    "file": ROOT / "js" / "command-palette.js",
+    "find": "            listEl.removeAttribute('role');\n",
+    "replace": "",
+    "test": "Cmd+K の候補 0 件で listbox 意味論が壊れず",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
