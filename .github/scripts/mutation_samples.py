@@ -185,48 +185,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "behavior: theme-init.js の theme 復元が効かなくなる — pre-paint に data-theme/.dark を付けられず、dark 利用者に **一瞬 light が見えてから切り替わる FOUC** が出る。main.js が後から適用するので最終状態は正しく、screenshot は ADVISORY ゆえ **この e2e 以外に捕捉層が無い**",
-        "file": ROOT / "theme-init.js",
-        "find": "                const rawState = localStorage.getItem('portfolio_enhanced_v45');",
-        "replace": "                const rawState = null;",
-        "test": "theme-init.js applies stored dark theme on initial load (FOUC prevention)",
-    },
-    {
-        "name": "behavior: theme-init.js の brand 復元が効かなくなる — pre-paint に data-brand を付けられず、既定ブランド色が一瞬見えてから切り替わる FOUC が出る (theme 側と同 class)",
-        "file": ROOT / "theme-init.js",
-        "find": "                const rawBrand = localStorage.getItem('portfolio_brand_v45');",
-        "replace": "                const rawBrand = null;",
-        "test": "theme-init.js applies stored brand on initial load (brand FOUC prevention)",
-    },
-    {
-        "name": "behavior: slug 衝突の一意化が効かなくなる (#154 の回帰) — 同名プロジェクトを追加/取り込みすると slug が重複し、**片方の詳細ページへ到達できなくなる** (ルーターは先勝ちで解決するため後の 1 件が事実上消える)。一覧には両方出るので画面上は正常に見える",
-        "file": ROOT / "js" / "store.js",
-        "find": "            if (_seenSlugs.has(s)) {",
-        "replace": "            if (false && _seenSlugs.has(s)) {",
-        "test": "Importing projects with colliding slugs yields unique slugs (detail reachability)",
-    },
-    {
-        "name": "behavior: テーマ切替の巡回順が壊れる (#262 の症状面) — 1 クリックで 2 段進む / 逆順になる等。#262 は data-action の delegation と直接リスナーの二重発火が原因だったが、症状は『押した段数と表示が一致しない』で同じ。巡回順そのものを入れ替えて、段数を数える assertion が実際に効くことを実証する",
-        "file": ROOT / "js" / "theme.js",
-        "find": "        const next = current === 'system' ? 'dark' : current === 'dark' ? 'light' : 'system';",
-        "replace": "        const next = current === 'system' ? 'light' : current === 'dark' ? 'system' : 'dark';",
-        "test": "Topbar theme button advances exactly one step per click (double-fire regression)",
-    },
-    {
-        "name": "behavior: FatalPage の『ホームへ』が __fatalError を解除しなくなる (#298 の回帰面) — フラグが立ったままだと 2 秒毎に走る Shadow DOM 安全網が **復旧できた正常なページを覆い直す**。利用者は一度は復旧できたのに再びエラー画面へ戻され、脱出手段が無くなる",
-        "file": ROOT / "js" / "components.js",
-        "find": "                    window.__fatalError = null;",
-        "replace": "",
-        "test": "FatalPage ホームへ recovers from a non-home route too",
-    },
-    {
-        "name": "behavior: drawer が背景 (#app) を inert にしなくなる (#947 の対) — 開いている drawer の裏のリンクやボタンがキーボード/支援技術から操作でき、aria-modal の主張と実態が食い違う。視覚的には drawer が被さって見えるので目視では気付けない",
-        "file": ROOT / "js" / "mobile-drawer.js",
-        "find": "        __setAppInert(true);",
-        "replace": "",
-        "test": "Mobile drawer opens with ARIA, isolates background, and closes on Escape",
-    },
-    {
         "name": "behavior: silent URL 更新後に currentRoute が stale になる (#765 の内部 route state 版) — 絞り込み中に任意の再描画 (cross-tab sync / State.update) が走ると、ProjectsPage が q='' で描き直されて **検索が消えるのに URL は ?q=.. のまま残る** desync。利用者には『勝手に全件へ戻った』と見える",
         "file": ROOT / "js" / "router.js",
         "find": "            currentRoute = _r;",
@@ -952,6 +910,13 @@ _E2E_TAIL = [
         "find": "                top: calc(64px + 0.75rem);\n                right: 0.75rem;",
         "replace": "                right: 0.75rem;",
         "test": "Toasts never cover the topbar controls on mobile",
+    },
+    {
+        "name": "\u65e2\u5b9a\u72b6\u614b\u3067\u56fa\u5b9a\u8981\u7d20\u304c\u64cd\u4f5c\u8981\u7d20\u3092\u899a\u3046 \u2014\u2014 drawer \u306e overlay \u3092\u65e2\u5b9a\u3067\u53ef\u8996\u306b\u3059\u308b\u3068\u3001\u4f55\u3082\u64cd\u4f5c\u3057\u3066\u3044\u306a\u3044\u306e\u306b\u5168\u30eb\u30fc\u30c8\u3067\u30dc\u30bf\u30f3\u304c\u62bc\u305b\u306a\u304f\u306a\u308b (#1171 \u3068\u540c\u3058 \u300c\u56fa\u5b9a\u8981\u7d20\u304c\u899a\u3046\u300d class \u306e\u65e2\u5b9a\u72b6\u614b\u9762)",
+        "file": ROOT / "style.css",
+        "find": "        .overlay {\n            display: none;",
+        "replace": "        .overlay {\n            display: block;",
+        "test": "No fixed overlay covers an interactive element on any route",
     },
 ]
 

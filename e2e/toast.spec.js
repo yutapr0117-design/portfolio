@@ -99,3 +99,58 @@ test('Toasts never cover the topbar controls on mobile', async ({ page }) => {
   expect(during.themeBtnTop, '通知がテーマ切替ボタンを覆っている').toBe('ok');
   expect(during['bgm-btn-top'], '通知が BGM ボタンを覆っている').toBe('ok');
 });
+
+
+// ===== 固定オーバーレイが操作要素を覆っていない (全ルート・汎用ゲート) =====
+// #1171 (通知が topbar のボタンを覆う) と同じ「固定要素が操作要素を覆う」class を、
+// **既定状態の全ルート**で見る層。`position: fixed` は他にも `.overlay` / `.drawer` /
+// `.cmdk-host` があり、将来どれかが既定で覆いを作っても個別 test では気付けない。
+//
+// **このゲートの射程を正直に書いておく**: #1171 自体は捕捉できない —— あの覆いは
+// **通知が出ている間だけ**発生し、本ゲートは既定状態 (通知なし) を見るため。実際に #1171 の
+// 修正を戻しても本テストは緑のままだった (実測)。あちらは上の専用テストが担当する。
+// 本ゲートが守るのは「**何も操作していないのに押せない要素がある**」状態で、
+// `.overlay` を `display: block` にすると RED になることを実測済み。
+//
+// 判定は「その座標で実際に何が取れるか」。可視・サイズだけでは覆いを検出できない。
+// reducedMotion: View Transition の overlay 表示中は `elementFromPoint` が root を返すため
+//   (実測 2026-08-20)、遷移を切ってから測る。
+test('No fixed overlay covers an interactive element on any route', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  const routes = await page.evaluate(() => Array.from(new Set(
+    Array.from(document.querySelectorAll('a[href^="#/"]')).map((a) => a.getAttribute('href'))
+  )));
+  expect(routes.length, 'ナビからルートを導出できていない (control 失敗)').toBeGreaterThan(8);
+
+  const offenders = [];
+  for (const route of routes) {
+    await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#content h1, #content h2').first()).toBeVisible();
+    const found = await page.evaluate(() => {
+      const sel = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])';
+      const out = [];
+      for (const el of document.querySelectorAll(sel)) {
+        const b = el.getBoundingClientRect();
+        if (b.width === 0 || b.height === 0) { continue; }
+        const cx = b.left + b.width / 2;
+        const cy = b.top + b.height / 2;
+        // 画面外は別の問題 (このゲートは「覆い」だけを見る)
+        if (cx < 0 || cy < 0 || cx > window.innerWidth || cy > window.innerHeight) { continue; }
+        const hit = document.elementFromPoint(cx, cy);
+        if (!hit || el === hit || el.contains(hit) || hit.contains(el)) { continue; }
+        out.push(`${(el.getAttribute('aria-label') || el.textContent || el.id || el.tagName).trim().slice(0, 18)}`
+          + ` <- ${(hit.id || hit.className || hit.tagName).toString().slice(0, 22)}`);
+      }
+      return out;
+    });
+    for (const f of found) { offenders.push(`${route}: ${f}`); }
+  }
+
+  expect(offenders,
+    `固定要素が操作要素を覆っている (押せない):\n${offenders.slice(0, 8).join('\n')}`
+  ).toEqual([]);
+});
