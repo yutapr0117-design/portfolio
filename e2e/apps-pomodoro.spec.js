@@ -683,3 +683,76 @@ test('稼働中ポモドーロはリロード後どのページに着地して�
     + 'リロードを跨ぐと集中し続けても記録されない (init から resumeIfActive を呼ぶこと)').toBe(1);
   expect(offRoute.active, '完了後も稼働中のまま残っている').toBe(false);
 });
+
+// ===== 稼働中のポモドーロ × 取り込み (cross-app・モード別の意味論) =====
+// #1183 で取り込みモードが appsData にも効くようになり、**稼働状態の扱いがモード依存**に
+// なった。ここが壊れると症状は #121/#134 と同じ class —— 「ボタンの表示と state が desync」
+// あるいは「置き換えたのに古い interval が動き続ける」で、どちらも利用者からは
+// 「止めたのに進む / 動いているのに止まっている」としか見えない。
+//
+// 追加のみ: runtime は既存優先 = **稼働は続く**
+// 全置換  : runtime も置き換わる = **停止し、古い interval も残らない**
+async function startPomodoroThenImport(page, mode) {
+  await page.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.font-mono.text-stat').first()).toBeVisible();
+  await page.getByRole('button', { name: '開始' }).click();
+  await expect(page.getByRole('button', { name: '一時停止' })).toBeVisible();
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await page.locator('#content select').first().evaluate((el, m) => {
+    el.focus();
+    el.value = m;
+    el.dispatchEvent(new Event('change', { bubbles: true }));
+  }, mode);
+  // モード変更の onchange は window.render() でページを作り直すため、直後の
+  // setInputFiles は detach された古い input を掴む。一度ルートを離れて戻る。
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  expect(await page.locator('#content select').first().inputValue(),
+    'control: モードが選択されていなければ、その意味論を測れない').toBe(mode);
+
+  await page.setInputFiles('#content input[type="file"]', {
+    name: 'pomo.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({
+      tasks: [],
+      todos: [],
+      pomodoro: {
+        history: [],
+        settings: { work: 25, short: 5, long: 15 },
+        runtime: { isActive: false, mode: 'work', remainingSec: 1500 },
+      },
+    })),
+  });
+  await expect(page.locator('#action-announcement')).toContainText('インポート');
+
+  await page.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.font-mono.text-stat').first()).toBeVisible();
+}
+
+test('「追加のみ」の取り込みは稼働中のポモドーロを止めない', async ({ page }) => {
+  await startPomodoroThenImport(page, 'append');
+
+  await expect(page.getByRole('button', { name: '一時停止' }),
+    '「追加のみ」なのに稼働状態が置き換えられて止まった').toBeVisible();
+  // **変化**の検査なので poll が正しい (残り時間が進むこと)
+  await expect.poll(async () => await page.locator('.font-mono.text-stat').first().textContent(),
+    { timeout: 5000 }).not.toBe('25:00');
+});
+
+test('「全置換」の取り込みは稼働中のポモドーロを止め、古い interval も残さない', async ({ page }) => {
+  await startPomodoroThenImport(page, 'strict');
+
+  await expect(page.getByRole('button', { name: '開始' }),
+    '全置換なのに稼働状態が残っている').toBeVisible();
+
+  // **不変性**の検査なので poll は使わない (poll は最初の観測で成立してしまう)。
+  // settle させてから 2 度読み、進んでいないことを見る = 古い interval が生きていない。
+  const before = await page.locator('.font-mono.text-stat').first().textContent();
+  await page.waitForTimeout(2500);
+  const after = await page.locator('.font-mono.text-stat').first().textContent();
+  expect(after, '停止したはずなのに古い interval が進めている').toBe(before);
+});
