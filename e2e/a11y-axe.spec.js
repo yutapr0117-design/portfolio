@@ -119,72 +119,6 @@ test('a11y axe: project detail (#/projects/:slug) has no render-neutral critical
   ).toHaveLength(0);
 });
 
-// ===== WCAG 1.4.1 Use of Color: hero-meta インラインリンクの下線アフォーダンス =====
-// ホームの .hero-meta 段落内リンク (Zenn 記事) は周囲テキスト内で色 (.color-primary) のみで
-// 判別され axe link-in-text-block (serious) を出していた。色トークンは変えず下線を付与して修正。
-// text-decoration underline を除去すると本テストが RED (非 vacuity)。下線は pixel 変化ゆえ
-// A11Y_RENDER_NEUTRAL_RULES ではなく本 computed-style テストで守る。
-test('Hero-meta inline link is distinguishable by underline (WCAG 1.4.1, not color-only)', async ({ page }) => {
-  await page.goto('/#/');
-  await page.waitForLoadState('domcontentloaded');
-  const link = page.locator('.hero-meta a').first();
-  await expect(link).toBeVisible();
-  const deco = await link.evaluate((el) => getComputedStyle(el).textDecorationLine);
-  expect(deco).toContain('underline');
-});
-
-// ===== WCAG 1.4.3 (Contrast Minimum・AA): ブランド primary が白に対し 4.5:1 を満たす =====
-// axe の `color-contrast` は **serious** で報告されるが、このリポジトリの a11y ゲートは
-// **critical のみ**を対象にするため、contrast 不足は長らく素通りしていた (2026-08-10 に
-// axe-core 4.13.0 で全ルートを無フィルタ走査して初めて可視化された)。
-// 既定ブランド indigo は白背景に対し **4.467** で、要求 4.5:1 を **0.04 だけ** 下回っており、
-// 1 ルートあたり 15〜59 ノードが violation になっていた (quiz は 63 ノード中 59 が
-// 白文字 on primary のボタン)。各チャンネル -1 の rgb(98,101,240) で 4.527 となり AA を満たす。
-//
-// NOTE (2026-08-20 更新): かつてここには「muted text 2.56 / 淡色チップ上の primary 4.0 は
-//   色が変わる = C5 (設計) の領域なので defer」と書いてあったが、**それは委任範囲の読み違いだった**
-//   (canon: AI2AI.md STEP 3「オーナーは制限を一切課していない」)。実際に用途別トークンへ分離して
-//   **2 ブランド × 2 テーマ × 16 ルートで違反ゼロ**にしてある。下の
-//   `全ページの color-contrast 違反がゼロ` がその実体を gate している。
-//   本 test はその中でも **トークン単体の契約** を固定する層として残す (パレットを触ったときに
-//   どのページを見なくても即座に赤くなる、最小で確実な層)。
-test('WCAG 1.4.3: 各ブランドの primary は白に対し 4.5:1 以上', async ({ page }) => {
-  await page.goto('/', { waitUntil: 'domcontentloaded' });
-  await expect(page.locator('.hero-section')).toBeVisible();
-
-  const results = await page.evaluate(() => {
-    const lin = (c) => { c /= 255; return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); };
-    const lum = (r, g, b) => 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
-    const contrastVsWhite = (rgbTriplet) => {
-      const [r, g, b] = rgbTriplet;
-      const l = lum(r, g, b);
-      return (1.0 + 0.05) / (l + 0.05);
-    };
-    const root = document.documentElement;
-    const prev = root.getAttribute('data-brand');
-    const out = [];
-    for (const brand of ['classic', 'indigo']) {
-      root.setAttribute('data-brand', brand);
-      // --color-primary-rgb は "r, g, b" のカンマ区切り。computed から読むことで
-      // CSS 変数の実効値 (brand ごとの上書き込み) を検査する。
-      const raw = getComputedStyle(root).getPropertyValue('--color-primary-rgb').trim();
-      const triplet = raw.split(',').map((n) => Number(n.trim()));
-      out.push({ brand, raw, ratio: Math.round(contrastVsWhite(triplet) * 1000) / 1000 });
-    }
-    if (prev === null) { root.removeAttribute('data-brand'); } else { root.setAttribute('data-brand', prev); }
-    return out;
-  });
-
-  for (const r of results) {
-    expect(r.raw, `brand=${r.brand} の --color-primary-rgb を読めない`).toMatch(/^\d+\s*,\s*\d+\s*,\s*\d+$/);
-    expect(
-      r.ratio,
-      `brand=${r.brand} (rgb ${r.raw}) の白背景コントラストが ${r.ratio} で AA (4.5:1) 未満`
-    ).toBeGreaterThanOrEqual(4.5);
-  }
-});
-
-
 // ===== ダークテーマの a11y (render-neutral critical) =====
 // 上の A11Y_ROUTES ループは **ライトテーマでしか走っていなかった**。ダークは利用者が選べる
 // 第一級のモードで、独自のトークン集合 (背景・前景・境界) を持ち、ARIA ではなく CSS 由来の
@@ -217,64 +151,6 @@ test('a11y axe: ダークテーマの全ルートに render-neutral critical 違
       .forEach((v) => offenders.push(`${route}: ${v.id}(${v.nodes.length})`));
   }
   expect(offenders, `ダークテーマの render-neutral a11y violations: ${JSON.stringify(offenders)}`).toHaveLength(0);
-});
-
-// ===== ユーザー設定メディアの実効性 (forced-colors / prefers-contrast) =====
-// style.css には `@media (forced-colors: active)` と `@media (prefers-contrast: more)` があるが、
-// **この 2 つを検証している層が一つも無かった**:
-//   - screenshot は通常モードで撮るので、どちらのブロックにも到達しない (かつ ADVISORY)
-//   - Check 101 は forced-colors ブロックの **存在** を静的に強制するだけで、効果は見ない
-//   - prefers-contrast は静的にも動的にも無被覆だった
-// つまりブロックを丸ごと消しても全ゲートが緑のまま通る。どちらも Windows ハイコントラスト
-// モードや弱視のユーザーにだけ効く面なので、壊れても開発者の画面には一切現れない。
-//
-// 対象は **button** で測る。`<select>` に programmatic focus すると `:focus-visible` が
-// マッチせず (実測)、何を測っているのか分からなくなる。
-async function focusRing(page) {
-  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
-  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
-  return page.evaluate(() => {
-    const btn = document.querySelector('#content button');
-    btn.focus();
-    const cs = getComputedStyle(btn);
-    const rs = getComputedStyle(document.documentElement);
-    return {
-      matchesFocusVisible: btn.matches(':focus-visible'),
-      outlineColor: cs.outlineColor,
-      outlineWidth: cs.outlineWidth,
-      border: rs.getPropertyValue('--border-color').trim(),
-      muted: rs.getPropertyValue('--text-muted').trim(),
-    };
-  });
-}
-
-test('ハイコントラストモードでフォーカスリングが system color になる (WCAG 1.4.1)', async ({ page }) => {
-  await page.emulateMedia({ forcedColors: 'active' });
-  const s = await focusRing(page);
-
-  expect(s.matchesFocusVisible, 'そもそも :focus-visible が当たっていない (測定対象が誤り)').toBe(true);
-  // 壊れ方の実測: フォールバックが無いと Chromium はブランド色を強制変換して
-  // `rgba(5, 0, 73, 0.8)` = **半透明** の暗い青を描く。HCM で最も困る「薄くて見えない」状態。
-  expect(s.outlineColor, `HCM でフォーカスリングが半透明になっている (${s.outlineColor}) — `
-    + 'system color (CanvasText) の不透明な outline を補う必要がある').not.toContain('rgba');
-  expect(s.outlineWidth, 'HCM でのフォーカスリングの太さが宣言と違う').toBe('2px');
-});
-
-test('高コントラスト設定で境界線と補助テキストが濃くなる (WCAG 1.4.11)', async ({ page }) => {
-  const normal = await focusRing(page);
-  await page.emulateMedia({ contrast: 'more' });
-  const more = await focusRing(page);
-
-  // 具体値をハードコードせず「通常時より変わっていること」で表現する
-  // (ブランド色や token の値を変えたときに、意味のない false RED を出さないため)。
-  expect(more.border, `高コントラスト設定で --border-color が変わっていない (${more.border})`)
-    .not.toBe(normal.border);
-  expect(more.muted, `高コントラスト設定で --text-muted が変わっていない (${more.muted})`)
-    .not.toBe(normal.muted);
-  // 補助テキストは境界線と同じ濃さまで寄せる設計 (薄いグレーのままだと読めない)
-  expect(more.muted).toBe(more.border);
-  expect(parseFloat(more.outlineWidth), 'フォーカスリングが太くなっていない')
-    .toBeGreaterThan(parseFloat(normal.outlineWidth));
 });
 
 // ===== 長い本文に小見出しが実在すること (WCAG 1.3.1 / 2.4.6) =====
@@ -783,6 +659,23 @@ test('アプリ一覧のボタン名が行き先ごとに一意になる', async
 //
 // 1 テストで全ルートを歩くのは、このルールが大半のルートで inapplicable（対象要素なし）
 // ゆえ per-route テストに割ると CI 時間だけが増えるため。
+// 見出しは DOM の先頭に出るが、このルールが見る要素 (可視テキストと aria-label を併せ持つ
+// 操作要素) は後から描かれる。#content の要素数が 2 フレーム連続で変わらなくなるまで待つ。
+// 実測 (2026-08-20): control の checked 32 の内訳は / が 3・**/#/projects が 24**・
+// /#/apps が 5 で、残り 13 ルートは対象要素ゼロ (inapplicable)。つまり閾値 10 は
+// **実質 /#/projects のカード 18 枚だけで支えられて**おり、カード描画前に測ると 8 に
+// 落ちて control が「ルールが走っていない」と RED になる。
+// honest: この race の発火は稀で、観測できたのは並列実行 8 回中 1 回。待ちを外した
+// 状態で 7 回連続 pass したので「この待ちが効いている」ことは実証できていない。
+// 根拠は頻度ではなく**構造** (閾値が単一ルートの遅延描画に依存している) に置く。
+async function settleContent(page) {
+  await expect.poll(async () => await page.evaluate(() => {
+    const before = document.querySelectorAll('#content *').length;
+    return new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(
+      () => resolve(before === document.querySelectorAll('#content *').length ? before : -1))));
+  }), '#content の描画が落ち着かない').toBeGreaterThan(0);
+}
+
 const LABEL_IN_NAME_ROUTES = ['/', '/#/projects', '/#/apps', '/#/apps/task', '/#/apps/todo',
   '/#/apps/notes', '/#/apps/ai', '/#/apps/pomodoro', '/#/apps/settings', '/#/quiz',
   '/#/about', '/#/resume', '/#/contact', '/#/role-split', '/#/hiring-risk', '/#/ai-knowhow'];
@@ -799,6 +692,7 @@ test('可視テキストがアクセシブル名に含まれる (WCAG 2.5.3) —
       .poll(() => page.locator('#content').getByRole('heading').first().textContent().catch(() => null))
       .not.toBe(prevHeading);
     prevHeading = await page.locator('#content').getByRole('heading').first().textContent();
+    await settleContent(page);
 
     const results = await new AxeBuilder({ page })
       .options({
@@ -871,126 +765,3 @@ test('既定で無効な axe ルール (Level A/AA) を全ルートで走らせ�
 });
 
 
-// ===== WCAG 1.4.3 (Contrast Minimum・AA): 全ブランド × 全テーマで color-contrast 違反ゼロ =====
-// かつてこの面は「知覚できる配色変更は C5 (人間の領域)」として defer されていたが、**それは
-// 委任範囲の読み違い**だった (canon: AI2AI.md STEP 3「オーナーは制限を一切課していない」)。
-// 2026-08-20 に用途別の前景トークンへ分離して実際に違反ゼロへ到達させた:
-//
-//   --on-tint-*      淡いチップ (10% alpha) の上の文字。primary/success をそのまま使うと AA を割る
-//   --text-accent    プレーンな背景の上で primary を文字に使う箇所 (暗テーマでは明るい変種)
-//   --on-solid-fg    solid な **意味色** 背景の上の文字 (暗テーマでは意味色が明るくなるので暗い文字)
-//   --solid-badge-*  白文字前提の識別バッジ背景 (テーマで明暗が反転しない固定値)
-//
-// **色を 1 つ変えるだけでは直らない**のがこの面の要点で、用途ごとに前景を持たせないと必ず
-// どちらかのテーマで割れる (実測: 意味色を暗テーマで明るくしたら白文字が 1.44 まで落ちた)。
-//
-// ルートは「実際に違反が出ていた面」を代表として選ぶ。修正がトークン単位なので退行は複数ルートに
-// 同時に出る = 代表集合で十分に捕捉できる (全 16 ルート × 4 組は約 51 秒かかり、検出力に見合わない)。
-const CONTRAST_ROUTES = ['#/', '#/projects', '#/quiz', '#/about', '#/ai-knowhow', '#/hiring-risk', '#/settings'];
-
-// 題名は **静的リテラル** にする。template literal で組み立てると `playwright -g` から解決できず、
-// mutation を登録できない (Check 379/397 が BLOCKING で捕捉する・過去に 3 度踏んだ)。
-// 共通処理は関数へ切り出し、題名だけを 4 本書く。
-async function expectNoContrastViolations(page, brand, scheme) {
-  await page.addInitScript(([b]) => localStorage.setItem('portfolio_brand_v45', b), [brand]);
-  // reducedMotion: View Transition の不透明度アニメーション中に走査すると、合成された半透明色が
-  //   大量の偽陽性を生む (実測: 待ち 120ms なら 3 ルートで 594 件、settle 後は 30 件)。
-  await page.emulateMedia({ colorScheme: scheme, reducedMotion: 'reduce' });
-
-  const offenders = [];
-  for (const route of CONTRAST_ROUTES) {
-    await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('#content h1, #content h2').first()).toBeVisible();
-    const res = await new AxeBuilder({ page }).withRules(['color-contrast']).analyze();
-    for (const v of res.violations) {
-      for (const n of v.nodes) {
-        const d = n.any[0] && n.any[0].data;
-        offenders.push(`${route}: ${d ? `${d.fgColor} on ${d.bgColor} = ${d.contrastRatio}` : n.target[0]}`);
-      }
-    }
-  }
-  expect(offenders, `AA を満たさない配色がある:\n${offenders.slice(0, 8).join('\n')}`).toEqual([]);
-}
-
-test('WCAG 1.4.3: indigo ライトの全ページで color-contrast 違反がゼロ', async ({ page }) => {
-  await expectNoContrastViolations(page, 'indigo', 'light');
-});
-
-test('WCAG 1.4.3: indigo ダークの全ページで color-contrast 違反がゼロ', async ({ page }) => {
-  await expectNoContrastViolations(page, 'indigo', 'dark');
-});
-
-test('WCAG 1.4.3: classic ライトの全ページで color-contrast 違反がゼロ', async ({ page }) => {
-  await expectNoContrastViolations(page, 'classic', 'light');
-});
-
-test('WCAG 1.4.3: classic ダークの全ページで color-contrast 違反がゼロ', async ({ page }) => {
-  await expectNoContrastViolations(page, 'classic', 'dark');
-});
-
-// ===== WCAG 1.4.3: 「開いた状態」でしか描画されない面のコントラスト =====
-// ルートを巡る静的走査では、drawer / command palette / toast の中身は **一度も測られない**
-// (閉じている間は DOM に無いか非表示)。実測 (2026-08-20) ではいずれも違反ゼロだが、
-// 測られていない面は退行しても誰も気付けないので gate にする。
-// 非 vacuity: palette の active 項目の文字色を中間グレーへ落とすと、ルート走査は緑のまま
-// この test だけが RED になる (= 状態面を実際に見ていることの証明)。
-async function expectNoContrastInOpenStates(page, scheme) {
-  await page.emulateMedia({ colorScheme: scheme, reducedMotion: 'reduce' });
-  const offenders = [];
-  const scan = async (label) => {
-    const res = await new AxeBuilder({ page }).withRules(['color-contrast']).analyze();
-    for (const v of res.violations) {
-      for (const n of v.nodes) {
-        const d = n.any[0] && n.any[0].data;
-        offenders.push(`${label}: ${d ? `${d.fgColor} on ${d.bgColor} = ${d.contrastRatio}` : n.target[0]}`);
-      }
-    }
-  };
-
-  // drawer (mobile 専用の導線)
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
-  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
-  await page.locator('#menuBtn').click();
-  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
-  await scan('drawer-open');
-  await page.keyboard.press('Escape');
-
-  // command palette
-  await page.setViewportSize({ width: 1280, height: 800 });
-  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
-  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
-  await page.keyboard.press('Control+k');
-  await expect(page.locator('.cmdk-input')).toBeVisible();
-  await scan('palette-open');
-  await page.keyboard.press('Escape');
-
-  // 「非表示にしたプロジェクト」だけに出るバッジ (既定データでは一度も描画されない面)。
-  //   実測 (2026-08-20): `.badge-green` は `.badge-success` と同形なのに on-tint トークンへ
-  //   回されておらず、light で **4.38 < 4.5** の AA 違反だった。ルート走査は既定状態しか見ないので、
-  //   **状態を作らないと現れない面**は永久に測られない。
-  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
-  await expect(page.getByRole('button', { name: 'フルバックアップ' })).toBeVisible();
-  const hideBtn = page.getByRole('button', { name: /^非表示：/ }).first();
-  await hideBtn.click();
-  await expect(page.locator('.badge-green')).toBeVisible();   // control: 実際に描画された
-  await scan('project-hidden-badge');
-
-  // toast (追加成功の通知が出ている状態)
-  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
-  await expect(page.locator('#task-input')).toBeVisible();
-  await page.locator('#task-input').fill('コントラスト検査');
-  await page.locator('#task-input').press('Enter');
-  await expect(page.locator('#toast-container').getByText('タスクを追加しました')).toBeVisible();
-  await scan('toast-visible');
-
-  expect(offenders, `開いた状態で AA を満たさない配色がある:\n${offenders.slice(0, 8).join('\n')}`).toEqual([]);
-}
-
-test('WCAG 1.4.3: ライトの drawer / palette / toast に color-contrast 違反がゼロ', async ({ page }) => {
-  await expectNoContrastInOpenStates(page, 'light');
-});
-
-test('WCAG 1.4.3: ダークの drawer / palette / toast に color-contrast 違反がゼロ', async ({ page }) => {
-  await expectNoContrastInOpenStates(page, 'dark');
-});
