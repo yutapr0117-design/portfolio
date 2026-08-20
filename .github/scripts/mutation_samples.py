@@ -941,6 +941,13 @@ _E2E_TAIL = [
         "replace": "",
         "test": "Collapsed nav group content is removed from the tab order",
     },
+    {
+        "name": "\u898b\u3048\u306a\u3044\u306e\u306b focus \u3067\u304d\u308b\u8981\u7d20\u306e\u6c4e\u7528\u30b2\u30fc\u30c8 \u2014\u2014 \u7573\u3093\u3060\u30ca\u30d3\u7fa4\u306e visibility \u3092\u5916\u3059\u3068\u3001\u5168\u30eb\u30fc\u30c8\u8d70\u67fb\u3067 tab \u9806\u306b\u6b8b\u3063\u305f\u4e0d\u53ef\u8996\u8981\u7d20\u3092\u691c\u51fa\u3059\u308b (\u500b\u5225 test \u3060\u3051\u3060\u3068\u540c\u3058\u5f62\u304c\u5225\u306e\u5834\u6240\u3067\u518d\u767a\u3057\u3066\u3082\u6c17\u4ed8\u3051\u306a\u3044)",
+        "file": ROOT / "style.css",
+        "find": "            visibility: hidden;\n            transition: max-height 0.25s ease, visibility 0s linear 0.25s;",
+        "replace": "",
+        "test": "No element is invisible yet still focusable across all routes",
+    },
 ]
 
 

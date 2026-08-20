@@ -824,3 +824,75 @@ test('Collapsed nav group content is removed from the tab order', async ({ page 
   await expect(toggle).toHaveAttribute('aria-expanded', 'true');
   await expect.poll(async () => (await probe()).focused, { timeout: 5000 }).toBe(true);
 });
+
+
+// ===== 「見えないのに focus できる」要素が存在しない (WCAG 2.4.3 / 2.4.7) =====
+// #1162 で実バグを出した class の **汎用ゲート**。折り畳んだナビ群は max-height:0 で視覚的に
+// 消えていたのに visibility が visible のままで、内部の 11 リンクが tab 順に残っていた
+// (実際に Tab すると高さ 0 の領域へ focus が入り、利用者からは focus が消えたように見える)。
+// 個別の test だけだと **同じ形が別の場所で再発しても気付けない**ので、全ルートを走査する。
+//
+// 判定は「サイズが 0 または透明」かつ「**実際に focus できる**」で行う。サイズだけで判定すると
+// 偽陽性が出る —— 実測 (2026-08-20): topbar の mobile 専用ボタン 3 個は desktop で 0x0 だが、
+// 祖先が display:none なので focus できず tab 順にも入らない (要素自身の display は inline-flex
+// なので、**自分の computed style だけ見ると見逃す**)。`el.focus()` 後に activeElement を
+// 読み直すのが唯一確実。
+//
+// sr-only (clip 手法) は「見えないが読み上げる」意図的な実装なので対象外。
+test('No element is invisible yet still focusable across all routes', async ({ page }) => {
+  // ルート一覧は **ナビから実行時に導出** する。別 spec の ALL_ROUTES をコピーすると 3 本目の
+  // ハードコード集合ができて drift するため (Check 110 が守っているのは 2 本の bijection)。
+  await page.goto('/#/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  const routes = await page.evaluate(() => Array.from(
+    new Set(Array.from(document.querySelectorAll('a[href^="#/"]')).map((a) => a.getAttribute('href')))
+  ));
+  expect(routes.length, 'ナビからルートを導出できていない (control 失敗)').toBeGreaterThan(8);
+
+  const offenders = [];
+  for (const route of routes) {
+    await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#content h1, #content h2').first()).toBeVisible();
+
+    const found = await page.evaluate(() => {
+      const sel = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), '
+        + 'textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+      const out = [];
+      const prev = document.activeElement;
+      for (const el of document.querySelectorAll(sel)) {
+        if (el.closest('[inert]') || el.closest('[hidden]')) { continue; }
+        const cs = getComputedStyle(el);
+        if (cs.visibility === 'hidden' || cs.display === 'none') { continue; }
+        // sr-only は意図的に視覚から外す実装なので除外
+        if (cs.clip === 'rect(0px, 0px, 0px, 0px)' || cs.clipPath === 'inset(50%)') { continue; }
+        const b = el.getBoundingClientRect();
+        // 自分のサイズが 0 / 透明 だけでは足りない。**祖先にクリップされて見えない**場合、
+        // 要素自身は通常のサイズを持ったままになる (実測: 折り畳んだナビ内のリンクは 247x52 の
+        // まま、高さ 0 + overflow:hidden の親に隠されていた)。祖先も辿って判定する。
+        let clipped = false;
+        for (let a = el.parentElement; a && a !== document.body; a = a.parentElement) {
+          const acs = getComputedStyle(a);
+          if (acs.overflow === 'hidden' || acs.overflowY === 'hidden' || acs.overflowX === 'hidden') {
+            const ab = a.getBoundingClientRect();
+            if (ab.height === 0 || ab.width === 0) { clipped = true; break; }
+          }
+        }
+        const invisible = b.width === 0 || b.height === 0 || Number(cs.opacity) === 0 || clipped;
+        if (!invisible) { continue; }
+        // **実際に focus できるか**で確定させる (祖先の display:none は自分の style に出ない)
+        el.focus();
+        if (document.activeElement === el) {
+          out.push(`${el.tagName}.${(el.className || '').toString().slice(0, 24)}`
+            + `|${(el.textContent || '').trim().slice(0, 16)}|${Math.round(b.width)}x${Math.round(b.height)}`);
+        }
+      }
+      if (prev && prev.focus) { prev.focus(); }
+      return out;
+    });
+    for (const f of found) { offenders.push(`${route}: ${f}`); }
+  }
+
+  expect(offenders,
+    `見えないのに focus できる要素がある (Tab で focus が画面から消える):\n${offenders.slice(0, 8).join('\n')}`
+  ).toEqual([]);
+});
