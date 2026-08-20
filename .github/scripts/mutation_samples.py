@@ -30,6 +30,7 @@ from mutation_samples_common import ROOT, CHECK  # noqa: F401 (entry 内で参�
 from mutation_samples_archive import MUTATIONS_ARCHIVE
 from mutation_samples_archive2 import MUTATIONS_ARCHIVE2
 from mutation_samples_e2e_archive import E2E_MUTATIONS_ARCHIVE
+from mutation_samples_e2e_archive3 import E2E_MUTATIONS_ARCHIVE3
 from mutation_samples_e2e_archive2 import E2E_MUTATIONS_ARCHIVE2
 
 # 新しい側の curated mutation (新規追記は本リスト末尾へ / 上記「追記規約」参照)。
@@ -930,6 +931,6 @@ _E2E_TAIL.append({
     "test": "localStorage write quota is exceeded",
 })
 
-E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
+E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
