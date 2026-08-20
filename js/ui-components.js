@@ -188,6 +188,8 @@ export function announce(message) {
 
 export const Toast = (() => {
     let container = null;
+    // 同時表示の上限。viewport 720px でも収まる枚数 (1 枚 ~72px + 余白)。
+    const MAX_VISIBLE = 4;
 
     function init() {
         if (!container) {
@@ -230,6 +232,17 @@ export const Toast = (() => {
 
         el.appendChild(closeBtn);
         container.appendChild(el);
+
+        // [A11Y 2.4.3 / UX] 同時表示数を上限で抑える。上限が無いと連続操作で通知が積み上がり、
+        //   **新しいものから順に画面外へ出て到達不能**になる (実測 2026-08-20: 12 件を素早く
+        //   出すとコンテナが bottom=904 まで伸び、viewport 720/844 を超える)。コンテナは
+        //   position:fixed なので **スクロールして追うこともできない**。画面外に出た通知の
+        //   閉じるボタンは tab 順には残るため、キーボード利用者は見えない位置へ focus が飛ぶ。
+        //   新しい通知ほど重要なので、超えたぶんは **古い方から**取り除く。
+        //   読み上げは #action-announcement が別途担うので、この間引きで SR の情報は失われない。
+        while (container.children.length > MAX_VISIBLE) {
+            container.removeChild(container.firstElementChild);
+        }
 
         // ARIA announcement (assertive for immediate feedback)
         announce(message);

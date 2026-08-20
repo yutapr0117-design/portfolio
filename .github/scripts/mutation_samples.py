@@ -933,6 +933,13 @@ _E2E_TAIL = [
         "replace": "        .alert-success { border-left-color: var(--on-tint-danger); }",
         "test": "Toasts have a surface and are visually distinguishable by type",
     },
+    {
+        "name": "\u901a\u77e5\u304c\u7a4d\u307f\u4e0a\u304c\u3063\u3066\u753b\u9762\u5916\u3078\u51fa\u308b \u2014\u2014 \u540c\u6642\u8868\u793a\u6570\u306e\u4e0a\u9650\u3092\u5916\u3059\u3068\u3001\u9023\u7d9a\u64cd\u4f5c\u3067\u30b3\u30f3\u30c6\u30ca\u304c viewport \u3092\u8d85\u3048\u3001position:fixed \u306a\u306e\u3067\u30b9\u30af\u30ed\u30fc\u30eb\u3057\u3066\u8ffd\u3046\u3053\u3068\u3082\u3067\u304d\u306a\u3044 (\u5b9f\u6e2c: 12 \u4ef6\u3067 bottom=904 vs viewport 720)",
+        "file": ROOT / "js" / "ui-components.js",
+        "find": "        while (container.children.length > MAX_VISIBLE) {",
+        "replace": "        while (false) {",
+        "test": "Toasts do not stack past the viewport during rapid actions",
+    },
 ]
 
 
