@@ -514,3 +514,48 @@ test('「全置換」の import は宣言どおり丸ごと置き換える', asy
   await expectTasks(page, ['IMPORTED-TASK'], ['EXISTING-TASK']);
   expect(await notesValue(page)).toBe('IMPORTED-NOTE');
 });
+
+// ===== 「追加のみ」で既存を残した報告は、実際に違うときだけ出すこと =====
+// #1183 で足した「N 件の項目は「追加のみ」のため既存を残しました」は、**内容が同じでも**
+// 出ていた。実測 (2026-08-20): 現在のノートと完全に同じ内容のファイルを取り込むと
+// 「1 件の項目は…既存を残しました」と報告する —— 何も失っていないのに警告が出る。
+// 失っていないのに警告を出すと **本物の切り捨て警告が信用されなくなる** (#1181 と同じ理由)。
+test('内容が同じなら「既存を残しました」と報告しない', async ({ page }) => {
+  await page.goto('/#/apps/notes', { waitUntil: 'domcontentloaded' });
+  const ta = page.locator('#content textarea').first();
+  await expect(ta).toBeVisible();
+  const current = await ta.inputValue();
+  expect(current.length, 'control: ノートが空だと「同じ内容」を作れない').toBeGreaterThan(0);
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await page.setInputFiles('#content input[type="file"]', {
+    name: 'same.json', mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({ tasks: [], todos: [], notes: current })),
+  });
+
+  await expectNotified(page, 'インポートが完了しました');
+  const ann = await page.evaluate(
+    () => document.getElementById('action-announcement').textContent
+  );
+  expect(ann, '何も失っていないのに「既存を残しました」と警告している').not.toContain('既存を残しました');
+});
+
+// 逆方向: 実際に違うときは従来どおり報告する (上のテストだけだと
+// 「常に報告しない」実装でも通ってしまう)。
+test('内容が違えば「既存を残しました」と報告する', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await page.setInputFiles('#content input[type="file"]', {
+    name: 'diff.json', mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({
+      tasks: [], todos: [], notes: 'これは現在のノートとは違う内容です',
+    })),
+  });
+
+  await expectNotified(page, 'インポートが完了しました');
+  const ann = await page.evaluate(
+    () => document.getElementById('action-announcement').textContent
+  );
+  expect(ann, '実際に取り込まなかったのに報告していない').toContain('既存を残しました');
+});
