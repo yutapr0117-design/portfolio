@@ -464,3 +464,52 @@ test('Command palette reflects project add and hide immediately', async ({ page 
     '非表示にしたプロジェクトが Cmd+K の候補に残っている').toHaveCount(0);
   await expect(page.locator('.cmdk-empty')).toBeVisible();  // control: 候補ゼロの表示になっている
 });
+
+// ===== 選択状態の 3 チャネルが一致する (SR と目で見える選択がずれない) =====
+// palette の「いまどの候補が選ばれているか」は **3 つの経路**で表現される:
+//   .is-active クラス          → 目で見る利用者への表示
+//   aria-selected="true"       → option 側の意味論
+//   input の aria-activedescendant → SR が focus を移さずに読み上げる先
+// 既存テストは後ろ 2 つの整合しか見ておらず、**視覚チャネルは一度も結び付けられていなかった**。
+// ずれると「SR は 2 番目を読むのに、画面は 3 番目を光らせている」状態が CI 緑のまま成立する。
+//
+// さらに **絞り込み後 (リストを作り直した後)** も検証する。再構築で activedescendant が
+// 消えた option の id を指したままだと、SR は何もアナウンスできない (dangling 参照)。
+test('Command palette keeps visual, ARIA and activedescendant selection in sync', async ({ page }) => {
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+  await page.keyboard.press('Control+k');
+  await expect(page.locator('.cmdk-input')).toBeVisible();
+
+  const state = () => page.evaluate(() => {
+    const items = Array.from(document.querySelectorAll('.cmdk-item'));
+    const ad = document.querySelector('.cmdk-input').getAttribute('aria-activedescendant');
+    return {
+      count: items.length,
+      visual: items.findIndex((el) => el.classList.contains('is-active')),
+      aria: items.findIndex((el) => el.getAttribute('aria-selected') === 'true'),
+      pointed: items.findIndex((el) => el.id === ad),
+    };
+  });
+
+  const expectInSync = async (label, expectedIndex) => {
+    const s = await state();
+    expect(s.count, `${label}: 候補が 1 件も無い (control 失敗)`).toBeGreaterThan(1);
+    expect(s.visual, `${label}: 視覚の選択位置が想定と違う`).toBe(expectedIndex);
+    expect(s.aria, `${label}: aria-selected が視覚とずれている`).toBe(s.visual);
+    expect(s.pointed, `${label}: aria-activedescendant が視覚とずれている (SR と画面が食い違う)`).toBe(s.visual);
+  };
+
+  await expectInSync('open', 0);
+  await page.keyboard.press('ArrowDown');
+  await expectInSync('ArrowDown 1 回', 1);
+  await page.keyboard.press('ArrowDown');
+  await expectInSync('ArrowDown 2 回', 2);
+
+  // 絞り込みでリストを作り直しても 3 者が揃って先頭へ戻る (dangling 参照を残さない)
+  await page.locator('.cmdk-input').fill('プロ');
+  await expect.poll(async () => (await state()).count, { timeout: 5000 }).toBeLessThan(34);
+  await expectInSync('絞り込み直後', 0);
+  await page.keyboard.press('ArrowDown');
+  await expectInSync('絞り込み後の ArrowDown', 1);
+});
