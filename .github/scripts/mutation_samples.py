@@ -985,6 +985,14 @@ _E2E_TAIL.append({
     "test": "sr-only content",
 })
 
+_E2E_TAIL.append({
+    "name": "プロジェクト検索が絞り込まなくなる —— スコア 0 (どの語にも一致しない) の項目まで残り、何を検索しても全件が出る。一覧は「正常に描画されている」ように見えるため、検索が効いていないことに気付きにくい",
+    "file": ROOT / "js" / "projects-page.js",
+    "find": ".filter(x => x.s > 0)",
+    "replace": ".filter(x => x.s >= 0)",
+    "test": "Projects search filters to a subset then clears back to the full list",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
