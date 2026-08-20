@@ -242,10 +242,15 @@ test('Canceling the delete confirm keeps the project (data-safety)', async ({ pa
   // 削除 → confirm を dismiss → 行は残る
   const row = page.locator('div.flex.items-center.justify-between.gap-2').filter({ hasText: name });
   await row.getByRole('button', { name: '削除' }).click();
-  // dismiss されたので削除されず、公開一覧にも残る
+  // dismiss されたので削除されず、公開一覧にも残る。
+  // **検査範囲は #content に限る**: 削除の通知 (#1185) は「「<名前>」を削除しました」と
+  // 名前を含み、通知コンテナは #content の外でルート遷移後も数秒残る。ページ全体を
+  // 対象にすると **削除されていても通知が名前を満たしてしまい**、confirm ガードを外す
+  // mutation を素通しする (2026-08-20 の週次 probe が実際に SURVIVED で検出)。
   await page.goto('/#/projects');
   await page.waitForLoadState('domcontentloaded');
-  await expect(page.getByText(name).first()).toBeVisible();
+  await expect(page.locator('.grid-projects article h2').first()).toBeVisible();
+  await expect(page.locator('#content').getByText(name).first()).toBeVisible();
 });
 
 

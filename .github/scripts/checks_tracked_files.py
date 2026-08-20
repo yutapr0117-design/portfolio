@@ -111,6 +111,21 @@ def run(ctx):
     # 緑** になり、CI で初めて赤くなる (2026-08-20 #1169 で実際に踏んだ)。
     # mirror/bijection 系が統治するディレクトリに未追跡があれば止める。
     _governed434 = ("js/", "e2e/", ".github/scripts/", "docs/")
+    # 434b: **この Check 自身の走査範囲を守る。** 範囲を空にすると
+    # `str.startswith(())` は常に False を返すため、未追跡ファイルが幾つあっても
+    # `_untracked434` が空になり **何も検出しないまま緑**になる。
+    # 2026-08-20 の週次 mutation-probe が実際に SURVIVED で検出した (範囲を空にする
+    # mutation を素通しした)。Check 124/411 の scope-drift と同型で、「gate が自分の
+    # 視界を失っても気付けない」class。最低限、shipped JS と behavior gate の面は
+    # 必ず含む (ここが外れると verify の視界が壊れても分からない)。
+    check(
+        all(p in _governed434 for p in ("js/", "e2e/")),
+        "Check 434b: 未追跡ファイル走査の対象範囲が shipped JS と e2e を含む",
+        (f"Check 434b: 走査範囲 {_governed434} が js/ か e2e/ を欠く — 範囲が空/不足だと "
+         "startswith が常に False になり、未追跡ファイルがあっても検出しないまま緑になる "
+         "(2026-08-20 の mutation-probe が範囲を空にする mutation を SURVIVED で検出)"),
+        blocking=True,
+    )
     try:
         _out434 = subprocess.run(
             ["git", "status", "--porcelain", "--untracked-files=all"],
