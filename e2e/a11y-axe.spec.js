@@ -965,6 +965,17 @@ async function expectNoContrastInOpenStates(page, scheme) {
   await scan('palette-open');
   await page.keyboard.press('Escape');
 
+  // 「非表示にしたプロジェクト」だけに出るバッジ (既定データでは一度も描画されない面)。
+  //   実測 (2026-08-20): `.badge-green` は `.badge-success` と同形なのに on-tint トークンへ
+  //   回されておらず、light で **4.38 < 4.5** の AA 違反だった。ルート走査は既定状態しか見ないので、
+  //   **状態を作らないと現れない面**は永久に測られない。
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.getByRole('button', { name: 'フルバックアップ' })).toBeVisible();
+  const hideBtn = page.getByRole('button', { name: /^非表示：/ }).first();
+  await hideBtn.click();
+  await expect(page.locator('.badge-green')).toBeVisible();   // control: 実際に描画された
+  await scan('project-hidden-badge');
+
   // toast (追加成功の通知が出ている状態)
   await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#task-input')).toBeVisible();

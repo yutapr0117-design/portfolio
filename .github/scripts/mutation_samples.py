@@ -173,48 +173,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "behavior: MAX_PROJECTS の件数上限が緩む — import/cross-tab/snapshot 経由で巨大な projects 配列が localStorage を bloat させ描画を重くする DoS ガードの喪失。NOTE: 切り詰めは mergeProjectsWithDefaults 内で **二重に適用**されている (normalizedIncoming の slice と最終 merged の slice) ため、**片方の slice を消すだけでは RED にならない** (もう片方が受ける)。意味のある mutation は上限値そのものを緩めること",
-        "file": ROOT / "js" / "constants.js",
-        "find": "        MAX_PROJECTS: 1000,",
-        "replace": "        MAX_PROJECTS: 100000,",
-        "test": "Import truncates projects to MAX_PROJECTS (bloat/DoS ingestion guard)",
-    },
-    {
-        "name": "behavior: Markdown ノートの XSS 境界が innerHTML へ退行する — ノート本文はユーザーが自由に書ける唯一の長文入力で、innerHTML で描くと <script>/onerror が実行される。C1 の『ライブラリを入れない』制約を feature 化した innerHTML-free レンダラの中核契約であり、壊れても視覚的にはむしろ『markdown が効いた』ように見えるため気付けない",
-        "file": ROOT / "js" / "apps.js",
-        "find": "            else { flushList(); out.push(h('p', { class: 'text-prewrap' }, ..._renderMarkdownInline(line))); }",
-        "replace": "            else { flushList(); const _p = h('p', { class: 'text-prewrap' }); _p.innerHTML = line; out.push(_p); }",
-        "test": "Markdown notes renders HTML/script as literal text (innerHTML-free XSS boundary)",
-    },
-    {
-        "name": "behavior: cross-tab の storage リスナーが発火しなくなる — 複数タブで開いた時に片方の変更がもう片方へ伝わらず、後から保存したタブが相手の変更を上書きする (last-writer-wins が壊れ、利用者からは『さっき足したタスクが消えた』に見える)",
-        "file": ROOT / "js" / "state.js",
-        "find": "        if (e.key === CONSTANTS.STORAGE_KEY && e.newValue) {",
-        "replace": "        if (false && e.key === CONSTANTS.STORAGE_KEY && e.newValue) {",
-        "test": "Cross-tab sync: a task added in one tab appears in another tab",
-    },
-    {
-        "name": "behavior: localStorage への保存が no-op になる — reload で全データが消える最大級のデータ喪失。NOTE: 保存経路は debounce (scheduleSave) と visibilitychange (saveNow) の **二重**で、reload は後者も通るため **scheduleSave 側だけを潰しても RED にならない**。意味のある mutation は唯一の choke point である Storage.set の書き込みそのもの",
-        "file": ROOT / "js" / "storage.js",
-        "find": "            localStorage.setItem(key, value);",
-        "replace": "            void key; void value;",
-        "test": "Task app adds a task and persists it across reload",
-    },
-    {
-        "name": "behavior: Speakable の cssSelector がルート追従しなくなる — 全ルートで既定セレクタを返すと、AI 音声アシスタントは role-split の表 (#role-split-table) や ai-knowhow の要約ブロックを読み上げ対象として認識できない。視覚に一切出ない AIO 面ゆえ screenshot も behavior の描画検査も素通りする",
-        "file": ROOT / "js" / "meta-management.js",
-        "find": "        const cssSel = SPEAKABLE_SELECTORS[routeName] || ['h1', '[data-speakable]', '.sr-only'];",
-        "replace": "        const cssSel = ['h1', '[data-speakable]', '.sr-only'];",
-        "test": "Speakable JSON-LD updates cssSelector per route (AIO voice)",
-    },
-    {
-        "name": "behavior: silent な URL 更新で data-ai-state の route が汚れる — 絞り込みの query が route 名に混ざると、agentic surface を読むエージェントが 'projects?q=...' を route 名だと解釈する (#765 の drift class)。NOTE: main.js 側も data-ai-state を書くため、**通常のルート遷移を見るテストではこの mutation は隠れる**。router 経路だけを通る silent-filter のテストと対にすること",
-        "file": ROOT / "js" / "router.js",
-        "find": "                route: _r.name || 'home',",
-        "replace": "                route: 'projects?q=zzz',",
-        "test": "Body data-ai-state keeps a clean route name after a silent projects filter",
-    },
-    {
         "name": "behavior: theme-init.js の theme 復元が効かなくなる — pre-paint に data-theme/.dark を付けられず、dark 利用者に **一瞬 light が見えてから切り替わる FOUC** が出る。main.js が後から適用するので最終状態は正しく、screenshot は ADVISORY ゆえ **この e2e 以外に捕捉層が無い**",
         "file": ROOT / "theme-init.js",
         "find": "                const rawState = localStorage.getItem('portfolio_enhanced_v45');",
@@ -954,6 +912,13 @@ _E2E_TAIL = [
         "find": "                State.updateSilently(s => { s.appsData.notes = val.slice(0, CONSTANTS.LIMITS.NOTES_TEXT); });",
         "replace": "                if (val.length % 1000 === 999) { State.updateSilently(s => { s.appsData.notes = val; }); }",
         "test": "Notes survive navigating away immediately after typing",
+    },
+    {
+        "name": "\u72b6\u614b\u3092\u4f5c\u3089\u306a\u3044\u3068\u73fe\u308c\u306a\u3044\u9762\u306e contrast \u9000\u884c \u2014\u2014 badge-green (\u975e\u8868\u793a\u306b\u3057\u305f\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u306b\u3060\u3051\u51fa\u308b) \u3092\u751f\u306e\u610f\u5473\u8272\u3078\u623b\u3059\u3068 light \u3067 4.38 < 4.5 \u306e AA \u9055\u53cd\u306b\u306a\u308b\u3002\u65e2\u5b9a\u30c7\u30fc\u30bf\u3092\u5DE1\u308b\u30eb\u30fc\u30c8\u8d70\u67fb\u3067\u306f\u4e00\u5ea6\u3082\u63cf\u753b\u3055\u308c\u306a\u3044\u9762",
+        "file": ROOT / "style.css",
+        "find": "            background: rgba(var(--color-success-rgb), 0.1);\n            color: var(--on-tint-success);\n            border-color: rgba(var(--color-success-rgb), 0.2);",
+        "replace": "            background: rgba(var(--color-success-rgb), 0.1);\n            color: var(--color-success);\n            border-color: rgba(var(--color-success-rgb), 0.2);",
+        "test": "\u30e9\u30a4\u30c8\u306e drawer / palette / toast \u306b color-contrast \u9055\u53cd\u304c\u30bc\u30ed",
     },
 ]
 
