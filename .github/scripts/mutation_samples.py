@@ -967,6 +967,22 @@ _E2E_TAIL.append({
     "test": "取り込んだ project の中身が上限で削られたら件数を報告する",
 })
 
+_E2E_TAIL.append({
+    "name": "文字数上限で短縮された項目が報告されなくなる —— name/summary/title 等が上限で切られても通知が素の「完了しました」に戻る。list の件数を数える _trimmed では 0 のままなので、この面だけが silent に戻る (#1177 は手動追加で既に報告しており、取り込み経路だけが取り残されていた非対称)",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "if (_shortened > 0) { _parts.push(",
+    "replace": "if (false && _shortened > 0) { _parts.push(",
+    "test": "取り込んだ項目が文字数上限で短縮されたら件数を報告する",
+})
+
+_E2E_TAIL.append({
+    "name": "前後の空白の trim を「短縮」と誤報する —— profile の email/github は safeEmail/safeUrl が trim 後の値を返すため、比較元を trim しないと空白があるだけの普通のファイルで毎回「短縮されました」と出る。本物の切り捨て警告が信用されなくなる",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "&& a[k].length < b[k].trim().length ? 1 : 0), 0);",
+    "replace": "&& a[k].length < b[k].length ? 1 : 0), 0);",
+    "test": "前後の空白を落としただけでは短縮として報告しない",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 

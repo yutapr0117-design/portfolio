@@ -282,9 +282,31 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                         + _trimmedIn(merged.appsData && merged.appsData.tasks,
                             normalized.appsData && normalized.appsData.tasks, ['tags']);
 
+                    // [FIX] 文字数上限で「短縮」された項目も数える (_trimmed は件数しか見ない)。
+                    //   フィールド名を列挙しないのは、新フィールドが増えたとき列挙側が drift して
+                    //   silent に戻るため。b 側を trim するのは profile の safeEmail/safeUrl が
+                    //   trim 後の値を返し、空白だけで誤報するのを防ぐため。詳細と実測値は
+                    //   e2e/apps-settings-import-shape.spec.js。
+                    const _shortenedObj = (b, a) => Object.keys(b || {}).reduce((n, k) => n
+                        + (typeof b[k] === 'string' && typeof (a || {})[k] === 'string'
+                            && a[k].length < b[k].trim().length ? 1 : 0), 0);
+                    const _shortenedIn = (before, after) => {
+                        const m = _byId(after);
+                        return (Array.isArray(before) ? before : []).reduce((n, b) => {
+                            const a = b && m.get(b.id);
+                            return a ? n + _shortenedObj(b, a) : n;
+                        }, 0);
+                    };
+                    const _apps = (o) => (o && o.appsData) || {};
+                    const _shortened = _shortenedIn(merged.projects, normalized.projects)
+                        + _shortenedIn(_apps(merged).tasks, _apps(normalized).tasks)
+                        + _shortenedIn(_apps(merged).todos, _apps(normalized).todos)
+                        + _shortenedObj(merged.profile, normalized.profile);
+
                     const _parts = [];
                     if (_dropped > 0) { _parts.push(`${_dropped} 件は取り込めませんでした`); }
                     if (_trimmed > 0) { _parts.push(`${_trimmed} 件のタグ・技術・ハイライトが上限を超えて削られました`); }
+                    if (_shortened > 0) { _parts.push(`${_shortened} 件の項目が文字数上限で短縮されました`); }
                     Toast.show(_parts.length
                         ? `インポートが完了しました（${_parts.join('・')}）`
                         : 'インポートが完了しました');
