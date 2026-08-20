@@ -973,6 +973,14 @@ _E2E_TAIL.append({
     "test": "検索 0 件でもリストの意味論が壊れない",
 })
 
+_E2E_TAIL.append({
+    "name": "TODO 一覧に role=list を付けて listitem でない子 (空状態の p) を含ませる —— 非既定状態 (空) にしか現れないリスト意味論の破れ。既定内容で走る全ルート axe 走査では到達しない class (#1213/#1214 と同型)",
+    "file": ROOT / "js" / "apps.js",
+    "find": "            todoListHost = h('section', { class: 'flex flex-col gap-2', id: 'todo-list-host' },",
+    "replace": "            todoListHost = h('section', { class: 'flex flex-col gap-2', id: 'todo-list-host', role: 'list' },",
+    "test": "空の状態でも構造 a11y が壊れない",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
