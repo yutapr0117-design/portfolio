@@ -83,6 +83,7 @@ npx playwright test --config=playwright.config.cjs
 | `elementFromPoint` で「覆われていないか」を測る | View Transition の overlay が出ている間は **ページ要素ではなく root (`<html>`) が返る**。実測（2026-08-20）: 通知が 0 件でも「topbar が操作できない」とcontrol が誤判定した（同じ座標を settle 後に測ると正しくボタンが返る） | `emulateMedia({ reducedMotion: 'reduce' })` で遷移を切ってから測る。座標系の測定は VT と相性が悪い（上の行と同じ class） |
 | `page.goto('/#/x')` で SPA の**遷移**を測る | Playwright の goto は **hash だけの変更でもフルナビゲーション**になり、`hashchange` を通らない。「遷移」を名乗るテストが実際には**初回描画を繰り返し検査しているだけ**になる (2026-08-20 実測: router の hashchange 購読を外してもそのテストは緑)。in-document 遷移を測りたいなら `page.evaluate(() => { location.hash = '#/x' })` かリンククリックを使う |
 | 「この配線は誰も守っていない」と結論する | **1 つの mutation でフルスイートを 1 回走らせる**と、何層が守っているか一度で分かる。上の hashchange では**10 件以上**が RED になり、無防備ではなかった。`-g` で 1 件だけ走らせた結果から配線全体の被覆を推定してはいけない (帰属の誤りになる) |
+| 視覚に出ない中核チャネル (`announce()` / `hashchange`) の被覆を推測する | **1 mutation × フルスイート**で実測済み (2026-08-20): `announce()` を潰すと **25 件以上**、router の `hashchange` 購読を外すと **10 件以上**が RED。どちらも厚く守られている。ただし**壊れたときに出る赤は「無関係に見えるテスト群」**になる (import の通知検査が `#action-announcement` を観測点にしているため) —— 赤の帰属を読むときはこの形を想定せよ |
 
 ### 実測して clean と確認済みの a11y 面（再監査不要・2026-08-18）
 
