@@ -967,6 +967,14 @@ _E2E_TAIL.append({
     "test": "絞り込み中に完了させると残り件数のアナウンスが追随する",
 })
 
+_E2E_TAIL.append({
+    "name": "task の絞り込み中の残り件数アナウンスが全体数になる —— todo 側 (完了で消える) と対称の面。優先度で絞って作業していると変更した項目はビューから消えるため、残り何件かを伝える唯一の手がかりがこの status 領域",
+    "file": ROOT / "js" / "apps.js",
+    "find": "return `優先度: ${label} ${getFilteredTasks().length} 件`;",
+    "replace": "return `優先度: ${label} ${State.get().appsData.tasks.length} 件`;",
+    "test": "絞り込み中に優先度を変えると残り件数のアナウンスが追随する",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 

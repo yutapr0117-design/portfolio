@@ -805,3 +805,48 @@ test('絞り込み中に完了させると残り件数のアナウンスが追�
   await expect(status, '完了させたのに残り件数のアナウンスが追随していない')
     .toHaveText(new RegExp(`TODO: 未完了 ${before - 1} 件`));
 });
+
+// ===== 絞り込み中に優先度を変えても件数アナウンスが追随すること (WCAG 4.1.3・todo と対称) =====
+// 直前のテストで todo 側 (完了させて一覧から消える) を固定した。task 側は絞り込みが
+// **優先度**なので、「絞り込み中のタスクの優先度を変える」と同じく一覧から消える。
+// 片側だけ守るのは本リポジトリが繰り返し踏んできた非対称 (「1 ケースだけ処理して
+// 他を忘れる」class) なので、対で固定する。
+// 実測 (2026-08-20): Med で絞り込み中に 1 件を High へ変えると「Med 2 件」→「Med 1 件」
+// と正しく追随していた (honest-clean)。未被覆のまま放置すると、件数を全体数から取る
+// ような退行が silent に通る。
+test('絞り込み中に優先度を変えると残り件数のアナウンスが追随する', async ({ page }) => {
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+
+  for (const t of ['PRIO-A', 'PRIO-B']) {
+    await page.getByLabel('新しいタスクを入力').fill(t);
+    await page.getByLabel('新しいタスクを入力').press('Enter');
+    await expect(page.locator('#content').getByText(t, { exact: true })).toBeVisible();
+  }
+
+  // 既定の優先度 (med) で絞り込む
+  await page.locator('#task-filter-priority').evaluate((el) => {
+    el.focus();
+    el.value = 'med';
+    el.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+  const status = page.locator('#task-filter-status');
+  await expect(status).toHaveText(/優先度: Med \d+ 件/);
+  const before = parseInt((await status.textContent()).match(/(\d+)/)[1], 10);
+  // control: 2 件未満だと「減った」ことを測れない
+  expect(before, 'control: Med が 2 件未満では減少を測れない').toBeGreaterThanOrEqual(2);
+
+  // 絞り込み中の 1 件を High へ動かす = このビューから外れる
+  const psel = page.locator('#content select[id^="task-priority-"]').first();
+  const pid = await psel.getAttribute('id');
+  await psel.evaluate((el) => {
+    el.focus();
+    el.value = 'high';
+    el.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+  // ビューから消えるまで待つ (再描画前に読むと古い値を掴む)
+  await expect(page.locator(`[id="${pid}"]`)).toHaveCount(0);
+
+  await expect(status, '優先度を変えたのに残り件数のアナウンスが追随していない')
+    .toHaveText(new RegExp(`優先度: Med ${before - 1} 件`));
+});
