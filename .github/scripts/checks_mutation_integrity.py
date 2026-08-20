@@ -410,12 +410,17 @@ def run(ctx):
     try:
         import importlib as _importlib430
         _ms430 = _importlib430.import_module("mutation_samples")
-        _pairs430 = [
-            ("MUTATIONS", _ms430.MUTATIONS,
-             len(_ms430.MUTATIONS_ARCHIVE) + len(_ms430.MUTATIONS_ARCHIVE2) + len(_ms430._MUTATIONS_TAIL)),
-            ("E2E_MUTATIONS", _ms430.E2E_MUTATIONS,
-             len(_ms430.E2E_MUTATIONS_ARCHIVE) + len(_ms430.E2E_MUTATIONS_ARCHIVE2) + len(_ms430._E2E_TAIL)),
-        ]
+        # 構成要素は **連結式から導出**する。ハードコードすると archive を 1 つ増やしただけで
+        # この Check 自身が drift する (2026-08-20: archive3 を足した瞬間に実際に誤検出した)。
+        _src430 = (ROOT / ".github" / "scripts" / "mutation_samples.py").read_text(encoding="utf-8")
+        _pairs430 = []
+        for _name430 in ("MUTATIONS", "E2E_MUTATIONS"):
+            _m430 = re.search(r"^" + _name430 + r"\s*=\s*([^\n]+)$", _src430, re.M)
+            if not _m430:
+                continue
+            _parts430 = [t.strip() for t in _m430.group(1).split("+")]
+            _sum430 = sum(len(getattr(_ms430, t)) for t in _parts430 if hasattr(_ms430, t))
+            _pairs430.append((_name430, getattr(_ms430, _name430), _sum430))
         _lost430 = [f"{n}: 連結済み {len(v)} 件 < 構成要素の合計 {e} 件 (差 {e - len(v)})"
                     for n, v, e in _pairs430 if len(v) != e]
         check(
