@@ -28,6 +28,16 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        coupling) / Check 345 (verify-chain completeness) for the
        CI-invokes-the-guard axis. (BLOCKING)
 
+  437. install の step timeout が単一ソースから引かれ、mirror doc とも一致する: the behavior
+       gate's install step has a `timeout-minutes`, and the failure-attribution step tells the
+       reader how many minutes it waited. On 2026-08-20 the attribution message still said
+       **8 分** while the actual timeout was **11**: the layer built specifically to prevent
+       mis-diagnosing a red CI was itself stating a wrong number, and it is read exactly when
+       someone is under pressure. The value now lives once in the job-level env
+       `INSTALL_TIMEOUT_MIN`, so message and timeout cannot drift apart. This Check closes the
+       remaining surface — the mirror doc's prose — by requiring it to state the same number.
+       (BLOCKING)
+
   347. `.github/workflows/playwright-regression.yml` MUST invoke the
        behavior e2e (`playwright test ... --grep-invert "screenshot
        regression"`) in a `run:` step, AND that step MUST NOT be marked
@@ -148,3 +158,30 @@ def run(ctx):
     else:
         check(False, "Check 347: playwright-regression.yml present",
               "Check 347: playwright-regression.yml が無い", blocking=True)
+
+    # ── 437. install の step timeout が単一ソース ⟺ mirror doc と一致 (BLOCKING) ──────
+    # 2026-08-20: 帰属メッセージだけ「8 分」のまま drift していた (実際は 11)。**赤の誤診を
+    # 防ぐために作った層が誤った数値を出す**のは、読まれる場面 (CI が赤いとき) を考えると
+    # 特に害が大きい。値は job env `INSTALL_TIMEOUT_MIN` に一本化したので message と
+    # timeout は構造的に drift しない。残る面 = mirror doc の散文をここで縛る。
+    _wf437 = (ROOT / ".github" / "workflows" / "playwright-regression.yml").read_text(encoding="utf-8")
+    _m437 = re.search(r"INSTALL_TIMEOUT_MIN:\s*(\d+)", _wf437)
+    _doc437 = (ROOT / "docs" / "files" / ".github" / "workflows"
+               / "playwright-regression.yml.md").read_text(encoding="utf-8")
+    if _m437:
+        _v437 = _m437.group(1)
+        _stated = set(re.findall(r"step (?:個別 )?timeout[（(](\d+) 分[)）]", _doc437))
+        check(
+            _stated and _stated == {_v437},
+            f"Check 437: install の step timeout が単一ソース ({_v437} 分) で mirror doc と一致",
+            (f"Check 437: mirror doc が述べる install の step timeout {sorted(_stated)} が "
+             f"workflow の単一ソース INSTALL_TIMEOUT_MIN={_v437} と一致しない。"
+             "この数値は **CI が赤いときに読まれる**ので、古い値は誤診に直結する "
+             "(2026-08-20 に帰属メッセージが 8 分のまま drift していた実例)"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 437: INSTALL_TIMEOUT_MIN",
+              "Check 437: playwright-regression.yml に INSTALL_TIMEOUT_MIN が無い — "
+              "install timeout の単一ソースが失われると message と timeout が再び drift する",
+              blocking=True)
