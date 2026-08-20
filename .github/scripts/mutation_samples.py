@@ -979,6 +979,14 @@ _E2E_TAIL.append({
     "test": "「追加のみ」の取り込みは稼働中のポモドーロを止めない",
 })
 
+_E2E_TAIL.append({
+    "name": "描画完了後に aria-busy が false へ戻らない —— agentic surface が「ずっとローディング中」を宣言し続ける。視覚に一切出ないので screenshot も他の behavior テストも緑のまま (このテストだけが捕捉層)",
+    "file": ROOT / "main.js",
+    "find": "                if (content) {content.setAttribute('aria-busy', 'false');}",
+    "replace": "                if (content) { /* mutated */ }",
+    "test": "content div transitions aria-busy correctly during navigation",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
