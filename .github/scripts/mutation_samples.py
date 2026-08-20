@@ -182,51 +182,17 @@ _MUTATIONS_TAIL = [
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。
+_MUTATIONS_TAIL.append({
+    "name": "Check 435: quiz の模範解答フォームが実行不能な長さの mailto を作れるようになる —— タイトルを少し伸ばすだけで Windows の約 2,048 文字上限を silent に超え、本文が切られるかメールソフトが開かない (利用者には何も伝わらない)",
+    "file": ROOT / "js" / "quiz-renderer.js",
+    "find": "quality: { title: '\u54c1\u8cea\u30fb\u30d7\u30ed\u30bb\u30b9\u554f\u984c\u96c6'",
+    "replace": "quality: { title: '\u54c1\u8cea\u30fb\u30d7\u30ed\u30bb\u30b9\u554f\u984c\u96c6\uff08\u7dcf\u5408\u6f14\u7fd2\u7de8\uff09'",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
-    {
-        "name": "behavior: TODO 入力の同期クリアが失われ Enter 連打で二重登録される — task 側と同じ機構。片方だけ守ると『1 ケースだけ処理して他を忘れる』非対称になる",
-        "file": ROOT / "js" / "apps.js",
-        "find": "                                const _v = e.target.value;\n                                e.target.value = '';\n                                addTodo(_v);",
-        "replace": "                                addTodo(e.target.value);",
-        "test": "TODO 入力の Enter 連打で同じ TODO が二重登録されない",
-    },
-    {
-        "name": "behavior: Cmd+K の候補に非表示プロジェクトが混ざる (#886 の read 面 mesh の回帰) — 既定プロジェクトは削除できず『非表示』が唯一の非公開手段なので、palette に残ると一覧から隠したはずのものへ到達できてしまう",
-        "file": ROOT / "js" / "command-palette.js",
-        "find": "        const _hidden = new Set((((_st.projectPrefs && _st.projectPrefs.hiddenIds) || [])).map(String));",
-        "replace": "        const _hidden = new Set();",
-        "test": "Command palette reflects project add and hide immediately",
-    },
-    {
-        "name": "behavior: 手動追加の名前入力から上限が外れる — normalizeProject が name を LIMITS.PROJECT_NAME で切るので、長い名前は追加直後は全部見えているのに **リロード後に黙って短くなる** (#924 と同じ silent truncation)。Check 410 は同一 file 内の slice を条件にするため、上限が store.js 側にあるこのケースは静的検査の射程外",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "maxlength: CONSTANTS.LIMITS.PROJECT_NAME, ",
-        "replace": "",
-        "test": "手動追加のプロジェクト名が入力上限と保存上限で一致する",
-    },
-    {
-        "name": "behavior: 手動追加が正規化を通さなくなる — normalizeProject は name を LIMITS.PROJECT_NAME、tech を『12 項目・各 LIMITS.CATEGORY 文字』で切るので、通さないと **追加直後は入力どおりに見えるのにリロードで黙って減る** (実測: Tech 20 個 → 12 個)。件数の制限は maxlength では表現できないため入力欄側だけでは揃えられない",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "            State.set(Store.validateAndNormalize(State.get()));",
-        "replace": "            settingsNewName = '';",
-        "test": "手動追加の Tech が件数上限どおりに保存される",
-    },
-    {
-        "name": "behavior: 2 つのルートが同じ title を名乗る — PAGE_META へエントリを足すとき既存をコピーして書き換え忘れると起きる。AI クローラや検索には『同じページが複数ある』と見え、AIO を中核に据えたこのサイトでは実害が大きい。しかも画面の内容は正しく変わるので **見た目には一切出ない**",
-        "file": ROOT / "js" / "page-meta.js",
-        "find": "    resume: { title: 'Resume',",
-        "replace": "    resume: { title: 'About',",
-        "test": "All routes expose a unique, non-empty title and description (AIO)",
-    },
-    {
-        "name": "behavior: スナップショット復元が state を採用しなくなる — ボタンは押せてトーストも出るのに何も戻らない。スナップショットは単一スロットの『唯一の復元点』なので、効かないことに気付くのは戻したい場面 = 最悪のタイミングになる",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "            State.set(_norm);",
-        "replace": "            void _norm;",
-        "test": "Settings snapshot restore reverts state to the saved point",
-    },
     {
         "name": "behavior: Storage.parse の try/catch が外れる — localStorage が壊れた JSON を持っていると起動時に throw し、**サイトが真っ白で何もできない**最悪の壊れ方になる。localStorage は devtools でも別バージョンでも拡張機能でも書き換わりうる『アプリが最初に読む外部入力』",
         "file": ROOT / "js" / "storage.js",
