@@ -216,7 +216,11 @@ test('Deleting a user project (confirm accepted) removes it everywhere', async (
   await page.goto('/#/projects');
   await page.waitForLoadState('domcontentloaded');
   await expect(page.locator('.grid-projects article h2').first()).toBeVisible();
-  await expect(page.getByText(name)).toHaveCount(0);
+  // 検査範囲を #content に限る。削除の通知 (#1185 で追加) は「「<名前>」を削除しました」と
+  // **名前を含み**、通知コンテナは #content の外でルート遷移後も数秒残るため、ページ全体を
+  // 対象にすると「一覧から消えたか」ではなく「通知が出ているか」を測ってしまう。
+  // このテストの意図は **公開一覧に出ないこと**なので、その範囲で測る。
+  await expect(page.locator('#content').getByText(name)).toHaveCount(0);
 });
 
 
