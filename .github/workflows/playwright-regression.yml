@@ -110,6 +110,12 @@ jobs:
     #   job 側から再生産してしまう。通常時の実測は合計 6m25s。
     timeout-minutes: 20
 
+    # install の step timeout の**単一ソース**。timeout-minutes と、赤の帰属メッセージが
+    # 出す分数の両方をここから引く。2026-08-20 に **メッセージだけ「8 分」のまま drift**
+    # していた —— 赤の誤診を防ぐために作った層が、まさに誤った数値を出していた。
+    env:
+      INSTALL_TIMEOUT_MIN: 11
+
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -168,7 +174,7 @@ jobs:
       #   11 分の根拠: 成功時の実測上限 6m20s の ~1.7 倍。job の 20 分にも収まる。
       - name: Install Playwright and dependencies
         id: install
-        timeout-minutes: 11
+        timeout-minutes: ${{ env.INSTALL_TIMEOUT_MIN }}
         run: |
           npm ci
           npx playwright install --with-deps chromium
@@ -219,7 +225,7 @@ jobs:
             elif [ "$INSTALL_OUTCOME" = "failure" ]; then
               echo "### ⚠️ BLOCKING behavior gate は **一度も実行されていません**"
               echo ""
-              echo "依存インストールが step timeout (8 分) に達したため中断しました。"
+              echo "依存インストールが step timeout (${INSTALL_TIMEOUT_MIN:-11} 分) に達したため中断しました。"
               echo "これは**インフラの失敗であって回帰ではありません**（何も検証されていない）。"
               echo "\`gh run rerun <run-id> --failed\` で再実行してください。"
             else

@@ -206,6 +206,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 437: install の step timeout が単一ソースから外れ、赤の帰属メッセージが古い分数を出しても気付けなくなる —— このメッセージは CI が赤いときにこそ読まれるので、古い値は誤診に直結する (2026-08-20 に message だけ 8 分のまま drift していた)",
+    "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
+    "find": "INSTALL_TIMEOUT_MIN: 11",
+    "replace": "INSTALL_TIMEOUT_MIN: 14",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
