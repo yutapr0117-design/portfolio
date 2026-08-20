@@ -1,4 +1,5 @@
 const { test, expect } = require('@playwright/test');
+const AxeBuilder = require('@axe-core/playwright').default;
 
 
 // ===== 7.2: コマンドパレット (Cmd/Ctrl+K) 横断ナビ =====
@@ -512,4 +513,39 @@ test('Command palette keeps visual, ARIA and activedescendant selection in sync'
   await expectInSync('絞り込み直後', 0);
   await page.keyboard.press('ArrowDown');
   await expectInSync('絞り込み後の ArrowDown', 1);
+});
+
+// ===== 候補 0 件でも listbox の意味論が壊れず、0 件が SR に伝わること =====
+// `role="listbox"` の子として許されるのは option (と group) だけ。従来は候補 0 件のとき
+// **同じ listbox の中**へ空状態を `role="status"` で入れていたため、axe の
+// aria-required-children が違反を出し **listbox の意味論そのものが壊れて**いた。
+// 実測 (2026-08-20): Cmd+K で候補 0 件にすると違反 1 件。**既定状態 (入力なし) では
+// 全候補が出る**ので、通常の a11y 走査では一度も踏まれない (#1213/#1214 と同じ
+// 「既定値だけが偶然 clean」class)。
+//
+// 0 件では listbox として公開する対象自体が無いので role を外す。ただし外した ul は
+// **素の list** になり子は listitem でなければならないので、空状態の li からも
+// role="status" を外す —— その結果 **0 件が SR に無音**になるため announce で伝える。
+test('Cmd+K の候補 0 件で listbox 意味論が壊れず、0 件が SR に伝わる', async ({ page }) => {
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  await page.keyboard.press('Control+k');
+  await expect(page.locator('#command-palette-host')).toHaveAttribute('aria-hidden', 'false');
+
+  // control: 候補があるうちは listbox として公開されている
+  await expect(page.getByRole('listbox'), 'control: 既定状態で listbox が公開されていない').toHaveCount(1);
+  expect(await page.getByRole('option').count(),
+    'control: option が無いと listbox 意味論を測れない').toBeGreaterThan(1);
+
+  await page.locator('.cmdk-input').fill('zzzznomatch');
+  await expect(page.locator('.cmdk-empty')).toBeVisible();
+
+  const r = await new AxeBuilder({ page })
+    .withRules(['aria-required-children', 'list', 'listitem']).analyze();
+  expect(r.violations.map((v) => `${v.id}:${v.nodes.length}`),
+    '候補 0 件で list / listbox の意味論が壊れている').toEqual([]);
+
+  // role="status" を外したので、0 件は announce で伝わらなければ SR に無音になる
+  await expect(page.locator('#action-announcement'),
+    '候補 0 件が SR に伝わっていない').toHaveText('一致する行き先はありません');
 });

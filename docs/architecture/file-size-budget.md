@@ -56,7 +56,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/components.js` | 501 | 600 | `advisory` | Stage 5-m 新設。UI page components factory。**bloat-reduction: HomePage / ProjectsPage / ProjectDetailPage / AIKnowhowPage を個別葉モジュール (js/home-page.js 等) へ分離し 1,335→454 行**。budget を実態へ tighten |
 | `js/ai-knowhow-page.js` | 327 | 450 | `advisory` | bloat-reduction 分離。AI 活用ノウハウページ factory。closure-deps = none + 引数注入 |
 | `js/ai-page.js` | 212 | 300 | `advisory` | 2026-07-04 bloat-reduction 分離 (js/apps.js より)。AI アシスト（ローカル版）factory。private state = aiLoading 1 個 |
-| `js/command-palette.js` | 263 | 300 | `advisory` | Command palette (Cmd+K omni-nav) factory。closure-deps = none + 引数注入 |
+| `js/command-palette.js` | 280 | 300 | `advisory` | Command palette (Cmd+K omni-nav) factory。closure-deps = none + 引数注入 |
 | `js/hiring-risk-page.js` | 414 | 550 | `advisory` | 2026-07-04 bloat-reduction 分離 (js/pages.js より)。採用リスク低減ページ + 専用 helper。static content |
 | `js/home-page.js` | 358 | 450 | `advisory` | bloat-reduction 分離 (js/components.js より)。ホームページ factory |
 | `js/pomodoro-page.js` | 359 | 400 | `advisory` | 2026-07-04 bloat-reduction 分離 (js/apps.js より)。ポモドーロタイマー factory。private state = pomodoroTimer 1 個。stale-closure 対策温存 |
@@ -111,7 +111,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/apps-input-contract.spec.js` | 135 | 900 | `advisory` | behavior e2e spec (task/todo の入力欄の契約: 空入力ガード / 未送信入力の保護 / Enter 連打の二重登録防止)。2026-08-20 に apps-task.spec.js が 957 行で BLOCKING(1,000) まで残り 43 行となり、**当たる前に**切り出した |
 | `e2e/apps-todo.spec.js` | 397 | 900 | `advisory` | behavior e2e spec (TODO アプリ面)。2026-08-09 に apps-task.spec.js の advisory 超過を受けて先回り分割 |
 | `e2e/toast.spec.js` | 200 | 900 | `advisory` | behavior e2e spec (通知 = Toast の振る舞い)。apps-task.spec.js が 1,000 行上限に達したためテーマ単位で切り出した |
-| `e2e/command-palette.spec.js` | 515 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/command-palette.spec.js` | 551 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/drawer.spec.js` | 399 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/fatal.spec.js` | 60 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/focus-regression.spec.js` | 77 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
@@ -163,7 +163,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 835000 -->
+<!-- PERF-BUDGET-DATA 837000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
