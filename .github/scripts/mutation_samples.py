@@ -963,6 +963,22 @@ _E2E_TAIL.append({
     "test": "strict import of malformed projects stays graceful",
 })
 
+_E2E_TAIL.append({
+    "name": "部分 export (Projectsのみ) が別のスライスを書き出す —— バックアップの土台が壊れ、利用者は「戻せないファイル」を作る。しかも export 時点では成功に見えるので、復元しようとして初めて判る",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "function exportProjects() { downloadJSON(State.get().projects,",
+    "replace": "function exportProjects() { downloadJSON(State.get().appsData,",
+    "test": "partial export buttons download the correct State slice",
+})
+
+_E2E_TAIL.append({
+    "name": "AIO asset anchor (#aio-asset-anchor) が DOM から消える —— 機械可読な資産アンカーは視覚に一切出ないので、消えても screenshot でも目視でも気付けない。本プロジェクトの中核である AIO 面が silent に失われる",
+    "file": ROOT / "index.html",
+    "find": '<div id="aio-asset-anchor" hidden aria-hidden="true"',
+    "replace": '<div id="aio-asset-anchor-removed" hidden aria-hidden="true"',
+    "test": "AIO anchor persists in DOM after initial load",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
