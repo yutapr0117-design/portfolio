@@ -261,3 +261,57 @@ test('WCAG 1.4.3: ライトの drawer / palette / toast に color-contrast 違�
 test('WCAG 1.4.3: ダークの drawer / palette / toast に color-contrast 違反がゼロ', async ({ page }) => {
   await expectNoContrastInOpenStates(page, 'dark');
 });
+
+// ===== ランドマークの骨格が全ルートで一意に成立していること (WCAG 1.3.1 / 2.4.1) =====
+// SR 利用者の主要なページ内移動手段は **ランドマークジャンプ**。ところが実測 (2026-08-20)
+// では `main` / `navigation` / `banner` を検査するテストが **1 件も無かった**
+// (`search` だけが projects / quiz で個別に守られていた)。
+//
+// 壊れ方はすべて視覚に出ない:
+//   - `<main>` が消える / 名前を失う → ランドマーク一覧から本文が消える
+//   - `main` の tabindex="-1" が外れる → **skip-link の着地点が無くなる** (WCAG 2.4.1)
+//   - `<nav>` が 2 つになる → どちらが主か分からなくなる
+// screenshot にも、既存の axe スキャン (違反 rule の allowlist 方式) にも出ない。
+//
+// **測ってから書いた契約**: 骨格は viewport 依存だった。desktop は sidebar が
+// `navigation`、mobile は sidebar が display:none で topbar が `banner` になる。
+// `contentinfo` はどちらも 0 —— `<footer id="aio-main-footer">` が `<main>` の子孫で、
+// HTML-AAM 上 landmark にならないため (これは AIO の機械向けアンカーであって
+// 人間向けのページフッターではないので、実態として正しい)。
+// 最初「全ルートで 4 つとも 1」と決め打ちで書いたら banner で落ち、実態と違う前提を
+// 置いていたと分かった。**前提は測ってから固定する。**
+const LANDMARK_ROUTES = ['#/', '#/projects', '#/quiz', '#/apps/task', '#/settings', '#/resume'];
+
+test('全ルートで main ランドマークが一意で、名前と skip-link 着地点を保つ', async ({ page }) => {
+  for (const route of LANDMARK_ROUTES) {
+    await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#content h1').first()).toBeVisible();
+
+    await expect(page.getByRole('main'),
+      `${route}: main ランドマークは 1 つだけ存在すべき`).toHaveCount(1);
+    const main = page.getByRole('main');
+    expect(await main.getAttribute('aria-label'),
+      `${route}: main に名前が無い (ランドマーク一覧で識別できない)`).toBeTruthy();
+    expect(await main.getAttribute('tabindex'),
+      `${route}: main が focus を受けられない = skip-link の着地点が失われる`).toBe('-1');
+  }
+});
+
+test('ナビゲーションのランドマークが viewport ごとに一意に成立する', async ({ page }) => {
+  // desktop: sidebar が navigation。topbar は非表示なので banner は出ない。
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  await expect(page.getByRole('navigation'),
+    'desktop: navigation ランドマークは sidebar の 1 つだけ').toHaveCount(1);
+  expect(await page.getByRole('navigation').getAttribute('aria-label'),
+    'desktop: navigation に名前が無い').toBeTruthy();
+
+  // mobile: sidebar は display:none になり、topbar が banner として残る
+  //   (ナビ本体は drawer の中で、開くまでは a11y ツリーに出ないのが設計どおり)。
+  await page.setViewportSize({ width: 390, height: 800 });
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  await expect(page.getByRole('banner'),
+    'mobile: banner ランドマーク (topbar) が 1 つだけ').toHaveCount(1);
+});
