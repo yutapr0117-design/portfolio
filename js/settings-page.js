@@ -40,6 +40,68 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
     let settingsNewTech = '';
     let settingsNewDemo = '';
 
+    /**
+     * lossParts — 正規化で失われた分を数え、利用者に見せる文言の配列を返す。
+     *
+     * import と snapshot 復元は同じ validateAndNormalize を通すので、報告も同じ言葉で行う
+     * (片方だけ honest だと「復元は無事だった」と誤解される)。数えるのは 3 面:
+     *   dropped   entry ごと落ちた数 (件数上限 / 必須フィールド欠落)
+     *   trimmed   entry は残るが list フィールド (tech/tags/highlights/task.tags) が削られた数
+     *   shortened 文字列が文字数上限で短縮された項目数
+     * 照合は id で行い、entry ごと落ちた分と二重計上しない。id 衝突で改名された entry は
+     * 照合不能で数えないが **過少に出る方向**なので「実際より多く失われた」と誤報しない。
+     * b 側を trim して比較するのは profile の safeEmail/safeUrl が trim 後の値を返すため
+     * (前後の空白だけで「短縮しました」と誤報しない)。実測値は
+     * e2e/apps-settings-import-shape.spec.js に記録。
+     */
+    function lossParts(before, after) {
+        const countOf = (o, k) => (o && Array.isArray(o[k]) ? o[k].length : 0);
+        const apps = (o) => (o && o.appsData) || {};
+        const byId = (a) => new Map((Array.isArray(a) ? a : []).map((x) => [x && x.id, x]));
+        const listLen = (o) => (Array.isArray(o) ? o.length : 0);
+
+        const dropped = ['tasks', 'todos'].reduce(
+            (n, k) => n + Math.max(0, countOf(apps(before), k) - countOf(apps(after), k)), 0)
+            + Math.max(0, listLen(before.projects) - listLen(after.projects))
+            + ['ai', 'pomodoro'].reduce((n, k) => n + Math.max(0,
+                countOf(apps(before)[k], 'history') - countOf(apps(after)[k], 'history')), 0);
+
+        const trimmedIn = (b0, a0, fields) => {
+            const m = byId(a0);
+            return (Array.isArray(b0) ? b0 : []).reduce((n, b) => {
+                const a = b && m.get(b.id);
+                if (!a) { return n; }
+                return n + fields.reduce((k, f) => k + Math.max(0, countOf(b, f) - countOf(a, f)), 0);
+            }, 0);
+        };
+        const trimmed = trimmedIn(before.projects, after.projects, ['tech', 'tags', 'highlights'])
+            + trimmedIn(apps(before).tasks, apps(after).tasks, ['tags']);
+
+        const shortenedObj = (b, a) => Object.keys(b || {}).reduce((n, k) => n
+            + (typeof b[k] === 'string' && typeof (a || {})[k] === 'string'
+                && a[k].length < b[k].trim().length ? 1 : 0), 0);
+        const shortenedIn = (b0, a0) => {
+            const m = byId(a0);
+            return (Array.isArray(b0) ? b0 : []).reduce((n, b) => {
+                const a = b && m.get(b.id);
+                return a ? n + shortenedObj(b, a) : n;
+            }, 0);
+        };
+        const shortened = shortenedIn(before.projects, after.projects)
+            + shortenedIn(apps(before).tasks, apps(after).tasks)
+            + shortenedIn(apps(before).todos, apps(after).todos)
+            + shortenedObj(before.profile, after.profile)
+            // notes は単一ドキュメントゆえ上限超過で末尾がまるごと消えるが、entry も件数も
+            // 減らないため他の 2 面では 0 のままになる。
+            + shortenedObj({ notes: apps(before).notes }, { notes: apps(after).notes });
+
+        const parts = [];
+        if (dropped > 0) { parts.push(`${dropped} 件は取り込めませんでした`); }
+        if (trimmed > 0) { parts.push(`${trimmed} 件のタグ・技術・ハイライトが上限を超えて削られました`); }
+        if (shortened > 0) { parts.push(`${shortened} 件の項目が文字数上限で短縮されました`); }
+        return parts;
+    }
+
     function SettingsPage() {
         const state = State.get();
 
@@ -94,8 +156,18 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
             // 上で warn するため、旧版が保存した欠損/型揺れ snapshot を生採用すると renderer が
             // 期待するフィールド不在で FatalPage crash し得た。normalize が安全側に丸めて防ぐ
             // (valid な snapshot は不変で通過ゆえ非破壊)。
-            State.set(Store.validateAndNormalize(snap.data));
-            Toast.show('スナップショットを復元しました');
+            // [FIX] 復元も正規化で entry / 中身を失うのに **無条件で「復元しました」**と
+            //   報告していた。実測 (2026-08-20): 505 件の tasks と 30,000 文字のノートを
+            //   持つ snapshot を復元すると 500 件 / 20,000 文字になり **5 件と 10,000 文字が
+            //   消える**。snapshot は単一スロット = 利用者の**唯一の復元点**なので、
+            //   import 経路より無防備なのは筋が通らない (getSnapshot は旧版が保存した
+            //   legacy 形も明示サポートしており、上限が違う版の snapshot は現実に起こりうる)。
+            const _norm = Store.validateAndNormalize(snap.data);
+            const _parts = lossParts(snap.data, _norm);
+            State.set(_norm);
+            Toast.show(_parts.length
+                ? `スナップショットを復元しました（${_parts.join('・')}）`
+                : 'スナップショットを復元しました');
         }
         function clearSnapshot() {
             // [FIX] 破壊的操作の確認ガードを他と対称にする。プロジェクト 1 件の削除
@@ -286,72 +358,8 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                     //   #1039/#1040 で塞いだ「何もしていないのに成功と言う」の *部分適用* 版で、
                     //   silent なのは同じ。落ちた理由 (上限 / 不正 entry) は利用者にとって同じ
                     //   「取り込まれなかった」なので、件数だけを正直に伝える。
-                    const _countOf = (o, k) => (o && Array.isArray(o[k]) ? o[k].length : 0);
-                    const _dropped = ['tasks', 'todos'].reduce(
-                        (n, k) => n + Math.max(0, _countOf(merged.appsData, k) - _countOf(normalized.appsData, k)), 0
-                    ) + Math.max(0, (Array.isArray(merged.projects) ? merged.projects.length : 0)
-                        - (Array.isArray(normalized.projects) ? normalized.projects.length : 0))
-                        // ai/pomodoro の history も件数上限で落ちるが未計上だった非対称。
-                        + ['ai', 'pomodoro'].reduce((n, k) => n + Math.max(0,
-                            _countOf((merged.appsData || {})[k], 'history')
-                            - _countOf((normalized.appsData || {})[k], 'history')), 0);
+                    const _parts = lossParts(merged, normalized);
 
-                    // [FIX] **entry は残るのに「中身」だけ削られる分も数える。**
-                    //   上の _dropped は entry 単位 (tasks/todos/projects) しか見ないため、
-                    //   *取り込まれた* project の tech/tags/highlights や task の tags が
-                    //   件数上限 (12/12/20/10) で切られても 0 のままだった。
-                    //   実測 (2026-08-20): tech 20 / tags 20 / highlights 30 を持つ project を
-                    //   取り込むと 12/12/20 に削られ **26 項目が消える**のに、通知は素の
-                    //   「インポートが完了しました」。#1143 (件数上限で entry が落ちる) /
-                    //   #1177 (手動追加の Tech 切り捨て) と同じ「切り捨てたら黙るな」class の
-                    //   最後の一面で、しかも *entry は残る* ぶん気付く手掛かりがより薄い。
-                    //   照合は id で行う (entry ごと落ちた分は _dropped が数えるので二重計上しない)。
-                    //   id が衝突して uniquifyIds に改名された entry は照合不能で数えないが、
-                    //   **過少に出る方向**なので「実際より多く失われた」と誤報しない。
-                    const _byId = (a) => new Map((Array.isArray(a) ? a : []).map((x) => [x && x.id, x]));
-                    const _trimmedIn = (before, after, fields) => {
-                        const m = _byId(after);
-                        return (Array.isArray(before) ? before : []).reduce((n, b) => {
-                            const a = b && m.get(b.id);
-                            if (!a) { return n; }
-                            return n + fields.reduce((k, f) => k + Math.max(0,
-                                _countOf(b, f) - _countOf(a, f)), 0);
-                        }, 0);
-                    };
-                    const _trimmed = _trimmedIn(merged.projects, normalized.projects,
-                        ['tech', 'tags', 'highlights'])
-                        + _trimmedIn(merged.appsData && merged.appsData.tasks,
-                            normalized.appsData && normalized.appsData.tasks, ['tags']);
-
-                    // [FIX] 文字数上限で「短縮」された項目も数える (_trimmed は件数しか見ない)。
-                    //   フィールド名を列挙しないのは、新フィールドが増えたとき列挙側が drift して
-                    //   silent に戻るため。b 側を trim するのは profile の safeEmail/safeUrl が
-                    //   trim 後の値を返し、空白だけで誤報するのを防ぐため。詳細と実測値は
-                    //   e2e/apps-settings-import-shape.spec.js。
-                    const _shortenedObj = (b, a) => Object.keys(b || {}).reduce((n, k) => n
-                        + (typeof b[k] === 'string' && typeof (a || {})[k] === 'string'
-                            && a[k].length < b[k].trim().length ? 1 : 0), 0);
-                    const _shortenedIn = (before, after) => {
-                        const m = _byId(after);
-                        return (Array.isArray(before) ? before : []).reduce((n, b) => {
-                            const a = b && m.get(b.id);
-                            return a ? n + _shortenedObj(b, a) : n;
-                        }, 0);
-                    };
-                    const _apps = (o) => (o && o.appsData) || {};
-                    const _shortened = _shortenedIn(merged.projects, normalized.projects)
-                        + _shortenedIn(_apps(merged).tasks, _apps(normalized).tasks)
-                        + _shortenedIn(_apps(merged).todos, _apps(normalized).todos)
-                        + _shortenedObj(merged.profile, normalized.profile)
-                        // notes は単一ドキュメントゆえ上限超過で末尾がまるごと消えるが、
-                        // entry も件数も減らないため全カウンタが 0 のままだった (実測は e2e)。
-                        + _shortenedObj({ notes: (merged.appsData || {}).notes },
-                            { notes: (normalized.appsData || {}).notes });
-
-                    const _parts = [];
-                    if (_dropped > 0) { _parts.push(`${_dropped} 件は取り込めませんでした`); }
-                    if (_trimmed > 0) { _parts.push(`${_trimmed} 件のタグ・技術・ハイライトが上限を超えて削られました`); }
-                    if (_shortened > 0) { _parts.push(`${_shortened} 件の項目が文字数上限で短縮されました`); }
                     if (_keptOwn > 0) { _parts.push(`${_keptOwn} 件の項目は「追加のみ」のため既存を残しました`); }
                     Toast.show(_parts.length
                         ? `インポートが完了しました（${_parts.join('・')}）`

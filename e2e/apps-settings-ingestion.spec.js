@@ -573,3 +573,47 @@ test('細工したメールアドレスが mailto へ注入されない', async 
   expect(await hrefFor('valid.user+tag@example.co.jp'),
     'control: 正常なアドレスまで既定値へ潰している').toBe('mailto:valid.user+tag@example.co.jp');
 });
+
+// ===== snapshot 復元も失われた分を報告すること =====
+// 復元は import と同じ validateAndNormalize を通すのに、**無条件で「復元しました」**と
+// 報告していた。実測 (2026-08-20): 505 件の tasks と 30,000 文字のノートを持つ snapshot を
+// 復元すると 500 件 / 20,000 文字になり **5 件と 10,000 文字が消える**。
+// snapshot は単一スロット = 利用者の**唯一の復元点**なので、import 経路より無防備なのは
+// 筋が通らない (getSnapshot は旧版が保存した legacy 形も明示サポートしており、上限が
+// 違う版の snapshot は現実に起こりうる)。
+test('snapshot の復元で失われた分を報告する', async ({ page }) => {
+  // 先に保存を発生させる (起動直後は localStorage が空 = 既知の落とし穴)
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  await page.getByLabel('新しいタスクを入力').fill('SNAP-SEED');
+  await page.getByLabel('新しいタスクを入力').press('Enter');
+  await expect(page.locator('#content').getByText('SNAP-SEED')).toBeVisible();
+  await expect.poll(async () => await page.evaluate(
+    () => (localStorage.getItem('portfolio_enhanced_v45') ? 1 : 0))).toBe(1);
+
+  // 上限を超えるデータを持つ snapshot を仕込む (上限が違う旧版が保存したものを模す)
+  await page.evaluate(() => {
+    const cur = JSON.parse(localStorage.getItem('portfolio_enhanced_v45'));
+    cur.appsData.tasks = Array.from({ length: 505 }, (_, i) => ({
+      id: 'snap' + i, title: 'SNAP' + i, status: 'todo',
+    }));
+    cur.appsData.notes = 'N'.repeat(30000);
+    localStorage.setItem('portfolio_snapshot_v45', JSON.stringify({ at: Date.now(), data: cur }));
+  });
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  await page.getByRole('button', { name: /復元/ }).first().click();
+
+  // control: そもそも上限で削られていなければ、この報告を検査する意味がない。
+  await expect.poll(async () => await page.evaluate(() => {
+    const a = JSON.parse(localStorage.getItem('portfolio_enhanced_v45')).appsData;
+    return `${(a.tasks || []).length}/${(a.notes || '').length}`;
+  }), 'control: 上限で削られていない (500 件 / 20000 文字)').toBe('500/20000');
+
+  const ann = await page.evaluate(
+    () => document.getElementById('action-announcement').textContent
+  );
+  expect(ann, '5 件が落ちたのに報告していない').toContain('5 件は取り込めませんでした');
+  expect(ann, 'ノート 10,000 文字が消えたのに報告していない').toContain('1 件の項目');
+});
