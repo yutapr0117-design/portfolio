@@ -370,12 +370,16 @@ test('空の状態でも構造 a11y が壊れない (todo 全削除 / 検索 0 �
   // control: 消す対象が無いと「空にした」状態を作れない
   expect(await page.locator('#content button[id^="todo-delete-"]').count(),
     'control: 既定 TODO が 0 件では空状態を作れない').toBeGreaterThan(0);
-  for (let i = 0; i < 10; i++) {
-    const del = page.locator('#content button[id^="todo-delete-"]').first();
-    if (await del.count() === 0) { break; }
-    await del.click();
+  // 削除は再描画を伴うので **1 件ずつ件数の減少を待つ**。`.first()` を掴んでから
+  //   立て続けに click すると、再描画で detach された古いノードを待ち続けて
+  //   CI 負荷下で 30s timeout する (実測 2026-08-20・落とし穴表の
+  //   「再描画で消えうる要素に click」class)。
+  const delBtns = page.locator('#content button[id^="todo-delete-"]');
+  for (let remaining = await delBtns.count(); remaining > 0; remaining--) {
+    await delBtns.first().click();
+    await expect(delBtns).toHaveCount(remaining - 1);
   }
-  await expect(page.locator('#content button[id^="todo-delete-"]')).toHaveCount(0);
+  await expect(delBtns).toHaveCount(0);
 
   const scan = async () => (await new AxeBuilder({ page }).withRules(STRUCTURE_RULES).analyze())
     .violations.map((v) => `${v.id}:${v.nodes.length}`);
