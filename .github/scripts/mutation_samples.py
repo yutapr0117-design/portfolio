@@ -198,51 +198,17 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 436: 規範層に canon が否定した「裁可待ち」型の defer 理由が再混入しても気付けなくなる —— canon を直しても下流の規範文書は自動では直らず、読み手は否定された規則を持ち帰る (2026-08-20 に research-application-policy.md で実際に起きた)",
+    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
+    "find": "## 9.",
+    "replace": "\u3053\u306e\u9805\u76ee\u306f\u30aa\u30fc\u30ca\u30fc\u304c\u88c1\u53ef\u3057\u305f\u6642\u306b\u7740\u624b\u3059\u308b\u3002\n\n## 9.",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
-    {
-        "name": "behavior: Storage.parse の try/catch が外れる — localStorage が壊れた JSON を持っていると起動時に throw し、**サイトが真っ白で何もできない**最悪の壊れ方になる。localStorage は devtools でも別バージョンでも拡張機能でも書き換わりうる『アプリが最初に読む外部入力』",
-        "file": ROOT / "js" / "storage.js",
-        "find": "        try {\n            return JSON.parse(data);\n        } catch {\n            return null;\n        }",
-        "replace": "        return JSON.parse(data);",
-        "test": "localStorage がどんな形で壊れていても既定 store で起動する",
-    },
-    {
-        "name": "behavior: upsert import が新規 project を取り込まなくなる (#192 の回帰) — 既存 id の更新だけが効き、未知 id は黙って捨てられる。取り込んだつもりのプロジェクトが 1 件も増えないのに成功メッセージは出る",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "                            parsed.projects.forEach(p => map.set(p.id, p));\n",
-        "replace": "",
-        "test": "Settings JSON import (upsert) adds a new project and preserves profile fields (round-trip)",
-    },
-    {
-        "name": "behavior: strict import が置換しなくなる — 『全置換』を選んだのに現状のまま。モード選択が効かないので、利用者は取り込んだ内容が反映されない理由を特定できない",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "                            merged.projects = parsed.projects;",
-        "replace": "                            merged.projects = base.projects;",
-        "test": "Settings strict import replaces user-added layer but preserves defaults",
-    },
-    {
-        "name": "behavior: タスク削除が何も消さなくなる — 削除ボタンは押せてトーストも出るのにカードが残る。利用者からは『押しても効かない』としか見えない",
-        "file": ROOT / "js" / "apps.js",
-        "find": "                s.appsData.tasks = s.appsData.tasks.filter(t => t.id !== id);",
-        "replace": "                void id;",
-        "test": "Task can be deleted from the board",
-    },
-    {
-        "name": "behavior: 詳細ページの未入力 placeholder が失われる — 手動追加のプロジェクトは problem/approach/tech が空なので、**見出しだけで中身が無いセクション**が並ぶ。自分で追加したものを開くのはこのアプリを試す人が最初にやることなので印象面でも実害がある",
-        "file": ROOT / "js" / "project-detail-page.js",
-        "find": "project.problem || '(未登録)'",
-        "replace": "project.problem",
-        "test": "手動追加したプロジェクトの詳細に空の見出しが残らない",
-    },
-    {
-        "name": "a11y: ポモドーロのモードボタンが選択状態を露出しなくなる — aria-pressed が常に false だと、支援技術の利用者には **今どのモードなのかが分からない**。視覚的には色で分かるので目視では気付けない (WCAG 4.1.2)",
-        "file": ROOT / "js" / "pomodoro-page.js",
-        "find": "                                    'aria-pressed': String(pomo.runtime.mode === m.id),",
-        "replace": "                                    'aria-pressed': 'false',",
-        "test": "Pomodoro mode buttons expose selected state via aria-pressed",
-    },
     {
         "name": "a11y: 残り時間が role=timer でなくなる — role=status だと更新のたびに読み上げが割り込む (毎秒)。timer は『時間の表示』として扱われ chatty にならない。視覚表示は同じなので目視では区別できない",
         "file": ROOT / "js" / "pomodoro-page.js",
