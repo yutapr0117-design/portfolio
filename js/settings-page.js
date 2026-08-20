@@ -40,6 +40,13 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
     let settingsNewTech = '';
     let settingsNewDemo = '';
 
+    // キー順に依存しない安定化 JSON。オブジェクトの等価判定に使う (手書きの取り込み
+    // ファイルは export と キー順が違いうるので、素の JSON.stringify では別物と誤判定する)。
+    const _stable = (v) => JSON.stringify(v, (k, val) =>
+        (val && typeof val === 'object' && !Array.isArray(val))
+            ? Object.keys(val).sort().reduce((o, kk) => { o[kk] = val[kk]; return o; }, {})
+            : val);
+
     /**
      * lossParts — 正規化で失われた分を数え、利用者に見せる文言の配列を返す。
      *
@@ -330,8 +337,13 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                             if (settingsImportMode === 'upsert') {
                                 merged.appsData = { ...baseApps, ...inc };
                             } else {
-                                // append: tasks/todos 以外は既存を優先し、落とした分を数える。
-                                _keptOwn = Object.keys(inc).filter(k => k !== 'tasks' && k !== 'todos').length;
+                                // append: tasks/todos 以外は既存を優先し、**実際に違う**分だけ数える。
+                                // 内容が同じなら何も失っていないので報告しない —— 失っていないのに
+                                // 警告を出すと、本物の切り捨て警告が信用されなくなる (#1181 と同じ理由)。
+                                // キー順に依存しないよう安定化して比較する (手書きファイルは
+                                // export と順序が違いうる)。
+                                _keptOwn = Object.keys(inc).filter(k => k !== 'tasks' && k !== 'todos'
+                                    && _stable(inc[k]) !== _stable(baseApps[k])).length;
                                 merged.appsData = { ...baseApps };
                             }
                             merged.appsData.tasks = _tasks;

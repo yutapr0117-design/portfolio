@@ -955,6 +955,22 @@ _E2E_TAIL.append({
     "test": "snapshot の復元で失われた分を報告する",
 })
 
+_E2E_TAIL.append({
+    "name": "「追加のみ」の既存優先レポートが過剰報告に戻る —— 内容が同じで何も失っていなくても警告を出す。失っていないのに警告を出すと本物の切り捨て警告が信用されなくなる",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "                                    && _stable(inc[k]) !== _stable(baseApps[k])).length;",
+    "replace": "                                    ).length;",
+    "test": "内容が同じなら",
+})
+
+_E2E_TAIL.append({
+    "name": "「追加のみ」の既存優先レポートが出なくなる —— 実際に取り込まなかった項目があっても黙る (過少報告)。上の過剰報告 mutation と対で、両方向を固定する",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "                                _keptOwn = Object.keys(inc).filter(k => k !== 'tasks' && k !== 'todos'",
+    "replace": "                                _keptOwn = 0 * Object.keys(inc).filter(k => k !== 'tasks' && k !== 'todos'",
+    "test": "内容が違えば",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
