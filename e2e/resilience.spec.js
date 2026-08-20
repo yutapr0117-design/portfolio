@@ -579,6 +579,14 @@ test('開いている詳細ページのプロジェクトを削除しても Fata
 // 非同期の応答待ち (AI ページの 300ms) の最中に、別ルートで全データをリセットする。
 // 応答が返ったときに参照する state は既に置き換わっているので、State.update の中で
 // 消えた枝を触ると crash する形になりうる。
+// NOTE (2026-08-20): このテストは **単一の realistic な mutation では RED にできない**。
+//   守っている性質は「reset で state を差し替えても、遅延して届く応答の書き込みが crash
+//   しない」ことで、その安全性は `createDefaultStore()` が常に ai.history を持つことから
+//   構造的に導かれる。ai-page 側の `finally { aiLoading = false }` を潰しても緑のまま
+//   (それが守るのは stuck-state であって crash ではない) と実測した。
+//   RED を実測できないものは安全網に混ぜない方針ゆえ mutation は登録しない
+//   (#1096 の reduced-motion / data-ai-state と同型)。次に読む人が同じ検証を
+//   繰り返さないよう理由を残す。
 test('AI の応答待ちの最中に全リセットしても FatalPage にならない', async ({ page }) => {
   await page.goto('/#/apps/ai', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#content h1')).toBeVisible();
