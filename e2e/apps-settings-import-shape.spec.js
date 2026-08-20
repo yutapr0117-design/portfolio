@@ -281,3 +281,73 @@ test('取り込んだ project の中身が上限で削られたら件数を報�
   );
   expect(ann, '26 項目が消えたのに素の「完了しました」と報告している').toContain('26 件');
 });
+
+// ===== 文字数上限で「短縮」された項目も報告すること =====
+// 直前のテストが数える _trimmed は list の *件数* だけを見るため、name/summary/title 等の
+// 文字列が上限で切られる面は 0 のままだった。実測 (2026-08-20): name 300 文字 /
+// summary 900 文字の project を取り込むと 120 / 800 になり **280 文字が消える**のに
+// 素の「インポートが完了しました」。#1177 は *手動追加* で既に短縮を報告しており、
+// 取り込み経路だけが取り残されていた非対称。
+test('取り込んだ項目が文字数上限で短縮されたら件数を報告する', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  await page.setInputFiles('#content input[type="file"]', {
+    name: 'short.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({
+      schemaVersion: 12,
+      projects: [{
+        id: 'short-1', name: 'N'.repeat(300), slug: 'short-proj',
+        summary: 'S'.repeat(900), category: 'AI',
+      }],
+    })),
+  });
+
+  await expectNotified(page, 'インポートが完了しました');
+
+  // control: そもそも短縮が起きていなければ、この通知を検査する意味がない。
+  await expect.poll(async () => await page.evaluate(() => {
+    const raw = localStorage.getItem('portfolio_enhanced_v45');
+    if (!raw) { return -1; }
+    const p = (JSON.parse(raw).projects || []).find((x) => x.slug === 'short-proj');
+    return p ? p.name.length + p.summary.length : -1;
+  }), 'control: 上限で短縮されていない (920 = 120+800)').toBe(920);
+
+  const ann = await page.evaluate(
+    () => document.getElementById('action-announcement').textContent
+  );
+  expect(ann, '280 文字が消えたのに素の「完了しました」と報告している').toContain('2 件の項目');
+});
+
+// 前後の空白の trim は「上限による損失」ではないので短縮として報告しない。
+// profile の email / github / linkedin は safeEmail / safeUrl が **trim 後の値を返す**ため、
+// ガードが無いと前後に空白があるだけのごく普通のファイルで毎回「短縮されました」と誤報し、
+// **本物の切り捨て警告が信用されなくなる**。
+test('前後の空白を落としただけでは短縮として報告しない', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  await page.setInputFiles('#content input[type="file"]', {
+    name: 'ws.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({
+      schemaVersion: 12,
+      profile: { email: '  ws-probe@example.com  ', github: '  https://example.com/ws  ' },
+    })),
+  });
+
+  await expectNotified(page, 'インポートが完了しました');
+
+  // control: そもそも trim が起きていなければ、誤報しないことを測れていない。
+  await expect.poll(async () => await page.evaluate(() => {
+    const raw = localStorage.getItem('portfolio_enhanced_v45');
+    if (!raw) { return null; }
+    return (JSON.parse(raw).profile || {}).email || null;
+  }), 'control: trim されていない').toBe('ws-probe@example.com');
+
+  const ann = await page.evaluate(
+    () => document.getElementById('action-announcement').textContent
+  );
+  expect(ann, '空白の trim を「短縮」と誤報している').not.toContain('短縮');
+});
