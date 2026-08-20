@@ -790,6 +790,32 @@
             transition: all var(--transition-fast);
         }
 
+        /* [A11Y 3.3.1 / 1.4.1] 検証エラーの **視覚的な**識別。
+           アプリは不正な入力へ `aria-invalid="true"` を立てて focus を移すが、従来 CSS 側に
+           `[aria-invalid]` の宣言が 1 つも無く、**目で見る利用者には「どの欄が不正か」が
+           分からなかった**。実測 (2026-08-20): 送信失敗直後の欄に出るのは通常の primary
+           フォーカスリングだけで、有効な欄を触ったときと見分けが付かず、Tab で離れると
+           視覚的な痕跡はゼロになる (aria-invalid は true のまま = SR にだけ伝わる状態)。
+           Toast は duration で消えるので、消えた後は手がかりが無くなる。
+           `--focus-ring-danger` はこの用途で定義されながら未使用だったので、ここで配線する。
+           **色だけに依存しない** (WCAG 1.4.1) よう、境界線の太さも同時に変える。
+           有効な欄の描画は一切変わらない (属性が付いたときだけ適用される)。 */
+        [aria-invalid="true"] {
+            border-color: var(--color-danger);
+            border-width: 2px;
+        }
+
+        /* focus 中も「エラーである」ことが優先。`.input:focus` は同じ特異度で後に来るため、
+           属性を重ねて特異度を 1 段上げないと primary のリングに負ける (実測で踏んだ)。 */
+        .input[aria-invalid="true"]:focus,
+        .input[aria-invalid="true"]:focus-visible,
+        [aria-invalid="true"]:focus,
+        [aria-invalid="true"]:focus-visible {
+            border-color: var(--color-danger);
+            outline-color: var(--color-danger);
+            box-shadow: var(--focus-ring-danger);
+        }
+
         .input:hover {
             border-color: var(--border-color-strong);
         }

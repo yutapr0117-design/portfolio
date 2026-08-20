@@ -491,3 +491,50 @@ test('模範解答フォームの入力上限が mailto の実行限界を超え
   expect(measured.url,
     `最悪ケースの mailto が実行限界を超える (実測 ${measured.url} 文字 / 目安 2048)`).toBeLessThan(2048);
 });
+
+
+// ===== 検証エラーが「目で見て」分かる (WCAG 3.3.1 / 1.4.1) =====
+// アプリは不正な入力へ `aria-invalid="true"` を立てて focus を移すが、従来 CSS 側に
+// `[aria-invalid]` の宣言が **1 つも無かった**。実測 (2026-08-20): 送信失敗直後の欄に出るのは
+// 通常の primary フォーカスリングだけで **有効な欄を触ったときと見分けが付かず**、Tab で離れると
+// 視覚的な痕跡はゼロになる (aria-invalid は true のまま = SR にだけ伝わる状態)。
+// Toast は duration で消えるため、消えた後は「どの欄が不正か」の手がかりが無くなる。
+// `--focus-ring-danger` はこの用途で定義されながら未使用だった。
+//
+// 色だけに依存しない (WCAG 1.4.1) よう、境界線の **太さ** も同時に変える。
+test('Invalid form fields are visually distinguishable, not only announced', async ({ page }) => {
+  await page.goto('/#/quiz');
+  await page.waitForLoadState('domcontentloaded');
+
+  const name = page.getByLabel('お名前');
+  const optional = page.getByLabel('メッセージ');
+  await expect(name).toBeVisible();
+
+  const box = (l) => l.evaluate((el) => {
+    const cs = getComputedStyle(el);
+    return { color: cs.borderColor, width: cs.borderWidth };
+  });
+
+  // control: 送信前は必須欄も任意欄も同じ見た目 (ここが崩れると以下は何も検査しない)
+  const before = await box(name);
+  expect(before, '送信前から不正扱いになっている').toEqual(await box(optional));
+
+  await page.getByRole('button', { name: '送信' }).first().click();
+  await expect(name).toHaveAttribute('aria-invalid', 'true');
+
+  // 不正欄は太さで区別できる (色だけに依存しない)。
+  // NOTE: `.input` は `transition: all` を持つので **境界線幅はアニメーションする**。
+  //   属性が付いた直後に読むと途中値 (まだ 1px) を掴む —— これは「変化」の検査なので poll が正しい
+  //   (不変性の検査なら settle 後に 1 度読む・落とし穴表参照)。実際に一度踏んだ。
+  await expect.poll(async () => (await box(name)).width,
+    { timeout: 5000 }).not.toBe(before.width);
+  const invalid = await box(name);
+  expect(invalid.color, '不正欄の境界線色が変わっていない').not.toBe(before.color);
+
+  // 任意欄は元のまま = 「全部が赤くなる」実装ではない
+  expect(await box(optional), '不正でない欄まで警告表示になっている').toEqual(before);
+
+  // focus を外しても痕跡が残る (Toast が消えた後も分かる)
+  await name.blur();
+  expect((await box(name)).width, 'blur で視覚的な痕跡が消えている').toBe(invalid.width);
+});

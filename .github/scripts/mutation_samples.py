@@ -920,6 +920,13 @@ _E2E_TAIL = [
         "replace": ".cmdk-item.is-active, .cmdk-item:hover { background: var(--color-primary, #6366f1); color: #9aa0b8; }",
         "test": "\u30e9\u30a4\u30c8\u306e drawer / palette / toast \u306b color-contrast \u9055\u53cd\u304c\u30bc\u30ed",
     },
+    {
+        "name": "\u691c\u8a3c\u30a8\u30e9\u30fc\u306e\u8996\u899a\u7684\u8b58\u5225\u304c\u5931\u308f\u308c\u308b \u2014\u2014 [aria-invalid] \u306e\u5883\u754c\u7dda\u3092\u901a\u5e38\u3078\u623b\u3059\u3068\u3001\u4e0d\u6b63\u306a\u6b04\u304c\u6709\u52b9\u306a\u6b04\u3068\u898b\u5206\u3051\u4ed8\u304b\u306a\u304f\u306a\u308b\u3002Toast \u306f duration \u3067\u6d88\u3048\u308b\u306e\u3067\u3001\u6d88\u3048\u305f\u5f8c\u306f\u300c\u3069\u306e\u6b04\u304c\u4e0d\u6b63\u304b\u300d\u306e\u624b\u304c\u304b\u308a\u304c\u7121\u304f\u306a\u308b (WCAG 3.3.1 / 1.4.1)",
+        "file": ROOT / "style.css",
+        "find": "            border-color: var(--color-danger);\n            border-width: 2px;",
+        "replace": "            border-color: var(--border-color);",
+        "test": "Invalid form fields are visually distinguishable",
+    },
 ]
 
 
