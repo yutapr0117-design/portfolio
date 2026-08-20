@@ -534,6 +534,35 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 
 ## 2.9 意図的に Check にしない面（brittle gate を足さないための記録）
 
+### docstring の行数記述 / Check 文言が名指しする js file（2026-08-20 実測・非強制）
+
+**動機となった実バグはある**: `js/settings-io.js` を抽出したとき Check 374 の走査先だけを
+新 file へ移し、**docstring・section header・失敗メッセージは `settings-page.js` を名乗った
+まま**残った。失敗メッセージは「問題の場所を探しているまさにその時」に読まれるので、
+古い file 名は**もうコードが無い file** へ読み手を送る。これは per-instance で是正した。
+
+**だが機械化はしない。** 実際に Check を書いて走らせたところ、3 module が RED になり
+**すべて正当な参照**だった:
+
+| module | 名指し | 実態 |
+| :-- | :-- | :-- |
+| `checks_app_route.py` | `apps.js` | 「Settings の手動追加フォーム (js/apps.js SettingsPage)」= 抽出前の**歴史的経緯**の説明 |
+| `checks_canon_config.py` | `ai-page.js` | 「実測: ai-page.js の実ハンドラを書き換えても…」= **実測例**の言及 |
+| `checks_behavioral.py` | `ai-page.js` / `components.js` | 同上（cross-reference と実測例） |
+
+「自分が読む file」と「文脈として挙げる file」の区別は**意味の判断**で、正規表現では
+分けられない。Check 化すると **正当な cross-reference や歴史的経緯を消す圧力**が生まれ、
+説明が痩せて実態より悪くなる（§2.9 冒頭の #977 と同じ結論）。
+
+**docstring の行数記述も同様**: 30 葉を走査すると「抽出時 1,370 行だった」「837→461 行へ
+縮小」等が大量に引っかかるが、**いずれも過去の記録として正しい**。現在値の主張は
+`file-size-budget.md` §2 表が単一ソースで、そちらは Check 424 が `wc -l` 一致を強制している。
+
+**代わりに何が守るか**: Check を retarget するときは走査先・docstring・section header・
+失敗メッセージを**同じ commit で**直す、という規律（Check 45 が docstring↔section の
+bijection を、Check 70/105 が総数と map の同期を強制するので、番号面の drift は機械が止める）。
+
+
 新しい Check を足す前に読むこと。**「機械的に検査できる」と「機械的に強制すべき」は別**で、
 ここに挙げた面は実測したうえで **Check にしないと決めた**。強制すると正しい記述を壊す。
 

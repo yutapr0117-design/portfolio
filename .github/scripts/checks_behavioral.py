@@ -8,7 +8,7 @@ runtime UX invariants discovered from real bugs: command-palette ↔ router app-
 (130, via brace-balance parsing of oninput handlers), service-worker decodeURIComponent
 try/catch guard (131), and store default-appsData field ⟹ normalizeAppsData preserve round-trip
 (373, guarding the producer/consumer persist drift that silently dropped quizSearch on reload),
-and settings-page importJSON normalize-before-adopt ingestion guard (374, keeping raw external JSON
+and settings-io importJSON normalize-before-adopt ingestion guard (374, keeping raw external JSON
 from reaching render — the ingestion counterpart of 130).
 Each Check reads its own shipped-JS target files directly (js/*.js,
 main.js, sw.js) via Path.read_text(); none depends on the monolith's global html/style/mainjs
@@ -132,7 +132,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        changes — exactly what had happened: ai-page.js wrote to the element directly while
        everything else went through Toast. Comments are stripped and ui-components.js itself is
        excluded (it hosts the legitimate writer). (BLOCKING)
-  374. settings-page.js importJSON normalize-before-adopt ingestion guard: importJSON ingests
+  374. settings-io.js importJSON normalize-before-adopt ingestion guard (2026-08-20 に
+       js/settings-page.js から抽出・守る invariant は不変): importJSON ingests
        external JSON. If it commits the raw parsed data via State.update(...), the notify → render()
        cycle paints un-normalized data (e.g. malformed projects with a null/non-object entry that
        SettingsPage dereferences via p.name/p.id and crashes on). restoreSnapshot already follows the
@@ -730,7 +731,7 @@ def run(ctx):
         blocking=True,
     )
 
-    # ── 374. settings-page.js importJSON normalize-before-adopt ingestion guard (BLOCKING) ──
+    # ── 374. settings-io.js importJSON normalize-before-adopt ingestion guard (BLOCKING) ──
     # importJSON は外部 JSON を取り込む ingestion 経路。生の parsed を State.update で adopt すると
     # notify→render() が正規化前の生データ (malformed projects 等) を描画しうる (strict モードの
     # `merged.projects = parsed.projects` 生代入が malformed entry を SettingsPage の p.name/p.id
@@ -778,8 +779,8 @@ def run(ctx):
             blocking=True,
         )
     else:
-        check(False, "Check 374: js/settings-page.js present",
-              "Check 374: js/settings-page.js が無い — importJSON ingestion guard を検証できない", blocking=True)
+        check(False, "Check 374: js/settings-io.js present",
+              "Check 374: js/settings-io.js が無い — importJSON ingestion guard を検証できない", blocking=True)
 
     # ── 382. Command palette ↔ router static top-level route bijection (BLOCKING) ─
     # Check 128 は `apps/<app>` の app route のみ palette 網羅を強制する。router (_parseRoute) が
