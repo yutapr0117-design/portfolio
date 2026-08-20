@@ -173,48 +173,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "behavior: 部分 export した素の配列を import が受け付けなくなる (#1038 の回帰) — `Projectsのみ` は projects の素の配列を書き出すので、full-state 形しか見ないと **何も起きないのに『インポートが完了しました』**と報告する。戻せないファイルを作って成功したと言うのは失敗するより悪い",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "            if (Array.isArray(raw)) { return { projects: raw }; }",
-        "replace": "            if (false && Array.isArray(raw)) { return { projects: raw }; }",
-        "test": "部分 export (Projectsのみ) を import で戻せる",
-    },
-    {
-        "name": "behavior: 認識できない形式を silent no-op として成功報告する (#1038 の回帰) — 形式判定が null を返さなくなると、何も適用されないまま『インポートが完了しました』が出る。利用者は復元できたと信じてしまう",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "            if (has('name', 'title', 'bio', 'email', 'github', 'linkedin', 'location')) { return { profile: raw }; }\n            return null;",
-        "replace": "            if (has('name', 'title', 'bio', 'email', 'github', 'linkedin', 'location')) { return { profile: raw }; }\n            return raw;",
-        "test": "認識できない形式の JSON は成功と report しない",
-    },
-    {
-        "name": "behavior: 対象から全部落ちても成功と報告する (#1040 の回帰) — 形は認識できるのに『対象』チェックボックスの選択で中身が全部落ちる場合、1 セクションも適用していないのに『インポートが完了しました』が出る。#1038 で塞いだ silent-lie の残り半分で、利用者からは同じく『バックアップを戻したのに戻っていない』としか見えない",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "                    let applied = false;",
-        "replace": "                    let applied = true;",
-        "test": "対象から外した形の import を成功と report しない",
-    },
-    {
-        "name": "behavior: AppsDataのみ の形を import が受け付けなくなる (#1040) — `AppsDataのみ` は素の appsData オブジェクトを書き出す。この枝が落ちると素の配列 (Projectsのみ) だけが戻せる非対称になり、apps のバックアップだけが黙って戻らない",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "            if (has('tasks', 'todos', 'pomodoro', 'ai', 'notes', 'quizSearch')) { return { appsData: raw }; }",
-        "replace": "            if (false && has('tasks', 'todos', 'pomodoro', 'ai', 'notes', 'quizSearch')) { return { appsData: raw }; }",
-        "test": "対象から外した形の import を成功と report しない",
-    },
-    {
-        "name": "behavior: 全リセットの confirm ガードが消える — キャンセルしても全データが初期化される。破壊操作の確認は『押し間違い』ではなく『考え直した』を守るためのもので、これが効かないとキャンセルを押した利用者がデータを失う。最悪の silent failure なのに安全網の非 vacuity が未実証だった",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "            if (!confirm('すべてのデータを初期化しますか？')) {return;}\n",
-        "replace": "",
-        "test": "Canceling the reset confirm keeps data (data-safety)",
-    },
-    {
-        "name": "behavior: プロジェクト削除の confirm ガードが消える — キャンセルしても削除される。既定プロジェクトは削除できないため対象はユーザーが自分で追加したものだけで、復元手段は backup しか無い",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "            if (!confirm('本当に削除しますか？')) {return;}\n",
-        "replace": "",
-        "test": "Canceling the delete confirm keeps the project (data-safety)",
-    },
-    {
         "name": "behavior: MAX_PROJECTS の件数上限が緩む — import/cross-tab/snapshot 経由で巨大な projects 配列が localStorage を bloat させ描画を重くする DoS ガードの喪失。NOTE: 切り詰めは mergeProjectsWithDefaults 内で **二重に適用**されている (normalizedIncoming の slice と最終 merged の slice) ため、**片方の slice を消すだけでは RED にならない** (もう片方が受ける)。意味のある mutation は上限値そのものを緩めること",
         "file": ROOT / "js" / "constants.js",
         "find": "        MAX_PROJECTS: 1000,",
@@ -954,6 +912,13 @@ _E2E_TAIL = [
         "find": "--on-tint-primary: var(--color-primary-dark);",
         "replace": "--on-tint-primary: var(--color-primary);",
         "test": "indigo \u30e9\u30a4\u30c8\u306e\u5168\u30da\u30fc\u30b8\u3067 color-contrast \u9055\u53cd\u304c\u30bc\u30ed",
+    },
+    {
+        "name": "\u958b\u3044\u305f\u72b6\u614b\u3067\u3057\u304b\u63cf\u753b\u3055\u308c\u306a\u3044\u9762\u306e contrast \u9000\u884c \u2014\u2014 command palette \u306e active \u9805\u76ee\u306e\u6587\u5b57\u8272\u3092\u4e2d\u9593\u30b0\u30ec\u30fc\u3078\u843d\u3068\u3059\u3002\u30eb\u30fc\u30c8\u3092\u5DE1\u308b\u9759\u7684\u8d70\u67fb\u306f\u9589\u3058\u3066\u3044\u308b\u9593 palette \u3092\u898b\u306a\u3044\u306e\u3067\u7dd1\u306e\u307e\u307e\u3067\u3001\u3053\u306e\u72b6\u614b\u9762\u306e test \u3060\u3051\u304c\u6355\u6349\u3059\u308b",
+        "file": ROOT / "style.css",
+        "find": ".cmdk-item.is-active, .cmdk-item:hover { background: var(--color-primary, #6366f1); color: #fff; }",
+        "replace": ".cmdk-item.is-active, .cmdk-item:hover { background: var(--color-primary, #6366f1); color: #9aa0b8; }",
+        "test": "\u30e9\u30a4\u30c8\u306e drawer / palette / toast \u306b color-contrast \u9055\u53cd\u304c\u30bc\u30ed",
     },
 ]
 

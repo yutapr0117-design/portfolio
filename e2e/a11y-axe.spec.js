@@ -927,3 +927,59 @@ test('WCAG 1.4.3: classic ライトの全ページで color-contrast 違反が�
 test('WCAG 1.4.3: classic ダークの全ページで color-contrast 違反がゼロ', async ({ page }) => {
   await expectNoContrastViolations(page, 'classic', 'dark');
 });
+
+// ===== WCAG 1.4.3: 「開いた状態」でしか描画されない面のコントラスト =====
+// ルートを巡る静的走査では、drawer / command palette / toast の中身は **一度も測られない**
+// (閉じている間は DOM に無いか非表示)。実測 (2026-08-20) ではいずれも違反ゼロだが、
+// 測られていない面は退行しても誰も気付けないので gate にする。
+// 非 vacuity: palette の active 項目の文字色を中間グレーへ落とすと、ルート走査は緑のまま
+// この test だけが RED になる (= 状態面を実際に見ていることの証明)。
+async function expectNoContrastInOpenStates(page, scheme) {
+  await page.emulateMedia({ colorScheme: scheme, reducedMotion: 'reduce' });
+  const offenders = [];
+  const scan = async (label) => {
+    const res = await new AxeBuilder({ page }).withRules(['color-contrast']).analyze();
+    for (const v of res.violations) {
+      for (const n of v.nodes) {
+        const d = n.any[0] && n.any[0].data;
+        offenders.push(`${label}: ${d ? `${d.fgColor} on ${d.bgColor} = ${d.contrastRatio}` : n.target[0]}`);
+      }
+    }
+  };
+
+  // drawer (mobile 専用の導線)
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+  await page.locator('#menuBtn').click();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
+  await scan('drawer-open');
+  await page.keyboard.press('Escape');
+
+  // command palette
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+  await page.keyboard.press('Control+k');
+  await expect(page.locator('.cmdk-input')).toBeVisible();
+  await scan('palette-open');
+  await page.keyboard.press('Escape');
+
+  // toast (追加成功の通知が出ている状態)
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#task-input')).toBeVisible();
+  await page.locator('#task-input').fill('コントラスト検査');
+  await page.locator('#task-input').press('Enter');
+  await expect(page.locator('#toast-container').getByText('タスクを追加しました')).toBeVisible();
+  await scan('toast-visible');
+
+  expect(offenders, `開いた状態で AA を満たさない配色がある:\n${offenders.slice(0, 8).join('\n')}`).toEqual([]);
+}
+
+test('WCAG 1.4.3: ライトの drawer / palette / toast に color-contrast 違反がゼロ', async ({ page }) => {
+  await expectNoContrastInOpenStates(page, 'light');
+});
+
+test('WCAG 1.4.3: ダークの drawer / palette / toast に color-contrast 違反がゼロ', async ({ page }) => {
+  await expectNoContrastInOpenStates(page, 'dark');
+});
