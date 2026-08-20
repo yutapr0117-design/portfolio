@@ -221,7 +221,57 @@ def _check_assets(html):
 
     print(f"OK: 公開サイトが宣言している資産 {len(seen)} 件 "
           "(index.html の参照 ∪ .well-known ∪ sitemap の <loc>) がすべて 200 で配信されている")
-    return _check_digests(base)
+    rc = _check_shipped_bytes(base)
+    return rc or _check_digests(base)
+
+
+def _check_shipped_bytes(base):
+    """shipped な CSS/JS が **リポジトリと同じ中身** で配信されているかを検証する。
+
+    上の資産チェックは **200 が返るかしか見ていない**。だが「200 は返るが中身が古い」は
+    別の失敗モードで、部分デプロイ / CDN キャッシュ混線で普通に起こりうる。実害は重い ——
+    例えば style.css だけ古いままだと、直したはずのコントラストや focus の契約が
+    **公開面では効いていない**のに、リポジトリ側の Check も behavior e2e も
+    (ローカルの成果物を見ているので) すべて緑のままになる。
+
+    AIO 面 (llms.txt 等) は `_check_digests` が sha256 で見ているので、同じ考えを
+    **shipped 面へ広げる**。対象は「壊れると全ページに影響する」中核だけに絞る
+    (全 js/*.js を舐めると週次ジョブが遅くなるうえ、中核が一致していれば
+    部分デプロイはほぼ確実に検出できる)。
+    """
+    import hashlib
+
+    targets = ["style.css", "main.js", "sw.js"]
+    bad = []
+    for name in targets:
+        local = ROOT / name
+        if not local.exists():
+            bad.append((name, "リポジトリに無い"))
+            continue
+        want = hashlib.sha256(local.read_bytes()).hexdigest()
+        try:
+            rq = urllib.request.Request(base + name, headers={
+                "Cache-Control": "no-cache",
+                "User-Agent": "portfolio-deployed-freshness-check",
+            })
+            with urllib.request.urlopen(rq, timeout=30) as resp:
+                got = hashlib.sha256(resp.read()).hexdigest()
+        except Exception as e:  # noqa: BLE001
+            bad.append((name, type(e).__name__))
+            continue
+        if got != want:
+            bad.append((name, f"sha256 不一致 deployed={got[:12]} repo={want[:12]}"))
+
+    if bad:
+        for name, why in bad:
+            print(f"::error::公開されている {name} がリポジトリと違う — {why}", flush=True)
+        print("::error::200 が返ることと『中身が最新であること』は別の失敗モード。"
+              "部分デプロイ / キャッシュ混線でこの状態になると、直したはずの契約が"
+              "**公開面だけ効いていない**のにリポジトリ側の Check も e2e も緑のままになる", flush=True)
+        return 1
+
+    print(f"OK: shipped な中核資産 {len(targets)} 件が sha256 でリポジトリと一致している")
+    return 0
 
 
 def _fetch_bytes(url):
