@@ -116,6 +116,15 @@ export function createProjectsPage({ h, createIcon, Router, State, tokenize, cle
                 if (countDisplay) {countDisplay.textContent = `合計 ${projects.length} 件`;}
 
                 if (projects.length === 0) {
+                    // [FIX] 空状態カードを **role="list" の中に入れない**。`list` の子として
+                    //   許されるのは `listitem` だけで、`role="status"` を直接入れると
+                    //   **リストの意味論そのものが壊れる** (axe aria-required-children:
+                    //   "Element has children which are not allowed: [role=status]")。
+                    //   実測 (2026-08-20): 検索 0 件で違反 1 件。**既定状態では 0 件にならない**ため
+                    //   全ルート axe 走査 (既定内容で実行) では一度も踏まれていなかった。
+                    //   list role を外して空状態を兄弟として置く —— 0 件のときリストは
+                    //   存在しないので、list として公開する対象自体が無い。
+                    gridContainer.removeAttribute('role');
                     gridContainer.appendChild(h('div', { class: 'card card--full-col', role: 'status', 'aria-live': 'polite' },
                         h('div', { class: 'card-body text-center text-muted' }, '条件に一致するプロジェクトはありません。')
                     ));

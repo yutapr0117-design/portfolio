@@ -965,6 +965,14 @@ _E2E_TAIL.append({
     "test": "Markdown ノートの見出しは書き始めのレベルに関わらず preview 階層へ接続する",
 })
 
+_E2E_TAIL.append({
+    "name": "検索 0 件のとき role=list の中へ空状態カード (role=status) が入り、リストの意味論が壊れる (WCAG 1.3.1) —— 既定状態では 0 件にならないので全ルート axe 走査では一度も踏まれない「既定値だけが偶然 clean」class",
+    "file": ROOT / "js" / "projects-page.js",
+    "find": "                    gridContainer.removeAttribute('role');\n                    gridContainer.appendChild(h('div', { class: 'card card--full-col', role: 'status'",
+    "replace": "                    gridContainer.appendChild(h('div', { class: 'card card--full-col', role: 'status'",
+    "test": "検索 0 件でもリストの意味論が壊れない",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 

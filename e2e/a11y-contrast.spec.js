@@ -315,3 +315,35 @@ test('ナビゲーションのランドマークが viewport ごとに一意に�
   await expect(page.getByRole('banner'),
     'mobile: banner ランドマーク (topbar) が 1 つだけ').toHaveCount(1);
 });
+
+// ===== 検索 0 件でもリストの意味論が壊れないこと (WCAG 1.3.1) =====
+// `role="list"` の子として許されるのは `listitem` だけ。従来は検索 0 件のとき、
+// **同じコンテナ**に空状態カード (`role="status"`) を入れていたため
+// axe の aria-required-children が「Element has children which are not allowed:
+// [role=status]」で違反を出し、**リストの意味論そのものが壊れて**いた。
+//
+// **既定状態では 0 件にならない**ので、全ルートの axe 走査 (既定内容で実行) では
+// 一度も踏まれていなかった —— Markdown ノートの見出し (#1213) と同じ
+// 「既定値だけが偶然 clean」class。
+//
+// 0 件のときはリストが存在しないので、list として公開する対象自体が無い。
+// role を外して空状態を兄弟として置く。
+test('検索 0 件でもリストの意味論が壊れない (role=list の子は listitem だけ)', async ({ page }) => {
+  // control: 通常状態では list / listitem が正しく公開されている
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content .grid-projects article').first()).toBeVisible();
+  await expect(page.getByRole('list'), 'control: 通常状態で list が公開されていない').toHaveCount(1);
+  expect(await page.getByRole('listitem').count(),
+    'control: listitem が 1 件も無いと list 意味論を測れない').toBeGreaterThan(1);
+
+  const violations = async () => {
+    const r = await new AxeBuilder({ page }).withRules(['aria-required-children']).analyze();
+    return r.violations.map((v) => `${v.id}:${v.nodes.length}`);
+  };
+  expect(await violations(), '通常状態で list 意味論が壊れている').toEqual([]);
+
+  // 0 件: 空状態カードを list の中に入れない
+  await page.goto('/#/projects?q=zzzznomatch', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content').getByText('条件に一致するプロジェクトはありません')).toBeVisible();
+  expect(await violations(), '0 件時に role=list の子へ role=status が入っている').toEqual([]);
+});
