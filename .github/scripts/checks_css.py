@@ -146,6 +146,23 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        catching it (behavior e2e does not assert focus-ring style; screenshot is advisory). Same
        a11y-CSS presence class as Checks 383/101/103. (BLOCKING)
 
+  433. 意味を持つクラスの used ⟹ styled。shipped JS が `class:` / `className =` で付ける
+       クラスのうち **意味を表す接頭辞** (`alert-` / `badge-` / `status-` / `state-` /
+       `is-` / `has-` / `toast-`) を持つものは、style.css に対応する `.` 宣言が無ければならない。
+       付けているのに宣言が無いクラスは **意味論だけが存在して見た目が伴わない**状態で、
+       コードを読むと「種別で描き分けている」ように見えるのに実際は全部同じに描かれる。
+       実測 2 例: (a) `aria-invalid="true"` を立てているのに `[aria-invalid]` の宣言が皆無で
+       **不正な入力欄が有効な欄と見分けが付かなかった** (#1160)、(b) `Toast.show(msg, type)` を
+       21 箇所が error/success/info/warning と選び分けて呼ぶのに `.alert` 系の宣言が
+       **履歴上一度も存在せず**、全種別が同一描画・背景も透明で本文に重なっていた (#1166)。
+       **cosmetic な utility クラス (absolute / relative / grid-cols-3 等 ~30) は対象外** ——
+       §7 に「オーナー裁可で現状維持」と記録済みで、ここで拾うと確定済みの判断を蒸し返す。
+       接頭辞を意味系に限定することでその境界を機械的に表現する。
+       **テンプレートリテラルで組み立てる種別クラスも閉じる** —— 動機となった #1166 は
+       `` `alert alert-${type}` `` の形でリテラル走査には映らず、**初版はまさにその
+       ケースを検出できなかった** (非 vacuity 検証が「RED にならない」ことで教えてくれた)。
+       `Toast.show(msg, 'type')` に渡される種別リテラルを集めて対応する宣言を要求する。(BLOCKING)
+
   428. CSS カスタムプロパティの used ⟹ defined (fallback 無しに限る):
        `var(--x)` を **フォールバック無し**で書いたとき `--x` が
        定義されていないと、その宣言は *invalid at computed-value
@@ -669,3 +686,54 @@ def run(ctx):
              "なので誰も気付かない。定義するか `var(--x, fallback)` 形にせよ"),
             blocking=True,
         )
+
+    # ── 433. 意味を持つクラスの used ⟹ styled (BLOCKING) ──────────────────────────
+    # 付けているのに宣言が無いクラスは「意味論だけが存在して見た目が伴わない」状態。
+    # 実測 2 例: aria-invalid の宣言皆無 (#1160) / .alert 系が履歴上一度も存在せず全種別同一描画 (#1166)。
+    # cosmetic utility (absolute / relative 等) は §7 でオーナーが現状維持と裁可済みゆえ対象外で、
+    # 接頭辞を意味系に限定することでその境界を機械的に表現する。
+    _css433 = ROOT / "style.css"
+    if _css433.exists():
+        _src433 = re.sub(r"/\*.*?\*/", "", _css433.read_text(encoding="utf-8"), flags=re.S)
+        _declared433 = set(re.findall(r"\.([a-zA-Z][\w-]*)", _src433))
+        _SEM433 = ("alert-", "badge-", "status-", "state-", "is-", "has-", "toast-")
+        _used433 = {}
+        _files433 = sorted((ROOT / "js").glob("*.js")) + [ROOT / "main.js"]
+        for _f433 in _files433:
+            if not _f433.exists():
+                continue
+            _js433 = re.sub(r"//[^\n]*", "", _f433.read_text(encoding="utf-8"))
+            for _m433 in re.finditer(r"class(?:Name)?\s*[:=]\s*['\"`]([^'\"`$]+)['\"`]", _js433):
+                for _c433 in _m433.group(1).split():
+                    if _c433.startswith(_SEM433):
+                        _used433.setdefault(_c433, set()).add(_f433.name)
+        # (b) **テンプレートリテラルで組み立てる種別クラス**も閉じる。動機となった #1166 は
+        #     `` `alert alert-${type}` `` の形で、リテラル走査には映らない —— 初版はまさにその
+        #     ケースを検出できず、非 vacuity 検証が「RED にならない」ことで教えてくれた。
+        #     `Toast.show(msg, 'type')` に渡される種別リテラルを集め、対応する宣言を要求する。
+        _types433 = set()
+        for _f433 in _files433:
+            if not _f433.exists():
+                continue
+            _js433 = re.sub(r"//[^\n]*", "", _f433.read_text(encoding="utf-8"))
+            for _m433 in re.finditer(r"Toast\.show\([^)]*?,\s*['\"]([a-z]+)['\"]", _js433):
+                _types433.add(_m433.group(1))
+        for _t433 in sorted(_types433):
+            _used433.setdefault("alert-" + _t433, set()).add("Toast.show(..., '%s')" % _t433)
+
+        _missing433 = sorted(c for c in _used433 if c not in _declared433)
+        check(
+            bool(_used433) and not _missing433,
+            f"Check 433: 意味を持つクラス {len(_used433)} 件すべてに style.css の宣言がある (used ⟹ styled)",
+            (f"Check 433: 付けているのに CSS 宣言が無い意味クラス: "
+             f"{[(c, sorted(_used433[c])) for c in _missing433[:4]]} — "
+             "コードは種別で描き分けているように見えるのに実際は全部同じに描かれる "
+             "(#1160 の aria-invalid / #1166 の .alert 系がこの形で実バグ化した)。"
+             "style.css に宣言を足すか、意味を持たない命名へ変えよ"
+             if _used433 else
+             "Check 433: shipped JS から意味クラスを 1 件も抽出できない (命名規約の変更を確認せよ)"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 433: style.css present",
+              "Check 433: style.css が無い — 意味クラスの styled 検証ができない", blocking=True)
