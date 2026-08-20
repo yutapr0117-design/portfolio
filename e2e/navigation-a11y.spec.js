@@ -128,6 +128,24 @@ test('sr-only content (route announcer + AIO entity anchor) stays visually hidde
   //   条件が false になりテストが**黙って PASS** する vacuous gate だった (実測: <div
   //   id="aio-footer-entity"> を削除しても本テストは PASS・consistency も 0 errors)。存在を必須に
   //   してから不可視性を検査する (presence は Check 403 が静的にも BLOCKING 強制)。
+  // [FIX] **assertive チャネル (#action-announcement) も同じ保証が要る。**
+  //   従来ここは #page-announcement (ルート遷移・polite) しか見ておらず、
+  //   削除 / 取り込み結果 / 並べ替え / フィルタ件数といった **操作結果の通知が全部載る
+  //   assertive チャネル**は無検査だった。通知系の e2e は `textContent` を読むため
+  //   **表示状態に依存せず**、`#action-announcement { display: none }` にしても緑のまま
+  //   通る (実測 2026-08-20: .sr-only を display:none へ退行させたフルスイートで
+  //   RED になったのは本テスト 1 件のみ、通知系 25 件は素通り)。
+  //   display:none は**アクセシビリティツリーから外れる** = SR に一切届かなくなるのに、
+  //   sr-only は元々不可視なので screenshot でも目視でも気付けない。
+  const action = page.locator('#action-announcement');
+  await expect(action, '#action-announcement must exist (SR 通知の単一チャネル)').toHaveCount(1);
+  const actbox = await action.boundingBox();
+  expect(actbox, '#action-announcement が a11y ツリーから外れている (display:none 等)').not.toBeNull();
+  expect(actbox.width, '#action-announcement must stay visually hidden (sr-only 1x1)').toBeLessThanOrEqual(4);
+  expect(actbox.height, '#action-announcement must stay visually hidden (sr-only 1x1)').toBeLessThanOrEqual(4);
+  expect(await action.getAttribute('aria-hidden'),
+    '#action-announcement が aria-hidden で隠されている (SR に届かない)').toBeNull();
+
   for (const id of ['#aio-footer-entity', '#aio-main-footer']) {
     const entity = page.locator(id);
     await expect(entity, `${id} must exist (AIO load-bearing anchor)`).toHaveCount(1);

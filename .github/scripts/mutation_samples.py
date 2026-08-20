@@ -977,6 +977,14 @@ _E2E_TAIL.append({
     "test": "Route project-detail renders for a known slug without errors",
 })
 
+_E2E_TAIL.append({
+    "name": "SR 通知の assertive チャネルが aria-hidden で a11y ツリーから外れる —— 削除 / 取り込み結果 / 並べ替え / フィルタ件数の通知が SR に一切届かなくなる。通知系 e2e は textContent を読むため表示状態に依存せず素通りし、sr-only は元々不可視なので screenshot でも目視でも気付けない",
+    "file": ROOT / "index.html",
+    "find": '<div id="action-announcement" class="sr-only" aria-live="assertive"',
+    "replace": '<div id="action-announcement" class="sr-only" aria-hidden="true" aria-live="assertive"',
+    "test": "sr-only content",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
