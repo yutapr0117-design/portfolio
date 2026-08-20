@@ -18,6 +18,24 @@ async function expectNotified(page, text) {
   await expect(page.locator('#action-announcement')).toContainText(text);
 }
 
+// モード (追加のみ / 更新+追加 / 全置換) を選ぶ。onchange は window.render() で settings
+// ページを作り直すため、選んだ直後に setInputFiles すると **detach された古い input を掴み
+// change が誰にも届かない** (このファイル冒頭の import と同じ落とし穴)。一度ルートを離れて
+// 戻り、描画が確定した DOM を掴んでから使う。モードは factory closure state ゆえ遷移で消えない。
+async function selectImportMode(page, mode) {
+  await page.locator('#content select').first().evaluate((el, m) => {
+    el.focus();
+    el.value = m;
+    el.dispatchEvent(new Event('change', { bubbles: true }));
+  }, mode);
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  expect(await page.locator('#content select').first().inputValue(),
+    'control: モードが選択されていなければ、その意味論を測れない').toBe(mode);
+}
+
 // ===== 部分 export したファイルも import で戻せること =====
 // `Projectsのみ` は projects の **素の配列**を、`AppsDataのみ` / `Profileのみ` はそれぞれの
 // **素のオブジェクト**を書き出すが、import は full-state 形 (`parsed.projects` 等) しか見て
@@ -141,6 +159,9 @@ test('対象から外した形の import を成功と report しない', async (
   await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
   expect(await page.locator('#settingsIncludeApps').isChecked(),
     'control: 対象に戻っていなければ、適用される経路を測れない').toBe(true);
+  // このテストが測るのは「復元/上限」の意味論なので全置換モードで測る (既定の
+  // 「追加のみ」は既存を残す = 置き換え/切り詰めが起きず、測りたい性質に到達しない)。
+  await selectImportMode(page, 'strict');
   await page.setInputFiles('#content input[type="file"]', file);
   await expectNotified(page, 'インポートが完了しました');
 
@@ -219,6 +240,10 @@ test('Over-limit import reports how many entries were dropped instead of claimin
   await page.waitForLoadState('domcontentloaded');
   await expect(page.getByRole('button', { name: 'フルバックアップ' })).toBeVisible();
 
+  // このテストが測るのは「復元/上限」の意味論なので全置換モードで測る (既定の
+  // 「追加のみ」は既存を残す = 置き換え/切り詰めが起きず、測りたい性質に到達しない)。
+  await selectImportMode(page, 'strict');
+
   const announcement = () => page.evaluate(
     () => (document.getElementById('action-announcement') || {}).textContent || '');
 
@@ -252,6 +277,9 @@ test('取り込んだ project の中身が上限で削られたら件数を報�
   await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
 
+  // このテストが測るのは「復元/上限」の意味論なので全置換モードで測る (既定の
+  // 「追加のみ」は既存を残す = 置き換え/切り詰めが起きず、測りたい性質に到達しない)。
+  await selectImportMode(page, 'strict');
   await page.setInputFiles('#content input[type="file"]', {
     name: 'trim.json',
     mimeType: 'application/json',
@@ -362,6 +390,9 @@ test('ノートの切り詰めと履歴の件数落ちを報告する', async ({
   await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
 
+  // このテストが測るのは「復元/上限」の意味論なので全置換モードで測る (既定の
+  // 「追加のみ」は既存を残す = 置き換え/切り詰めが起きず、測りたい性質に到達しない)。
+  await selectImportMode(page, 'strict');
   await page.setInputFiles('#content input[type="file"]', {
     name: 'apps.json',
     mimeType: 'application/json',
@@ -392,4 +423,94 @@ test('ノートの切り詰めと履歴の件数落ちを報告する', async ({
   );
   expect(ann, '履歴 20 件が落ちたのに報告していない').toContain('20 件は取り込めませんでした');
   expect(ann, 'ノート 10,000 文字が消えたのに報告していない').toContain('1 件の項目');
+});
+
+// ===== 「対象」モードは appsData にも効くこと =====
+// モード (追加のみ / 更新+追加 / 全置換) は **projects にしか効いておらず**、appsData は
+// どのモードでも丸ごと置き換えていた。既定の「追加のみ」で AppsData を含むファイルを
+// 取り込むと **既存のタスク・TODO・ノート・履歴が全部消える** (実測 2026-08-20)。
+// 「追加のみ」は「既存を壊さない」という約束なので、**最も安全なつもりの選択が
+// 最も破壊的**だった。3 モードの意味論をまとめて固定する。
+async function seedAndImport(page, mode, payload) {
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  await page.getByLabel('新しいタスクを入力').fill('EXISTING-TASK');
+  await page.getByLabel('新しいタスクを入力').press('Enter');
+  await expect(page.locator('#content').getByText('EXISTING-TASK')).toBeVisible();
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await selectImportMode(page, mode);
+
+  await page.setInputFiles('#content input[type="file"]', {
+    name: 'a.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(payload)),
+  });
+  await expect(page.locator('#action-announcement')).toContainText('インポート');
+}
+
+const IMPORTED = {
+  tasks: [{ id: 'imp1', title: 'IMPORTED-TASK', status: 'todo' }],
+  todos: [],
+  notes: 'IMPORTED-NOTE',
+};
+
+// 保存は debounce (150ms) なので import 直後に localStorage を読むと **古い値**が返る
+// (実装中に実測で踏んだ)。描画された DOM を auto-retry する assertion で見る。
+// 同じモードのまま追加で取り込む (モードは factory closure state ゆえ遷移で消えない)。
+async function importAgain(page, payload) {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await page.setInputFiles('#content input[type="file"]', {
+    name: 'b.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(payload)),
+  });
+}
+
+async function expectTasks(page, present, absent) {
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  for (const t of present) {
+    await expect(page.locator('#content').getByText(t, { exact: true })).toBeVisible();
+  }
+  for (const t of absent) {
+    await expect(page.locator('#content').getByText(t, { exact: true })).toHaveCount(0);
+  }
+}
+
+async function notesValue(page) {
+  await page.goto('/#/apps/notes', { waitUntil: 'domcontentloaded' });
+  const ta = page.locator('#content textarea').first();
+  await expect(ta).toBeVisible();
+  return await ta.inputValue();
+}
+
+test('「追加のみ」の import は既存タスクを消さない', async ({ page }) => {
+  await seedAndImport(page, 'append', IMPORTED);
+  const ann = await page.evaluate(
+    () => document.getElementById('action-announcement').textContent
+  );
+  expect(ann, '既存を優先して取り込まなかったことを報告していない').toContain('既存を残しました');
+  await expectTasks(page, ['EXISTING-TASK', 'IMPORTED-TASK'], []);
+  // 追加のみ ではノートは既存を優先する (上で「残しました」と報告済み)。
+  expect(await notesValue(page), '「追加のみ」なのにノートが上書きされた').not.toBe('IMPORTED-NOTE');
+
+  // id が衝突したときの意味論。「追加のみ」は既存を**更新しない**。
+  await importAgain(page, { tasks: [{ id: 'imp1', title: 'OVERWRITTEN', status: 'todo' }], todos: [] });
+  await expectTasks(page, ['IMPORTED-TASK'], ['OVERWRITTEN']);
+});
+
+test('「更新+追加」の import は既存を残しつつ取り込む', async ({ page }) => {
+  await seedAndImport(page, 'upsert', IMPORTED);
+  await expectTasks(page, ['EXISTING-TASK', 'IMPORTED-TASK'], []);
+  expect(await notesValue(page), '「更新+追加」ならノートは取り込んだ値になる').toBe('IMPORTED-NOTE');
+
+  // id が衝突したときの意味論。「更新+追加」は既存を**更新する** (append との差)。
+  await importAgain(page, { tasks: [{ id: 'imp1', title: 'OVERWRITTEN', status: 'todo' }], todos: [] });
+  await expectTasks(page, ['OVERWRITTEN'], ['IMPORTED-TASK']);
+});
+
+test('「全置換」の import は宣言どおり丸ごと置き換える', async ({ page }) => {
+  await seedAndImport(page, 'strict', IMPORTED);
+  // control: 置き換えが起きていなければ、他 2 モードとの違いを測れていない。
+  await expectTasks(page, ['IMPORTED-TASK'], ['EXISTING-TASK']);
+  expect(await notesValue(page)).toBe('IMPORTED-NOTE');
 });
