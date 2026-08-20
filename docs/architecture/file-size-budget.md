@@ -96,7 +96,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `AI2AI.md` | 952 | — | `protected` | AIO 正本（canonical）。削らない |
 | `docs/session-records/AI2AI-archive.md` | 736 | — | `archive-growth-ok` | セッション証跡。削らない |
 | `ChatGPT2ChatGPT.md` | 970 | — | `archive-growth-ok` | AI 間対話証跡。削らない |
-| `e2e/a11y-axe.spec.js` | 807 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/a11y-axe.spec.js` | 852 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/a11y-contrast.spec.js` | 263 | 900 | `advisory` | behavior e2e spec (コントラストと色の知覚・WCAG 1.4.1/1.4.3/1.4.11)。2026-08-20 に a11y-axe.spec.js が 996 行で BLOCKING(1,000) まで残り 3 行となり、**当たる前に**このテーマの塊を切り出した |
 | `e2e/aio-meta.spec.js` | 792 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-ai-notes.spec.js` | 799 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
