@@ -957,6 +957,14 @@ _E2E_TAIL.append({
     "test": "全ルートで main ランドマークが一意で、名前と skip-link 着地点を保つ",
 })
 
+_E2E_TAIL.append({
+    "name": "Markdown ノートの見出しが固定 2 段 demote へ戻り、### から書き始めた note で h2 の直後に h5 が来て見出しが飛ぶ (WCAG 1.3.1) —— 既定 note が # 始まりなので出荷状態では見えず、利用者の書き方次第で見出しナビが壊れる",
+    "file": ROOT / "js" / "apps.js",
+    "find": "                if (_mdBase === null) { _mdBase = _md; }",
+    "replace": "                _mdBase = 1;",
+    "test": "Markdown ノートの見出しは書き始めのレベルに関わらず preview 階層へ接続する",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 

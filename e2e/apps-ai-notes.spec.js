@@ -797,3 +797,37 @@ test('AI prompt is bounded by AI_MESSAGE when stored (localStorage bloat guard)'
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `long AI prompt caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== Markdown ノートの見出しが preview の階層に正しく接続する (WCAG 1.3.1) =====
+// preview はページ h1「Markdown ノート」→ セクション h2「プレビュー」の配下にある。
+// 従来は **固定 2 段 demote** (# → h3 / ## → h4 / ### → h5) だったため、`###` から
+// 書き始めた note では h2 の直後に **h5 が来て h3/h4 を飛ばす**。
+// 実測 (2026-08-20): `### 設計メモ` だけの note で axe の heading-order が違反 1 件。
+// **既定 note が `#` で始まる出荷状態だけが偶然 clean だった** —— `###` から書き始めるのは
+// 珍しくないので、利用者の書き方次第で見出しナビが壊れる。
+// note 内で最初に使われたレベルを h3 に対応づけ、以降は相対差で下げる形へ変更した。
+test('Markdown ノートの見出しは書き始めのレベルに関わらず preview 階層へ接続する', async ({ page }) => {
+  await page.goto('/#/apps/notes', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  const headings = () => page.evaluate(() => Array.from(
+    document.querySelectorAll('#content h1,#content h2,#content h3,#content h4,#content h5,#content h6')
+  ).map((e) => e.tagName));
+
+  // control: 既定 note (`#` 始まり) は元から正しい —— ここが偶然 clean だったせいで
+  //   `###` 始まりの破れが出荷状態では見えなかった。
+  expect(await headings(), 'control: 既定 note の階層が想定と違う').toEqual(['H1', 'H2', 'H2', 'H3']);
+
+  const setNote = async (v) => {
+    await page.locator('#content textarea').first().evaluate((el, text) => {
+      el.focus();
+      el.value = text;
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+    }, v);
+    await expect.poll(headings).not.toEqual(['H1', 'H2', 'H2', 'H3']);
+  };
+
+  // `###` から書き始めても h2 の直後は h3 (飛ばさない)
+  await setNote('### 設計メモ\n\n### 次の章\n\n本文');
+  expect(await headings(), '### 始まりで見出しが飛んでいる').toEqual(['H1', 'H2', 'H2', 'H3', 'H3']);
+});
