@@ -957,6 +957,22 @@ _E2E_TAIL.append({
     "test": "ノートの切り詰めと履歴の件数落ちを報告する",
 })
 
+_E2E_TAIL.append({
+    "name": "「対象」モードが appsData に効かなくなる —— 既定の「追加のみ」を選んでいても丸ごと置き換わり、利用者の既存タスク・TODO・ノート・履歴が全部消える。最も安全なつもりの選択が最も破壊的になる旧挙動への退行",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "                        if (settingsImportMode === 'strict') {\n                            merged.appsData = inc;",
+    "replace": "                        if (true) {\n                            merged.appsData = inc;",
+    "test": "「追加のみ」の import は既存タスクを消さない",
+})
+
+_E2E_TAIL.append({
+    "name": "append と upsert の区別が消える —— id が衝突したとき「追加のみ」でも既存 entry を上書きしてしまう (追加のみ = 既存を更新しない、の契約破り)",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "if (!map.has(x.id) || settingsImportMode === 'upsert') { map.set(x.id, x); }",
+    "replace": "map.set(x.id, x);",
+    "test": "「追加のみ」の import は既存タスクを消さない",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 

@@ -228,7 +228,44 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                             merged.projectPrefs = { ...merged.projectPrefs, hiddenIds: parsed.projectPrefs.hiddenIds };
                         }
                     }
-                    if (settingsIncludeApps && parsed.appsData) { merged.appsData = parsed.appsData; applied = true; }
+                    // [FIX] モードは projects にしか効いておらず、appsData はどのモードでも
+                    //   丸ごと置き換えていた。既定の「追加のみ」で取り込むと既存のタスク・
+                    //   やること・ノート・履歴が全部消える = **最も安全なつもりの選択が最も
+                    //   破壊的**だった。projects と同じ id 併合を tasks/todos にも適用し、
+                    //   append で既存優先にした分は silent にせず件数を報告する (実測は e2e)。
+                    let _keptOwn = 0;
+                    if (settingsIncludeApps && parsed.appsData) {
+                        applied = true;
+                        const inc = parsed.appsData;
+                        if (settingsImportMode === 'strict') {
+                            merged.appsData = inc;
+                        } else {
+                            const mergeById = (b, i) => {
+                                if (!Array.isArray(i)) { return b; }
+                                const map = new Map((Array.isArray(b) ? b : []).map(x => [x && x.id, x]));
+                                i.forEach(x => {
+                                    if (!x) { return; }
+                                    if (!map.has(x.id) || settingsImportMode === 'upsert') { map.set(x.id, x); }
+                                });
+                                return Array.from(map.values());
+                            };
+                            // 併合は spread より **前** に済ませる。後にすると upsert の
+                            // `...inc` が tasks/todos を先に上書きし、自分自身と併合して
+                            // 既存が消える (実装中に実測で踏んだ)。
+                            const baseApps = merged.appsData || {};
+                            const _tasks = mergeById(baseApps.tasks, inc.tasks);
+                            const _todos = mergeById(baseApps.todos, inc.todos);
+                            if (settingsImportMode === 'upsert') {
+                                merged.appsData = { ...baseApps, ...inc };
+                            } else {
+                                // append: tasks/todos 以外は既存を優先し、落とした分を数える。
+                                _keptOwn = Object.keys(inc).filter(k => k !== 'tasks' && k !== 'todos').length;
+                                merged.appsData = { ...baseApps };
+                            }
+                            merged.appsData.tasks = _tasks;
+                            merged.appsData.todos = _todos;
+                        }
+                    }
 
                     if (!applied) {
                         Toast.show('「対象」の選択に一致するデータがファイルにありませんでした', 'error');
@@ -315,6 +352,7 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                     if (_dropped > 0) { _parts.push(`${_dropped} 件は取り込めませんでした`); }
                     if (_trimmed > 0) { _parts.push(`${_trimmed} 件のタグ・技術・ハイライトが上限を超えて削られました`); }
                     if (_shortened > 0) { _parts.push(`${_shortened} 件の項目が文字数上限で短縮されました`); }
+                    if (_keptOwn > 0) { _parts.push(`${_keptOwn} 件の項目は「追加のみ」のため既存を残しました`); }
                     Toast.show(_parts.length
                         ? `インポートが完了しました（${_parts.join('・')}）`
                         : 'インポートが完了しました');
