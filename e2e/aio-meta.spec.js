@@ -127,8 +127,14 @@ test('Hash routing transitions correctly between routes', async ({ page }) => {
   // **文書内の hash 変更**で遷移する (実際の利用者の経路)。
   // 従来はすべて page.goto() で移っていたが、Playwright の goto は hash だけの変更でも
   // **フルナビゲーション**になるため、題名が名指しする hashchange 経路を**一度も
-  // 通っていなかった** —— router の hashchange 購読を丸ごと外しても緑のままだった
-  // (2026-08-20 実測)。初回描画の検査になっていて、SPA の遷移機構は無検査。
+  // 通っていなかった** —— router の hashchange 購読を丸ごと外しても、このテストは
+  // 緑のままだった (2026-08-20 実測)。初回描画を 3 回検査していただけ。
+  //
+  // ただし **配線そのものは無防備ではなかった**: 同じ mutation でフルスイートを走らせると
+  // **10 件以上が RED** になる (route アナウンス / document.title 更新 / 外部リンク検査 /
+  // import 系など、どこかで in-document 遷移を通るテスト群)。訂正して記録する ——
+  // 直したのは「題名が主張する経路を通っていなかった **このテスト**」であって、
+  // 「誰も守っていなかった配線」ではない。
   await page.goto('/');
   await page.waitForLoadState('domcontentloaded');
   await expect(page.locator('.hero-section')).toBeVisible();

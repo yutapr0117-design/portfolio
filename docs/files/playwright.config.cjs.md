@@ -81,6 +81,8 @@ npx playwright test --config=playwright.config.cjs
 | 「連打」を `press()` の連続で表現する | 1 回目が起こす**再描画の速さ次第で 2 回目以降が新しい空の要素に当たる**。ローカルで再現しても CI では再描画が勝ち、mutation が SURVIVED する（#1079 で実際に発生） | 再現したいのが「イベントが連続で届く」ことなら `evaluate` の中で**同期的に dispatch** する |
 | Tab 中に `rect.top + window.scrollY` で**絶対位置**を測る | focus 移動でブラウザが要素をスクロールインさせるが、このサイトは `scroll-behavior: smooth` なので**アニメーション途中の `scrollY`** が混ざる。実測（2026-08-18）: Settings を Tab で辿ると「焦点が 150〜200px 上へ戻る」が **5 回**観測され **WCAG 2.4.3 違反に見えた**。だが同じリストを静的に測ると DOM 順と視覚順は `一致: true` で、**Tab 順を DOM index で測り直すと逆行 0** —— 計測側の artifact だった | **順序の検証に座標を使わない**。DOM 内の位置（`Array.from(document.querySelectorAll('#content *')).indexOf(el)`）が単調増加かで見る。座標が要るなら scroll が止まってから読む |
 | `elementFromPoint` で「覆われていないか」を測る | View Transition の overlay が出ている間は **ページ要素ではなく root (`<html>`) が返る**。実測（2026-08-20）: 通知が 0 件でも「topbar が操作できない」とcontrol が誤判定した（同じ座標を settle 後に測ると正しくボタンが返る） | `emulateMedia({ reducedMotion: 'reduce' })` で遷移を切ってから測る。座標系の測定は VT と相性が悪い（上の行と同じ class） |
+| `page.goto('/#/x')` で SPA の**遷移**を測る | Playwright の goto は **hash だけの変更でもフルナビゲーション**になり、`hashchange` を通らない。「遷移」を名乗るテストが実際には**初回描画を繰り返し検査しているだけ**になる (2026-08-20 実測: router の hashchange 購読を外してもそのテストは緑)。in-document 遷移を測りたいなら `page.evaluate(() => { location.hash = '#/x' })` かリンククリックを使う |
+| 「この配線は誰も守っていない」と結論する | **1 つの mutation でフルスイートを 1 回走らせる**と、何層が守っているか一度で分かる。上の hashchange では**10 件以上**が RED になり、無防備ではなかった。`-g` で 1 件だけ走らせた結果から配線全体の被覆を推定してはいけない (帰属の誤りになる) |
 
 ### 実測して clean と確認済みの a11y 面（再監査不要・2026-08-18）
 
