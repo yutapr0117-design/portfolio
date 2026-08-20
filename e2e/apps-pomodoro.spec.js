@@ -756,3 +756,45 @@ test('「全置換」の取り込みは稼働中のポモドーロを止め、�
   const after = await page.locator('.font-mono.text-stat').first().textContent();
   expect(after, '停止したはずなのに古い interval が進めている').toBe(before);
 });
+
+// ===== 別タブの更新が稼働中のポモドーロを止めない (cross-tab × cross-app) =====
+// cross-tab 採用は受信 store を **丸ごと** 採用する。だが別タブは「未起動」の
+// pomodoro runtime を持っているのが普通なので、そのまま採用すると
+// **走っているタイマーが黙って止まる**。
+// 実測 (2026-08-20): tabA で開始 → tabB でタスクを 1 件足すだけで tabA の isActive が
+// false へ戻り、残り時間も進まなくなった。利用者からは「別タブで作業していたら
+// ポモドーロが消えていた」としか見えず、原因に見当がつかない。
+// #940 (編集中テキストを守る) と同じ「*自タブで進行中のもの* を cross-tab 採用から守る」class。
+test('別タブの更新が稼働中のポモドーロを止めない', async ({ browser }) => {
+  const ctx = await browser.newContext();
+  const tabA = await ctx.newPage();
+  await tabA.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
+  await expect(tabA.locator('.font-mono.text-stat').first()).toBeVisible();
+  await tabA.getByRole('button', { name: '開始' }).click();
+  await expect(tabA.getByRole('button', { name: '一時停止' })).toBeVisible();
+
+  // 別タブでタスクを追加する = tabA へ storage イベントが届く
+  const tabB = await ctx.newPage();
+  await tabB.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(tabB.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  await tabB.getByLabel('新しいタスクを入力').fill('FROM-TAB-B');
+  await tabB.getByLabel('新しいタスクを入力').press('Enter');
+  await expect(tabB.locator('#content').getByText('FROM-TAB-B')).toBeVisible();
+
+  await tabA.bringToFront();
+  // 稼働が続いている (ボタンが「一時停止」のまま)
+  await expect(tabA.getByRole('button', { name: '一時停止' }),
+    '別タブの更新で稼働中のポモドーロが止まった').toBeVisible();
+  // **変化**の検査なので poll が正しい (残り時間が進むこと)
+  await expect.poll(async () => await tabA.locator('.font-mono.text-stat').first().textContent(),
+    { timeout: 6000, message: 'タイマーが進んでいない (interval が失われた)' }).not.toBe('25:00');
+
+  // control: 採用自体は壊していない —— 別タブの更新が tabA へ反映されること。
+  //   これが無いと「cross-tab 採用を丸ごと止めた」実装でもテストが通ってしまう。
+  await tabA.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(tabA.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  await expect(tabA.locator('#content').getByText('FROM-TAB-B'),
+    'control: 別タブの更新が反映されていない (採用ごと止めてしまっている)').toBeVisible();
+
+  await ctx.close();
+});

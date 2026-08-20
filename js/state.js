@@ -199,7 +199,17 @@ export function createState({ CONSTANTS, Store, Storage, Toast }) {
     let _pendingBlurTarget = null;
 
     function _adopt(incoming) {
+        // [FIX] 稼働中のポモドーロは **自タブ固有の実行状態**。別タブは「未起動」の runtime を
+        //   持つのが普通なので丸ごと採用すると **走っているタイマーが黙って止まる**
+        //   (利用者からは「別タブで作業していたら消えていた」としか見えない)。
+        //   採用自体は行い runtime だけ引き継ぐ。実測と経緯は e2e/apps-pomodoro.spec.js。
+        const _running = data && data.appsData && data.appsData.pomodoro
+            && data.appsData.pomodoro.runtime && data.appsData.pomodoro.runtime.isActive
+            ? data.appsData.pomodoro.runtime : null;
         data = Store.validateAndNormalize(incoming);
+        if (_running && data.appsData && data.appsData.pomodoro) {
+            data.appsData.pomodoro.runtime = _running;
+        }
         notify();
         Toast.show('別タブで更新されました', 'info');
     }
