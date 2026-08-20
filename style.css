@@ -899,7 +899,18 @@
         }
         .nav-group-toggle[aria-expanded="false"] .nav-group-chevron { transform: rotate(-90deg); }
         .nav-group-body { overflow: hidden; transition: max-height 0.25s ease; }
-        .nav-group-body[data-collapsed="true"] { max-height: 0 !important; }
+        /* [A11Y 2.4.3 / 2.4.7] 畳んだ中身を **tab 順とアクセシビリティツリーから外す**。
+           従来は max-height:0 + overflow:hidden だけで、`visibility` は visible のままだった。
+           実測 (2026-08-20): 畳んだ状態で内部の 11 個のリンク/ボタンが focus 可能で、
+           実際に Tab すると **高さ 0 の領域の中へ focus が入り** (要素自体は 247x52px を持つ)、
+           利用者からは「focus がどこかへ消えた」状態になっていた。Enter を押せば意図しない遷移も起きる。
+           visibility:hidden は tab 順と a11y ツリーの両方から外す。**折り畳みアニメーションは維持**
+           したいので、visibility の切り替えだけ max-height の遷移 (0.25s) 後まで遅延させる。 */
+        .nav-group-body[data-collapsed="true"] {
+            max-height: 0 !important;
+            visibility: hidden;
+            transition: max-height 0.25s ease, visibility 0s linear 0.25s;
+        }
 
         .nav-link {
             display: flex;

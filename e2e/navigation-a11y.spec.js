@@ -783,3 +783,44 @@ test('ルート描画の実コストが桁で悪化していない (reduced-moti
     expect(r.ms, `${hash} の描画が ${r.ms}ms — 実測基準 (11〜25ms) から桁で悪化している`).toBeLessThan(300);
   }
 });
+
+
+// ===== 畳んだナビ群の中身は tab 順に残らない (WCAG 2.4.3 / 2.4.7) =====
+// サイドバーの Lab セクションは `data-collapsed="true"` + `max-height: 0` で折り畳むが、
+// 従来 `visibility` は visible のままで **中身が tab 順に残っていた**。実測 (2026-08-20):
+// 畳んだ状態で内部の 11 個のリンク/ボタンが focus 可能で、実際に Tab すると
+// **高さ 0 の領域の中へ focus が入る** (要素自体は 247x52px を持つ)。利用者からは
+// 「focus がどこかへ消えた」状態で、Enter を押せば意図しない遷移も起きる。
+//
+// 折り畳みアニメーションは維持したいので visibility の切り替えだけ max-height の遷移後まで
+// 遅延させている。そのため **待ってから読む** 必要がある (遷移中は visible のまま = 正常)。
+test('Collapsed nav group content is removed from the tab order', async ({ page }) => {
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+
+  const body = page.locator('#nav-lab-body');
+  const toggle = page.locator('[aria-controls="nav-lab-body"]').first();
+  await expect(toggle).toBeVisible();
+
+  const probe = () => page.evaluate(() => {
+    const b = document.getElementById('nav-lab-body');
+    const items = Array.from(b.querySelectorAll('a[href], button'));
+    if (!items.length) { return { n: 0 }; }
+    items[0].focus();
+    return { n: items.length, focused: document.activeElement === items[0],
+             collapsed: b.getAttribute('data-collapsed') };
+  });
+
+  // control: 折り畳み対象の中身が実在する (0 件なら以下は何も検査しない)
+  const initial = await probe();
+  expect(initial.n, 'Lab セクションに中身が無い (control 失敗)').toBeGreaterThan(1);
+
+  // 畳んだ状態 (既定) では中へ focus できない
+  if (initial.collapsed !== 'true') { await toggle.click(); }
+  await expect.poll(async () => (await probe()).focused, { timeout: 5000 }).toBe(false);
+
+  // 展開すれば通常どおり操作できる (「常に focus を奪う」実装ではない)
+  await toggle.click();
+  await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+  await expect.poll(async () => (await probe()).focused, { timeout: 5000 }).toBe(true);
+});
