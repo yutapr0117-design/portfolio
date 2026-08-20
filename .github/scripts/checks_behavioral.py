@@ -164,6 +164,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **2,027** characters — only 21 below the limit. Renaming a quiz title, or raising any
        maxlength, silently crosses it. This Check reconstructs the worst case (every free-text field
        filled with Japanese) for every quiz type and fails if any exceeds the limit. (BLOCKING)
+       435b guards this Check's own scope: 435 hardcodes js/quiz-renderer.js, so a **new** mailto
+       builder would not be length-checked at all (the scope-drift class of 124 / 411 / 434b).
+       The set of shipped JS files that assemble a mailto with an interpolated query string is
+       derived and must equal the known set. components.js (ContactPage) is in the set but exempt
+       from the length computation because its subject/body are fixed literals — only the
+       normalized profile.email varies, so the URL is structurally bounded. A third builder fails
+       the Check and forces an explicit decision about whether it is variable-length.
 
   410. UI 入力上限 ⟹ 保存上限の一致 (input/textarea maxlength coherence): a UI-layer shipped JS file
        (one that builds `h('input'` / `h('textarea'` elements) that persists user text via
@@ -877,3 +884,33 @@ def run(ctx):
               f"Check 435: quiz タイトル ({len(_titles435)} 件) か入力の maxlength "
               f"({len(_max435)} 件・3 件必要) を抽出できない — 走査対象が変わったので追従せよ",
               blocking=True)
+
+    # 435b: **この Check 自身の走査対象が漏れないようにする。** 435 は
+    # js/quiz-renderer.js を決め打ちで見るので、**新しく mailto を組む面が増えても
+    # 気付けない** (Check 124/411/434b と同じ scope-drift class)。
+    # 「利用者入力を subject/body へ埋める mailto」を持つ shipped JS の集合を導出し、
+    # 既知集合と一致することを強制する。増えたら 435 の計算へその面も足す判断を迫る。
+    # 現在の既知集合:
+    #   quiz-renderer.js — 3 つの入力欄を埋める = **長さが可変** → 435 が長さを検証する
+    #   components.js    — ContactPage。subject/body は**固定文**で、可変なのは
+    #                      正規化済み profile.email のみ (実測 578 文字 + アドレス長) →
+    #                      構造的に上限内なので 435 の計算対象外
+    # 3 つ目が現れたら「可変長か」を判断して 435 へ足すこと。
+    _mailto435 = set()
+    for _f in sorted(list((ROOT / "js").glob("*.js")) + [ROOT / "main.js"]):
+        _src = _f.read_text(encoding="utf-8")
+        for _m in re.finditer(r"mailto:[^\n]*subject=", _src):
+            _line = _src[_m.start():_src.find("\n", _m.start())]
+            # 変数/テンプレート補間を伴うものだけを対象にする (固定文だけなら長さは不変)
+            if "${" in _line or "+ subject" in _line or "+ body" in _line:
+                _mailto435.add(_f.name)
+    check(
+        _mailto435 == {"quiz-renderer.js", "components.js"},
+        f"Check 435b: mailto を組む面が既知集合と一致 ({sorted(_mailto435)})",
+        (f"Check 435b: mailto を組む面の集合が変わった: {sorted(_mailto435)} "
+         "(既知は ['components.js', 'quiz-renderer.js'])。Check 435 は quiz-renderer.js を"
+         "決め打ちで長さ検証する。新しい面が増えたなら **可変長かを判断し、可変なら 435 の"
+         "計算へ足す**こと —— 足さないと "
+         "「約 2,048 文字を超えて mailto が silent に失敗する」class を新しい面だけ素通しする"),
+        blocking=True,
+    )
