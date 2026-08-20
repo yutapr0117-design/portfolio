@@ -115,7 +115,8 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/drawer.spec.js` | 399 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/fatal.spec.js` | 60 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/focus-regression.spec.js` | 77 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
-| `e2e/navigation-a11y.spec.js` | 916 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/navigation-a11y.spec.js` | 840 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/reflow.spec.js` | 91 | 900 | `advisory` | behavior e2e spec (WCAG 1.4.10 Reflow・320px)。2026-08-20 に navigation-a11y.spec.js が advisory を超えたため切り出した。**視覚 baseline では原理的に守れない面** (screenshot は 1280×720 clip ゆえ media query に到達しない) |
 | `e2e/reduced-motion.spec.js` | 170 | 300 | `advisory` | behavior e2e spec。モーション低減 (prefers-reduced-motion) の gate。navigation-a11y.spec.js が 917 行で 早期警告 (900) を超えたため、Check 365 の BLOCKING (1,000 行) を踏む前に切り出した |
 | `e2e/print.spec.js` | 78 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/portfolio.spec.js` | 44 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
@@ -485,6 +486,7 @@ e2e/drawer.spec.js | 900 | advisory
 e2e/fatal.spec.js | 900 | advisory
 e2e/focus-regression.spec.js | 900 | advisory
 e2e/navigation-a11y.spec.js | 900 | advisory
+e2e/reflow.spec.js | 900 | advisory
 e2e/reduced-motion.spec.js | 300 | advisory
 e2e/print.spec.js | 900 | advisory
 e2e/portfolio.spec.js | 900 | advisory
