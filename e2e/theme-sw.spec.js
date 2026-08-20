@@ -370,15 +370,37 @@ async function expectEffectiveThemeColor(page, os) {
     const metas = Array.from(document.querySelectorAll('meta[name="theme-color"]'));
     // media が一致するものが実効値 (後勝ち)。media 無しは常に一致。
     const eff = metas.filter((m) => !m.media || window.matchMedia(m.media).matches).pop();
+    // [FIX] 「サイトが今どちらのテーマか」の判定根拠を **実際に描画されている背景色** にする。
+    //   従来は `documentElement.classList.contains('dark')` を根拠にしていたが、実測
+    //   (2026-08-20) では **`.dark` を使う CSS 宣言は 1 つも無い** —— 見た目を決めているのは
+    //   `[data-theme]` の方で、`.dark` は Tailwind 由来の慣習として付いているだけの
+    //   「効果を持たないクラス」だった。効果の無い印を真実の代わりに使うと、両者が食い違った
+    //   瞬間に **間違った期待値と比較して緑になる**。描画結果を根拠にすれば乖離しない。
+    const bg = getComputedStyle(document.body).backgroundColor;
+    const rgb = (bg.match(/\d+/g) || []).map(Number);
+    const luminance = rgb.length >= 3 ? (rgb[0] + rgb[1] + rgb[2]) / 3 : 255;
     return {
       count: metas.length,
-      isDark: document.documentElement.classList.contains('dark'),
+      isDark: luminance < 128,
+      bodyBg: bg,
+      dataTheme: document.documentElement.getAttribute('data-theme'),
       effective: eff ? eff.content.toLowerCase() : null,
     };
   });
 
   // control: media 付きの複数宣言という前提が崩れていないか (1 本になったら検査の意味が変わる)
   expect(r.count, 'control: theme-color meta が複数宣言でなくなっている').toBeGreaterThan(1);
+  // control: テーマ適用そのものが生きている。
+  //   NOTE: `data-theme` は **利用者の選好** を保持する (既定は 'system')。'system' のときの
+  //   実効テーマは OS 追従なので、`data-theme` と描画結果を直に比べてはいけない —— 実測
+  //   (2026-08-20) で data-theme='system' / 背景 rgb(2,6,23) という正常な組み合わせを
+  //   「食い違い」と誤検出した。選好が明示されている時だけ描画と突き合わせる。
+  expect(['light', 'dark', 'system']).toContain(r.dataTheme);
+  if (r.dataTheme !== 'system') {
+    expect(r.isDark ? 'dark' : 'light',
+      `control: 描画された背景 (${r.bodyBg}) と選好 (${r.dataTheme}) が食い違っている`
+    ).toBe(r.dataTheme);
+  }
   expect(r.effective,
     'theme-color の実効値がサイトのテーマと一致しない — '
     + '適用されない方の meta だけを書き換えている疑い (querySelector は先頭 1 本しか返さない)'
