@@ -955,6 +955,14 @@ _E2E_TAIL.append({
     "test": "Cmd+K の候補 0 件で listbox 意味論が壊れず",
 })
 
+_E2E_TAIL.append({
+    "name": "壊れた projects entry (null / 文字列) が正規化の型ガードを素通りし、後段の dereference で FatalPage crash する —— 取り込みは untrusted 入力の最外周なので、entry 単位のガードが最初の防波堤 (#93/#295/#561 の ingestion 正規化 class)",
+    "file": ROOT / "js" / "store.js",
+    "find": "        const normalizedIncoming = (Array.isArray(incomingProjects) ? incomingProjects : [])\n            .filter(p => p && typeof p === 'object')",
+    "replace": "        const normalizedIncoming = (Array.isArray(incomingProjects) ? incomingProjects : [])\n            .filter(p => true)",
+    "test": "strict import of malformed projects stays graceful",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
