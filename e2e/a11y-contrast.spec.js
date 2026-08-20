@@ -390,6 +390,40 @@ test('空の状態でも構造 a11y が壊れない (todo 全削除 / 検索 0 �
   expect(await scan(), 'quiz 検索 0 件で構造 a11y が壊れる').toEqual([]);
 });
 
+// **overlay の空状態は上のゲートの射程外**だった。通常ページを goto して走査する形では
+// palette / drawer を開いた状態に到達しないため、#1219 (Cmd+K 候補 0 件で listbox 意味論が
+// 壊れる) を踏めなかった —— 同じ class を 3 件目まで許した理由がここにある。
+// overlay は「開いている間だけ存在する DOM」なので、開いた状態を作らないと検査対象が無い。
+test('overlay の空状態でも構造 a11y が壊れない (palette 候補 0 件 / drawer 開)', async ({ page }) => {
+  const scan = async () => (await new AxeBuilder({ page }).withRules(STRUCTURE_RULES).analyze())
+    .violations.map((v) => `${v.id}:${v.nodes.length}`);
+
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  // palette: 候補あり → 0 件 の両方
+  await page.keyboard.press('Control+k');
+  await expect(page.locator('#command-palette-host')).toHaveAttribute('aria-hidden', 'false');
+  // control: 候補が出ていないと「0 件にした」状態を作れない
+  expect(await page.getByRole('option').count(),
+    'control: palette に候補が無いと 0 件状態を作れない').toBeGreaterThan(1);
+  expect(await scan(), 'palette(候補あり) で構造 a11y が壊れる').toEqual([]);
+
+  await page.locator('.cmdk-input').fill('zzzznomatch');
+  await expect(page.locator('.cmdk-empty')).toBeVisible();
+  expect(await scan(), 'palette(候補 0 件) で構造 a11y が壊れる').toEqual([]);
+
+  // drawer: モバイルでのみ開ける overlay
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#command-palette-host')).toHaveAttribute('aria-hidden', 'true');
+  await page.setViewportSize({ width: 390, height: 800 });
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  await page.locator('#menuBtn').click();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
+  expect(await scan(), 'drawer(開) で構造 a11y が壊れる').toEqual([]);
+});
+
 test('大量データでも構造 a11y と id の一意性が保たれる', async ({ page }) => {
   await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
