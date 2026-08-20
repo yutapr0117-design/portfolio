@@ -765,3 +765,43 @@ test('既定で無効な axe ルール (Level A/AA) を全ルートで走らせ�
 });
 
 
+
+// ===== 絞り込み中の完了操作でも件数アナウンスが追随すること (WCAG 4.1.3) =====
+// 既存の被覆は「フィルタを**変更**したとき件数が polite status に出る」までで、
+// **項目を完了させて一覧から消えたとき**に件数が追随するかは未被覆だった。
+// 「未完了」で絞り込んで片付けていく使い方では、消えた項目そのものは見えなくなるので、
+// **残り何件かを伝える唯一の手がかりが この status 領域**になる。ここが止まると
+// SR 利用者には「押したが何件残っているか分からない」状態になる。
+// 実測 (2026-08-20): 3 件 → 完了 1 件で「未完了 2 件」へ正しく追随していた (honest-clean)。
+// 未被覆のまま放置すると、件数を全体数から取るような退行が silent に通る。
+test('絞り込み中に完了させると残り件数のアナウンスが追随する', async ({ page }) => {
+  await page.goto('/#/apps/todo', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  for (const t of ['COUNT-A', 'COUNT-B']) {
+    await page.locator('#todo-input').fill(t);
+    await page.locator('#todo-input').press('Enter');
+    await expect(page.locator('#content').getByText(t, { exact: true })).toBeVisible();
+  }
+
+  // 「未完了」で絞り込む (キーボード相当の change を作る)
+  await page.locator('#todo-filter').evaluate((el) => {
+    el.focus();
+    el.value = 'active';
+    el.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+  const status = page.locator('#todo-filter-status');
+  await expect(status).toHaveText(/TODO: 未完了 \d+ 件/);
+  const before = parseInt((await status.textContent()).match(/(\d+)/)[1], 10);
+  // control: 件数が 2 未満だと「減った」ことを測れない
+  expect(before, 'control: 未完了が 2 件未満では減少を測れない').toBeGreaterThanOrEqual(2);
+
+  const cb = page.locator('#content input[type="checkbox"]').first();
+  const label = await cb.getAttribute('aria-label');
+  await cb.click();
+  // 消えるまで待つ (再描画前に読むと古いノードを掴む)
+  await expect(page.locator('#content').getByText(label.split('：')[1], { exact: true })).toHaveCount(0);
+
+  await expect(status, '完了させたのに残り件数のアナウンスが追随していない')
+    .toHaveText(new RegExp(`TODO: 未完了 ${before - 1} 件`));
+});

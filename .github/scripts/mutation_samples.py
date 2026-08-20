@@ -959,6 +959,14 @@ _E2E_TAIL.append({
     "test": "Projects search filters to a subset then clears back to the full list",
 })
 
+_E2E_TAIL.append({
+    "name": "絞り込み中の残り件数アナウンスが全体数になる —— 「未完了」で絞って片付ける使い方では消えた項目は見えなくなるので、残り何件かを伝える唯一の手がかりがこの status 領域。全体数を出すと完了させても数が減らず、SR 利用者には「押したが何件残っているか分からない」状態になる",
+    "file": ROOT / "js" / "apps.js",
+    "find": "return `TODO: ${label} ${getFilteredTodos().length} 件`;",
+    "replace": "return `TODO: ${label} ${State.get().appsData.todos.length} 件`;",
+    "test": "絞り込み中に完了させると残り件数のアナウンスが追随する",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
