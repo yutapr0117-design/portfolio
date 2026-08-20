@@ -981,6 +981,14 @@ _E2E_TAIL.append({
     "test": "空の状態でも構造 a11y が壊れない",
 })
 
+_E2E_TAIL.append({
+    "name": "別タブの更新が稼働中のポモドーロを止める —— cross-tab 採用が受信 store を丸ごと採用し、別タブが持つ「未起動」の runtime で稼働状態を上書きする。利用者からは「別タブで作業していたらポモドーロが消えていた」としか見えず原因に見当がつかない (#940 と同じ『自タブで進行中のものを守る』class)",
+    "file": ROOT / "js" / "state.js",
+    "find": "        if (_running && data.appsData && data.appsData.pomodoro) {",
+    "replace": "        if (false && data.appsData && data.appsData.pomodoro) {",
+    "test": "別タブの更新が稼働中のポモドーロを止めない",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
