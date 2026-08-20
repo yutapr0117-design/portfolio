@@ -409,8 +409,8 @@ E2E_MUTATIONS_ARCHIVE3 = [
     {
         "name": "behavior: notes Markdown ## → h4 の 2 段 demote 喪失 (## を h2 要素へ戻す) → preview 内に note 由来 h2 が現れ heading-order/WCAG 1.3.1 崩れ (#748 の 3 レベル demote 非 vacuity 検証)",
         "file": ROOT / "js" / "apps.js",
-        "find": "else if (h2) { flushList(); out.push(h('h4', { class: 'h2' }, ..._renderMarkdownInline(h2[1]))); }",
-        "replace": "else if (h2) { flushList(); out.push(h('h2', { class: 'h2' }, ..._renderMarkdownInline(h2[1]))); }",
+        "find": "                const _lvl = Math.min(6, 3 + Math.max(0, _md - _mdBase));",
+        "replace": "                const _lvl = _md;",
         "test": "demotes all three heading",
     },
     {

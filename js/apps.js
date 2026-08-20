@@ -570,6 +570,8 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
     function renderMarkdown(src) {
         const out = [];
         const lines = String(src || '').split('\n');
+        // note ごとに「最初に使われた見出しレベル」を基準にする (下の [FIX] 参照)。
+        let _mdBase = null;
         let listBuf = null;
         const flushList = () => {
             if (listBuf) { out.push(h('ul', { class: 'md-ul' }, ...listBuf)); listBuf = null; }
@@ -586,9 +588,23 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
             //   h1 が現れて見出し階層が document 構造を誤表現する (WCAG 1.3.1・SR の見出しナビを混乱)。
             //   視覚サイズは 'h1'/'h2'/'h3' class 維持で不変 (render-neutral)。要素だけ h3/h4/h5 へ
             //   降格し preview の h2 配下に正しく nest させる。
-            if (h3) { flushList(); out.push(h('h5', { class: 'h3' }, ..._renderMarkdownInline(h3[1]))); }
-            else if (h2) { flushList(); out.push(h('h4', { class: 'h2' }, ..._renderMarkdownInline(h2[1]))); }
-            else if (h1) { flushList(); out.push(h('h3', { class: 'h1' }, ..._renderMarkdownInline(h1[1]))); }
+            if (h3 || h2 || h1) {
+                flushList();
+                const _md = h1 ? 1 : h2 ? 2 : 3;
+                // [FIX] **固定 2 段 demote では見出しが飛ぶ。** 従来は # → h3 / ## → h4 / ### → h5 と
+                //   絶対対応させていたため、`###` から書き始めた note では preview の h2 の直後に
+                //   **h5 が来て h3/h4 を飛ばす** (WCAG 1.3.1)。実測 (2026-08-20): `### 設計メモ` だけの
+                //   note で axe の heading-order が 1 件違反を出す。`###` から書き始めるのは
+                //   珍しくないので、既定 note が `#` で始まる出荷状態だけが偶然 clean だった。
+                //   note 内で **最初に使われたレベルを h3 に対応づけ**、以降は相対差で下げる。
+                //   飛びは note 側の構造 (### → ##### 等) を反映する分だけに限られ、
+                //   preview の h2 との接続は常に h3 になる。視覚サイズは class 維持で不変。
+                if (_mdBase === null) { _mdBase = _md; }
+                const _lvl = Math.min(6, 3 + Math.max(0, _md - _mdBase));
+                const _cls = _md === 1 ? 'h1' : _md === 2 ? 'h2' : 'h3';
+                const _txt = (h1 || h2 || h3)[1];
+                out.push(h('h' + _lvl, { class: _cls }, ..._renderMarkdownInline(_txt)));
+            }
             else if (li) { (listBuf = listBuf || []).push(h('li', {}, ..._renderMarkdownInline(li[1]))); }
             else if (line.trim() === '') { flushList(); }
             else { flushList(); out.push(h('p', { class: 'text-prewrap' }, ..._renderMarkdownInline(line))); }
