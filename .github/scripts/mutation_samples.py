@@ -186,48 +186,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "behavior: 取り込んだタスクの id 一意化が失われる — 同 id の項目が並ぶと削除の filter が同 id を全て落とし、**1 件消したつもりが両方消える**。逆に更新は find が先頭しか拾わずもう片方に効かない。DOM 側でも task-delete-<id> 等が重複し focus 復元が別カードを掴む (#154 の slug 一意化と同型)",
-        "file": ROOT / "js" / "store.js",
-        "find": "            uniquifyIds(result.tasks);\n",
-        "replace": "",
-        "test": "同じ id のタスクを取り込んでも片方だけ削除できる",
-    },
-    {
-        "name": "behavior: 取り込んだプロジェクトの id 一意化が失われる — 削除・非表示が id で引くため同 id の別プロジェクトまで巻き添えになる。task 側と対で守らないと『1 ケースだけ処理して他を忘れる』非対称になる",
-        "file": ROOT / "js" / "store.js",
-        "find": "        uniquifyIds(merged);\n",
-        "replace": "",
-        "test": "同じ id のプロジェクトを取り込んでも片方だけ削除できる",
-    },
-    {
-        "name": "behavior: notes の型ガードが truthy 判定へ緩む — `{}` は slice を持たないため TypeError → validateAndNormalize 例外 → 取り込み経路で FatalPage crash。`[]` なら crash しないが notes が配列のまま描画へ流れる (#568/#572 と同じ truthy 判定の穴)",
-        "file": ROOT / "js" / "store.js",
-        "find": "        if (typeof data.notes === 'string') {",
-        "replace": "        if (data.notes) {",
-        "test": "残りの appsData フィールドに敵対的な型を流しても各ページが描画される",
-    },
-    {
-        "name": "behavior: 非表示プロジェクトの除外が効かなくなる (#886 の回帰) — 既定プロジェクトは削除できず『非表示』が唯一の非公開手段なので、これは単なる表示設定でなく **公開/非公開の意思** が無視されること",
-        "file": ROOT / "js" / "projects-page.js",
-        "find": "            const hiddenIds = new Set(((state.projectPrefs && state.projectPrefs.hiddenIds) || []).map(String));",
-        "replace": "            const hiddenIds = new Set();",
-        "test": "Hiding a project removes it from the public Projects list, unhide restores it",
-    },
-    {
-        "name": "behavior: 完了済み削除が何も消さなくなる — ボタンは押せてトーストも出るのに一覧が変わらない。利用者からは『押しても効かない』にしか見えず、失敗も表示されない",
-        "file": ROOT / "js" / "apps.js",
-        "find": "                s.appsData.todos = s.appsData.todos.filter(t => !t.completed);",
-        "replace": "                s.appsData.todos = s.appsData.todos.slice();",
-        "test": "Todo app add, complete-toggle, then clear-completed removes the item",
-    },
-    {
-        "name": "behavior: タスク入力の同期クリアが失われ Enter 連打で二重登録される — 入力欄が空になるのは再描画の副作用で、その再描画は非同期 (await yieldToMain)。連打やキーリピートでは e.target.value がまだ元の文字列を持つため同じ値が何度も登録される (実測: 3 回押して 3 件)",
-        "file": ROOT / "js" / "apps.js",
-        "find": "                                const _v = e.target.value;\n                                e.target.value = '';\n                                addTask(_v);",
-        "replace": "                                addTask(e.target.value);",
-        "test": "タスク入力の Enter 連打で同じタスクが二重登録されない",
-    },
-    {
         "name": "behavior: TODO 入力の同期クリアが失われ Enter 連打で二重登録される — task 側と同じ機構。片方だけ守ると『1 ケースだけ処理して他を忘れる』非対称になる",
         "file": ROOT / "js" / "apps.js",
         "find": "                                const _v = e.target.value;\n                                e.target.value = '';\n                                addTodo(_v);",
@@ -265,8 +223,8 @@ _E2E_TAIL = [
     {
         "name": "behavior: スナップショット復元が state を採用しなくなる — ボタンは押せてトーストも出るのに何も戻らない。スナップショットは単一スロットの『唯一の復元点』なので、効かないことに気付くのは戻したい場面 = 最悪のタイミングになる",
         "file": ROOT / "js" / "settings-page.js",
-        "find": "            State.set(Store.validateAndNormalize(snap.data));",
-        "replace": "            void snap;",
+        "find": "            State.set(_norm);",
+        "replace": "            void _norm;",
         "test": "Settings snapshot restore reverts state to the saved point",
     },
     {
@@ -761,8 +719,8 @@ _E2E_TAIL = [
     {
         "name": "\u4e0a\u9650\u8d85\u904e\u306e import \u304c\u9ed9\u3063\u3066\u5207\u308a\u6368\u3066\u308b \u2014\u2014 \u6b63\u898f\u5316\u306f\u4ef6\u6570\u4e0a\u9650 (MAX_TASKS 500) \u3067 entry \u3092\u843d\u3068\u3059\u304c\u3001\u5831\u544a\u3092\u7d20\u306e\u300c\u5b8c\u4e86\u3057\u307e\u3057\u305f\u300d\u306b\u623b\u3059\u3068\u3001\u30d0\u30c3\u30af\u30a2\u30c3\u30d7\u304b\u3089\u5fa9\u5143\u3057\u305f\u5229\u7528\u8005\u306f\u5931\u308f\u308c\u305f\u3053\u3068\u306b\u6c17\u4ed8\u304b\u306a\u3044\u307e\u307e\u5143\u30c7\u30fc\u30bf\u3092\u6368\u3066\u3046\u308b (#1039/#1040 \u306e \u90e8\u5206\u9069\u7528 \u7248)",
         "file": ROOT / "js" / "settings-page.js",
-        "find": "if (_dropped > 0) { _parts.push(",
-        "replace": "if (false && _dropped > 0) { _parts.push(",
+        "find": "if (dropped > 0) { parts.push(",
+        "replace": "if (false && dropped > 0) { parts.push(",
         "test": "Over-limit import reports how many entries were dropped",
     },
     {
@@ -920,16 +878,16 @@ _E2E_TAIL.append({
 _E2E_TAIL.append({
     "name": "取り込んだ entry の中身が上限で削られた分が報告されなくなる —— 項目内フィールド (tech/tags/highlights/task.tags) の切り捨て件数を通知から落とすと、entry は一覧に残るため利用者には「戻った」ように見えるまま中身だけが消える。#1143 の entry 単位カウントでは 0 のままなので素の「完了しました」に戻る",
     "file": ROOT / "js" / "settings-page.js",
-    "find": "if (_trimmed > 0) { _parts.push(",
-    "replace": "if (false && _trimmed > 0) { _parts.push(",
+    "find": "if (trimmed > 0) { parts.push(",
+    "replace": "if (false && trimmed > 0) { parts.push(",
     "test": "取り込んだ project の中身が上限で削られたら件数を報告する",
 })
 
 _E2E_TAIL.append({
     "name": "文字数上限で短縮された項目が報告されなくなる —— name/summary/title 等が上限で切られても通知が素の「完了しました」に戻る。list の件数を数える _trimmed では 0 のままなので、この面だけが silent に戻る (#1177 は手動追加で既に報告しており、取り込み経路だけが取り残されていた非対称)",
     "file": ROOT / "js" / "settings-page.js",
-    "find": "if (_shortened > 0) { _parts.push(",
-    "replace": "if (false && _shortened > 0) { _parts.push(",
+    "find": "if (shortened > 0) { parts.push(",
+    "replace": "if (false && shortened > 0) { parts.push(",
     "test": "取り込んだ項目が文字数上限で短縮されたら件数を報告する",
 })
 
@@ -952,8 +910,8 @@ _E2E_TAIL.append({
 _E2E_TAIL.append({
     "name": "Markdown ノートの切り詰めが報告されなくなる —— notes は単一ドキュメントで上限 (20,000) 超過時に末尾がまるごと消えるが entry も件数も減らないため、報告を外すと全カウンタ 0 のまま素の「完了しました」に戻る",
     "file": ROOT / "js" / "settings-page.js",
-    "find": "+ _shortenedObj({ notes: (merged.appsData || {}).notes },",
-    "replace": "+ 0 * _shortenedObj({ notes: (merged.appsData || {}).notes },",
+    "find": "+ shortenedObj({ notes: apps(before).notes }, { notes: apps(after).notes });",
+    "replace": "+ 0 * shortenedObj({ notes: apps(before).notes }, { notes: apps(after).notes });",
     "test": "ノートの切り詰めと履歴の件数落ちを報告する",
 })
 
@@ -987,6 +945,14 @@ _E2E_TAIL.append({
     "find": "            if (!confirm('\u672c\u5f53\u306b\u524a\u9664\u3057\u307e\u3059\u304b\uff1f')) {return;}\n            let removed = null;",
     "replace": "            confirm('\u672c\u5f53\u306b\u524a\u9664\u3057\u307e\u3059\u304b\uff1f');\n            let removed = null;",
     "test": "削除の確認をキャンセルしたら削除を報告しない",
+})
+
+_E2E_TAIL.append({
+    "name": "snapshot 復元が損失を報告しなくなる —— 復元は import と同じ正規化を通し entry / 中身を失うのに無条件で「復元しました」と言う旧挙動へ。snapshot は単一スロット = 利用者の唯一の復元点なので、import 経路より無防備なのは筋が通らない",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "            const _parts = lossParts(snap.data, _norm);",
+    "replace": "            const _parts = [];",
+    "test": "snapshot の復元で失われた分を報告する",
 })
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

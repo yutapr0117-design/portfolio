@@ -259,8 +259,8 @@ E2E_MUTATIONS_ARCHIVE3 = [
         "name": "behavior: snapshot 復元が正規化を通さず生採用して schema 不一致/欠損で crash (#93/#295 class)",
         # 2026-07-05: SettingsPage を js/apps.js → js/settings-page.js へ分離したため anchor file を追従 (#558 class)
         "file": ROOT / "js" / "settings-page.js",
-        "find": "            State.set(Store.validateAndNormalize(snap.data));",
-        "replace": "            State.set(snap.data);",
+        "find": "            const _norm = Store.validateAndNormalize(snap.data);",
+        "replace": "            const _norm = snap.data;",
         "test": "Snapshot restore normalizes",
     },
     {
