@@ -941,6 +941,14 @@ _E2E_TAIL.append({
     "test": "絞り込み中に優先度を変えると残り件数のアナウンスが追随する",
 })
 
+_E2E_TAIL.append({
+    "name": "main の tabindex=-1 が外れ、skip-link の着地点が失われる —— WCAG 2.4.1 のバイパス手段が黙って壊れる。sr-only でも screenshot でもない構造の欠落なので、視覚には一切出ない",
+    "file": ROOT / "index.html",
+    "find": '<main id="main-content" class="main-content" tabindex="-1"',
+    "replace": '<main id="main-content" class="main-content"',
+    "test": "全ルートで main ランドマークが一意で、名前と skip-link 着地点を保つ",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
