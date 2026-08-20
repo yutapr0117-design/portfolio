@@ -347,3 +347,75 @@ test('検索 0 件でもリストの意味論が壊れない (role=list の子�
   await expect(page.locator('#content').getByText('条件に一致するプロジェクトはありません')).toBeVisible();
   expect(await violations(), '0 件時に role=list の子へ role=status が入っている').toEqual([]);
 });
+
+// ===== 非既定の状態でも構造 a11y が壊れないこと (既定値だけが偶然 clean を防ぐ) =====
+// 全ルートの axe 走査は **既定内容で実行される**ため、既定から外れた状態にしか現れない
+// 破れには**永久に到達しない**。実際この class で 2 件の実バグが出た:
+//   #1213 `###` から書き始めた Markdown ノート → 見出しが h3/h4 を飛ばす
+//   #1214 検索 0 件 → role="list" の子に role="status" が入りリスト意味論が壊れる
+// どちらも既定内容 (note が `#` 始まり / 検索が空) では踏まれない。
+//
+// ここでは **空** と **大量** の両端を作って構造 rule だけを走らせる。
+// color-contrast は別 test 群が全ブランド × 全テーマで見ているので対象外
+// (ここで混ぜると「淡色チップ上の文字」等の既知面に埋もれて構造違反を見落とす)。
+const STRUCTURE_RULES = [
+  'aria-required-children', 'aria-required-parent', 'list', 'listitem',
+  'definition-list', 'dlitem', 'aria-valid-attr-value', 'duplicate-id-aria',
+];
+
+test('空の状態でも構造 a11y が壊れない (todo 全削除 / 検索 0 件)', async ({ page }) => {
+  await page.goto('/#/apps/todo', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  // control: 消す対象が無いと「空にした」状態を作れない
+  expect(await page.locator('#content button[id^="todo-delete-"]').count(),
+    'control: 既定 TODO が 0 件では空状態を作れない').toBeGreaterThan(0);
+  for (let i = 0; i < 10; i++) {
+    const del = page.locator('#content button[id^="todo-delete-"]').first();
+    if (await del.count() === 0) { break; }
+    await del.click();
+  }
+  await expect(page.locator('#content button[id^="todo-delete-"]')).toHaveCount(0);
+
+  const scan = async () => (await new AxeBuilder({ page }).withRules(STRUCTURE_RULES).analyze())
+    .violations.map((v) => `${v.id}:${v.nodes.length}`);
+  expect(await scan(), 'TODO を空にすると構造 a11y が壊れる').toEqual([]);
+
+  await page.goto('/#/quiz?q=zzzznomatch', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  expect(await scan(), 'quiz 検索 0 件で構造 a11y が壊れる').toEqual([]);
+});
+
+test('大量データでも構造 a11y と id の一意性が保たれる', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await page.setInputFiles('#content input[type="file"]', {
+    name: 'bulk.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({
+      tasks: Array.from({ length: 90 }, (_, i) => ({
+        id: `bulk${i}`, title: `BULK-${i}`, status: ['backlog', 'doing', 'done'][i % 3],
+      })),
+      todos: [],
+    })),
+  });
+  await expect(page.locator('#action-announcement')).toContainText('インポート');
+
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  // control: 取り込みが効いていないと「大量」を測れない
+  await expect.poll(async () => await page.locator('#content [id^="task-delete-"]').count(),
+    { message: 'control: 大量データが描画されていない' }).toBeGreaterThan(50);
+
+  const violations = (await new AxeBuilder({ page }).withRules(STRUCTURE_RULES).analyze())
+    .violations.map((v) => `${v.id}:${v.nodes.length}`);
+  expect(violations, '大量データで構造 a11y が壊れる').toEqual([]);
+
+  // 90 件が同じ id を作らないこと (#1058 の id 衝突 class)
+  const dup = await page.evaluate(() => {
+    const seen = new Map();
+    document.querySelectorAll('[id]').forEach((e) => seen.set(e.id, (seen.get(e.id) || 0) + 1));
+    return Array.from(seen.entries()).filter(([, c]) => c > 1).map(([k]) => k);
+  });
+  expect(dup, '大量データで id が重複している').toEqual([]);
+});
