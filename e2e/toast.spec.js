@@ -54,3 +54,48 @@ test('Toasts do not stack past the viewport during rapid actions', async ({ page
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `toast burst caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 通知が topbar のボタンを覆わない (操作不能にしない) =====
+// 通知コンテナは `position: fixed; top: 1.5rem; right: 1.5rem` で右上に出る。モバイルでは
+// **そこに topbar のボタンがある**ため、実測 (2026-08-20) では通知表示中に
+// `document.elementFromPoint` がテーマ / BGM ボタンの中心で `.alert` を返し、**操作不能**だった。
+// 通知は 3 秒 × 連続操作で継続しうるので、その間これらの導線が死ぬ。
+//
+// 判定は「その座標で実際に何が取れるか」で行う。可視・サイズだけでは覆いを検出できない。
+test('Toasts never cover the topbar controls on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  // reducedMotion: View Transition の overlay が出ている間は `elementFromPoint` が
+  //   ページ要素ではなく root を返す (実測: control が「通知が無いのに操作できない」と誤判定した)。
+  //   遷移を切って hit-test を安定させる。落とし穴表の VT artifact と同じ class。
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#task-input')).toBeVisible();
+
+  const hitTest = () => page.evaluate(() => {
+    const out = {};
+    for (const id of ['menuBtn', 'themeBtnTop', 'bgm-btn-top']) {
+      const el = document.getElementById(id);
+      if (!el || !el.getClientRects().length) { out[id] = 'hidden'; continue; }
+      const b = el.getBoundingClientRect();
+      const hit = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
+      out[id] = (el === hit || el.contains(hit)) ? 'ok' : 'covered';
+    }
+    out.toasts = document.querySelectorAll('#toast-container .alert').length;
+    return out;
+  });
+
+  // control: 通知が無い状態では当然すべて操作できる
+  const before = await hitTest();
+  expect(before.toasts, 'control: 通知が最初から出ている').toBe(0);
+  expect(before.menuBtn, 'control: 通知が無くても topbar が操作できない').toBe('ok');
+
+  await page.locator('#task-input').fill('topbar 被り確認');
+  await page.locator('#task-input').press('Enter');
+  await expect.poll(async () => (await hitTest()).toasts, { timeout: 5000 }).toBeGreaterThan(0);
+
+  const during = await hitTest();
+  expect(during.menuBtn, '通知がメニューボタンを覆っている').toBe('ok');
+  expect(during.themeBtnTop, '通知がテーマ切替ボタンを覆っている').toBe('ok');
+  expect(during['bgm-btn-top'], '通知が BGM ボタンを覆っている').toBe('ok');
+});
