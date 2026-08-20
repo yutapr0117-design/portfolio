@@ -9,7 +9,7 @@ canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/store.js (validate
 
 ## What
 
-`route 'settings'` (設定ページ — import/export・snapshot 保存/復元/削除・手動プロジェクト追加・整合性チェック/正規化) をレンダリングする葉モジュール。`createSettingsPage({ h, Toast, State, Brand, Store, Storage, CONSTANTS, generateId, slugify, announce })` が `SettingsPage()` 関数を返す factory。private state `settings*` (settingsImportMode / settingsIncludeProfile / settingsIncludeProjects / settingsIncludeApps / settingsNewName / settingsNewTech / settingsNewDemo, let × 7) と local helper (getSnapshot / setSnapshot / restoreSnapshot / clearSnapshot / downloadJSON / exportFull / exportProjects / exportApps / exportProfile / importJSON / addProjectManual / buildUI) を内包する。
+`route 'settings'` (設定ページ — import/export・snapshot 保存/復元/削除・手動プロジェクト追加・整合性チェック/正規化) をレンダリングする葉モジュール。`createSettingsPage({ h, Toast, State, Brand, Store, Storage, CONSTANTS, generateId, slugify, announce, IO })` が `SettingsPage()` 関数を返す factory。private state `settings*` (settingsImportMode / settingsIncludeProfile / settingsIncludeProjects / settingsIncludeApps / settingsNewName / settingsNewTech / settingsNewDemo, let × 7) と local helper (getSnapshot / setSnapshot / restoreSnapshot / clearSnapshot / downloadJSON / exportFull / exportProjects / exportApps / exportProfile / importJSON / addProjectManual / buildUI) を内包する。
 
 ## Why
 
@@ -17,7 +17,7 @@ canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/store.js (validate
 
 ## How
 
-- `main.js` が `createSettingsPage({ h, Toast, State, Brand, Store, Storage, CONSTANTS, generateId, slugify, announce })` で生成し、render dispatch (route 'settings') が `SettingsPage()` を呼ぶ。
+- `main.js` が `createSettingsPage({ h, Toast, State, Brand, Store, Storage, CONSTANTS, generateId, slugify, announce, IO })` で生成し、render dispatch (route 'settings') が `SettingsPage()` を呼ぶ。
 - import/export は JSON blob の download / FileReader read。snapshot は `CONSTANTS.SNAPSHOT_KEY` に save/restore/clear。手動追加は slug 衝突回避 (#154 class) 付き。
 
 ## Constraints

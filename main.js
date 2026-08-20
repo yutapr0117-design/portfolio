@@ -126,6 +126,7 @@
         // v80+ bloat-reduction (2026-07-05): SettingsPage を js/apps.js から js/settings-page.js へ分離。
         //   createApps が 837 行に肥大化していたため最大 page (~373 行) を抽出し 461 行へ縮小 (Check 363 headroom)。
         import { createSettingsPage } from './js/settings-page.js';
+        import { createSettingsIO } from './js/settings-io.js';
         // v80+ Stage 5-o: Quiz Renderer (QuizPage + 4 quiz domain lookup) を factory pattern で葉モジュール抽出。
         import { createQuizRenderer } from './js/quiz-renderer.js';
         // v80+ Stage 5-l: AIDK Rail 5 IIFE (RouteState / EffectRails / BindingRegistry /
@@ -500,7 +501,19 @@
         const { PomodoroPage, resumeIfActive } = createPomodoroPage({ h, createIcon, State, Router, Toast, clamp, CONSTANTS });
         // 2026-07-05 bloat-reduction: SettingsPage は別葉モジュール createSettingsPage で生成
         //   (依存は h/Toast/State/Brand/Store/Storage/CONSTANTS/generateId/slugify)
-        const { SettingsPage } = createSettingsPage({ h, Toast, State, Brand, Store, Storage, CONSTANTS, generateId, slugify, announce });
+        // 2026-08-20 bloat-reduction: 入出力 (export/import/lossParts) を js/settings-io.js へ分離。
+        //   IO は「取り込みの瞬間の UI 選択」を getter で読む必要があり、その選択は
+        //   SettingsPage の closure が持つ → 相互参照になる。late-binding holder で解く
+        //   (Stage 5-q/5-r と同じパターン)。holder の初期値は SettingsPage が返る前に
+        //   万一呼ばれた場合の既定値で、実際には下の代入後にしか使われない。
+        let _settingsImportOptions = () => ({
+            mode: 'append', includeProfile: true, includeProjects: true, includeApps: true,
+        });
+        const SettingsIO = createSettingsIO({
+            State, Store, Toast, getImportOptions: () => _settingsImportOptions(),
+        });
+        const { SettingsPage, getImportOptions: _getSettingsImportOptions } = createSettingsPage({ h, Toast, State, Brand, Store, Storage, CONSTANTS, generateId, slugify, announce, IO: SettingsIO });
+        _settingsImportOptions = _getSettingsImportOptions;
 
 
         // ===== v80+ Stage 5-o: Quiz Renderer =====

@@ -222,6 +222,7 @@ def run(ctx):
         ("./js/hiring-risk-page.js",      ROOT / "js" / "hiring-risk-page.js"),
         ("./js/ai-page.js",               ROOT / "js" / "ai-page.js"),
         ("./js/pomodoro-page.js",         ROOT / "js" / "pomodoro-page.js"),
+        ("./js/settings-io.js",           ROOT / "js" / "settings-io.js"),
         ("./js/settings-page.js",         ROOT / "js" / "settings-page.js"),
         ("./js/command-palette.js",       ROOT / "js" / "command-palette.js"),
         ("./js/quiz/architecture-quiz-data.js", ROOT / "js" / "quiz" / "architecture-quiz-data.js"),
