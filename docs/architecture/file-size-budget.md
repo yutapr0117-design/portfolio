@@ -61,7 +61,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/home-page.js` | 358 | 450 | `advisory` | bloat-reduction 分離 (js/components.js より)。ホームページ factory |
 | `js/pomodoro-page.js` | 359 | 400 | `advisory` | 2026-07-04 bloat-reduction 分離 (js/apps.js より)。ポモドーロタイマー factory。private state = pomodoroTimer 1 個。stale-closure 対策温存 |
 | `js/project-detail-page.js` | 194 | 300 | `advisory` | bloat-reduction 分離 (js/components.js より)。プロジェクト詳細 + 関連推薦 factory |
-| `js/projects-page.js` | 237 | 300 | `advisory` | bloat-reduction 分離 (js/components.js より)。プロジェクト一覧 + 検索 factory |
+| `js/projects-page.js` | 246 | 300 | `advisory` | bloat-reduction 分離 (js/components.js より)。プロジェクト一覧 + 検索 factory |
 | `js/constants.js` | 94 | 150 | `advisory` | Stage 5-d 新設。実行時定数（STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID）。closure-deps = none |
 | `js/fatal-overlay.js` | 231 | 300 | `advisory` | Stage 5-r 新設。Fatal overlay + Global Safety Net factory（エラー判定 + Shadow DOM フォールバック UI + setInterval ウォッチ）。closure-deps = none + render 注入 |
 | `js/identity.js` | 36 | 80 | `advisory` | Stage 5-e 新設。AUTHOR（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME）純データ。closure-deps = none |
@@ -98,7 +98,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `docs/session-records/AI2AI-archive.md` | 736 | — | `archive-growth-ok` | セッション証跡。削らない |
 | `ChatGPT2ChatGPT.md` | 970 | — | `archive-growth-ok` | AI 間対話証跡。削らない |
 | `e2e/a11y-axe.spec.js` | 852 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
-| `e2e/a11y-contrast.spec.js` | 317 | 900 | `advisory` | behavior e2e spec (コントラストと色の知覚・WCAG 1.4.1/1.4.3/1.4.11)。2026-08-20 に a11y-axe.spec.js が 996 行で BLOCKING(1,000) まで残り 3 行となり、**当たる前に**このテーマの塊を切り出した |
+| `e2e/a11y-contrast.spec.js` | 349 | 900 | `advisory` | behavior e2e spec (コントラストと色の知覚・WCAG 1.4.1/1.4.3/1.4.11)。2026-08-20 に a11y-axe.spec.js が 996 行で BLOCKING(1,000) まで残り 3 行となり、**当たる前に**このテーマの塊を切り出した |
 | `e2e/aio-meta.spec.js` | 792 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-ai-notes.spec.js` | 833 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-pomodoro.spec.js` | 758 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
@@ -163,7 +163,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 833000 -->
+<!-- PERF-BUDGET-DATA 834000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
