@@ -741,7 +741,9 @@ def run(ctx):
     # normalize-before-commit へ整合させる。本 Check は importJSON 関数本体を brace-balance で抽出し、
     # State.update( を含まず validateAndNormalize を通すことを強制する (raw ingestion 描画の再混入を
     # 構造封じ・Check 130 の oninput no-State.update と同型の ingestion 版)。
-    _sp374 = ROOT / "js" / "settings-page.js"
+    # 2026-08-20: importJSON は js/settings-io.js へ抽出された (bloat-reduction)。
+    # 守る invariant は不変なので走査先だけ追従する (Check 362 が anchor 側の追従を強制)。
+    _sp374 = ROOT / "js" / "settings-io.js"
     if _sp374.exists():
         _src374 = _sp374.read_text(encoding="utf-8")
         _m374 = re.search(r"function\s+importJSON\s*\(", _src374)
@@ -766,13 +768,13 @@ def run(ctx):
             _ok374 = (not _has_update374) and _has_norm374
         check(
             _m374 is not None and _ok374,
-            "Check 374: settings-page.js importJSON は生を State.update で adopt せず validateAndNormalize してから State.set (normalize-before-commit ingestion)",
-            ("Check 374: settings-page.js importJSON の ingestion が normalize-before-commit でない — "
+            "Check 374: settings-io.js importJSON は生を State.update で adopt せず validateAndNormalize してから State.set (normalize-before-commit ingestion)",
+            ("Check 374: settings-io.js importJSON の ingestion が normalize-before-commit でない — "
              + ("State.update( を呼んでおり生データが render に届きうる" if _has_update374 else "validateAndNormalize を通していない")
              + "。マージ結果を Store.validateAndNormalize してから単一 State.set( で commit せよ "
              "(restoreSnapshot と同じ #295/#561 ingestion invariant・Check 130 の ingestion 版)")
             if _m374 else
-            "Check 374: settings-page.js に importJSON 関数が見つからない (構造変更の可能性)",
+            "Check 374: settings-io.js に importJSON 関数が見つからない (構造変更の可能性)",
             blocking=True,
         )
     else:

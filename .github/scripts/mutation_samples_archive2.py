@@ -509,9 +509,9 @@ MUTATIONS_ARCHIVE2 = [
     },
     {
         "name": "Check 374 (importJSON normalize-before-adopt): commit を State.update へ戻す → 生 ingestion が render に届く normalize-before-adopt 違反 (#295/#561 class)",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "                    State.set(normalized);",
-        "replace": "                    State.update(s => { Object.assign(s, normalized); });",
+        "file": ROOT / "js" / "settings-io.js",
+        "find": "                State.set(normalized);",
+        "replace": "                State.update(s => { Object.assign(s, normalized); });",
     },
     {
         "name": "Check 375 (createIcon icon-registry resolution): 既存 createIcon('trash') を未定義 name へ typo → silent 空アイコン wiring gap (icon-only ボタンが不可視化)",

@@ -442,8 +442,8 @@ _E2E_TAIL = [
     },
     {
         "name": "壊れた JSON の取り込みが無言で失敗する — catch の通知を消すと、パースに失敗しても **何も起きない**。利用者はファイルを選んだのに成功も失敗も告げられず、取り込めたのか分からないまま放置される (silent failure。crash しないこと自体は保たれるので FatalPage 検査では捕捉できない)",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "                } catch (err) {\n                    Toast.show('JSON\u306e\u30d1\u30fc\u30b9\u306b\u5931\u6557\u3057\u307e\u3057\u305f', 'error');\n                }",
+        "file": ROOT / "js" / "settings-io.js",
+        "find": "            } catch (err) {\n                Toast.show('JSON\u306e\u30d1\u30fc\u30b9\u306b\u5931\u6557\u3057\u307e\u3057\u305f', 'error');\n            }",
         "replace": "                } catch (err) {\n                }",
         "test": "Settings import shows an error for malformed JSON file without crashing",
     },
@@ -491,8 +491,8 @@ _E2E_TAIL = [
     },
     {
         "name": "import の append 分岐が新規プロジェクトを取り込まなくなる — 既定モードは 'append' で、**バックアップからの復旧はこの経路を通る**。取り込みが no-op になっても「インポートが完了しました」とだけ出るので、利用者は復元できたと信じて元データを捨てうる (#1039/#1040 の silent no-op と同じ形の、既定経路版)",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "                            parsed.projects.forEach(p => { if (!existing.has(p.id)) { appended.push(p); } });",
+        "file": ROOT / "js" / "settings-io.js",
+        "find": "                        parsed.projects.forEach(p => { if (!existing.has(p.id)) { appended.push(p); } });",
         "replace": "",
         "test": "Settings import (valid JSON) appends projects and persists (data recovery)",
     },
@@ -624,7 +624,7 @@ _E2E_TAIL = [
     },
     {
         "name": "\u4e0a\u9650\u8d85\u904e\u306e import \u304c\u9ed9\u3063\u3066\u5207\u308a\u6368\u3066\u308b \u2014\u2014 \u6b63\u898f\u5316\u306f\u4ef6\u6570\u4e0a\u9650 (MAX_TASKS 500) \u3067 entry \u3092\u843d\u3068\u3059\u304c\u3001\u5831\u544a\u3092\u7d20\u306e\u300c\u5b8c\u4e86\u3057\u307e\u3057\u305f\u300d\u306b\u623b\u3059\u3068\u3001\u30d0\u30c3\u30af\u30a2\u30c3\u30d7\u304b\u3089\u5fa9\u5143\u3057\u305f\u5229\u7528\u8005\u306f\u5931\u308f\u308c\u305f\u3053\u3068\u306b\u6c17\u4ed8\u304b\u306a\u3044\u307e\u307e\u5143\u30c7\u30fc\u30bf\u3092\u6368\u3066\u3046\u308b (#1039/#1040 \u306e \u90e8\u5206\u9069\u7528 \u7248)",
-        "file": ROOT / "js" / "settings-page.js",
+        "file": ROOT / "js" / "settings-io.js",
         "find": "if (dropped > 0) { parts.push(",
         "replace": "if (false && dropped > 0) { parts.push(",
         "test": "Over-limit import reports how many entries were dropped",
@@ -743,7 +743,7 @@ _E2E_TAIL = [
     },
     {
         "name": "\u30d5\u30eb\u30d0\u30c3\u30af\u30a2\u30c3\u30d7\u304c state \u5168\u4f53\u3092\u542b\u307e\u306a\u304f\u306a\u308b \u2014\u2014 exportFull \u304c projects \u3060\u3051\u3092\u66f8\u304d\u51fa\u3059\u5f62\u3078\u623b\u308b\u3068\u3001\u5229\u7528\u8005\u306f\u300c\u30d0\u30c3\u30af\u30a2\u30c3\u30d7\u3092\u53d6\u3063\u305f\u300d\u3068\u4fe1\u3058\u3066\u5143\u30c7\u30fc\u30bf\u3092\u6368\u3066\u3046\u308b (\u5fa9\u5143\u6642\u306b tasks / notes / profile \u304c\u5168\u90e8\u6d88\u3048\u308b)",
-        "file": ROOT / "js" / "settings-page.js",
+        "file": ROOT / "js" / "settings-io.js",
         "find": "function exportFull() { downloadJSON(State.get(),",
         "replace": "function exportFull() { downloadJSON({ projects: State.get().projects },",
         "test": "Settings app exports a full backup as a valid JSON download",
@@ -783,7 +783,7 @@ _E2E_TAIL.append({
 
 _E2E_TAIL.append({
     "name": "取り込んだ entry の中身が上限で削られた分が報告されなくなる —— 項目内フィールド (tech/tags/highlights/task.tags) の切り捨て件数を通知から落とすと、entry は一覧に残るため利用者には「戻った」ように見えるまま中身だけが消える。#1143 の entry 単位カウントでは 0 のままなので素の「完了しました」に戻る",
-    "file": ROOT / "js" / "settings-page.js",
+    "file": ROOT / "js" / "settings-io.js",
     "find": "if (trimmed > 0) { parts.push(",
     "replace": "if (false && trimmed > 0) { parts.push(",
     "test": "取り込んだ project の中身が上限で削られたら件数を報告する",
@@ -791,7 +791,7 @@ _E2E_TAIL.append({
 
 _E2E_TAIL.append({
     "name": "文字数上限で短縮された項目が報告されなくなる —— name/summary/title 等が上限で切られても通知が素の「完了しました」に戻る。list の件数を数える _trimmed では 0 のままなので、この面だけが silent に戻る (#1177 は手動追加で既に報告しており、取り込み経路だけが取り残されていた非対称)",
-    "file": ROOT / "js" / "settings-page.js",
+    "file": ROOT / "js" / "settings-io.js",
     "find": "if (shortened > 0) { parts.push(",
     "replace": "if (false && shortened > 0) { parts.push(",
     "test": "取り込んだ項目が文字数上限で短縮されたら件数を報告する",
@@ -799,7 +799,7 @@ _E2E_TAIL.append({
 
 _E2E_TAIL.append({
     "name": "前後の空白の trim を「短縮」と誤報する —— profile の email/github は safeEmail/safeUrl が trim 後の値を返すため、比較元を trim しないと空白があるだけの普通のファイルで毎回「短縮されました」と出る。本物の切り捨て警告が信用されなくなる",
-    "file": ROOT / "js" / "settings-page.js",
+    "file": ROOT / "js" / "settings-io.js",
     "find": "&& a[k].length < b[k].trim().length ? 1 : 0), 0);",
     "replace": "&& a[k].length < b[k].length ? 1 : 0), 0);",
     "test": "前後の空白を落としただけでは短縮として報告しない",
@@ -807,7 +807,7 @@ _E2E_TAIL.append({
 
 _E2E_TAIL.append({
     "name": "履歴 (ai/pomodoro) の件数上限で落ちた entry が報告されなくなる —— tasks/todos/projects だけを数えていた元の非対称に戻る。落ちたことは利用者に見えないまま履歴が欠ける",
-    "file": ROOT / "js" / "settings-page.js",
+    "file": ROOT / "js" / "settings-io.js",
     "find": "+ ['ai', 'pomodoro'].reduce((n, k) => n + Math.max(0,",
     "replace": "+ 0 * ['ai', 'pomodoro'].reduce((n, k) => n + Math.max(0,",
     "test": "ノートの切り詰めと履歴の件数落ちを報告する",
@@ -815,7 +815,7 @@ _E2E_TAIL.append({
 
 _E2E_TAIL.append({
     "name": "Markdown ノートの切り詰めが報告されなくなる —— notes は単一ドキュメントで上限 (20,000) 超過時に末尾がまるごと消えるが entry も件数も減らないため、報告を外すと全カウンタ 0 のまま素の「完了しました」に戻る",
-    "file": ROOT / "js" / "settings-page.js",
+    "file": ROOT / "js" / "settings-io.js",
     "find": "+ shortenedObj({ notes: apps(before).notes }, { notes: apps(after).notes });",
     "replace": "+ 0 * shortenedObj({ notes: apps(before).notes }, { notes: apps(after).notes });",
     "test": "ノートの切り詰めと履歴の件数落ちを報告する",
@@ -823,15 +823,15 @@ _E2E_TAIL.append({
 
 _E2E_TAIL.append({
     "name": "「対象」モードが appsData に効かなくなる —— 既定の「追加のみ」を選んでいても丸ごと置き換わり、利用者の既存タスク・TODO・ノート・履歴が全部消える。最も安全なつもりの選択が最も破壊的になる旧挙動への退行",
-    "file": ROOT / "js" / "settings-page.js",
-    "find": "                        if (settingsImportMode === 'strict') {\n                            merged.appsData = inc;",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "                    if (settingsImportMode === 'strict') {\n                        merged.appsData = inc;",
     "replace": "                        if (true) {\n                            merged.appsData = inc;",
     "test": "「追加のみ」の import は既存タスクを消さない",
 })
 
 _E2E_TAIL.append({
     "name": "append と upsert の区別が消える —— id が衝突したとき「追加のみ」でも既存 entry を上書きしてしまう (追加のみ = 既存を更新しない、の契約破り)",
-    "file": ROOT / "js" / "settings-page.js",
+    "file": ROOT / "js" / "settings-io.js",
     "find": "if (!map.has(x.id) || settingsImportMode === 'upsert') { map.set(x.id, x); }",
     "replace": "map.set(x.id, x);",
     "test": "「追加のみ」の import は既存タスクを消さない",
@@ -863,24 +863,24 @@ _E2E_TAIL.append({
 
 _E2E_TAIL.append({
     "name": "「追加のみ」の既存優先レポートが過剰報告に戻る —— 内容が同じで何も失っていなくても警告を出す。失っていないのに警告を出すと本物の切り捨て警告が信用されなくなる",
-    "file": ROOT / "js" / "settings-page.js",
-    "find": "                                    && _stable(inc[k]) !== _stable(baseApps[k])).length;",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "                                && _stable(inc[k]) !== _stable(baseApps[k])).length;",
     "replace": "                                    ).length;",
     "test": "内容が同じなら",
 })
 
 _E2E_TAIL.append({
     "name": "「追加のみ」の既存優先レポートが出なくなる —— 実際に取り込まなかった項目があっても黙る (過少報告)。上の過剰報告 mutation と対で、両方向を固定する",
-    "file": ROOT / "js" / "settings-page.js",
-    "find": "                                _keptOwn = Object.keys(inc).filter(k => k !== 'tasks' && k !== 'todos'",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "                            _keptOwn = Object.keys(inc).filter(k => k !== 'tasks' && k !== 'todos'",
     "replace": "                                _keptOwn = 0 * Object.keys(inc).filter(k => k !== 'tasks' && k !== 'todos'",
     "test": "内容が違えば",
 })
 
 _E2E_TAIL.append({
     "name": "「追加のみ」の取り込みが稼働中のポモドーロを止める —— appsData を常に全置換する旧挙動へ戻ると、既存を壊さないはずのモードで稼働状態まで置き換わる (利用者からは「勝手に止まった」)",
-    "file": ROOT / "js" / "settings-page.js",
-    "find": "                        if (settingsImportMode === 'strict') {\n                            merged.appsData = inc;",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "                    if (settingsImportMode === 'strict') {\n                        merged.appsData = inc;",
     "replace": "                        if (true) {\n                            merged.appsData = inc;",
     "test": "「追加のみ」の取り込みは稼働中のポモドーロを止めない",
 })

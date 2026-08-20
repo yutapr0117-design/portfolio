@@ -429,8 +429,8 @@ E2E_MUTATIONS_ARCHIVE3 = [
     },
     {
         "name": "behavior: settings upsert import が更新も新規追加も反映しない data-loss (upsert 分岐の Array.from(map.values()) を base.projects.slice() へ) → import した既存更新 + 新規 project が両方消える (#192 data-loss 実バグ regression の非 vacuity 検証)",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "                            merged.projects = Array.from(map.values());",
+        "file": ROOT / "js" / "settings-io.js",
+        "find": "                        merged.projects = Array.from(map.values());",
         "replace": "                            merged.projects = base.projects.slice();",
         "test": "upsert import updates existing",
     },
@@ -499,7 +499,7 @@ E2E_MUTATIONS_ARCHIVE3 = [
     },
     {
         "name": "behavior: settings import の対象 checkbox 選択的 gate の喪失 — settings-page.js の import が `settingsIncludeProjects && Array.isArray(parsed.projects)` から checkbox ガードを外し常時取り込みへ → Projects を OFF にしても import されユーザが意図的に除外したデータを上書きする (#825 で追加した選択的 gate の非 vacuity 検証。gate 除去で skippedProj が公開一覧に出現し count 0 が RED。テストは keptProject visible を先に待ち grid 描画を確定してから absence 検査する非 vacuous 順序)",
-        "file": ROOT / "js" / "settings-page.js",
+        "file": ROOT / "js" / "settings-io.js",
         "find": "if (settingsIncludeProjects && Array.isArray(parsed.projects)) {",
         "replace": "if (Array.isArray(parsed.projects)) {",
         "test": "selective gate",
