@@ -218,8 +218,22 @@ test('Pomodoro completion uses the latest focus-duration setting changed mid-run
   await workInput.fill('2');
   await workInput.blur();
 
+  // **前提を待ってから満了させる。** ここを待たずに fastForward すると「設定変更が state へ
+  // 反映される前に完了処理が走る」窓があり、旧設定 (1 分) でリセットされて間欠 RED になる。
+  // 2026-08-20 に CI で実測 (main / PR の両方で同一の失敗・ローカルは throttle 8x/30x +
+  // 並列でも 30 回再現せず = CI 負荷下でのみ開く窓)。**このテストが検証したいのは
+  // 「複数の duration のうち最新が使われるか」**であって「変更が state に届くか」ではないので、
+  // 前提は control として明示的に固定する。
+  // clock.install() 下では保存の debounce (150ms) も凍結しているため runFor で流す。
+  // 進める合計は 600 + 60400 = 61000ms で従来と同じ (満了までの距離は変えない)。
+  await page.clock.runFor(600);
+  await expect.poll(async () => await page.evaluate(() => {
+    const raw = localStorage.getItem('portfolio_enhanced_v45');
+    return raw ? JSON.parse(raw).appsData.pomodoro.settings.work : -1;
+  }), 'control: 稼働中の設定変更が state に届いていない').toBe(2);
+
   // 満了まで進める → complete() の duration リセットは最新設定 (2 分) を使うべき
-  await page.clock.fastForward(61000);
+  await page.clock.fastForward(60400);
   await expect(page.locator('#toast-container').getByText('セッション完了！')).toBeVisible();
   await expect(page.getByRole('button', { name: '開始' })).toBeVisible();
   // 修正前は stale 設定で 01:00 に戻っていた。修正後は最新の 02:00。
