@@ -13,7 +13,9 @@
  * 持ち出さずに済む。
  *
  * export:
- *   createSettingsIO({ deps }) -> { exportFull, exportProjects, exportApps, exportProfile, importJSON }
+ *   createSettingsIO({ deps }) -> { exportFull, exportProjects, exportApps, exportProfile, importJSON, lossParts }
+ *   (lossParts も返すのは、snapshot 復元 (settings-page.js) が **同じ言葉で** 損失を報告するため。
+ *    片方だけ honest だと「復元は無事だった」と誤解される —— #1186)
  *
  * 【依存（引数で注入）】(葉契約 = ローカル ESM import ゼロ)
  *   - State: js/state.js factory instance

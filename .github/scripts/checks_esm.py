@@ -15,6 +15,16 @@ span this file). run(ctx) receives shared check()/ROOT/errors/warnings by refere
 so append semantics / BLOCKING propagation / exit code are byte-equivalent to the monolith.
 
 Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()):
+  438. 葉モジュールの docstring が宣言する export ⟺ 実際の return: each `js/*.js` leaf declares
+       its shape as `createXxx({ deps }) -> { a, b }` in the file docstring. That line is what the
+       next agent reads to know what the factory hands back — but nothing verified it. Measured
+       2026-08-20 right after extracting js/settings-io.js: **both settings-io (lossParts) and
+       settings-page (getImportOptions) returned a member the docstring never mentioned**, i.e. the
+       drift appeared in the very increment that created it. A member that exists but is
+       undocumented is invisible to anyone deciding "can I reuse this?", and the omission survives
+       indefinitely because no test reads prose. Compare the declared set against the factory's
+       final `return { … }` and require equality. (BLOCKING)
+
   429. Check 47 の一段深い版 (import されている ⟹ **実際に使われている**)。js/pure-utils.js の
        全 export について、`import { … } from './js/pure-utils.js'` の宣言そのものを除いた
        shipped JS (main.js ∪ js/*.js、pure-utils.js 自身とコメントを除く) に識別子の参照が
@@ -484,3 +494,33 @@ def run(ctx):
     else:
         check(False, "Check 429: js/pure-utils.js present",
               "Check 429: js/pure-utils.js が無い — pure-utility の使用状況を検証できない", blocking=True)
+
+    # ── 438. 葉モジュールの docstring が宣言する export ⟺ 実際の return (BLOCKING) ────
+    # docstring の `createXxx({ deps }) -> { a, b }` 行は、次に読む AI が「この factory は
+    # 何を返すか」を知るための一次情報。だが **誰も検証していなかった**。
+    # 実測 (2026-08-20・js/settings-io.js 抽出直後): settings-io の lossParts と
+    # settings-page の getImportOptions が **docstring に無いまま返されて**いた ——
+    # drift は「それを作った増分の中で」発生する。散文は誰も読まないので放置され続ける。
+    _viol438 = []
+    for _f438 in sorted((ROOT / "js").glob("*.js")):
+        _s438 = _f438.read_text(encoding="utf-8")
+        _d438 = re.search(r"^\s*\*\s+create\w+\(\{[^)]*\}\)\s*->\s*\{([^}]*)\}", _s438, re.M)
+        _r438 = None
+        for _m438 in re.finditer(r"^    return \{([^}]*)\};", _s438, re.M):
+            _r438 = _m438
+        if not _d438 or not _r438:
+            continue
+        _doc438 = {x.strip() for x in _d438.group(1).split(",") if x.strip()}
+        _ret438 = {x.strip().split(":")[0].strip() for x in _r438.group(1).split(",") if x.strip()}
+        if _doc438 != _ret438:
+            _viol438.append(
+                f"{_f438.name}: 実装のみ={sorted(_ret438 - _doc438)} / docstring のみ={sorted(_doc438 - _ret438)}")
+    check(
+        not _viol438,
+        f"Check 438: 葉モジュールの docstring export 宣言が実際の return と一致",
+        (f"Check 438: docstring の export 宣言と return が drift: {_viol438[:3]}。"
+         "`createXxx({ deps }) -> {{ … }}` は次に読む AI が factory の返り値を知る一次情報で、"
+         "**散文は誰も読まないので放置され続ける**。実装に合わせて宣言を直せ "
+         "(2026-08-20: 抽出増分の中で 2 件同時に drift した)"),
+        blocking=True,
+    )
