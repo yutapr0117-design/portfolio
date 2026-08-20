@@ -920,6 +920,13 @@ _E2E_TAIL = [
         "replace": "            background: rgba(var(--color-success-rgb), 0.1);\n            color: var(--color-success);\n            border-color: rgba(var(--color-success-rgb), 0.2);",
         "test": "\u30e9\u30a4\u30c8\u306e drawer / palette / toast \u306b color-contrast \u9055\u53cd\u304c\u30bc\u30ed",
     },
+    {
+        "name": "\u901a\u77e5\u306e\u7a2e\u5225\u304c\u898b\u5206\u3051\u3089\u308c\u306a\u304f\u306a\u308b \u2014\u2014 alert-error \u306e\u5e2f\u3092\u4e2d\u7acb\u8272\u3078\u623b\u3059\u3068\u3001\u5931\u6557\u901a\u77e5\u3068\u6210\u529f\u901a\u77e5\u304c\u540c\u3058\u898b\u305f\u76ee\u306b\u306a\u308b\u3002Toast.show \u306f 21 \u7b87\u6240\u304c\u7a2e\u5225\u3092\u9078\u3073\u5206\u3051\u3066\u547c\u3093\u3067\u3044\u308b\u306e\u306b\u5168\u3066\u540c\u4e00\u63cf\u753b\u3060\u3063\u305f\u306e\u3092\u76f4\u3057\u305f\u9762",
+        "file": ROOT / "style.css",
+        "find": "        .alert-success { border-left-color: var(--on-tint-success); }",
+        "replace": "        .alert-success { border-left-color: var(--on-tint-danger); }",
+        "test": "Toasts have a surface and are visually distinguishable by type",
+    },
 ]
 
 

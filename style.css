@@ -2226,6 +2226,32 @@
         }
 
         /* badge-green: badge-successと同体系 */
+        /* [A11Y 1.4.1 / UX] 通知 (Toast) の表面と種別表示。
+           `Toast.show(msg, type)` は 21 箇所が error / success / info / warning を **選び分けて**
+           呼んでいるのに、`.alert` 系の宣言が style.css に **1 つも無かった** (git log -S で追うと
+           履歴上も一度も存在しない = 実装漏れ)。実測 (2026-08-20): 成功通知と失敗通知は
+           色・背景・境界・影がすべて同一で **見分けが付かず**、しかも背景が透明のため
+           **本文の上に文字が重なって**いた。
+           種別は文言でも伝わる (色だけに依存しない・WCAG 1.4.1) が、左の帯で一目で分かるようにする。
+           色は用途別トークンを使う (暗テーマで反転しても AA を保つ)。 */
+        .alert {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: 0.75rem 1rem;
+            background: var(--surface);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--border-color-strong);
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+        }
+
+        .alert-success { border-left-color: var(--on-tint-success); }
+        .alert-error   { border-left-color: var(--on-tint-danger); }
+        .alert-warning { border-left-color: var(--on-tint-warning); }
+        .alert-info    { border-left-color: var(--on-tint-info); }
+
         .badge-green {
             background: rgba(var(--color-success-rgb), 0.1);
             color: var(--on-tint-success);
