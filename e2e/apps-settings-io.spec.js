@@ -454,8 +454,21 @@ test('表示テーマが export → import で復元され、リセット直後�
   await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
 
-  // 既定 system → dark へ
-  await page.evaluate(() => (document.getElementById('themeBtnSidebar') || document.getElementById('themeBtnTop')).click());
+  // control: 開始テーマが 'system' であること。**この前提を暗黙に置いていた**ため、
+  //   何らかの理由で 'light' で始まると 1 クリックが system へ戻り「dark を期待して system」
+  //   という紛らわしい失敗になる (2026-08-20 に CI で 1 度この形の赤が出た)。
+  //   前提は測ってから使う。
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'system');
+
+  // system → dark へ。サイクル順に依存せず **dark に到達するまで**押す
+  //   (押す回数を決め打ちにすると、開始位置が変わった瞬間に別の値へ着地する)。
+  const themeBtn = () => page.evaluate(
+    () => (document.getElementById('themeBtnSidebar') || document.getElementById('themeBtnTop')).click()
+  );
+  for (let i = 0; i < 3; i++) {
+    if (await page.locator('html').getAttribute('data-theme') === 'dark') { break; }
+    await themeBtn();
+  }
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
 
   const [download] = await Promise.all([
