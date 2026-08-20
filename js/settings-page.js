@@ -441,12 +441,22 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
             });
         }
 
+        // [A11Y 4.1.3] 削除は **破壊的な単体操作なのに唯一無音**だった。並べ替えは announce、
+        //   全リセット / スナップショット保存・削除 / 正規化は Toast を出すのに、削除だけが
+        //   何も出さない非対称。実測 (2026-08-20): 削除後も通知領域は直前の「プロジェクトを
+        //   追加しました」のままで、SR 利用者には**無音どころか誤った内容が残る**。
+        //   実際に消えたときだけ報告する (見つからない id を成功と言わない・#1039 class)。
         function deleteProjectHard(id) {
             if (defaultProjectIds.has(id)) {return;}
             if (!confirm('本当に削除しますか？')) {return;}
+            let removed = null;
             State.update(s => {
+                const target = s.projects.find(p => p.id === id);
+                if (!target) {return;}
+                removed = target.name;
                 s.projects = s.projects.filter(p => p.id !== id);
             });
+            if (removed) { Toast.show(`「${removed}」を削除しました`); }
         }
 
         // [A11Y 4.1.3] 並べ替えは **視覚では分かるが SR には無音**だった。ボタンのアクセシブル名

@@ -154,3 +154,47 @@ test('No fixed overlay covers an interactive element on any route', async ({ pag
     `固定要素が操作要素を覆っている (押せない):\n${offenders.slice(0, 8).join('\n')}`
   ).toEqual([]);
 });
+
+// ===== 破壊的な単体操作 (プロジェクト削除) が結果を伝えること (WCAG 4.1.3) =====
+// 削除は **破壊的な単体操作なのに唯一無音**だった。並べ替えは announce (#1108)、全リセット /
+// スナップショット保存・削除 / 正規化は Toast を出すのに、削除だけが何も出さない非対称。
+// 実測 (2026-08-20): 削除後も通知領域は直前の「プロジェクトを追加しました」のままで、
+// SR 利用者には **無音どころか「追加しました」という誤った内容が残る**。
+test('プロジェクトの削除が結果を伝える（直前の通知が残らない）', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  await page.locator('#settingsNewName').fill('削除通知テスト');
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect(page.getByRole('button', { name: '削除：削除通知テスト' })).toBeVisible();
+
+  // control: 直前の通知が「追加しました」であること。これが無いと「削除の通知が出た」のか
+  //   「たまたま前の通知が残っていた」のかを区別できない。
+  await expect(page.locator('#action-announcement')).toHaveText('プロジェクトを追加しました');
+
+  page.once('dialog', (d) => d.accept());
+  await page.getByRole('button', { name: '削除：削除通知テスト' }).click();
+  await expect(page.getByRole('button', { name: '削除：削除通知テスト' })).toHaveCount(0);
+
+  await expect(page.locator('#action-announcement'),
+    '削除が無音で、直前の「追加しました」が残っている').toContainText('削除通知テスト');
+  await expect(page.locator('#action-announcement')).toContainText('削除しました');
+});
+
+// confirm をキャンセルしたら「削除しました」と言わない (何もしていないのに成功と言わない)。
+test('削除の確認をキャンセルしたら削除を報告しない', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  await page.locator('#settingsNewName').fill('キャンセルテスト');
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect(page.getByRole('button', { name: '削除：キャンセルテスト' })).toBeVisible();
+
+  page.once('dialog', (d) => d.dismiss());
+  await page.getByRole('button', { name: '削除：キャンセルテスト' }).click();
+
+  // control: キャンセルなので実際に残っていること (消えていたら別のバグを見ている)
+  await expect(page.getByRole('button', { name: '削除：キャンセルテスト' })).toBeVisible();
+  await expect(page.locator('#action-announcement'),
+    'キャンセルしたのに削除したと報告している').not.toContainText('削除しました');
+});

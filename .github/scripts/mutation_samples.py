@@ -973,6 +973,22 @@ _E2E_TAIL.append({
     "test": "「追加のみ」の import は既存タスクを消さない",
 })
 
+_E2E_TAIL.append({
+    "name": "プロジェクト削除が無音に戻る —— 破壊的な単体操作なのに結果を伝えず、通知領域には直前の「プロジェクトを追加しました」が残る。SR 利用者には無音どころか誤った内容が読まれる (並べ替え #1108 / タスク移動 #1107 と同じ class の最後の面)",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "            if (removed) { Toast.show(`\u300c${removed}\u300d\u3092\u524a\u9664\u3057\u307e\u3057\u305f`); }",
+    "replace": "",
+    "test": "プロジェクトの削除が結果を伝える",
+})
+
+_E2E_TAIL.append({
+    "name": "削除の confirm ガードが外れる —— 「考え直してキャンセルを押した」利用者のプロジェクトが消える。最悪の silent failure で、しかも default 以外は復元手段が無い",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "            if (!confirm('\u672c\u5f53\u306b\u524a\u9664\u3057\u307e\u3059\u304b\uff1f')) {return;}\n            let removed = null;",
+    "replace": "            confirm('\u672c\u5f53\u306b\u524a\u9664\u3057\u307e\u3059\u304b\uff1f');\n            let removed = null;",
+    "test": "削除の確認をキャンセルしたら削除を報告しない",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
