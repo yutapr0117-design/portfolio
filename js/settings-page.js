@@ -255,8 +255,38 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                     ) + Math.max(0, (Array.isArray(merged.projects) ? merged.projects.length : 0)
                         - (Array.isArray(normalized.projects) ? normalized.projects.length : 0));
 
-                    Toast.show(_dropped > 0
-                        ? `インポートが完了しました（${_dropped} 件は取り込めませんでした）`
+                    // [FIX] **entry は残るのに「中身」だけ削られる分も数える。**
+                    //   上の _dropped は entry 単位 (tasks/todos/projects) しか見ないため、
+                    //   *取り込まれた* project の tech/tags/highlights や task の tags が
+                    //   件数上限 (12/12/20/10) で切られても 0 のままだった。
+                    //   実測 (2026-08-20): tech 20 / tags 20 / highlights 30 を持つ project を
+                    //   取り込むと 12/12/20 に削られ **38 項目が消える**のに、通知は素の
+                    //   「インポートが完了しました」。#1143 (件数上限で entry が落ちる) /
+                    //   #1177 (手動追加の Tech 切り捨て) と同じ「切り捨てたら黙るな」class の
+                    //   最後の一面で、しかも *entry は残る* ぶん気付く手掛かりがより薄い。
+                    //   照合は id で行う (entry ごと落ちた分は _dropped が数えるので二重計上しない)。
+                    //   id が衝突して uniquifyIds に改名された entry は照合不能で数えないが、
+                    //   **過少に出る方向**なので「実際より多く失われた」と誤報しない。
+                    const _byId = (a) => new Map((Array.isArray(a) ? a : []).map((x) => [x && x.id, x]));
+                    const _trimmedIn = (before, after, fields) => {
+                        const m = _byId(after);
+                        return (Array.isArray(before) ? before : []).reduce((n, b) => {
+                            const a = b && m.get(b.id);
+                            if (!a) { return n; }
+                            return n + fields.reduce((k, f) => k + Math.max(0,
+                                _countOf(b, f) - _countOf(a, f)), 0);
+                        }, 0);
+                    };
+                    const _trimmed = _trimmedIn(merged.projects, normalized.projects,
+                        ['tech', 'tags', 'highlights'])
+                        + _trimmedIn(merged.appsData && merged.appsData.tasks,
+                            normalized.appsData && normalized.appsData.tasks, ['tags']);
+
+                    const _parts = [];
+                    if (_dropped > 0) { _parts.push(`${_dropped} 件は取り込めませんでした`); }
+                    if (_trimmed > 0) { _parts.push(`${_trimmed} 件のタグ・技術・ハイライトが上限を超えて削られました`); }
+                    Toast.show(_parts.length
+                        ? `インポートが完了しました（${_parts.join('・')}）`
                         : 'インポートが完了しました');
                 } catch (err) {
                     Toast.show('JSONのパースに失敗しました', 'error');

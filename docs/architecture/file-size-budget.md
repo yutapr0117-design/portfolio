@@ -50,7 +50,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `main.js` | 1312 | 6,400 | `strong-advisory` | Stage 5-q/r/s で 7,785→1,086 行（**−86%**）まで縮小。以降は葉抽出の factory 配線追加で微増し現在 1,196 行（機能の直接追加ではない・`wc -l` が権威）。残部は AIDK Kernel + view-transition/render core (Check 43 で保護) |
 | `js/aidk-rails.js` | 439 | 550 | `advisory` | Stage 5-l (AIDK Rail) 新設。AIDK Rail 5 IIFE 合体 factory (RouteState/EffectRails/BindingRegistry/ActionDelegator/DiagnosticsRail)。closure-deps = none + 引数注入。命名: PR #37。Stage 5-l は本 entry (AIDK Rail) を指し、PR #33 の Meta Management は changelog 上では 5-k' と呼称（命名衝突を honest dating で記録） |
 | `js/apps.js` | 646 | 650 | `advisory` | Stage 5-n 新設。Productivity Apps factory（TaskPage/TodoPage/NotesPage + private state）。**2026-07-04 bloat-reduction: AIPage → js/ai-page.js / PomodoroPage → js/pomodoro-page.js。2026-07-05: SettingsPage → js/settings-page.js へ分離し 837→458 行**。budget を実態 +headroom へ tighten |
-| `js/settings-page.js` | 618 | 600 | `advisory` | 2026-07-05 bloat-reduction 分離 (js/apps.js より・最大 page ~373 行)。Settings factory（import/export/snapshot/手動追加/正規化）。private state = settings* (let × 7)。restore/import は Store.validateAndNormalize を通す (#93/#295/#561)。**2026-08-14: 記録値が 408 のまま drift していたのを実態 531 へ同期し advisory を 600 へラチェット** —— 増分の大半は #1035〜#1040 の backup 契約バグ 6 件を記録した WHY コメントで、ロジックの肥大ではない。ハードゲートは Check 365 (1,000 行) のまま |
+| `js/settings-page.js` | 648 | 700 | `advisory` | 2026-07-05 bloat-reduction 分離 (js/apps.js より・最大 page ~373 行)。Settings factory（import/export/snapshot/手動追加/正規化）。private state = settings* (let × 7)。restore/import は Store.validateAndNormalize を通す (#93/#295/#561)。**2026-08-14: 記録値が 408 のまま drift していたのを実態 531 へ同期し advisory を 600 へラチェット**。**2026-08-20: #1178 (取り込んだ entry の中身が上限で削られる分の honest 報告) で 648 行となり advisory を 700 へラチェット** —— 増分は照合ヘルパ 2 つと、なぜ entry 単位カウントでは足りないかを実測値付きで記録した WHY コメント —— 増分の大半は #1035〜#1040 の backup 契約バグ 6 件を記録した WHY コメントで、ロジックの肥大ではない。ハードゲートは Check 365 (1,000 行) のまま |
 | `js/brand.js` | 65 | 120 | `advisory` | Stage 5-f 新設。Brand manager（primary palette/font switcher）factory。closure-deps = none（葉契約）+ Storage を引数注入 |
 | `js/components.js` | 501 | 600 | `advisory` | Stage 5-m 新設。UI page components factory。**bloat-reduction: HomePage / ProjectsPage / ProjectDetailPage / AIKnowhowPage を個別葉モジュール (js/home-page.js 等) へ分離し 1,335→454 行**。budget を実態へ tighten |
 | `js/ai-knowhow-page.js` | 327 | 450 | `advisory` | bloat-reduction 分離。AI 活用ノウハウページ factory。closure-deps = none + 引数注入 |
@@ -100,7 +100,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/aio-meta.spec.js` | 781 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-ai-notes.spec.js` | 799 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-pomodoro.spec.js` | 671 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
-| `e2e/apps-settings-import-shape.spec.js` | 243 | 900 | `advisory` | behavior e2e spec (import が受け付ける形の契約面)。2026-08-14 に apps-settings-io.spec.js の advisory 超過を受けて先回り分割 |
+| `e2e/apps-settings-import-shape.spec.js` | 283 | 900 | `advisory` | behavior e2e spec (import が受け付ける形の契約面)。2026-08-14 に apps-settings-io.spec.js の advisory 超過を受けて先回り分割 |
 | `e2e/apps-settings-ingestion.spec.js` | 575 | 900 | `advisory` | behavior e2e spec (外部 ingestion の正規化・型ガード面)。2026-08-15 に apps-settings-io.spec.js の advisory 超過を受けて先回り分割 |
 | `e2e/apps-settings-io.spec.js` | 535 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-settings.spec.js` | 959 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
@@ -158,7 +158,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 819000 -->
+<!-- PERF-BUDGET-DATA 821000 -->
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -434,7 +434,7 @@ js/pages.js | 400 | advisory
 js/perf-guards.js | 250 | advisory
 js/pure-utils.js | 400 | advisory
 js/quiz-renderer.js | 400 | advisory
-js/settings-page.js | 600 | advisory
+js/settings-page.js | 700 | advisory
 js/state.js | 320 | advisory
 js/storage.js | 120 | advisory
 js/store.js | 750 | advisory

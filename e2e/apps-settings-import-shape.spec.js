@@ -241,3 +241,43 @@ test('Over-limit import reports how many entries were dropped instead of claimin
   await expect.poll(announcement, { timeout: 5000 }).toContain('取り込めませんでした');
   expect(await announcement()).toContain('5 件');
 });
+
+// ===== entry は残るのに「中身」だけ上限で削られる分も報告すること =====
+// #1143 は件数上限で **entry ごと**落ちる分を数えるようにしたが、*取り込まれた* project の
+// tech/tags/highlights (12/12/20) や task の tags (10) が削られる面は 0 のままだった。
+// 実測 (2026-08-20): tech 20 / tags 20 / highlights 30 を持つ project を取り込むと
+// 12/12/20 になり **26 項目が消える**のに通知は素の「インポートが完了しました」。
+// entry ごと消えるより気付く手掛かりが薄い (一覧には出るので「戻った」ように見える)。
+test('取り込んだ project の中身が上限で削られたら件数を報告する', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  await page.setInputFiles('#content input[type="file"]', {
+    name: 'trim.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({
+      schemaVersion: 12,
+      projects: [{
+        id: 'trim-1', name: 'TRIM-PROJ', slug: 'trim-proj', summary: 'x', category: 'AI',
+        tech: Array.from({ length: 20 }, (_, i) => `T${i}`),
+        tags: Array.from({ length: 20 }, (_, i) => `G${i}`),
+        highlights: Array.from({ length: 30 }, (_, i) => `H${i}`),
+      }],
+    })),
+  });
+
+  await expectNotified(page, 'インポートが完了しました');
+
+  // control: そもそも切り捨てが起きていなければ、この通知を検査する意味がない。
+  await expect.poll(async () => await page.evaluate(() => {
+    const raw = localStorage.getItem('portfolio_enhanced_v45');
+    if (!raw) { return -1; }
+    const p = (JSON.parse(raw).projects || []).find((x) => x.name === 'TRIM-PROJ');
+    return p ? p.tech.length + p.tags.length + p.highlights.length : -1;
+  }), 'control: 上限で削られていない (44 = 12+12+20)').toBe(44);
+
+  const ann = await page.evaluate(
+    () => document.getElementById('action-announcement').textContent
+  );
+  expect(ann, '26 項目が消えたのに素の「完了しました」と報告している').toContain('26 件');
+});
