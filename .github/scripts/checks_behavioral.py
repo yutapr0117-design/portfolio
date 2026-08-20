@@ -154,6 +154,17 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        not-found = a dead 404 Cmd+K entry (the old one-directional Check passed this silently, #788/#789
        bijection class). It parses the router switch case labels and the palette's top-level static hashes
        and asserts set-equality, closing the app-only asymmetry of Check 128 in both directions. (BLOCKING)
+  435. quiz の模範解答フォームが作る mailto URL が実行可能な長さに収まる: the quiz contact form
+       builds `mailto:?subject=...&body=...` from three maxlength-bounded inputs plus the quiz title.
+       Japanese characters percent-encode to 9 bytes each, so the URL grows ~9x faster than the
+       character count suggests. Windows truncates mailto invocation at roughly 2,048 characters —
+       past that the body is silently cut or the mail client never opens, and **the user is told
+       nothing**. The bounds were chosen in #1082 by measuring the worst case, but nothing enforced
+       the result: measured 2026-08-20, the longest quiz title ('品質・プロセス問題集') yields
+       **2,027** characters — only 21 below the limit. Renaming a quiz title, or raising any
+       maxlength, silently crosses it. This Check reconstructs the worst case (every free-text field
+       filled with Japanese) for every quiz type and fails if any exceeds the limit. (BLOCKING)
+
   410. UI 入力上限 ⟹ 保存上限の一致 (input/textarea maxlength coherence): a UI-layer shipped JS file
        (one that builds `h('input'` / `h('textarea'` elements) that persists user text via
        `.slice(0, CONSTANTS.LIMITS.<KEY>)` MUST also declare `maxlength: CONSTANTS.LIMITS.<KEY>` for the
@@ -168,6 +179,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        it builds no input elements (it is the normalization layer, not a UI layer). (BLOCKING)
 """
 import re
+from urllib.parse import quote
 
 
 def run(ctx):
@@ -826,3 +838,42 @@ def run(ctx):
         "Check 410: UI レイヤーの LIMITS slice を 1 件も検出できない — maxlength coherence が無効化された",
         blocking=True,
     )
+
+    # ── 435. quiz 模範解答フォームの mailto URL が実行可能な長さに収まる (BLOCKING) ──
+    # 日本語は percent-encode で 1 文字 9 バイトになるため、URL は文字数の見た目より
+    # 遥かに速く伸びる。Windows の mailto 実行は約 2,048 文字で切られ、**本文が欠けるか
+    # メールソフトが開かない silent failure** になる (#1082 で ContactPage 側に同じ規律を
+    # 入れた)。上限は #1082 で実測して決めたが **その結果を守る層が無かった**。
+    # 実測 (2026-08-20): 最長タイトル「品質・プロセス問題集」で 2,027 文字 = 余裕 21 文字。
+    # タイトルを少し変えるか maxlength を上げるだけで silent に超える。
+    _qr435 = (ROOT / "js" / "quiz-renderer.js").read_text(encoding="utf-8")
+    _titles435 = re.findall(r"\b\w+:\s*\{\s*title:\s*'([^']+)'", _qr435)
+    _max435 = {m.group(1): int(m.group(2)) for m in re.finditer(
+        r"const (nameInput|emailInput|messageInput) = h\([^;]*?maxlength:\s*(\d+)", _qr435, re.S)}
+    _LIMIT435 = 2048
+    if _titles435 and len(_max435) == 3:
+        _addr435 = "yuta.yokoi.r@gmail.com"  # 最長の実アドレス相当 (profile.email は正規化済)
+        _over435 = []
+        for _t in _titles435:
+            _subj = quote(f"{_t}の模範解答について", safe="")
+            _body = quote(
+                "お名前: " + "あ" * _max435["nameInput"]
+                + "\nメールアドレス: " + "a" * _max435["emailInput"]
+                + "\n\nメッセージ:\n" + "あ" * _max435["messageInput"], safe="")
+            _len = len(f"mailto:{_addr435}?subject={_subj}&body={_body}")
+            if _len > _LIMIT435:
+                _over435.append(f"{_t}={_len}")
+        check(
+            not _over435,
+            f"Check 435: quiz {len(_titles435)} 種の mailto 最悪ケース URL が {_LIMIT435} 文字以内",
+            (f"Check 435: mailto URL が実行可能な長さを超える: {_over435} (上限 {_LIMIT435})。"
+             "日本語は percent-encode で 1 文字 9 バイト。超えると Windows で本文が黙って切られるか "
+             "メールソフトが開かず、**利用者には何も伝わらない**。quiz タイトルを短くするか "
+             "js/quiz-renderer.js の maxlength を下げよ (#1082 と同じ規律)"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 435: quiz mailto 長",
+              f"Check 435: quiz タイトル ({len(_titles435)} 件) か入力の maxlength "
+              f"({len(_max435)} 件・3 件必要) を抽出できない — 走査対象が変わったので追従せよ",
+              blocking=True)
