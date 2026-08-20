@@ -19,6 +19,17 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
   25. aio-monitoring-log.json has an evidence_policy key (attempt_log_only honesty)
   26. aio-manifest.json archive role #1-#N matches AI2AI-archive.md max Session Record
   27. llms-full.txt has no stale C1–C6 in current-constraint context (should be C1–C7)
+  436. 規範層 (docs/architecture/) に「オーナー裁可待ち」型の defer 理由が残らない: canon
+       (AI2AI.md STEP 3 / CLAUDE.md §7) は 2026-08-18 に「**オーナー裁可が要る項目なんか一切
+       無い**」「C5 は『人間がコードを書かない』の意であって設計判断を defer する根拠ではない」
+       「**「裁可待ち」という作業カテゴリは存在しない**」と明記した。しかし canon を直しても、
+       **その canon を根拠に書かれた下流の規範文書は自動では直らない**。実際 2026-08-20 の
+       棚卸しで research-application-policy.md が「適用条件: オーナーが配色変更を裁可した時」
+       を現行ガイダンスとして保持しており、しかもその項目は既に #1158 で解決済みだった ——
+       読み手は**否定された規則を持ち帰る**。scope を `docs/architecture/` (規範層) に限るのは、
+       `docs/incident-artifacts/` が**性質上の歴史記録**で、そこへ注記を強制すると履歴を
+       濁す圧力になるため (#977 の「書き換えれば履歴を偽る」判断と同じ線引き)。
+       否定・超越を明示する行 (SUPERSEDED / 否定された / 存在しない 等) は違反にしない。 (BLOCKING)
 """
 import re
 import json
@@ -171,3 +182,27 @@ def run(ctx):
             "llms-full.txt: no stale C1\u2013C6 in current-constraint context",
             f"llms-full.txt: stale C1\u2013C6 found (should be C1\u2013C7): {found_stale}",
         )
+
+    # ── 436. 規範層に「オーナー裁可待ち」型の defer 理由を残さない (BLOCKING) ────────
+    # canon を直しても、その canon を根拠に書かれた**下流の規範文書は自動では直らない**。
+    # 2026-08-20 の棚卸しで research-application-policy.md が「適用条件: オーナーが配色変更を
+    # 裁可した時」を現行ガイダンスとして保持しており、しかもその項目は #1158 で解決済みだった。
+    # 歴史記録 (docs/incident-artifacts/) は対象外 —— そこへ注記を強制すると履歴を濁す。
+    _DEFER436 = ("裁可待ち", "裁可した時", "裁可を待", "C5（人間）の領域", "C5 (人間) の領域")
+    _OK436 = ("SUPERSEDED", "否定された", "存在しない", "読み違い", "解決済み", "誤りだった")
+    _viol436 = []
+    for _f in sorted((ROOT / "docs" / "architecture").glob("*.md")):
+        for _n, _line in enumerate(_f.read_text(encoding="utf-8").splitlines(), 1):
+            if any(_p in _line for _p in _DEFER436) and not any(_o in _line for _o in _OK436):
+                _viol436.append(f"{_f.name}:{_n}")
+    check(
+        not _viol436,
+        f"Check 436: 規範層 docs/architecture/ に「裁可待ち」型の defer 理由が無い",
+        (f"Check 436: 規範層に canon が否定した defer 理由が残っている: {_viol436[:5]}。"
+         "canon (AI2AI.md STEP 3 / CLAUDE.md §7) は「オーナー裁可が要る項目なんか一切無い」"
+         "「C5 は『人間がコードを書かない』の意」「『裁可待ち』という作業カテゴリは存在しない」"
+         "と明記している。規範文書に残ると**読み手が否定された規則を持ち帰る**。"
+         "解決済みなら SUPERSEDED / 解決済み を、記録として残すなら『否定された』等を同じ行に"
+         "書いて超越を明示せよ (歴史記録の docs/incident-artifacts/ は対象外)"),
+        blocking=True,
+    )
