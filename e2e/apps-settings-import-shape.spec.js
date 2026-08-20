@@ -351,3 +351,45 @@ test('前後の空白を落としただけでは短縮として報告しない',
   );
   expect(ann, '空白の trim を「短縮」と誤報している').not.toContain('短縮');
 });
+
+// ===== Markdown ノートの切り詰めと履歴の件数落ちも報告すること =====
+// notes は**単一ドキュメント**なので上限 (20,000) を超えると末尾がまるごと消えるが、
+// entry も件数も減らないため全カウンタが 0 のままだった。ai.history (80) /
+// pomodoro.history (200) の entry 落ちも tasks/todos/projects しか数えておらず未計上。
+// 実測 (2026-08-20): notes 30,000 文字 + ai.history 100 件を取り込むと 20,000 / 80 になり
+// **10,000 文字と 20 件が消える**のに通知は素の「インポートが完了しました」。
+test('ノートの切り詰めと履歴の件数落ちを報告する', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  await page.setInputFiles('#content input[type="file"]', {
+    name: 'apps.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({
+      tasks: [],
+      todos: [],
+      notes: 'N'.repeat(30000),
+      ai: {
+        history: Array.from({ length: 100 }, (_, i) => ({
+          prompt: `p${i}`, response: `r${i}`, timestamp: 1,
+        })),
+      },
+    })),
+  });
+
+  await expectNotified(page, 'インポートが完了しました');
+
+  // control: そもそも上限に当たっていなければ、この通知を検査する意味がない。
+  await expect.poll(async () => await page.evaluate(() => {
+    const raw = localStorage.getItem('portfolio_enhanced_v45');
+    if (!raw) { return null; }
+    const a = JSON.parse(raw).appsData;
+    return `${(a.notes || '').length}/${(a.ai.history || []).length}`;
+  }), 'control: 上限で削られていない (20000 文字 / 80 件)').toBe('20000/80');
+
+  const ann = await page.evaluate(
+    () => document.getElementById('action-announcement').textContent
+  );
+  expect(ann, '履歴 20 件が落ちたのに報告していない').toContain('20 件は取り込めませんでした');
+  expect(ann, 'ノート 10,000 文字が消えたのに報告していない').toContain('1 件の項目');
+});

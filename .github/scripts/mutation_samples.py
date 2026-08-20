@@ -186,48 +186,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "behavior: silent URL 更新後に currentRoute が stale になる (#765 の内部 route state 版) — 絞り込み中に任意の再描画 (cross-tab sync / State.update) が走ると、ProjectsPage が q='' で描き直されて **検索が消えるのに URL は ?q=.. のまま残る** desync。利用者には『勝手に全件へ戻った』と見える",
-        "file": ROOT / "js" / "router.js",
-        "find": "            currentRoute = _r;",
-        "replace": "",
-        "test": "Projects filter survives a full re-render after a silent URL update (getRoute stays in sync)",
-    },
-    {
-        "name": "behavior: 候補ゼロの palette で aria-activedescendant が消えない (#699 の回帰) — input が存在しない option (cmdk-opt-0) を指したままになり、支援技術はその関連付けを黙って無視する。画面上は何も変わらず axe にも該当ルールが無いため、実行時の idref 走査以外に捕捉層が無い",
-        "file": ROOT / "js" / "command-palette.js",
-        "find": "            if (inputEl) { inputEl.removeAttribute('aria-activedescendant'); }",
-        "replace": "",
-        "test": "palette / drawer / 検証エラーの一過性状態でも aria-* id 参照が解決する",
-    },
-    {
-        "name": "behavior: 「対象」トグルが全再描画を起こす (#1040/#1053 の根本原因) — #content ごと作り直されて隣の file input が差し替わり、『対象を変えてすぐファイルを選ぶ』操作で change が古い input に飛んで import が起きない。結果だけ見れば同じなので目視でも通常のテストでも観測できず、要素の同一性を直接見る test だけが捕捉層",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "onchange: (e) => { settingsIncludeApps = !!e.target.checked; }",
-        "replace": "onchange: (e) => { settingsIncludeApps = !!e.target.checked; window.render(); }",
-        "test": "モード / 対象の切替でページが作り直されない (file input の同一性が保たれる)",
-    },
-    {
-        "name": "behavior: タスクの絞り込みが全再描画へ戻る — 表示だけの操作なのに #content を作り直すため、『新しいタスク』に打ちかけた未送信テキストが巻き添えで消える (#982 のテーマ切替 / #258 の oninput と同じ class)。絞り込んで確認してから続きを打つのは自然な操作なので実害が大きい",
-        "file": ROOT / "js" / "apps.js",
-        "find": "                            renderTaskList();",
-        "replace": "                            window.render();",
-        "test": "タスクの絞り込みを変えても未送信の入力が消えない",
-    },
-    {
-        "name": "behavior: TODO の絞り込みが全再描画へ戻る — task 側と同じ巻き添えで未送信テキストが消える。片方だけ直すと「1 ケースだけ処理して他を忘れる」非対称になるため対で守る",
-        "file": ROOT / "js" / "apps.js",
-        "find": "                                renderTodoList();",
-        "replace": "                                window.render();",
-        "test": "TODO の絞り込みを変えても未送信の入力が消えない",
-    },
-    {
-        "name": "behavior: 裏で走るタイマーの完了が全再描画へ戻る — ポモドーロは別アプリを開いていても走り続けるため、完了の State.update が #content を作り直して **利用者が何も操作していないのに** 別ページの未送信入力を消す。自分の操作が引き金でない分、#982 (テーマ切替) や #1055 (絞り込み) より驚きが大きい",
-        "file": ROOT / "js" / "pomodoro-page.js",
-        "find": "        if (onPomodoroRoute) { State.update(applyCompletion); }\n        else { State.updateSilently(applyCompletion); }",
-        "replace": "        State.update(applyCompletion);",
-        "test": "裏でタイマーが完了しても別アプリの未送信入力が消えない",
-    },
-    {
         "name": "behavior: 取り込んだタスクの id 一意化が失われる — 同 id の項目が並ぶと削除の filter が同 id を全て落とし、**1 件消したつもりが両方消える**。逆に更新は find が先頭しか拾わずもう片方に効かない。DOM 側でも task-delete-<id> 等が重複し focus 復元が別カードを掴む (#154 の slug 一意化と同型)",
         "file": ROOT / "js" / "store.js",
         "find": "            uniquifyIds(result.tasks);\n",
@@ -981,6 +939,22 @@ _E2E_TAIL.append({
     "find": "&& a[k].length < b[k].trim().length ? 1 : 0), 0);",
     "replace": "&& a[k].length < b[k].length ? 1 : 0), 0);",
     "test": "前後の空白を落としただけでは短縮として報告しない",
+})
+
+_E2E_TAIL.append({
+    "name": "履歴 (ai/pomodoro) の件数上限で落ちた entry が報告されなくなる —— tasks/todos/projects だけを数えていた元の非対称に戻る。落ちたことは利用者に見えないまま履歴が欠ける",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "+ ['ai', 'pomodoro'].reduce((n, k) => n + Math.max(0,",
+    "replace": "+ 0 * ['ai', 'pomodoro'].reduce((n, k) => n + Math.max(0,",
+    "test": "ノートの切り詰めと履歴の件数落ちを報告する",
+})
+
+_E2E_TAIL.append({
+    "name": "Markdown ノートの切り詰めが報告されなくなる —— notes は単一ドキュメントで上限 (20,000) 超過時に末尾がまるごと消えるが entry も件数も減らないため、報告を外すと全カウンタ 0 のまま素の「完了しました」に戻る",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "+ _shortenedObj({ notes: (merged.appsData || {}).notes },",
+    "replace": "+ 0 * _shortenedObj({ notes: (merged.appsData || {}).notes },",
+    "test": "ノートの切り詰めと履歴の件数落ちを報告する",
 })
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

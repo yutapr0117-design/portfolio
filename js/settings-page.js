@@ -253,14 +253,18 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                     const _dropped = ['tasks', 'todos'].reduce(
                         (n, k) => n + Math.max(0, _countOf(merged.appsData, k) - _countOf(normalized.appsData, k)), 0
                     ) + Math.max(0, (Array.isArray(merged.projects) ? merged.projects.length : 0)
-                        - (Array.isArray(normalized.projects) ? normalized.projects.length : 0));
+                        - (Array.isArray(normalized.projects) ? normalized.projects.length : 0))
+                        // ai/pomodoro の history も件数上限で落ちるが未計上だった非対称。
+                        + ['ai', 'pomodoro'].reduce((n, k) => n + Math.max(0,
+                            _countOf((merged.appsData || {})[k], 'history')
+                            - _countOf((normalized.appsData || {})[k], 'history')), 0);
 
                     // [FIX] **entry は残るのに「中身」だけ削られる分も数える。**
                     //   上の _dropped は entry 単位 (tasks/todos/projects) しか見ないため、
                     //   *取り込まれた* project の tech/tags/highlights や task の tags が
                     //   件数上限 (12/12/20/10) で切られても 0 のままだった。
                     //   実測 (2026-08-20): tech 20 / tags 20 / highlights 30 を持つ project を
-                    //   取り込むと 12/12/20 に削られ **38 項目が消える**のに、通知は素の
+                    //   取り込むと 12/12/20 に削られ **26 項目が消える**のに、通知は素の
                     //   「インポートが完了しました」。#1143 (件数上限で entry が落ちる) /
                     //   #1177 (手動追加の Tech 切り捨て) と同じ「切り捨てたら黙るな」class の
                     //   最後の一面で、しかも *entry は残る* ぶん気付く手掛かりがより薄い。
@@ -301,7 +305,11 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                     const _shortened = _shortenedIn(merged.projects, normalized.projects)
                         + _shortenedIn(_apps(merged).tasks, _apps(normalized).tasks)
                         + _shortenedIn(_apps(merged).todos, _apps(normalized).todos)
-                        + _shortenedObj(merged.profile, normalized.profile);
+                        + _shortenedObj(merged.profile, normalized.profile)
+                        // notes は単一ドキュメントゆえ上限超過で末尾がまるごと消えるが、
+                        // entry も件数も減らないため全カウンタが 0 のままだった (実測は e2e)。
+                        + _shortenedObj({ notes: (merged.appsData || {}).notes },
+                            { notes: (normalized.appsData || {}).notes });
 
                     const _parts = [];
                     if (_dropped > 0) { _parts.push(`${_dropped} 件は取り込めませんでした`); }
