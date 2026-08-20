@@ -971,6 +971,14 @@ _E2E_TAIL.append({
     "test": "内容が違えば",
 })
 
+_E2E_TAIL.append({
+    "name": "「追加のみ」の取り込みが稼働中のポモドーロを止める —— appsData を常に全置換する旧挙動へ戻ると、既存を壊さないはずのモードで稼働状態まで置き換わる (利用者からは「勝手に止まった」)",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "                        if (settingsImportMode === 'strict') {\n                            merged.appsData = inc;",
+    "replace": "                        if (true) {\n                            merged.appsData = inc;",
+    "test": "「追加のみ」の取り込みは稼働中のポモドーロを止めない",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
