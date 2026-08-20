@@ -946,6 +946,13 @@ _E2E_TAIL = [
         "replace": "        while (false) {",
         "test": "Toasts do not stack past the viewport during rapid actions",
     },
+    {
+        "name": "\u901a\u77e5\u304c topbar \u306e\u30dc\u30bf\u30f3\u3092\u899a\u3046 \u2014\u2014 \u30e2\u30d0\u30a4\u30eb\u306e top \u30aa\u30d5\u30bb\u30c3\u30c8\u3092\u5916\u3059\u3068\u3001\u901a\u77e5\u8868\u793a\u4e2d\u306f\u30c6\u30fc\u30de\u5207\u66ff / BGM \u30dc\u30bf\u30f3\u304c elementFromPoint \u3067 .alert \u3092\u8fd4\u3057\u64cd\u4f5c\u4e0d\u80fd\u306b\u306a\u308b (\u5b9f\u6e2c 2026-08-20)",
+        "file": ROOT / "style.css",
+        "find": "                top: calc(64px + 0.75rem);\n                right: 0.75rem;",
+        "replace": "                right: 0.75rem;",
+        "test": "Toasts never cover the topbar controls on mobile",
+    },
 ]
 
 

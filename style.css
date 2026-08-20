@@ -2234,6 +2234,30 @@
            **本文の上に文字が重なって**いた。
            種別は文言でも伝わる (色だけに依存しない・WCAG 1.4.1) が、左の帯で一目で分かるようにする。
            色は用途別トークンを使う (暗テーマで反転しても AA を保つ)。 */
+        /* 通知の配置。**インラインではなくここに置く** —— media query で上書きできないと
+           モバイルで topbar のボタンを覆ってしまう (下の @media を参照)。 */
+        #toast-container {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        /* [A11Y] 通知が topbar のボタンを覆わないようにする。実測 (2026-08-20): 390px 幅で
+           通知表示中に `document.elementFromPoint` がテーマ / BGM ボタンの中心で `.alert` を返し、
+           **操作不能**になっていた。topbar が出る幅ではその下から始める。
+           NOTE: media query は **特異度を上げない**ので、基本ルールより後に置く必要がある
+           (最初に前方の @media へ入れたら基本ルールに上書きされて効かなかった)。 */
+        @media (max-width: 920px) {
+            #toast-container {
+                top: calc(64px + 0.75rem);
+                right: 0.75rem;
+            }
+        }
+
         .alert {
             display: flex;
             align-items: center;

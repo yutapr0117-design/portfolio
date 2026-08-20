@@ -199,15 +199,9 @@ export const Toast = (() => {
             //   #action-announcement (assertive/atomic) へ同じ message を書くため、ここにも
             //   aria-live を付けると同一通知が 2 回読まれる (しかも閉じるボタンの語まで混じる)。
             //   通知チャネルは message のみを持つ #action-announcement に一本化する。
-            container.style.cssText = `
-                position: fixed;
-                top: 1.5rem;
-                right: 1.5rem;
-                z-index: 9999;
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-            `;
+            // 位置指定は style.css の `#toast-container` に置く。インラインで持つと
+            //   media query で上書きできず、**モバイルで topbar のボタンを覆う**問題を
+            //   直せない (実測 2026-08-20: 通知表示中はテーマ/BGM ボタンが操作不能だった)。
             document.body.appendChild(container);
         }
     }
@@ -241,7 +235,12 @@ export const Toast = (() => {
         //   新しい通知ほど重要なので、超えたぶんは **古い方から**取り除く。
         //   読み上げは #action-announcement が別途担うので、この間引きで SR の情報は失われない。
         while (container.children.length > MAX_VISIBLE) {
-            container.removeChild(container.firstElementChild);
+            // [A11Y 2.4.3] **フォーカス中の通知は押し出さない**。自動消滅は既に focusin で
+            //   止めている (#903: 閉じるボタンに focus がある状態で消えると focus が body へ落ちる)
+            //   のに、上限による押し出しが同じことをしては規律が破れる。次に古いものを対象にする。
+            const victim = Array.from(container.children).find((n) => !n.contains(document.activeElement));
+            if (!victim) { break; }   // 全てフォーカス中はありえないが、無限ループを作らない
+            container.removeChild(victim);
         }
 
         // ARIA announcement (assertive for immediate feedback)
