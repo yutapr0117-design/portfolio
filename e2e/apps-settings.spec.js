@@ -883,3 +883,40 @@ test('Adding a project at the limit is refused with a reason', async ({ page }) 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `project limit refusal caused a fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 通知は種別ごとに見分けが付き、表面を持つ (WCAG 1.4.1 / UX) =====
+// `Toast.show(msg, type)` は **21 箇所が error / success / info / warning を選び分けて**呼ぶが、
+// `.alert` 系の宣言が style.css に 1 つも無かった (git log -S で追うと履歴上も一度も存在しない
+// = 実装漏れ)。実測 (2026-08-20): 成功通知と失敗通知は色・背景・境界・影がすべて同一で
+// **見分けが付かず**、しかも背景が透明のため **本文の上に文字が重なって**いた。
+//
+// 種別は文言でも伝わるので色だけに依存してはいない (WCAG 1.4.1) が、左の帯で一目で分かるようにした。
+test('Toasts have a surface and are visually distinguishable by type', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.getByRole('button', { name: 'フルバックアップ' })).toBeVisible();
+
+  const toast = () => page.evaluate(() => {
+    const el = document.querySelector('#toast-container .alert');
+    if (!el) { return null; }
+    const cs = getComputedStyle(el);
+    return { cls: el.className, bg: cs.backgroundColor, accent: cs.borderLeftColor, width: cs.borderLeftWidth };
+  });
+
+  // エラー通知 (プロジェクト名が空のまま追加)
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect.poll(async () => (await toast())?.cls, { timeout: 5000 }).toContain('alert-error');
+  const err = await toast();
+  expect(err.bg, '通知に背景が無い (本文に文字が重なる)').not.toBe('rgba(0, 0, 0, 0)');
+  expect(err.width, '種別を示す帯が無い').not.toBe('0px');
+
+  // 成功通知 (名前を入れて追加)
+  await expect.poll(async () => (await toast()) === null, { timeout: 8000 }).toBe(true);  // 前の通知が消えるまで待つ
+  await page.locator('#settingsNewName').fill('通知の見分けテスト');
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect.poll(async () => (await toast())?.cls, { timeout: 5000 }).toContain('alert-success');
+  const ok = await toast();
+
+  expect(ok.accent, 'エラーと成功で見た目が同じ (種別が伝わらない)').not.toBe(err.accent);
+  expect(ok.bg, '成功通知に背景が無い').not.toBe('rgba(0, 0, 0, 0)');
+});
