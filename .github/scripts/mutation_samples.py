@@ -214,6 +214,14 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 438: 葉モジュールの docstring が宣言する export と実際の return が drift しても気付けなくなる —— 宣言されていないメンバーは「再利用してよいか」を判断する人から見えず、散文は誰も読まないので放置され続ける (2026-08-20 に抽出増分の中で 2 件同時に drift した)",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "    return { SettingsPage, getImportOptions };",
+    "replace": "    return { SettingsPage, getImportOptions, extra: 1 };",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

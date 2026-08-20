@@ -12,7 +12,9 @@
  * 状態は元と同位置で保持・挙動 byte-equivalent)。
  *
  * export:
- *   createSettingsPage({ deps }) -> { SettingsPage }
+ *   createSettingsPage({ deps }) -> { SettingsPage, getImportOptions }
+ *   (getImportOptions は js/settings-io.js が **取り込みの瞬間の** UI 選択を読むための
+ *    getter。main.js が late-binding holder で相互参照を解く)
  *
  * 【依存（引数で注入）】(葉契約 = ローカル ESM import ゼロ)
  *   - h: js/ui-components.js
