@@ -1,5 +1,20 @@
 # decision-v80-phase4-reflow-1410-defer.md
 
+> **⚠ SUPERSEDED（2026-08-20 追記・本文は当時の記録として保持する）**
+>
+> 本文の結論「fix は引き続き human 裁可待ち」は**成立しない**。WCAG 1.4.10 Reflow の 320px
+> 横あふれは **#962 で解決済み**（`.main-content` の左右 auto margin が flex の cross 軸で
+> `align-self: stretch` を無効化していたのが真因。同 media query 内の `max-width: 100%` 1 行で
+> 15 ルート × 幅 320/375/768/920 すべてであふれ 0）。
+>
+> 保留理由（「見た目が変わるので screenshot baseline で証明できない」）は**真因判明で消えた**:
+> 修正は `@media (max-width: 920px)` に完全スコープされ、screenshot は 1280×720 clip なので
+> この media query に到達しない = 視覚 baseline は構造的に不変だった。
+> 併せて **「裁可待ち」という作業カテゴリは存在しない**（2026-08-18 canon 是正）。
+>
+> **保留理由が「見た目が変わるので証明できない」形のときは、変更のスコープが視覚ゲートに
+> 到達するのかを先に確かめよ** —— 本件はそれだけで前提が崩れた。
+
 ```
 Decision-Date : 2026-07-23
 Session       : 無限改善自走 run（vacuous-gate/docs-drift/research レンズ）。非 digest 層（incident artifact）。
