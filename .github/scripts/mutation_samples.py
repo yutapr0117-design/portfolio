@@ -933,6 +933,13 @@ _E2E_TAIL = [
         "replace": "                const ok = t.length <= 100000",
         "test": "Profile email is length-bounded to 254 on import",
     },
+    {
+        "name": "AI \u30d7\u30ed\u30f3\u30d7\u30c8\u306e\u9577\u3055 bound \u304c\u5916\u308c\u308b \u2014\u2014 ai.history \u306f\u4fdd\u6301\u4ef6\u6570 (80) \u3067\u3057\u304b\u5207\u3089\u308c\u306a\u3044\u306e\u3067\u30011 \u4ef6\u3042\u305f\u308a\u304c\u7121\u5236\u9650\u3060\u3068\u5DE8\u5927\u306a\u5165\u529b\u304c 80 \u4ef6\u3076\u3093\u7a4d\u307f\u4e0a\u304c\u308a localStorage \u3092\u98df\u3044\u3064\u3076\u3059\u3002**\u3053\u306e\u914d\u7dda\u306f\u4e00\u5ea6\u5931\u308f\u308c\u305f\u7d4c\u7def\u304c\u3042\u308b** (Check 125 \u304c\u691c\u51fa\u3057\u3066\u518d\u914d\u7dda)",
+        "file": ROOT / "js" / "ai-page.js",
+        "find": "prompt: input.slice(0, CONSTANTS.LIMITS.AI_MESSAGE),",
+        "replace": "prompt: input,",
+        "test": "AI prompt is bounded by AI_MESSAGE when stored",
+    },
 ]
 
 

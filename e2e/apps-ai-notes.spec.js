@@ -758,3 +758,42 @@ test('Notes survive navigating away immediately after typing (inside the debounc
   await page.reload({ waitUntil: 'domcontentloaded' });
   await expect(page.locator('textarea').first()).toHaveValue(marker);
 });
+
+
+// ===== AI プロンプトが AI_MESSAGE 上限で bound される (localStorage bloat guard) =====
+// `ai.history` は **保持件数**（AI_HISTORY=80）で切られるが、1 件あたりの prompt が
+// 無制限だと巨大な入力が 80 件ぶん積み上がり localStorage を食いつぶす。
+// **この配線は一度失われた経緯がある** —— AI_MESSAGE 定数は元来この制限用なのに参照が無く、
+// Check 125（dead-constant guard）が検出して再配線された。つまり **戻りうる面**。
+//
+// 入力欄の `maxlength` は「貼り付け」までは止めるが、保存側の slice が無ければ
+// プログラム経由や将来の UI 変更で素通りする。**保存される長さ**を直接見る。
+test('AI prompt is bounded by AI_MESSAGE when stored (localStorage bloat guard)', async ({ page }) => {
+  await page.goto('/#/apps/ai', { waitUntil: 'domcontentloaded' });
+  const input = page.locator('#ai-input');
+  await expect(input).toBeVisible();
+
+  // control: 上限そのものが UI 側にも宣言されている（保存側だけの片側実装ではない）
+  await expect(input).toHaveAttribute('maxlength', '5000');
+
+  const stored = () => page.evaluate(() => {
+    try {
+      const h = (JSON.parse(localStorage.getItem('portfolio_enhanced_v45')).appsData.ai.history) || [];
+      return { n: h.length, longest: Math.max(0, ...h.map((x) => (x.prompt || '').length)) };
+    } catch (e) { return { n: 0, longest: -1 }; }
+  });
+
+  // 上限を超える入力を **プログラム経由**で送る（maxlength を迂回する経路）
+  await input.evaluate((el) => {
+    el.value = 'あ'.repeat(6000);
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+    el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+  });
+
+  await expect.poll(async () => (await stored()).n, { timeout: 8000 }).toBeGreaterThan(0);
+  const s = await stored();
+  expect(s.longest, `保存された prompt が上限を超えている (${s.longest} 文字)`).toBeLessThanOrEqual(5000);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `long AI prompt caused a fatal: ${fatal}`).toBeNull();
+});
