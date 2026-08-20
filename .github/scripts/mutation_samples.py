@@ -948,6 +948,13 @@ _E2E_TAIL = [
         "replace": "",
         "test": "No element is invisible yet still focusable across all routes",
     },
+    {
+        "name": "\u30ce\u30fc\u30c8\u306e\u4fdd\u5b58\u304c\u5165\u529b\u306e\u305f\u3073\u306b\u8d70\u3089\u306a\u304f\u306a\u308b \u2014\u2014 updateSilently \u3092\u6761\u4ef6\u4ed8\u304d\u306b\u3059\u308b\u3068\u3001debounce \u7a93\u3067\u96e2\u8131\u3057\u305f\u5165\u529b\u304c\u4fdd\u5b58\u3055\u308c\u305a\u300c\u66f8\u3044\u305f\u306e\u306b\u6b21\u306b\u958b\u3044\u305f\u3089\u6d88\u3048\u3066\u3044\u308b\u300d silent \u306a\u30c7\u30fc\u30bf\u640d\u5931\u306b\u306a\u308b",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                State.updateSilently(s => { s.appsData.notes = val.slice(0, CONSTANTS.LIMITS.NOTES_TEXT); });",
+        "replace": "                if (val.length % 1000 === 999) { State.updateSilently(s => { s.appsData.notes = val; }); }",
+        "test": "Notes survive navigating away immediately after typing",
+    },
 ]
 
 

@@ -720,3 +720,41 @@ test('AI 送信の連打で同じ会話が二重に積まれない', async ({ pa
   const fatal = await page.evaluate(() => (window.__fatalError ? String(window.__fatalError.message) : null));
   expect(fatal, `連打で fatal: ${fatal}`).toBeNull();
 });
+
+
+// ===== 入力直後にページを離れても保存される (debounce 窓での離脱) =====
+// ノートの保存は `State.updateSilently` + debounce (CONSTANTS.DEBOUNCE_DELAY) で走る。
+// つまり **入力してすぐルートを変えると、保存タイマーが走り切る前に画面が切り替わる**。
+// 既存の永続テストは「入力 → 待つ → reload」の形で、この **離脱が割り込む窓** を通っていない。
+// ここが壊れると「書いたのに次に開いたら消えている」= 利用者から見て最悪の silent なデータ損失。
+//
+// 入力は dispatchEvent で行う。click + type だと既定テキストのキャレット位置へ挿入され、
+// 「どこに入ったか」を読み違える (落とし穴表に記録済の実例)。
+test('Notes survive navigating away immediately after typing (inside the debounce window)', async ({ page }) => {
+  await page.goto('/#/apps/notes', { waitUntil: 'domcontentloaded' });
+  const ta = page.locator('textarea').first();
+  await expect(ta).toBeVisible();
+
+  const marker = 'DEBOUNCE-NAV-SURVIVES';
+  const original = await ta.inputValue();
+  expect(original.includes(marker), 'marker が最初から入っている (control 失敗)').toBe(false);
+
+  await ta.evaluate((el, m) => {
+    el.focus();
+    el.value = m;
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+  }, marker);
+
+  // debounce が走り切る前に離脱する
+  await page.evaluate(() => { window.location.hash = '#/projects'; });
+  await expect(page.locator('#content h1', { hasText: 'プロジェクト一覧' })).toBeVisible();
+
+  await page.goto('/#/apps/notes', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('textarea').first()).toBeVisible();
+  await expect.poll(async () => page.locator('textarea').first().inputValue(), { timeout: 5000 })
+    .toContain(marker);
+
+  // reload も跨ぐ (in-memory だけでなく実際に永続化されている)
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await expect(page.locator('textarea').first()).toHaveValue(marker);
+});
