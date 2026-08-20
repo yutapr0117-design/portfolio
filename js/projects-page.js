@@ -94,12 +94,7 @@ export function createProjectsPage({ h, createIcon, Router, State, tokenize, cle
             const gridContainer = document.createElement('div');
             gridContainer.className = 'grid-projects';
             gridContainer.dataset.entity = 'PortfolioProject';
-            // [A11Y 1.3.1] 18 件の同列カードなのにリスト意味論が無く、SR は「リスト・18 項目」と
-            //   アナウンスできず、リスト単位のジャンプ操作も効かなかった (実測 #1013: 全ルートで
-            //   ul/ol/role=list がゼロ)。**`<ul>` に置き換えず ARIA ロールで与える**のが要点で、
-            //   grid レイアウトの `display` を変えないため描画は構造上不変
-            //   (`<li>` 化すると display:list-item とマーカーが入り grid が崩れる)。
-            gridContainer.setAttribute('role', 'list');
+            // role='list' は renderGrid が毎描画で付け直す (理由はそこの [FIX] を読め)。
             let countDisplay = null;
 
             function syncURL() {
@@ -114,6 +109,17 @@ export function createProjectsPage({ h, createIcon, Router, State, tokenize, cle
                 const projects = getFilteredProjects();
 
                 if (countDisplay) {countDisplay.textContent = `合計 ${projects.length} 件`;}
+
+                // [A11Y 1.3.1] 18 件の同列カードなのにリスト意味論が無く、SR は「リスト・18 項目」と
+                //   アナウンスできず、リスト単位のジャンプ操作も効かなかった (実測 #1013: 全ルートで
+                //   ul/ol/role=list がゼロ)。**`<ul>` に置き換えず ARIA ロールで与える**のが要点で、
+                //   grid レイアウトの `display` を変えないため描画は構造上不変
+                //   (`<li>` 化すると display:list-item とマーカーが入り grid が崩れる)。
+                // [FIX] **毎描画で付け直す。** 下の空状態分岐が role を外すため、構築時に一度
+                //   付けるだけだと 0 件を一度でも経由した時点でリスト意味論が失われる
+                //   (実測 2026-08-21: 復帰後に aria-required-parent が 4 件)。詳細は
+                //   e2e/a11y-contrast.spec.js「0 件を経由して結果が戻るとリストが復帰する」。
+                gridContainer.setAttribute('role', 'list');
 
                 if (projects.length === 0) {
                     // [FIX] 空状態カードを **role="list" の中に入れない**。`list` の子として

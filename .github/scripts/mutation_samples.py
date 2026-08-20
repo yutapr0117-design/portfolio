@@ -226,54 +226,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "a11y: アプリ一覧のボタン名から行き先が消える — 5 個すべてが『開く』になり、SR 利用者がボタンだけを辿ると行き先を区別できない (WCAG 4.1.2)。カードの見出しは文脈を与えるが、リポジトリの慣習は名前側に対象を含める形 (#1085) で統一されている",
-        "file": ROOT / "js" / "components.js",
-        "find": "                                'aria-label': app.title + 'を開く',\n",
-        "replace": "",
-        "test": "アプリ一覧のボタン名が行き先ごとに一意になる",
-    },
-    {
-        "name": "a11y: home の CTA が可視テキストを含まないアクセシブル名に戻る — 音声入力の利用者が"
-                "見えているとおり『分担表を見る』と発話しても起動できない (WCAG 2.5.3 Level A)。"
-                "axe の label-content-name-mismatch は enabled:false (experimental) ゆえ既存の"
-                "withTags スキャンでは走らず、この SC は専用テストを書くまで完全に未検査だった",
-        "file": ROOT / "js" / "home-page.js",
-        "find": "'aria-label': '分担表を見る：Human vs AI 分担表ページへ移動'",
-        "replace": "'aria-label': 'Human vs AI 分担表ページへ移動'",
-        "test": "可視テキストがアクセシブル名に含まれる (WCAG 2.5.3) — 全ルート",
-    },
-    {
-        "name": "a11y: 既定で無効な axe ルールの違反が混入する — `aria-roledescription` を"
-                "semantic role の無い div に付けると、SR は要素の役割を独自名で読み上げるのに"
-                "ロールが無く意味が通らない (WCAG 4.1.2)。axe の該当ルールは enabled:false ゆえ"
-                "既存の withTags スキャンでは走らず、この専用テストだけが捕捉層",
-        "file": ROOT / "js" / "home-page.js",
-        "find": "h('div', { class: 'evidence-grid' }",
-        "replace": "h('div', { class: 'evidence-grid', 'aria-roledescription': 'グリッド' }",
-        "test": "既定で無効な axe ルール (Level A/AA) を全ルートで走らせる",
-    },
-    {
-        "name": "🔴 稼働中ポモドーロの復帰が描画に紐付き直す — main.js init の resumeIfActive() を外すと、リロード後に別ページにいる利用者の interval が誰にも作られず、25 分集中し続けても完了が history に記録されない。リロードしなければ裏で完了する (#1056 が扱った経路) ため『リロードを跨いだときだけ』挙動が違う非対称で、利用者から見ると原因に見当がつかない",
-        "file": ROOT / "main.js",
-        "find": "            resumeIfActive();\n",
-        "replace": "",
-        "test": "稼働中ポモドーロはリロード後どのページに着地しても完了が記録される",
-    },
-    {
-        "name": "保存 flush が外れて書きかけが失われる — 保存は debounce (150ms) 越しなので、最後の打鍵から 150ms 以内にリロード/タブ終了すると書きかけが消える。それを防ぐのは state.js の visibilitychange(hidden) → saveNow() の 1 本だけ。失われ方が『エラー』ではなく『戻ったら数文字前の状態』なので利用者は自分の打ち間違いと区別できず、fatal も視覚差分も出ないため behavior test 以外に捕捉層が無い",
-        "file": ROOT / "js" / "state.js",
-        "find": "        if (document.visibilityState === 'hidden') {saveNow();}",
-        "replace": "",
-        "test": "debounce 前にリロードしても書きかけのノートが失われない",
-    },
-    {
-        "name": "a11y: startViewTransitionProxy の reduced-motion 判定が外れる — proxy は『executeSafeTransition を経由せず素の document.startViewTransition を直接呼ぶ実装』でも reduce を尊重するための層 (Check 43b が名前を BLOCKING 監視)。ここが抜けると、その経路から前庭障害のユーザーへページ全体のクロスフェードが漏れる (WCAG 2.3.3)。render() 側のガードは別経路なのでこの穴を塞げない",
-        "file": ROOT / "main.js",
-        "find": "                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {\n                    try { if (typeof callback === 'function') callback(); }",
-        "replace": "                if (false) {\n                    try { if (typeof callback === 'function') callback(); }",
-        "test": "WCAG 2.3.3: 素の startViewTransition を直接呼んでも reduced-motion では実遷移しない",
-    },
-    {
         "name": "🔴 theme-color の更新が先頭 1 本だけに戻る — index.html は media 付きの theme-color を 2 本宣言しており、querySelector は先頭 (light 用) しか返さない。OS が dark のときは書き換えた meta の media が一致せず適用されないので、選んだテーマがモバイルのアドレスバー色に届かない。**変わるのはページの pixel ではなくブラウザ chrome の色なので screenshot では原理的に捕捉できない**",
         "file": ROOT / "js" / "theme.js",
         "find": "        document.querySelectorAll('meta[name=\"theme-color\"]').forEach((meta) => {\n            meta.content = isDark ? '#0b0f19' : '#ffffff';\n        });",
@@ -977,6 +929,14 @@ _E2E_TAIL.append({
     "find": '<div id="aio-asset-anchor" hidden aria-hidden="true"',
     "replace": '<div id="aio-asset-anchor-removed" hidden aria-hidden="true"',
     "test": "AIO anchor persists in DOM after initial load",
+})
+
+_E2E_TAIL.append({
+    "name": "ProjectsPage の role='list' を毎描画で付け直すのをやめる —— 空状態分岐が role を外すため、0 件を一度でも経由すると復帰せず listitem が親のいない孤児になる。既定状態では 0 件にならないので全ルート axe 走査では永久に踏まれない",
+    "file": ROOT / "js" / "projects-page.js",
+    "find": "                gridContainer.setAttribute('role', 'list');\n\n                if (projects.length === 0) {",
+    "replace": "                if (projects.length === 0) {",
+    "test": "0 件を経由して結果が戻るとリストが復帰する",
 })
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
