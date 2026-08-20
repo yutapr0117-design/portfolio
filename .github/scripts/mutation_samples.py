@@ -961,6 +961,14 @@ _E2E_TAIL.append({
     "test": "content div transitions aria-busy correctly during navigation",
 })
 
+_E2E_TAIL.append({
+    "name": "router の hashchange 購読が外れる —— SPA の遷移機構そのものが止まり、文書内の hash 変更で route が切り替わらなくなる。従来この test は全遷移を page.goto (フルナビゲーション) で行っており、題名が名指しする hashchange 経路を一度も通っていなかった",
+    "file": ROOT / "js" / "router.js",
+    "find": "    window.addEventListener('hashchange', _dispatchRouteChange);",
+    "replace": "    /* mutated */",
+    "test": "Hash routing transitions correctly between routes",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 

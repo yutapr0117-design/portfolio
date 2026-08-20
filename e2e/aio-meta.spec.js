@@ -124,23 +124,24 @@ test('Homepage renders without console errors', async ({ page }) => {
 
 // ===== 7.2: ハッシュルーティング状態遷移 Behavior Check =====
 test('Hash routing transitions correctly between routes', async ({ page }) => {
+  // **文書内の hash 変更**で遷移する (実際の利用者の経路)。
+  // 従来はすべて page.goto() で移っていたが、Playwright の goto は hash だけの変更でも
+  // **フルナビゲーション**になるため、題名が名指しする hashchange 経路を**一度も
+  // 通っていなかった** —— router の hashchange 購読を丸ごと外しても緑のままだった
+  // (2026-08-20 実測)。初回描画の検査になっていて、SPA の遷移機構は無検査。
   await page.goto('/');
   await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('.hero-section')).toBeVisible();
 
-  // Projects ページへ遷移
-  await page.goto('/#/projects');
-  await page.waitForLoadState('domcontentloaded');
-  // #content が表示されており aria-busy が false に戻っていること
+  // Projects ページへ (in-document hash change → hashchange → router dispatch)
+  await page.evaluate(() => { location.hash = '#/projects'; });
   const content = page.locator('#content');
-  await expect(content).toBeVisible();
+  await expect(content.locator('.grid-projects').first()).toBeVisible();
   await expect(content).toHaveAttribute('aria-busy', 'false');
 
-  // ホームへ戻る
-  await page.goto('/');
-  await page.waitForLoadState('domcontentloaded');
-  // .hero-section が表示されること
-  const hero = page.locator('.hero-section');
-  await expect(hero).toBeVisible();
+  // ホームへ戻る (同じく in-document)
+  await page.evaluate(() => { location.hash = '#/'; });
+  await expect(page.locator('.hero-section')).toBeVisible();
 });
 
 
