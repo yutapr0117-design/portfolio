@@ -52,6 +52,10 @@ test('Pomodoro start counts down and pause halts it (deterministic clock)', asyn
 
   // 一時停止 → さらに進めても表示は変化しない (停止)
   await page.getByRole('button', { name: '一時停止' }).click();
+  // 停止が **確定してから** 基準値を読む。click 直後に textContent を読むと、
+  //   停止処理の再描画が終わる前の値を掴み、以降の「変化しない」比較が
+  //   誤った基準で行われる (基準がズレるので、止まっていなくても通りうる)。
+  await expect(page.getByRole('button', { name: '開始' })).toBeVisible();
   const tPaused = (await timer.textContent()).trim();
   await page.clock.fastForward(3000);
   await expect(timer).toHaveText(tPaused);
