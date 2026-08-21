@@ -498,7 +498,7 @@ async function danglingIdrefs(page) {
 
 const IDREF_ROUTES = ['', '#/projects', '#/quiz', '#/about', '#/resume', '#/contact',
   '#/role-split', '#/hiring-risk', '#/ai-knowhow', '#/apps', '#/apps/task', '#/apps/todo',
-  '#/apps/notes', '#/apps/ai', '#/apps/pomodoro', '#/settings'];
+  '#/apps/notes', '#/apps/ai', '#/apps/pomodoro', '#/settings', '#/not-found'];
 
 test('全ルートの aria-* id 参照が実在要素へ解決する', async ({ page }) => {
   for (const route of IDREF_ROUTES) {
@@ -676,9 +676,17 @@ async function settleContent(page) {
   }), '#content の描画が落ち着かない').toBeGreaterThan(0);
 }
 
+// [FIX] `'/#/apps/settings'` は **存在しないルート**だった。router の apps whitelist は
+//   task / todo / pomodoro / ai / notes だけなので NotFound へ解決し、**本物の Settings
+//   (操作要素 82 個 / このルールの検査対象 22 個) は一度も走査されていなかった**
+//   —— NotFound は 2 要素しか無いうえ検査対象 0 なので、走っているように見えて実質何も
+//   見ていない (#96-99 の「vacuous hash」class の a11y ゲート版・実測 2026-08-21)。
+//   正しい `'/#/settings'` へ是正し、他の a11y ゲートと同じく `'/#/not-found'` も足す
+//   (NotFound も利用者が到達する実ページなので走査対象)。
 const LABEL_IN_NAME_ROUTES = ['/', '/#/projects', '/#/apps', '/#/apps/task', '/#/apps/todo',
-  '/#/apps/notes', '/#/apps/ai', '/#/apps/pomodoro', '/#/apps/settings', '/#/quiz',
-  '/#/about', '/#/resume', '/#/contact', '/#/role-split', '/#/hiring-risk', '/#/ai-knowhow'];
+  '/#/apps/notes', '/#/apps/ai', '/#/apps/pomodoro', '/#/settings', '/#/quiz',
+  '/#/about', '/#/resume', '/#/contact', '/#/role-split', '/#/hiring-risk', '/#/ai-knowhow',
+  '/#/not-found'];
 test('可視テキストがアクセシブル名に含まれる (WCAG 2.5.3) — 全ルート', async ({ page }) => {
   const offenders = [];
   let checked = 0;

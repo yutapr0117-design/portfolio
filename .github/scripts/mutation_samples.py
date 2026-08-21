@@ -222,6 +222,13 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 439: e2e の走査ルート一覧に存在しないハッシュが混ざる —— その entry は NotFound へ解決するため gate は淡々と緑を返し、本物のページが一度も走査されない (#96-99 の vacuous-hash class の a11y 版)",
+    "file": ROOT / "e2e" / "a11y-axe.spec.js",
+    "find": "'/#/apps/pomodoro', '/#/settings', '/#/quiz'",
+    "replace": "'/#/apps/pomodoro', '/#/apps/settings', '/#/quiz'",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
