@@ -265,6 +265,20 @@ test('BGM toggle syncs aria-pressed and aria-label with playback state (a11y)', 
   await expect(btn).toHaveAttribute('aria-pressed', 'false');
   await expect(btn).toHaveAttribute('aria-label', 'BGMを再生する');
 
+  // [FIX] **名前の出どころは aria-label だけ**であること。
+  //   index.html は長らく `<span class="sr-only">BGMを再生する</span>` を内包していたが、
+  //   `aria-label` が要素内容を上書きするので **一度も読み上げられず**、しかも
+  //   `_syncAll()` の更新対象外なので **再生中も「再生する」のまま**だった (実測 2026-08-21)。
+  //   同じ topbar の menuBtn / themeBtnTop は aria-label 単独で、これだけが outlier。
+  //   実害は「誰かが aria-label を消すと名前が永久に古い文言で固定される」latent trap で、
+  //   除去した。再混入すると accessible name の出どころが 2 つになるのでここで捕捉する。
+  expect((await btn.textContent()).trim(),
+    'BGM ボタンに aria-label と競合するテキストが入っている (名前の出どころは 1 つに保て)').toBe('');
+  expect(await btn.evaluate((el) => {
+    const s = el.querySelector('.sr-only');
+    return s ? s.textContent.trim() : null;
+  }), '除去した sr-only ラベルが再混入している').toBeNull();
+
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `BGM toggle caused a fatal: ${fatal}`).toBeNull();
 });

@@ -968,6 +968,14 @@ _E2E_TAIL.append({
     "test": "Quiz search input cannot hold more text than it persists",
 })
 
+_E2E_TAIL.append({
+    "name": "BGM ボタンに aria-label と競合する sr-only テキストが再混入 —— aria-label が上書きするので一度も読み上げられず、しかも状態同期の対象外なので再生中も『再生する』のまま。誰かが aria-label を消すと名前が永久に古い文言で固定される latent trap",
+    "file": ROOT / "index.html",
+    "find": '<button class="icon-btn" data-bgm-btn id="bgm-btn-top" data-action="bgm:toggle" aria-pressed="false" aria-label="BGMを再生・停止する">',
+    "replace": '<button class="icon-btn" data-bgm-btn id="bgm-btn-top" data-action="bgm:toggle" aria-pressed="false" aria-label="BGMを再生・停止する"><span class="sr-only">BGMを再生する</span>',
+    "test": "BGM toggle syncs aria-pressed and aria-label with playback state",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
