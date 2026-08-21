@@ -250,6 +250,13 @@ _MUTATIONS_TAIL.append({
     "replace": "node .github/scripts/check_js_syntax.UNWIRED.mjs main.js sw.js",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 413b: 「数値の真値」を名乗る runbook §9 の行が自分自身と矛盾する —— 1 つの数値だけ更新して内訳を忘れると、同じ行が複数の総数を同時に主張する状態になり、読み手はどれを信じるか決められない (2026-08-22 実測: 総数 530 / source 264 / mirror 250 / = 490 の 3 通りが同居し、Check 413 は 6 個中 2 個しか git と突き合わせないため緑だった)",
+    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
+    "find": "| 追跡ファイル総数 | **550**",
+    "replace": "| 追跡ファイル総数 | **551**",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

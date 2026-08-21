@@ -811,3 +811,38 @@ def run(ctx):
         else:
             check(True, "Check 413 (ADVISORY): tracked-file baseline の検証をスキップ (git 不在または §9 の記載形式変更)",
                   "", blocking=False)
+
+        # 413b — §9 の内訳が**それ自身の足し算**として整合していること (BLOCKING)。
+        # 413 は 6 個ある数値のうち 2 個 (総数・source) しか git と突き合わせないため、行が
+        # **内部で矛盾していても緑**になる。実際 2026-08-22 時点で本行は「総数 530 / source 264 /
+        # mirror 250 / = 490」と **3 通りの総数を同時に主張**していた (264+250+2 は 516 で、
+        # 490 でも 530 でもない)。真値を名乗る面が自分自身と食い違っているのは、古いより悪い
+        # (読み手はどれを信じればよいか判断できない)。
+        # これは絶対値に依存しない**純粋な算術不変条件**なので、volatile な baseline であっても
+        # BLOCKING にできる — file を足せば全部の数が一緒に動くだけで、和の性質は常に成り立つ。
+        # 逆に「1 つだけ更新して他を忘れる」という現実の drift 経路をちょうど捕まえる。
+        # (Check 60 と同じ「ADVISORY 早期警告 + BLOCKING hard gate」二層設計の hard gate 側。)
+        _m_mirror413 = re.search(r"mirror が \*\*(\d+)\*\*", _rb413)
+        _m_sum413 = re.search(r"_template\.md` の \*\*(\d+)\*\* = \*\*(\d+)\*\*", _rb413)
+        if _m_total413 and _m_src413 and _m_mirror413 and _m_sum413:
+            _t413 = int(_m_total413.group(1))
+            _parts413 = (int(_m_src413.group(1)), int(_m_mirror413.group(1)), int(_m_sum413.group(1)))
+            _stated413 = int(_m_sum413.group(2))
+            check(
+                sum(_parts413) == _t413 == _stated413,
+                f"Check 413b: runbook §9 の内訳が算術的に整合 "
+                f"({' + '.join(str(_p) for _p in _parts413)} = {_t413})",
+                f"Check 413b: runbook §9 の内訳が自分自身と矛盾している — "
+                f"内訳 {' + '.join(str(_p) for _p in _parts413)} = {sum(_parts413)} / "
+                f"行頭の総数 = {_t413} / 行末が主張する合計 = {_stated413}。"
+                "§9 は CLAUDE.md が「数値の真値」と宣言する面であり、"
+                "**複数の総数を同時に主張する行は古い値より有害** (読み手がどれを信じるか決められない)。"
+                "1 つの数値を更新したら同じ行の残りも同一 commit で揃えよ",
+                blocking=True,
+            )
+        else:
+            check(False, "",
+                  "Check 413b: runbook §9 の内訳を parse できない — "
+                  "「source file が **N**」「mirror が **N**」「`_template.md` の **N** = **N**」の"
+                  "記載形式を保つこと (形式を変えるならこの Check の正規表現も同一 commit で更新せよ)",
+                  blocking=True)
