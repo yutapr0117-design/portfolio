@@ -241,6 +241,25 @@ test('Reset data restores defaults after confirm (destructive)', async ({ page }
   await input.press('Enter');
   await expect(page.getByText('RESET-TARGET-TASK-7788')).toBeVisible();
 
+  // [FIX] **appsData 以外にも差分を作る。** 従来はタスクを 1 件足すだけで、検証も
+  //   「そのタスクが消えたこと」しか見ていなかった。つまり「全リセット」が
+  //   **appsData しか戻さない部分リセットへ退行しても緑のまま**になる
+  //   (実測 2026-08-21: `State.set(Store.createDefaultStore())` を
+  //   `State.update(s => { s.appsData = ... })` へ差し替えても PASS)。
+  //   「全」リセットは全領域が対象なので、appsData の外にも差分を置いて検証する。
+  //   ここでは projectPrefs (非表示) を使う —— 既定プロジェクトは削除できず
+  //   「非表示」が唯一の非公開手段 (#886) なので、リセットで戻らないと
+  //   **利用者が意図的に隠したものが公開状態のまま残る**。
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  const hideBtn = page.getByRole('button', { name: /^非表示：/ }).first();
+  await expect(hideBtn, 'control: 非表示ボタンが無いと appsData 外の差分を作れない').toBeVisible();
+  await hideBtn.click();
+  await expect.poll(async () => page.evaluate(() => {
+    const k = Object.keys(localStorage).find(x => x.includes('portfolio'));
+    return ((JSON.parse(localStorage.getItem(k) || '{}').projectPrefs || {}).hiddenIds || []).length;
+  }), { message: 'control: 非表示の差分が保存されていない' }).toBeGreaterThan(0);
+
   // 全リセット → confirm 受諾
   await page.goto('/#/settings');
   await page.waitForLoadState('domcontentloaded');
@@ -252,6 +271,16 @@ test('Reset data restores defaults after confirm (destructive)', async ({ page }
   await page.waitForLoadState('domcontentloaded');
   await expect(page.getByLabel('新しいタスクを入力')).toBeVisible();
   await expect(page.getByText('RESET-TARGET-TASK-7788')).toHaveCount(0);
+
+  // appsData 外 (projectPrefs) も既定へ戻っている —— ここが部分リセットへの退行を捕捉する。
+  //   **poll で待つ**: 保存は debounce されており、リセット直後に読むと ["p01"] のまま
+  //   (実測 2026-08-21: 直後 ["p01"] → 600ms 後 []) で、製品が正しくても落ちる。
+  //   これは「変化」の検査なので poll が正しい (不変性の検査なら settle 後に 1 度読む)。
+  await expect.poll(async () => page.evaluate(() => {
+    const k = Object.keys(localStorage).find(x => x.includes('portfolio'));
+    return ((JSON.parse(localStorage.getItem(k) || '{}').projectPrefs || {}).hiddenIds || []).length;
+  }), { message: '全リセットなのに非表示 (projectPrefs) が残っている = 部分リセットへ退行している' }).toBe(0);
+
   // crash していない
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `reset caused a fatal: ${fatal}`).toBeNull();
