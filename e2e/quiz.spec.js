@@ -174,11 +174,48 @@ test('Quiz data is fetched only when the quiz is opened, and only the requested 
   await page.goto('/#/quiz?type=pm');
   await page.waitForLoadState('domcontentloaded');
   // (c) 到着後に実際の問題が出る
+  //   [FIX] `.card` で待ってはいけない —— **「問題を読み込んでいます…」のボックス自体が
+  //   `.card`** なので、データが来る前に成立してしまい (c) を検証できない
+  //   (実測 2026-08-21: 読み込み中でも `#content .card` は 2 件あり visible 待ちが通る)。
+  //   章見出し (h2) はデータからしか生えないので、これを実コンテンツの目印にする。
   await expect(page.locator('#content h1', { hasText: 'PM問題集' })).toBeVisible();
-  await expect(page.locator('#content .card').first()).toBeVisible();
+  await expect(page.locator('#content h2').first(), '問題データ由来の章見出しが描画されていない').toBeVisible();
+  await expect(page.locator('[data-quiz-loading]'), '読み込み中ボックスが残っている').toHaveCount(0);
+  await expect(page.locator('#content [aria-busy]').first(),
+    '読み込み完了後も aria-busy が true のまま').toHaveAttribute('aria-busy', 'false');
 
   // (b) 開いた種別だけを取りに行く (4 件まとめて取ると遅延化の意味が無い)
   expect(fetched, `取得したのは ${JSON.stringify(fetched)}`).toEqual(['quiz/pm-quiz-data.js']);
+});
+
+
+// ===== 読み込み中であることが SR にも伝わる (WCAG 4.1.3) =====
+// 遅延読み込みにしたことで「データが来るまでの間」が生まれた。視覚的には
+// 「問題を読み込んでいます…」と見えるが、**それだけでは SR に「まだ来ていない」ことが
+// 伝わらない**。#content が aria-busy で描画中を宣言しているのと同じ契約を listHost にも与える。
+//
+// 通信を遅らせて「読み込み中」の窓を実際に作ってから測る (遅延させないと窓が短すぎて
+// 何も検証できないまま緑になる)。
+test('Quiz announces the loading window with aria-busy while data is in flight', async ({ page }) => {
+  await page.route('**/js/quiz/aws-quiz-data.js', async (route) => {
+    await new Promise((r) => setTimeout(r, 900));
+    await route.continue();
+  });
+
+  await page.goto('/#/quiz');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'AWS問題集' })).toBeVisible();
+
+  // control: 遅延が効いて「読み込み中」の窓が実在すること (無ければ以下は何も検証しない)
+  await expect(page.locator('[data-quiz-loading]'),
+    'control: 読み込み中の窓が作れていない — 以降の検証が vacuous になる').toHaveCount(1);
+  await expect(page.locator('#content [aria-busy="true"]').first(),
+    '読み込み中なのに aria-busy が立っていない').toBeVisible();
+
+  // 到着 → busy 解除 + 実データ由来の章見出しが出る
+  await expect(page.locator('#content h2').first()).toBeVisible();
+  await expect(page.locator('[data-quiz-loading]')).toHaveCount(0);
+  await expect(page.locator('#content [aria-busy]').first()).toHaveAttribute('aria-busy', 'false');
 });
 
 

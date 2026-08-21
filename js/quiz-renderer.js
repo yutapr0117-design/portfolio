@@ -296,11 +296,17 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, loadQu
         //   届いたら一覧だけ差し替える (listHost の手動再描画 = ProjectsPage と同じ house pattern)。
         //   失敗しても **無音にしない** —— 空の一覧を黙って見せると「問題が 0 件の問題集」と
         //   区別が付かない (§7 の silent-failure 禁止)。
+        // [A11Y 4.1.3] 読み込み中は `aria-busy` を立てる。視覚的には「読み込んでいます…」と
+        //   見えるが、それだけでは **SR には「まだ来ていない」ことが伝わらない** (#content の
+        //   aria-busy と同じ契約を listHost にも与える)。到着時に false へ戻す。
+        listHost.setAttribute('aria-busy', 'true');
         listHost.appendChild(h("div", { class: 'card panel-empty', 'data-quiz-loading': 'true' }, '問題を読み込んでいます…'));
         loadQuizData(resolvedType).then((data) => {
             sourceData = data;
             renderList(initialSearch);
+            listHost.setAttribute('aria-busy', 'false');
         }).catch(() => {
+            listHost.setAttribute('aria-busy', 'false');
             while (listHost.firstChild) { listHost.removeChild(listHost.firstChild); }
             listHost.appendChild(h("div", { class: 'card panel-empty', role: 'alert' },
                 '問題の読み込みに失敗しました。通信状況を確認して再読み込みしてください。'));
