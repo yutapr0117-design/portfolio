@@ -233,48 +233,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "startViewTransition proxy が install されなくなる — proxy は『executeSafeTransition を経由せず素の API を直接呼ぶ実装』でも try/catch + timeout + reduced-motion が効くようにするための層 (Check 43b が名前の存在を BLOCKING 監視するが、**install されているかまでは見ない**)。抜けると ErrorBoundary (C3) の保証がその経路から漏れる",
-        "file": ROOT / "main.js",
-        "find": "            if (!document.startViewTransition) { return; } // 未対応環境はスキップ",
-        "replace": "            return;",
-        "test": "5-layer proxy: document.startViewTransition is overridden by proxy",
-    },
-    {
-        "name": "プロジェクト削除が何も消さなくなる — confirm を通したのに一覧から消えない。**破壊的操作は「効かない」方も実害**で、利用者は削除できたと思って別の作業へ移る (次に開いたとき残っていて初めて気付く)",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "                s.projects = s.projects.filter(p => p.id !== id);",
-        "replace": "",
-        "test": "Deleting a user project (confirm accepted) removes it everywhere",
-    },
-    {
-        "name": "全リセットが何も戻さなくなる — 最も破壊的な操作の逆で、**「初期化しました」と報告するのに何も初期化されない**。壊れたデータを直すために押した利用者は、直ったと信じて同じ問題を踏み続ける (silent no-op に成功メッセージを付ける #1039/#1040 と同じ class)",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "            State.set(Store.createDefaultStore());",
-        "replace": "",
-        "test": "Reset data restores defaults after confirm (destructive)",
-    },
-    {
-        "name": "タグをクリックしても絞り込まれなくなる — 検索語の設定を落とすと、カテゴリだけリセットされて一覧は全件のまま。**クリックは効いている (URL も検索欄も変わる) のに結果だけ変わらない**ので、利用者にはタグが壊れているのか一致が無いのか区別できない",
-        "file": ROOT / "js" / "projects-page.js",
-        "find": "                                            q = tag; cat = 'All';",
-        "replace": "                                            cat = 'All';",
-        "test": "Clicking a project card tag filters projects by that tag",
-    },
-    {
-        "name": "本文中のリンクが色だけで判別される状態に戻る (WCAG 1.4.1) — hero-meta のインラインリンクから下線を外すと、周囲の文と **色でしか区別できなくなる**。色覚特性のある利用者やモノクロ表示では「そこがリンクだと分からない」。screenshot は ADVISORY なので pixel が変わっても止まらず、この computed-style テストだけが捕捉層",
-        "file": ROOT / "style.css",
-        "find": "        .hero-meta a {\n            text-decoration: underline;\n        }",
-        "replace": "        .hero-meta a {\n            text-decoration: none;\n        }",
-        "test": "Hero-meta inline link is distinguishable by underline (WCAG 1.4.1, not color-only)",
-    },
-    {
-        "name": "AI 入力の名前が placeholder だけに戻る (WCAG 4.1.2) — aria-label を外すと、SR は placeholder を名前として読む実装もあれば読まない実装もあり、**入力すると placeholder が消えるので名前まで消える**。「何を入力する欄か」が操作の途中で失われる",
-        "file": ROOT / "js" / "ai-page.js",
-        "find": "                                'aria-label': 'AI アシスタントへの依頼を入力',\n",
-        "replace": "",
-        "test": "AI assist main input exposes an accessible name (not placeholder-only)",
-    },
-    {
         "name": "ポモドーロ設定の label が宙に浮く — `for` を外すと **ラベル文字をクリック/タップしても何も起きず**、タップ標的も縮む。入力欄側に aria-label があるため **axe は緑のまま**で、#1014 で 6 個まとめて直した class の再混入をこのテストだけが捕捉する",
         "file": ROOT / "js" / "pomodoro-page.js",
         "find": ", for: 'pomo-setting-work' }",
@@ -973,6 +931,27 @@ _E2E_TAIL.append({
     "find": "const listHost = h(\"div\", { 'data-quiz-list': 'true' });",
     "replace": "const listHost = h(\"div\", {});",
     "test": "Quiz data is fetched only when the quiz is opened",
+})
+
+_E2E_TAIL.append({
+    "name": "quiz データ到着時に「描画開始時点の語」で描く —— 読み込み中に入力した検索語が捨てられ、入力欄には語が残ったまま一覧は絞り込み前になる。利用者には「検索したのに効いていない」としか見えない",
+    "file": ROOT / "js" / "quiz-renderer.js",
+    "find": "            renderList(searchInput.value);",
+    "replace": "            renderList(initialSearch);",
+    "test": "Quiz applies a search typed while the data was still loading",
+})
+
+_E2E_TAIL.append({
+    "name": "quiz が「まだ届いていない」を「見つかりませんでした」と偽る —— データ未着で検索すると 0 件になるが、それを not-found として出すと嘘になる。読み込み中は読み込み中として見せ続ける",
+    "file": ROOT / "js" / "quiz-renderer.js",
+    "find": """            if (!sourceData) {
+                listHost.appendChild(h("div", { class: 'card panel-empty', 'data-quiz-loading': 'true' },
+                    '問題を読み込んでいます…'));
+                return;
+            }
+""",
+    "replace": "",
+    "test": "Quiz applies a search typed while the data was still loading",
 })
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
