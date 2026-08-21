@@ -947,6 +947,14 @@ _E2E_TAIL.append({
     "test": "best-practice 違反は既知の 1 パターンだけ",
 })
 
+_E2E_TAIL.append({
+    "name": "agentic surface の filter を単一ソースから切り離す —— router の getFilterString が常に空を返すと、URL に絞り込みがあっても body[data-ai-state] は「絞り込みなし」と宣言する。視覚には一切出ないため screenshot も目視も気付けない",
+    "file": ROOT / "js" / "router.js",
+    "find": "        return i === -1 ? '' : raw.slice(i + 1);",
+    "replace": "        return '';",
+    "test": "data-ai-state.filter は確定後も URL の絞り込みを表す",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
