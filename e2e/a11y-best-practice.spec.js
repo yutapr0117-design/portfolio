@@ -46,7 +46,7 @@ const AxeBuilder = require('@axe-core/playwright').default;
 const BP_ROUTES = [
     '#/', '#/projects', '#/about', '#/contact', '#/resume', '#/apps', '#/settings',
     '#/quiz', '#/apps/task', '#/apps/todo', '#/apps/pomodoro', '#/apps/ai',
-    '#/apps/notes', '#/hiring-risk', '#/role-split', '#/ai-knowhow',
+    '#/apps/notes', '#/hiring-risk', '#/role-split', '#/ai-knowhow', '#/not-found',
 ];
 
 // 既知の例外 = `<article role="listitem">` (上の実測と根拠を参照)。

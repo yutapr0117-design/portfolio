@@ -82,6 +82,20 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        137's domain and excluded) and asserts each has a matching main.js `case '<name>':`, making
        "router resolves route X ⟹ main.js can render X" a directly enforced invariant for non-app
        routes (the missing non-app edge of the route coherence mesh 58/137). (BLOCKING)
+  439. e2e の走査ルート一覧が実在ルートへ解決する: a11y などの「全ルートを舐める」gate は
+       `const *ROUTES* = ['#/x', ...]` というリテラル一覧を持つ。ここに **存在しないハッシュ**が
+       混ざると、その entry は NotFound へ解決し、**走っているように見えて実質何も検査しない**。
+       実測 (2026-08-21): `LABEL_IN_NAME_ROUTES` に `'/#/apps/settings'` が入っていたが、router の
+       apps whitelist は task/todo/pomodoro/ai/notes だけなので NotFound へ落ち、**本物の Settings
+       (操作要素 82 個・このルールの検査対象 22 個) は一度も走査されていなかった** —— NotFound は
+       検査対象 0 なので gate は淡々と緑を返し続ける (#96-99 の「vacuous hash」class の a11y 版)。
+       router の app whitelist (`[...].includes(app)`) と非 app route.name (`case '<name>':`) を
+       単一ソースとして parse し、e2e の `*ROUTES*` 定数に含まれる **ハッシュ形式のリテラル**が
+       すべて解決することを強制する。route 名 (`'home'` / `'app-task'` 等) を並べる定数は
+       別形式なので対象外、`'#/not-found'` は利用者が実際に到達する正当な走査先として許可する。
+       NOTE: この番号は #1212 で別案 (Check の文言が名指しする js file ↔ 実際の走査先) に一度
+       使われたが、正当な cross-reference を消す圧力を生むため**未マージのまま撤回**された。
+       本 Check はそれとは別の invariant である。 (BLOCKING)
 """
 import re
 
@@ -321,3 +335,57 @@ def run(ctx):
     else:
         check(False, "Check 377: js/router.js and main.js present",
               "Check 377: js/router.js または main.js が無い — 非 app route.name↔render case coherence を検証できない", blocking=True)
+
+    # ── 439. e2e の走査ルート一覧が実在ルートへ解決する (BLOCKING) ──────────────
+    # 「全ルートを舐める」gate のリテラル一覧に存在しないハッシュが混ざると、その entry は
+    # NotFound へ解決し **走っているように見えて実質何も検査しない**。router を単一ソースに
+    # して解決可能性を機械強制する (詳細は docstring)。
+    _router439 = ROOT / "js" / "router.js"
+    _e2e_dir439 = ROOT / "e2e"
+    if _router439.exists() and _e2e_dir439.is_dir():
+        _rsrc439 = _router439.read_text(encoding="utf-8")
+        _am439 = re.search(r"\[([^\]]*)\]\.includes\(app\)", _rsrc439)
+        _apps439 = set(re.findall(r"['\"]([a-z0-9_-]+)['\"]", _am439.group(1) if _am439 else ""))
+        _tops439 = set(re.findall(r"case\s+'([a-z0-9-]+)':", _rsrc439))
+
+        def _is_hash439(_x):
+            return _x in ("", "/") or _x.lstrip("/").startswith("#")
+
+        def _resolves439(_h):
+            _raw = _h.lstrip("/").lstrip("#").lstrip("/").split("?")[0]
+            # 空 = home、not-found = 利用者が実際に到達する正当な走査先
+            if _raw in ("", "not-found"):
+                return True
+            _parts = [p for p in _raw.split("/") if p]
+            if _parts[0] == "apps":
+                return len(_parts) == 1 or (len(_parts) == 2 and _parts[1] in _apps439)
+            return _parts[0] in _tops439
+
+        _pat439 = re.compile(r"^const ([A-Za-z_0-9]*ROUTES[A-Za-z_0-9]*)\s*=\s*\[(.*?)\];", re.S | re.M)
+        _bad439 = []
+        _scanned439 = 0
+        for _f439 in sorted(_e2e_dir439.glob("*.spec.js")):
+            _s439 = _f439.read_text(encoding="utf-8")
+            for _m439 in _pat439.finditer(_s439):
+                for _lit439 in re.findall(r"'([^']*)'", _m439.group(2)):
+                    if not _is_hash439(_lit439):
+                        continue
+                    _scanned439 += 1
+                    if not _resolves439(_lit439):
+                        _bad439.append(f"{_f439.name}:{_m439.group(1)} → '{_lit439}'")
+        check(
+            bool(_apps439) and bool(_tops439) and _scanned439 > 0 and not _bad439,
+            f"Check 439: e2e の走査ルート一覧 {_scanned439} 件がすべて実在ルートへ解決する",
+            (f"Check 439: 存在しないルートを走査している: {_bad439[:6]} — その entry は NotFound へ "
+             "解決するため、**走っているように見えて実質何も検査しない** (実測 #1231: "
+             "`'/#/apps/settings'` が NotFound へ落ち、本物の Settings の 22 要素が一度も "
+             "走査されていなかった)。router の whitelist に合わせて是正せよ"
+             if (_apps439 and _tops439 and _scanned439) else
+             "Check 439: router.js の whitelist / route.name を parse できない、または e2e に "
+             "`*ROUTES*` 定数が 1 つも無い (構造変更の可能性・走査が空だと vacuous に緑になる)"),
+            blocking=True,
+        )
+    else:
+        check(False, "Check 439: js/router.js and e2e/ present",
+              "Check 439: js/router.js または e2e/ が無い — 走査ルートの解決性を検証できない",
+              blocking=True)
