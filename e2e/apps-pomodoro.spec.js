@@ -63,6 +63,11 @@ test('Pomodoro start counts down and pause halts it (deterministic clock)', asyn
 
 
 // ===== 7.2: ポモドーロ reset ボタン (満了値へ復帰 + 停止) =====
+// NOTE: 「開始」の配線 (`start()` 内の `startTimer()`) を消しても本 spec は緑のまま。
+//   #1094 で init から呼ぶようにした `resumeIfActive()` が
+//   「isActive かつ interval 不在」を見て起動し直すため、**単一 mutation では
+//   原理的に RED にできない** (defense-in-depth の構造的制約で test が vacuous な
+//   わけではない・実測 2026-08-21)。RED を実測できないものは安全網に混ぜない。
 // reset() は stopTimer + remainingSec をモード duration へ戻す。switchMode (モード切替) や complete
 // (0 到達) とは別経路で、稼働中の「リセット」ボタン押下は未カバーだった。開始→進める→リセットで
 // 満了値に戻り、以降 clock を進めても変化しない (= 停止) ことを fake clock で決定的に検証する。
@@ -88,6 +93,26 @@ test('Pomodoro reset button restores full duration and stops (deterministic cloc
   // 停止後は clock を進めても変化しない
   await page.clock.fastForward(5000);
   await expect(timer).toHaveText(full);
+
+  // --- ここまでは「満了値へ復帰」を実際には検証していない ---
+  // 稼働中の残り時間は `endAtMs` から計算されるが、**`remainingSec` は pause と complete
+  // でしか書き換わらない**。つまり上の経路では reset の
+  // `runtime.remainingSec = duration` を**丸ごと削除しても表示は満了値のまま**で、
+  // test は「壊れていても緑」になる (実測 2026-08-21: 削除しても 25:00 のまま通る)。
+  // 通っていたのは reset が復帰させたからではなく、**そもそも drift していなかった**から。
+  //
+  // 復帰を load-bearing にするには、先に一時停止して `remainingSec` を実際に
+  // 進んだ値へ書き換えてから reset する必要がある (実測: 同じ削除で 24:55 のまま残り RED)。
+  await page.getByRole('button', { name: '開始' }).click();
+  await page.clock.fastForward(5000);
+  await page.getByRole('button', { name: '一時停止' }).click();
+  // 一時停止が確定してから読む (確定前の値を基準にすると比較がズレる)
+  await expect(page.getByRole('button', { name: '開始' })).toBeVisible();
+  // control: ここで満了値のままなら drift が起きておらず、続く復帰検証は無意味になる
+  await expect(timer, 'control: 一時停止しても remainingSec が進んでいない').not.toHaveText(full);
+
+  await page.getByRole('button', { name: 'リセット' }).click();
+  await expect(timer, '一時停止で進んだ remainingSec が満了値へ復帰していない').toHaveText(full);
 });
 
 

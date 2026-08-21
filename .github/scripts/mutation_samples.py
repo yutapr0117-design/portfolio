@@ -963,6 +963,14 @@ _E2E_TAIL.append({
     "test": "llms-full.txt が宣言する資産の entity 属性が実際の DOM に載っている",
 })
 
+_E2E_TAIL.append({
+    "name": "ポモドーロの reset が満了値へ復帰しなくなる —— 稼働中の残りは endAtMs から計算されるので、一時停止で remainingSec が drift した状態でしか観測できない。drift の無い経路だけを見ていると『壊れていても緑』になる",
+    "file": ROOT / "js" / "pomodoro-page.js",
+    "find": "                s.appsData.pomodoro.runtime.remainingSec = duration;\n            });\n        }\n\n\n        function switchMode(mode) {",
+    "replace": "            });\n        }\n\n\n        function switchMode(mode) {",
+    "test": "Pomodoro reset button restores full duration and stops",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
