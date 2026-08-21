@@ -987,6 +987,14 @@ _E2E_TAIL.append({
     "test": "toggle flips aria-expanded",
 })
 
+_E2E_TAIL.append({
+    "name": "ダーク実効の --text-muted が暗背景に暗い色になる —— drawer / palette / toast など**開いた状態でしか見えない面**のコントラストが落ちる。既定の閉じた状態では何も起きないので通常の a11y 走査では踏まれない",
+    "file": ROOT / "style.css",
+    "find": """                --text-muted: #9aa4b5;""",
+    "replace": """                --text-muted: #2b3444;""",
+    "test": "ダークの drawer / palette / toast",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
