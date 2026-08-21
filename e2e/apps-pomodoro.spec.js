@@ -553,6 +553,75 @@ test('Pomodoro shows today\'s completed focus sessions (excludes yesterday and b
 //     endAtMs は初期化済み」という矛盾状態になる
 //   - あるいは走り続けた interval がリセット後の state を上書きし、初期化が無効化される
 // どちらも fatal を出さずに壊れるため、この behavior test 以外に捕捉層が無い。
+// ===== 全リセットは「同時に生きている 3 つの状態」をまとめて初期化する =====
+// 下の test は **ポモドーロ単体**を見る。だが実際の利用者は複数のアプリに同時に状態を持つ ——
+// タイマーが走り、quiz の検索語が永続化され (#684)、ノートに未送信の本文がある、という具合。
+// 「全リセット」はその**全部**を初期化する契約で、どれか 1 つでも取り残すと
+// 「初期化したのに前の状態が残っている」という一貫性の破れになる。
+//
+// とくに **稼働中タイマーの interval** は state だけ戻して interval を止め損ねると
+// **幽霊 tick** が残り、リセット後の表示が勝手に動く。state と runtime の両方を見る。
+test('Full reset clears pomodoro / quiz search / notes together (multi-app state)', async ({ page }) => {
+  // 3 つの状態を同時に作る
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByRole('button', { name: '開始' }).click();
+
+  await page.goto('/#/quiz');
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByLabel('問題検索').fill('EC2');
+
+  await page.goto('/#/apps/notes');
+  await page.waitForLoadState('domcontentloaded');
+  await page.locator('#notes-input').fill('未送信のメモ本文');
+
+  const read = () => page.evaluate(() => {
+    const k = Object.keys(localStorage).find((x) => x.includes('portfolio'));
+    const d = JSON.parse(localStorage.getItem(k) || '{}');
+    return {
+      active: !!(((d.appsData || {}).pomodoro || {}).runtime || {}).isActive,
+      quizSearch: (d.appsData || {}).quizSearch || '',
+      notes: (d.appsData || {}).notes || '',   // notes は文字列そのもの (実測: .text ではない)
+    };
+  });
+
+  // control: 3 つとも実際に立っていること (立っていなければ「消えたか」を検証できない)
+  await expect.poll(async () => (await read()).active,
+    { message: 'control: タイマーが稼働していない' }).toBe(true);
+  await expect.poll(async () => (await read()).quizSearch,
+    { message: 'control: quiz 検索語が永続化されていない' }).toContain('EC2');
+  await expect.poll(async () => (await read()).notes,
+    { message: 'control: ノート本文が永続化されていない' }).toContain('未送信のメモ本文');
+
+  page.on('dialog', (d) => d.accept());
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByRole('button', { name: '全リセット' }).click();
+  await expect(page.locator('#toast-container')).toContainText('初期化');
+
+  // 3 つとも既定へ戻る
+  await expect.poll(async () => (await read()).active,
+    { message: '全リセット後もタイマーが稼働中のまま' }).toBe(false);
+  await expect.poll(async () => (await read()).quizSearch,
+    { message: '全リセット後も quiz 検索語が残っている' }).toBe('');
+  expect((await read()).notes,
+    '全リセット後も未送信のノート本文が残っている').not.toContain('未送信のメモ本文');
+
+  // 幽霊 tick が残っていない (state を戻しても interval を止め損ねると表示が動く)
+  await page.goto('/#/apps/pomodoro');
+  await page.waitForLoadState('domcontentloaded');
+  const timer = page.locator('.font-mono.text-stat').first();
+  await expect(timer).toBeVisible();
+  const t0 = (await timer.textContent()).trim();
+  await page.waitForTimeout(2500);
+  expect((await timer.textContent()).trim(),
+    'リセット後もタイマーが動いている = interval が止まっていない (幽霊 tick)').toBe(t0);
+
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `multi-app reset caused a fatal: ${fatal}`).toBeNull();
+});
+
+
 test('Full reset stops a running pomodoro timer (cross-app interaction)', async ({ page }) => {
   const pageErrors = [];
   page.on('pageerror', (e) => pageErrors.push(e.message));

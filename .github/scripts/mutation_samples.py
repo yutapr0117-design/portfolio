@@ -955,6 +955,14 @@ _E2E_TAIL.append({
     "test": "Revisiting the quiz does not re-download the question set",
 })
 
+_E2E_TAIL.append({
+    "name": "「全リセット」が appsData を戻さなくなる —— 稼働中タイマー / quiz 検索語 / 未送信ノートが取り残され、「初期化したのに前の状態が残っている」一貫性の破れになる",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "            State.set(Store.createDefaultStore());",
+    "replace": "            State.update(s => { s.projects = Store.createDefaultStore().projects; });",
+    "test": "Full reset clears pomodoro / quiz search / notes together",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
