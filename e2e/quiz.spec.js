@@ -329,6 +329,41 @@ test('Quiz reports a failed data load instead of showing an empty question set',
 });
 
 
+// ===== 再訪で問題集を再ダウンロードしない (遅延化の利得を守る) =====
+// 動的 import は **ESM のモジュールキャッシュ**が効くので、一度開いた問題集は再訪しても
+// ネットワークに出ない。これは遅延化 (#1239) の利得を成立させている前提で、
+// 例えば loader に cache-buster (`import('./x.js?v=' + Date.now())`) を足すと
+// **開くたびに 83KB を落とす**ようになる —— 体感は速いままなので気付きにくいが、
+// 通信量とバッテリーには効く。
+//
+// NOTE: 再訪時も「読み込み中」の DOM は一瞬挿入される (QuizPage は毎回新しい closure なので
+//   `sourceData` は null から始まる)。ただし実測 (2026-08-21) では **1ms で content へ入れ替わる**
+//   ため知覚できず、`aria-busy` も同じく 1ms。**キャッシュを足す変更はしていない** ——
+//   必要性を実測で示せないまま複雑さを足すのは padding (CLAUDE.md §7)。
+test('Revisiting the quiz does not re-download the question set (ESM module cache)', async ({ page }) => {
+  const fetched = [];
+  page.on('request', (r) => {
+    const u = r.url();
+    if (u.includes('/js/quiz/')) { fetched.push(u.split('/js/')[1]); }
+  });
+
+  await page.goto('/#/quiz');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('[data-quiz-list] h2').first()).toBeVisible();
+  // control: 初回は実際に取りに行っていること (行っていなければ以下の比較が無意味)
+  expect(fetched, 'control: 初回に問題集を取得していない').toEqual(['quiz/aws-quiz-data.js']);
+
+  // 離れて戻る (同一文書の hash 遷移 = 実際の利用者の経路)
+  await page.evaluate(() => { location.hash = '#/'; });
+  await expect(page.locator('.hero-section')).toBeVisible();
+  await page.evaluate(() => { location.hash = '#/quiz'; });
+  await expect(page.locator('[data-quiz-list] h2').first()).toBeVisible();
+
+  expect(fetched, `再訪で問題集を取り直している (取得: ${JSON.stringify(fetched)})`)
+    .toEqual(['quiz/aws-quiz-data.js']);
+});
+
+
 test('Quiz announces the loading window with aria-busy while data is in flight', async ({ page }) => {
   await page.route('**/js/quiz/aws-quiz-data.js', async (route) => {
     await new Promise((r) => setTimeout(r, 900));
