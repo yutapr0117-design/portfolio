@@ -488,6 +488,11 @@ test('Settings add-project form marks the empty name aria-invalid and focuses it
   expect(await page.evaluate(() => document.activeElement?.id)).toBe('settingsNewName');
 
   // 名前を入れて追加 → マークが外れる (再描画後の input にも残らない)
+  // NOTE: 2026-08-21 以降、`fill()` が発火する input イベントでも aria-invalid は落ちる
+  //   (下の「入力した瞬間に外れる」test を参照)。よってこの assertion は
+  //   **追加時の解除だけを切り分けてはいない** —— 利用者から見た契約
+  //   「直して追加し直せばマークが外れている (再描画後の input にも残らない)」は
+  //   両経路のどちらでも成立するため、ここではその契約を守る。
   await nameInput.fill('E2E-A11Y-PROJ-9910');
   await page.getByRole('button', { name: '追加', exact: true }).click();
   await expect(page.locator('#toast-container').getByText('プロジェクトを追加しました')).toBeVisible();
@@ -496,6 +501,35 @@ test('Settings add-project form marks the empty name aria-invalid and focuses it
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `settings form error identification caused a fatal: ${fatal}`).toBeNull();
 });
+
+// ===== 入力した瞬間に aria-invalid が外れる (WCAG 3.3.1 / 状態の鮮度) — quiz #1232 と対 =====
+// 上の test は「追加 → マーク」「直して追加し直す → 解除」を見る。だが**直してから追加し直すまでの
+// 間**、フィールドは「不正」のままだった (実測 2026-08-21: 空で追加 → 正しい名前を入力しても
+// aria-invalid=true が残る)。SR 利用者が直した欄へ戻ると **正しく直したのに「不正」と読まれ**、
+// 修正が効いたのか判別できない。
+//
+// quiz 模範解答フォーム (#1232) と**まったく同じ非対称**で、片方だけ直すと対が崩れる
+// (§7「同じ責務のものは対で直せ」)。付けるのは追加時のみ・外すのは入力時。
+test('Settings add-project form clears aria-invalid as soon as the name is typed (WCAG 3.3.1)', async ({ page }) => {
+  await page.goto('/#/settings');
+  await page.waitForLoadState('domcontentloaded');
+
+  const nameInput = page.locator('#settingsNewName');
+  await expect(nameInput).toBeVisible();
+
+  // control: そもそもマークが付かないと「外れること」を検証できない
+  await page.getByRole('button', { name: '追加', exact: true }).click();
+  await expect(nameInput, 'control: 空で追加してもマークが付いていない').toHaveAttribute('aria-invalid', 'true');
+
+  // 入力しただけで (追加せずに) マークが外れる
+  await nameInput.fill('E2E-CORRECTED-NAME');
+  await expect(nameInput, '直したのに aria-invalid が残っている').not.toHaveAttribute('aria-invalid', 'true');
+
+  // 空に戻しても入力途中で「不正」とは marking しない (付けるのは追加時のみ)
+  await nameInput.fill('');
+  await expect(nameInput, '入力途中で不正マークを付け直している').not.toHaveAttribute('aria-invalid', 'true');
+});
+
 
 // ===== 既定プロジェクトの並べ替えが reload を跨いで保持される (normalize round-trip の data-fidelity) =====
 // 上の reorder テストは **ユーザー追加**プロジェクトを **reload なし**で検査している。だが

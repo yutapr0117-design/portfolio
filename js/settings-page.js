@@ -419,7 +419,9 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                                     //   NOTE: Check 410 は「同じ file 内で LIMITS を使って slice している」
                                     //   ことを条件に maxlength を要求するため、上限が store.js 側にある
                                     //   このケースは射程外だった。
-                                    h('input', { id: 'settingsNewName', class: 'input', placeholder: 'プロジェクト名', maxlength: CONSTANTS.LIMITS.PROJECT_NAME, value: settingsNewName, oninput: (e) => { settingsNewName = e.target.value; } })
+                                    h('input', { id: 'settingsNewName', class: 'input', placeholder: 'プロジェクト名', maxlength: CONSTANTS.LIMITS.PROJECT_NAME, value: settingsNewName, oninput: (e) => { settingsNewName = e.target.value;
+                                        // [A11Y 3.3.1] 外すのは入力時 (quiz #1232 と対・理由は e2e 側)。
+                                        if (settingsNewName.trim()) { e.target.removeAttribute('aria-invalid'); } } })
                                 ),
                                 h('div', {},
                                     h('label', { class: 'text-sm text-muted', for: 'settingsNewTech' }, 'Tech（カンマ区切り）'),
