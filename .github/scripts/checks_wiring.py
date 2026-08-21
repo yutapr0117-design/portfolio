@@ -175,7 +175,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        the route mesh so adding a new router route (or a new `app-*` subroute) without a PAGE_META entry
        fails the build instead of shipping a title-less/meta-less page. Same used⟹defined wiring lens as
        Check 375/376/377/391/392/393/395. (BLOCKING)
-  401. quiz?type= リテラル ⟹ QUIZ_DATA_MAP キー (401a) / sidebar 非 aws 集合の一致 (401b):
+  401. quiz?type= リテラル ⟹ QUIZ_TITLES キー (401a) / sidebar 非 aws 集合の一致 (401b):
        QuizPage は `QUIZ_DATA_MAP[quizType] || QUIZ_DATA_MAP.aws` で描画するため、リンク側の type が
        typo/未定義でも **例外にならず AWS 問題集が描画される** — 「PM問題集」ボタンを押すと黙って AWS の
        問題が出る silent wrong-content。401a は shipped JS/HTML の全 `quiz?type=X` リテラルが実キーへ
@@ -829,7 +829,7 @@ def run(ctx):
         check(False, "Check 396: js/router.js and js/page-meta.js present",
               "Check 396: js/router.js または js/page-meta.js が無い — route.name ⟹ PAGE_META の解決を検証できない", blocking=True)
 
-    # ── 401. quiz?type= リテラル ⟹ QUIZ_DATA_MAP キー / sidebar 非 aws 集合の一致 (BLOCKING) ─────
+    # ── 401. quiz?type= リテラル ⟹ QUIZ_TITLES キー / sidebar 非 aws 集合の一致 (BLOCKING) ─────
     # QuizPage は `QUIZ_DATA_MAP[quizType] || QUIZ_DATA_MAP.aws` で描画するため、リンク側の type が
     # typo/未定義でも **例外にならず AWS 問題集が描画される**。「PM問題集」ボタンを押すと黙って AWS の
     # 問題が出る silent wrong-content class (Check 375/376/377/393 と同じ used⟹defined wiring レンズ)。
@@ -840,7 +840,10 @@ def run(ctx):
     _cp401 = ROOT / "js" / "components.js"
     if _qr401.exists() and _cp401.exists():
         _qsrc401 = _qr401.read_text(encoding="utf-8")
-        _mblock401 = re.search(r"const QUIZ_DATA_MAP = \{(.*?)\};", _qsrc401, re.S)
+        # [FIX 2026-08-21] 単一ソースは `QUIZ_DATA_MAP` から **`QUIZ_TITLES`** へ改名された
+        #   (問題集データを動的 import で遅延読み込みへ移し、タイトルだけ静的に残したため)。
+        #   キー集合の invariant は不変で、走査先の名前だけが変わっている。
+        _mblock401 = re.search(r"const QUIZ_TITLES = \{(.*?)\};", _qsrc401, re.S)
         _keys401 = set(re.findall(r"^\s*(\w+)\s*:", _mblock401.group(1), re.M)) if _mblock401 else set()
 
         # 401a: shipped JS/HTML の全 `quiz?type=X` リテラルが map キーに解決する
@@ -862,11 +865,11 @@ def run(ctx):
         _unresolved401 = sorted(t for t in _used401 if t not in _keys401)
         check(
             bool(_keys401) and bool(_used401) and not _unresolved401,
-            f"Check 401a: 全 quiz?type= リテラル ({len(_used401)} 種) が QUIZ_DATA_MAP キー ({len(_keys401)} 種) に解決",
-            f"Check 401a: quiz?type= の type が QUIZ_DATA_MAP に未定義: "
+            f"Check 401a: 全 quiz?type= リテラル ({len(_used401)} 種) が QUIZ_TITLES キー ({len(_keys401)} 種) に解決",
+            f"Check 401a: quiz?type= の type が QUIZ_TITLES に未定義: "
             f"{[(t, _used401[t]) for t in _unresolved401]} — QuizPage は `|| QUIZ_DATA_MAP.aws` で "
             "フォールバックするため例外にならず、リンクのラベルと無関係な AWS 問題集が silent に描画される。"
-            "type を実キーへ直すか QUIZ_DATA_MAP に定義を足せ",
+            "type を実キーへ直すか QUIZ_TITLES に定義を足せ",
             blocking=True,
         )
 
@@ -877,8 +880,8 @@ def run(ctx):
         _expect401 = _keys401 - {"aws"}
         check(
             bool(_excl401) and _exclset401 == _expect401,
-            f"Check 401b: sidebar の AWS-active 除外集合 {sorted(_exclset401)} == QUIZ_DATA_MAP − aws {sorted(_expect401)}",
-            f"Check 401b: components.js の AWS-active 除外集合 {sorted(_exclset401)} が QUIZ_DATA_MAP − aws "
+            f"Check 401b: sidebar の AWS-active 除外集合 {sorted(_exclset401)} == QUIZ_TITLES − aws {sorted(_expect401)}",
+            f"Check 401b: components.js の AWS-active 除外集合 {sorted(_exclset401)} が QUIZ_TITLES − aws "
             f"{sorted(_expect401)} と不一致 (欠落={sorted(_expect401 - _exclset401)} / 余剰={sorted(_exclset401 - _expect401)})。"
             "新しい quiz を足すと、その page は正しく描画されるのに nav は「AWS 問題集」を active に光らせる "
             "control↔content desync が silent に生まれる (#781 class)。除外集合を map と同期せよ",

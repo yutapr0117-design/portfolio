@@ -174,13 +174,24 @@ def run(ctx):
     if _perf_m120:
         _ceiling120 = int(_perf_m120.group(1))
         _shipped120 = 0
-        _files120 = [ROOT / "main.js", ROOT / "style.css"] + sorted((ROOT / "js").rglob("*.js"))
+        # [FIX 2026-08-21] **クリティカルパスだけを測る。** この Check の宣言された目的は
+        #   「実 download/parse 負荷の保護」だが、実装は **ディスク上の全 shipped ファイル**を
+        #   足しており、遅延読み込みしても数字が減らなかった。実際 quiz の問題集データ
+        #   (4 ファイル計 130,595 bytes) を動的 import へ移して**訪問者が取得しなくなった**のに、
+        #   この Check の値は逆に増えた (loader の分)。それでは「上げるか削るか」の判断材料に
+        #   ならないので、main.js が **静的 import する** モジュールだけを対象にする。
+        #   除外集合はハードコードせず main.js から導出する (次の遅延化でも自動的に追従する)。
+        _mainsrc120 = (ROOT / "main.js").read_text(encoding="utf-8")
+        _static120 = set(re.findall(r"from\s+'\./(js/[^']+\.js)'", _mainsrc120))
+        _files120 = [ROOT / "main.js", ROOT / "style.css"] + [
+            ROOT / _rel120 for _rel120 in sorted(_static120)
+        ]
         for _f120 in _files120:
             if _f120.exists():
                 _shipped120 += len(_f120.read_bytes())
         check(
             _shipped120 <= _ceiling120,
-            f"Check 120: shipped JS+CSS byte-weight {_shipped120} <= budget {_ceiling120} (page-weight / CWV 保護)",
+            f"Check 120: クリティカルパスの JS+CSS byte-weight {_shipped120} <= budget {_ceiling120} (静的 import のみ・遅延モジュールは対象外)",
             f"Check 120: shipped JS+CSS byte-weight {_shipped120} が budget {_ceiling120} を超過 — "
             f"runaway bloat か正当な機能成長かを判断し、後者なら file-size-budget.md の PERF-BUDGET-DATA を "
             f"rationale 付きでラチェット更新せよ (byte ≠ line ゆえ Check 52 とは別軸の page-weight 保護)",
