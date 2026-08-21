@@ -103,7 +103,8 @@ python3 .github/scripts/check_deployed_freshness.py
 | 1. 版数 | 公開 index.html の `ai:version` / `ai:last-modified` がリポジトリ一致 | 版数 meta は同じでも資産が落ちている |
 | 2. 到達性 | 宣言している資産 62 件が **200** で返る | **200 は返るが中身が古い** |
 | 3. shipped バイト一致 | shipped な **全 JS + CSS**（`style.css` / `main.js` / `sw.js` + `js/**/*.js` = 37 件）が **sha256 でリポジトリ一致** | AIO テキストの digest 不一致 |
-| 4. AIO digest | 公開テキスト資産 11 件が宣言 digest と一致 | — |
+| 4. **動的 import の MIME** | `js/quiz/*.js` が **JS の MIME** で配信されている | AIO テキストの digest 不一致 |
+| 5. AIO digest | 公開テキスト資産 11 件が宣言 digest と一致 | — |
 
 **3 段目を足した理由**: 2 段目は「200 が返るか」しか見ていない。部分デプロイやキャッシュ混線で
 `style.css` だけ古いままだと、**直したはずのコントラストや focus の契約が公開面では効いていない**のに、
@@ -123,6 +124,23 @@ python3 .github/scripts/check_deployed_freshness.py
 
 「一般論を根拠にコードを足すな／削るな —— 必要性は実測で示せ」（CLAUDE.md §7）を、
 **自分たちが書いた rationale にも適用**した結果の是正。
+
+**4 段目を足した理由 (2026-08-21)**: quiz の問題集データは静的 import から **動的 import** へ
+移した (#1239)。動的 import は仕様上 **MIME が JavaScript でないと即座に失敗する** ——
+`text/plain` 等で返ると module は評価されず、利用者から見ると「問題集がいつまでも
+読み込めない」になる。
+
+この失敗モードは **どの層も見ていなかった**:
+
+| 層 | なぜ見えないか |
+| --- | --- |
+| リポジトリ側の Check | ローカルの file しか見ない（MIME は配信側の性質） |
+| behavior e2e | ローカルの `http-server` が返す MIME を見ているだけ |
+| 3 段目 (sha256) | 中身は見るが **ヘッダは見ない** |
+
+静的 import 時代は index.html の `<script type="module">` 経由でまとめて読まれ modulepreload も
+あったので MIME 事故は起きにくかったが、**動的 import ではその module 単体の MIME だけ**が効く。
+実測: GitHub Pages は `application/javascript; charset=utf-8` を返す。
 
 ## Constraints
 
