@@ -986,6 +986,14 @@ _E2E_TAIL.append({
     "test": "Reset data restores defaults after confirm",
 })
 
+_E2E_TAIL.append({
+    "name": "quiz フォームの aria-invalid が入力しても外れなくなる —— SR 利用者は正しく直した欄を「不正」と読まれ続け、修正が効いたか判別できない。視覚には一切出ない属性なので screenshot でも目視でも気付けない",
+    "file": ROOT / "js" / "quiz-renderer.js",
+    "find": "                if (el.value.trim()) { el.removeAttribute('aria-invalid'); }",
+    "replace": "                /* removed */",
+    "test": "Quiz contact form clears aria-invalid as soon as the field is corrected",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
