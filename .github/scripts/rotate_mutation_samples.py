@@ -33,6 +33,7 @@ if sys.version_info < (3, 10):
     sys.exit(1)
 
 import importlib.util
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -55,7 +56,12 @@ def _pick_archive():
         name = "mutation_samples_e2e_archive.py" if n == 1 else f"mutation_samples_e2e_archive{n}.py"
         path = base / name
         if not path.exists():
-            # 新しい受け皿を起こす (既存 archive と同じ最小構造)
+            # 新しい受け皿を起こす (既存 archive と同じ最小構造) + **配線まで行う**。
+            # [FIX 2026-08-21] `mutation_samples.py` は archive を **1 行ずつ明示 import** する
+            #   ので、ファイルを作っただけでは繋がらず、移した entry が総数から消える。
+            #   直後の不変条件チェック (総数不変) が落ちて気付けるが、**その時点で既にファイルを
+            #   書いた後**なので中途半端な状態が残る。作ると同時に import と連結式へ足す。
+            _wire_new_archive(n, name)
             path.write_text(
                 '"""mutation_samples_e2e_archive%d.py — rotate 先 (自動生成)。\n\n'
                 'rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。\n'
@@ -203,3 +209,24 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+def _wire_new_archive(n, filename):
+    """新しい archive を `mutation_samples.py` の import と連結式へ足す。
+
+    `mutation_samples.py` は `from mutation_samples_e2e_archiveN import E2E_MUTATIONS_ARCHIVEN`
+    を **1 行ずつ明示** し、末尾で `E2E_MUTATIONS = ARCHIVE3 + ARCHIVE2 + ARCHIVE + _TAIL` の
+    ように連結する。受け皿を増やすときは **両方**を更新しないと、移した entry が
+    どこからも参照されず総数が減る (Check 430 が「連結式より後の append は死ぬ」を守るのと同族の
+    「登録したつもりで実行されない」class)。
+    """
+    tail = TAIL.read_text(encoding="utf-8")
+    mod = filename[:-3]
+    var = f"E2E_MUTATIONS_ARCHIVE{n}"
+    if var in tail:
+        return
+    anchor_imp = "from mutation_samples_e2e_archive import E2E_MUTATIONS_ARCHIVE\n"
+    tail = tail.replace(anchor_imp, anchor_imp + f"from {mod} import {var}\n", 1)
+    m = re.search(r"^E2E_MUTATIONS = (.+)$", tail, re.M)
+    tail = tail.replace(m.group(0), f"E2E_MUTATIONS = {var} + " + m.group(1), 1)
+    TAIL.write_text(tail, encoding="utf-8")
