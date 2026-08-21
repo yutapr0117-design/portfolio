@@ -123,7 +123,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/portfolio.spec.js` | 44 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/projects.spec.js` | 883 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/projects-roundtrip.spec.js` | 73 | 300 | `advisory` | behavior e2e spec。normalize の冪等性 (保存 → 読み戻しで既定データが変質しない)。projects.spec.js が 922 行で 早期警告 (900) を超えたため、Check 365 の BLOCKING (1,000 行) を踏む前に切り出した |
-| `e2e/quiz.spec.js` | 811 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/quiz.spec.js` | 821 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/resilience.spec.js` | 801 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/security-proxy.spec.js` | 537 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/static-pages.spec.js` | 104 | 900 | `advisory` | behavior e2e spec (静的ページ + role-split の ARIA table 意味論)。2026-08-16 に projects.spec.js の advisory 超過を受けて先回り分割 |
