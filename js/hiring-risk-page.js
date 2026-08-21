@@ -116,7 +116,7 @@ export function createHiringRiskPage({ h, createIcon, Router, ContactCTA }) {
                 ),
                 h('div', { class: 'flex flex-wrap gap-2 row-mt-4' },
                     h('span', { class: 'badge badge-secondary' }, '📣 30秒要約'),
-                    h('span', { class: 'badge badge-secondary' }, '📋 Executive Summary'),
+                    h('span', { class: 'badge badge-secondary', lang: 'en' }, '📋 Executive Summary'),
                     h('span', { class: 'badge badge-secondary' }, '📊 KPI / 観測→打ち手→合意'),
                     h('span', { class: 'badge badge-secondary' }, '🔍 証拠')
                 )
@@ -156,7 +156,7 @@ export function createHiringRiskPage({ h, createIcon, Router, ContactCTA }) {
             // ══ Executive Summary ══
             h('section', { class: 'card card--accent-left', 'data-accent': 'success' },
                 h('div', { class: 'card-body flex flex-col gap-3' },
-                    h('h2', { class: 'h3' }, '📋 Executive Summary'),
+                    h('h2', { class: 'h3', lang: 'en' }, '📋 Executive Summary'),
                     h('p', {},
                         '私を採用することで低減できるリスクを、経営インパクトと観測指標まで落とし込みました。' +
                         '以下の4点が、採用投資リターンを構造的に保全します。'

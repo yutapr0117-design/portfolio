@@ -304,6 +304,82 @@ test('ポモドーロはラベル文字のクリックで入力欄が活性化�
   expect(active, 'ラベルをクリックしても入力欄が活性化しない (for が結ばれていない)').toBe('pomo-setting-long');
 });
 
+// ===== 全ルートで「英語だけの文」に lang="en" が付くこと (WCAG 3.1.2・quiz 以外) =====
+// 下の test は **quiz 限定**で、しかも判定が `^[\x20-\x7E]+$` (ASCII のみ) なので
+// 絵文字や `→` を含む英語見出し ("📋 Executive Summary" / "Read Technical Deep-Dive →") を
+// 見逃す。実測 (2026-08-21): 全 16 ルートを走査すると **5 箇所**が未指定で残っていた ——
+// home の Value Points 3 件 (`<strong>AI self-driving execution:</strong>` 等) /
+// home の英語 CTA リンク / hiring-risk の "📋 Executive Summary" (badge と h2 の 2 箇所)。
+//
+// **意図的に対象外にしているもの** (機械的に全部付けるのは意味論の水増しになる):
+//   - 英単語が 1 つだけのラベル (カテゴリ名 "Productivity" 等)
+//   - メールアドレス / URL / 版数のような識別子 (自然言語ではない)
+//   - 固有名詞だけの塊 (ブランド名 + フォント名 "Classic Blue + Inter")
+// これらは除外条件として下のコードに書いてあるので、**除外を緩めると RED になる**。
+test('全ルートで英語だけの文に lang="en" が付く (WCAG 3.1.2)', async ({ page }) => {
+  test.setTimeout(150000);
+  const misses = [];
+  let scanned = 0;
+
+  let prevHeading = null;
+  for (const route of A11Y_ROUTES) {
+    await page.goto('/' + route, { waitUntil: 'domcontentloaded' });
+    // [FIX] `#content h1` の可視だけで待つと **前ルートの DOM で充足**し、まだ描画されていない
+    //   ページを走査して「違反ゼロ」と誤報告する (実測 2026-08-21: hiring-risk の h2 から
+    //   lang を外す mutation が素通りした)。見出しが前ルートと変わったことを待つ ——
+    //   同ファイルの LABEL_IN_NAME_ROUTES ループと同じ手法。
+    await expect
+      .poll(() => page.locator('#content').getByRole('heading').first().textContent().catch(() => null))
+      .not.toBe(prevHeading);
+    prevHeading = await page.locator('#content').getByRole('heading').first().textContent();
+    await settleContent(page);
+    scanned += 1;
+
+    const rows = await page.evaluate(() => {
+      const out = [];
+      const walk = document.createTreeWalker(document.getElementById('content'), NodeFilter.SHOW_TEXT);
+      let n;
+      while ((n = walk.nextNode())) {
+        const t = (n.textContent || '').trim();
+        if (t.length < 12) { continue; }
+        // 日本語 (かな/漢字/全角記号/波ダッシュ) を含む → 対象外
+        if (/[\u3000-\u303f\u3040-\u30ff\u4e00-\u9fff\uff00-\uffef]/.test(t)) { continue; }
+        // メール / URL / 版数のような識別子は自然言語ではない
+        if (/@|https?:|\.(com|dev|io|jp)\b/.test(t)) { continue; }
+        if (!/[A-Za-z]{3}/.test(t)) { continue; }
+        // 英単語が 2 語以上 (1 語だけのラベルは「文」ではないので対象外)
+        if ((t.match(/[A-Za-z][A-Za-z'-]{1,}/g) || []).length < 2) { continue; }
+        let el = n.parentElement, lang = null;
+        while (el && el !== document.body) {
+          if (el.getAttribute('lang')) { lang = el.getAttribute('lang'); break; }
+          el = el.parentElement;
+        }
+        if (lang !== 'en') { out.push(n.parentElement.tagName + ':' + t.slice(0, 34)); }
+      }
+      return out;
+    });
+    for (const x of rows) { misses.push(route + ' ' + x); }
+  }
+
+  // control: 全ルートを走査できたこと (途中で落ちていると「違反ゼロ」と区別が付かない)
+  expect(scanned, 'control: 全ルートを走査できていない').toBe(A11Y_ROUTES.length);
+
+  // 既知の例外 —— 自然言語の「文」ではないので lang を付けない (付けると意味論の水増し)
+  const KNOWN = [
+    'P:v74 ',                    // 版数 + 技術スタックの識別子列
+    'OPTION:Classic Blue + Inter', // ブランド名 + フォント名 (固有名詞のみ)
+  ];
+  const genuine = misses.filter((m) => !KNOWN.some((k) => m.includes(k)));
+  expect(genuine,
+    '英語だけの文に lang="en" が無い: ' + genuine.slice(0, 4).join(' / ')).toEqual([]);
+
+  // control: 既知の例外が実在すること —— 消えたら KNOWN も畳むべきで、
+  //   残したままだと「例外リストが実態と乖離する」drift になる
+  expect(misses.length,
+    'control: 既知の例外が 1 つも見つからない — KNOWN が実態と乖離している').toBeGreaterThan(0);
+});
+
+
 // ===== 英語だけの塊に lang="en" が付くこと (WCAG 3.1.2 Language of Parts) =====
 // 文書は `html lang="ja"`。日本語文字を 1 つも含まない塊をそのまま置くと、日本語の
 // スクリーンリーダーが **英語を日本語の音韻で読み上げる**。実測 (#1020) では quiz だけで

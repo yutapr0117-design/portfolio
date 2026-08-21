@@ -954,6 +954,14 @@ _E2E_TAIL.append({
     "test": "Quiz applies a search typed while the data was still loading",
 })
 
+_E2E_TAIL.append({
+    "name": "hiring-risk の英語見出しから lang=\"en\" が外れる —— 日本語 SR が英語を日本語の音韻で読み上げる (WCAG 3.1.2)。axe には該当ルールが無く、視覚にも一切出ないので捕捉層はこの e2e だけ",
+    "file": ROOT / "js" / "hiring-risk-page.js",
+    "find": "h('h2', { class: 'h3', lang: 'en' }, '\U0001F4CB Executive Summary')",
+    "replace": "h('h2', { class: 'h3' }, '\U0001F4CB Executive Summary')",
+    "test": "全ルートで英語だけの文に lang=",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
