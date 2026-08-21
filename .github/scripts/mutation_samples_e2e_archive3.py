@@ -46,14 +46,14 @@ E2E_MUTATIONS_ARCHIVE3 = [
     {
         "name": "behavior: task addTask の空/空白タイトルガードの喪失 — apps.js addTask の `if (!title.trim())` を常時 false 化 → 空文字/空白のみの Enter が空タイトル task を backlog に積む (AI #841 と同 class の入力バリデーションガード・task 面の非 vacuity 検証)",
         "file": ROOT / "js" / "apps.js",
-        "find": "if (!title.trim()) {return;}",
+        "find": "if (!title.trim()) {return false;}",
         "replace": "if (false) {return;}",
         "test": "ignore empty/whitespace-only input",
     },
     {
         "name": "behavior: todo addTodo の空/空白テキストガードの喪失 — apps.js addTodo の `if (!text.trim())` を常時 false 化 → 空文字/空白のみの Enter が空テキスト todo を積む (task addTask とは別 function・独立 regress の非 vacuity 検証)",
         "file": ROOT / "js" / "apps.js",
-        "find": "if (!text.trim()) {return;}",
+        "find": "if (!text.trim()) {return false;}",
         "replace": "if (false) {return;}",
         "test": "ignore empty/whitespace-only input",
     },

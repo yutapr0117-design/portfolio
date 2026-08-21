@@ -133,3 +133,84 @@ test('タスク入力の Enter 連打で同じタスクが二重登録されな�
 });
 
 
+
+
+// ===== 7.4: 上限で断られたとき、打った文字を消さない (#1259 の実バグ) =====
+// addTask / addTodo は上限 (MAX_TASKS=500 / MAX_TODOS=1000) に達していると Toast で断るが、
+// 呼び出し側の onkeydown は **addTask を呼ぶ前に無条件で入力欄をクリア**していた。
+// クリア自体は必要 (キーリピートでの二重登録防止・#1061) だが、断られた場合まで消すと
+// 「不要なタスクを削除してください」と言われた時点で **打った内容が既に失われている**。
+// 実測 (2026-08-21・修正前): 500 件の状態で「大事な新しいタスク」+ Enter →
+//   toast="タスクは 500 件までです…" / 入力欄="" ── 削除して戻っても打ち直しになる。
+//
+// seed は **アプリ自身に store を作らせてから膨らませる**。schemaVersion や key を決め打ちすると
+// 不一致で既定値へフォールバックし、**上限に達していない状態を測って緑になる** (実際に 1 度踏んだ)。
+//
+// 非 vacuity: `if (!addTask(_v)) { e.target.value = _v; }` を `addTask(_v);` へ戻すと入力欄が
+// 空になり RED。対照として「上限に達していなければ従来どおり消える」も同じ test で見る
+// (無条件に復元する実装 = 二重登録ガードを殺した実装 も落とせるようにするため)。
+test('Task input keeps the typed text when the add is refused by the cap', async ({ browser }) => {
+  // 1) アプリ自身に store を作らせ、実際の key と中身を得る
+  const seedCtx = await browser.newContext();
+  const seedPage = await seedCtx.newPage();
+  await seedPage.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(seedPage.locator('#task-input')).toBeVisible();
+  await seedPage.locator('#task-input').fill('CAP-SEED');
+  await seedPage.locator('#task-input').press('Enter');
+  await expect(seedPage.getByText('CAP-SEED')).toBeVisible();
+  const dump = await seedPage.evaluate(async () => {
+    // debounce 保存の完了を待ってから読む (直後は null のことがある)
+    for (let i = 0; i < 40; i++) {
+      for (const k of Object.keys(localStorage)) {
+        const v = localStorage.getItem(k);
+        if (v && v.includes('CAP-SEED')) { return { k, v }; }
+      }
+      await new Promise(r => setTimeout(r, 50));
+    }
+    return null;
+  });
+  await seedCtx.close();
+  expect(dump, 'store が保存されていること (control)').not.toBeNull();
+
+  // 2) tasks を上限まで膨らませて注入
+  const parsed = JSON.parse(dump.v);
+  const template = parsed.appsData.tasks[0];
+  parsed.appsData.tasks = Array.from({ length: 500 }, (_, i) =>
+    Object.assign({}, template, { id: 'cap' + i, title: 'CAP-' + i }));
+  const ctx = await browser.newContext();
+  await ctx.addInitScript(([k, v]) => localStorage.setItem(k, v), [dump.k, JSON.stringify(parsed)]);
+  const page = await ctx.newPage();
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  const input = page.locator('#task-input');
+  await expect(input).toBeVisible();
+  // control: 実際に上限へ達していること (達していなければ以下は何も検査しない)
+  await expect(page.locator('article.bg-surface')).toHaveCount(500);
+
+  await input.fill('CAP-KEEP-MY-TEXT');
+  await input.press('Enter');
+  await expect(page.locator('#toast-container')).toContainText('500 件までです');
+  // 本題: 断られたのだから、打った文字は残っている
+  await expect(input).toHaveValue('CAP-KEEP-MY-TEXT');
+  await ctx.close();
+});
+
+// 上限に達していない通常時は従来どおり **同期で** 消える (#1061 の二重登録ガードが生きている)。
+// 上の test と対で、「常に復元する」実装を落とすための片割れ。
+//
+// **同期で読むのが要点**。`press('Enter')` のあと await して読むと、非同期の再描画が入力欄を
+// 作り直して空にするので、**常に復元する実装でも緑になる** (最初にそう書いて実測で気付いた)。
+// キーリピートは再描画を待たずに次の keydown が来る現象なので、検査もその窓で行う。
+test('Task input is cleared synchronously when the add succeeds (key-repeat guard intact)', async ({ page }) => {
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  const input = page.locator('#task-input');
+  await expect(input).toBeVisible();
+  const valueRightAfterEnter = await page.evaluate(() => {
+    const el = document.getElementById('task-input');
+    el.value = 'CAP-CLEARED-ON-SUCCESS';
+    el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+    return el.value;   // 再描画を挟まない同じ tick で読む
+  });
+  expect(valueRightAfterEnter).toBe('');
+  // control: 実際に追加されている (Enter 経路そのものが死んでいない)
+  await expect(page.getByText('CAP-CLEARED-ON-SUCCESS')).toBeVisible();
+});

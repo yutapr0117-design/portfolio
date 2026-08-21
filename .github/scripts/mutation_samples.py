@@ -961,6 +961,14 @@ _E2E_TAIL.append({
     "test": "Sidebar nav link is keyboard-operable",
 })
 
+_E2E_TAIL.append({
+    "name": "上限で断られたときに打った文字が消える —— 追加できたときだけクリアする復元を外すと、"
+            "「不要なタスクを削除してください」と言われた時点で入力欄が既に空になっており、"
+            "削除して戻っても打ち直しになる (クリア自体は #1061 の二重登録ガードとして必要)",
+    "file": ROOT / "js" / "apps.js",
+    "find": "if (!addTask(_v)) { e.target.value = _v; }",
+    "replace": "addTask(_v);",
+    "test": "keeps the typed text when the add is refused by the cap",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
-
-
