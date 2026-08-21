@@ -4,6 +4,11 @@
 //   .github/workflows/playwright-regression.yml
 //   .github/workflows/update-playwright-snapshots.yml
 // Do NOT duplicate this config inside workflow heredocs.
+//
+// ** e2e を書く/直す前に docs/files/playwright.config.cjs.md の「落とし穴」表を読むこと。**
+//   このリポジトリで実際に踏んだ測定の罠 (待ち条件が前ルートの DOM で充足する / 自動消滅する
+//   UI を待つ / 非 vacuity 検証で見ていない属性を壊す 等) が実測つきで並んでいる。同じ罠を
+//   繰り返し踏んでいるので、**書く前に 1 度読むのが最も安い**。
 
 const { defineConfig, devices } = require('@playwright/test');
 

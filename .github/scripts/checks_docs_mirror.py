@@ -57,6 +57,14 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        ディレクトリからの相対**」のどちらかで満たせばよい (兄弟モジュールを名前だけで
        参照する既存の慣習を壊さないため)。`http(s)` は対象外。Check 108 (mirror bijection) が
        *file の存在* を守るのに対し、本 Check は *mirror が指す先* を守る。(BLOCKING)
+  440. コード側から `docs/` へのパス参照が解決する: shipped JS / e2e / playwright.config.cjs の
+       コメントには「詳細はこの doc を読め」という **読者の導線** が書かれている
+       (例: `docs/files/playwright.config.cjs.md` の落とし穴表)。リネームや移動で参照が腐ると
+       **読者はどこにも辿り着けない** が、コメントなので lint も test も気付かない。
+       Check 419 は `docs/files/**` の frontmatter だけを見ており **コード側は射程外** だった。
+       実測 (2026-08-21): 対象 7 参照すべて解決 = 誤検出ゼロ。prose 全般 (#977 で「Check に
+       しない」と判断済み・歴史的記述を壊す圧力になる) とは違い、**コードコメントの導線は
+       常に「今そこにある doc」を指すべき** なので機械強制する。(BLOCKING)
 """
 import re
 import json
@@ -367,5 +375,36 @@ def run(ctx):
            "解決しないと行き止まりになる。frontmatter は本文と違って人の目に触れにくく "
            "リネーム/移動で silent に腐るため機械強制する。repo-relative なフルパスへ直すか、"
            "対象 source file から見た相対パスにせよ"),
+        blocking=True,
+    )
+
+    # ── 440. コード側から docs/ へのパス参照が解決する (BLOCKING) ──────────────────
+    # shipped JS / e2e / playwright.config.cjs のコメントに書かれた「詳細はこの doc を読め」
+    # という導線が腐っていないことを強制する (詳細は docstring)。
+    _pat440 = re.compile(r"(docs/[A-Za-z0-9_./-]+\.(?:md|py|js|json|txt))")
+    _files440 = (
+        sorted((ROOT / "e2e").glob("*.js"))
+        + sorted((ROOT / "js").glob("*.js"))
+        + [ROOT / "main.js", ROOT / "sw.js", ROOT / "playwright.config.cjs"]
+    )
+    _bad440 = []
+    _total440 = 0
+    for _f440 in _files440:
+        if not _f440.exists():
+            continue
+        for _m440 in _pat440.finditer(_f440.read_text(encoding="utf-8")):
+            _ref440 = _m440.group(1)
+            _total440 += 1
+            if not (ROOT / _ref440).exists():
+                _bad440.append(f"{_f440.name} -> {_ref440}")
+    check(
+        _total440 > 0 and not _bad440,
+        f"Check 440: コード側から docs/ への参照 {_total440} 件がすべて実在ファイルへ解決",
+        (f"Check 440: 解決しない docs/ 参照がある: {_bad440[:5]} — コメントの導線が腐ると "
+         "読者はどこにも辿り着けないが、コメントなので lint も test も気付かない。"
+         "パスを直すか、参照ごと消せ"
+         if _bad440 else
+         "Check 440: コード側に docs/ 参照が 1 つも無い — 走査先が変わった可能性 "
+         "(対象が空だと「解決しない参照ゼロ」で vacuous に緑になる)"),
         blocking=True,
     )
