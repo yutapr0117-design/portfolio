@@ -967,6 +967,14 @@ _E2E_TAIL.append({
     "test": "Quiz reports a failed data load",
 })
 
+_E2E_TAIL.append({
+    "name": "quiz 一覧コンテナの契約フック data-quiz-list が消える —— これが無いと「データが届いた」ことを検証できない。#content h2 は同期描画される問い合わせ見出しに一致するため、データが来なくても通る vacuous な待ちに戻る",
+    "file": ROOT / "js" / "quiz-renderer.js",
+    "find": "const listHost = h(\"div\", { 'data-quiz-list': 'true' });",
+    "replace": "const listHost = h(\"div\", {});",
+    "test": "Quiz data is fetched only when the quiz is opened",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 

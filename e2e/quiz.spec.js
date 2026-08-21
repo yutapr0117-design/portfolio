@@ -179,7 +179,11 @@ test('Quiz data is fetched only when the quiz is opened, and only the requested 
   //   (実測 2026-08-21: 読み込み中でも `#content .card` は 2 件あり visible 待ちが通る)。
   //   章見出し (h2) はデータからしか生えないので、これを実コンテンツの目印にする。
   await expect(page.locator('#content h1', { hasText: 'PM問題集' })).toBeVisible();
-  await expect(page.locator('#content h2').first(), '問題データ由来の章見出しが描画されていない').toBeVisible();
+  //   [FIX 2/2] `#content h2` でも足りない —— 問い合わせフォームの見出し「模範解答について」は
+  //   **データと無関係に同期描画される**ので、それに一致して通ってしまう (実測 2026-08-21)。
+  //   一覧コンテナ (`[data-quiz-list]`) に限定して初めて「データが届いた」ことの検証になる。
+  await expect(page.locator('[data-quiz-list] h2').first(),
+    '問題データ由来の章見出しが描画されていない').toBeVisible();
   await expect(page.locator('[data-quiz-loading]'), '読み込み中ボックスが残っている').toHaveCount(0);
   await expect(page.locator('#content [aria-busy]').first(),
     '読み込み完了後も aria-busy が true のまま').toHaveAttribute('aria-busy', 'false');
@@ -203,6 +207,45 @@ test('Quiz data is fetched only when the quiz is opened, and only the requested 
 //
 // 併せて「失敗しても FatalPage へ落ちない」ことも見る。`_filterBy` はデータ未着を空集合として
 // 扱う総関数にしてあるが、そこが throw する形へ退行すると **ページ全体が表示不能**になる。
+// ===== オフラインでも枠は出て、失敗は伝わる (遅延読み込みのトレードオフを明示する) =====
+// **これは遅延読み込み (#1239) が持ち込んだトレードオフの記録でもある。** 静的 import だった頃は
+// home を開いた時点で SW の SWR が問題集データもキャッシュしたので、その後オフラインになっても
+// quiz は開けた。動的 import にしたことで「一度も quiz を開いていない訪問者がオフラインになると
+// 問題を読めない」状態が生まれる。
+//
+// 130,595 bytes を全訪問者のクリティカルパスから外す価値の方が明確に大きいと判断したうえで、
+// **その代わりに「黙って空にしない」ことを保証する**。SW が shell を返すので見出しと検索欄は出て、
+// データだけが失敗として伝わる —— この形が崩れていないことを固定する。
+test('Quiz degrades gracefully when opened offline (lazy-load trade-off is explicit)', async ({ page, context }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  // control: SW が実際に制御していること (していなければ以下は「ただの通信失敗」を見るだけになる)
+  await expect.poll(async () => page.evaluate(
+    () => !!(navigator.serviceWorker && navigator.serviceWorker.controller)
+  ), { message: 'control: SW が制御していない — オフライン経路を検証できない' }).toBe(true);
+
+  await context.setOffline(true);
+  try {
+    await page.goto('/#/quiz');
+    await page.waitForLoadState('domcontentloaded');
+
+    // SW が shell を返すので枠は出る
+    await expect(page.locator('#content h1', { hasText: 'AWS問題集' })).toBeVisible();
+    // データは失敗として伝わる (黙って空にしない)
+    await expect(page.locator('#content [role="alert"]')).toContainText('読み込みに失敗');
+    // 章見出しは出ない = データが無いことの裏取り (control の対)
+    await expect(page.locator('[data-quiz-list] h2')).toHaveCount(0);
+
+    const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+    expect(fatal, `offline quiz caused a fatal: ${fatal}`).toBeNull();
+  } finally {
+    await context.setOffline(false);
+  }
+});
+
+
 test('Quiz reports a failed data load instead of showing an empty question set', async ({ page }) => {
   await page.route('**/js/quiz/aws-quiz-data.js', (route) => route.abort());
 
@@ -243,7 +286,7 @@ test('Quiz announces the loading window with aria-busy while data is in flight',
     '読み込み中なのに aria-busy が立っていない').toBeVisible();
 
   // 到着 → busy 解除 + 実データ由来の章見出しが出る
-  await expect(page.locator('#content h2').first()).toBeVisible();
+  await expect(page.locator('[data-quiz-list] h2').first()).toBeVisible();
   await expect(page.locator('[data-quiz-loading]')).toHaveCount(0);
   await expect(page.locator('#content [aria-busy]').first()).toHaveAttribute('aria-busy', 'false');
 });
