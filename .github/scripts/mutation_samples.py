@@ -962,6 +962,14 @@ _E2E_TAIL.append({
     "test": "全ルートで英語だけの文に lang=",
 })
 
+_E2E_TAIL.append({
+    "name": "settings の aria-labelledby が dangling になる —— 支援技術がその参照を辿ると存在しない要素へ着地し、グループ名が失われる。視覚には一切出ないので screenshot でも目視でも気付けない",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "'aria-labelledby': 'settingsIncludeGroupLabel'",
+    "replace": "'aria-labelledby': 'settingsIncludeGroupLabelZZ'",
+    "test": "全ルートの aria-* id 参照が実在要素へ解決する",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
