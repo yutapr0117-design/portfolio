@@ -222,7 +222,62 @@ def _check_assets(html):
     print(f"OK: 公開サイトが宣言している資産 {len(seen)} 件 "
           "(index.html の参照 ∪ .well-known ∪ sitemap の <loc>) がすべて 200 で配信されている")
     rc = _check_shipped_bytes(base)
-    return rc or _check_digests(base)
+    return rc or _check_module_mime(base) or _check_digests(base)
+
+
+def _check_module_mime(base):
+    """動的 import される module が **JS の MIME で配信されている**ことを確かめる。
+
+    [FIX 2026-08-21] quiz の問題集データは静的 import から **動的 import** へ移した
+    (#1239・クリティカルパスから 130,595 bytes を外すため)。動的 import は仕様上
+    **MIME が JavaScript でないと即座に失敗する** —— `text/plain` や `application/octet-stream`
+    で返ると module は評価されず、利用者から見ると「問題集がいつまでも読み込めない」になる。
+
+    この失敗モードは **どの層も見ていなかった**:
+      - リポジトリ側の Check   … ローカルの file しか見ない (MIME は配信側の性質)
+      - behavior e2e           … ローカルの http-server が返す MIME を見ているだけ
+      - `_check_shipped_bytes` … 中身の sha256 は見るが **ヘッダは見ない**
+    静的 import 時代は index.html の `<script type="module">` 経由でまとめて読まれ、
+    かつ modulepreload もあったので MIME 事故は起きにくかったが、動的 import では
+    **その module 単体の MIME だけ**が効く。
+
+    実測 (2026-08-21): GitHub Pages は `application/javascript; charset=utf-8` を返す。
+    """
+    targets = sorted(str(p.relative_to(ROOT)) for p in (ROOT / "js" / "quiz").glob("*.js"))
+    bad = []
+    for name in targets:
+        try:
+            rq = urllib.request.Request(base + name, headers={
+                "Cache-Control": "no-cache",
+                "User-Agent": "portfolio-deployed-freshness-check",
+            })
+            with urllib.request.urlopen(rq, timeout=30) as resp:
+                ctype = (resp.headers.get("Content-Type") or "").lower()
+        except Exception as e:  # noqa: BLE001
+            bad.append((name, type(e).__name__))
+            continue
+        # HTML 仕様の "JavaScript MIME type essence match"
+        if not any(ctype.startswith(t) for t in (
+                "text/javascript", "application/javascript", "application/ecmascript",
+                "text/ecmascript", "application/x-javascript")):
+            bad.append((name, f"MIME が JS でない: {ctype!r}"))
+
+    if bad:
+        for name, why in bad:
+            print(f"::error::動的 import される {name} の MIME が不正 — {why}", flush=True)
+        print("::error::動的 import は **MIME が JavaScript でないと即座に失敗する**。"
+              "利用者から見ると「問題集がいつまでも読み込めない」になるが、"
+              "リポジトリ側の Check も behavior e2e も配信ヘッダを見ないので全ゲート緑のまま起きる",
+              flush=True)
+        return 1
+
+    if not targets:
+        print("::error::動的 import 対象 (js/quiz/*.js) が 1 つも見つからない — "
+              "走査先が変わったなら _check_module_mime の対象も追従せよ", flush=True)
+        return 1
+
+    print(f"OK: 動的 import される module {len(targets)} 件が JS の MIME で配信されている")
+    return 0
 
 
 def _check_shipped_bytes(base):
