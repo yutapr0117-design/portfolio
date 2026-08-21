@@ -960,6 +960,14 @@ _E2E_TAIL.append({
     "test": "Settings add-project form clears aria-invalid as soon as the name is typed",
 })
 
+_E2E_TAIL.append({
+    "name": "quiz 検索欄の maxlength が消える —— 超過分は入力欄にも検索結果にも出たまま reload で初めて消えるので、利用者には「同じ語で検索しているのに結果が違う」としか見えない silent truncation",
+    "file": ROOT / "js" / "quiz-renderer.js",
+    "find": "            maxlength: CONSTANTS.LIMITS.QUIZ_SEARCH,\n",
+    "replace": "",
+    "test": "Quiz search input cannot hold more text than it persists",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 

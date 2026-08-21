@@ -519,7 +519,7 @@
         // ===== v80+ Stage 5-o: Quiz Renderer =====
         //   QuizPage を js/quiz-renderer.js へ factory pattern で抽出。挙動 byte-equivalent。
         const { QuizPage } = createQuizRenderer({
-            h, createIcon, Toast, Router, State, langOfText,
+            h, createIcon, Toast, Router, State, langOfText, CONSTANTS,
             awsQuizData, pmQuizData, qualityQuizData, architectureQuizData
         });
 
