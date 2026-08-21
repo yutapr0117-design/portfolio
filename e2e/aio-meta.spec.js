@@ -494,6 +494,55 @@ test('data-ai-state.filter は確定後も URL の絞り込みを表す (機械�
   await settledFilter('', 'C 絞り込みの無いルート');
 });
 
+// ===== 7.1d: data-ai-state は敵対的な query でも壊れない JSON であり続ける =====
+// #1226 で `filter` は **URL の query をそのまま echo する**ようになった。つまり
+// **攻撃者が中身を決められる文字列が機械可読面へ流れる**唯一のフィールドになっている。
+//
+// 実害の形は「クラッシュ」ではなく **agent 側が丸ごと解釈不能になる**こと ——
+// 例えば `JSON.stringify` をやめて文字列連結にすると、引用符を含む query 1 つで
+// 属性全体が壊れた JSON になり、`route` も `loading` も読めなくなる。視覚には一切出ないので
+// screenshot でも目視でも気付けない (#929 / #930 と同じ機械可読面の class)。
+//
+// 実測 (2026-08-21) では 4,000 文字 / `"><script>` / 改行 / `__proto__` / 不正 percent の
+// いずれでも JSON は valid で fatal も無い。**上限は設けていない** —— 通常操作では作れない
+// URL であり、必要性を実測で示せないまま bound を足すのは padding だと判断した
+// (CLAUDE.md §7「一般論を根拠にコードを足すな」)。ここで固定するのは **パース可能性**。
+test('data-ai-state は敵対的な query でも valid JSON であり続ける (機械可読面の頑健性)', async ({ page }) => {
+  const cases = [
+    ['引用符とタグ', 'q=' + encodeURIComponent('"><script>alert(1)</script>')],
+    ['バックスラッシュ', 'q=' + encodeURIComponent('a\\"b\\\\c')],
+    ['改行', 'q=' + encodeURIComponent('a\nb\rc')],
+    ['プロトタイプ継承キー', 'q=__proto__&cat=constructor'],
+    ['不正 percent', 'q=%E0%A4%A'],
+    ['長大', 'q=' + 'A'.repeat(2000)],
+  ];
+
+  for (const [label, qs] of cases) {
+    await page.goto('/#/projects?' + qs);
+    await page.waitForLoadState('domcontentloaded');
+    await expect(page.locator('#content h1', { hasText: 'プロジェクト' })).toBeVisible();
+
+    const r = await page.evaluate(() => {
+      const raw = document.body.getAttribute('data-ai-state') || '';
+      try {
+        const o = JSON.parse(raw);
+        return { ok: true, route: o.route, hasFilter: typeof o.filter === 'string',
+                 loading: typeof o.loading === 'boolean' };
+      } catch (e) { return { ok: false, raw: raw.slice(0, 60) }; }
+    });
+
+    expect(r.ok, `${label}: data-ai-state が valid JSON でない (agent は route も loading も読めない) — ${r.raw}`).toBe(true);
+    // control 兼: 壊れていないだけでなく、他のフィールドが正しく読めること
+    expect(r.route, `${label}: route が正しくない`).toBe('projects');
+    expect(r.hasFilter, `${label}: filter が文字列でない`).toBe(true);
+    expect(r.loading, `${label}: loading が真偽値でない`).toBe(true);
+
+    const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+    expect(fatal, `${label}: 敵対的 query が fatal を起こした: ${fatal}`).toBeNull();
+  }
+});
+
+
 // ===== 7.2: prefers-reduced-motion でのナビゲーション (WCAG 2.3.3 / 前庭安全) =====
 // main.js は prefers-reduced-motion: reduce のとき View Transition を完全スキップする専用経路を
 // 持つ (doc b §13.1 二重防衛)。この distinct code path でもナビゲーションが機能し (#content 更新・
