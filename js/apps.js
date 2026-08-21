@@ -296,14 +296,14 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                                                 'aria-label': '前のステータスへ戻す：' + task.title,
                                                 disabled: task.status === 'backlog',
                                                 onclick: () => moveStatus(task, -1)
-                                            }, '←'),
+                                            }, h('span', { 'aria-hidden': 'true' }, '←')),
                                             h('button', {
                                                 class: 'btn btn-ghost btn-sm',
                                                 id: 'task-move-next-' + task.id,
                                                 'aria-label': '次のステータスへ進める：' + task.title,
                                                 disabled: task.status === 'done',
                                                 onclick: () => moveStatus(task, 1)
-                                            }, '→')
+                                            }, h('span', { 'aria-hidden': 'true' }, '→'))
                                         )
                                     )
                                 )
