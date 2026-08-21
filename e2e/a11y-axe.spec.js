@@ -577,9 +577,22 @@ const IDREF_ROUTES = ['', '#/projects', '#/quiz', '#/about', '#/resume', '#/cont
   '#/apps/notes', '#/apps/ai', '#/apps/pomodoro', '#/settings', '#/not-found'];
 
 test('全ルートの aria-* id 参照が実在要素へ解決する', async ({ page }) => {
+  let prevHeading = null;
   for (const route of IDREF_ROUTES) {
     await page.goto('/' + route, { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('#content h1').first()).toBeVisible();
+    // [ROBUSTNESS] `#content h1` の可視だけで待つと **前ルートの DOM で充足**しうる
+    //   (このリポジトリで繰り返し踏んでいる罠。docs/files/playwright.config.cjs.md 参照)。
+    //   **この test は現状 vacuous ではない** —— settings の `aria-labelledby` を dangling に
+    //   壊す mutation で RED を実測済み (2026-08-21)。ただし通っているのは
+    //   「描画が読み取りより速い」という **タイミングへの依存**なので、CI 負荷で崩れうる。
+    //   見出しが前ルートと変わるまで待って決定的にする (LABEL_IN_NAME_ROUTES と同じ手法)。
+    //
+    //   NOTE: `danglingIdrefs` が見るのは **aria-* 属性だけ**で `for=` は対象外。
+    //   非 vacuity を確かめるときに `<label for>` を壊しても RED にならない (実際に誤診した)。
+    await expect
+      .poll(() => page.locator('#content').getByRole('heading').first().textContent().catch(() => null))
+      .not.toBe(prevHeading);
+    prevHeading = await page.locator('#content').getByRole('heading').first().textContent();
     expect(await danglingIdrefs(page), `${route || 'home'} に解決しない aria-* id 参照がある`).toEqual([]);
   }
 });
