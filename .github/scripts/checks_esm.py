@@ -254,6 +254,16 @@ def run(ctx):
         _imp_m47 = re.search(r"import\s*\{([^{}]*?)\}\s*from\s*'" + re.escape(_spec47) + r"'",
                              _main_src47, re.DOTALL)
         _imported47 = set()
+        # [FIX 2026-08-21] **動的 import も「消費」として数える。** quiz の問題集データは
+        #   `import('./js/quiz/x.js').then(m => m.xQuizData)` で遅延読み込みするようになった
+        #   (静的 import + modulepreload だと quiz を開かない訪問者も 130,595 bytes を毎回取得
+        #   していたため)。従来この Check は静的 `import { X } from '...'` の綴りしか見ておらず、
+        #   **実際には消費されている export を「未使用」と誤検出**した。invariant (「export は
+        #   main.js に消費される」) は変わらず、綴りが 1 つ増えただけ。
+        for _dyn47 in re.finditer(
+                r"import\(\s*'" + re.escape(_spec47) + r"'\s*\)[^;\n]*?\bm\.([A-Za-z_$][\w$]*)",
+                _main_src47):
+            _imported47.add(_dyn47.group(1))
         if _imp_m47:
             _block_nc47 = re.sub(r"//[^\n]*", "", _imp_m47.group(1))  # strip inline comments first
             for _tok47 in re.split(r"[,\n]", _block_nc47):
@@ -387,6 +397,14 @@ def run(ctx):
         _html57 = _idx57.read_text(encoding="utf-8")
         _preload57 = set(re.findall(r'<link\s+rel="modulepreload"\s+href="\.?/?(js/[^"]+\.js)"', _html57))
         _modules57 = {spec.replace("./", "") for spec, _ in _modules47}
+        # [FIX 2026-08-21] **遅延読み込みするモジュールは modulepreload の対象外**。
+        #   quiz の問題集データ (4 ファイル計 130,595 bytes) は動的 import へ移した ——
+        #   modulepreload に残すと「使わない訪問者にも高優先度で先読みさせる」ことになり、
+        #   遅延化の目的そのものを打ち消す。main.js が **静的 import しない** モジュールを
+        #   除外集合として導出する (ハードコード一覧にすると次の遅延化で drift する)。
+        _static57 = set(re.findall(r"from\s+'\./(js/[^']+\.js)'", _main_src47))
+        _lazy57 = {m for m in _modules57 if m not in _static57}
+        _modules57 = _modules57 - _lazy57
         _only_preload57 = sorted(_preload57 - _modules57)
         _only_modules57 = sorted(_modules57 - _preload57)
         check(

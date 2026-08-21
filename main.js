@@ -50,10 +50,6 @@
         //   純データゆえ挙動不変。import/export bijection と葉性は Check 47 が複数モジュールをループ検査して強制。
         //   （各 import は行末コメントを付けない＝ Check 43d の import 連結検出が確実に全 import を消費できるよう、
         //    付帯説明は各葉モジュールの fileoverview と上記コメントへ集約する。）
-        import { awsQuizData } from './js/quiz/aws-quiz-data.js';
-        import { pmQuizData } from './js/quiz/pm-quiz-data.js';
-        import { qualityQuizData } from './js/quiz/quality-quiz-data.js';
-        import { architectureQuizData } from './js/quiz/architecture-quiz-data.js';
         // v80+ Stage 4: UI コンポーネント（DOM ビルダー・アイコン・Toast・BGM）を葉モジュールへ抽出。
         //   closure-deps = none の純表示系のみを選別し、State/Storage/RouteState 依存コンポーネントは残置。
         import { h, createIcon, Toast, BGM, announce } from './js/ui-components.js';
@@ -520,7 +516,15 @@
         //   QuizPage を js/quiz-renderer.js へ factory pattern で抽出。挙動 byte-equivalent。
         const { QuizPage } = createQuizRenderer({
             h, createIcon, Toast, Router, State, langOfText, CONSTANTS,
-            awsQuizData, pmQuizData, qualityQuizData, architectureQuizData
+            // [PERF] 問題集データ (4 ファイル計 130,595 bytes) は quiz を開いたときだけ取りに行く。
+            //   静的 import + modulepreload だと **quiz を一度も開かない訪問者も毎回全部取得**する
+            //   (実測 2026-08-21)。動的 import は native ESM なので C1 (Boring Technology) を保つ。
+            loadQuizData: (type) => (
+                type === 'pm' ? import('./js/quiz/pm-quiz-data.js').then(m => m.pmQuizData)
+                    : type === 'quality' ? import('./js/quiz/quality-quiz-data.js').then(m => m.qualityQuizData)
+                        : type === 'architecture' ? import('./js/quiz/architecture-quiz-data.js').then(m => m.architectureQuizData)
+                            : import('./js/quiz/aws-quiz-data.js').then(m => m.awsQuizData)
+            )
         });
 
 

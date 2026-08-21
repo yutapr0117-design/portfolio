@@ -149,6 +149,39 @@ test('Quiz contact form shows validation error on empty submit', async ({ page }
 //   `settingsNewTech` (追加時に validateAndNormalize を通すので即座に反映される・#1064) だけで、
 //   どちらも**切り詰めが起きない正当な未設定**だった。「全テキスト入力に maxlength を要求」
 //   という Check はこの 2 つを誤検出し、意味のない上限を足す圧力になる (§7 の brittle-gate 禁止)。
+// ===== 問題集データは遅延読み込みされる (クリティカルパスから 130,595 bytes を外す) =====
+// 従来は main.js が 4 つの問題集 (計 130,595 bytes = 配信 JS+CSS の 15.6%) を静的 import し、
+// **modulepreload まで宣言**していたため、quiz を一度も開かない訪問者も毎回 4 ファイルすべてを
+// 高優先度で取得していた (実測 2026-08-21: home を開くだけで 4 件 fetch)。
+// 見出し・検索欄は同期のまま描けるので、データだけ動的 import へ移した。
+//
+// この test が守るのは 3 点: (a) home で取りに行かない (b) quiz を開くと**該当 1 件だけ**取りに行く
+// (c) 到着後に実際の問題が描画される。(c) が無いと「取得しない」だけを満たす壊れた実装が通る。
+test('Quiz data is fetched only when the quiz is opened, and only the requested set', async ({ page }) => {
+  const fetched = [];
+  page.on('response', (r) => {
+    const u = r.url();
+    if (u.includes('/js/quiz/')) { fetched.push(u.split('/js/')[1]); }
+  });
+
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  // control: home が描画済みであること (描画前に読むと「まだ取得していない」を「取得しない」と誤読する)
+  await expect(page.locator('.hero-section')).toBeVisible();
+  expect(fetched, 'quiz を開いていないのに問題集データを取得している').toEqual([]);
+
+  await page.goto('/#/quiz?type=pm');
+  await page.waitForLoadState('domcontentloaded');
+  // (c) 到着後に実際の問題が出る
+  await expect(page.locator('#content h1', { hasText: 'PM問題集' })).toBeVisible();
+  await expect(page.locator('#content .card').first()).toBeVisible();
+
+  // (b) 開いた種別だけを取りに行く (4 件まとめて取ると遅延化の意味が無い)
+  expect(fetched, `取得したのは ${JSON.stringify(fetched)}`).toEqual(['quiz/pm-quiz-data.js']);
+});
+
+
 test('Quiz search input cannot hold more text than it persists (maxlength == LIMITS.QUIZ_SEARCH)', async ({ page }) => {
   await page.goto('/#/quiz');
   await page.waitForLoadState('domcontentloaded');

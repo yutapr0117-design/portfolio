@@ -446,8 +446,11 @@ Version History (current shipped state)
     <link rel="preload" href="./yuta-yokoi-ai-pm-orchestration-system.webp" as="image" fetchpriority="high" />
 
     <!-- ESM 依存グラフの並列先読み (modulepreload):
-         main.js は <script type="module"> として読み込まれ、先頭で ./js/pure-utils.js と
-         4 つの quiz データ葉モジュール（./js/quiz/aws-quiz-data.js ほか）を import する。
+         main.js は <script type="module"> として読み込まれ、先頭で各葉モジュールを import する。
+         [PERF 2026-08-21] quiz の問題集データ（./js/quiz/*.js・4 ファイル計 130,595 bytes =
+         配信 JS+CSS の 15.6%）は **ここから外した**。静的 import + modulepreload だと
+         **quiz を一度も開かない訪問者も毎回 4 ファイルすべてを取得**していた（実測）。
+         現在は QuizPage が開かれたときに動的 import で **該当する 1 ファイルだけ**取りに行く。
          modulepreload を宣言しておくと、ブラウザは main.js のパース（import 文の発見）を待たずに
          各葉モジュールを並列フェッチ・パース・コンパイルでき、モジュールグラフの逐次的な
          ウォーターフォールを短縮する（起動と INP に寄与）。挙動は不変（純粋なリソースヒント）。
@@ -486,10 +489,6 @@ Version History (current shipped state)
     <link rel="modulepreload" href="./js/settings-io.js" />
     <link rel="modulepreload" href="./js/settings-page.js" />
     <link rel="modulepreload" href="./js/command-palette.js" />
-    <link rel="modulepreload" href="./js/quiz/aws-quiz-data.js" />
-    <link rel="modulepreload" href="./js/quiz/pm-quiz-data.js" />
-    <link rel="modulepreload" href="./js/quiz/quality-quiz-data.js" />
-    <link rel="modulepreload" href="./js/quiz/architecture-quiz-data.js" />
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://yutapr0117-design.github.io/portfolio/" />

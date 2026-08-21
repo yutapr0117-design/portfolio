@@ -857,7 +857,12 @@ def run(ctx):
     # 実測 (2026-08-20): 最長タイトル「品質・プロセス問題集」で 2,027 文字 = 余裕 21 文字。
     # タイトルを少し変えるか maxlength を上げるだけで silent に超える。
     _qr435 = (ROOT / "js" / "quiz-renderer.js").read_text(encoding="utf-8")
-    _titles435 = re.findall(r"\b\w+:\s*\{\s*title:\s*'([^']+)'", _qr435)
+    # [FIX 2026-08-21] タイトルは `{ title: '…', data: … }` の入れ子から **`QUIZ_TITLES` の
+    #   フラットな `key: '…'`** へ変わった (データを動的 import で遅延読み込みへ移したため)。
+    #   ブロックを限定して拾う —— file 全体を舐めると無関係な文字列まで「タイトル」に数えて
+    #   しまい、最長タイトル判定が誤る。
+    _tblock435 = re.search(r"const QUIZ_TITLES = \{(.*?)\};", _qr435, re.S)
+    _titles435 = re.findall(r"'([^']+)'", _tblock435.group(1)) if _tblock435 else []
     _max435 = {m.group(1): int(m.group(2)) for m in re.finditer(
         r"const (nameInput|emailInput|messageInput) = h\([^;]*?maxlength:\s*(\d+)", _qr435, re.S)}
     _LIMIT435 = 2048

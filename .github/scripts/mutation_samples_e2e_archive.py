@@ -250,10 +250,10 @@ E2E_MUTATIONS_ARCHIVE = [
         "test": "Hidden project disappears from home featured",
     },
     {
-        "name": "behavior: hiring-risk CTA が AWS フォールバックへ着地 — quiz-renderer.js の QUIZ_DATA_MAP から 'pm' キーを rename → URL は #/quiz?type=pm のままなのに `|| QUIZ_DATA_MAP.aws` が効き、「PM問題集を見る」ボタンから AWS 問題集が黙って描画される silent wrong-content (throw も console error も無く、直接 URL で開く既存 quiz e2e も CTA 経路を通らないため素通りする)。Check 401a が静的に守る面の behavioral 対",
+        "name": "behavior: hiring-risk CTA が AWS フォールバックへ着地 — quiz-renderer.js の QUIZ_TITLES から 'pm' キーを rename → URL は #/quiz?type=pm のままなのに `|| QUIZ_DATA_MAP.aws` が効き、「PM問題集を見る」ボタンから AWS 問題集が黙って描画される silent wrong-content (throw も console error も無く、直接 URL で開く既存 quiz e2e も CTA 経路を通らないため素通りする)。Check 401a が静的に守る面の behavioral 対",
         "file": ROOT / "js" / "quiz-renderer.js",
-        "find": "            pm: { title: 'PM問題集', data: pmQuizData },",
-        "replace": "            pmX: { title: 'PM問題集', data: pmQuizData },",
+        "find": "            pm: 'PM問題集',",
+        "replace": "            pmX: 'PM問題集',",
         "test": "Hiring-risk CTAs land on the quiz named on the button",
     },
     {
@@ -329,8 +329,8 @@ E2E_MUTATIONS_ARCHIVE = [
     {
         "name": "behavior: quiz の外部入力 ?type= がプロトタイプ継承キーで crash する回帰 — quiz-renderer.js の hasOwnProperty ガードを素の `MAP[type] || fallback` へ戻す → 'constructor' 等は truthy な非 config 値 (Object コンストラクタ) を返して fallback を素通りし、sourceData が undefined のまま Object.keys(undefined) が throw → FatalPage でページ全体が表示不能になる (実測)。外部入力を object 添字に使う際の own-key 検証の回帰防止",
         "file": ROOT / "js" / "quiz-renderer.js",
-        "find": "        const quizConfig = Object.prototype.hasOwnProperty.call(QUIZ_DATA_MAP, quizType)\n            ? QUIZ_DATA_MAP[quizType]\n            : QUIZ_DATA_MAP.aws;",
-        "replace": "        const quizConfig = QUIZ_DATA_MAP[quizType] || QUIZ_DATA_MAP.aws;",
+        "find": "        const resolvedType = Object.prototype.hasOwnProperty.call(QUIZ_TITLES, quizType)\n            ? quizType\n            : 'aws';",
+        "replace": "        const resolvedType = QUIZ_TITLES[quizType] ? quizType : 'aws';",
         "test": "prototype-inherited",
     },
     {

@@ -185,8 +185,8 @@ _MUTATIONS_TAIL = [
 _MUTATIONS_TAIL.append({
     "name": "Check 435: quiz の模範解答フォームが実行不能な長さの mailto を作れるようになる —— タイトルを少し伸ばすだけで Windows の約 2,048 文字上限を silent に超え、本文が切られるかメールソフトが開かない (利用者には何も伝わらない)",
     "file": ROOT / "js" / "quiz-renderer.js",
-    "find": "quality: { title: '\u54c1\u8cea\u30fb\u30d7\u30ed\u30bb\u30b9\u554f\u984c\u96c6'",
-    "replace": "quality: { title: '\u54c1\u8cea\u30fb\u30d7\u30ed\u30bb\u30b9\u554f\u984c\u96c6\uff08\u7dcf\u5408\u6f14\u7fd2\u7de8\uff09'",
+    "find": "quality: '\u54c1\u8cea\u30fb\u30d7\u30ed\u30bb\u30b9\u554f\u984c\u96c6'",
+    "replace": "quality: '\u54c1\u8cea\u30fb\u30d7\u30ed\u30bb\u30b9\u554f\u984c\u96c6\uff08\u7dcf\u5408\u6f14\u7fd2\u7de8\uff09'",
     "check": CHECK,
 })
 
@@ -430,9 +430,9 @@ _E2E_TAIL = [
     },
     {
         "name": "QUIZ_DATA_MAP の data 取り違え — pm の `data:` を別の問題集へ差し替えると、**見出しは QUIZ_DATA_MAP の `title` から出るので「PM問題集」のまま**で、中身だけ別の問題集になる。旧テストは見出しとブロックの存在しか見ておらず **緑のまま通っていた** (実測)。map 内の copy-paste 事故で現実に起こりうる形",
-        "file": ROOT / "js" / "quiz-renderer.js",
-        "find": "            pm: { title: 'PM問題集', data: pmQuizData },",
-        "replace": "            pm: { title: 'PM問題集', data: awsQuizData },",
+                "file": ROOT / "main.js",
+        "find": "type === 'pm' ? import('./js/quiz/pm-quiz-data.js').then(m => m.pmQuizData)",
+        "replace": "type === 'pm' ? import('./js/quiz/aws-quiz-data.js').then(m => m.awsQuizData)",
         "test": "Quiz pm and quality types render their data files",
     },
     {
@@ -982,6 +982,14 @@ _E2E_TAIL.append({
     "find": "}, h('span', { 'aria-hidden': 'true' }, '\u2192'))",
     "replace": "}, '\u2192')",
     "test": "Task move buttons expose an aria-label describing their purpose",
+})
+
+_E2E_TAIL.append({
+    "name": "quiz データの遅延読み込みが「まとめ取り」へ退行 —— 開いた種別以外まで取りに行くと、クリティカルパスから 130,595 bytes を外した意味が消える。取得は視覚に出ないので目視でも screenshot でも気付けない",
+    "file": ROOT / "main.js",
+    "find": "                type === 'pm' ? import('./js/quiz/pm-quiz-data.js').then(m => m.pmQuizData)",
+    "replace": "                type === 'pm' ? Promise.all([import('./js/quiz/aws-quiz-data.js'), import('./js/quiz/quality-quiz-data.js')]).then(() => import('./js/quiz/pm-quiz-data.js')).then(m => m.pmQuizData)",
+    "test": "Quiz data is fetched only when the quiz is opened",
 })
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

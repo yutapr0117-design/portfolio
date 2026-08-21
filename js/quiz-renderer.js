@@ -15,13 +15,14 @@
  *   - h, createIcon, Toast: js/ui-components.js
  *   - Router: js/router.js
  *   - State: js/state.js factory instance
- *   - awsQuizData, pmQuizData, qualityQuizData, architectureQuizData:
+ *   - loadQuizData: 問題集データを **動的 import で遅延取得**する loader (main.js が注入)。
+ *     静的 import + modulepreload だと quiz を開かない訪問者も 4 ファイル計 130,595 bytes を
+ *     毎回取得していたため (実測 2026-08-21)。返り値は js/quiz/*-quiz-data.js の export。
  *   - langOfText: data 由来テキストの言語判定 (js/pure-utils.js・WCAG 3.1.2 の lang 属性用)
  *   - CONSTANTS: 検索欄の maxlength を LIMITS.QUIZ_SEARCH から引く
- *     js/quiz/{aws,pm,quality,architecture}-quiz-data.js
  *
  * 【非破壊性】
- *   - QuizPage の DOM 出力・quiz domain lookup (QUIZ_DATA_MAP)・レンダリングは抽出時 byte-equivalent。検索フィルタ _filterBy は
+ *   - QuizPage の DOM 出力・quiz domain lookup (QUIZ_TITLES + loadQuizData)・レンダリングは抽出時 byte-equivalent。検索フィルタ _filterBy は
  *     後の bug-fix で対象フィールドを拡張済（#285=stakeholder name/quote、#296=section 章タイトル。
  *     いずれも「画面に描画されるのに検索できない」visible-but-unsearchable drift の是正で、対象を増やす
  *     単調拡大ゆえ既存ヒットは不変）。
@@ -29,7 +30,7 @@
  *   - State.appsData.quizSearch 等の永続化への副作用も不変
  *   - AIDK Kernel / AIO 正本層 / style.css は無変更
  */
-export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData, langOfText, CONSTANTS }) {
+export function createQuizRenderer({ h, createIcon, Toast, Router, State, loadQuizData, langOfText, CONSTANTS }) {
     // [A11Y 3.1.2] 言語判定は js/pure-utils.js の langOfText を注入して使う
     //   (quiz / home / resume の 3 箇所が同じ判定を要するため、コピーすると
     //    invariant の二重化になる。詳細な WHY は pure-utils 側の docstring)。
@@ -49,20 +50,26 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
             : "";
 
         // ===== v40: Quiz data lookup table for extensibility =====
-        const QUIZ_DATA_MAP = {
-            aws: { title: 'AWS問題集', data: awsQuizData },
-            pm: { title: 'PM問題集', data: pmQuizData },
-            quality: { title: '品質・プロセス問題集', data: qualityQuizData },
-            architecture: { title: '設計判断問題集', data: architectureQuizData }
+        // [PERF] **タイトルだけ静的・データは遅延読み込み**。従来は 4 つの問題集 (合計 130,595 bytes
+        //   = 配信 JS+CSS の 15.6%) を main.js が静的 import し、さらに modulepreload まで宣言して
+        //   いたため、**quiz を一度も開かない訪問者も毎回 4 ファイルすべてを取得**していた
+        //   (実測 2026-08-21: home 表示だけで 4 件とも fetch)。見出し・検索欄は同期のまま描ける
+        //   ので、`data` だけを動的 import へ移した。
+        const QUIZ_TITLES = {
+            aws: 'AWS問題集',
+            pm: 'PM問題集',
+            quality: '品質・プロセス問題集',
+            architecture: '設計判断問題集'
         };
         // [FIX] URL 由来の外部入力を添字にするため own-key のみ採用する。素の `MAP[type] || fallback`
         //   は継承キー ('constructor' 等) で truthy な非 config 値を返して fallback を素通りし、
         //   Object.keys(undefined) が throw → FatalPage で表示不能だった (実測・#350 と同 class)。
-        const quizConfig = Object.prototype.hasOwnProperty.call(QUIZ_DATA_MAP, quizType)
-            ? QUIZ_DATA_MAP[quizType]
-            : QUIZ_DATA_MAP.aws;
-        const pageTitle = quizConfig.title;  // v40: BUGFIX - Define pageTitle from QUIZ_DATA_MAP
-        const sourceData = quizConfig.data;
+        const resolvedType = Object.prototype.hasOwnProperty.call(QUIZ_TITLES, quizType)
+            ? quizType
+            : 'aws';
+        const pageTitle = QUIZ_TITLES[resolvedType];
+        // 読み込み完了までは null。_filterBy は null を空データとして扱う (下の guard)。
+        let sourceData = null;
         const isArchitecture = quizType === 'architecture';
 
         const box = h("div", { class: "col col-centered" });
@@ -111,6 +118,9 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
         function _filterBy(rawQuery) {
             const query = String(rawQuery || '').toLowerCase().trim();
             const filtered = {};
+            // データ未着 (遅延読み込み中 / 読み込み失敗) は空集合として扱う。
+            //   ここで throw すると FatalPage に落ちるので、必ず総関数にしておく。
+            if (!sourceData) { return { filtered, query }; }
             Object.keys(sourceData).forEach(section => {
                 // section 見出し (画面に描画される章タイトル。例「第4章：可用性とFinOps（コスト）の天秤」)
                 // も検索対象にする。タイトルにのみ含まれる topic 語 (FinOps / 可用性 / 泥沼 等) で検索した
@@ -282,7 +292,19 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
         }
 
         // 初回描画 (永続化された検索語を反映)
-        renderList(initialSearch);
+        // [PERF] データを動的 import で取りに行く。見出し・検索欄は既に描かれているので、
+        //   届いたら一覧だけ差し替える (listHost の手動再描画 = ProjectsPage と同じ house pattern)。
+        //   失敗しても **無音にしない** —— 空の一覧を黙って見せると「問題が 0 件の問題集」と
+        //   区別が付かない (§7 の silent-failure 禁止)。
+        listHost.appendChild(h("div", { class: 'card panel-empty', 'data-quiz-loading': 'true' }, '問題を読み込んでいます…'));
+        loadQuizData(resolvedType).then((data) => {
+            sourceData = data;
+            renderList(initialSearch);
+        }).catch(() => {
+            while (listHost.firstChild) { listHost.removeChild(listHost.firstChild); }
+            listHost.appendChild(h("div", { class: 'card panel-empty', role: 'alert' },
+                '問題の読み込みに失敗しました。通信状況を確認して再読み込みしてください。'));
+        });
 
         // Contact form section
         const contactBox = h("div", { class: "card p col col-gap" });
