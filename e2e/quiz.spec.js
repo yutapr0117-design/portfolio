@@ -216,6 +216,56 @@ test('Quiz data is fetched only when the quiz is opened, and only the requested 
 // 130,595 bytes を全訪問者のクリティカルパスから外す価値の方が明確に大きいと判断したうえで、
 // **その代わりに「黙って空にしない」ことを保証する**。SW が shell を返すので見出しと検索欄は出て、
 // データだけが失敗として伝わる —— この形が崩れていないことを固定する。
+// ===== 読み込み中に入力した検索語が捨てられない (遅延読み込みが持ち込んだ race) =====
+// 遅延読み込み (#1239) で「データが来るまでの窓」が生まれた。その窓の間に検索欄へ入力できて
+// しまう —— 見出しと検索欄は**同期に描かれる**設計なので、これは利用者にとって自然な操作。
+//
+// 到着時に「描画開始時点の語」で描くと、**入力欄には語が残ったまま一覧は絞り込み前**という
+// 食い違いになる (実測 2026-08-21: 「EC2」と入れたまま全 7 章が出る。通常操作なら 4 章)。
+// 利用者からは「検索したのに効いていない」としか見えず、入力欄に語が残っているので
+// 原因に見当がつかない。到着時点の入力値で描き直すのが正しい。
+test('Quiz applies a search typed while the data was still loading', async ({ page }) => {
+  await page.route('**/js/quiz/aws-quiz-data.js', async (route) => {
+    await new Promise((r) => setTimeout(r, 1200));
+    await route.continue();
+  });
+
+  await page.goto('/#/quiz');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('#content h1', { hasText: 'AWS問題集' })).toBeVisible();
+
+  // control: まだデータが来ていない窓の中で操作していること
+  await expect(page.locator('[data-quiz-loading]'),
+    'control: 読み込み中の窓が作れていない — race を再現できない').toHaveCount(1);
+
+  await page.getByLabel('問題検索').fill('EC2');
+
+  // 読み込み中は「読み込んでいます」を出し続ける —— データ未着で 0 件になるのを
+  //   「見つかりませんでした」と出すと **嘘になる** (まだ届いていないだけ)。
+  await expect(page.locator('[data-quiz-list]'),
+    'データ未着なのに「見つかりませんでした」と出している').toContainText('読み込んでいます');
+
+  // 到着後: 入力欄・一覧・アナウンスの 3 つが一致する
+  //   [FIX] `[data-quiz-loading]` の消失で待ってはいけない —— **入力すると読み込み中の
+  //   ボックスも一度作り直される**ので、到着前に条件が動きうる。章見出しの出現で待つ。
+  const sections = page.locator('[data-quiz-list] h2');
+  await expect(sections.first()).toBeVisible();
+  await expect(page.getByLabel('問題検索')).toHaveValue('EC2');
+  const filtered = await sections.count();
+  expect(filtered, '読み込み中に入力した語が捨てられ、絞り込み前の一覧が出ている').toBeGreaterThan(0);
+  await expect(page.locator('#content [role="status"]'),
+    '件数アナウンスが検索結果と食い違っている').toContainText('に一致する問題 ' + filtered + ' 件');
+
+  // control: そもそも「EC2」が全件より少ないこと (同数なら絞り込めておらず検証にならない)。
+  //   **再訪では測れない** —— 検索語は永続化される (#684) ので `goto` し直しても "EC2" が
+  //   残り、同じ 4 章になる (実測 2026-08-21 に踏んだ)。その場で空にして比べる。
+  await page.getByLabel('問題検索').fill('');
+  await expect.poll(async () => sections.count(),
+    { message: 'control: 検索を空にしても件数が増えない — 絞り込めていない' })
+    .toBeGreaterThan(filtered);
+});
+
+
 test('Quiz degrades gracefully when opened offline (lazy-load trade-off is explicit)', async ({ page, context }) => {
   await page.goto('/');
   await page.waitForLoadState('domcontentloaded');

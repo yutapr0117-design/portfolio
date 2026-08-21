@@ -156,6 +156,15 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, loadQu
 
         function renderList(rawQuery) {
             while (listHost.firstChild) { listHost.removeChild(listHost.firstChild); }
+            // [FIX] **まだ届いていない**ことと「一致が無い」ことを取り違えない。データ未着で
+            //   検索すると 0 件になるが、それを「見つかりませんでした」と出すと **嘘になる**
+            //   (実測 2026-08-21: 読み込み中に入力すると not-found が出た)。読み込み中は
+            //   読み込み中として見せ続ける (aria-busy も立ったまま)。
+            if (!sourceData) {
+                listHost.appendChild(h("div", { class: 'card panel-empty', 'data-quiz-loading': 'true' },
+                    '問題を読み込んでいます…'));
+                return;
+            }
             const { filtered: quizData, query } = _filterBy(rawQuery);
             const matchCount = Object.keys(quizData).length;
 
@@ -304,10 +313,14 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, loadQu
         //   見えるが、それだけでは **SR には「まだ来ていない」ことが伝わらない** (#content の
         //   aria-busy と同じ契約を listHost にも与える)。到着時に false へ戻す。
         listHost.setAttribute('aria-busy', 'true');
-        listHost.appendChild(h("div", { class: 'card panel-empty', 'data-quiz-loading': 'true' }, '問題を読み込んでいます…'));
+        renderList(initialSearch);   // sourceData 未着なので読み込み中表示になる
         loadQuizData(resolvedType).then((data) => {
             sourceData = data;
-            renderList(initialSearch);
+            // [FIX] **到着時点の入力値**で描く。`initialSearch` で描くと、読み込み中に入力した語が
+            //   捨てられ **入力欄と一覧が食い違う** (実測 2026-08-21: 「EC2」と入れたまま
+            //   絞り込み前の全 7 章が出る。通常操作なら 4 章)。利用者は「検索したのに効いていない」
+            //   としか見えず、しかも入力欄には語が残っているので原因に見当がつかない。
+            renderList(searchInput.value);
             listHost.setAttribute('aria-busy', 'false');
         }).catch(() => {
             listHost.setAttribute('aria-busy', 'false');
