@@ -33,10 +33,10 @@ Status        : Living document — update when layer structure or sync relation
 
 「同時に変えるべきものの束」。1単位 = 1関心事。
 
-- **U-app（アプリ変更）:** `index.html` / `main.js` / `style.css` / `sw.js` 等 → `node --check` + Playwright regression（PR時）。ai:version 系を変える場合は §3 の Version Update Checklist を**原子的に**。
+- **U-app（アプリ変更）:** `index.html` / `main.js` / `style.css` / `sw.js` 等 → `npm run lint:js` + Playwright regression（PR時）。ai:version 系を変える場合は §3 の Version Update Checklist を**原子的に**。
 - **U-aio（AIO正本変更）:** `llms-full.txt` / `llms.txt`(+3 alias) / `AI2AI.md` / バイナリ → **digest 再生成必須**（`update_aio_digests.py` → `check_aio_digests.py`）。`AI2AI.md` も同コミットで更新（commit-drift check）。alias 4ファイルは byte-identical 維持。
 - **U-doc（証跡追記）:** `docs/**` / `Claude2Claude.md` / `ChatGPT2ChatGPT.md` → manifest 登録分は digest 再生成。Session Record は `AI2AI.md` が正典。
-- **U-ci（検証層変更）:** scripts / workflows → `py_compile` + 該当 `node --check`。新 invariant は Check 番号付与。`package.json` の lint スクリプト（`lint` / `lint:js`）の JS 対象を変えるときは両者を同一集合かつディスク上の root ∪ js/ の実体と一致させること（Check 46）。`js/` 配下にローカル ESM モジュールを増やすときは `main.js` の import と当該モジュールの export を一致させ、モジュールを葉（import ゼロ）に保つこと（Check 47）。`update-playwright-snapshots.yml` の baseline コミット経路（PR 作成ステップ）を残す限り `contents: write` ＋ `pull-requests: write` を宣言し続けること、また `reason` 等の workflow_dispatch 入力は `${{ }}` でシェルへ直接展開せず env 経由で渡すこと（Check 48・CWE-094）。`index.html` の JSON-LD で雇用関係（worksFor）を編集するときは、参照する組織 @id と Organization ノードの @id を必ず一致させること（Check 49 が宙吊り参照を BLOCKING で検出）。
+- **U-ci（検証層変更）:** scripts / workflows → `py_compile` + `npm run lint:js`（単体の `node --check <file>` は ESM file で構文エラーを見逃す＝Check 46d が禁止）。新 invariant は Check 番号付与。`package.json` の lint スクリプト（`lint` / `lint:js`）の JS 対象を変えるときは両者を同一集合かつディスク上の root ∪ js/ の実体と一致させること（Check 46）。`js/` 配下にローカル ESM モジュールを増やすときは `main.js` の import と当該モジュールの export を一致させ、モジュールを葉（import ゼロ）に保つこと（Check 47）。`update-playwright-snapshots.yml` の baseline コミット経路（PR 作成ステップ）を残す限り `contents: write` ＋ `pull-requests: write` を宣言し続けること、また `reason` 等の workflow_dispatch 入力は `${{ }}` でシェルへ直接展開せず env 経由で渡すこと（Check 48・CWE-094）。`index.html` の JSON-LD で雇用関係（worksFor）を編集するときは、参照する組織 @id と Organization ノードの @id を必ず一致させること（Check 49 が宙吊り参照を BLOCKING で検出）。
 
 ---
 

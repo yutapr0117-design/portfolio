@@ -236,6 +236,20 @@ _MUTATIONS_TAIL.append({
     "replace": "docs/files/playwright.config.cjs.MISSING.md",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 46d: JS 構文 gate が名ばかりへ戻る —— bare `node --check <file>` は ESM file の構文エラーを報告せず exit 0 するため、shipped JS 40 file 中 35 file が silent に無検査になる (2026-08-22 実測: js/brand.js に `let let = 1;` を植えても rc=0)",
+    "file": ROOT / "package.json",
+    "find": "\"lint:js\": \"node .github/scripts/check_js_syntax.mjs main.js",
+    "replace": "\"lint:js\": \"node --check main.js && node .github/scripts/check_js_syntax.mjs main.js",
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 46c: JS 構文 gate が存在するのに配線されない —— runner を残したまま lint:js から呼び出しを外すと、gate は「在る」のに一度も走らず全 shipped JS が無検査になる (存在 ≠ 配線)",
+    "file": ROOT / "package.json",
+    "find": "node .github/scripts/check_js_syntax.mjs main.js sw.js",
+    "replace": "node .github/scripts/check_js_syntax.UNWIRED.mjs main.js sw.js",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

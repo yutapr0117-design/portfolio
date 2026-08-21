@@ -122,7 +122,7 @@ JSON/YAML/XML/Python の構文妥当性、package.json ↔ lockfile、lint 配�
 | 38 | package.json ↔ package-lock.json 整合（lockfileVersion 3・名前・版・devDeps・private・runtime 依存ゼロ） | BLOCKING |
 | 40 | CSS lint 実行経路の衛生（40a: devDeps に stylelint / 40b: check_css_stylelint.py が node_modules/.bin 参照 / 40c: npx を documented fallback に保持） | BLOCKING |
 | 41 | AIO monitoring log ↔ manifest の atomic-commit 不変条件 | BLOCKING |
-| 46 | package.json `lint`/`lint:js` が同一 JS ファイル集合を被覆し、ディスク上 root ∪ js/ と一致（46a/46b） | BLOCKING |
+| 46 | package.json `lint`/`lint:js` が同一 JS ファイル集合を被覆し、ディスク上 root ∪ js/ と一致（46a/46b）。加えて `lint:js` が syntax-gate runner `.github/scripts/check_js_syntax.mjs` に配線されていること（46c＝存在≠配線）と、bare `node --check <file>` の形へ戻していないこと（46d）を強制。**46d の根拠は実測**: bare 形式は 40 file 中 35 file（ESM 構文を持つ全 file）で構文エラーを報告せず exit 0 する（node が .js を CommonJS として parse し、失敗後の module 再 parse の SyntaxError を報告しないため）。`"type":"module"` を足す一行修正は e2e spec 62 file が `require()` 依存のため採れない | BLOCKING |
 | 47 | main.js ⇄ js/ 各モジュールの ESM import/export bijection と葉性（47a/47b/47c・現行 **24 モジュール**（Stage 5-c〜5-s + 5-l + 5-q + 5-r で最終完遂）をループ検査・named-list export 対応） | BLOCKING |
 | 48 | `update-playwright-snapshots.yml` が PR 作成ステップを含む場合に `contents:write` + `pull-requests:write` を宣言（権限結合） | BLOCKING |
 | 50 | ESLint flat-config 移行不変条件（50a: eslint.config.mjs 存在 / 50b: lint が旧 eslintrc フラグ非使用 / 50c: .eslintrc.json 不在） | BLOCKING |
