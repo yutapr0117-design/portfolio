@@ -758,3 +758,29 @@ PR #1236〜#1243・全 rebase-merge・main 全緑。前 run の「その gate �
   踏んだ（待ち条件は「その変化だけが起こす状態」を選べ）／測定系を疑い 2 回とも当たった（`fill()` の 19 秒は
   Playwright 側で、危うく perf 問題と誤認）／advisory の rotate で **2 度後退**した。
 
+## [HANDOFF] Session Record #29 — 2026-08-21 (Claude Opus 5, 自己訂正 + 機械可読面ゲート)
+
+**詳細は `docs/incident-artifacts/improvement-notes-claude-v80-phase4-self-correction-and-machine-facing-gates.md`**
+（要点＋ポインタ形式）。PR #1245〜#1251・全 rebase-merge・main 全緑。前 run で入れた遅延読み込みの後始末を続けつつ、
+レンズを **「機械可読面の契約は誰が見ているのか」** と **「自分の測定を疑う」** へ寄せた。
+
+- **🔴 実バグ 1 件 (#1246)**: 英語だけの文 5 箇所に `lang="en"` が無かった (WCAG 3.1.2)。既存ゲートは **quiz 限定**かつ
+  ASCII 判定で **絵文字や `→` を含む英語見出しを見逃していた**。全 16 ルート版を新設し、1 語ラベル / 識別子 /
+  固有名詞は**意図的に対象外**（緩めると RED・既知の例外が実在することも control で確認）。
+- **🟢 ゲート新設 3 件**: 動的 import の **MIME** を公開面で検証（遅延化が作った新しい失敗モード。リポジトリ Check も
+  behavior e2e も公開面 sha256 も**ヘッダを見ない**・#1249）／agentic surface が**敵対的 query でも valid JSON**
+  （`filter` は攻撃者が中身を決められる唯一のフィールド。**上限は足さない** = 通常操作で作れない URL・#1248）／
+  **Check 440** = コード側から `docs/` への参照が解決する（誤検出率を測って 7/7 解決を確認してから Check 化・#1250）。
+- **🟢 自分が書いた誤りの訂正 (#1245)**: 「SW が shell を返す」は**誤り** —— `caches.keys()` は空で、オフラインでの
+  **完全リロードは失敗**する（**このサイトはオフライン対応ではない**）。枠が出るのは同一文書の hash 変更だから。
+  リポジトリ側の doc は最初から正しく、**間違っていたのは私のコメントだけ**だった。
+- **🟢 掃引は honest clean (#1247)**: ルートループ 13 個の stale-wait を掃引し、**「settle が無い ⟹ vacuous」ではない**
+  ことを実測（`IDREF` は dangling `aria-labelledby` で RED）。待ちを決定的にしただけで **overclaim しない**。
+- **🟢 測定手順の確立 (#1251)**: 大量データの `localStorage` 注入は **退出ページの unload flush に上書きされる**
+  （debounce を 900ms 待っても `page.close()` してもダメ）。`context.addInitScript` で起動前に仕込むのが正。
+  この手順で **219 件が 571ms で全件描画**され検索も正常＝大量データでも健全。**4 回誤診した末の確立**。
+- **教訓**: 非 vacuity は「壊した対象がその test の検査範囲に入っているか」から確かめよ／mutation はファイルに書き
+  成功印を出してから走らせよ（引用符崩れで「当たっていないのに緑」を読む）／**どの writer がその経路の責任者か**を
+  取り違えると誤判定する／**信号が出ないなら何も作らない**（`page.coverage` は打ち切り）／
+  **制御できないものを Check にしない**（`Cache-Control` は GitHub Pages 固定）。
+
