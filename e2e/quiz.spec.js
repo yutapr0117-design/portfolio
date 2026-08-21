@@ -196,6 +196,36 @@ test('Quiz data is fetched only when the quiz is opened, and only the requested 
 //
 // 通信を遅らせて「読み込み中」の窓を実際に作ってから測る (遅延させないと窓が短すぎて
 // 何も検証できないまま緑になる)。
+// ===== 読み込みに失敗しても黙って空にしない (silent failure 禁止) =====
+// 遅延読み込み (#1239) にしたことで **「取得に失敗する」経路が新しく生まれた**。
+// ここで何も出さないと、利用者には「問題が 0 件の問題集」と区別が付かない —— 通信を直せば
+// 直る話なのに、壊れているのかデータが無いのか判らない (§7 の silent-failure 禁止)。
+//
+// 併せて「失敗しても FatalPage へ落ちない」ことも見る。`_filterBy` はデータ未着を空集合として
+// 扱う総関数にしてあるが、そこが throw する形へ退行すると **ページ全体が表示不能**になる。
+test('Quiz reports a failed data load instead of showing an empty question set', async ({ page }) => {
+  await page.route('**/js/quiz/aws-quiz-data.js', (route) => route.abort());
+
+  await page.goto('/#/quiz');
+  await page.waitForLoadState('domcontentloaded');
+  // 見出しと検索欄は同期に描かれる (データを待たない設計) ので、失敗しても枠は出る
+  await expect(page.locator('#content h1', { hasText: 'AWS問題集' })).toBeVisible();
+
+  // 失敗が利用者に伝わる
+  const alertBox = page.locator('#content [role="alert"]');
+  await expect(alertBox, '読み込み失敗が何も表示されない (空の一覧と区別が付かない)').toBeVisible();
+  await expect(alertBox).toContainText('読み込みに失敗');
+
+  // 読み込み中の表示は残さない / busy も解除する (「永久に読み込み中」に見せない)
+  await expect(page.locator('[data-quiz-loading]')).toHaveCount(0);
+  await expect(page.locator('#content [aria-busy]').first()).toHaveAttribute('aria-busy', 'false');
+
+  // FatalPage へ落ちない
+  const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
+  expect(fatal, `quiz data load failure caused a fatal: ${fatal}`).toBeNull();
+});
+
+
 test('Quiz announces the loading window with aria-busy while data is in flight', async ({ page }) => {
   await page.route('**/js/quiz/aws-quiz-data.js', async (route) => {
     await new Promise((r) => setTimeout(r, 900));
