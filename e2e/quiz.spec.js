@@ -233,7 +233,7 @@ test('Quiz data is fetched only when the quiz is opened, and only the requested 
 // 利用者からは「検索したのに効いていない」としか見えず、入力欄に語が残っているので
 // 原因に見当がつかない。到着時点の入力値で描き直すのが正しい。
 test('Quiz applies a search typed while the data was still loading', async ({ page }) => {
-  await page.route('**/js/quiz/aws-quiz-data.js', async (route) => {
+  await page.route('**/js/quiz/aws-quiz-data.js*', async (route) => {
     await new Promise((r) => setTimeout(r, 1200));
     await route.continue();
   });
@@ -307,7 +307,10 @@ test('Quiz degrades gracefully when opened offline (lazy-load trade-off is expli
 
 
 test('Quiz reports a failed data load instead of showing an empty question set', async ({ page }) => {
-  await page.route('**/js/quiz/aws-quiz-data.js', (route) => route.abort());
+// NOTE: route パターンの末尾 `*` は **再取得の `?retry=N` 付き URL も捕まえる**ため。
+//   失敗時に別 URL で取り直す形にした (#1261) ので、`*` が無いと 2 本目が素通りして成功し、
+//   「失敗を伝える」ことを検査するはずの test が緑になる (実際に踏んだ)。
+  await page.route('**/js/quiz/aws-quiz-data.js*', (route) => route.abort());
 
   await page.goto('/#/quiz');
   await page.waitForLoadState('domcontentloaded');
@@ -365,7 +368,7 @@ test('Revisiting the quiz does not re-download the question set (ESM module cach
 
 
 test('Quiz announces the loading window with aria-busy while data is in flight', async ({ page }) => {
-  await page.route('**/js/quiz/aws-quiz-data.js', async (route) => {
+  await page.route('**/js/quiz/aws-quiz-data.js*', async (route) => {
     await new Promise((r) => setTimeout(r, 900));
     await route.continue();
   });
@@ -853,4 +856,55 @@ test('Invalid form fields are visually distinguishable, not only announced', asy
   // focus を外しても痕跡が残る (Toast が消えた後も分かる)
   await name.blur();
   expect((await box(name)).width, 'blur で視覚的な痕跡が消えている').toBe(invalid.width);
+});
+
+
+// ===== 一時的な失敗から回復する (module map が失敗をキャッシュする問題) =====
+// 遅延読み込み (#1239) が持ち込んだ 3 つ目の失敗モード。**失敗した動的 import は
+// module map にキャッシュされ、以降の import は「ネットワークへ行かずに」即 reject する。**
+// つまり通信が一瞬切れただけで、その文書が生きている限り quiz は永久に読めない。
+//
+// 実測 (2026-08-21・修正前): 1 回目を abort → 失敗表示。別ルートへ移動して `#/quiz` へ戻ると
+// **リクエストが 1 本も発生しないまま**また失敗表示 (章数 0)。エラーカードは「再読み込みして
+// ください」と言うので完全なリロードなら直るが、**利用者が自然にやる「開き直す」では直らない**。
+//
+// 修正は「失敗したらクエリを足した別 URL で取り直す」。別 URL = 新しい module map entry
+// なので実際に再取得される。番号は毎回増やす (同じ URL では 2 度目の失敗も同様に固まる)。
+//
+// 非 vacuity: `.catch(() => _retryQuizData(type))` を外すと 1 本目しかリクエストが出ず
+// 章数 0 のまま RED。control として **2 本目のリクエストが実際に発生したこと**も見る
+// (「たまたま 1 本目が成功した」と区別できないと何も検査していないことになる)。
+test('Quiz recovers from a transient load failure by refetching under a new URL', async ({ page }) => {
+  const requested = [];
+  let failFirst = true;
+  await page.route('**/js/quiz/aws-quiz-data.js*', async (route) => {
+    requested.push(route.request().url().split('/').pop());
+    if (failFirst) { failFirst = false; await route.abort('failed'); return; }
+    await route.continue();
+  });
+
+  await page.goto('/#/quiz', { waitUntil: 'domcontentloaded' });
+
+  // 回復して中身が出る (章見出しは一覧コンテナ内にしか無いので「データが届いた」の証拠になる)
+  await expect(page.locator('[data-quiz-list] h2').first(),
+    '一時的な失敗から回復していない').toBeVisible({ timeout: 10000 });
+  await expect(page.getByText('問題の読み込みに失敗しました'),
+    '回復したのに失敗表示が残っている').toHaveCount(0);
+
+  // control: 1 本目が失敗し、**別 URL で 2 本目が出た**こと自体を確かめる。
+  //   これが無いと「1 本目がそのまま成功した」場合と区別できない。
+  expect(requested.length, `再取得が発生していない: ${JSON.stringify(requested)}`).toBeGreaterThanOrEqual(2);
+  expect(requested[0], '1 本目はクエリなしのリテラル URL').toBe('aws-quiz-data.js');
+  expect(requested[1], '2 本目は別 URL (module map の失敗キャッシュを避けるため)').toContain('?retry=');
+});
+
+// 通信が本当に落ちている (再取得も失敗する) ときは、従来どおり失敗を伝える。
+// 上の test と対で、「再取得を足したせいで失敗が握り潰される」実装を落とすための片割れ。
+test('Quiz still reports failure when the refetch also fails', async ({ page }) => {
+  await page.route('**/js/quiz/aws-quiz-data.js*', (route) => route.abort('failed'));
+  await page.goto('/#/quiz', { waitUntil: 'domcontentloaded' });
+  await expect(page.getByText('問題の読み込みに失敗しました'),
+    '全て失敗しているのに黙っている').toBeVisible({ timeout: 10000 });
+  await expect(page.locator('[data-quiz-list] h2')).toHaveCount(0);
+  expect(await page.evaluate(() => !!window.__fatalError), 'FatalPage へ落ちている').toBe(false);
 });

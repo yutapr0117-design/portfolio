@@ -240,48 +240,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "詳細ページの推薦が非表示を無視して戻る (#886) — 隠したプロジェクトが「関連」「おすすめ」として他ページから提示され続ける。**推薦は利用者が自分で探していない経路**なので、隠したはずのものが向こうから出てくる形になる",
-        "file": ROOT / "js" / "project-detail-page.js",
-        "find": "        const listable = state.projects.filter(p => !hiddenIds.has(String(p.id)));",
-        "replace": "        const listable = state.projects;",
-        "test": "非表示は詳細の推薦とカテゴリ選択肢にも効く",
-    },
-    {
-        "name": "カテゴリ選択肢が非表示を無視して戻る (#886) — そのカテゴリの project を全部隠しても選択肢が残り、**選ぶと 0 件になる死んだ選択肢**が生まれる。1 件だけ隠しても変化しない面なので、カテゴリを空にするまで setup しないと検査できない",
-        "file": ROOT / "js" / "projects-page.js",
-        "find": "            .filter(p => !_hiddenForCats.has(String(p.id)))\n",
-        "replace": "",
-        "test": "非表示は詳細の推薦とカテゴリ選択肢にも効く",
-    },
-    {
-        "name": "一覧カードのデモが常に同じアプリへ飛ぶ — `apps/${p.demoRoute}` を固定値へ潰すと、どのカードのデモを押しても同じアプリが開く。**一覧は「作品を触る」までの最短導線**なので、閲覧者が最初に試す経路が死ぬ。Check 136 は demoRoute の値が router whitelist に含まれることを静的に守るが、**ボタンが正しいアプリへ遷移するか**は見ない",
-        "file": ROOT / "js" / "projects-page.js",
-        "find": "onclick: () => Router.navigate(`apps/${p.demoRoute}`) }, 'デモ')",
-        "replace": "onclick: () => Router.navigate('apps/task') }, 'デモ')",
-        "test": "一覧カードのデモボタンが対応する内蔵アプリを開く",
-    },
-    {
-        "name": "ブランド選択が保存されなくなる — `set()` から `storage.set` だけ落とすと **適用は効くのにリロードで既定へ戻る**。既存のブランド関連テストは localStorage を直接 seed する pre-paint 検証と `data-brand` を直接書き換えるコントラスト検査だけで、**write 面が未被覆**だったため素通りしていた (#294 の producer/consumer class)。配色の単一ソースなので「設定したのに戻っている」形で出る",
-        "file": ROOT / "js" / "brand.js",
-        "find": "        const b = apply(brand);\n        storage.set(KEY, b);",
-        "replace": "        apply(brand);",
-        "test": "Settings のブランド選択がリロードを跨いで保持される",
-    },
-    {
-        "name": "QUIZ_DATA_MAP の data 取り違え — pm の `data:` を別の問題集へ差し替えると、**見出しは QUIZ_DATA_MAP の `title` から出るので「PM問題集」のまま**で、中身だけ別の問題集になる。旧テストは見出しとブロックの存在しか見ておらず **緑のまま通っていた** (実測)。map 内の copy-paste 事故で現実に起こりうる形",
-                "file": ROOT / "main.js",
-        "find": "type === 'pm' ? import('./js/quiz/pm-quiz-data.js').then(m => m.pmQuizData)",
-        "replace": "type === 'pm' ? import('./js/quiz/aws-quiz-data.js').then(m => m.awsQuizData)",
-        "test": "Quiz pm and quality types render their data files",
-    },
-    {
-        "name": "Cmd+K からプロジェクトが検索できなくなる — 候補生成でプロジェクトを落とすと、パレットは**全ルートから開ける横断導線**なので「どこからでもプロジェクトへ飛べる」経路が丸ごと死ぬ。ナビ項目は残るので**パレット自体は正常に見える**",
-        "file": ROOT / "js" / "command-palette.js",
-        "find": "            .filter(p => p && p.slug && p.name && !_hidden.has(String(p.id)))",
-        "replace": "            .filter(() => false)",
-        "test": "Command palette searches projects and jumps to a project detail",
-    },
-    {
         "name": "矢印移動で aria-activedescendant が active option へ同期しなくなる — palette は focus を input に留めて ↑↓ で listbox を操作する combobox なので、**SR には activedescendant だけが「今どれが選ばれているか」を伝える**。視覚的なハイライトは残るため目視では気付けない (WCAG 4.1.2・#699)",
         "file": ROOT / "js" / "command-palette.js",
         "find": "        if (inputEl && activeLi && activeLi.id) { inputEl.setAttribute('aria-activedescendant', activeLi.id); }",
@@ -969,6 +927,16 @@ _E2E_TAIL.append({
     "find": "if (!addTask(_v)) { e.target.value = _v; }",
     "replace": "addTask(_v);",
     "test": "keeps the typed text when the add is refused by the cap",
+})
+
+_E2E_TAIL.append({
+    "name": "一時的な通信断から quiz が回復しなくなる —— 失敗した動的 import は module map に "
+            "キャッシュされ、以降の import はネットワークへ行かず即 reject する。別 URL での "
+            "再取得を外すと、開き直しても永久に失敗表示のまま (完全リロードしか直らない)",
+    "file": ROOT / "main.js",
+    "find": ").catch(() => _retryQuizData(type))",
+    "replace": ")",
+    "test": "recovers from a transient load failure by refetching under a new URL",
 })
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
