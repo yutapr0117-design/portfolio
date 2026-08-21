@@ -971,6 +971,22 @@ _E2E_TAIL.append({
     "test": "indigo ダークの全ページで color-contrast",
 })
 
+_E2E_TAIL.append({
+    "name": "nav リンクの aria-current が付かなくなる —— SR 利用者は「今どこにいるか」を失う。視覚は active スタイルが残るので目視でも screenshot でも気付けない (sidebar と drawer が同じ navLink を共有するため両方が同時に壊れる)",
+    "file": ROOT / "js" / "components.js",
+    "find": "'aria-current': item.active ? 'page' : undefined",
+    "replace": "'aria-current': undefined",
+    "test": "aria-current marks exactly the active nav item",
+})
+
+_E2E_TAIL.append({
+    "name": "Lab トグルの開閉状態が永続化されなくなる —— 開いておいた利用者はルート遷移やリロードのたびに畳まれた状態へ戻る。1 回の操作では気付けず「たまに閉じている」としか見えない",
+    "file": ROOT / "js" / "components.js",
+    "find": "            try { localStorage.setItem(labKey, String(next)); } catch { /* ignore */ }",
+    "replace": "            /* persistence removed */",
+    "test": "toggle flips aria-expanded",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
