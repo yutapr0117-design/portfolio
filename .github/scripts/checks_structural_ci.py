@@ -41,7 +41,12 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
       repo but to neither — the lint coverage and the syntax-check coverage would silently
       diverge, leaving a shipped file ungated with nothing to catch it. This makes the two
       lists' agreement, and their match to the actual shipped JS files (root ∪ js/), a
-      machine-enforced invariant. (BLOCKING)
+      machine-enforced invariant. 46c/46d additionally keep the syntax gate itself
+      non-vacuous: `lint:js` must route through .github/scripts/check_js_syntax.mjs, and must
+      never regress to the bare `node --check <file>` form — measured 2026-08-22, that form
+      silently exits 0 on 35 of the 40 shipped files (every file with ESM syntax), because
+      node parses .js as CommonJS, retries as a module when that fails, and then does not
+      report the module-parse SyntaxError. (BLOCKING)
   53. index.html modulepreload href resolution: every <link rel="modulepreload" href="..."> in
       index.html must resolve to a file that exists in the repository. This systematizes the
       dangling-preload 404 class — when js/quiz-data.js was split into js/quiz/*.js, the
@@ -249,8 +254,12 @@ def run(ctx):
         # that are NOT part of a flag value. Splitting on the first " --" isolates the file args.
         _lint_args46 = _lint_cmd46.split(" --", 1)[0]
         _lint_files46 = set(re.findall(r"([A-Za-z0-9_./-]+\.js)\b", _lint_args46))
-        # `lint:js` lists files as `node --check <file>` clauses.
-        _lintjs_files46 = set(re.findall(r"node\s+--check\s+([A-Za-z0-9_./-]+\.js)\b", _lintjs_cmd46))
+        # `lint:js` passes the same file set as arguments to the syntax-gate runner.
+        # (Historically these were `node --check <file>` clauses; see 46d for why that form
+        #  was removed — it silently passed every ESM file.)
+        _RUNNER46 = ".github/scripts/check_js_syntax.mjs"
+        _lintjs_args46 = _lintjs_cmd46.split(_RUNNER46, 1)[-1] if _RUNNER46 in _lintjs_cmd46 else ""
+        _lintjs_files46 = set(re.findall(r"([A-Za-z0-9_./-]+\.js)\b", _lintjs_args46))
         # Ground truth: every shipped *.js file on disk = root-level *.js ∪ js/**/*.js.
         # v80+ staged split: extracted modules live under js/ (Stage 2 js/pure-utils.js,
         # Stage 3 js/quiz-data.js, and future Stage 4/5 modules), so the shipped JS surface is
@@ -277,6 +286,31 @@ def run(ctx):
               "Check 46b: the lint script's JS file set does not match the repository's shipped "
               f"*.js files (root ∪ js/) — only in lint: {sorted(_lint_files46 - _disk_js46)}; "
               f"on disk but unlinted: {sorted(_disk_js46 - _lint_files46)}",
+              blocking=True)
+        # 46c — the syntax gate is actually WIRED: lint:js invokes the runner, and the runner
+        # exists. "存在 ≠ 配線" — a runner that is present but not called gates nothing, and the
+        # file list alone (46a/46b) cannot tell the difference.
+        check(_RUNNER46 in _lintjs_cmd46 and (ROOT / _RUNNER46).exists(),
+              f"Check 46c: package.json `lint:js` is wired to the syntax-gate runner ({_RUNNER46})",
+              f"Check 46c: package.json `lint:js` does not route through {_RUNNER46} "
+              f"(in script: {_RUNNER46 in _lintjs_cmd46}; on disk: {(ROOT / _RUNNER46).exists()}) "
+              "— the syntax gate is unwired and checks nothing",
+              blocking=True)
+        # 46d — never regress to the bare `node --check <file>` form. Measured 2026-08-22 on
+        # node v26.3.0: planting `let let = 1;` inside js/brand.js's createBrand body leaves
+        # `node --check js/brand.js` at rc=0, while `npm run lint` (ESLint) reports it at rc=1.
+        # node parses .js as CommonJS (package.json has no "type":"module"), retries as a module
+        # when that fails, and then exits 0 without reporting the module-parse SyntaxError. The
+        # one-line fix — adding "type":"module" — is not available here: all 62 e2e spec files
+        # use require(), so it would break the BLOCKING behavior gate. Hence the runner, and
+        # hence this guard against anyone "simplifying" back to the silent form.
+        _bare_check46 = re.findall(r"node\s+--check\s+([A-Za-z0-9_./-]+\.js)\b", _lintjs_cmd46)
+        check(not _bare_check46,
+              "Check 46d: package.json `lint:js` uses no bare `node --check <file>` clause "
+              "(that form silently exits 0 on every ESM file)",
+              "Check 46d: package.json `lint:js` contains bare `node --check` clause(s) for "
+              f"{sorted(set(_bare_check46))} — that form does NOT report syntax errors in files "
+              "with ESM syntax (it exits 0), so those files would be silently ungated",
               blocking=True)
     else:
         check(False, "",
