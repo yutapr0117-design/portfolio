@@ -337,6 +337,11 @@ test('Quiz contact form marks the offending field aria-invalid and focuses it (W
   expect(await page.evaluate(() => document.activeElement?.getAttribute('aria-label'))).toBe('お名前');
 
   // 名前だけ埋めて送信 → 名前のマークは外れ、メール側が不正として focus される
+  // NOTE: 2026-08-21 以降、`fill()` が発火する input イベントでも aria-invalid は落ちる
+  //   (下の「入力した瞬間に外れる」test を参照)。よってこの assertion は
+  //   **送信時の解除だけを切り分けてはいない** —— 利用者から見た契約
+  //   「直して送り直せばマークが外れている」は両経路のどちらでも成立するため、
+  //   ここではその契約を守る。入力時の解除そのものは下の test が単独で守る。
   await nameInput.fill('E2E-NAME');
   await page.getByRole('button', { name: '送信' }).click();
   await expect(nameInput).not.toHaveAttribute('aria-invalid', 'true');
@@ -345,6 +350,42 @@ test('Quiz contact form marks the offending field aria-invalid and focuses it (W
 
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `form error identification caused a fatal: ${fatal}`).toBeNull();
+});
+
+
+// ===== 修正した瞬間に aria-invalid が外れる (WCAG 3.3.1 / 状態の鮮度) =====
+// 上の test は「送信 → マーク」「直して再送信 → 解除」を見る。だが**直してから再送信するまでの
+// 間**、フィールドは「不正」のままだった (実測 2026-08-21: 空送信 → 正しい値を入力しても
+// aria-invalid=true が残る)。SR 利用者が直した欄へ戻ると **正しく直したのに「不正」と読まれ**、
+// 修正が効いたのか判別できない。
+//
+// 入力途中で「不正」と marking し直すのは敵対的なので **付けるのは送信時のみ・外すのは入力時**
+// という非対称が正しい (ARIA APG のフォーム検証の作法)。この test はその非対称を固定する。
+test('Quiz contact form clears aria-invalid as soon as the field is corrected (WCAG 3.3.1)', async ({ page }) => {
+  await page.goto('/#/quiz');
+  await page.waitForLoadState('domcontentloaded');
+
+  const nameInput = page.getByRole('textbox', { name: 'お名前' });
+  const emailInput = page.getByRole('textbox', { name: 'メールアドレス' });
+  await expect(nameInput).toBeVisible();
+
+  // control: そもそもマークが付かないと「外れること」を検証できない
+  await page.getByRole('button', { name: '送信' }).click();
+  await expect(nameInput, 'control: 空送信でマークが付いていない').toHaveAttribute('aria-invalid', 'true');
+  await expect(emailInput, 'control: 空送信でマークが付いていない').toHaveAttribute('aria-invalid', 'true');
+
+  // 入力しただけで (送信せずに) 当該フィールドのマークが外れる
+  await nameInput.fill('E2E-CORRECTED');
+  await expect(nameInput, '直したのに aria-invalid が残っている').not.toHaveAttribute('aria-invalid', 'true');
+  // 直していない側は残る (無条件に外していないこと = 一括解除への退行を捕捉)
+  await expect(emailInput, '直していない欄まで一緒に解除されている').toHaveAttribute('aria-invalid', 'true');
+
+  await emailInput.fill('e2e@example.com');
+  await expect(emailInput, '直したのに aria-invalid が残っている').not.toHaveAttribute('aria-invalid', 'true');
+
+  // 空に戻しても入力途中で「不正」とは marking しない (付けるのは送信時のみ)
+  await nameInput.fill('');
+  await expect(nameInput, '入力途中で不正マークを付け直している').not.toHaveAttribute('aria-invalid', 'true');
 });
 
 

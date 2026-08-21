@@ -304,6 +304,14 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
         const emailInput = h("input", { class: "input", type: "email", placeholder: "メールアドレス", autocomplete: "email", maxlength: 120, 'aria-label': 'メールアドレス', 'aria-required': 'true' });
         const messageInput = h("textarea", { class: "input textarea-resize-v", rows: 4, placeholder: "メッセージ（任意）", maxlength: 120, 'aria-label': 'メッセージ' });
 
+        // [A11Y 3.3.1] 付けるのは送信時のみ・**外すのは入力時** (理由は e2e/quiz.spec.js の
+        //   「clears aria-invalid as soon as the field is corrected」)。
+        [nameInput, emailInput].forEach((el) => {
+            el.addEventListener('input', () => {
+                if (el.value.trim()) { el.removeAttribute('aria-invalid'); }
+            });
+        });
+
         const submitBtn = h("button", {
             class: "btn btn-primary",
             onclick: () => {
