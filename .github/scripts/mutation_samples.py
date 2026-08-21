@@ -963,6 +963,14 @@ _E2E_TAIL.append({
     "test": "Full reset clears pomodoro / quiz search / notes together",
 })
 
+_E2E_TAIL.append({
+    "name": "ダークテーマの前景トークン (--on-tint-success) が暗背景に暗い色になる —— 全ブランド x ダークの全ページでコントラストが落ちるが、既定のライトでは何も起きないので気付きにくい",
+    "file": ROOT / "style.css",
+    "find": """                --on-tint-success: #4ade80;""",
+    "replace": """                --on-tint-success: #1f3d2a;""",
+    "test": "indigo ダークの全ページで color-contrast",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
