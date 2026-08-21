@@ -971,6 +971,14 @@ _E2E_TAIL.append({
     "test": "Pomodoro reset button restores full duration and stops",
 })
 
+_E2E_TAIL.append({
+    "name": "「全リセット」が appsData しか戻さない部分リセットへ退行 —— 利用者は全領域の初期化を求めているのに projects / projectPrefs / profile が残る。非表示は既定プロジェクト唯一の非公開手段なので、戻らないと意図的に隠したものが公開状態のまま残る",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "            State.set(Store.createDefaultStore());",
+    "replace": "            State.update(s => { s.appsData = Store.createDefaultStore().appsData; });",
+    "test": "Reset data restores defaults after confirm",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
