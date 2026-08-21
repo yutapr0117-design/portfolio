@@ -119,6 +119,16 @@ export const Router = (() => {
         location.hash = '#/' + (path || '');
     }
 
+    // [FIX] agentic surface (`body[data-ai-state]`) の `filter` の **単一ソース**。
+    //   書き手は 3 箇所 (ここと main.js の描画前/描画後) あり、従来は render 側が `''` を
+    //   ハードコードしていたため filter は情報を運べていなかった。URL を唯一の真値にする。
+    //   実測と壊れ方は e2e/aio-meta.spec.js の 7.1c を読め。
+    function getFilterString() {
+        const raw = (location.hash || '').replace(/^#\/?/, '');
+        const i = raw.indexOf('?');
+        return i === -1 ? '' : raw.slice(i + 1);
+    }
+
     // [FIX] hashchangeイベントを発火させずにURLを静かに書き換える（Focus Loss防止）
     function replaceSilently(path) {
         if (typeof path === 'string' && path.includes('#')) {
@@ -145,7 +155,7 @@ export const Router = (() => {
             currentRoute = _r;
             document.body.setAttribute('data-ai-state', JSON.stringify({
                 route: _r.name || 'home',
-                filter: (path && path.split('?')[1]) || '',
+                filter: getFilterString(),
                 loading: false
             }));
         } catch (_) {}
@@ -204,6 +214,7 @@ export const Router = (() => {
         replaceSilently,
         subscribe,
         parse: _parseRoute,
+        getFilterString,
         // 詳細ページの「一覧に戻る」用。絞り込みを保持したまま一覧へ戻すための単一ソース。
         getLastListPath: () => _lastListPath
     };

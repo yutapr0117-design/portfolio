@@ -717,7 +717,8 @@
                 content.setAttribute('aria-busy', 'true');
                 document.body.setAttribute('data-ai-state', JSON.stringify({
                     route: route.name || 'home',
-                    filter: '',
+                    // [FIX] 従来は `''` 決め打ちで絞り込みを宣言できなかった (router の単一ソースへ)。
+                    filter: Router.getFilterString(),
                     loading: true
                 }));
             }
@@ -871,7 +872,8 @@
                 if (content) {content.setAttribute('aria-busy', 'false');}
                 document.body.setAttribute('data-ai-state', JSON.stringify({
                     route: route.name || 'home',
-                    filter: '',
+                    // [FIX] ここが `''` を書き戻し、直前の正しい query を毎回消していた。
+                    filter: Router.getFilterString(),
                     loading: false
                 }));
             });

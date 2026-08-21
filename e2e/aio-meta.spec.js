@@ -428,6 +428,72 @@ test('Body data-ai-state keeps a clean route name after a silent projects filter
 });
 
 
+// ===== 7.1c: data-ai-state.filter が **確定後**も URL の絞り込みを表すこと =====
+// 上の 7.1b は `expect.poll(...filter).toContain('q=AI')` で「いつか正しい値になる」ことを
+// 見る。だが `filter` の書き手は 3 箇所あり、**正しい値が一過性で上書きされる**という
+// 壊れ方をしていた。実測 (2026-08-21) の書き込み系列:
+//
+//   {filter:"", loading:true} → {filter:"q=AI"} → {filter:"", loading:false}
+//                                  ↑ poll はここで成功して緑になる  ↑ 実際に残るのはこれ
+//
+// つまり **7.1b はバグがある状態でも通る** (修正を戻して実測済み)。さらに悪いことに、
+// `#/projects?q=AI` を**直接開いた**場合 (ブックマーク / 共有リンク / エージェントの追跡) は
+// 正しい値が一度も書かれず、18 件中 4 件に絞られているのに「絞り込みなし」と宣言していた。
+// 原因は render パス (main.js の描画前 / 描画後) が `filter: ''` をハードコードしていたこと。
+//
+// この test は **確定後の値を 1 度だけ読み、さらに安定していること**まで見る
+// (CLAUDE.md §7: 変化の検査には poll、不変性の検査には settle 後に 1 度読む)。
+//
+// 登録した mutation は router の単一ソース `getFilterString` を潰すもの 1 件だけ。
+// 実測した帰属 (2026-08-21):
+//   - router の getFilterString を空に        → RED
+//   - main.js の **描画後** rAF を `''` に戻す → RED
+//   - main.js の **描画前** (loading:true) だけを `''` に戻す → **緑**
+// 3 つ目は「その直後に描画後の writer が正しい値で上書きする」ため単一 mutation では
+// 原理的に RED にできない (defense-in-depth ゆえの構造的制約で、test が vacuous なわけ
+// ではない)。RED を実測できないものは安全網に混ぜない (#1096 の reduced-motion と同型)。
+test('data-ai-state.filter は確定後も URL の絞り込みを表す (機械可読面の単一ソース)', async ({ page }) => {
+  const stateOf = () => page.evaluate(() => {
+    try { return JSON.parse(document.body.getAttribute('data-ai-state')); } catch { return null; }
+  });
+  // **変化を待ってから、確定していることを確かめる** の 2 段。
+  //   前段の poll が無いと stale な値を掴む —— 実測 (2026-08-21): `#/projects?q=AI` から
+  //   `#/projects` への同一文書遷移では `article` の可視も `aria-busy='false'` も
+  //   **前の描画の値で満たされる**ため、直前ルートの `q=AI` を「確定値」と誤読した
+  //   (CI 負荷下でのみ再現。ローカル単独では新描画が先に終わって隠れる)。
+  //   後段の停止確認が無いと一過性の値で緑になる (それが本 test の動機そのもの)。
+  const settledFilter = async (expected, label) => {
+    await expect.poll(async () => (await stateOf())?.filter,
+        { message: `${label}: filter が期待値に到達しない` }).toBe(expected);
+    await page.waitForTimeout(400);
+    expect(await page.evaluate(() => {
+      try { return JSON.parse(document.body.getAttribute('data-ai-state')).filter; } catch { return null; }
+    }), `${label}: filter が一過性で上書きされた`).toBe(expected);
+  };
+
+  // --- A: 直接 URL (正しい値が一度も書かれなかった経路) ---
+  await page.goto('/#/projects?q=AI', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content .grid-projects article').first()).toBeVisible();
+  const shown = await page.locator('#content .grid-projects article').count();
+  const total = 18;
+  // control: 実際に絞り込まれていなければ「絞り込みを表す」ことを検証できない
+  expect(shown, `control: q=AI で絞り込めていない (${shown} 件)`).toBeLessThan(total);
+  await settledFilter('q=AI', 'A 直接 URL で開いた絞り込み');
+
+  // --- B: 検索欄への入力 (正しい値が一過性で上書きされていた経路) ---
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content .grid-projects article').first()).toBeVisible();
+  await settledFilter('', 'control: 絞り込み前');
+  await page.getByPlaceholder(/検索|search/i).first().fill('AI');
+  await expect.poll(async () => page.evaluate(() => location.hash)).toContain('q=AI');
+  await settledFilter('q=AI', 'B 入力後の絞り込み');
+
+  // --- C: 絞り込みの無いルートでは空 (何かを常に入れているだけ、を排除する) ---
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+  await settledFilter('', 'C 絞り込みの無いルート');
+});
+
 // ===== 7.2: prefers-reduced-motion でのナビゲーション (WCAG 2.3.3 / 前庭安全) =====
 // main.js は prefers-reduced-motion: reduce のとき View Transition を完全スキップする専用経路を
 // 持つ (doc b §13.1 二重防衛)。この distinct code path でもナビゲーションが機能し (#content 更新・
