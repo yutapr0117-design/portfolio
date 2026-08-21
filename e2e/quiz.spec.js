@@ -207,15 +207,23 @@ test('Quiz data is fetched only when the quiz is opened, and only the requested 
 //
 // 併せて「失敗しても FatalPage へ落ちない」ことも見る。`_filterBy` はデータ未着を空集合として
 // 扱う総関数にしてあるが、そこが throw する形へ退行すると **ページ全体が表示不能**になる。
-// ===== オフラインでも枠は出て、失敗は伝わる (遅延読み込みのトレードオフを明示する) =====
+// ===== 通信が落ちても枠は出て、失敗は伝わる (遅延読み込みのトレードオフを明示する) =====
 // **これは遅延読み込み (#1239) が持ち込んだトレードオフの記録でもある。** 静的 import だった頃は
-// home を開いた時点で SW の SWR が問題集データもキャッシュしたので、その後オフラインになっても
-// quiz は開けた。動的 import にしたことで「一度も quiz を開いていない訪問者がオフラインになると
-// 問題を読めない」状態が生まれる。
+// home を開いた時点で問題集データも取得済みだったので、その後オフラインになっても quiz は開けた。
+// 動的 import にしたことで「一度も quiz を開いていない訪問者が通信を失うと読めない」状態が生まれる。
 //
 // 130,595 bytes を全訪問者のクリティカルパスから外す価値の方が明確に大きいと判断したうえで、
-// **その代わりに「黙って空にしない」ことを保証する**。SW が shell を返すので見出しと検索欄は出て、
-// データだけが失敗として伝わる —— この形が崩れていないことを固定する。
+// **その代わりに「黙って空にしない」ことを保証する**のがこの test。
+//
+// [訂正 2026-08-21] 当初この comment は「**SW が shell を返すので**枠は出る」と書いていたが
+// **誤りだった**。実測すると (a) `caches.keys()` は空 —— この SW は AIO 目的で fetch を
+// 介在させるだけで **shell をキャッシュしない** (b) オフラインで**完全リロードすると
+// `ERR_INTERNET_DISCONNECTED` で失敗する** —— **このサイトはオフライン対応ではない**。
+// 枠が出るのは `#/quiz` への遷移が **同一文書の hash 変更**でリロードを伴わず、shell が
+// 既にメモリ上にあるから。**誤った前提の comment は次に読む人を誤らせる**ので訂正する
+// (§7)。裏付けは `docs/files/sw.js.md` (「app shell を意図的にキャッシュしない設計」と明記)。
+// したがってこの test が守るのは「オフラインでも動く」ではなく
+// **「通信が落ちた状態でデータ取得だけが失敗したとき、黙って空にせず伝える」**。
 // ===== 読み込み中に入力した検索語が捨てられない (遅延読み込みが持ち込んだ race) =====
 // 遅延読み込み (#1239) で「データが来るまでの窓」が生まれた。その窓の間に検索欄へ入力できて
 // しまう —— 見出しと検索欄は**同期に描かれる**設計なので、これは利用者にとって自然な操作。
@@ -271,17 +279,19 @@ test('Quiz degrades gracefully when opened offline (lazy-load trade-off is expli
   await page.waitForLoadState('domcontentloaded');
   await expect(page.locator('#content h1').first()).toBeVisible();
 
-  // control: SW が実際に制御していること (していなければ以下は「ただの通信失敗」を見るだけになる)
-  await expect.poll(async () => page.evaluate(
-    () => !!(navigator.serviceWorker && navigator.serviceWorker.controller)
-  ), { message: 'control: SW が制御していない — オフライン経路を検証できない' }).toBe(true);
+  // control: shell が既に読み込まれていること (これが無いと「そもそもページが無い」状態と
+  //   「データ取得だけ失敗」を取り違える。SW は shell をキャッシュしないので、
+  //   ここで頼れるのは **同一文書のまま遷移すること** だけ)。
+  await expect(page.locator('.hero-section'),
+    'control: shell が読み込まれていない — データ取得だけの失敗を検証できない').toBeVisible();
 
   await context.setOffline(true);
   try {
     await page.goto('/#/quiz');
     await page.waitForLoadState('domcontentloaded');
 
-    // SW が shell を返すので枠は出る
+    // 枠は出る —— 同一文書のまま遷移するので shell はメモリ上にある
+    //   (SW は shell をキャッシュしない: docs/files/sw.js.md §How)
     await expect(page.locator('#content h1', { hasText: 'AWS問題集' })).toBeVisible();
     // データは失敗として伝わる (黙って空にしない)
     await expect(page.locator('#content [role="alert"]')).toContainText('読み込みに失敗');
