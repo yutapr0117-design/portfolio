@@ -229,6 +229,13 @@ _MUTATIONS_TAIL.append({
     "replace": "'/#/apps/pomodoro', '/#/apps/settings', '/#/quiz'",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 440: コード側から docs/ への参照が腐る —— 「詳細はこの doc を読め」という読者の導線が行き止まりになるが、コメントなので lint も test も気付かない",
+    "file": ROOT / "playwright.config.cjs",
+    "find": "docs/files/playwright.config.cjs.md",
+    "replace": "docs/files/playwright.config.cjs.MISSING.md",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
