@@ -980,3 +980,21 @@ Task            : 「無限軽量改善自走ループ」の継続。前 run が
 - **計測系を 3 回疑い 3 回とも当たった。** 復元/取り込み直後の localStorage は **debounce 保存前の古い値**（2 度踏んだ）／`npx eslint` の直呼びは lint 対象外 config を使う（権威は `npm run lint`）／`_keptOwn` の初回計測でキー順の影響を見落としかけた。
 - **main を PR ブランチへ merge すると rebase merge が使えなくなる。** force-push は deny なので、**新ブランチへ cherry-pick して出し直す**（#1179 → #1181）。
 - **Check が自分のリファクタを捕まえる。** #1186 では Check 362 が orphan 化した mutation anchor を **5 件**検出した（mutation-probe は CI 非実行ゆえ、この Check だけが anchor 整合を守る）。
+
+## [HANDOFF] Session Record #27 — 2026-08-21 (Claude Opus 5, 「その gate は実際に何を見ているのか」)
+
+**詳細は `docs/incident-artifacts/improvement-notes-claude-v80-phase4-gate-truth-audit.md`**（本節は要点のみ。
+本ファイルは Check 365 の 1,000 行 BLOCKING が近いので以後も「要点＋ポインタ」で書く。rotate は退避先自身が
+1,000 行超になり manifest の収録範囲記述が C6 に触れるため撤回＝設計が要る）。PR #1224〜#1234・main 全緑。
+
+- **🔴 実バグ 5 件**: WCAG 2.5.3 ゲートが存在しないルート (`/#/apps/settings` → NotFound) を走査し
+  **本物の Settings を一度も検査していなかった**（#1231・Check 439 で構造封じ）／agentic surface の
+  `filter` が 3 writer 不一致で**情報を運べていなかった**（#1226）／0 件経由で projects のリスト意味論が
+  復帰せず孤児化（#1224）／検証エラー marking が直した後も残る（#1232 quiz・#1233 Settings を**対で**）／
+  quiz 検索語が上限で黙って切られる（#1234）。
+- **🟢 ゲート強化 4 件**: 公開面 sha256 照合を 3 → 37 件（絞る根拠を実測で反証）／best-practice 違反の
+  baseline 新設／llms-full.txt「Layer 3」契約の BLOCKING 化／「条件を作らずに検証していた」test 2 件の強化。
+  併せて週次 probe で **consistency 328 / behavior 357 全件 caught** を実 CI 実証。
+- **教訓**: 書かれた根拠は「書かれた時点では正しかった」だけかもしれない（Stage 5 の抽出で sha256 を 3 件に
+  絞る根拠が失効）／同じ責務は対で確認／修正はテストを**鈍らせる**／**測定系を 5 回疑い 5 回とも当たった**。
+
