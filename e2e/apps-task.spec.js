@@ -540,6 +540,18 @@ test('Task move buttons expose an aria-label describing their purpose for screen
   const inProgressCol = page.locator('section').filter({ has: page.getByRole('heading', { name: '進行中' }) });
   await expect(inProgressCol.getByText('A11Y-MOVE-BTN-9021')).toBeVisible();
 
+  // [A11Y 2.5.3] 矢印は **装飾として aria-hidden** にする。素のテキストノードのままだと
+  //   「可視ラベル」が「→」になり、accessible name (aria-label) に含まれない不一致になる。
+  //   実測 (2026-08-21): 全 16 ルートで**記号だけのボタンはこの 4 つだけが装飾化されておらず**、
+  //   Settings の並べ替え (#1085) は `<span aria-hidden="true">↑</span>` の house pattern だった
+  //   —— 同じ責務なのに片方だけ外れていた。axe の label-content-name-mismatch は記号を
+  //   flag しないため、a11y スキャンでは永久に出ない面。
+  const arrowKind = await page.getByRole('button', { name: '次のステータスへ進める' }).first()
+    .evaluate((b) => Array.from(b.childNodes).map((n) => (n.nodeType === 1
+      ? `el:${n.getAttribute('aria-hidden')}` : `text:${(n.textContent || '').trim()}`)).join(','));
+  expect(arrowKind, '矢印が装飾 (aria-hidden) になっていない — 可視ラベルと名前が食い違う')
+    .toBe('el:true');
+
   const fatal = await page.evaluate(() => (window.__fatalError ? window.__fatalError.message : null));
   expect(fatal, `task move btn a11y caused a fatal: ${fatal}`).toBeNull();
 });

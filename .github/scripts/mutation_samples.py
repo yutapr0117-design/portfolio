@@ -976,6 +976,14 @@ _E2E_TAIL.append({
     "test": "BGM toggle syncs aria-pressed and aria-label with playback state",
 })
 
+_E2E_TAIL.append({
+    "name": "タスク移動ボタンの矢印が装飾 (aria-hidden) でなくなる —— 可視ラベルが「→」になり accessible name (aria-label) に含まれない不一致 (WCAG 2.5.3)。axe は記号を flag しないので a11y スキャンでは永久に出ない",
+    "file": ROOT / "js" / "apps.js",
+    "find": "}, h('span', { 'aria-hidden': 'true' }, '\u2192'))",
+    "replace": "}, '\u2192')",
+    "test": "Task move buttons expose an aria-label describing their purpose",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
