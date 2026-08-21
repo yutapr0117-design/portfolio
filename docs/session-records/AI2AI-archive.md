@@ -1,6 +1,13 @@
 # AI2AI Session Record Archive
 
-> **NOTE:** This file is the archive of past Session Records from AI2AI.md (Sessions #5–#11).
+> **NOTE:** This file is the archive of past Session Records from AI2AI.md (Sessions #5–#14).
+>
+> 2026-08-21: 記載は長らく「#5–#11」だったが、**実際には #14 まで入っていた** (実測)。
+> 追記したのに範囲を更新し忘れた drift なので、実態へ是正した。
+> **追記したら必ずこの範囲も更新すること。**
+>
+> 続きの #15–#19 は `AI2AI-archive-2.md` にある
+> (本ファイルは 858 行で、280 行の #15–#19 を足すと 1,000 行 BLOCKING を超えるため)。
 > Sessions #1–#4 and older protocol notes are in `AI2AI-archive-old.md`.
 > The canonical handoff document is `AI2AI.md`.
 > Records here are read-only — do not modify past session content.
