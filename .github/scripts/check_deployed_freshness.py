@@ -235,13 +235,30 @@ def _check_shipped_bytes(base):
     (ローカルの成果物を見ているので) すべて緑のままになる。
 
     AIO 面 (llms.txt 等) は `_check_digests` が sha256 で見ているので、同じ考えを
-    **shipped 面へ広げる**。対象は「壊れると全ページに影響する」中核だけに絞る
-    (全 js/*.js を舐めると週次ジョブが遅くなるうえ、中核が一致していれば
-    部分デプロイはほぼ確実に検出できる)。
+    **shipped 面へ広げる**。
+
+    [FIX] 対象は shipped な **全** JS + CSS。以前は style.css / main.js / sw.js の 3 件だけで、
+    その根拠を「全 js/*.js を舐めると週次ジョブが遅くなる / 中核が一致していれば部分デプロイは
+    ほぼ確実に検出できる」と書いていたが、**どちらも実測で反証された** (2026-08-21):
+
+      - 所要: 全 37 件を fetch + sha256 して **4.1 秒**。週次ジョブに対して無視できる。
+      - 被覆: Stage 5 で main.js は 7,785 → 1,000 行台まで縮み、ロジックは
+        **34 個の葉モジュールへ移った**。つまり「中核 3 件が一致していれば安心」は
+        抽出が進むほど成り立たなくなる前提だった。例えば js/store.js (全 ingestion が
+        通る正規化) や js/settings-io.js (バックアップの入出力) が古いまま配信されても、
+        index.html も main.js も style.css も一致するので **検出できない**。
+        サイトは普通に読み込めてしまい、リポジトリ側の Check も behavior e2e も
+        (ローカルの成果物を見ているので) 緑のまま = 完全に silent。
+
+    「一般論を根拠にコードを足すな / 削るな —— 必要性は実測で示せ」(CLAUDE.md §7) を
+    自分たちの rationale にも適用した結果の是正。
     """
     import hashlib
 
-    targets = ["style.css", "main.js", "sw.js"]
+    targets = ["style.css", "main.js", "sw.js"] + sorted(
+        str(p.relative_to(ROOT)) for p in
+        list((ROOT / "js").glob("*.js")) + list((ROOT / "js" / "quiz").glob("*.js"))
+    )
     bad = []
     for name in targets:
         local = ROOT / name
