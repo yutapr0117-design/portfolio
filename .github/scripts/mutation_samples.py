@@ -939,6 +939,14 @@ _E2E_TAIL.append({
     "test": "0 件を経由して結果が戻るとリストが復帰する",
 })
 
+_E2E_TAIL.append({
+    "name": "新しい best-practice 違反が silent に入る —— home のヒーローカードの role を region から listitem へ変えると ARIA in HTML 非適合 (article に listitem は許されない) になるが、WCAG タグの allowlist ゲートは best-practice を丸ごと捨てるため、この baseline 層が無いと永久に無音",
+    "file": ROOT / "js" / "home-page.js",
+    "find": "h('article', { class: 'card card--accent-top', role: 'region', 'aria-label': ",
+    "replace": "h('article', { class: 'card card--accent-top', role: 'listitem', 'aria-label': ",
+    "test": "best-practice 違反は既知の 1 パターンだけ",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
