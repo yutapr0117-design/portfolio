@@ -958,6 +958,15 @@ _E2E_TAIL.append({
     "test": "Quiz announces the loading window with aria-busy",
 })
 
+_E2E_TAIL.append({
+    "name": "quiz データの読み込み失敗が無音になる —— 遅延読み込み化で新しく生まれた経路。何も出さないと利用者には「問題が 0 件の問題集」と区別が付かず、通信を直せば直る話なのに壊れているのか判らない",
+    "file": ROOT / "js" / "quiz-renderer.js",
+    "find": """            listHost.appendChild(h("div", { class: 'card panel-empty', role: 'alert' },
+                '問題の読み込みに失敗しました。通信状況を確認して再読み込みしてください。'));""",
+    "replace": "            /* silent */",
+    "test": "Quiz reports a failed data load",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
