@@ -233,48 +233,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "タスクのステータス移動が SR へ無音に戻る — カードは別の列へ動くが、ボタンのアクセシブル名 (「次のステータスへ進める：<タスク名>」) は変わらないので、SR 利用者には **クリックが効いたのかどうかも分からない** (WCAG 4.1.3)。追加・削除は Toast 経由で通知されるのに移動だけ無音、という非対称だった",
-        "file": ROOT / "js" / "apps.js",
-        "find": "                announce(`\u300c${task.title}\u300d\u3092${TASK_STATUS_LABEL[next]}\u3078\u79fb\u52d5\u3057\u307e\u3057\u305f`);\n",
-        "replace": "",
-        "test": "タスクのステータス移動がスクリーンリーダーに通知される",
-    },
-    {
-        "name": "プロジェクト並べ替えの SR 通知が無音に戻る — ボタンのアクセシブル名 (「下へ移動：<名前>」) は移動後も変わらず focus も同じボタンへ戻るので、SR 利用者には **押しても何も起きていないのと区別がつかない** (WCAG 4.1.3)。一覧を見渡せない利用者にとって「何番目へ動いたか」は唯一の手がかり",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "                moved = { name: temp.name, pos: idx + dir + 1, total: s.projects.length };\n",
-        "replace": "",
-        "test": "プロジェクトの並べ替えがスクリーンリーダーに通知される",
-    },
-    {
-        "name": "Speakable の cssSelector が実在しない要素を指す — 音声アシスタント向けの構造化データで、解決しないセレクタを宣言すると **読み上げる箇所が無い**まま「ここを読め」と主張することになる。視覚にも behavior にも一切出ないので、この AIO 精度テスト以外に捕捉層が無い (#929 の『機械向け宣言が一度も成功していなかった』class)",
-        "file": ROOT / "js" / "meta-management.js",
-        "find": "            'home':        ['h1', '[data-speakable]', '.sr-only[data-ai-entity]'],",
-        "replace": "            'home':        ['h1', '.hero-tagline-missing', '.sr-only[data-ai-entity]'],",
-        "test": "Home Speakable cssSelectors all resolve to real elements (AIO accuracy)",
-    },
-    {
-        "name": "AIO asset anchor が可視化する — hidden を外すと、AI クローラ向けの生のエンティティ記述 (Canonical Entity: … / Role: … など 1,300 文字超) が **全ページの本文として利用者に見えてしまう**。screenshot は ADVISORY なので気付けない",
-        "file": ROOT / "index.html",
-        "find": '<div id="aio-asset-anchor" hidden aria-hidden="true"',
-        "replace": '<div id="aio-asset-anchor" aria-hidden="true"',
-        "test": "AIO asset anchor must be hidden (non-visual)",
-    },
-    {
-        "name": "テーマ選択が永続化されなくなる — cycle() の updateSilently を外すと、切り替えた直後は正しく見えるのに **reload すると元に戻る**。「設定したのに戻っている」という形で出るので、利用者は自分の操作ミスと区別できない",
-        "file": ROOT / "js" / "theme.js",
-        "find": "        State.updateSilently(s => s.theme = next);",
-        "replace": "",
-        "test": "Theme toggle cycles data-theme and persists across reload",
-    },
-    {
-        "name": "theme='system' が OS のテーマ変更に追従しなくなる — matchMedia の change リスナーが state を見なくなると、OS をダークへ切り替えてもサイトはライトのまま。**リロードするまで直らない**ので、利用者からは「追従が壊れている」ではなく「たまに合わない」と見える",
-        "file": ROOT / "js" / "theme.js",
-        "find": "            if (State.get().theme === 'system') {",
-        "replace": "            if (false) {",
-        "test": "Theme \"system\" follows runtime OS color-scheme changes",
-    },
-    {
         "name": "startViewTransition proxy が install されなくなる — proxy は『executeSafeTransition を経由せず素の API を直接呼ぶ実装』でも try/catch + timeout + reduced-motion が効くようにするための層 (Check 43b が名前の存在を BLOCKING 監視するが、**install されているかまでは見ない**)。抜けると ErrorBoundary (C3) の保証がその経路から漏れる",
         "file": ROOT / "main.js",
         "find": "            if (!document.startViewTransition) { return; } // 未対応環境はスキップ",
@@ -990,6 +948,14 @@ _E2E_TAIL.append({
     "find": "                type === 'pm' ? import('./js/quiz/pm-quiz-data.js').then(m => m.pmQuizData)",
     "replace": "                type === 'pm' ? Promise.all([import('./js/quiz/aws-quiz-data.js'), import('./js/quiz/quality-quiz-data.js')]).then(() => import('./js/quiz/pm-quiz-data.js')).then(m => m.pmQuizData)",
     "test": "Quiz data is fetched only when the quiz is opened",
+})
+
+_E2E_TAIL.append({
+    "name": "quiz の読み込み中 aria-busy が消える —— 視覚的には「読み込んでいます…」と見えるが SR には「まだ来ていない」ことが伝わらない。遅延読み込み化で生まれた窓なので、遅延を作らないと検証すらできない面",
+    "file": ROOT / "js" / "quiz-renderer.js",
+    "find": "        listHost.setAttribute('aria-busy', 'true');\n",
+    "replace": "",
+    "test": "Quiz announces the loading window with aria-busy",
 })
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
