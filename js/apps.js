@@ -69,13 +69,14 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
 
     function TaskPage() {
 
+        // 追加できたら true。呼び出し側は false のとき入力欄を復元する (下の onkeydown を参照)。
         function addTask(title) {
-            if (!title.trim()) {return;}
+            if (!title.trim()) {return false;}
             // [FIX] 上限時は断る。従来は unshift 後の正規化 slice(0, MAX) が
             //   **最古のタスクを無通知で捨てていた**（実測 2026-08-18）。詳細は apps-task.spec.js。
             if (State.get().appsData.tasks.length >= CONSTANTS.LIMITS.MAX_TASKS) {
                 Toast.show(`タスクは ${CONSTANTS.LIMITS.MAX_TASKS} 件までです。不要なタスクを削除してください`, 'error');
-                return;
+                return false;
             }
             State.update(s => {
                 s.appsData.tasks.unshift({
@@ -89,6 +90,7 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                 });
             });
             Toast.show('タスクを追加しました', 'success');
+            return true;
         }
 
         function updateTask(id, updates) {
@@ -165,9 +167,14 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                                 //   Enter を続けて押す / 押しっぱなしでキーリピートが走ると
                                 //   **同じ値が何度も登録される** (実測: 3 回押して 3 件の同名タスク)。
                                 //   空文字は addTask の空ガードが弾くので、2 回目以降は無害になる。
+                                // [FIX] **追加できたときだけ**消す。従来は無条件にクリアしてから
+                                //   addTask を呼んでいたため、上限 (MAX_TASKS) に達していると
+                                //   「不要なタスクを削除してください」と言われた時点で
+                                //   **打ったタスク名が既に失われていた** (実測: 500 件の状態で
+                                //   Enter → toast は出るが入力欄は空)。断られた側は打ち直しになる。
                                 const _v = e.target.value;
                                 e.target.value = '';
-                                addTask(_v);
+                                if (!addTask(_v)) { e.target.value = _v; }
                                 // 全体再描画の直後にフォーカスを復元し、連続入力を可能にする
                                 setTimeout(() => document.getElementById('task-input')?.focus(), 0);
                             }
@@ -367,12 +374,13 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
 
     function TodoPage() {
 
+        // 追加できたら true (addTask と同契約)。
         function addTodo(text) {
-            if (!text.trim()) {return;}
+            if (!text.trim()) {return false;}
             // [FIX] task の addTask と同じ理由で上限時は断る（正規化が最古を無通知で落とす）。
             if (State.get().appsData.todos.length >= CONSTANTS.LIMITS.MAX_TODOS) {
                 Toast.show(`TODO は ${CONSTANTS.LIMITS.MAX_TODOS} 件までです。不要な TODO を削除してください`, 'error');
-                return;
+                return false;
             }
             State.update(s => {
                 s.appsData.todos.unshift({
@@ -387,6 +395,7 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
             //   欠落し、SR ユーザーに追加成功が伝わらず (Toast は #action-announcement へ書き込むため無通知)、
             //   視覚フィードバックも task と非対称だった (「1 ケースだけ処理・他を忘れる」asymmetry)。
             Toast.show('TODOを追加しました', 'success');
+            return true;
         }
 
         function toggleTodo(id) {
@@ -455,9 +464,10 @@ export function createApps({ h, createIcon, Toast, State, CONSTANTS, generateId,
                         onkeydown: (e) => {
                             if (e.key === 'Enter' && !todoComposing) {
                                 // [FIX] task 側と同じ理由で同期クリアする (連打・キーリピートでの二重登録防止)。
+                                // [FIX] task 側と同じく **追加できたときだけ**消す (上限時の入力消失)。
                                 const _v = e.target.value;
                                 e.target.value = '';
-                                addTodo(_v);
+                                if (!addTodo(_v)) { e.target.value = _v; }
                                 // 全体再描画の直後にフォーカスを復元
                                 setTimeout(() => document.getElementById('todo-input')?.focus(), 0);
                             }
