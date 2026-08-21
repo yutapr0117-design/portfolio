@@ -955,6 +955,14 @@ _E2E_TAIL.append({
     "test": "data-ai-state.filter は確定後も URL の絞り込みを表す",
 })
 
+_E2E_TAIL.append({
+    "name": "hero 画像の entity 属性 (data-ai-context) が render から落ちる —— llms-full.txt は Layer 3 として `<audio>` と hero `<img>` が同じ 4 属性を持つと宣言しているが、属性は視覚に出ず hero は JS 描画ゆえ静的 grep でも守れない。落ちても llms-full.txt だけが嘘を言い続ける",
+    "file": ROOT / "js" / "home-page.js",
+    "find": "                                'data-ai-context':",
+    "replace": "                                'data-ai-ctx-typo':",
+    "test": "llms-full.txt が宣言する資産の entity 属性が実際の DOM に載っている",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
