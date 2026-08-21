@@ -240,48 +240,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "ポモドーロ設定の label が宙に浮く — `for` を外すと **ラベル文字をクリック/タップしても何も起きず**、タップ標的も縮む。入力欄側に aria-label があるため **axe は緑のまま**で、#1014 で 6 個まとめて直した class の再混入をこのテストだけが捕捉する",
-        "file": ROOT / "js" / "pomodoro-page.js",
-        "find": ", for: 'pomo-setting-work' }",
-        "replace": " }",
-        "test": "ポモドーロに宙に浮いた label が無い",
-    },
-    {
-        "name": "壊れた JSON の取り込みが無言で失敗する — catch の通知を消すと、パースに失敗しても **何も起きない**。利用者はファイルを選んだのに成功も失敗も告げられず、取り込めたのか分からないまま放置される (silent failure。crash しないこと自体は保たれるので FatalPage 検査では捕捉できない)",
-        "file": ROOT / "js" / "settings-io.js",
-        "find": "            } catch (err) {\n                Toast.show('JSON\u306e\u30d1\u30fc\u30b9\u306b\u5931\u6557\u3057\u307e\u3057\u305f', 'error');\n            }",
-        "replace": "                } catch (err) {\n                }",
-        "test": "Settings import shows an error for malformed JSON file without crashing",
-    },
-    {
-        "name": "quiz 検索の空状態が消える — 一致ゼロのとき何も描画されなくなり、**真っ白な一覧**になる。利用者には「検索が壊れた」のか「一致が無い」のか区別できず、0 件であることすら分からない (#892 で実バグ化した『切替先が空ページ』と同じ面)",
-        "file": ROOT / "js" / "quiz-renderer.js",
-        "find": "                listHost.appendChild(h(\"div\", { class: 'card panel-empty' },\n                    '\u300c' + query + '\u300d\u306b\u4e00\u81f4\u3059\u308b\u554f\u984c\u306f\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f\u3002'));",
-        "replace": "",
-        "test": "Quiz search filters question blocks and shows empty state on no match",
-    },
-    {
-        "name": "architecture quiz の stakeholder ゾーンが描画されなくなる — 最大のコンテンツ面 (24,500 文字) の構造化ゾーンが消えても、他の章は普通に見えるので **一覧としては壊れて見えない**。#285 で『画面に見えるのに検索できない』を直した面そのもので、今度は『検索できるのに画面に無い』方向の退行を捕捉する",
-        "file": ROOT / "js" / "quiz-renderer.js",
-        "find": '                        const shList = h("div", { role: "list", style: "display: contents;" });',
-        "replace": '                        const shList = h("div", { style: "display: none;" });',
-        "test": "Quiz architecture type renders structured stakeholder/question zones (?type query)",
-    },
-    {
-        "name": "role-split Speakable が dead class へ戻る — `#role-split-table` (実在 id) を `.role-split-table` (どこにも無い class) へ戻すと、音声アシスタントに『この表を読め』と指しながら **解決先が存在しない**。#929 で実際に見つかった「機械向け宣言が一度も成功していなかった」class そのもので、視覚にも behavior にも一切出ない",
-        "file": ROOT / "js" / "meta-management.js",
-        "find": "            'role-split':  ['h1', '#role-split-table', '[data-speakable]', '.sr-only'],",
-        "replace": "            'role-split':  ['h1', '.role-split-table', '[data-speakable]', '.sr-only'],",
-        "test": "Role-split Speakable references the actual table via #role-split-table (not a dead class)",
-    },
-    {
-        "name": "ai-knowhow の Speakable セレクタが解決しなくなる — home / role-split と**別のルート**の宣言で、独立に腐りうる (ページ側の class 名を変えれば片方だけ dead になる)。AIO 精度は route ごとに独立した契約なので、1 ルート被覆では他が守られない",
-        "file": ROOT / "js" / "meta-management.js",
-        "find": "            'ai-knowhow':  ['h1', '.ai-summary-block', '[data-speakable]', '.sr-only'],",
-        "replace": "            'ai-knowhow':  ['h1', '.ai-summary-block-missing', '[data-speakable]', '.sr-only'],",
-        "test": "ai-knowhow/about Speakable cssSelectors (non-baseline) resolve to real elements (AIO accuracy)",
-    },
-    {
         "name": "絞り込み select の focus 復元用 id が外れる — main.js _renderCore の復元は **id を鍵にする**ので、id を失ったコントロールだけが取り残されて change のたび focus が body へ落ちる。キーボード利用者は絞り込みを 1 段変えるたびに文書先頭へ戻され、**2 回目以降の操作ができない**。Check 422 は静的に id の存在を守るが、こちらは復元が実際に働くことを見る",
         "file": ROOT / "js" / "apps.js",
         "find": "                        id: 'task-filter-priority',\n",
@@ -987,6 +945,14 @@ _E2E_TAIL.append({
                     route: route.name || 'home',
                     // [FIX] 従来は `''` 決め打ちで絞り込みを宣言できなかった (router の単一ソースへ)。""",
     "test": "data-ai-state は敵対的な query でも valid JSON であり続ける",
+})
+
+_E2E_TAIL.append({
+    "name": "quiz の動的 import に cache-buster が付く —— ESM のモジュールキャッシュが効かなくなり、開くたびに 83KB を再ダウンロードする。体感は速いままなので気付きにくいが通信量とバッテリーには効く",
+    "file": ROOT / "main.js",
+    "find": "import('./js/quiz/aws-quiz-data.js').then(m => m.awsQuizData)",
+    "replace": "import('./js/quiz/aws-quiz-data.js?v=' + Date.now()).then(m => m.awsQuizData)",
+    "test": "Revisiting the quiz does not re-download the question set",
 })
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
