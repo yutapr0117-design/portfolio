@@ -112,7 +112,11 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, loadQu
         //   listHost は毎キーストローク作り直されるため live region は外側の安定ノードに置く。sr-only。
         const resultStatus = h("div", { class: 'sr-only', role: 'status', 'aria-live': 'polite' }, '');
         box.appendChild(resultStatus);
-        const listHost = h("div", {});
+        // [CONTRACT] 一覧コンテナの安定フック。**「データが届いた」ことを検証するには
+        //   ここに限定して問い合わせる必要がある** —— `#content h2` で測ると、同期描画される
+        //   問い合わせフォームの見出し「模範解答について」に一致し、データが来なくても
+        //   通ってしまう (実測 2026-08-21)。class ではなく data 属性にするのは #929 の規律。
+        const listHost = h("div", { 'data-quiz-list': 'true' });
         box.appendChild(listHost);
 
         function _filterBy(rawQuery) {
