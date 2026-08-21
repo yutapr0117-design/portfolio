@@ -512,6 +512,24 @@
         _settingsImportOptions = _getSettingsImportOptions;
 
 
+        // [FIX] **失敗した動的 import は module map にキャッシュされ、以降は即 reject する**。
+        //   通信が一瞬切れただけで、開き直しても永久に読めない。クエリを足した別 URL で
+        //   取り直すと新しい entry になり実際に再取得される (初回はリテラルのまま — Check 47b が
+        //   `import('<spec>')...m.<Name>` の綴りで消費を見るため)。詳細は e2e/quiz.spec.js。
+        let _quizRetryCount = 0;
+        const _QUIZ_SOURCES = {
+            aws: ['./js/quiz/aws-quiz-data.js', 'awsQuizData'],
+            pm: ['./js/quiz/pm-quiz-data.js', 'pmQuizData'],
+            quality: ['./js/quiz/quality-quiz-data.js', 'qualityQuizData'],
+            architecture: ['./js/quiz/architecture-quiz-data.js', 'architectureQuizData']
+        };
+        function _retryQuizData(type) {
+            const key = Object.prototype.hasOwnProperty.call(_QUIZ_SOURCES, type) ? type : 'aws';
+            const [path, name] = _QUIZ_SOURCES[key];
+            _quizRetryCount += 1;
+            return import(path + '?retry=' + _quizRetryCount).then(m => m[name]);
+        }
+
         // ===== v80+ Stage 5-o: Quiz Renderer =====
         //   QuizPage を js/quiz-renderer.js へ factory pattern で抽出。挙動 byte-equivalent。
         const { QuizPage } = createQuizRenderer({
@@ -524,7 +542,7 @@
                     : type === 'quality' ? import('./js/quiz/quality-quiz-data.js').then(m => m.qualityQuizData)
                         : type === 'architecture' ? import('./js/quiz/architecture-quiz-data.js').then(m => m.architectureQuizData)
                             : import('./js/quiz/aws-quiz-data.js').then(m => m.awsQuizData)
-            )
+            ).catch(() => _retryQuizData(type))
         });
 
 
