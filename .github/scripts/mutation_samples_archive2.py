@@ -804,7 +804,7 @@ MUTATIONS_ARCHIVE2 = [
     {
         "name": "Check 372: quiz-renderer.js.md の factory signature を stale 形へ戻し quiz data 依存 (awsQuizData 等) を落とす → mirror-doc factory-dep drift の BLOCKING 検証",
         "file": ROOT / "docs" / "files" / "js" / "quiz-renderer.js.md",
-        "find": "createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData, langOfText })",
+        "find": "createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData, langOfText, CONSTANTS })",
         "replace": "createQuizRenderer({ h, createIcon, Store, State, quizData: {} })",
     },
     {

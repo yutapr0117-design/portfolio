@@ -17,6 +17,7 @@
  *   - State: js/state.js factory instance
  *   - awsQuizData, pmQuizData, qualityQuizData, architectureQuizData:
  *   - langOfText: data 由来テキストの言語判定 (js/pure-utils.js・WCAG 3.1.2 の lang 属性用)
+ *   - CONSTANTS: 検索欄の maxlength を LIMITS.QUIZ_SEARCH から引く
  *     js/quiz/{aws,pm,quality,architecture}-quiz-data.js
  *
  * 【非破壊性】
@@ -28,7 +29,7 @@
  *   - State.appsData.quizSearch 等の永続化への副作用も不変
  *   - AIDK Kernel / AIO 正本層 / style.css は無変更
  */
-export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData, langOfText }) {
+export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData, langOfText, CONSTANTS }) {
     // [A11Y 3.1.2] 言語判定は js/pure-utils.js の langOfText を注入して使う
     //   (quiz / home / resume の 3 箇所が同じ判定を要するため、コピーすると
     //    invariant の二重化になる。詳細な WHY は pure-utils 側の docstring)。
@@ -75,6 +76,9 @@ export function createQuizRenderer({ h, createIcon, Toast, Router, State, awsQui
             type: "search",
             class: "input pl-10",
             placeholder: "問題を検索...",
+            // [FIX] 入力できる範囲 == 保存される範囲 (理由は e2e/quiz.spec.js の
+            //   「cannot hold more text than it persists」)。
+            maxlength: CONSTANTS.LIMITS.QUIZ_SEARCH,
             value: initialSearch,
             'aria-label': '問題検索',
             oninput: (e) => {

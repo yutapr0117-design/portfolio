@@ -9,7 +9,7 @@ canonical-ref: docs/architecture/main-js-extraction-map.md (Stage 5-o) / js/quiz
 
 ## What
 
-Quiz Renderer factory module。`createQuizRenderer({deps, langOfText })` を export。QuizPage + 4 domain (architecture / aws / pm / quality) の lookup table を含む。
+Quiz Renderer factory module。`createQuizRenderer({deps, langOfText, CONSTANTS })` を export。QuizPage + 4 domain (architecture / aws / pm / quality) の lookup table を含む。
 
 ## Why
 
@@ -22,7 +22,7 @@ main.js
   └─ import { createQuizRenderer } from './js/quiz-renderer.js'
   └─ import architectureQuizData from './js/quiz/architecture-quiz-data.js'
   └─ ... + 3 domains
-  └─ const QuizPage = createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData, langOfText })
+  └─ const QuizPage = createQuizRenderer({ h, createIcon, Toast, Router, State, awsQuizData, pmQuizData, qualityQuizData, architectureQuizData, langOfText, CONSTANTS })
 ```
 
 Router が `#/quiz` route に到達したら QuizPage を render。

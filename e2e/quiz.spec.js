@@ -137,6 +137,43 @@ test('Quiz contact form shows validation error on empty submit', async ({ page }
 // するのに quizSearch だけ preserve せず、reload 時の load()→validateAndNormalize が毎回 "" に捨てて
 // いた (書き込みは永続化されるのに読み戻しが normalize で strip される半配線)。fill→debounce flush→
 // reload で検索語 input の value が復元されることを実検証する (修正前はここで空だった＝非 vacuous)。
+// ===== 検索語が上限で黙って切られない (入力できる範囲 == 保存される範囲) =====
+// store.js の normalize は `quizSearch` を `LIMITS.QUIZ_SEARCH` で slice するのに、検索欄には
+// maxlength が無かった。超過分は**入力欄にも検索結果にも出たまま**で、**reload して初めて消える**
+// (実測 2026-08-21: 260 文字入力 → 保存 260 → reload 後 200)。利用者から見ると
+// 「さっきと同じ語で検索しているのに結果が違う」としか見えない silent truncation。
+// #924 (ノート) / #1063 (プロジェクト名) / #1064 (Tech) と同じ class の 4 例目。
+//
+// NOTE: 一般化した Check は**足していない**。実行時に全入力欄の maxlength を測ったところ、
+//   未設定なのは他に「プロジェクト検索」(URL 由来で localStorage へ保存されず切り詰めなし) と
+//   `settingsNewTech` (追加時に validateAndNormalize を通すので即座に反映される・#1064) だけで、
+//   どちらも**切り詰めが起きない正当な未設定**だった。「全テキスト入力に maxlength を要求」
+//   という Check はこの 2 つを誤検出し、意味のない上限を足す圧力になる (§7 の brittle-gate 禁止)。
+test('Quiz search input cannot hold more text than it persists (maxlength == LIMITS.QUIZ_SEARCH)', async ({ page }) => {
+  await page.goto('/#/quiz');
+  await page.waitForLoadState('domcontentloaded');
+
+  const search = page.getByLabel('問題検索');
+  await expect(search).toBeVisible();
+
+  // control: 上限そのものが宣言されていること (未宣言なら以下の比較は無意味)
+  const max = Number(await search.getAttribute('maxlength'));
+  expect(max, 'control: 検索欄に maxlength が宣言されていない').toBeGreaterThan(0);
+
+  // 上限を超えて入力しても、その場で上限に収まる (reload まで気付けない状態を作らない)
+  await search.fill('あ'.repeat(max + 60));
+  const typed = await search.inputValue();
+  expect(typed.length, '入力欄が保存される範囲より多く保持している').toBe(max);
+
+  // reload を跨いでも長さが変わらない = 黙って切られていない
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+  const after = page.getByLabel('問題検索');
+  await expect(after).toBeVisible();
+  await expect(after, 'reload で検索語が黙って短くなった').toHaveValue(typed);
+});
+
+
 test('Quiz search term persists across reload (normalize preserve regression)', async ({ page }) => {
   await page.goto('/#/quiz');
   await page.waitForLoadState('domcontentloaded');
