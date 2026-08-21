@@ -73,19 +73,19 @@ export function createHomePage({ h, Router, State, ContactCTA, langOfText }) {
                             h('ul', { class: 'hero-value-list', 'aria-label': 'Value Points' },
                                 h('li', {},
                                     h('span', {},
-                                        h('strong', {}, 'AI self-driving execution: '),
+                                        h('strong', { lang: 'en' }, 'AI self-driving execution: '),
                                         'AI が実装・検証・マージ・本番デプロイまで自走し、次の一手の案出しも AI が担う。人間はコードを一行も書かない。'
                                     )
                                 ),
                                 h('li', {},
                                     h('span', {},
-                                        h('strong', {}, 'Human-led architecture / decision making: '),
+                                        h('strong', { lang: 'en' }, 'Human-led architecture / decision making: '),
                                         'AIの技術前逸脱を人間が監査・棄却。設計思想の整合性を100%維持。'
                                     )
                                 ),
                                 h('li', {},
                                     h('span', {},
-                                        h('strong', {}, 'Real production deployment: '),
+                                        h('strong', { lang: 'en' }, 'Real production deployment: '),
                                         'GitHub Pages 上で実際に稼働。このサイト自体が、その自走 AI エンジニアリングの生成物である。'
                                     )
                                 )
@@ -108,7 +108,7 @@ export function createHomePage({ h, Router, State, ContactCTA, langOfText }) {
                                     href: 'https://zenn.dev/yuta_yokoi/articles/931f6e781d91f8',
                                     target: '_blank',
                                     rel: 'noopener noreferrer',
-                                    class: 'color-primary'
+                                    class: 'color-primary', lang: 'en'
                                 }, 'Read Technical Deep-Dive →')
                             )
                         ),
