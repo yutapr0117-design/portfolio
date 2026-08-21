@@ -970,6 +970,18 @@ _E2E_TAIL.append({
     "test": "全ルートの aria-* id 参照が実在要素へ解決する",
 })
 
+_E2E_TAIL.append({
+    "name": "data-ai-state を JSON.stringify でなく文字列連結で組む —— filter は URL の query をそのまま echo するので、引用符を含む query 1 つで属性全体が壊れた JSON になり agent は route も loading も読めなくなる。視覚に一切出ない機械可読面の silent failure",
+    "file": ROOT / "main.js",
+    "find": """                document.body.setAttribute('data-ai-state', JSON.stringify({
+                    route: route.name || 'home',
+                    // [FIX] 従来は `''` 決め打ちで絞り込みを宣言できなかった (router の単一ソースへ)。""",
+    "replace": """                document.body.setAttribute('data-ai-state', '{"route":"' + (route.name || 'home') + '","filter":"' + Router.getFilterString() + '","loading":false}'); void JSON.stringify({
+                    route: route.name || 'home',
+                    // [FIX] 従来は `''` 決め打ちで絞り込みを宣言できなかった (router の単一ソースへ)。""",
+    "test": "data-ai-state は敵対的な query でも valid JSON であり続ける",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
 
 
