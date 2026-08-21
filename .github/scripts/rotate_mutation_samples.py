@@ -37,7 +37,40 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 TAIL = ROOT / ".github" / "scripts" / "mutation_samples.py"
-ARCHIVE = ROOT / ".github" / "scripts" / "mutation_samples_e2e_archive2.py"
+def _pick_archive():
+    """rotate 先を **導出** する: 余裕のある最新 archive、無ければ次の番号を起こす。
+
+    [FIX 2026-08-21] 従来は `..._archive2.py` をハードコードしていたが、archive 自身も
+    append-only で伸びるので **いつか 1,000 行 (Check 365) に当たる**。実際に当たった
+    (1,027 行)。そのとき rotate は「hot log を減らしたのに BLOCKING が別ファイルで出る」
+    という分かりにくい形で止まる。受け皿はハードコードせず、**余裕を実測して選ぶ**。
+
+    番号なし (`..._e2e_archive.py`) を 1 番目とし、以降 `2`, `3`, ... を順に見て
+    「rotate 後も BLOCKING に収まる」最初のものを返す。全部埋まっていれば次の番号を
+    新規作成する (AI2AI.md の archive rotation と同じ考え方)。
+    """
+    base = ROOT / ".github" / "scripts"
+    n = 1
+    while True:
+        name = "mutation_samples_e2e_archive.py" if n == 1 else f"mutation_samples_e2e_archive{n}.py"
+        path = base / name
+        if not path.exists():
+            # 新しい受け皿を起こす (既存 archive と同じ最小構造)
+            path.write_text(
+                '"""mutation_samples_e2e_archive%d.py — rotate 先 (自動生成)。\n\n'
+                'rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。\n'
+                '**新しい mutation は mutation_samples.py の tail へ足すこと** (ここは退避先)。\n"""\n'
+                'from mutation_samples_common import ROOT\n\n'
+                'E2E_MUTATIONS_ARCHIVE%d = [\n]\n' % (n, n),
+                encoding="utf-8",
+            )
+            return path
+        if len(path.read_text(encoding="utf-8").splitlines()) < BLOCKING - 60:
+            return path
+        n += 1
+
+
+ARCHIVE = None          # main() で _pick_archive() から決める
 ADVISORY = 975          # Check 52 (ADVISORY) の閾値
 BLOCKING = 1000         # Check 365 (BLOCKING) の上限
 
@@ -144,9 +177,10 @@ def main() -> int:
         src[:start] + "\n" + "\n".join("    " + e.lstrip() + "," for e in keep) + "\n" + src[end:],
         encoding="utf-8",
     )
-    arc = ARCHIVE.read_text(encoding="utf-8")
+    archive = _pick_archive()
+    arc = archive.read_text(encoding="utf-8")
     k = arc.rindex("]")
-    ARCHIVE.write_text(
+    archive.write_text(
         arc[:k] + "\n".join("    " + e.lstrip() + "," for e in move) + "\n" + arc[k:],
         encoding="utf-8",
     )
@@ -160,7 +194,7 @@ def main() -> int:
         )
 
     after = len(TAIL.read_text(encoding="utf-8").splitlines())
-    print(f"rotated {count} entries → {ARCHIVE.name}")
+    print(f"rotated {count} entries → {archive.name}")
     print(f"  mutation_samples.py: {lines} → {after} 行")
     print(f"  総数は不変: E2E={e2e_after} / MUTATIONS={cons_after}")
     print("  ※ docs/architecture/file-size-budget.md の §2 実測行数を同期すること (Check 424)")
