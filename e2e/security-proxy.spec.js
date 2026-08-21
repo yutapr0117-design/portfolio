@@ -108,6 +108,49 @@ test('AIO anchor persists in DOM after route navigation', async ({ page }) => {
 });
 
 
+// ===== llms-full.txt が宣言する「Layer 3: HTML element attributes」の実在検証 =====
+// llms-full.txt (AI クローラ向けの権威文書・C6 保護) は次を明示的に宣言している:
+//
+//   #### Layer 3: HTML element attributes (index.html)
+//   `<audio>` tag: added `data-entity`, `data-canonical`, `data-ai-context`, `data-asset-role="portfolio-bgm"`
+//   `h('img',{...})` JS call: added same 4 attributes with `data-asset-role="hero-image"`
+//   → Rendered DOM carries entity attribution; detectable by JavaScript-executing AI crawlers
+//
+// **この契約を見ている層が一つも無かった** (実測 2026-08-21: `data-ai-context` と
+// `data-asset-role` は e2e 0 件 / consistency Check 0 件)。属性は視覚に一切出ないので
+// screenshot も目視も届かず、hero 画像側は **JS が描画する**ため静的な grep でも守れない。
+// つまり render を変えて属性が落ちても、llms-full.txt だけが嘘を言い続ける状態になる
+// —— #929 (WebMCP の幻セレクタ) / #930 (ルート追従 JSON-LD) と同じ「宣言されているのに
+// 見ている層が無い」class で、しかも本プロジェクトの中核賭け金である AIO 面。
+//
+// 現状は両資産とも 4 属性を正しく持つ (実測済み・honest clean)。この test はそれを固定する。
+test('llms-full.txt が宣言する資産の entity 属性が実際の DOM に載っている (AIO Layer 3)', async ({ page }) => {
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1').first()).toBeVisible();
+
+  const ENTITY = 'Yuta Yokoi (横井雄太 / Yokoi Yuta)';
+  const CANONICAL = 'https://yutapr0117-design.github.io/portfolio/';
+  const AI_CONTEXT = 'https://yutapr0117-design.github.io/portfolio/llms-full.txt';
+
+  // control: そもそも両資産が描画されていなければ属性の有無を検証できない
+  //   (hero 画像は JS 描画なので、描画前に読むと「属性が無い」と誤読する)
+  await expect(page.locator('audio'), 'control: audio 資産が存在しない').toHaveCount(1);
+  await expect(page.locator('img[data-asset-role]'),
+    'control: hero 画像が描画されていない').toHaveCount(1);
+
+  for (const [label, sel, role] of [
+    ['audio (BGM)', 'audio', 'portfolio-bgm'],
+    ['hero 画像', 'img[data-asset-role]', 'hero-image'],
+  ]) {
+    const el = page.locator(sel);
+    await expect(el, `${label}: data-entity が落ちている`).toHaveAttribute('data-entity', ENTITY);
+    await expect(el, `${label}: data-canonical が落ちている`).toHaveAttribute('data-canonical', CANONICAL);
+    await expect(el, `${label}: data-ai-context が落ちている`).toHaveAttribute('data-ai-context', AI_CONTEXT);
+    await expect(el, `${label}: data-asset-role が宣言と違う`).toHaveAttribute('data-asset-role', role);
+  }
+});
+
+
 // ===== aio-guard.js の自己修復が実際に働く (dead-code purge 耐性) =====
 // aio-guard.js の存在意義は「AI エージェントの dead-code purge 等で
 // <div id="aio-asset-anchor" hidden> が消されても復元すること」だが、既存 e2e は
