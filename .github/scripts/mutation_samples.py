@@ -261,51 +261,58 @@ _MUTATIONS_TAIL.append({
     "replace": "`docs/files/_template.md` の **3**",
 })
 
+# ── Check 441 (ACD-1.0 ライセンス本文の構造整合と配線) ──────────────────────────
+# NOTE: **Check 442 (binary metadata の到達可能性) には mutation を登録できない。**
+#   mutation_probe は対象 file を `read_text(encoding="utf-8")` で読むので、WebP / MP3 は
+#   UnicodeDecodeError になり適用そのものが成立しない。非 vacuity は 2026-08-23 に手動で
+#   実測済 (COMM の size を過大値へ戻す → 442a/442b が RED / RIFF size を 1 ずらす → 442c が RED)。
+#   RED を実測できない mutation を安全網に混ぜないための非登録であって、被覆漏れではない。
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 441a (ライセンス本文の条項番号): 節内で番号を重複させる —— 条項を挿入・削除して "
+            "再採番を忘れると起きる。ライセンスは CI のどの層にも読まれないので壊れても全部緑のまま "
+            "SPDX / OSI 提出まで到達しうる (起草中に実際に踏んだ)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.txt",
+    "find": "  15.8 English is the authoritative",
+    "replace": "  15.7 English is the authoritative",
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 441b (ライセンス本文の相互参照): 存在しない条項を指させる —— 再採番したのに "
+            "本文中の 'Section N.M' を追従させ忘れると、読み手は別の条項へ飛ばされる",
+    "file": ROOT / "LICENSES" / "ACD-1.0.txt",
+    "find": "Section 15.4 applies, and the invalidity",
+    "replace": "Section 15.99 applies, and the invalidity",
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 441c (ライセンス本文の定義語): 定義だけ改名して本文の使用箇所を残す —— "
+            "定義が本文で一度も使われない状態は、起草途中の残骸か削除した条項の痕跡",
+    "file": ROOT / "LICENSES" / "ACD-1.0.txt",
+    "find": '"Reservation" means any act',
+    "replace": '"ReservationX" means any act',
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 441d (ライセンス本文の義務語): 利用者への義務を混入させる —— §10.1 は「利用者に "
+            "一切の条件を課さない」と宣言しており、義務語の混入は**このライセンスの中核主張そのものを "
+            "偽にする**。しかも混入先が「表示は不要」と述べる §10.2 なので、本文が自分と逆のことを言い出す",
+    "file": ROOT / "LICENSES" / "ACD-1.0.txt",
+    "find": "  10.2 In particular, You need not give attribution",
+    "replace": "  10.2 You must give attribution. In particular, You need not",
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 441e (LICENSE の配線): 全文 path への参照を外す —— 全文ファイルが存在しても "
+            "LICENSE が指していなければ、受領者はどの条項に従うのか判定できない (存在 ≠ 配線)",
+    "file": ROOT / "LICENSE",
+    "find": "Full text: LICENSES/ACD-1.0.txt",
+    "replace": "Full text: see the LICENSES directory",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
-    {
-        "name": "矢印移動で aria-activedescendant が active option へ同期しなくなる — palette は focus を input に留めて ↑↓ で listbox を操作する combobox なので、**SR には activedescendant だけが「今どれが選ばれているか」を伝える**。視覚的なハイライトは残るため目視では気付けない (WCAG 4.1.2・#699)",
-        "file": ROOT / "js" / "command-palette.js",
-        "find": "        if (inputEl && activeLi && activeLi.id) { inputEl.setAttribute('aria-activedescendant', activeLi.id); }",
-        "replace": "",
-        "test": "Command palette input tracks active option via aria-activedescendant",
-    },
-    {
-        "name": "手動追加したプロジェクトが state に入らない — フォームは受け付けて成功を報告するのに一覧へ出ない。**利用者が入力した内容がどこにも残らない** silent no-op で、入力し直しても同じ結果になるため原因に辿り着けない",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "                s.projects.unshift({",
-        "replace": "                if (false) s.projects.unshift({",
-        "test": "Settings can add a project manually and it appears on the Projects page",
-    },
-    {
-        "name": "スナップショットが保存されないのに成功と報告する — `Storage.set` を握り潰すと「保存しました」が出て保存済み表示にもなるが、**復元しようとすると何も無い**。バックアップ機能で「成功したと報告するのに実際は保存されていない」のは最も危険な形 (#1039/#1040 の silent no-op と同 class)",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "            const success = Storage.set(CONSTANTS.SNAPSHOT_KEY, JSON.stringify(snap));",
-        "replace": "            const success = true;",
-        "test": "Settings app saves a snapshot and reflects the saved-at status",
-    },
-    {
-        "name": "自動推薦 (autoRelated) が空になる — 詳細ページの「おすすめ」導線が消え、**閲覧者が次のプロジェクトへ回遊する経路**が死ぬ。明示的な関連 (relatedProjectIds) は残るのでセクション自体は表示され、**壊れて見えない**",
-        "file": ROOT / "js" / "project-detail-page.js",
-        "find": "        const autoRelated = Store.autoRelatedCandidates(project, listable, 8);",
-        "replace": "        const autoRelated = [];",
-        "test": "Project detail \"auto-recommended\" card navigates to another project (autoRelated)",
-    },
-    {
-        "name": "AI 応答が空になる — `generateResponse` が空文字を返すようにすると、**利用者が受け取るもの (応答本文) が消える**のに prompt のエコーは残るので画面は動いて見える。旧テストは prompt の描画しか見ておらず緑のまま通っていた (#1126 の quiz と同じ『題名が主張していることを検証していない』class)",
-        "file": ROOT / "js" / "ai-page.js",
-        "find": "        function generateResponse(input, type) {",
-        "replace": "        function generateResponse(input, type) {\n            return '';",
-        "test": "AI assist app generates and renders a response for a prompt",
-    },
-    {
-        "name": "正規化ボタンが初期化になる — `validateAndNormalize` を `createDefaultStore` に置き換えると、**「正規化」を押しただけで利用者のデータが全部消える**。Toast は「正規化を完了しました」と出るので、消えたことに気付くのは次に一覧を開いたとき",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "            const norm = Store.validateAndNormalize(State.get());",
-        "replace": "            const norm = Store.createDefaultStore();",
-        "test": "Settings normalize button runs validateAndNormalize without data loss",
-    },
     {
         "name": "Toast が自動消滅しなくなる — 通知が画面に残り続け、**操作するたび積み上がって本文を覆う**。出ること自体は正常に見えるので、消えないことに気付くのは画面が埋まってから (focus 中は消さない #903 の一時停止契約とは別で、こちらは無条件に消えなくなる)",
         "file": ROOT / "js" / "ui-components.js",
