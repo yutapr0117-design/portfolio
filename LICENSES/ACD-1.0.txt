@@ -220,9 +220,14 @@ PREAMBLE (informative; not part of the operative terms)
        without condition.
 
   6.2  The Dedicator makes no Reservation in respect of the Work and expressly
-       declines to make one. No notice, marking, metadata, protocol element,
-       header, robots directive, or other signal associated with the Work is to
-       be read as a Reservation, whatever its form and whoever placed it there.
+       declines to make one. So far as the Covered Rights and patent claims of
+       the Dedicator are concerned, no notice, marking, metadata, protocol
+       element, header, robots directive, or other signal associated with the
+       Work is to be read as a Reservation, whatever its form and whoever
+       placed it there. This Section is bounded by Section 2.7: it states the
+       Dedicator's own position and does not purport to defeat a Reservation
+       made by another rightsholder, which Section 6.3 addresses on its own
+       terms.
 
   6.3  Where a Reservation has been made in respect of the Work, whether by the
        Dedicator or by another person, and whether before or after this
