@@ -29,7 +29,7 @@ AI agent (MCP-aware)
 
 ## Constraints
 
-- **C6 AIO Integrity**: server.description 内 entity 情報は semantic 編集に承認必要
+- **C6 AIO Integrity**: server.description 内 entity 情報は semantic 編集ゆえ C6 の 3 不変条件 (真実性 / 全公開面での整合 / digest 再生成) を満たすこと
 - **C1 Boring Technology**: live MCP server 立てない (static manifest のみ)
 - **Check 21**: JSON parse 可能性 (architecture-validation.yml step 21)
 - **Check 79**: `.mcp.json` (root) と同じく JSON parsability チェック対象 (本ファイルは .well-known/ 配下なので別)

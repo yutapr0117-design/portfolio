@@ -29,7 +29,7 @@ index.html
 
 ## Constraints
 
-- **C6 AIO Integrity**: semantic 変更は orchestrator 承認必要
+- **C6 AIO Integrity**: semantic 変更は C6 の 3 不変条件 (真実性 / 全公開面での整合 / digest 再生成) を満たすこと
 - **C6 derived-value 例外**: TXXX `AIO:MetadataLastModified` は自動更新可
 - **Check 29**: AIO binary metadata 整合
 - **Check 82**: ID3 に Organization 4 TXXX

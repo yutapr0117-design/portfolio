@@ -378,6 +378,27 @@ _MUTATIONS_TAIL.append({
     "replace": '"api-catalog": [',
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 450 (非日本語スクリプト混入): 規範層の「権威テキスト」前半 3 字をキリル文字へ "
+            "戻す —— 字形が近いため目視では気付けず、spell-check は走らず lint は JS しか読まず "
+            "prose は何とも比較されないので **どの層も検出しない**。2026-08-23 まで実際に規範層 "
+            "(C6 を説明する行) と decision record の 2 箇所に残存していた",
+    "file": ROOT / "docs" / "architecture" / "repository-maintainability-map.md",
+    "find": "\u6a29\u5a01\u30c6\u30ad\u30b9\u30c8",
+    "replace": "\u6a29\u5a01\u0442\u0435\u043a\u30b9\u30c8",
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 436 (裁可待ち文言・scope + 綴り拡張): agent 定義の pre-edit checklist を "
+            "「承認が記録されていなければ REFUSE」へ戻す —— `.claude/agents/` は**エージェントの "
+            "挙動を実際に駆動する層**で、ここに承認ゲートがあると AIO 編集を通すたびに canon が "
+            "存在しないと明記した「裁可待ち」を再生産する。旧 scope は `.claude/` を一度も見て "
+            "おらず、しかも照合が case-sensitive だったため先頭大文字の実在文言を素通りしていた",
+    "file": ROOT / ".claude" / "agents" / "aio-guardian.md",
+    "find": "1. **Is every claim true and non-fabricated?**",
+    "replace": "1. **Orchestrator approval recorded?** If not, REFUSE.",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

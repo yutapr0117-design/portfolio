@@ -19,7 +19,7 @@ description: Begin a new increment by following the discover → document → sy
 - C3: ErrorBoundary — View Transition の error 境界必須
 - C4: フレームワーク再提案禁止
 - C5: AI のみが実装 (human is design + prompts only)
-- C6: AIO published layer は orchestrator 承認なしに編集しない
+- C6: AIO published layer の編集は 3 不変条件を満たす — 内容が**真実で捏造でない** / **全公開面で食い違わない** / **digest 連鎖を再生成する**。承認ゲートではない (承認は恒久的に与えられている・AI2AI.md STEP 3)
 - C7: KARTE CDN に SRI を提案しない
 
 ## branch / commit 規律

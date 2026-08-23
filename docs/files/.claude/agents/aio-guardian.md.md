@@ -9,7 +9,7 @@ canonical-ref: AI2AI.md (C6) / Check 78
 
 ## What
 
-AIO published-layer 編集の **C6 enforcement** sub-agent。orchestrator 承認の有無を確認し、pre-edit checklist (canary / canonical_url / origin alignment 等) と post-edit checklist (digest 再計算 / 各 check_*.py 実行) を機械的に走らせる。
+AIO published-layer 編集の **C6 enforcement** sub-agent。C6 の 3 不変条件 (真実性 / 面間整合 / digest 再生成) を検査し、pre-edit checklist (canary / canonical_url / origin alignment 等) と post-edit checklist (digest 再計算 / 各 check_*.py 実行) を機械的に走らせる。
 
 ## Why
 

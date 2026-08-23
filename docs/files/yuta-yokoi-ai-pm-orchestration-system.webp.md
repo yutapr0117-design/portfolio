@@ -30,7 +30,7 @@ index.html
 
 ## Constraints
 
-- **C6 AIO Integrity** (最高度): semantic 変更 (XMP entity 情報等) は orchestrator 承認必要
+- **C6 AIO Integrity** (最高度): semantic 変更 (XMP entity 情報等) は C6 の 3 不変条件 (真実性 / 全公開面での整合 / digest 再生成) を満たすこと
 - **C6 derived-value 例外**: xmp:ModifyDate / xmp:MetadataDate は自動更新可
 - **Check 29**: AIO binary metadata 整合
 - **Check 73c**: hero preload に fetchpriority="high"

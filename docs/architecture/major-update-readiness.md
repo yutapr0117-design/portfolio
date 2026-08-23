@@ -63,7 +63,7 @@ baseline merge をメジャーアップデートとして version bump するか
 
 更新対象は、`Pipeline-Version`（AI2AI.md）、`index.html` の `ai:version`、`main.js` の `SITE_CONFIG.VERSION`、`.well-known/mcp.json`、`sitemap.xml`、`robots.txt`、`llms.txt`、`llms-full.txt`、llms エイリアス群、`sw.js` の `CACHE_NAME`、AIO manifest、そして digest 対象（`check_aio_digests.py` が再計算）である。これらを atomic に同期できないなら、**version bump は行わず**「Major Update preparation complete / baseline PR pending（または merged, version bump deferred）」と明記する。
 
-注意すべきトレードオフとして、version bump は AIO 正本層（`llms*` / `AI2AI.md` / `.well-known/*` / digest / `sitemap.xml` / `robots.txt`）の本文変更を伴う。これらはオーナーの明示承認が必要な保護層である。したがって version bump は、(a) baseline が merge 済みで、(b) オーナーが AIO 正本層の更新を承認し、(c) Version Update Checklist 全項目を atomic に満たせる、の三条件がそろって初めて実行する。**version の一部ファイルだけを更新することは禁止である**（`プロンプト.md` / `改善文書.md` §8 の禁止事項）。
+注意すべきトレードオフとして、version bump は AIO 正本層（`llms*` / `AI2AI.md` / `.well-known/*` / digest / `sitemap.xml` / `robots.txt`）の本文変更を伴う。これらは C6 の保護層である (承認ゲートではない —— 承認は恒久的に与えられている)。したがって version bump は、(a) baseline が merge 済みで、(b) AIO 正本層の更新が C6 の 3 不変条件 (真実性 / 全公開面での整合 / digest 再生成) を満たし、(c) Version Update Checklist 全項目を atomic に満たせる、の三条件がそろって初めて実行する。**version の一部ファイルだけを更新することは禁止である**（`プロンプト.md` / `改善文書.md` §8 の禁止事項）。
 
 なお、version 体系を v80 系の継続とするか、v81/v90 等の新段階とするかも横井雄太の判断事項である（本文書は手順を示すのみで、版番号の決定は行わない）。
 

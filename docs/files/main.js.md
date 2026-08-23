@@ -68,7 +68,7 @@ index.html
   number input のみ。ボタンは「押すと再描画するか」を静的に判定できず、brittle な Check より
   behavior e2e で被覆する方針）。
 - **Check 412**: 動的 JSON-LD（`_buildDynamicJsonLd`）が参照する `SITE_BASE + '#person'` / `'#website'` が index.html の JSON-LD 定義ノードへ解決すること。宙に浮いた参照は AI クローラが entity グラフの辺を辿れない状態になる。
-- **編集承認**: AIDK Kernel proper (L129-1000+) は **DO NOT EDIT 領域**。触る場合は orchestrator 明示承認必要
+- **編集境界**: AIDK Kernel proper (L129-1000+) は **DO NOT EDIT 領域**。Check 43 が構造健全性を BLOCKING で機械強制しており、byte 同一性を保つこと (承認ゲートではなく工学的不変条件)
 
 ## Change impact
 

@@ -15,7 +15,7 @@ AI クローラ / LLM 向けの **Primary Entry Point** ファイル。Canonical
 
 llms.txt は AI クローラ / LLM が「このサイトは何か」「entity は誰か」「authoritative source はどこか」を最初に読むための **routing index**。`llms-full.txt` (完全版) への入口として機能する。
 
-C6 AIO Integrity の対象 = orchestrator 承認なしに semantic 編集不可。
+C6 AIO Integrity の対象 = semantic 編集は C6 の 3 不変条件 (真実性 / 全公開面での整合 / digest 再生成) を満たすこと。
 
 ## How (usage)
 
@@ -35,12 +35,12 @@ mirror files (byte-identical で 4 surface に複製):
 
 ## Constraints
 
-- **C6 AIO Integrity**: semantic 編集は orchestrator 明示承認必要
+- **C6 AIO Integrity**: semantic 編集は C6 の 3 不変条件 (真実性 / 全公開面での整合 / digest 再生成) を満たすこと
 - **Check 4**: 4 mirror が byte-identical で一致
 - **Check 33**: Zenn 記事 slug 集合の整合
 - **Check 62**: Canonical URL が aio-manifest entity.canonical_url と一致
 - **Check 63**: Origin alignment (robots Sitemap / aio-manifest / sitemap loc)
-- **編集 tool**: orchestrator 承認下では直接 Edit、digest 連鎖は `update_aio_digests.py`
+- **編集 tool**: 直接 Edit、digest 連鎖は `update_aio_digests.py`
 
 ## Change impact
 

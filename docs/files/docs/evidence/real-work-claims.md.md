@@ -19,7 +19,7 @@ canonical-ref: .well-known/aio-manifest.json supporting_evidence / llms-full.txt
 
 - **再識別防止 (BLOCKING な人的レビュー対象)**: 企業名/顧客名/案件名/業界+地域+時期+規模の組合せ/年収・労働条件/生年月日・住所・連絡先/学校名 は記載禁止。次元分離を維持する。
 - **誠実性の境界**: リポジトリが証明するのは「能力と規律」であって過去の事業数値そのものではない、と明示する。誇張・捏造禁止 (canon)。
-- **C6 (AIO Integrity)**: 本ページを AIO 層 (llms-full.txt / aio-manifest supporting_evidence) に配線したため、semantic 変更は orchestrator 承認 + aio-guardian 経由。sha256 は derived value (A2)。
+- **C6 (AIO Integrity)**: 本ページを AIO 層 (llms-full.txt / aio-manifest supporting_evidence) に配線したため、semantic 変更は aio-guardian 経由で C6 の 3 不変条件を満たすこと。sha256 は derived value (A2)。
 - **ソース書類の非追跡**: 抽出元の pdf/docx は `*.pdf`/`*.docx` 等で gitignore + Check 122 で tracked 禁止を機械強制。原本はローカルのみで、抽出完了後に削除。
 
 ## Change impact
