@@ -103,6 +103,23 @@ PREAMBLE (informative; not part of the operative terms)
        Where more than one operates, they operate cumulatively, and Section
        15.1 governs their construction.
 
+  2.5  The Dedicator makes this Dedication knowing and intending that others
+       will rely on it in deciding to use, adapt, distribute, and build upon the
+       Work, and that they will incur effort and expense in doing so. That
+       reliance is the purpose of this Dedication and not merely a foreseeable
+       consequence of it. The Dedicator will not assert that this Dedication is
+       revocable, unsupported, or otherwise ineffective for want of
+       consideration or formality, and is estopped from doing so to the extent
+       the law of any jurisdiction gives that principle effect.
+
+  2.6  A contribution intentionally submitted for inclusion in the Work by any
+       person is submitted under this Dedication, and that person becomes a
+       Dedicator as to their contribution, unless they state otherwise at the
+       time of submission. No separate instrument, assignment, or agreement is
+       required, and none may be required of them as a condition of acceptance.
+       Nothing in this Section obliges anyone to submit anything, or obliges the
+       Dedicator to accept anything.
+
 
 3. DEDICATION OF COVERED RIGHTS
 
@@ -324,12 +341,20 @@ PREAMBLE (informative; not part of the operative terms)
        in respect of a work that the Dedicator has chosen to place in the
        commons for the purpose stated in Section 6.
 
-  12.4 The covenant in Section 12.2 does not extend to conduct falling within
+  12.4 The covenant in Section 12.2 binds the Dedicator's successors, assigns,
+       heirs, personal representatives, and any person entitled to exercise or
+       enforce Moral Rights in the Work after the Dedicator's death, to the
+       fullest extent the law permits the Dedicator to bind them. This is stated
+       expressly because Moral Rights outlive the author in many jurisdictions
+       and may be exercised by relatives or by a public authority, so a covenant
+       that bound only the Dedicator would leave the longest-lived risk open.
+
+  12.5 The covenant in Section 12.2 does not extend to conduct falling within
        Section 11.3. The interest that Moral Rights protect against false
        attribution is therefore preserved, and this Dedication does not ask the
        Dedicator to abandon it.
 
-  12.5 If Section 12.2 is held invalid in whole or in part in a jurisdiction,
+  12.6 If Section 12.2 is held invalid in whole or in part in a jurisdiction,
        Section 15.4 applies, and the invalidity affects no other Section.
 
 
