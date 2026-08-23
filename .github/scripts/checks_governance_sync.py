@@ -19,6 +19,29 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
   25. aio-monitoring-log.json has an evidence_policy key (attempt_log_only honesty)
   26. aio-manifest.json archive role #1-#N matches AI2AI-archive.md max Session Record
   27. llms-full.txt has no stale C1–C6 in current-constraint context (should be C1–C7)
+  441. ACD-1.0 ライセンス本文の構造整合と配線: 本 repo は独自ライセンス
+       `LICENSES/ACD-1.0.txt` (Autonomous Commons Dedication 1.0) を適用しており、これを
+       SPDX License List / OSI License Review へ提出する計画がある。SPDX の inclusion
+       principles は「テキストが確定していること」と「収録後に steward が改変しないこと」を
+       definitive requirement に置くため、**本文は壊れてはならない成果物**である。しかも
+       ライセンス本文の欠陥は **CI のどの層にも出ない** —— behavior e2e もサイトも lint も
+       ライセンスを読まないので、壊れても全部緑のまま提出まで到達しうる。
+       実際 2026-08-23 の起草中に、条項を 1 つ挿入しただけで (a) §15.3 が重複し
+       (b) 相互参照 (§12.5 → severability) が別条項を指し (c) §9.4 に "You must not say" と
+       いう義務語が混入した —— **いずれも目視では見落とし、機械検査だけが捕捉した**。
+       4 面を BLOCKING で強制する:
+         441a: 条項番号が重複せず、各節内で 1 から連番であること。
+         441b: 本文中の "Section N.M" 相互参照がすべて実在する条項へ解決すること。
+         441c: §1 で定義した用語がすべて本文で使用されていること (未使用の定義は
+               起草途中の残骸か、削除し忘れた条項の痕跡)。
+         441d: "You must / You shall / You may not / provided that / on condition" 等の
+               **利用者への義務語が本文に無い**こと。ACD-1.0 §10.1 は「利用者に一切の条件を
+               課さない」と宣言しており、義務語の混入は**宣言と本文の自己矛盾**になる
+               (このライセンスの中核主張がまさにそこなので、他のどの drift より重い)。
+         441e: `LICENSE` が `SPDX-License-Identifier: ACD-1.0` を宣言し、全文ファイルの
+               path を実際に参照していること (**存在 ≠ 配線** —— 全文があっても LICENSE が
+               指していなければ、受領者はどの条項に従うのか判定できない)。
+
   436. 規範層 (docs/architecture/) に「オーナー裁可待ち」型の defer 理由が残らない: canon
        (AI2AI.md STEP 3 / CLAUDE.md §7) は 2026-08-18 に「**オーナー裁可が要る項目なんか一切
        無い**」「C5 は『人間がコードを書かない』の意であって設計判断を defer する根拠ではない」
@@ -206,3 +229,100 @@ def run(ctx):
          "書いて超越を明示せよ (歴史記録の docs/incident-artifacts/ は対象外)"),
         blocking=True,
     )
+
+    # ── 441. ACD-1.0 ライセンス本文の構造整合と配線 (BLOCKING) ────────────────────
+    # なぜ機械強制するか: ライセンス本文は **CI のどの層にも読まれない**。behavior e2e も
+    # サイトも lint も consistency の他 Check も触らないので、壊れても全部緑のまま
+    # SPDX / OSI 提出まで到達しうる。SPDX は「確定したテキスト」を収録要件に置くため、
+    # 構造が壊れた本文の提出は却下に直結する。
+    # 動機となった実例 (2026-08-23 起草中): 条項を 1 つ挿入しただけで §15.3 が重複し、
+    # §12.5 の相互参照が別条項を指し、§9.4 に義務語が混入した。目視では 3 件とも
+    # 見落としており、機械検査だけが捕捉した。
+    import re as _re441
+    _lic441 = ROOT / "LICENSES" / "ACD-1.0.txt"
+    _proj441 = ROOT / "LICENSE"
+    if _lic441.exists():
+        _src441 = _lic441.read_text(encoding="utf-8")
+        # 操作条項のみを対象にする (PREAMBLE は informative で条項番号を持たない)
+        _nums441 = _re441.findall(r"^  (\d+\.\d+)\s", _src441, _re441.M)
+        _tops441 = set(_re441.findall(r"^(\d+)\.\s+[A-Z]", _src441, _re441.M))
+
+        # 441a — 番号の重複と連番
+        _dup441 = sorted({_n for _n in _nums441 if _nums441.count(_n) > 1})
+        _by441 = {}
+        for _n in _nums441:
+            _by441.setdefault(_n.split(".")[0], []).append(int(_n.split(".")[1]))
+        _gap441 = {_k: _v for _k, _v in _by441.items() if _v != list(range(1, len(_v) + 1))}
+        check(
+            not _dup441 and not _gap441,
+            f"Check 441a: ACD-1.0 の条項番号が重複なし・節内連番 ({len(_tops441)} 節 / {len(_nums441)} 項)",
+            (f"Check 441a: ACD-1.0 の条項番号が壊れている — 重複: {_dup441} / 連番崩れ: {_gap441}。"
+             "条項を挿入・削除したら同一 commit で以降を再採番し、相互参照 (441b) も追従させよ"),
+            blocking=True,
+        )
+
+        # 441b — 相互参照の解決性
+        _refs441 = set(_re441.findall(r"Sections? (\d+(?:\.\d+)?)", _src441))
+        _refs441 |= set(_re441.findall(r"Sections \d+(?:\.\d+)? (?:to|and) (\d+(?:\.\d+)?)", _src441))
+        _unres441 = sorted(_r for _r in _refs441 if _r not in set(_nums441) and _r not in _tops441)
+        check(
+            not _unres441,
+            f"Check 441b: ACD-1.0 の相互参照 {len(_refs441)} 件がすべて実在条項へ解決",
+            (f"Check 441b: ACD-1.0 の相互参照が解決しない: {_unres441}。"
+             "再採番したら本文中の 'Section N.M' 参照も同一 commit で追従させよ "
+             "(実例: 2026-08-23 に §12.5 が severability を指していたが、条項挿入で番号がずれ別条項を指した)"),
+            blocking=True,
+        )
+
+        # 441c — 定義語が本文で使われているか
+        _def441 = set(_re441.findall(r'^  1\.\d+\s+"([^"]+)"\s+means', _src441, _re441.M))
+        _body441 = _src441.split("2. SCOPE AND EFFECT", 1)[-1]
+        _unused441 = sorted(_d for _d in _def441 if _d not in _body441)
+        check(
+            _def441 and not _unused441,
+            f"Check 441c: ACD-1.0 の定義語 {len(_def441)} 件がすべて本文で使用されている",
+            (f"Check 441c: ACD-1.0 に本文で使われていない定義がある: {_unused441}。"
+             "未使用の定義は起草途中の残骸か、削除した条項の痕跡 — どちらも提出前に解消せよ"),
+            blocking=True,
+        )
+
+        # 441d — 利用者への義務語が無いこと (§10.1 との自己矛盾防止)
+        # 「このライセンスは条件を一切課さない」が中核主張なので、義務語の混入は
+        # 他のどの drift よりも重い (主張そのものが偽になる)。
+        _oblig441 = (r"You must\b", r"You shall\b", r"You may not\b", r"You are required\b",
+                     r"provided that\b", r"on condition\b", r"You agree\b")
+        _hits441 = []
+        for _ln, _line in enumerate(_body441.splitlines(), 1):
+            for _pt in _oblig441:
+                if _re441.search(_pt, _line):
+                    _hits441.append(f"{_pt}: {_line.strip()[:70]}")
+        check(
+            not _hits441,
+            "Check 441d: ACD-1.0 に利用者への義務語が無い (§10.1 の無条件宣言と整合)",
+            (f"Check 441d: ACD-1.0 に利用者への義務語が混入している: {_hits441[:3]}。"
+             "§10.1 は『利用者に一切の条件・義務・制限を課さない』と宣言しており、"
+             "義務語は**宣言と本文の自己矛盾**になる。起草者側の不作為義務として書き直すか "
+             "(§5.2 の形)、Dedication の射程外である旨の記述へ改めよ (§11.3 の形)"),
+            blocking=True,
+        )
+    else:
+        check(False, "", "Check 441: LICENSES/ACD-1.0.txt が消失している", blocking=True)
+
+    # 441e — LICENSE が全文へ配線されているか (存在 ≠ 配線)
+    if _proj441.exists():
+        _psrc441 = _proj441.read_text(encoding="utf-8")
+        _wired441 = {
+            "SPDX identifier": "SPDX-License-Identifier: ACD-1.0" in _psrc441,
+            "full-text path": "LICENSES/ACD-1.0.txt" in _psrc441,
+        }
+        _miss441 = [_k for _k, _v in _wired441.items() if not _v]
+        check(
+            not _miss441,
+            "Check 441e: LICENSE が ACD-1.0 の識別子と全文 path を配線している",
+            (f"Check 441e: LICENSE の配線が欠けている: {_miss441}。"
+             "全文ファイルが存在しても LICENSE がそれを指していなければ、受領者は"
+             "どの条項に従うのか判定できない (#133/#134/#135 の silent-critical 配線 class の権利面)"),
+            blocking=True,
+        )
+    else:
+        check(False, "", "Check 441e: root LICENSE が消失している", blocking=True)
