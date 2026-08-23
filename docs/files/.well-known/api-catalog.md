@@ -26,14 +26,20 @@ API discovery client / AI agent
 
 ## Constraints
 
-- **C6 AIO Integrity**: linkset 内 URL は orchestrator 承認必要 (semantic 編集)
+- **C6 AIO Integrity**: linkset 内 URL は semantic 編集 — 実在すること / 他 AIO surface と
+  食い違わないこと / digest 連鎖を再生成することが条件 (承認ゲートではない・2026-08-23 是正)
 - **Check 4 隣接**: 内容は他 AIO surface (llms-full.txt URL / aio-manifest.json) と整合
-- **RFC 9727 準拠**: linkset 形式の厳格な遵守
+- **RFC 9727 準拠**: 関係型まで含めた厳格な遵守。カタログの**メンバーは `item`**
+  (RFC 6573) で列挙する。`api-catalog` 関係は「**別の API カタログへの入れ子**」を意味
+  するので、メンバーに使うと「これらは全てカタログだ」と偽って宣言することになる
+  (2026-08-23 に 7 件すべてが該当していたのを是正)。`service-desc` / `service-meta`
+  は target attribute ではなく**関係型**なので、対象リソースを `anchor` とする別 context
+  として表現する (RFC 9264)
 
 ## Change impact
 
 - linkset 編集 → llms-full.txt / mcp.json / aio-manifest.json の URL と整合確認
-- 新 AIO surface 追加 → linkset[].api-catalog にエントリ追加
+- 新 AIO surface 追加 → `linkset[0].item` にエントリ追加 (`api-catalog` ではない)
 
 ## Audience-specific notes
 
