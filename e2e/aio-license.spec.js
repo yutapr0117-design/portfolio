@@ -53,16 +53,36 @@ async function collectLicenseState(page) {
 //   なので「article ルート 1 つ + 非 article ルート 1 つ」で**ノード種別の全パターンを覆う**。
 //   ルートを増やしても新しい種別は現れない。逆に **article ルートを外すと Article ノードを
 //   一度も検査しなくなる** (2026-08-23 に実際その死角で license 欠落を見逃していた)。
-const LICENSE_ROUTES = ['/#/projects', '/#/ai-knowhow'];
+// 各ルートは **そのルートでしか出ない見出し**と、**article ノードの有無**をセットで持つ。
+// 汎用の `#content h1` 待ちや `dynamic-route` の存在待ちは **前ルートの残骸で充足する**ため
+// (h1 は落とし穴表が警告している当のパターン / dynamic-route の script 要素はルートを跨いで
+// 再利用される)、ルート固有の信号でしか「そのルートが描き終わった」を判定できない。
+const LICENSE_ROUTES = [
+  { path: '/#/projects',   h1: 'プロジェクト一覧', article: 0 },
+  { path: '/#/ai-knowhow', h1: 'AI開発ノウハウ',   article: 1 },
+];
 
 test('レンダリング後の全 CreativeWork ノードが同一のライセンスを宣言する (静的 + runtime 注入)', async ({ page }) => {
   for (const route of LICENSE_ROUTES) {
-  await page.goto(route);
+  await page.goto(route.path);
   await page.waitForLoadState('domcontentloaded');
-  await expect(page.locator('#content h1')).toBeVisible();
 
-  // route 追従ノードは MutationObserver の debounce (300ms) + requestIdleCallback のあとに
-  // 注入される。**その注入を待つのが本テストの主眼**なので、注入されたこと自体を待つ。
+  // [FIX 2026-08-23] **ルート固有の見出し**で待つ。汎用の `#content h1` 可視待ちは
+  //   **前ルートの DOM で充足する**ので、2 周目は何も待たずに進んでしまう。
+  await expect(page.locator('#content h1').first()).toHaveText(route.h1);
+
+  // control: そのルートで期待される JSON-LD ノードが**実際に注入し終わっている**こと。
+  //   Article は ARTICLE_ROUTES でのみ注入されるので、ここを待たないと
+  //   **未注入の状態を「欠落ゼロ」と誤読する**。
+  //   (実測 2026-08-23: 週次 probe で SURVIVED になった原因がまさにこれ。
+  //    `dynamic-route` の存在待ちは script 要素がルートを跨いで再利用されるため
+  //    2 周目で即成立し、待ちとして機能していなかった。)
+  await expect.poll(
+    async () => page.locator('script[data-ld="article"]').count(),
+    { message: `${route.path}: Article JSON-LD の注入状態が期待と違う — 走査対象が揃っていない` },
+  ).toBe(route.article);
+
+  // route 追従ノードも注入済であること (全ルート共通)
   await expect.poll(
     async () => page.locator('script[data-ld="dynamic-route"]').count(),
     { message: 'route 追従 JSON-LD が注入されない — semantic drift guard が動いていない' },
@@ -79,7 +99,7 @@ test('レンダリング後の全 CreativeWork ノードが同一のライセン
     'license を宣言しない CreativeWork ノードがある — その経路の agent は学習可否を判定できない').toEqual([]);
 
   // 面ごとに違う URL を指していたら「どれが正か」を機械が決められない
-  expect(state.urls, `${route}: ライセンス URL が面ごとに食い違っている`).toEqual([
+  expect(state.urls, `${route.path}: ライセンス URL が面ごとに食い違っている`).toEqual([
     'https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt',
   ]);
   }

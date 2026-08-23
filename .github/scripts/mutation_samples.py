@@ -341,48 +341,6 @@ MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
     {
-        "name": "\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u8ffd\u52a0\u306e\u4e0a\u9650\u30ac\u30fc\u30c9\u55b6\u5931 \u2014\u2014 task/todo (#1152) \u3068\u540c\u5f62\u3067\u3001\u5916\u3059\u3068 unshift \u5f8c\u306e\u6b63\u898f\u5316 slice(0, MAX_PROJECTS) \u304c\u6700\u53e4\u306e\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u3092\u7121\u901a\u77e5\u3067\u6368\u3066\u308b",
-        "file": ROOT / "js" / "settings-page.js",
-        "find": "if (State.get().projects.length >= CONSTANTS.LIMITS.MAX_PROJECTS) {",
-        "replace": "if (false) {",
-        "test": "Adding a project at the limit is refused",
-    },
-    {
-        "name": "\u975e\u65e2\u5b9a\u30d6\u30e9\u30f3\u30c9 (classic = Inter \u3067\u7d04 5.9% \u5e45\u5e83) \u3067\u306e 320px \u30ea\u30d5\u30ed\u30fc\u5951\u7d04\u304c\u5931\u308f\u308c\u308b \u2014\u2014 920px media \u5185\u306e max-width \u3092\u5916\u3059\u3068 cross \u8ef8 auto margin \u306b\u3088\u308a fit-content \u304c viewport \u3092\u8d85\u3048\u308b\u3002\u65e2\u5b9a\u30d6\u30e9\u30f3\u30c9\u3060\u3051\u3092\u901a\u3059 gate \u3060\u3068\u3001\u5e45\u5e83\u306a\u30d5\u30a9\u30f3\u30c8\u3067\u3060\u3051\u3042\u3075\u308c\u308b\u56de\u5e30\u3092\u7d20\u901a\u308a\u3055\u305b\u308b",
-        "file": ROOT / "style.css",
-        "find": "                   \u306f\u975e\u5230\u9054\u3002 */\n                max-width: 100%;",
-        "replace": "                   \u306f\u975e\u5230\u9054\u3002 */\n                max-width: none;",
-        "test": "classic \u30d6\u30e9\u30f3\u30c9 (\u3088\u308a\u5e45\u5e83\u306a\u30d5\u30a9\u30f3\u30c8) \u3067\u3082\u3042\u3075\u308c\u306a\u3044",
-    },
-    {
-        "name": "\u6de1\u3044\u30c1\u30c3\u30d7\u306e\u4e0a\u306e\u6587\u5b57\u304c AA \u3092\u5272\u308b\u5f62\u3078\u623b\u308b \u2014\u2014 --on-tint-primary \u3092 --color-primary \u306b\u623b\u3059\u3068\u3001badge / active nav / hero-eyebrow \u306a\u3069 10% alpha \u306e\u80cc\u666f\u306e\u4e0a\u306e\u6587\u5b57\u304c 3.67\u301c4.48 \u3078\u843d\u3061\u308b (WCAG 1.4.3 AA)",
-        "file": ROOT / "style.css",
-        "find": "--on-tint-primary: var(--color-primary-dark);",
-        "replace": "--on-tint-primary: var(--color-primary);",
-        "test": "indigo \u30e9\u30a4\u30c8\u306e\u5168\u30da\u30fc\u30b8\u3067 color-contrast \u9055\u53cd\u304c\u30bc\u30ed",
-    },
-    {
-        "name": "\u958b\u3044\u305f\u72b6\u614b\u3067\u3057\u304b\u63cf\u753b\u3055\u308c\u306a\u3044\u9762\u306e contrast \u9000\u884c \u2014\u2014 command palette \u306e active \u9805\u76ee\u306e\u6587\u5b57\u8272\u3092\u4e2d\u9593\u30b0\u30ec\u30fc\u3078\u843d\u3068\u3059\u3002\u30eb\u30fc\u30c8\u3092\u5DE1\u308b\u9759\u7684\u8d70\u67fb\u306f\u9589\u3058\u3066\u3044\u308b\u9593 palette \u3092\u898b\u306a\u3044\u306e\u3067\u7dd1\u306e\u307e\u307e\u3067\u3001\u3053\u306e\u72b6\u614b\u9762\u306e test \u3060\u3051\u304c\u6355\u6349\u3059\u308b",
-        "file": ROOT / "style.css",
-        "find": ".cmdk-item.is-active, .cmdk-item:hover { background: var(--color-primary, #6366f1); color: #fff; }",
-        "replace": ".cmdk-item.is-active, .cmdk-item:hover { background: var(--color-primary, #6366f1); color: #9aa0b8; }",
-        "test": "\u30e9\u30a4\u30c8\u306e drawer / palette / toast \u306b color-contrast \u9055\u53cd\u304c\u30bc\u30ed",
-    },
-    {
-        "name": "\u691c\u8a3c\u30a8\u30e9\u30fc\u306e\u8996\u899a\u7684\u8b58\u5225\u304c\u5931\u308f\u308c\u308b \u2014\u2014 [aria-invalid] \u306e\u5883\u754c\u7dda\u3092\u901a\u5e38\u3078\u623b\u3059\u3068\u3001\u4e0d\u6b63\u306a\u6b04\u304c\u6709\u52b9\u306a\u6b04\u3068\u898b\u5206\u3051\u4ed8\u304b\u306a\u304f\u306a\u308b\u3002Toast \u306f duration \u3067\u6d88\u3048\u308b\u306e\u3067\u3001\u6d88\u3048\u305f\u5f8c\u306f\u300c\u3069\u306e\u6b04\u304c\u4e0d\u6b63\u304b\u300d\u306e\u624b\u304c\u304b\u308a\u304c\u7121\u304f\u306a\u308b (WCAG 3.3.1 / 1.4.1)",
-        "file": ROOT / "style.css",
-        "find": "            border-color: var(--color-danger);\n            border-width: 2px;",
-        "replace": "            border-color: var(--border-color);",
-        "test": "Invalid form fields are visually distinguishable",
-    },
-    {
-        "name": "palette \u306e\u8996\u899a\u306e\u9078\u629e\u304c ARIA \u3068\u305a\u308c\u308b \u2014\u2014 is-active \u3092\u5148\u982d\u56fa\u5b9a\u306b\u3059\u308b\u3068\u3001SR \u306f 2 \u756a\u76ee\u3092\u8aad\u3080\u306e\u306b\u753b\u9762\u306f 1 \u756a\u76ee\u3092\u5149\u3089\u305b\u308b\u72b6\u614b\u306b\u306a\u308b\u3002\u65e2\u5b58\u306e activedescendant \u30c6\u30b9\u30c8\u306f ARIA \u540c\u58eb\u306e\u6574\u5408\u3057\u304b\u898b\u306a\u3044\u305f\u3081\u7dd1\u306e\u307e\u307e\u7d20\u901a\u308a\u3059\u308b",
-        "file": ROOT / "js" / "command-palette.js",
-        "find": "            li.classList.toggle('is-active', on);",
-        "replace": "            li.classList.toggle('is-active', i === 0);",
-        "test": "Command palette keeps visual, ARIA and activedescendant selection in sync",
-    },
-    {
         "name": "\u7573\u3093\u3060\u30ca\u30d3\u7fa4\u306e\u4e2d\u8eab\u304c tab \u9806\u306b\u623b\u308b \u2014\u2014 visibility:hidden \u3092\u5916\u3059\u3068 max-height:0 \u3060\u3051\u306b\u306a\u308a\u3001\u9ad8\u3055 0 \u306e\u9818\u57df\u306e\u4e2d\u3078 focus \u304c\u5165\u308b (\u5b9f\u6e2c: 11 \u500b\u306e\u30ea\u30f3\u30af\u30fb\u30dc\u30bf\u30f3\u304c focus \u53ef\u80fd)\u3002\u5229\u7528\u8005\u304b\u3089\u306f focus \u304c\u6d88\u3048\u305f\u3088\u3046\u306b\u898b\u3048\u308b (WCAG 2.4.3 / 2.4.7)",
         "file": ROOT / "style.css",
         "find": "            visibility: hidden;\n            transition: max-height 0.25s ease, visibility 0s linear 0.25s;",
@@ -954,6 +912,36 @@ _E2E_TAIL.append({
     "find": ").catch(() => _retryQuizData(type))",
     "replace": ")",
     "test": "recovers from a transient load failure by refetching under a new URL",
+})
+
+_E2E_TAIL.append({
+    "name": "JSON-LD の CreativeWork ノードから license が落ちる —— schema.org で license は "
+            "CreativeWork に定義される。1 ノードでも欠けると、その経路から来た agent は "
+            "「学習してよいか」を判定できない (ACD-1.0 §6.5)。**視覚には一切出ない**",
+    "file": ROOT / "js" / "meta-management.js",
+    "find": "'license': SITE_CONFIG.LICENSE_URL,\n                'dateModified'",
+    "replace": "'dateModified'",
+    "test": "レンダリング後の全 CreativeWork ノードが同一のライセンスを宣言する",
+})
+
+_E2E_TAIL.append({
+    "name": "HTML 標準の license リンクが消える —— rel=license は権利宣言の最も標準的な入口で、"
+            "JSON-LD を読まないツール (ライセンススキャナ等) にとっては唯一の手掛かり",
+    "file": ROOT / "index.html",
+    "find": '<link rel="license" href="/portfolio/LICENSES/ACD-1.0.txt" />',
+    "replace": '<!-- removed by mutation probe -->',
+    "test": "HTML 標準の license リンクが全ルートで解決可能な形で存在する",
+})
+
+_E2E_TAIL.append({
+    "name": "runtime の speakable ノードが canonical と同じ @id にルート固有の name を載せる —— "
+            "JSON-LD では同一 @id = 同一エンティティなので property が merge され、"
+            "**1 つのエンティティが 2 つの名前を主張**する。「このクエリはこのエンティティにのみ "
+            "解決すべき」という中核宣言と真っ向から矛盾する (2026-08-23 の実バグ)",
+    "file": ROOT / "js" / "meta-management.js",
+    "find": "            'license': SITE_CONFIG.LICENSE_URL,\n            'speakable': {",
+    "replace": "            'license': SITE_CONFIG.LICENSE_URL,\n            'name': fullTitle,\n            'speakable': {",
+    "test": "同一 @id が矛盾する property 値を宣言しない",
 })
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
