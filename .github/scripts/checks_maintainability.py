@@ -372,8 +372,15 @@ def run(ctx):
     # raises a warning a human reviews — never a CI failure that would block a justified increase
     # (a new safety comment, a new archive entry). main.js carries a strong-advisory ceiling the
     # owner treats as near-hard, so its growth is the one this check most actively surfaces.
-    # Line-count convention: number of "\n" + 1, matching `wc -l`+1 for files without a trailing
-    # newline and `wc -l` for files that end in a newline (we count lines, not newline characters).
+    # Line-count convention: `len(splitlines())`, which equals `wc -l` for files that end in a
+    # newline (essentially all of them here) and `wc -l`+1 for files that do not.
+    # [FIX 2026-08-23] 旧実装は `count("\n") + 1` で、**末尾改行のあるファイルでは常に `wc -l`
+    #   より 1 大きい**値を報告していた。にもかかわらず直上のコメントは「末尾改行のあるファイルでは
+    #   `wc -l` と一致する」と**逆のことを書いていた**。結果、同じファイルについて
+    #   **Check 52 の warning は 924、Check 424 (§2 表の実測行数) は 923** と食い違い、
+    #   実際に事故が起きた —— warning の数値を権威と誤読して §2 表を 924 へ「修正」し、
+    #   Check 424 が正しく通していた値を壊して CI を赤にした (2026-08-23)。
+    #   `wc -l` を権威とする Check 424 / 365 / 363 に合わせて `splitlines()` へ統一する。
     _budget_doc52 = ROOT / "docs" / "architecture" / "file-size-budget.md"
     if _budget_doc52.exists():
         _btext52 = _budget_doc52.read_text(encoding="utf-8")
@@ -402,7 +409,7 @@ def run(ctx):
                 if not _fp52.exists():
                     _missing52.append(_path52)
                     continue
-                _actual52 = _fp52.read_text(encoding="utf-8").count("\n") + 1
+                _actual52 = len(_fp52.read_text(encoding="utf-8").splitlines())
                 _checked52 += 1
                 if _actual52 > _limit_n52:
                     _over52.append(f"{_path52} ({_actual52} lines > budget {_limit_n52}; {_kind52})")
