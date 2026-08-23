@@ -328,6 +328,15 @@ _MUTATIONS_TAIL.append({
     "replace": '<!-- license link removed by mutation probe -->',
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 445 (SPDX 提出物の同期): 提出用 XML を手で書き換える —— 提出物は本文から "
+            "導出しているので、手編集は「本文と食い違う XML を提出する」ことを意味する。"
+            "XML は普段誰も読まないため drift に気付く経路が無く、いつか嘘を提出することになる",
+    "file": ROOT / "LICENSES" / "ACD-1.0.spdx.xml",
+    "find": 'licenseId="ACD-1.0"',
+    "replace": 'licenseId="ACD-1.1"',
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
