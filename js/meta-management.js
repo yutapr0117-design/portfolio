@@ -127,6 +127,7 @@ export function createMetaManagement({ SITE_CONFIG, AUTHOR, PAGE_META, Router, S
                 'description': desc,
                 'url': SITE_CONFIG.CANONICAL_URL,
                 'mainEntityOfPage': SITE_CONFIG.CANONICAL_URL,
+                'license': SITE_CONFIG.LICENSE_URL,
                 'dateModified': SITE_CONFIG.LAST_UPDATED,
                 'author': {
                     '@id': SITE_CONFIG.CANONICAL_URL + '#person',

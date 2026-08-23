@@ -65,7 +65,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/constants.js` | 94 | 150 | `advisory` | Stage 5-d 新設。実行時定数（STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID）。closure-deps = none |
 | `js/fatal-overlay.js` | 231 | 300 | `advisory` | Stage 5-r 新設。Fatal overlay + Global Safety Net factory（エラー判定 + Shadow DOM フォールバック UI + setInterval ウォッチ）。closure-deps = none + render 注入 |
 | `js/identity.js` | 36 | 80 | `advisory` | Stage 5-e 新設。AUTHOR（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME）純データ。closure-deps = none |
-| `js/meta-management.js` | 217 | 280 | `advisory` | Stage 5-k' (Meta Management) 新設。Meta Management factory（updateDocumentHead/announceRouteForAccessibility/injectRouteEntityAnchor/injectStructuredData + applyMeta ファサード）。closure-deps = none + 引数注入。命名: PR #33。元 commit message では Stage 5-l と記録されたが、PR #37 で AIDK Rail も同名となったため、changelog 上では 5-k' として区別する（commit message は append-only で残置） |
+| `js/meta-management.js` | 218 | 280 | `advisory` | Stage 5-k' (Meta Management) 新設。Meta Management factory（updateDocumentHead/announceRouteForAccessibility/injectRouteEntityAnchor/injectStructuredData + applyMeta ファサード）。closure-deps = none + 引数注入。命名: PR #33。元 commit message では Stage 5-l と記録されたが、PR #37 で AIDK Rail も同名となったため、changelog 上では 5-k' として区別する（commit message は append-only で残置） |
 | `js/mobile-drawer.js` | 257 | 280 | `advisory` | Stage 5-q 新設。Mobile Drawer factory（syncMobileDrawer / secureExternalLinks / __setAppInert / __lockBodyScroll / __trapFocus / __releaseFocusTrap / openDrawer / closeDrawer + state）。closure-deps = none + 引数注入 |
 | `js/ui-components.js` | 325 | 400 | `advisory` | Stage 4 新設。DOM ビルダー・SVG アイコン・Toast・BGM の葉モジュール。安定 |
 | `js/router.js` | 221 | 250 | `advisory` | Stage 5 新設。Hash-based SPA ルーター葉モジュール。安定 |
@@ -101,9 +101,9 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/a11y-best-practice.spec.js` | 88 | 900 | `advisory` | behavior e2e spec (axe best-practice タグの baseline・ゲートの死角を可視化)。Check 365 の 1,000 行 BLOCKING 対象。 |
 | `e2e/a11y-contrast.spec.js` | 501 | 900 | `advisory` | behavior e2e spec (コントラストと色の知覚・WCAG 1.4.1/1.4.3/1.4.11)。2026-08-20 に a11y-axe.spec.js が 996 行で BLOCKING(1,000) まで残り 3 行となり、**当たる前に**このテーマの塊を切り出した |
 | `e2e/a11y-lang-of-parts.spec.js` | 197 | 900 | `advisory` | behavior e2e spec (WCAG 3.1.2 Language of Parts)。2026-08-23 に a11y-axe.spec.js が 950 行で advisory(900) を超えたため、**BLOCKING(1,000) に当たる前に**単一達成基準の塊として切り出した |
-| `e2e/aio-license.spec.js` | 91 | 900 | `advisory` | behavior e2e spec (ライセンス宣言の機械可読性)。静的 Check 444 は index.html のソースを読むが、**route 追従ノードと speakable ノードは runtime 注入**なので「クローラが実際に見る状態」は e2e でしか測れない |
+| `e2e/aio-license.spec.js` | 99 | 900 | `advisory` | behavior e2e spec (ライセンス宣言の機械可読性)。静的 Check 444 は index.html のソースを読むが、**route 追従ノードと speakable ノードは runtime 注入**なので「クローラが実際に見る状態」は e2e でしか測れない |
 | `e2e/aio-agentic-state.spec.js` | 236 | 900 | `advisory` | behavior e2e spec (`body[data-ai-state]` の機械可読契約)。2026-08-23 に aio-meta.spec.js が 907 行で advisory(900) を超えたため、**BLOCKING(1,000) に当たる前に**単一の契約という coherent な塊として切り出した |
-| `e2e/aio-meta.spec.js` | 758 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/aio-meta.spec.js` | 761 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-ai-notes.spec.js` | 833 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-pomodoro.spec.js` | 898 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-settings-import-shape.spec.js` | 561 | 900 | `advisory` | behavior e2e spec (import が受け付ける形の契約面)。2026-08-14 に apps-settings-io.spec.js の advisory 超過を受けて先回り分割 |
@@ -168,7 +168,9 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 716000 -->
+<!-- PERF-BUDGET-DATA 716500 -->
+
+> **2026-08-23 ラチェット 716,000 → 716,500（+500）**: Article JSON-LD ノードへ `license` を 1 行足したため。**shipped 側の差分はこの 1 行だけでコメントはゼロ**（`git diff --stat js/meta-management.js` = 1 insertion）なので、削って収める余地が構造的に無い。動機は `#article-ai-knowhow` が **ARTICLE_ROUTES のルートでしか注入されない**ため、静的 Check（index.html を読む）にも e2e のルート一覧（当時 ai-knowhow を含まなかった）にも入らず、**両方の死角**で license 欠落が残っていたこと。
 
 > **2026-08-23 ラチェット 715,000 → 716,000（+1,000）**: JSON-LD の権利宣言を runtime 注入ノードへも配線したため（`SITE_CONFIG.LICENSE_URL` と 2 箇所の参照）。**上げる前に「自分のコメントを全部消しても収まらないか」を実測した** —— コメント込み 715,542 / コメント全削除 715,075 で、**どちらも超過**。つまり超過分はコメントではなくコードなので、冗長さを通すための引き上げではない。動機は route 追従 JSON-LD ノード（`#webpage-dynamic`）が静的ノードと別 @id のため、静的側の license が及ばず**そのノードだけ許諾不明**だったこと（ACD-1.0 §6.5「自動化システムが判定できない許諾は許諾ではない」）。
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。

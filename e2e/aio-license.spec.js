@@ -41,8 +41,15 @@ async function collectLicenseState(page) {
   }, [...CREATIVE_WORK_TYPES]);
 }
 
+// **ルート一覧に `#/ai-knowhow` を必ず含める。** Article JSON-LD は ARTICLE_ROUTES の
+// ルートでしか注入されないので、他のルートだけを見ていると **そのノードを一度も検査しない**。
+// 実測 (2026-08-23): この死角のため Article ノードだけが license を持たないまま素通りしていた
+// —— 「既定の状態だけが偶然 clean」class (#1213 / #1214 / #1219 と同型)。
+const LICENSE_ROUTES = ['/#/projects', '/#/ai-knowhow'];
+
 test('レンダリング後の全 CreativeWork ノードが同一のライセンスを宣言する (静的 + runtime 注入)', async ({ page }) => {
-  await page.goto('/#/projects');
+  for (const route of LICENSE_ROUTES) {
+  await page.goto(route);
   await page.waitForLoadState('domcontentloaded');
   await expect(page.locator('#content h1')).toBeVisible();
 
@@ -64,9 +71,10 @@ test('レンダリング後の全 CreativeWork ノードが同一のライセン
     'license を宣言しない CreativeWork ノードがある — その経路の agent は学習可否を判定できない').toEqual([]);
 
   // 面ごとに違う URL を指していたら「どれが正か」を機械が決められない
-  expect(state.urls, 'ライセンス URL が面ごとに食い違っている').toEqual([
+  expect(state.urls, `${route}: ライセンス URL が面ごとに食い違っている`).toEqual([
     'https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt',
   ]);
+  }
 });
 
 test('HTML 標準の license リンクが全ルートで解決可能な形で存在する', async ({ page }) => {
