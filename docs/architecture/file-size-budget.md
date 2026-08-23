@@ -97,9 +97,10 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `AI2AI.md` | 952 | — | `protected` | AIO 正本（canonical）。削らない |
 | `docs/session-records/AI2AI-archive.md` | 736 | — | `archive-growth-ok` | セッション証跡。削らない |
 | `ChatGPT2ChatGPT.md` | 970 | — | `archive-growth-ok` | AI 間対話証跡。削らない |
-| `e2e/a11y-axe.spec.js` | 949 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/a11y-axe.spec.js` | 782 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/a11y-best-practice.spec.js` | 88 | 900 | `advisory` | behavior e2e spec (axe best-practice タグの baseline・ゲートの死角を可視化)。Check 365 の 1,000 行 BLOCKING 対象。 |
 | `e2e/a11y-contrast.spec.js` | 501 | 900 | `advisory` | behavior e2e spec (コントラストと色の知覚・WCAG 1.4.1/1.4.3/1.4.11)。2026-08-20 に a11y-axe.spec.js が 996 行で BLOCKING(1,000) まで残り 3 行となり、**当たる前に**このテーマの塊を切り出した |
+| `e2e/a11y-lang-of-parts.spec.js` | 197 | 900 | `advisory` | behavior e2e spec (WCAG 3.1.2 Language of Parts)。2026-08-23 に a11y-axe.spec.js が 950 行で advisory(900) を超えたため、**BLOCKING(1,000) に当たる前に**単一達成基準の塊として切り出した |
 | `e2e/aio-meta.spec.js` | 907 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-ai-notes.spec.js` | 833 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-pomodoro.spec.js` | 898 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
@@ -519,6 +520,7 @@ ChatGPT2ChatGPT.md | - | archive-growth-ok
 e2e/a11y-axe.spec.js | 900 | advisory
 e2e/a11y-best-practice.spec.js | 900 | advisory
 e2e/a11y-contrast.spec.js | 900 | advisory
+e2e/a11y-lang-of-parts.spec.js | 900 | advisory
 e2e/aio-meta.spec.js | 900 | advisory
 e2e/apps-ai-notes.spec.js | 900 | advisory
 e2e/apps-pomodoro.spec.js | 900 | advisory
