@@ -536,3 +536,65 @@ def run(ctx):
              "生成器の段落分割ロジックを見直せ"),
             blocking=True,
         )
+
+        # 445d — 段落の先頭に立つ条項番号が、本文の条項列と **順序・個数まで一致**する。
+        # [ADD 2026-08-23] 445c は「条項が *現れる*」しか見ないので、**1 つの文が 2 つの段落に
+        #   割れても素通り**する (割れた後半が実在の条項番号で始まると 445b/c のどちらにも掛から
+        #   ない)。実際に生成器が折り返しの継続行を新段落と誤認し、§16.5 の「…and Section」/
+        #   「10.5 applies.」など **3 文が割れていた**。Check 445a の regenerate-compare も、
+        #   生成器自体が壊れていれば**壊れた出力どうしが一致する**ので捕捉できない。
+        #   本文の条項列 (indent 2 の `N.N `) と、XML で段落頭に立つ条項番号の列を突き合わせる。
+        try:
+            _ps445 = [(_p.text or "").strip() for _p in
+                      _ET445.fromstring(_xml445.read_text(encoding="utf-8"))
+                      .findall(".//{http://www.spdx.org/license}p")]
+        except Exception:
+            _ps445 = []
+        _xmlseq445 = [_t.split()[0] for _t in _ps445 if re.match(r"^\d+\.\d+\s", _t)]
+        _seq_ok445 = bool(_clauses445) and _xmlseq445 == _clauses445
+        _extra445 = [_c for _c in _xmlseq445 if _xmlseq445.count(_c) > _clauses445.count(_c)]
+        check(
+            _seq_ok445,
+            f"Check 445d: XML の段落頭に立つ条項番号 {len(_xmlseq445)} 件が本文の条項列と順序・個数まで一致",
+            (f"Check 445d: 段落分割が本文の条項構造と食い違っている "
+             f"(本文 {len(_clauses445)} 件 / XML {len(_xmlseq445)} 件"
+             + (f"・重複 {sorted(set(_extra445))[:5]}" if _extra445 else "") + ")。"
+             "**折り返しの継続行を新段落と誤認すると 1 つの文が 2 つに割れる** —— 割れた後半が"
+             "実在の条項番号で始まると 445b/445c のどちらにも掛からず、445a の regenerate-compare も"
+             "生成器が壊れていれば壊れた出力どうしで一致してしまう。"
+             "`generate_spdx_license_xml.py` の段落判定を**インデント込み**で行え"),
+            blocking=True,
+        )
+
+        # 445e — standardLicenseHeader が §16.1 の通知文から導出されている。
+        # [ADD 2026-08-23] SPDX ツールはこの要素で **ソースファイルに書かれた通知**を照合する。
+        #   §16.2 は「識別子・SPDX タグ・名称による参照で十分な通知になる」と述べているので、
+        #   header が欠けると **識別子タグは拾えても散文の通知が拾えない** —— 宣言が届かない。
+        #   §16.1 の通知文の実体 (SPDX 識別子行 / 全文への導線 / 名称と版数) が header に
+        #   現れることを検証する。可変部 (`<location of this file>`) は `<alt>` で表すのが
+        #   SPDX の作法で、§16.4 (本文を改変して同名配布しない) とは衝突しない ——
+        #   **header は Work に添える通知であって Dedication の本文ではない** (§16.5)。
+        _hdr445 = ""
+        try:
+            _h = _ET445.fromstring(_xml445.read_text(encoding="utf-8")).find(
+                ".//{http://www.spdx.org/license}standardLicenseHeader")
+            if _h is not None:
+                _hdr445 = " ".join("".join(_e.itertext()) for _e in
+                                   _h.findall("{http://www.spdx.org/license}p"))
+        except Exception:
+            _hdr445 = ""
+        _need445e = ["SPDX-License-Identifier: ACD-1.0", "Autonomous Commons Dedication",
+                     "Full text:"]
+        _missh445 = [_n for _n in _need445e if _n not in _hdr445]
+        _has_alt445 = "<alt " in _xml445.read_text(encoding="utf-8")
+        check(
+            _hdr445 and not _missh445 and _has_alt445,
+            "Check 445e: standardLicenseHeader が §16.1 の通知文を担っている",
+            (f"Check 445e: standardLicenseHeader が欠落/不完全 (欠け: {_missh445}"
+             + ("" if _has_alt445 else " / 可変部の <alt> が無い") + ")。"
+             "**SPDX ツールはこの要素でソースファイル中の通知を照合する** —— 欠けると "
+             "SPDX-License-Identifier タグは拾えても、§16.1 が定める散文の通知は認識されない。"
+             "`generate_spdx_license_xml.py` の `_standard_header()` は §16.1 から導出するので、"
+             "本文側の通知文を変えたら再生成せよ"),
+            blocking=True,
+        )

@@ -84,14 +84,62 @@ def _blocks(body: str) -> list[str]:
                 out.append(" ".join(cur))
                 cur = []
             continue
-        # 条項番号 / 節見出し / 定義 は新しい段落を開始する
-        if re.match(r"^(\d+\.\d+\s|\d+\.\s+[A-Z]|\([a-z]\)\s)", stripped) and cur:
+        # 条項番号 / 節見出し / 小項目は新しい段落を開始する。
+        # [FIX 2026-08-23] 判定を **インデント込み**にした。従来は行を strip してから番号
+        #   パターンを見ていたため、**折り返しの継続行がたまたま番号で始まる**と新段落として
+        #   切られ、**1 つの文が 2 つの <p> に割れていた** (実測 3 箇所。例: §16.5 の
+        #   「…and Section」/「10.5 applies.」、§5.2(c) の「…narrower than Section」/
+        #   「15.1 requires it to be read.」)。SPDX はテキスト照合なので、提出物が文を壊すのは
+        #   体裁の問題では済まない。本文は桁揃えが厳密 (条項 = indent 2 / 節見出し = 0 /
+        #   小項目 = 7 / 継続行 = それより深い) なので、インデントで確実に判別できる。
+        _ind = len(line) - len(line.lstrip())
+        _is_start = (
+            (_ind == 0 and re.match(r"^\d+\.\s+[A-Z]", stripped))
+            or (_ind == 2 and re.match(r"^\d+\.\d+\s", stripped))
+            or (_ind == 7 and re.match(r"^\([a-z]\)\s", stripped))
+        )
+        if _is_start and cur:
             out.append(" ".join(cur))
             cur = []
         cur.append(stripped)
     if cur:
         out.append(" ".join(cur))
     return out
+
+
+def _standard_header(src: str) -> str:
+    """§16.1 が定める通知文を **本文から導出**して standardLicenseHeader 用に整形する。
+
+    SPDX ツールはこの要素で「ソースファイルに書かれた通知」を照合する。§16.2 は
+    「識別子・SPDX タグ・名称による参照で十分な通知になる」と述べているので、その通知が
+    **機械に認識されなければ宣言が届かない** —— ライセンス本文だけ登録して header を
+    省くと、識別子タグは拾えても散文の通知は拾えない。
+
+    `<location of this file>` は適用ごとに変わるので `<alt>` で可変部として表す。これは
+    §16.4 (本文を改変して同名で配布しない) と衝突しない —— **header は Work に添える通知
+    であって、この Dedication の本文ではない** (§16.5 が両者を分けている)。
+    """
+    i = src.index("16.1 To apply this Dedication")
+    block = src[i:src.index("16.2", i)]
+    lines = [l.strip() for l in block.splitlines()]
+    j = lines.index("SPDX-License-Identifier: ACD-1.0")
+    raw = [l for l in lines[:j + 1] if l.startswith(("This work", "(ACD-1.0)", "Full text:", "SPDX-License"))]
+    # 79 桁の折り返しを論理単位へ畳む (本文側と同じ規律 —— **折り返しを段落境界にしない**)。
+    # 新しい論理単位が始まるのは "Full text:" と "SPDX-License-Identifier:" の 2 つだけ。
+    notice: list[str] = []
+    for l in raw:
+        if notice and not l.startswith(("Full text:", "SPDX-License-Identifier:")):
+            notice[-1] += " " + l
+        else:
+            notice.append(l)
+    out = []
+    for l in notice:
+        if l.startswith("Full text:"):
+            out.append('      <p>Full text: <alt match=".+" name="fullTextLocation">'
+                       '&lt;location of this file&gt;</alt></p>')
+        else:
+            out.append(f"      <p>{escape(l)}</p>")
+    return "\n".join(out)
 
 
 def build() -> str:
@@ -112,6 +160,7 @@ def build() -> str:
     paragraphs = "\n".join(
         f"        <p>{escape(p)}</p>" for p in _blocks(body)
     )
+    header = _standard_header(src)
 
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <!--
@@ -133,6 +182,9 @@ def build() -> str:
       recipient's permissions independent of whether copyright subsists in machine-generated
       material (section 9). Not submitted to OSI at the time of this entry.
     </notes>
+    <standardLicenseHeader>
+{header}
+    </standardLicenseHeader>
     <text>
       <titleText>
         <p>{escape(title)}</p>

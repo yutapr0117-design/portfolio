@@ -18,6 +18,11 @@
       recipient's permissions independent of whether copyright subsists in machine-generated
       material (section 9). Not submitted to OSI at the time of this entry.
     </notes>
+    <standardLicenseHeader>
+      <p>This work is released under the Autonomous Commons Dedication 1.0 (ACD-1.0). No rights are reserved and no conditions are imposed.</p>
+      <p>Full text: <alt match=".+" name="fullTextLocation">&lt;location of this file&gt;</alt></p>
+      <p>SPDX-License-Identifier: ACD-1.0</p>
+    </standardLicenseHeader>
     <text>
       <titleText>
         <p>Autonomous Commons Dedication</p>
@@ -42,8 +47,7 @@
         <p>2.1  This Dedication applies to the Work as a whole and to every separable part of it.</p>
         <p>2.2  This Dedication is irrevocable. The Dedicator may not withdraw it, and may not impose any further term, condition, or restriction, in respect of any copy of the Work that has been made available.</p>
         <p>2.3  This Dedication takes effect without any act of acceptance by You. You need not sign, register, notify, request, or agree to anything, and nothing You do or fail to do can cause You to lose a permission granted here.</p>
-        <p>2.4  Sections 3, 4, 5, and 6 are independent of one another. Each is granted on its own footing and none is conditioned on the failure of another. Where more than one operates, they operate cumulatively, and Section</p>
-        <p>15.1 governs their construction.</p>
+        <p>2.4  Sections 3, 4, 5, and 6 are independent of one another. Each is granted on its own footing and none is conditioned on the failure of another. Where more than one operates, they operate cumulatively, and Section 15.1 governs their construction.</p>
         <p>2.5  The Dedicator makes this Dedication knowing and intending that others will rely on it in deciding to use, adapt, distribute, and build upon the Work, and that they will incur effort and expense in doing so. That reliance is the purpose of this Dedication and not merely a foreseeable consequence of it. The Dedicator will not assert that this Dedication is revocable, unsupported, or otherwise ineffective for want of consideration or formality, and is estopped from doing so to the extent the law of any jurisdiction gives that principle effect.</p>
         <p>2.6  A Contribution is submitted under this Dedication, and the person making it becomes a Dedicator as to that Contribution, unless they state otherwise at the time of submission. No separate instrument, assignment, or agreement is required, and none may be required of them as a condition of the Contribution being accepted. Nothing in this Section obliges anyone to submit anything, or obliges the Dedicator to accept anything.</p>
         <p>2.7  This Dedication reaches only rights the Dedicator holds. Where the Work incorporates material in which another person holds rights, this Dedication neither affects nor purports to affect those rights, and nothing in it is a representation that such material is unencumbered. Section 13.2 states the corresponding absence of warranty.</p>
@@ -62,8 +66,7 @@
         <p>5.2  The Dedicator further covenants that the Dedicator will not, in respect of the Work:</p>
         <p>(a)  apply, or assert rights in respect of, any technological measure that restricts access to or use of the Work, or invoke any law concerning the circumvention of such measures against You;</p>
         <p>(b)  impose by contract, terms of service, access condition, or any other collateral means an obligation that Sections 3 to 12 disclaim; or</p>
-        <p>(c)  assert that any permission granted here is narrower than Section</p>
-        <p>15.1 requires it to be read.</p>
+        <p>(c)  assert that any permission granted here is narrower than Section 15.1 requires it to be read.</p>
         <p>5.3  The covenants in Sections 5.1 and 5.2 run with the Work, bind the Dedicator's successors, assigns, heirs, and personal representatives, and may be relied upon by You and by anyone who receives the Work from You, directly or indirectly, as an intended beneficiary.</p>
         <p>6. MACHINE LEARNING, TEXT AND DATA MINING, AND MODEL TRAINING</p>
         <p>6.1  Computational Use of the Work is expressly permitted, for any purpose, commercial or non-commercial, by any person or automated system, without condition.</p>
@@ -124,8 +127,7 @@
         <p>16.2 Where a work is accompanied by the identifier "ACD-1.0", by an "SPDX-License-Identifier: ACD-1.0" tag, or by a reference to this Dedication by name, that is sufficient notice of these terms, and the terms apply in full whether or not a copy of this text accompanies the work.</p>
         <p>16.3 This Dedication may be applied by anyone, to any work, without permission from, notice to, or any relationship with its authors. It is not specific to any project, person, organisation, jurisdiction, or field of endeavour.</p>
         <p>16.4 The text of this Dedication may be copied and distributed verbatim by anyone, in any medium, for any purpose, without charge or permission. It may not be distributed in modified form under the name "Autonomous Commons Dedication" or under the identifier "ACD-1.0", so that the name and the identifier continue to denote one fixed text. A modified text may be distributed under a different name.</p>
-        <p>16.5 Section 16.4 governs the text of this Dedication as a document. It is not a term of the Work, it binds no recipient of the Work, and Section</p>
-        <p>10.5 applies.</p>
+        <p>16.5 Section 16.4 governs the text of this Dedication as a document. It is not a term of the Work, it binds no recipient of the Work, and Section 10.5 applies.</p>
         <p>END OF TERMS</p>
     </text>
   </license>
