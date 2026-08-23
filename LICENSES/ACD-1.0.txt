@@ -133,6 +133,15 @@ PREAMBLE (informative; not part of the operative terms)
        nothing in it is a representation that such material is unencumbered.
        Section 13.2 states the corresponding absence of warranty.
 
+  2.8  Sections 3, 4, and 8 bind the Dedicator's successors, assigns, heirs,
+       and personal representatives, and any person to whom a Covered Right or
+       a patent claim in the Work is transferred, to the fullest extent the law
+       permits. A transferee takes subject to them. This is stated expressly
+       because Sections 5.3 and 12.4 say as much for the covenants they
+       contain, and silence here would invite the argument that the grants
+       themselves stop at the Dedicator — which would leave the longest-lived
+       risk, the change of hands, open.
+
 
 3. DEDICATION OF COVERED RIGHTS
 
@@ -200,9 +209,8 @@ PREAMBLE (informative; not part of the operative terms)
 
   5.3  The covenants in Sections 5.1 and 5.2 run with the Work, bind the
        Dedicator's successors, assigns, heirs, and personal representatives,
-       and may be
-       relied upon by You and by anyone who receives the Work from You,
-       directly or indirectly, as an intended beneficiary.
+       and may be relied upon by You and by anyone who receives the Work from
+       You, directly or indirectly, as an intended beneficiary.
 
 
 6. MACHINE LEARNING, TEXT AND DATA MINING, AND MODEL TRAINING
@@ -252,9 +260,9 @@ PREAMBLE (informative; not part of the operative terms)
        every patent claim owned or controlled by the Dedicator, now or in
        future, that would be infringed by making, having made, using, offering
        to sell, selling, importing, or otherwise transferring the Work, or by
-       making or using any derivative of the Work, where the infringement is
-       caused by subject matter contained in the Work as made available by the
-       Dedicator.
+       doing any of those things in respect of any derivative of the Work,
+       where the infringement is caused by subject matter contained in the Work
+       as made available by the Dedicator.
 
   8.2  The licence in Section 8.1 is subject to no condition and is not
        terminable by the Dedicator on any ground, including the commencement of
@@ -268,6 +276,22 @@ PREAMBLE (informative; not part of the operative terms)
        recipient exposed, because software cannot be practised without
        practising whatever patent claims it embodies. Any reading of this
        Dedication that would produce that result is to be rejected.
+
+  8.4  For the avoidance of doubt, the licence in Section 8.1 extends to
+       Computational Use of the Work and to the making, use, offering for sale,
+       sale, importation, and other transfer of any model, parameter set,
+       weight, embedding, or output resulting from that use, to the same extent
+       and on the same terms. This is stated expressly because Covered Rights
+       exclude patent rights (Section 1.5), so Section 6.4 alone would leave
+       Computational Use permitted as to copyright while exposed as to patents
+       — the very result Section 8.3 rejects, and one that would defeat the
+       purpose stated in Section 6.5.
+
+  8.5  Sections 8.1 to 8.4 are subject to Section 2.7: they reach only patent
+       claims the Dedicator owns or controls, and are neither a representation
+       nor a warranty that practising the Work infringes no claim held by
+       another person. Section 13.2 states the corresponding absence of
+       warranty.
 
 
 9. MACHINE-GENERATED MATERIAL AND AUTHORSHIP
