@@ -23,8 +23,8 @@ canonical-ref: AI2AI.md / CLAUDE.md / docs/architecture/<関連 doc>
   **範囲をここに書かない** — 数値は必ず drift する)
 - 編集時に満たすべき不変条件 (AIO published-layer なら C6 の真実性/面間整合/digest 再生成、
   kernel なら DO-NOT-EDIT 領域の byte 同一性、binary なら日付 field 同期 等)。
-  **「承認が必要か」は書かない** — 承認は恒久的に与えられており「裁可待ち」という作業
-  カテゴリは存在しない (AI2AI.md STEP 3 / Check 436)
+  **「承認が必要か」は書かない** — これは**承認ゲートではない**運用であり、承認は恒久的に
+  与えられている。「裁可待ち」という作業カテゴリは**存在しない** (AI2AI.md STEP 3 / Check 436)
 
 ## Change impact
 変更時に同時更新が必要なファイル群。drift を生む典型パターン。

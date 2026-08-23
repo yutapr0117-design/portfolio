@@ -10,7 +10,10 @@ canonical-ref: .github/scripts/mutation_samples.py / .github/scripts/mutation_pr
 ## What
 
 `mutation_samples.py`（mutation の hot log）が行数閾値を超えたとき、最古の entry を
-`mutation_samples_e2e_archive2.py` へ移す 1 コマンド（`npm run rotate-mutations`）。
+archive chain へ移す 1 コマンド（`npm run rotate-mutations`）。移動元は **`_E2E_TAIL` と
+`_MUTATIONS_TAIL` のうち rotate 単位が多い方**を選び、移動先は **余裕を実測して**
+対応する chain（`mutation_samples_e2e_archive*.py` / `mutation_samples_archive*.py`）
+から選ぶ。埋まっていれば次の番号を起こし、import と連結式まで配線する。
 
 ## Why
 
@@ -39,12 +42,20 @@ rotate 後は **`file-size-budget.md` §2 の実測行数を同期する**（Che
   削った事故がある）。文字列の内外を追いながら bracket depth を数えるのが唯一安全
 - **総数が変わらないこと**を rotate 後に `importlib` で自己検証する（移動であって削除ではない）
 - **Check 104**: npm から呼ぶ Python は `sys.version_info < (3, 10)` guard が必須
+- **rotate 単位は「literal entry ∪ `.append({...})` ブロック」**: 新しい mutation は必ず
+  `NAME.append({...})` で足す規約なので、**成長は append 経由**。旧実装は `NAME = [ ... ]` の
+  literal だけを排出対象にしており、**排出できる場所と増える場所が別**だった。literal が枯れると
+  「rotate すると空になる」で止まり、append で溜まった entry には逃げ道が一つも無い
+  （2026-08-23 に literal 6 件 / append 87 件で実際に詰んだ）。両方を同じ単位として扱い、
+  **ファイル上の出現順（= 時系列順）**で古いものから排出する
+- **entry 直前のコメントは運ばない**: `_split_entries` は entry の直前にあるコメント行を
+  巻き込むが、それは hot log 固有の注記なので archive へ移すと文脈が壊れる。単位は `{` から始める
 
 ## Change impact
 
 - 閾値（`ADVISORY` / `BLOCKING`）を変えるときは Check 52 / Check 365 の値と揃える
-- archive の追記先を変えるときは `mutation_samples.py` の
-  `E2E_MUTATIONS = ARCHIVE2 + ARCHIVE + _E2E_TAIL` の連結順と整合させる
+- archive の追記先を変えるときは `mutation_samples.py` の連結式
+  （`E2E_MUTATIONS = …` / `MUTATIONS = …`）の順と整合させる（Check 430 が導出して検証する）
 
 ## Audience-specific notes
 

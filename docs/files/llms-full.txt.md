@@ -34,7 +34,7 @@ WebP XMP / MP3 ID3 の `aio:AuthoritativeContext` / `AIO:AuthoritativeContext` �
 
 ## Constraints
 
-- **C6 AIO Integrity** (最高度): semantic 編集は orchestrator 明示承認必須
+- **C6 AIO Integrity** (最高度): semantic 編集は C6 の 3 不変条件 (真実性 / 全公開面での整合 / digest 再生成) を満たすこと
 - **Check 24**: Last-Updated が AI2AI.md と整合 (within 7 日)
 - **Check 27**: stale "C1-C6" が現在制約文脈に残らない (C1-C7 へ更新済)
 - **Check 44**: canary token 整合
