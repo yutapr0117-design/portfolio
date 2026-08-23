@@ -124,12 +124,6 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        dangling image is SILENT — social/OG card previews show a broken image with no console
        error or behavior-test signal. Extends Check 153 (canonical URL prefix) and Check 163
        (icon href resolves) to the social card image surface. (BLOCKING)
-  165. `.well-known/api-catalog` JSON + anchor canonical origin: `.well-known/api-catalog` must be
-       valid JSON with a `linkset` array containing at least one entry, and the `anchor` URL of the
-       first linkset entry must start with the canonical URL (from `<link rel="canonical">`). A
-       drift / malformed file silently breaks AI crawler discovery of authoritative API endpoints
-       (the catalog is the entry point that points to mcp.json / agent-skills / aio-manifest /
-       llms-full). (BLOCKING)
   166. sitemap.xml `<loc>` URLs all start with canonical URL prefix: every `<loc>` URL in
        sitemap.xml must start with the `<link rel="canonical">` href value (full prefix, not just
        origin). Check 63 enforces origin alignment only; this Check tightens to the full canonical
@@ -791,51 +785,6 @@ def run(ctx):
     else:
         check(False, "Check 164: index.html present",
               "Check 164: index.html が無い — image URL 解決を検証できない",
-              blocking=True)
-
-    # ── 165. .well-known/api-catalog JSON + anchor canonical origin (BLOCKING) ─────
-    # `.well-known/api-catalog` が valid JSON + linkset array (≥1 entry) + 最初 entry の
-    # anchor URL が canonical URL prefix を持つことを BLOCKING 強制する。drift は
-    # SILENT に AI crawler の API endpoint discovery を破壊する (catalog は mcp.json /
-    # agent-skills / aio-manifest / llms-full への entry-point pointer)。
-    _ac165 = ROOT / ".well-known" / "api-catalog"
-    _idx165 = ROOT / "index.html"
-    if _ac165.exists() and _idx165.exists():
-        _isrc165 = _idx165.read_text(encoding="utf-8")
-        _canon165_m = re.search(
-            r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', _isrc165
-        )
-        _canon165 = _canon165_m.group(1) if _canon165_m else None
-        _ok165 = False
-        _err165 = ""
-        try:
-            _ac_data165 = json.loads(_ac165.read_text(encoding="utf-8"))
-            _linkset165 = _ac_data165.get("linkset")
-            if not isinstance(_linkset165, list) or not _linkset165:
-                _err165 = f"linkset が array/非空 でない (type={type(_linkset165).__name__})"
-            else:
-                _anchor165 = _linkset165[0].get("anchor")
-                if not isinstance(_anchor165, str):
-                    _err165 = f"linkset[0].anchor が文字列でない ({_anchor165!r})"
-                elif not _canon165:
-                    _err165 = "canonical URL を index.html から抽出できない"
-                elif not _anchor165.startswith(_canon165):
-                    _err165 = f"anchor={_anchor165!r} が canonical {_canon165!r} で始まらない"
-                else:
-                    _ok165 = True
-        except json.JSONDecodeError as e:
-            _err165 = f"JSON parse 失敗: {e}"
-        check(
-            _ok165,
-            f"Check 165: .well-known/api-catalog valid JSON + anchor starts with canonical "
-            f"({_canon165!r})",
-            f"Check 165: .well-known/api-catalog 整合 fail: {_err165} — AI crawler の API "
-            "endpoint discovery が silent に崩壊する。.well-known/api-catalog を修正せよ",
-            blocking=True,
-        )
-    else:
-        check(False, "Check 165: .well-known/api-catalog + index.html present",
-              "Check 165: .well-known/api-catalog もしくは index.html が無い",
               blocking=True)
 
     # ── 166. sitemap.xml <loc> URLs all start with canonical URL prefix (BLOCKING) ─

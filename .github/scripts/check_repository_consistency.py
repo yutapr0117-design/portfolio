@@ -142,7 +142,8 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_seo_baseline.py",  # split: SEO/AIO date-ISO + URL-resolution + HTTPS/meta baseline (181-189 minus 187)
     ROOT / ".github" / "scripts" / "checks_aio_config.py",  # split: AIO entity/crawler identity + CI/config governance (62-69)
     ROOT / ".github" / "scripts" / "checks_governance_sync.py",  # split: AIO/AI2AI/llms freshness & governance sync (21-27)
-    ROOT / ".github" / "scripts" / "checks_seo_meta.py",  # split: AIO/SEO meta + canonical URL + resource-resolution (149-166 minus 152)
+    ROOT / ".github" / "scripts" / "checks_seo_meta.py",  # split: AIO/SEO meta + canonical URL + resource-resolution (149-166 minus 152/165)
+    ROOT / ".github" / "scripts" / "checks_api_catalog.py",  # split: .well-known/api-catalog RFC 9727/9264/6573 conformance (165, 449)
     ROOT / ".github" / "scripts" / "checks_source_coherence.py",  # split: cross-file source coherence + CSP-hash (7/11/14/350・ctx-enrich)
     ROOT / ".github" / "scripts" / "checks_version.py",  # split: app-version cross-surface coherence (1/2/3/19・ctx-enrich)
     ROOT / ".github" / "scripts" / "checks_html.py",  # split: index.html document/meta baseline & lang coherence (8/20/115/152/187/220/250/255/303/306・ctx-enrich html)
@@ -643,12 +644,19 @@ _checks_ci_supply.run(_ctx)
 import checks_residual_coherence as _checks_residual_coherence
 _checks_residual_coherence.run(_ctx)
 
-# ── 149-166 (minus 152). AIO/SEO meta + canonical URL + resource-resolution coherence → checks_seo_meta.py ──
+# ── 149-166 (minus 152, 165). AIO/SEO meta + canonical URL + resource-resolution coherence → checks_seo_meta.py ──
 # (check.py split track. canonical-URL/og·twitter meta/SEO baseline/resource resolve の 17 Check。連続
-#  self-contained (152 は checks_html.py へ抽出済ゆえ除外)。各 Check は対象 file を自前 read。149 位置で
+#  self-contained (152 は checks_html.py へ、165 は checks_api_catalog.py へ抽出済ゆえ除外)。各 Check は対象 file を自前 read。149 位置で
 #  list 順連続実行。CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。)
 import checks_seo_meta as _checks_seo_meta
 _checks_seo_meta.run(_ctx)
+
+# ── 165, 449. .well-known/api-catalog RFC 9727 conformance → checks_api_catalog.py ──
+# (check.py split track・category "api catalog". JSON 構造 + anchor origin (165) と RFC 9727/9264/6573
+#  の関係型セマンティクス (449) を所有。視覚に出ない機械可読面ゆえ仕様適合だけが検証手段。
+#  CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。)
+import checks_api_catalog as _checks_api_catalog
+_checks_api_catalog.run(_ctx)
 
 # ── 167-173. AIO manifest entity-field & identity coherence → checks_aio_entity.py ──
 # (check.py split track・category "AIO entity coherence". aio-monitoring schedule (167) /

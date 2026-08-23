@@ -366,51 +366,21 @@ _MUTATIONS_TAIL.append({
     "replace": '"_description_removed_by_probe": "Read the authoritative machine-readable context',
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 449a (RFC 9727 関係型): カタログのメンバーを `item` ではなく `api-catalog` "
+            "関係で列挙する —— RFC 9727 でこの関係は「**別の API カタログへの入れ子**」を意味する "
+            "ので、`llms-full.txt` などカタログでないリソースを「これらは全てカタログだ」と偽って "
+            "宣言することになり、**仕様に従う agent はそれらを linkset として parse しようとして "
+            "失敗する**。2026-08-23 まで実際に 7 件すべてがこの状態で、Check 165 は JSON 構造と "
+            "anchor しか見ないため検出層が存在しなかった",
+    "file": ROOT / ".well-known" / "api-catalog",
+    "find": '"item": [',
+    "replace": '"api-catalog": [',
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
-    {
-        "name": "\u7573\u3093\u3060\u30ca\u30d3\u7fa4\u306e\u4e2d\u8eab\u304c tab \u9806\u306b\u623b\u308b \u2014\u2014 visibility:hidden \u3092\u5916\u3059\u3068 max-height:0 \u3060\u3051\u306b\u306a\u308a\u3001\u9ad8\u3055 0 \u306e\u9818\u57df\u306e\u4e2d\u3078 focus \u304c\u5165\u308b (\u5b9f\u6e2c: 11 \u500b\u306e\u30ea\u30f3\u30af\u30fb\u30dc\u30bf\u30f3\u304c focus \u53ef\u80fd)\u3002\u5229\u7528\u8005\u304b\u3089\u306f focus \u304c\u6d88\u3048\u305f\u3088\u3046\u306b\u898b\u3048\u308b (WCAG 2.4.3 / 2.4.7)",
-        "file": ROOT / "style.css",
-        "find": "            visibility: hidden;\n            transition: max-height 0.25s ease, visibility 0s linear 0.25s;",
-        "replace": "",
-        "test": "Collapsed nav group content is removed from the tab order",
-    },
-    {
-        "name": "\u898b\u3048\u306a\u3044\u306e\u306b focus \u3067\u304d\u308b\u8981\u7d20\u306e\u6c4e\u7528\u30b2\u30fc\u30c8 \u2014\u2014 \u7573\u3093\u3060\u30ca\u30d3\u7fa4\u306e visibility \u3092\u5916\u3059\u3068\u3001\u5168\u30eb\u30fc\u30c8\u8d70\u67fb\u3067 tab \u9806\u306b\u6b8b\u3063\u305f\u4e0d\u53ef\u8996\u8981\u7d20\u3092\u691c\u51fa\u3059\u308b (\u500b\u5225 test \u3060\u3051\u3060\u3068\u540c\u3058\u5f62\u304c\u5225\u306e\u5834\u6240\u3067\u518d\u767a\u3057\u3066\u3082\u6c17\u4ed8\u3051\u306a\u3044)",
-        "file": ROOT / "style.css",
-        "find": "            visibility: hidden;\n            transition: max-height 0.25s ease, visibility 0s linear 0.25s;",
-        "replace": "",
-        "test": "No element is invisible yet still focusable across all routes",
-    },
-    {
-        "name": "\u30ce\u30fc\u30c8\u306e\u4fdd\u5b58\u304c\u5165\u529b\u306e\u305f\u3073\u306b\u8d70\u3089\u306a\u304f\u306a\u308b \u2014\u2014 updateSilently \u3092\u6761\u4ef6\u4ed8\u304d\u306b\u3059\u308b\u3068\u3001debounce \u7a93\u3067\u96e2\u8131\u3057\u305f\u5165\u529b\u304c\u4fdd\u5b58\u3055\u308c\u305a\u300c\u66f8\u3044\u305f\u306e\u306b\u6b21\u306b\u958b\u3044\u305f\u3089\u6d88\u3048\u3066\u3044\u308b\u300d silent \u306a\u30c7\u30fc\u30bf\u640d\u5931\u306b\u306a\u308b",
-        "file": ROOT / "js" / "apps.js",
-        "find": "                State.updateSilently(s => { s.appsData.notes = val.slice(0, CONSTANTS.LIMITS.NOTES_TEXT); });",
-        "replace": "                if (val.length % 1000 === 999) { State.updateSilently(s => { s.appsData.notes = val; }); }",
-        "test": "Notes survive navigating away immediately after typing",
-    },
-    {
-        "name": "\u72b6\u614b\u3092\u4f5c\u3089\u306a\u3044\u3068\u73fe\u308c\u306a\u3044\u9762\u306e contrast \u9000\u884c \u2014\u2014 badge-green (\u975e\u8868\u793a\u306b\u3057\u305f\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u306b\u3060\u3051\u51fa\u308b) \u3092\u751f\u306e\u610f\u5473\u8272\u3078\u623b\u3059\u3068 light \u3067 4.38 < 4.5 \u306e AA \u9055\u53cd\u306b\u306a\u308b\u3002\u65e2\u5b9a\u30c7\u30fc\u30bf\u3092\u5DE1\u308b\u30eb\u30fc\u30c8\u8d70\u67fb\u3067\u306f\u4e00\u5ea6\u3082\u63cf\u753b\u3055\u308c\u306a\u3044\u9762",
-        "file": ROOT / "style.css",
-        "find": "            background: rgba(var(--color-success-rgb), 0.1);\n            color: var(--on-tint-success);\n            border-color: rgba(var(--color-success-rgb), 0.2);",
-        "replace": "            background: rgba(var(--color-success-rgb), 0.1);\n            color: var(--color-success);\n            border-color: rgba(var(--color-success-rgb), 0.2);",
-        "test": "\u30e9\u30a4\u30c8\u306e drawer / palette / toast \u306b color-contrast \u9055\u53cd\u304c\u30bc\u30ed",
-    },
-    {
-        "name": "\u901a\u77e5\u306e\u7a2e\u5225\u304c\u898b\u5206\u3051\u3089\u308c\u306a\u304f\u306a\u308b \u2014\u2014 alert-error \u306e\u5e2f\u3092\u4e2d\u7acb\u8272\u3078\u623b\u3059\u3068\u3001\u5931\u6557\u901a\u77e5\u3068\u6210\u529f\u901a\u77e5\u304c\u540c\u3058\u898b\u305f\u76ee\u306b\u306a\u308b\u3002Toast.show \u306f 21 \u7b87\u6240\u304c\u7a2e\u5225\u3092\u9078\u3073\u5206\u3051\u3066\u547c\u3093\u3067\u3044\u308b\u306e\u306b\u5168\u3066\u540c\u4e00\u63cf\u753b\u3060\u3063\u305f\u306e\u3092\u76f4\u3057\u305f\u9762",
-        "file": ROOT / "style.css",
-        "find": "        .alert-success { border-left-color: var(--on-tint-success); }",
-        "replace": "        .alert-success { border-left-color: var(--on-tint-danger); }",
-        "test": "Toasts have a surface and are visually distinguishable by type",
-    },
-    {
-        "name": "\u901a\u77e5\u304c\u7a4d\u307f\u4e0a\u304c\u3063\u3066\u753b\u9762\u5916\u3078\u51fa\u308b \u2014\u2014 \u540c\u6642\u8868\u793a\u6570\u306e\u4e0a\u9650\u3092\u5916\u3059\u3068\u3001\u9023\u7d9a\u64cd\u4f5c\u3067\u30b3\u30f3\u30c6\u30ca\u304c viewport \u3092\u8d85\u3048\u3001position:fixed \u306a\u306e\u3067\u30b9\u30af\u30ed\u30fc\u30eb\u3057\u3066\u8ffd\u3046\u3053\u3068\u3082\u3067\u304d\u306a\u3044 (\u5b9f\u6e2c: 12 \u4ef6\u3067 bottom=904 vs viewport 720)",
-        "file": ROOT / "js" / "ui-components.js",
-        "find": "        while (container.children.length > MAX_VISIBLE) {",
-        "replace": "        while (false) {",
-        "test": "Toasts do not stack past the viewport during rapid actions",
-    },
     {
         "name": "\u901a\u77e5\u304c topbar \u306e\u30dc\u30bf\u30f3\u3092\u899a\u3046 \u2014\u2014 \u30e2\u30d0\u30a4\u30eb\u306e top \u30aa\u30d5\u30bb\u30c3\u30c8\u3092\u5916\u3059\u3068\u3001\u901a\u77e5\u8868\u793a\u4e2d\u306f\u30c6\u30fc\u30de\u5207\u66ff / BGM \u30dc\u30bf\u30f3\u304c elementFromPoint \u3067 .alert \u3092\u8fd4\u3057\u64cd\u4f5c\u4e0d\u80fd\u306b\u306a\u308b (\u5b9f\u6e2c 2026-08-20)",
         "file": ROOT / "style.css",

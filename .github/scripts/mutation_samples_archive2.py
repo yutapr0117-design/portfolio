@@ -18,6 +18,12 @@ from mutation_samples_common import ROOT, CHECK  # noqa: F401 (entry 内で参�
 
 MUTATIONS_ARCHIVE2 = [
     {
+        "name": "Check 271 (root JS byte budget): tighten main.js budget to 1 byte (simulates over-budget)",
+        "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 271 は checks_shipped_static.py へ抽出済 (split Phase 33)
+        "find": '(ROOT / "main.js", 100_000, "main.js"),',
+        "replace": '(ROOT / "main.js", 1, "main.js"),',
+    },
+    {
         "name": "Check 272 (leaf module byte budget): tighten _LEAF_BUDGET272 to 1 byte (simulates over-budget)",
         "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 272 は checks_shipped_static.py へ抽出済 (split Phase 33)
         "find": "_LEAF_BUDGET272 = 100_000",

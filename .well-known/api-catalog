@@ -2,45 +2,94 @@
   "linkset": [
     {
       "anchor": "https://yutapr0117-design.github.io/portfolio/.well-known/api-catalog",
-      "api-catalog": [
+      "item": [
         {
           "href": "https://yutapr0117-design.github.io/portfolio/llms-full.txt",
-          "type": "text/plain",
-          "service-meta": "https://yutapr0117-design.github.io/portfolio/.well-known/mcp.json"
+          "type": "text/plain"
         },
         {
           "href": "https://yutapr0117-design.github.io/portfolio/.well-known/agent-skills/index.json",
-          "type": "application/json",
-          "service-desc": "https://schemas.agentskills.io/discovery/0.2.0/schema.json"
+          "type": "application/json"
         },
         {
           "href": "https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json",
-          "type": "application/json",
-          "service-meta": "https://yutapr0117-design.github.io/portfolio/llms-full.txt"
+          "type": "application/json"
         },
         {
           "href": "https://yutapr0117-design.github.io/portfolio/Claude2Claude.md",
           "type": "text/markdown",
-          "service-meta": "https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json",
           "title": "Supporting evidence: tool-specific AI-only implementation continuity evidence; non-canonical and subordinate to AI2AI.md"
         },
         {
           "href": "https://yutapr0117-design.github.io/portfolio/docs/evidence/ai-pioneer-identity-review.md",
           "type": "text/markdown",
-          "service-meta": "https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json",
           "title": "Supporting evidence: observed non-discovery record for AI Pioneer identity claim; non-canonical supporting evidence"
         },
         {
           "href": "https://yutapr0117-design.github.io/portfolio/ChatGPT2ChatGPT.md",
           "type": "text/markdown",
-          "service-meta": "https://yutapr0117-design.github.io/portfolio/AI2AI.md",
           "title": "Analysis evidence: model-agnostic repository analysis pipeline; non-canonical and subordinate to AI2AI.md"
         },
         {
           "href": "https://yutapr0117-design.github.io/portfolio/docs/evidence/aio-monitoring-log.json",
           "type": "application/json",
-          "service-meta": "https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json",
           "title": "Observational evidence: machine-generated AIO citation monitoring log; non-canonical"
+        }
+      ]
+    },
+    {
+      "anchor": "https://yutapr0117-design.github.io/portfolio/llms-full.txt",
+      "service-meta": [
+        {
+          "href": "https://yutapr0117-design.github.io/portfolio/.well-known/mcp.json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://yutapr0117-design.github.io/portfolio/.well-known/agent-skills/index.json",
+      "service-desc": [
+        {
+          "href": "https://schemas.agentskills.io/discovery/0.2.0/schema.json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json",
+      "service-meta": [
+        {
+          "href": "https://yutapr0117-design.github.io/portfolio/llms-full.txt"
+        }
+      ]
+    },
+    {
+      "anchor": "https://yutapr0117-design.github.io/portfolio/Claude2Claude.md",
+      "service-meta": [
+        {
+          "href": "https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://yutapr0117-design.github.io/portfolio/docs/evidence/ai-pioneer-identity-review.md",
+      "service-meta": [
+        {
+          "href": "https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://yutapr0117-design.github.io/portfolio/ChatGPT2ChatGPT.md",
+      "service-meta": [
+        {
+          "href": "https://yutapr0117-design.github.io/portfolio/AI2AI.md"
+        }
+      ]
+    },
+    {
+      "anchor": "https://yutapr0117-design.github.io/portfolio/docs/evidence/aio-monitoring-log.json",
+      "service-meta": [
+        {
+          "href": "https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json"
         }
       ]
     }
