@@ -211,7 +211,9 @@ License List / OSI 承認一覧のいずれにも同名・類似識別子は存�
 3. 承認要件: SPDX-legal メンバー 3 名（うち 1 名は弁護士）の同意 ＋ GitHub issue で
    コミュニティから異議が出ないこと。Fedora / Debian で既に許容され当該ディストロに
    コードが存在する場合は 2 名で可という迅速経路がある。
-4. 受理後、XML とテストテキストの作成を手伝う準備をしておく。
+4. **XML は既に生成済み** —— `LICENSES/ACD-1.0.spdx.xml` をそのまま渡せる。
+   本文から導出しており (`npm run spdx-xml`)、Check 445 が同期を BLOCKING 強制しているので
+   **提出物が本文と食い違うことはない**。テストテキストは `LICENSES/ACD-1.0.txt` そのもの。
 
 ### OSI License Review
 1. `license-review` メーリングリストへ提出。
@@ -219,6 +221,37 @@ License List / OSI 承認一覧のいずれにも同名・類似識別子は存�
 3. **既存ライセンスが埋めない gap を埋めることを示す** → 本書 §1・§2 を使う。
 4. 既に使用しているプロジェクトを明示する → 本リポジトリ。
 5. license steward を明示する → 横井雄太。
+
+### 提出時に貼り付ける OSD 自己証明文 (英文・そのまま使える)
+
+OSI は提出者に OSD 適合の積極的な宣言、とくに OSD 3・5・6・9 への言及を求める。
+以下は本書 §3 の表を宣言形へ直したもの。
+
+> I affirm that the Autonomous Commons Dedication 1.0 (ACD-1.0) conforms to the Open Source
+> Definition. It imposes no condition of any kind on the recipient (section 10.1), from which
+> conformance to most criteria follows directly.
+>
+> **OSD 3 (Derived Works)**: section 4.2 grants the right to modify and to create derivative
+> and collective works, and section 4.3 states that the grant is not conditioned on reciprocal
+> or compatible licensing, so derived works may be distributed under any terms.
+>
+> **OSD 5 (No Discrimination Against Persons or Groups)** and **OSD 6 (No Discrimination
+> Against Fields of Endeavor)**: section 4.3 states expressly that the grant is not conditioned
+> on field of use, on the identity, character, or purpose of the user, or on any restriction as
+> to persons, groups, technologies, endeavours, or jurisdictions. Section 6.1 permits
+> computational use for any purpose, commercial or non-commercial.
+>
+> **OSD 9 (License Must Not Restrict Other Software)**: section 10.1 imposes no requirement on
+> the recipient, and section 6.4 states that no model, parameter set, weight, embedding, or
+> output derived from the work is encumbered by it.
+>
+> **OSD 7 (Distribution of License)**: no act of acceptance is required (section 2.3), the
+> covenants run with the work and may be relied upon by downstream recipients as intended
+> beneficiaries (section 5.3), and the patent licence is sublicensable, transferable, and not
+> terminable (section 8). The concern that led the License Review Committee to decline CC0 —
+> its express non-grant of patent rights — does not arise here.
+>
+> The licence is in use at https://github.com/yutapr0117-design/portfolio and I am its steward.
 
 ---
 
