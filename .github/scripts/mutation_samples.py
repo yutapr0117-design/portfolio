@@ -416,53 +416,11 @@ _E2E_TAIL = [
 
 
 # 公開 API: e2e archive(古) + tail(新) の連結 (consistency 側 MUTATIONS と同じ log-rotation 方式)。
-_E2E_TAIL.append({
-    "name": "\u4fdd\u5b58\u5931\u6557\u306e\u8b66\u544a\u304c\u5229\u7528\u8005\u306b\u5c4a\u304b\u306a\u304f\u306a\u308b \u2014\u2014 notifyStorageError() \u304b\u3089 Toast.show() \u3092\u843d\u3068\u3059\u3068 console.error \u3060\u3051\u304c\u6b8b\u308b\u3002\u305d\u308c\u306f\u958b\u767a\u8005\u5411\u3051\u306e\u4fe1\u53f7\u3067\u5229\u7528\u8005\u306b\u306f\u4e00\u5207\u898b\u3048\u305a\u3001\u300c\u4fdd\u5b58\u3067\u304d\u3066\u3044\u306a\u3044\u300d\u3068\u77e5\u3089\u306a\u3044\u307e\u307e\u30bf\u30d6\u3092\u9589\u3058\u305f\u5229\u7528\u8005\u306f\u4f5c\u696d\u3092\u4e38\u3054\u3068\u5931\u3046 (silent \u306a\u30c7\u30fc\u30bf\u640d\u5931)\u3002\u5f93\u6765\u306e quota \u30c6\u30b9\u30c8\u306f console.error \u3057\u304b\u898b\u3066\u304a\u3089\u305a\u3053\u306e\u9000\u5316\u3092\u7d20\u901a\u308a\u3055\u305b\u3066\u3044\u305f",
-    "file": ROOT / "js" / "state.js",
-    "find": "Toast.show('\u30b9\u30c8\u30ec\u30fc\u30b8\u4e0a\u9650\u306e\u305f\u3081\u4fdd\u5b58\u306b\u5931\u6557\u3057\u307e\u3057\u305f\u3002\u4e0d\u8981\u306a\u30c7\u30fc\u30bf\u3092\u524a\u9664\u3057\u3066\u304f\u3060\u3055\u3044\u3002', 'error', 5000);",
-    "replace": "/* mutated */",
-    "test": "localStorage write quota is exceeded",
-})
 
-_E2E_TAIL.append({
-    "name": "取り込んだ entry の中身が上限で削られた分が報告されなくなる —— 項目内フィールド (tech/tags/highlights/task.tags) の切り捨て件数を通知から落とすと、entry は一覧に残るため利用者には「戻った」ように見えるまま中身だけが消える。#1143 の entry 単位カウントでは 0 のままなので素の「完了しました」に戻る",
-    "file": ROOT / "js" / "settings-io.js",
-    "find": "if (trimmed > 0) { parts.push(",
-    "replace": "if (false && trimmed > 0) { parts.push(",
-    "test": "取り込んだ project の中身が上限で削られたら件数を報告する",
-})
 
-_E2E_TAIL.append({
-    "name": "文字数上限で短縮された項目が報告されなくなる —— name/summary/title 等が上限で切られても通知が素の「完了しました」に戻る。list の件数を数える _trimmed では 0 のままなので、この面だけが silent に戻る (#1177 は手動追加で既に報告しており、取り込み経路だけが取り残されていた非対称)",
-    "file": ROOT / "js" / "settings-io.js",
-    "find": "if (shortened > 0) { parts.push(",
-    "replace": "if (false && shortened > 0) { parts.push(",
-    "test": "取り込んだ項目が文字数上限で短縮されたら件数を報告する",
-})
 
-_E2E_TAIL.append({
-    "name": "前後の空白の trim を「短縮」と誤報する —— profile の email/github は safeEmail/safeUrl が trim 後の値を返すため、比較元を trim しないと空白があるだけの普通のファイルで毎回「短縮されました」と出る。本物の切り捨て警告が信用されなくなる",
-    "file": ROOT / "js" / "settings-io.js",
-    "find": "&& a[k].length < b[k].trim().length ? 1 : 0), 0);",
-    "replace": "&& a[k].length < b[k].length ? 1 : 0), 0);",
-    "test": "前後の空白を落としただけでは短縮として報告しない",
-})
 
-_E2E_TAIL.append({
-    "name": "履歴 (ai/pomodoro) の件数上限で落ちた entry が報告されなくなる —— tasks/todos/projects だけを数えていた元の非対称に戻る。落ちたことは利用者に見えないまま履歴が欠ける",
-    "file": ROOT / "js" / "settings-io.js",
-    "find": "+ ['ai', 'pomodoro'].reduce((n, k) => n + Math.max(0,",
-    "replace": "+ 0 * ['ai', 'pomodoro'].reduce((n, k) => n + Math.max(0,",
-    "test": "ノートの切り詰めと履歴の件数落ちを報告する",
-})
 
-_E2E_TAIL.append({
-    "name": "Markdown ノートの切り詰めが報告されなくなる —— notes は単一ドキュメントで上限 (20,000) 超過時に末尾がまるごと消えるが entry も件数も減らないため、報告を外すと全カウンタ 0 のまま素の「完了しました」に戻る",
-    "file": ROOT / "js" / "settings-io.js",
-    "find": "+ shortenedObj({ notes: apps(before).notes }, { notes: apps(after).notes });",
-    "replace": "+ 0 * shortenedObj({ notes: apps(before).notes }, { notes: apps(after).notes });",
-    "test": "ノートの切り詰めと履歴の件数落ちを報告する",
-})
 
 _E2E_TAIL.append({
     "name": "「対象」モードが appsData に効かなくなる —— 既定の「追加のみ」を選んでいても丸ごと置き換わり、利用者の既存タスク・TODO・ノート・履歴が全部消える。最も安全なつもりの選択が最も破壊的になる旧挙動への退行",
@@ -961,6 +919,17 @@ _E2E_TAIL.append({
     "find": "            if (_seenSlugs.has(s)) {\n                let n = 2;",
     "replace": "            if (false) {\n                let n = 2;",
     "test": "Adding two projects with the same name yields unique slugs",
+})
+
+_E2E_TAIL.append({
+    "name": "sidebar の nav リンクが指すルートを 1 つ router から落とす —— 利用者にはナビを押すと "
+            "NotFound が出るだけに見える。この gate は 2026-08-24 まで **前ルートの DOM に対して "
+            "不在アサーションを評価**しており、自分が名乗っている「壊れた nav リンク」を一度も "
+            "検出できなかった (遷移直後の NotFound 見出し 0 件で PASS・settle 後は 1 件)",
+    "file": ROOT / "js" / "router.js",
+    "find": "            case 'role-split':\n                route.name = 'role-split';",
+    "replace": "            case 'role-split-DISABLED':\n                route.name = 'role-split';",
+    "test": "All sidebar nav links resolve to valid",
 })
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

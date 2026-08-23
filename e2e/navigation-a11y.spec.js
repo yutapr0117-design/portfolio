@@ -70,10 +70,28 @@ test('All sidebar nav links resolve to valid (non-not-found) routes', async ({ p
   for (const href of hrefs) {
     await page.goto('/' + href); // href は '#/...' 形式
     await page.waitForLoadState('domcontentloaded');
-    // [FIX] 不在アサーションは初回 poll で成立すると再検査されないため、描画前に評価すると
-    //   「NotFound がまだ無い」を「NotFound ではない」と誤認して壊れた nav リンクでも PASS しうる
-    //   (多行 assertion ゆえ Check 402 初版の検出からも漏れていた)。h1 の描画を待って確定させる。
-    await expect(page.locator('h1').first(), `nav href ${href} でページが描画されない`).toBeVisible();
+    // [FIX 2026-08-24] **前ルートの DOM で満たされる待ちは待ちになっていない。**
+    //   旧実装は `page.locator('h1').first()` の visible を「描画確定」の代わりにしていたが、
+    //   hash 遷移では前ルートの h1 がそのまま残っているので**即座に成立**し、直後の不在
+    //   アサーションは *前のページ* に対して評価されていた。実測 (2026-08-24): router から
+    //   `role-split` を落として NotFound へ落とすと、遷移直後の NotFound 見出しは **0 件**
+    //   (テストは PASS)、settle 後は **1 件**。つまりこの BLOCKING gate は、自分が名乗っている
+    //   「壊れた nav リンク」を**一度も検出できなかった**。
+    //   先行する肯定アサーションがあれば十分、ではない —— **そのアサーションが前ルートの DOM で
+    //   満たされないこと**まで要る。ここでは href から期待ルート名を導き、agentic surface
+    //   (`body[data-ai-state]`・Check/e2e で守られている) がそれに落ち着くまで待つ。
+    const expected = href === '#/' ? 'home' : href.replace(/^#\//, '').split('?')[0];
+    await page.waitForFunction(
+      (want) => {
+        try {
+          const st = JSON.parse(document.body.dataset.aiState || '{}');
+          return st.route === want || st.route === 'not-found';
+        } catch { return false; }
+      },
+      expected,
+      { timeout: 5000 }
+    );
+    await expect(page.locator('#content h1').first(), `nav href ${href} でページが描画されない`).toBeVisible();
     await expect(
       page.getByRole('heading', { name: 'Not Found', exact: true }),
       `nav href ${href} は NotFound に落ちてはならない`

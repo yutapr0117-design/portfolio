@@ -802,9 +802,9 @@ MUTATIONS_ARCHIVE2 = [
         "replace": "if (e.code === 'Enter') {",
     },
     {
-        "name": "Check 402 (多行 assertion 面): navigation-a11y.spec.js の nav-link ループから settle (h1 の toBeVisible) を除去 → goto 直後に多行 assertion で toHaveCount(0) を評価する形へ戻る。多行に折り返した assertion は Check 402 初版 (await expect と matcher が同一行であることを要求) の検出から漏れており、全 sidebar リンクが NotFound に落ちないことを検査する重要な gate が未保護だった。matcher 行ベース検出への拡張の非 vacuity 検証",
+        "name": "Check 402 (多行 assertion 面): navigation-a11y.spec.js の nav-link ループから settle (#content h1 の toBeVisible) を除去 [2026-08-24 再アンカー: セレクタを h1 → #content h1 へ是正したため] → goto 直後に多行 assertion で toHaveCount(0) を評価する形へ戻る。多行に折り返した assertion は Check 402 初版 (await expect と matcher が同一行であることを要求) の検出から漏れており、全 sidebar リンクが NotFound に落ちないことを検査する重要な gate が未保護だった。matcher 行ベース検出への拡張の非 vacuity 検証",
         "file": ROOT / "e2e" / "navigation-a11y.spec.js",
-        "find": "    await expect(page.locator('h1').first(), `nav href ${href} でページが描画されない`).toBeVisible();\n",
+        "find": "    await expect(page.locator('#content h1').first(), `nav href ${href} でページが描画されない`).toBeVisible();\n",
         "replace": "",
     },
     {
