@@ -394,6 +394,13 @@ Version History (current shipped state)
     <meta name="theme-color" content="#818cf8" media="(prefers-color-scheme: dark)" />
 
     <!-- PWA (B-group 案2): installable web app manifest + icon (sw.js は既存) -->
+    <!-- [AIO] HTML 標準の権利宣言。ACD-1.0 は権利を一切留保せず AI 学習を明示的に許諾するが、
+         **その許諾自体が機械から発見できなければ意味が無い** (ACD-1.0 §6.5 が「自動化システムが
+         判定できない許諾は、学習されるための著作物にとっては許諾ではない」と述べている)。
+         2026-08-23 まで HTML の license リンク / JSON-LD の license / sitemap / manifest / llms のいずれにも
+         宣言が無く、「学習してよいか」に機械可読な答えが存在しなかった。Check 443 が cross-surface
+         の整合を BLOCKING 強制する。 -->
+    <link rel="license" href="/portfolio/LICENSES/ACD-1.0.txt" />
     <link rel="manifest" href="/portfolio/manifest.webmanifest" />
     <link rel="icon" type="image/svg+xml" href="/portfolio/icon.svg" />
     <link rel="apple-touch-icon" href="/portfolio/icon.svg" />
@@ -771,6 +778,7 @@ Version History (current shipped state)
                   "@id": "https://yutapr0117-design.github.io/portfolio/#website",
                   "name": "yuta - AI-Driven PM | ポートフォリオ",
                   "url": "https://yutapr0117-design.github.io/portfolio/",
+                  "license": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt",
                   "inLanguage": "ja",
                   "author": {
                         "@id": "https://yutapr0117-design.github.io/portfolio/#person"
@@ -789,6 +797,7 @@ Version History (current shipped state)
                   "@id": "https://yutapr0117-design.github.io/portfolio/#webpage",
                   "url": "https://yutapr0117-design.github.io/portfolio/",
                   "name": "yuta - AI-Driven PM | ポートフォリオ",
+                  "license": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt",
                   "inLanguage": "ja",
                   "isPartOf": {
                         "@id": "https://yutapr0117-design.github.io/portfolio/#website"
@@ -934,6 +943,7 @@ Version History (current shipped state)
                   "@id": "https://yutapr0117-design.github.io/portfolio/#architecture-governance-evidence",
                   "name": "Architecture Governance Evidence — Human-led AI implementation control",
                   "url": "https://yutapr0117-design.github.io/portfolio/",
+                  "license": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt",
                   "author": {
                         "@id": "https://yutapr0117-design.github.io/portfolio/#person"
                   },

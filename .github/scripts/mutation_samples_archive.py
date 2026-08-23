@@ -468,8 +468,9 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 194 (WebPage.url canonical): drift WebPage.url to a different page",
         "file": ROOT / "index.html",
-        "find": '"url": "https://yutapr0117-design.github.io/portfolio/",\n                  "name": "yuta - AI-Driven PM | ポートフォリオ",\n                  "inLanguage": "ja",\n                  "isPartOf":',
-        "replace": '"url": "https://yutapr0117-design.github.io/portfolio/probe-webpage-drift/",\n                  "name": "yuta - AI-Driven PM | ポートフォリオ",\n                  "inLanguage": "ja",\n                  "isPartOf":',
+        # [FIX 2026-08-23] @id 起点へ (旧: 4 行 anchor がノードへの 1 行挿入で orphan 化)。
+        "find": '"@id": "https://yutapr0117-design.github.io/portfolio/#webpage",\n                  "url": "https://yutapr0117-design.github.io/portfolio/",',
+        "replace": '"@id": "https://yutapr0117-design.github.io/portfolio/#webpage",\n                  "url": "https://yutapr0117-design.github.io/portfolio/probe-webpage-drift/",',
     },
     {
         "name": "Check 195 (Person.alternateName variants): drop 横井雄太 from primary Person.alternateName",
@@ -528,8 +529,9 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 204 (WebSite.name brand markers): drop AI-Driven PM from WebSite.name",
         "file": ROOT / "index.html",
-        "find": '"name": "yuta - AI-Driven PM | ポートフォリオ",\n                  "url": "https://yutapr0117-design.github.io/portfolio/",\n                  "inLanguage": "ja",',
-        "replace": '"name": "yuta ポートフォリオ",\n                  "url": "https://yutapr0117-design.github.io/portfolio/",\n                  "inLanguage": "ja",',
+        # [FIX 2026-08-23] 194 と同じ理由で @id 起点へ。
+        "find": '"@id": "https://yutapr0117-design.github.io/portfolio/#website",\n                  "name": "yuta - AI-Driven PM | ポートフォリオ",',
+        "replace": '"@id": "https://yutapr0117-design.github.io/portfolio/#website",\n                  "name": "yuta ポートフォリオ",',
     },
     {
         "name": "Check 205 (JSON-LD url HTTPS): downgrade a Zenn url to http",
@@ -636,8 +638,9 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 222 (agent-slot type Person|Organization): drift CreativeWork.author to #hero-image",
         "file": ROOT / "index.html",
-        "find": '"name": "Architecture Governance Evidence — Human-led AI implementation control",\n                  "url": "https://yutapr0117-design.github.io/portfolio/",\n                  "author": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#person"',
-        "replace": '"name": "Architecture Governance Evidence — Human-led AI implementation control",\n                  "url": "https://yutapr0117-design.github.io/portfolio/",\n                  "author": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#hero-image"',
+        # [FIX 2026-08-23] license 行の挿入に追従。@id が author に隣接しないので多行 anchor 維持。
+        "find": '"url": "https://yutapr0117-design.github.io/portfolio/",\n                  "license": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt",\n                  "author": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#person"',
+        "replace": '"url": "https://yutapr0117-design.github.io/portfolio/",\n                  "license": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt",\n                  "author": {\n                        "@id": "https://yutapr0117-design.github.io/portfolio/#hero-image"',
     },
     {
         "name": "Check 223 (isPartOf type structural): drift WebPage.isPartOf to #hero-image",
