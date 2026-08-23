@@ -15,6 +15,18 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES 
 span this file). run(ctx) receives shared check()/ROOT/read/extract by reference (exec 不使用).
 
 Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()):
+  444. **ライセンス宣言の cross-surface coherence** (BLOCKING): 独自ライセンス ACD-1.0 が
+       **機械可読な全面から一貫して発見できる**こと。444a `<link rel="license">` が index.html に
+       あり実 file へ解決する / 444b JSON-LD の `license` が同一 URL を指す / 444c aio-manifest の
+       top-level `license` の spdx_id と url が整合する / 444d sitemap に全文の `<loc>` がある /
+       444e llms.txt と llms-full.txt が SPDX 識別子に言及する。
+       動機 (2026-08-23 実測): LICENSE を ACD-1.0 へ移行した時点で、**7 面すべてに宣言がゼロ**
+       だった —— 「この著作物を学習に使ってよいか」に機械可読な答えが存在しなかった。
+       単なる登録漏れではなく、**ACD-1.0 §6.5 自身が「自動化システムが判定できない許諾は、
+       学習されるための著作物にとっては許諾ではない」と述べている**ので、本文が発見できない状態は
+       ライセンスが自分の主張を満たしていないことを意味する。canonical URL は LICENSE の
+       `Full text:` 行から**導出**する (決め打ちすると path を変えたとき Check だけが古い場所を
+       指す)。
   62. AIO entity canonical_url cross-surface identity: aio-manifest.json の `entity.canonical_url`
       と llms-full.txt の `Canonical URL:` 値が 1 バイトも違わずに一致することを機械強制する。
       Entity の canonical URL は AIO 識別子の最重要 anchor — manifest と canon (llms-full) の
@@ -326,3 +338,89 @@ def run(ctx):
          "nvm use のローカル Node と CI が分裂する。.nvmrc を CI pin と同 major に揃えよ "
          "(engines / CI pin / .nvmrc の 3 宣言を同期)"),
     )
+
+    # ── 444. ライセンス宣言の cross-surface coherence (BLOCKING) ────────────────────
+    # 2026-08-23 実測: ACD-1.0 へ移行した時点で、機械可読な 7 面すべてに宣言がゼロだった。
+    # ACD-1.0 §6.5 自身が「自動化システムが判定できない許諾は許諾ではない」と述べているので、
+    # 本文が発見できない状態は**ライセンスが自分の主張を満たしていない**ことを意味する。
+    # canonical URL は LICENSE の `Full text:` 行から導出する (決め打ちは path 変更時に
+    # Check だけが古い場所を指す — Check 124/411/434b と同じ scope-drift)。
+    import json as _json444
+    _lic_decl444 = ROOT / "LICENSE"
+    if not _lic_decl444.exists():
+        check(False, "", "Check 444: root LICENSE が無い", blocking=True)
+    else:
+        _ld444 = _lic_decl444.read_text(encoding="utf-8")
+        _m_path444 = re.search(r"^Full text:\s*(\S+)$", _ld444, re.M)
+        _m_spdx444 = re.search(r"SPDX-License-Identifier:\s*(\S+)", _ld444)
+        if not (_m_path444 and _m_spdx444):
+            check(False, "", "Check 444: LICENSE から `Full text:` / SPDX 識別子を導出できない "
+                             "(この 2 行は全 Check の単一ソースなので形式を保つこと)", blocking=True)
+        else:
+            _rel444 = _m_path444.group(1)
+            _spdx444 = _m_spdx444.group(1)
+            _full444 = ROOT / _rel444
+            _url444 = f"https://yutapr0117-design.github.io/portfolio/{_rel444}"
+            _bad444 = []
+
+            if not _full444.exists():
+                _bad444.append(f"LICENSE が指す全文 {_rel444} が存在しない")
+
+            # 444a — HTML 標準の license リンク
+            _html444 = (ROOT / "index.html").read_text(encoding="utf-8")
+            _m_link444 = re.search(r'<link\s+rel="license"\s+href="([^"]+)"', _html444)
+            if not _m_link444:
+                _bad444.append("index.html に rel=license の link が無い")
+            elif not (ROOT / _m_link444.group(1).lstrip("/").replace("portfolio/", "", 1)).exists():
+                _bad444.append(f"rel=license の href {_m_link444.group(1)} が実 file へ解決しない")
+
+            # 444b — JSON-LD の license
+            _ld_urls444 = set()
+            for _blk444 in re.findall(
+                    r'<script type="application/ld\+json">(.*?)</script>', _html444, re.S):
+                try:
+                    _doc444 = _json444.loads(_blk444)
+                except Exception:
+                    continue
+                for _n444 in (_doc444.get("@graph") or [_doc444]):
+                    if isinstance(_n444, dict) and "license" in _n444:
+                        _ld_urls444.add(_n444["license"])
+            if not _ld_urls444:
+                _bad444.append("JSON-LD にどのノードも license を持たない")
+            elif _ld_urls444 != {_url444}:
+                _bad444.append(f"JSON-LD の license が canonical と不一致: {sorted(_ld_urls444)} != {_url444}")
+
+            # 444c — aio-manifest の license 宣言
+            _mf444 = ROOT / ".well-known" / "aio-manifest.json"
+            try:
+                _mj444 = _json444.loads(_mf444.read_text(encoding="utf-8"))
+            except Exception:
+                _mj444 = {}
+            _lo444 = _mj444.get("license")
+            if not isinstance(_lo444, dict):
+                _bad444.append("aio-manifest.json に top-level license オブジェクトが無い")
+            else:
+                if _lo444.get("spdx_id") != _spdx444:
+                    _bad444.append(f"manifest の spdx_id {_lo444.get('spdx_id')!r} != LICENSE の {_spdx444!r}")
+                if _lo444.get("url") != _url444:
+                    _bad444.append(f"manifest の license.url が canonical と不一致: {_lo444.get('url')!r}")
+
+            # 444d — sitemap から全文へ到達できること
+            _sm444 = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+            if _url444 not in _sm444:
+                _bad444.append(f"sitemap.xml に {_rel444} の <loc> が無い (crawler が到達できない)")
+
+            # 444e — llms 層が識別子に言及すること
+            for _lf444 in ("llms.txt", "llms-full.txt"):
+                if _spdx444 not in (ROOT / _lf444).read_text(encoding="utf-8"):
+                    _bad444.append(f"{_lf444} が {_spdx444} に言及していない")
+
+            check(
+                not _bad444,
+                f"Check 444: ライセンス宣言が全機械可読面で整合 ({_spdx444} / {_rel444})",
+                (f"Check 444: ライセンス宣言の cross-surface drift: {_bad444}。"
+                 "**ACD-1.0 §6.5 は「自動化システムが判定できない許諾は許諾ではない」と述べている** —— "
+                 "どこか 1 面でも欠けると、その経路の agent は「学習してよいか」を判定できない。"
+                 "canonical は LICENSE の `Full text:` 行と `SPDX-License-Identifier:` 行が単一ソース"),
+                blocking=True,
+            )
