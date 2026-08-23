@@ -83,6 +83,7 @@ Status        : Plan D「物理移動なし、README で grouping を提供」�
 - `improvement-notes-claude-v80-phase4-gate-truth-audit.md`
 - `improvement-notes-claude-v80-phase4-critical-path-and-self-correction.md`
 - `improvement-notes-claude-v80-phase4-self-correction-and-machine-facing-gates.md`
+- `improvement-notes-claude-v80-phase4-machine-readable-license-and-inert-warning-layer.md`
 
 ---
 
