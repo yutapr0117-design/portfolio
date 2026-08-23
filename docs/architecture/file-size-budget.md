@@ -74,7 +74,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/pages.js` | 287 | 400 | `advisory` | Stage 5-b → Stage 5-j fix。factory pattern (createPages)。**2026-07-04 bloat-reduction: HiringRiskPage + 専用 helper を js/hiring-risk-page.js へ分離し 650→267 行** (残り RoleSplitPage / NotFoundPage)。budget を実態へ tighten |
 | `js/perf-guards.js` | 89 | 250 | `advisory` | Stage 5-s 新設。Performance Guards factory（Layout Thrashing + Media Lifecycle 2 つの DOM API prototype hook）。closure-deps = none + 引数注入なし |
 | `js/pure-utils.js` | 242 | 400 | `advisory` | Stage 2 抽出済みの純ユーティリティ。安定 |
-| `js/quiz-renderer.js` | 407 | 400 | `advisory` | Stage 5-o 新設。Quiz Renderer factory（QuizPage + 4 domain lookup table）。closure-deps = none + 引数注入 |
+| `js/quiz-renderer.js` | 407 | 450 | `advisory` | Stage 5-o 新設。Quiz Renderer factory（QuizPage + 4 domain lookup table）。closure-deps = none + 引数注入。**2026-08-23 ラチェット 400 → 450**: 407 行の内訳は コメント 132 / 空行 42 / **コード 233**。超過は冗長さではなく**実バグ修正 6 件の蓄積**（#186 重複 class によるデータ欠落 / #285 stakeholder 検索漏れ / #296 章見出し検索漏れ / #684 検索語の persist / #928 装飾絵文字の a11y ツリー露出 / #1243 読み込み中の検索語欠落と「未着を見つかりませんと偽る」）。**分割は net-negative と判断**: `_filterBy` は 35 行の純関数だが、新 module + mirror doc + 予算登録の churn に見合わず、#253 で同型の判断をしている。BLOCKING（1,000）までの余裕は大きい |
 | `js/storage.js` | 74 | 120 | `advisory` | Stage 5-c 新設。Safe localStorage ラッパ。closure-deps = none |
 | `js/store.js` | 738 | 750 | `advisory` | Stage 5-g 新設。Store factory（default data + load/validate/normalize/similarity）。closure-deps = none（葉契約）+ 引数注入。2026-08-10 に profile 正規化の型ガード（truthy な非文字列がフィールドを空にする ingestion バグの修正）と safeUrl の欠落時 fallback 是正 + WHY コメントで 659 行へ。1,000 行の BLOCKING 上限（Check 363/365）には十分な余裕がある |
 | `js/theme.js` | 108 | 120 | `advisory` | Stage 5-i 新設。Theme factory（system/dark/light cycle + matchMedia listener）。closure-deps = none（葉契約）+ 引数注入 |
@@ -493,7 +493,7 @@ js/page-meta.js | 120 | advisory
 js/pages.js | 400 | advisory
 js/perf-guards.js | 250 | advisory
 js/pure-utils.js | 400 | advisory
-js/quiz-renderer.js | 400 | advisory
+js/quiz-renderer.js | 450 | advisory
 js/settings-io.js | 400 | advisory
 js/settings-page.js | 800 | advisory
 js/state.js | 320 | advisory
