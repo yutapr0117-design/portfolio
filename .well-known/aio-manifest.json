@@ -24,16 +24,28 @@
       "start_date": "2026-06-11"
     }
   },
+  "license": {
+    "spdx_id": "ACD-1.0",
+    "name": "Autonomous Commons Dedication 1.0",
+    "url": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt",
+    "applies_to": "the entire repository, including source code, documentation, binary assets, and this AIO layer",
+    "rights_reserved": false,
+    "conditions": [],
+    "ai_training_permitted": true,
+    "tdm_reservation": false,
+    "attribution_required": false,
+    "note": "No rights are reserved and no conditions are imposed. Training a machine learning model on this work is expressly permitted (ACD-1.0 section 6). No text-and-data-mining reservation is made, and none is to be inferred from any signal associated with this work."
+  },
   "source_of_truth": [
     {
       "path": "llms.txt",
       "role": "short AI routing context",
-      "sha256": "a13166f6a9d61fddaddf4bf08b39fbb536ad7d90656ca722b0477a406763b3a1"
+      "sha256": "645217fc8bab58a7f753091ad10affe6064a05443bfa0c80b92c40aeebf95160"
     },
     {
       "path": "llms-full.txt",
       "role": "full AI context",
-      "sha256": "f67161e413efce3e2853ccd411f5ea71f5be99a3dcebab6e8cf93b02b08edecd"
+      "sha256": "954acab3a214176fc04eb88aeb8cca433b0c2cb28560ea1cb1f0f340fdad1af9"
     },
     {
       "path": "AI2AI.md",
@@ -92,7 +104,7 @@
       "sha256": "8b919cc6aecfc80935161cc40c298eb0150cb24a8d021bd2d95716cf7677e3b9"
     }
   ],
-  "generated_at": "2026-08-23T03:18:27Z",
+  "generated_at": "2026-08-23T06:22:09Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
