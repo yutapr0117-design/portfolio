@@ -706,7 +706,10 @@ test('All routes expose a unique, non-empty title and description (AIO)', async 
 // **静的解析では捕捉できない** —— speakable ノードも route 追従ノードも runtime 注入なので、
 // index.html のソースを読む Check には存在しない。
 test('同一 @id が矛盾する property 値を宣言しない (エンティティ解決の一意性)', async ({ page }) => {
-  for (const route of ['/', '/#/projects', '/#/quiz']) {
+  // **`#/ai-knowhow` を必ず含める。** Article JSON-LD は ARTICLE_ROUTES のルートでしか
+  //   注入されないので、他のルートだけを見ていると**そのノードの @id を一度も検査しない**
+  //   (実測 2026-08-23: 同じ死角で Article ノードの license 欠落を長く見逃していた)。
+  for (const route of ['/', '/#/projects', '/#/quiz', '/#/ai-knowhow']) {
     await page.goto(route);
     await page.waitForLoadState('domcontentloaded');
     await expect(page.locator('#content h1')).toBeVisible();
