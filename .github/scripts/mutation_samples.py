@@ -346,6 +346,15 @@ _MUTATIONS_TAIL.append({
     "replace": '"tools": false,',
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 447 (制約列挙の正典一致): C6 を列挙から落とす —— エージェントはこの prompt を "
+            "展開して監査するので、名前が欠けると**存在しない制約セットを監査する**。"
+            "2026-08-23 まで実際に C5/C6/C7 が欠落していた (範囲の表記だけ更新され中身が古いまま)",
+    "file": ROOT / ".well-known" / "mcp.json",
+    "find": "C6 AIO Integrity / ",
+    "replace": "",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
