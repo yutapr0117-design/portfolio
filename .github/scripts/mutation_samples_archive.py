@@ -462,8 +462,14 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 193 (WebSite.url canonical): drift WebSite.url to a different page",
         "file": ROOT / "index.html",
-        "find": '"url": "https://yutapr0117-design.github.io/portfolio/",\n                  "inLanguage": "ja",',
-        "replace": '"url": "https://yutapr0117-design.github.io/portfolio/probe-website-drift/",\n                  "inLanguage": "ja",',
+        # [FIX 2026-08-23] 旧 anchor (`"url"` の直後に `"inLanguage"`) は **一意なまま別ノードへ
+        #   silent に移った**。WebSite ノードへ `"license"` を 1 行挿入したことで url→inLanguage の
+        #   隣接が崩れ、同じ並びを持つ **TechArticle (#ai-context)** に当たるようになった。
+        #   Check 193 は WebSite.url しか見ないので、別ノードを壊しても緑 = **SURVIVED**。
+        #   Check 362 (解決するか) も Check 420 (一意か) も**この形は捕捉できない** —— 検出できたのは
+        #   probe を実際に回したから。JSON-LD の mutation は必ずノード固有の @id を起点にする。
+        "find": '"@id": "https://yutapr0117-design.github.io/portfolio/#website",\n                  "name": "yuta - AI-Driven PM | ポートフォリオ",\n                  "url": "https://yutapr0117-design.github.io/portfolio/",',
+        "replace": '"@id": "https://yutapr0117-design.github.io/portfolio/#website",\n                  "name": "yuta - AI-Driven PM | ポートフォリオ",\n                  "url": "https://yutapr0117-design.github.io/portfolio/probe-website-drift/",',
     },
     {
         "name": "Check 194 (WebPage.url canonical): drift WebPage.url to a different page",
@@ -831,8 +837,11 @@ MUTATIONS_ARCHIVE = [
     {
         "name": "Check 254 (.well-known/index.json digest format): drift digest to malformed length",
         "file": ROOT / ".well-known" / "index.json",
-        "find": '"digest": "sha-256:f67161e413efce3e2853ccd411f5ea71f5be99a3dcebab6e8cf93b02b08edecd"',
-        "replace": '"digest": "sha-256:DEADBEEF"',
+        # [FIX 2026-08-23] digest の**値そのもの**を掴んでいたため、AIO 層を編集して digest を
+        #   再生成するたび orphan 化した (本日 4 件目の同 class)。不変な接頭辞だけを掴む。
+        #   `sha-256:` を `sha256:` に潰すと Check 254 の形式検証が同じように RED になる。
+        "find": '"digest": "sha-256:',
+        "replace": '"digest": "sha256:',
     },
     {
         "name": "Check 255 (DOCTYPE html5 declaration): strip DOCTYPE from first line",
@@ -941,59 +950,5 @@ MUTATIONS_ARCHIVE = [
         "file": ROOT / ".github" / "scripts" / "checks_shipped_static.py",  # Check 272 は checks_shipped_static.py へ抽出済 (split Phase 33)
         "find": "_LEAF_BUDGET272 = 100_000",
         "replace": "_LEAF_BUDGET272 = 1",
-    },
-    {
-        "name": "Check 273 (JSON-LD dates NOT future): drift datePublished to 2099-12-31",
-        "file": ROOT / "index.html",
-        "find": '"datePublished": "2026-04-14"',
-        "replace": '"datePublished": "2099-12-31"',
-    },
-    {
-        "name": "Check 274 (aio-manifest entity.name == Person.name): drift entity.name in manifest",
-        "file": ROOT / ".well-known" / "aio-manifest.json",
-        "find": '"name": "Yuta Yokoi",\n    "name_ja": "横井雄太",',
-        "replace": '"name": "Anonymous PROBE",\n    "name_ja": "横井雄太",',
-    },
-    {
-        "name": "Check 275 (aio-manifest affiliation.organization_name == Org.name): drift org_name in manifest",
-        "file": ROOT / ".well-known" / "aio-manifest.json",
-        "find": '"organization_name": "株式会社日本経営",',
-        "replace": '"organization_name": "PROBE Company Ltd",',
-    },
-    {
-        "name": "Check 276 (aio-manifest affiliation.organization_url == Org.url): drift org_url in manifest",
-        "file": ROOT / ".well-known" / "aio-manifest.json",
-        "find": '"organization_url": "https://nkgr.co.jp/",',
-        "replace": '"organization_url": "https://probe-drift.example/",',
-    },
-    {
-        "name": "Check 277 (aio-manifest authoritative_context == canonical+llms-full.txt): drift to probe URL",
-        "file": ROOT / ".well-known" / "aio-manifest.json",
-        "find": '"authoritative_context": "https://yutapr0117-design.github.io/portfolio/llms-full.txt",',
-        "replace": '"authoritative_context": "https://probe-drift.example/llms-full.txt",',
-    },
-    {
-        "name": "Check 278 (sitemap.xml <loc> HTTPS): downgrade one <loc> to http",
-        "file": ROOT / "sitemap.xml",
-        "find": "<loc>https://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>",
-        "replace": "<loc>http://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>",
-    },
-    {
-        "name": "Check 279 (robots.txt Sitemap: HTTPS): downgrade Sitemap: URL to http",
-        "file": ROOT / "robots.txt",
-        "find": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml",
-        "replace": "Sitemap: http://yutapr0117-design.github.io/portfolio/sitemap.xml",
-    },
-    {
-        "name": "Check 280 (SITE_CONFIG URLs HTTPS): downgrade REPO_URL to http",
-        "file": ROOT / "main.js",
-        "find": "REPO_URL:      'https://github.com/yutapr0117-design/portfolio',",
-        "replace": "REPO_URL:      'http://github.com/yutapr0117-design/portfolio',",
-    },
-    {
-        "name": "Check 281 (SITE_CONFIG.REPO_URL == ai:repository): drift ai:repository content",
-        "file": ROOT / "index.html",
-        "find": '<meta name="ai:repository" content="https://github.com/yutapr0117-design/portfolio" />',
-        "replace": '<meta name="ai:repository" content="https://github.com/PROBE-DRIFT/portfolio" />',
     },
 ]

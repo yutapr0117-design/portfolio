@@ -18,6 +18,60 @@ from mutation_samples_common import ROOT, CHECK  # noqa: F401 (entry 内で参�
 
 MUTATIONS_ARCHIVE2 = [
     {
+        "name": "Check 273 (JSON-LD dates NOT future): drift datePublished to 2099-12-31",
+        "file": ROOT / "index.html",
+        "find": '"datePublished": "2026-04-14"',
+        "replace": '"datePublished": "2099-12-31"',
+    },
+    {
+        "name": "Check 274 (aio-manifest entity.name == Person.name): drift entity.name in manifest",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"name": "Yuta Yokoi",\n    "name_ja": "横井雄太",',
+        "replace": '"name": "Anonymous PROBE",\n    "name_ja": "横井雄太",',
+    },
+    {
+        "name": "Check 275 (aio-manifest affiliation.organization_name == Org.name): drift org_name in manifest",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"organization_name": "株式会社日本経営",',
+        "replace": '"organization_name": "PROBE Company Ltd",',
+    },
+    {
+        "name": "Check 276 (aio-manifest affiliation.organization_url == Org.url): drift org_url in manifest",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"organization_url": "https://nkgr.co.jp/",',
+        "replace": '"organization_url": "https://probe-drift.example/",',
+    },
+    {
+        "name": "Check 277 (aio-manifest authoritative_context == canonical+llms-full.txt): drift to probe URL",
+        "file": ROOT / ".well-known" / "aio-manifest.json",
+        "find": '"authoritative_context": "https://yutapr0117-design.github.io/portfolio/llms-full.txt",',
+        "replace": '"authoritative_context": "https://probe-drift.example/llms-full.txt",',
+    },
+    {
+        "name": "Check 278 (sitemap.xml <loc> HTTPS): downgrade one <loc> to http",
+        "file": ROOT / "sitemap.xml",
+        "find": "<loc>https://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>",
+        "replace": "<loc>http://yutapr0117-design.github.io/portfolio/llms-full.txt</loc>",
+    },
+    {
+        "name": "Check 279 (robots.txt Sitemap: HTTPS): downgrade Sitemap: URL to http",
+        "file": ROOT / "robots.txt",
+        "find": "Sitemap: https://yutapr0117-design.github.io/portfolio/sitemap.xml",
+        "replace": "Sitemap: http://yutapr0117-design.github.io/portfolio/sitemap.xml",
+    },
+    {
+        "name": "Check 280 (SITE_CONFIG URLs HTTPS): downgrade REPO_URL to http",
+        "file": ROOT / "main.js",
+        "find": "REPO_URL:      'https://github.com/yutapr0117-design/portfolio',",
+        "replace": "REPO_URL:      'http://github.com/yutapr0117-design/portfolio',",
+    },
+    {
+        "name": "Check 281 (SITE_CONFIG.REPO_URL == ai:repository): drift ai:repository content",
+        "file": ROOT / "index.html",
+        "find": '<meta name="ai:repository" content="https://github.com/yutapr0117-design/portfolio" />',
+        "replace": '<meta name="ai:repository" content="https://github.com/PROBE-DRIFT/portfolio" />',
+    },
+    {
         "name": "Check 282 (SITE_CONFIG.CANONICAL_URL == ai:canonical): drift ai:canonical content",
         "file": ROOT / "index.html",
         "find": '<meta name="ai:canonical" content="https://yutapr0117-design.github.io/portfolio/" />',
@@ -237,10 +291,14 @@ MUTATIONS_ARCHIVE2 = [
         "replace": '"purpose": "any mask"',
     },
     {
-        "name": "Check 317 (aio-manifest sha256 format): uppercase hex in first source_of_truth sha256",
+        "name": "Check 317 (aio-manifest sha256 format): 非 hex 文字を混入させ形式を破る (旧版は uppercase hex で破っていたが、digest 値に釘付けだったため付け替えた)",
         "file": ROOT / ".well-known" / "aio-manifest.json",
-        "find": '"sha256": "a13166f6a9d61fddaddf4bf08b39fbb536ad7d90656ca722b0477a406763b3a1"',
-        "replace": '"sha256": "A13166f6a9d61fddaddf4bf08b39fbb536ad7d90656ca722b0477a406763b3a1"',
+        # [FIX 2026-08-23] digest の**値そのもの**を掴んでいたため、AIO 層を編集して digest を
+        #   再生成するたび orphan 化した (本日 5 件目の同 class)。不変な key 側を掴む。
+        #   非 hex 文字を先頭へ差し込むと `^[0-9a-f]{64}$` を破り Check 317 が同じように RED になる
+        #   (旧 mutation は大文字化で破っていたが、どちらも同じ形式検証の経路を通る)。
+        "find": '"sha256": "',
+        "replace": '"sha256": "ZZ',
     },
     {
         "name": "Check 318 (aio-manifest evidence required fields): empty role in first source_of_truth entry",
