@@ -117,6 +117,16 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        Check 133-135 (file-exists ⟹ wired) for the sitemap page-loc
        existence axis. (BLOCKING)
 
+  446. **実行可能な WebMCP ツール ⟺ discovery 層の宣言 (双方向・BLOCKING)**: shipped JS が
+       `navigator.modelContext.registerTool({name: ...})` で登録する**実行可能な**ツールと、
+       `.well-known/mcp.json` の `runtime: webmcp` entry が一致すること。
+       446a 登録 ⟹ 宣言 (**今日の欠落を捕捉する方向**) / 446b 宣言 ⟹ 登録。
+       動機 (2026-08-23 実測): サイトは実行可能な WebMCP ツールを 1 つ登録しているのに、
+       **AIO 公開面のどこにも宣言が無かった** —— 記載は開発者向け doc だけ。しかも mcp.json は
+       `capabilities.tools = false` と宣言しており、**「ツールは無い」と言いながら 1 つ動いている**
+       状態だった (書かれた当時は正確で、ツール追加時に更新されなかった)。
+       本セッションで繰り返し掘った「宣言と実態の乖離」の**逆向き** —— 届いているのに宣言が無い。
+       ツール名は **main.js から導出**する (決め打ちすると rename 時に Check だけが古い名前を持つ)。
   387. AIO discovery pointer files — `.well-known/api-catalog` (RFC 9727
        linkset) and `.well-known/mcp.json` — every same-origin (canonical
        origin + `/portfolio/`) URL reference (href / service-meta /
@@ -605,5 +615,56 @@ def run(ctx):
              "agent が dereference すると NotFound へ落ち、**「ツールはあるがルートが違う」という"
              "淡々と緑になる壊れ方**をする (#96-99 の vacuous-hash class)。"
              "ルート集合は js/router.js から導出しているので、ルートを増やしたら自動追従する"),
+            blocking=True,
+        )
+
+    # ── 446. 実行可能な WebMCP ツール ⟺ discovery 層の宣言 (双方向・BLOCKING) ──────────
+    # 2026-08-23 実測: サイトは `navigator.modelContext.registerTool` で**実行可能な**ツールを
+    # 1 つ登録しているのに、**AIO 公開面のどこにも宣言が無かった**。しかも mcp.json は
+    # `capabilities.tools = false` と宣言しており、「ツールは無い」と言いながら 1 つ動いていた。
+    # 「宣言はあるが届いていない」の**逆向き** —— 届いているのに宣言が無い。
+    # 名前は main.js から導出する (決め打ちすると rename 時に Check だけが古い名前を持つ)。
+    _mcp446 = ROOT / ".well-known" / "mcp.json"
+    _shipped446 = [ROOT / "main.js"] + sorted((ROOT / "js").glob("*.js"))
+    _registered446 = set()
+    for _f446 in _shipped446:
+        _src446 = _f446.read_text(encoding="utf-8")
+        for _m446 in re.finditer(r"registerTool\s*\(\s*\{(.{0,400}?)name\s*:\s*[\"']([\w-]+)[\"']",
+                                 _src446, re.S):
+            _registered446.add(_m446.group(2))
+    if not _mcp446.is_file():
+        check(False, "", "Check 446: .well-known/mcp.json が無い", blocking=True)
+    else:
+        try:
+            _mj446 = json.loads(_mcp446.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            _mj446 = {}
+        _declared446 = {_t.get("name") for _t in _mj446.get("tools", [])
+                        if isinstance(_t, dict) and _t.get("runtime") == "webmcp"}
+        _caps446 = (_mj446.get("capabilities") or {}).get("tools")
+
+        _bad446 = []
+        _undeclared446 = sorted(_registered446 - _declared446)
+        if _undeclared446:
+            _bad446.append(f"登録済だが mcp.json 未宣言 (agent から発見できない): {_undeclared446}")
+        _unregistered446 = sorted(_declared446 - _registered446)
+        if _unregistered446:
+            _bad446.append(f"mcp.json が runtime:webmcp と宣言するが shipped JS で未登録 "
+                           f"(agent が呼べない幽霊ツール): {_unregistered446}")
+        # capabilities.tools は「実行可能なツールが在るか」の宣言なので実態と一致させる
+        if _registered446 and _caps446 is not True:
+            _bad446.append(f"実行可能なツールが {len(_registered446)} 件あるのに "
+                           f"capabilities.tools = {_caps446!r} —— 「ツールは無い」と宣言している")
+        if not _registered446 and _caps446 is True:
+            _bad446.append("capabilities.tools = true だが実行可能なツールが 1 件も登録されていない")
+
+        check(
+            not _bad446,
+            (f"Check 446: 実行可能な WebMCP ツール {len(_registered446)} 件が mcp.json の "
+             f"runtime:webmcp 宣言と双方向で一致 (capabilities.tools={_caps446!r})"),
+            (f"Check 446: WebMCP ツールの実態と宣言がずれている: {_bad446}。"
+             "**登録されているのに宣言が無いと、静的 discovery しかしない agent は"
+             "そのツールの存在を知りようがない**。逆に宣言だけあると幽霊ツールを呼びに来る。"
+             "ツール名は main.js から導出しているので、rename すれば mcp.json 側も直す必要がある"),
             blocking=True,
         )
