@@ -15,7 +15,8 @@
     "mutation-probe": "python3 .github/scripts/mutation_probe.py",
     "mutation-probe-e2e": "python3 .github/scripts/mutation_probe.py --e2e",
     "verify": "npm run check && npm run lint:css && npm run lint && npm run lint:js",
-    "rotate-mutations": "python3 .github/scripts/rotate_mutation_samples.py"
+    "rotate-mutations": "python3 .github/scripts/rotate_mutation_samples.py",
+    "spdx-xml": "python3 .github/scripts/generate_spdx_license_xml.py"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",

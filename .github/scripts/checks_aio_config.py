@@ -27,6 +27,16 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        ライセンスが自分の主張を満たしていないことを意味する。canonical URL は LICENSE の
        `Full text:` 行から**導出**する (決め打ちすると path を変えたとき Check だけが古い場所を
        指す)。
+  445. **SPDX 提出用 XML がライセンス本文と同期していること** (BLOCKING): SPDX License List への
+       収録が受理されると提出者は **XML とテストテキストの作成**を求められる。その XML を手書きすると
+       **本文を改善するたび silent に古くなる** —— しかも XML は普段誰も読まないので drift に
+       気付く経路が無い (本リポジトリが繰り返し潰してきた「宣言はあるが実態が伴わない」class)。
+       `LICENSES/ACD-1.0.txt` を単一ソースとして `generate_spdx_license_xml.py` が導出し、
+       本 Check が「再生成して一致するか」を検証する (STATUS.md に対する Check 121 と同じ設計)。
+       445a XML が本文から再生成した結果と byte 一致する / 445b XML が well-formed で
+       licenseId が LICENSE の SPDX 識別子と一致する / 445c 本文の全条項番号が XML に現れる
+       (段落分割で条項が落ちていない —— 提出テキストと配布テキストが食い違うと収録後に
+       「テキストが一致しない」問題を起こす)。
   62. AIO entity canonical_url cross-surface identity: aio-manifest.json の `entity.canonical_url`
       と llms-full.txt の `Canonical URL:` 値が 1 バイトも違わずに一致することを機械強制する。
       Entity の canonical URL は AIO 識別子の最重要 anchor — manifest と canon (llms-full) の
@@ -82,6 +92,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
       (BLOCKING)
 """
 import re
+import sys
 import json
 import xml.etree.ElementTree as ET
 
@@ -424,3 +435,67 @@ def run(ctx):
                  "canonical は LICENSE の `Full text:` 行と `SPDX-License-Identifier:` 行が単一ソース"),
                 blocking=True,
             )
+
+    # ── 445. SPDX 提出用 XML がライセンス本文と同期していること (BLOCKING) ─────────────
+    # 提出物を手書きすると本文の改善に追従せず silent に古くなる。単一ソース (ACD-1.0.txt) から
+    # 導出し、ここで「再生成して一致するか」を検証する (Check 121 と同じ regenerate-compare)。
+    import subprocess as _sp445
+    import xml.etree.ElementTree as _ET445
+    _xml445 = ROOT / "LICENSES" / "ACD-1.0.spdx.xml"
+    _gen445 = ROOT / ".github" / "scripts" / "generate_spdx_license_xml.py"
+    if not (_xml445.exists() and _gen445.exists()):
+        check(False, "", f"Check 445: SPDX 提出物または生成器が無い "
+                         f"(xml={_xml445.exists()} / generator={_gen445.exists()})", blocking=True)
+    else:
+        # 445a — 再生成して一致するか
+        _r445 = _sp445.run([sys.executable, str(_gen445), "--check"],
+                           cwd=str(ROOT), capture_output=True, text=True)
+        check(
+            _r445.returncode == 0,
+            "Check 445a: SPDX 提出用 XML が ACD-1.0 本文と同期している",
+            (f"Check 445a: SPDX 提出用 XML が本文と同期していない — `npm run spdx-xml` を実行して "
+             f"commit せよ。**提出物は手で編集しない** (単一ソースは LICENSES/ACD-1.0.txt)。"
+             f"詳細: {_r445.stdout.strip() or _r445.stderr.strip()}"),
+            blocking=True,
+        )
+
+        # 445b — well-formed かつ識別子が LICENSE と一致
+        _bad445 = []
+        try:
+            _root445 = _ET445.fromstring(_xml445.read_text(encoding="utf-8"))
+            _lic445 = _root445.find("{http://www.spdx.org/license}license")
+            if _lic445 is None:
+                _bad445.append("license 要素が無い")
+            else:
+                _decl445 = (ROOT / "LICENSE").read_text(encoding="utf-8")
+                _m445 = re.search(r"SPDX-License-Identifier:\s*(\S+)", _decl445)
+                if _m445 and _lic445.get("licenseId") != _m445.group(1):
+                    _bad445.append(f"licenseId {_lic445.get('licenseId')!r} != LICENSE の {_m445.group(1)!r}")
+        except Exception as _e445:
+            _bad445.append(f"XML が well-formed でない: {_e445}")
+        check(
+            not _bad445,
+            "Check 445b: SPDX 提出用 XML が well-formed で識別子が LICENSE と一致",
+            f"Check 445b: SPDX 提出物の構造/識別子に問題がある: {_bad445}",
+            blocking=True,
+        )
+
+        # 445c — 本文の全条項が XML に現れる (段落分割で落ちていない)
+        _src445 = (ROOT / "LICENSES" / "ACD-1.0.txt").read_text(encoding="utf-8")
+        _clauses445 = re.findall(r"^  (\d+\.\d+)\s", _src445, re.M)
+        try:
+            _joined445 = " ".join(
+                (_p.text or "") for _p in
+                _ET445.fromstring(_xml445.read_text(encoding="utf-8"))
+                .findall(".//{http://www.spdx.org/license}p"))
+        except Exception:
+            _joined445 = ""
+        _miss445 = [_c for _c in _clauses445 if _c not in _joined445]
+        check(
+            _clauses445 and not _miss445,
+            f"Check 445c: 本文の全 {len(_clauses445)} 条項が SPDX 提出用 XML に現れる",
+            (f"Check 445c: SPDX 提出用 XML に現れない条項がある: {_miss445[:8]}。"
+             "**提出テキストと配布テキストが食い違うと、収録後に「テキストが一致しない」問題を起こす**。"
+             "生成器の段落分割ロジックを見直せ"),
+            blocking=True,
+        )
