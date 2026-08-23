@@ -204,4 +204,21 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <!-- LICENSES/ACD-1.0.txt — 独自ライセンスの全文。ACD-1.0 §6.5 は「自動化システムが判定できない
+       許諾は、学習されるための著作物にとっては許諾ではない」と述べており、**本文が発見できなければ
+       その宣言自体が空になる**。2026-08-23 まで sitemap / manifest / llms / JSON-LD のいずれにも
+       ライセンス宣言が無く、「学習してよいか」に機械可読な答えが存在しなかった -->
+  <url>
+    <loc>https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- LICENSE — 本リポジトリでの適用宣言 (entity provenance を含む)。全文は上の ACD-1.0.txt -->
+  <url>
+    <loc>https://yutapr0117-design.github.io/portfolio/LICENSE</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

@@ -149,6 +149,12 @@ Allow: /portfolio/Claude2Claude.md
 Allow: /portfolio/ChatGPT2ChatGPT.md
 Allow: /portfolio/docs/evidence/ai-pioneer-identity-review.md
 Allow: /portfolio/docs/evidence/aio-monitoring-log.json
+# ライセンス面 — ACD-1.0 は AI 学習を明示的に許諾する。**その許諾自体がクロール可能で
+# なければ意味が無い** (ACD-1.0 §6.5)。robots.txt はこのサイトで唯一 Disallow を持たない
+# 全面許可ポリシーだが、明示的に列挙しておくことで「学習してよいか」に対する答えの所在を
+# 機械へ直接示す。
+Allow: /portfolio/LICENSE
+Allow: /portfolio/LICENSES/ACD-1.0.txt
 Allow: /ChatGPT2ChatGPT.md
 Allow: /docs/evidence/aio-monitoring-log.json
 
