@@ -368,8 +368,18 @@ test('Revisiting the quiz does not re-download the question set (ESM module cach
 
 
 test('Quiz announces the loading window with aria-busy while data is in flight', async ({ page }) => {
+  // [FIX 2026-08-23] 旧版は `setTimeout(900)` でモジュールの到着を遅らせ、その 900ms の間に
+  //   検証が終わることに**賭けていた**。負荷が高いと `#content h1` の可視待ちだけで 900ms を
+  //   超え、**モジュールが先に届いて「読み込み中」の窓が消えてから** control を読むので、
+  //   `toHaveCount(1)` が 0 のまま 5s poll して落ちる (実測: 単独実行 3 回で 1 failed / 2 passed、
+  //   かつ main でも再現。BLOCKING gate を偽赤にする)。
+  //   時間ではなく**明示的な解放ゲート**にして、検証が終わるまで到着させない。これで
+  //   「読み込み中の窓が観測できる長さ」がマシン速度に依存しなくなる
+  //   (docs/files/playwright.config.cjs.md「固定時間待ちは実装内部の定数への賭け」)。
+  let releaseModule;
+  const moduleGate = new Promise((resolve) => { releaseModule = resolve; });
   await page.route('**/js/quiz/aws-quiz-data.js*', async (route) => {
-    await new Promise((r) => setTimeout(r, 900));
+    await moduleGate;
     await route.continue();
   });
 
@@ -382,6 +392,9 @@ test('Quiz announces the loading window with aria-busy while data is in flight',
     'control: 読み込み中の窓が作れていない — 以降の検証が vacuous になる').toHaveCount(1);
   await expect(page.locator('#content [aria-busy="true"]').first(),
     '読み込み中なのに aria-busy が立っていない').toBeVisible();
+
+  // ここまで確認できてから初めて到着させる
+  releaseModule();
 
   // 到着 → busy 解除 + 実データ由来の章見出しが出る
   await expect(page.locator('[data-quiz-list] h2').first()).toBeVisible();
