@@ -126,7 +126,8 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/portfolio.spec.js` | 44 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/projects.spec.js` | 883 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/projects-roundtrip.spec.js` | 73 | 300 | `advisory` | behavior e2e spec。normalize の冪等性 (保存 → 読み戻しで既定データが変質しない)。projects.spec.js が 922 行で 早期警告 (900) を超えたため、Check 365 の BLOCKING (1,000 行) を踏む前に切り出した |
-| `e2e/quiz.spec.js` | 923 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/quiz-lazy-load.spec.js` | 329 | 900 | `advisory` | behavior e2e spec (quiz データの遅延読み込み契約)。#1239 で 130,595 bytes をクリティカルパスから外した結果**「まだ届いていない」状態が新しく生まれた**ため、その扱いを 1 箇所へ集約した。2026-08-23 に quiz.spec.js が 923 行で advisory(900) を超えたため BLOCKING の手前で切り出し |
+| `e2e/quiz.spec.js` | 599 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/resilience.spec.js` | 801 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/security-proxy.spec.js` | 537 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/static-pages.spec.js` | 104 | 900 | `advisory` | behavior e2e spec (静的ページ + role-split の ARIA table 意味論)。2026-08-16 に projects.spec.js の advisory 超過を受けて先回り分割 |
@@ -550,6 +551,7 @@ e2e/print.spec.js | 900 | advisory
 e2e/portfolio.spec.js | 900 | advisory
 e2e/projects.spec.js | 900 | advisory
 e2e/projects-roundtrip.spec.js | 300 | advisory
+e2e/quiz-lazy-load.spec.js | 900 | advisory
 e2e/quiz.spec.js | 900 | advisory
 e2e/resilience.spec.js | 900 | advisory
 e2e/security-proxy.spec.js | 900 | advisory
