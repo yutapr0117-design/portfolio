@@ -300,6 +300,9 @@
             LAST_UPDATED:  '2026-05-31',
             ROLE_TITLE:    'AI-Driven PM',
             CANONICAL_URL: 'https://yutapr0117-design.github.io/portfolio/',
+            // [AIO] 権利宣言の単一ソース。runtime 注入の JSON-LD にも載せる (route 追従ノードは
+            //   別 @id ゆえ静的側の license が及ばない)。Check 444 が LICENSE との一致を強制。
+            LICENSE_URL:   'https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt',
             REPO_URL:      'https://github.com/yutapr0117-design/portfolio',
             ARTICLE_ROUTES: ['ai-knowhow'],   // og:type = article を適用するルート
         };
@@ -1302,6 +1305,10 @@
                         '@type': 'WebPage',
                         '@id': SITE_BASE + '#webpage-dynamic',
                         'url': SITE_BASE,
+                        // この IIFE は SITE_CONFIG のスコープ外 (自前で SITE_BASE を持つ)。
+                        //   URL を丸ごと複製せず SITE_BASE から合成する。Check 444 が
+                        //   LICENSE の `Full text:` 行との一致を BLOCKING で強制する。
+                        'license': SITE_BASE + 'LICENSES/ACD-1.0.txt',
                         'name': currentTitle,
                         'inLanguage': 'ja',
                         'about': { '@id': SITE_BASE + '#person' },

@@ -385,8 +385,18 @@ def run(ctx):
             elif not (ROOT / _m_link444.group(1).lstrip("/").replace("portfolio/", "", 1)).exists():
                 _bad444.append(f"rel=license の href {_m_link444.group(1)} が実 file へ解決しない")
 
-            # 444b — JSON-LD の license
+            # 444b — JSON-LD: **CreativeWork 系ノードはすべて** license を持ち、値が canonical と一致すること。
+            #   旧版は「存在する license 値が canonical と一致するか」しか見ておらず、
+            #   **license を持たない CreativeWork ノードを素通し**していた。実測 (2026-08-23):
+            #   ImageObject / AudioObject (バイナリ資産・XMP と ID3 は ACD-1.0 と言っている) /
+            #   TechArticle / FAQPage の 6 ノードが無宣言で、**同じ資産について面ごとに答えが違う**
+            #   状態だった。schema.org で `license` は CreativeWork に定義されるので、その族を対象にする
+            #   (Person / Organization / BreadcrumbList は CreativeWork ではないので対象外)。
+            _CW444 = {"CreativeWork", "WebSite", "WebPage", "ImageObject", "AudioObject",
+                      "VideoObject", "TechArticle", "Article", "FAQPage", "MediaObject",
+                      "Dataset", "SoftwareApplication"}
             _ld_urls444 = set()
+            _no_lic444 = []
             for _blk444 in re.findall(
                     r'<script type="application/ld\+json">(.*?)</script>', _html444, re.S):
                 try:
@@ -394,12 +404,39 @@ def run(ctx):
                 except Exception:
                     continue
                 for _n444 in (_doc444.get("@graph") or [_doc444]):
-                    if isinstance(_n444, dict) and "license" in _n444:
+                    if not isinstance(_n444, dict) or _n444.get("@type") not in _CW444:
+                        continue
+                    if "license" in _n444:
                         _ld_urls444.add(_n444["license"])
+                    else:
+                        _no_lic444.append(f"{_n444.get('@type')} {_n444.get('@id', '(no @id)')}")
             if not _ld_urls444:
-                _bad444.append("JSON-LD にどのノードも license を持たない")
-            elif _ld_urls444 != {_url444}:
+                _bad444.append("JSON-LD にどの CreativeWork ノードも license を持たない")
+            if _no_lic444:
+                _bad444.append(f"license を持たない CreativeWork ノード: {_no_lic444}")
+            if _ld_urls444 and _ld_urls444 != {_url444}:
                 _bad444.append(f"JSON-LD の license が canonical と不一致: {sorted(_ld_urls444)} != {_url444}")
+
+            # 444f — **runtime で注入される JSON-LD** にも license が載ること。
+            #   静的側だけ配線すると、route 追従ノード (#webpage-dynamic) は別 @id なので
+            #   **そのノードだけ許諾不明**になる (レンダリングするクローラが読むのはこちら)。
+            #   実装は shipped JS にあるので、**直接リテラル**か **SITE_CONFIG.LICENSE_URL 経由**の
+            #   どちらかで参照していることを見る (間接参照の方が単一ソースとして優れているので、
+            #   リテラルだけを要求すると**正しい実装を誤検出する** —— 初版で実際に踏んだ)。
+            #   間接参照を許す代わり、SITE_CONFIG.LICENSE_URL の定義値が canonical と一致することを
+            #   別途確かめる (そうしないと「どこかを指してはいるが別物」を素通しする)。
+            _mainjs444 = (ROOT / "main.js").read_text(encoding="utf-8")
+            _m_lu444 = re.search(r"LICENSE_URL:\s*'([^']+)'", _mainjs444)
+            if not _m_lu444:
+                _bad444.append("main.js の SITE_CONFIG に LICENSE_URL が無い")
+            elif _m_lu444.group(1) != _url444:
+                _bad444.append(f"SITE_CONFIG.LICENSE_URL {_m_lu444.group(1)!r} != canonical {_url444!r}")
+            for _f444, _label444 in ((ROOT / "main.js", "route 追従ノード (#webpage-dynamic)"),
+                                     (ROOT / "js" / "meta-management.js", "speakable ノード")):
+                _src444 = _f444.read_text(encoding="utf-8")
+                if _rel444 not in _src444 and "SITE_CONFIG.LICENSE_URL" not in _src444:
+                    _bad444.append(f"{_f444.name} の {_label444} が license を宣言していない "
+                                   f"({_rel444} のリテラルも SITE_CONFIG.LICENSE_URL 参照も無い)")
 
             # 444c — aio-manifest の license 宣言
             _mf444 = ROOT / ".well-known" / "aio-manifest.json"
