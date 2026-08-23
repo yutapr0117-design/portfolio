@@ -73,6 +73,18 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `docs/incident-artifacts/` が**性質上の歴史記録**で、そこへ注記を強制すると履歴を
        濁す圧力になるため (#977 の「書き換えれば履歴を偽る」判断と同じ線引き)。
        否定・超越を明示する行 (SUPERSEDED / 否定された / 存在しない 等) は違反にしない。 (BLOCKING)
+
+  450. Tracked text files carry no stray non-Japanese script (Cyrillic / Hangul / Arabic / Thai /
+       Devanagari / Hebrew): an LLM writing Japanese can emit a homoglyph-adjacent character from
+       another script mid-word, producing text that *looks* almost right but is corrupt — and no
+       layer sees it (spell-check does not run, lint reads only JS, and prose is not compared to
+       anything). Real example found 2026-08-23: in the Japanese word for "authoritative text",
+       the leading three characters had been replaced by Cyrillic while the trailing katakana
+       survived; it had lived on in `repository-maintainability-map.md` (normative layer,
+       describing C6) and in a decision record. Greek is deliberately NOT flagged — it is legitimate in mathematical
+       and scientific prose. The pattern is written with escape sequences so this file does not
+       match itself, and for the same reason the description cannot quote an instance.
+       Measured across 573 tracked text files: zero false positives. (BLOCKING)
 """
 import re
 import json
@@ -278,9 +290,15 @@ def run(ctx):
     # 2026-08-20 の棚卸しで research-application-policy.md が「適用条件: オーナーが配色変更を
     # 裁可した時」を現行ガイダンスとして保持しており、しかもその項目は #1158 で解決済みだった。
     # 歴史記録 (docs/incident-artifacts/) は対象外 —— そこへ注記を強制すると履歴を濁す。
+    # 検出語は**同じ意味の別綴り**まで列挙する。2026-08-23 の実測で、旧リストは "要承認" は見るのに
+    # "承認必要" / "承認必須" / "承認なしに" という**このリポジトリで実際に使われていた日本語表現**を
+    # 一つも見ていなかった (「静的 Check は自分が見ている綴りしか見ていない」class)。
     _DEFER436 = ("裁可待ち", "裁可した時", "裁可を待", "C5（人間）の領域", "C5 (人間) の領域",
                  "要承認", "要オーケストレーター承認",
-                 "orchestrator approval", "explicit written approval")
+                 "承認必要", "承認必須", "承認が必要", "承認なしに", "承認なしで",
+                 "承認を待", "承認の有無", "承認下では",
+                 "orchestrator approval", "explicit written approval", "approval required",
+                 "requires approval", "without approval")
     _OK436 = ("SUPERSEDED", "否定された", "存在しない", "読み違い", "解決済み", "誤りだった",
               "承認ゲートではない", "是正", "standing approval", "撤回")
 
@@ -293,8 +311,16 @@ def run(ctx):
     # 制約として能動的に配信され続けていた**（受け取った側は否定された規則を持ち帰る）。
     _NORMATIVE436 = [ROOT / "AI2AI.md", ROOT / "CLAUDE.md", ROOT / ".claude" / "CLAUDE.md",
                      ROOT / "CONTRIBUTING.md", ROOT / "LICENSE", ROOT / "README.md",
-                     ROOT / "Claude2Claude.md"]
-    _files436 = sorted((ROOT / "docs" / "architecture").glob("*.md")) + [_f for _f in _NORMATIVE436 if _f.exists()]
+                     ROOT / "Claude2Claude.md", ROOT / "CODEOWNERS"]
+    # `.claude/` の agent 定義 / slash command / skill は**エージェントの挙動を実際に駆動する層**で、
+    # 規範文書より直接的に効く。2026-08-23 の実測で `.claude/agents/aio-guardian.md` が
+    # 「Orchestrator approval recorded? … If not, REFUSE.」と指示しており、AIO 編集を通すたびに
+    # **canon が存在しないと明記した「裁可待ち」を再生産していた**。旧 scope はここを一度も見ていない。
+    _AGENTIC436 = (sorted((ROOT / ".claude" / "agents").glob("*.md"))
+                   + sorted((ROOT / ".claude" / "commands").glob("*.md"))
+                   + sorted((ROOT / ".claude" / "skills").glob("*/SKILL.md")))
+    _files436 = (sorted((ROOT / "docs" / "architecture").glob("*.md"))
+                 + [_f for _f in _NORMATIVE436 if _f.exists()] + _AGENTIC436)
 
     def _normative_lines436(_path):
         """歴史記録を除いた規範部分だけを (行番号, 行) で返す。
@@ -316,15 +342,21 @@ def run(ctx):
             _out.append((_n, _line))
         return _out
 
+    # 照合は **case-insensitive**。2026-08-23 の非 vacuity 検証で、scope 拡張の動機そのもの
+    # (`.claude/agents/aio-guardian.md` の "**Orchestrator approval recorded?** … REFUSE") が
+    # **先頭大文字ゆえに素通り**した —— scope は届いていたのに照合が届いていなかった。
     _viol436 = []
     for _f in _files436:
         for _n, _line in _normative_lines436(_f):
-            if any(_p in _line for _p in _DEFER436) and not any(_o in _line for _o in _OK436):
-                _viol436.append(f"{_f.name}:{_n}")
+            _lo = _line.lower()
+            if any(_p.lower() in _lo for _p in _DEFER436) and not any(
+                _o.lower() in _lo for _o in _OK436
+            ):
+                _viol436.append(f"{_f.relative_to(ROOT)}:{_n}")
     check(
         not _viol436,
-        f"Check 436: 規範層 {len(_files436)} file (docs/architecture/ + canon/router/外部向け文書) に"
-        f"「裁可待ち」型の defer 理由が無い",
+        f"Check 436: 規範層 {len(_files436)} file (docs/architecture/ + canon/router/外部向け文書"
+        f" + .claude/ の agent 定義/slash command/skill) に「裁可待ち」型の defer 理由が無い",
         (f"Check 436: 規範層に canon が否定した defer 理由が残っている: {_viol436[:5]}。"
          "canon (AI2AI.md STEP 3 / CLAUDE.md §7) は「オーナー裁可が要る項目なんか一切無い」"
          "「C5 は『人間がコードを書かない』の意」「『裁可待ち』という作業カテゴリは存在しない」"
@@ -472,3 +504,53 @@ def run(ctx):
                  "正典は AI2AI.md の C1–C7 表 (本 Check が導出しているので、名前を変えれば追従が要る)"),
                 blocking=True,
             )
+
+    # ── 450. tracked text file に非日本語スクリプトの混入が無い (BLOCKING) ──────────
+    # 日本語を書く LLM は、語の途中で別スクリプトの字形近似文字を出すことがある。結果は
+    # 「ほぼ正しく見えるが壊れている」テキストで、**どの層も見ていない** (spell-check は
+    # 走らず、lint は JS しか読まず、prose は何とも比較されない)。2026-08-23 の実測で
+    # 「権威テキスト」の前半 3 字だけがキリル文字に置き換わった語が、規範層 (C6 を説明する行) と decision
+    # record に残存していた。ギリシャ文字は数学/科学表記で正当なので**意図的に対象外**。
+    # 正規表現は escape sequence で書く —— 文字を直接書くと本 file 自身がマッチする。
+    _SCRIPTS450 = (
+        "\u0400-\u04FF"    # Cyrillic
+        "\u0590-\u05FF"    # Hebrew
+        "\u0600-\u06FF"    # Arabic
+        "\u0900-\u097F"    # Devanagari
+        "\u0E00-\u0E7F"    # Thai
+        "\u1100-\u11FF"    # Hangul Jamo
+        "\u3130-\u318F"    # Hangul Compatibility Jamo
+        "\uAC00-\uD7AF"    # Hangul Syllables
+    )
+    _re450 = re.compile("[" + _SCRIPTS450 + "]")
+    import subprocess as _sp450
+    try:
+        _tracked450 = [
+            _ln.strip()
+            for _ln in _sp450.run(
+                ["git", "ls-files"], cwd=str(ROOT), capture_output=True, text=True, check=True
+            ).stdout.splitlines()
+            if _ln.strip()
+        ]
+    except (OSError, _sp450.CalledProcessError):
+        _tracked450 = []      # git 不在環境では Check 434 が視界不完全を BLOCKING で受ける
+    _hits450 = []
+    for _rel450 in _tracked450:
+        _p450 = ROOT / _rel450
+        try:
+            _txt450 = _p450.read_text(encoding="utf-8")
+        except (UnicodeDecodeError, OSError):
+            continue          # binary は対象外 (decode できない時点で prose ではない)
+        for _n450, _line450 in enumerate(_txt450.splitlines(), 1):
+            _m450 = _re450.search(_line450)
+            if _m450:
+                _hits450.append(f"{_rel450}:{_n450} ({_m450.group()!r})")
+    check(
+        not _hits450,
+        "Check 450: tracked text file に非日本語スクリプトの混入が無い",
+        (f"Check 450: 日本語テキストに別スクリプトの文字が混入している: {_hits450[:5]}。"
+         "字形が近いため目視では気付けず、spell-check も lint も prose を見ないので"
+         "**どの層も検出しない**。該当箇所を正しい日本語文字へ置換せよ "
+         "(ギリシャ文字は数学/科学表記で正当なので対象外)"),
+        blocking=True,
+    )

@@ -29,7 +29,7 @@ AI crawler / agent
 
 ## Constraints
 
-- **C6 AIO Integrity** (semantic 部分): entity / source_of_truth path 等は orchestrator 承認必須
+- **C6 AIO Integrity** (semantic 部分): entity / source_of_truth path 等は C6 の 3 不変条件 (真実性 / 全公開面での整合 / digest 再生成) を満たすこと
 - **C6 derived-value 例外**: sha256 digest / generated_at / last_metadata_update は自動更新可
 - **Check 5**: agent-skills/index.json と byte-identical
 - **Check 21** (検査): observational_evidence に evidence_policy key 存在
@@ -54,7 +54,7 @@ AI crawler / agent
 
 ### For human engineers (新卒レベル)
 - このファイルを直接編集することは少ない — `update_aio_digests.py` が大半を自動化
-- entity の affiliation 等を変える場合は orchestrator 承認 → 関連 surface も同時更新
+- entity の affiliation 等を変える場合は関連 surface も同時更新 (面間で食い違わせない)
 
 ### For third parties (監査 / 採用 / 研究)
 - 構造化された AIO entity context。エンジニア / 監査人が読みやすい JSON 形式

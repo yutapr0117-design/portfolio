@@ -19,8 +19,12 @@ canonical-ref: AI2AI.md / CLAUDE.md / docs/architecture/<関連 doc>
 ## Constraints
 このファイルに課せられた制約。
 - 適用 C 番号 (C1-C7)
-- 機械強制している Check 番号 (1-95)
-- 編集に承認が必要か (AIO published-layer / kernel / binary 等)
+- 機械強制している Check 番号 (総数の真値は `docs/architecture/total-check-runbook.md` §9。
+  **範囲をここに書かない** — 数値は必ず drift する)
+- 編集時に満たすべき不変条件 (AIO published-layer なら C6 の真実性/面間整合/digest 再生成、
+  kernel なら DO-NOT-EDIT 領域の byte 同一性、binary なら日付 field 同期 等)。
+  **「承認が必要か」は書かない** — 承認は恒久的に与えられており「裁可待ち」という作業
+  カテゴリは存在しない (AI2AI.md STEP 3 / Check 436)
 
 ## Change impact
 変更時に同時更新が必要なファイル群。drift を生む典型パターン。

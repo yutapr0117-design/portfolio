@@ -26,7 +26,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        graphs then ingest a wrong dimension for the entity's primary
        image. (This Check was born from a real drift found 2026-07-04:
        JSON-LD declared 1200x630 while the file was 1536x1024, corrected
-       under C6 orchestrator approval.) Sibling of Check 338 (og:image
+       under C6 (true / cross-surface coherent / digest regenerated).) Sibling of Check 338 (og:image
        dims == actual) for the JSON-LD ImageObject dimension-truth axis.
        (BLOCKING)
 
@@ -167,7 +167,7 @@ def run(ctx):
             (f"Check 339: JSON-LD ImageObject 寸法 drift: {_problems339!r} — "
              "hero 再エクスポートで実寸が変わったのに JSON-LD が stale。AI crawler / "
              "knowledge graph が誤寸法を ingest。JSON-LD を実寸へ同期せよ (C6 semantic ゆえ "
-             "orchestrator 承認経由)"),
+             "C6 の 3 不変条件を満たして)"),
             blocking=True,
         )
     else:
@@ -227,7 +227,7 @@ def run(ctx):
             (f"Check 340: encodingFormat MIME drift: {_problems340!r} — "
              "JSON-LD が実バイナリと異なる MIME を宣言。AI crawler が誤 content-type を "
              "ingest / 宣言 MIME を信じる consumer が mis-decode。実 format へ同期せよ "
-             "(C6 semantic ゆえ orchestrator 承認経由)"),
+             "(C6 semantic ゆえ真実性/面間整合/digest 再生成を満たして)"),
             blocking=True,
         )
     else:

@@ -85,4 +85,4 @@ citation increase/decrease の2通知ステップを1ステップに統合（重
 
 ## 5. C1〜C7 遵守
 
-C1 外部FW/ライブラリ追加なし（package.json も追加せず） / C2 IIFE未変更 / C3 ErrorBoundary未変更 / C4 FW再提案なし / C5 人間はコード未記述（実装は Claude Opus 4.8） / C6 AIOテキストは Phase 状態追記と日付同期のみ（エンティティ/権威текスト・JSON-LD・バイナリ未変更） / C7 KARTE CDN SRI 非適用維持。すべて遵守。
+C1 外部FW/ライブラリ追加なし（package.json も追加せず） / C2 IIFE未変更 / C3 ErrorBoundary未変更 / C4 FW再提案なし / C5 人間はコード未記述（実装は Claude Opus 4.8） / C6 AIOテキストは Phase 状態追記と日付同期のみ（エンティティ/権威テキスト・JSON-LD・バイナリ未変更） / C7 KARTE CDN SRI 非適用維持。すべて遵守。

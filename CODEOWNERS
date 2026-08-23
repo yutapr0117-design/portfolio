@@ -17,7 +17,8 @@
 *  @yutapr0117-design
 
 # Critical AIO published-layer paths (C6) — explicit ownership reinforcement.
-# Edits to these require orchestrator approval and digest regeneration.
+# Edits to these must keep the content true and non-fabricated, coherent across every
+# published surface, and digest-regenerated (C6). Approval is standing, not a gate.
 /llms.txt                                @yutapr0117-design
 /llms-full.txt                           @yutapr0117-design
 /llms_well-known.txt                     @yutapr0117-design

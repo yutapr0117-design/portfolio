@@ -118,7 +118,7 @@ def run(ctx):
         _aio_ok123,
         "Check 123b: llms-full.txt が Current Operating Model (Claude Code self-driving) を保持 (AIO↔canon coherence)",
         "Check 123b: llms-full.txt から現運用モデル記述が失われた — AIO authority が旧編成のみへ drift する。"
-        "'Current Operating Model'/'Claude Code'/'self-driving' の marker を維持せよ (C6 semantic・編集は要承認)",
+        "'Current Operating Model'/'Claude Code'/'self-driving' の marker を維持せよ (C6 semantic・編集時は真実性/面間整合/digest 再生成を満たすこと)",
         blocking=True,
     )
 
