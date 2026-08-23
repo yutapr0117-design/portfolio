@@ -355,6 +355,17 @@ _MUTATIONS_TAIL.append({
     "replace": "",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 448 (Agent Skills 仕様適合): 必須 field `description` を落とす —— 仕様の設計は "
+            "「agent は起動時に name と description だけを読んで関連性を判断する」progressive "
+            "disclosure なので、欠けると **agent は中身を取ってみるまで用途が判らない**。"
+            "2026-08-23 まで実際に全 entry で欠落しており、宣言した $schema で検証する agent は "
+            "index ごと拒否していた",
+    "file": ROOT / ".well-known" / "agent-skills" / "index.json",
+    "find": '"description": "Read the authoritative machine-readable context',
+    "replace": '"_description_removed_by_probe": "Read the authoritative machine-readable context',
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

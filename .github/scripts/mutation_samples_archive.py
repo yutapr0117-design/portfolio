@@ -840,8 +840,12 @@ MUTATIONS_ARCHIVE = [
         # [FIX 2026-08-23] digest の**値そのもの**を掴んでいたため、AIO 層を編集して digest を
         #   再生成するたび orphan 化した (本日 4 件目の同 class)。不変な接頭辞だけを掴む。
         #   `sha-256:` を `sha256:` に潰すと Check 254 の形式検証が同じように RED になる。
-        "find": '"digest": "sha-256:',
-        "replace": '"digest": "sha256:',
+        # [FIX 2026-08-23] 仕様適合化で正規形が `sha256:` になったので、mutation は逆向き
+        #   (ハイフンを入れて仕様違反にする) へ反転させる。Agent Skills Discovery は
+        #   `sha256:{hex}` を要求しており、`sha-256:` だと宣言した $schema で検証する agent が
+        #   index ごと拒否する。
+        "find": '"digest": "sha256:',
+        "replace": '"digest": "sha-256:',
     },
     {
         "name": "Check 255 (DOCTYPE html5 declaration): strip DOCTYPE from first line",

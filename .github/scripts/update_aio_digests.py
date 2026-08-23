@@ -108,7 +108,10 @@ def update_index_files() -> list[str]:
         if not local or not local.exists():
             print(f"WARNING: no local file for {url} — skipping")
             continue
-        skill["digest"] = "sha-256:" + sha256_file(local)
+        # Agent Skills Discovery 仕様は `sha256:{hex}` (ハイフン無し) を要求する。
+        # 2026-08-23 まで `sha-256:` を出しており、宣言した $schema で検証する agent は
+        # **この index を拒否**していた (Check 448 が仕様適合を強制)。
+        skill["digest"] = "sha256:" + sha256_file(local)
 
     new_bytes = (json.dumps(data, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
 

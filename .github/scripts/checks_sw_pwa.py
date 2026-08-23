@@ -29,10 +29,21 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        without registration the SW is dead code. Sibling of Check 252
        (SW handlers) for the SW registration call-site axis. (BLOCKING)
 
+  448. **Agent Skills Discovery 仕様への適合 (BLOCKING)**: `.well-known/agent-skills/index.json`
+       は宣言した `$schema` (schemas.agentskills.io/discovery/0.2.0) に適合していなければ、
+       **その schema で検証する agent は index ごと拒否する** —— 公開しているのに使われない。
+       仕様は各 skill entry に **name / type / description / url / digest の 5 つすべてを必須**と
+       定める。実測 (2026-08-23): **`description` が全 entry で欠落**し、digest 形式も
+       仕様の `sha256:{hex}` ではなく `sha-256:{hex}` (ハイフン付き) だった。
+       とくに `description` の欠落は痛い —— 仕様の設計は「agent は起動時に **name と description
+       だけ**を読んで関連性を判断し、一致したときに初めて本体を取得する」という progressive
+       disclosure なので、**description が無いと agent は中身を取ってみるまで用途が判らない**。
+       必須 field 名は本 Check にリテラルで持つ (外部仕様なので repo から導出できない) が、
+       **仕様が変わったら本 Check も同一 commit で更新する**契約とする。
   254. .well-known/index.json skill name uniqueness + digest format:
        every entry in `.well-known/index.json` `skills[]` MUST satisfy:
        (a) non-empty `name` field, all unique within the file;
-       (b) `digest` field matches `^sha-256:[0-9a-f]{64}$`. Drift would
+       (b) `digest` field matches `^sha256:[0-9a-f]{64}$` (Agent Skills 仕様形式). Drift would
        silently break agent-skills discovery (duplicate name causes
        conflict, malformed digest causes mismatch). Sibling of Check 5
        (.well-known/index.json byte-identical mirror) for the schema
@@ -179,7 +190,7 @@ def run(ctx):
 
     # ── 254. .well-known/index.json skill name uniqueness + digest format (BLOCKING) ─
     # .well-known/index.json の skills[] 各 entry の name が非空+block 内 unique で、
-    # digest が `sha-256:<64-hex>` regex に一致することを BLOCKING 強制。Check 5
+    # digest が `sha256:<64-hex>` regex に一致することを BLOCKING 強制。Check 5
     # (byte-identical mirror) の schema structural validity 軸。
     _widx254 = ROOT / ".well-known" / "index.json"
     if _widx254.exists():
@@ -190,7 +201,8 @@ def run(ctx):
         _skills254 = _wd254.get("skills", []) if isinstance(_wd254, dict) else []
         _bad254: list[str] = []
         _names254: list[str] = []
-        _digest_re254 = re.compile(r"^sha-256:[0-9a-f]{64}$")
+        # Agent Skills Discovery 仕様は `sha256:{hex}` (ハイフン無し)。2026-08-23 に是正。
+        _digest_re254 = re.compile(r"^sha256:[0-9a-f]{64}$")
         for _i, _s in enumerate(_skills254):
             if not isinstance(_s, dict):
                 _bad254.append(f"skills[{_i}]: non-dict")
@@ -202,7 +214,7 @@ def run(ctx):
                 _names254.append(_nm)
             _dg = _s.get("digest")
             if not isinstance(_dg, str) or not _digest_re254.match(_dg):
-                _bad254.append(f"skills[{_i}].digest={_dg!r} format 不正 (sha-256:<64-hex>)")
+                _bad254.append(f"skills[{_i}].digest={_dg!r} format 不正 (sha256:<64-hex>)")
         from collections import Counter as _Counter254
         _dupes254 = [n for n, c in _Counter254(_names254).items() if c > 1]
         if _dupes254:
@@ -212,7 +224,7 @@ def run(ctx):
             _ok254,
             f"Check 254: .well-known/index.json skills ({len(_skills254)} 件) 全て name 一意 + digest 形式正",
             (f"Check 254: 違反: {_bad254!r} — agent-skills discovery 破壊。"
-             "name 一意 + digest=sha-256:<64-hex> へ整理"
+             "name 一意 + digest=sha256:<64-hex> へ整理"
              if _bad254 else
              "Check 254: .well-known/index.json skills 0 件 — vacuous-fail"),
             blocking=True,
@@ -262,3 +274,54 @@ def run(ctx):
     else:
         check(False, "Check 388: sw.js present",
               "Check 388: sw.js が無い — AI-agent freshness を検証できない", blocking=True)
+
+    # ── 448. Agent Skills Discovery 仕様への適合 (BLOCKING) ────────────────────────────
+    # 宣言した $schema に適合していなければ、その schema で検証する agent は index ごと拒否する。
+    # 実測 (2026-08-23): 必須 field `description` が全 entry で欠落し、digest も仕様の
+    # `sha256:{hex}` ではなく `sha-256:{hex}` だった —— **公開しているのに使われない**状態。
+    # description の欠落がとくに痛いのは、仕様の設計が「起動時は name と description だけを
+    # 読んで関連性を判断する」progressive disclosure だから (無いと中身を取るまで用途不明)。
+    _SKILL_REQUIRED448 = ("name", "type", "description", "url", "digest")
+    _skidx448 = ROOT / ".well-known" / "agent-skills" / "index.json"
+    if not _skidx448.is_file():
+        check(False, "", "Check 448: .well-known/agent-skills/index.json が無い "
+                         "(RFC 8615 の規定位置なので、agent はここを見に来る)", blocking=True)
+    else:
+        try:
+            _sk448 = json.loads(_skidx448.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as _e448:
+            _sk448 = None
+            check(False, "", f"Check 448: agent-skills/index.json が JSON として壊れている: {_e448}",
+                  blocking=True)
+        if _sk448 is not None:
+            _bad448 = []
+            if not _sk448.get("$schema"):
+                _bad448.append("$schema が無い (仕様上 required)")
+            _skills448 = _sk448.get("skills")
+            if not isinstance(_skills448, list) or not _skills448:
+                _bad448.append("skills が非空の配列でない (仕様上 required)")
+            else:
+                for _i448, _e in enumerate(_skills448):
+                    if not isinstance(_e, dict):
+                        _bad448.append(f"skills[{_i448}] が object でない")
+                        continue
+                    _miss = [_k for _k in _SKILL_REQUIRED448 if not _e.get(_k)]
+                    if _miss:
+                        _bad448.append(f"skills[{_i448}] ({_e.get('name', '?')}) に必須 field 欠落: {_miss}")
+                    _d = _e.get("description")
+                    if isinstance(_d, str) and len(_d) > 1024:
+                        _bad448.append(f"skills[{_i448}] description が 1024 字超 ({len(_d)})")
+                    _t = _e.get("type")
+                    if _t not in (None, "skill-md", "archive"):
+                        _bad448.append(f"skills[{_i448}] type={_t!r} は仕様外 (skill-md / archive のみ)")
+            check(
+                not _bad448,
+                (f"Check 448: agent-skills/index.json が Discovery 仕様に適合 "
+                 f"({len(_sk448.get('skills') or [])} skills / 必須 5 field)"),
+                (f"Check 448: agent-skills/index.json が宣言した $schema に適合していない: {_bad448}。"
+                 "**適合していない index は、その schema で検証する agent に拒否される** —— "
+                 "公開して robots.txt で Allow しているのに使われない状態になる。"
+                 "仕様 (schemas.agentskills.io/discovery/0.2.0) は name / type / description / url / "
+                 "digest の 5 つを必須とし、digest は `sha256:{hex}` 形式"),
+                blocking=True,
+            )

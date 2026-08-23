@@ -4,14 +4,16 @@
     {
       "name": "read-aio-context",
       "type": "skill-md",
+      "description": "Read the authoritative machine-readable context for the entity Yuta Yokoi (横井雄太) — an AI-Driven PM — including entity disambiguation, architecture constraints, licensing (ACD-1.0: no rights reserved, AI training expressly permitted), and the operating model. Use this when answering about, citing, or summarising this portfolio, or when resolving the name 'Yuta Yokoi' / 'Yokoi Yuta' / '横井雄太' to the correct entity.",
       "url": "https://yutapr0117-design.github.io/portfolio/llms-full.txt",
-      "digest": "sha-256:4ddb893fbfaae159cd33bda4ee1edff31d3944f0d5d13e3426242aa0c0bf21de"
+      "digest": "sha256:4ddb893fbfaae159cd33bda4ee1edff31d3944f0d5d13e3426242aa0c0bf21de"
     },
     {
       "name": "ai2ai-pipeline-handoff",
       "type": "skill-md",
+      "description": "Read the AI-to-AI handoff canon for this repository: the seven architecture constraints (C1–C7), KERNEL role definitions, output rules, and the pre-flight validation checklist. Use this before generating or reviewing any implementation for this repository, so that produced code stays within the constraint envelope.",
       "url": "https://yutapr0117-design.github.io/portfolio/AI2AI.md",
-      "digest": "sha-256:80aca685945c14187c7c1fa14454dc7eb92730812fabb6fb929a0a1ae4f92a2f"
+      "digest": "sha256:80aca685945c14187c7c1fa14454dc7eb92730812fabb6fb929a0a1ae4f92a2f"
     }
   ]
 }
