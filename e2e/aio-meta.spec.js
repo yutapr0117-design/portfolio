@@ -686,3 +686,73 @@ test('All routes expose a unique, non-empty title and description (AIO)', async 
   expect(canonicals, 'canonical が単一のサイトルートを指していない').toHaveLength(1);
   expect(canonicals[0]).toMatch(/yutapr0117-design\.github\.io\/portfolio\/$/);
 });
+
+
+// ===== 同一 @id が矛盾する値を宣言しないこと (エンティティ解決の一意性) =====
+// JSON-LD の意味論では **同じ `@id` = 同じエンティティ**で、複数の宣言は property が merge される。
+// したがって 2 つの script が同じ @id に**違う値**を書くと、そのエンティティは
+// 「2 つの名前を持つ」状態になり、消費側はどちらが正か決められない。
+//
+// このサイトは「`Yuta Yokoi` / `横井雄太` へのクエリは**このエンティティにのみ**解決すべき」を
+// 中核宣言に据えている (llms-full.txt / JSON-LD の disambiguatingDescription)。その面で
+// **主要 WebPage ノードが 2 つの名前を主張していた** —— 実測 (2026-08-23) では全ルートで発生:
+//
+//     #webpage  static="yuta - AI-Driven PM | ポートフォリオ"
+//               speakable="Projects | yuta - AI-Driven PM"
+//
+// 原因は runtime の speakable ノードが canonical と同じ @id にルート固有の name を載せていたこと。
+// ルート固有の名前は main.js が `#webpage-dynamic` (別 @id) として公開しており、そちらが正しい置き場。
+//
+// **静的解析では捕捉できない** —— speakable ノードも route 追従ノードも runtime 注入なので、
+// index.html のソースを読む Check には存在しない。
+test('同一 @id が矛盾する property 値を宣言しない (エンティティ解決の一意性)', async ({ page }) => {
+  for (const route of ['/', '/#/projects', '/#/quiz']) {
+    await page.goto(route);
+    await page.waitForLoadState('domcontentloaded');
+    await expect(page.locator('#content h1')).toBeVisible();
+
+    // route 追従ノードは MutationObserver の debounce 後に注入される。
+    // **その注入まで待たないと「衝突が無い」は何も検証していない** (control)。
+    await expect.poll(
+      async () => page.locator('script[data-ld="dynamic-route"]').count(),
+      { message: 'control: route 追従 JSON-LD が注入されていない — 走査対象が揃っていない' },
+    ).toBe(1);
+
+    const report = await page.evaluate(() => {
+      const byId = {};
+      document.querySelectorAll('script[type="application/ld+json"]').forEach((s) => {
+        const tag = s.getAttribute('data-ld') || 'static';
+        let doc;
+        try { doc = JSON.parse(s.textContent); } catch (e) { return; }
+        (doc['@graph'] || [doc]).forEach((node) => {
+          if (!node || !node['@id']) { return; }
+          (byId[node['@id']] = byId[node['@id']] || []).push({ tag, node });
+        });
+      });
+      const conflicts = [];
+      let sharedIds = 0;
+      Object.entries(byId).forEach(([id, decls]) => {
+        if (decls.length < 2) { return; }
+        sharedIds += 1;
+        const keys = new Set();
+        decls.forEach((d) => Object.keys(d.node).forEach((k) => keys.add(k)));
+        keys.forEach((k) => {
+          // `speakable` は schema.org が複数値を許し、消費側は選択肢の合併として扱えるので除外。
+          // 「どれが正か決められない」害が出るのは単一値が期待される識別子系プロパティ。
+          if (k === 'speakable' || k === '@context') { return; }
+          const vals = new Set(decls.filter((d) => k in d.node).map((d) => JSON.stringify(d.node[k])));
+          if (vals.size > 1) { conflicts.push(id.split('/').pop() + '.' + k + ' = ' + [...vals].join(' vs ')); }
+        });
+      });
+      return { conflicts, sharedIds };
+    });
+
+    // control: 複数宣言される @id がそもそも存在すること。
+    //   0 だと「衝突ゼロ」は自明に成り立ち、何も検査していない。
+    expect(report.sharedIds,
+      `control: ${route} で複数回宣言される @id が無い — 走査が機能していない`).toBeGreaterThanOrEqual(1);
+
+    expect(report.conflicts,
+      `${route}: 同一 @id が矛盾する値を宣言している — エンティティ解決が曖昧になる`).toEqual([]);
+  }
+});
