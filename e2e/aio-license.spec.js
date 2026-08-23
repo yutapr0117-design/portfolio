@@ -45,6 +45,14 @@ async function collectLicenseState(page) {
 // ルートでしか注入されないので、他のルートだけを見ていると **そのノードを一度も検査しない**。
 // 実測 (2026-08-23): この死角のため Article ノードだけが license を持たないまま素通りしていた
 // —— 「既定の状態だけが偶然 clean」class (#1213 / #1214 / #1219 と同型)。
+// **なぜ 2 ルートで足りるのか (意図的な絞り込み・見落としではない)**:
+//   CreativeWork ノードの大半は静的で全ルート共通。ルートによって変わるのは
+//     - route 追従 WebPage (`#webpage-dynamic`) —— 全ルートで注入される
+//     - speakable WebPage —— 全ルートで注入される
+//     - **Article (`#article-<route>`) —— ARTICLE_ROUTES のルートでのみ注入される**
+//   なので「article ルート 1 つ + 非 article ルート 1 つ」で**ノード種別の全パターンを覆う**。
+//   ルートを増やしても新しい種別は現れない。逆に **article ルートを外すと Article ノードを
+//   一度も検査しなくなる** (2026-08-23 に実際その死角で license 欠落を見逃していた)。
 const LICENSE_ROUTES = ['/#/projects', '/#/ai-knowhow'];
 
 test('レンダリング後の全 CreativeWork ノードが同一のライセンスを宣言する (静的 + runtime 注入)', async ({ page }) => {
