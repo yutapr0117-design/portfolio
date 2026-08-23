@@ -459,8 +459,10 @@ MUTATIONS_ARCHIVE2 = [
     {
         "name": "Check 343 (.well-known JSON parse): inject JSON syntax error into mcp.json (double comma)",
         "file": ROOT / ".well-known" / "mcp.json",
-        "find": '"mcpVersion": "1.0",',
-        "replace": '"mcpVersion": "1.0",,',
+        # [FIX 2026-08-23] `mcpVersion` は `manifestVersion` へ改名した (MCP に存在しない
+        #   プロトコル版数を主張していたため)。anchor を追従させる。
+        "find": '"manifestVersion": "1.0",',
+        "replace": '"manifestVersion": "1.0",,',
     },
     {
         "name": "Check 344 (CSS @layer declared): inject undeclared @layer rogue block after declaration",
