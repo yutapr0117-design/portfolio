@@ -644,6 +644,18 @@ def run(ctx):
         _caps446 = (_mj446.get("capabilities") or {}).get("tools")
 
         _bad446 = []
+        # [ADD 2026-08-23] mcp.json は MCP の shape を借りているが **MCP プロトコルの endpoint では
+        #   ない** (GitHub Pages 上の静的ファイル)。それなのに `mcpVersion: "1.0"` を持っており、
+        #   **MCP に存在しないプロトコル版数を主張**していた (MCP の版数は YYYY-MM-DD 形式)。
+        #   agent がこれをプロトコル版数として読むと negotiation に失敗する。
+        #   自分の manifest 形式版数は `manifestVersion` と名乗る (再導入を構造的に防ぐ)。
+        if "mcpVersion" in _mj446:
+            _bad446.append(
+                f"mcpVersion={_mj446['mcpVersion']!r} —— このファイルは MCP プロトコルの endpoint では"
+                "ないので、プロトコル版数を名乗ってはいけない (MCP の版数は YYYY-MM-DD 形式)。"
+                "manifest 自身の形式版数なら `manifestVersion` を使う")
+        if not _mj446.get("manifestVersion"):
+            _bad446.append("manifestVersion が無い (この manifest 自身の形式版数)")
         _undeclared446 = sorted(_registered446 - _declared446)
         if _undeclared446:
             _bad446.append(f"登録済だが mcp.json 未宣言 (agent から発見できない): {_undeclared446}")
