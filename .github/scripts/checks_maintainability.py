@@ -20,6 +20,15 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
   28. e2e/*.spec.js has no test() nested inside another test() (+ 'No Trusted Types' test present)
   29. Playwright baseline-generation linkage intact (snapshot workflow <-> spec env signal)
   30. v80+ maintainability anchor docs present (repository-maintainability-map / main-js-extraction-map)
+  443. **advisory 予算は hard ceiling より厳密に小さいこと** (BLOCKING): `file-size-budget.md`
+       の BUDGET-DATA に登録された advisory 予算が、Check 365 の hard ceiling (1,000 行) 以上だと
+       **その file には早期警告が構造的に一度も出ない** —— OK からいきなり BLOCKING へ飛ぶ。
+       このリポジトリは「advisory は BLOCKING を踏む前に効かせる」を標準規律にしているのに、
+       **その規律が効かない file が実在した**。実測 (2026-08-23): 5 file が advisory = 1,000 =
+       hard ceiling に設定されており、うち `mutation_samples_archive.py` は **999 行 (BLOCKING まで
+       1 行)**、`mutation_samples_e2e_archive2.py` は **971 行**で、どちらも一度も警告が出ていなかった。
+       しかも §2 表の説明文は「ceiling は Check 365 に整合させ 1,000 とする」と、**欠陥そのものを
+       設計として記述**していた。予算を 950 へ下げ、同じ設定が再混入しないよう機械強制する。
   52. File-size budget advisory: each file listed in the machine-readable BUDGET-DATA block of
       docs/architecture/file-size-budget.md whose budget is a concrete integer must have a current
       line count at or below that budget. This is the bloat-governance counterpart to the staged
@@ -158,6 +167,27 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
        self-measurement rather than an oversight. (ADVISORY)
 """
 import re
+
+
+# ── hard ceiling とその除外集合 (Check 365 / 443 の単一ソース) ────────────────────
+# [FIX 2026-08-23] 元は Check 365 の中だけに閉じていたが、Check 443 (advisory 予算は hard
+#   ceiling 未満) が **同じ集合**を必要とする。片方に file を足してもう片方を忘れると、
+#   「hard ceiling の対象なのに早期警告が要らないと判定される」逆の穴が開くので単一ソースにする。
+HARD_CEILING = 1000
+
+# design-constraint A group / AIO C6 / 自動生成 / bot 追記ログ —— hard ceiling の対象外
+CEILING_EXEMPT_NAMES = frozenset([
+    "style.css", "index.html", "main.js",
+    "llms-full.txt", "llms.txt", "llms_well-known.txt",
+    "package-lock.json",
+    "aio-monitoring-log.json",
+    "aio-monitoring-log-archive.json",
+])
+CEILING_EXEMPT_EXTS = frozenset([
+    ".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico",
+    ".mp3", ".woff", ".woff2", ".ttf", ".eot", ".gz", ".zip",
+])
+CEILING_EXEMPT_PREFIXES = ("js/quiz/", ".well-known/", "e2e/portfolio.spec.js-snapshots/")
 
 
 def run(ctx):
@@ -616,22 +646,11 @@ def run(ctx):
     # ChatGPT2ChatGPT.md 970行) が完了した 2026-07-08 に初めて全ファイルで通過できるようになった。
     # git ls-files で committed files のみスキャン（untracked / .gitignore 対象は除外）。
     import subprocess as _sp365
-    _a_names = frozenset([
-        "style.css", "index.html", "main.js",       # design-constraint A group
-        "llms-full.txt", "llms.txt", "llms_well-known.txt",  # AIO/C6（orchestrator 承認必須）
-        "package-lock.json",                         # npm 自動生成 lockfile（手動編集対象外）
-        # bot-managed append logs: weekly aio-monitoring.yml が ~95 行/エントリで追記する
-        # 純粋な evidence ログ。人間が手動編集する文書ではなく log-rotation なしの append-only
-        # ゆえ「1,000 行ハードゲート」の対象外とする。
-        "aio-monitoring-log.json",
-        "aio-monitoring-log-archive.json",
-    ])
-    _bin_exts = frozenset([
-        ".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico",
-        ".mp3", ".woff", ".woff2", ".ttf", ".eot", ".gz", ".zip",
-    ])
-    _excl_pfx = ("js/quiz/", ".well-known/", "e2e/portfolio.spec.js-snapshots/")
-    _CEIL365 = 1000
+    # 除外集合と上限は module level の単一ソースを使う (Check 443 と共有)
+    _a_names = CEILING_EXEMPT_NAMES
+    _bin_exts = CEILING_EXEMPT_EXTS
+    _excl_pfx = CEILING_EXEMPT_PREFIXES
+    _CEIL365 = HARD_CEILING
     try:
         _ls365 = _sp365.run(
             ["git", "ls-files"], cwd=str(ROOT), capture_output=True, text=True, check=True
@@ -853,3 +872,46 @@ def run(ctx):
                   "「source file が **N**」「mirror が **N**」「`_template.md` の **N** = **N**」の"
                   "記載形式を保つこと (形式を変えるならこの Check の正規表現も同一 commit で更新せよ)",
                   blocking=True)
+
+    # ── 443. advisory 予算は hard ceiling より厳密に小さいこと (BLOCKING) ──────────────
+    # advisory の存在意義は「BLOCKING を踏む前に気付かせる」ことなので、予算が hard ceiling
+    # 以上だと **その file の早期警告は構造的に一度も出ない** (OK → いきなり BLOCKING)。
+    # 実測 (2026-08-23): 5 file が advisory = 1,000 = hard ceiling で、うち 2 file は
+    # BLOCKING まで 1 行 / 29 行という状態のまま無警告だった。しかも budget doc の説明文が
+    # 「ceiling は Check 365 に整合させ 1,000 とする」と欠陥を設計として記述していた。
+    # hard ceiling は Check 365 と同じ 1,000 (`_CEIL365`) を単一ソースとして参照する。
+    _budget443 = ROOT / "docs" / "architecture" / "file-size-budget.md"
+    if _budget443.exists():
+        _txt443 = _budget443.read_text(encoding="utf-8")
+        _m443 = re.search(r"<!-- BUDGET-DATA(.*?)-->", _txt443, re.S)
+        if not _m443:
+            check(False, "", "Check 443: BUDGET-DATA ブロックを parse できない", blocking=True)
+        else:
+            _bad443 = []
+            for _line443 in _m443.group(1).splitlines():
+                _line443 = _line443.strip()
+                if not _line443 or _line443.startswith("#"):
+                    continue
+                _parts443 = [_c.strip() for _c in _line443.split("|")]
+                if len(_parts443) < 2 or not _parts443[1].replace(",", "").isdigit():
+                    continue  # 予算が "-" の行 (protected 等) は対象外
+                _rel443 = _parts443[0]
+                _pp443 = ROOT / _rel443
+                # hard ceiling の**対象外** file は、1,000 超の advisory を置くのが正当
+                # (警告すべき BLOCKING がそもそも存在しないため)。Check 365 と同じ集合で判定する。
+                if (_pp443.name in CEILING_EXEMPT_NAMES
+                        or _pp443.suffix in CEILING_EXEMPT_EXTS
+                        or any(_rel443.startswith(_pfx) for _pfx in CEILING_EXEMPT_PREFIXES)):
+                    continue
+                _b443 = int(_parts443[1].replace(",", ""))
+                if _b443 >= HARD_CEILING:
+                    _bad443.append(f"{_rel443}={_b443}")
+            check(
+                not _bad443,
+                f"Check 443: hard ceiling 対象 file の advisory 予算がすべて {HARD_CEILING} 未満 — 早期警告が機能する",
+                (f"Check 443: advisory 予算が hard ceiling (1000) 以上の file がある: {_bad443}。"
+                 "**その file には早期警告が一度も出ない** (OK からいきなり Check 365 の BLOCKING へ飛ぶ) ので、"
+                 "「advisory は BLOCKING を踏む前に効かせる」という本リポジトリの標準規律が構造的に働かない。"
+                 "予算を 1000 未満 (目安 950) へ下げよ。**上げて黙らせるのではなく、下げて早く鳴らすのが advisory の役割**"),
+                blocking=True,
+            )
