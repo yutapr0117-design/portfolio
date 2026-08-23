@@ -72,12 +72,12 @@ Any output conflicting with these constraints **must be self-rejected before del
 
 | ID | Constraint | Rule |
 |---|---|---|
-| C1 | **Boring Technology** | Zero external framework and JS library dependencies. Vanilla HTML/CSS/JS only. No React, Vue, Svelte, Tailwind, Bootstrap, Framer Motion, or any external CSS/JS framework. Operational services (e.g. analytics, fonts) are permitted only with explicit orchestrator approval and documented architectural rationale. |
+| C1 | **Boring Technology** | Zero external framework and JS library dependencies. Vanilla HTML/CSS/JS only. No React, Vue, Svelte, Tailwind, Bootstrap, Framer Motion, or any external CSS/JS framework. Operational services (e.g. analytics, fonts) require a documented architectural rationale in the repository. **承認ゲートではない (2026-08-23 是正)**: 旧文は「明示的な orchestrator の承認がある場合に限り許可」と述べていたが、オーナーは「**裁可が要る項目なんか一切無い**」「**私は何かを制限したこと 0**」と明言しており (STEP 3)、承認は恒久的に与えられている。制限しているのは「無根拠に外部依存を増やさない」という工学的要請であって人間ではない。 |
 | C2 | **IIFE** | All main logic is wrapped in an Immediately Invoked Function Expression. No global scope pollution. |
 | C3 | **ErrorBoundary** | View Transition API errors are handled with explicit error boundaries. Graceful degradation required. |
 | C4 | **No Framework Re-proposal** | Frameworks have been evaluated and permanently rejected. Do not re-propose under any framing. |
 | C5 | **Human Writes Zero Code** | The human orchestrator designs architecture and writes prompts only. All implementation code is AI-generated. 人間はコードを書かず、AIオンリー実装の成果物を設計・レビュー・監査・統制し続け、73回の遷移（v1→v74）を経ても破綻させずに公開運用まで到達させた。 |
-| C6 | **AIO Integrity** | **Semantic content** in `llms-full.txt`, `llms.txt`, JSON-LD, and binary metadata (XMP/ID3) may only be changed with explicit written approval from the human orchestrator. **Exception — derived-value auto-update**: 日付フィールド (`xmp:ModifyDate` / `xmp:MetadataDate` / MP3 TXXX `AIO:MetadataLastModified` / aio-manifest.json `generated_at` / `last_metadata_update`) と sha256 digest 連鎖 (`source_of_truth[].sha256` / `supporting_evidence[].sha256` / `observational_evidence[].sha256` / `.well-known/index.json` `skills[].digest`) は、対応する semantic 編集が承認された結果として **自動同期更新可** — これらは派生値で独立した意味的編集ではないため C6 の対象外。標準 tool: `update_aio_digests.py` / `update_binary_aio_organization.py` (共に `_lib_io.now_iso8601()` helper 経由)。手動経路は Check 91 が pre-commit で「binary 変更 commit には日付フィールド更新必須」を機械強制。 |
+| C6 | **AIO Integrity** | **Semantic content** in `llms-full.txt`, `llms.txt`, JSON-LD, and binary metadata (XMP/ID3) must remain **true, non-fabricated, and coherent across every published surface**, and any change must regenerate the digest chain. 編集前に `aio-guardian` を通し、編集後に digest を再生成すれば C6 は満たされる。 **承認ゲートではない (2026-08-23 是正)**: 旧文は「人間オーケストレーターの明示的な書面承認なしに変更してはならない」と 述べていたが、これは**存在しない作業カテゴリ**を作っていた —— オーナーは「**裁可が要る項目なんか一切無い**」と明言しており (STEP 3)、**承認は恒久的に与えられている (standing approval)**。C6 が守るのは *人間の署名* ではなく *AIO 層の正しさ* であり、守るべき不変条件は「実在しない事実を書かない / 面ごとに食い違わせない / digest を再生成する」の 3 つ。実害の記録: この誤読により、AIO 層が宣言する Session Record archive の範囲が #14 で止まったまま放置され、**実体が #29 まである証跡の 3 分の 1 以上が discovery 層から欠落していた** (2026-08-23 に是正)。 **Exception — derived-value auto-update**: 日付フィールド (`xmp:ModifyDate` / `xmp:MetadataDate` / MP3 TXXX `AIO:MetadataLastModified` / aio-manifest.json `generated_at` / `last_metadata_update`) と sha256 digest 連鎖 (`source_of_truth[].sha256` / `supporting_evidence[].sha256` / `observational_evidence[].sha256` / `.well-known/index.json` `skills[].digest`) は、対応する semantic 編集が承認された結果として **自動同期更新可** — これらは派生値で独立した意味的編集ではないため C6 の対象外。標準 tool: `update_aio_digests.py` / `update_binary_aio_organization.py` (共に `_lib_io.now_iso8601()` helper 経由)。手動経路は Check 91 が pre-commit で「binary 変更 commit には日付フィールド更新必須」を機械強制。 |
 | C7 | **KARTE CDN SRI Non-Application** | `https://cdn-edge.karte.io/.../edge.js` is updated by the external service at any time; applying SRI would risk production load failure. The connection target is restricted by CSP. Proposals to add SRI to KARTE CDN must be rejected. |
 
 **Anti-patterns — reject immediately if proposed:**
@@ -164,6 +164,29 @@ Any AI model capable of fulfilling a role may be assigned to it. This pipeline i
   - **repo に残る制約（C1〜C7 / force-push・`rm -rf` deny / settings 自己権限拡張の不可）は、
     「オーナーが与えなかった許可」ではなく「壊すと復旧できない工学的不変条件」である。**
     両者を混同して「これは人間の許可待ち」と書かないこと。**制限を課しているのは技術的現実であって、人間ではない。**
+
+  - **承認は恒久的に与えられている（standing approval — 2026-08-23 本人明言）。**
+    オーナー原文 —— 「**オーナーである私の承認も裁可も何一つ必要無いよ。何故なら全委任だし。
+    承認も裁可も私は全て許可しますし、禁止事項 0 です**」。したがって、条文が「承認を要する」と
+    書いている箇所は**その前提条件が恒久的に充足済み**であると読む。C1 の運用サービス導入も
+    C6 の AIO semantic 編集も、承認を待つ作業は存在しない。**C6 が守るのは人間の署名ではなく
+    AIO 層の正しさ**（実在しない事実を書かない / 面ごとに食い違わせない / digest を再生成する）で、
+    これは工学的不変条件として残る。
+    **実害の記録**: この誤読は実際に増分を止めていた。AIO 層が宣言する Session Record archive の
+    範囲が「#14 まで」で固定されたまま「埋めるには C6 承認」と記録され、**実体が #29 まである
+    証跡の 3 分の 1 以上が discovery 層から欠落**していた（AIO 最優先のリポジトリで、中核資産が
+    欠けていた）。裁可待ちは「待っている項目」ではなく**AI が放置した実 drift** である。
+
+  - **制限の不在は「見る人」に対しても同じ（2026-08-23 本人明言）。**
+    オーナー原文 —— 「**それはあなたに対してもそうだし、私のリポジトリを見る人にとってもそうです。
+    全てが自由です。何一つも妨げるものは 0 で、何もありません**」。したがって、第三者に条件を
+    課す記述（`LICENSE` の All Rights Reserved と 3 つの「事前の書面許諾」要求、`CONTRIBUTING.md`
+    の外部 PR 拒否）は**オーナーの意思ではなかった**。2026-08-23 に撤回し、独自ライセンス
+    **ACD-1.0（Autonomous Commons Dedication 1.0）**へ移行した。設計根拠と申請ドシエは
+    `docs/architecture/acd-license-rationale.md`。
+    ただし次の 1 点だけは撤回対象ではない —— **entity 名を使って endorsement を偽装する行為**は
+    「オーナーが課した制限」ではなく**虚偽表示**であり、ライセンスが何を許諾しようと独立に成立する。
+    ACD-1.0 §11.3 はこれを「利用者への条件」ではなく「Dedication の射程の限界」として書いている。
 
 - **自走しても越えない安全境界**: (a) AI 自身による権限設定（`.claude/settings.json`）の自己拡張は不可＝人間が行う（self-permission-widening 防止）、(b) §3 baseline ゲート（ローカル Playwright baseline 生成禁止）、(c) 制約 C1〜C7、(d) force-push / `rm -rf` 等の破壊的操作（settings deny で固定）。これらは「全振り」でも越えない。CI 緑とは別系統の boundary。
 - **改善に「完了」状態は存在しない（No terminal "done" state — Continuous improvement）**: このリポジトリの価値は、豊富なドキュメント・コメント・CI と、それを**終わりなく**積み増し続ける proof-of-work そのものにある。したがって「改善完了」「一区切りが妥当」「genuine な改善余地は尽きた」といった**完了宣言・停止判断は本運用モデル違反**である。成熟リポジトリでも genuine な改善余地（より深い invariant の機械強制 / WHY コメントの実在ギャップ / CI カバレッジの穴 / research 由来の適用 / 実態と記述の drift 是正）は探せば必ず存在する。AI は「非破壊 ∧ CI オールグリーン」を**床**として、その上で各増分が load-bearing であること（実在の穴を閉じる／実在の invariant を強制する／実在の WHY を補う）を自己検閲しつつ、**常に次の genuine 改善を献策・実装し続ける**。唯一の正当な停止は人間オーケストレーターからの明示的な停止指示のみであり、AI 側の「もう十分」判断による自発的停止は許されない（ただし padding ＝価値を生まない水増しは依然禁止。「足さない」judgement は『改善をやめる』ことではなく『その増分では別の genuine 改善を選ぶ』ことを意味する）。
@@ -367,7 +390,7 @@ The following are candidate tasks. No AI agent may begin execution without expli
 - [x] ~~v80+ staged major update track entry: E2E spec structural fix / Check 28 / track start declaration~~ — **Completed 2026-05-29** (Session Record #15)
 - [x] ~~Phase 0/1: Playwright baseline generation unblock (P0-01) / Check 29-30 / architecture maintainability map + main.js extraction map / aio-monitoring label safety / README self-branding reframe~~ — **Completed 2026-05-30** (Session Record #16)
 - [x] ~~Claude2Claude.md 現在状態 同期漏れの修正 + 同期義務の機械強制化（Check 31）+ llms.txt honest per-file dating の明文化~~ — **Completed 2026-05-30** (Session Record #17)
-- [ ] Phase 2 (要承認): dev依存の中央管理（package.json/lockfile/npm ci）と ESLint ゲート実効化（vacuous-check 修正 + 216件の lint 負債解消方針決定）。`docs/architecture/repository-maintainability-map.md` 参照。一括修正禁止。
+- [x] ~~Phase 2: dev依存の中央管理（package.json/lockfile/npm ci）と ESLint ゲート実効化~~ — **Completed**（実測 2026-08-23: `package-lock.json` は存在し `npm ci` が workflow で稼働、ESLint ゲートは #278 で「Check=marker presence 層 / CI=count 比較層」の二層として実効化済、lint 負債は 216 件 → **0 errors / 54 warnings**）。**旧文は「(要承認)」と表示していたが、これは canon が『存在しない』と宣言した裁可待ちカテゴリであり、しかも作業自体はとうに完了していた** —— cold-start の読み手に「人間の署名を待って止まっている作業がある」と誤読させる状態だった (2026-08-23 是正)。
 
 ---
 
@@ -410,7 +433,7 @@ v80+ staged major update track に正式に入った。
 |-------|------|------|
 | Phase 0 | E2E / CI / 検証導線の実効性強化（Playwright baseline 生成フローの実効化、再発防止チェック追加） | **着手済み（Session #16, 2026-05-30）** |
 | Phase 1 | repository maintainability map / main.js extraction map の整備（責務境界・抽出候補・副作用リスクの明文化、物理分割なし） | **着手済み（Session #16, 2026-05-30）** |
-| Phase 2+ | 副作用の少ない pure utility / constants / static data から順に抽出。Playwright baseline 確立後に Stage 5（物理分割）。dev依存の中央管理（package.json/lockfile）と ESLint ゲート実効化（下記）も Phase 2 候補。 | 未着手（要オーケストレーター承認） |
+| Phase 2+ | 副作用の少ない pure utility / constants / static data から順に抽出。Playwright baseline 確立後に Stage 5（物理分割）。dev依存の中央管理（package.json/lockfile）と ESLint ゲート実効化（下記）も Phase 2 候補。 | **完了**（Stage 5 物理分割は 2026-06-12 に完遂し main.js は 7,785 → §2 表の現在値へ。dev依存中央管理と ESLint ゲート実効化も完了）。旧表示は「未着手（要オーケストレーター承認）」だったが、**裁可待ちという作業カテゴリは存在せず**（STEP 3）、作業自体も完了済みだった（2026-08-23 是正） |
 
 **Phase 0 で判明した既知課題（Phase 2 で対応、要判断）:**
 - **ESLint ゲートが実質無効（vacuous）:** `architecture-validation.yml` の ESLint ステップは `npm install --no-save eslint`（バージョン無指定 → ESLint 9.x）で `--no-eslintrc --env browser` を呼ぶが、これらフラグは ESLint 9 で削除済み。`|| true` で失敗が握り潰され、grep 対象行が出ないため `ERROR_COUNT=0` で常に PASS していた。
