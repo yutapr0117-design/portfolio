@@ -78,8 +78,18 @@
     },
     {
       "path": "docs/session-records/AI2AI-archive.md",
-      "role": "archive of past Session Records #1-#14; read-only historical evidence",
+      "role": "archive of past Session Records #5-#14; read-only historical evidence",
       "sha256": "51ed4195ce7345feb9504bdd89040364ff0db4fd5b58259760eea00792ae22a5"
+    },
+    {
+      "path": "docs/session-records/AI2AI-archive-2.md",
+      "role": "archive of past Session Records #15-#19; read-only historical evidence",
+      "sha256": "9f7f1cacb92f5182527023a103d04beb902d75d5f78662005fb90ece8755e7ae"
+    },
+    {
+      "path": "docs/session-records/AI2AI-archive-old.md",
+      "role": "archive of past Session Records #1-#4; read-only historical evidence",
+      "sha256": "8b919cc6aecfc80935161cc40c298eb0150cb24a8d021bd2d95716cf7677e3b9"
     }
   ],
   "generated_at": "2026-08-23T02:44:17Z",

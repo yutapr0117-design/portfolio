@@ -187,4 +187,21 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <!-- docs/session-records/AI2AI-archive-old.md — Session Record #1-#4。2026-08-23 まで
+       aio-manifest / sitemap のどちらにも未登録で、AI クローラから見ると proof-of-work の
+       証跡が #5 から始まっているように見えていた。Check 26b が実体 ⟹ 宣言を機械強制する -->
+  <url>
+    <loc>https://yutapr0117-design.github.io/portfolio/docs/session-records/AI2AI-archive-old.md</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- docs/session-records/AI2AI-archive-2.md — Session Record #15-#19。同上。証跡が #14 で
+       途切れて見えていた原因はこの file の未登録 -->
+  <url>
+    <loc>https://yutapr0117-design.github.io/portfolio/docs/session-records/AI2AI-archive-2.md</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>

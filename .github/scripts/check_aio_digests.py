@@ -80,6 +80,10 @@ MANIFEST_PATH_TO_LOCAL: dict[str, Path] = {
         ROOT / "docs" / "evidence" / "real-work-claims.md",
     "docs/session-records/AI2AI-archive.md":
         ROOT / "docs" / "session-records" / "AI2AI-archive.md",
+    "docs/session-records/AI2AI-archive-old.md":
+        ROOT / "docs" / "session-records" / "AI2AI-archive-old.md",
+    "docs/session-records/AI2AI-archive-2.md":
+        ROOT / "docs" / "session-records" / "AI2AI-archive-2.md",
     # observational_evidence
     "docs/evidence/aio-monitoring-log.json":
         ROOT / "docs" / "evidence" / "aio-monitoring-log.json",

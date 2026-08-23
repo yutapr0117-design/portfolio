@@ -17,7 +17,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
   23. .github/workflows/*.yml and dependabot.yml parse without YAML syntax errors
   24. llms-full.txt Last-Updated is within 7 days of AI2AI.md and >= v75-v78 floor
   25. aio-monitoring-log.json has an evidence_policy key (attempt_log_only honesty)
-  26. aio-manifest.json archive role #1-#N matches AI2AI-archive.md max Session Record
+  26. AIO 層の Session Record archive 宣言 ⟺ 実体 (双方向): 26a 登録済み entry の role が
+       宣言する範囲 ⟺ その file の実 Session Record の min/max、26b **disk 上の archive file が
+       すべて manifest に登録されていること**。旧実装は `AI2AI-archive.md` 1 file 決め打ちで
+       role を `#1-#N` 固定形で parse しており、その決め打ちが実 drift を生んだ —— archive は
+       実際には 3 file (#1-#4 / #5-#14 / #15-#19) なのに登録は真ん中の 1 file だけで、
+       **AI クローラから見ると証跡が #14 で途切れ、実体が #29 まである proof-of-work の
+       3 分の 1 以上が discovery 層から欠落**していた (2026-08-23 に双方向へ一般化して是正)
   27. llms-full.txt has no stale C1–C6 in current-constraint context (should be C1–C7)
   441. ACD-1.0 ライセンス本文の構造整合と配線: 本 repo は独自ライセンス
        `LICENSES/ACD-1.0.txt` (Autonomous Commons Dedication 1.0) を適用しており、これを
@@ -160,35 +166,82 @@ def run(ctx):
     else:
         warnings.append("P1-04: docs/evidence/aio-monitoring-log.json not found")
 
-    # ── 26. P1-02: AI2AI-archive.md max session record == aio-manifest.json role ─
-    import re as _re
-    archive_path = ROOT / "docs" / "session-records" / "AI2AI-archive.md"
-    manifest_path = ROOT / ".well-known" / "aio-manifest.json"
-    if archive_path.exists() and manifest_path.exists():
+    # ── 26. AIO 層の Session Record archive 宣言 ⟺ 実体 (双方向・BLOCKING) ────────
+    # 旧実装は **`AI2AI-archive.md` 1 file 決め打ち**で、role を `#1-#(\d+)` という固定形で
+    # parse し「最大番号だけ」を突き合わせていた。この決め打ちがまさに実 drift を生んだ:
+    # archive は実際には 3 file に分かれている (#1-#4 / #5-#14 / #15-#19) のに、
+    # **manifest に登録されていたのは真ん中の 1 file だけ**で、しかもその role は自分が
+    # 持たない #1-#4 まで含むと主張していた。結果、AI クローラから見ると **proof-of-work の
+    # 証跡が #14 で途切れ、実体が #29 まである証跡の 3 分の 1 以上が discovery 層から欠落**
+    # していた —— AIO を最優先に据えたリポジトリで、中核資産が見えていなかった。
+    # 「埋めるには C6 承認が要る」と記録して放置されていたが、承認は恒久的に与えられており
+    # (AI2AI.md STEP 3)、これは待機項目ではなく **放置された実 drift** だった (2026-08-23 是正)。
+    #
+    # したがって決め打ちを捨て、**双方向**で機械強制する:
+    #   26a: 登録済みの各 archive entry の role が宣言する範囲 ⟺ その file の実 Session Record
+    #        の min/max (宣言 ⟹ 実体)
+    #   26b: disk 上に存在する archive file がすべて manifest に登録されていること
+    #        (実体 ⟹ 宣言。**今回の欠落を捕捉する方向**で、旧実装に無かったのはこちら)
+    import re as _re26
+    _sess_dir26 = ROOT / "docs" / "session-records"
+    _manifest26 = ROOT / ".well-known" / "aio-manifest.json"
+    if _sess_dir26.is_dir() and _manifest26.exists():
         try:
-            archive_text = archive_path.read_text(encoding="utf-8")
-            nums = [int(m) for m in _re.findall(r"\[HANDOFF\] Session Record #(\d+)", archive_text)]
-            manifest_json = json.loads(manifest_path.read_text(encoding="utf-8"))
-            archive_role = ""
-            for entry in manifest_json.get("supporting_evidence", []):
-                if "AI2AI-archive.md" in entry.get("path", ""):
-                    archive_role = entry.get("role", "")
-                    break
-            m = _re.search(r"#1-#(\d+)", archive_role)
-            if nums and m:
-                expected_max = max(nums)
-                manifest_max = int(m.group(1))
-                check(
-                    expected_max == manifest_max,
-                    f"aio-manifest.json archive role #1-#{manifest_max} matches AI2AI-archive.md max Session Record #{expected_max}",
-                    f"aio-manifest.json archive role says #1-#{manifest_max} but AI2AI-archive.md max is #{expected_max}",
-                )
-            else:
-                warnings.append("P1-02: Could not parse session record numbers from archive or manifest role")
-        except Exception as _e:
-            warnings.append(f"P1-02: Archive session record check failed: {_e}")
+            _mj26 = json.loads(_manifest26.read_text(encoding="utf-8"))
+            _reg26 = {}
+            for _e26 in _mj26.get("supporting_evidence", []):
+                _p26 = _e26.get("path", "")
+                if "session-records/AI2AI-archive" in _p26:
+                    _reg26[_p26] = _e26.get("role", "")
+
+            def _range26(_path):
+                _n = [int(_x) for _x in _re26.findall(
+                    r"\[HANDOFF\] Session Record #(\d+)", _path.read_text(encoding="utf-8"))]
+                return (min(_n), max(_n)) if _n else None
+
+            # 26a — 宣言 ⟹ 実体
+            _bad26 = []
+            for _p26, _role26 in sorted(_reg26.items()):
+                _f26 = ROOT / _p26
+                if not _f26.exists():
+                    _bad26.append(f"{_p26}: 登録されているが file が無い")
+                    continue
+                _act26 = _range26(_f26)
+                _m26 = _re26.search(r"#(\d+)-#(\d+)", _role26)
+                if not _act26:
+                    _bad26.append(f"{_p26}: Session Record が 1 件も無い")
+                elif not _m26:
+                    _bad26.append(f"{_p26}: role が '#lo-#hi' 形式で範囲を宣言していない")
+                elif (int(_m26.group(1)), int(_m26.group(2))) != _act26:
+                    _bad26.append(
+                        f"{_p26}: role は #{_m26.group(1)}-#{_m26.group(2)} と宣言するが実体は "
+                        f"#{_act26[0]}-#{_act26[1]}")
+            check(
+                _reg26 and not _bad26,
+                f"Check 26a: AIO manifest の archive role {len(_reg26)} 件が実体の Session Record 範囲と一致",
+                (f"Check 26a: manifest の archive 宣言が実体とずれている: {_bad26}。"
+                 "archive を rotate したら manifest の role も同一 commit で更新し、"
+                 "digest を再生成せよ (C6 の A2 派生値例外)"),
+                blocking=True,
+            )
+
+            # 26b — 実体 ⟹ 宣言 (今回の欠落を捕捉する方向)
+            _on_disk26 = sorted(
+                str(_f.relative_to(ROOT)) for _f in _sess_dir26.glob("AI2AI-archive*.md"))
+            _unreg26 = [_p for _p in _on_disk26 if _p not in _reg26]
+            check(
+                not _unreg26,
+                f"Check 26b: disk 上の archive {len(_on_disk26)} file がすべて AIO manifest に登録済",
+                (f"Check 26b: AIO 層に登録されていない archive がある: {_unreg26}。"
+                 "**登録漏れは AI クローラから見て proof-of-work の証跡が途切れることを意味する** —— "
+                 "実際 2026-08-23 まで 3 file 中 2 file が未登録で、証跡が #14 で途切れて見えていた。"
+                 "aio-manifest.json の supporting_evidence へ追加し digest を再生成せよ"),
+                blocking=True,
+            )
+        except Exception as _e26:
+            check(False, "", f"Check 26: archive 宣言の検証に失敗: {_e26}", blocking=True)
     else:
-        warnings.append("P1-02: AI2AI-archive.md or aio-manifest.json not found")
+        check(False, "", "Check 26: docs/session-records/ または aio-manifest.json が無い", blocking=True)
 
     # ── 27. P1-03: llms-full.txt has no stale C1–C6 in current-description context
     llms_full_path = ROOT / "llms-full.txt"
