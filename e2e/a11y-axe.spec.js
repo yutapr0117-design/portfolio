@@ -132,12 +132,42 @@ test('a11y axe: project detail (#/projects/:slug) has no render-neutral critical
 //   ダークの color-contrast はかつて未解決 (primary 3.94 / muted 3.75) で「C5 ゆえ defer」と
 //   書いてあったが、**それは委任範囲の読み違い**で、現在は用途別トークンへ分離して
 //   **違反ゼロ**にしてある。contrast は下の専用 test が全ブランド × 全テーマで gate する。
+
+// ===== ルート固有の settle =====
+// [FIX 2026-08-24] **汎用の「見出しが見える」待ちは、hash 遷移では前ルートの DOM で即座に
+//   成立する。** そのままだと axe は *前のページ* を走査する。実測 (2026-08-24・dark ループ):
+//   axe が実際に見たノード量がちょうど 1 つ前のルートと一致し、`#/quiz` (最大のコンテンツ
+//   ページ・64,395 bytes) は **一度も走査されておらず** resume の内容を「quiz」として検査して
+//   いた。最後のルートも走査されない。
+//   `body[data-ai-state]` は描画のたびに書き換わり `loading` が非同期データの完了まで true な
+//   ので、「**ルートが前と変わり、かつ loading が false**」を待てば決定的に確定できる
+//   (ルート名のハードコード表を持たずに済むのも利点 —— 表は必ず drift する)。
+async function gotoRouteSettled(page, hash) {
+    const prev = await page
+        .evaluate(() => {
+            try { return JSON.parse(document.body.dataset.aiState || '{}').route ?? null; }
+            catch { return null; }
+        })
+        .catch(() => null);
+    await page.goto(`/${hash}`, { waitUntil: 'domcontentloaded' });
+    await page.waitForFunction(
+        (p) => {
+            try {
+                const s = JSON.parse(document.body.dataset.aiState || '{}');
+                return typeof s.route === 'string' && s.loading === false
+                    && (p === null || s.route !== p);
+            } catch { return false; }
+        },
+        prev,
+        { timeout: 10000 }
+    );
+}
+
 test('a11y axe: ダークテーマの全ルートに render-neutral critical 違反が無い', async ({ page }) => {
   await page.emulateMedia({ colorScheme: 'dark' });
   const offenders = [];
   for (const route of A11Y_ROUTES) {
-    await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('#content h1, #content h2').first()).toBeVisible();
+    await gotoRouteSettled(page, route);
     // ダークが実際に効いていることを確認してから走査する (light のまま走らせると
     // 「ダークを検査したつもりで light を検査していた」vacuous な結果になる)
     const bg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
