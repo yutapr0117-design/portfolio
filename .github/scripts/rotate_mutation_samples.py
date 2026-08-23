@@ -153,6 +153,81 @@ def _split_entries(body: str) -> list[str]:
     return entries
 
 
+
+# ── archive の再配分 (rebalance) ─────────────────────────────────────────────────
+# [ADD 2026-08-23] rotate は **hot log → archive** しか面倒を見ていなかった。archive 自身も
+#   entry の編集 (WHY コメントの追記や anchor の付け替え) で伸びるので、いつか上限に当たる。
+#   実際 2026-08-23 に `mutation_samples_archive.py` が 1,000 行を超え、**自動の逃げ道が
+#   一つも無かった** (受け皿 archive2 に 130 行以上の余裕があったのに移す手段が無い)。
+#   同じ chain の中で「溢れた archive の末尾 → 次の archive の先頭」へ移す。
+#   末尾→先頭にするのは **時系列順を壊さない**ため (chain は 古い archive + 新しい archive の
+#   連結なので、溢れた側の末尾が受け皿側の先頭に来るのが正しい隣接関係)。
+CHAINS = [
+    ("MUTATIONS_ARCHIVE", ["mutation_samples_archive.py", "mutation_samples_archive2.py"]),
+    ("E2E_MUTATIONS_ARCHIVE", ["mutation_samples_e2e_archive.py",
+                               "mutation_samples_e2e_archive2.py",
+                               "mutation_samples_e2e_archive3.py"]),
+]
+REBALANCE_TARGET = 950   # Check 443 が要求する advisory (hard ceiling 未満)
+
+
+def _list_name_for(filename: str, base_list: str) -> str:
+    """file 名から中の list 名を導く (archive.py -> ...ARCHIVE / archive2.py -> ...ARCHIVE2)。"""
+    stem = filename[:-3]
+    n = ""
+    while stem and stem[-1].isdigit():
+        n = stem[-1] + n
+        stem = stem[:-1]
+    return base_list + n
+
+
+def _render(prefix: str, entries: list, suffix: str) -> str:
+    body = "\n".join("    " + e.lstrip() + "," for e in entries)
+    out = prefix + "\n" + body + "\n" + suffix
+    # [FIX 2026-08-23] 末尾改行を保証する。落とすと `wc -l` と `splitlines()` が 1 ずれ、
+    #   Check 424 (§2 表 == 実測) と Check 52 (advisory) が**同じ file に違う行数を報告する**
+    #   —— 本日その食い違いで §2 表を誤った値へ「修正」して CI を赤にした (Check 52 側を
+    #   splitlines へ統一して解消済) ので、書き出す側でも再発させない。
+    return out if out.endswith("\n") else out + "\n"
+
+
+def _rebalance() -> bool:
+    """上限を超えた archive の末尾 entry を、余裕のある次の archive の先頭へ移す。"""
+    base = ROOT / ".github" / "scripts"
+    moved_any = False
+    for base_list, files in CHAINS:
+        for i, fname in enumerate(files[:-1]):
+            src_path = base / fname
+            if not src_path.exists():
+                continue
+            n = len(src_path.read_text(encoding="utf-8").splitlines())
+            if n <= REBALANCE_TARGET:
+                continue
+            dst_path = base / files[i + 1]
+            if not dst_path.exists():
+                print(f"  {fname}: {n} 行だが受け皿 {files[i+1]} が無い — 手動対応が必要")
+                continue
+            src_txt = src_path.read_text(encoding="utf-8")
+            a, b = _list_span(src_txt, _list_name_for(fname, base_list))
+            entries = _split_entries(src_txt[a:b])
+            move = []
+            while entries and len(
+                _render(src_txt[:a], entries, src_txt[b:]).splitlines()
+            ) > REBALANCE_TARGET:
+                move.insert(0, entries.pop())
+            if not move:
+                continue
+            src_path.write_text(_render(src_txt[:a], entries, src_txt[b:]), encoding="utf-8")
+            dst_txt = dst_path.read_text(encoding="utf-8")
+            c, _ = _list_span(dst_txt, _list_name_for(files[i + 1], base_list))
+            inject = "\n".join("    " + e.lstrip() + "," for e in move)
+            dst_path.write_text(dst_txt[:c] + "\n" + inject + dst_txt[c:], encoding="utf-8")
+            after = len(src_path.read_text(encoding="utf-8").splitlines())
+            print(f"  rebalance: {fname} {n} -> {after} 行 "
+                  f"({len(move)} entry を {files[i+1]} の先頭へ)")
+            moved_any = True
+    return moved_any
+
 def main() -> int:
     lines = len(TAIL.read_text(encoding="utf-8").splitlines())
     e2e_before, cons_before = _totals()
@@ -164,8 +239,18 @@ def main() -> int:
 
     if "--check" in sys.argv:
         return 1 if over_advisory else 0
+
+    # archive 自身の溢れ (entry 編集で伸びる) は hot log と独立に起きるので、先に均す
+    e2e_b0, cons_b0 = _totals()
+    if _rebalance():
+        e2e_a0, cons_a0 = _totals()
+        if (e2e_a0, cons_a0) != (e2e_b0, cons_b0):
+            raise SystemExit(f"ERROR: rebalance で総数が変わった "
+                             f"(E2E {e2e_b0}->{e2e_a0} / MUTATIONS {cons_b0}->{cons_a0})")
+        print("  ※ docs/architecture/file-size-budget.md の §2 実測行数を同期すること (Check 424)")
+
     if not over_advisory:
-        print("rotate 不要。")
+        print("rotate 不要 (hot log)。")
         return 0
 
     count = 6

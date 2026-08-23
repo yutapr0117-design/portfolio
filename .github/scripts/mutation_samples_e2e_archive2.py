@@ -947,25 +947,4 @@ E2E_MUTATIONS_ARCHIVE2 = [
         "replace": " }",
         "test": "ポモドーロに宙に浮いた label が無い",
     },
-    {
-        "name": "壊れた JSON の取り込みが無言で失敗する — catch の通知を消すと、パースに失敗しても **何も起きない**。利用者はファイルを選んだのに成功も失敗も告げられず、取り込めたのか分からないまま放置される (silent failure。crash しないこと自体は保たれるので FatalPage 検査では捕捉できない)",
-        "file": ROOT / "js" / "settings-io.js",
-        "find": "            } catch (err) {\n                Toast.show('JSON\u306e\u30d1\u30fc\u30b9\u306b\u5931\u6557\u3057\u307e\u3057\u305f', 'error');\n            }",
-        "replace": "                } catch (err) {\n                }",
-        "test": "Settings import shows an error for malformed JSON file without crashing",
-    },
-    {
-        "name": "quiz 検索の空状態が消える — 一致ゼロのとき何も描画されなくなり、**真っ白な一覧**になる。利用者には「検索が壊れた」のか「一致が無い」のか区別できず、0 件であることすら分からない (#892 で実バグ化した『切替先が空ページ』と同じ面)",
-        "file": ROOT / "js" / "quiz-renderer.js",
-        "find": "                listHost.appendChild(h(\"div\", { class: 'card panel-empty' },\n                    '\u300c' + query + '\u300d\u306b\u4e00\u81f4\u3059\u308b\u554f\u984c\u306f\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f\u3002'));",
-        "replace": "",
-        "test": "Quiz search filters question blocks and shows empty state on no match",
-    },
-    {
-        "name": "architecture quiz の stakeholder ゾーンが描画されなくなる — 最大のコンテンツ面 (24,500 文字) の構造化ゾーンが消えても、他の章は普通に見えるので **一覧としては壊れて見えない**。#285 で『画面に見えるのに検索できない』を直した面そのもので、今度は『検索できるのに画面に無い』方向の退行を捕捉する",
-        "file": ROOT / "js" / "quiz-renderer.js",
-        "find": '                        const shList = h("div", { role: "list", style: "display: contents;" });',
-        "replace": '                        const shList = h("div", { style: "display: none;" });',
-        "test": "Quiz architecture type renders structured stakeholder/question zones (?type query)",
-    },
 ]
