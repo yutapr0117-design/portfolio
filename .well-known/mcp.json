@@ -8,9 +8,9 @@
   "capabilities": {
     "resources": true,
     "prompts": true,
-    "tools": false,
+    "tools": true,
     "static_manifest": true,
-    "tools_note": "Tool descriptions are static templates only. This file is a static AI discovery manifest served from GitHub Pages and does not execute remote tools or live MCP server operations."
+    "tools_note": "Two distinct kinds of tool appear below, and the distinction matters for an agent deciding what it can actually call. (1) `runtime: webmcp` — registered by the page at load time via navigator.modelContext.registerTool (WebMCP). These EXECUTE: load https://yutapr0117-design.github.io/portfolio/ in a WebMCP-capable browser and the tool is callable against the live DOM. (2) `runtime: static-template` — description-only templates. This file is served from GitHub Pages and cannot host a remote MCP server, so those do not execute. Until 2026-08-23 this manifest declared capabilities.tools=false, which had become inaccurate: the page does register an executable WebMCP tool, and no discovery surface said so."
   },
   "prompts": [
     {
@@ -27,6 +27,26 @@
   ],
   "tools": [
     {
+      "name": "extract_human_vs_ai_role_split",
+      "runtime": "webmcp",
+      "description": "Yuta Yokoi (Human PM) と AI チームの役割分担表（8カテゴリ）の現在の DOM 状態から証拠データを抽出します。ページ読み込み時に navigator.modelContext へ登録され、WebMCP 対応ブラウザから実行できます。役割分担ルート以外では静的な真実をフォールバックとして返します（非破壊・読み取り専用）。",
+      "registeredBy": "main.js (navigator.modelContext.registerTool)",
+      "canonicalRoute": "https://yutapr0117-design.github.io/portfolio/#/role-split",
+      "annotations": {
+        "readOnlyHint": true
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "返却されるデータのフォーマット（'json' または 'text'）"
+          }
+        },
+        "required": []
+      }
+    },
+    {
       "name": "verify_aio_entity",
       "description": "Yuta Yokoi (横井雄太) のエンティティ宣言を llms-full.txt と照合し、AI クローラーが正しいエンティティを解決できているかを検証します。",
       "inputSchema": {
@@ -40,7 +60,8 @@
         "required": [
           "query"
         ]
-      }
+      },
+      "runtime": "static-template"
     }
   ],
   "resources": [
