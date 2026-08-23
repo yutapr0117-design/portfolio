@@ -111,7 +111,8 @@ export function createMetaManagement({ SITE_CONFIG, AUTHOR, PAGE_META, Router, S
      * injectStructuredData — Article JSON-LD をルートに応じて動的注入・削除する。
      * ai-knowhow など実質的な記事として成立するルートにのみ適用する。
      * 副作用: head 内の script[data-ld="article"] のみを変更。
-     * § SpeakableSpecification動的更新: ルート遷移時にWebPageノードのcssSelector/descriptionをコンテキスト最適化。
+     * § SpeakableSpecification動的更新: ルート遷移時に WebPage ノードの cssSelector を
+     *   コンテキスト最適化する。name/description は載せない (2026-08-23 是正・上記参照)。
      */
     function injectStructuredData(routeName, fullTitle, desc) {
         const articleSchemaRoutes = SITE_CONFIG.ARTICLE_ROUTES;
@@ -167,11 +168,10 @@ export function createMetaManagement({ SITE_CONFIG, AUTHOR, PAGE_META, Router, S
             '@context': 'https://schema.org',
             '@type': 'WebPage',
             '@id': SITE_CONFIG.CANONICAL_URL + '#webpage',
-            // @id は静的 #webpage と同一なので merge で覆われるが、この script ブロック単体を
-            // 読むコンシューマ (音声アシスタント等) のために自己完結させる。
+            // [FIX 2026-08-23] name/description を置かない —— @id が静的 #webpage と同一なので
+            //   merge され、1 エンティティが 2 つの名前を主張する。詳細は e2e の
+            //   「同一 @id が矛盾する property 値を宣言しない」テスト (配信されない側) に記録。
             'license': SITE_CONFIG.LICENSE_URL,
-            'name': fullTitle,
-            'description': desc,
             'speakable': {
                 '@type': 'SpeakableSpecification',
                 'cssSelector': cssSel
