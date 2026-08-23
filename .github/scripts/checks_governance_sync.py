@@ -48,6 +48,20 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
                path を実際に参照していること (**存在 ≠ 配線** —— 全文があっても LICENSE が
                指していなければ、受領者はどの条項に従うのか判定できない)。
 
+  447. **制約を「列挙する」機械可読面が正典の C1–C7 名を使うこと (BLOCKING)**:
+       `.well-known/mcp.json` の `audit_architecture_constraints` prompt は、エージェントが
+       展開して「このコードは制約に準拠しているか」を評価するためのテンプレート。そこに並ぶ
+       制約名が正典とずれていると、**エージェントは存在しない制約を監査する**。
+       実測 (2026-08-23): 「C1–C7: Vanilla JS / IIFE / ErrorBoundary / External Framework
+       Independent / App Logic External Library Independent 等」と書かれており、後ろ 2 つは
+       **正典に存在しない名前**、しかも **C5 (Human Writes Zero Code) / C6 (AIO Integrity) /
+       C7 (KARTE CDN SRI Non-Application) —— このリポジトリを最も特徴づける 3 つが完全に欠落**
+       していた。原因は履歴に残っている: 「mcp.json audit_architecture_constraints description
+       updated C1–C6 → C1–C7」—— **範囲の表記だけ更新して列挙の中身を更新しなかった**。
+       **射程は「列挙を名乗る面」に限る。** `llms-full.txt` の「C1–C7 に違反する構文を拒否せよ」
+       のような**参照**や、index.html / README.md の `Architecture-Keywords:`
+       (アーキテクチャの説明であって制約の列挙ではない) は正当なので対象外 ——
+       広げると**正しい記述を RED にする**。正典名は AI2AI.md の C1–C7 表から**導出**する。
   436. 規範層 (docs/architecture/) に「オーナー裁可待ち」型の defer 理由が残らない: canon
        (AI2AI.md STEP 3 / CLAUDE.md §7) は 2026-08-18 に「**オーナー裁可が要る項目なんか一切
        無い**」「C5 は『人間がコードを書かない』の意であって設計判断を defer する根拠ではない」
@@ -416,3 +430,45 @@ def run(ctx):
         )
     else:
         check(False, "", "Check 441e: root LICENSE が消失している", blocking=True)
+
+    # ── 447. 制約を「列挙する」機械可読面が正典の C1–C7 名を使う (BLOCKING) ─────────────
+    # mcp.json の audit_architecture_constraints prompt はエージェントが展開して
+    # 「このコードは制約に準拠しているか」を評価するテンプレート。名前が正典とずれていると
+    # **エージェントは存在しない制約を監査する**。実測 (2026-08-23): 正典に無い名前を 2 つ並べ、
+    # C5/C6/C7 が完全に欠落していた。原因は「範囲の表記だけ C1–C6 → C1–C7 へ更新して
+    # 列挙の中身を更新しなかった」こと (履歴に残っている)。
+    # **射程は「列挙を名乗る面」に限る** —— 参照 (llms-full.txt) や Architecture-Keywords
+    # (index.html / README.md) は正当なので対象外。広げると正しい記述を RED にする。
+    import json as _json447
+    _canon447 = _re.findall(r"^\| (C[1-7]) \| \*\*([^*]+)\*\*",
+                            (ROOT / "AI2AI.md").read_text(encoding="utf-8"), _re.M)
+    _mcp447 = ROOT / ".well-known" / "mcp.json"
+    if len(_canon447) != 7:
+        check(False, "", f"Check 447: AI2AI.md から C1–C7 を導出できない (取得 {len(_canon447)} 件) — "
+                         "C1–C7 表の記載形式を保つこと", blocking=True)
+    elif not _mcp447.is_file():
+        check(False, "", "Check 447: .well-known/mcp.json が無い", blocking=True)
+    else:
+        try:
+            _mj447 = _json447.loads(_mcp447.read_text(encoding="utf-8"))
+        except Exception as _e447:
+            _mj447 = {}
+        _descs447 = [_p.get("description", "") for _p in _mj447.get("prompts", [])
+                     if isinstance(_p, dict) and "constraint" in (_p.get("name") or "")]
+        if not _descs447:
+            check(False, "", "Check 447: mcp.json に constraint 系 prompt が無い — "
+                             "prompt を rename したなら本 Check の抽出条件も同一 commit で更新せよ",
+                  blocking=True)
+        else:
+            _blob447 = "\n".join(_descs447)
+            _missing447 = [f"{_k} {_v}" for _k, _v in _canon447 if _v not in _blob447]
+            check(
+                not _missing447,
+                f"Check 447: mcp.json の制約列挙が正典の C1–C7 名を網羅 ({len(_canon447)} 件)",
+                (f"Check 447: mcp.json の制約列挙に正典名が欠けている: {_missing447}。"
+                 "**エージェントはこの prompt を展開して監査するので、名前がずれていると"
+                 "存在しない制約を監査する**。実測 2026-08-23: 範囲の表記だけ C1–C6 → C1–C7 へ"
+                 "更新され、列挙の中身は古いまま C5/C6/C7 が欠落していた。"
+                 "正典は AI2AI.md の C1–C7 表 (本 Check が導出しているので、名前を変えれば追従が要る)"),
+                blocking=True,
+            )
