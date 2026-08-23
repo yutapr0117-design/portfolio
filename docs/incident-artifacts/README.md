@@ -86,6 +86,7 @@ Status        : Plan D「物理移動なし、README で grouping を提供」�
 - `improvement-notes-claude-v80-phase4-machine-readable-license-and-inert-warning-layer.md`
 - `improvement-notes-claude-v80-phase4-license-surface-coverage-and-probe-caught-race.md`
 - `improvement-notes-claude-v80-phase4-agent-facing-spec-conformance.md`
+- `improvement-notes-claude-v80-phase4-rfc-conformance-and-approval-gate-sweep.md`
 
 ---
 
