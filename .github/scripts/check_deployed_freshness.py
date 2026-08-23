@@ -377,7 +377,7 @@ def _check_digests(base):
         skills = json.loads(_fetch_bytes(base + ".well-known/agent-skills/index.json").decode("utf-8"))
         for sk in skills.get("skills", []):
             dg = str(sk.get("digest", ""))
-            if dg.startswith("sha-256:"):
+            if dg.startswith("sha256:"):
                 targets.append((f"agent-skills/{sk.get('name')}", sk["url"], dg.split(":", 1)[1]))
     except Exception as e:  # noqa: BLE001
         print(f"::error::公開 agent-skills/index.json を読めない ({type(e).__name__}: {e})", flush=True)

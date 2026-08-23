@@ -138,10 +138,11 @@ def check_index_files() -> tuple[bool, list[str]]:
             continue
 
         # The skills index records digests with an algorithm-prefixed form
-        # (`sha-256:<hex>`), whereas the manifest (below) stores the bare hex. The two
+        # (`sha256:<hex>` — Agent Skills Discovery 仕様形式・2026-08-23 に `sha-256:` から是正),
+        # whereas the manifest (below) stores the bare hex. The two
         # surfaces follow different conventions, so the expected string is built differently
         # in each — do not "unify" them without changing the published files too.
-        expected = "sha-256:" + sha256_file(local)
+        expected = "sha256:" + sha256_file(local)
         if digest != expected:
             errors.append(
                 f"digest mismatch for {url}\n"
