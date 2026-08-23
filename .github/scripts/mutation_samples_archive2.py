@@ -210,8 +210,13 @@ MUTATIONS_ARCHIVE2 = [
         # and reds Check 362 on the next PR). Check 313 validates BOTH fields, so mutating the
         # stable one is an equivalent regression probe without the weekly drift.
         "file": ROOT / ".well-known" / "aio-manifest.json",
-        "find": '"last_metadata_update": "2026-06-22T10:08:32Z"',
-        "replace": '"last_metadata_update": "2099-06-22T10:08:32Z"',
+        # [FIX 2026-08-23] 日付の**値**を anchor にしていたため、binary の semantic 編集で
+        #   last_metadata_update が更新されるたび orphan 化した (実際に本日発生)。
+        #   世紀の 2 桁だけを掴む形へ変更 —— "20" -> "21" で 2026 年が 2126 年になり、
+        #   Check 313 の「未来日付を弾く」は同じように RED になる。今世紀内は drift しない。
+        #   (同日、Check 413b の anchor でも同じ class を直した: 可変値ではなく不変部分を掴む)
+        "find": '"last_metadata_update": "20',
+        "replace": '"last_metadata_update": "21',
     },
     {
         "name": "Check 314 (webmanifest theme_color coherence): drift theme_color to unrelated hex",
