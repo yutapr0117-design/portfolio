@@ -337,6 +337,15 @@ _MUTATIONS_TAIL.append({
     "replace": 'licenseId="ACD-1.1"',
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 446 (WebMCP ツールの宣言): capabilities.tools を false へ戻す —— 実行可能な "
+            "ツールが登録されているのに「ツールは無い」と宣言する状態。2026-08-23 まで実際に"
+            "そうなっており、静的 discovery しかしない agent はツールの存在を知りようがなかった",
+    "file": ROOT / ".well-known" / "mcp.json",
+    "find": '"tools": true,',
+    "replace": '"tools": false,',
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
