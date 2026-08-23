@@ -102,7 +102,8 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/a11y-contrast.spec.js` | 501 | 900 | `advisory` | behavior e2e spec (コントラストと色の知覚・WCAG 1.4.1/1.4.3/1.4.11)。2026-08-20 に a11y-axe.spec.js が 996 行で BLOCKING(1,000) まで残り 3 行となり、**当たる前に**このテーマの塊を切り出した |
 | `e2e/a11y-lang-of-parts.spec.js` | 197 | 900 | `advisory` | behavior e2e spec (WCAG 3.1.2 Language of Parts)。2026-08-23 に a11y-axe.spec.js が 950 行で advisory(900) を超えたため、**BLOCKING(1,000) に当たる前に**単一達成基準の塊として切り出した |
 | `e2e/aio-license.spec.js` | 91 | 900 | `advisory` | behavior e2e spec (ライセンス宣言の機械可読性)。静的 Check 444 は index.html のソースを読むが、**route 追従ノードと speakable ノードは runtime 注入**なので「クローラが実際に見る状態」は e2e でしか測れない |
-| `e2e/aio-meta.spec.js` | 907 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/aio-agentic-state.spec.js` | 236 | 900 | `advisory` | behavior e2e spec (`body[data-ai-state]` の機械可読契約)。2026-08-23 に aio-meta.spec.js が 907 行で advisory(900) を超えたため、**BLOCKING(1,000) に当たる前に**単一の契約という coherent な塊として切り出した |
+| `e2e/aio-meta.spec.js` | 688 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-ai-notes.spec.js` | 833 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-pomodoro.spec.js` | 898 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-settings-import-shape.spec.js` | 561 | 900 | `advisory` | behavior e2e spec (import が受け付ける形の契約面)。2026-08-14 に apps-settings-io.spec.js の advisory 超過を受けて先回り分割 |
@@ -525,6 +526,7 @@ e2e/a11y-best-practice.spec.js | 900 | advisory
 e2e/a11y-contrast.spec.js | 900 | advisory
 e2e/a11y-lang-of-parts.spec.js | 900 | advisory
 e2e/aio-license.spec.js | 900 | advisory
+e2e/aio-agentic-state.spec.js | 900 | advisory
 e2e/aio-meta.spec.js | 900 | advisory
 e2e/apps-ai-notes.spec.js | 900 | advisory
 e2e/apps-pomodoro.spec.js | 900 | advisory
