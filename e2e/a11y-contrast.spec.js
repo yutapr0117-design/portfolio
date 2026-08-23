@@ -19,6 +19,37 @@ const AxeBuilder = require('@axe-core/playwright').default;
 // 判別され axe link-in-text-block (serious) を出していた。色トークンは変えず下線を付与して修正。
 // text-decoration underline を除去すると本テストが RED (非 vacuity)。下線は pixel 変化ゆえ
 // A11Y_RENDER_NEUTRAL_RULES ではなく本 computed-style テストで守る。
+
+// ===== ルート固有の settle =====
+// [FIX 2026-08-24] **汎用の「見出しが見える」待ちは、hash 遷移では前ルートの DOM で即座に
+//   成立する。** そのままだと axe は *前のページ* を走査する。実測 (2026-08-24・dark ループ):
+//   axe が実際に見たノード量がちょうど 1 つ前のルートと一致し、`#/quiz` (最大のコンテンツ
+//   ページ・64,395 bytes) は **一度も走査されておらず** resume の内容を「quiz」として検査して
+//   いた。最後のルートも走査されない。
+//   `body[data-ai-state]` は描画のたびに書き換わり `loading` が非同期データの完了まで true な
+//   ので、「**ルートが前と変わり、かつ loading が false**」を待てば決定的に確定できる
+//   (ルート名のハードコード表を持たずに済むのも利点 —— 表は必ず drift する)。
+async function gotoRouteSettled(page, hash) {
+    const prev = await page
+        .evaluate(() => {
+            try { return JSON.parse(document.body.dataset.aiState || '{}').route ?? null; }
+            catch { return null; }
+        })
+        .catch(() => null);
+    await page.goto(`/${hash}`, { waitUntil: 'domcontentloaded' });
+    await page.waitForFunction(
+        (p) => {
+            try {
+                const s = JSON.parse(document.body.dataset.aiState || '{}');
+                return typeof s.route === 'string' && s.loading === false
+                    && (p === null || s.route !== p);
+            } catch { return false; }
+        },
+        prev,
+        { timeout: 10000 }
+    );
+}
+
 test('Hero-meta inline link is distinguishable by underline (WCAG 1.4.1, not color-only)', async ({ page }) => {
   await page.goto('/#/');
   await page.waitForLoadState('domcontentloaded');
@@ -166,8 +197,7 @@ async function expectNoContrastViolations(page, brand, scheme) {
 
   const offenders = [];
   for (const route of CONTRAST_ROUTES) {
-    await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('#content h1, #content h2').first()).toBeVisible();
+    await gotoRouteSettled(page, route);
     const res = await new AxeBuilder({ page }).withRules(['color-contrast']).analyze();
     for (const v of res.violations) {
       for (const n of v.nodes) {
@@ -284,8 +314,7 @@ const LANDMARK_ROUTES = ['#/', '#/projects', '#/quiz', '#/apps/task', '#/setting
 
 test('全ルートで main ランドマークが一意で、名前と skip-link 着地点を保つ', async ({ page }) => {
   for (const route of LANDMARK_ROUTES) {
-    await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('#content h1').first()).toBeVisible();
+    await gotoRouteSettled(page, route);
 
     await expect(page.getByRole('main'),
       `${route}: main ランドマークは 1 つだけ存在すべき`).toHaveCount(1);
