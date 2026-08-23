@@ -46,7 +46,7 @@ mirror files (byte-identical で 4 surface に複製):
 
 - llms.txt 編集 → 3 mirror への propagation (byte-identical) + `aio-manifest.json` source_of_truth[].sha256 再計算
 - Canonical Entity 情報変更 → index.html JSON-LD / llms-full.txt / WebP XMP / MP3 ID3 / README / CLAUDE.md / Claude2Claude.md 全 surface 同期 (Check 87/88/90)
-- semantic 編集 → C6 orchestrator 明示承認必須
+- semantic 編集 → C6: C6 の 3 不変条件 (真実性 / 全公開面での整合 / digest 再生成) を満たすこと
 
 ## Audience-specific notes
 

@@ -319,8 +319,18 @@ def run(ctx):
     _AGENTIC436 = (sorted((ROOT / ".claude" / "agents").glob("*.md"))
                    + sorted((ROOT / ".claude" / "commands").glob("*.md"))
                    + sorted((ROOT / ".claude" / "skills").glob("*/SKILL.md")))
+    # `docs/files/` の mirror doc も規範として読まれる (「この file を編集するとき何を満たすか」を
+    # 述べる面)。2026-08-23 に手作業で 9 枚を掃引したが、**綴りを 3 つ見落として 4 枚が残った** ——
+    # per-instance の掃引では閉じない class だと実測で判ったので構造封じへ昇華する。
+    # ただし**歴史記録の mirror は対象外**: incident-artifacts / session-records は過去を記述する
+    # ものなので、超越注記を強制すると履歴を濁す (本 Check が既に採っている線引きの mirror 面)。
+    _MIRROR_HIST436 = ("docs/files/docs/incident-artifacts/", "docs/files/docs/session-records/")
+    _mirror436 = [
+        _f for _f in sorted((ROOT / "docs" / "files").rglob("*.md"))
+        if not str(_f.relative_to(ROOT)).startswith(_MIRROR_HIST436)
+    ]
     _files436 = (sorted((ROOT / "docs" / "architecture").glob("*.md"))
-                 + [_f for _f in _NORMATIVE436 if _f.exists()] + _AGENTIC436)
+                 + [_f for _f in _NORMATIVE436 if _f.exists()] + _AGENTIC436 + _mirror436)
 
     def _normative_lines436(_path):
         """歴史記録を除いた規範部分だけを (行番号, 行) で返す。
@@ -356,13 +366,14 @@ def run(ctx):
     check(
         not _viol436,
         f"Check 436: 規範層 {len(_files436)} file (docs/architecture/ + canon/router/外部向け文書"
-        f" + .claude/ の agent 定義/slash command/skill) に「裁可待ち」型の defer 理由が無い",
+        f" + .claude/ の agent 定義/slash command/skill + docs/files/ mirror) に"
+        f"「裁可待ち」型の defer 理由が無い",
         (f"Check 436: 規範層に canon が否定した defer 理由が残っている: {_viol436[:5]}。"
          "canon (AI2AI.md STEP 3 / CLAUDE.md §7) は「オーナー裁可が要る項目なんか一切無い」"
          "「C5 は『人間がコードを書かない』の意」「『裁可待ち』という作業カテゴリは存在しない」"
          "と明記している。規範文書に残ると**読み手が否定された規則を持ち帰る**。"
          "解決済みなら SUPERSEDED / 解決済み を、記録として残すなら『否定された』等を同じ行に"
-         "書いて超越を明示せよ (歴史記録は対象外: docs/incident-artifacts/ 全体 / AI2AI.md の Session Record Archive 以降 / CLAUDE.md §7 の run 記録 bullet)"),
+         "書いて超越を明示せよ (歴史記録は対象外: docs/incident-artifacts/ 全体 とその mirror / docs/files/docs/session-records/ / AI2AI.md の Session Record Archive 以降 / CLAUDE.md §7 の run 記録 bullet)"),
         blocking=True,
     )
 

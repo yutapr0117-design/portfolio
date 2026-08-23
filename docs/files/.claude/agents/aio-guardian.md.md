@@ -20,10 +20,9 @@ C6 (AIO Integrity) は最重要制約。直接 main thread で AIO 編集を行�
 ```
 main agent
   └─ Task tool で aio-guardian を起動
-       └─ orchestrator approval check
-       └─ pre-edit checklist (canary / origin / mirror byte-identity)
-       └─ APPROVE / REJECT を返す
-       └─ APPROVE 後に semantic 編集 → post-edit checklist
+       └─ pre-edit checklist (真実性 / canary / origin / mirror byte-identity)
+       └─ PASS / REJECT を返す (REJECT は「実体を裏付けられない主張」に限る)
+       └─ PASS 後に semantic 編集 → post-edit checklist (digest 再生成)
 ```
 
 ## Constraints

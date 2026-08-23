@@ -38,7 +38,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 TAIL = ROOT / ".github" / "scripts" / "mutation_samples.py"
-def _pick_archive():
+def _pick_archive(stem="mutation_samples_e2e_archive", list_base="E2E_MUTATIONS_ARCHIVE"):
     """rotate 先を **導出** する: 余裕のある最新 archive、無ければ次の番号を起こす。
 
     [FIX 2026-08-21] 従来は `..._archive2.py` をハードコードしていたが、archive 自身も
@@ -53,7 +53,7 @@ def _pick_archive():
     base = ROOT / ".github" / "scripts"
     n = 1
     while True:
-        name = "mutation_samples_e2e_archive.py" if n == 1 else f"mutation_samples_e2e_archive{n}.py"
+        name = f"{stem}.py" if n == 1 else f"{stem}{n}.py"
         path = base / name
         if not path.exists():
             # 新しい受け皿を起こす (既存 archive と同じ最小構造) + **配線まで行う**。
@@ -63,11 +63,11 @@ def _pick_archive():
             #   書いた後**なので中途半端な状態が残る。作ると同時に import と連結式へ足す。
             _wire_new_archive(n, name)
             path.write_text(
-                '"""mutation_samples_e2e_archive%d.py — rotate 先 (自動生成)。\n\n'
-                'rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。\n'
-                '**新しい mutation は mutation_samples.py の tail へ足すこと** (ここは退避先)。\n"""\n'
-                'from mutation_samples_common import ROOT\n\n'
-                'E2E_MUTATIONS_ARCHIVE%d = [\n]\n' % (n, n),
+                '"""%s%d.py — rotate 先 (自動生成)。\n\n' % (stem, n)
+                + 'rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。\n'
+                  '**新しい mutation は mutation_samples.py の tail へ足すこと** (ここは退避先)。\n"""\n'
+                  'from mutation_samples_common import ROOT\n\n'
+                + "%s%d = [\n]\n" % (list_base, n),
                 encoding="utf-8",
             )
             return path
@@ -152,6 +152,65 @@ def _split_entries(body: str) -> list[str]:
                 cur = ""
     return entries
 
+
+
+# ── rotate 単位の抽出 ───────────────────────────────────────────────────────────
+# [FIX 2026-08-23] 従来 rotate は `NAME = [ ... ]` の **literal だけ**を排出対象にしていた。
+#   ところが新しい mutation は必ず `NAME.append({...})` で足す規約 (本 file の docstring と
+#   mutation_samples.py の docstring が両方そう述べている) なので、**成長は append 経由・
+#   排出は literal のみ**という非対称があった。literal が枯れると
+#   「ERROR: tail に N 件しかない — rotate すると空になる」で止まり、**append で溜まった
+#   entry には逃げ道が一つも無い**。実際 2026-08-23 に literal 6 件 / append 87 件の状態で
+#   advisory を超え、ツールからは詰みになった。literal と append を同じ「rotate 単位」として
+#   扱い、ファイル上の出現順 (= 時系列順) で古いものから排出する。
+def _rotatable_units(src: str, name: str) -> list[tuple[int, int, str]]:
+    """`name` の rotate 単位を (start, end, dict 本文) で、ファイル上の出現順に返す。
+
+    単位は 2 種類:
+      - `name = [ ... ]` の中のトップレベル `{...}`
+      - `name.append({ ... })` ブロック全体 (削除時は行ごと消す)
+    """
+    units: list[tuple[int, int, str]] = []
+    ls, le = _list_span(src, name)
+    off = ls
+    for e in _split_entries(src[ls:le]):
+        i = src.index(e, off)
+        off = i + len(e)
+        # `_split_entries` は entry 直前のコメント行を巻き込む。**コメントは hot log 固有の
+        # 注記** (例: 「この curated meta-mutation は敢えて…」) なので archive へ運ばない。
+        brace = e.index("{")
+        units.append((i + brace, i + len(e), e[brace:]))
+    # append ブロックは brace 走査で閉じ位置を求める (文字列内の括弧は数えない)
+    marker = f"{name}.append("
+    pos = 0
+    while True:
+        i = src.find(marker, pos)
+        if i == -1:
+            break
+        j = src.index("{", i)
+        depth, k, in_str, quote, esc = 0, j, False, "", False
+        while k < len(src):
+            ch = src[k]
+            if in_str:
+                if esc: esc = False
+                elif ch == "\\": esc = True
+                elif ch == quote: in_str = False
+            else:
+                if ch in "\"'": in_str, quote = True, ch
+                elif ch in "[{": depth += 1
+                elif ch in "]}":
+                    depth -= 1
+                    if depth == 0:
+                        break
+            k += 1
+        entry = src[j:k + 1]
+        # 行頭から `)` の次の改行までを 1 ブロックとして消す
+        blk_start = src.rindex("\n", 0, i) + 1
+        blk_end = src.index("\n", src.index(")", k)) + 1
+        units.append((blk_start, blk_end, entry))
+        pos = blk_end
+    units.sort(key=lambda u: u[0])
+    return units
 
 
 # ── archive の再配分 (rebalance) ─────────────────────────────────────────────────
@@ -258,17 +317,32 @@ def main() -> int:
         count = int(sys.argv[sys.argv.index("--count") + 1])
 
     src = TAIL.read_text(encoding="utf-8")
-    start, end = _list_span(src, "_E2E_TAIL")
-    entries = _split_entries(src[start:end])
-    if len(entries) <= count:
-        raise SystemExit(f"ERROR: tail に {len(entries)} 件しかない — rotate すると空になる")
+    # rotate 元の tail は **単位数の多い方**を選ぶ。hot log は E2E と consistency の 2 本を
+    # 抱えており、片方だけを排出対象にすると (旧実装) もう一方が上限まで伸びて詰む。
+    TAILS = [
+        ("_E2E_TAIL", "mutation_samples_e2e_archive", "E2E_MUTATIONS_ARCHIVE"),
+        ("_MUTATIONS_TAIL", "mutation_samples_archive", "MUTATIONS_ARCHIVE"),
+    ]
+    cands = [(len(_rotatable_units(src, n)), n, stem, base) for n, stem, base in TAILS]
+    cands.sort(reverse=True)
+    n_units, tail_name, stem, list_base = cands[0]
+    if n_units <= count:
+        raise SystemExit(
+            "ERROR: どの tail も rotate すると空になる: "
+            + " / ".join(f"{n}={c}" for c, n, _, _ in cands)
+        )
 
-    move, keep = entries[:count], entries[count:]
-    TAIL.write_text(
-        src[:start] + "\n" + "\n".join("    " + e.lstrip() + "," for e in keep) + "\n" + src[end:],
-        encoding="utf-8",
-    )
-    archive = _pick_archive()
+    units = _rotatable_units(src, tail_name)
+    move = [u[2] for u in units[:count]]
+    # 後ろから削ると前方の offset がずれない
+    out = src
+    for st, en, _ in reversed(units[:count]):
+        out = out[:st] + out[en:]
+    # literal から抜いた跡に残る空の `,` 行を掃除する (append ブロックは行ごと消えている)
+    out = re.sub(r"\n\s*,(?=\n)", "", out)
+    TAIL.write_text(out, encoding="utf-8")
+
+    archive = _pick_archive(stem, list_base)
     arc = archive.read_text(encoding="utf-8")
     k = arc.rindex("]")
     archive.write_text(
@@ -285,7 +359,7 @@ def main() -> int:
         )
 
     after = len(TAIL.read_text(encoding="utf-8").splitlines())
-    print(f"rotated {count} entries → {archive.name}")
+    print(f"rotated {count} entries from {tail_name} → {archive.name}")
     print(f"  mutation_samples.py: {lines} → {after} 行")
     print(f"  総数は不変: E2E={e2e_after} / MUTATIONS={cons_after}")
     print("  ※ docs/architecture/file-size-budget.md の §2 実測行数を同期すること (Check 424)")

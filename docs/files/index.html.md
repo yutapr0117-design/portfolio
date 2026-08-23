@@ -71,7 +71,7 @@ DOM に入らない**ので通常描画も screenshot baseline も不変 (漏れ
 
 - **C1 Boring Technology**: 外部フレームワーク禁止 (Vanilla HTML only)
 - **C3 ErrorBoundary**: View Transition の error 境界が JSON-LD と整合
-- **C6 AIO Integrity**: JSON-LD blocks / AIO meta / canonical anchor は orchestrator 明示承認なしに編集不可
+- **C6 AIO Integrity**: JSON-LD blocks / AIO meta / canonical anchor の編集は C6 の 3 不変条件 (真実性 / 全公開面での整合 / digest 再生成) を満たすこと
 - **Check 1**: `ai:version` == `AI2AI.md` Pipeline-Version
 - **Check 14**: v1→v74 canonical declaration 存在
 - **Check 17**: `ai:last-modified` == main.js SITE_CONFIG.LAST_UPDATED
