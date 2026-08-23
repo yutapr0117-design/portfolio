@@ -14,7 +14,7 @@
  *   場合はルート遷移アナウンス (announceRouteForAccessibility) をスキップし over-announce を防ぐ。
  *
  * 【依存（引数で注入）】
- *   - SITE_CONFIG: { CANONICAL_URL, ARTICLE_ROUTES, LAST_UPDATED, VERSION, ROLE_TITLE }
+ *   - SITE_CONFIG: { CANONICAL_URL, LICENSE_URL, ARTICLE_ROUTES, LAST_UPDATED, VERSION, ROLE_TITLE }
  *   - AUTHOR: { DISPLAY_NAME, AUTHORITATIVE_NAME }
  *   - PAGE_META: per-route SEO meta single source
  *   - Router: { getRoute() }
@@ -167,6 +167,9 @@ export function createMetaManagement({ SITE_CONFIG, AUTHOR, PAGE_META, Router, S
             '@context': 'https://schema.org',
             '@type': 'WebPage',
             '@id': SITE_CONFIG.CANONICAL_URL + '#webpage',
+            // @id は静的 #webpage と同一なので merge で覆われるが、この script ブロック単体を
+            // 読むコンシューマ (音声アシスタント等) のために自己完結させる。
+            'license': SITE_CONFIG.LICENSE_URL,
             'name': fullTitle,
             'description': desc,
             'speakable': {

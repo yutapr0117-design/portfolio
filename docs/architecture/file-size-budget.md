@@ -47,7 +47,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 
 | ファイル | 実測行数 | 予算（上限） | 予算種別 | 方針 |
 |---|---:|---:|---|---|
-| `main.js` | 1349 | 6,400 | `strong-advisory` | Stage 5-q/r/s で 7,785→1,086 行（**−86%**）まで縮小。以降は葉抽出の factory 配線追加で微増し現在 1,196 行（機能の直接追加ではない・`wc -l` が権威）。残部は AIDK Kernel + view-transition/render core (Check 43 で保護) |
+| `main.js` | 1356 | 6,400 | `strong-advisory` | Stage 5-q/r/s で 7,785→1,086 行（**−86%**）まで縮小。以降は葉抽出の factory 配線追加で微増し現在 1,196 行（機能の直接追加ではない・`wc -l` が権威）。残部は AIDK Kernel + view-transition/render core (Check 43 で保護) |
 | `js/aidk-rails.js` | 439 | 550 | `advisory` | Stage 5-l (AIDK Rail) 新設。AIDK Rail 5 IIFE 合体 factory (RouteState/EffectRails/BindingRegistry/ActionDelegator/DiagnosticsRail)。closure-deps = none + 引数注入。命名: PR #37。Stage 5-l は本 entry (AIDK Rail) を指し、PR #33 の Meta Management は changelog 上では 5-k' と呼称（命名衝突を honest dating で記録） |
 | `js/apps.js` | 672 | 650 | `advisory` | Stage 5-n 新設。Productivity Apps factory（TaskPage/TodoPage/NotesPage + private state）。**2026-07-04 bloat-reduction: AIPage → js/ai-page.js / PomodoroPage → js/pomodoro-page.js。2026-07-05: SettingsPage → js/settings-page.js へ分離し 837→458 行**。budget を実態 +headroom へ tighten |
 | `js/settings-page.js` | 502 | 800 | `advisory` | 2026-07-05 bloat-reduction 分離 (js/apps.js より・最大 page ~373 行)。Settings factory（import/export/snapshot/手動追加/正規化）。private state = settings* (let × 7)。restore/import は Store.validateAndNormalize を通す (#93/#295/#561)。**2026-08-14: 記録値が 408 のまま drift していたのを実態 531 へ同期し advisory を 600 へラチェット**。**2026-08-20: #1178 (取り込んだ entry の中身が上限で削られる分の honest 報告) で 648 行となり advisory を 700 へラチェット**。**2026-08-20: import の「対象」モードを appsData にも効かせる修正 (既定の「追加のみ」が既存タスクを全消ししていた実バグ) で 716 行となり advisory を 800 へラチェット** —— 増分は id 併合ロジックと、なぜモード別の意味論が要るかの WHY。ハードゲートは Check 365 (1,000 行) のままで、次に大きく伸びるときは import 系を葉モジュールへ分離する —— 増分は照合ヘルパ 2 つと、なぜ entry 単位カウントでは足りないかを実測値付きで記録した WHY コメント —— 増分の大半は #1035〜#1040 の backup 契約バグ 6 件を記録した WHY コメントで、ロジックの肥大ではない。ハードゲートは Check 365 (1,000 行) のまま |
@@ -65,7 +65,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/constants.js` | 94 | 150 | `advisory` | Stage 5-d 新設。実行時定数（STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID）。closure-deps = none |
 | `js/fatal-overlay.js` | 231 | 300 | `advisory` | Stage 5-r 新設。Fatal overlay + Global Safety Net factory（エラー判定 + Shadow DOM フォールバック UI + setInterval ウォッチ）。closure-deps = none + render 注入 |
 | `js/identity.js` | 36 | 80 | `advisory` | Stage 5-e 新設。AUTHOR（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME）純データ。closure-deps = none |
-| `js/meta-management.js` | 214 | 280 | `advisory` | Stage 5-k' (Meta Management) 新設。Meta Management factory（updateDocumentHead/announceRouteForAccessibility/injectRouteEntityAnchor/injectStructuredData + applyMeta ファサード）。closure-deps = none + 引数注入。命名: PR #33。元 commit message では Stage 5-l と記録されたが、PR #37 で AIDK Rail も同名となったため、changelog 上では 5-k' として区別する（commit message は append-only で残置） |
+| `js/meta-management.js` | 217 | 280 | `advisory` | Stage 5-k' (Meta Management) 新設。Meta Management factory（updateDocumentHead/announceRouteForAccessibility/injectRouteEntityAnchor/injectStructuredData + applyMeta ファサード）。closure-deps = none + 引数注入。命名: PR #33。元 commit message では Stage 5-l と記録されたが、PR #37 で AIDK Rail も同名となったため、changelog 上では 5-k' として区別する（commit message は append-only で残置） |
 | `js/mobile-drawer.js` | 257 | 280 | `advisory` | Stage 5-q 新設。Mobile Drawer factory（syncMobileDrawer / secureExternalLinks / __setAppInert / __lockBodyScroll / __trapFocus / __releaseFocusTrap / openDrawer / closeDrawer + state）。closure-deps = none + 引数注入 |
 | `js/ui-components.js` | 325 | 400 | `advisory` | Stage 4 新設。DOM ビルダー・SVG アイコン・Toast・BGM の葉モジュール。安定 |
 | `js/router.js` | 221 | 250 | `advisory` | Stage 5 新設。Hash-based SPA ルーター葉モジュール。安定 |
@@ -101,6 +101,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/a11y-best-practice.spec.js` | 88 | 900 | `advisory` | behavior e2e spec (axe best-practice タグの baseline・ゲートの死角を可視化)。Check 365 の 1,000 行 BLOCKING 対象。 |
 | `e2e/a11y-contrast.spec.js` | 501 | 900 | `advisory` | behavior e2e spec (コントラストと色の知覚・WCAG 1.4.1/1.4.3/1.4.11)。2026-08-20 に a11y-axe.spec.js が 996 行で BLOCKING(1,000) まで残り 3 行となり、**当たる前に**このテーマの塊を切り出した |
 | `e2e/a11y-lang-of-parts.spec.js` | 197 | 900 | `advisory` | behavior e2e spec (WCAG 3.1.2 Language of Parts)。2026-08-23 に a11y-axe.spec.js が 950 行で advisory(900) を超えたため、**BLOCKING(1,000) に当たる前に**単一達成基準の塊として切り出した |
+| `e2e/aio-license.spec.js` | 91 | 900 | `advisory` | behavior e2e spec (ライセンス宣言の機械可読性)。静的 Check 444 は index.html のソースを読むが、**route 追従ノードと speakable ノードは runtime 注入**なので「クローラが実際に見る状態」は e2e でしか測れない |
 | `e2e/aio-meta.spec.js` | 907 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-ai-notes.spec.js` | 833 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-pomodoro.spec.js` | 898 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
@@ -165,7 +166,9 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 715000 -->
+<!-- PERF-BUDGET-DATA 716000 -->
+
+> **2026-08-23 ラチェット 715,000 → 716,000（+1,000）**: JSON-LD の権利宣言を runtime 注入ノードへも配線したため（`SITE_CONFIG.LICENSE_URL` と 2 箇所の参照）。**上げる前に「自分のコメントを全部消しても収まらないか」を実測した** —— コメント込み 715,542 / コメント全削除 715,075 で、**どちらも超過**。つまり超過分はコメントではなくコードなので、冗長さを通すための引き上げではない。動機は route 追従 JSON-LD ノード（`#webpage-dynamic`）が静的ノードと別 @id のため、静的側の license が及ばず**そのノードだけ許諾不明**だったこと（ACD-1.0 §6.5「自動化システムが判定できない許諾は許諾ではない」）。
 <!-- shipped JS+CSS バイト合計 (main.js + js/**/*.js + style.css) の sanity ceiling。
      §3(B) で screenshot を advisory 化し pixel ゲートを外したため、別軸の実 page-weight 保護として
      導入 (Check 120)。実測 616,180 bytes (2026-06-21) + A群機能 (案3 コマンドパレット / 案6 ミニアプリ)
@@ -521,6 +524,7 @@ e2e/a11y-axe.spec.js | 900 | advisory
 e2e/a11y-best-practice.spec.js | 900 | advisory
 e2e/a11y-contrast.spec.js | 900 | advisory
 e2e/a11y-lang-of-parts.spec.js | 900 | advisory
+e2e/aio-license.spec.js | 900 | advisory
 e2e/aio-meta.spec.js | 900 | advisory
 e2e/apps-ai-notes.spec.js | 900 | advisory
 e2e/apps-pomodoro.spec.js | 900 | advisory
