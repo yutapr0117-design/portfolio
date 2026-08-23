@@ -205,8 +205,18 @@ def update_mp3_metadata_date(path: Path, iso_now: str) -> bool:
         new_frame = b"TXXX" + new_size_bytes + b"\x00\x00" + new_body_frame
         new_body = stripped + new_frame
 
-    # tag_size を維持しつつ padding 調整
-    target_size = max(tag_size, len(new_body) + 64)
+    # tag_size を維持しつつ padding 調整。
+    # [FIX 2026-08-23] 旧実装は `max(tag_size, len(new_body) + 64)` で、**本文長が変わらない
+    #   in-place 更新でも必ず tag_size + 64 になった**。日付は binary の semantic 編集のたびに
+    #   更新される設計 (C6 A1 派生値) なので、**編集のたびに公開バイナリが 64 bytes ずつ
+    #   単調増加**していた (実測: 同一 tool を 2 回走らせただけで tag 11,645 -> 11,773)。
+    #   本文が既存 tag に収まるなら tag_size を据え置き、収まらない時だけ +64 の slack を取る
+    #   (slack の意図は「毎回 audio を再配置しないで済むように余白を持つ」ことなので、
+    #    収まっている時に足す理由は無い)。
+    if len(new_body) <= tag_size:
+        target_size = tag_size
+    else:
+        target_size = len(new_body) + 64
     new_body = new_body + b"\x00" * (target_size - len(new_body))
     new_size_synchsafe = bytes(
         [(target_size >> 21) & 0x7F, (target_size >> 14) & 0x7F, (target_size >> 7) & 0x7F, target_size & 0x7F]
