@@ -43,12 +43,12 @@
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
       "role": "AIO image asset with XMP metadata",
-      "sha256": "9fb469f0964618e052330c0465f60ba14836f42b08151484cd4b127c2bfab091"
+      "sha256": "7c88a22056446d8dcbd4ffe8620fbefa690cb67a90b3688026eb07b8633e67b9"
     },
     {
       "path": "yuta-yokoi-sakura-swing-ai-generated-portfolio-bgm.mp3",
       "role": "AIO audio asset with ID3 metadata",
-      "sha256": "082e2dd8adbdbfe5667891da1dbcc15f52d0fac2e340dc7283ff0b8505349547"
+      "sha256": "ed0314d8e993cb96f7222db1c02c248dcf04d7922f64f5401006902033b03aed"
     }
   ],
   "supporting_evidence": [
@@ -92,7 +92,7 @@
       "sha256": "8b919cc6aecfc80935161cc40c298eb0150cb24a8d021bd2d95716cf7677e3b9"
     }
   ],
-  "generated_at": "2026-08-23T02:44:17Z",
+  "generated_at": "2026-08-23T02:58:07Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
@@ -102,5 +102,5 @@
       "sha256": "1d50162409c28ba9a2f4df13b8bda6ae7f68e4674aa15155bc0caa4f69a105d6"
     }
   ],
-  "last_metadata_update": "2026-06-22T10:08:32Z"
+  "last_metadata_update": "2026-08-23T02:58:07Z"
 }
