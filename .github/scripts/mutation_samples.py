@@ -932,4 +932,35 @@ _E2E_TAIL.append({
     "test": "同一 @id が矛盾する property 値を宣言しない",
 })
 
+_E2E_TAIL.append({
+    "name": "取り込みモード「全置換」が appsData に効かなくなる —— #1183 の実バグそのもの。"
+            "モードは projects にしか効いておらず、appsData はどのモードでも丸ごと置き換えていた "
+            "(既定の「追加のみ」で AppsData を含むファイルを取り込むと**既存のタスク・やること・"
+            "ノート・履歴が全部消えた**)。**最も安全なつもりの選択が最も破壊的**で、しかもそれが既定値",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "                    if (settingsImportMode === 'strict') {\n                        merged.appsData = inc;",
+    "replace": "                    if (false) {\n                        merged.appsData = inc;",
+    "test": "「全置換」の import は宣言どおり丸ごと置き換える",
+})
+
+_E2E_TAIL.append({
+    "name": "取り込みモード「更新+追加」が既存 id を更新しなくなる —— append との差が消え、"
+            "3 モードのうち 2 つが同じ挙動になる。**利用者は宣言どおりに動いたと信じて元データを"
+            "捨てうる**ので、モード間の意味論の差は e2e で固定しておく必要がある",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "if (!map.has(x.id) || settingsImportMode === 'upsert') { map.set(x.id, x); }",
+    "replace": "if (!map.has(x.id)) { map.set(x.id, x); }",
+    "test": "「更新+追加」の import は既存を残しつつ取り込む",
+})
+
+_E2E_TAIL.append({
+    "name": "slug 一意化を無効化する —— #154 の実バグ。同名プロジェクトを追加すると slug が衝突し、"
+            "ProjectDetailPage の find(p.slug===slug) が先頭のみ返すため**片方の詳細ページへ"
+            "到達不能**になる。一覧には両方出るので気付く手掛かりが薄い",
+    "file": ROOT / "js" / "store.js",
+    "find": "            if (_seenSlugs.has(s)) {\n                let n = 2;",
+    "replace": "            if (false) {\n                let n = 2;",
+    "test": "Adding two projects with the same name yields unique slugs",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
