@@ -945,4 +945,15 @@ _E2E_TAIL.append({
     "test": "ダークテーマの全ルート",
 })
 
+_E2E_TAIL.append({
+    "name": "quiz の章カードに min-width を与えて 320px であふれさせる (WCAG 1.4.10)。この違反は "
+            "2026-08-24 まで **reflow の走査から構造的に見えなかった**: ループの待ちが汎用で前ルートの "
+            "DOM で成立していたため、6 ルート全てが `#/role-split` を測っており、#962 で直した実バグの "
+            "対象 (quiz / hiring-risk / pomodoro) は一度も測られていなかった",
+    "file": ROOT / "style.css",
+    "find": ".quiz-section-card {",
+    "replace": ".quiz-section-card { min-width: 420px;",
+    "test": "320px 幅でどのルートも横スクロールしない",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

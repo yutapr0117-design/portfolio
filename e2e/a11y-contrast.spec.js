@@ -20,34 +20,44 @@ const AxeBuilder = require('@axe-core/playwright').default;
 // text-decoration underline を除去すると本テストが RED (非 vacuity)。下線は pixel 変化ゆえ
 // A11Y_RENDER_NEUTRAL_RULES ではなく本 computed-style テストで守る。
 
+
+
 // ===== ルート固有の settle =====
 // [FIX 2026-08-24] **汎用の「見出しが見える」待ちは、hash 遷移では前ルートの DOM で即座に
-//   成立する。** そのままだと axe は *前のページ* を走査する。実測 (2026-08-24・dark ループ):
-//   axe が実際に見たノード量がちょうど 1 つ前のルートと一致し、`#/quiz` (最大のコンテンツ
-//   ページ・64,395 bytes) は **一度も走査されておらず** resume の内容を「quiz」として検査して
-//   いた。最後のルートも走査されない。
-//   `body[data-ai-state]` は描画のたびに書き換わり `loading` が非同期データの完了まで true な
-//   ので、「**ルートが前と変わり、かつ loading が false**」を待てば決定的に確定できる
-//   (ルート名のハードコード表を持たずに済むのも利点 —— 表は必ず drift する)。
+//   成立する。** 直後に `page.evaluate` で測ると **全イテレーションが最初のルートを測る**。
+//   実測 (2026-08-24): reflow の 6 ルートループは `#/role-split` を 6 回測っており、#962 で
+//   直した実バグの対象 (quiz +31px / hiring-risk +28px / pomodoro +16px) は**一度も測られて
+//   いなかった**。axe のダーク走査は「ちょうど 1 つ前のルート」を走査していた。
+//
+//   待ち方: 遷移前に `#content` へ印を置き、**再描画で子ごと消える**のを待つ (render は
+//   `#content` を clear する)。ルート名のハードコード表を持たずに済む —— 表は必ず drift する。
+//   `loading` は quiz の動的 import 等が終わるまで true なので、遅延読み込み面も決定的に待てる。
+//   例外: **目標が現在ルートと同じときは hashchange が発火せず再描画も起きない** (#269 で
+//   記録済みの仕様) ので、印の消滅を待つと必ず timeout する。その場合は既に正しい DOM が
+//   出ているので `loading` の確定だけ待つ。
 async function gotoRouteSettled(page, hash) {
-    const prev = await page
-        .evaluate(() => {
-            try { return JSON.parse(document.body.dataset.aiState || '{}').route ?? null; }
-            catch { return null; }
-        })
-        .catch(() => null);
-    await page.goto(`/${hash}`, { waitUntil: 'domcontentloaded' });
-    await page.waitForFunction(
-        (p) => {
-            try {
-                const s = JSON.parse(document.body.dataset.aiState || '{}');
-                return typeof s.route === 'string' && s.loading === false
-                    && (p === null || s.route !== p);
-            } catch { return false; }
-        },
-        prev,
-        { timeout: 10000 }
-    );
+  const target = hash.startsWith('/') ? hash.slice(1) : hash;
+  let cur = '';
+  try { cur = new URL(page.url()).hash; } catch { cur = ''; }
+  const already = cur === target || ((cur === '' || cur === '#/') && target === '#/');
+  if (!already) {
+    await page
+      .evaluate(() => {
+        const c = document.getElementById('content');
+        if (c) { const m = document.createElement('span'); m.id = '__e2e_stale__'; c.appendChild(m); }
+      })
+      .catch(() => {});
+  }
+  await page.goto(`/${hash}`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(
+    (skip) => {
+      if (!skip && document.getElementById('__e2e_stale__')) { return false; }
+      try { return JSON.parse(document.body.dataset.aiState || '{}').loading === false; }
+      catch { return false; }
+    },
+    already,
+    { timeout: 10000 }
+  );
 }
 
 test('Hero-meta inline link is distinguishable by underline (WCAG 1.4.1, not color-only)', async ({ page }) => {

@@ -9,6 +9,47 @@ const { test, expect } = require('@playwright/test');
 // hashchange→router が home 再描画してユーザーを現在ページから飛ばす」バグを home→home ゆえ
 // vacuous に見逃していた。#/projects 始点にし、focus 移動 + 現在ルート(表示 h1・URL hash)の保持を
 // 同時検証する。main.js の skip-link preventDefault ハンドラを外すと home hero が描画され RED。
+
+
+
+// ===== ルート固有の settle =====
+// [FIX 2026-08-24] **汎用の「見出しが見える」待ちは、hash 遷移では前ルートの DOM で即座に
+//   成立する。** 直後に `page.evaluate` で測ると **全イテレーションが最初のルートを測る**。
+//   実測 (2026-08-24): reflow の 6 ルートループは `#/role-split` を 6 回測っており、#962 で
+//   直した実バグの対象 (quiz +31px / hiring-risk +28px / pomodoro +16px) は**一度も測られて
+//   いなかった**。axe のダーク走査は「ちょうど 1 つ前のルート」を走査していた。
+//
+//   待ち方: 遷移前に `#content` へ印を置き、**再描画で子ごと消える**のを待つ (render は
+//   `#content` を clear する)。ルート名のハードコード表を持たずに済む —— 表は必ず drift する。
+//   `loading` は quiz の動的 import 等が終わるまで true なので、遅延読み込み面も決定的に待てる。
+//   例外: **目標が現在ルートと同じときは hashchange が発火せず再描画も起きない** (#269 で
+//   記録済みの仕様) ので、印の消滅を待つと必ず timeout する。その場合は既に正しい DOM が
+//   出ているので `loading` の確定だけ待つ。
+async function gotoRouteSettled(page, hash) {
+  const target = hash.startsWith('/') ? hash.slice(1) : hash;
+  let cur = '';
+  try { cur = new URL(page.url()).hash; } catch { cur = ''; }
+  const already = cur === target || ((cur === '' || cur === '#/') && target === '#/');
+  if (!already) {
+    await page
+      .evaluate(() => {
+        const c = document.getElementById('content');
+        if (c) { const m = document.createElement('span'); m.id = '__e2e_stale__'; c.appendChild(m); }
+      })
+      .catch(() => {});
+  }
+  await page.goto(`/${hash}`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(
+    (skip) => {
+      if (!skip && document.getElementById('__e2e_stale__')) { return false; }
+      try { return JSON.parse(document.body.dataset.aiState || '{}').loading === false; }
+      catch { return false; }
+    },
+    already,
+    { timeout: 10000 }
+  );
+}
+
 test('Skip link moves focus to #main-content without navigating away from the current route (WCAG 2.4.1)', async ({ page }) => {
   await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => !!document.querySelector('#content h1, #content .h1'));
@@ -811,8 +852,7 @@ test('No element is invisible yet still focusable across all routes', async ({ p
 
   const offenders = [];
   for (const route of routes) {
-    await page.goto(`/${route}`, { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('#content h1, #content h2').first()).toBeVisible();
+    await gotoRouteSettled(page, route);
 
     const found = await page.evaluate(() => {
       const sel = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), '
