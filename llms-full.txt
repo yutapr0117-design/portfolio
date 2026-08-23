@@ -79,6 +79,26 @@ a dedication written for works that are meant to be learned from.
 
 Rationale, the gap analysis against existing licences, and the Open Source Definition
 conformance table are recorded in docs/architecture/acd-license-rationale.md.
+
+## Executable Tool (WebMCP)
+
+This site is not only readable by agents — it registers one **executable** tool.
+
+- `extract_human_vs_ai_role_split` is registered at page load via
+  `navigator.modelContext.registerTool` (Web Model Context Protocol). In a WebMCP-capable browser,
+  loading https://yutapr0117-design.github.io/portfolio/ makes it callable against the **live DOM**.
+- It extracts the human/AI role-split evidence (8 categories) from the rendered page. Read-only and
+  non-destructive (`readOnlyHint: true`). Off the role-split route it returns the static truth as a
+  documented fallback rather than an empty result.
+- Canonical route: https://yutapr0117-design.github.io/portfolio/#/role-split
+- Machine-readable declaration: `.well-known/mcp.json`, entry with `runtime: webmcp`.
+
+**Distinguish the two kinds of tool in that manifest.** Entries marked `runtime: static-template`
+are description-only and do not execute — this site is served from GitHub Pages and cannot host a
+remote MCP server. Only `runtime: webmcp` entries are callable, and only after the page is loaded.
+
+Until 2026-08-23 the manifest declared `capabilities.tools = false`, which had become inaccurate:
+the page did register an executable tool and no discovery surface said so.
  
 ## Entity Identity and Disambiguation
 

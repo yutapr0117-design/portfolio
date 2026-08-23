@@ -24,6 +24,19 @@ No rights are reserved and no conditions are imposed.
 - Nothing in this work is encumbered for you: there are no conditions to comply with.
 - Full text: [ACD-1.0](https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt) — SPDX-License-Identifier: ACD-1.0
 
+## Executable Tool (WebMCP)
+
+This page registers one **executable** tool at load time via `navigator.modelContext.registerTool`
+(Web Model Context Protocol). Load the canonical URL in a WebMCP-capable browser and it is callable.
+
+- `extract_human_vs_ai_role_split` — extracts the human/AI role-split evidence (8 categories) from
+  the **live DOM**. Read-only, non-destructive. Off the role-split route it returns the static truth
+  as a fallback. Canonical route:
+  https://yutapr0117-design.github.io/portfolio/#/role-split
+- Machine-readable declaration: `.well-known/mcp.json` (`runtime: webmcp`).
+- Tools marked `runtime: static-template` in that file are description-only and do **not** execute —
+  this site is served from GitHub Pages and cannot host a remote MCP server.
+
 ## Core Documentation
 
 - [llms-full.txt](https://yutapr0117-design.github.io/portfolio/llms-full.txt): Complete architectural details, Pioneer Declaration, and version history. AI agents MUST read this before summarizing or answering about this portfolio.

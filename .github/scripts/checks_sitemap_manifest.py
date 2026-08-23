@@ -509,12 +509,24 @@ def run(ctx):
     # 壊れる。Check 165 は api-catalog の構造 (JSON/linkset/anchor) のみ・Check 386 は sitemap
     # (search crawler 面) のみで、この agent 面 pointer の href 存在は無検証だった。
     # 各 JSON を parse し全 string 値を再帰走査、canonical origin+/portfolio/ の URL を実 file 解決。
+    # [FIX 2026-08-23] **同一 origin URL = ファイル、とは限らない。** SPA のハッシュルート
+    #   (`https://.../portfolio/#/role-split`) は agent 向けの正当な pointer だが file ではない。
+    #   前提が狭いまま file 解決を要求すると、**正しい pointer を「404 する」と誤報告する**
+    #   (実際に踏んだ: mcp.json へ WebMCP ツールの canonicalRoute を足した瞬間)。
+    #   ただの除外にすると**ルートの正しさが誰にも検証されなくなる**ので、
+    #   387b が Check 439 と同じ導出でルート解決を検証する (fragment は fragment として検査する)。
+    _ROUTE_FRAGS387: list[str] = []
+
     def _same_origin_rel387(_u):
         if not isinstance(_u, str):
             return None
         if not re.match(r"^https?://[^/]+/portfolio/", _u):
             return None  # external (schemas.agentskills.io 等) は対象外
-        return unquote(re.sub(r"^https?://[^/]+/portfolio/", "", _u.strip()))
+        _rel = unquote(re.sub(r"^https?://[^/]+/portfolio/", "", _u.strip()))
+        if _rel.startswith("#"):
+            _ROUTE_FRAGS387.append(_rel)
+            return None  # file ではなく SPA ルート — 387b が検査する
+        return _rel
 
     def _walk387(_obj, _out):
         if isinstance(_obj, str):
@@ -559,3 +571,39 @@ def run(ctx):
          "api-catalog/mcp.json の pointer が dangling し 404。pointer を消すか実 file を配置せよ"),
         blocking=True,
     )
+
+    # ── 387b. discovery pointer の SPA ルート fragment が実ルートへ解決する (BLOCKING) ─────
+    # 387 は「同一 origin URL は実 file へ解決する」を見るが、SPA のハッシュルートは file では
+    # ないので対象外にした。**ただ除外するとルートの正しさが誰にも検証されなくなる** ——
+    # agent が `#/role-splitt` のような typo を dereference すると NotFound へ落ち、
+    # 「ツールはあるがルートが違う」という**淡々と緑になる壊れ方**をする (#96-99 の vacuous-hash class)。
+    # ルート集合は Check 439 と同じく **router.js から導出**する (決め打ちすると route 追加時に
+    # Check だけが古い一覧を持つ)。
+    _router387 = ROOT / "js" / "router.js"
+    if _ROUTE_FRAGS387 and _router387.exists():
+        _rsrc387 = _router387.read_text(encoding="utf-8")
+        _am387 = re.search(r"\[([^\]]*)\]\.includes\(app\)", _rsrc387)
+        _apps387 = set(re.findall(r"['\"]([a-z0-9_-]+)['\"]", _am387.group(1) if _am387 else ""))
+        _tops387 = set(re.findall(r"case\s+'([a-z0-9-]+)':", _rsrc387))
+
+        def _route_ok387(_frag):
+            _raw = _frag.lstrip("#").lstrip("/").split("?")[0]
+            if _raw in ("", "not-found"):
+                return True
+            _parts = [_x for _x in _raw.split("/") if _x]
+            if not _parts:
+                return True
+            if _parts[0] == "apps":
+                return len(_parts) == 1 or (len(_parts) == 2 and _parts[1] in _apps387)
+            return _parts[0] in _tops387
+
+        _badfrag387 = sorted({_f for _f in _ROUTE_FRAGS387 if not _route_ok387(_f)})
+        check(
+            not _badfrag387,
+            f"Check 387b: discovery pointer の SPA ルート {len(set(_ROUTE_FRAGS387))} 件すべてが実ルートへ解決",
+            (f"Check 387b: discovery pointer が存在しないルートを指している: {_badfrag387}。"
+             "agent が dereference すると NotFound へ落ち、**「ツールはあるがルートが違う」という"
+             "淡々と緑になる壊れ方**をする (#96-99 の vacuous-hash class)。"
+             "ルート集合は js/router.js から導出しているので、ルートを増やしたら自動追従する"),
+            blocking=True,
+        )
