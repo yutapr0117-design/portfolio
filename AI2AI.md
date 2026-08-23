@@ -867,3 +867,49 @@ Deliverable     : PR #1264 (a11y split 回収) + 本 run の canon/ライセン�
 - **「宣言はあるが実態が伴わない」は binary にも起きる。** 書き込み成功と到達可能性は別の性質で、
   存在を強制する Check があっても届いているかを見る層は別に要る。
 
+
+---
+
+## [HANDOFF] Session Record #31 — 2026-08-23 (Claude Opus 5, ライセンスを機械可読にする + 早期警告が構造的に効かない層の根治)
+
+Task            : Session Record #30 で ACD-1.0 を起草した直後に「**では、その許諾は機械から
+                  見えるのか**」を測ったのが起点。答えは **7 面すべてゼロ**。そこから派生して
+                  基盤の欠陥 2 件へ行き着いた。
+Deliverable     : PR #1266 (rebase-merge・main 全緑)。
+詳細            : `docs/incident-artifacts/improvement-notes-claude-v80-phase4-machine-readable-license-and-inert-warning-layer.md`
+
+### 要点
+
+- **🔴 ライセンスが機械可読な 7 面すべてで宣言ゼロだった** (`rel="license"` / JSON-LD の
+  `license` / sitemap / manifest / llms / robots / webmanifest)。単なる登録漏れではなく、
+  **ACD-1.0 §6.5 自身が**「自動化システムが判定できない許諾は、学習されるための著作物にとっては
+  許諾ではない」と述べているので、**本文が発見できない状態はライセンスが自分の主張を
+  満たしていない**ことを意味した。6 面を配線し **Check 444** で cross-surface coherence を
+  BLOCKING 強制 (canonical は LICENSE の 2 行から導出)。`manifest.webmanifest` は W3C 仕様に
+  `license` メンバーが無いので**足さない** —— 規格に無いキーは「宣言したつもり」を増やすだけ。
+- **🔴 早期警告が「構造的に一度も出ない」file が 6 つあった**。advisory 予算が hard ceiling
+  (Check 365 の 1,000 行) と同値以上だと Check 52 は一度も鳴らず、OK からいきなり BLOCKING へ
+  飛ぶ。`mutation_samples_archive.py` は **BLOCKING まで 1 行なのに無警告**だった。しかも
+  budget doc の説明文が「ceiling は 1,000 に整合させる」と**欠陥そのものを設計として記述**
+  していた。**Check 443** で構造防止 —— ただし**初版は射程を絞らず正しい設定 3 件を誤検出**した
+  (main.js / style.css は hard ceiling の対象外なので 1,000 超が正当)。除外集合を Check 365 と
+  共有する単一ソースへ持ち上げて解決。
+- **🔴 mutation anchor が「一意なまま別ノードへ silent に移動」していた**。JSON-LD へ 1 行
+  挿入したことで Check 193 の anchor が WebSite → TechArticle へ移り、**Check 362 (解決性) も
+  Check 420 (一意性) も捕捉できない**まま SURVIVED になった。**検出できたのは probe を実際に
+  回したから。** 同 class (anchor が可変値に釘付け) を本日 5 件、不変部分へ付け替えた。
+- **rotate に rebalance モードを追加**。archive 自身が entry 編集で伸びるのに**溢れたときの
+  逃げ道が一つも無かった**。末尾→先頭で時系列順を保ちつつ移し、総数不変を invariant 検証。
+  書き出しが末尾改行を落とす欠陥も修正 (落とすと `wc -l` と `splitlines()` が 1 ずれ、
+  Check 424 と Check 52 が同じ file に違う行数を報告する)。
+
+### 教訓
+
+- **宣言を数え上げ、それぞれに「見ている層があるか」を突き合わせよ。** この棚卸しだけで
+  ライセンス面 7 つの穴が出た。
+- **自分のゲートの欠陥は非 vacuity 検証だけが教える。** 「汎用化した」と書く前に、動機となった
+  実例と**正当な例外**の両方で測る。
+- **mutation が anchor する file を編集したら、その場で probe を回せ。**「解決する」「一意である」
+  は「正しい対象を打っている」を意味しない。
+- **advisory は上げて黙らせるのではなく、下げて早く鳴らす。**
+
