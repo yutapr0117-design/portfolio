@@ -211,22 +211,59 @@ def run(ctx):
     # 2026-08-20 の棚卸しで research-application-policy.md が「適用条件: オーナーが配色変更を
     # 裁可した時」を現行ガイダンスとして保持しており、しかもその項目は #1158 で解決済みだった。
     # 歴史記録 (docs/incident-artifacts/) は対象外 —— そこへ注記を強制すると履歴を濁す。
-    _DEFER436 = ("裁可待ち", "裁可した時", "裁可を待", "C5（人間）の領域", "C5 (人間) の領域")
-    _OK436 = ("SUPERSEDED", "否定された", "存在しない", "読み違い", "解決済み", "誤りだった")
+    _DEFER436 = ("裁可待ち", "裁可した時", "裁可を待", "C5（人間）の領域", "C5 (人間) の領域",
+                 "要承認", "要オーケストレーター承認",
+                 "orchestrator approval", "explicit written approval")
+    _OK436 = ("SUPERSEDED", "否定された", "存在しない", "読み違い", "解決済み", "誤りだった",
+              "承認ゲートではない", "是正", "standing approval", "撤回")
+
+    # 走査対象 = 規範層。docs/architecture/ に加え、**最も規範的な canon と router そのもの**を含める。
+    # 2026-08-23 に射程を広げた理由: 旧 scope は docs/architecture/ だけを見ており、canon (AI2AI.md) と
+    # router (CLAUDE.md) は**射程外だった**。つまり「規範層から裁可待ち文言を排除する」Check が、
+    # 規範の中心を一度も見ていなかった。実測で見落としが 1 件出た —— AI2AI.md の
+    # **KERNEL Handoff prompt テンプレート**の中に C6 が
+    # "immutable without explicit orchestrator approval" と書かれており、**他の AI エージェントへ
+    # 制約として能動的に配信され続けていた**（受け取った側は否定された規則を持ち帰る）。
+    _NORMATIVE436 = [ROOT / "AI2AI.md", ROOT / "CLAUDE.md", ROOT / ".claude" / "CLAUDE.md",
+                     ROOT / "CONTRIBUTING.md", ROOT / "LICENSE", ROOT / "README.md",
+                     ROOT / "Claude2Claude.md"]
+    _files436 = sorted((ROOT / "docs" / "architecture").glob("*.md")) + [_f for _f in _NORMATIVE436 if _f.exists()]
+
+    def _normative_lines436(_path):
+        """歴史記録を除いた規範部分だけを (行番号, 行) で返す。
+
+        歴史記録へ超越注記を強制すると履歴を濁すので対象外にする (#977 と同じ線引き)。
+        除外するのは 2 種類だけで、いずれも**構造で判別できる**ものに限る:
+          - AI2AI.md の `## Session Record Archive` 以降 (過去 Session の記録)
+          - CLAUDE.md §7 の run 記録 bullet (`- **「終わりなき改善」…run (…)。**` 形式の 1 行)
+        判別できない「たぶん歴史」を除外し始めると Check が骨抜きになるので広げないこと。
+        """
+        _out, _hist = [], False
+        for _n, _line in enumerate(_path.read_text(encoding="utf-8").splitlines(), 1):
+            if _path.name == "AI2AI.md" and _line.startswith("## Session Record Archive"):
+                _hist = True
+            if _hist:
+                continue
+            if _line.startswith("- **「終わりなき改善」"):
+                continue
+            _out.append((_n, _line))
+        return _out
+
     _viol436 = []
-    for _f in sorted((ROOT / "docs" / "architecture").glob("*.md")):
-        for _n, _line in enumerate(_f.read_text(encoding="utf-8").splitlines(), 1):
+    for _f in _files436:
+        for _n, _line in _normative_lines436(_f):
             if any(_p in _line for _p in _DEFER436) and not any(_o in _line for _o in _OK436):
                 _viol436.append(f"{_f.name}:{_n}")
     check(
         not _viol436,
-        f"Check 436: 規範層 docs/architecture/ に「裁可待ち」型の defer 理由が無い",
+        f"Check 436: 規範層 {len(_files436)} file (docs/architecture/ + canon/router/外部向け文書) に"
+        f"「裁可待ち」型の defer 理由が無い",
         (f"Check 436: 規範層に canon が否定した defer 理由が残っている: {_viol436[:5]}。"
          "canon (AI2AI.md STEP 3 / CLAUDE.md §7) は「オーナー裁可が要る項目なんか一切無い」"
          "「C5 は『人間がコードを書かない』の意」「『裁可待ち』という作業カテゴリは存在しない」"
          "と明記している。規範文書に残ると**読み手が否定された規則を持ち帰る**。"
          "解決済みなら SUPERSEDED / 解決済み を、記録として残すなら『否定された』等を同じ行に"
-         "書いて超越を明示せよ (歴史記録の docs/incident-artifacts/ は対象外)"),
+         "書いて超越を明示せよ (歴史記録は対象外: docs/incident-artifacts/ 全体 / AI2AI.md の Session Record Archive 以降 / CLAUDE.md §7 の run 記録 bullet)"),
         blocking=True,
     )
 

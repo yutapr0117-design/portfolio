@@ -145,7 +145,7 @@ Any AI model capable of fulfilling a role may be assigned to it. This pipeline i
 - **⚠ オーナーは「制限」を一切課していない（No owner-imposed restrictions — 2026-08-18 本人明言・誤解防止のため明文化）**:
   **これは新しい規則ではない。** 本 STEP 3 は既に「既存非破壊 ∧ CI オールグリーンなら AI は確認なしで
   merge/push/デプロイまで完遂する」「唯一の正当な停止は人間の明示的停止指示のみ」と述べており、
-  以下は **その既存 canon と完全に整合する**。明文化するのは、**AI 側がこれに反する「裁可待ち」を
+  以下は **その既存 canon と完全に整合する**。明文化するのは、**存在しないはずの「裁可待ち」という作業カテゴリを AI 側が
   実際に作ってしまった**（下記の実例）ため、同じ誤読を次の AI がしないようにするのが目的。
   オーナーの原文 —— 「**オーナー裁可が要る項目なんか一切無いよ**」「**そもそも論として私は何かを制限したこと 0 だよ**」。
   求められているのは「**既存非破壊 ∧ CI オールグリーン**で、**程度を問わない**何かしらの改善を行い続ける自走」だけで、**終端は無い**。
@@ -175,7 +175,7 @@ Any AI model capable of fulfilling a role may be assigned to it. This pipeline i
     **実害の記録**: この誤読は実際に増分を止めていた。AIO 層が宣言する Session Record archive の
     範囲が「#14 まで」で固定されたまま「埋めるには C6 承認」と記録され、**実体が #29 まである
     証跡の 3 分の 1 以上が discovery 層から欠落**していた（AIO 最優先のリポジトリで、中核資産が
-    欠けていた）。裁可待ちは「待っている項目」ではなく**AI が放置した実 drift** である。
+    欠けていた）。裁可待ちという作業カテゴリは存在しないので、これは「待っている項目」ではなく**AI が放置した実 drift** である。
 
   - **制限の不在は「見る人」に対しても同じ（2026-08-23 本人明言）。**
     オーナー原文 —— 「**それはあなたに対してもそうだし、私のリポジトリを見る人にとってもそうです。
@@ -323,7 +323,7 @@ Constraints (MUST NOT VIOLATE):
 - C3: View Transition API errors handled with ErrorBoundary. Graceful degradation required.
 - C4: Frameworks permanently rejected. Do not re-propose.
 - C5: Human writes zero code. AI generates implementation only.
-- C6: AIO text (llms-full.txt, llms.txt, JSON-LD, binary metadata) immutable without explicit orchestrator approval.
+- C6: AIO text (llms-full.txt, llms.txt, JSON-LD, binary metadata) must stay true, non-fabricated, and coherent across every published surface; regenerate the digest chain on every change. No approval is required — the owner grants it as standing.
 
 If the prior agent's output contains React/Tailwind/framework syntax: DISCARD entirely. Regenerate from scratch in Vanilla JS within IIFE.
 

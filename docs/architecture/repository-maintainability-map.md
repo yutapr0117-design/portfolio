@@ -69,9 +69,14 @@ manifest 登録ファイル: `llms.txt` / `llms-full.txt` / `AI2AI.md` / webp / 
 
 **触ってよい（AI SURFACE）:** `main.js` の `AI SURFACE` マーカー内、`PAGE_META`、各 Component render、`docs/**` の追記、検証 invariant の追加。
 
-**触ってはいけない / 要承認:**
+**触ってはいけない（工学的不変条件 — 承認ゲートではない・2026-08-23 是正）:**
+
+> 以下は「オーナーの許可が下りていない領域」ではなく、**壊すと復旧できない / 証拠性を失う**という
+> 技術的理由で触らない領域である。承認を待つ作業カテゴリは存在しない（AI2AI.md STEP 3）。
+> 旧見出しは「要承認」と書いており、読み手に人間の署名待ちがあると誤読させていた（2026-08-23 是正）。
+
 - `main.js` の **AIDK Isolated Kernel（"DO NOT EDIT"）** — startViewTransition プロキシ、Trusted Types ポリシー等。
-- **C6 AIOテキスト** の本文（承認なし変更禁止）。
+- **C6 AIOテキスト** の本文 — 変更は可能だが、`aio-guardian` を通し digest 連鎖を再生成すること。守るのは *人間の署名* ではなく **AIO 層の正しさ**（実在しない事実を書かない / 面ごとに食い違わせない）。
 - バイナリ層（webp/mp3）の再エンコード。
 - `docs/incident-artifacts/update-portfolio.v70-experiment.yml` を `.github/workflows/` へ戻すこと（`workflow_dispatch` を持つため live 化する）。
 - KARTE CDN への SRI 付与（C7）。
