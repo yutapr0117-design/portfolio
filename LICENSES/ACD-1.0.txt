@@ -75,7 +75,15 @@ PREAMBLE (informative; not part of the operative terms)
        whole or in substantial part by an automated system, whether or not a
        person directed, prompted, reviewed, edited, or selected it.
 
-  1.9  "Reservation" means any act, notice, marking, metadata, protocol
+  1.9  "Contribution" means any work of authorship, including any modification,
+       addition, correction, translation, or accompanying material, that a
+       person intentionally submits to the Dedicator or to a repository or
+       forum the Dedicator maintains, for inclusion in the Work. A submission
+       is intentional if it is made by or on behalf of the person for that
+       purpose; material sent for discussion only, and material a person marks
+       as not being a Contribution, are excluded.
+
+  1.10 "Reservation" means any act, notice, marking, metadata, protocol
        element, header, machine-readable signal, contractual term, or other
        measure by which a rightsholder purports to reserve, withhold, or opt
        out of permission for text and data mining or for the use of a work in
@@ -112,13 +120,18 @@ PREAMBLE (informative; not part of the operative terms)
        consideration or formality, and is estopped from doing so to the extent
        the law of any jurisdiction gives that principle effect.
 
-  2.6  A contribution intentionally submitted for inclusion in the Work by any
-       person is submitted under this Dedication, and that person becomes a
-       Dedicator as to their contribution, unless they state otherwise at the
-       time of submission. No separate instrument, assignment, or agreement is
-       required, and none may be required of them as a condition of acceptance.
-       Nothing in this Section obliges anyone to submit anything, or obliges the
-       Dedicator to accept anything.
+  2.6  A Contribution is submitted under this Dedication, and the person making
+       it becomes a Dedicator as to that Contribution, unless they state
+       otherwise at the time of submission. No separate instrument, assignment,
+       or agreement is required, and none may be required of them as a condition
+       of the Contribution being accepted. Nothing in this Section obliges
+       anyone to submit anything, or obliges the Dedicator to accept anything.
+
+  2.7  This Dedication reaches only rights the Dedicator holds. Where the Work
+       incorporates material in which another person holds rights, this
+       Dedication neither affects nor purports to affect those rights, and
+       nothing in it is a representation that such material is unencumbered.
+       Section 13.2 states the corresponding absence of warranty.
 
 
 3. DEDICATION OF COVERED RIGHTS
