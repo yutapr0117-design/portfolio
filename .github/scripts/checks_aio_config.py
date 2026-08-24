@@ -583,13 +583,30 @@ def run(ctx):
                                    _h.findall("{http://www.spdx.org/license}p"))
         except Exception:
             _hdr445 = ""
-        _need445e = ["SPDX-License-Identifier: ACD-1.0", "Autonomous Commons Dedication",
-                     "Full text:"]
-        _missh445 = [_n for _n in _need445e if _n not in _hdr445]
+        # [FIX 2026-08-24] 期待値を **§16.1 から導出**する。従来は 3 つのマーカーを
+        #   リテラルで持っており、§16.1 に行を足しても検査対象にならなかった ——
+        #   実際、生成器の側もハードコードした接頭辞リストで絞っていたため、追加した
+        #   「Machine learning … a patent licence is granted.」が **header から silent に
+        #   落ちたのに 445e は緑のまま**だった。通知ブロックは条項本文より深く
+        #   インデントされている (条項継続 = 7 / 通知 = 11) ので、そこから導ける。
+        _need445e = []
+        try:
+            _i445 = _src445.index("16.1 To apply this Dedication")
+            _blk445 = _src445[_i445:_src445.index("16.2", _i445)]
+            _need445e = [_l.strip() for _l in _blk445.splitlines()
+                         if _l.strip() and (len(_l) - len(_l.lstrip())) >= 11]
+        except ValueError:
+            _need445e = []
+        # header は 79 桁の折り返しを畳むので、比較も空白を潰した上で部分一致で見る。
+        _flat445 = " ".join(_hdr445.split())
+        _missh445 = [_n for _n in _need445e
+                     if " ".join(_n.split()) not in _flat445
+                     and not _n.startswith("Full text:")]   # 可変部は <alt> になる
         _has_alt445 = "<alt " in _xml445.read_text(encoding="utf-8")
         check(
-            _hdr445 and not _missh445 and _has_alt445,
-            "Check 445e: standardLicenseHeader が §16.1 の通知文を担っている",
+            _hdr445 and _need445e and not _missh445 and _has_alt445,
+            f"Check 445e: standardLicenseHeader が §16.1 の通知文 {len(_need445e)} 行を"
+            "すべて担っている",
             (f"Check 445e: standardLicenseHeader が欠落/不完全 (欠け: {_missh445}"
              + ("" if _has_alt445 else " / 可変部の <alt> が無い") + ")。"
              "**SPDX ツールはこの要素でソースファイル中の通知を照合する** —— 欠けると "

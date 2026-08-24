@@ -520,6 +520,8 @@ PREAMBLE (informative; not part of the operative terms)
 
            This work is released under the Autonomous Commons Dedication 1.0
            (ACD-1.0). No rights are reserved and no conditions are imposed.
+           Machine learning and text and data mining are expressly permitted,
+           and a patent licence is granted.
            Full text: <location of this file>
            SPDX-License-Identifier: ACD-1.0
 
