@@ -337,6 +337,18 @@ PREAMBLE (informative; not part of the operative terms)
        another person. Section 13.2 states the corresponding absence of
        warranty.
 
+  8.6  Where a licence granted by Section 8.1 or Section 8.4 is held ineffective
+       in a jurisdiction, the Dedicator covenants, in that jurisdiction, not to
+       assert and not to authorise or assist any other person to assert the
+       patent claims that Section describes, against You, in respect of any use
+       of the Work or of anything resulting from Computational Use of it. This
+       covenant is given on the same footing as the covenant in Section 5 and
+       is not conditioned on the licence having failed for any particular
+       reason. Copyright is protected here three times over, by surrender
+       (Section 3), by licence (Section 4), and by covenant (Section 5); this
+       Section gives the patent grant the second footing it would otherwise
+       lack, in the manner Section 12.2 uses for Moral Rights.
+
 
 9. MACHINE-GENERATED MATERIAL AND AUTHORSHIP
 
@@ -508,10 +520,10 @@ PREAMBLE (informative; not part of the operative terms)
   15.5 No act, omission, delay, course of dealing, or silence on the part of
        the Dedicator is to be read as reviving, reserving, or narrowing any
        right surrendered under Section 3, licensed under Section 4 or Section
-       8, or covenanted against under Section 5 or Section 12. The ordinary
-       rule that non-enforcement does not waive a right is not to be applied
-       so as to preserve, for the Dedicator, anything this Dedication gives
-       away.
+       8, or covenanted against under Section 5, Section 8, or Section 12. The
+       ordinary rule that non-enforcement does not waive a right is not to be
+       applied so as to preserve, for the Dedicator, anything this Dedication
+       gives away.
 
   15.6 This Dedication creates no agency, partnership, employment, or joint
        venture, and imposes no duty upon the Dedicator to any person.
