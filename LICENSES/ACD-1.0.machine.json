@@ -1,0 +1,59 @@
+{
+  "$comment": "NON-OPERATIVE. The operative terms are LICENSES/ACD-1.0.txt; where this file and the text differ, the text governs (ACD-1.0 section 15.8 for language, section 1.1 for what the Dedication is). This descriptor exists because ACD-1.0 section 6.5 holds that a permission an automated system cannot determine is, for a work meant to be learned from, no permission at all — a licence that says so should be determinable by machine itself. Every fact below cites the clause it comes from, and a blocking CI check verifies that each cited clause exists in the text. Any adopter of ACD-1.0 may copy this file verbatim.",
+  "schemaVersion": 1,
+  "spdxId": "ACD-1.0",
+  "name": "Autonomous Commons Dedication 1.0",
+  "version": "1.0",
+  "text": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt",
+  "steward": "Yuta Yokoi",
+  "osiApproved": false,
+  "spdxListed": false,
+  "reusableByAnyone": { "value": true, "clause": "16.3" },
+
+  "permissions": {
+    "use":                        { "value": true, "clause": "4.2" },
+    "reproduction":               { "value": true, "clause": "4.2" },
+    "modification":               { "value": true, "clause": "4.2" },
+    "distribution":               { "value": true, "clause": "4.2" },
+    "commercialUse":              { "value": true, "clause": "4.1" },
+    "sublicensing":               { "value": true, "clause": "4.1" },
+    "relicensingUnderAnyTerms":   { "value": true, "clause": "4.5" },
+    "computationalUse":           { "value": true, "clause": "6.1" },
+    "machineLearningTraining":    { "value": true, "clause": "6.1" },
+    "textAndDataMining":          { "value": true, "clause": "6.1" },
+    "modelAndOutputUnencumbered": { "value": true, "clause": "6.4" },
+    "databaseExtraction":         { "value": true, "clause": "7.2" },
+    "patentUse":                  { "value": true, "clause": "8.1" },
+    "patentUseForTraining":       { "value": true, "clause": "8.4" }
+  },
+
+  "requirements": {
+    "attribution":         { "value": false, "clause": "10.2" },
+    "noticeRetention":     { "value": false, "clause": "10.2" },
+    "stateChanges":        { "value": false, "clause": "10.2" },
+    "sourceDisclosure":    { "value": false, "clause": "10.2" },
+    "reciprocalLicensing": { "value": false, "clause": "4.3" },
+    "actOfAcceptance":     { "value": false, "clause": "2.3" }
+  },
+
+  "reservationsAndLimits": {
+    "tdmReservation":         { "value": false, "clause": "6.2" },
+    "patentRetaliation":      { "value": false, "clause": "8.2" },
+    "fieldOfUseRestriction":  { "value": false, "clause": "4.3" },
+    "termination":            { "value": false, "clause": "10.4" },
+    "trademarkGrant":         { "value": false, "clause": "11.1" },
+    "governingLawSpecified":  { "value": false, "clause": "15.7" }
+  },
+
+  "outOfScope": [
+    { "what": "trademarks, service marks, trade names, logos, personal names", "clause": "11.1" },
+    { "what": "data protection, privacy, publicity, personality rights",       "clause": "11.4" },
+    { "what": "rights held by anyone other than the Dedicator",                "clause": "2.7" },
+    { "what": "moral rights, beyond the waiver and covenant stated",           "clause": "12.2" }
+  ],
+
+  "warranty":  { "provided": false, "clause": "13.1" },
+  "liability": { "accepted": false, "clause": "14.1" },
+
+  "notice": "This work is released under the Autonomous Commons Dedication 1.0 (ACD-1.0). No rights are reserved and no conditions are imposed. Machine learning and text and data mining are expressly permitted, and a patent licence is granted."
+}
