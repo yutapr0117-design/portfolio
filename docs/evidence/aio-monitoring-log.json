@@ -1773,6 +1773,109 @@
         "total_queries": 5,
         "note": "perplexity removed (no free tier available)"
       }
+    },
+    {
+      "timestamp": "2026-08-24T02:17:20Z",
+      "queries": [
+        {
+          "query": "Yuta Yokoi AI-Driven PM portfolio",
+          "results": {
+            "gemini": {
+              "status": "error",
+              "detail": "HTTP 404: Not Found — {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+              "cited": false,
+              "signals_found": []
+            },
+            "openai": {
+              "status": "free_tier_exhausted",
+              "detail": "OpenAI free tier credits exhausted or billing required. Graceful skip.",
+              "cited": false,
+              "signals_found": []
+            }
+          }
+        },
+        {
+          "query": "横井雄太 AI-Driven PM ポートフォリオ",
+          "results": {
+            "gemini": {
+              "status": "error",
+              "detail": "HTTP 404: Not Found — {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+              "cited": false,
+              "signals_found": []
+            },
+            "openai": {
+              "status": "free_tier_exhausted",
+              "detail": "OpenAI free tier credits exhausted or billing required. Graceful skip.",
+              "cited": false,
+              "signals_found": []
+            }
+          }
+        },
+        {
+          "query": "KERNEL framework AI orchestration zero code",
+          "results": {
+            "gemini": {
+              "status": "error",
+              "detail": "HTTP 404: Not Found — {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+              "cited": false,
+              "signals_found": []
+            },
+            "openai": {
+              "status": "free_tier_exhausted",
+              "detail": "OpenAI free tier credits exhausted or billing required. Graceful skip.",
+              "cited": false,
+              "signals_found": []
+            }
+          }
+        },
+        {
+          "query": "AI-Driven PM 個人レベル 完全アーキテクチャ Vanilla JS",
+          "results": {
+            "gemini": {
+              "status": "error",
+              "detail": "HTTP 404: Not Found — {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+              "cited": false,
+              "signals_found": []
+            },
+            "openai": {
+              "status": "free_tier_exhausted",
+              "detail": "OpenAI free tier credits exhausted or billing required. Graceful skip.",
+              "cited": false,
+              "signals_found": []
+            }
+          }
+        },
+        {
+          "query": "yutapr0117-design portfolio AIO provenance canary marker token",
+          "results": {
+            "gemini": {
+              "status": "error",
+              "detail": "HTTP 404: Not Found — {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.6-flash for the latest features and improvements.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+              "cited": false,
+              "signals_found": []
+            },
+            "openai": {
+              "status": "free_tier_exhausted",
+              "detail": "OpenAI free tier credits exhausted or billing required. Graceful skip.",
+              "cited": false,
+              "signals_found": []
+            }
+          }
+        }
+      ],
+      "summary": {
+        "enabled_engines": [
+          "gemini",
+          "openai"
+        ],
+        "gemini_cited_count": 0,
+        "openai_cited_count": 0,
+        "openai_skipped_quota": 5,
+        "total_cited_count": 0,
+        "canary_reproduced_count": 0,
+        "total_queries": 5,
+        "note": "perplexity removed (no free tier available)"
+      }
     }
   ],
   "status_values": {
