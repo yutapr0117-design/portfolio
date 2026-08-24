@@ -153,7 +153,31 @@ criteria the committee asks submitters to speak to directly:
   or other individual act of assent; Section 5.2(b) forbids imposing one by collateral
   means.
 
-### 4. Honest disclosures
+### 4. What is deliberately absent
+
+Omissions are design decisions too, and the committee will ask about several of them.
+
+- **No patent retaliation.** A grant that ends when the licensee litigates is a grant with
+  a condition. Section 8.2 says the absence is deliberate so that it is not mistaken for an
+  oversight.
+- **No attribution requirement.** Attribution is a real wish, so Section 10.3 separates the
+  wish from the obligation: any request the licensor makes, however phrased and wherever
+  expressed, is a request and not a condition; not observing it is not a breach and narrows
+  no permission.
+- **No field-of-use restriction of any kind**, including the "ethical" restrictions now in
+  circulation. Section 4.3 forecloses them expressly (OSD 6).
+- **No choice of law or forum.** Section 15.7. Naming one jurisdiction would disadvantage
+  recipients everywhere else.
+- **No anti-DRM condition on the licensee.** A licence that imposes nothing cannot impose
+  this either. The same protection is achieved from the other side: Section 5.2(a) is a
+  covenant by the *licensor* not to apply technological measures to the Work or to invoke
+  anti-circumvention law against You.
+- **No trademark licence.** Section 11.1. Trademarks identify origin, and an unconditional
+  grant would mislead. Section 11.2 preserves truthful nominative reference.
+- **No provenance or disclosure requirement for AI output.** Section 6.4 says outputs are
+  unencumbered; requiring their labelling would contradict the licence's central purpose.
+
+### 5. Honest disclosures
 
 - **Legal review.** The text has not been reviewed by counsel. I state this plainly rather
   than let the committee discover it. Section 12 in particular depends on the position of
