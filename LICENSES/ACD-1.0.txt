@@ -16,8 +16,8 @@ PREAMBLE (informative; not part of the operative terms)
   system can rely on, because the question is unsettled in most jurisdictions
   and, where a reservation mechanism exists, it can be operated by parties other
   than the licensor through signals attached to the work. And dedications to the
-  public domain have withheld patent rights, which makes them unsafe for
-  software.
+  public domain either withhold patent rights expressly or say nothing about
+  them at all, and both leave the recipient of software exposed.
 
   This Dedication is written for works that are meant to be learned from. It
   gives everything away, once, without conditions, and it speaks in the three
