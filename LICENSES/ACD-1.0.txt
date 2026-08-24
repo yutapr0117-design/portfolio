@@ -152,7 +152,7 @@ PREAMBLE (informative; not part of the operative terms)
        Reservation in respect of the Work. This is stated expressly because
        Sections 5.3 and 12.4 say as much for the covenants they contain, and
        silence here would invite the argument that the grants themselves stop
-       at the Dedicator — which would leave the longest-lived risk, the change
+       at the Dedicator, which would leave the longest-lived risk, the change
        of hands, open.
 
 
@@ -233,7 +233,7 @@ PREAMBLE (informative; not part of the operative terms)
        (b)  impose by contract, terms of service, access condition, click-
             through, registration requirement, or any other collateral means
             an obligation in respect of the Work that this Dedication does not
-            itself impose — and it imposes none (Section 10.1); or
+            itself impose, and it imposes none (Section 10.1); or
 
        (c)  assert that any permission granted here is narrower than Section
             15.1 requires it to be read.
@@ -324,8 +324,8 @@ PREAMBLE (informative; not part of the operative terms)
        doubt would be read down with the reading it was meant to correct. The
        grant is necessary because Covered Rights exclude patent rights (Section
        1.5), so Section 6.4 alone would leave Computational Use permitted as to
-       copyright while exposed as to patents — the very result Section 8.3
-       rejects, and one that would defeat the purpose stated in Section 6.5.
+       copyright while exposed as to patents, which is the very result Section
+       8.3 rejects and one that would defeat the purpose stated in Section 6.5.
        The proviso in Section 8.1 as to subject matter contained in the Work is
        deliberately absent from this Section: a model is not subject matter
        contained in the Work, so importing that proviso would restore the
