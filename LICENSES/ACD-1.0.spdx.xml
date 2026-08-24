@@ -29,7 +29,7 @@
       </titleText>
       <p>Version 1.0</p>
         <p>PREAMBLE (informative; not part of the operative terms)</p>
-        <p>Software and the works that surround it are increasingly produced by machines, read by machines, and improved by machines. The legal tools in common use were drafted for a world in which a human author held rights and chose which of them to keep. That assumption now fails in three places at once. It is unclear whether rights subsist in machine-generated material at all. Permissive licences are silent on whether a work may be used to train a model, and silence has proved to be read as refusal. And dedications to the public domain have historically withheld patent rights, which makes them unsafe for software.</p>
+        <p>Software and the works that surround it are increasingly produced by machines, read by machines, and improved by machines. The legal tools in common use were drafted for a world in which a human author held rights and chose which of them to keep. That assumption now fails in three places at once. It is unclear whether rights subsist in machine-generated material at all. Permissive licences are silent on whether a work may be used to train a model; silence is not refusal, but neither is it permission that an automated system can rely on, because the question is unsettled in most jurisdictions and, where a reservation mechanism exists, it can be operated by parties other than the licensor through signals attached to the work. And dedications to the public domain have withheld patent rights, which makes them unsafe for software.</p>
         <p>This Dedication is written for works that are meant to be learned from. It gives everything away, once, without conditions, and it speaks in the three places where the existing tools are silent or hostile: machine learning, patents, and machine authorship.</p>
         <p>Sections 1 to 16 are the operative terms. This preamble is not, and nothing in it qualifies them.</p>
         <p>1. DEFINITIONS</p>
@@ -65,7 +65,7 @@
         <p>5.1  The Dedicator covenants not to assert, and not to authorise or assist any other person to assert, any Covered Right against You in respect of any use of the Work.</p>
         <p>5.2  The Dedicator further covenants that the Dedicator will not, in respect of the Work:</p>
         <p>(a)  apply, or assert rights in respect of, any technological measure that restricts access to or use of the Work, or invoke any law concerning the circumvention of such measures against You;</p>
-        <p>(b)  impose by contract, terms of service, access condition, or any other collateral means an obligation that Sections 3 to 12 disclaim; or</p>
+        <p>(b)  impose by contract, terms of service, access condition, click- through, registration requirement, or any other collateral means an obligation in respect of the Work that this Dedication does not itself impose, this Dedication imposing none (Section 10.1); or</p>
         <p>(c)  assert that any permission granted here is narrower than Section 15.1 requires it to be read.</p>
         <p>5.3  The covenants in Sections 5.1 and 5.2 run with the Work, bind the Dedicator's successors, assigns, heirs, and personal representatives, and may be relied upon by You and by anyone who receives the Work from You, directly or indirectly, as an intended beneficiary.</p>
         <p>6. MACHINE LEARNING, TEXT AND DATA MINING, AND MODEL TRAINING</p>
