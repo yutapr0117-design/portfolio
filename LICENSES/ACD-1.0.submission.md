@@ -74,9 +74,12 @@ answer none of them:
    the time was that approving it would weaken, not strengthen, the position of users of
    software so released. ACD-1.0 Section 8 grants an express patent licence, states that
    it is subject to no condition and not terminable (8.2), rejects any reading that would
-   reserve patent rights (8.3), **extends the grant to Computational Use and to any model,
-   parameter set, weight, embedding or output resulting from it (8.4)**, and states the
-   limits of that grant honestly (8.5).
+   reserve patent rights (8.3), and **grants a further licence, in its own right, over
+   Computational Use and over any model, parameter set, weight, embedding or output
+   resulting from it (8.4)**. Section 8.4 is deliberately a grant and not a clarification:
+   whether a trained model is "the Work" or a derivative of it is unresolved, and a
+   provision that merely avoided doubt would be read down together with the reading it was
+   written to correct. Section 8.5 states the limits of the grant honestly.
 
 3. **Machine-generated material.** It is unsettled whether copyright subsists in it at
    all. Section 9 makes the recipient's permissions independent of that question: the
@@ -93,7 +96,7 @@ seven respects, each of which is operative rather than stylistic:
 | | 0BSD | ACD-1.0 |
 |---|---|---|
 | Subject matter | "software" | any Work: source, object, documentation, **data, metadata, audiovisual material**, and compilations (1.2) |
-| Patents | silent | 8.1–8.5, reaching Computational Use and its outputs |
+| Patents | silent | 8.1–8.5, with 8.4 granting separately over Computational Use and its outputs |
 | ML / TDM | silent | 6.1–6.5 |
 | Sui generis database right | silent | 7.1–7.2 (extraction and re-utilisation of a substantial part, repeatedly and systematically) |
 | Moral rights | silent | 12.1–12.6: waiver, and in jurisdictions where moral rights cannot be waived, a covenant not to exercise them **limited to the Work** and binding successors |
@@ -115,7 +118,8 @@ notice retention, change notices and NOTICE propagation; ACD-1.0 imposes no cond
 (4.3, 10.1). Apache-2.0 terminates the patent licence on patent litigation; ACD-1.0
 contains no retaliation provision and says so expressly (8.2). Apache-2.0's patent grant
 reaches "the Work and Derivative Works"; whether a *trained model* is either is unresolved,
-and Section 8.4 is written precisely to close that.
+and Section 8.4 is written precisely to close that — as an independent grant, so that it
+does not fall with the reading of Section 8.1 it was written to survive.
 
 ### 3. Open Source Definition conformance
 
@@ -127,8 +131,11 @@ criteria the committee asks submitters to speak to directly:
 - **OSD 2 (Source code).** The licence permits distribution in source form, object form,
   or any other form (4.2), and imposes no obstacle to providing source.
 - **OSD 3 (Derived works).** Section 4.2 permits modification and derivative works;
-  Section 4.3 forbids any reciprocal-licensing condition, so derived works may be
-  distributed under any terms.
+  Section 4.3 forbids any reciprocal-licensing condition; and Section 4.5 states the
+  consequence positively — the Work and any adaptation or collection containing it may be
+  distributed under any terms the recipient chooses, **including terms incompatible with
+  these**, with nothing reaching through to their recipients. A recipient may therefore
+  place the Work inside a copyleft project without friction.
 - **OSD 4 (Integrity of the author's source code).** No restriction is imposed. Section
   16.4 concerns the text of the licence *as a document*, not the licensed work; Sections
   10.5 and 16.5 state this expressly.
