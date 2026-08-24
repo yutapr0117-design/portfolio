@@ -155,6 +155,7 @@ Allow: /portfolio/docs/evidence/aio-monitoring-log.json
 # 機械へ直接示す。
 Allow: /portfolio/LICENSE
 Allow: /portfolio/LICENSES/ACD-1.0.txt
+Allow: /portfolio/LICENSES/ACD-1.0.machine.json
 Allow: /ChatGPT2ChatGPT.md
 Allow: /docs/evidence/aio-monitoring-log.json
 

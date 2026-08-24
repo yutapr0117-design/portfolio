@@ -28,6 +28,7 @@
     "spdx_id": "ACD-1.0",
     "name": "Autonomous Commons Dedication 1.0",
     "url": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt",
+    "machine_readable": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.machine.json",
     "applies_to": "the entire repository, including source code, documentation, binary assets, and this AIO layer",
     "rights_reserved": false,
     "conditions": [],

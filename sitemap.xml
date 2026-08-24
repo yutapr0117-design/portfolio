@@ -214,6 +214,16 @@
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- LICENSES/ACD-1.0.machine.json — ライセンスの機械可読記述子。ACD-1.0 §6.5 が掲げる
+       「自動化システムが判定できない許諾は許諾ではない」を、ライセンス自身が満たすための面。
+       SPDX 識別子は「どのライセンスか」は伝えるが「機械学習してよいか」「特許許諾があるか」は
+       伝えない (そういう欄が無い)。**置いただけで discovery 面から辿れなければ §6.5 が空になる** -->
+  <url>
+    <loc>https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.machine.json</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- LICENSE — 本リポジトリでの適用宣言 (entity provenance を含む)。全文は上の ACD-1.0.txt -->
   <url>
     <loc>https://yutapr0117-design.github.io/portfolio/LICENSE</loc>

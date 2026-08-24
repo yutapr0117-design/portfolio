@@ -486,6 +486,31 @@ def run(ctx):
                 if _spdx444 not in (ROOT / _lf444).read_text(encoding="utf-8"):
                     _bad444.append(f"{_lf444} が {_spdx444} に言及していない")
 
+            # 444g — **機械可読記述子**が discovery 面から到達できること。
+            # 記述子 (`LICENSES/ACD-1.0.machine.json`) は「SPDX 識別子だけでは機械学習可否も
+            # 特許許諾も判定できない」という穴を埋めるために置いた面で、**置いただけで
+            # sitemap / robots / manifest から辿れなければ §6.5 が空になる** (本文について
+            # 2026-08-23 に起きたのと同じ class)。存在するときだけ 3 面を検証する。
+            _md444 = ROOT / "LICENSES" / "ACD-1.0.machine.json"
+            if _md444.exists():
+                _mrel444 = "LICENSES/ACD-1.0.machine.json"
+                _murl444 = _url444.replace(_rel444, _mrel444)
+                if _murl444 not in _sm444:
+                    _bad444.append(f"sitemap.xml に {_mrel444} の <loc> が無い (記述子へ到達できない)")
+                _rb444 = (ROOT / "robots.txt").read_text(encoding="utf-8")
+                if _mrel444 not in _rb444:
+                    _bad444.append(f"robots.txt が {_mrel444} を Allow していない")
+                try:
+                    _mlic444 = _json444.loads(
+                        (ROOT / ".well-known" / "aio-manifest.json").read_text(encoding="utf-8")
+                    ).get("license", {})
+                except ValueError:
+                    _mlic444 = {}
+                if _mlic444.get("machine_readable") != _murl444:
+                    _bad444.append(
+                        "aio-manifest の license.machine_readable が記述子を指していない "
+                        f"({_mlic444.get('machine_readable')!r})")
+
             check(
                 not _bad444,
                 f"Check 444: ライセンス宣言が全機械可読面で整合 ({_spdx444} / {_rel444})",
