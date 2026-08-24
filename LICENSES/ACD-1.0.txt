@@ -24,6 +24,14 @@ PREAMBLE (informative; not part of the operative terms)
   places where the existing tools are silent or hostile: machine learning,
   patents, and machine authorship.
 
+  It does so on three footings that stand side by side rather than in a queue.
+  Section 3 surrenders the rights. Section 4 grants a licence over the same
+  rights. Section 5 is a promise not to assert them. Each is given on its own
+  terms, none is a fallback for another, and a reader who needs only one of
+  them may rely on that one without deciding whether the others took effect.
+  A public-domain dedication that offered a licence only if the dedication
+  failed would put that decision on the reader; this one does not.
+
   Sections 1 to 16 are the operative terms. This preamble is not, and nothing
   in it qualifies them.
 
@@ -72,7 +80,8 @@ PREAMBLE (informative; not part of the operative terms)
        analysis, and text and data mining, and including use of the Work as
        input to train, fine-tune, evaluate, align, distil, or otherwise develop
        a machine learning model, and the making, distribution, and use of any
-       model, parameter set, or output resulting from that processing.
+       model, parameter set, weight, embedding, or output resulting from that
+       processing.
 
   1.8  "Machine-Generated Material" means any part of the Work produced in
        whole or in substantial part by an automated system, whether or not a
@@ -136,14 +145,15 @@ PREAMBLE (informative; not part of the operative terms)
        nothing in it is a representation that such material is unencumbered.
        Section 13.2 states the corresponding absence of warranty.
 
-  2.8  Sections 3, 4, and 8 bind the Dedicator's successors, assigns, heirs,
+  2.8  Sections 3, 4, 6, and 8 bind the Dedicator's successors, assigns, heirs,
        and personal representatives, and any person to whom a Covered Right or
        a patent claim in the Work is transferred, to the fullest extent the law
-       permits. A transferee takes subject to them. This is stated expressly
-       because Sections 5.3 and 12.4 say as much for the covenants they
-       contain, and silence here would invite the argument that the grants
-       themselves stop at the Dedicator — which would leave the longest-lived
-       risk, the change of hands, open.
+       permits. A transferee takes subject to them, and may not make a
+       Reservation in respect of the Work. This is stated expressly because
+       Sections 5.3 and 12.4 say as much for the covenants they contain, and
+       silence here would invite the argument that the grants themselves stop
+       at the Dedicator — which would leave the longest-lived risk, the change
+       of hands, open.
 
 
 3. DEDICATION OF COVERED RIGHTS
@@ -187,7 +197,9 @@ PREAMBLE (informative; not part of the operative terms)
   4.4  The licence in Section 4.1 is granted independently of Section 3 and
        does not depend on Section 3 being ineffective. Where Section 3 is
        effective, this Section is redundant but not void, and it remains
-       available to be relied upon by You.
+       available to be relied upon by You. You are not required to determine
+       whether Section 3 is effective in any jurisdiction, and no permission
+       granted here depends on that question or on how it is answered.
 
 
 5. COVENANT NOT TO ASSERT
@@ -370,6 +382,21 @@ PREAMBLE (informative; not part of the operative terms)
        states a limit of the Dedication's reach; it is not a condition upon
        You, and Section 10.1 is unaffected by it.
 
+  11.4 This Dedication reaches Covered Rights, the patent claims described in
+       Section 8, and Moral Rights to the extent stated in Section 12. It
+       reaches nothing else. It grants no permission under the law of data
+       protection, under a right of privacy, publicity, or personality, or
+       under any right held by a person other than the Dedicator. Where the
+       Work contains personal data, or the likeness, voice, or performance of
+       a person, any permission those laws require is not the Dedicator's to
+       give and this Dedication does not purport to give it. This matters here
+       because a work meant to be learned from is often data about people, and
+       a reader is entitled to know exactly where this instrument stops.
+       Section 2.7 states the general principle and Section 13.2 the
+       corresponding absence of warranty; this Section states a limit of
+       reach, it is not a condition upon You, and Section 10.1 is unaffected
+       by it.
+
 
 12. MORAL RIGHTS
 
@@ -455,9 +482,13 @@ PREAMBLE (informative; not part of the operative terms)
        cannot be reformed, it is severed as to that jurisdiction only, and the
        remainder continues in full force everywhere.
 
-  15.5 A failure or delay by the Dedicator in exercising any right is not a
-       waiver of it, and no waiver is to be implied from conduct, course of
-       dealing, or silence.
+  15.5 No act, omission, delay, course of dealing, or silence on the part of
+       the Dedicator is to be read as reviving, reserving, or narrowing any
+       right surrendered under Section 3, licensed under Section 4 or Section
+       8, or covenanted against under Section 5 or Section 12. The ordinary
+       rule that non-enforcement does not waive a right is not to be applied
+       so as to preserve, for the Dedicator, anything this Dedication gives
+       away.
 
   15.6 This Dedication creates no agency, partnership, employment, or joint
        venture, and imposes no duty upon the Dedicator to any person.

@@ -409,12 +409,17 @@ def run(ctx):
         )
 
         # 441b — 相互参照の解決性
-        _refs441 = set(_re441.findall(r"Sections? (\d+(?:\.\d+)?)", _src441))
+        # 集合なので数えるのは **参照先の種類**であって出現回数ではない。OK メッセージを
+        # 「相互参照 N 件」と書いていたのは誤解を招く (2026-08-24 是正) —— 新しい参照を足しても
+        # 参照先が既出なら数は動かないので、読み手が「参照は N 個しか無い」と誤読しうる。
+        _occ441 = _re441.findall(r"Sections? (\d+(?:\.\d+)?)", _src441)
+        _refs441 = set(_occ441)
         _refs441 |= set(_re441.findall(r"Sections \d+(?:\.\d+)? (?:to|and) (\d+(?:\.\d+)?)", _src441))
         _unres441 = sorted(_r for _r in _refs441 if _r not in set(_nums441) and _r not in _tops441)
         check(
             not _unres441,
-            f"Check 441b: ACD-1.0 の相互参照 {len(_refs441)} 件がすべて実在条項へ解決",
+            f"Check 441b: ACD-1.0 の相互参照 {len(_occ441)} 箇所 "
+            f"(参照先 {len(_refs441)} 種) がすべて実在条項へ解決",
             (f"Check 441b: ACD-1.0 の相互参照が解決しない: {_unres441}。"
              "再採番したら本文中の 'Section N.M' 参照も同一 commit で追従させよ "
              "(実例: 2026-08-23 に §12.5 が severability を指していたが、条項挿入で番号がずれ別条項を指した)"),
