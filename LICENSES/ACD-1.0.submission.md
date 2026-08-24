@@ -79,7 +79,11 @@ answer none of them:
    resulting from it (8.4)**. Section 8.4 is deliberately a grant and not a clarification:
    whether a trained model is "the Work" or a derivative of it is unresolved, and a
    provision that merely avoided doubt would be read down together with the reading it was
-   written to correct. Section 8.5 states the limits of the grant honestly.
+   written to correct. Section 8.5 states the limits of the grant honestly, and Section 8.6 adds a
+   covenant not to assert, for any jurisdiction in which the patent licence itself is held
+   ineffective. Copyright is protected three times over in this instrument (surrender,
+   licence, covenant); Section 8.6 gives the patent grant the second footing it would
+   otherwise lack, in the manner Section 12.2 uses for moral rights.
 
 3. **Machine-generated material.** It is unsettled whether copyright subsists in it at
    all. Section 9 makes the recipient's permissions independent of that question: the
