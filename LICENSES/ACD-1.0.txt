@@ -201,6 +201,13 @@ PREAMBLE (informative; not part of the operative terms)
        whether Section 3 is effective in any jurisdiction, and no permission
        granted here depends on that question or on how it is answered.
 
+  4.5  Because this licence imposes no condition, You may distribute the Work,
+       and any adaptation or collection containing it, under any terms You
+       choose, including terms that impose conditions upon Your own recipients
+       and including terms that are incompatible with these. Nothing here
+       limits what those terms may be, requires them to reproduce this text,
+       or reaches Your recipients through You.
+
 
 5. COVENANT NOT TO ASSERT
 
@@ -298,15 +305,19 @@ PREAMBLE (informative; not part of the operative terms)
        practising whatever patent claims it embodies. Any reading of this
        Dedication that would produce that result is to be rejected.
 
-  8.4  For the avoidance of doubt, the licence in Section 8.1 extends to
-       Computational Use of the Work and to the making, use, offering for sale,
-       sale, importation, and other transfer of any model, parameter set,
-       weight, embedding, or output resulting from that use, to the same extent
-       and on the same terms. This is stated expressly because Covered Rights
-       exclude patent rights (Section 1.5), so Section 6.4 alone would leave
-       Computational Use permitted as to copyright while exposed as to patents
-       — the very result Section 8.3 rejects, and one that would defeat the
-       purpose stated in Section 6.5.
+  8.4  The Dedicator further grants You a licence on the terms of Section 8.1,
+       under every patent claim owned or controlled by the Dedicator, now or in
+       future, that would be infringed by Computational Use of the Work or by
+       the making, having made, use, offering for sale, sale, importation, or
+       other transfer of any model, parameter set, weight, embedding, or output
+       resulting from that use. This is a grant in its own right and not a
+       clarification of Section 8.1: whether a trained model is "the Work" or a
+       derivative of it is unresolved, and a provision that merely avoided
+       doubt would be read down with the reading it was meant to correct. The
+       grant is necessary because Covered Rights exclude patent rights (Section
+       1.5), so Section 6.4 alone would leave Computational Use permitted as to
+       copyright while exposed as to patents — the very result Section 8.3
+       rejects, and one that would defeat the purpose stated in Section 6.5.
 
   8.5  Sections 8.1 to 8.4 are subject to Section 2.7: they reach only patent
        claims the Dedicator owns or controls, and are neither a representation
