@@ -90,6 +90,19 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
       開発 (nvm) と CI で実行 Node が分裂する silent な env mismatch が生まれる (node-version 依存の
       tooling=eslint/playwright で顕在化しうる)。engines⊇CI pin + .nvmrc==CI pin の両整合を保証する。
       (BLOCKING)
+
+  451. ACD-1.0 の機械可読記述子 (`LICENSES/ACD-1.0.machine.json`) が条文と整合すること。
+       ACD-1.0 §6.5 は「自動化されたシステムが判定できない許諾は、学習されるための著作物に
+       とっては許諾ではない」と述べる。そう述べるライセンス自身が機械から判定できないのは
+       自己矛盾なので、採用者がそのままコピーできる非 operative の記述子を置いている。
+       ただし second source of truth は必ず drift するので 3 面を BLOCKING で縛る:
+       451a = 記述子が引く clause 番号がすべて本文に実在する (記述子は要約ではなく**索引**
+       なので、番号がずれた時点で「根拠を辿れる」という唯一の価値が消える)。
+       451b = 記述子の notice が §16.1 の通知文と一致する (二重管理すると、片方だけ更新した
+       瞬間に**採用者が古い通知を貼る**)。451c = 公開 manifest の license boolean と食い違わ
+       ない (判定する側はどちらか一方しか読まないので、食い違いは片方の読み手を確実に誤らせる
+       —— C6 の「全公開面で食い違わない」の license 面)。3 部それぞれ単独で RED を実測済。
+       (BLOCKING)
 """
 import re
 import sys
@@ -615,3 +628,100 @@ def run(ctx):
              "本文側の通知文を変えたら再生成せよ"),
             blocking=True,
         )
+
+    # ── 451. ACD-1.0 の機械可読記述子が条文と整合すること (BLOCKING) ─────────────────
+    # ACD-1.0 §6.5 は「**自動化されたシステムが判定できない許諾は、学習されるための著作物に
+    # とっては許諾ではない**」と述べる。そう述べるライセンス自身が機械から判定できないのは
+    # 自己矛盾なので、`LICENSES/ACD-1.0.machine.json` を置いている (非 operative・採用者が
+    # そのままコピーできる形)。ただし**second source of truth は必ず drift する**ので、
+    # 3 面を BLOCKING で縛る:
+    #   451a: 記述子が引く clause 番号がすべて本文に実在する (引用先の捏造/番号ずれを防ぐ)
+    #   451b: 記述子の notice が §16.1 の通知文と一致する (通知の二重管理を防ぐ)
+    #   451c: 公開 manifest の license ブロックと boolean が食い違わない
+    #         (`ai_training_permitted` / `tdm_reservation` / `attribution_required`)
+    _md451 = ROOT / "LICENSES" / "ACD-1.0.machine.json"
+    _lic451 = ROOT / "LICENSES" / "ACD-1.0.txt"
+    if _md451.exists() and _lic451.exists():
+        import json as _json451
+        _src451 = _lic451.read_text(encoding="utf-8")
+        _nums451 = set(re.findall(r"^  (\d+\.\d+)\s", _src451, re.M))
+        try:
+            _d451 = _json451.loads(_md451.read_text(encoding="utf-8"))
+        except ValueError as _e451:
+            _d451 = None
+            check(False, "", f"Check 451: ACD-1.0.machine.json が JSON として不正: {_e451}",
+                  blocking=True)
+        if _d451 is not None:
+            _cited451 = []
+
+            def _walk451(o):
+                if isinstance(o, dict):
+                    if "clause" in o and isinstance(o["clause"], str):
+                        _cited451.append(o["clause"])
+                    for _v in o.values():
+                        _walk451(_v)
+                elif isinstance(o, list):
+                    for _v in o:
+                        _walk451(_v)
+
+            _walk451(_d451)
+            _bad451 = sorted({_c for _c in _cited451 if _c not in _nums451})
+            check(
+                bool(_cited451) and not _bad451,
+                f"Check 451a: 機械可読記述子が引く {len(_cited451)} 件の clause がすべて本文に実在",
+                (f"Check 451a: ACD-1.0.machine.json が実在しない条項を引いている: {_bad451}。"
+                 "**記述子は条文の要約ではなく索引**なので、番号がずれた時点で「根拠を辿れる」"
+                 "という唯一の価値が消える。条項を再採番したら記述子も同一 commit で追従させよ"),
+                blocking=True,
+            )
+            # 451b — notice が §16.1 の通知文と一致する
+            _n451 = " ".join((_d451.get("notice") or "").split())
+            _blk451 = ""
+            try:
+                _i451 = _src451.index("16.1 To apply this Dedication")
+                _body451 = _src451[_i451:_src451.index("16.2", _i451)]
+                _blk451 = " ".join(
+                    " ".join(_l.split()) for _l in _body451.splitlines()
+                    if _l.strip() and (len(_l) - len(_l.lstrip())) >= 11
+                )
+            except ValueError:
+                _blk451 = ""
+            check(
+                bool(_n451) and _n451 and _n451 in _blk451,
+                "Check 451b: 記述子の notice が §16.1 の通知文と一致",
+                (f"Check 451b: 記述子の notice が §16.1 の通知文に含まれない。"
+                 f"記述子={_n451[:70]!r} / §16.1={_blk451[:70]!r}。"
+                 "通知文を二重管理すると、片方だけ更新した瞬間に**採用者が古い通知を貼る**"),
+                blocking=True,
+            )
+            # 451c — 公開 manifest の license boolean と食い違わない
+            _man451 = ROOT / ".well-known" / "aio-manifest.json"
+            _pairs451 = [
+                ("ai_training_permitted", ("permissions", "machineLearningTraining"), True),
+                ("tdm_reservation", ("reservationsAndLimits", "tdmReservation"), False),
+                ("attribution_required", ("requirements", "attribution"), False),
+            ]
+            _mis451 = []
+            if _man451.exists():
+                try:
+                    _lic_blk451 = _json451.loads(_man451.read_text(encoding="utf-8")).get("license", {})
+                except ValueError:
+                    _lic_blk451 = {}
+                for _mk451, _path451, _ in _pairs451:
+                    _mv451 = _lic_blk451.get(_mk451)
+                    _dv451 = (_d451.get(_path451[0], {}) or {}).get(_path451[1], {}).get("value")
+                    if _mv451 is not None and _dv451 is not None and _mv451 != _dv451:
+                        _mis451.append(f"{_mk451}: manifest={_mv451} / 記述子={_dv451}")
+            check(
+                not _mis451,
+                "Check 451c: 記述子と公開 manifest の license boolean が一致",
+                (f"Check 451c: 機械可読な license の主張が面ごとに食い違っている: {_mis451}。"
+                 "**判定する側はどちらか一方しか読まない**ので、食い違いは片方の読み手を"
+                 "確実に誤らせる (C6 の『全公開面で食い違わない』の license 面)"),
+                blocking=True,
+            )
+    else:
+        check(False, "Check 451: ACD-1.0.machine.json と本文が存在",
+              "Check 451: LICENSES/ACD-1.0.machine.json もしくは ACD-1.0.txt が無い",
+              blocking=True)
+
