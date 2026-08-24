@@ -579,9 +579,19 @@ PREAMBLE (informative; not part of the operative terms)
        and the identifier continue to denote one fixed text. A modified text
        may be distributed under a different name.
 
-  16.5 Section 16.4 governs the text of this Dedication as a document. It is
-       not a term of the Work, it binds no recipient of the Work, and Section
-       10.5 applies.
+  16.5 A translation is not a modified text for the purpose of Section 16.4,
+       and may be distributed under the name and the identifier, provided it is
+       identified as a translation and states that the English text prevails
+       (Section 15.8). Section 15.8 contemplates translations, and a rule that
+       made them undistributable under the name would put the two Sections at
+       odds and would keep this Dedication out of the hands of readers who do
+       not read English. The proviso in this Section is a condition upon
+       distributing the translated text, not upon any use of the Work, and
+       Section 10.5 applies.
+
+  16.6 Sections 16.4 and 16.5 govern the text of this Dedication as a document.
+       They are not terms of the Work, they bind no recipient of the Work, and
+       Section 10.5 applies.
 
 
 END OF TERMS

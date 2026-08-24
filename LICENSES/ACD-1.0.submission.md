@@ -176,6 +176,11 @@ Omissions are design decisions too, and the committee will ask about several of 
   this either. The same protection is achieved from the other side: Section 5.2(a) is a
   covenant by the *licensor* not to apply technological measures to the Work or to invoke
   anti-circumvention law against You.
+- **No barrier to translation.** Section 16.4 fixes the text that the name denotes, but
+  Section 16.5 makes a translation an express exception: it may carry the name and the
+  identifier so long as it is identified as a translation and states that the English text
+  prevails. A rule that kept translations out would have put Section 16.4 at odds with
+  Section 15.8 and would have kept the licence away from readers who do not read English.
 - **No trademark licence.** Section 11.1. Trademarks identify origin, and an unconditional
   grant would mislead. Section 11.2 preserves truthful nominative reference.
 - **No provenance or disclosure requirement for AI output.** Section 6.4 says outputs are
