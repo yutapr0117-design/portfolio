@@ -292,11 +292,11 @@ PREAMBLE (informative; not part of the operative terms)
        where the infringement is caused by subject matter contained in the Work
        as made available by the Dedicator.
 
-  8.2  The licence in Section 8.1 is subject to no condition and is not
-       terminable by the Dedicator on any ground, including the commencement of
-       or participation in patent litigation by You against the Dedicator or
-       any other person. This Dedication contains no patent retaliation
-       provision, and its absence is deliberate.
+  8.2  The licences granted by Sections 8.1 and 8.4 are subject to no condition
+       and are not terminable by the Dedicator on any ground, including the
+       commencement of or participation in patent litigation by You against the
+       Dedicator or any other person. This Dedication contains no patent
+       retaliation provision, and its absence is deliberate.
 
   8.3  Nothing in this Dedication reserves, preserves, or leaves unaffected any
        patent right of the Dedicator in respect of the Work. A dedication that
