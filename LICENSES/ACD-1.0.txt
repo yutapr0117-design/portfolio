@@ -155,6 +155,18 @@ PREAMBLE (informative; not part of the operative terms)
        at the Dedicator, which would leave the longest-lived risk, the change
        of hands, open.
 
+  2.9  This Dedication is fully performed when it is applied. It leaves no
+       continuing obligation on the Dedicator (Section 13.3) and none on You
+       (Section 10.1), and so is not executory. No insolvency, bankruptcy,
+       administration, receivership, liquidation, dissolution, or similar
+       proceeding in respect of the Dedicator, and no act of a trustee,
+       administrator, receiver, liquidator, or equivalent officer, affects a
+       permission granted here or revives a right given away. Such an officer
+       is a person to whom rights are transferred for the purposes of Section
+       2.8. Insolvency is stated separately because it is the most common way
+       in which rights change hands against the wishes of the person who gave
+       them away.
+
 
 3. DEDICATION OF COVERED RIGHTS
 

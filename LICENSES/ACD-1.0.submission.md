@@ -105,7 +105,7 @@ seven respects, each of which is operative rather than stylistic:
 | Sui generis database right | silent | 7.1–7.2 (extraction and re-utilisation of a substantial part, repeatedly and systematically) |
 | Moral rights | silent | 12.1–12.6: waiver, and in jurisdictions where moral rights cannot be waived, a covenant not to exercise them **limited to the Work** and binding successors |
 | Machine-generated material | silent | 9.1–9.4 |
-| Irrevocability / successors | silent | 2.2, 2.5 (reliance and estoppel), 2.8 (Sections 3, 4 and 8 bind successors and transferees) |
+| Irrevocability / successors | silent | 2.2, 2.5 (reliance and estoppel), 2.8 (Sections 3, 4, 6 and 8 bind successors and transferees), 2.9 (not executory; unaffected by insolvency and by the acts of a trustee) |
 
 The enumerated acts also differ: 0BSD's four verbs do not cover sublicensing, communication
 to the public, public performance or display, rental, or adaptation, which ACD-1.0 Section
