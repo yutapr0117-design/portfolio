@@ -47,6 +47,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
          441e: `LICENSE` が `SPDX-License-Identifier: ACD-1.0` を宣言し、全文ファイルの
                path を実際に参照していること (**存在 ≠ 配線** —— 全文があっても LICENSE が
                指していなければ、受領者はどの条項に従うのか判定できない)。
+       441f = 本文が**純 ASCII** であること (あらゆる符号化のファイルへ埋め込まれる資産なので、非 ASCII 1 文字で latin-1 系の環境が mojibake になり byte 比較にも正規化の議論が要る)。441g = 本文に**プロジェクト固有の要素が無い**こと —— §16.3 が条文で「いかなるプロジェクトにも固有ではない」と主張し、SPDX の inclusion principles も同じことを要件にするので、主張と実態が乖離すれば提出はその一点で崩れる。
 
   447. **制約を「列挙する」機械可読面が正典の C1–C7 名を使うこと (BLOCKING)**:
        `.well-known/mcp.json` の `audit_architecture_constraints` prompt は、エージェントが
@@ -474,6 +475,47 @@ def run(ctx):
             (f"Check 441e: LICENSE の配線が欠けている: {_miss441}。"
              "全文ファイルが存在しても LICENSE がそれを指していなければ、受領者は"
              "どの条項に従うのか判定できない (#133/#134/#135 の silent-critical 配線 class の権利面)"),
+            blocking=True,
+        )
+
+        # 441f — 本文が純 ASCII であること。
+        # ライセンス本文は **あらゆる符号化のファイルへ埋め込まれる**ことを前提にした資産で、
+        # 非 ASCII が 1 文字あるだけで latin-1 系の環境で mojibake になり、byte 比較にも
+        # 正規化の議論が要る。2026-08-24 に em dash 3 箇所を ASCII へ置換して純 ASCII 化した
+        # (英語としても non-restrictive clause なのでカンマの方が自然だった)。
+        _nonascii441 = sorted({_c for _c in _src441 if ord(_c) > 127})
+        check(
+            not _nonascii441,
+            "Check 441f: ACD-1.0 本文が純 ASCII (あらゆる符号化のファイルへ埋め込める)",
+            (f"Check 441f: ACD-1.0 本文に非 ASCII 文字がある: {_nonascii441[:8]}。"
+             "本文は**あらゆる符号化のファイルへ埋め込まれる**ことを前提にした資産で、"
+             "非 ASCII が 1 文字あるだけで latin-1 系の環境で mojibake になり、byte 比較にも"
+             "正規化の議論が要る。ASCII の等価表現へ置換せよ"),
+            blocking=True,
+        )
+
+        # 441g — 本文に特定プロジェクト固有の要素が入り込まないこと。
+        # §16.3 は「本 Dedication はいかなるプロジェクト・人・組織・法域・事業分野にも固有では
+        # ない」と**条文で主張している**。SPDX の inclusion principles も「特定のプロジェクト・
+        # 団体・企業に固有でないこと」を要件にする。主張と実態が乖離すれば、提出はその一点で
+        # 崩れる。プロジェクト固有の記述は `LICENSE` 側 (適用の宣言) が持つ。
+        _proj441 = []
+        for _pat441, _label441 in [
+            (r"portfolio", "プロジェクト名"),
+            (r"Yokoi|Yuta|\u6a2a\u4e95", "個人名"),
+            (r"https?://", "URL"),
+            (r"github", "リポジトリ参照"),
+            (r"Nihon Keiei|nkgr", "組織名"),
+        ]:
+            if re.search(_pat441, _src441, re.I):
+                _proj441.append(_label441)
+        check(
+            not _proj441,
+            "Check 441g: ACD-1.0 本文にプロジェクト固有の要素が無い (§16.3 の主張が真)",
+            (f"Check 441g: ACD-1.0 本文にプロジェクト固有の要素がある: {_proj441}。"
+             "**§16.3 は条文で「いかなるプロジェクトにも固有ではない」と主張しており**、"
+             "SPDX の inclusion principles も同じことを要件にする。主張と実態が乖離すれば"
+             "提出はその一点で崩れる。プロジェクト固有の記述は `LICENSE` 側 (適用の宣言) へ"),
             blocking=True,
         )
     else:
