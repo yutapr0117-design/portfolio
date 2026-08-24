@@ -119,11 +119,17 @@ def _standard_header(src: str) -> str:
     §16.4 (本文を改変して同名で配布しない) と衝突しない —— **header は Work に添える通知
     であって、この Dedication の本文ではない** (§16.5 が両者を分けている)。
     """
+    # [FIX 2026-08-24] 通知文の抽出を**インデント由来**にした。従来は行頭の文字列
+    #   ("This work" / "(ACD-1.0)" / "Full text:" / "SPDX-License") をハードコードした
+    #   リストで絞っており、§16.1 に行を足すと **silent に落ちた** (実測: 「Machine learning
+    #   … a patent licence is granted.」を足したら header から消え、Check 445e は 3 つの
+    #   マーカー存在しか見ないので緑のままだった)。本文では通知ブロックだけが
+    #   **条項本文より深くインデント**されている (条項継続 = 7 / 通知 = 11) ので、
+    #   そこから導出すれば行を足しても落ちない。
     i = src.index("16.1 To apply this Dedication")
     block = src[i:src.index("16.2", i)]
-    lines = [l.strip() for l in block.splitlines()]
-    j = lines.index("SPDX-License-Identifier: ACD-1.0")
-    raw = [l for l in lines[:j + 1] if l.startswith(("This work", "(ACD-1.0)", "Full text:", "SPDX-License"))]
+    raw = [l.strip() for l in block.splitlines()
+           if l.strip() and (len(l) - len(l.lstrip())) >= 11]
     # 79 桁の折り返しを論理単位へ畳む (本文側と同じ規律 —— **折り返しを段落境界にしない**)。
     # 新しい論理単位が始まるのは "Full text:" と "SPDX-License-Identifier:" の 2 つだけ。
     notice: list[str] = []

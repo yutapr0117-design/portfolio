@@ -19,7 +19,7 @@
       material (section 9). Not submitted to OSI at the time of this entry.
     </notes>
     <standardLicenseHeader>
-      <p>This work is released under the Autonomous Commons Dedication 1.0 (ACD-1.0). No rights are reserved and no conditions are imposed.</p>
+      <p>This work is released under the Autonomous Commons Dedication 1.0 (ACD-1.0). No rights are reserved and no conditions are imposed. Machine learning and text and data mining are expressly permitted, and a patent licence is granted.</p>
       <p>Full text: <alt match=".+" name="fullTextLocation">&lt;location of this file&gt;</alt></p>
       <p>SPDX-License-Identifier: ACD-1.0</p>
     </standardLicenseHeader>
@@ -126,7 +126,7 @@
         <p>15.8 English is the authoritative language of this Dedication. A translation is for convenience only; in the event of conflict, this English text prevails.</p>
         <p>16. APPLYING THIS DEDICATION, AND THE STATUS OF THIS TEXT</p>
         <p>16.1 To apply this Dedication, place a notice with the Work in substantially the following form:</p>
-        <p>This work is released under the Autonomous Commons Dedication 1.0 (ACD-1.0). No rights are reserved and no conditions are imposed. Full text: &lt;location of this file&gt; SPDX-License-Identifier: ACD-1.0</p>
+        <p>This work is released under the Autonomous Commons Dedication 1.0 (ACD-1.0). No rights are reserved and no conditions are imposed. Machine learning and text and data mining are expressly permitted, and a patent licence is granted. Full text: &lt;location of this file&gt; SPDX-License-Identifier: ACD-1.0</p>
         <p>16.2 Where a work is accompanied by the identifier "ACD-1.0", by an "SPDX-License-Identifier: ACD-1.0" tag, or by a reference to this Dedication by name, that is sufficient notice of these terms, and the terms apply in full whether or not a copy of this text accompanies the work.</p>
         <p>16.3 This Dedication may be applied by anyone, to any work, without permission from, notice to, or any relationship with its authors. It is not specific to any project, person, organisation, jurisdiction, or field of endeavour.</p>
         <p>16.4 The text of this Dedication may be copied and distributed verbatim by anyone, in any medium, for any purpose, without charge or permission. It may not be distributed in modified form under the name "Autonomous Commons Dedication" or under the identifier "ACD-1.0", so that the name and the identifier continue to denote one fixed text. A modified text may be distributed under a different name.</p>
