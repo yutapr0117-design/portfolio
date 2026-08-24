@@ -103,6 +103,16 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        ない (判定する側はどちらか一方しか読まないので、食い違いは片方の読み手を確実に誤らせる
        —— C6 の「全公開面で食い違わない」の license 面)。3 部それぞれ単独で RED を実測済。
        (BLOCKING)
+
+  452. 提出準備マーカー `LICENSES/READY-TO-SUBMIT.md` が実態と一致すること。マーカーは
+       「ACD-1.0 がレビュー結果を見たいと思える水準に達した」という判断を **ファイルの存在**
+       で表す成果物で、`ACD-1.0.submission.md` が「これが無い限り送るな」と参照している。
+       **マーカーは腐ると最も危険な文書**である —— 条文を改訂したあと数値が古いままだと、
+       読み手は「達した」という判断を **別のテキストについて** 読むことになる。存在するときだけ、
+       主張する実測値 (節数 / 項数 / 行数) が本文と一致することと、**文中から導出した**参照先が
+       すべて実在することを検証する。参照先をハードコード一覧の「文中に現れたら見る」形にすると、
+       **参照を別の名前へ書き換えた瞬間に検査対象から外れる** (非 vacuity 検証で実測)。
+       判断そのものを撤回するならファイルを削除するのが正しい。 (BLOCKING)
 """
 import re
 import sys
@@ -724,4 +734,47 @@ def run(ctx):
         check(False, "Check 451: ACD-1.0.machine.json と本文が存在",
               "Check 451: LICENSES/ACD-1.0.machine.json もしくは ACD-1.0.txt が無い",
               blocking=True)
+
+    # ── 452. 提出準備マーカーが実態と一致すること (BLOCKING) ─────────────────────────
+    # `LICENSES/READY-TO-SUBMIT.md` は「レビュー結果を見たいと思える水準に達した」という判断を
+    # **ファイルの存在**で表すマーカーで、`ACD-1.0.submission.md` が「これが無い限り送るな」と
+    # 参照している。**マーカーは腐ると最も危険な文書**である —— 条文を改訂したあと数値が古い
+    # ままだと、読み手は「達した」という判断を **別のテキストについて**読むことになる。
+    # 存在するときだけ、主張する実測値 (節数 / 項数 / 行数) と参照ファイルの実在を検証する。
+    _rts452 = ROOT / "LICENSES" / "READY-TO-SUBMIT.md"
+    _lic452 = ROOT / "LICENSES" / "ACD-1.0.txt"
+    if _rts452.exists() and _lic452.exists():
+        _src452 = _lic452.read_text(encoding="utf-8")
+        _txt452 = _rts452.read_text(encoding="utf-8")
+        _real452 = {
+            "節": len(re.findall(r"^\d+\. [A-Z]", _src452, re.M)),
+            "項": len(re.findall(r"^  \d+\.\d+\s", _src452, re.M)),
+            "行": len(_src452.splitlines()),
+        }
+        _claim452 = re.search(r"(\d+) 節 / (\d+) 項 / (\d+) 行", _txt452)
+        _bad452 = []
+        if not _claim452:
+            _bad452.append("実測値の記載 (`N 節 / N 項 / N 行`) が見つからない")
+        else:
+            for _k452, _v452 in zip(("節", "項", "行"), _claim452.groups()):
+                if int(_v452) != _real452[_k452]:
+                    _bad452.append(f"{_k452}: 記載={_v452} / 実測={_real452[_k452]}")
+        # 参照先は**文中から導出**する。ハードコードした一覧を「文中に現れたら見る」形にすると、
+        # **参照を別の名前へ書き換えた瞬間に検査対象から外れる** (2026-08-24 の非 vacuity 検証で
+        # 実測: `ACD-1.0.spdx.xml` を存在しない名前へ替えても緑のままだった)。
+        for _ref452 in sorted(set(re.findall(
+                r"(?:LICENSES|docs|\.github)/[\w./-]+\.(?:txt|md|xml|json|py)", _txt452))):
+            if not (ROOT / _ref452).exists():
+                _bad452.append(f"参照先が無い: {_ref452}")
+        check(
+            not _bad452,
+            f"Check 452: 提出準備マーカーが実態と一致 ({_real452['節']} 節 / "
+            f"{_real452['項']} 項 / {_real452['行']} 行)",
+            (f"Check 452: READY-TO-SUBMIT.md が実態とずれている: {_bad452}。"
+             "**マーカーは腐ると最も危険な文書** —— 条文を改訂したあと数値が古いままだと、"
+             "読み手は「レビュー結果を見たい水準に達した」という判断を **別のテキストについて** "
+             "読むことになる。条文を触ったら同一 commit で数値も更新せよ "
+             "(判断そのものを撤回するなら、ファイルを削除するのが正しい)"),
+            blocking=True,
+        )
 
