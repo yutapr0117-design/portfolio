@@ -206,7 +206,15 @@ PREAMBLE (informative; not part of the operative terms)
        choose, including terms that impose conditions upon Your own recipients
        and including terms that are incompatible with these. Nothing here
        limits what those terms may be, requires them to reproduce this text,
-       or reaches Your recipients through You.
+       or places any obligation on You in respect of Your recipients.
+
+  4.6  Section 4.5 concerns the terms You may add. It does not cut Your
+       recipients off from this Dedication: a person who exercises a
+       permission granted here is You in their own right (Section 1.4), the
+       covenants may be relied upon by anyone who receives the Work from You,
+       directly or indirectly (Section 5.3), and no act of acceptance is
+       needed (Section 2.3). Terms You add govern what You give; they do not
+       narrow what the Dedicator has already given in respect of the Work.
 
 
 5. COVENANT NOT TO ASSERT
@@ -225,7 +233,7 @@ PREAMBLE (informative; not part of the operative terms)
        (b)  impose by contract, terms of service, access condition, click-
             through, registration requirement, or any other collateral means
             an obligation in respect of the Work that this Dedication does not
-            itself impose, this Dedication imposing none (Section 10.1); or
+            itself impose — and it imposes none (Section 10.1); or
 
        (c)  assert that any permission granted here is narrower than Section
             15.1 requires it to be read.
