@@ -185,7 +185,7 @@ PREAMBLE (informative; not part of the operative terms)
        surrendered but permits it to be waived, the Dedicator waives it.
 
 
-4. LICENCE
+4. LICENCE OF COVERED RIGHTS
 
   4.1  The Dedicator grants You a worldwide, royalty-free, non-exclusive,
        irrevocable, perpetual, sublicensable, and transferable licence to
@@ -301,7 +301,7 @@ PREAMBLE (informative; not part of the operative terms)
        without condition.
 
 
-8. PATENT LICENCE
+8. PATENT LICENCE AND COVENANT
 
   8.1  The Dedicator grants You a worldwide, royalty-free, non-exclusive,
        irrevocable, perpetual, sublicensable, and transferable licence under
