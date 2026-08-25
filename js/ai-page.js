@@ -9,12 +9,14 @@
  * (最も安全な抽出単位)。これを別葉モジュールへ分離し apps.js を縮小する。挙動 byte-equivalent。
  *
  * 【公開 API（呼び出し側 main.js から見た形）】
- *   const { AIPage } = createAIPage({ h, createIcon, State, CONSTANTS, announce });
+ *   const { AIPage } = createAIPage({ h, createIcon, State, Router, CONSTANTS, announce });
  *
  * 【依存（引数で注入）】
  *   - h: DOM builder (js/ui-components.js)
  *   - createIcon: SVG アイコン生成 (js/ui-components.js)
  *   - State: アプリ状態ストア (js/state.js) — appsData.ai.history
+ *   - Router: 現在ルート判定 (js/router.js) — 応答到着時に AI 画面を表示中かで
+ *     再描画するか updateSilently に留めるかを分ける (#1056 と同 class)
  *   - CONSTANTS: LIMITS.AI_MESSAGE (prompt bound) 用 (js/constants.js)
  *   - announce: 唯一の SR 通知チャネル (js/ui-components.js) — 応答完了の status message
  *   - window.render / document: グローバル (再描画・focus 復元)
@@ -23,7 +25,7 @@
  *   - AIPage 関数本体と private state (aiLoading) の挙動は抽出元から byte-equivalent
  *   - factory closure 内に閉じることで葉契約（Check 47c: import ゼロ）を維持
  */
-export function createAIPage({ h, createIcon, State, CONSTANTS, announce }) {
+export function createAIPage({ h, createIcon, State, Router, CONSTANTS, announce }) {
 
     // ===== Component: AI Assist Page =====
     let aiLoading = false;
@@ -102,7 +104,9 @@ export function createAIPage({ h, createIcon, State, CONSTANTS, announce }) {
                 //   throw が起きても必ず入力可能へ復帰させる。
                 try {
                     const response = generateResponse(input, type);
-                    State.update(s => {
+                    // [FIX] 見えない画面を作り直さない (#1056 と同 class・経緯は e2e)
+                    const onAiRoute = Router.getRoute().name === 'app-ai';
+                    const applyResponse = s => {
                         s.appsData.ai.history.push({
                             // [FIX] prompt を AI_MESSAGE 上限で bound する (他アプリの入力 slice と同様)。
                             // 従来は無制限保存で、巨大入力が ai.history (last AI_HISTORY 件) に蓄積し localStorage を
@@ -113,7 +117,9 @@ export function createAIPage({ h, createIcon, State, CONSTANTS, announce }) {
                         });
                         // 履歴保持件数は store.js normalize と同じ CONSTANTS.LIMITS.AI_HISTORY 単一ソース (Check 369 が drift 防止)
                         s.appsData.ai.history = s.appsData.ai.history.slice(-CONSTANTS.LIMITS.AI_HISTORY);
-                    });
+                    };
+                    if (onAiRoute) { State.update(applyResponse); }
+                    else { State.updateSilently(applyResponse); }
                     // [A11Y 4.1.3 Status Messages] 応答は非同期に history へ追加されるだけで、SR ユーザーには
                     //   生成完了が伝わらなかった (入力欄の再有効化は非 focus 要素では気付けない)。永続 assertive
                     //   aria-live 領域 (#action-announcement・Toast と同じ即時フィードバック経路・#content 外ゆえ
@@ -123,10 +129,13 @@ export function createAIPage({ h, createIcon, State, CONSTANTS, announce }) {
                     announce('AI が応答しました');
                 } finally {
                     aiLoading = false;
-                    // 万一の throw で State.update の notify が走らない場合でもローディング表示を解除。
-                    try { window.render(); } catch { /* noop */ }
-                    // 応答完了後に再度入力できるようフォーカスを復元
-                    setTimeout(() => document.getElementById('ai-input')?.focus(), 0);
+                    // 同上 (無条件 render は上の回避を無効化する)
+                    if (Router.getRoute().name === 'app-ai') {
+                        // 万一の throw で notify が走らない場合でもローディング表示を解除。
+                        try { window.render(); } catch { /* noop */ }
+                        // 応答完了後に再度入力できるようフォーカスを復元
+                        setTimeout(() => document.getElementById('ai-input')?.focus(), 0);
+                    }
                 }
             }, 300);
         }

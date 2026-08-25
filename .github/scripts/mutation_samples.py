@@ -956,4 +956,17 @@ _E2E_TAIL.append({
     "test": "320px 幅でどのルートも横スクロールしない",
 })
 
+_E2E_TAIL.append({
+    "name": "AI 応答到着時のルート判定を潰す —— 応答は submit の 300ms 後に非同期で届くので、"
+            "その間に別アプリへ移っているのは普通にある。ルートを見ずに State.update すると "
+            "notify → #content の全再描画が起き、**操作していない画面の未送信入力が消える** "
+            "(実測: AI-INTERRUPT-DRAFT → \"\")。#994 の focus 復元が id で働くぶん "
+            "**activeElement は残って値だけ消える**ので、利用者は原因に見当がつかない。"
+            "#982 / #1055 / #1056 と同じ class",
+    "file": ROOT / "js" / "ai-page.js",
+    "find": "if (onAiRoute) { State.update(applyResponse); }",
+    "replace": "if (true) { State.update(applyResponse); }",
+    "test": "別アプリで入力中のテキストを消さない",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

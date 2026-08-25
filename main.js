@@ -495,7 +495,7 @@
             h, createIcon, Toast, State, CONSTANTS, generateId, clamp, announce
         });
         // 2026-07-04 bloat-reduction: AIPage は別葉モジュール createAIPage で生成 (依存は h/createIcon/State/CONSTANTS のみ)
-        const { AIPage } = createAIPage({ h, createIcon, State, CONSTANTS, announce });
+        const { AIPage } = createAIPage({ h, createIcon, State, Router, CONSTANTS, announce });
         // 2026-07-04 bloat-reduction: PomodoroPage は別葉モジュール createPomodoroPage で生成 (依存は h/createIcon/State/Router/Toast/clamp/CONSTANTS)
         const { PomodoroPage, resumeIfActive } = createPomodoroPage({ h, createIcon, State, Router, Toast, clamp, CONSTANTS });
         // 2026-07-05 bloat-reduction: SettingsPage は別葉モジュール createSettingsPage で生成
