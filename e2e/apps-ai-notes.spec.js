@@ -831,3 +831,60 @@ test('Markdown ノートの見出しは書き始めのレベルに関わらず p
   await setNote('### 設計メモ\n\n### 次の章\n\n本文');
   expect(await headings(), '### 始まりで見出しが飛んでいる').toEqual(['H1', 'H2', 'H2', 'H3', 'H3']);
 });
+
+// ===== AI の応答到着が、別アプリで入力中のテキストを消さない (#1056 と同 class) =====
+// AI の応答は submit の 300ms 後に非同期で届く。その間に利用者が別のアプリへ移っているのは
+// 普通にあり、旧実装は **ルートを見ずに State.update → notify → #content の全再描画** を
+// 起こしていた。実測 (2026-08-25): AI へ送信した直後にタスク画面で入力すると、応答が届いた
+// 瞬間に `AI-INTERRUPT-DRAFT` → `""` になった。
+//
+// **この class が最悪なのは、focus は残って値だけ消えること。** #994 の focus 復元は id を
+// 鍵に働くので activeElement は `task-input` のまま戻る。利用者から見ると「打っていた文字だけ
+// が消えた」で、自分の操作とは無関係なので原因に見当がつかない (#982 テーマ切替 /
+// #1055 絞り込み / #1056 ポモドーロ完了と同じ驚き方)。
+//
+// 修正は house pattern に揃えた —— **表示中のルートだけ再描画し、それ以外は updateSilently**。
+// 再描画の経路は 2 本あった (State.update と finally の window.render) ので両方を塞いだ。
+test('AI の応答到着が、別アプリで入力中のテキストを消さない', async ({ page }) => {
+  const settle = async (hash) => {
+    const prev = await page
+      .evaluate(() => {
+        try { return JSON.parse(document.body.dataset.aiState || '{}').route ?? null; }
+        catch { return null; }
+      })
+      .catch(() => null);
+    await page.goto(`/${hash}`, { waitUntil: 'domcontentloaded' });
+    await page.waitForFunction(
+      (p) => {
+        try {
+          const s = JSON.parse(document.body.dataset.aiState || '{}');
+          return typeof s.route === 'string' && s.loading === false && (p === null || s.route !== p);
+        } catch { return false; }
+      },
+      prev,
+      { timeout: 10000 }
+    );
+  };
+
+  await settle('#/apps/ai');
+  await page.locator('#ai-input').fill('設計について教えて');
+  await page.getByRole('button', { name: '送信', exact: true }).click();
+
+  // 応答 (300ms) を待たずに別アプリへ移り、入力する
+  await settle('#/apps/task');
+  const input = page.getByLabel('新しいタスクを入力');
+  await input.fill('AI-INTERRUPT-DRAFT');
+  await expect(input, 'control: 入力自体ができていない').toHaveValue('AI-INTERRUPT-DRAFT');
+
+  // 応答が届く時間を十分に過ぎてから読む。**不変性の検査なので poll は使わない**
+  // (poll は最初の観測で成立してしまう)。settle 後に 1 度だけ読む。
+  await page.waitForTimeout(1500);
+  await expect(input, 'AI の応答到着で、操作していないタスク入力が消えた').toHaveValue('AI-INTERRUPT-DRAFT');
+
+  // control: 応答は実際に届いている (届いていなければ、この test は何も検査していない)
+  await settle('#/apps/ai');
+  await expect(
+    page.locator('.chat-bubble-own').first(),
+    'control: AI へ送信した履歴が残っていない — 応答経路を通っていない'
+  ).toBeVisible();
+});

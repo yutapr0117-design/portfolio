@@ -9,7 +9,7 @@ canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/state.js (appsData
 
 ## What
 
-`route 'apps/ai'` (AI アシスト・ローカル版 — 外部 API 非依存のブラウザ内 AI 支援) をレンダリングする葉モジュール。`createAIPage({ h, createIcon, State, CONSTANTS, announce })` が `AIPage()` 関数を返す factory。private state `aiLoading` と local helper (analyzeInput / generateResponse / submit / buildUI) を内包する。
+`route 'apps/ai'` (AI アシスト・ローカル版 — 外部 API 非依存のブラウザ内 AI 支援) をレンダリングする葉モジュール。`createAIPage({ h, createIcon, State, Router, CONSTANTS, announce })` が `AIPage()` 関数を返す factory。private state `aiLoading` と local helper (analyzeInput / generateResponse / submit / buildUI) を内包する。
 
 ## Why
 
@@ -17,7 +17,7 @@ canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/state.js (appsData
 
 ## How
 
-- `main.js` が `createAIPage({ h, createIcon, State, CONSTANTS, announce })` で生成し、render dispatch (route 'apps/ai') が `AIPage()` を呼ぶ。
+- `main.js` が `createAIPage({ h, createIcon, State, Router, CONSTANTS, announce })` で生成し、render dispatch (route 'apps/ai') が `AIPage()` を呼ぶ。
 - `submit()` は入力を analyzeInput で troubleshoot/design/general に分類し generateResponse でローカル応答を生成、`State.update` で ai.history (last `CONSTANTS.LIMITS.AI_HISTORY` = 80 件) に push。
 - **stuck-state fail-safe (#555)**: setTimeout 本体を try/finally で包み、generateResponse/State.update が throw しても finally で必ず `aiLoading=false` + 再描画 + focus 復元。
 - **IME ガード (#151/152 class)**: Enter submit は `!e.isComposing` で日本語変換確定の誤送信を防ぐ。
