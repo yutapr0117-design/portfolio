@@ -9,6 +9,20 @@ from mutation_samples_common import ROOT  # noqa: F401 (entry 内で参照)
 
 E2E_MUTATIONS_ARCHIVE3 = [
     {
+        "name": "本文中のリンクが色だけで判別される状態に戻る (WCAG 1.4.1) — hero-meta のインラインリンクから下線を外すと、周囲の文と **色でしか区別できなくなる**。色覚特性のある利用者やモノクロ表示では「そこがリンクだと分からない」。screenshot は ADVISORY なので pixel が変わっても止まらず、この computed-style テストだけが捕捉層",
+        "file": ROOT / "style.css",
+        "find": "        .hero-meta a {\n            text-decoration: underline;\n        }",
+        "replace": "        .hero-meta a {\n            text-decoration: none;\n        }",
+        "test": "Hero-meta inline link is distinguishable by underline (WCAG 1.4.1, not color-only)",
+    },
+    {
+        "name": "AI 入力の名前が placeholder だけに戻る (WCAG 4.1.2) — aria-label を外すと、SR は placeholder を名前として読む実装もあれば読まない実装もあり、**入力すると placeholder が消えるので名前まで消える**。「何を入力する欄か」が操作の途中で失われる",
+        "file": ROOT / "js" / "ai-page.js",
+        "find": "                                'aria-label': 'AI アシスタントへの依頼を入力',\n",
+        "replace": "",
+        "test": "AI assist main input exposes an accessible name (not placeholder-only)",
+    },
+    {
         "name": "ポモドーロ設定の label が宙に浮く — `for` を外すと **ラベル文字をクリック/タップしても何も起きず**、タップ標的も縮む。入力欄側に aria-label があるため **axe は緑のまま**で、#1014 で 6 個まとめて直した class の再混入をこのテストだけが捕捉する",
         "file": ROOT / "js" / "pomodoro-page.js",
         "find": ", for: 'pomo-setting-work' }",

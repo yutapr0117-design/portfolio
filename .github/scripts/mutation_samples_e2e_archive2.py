@@ -400,7 +400,16 @@ E2E_MUTATIONS_ARCHIVE2 = [
         "file": ROOT / "js" / "settings-io.js",
         "find": "        if (Array.isArray(raw)) { return { projects: raw }; }",
         "replace": "            if (false && Array.isArray(raw)) { return { projects: raw }; }",
-        "test": "部分 export (Projectsのみ) を import で戻せる",
+        "test": "旧形式（素の配列）の Projects バックアップも引き続き取り込める",
+        # [FIX 2026-08-26] test-anchor を差し替えた。`Projectsのみ` の書き出しを
+        #   `{ projects, projectPrefs }` へ変えた (#1323: 素の配列だと**非表示設定を運べず**
+        #   復元で隠したプロジェクトが再公開されていた) 結果、旧 anchor
+        #   「部分 export (Projectsのみ) を import で戻せる」は **object 形で往復するようになり、
+        #   `Array.isArray` の枝を通らなくなった**。この mutation はその枝を殺すものなので、
+        #   anchor が指すテストが枝を通らなければ **silent に vacuous 化する**。
+        #   週次 probe が SURVIVED として検出した (Check 362/379/397/420 はいずれも捕捉しない ——
+        #   anchor は解決し一意で、test 題名も実在するから)。**捕捉層は probe だけ。**
+        #   同 PR で足した後方互換テストが、素の配列の枝を通る唯一のテストなのでそちらへ向ける。
     },
     {
         "name": "behavior: 認識できない形式を silent no-op として成功報告する (#1038 の回帰) — 形式判定が null を返さなくなると、何も適用されないまま『インポートが完了しました』が出る。利用者は復元できたと信じてしまう",
@@ -932,19 +941,5 @@ E2E_MUTATIONS_ARCHIVE2 = [
         "find": "                                            q = tag; cat = 'All';",
         "replace": "                                            cat = 'All';",
         "test": "Clicking a project card tag filters projects by that tag",
-    },
-    {
-        "name": "本文中のリンクが色だけで判別される状態に戻る (WCAG 1.4.1) — hero-meta のインラインリンクから下線を外すと、周囲の文と **色でしか区別できなくなる**。色覚特性のある利用者やモノクロ表示では「そこがリンクだと分からない」。screenshot は ADVISORY なので pixel が変わっても止まらず、この computed-style テストだけが捕捉層",
-        "file": ROOT / "style.css",
-        "find": "        .hero-meta a {\n            text-decoration: underline;\n        }",
-        "replace": "        .hero-meta a {\n            text-decoration: none;\n        }",
-        "test": "Hero-meta inline link is distinguishable by underline (WCAG 1.4.1, not color-only)",
-    },
-    {
-        "name": "AI 入力の名前が placeholder だけに戻る (WCAG 4.1.2) — aria-label を外すと、SR は placeholder を名前として読む実装もあれば読まない実装もあり、**入力すると placeholder が消えるので名前まで消える**。「何を入力する欄か」が操作の途中で失われる",
-        "file": ROOT / "js" / "ai-page.js",
-        "find": "                                'aria-label': 'AI アシスタントへの依頼を入力',\n",
-        "replace": "",
-        "test": "AI assist main input exposes an accessible name (not placeholder-only)",
     },
 ]
