@@ -1,0 +1,180 @@
+---
+file: LICENSES/ACD-1.0.jurisdictions.md
+audience: ai, human (提出者), 監査人, 採用検討者, 学術研究者, 第三者全般
+last-updated: 2026-08-27
+canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条リファレンス) / LICENSES/ACD-1.0.review-responses-clauses.md (§31 に日本法の論点)
+---
+
+# ACD-1.0 — 法域別に「どこが問いになるか」
+
+```
+本書の性質 : **答えではなく、問いの所在と本文の手当ての地図**である
+            弁護士の確認を経ていない (READY-TO-SUBMIT.md「残る弱点」1)
+書き方     : 各法域について「問い」「本文の手当て (条番号)」「確立していないこと」の 3 段
+禁じ手     : **断定しない。** 助言を得ていない領域で法理を断定するのは、
+            review-responses-meta.md Q10 が警告する
+            「confidently invented doctrine」の実演にほかならない
+```
+
+## 0. なぜこの文書があるのか
+
+「あなたの国では効くかもしれないが、うちの国では効かないのでは」は、公有化型の instrument に
+**必ず**向けられる。そのとき有効なのは、法理を語ることではなく **「その問いは認識していて、
+本文のここで手当てしてある」と条番号で示すこと**である。
+
+**手当てがあることと、それが有効であることは別**である。本書は前者しか主張しない。
+
+## 1. 全法域に共通する構造（これが答えの土台）
+
+どの法域の話であっても、答えの骨格は同じである。
+
+| 層 | 条項 | 効かなかったときに何が残るか |
+|---|---|---|
+| 放棄（public domain 化）| §3.1 / §3.2 | §3.3（waiver として扱う）→ それも駄目なら §15.4 で**その法域に限り**切り離す |
+| ライセンス | §4.1〜§4.3 | **§3 の成否に依存しない**（§4.4）。通常のライセンス法理で立つ |
+| 不行使の約束 | §5.1〜§5.3 | 契約・禁反言の一般法理。承継人にも及ぶ（§5.3）|
+| 特許 | §8.1 / §8.4 | ライセンスが無効なら §8.6 が**同じ範囲の不行使の約束**へ切り替わる |
+| 人格権 | §12.1 | 放棄不能なら §12.2 が**不行使の約束**へ切り替わる |
+
+**§2.4 が「§3・§4・§5・§6 は互いに独立」と定めているのが要**である。段階的なフォールバック
+（まず §3、駄目なら §4）ではないので、**利用者はどの層が効いているかを判定しなくてよい**
+（§4.4 が明示）。
+
+> **English (use when asked "does this work in my country?"):**
+>
+> The honest answer is that I do not know how each jurisdiction will treat Section 3, and the
+> instrument is built so that You do not have to know either. Sections 3, 4, 5 and 6 are
+> independent (Section 2.4); Section 4 is granted without waiting for Section 3 to fail
+> (Section 4.4); Section 5 is a covenant that survives an attack on either; Section 15.4
+> severs a failed provision **as to that jurisdiction only**. So the question "is abandonment
+> effective here?" changes which layer is doing the work, not whether You may use the Work.
+
+---
+
+## 2. 日本（起草者の所在地・必ず問われる）
+
+**問い**: 著作権を放棄できるのか。人格権は放棄できるのか。
+
+**本文の手当て**: §3.3（放棄が不可でも waiver として扱う）/ §4.4（§3 に依存しないライセンス）/
+§12.1（可能な範囲で放棄）→ §12.2（不能なら不行使の約束）/ §12.3（**この Work に限定**）/
+§12.4（承継人）。
+
+**確立していないこと**: 著作権法は放棄の手続を定めておらず、放棄の可否は条文上明らかではない。
+人格権については 59 条が一身専属と定めており、放棄は認められないとするのが一般的な理解である。
+**§12.2 の不行使特約が、どこまでの範囲で・誰に対して効くかは、助言を得ていない。**
+`review-responses-clauses.md` §31 に詳しい姿勢を書いてある。
+
+**なぜ §12.3 が限定しているか**: 無制限の放棄より、**限定したほうが生き残る**という判断による。
+
+---
+
+## 3. ドイツ（公有化否定の代表例として必ず引かれる）
+
+**問い**: 著作権は譲渡も放棄もできないのではないか。作者が考えを変えたら取り戻せるのでは。
+
+**本文の手当て**: §3.3 / §4.4（§3 が効かなくても**通常のライセンス**が残る）/ §2.2（撤回不能の
+意思表明）/ §2.5（**信頼が目的であり、方式や約因の欠如を理由に無効を主張しない**＝禁反言）/
+§15.4（その法域に限り切り離す）。
+
+**確立していないこと**: 著作権の完全な放棄が認められないという理解は広く共有されているが、
+**不行使の約束や撤回不能のライセンスがどこまで拘束するかは、助言を得ていない。**
+
+> **English:**
+>
+> In a system where copyright cannot be alienated and abandonment is generally regarded as
+> ineffective, Section 3 does not achieve a surrender. Section 4 is unaffected — it does not
+> wait for Section 3 to fail (Section 4.4) — so what the user has is an ordinary irrevocable,
+> royalty-free, condition-free licence: the same thing a permissive licence would give them.
+> Section 5 sits underneath as a covenant. Section 2.5 addresses the "no consideration, no
+> formality" attack directly by stating that reliance is the purpose, not a side effect.
+
+---
+
+## 4. フランス（人格権が最も強い）
+
+**問い**: 人格権は永久・不可譲・時効にかからないのではないか。
+
+**本文の手当て**: §12.1 →（放棄不能なら）§12.2 の不行使の約束 / §12.3（Work 限定）/
+§12.4（死後に行使しうる者まで）/ §12.5（**虚偽の帰属に対抗する利益は残す**）/ §12.6（可分）。
+
+**確立していないこと**: 不行使の約束が人格権について有効かは争いがありうる。**§12.5 で
+虚偽帰属への対抗利益を残しているのは、全部を捨てさせない設計だが、それで足りるかは
+助言を得ていない。**
+
+---
+
+## 5. 米国
+
+**問い**: 著作権法に放棄の手続が無いのに、public domain に置けるのか。倒産したらどうなるか。
+
+**本文の手当て**: §4.4（ライセンスが独立）/ §2.5（禁反言）/ **§2.9（履行完了＝未履行双務契約では
+ない）** / §2.8（管財人は「譲受人」に当たると明示）。
+
+**§2.9 の位置づけ**: 未履行双務契約であれば管財人による解除の対象になりうるため、
+**11 U.S.C. §365(n) のような保護規定に頼る構図**になる。§2.9 は「適用時点で履行が完了して
+おり継続債務が無い」と述べることで、その構図に入らないことを主張する。
+
+**確立していないこと**: **裁判所が実際に non-executory と認めるかは保証できない。**
+§2.9 の文言はその主張であって、判断ではない。
+
+---
+
+## 6. EU（TDM と DB 権）
+
+**問い**: TDM の opt-out はどうなっているのか。データベース権は。
+
+**本文の手当て**: §1.10（**Reservation の定義が DSM 指令 4 条 3 項を名指しする** ——
+本文が引用する唯一の外部法令）/ §6.2（**留保しない**と明言）/ §6.3（他者の留保には触れない）/
+§7.1（DB 権も Covered Right）/ §7.2（**extraction / re-utilisation** の語で反復的・体系的な
+利用を許す）。
+
+**なぜ §6.2 が要るのか**: 4 条 3 項の opt-out は「**留保したか**」で決まる。許諾の言明だけでは
+「留保していない」ことの表明にならない —— **沈黙が意味を持つ領域**だからである。
+
+**確立していないこと**: 機械可読な留保の様式やその解釈は各国実装・実務の形成途上である。
+§1.10 は「機械可読な信号・プロトコル要素・ヘッダ」を広く含む書き方にしてあるが、**将来の
+標準に自動的に追随するとは主張していない**。
+
+---
+
+## 7. 英国
+
+**問い**: 人格権の扱いが他の欧州法域と違うのでは。**機械生成著作物に条文があるのでは**。
+
+**本文の手当て**: §12.1（英国では放棄が可能とされているので §12.1 が直接働きうる）/
+§9.1〜§9.3（**機械生成物の権利の存否を利用者の経路から外す**）。
+
+**ここが英国固有で重要**: 英国著作権法は **computer-generated works** について明文を持つ
+（著作者を「創作に必要な手配をした者」とする趣旨の規定）。つまり**他の多くの法域と違い、
+権利が存在しうる**。§9.2 は「存在しなければ何も足さず何も奪わない／**存在すれば §3〜§8 と
+§12 が全面適用される**」と両方向を書いてあるので、この違いで利用者の立場は変わらない。
+
+**確立していないこと**: 当該規定の適用範囲・存続期間の扱い・生成 AI への当てはめは議論が
+続いている。**本書はその議論に立ち入らない。**
+
+---
+
+## 8. その他の法域
+
+個別に扱っていない法域については、**§1 の構造がそのまま答え**になる。§15.4 が「無効な条項は
+その法域に限り切り離す」と定めているので、**未知の法域があること自体は設計に織り込まれている**。
+
+---
+
+## 9. この文書の限界（先に自分から述べる）
+
+1. **弁護士の確認を経ていない。** 本書は条文と公開された一般的理解の対応づけであり、
+   法的助言ではない。
+2. **各法域の記述は「問いの所在」であって結論ではない。** 「確立していないこと」の節を
+   各所に置いてあるのはそのためである。
+3. **法は動く。** 本書は 2026-08-27 時点の理解であり、**引用した唯一の法令（DSM 指令
+   4 条 3 項）以外は条文番号を挙げていない** —— 番号を挙げれば正確さの保証が要るが、
+   本書が主張するのは「本文のどこで手当てしているか」だけだからである。
+4. **訂正を歓迎する。** とくに §12（人格権）と §2.9（non-executory）は、指摘を最も得たい面である。
+
+> **English (closing, if the thread turns to jurisdictions):**
+>
+> I have written down where I think the questions are, jurisdiction by jurisdiction, and
+> which clause is meant to answer each one. I have deliberately not written down what I think
+> the law is, because I have not had counsel look at this and I would rather be shown to have
+> mapped the questions than to have guessed the answers.
