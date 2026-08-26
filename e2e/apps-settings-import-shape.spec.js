@@ -70,6 +70,59 @@ test('部分 export (Projectsのみ) を import で戻せる', async ({ page }) 
 });
 
 // 認識できない形は **エラーとして伝える**。silent no-op に成功メッセージを付けない。
+// [#886 / #1037 の残り枝] 既定プロジェクトは削除できず「非表示」が唯一の非公開手段なので、
+//   バックアップが非表示設定を落とすと **隠したプロジェクトが黙って再公開される**。
+//   フルバックアップは #1037 で projectPrefs を含むよう直したが、`Projectsのみ` は
+//   projects の**素の配列**のままで取り残されていた（実測 2026-08-26: 非表示にした p01 は
+//   フル側の projectPrefs には入るのに、Projectsのみ には入らない）。
+test('Projectsのみ の往復で非表示設定が戻る', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  await page.getByRole('button', { name: '非表示：タスク管理アプリ' }).click();
+  await expect(page.getByRole('button', { name: '表示：タスク管理アプリ' })).toBeVisible();
+
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Projectsのみ', exact: true }).click(),
+  ]);
+  const file = await download.path();
+
+  // control: 書き出したファイルが実際に非表示設定を持つこと。これが無いと、
+  //   下の復元が「たまたま元に戻っていない」だけでも緑になりうる。
+  const written = JSON.parse(require('fs').readFileSync(file, 'utf-8'));
+  expect(Array.isArray(written),
+    'control: 素の配列のままなら非表示設定を運べない').toBe(false);
+  expect(written.projectPrefs && written.projectPrefs.hiddenIds,
+    'control: 書き出しに非表示設定が入っていない').toContain('p01');
+
+  // 非表示を解除してから取り込む（取り込みが効いたことを区別するため）
+  await page.getByRole('button', { name: '表示：タスク管理アプリ' }).click();
+  await expect(page.getByRole('button', { name: '非表示：タスク管理アプリ' })).toBeVisible();
+
+  await page.setInputFiles('#content input[type="file"]', file);
+  await expect(page.getByRole('button', { name: '表示：タスク管理アプリ' })).toBeVisible();
+});
+
+// 旧形式（projects の素の配列）のバックアップは今後も取り込めること。形を変えた以上、
+//   利用者が既に持っているファイルが読めなくなっては「バックアップ」と呼べない。
+test('旧形式（素の配列）の Projects バックアップも引き続き取り込める', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  await page.setInputFiles('#content input[type="file"]', {
+    name: 'legacy-projects.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify([
+      { id: 'legacy-1', name: 'LEGACY-ARRAY-PROJECT', summary: 's', category: 'AI' },
+    ])),
+  });
+
+  await expectNotified(page, '完了');
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content').getByText('LEGACY-ARRAY-PROJECT').first()).toBeVisible();
+});
+
 test('認識できない形式の JSON は成功と report しない', async ({ page }, testInfo) => {
   const fs = require('fs');
   const path = require('path');
