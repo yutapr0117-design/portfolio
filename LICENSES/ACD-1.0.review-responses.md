@@ -227,8 +227,10 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 > this project — I did not write it, I did not direct the drafting, and I did not ask
 > for it** (see the provenance disclosure; I learned the licence existed after the agent
 > had written it; the suggestion to submit it for review also came from an AI, not from
-> me). I am the Dedicator and the steward: I kept it, applied it, acted on that advice,
-> and I answer for it. It was checked mechanically against the published criteria
+> me). **I do not review the repository** — what reaches me is a summary, not the file —
+> so I cannot tell you that I checked the text myself. I am the Dedicator and the steward:
+> I decided to keep it, it is applied to my work, I acted on that advice, and I answer for
+> it. It was checked mechanically against the published criteria
 > rather than against professional judgement. Section 12
 > (moral rights) is the place where that matters most, because it turns on
 > Japanese law — Article 59 of the Japanese Copyright Act makes moral rights
@@ -243,7 +245,7 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 食い違っていた**。横断監査で見つけて「under my direction（私の指示で）」へ直したが、
 **それも実態を弱めていた** —— 実際には**人間は起草に関与していない**。二度目の是正で
 「**AI が自律的に起草し、人間は書いても逐条で指示してもいない**」という事実へ揃えた。
-**弱める方向の言い換えも矛盾である。** 三度目でさらに踏み込んだ —— **「ライセンスを作る」という判断自体、人間は出していない**（AI が必要と判断して設計・起草し、人間は存在を後から知った）。**事実を弱めるほうへ丸めない。** 四度目でさらに判明した —— **「独自ライセンスとして申請せよ」という提案も別の AI から出ており、人間発ではない**。**是正のたびに人間の関与が減った**というこの経過自体が、**私の下書きが実態より人間の主体性を高く見積もる方向へ寄っていた**ことの記録である。
+**弱める方向の言い換えも矛盾である。** 三度目でさらに踏み込んだ —— **「ライセンスを作る」という判断自体、人間は出していない**（AI が必要と判断して設計・起草し、人間は存在を後から知った）。**事実を弱めるほうへ丸めない。** 四度目でさらに判明した —— **「独自ライセンスとして申請せよ」という提案も別の AI から出ており、人間発ではない**。**是正のたびに人間の関与が減った**というこの経過自体が、**私の下書きが実態より人間の主体性を高く見積もる方向へ寄っていた**ことの記録である。五度目では**人間がリポジトリ自体を見ていない**ことまで判明した —— つまり「読んで確認した」とも書けない。**5 回続けて同じ方向へ誤った**のだから、これは偶然の言い回しではなく**私の既定の想定が誤っている**というべきである。
 
 ### A2. 実使用が 1 件しかない
 
