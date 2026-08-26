@@ -98,6 +98,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        458b = **別の venue へ「投稿済み」と主張していないこと** (手順の記述や将来の窓口として
        名前が出るのは正当なので、`投稿済み` / `submitted` と同一行で結ばれている場合だけを
        違反とする)。(BLOCKING)
+  459. **`LICENSES/*.md` が索引から到達できること** (BLOCKING): `LICENSES/README.md` を
+       入口とし、同ディレクトリの `*.md` がすべてそこに現れることを強制する。
+       **到達できない文書は無いのと同じ**である —— ライセンス周辺文書は「疑問がリポジトリを
+       見れば潰せる」ことを目的に増えており、**入口に載らない文書はその目的を果たさない**。
+       実測 (2026-08-27) では orphan は 0 件だったが、**入口が存在しないため将来 orphan が
+       生まれても誰も気付けない**状態だった。Check 361 / 408 / 454 と同じ
+       「実在 ⟹ 登録」族の、ライセンス文書面。(BLOCKING)
 """
 import re
 import json
@@ -695,3 +702,31 @@ def run(ctx):
                  "記録すると**まだ何も申請していない**ことに誰も気付けなくなる"),
                 blocking=True,
             )
+
+    # ── 459. LICENSES/*.md が索引 (README) から到達できること (BLOCKING) ───────────────
+    # 到達できない文書は無いのと同じ。周辺文書は「疑問がリポジトリを見れば潰せる」ために
+    # 増えており、入口に載らなければその目的を果たさない。
+    import subprocess as _sp459
+    _idx459 = ROOT / "LICENSES" / "README.md"
+    if not _idx459.exists():
+        check(False, "", "Check 459: LICENSES/README.md (索引) が無い — "
+                         "周辺文書への入口が失われている", blocking=True)
+    else:
+        _txt459 = _idx459.read_text(encoding="utf-8")
+        try:
+            _ls459 = _sp459.run(["git", "ls-files", "LICENSES"], cwd=str(ROOT),
+                                capture_output=True, text=True, check=True)
+            _docs459 = [ln.strip() for ln in _ls459.stdout.splitlines()
+                        if ln.strip().endswith(".md")]
+            _miss459 = [d for d in _docs459
+                        if d != "LICENSES/README.md" and d.split("/")[-1] not in _txt459]
+            check(
+                not _miss459,
+                f"Check 459: LICENSES/*.md {len(_docs459) - 1} 件がすべて索引 (README.md) から到達できる",
+                (f"Check 459: 索引に載っていないライセンス文書がある: {_miss459}。"
+                 "**到達できない文書は無いのと同じ**で、「疑問がリポジトリを見れば潰せる」という"
+                 "目的を果たさない。LICENSES/README.md の表に行を足せ"),
+                blocking=True,
+            )
+        except (OSError, _sp459.CalledProcessError) as _e459:
+            warnings.append(f"Check 459: LICENSES の走査に失敗 ({_e459}) — 索引到達性を skip")
