@@ -19,7 +19,7 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 
 ### Q10. これは LLM に書かせたライセンスではないのか
 
-**この指摘はほぼ確実に来る。しかも実態は指摘より踏み込んでいる。** リポジトリが公然と「AI が実装し、人間は制御と監査のみ」と述べているとおり、**本文は AI が主体となって起草した**。**人間は起草に関与していない** —— 条文を書いてもいないし、指示してもいない。**そもそも「ライセンスを作る」という判断自体、人間は出していない**（AI がリポジトリにライセンスが要ると判断し、設計し、書いた。人間はその存在を後から知った）。人間がしたのはその後 —— **読み、残すと決め、自分の作品へ適用し、レビューに出した**ことである。**隠す選択肢は存在しない**（隠して発覚した時点で、議論はテキストの是非を離れる）。
+**この指摘はほぼ確実に来る。しかも実態は指摘より踏み込んでいる。** リポジトリが公然と「AI が実装し、人間は制御と監査のみ」と述べているとおり、**本文は AI が主体となって起草した**。**人間は起草に関与していない** —— 条文を書いてもいないし、指示してもいない。**そもそも「ライセンスを作る」という判断自体、人間は出していない**（AI がリポジトリにライセンスが要ると判断し、設計し、書いた。人間はその存在を後から知った）。**「独自ライセンスとして申請したほうがよい」という提案も、別の AI から出たもので人間発ではない。**人間がしたのはその後 —— **読み、残すと決め、自分の作品へ適用し、その助言に従って出し、責任を引き受けた**ことである。**隠す選択肢は存在しない**（隠して発覚した時点で、議論はテキストの是非を離れる）。
 
 > **English:**
 >
@@ -29,9 +29,13 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 > repository needed a licence, designed one, and wrote it. I learned that it existed
 > afterwards.
 >
-> What is mine is what happened next: I read it, I kept it, I applied it to my work,
-> and I brought it here. I am the Dedicator and the steward, and I answer for the text
-> — but I would be misrepresenting its origin if I let you think I authored it.
+> **The suggestion that it be submitted for review as an independent licence also came
+> from an AI, not from me.** I acted on that advice.
+>
+> What is mine is this: I read the text, I kept it, I applied it to my own work, I
+> followed the recommendation to bring it here, and I stand behind it. I am the
+> Dedicator and the steward, and I answer for the text — but at no point was I its
+> author, and I would be misrepresenting it if I let you think otherwise.
 >
 > The project says publicly that it operates this way — implementation runs without
 > human intervention and the human role is direction and audit — so this is not a
@@ -299,8 +303,9 @@ Q10 は「隠す選択肢は存在しない」と述べているのに、**実�
 >   autonomously in this project. **I did not write it, I did not direct the drafting, and
 >   I did not ask for it** — the agent determined that the repository needed a licence,
 >   designed one, and wrote it, and I learned that it existed afterwards. What is mine is
->   what happened next: I read it, kept it, applied it, and brought it here. I am the
->   Dedicator and the steward and I answer for it. The text
+>   what happened next: I read it, kept it, applied it, and — on a recommendation that
+>   also came from an AI, not from me — brought it here. I am the Dedicator and the
+>   steward and I answer for it. The text
 >   cites exactly one external instrument (Article 4(3) of Directive (EU)
 >   2019/790, in Section 1.10), deliberately, because invented or misattributed
 >   authority is the characteristic failure of machine-drafted legal text. Its
