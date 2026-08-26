@@ -58,7 +58,10 @@
  */
 export function generateId() {
     try {
-        // 暗号学的に安全な UUID v4。モダンブラウザでは常にこちらが使われる。
+        // 暗号学的に安全な UUID v4。ただし **セキュアコンテキスト限定** API なので、
+        // http:// の LAN プレビュー (スマホ実機で見る経路) では不在＝下の
+        // フォールバックが実際に使われる。到達不能だと思って消さないこと
+        // (e2e/resilience.spec.js が不在時にプロジェクト追加が壊れないことを固定)。
         if (typeof crypto !== 'undefined' && crypto.randomUUID) { return crypto.randomUUID(); }
     } catch (e) { /* crypto 参照不可の制限環境 → 下のフォールバックへ */ }
     // フォールバック: テンプレートの 'x' を 0-15 の乱数 16 進、'y' を 8/9/a/b に置換。
