@@ -459,6 +459,15 @@ test('full export → 全リセット → import で状態が再現する (backu
 // 非対称になっていた —— 復元しても選んだ配色だけが既定へ戻る。
 // import 側は store の正規化を通さない (brand は store のキーではないので merged に載せると
 // validateAndNormalize が落とす) ため、theme と同じく取り込み時に直接適用する。
+// 掃引の結果 (2026-08-27): アプリが使う localStorage キーは 6 つで、brand 以外は**対象外が正しい**。
+//   portfolio_enhanced_v45  = store 本体 (フル export はこれを書き出す)
+//   portfolio_brand_v45     = 配色。本 test が守る唯一の genuine な欠落だった
+//   portfolio_snapshot_v45  = 復元点そのもの。バックアップの中に入れるものではない
+//   portfolio_last_error    = 診断用。利用者の設定ではない
+//   portfolio_tab_id_v45    = タブ固有の識別子。復元したら別タブと衝突する
+//   portfolio_nav_lab_open_v69 = ナビの開閉という一時的な UI 状態 (スクロール位置と同類)
+// つまり「store の外にある利用者の設定」は brand だけで、この面は閉じている。増やすときは
+// **フル export に入れるか / 入れないならなぜか**を同時に決めること。
 test('配色 (brand) が export → import で復元される', async ({ page }) => {
   await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
