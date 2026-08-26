@@ -337,3 +337,22 @@ def run(ctx):
                  "**導出**せよ (ハードコードは配線の増減に追従しない)"),
                 blocking=True,
             )
+            # 457b: **導出の起点そのもの**が配信面で検証されていること。
+            #   index.html は JSON-LD / CSP / meta / script 配線 / sr-only entity anchor を
+            #   載せる最も影響の大きい 1 file なのに、以前は版数 (ai:version / ai:last-modified)
+            #   の一致しか見ていなかった。実測 (2026-08-26): 直近 30 日で index.html は
+            #   **7 commit で変更され、版数を上げたものは 0 件**。つまり版数チェックは
+            #   中身を一切カバーしておらず、古い index.html が配信されても
+            #   版数=緑 / 到達性=緑 (file は在る) / sha256=対象外 / リポジトリ側 Check=ローカル、
+            #   で **どの層も検出しない**。
+            check(
+                "index.html" in _targets457,
+                "Check 457b: 導出の起点 index.html 自身が配信面の sha256 照合対象に入っている",
+                ("Check 457b: index.html が配信面で sha256 照合されていない。版数 "
+                 "(ai:version / ai:last-modified) は**中身が変わっても動かない** "
+                 "(実測: 直近 30 日で index.html は 7 commit 変更・版数 bump は 0 件) ので、"
+                 "版数一致は『最新の index.html が配信されている』ことの証拠にならない。"
+                 "JSON-LD / CSP / meta / script 配線 / sr-only entity anchor を載せる"
+                 "最も影響の大きい file が silent に古いままになる"),
+                blocking=True,
+            )

@@ -454,8 +454,21 @@ _MUTATIONS_TAIL.append({
             "リポジトリ内の配線しか見ないので、公開されているのが古い/壊れた版という失敗モードは "
             "原理的に見えない (帰属実測済: 発火するのは 457 のみ)",
     "file": ROOT / ".github" / "scripts" / "check_deployed_freshness.py",
-    "find": "    return sorted(set(root_js) | set(root_css) | {\"sw.js\"}) + sorted(",
+    "find": "    return sorted(set(root_js) | set(root_css) | {\"sw.js\", \"index.html\"}) + sorted(",
     "replace": "    return [\"style.css\", \"main.js\", \"sw.js\"] + sorted(",
+})
+
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 457b (導出の起点の検証): 照合対象から index.html だけを外す —— "
+            "版数 (ai:version / ai:last-modified) は**中身が変わっても動かない** "
+            "(実測: 直近 30 日で index.html は 7 commit 変更・版数 bump は 0 件) ので、"
+            "外した瞬間に **JSON-LD / CSP / meta / script 配線 / sr-only entity anchor を載せる "
+            "最も影響の大きい file** が配信面で silent に古いままになりうる状態へ戻る "
+            "(帰属実測済: 発火するのは 457b のみ)",
+    "file": ROOT / ".github" / "scripts" / "check_deployed_freshness.py",
+    "find": "{\"sw.js\", \"index.html\"}",
+    "replace": "{\"sw.js\"}",
 })
 
 
@@ -484,53 +497,11 @@ _E2E_TAIL = [
 
 
 
-_E2E_TAIL.append({
-    "name": "プロジェクト検索が絞り込まなくなる —— スコア 0 (どの語にも一致しない) の項目まで残り、何を検索しても全件が出る。一覧は「正常に描画されている」ように見えるため、検索が効いていないことに気付きにくい",
-    "file": ROOT / "js" / "projects-page.js",
-    "find": ".filter(x => x.s > 0)",
-    "replace": ".filter(x => x.s >= 0)",
-    "test": "Projects search filters to a subset then clears back to the full list",
-})
 
-_E2E_TAIL.append({
-    "name": "絞り込み中の残り件数アナウンスが全体数になる —— 「未完了」で絞って片付ける使い方では消えた項目は見えなくなるので、残り何件かを伝える唯一の手がかりがこの status 領域。全体数を出すと完了させても数が減らず、SR 利用者には「押したが何件残っているか分からない」状態になる",
-    "file": ROOT / "js" / "apps.js",
-    "find": "return `TODO: ${label} ${getFilteredTodos().length} 件`;",
-    "replace": "return `TODO: ${label} ${State.get().appsData.todos.length} 件`;",
-    "test": "絞り込み中に完了させると残り件数のアナウンスが追随する",
-})
 
-_E2E_TAIL.append({
-    "name": "task の絞り込み中の残り件数アナウンスが全体数になる —— todo 側 (完了で消える) と対称の面。優先度で絞って作業していると変更した項目はビューから消えるため、残り何件かを伝える唯一の手がかりがこの status 領域",
-    "file": ROOT / "js" / "apps.js",
-    "find": "return `優先度: ${label} ${getFilteredTasks().length} 件`;",
-    "replace": "return `優先度: ${label} ${State.get().appsData.tasks.length} 件`;",
-    "test": "絞り込み中に優先度を変えると残り件数のアナウンスが追随する",
-})
 
-_E2E_TAIL.append({
-    "name": "main の tabindex=-1 が外れ、skip-link の着地点が失われる —— WCAG 2.4.1 のバイパス手段が黙って壊れる。sr-only でも screenshot でもない構造の欠落なので、視覚には一切出ない",
-    "file": ROOT / "index.html",
-    "find": '<main id="main-content" class="main-content" tabindex="-1"',
-    "replace": '<main id="main-content" class="main-content"',
-    "test": "全ルートで main ランドマークが一意で、名前と skip-link 着地点を保つ",
-})
 
-_E2E_TAIL.append({
-    "name": "Markdown ノートの見出しが固定 2 段 demote へ戻り、### から書き始めた note で h2 の直後に h5 が来て見出しが飛ぶ (WCAG 1.3.1) —— 既定 note が # 始まりなので出荷状態では見えず、利用者の書き方次第で見出しナビが壊れる",
-    "file": ROOT / "js" / "apps.js",
-    "find": "                if (_mdBase === null) { _mdBase = _md; }",
-    "replace": "                _mdBase = 1;",
-    "test": "Markdown ノートの見出しは書き始めのレベルに関わらず preview 階層へ接続する",
-})
 
-_E2E_TAIL.append({
-    "name": "検索 0 件のとき role=list の中へ空状態カード (role=status) が入り、リストの意味論が壊れる (WCAG 1.3.1) —— 既定状態では 0 件にならないので全ルート axe 走査では一度も踏まれない「既定値だけが偶然 clean」class",
-    "file": ROOT / "js" / "projects-page.js",
-    "find": "                    gridContainer.removeAttribute('role');\n                    gridContainer.appendChild(h('div', { class: 'card card--full-col', role: 'status'",
-    "replace": "                    gridContainer.appendChild(h('div', { class: 'card card--full-col', role: 'status'",
-    "test": "検索 0 件でもリストの意味論が壊れない",
-})
 
 _E2E_TAIL.append({
     "name": "TODO 一覧に role=list を付けて listitem でない子 (空状態の p) を含ませる —— 非既定状態 (空) にしか現れないリスト意味論の破れ。既定内容で走る全ルート axe 走査では到達しない class (#1213/#1214 と同型)",

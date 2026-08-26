@@ -154,6 +154,14 @@ python3 .github/scripts/check_deployed_freshness.py
 
 非 vacuity は 2 通りで実測済み: (a) ローカルで `aio-guard.js` を 1 行変え、**実際に公開サイトへ当てて** sha256 不一致が名指しで検出されることを確認、(b) 導出をハードコードへ戻すと Check 457 が RED（帰属も 457 単独）。
 
+### 同日追記 —— `index.html` 自身も照合対象へ
+
+それまでは版数（`ai:version` / `ai:last-modified`）の一致だけを見ており、「版数が一致していれば index.html は最新」という前提だった。**実測でこの前提は崩れている** —— 直近 30 日で index.html は **7 commit で変更され、そのうち版数を上げたものは 0 件**。変わった中身は JSON-LD のライセンス宣言や quiz 遅延読み込みに伴う script 配線で、いずれも**版数を動かさない**。
+
+つまり古い index.html が配信されても、版数=緑 / 到達性=緑（file は在る）/ sha256=対象外 / リポジトリ側 Check=ローカルを見る、で **どの層も検出しない**。index.html は JSON-LD / CSP / meta / script 配線 / sr-only entity anchor を載せる**サイトで最も影響の大きい 1 file** である。
+
+配信面が byte 一致することは実測で確認済み（`.nojekyll` により Jekyll 変換されない。local/remote とも 98,064 bytes・sha256 一致）。**Check 457b** が「導出の起点そのものが照合対象に入っていること」を BLOCKING 強制する。
+
 ## Constraints
 
 - **Check 423（BLOCKING）**: 本スクリプトが `aio-monitoring.yml` から呼ばれていること。

@@ -34,6 +34,12 @@ Check 132/133/134 が守るのは**リポジトリ内**の配線である。公�
 
 **この Check を足した瞬間に Check 385 が発火した** —— 新コードが `warnings.append` を使うのに `run(ctx)` が `warnings = ctx.warnings` を unpack していなかった（その枝が走ると NameError で consistency 全体が crash する latent bug）。385 はまさにその class のために在り、機械が自分のミスを即座に止めた実例である。
 
+### 同日追記 —— Check 457b（導出の起点そのもの）
+
+457 は「配線されている資産 ⊆ 照合対象」を見るが、**導出の起点である index.html 自身**は「配線されている資産」ではないので 457 の射程に入らない。版数チェックが代わりに見ていると思われていたが、**実測で直近 30 日 7 commit / 版数 bump 0 件**＝版数は中身を一切カバーしていなかった。
+
+457b はサブパートとして足した（守る invariant が同一 class ＝「配信面が検証されているか」ゆえ新番号にしない）。非 vacuity は index.html だけを対象から外して RED を実測。**帰属は正直に**: 同時に Check 362 も発火するが、これは手で当てた変更が登録済み mutation の find-anchor と一致した副作用（記録済みの自己参照 artifact）であり、意味的な退行を捕捉しているのは 457b である。
+
 ## Constraints
 
 - **module-global 結合なし**: 依存は全て `ctx` 経由。`re`/`json` のみ module import。`exec` 不使用。free-var 分析で外部依存ゼロ確認済。
