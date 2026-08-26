@@ -45,6 +45,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        line-count budget (byte ≠ line). Catches runaway bloat (e.g. a huge file committed by
        mistake) that would inflate download/parse cost (LCP/CWV). Legitimate feature growth
        ratchets the ceiling up with a rationale, like the ESLint baseline. (BLOCKING)
+  461. PERF-BUDGET の累積記録 (session-start → current) が現在の PERF-BUDGET-DATA と一致すること
   390. router route.name ⊆ PAGE_META (param-route coverage): every route.name js/router.js's
        `_parseRoute` can emit — literal `route.name = 'X'` assignments, the initial `{ name:
        'home' }`, and the `['task','todo',...].includes(app)` whitelist expanded to `app-<x>` —
@@ -203,6 +204,34 @@ def run(ctx):
             "Check 120: file-size-budget.md PERF-BUDGET-DATA marker present",
             "Check 120: file-size-budget.md に `<!-- PERF-BUDGET-DATA <N> -->` が無い — "
             "shipped JS+CSS の page-weight 保護が消失。marker を追加せよ",
+            blocking=True,
+        )
+
+    # ── 461. PERF-BUDGET の累積記録が現在値と一致する (BLOCKING) ──
+    # 予算は超過するたび自分で上げられる。個々のラチェットには rationale を書く運用だが、それだけでは
+    # 「今日で合計いくら増えたのか」が視界に入らない。実際 2026-08-27 に累積行が
+    # 「716,800 → 722,400」のまま **その後 5 回上げられていた** —— 歯止めのための行が、上げた本人に
+    # よって更新されない形で stale 化していた。marker の current を PERF-BUDGET-DATA と照合し、
+    # 予算を上げたら累積も同じ commit で更新することを強制する (session-start は据え置き = 差分が残る)。
+    _cum = re.search(r"<!--\s*PERF-BUDGET-CUMULATIVE\s+session-start=(\d+)\s+current=(\d+)\s*-->",
+                     _budget120.read_text(encoding="utf-8")) if _budget120.exists() else None
+    if _cum and _perf_m120:
+        _cur_declared, _cur_actual = int(_cum.group(2)), int(_perf_m120.group(1))
+        check(
+            _cur_declared == _cur_actual,
+            "Check 461: PERF-BUDGET-CUMULATIVE current == PERF-BUDGET-DATA",
+            f"Check 461: 累積記録の current={_cur_declared} が PERF-BUDGET-DATA={_cur_actual} と一致しない — "
+            f"予算を上げたら累積行 (session-start={_cum.group(1)} からの合計) も同じ commit で更新せよ。"
+            f"個々の rationale だけでは『今日で合計いくら増えたか』が視界に入らず、"
+            f"歯止めが効かなくなる (2026-08-27 に 5 回分 stale 化していた)",
+            blocking=True,
+        )
+    else:
+        check(
+            False,
+            "Check 461: PERF-BUDGET-CUMULATIVE marker present",
+            "Check 461: file-size-budget.md に `<!-- PERF-BUDGET-CUMULATIVE session-start=<N> current=<N> -->` "
+            "が無い — 予算ラチェットの累積が追えなくなる。marker を追加せよ",
             blocking=True,
         )
 
