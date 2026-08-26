@@ -421,6 +421,19 @@ _MUTATIONS_TAIL.append({
 })
 
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 455 (strong-advisory の tightness): main.js の予算を Stage 5 前の 6,400 へ戻す —— "
+            "実測 1,356 に対し 4.7 倍で **advisory が永久に鳴らない**状態。main.js は Check 365 の "
+            "hard ceiling 対象外ゆえ、この予算が**唯一のサイズ信号**であり、緩めた瞬間にサイズの "
+            "観測手段が完全に失われる。§1 の分類表が strong-advisory に与えた定義 "
+            "(「現行行数に近い tight な上限」) と実態が真逆になる drift の回帰防止 "
+            "(帰属実測済: 発火するのは 455 のみ)",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": "\nmain.js | 1500 | strong-advisory\n",
+    "replace": "\nmain.js | 6400 | strong-advisory\n",
+})
+
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

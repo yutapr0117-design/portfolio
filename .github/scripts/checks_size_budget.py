@@ -125,6 +125,18 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        「advisory 予算が登録されていること」を要求する。対象集合は Check 365 の除外集合を
        **共有**する (hard ceiling の対象でない file に早期警告を求めるのは無意味なため)。
        予算値そのものの妥当性は Check 443 が、実測行数との一致は Check 424 が守る。(BLOCKING)
+  455. **`strong-advisory` の予算は実際に tight であること** (BLOCKING): §1 の分類表は
+       `strong-advisory` を「強い抑制対象。減少方向が望ましく、増加は厳しく観測する /
+       **現行行数に近い tight な上限**」と定義している。だが実測 (2026-08-26) では唯一の
+       該当 file `main.js` の予算が **6,400 に対し実測 1,356 = 4.7 倍**で、リポジトリ内で
+       最も緩い予算になっていた —— 分類が宣言する性質と実態が**真逆**。原因は Stage 5 の
+       分割 (7,785→1,086 行・−86%) の後に予算をラチェットダウンしなかったこと。
+       **main.js は Check 365 の hard ceiling 対象外**なので、この予算が唯一のサイズ信号
+       であり、それが永久に鳴らない状態だった (Check 443 は「予算 < hard ceiling」を見るが、
+       ceiling 対象外 file はそもそも 443 の対象外)。
+       `STRONG_ADVISORY_MAX_RATIO` (1.25) 以内であることを強制する。file が縮んだら比が
+       上がって RED になる = ラチェットダウンを促す挙動で、これは分類が明記する
+       「減少方向が望ましい」と一致する意図的な設計。(BLOCKING)
 """
 import re
 
@@ -138,6 +150,11 @@ HARD_CEILING = 1000
 # 全 tracked file に予算を要求するのは padding (大半は 1,000 に一生届かない) なので、
 # **hard ceiling へ現実的に近づいた file だけ**に早期警告の存在を要求する。
 EARLY_WARNING_FLOOR = 800
+
+# Check 455: `strong-advisory` 種別が名乗る「tight」の許容上限 (予算 / 実測)。
+# §1 の分類表は strong-advisory を「現行行数に近い tight な上限」と定義しているので、
+# その定義を機械が読める形にした値。1.25 = 実測の 25% 増しまでを tight と認める。
+STRONG_ADVISORY_MAX_RATIO = 1.25
 
 # design-constraint A group / AIO C6 / 自動生成 / bot 追記ログ —— hard ceiling の対象外
 CEILING_EXEMPT_NAMES = frozenset([
@@ -539,3 +556,51 @@ def run(ctx):
         )
     except (OSError, _sp454.CalledProcessError) as _e454:
         warnings.append(f"Check 454: 予算登録の走査に失敗 ({_e454}) — 早期警告の存在検査を skip")
+
+    # ── 455. strong-advisory の予算は実際に tight であること (BLOCKING) ────────────────
+    # §1 の分類表が strong-advisory に与えている定義は「現行行数に近い tight な上限」。
+    # 実測 (2026-08-26): 唯一の該当 file main.js が 6,400 / 実測 1,356 = **4.7 倍**で、
+    # リポジトリ内で最も緩い予算だった (分類の宣言と実態が真逆)。Stage 5 の −86% 分割後に
+    # ラチェットダウンし忘れたまま残っていた。main.js は Check 365 の hard ceiling 対象外
+    # ゆえ **この予算が唯一のサイズ信号**であり、それが永久に鳴らない状態だった。
+    # Check 443 (予算 < hard ceiling) は ceiling 対象外 file を見ないので、この穴は 443 でも
+    # 454 でも塞がらない —— 「予算はある / ceiling 対象でもない / だが緩すぎて意味がない」
+    # という第 3 の入口。
+    _budget455 = ROOT / "docs" / "architecture" / "file-size-budget.md"
+    try:
+        _m455 = re.search(r"<!-- BUDGET-DATA(.*?)-->",
+                          _budget455.read_text(encoding="utf-8"), re.S)
+        _loose455 = []
+        _seen455 = 0
+        if _m455:
+            for _line455 in _m455.group(1).splitlines():
+                _line455 = _line455.strip()
+                if not _line455 or _line455.startswith("#") or "|" not in _line455:
+                    continue
+                _parts455 = [_c.strip() for _c in _line455.split("|")]
+                if len(_parts455) < 3 or _parts455[2] != "strong-advisory":
+                    continue
+                if not _parts455[1].replace(",", "").isdigit():
+                    continue
+                _p455 = ROOT / _parts455[0]
+                if not _p455.is_file():
+                    continue  # path 実在は Check 71 が守る
+                _seen455 += 1
+                _n455 = len(_p455.read_text(encoding="utf-8", errors="replace").splitlines())
+                _b455 = int(_parts455[1].replace(",", ""))
+                if _n455 and _b455 > _n455 * STRONG_ADVISORY_MAX_RATIO:
+                    _loose455.append(f"{_parts455[0]} 予算{_b455}/実測{_n455}={_b455 / _n455:.2f}倍")
+        check(
+            not _loose455,
+            f"Check 455: strong-advisory {_seen455} 件の予算が実測の "
+            f"{STRONG_ADVISORY_MAX_RATIO} 倍以内 (分類が名乗る tight が実態と一致)",
+            (f"Check 455: strong-advisory なのに予算が緩すぎる: {_loose455}。"
+             "§1 の分類表は strong-advisory を「現行行数に近い tight な上限」と定義しており、"
+             "緩い予算は**その定義に反するうえ advisory が実質鳴らない**。"
+             "とくに hard ceiling 対象外の file にとってはこの予算が唯一のサイズ信号なので、"
+             "緩めた時点でサイズの観測手段が完全に失われる。実測に近い値へ**ラチェットダウン**せよ "
+             "(上げて黙らせるのではなく、下げて早く鳴らすのが advisory の役割)"),
+            blocking=True,
+        )
+    except OSError as _e455:
+        warnings.append(f"Check 455: budget doc を読めない ({_e455}) — tightness 検査を skip")
