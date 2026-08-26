@@ -363,7 +363,7 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 > categories in place and limits the rest to the maximum the law allows. It is
 > the same technique as Section 15.4, applied locally.
 
-### Q31. 日本法固有の論点（起草者の所在地であるため必ず問われる）
+### Q31. 日本法固有の論点（**Dedicator（適用者）の所在地**であるため必ず問われる）
 
 **ここは断定しないこと。** 助言を得ていない領域で断定すると、Q10（LLM 起草）で述べた「confidently invented doctrine」をまさに実演することになる。
 
@@ -393,7 +393,7 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 > None of this has been confirmed by counsel, and Section 12 is where I would
 > most value a correction.
 
-**なぜこう答えるか**: 起草者が日本在住であることは公開情報であり、**「日本法では公有化できないのでは」は必ず出る**。ここで曖昧に濁すと信用を失い、断定すると Q10 の懸念を裏書きする。**「立場を述べ、限界を述べ、助言を求める」**の 3 点セットが唯一の正解。
+**なぜこう答えるか**: **Dedicator（適用者）が日本在住であること**は公開情報であり、**「日本法では公有化できないのでは」は必ず出る**。ここで曖昧に濁すと信用を失い、断定すると Q10 の懸念を裏書きする。**「立場を述べ、限界を述べ、助言を求める」**の 3 点セットが唯一の正解。
 
 ### Q32. 1.0 が承認された場合、1.1 はどう扱うのか
 

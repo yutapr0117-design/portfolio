@@ -223,11 +223,12 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 > **English:**
 >
 > No lawyer has reviewed this text. I say that first because it changes how the
-> rest should be read. The drafting was done with a large language model under my
-> direction (see the provenance disclosure — it is mine in the sense that I
-> directed it and I answer for it, not in the sense that I typed it), and it was
-> checked mechanically against the published criteria rather than against
-> professional judgement. Section 12
+> rest should be read. **The text was drafted by an AI agent operating autonomously in
+> this project — I did not write it, I did not direct the drafting, and I did not ask
+> for it** (see the provenance disclosure; I learned the licence existed after the agent
+> had written it). I am the Dedicator and the steward: I kept it, applied it, brought it
+> here, and I answer for it. It was checked mechanically against the published criteria
+> rather than against professional judgement. Section 12
 > (moral rights) is the place where that matters most, because it turns on
 > Japanese law — Article 59 of the Japanese Copyright Act makes moral rights
 > personal to the author and inalienable — and on how a court would treat a
@@ -236,8 +237,12 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 
 **なぜここで起草の出自に触れるか**: A1 は「先に自分から述べる」節であり、**同じ節の中で
 起草主体を曖昧にしたら意味が無い**。詳細は `ACD-1.0.review-responses-meta.md` Q10。
-（初版は「The drafting is my own」と書いており、**Q10 と正面から食い違っていた** ——
-誠実さを担保する節の中の矛盾は最も痛いので、横断監査で是正した。）
+
+**是正の経緯（隠さず残す）**: 初版は「The drafting is my own」と書いており、**Q10 と正面から
+食い違っていた**。横断監査で見つけて「under my direction（私の指示で）」へ直したが、
+**それも実態を弱めていた** —— 実際には**人間は起草に関与していない**。二度目の是正で
+「**AI が自律的に起草し、人間は書いても逐条で指示してもいない**」という事実へ揃えた。
+**弱める方向の言い換えも矛盾である。** 三度目でさらに踏み込んだ —— **「ライセンスを作る」という判断自体、人間は出していない**（AI が必要と判断して設計・起草し、人間は存在を後から知った）。**事実を弱めるほうへ丸めない。**
 
 ### A2. 実使用が 1 件しかない
 
@@ -364,7 +369,7 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 | 想定される指摘 | 短答（英文で述べる要点） |
 |---|---|
 | GPL 互換か | Condition-free なので GPLv2/v3 いずれにも取り込める。ACD-1.0 の側から何も要求しないため互換性の問題が生じる余地がない |
-| 誰が steward か | 起草者本人。§16.4 により ACD-1.0 のテキストは不変で、改訂は 1.1 以降の別バージョンとして行う（`FROZEN.md` と CI がこれを機械強制している） |
+| 誰が steward か | **Dedicator（適用者）本人**。テキストを書いたのは AI だが、適用し・提出し・責任を負うのは人間である。§16.4 により ACD-1.0 のテキストは不変で、改訂は 1.1 以降の別バージョンとして行う（`FROZEN.md` と CI がこれを機械強制している） |
 | どのカテゴリでの承認を求めるか | カテゴリの割当は委員会の判断に委ねる。特定のカテゴリを主張しない |
 | 機械可読記述子（JSON）の位置づけ | 非規範。本文が唯一の権威。記述子が本文と食い違えば本文が勝ち、CI（Check 451）が食い違いを BLOCKING で検出する |
 | なぜ ASCII 限定か | 転記・メール・古いツールでの毀損を避けるため。CI（Check 441）が純 ASCII を強制する |
@@ -411,4 +416,4 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 
 - **非規範。** ここに書いた回答が ACD-1.0 の意味を変えることはない。本文が唯一の権威である。
 - **凍結対象ではない。** `FROZEN.md` が凍結するのは `ACD-1.0.txt` / `ACD-1.0.spdx.xml` / `ACD-1.0.machine.json` の 3 件であり、本書は議論の進展に応じて更新してよい。**むしろ更新すべきである** —— 実際に指摘を受けたら、その指摘と回答をここに追記して次の担当が同じ検討を繰り返さないようにする。
-- **回答の品質は実際のやり取りで検証される。** 本書の想定問答は起草者の予測であって、レビュアが実際に何を問うかは分からない。**予測が外れた項目は削らず、外れたと記録する**（当てにいって外したことも、次に読む者にとっては情報である）。
+- **回答の品質は実際のやり取りで検証される。** 本書の想定問答は**予測**であって、レビュアが実際に何を問うかは分からない。**予測が外れた項目は削らず、外れたと記録する**（当てにいって外したことも、次に読む者にとっては情報である）。

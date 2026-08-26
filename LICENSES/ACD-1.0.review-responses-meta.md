@@ -19,13 +19,27 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 
 ### Q10. これは LLM に書かせたライセンスではないのか
 
-**この指摘はほぼ確実に来る。** リポジトリが公然と「AI が実装し人間が設計・監査する」と述べており、ライセンス本文もその過程で起草されたからである。**隠す選択肢は存在しない**（隠して発覚した時点で議論はテキストの是非を離れる）。
+**この指摘はほぼ確実に来る。しかも実態は指摘より踏み込んでいる。** リポジトリが公然と「AI が実装し、人間は制御と監査のみ」と述べているとおり、**本文は AI が主体となって起草した**。**人間は起草に関与していない** —— 条文を書いてもいないし、指示してもいない。**そもそも「ライセンスを作る」という判断自体、人間は出していない**（AI がリポジトリにライセンスが要ると判断し、設計し、書いた。人間はその存在を後から知った）。人間がしたのはその後 —— **読み、残すと決め、自分の作品へ適用し、レビューに出した**ことである。**隠す選択肢は存在しない**（隠して発覚した時点で、議論はテキストの是非を離れる）。
 
 > **English:**
 >
-> Yes. The drafting was done by a large language model, under my direction, in a
-> project that states publicly that this is how it operates. I would rather say
-> that in my first message than have someone discover it in my repository.
+> Yes — and the reality goes further than the question. **The text was drafted by an
+> AI agent operating autonomously in this project. I did not write it, I did not
+> direct the drafting, and I did not ask for it.** The agent determined that the
+> repository needed a licence, designed one, and wrote it. I learned that it existed
+> afterwards.
+>
+> What is mine is what happened next: I read it, I kept it, I applied it to my work,
+> and I brought it here. I am the Dedicator and the steward, and I answer for the text
+> — but I would be misrepresenting its origin if I let you think I authored it.
+>
+> The project says publicly that it operates this way — implementation runs without
+> human intervention and the human role is direction and audit — so this is not a
+> disclosure I could withhold even if I wanted to. I would rather state it in my
+> first message than have someone find it in the repository.
+>
+> I am aware this makes the text harder to trust, not easier, and I am not asking
+> for the benefit of the doubt.
 >
 > I do not offer that as a defence, and I am aware of the specific failure modes:
 > confidently invented doctrine, misattributed authority, and text that reads
@@ -37,6 +51,10 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 >   I kept citation to a minimum precisely because invented or mis-stated
 >   authority is the characteristic failure of machine-drafted legal text, and
 >   the safest way to avoid it is not to rely on it.
+> Because no human wrote the text, the mechanically checkable properties below carry
+> more of the weight than they would otherwise. They are not a substitute for the
+> reasoning being sound; they are what can be verified without taking my word.
+>
 > - **Every structural property that can be checked mechanically, is.** Clause
 >   numbering is contiguous and non-duplicated; all 82 internal cross-references
 >   resolve to clauses that exist; all 10 defined terms are actually used; the
@@ -277,9 +295,12 @@ Q10 は「隠す選択肢は存在しない」と述べているのに、**実�
 
 > **English (add to the disclosures):**
 >
-> - **Provenance of the drafting.** The text was drafted with a large language model
->   under my direction, in a project that states publicly that this is how it
->   operates. I mention it before anyone finds it in the repository. The text
+> - **Provenance of the drafting.** The text was drafted by an AI agent operating
+>   autonomously in this project. **I did not write it, I did not direct the drafting, and
+>   I did not ask for it** — the agent determined that the repository needed a licence,
+>   designed one, and wrote it, and I learned that it existed afterwards. What is mine is
+>   what happened next: I read it, kept it, applied it, and brought it here. I am the
+>   Dedicator and the steward and I answer for it. The text
 >   cites exactly one external instrument (Article 4(3) of Directive (EU)
 >   2019/790, in Section 1.10), deliberately, because invented or misattributed
 >   authority is the characteristic failure of machine-drafted legal text. Its
