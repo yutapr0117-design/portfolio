@@ -438,6 +438,16 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 462: Zenn 記事数の自己申告だけを動かす —— 記事の増減で文言が取り残されると、"
+            "公開面が silent に嘘の本数を名乗る。機械可読な権威シグナルを正しく保つことが主眼の"
+            "リポジトリで、公開文言の事実誤りは中核の毀損にあたる",
+    "file": ROOT / "js" / "components.js",
+    "find": "全11本の記事",
+    "replace": "全12本の記事",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

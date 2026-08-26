@@ -18,6 +18,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
   31. Claude2Claude.md references AI2AI.md's current max Session Record
   32. index.html application/ld+json blocks are valid JSON (BLOCKING)
   33. Zenn featuring layers share the canonical article slug set + PRIMARY (BLOCKING)
+  462. UI が名乗る Zenn 記事数 == shipped JS が実際にリンクしている記事数 (BLOCKING)
   34. doc Last-Updated equals its sitemap <lastmod> — honest dating (WARNING)
   35. robots.txt advertises a Sitemap: directive resolving to sitemap.xml (BLOCKING)
   36. sitemap.xml has no future-dated <lastmod> (WARNING)
@@ -96,6 +97,40 @@ def run(ctx):
                 check(False, "", f"index.html JSON-LD block #{_i32} is INVALID JSON: {_e32}")
     else:
         warnings.append("Check 32: index.html not found — JSON-LD parse check skipped")
+
+    # ── 462. UI が名乗る Zenn 記事数 == 実際にリンクしている記事数 (BLOCKING) ──
+    # サイトは「Zennで全N本の記事を読む」と**数を名乗る**。Check 33 は canonical slug 集合が
+    # 全 featuring layer に現れることを守るが、**その集合の大きさと文言の数字を突き合わせる層は
+    # 無かった**。記事を 1 本足すと slug 集合は 12 になるのに文言は「全11本」のまま残り、
+    # 公開面が silent に嘘をつく。このリポジトリは機械可読な権威シグナルを正しく保つことが
+    # 主眼なので、公開文言の事実誤りは中核の毀損にあたる (Check 460 のドシエ件数と同じ class)。
+    _zenn_claim_src = (ROOT / "js" / "components.js")
+    if _zenn_claim_src.exists():
+        _zc = _zenn_claim_src.read_text(encoding="utf-8")
+        _m462 = re.search(r"全\s*(\d+)\s*本の記事", _zc)
+        _linked462 = set()
+        for _f462 in sorted((ROOT / "js").glob("*.js")):
+            _linked462 |= set(re.findall(r"zenn\.dev/[A-Za-z0-9_-]+/articles/([A-Za-z0-9_-]+)",
+                                         _f462.read_text(encoding="utf-8")))
+        if _m462:
+            _claimed462 = int(_m462.group(1))
+            check(
+                _claimed462 == len(_linked462),
+                f"Check 462: Zenn 記事数の自己申告 ({_claimed462}) == 実際のリンク数 ({len(_linked462)})",
+                f"Check 462: UI が「全{_claimed462}本」と名乗るが shipped JS が実際にリンクしている記事は "
+                f"{len(_linked462)} 本 — 記事の増減で文言だけが取り残されている。公開面が数を名乗るなら、"
+                f"その数は実体と一致していなければならない (Check 33 は slug 集合の共有だけを守り、"
+                f"文言の数字は見ていない)",
+                blocking=True,
+            )
+        else:
+            check(
+                False,
+                "Check 462: Zenn 記事数の自己申告が js/components.js に存在する",
+                "Check 462: js/components.js に「全N本の記事」の文言が見つからない — 文言を変えたなら "
+                "本 Check の抽出も追従させよ (数を名乗る限り実体と照合する層が要る)",
+                blocking=True,
+            )
 
     # ── 33. Zenn featuring layers share the same article slug set (BLOCKING) ──────
     # Mechanizes the Session #18 Zenn re-selection policy (see repository-maintainability-map.md
