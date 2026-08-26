@@ -155,6 +155,40 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / doc
 
 ---
 
+## 5.5 「CC0 と特許誓約を組み合わせればよいのでは」
+
+**これは最も鋭い代替案**であり、Q13（CC0 + Apache-2.0）とは別に扱う価値がある。
+
+> **English:** This is the strongest alternative I have been offered, and it is not obviously
+> wrong. CC0 gives away copyright; a separate patent pledge — a defensive-patent arrangement,
+> a membership in a patent non-aggression community, or a unilateral written pledge — could
+> in principle supply what CC0 Section 4(a) withholds.
+>
+> Three structural differences made me not take that route.
+>
+> 1. **Two instruments, and the user must find both.** A licence travels with the work; a
+>    pledge published elsewhere does not. A recipient three hops downstream sees CC0 and has
+>    no way to know a pledge exists, or whether it still does. Section 8 is in the same file
+>    as Section 3, and Section 16.2 makes the identifier alone sufficient notice for both.
+> 2. **The pledge's own terms are separate.** Scope, duration, revocability, and who may rely
+>    on it are decided by the pledge, not by the licence, and they differ between arrangements.
+>    A user evaluating risk has to read and reconcile two documents written by different
+>    people for different purposes.
+> 3. **Neither reaches models and outputs.** Section 8.4 exists because Covered Rights exclude
+>    patents (Section 1.5), so a copyright-side permission for computational use leaves a
+>    patent-shaped hole over models, weights and outputs. A general patent pledge aimed at
+>    software implementations does not obviously close that hole, and I did not want to rely
+>    on it doing so by implication.
+>
+> If someone shows me a pledge that travels with the work, is unconditional, and reaches
+> outputs, then CC0 plus that pledge would do what this does, and I would use it.
+
+**なぜこう答えるか**: **「二文書に分かれること」が構造的な差**であり、優劣の主張ではない。
+最後の一文は Q1 と同じ姿勢（**既存で埋まるなら使う**）を、この代替案に対しても具体的な条件
+つきで述べている。
+
+---
+
 ## 6. 族をまたぐ判断基準（読み手が自分で当てはめられる形）
 
 > **English:**

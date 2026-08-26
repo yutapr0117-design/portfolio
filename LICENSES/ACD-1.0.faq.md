@@ -178,6 +178,57 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 **これは採用者を減らす記述であり、意図的である。** 承認されていないものを「実質的に同等だ」と
 言わせるのは、こちらの都合で相手の信用を使わせることになる。
 
+### A16. SBOM にはどう記載すればよいか
+
+**A10（SPDX 識別子が無い問題）の実務面である。** SBOM（SPDX / CycloneDX いずれの形式でも）は
+ライセンスを識別子で持つので、**未登録の識別子はそのまま書けない**。
+
+> **English:** Record it as a user-defined licence entry — `LicenseRef-ACD-1.0` in SPDX terms —
+> and attach the full text, which is short enough to embed. Do **not** map it to a
+> superficially similar listed identifier (CC0, 0BSD, Unlicense) just to make the tool quiet:
+> those differ on patents, which is the one place where the difference has teeth (Section 8.3).
+
+**「似ているから」で既存識別子に丸めないこと。** とくに CC0 は**特許を明示的に除外**して
+おり（§8.3 が拒絶する結果そのもの）、丸めると SBOM が**実態と逆のことを記録する**。
+
+### A17. fork / vendoring / ミラーは自由か
+
+> **English:** Yes, and nothing is required. Section 4.5 permits distribution of the Work and
+> any adaptation under any terms You choose; Section 10.2 says You need not retain this file,
+> reproduce any notice, or state that the Work was modified. Vendoring into a monorepo,
+> mirroring, and forking are all ordinary uses.
+
+**ただし §4.6** —— あなたが付けた条件は「あなたが与えるもの」を規律するだけで、
+**受領者と本 Dedication の関係を切らない**。fork を閉じた条件で配っても、元の Work に
+ついては受領者が自分の権利として §1.4 の "You" になる。
+
+### A18. 名称や識別子は商標登録されているのか
+
+**されていない。** §11.1 は「商標・サービスマーク・商号・ロゴ・氏名の権利を与えない」と
+述べるが、これは**存在する商標を留保する**条項であって、**商標を主張する**条項ではない。
+
+> **English:** No trademark is claimed or registered. What keeps "ACD-1.0" pointing at one
+> fixed text is **not** trademark law but Section 16.4: the text may be copied verbatim by
+> anyone, and a modified text may not be distributed under the name or the identifier. A
+> modified text may circulate freely — under a different name.
+
+**なぜ商標ではなく条文で守るのか**: 商標は登録・維持・行使のコストを steward に課し、
+**§13.3 が保守義務を負わないと述べているのと整合しない**。§16.4 なら、守る主体が消えても
+条文としての意味は残る。
+
+### A19. ACD-1.0 を「廃止」できるのか
+
+**適用済みの作品については、できない。** §2.2 が撤回不能と定め、§2.5 が「後から
+無効だと主張しない」と述べている。**すでに配られたものは戻らない。**
+
+> **English:** Deprecation, if it ever happens, can only mean "stop recommending it for new
+> works". It cannot mean withdrawal: Section 2.2 is irrevocable and Section 2.5 forecloses the
+> argument that it was not. The text itself is immutable under Section 16.4, so a successor is
+> a new identifier, not a replacement of this one.
+
+**これは cost として認めている**（想定問答 clauses 分冊 §32）。後から静かに直せない代わりに、
+**識別子が指すものが動かない**という性質を得ている。
+
 ### A12. 法務に説明するとき、何を見せればよいか
 
 | 訊かれること | 見せる場所 |
