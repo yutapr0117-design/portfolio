@@ -969,4 +969,16 @@ _E2E_TAIL.append({
     "test": "別アプリで入力中のテキストを消さない",
 })
 
+_E2E_TAIL.append({
+    "name": "「全リセット」を appsData だけ戻す部分リセットへ退行させる —— projects / profile / "
+            "theme / projectPrefs が残る。**「全」と名乗る操作が一部しか戻さない**のは、利用者が"
+            "「初期化した」と信じて元データを捨てうる silent failure。実測 (2026-08-26): "
+            "pomodoro/quiz/notes を見る multi-app リセット test も、AI 応答待ち中のリセット test も"
+            "**appsData しか見ないので素通り**する。捕捉層は apps-settings-io の 2 件だけだった",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "State.set(Store.createDefaultStore());",
+    "replace": "State.set({ ...State.get(), appsData: Store.createDefaultStore().appsData });",
+    "test": "表示テーマが export → import で復元され",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
