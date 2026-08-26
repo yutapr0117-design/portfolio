@@ -264,7 +264,9 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
         }
 
         function resetData() {
-            if (!confirm('すべてのデータを初期化しますか？')) {return;}
+            // [FIX] 何を失い**何が残るか**を言う (スナップショットは消えない)。
+            if (!confirm('すべてのデータを初期化しますか？\n'
+                + '元に戻せません。スナップショットは残ります。')) {return;}
             State.set(Store.createDefaultStore());
             Toast.show('初期化しました');
         }

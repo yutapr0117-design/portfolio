@@ -384,7 +384,9 @@ export function createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Th
         const stack = (error && error.stack) ? String(error.stack) : '';
 
         function clearAllData() {
-            if (!confirm('LocalStorageのデータを削除して再読み込みしますか？')) {return;}
+            // [FIX] SNAPSHOT_KEY も消すのに文言が言わず、唯一の復元点が黙って消えていた。
+            if (!confirm('保存データを削除して再読み込みします。\n'
+                + '**スナップショットも消えます**（復元できなくなります）。続けますか？')) {return;}
             try {
                 localStorage.removeItem(CONSTANTS.STORAGE_KEY);
                 localStorage.removeItem(CONSTANTS.SNAPSHOT_KEY);

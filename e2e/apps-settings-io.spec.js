@@ -590,3 +590,30 @@ test('スナップショットの上書きは確認を求め、キャンセル�
     JSON.parse(localStorage.getItem('portfolio_snapshot_v45')).at);
   expect(after, 'キャンセルしたのに上書きされている').toBe(before);
 });
+
+// [DATA] 破壊的操作の確認文は**何を失うか**を言わなければ判断材料にならない。とくに
+//   FatalPage の「保存データを削除して再読み込み」は **SNAPSHOT_KEY も削除する**のに、
+//   従来の文言は「LocalStorage のデータ」としか言わず、**利用者の唯一の復元点が黙って
+//   消えていた**。全リセット側は逆に「スナップショットは残る」ことを言う —— **残るものを
+//   伝えるほうが判断できる**（消える恐れで踏みとどまる必要が無くなる）。
+test('全リセットの確認文は、元に戻せないことと残るものを伝える', async ({ page }) => {
+  const dialogs = [];
+  page.on('dialog', d => { dialogs.push(d.message()); d.dismiss(); });
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  // control: 先にスナップショットを作る。残ることを伝える文言が意味を持つ前提。
+  await page.locator('#settings-snapshot-save').click();
+  await expect.poll(async () => page.evaluate(() =>
+    !!localStorage.getItem('portfolio_snapshot_v45'))).toBe(true);
+
+  await page.getByRole('button', { name: '全リセット' }).click();
+  await expect.poll(async () => dialogs.length).toBe(1);
+  expect(dialogs[0], '元に戻せないことを伝えていない').toContain('元に戻せません');
+  expect(dialogs[0], '何が残るかを伝えていない').toContain('スナップショットは残ります');
+
+  // キャンセルしたので実際に残っていること
+  expect(await page.evaluate(() =>
+    !!localStorage.getItem('portfolio_snapshot_v45')), 'キャンセルしたのに消えている').toBe(true);
+});
