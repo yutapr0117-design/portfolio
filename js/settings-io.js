@@ -21,6 +21,7 @@
  *   - State: js/state.js factory instance
  *   - Store: js/store.js factory instance (validateAndNormalize)
  *   - Toast: js/ui-components.js
+ *   - Brand: js/brand.js factory instance (get / set — store の外に保存される配色)
  *   - getImportOptions: () => ({ mode, includeProfile, includeProjects, includeApps })
  *     取り込み時の UI 選択を **その時点で** 読むための getter。値を引数で渡すと
  *     FileReader の onload (非同期) が **選択時ではなく読み込み開始時の値** を使うことになる。
@@ -31,7 +32,7 @@
  *   - 取り込み/復元で失われた分は lossParts が数え、**黙って捨てない**
  *     (#1143/#1178/#1181/#1182/#1186/#1187 の「切り捨てたら黙るな」class)。
  */
-export function createSettingsIO({ State, Store, Toast, getImportOptions }) {
+export function createSettingsIO({ State, Store, Toast, Brand, getImportOptions }) {
     // 取り込み時点の UI 選択を読む (非同期 onload の中で評価されるので getter 経由)。
     const _opt = () => getImportOptions();
 
@@ -113,7 +114,12 @@ function lossParts(before, after) {
         a.click();
         URL.revokeObjectURL(url);
     }
-    function exportFull() { downloadJSON(State.get(), `portfolio_full_${Date.now()}.json`); }
+    // [FIX] brand は store の外なので「フル」から黙って抜けていた (詳細は e2e)。
+    function exportFull() {
+        const brand = Brand && Brand.get ? Brand.get() : null;
+        downloadJSON(brand ? { ...State.get(), brand } : State.get(),
+            `portfolio_full_${Date.now()}.json`);
+    }
     // [FIX] `Projectsのみ` に **非表示設定 (projectPrefs) を含める**。既定プロジェクトは削除できず
     //   「非表示」が唯一の非公開手段 (#886) なので、素の配列だけを書き出していた従来は、この
     //   ファイルから復元すると**隠したプロジェクトが黙って再公開**されていた (フルは #1037 で
@@ -129,7 +135,7 @@ function lossParts(before, after) {
     /**
      * _normalizeImportShape — export が書く 4 つの形を full-state 形へ揃える。
      *
-     *   full backup      : { schemaVersion, profile, projects, appsData, projectPrefs, theme, … }
+     *   full backup      : { schemaVersion, profile, projects, appsData, projectPrefs, theme, brand, … }
      *   Projectsのみ      : [ …projects ]                (素の配列)
      *   AppsDataのみ      : { tasks, todos, pomodoro, ai, … }
      *   Profileのみ       : { name, title, bio, email, … }
@@ -214,6 +220,11 @@ function lossParts(before, after) {
                 if (typeof parsed.theme === 'string') {
                     merged.theme = parsed.theme;
                     if (parsed.theme !== base.theme) { applied = true; }
+                }
+                // brand は store の外なので merged には載らない。theme と同じく全体の表示設定
+                // なので対象チェックボックスでは分けず、実際に変わるときだけ applied に数える。
+                if (typeof parsed.brand === 'string' && Brand && Brand.set) {
+                    if (parsed.brand !== Brand.get()) { Brand.set(parsed.brand); applied = true; }
                 }
                 if (settingsIncludeProfile && parsed.profile) { merged.profile = parsed.profile; applied = true; }
                 if (settingsIncludeProjects && Array.isArray(parsed.projects)) {

@@ -509,7 +509,7 @@
             mode: 'append', includeProfile: true, includeProjects: true, includeApps: true,
         });
         const SettingsIO = createSettingsIO({
-            State, Store, Toast, getImportOptions: () => _settingsImportOptions(),
+            State, Store, Toast, Brand, getImportOptions: () => _settingsImportOptions(),
         });
         const { SettingsPage, getImportOptions: _getSettingsImportOptions } = createSettingsPage({ h, Toast, State, Brand, Store, Storage, CONSTANTS, generateId, slugify, announce, IO: SettingsIO });
         _settingsImportOptions = _getSettingsImportOptions;
