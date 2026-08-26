@@ -943,4 +943,16 @@ _E2E_TAIL.append({
 })
 
 
+_E2E_TAIL.append({
+    "name": "全リセットの確認文から「元に戻せません／スナップショットは残ります」を落とす —— "
+            "**何を失い何が残るかを言わない確認は判断材料にならない**。残るものを伝えるほうが"
+            "利用者は判断できる (消える恐れで踏みとどまる必要が無くなる)。#1185 が書いた"
+            "「文言は何を失うかを明示する」原則の、全リセット面",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "                + '元に戻せません。スナップショットは残ります。')) {return;}",
+    "replace": "                + '')) {return;}",
+    "test": "全リセットの確認文は、元に戻せないことと残るものを伝える",
+})
+
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

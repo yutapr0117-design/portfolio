@@ -435,7 +435,7 @@ E2E_MUTATIONS_ARCHIVE2 = [
     {
         "name": "behavior: 全リセットの confirm ガードが消える — キャンセルしても全データが初期化される。破壊操作の確認は『押し間違い』ではなく『考え直した』を守るためのもので、これが効かないとキャンセルを押した利用者がデータを失う。最悪の silent failure なのに安全網の非 vacuity が未実証だった",
         "file": ROOT / "js" / "settings-page.js",
-        "find": "            if (!confirm('すべてのデータを初期化しますか？')) {return;}\n",
+        "find": "            if (!confirm('すべてのデータを初期化しますか？\\n'\n",
         "replace": "",
         "test": "Canceling the reset confirm keeps data (data-safety)",
     },
