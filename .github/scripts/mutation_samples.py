@@ -933,5 +933,15 @@ _E2E_TAIL.append({
     "test": "Schema migration tells the user what was reset",
 })
 
+_E2E_TAIL.append({
+    "name": "スナップショットの由来判定を潰す —— 移行時の自動退避を「手動で保存」と表示させる。"
+            "自動退避は load 時に走るため確認を挟めず手動保存を黙って上書きするので、由来を"
+            "誤って表示すると利用者は自分の復元点が残っていると誤解したまま別物を復元する",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "            if (snap.reason === 'schema-mismatch') {",
+    "replace": "            if (false) {",
+    "test": "自動退避されたスナップショットは移行元と移行先を示す",
+})
+
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
