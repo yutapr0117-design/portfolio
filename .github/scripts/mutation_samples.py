@@ -501,53 +501,11 @@ _E2E_TAIL = [
 
 
 
-_E2E_TAIL.append({
-    "name": "ProjectsPage の role='list' を毎描画で付け直すのをやめる —— 空状態分岐が role を外すため、0 件を一度でも経由すると復帰せず listitem が親のいない孤児になる。既定状態では 0 件にならないので全ルート axe 走査では永久に踏まれない",
-    "file": ROOT / "js" / "projects-page.js",
-    "find": "                gridContainer.setAttribute('role', 'list');\n\n                if (projects.length === 0) {",
-    "replace": "                if (projects.length === 0) {",
-    "test": "0 件を経由して結果が戻るとリストが復帰する",
-})
 
-_E2E_TAIL.append({
-    "name": "新しい best-practice 違反が silent に入る —— home のヒーローカードの role を region から listitem へ変えると ARIA in HTML 非適合 (article に listitem は許されない) になるが、WCAG タグの allowlist ゲートは best-practice を丸ごと捨てるため、この baseline 層が無いと永久に無音",
-    "file": ROOT / "js" / "home-page.js",
-    "find": "h('article', { class: 'card card--accent-top', role: 'region', 'aria-label': ",
-    "replace": "h('article', { class: 'card card--accent-top', role: 'listitem', 'aria-label': ",
-    "test": "best-practice 違反は既知の 1 パターンだけ",
-})
 
-_E2E_TAIL.append({
-    "name": "agentic surface の filter を単一ソースから切り離す —— router の getFilterString が常に空を返すと、URL に絞り込みがあっても body[data-ai-state] は「絞り込みなし」と宣言する。視覚には一切出ないため screenshot も目視も気付けない",
-    "file": ROOT / "js" / "router.js",
-    "find": "        return i === -1 ? '' : raw.slice(i + 1);",
-    "replace": "        return '';",
-    "test": "data-ai-state.filter は確定後も URL の絞り込みを表す",
-})
 
-_E2E_TAIL.append({
-    "name": "hero 画像の entity 属性 (data-ai-context) が render から落ちる —— llms-full.txt は Layer 3 として `<audio>` と hero `<img>` が同じ 4 属性を持つと宣言しているが、属性は視覚に出ず hero は JS 描画ゆえ静的 grep でも守れない。落ちても llms-full.txt だけが嘘を言い続ける",
-    "file": ROOT / "js" / "home-page.js",
-    "find": "                                'data-ai-context':",
-    "replace": "                                'data-ai-ctx-typo':",
-    "test": "llms-full.txt が宣言する資産の entity 属性が実際の DOM に載っている",
-})
 
-_E2E_TAIL.append({
-    "name": "ポモドーロの reset が満了値へ復帰しなくなる —— 稼働中の残りは endAtMs から計算されるので、一時停止で remainingSec が drift した状態でしか観測できない。drift の無い経路だけを見ていると『壊れていても緑』になる",
-    "file": ROOT / "js" / "pomodoro-page.js",
-    "find": "                s.appsData.pomodoro.runtime.remainingSec = duration;\n            });\n        }\n\n\n        function switchMode(mode) {",
-    "replace": "            });\n        }\n\n\n        function switchMode(mode) {",
-    "test": "Pomodoro reset button restores full duration and stops",
-})
 
-_E2E_TAIL.append({
-    "name": "「全リセット」が appsData しか戻さない部分リセットへ退行 —— 利用者は全領域の初期化を求めているのに projects / projectPrefs / profile が残る。非表示は既定プロジェクト唯一の非公開手段なので、戻らないと意図的に隠したものが公開状態のまま残る",
-    "file": ROOT / "js" / "settings-page.js",
-    "find": "            State.set(Store.createDefaultStore());",
-    "replace": "            State.update(s => { s.appsData = Store.createDefaultStore().appsData; });",
-    "test": "Reset data restores defaults after confirm",
-})
 
 _E2E_TAIL.append({
     "name": "quiz フォームの aria-invalid が入力しても外れなくなる —— SR 利用者は正しく直した欄を「不正」と読まれ続け、修正が効いたか判別できない。視覚には一切出ない属性なので screenshot でも目視でも気付けない",
@@ -963,6 +921,16 @@ _E2E_TAIL.append({
     "find": "                    Toast.show('認識できない形式のファイルです。'",
     "replace": "                    Toast.show('認識できない形式のファイルです', 'error'); if (0) Toast.show('x'",
     "test": "認識できない形式の JSON は成功と report しない",
+})
+
+_E2E_TAIL.append({
+    "name": "スキーマ移行の通知を落とす —— 版数が変わったデプロイで**全データが既定へ戻る**のに、"
+            "消えたことも復元できることも伝えない状態に戻す。退避先は作られているので救えるのに、"
+            "利用者からは「開いたら全部消えていた」としか見えず復元導線へ辿り着けない",
+    "file": ROOT / "js" / "state.js",
+    "find": "const _migration = Store.takeMigrationNotice ? Store.takeMigrationNotice() : null;",
+    "replace": "const _migration = null;",
+    "test": "Schema migration tells the user what was reset",
 })
 
 

@@ -257,11 +257,17 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
         ),
     ];
 
+    // 直近の load() でスキーマ移行が起きたか。takeMigrationNotice で 1 度だけ取り出す。
+    let _migrationNotice = null;
+
     // Load store with migration
     function load() {
         const data = Storage.parse(CONSTANTS.STORAGE_KEY);
         if (!data) {return createDefaultStore();}
         if (data.schemaVersion !== CONSTANTS.SCHEMA_VERSION) {
+            // [FIX] 版数変更で全データが既定へ戻るのを無言で行っていた (経緯は
+            // e2e/resilience.spec.js)。描画前なのでここでは記録だけする。
+            _migrationNotice = { from: data.schemaVersion, to: CONSTANTS.SCHEMA_VERSION };
             // 旧データをスナップショットとして退避してから初期化
             // NOTE: Settings の復元導線とフォーマットを合わせる（{at, reason, data}）
             try {
@@ -734,5 +740,8 @@ export function createStore({ AUTHOR, CONSTANTS, Storage, generateId, deepClone,
         return result;
     }
 
-    return { load, createDefaultStore, validateAndNormalize, autoRelatedCandidates };
+    // 取り出したら消す (同じ移行を再通知しないため)。
+    function takeMigrationNotice() { const n = _migrationNotice; _migrationNotice = null; return n; }
+
+    return { load, createDefaultStore, validateAndNormalize, autoRelatedCandidates, takeMigrationNotice };
 }

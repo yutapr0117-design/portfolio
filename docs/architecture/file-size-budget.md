@@ -69,14 +69,14 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/mobile-drawer.js` | 257 | 280 | `advisory` | Stage 5-q 新設。Mobile Drawer factory（syncMobileDrawer / secureExternalLinks / __setAppInert / __lockBodyScroll / __trapFocus / __releaseFocusTrap / openDrawer / closeDrawer + state）。closure-deps = none + 引数注入 |
 | `js/ui-components.js` | 342 | 400 | `advisory` | Stage 4 新設。DOM ビルダー・SVG アイコン・Toast・BGM の葉モジュール。安定 |
 | `js/router.js` | 221 | 250 | `advisory` | Stage 5 新設。Hash-based SPA ルーター葉モジュール。安定 |
-| `js/state.js` | 274 | 320 | `advisory` | Stage 5-h 新設。State factory（clone-on-update isolation + subscriber + cross-tab + auto-save）。closure-deps = none + 引数注入。旧 Proxy 型安全モニタは never-activated だったため除去済 |
+| `js/state.js` | 287 | 320 | `advisory` | Stage 5-h 新設。State factory（clone-on-update isolation + subscriber + cross-tab + auto-save）。closure-deps = none + 引数注入。旧 Proxy 型安全モニタは never-activated だったため除去済 |
 | `js/page-meta.js` | 66 | 120 | `advisory` | Stage 5 新設。ページ SEO メタ単一ソース（AI SURFACE）。安定 |
 | `js/pages.js` | 287 | 400 | `advisory` | Stage 5-b → Stage 5-j fix。factory pattern (createPages)。**2026-07-04 bloat-reduction: HiringRiskPage + 専用 helper を js/hiring-risk-page.js へ分離し 650→267 行** (残り RoleSplitPage / NotFoundPage)。budget を実態へ tighten |
 | `js/perf-guards.js` | 89 | 250 | `advisory` | Stage 5-s 新設。Performance Guards factory（Layout Thrashing + Media Lifecycle 2 つの DOM API prototype hook）。closure-deps = none + 引数注入なし |
 | `js/pure-utils.js` | 242 | 400 | `advisory` | Stage 2 抽出済みの純ユーティリティ。安定 |
 | `js/quiz-renderer.js` | 407 | 450 | `advisory` | Stage 5-o 新設。Quiz Renderer factory（QuizPage + 4 domain lookup table）。closure-deps = none + 引数注入。**2026-08-23 ラチェット 400 → 450**: 407 行の内訳は コメント 132 / 空行 42 / **コード 233**。超過は冗長さではなく**実バグ修正 6 件の蓄積**（#186 重複 class によるデータ欠落 / #285 stakeholder 検索漏れ / #296 章見出し検索漏れ / #684 検索語の persist / #928 装飾絵文字の a11y ツリー露出 / #1243 読み込み中の検索語欠落と「未着を見つかりませんと偽る」）。**分割は net-negative と判断**: `_filterBy` は 35 行の純関数だが、新 module + mirror doc + 予算登録の churn に見合わず、#253 で同型の判断をしている。BLOCKING（1,000）までの余裕は大きい |
 | `js/storage.js` | 74 | 120 | `advisory` | Stage 5-c 新設。Safe localStorage ラッパ。closure-deps = none |
-| `js/store.js` | 738 | 750 | `advisory` | Stage 5-g 新設。Store factory（default data + load/validate/normalize/similarity）。closure-deps = none（葉契約）+ 引数注入。2026-08-10 に profile 正規化の型ガード（truthy な非文字列がフィールドを空にする ingestion バグの修正）と safeUrl の欠落時 fallback 是正 + WHY コメントで 659 行へ。1,000 行の BLOCKING 上限（Check 363/365）には十分な余裕がある |
+| `js/store.js` | 747 | 750 | `advisory` | Stage 5-g 新設。Store factory（default data + load/validate/normalize/similarity）。closure-deps = none（葉契約）+ 引数注入。2026-08-10 に profile 正規化の型ガード（truthy な非文字列がフィールドを空にする ingestion バグの修正）と safeUrl の欠落時 fallback 是正 + WHY コメントで 659 行へ。1,000 行の BLOCKING 上限（Check 363/365）には十分な余裕がある |
 | `js/theme.js` | 108 | 120 | `advisory` | Stage 5-i 新設。Theme factory（system/dark/light cycle + matchMedia listener）。closure-deps = none（葉契約）+ 引数注入 |
 | `js/quiz/aws-quiz-data.js` | 819 | 900 | `advisory` | Stage 3-b 分割済み。AWS 問題集（最大データセット） |
 | `js/quiz/pm-quiz-data.js` | 271 | 350 | `advisory` | Stage 3-b 分割済み。PM 問題集 |
@@ -91,13 +91,13 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `.github/scripts/checks_seo_meta.py` | 889 | 950 | `advisory` | SEO/meta 面の Check 群。同上の cohort |
 | `.github/scripts/checks_aio_config.py` | 868 | 950 | `advisory` | AIO 設定面の Check 群。同上の cohort |
 | `docs/session-records/AI2AI-archive-old.md` | 832 | 900 | `advisory` | Session Record の最古 archive。rotate の受け皿で編集は rotate 時のみだが、**archive も無限には伸ばせない**（2026-08-17 に e2e mutation archive が 1,033 行で BLOCKING に到達した実例がある） |
-| `.github/scripts/mutation_samples.py` | 969 | 975 | `advisory` | curated mutation データ (新しい側 tail + E2E)。**2026-07-04 log-rotation 分割: 1,597→870 行**。新規 mutation は本ファイル tail へ追記、~900 行超で最新の archive へ rotate（2026-07-12: Check 373-377 追加で 954→899 行。2026-07-23: 967→889 行へ Check 269-281 を rotate）。**2026-07-28: 2-file rotation 枯渇の恒久解として 3rd file (archive2) を新設し最古の連続ブロック Check 282-361 (80 entries) を rotate → 973→497 行へ縮小**。以後の新規 mutation は再び本 hot log tail へ余裕を持って追記できる。part 1/2 が 1,000 cap 近接したら archive3.py 等へさらに rotate。**2026-08-09: 955→896 行へ Check 366-372 系の最古 12 entries を archive2 へ rotate**（同日 2 回目: Check 375/376/393/402/403/112/130 系の mutation 追加で 985 行へ再到達したため最古 10 entries を追加 rotate。同日 3 回目: a11y/Check 404-407 系の mutation 追加で 1,001 行へ再到達したため最古 12 entries を追加 rotate）（hidden-project listing 面 mesh の e2e mutation 3 件追加で 975 advisory に近接したため）|
+| `.github/scripts/mutation_samples.py` | 937 | 975 | `advisory` | curated mutation データ (新しい側 tail + E2E)。**2026-07-04 log-rotation 分割: 1,597→870 行**。新規 mutation は本ファイル tail へ追記、~900 行超で最新の archive へ rotate（2026-07-12: Check 373-377 追加で 954→899 行。2026-07-23: 967→889 行へ Check 269-281 を rotate）。**2026-07-28: 2-file rotation 枯渇の恒久解として 3rd file (archive2) を新設し最古の連続ブロック Check 282-361 (80 entries) を rotate → 973→497 行へ縮小**。以後の新規 mutation は再び本 hot log tail へ余裕を持って追記できる。part 1/2 が 1,000 cap 近接したら archive3.py 等へさらに rotate。**2026-08-09: 955→896 行へ Check 366-372 系の最古 12 entries を archive2 へ rotate**（同日 2 回目: Check 375/376/393/402/403/112/130 系の mutation 追加で 985 行へ再到達したため最古 10 entries を追加 rotate。同日 3 回目: a11y/Check 404-407 系の mutation 追加で 1,001 行へ再到達したため最古 12 entries を追加 rotate）（hidden-project listing 面 mesh の e2e mutation 3 件追加で 975 advisory に近接したため）|
 | `.github/scripts/mutation_samples_archive.py` | 946 | 950 | `advisory` | curated mutation データ (最古 / rotated)。log-rotation part 1。編集は rotate 時のみ（2026-07-12: 863→917 行。2026-07-23: 917→995 行へ Check 269-281 を受領）。**⚠ advisory は hard ceiling (Check 365 の 1,000) より低く保つ**（2026-08-23 是正: 旧値は 1,000 = hard ceiling と同値で、**早期警告が構造的に一度も出ない**設定だった。OK からいきなり BLOCKING へ飛ぶので「advisory を BLOCKING の手前で効かせる」規律が働かない。Check 443 が機械強制）。cap 近接ゆえ本 part への追加 rotate は不可 = 以後の rotate は part 2 (archive2) 以降が受ける|
 | `.github/scripts/mutation_samples_archive2.py` | 935 | 950 | `advisory` | curated mutation データ (次に古い / rotated)。**log-rotation part 2 (2026-07-28 新設)**。part 1 が 995 行で 1,000 cap 枯渇したため hot log の最古ブロック Check 282-361 を受領。編集は rotate 時のみ。advisory は hard ceiling より低く保つ（Check 443）。近接したら archive3.py 等を新設|
 | `.github/scripts/mutation_samples_archive3.py` | 51 | 950 | `advisory` | curated mutation データ （consistency 側 rotate 先 part 3）。**2026-08-26 に rotate ツールが自動生成・自動配線した** —— 同日に直した `_wire_new_archive` が実運用で初めて働いた記録（それまでは `__main__` ガードより後ろの定義で CLI から NameError、かつ E2E 側の名前をハードコードしていたため consistency 側では entry が参照されなく なるか ImportError で、「受け皿が埋まったら次を起こす」機能は一度も動いたことがなかった）。編集は rotate 時のみ |
 | `.github/scripts/mutation_samples_e2e_archive.py` | 950 | 950 | `advisory` | e2e mutation の rotated log part 1。**2026-08-17: 1,033 行で Check 365 の 1,000 cap に到達したため半数を part 2 へ rotate**。以後の rotate は part 2 が受ける |
 | `.github/scripts/mutation_samples_e2e_archive2.py` | 945 | 950 | `advisory` | e2e mutation の rotated log part 2 (2026-08-17 新設)。**archive も無限には伸ばせない**ため consistency 側と同じ 2 段構成へ揃えた。近接したら archive3 を新設 |
-| `.github/scripts/mutation_samples_e2e_archive3.py` | 633 | 975 | `advisory` | behavior mutation の 3 番目の archive。archive2 が 1,000 行上限に達したため 2 段構成へ（archive も無限には伸ばせない） |
+| `.github/scripts/mutation_samples_e2e_archive3.py` | 675 | 975 | `advisory` | behavior mutation の 3 番目の archive。archive2 が 1,000 行上限に達したため 2 段構成へ（archive も無限には伸ばせない） |
 | `.github/scripts/mutation_samples_common.py` | 12 | 60 | `advisory` | mutation_samples / archive 共有パス定数 (ROOT / CHECK)。循環回避 |
 | `.github/scripts/_lib_io.py` | 227 | 250 | `advisory` | 純 I/O helper sibling module (read / read_bytes / extract / csp_sri_hash + 日付 helper)。Check 74/95 で API 契約を BLOCKING 保護。budget を実態 +headroom へ同期 |
 | `index.html` | 1341 | — | `protected` | CSP / JSON-LD / AI meta / AIO anchor の中核。整理する場合は C6 の 3 不変条件 (真実性 / 全公開面での整合 / digest 再生成) を満たすこと |
@@ -136,7 +136,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/projects-roundtrip.spec.js` | 73 | 300 | `advisory` | behavior e2e spec。normalize の冪等性 (保存 → 読み戻しで既定データが変質しない)。projects.spec.js が 922 行で 早期警告 (900) を超えたため、Check 365 の BLOCKING (1,000 行) を踏む前に切り出した |
 | `e2e/quiz-lazy-load.spec.js` | 329 | 900 | `advisory` | behavior e2e spec (quiz データの遅延読み込み契約)。#1239 で 130,595 bytes をクリティカルパスから外した結果**「まだ届いていない」状態が新しく生まれた**ため、その扱いを 1 箇所へ集約した。2026-08-23 に quiz.spec.js が 923 行で advisory(900) を超えたため BLOCKING の手前で切り出し |
 | `e2e/quiz.spec.js` | 599 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
-| `e2e/resilience.spec.js` | 802 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/resilience.spec.js` | 838 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/security-proxy.spec.js` | 537 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/static-pages.spec.js` | 104 | 900 | `advisory` | behavior e2e spec (静的ページ + role-split の ARIA table 意味論)。2026-08-16 に projects.spec.js の advisory 超過を受けて先回り分割 |
 | `e2e/theme-sw.spec.js` | 462 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
@@ -176,7 +176,9 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 722400 -->
+<!-- PERF-BUDGET-DATA 723800 -->
+
+> **2026-08-27 ラチェット 722,400 → 723,800（+1,400）**: スキーマ版数が変わったデプロイで**利用者の全データが既定へ戻るのに、消えたことも復元できることも伝えていなかった**件の是正（実測: タスク消失 / 可視トーストなし / SR 通知なし / 画面上の説明なし。退避先は作られているのに利用者からは「開いたら全部消えていた」としか見えず復元導線へ辿り着けない）。**上げる前に実測した** —— 変更全体 +1,732 バイトのうち WHY コメントは 839 バイトで、**全部消しても 723,293 と 893 バイト超過する＝超過は機能の分**（記録 / 取り出し / 通知文）。詳細な経緯は**配信されない** `e2e/resilience.spec.js` 側へ置き、shipped には 2 行だけ残した。
 
 > **2026-08-27 ラチェット 721,400 → 722,400（+1,000）**: 破壊的操作の確認文が**何を失うかを言っていなかった**件の是正。とくに FatalPage の「保存データを削除して再読み込み」は **SNAPSHOT_KEY も削除する**のに文言が言わず、**利用者の唯一の復元点が黙って消えていた**。全リセット側は逆に「スナップショットは残る」ことを言う（残るものを伝えるほうが判断できる）。**上げる前に実測した** —— 変更全体 +426 バイト、WHY は各 1 行（計約 240 バイト）まで圧縮済み。**コメントを全削除すれば 721,392 でちょうど収まる**が、**残り 8 バイトの状態は使えない**（次の変更が即座に破綻し、実質「予算が無い」のと同じ）。加えて「SNAPSHOT_KEY も消える」は**次の整理で消されやすい種類の知識**なので、1 行だけ残す判断をした。
 >
