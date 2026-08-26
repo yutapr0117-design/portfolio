@@ -661,8 +661,8 @@ E2E_MUTATIONS_ARCHIVE3 = [
     {
     "name": "ポモドーロの reset が満了値へ復帰しなくなる —— 稼働中の残りは endAtMs から計算されるので、一時停止で remainingSec が drift した状態でしか観測できない。drift の無い経路だけを見ていると『壊れていても緑』になる",
     "file": ROOT / "js" / "pomodoro-page.js",
-    "find": "                s.appsData.pomodoro.runtime.remainingSec = duration;\n            });\n        }\n\n\n        function switchMode(mode) {",
-    "replace": "            });\n        }\n\n\n        function switchMode(mode) {",
+    "find": "                s.appsData.pomodoro.runtime.remainingSec = duration;\n            });\n            // [A11Y 4.1.3]",
+    "replace": "            });\n            // [A11Y 4.1.3]",
     "test": "Pomodoro reset button restores full duration and stops",
 },
     {

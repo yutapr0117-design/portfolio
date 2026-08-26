@@ -936,5 +936,15 @@ _E2E_TAIL.append({
     "test": "書き出しが失敗しても致命エラーにせず理由を伝える",
 })
 
+_E2E_TAIL.append({
+    "name": "リセットの通知を落とす —— 押してもボタン名は変わらず、タイマーは意図的に非 live"
+            "なので、結果だけ変わって無音になる。見えない利用者にはリセットできたのかどうかが"
+            "分からない (開始/一時停止はラベル、モード切替は aria-pressed が変化を伝える)",
+    "file": ROOT / "js" / "pomodoro-page.js",
+    "find": "            announce(`${label}のタイマーをリセットしました。残り ${formatTime(duration)}`);",
+    "replace": "            void label;",
+    "test": "リセットは結果を支援技術へ伝える",
+})
+
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

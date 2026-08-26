@@ -9,7 +9,7 @@ canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/state.js (appsData
 
 ## What
 
-`route 'apps/pomodoro'` (ポモドーロタイマー — 集中/短休憩/長休憩 モード + 履歴記録) をレンダリングする葉モジュール。`createPomodoroPage({ h, createIcon, State, Router, Toast, clamp, CONSTANTS })` が `PomodoroPage()` 関数を返す factory。private state `pomodoroTimer` (interval id) と local helper (formatTime / getDuration / getRemaining / start / pause / reset / complete / switchMode / startTimer / stopTimer / buildUI) を内包する。
+`route 'apps/pomodoro'` (ポモドーロタイマー — 集中/短休憩/長休憩 モード + 履歴記録) をレンダリングする葉モジュール。`createPomodoroPage({ h, createIcon, State, Router, Toast, announce, clamp, CONSTANTS })` が `PomodoroPage()` 関数を返す factory。private state `pomodoroTimer` (interval id) と local helper (formatTime / getDuration / getRemaining / start / pause / reset / complete / switchMode / startTimer / stopTimer / buildUI) を内包する。
 
 ## Why
 
@@ -17,7 +17,7 @@ canonical-ref: js/apps.js (抽出元) / main.js (配線) / js/state.js (appsData
 
 ## How
 
-- `main.js` が `createPomodoroPage({ h, createIcon, State, Router, Toast, clamp, CONSTANTS })` で生成し、render dispatch (route 'apps/pomodoro') が `PomodoroPage()` を呼ぶ。
+- `main.js` が `createPomodoroPage({ h, createIcon, State, Router, Toast, announce, clamp, CONSTANTS })` で生成し、render dispatch (route 'apps/pomodoro') が `PomodoroPage()` を呼ぶ。
 - 3 モード (work/short-break/long-break) を切替、`setInterval` (1 秒) で残り時間を再描画、0 で `complete()` が history に記録 + Toast 通知。
 
 ## Constraints

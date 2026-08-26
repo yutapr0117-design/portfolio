@@ -59,7 +59,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/command-palette.js` | 280 | 300 | `advisory` | Command palette (Cmd+K omni-nav) factory。closure-deps = none + 引数注入 |
 | `js/hiring-risk-page.js` | 414 | 550 | `advisory` | 2026-07-04 bloat-reduction 分離 (js/pages.js より)。採用リスク低減ページ + 専用 helper。static content |
 | `js/home-page.js` | 358 | 450 | `advisory` | bloat-reduction 分離 (js/components.js より)。ホームページ factory |
-| `js/pomodoro-page.js` | 359 | 400 | `advisory` | 2026-07-04 bloat-reduction 分離 (js/apps.js より)。ポモドーロタイマー factory。private state = pomodoroTimer 1 個。stale-closure 対策温存 |
+| `js/pomodoro-page.js` | 364 | 400 | `advisory` | 2026-07-04 bloat-reduction 分離 (js/apps.js より)。ポモドーロタイマー factory。private state = pomodoroTimer 1 個。stale-closure 対策温存 |
 | `js/project-detail-page.js` | 194 | 300 | `advisory` | bloat-reduction 分離 (js/components.js より)。プロジェクト詳細 + 関連推薦 factory |
 | `js/projects-page.js` | 252 | 300 | `advisory` | bloat-reduction 分離 (js/components.js より)。プロジェクト一覧 + 検索 factory |
 | `js/constants.js` | 94 | 150 | `advisory` | Stage 5-d 新設。実行時定数（STORAGE_KEY / LIMITS / timing / DEBUG / TAB_ID）。closure-deps = none |
@@ -91,7 +91,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `.github/scripts/checks_seo_meta.py` | 889 | 950 | `advisory` | SEO/meta 面の Check 群。同上の cohort |
 | `.github/scripts/checks_aio_config.py` | 868 | 950 | `advisory` | AIO 設定面の Check 群。同上の cohort |
 | `docs/session-records/AI2AI-archive-old.md` | 832 | 900 | `advisory` | Session Record の最古 archive。rotate の受け皿で編集は rotate 時のみだが、**archive も無限には伸ばせない**（2026-08-17 に e2e mutation archive が 1,033 行で BLOCKING に到達した実例がある） |
-| `.github/scripts/mutation_samples.py` | 940 | 975 | `advisory` | curated mutation データ (新しい側 tail + E2E)。**2026-07-04 log-rotation 分割: 1,597→870 行**。新規 mutation は本ファイル tail へ追記、~900 行超で最新の archive へ rotate（2026-07-12: Check 373-377 追加で 954→899 行。2026-07-23: 967→889 行へ Check 269-281 を rotate）。**2026-07-28: 2-file rotation 枯渇の恒久解として 3rd file (archive2) を新設し最古の連続ブロック Check 282-361 (80 entries) を rotate → 973→497 行へ縮小**。以後の新規 mutation は再び本 hot log tail へ余裕を持って追記できる。part 1/2 が 1,000 cap 近接したら archive3.py 等へさらに rotate。**2026-08-09: 955→896 行へ Check 366-372 系の最古 12 entries を archive2 へ rotate**（同日 2 回目: Check 375/376/393/402/403/112/130 系の mutation 追加で 985 行へ再到達したため最古 10 entries を追加 rotate。同日 3 回目: a11y/Check 404-407 系の mutation 追加で 1,001 行へ再到達したため最古 12 entries を追加 rotate）（hidden-project listing 面 mesh の e2e mutation 3 件追加で 975 advisory に近接したため）|
+| `.github/scripts/mutation_samples.py` | 950 | 975 | `advisory` | curated mutation データ (新しい側 tail + E2E)。**2026-07-04 log-rotation 分割: 1,597→870 行**。新規 mutation は本ファイル tail へ追記、~900 行超で最新の archive へ rotate（2026-07-12: Check 373-377 追加で 954→899 行。2026-07-23: 967→889 行へ Check 269-281 を rotate）。**2026-07-28: 2-file rotation 枯渇の恒久解として 3rd file (archive2) を新設し最古の連続ブロック Check 282-361 (80 entries) を rotate → 973→497 行へ縮小**。以後の新規 mutation は再び本 hot log tail へ余裕を持って追記できる。part 1/2 が 1,000 cap 近接したら archive3.py 等へさらに rotate。**2026-08-09: 955→896 行へ Check 366-372 系の最古 12 entries を archive2 へ rotate**（同日 2 回目: Check 375/376/393/402/403/112/130 系の mutation 追加で 985 行へ再到達したため最古 10 entries を追加 rotate。同日 3 回目: a11y/Check 404-407 系の mutation 追加で 1,001 行へ再到達したため最古 12 entries を追加 rotate）（hidden-project listing 面 mesh の e2e mutation 3 件追加で 975 advisory に近接したため）|
 | `.github/scripts/mutation_samples_archive.py` | 946 | 950 | `advisory` | curated mutation データ (最古 / rotated)。log-rotation part 1。編集は rotate 時のみ（2026-07-12: 863→917 行。2026-07-23: 917→995 行へ Check 269-281 を受領）。**⚠ advisory は hard ceiling (Check 365 の 1,000) より低く保つ**（2026-08-23 是正: 旧値は 1,000 = hard ceiling と同値で、**早期警告が構造的に一度も出ない**設定だった。OK からいきなり BLOCKING へ飛ぶので「advisory を BLOCKING の手前で効かせる」規律が働かない。Check 443 が機械強制）。cap 近接ゆえ本 part への追加 rotate は不可 = 以後の rotate は part 2 (archive2) 以降が受ける|
 | `.github/scripts/mutation_samples_archive2.py` | 935 | 950 | `advisory` | curated mutation データ (次に古い / rotated)。**log-rotation part 2 (2026-07-28 新設)**。part 1 が 995 行で 1,000 cap 枯渇したため hot log の最古ブロック Check 282-361 を受領。編集は rotate 時のみ。advisory は hard ceiling より低く保つ（Check 443）。近接したら archive3.py 等を新設|
 | `.github/scripts/mutation_samples_archive3.py` | 87 | 950 | `advisory` | curated mutation データ （consistency 側 rotate 先 part 3）。**2026-08-26 に rotate ツールが自動生成・自動配線した** —— 同日に直した `_wire_new_archive` が実運用で初めて働いた記録（それまでは `__main__` ガードより後ろの定義で CLI から NameError、かつ E2E 側の名前をハードコードしていたため consistency 側では entry が参照されなく なるか ImportError で、「受け皿が埋まったら次を起こす」機能は一度も動いたことがなかった）。編集は rotate 時のみ |
@@ -113,7 +113,8 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/aio-agentic-state.spec.js` | 236 | 900 | `advisory` | behavior e2e spec (`body[data-ai-state]` の機械可読契約)。2026-08-23 に aio-meta.spec.js が 907 行で advisory(900) を超えたため、**BLOCKING(1,000) に当たる前に**単一の契約という coherent な塊として切り出した |
 | `e2e/aio-meta.spec.js` | 761 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-ai-notes.spec.js` | 890 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
-| `e2e/apps-pomodoro.spec.js` | 900 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/apps-pomodoro-cross-app.spec.js` | 352 | 900 | `advisory` | behavior e2e spec (ポモドーロ × 他アプリの相互作用)。2026-08-27 に apps-pomodoro.spec.js の advisory 超過を BLOCKING の手前で解消するため切り出した |
+| `e2e/apps-pomodoro.spec.js` | 577 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-settings-import-shape.spec.js` | 720 | 900 | `advisory` | behavior e2e spec (import が受け付ける形の契約面)。2026-08-14 に apps-settings-io.spec.js の advisory 超過を受けて先回り分割 |
 | `e2e/apps-settings-ingestion.spec.js` | 675 | 900 | `advisory` | behavior e2e spec (外部 ingestion の正規化・型ガード面)。2026-08-15 に apps-settings-io.spec.js の advisory 超過を受けて先回り分割 |
 | `e2e/apps-settings-snapshot.spec.js` | 131 | 900 | `advisory` | behavior e2e spec (スナップショット＝単一スロットの復元点)。2026-08-27 に apps-settings.spec.js の advisory 超過をBLOCKING の手前で解消するため切り出した |
@@ -177,7 +178,9 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 725900 -->
+<!-- PERF-BUDGET-DATA 726300 -->
+
+> **2026-08-27 ラチェット 725,900 → 726,300（+400）**: ポモドーロの**リセットだけが無音**だった件の是正（開始/一時停止はボタン名、モード切替は `aria-pressed` が変化を伝えるのに、リセットはどちらも変わらず、タイマーは意図的に非 live なので結果だけ変わって無音・WCAG 4.1.3）。**上げる前に実測した** —— 超過は 55 バイトで、WHY の 1 行（66 バイト）を消せば技術的には収まるが、**残り 11 バイトの状態は次の変更で即破綻する＝実質「予算が無い」のと同じ**（2026-08-26 の同じ判断と揃えた）。WHY を残して小さく上げるほうが筋が良い。
 
 > **2026-08-27 ラチェット 725,200 → 725,900（+700）**: 書き出しが**成否とも無言**で、しかも**失敗が致命エラーへ昇格していた**件の是正（実測: 成功しても toast も SR 通知も空 / `URL.createObjectURL` が投げる環境では FatalPage と全画面オーバーレイが出て Settings が消える＝バックアップを取ろうとして画面を失う）。**上げる前に実測した** —— WHY コメントを 1 行（約 90 バイト）まで圧縮しても 725,521 と超過が残る＝**超過は機能の分**（try/catch/finally・成功通知・失敗通知）。
 
@@ -575,6 +578,7 @@ e2e/aio-license.spec.js | 900 | advisory
 e2e/aio-agentic-state.spec.js | 900 | advisory
 e2e/aio-meta.spec.js | 900 | advisory
 e2e/apps-ai-notes.spec.js | 900 | advisory
+e2e/apps-pomodoro-cross-app.spec.js | 900 | advisory
 e2e/apps-pomodoro.spec.js | 900 | advisory
 e2e/apps-settings-import-shape.spec.js | 900 | advisory
 e2e/apps-settings-ingestion.spec.js | 900 | advisory

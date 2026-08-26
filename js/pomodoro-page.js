@@ -10,7 +10,7 @@
  * 挙動 byte-equivalent。
  *
  * 【公開 API（呼び出し側 main.js から見た形）】
- *   const { PomodoroPage } = createPomodoroPage({ h, createIcon, State, Router, Toast, clamp, CONSTANTS });
+ *   const { PomodoroPage } = createPomodoroPage({ h, createIcon, State, Router, Toast, announce, clamp, CONSTANTS });
  *
  * 【依存（引数で注入）】
  *   - h: DOM builder (js/ui-components.js)
@@ -18,6 +18,7 @@
  *   - State: アプリ状態ストア (js/state.js) — appsData.pomodoro (settings / runtime / history)
  *   - Router: hash router (js/router.js) — getRoute().name で稼働中ルート判定
  *   - Toast: 通知 (セッション完了)
+ *   - announce: sr-only の状態通知 (js/ui-components.js)
  *   - clamp: 数値クランプ (設定分の範囲制限)
  *   - CONSTANTS: LIMITS.POMODORO_HISTORY (履歴保持件数上限) 用 (js/constants.js)
  *   - window.render / Date / setInterval / clearInterval: グローバル
@@ -29,7 +30,7 @@
  *     (稼働中の毎秒再描画では二重 interval にならない)。
  *   - 関数本体は抽出元から byte-equivalent。葉契約 (Check 47c: import ゼロ) を維持。
  */
-export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp, CONSTANTS }) {
+export function createPomodoroPage({ h, createIcon, State, Router, Toast, announce, clamp, CONSTANTS }) {
 
     // ===== Component: Pomodoro App =====
     let pomodoroTimer = null;
@@ -153,12 +154,16 @@ export function createPomodoroPage({ h, createIcon, State, Router, Toast, clamp,
 
         function reset() {
             stopTimer();
-            const duration = getDuration(pomo.runtime.mode);
+            const mode = pomo.runtime.mode;
+            const duration = getDuration(mode);
             State.update(s => {
                 s.appsData.pomodoro.runtime.isActive = false;
                 s.appsData.pomodoro.runtime.endAtMs = null;
                 s.appsData.pomodoro.runtime.remainingSec = duration;
             });
+            // [A11Y 4.1.3] リセットだけ変化の手がかりが無く無音だった (経緯は e2e)。
+            const label = (modes.find(m => m.id === mode) || {}).label || 'タイマー';
+            announce(`${label}のタイマーをリセットしました。残り ${formatTime(duration)}`);
         }
 
 
