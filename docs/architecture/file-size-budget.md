@@ -114,7 +114,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/apps-pomodoro.spec.js` | 898 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-settings-import-shape.spec.js` | 702 | 900 | `advisory` | behavior e2e spec (import が受け付ける形の契約面)。2026-08-14 に apps-settings-io.spec.js の advisory 超過を受けて先回り分割 |
 | `e2e/apps-settings-ingestion.spec.js` | 619 | 900 | `advisory` | behavior e2e spec (外部 ingestion の正規化・型ガード面)。2026-08-15 に apps-settings-io.spec.js の advisory 超過を受けて先回り分割 |
-| `e2e/apps-settings-io.spec.js` | 548 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/apps-settings-io.spec.js` | 557 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-settings.spec.js` | 878 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/projects-visibility.spec.js` | 168 | 900 | `advisory` | behavior e2e spec (プロジェクト非表示 = 唯一の非公開手段の read 面 mesh)。2026-08-20 に apps-settings.spec.js が 968 行で BLOCKING(1,000) まで残り 32 行となり、**当たる前に**切り出した |
 | `e2e/apps-task.spec.js` | 849 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
