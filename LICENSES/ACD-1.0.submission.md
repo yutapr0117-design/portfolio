@@ -18,12 +18,13 @@
 
 | | |
 |---|---|
-| **Sent** | OSI `license-review` — submitted, awaiting outcome. The steward characterises this as **submitting for review and discussion**, not as a request for fast approval. |
+| **Sent** | **OSI `license-discuss`** — posted, awaiting reaction. This is OSI's *general discussion* list, **not the venue for an approval request**. The steward posted there to find out whether the instrument should exist at all, before asking anyone to approve it. |
+| **Not sent** | **OSI `license-review`** — the venue that actually starts an approval request. **Section B below is written for that step and has not been sent.** |
 | **Not sent** | SPDX License List. SPDX asks for substantial real-world use; this text has one user. **Not meeting the condition is the reason, not the ordering** — section C below stays unsent until that changes. |
 | **Text** | Frozen. `LICENSES/FROZEN.md` records the freeze and CI pins the sha256 of the three submitted artefacts. A sound criticism received during review is answered with *"that is right, and ACD-1.1 will do X"* — not by editing the text under review. |
 
-**Section E below lists disclosures that section B does not contain.** If the section B
-message has already been sent, they belong in a follow-up.
+**Section E below lists disclosures that section B does not contain.** They apply to whatever
+is posted, including the license-discuss thread that is already open.
 
 Anticipated objections and prepared answers (38 worked entries plus a table of 8 short answers, across three files) are in
 `LICENSES/ACD-1.0.review-responses.md` and its `-clauses` / `-meta` companions.
@@ -45,7 +46,10 @@ Anticipated objections and prepared answers (38 worked entries plus a table of 8
 
 ---
 
-## B. OSI License Review — ready-to-send message
+## B. OSI License Review — ready-to-send message (**not yet sent**)
+
+> **This is the approval-request step, and it has not been taken.** What is currently open is a
+> thread on `license-discuss`. Send this only when the decision is to actually request approval.
 
 Send to `license-review@opensource.org` (subscribe first). OSI asks submitters to state
 the rationale, to distinguish the licence from the closest approved one, to address the
@@ -230,7 +234,7 @@ Submit via https://tools.spdx.org/app/submit_new_license/ (preferred) or the
 
 - **Full name:** Autonomous Commons Dedication 1.0
 - **Short identifier requested:** `ACD-1.0`
-- **OSI approved:** No (submitted in parallel to OSI License Review)
+- **OSI approved:** No. Not submitted to OSI License Review either — only discussed on license-discuss
 - **Licence text URL:** https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt
 - **SPDX XML:** `LICENSES/ACD-1.0.spdx.xml` in the repository below, generated from the
   text by `npm run spdx-xml` and kept in sync by a blocking CI check, so the submitted
@@ -270,6 +274,14 @@ dossier existed. Reviewing the two against each other surfaced one disclosure th
 dossier argues is mandatory and that section B does not make. **Section B is not rewritten
 here, because it may already have been sent.** Add the following in a follow-up message,
 or fold it into section 5 if section B has not gone out yet.
+
+### E.0 Which list this is on
+
+If the thread is on `license-discuss`, say so plainly, and say what you want from it:
+
+> I have posted this to license-discuss rather than license-review on purpose. I am not
+> asking for approval yet. I would like to know whether this instrument is necessary at
+> all, and where it is wrong, before taking anyone's time with a formal request.
 
 ### E.1 Provenance of the drafting
 
