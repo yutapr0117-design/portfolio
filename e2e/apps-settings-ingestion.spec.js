@@ -617,3 +617,59 @@ test('snapshot の復元で失われた分を報告する', async ({ page }) => 
   expect(ann, '5 件が落ちたのに報告していない').toContain('5 件は取り込めませんでした');
   expect(ann, 'ノート 10,000 文字が消えたのに報告していない').toContain('1 件の項目');
 });
+
+// [DATA] **全置換は最も破壊的なのに無確認だった。** プロジェクト 1 件の削除も全リセットも
+//   スナップショットの削除・上書きも confirm を通すのに、全プロジェクト + 全アプリデータ +
+//   profile を一度に置き換えるこの経路だけが素通りしていた（実測 2026-08-26: dialog ゼロで
+//   既存タスクが消えた）。しかも**モードは遷移を跨いで残る** —— 一度 strict にした利用者が、
+//   後で別のファイルを取り込むときに選択を覚えていない、という現実的な経路がある。
+test('全置換モードの取り込みは確認を求め、キャンセルすると既存データが残る', async ({ page }) => {
+  const readTasks = () => {
+    const raw = localStorage.getItem('portfolio_enhanced_v45');
+    const s = raw ? JSON.parse(raw) : null;
+    return s ? (s.appsData.tasks || []).map(t => t.title) : null;
+  };
+  let asked = 0;
+  page.on('dialog', d => { asked += 1; d.dismiss(); });
+
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await page.getByLabel('新しいタスクを入力').fill('STRICT-KEEP');
+  await page.getByLabel('新しいタスクを入力').press('Enter');
+  await expect(page.locator('#content').getByText('STRICT-KEEP')).toBeVisible();
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  // control: 既定 (append) では訊かない。ここで訊くなら過剰確認である。
+  const file = {
+    name: 'replace.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({
+      schemaVersion: 1, projects: [], appsData: { tasks: [] },
+      profile: {}, projectPrefs: { hiddenIds: [] },
+    })),
+  };
+  await page.setInputFiles('#content input[type="file"]', file);
+  await expectNotified(page, 'インポート');
+  expect(asked, 'control: 非破壊なモードで確認を求めている (過剰確認)').toBe(0);
+
+  const before = await page.evaluate(readTasks);
+  expect(before, 'control: 種蒔きしたタスクが state に無ければ、この検査は何も測っていない')
+    .toContain('STRICT-KEEP');
+
+  // 全置換に切り替えて同じファイルを取り込む → 確認が出て、キャンセルすれば何も変わらない
+  // モードの onchange は window.render() でページを作り直すため、選んだ直後に setInputFiles すると
+  //   **detach された古い input を掴み change が誰にも届かない**。状態を assert して settle させる。
+  await page.locator('#content select').first().evaluate((el) => {
+    el.focus();
+    el.value = 'strict';
+    el.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+  await expect.poll(async () =>
+    page.locator('#content select').first().inputValue()).toBe('strict');
+  await expect(page.getByLabel('インポートする JSON ファイルを選択')).toBeVisible();
+  await page.setInputFiles('#content input[type="file"]', file);
+  await expect.poll(async () => asked).toBe(1);
+
+  expect(await page.evaluate(readTasks), 'キャンセルしたのに置き換わっている').toEqual(before);
+});

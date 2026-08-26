@@ -495,53 +495,11 @@ _E2E_TAIL = [
 
 
 
-_E2E_TAIL.append({
-    "name": "TODO 一覧に role=list を付けて listitem でない子 (空状態の p) を含ませる —— 非既定状態 (空) にしか現れないリスト意味論の破れ。既定内容で走る全ルート axe 走査では到達しない class (#1213/#1214 と同型)",
-    "file": ROOT / "js" / "apps.js",
-    "find": "            todoListHost = h('section', { class: 'flex flex-col gap-2', id: 'todo-list-host' },",
-    "replace": "            todoListHost = h('section', { class: 'flex flex-col gap-2', id: 'todo-list-host', role: 'list' },",
-    "test": "空の状態でも構造 a11y が壊れない",
-})
 
-_E2E_TAIL.append({
-    "name": "別タブの更新が稼働中のポモドーロを止める —— cross-tab 採用が受信 store を丸ごと採用し、別タブが持つ「未起動」の runtime で稼働状態を上書きする。利用者からは「別タブで作業していたらポモドーロが消えていた」としか見えず原因に見当がつかない (#940 と同じ『自タブで進行中のものを守る』class)",
-    "file": ROOT / "js" / "state.js",
-    "find": "        if (_running && data.appsData && data.appsData.pomodoro) {",
-    "replace": "        if (false && data.appsData && data.appsData.pomodoro) {",
-    "test": "別タブの更新が稼働中のポモドーロを止めない",
-})
 
-_E2E_TAIL.append({
-    "name": "Cmd+K の候補 0 件で listbox の中へ空状態が入り意味論が壊れる —— 既定状態 (入力なし) では全候補が出るので通常の a11y 走査では一度も踏まれない (#1213/#1214 と同じ『既定値だけが偶然 clean』class)",
-    "file": ROOT / "js" / "command-palette.js",
-    "find": "            listEl.removeAttribute('role');\n",
-    "replace": "",
-    "test": "Cmd+K の候補 0 件で listbox 意味論が壊れず",
-})
 
-_E2E_TAIL.append({
-    "name": "壊れた projects entry (null / 文字列) が正規化の型ガードを素通りし、後段の dereference で FatalPage crash する —— 取り込みは untrusted 入力の最外周なので、entry 単位のガードが最初の防波堤 (#93/#295/#561 の ingestion 正規化 class)",
-    "file": ROOT / "js" / "store.js",
-    "find": "        const normalizedIncoming = (Array.isArray(incomingProjects) ? incomingProjects : [])\n            .filter(p => p && typeof p === 'object')",
-    "replace": "        const normalizedIncoming = (Array.isArray(incomingProjects) ? incomingProjects : [])\n            .filter(p => true)",
-    "test": "strict import of malformed projects stays graceful",
-})
 
-_E2E_TAIL.append({
-    "name": "部分 export (Projectsのみ) が別のスライスを書き出す —— バックアップの土台が壊れ、利用者は「戻せないファイル」を作る。しかも export 時点では成功に見えるので、復元しようとして初めて判る",
-    "file": ROOT / "js" / "settings-io.js",
-    "find": "downloadJSON({ projects: s.projects, projectPrefs: s.projectPrefs },\n            `portfolio_projects_",
-    "replace": "downloadJSON({ projects: s.appsData, projectPrefs: s.projectPrefs },\n            `portfolio_projects_",
-    "test": "partial export buttons download the correct State slice",
-})
 
-_E2E_TAIL.append({
-    "name": "AIO asset anchor (#aio-asset-anchor) が DOM から消える —— 機械可読な資産アンカーは視覚に一切出ないので、消えても screenshot でも目視でも気付けない。本プロジェクトの中核である AIO 面が silent に失われる",
-    "file": ROOT / "index.html",
-    "find": '<div id="aio-asset-anchor" hidden aria-hidden="true"',
-    "replace": '<div id="aio-asset-anchor-removed" hidden aria-hidden="true"',
-    "test": "AIO anchor persists in DOM after initial load",
-})
 
 _E2E_TAIL.append({
     "name": "ProjectsPage の role='list' を毎描画で付け直すのをやめる —— 空状態分岐が role を外すため、0 件を一度でも経由すると復帰せず listitem が親のいない孤児になる。既定状態では 0 件にならないので全ルート axe 走査では永久に踏まれない",
@@ -957,6 +915,19 @@ _E2E_TAIL.append({
     "find": "            if (_prev) {",
     "replace": "            if (false) {",
     "test": "スナップショットの上書きは確認を求め、キャンセルすると元が残る",
+})
+
+
+_E2E_TAIL.append({
+    "name": "全置換 (strict) モードの取り込み確認を無効化する —— **最も破壊的な経路**なのに、"
+            "プロジェクト 1 件の削除も全リセットもスナップショットの削除・上書きも confirm を通すのに"
+            "ここだけ素通りしていた (実測 2026-08-26: dialog ゼロで既存タスクが消えた)。"
+            "**モードは遷移を跨いで残る**ので、一度 strict にした利用者が後で別のファイルを"
+            "取り込むときに選択を覚えていない、という現実的な経路がある",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "                if (settingsImportMode === 'strict') {\n                    if (!confirm(",
+    "replace": "                if (false) {\n                    if (!confirm(",
+    "test": "全置換モードの取り込みは確認を求め、キャンセルすると既存データが残る",
 })
 
 

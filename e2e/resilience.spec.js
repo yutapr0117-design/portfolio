@@ -239,6 +239,7 @@ test('Settings strict import replaces user-added layer but preserves defaults', 
 
   // (2) strict に切替え、victim を含まない別 project を import
   await page.locator('select[aria-label="インポートモード"]').selectOption('strict');
+    page.once('dialog', d => d.accept());   // 全置換は confirm を通す (#1331)
   await page.locator('input[type="file"]').setInputFiles({
     name: 'strict.json', mimeType: 'application/json',
     buffer: Buffer.from(JSON.stringify({ projects: [
