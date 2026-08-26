@@ -80,6 +80,16 @@ Check inventory (kept in sync with the `# \u2500\u2500 N.` sections in run() bel
        measured and tightened. The `OK:` line count in §9 is deliberately OUT of scope: it is not
        knowable from inside the same run (it is only final once the run ends), an honest limit of
        self-measurement rather than an oversight. (ADVISORY)
+  456. **`if __name__ == "__main__":` より後で def/class を定義しない** (BLOCKING):
+       ガード本体は `sys.exit(main())` の形で **その場で実行される**ので、後ろに置いた
+       関数はスクリプト実行時にはまだ束縛されていない。import すると定義されるため、
+       **import 経由のテストでは動くのに CLI では NameError** という最悪の非対称になる。
+       実測 (2026-08-26): `rotate_mutation_samples.py` の `_wire_new_archive` がこの位置に
+       あり、「受け皿が埋まったら次を起こす」という docstring が宣伝している機能が
+       **`npm run rotate-mutations` からは一度も動いたことがなかった** (サンドボックスで
+       CLI 実行し `NameError: name '_wire_new_archive' is not defined` を実測)。
+       しかも失敗するのは受け皿が満杯になった瞬間 —— **最も助けが要るときにだけ**壊れる。
+       導入時の走査で誤検出 0 件 (13 file がガードを持ち、違反 0)。(BLOCKING)
 """
 import re
 
@@ -483,3 +493,37 @@ def run(ctx):
                   "記載形式を保つこと (形式を変えるならこの Check の正規表現も同一 commit で更新せよ)",
                   blocking=True)
 
+    # ── 456. __main__ ガードより後に def/class を置かない (BLOCKING) ──────────────────
+    # ガード本体 (`sys.exit(main())`) はその場で実行されるので、後ろの def はまだ束縛されて
+    # いない。**import 経由では動くのに CLI では NameError** という非対称を生む。
+    # 実測 (2026-08-26): rotate_mutation_samples.py の _wire_new_archive がこの位置にあり、
+    # docstring が宣伝する「受け皿が埋まったら次を起こす」機能が CLI からは一度も動いて
+    # いなかった (サンドボックス実行で NameError を実測)。受け皿が満杯になった瞬間 =
+    # **最も助けが要るときにだけ**壊れる形だった。
+    import subprocess as _sp456
+    try:
+        _ls456 = _sp456.run(["git", "ls-files", ".github/scripts"], cwd=str(ROOT),
+                            capture_output=True, text=True, check=True)
+        _bad456 = []
+        for _rel456 in (ln.strip() for ln in _ls456.stdout.splitlines() if ln.strip().endswith(".py")):
+            _p456 = ROOT / _rel456
+            if not _p456.is_file():
+                continue
+            _src456 = _p456.read_text(encoding="utf-8", errors="replace")
+            _m456 = re.search(r'^if __name__ == ["\']__main__["\']:', _src456, re.M)
+            if not _m456:
+                continue
+            _defs456 = re.findall(r"^(?:def|class)\s+(\w+)", _src456[_m456.end():], re.M)
+            if _defs456:
+                _bad456.append(f"{_rel456}: {', '.join(_defs456[:3])}")
+        check(
+            not _bad456,
+            "Check 456: __main__ ガードより後に def/class を置いていない (CLI 実行時の NameError 防止)",
+            (f"Check 456: {len(_bad456)} file が `if __name__ == \"__main__\":` より後で def/class を"
+             f" 定義している: {_bad456[:3]}。ガード本体はその場で実行されるため、後ろの定義は"
+             " **スクリプト実行時にはまだ束縛されていない**。import すると定義されるので"
+             " **import 経由のテストでは動くのに CLI では NameError** になる。ガードより前へ移せ"),
+            blocking=True,
+        )
+    except (OSError, _sp456.CalledProcessError) as _e456:
+        warnings.append(f"Check 456: 走査に失敗 ({_e456}) — __main__ ガード位置の検査を skip")

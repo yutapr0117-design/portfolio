@@ -61,7 +61,7 @@ def _pick_archive(stem="mutation_samples_e2e_archive", list_base="E2E_MUTATIONS_
             #   ので、ファイルを作っただけでは繋がらず、移した entry が総数から消える。
             #   直後の不変条件チェック (総数不変) が落ちて気付けるが、**その時点で既にファイルを
             #   書いた後**なので中途半端な状態が残る。作ると同時に import と連結式へ足す。
-            _wire_new_archive(n, name)
+            _wire_new_archive(n, name, stem, list_base)
             path.write_text(
                 '"""%s%d.py — rotate 先 (自動生成)。\n\n' % (stem, n)
                 + 'rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。\n'
@@ -71,14 +71,21 @@ def _pick_archive(stem="mutation_samples_e2e_archive", list_base="E2E_MUTATIONS_
                 encoding="utf-8",
             )
             return path
-        if len(path.read_text(encoding="utf-8").splitlines()) < BLOCKING - 60:
+        if len(path.read_text(encoding="utf-8").splitlines()) + ARCHIVE_SLACK <= ARCHIVE_TARGET:
             return path
         n += 1
 
 
 ARCHIVE = None          # main() で _pick_archive() から決める
-ADVISORY = 975          # Check 52 (ADVISORY) の閾値
+ADVISORY = 975          # Check 52 (ADVISORY) の閾値 (hot log)
 BLOCKING = 1000         # Check 365 (BLOCKING) の上限
+# archive 側の advisory 予算。**受け皿選びも rebalance もこの値を基準にする。**
+# [FIX 2026-08-26] 旧実装の受け皿選びは `BLOCKING - 60` (= 940) を「余裕あり」としていたので、
+#   940 未満の archive へ 6 entry (約 42 行) を流し込むと 982 行になり **advisory (950) を跨ぐ**。
+#   実測 (2026-08-26): rotate 1 回で e2e_archive が 957 行になり Check 52 が鳴り続ける状態に
+#   なった。**advisory を意味あるものに保つための道具が、鳴りっぱなしの advisory を作っていた**。
+ARCHIVE_TARGET = 950
+ARCHIVE_SLACK = 60      # 1 回の rotate で流し込みうる行数の見積り
 
 
 def _totals() -> tuple[int, int]:
@@ -221,13 +228,27 @@ def _rotatable_units(src: str, name: str) -> list[tuple[int, int, str]]:
 #   同じ chain の中で「溢れた archive の末尾 → 次の archive の先頭」へ移す。
 #   末尾→先頭にするのは **時系列順を壊さない**ため (chain は 古い archive + 新しい archive の
 #   連結なので、溢れた側の末尾が受け皿側の先頭に来るのが正しい隣接関係)。
+# [FIX 2026-08-26] chain は **disk から導出する**。旧実装は file 名をハードコードした list で、
+#   `_pick_archive` が新しい受け皿を起こしても **CHAINS には追加されない**ので、その archive は
+#   rebalance の対象から外れる —— そして rebalance が足された動機はまさに
+#   「溢れた archive に自動の逃げ道が一つも無い」だった。ハードコード一覧は追従しない。
+def _chain_files(stem: str) -> list[str]:
+    """`stem.py`, `stem2.py`, `stem3.py`, ... を存在する分だけ昇順で返す (= 古い順)。"""
+    base = ROOT / ".github" / "scripts"
+    out, n = [], 1
+    while True:
+        name = f"{stem}.py" if n == 1 else f"{stem}{n}.py"
+        if not (base / name).exists():
+            return out
+        out.append(name)
+        n += 1
+
+
 CHAINS = [
-    ("MUTATIONS_ARCHIVE", ["mutation_samples_archive.py", "mutation_samples_archive2.py"]),
-    ("E2E_MUTATIONS_ARCHIVE", ["mutation_samples_e2e_archive.py",
-                               "mutation_samples_e2e_archive2.py",
-                               "mutation_samples_e2e_archive3.py"]),
+    ("MUTATIONS_ARCHIVE", _chain_files("mutation_samples_archive")),
+    ("E2E_MUTATIONS_ARCHIVE", _chain_files("mutation_samples_e2e_archive")),
 ]
-REBALANCE_TARGET = 950   # Check 443 が要求する advisory (hard ceiling 未満)
+REBALANCE_TARGET = ARCHIVE_TARGET   # Check 443 が要求する advisory (hard ceiling 未満)
 
 
 def _list_name_for(filename: str, base_list: str) -> str:
@@ -287,6 +308,40 @@ def _rebalance() -> bool:
             moved_any = True
     return moved_any
 
+def _sync_budget_rows() -> None:
+    """触った file の §2「実測行数」を `file-size-budget.md` へ書き戻す。
+
+    [ADD 2026-08-26] Check 424 (BLOCKING) は §2 表の実測行数が `wc -l` と一致することを
+    強制するので、rotate は必ずこの同期を伴う。旧実装は「同期すること」と **printing で
+    人に頼んで**いたが、それは手順を人の注意力に依存させることであり、この道具が生まれた
+    動機 (「毎回その場で分割スクリプトを書き起こしていた」) と同じ誤り。1 回の実行で
+    tree が緑になるところまでを道具の責任にする。予算値 (§4 BUDGET-DATA) は触らない。
+    """
+    doc = ROOT / "docs" / "architecture" / "file-size-budget.md"
+    if not doc.exists():
+        return
+    text = doc.read_text(encoding="utf-8")
+    targets = [TAIL.name] + [f for _, files in CHAINS for f in files]
+    changed = []
+    for name in targets:
+        path = ROOT / ".github" / "scripts" / name
+        if not path.exists():
+            continue
+        n = len(path.read_text(encoding="utf-8").splitlines())
+        rel = f".github/scripts/{name}"
+        pat = re.compile(r"(\| `" + re.escape(rel) + r"` \| )(\d+)( \|)")
+        m = pat.search(text)
+        if not m:
+            print(f"  ※ {rel} は §2 表に行が無い — 手動で追加せよ (Check 424/59)")
+            continue
+        if int(m.group(2)) != n:
+            changed.append(f"{name} {m.group(2)}→{n}")
+            text = pat.sub(rf"\g<1>{n}\g<3>", text, count=1)
+    if changed:
+        doc.write_text(text, encoding="utf-8")
+        print("  §2 実測行数を同期: " + " / ".join(changed))
+
+
 def main() -> int:
     lines = len(TAIL.read_text(encoding="utf-8").splitlines())
     e2e_before, cons_before = _totals()
@@ -306,9 +361,12 @@ def main() -> int:
         if (e2e_a0, cons_a0) != (e2e_b0, cons_b0):
             raise SystemExit(f"ERROR: rebalance で総数が変わった "
                              f"(E2E {e2e_b0}->{e2e_a0} / MUTATIONS {cons_b0}->{cons_a0})")
-        print("  ※ docs/architecture/file-size-budget.md の §2 実測行数を同期すること (Check 424)")
 
     if not over_advisory:
+        # rebalance だけが走る経路でも §2 は同期する。**ここを忘れると「rebalance で行数が
+        # 変わったのに §2 が古いまま」= Check 424 が RED** になり、道具を叩いた人が手で直す
+        # 羽目になる (2026-08-26 に実際に踏んだ)。
+        _sync_budget_rows()
         print("rotate 不要 (hot log)。")
         return 0
 
@@ -362,30 +420,65 @@ def main() -> int:
     print(f"rotated {count} entries from {tail_name} → {archive.name}")
     print(f"  mutation_samples.py: {lines} → {after} 行")
     print(f"  総数は不変: E2E={e2e_after} / MUTATIONS={cons_after}")
-    print("  ※ docs/architecture/file-size-budget.md の §2 実測行数を同期すること (Check 424)")
+
+    # [FIX 2026-08-26] rotate の **後にも** 均す。旧実装は rotate の前だけで rebalance して
+    #   いたので、流し込んだ受け皿が advisory を跨いでも **同じ実行の中では直らず**、
+    #   次に誰かがこの道具を叩くまで Check 52 が鳴り続けた (実測 2026-08-26: 1 回の rotate で
+    #   e2e_archive が 957 行 > advisory 950)。**1 回の実行で tree が緑になる**のが正しい。
+    if _rebalance():
+        e2e_a1, cons_a1 = _totals()
+        if (e2e_a1, cons_a1) != (e2e_after, cons_after):
+            raise SystemExit(f"ERROR: rotate 後の rebalance で総数が変わった "
+                             f"(E2E {e2e_after}->{e2e_a1} / MUTATIONS {cons_after}->{cons_a1})")
+
+    _sync_budget_rows()
     return 0
+
+
+def _wire_new_archive(n, filename, stem, list_base):
+    """新しい archive を `mutation_samples.py` の import と連結式へ足す。
+
+    `mutation_samples.py` は `from <archiveN> import <LIST_BASE><N>` を **1 行ずつ明示** し、
+    末尾で `<CONCAT> = <LIST>3 + <LIST>2 + <LIST> + _TAIL` のように連結する。受け皿を増やす
+    ときは **両方**を更新しないと、移した entry がどこからも参照されず総数が減る
+    (Check 430 が「連結式より後の append は死ぬ」を守るのと同族の
+    「登録したつもりで実行されない」class)。
+
+    [FIX 2026-08-26] **旧実装は E2E 側の名前をハードコードしていた**が、`_pick_archive` は
+    consistency 側 (`mutation_samples_archive*` / `MUTATIONS_ARCHIVE`) からも呼ばれる。
+    そのため consistency 側が 3 本目の受け皿を必要とした瞬間に壊れる。実測 (2026-08-26) で
+    **2 通りの壊れ方**を確認した:
+      (a) 同じ番号の E2E 変数が既に在る場合 (現状) —— `if var in tail` の早期 return に落ちて
+          **何も書かない**。archive3 は作られるが `MUTATIONS = ARCHIVE + ARCHIVE2 + _TAIL` の
+          ままなので、移した entry は**どこからも参照されず消える**。
+      (b) 無い場合 —— `from mutation_samples_archive4 import E2E_MUTATIONS_ARCHIVE4` を
+          **E2E の連結式へ**書き込む。その module が定義するのは `MUTATIONS_ARCHIVE4` なので
+          **ImportError** になり、`mutation_samples.py` が import 不能 =
+          `check_repository_consistency.py` の BLOCKING ゲート自体が動かなくなる。
+    どちらの壊れ方をするかが **無関係な事実 (E2E の archive が何本あるか)** で決まる点も悪い。
+    名前は chain から導出する (ハードコードは追従しない)。
+    """
+    tail = TAIL.read_text(encoding="utf-8")
+    mod = filename[:-3]
+    var = f"{list_base}{n}"
+    # [FIX 2026-08-26] 「既に配線済みか」を **部分文字列**で見てはいけない。
+    #   `MUTATIONS_ARCHIVE3` は `E2E_MUTATIONS_ARCHIVE3` の部分文字列なので、E2E 側に同番号が
+    #   在るだけで consistency 側が「配線済み」と誤判定され、**何も書かずに早期 return する**
+    #   (この修正を書いた直後に自分で踏んだ)。`\b` は `_` が語構成文字なので
+    #   `E2E_MUTATIONS_ARCHIVE3` の内側にはマッチせず、正しく区別できる。
+    if re.search(r"\b" + re.escape(var) + r"\b", tail):
+        return
+    anchor_imp = f"from {stem} import {list_base}\n"
+    concat = list_base[: -len("_ARCHIVE")]          # E2E_MUTATIONS_ARCHIVE -> E2E_MUTATIONS
+    if anchor_imp not in tail:
+        raise SystemExit(f"ERROR: 配線の起点 `{anchor_imp.strip()}` が mutation_samples.py に無い")
+    tail = tail.replace(anchor_imp, anchor_imp + f"from {mod} import {var}\n", 1)
+    m = re.search(r"^" + re.escape(concat) + r" = (.+)$", tail, re.M)
+    if not m:
+        raise SystemExit(f"ERROR: 連結式 `{concat} = ...` が mutation_samples.py に無い")
+    tail = tail.replace(m.group(0), f"{concat} = {var} + " + m.group(1), 1)
+    TAIL.write_text(tail, encoding="utf-8")
 
 
 if __name__ == "__main__":
     sys.exit(main())
-
-
-def _wire_new_archive(n, filename):
-    """新しい archive を `mutation_samples.py` の import と連結式へ足す。
-
-    `mutation_samples.py` は `from mutation_samples_e2e_archiveN import E2E_MUTATIONS_ARCHIVEN`
-    を **1 行ずつ明示** し、末尾で `E2E_MUTATIONS = ARCHIVE3 + ARCHIVE2 + ARCHIVE + _TAIL` の
-    ように連結する。受け皿を増やすときは **両方**を更新しないと、移した entry が
-    どこからも参照されず総数が減る (Check 430 が「連結式より後の append は死ぬ」を守るのと同族の
-    「登録したつもりで実行されない」class)。
-    """
-    tail = TAIL.read_text(encoding="utf-8")
-    mod = filename[:-3]
-    var = f"E2E_MUTATIONS_ARCHIVE{n}"
-    if var in tail:
-        return
-    anchor_imp = "from mutation_samples_e2e_archive import E2E_MUTATIONS_ARCHIVE\n"
-    tail = tail.replace(anchor_imp, anchor_imp + f"from {mod} import {var}\n", 1)
-    m = re.search(r"^E2E_MUTATIONS = (.+)$", tail, re.M)
-    tail = tail.replace(m.group(0), f"E2E_MUTATIONS = {var} + " + m.group(1), 1)
-    TAIL.write_text(tail, encoding="utf-8")

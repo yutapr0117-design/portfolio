@@ -434,6 +434,19 @@ _MUTATIONS_TAIL.append({
 })
 
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 456 (__main__ ガード後の def): rotate ツールのガード直後に関数定義を足す —— "
+            "ガード本体 (sys.exit(main())) はその場で実行されるので、後ろの def は"
+            "**スクリプト実行時にはまだ束縛されていない**。import すると定義されるため "
+            "import 経由のテストでは動くのに CLI では NameError になる非対称。実測 (2026-08-26): "
+            "`_wire_new_archive` がこの位置にあり「受け皿が埋まったら次を起こす」機能が "
+            "npm run rotate-mutations からは一度も動いていなかった (帰属実測済: 456 のみ発火)",
+    "file": ROOT / ".github" / "scripts" / "rotate_mutation_samples.py",
+    "find": "if __name__ == \"__main__\":\n    sys.exit(main())\n",
+    "replace": "if __name__ == \"__main__\":\n    sys.exit(main())\n\n\ndef _unreachable_after_guard():\n    return None\n",
+})
+
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
