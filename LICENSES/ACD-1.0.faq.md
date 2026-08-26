@@ -25,6 +25,8 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LIC
 > authors, and that it is not specific to any project, person, organisation, jurisdiction or
 > field. Section 16.1 gives the notice form.
 
+**先に確認すること**: **あなたがその作品の権利を持っているか**。職務著作や譲渡で雇用主が権利を持つ場合、あなたは適用できる立場にない（**A20** 参照）。共同で作ったものなら **A13** も見ること。
+
 **適用の仕方**: §16.1 の書式の通知を作品に添える。全文の同梱は不要で、
 **識別子だけでも通知として足りる**（§16.2）。
 
@@ -228,6 +230,39 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 
 **これは cost として認めている**（想定問答 clauses 分冊 §32）。後から静かに直せない代わりに、
 **識別子が指すものが動かない**という性質を得ている。
+
+### A20. 会社員が業務で書いたコードに適用してよいか（職務著作）
+
+**これは「適用してよいか」ではなく「あなたが権利を持っているか」の問題である。** そして
+**実務で最も多い取り違え**でもある。
+
+> **English:** Section 1.3 defines the Dedicator as each person or entity applying this
+> Dedication **"to the extent that person or entity holds or may hold Covered Rights in it"**.
+> If your employer holds the rights — through a work-for-hire rule, an employment agreement,
+> or an assignment — then you are not the person who can apply this, and applying it does not
+> transfer anything you do not have (Section 2.7).
+>
+> The instrument does not warn you about this and cannot: Section 13.2 disclaims any warranty
+> that the Dedicator holds any right in the Work. **Check before you apply it, not after.**
+
+**§2.2 が撤回不能である以上、間違って適用しても取り消せない**（少なくとも、こちらから
+取り消す手段は用意していない）。**A13（移行）と同じ確認が要る。**
+
+### A21. FRAND 宣言している特許を持っている場合、§8 と衝突しないか
+
+> **English:** Section 8.1 grants a licence under patent claims the Dedicator **owns or
+> controls**, and Section 8.5 states that Sections 8.1 to 8.4 are subject to Section 2.7 —
+> they reach only what the Dedicator can license. A commitment already made to a standards
+> body is an obligation the Dedicator has to that body; this instrument neither overrides it
+> nor purports to. If your ability to grant is constrained by an existing commitment, then
+> what Section 8 grants is correspondingly constrained.
+>
+> I state the structure rather than the conclusion, because how a prior commitment interacts
+> with a later unconditional grant is exactly the kind of question I have not had counsel look
+> at (`ACD-1.0.jurisdictions.md` §9).
+
+**構造だけ述べて結論を述べていない**のは、`jurisdictions.md` と同じ姿勢による。
+**助言を得ていない領域で断定しない。**
 
 ### A12. 法務に説明するとき、何を見せればよいか
 
