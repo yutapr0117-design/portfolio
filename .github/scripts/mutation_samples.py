@@ -955,4 +955,15 @@ _E2E_TAIL.append({
 })
 
 
+_E2E_TAIL.append({
+    "name": "取り込み失敗の文言から**受け付ける形式の案内**を落とす —— 利用者はこのアプリ自身が"
+            "書き出したファイルを読み込もうとして失敗しており、「失敗した」だけでは**次の一手が"
+            "無い行き止まり**になる。受け付ける 4 形式はアプリ自身が知っているのだから伝える",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "                    Toast.show('認識できない形式のファイルです。'",
+    "replace": "                    Toast.show('認識できない形式のファイルです', 'error'); if (0) Toast.show('x'",
+    "test": "認識できない形式の JSON は成功と report しない",
+})
+
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

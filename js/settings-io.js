@@ -166,7 +166,10 @@ function lossParts(before, after) {
                 //   export が実際に書く 4 形をそのまま受け付ける。形は互いに素なので判定は決定的。
                 const parsed = _normalizeImportShape(rawParsed);
                 if (!parsed) {
-                    Toast.show('認識できない形式のファイルです', 'error');
+                    // [FIX] 行き止まりにしない。**受け付ける形はこのアプリ自身が知っている**。
+                    Toast.show('認識できない形式のファイルです。'
+                        + 'このアプリの書き出し（フルバックアップ / Projectsのみ / '
+                        + 'AppsDataのみ / Profileのみ）を選んでください', 'error', 6000);
                     return;
                 }
                 // [FIX] 外部 JSON を State.update で生のまま commit しない (normalize-before-commit)。
