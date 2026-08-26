@@ -186,6 +186,23 @@ export function announce(message) {
     if (live) { live.textContent = String(message === null || message === undefined ? '' : message); }
 }
 
+// [DATA] 貼り付けで消えた分を黙らせない。打鍵は「入らなくなる」のが見えるが**貼り付けは無反応で
+// 切られる** (実測: 500 文字貼付 → 200 文字・通知ゼロ)。既定動作は妨げず報告だけ。document 単一
+// リスナーなので maxlength を持つ入力は今後追加分も自動で対象 (経緯は e2e/apps-input-contract)。
+export function installPasteTruncationNotice() {
+    document.addEventListener('paste', (e) => {
+        const el = e.target;
+        const max = el && el.maxLength;
+        if (!max || max < 0 || typeof el.value !== 'string') { return; }
+        const text = (e.clipboardData && e.clipboardData.getData('text')) || '';
+        const selected = (el.selectionEnd || 0) - (el.selectionStart || 0);
+        const dropped = text.length - (max - (el.value.length - selected));
+        if (dropped > 0) {
+            announce(`貼り付けた内容のうち ${dropped} 文字は上限 ${max} 文字を超えるため入りませんでした`);
+        }
+    });
+}
+
 export const Toast = (() => {
     let container = null;
     // 同時表示の上限。viewport 720px でも収まる枚数 (1 枚 ~72px + 余白)。
