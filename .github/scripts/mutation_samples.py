@@ -481,53 +481,11 @@ _E2E_TAIL = [
 
 
 
-_E2E_TAIL.append({
-    "name": "quiz フォームの aria-invalid が入力しても外れなくなる —— SR 利用者は正しく直した欄を「不正」と読まれ続け、修正が効いたか判別できない。視覚には一切出ない属性なので screenshot でも目視でも気付けない",
-    "file": ROOT / "js" / "quiz-renderer.js",
-    "find": "                if (el.value.trim()) { el.removeAttribute('aria-invalid'); }",
-    "replace": "                /* removed */",
-    "test": "Quiz contact form clears aria-invalid as soon as the field is corrected",
-})
 
-_E2E_TAIL.append({
-    "name": "Settings のプロジェクト追加フォームで aria-invalid が入力しても外れなくなる —— quiz #1232 と同じ非対称。SR 利用者は正しく直した欄を「不正」と読まれ続ける。視覚に出ない属性なので screenshot でも目視でも気付けない",
-    "file": ROOT / "js" / "settings-page.js",
-    "find": "if (settingsNewName.trim()) { e.target.removeAttribute('aria-invalid'); } } })",
-    "replace": "} })",
-    "test": "Settings add-project form clears aria-invalid as soon as the name is typed",
-})
 
-_E2E_TAIL.append({
-    "name": "quiz 検索欄の maxlength が消える —— 超過分は入力欄にも検索結果にも出たまま reload で初めて消えるので、利用者には「同じ語で検索しているのに結果が違う」としか見えない silent truncation",
-    "file": ROOT / "js" / "quiz-renderer.js",
-    "find": "            maxlength: CONSTANTS.LIMITS.QUIZ_SEARCH,\n",
-    "replace": "",
-    "test": "Quiz search input cannot hold more text than it persists",
-})
 
-_E2E_TAIL.append({
-    "name": "BGM ボタンに aria-label と競合する sr-only テキストが再混入 —— aria-label が上書きするので一度も読み上げられず、しかも状態同期の対象外なので再生中も『再生する』のまま。誰かが aria-label を消すと名前が永久に古い文言で固定される latent trap",
-    "file": ROOT / "index.html",
-    "find": '<button class="icon-btn" data-bgm-btn id="bgm-btn-top" data-action="bgm:toggle" aria-pressed="false" aria-label="BGMを再生・停止する">',
-    "replace": '<button class="icon-btn" data-bgm-btn id="bgm-btn-top" data-action="bgm:toggle" aria-pressed="false" aria-label="BGMを再生・停止する"><span class="sr-only">BGMを再生する</span>',
-    "test": "BGM toggle syncs aria-pressed and aria-label with playback state",
-})
 
-_E2E_TAIL.append({
-    "name": "タスク移動ボタンの矢印が装飾 (aria-hidden) でなくなる —— 可視ラベルが「→」になり accessible name (aria-label) に含まれない不一致 (WCAG 2.5.3)。axe は記号を flag しないので a11y スキャンでは永久に出ない",
-    "file": ROOT / "js" / "apps.js",
-    "find": "}, h('span', { 'aria-hidden': 'true' }, '\u2192'))",
-    "replace": "}, '\u2192')",
-    "test": "Task move buttons expose an aria-label describing their purpose",
-})
 
-_E2E_TAIL.append({
-    "name": "quiz データの遅延読み込みが「まとめ取り」へ退行 —— 開いた種別以外まで取りに行くと、クリティカルパスから 130,595 bytes を外した意味が消える。取得は視覚に出ないので目視でも screenshot でも気付けない",
-    "file": ROOT / "main.js",
-    "find": "                type === 'pm' ? import('./js/quiz/pm-quiz-data.js').then(m => m.pmQuizData)",
-    "replace": "                type === 'pm' ? Promise.all([import('./js/quiz/aws-quiz-data.js'), import('./js/quiz/quality-quiz-data.js')]).then(() => import('./js/quiz/pm-quiz-data.js')).then(m => m.pmQuizData)",
-    "test": "Quiz data is fetched only when the quiz is opened",
-})
 
 _E2E_TAIL.append({
     "name": "quiz の読み込み中 aria-busy が消える —— 視覚的には「読み込んでいます…」と見えるが SR には「まだ来ていない」ことが伝わらない。遅延読み込み化で生まれた窓なので、遅延を作らないと検証すらできない面",
@@ -957,5 +915,25 @@ _E2E_TAIL.append({
 })
 
 
+
+_E2E_TAIL.append({
+    "name": "nav リンク自身の closeDrawer を落とす —— 別ルートへの遷移は hashchange の配線 (#998) が"
+            "閉じるので気付けないが、**今いるページのリンクを押したとき**は hash が変わらず hashchange が"
+            "発火しないため drawer が開いたまま残る。モバイルでは画面を覆うので、メニューを閉じるつもりの"
+            "普通の操作で閉じなくなる",
+    "file": ROOT / "js" / "components.js",
+    "find": "                    if (isDrawer) { closeDrawer(); }",
+    "replace": "                    if (false) { closeDrawer(); }",
+    "test": "今いるページの nav リンクを押しても drawer は閉じる",
+})
+_E2E_TAIL.append({
+    "name": "詳細ページの「一覧に戻る」が絞り込みを捨てる —— router が戻り先を query 込みで保持する"
+            "単一ソース (#951) を潰す。1 件に絞り込んだ状態から戻ると全件に戻り、利用者は同じ意味の"
+            "操作 (ブラウザの戻る) との食い違いに気付けない",
+    "file": ROOT / "js" / "router.js",
+    "find": "        if (raw === 'projects' || raw.startsWith('projects?')) { _lastListPath = raw; }",
+    "replace": "        if (raw === 'projects' || raw.startsWith('projects?')) { _lastListPath = 'projects'; }",
+    "test": "In-page \"back to list\" preserves the active filter",
+})
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

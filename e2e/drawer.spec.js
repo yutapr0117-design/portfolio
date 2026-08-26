@@ -158,6 +158,34 @@ test('Mobile drawer closes on overlay (backdrop) click', async ({ page }) => {
 // モバイルで目的ページへ飛ぶ最も普通の操作にも関わらず従来未カバーだった。ドロワーを開いて
 // Projects リンクをクリックし、(1) #/projects へ遷移し本文描画 (2) drawer が自動クローズ
 // (aria-hidden=true) (3) 背景隔離 (#app aria-hidden) も解除、を実検証する。
+// ===== 今いるページのリンクを押しても drawer は閉じる =====
+// drawer を閉じる経路は 2 つある —— nav リンク自身の closeDrawer() と、hashchange の配線 (#998)。
+// 別ルートへ遷移する場合は**どちらか片方でも閉じる**ので、上の test はどちらを潰しても緑のまま
+// 通る (実測 2026-08-27: 各々単独の mutation で drawer 12 件すべて緑)。冗長な層があるときは
+// 「片方を潰しても緑」は vacuous の証拠ではないが、**効いている行を狙わないと退行を捕まえられない**。
+//
+// 分岐するのは **今いるページのリンクを押したとき**。hash が変わらないので hashchange は発火せず、
+// nav リンク自身の closeDrawer() だけが drawer を閉じる。実測すると、その 1 行を外した状態では
+// drawer が開いたまま残る (aria-hidden=false)。モバイルでは drawer が画面を覆うので、
+// 「メニューを閉じるつもりで今いるページを押す」という普通の操作で閉じなくなる。
+// この経路を踏むテストが 1 つも無かったので足す。
+test('今いるページの nav リンクを押しても drawer は閉じる', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/projects', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1')).toHaveText('プロジェクト一覧');
+
+  await page.locator('#menuBtn').click();
+  await expect(page.locator('#drawer')).toHaveAttribute('aria-hidden', 'false');
+
+  // control: 今いるルートと同じリンクが drawer 内に実在する (無ければこの経路を踏めない)
+  const same = page.locator('#drawer a[href="#/projects"]');
+  await expect(same).toHaveCount(1);
+
+  await same.first().click();
+  await expect(page.locator('#drawer'), '同一ルートのリンクで drawer が閉じない')
+    .toHaveAttribute('aria-hidden', 'true');
+});
+
 test('Mobile drawer nav link navigates and auto-closes the drawer', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
