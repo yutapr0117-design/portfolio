@@ -1,0 +1,304 @@
+---
+file: LICENSES/ACD-1.0.review-responses-meta.md
+audience: ai, human (提出者), 監査人, 第三者全般
+last-updated: 2026-08-26
+canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
+---
+
+# ACD-1.0 — 想定問答（起草の出自・名称・運用）
+
+**総論・OSD 逐条・認める弱点・議論の進め方は `ACD-1.0.review-responses.md` にある。本書はテキストの「外側」を扱う分冊。**
+
+すなわち「誰が書いたのか」「誰が維持するのか」「そもそも何のためか」。**条項を読めば答えが出る種類の問いではないので、先に用意していないと即答できない。**
+
+**本書は非規範。** ここに書いた回答が ACD-1.0 の意味を変えることはない。本文が唯一の権威である。
+
+---
+
+第 1 波（§2〜§9）はテキストの中身への指摘を扱った。ここから先は**テキストの外側**、すなわち「誰が書いたのか」「誰が維持するのか」「そもそも何のためか」に向けられる指摘を扱う。この種の問いは条項を読めば答えが出るものではなく、**先に用意していないと即答できない**。
+
+### Q10. これは LLM に書かせたライセンスではないのか
+
+**この指摘はほぼ確実に来る。** リポジトリが公然と「AI が実装し人間が設計・監査する」と述べており、ライセンス本文もその過程で起草されたからである。**隠す選択肢は存在しない**（隠して発覚した時点で議論はテキストの是非を離れる）。
+
+> **English:**
+>
+> Yes. The drafting was done by a large language model, under my direction, in a
+> project that states publicly that this is how it operates. I would rather say
+> that in my first message than have someone discover it in my repository.
+>
+> I do not offer that as a defence, and I am aware of the specific failure modes:
+> confidently invented doctrine, misattributed authority, and text that reads
+> like law without doing legal work. Here is what I actually did about them, all
+> of which you can check:
+>
+> - **The text cites exactly one external instrument** — Article 4(3) of
+>   Directive (EU) 2019/790, in Section 1.10 — and it cites it for what it says.
+>   I kept citation to a minimum precisely because invented or mis-stated
+>   authority is the characteristic failure of machine-drafted legal text, and
+>   the safest way to avoid it is not to rely on it.
+> - **Every structural property that can be checked mechanically, is.** Clause
+>   numbering is contiguous and non-duplicated; all 82 internal cross-references
+>   resolve to clauses that exist; all 10 defined terms are actually used; the
+>   text contains no obligation-imposing word directed at the user (which is what
+>   Section 10.1 claims); the text is pure ASCII; and it contains nothing
+>   specific to my project. These run in CI and fail the build, so the claims in
+>   this paragraph are not assertions of diligence — they are conditions the
+>   repository cannot be in violation of.
+> - **The text was read adversarially, on purpose, from positions that want it to
+>   fail**: a hostile successor looking for a way back in, a translator looking
+>   for ambiguity, defence counsel looking for a hole, a machine consuming the
+>   identifier, and a reader coming to it cold, both forwards and backwards.
+> - **No lawyer has reviewed it,** and I say so before being asked.
+>
+> What I cannot claim is that the reasoning is sound. That is the question I am
+> here to have answered, and it is not one that better tooling can settle. If the
+> conclusion of this review is that the text reads well and does not work, that
+> is a useful result and I will take it.
+
+**なぜこう答えるか**: 3 つの要素で構成してある。**(1) 即座に認める**（言い繕う余地を残すと、そこが攻撃点になる）。**(2) 一般論ではなく検証可能な事実を出す** —— 「気をつけました」は無価値だが「引用は 1 件で、それは正確である」「82 の相互参照が解決することを CI が強制している」は相手が確かめられる。**(3) 判断を相手に委ねる** —— 「読めるが機能しない、という結論なら受け入れる」は、この提出の目的（承認ではなくレビュー結果）と完全に整合する。
+
+### Q11. 「AI に学習させてよい」と積極的に述べるのは倫理的にどうなのか
+
+license-review は法的な場だが、AI 学習に対する価値判断は 2023 年以降この種の議論に必ず混ざる。
+
+> **English:**
+>
+> This instrument makes a choice for one work — mine — and it does not argue that
+> anyone else should make the same choice. Section 6.3 is deliberate on this
+> point: where a reservation has been made by someone else, this Dedication does
+> not touch it. I have no interest in an instrument that weakens other people's
+> ability to say no.
+>
+> The choice itself is not primarily about generosity. The project this applies
+> to is an experiment in whether a body of work can be made legible to automated
+> readers; a reservation would defeat its purpose. That is a narrow reason, and
+> it does not generalise.
+>
+> If the view is that OSI should not approve any instrument that speaks about
+> machine learning at all, that is a coherent position and I would want it stated
+> plainly, because it disposes of Section 6 regardless of how Section 6 is
+> drafted.
+
+**なぜこう答えるか**: 価値観の議論に価値観で応じると終わらない。**「自分の 1 作品についての選択であって主張ではない」「他者の留保は侵さない（§6.3）」**という**射程の狭さ**で答えるのが唯一終わる道である。最後の一文は、議論が価値判断に流れたときに**論点を可決可能な形に戻す**ための問い返しである。
+
+### Q12. steward が個人 1 名である。維持されるのか
+
+> **English:**
+>
+> The steward is me, and that is a real limitation. Two things reduce what it
+> costs a user.
+>
+> First, Section 16.4 makes the text of ACD-1.0 immutable: it may be copied and
+> distributed verbatim only, and any change is a different version under a
+> different identifier. So there is no maintenance activity that a user depends
+> on. A licence that never changes does not need a living steward to keep being
+> what it was.
+>
+> Second, Section 10.4 means there is nothing to enforce: the instrument contains
+> no condition and no termination provision, so there is no scenario in which a
+> user needs the steward to act, forbear, or be reachable.
+>
+> The thing a dormant steward would actually cost is future versions — if a
+> jurisdiction changes and 1.0 needs a successor, someone has to write it. I
+> cannot promise to be there. What I can say is that nothing about 1.0 stops
+> anyone else from writing that successor, because Section 16.3 lets anyone apply
+> this text to anything and Section 16.5 permits translation without permission.
+
+**なぜこう答えるか**: 個人 steward は率直に弱点である。だが**「維持を必要としない設計になっている」**ことは実際に条文上そうなっており（§16.4 の不変性・§10.4 の非条件性）、これは言い訳ではなく設計の帰結である。**「将来版が必要になったときだけ困る」と限定して認める**のが正確。
+
+### Q13. CC0 と Apache-2.0 を両方適用すればよいのでは
+
+> **English:**
+>
+> That combination is a reasonable thing to do and I considered it. Three things
+> made me stop.
+>
+> First, it produces a document set whose interaction the user has to work out.
+> CC0 Section 4(a) says patents are *not* affected; Apache-2.0 Section 3 grants
+> patents but terminates that grant on litigation. A recipient of both has to
+> decide which sentence governs their situation, and that is a worse position
+> than either alone.
+>
+> Second, Apache-2.0 imposes conditions — notice retention, the NOTICE file,
+> marking changes. Combining it with CC0 does not make those conditions go away;
+> it makes it ambiguous whether they apply. The property I wanted is
+> *no conditions*, stated once, unambiguously (Section 10.1).
+>
+> Third, neither instrument says anything about reservation for TDM, and the
+> combination still says nothing.
+>
+> If the committee's view is that the ambiguity is tolerable and the combination
+> is preferable to a new text, that is exactly the kind of answer this review is
+> for.
+
+**なぜこう答えるか**: 「既存の組み合わせで足りる」は proliferation 指摘の**最も強い形**であり、Q1 の一般論では答えきれない。**具体的に矛盾する条文（CC0 §4(a) と Apache §3）を突き合わせて示す**のが有効。
+
+### Q14. 名称の "Autonomous" は誤解を招かないか
+
+> **English:**
+>
+> It is a fair criticism. "Autonomous" refers to how the project this came from
+> operates — implementation runs without human intervention — and not to any
+> property of the licence or of the licensee. Someone encountering the identifier
+> cold could reasonably read it as "a licence for autonomous systems", which it
+> is not: nothing in the text turns on whether the user is a machine.
+>
+> The name is not load-bearing. If a clearer one would help, that is a change I
+> would make in a successor version, and I would rather be told now than after an
+> identifier is in circulation.
+
+**なぜこう答えるか**: 名称は**譲れる**（条文の意味に影響しない）。譲れるものは早く譲る姿勢を見せると、譲れないもの（§8 の特許報復条項の不在など）を守る主張が信用される。
+
+### Q15. §6.4（出力は縛られない）と §11.4（個人データ等には及ばない）は矛盾しないか
+
+> **English:**
+>
+> They operate on different rights and both are limits on reach, not grants.
+>
+> Section 6.4 says that this instrument does not attach anything to a model or an
+> output derived from the Work. It removes a hook; it does not create permission.
+>
+> Section 11.4 says that where the Work contains personal data, or a person's
+> likeness, voice or performance, the permissions that data-protection, privacy,
+> publicity and personality law require are not mine to give. It also removes a
+> hook — from the other direction.
+>
+> So a user who trains on the Work is free of *me*, in both copyright and patent
+> (Sections 6.4 and 8.4), and is not thereby free of *third parties* whose rights
+> the Work may touch (Sections 2.7 and 11.4). I state both because a work meant
+> to be learned from is frequently data about people, and a reader is entitled to
+> know exactly where the instrument stops. Section 13.2 disclaims the
+> corresponding warranty.
+
+**なぜこう答えるか**: この 2 条は**同じ「reach の限界」の両方向**であり、矛盾ではなく対称である。そう説明できることが、起草が場当たりでない証拠になる。
+
+### Q16. §3 が無効とされる国では、実際に何が起きるのか
+
+> **English:**
+>
+> Take Germany, where copyright is not alienable and an outright abandonment of
+> it is generally regarded as ineffective. In that jurisdiction:
+>
+> - Section 3 does not achieve a surrender. Section 3.3 anticipates this and
+>   Section 15.4 severs it as to that jurisdiction only.
+> - **Section 4 is unaffected.** It is granted independently of Section 3 and does
+>   not wait for Section 3 to fail (Section 4.4), so what the user has is an
+>   ordinary irrevocable, royalty-free, condition-free licence — the same thing a
+>   permissive licence would have given them.
+> - Section 5 sits underneath both as a covenant not to assert, enforceable on
+>   ordinary principles even where a grant is attacked.
+> - Section 12.1 (waiver of moral rights) will not operate there either, and
+>   Section 12.2 supplies the covenant instead.
+>
+> The user's position in Germany is therefore materially the same as under a
+> permissive licence, which is the point of the layering. This is also the answer
+> to the question of what a court should do with the whole instrument if it
+> dislikes dedications: read Section 4.
+
+**なぜこう答えるか**: 抽象論（「多層だから大丈夫」）ではなく**具体的な法域で条文を順に辿って見せる**と、設計が実際に機能することが伝わる。ドイツを選ぶのは、公有化否定の代表例として議論で必ず引かれるからである。
+
+### Q17. 16 節 82 項・定義語 10 件は、この目的には多すぎないか
+
+> **English:**
+>
+> The operative core is small: Sections 3, 4, 5, 8 and 10 are the instrument.
+> Most of the rest is either a limit of reach (Sections 2.7, 11.1–11.4), an
+> anticipation of a specific failure (Sections 3.3, 8.6, 15.4), or stated
+> reasoning (Sections 8.3, 9.4, 12.4).
+>
+> I accept that this is more surface than a five-line licence and therefore more
+> places for an inconsistency to hide. My answer to that risk was to make
+> consistency machine-checkable rather than to shorten the text — cross-reference
+> resolution and defined-term usage are enforced in CI. That is a different
+> trade-off from the one MIT makes, and I do not claim it is the better one in
+> general; it is the one that fits a text meant to be read by automated systems.
+
+**なぜこう答えるか**: 長さの指摘（§4 A3 で既に認めている）を、ここでは**「代わりに何をしたか」**の側から答える。短くする以外の対処があることを示す。
+
+### Q18. SPDX で後日問われること（先出し）
+
+いま提出していないが、実使用が増えれば向き合うことになる。**先に棚卸ししておく。**
+
+| SPDX 側の要件 | 現状 | 対応 |
+|---|---|---|
+| 相当程度の実使用 | **満たしていない**（1 件） | 実績が増えるまで提出しない |
+| 起草途中でないこと | 満たす（凍結済み） | `FROZEN.md` + Check 453 |
+| 収録後に改変しない steward のコミット | 満たす | §16.4 が条文として定めている |
+| 既存識別子との非重複 | 満たす（2026-08-23 確認） | `acd-license-rationale.md` §6 |
+| テキストの機械照合 | 満たす | SPDX XML が本文と同期していることを Check 445 が 5 部で強制 |
+
+**なぜ先出しするか**: OSI のレビュアには SPDX に関わる人も多く、「SPDX には出すのか」は自然に出る質問である。**「出さない、理由はこれ」と即答できる**と、実使用の薄さを自分で管理していることが伝わる。
+
+### Q19. この instrument は結局、誰を守るのか
+
+> **English:**
+>
+> Not me. Section 10.4 leaves nothing I could enforce, Section 15.5 stops
+> non-enforcement from being read as reserving anything, and Sections 2.8 and
+> 12.4 aim the same restrictions at my successors, who are the people most likely
+> to want the rights back.
+>
+> The intended beneficiary is a downstream user — increasingly an automated one —
+> who needs to determine, without legal advice and without contacting me, whether
+> they may use this and what they owe. The design goal was that the answer should
+> be reachable by reading, in one pass, and should not change depending on who I
+> become or who inherits from me.
+
+**なぜこう答えるか**: 「このライセンスは誰の利益のためか」は、公有化型に対して必ず向けられる懐疑である。**「自分は守られない」と条項番号で示せる**ことが最良の返答になる。
+
+### Q20. どうなったら撤回するのか（先に決めておく）
+
+**議論の最中に決めると、面子が判断を歪める。** 先に条件を書いておく。
+
+| 撤回すべき条件 | なぜ |
+|---|---|
+| 既存の承認済みライセンス 1 本で 3 つの gap がすべて埋まると示された | Q1 の主張が崩れる。撤回すると宣言してある |
+| dedication 形式そのものを OSI が扱わないと committee が述べた | テキストをどう直しても通らない。1.1 を作る意味も無い |
+| §4 が独立の許諾として機能しないと指摘され、反論できなかった | 多層構成の土台が崩れ、公有化否定の法域で利用者が無防備になる |
+| 実使用 1 件では審査対象外だと述べられた | 反論すべきでない。実績を作ってから出し直す |
+
+**撤回しない条件**（指摘は受けるが設計として維持する）: 特許報復条項の不在（§4 の A で述べたとおり意図的）、長さ（対処は済んでいる）、名称（1.1 で変えられるので撤回理由にならない）。
+
+### Q21. 最初の投稿に使う文面（下書き）
+
+**そのまま送るためではなく、送る前に削るための下書き**。長すぎると読まれない。
+
+> **English (draft — trim before sending):**
+>
+> Subject: For review: Autonomous Commons Dedication 1.0 (ACD-1.0)
+>
+> I am submitting ACD-1.0 for review and criticism. I am not asking for a fast
+> path to approval, and I have deliberately not submitted it to SPDX, because
+> SPDX asks for substantial real-world use and this text has exactly one user —
+> my own project.
+>
+> **What it is.** A public-domain-style dedication with three independent
+> footings for the same outcome (surrender, licence, covenant), no conditions of
+> any kind, an express patent licence, an affirmative permission for machine
+> learning and text and data mining, and a statement that no TDM reservation is
+> made.
+>
+> **Why it exists.** Three properties are not available together in any approved
+> licence, and two are not available at all: (1) an affirmative ML/TDM permission
+> coupled with an express absence of reservation, which matters because the EU
+> DSM Article 4(3) opt-out turns on reservation rather than on grant; (2) a
+> patent grant in a dedication-form instrument — CC0 Section 4(a) expressly
+> excludes patents, which was the centre of the 2012 discussion here; (3) a
+> workable position on material whose authorship is uncertain.
+>
+> **Disclosures, before anyone has to ask.** No lawyer has reviewed the text. It
+> has one user. It was drafted with an LLM under my direction, in a project that
+> states publicly that this is how it operates. It is long — about 600 lines —
+> because it states its reasoning inline.
+>
+> **What would change my mind.** If someone shows me an existing approved licence
+> that does all three, I will use it and withdraw this.
+>
+> Text: <URL>
+> Rationale and clause-by-clause comparison: <URL>
+
+**なぜこの構成か**: 4 段（何か / なぜ要るか / 弱点の自己開示 / 撤回条件）。**弱点を 3 段目に置く**のは、読み手が「隠していないか」を確認し終えてから中身の議論に入れるようにするため。最後の「撤回条件」は、この投稿が主張ではなく問い合わせであることを構造で示している。
+
+---
+
