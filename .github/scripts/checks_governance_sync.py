@@ -105,6 +105,16 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        実測 (2026-08-27) では orphan は 0 件だったが、**入口が存在しないため将来 orphan が
        生まれても誰も気付けない**状態だった。Check 361 / 408 / 454 と同じ
        「実在 ⟹ 登録」族の、ライセンス文書面。(BLOCKING)
+  460. **ドシエが自己申告する件数が実測と一致すること** (BLOCKING): ライセンス文書群は
+       「全 82 条」「38 worked entries」「使う側 21 問」のように**自分の規模を数字で述べる**。
+       この数字は**書いた当日に drift する** —— 実測 (2026-08-27): FAQ に 9 問足した結果、
+       索引と mirror が「使う側 12 問」のまま残り、逆引き表の行数も 2 箇所でずれていた。
+       読み手は数字を根拠に「網羅されている」と判断するので、**古い数字は網羅の主張を
+       嘘にする**。3 面を検査する: (a) 提出パケットの worked entries / short answers ↔
+       想定問答 3 分冊の `### ` 見出しと短答表の実測、(b) 索引の「使う側 N 問 / プロセス M 問」
+       ↔ FAQ の `### AN.` / `### BN.` の実測、(c) 逐条リファレンスの「全 X 節 Y 条」↔
+       ACD-1.0.txt から抽出した節数・条数。Check 413b（内訳の和 = 合計）と同じ
+       「**書いた数は数えて確かめる**」族。(BLOCKING)
 """
 import re
 import json
@@ -730,3 +740,81 @@ def run(ctx):
             )
         except (OSError, _sp459.CalledProcessError) as _e459:
             warnings.append(f"Check 459: LICENSES の走査に失敗 ({_e459}) — 索引到達性を skip")
+
+    # ── 460. ドシエが自己申告する件数が実測と一致すること (BLOCKING) ────────────────────
+    # 数字は書いた当日に drift する。読み手は数字を根拠に「網羅されている」と判断するので、
+    # 古い数字は網羅の主張を嘘にする。
+    _L460 = ROOT / "LICENSES"
+    _bad460 = []
+
+    def _read460(name):
+        p = _L460 / name
+        return p.read_text(encoding="utf-8") if p.exists() else None
+
+    _rr460 = _read460("ACD-1.0.review-responses.md")
+    _rc460 = _read460("ACD-1.0.review-responses-clauses.md")
+    _rm460 = _read460("ACD-1.0.review-responses-meta.md")
+    _fq460 = _read460("ACD-1.0.faq.md")
+    _sb460 = _read460("ACD-1.0.submission.md")
+    _cr460 = _read460("ACD-1.0.clause-reference.md")
+    _tx460 = _read460("ACD-1.0.txt")
+
+    if None in (_rr460, _rc460, _rm460, _fq460, _sb460, _cr460, _tx460):
+        warnings.append("Check 460: ライセンス文書の一部が無い — 件数照合を skip")
+    else:
+        # (a) 提出パケットの worked entries / short answers
+        _entries460 = sum(len(re.findall(r"^### ", t, re.M)) for t in (_rr460, _rc460, _rm460))
+        _sec7 = re.search(r"^## 7\..*?(?=^## )", _rr460, re.S | re.M)
+        _short460 = (len(re.findall(r"^\| ", _sec7.group(0), re.M)) - 1) if _sec7 else -1
+        _m = re.search(r"\((\d+) worked entries plus a table of (\d+) short answers", _sb460)
+        if not _m:
+            _bad460.append("submission.md: worked entries の申告が見つからない")
+        else:
+            if int(_m.group(1)) != _entries460:
+                _bad460.append(f"submission.md worked entries: 申告 {_m.group(1)} / 実測 {_entries460}")
+            if int(_m.group(2)) != _short460:
+                _bad460.append(f"submission.md short answers: 申告 {_m.group(2)} / 実測 {_short460}")
+
+        # (b) 索引の「使う側 N 問 / プロセス M 問」
+        _fa460 = len(re.findall(r"^### A\d+\.", _fq460, re.M))
+        _fb460 = len(re.findall(r"^### B\d+\.", _fq460, re.M))
+        _m2 = re.search(r"使う側 (\d+) 問 / プロセス (\d+) 問", _rr460)
+        if not _m2:
+            _bad460.append("review-responses.md: FAQ 件数の申告が見つからない")
+        else:
+            if int(_m2.group(1)) != _fa460:
+                _bad460.append(f"索引の使う側: 申告 {_m2.group(1)} / 実測 {_fa460}")
+            if int(_m2.group(2)) != _fb460:
+                _bad460.append(f"索引のプロセス: 申告 {_m2.group(2)} / 実測 {_fb460}")
+
+        # (c) 逐条リファレンスの「全 X 節 Y 条」
+        _secs460 = len(re.findall(r"^\d+\.\s+\S", _tx460, re.M))
+        _cls460 = len(re.findall(r"^\s{2}\d+\.\d+\s+", _tx460, re.M))
+        _m3 = re.search(r"全 (\d+) 節 (\d+) 条", _cr460)
+        if not _m3:
+            _bad460.append("clause-reference.md: 節数・条数の申告が見つからない")
+        else:
+            if int(_m3.group(1)) != _secs460 or int(_m3.group(2)) != _cls460:
+                _bad460.append(f"逐条リファレンス: 申告 {_m3.group(1)} 節 {_m3.group(2)} 条 / "
+                               f"実測 {_secs460} 節 {_cls460} 条")
+
+        # (d) mirror doc の申告。**stale だった 4 件のうち 2 件は mirror 側**だった ——
+        #   本体だけ縛ると、doc-about-doc が古い数字を主張し続ける。
+        _mir460 = ROOT / "docs" / "files" / "LICENSES" / "ACD-1.0.faq.md.md"
+        if _mir460.exists():
+            _m4 = re.search(r"\*\*A\. 使う側\*\*（(\d+) 問）", _mir460.read_text(encoding="utf-8"))
+            if not _m4:
+                _bad460.append("faq mirror: 使う側の件数申告が見つからない")
+            elif int(_m4.group(1)) != _fa460:
+                _bad460.append(f"faq mirror の使う側: 申告 {_m4.group(1)} / 実測 {_fa460}")
+
+        check(
+            not _bad460,
+            f"Check 460: ドシエの自己申告件数が実測と一致 "
+            f"(想定問答 {_entries460} + 短答 {_short460} / FAQ {_fa460}+{_fb460} / 本文 {_secs460} 節 {_cls460} 条)",
+            (f"Check 460: 自己申告と実測がずれている: {_bad460}。**読み手は数字を根拠に"
+             "「網羅されている」と判断する**ので、古い数字は網羅の主張を嘘にする。"
+             "文書を足したら申告も直せ (実測 2026-08-27: FAQ に 9 問足した結果、索引と mirror が"
+             "「使う側 12 問」のまま残っていた)"),
+            blocking=True,
+        )
