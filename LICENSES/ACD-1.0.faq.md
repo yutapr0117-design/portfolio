@@ -130,6 +130,54 @@ Dedication の関係を切らないと定めている。受領者は自分の権
 > the correct answer is to wait. I would rather you decline than adopt something your process
 > cannot account for.
 
+### A13. 既存プロジェクトを ACD-1.0 へ移行できるか
+
+**「自分が全ての権利を持っているか」で答えが変わる。**
+
+> **English:** If you hold all the rights, yes — Section 16.3 lets anyone apply this to any
+> work without permission. If other people have contributed, you cannot relicense their
+> contributions unilaterally. You need either their agreement, or a prior licence that
+> already permits what you are about to do (a permissive licence generally lets you
+> sublicense; a copyleft one generally does not let you drop its conditions).
+>
+> Two things are worth saying plainly:
+>
+> - **Applying this does not reach past distributions.** Copies already released under the
+>   old licence stay under it. Recipients keep what they were given.
+> - **Applying this is irrevocable** (Section 2.2), and Section 2.5 says the Dedicator will
+>   not later argue otherwise. If you are not certain, do not apply it yet.
+
+**§2.6 が助けになる場面**: 今後の貢献については、貢献者が別段の意思表示をしない限り
+本 Dedication の下で提出されたものとして扱われ、**CLA のような別文書を要求できない**。
+ただしこれは**将来の貢献**についての規律であって、**過去の貢献を遡って変えるものではない**。
+
+### A14. 輸出規制・制裁法との関係は
+
+> **English:** This instrument grants intellectual-property permissions and nothing else.
+> Export control, sanctions, and similar public-law obligations are not the Dedicator's to
+> grant or to waive, and Section 11.4 states the general shape of that limit: this Dedication
+> reaches Covered Rights, the patent claims described in Section 8, and Moral Rights to the
+> extent stated in Section 12 — **it reaches nothing else**.
+>
+> Because the licence imposes no condition (Section 10.1), it adds no export-related term of
+> its own. It also removes none of your obligations under the law that applies to you.
+
+**「無条件」は「法的義務が消える」という意味ではない。** §2.7・§11.4・§13.2 が一貫して
+**「Dedicator が持っているものしか渡せない」**と述べており、公法上の義務はその外側にある。
+
+### A15. 公共調達・組織のポリシーで「OSI 承認済み」が要件になっている
+
+**その場合は使えない。** ACD-1.0 は **OSI 承認を受けていない**（`license-discuss` へ投稿した
+段階で、承認申請の窓口である `license-review` へも未投稿）。
+
+> **English:** If your policy requires an OSI-approved licence, ACD-1.0 does not qualify today
+> and I would not want you to argue otherwise on my behalf. The current status is recorded in
+> `LICENSES/FROZEN.md`, and I would rather you wait — or use an approved licence — than
+> spend your own credibility on an unapproved one.
+
+**これは採用者を減らす記述であり、意図的である。** 承認されていないものを「実質的に同等だ」と
+言わせるのは、こちらの都合で相手の信用を使わせることになる。
+
 ### A12. 法務に説明するとき、何を見せればよいか
 
 | 訊かれること | 見せる場所 |
