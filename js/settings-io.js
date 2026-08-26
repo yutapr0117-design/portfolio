@@ -114,7 +114,15 @@ function lossParts(before, after) {
         URL.revokeObjectURL(url);
     }
     function exportFull() { downloadJSON(State.get(), `portfolio_full_${Date.now()}.json`); }
-    function exportProjects() { downloadJSON(State.get().projects, `portfolio_projects_${Date.now()}.json`); }
+    // [FIX] `Projectsのみ` に **非表示設定 (projectPrefs) を含める**。既定プロジェクトは削除できず
+    //   「非表示」が唯一の非公開手段 (#886) なので、素の配列だけを書き出していた従来は、この
+    //   ファイルから復元すると**隠したプロジェクトが黙って再公開**されていた (フルは #1037 で
+    //   直済・部分 export だけ取り残されていた)。import 側は変更不要・旧形式も読める (詳細は e2e)。
+    function exportProjects() {
+        const s = State.get();
+        downloadJSON({ projects: s.projects, projectPrefs: s.projectPrefs },
+            `portfolio_projects_${Date.now()}.json`);
+    }
     function exportApps() { downloadJSON(State.get().appsData, `portfolio_apps_${Date.now()}.json`); }
     function exportProfile() { downloadJSON(State.get().profile, `portfolio_profile_${Date.now()}.json`); }
 

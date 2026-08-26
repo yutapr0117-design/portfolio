@@ -551,8 +551,8 @@ _E2E_TAIL.append({
 _E2E_TAIL.append({
     "name": "部分 export (Projectsのみ) が別のスライスを書き出す —— バックアップの土台が壊れ、利用者は「戻せないファイル」を作る。しかも export 時点では成功に見えるので、復元しようとして初めて判る",
     "file": ROOT / "js" / "settings-io.js",
-    "find": "function exportProjects() { downloadJSON(State.get().projects,",
-    "replace": "function exportProjects() { downloadJSON(State.get().appsData,",
+    "find": "downloadJSON({ projects: s.projects, projectPrefs: s.projectPrefs },\n            `portfolio_projects_",
+    "replace": "downloadJSON({ projects: s.appsData, projectPrefs: s.projectPrefs },\n            `portfolio_projects_",
     "test": "partial export buttons download the correct State slice",
 })
 
@@ -941,6 +941,18 @@ _E2E_TAIL.append({
     "find": "                    if (parsed.theme !== base.theme) { applied = true; }",
     "replace": "                    applied = true;",
     "test": "フルバックアップでも、対象を全部外したら成功と report しない",
+})
+
+
+_E2E_TAIL.append({
+    "name": "`Projectsのみ` の書き出しを projects の素の配列へ戻す —— 既定プロジェクトは削除できず "
+            "**「非表示」が唯一の非公開手段** (#886) なのに、このファイルから復元すると "
+            "隠したプロジェクトが黙って再公開される。フルバックアップは #1037 で projectPrefs を "
+            "含むよう直したのに、部分 export だけ取り残されていた形 (実測 2026-08-26)",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "downloadJSON({ projects: s.projects, projectPrefs: s.projectPrefs },",
+    "replace": "downloadJSON(s.projects,",
+    "test": "Projectsのみ の往復で非表示設定が戻る",
 })
 
 
