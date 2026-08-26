@@ -51,15 +51,24 @@ test('Settings partial export buttons download the correct State slice', async (
   await page.goto('/#/settings');
   await page.waitForLoadState('domcontentloaded');
 
-  // Projectsのみ → projects 配列
+  // Projectsのみ → { projects: [...], projectPrefs: {...} }
+  // [契約変更 2026-08-26] 以前は projects の**素の配列**を書き出していたが、既定プロジェクトは
+  //   削除できず「非表示」が唯一の非公開手段 (#886) なので、素の配列だと**非表示設定を運べず**
+  //   復元時に隠したプロジェクトが黙って再公開されていた。projectPrefs を同梱する形へ変更した。
+  //   このテストが守るのは「**正しいスライスだけ**を出す」ことなので、その意図は変わらない ——
+  //   projects スライスが入っていること / 他スライス (appsData・profile) を含まないこと。
+  //   旧形式 (素の配列) の取り込みは apps-settings-import-shape.spec.js が別に守る。
   const [dlP] = await Promise.all([
     page.waitForEvent('download'),
     page.getByRole('button', { name: 'Projectsのみ' }).click(),
   ]);
   expect(dlP.suggestedFilename()).toMatch(/^portfolio_projects_\d+\.json$/);
-  const projects = JSON.parse(fs.readFileSync(await dlP.path(), 'utf8'));
-  expect(Array.isArray(projects), 'projects export must be an array').toBe(true);
-  expect(projects.length).toBeGreaterThan(0);
+  const projectsFile = JSON.parse(fs.readFileSync(await dlP.path(), 'utf8'));
+  expect(Array.isArray(projectsFile.projects), 'projects slice must be an array').toBe(true);
+  expect(projectsFile.projects.length).toBeGreaterThan(0);
+  expect(projectsFile, 'projects export must carry visibility prefs').toHaveProperty('projectPrefs');
+  expect(projectsFile, 'projects export must NOT be the full store').not.toHaveProperty('appsData');
+  expect(projectsFile, 'projects export must NOT be the full store').not.toHaveProperty('profile');
 
   // AppsDataのみ → appsData (tasks を持つ object・full store ではない)
   const [dlA] = await Promise.all([
