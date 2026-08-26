@@ -100,6 +100,7 @@ warnings: list[str] = []
 CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "check_repository_consistency.py",
     ROOT / ".github" / "scripts" / "checks_maintainability.py",  # split: maintainability/test-health/file-size
+    ROOT / ".github" / "scripts" / "checks_size_budget.py",  # split: file-size budget governance (52/71/361/363/365/408/424/443/454)
     ROOT / ".github" / "scripts" / "checks_mutation_integrity.py",  # split: mutation 安全網の完全性 (meta-QA)
     ROOT / ".github" / "scripts" / "checks_structural.py",  # split: structural / CI wiring / tooling (48-51)
     ROOT / ".github" / "scripts" / "checks_esm.py",  # split: ESM contract cluster (47/56/57/61)
@@ -823,6 +824,17 @@ _checks_asset_resolve.run(_ctx)
 #  aggregate its inventory + sections. Runs here — same position/order — via ctx.)
 import checks_maintainability as _checks_maintainability
 _checks_maintainability.run(_ctx)
+
+
+# ── 52, 71, 361, 363, 365, 408, 424, 443, 454. file-size 予算の統治 → checks_size_budget.py ──
+# (checks_maintainability.py から分離。Check 454 を足した時点で分離元が 985 行 = Check 365 の
+#  1,000 行 BLOCKING まで残り 15 行になった —— **454 が塞ごうとしている現象を 454 自身の増分が
+#  踏んだ**ので、圧縮せず「いま触っているクラスタ」を切り出した。予算の存在/値/対象/実測一致の
+#  4 面を相互に守る 9 Check と、その単一ソース定数 (HARD_CEILING / 除外集合 /
+#  EARLY_WARNING_FLOOR) をまとめて移した。残留側がこれらの定数を参照しないことは実測済み。
+#  元の実行位置 (checks_maintainability の直後) を保持。CHECK_SOURCE_FILES 登録。)
+import checks_size_budget as _checks_size_budget
+_checks_size_budget.run(_ctx)
 
 # ── 362/379/380/397/399/409. mutation 安全網そのものの完全性 → checks_mutation_integrity.py ──
 # mutation 定義が腐ると「緑 = 守られている」ではなく「緑 = 検証されていない」になる (#885)。
