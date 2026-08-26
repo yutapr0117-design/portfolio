@@ -48,4 +48,40 @@ MUTATIONS_ARCHIVE3 = [
         "find": ".well-known/aio-manifest.json",
         "replace": ".well-known/NO-SUCH-manifest.json",
     },
+    {
+        "name": "Check 421: 明示 behavior:'smooth' の reduced-motion ガードが外れる — home-page.js の matchMedia 問い合わせを false へ潰す → CSSOM-View では behavior を明示した時点で CSS の scroll-behavior が参照されないため、style.css の reduce override では止まらず、前庭障害のユーザーにも 1,000px 超のアニメーションが走る (WCAG 2.3.3)。fatal も視覚差分も出ないので静的にはこの Check だけが捕捉する",
+        "file": ROOT / "js" / "home-page.js",
+        "find": "window.matchMedia('(prefers-reduced-motion: reduce)').matches",
+        "replace": "false",
+    },
+    {
+        "name": "Check 415: 公開サイトのデプロイ本体 (pages-build-deployment) が監査導線から消える — STATUS.md はオーナーの唯一の監査導線で、Pages デプロイはリポジトリに file が無いため generate_status.py の走査には出てこない。全 PR ゲートが緑でもこれだけ落ちればサイトは古いまま残るので、リテラルで固定して消えないようにする",
+        "file": ROOT / "STATUS.md",
+        "find": "/actions/workflows/pages/pages-build-deployment/badge.svg",
+        "replace": "/actions/workflows/pages/REMOVED/badge.svg",
+    },
+    {
+        "name": "Check 423: 公開サイト版数検証の配線が切れる — script file を残したまま workflow の 1 行を消せば silent に無効化でき、mirror-bijection (Check 108) は file の存在しか見ないので気付けない。この配線が切れると『Pages が古い成果物を配信し続けている』状態が全ゲート緑のまま成立する",
+        "file": ROOT / ".github" / "workflows" / "aio-monitoring.yml",
+        "find": "        run: python3 .github/scripts/check_deployed_freshness.py",
+        "replace": "        run: echo skipped",
+    },
+    {
+        "name": "Check 422: 再描画で消えるコントロールから focus 復元用の id が外れる — apps.js の絞り込み select から id を落とす → main.js _renderCore の復元は id を鍵にしているため、そのコントロールだけが取り残されて change のたび focus が body へ落ちる。マウスでは気付きにくく fatal も視覚差分も出ないので、静的にはこの Check だけが捕捉する",
+        "file": ROOT / "js" / "apps.js",
+        "find": "                        id: 'task-filter-priority',\n",
+        "replace": "",
+    },
+    {
+        "name": "Check 424: file-size-budget.md §2 表の実測行数が実測とズレても検出しない — §2 は人間可読な要約ゆえ長らく『一致は人間レビューで保つ』とだけ書かれ誰も検証しておらず、実測すると 62 行中 44 行が stale (最大 366 行ズレ) だった。cold-start の読者はこの表で headroom を判断するため間違った数値は無いより悪い",
+        "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+        "find": "| `js/identity.js` | 36 |",
+        "replace": "| `js/identity.js` | 37 |",
+    },
+    {
+        "name": "Check 425: data-action と onclick が併存しても検出しない — ActionDelegator は data-action を単一の delegated リスナーで処理するので、同じ要素に onclick を足すと 1 クリックで必ず二重発火する (#262 の実バグ = theme 2 段送り / drawer scroll 先頭ジャンプ / BGM 二重 toggle)。Check 129 は main.js の topbar 3 ボタンしか見ないため他 file では素通りしていた",
+        "file": ROOT / "js" / "components.js",
+        "find": "                    dataset: { bgmBtn: '' },",
+        "replace": "                    dataset: { bgmBtn: '' },\n                    'data-action': 'bgm:toggle',",
+    },
 ]

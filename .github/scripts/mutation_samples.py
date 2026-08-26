@@ -42,42 +42,6 @@ _MUTATIONS_TAIL = [
     # find 値) に当たって挙動が不安定になるため。Check 362 の非 vacuous 性は手動で実証済
     # (mutation の file を誤り先へ変えると Check 362 が RED・restore で緑)。
     {
-        "name": "Check 421: 明示 behavior:'smooth' の reduced-motion ガードが外れる — home-page.js の matchMedia 問い合わせを false へ潰す → CSSOM-View では behavior を明示した時点で CSS の scroll-behavior が参照されないため、style.css の reduce override では止まらず、前庭障害のユーザーにも 1,000px 超のアニメーションが走る (WCAG 2.3.3)。fatal も視覚差分も出ないので静的にはこの Check だけが捕捉する",
-        "file": ROOT / "js" / "home-page.js",
-        "find": "window.matchMedia('(prefers-reduced-motion: reduce)').matches",
-        "replace": "false",
-    },
-    {
-        "name": "Check 415: 公開サイトのデプロイ本体 (pages-build-deployment) が監査導線から消える — STATUS.md はオーナーの唯一の監査導線で、Pages デプロイはリポジトリに file が無いため generate_status.py の走査には出てこない。全 PR ゲートが緑でもこれだけ落ちればサイトは古いまま残るので、リテラルで固定して消えないようにする",
-        "file": ROOT / "STATUS.md",
-        "find": "/actions/workflows/pages/pages-build-deployment/badge.svg",
-        "replace": "/actions/workflows/pages/REMOVED/badge.svg",
-    },
-    {
-        "name": "Check 423: 公開サイト版数検証の配線が切れる — script file を残したまま workflow の 1 行を消せば silent に無効化でき、mirror-bijection (Check 108) は file の存在しか見ないので気付けない。この配線が切れると『Pages が古い成果物を配信し続けている』状態が全ゲート緑のまま成立する",
-        "file": ROOT / ".github" / "workflows" / "aio-monitoring.yml",
-        "find": "        run: python3 .github/scripts/check_deployed_freshness.py",
-        "replace": "        run: echo skipped",
-    },
-    {
-        "name": "Check 422: 再描画で消えるコントロールから focus 復元用の id が外れる — apps.js の絞り込み select から id を落とす → main.js _renderCore の復元は id を鍵にしているため、そのコントロールだけが取り残されて change のたび focus が body へ落ちる。マウスでは気付きにくく fatal も視覚差分も出ないので、静的にはこの Check だけが捕捉する",
-        "file": ROOT / "js" / "apps.js",
-        "find": "                        id: 'task-filter-priority',\n",
-        "replace": "",
-    },
-    {
-        "name": "Check 424: file-size-budget.md §2 表の実測行数が実測とズレても検出しない — §2 は人間可読な要約ゆえ長らく『一致は人間レビューで保つ』とだけ書かれ誰も検証しておらず、実測すると 62 行中 44 行が stale (最大 366 行ズレ) だった。cold-start の読者はこの表で headroom を判断するため間違った数値は無いより悪い",
-        "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
-        "find": "| `js/identity.js` | 36 |",
-        "replace": "| `js/identity.js` | 37 |",
-    },
-    {
-        "name": "Check 425: data-action と onclick が併存しても検出しない — ActionDelegator は data-action を単一の delegated リスナーで処理するので、同じ要素に onclick を足すと 1 クリックで必ず二重発火する (#262 の実バグ = theme 2 段送り / drawer scroll 先頭ジャンプ / BGM 二重 toggle)。Check 129 は main.js の topbar 3 ボタンしか見ないため他 file では素通りしていた",
-        "file": ROOT / "js" / "components.js",
-        "find": "                    dataset: { bgmBtn: '' },",
-        "replace": "                    dataset: { bgmBtn: '' },\n                    'data-action': 'bgm:toggle',",
-    },
-    {
         "name": "Check 426: 2 つのバイナリ資産の entity 帰属が食い違っても検出しない — asset:image:entity / asset:audio:entity は WebP と MP3 の帰属先を AI クローラへ宣言する meta で、片方だけ変えても視覚にも behavior にも一切出ない。実測 (2026-08-17) ではこの entity 宣言を見ている層が皆無で、書き換えても全 gate が緑だった (#930 と同じ『宣言はあるが見ている層がゼロ』class)。単独 mutation で 426c だけが発火することを確認済み",
         "file": ROOT / "index.html",
         "find": 'name="asset:audio:entity" content="Yuta Yokoi (横井雄太 / Yokoi Yuta)"',
@@ -951,6 +915,25 @@ _E2E_TAIL.append({
     "find": "                if (typeof parsed.brand === 'string' && Brand && Brand.set) {",
     "replace": "                if (false) {",
     "test": "配色 (brand) が export → import で復元される",
+})
+
+_E2E_TAIL.append({
+    "name": "書き出しの成功通知を落とす —— ファイルは落ちるのに何も報告しない状態に戻す。"
+            "他の操作は全て報告するのに書き出しだけ黙る非対称で、SR 利用者は成否を知る手段が"
+            "無い (WCAG 4.1.3)。バックアップは「取れたつもり」が最も危ない",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "            Toast.show(`${filename} を書き出しました`);",
+    "replace": "            void filename;",
+    "test": "書き出しは成功を報告する",
+})
+_E2E_TAIL.append({
+    "name": "書き出しの失敗を握り潰さず再送出する —— 修正前の挙動に戻す。例外がそのまま致命"
+            "エラーへ昇格し FatalPage と全画面オーバーレイで Settings が消える＝**バックアップを"
+            "取ろうとして画面を失う**。失敗の伝え方として最悪の形",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "            Toast.show('書き出しに失敗しました。ブラウザのダウンロード設定を確認してください。', 'error', 5000);",
+    "replace": "            throw e;",
+    "test": "書き出しが失敗しても致命エラーにせず理由を伝える",
 })
 
 

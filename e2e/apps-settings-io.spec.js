@@ -452,6 +452,40 @@ test('full export → 全リセット → import で状態が再現する (backu
   expect(after.profileName, 'profile が import で戻らない').toBe(before.profileName);
 });
 
+// ===== 書き出しの成否が利用者に届くこと =====
+// downloadJSON は成功しても失敗しても無言だった。実測 (2026-08-27):
+//   成功時 … ファイルは落ちるが toast も SR 通知も空。**このアプリの他の操作は全て報告する**
+//            のに書き出しだけ黙る非対称で、SR 利用者は成否を知る手段が無い (WCAG 4.1.3)。
+//   失敗時 … 例外がそのまま致命エラーへ昇格し、FatalPage + 全画面オーバーレイで Settings が
+//            消える (fatalPage=true / overlay=true / settingsStillThere=false)。
+//            **バックアップを取ろうとして画面を失う**のは、失敗の伝え方として最悪。
+// 「取れたつもり」が最も危ないのがバックアップなので、成功も明示する。
+test('書き出しは成功を報告する', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'フルバックアップ', exact: true }).click(),
+  ]);
+  // control: 実際にファイルが落ちている (落ちていないのに成功と報告したら、それは別の欠陥)
+  expect(await download.path(), 'control: ファイルが書き出されていない').toBeTruthy();
+  await expect(page.locator('#toast-container')).toContainText('書き出しました');
+  await expect(page.locator('#action-announcement')).toContainText('書き出しました');
+});
+
+test('書き出しが失敗しても致命エラーにせず理由を伝える', async ({ page }) => {
+  await page.addInitScript(() => { URL.createObjectURL = () => { throw new Error('blocked'); }; });
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  await page.getByRole('button', { name: 'フルバックアップ', exact: true }).click();
+
+  await expect(page.locator('#toast-container')).toContainText('失敗');
+  // 2 秒の最終安全網 (#298) より後まで見る — 昇格していれば全画面オーバーレイが被さる
+  await page.waitForTimeout(2600);
+  expect(await page.evaluate(() => !!window.__fatalError), '書き出し失敗が致命エラーへ昇格している').toBe(false);
+  await expect(page.locator('#content'), 'Settings が失われている').toContainText('エクスポート');
+});
+
 // ===== 配色 (brand) も backup として往復すること =====
 // `theme` は store 内なので `State.get()` を書き出すフル export に自動的に入るが、**brand は
 // store の外の独自キー (portfolio_brand_v45)** に保存されるため、同じ export から構造的に
