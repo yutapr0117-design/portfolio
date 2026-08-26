@@ -174,6 +174,7 @@ Status        : 本 increment で新設。CLAUDE.md（thin router）から参照
   | パッケージ | 版 | 測定した観点 | 結果 |
   | :-- | :-- | :-- | :-- |
   | `eslint` | 10.8.0 → 10.8.1 | lint 出力の変化（新ルール／判定の揺れ） | **0 errors / 54 warnings で不変** |
+  | `eslint` | 10.8.1 → 10.9.1 | lint 出力の変化（新ルール／判定の揺れ） | **0 errors / 54 warnings で不変**（2026-08-26 実測）。解決済みルール 52 / 設定で明示有効 45 —— 本 repo は EOL 移行の非破壊性維持のため `eslint:recommended` を継承せず**必要ルールのみ明示列挙**する方針（#186 の経緯）なので、上流の推奨セット変更は自動では入らない。今回の bump で**新たに拾える実バグは無し** |
   | `globals` | 17.8.0 → 17.9.0 | 同上（`no-undef` の解決集合が変わりうる） | 同上・変化なし |
   | `@playwright/test` | 1.62.0 → 1.62.1 | 同梱 Chromium 更新による **視覚 baseline** への影響 | 全 e2e **315 passed（screenshot 含む）** = baseline 再生成不要 |
 
