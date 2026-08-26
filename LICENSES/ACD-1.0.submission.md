@@ -29,6 +29,10 @@ is posted, including the license-discuss thread that is already open.
 Anticipated objections and prepared answers (38 worked entries plus a table of 8 short answers, across three files) are in
 `LICENSES/ACD-1.0.review-responses.md` and its `-clauses` / `-meta` companions.
 
+**What actually gets said on the list is recorded in `LICENSES/ACD-1.0.discussion-log.md`.**
+That file is the bridge to the next step: the review submission cites it so that the earlier
+discussion is visibly accounted for rather than repeated.
+
 ---
 
 ## A. Facts you will be asked for (both bodies)
@@ -50,6 +54,14 @@ Anticipated objections and prepared answers (38 worked entries plus a table of 8
 
 > **This is the approval-request step, and it has not been taken.** What is currently open is a
 > thread on `license-discuss`. Send this only when the decision is to actually request approval.
+>
+> **Before sending, add a paragraph about the license-discuss thread.** The usual order is
+> discuss → review, and a submission that arrives without referring to the earlier thread
+> reads as though the earlier thread never happened — which costs credibility before anyone
+> has evaluated the text. Pick three points from `LICENSES/ACD-1.0.discussion-log.md`
+> (strongest objection / what was conceded / what changed) and use the template in section 3
+> of that file. **If something raised there is still unanswered, say so** — hiding it fails
+> the moment the person who raised it is also on license-review.
 
 Send to `license-review@opensource.org` (subscribe first). OSI asks submitters to state
 the rationale, to distinguish the licence from the closest approved one, to address the
@@ -264,6 +276,12 @@ Submit via https://tools.spdx.org/app/submit_new_license/ (preferred) or the
 4. Subscribe to `license-review@opensource.org` before posting; the list rejects mail from
    non-subscribers.
 5. Expect roughly 60 days to a decision from first posting.
+6. **Fold in the license-discuss summary** (section 3 of `LICENSES/ACD-1.0.discussion-log.md`).
+   Three points, not the whole log. If the log is empty, say the thread drew no response —
+   that is also a fact about the licence, and stating it is better than implying a debate
+   that did not happen.
+7. **Re-read section E** of this file. Its disclosures apply to whatever is posted, and the
+   provenance one (E.1) is the disclosure most likely to be discovered independently.
 
 ---
 

@@ -1,0 +1,78 @@
+---
+file: LICENSES/ACD-1.0.discussion-log.md
+audience: ai, human (提出者), 監査人, 第三者全般
+last-updated: 2026-08-26
+canonical-ref: LICENSES/ACD-1.0.submission.md (提出パケット・§B が license-review 宛の文面) / LICENSES/ACD-1.0.review-responses.md (想定問答) / LICENSES/FROZEN.md (凍結と VENUE-DATA)
+---
+
+# ACD-1.0 — 議論ログ（license-discuss → license-review の橋渡し）
+
+```
+現在の venue : LICENSES/FROZEN.md の VENUE-DATA marker が単一ソース (Check 458 が整合を強制)
+本書の役割   : license-discuss で実際に何を言われ、それにどう答え、何が変わったかの記録
+なぜ要るか   : 次の段階 (license-review) で「その点は discuss で扱った」と示せるようにするため
+本書の性質   : 非規範。ライセンス本文の一部ではない
+```
+
+## 0. なぜこの記録が要るのか
+
+OSI の通常の順序は **`license-discuss`（議論）→ `license-review`（承認申請）**である。後段へ進むとき、**前段で何が起きたかを示せるかどうかで受け取られ方が変わる**。
+
+- 示せる場合 —— 「この点は discuss で指摘され、こう答えた／こう直した」と書ける。読む側は同じ議論を最初からやり直さずに済む。
+- 示せない場合 —— 提出は「前の議論を無視してもう一度出してきた」ように見える。**これは内容の是非以前に心証を損なう**。
+
+そして人間の記憶は当てにならない。**言われた直後に書く**のが唯一の方法である。
+
+## 1. 書き方
+
+指摘を受けたら、その日のうちに 1 行足す。**自分に不利な指摘ほど先に書く。**
+
+| 列 | 何を書くか |
+|---|---|
+| 日付 | 受けた日（YYYY-MM-DD）|
+| 指摘 | **相手の言葉に近い形で**。要約して角を丸めない |
+| 出典 | list 名 + 日付（公開アーカイブなので辿れる形で）。**個人名を推測で書かない** |
+| こちらの答え | 実際に返した内容（返していないなら「未回答」）|
+| 帰結 | `認めた` / `反論した` / `1.1 候補` / `撤回検討` / `未回答` |
+
+### 守ること
+
+1. **予測が外れたことも書く。** 想定問答（`ACD-1.0.review-responses*.md`）が当てにいって外した項目は、削らずに「外れた」と記録する。**次に読む者にとっては、当たった予測より外れた予測のほうが情報量がある。**
+2. **本文は直さない。** 凍結中であり、妥当な指摘への正しい対応は「ACD-1.1 でこうする」と書くことである（Check 453 が機械強制）。
+3. **相手の主張を代弁しない。** 引用は最小限にし、解釈を加えるなら「こちらの読み」と明示する。公開アーカイブに残る議論なので、歪めた要約は後から照合されうる。
+4. **反論した場合も、反論の根拠を書く。** 「納得しなかった」だけでは、後で自分が正しかったのか判らない。
+
+## 2. ログ
+
+<!-- 新しい entry を **上** に足す（新しい順）。空のままなら「まだ何も起きていない」という事実の記録である -->
+
+| 日付 | 指摘 | 出典 | こちらの答え | 帰結 |
+|---|---|---|---|---|
+| — | *（まだ記録なし。license-discuss へ投稿済み・反応待ち）* | — | — | — |
+
+## 3. license-review へ進むときに使う要約（ログが埋まってから書く）
+
+提出時、§2 のログから **3 点だけ**選んで本文に織り込む。全部並べると読まれない。
+
+選ぶ基準:
+
+1. **最も強い反対意見**（それに答えていないと見なされるのが一番痛い）
+2. **こちらが認めた点**（誠実さの証拠になり、かつ相手の労力に報いる）
+3. **テキストに影響した点**（あるなら。無ければ「変更には至らなかった」と書く）
+
+英文の型:
+
+> **What came out of the license-discuss thread.** I raised this on license-discuss on
+> <date>. The strongest objection was <X>; my answer is in <section>. I accepted <Y> and
+> have recorded it as a change for a successor version — the text under review here is
+> unchanged, because I did not want the document being read to drift while it was being
+> read. Nothing raised there has been left unanswered; the full log is at <URL>.
+
+**「答えていない指摘がある」場合は、それも書く。** 隠すと、指摘した本人が review 側にいた場合に必ず露見する。
+
+## 4. 現在の状態
+
+- **license-discuss**: 投稿済み・反応待ち（`LICENSES/FROZEN.md` の VENUE-DATA が単一ソース）
+- **license-review**: 未投稿。文面は `ACD-1.0.submission.md` §B にあるが、**§3 の要約を織り込んでから**送るのが望ましい
+- **SPDX**: 未提出（実使用が薄いため意図的に見送り）
+- **本文**: 凍結中。ACD-1.0 が指すテキストは動かさない
