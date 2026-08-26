@@ -14,6 +14,22 @@
 
 ---
 
+## Status as of 2026-08-26
+
+| | |
+|---|---|
+| **Sent** | OSI `license-review` — submitted, awaiting outcome. The steward characterises this as **submitting for review and discussion**, not as a request for fast approval. |
+| **Not sent** | SPDX License List. SPDX asks for substantial real-world use; this text has one user. **Not meeting the condition is the reason, not the ordering** — section C below stays unsent until that changes. |
+| **Text** | Frozen. `LICENSES/FROZEN.md` records the freeze and CI pins the sha256 of the three submitted artefacts. A sound criticism received during review is answered with *"that is right, and ACD-1.1 will do X"* — not by editing the text under review. |
+
+**Section E below lists disclosures that section B does not contain.** If the section B
+message has already been sent, they belong in a follow-up.
+
+Anticipated objections and prepared answers (38 worked entries plus a table of 8 short answers, across three files) are in
+`LICENSES/ACD-1.0.review-responses.md` and its `-clauses` / `-meta` companions.
+
+---
+
 ## A. Facts you will be asked for (both bodies)
 
 | Field | Value |
@@ -244,3 +260,38 @@ Submit via https://tools.spdx.org/app/submit_new_license/ (preferred) or the
 4. Subscribe to `license-review@opensource.org` before posting; the list rejects mail from
    non-subscribers.
 5. Expect roughly 60 days to a decision from first posting.
+
+---
+
+## E. Addendum (2026-08-26) — disclosures that section B does not contain
+
+Section B was written before the text was frozen and before the anticipated-objection
+dossier existed. Reviewing the two against each other surfaced one disclosure that the
+dossier argues is mandatory and that section B does not make. **Section B is not rewritten
+here, because it may already have been sent.** Add the following in a follow-up message,
+or fold it into section 5 if section B has not gone out yet.
+
+### E.1 Provenance of the drafting
+
+- **Provenance of the drafting.** The text was drafted with a large language model under
+  my direction, in a project that states publicly that this is how it operates. I mention
+  it before anyone finds it in the repository. The text cites exactly one external
+  instrument (Article 4(3) of Directive (EU) 2019/790, in Section 1.10), deliberately,
+  because invented or misattributed authority is the characteristic failure of
+  machine-drafted legal text. Its internal consistency — contiguous clause numbering,
+  resolution of all 82 cross-references, use of all 10 defined terms, absence of any
+  obligation-imposing word directed at the user, and absence of anything specific to my
+  project — is enforced in continuous integration, so those are conditions the repository
+  cannot be in violation of rather than assertions of care. What none of that establishes
+  is that the reasoning is sound, which is what I am here to find out.
+
+### E.2 What would cause the submission to be withdrawn
+
+Section B explains why the licence is necessary but does not say what would end the
+matter. Stating it makes clear that this is an enquiry rather than an advocacy exercise.
+
+- If someone shows me an existing approved licence that provides all three of the
+  properties in section 1, I will use it and withdraw this submission.
+
+The fuller set of withdrawal criteria — decided in advance, so that the decision is not
+made in the heat of a thread — is in `LICENSES/ACD-1.0.review-responses-meta.md`.

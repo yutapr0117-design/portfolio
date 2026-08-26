@@ -260,45 +260,50 @@ license-review は法的な場だが、AI 学習に対する価値判断は 2023
 
 **撤回しない条件**（指摘は受けるが設計として維持する）: 特許報復条項の不在（§4 の A で述べたとおり意図的）、長さ（対処は済んでいる）、名称（1.1 で変えられるので撤回理由にならない）。
 
-### Q21. 最初の投稿に使う文面（下書き）
+### Q21. 最初の投稿に使う文面 → **既に `ACD-1.0.submission.md` §B にある**
 
-**そのまま送るためではなく、送る前に削るための下書き**。長すぎると読まれない。
+**当初ここに下書きを書いたが、撤回した。** `LICENSES/ACD-1.0.submission.md` §B が既に
+ready-to-send の投稿文であり、同 §5 に honest disclosures が 3 件（法的レビュー未了 /
+実使用 1 件 / dedication 形式であること）置かれていた。**同じ役割の文書を 2 つ置くと必ず
+drift する** —— このリポジトリが繰り返し踏んできた class であり、ライセンス面で作るのは
+最悪である。**権威は `ACD-1.0.submission.md` §B。**
 
-> **English (draft — trim before sending):**
->
-> Subject: For review: Autonomous Commons Dedication 1.0 (ACD-1.0)
->
-> I am submitting ACD-1.0 for review and criticism. I am not asking for a fast
-> path to approval, and I have deliberately not submitted it to SPDX, because
-> SPDX asks for substantial real-world use and this text has exactly one user —
-> my own project.
->
-> **What it is.** A public-domain-style dedication with three independent
-> footings for the same outcome (surrender, licence, covenant), no conditions of
-> any kind, an express patent licence, an affirmative permission for machine
-> learning and text and data mining, and a statement that no TDM reservation is
-> made.
->
-> **Why it exists.** Three properties are not available together in any approved
-> licence, and two are not available at all: (1) an affirmative ML/TDM permission
-> coupled with an express absence of reservation, which matters because the EU
-> DSM Article 4(3) opt-out turns on reservation rather than on grant; (2) a
-> patent grant in a dedication-form instrument — CC0 Section 4(a) expressly
-> excludes patents, which was the centre of the 2012 discussion here; (3) a
-> workable position on material whose authorship is uncertain.
->
-> **Disclosures, before anyone has to ask.** No lawyer has reviewed the text. It
-> has one user. It was drafted with an LLM under my direction, in a project that
-> states publicly that this is how it operates. It is long — about 600 lines —
-> because it states its reasoning inline.
->
-> **What would change my mind.** If someone shows me an existing approved licence
-> that does all three, I will use it and withdraw this.
->
-> Text: <URL>
-> Rationale and clause-by-clause comparison: <URL>
+本書が持つべきは差分だけなので、以下の 2 点を「§B に無い追記事項」として置く。
 
-**なぜこの構成か**: 4 段（何か / なぜ要るか / 弱点の自己開示 / 撤回条件）。**弱点を 3 段目に置く**のは、読み手が「隠していないか」を確認し終えてから中身の議論に入れるようにするため。最後の「撤回条件」は、この投稿が主張ではなく問い合わせであることを構造で示している。
+#### 追記 1 —— LLM 起草の開示（§B の disclosures には無い）
 
----
+Q10 は「隠す選択肢は存在しない」と述べているのに、**実際に送る文面にはその開示が無い**。
+本書と §B が食い違っている状態なので、送信済みなら follow-up で、未送信なら §5 に足す。
 
+> **English (add to the disclosures):**
+>
+> - **Provenance of the drafting.** The text was drafted with a large language model
+>   under my direction, in a project that states publicly that this is how it
+>   operates. I mention it before anyone finds it in the repository. The text
+>   cites exactly one external instrument (Article 4(3) of Directive (EU)
+>   2019/790, in Section 1.10), deliberately, because invented or misattributed
+>   authority is the characteristic failure of machine-drafted legal text. Its
+>   internal consistency — contiguous clause numbering, resolution of all 82
+>   cross-references, use of all 10 defined terms, absence of any
+>   obligation-imposing word directed at the user, and absence of anything
+>   specific to my project — is enforced in continuous integration, so those are
+>   conditions the repository cannot be in violation of rather than assertions of
+>   care. What none of that establishes is that the reasoning is sound, which is
+>   what I am here to find out.
+
+#### 追記 2 —— 撤回条件（§B には無い）
+
+§B は「なぜ必要か」を述べるが、**どうなったら引き下がるか**を述べていない。Q20 に条件を
+書いてあるので、その要旨を投稿に含めると、これが主張ではなく問い合わせであることが
+構造で伝わる。
+
+> **English (one sentence, at the end):**
+>
+> If someone shows me an existing approved licence that provides all three of the
+> properties in section 1, I will use it and withdraw this submission.
+
+**なぜ下書きを消したのか（この判断自体の記録）**: 「沢山置いてほしい」という依頼に対し、
+**既にあるものを書き直して量を増やすのは padding であり、しかも drift を生む**。量を増やす
+なら、既存に無いものを足すべきである。実際、照合して初めて「§B に LLM 起草の開示が無い」
+という**実害のある不整合**が見つかった —— 重複を書かなければ気付かなかった、とは言えるが、
+気付いた時点で重複を残す理由は無い。

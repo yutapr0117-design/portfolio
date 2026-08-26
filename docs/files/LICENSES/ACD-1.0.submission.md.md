@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.submission.md
 audience: ai, human (新卒), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-08-24
+last-updated: 2026-08-26
 canonical-ref: LICENSES/ACD-1.0.txt / LICENSES/ACD-1.0.spdx.xml / docs/architecture/acd-license-rationale.md
 ---
 
@@ -30,6 +30,12 @@ OSD 1–10 への逐条回答 / 正直な開示）と、SPDX 宛の申請フィ�
 
 冒頭に「`LICENSES/READY-TO-SUBMIT.md` が存在しない限り送らないこと」を明記している ——
 提出は取り消せないので、**準備完了の宣言をファイルの存在という形で外に出す**設計にした。
+
+## 2026-08-26 の追記
+
+冒頭に **Status ブロック**（実際に送ったもの＝OSI license-review / 送っていないもの＝SPDX とその理由 / テキストは凍結中）と、**§E Addendum** を足した。
+
+§E は「§B に**無い** disclosure」だけを置く。**§B 自体は書き換えていない** —— 既に送信済みかもしれず、書き換えると送った記録を偽ることになる。内容は (1) **LLM 起草の開示**（想定問答 Q10 が「隠す選択肢は存在しない」と述べているのに §B の disclosures に無かった）、(2) **撤回条件**（§B は「なぜ必要か」を述べるが「どうなったら引き下がるか」を述べていない）。
 
 ## Constraints
 
