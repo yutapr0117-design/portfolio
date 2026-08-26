@@ -803,8 +803,8 @@ E2E_MUTATIONS_ARCHIVE = [
     {
         "name": "\u30d5\u30eb\u30d0\u30c3\u30af\u30a2\u30c3\u30d7\u304c state \u5168\u4f53\u3092\u542b\u307e\u306a\u304f\u306a\u308b \u2014\u2014 exportFull \u304c projects \u3060\u3051\u3092\u66f8\u304d\u51fa\u3059\u5f62\u3078\u623b\u308b\u3068\u3001\u5229\u7528\u8005\u306f\u300c\u30d0\u30c3\u30af\u30a2\u30c3\u30d7\u3092\u53d6\u3063\u305f\u300d\u3068\u4fe1\u3058\u3066\u5143\u30c7\u30fc\u30bf\u3092\u6368\u3066\u3046\u308b (\u5fa9\u5143\u6642\u306b tasks / notes / profile \u304c\u5168\u90e8\u6d88\u3048\u308b)",
         "file": ROOT / "js" / "settings-io.js",
-        "find": "function exportFull() { downloadJSON(State.get(),",
-        "replace": "function exportFull() { downloadJSON({ projects: State.get().projects },",
+        "find": "        downloadJSON(brand ? { ...State.get(), brand } : State.get(),",
+        "replace": "        downloadJSON({ projects: State.get().projects },",
         "test": "Settings app exports a full backup as a valid JSON download",
     },
     {

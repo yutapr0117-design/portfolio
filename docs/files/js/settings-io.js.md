@@ -32,7 +32,7 @@ Settings の**入出力**を担う葉モジュール。`createSettingsIO({ deps 
 ```js
 // main.js（late-binding holder パターン）
 let _opts = () => ({ mode: 'append', includeProfile: true, includeProjects: true, includeApps: true });
-const SettingsIO = createSettingsIO({ State, Store, Toast, getImportOptions: () => _opts() });
+const SettingsIO = createSettingsIO({ State, Store, Toast, Brand, getImportOptions: () => _opts() });
 const { SettingsPage, getImportOptions } = createSettingsPage({ …, IO: SettingsIO });
 _opts = getImportOptions;   // 相互参照を holder で解く
 ```

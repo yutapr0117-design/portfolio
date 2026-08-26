@@ -452,6 +452,40 @@ test('full export → 全リセット → import で状態が再現する (backu
   expect(after.profileName, 'profile が import で戻らない').toBe(before.profileName);
 });
 
+// ===== 配色 (brand) も backup として往復すること =====
+// `theme` は store 内なので `State.get()` を書き出すフル export に自動的に入るが、**brand は
+// store の外の独自キー (portfolio_brand_v45)** に保存されるため、同じ export から構造的に
+// 抜けていた。Settings の隣り合う 2 つの表示設定で、片方だけ「フルバックアップ」に入らない
+// 非対称になっていた —— 復元しても選んだ配色だけが既定へ戻る。
+// import 側は store の正規化を通さない (brand は store のキーではないので merged に載せると
+// validateAndNormalize が落とす) ため、theme と同じく取り込み時に直接適用する。
+test('配色 (brand) が export → import で復元される', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  // control: 開始が既定であること (前提は測ってから使う — theme 版 #1036 の教訓)
+  const start = await page.locator('html').getAttribute('data-brand');
+  await page.selectOption('#brandSelect', 'classic');
+  await expect(page.locator('html')).toHaveAttribute('data-brand', 'classic');
+  expect(start, 'control: 開始が既に classic なら切替を検証できない').not.toBe('classic');
+
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'フルバックアップ', exact: true }).click(),
+  ]);
+  const file = await download.path();
+
+  // 既定へ戻してから取り込む (戻さないと「元々 classic だった」と区別できない)
+  await page.selectOption('#brandSelect', 'indigo');
+  await expect(page.locator('html')).toHaveAttribute('data-brand', 'indigo');
+
+  await page.selectOption('#settingsImportMode', 'strict');
+  page.once('dialog', d => d.accept());   // 全置換は confirm を通す (#1331)
+  await page.setInputFiles('#content input[type="file"]', file);
+  await expect(page.locator('html'), 'export した配色が import で戻らない')
+    .toHaveAttribute('data-brand', 'classic');
+});
+
 // ===== 表示テーマも backup として往復すること =====
 // `theme` は full export に含まれるのに **import が無視**しており、「フルバックアップ」を
 // 復元しても表示テーマの設定だけが失われていた (実測 #1036: export に `theme:"dark"` が

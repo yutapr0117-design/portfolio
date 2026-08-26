@@ -943,5 +943,15 @@ _E2E_TAIL.append({
     "test": "自動退避されたスナップショットは移行元と移行先を示す",
 })
 
+_E2E_TAIL.append({
+    "name": "brand の取り込みを落とす —— 「フルバックアップ」に配色が入っていても復元されない"
+            "状態に戻す。brand は store の外なので merged に載せても normalize が落とす。theme が"
+            "戻るのに brand だけ戻らない非対称は利用者から見て「フル」の約束破り",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "                if (typeof parsed.brand === 'string' && Brand && Brand.set) {",
+    "replace": "                if (false) {",
+    "test": "配色 (brand) が export → import で復元される",
+})
+
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

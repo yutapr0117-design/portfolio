@@ -370,8 +370,8 @@ E2E_MUTATIONS_ARCHIVE2 = [
     {
         "name": "behavior: full export が 1 フィールド落とす (#1035) — フル export は利用者にとって **バックアップ**なので、export 側で notes が落ちる (あるいは import が無視する) だけで黙ってデータが失われる。部分 export のテストも手書き JSON の import テストもこの経路を通らないため、往復させる test だけが捕捉層",
         "file": ROOT / "js" / "settings-io.js",
-        "find": "function exportFull() { downloadJSON(State.get(), ",
-        "replace": "function exportFull() { downloadJSON({ ...State.get(), appsData: { ...State.get().appsData, notes: '' } }, ",
+        "find": "        downloadJSON(brand ? { ...State.get(), brand } : State.get(),\n",
+        "replace": "        downloadJSON({ ...State.get(), appsData: { ...State.get().appsData, notes: '' } },\n",
         "test": "full export → 全リセット → import で状態が再現する",
     },
     {
