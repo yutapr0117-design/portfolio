@@ -86,6 +86,18 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        and scientific prose. The pattern is written with escape sequences so this file does not
        match itself, and for the same reason the description cannot quote an instance.
        Measured across 573 tracked text files: zero false positives. (BLOCKING)
+  458. **投稿先 (venue) の記録が単一ソースと一致すること** (BLOCKING): ライセンスの
+       「いまどこへ出しているか」は `LICENSES/FROZEN.md` の `VENUE-DATA` marker を単一ソースと
+       し、状態を述べる各ファイルがそれと一致することを強制する。2026-08-26 の 1 日で venue の
+       記録が **2 度 drift した** (「SPDX / OSI へ申請」→ `license-review` と誤記 →
+       実際は `license-discuss`)。状態の記述が 10 ファイルに散らばっているため、1 箇所直しても
+       残りが古いまま残る。**しかも venue の取り違えには実害がある** —— `license-discuss` は
+       OSI の一般的な議論リストで**承認申請の窓口ではない**ので、「申請済み」と記録すると
+       **まだ何も申請していない**ことに誰も気付けなくなる。
+       458a = 宣言された venue が各 status ファイルに現れること。
+       458b = **別の venue へ「投稿済み」と主張していないこと** (手順の記述や将来の窓口として
+       名前が出るのは正当なので、`投稿済み` / `submitted` と同一行で結ばれている場合だけを
+       違反とする)。(BLOCKING)
 """
 import re
 import json
@@ -612,3 +624,74 @@ def run(ctx):
          "(ギリシャ文字は数学/科学表記で正当なので対象外)"),
         blocking=True,
     )
+
+    # ── 458. 投稿先 (venue) の記録が単一ソースと一致すること (BLOCKING) ────────────────
+    # FROZEN.md の `VENUE-DATA` marker を単一ソースにする。venue が変われば marker を変える
+    # だけで、残りは CI が「ここも直せ」と指す。
+    _frozen458 = ROOT / "LICENSES" / "FROZEN.md"
+    if not _frozen458.exists():
+        warnings.append("Check 458: LICENSES/FROZEN.md が無い (凍結解除済み?) — venue 整合を skip")
+    else:
+        _ftxt458 = _frozen458.read_text(encoding="utf-8")
+        _m458 = re.search(r"<!--\s*VENUE-DATA:\s*(\S+?)\s*-->", _ftxt458)
+        if not _m458:
+            check(False, "", "Check 458: FROZEN.md に VENUE-DATA marker が無い "
+                             "(投稿先の単一ソースが失われている)", blocking=True)
+        else:
+            _venue458 = _m458.group(1)
+            _status458 = [
+                "LICENSES/FROZEN.md",
+                "LICENSES/READY-TO-SUBMIT.md",
+                "LICENSES/ACD-1.0.submission.md",
+                "LICENSES/ACD-1.0.review-responses.md",
+                "CLAUDE.md",
+            ]
+            _missing458, _false458 = [], []
+            _others458 = {"license-discuss", "license-review"} - {_venue458}
+            for _rel458 in _status458:
+                _p458 = ROOT / _rel458
+                if not _p458.is_file():
+                    _missing458.append(f"{_rel458} (file 不在)")
+                    continue
+                _t458 = _p458.read_text(encoding="utf-8", errors="replace")
+                if _venue458 not in _t458:
+                    _missing458.append(_rel458)
+                # 別 venue の名前が出ること自体は正当 (手順の記述・将来の窓口・対比)。
+                # 違反は「別 venue **のすぐ後ろに**『投稿済み』が続く」形だけに限る。
+                #
+                # [FIX] 初版は「同一行に別 venue と『投稿済み』があり、行内に否定語が無ければ違反」
+                #   としていたが、**非 vacuity 検証で素通りした** —— 誤 venue を『投稿済み』と
+                #   書いた行に、無関係な否定語 (別の節の「でもない」) が同居していたため抑止された。
+                #   行という単位が粗すぎたのが原因なので、**近接** (venue の直後 40 字以内) で見る。
+                #   間に否定語が挟まる `license-review へはまだ出していない` は違反にしない。
+                _neg458 = re.compile(r"まだ|出していない|未実施|未投稿|ではない|でもない"
+                                     r"|not sent|not yet|has not|Not sent|へは")
+                _claim458 = re.compile(r"投稿済み|提出済|submitted")
+                for _o458 in _others458:
+                    for _mo458 in re.finditer(re.escape(_o458), _t458):
+                        _win458 = _t458[_mo458.end():_mo458.end() + 40]
+                        _mc458 = _claim458.search(_win458)
+                        if not _mc458:
+                            continue
+                        if _neg458.search(_win458[:_mc458.start()]):
+                            continue
+                        _ctx458 = _t458[max(0, _mo458.start() - 20):_mo458.end() + 40]
+                        _false458.append(f"{_rel458}: …{_ctx458.strip()[:70]}…")
+            check(
+                not _missing458,
+                f"Check 458a: 宣言された投稿先 '{_venue458}' が status を述べる "
+                f"{len(_status458)} ファイルすべてに現れる",
+                (f"Check 458a: 投稿先 '{_venue458}' を述べていないファイルがある: {_missing458}。"
+                 "状態の記述が散らばっていると 1 箇所直しても残りが古いまま残る "
+                 "(2026-08-26 に 2 度 drift した)。FROZEN.md の VENUE-DATA を単一ソースとして揃えよ"),
+                blocking=True,
+            )
+            check(
+                not _false458,
+                f"Check 458b: 宣言外の venue へ「投稿済み」と主張しているファイルが無い",
+                (f"Check 458b: 宣言された投稿先は '{_venue458}' なのに、別の venue へ投稿済みだと"
+                 f" 述べている箇所がある: {_false458[:3]}。**venue の取り違えには実害がある** —— "
+                 "`license-discuss` は議論リストで承認申請の窓口ではないので、「申請済み」と"
+                 "記録すると**まだ何も申請していない**ことに誰も気付けなくなる"),
+                blocking=True,
+            )

@@ -5,11 +5,12 @@ last-updated: 2026-08-26
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文) / LICENSES/ACD-1.0.submission.md (提出パケット) / LICENSES/READY-TO-SUBMIT.md (提出判断) / LICENSES/FROZEN.md (凍結宣言) / docs/architecture/acd-license-rationale.md (設計根拠)
 ---
 
-# ACD-1.0 — OSI license-review 想定問答ドシエ
+# ACD-1.0 — OSI 想定問答ドシエ
 
 ```
-Status        : OSI license-review (公開レビュー) へ投稿済み・結果待ち
-                ※ OSI の「正式承認申請」でも SPDX License List 提出でもない
+Status        : OSI `license-discuss` (一般的な議論リスト) へ投稿済み・結果待ち
+                ※ **承認申請の窓口は `license-review`** で、そこへはまだ出していない。
+                   SPDX License List にも出していない = 承認の手続きは未着手
 本文の状態    : 凍結中 (LICENSES/FROZEN.md の存在が凍結を意味し Check 453 が sha256 で強制)
 本書の位置づけ : 非規範。ライセンス本文の一部ではない。回答の下書きであって、
                 ここに書いたことが ACD-1.0 の意味を変えることはない
@@ -17,7 +18,7 @@ Status        : OSI license-review (公開レビュー) へ投稿済み・結果
 
 ## 0. この文書の使い方
 
-OSI の `license-review` は**公開のメーリングリスト上の議論**であり、審査というより「読者が本気で読んで穴を突く場」である。したがって必要なのは *弁明* ではなく **「その指摘は正しい / 正しくない、根拠はこれ」を短く返せる準備**である。
+**まず venue を区別する。** `license-discuss` は OSI の**一般的な議論リスト**（今回の投稿先）、`license-review` は**承認申請の窓口**（未投稿）。どちらも公開のメーリングリストで、**読者が本気で読んで穴を突く場**という性質は同じ —— だから本ドシエは両方に使える。ただし `license-discuss` では「承認してくれ」ではなく「**この instrument は要るのか**」を問う姿勢が正しい。したがって必要なのは *弁明* ではなく **「その指摘は正しい / 正しくない、根拠はこれ」を短く返せる準備**である。
 
 本書は次の形で並べてある。
 
@@ -29,7 +30,7 @@ OSI の `license-review` は**公開のメーリングリスト上の議論**で
 
 ### 3 つの原則
 
-1. **認めるべき指摘は即座に認める。** license-review で最も心証を損なうのは、弱点を指摘されたときに言い繕うことである。本ドシエには「認める」と書いた項目が実際にある（§4）。
+1. **認めるべき指摘は即座に認める。** この種のリストで最も心証を損なうのは、弱点を指摘されたときに言い繕うことである。本ドシエには「認める」と書いた項目が実際にある（§4）。
 2. **本文は凍結中なので、その場で直さない。** 妥当な指摘を受けたときの正しい返答は「その指摘は正しい。ACD-1.1 でこう直す」であり、審査中に差し替えることではない。審査側が見ているテキストと公開されているテキストが食い違うのが最悪である。
 3. **保証しない。** 「承認されるはずだ」と述べない。求めているのはレビュー結果であって同意ではない。
 
@@ -39,8 +40,8 @@ OSI の `license-review` は**公開のメーリングリスト上の議論**で
 
 | | 実態 |
 |---|---|
-| 出したもの | OSI **license-review** への投稿（公開議論の開始） |
-| 出していないもの | OSI の正式承認申請 / SPDX License List への収録申請 |
+| 出したもの | OSI **`license-discuss`** への投稿（一般的な議論リスト・意見を聞くこと） |
+| 出していないもの | **`license-review`（承認申請の窓口）** / SPDX License List への収録申請。**承認の手続きはまだ何も始めていない** |
 | SPDX を見送った理由 | SPDX は「相当程度の実使用」を求める。現在の使用実績は本リポジトリ 1 件で、その条件を満たしていない。**満たしていないものを出さない**のが誠実である |
 | いま欲しいもの | 起草では解消できない論点（dedication 型の是非・§12 の各国法での効き方・§8.4 の射程）について、**第三者の目による判断** |
 
@@ -48,8 +49,10 @@ OSI の `license-review` は**公開のメーリングリスト上の議論**で
 
 > **English (use in the opening message if not already stated):**
 >
-> To be clear about what I am asking for: I am seeking review and criticism, not
-> a fast path to approval. I have deliberately not submitted this to the SPDX
+> To be clear about what I am asking for: I am seeking discussion and criticism.
+> I have posted here on license-discuss rather than submitting to license-review,
+> because I would rather find out whether this instrument should exist at all
+> before asking anyone to approve it. I have deliberately not submitted this to the SPDX
 > License List, because SPDX asks for substantial real-world use and this text
 > currently has exactly one user — my own project. I would rather be told that
 > the instrument is unnecessary, or that a particular section does not work,
@@ -207,7 +210,7 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 > interface or medium. Section 2.3 requires no click-through or other act of
 > assent.
 
-**なぜこう答えるか**: OSD 6 が最大の誤読ポイントである。近年 license-review に来る「AI を扱うライセンス」の大半は**制限**（学習禁止・用途制限）であり、レビュアはその前提で読み始める。**「§6 は許諾であって制限ではない」を OSD 6 の項で先に言う**のが最も効く。OSD 8 については「本文とプロジェクトへの適用宣言が別ファイルであり、それが機械強制されている」という事実が強い（Check 441 の「プロジェクト固有要素ゼロ」）。
+**なぜこう答えるか**: OSD 6 が最大の誤読ポイントである。近年この種のリストに来る「AI を扱うライセンス」の大半は**制限**（学習禁止・用途制限）であり、レビュアはその前提で読み始める。**「§6 は許諾であって制限ではない」を OSD 6 の項で先に言う**のが最も効く。OSD 8 については「本文とプロジェクトへの適用宣言が別ファイルであり、それが機械強制されている」という事実が強い（Check 441 の「プロジェクト固有要素ゼロ」）。
 
 ---
 
@@ -267,7 +270,7 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 > statement that has to be inferred from the absence of a restriction is
 > materially harder to act on than one that is present as text.
 
-**なぜこの 4 つを先に出すか**: license-review では、提出者が弱点を隠していると判明した時点で議論が「テキストの是非」から「提出者の信頼性」に移り、そうなると回復しない。A1〜A4 はいずれも**調べれば分かる**（法的レビューの有無は書いてある、使用実績は GitHub を見れば分かる、行数は数えれば分かる）。**自分から言えば誠実さの証拠になり、言われてから認めれば失点になる**、というだけの違いである。
+**なぜこの 4 つを先に出すか**: この種のリストでは、提出者が弱点を隠していると判明した時点で議論が「テキストの是非」から「提出者の信頼性」に移り、そうなると回復しない。A1〜A4 はいずれも**調べれば分かる**（法的レビューの有無は書いてある、使用実績は GitHub を見れば分かる、行数は数えれば分かる）。**自分から言えば誠実さの証拠になり、言われてから認めれば失点になる**、というだけの違いである。
 
 ---
 
@@ -316,7 +319,7 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 
 ## 8. 議論の進め方（回答内容ではなく態度の話）
 
-1. **聞かれたことに答える。** license-review で最も嫌われるのは、指摘に答えず別の長所を語ることである。
+1. **聞かれたことに答える。** この種のリストで最も嫌われるのは、指摘に答えず別の長所を語ることである。
 2. **一度に全部貼らない。** 本ドシエは長いが、リストに投げるのは**その回に問われた項目だけ**にする。全文投下は読まれない。
 3. **「その指摘は正しい」を惜しまない。** §4 の 4 項目はいつでも認めてよい。認めても失うものが無いように書いてある。
 4. **本文を審査中に直さない。** 妥当な指摘は「1.1 でこうする」と述べて記録する。直したくなったら `FROZEN.md` を消したくなるが、それは**審査側が見ているテキストとの乖離**を作る行為である（Check 453 が機械的に止める）。

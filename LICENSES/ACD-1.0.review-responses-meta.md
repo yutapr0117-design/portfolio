@@ -60,7 +60,7 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 
 ### Q11. 「AI に学習させてよい」と積極的に述べるのは倫理的にどうなのか
 
-license-review は法的な場だが、AI 学習に対する価値判断は 2023 年以降この種の議論に必ず混ざる。
+OSI のリストは法的な場だが、AI 学習に対する価値判断は 2023 年以降この種の議論に必ず混ざる。
 
 > **English:**
 >

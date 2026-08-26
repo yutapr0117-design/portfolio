@@ -51,8 +51,15 @@
 
 ## 実際に行われたこと（2026-08-26 時点）
 
-**OSI `license-review` へ投稿済み・結果待ち。** 出したのは公開レビュー（議論）であって、
-OSI の正式承認申請でも SPDX License List への収録申請でもない。
+**OSI `license-discuss` へ投稿済み・結果待ち**（2026-08-26 オーナー明確化）。
+
+`license-discuss` は OSI の**一般的な議論リスト**であり、**承認申請の窓口ではない**。
+承認申請の窓口は `license-review` で、そこへはまだ出していない。SPDX License List にも
+出していない。つまり現時点で提出したのは「**意見を聞く**」ことだけであり、
+**承認の手続きはまだ何も始めていない**。
+
+下の「人間が行うこと」§4 と `ACD-1.0.submission.md` §B は license-review 宛の文面だが、
+それは**将来の手順**であって、送ったものではない。
 
 **SPDX を見送ったのは意図的である。** SPDX は「相当程度の実使用」を求めるが、現在の使用実績は
 本リポジトリ 1 件で、その条件を満たしていない。**満たしていないものを出さない**という判断で
@@ -73,9 +80,11 @@ OSI の正式承認申請でも SPDX License List への収録申請でもない
    （`curl -sI https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt`）
 3. **提出と同時にテキストを凍結する。** 以後の改善は `ACD-1.1` / `ACD-2.0` という別識別子で
    行い、`ACD-1.0` が指すテキストは動かさない（§16.4 が条文としてもこれを定めている）
-4. OSI は `license-review@opensource.org`（**購読してから投稿**）/ SPDX は
-   https://tools.spdx.org/app/submit_new_license/
-5. OSI の決定は初回投稿から概ね 60 日
+4. **（未実施）** OSI の**承認申請**は `license-review@opensource.org`（**購読してから投稿**）/
+   SPDX は https://tools.spdx.org/app/submit_new_license/
+   —— 現在開いているのは `license-discuss` のスレッドであり、**この 4 は行っていない**
+5. **（4 を行った場合の話）** OSI の決定は初回投稿から概ね 60 日。
+   `license-discuss` は議論の場なので決定という概念自体が無く、この期限は当てはまらない
 
 ## このファイルの意味しないこと
 

@@ -485,6 +485,18 @@ _MUTATIONS_TAIL.append({
 })
 
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 458b (venue の誤主張): CLAUDE.md §7 の投稿先を `license-review` へ投稿済みと"
+            "書き換える —— **取り違えには実害がある**。`license-discuss` は OSI の一般的な議論"
+            "リストで承認申請の窓口ではないので、「申請済み」と記録すると **まだ何も申請して"
+            "いない**ことに誰も気付けなくなる。2026-08-26 の 1 日で 2 度 drift した class "
+            "(帰属実測済: 発火するのは 458b のみ)",
+    "file": ROOT / "CLAUDE.md",
+    "find": "OSI `license-discuss` へ投稿済み・結果待ち",
+    "replace": "OSI `license-review` へ投稿済み・結果待ち",
+})
+
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
