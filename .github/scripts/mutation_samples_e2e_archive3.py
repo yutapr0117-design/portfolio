@@ -9,6 +9,13 @@ from mutation_samples_common import ROOT  # noqa: F401 (entry 内で参照)
 
 E2E_MUTATIONS_ARCHIVE3 = [
     {
+        "name": "ポモドーロ設定の label が宙に浮く — `for` を外すと **ラベル文字をクリック/タップしても何も起きず**、タップ標的も縮む。入力欄側に aria-label があるため **axe は緑のまま**で、#1014 で 6 個まとめて直した class の再混入をこのテストだけが捕捉する",
+        "file": ROOT / "js" / "pomodoro-page.js",
+        "find": ", for: 'pomo-setting-work' }",
+        "replace": " }",
+        "test": "ポモドーロに宙に浮いた label が無い",
+    },
+    {
         "name": "壊れた JSON の取り込みが無言で失敗する — catch の通知を消すと、パースに失敗しても **何も起きない**。利用者はファイルを選んだのに成功も失敗も告げられず、取り込めたのか分からないまま放置される (silent failure。crash しないこと自体は保たれるので FatalPage 検査では捕捉できない)",
         "file": ROOT / "js" / "settings-io.js",
         "find": "            } catch (err) {\n                Toast.show('JSON\u306e\u30d1\u30fc\u30b9\u306b\u5931\u6557\u3057\u307e\u3057\u305f', 'error');\n            }",
