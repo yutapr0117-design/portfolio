@@ -150,6 +150,10 @@ test('認識できない形式の JSON は成功と report しない', async ({ 
   await expectNotified(page, '認識できない形式');
   const ann = await page.evaluate(() => (document.getElementById('action-announcement') || {}).textContent);
   expect(ann, '認識できない形式なのに「完了しました」と報告している').not.toContain('完了');
+
+  // [#1344] 行き止まりにしない —— **受け付ける形はこのアプリ自身が知っている**ので、
+  //   何を選べばよいかまで伝える。「失敗した」だけでは利用者に次の一手が無い。
+  expect(ann, '受け付ける形式を伝えていない（行き止まりの失敗）').toContain('フルバックアップ');
 });
 
 // ===== 「対象」の選択で中身が全部落ちるファイルも、成功と report しない =====
