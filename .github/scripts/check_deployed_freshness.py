@@ -73,8 +73,20 @@ def shipped_sha256_targets():
     root_js = re.findall(r'<script[^>]*src="\./([^"/]+\.js)"', html)
     root_css = re.findall(r'<link[^>]*rel="stylesheet"[^>]*href="\./([^"/]+\.css)"', html)
     # sw.js は `<script src>` ではなく JS から register されるので導出に出てこない。
-    # 由来を書いて明示的に足す (導出漏れのまま落とすより honest・#1003 と同じ判断)。
-    return sorted(set(root_js) | set(root_css) | {"sw.js"}) + sorted(
+    # index.html は「導出の起点」なので自分自身を参照しない。どちらも由来を書いて明示的に足す
+    # (導出漏れのまま落とすより honest・#1003 と同じ判断)。
+    #
+    # [FIX 2026-08-26] **index.html 自身を照合対象に足した。** それまでは版数 (`ai:version` /
+    #   `ai:last-modified`) の一致だけを見ており、「版数が一致していれば index.html は最新」と
+    #   いう前提だった。実測でこの前提は崩れている —— 直近 30 日で index.html は **7 commit で
+    #   変更され、そのうち版数を上げたものは 0 件**。変わった中身は JSON-LD のライセンス宣言や
+    #   quiz 遅延読み込みに伴う script 配線で、いずれも**版数を動かさない**。
+    #   つまり古い index.html が配信されても、版数チェックは緑・資産到達性も緑 (file は在る)・
+    #   sha256 は対象外・リポジトリ側 Check はローカルを見る、で **どの層も検出しない**。
+    #   index.html は JSON-LD / CSP / meta / script 配線 / sr-only entity anchor を載せる
+    #   **サイトで最も影響の大きい 1 file** なので、ここが見えていない状態は放置できない。
+    #   配信面が byte 一致することは実測で確認済み (`.nojekyll` により変換されない)。
+    return sorted(set(root_js) | set(root_css) | {"sw.js", "index.html"}) + sorted(
         str(q.relative_to(ROOT)) for q in
         list((ROOT / "js").glob("*.js")) + list((ROOT / "js" / "quiz").glob("*.js"))
     )
