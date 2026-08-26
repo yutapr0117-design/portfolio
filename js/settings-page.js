@@ -221,7 +221,12 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
         //   実際に消えたときだけ報告する (見つからない id を成功と言わない・#1039 class)。
         function deleteProjectHard(id) {
             if (defaultProjectIds.has(id)) {return;}
-            if (!confirm('本当に削除しますか？')) {return;}
+            // [FIX] **何を失うかを確認文に出す。** 名前が出るのが「消えた後」だけだと、
+            //   一覧で行を押し間違えても気付けない (#1185 の原則の取り残し・経緯は e2e)。
+            const _target = (State.get().projects || []).find(p => p.id === id);
+            if (!confirm(_target && _target.name
+                ? `「${_target.name}」を削除しますか？\n元に戻せません。`
+                : '本当に削除しますか？\n元に戻せません。')) { return; }
             let removed = null;
             State.update(s => {
                 const target = s.projects.find(p => p.id === id);
