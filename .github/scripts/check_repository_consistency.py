@@ -111,6 +111,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_app_route.py",  # split: app-route whitelist coherence-mesh (136-140)
     ROOT / ".github" / "scripts" / "checks_ci_supply.py",  # split: CI/workflow coverage & supply-chain (142-145)
     ROOT / ".github" / "scripts" / "checks_behavioral.py",  # split: shipped-JS behavioral regression guards (128-131)
+    ROOT / ".github" / "scripts" / "checks_store_contracts.py",  # split: producer/consumer persist round-trip + limit coherence (373/374/404/405/410)
     ROOT / ".github" / "scripts" / "checks_shipped_structure.py",  # split: shipped-JS structural coherence & byte budget (118-120)
     ROOT / ".github" / "scripts" / "checks_wiring.py",  # split: shipped-asset & AIO wiring/discoverability (132-134)
     ROOT / ".github" / "scripts" / "checks_identifier_resolution.py",  # split: used-identifier ⟹ defined (375/376/391-396/401/418)
@@ -604,6 +605,18 @@ _checks_safety_guards.run(_ctx)
 #  CHECK_SOURCE_FILES 登録で 45/70/105 横断集約。)
 import checks_behavioral as _checks_behavioral
 _checks_behavioral.run(_ctx)
+
+
+# ── 373, 374, 404, 405, 410. store の producer/consumer 契約 → checks_store_contracts.py ──
+# (checks_behavioral.py から分離。分離元が 924 行で advisory (950) まで残り 26 行だったため、
+#  **鳴る前に**テーマで割った。移した 5 Check はいずれも「書いた値が読み戻されるか」
+#  「入力できる範囲と保存される範囲が一致するか」を守る producer/consumer 契約で、
+#  この非対称は視覚に出ず「保存したはずのものが次に開くと無い」としか見えないため、
+#  #139 / #684 / #924 / #1036 / #1037 と実バグとして繰り返し表面化してきた面である。
+#  free-variable 解析で外部依存が ROOT / check だけであることを実測してから割った。
+#  元の実行位置 (checks_behavioral の直後) を保持。CHECK_SOURCE_FILES 登録。)
+import checks_store_contracts as _checks_store_contracts
+_checks_store_contracts.run(_ctx)
 
 
 # ── 132-134, 403, 411. shipped-asset & AIO wiring / discoverability → checks_wiring.py ──
