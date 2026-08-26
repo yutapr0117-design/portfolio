@@ -936,4 +936,23 @@ _E2E_TAIL.append({
     "test": "In-page \"back to list\" preserves the active filter",
 })
 
+_E2E_TAIL.append({
+    "name": "カテゴリ絞り込みの URL 同期を落とす —— 画面上は絞り込まれるのに URL に残らないので、"
+            "共有したリンクや再読み込みで全件へ戻る。絞り込みは「今見ている範囲」そのものなので、"
+            "URL に出ないと共有も復元もできない",
+    "file": ROOT / "js" / "projects-page.js",
+    "find": "                if (cat !== 'All') {params.set('cat', cat);}",
+    "replace": "                if (false) {params.set('cat', cat);}",
+    "test": "Projects category filter narrows the list and syncs to the URL",
+})
+_E2E_TAIL.append({
+    "name": "nav リンクの aria-current を落とす —— 支援技術に「今どのページにいるか」が伝わらなくなる"
+            "(WCAG 2.4.8)。視覚的な強調は class で別に付くので**目では気付けない**。sidebar と drawer は"
+            "同じ実装を共有するが、mobile では drawer が唯一のナビなので両方が守られる必要がある",
+    "file": ROOT / "js" / "components.js",
+    "find": "                'aria-current': item.active ? 'page' : undefined",
+    "replace": "                'aria-current': undefined",
+    "test": "モバイルの drawer が現在ルートに aria-current を付け、遷移に追従する",
+})
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
