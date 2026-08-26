@@ -114,7 +114,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/aio-meta.spec.js` | 761 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-ai-notes.spec.js` | 890 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-pomodoro-cross-app.spec.js` | 352 | 900 | `advisory` | behavior e2e spec (ポモドーロ × 他アプリの相互作用)。2026-08-27 に apps-pomodoro.spec.js の advisory 超過を BLOCKING の手前で解消するため切り出した |
-| `e2e/apps-pomodoro.spec.js` | 577 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
+| `e2e/apps-pomodoro.spec.js` | 584 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-settings-import-shape.spec.js` | 720 | 900 | `advisory` | behavior e2e spec (import が受け付ける形の契約面)。2026-08-14 に apps-settings-io.spec.js の advisory 超過を受けて先回り分割 |
 | `e2e/apps-settings-ingestion.spec.js` | 675 | 900 | `advisory` | behavior e2e spec (外部 ingestion の正規化・型ガード面)。2026-08-15 に apps-settings-io.spec.js の advisory 超過を受けて先回り分割 |
 | `e2e/apps-settings-snapshot.spec.js` | 131 | 900 | `advisory` | behavior e2e spec (スナップショット＝単一スロットの復元点)。2026-08-27 に apps-settings.spec.js の advisory 超過をBLOCKING の手前で解消するため切り出した |
