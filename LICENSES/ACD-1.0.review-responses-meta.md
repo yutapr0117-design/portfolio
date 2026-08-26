@@ -19,7 +19,7 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 
 ### Q10. これは LLM に書かせたライセンスではないのか
 
-**この指摘はほぼ確実に来る。しかも実態は指摘より踏み込んでいる。** リポジトリが公然と「AI が実装し、人間は制御と監査のみ」と述べているとおり、**本文は AI が主体となって起草した**。**人間は起草に関与していない** —— 条文を書いてもいないし、指示してもいない。**そもそも「ライセンスを作る」という判断自体、人間は出していない**（AI がリポジトリにライセンスが要ると判断し、設計し、書いた。人間はその存在を後から知った）。**「独自ライセンスとして申請したほうがよい」という提案も、別の AI から出たもので人間発ではない。****さらに人間はリポジトリ自体を見ていない**（自走運用ゆえ、人間に届くのは要約であってファイルではない）。人間がしたのは —— **自分の作品に適用されていることを受け入れ、残すと決め、助言に従って出し、責任を引き受けた**ことである。**本文を読んで確認した、とは言えない。****隠す選択肢は存在しない**（隠して発覚した時点で、議論はテキストの是非を離れる）。
+**この指摘はほぼ確実に来る。しかも実態は指摘より踏み込んでいる。** リポジトリが公然と「AI が実装し、人間は制御と監査のみ」と述べているとおり、**本文は AI が主体となって起草した**。**人間は起草に関与していない** —— 条文を書いてもいないし、指示してもいない。**そもそも「ライセンスを作る」という判断自体、人間は出していない**（AI がリポジトリにライセンスが要ると判断し、設計し、書いた。人間はその存在を後から知った）。**「独自ライセンスとして申請したほうがよい」という提案も、別の AI から出たもので人間発ではない。****人間はリポジトリを見ていない**（自走運用ゆえ、届くのは要約であってファイルではない）。**ただしライセンスは例外で、送付前に全文を読んで理解している。** 人間がしたのは —— **自分の作品に適用されていることを受け入れ、残すと決め、読み、助言に従って出し、責任を引き受けた**ことである。**読んでいないものを出したのではなく、書いていないものを出した。****隠す選択肢は存在しない**（隠して発覚した時点で、議論はテキストの是非を離れる）。
 
 > **English:**
 >
@@ -32,17 +32,20 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 > **The suggestion that it be submitted for review as an independent licence also came
 > from an AI, not from me.** I acted on that advice.
 >
-> I should also be plain that **I do not review the repository**. The project runs
-> autonomously; what reaches me is a summary, not the file. I have not gone through the
-> text clause by clause, and I am not in a position to tell you that I checked it.
+> I should be precise about what I did and did not read. **I do not review the repository**
+> — the project runs autonomously and what reaches me is a summary, not the files. **The
+> licence is the exception: I read it in full and understood it before sending it here.**
+> I am not asking you to review something I have not read; I am telling you I did not
+> write it.
 >
-> What is mine is this: the licence is applied to **my** work, I decided to keep it, I
-> acted on the recommendation to bring it here, and I answer for it. I am the Dedicator
-> and the steward — but at no point was I its author, and I would be misrepresenting it
-> if I let you think otherwise.
+> What is mine is this: the licence is applied to **my** work, I decided to keep it, I read
+> it, I acted on the recommendation to bring it here, and I answer for it. I am the
+> Dedicator and the steward — but at no point was I its author, and I would be
+> misrepresenting it if I let you think otherwise.
 >
-> If that makes you weigh the text more sceptically, that is the correct response, and it
-> is why everything in it that can be checked without trusting me is checked mechanically.
+> If the provenance makes you weigh the text more sceptically, that is the correct
+> response, and it is why everything in it that can be checked without trusting anyone is
+> checked mechanically.
 >
 > The project says publicly that it operates this way — implementation runs without
 > human intervention and the human role is direction and audit — so this is not a
@@ -312,8 +315,8 @@ Q10 は「隠す選択肢は存在しない」と述べているのに、**実�
 >   designed one, and wrote it, and I learned that it existed afterwards. What is mine is
 >   what happened next: I decided to keep it, it is applied to my work, and — on a
 >   recommendation that also came from an AI, not from me — I brought it here. **I do not
->   review the repository**, so I cannot tell you that I checked the text myself. I am the
->   Dedicator and the steward and I answer for it. The text
+>   review the repository**, but **the licence is the exception: I read it in full before
+>   sending.** I am the Dedicator and the steward and I answer for it. The text
 >   cites exactly one external instrument (Article 4(3) of Directive (EU)
 >   2019/790, in Section 1.10), deliberately, because invented or misattributed
 >   authority is the characteristic failure of machine-drafted legal text. Its
