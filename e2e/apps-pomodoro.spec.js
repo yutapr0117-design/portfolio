@@ -76,6 +76,13 @@ test('Pomodoro start counts down and pause halts it (deterministic clock)', asyn
 // リセットだけは**押してもボタン名が変わらず**、タイマーは意図的に非 live (毎秒読み上げると
 // chatty になるため role=timer に aria-live を付けていない) なので、結果だけ変わって無音だった。
 // 見えない利用者にとって残り時間が唯一の結果なので、リセットしたことと戻った時間を一緒に読む。
+// 掃引の結果 (2026-08-27): 状態を変えるのに何も報告しないハンドラを全 shipped JS で数えた。
+// onclick 面は 2 件、onchange/oninput 面は 2 件が引っかかり、**genuine な欠落はこのリセットだけ**。
+//   components.js clearAllData … 直後に location.reload() するので通知しても読まれない = 正しい
+//   quiz-renderer.js の検索  … ヒット件数専用の role=status 領域を別に持っている = 被覆済み
+//   apps.js のノート入力      … 打鍵は SR 自身が読み上げる。1 文字ごとの通知はむしろ害
+// 「1 件見つけたら同じ集合を全部当たれ」の結果で、**見つからなかったことも記録に残す** ——
+// 残さないと次のセッションが同じ数え上げをやり直す。
 test('リセットは結果を支援技術へ伝える', async ({ page }) => {
   await page.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#content h1')).toBeVisible();
