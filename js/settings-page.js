@@ -89,6 +89,17 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
             }
             State.update(s => { }); // 強制再描画
         }
+        // [FIX] 由来が無いと手動保存と自動退避を区別できない (経緯は e2e/apps-settings)。
+        function snapshotOrigin(snap) {
+            if (snap.reason === 'schema-mismatch') {
+                return snap.from !== undefined && snap.to !== undefined
+                    ? `データ形式の変更 v${snap.from}→v${snap.to} で自動退避`
+                    : 'データ形式の変更で自動退避';
+            }
+            if (snap.reason === 'legacy-snapshot') { return '旧形式のため自動退避'; }
+            return '手動で保存';
+        }
+
         function restoreSnapshot() {
             const snap = getSnapshot();
             if (!snap || !snap.data) {return;}
@@ -377,7 +388,8 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
                                 h('button', { class: 'btn btn-ghost', onclick: clearSnapshot, disabled: !snap }, '削除')
                             ),
                             snap
-                                ? h('p', { class: 'text-muted text-sm' }, `保存日時: ${new Date(snap.at).toLocaleString()}`)
+                                ? h('p', { class: 'text-muted text-sm' },
+                                    `保存日時: ${new Date(snap.at).toLocaleString()}（${snapshotOrigin(snap)}）`)
                                 : h('p', { class: 'text-muted text-sm' }, 'スナップショットは未保存です。')
                         )
                     ),
