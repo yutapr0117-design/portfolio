@@ -44,6 +44,42 @@ test('App recovers gracefully from corrupt localStorage (no FatalPage)', async (
 // 失わせない安全弁)。corrupt-storage テスト (parse 不能) とは別経路。古い schemaVersion の有効
 // JSON を仕込んで load し、(1) crash せず home 描画 (2) 旧データが反映されず初期化 (3) snapshot に
 // schema-mismatch で退避、を検証する。
+// ===== 7.1b: 移行が起きたことを利用者に伝える =====
+// 7.1 が守るのは「壊れず、旧データを失わない」ところまでで、**利用者に何が起きたか伝わるか**は
+// 誰も見ていなかった。実測 (2026-08-27) では版数が変わったデプロイで全データが既定へ戻るのに、
+// 可視トーストなし / SR 通知なし / 画面上の説明なしで、利用者からは「開いたら全部消えていた」と
+// しか見えない。退避先 (SNAPSHOT_KEY) は作られているので**救えるのに復元導線へ辿り着けない**。
+// 通知は「消えたこと」と「Settings から復元できること」の両方を言う必要がある — 片方だけだと、
+// 前者は不安にさせるだけ / 後者は何を復元するのか分からない。Toast.show は announce へ一本化
+// (Check 407) 済みなので、可視面と SR 面は同じ 1 回の呼び出しで満たされる。
+test('Schema migration tells the user what was reset and where to restore it', async ({ page }) => {
+  await page.addInitScript(() => {
+    try {
+      localStorage.setItem('portfolio_enhanced_v45', JSON.stringify({
+        schemaVersion: 1, type: 'full-store', theme: 'system',
+        appsData: { tasks: [{ id: 'old-2', title: 'OLD-NOTICE-TASK-9002', status: 'backlog', priority: 'med', tags: [] }] }
+      }));
+    } catch (e) { /* noop */ }
+  });
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.locator('.hero-section')).toBeVisible();
+
+  // control: そもそも移行が起きている (起きていなければ通知が無いのは正しく、検査が vacuous になる)
+  const snap = await page.evaluate(() => {
+    try { return JSON.parse(localStorage.getItem('portfolio_snapshot_v45')); } catch { return null; }
+  });
+  expect(snap && snap.reason, 'control: migration must actually have happened').toBe('schema-mismatch');
+
+  // 可視トーストが出て、失ったことと復元先の両方を述べる
+  const toast = page.locator('#toast-container');
+  await expect(toast).toContainText('初期化');
+  await expect(toast).toContainText('スナップショット');
+
+  // SR にも同じ内容が届く (Toast.show → announce の単一 writer 契約)
+  await expect(page.locator('#action-announcement')).toContainText('スナップショット');
+});
+
 test('Store migrates safely on schema version mismatch (snapshots old data, resets to defaults)', async ({ page }) => {
   await page.addInitScript(() => {
     try {

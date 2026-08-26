@@ -36,6 +36,19 @@
  */
 export function createState({ CONSTANTS, Store, Storage, Toast }) {
     let data = Store.load();
+
+    // [FIX] スキーマ移行で全データが既定へ戻ったことを伝える。消えたことと復元できること
+    // の両方を言わないと復元導線に辿り着けない (経緯は e2e/resilience.spec.js)。
+    const _migration = Store.takeMigrationNotice ? Store.takeMigrationNotice() : null;
+    if (_migration) {
+        setTimeout(() => {
+            Toast.show(
+                `データ形式が変わったため表示を初期化しました（v${_migration.from}→v${_migration.to}）。`
+                + '以前のデータは Settings のスナップショットから復元できます。',
+                'warning', 12000);
+        }, 0);
+    }
+
     let saveTimer = null;
     let callbacks = [];
 
