@@ -105,14 +105,22 @@ function lossParts(before, after) {
     return parts;
 }
 
+    // [FIX] 書き出しは成否とも無言で、失敗は致命エラーへ昇格していた (詳細は e2e)。
     function downloadJSON(data, filename) {
-        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = filename;
-        a.click();
-        URL.revokeObjectURL(url);
+        let url = null;
+        try {
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            Toast.show(`${filename} を書き出しました`);
+        } catch (e) {
+            Toast.show('書き出しに失敗しました。ブラウザのダウンロード設定を確認してください。', 'error', 5000);
+        } finally {
+            if (url) { URL.revokeObjectURL(url); }
+        }
     }
     // [FIX] brand は store の外なので「フル」から黙って抜けていた (詳細は e2e)。
     function exportFull() {
