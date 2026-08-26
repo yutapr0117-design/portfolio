@@ -409,6 +409,18 @@ _MUTATIONS_TAIL.append({
     "replace": "semantic \u7de8\u96c6\u306f orchestrator \u660e\u793a\u627f\u8a8d\u5fc5\u9808",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 454 (危険域 file の予算登録): BUDGET-DATA から checks_behavioral.py (924 行) の "
+            "登録行を除去 → その file は Check 52 の advisory 対象から外れ、**早期警告が一度も出ないまま** "
+            "Check 365 の 1,000 行 BLOCKING へ飛ぶ状態へ戻る。導入時に実在の未登録 5 file を検出した "
+            "class の回帰防止 (帰属実測済: 発火するのは 454 のみ。52/59/365 は緑のまま —— "
+            "エラー本文中の参照を grep が拾って 4 件と誤読しかけたので、先頭の Check 番号で帰属し直した)",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": ".github/scripts/checks_behavioral.py | 950 | advisory\n",
+    "replace": "",
+})
+
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
