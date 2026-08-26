@@ -223,13 +223,21 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 > **English:**
 >
 > No lawyer has reviewed this text. I say that first because it changes how the
-> rest should be read. The drafting is my own, checked mechanically against the
-> published criteria rather than against professional judgement. Section 12
+> rest should be read. The drafting was done with a large language model under my
+> direction (see the provenance disclosure — it is mine in the sense that I
+> directed it and I answer for it, not in the sense that I typed it), and it was
+> checked mechanically against the published criteria rather than against
+> professional judgement. Section 12
 > (moral rights) is the place where that matters most, because it turns on
 > Japanese law — Article 59 of the Japanese Copyright Act makes moral rights
 > personal to the author and inalienable — and on how a court would treat a
 > covenant not to exercise them. I would value a correction there more than
 > anywhere else in the document.
+
+**なぜここで起草の出自に触れるか**: A1 は「先に自分から述べる」節であり、**同じ節の中で
+起草主体を曖昧にしたら意味が無い**。詳細は `ACD-1.0.review-responses-meta.md` Q10。
+（初版は「The drafting is my own」と書いており、**Q10 と正面から食い違っていた** ——
+誠実さを担保する節の中の矛盾は最も痛いので、横断監査で是正した。）
 
 ### A2. 実使用が 1 件しかない
 
@@ -315,7 +323,7 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 
 想定問答・逐条・族比較・法域はいずれも**審査を受ける側の視点**で書かれている。だが
 「疑問が全てリポジトリを見たら潰せる」には**使う側の実務**が要る ——
-**`LICENSES/ACD-1.0.faq.md`**（使う側 12 問 / プロセス 5 問 / **リポジトリ逆引き表**）。
+**`LICENSES/ACD-1.0.faq.md`**（使う側 21 問 / プロセス 5 問 / **リポジトリ逆引き表**）。
 
 とくに **SPDX 未登録ゆえの表記（`LicenseRef-ACD-1.0`）**と**依存スキャナが「未知」と言う場合の
 扱い**は、他のどの文書にも答えが無かった実務問題である。
