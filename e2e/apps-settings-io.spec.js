@@ -159,6 +159,7 @@ test('Settings strict import of malformed projects stays graceful (untested inge
 
   // strict（全置換）を選択。null / 非オブジェクト entry を含む malformed projects を送る。
   await page.getByLabel('インポートモード').selectOption('strict');
+    page.once('dialog', d => d.accept());   // 全置換は confirm を通す (#1331)
   const payload = {
     schemaVersion: 12,
     type: 'full-store',
@@ -273,6 +274,7 @@ test('Settings import skips a section whose target checkbox is unchecked (select
   await page.goto('/#/settings');
   await page.waitForLoadState('domcontentloaded');
   await page.getByLabel('インポートモード').selectOption('strict');
+    page.once('dialog', d => d.accept());   // 全置換は confirm を通す (#1331)
 
   // 取り込み前の既定 project 名を 1 つ控える (Projects skip 後も残ることの確認用)。
   await page.goto('/#/projects');
@@ -437,6 +439,7 @@ test('full export → 全リセット → import で状態が再現する (backu
   expect(wiped.tasks, 'リセットが効いていない — import の効果を測れない').not.toContain('RT-タスク');
 
   await page.selectOption('#settingsImportMode', 'strict');
+    page.once('dialog', d => d.accept());   // 全置換は confirm を通す (#1331)
   await page.setInputFiles('#content input[type="file"]', file);
   await expectNotified(page, 'インポート');
   await page.waitForTimeout(600);
@@ -494,6 +497,7 @@ test('表示テーマが export → import で復元され、リセット直後�
     .toHaveAttribute('data-theme', 'system');
 
   await page.selectOption('#settingsImportMode', 'strict');
+    page.once('dialog', d => d.accept());   // 全置換は confirm を通す (#1331)
   await page.setInputFiles('#content input[type="file"]', file);
   await expectNotified(page, 'インポート');
 
@@ -549,6 +553,7 @@ test('非表示にしたプロジェクトが export → import 後も非表示�
   await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
   await page.selectOption('#settingsImportMode', 'strict');
+    page.once('dialog', d => d.accept());   // 全置換は confirm を通す (#1331)
   await page.setInputFiles('#content input[type="file"]', file);
   await expectNotified(page, 'インポート');
 

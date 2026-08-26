@@ -22,6 +22,8 @@ async function expectNotified(page, text) {
 // ページを作り直すため、選んだ直後に setInputFiles すると **detach された古い input を掴み
 // change が誰にも届かない** (このファイル冒頭の import と同じ落とし穴)。一度ルートを離れて
 // 戻り、描画が確定した DOM を掴んでから使う。モードは factory closure state ゆえ遷移で消えない。
+const _strictDialogWired = new WeakSet();
+
 async function selectImportMode(page, mode) {
   await page.locator('#content select').first().evaluate((el, m) => {
     el.focus();
@@ -34,6 +36,16 @@ async function selectImportMode(page, mode) {
   await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
   expect(await page.locator('#content select').first().inputValue(),
     'control: モードが選択されていなければ、その意味論を測れない').toBe(mode);
+  // 全置換 (strict) は破壊的なので confirm を通す (#1331)。テストは既定で dialog を
+  //   **dismiss** するため、明示的に accept しないと取り込みが起きない。
+  //   `once` ではなく永続ハンドラにするのは、**1 つのテストが strict で 2 回取り込む**ことが
+  //   あるため (once だと 1 回目で消費され、2 回目が既定の dismiss に戻って silent に何も
+  //   起きなくなる —— 実測でこの形の false RED を踏んだ)。同じ page への二重登録は
+  //   Playwright が「既に処理済み」で投げるので、WeakSet で 1 度だけ登録する。
+  if (mode === 'strict' && !_strictDialogWired.has(page)) {
+    _strictDialogWired.add(page);
+    page.on('dialog', d => d.accept());
+  }
 }
 
 // ===== 部分 export したファイルも import で戻せること =====
@@ -62,6 +74,7 @@ test('部分 export (Projectsのみ) を import で戻せる', async ({ page }) 
   await expect(page.getByRole('button', { name: '削除：部分往復テスト' })).toHaveCount(0);
 
   await page.selectOption('#settingsImportMode', 'strict');
+    page.once('dialog', d => d.accept());   // 全置換は confirm を通す (#1331)
   await page.setInputFiles('#content input[type="file"]', file);
   await expectNotified(page, 'インポート');
 
@@ -361,6 +374,7 @@ test('モード / 対象の切替でページが作り直されない (file inpu
   // 「モード」セレクト
   await mark();
   await page.locator('#settingsImportMode').selectOption('strict');
+    page.once('dialog', d => d.accept());   // 全置換は confirm を通す (#1331)
   await expect(page.locator('#settingsImportMode')).toHaveValue('strict');  // control
   expect(await survives(), 'モードの切替で file input が作り直されている').toBe('KEEP');
 });

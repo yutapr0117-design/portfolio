@@ -791,6 +791,8 @@ test('稼働中ポモドーロはリロード後どのページに着地して�
 // 追加のみ: runtime は既存優先 = **稼働は続く**
 // 全置換  : runtime も置き換わる = **停止し、古い interval も残らない**
 async function startPomodoroThenImport(page, mode) {
+  // 全置換は confirm を通す (#1331)。既定の dismiss だと取り込みが起きない (詳細は import-shape spec)。
+  if (mode === 'strict') { page.once('dialog', d => d.accept()); }
   await page.goto('/#/apps/pomodoro', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('.font-mono.text-stat').first()).toBeVisible();
   await page.getByRole('button', { name: '開始' }).click();
