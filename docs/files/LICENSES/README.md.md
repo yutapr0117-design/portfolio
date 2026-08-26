@@ -45,6 +45,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | **件数（corpus 由来）** | **drift 4 件**（索引 / FAQ mirror / clause-reference mirror / README mirror）→ 是正し **Check 460** で機械強制 |
 | **件数（本文由来）** | **clean**。597 行 / 16 節 / 82 条 / 定義語 10 / 相互参照 82 / 唯一の外部引用 / 凍結 3 件 —— いずれも実測と一致。**本文が凍結中である限り動かない**（Check 441b/441c/452/453 が個別に守る） |
 | **分冊数** | **clean**。"across three files" は想定問答 3 分冊を指しており正確 |
+| **公開面** | **clean**。`llms-full.txt` / `llms.txt` / `index.html` の JSON-LD / `.well-known/aio-manifest.json` は**起草主体に一切言及していない**（許諾内容だけを述べる）ので食い違う余地がない。`llms-full.txt` の "machine-generated under human direction" は**実装コード**についての記述でライセンスの話ではなく、C5 と整合 |
 
 ### この監査で分かったこと（方法論）
 
