@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/check_deployed_freshness.py
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-08-11
+last-updated: 2026-08-26
 canonical-ref: .github/workflows/aio-monitoring.yml / .github/scripts/generate_status.py / docs/architecture/check-repository-consistency-map.md
 ---
 
@@ -141,6 +141,18 @@ python3 .github/scripts/check_deployed_freshness.py
 静的 import 時代は index.html の `<script type="module">` 経由でまとめて読まれ modulepreload も
 あったので MIME 事故は起きにくかったが、**動的 import ではその module 単体の MIME だけ**が効く。
 実測: GitHub Pages は `application/javascript; charset=utf-8` を返す。
+
+## 2026-08-26 —— root 資産の照合対象を導出化
+
+従来は照合対象のうち **root だけがハードコード**（`style.css` / `main.js` / `sw.js`）で、`js/` 配下だけを glob で導出していた。実測すると **index.html は root script を 5 本読んでいる**のに照合は `main.js` だけで、**`error-suppressor.js` / `karte-init.js` / `theme-init.js` / `aio-guard.js` の 4 本が配信面で一度も検証されていなかった**。
+
+とくに `aio-guard.js` は AIO asset-anchor の self-repair monitor で、その silent な無効化を防ぐために Check 133（「file が在る ⟹ 配線されている」）まで足した面である。ところが **配信されているのが古い／壊れた版でも同じ silent な無効化が起きる** —— Check 133 はリポジトリ内の index.html を見るので、配信面の齟齬は原理的に見えない。
+
+すぐ上のコメントが記録している「中核が一致していれば安心という前提は、抽出が進むと崩れる」と**同じ誤りを root 側だけ残していた**形。導出化して 37 → 41 件に。
+
+`shipped_sha256_targets()` として関数へ切り出してあるのは、**Check 457 が import して「index.html が配線している資産 ⊆ 照合対象」を機械強制する**ため（ハードコードへ戻すと集合がずれて RED）。
+
+非 vacuity は 2 通りで実測済み: (a) ローカルで `aio-guard.js` を 1 行変え、**実際に公開サイトへ当てて** sha256 不一致が名指しで検出されることを確認、(b) 導出をハードコードへ戻すと Check 457 が RED（帰属も 457 単独）。
 
 ## Constraints
 
