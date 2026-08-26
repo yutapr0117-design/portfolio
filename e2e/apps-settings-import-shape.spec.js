@@ -184,6 +184,94 @@ test('対象から外した形の import を成功と report しない', async (
 // 「再描画されないこと」は目視でも既存テストでも観測できない (結果だけ見れば同じ) ので、
 // **要素の同一性**を直接見る。data 属性の印が生き残れば作り直されていない。
 // 非 vacuity: onchange に window.render() を戻すと印が消えて RED (実測)。
+// [#1040 の残り枝] フルバックアップには **必ず theme が入る**。従来の実装は
+//   `typeof parsed.theme === 'string'` だけで「1 セクション適用した」と数えていたので、
+//   上のテストが守っている「0 セクションなら成功と言わない」ガードが、**最も一般的な
+//   ファイル形式に対して丸ごと無効化**されていた。実測 (2026-08-26): 対象 3 つを全て
+//   外してフルバックアップを読み込むと、state は前後で完全に同一なのに
+//   「インポートが完了しました」と出る (theme が既定の 'system' のままなので、実際には
+//   何一つ変わっていない)。上のテストが `AppsDataのみ` (theme を含まない形) を使うため
+//   この枝を踏めなかった。
+test('フルバックアップでも、対象を全部外したら成功と report しない', async ({ page }) => {
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  await page.getByLabel('新しいタスクを入力').fill('FULL-SHAPE-A');
+  await page.getByLabel('新しいタスクを入力').press('Enter');
+  await expect(page.locator('#content').getByText('FULL-SHAPE-A')).toBeVisible();
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'フルバックアップ', exact: true }).click(),
+  ]);
+  const file = await download.path();
+
+  // control: 書き出したファイルが確かに theme を持つ形であること。これが無いと
+  //   「theme 経由で applied が立つ」経路を測れず、テストが黙って別物になる。
+  const raw = require('fs').readFileSync(file, 'utf-8');
+  expect(typeof JSON.parse(raw).theme,
+    'control: フルバックアップに theme が無ければ、この枝は測れていない').toBe('string');
+
+  // 「対象」を 3 つとも外す。onchange は window.render() でページを作り直すので、
+  //   1 つ外すごとに状態を assert して settle を保証してから次へ進む。
+  for (const id of ['#settingsIncludeProfile', '#settingsIncludeProjects', '#settingsIncludeApps']) {
+    await page.locator(id).uncheck();
+    await expect(page.locator(id)).not.toBeChecked();
+  }
+  await expect(page.getByLabel('インポートする JSON ファイルを選択')).toBeVisible();
+
+  // import が効いたかを区別できるよう、書き出し後に状態を変えておく
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'タスク' }).first()).toBeVisible();
+  await page.getByLabel('新しいタスクを入力').fill('FULL-SHAPE-B');
+  await page.getByLabel('新しいタスクを入力').press('Enter');
+  await expect(page.locator('#content').getByText('FULL-SHAPE-B')).toBeVisible();
+
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  expect(await page.locator('#settingsIncludeApps').isChecked(),
+    'control: 対象から外れていなければ、この経路を測れない').toBe(false);
+  await page.setInputFiles('#content input[type="file"]', file);
+
+  await expectNotified(page, '対象');
+  const ann = await page.evaluate(() => (document.getElementById('action-announcement') || {}).textContent);
+  expect(ann, '何一つ変わっていないのに「完了しました」と報告している').not.toContain('完了');
+
+  // 実際に何も巻き戻っていないこと (B が残り、書き出し時点の A だけの状態に戻っていない)
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content').getByText('FULL-SHAPE-B')).toBeVisible();
+});
+
+// theme が **実際に変わる** ときは、対象を全部外していても適用され成功と report する。
+//   上の修正を「theme を applied から外す」と誤って一般化すると、フルバックアップからの
+//   テーマ復元 (#1036) が黙って壊れる —— その退行をここで固定する。
+test('theme が変わるなら、対象を全部外していても適用して成功と report する', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+  for (const id of ['#settingsIncludeProfile', '#settingsIncludeProjects', '#settingsIncludeApps']) {
+    await page.locator(id).uncheck();
+    await expect(page.locator(id)).not.toBeChecked();
+  }
+  await expect(page.getByLabel('インポートする JSON ファイルを選択')).toBeVisible();
+
+  expect(await page.evaluate(() => document.documentElement.getAttribute('data-theme')),
+    'control: 既定が system でなければ、この差分を測れない').toBe('system');
+
+  await page.setInputFiles('#content input[type="file"]', {
+    name: 'theme-only.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({
+      schemaVersion: 1, theme: 'dark', profile: {}, projects: [],
+      appsData: {}, projectPrefs: { hiddenIds: [] },
+    })),
+  });
+
+  await expectNotified(page, '完了');
+  await expect.poll(async () =>
+    page.evaluate(() => document.documentElement.getAttribute('data-theme'))).toBe('dark');
+});
+
 test('モード / 対象の切替でページが作り直されない (file input の同一性が保たれる)', async ({ page }) => {
   await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();

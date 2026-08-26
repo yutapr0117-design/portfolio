@@ -190,7 +190,13 @@ function lossParts(before, after) {
                 //   利用者が復元できたと信じてしまう点で失敗するより悪い。
                 //   実際に 1 セクションでも適用したかを追跡し、0 件なら成功と言わない。
                 let applied = false;
-                if (typeof parsed.theme === 'string') { merged.theme = parsed.theme; applied = true; }
+                // [FIX] theme は **実際に変わるときだけ** applied に数える。フルバックアップには
+                //   必ず theme が入るため、無条件に立てると上の #1040 ガードが最も一般的な形式に
+                //   対して無効化される (経緯と実測は e2e/apps-settings-import-shape.spec.js)。
+                if (typeof parsed.theme === 'string') {
+                    merged.theme = parsed.theme;
+                    if (parsed.theme !== base.theme) { applied = true; }
+                }
                 if (settingsIncludeProfile && parsed.profile) { merged.profile = parsed.profile; applied = true; }
                 if (settingsIncludeProjects && Array.isArray(parsed.projects)) {
                     applied = true;

@@ -453,53 +453,11 @@ _E2E_TAIL = [
 
 
 
-_E2E_TAIL.append({
-    "name": "「追加のみ」の既存優先レポートが出なくなる —— 実際に取り込まなかった項目があっても黙る (過少報告)。上の過剰報告 mutation と対で、両方向を固定する",
-    "file": ROOT / "js" / "settings-io.js",
-    "find": "                            _keptOwn = Object.keys(inc).filter(k => k !== 'tasks' && k !== 'todos'",
-    "replace": "                                _keptOwn = 0 * Object.keys(inc).filter(k => k !== 'tasks' && k !== 'todos'",
-    "test": "内容が違えば",
-})
 
-_E2E_TAIL.append({
-    "name": "「追加のみ」の取り込みが稼働中のポモドーロを止める —— appsData を常に全置換する旧挙動へ戻ると、既存を壊さないはずのモードで稼働状態まで置き換わる (利用者からは「勝手に止まった」)",
-    "file": ROOT / "js" / "settings-io.js",
-    "find": "                    if (settingsImportMode === 'strict') {\n                        merged.appsData = inc;",
-    "replace": "                        if (true) {\n                            merged.appsData = inc;",
-    "test": "「追加のみ」の取り込みは稼働中のポモドーロを止めない",
-})
 
-_E2E_TAIL.append({
-    "name": "描画完了後に aria-busy が false へ戻らない —— agentic surface が「ずっとローディング中」を宣言し続ける。視覚に一切出ないので screenshot も他の behavior テストも緑のまま (このテストだけが捕捉層)",
-    "file": ROOT / "main.js",
-    "find": "                if (content) {content.setAttribute('aria-busy', 'false');}",
-    "replace": "                if (content) { /* mutated */ }",
-    "test": "content div transitions aria-busy correctly during navigation",
-})
 
-_E2E_TAIL.append({
-    "name": "router の hashchange 購読が外れる —— SPA の遷移機構そのものが止まり、文書内の hash 変更で route が切り替わらなくなる。従来この test は全遷移を page.goto (フルナビゲーション) で行っており、題名が名指しする hashchange 経路を一度も通っていなかった",
-    "file": ROOT / "js" / "router.js",
-    "find": "    window.addEventListener('hashchange', _dispatchRouteChange);",
-    "replace": "    /* mutated */",
-    "test": "Hash routing transitions correctly between routes",
-})
 
-_E2E_TAIL.append({
-    "name": "project-detail の slug 解決が壊れ、既知の slug でも NotFound へ落ちる —— 一覧にはカードが出るのに詳細へ到達できない (#154 の slug 衝突と同じ「到達不能」class)。共有リンクが全部 404 相当になるが、一覧側は正常に見えるため気付きにくい",
-    "file": ROOT / "js" / "project-detail-page.js",
-    "find": "        const project = state.projects.find(p => p.slug === slug);",
-    "replace": "        const project = state.projects.find(p => p.slug === slug + '-x');",
-    "test": "Route project-detail renders for a known slug without errors",
-})
 
-_E2E_TAIL.append({
-    "name": "SR 通知の assertive チャネルが aria-hidden で a11y ツリーから外れる —— 削除 / 取り込み結果 / 並べ替え / フィルタ件数の通知が SR に一切届かなくなる。通知系 e2e は textContent を読むため表示状態に依存せず素通りし、sr-only は元々不可視なので screenshot でも目視でも気付けない",
-    "file": ROOT / "index.html",
-    "find": '<div id="action-announcement" class="sr-only" aria-live="assertive"',
-    "replace": '<div id="action-announcement" class="sr-only" aria-hidden="true" aria-live="assertive"',
-    "test": "sr-only content",
-})
 
 _E2E_TAIL.append({
     "name": "プロジェクト検索が絞り込まなくなる —— スコア 0 (どの語にも一致しない) の項目まで残り、何を検索しても全件が出る。一覧は「正常に描画されている」ように見えるため、検索が効いていないことに気付きにくい",
@@ -963,5 +921,18 @@ _E2E_TAIL.append({
     "replace": "State.set({ ...State.get(), appsData: Store.createDefaultStore().appsData });",
     "test": "表示テーマが export → import で復元され",
 })
+
+_E2E_TAIL.append({
+    "name": "theme を「値が変わらなくても applied に数える」形へ戻す —— フルバックアップには "
+            "**必ず theme が入る**ので、この 1 行だけで #1040 の「0 セクションなら成功と言わない」"
+            "ガードが最も一般的なファイル形式に対して丸ごと無効化される。実測 (2026-08-26): "
+            "対象 3 つを全て外して読み込むと state は前後で完全に同一なのに「完了しました」と出る。"
+            "既存の #1040 test は theme を含まない `AppsDataのみ` を使うためこの枝を踏めない",
+    "file": ROOT / "js" / "settings-io.js",
+    "find": "                    if (parsed.theme !== base.theme) { applied = true; }",
+    "replace": "                    applied = true;",
+    "test": "フルバックアップでも、対象を全部外したら成功と report しない",
+})
+
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

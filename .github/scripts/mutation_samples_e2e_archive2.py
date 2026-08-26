@@ -19,6 +19,13 @@ ROOT = Path(__file__).resolve().parents[2]
 
 E2E_MUTATIONS_ARCHIVE2 = [
     {
+    "name": "SR 通知の assertive チャネルが aria-hidden で a11y ツリーから外れる —— 削除 / 取り込み結果 / 並べ替え / フィルタ件数の通知が SR に一切届かなくなる。通知系 e2e は textContent を読むため表示状態に依存せず素通りし、sr-only は元々不可視なので screenshot でも目視でも気付けない",
+    "file": ROOT / "index.html",
+    "find": '<div id="action-announcement" class="sr-only" aria-live="assertive"',
+    "replace": '<div id="action-announcement" class="sr-only" aria-hidden="true" aria-live="assertive"',
+    "test": "sr-only content",
+},
+    {
         "name": "behavior: brand セレクタ UI の localStorage 書き込み喪失 — settings-page.js brand <select> の onchange から Brand.set を除去し window.render() のみへ → UI で選んだ brand が localStorage に書かれず reload 後に復元されない (#828 で追加した producer 側 round-trip の非 vacuity 検証。write 喪失で classic 選択→reload→data-brand 復元が RED)",
         "file": ROOT / "js" / "settings-page.js",
         "find": "onchange: (e) => { Brand.set(e.target.value); window.render(); }",
@@ -370,8 +377,8 @@ E2E_MUTATIONS_ARCHIVE2 = [
     {
         "name": "behavior: import が theme を復元しなくなる (#1036 の回帰) — theme は full export に含まれるのに import が無視すると、フルバックアップを復元しても表示テーマの設定だけが黙って失われる (#139 の profile strip と同じ data-fidelity class)",
         "file": ROOT / "js" / "settings-io.js",
-        "find": "                if (typeof parsed.theme === 'string') { merged.theme = parsed.theme; applied = true; }\n",
-        "replace": "",
+        "find": "                if (typeof parsed.theme === 'string') {\n                    merged.theme = parsed.theme;\n",
+        "replace": "                if (false) {\n",
         "test": "表示テーマが export → import で復元され",
     },
     {
@@ -939,12 +946,5 @@ E2E_MUTATIONS_ARCHIVE2 = [
         "find": "                                'aria-label': 'AI アシスタントへの依頼を入力',\n",
         "replace": "",
         "test": "AI assist main input exposes an accessible name (not placeholder-only)",
-    },
-    {
-        "name": "ポモドーロ設定の label が宙に浮く — `for` を外すと **ラベル文字をクリック/タップしても何も起きず**、タップ標的も縮む。入力欄側に aria-label があるため **axe は緑のまま**で、#1014 で 6 個まとめて直した class の再混入をこのテストだけが捕捉する",
-        "file": ROOT / "js" / "pomodoro-page.js",
-        "find": ", for: 'pomo-setting-work' }",
-        "replace": " }",
-        "test": "ポモドーロに宙に浮いた label が無い",
     },
 ]
