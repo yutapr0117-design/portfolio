@@ -162,6 +162,26 @@ python3 .github/scripts/check_deployed_freshness.py
 
 配信面が byte 一致することは実測で確認済み（`.nojekyll` により Jekyll 変換されない。local/remote とも 98,064 bytes・sha256 一致）。**Check 457b** が「導出の起点そのものが照合対象に入っていること」を BLOCKING 強制する。
 
+### 同日追記 —— 機械向けの宣言面（discovery 層）も byte 照合へ
+
+実測すると **discovery 層 13 件のうち 10 件は「200 が返ること」しか見られていなかった**（`robots.txt` / `sitemap.xml` / `manifest.webmanifest` / `.well-known/*`）。
+
+**順序が逆だった。** このプロジェクトの中核の賭けは**機械可読な権威付け**なのに、人間向けの shipped 資産（JS/CSS/HTML）は byte 照合し、機械向けの面だけが存在確認どまりだった。壊れ方も重い ―― 古い `robots.txt` はクローラの到達範囲を変え、古い `.well-known/mcp.json` や `api-catalog` は agent が読む契約そのものを変え、古い `aio-manifest.json` は **agent へ誤った digest を宣言する**。しかも**人間には何も見えない**。
+
+**ハードコードしていない。** 導出経路を実測して確かめたうえで組んだ。
+
+| path | 導出元 |
+|---|---|
+| `.well-known/**` | tracked file の glob |
+| `robots.txt` | sitemap の `<loc>` |
+| `sitemap.xml` | robots の `Sitemap:`（相互宣言）|
+| `manifest.webmanifest` | index.html の `<link rel="manifest">` |
+| `llms_well-known.txt` | **導出不能**（どこからも宣言されない root ミラー）→ 由来を書いて明示追加 |
+
+**Check 457c** が「機械向け宣言面 ⊆ 照合対象」を BLOCKING 強制する。非 vacuity は (a) ローカルで `robots.txt` に 1 行足して**実際に公開サイトへ当てて**名指しの検出を確認、(b) `.well-known` の導出を外すと 457c が RED（帰属も単独）。
+
+**制御外として記録しておく事実**: `.well-known/api-catalog` は拡張子が無いため GitHub Pages が `application/octet-stream` で返す（RFC 9727 が期待するのは `application/linkset+json`）。media type を厳格に見る agent は受け取れない可能性があるが、**Pages の MIME マッピングは制御できない**ので Check にはしない（`Cache-Control` を Check にしなかったのと同じ判断）。**測って分かった事実として残す。**
+
 ## Constraints
 
 - **Check 423（BLOCKING）**: 本スクリプトが `aio-monitoring.yml` から呼ばれていること。

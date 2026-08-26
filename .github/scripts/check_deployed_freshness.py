@@ -39,7 +39,7 @@ import time
 import urllib.error
 import urllib.request
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 ROOT = Path(__file__).resolve().parents[2]
 ATTEMPTS = 3
@@ -268,7 +268,8 @@ def _check_assets(html):
     print(f"OK: 公開サイトが宣言している資産 {len(seen)} 件 "
           "(index.html の参照 ∪ .well-known ∪ sitemap の <loc>) がすべて 200 で配信されている")
     rc = _check_shipped_bytes(base)
-    return rc or _check_module_mime(base) or _check_digests(base)
+    return (rc or _check_discovery_bytes(base, html)
+            or _check_module_mime(base) or _check_digests(base))
 
 
 def _check_module_mime(base):
@@ -323,6 +324,93 @@ def _check_module_mime(base):
         return 1
 
     print(f"OK: 動的 import される module {len(targets)} 件が JS の MIME で配信されている")
+    return 0
+
+
+def discovery_sha256_targets(html):
+    """discovery 層 (機械向け宣言面) のうち、配信面で sha256 照合する path を **導出**する。
+
+    [ADD 2026-08-26] 実測したところ、discovery 層 13 件のうち **10 件は「200 が返ること」しか
+    見られていなかった** —— `robots.txt` / `sitemap.xml` / `manifest.webmanifest` /
+    `.well-known/*` の中身が古いまま配信されても、どの層も検出しない。
+
+    これは順序が逆である。このプロジェクトの中核の賭けは**機械可読な権威付け**であり、
+    人間向けの shipped 資産 (JS/CSS/HTML) は byte 照合しているのに、機械向けの面だけが
+    存在確認どまりだった。壊れ方も重い —— 古い `robots.txt` はクローラの到達範囲を変え、
+    古い `.well-known/mcp.json` や `api-catalog` は agent が読む契約そのものを変え、
+    古い `aio-manifest.json` は **agent に誤った digest を宣言する**。
+
+    **ハードコードしない。** 各 path は次のいずれかから導出する:
+      - `.well-known/**`      … tracked file の glob (`_wellknown_paths`)
+      - `robots.txt`          … sitemap の `<loc>` が宣言している
+      - `sitemap.xml`         … robots.txt の `Sitemap:` が宣言している (相互宣言)
+      - `manifest.webmanifest`… index.html の `<link rel="manifest">` が宣言している
+    唯一 `llms_well-known.txt` (root) だけはどこからも宣言されておらず導出できないので、
+    由来を書いて明示的に足す (`.well-known/llms_well-known.txt` の root ミラーで、
+    **ミラーの片側だけが古くなる**のがまさに守りたい drift・#1003 と同じ判断)。
+    """
+    base = _site_url()
+    prefix = urlparse(base).path
+    def _norm(u):
+        path = urlparse(urljoin(base, u)).path
+        return path[len(prefix):] if path.startswith(prefix) else path.lstrip("/")
+
+    declared = {_norm(r) for r in _same_origin_refs(html, base)}
+    declared |= {_norm(l) for l in _sitemap_locs(base)}
+    declared |= {_norm(m.group(1)) for m in
+                 re.finditer(r"(?im)^\s*sitemap:\s*(\S+)", _read_robots())}
+
+    out = set(_wellknown_paths())
+    out.add("llms_well-known.txt")   # 導出不能・由来は docstring 参照
+    for ref in declared:
+        if "/" in ref:               # root 直下の宣言面だけを対象にする
+            continue
+        if ref.endswith((".txt", ".xml", ".webmanifest", ".json")):
+            out.add(ref)
+    # shipped 資産は `_check_shipped_bytes` が既に照合しているので二重取得しない
+    return sorted(out - set(shipped_sha256_targets()))
+
+
+def _read_robots():
+    path = ROOT / "robots.txt"
+    return path.read_text(encoding="utf-8") if path.exists() else ""
+
+
+def _check_discovery_bytes(base, html):
+    """discovery 層の**中身**が配信面でリポジトリと一致することを確かめる。"""
+    import hashlib
+    bad = []
+    targets = discovery_sha256_targets(html)
+    for name in targets:
+        local = ROOT / name
+        if not local.exists():
+            bad.append((name, "リポジトリに無い"))
+            continue
+        want = hashlib.sha256(local.read_bytes()).hexdigest()
+        try:
+            rq = urllib.request.Request(base + name, headers={
+                "Cache-Control": "no-cache",
+                "User-Agent": "portfolio-deployed-freshness-check",
+            })
+            with urllib.request.urlopen(rq, timeout=30) as resp:
+                got = hashlib.sha256(resp.read()).hexdigest()
+        except Exception as e:  # noqa: BLE001
+            bad.append((name, f"取得できない ({type(e).__name__})"))
+            continue
+        if got != want:
+            bad.append((name, f"sha256 不一致 deployed={got[:12]} repo={want[:12]}"))
+
+    if bad:
+        for name, why in bad:
+            print(f"::error::公開されている {name} がリポジトリと違う — {why}", flush=True)
+        print("::error::**機械向けの宣言面が古いまま配信されている。** 人間向けの資産と違い、"
+              "壊れても画面には何も出ない —— 古い robots.txt はクローラの到達範囲を変え、"
+              "古い .well-known/* は agent が読む契約そのものを変え、古い aio-manifest.json は "
+              "**agent へ誤った digest を宣言する**。リポジトリ側の Check は"
+              "ローカルの file を見るのでこの失敗は全ゲート緑のまま起きる", flush=True)
+        return 1
+    print(f"OK: 機械向けの宣言面 {len(targets)} 件 "
+          "(.well-known/** ∪ robots ∪ sitemap ∪ manifest) が sha256 でリポジトリと一致している")
     return 0
 
 
