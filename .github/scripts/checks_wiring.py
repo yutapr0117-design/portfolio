@@ -356,3 +356,36 @@ def run(ctx):
                  "最も影響の大きい file が silent に古いままになる"),
                 blocking=True,
             )
+            # 457c: **機械向けの宣言面**も配信面で内容が検証されていること。
+            #   実測 (2026-08-26): discovery 層 13 件のうち **10 件は 200 が返ることしか
+            #   見られていなかった**。人間向けの shipped 資産 (JS/CSS/HTML) は byte 照合して
+            #   いるのに、**このプロジェクトの中核の賭けである機械向けの面だけが存在確認どまり**
+            #   という逆転が起きていた。壊れ方も重い —— 古い robots.txt はクローラの到達範囲を
+            #   変え、古い .well-known/* は agent が読む契約そのものを変え、古い
+            #   aio-manifest.json は **agent へ誤った digest を宣言する**。
+            try:
+                _disc457 = set(_mod457.discovery_sha256_targets(_src457))
+            except Exception as _ed457:  # noqa: BLE001
+                _disc457 = None
+                check(False, "", f"Check 457c: discovery 層の照合対象を取得できない ({_ed457})",
+                      blocking=True)
+            if _disc457 is not None:
+                import subprocess as _sp457
+                _wk457 = {ln.strip() for ln in _sp457.run(
+                    ["git", "ls-files", ".well-known"], cwd=str(ROOT),
+                    capture_output=True, text=True, check=True).stdout.splitlines() if ln.strip()}
+                _want457 = _wk457 | {"robots.txt", "sitemap.xml", "manifest.webmanifest"}
+                _want457 = {w for w in _want457 if (ROOT / w).is_file()}
+                _gap457 = sorted(_want457 - _disc457 - _targets457)
+                check(
+                    not _gap457,
+                    f"Check 457c: 機械向けの宣言面 {len(_want457)} 件が全て配信面の "
+                    f"sha256 照合対象に入っている",
+                    (f"Check 457c: 配信面で内容が検証されない機械向け宣言面がある: {_gap457}。"
+                     "**200 が返ることと中身が最新であることは別**で、"
+                     "古い robots.txt はクローラの到達範囲を変え、古い .well-known/* は agent が"
+                     "読む契約そのものを変え、古い aio-manifest.json は agent へ誤った digest を"
+                     "宣言する。しかも人間には何も見えない。"
+                     "discovery_sha256_targets() は宣言面から**導出**せよ"),
+                    blocking=True,
+                )

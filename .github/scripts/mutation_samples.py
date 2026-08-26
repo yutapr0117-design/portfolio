@@ -472,6 +472,19 @@ _MUTATIONS_TAIL.append({
 })
 
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 457c (機械向け宣言面の配信検証): discovery 照合対象から .well-known/** の "
+            "導出を外す —— **200 が返ることと中身が最新であることは別**で、古い robots.txt は "
+            "クローラの到達範囲を変え、古い .well-known/* は agent が読む契約そのものを変え、"
+            "古い aio-manifest.json は agent へ誤った digest を宣言する。しかも人間には"
+            "何も見えない。実測 (2026-08-26): 導入前は discovery 層 13 件中 10 件が"
+            "存在確認どまりだった (帰属実測済: 発火するのは 457c のみ)",
+    "file": ROOT / ".github" / "scripts" / "check_deployed_freshness.py",
+    "find": "    out = set(_wellknown_paths())",
+    "replace": "    out = set()",
+})
+
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
