@@ -947,4 +947,17 @@ _E2E_TAIL.append({
 })
 
 
+_E2E_TAIL.append({
+    "name": "スナップショットの上書き確認を無効化する —— スロットは**単一**なので 2 度目の「保存」は "
+            "前の内容を消して現在の状態で置き換える = **削除と同じく不可逆**。clearSnapshot は "
+            "#1185 で confirm を得たのに**上書きだけ取り残されていた** (実測 2026-08-26: 2 回目の "
+            "クリックで dialog ゼロのまま保存日時が置き換わった)。壊れた状態を実験したあと反射的に "
+            "「保存」を押すと、**戻るはずだった良い状態を自分で消す**",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "            if (_prev) {",
+    "replace": "            if (false) {",
+    "test": "スナップショットの上書きは確認を求め、キャンセルすると元が残る",
+})
+
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

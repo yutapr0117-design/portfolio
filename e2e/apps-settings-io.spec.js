@@ -555,3 +555,33 @@ test('非表示にしたプロジェクトが export → import 後も非表示�
   expect(await visibleCards(),
     'backup を戻したのに、意図的に隠したプロジェクトが再び公開されている').toBe(allCount - 1);
 });
+
+// [DATA] スナップショットは**単一スロット**なので、2 度目の「保存」は前の内容を消して現在の状態で
+//   置き換える —— **削除と同じく不可逆**である。ところが clearSnapshot は #1185 で confirm を得たのに
+//   **上書きだけ取り残されていた**（実測 2026-08-26: 2 回目のクリックで dialog ゼロのまま保存日時が
+//   置き換わった）。壊れた状態を実験したあと反射的に「保存」を押すと、**戻るはずだった良い状態を
+//   自分で消す**という最も痛い形になる。
+test('スナップショットの上書きは確認を求め、キャンセルすると元が残る', async ({ page }) => {
+  await page.goto('/#/settings', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('#content h1', { hasText: 'Settings' })).toBeVisible();
+
+  // 1 回目は破壊的でないので訊かない (control: ここで訊くなら過剰確認である)
+  let asked = 0;
+  page.on('dialog', d => { asked += 1; d.dismiss(); });
+  await page.locator('#settings-snapshot-save').click();
+  await expect.poll(async () => page.evaluate(() =>
+    !!localStorage.getItem('portfolio_snapshot_v45'))).toBe(true);
+  expect(asked, 'control: 初回保存で確認を求めている (過剰確認)').toBe(0);
+
+  const before = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem('portfolio_snapshot_v45')).at);
+
+  // 2 回目は上書き = 不可逆なので確認する。ここでは dismiss (キャンセル) する
+  await page.locator('#settings-snapshot-save').click();
+  await expect.poll(async () => asked).toBe(1);
+
+  // キャンセルしたのだから元のスナップショットが残っていること
+  const after = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem('portfolio_snapshot_v45')).at);
+  expect(after, 'キャンセルしたのに上書きされている').toBe(before);
+});
