@@ -52,6 +52,13 @@ test('App recovers gracefully from corrupt localStorage (no FatalPage)', async (
 // 通知は「消えたこと」と「Settings から復元できること」の両方を言う必要がある — 片方だけだと、
 // 前者は不安にさせるだけ / 後者は何を復元するのか分からない。Toast.show は announce へ一本化
 // (Check 407) 済みなので、可視面と SR 面は同じ 1 回の呼び出しで満たされる。
+// NOTE (実測 2026-08-27): この通知は **1 回だけ** 出る。移行後の既定 store はその読み込みの
+// うちに永続化されるので、次回以降は schemaVersion が一致し移行自体が起きない
+// (実測: 初回 表示あり / stored=1 → reload 後 表示なし / stored=12)。**「保存されるまで毎回
+// 出る」と書いたのは私の誤りだった** —— 保存の時期を確かめずに書いていた。
+// 一度きりで良いのは、恒久的な記録が別にあるから: Settings のスナップショット欄が
+// 由来を「データ形式の変更 v1→v12 で自動退避」と表示し続ける (apps-settings-snapshot.spec.js)。
+// 通知を見逃しても復元導線に情報が残る、という二段構えなので、繰り返し出す必要はない。
 test('Schema migration tells the user what was reset and where to restore it', async ({ page }) => {
   await page.addInitScript(() => {
     try {
