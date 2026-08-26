@@ -29,6 +29,10 @@ is posted, including the license-discuss thread that is already open.
 Anticipated objections and prepared answers (38 worked entries plus a table of 8 short answers, across three files) are in
 `LICENSES/ACD-1.0.review-responses.md` and its `-clauses` / `-meta` companions.
 
+A clause-by-clause reference covering **all 82 clauses** — what each one is for, and what
+breaks without it — is in `LICENSES/ACD-1.0.clause-reference.md`. If a reviewer cites a
+section number, that file answers it directly.
+
 **What actually gets said on the list is recorded in `LICENSES/ACD-1.0.discussion-log.md`.**
 That file is the bridge to the next step: the review submission cites it so that the earlier
 discussion is visibly accounted for rather than repeated.
