@@ -52,7 +52,7 @@
         //    付帯説明は各葉モジュールの fileoverview と上記コメントへ集約する。）
         // v80+ Stage 4: UI コンポーネント（DOM ビルダー・アイコン・Toast・BGM）を葉モジュールへ抽出。
         //   closure-deps = none の純表示系のみを選別し、State/Storage/RouteState 依存コンポーネントは残置。
-        import { h, createIcon, Toast, BGM, announce } from './js/ui-components.js';
+        import { h, createIcon, Toast, BGM, announce, installPasteTruncationNotice } from './js/ui-components.js';
         // v80+ Stage 5: Router（hash ルーティング）と PAGE_META（SEO メタ単一ソース）を葉モジュールへ抽出。
         //   Router: closure-deps = none（CONSTANTS.DEBUG は production dead code のため削除）。
         //   PAGE_META: 動的 title/desc は引数で state/params を受け取る純粋関数。closure-deps = none。
@@ -986,6 +986,8 @@
             BindingRegistry.init();
             // ActionDelegator: document 単一リスナーで data-action を委譲
             ActionDelegator.init();
+            // 貼り付けが maxlength で黙って切られたことを SR/利用者へ報告する (document 単一リスナー)
+            installPasteTruncationNotice();
             // Diagnostics Rail: ?debug=1 で起動
             if (location.search.includes('debug=1')) {
                 RouteState.proxy.diag_debug_mode = true;

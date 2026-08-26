@@ -935,4 +935,16 @@ _E2E_TAIL.append({
 })
 
 
+_E2E_TAIL.append({
+    "name": "貼り付けが maxlength で切られたことを黙らせる (通知条件を殺す) —— **打鍵は「入らなく"
+            "なる」のが見えるが貼り付けは無反応**。実測 (2026-08-26): タスク入力へ 500 文字を貼ると "
+            "200 文字だけ残り 300 文字が通知ゼロで消えた。既定動作は妨げず報告だけを足す設計なので、"
+            "この条件を殺すと**元の silent な消失に戻る**",
+    "file": ROOT / "js" / "ui-components.js",
+    "find": "        if (dropped > 0) {",
+    "replace": "        if (false) {",
+    "test": "上限を超える貼り付けは、消えた文字数を通知する",
+})
+
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

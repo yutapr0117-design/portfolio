@@ -214,3 +214,50 @@ test('Task input is cleared synchronously when the add succeeds (key-repeat guar
   // control: 実際に追加されている (Enter 経路そのものが死んでいない)
   await expect(page.getByText('CAP-CLEARED-ON-SUCCESS')).toBeVisible();
 });
+
+// [DATA] 貼り付けで消えた分を黙らせない。maxlength は**打鍵なら「入らなくなる」ことが見える**が、
+//   **貼り付けは無反応で切られる**。実測 (2026-08-26): タスク入力へ 500 文字を貼ると 200 文字だけ
+//   残り、300 文字が通知ゼロで消えた。既定動作は妨げず、**報告だけ**を足す。
+//   合成 ClipboardEvent は既定の挿入を行わない (信頼されたイベントでないため) が、リスナーは
+//   clipboardData を読んで判定するので、**報告の有無**はこの形で正しく測れる。
+test('上限を超える貼り付けは、消えた文字数を通知する', async ({ page }) => {
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  const input = page.locator('#task-input');
+  await expect(input).toBeVisible();
+
+  // control: 通知領域が最初は空であること。これが無いと、前の操作の残留を拾っても緑になる。
+  expect(await page.evaluate(() =>
+    (document.getElementById('action-announcement') || {}).textContent),
+  'control: 通知領域が最初から埋まっていると、この検査は何も測っていない').toBe('');
+
+  await input.click();
+  await page.evaluate((t) => {
+    const el = document.getElementById('task-input');
+    const dt = new DataTransfer();
+    dt.setData('text/plain', t);
+    el.dispatchEvent(new ClipboardEvent('paste', { clipboardData: dt, bubbles: true, cancelable: true }));
+  }, 'X'.repeat(500));
+
+  // TASK_TITLE = 200 なので 300 文字が入らない
+  await expect(page.locator('#action-announcement')).toContainText('300 文字');
+  await expect(page.locator('#action-announcement')).toContainText('上限 200 文字');
+});
+
+// 上限内の貼り付けでは黙っていること。**失っていないのに警告を出すと、本物の警告が信用されなくなる**
+//   (#1187 で同じ理由から過剰報告を取り消している)。
+test('上限内の貼り付けでは何も言わない', async ({ page }) => {
+  await page.goto('/#/apps/task', { waitUntil: 'domcontentloaded' });
+  const input = page.locator('#task-input');
+  await expect(input).toBeVisible();
+  await input.click();
+  await page.evaluate((t) => {
+    const el = document.getElementById('task-input');
+    const dt = new DataTransfer();
+    dt.setData('text/plain', t);
+    el.dispatchEvent(new ClipboardEvent('paste', { clipboardData: dt, bubbles: true, cancelable: true }));
+  }, 'Y'.repeat(50));
+  await page.waitForTimeout(200);
+  expect(await page.evaluate(() =>
+    (document.getElementById('action-announcement') || {}).textContent),
+  '失っていないのに警告を出している').toBe('');
+});
