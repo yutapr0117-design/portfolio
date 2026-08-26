@@ -18,7 +18,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
   31. Claude2Claude.md references AI2AI.md's current max Session Record
   32. index.html application/ld+json blocks are valid JSON (BLOCKING)
   33. Zenn featuring layers share the canonical article slug set + PRIMARY (BLOCKING)
-  462. UI が名乗る Zenn 記事数 == shipped JS が実際にリンクしている記事数 (BLOCKING)
+  462. 公開面が名乗る記事本数 (総数 / 本編) がすべて実体から導出した件数と一致 (BLOCKING)
   34. doc Last-Updated equals its sitemap <lastmod> — honest dating (WARNING)
   35. robots.txt advertises a Sitemap: directive resolving to sitemap.xml (BLOCKING)
   36. sitemap.xml has no future-dated <lastmod> (WARNING)
@@ -104,33 +104,41 @@ def run(ctx):
     # 無かった**。記事を 1 本足すと slug 集合は 12 になるのに文言は「全11本」のまま残り、
     # 公開面が silent に嘘をつく。このリポジトリは機械可読な権威シグナルを正しく保つことが
     # 主眼なので、公開文言の事実誤りは中核の毀損にあたる (Check 460 のドシエ件数と同じ class)。
-    _zenn_claim_src = (ROOT / "js" / "components.js")
-    if _zenn_claim_src.exists():
-        _zc = _zenn_claim_src.read_text(encoding="utf-8")
-        _m462 = re.search(r"全\s*(\d+)\s*本の記事", _zc)
-        _linked462 = set()
-        for _f462 in sorted((ROOT / "js").glob("*.js")):
-            _linked462 |= set(re.findall(r"zenn\.dev/[A-Za-z0-9_-]+/articles/([A-Za-z0-9_-]+)",
-                                         _f462.read_text(encoding="utf-8")))
-        if _m462:
-            _claimed462 = int(_m462.group(1))
-            check(
-                _claimed462 == len(_linked462),
-                f"Check 462: Zenn 記事数の自己申告 ({_claimed462}) == 実際のリンク数 ({len(_linked462)})",
-                f"Check 462: UI が「全{_claimed462}本」と名乗るが shipped JS が実際にリンクしている記事は "
-                f"{len(_linked462)} 本 — 記事の増減で文言だけが取り残されている。公開面が数を名乗るなら、"
-                f"その数は実体と一致していなければならない (Check 33 は slug 集合の共有だけを守り、"
-                f"文言の数字は見ていない)",
-                blocking=True,
-            )
-        else:
-            check(
-                False,
-                "Check 462: Zenn 記事数の自己申告が js/components.js に存在する",
-                "Check 462: js/components.js に「全N本の記事」の文言が見つからない — 文言を変えたなら "
-                "本 Check の抽出も追従させよ (数を名乗る限り実体と照合する層が要る)",
-                blocking=True,
-            )
+    # 証拠は 2 つ。総数 = shipped JS がリンクする distinct な記事 URL 数。本編 = llms-full.txt の
+    # 「AIO実践シリーズ本編」直下の番号付きリストの件数。**どちらも実体から導出する**ので、
+    # 記事が増減すれば期待値が自動的に動き、取り残された文言だけが RED になる。
+    _total462 = set()
+    for _f462 in sorted((ROOT / "js").glob("*.js")):
+        _total462 |= set(re.findall(r"zenn\.dev/[A-Za-z0-9_-]+/articles/([A-Za-z0-9_-]+)",
+                                    _f462.read_text(encoding="utf-8")))
+    _llms462 = ROOT / "llms-full.txt"
+    _series462 = 0
+    if _llms462.exists():
+        _txt462 = _llms462.read_text(encoding="utf-8")
+        _mh = re.search(r"AIO実践シリーズ本編[^\n]*\n((?:\d+\.[^\n]*\n)+)", _txt462)
+        if _mh:
+            _series462 = len(re.findall(r"^\d+\.", _mh.group(1), re.M))
+    # 決め打ちの 1 リテラルではなく、公開面すべてを走査する (走査先を絞ると新しい面が silent に
+    # 未検査のまま残る —— Check 124/411 で繰り返し踏んだ scope drift と同型)。
+    _surfaces462 = [ROOT / "index.html", ROOT / "llms-full.txt", ROOT / "llms.txt"]
+    _surfaces462 += sorted((ROOT / "js").glob("*.js"))
+    _allowed462 = {n for n in (len(_total462), _series462) if n}
+    _bad462 = []
+    for _sf in _surfaces462:
+        if not _sf.exists():
+            continue
+        for _m in re.finditer(r"(?:全|計)\s*(\d+)\s*本", _sf.read_text(encoding="utf-8")):
+            if int(_m.group(1)) not in _allowed462:
+                _bad462.append(f"{_sf.name}: 「{_m.group(0)}」")
+    check(
+        bool(_allowed462) and not _bad462,
+        f"Check 462: 公開面が名乗る本数がすべて実体と一致 (総数 {len(_total462)} / 本編 {_series462})",
+        f"Check 462: 実体と一致しない本数の主張: {_bad462[:5]} — 実体は総数 {len(_total462)} 本 / "
+        f"本編 {_series462} 本。記事の増減で文言だけが取り残されると、公開面が silent に嘘の本数を"
+        f"名乗る。このリポジトリは機械可読な権威シグナルを正しく保つことが主眼なので、公開文言の"
+        f"事実誤りは中核の毀損にあたる (Check 33 は slug 集合の共有だけを守り、数字は見ていない)",
+        blocking=True,
+    )
 
     # ── 33. Zenn featuring layers share the same article slug set (BLOCKING) ──────
     # Mechanizes the Session #18 Zenn re-selection policy (see repository-maintainability-map.md
