@@ -447,6 +447,18 @@ _MUTATIONS_TAIL.append({
 })
 
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 457 (配線 ⟹ 配信面の照合): freshness tool の照合対象を index.html 由来の "
+            "導出からハードコード 3 件へ戻す —— **aio-guard.js / theme-init.js / karte-init.js / "
+            "error-suppressor.js が配信面で一度も検証されない**状態へ回帰する。Check 133/134/135 は "
+            "リポジトリ内の配線しか見ないので、公開されているのが古い/壊れた版という失敗モードは "
+            "原理的に見えない (帰属実測済: 発火するのは 457 のみ)",
+    "file": ROOT / ".github" / "scripts" / "check_deployed_freshness.py",
+    "find": "    return sorted(set(root_js) | set(root_css) | {\"sw.js\"}) + sorted(",
+    "replace": "    return [\"style.css\", \"main.js\", \"sw.js\"] + sorted(",
+})
+
+
 MUTATIONS = MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

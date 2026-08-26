@@ -46,6 +46,40 @@ ATTEMPTS = 3
 BACKOFF_SEC = 5
 
 
+def shipped_sha256_targets():
+    """配信面で sha256 照合する shipped 資産の一覧を **導出**して返す。
+
+    [FIX 2026-08-26] root の資産も index.html から導出する。従来は
+    `["style.css", "main.js", "sw.js"]` のハードコードで、`js/` 配下だけを glob で導出して
+    いた。実測すると index.html は root script を **5 本**読んでいるのに照合対象は main.js
+    だけで、**error-suppressor.js / karte-init.js / theme-init.js / aio-guard.js の 4 本が
+    配信面で一度も検証されていなかった**。
+
+    とくに aio-guard.js は AIO asset-anchor の self-repair monitor で、その silent な無効化を
+    防ぐために Check 133 (「file が在る ⟹ 配線されている」) まで足した面なのに、**配信されて
+    いるのが古い / 壊れた版でも同じ silent な無効化が起きる**。Check 133 はリポジトリ内の
+    index.html を見るので、配信面の齟齬は原理的に見えない。theme-init.js も同様で、pre-paint
+    FOUC ガードが古いまま配信されても behavior e2e (ローカル成果物を見る) にも screenshot
+    (ADVISORY) にも出ない。
+
+    すぐ上の関数が記録している「中核が一致していれば安心という前提は、抽出が進むと崩れる」と
+    同じ誤りを root 側だけ残していた形だった。**導出すれば追従する。**
+
+    関数として切り出してあるのは、Check 457 がこれを import して
+    「index.html が配線している資産 ⊆ 照合対象」を機械強制するため (ハードコードへ戻すと
+    集合がずれて RED になる)。
+    """
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    root_js = re.findall(r'<script[^>]*src="\./([^"/]+\.js)"', html)
+    root_css = re.findall(r'<link[^>]*rel="stylesheet"[^>]*href="\./([^"/]+\.css)"', html)
+    # sw.js は `<script src>` ではなく JS から register されるので導出に出てこない。
+    # 由来を書いて明示的に足す (導出漏れのまま落とすより honest・#1003 と同じ判断)。
+    return sorted(set(root_js) | set(root_css) | {"sw.js"}) + sorted(
+        str(q.relative_to(ROOT)) for q in
+        list((ROOT / "js").glob("*.js")) + list((ROOT / "js" / "quiz").glob("*.js"))
+    )
+
+
 def _repo_values():
     """main.js の SITE_CONFIG から期待値を取る (Check 2/17 が index.html との一致を保証済)。"""
     src = (ROOT / "main.js").read_text(encoding="utf-8")
@@ -310,10 +344,20 @@ def _check_shipped_bytes(base):
     """
     import hashlib
 
-    targets = ["style.css", "main.js", "sw.js"] + sorted(
-        str(p.relative_to(ROOT)) for p in
-        list((ROOT / "js").glob("*.js")) + list((ROOT / "js" / "quiz").glob("*.js"))
-    )
+    # [FIX 2026-08-26] root の資産も **index.html から導出**する。従来は
+    #   ["style.css", "main.js", "sw.js"] のハードコードで、`js/` 配下だけを glob で
+    #   導出していた。実測すると index.html は root script を **5 本**読んでいるのに
+    #   照合対象は main.js だけで、**error-suppressor.js / karte-init.js /
+    #   theme-init.js / aio-guard.js の 4 本が配信面で一度も検証されていなかった**。
+    #   とくに aio-guard.js は AIO asset-anchor の self-repair monitor で、その silent な
+    #   無効化を防ぐために Check 133 (「file が在る ⟹ 配線されている」) まで足した面なのに、
+    #   **配信されているのが古い/壊れた版でも同じ silent な無効化が起きる**。Check 133 は
+    #   リポジトリ内の index.html を見るので、配信面の齟齬は原理的に見えない。
+    #   theme-init.js も同様で、pre-paint FOUC ガードが古いまま配信されても
+    #   behavior e2e (ローカル成果物) にも screenshot (ADVISORY) にも出ない。
+    #   一つ上のコメントが記録している「中核が一致していれば安心という前提は抽出が進むと
+    #   崩れる」と同じ誤りを、root 側だけ残していた形。**導出すれば追従する。**
+    targets = shipped_sha256_targets()
     bad = []
     for name in targets:
         local = ROOT / name

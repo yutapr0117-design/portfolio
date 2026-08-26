@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/checks_wiring.py
 audience: ai, human (新卒), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-07-05
+last-updated: 2026-08-26
 canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK_SOURCE_FILES) / docs/incident-artifacts/decision-v80-phase4-bloat-reduction-1000-line-threshold.md (C-first split protocol) / docs/incident-artifacts/improvement-notes-claude-v80-phase4-checkpy-split-track-full-handoff.md
 ---
 
@@ -25,6 +25,14 @@ owner 合意 C-first の check.py 段階分割（**Phase 16**）。132-134 は�
 - `run()` は `ROOT`/`check` を ctx から unpack し `import re, json`。
 - `ctx.check`/`ctx.errors` は monolith と同一オブジェクト参照 → 合否・BLOCKING 伝播が byte-equivalent。
 - `_aggregate_check_numbers()` が `CHECK_SOURCE_FILES`（本ファイル含む）を横断し docstring inventory + `# ── N.` section を集約。
+
+## 2026-08-26 —— Check 457 追加（配線の「配信面」）
+
+Check 132/133/134 が守るのは**リポジトリ内**の配線である。公開されているのが古い／壊れた版なら同じ silent な無効化が起きるのに、その面を見る層が無かった。
+
+**Check 457** は index.html から**独立に**導出した配線集合が、`check_deployed_freshness.py` の `shipped_sha256_targets()` に含まれることを強制する。Check 415 が STATUS.md の workflow 網羅を生成器と独立に導出するのと同じ形で、**生成器（tool）側の導出バグ自体を捕捉できる**。
+
+**この Check を足した瞬間に Check 385 が発火した** —— 新コードが `warnings.append` を使うのに `run(ctx)` が `warnings = ctx.warnings` を unpack していなかった（その枝が走ると NameError で consistency 全体が crash する latent bug）。385 はまさにその class のために在り、機械が自分のミスを即座に止めた実例である。
 
 ## Constraints
 

@@ -93,6 +93,20 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        発生: `aria-controls="nav-lab-body"` と書いた WHY コメントが dangling 参照と判定された)。
        Check 112 / 421 / 422 と同じ「コメントは違反にも充足にもしない」規律の idref 面。(BLOCKING)
 
+  457. **配線されている shipped 資産は、配信面の sha256 照合対象に入っていること**
+       (BLOCKING): `check_deployed_freshness.py` は「200 が返ること」と「中身が最新で
+       あること」を分けて検査する層だが、その照合対象のうち **root の資産だけがハード
+       コード** (`style.css` / `main.js` / `sw.js`) で、`js/` 配下だけが glob で導出されて
+       いた。実測 (2026-08-26): index.html は root script を **5 本**読んでいるのに照合対象は
+       main.js だけで、**error-suppressor.js / karte-init.js / theme-init.js / aio-guard.js の
+       4 本が配信面で一度も検証されていなかった**。とくに aio-guard.js は AIO asset-anchor の
+       self-repair monitor で、その silent な無効化を防ぐために Check 133 (「file が在る ⟹
+       配線されている」) を足した面なのに、**配信されているのが古い / 壊れた版でも同じ silent な
+       無効化が起きる** —— Check 133 はリポジトリ内の index.html を見るので配信面の齟齬は
+       原理的に見えない。本 Check は index.html から**独立に**導出した配線集合が、tool の
+       `shipped_sha256_targets()` に含まれることを強制する (ハードコードへ戻すと集合がずれて
+       RED)。Check 415 が STATUS.md の workflow 網羅を生成器と独立に導出するのと同じ形。
+       (BLOCKING)
 """
 import re
 import json
@@ -101,6 +115,7 @@ import json
 def run(ctx):
     ROOT = ctx.ROOT
     check = ctx.check
+    warnings = ctx.warnings
 
     # ── 132. AIO evidence ↔ sitemap discoverability (BLOCKING) ────────────────────
     # aio-manifest.json に authoritative evidence として登録された text doc (.md/.txt/.json) は
@@ -285,3 +300,40 @@ def run(ctx):
     else:
         check(False, "Check 411: main.js and js/ leaves present",
               "Check 411: main.js または js/ の葉モジュールが無い — WebMCP セレクタ解決を検証できない", blocking=True)
+
+    # ── 457. 配線されている shipped 資産 ⟹ 配信面の sha256 照合対象 (BLOCKING) ────────
+    # 「file が在る ⟹ 配線されている」(Check 133/134/135) の**配信面**。リポジトリ内で
+    # 配線されていても、公開されているのが古い / 壊れた版なら同じ silent な無効化が起きる。
+    # index.html から独立に導出した集合が tool の導出結果に含まれることを見る。
+    import importlib.util as _ilu457
+    _tool457 = ROOT / ".github" / "scripts" / "check_deployed_freshness.py"
+    _html457 = ROOT / "index.html"
+    if not _tool457.exists() or not _html457.exists():
+        warnings.append("Check 457: freshness tool か index.html が無い — 照合を skip")
+    else:
+        try:
+            _spec457 = _ilu457.spec_from_file_location("_freshness457", _tool457)
+            _mod457 = _ilu457.module_from_spec(_spec457)
+            _spec457.loader.exec_module(_mod457)
+            _targets457 = set(_mod457.shipped_sha256_targets())
+        except Exception as _e457:  # noqa: BLE001 — tool 側の import 失敗も検査対象
+            _targets457 = None
+            check(False, "", f"Check 457: freshness tool から照合対象を取得できない ({_e457})",
+                  blocking=True)
+        if _targets457 is not None:
+            _src457 = _html457.read_text(encoding="utf-8")
+            _wired457 = set(re.findall(r'<script[^>]*src="\./([^"/]+\.js)"', _src457))
+            _wired457 |= set(re.findall(
+                r'<link[^>]*rel="stylesheet"[^>]*href="\./([^"/]+\.css)"', _src457))
+            _missing457 = sorted(_wired457 - _targets457)
+            check(
+                not _missing457,
+                f"Check 457: index.html が配線する root 資産 {len(_wired457)} 件が全て "
+                f"配信面の sha256 照合対象 ({len(_targets457)} 件) に入っている",
+                (f"Check 457: 配線されているのに配信面で照合されない資産がある: {_missing457}。"
+                 "リポジトリ内の配線 (Check 133/134/135) は**公開されている中身**を見ないので、"
+                 "古い / 壊れた版が配信されても silent に無効化される。"
+                 "check_deployed_freshness.py の shipped_sha256_targets() は index.html から"
+                 "**導出**せよ (ハードコードは配線の増減に追従しない)"),
+                blocking=True,
+            )
