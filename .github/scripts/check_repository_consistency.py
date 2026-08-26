@@ -112,6 +112,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_behavioral.py",  # split: shipped-JS behavioral regression guards (128-131)
     ROOT / ".github" / "scripts" / "checks_shipped_structure.py",  # split: shipped-JS structural coherence & byte budget (118-120)
     ROOT / ".github" / "scripts" / "checks_wiring.py",  # split: shipped-asset & AIO wiring/discoverability (132-134)
+    ROOT / ".github" / "scripts" / "checks_identifier_resolution.py",  # split: used-identifier ⟹ defined (375/376/391-396/401/418)
     ROOT / ".github" / "scripts" / "checks_aio_entity.py",  # split: AIO manifest entity-field & identity coherence (167-173)
     ROOT / ".github" / "scripts" / "checks_seo_coherence.py",  # split: AIO/SEO URL-canonical-format coherence (273-302)
     ROOT / ".github" / "scripts" / "checks_seo_coherence_b.py",  # split: seo_coherence part B (288-302・module 自身の 2 分割で ≤1,000)
@@ -604,15 +605,25 @@ import checks_behavioral as _checks_behavioral
 _checks_behavioral.run(_ctx)
 
 
-# ── 132-134, 375, 376. shipped-asset & AIO wiring / discoverability → checks_wiring.py ──
+# ── 132-134, 403, 411. shipped-asset & AIO wiring / discoverability → checks_wiring.py ──
 # (check.py split track・category "wiring/discovery". AIO evidence↔sitemap discoverability (132) /
-#  aio-guard.js script wiring (133) / root-script wiring completeness (134) / createIcon name →
-#  icon-registry resolution (375・silent broken-icon 防止) / data-action → ActionDelegator handler
-#  resolution (376・silent no-op 防止)。self-contained クラスタ (free-var ゼロ確認)・自前 read_text
+#  aio-guard.js script wiring (133) / root-script wiring completeness (134) / sr-only AIO entity
+#  anchor presence (403) / WebMCP セレクタ → 実描画への解決 (411)。「存在 ≠ 配線」を守る面。
+#  self-contained クラスタ (free-var ゼロ確認)・自前 read_text
 #  (no global content dep)。135 (stylesheet wiring) は global style 依存ゆえ monolith 残置。
 #  元の実行位置 (131 の後・135 の前) を保持。CHECK_SOURCE_FILES 登録。)
 import checks_wiring as _checks_wiring
 _checks_wiring.run(_ctx)
+
+
+# ── 375, 376, 391-396, 401, 418. used-identifier ⟹ defined → checks_identifier_resolution.py ──
+# (checks_wiring.py から分離。分離元が 987 行で Check 365 の 1,000 行 BLOCKING まで残り 13 行
+#  だったため、圧縮せず意味の異なる 2 クラスタへ割った: 「配線されているか」(wiring) と
+#  「使った名前が定義へ解決するか」(identifier resolution)。移した section は 1 行も書き換えて
+#  おらず、free-variable 解析で外部依存が ROOT / check だけであることを実測してから割った
+#  = byte-equivalent。元の実行位置 (checks_wiring の直後) を保持。CHECK_SOURCE_FILES 登録。)
+import checks_identifier_resolution as _checks_identifier_resolution
+_checks_identifier_resolution.run(_ctx)
 
 
 # ── 136-140, 377. app-route whitelist coherence-mesh → checks_app_route.py ──
