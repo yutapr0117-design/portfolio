@@ -442,8 +442,8 @@ E2E_MUTATIONS_ARCHIVE2 = [
     {
         "name": "behavior: プロジェクト削除の confirm ガードが消える — キャンセルしても削除される。既定プロジェクトは削除できないため対象はユーザーが自分で追加したものだけで、復元手段は backup しか無い",
         "file": ROOT / "js" / "settings-page.js",
-        "find": "            if (!confirm('本当に削除しますか？')) {return;}\n",
-        "replace": "",
+        "find": "            if (!confirm(_target && _target.name\n                ? `\u300c${_target.name}\u300d",
+        "replace": "            if (false && _target && _target.name\n                ? `\u300c${_target.name}\u300d",
         "test": "Canceling the delete confirm keeps the project (data-safety)",
     },
     {

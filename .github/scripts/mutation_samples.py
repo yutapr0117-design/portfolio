@@ -931,4 +931,16 @@ _E2E_TAIL.append({
 })
 
 
+_E2E_TAIL.append({
+    "name": "プロジェクト削除の確認文から**対象の名前**を落とす —— 成功 Toast は名前を出すのに "
+            "確認が「本当に削除しますか？」だけだと、**一覧で行を押し間違えても気付けない** "
+            "(名前が出るのは消えた後)。#1185 が「文言は何を失うかを明示する」と原則を書いたのに、"
+            "その比較対象だった当の削除が取り残されていた",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "            if (!confirm(_target && _target.name",
+    "replace": "            if (!confirm(false && _target && _target.name",
+    "test": "Deleting a user project (confirm accepted) removes it everywhere",
+})
+
+
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL

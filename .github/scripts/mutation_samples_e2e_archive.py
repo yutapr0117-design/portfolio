@@ -894,8 +894,8 @@ E2E_MUTATIONS_ARCHIVE = [
     {
     "name": "削除の confirm ガードが外れる —— 「考え直してキャンセルを押した」利用者のプロジェクトが消える。最悪の silent failure で、しかも default 以外は復元手段が無い",
     "file": ROOT / "js" / "settings-page.js",
-    "find": "            if (!confirm('\u672c\u5f53\u306b\u524a\u9664\u3057\u307e\u3059\u304b\uff1f')) {return;}\n            let removed = null;",
-    "replace": "            confirm('\u672c\u5f53\u306b\u524a\u9664\u3057\u307e\u3059\u304b\uff1f');\n            let removed = null;",
+    "find": "            if (!confirm(_target && _target.name",
+    "replace": "            if (false && _target && _target.name",
     "test": "削除の確認をキャンセルしたら削除を報告しない",
 },
     {

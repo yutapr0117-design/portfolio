@@ -138,8 +138,13 @@ test('Projects can be reordered with the up/down controls', async ({ page }) => 
 // 従来未カバーだった。カスタム追加→confirm 受諾で削除→ settings リスト + /#/projects 双方から
 // 消える、を実検証し projects CRUD (追加/非表示/削除) のカバレッジを完成させる。
 test('Deleting a user project (confirm accepted) removes it everywhere', async ({ page }) => {
-  // confirm() を常に受諾
-  page.on('dialog', (dialog) => dialog.accept());
+  // confirm() を常に受諾しつつ、**何を失うかが文言に出ているか**も測る。
+  //   [#1340] 成功 Toast は名前を出すのに確認は「本当に削除しますか？」だけで、
+  //   一覧で行を押し間違えても気付けなかった（名前が出るのは消えた後）。
+  //   #1185 が「文言は何を失うかを明示する」と原則を書いたのに、その比較対象だった
+  //   当の削除が取り残されていた。
+  const dialogs = [];
+  page.on('dialog', (dialog) => { dialogs.push(dialog.message()); dialog.accept(); });
 
   // カスタムプロジェクトを追加
   await page.goto('/#/settings');
@@ -159,6 +164,9 @@ test('Deleting a user project (confirm accepted) removes it everywhere', async (
   await page.waitForLoadState('domcontentloaded');
   const row = page.locator('div.flex.items-center.justify-between.gap-2').filter({ hasText: name });
   await row.getByRole('button', { name: '削除' }).click();
+
+  // 確認文に**消える対象の名前**が出ていること（押し間違えを気付ける唯一の機会）
+  expect(dialogs.join('\n'), '確認文が何を失うか示していない').toContain(name);
   // settings リストから行が消える
   await expect(page.locator('div.flex.items-center.justify-between.gap-2').filter({ hasText: name })).toHaveCount(0);
 
