@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/rotate_mutation_samples.py
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-08-18
+last-updated: 2026-08-26
 canonical-ref: .github/scripts/mutation_samples.py / .github/scripts/mutation_probe.py / docs/architecture/file-size-budget.md
 ---
 
@@ -34,6 +34,20 @@ python3 .github/scripts/rotate_mutation_samples.py --check  # 判定のみ（超
 
 rotate 後は **`file-size-budget.md` §2 の実測行数を同期する**（Check 424 が BLOCKING で強制。
 スクリプト自身も最後にその旨を出力する）。
+
+## 2026-08-26 の是正 —— 「道具が宣言どおりに仕事をしていなかった」5 件
+
+この道具は「無限に伸びる append-log を止める」ために在るのに、実測すると次の 5 つが壊れていた。いずれも**普段は動くが、いちばん助けが要る局面でだけ**壊れる形だった。
+
+| # | 何が壊れていたか | どう分かったか |
+|---|---|---|
+| 1 | `_wire_new_archive` が **`if __name__` ガードより後ろ**で定義され、**CLI 実行時は未定義**だった。docstring が宣伝する「受け皿が埋まったら次を起こす」機能は `npm run rotate-mutations` から**一度も動いたことがない** | サンドボックスで CLI 実行し `NameError` を実測。**Check 456** で構造封じ |
+| 2 | 同関数が **E2E 側の名前をハードコード**。consistency 側から呼ばれると (a) 同番号の E2E 変数がある場合は早期 return して**何も書かない**（受け皿は作られるが参照されず entry が消える）、(b) 無い場合は `from mutation_samples_archive4 import E2E_MUTATIONS_ARCHIVE4` を書き **ImportError** で `mutation_samples.py` が import 不能 = consistency ゲート自体が動かなくなる | 両分岐を実測。名前を chain から導出する形へ |
+| 3 | `CHAINS` が **file 名のハードコード list**。`_pick_archive` が新しい受け皿を起こしても追加されず、その archive は rebalance の対象外になる ——「溢れた archive に自動の逃げ道が無い」という rebalance 導入の動機がそのまま再発する | disk から導出。導出結果が旧 list と完全一致することを control として確認 |
+| 4 | 受け皿選びが **BLOCKING 基準**（`1000 - 60`）だったので、選んだ先が **advisory (950) を跨ぐ**。**advisory を意味あるものに保つ道具が、鳴りっぱなしの advisory を作っていた** | 実測: 1 回の rotate で e2e_archive が 957 行。基準を `ARCHIVE_TARGET` へ |
+| 5 | `_rebalance()` が rotate の**前だけ**で走るので、溢れさせた受け皿を**同じ実行では直せない** | rotate 後にも実行。加えて §2 の実測行数を道具自身が同期する（Check 424 が BLOCKING で要求するため、手作業に頼ると必ず忘れる） |
+
+**設計上の合意**: 1 回の実行で tree が緑になるところまでを道具の責任にする。「同期すること」と print で人に頼むのは、この道具が生まれた動機（毎回その場で分割スクリプトを書き起こしていた）と同じ誤り。
 
 ## Constraints
 
