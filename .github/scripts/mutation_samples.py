@@ -428,6 +428,16 @@ _MUTATIONS_TAIL.append({
 })
 
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 461: 予算ラチェットの累積記録を stale に戻す —— 個々のラチェットに理由を書いても、"
+            "累積が更新されなければ「今日で合計いくら増えたか」が視界に入らない。予算は自分で上げられる"
+            "ので、歯止めは累積を見ることにしかない (2026-08-27 に実際 5 回分 stale 化していた)",
+    "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
+    "find": "session-start=716800 current=726300",
+    "replace": "session-start=716800 current=722400",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
@@ -945,6 +955,7 @@ _E2E_TAIL.append({
     "replace": "            void label;",
     "test": "リセットは結果を支援技術へ伝える",
 })
+
 
 
 E2E_MUTATIONS = E2E_MUTATIONS_ARCHIVE3 + E2E_MUTATIONS_ARCHIVE2 + E2E_MUTATIONS_ARCHIVE + _E2E_TAIL
