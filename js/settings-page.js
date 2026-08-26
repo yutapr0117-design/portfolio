@@ -70,6 +70,16 @@ export function createSettingsPage({ h, Toast, State, Brand, Store, Storage, CON
             return null;
         }
         function setSnapshot() {
+            // [FIX] **上書きは削除と同じく不可逆**なのに無確認だった。スロットは単一なので 2 度目の
+            //   「保存」は前を消して現在の状態で置き換える。clearSnapshot は #1185 で confirm を得たのに
+            //   **上書きだけ取り残されていた**。初回は破壊的でないので訊かない (経緯は e2e 側)。
+            const _prev = Storage.parse(CONSTANTS.SNAPSHOT_KEY, null);
+            if (_prev) {
+                const _pat = _prev.at ? new Date(_prev.at).toLocaleString() : null;
+                if (!confirm(_pat
+                    ? `既存のスナップショット（保存日時: ${_pat}）を上書きしますか？\n元には戻せません。`
+                    : '既存のスナップショットを上書きしますか？\n元には戻せません。')) { return; }
+            }
             const snap = { at: Date.now(), data: State.get() };
             const success = Storage.set(CONSTANTS.SNAPSHOT_KEY, JSON.stringify(snap));
             if (success) {
