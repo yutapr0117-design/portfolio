@@ -311,9 +311,9 @@ If the thread is on `license-discuss`, say so plainly, and say what you want fro
   autonomously in this project. **I did not write it, I did not direct the drafting, and
   I did not ask for it** — the agent determined that the repository needed a licence,
   designed one, and wrote it, and I learned that it existed afterwards. What is mine is
-  what happened next: I read it, kept it, applied it to my work, and brought it here. I am
-  the Dedicator and the steward and I answer for the text, but I would be misrepresenting
-  its origin if I let anyone think I authored it. The project states publicly that it
+  what happened next: I read it, kept it, applied it to my work, and — on a
+  recommendation that also came from an AI, not from me — brought it here. I am the
+  Dedicator and the steward and I answer for the text, but at no point was I its author. The project states publicly that it
   operates this way — the human role is direction and audit, not implementation. The text cites exactly one external
   instrument (Article 4(3) of Directive (EU) 2019/790, in Section 1.10), deliberately,
   because invented or misattributed authority is the characteristic failure of
