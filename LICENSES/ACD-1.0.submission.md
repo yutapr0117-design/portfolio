@@ -222,6 +222,30 @@ Omissions are design decisions too, and the committee will ask about several of 
 - **No provenance or disclosure requirement for AI output.** Section 6.4 says outputs are
   unencumbered; requiring their labelling would contradict the licence's central purpose.
 
+### 4a. Which track this submission is on, and what it does not ask for
+
+**This is a new licence, not a legacy one.** The review process distinguishes the two: a legacy
+licence is one already in widespread use for several years by a number of unaffiliated entities;
+everything else is a new licence. ACD-1.0 has one adopter and was published in 2026, so it is
+unambiguously in the new-licence track and is expected to answer the questions that track asks:
+
+| What the track asks | Where it is answered |
+|---|---|
+| What gap do existing licences not fill, compared with the most similar approved licence(s)? | §1 and §2 of this message; clause-level comparison in `ACD-1.0.comparison.md` |
+| What legal review has it had, and was it drafted by a lawyer? | §5 and §E.1 — **no legal review, not drafted by a lawyer**, stated without hedging |
+| Can others use it, or is it usable only by the submitter? | §4b below, with commands that verify each claim |
+
+**What is not being asked for.** Approval would place ACD-1.0 in the set of licences that meet
+the Open Source Definition. It would not make it recommended, popular, or preferred; those are
+separate designations driven by adoption data, and this submission makes no claim to them.
+Saying so up front is not modesty — conflating "conforms to the OSD" with "should be widely
+used" is a common way for a submission to overreach, and the honest position is the narrower one.
+
+**Timeline expectations are the reviewers', not mine.** The process describes review on the order
+of two months; this submission sets no deadline and asks for no expedited handling. If the
+outcome is rejection, §E.2 already states what would cause the licence to be withdrawn rather
+than re-argued.
+
 ### 4b. That the licence is not usable only by me
 
 OSI's review process asks a submitter to show that a new licence is **not uniquely usable only
