@@ -222,6 +222,47 @@ Omissions are design decisions too, and the committee will ask about several of 
 - **No provenance or disclosure requirement for AI output.** Section 6.4 says outputs are
   unencumbered; requiring their labelling would contradict the licence's central purpose.
 
+### 4b. That the licence is not usable only by me
+
+OSI's review process asks a submitter to show that a new licence is **not uniquely usable only
+by the submitter**. Two kinds of evidence are offered: what the text structurally is, and who
+else would plausibly reach for it.
+
+**Structural evidence (verifiable in one command each).**
+
+| Property | How to check | Result |
+|---|---|---|
+| No project, author, domain or URL appears in the licence body | `grep -icE "yokoi\|portfolio\|github\|https?://" LICENSES/ACD-1.0.txt` | **0** |
+| No placeholder or replaceable text (`<year>`, `[name]`, templates) | `grep -cE "<[a-z]+>\|\[year\]\|\[name\]\|YYYY" LICENSES/ACD-1.0.txt` | **0** |
+| Defined terms are generic role names, not identities | `"Work"`, `"You"`, `"Your"`, `"Dedicator"`, `"Contribution"`, `"Dedication"`, `"Reservation"` | 7 terms, none naming a person or project |
+| The application declaration is a separate file | `LICENSE` carries `SPDX-License-Identifier` and a path; `LICENSES/ACD-1.0.txt` is the generic instrument | Applied **by reference**, never by editing |
+
+The practical consequence: adopting ACD-1.0 requires **no edit to the licence text at all**. That
+is a stronger form of reusability than licences that must be filled in with a name and a year,
+and it is why the text is byte-identical for every adopter.
+
+**Who else would reach for it, and why the nearest approved licences do not fit.**
+
+| Adopter | Why not the nearest OSI-approved option |
+|---|---|
+| A research group publishing a corpus intended to be trained on | MIT-0 / 0BSD / Unlicense are silent on text-and-data-mining and on the EU sui generis database right. Silence is not permission where an opt-out regime exists; ACD-1.0 §6 affirmatively permits and makes no reservation |
+| A standards body publishing a reference implementation | The public-domain-like effect is wanted **together with** a patent grant. CC0's exclusion of patents is precisely what stopped it at OSI; ACD-1.0 §8 grants, and §8.4 reaches the trained model and its outputs |
+| A publisher of machine-generated artefacts | MIT/BSD assume a copyright exists to license. Where authorship may not subsist at all, that assumption is the problem; ACD-1.0 §9 makes the permissions independent of whether any right subsists |
+| A public-sector or civic-data publisher in a jurisdiction where waiver is ineffective | A bare dedication can fail outright in such jurisdictions. ACD-1.0 §3 falls back rather than failing |
+| Anyone shipping assets with embedded metadata (images, audio, models) | The status of embedded metadata is usually left unstated. ACD-1.0 §1.2 includes data, metadata and audiovisual material in the defined Work |
+
+None of these depend on anything about my project. Each is a gap that exists for the adopter
+regardless of who drafted the instrument.
+
+**A falsifiable test.** Copy `LICENSES/ACD-1.0.txt` into any unrelated repository, add a
+`LICENSE` file containing `SPDX-License-Identifier: ACD-1.0` and a pointer to the text, and the
+adoption is complete. If any step required editing the licence body, the claim in this section
+would be false. It does not.
+
+**What this section does not claim.** It does not claim adoption. Actual use is one repository,
+mine, and that limitation is stated plainly in §5 below. Reusability and adoption are different
+properties, and the requirement here is the former.
+
 ### 5. Honest disclosures
 
 - **Legal review.** The text has not been reviewed by counsel. I state this plainly rather
