@@ -56,9 +56,14 @@ grep -cE "<[a-z]+>|\[year\]|\[name\]|YYYY" LICENSES/ACD-1.0.txt
 # Section count                                                       → expect 16
 grep -cE "^[0-9]+\. [A-Z]" LICENSES/ACD-1.0.txt
 
-# The frozen digests CI enforces
-grep -A3 sha256 LICENSES/FROZEN.md
+# Verify that the text you are reading is the text that is pinned      → 3× OK
+grep -E "^[0-9a-f]{64}  " LICENSES/FROZEN.md | shasum -a 256 -c
 ```
+
+The last one is the important one. `LICENSES/FROZEN.md` records the digests in the same format
+`shasum` emits, so the check is a single pipe with no trust in anything this repository says
+about itself: if the licence text had been altered since the discussion began, that line would
+print `FAILED` instead of `OK`. It currently prints `OK` for all three files.
 
 The repository's own CI enforces the rest: that the licence is declared identically across every
 published surface, that the counts these documents quote match reality, and that the frozen files
