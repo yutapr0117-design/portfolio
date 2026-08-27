@@ -287,6 +287,43 @@ would be false. It does not.
 mine, and that limitation is stated plainly in §5 below. Reusability and adoption are different
 properties, and the requirement here is the former.
 
+### 4c. What was verified mechanically, since it was not verified legally
+
+No lawyer has read this. That is stated plainly in §5 and it is the weakest point of the
+submission. It cannot be repaired by asserting confidence, so what follows is the opposite: the
+narrow set of properties that **can** be established without counsel, each with the command that
+establishes it. None of these substitute for legal review. They only mean that the failures a
+machine can find are not present.
+
+| Property | Command | Result |
+|---|---|---|
+| Every defined term is actually defined, in one place | `grep -nE '^\s+1\.[0-9]+\s+"' LICENSES/ACD-1.0.txt` | 10 terms, all in §1.1–§1.10 |
+| No defined term is dead (each is used outside its own definition) | count occurrences of each term outside quotes | 10/10 used; lowest is `Contribution` at 4 |
+| Section numbering is contiguous with no gaps | `grep -cE '^[0-9]+\. [A-Z]' LICENSES/ACD-1.0.txt` | 16 sections, numbered 1–16 |
+| Internal cross-references all resolve to a clause that exists | enforced in CI (Check 441b) | no dangling `§N.M` |
+| The text is pure ASCII | byte scan for values > 127 | **0** non-ASCII bytes |
+| The authoritative language is stated in the text itself | `grep -n "authoritative language" LICENSES/ACD-1.0.txt` | §15.8 — English governs; translations are convenience only |
+| No project-specific or replaceable text | see §4b | 0 and 0 |
+
+**Why this is worth stating rather than skipping.** Drafting defects that reviewers routinely
+catch in new licences are disproportionately of the mechanical kind: a term used but never
+defined, a definition left over from an earlier draft, a cross-reference to a clause that was
+renumbered, a section that says "as set out below" with nothing below it. Those are exactly the
+faults a machine can rule out, and ruling them out is not nothing — it means the review time you
+spend can go to substance instead of bookkeeping.
+
+**What it does not establish.** Whether §3's fallback licence actually functions in a
+jurisdiction that rejects waiver. Whether §8.4's patent grant reaches what it says it reaches.
+Whether §12's moral-rights construction is effective in France. Whether §13/§14 survive contact
+with consumer-protection law. Every one of those is a legal question, none of them is answered
+here, and `ACD-1.0.jurisdictions.md` deliberately records them as **questions rather than
+conclusions**.
+
+**Stability of these results.** The text is frozen for the duration of this discussion and CI
+pins the SHA-256 of the three licence files (Check 453), so the properties above hold for exactly
+the text under discussion. If the freeze is lifted, they must be re-measured — a property
+verified once is not a property that stays true.
+
 ### 5. Honest disclosures
 
 - **Legal review.** The text has not been reviewed by counsel. I state this plainly rather
