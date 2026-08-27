@@ -11,15 +11,13 @@
  *
  * 【公開 API（抽出前後で byte-equivalent）】
  *   const { RouteState, EffectRails, BindingRegistry, ActionDelegator, DiagnosticsRail }
- *       = createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h, createIcon });
+ *       = createAIDKRails({ applyMeta, Theme, BGM, secureExternalLinks, openDrawer });
  *
  * 【依存（引数で注入）】
- *   - State: js/state.js factory instance
- *   - Toast: js/ui-components.js
- *   - Router: js/router.js
- *   - CONSTANTS: js/constants.js (特に DEBUG / TAB_ID)
  *   - applyMeta: js/meta-management.js factory instance ({ applyMeta })
- *   - h, createIcon: js/ui-components.js (DiagnosticsRail の表示部で使う)
+ *     NOTE: State / Toast / Router / CONSTANTS / h / createIcon は**本体で一度も使われて
+ *     いなかった**ため 2026-08-27 に除去した (実測: 署名行より後の出現 0 回)。ESLint は
+ *     分割代入した引数の未使用を捕捉しないので CI は緑のまま通っていた。
  *   - Theme: js/theme.js factory instance (ActionDelegator の 'theme:cycle' で Theme.cycle())
  *   - BGM: js/ui-components.js (ActionDelegator の 'bgm:toggle' で BGM.toggle())
  *   - secureExternalLinks: js/mobile-drawer.js (EffectRails が render 後に外部リンクを安全化)
@@ -43,7 +41,7 @@
  *   - AIDK Kernel (Check 43 で構造強制) には触れない（kernel proper はそのまま main.js に残置）
  *   - AIO 正本層 / style.css は無変更
  */
-export function createAIDKRails({ State, Toast, Router, CONSTANTS, applyMeta, h, createIcon, Theme, BGM, secureExternalLinks, openDrawer }) {
+export function createAIDKRails({ applyMeta, Theme, BGM, secureExternalLinks, openDrawer }) {
     const RouteState = (() => {
         const _state = {
             // ── route namespace ──
