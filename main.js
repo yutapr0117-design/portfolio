@@ -439,7 +439,7 @@
         const {
             RouteState, EffectRails, BindingRegistry, ActionDelegator, DiagnosticsRail
         } = createAIDKRails({
-            State, Toast, Router, CONSTANTS, applyMeta, h, createIcon,
+            applyMeta,
             Theme, BGM,
             secureExternalLinks: (...args) => _drawer.secureExternalLinks?.(...args),
             openDrawer: () => _drawer.openDrawer?.()
