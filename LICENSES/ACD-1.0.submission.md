@@ -127,6 +127,47 @@ answer none of them:
    which parts are machine-generated, and if a right is later held to subsist, Sections 3
    to 8 and Section 12 apply to it in full.
 
+### 1b. Whether an instrument of this kind is reviewable at all
+
+This question comes before the others, so it is answered first.
+
+**The OSI's stated position is that a public-domain dedication, taken alone, is not an open
+source licence.** That position is not a technicality to be argued around; it is the reason the
+form of this instrument was chosen rather than a bare waiver. If ACD-1.0 were only a dedication,
+the correct outcome would be that it falls outside what this list reviews.
+
+**It is not only a dedication.** §3 supplies a licence that operates wherever the dedication is
+ineffective, so that in every jurisdiction the recipient holds **either a dedication or a
+licence — never nothing**. §2 and §4 grant permissions in licence terms. The instrument is a
+hybrid by construction, and the hybrid half is not decorative: it is what carries the effect in
+the jurisdictions where waiver of authorial rights is not possible.
+
+**There is precedent for reviewing exactly this hybrid.** The Unlicense — an attempt at a public
+domain dedication that also uses licence-grant wording — was submitted in March 2020 and
+approved by the board in June 2020, and the discussion turned on that dual nature rather than
+treating the dedication half as disqualifying. The archives are public and worth reading against
+this submission:
+<https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2020-June/004890.html>
+
+**Two differences from that precedent, both of which cut against this submission and are stated
+here rather than left to be discovered.**
+
+1. **The Unlicense entered by a request for *legacy* approval** — it was already in widespread
+   use by many unaffiliated parties, and that adoption carried weight the text alone might not
+   have. ACD-1.0 has one adopter and cannot borrow that argument. It has to stand on the text.
+2. **The Unlicense was approved despite broad agreement that it is poorly drafted.** ACD-1.0
+   errs in the opposite direction: 16 sections and 82 clauses, which will draw the opposite
+   criticism — that it is too long for what it does (answered at length in
+   `ACD-1.0.review-responses-meta.md` Q17). That trade was made deliberately. Where the
+   Unlicense's brevity left questions to be resolved by argument, this text tries to answer them
+   in the text, and pays for it in length.
+
+**What follows if the hybrid framing is rejected.** If the list's view is that §3's fallback does
+not make this a licence, then the honest conclusion is that ACD-1.0 is not a candidate for OSI
+approval in its present form, and the response will be to say so rather than to redraft under
+pressure. `ACD-1.0.submission.md` §E.2 already records what would cause the submission to be
+withdrawn; this is one of those conditions.
+
 ### 2. How ACD-1.0 differs from the closest OSI-approved licences
 
 **Closest on "zero conditions": 0BSD.** 0BSD grants permission to *use, copy, modify and
