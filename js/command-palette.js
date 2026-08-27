@@ -118,7 +118,6 @@ export function createCommandPalette({ Router, h, createIcon, State, closeDrawer
                 class: 'cmdk-item' + (i === activeIdx ? ' is-active' : ''),
                 role: 'option',
                 'aria-selected': i === activeIdx ? 'true' : 'false',
-                'data-idx': String(i),
                 onclick: () => _choose(i),
             }, createIcon('arrowUpRight', 16), h('span', { class: 'icon-gap' }, d.label)));
         });
