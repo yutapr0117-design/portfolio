@@ -149,7 +149,12 @@ treating the dedication half as disqualifying. The archives are public and worth
 this submission:
 <https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2020-June/004890.html>
 
-**Two differences from that precedent, both of which cut against this submission and are stated
+The committee's own words are worth quoting, because they state the doctrine and the escape from
+it in one sentence: the Unlicense "is an attempt to dedicate a work to the public domain (which,
+taken alone, would not be approved as an open source license) but it also has wording commonly
+used for license grants."
+
+**Four differences from that precedent, all of which cut against this submission and are stated
 here rather than left to be discovered.**
 
 1. **The Unlicense entered by a request for *legacy* approval** — it was already in widespread
@@ -161,6 +166,20 @@ here rather than left to be discovered.**
    `ACD-1.0.review-responses-meta.md` Q17). That trade was made deliberately. Where the
    Unlicense's brevity left questions to be resolved by argument, this text tries to answer them
    in the text, and pays for it in length.
+
+3. **That approval rested on legal advice.** The committee recorded that legal advisors
+   concluded the document "would most likely be interpreted as a license and that the license met
+   the OSD." That is the decisive step, and it is precisely the step this submission cannot
+   replicate: no lawyer has read ACD-1.0 (§5, §4c). Where the Unlicense had counsel's reading to
+   resolve the dedication-versus-licence question, this submission has only the structure of the
+   text and whatever reading the list gives it.
+4. **It was not placed in a general category.** The committee recommended the Unlicense be placed
+   in the "Special Purpose" category "because of its intended nature as a dedication to the public
+   domain," and **rejected** the submitter's request for the "Popular and Widely-Used or With
+   Strong Communities" category. If ACD-1.0 were approved, a comparable narrow placement is the
+   realistic expectation, not a general endorsement — which is consistent with §4a above, where
+   this submission disclaims any request for such designations. (OSI's category names have since
+   been revised; the point is the narrowness, not the label.)
 
 **What follows if the hybrid framing is rejected.** If the list's view is that §3's fallback does
 not make this a licence, then the honest conclusion is that ACD-1.0 is not a candidate for OSI
