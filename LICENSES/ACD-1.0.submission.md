@@ -136,11 +136,18 @@ source licence.** That position is not a technicality to be argued around; it is
 form of this instrument was chosen rather than a bare waiver. If ACD-1.0 were only a dedication,
 the correct outcome would be that it falls outside what this list reviews.
 
-**It is not only a dedication.** §3 supplies a licence that operates wherever the dedication is
-ineffective, so that in every jurisdiction the recipient holds **either a dedication or a
-licence — never nothing**. §2 and §4 grant permissions in licence terms. The instrument is a
-hybrid by construction, and the hybrid half is not decorative: it is what carries the effect in
-the jurisdictions where waiver of authorial rights is not possible.
+**It is not only a dedication, and the licence half is not a fallback.** §3 is the surrender and
+waiver. §4 is a licence grant, and §4.4 says in terms that it "is granted independently of
+Section 3 and does not depend on Section 3 being ineffective" — where §3 works, §4 "is redundant
+but not void, and it remains available to be relied upon by You," and "You are not required to
+determine whether Section 3 is effective in any jurisdiction."
+
+That construction is stronger than a fallback, and the difference matters to this question. A
+fallback invites the argument that the licence exists only if and when a court first finds the
+dedication ineffective — leaving open who decides, under which law, and what the recipient may
+rely on meanwhile. §4.1 grants outright: worldwide, royalty-free, irrevocable, perpetual,
+sublicensable, "subject to no condition of any kind" (§4.3). In every jurisdiction the recipient
+holds a licence on its own terms, and holds it without having to resolve anything about §3.
 
 **There is precedent for reviewing exactly this hybrid.** The Unlicense — an attempt at a public
 domain dedication that also uses licence-grant wording — was submitted in March 2020 and
@@ -181,8 +188,8 @@ here rather than left to be discovered.**
    this submission disclaims any request for such designations. (OSI's category names have since
    been revised; the point is the narrowness, not the label.)
 
-**What follows if the hybrid framing is rejected.** If the list's view is that §3's fallback does
-not make this a licence, then the honest conclusion is that ACD-1.0 is not a candidate for OSI
+**What follows if the hybrid framing is rejected.** If the list's view is that §4's independent
+grant does not make this a licence, then the honest conclusion is that ACD-1.0 is not a candidate for OSI
 approval in its present form, and the response will be to say so rather than to redraft under
 pressure. `ACD-1.0.submission.md` §E.2 already records what would cause the submission to be
 withdrawn; this is one of those conditions.
@@ -372,8 +379,8 @@ renumbered, a section that says "as set out below" with nothing below it. Those 
 faults a machine can rule out, and ruling them out is not nothing — it means the review time you
 spend can go to substance instead of bookkeeping.
 
-**What it does not establish.** Whether §3's fallback licence actually functions in a
-jurisdiction that rejects waiver. Whether §8.4's patent grant reaches what it says it reaches.
+**What it does not establish.** Whether §4's independent grant is given effect in a
+jurisdiction that rejects waiver, and how a court there characterises the instrument as a whole. Whether §8.4's patent grant reaches what it says it reaches.
 Whether §12's moral-rights construction is effective in France. Whether §13/§14 survive contact
 with consumer-protection law. Every one of those is a legal question, none of them is answered
 here, and `ACD-1.0.jurisdictions.md` deliberately records them as **questions rather than
