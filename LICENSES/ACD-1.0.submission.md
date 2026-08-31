@@ -250,6 +250,14 @@ criteria the committee asks submitters to speak to directly:
   against fields of endeavour).** Section 4.3 states that the licence is conditioned on no
   restriction as to persons, groups, technologies, endeavours or jurisdictions, and on no
   field of use.
+- **OSD 5 (No discrimination against persons or groups).** §4.3 states the licence is not
+  conditioned "on the identity, character, or purpose of the user, or on any restriction as to
+  persons, groups, technologies, endeavours, or jurisdictions." §2.3 adds that the grant takes
+  effect without any act of acceptance, so there is no gate at which a person could be excluded.
+- **OSD 6 (No discrimination against fields of endeavour).** The same sentence of §4.3 excludes
+  conditioning "on field of use." §6 goes further in one direction only — it names machine
+  learning and text-and-data-mining expressly in order to **permit** them, not to single them out
+  for a condition.
 - **OSD 7 (Distribution of licence).** Section 2.3 makes the licence effective without any
   act of acceptance; Section 16.2 makes an identifier or SPDX tag sufficient notice, so
   rights attach to every recipient without further action.
@@ -259,6 +267,29 @@ criteria the committee asks submitters to speak to directly:
 - **OSD 10 (Licence must be technology-neutral).** Section 2.3 requires no click-through
   or other individual act of assent; Section 5.2(b) forbids imposing one by collateral
   means.
+
+### 3b. Where a reviewer could still argue, criterion by criterion
+
+The list above says why each criterion is met. This one says where the meeting is arguable, so
+that the two are read together rather than one being discovered after the other.
+
+| Criterion | The argument against | Why it is nonetheless met |
+|---|---|---|
+| **OSD 1** Free redistribution | §4.5 lets You redistribute "under any terms You choose, including terms that impose conditions upon Your own recipients." A reviewer may ask whether an instrument that permits proprietary relicensing satisfies a criterion about free redistribution | It does, and this is settled: every permissive approved licence allows it. OSD 1 constrains what the **licence** may require, not what a redistributor may add |
+| **OSD 2** Source code | The instrument never requires source to be available. §10.2 says You "need not ... make source available" | OSD 2 bars a licence from **obstructing** source distribution and requires the preferred form when a program is distributed under it; §4.2 grants distribution "in source form, in object form, or in any other form." Permissive licences are approved on this basis |
+| **OSD 3** Derived works | — | §4.2 grants adaptation, modification and derivative works expressly, and §4.3 attaches no condition to them |
+| **OSD 4** Integrity of the author's source code | §16.4 forbids distributing **the licence text** in modified form under the name or identifier. A reviewer skimming may read that as a restriction on the Work | It is not: §10.1 is limited to conditions "in respect of the Work," and §16.4 governs the licence text only. The provision is the same name-integrity term GPL and Apache-2.0 carry for their own texts. The looseness is in the notice wording, recorded as errata E3 |
+| **OSD 5** Persons or groups | §11.3 withholds one thing — falsely representing the Dedicator's authorship or endorsement | §11.3 says in terms that it "states a limit of the Dedication's reach; it is not a condition upon You, and Section 10.1 is unaffected by it." Misrepresentation was never the Dedicator's to permit, so withholding it discriminates against no one |
+| **OSD 6** Fields of endeavour | §6 names machine learning and TDM specifically. Naming a field at all can look like singling it out | The naming is entirely permissive: §6 grants and disclaims reservation. §4.3 excludes conditioning on field of use. A grant aimed at a field is not a restriction on it |
+| **OSD 7** Distribution of licence | **The sharpest one.** §10.2 says You need not "reproduce any notice ... retain this file, or inform anyone of anything," and §4.5 adds that nothing requires Your terms to reproduce this text. A downstream recipient may therefore never see that the Work is under ACD-1.0 | The criterion is about rights applying without an additional licence, not about notice. §1.4 defines You as **any** person exercising permissions, §4.1 grants to You directly, and §2.3 makes the grant effective "without any act of acceptance." Every recipient holds the grant from the Dedicator, not through a chain. **Precedent is squarely on point:** MIT-0 and 0BSD are approved and likewise require no notice retention. The practical gap — a recipient who does not know what they hold — is real and is recorded as adverse fact #20 rather than argued away |
+| **OSD 8** Not specific to a product | §16.3's wording is broader than needed (errata E2) | §16.3 states the instrument "is not specific to any project, person, organisation, jurisdiction, or field of endeavour," and the structural evidence is in §4b: no project name, no URL, no placeholder, no edit required to adopt |
+| **OSD 9** Must not restrict other software | §5.2(b) is a wide covenant about collateral obligations, and §4.5 speaks to what You may add | Both point away from restricting other software: §5.2 binds the **Dedicator**, and §4.5 expressly permits Your other terms to be "incompatible with these." Nothing conditions the licensing of anything distributed alongside the Work |
+| **OSD 10** Technology-neutral | §2.3 forbids click-through, but §6 is written around a particular technology | §2.3 is the operative provision for OSD 10 and it removes the acceptance ritual entirely. §6's subject matter is technological; its **effect** is a grant with no technological predicate |
+
+**The one that would actually be litigated on the list is OSD 7**, and not because the criterion
+fails — it does not — but because ACD-1.0 goes further than most approved licences in releasing
+the recipient from any obligation to carry the notice forward. That choice is deliberate (§10.2),
+it has approved precedent, and its cost is stated as an adverse fact rather than defended.
 
 ### 4. What is deliberately absent
 
