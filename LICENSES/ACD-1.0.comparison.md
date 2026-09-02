@@ -32,16 +32,51 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / doc
 
 ---
 
-## 1. 無条件系（既出・要点のみ）
+## 1. 無条件系 —— **最も近い承認済みライセンスとの比較（この文書の主題）**
 
-詳細は `acd-license-rationale.md` §2 と §2.1。要点だけ再掲する。
+OSI が新規ライセンスの提出者に求めるのは、**最も近い承認済みライセンスとの比較**である。
+以下がその節にあたる。他の族（copyleft / AI 用途制限 / source-available / データ）は、
+承認済みではないか、そもそも「条件を課さない」という性質を共有しないので、比較としては
+副次的である。**この節が最も厚くあるべきで、以前はここが最も薄かった。**
 
 > **English:**
 >
-> Among licences that impose no condition at all — CC0, the Unlicense, MIT-0, 0BSD, WTFPL —
-> every one is silent on patents (CC0 expressly excludes them), on machine learning and TDM,
-> on TDM reservation, and on material whose authorship is uncertain. The "no conditions"
-> character is the same; the coverage is not.
+> **The nearest OSI-approved licences.** MIT-0 and 0BSD are the closest by effect: both are
+> permissive grants with the notice condition removed, so like ACD-1.0 they ask nothing of a
+> recipient. The Unlicense is the closest by *form*: it is a public domain dedication with a
+> fallback grant, approved in 2020 on a legacy request. CC0 is the closest by *intent* but is
+> not approved — Creative Commons withdrew it from review in 2012 over its express exclusion
+> of patent rights.
+>
+> | | Conditions on You | Express patent grant | ML / TDM addressed | Reservation signals | Rights may not subsist | Moral rights | Binds successors |
+> |---|---|---|---|---|---|---|---|
+> | **MIT-0** | none | no | no | no | no | no | no |
+> | **0BSD** | none | no | no | no | no | no | no |
+> | **Unlicense** | none | no (silent) | no | no | dedication form only | no | no |
+> | **CC0** (not approved) | none | **expressly excluded** | no | no | dedication form only | waived where possible | no |
+> | **Apache-2.0** | notice, NOTICE file | yes, limited to claims necessarily infringed | no | no | no | no | no |
+> | **ACD-1.0** | none | yes, reaching computational use, models and outputs (§8.4) | yes, affirmatively (§6) | expressly declines to make one (§6.2) | §9 makes permissions independent of subsistence | §12.1 waiver, §12.2 covenant where waiver is impossible | §2.8, §12.4 |
+>
+> **What ACD-1.0 adds, stated as narrowly as it can be.** Four things, and only four: a patent
+> grant that follows the work into training and inference; an affirmative statement about
+> machine learning and text-and-data-mining, including a refusal to make a reservation; a
+> construction that does not assume any right subsists in the first place; and provisions that
+> follow the rights when they change hands. Everything else it shares with MIT-0 and 0BSD.
+>
+> **When the approved alternatives are the better choice — which is most of the time.** If the
+> work is ordinary software, if the author holds no patents, if no text-and-data-mining opt-out
+> regime is in play, and if authorship is not in doubt, then **MIT-0 or 0BSD is the better
+> licence**, and this submission says so plainly. They are shorter, they are approved, licence
+> scanners recognise them, and a reader's legal team has seen them before. ACD-1.0 earns its
+> existence only in the narrow band where those four assumptions fail together — which is where
+> this repository sits, and which is not where most projects sit.
+>
+> **The proliferation question is therefore not "is ACD-1.0 different?"** — it demonstrably is,
+> in the four respects above. It is "**is that difference worth another licence in the world?**"
+> That is a judgement for the list, and the honest position is that the answer is not obviously
+> yes. What can be said is that the gap is real, that no approved licence closes it, and that
+> combining approved licences does not close it either (§5.5 addresses the CC0-plus-patent-pledge
+> construction directly).
 
 ---
 
