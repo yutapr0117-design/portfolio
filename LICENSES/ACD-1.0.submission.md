@@ -377,12 +377,19 @@ separate designations driven by adoption data, and this submission makes no clai
 Saying so up front is not modesty — conflating "conforms to the OSD" with "should be widely
 used" is a common way for a submission to overreach, and the honest position is the narrower one.
 
-**Timeline expectations are the reviewers', not mine, and the documented figure is not the
-observed one.** The process describes a decision on the order of two months. The closest
-comparable submission tells a different story: ModelGo, the other AI-specific licence in review,
-was submitted in February 2025, reached a third resubmission in December 2025, and its author's
-follow-ups in January, May and July 2026 have gone unanswered. This submission sets no deadline,
-asks for no expedited handling, and **will not read silence as a verdict**. If the
+**Timeline expectations are the reviewers', not mine, and the two comparable submissions do not
+point the same way.** The process describes a decision on the order of two months. The two
+AI-specific licences actually in review show a wider spread than that figure, in both directions:
+
+- **ModelGo** was submitted in February 2025, reached a third resubmission in December 2025, and
+  its author's follow-ups in January, May and July 2026 have gone unanswered.
+- **OpenMDW-1.1** is still on its first submission, and its August 2026 thread alone runs to some
+  48 messages among about a dozen participants — substantive engagement rather than silence,
+  with several of the submitter's explanations reported as resolving the concerns raised.
+
+Either pattern is possible here. This submission sets no deadline, asks for no expedited
+handling, **will not read silence as a verdict**, and does not treat repeated revision as
+failure — ModelGo's three rounds are what "improve and resubmit" looks like when it is working. If the
 outcome is rejection, §E.2 already states what would cause the licence to be withdrawn rather
 than re-argued.
 
