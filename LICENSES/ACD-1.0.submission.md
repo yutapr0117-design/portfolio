@@ -377,8 +377,12 @@ separate designations driven by adoption data, and this submission makes no clai
 Saying so up front is not modesty — conflating "conforms to the OSD" with "should be widely
 used" is a common way for a submission to overreach, and the honest position is the narrower one.
 
-**Timeline expectations are the reviewers', not mine.** The process describes review on the order
-of two months; this submission sets no deadline and asks for no expedited handling. If the
+**Timeline expectations are the reviewers', not mine, and the documented figure is not the
+observed one.** The process describes a decision on the order of two months. The closest
+comparable submission tells a different story: ModelGo, the other AI-specific licence in review,
+was submitted in February 2025, reached a third resubmission in December 2025, and its author's
+follow-ups in January, May and July 2026 have gone unanswered. This submission sets no deadline,
+asks for no expedited handling, and **will not read silence as a verdict**. If the
 outcome is rejection, §E.2 already states what would cause the licence to be withdrawn rather
 than re-argued.
 
