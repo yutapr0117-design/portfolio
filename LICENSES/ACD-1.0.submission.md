@@ -127,6 +127,44 @@ answer none of them:
    which parts are machine-generated, and if a right is later held to subsist, Sections 3
    to 8 and Section 12 apply to it in full.
 
+### 1a. Two other AI-native instruments are already before this list
+
+Stated here because the gap argument above is weaker if it is read as "nobody else is working
+on this," which was never true and is not claimed.
+
+**OpenMDW-1.1** (Linux Foundation) and **ModelGo v2** (MG0-2.0 and MG-BY-2.0, National
+University of Singapore) are in review. Both are drafted for machine learning model materials:
+OpenMDW's subject matter is "one or more machine learning models (including architecture and
+parameters); and all related artifacts (including associated data, documentation and software)";
+ModelGo's is the Model plus Complementary Materials, with pretraining datasets expressly outside
+scope.
+
+**They answer a different question, and for their question they are better.** Theirs is *how do
+I license a model?* If that is the question, OpenMDW is the better instrument today — it names
+the artefacts a model release consists of, it has an institutional steward, and it has been
+through counsel. ACD-1.0's question is *how do I release any work so that machine processing of
+it is unencumbered?*, and it reaches models only because a model is a work.
+
+**Where their coverage exceeds ours.** OpenMDW licenses **trade secret rights** expressly;
+ACD-1.0's Covered Rights (§1.5) do not reach them. For weights protected by confidentiality
+rather than copyright, that is a gap on our side. (Whether licensing a trade secret has legal
+effect was itself questioned in OpenMDW's review, so the point is contested, not settled.)
+
+**Where ours differs.** ACD-1.0 imposes no condition at all, where OpenMDW requires the agreement
+and notices to be retained and MG-BY requires attribution and a modification notice. ACD-1.0 has
+no patent retaliation, where OpenMDW and MG-BY terminate on suit — deliberate, since a
+termination trigger is a condition, but many reviewers regard defensive termination as a feature.
+And ModelGo **excludes** models derived by distillation or synthetic data generation from its
+Derivative Materials, where ACD-1.0 §8.4 grants toward "any model, parameter set, weight,
+embedding, or output" of Computational Use. That last axis is where the three are genuinely in
+tension rather than merely adjacent.
+
+**The proliferation question this raises.** Not "is ACD-1.0 different from OpenMDW and ModelGo"
+— it is, in subject matter and in conditions. It is whether the adjacent question is worth a
+separate instrument when two others are already in flight for the neighbouring one. That is a
+judgement for the list. `ACD-1.0.comparison.md` §1.5 sets out the full comparison, and
+`ACD-1.0.against.md` #28–#31 record what this comparison costs our case.
+
 ### 1b. Whether an instrument of this kind is reviewable at all
 
 This question comes before the others, so it is answered first.
