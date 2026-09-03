@@ -165,6 +165,39 @@ separate instrument when two others are already in flight for the neighbouring o
 judgement for the list. `ACD-1.0.comparison.md` §1.5 sets out the full comparison, and
 `ACD-1.0.against.md` #28–#31 record what this comparison costs our case.
 
+### 1c. Section 6 is a statement about my own rights, not a policy position
+
+Raised here because the same ground is being contested in another review as this is written, and
+because the distinction is easy to lose.
+
+A participant in the OpenMDW review put the difficulty plainly: the training-data question "is
+the center of the whole open source ai definition debate and IMO won't be solved by a license but
+needs to be solved at the policy level," and a licence review should not be "encumbered by policy
+discussions." That is a fair warning, and §6 of this instrument is exactly where it could apply.
+
+**It does not, and the text is drafted so that it does not.** §6 says nothing about what anyone
+else may reserve, what any legislature should do, or how fair use and the EU text-and-data-mining
+exception ought to be reconciled. It says what **this Dedicator** does with **this Dedicator's**
+rights:
+
+- §6.2 is limited on its face to "the Covered Rights and patent claims of the Dedicator" — the
+  Dedicator makes no reservation and declines to make one.
+- §2.7 confines the whole instrument to rights the Dedicator holds, and disclaims any
+  representation that the material is otherwise unencumbered.
+- §6.3 reaches reservations by others only to the extent the Dedicator "is able", which §2.7
+  already bounds.
+- §6.5 concedes the point that §6 is declaratory of §3–§5 rather than an independent enlargement.
+
+**Why state it at all, if it is declaratory?** Because in a regime where an opt-out is exercised
+by signalling, silence is not neutral — a work with no signal invites the argument that a
+reservation may exist. Saying "no reservation is made, and none will be" removes that argument
+for this work, without asserting anything about the regime itself.
+
+**What this submission is therefore not asking the list to decide.** Whether TDM opt-out regimes
+are good policy. Whether training on lawfully accessible material should require permission.
+Whether the Open Source AI Definition should require open training data. None of those is
+necessary to decide whether an instrument that reserves nothing meets the Open Source Definition.
+
 ### 1b. Whether an instrument of this kind is reviewable at all
 
 This question comes before the others, so it is answered first.
