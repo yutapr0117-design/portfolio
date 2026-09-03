@@ -185,6 +185,38 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 
 ### §15 / §16
 
+**Q. §16.1 は、まだ割り当てられていない SPDX 識別子を書けと指示している。これは誤りではないのか。**
+
+> **English:**
+>
+> It is, and it is the one place in the text that directs a reader to do something incorrect.
+> The recommended notice in Section 16.1 includes `SPDX-License-Identifier: ACD-1.0`, but SPDX
+> has not registered that identifier. The conforming form for an unregistered licence is a
+> `LicenseRef-` string, so a notice written exactly as the clause directs is not SPDX-conforming
+> and scanners will not match it.
+>
+> I am not fixing it. The text is frozen for the duration of this discussion and CI pins its
+> SHA-256, because editing wording underneath a live review would mean you were reading one text
+> and commenting on another. It is recorded as the highest-severity item in
+> `LICENSES/ACD-1.0.errata.md` (E1) and is the first change a 1.1 would make.
+>
+> Two things bound the practical effect. The identifier a licence assigns itself is
+> conventionally the string SPDX later registers, so the notice is not wrong about *what the
+> identifier will be* — only about whether it is usable today. And the machine-readable
+> descriptor does not repeat the error: `ACD-1.0.machine.json` records `osiApproved: false` and
+> `spdxListed: false`, and its `notice` field omits the identifier line entirely. The
+> human-facing notice should have borrowed that honesty; that asymmetry is the actual defect.
+
+**なぜこう答えるか**: **自分の文書が読み手に誤った行動を指示している**のは、精度の問題では
+なく実害である。隠して指摘されるより、severity を自分で「最も高い」と述べたうえで、
+**なぜ今直さないのか**を説明するほうが強い。凍結の理由（審査対象が動くと審査が無意味になる）
+は、こちらの都合ではなく**審査側の利益**である点を明示する。
+
+なお **FAQ には利用者向けの答え（`LicenseRef-ACD-1.0` を使う）が既にあった**が、
+**審査者が突く場所での準備が無かった** —— 同じ欠陥について「使う側にどう案内するか」と
+「審査でどう答えるか」は別に用意する必要がある。
+
+
 **Q. §15.7 で準拠法を定めないのは欠陥では。**
 
 > **English:**
