@@ -80,6 +80,72 @@ OSI が新規ライセンスの提出者に求めるのは、**最も近い承�
 
 ---
 
+## 1.5 AI-native な同時代 instrument（OSI 審査中・2026-09 時点）
+
+**ACD-1.0 は、OSI の前にある唯一の AI-native instrument ではない。** 2026-09 時点で
+**OpenMDW-1.1**（Linux Foundation 起草）と **ModelGo v2**（MG0-2.0 / MG-BY-2.0・
+シンガポール国立大学）が license-review に係属している。proliferation の問いは、この節を
+書く前は抽象的だったが、いまは**具体的な競合が 2 つある**状態で問われる。
+
+> **English:**
+>
+> **What each is for.** OpenMDW and ModelGo answer *"how do I license a machine learning
+> model?"* Both define their subject matter as model artefacts: OpenMDW's "Model Materials"
+> are "one or more machine learning models (including architecture and parameters); and all
+> related artifacts (including associated data, documentation and software)"; ModelGo's
+> "Licensed Materials" are the Model plus Complementary Materials, with pretraining datasets
+> expressly outside scope. ACD-1.0 answers a different question — *"how do I release any work
+> so that machine processing of it is unencumbered?"* — and reaches models only because a model
+> is a work like any other.
+>
+> | | OpenMDW-1.1 | MG0-2.0 | MG-BY-2.0 | ACD-1.0 |
+> |---|---|---|---|---|
+> | Subject matter | Model Materials (model + data + docs + software) | Model + Complementary Materials; **pretraining data excluded** | same as MG0 | any Work; data, metadata, audiovisual named (§1.2) |
+> | Copyright | yes | yes | yes | §3 surrender, §4 licence |
+> | Patent | yes, incl. indirect infringement | yes | termination clause; grant not stated in the same terms | §8.1, and §8.4 reaching models and outputs |
+> | Database rights | yes | yes | yes | §7 (sui generis + unfair extraction) |
+> | **Trade secret** | **yes, expressly** | not named | not named | **not covered** — §1.5 lists copyright, performance, broadcast, database, unfair extraction, "any right of similar effect", and excludes patents, trademarks, moral rights |
+> | Conditions on You | **retain agreement + notices** | trademark/publicity consent | **attribution + modification notice + retained notices**; trademark/publicity consent | none (§10.1) |
+> | Patent retaliation | **terminates on suit** | — | **terminates on suit** | **none, expressly** (§8.2) |
+> | Outputs | no restrictions or obligations | disclaimed | disclaimed | §6.4 unencumbered; §8.4 patent grant follows outputs |
+> | Distilled / synthetic-data models | not addressed | **excluded from Derivative Materials** | excluded | not carved out; §8.4 reaches "any model, parameter set, weight, embedding, or output" |
+>
+> **Where they are better than ACD-1.0, stated plainly.**
+>
+> 1. **For releasing a model, OpenMDW is the better fit.** It names the artefacts a model
+>    release actually consists of, it is drafted by the Linux Foundation, and it has been through
+>    counsel. ACD-1.0 covers the same material only by generality. If the question is "what
+>    licence do I put on my weights", the honest answer today is OpenMDW, not ACD-1.0.
+> 2. **OpenMDW covers trade secret rights and ACD-1.0 does not.** For model weights — where
+>    protection may rest on confidentiality rather than copyright — that is a real gap on our
+>    side. (Whether licensing a trade secret has legal meaning was itself questioned in OpenMDW's
+>    review, so the advantage is contested rather than settled.)
+> 3. **Both have institutional stewards.** ACD-1.0 has one individual (adverse fact #10).
+>
+> **Where ACD-1.0 differs, and it is not only in its favour.**
+>
+> 1. **ACD-1.0 imposes no condition at all.** OpenMDW requires the agreement and notices to be
+>    retained; MG-BY requires attribution and a modification notice. Whether "no condition" is
+>    better depends on the adopter, not on the instrument.
+> 2. **ACD-1.0 has no patent retaliation.** OpenMDW and MG-BY terminate on suit. ACD-1.0 §8.2
+>    declines that expressly. This is a deliberate difference — a termination trigger is a
+>    condition — but many reviewers regard defensive termination as a feature.
+> 3. **ModelGo carves distilled and synthetic-data-derived models out of Derivative Materials;
+>    ACD-1.0 grants toward them.** §8.4 reaches "any model, parameter set, weight, embedding, or
+>    output" of Computational Use. On this axis ACD-1.0 is the more permissive instrument, and
+>    it is the axis where the three are genuinely in tension rather than merely different.
+> 4. **ModelGo restricts referring to the Licensor for publicity without prior written consent.**
+>    ACD-1.0 grants no trademark right (§11.1) but imposes no such restriction.
+>
+> **Do they compete?** Partly. They overlap where the Work is a model and the question is
+> licensing its artefacts — there OpenMDW is purpose-built and ACD-1.0 is general. They do not
+> overlap where the Work is not a model: OpenMDW and ModelGo have nothing to say about a
+> documentation set, a dataset released on its own, a metadata layer, or material whose
+> authorship is uncertain, and ACD-1.0's §9 is addressed to exactly that last case. The three
+> are best read as answering adjacent questions, and **that is an argument for ACD-1.0 existing
+> only if the adjacent question is worth a separate instrument** — which §1 of this document
+> says is true in a narrow band and false outside it.
+
 ## 2. Copyleft 系（GPL / AGPL / LGPL / MPL / EUPL）
 
 **これは価値観の問いである。** 「なぜ共有を要求しないのか」に技術的な答えを返すと噛み合わない。

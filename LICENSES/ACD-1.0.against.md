@@ -62,13 +62,26 @@ is a fair criticism of the text itself.
 
 | 27 | **The recommended notice says "no conditions are imposed," but §16.4 does impose one.** The licence text "may not be distributed in modified form under the name 'Autonomous Commons Dedication' or under the identifier 'ACD-1.0'." A reviewer reading the notice in §16.1 and then §16.4 three lines later has a fair prima facie contradiction to raise | **Answered by the text, though not by the notice.** §10.1 is expressly limited: it imposes no condition "**in respect of the Work**." §16.4 governs the licence text, which is not the Work — the Work is whatever a Dedicator applies the instrument to. The two therefore do not overlap, and the restriction is the same name-integrity provision GPL and Apache-2.0 carry for their own texts, which OSD #4 contemplates for derived works. What is imprecise is the **shorthand**: the notice drops the qualifier that makes the statement true. That is where a reviewer will aim, and it is a 1.1 candidate for the notice wording rather than for §10.1 |
 
+## What the AI-native comparison added (2026-09-04)
+
+Three instruments now before OSI — OpenMDW-1.1 (Linux Foundation) and ModelGo MG0-2.0 /
+MG-BY-2.0 (NUS) — were read against ACD-1.0. Four adverse facts came out of it. The comparison
+itself is in `ACD-1.0.comparison.md` §1.5.
+
+| # | Adverse fact | Status |
+|---|---|---|
+| 28 | **ACD-1.0 is not the only AI-native instrument in front of OSI.** OpenMDW-1.1 and ModelGo v2 are in active review. Until now this dossier argued proliferation in the abstract — "no existing licence closes the gap." That framing was written without accounting for two instruments drafted for adjacent gaps, one of them by the Linux Foundation | **Weakens the case, and the framing has been corrected.** The gap ACD-1.0 addresses (computational use of *any* work, including material whose authorship is uncertain) is still not the gap those two address (licensing *model artefacts*). But "no one else is working on this" was never true and is no longer claimed |
+| 29 | **ACD-1.0's most distinctive provisions sit where OSI's review capacity is thinnest.** A reviewer in the OpenMDW thread observed that the "OSI community has a limited history of accumulated discussion on intellectual property rights beyond copyright." ACD-1.0 leans on §7 (sui generis database rights), §8 (patents, reaching models and outputs) and §12 (moral rights) — three areas in exactly that category | **Unresolved procedural risk.** It cuts both ways: the questions may not get expert scrutiny, or they may get scrutiny that no one is confident in. Neither is a good position for an instrument with no legal review of its own (#1) |
+| 30 | **The criticisms already levelled at OpenMDW apply to ACD-1.0 as well.** Its review raised that the licence "effectively forces due diligence for the model onto the user" and "has the potential to encourage openwashing." ACD-1.0 does the same through §13.2, which warrants neither that rights subsist, nor that the Dedicator holds them, nor that use infringes no one | **Accepted, and shared with the field.** Every instrument that disclaims title shifts diligence to the recipient. That does not make the criticism wrong — it makes it structural, and worth answering rather than deflecting to "everyone does it" |
+| 31 | **ACD-1.0 does not cover trade secret rights; OpenMDW does, expressly.** Where a model's protection rests on confidentiality rather than copyright, ACD-1.0's Covered Rights (§1.5 — copyright, performances, broadcast, database, unfair extraction, "any right of similar effect") arguably do not reach it | **Genuine coverage gap, contested in significance.** Whether licensing a trade secret has legal meaning at all was itself questioned in OpenMDW's review, so this is not simply "they cover more than us." But for the model case it is a difference in their favour, and ACD-1.0 makes no claim to it |
+
 **What this exercise changed.** Two dossier statements were wrong and have been corrected
 (#15, #24 — the second of them a misdescription of which section grants the licence, which had
 been repeated across the submission packet). Two criticisms of the text are accepted as fair and
 left unrepaired because the text is frozen (#18, #20), with #22 a third if the looser reading is
 taken. Three are costs that were understated and are now stated (#16, #17, #21). **Nothing
 raised was dismissed**, and three rounds together moved the count of adverse facts from 14 to
-**27** — which is the honest direction for a list like this to move as it is examined. The third round was not prompted by anyone: it audited the dossier's own clause citations against the text, on the theory that the §3/§4 error (#24) was found only because someone finally read the clause, and that others of the same kind were likely.
+**31** — which is the honest direction for a list like this to move as it is examined. The third round was not prompted by anyone: it audited the dossier's own clause citations against the text, on the theory that the §3/§4 error (#24) was found only because someone finally read the clause, and that others of the same kind were likely.
 
 ## What survives
 
