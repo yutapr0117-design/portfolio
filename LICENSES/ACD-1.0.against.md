@@ -101,6 +101,48 @@ Everything mechanically checkable about the text has been checked and is recorde
 commands to re-check it (submission §4c). Everything legal is unchecked, and no amount of care
 in the first category substitutes for the second.
 
+### What has held up, stated with the same discipline as the list above
+
+The adverse list grew from 14 entries to 33 across four rounds of examination. This section did
+not grow at all, and that asymmetry was itself a distortion: a document whose adverse side
+scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
+follows is what actually held, restricted to things that were tested rather than asserted.
+
+1. **No design decision has been overturned.** Four rounds of adversarial reading — two prompted
+   by third parties, two self-initiated — produced 33 adverse facts, five errata, and two
+   corrections to our own descriptions. **None of them changed a design decision recorded in
+   `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
+   explanations of those decisions (#24) and the precision of the text's wording (E1–E5). For an
+   instrument with no legal review, "the design held and the drafting was imprecise" is a
+   meaningfully better result than the reverse.
+2. **Nothing found changes what a recipient may do.** Every errata entry is a matter of
+   precision, scope of wording, or the form in which a conclusion is stated. A defect of the
+   other kind would be recorded here immediately, and the honest response to one might be
+   withdrawal rather than repair.
+3. **The machine-readable layer verified clean.** All 29 clause pointers in
+   `ACD-1.0.machine.json` resolve to clauses that exist and are about the subject claimed, and
+   both machine-readable files record `osiApproved: false` and `spdxListed: false` rather than
+   overstating status. That is the same class of error as #24, checked mechanically and absent.
+4. **The question it answers is not the question the other two answer.** OpenMDW and ModelGo
+   licence model artefacts; ACD-1.0 addresses computational use of any work, including material
+   whose authorship may not subsist at all (§9). Neither of them has anything to say about that
+   last case. This does not settle proliferation — see #28 and #33 — but it does settle overlap.
+5. **A first approval in this category would help, whoever earns it.** #33 records that no
+   AI-specific licence has ever been approved as an adverse fact, and it is one. The same fact
+   read forward is different: **if either instrument now in review is approved, the barrier that
+   #33 describes stops existing for everyone**, including a submission that does not compete
+   with them. Being early in a category with no precedent is a cost and a position at once, and
+   recording only the cost was part of the asymmetry corrected here.
+
+### What is deliberately not argued to reviewers
+
+That an individual, without counsel or an institution, drafted and pursued an instrument of this
+kind is a real fact about this project. **It is not an argument for approval and will not be
+offered as one.** Reviewers assess the licence, not the circumstances of the person submitting
+it, and asking them to weigh those circumstances would invite exactly the discount that #5 (AI
+drafting) and #1 (no legal review) already earn honestly. The fact belongs in the repository's
+own account of what it is; it does not belong in the submission.
+
 ## What would cause withdrawal
 
 Stated in advance so that it is not a reaction to how the discussion goes:
