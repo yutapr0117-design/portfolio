@@ -15,8 +15,14 @@ decide what is worth translating, and gives you the commands to check the claims
 
 **Posted to `license-discuss` and received. No responses yet.** That list is for general
 discussion — it is **not** the approval venue. Nothing has been submitted to `license-review`,
-and nothing has been submitted to SPDX. The order is deliberate: discussion first, then review
-if the discussion supports it.
+and nothing has been submitted to SPDX.
+
+**How it came to be on this list.** The submission was first taken toward license-review, and OSI
+directed that it be brought to license-discuss first. The order is therefore OSI's, not a piece
+of foresight on our part, and it is recorded that way because the earlier wording here claimed
+the choice as ours. What is our own decision is the SPDX timing: SPDX asks for substantial
+real-world use, this work has one adopter, and we are not submitting something that does not
+meet the stated bar.
 
 The text is **frozen** while this is open. `LICENSES/FROZEN.md` exists to say so, and
 **Check 453 in CI pins the SHA-256 of three files** (`ACD-1.0.txt`, `ACD-1.0.spdx.xml`,
