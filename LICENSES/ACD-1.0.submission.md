@@ -402,6 +402,8 @@ machine can find are not present.
 | The text is pure ASCII | byte scan for values > 127 | **0** non-ASCII bytes |
 | The authoritative language is stated in the text itself | `grep -n "authoritative language" LICENSES/ACD-1.0.txt` | §15.8 — English governs; translations are convenience only |
 | No project-specific or replaceable text | see §4b | 0 and 0 |
+| Every clause pointer in the machine-readable descriptor resolves and matches its subject | cross-check `ACD-1.0.machine.json` `clause` fields against the text | **29 / 29** |
+| The machine-readable layer does not overstate its status | `grep -o 'isOsiApproved="[a-z]*"' LICENSES/ACD-1.0.spdx.xml` and the `osiApproved` / `spdxListed` fields | all **false** |
 
 **Why this is worth stating rather than skipping.** Drafting defects that reviewers routinely
 catch in new licences are disproportionately of the mechanical kind: a term used but never
