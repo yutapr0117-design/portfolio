@@ -445,6 +445,8 @@ machine can find are not present.
 | The authoritative language is stated in the text itself | `grep -n "authoritative language" LICENSES/ACD-1.0.txt` | §15.8 — English governs; translations are convenience only |
 | No project-specific or replaceable text | see §4b | 0 and 0 |
 | Every clause pointer in the machine-readable descriptor resolves and matches its subject | cross-check `ACD-1.0.machine.json` `clause` fields against the text | **29 / 29** |
+| Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
+| Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
 | The machine-readable layer does not overstate its status | `grep -o 'isOsiApproved="[a-z]*"' LICENSES/ACD-1.0.spdx.xml` and the `osiApproved` / `spdxListed` fields | all **false** |
 
 **Why this is worth stating rather than skipping.** Drafting defects that reviewers routinely
