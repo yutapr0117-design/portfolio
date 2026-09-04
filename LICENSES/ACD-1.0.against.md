@@ -120,6 +120,8 @@ from, and four sections of the text had produced none: §3, §7, §11 and §14. 
 
 | 53 | **The entry page told reviewers that documents they can read are in a language they cannot.** `REVIEWERS.md` headed its list "Map of the Japanese documents" and put eight files under it. Measured by character counts, **four of those are English or answer-in-English**: `comparison.md` (19,289 Latin characters against 1,860 Japanese), `review-responses-clauses.md` (22,738 against 2,836), and both `review-responses.md` and `review-responses-meta.md`, whose every answer is given in English with Japanese only in the notes explaining the phrasing. **A reviewer following that page would have skipped the clause-level objections and the licence comparison believing they could not read them** | **Corrected by measurement, and the measurement is now stated on the page.** The map gives a language per file and says which documents are already in English. **This was invisible to every check run so far** — they were all searches for patterns *within* a language, and none asked what language a file was in. The finding also reverses the assumption behind the page: the material a reviewer is most likely to want was already in English, and the page was directing them away from it |
 
+| 54 | **The index built to make 140 entries findable was itself the second-least findable document here.** Measured by inbound links between the files in this directory: `QUESTION-INDEX.md` had **2** (only the two entry pages), `AS-OF.md` had **4**, while the bodies they index had 6–11 each. **Nothing in the twelve substantive documents pointed at either.** A reviewer who opens a file directly — the normal way to read a repository on the web — would never learn the index exists, which is precisely the readership the index was written for | **Fixed by giving every body document a footer pointing at the index, the staleness table, and the adverse case.** The finding matters more than the fix: **this was invisible to every check so far because all of them read files, and none measured the shape of the links between them.** Content-level checks cannot see a topology problem. Adding an entry point does not help if only the entry points know about it |
+
 **What this exercise changed.** Two dossier statements were wrong and have been corrected
 (#15, #24 — the second of them a misdescription of which section grants the licence, which had
 been repeated across the submission packet). Two criticisms of the text are accepted as fair and
@@ -144,13 +146,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **53** across seven rounds of examination. When this
+The adverse list has grown from 14 entries to **54** across seven rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Seven rounds of adversarial reading — three
-   prompted by third parties, four self-initiated — have produced **53 adverse facts, 7
+   prompted by third parties, four self-initiated — have produced **54 adverse facts, 7
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
@@ -214,3 +216,9 @@ Stated in advance so that it is not a reaction to how the discussion goes:
 Because a submission that leads with its strengths invites the reviewer to find the weaknesses,
 and the reviewer will find them. Putting them first is not humility; it is the only way the
 favourable claims can be read as anything other than selection.
+
+---
+
+**Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
+the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
+verified when. This file is that case.

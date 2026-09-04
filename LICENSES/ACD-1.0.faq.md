@@ -547,3 +547,9 @@ steward は **Dedicator（適用者）本人**（`ACD-1.0.submission.md` §A に
 | 機械可読な記述子 | `LICENSES/ACD-1.0.machine.json` / `LICENSES/ACD-1.0.spdx.xml` |
 
 **ここに無い疑問が出たら、それはこの一覧の欠落である。** 追記すること。
+
+---
+
+**Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
+the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
+verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against approving this.

@@ -307,3 +307,8 @@ sui generis データベース権。著作権とは別の権利なので、明�
 ただし**内容の正しさは機械では守れない**。本文が凍結されている間は齟齬が生じないが、
 ACD-1.1 以降で条文が変わったら、本書は**書き直しの対象**である。
 
+---
+
+**Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
+the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
+verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against approving this.
