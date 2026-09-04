@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are 125 worked entries across this directory. This page exists so that you do not have to
+There are 127 worked entries across this directory. This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -37,6 +37,8 @@ If your question is not here, that is our omission and worth saying on the list.
 |---|---|
 | Does it meet each OSD criterion? | `submission.md` §3 — all ten, individually |
 | Where is each criterion arguable? | `submission.md` §3b — the counter-argument for all ten, written by us. **OSD 7 is the one we expect to be litigated** |
+| You grant over several kinds of right — do you react to litigation over all of them? | **There is nothing to react with.** §10.4 terminates nothing; §8.2 says the absence is deliberate. `review-responses-clauses.md` §15/§16; the cost is `against.md` #16, #46 |
+| How would your conditions work for a hosted API where nothing is transferred? | **There are no conditions to work.** §10.1 / §4.3; §16's conditions bind the licence text only (§10.5, §16.6). `against.md` #47 |
 | Does §5.2's anti-DRM covenant restrict the user? | No — it binds the Dedicator. `review-responses-clauses.md` Q26 |
 | Does §16.4's name restriction breach OSD 4? | No — §10.1 is limited to conditions "in respect of the Work"; §16.4 governs the licence text. `against.md` #27; the loose shorthand is errata E3 |
 | Does §11.3 (no false attribution) discriminate? | No — it states a limit of reach, and says so in terms. `clause-reference.md` §11.3 row |
