@@ -183,6 +183,50 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 > question of each jurisdiction's succession law, and the clause does not pretend
 > otherwise. Its reliable effect is notice and construction, not conquest.
 
+**Q. AI 生成物の法的地位が定まっていないのに、それを前提にしたライセンスを作るのは時期尚早ではないか。存在しない権利をライセンスすると、偽の IP 規範を作ることにならないか。**
+
+> **English:**
+>
+> This objection was raised on license-discuss in March 2026 against a different instrument
+> (an "AI-MIT" proposal), in terms worth repeating: that we "should be extremely wary of setting
+> licensing norms around AI-generated code, when the underlying ip rights themselves lack
+> clarity", and that licensing non-copyrightable material risks creating false IP norms. It is
+> the strongest objection to Section 9 and I think it is largely right — as an objection to
+> instruments that **assume** a right exists.
+>
+> Section 9 is built the other way round. It does not assert that any right subsists in
+> machine-generated material, and §9.2 says so in terms: the Dedicator "makes no representation
+> that any right subsists in any part of the Work, and asserts no right in Machine-Generated
+> Material." What follows is a conditional, not a claim:
+>
+> - **Where no right subsists**, §9.2 states that this Dedication "adds nothing to Your existing
+>   freedom and takes nothing away." Nothing is licensed, because there is nothing to licence.
+> - **Where a right subsists, or is later held to subsist**, Sections 3 to 8 and Section 12 apply
+>   to it in full.
+> - **§9.3** removes the question from the user's path entirely: You "are not required to
+>   determine which parts of the Work are Machine-Generated Material", and no permission depends
+>   on that question "or on how any jurisdiction answers it, or on whether the answer changes."
+>
+> That last clause is the point. The jurisdictional divergence is real — the UK's CDPA s.9(3)
+> and China's approach differ from the human-authorship requirement elsewhere, and the position
+> may move. An instrument that **presumed** an answer would be premature and would go stale. An
+> instrument that is **indifferent to the answer** is not: the recipient's position is identical
+> whichever way any jurisdiction rules, and identical if a jurisdiction changes its mind.
+>
+> So I would put it this way: the objection is correct that a licence should not predetermine the
+> legal status of AI-generated material. §9 does not predetermine it. It is drafted so that the
+> question need never be answered for the permissions to operate.
+
+**なぜこう答えるか**: この反論は **§9 に対する最も強いもの**で、しかも**大筋で正しい**。
+否定してはならない。答えは「その批判が当たる instrument とは**構造が逆**である」ことを
+条文で示すことに尽きる —— §9.2 は権利の存在を主張せず、§9.3 は判定義務を利用者から外す。
+
+**Perens が述べた「存在しない素材をライセンスすると偽の IP 規範を作る」は、この文書群が
+最も注意すべき批判でもある。** ACD は「学習を許諾する」と言うが、許諾できるのは自分が
+**持っている**ものだけである（§2.7）。持っていないものについて許諾のふりをすれば、まさに
+その偽の規範を作ることになる。§9.2 の「何も足さず何も奪わない」という一文は、そこを
+避けるために置かれている。
+
 ### §15 / §16
 
 **Q. §16.1 は、まだ割り当てられていない SPDX 識別子を書けと指示している。これは誤りではないのか。**
