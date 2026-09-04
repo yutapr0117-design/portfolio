@@ -99,3 +99,9 @@ OSI の通常の順序は **`license-discuss`（議論）→ `license-review`（
 - **license-review**: 未投稿。文面は `ACD-1.0.submission.md` §B にあるが、**§3 の要約を織り込んでから**送るのが望ましい
 - **SPDX**: 未提出（実使用が薄いため意図的に見送り）
 - **本文**: 凍結中。ACD-1.0 が指すテキストは動かさない
+
+---
+
+**Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
+the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
+verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against approving this.

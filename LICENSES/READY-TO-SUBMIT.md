@@ -110,3 +110,9 @@
 
 - **改善の終わり**ではない。凍結するのは提出時点であり、それまでは改善対象のままである。
 - **承認の見込み**を述べるものではない。上の「残る弱点」は実在する。
+
+---
+
+**Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
+the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
+verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against approving this.

@@ -420,3 +420,9 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 - **非規範。** ここに書いた回答が ACD-1.0 の意味を変えることはない。本文が唯一の権威である。
 - **凍結対象ではない。** `FROZEN.md` が凍結するのは `ACD-1.0.txt` / `ACD-1.0.spdx.xml` / `ACD-1.0.machine.json` の 3 件であり、本書は議論の進展に応じて更新してよい。**むしろ更新すべきである** —— 実際に指摘を受けたら、その指摘と回答をここに追記して次の担当が同じ検討を繰り返さないようにする。
 - **回答の品質は実際のやり取りで検証される。** 本書の想定問答は**予測**であって、レビュアが実際に何を問うかは分からない。**予測が外れた項目は削らず、外れたと記録する**（当てにいって外したことも、次に読む者にとっては情報である）。
+
+---
+
+**Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
+the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
+verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against approving this.

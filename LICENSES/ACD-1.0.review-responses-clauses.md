@@ -674,3 +674,9 @@ ACD はどちらも構造的に回避しているが、**回避しているこ�
 > claim the approval given to this one.
 
 ---
+
+---
+
+**Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
+the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
+verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against approving this.

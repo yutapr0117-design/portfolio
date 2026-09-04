@@ -431,3 +431,9 @@ instrument で、`LICENSE` が「この作品に適用する」という宣言�
 `NOASSERTION` として報告する。これは**テキストの品質の問題ではなく登録状態の問題**であり、
 利用者側の実務上の扱いは `ACD-1.0.faq.md` の A 系（SBOM 表記・スキャナ）に書いてある。
 登録の順番と、いま SPDX へ出していない理由は Q18 と `READY-TO-SUBMIT.md` を参照。
+
+---
+
+**Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
+the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
+verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against approving this.

@@ -73,3 +73,9 @@ correct order is: apply E1 first (it is the only one that misdirects a reader), 
 property recorded in `ACD-1.0.submission.md` §4c, regenerate the digests in `FROZEN.md`, and
 record in `ACD-1.0.discussion-log.md` which changes were driven by which feedback. A property
 verified once is not a property that stays true.
+
+---
+
+**Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
+the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
+verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against approving this.

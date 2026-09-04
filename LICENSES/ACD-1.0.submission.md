@@ -682,3 +682,9 @@ matter. Stating it makes clear that this is an enquiry rather than an advocacy e
 
 The fuller set of withdrawal criteria — decided in advance, so that the decision is not
 made in the heat of a thread — is in `LICENSES/ACD-1.0.review-responses-meta.md`.
+
+---
+
+**Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
+the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
+verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against approving this.

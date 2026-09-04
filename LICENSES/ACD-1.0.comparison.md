@@ -477,3 +477,9 @@ AI 条項を実際に取り込んだとして、そのとき何が残るのか�
 | 「どちらが優れているか」 | 比較の目的は**別物であることの説明**であって優劣ではない |
 
 **扱わない理由を書いておくのは、抜けではなく判断であることを示すため**である。
+
+---
+
+**Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
+the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
+verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against approving this.
