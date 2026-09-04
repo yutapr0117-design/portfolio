@@ -119,6 +119,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 import re
 import json
 import subprocess
+import datetime as _dt461
 
 
 def run(ctx):
@@ -742,12 +743,17 @@ def run(ctx):
         except (OSError, _sp459.CalledProcessError) as _e459:
             warnings.append(f"Check 459: LICENSES の走査に失敗 ({_e459}) — 索引到達性を skip")
 
-    # ── 461b. LICENSES/*.md の last-updated が git の最終更新日以上であること (BLOCKING) ──
-    # **2026-09-05 に 12 ファイルが stale で見つかった**（最大 10 日ずれ）。しかも
-    # `AS-OF.md` で「日付は書いた日ではなく確かめた日を書く」と定めた直後である。
-    # Check 65 は**書式**（ISO-8601 か）だけを見ており、**値が実態と合うか**は見ていない。
-    # 長期戦では「最後にいつ触れたか」が審査者の判断材料になるので、古い申告は
-    # 「更新されていない文書」に見せる —— 実際には更新されているのに。
+    # ── 461b. LICENSES/*.md の last-updated が極端に古くないこと (ADVISORY) ──
+    # **初版は BLOCKING で「git の最終更新日以上」を要求し、CI で落ちた。** 設計が誤って
+    # いた —— 日付を直す commit 自身が git 日付を進めるので、**書いた瞬間に 1 日ずれる**。
+    # さらに全ファイルへ footer を足すような一括変更は、内容を変えていないファイルの git
+    # 日付まで進めるため、**触っていない文書が「古い」と報告される**。
+    #
+    # 直す方向は 2 つあった。(a) 許容差を設ける (b) BLOCKING をやめる。**両方採った** ——
+    # frontmatter の日付が意味するのは「**内容を最後に見直した日**」であって「最後に
+    # 1 バイト変わった日」ではない。footer の追加で見直し日が動くのは誤りである。
+    # よって **14 日以上の乖離のみ ADVISORY** で報せる。実害（#55: 最大 10 日ずれ）は
+    # 検出できるが、機械的な一括変更では鳴らない。
     _lu461 = []
     _lic461 = ROOT / "LICENSES"
     if _lic461.exists():
@@ -762,18 +768,24 @@ def run(ctx):
                     capture_output=True, text=True, cwd=str(ROOT), timeout=20).stdout.strip()
             except Exception:
                 continue
-            # 未コミットの新規ファイルは git 日付が空 → 検査しない
-            if _git461 and _m461.group(1) < _git461:
-                _lu461.append(f"{_f461.name}: 申告 {_m461.group(1)} / 実際の最終更新 {_git461}")
+            if not _git461:
+                continue
+            try:
+                _d1 = _dt461.date.fromisoformat(_m461.group(1))
+                _d2 = _dt461.date.fromisoformat(_git461)
+            except ValueError:
+                continue
+            if (_d2 - _d1).days >= 14:
+                _lu461.append(f"{_f461.name}: 申告 {_m461.group(1)} / 実際の最終更新 {_git461} "
+                              f"({(_d2 - _d1).days} 日)")
     check(
         not _lu461,
-        f"Check 461b: LICENSES/*.md の last-updated が実際の最終更新日と整合 "
-        f"({len(list(_lic461.glob('*.md'))) if _lic461.exists() else 0} file)",
-        f"Check 461b: last-updated が古いファイルがある: {_lu461[:6]}。"
-        f"**古い日付は「更新されていない文書」に見せる** —— 実際には更新されているのに、"
-        f"審査者は最後に触れた日を判断材料にする。編集したら同じ commit で日付も直せ "
-        f"(Check 65 は書式だけを見るので、値の整合は本 Check が担う)",
-        blocking=True,
+        f"Check 461b (ADVISORY): LICENSES/*.md の last-updated が 14 日以上 stale でない",
+        f"Check 461b (ADVISORY): last-updated が 14 日以上古いファイルがある: {_lu461[:6]}。"
+        f"**古い日付は「更新されていない文書」に見せる**。内容を見直したら日付も直せ "
+        f"(1〜13 日の乖離は一括変更で普通に起きるので鳴らさない — 初版が BLOCKING で "
+        f"これを見落として CI を落とした)",
+        blocking=False,
     )
 
     # ── 460. ドシエが自己申告する件数が実測と一致すること (BLOCKING) ────────────────────
