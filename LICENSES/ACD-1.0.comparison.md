@@ -80,6 +80,45 @@ OSI が新規ライセンスの提出者に求めるのは、**最も近い承�
 
 ---
 
+## 1.3 「既存の大型ライセンスが AI 対応すれば済むのでは」
+
+**proliferation の反論として最も強い形**である。新しい instrument が要るかを問う代わりに、
+**待てば済むのではないか**を問う。事実を確かめてから答える。
+
+> **English:**
+>
+> **What the stewards of the incumbent licences are actually doing (checked 2026-09).**
+>
+> | Steward | What they have done about AI | What they have not done |
+> |---|---|---|
+> | FSF | Announced work on **criteria for free machine learning applications**, taking the position that an ML application is not free unless its training data and processing scripts also respect the four freedoms; published analysis of code-generation tooling | **No announced GPLv4**, and no timeline. The GPL family's forward mechanism is the "or later" clause, which routes future terms through a version that does not yet exist |
+> | ASF | Published **generative-tooling guidance** for its projects, describing it as rapidly evolving; funded a Responsible AI initiative | **No announced amendment to the Apache License** for training or TDM |
+> | Creative Commons | Explored signalling approaches for AI preferences | CC0 remains as it was in 2012; the withdrawal was never reversed (§1.4) |
+>
+> **The pattern is consistent, and it is the answer to this objection.** The incumbent stewards
+> are addressing AI through **criteria, guidance and policy** rather than through licence text.
+> That is a defensible choice — arguably the better one for a steward with a large installed
+> base, since amending a licence in wide use imposes migration costs on everyone using it.
+>
+> **But it means the licence text stays silent, and silence is not neutral in a regime where an
+> opt-out is exercised by signalling.** A work under Apache-2.0 today says nothing about
+> text-and-data mining, nothing about whether a reservation has been made, and nothing about
+> whether the grant reaches a trained model. Those questions are answered by policy documents
+> that do not travel with the work, or not answered at all.
+>
+> **The honest shape of the argument, stated with the concession first.** If GPLv4 or a revised
+> Apache License were announced tomorrow with TDM and model-output terms, the case for ACD-1.0
+> would be materially weaker — not eliminated, since neither would address material whose
+> authorship may not subsist (§9), but weaker. **Nothing in this submission depends on the
+> incumbents staying silent for ever.** What it depends on is that a work released today needs an
+> answer today, and that "wait for the next version of a licence whose next version has not been
+> announced" is not an answer a publisher can act on.
+>
+> **What would falsify this section.** A concrete announcement from any of the three stewards of
+> licence-text changes addressing training, TDM reservation, or model outputs. If that happens,
+> this section should be rewritten rather than defended, and `PEER-REVIEW-WATCH.md` records the
+> obligation to check.
+
 ## 1.4 CC0 —— 同型で唯一 OSI で止まった先例（2012）
 
 **ACD-1.0 に最も近い先例は CC0 であり、その顛末はこの提出にとって最も重要な事実である。**

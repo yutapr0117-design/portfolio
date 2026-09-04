@@ -54,6 +54,7 @@ canonical-ref: LICENSES/ACD-1.0.comparison.md §1.5 (比較の本体) / LICENSES
 | ModelGo 本文 | `github.com/Xtra-Computing/ModelGo` の `MGL/V2/*/LICENSE` | distillation 除外の扱い・trademark/publicity 条項 |
 | OSI Discuss | `discuss.opensource.org` の OpenMDW スレッド / AI ライセンス比較スレッド | reviewer の論点。**ACD へ最も還元しやすい層** |
 | license-review アーカイブ | `lists.opensource.org/pipermail/license-review_*` | 正式審査での指摘と提出者の応答 |
+| **既存大型ライセンスの steward** | fsf.org / apache.org / creativecommons.org | **ライセンス本文**の改訂（GPLv4・Apache の改訂・CC0 の再提出）。announce されれば `comparison.md` §1.3 は**書き直す** —— あの節は「彼らは本文を変えていない」という**反証可能な観測**の上に立っており、変わったら弁護せず書き換える |
 
 ## 3. ベースライン（2026-09-04 観測）
 
