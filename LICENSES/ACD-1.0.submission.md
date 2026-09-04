@@ -198,6 +198,39 @@ are good policy. Whether training on lawfully accessible material should require
 Whether the Open Source AI Definition should require open training data. None of those is
 necessary to decide whether an instrument that reserves nothing meets the Open Source Definition.
 
+### 1d. What the text says about its own subject matter, measured
+
+The jurisdictional question in §1a — whether this list reviews licences for works that are not
+software — is usually argued from intent. It can also be measured, and the measurement cuts
+against us more sharply than the argument does.
+
+**The operative text does not describe itself as a software licence.**
+
+| Term | Occurrences in the whole text |
+|---|---|
+| "program" | **0** |
+| "executable" | **0** |
+| "software" | **2**, both in the explanatory preamble and in §8.3's reasoning; **none in an operative grant or condition** |
+| "source code" / "object code" | 1 each, inside §1.2's list of what a Work may be, alongside documentation, data, metadata and audiovisual material |
+
+**Read against ACD-1.0, this is a liability.** If the criterion is that OSI reviews software
+licences, an instrument whose operative provisions never mention software is further from that
+line than one that does. §1.2 places source code in a list where it is one item among six. A
+reviewer inclined to draw the line strictly has the text on their side, and I am not going to
+argue that "any Work" quietly means "software".
+
+**Read the other way, it is what makes the instrument coherent.** A licence that says "software"
+in its grants has to be stretched to cover a dataset, a set of weights, or a documentation
+corpus — and stretching is where the ambiguities that this whole review process exists to catch
+come from. §1.7's "Computational Use" is defined over the Work, not over programs, so §6.1 and
+§8.4 apply identically to code and to a corpus with no clause doing double duty.
+
+**What this does not resolve.** Whether the OSD, written for software, is the right instrument
+to judge this by. That question is live in another review as this is written (§1a), and it will
+not be settled by pointing at word counts in either direction. What the counts do settle is that
+the question is not marginal here: **this is not a software licence with data provisions bolted
+on, and it does not read as one.**
+
 ### 1b. Whether an instrument of this kind is reviewable at all
 
 This question comes before the others, so it is answered first.

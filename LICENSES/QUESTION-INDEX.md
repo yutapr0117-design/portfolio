@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are 133 worked entries across this directory. This page exists so that you do not have to
+There are 134 worked entries across this directory. This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -19,6 +19,7 @@ If your question is not here, that is our omission and worth saying on the list.
 |---|---|
 | If nobody has to keep the notice, is your warranty disclaimer worth anything? | **Weaker, yes — and the loss is ours.** `review-responses-clauses.md` §15/§16; `submission.md` §1b. Permissions are unaffected; the disclaimer is |
 | Isn't this "not a licence" at all? | `submission.md` §1b — the argument made against the Unlicense in 2020. §4.1 says "grants You a licence" in terms, which is more than the Unlicense had to work with |
+| Is this even a software licence? | **Measured, and the answer is unhelpful to us**: "program" and "executable" appear 0 times, "software" twice and never in an operative clause. `submission.md` §1d; the risk is `against.md` #37, #50 |
 | Isn't a public domain dedication outside what OSI reviews? | `submission.md` §1b — with the Unlicense precedent and the two ways it cuts against us |
 | So this is a dedication with a licence bolted on as a fallback? | **No.** §4 is granted independently of §3 and does not wait for it to fail (§4.4). `clause-reference.md` §4.4 row; `review-responses.md` §2 |
 | Has a lawyer read it? | **No.** `submission.md` §5 and §4c; `against.md` #1 — it is the weakest point and is stated without hedging |
