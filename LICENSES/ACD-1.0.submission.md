@@ -227,6 +227,28 @@ treating the dedication half as disqualifying. The archives are public and worth
 this submission:
 <https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2020-June/004890.html>
 
+**Two arguments from that review carry directly onto this text, and I would rather name them
+than wait for them.**
+
+*"This is not a license."* A reviewer took the position that the Unlicense "falls on the side of
+'this is not a license'", on the ground that it lacks a clear expression of intent to convey
+rights. The counter offered there was that its operative sentence — anyone is free to copy,
+modify, publish, use, compile, sell, or distribute — functions as a grant whatever the label,
+and that the BSD licence does not use the words "grant" or "permission" either. ACD-1.0 is on
+firmer ground here than the Unlicense was, and not because it is better drafted: §4.1 says
+"The Dedicator grants You a … licence", and §4.4 states that this grant is independent of the
+dedication and does not depend on it failing. Where the Unlicense had to argue that a permission
+was a grant, this text says so.
+
+*"No requirement to include the licence on redistribution — how effective is the disclaimer?"*
+This one lands, and lands harder here than there: §10.2 says expressly that You need not retain
+the file or reproduce any notice. The permissions are unaffected (§1.4, §4.1 and §2.3 make the
+grant run to each recipient directly, which is how MIT-0 and 0BSD operate), but a warranty
+disclaimer asserted against someone who never saw it is weaker than one that travelled with the
+work. **The loss falls on the Dedicator, not on the recipient**, which is why it is disclosed
+here rather than argued away in the conformance section. `ACD-1.0.review-responses-clauses.md`
+sets it out at length.
+
 The committee's own words are worth quoting, because they state the doctrine and the escape from
 it in one sentence: the Unlicense "is an attempt to dedicate a work to the public domain (which,
 taken alone, would not be approved as an open source license) but it also has wording commonly
