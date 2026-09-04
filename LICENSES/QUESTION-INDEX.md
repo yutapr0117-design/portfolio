@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are 118 worked entries across this directory. This page exists so that you do not have to
+There are 121 worked entries across this directory. This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -47,6 +47,9 @@ If your question is not here, that is our omission and worth saying on the list.
 | §6.4 says outputs are "not encumbered" in absolute form | `against.md` #22 — §6.5 makes §6 declaratory, so the effect is right and the phrasing is loose |
 | §8.4's patent grant looks very broad | It is, and that is a cost to adopters with patents. `against.md` #16 |
 | §16.3 invites applying the notice to anyone's work | `against.md` #20; errata E2 — §2.7 bounds the effect, but the wording is wider than needed |
+| Isn't it premature to licence AI-generated material when its legal status is unsettled? | `review-responses-clauses.md` §15/§16 — the strongest objection to §9, and largely right **against instruments that assume a right exists**. §9 is built the other way round |
+| Do you meet the practical submission requirements (existing users, SPDX id, endorsements)? | **Three of them, no.** `review-responses-meta.md` Q32b — stated as not met rather than argued around |
+| Is the name misleading? | `review-responses-meta.md` Q14 and Q32c — no existing licence's name or identifier is used, and §16.4 applies the same rule to this one |
 | Why is it 16 sections and 82 clauses? | `review-responses-meta.md` Q17 — an accepted cost, argued against the opposite failure |
 
 ## Machine learning, TDM, patents, data
