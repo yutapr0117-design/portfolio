@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are 130 worked entries across this directory. This page exists so that you do not have to
+There are 131 worked entries across this directory. This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -55,6 +55,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | §16.1 tells adopters to write an unregistered SPDX identifier | **Correct, and it is the highest-severity item.** `errata.md` E1; `review-responses-clauses.md` §15/§16 |
 | §2.9 declares its own insolvency classification | `against.md` #21 — facts before the conclusion is right; asserting the conclusion is not |
 | §6.4 says outputs are "not encumbered" in absolute form | `against.md` #22 — §6.5 makes §6 declaratory, so the effect is right and the phrasing is loose |
+| §8.4 drops §8.1's proviso — does it reach claims unrelated to the Work? | **It reaches wider, and the clause says so itself.** Two limits remain (ownership, causation); the subject-matter link is what was deliberately removed. `review-responses-clauses.md` §8; open question at `errata.md` E6 |
 | §8.4's patent grant looks very broad | It is, and that is a cost to adopters with patents. `against.md` #16 |
 | §16.3 invites applying the notice to anyone's work | `against.md` #20; errata E2 — §2.7 bounds the effect, but the wording is wider than needed |
 | Isn't it premature to licence AI-generated material when its legal status is unsettled? | `review-responses-clauses.md` §15/§16 — the strongest objection to §9, and largely right **against instruments that assume a right exists**. §9 is built the other way round |

@@ -106,6 +106,54 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 > warrant "that use of the Work does not infringe the rights of any other
 > person".
 
+**Q. §8.4 は §8.1 の「作品に含まれる主題に起因する場合」という但し書きを意図的に外している。つまり作品と無関係なクレームまで及ぶのではないか。**
+
+> **English:**
+>
+> The observation is correct and the clause says so itself: "The proviso in Section 8.1 as to
+> subject matter contained in the Work is deliberately absent from this Section: a model is not
+> subject matter contained in the Work, so importing that proviso would restore the exposure this
+> Section exists to remove."
+>
+> **So the reach is genuinely wider, and here is what actually bounds it.** Two limits remain and
+> a third does not exist:
+>
+> - **Ownership.** §8.5 applies §2.7: only claims "the Dedicator owns or controls". A claim held
+>   by anyone else is untouched, whatever its subject matter.
+> - **Causation.** The claim must be one "that would be infringed by Computational Use of the
+>   Work" or by making, using or transferring a model or output "resulting from that use". A
+>   patent that has nothing to do with processing this Work, or with anything produced by
+>   processing it, is not within the words.
+> - **What is gone:** the requirement that the infringement trace to subject matter *contained
+>   in the Work*. That is the deliberate widening. A claim reading on a training technique, or on
+>   a property of the resulting model, is reachable even though the technique is not in the Work.
+>
+> **This is the price of the design, and I would rather state it than let it be discovered.** A
+> Dedicator with a patent portfolio who applies ACD-1.0 to a dataset may be licensing claims that
+> read on downstream model-building, not merely on the dataset. `ACD-1.0.against.md` #16 records
+> this as a cost: an organisation that wants to keep its patents cannot use this instrument.
+>
+> **Why the narrower drafting was rejected.** Keeping the proviso would mean the patent grant
+> stops at the Work while §6 permits computational use of it — the exact split §8.3 says must be
+> rejected, because a permission that is safe under copyright and exposed under patent is not a
+> permission anyone can rely on. Narrowing §8.4 would be coherent drafting for a different
+> instrument; for this one it would reintroduce the hole the section exists to close.
+>
+> **The remaining honest gap.** A reviewer may say the widening is broader than necessary — that
+> the section could reach claims infringed by the *use of the Work in training* without also
+> reaching claims infringed by *any output*. That is a real drafting question and I do not have a
+> conclusive answer to it. It is recorded as a 1.1 candidate in `ACD-1.0.errata.md` rather than
+> defended here.
+
+**なぜこの問答を足すか**: 既存の Q は「**なぜ §8.4 が必要か**」を述べていたが、**攻撃面は
+そこではない** —— §8.4 が §8.1 の但し書きを**明示的に外している**ことである。条文が自分で
+「deliberately absent」と書いているので、審査者は必ずそこを読む。
+
+**必要性の説明は、射程の説明の代わりにならない。** 何が残る制限で（保有・因果）、何が
+消えた制限か（作品に含まれる主題への遡及）を分けて述べ、**その広さが誰にとってのコストか**
+（特許を持つ採用者）を名指しする。そのうえで**答えを持たない部分**（出力にまで及ぶ必要が
+本当にあるか）は 1.1 候補として残し、ここで弁護しない。
+
 ### §9 MACHINE-GENERATED MATERIAL
 
 **Q. 「権利が存在するか分からない」と書くのは利用者を不安にさせるだけでは。**
