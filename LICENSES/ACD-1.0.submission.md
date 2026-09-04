@@ -542,6 +542,8 @@ machine can find are not present.
 | Every clause pointer in the machine-readable descriptor resolves and matches its subject | cross-check `ACD-1.0.machine.json` `clause` fields against the text | **29 / 29** |
 | Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
 | Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
+| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **50 entries, 1–50, no gaps; all citations resolve** |
+| Every defect called a "1.1 candidate" anywhere has an entry in the errata to point at | cross-check declarations against `errata.md` | **one was missing and has been added (E7)** |
 | Every negative self-claim the text makes about itself is true | extract each "contains no / imposes no / grants no / reaches nothing / specifies no" statement and search the whole text for the thing denied | **9 claims, 9 true** — each denied term appears only inside the clause doing the denying |
 | Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |
 | The six clauses disclaiming condition-status cross-reference into one mesh centred on §10.1 | trace §4.6, §10.3, §10.5, §11.3, §11.4, §16.6 | consistent; documented in `clause-reference.md` |
