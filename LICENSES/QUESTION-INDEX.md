@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are 131 worked entries across this directory. This page exists so that you do not have to
+There are 132 worked entries across this directory. This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -70,6 +70,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | Is §6 a policy position about AI training? | **No** — it is a statement about the Dedicator's own rights. `submission.md` §1c |
 | Does it purport to defeat someone else's TDM reservation? | No. §6.2 is limited to the Dedicator's rights; §6.3 handles others' within §2.7. `review-responses-clauses.md` §6 |
 | Does it license trade secrets? | **No** — §1.5 does not reach them. OpenMDW does. `against.md` #31 |
+| The Work contains personal data — does this make training on it lawful? | **No, and the text says so.** §11.4: permissions required by data-protection, privacy and publicity law "are not the Dedicator's to give". `faq.md` A28 splits the two questions and says which one this licence answers |
 | What about sui generis database rights? | §7, in the Database Directive's own vocabulary. `clause-reference.md` §7 rows |
 | Does it reach models, weights and outputs? | Yes — §8.4 for patents, §6.4 for encumbrance. `comparison.md` §1.5 |
 | Does it carve out distillation? | **No**, unlike ModelGo. `comparison.md` §1.5 — the one axis where the three are in real tension |
