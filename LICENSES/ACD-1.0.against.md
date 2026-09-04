@@ -95,13 +95,23 @@ itself is in `ACD-1.0.comparison.md` §1.5.
 
 | 43 | **Four of the six distinguishing features are closable by amendment.** Express permission for training and TDM, a statement that no reservation is made, a patent grant reaching models and outputs, and database rights — each of these can be added to an existing licence as a clause. If the incumbent stewards move, the case for a separate instrument narrows from six features to two: not presuming that a right subsists, and imposing no condition at all | **Accepted, and stated before it is put to us.** `comparison.md` §1.35 separates what an amendment closes from what it does not, and says plainly that the two survivors carry the argument rather than the six. The claim is not that ACD-1.0 stays distinctive whatever happens — it is that these two differences follow from where a licence starts rather than from what it contains, and restructuring around a premise is not an amendment |
 
+## Sections the adverse list had never examined (2026-09-04)
+
+The 43 entries above were checked against where they came from, and four sections of the text had
+produced none: §3, §7, §11 and §14. Two of those yielded something on a hostile reading.
+
+| # | Adverse fact | Status |
+|---|---|---|
+| 44 | **§7 restates what §1.5 already covers, and a reviewer can ask what the extra section is doing.** §1.5 defines Covered Rights to include "sui generis database rights, rights against unfair extraction", so §7.1's statement that such a right "is a Covered Right and Sections 3 to 6 apply to it" adds nothing to the operative position. §7.2 goes further and permits extraction and re-utilisation "repeatedly and systematically, without limit and without condition" — language borrowed from the Database Directive, which invites the question of whether a licence should be drafting in the vocabulary of one region's statute | **Deliberate redundancy, and the same trade as §6.5.** The Directive's terms of art are what a European reader searches for; a permission phrased only in general terms leaves them checking whether "reproduce and distribute" reaches systematic extraction. The cost is a section that could be cut without changing what anyone may do — which is exactly the objection the length criticism (#6) makes, applied to a specific place |
+| 45 | **§11.1 grants no trademark right, but §16.2 makes the name and identifier carry legal meaning.** §16.2 provides that the identifier "ACD-1.0", an SPDX tag, or "a reference to this Dedication by name" is sufficient notice of the terms; §16.4 forbids applying that name to a modified text. So adopters are expected to use a name in which no right is granted, and the instrument regulates that use — while §11.1 says it grants nothing in "any trademark, service mark, trade name, logo, or personal name" | **Coherent, but the coherence is not on the page.** Nominative use is preserved by §11.2, and naming a licence to say which licence applies is exactly that. §16.4's restriction runs to the licence text rather than to the Work (§10.1's limitation), so it is not a condition on You. What is missing is a sentence tying the three together; a reader who meets §11.1 first can reasonably think §16 is asking for something §11 withheld. **A candidate for 1.1, and a question worth answering before it is asked** |
+
 **What this exercise changed.** Two dossier statements were wrong and have been corrected
 (#15, #24 — the second of them a misdescription of which section grants the licence, which had
 been repeated across the submission packet). Two criticisms of the text are accepted as fair and
 left unrepaired because the text is frozen (#18, #20), with #22 a third if the looser reading is
 taken. Three are costs that were understated and are now stated (#16, #17, #21). **Nothing
 raised was dismissed**, and three rounds together moved the count of adverse facts from 14 to
-**43** — which is the honest direction for a list like this to move as it is examined. The third round was not prompted by anyone: it audited the dossier's own clause citations against the text, on the theory that the §3/§4 error (#24) was found only because someone finally read the clause, and that others of the same kind were likely.
+**45** — which is the honest direction for a list like this to move as it is examined. The third round was not prompted by anyone: it audited the dossier's own clause citations against the text, on the theory that the §3/§4 error (#24) was found only because someone finally read the clause, and that others of the same kind were likely.
 
 ## What survives
 
@@ -143,7 +153,18 @@ follows is what actually held, restricted to things that were tested rather than
    licence model artefacts; ACD-1.0 addresses computational use of any work, including material
    whose authorship may not subsist at all (§9). Neither of them has anything to say about that
    last case. This does not settle proliferation — see #28 and #33 — but it does settle overlap.
-5. **A first approval in this category would help, whoever earns it.** #33 records that no
+5. **The two sections that no amendment closes are the ones the design turns on.** Four of the
+   six distinguishing features could be added to an existing licence as clauses
+   (`comparison.md` §1.35, recorded as #43). The two that could not — §9's refusal to presume
+   that a right subsists, and §10.1's absence of any condition — are not features bolted on but
+   consequences of where the instrument starts. That is a narrower claim than "it is different",
+   and it is the one that survives the incumbents moving.
+6. **The clause-level defects found so far are all of one kind.** Five errata, three
+   descriptions corrected in our own documents, and forty-five adverse facts have produced
+   **no defect that changes what a recipient may do.** Every one is a matter of precision, of
+   scope of wording, or of a conclusion stated in the wrong form. That is not proof of quality —
+   it is a statement about the kind of fault that has been found, and the kind that has not.
+7. **A first approval in this category would help, whoever earns it.** #33 records that no
    AI-specific licence has ever been approved as an adverse fact, and it is one. The same fact
    read forward is different: **if either instrument now in review is approved, the barrier that
    #33 describes stops existing for everyone**, including a submission that does not compete
