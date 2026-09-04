@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are 121 worked entries across this directory. This page exists so that you do not have to
+There are 122 worked entries across this directory. This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -22,6 +22,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | Has a lawyer read it? | **No.** `submission.md` §5 and §4c; `against.md` #1 — it is the weakest point and is stated without hedging |
 | Who wrote it? | An AI, autonomously, under a standing delegation. The owner did not commission it and learned of it afterwards; he read the full text before sending. `submission.md` §E.1; `against.md` #5 |
 | How many people use it? | **One repository.** `submission.md` §5; `against.md` #4. Reusability is shown structurally in §4b — a different property from adoption |
+| CC0 was stopped by OSI — why would this be different? | `comparison.md` §1.4 — the 2012 objection was the **patent carve-out** (weakening estoppel; putting users on notice), and §2.5 and §8.3 are built against exactly those two. **It does not follow that this clears the bar CC0 did not** |
 | Why not just use MIT-0, 0BSD, CC0 or Apache-2.0? | `comparison.md` §1 — including **when those are the better choice**, which is most of the time |
 | Doesn't OpenMDW or ModelGo already do this? | `comparison.md` §1.5 — adjacent, not the same question; and where they are better than this one. `against.md` #28, #31 |
 | Is this just licence proliferation? | The honest answer is that it is not obviously not. `comparison.md` §1 closing; `against.md` #28, #33 |

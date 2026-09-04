@@ -80,6 +80,43 @@ OSI が新規ライセンスの提出者に求めるのは、**最も近い承�
 
 ---
 
+## 1.4 CC0 —— 同型で唯一 OSI で止まった先例（2012）
+
+**ACD-1.0 に最も近い先例は CC0 であり、その顛末はこの提出にとって最も重要な事実である。**
+同じ dedication 型で、同じく「権利を留保しない」ことを目指し、**OSI の審査で止まった**。
+2012-02 のアーカイブを一次資料として読み、争点を正確に把握した。
+
+> **English:**
+>
+> **What actually stopped it.** Creative Commons withdrew CC0 from OSI review in February 2012.
+> The unresolved objection was not the dedication form — it was the patent language. Two
+> distinct criticisms were made of the clause placing patents out of scope: that it **weakens
+> equitable estoppel defences against patents**, and that it **heightens risk by putting a user
+> "on notice" of patent exposure** in the associated code. CC explained that removing the text
+> would require a new version, which they lacked the bandwidth to produce while CC 4.0 was in
+> progress; the withdrawal was therefore procedural in form and substantive in cause.
+>
+> **Both criticisms are addressed in ACD-1.0's structure, and not by accident.**
+>
+> | The 2012 objection to CC0 | ACD-1.0 |
+> |---|---|
+> | The patent carve-out **weakens estoppel defences** | §2.5 builds estoppel deliberately: the Dedicator declares that reliance "is the purpose of this Dedication and not merely a foreseeable consequence of it", will not assert the instrument is "revocable, unsupported, or otherwise ineffective for want of consideration or formality", and "is estopped from doing so to the extent the law of any jurisdiction gives that principle effect." Where CC0's language was said to erode the defence, §2.5 is drafted to supply it |
+> | The carve-out **puts users on notice** of patent risk, raising exposure | There is no carve-out to give notice of. §8.1 grants a patent licence; §8.4 extends it to computational use, models and outputs; §8.3 states in terms that nothing "reserves, preserves, or leaves unaffected any patent right of the Dedicator", because "a dedication that gives away copyright while withholding patent" leaves the recipient exposed |
+> | Fixing it would require a new version CC could not then produce | Not applicable — ACD-1.0 was drafted with §8 in place from the first published version |
+>
+> **What this does not mean.** It does not mean ACD-1.0 clears the bar CC0 did not. CC0's
+> patent problem was one objection among several, the dedication-form question remains live
+> (§1b), and CC0 had adoption and an institutional steward that this instrument does not. What
+> it means is narrower and worth stating precisely: **the specific defect that ended the closest
+> comparable review is one this text was built to avoid**, and the avoidance is visible in the
+> clauses rather than asserted in the covering message.
+>
+> **The uncomfortable half.** CC0's patent silence was requested by the scientific data
+> community, who wanted to place material in the public domain **without** waiving patents. That
+> is a real constituency with a real preference, and ACD-1.0 does the opposite: §8 grants, and
+> §8.3 refuses the reservation outright. An adopter who holds patents and wants to keep them
+> cannot use ACD-1.0, and that cost is recorded as `against.md` #16.
+
 ## 1.5 AI-native な同時代 instrument（OSI 審査中・2026-09 時点）
 
 **ACD-1.0 は、OSI の前にある唯一の AI-native instrument ではない。** 2026-09 時点で
