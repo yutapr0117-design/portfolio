@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are 127 worked entries across this directory. This page exists so that you do not have to
+There are 128 worked entries across this directory. This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -41,6 +41,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | How would your conditions work for a hosted API where nothing is transferred? | **There are no conditions to work.** §10.1 / §4.3; §16's conditions bind the licence text only (§10.5, §16.6). `against.md` #47 |
 | Does §5.2's anti-DRM covenant restrict the user? | No — it binds the Dedicator. `review-responses-clauses.md` Q26 |
 | Does §16.4's name restriction breach OSD 4? | No — §10.1 is limited to conditions "in respect of the Work"; §16.4 governs the licence text. `against.md` #27; the loose shorthand is errata E3 |
+| §11 says no trademark right, but §16 makes the name carry meaning — which is it? | **Both, and §10.5 / §16.6 are the join.** §16's conditions bind the licence text, not the Work. `clause-reference.md` — the six clauses that disclaim being conditions form one mesh |
 | Does §11.3 (no false attribution) discriminate? | No — it states a limit of reach, and says so in terms. `clause-reference.md` §11.3 row |
 
 ## The text itself
