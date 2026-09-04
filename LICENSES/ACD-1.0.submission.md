@@ -509,6 +509,8 @@ machine can find are not present.
 | Every clause pointer in the machine-readable descriptor resolves and matches its subject | cross-check `ACD-1.0.machine.json` `clause` fields against the text | **29 / 29** |
 | Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
 | Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
+| Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |
+| The six clauses disclaiming condition-status cross-reference into one mesh centred on §10.1 | trace §4.6, §10.3, §10.5, §11.3, §11.4, §16.6 | consistent; documented in `clause-reference.md` |
 | The machine-readable layer does not overstate its status | `grep -o 'isOsiApproved="[a-z]*"' LICENSES/ACD-1.0.spdx.xml` and the `osiApproved` / `spdxListed` fields | all **false** |
 
 **Why this is worth stating rather than skipping.** Drafting defects that reviewers routinely
