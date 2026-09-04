@@ -116,6 +116,8 @@ from, and four sections of the text had produced none: §3, §7, §11 and §14. 
 
 | 51 | **Every statement in the dossier about the outside world was undated.** Twenty-one claims describe things that can change — SPDX registration, adopter count, what other instruments are doing, whether any AI-specific licence has been approved — and none carried the date it was checked. Against a review measured in months to years, an undated "not registered" cannot be judged true or false by a reader six months later. **An unjudgeable claim is worse than a wrong one**, because it invites the reader to discount the claims around it | **Fixed structurally rather than line by line.** `AS-OF.md` collects them with a verification date and a re-check method each; the text's own properties are deliberately excluded, since those are settled by the digest check rather than by a date. What remains unresolved is the discipline: **updating a date without re-verifying the value would be the worst possible edit**, and nothing enforces that beyond saying so |
 
+| 52 | **The readiness document claimed a state that the record then contradicted.** `READY-TO-SUBMIT.md` said the text had been read "until findings reached zero", ending with "final read-through: 0 findings — this is where the judgement was made". Fifty-one adverse facts and seven errata have been found since, including one place where the text tells a reader to do something incorrect (§16.1). **A reviewer reading that document beside this one finds the first refuted by the second**, which puts the readiness judgement itself in question | **Corrected, and the correction is the more useful record.** The 2026-08-24 judgement was not wrong; the word "zero" was. It meant "the lenses available that day produced nothing new", not "no defects remain" — and lenses arrive later (the ones added since produced everything above). The right standard for submitting was never "zero defects", which would mean never submitting; it is **"nothing known is being concealed"**, and that held then and holds now. **Writing "zero" without stating the standard reads as swapping the standard**, which is the defect worth recording |
+
 **What this exercise changed.** Two dossier statements were wrong and have been corrected
 (#15, #24 — the second of them a misdescription of which section grants the licence, which had
 been repeated across the submission packet). Two criticisms of the text are accepted as fair and
@@ -140,13 +142,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **51** across seven rounds of examination. When this
+The adverse list has grown from 14 entries to **52** across seven rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Seven rounds of adversarial reading — three
-   prompted by third parties, four self-initiated — have produced **51 adverse facts, 7
+   prompted by third parties, four self-initiated — have produced **52 adverse facts, 7
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
