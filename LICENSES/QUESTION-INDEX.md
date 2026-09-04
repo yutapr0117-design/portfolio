@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are 132 worked entries across this directory. This page exists so that you do not have to
+There are 133 worked entries across this directory. This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -53,6 +53,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | What does each of the 82 clauses do? | `clause-reference.md` — one row per clause, checked against the text (82/82) |
 | Are there known defects? | **Five.** `errata.md` — with severity, what 1.1 would do, and why none is fixed |
 | §16.1 tells adopters to write an unregistered SPDX identifier | **Correct, and it is the highest-severity item.** `errata.md` E1; `review-responses-clauses.md` §15/§16 |
+| §8.2 says "not terminable by the Dedicator" but §10.4 says "terminates for any reason" — which? | **Both; one is about the document, one about the actor.** No licence can promise survival of every external event, and §13.2 disclaims that. `review-responses-clauses.md` §8 |
 | §2.9 declares its own insolvency classification | `against.md` #21 — facts before the conclusion is right; asserting the conclusion is not |
 | §6.4 says outputs are "not encumbered" in absolute form | `against.md` #22 — §6.5 makes §6 declaratory, so the effect is right and the phrasing is loose |
 | §8.4 drops §8.1's proviso — does it reach claims unrelated to the Work? | **It reaches wider, and the clause says so itself.** Two limits remain (ownership, causation); the subject-matter link is what was deliberately removed. `review-responses-clauses.md` §8; open question at `errata.md` E6 |

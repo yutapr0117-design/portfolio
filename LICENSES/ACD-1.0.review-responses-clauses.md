@@ -154,6 +154,43 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 （特許を持つ採用者）を名指しする。そのうえで**答えを持たない部分**（出力にまで及ぶ必要が
 本当にあるか）は 1.1 候補として残し、ここで弁護しない。
 
+**Q. §8.2 は「Dedicator によって終了させられない」と限定するのに、§10.4 は「いかなる理由でも終了しない」と限定していない。どちらが本当なのか。**
+
+> **English:**
+>
+> Both, and the difference is not accidental — but the text does not explain it, so it is worth
+> setting out.
+>
+> §10.4 is the general statement: "No permission granted by this Dedication terminates for any
+> reason. This Dedication contains no termination provision and no revival provision, because it
+> contains nothing that You could breach." That is unqualified because it is a statement about
+> **the document**: there is no clause anywhere that ends a permission, so nothing in the
+> instrument can terminate one.
+>
+> §8.2 addresses a different worry. Patent grants in widely-used licences commonly *are*
+> terminable — Apache-2.0 §3 ends the patent licence on the filing of a patent claim — so a
+> reader arriving at §8 expects to find a retaliation provision and needs to be told, in that
+> place, that there is none. Saying "not terminable **by the Dedicator** on any ground, including
+> the commencement of … patent litigation" names the actor the reader is worried about.
+>
+> **Why the narrower wording is the honest one.** No licence can promise that a permission
+> survives every external event: a court can hold a provision ineffective, a statute can change,
+> a jurisdiction may not give effect to part of the instrument. §10.4 says the *document*
+> terminates nothing; §8.2 says the *Dedicator* cannot terminate. Neither claims that no
+> external force could ever disturb a permission, and §13.2 disclaims exactly that warranty —
+> it does not warrant "that any Section of this Dedication is effective in any jurisdiction".
+>
+> If a reviewer reads §10.4 as promising more than that, the answer is that it does not, and the
+> narrower §8.2 is the better guide to what is actually being undertaken.
+
+**なぜこの問答を足すか**: 本文の自己言及的な主張 9 件を機械的に検証した副産物である。
+9 件はすべて真だった（「無い」と述べた条項は実際にどこにも無い）が、**同じ事柄を 2 箇所で
+述べていて限定語だけが違う**箇所が 1 つ見つかった。
+
+**同じことを 2 度述べる文書では、限定語の差が意味を持つ。** 審査者は必ず狭いほうを読んで
+「では広いほうは何なのか」と問う。**説明できるなら書いておく、説明できないなら直す** ——
+今回は説明できるので書いた（片方は文書についての言明、片方は行為者についての言明）。
+
 ### §9 MACHINE-GENERATED MATERIAL
 
 **Q. 「権利が存在するか分からない」と書くのは利用者を不安にさせるだけでは。**
