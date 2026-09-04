@@ -7,7 +7,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (frozen text) / LICENSES/FROZEN.md (freeze +
 
 # Known defects in ACD-1.0, and why none of them is fixed
 
-Five imprecisions have been found in the text. **All five are unrepaired, deliberately.** This
+Six items are recorded: five imprecisions and one open drafting question. **All five are unrepaired, deliberately.** This
 page exists so that the list is public before anyone else compiles it, and so that "the text is
 frozen" reads as a discipline rather than as a way of not answering.
 
@@ -33,6 +33,7 @@ grep -E "^[0-9a-f]{64}  " LICENSES/FROZEN.md | shasum -a 256 -c   # expect 3× O
 | E2 | **§16.3** | "may be applied by anyone, to any work, without permission from ... its authors" is broader than the point it exists to make. §2.7 keeps the effect honest, but the sentence invites applying the notice to works one does not own, and the party harmed is the **downstream recipient** who relies on the signal | Add "in which they hold rights", which preserves the reusability point (submission §4b depends on this clause) and drops the invitation | High |
 | E3 | **§16.1 notice wording** (and the same sentence carried into `ACD-1.0.machine.json`'s `notice` field, so the fix touches two frozen files) | The notice says "no conditions are imposed" without §10.1's qualifier "in respect of the Work". §16.4 does restrict redistributing the licence *text* under its name, so the shorthand reads as contradicted three lines later | Carry the qualifier into the notice | Medium — the text is consistent; only the summary is loose |
 | E4 | **§6.4** | "No model ... is encumbered by this Dedication or by any Covered Right of the Dedicator" states the result in a form that can be read as denying that any right subsists, rather than as saying no enforceable claim remains. §6.5 makes §6 declaratory of §3–§5, so the operative effect is right | Say "no enforceable claim arises" | Medium |
+| E6 | **§8.4** | The grant reaches claims infringed by "any model, parameter set, weight, embedding, or output" resulting from Computational Use, and deliberately drops §8.1's proviso limiting infringement to subject matter contained in the Work. Whether it needs to reach *outputs* as well as the *use of the Work in training* is an open drafting question — the narrower form might close the same gap at lower cost to patent-holding adopters | Consider splitting the grant: claims infringed by computational use of the Work, and separately claims infringed by the resulting model, so an adopter can see which is which | **Open question, not a defect.** The current text is coherent and its breadth is stated; what is unresolved is whether a narrower form would do the same work |
 | E5 | **§2.9** | "and so is not executory" asserts a classification that a forum's insolvency law determines, not the document. The clause does give the supporting facts first — no continuing obligation on either side — which is the strongest thing a text can do | State the facts and stop; let the conclusion follow | Low — form, not substance |
 
 ## What the machine-readable layer got right
