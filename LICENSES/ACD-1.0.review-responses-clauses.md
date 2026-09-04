@@ -227,6 +227,47 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 その偽の規範を作ることになる。§9.2 の「何も足さず何も奪わない」という一文は、そこを
 避けるために置かれている。
 
+**Q. 再頒布時に本文を同梱する義務が無いなら、§13 / §14 の免責はどこまで実効的なのか。下流の受領者は、免責を見ないまま作品を受け取ることになるのでは。**
+
+> **English:**
+>
+> This was raised against the Unlicense in its 2020 review — the observation that "there's no
+> requirement to include the license on redistribution, making me wonder how effective the
+> warranty disclaimer is." It applies to ACD-1.0 with equal force: §10.2 says You need not
+> "reproduce any notice … retain this file, or inform anyone of anything."
+>
+> **The honest answer has two halves, and the second is a cost we accept.**
+>
+> **On the permissions**, nothing is weakened. §1.4 defines You as any person exercising
+> permissions, §4.1 grants to that person directly, and §2.3 makes the grant effective without
+> any act of acceptance. A recipient who never sees the text still holds the grant, because it
+> does not travel through a chain of assent. This is the same structure that MIT-0 and 0BSD
+> rely on, both approved.
+>
+> **On the disclaimer**, the objection lands. A disclaimer of warranty generally works better
+> when the person it is asserted against has seen it — and in the United States, conspicuousness
+> is a doctrine with teeth. If a redistributor strips the notice, §13 and §14 are being asserted
+> against someone who never read them. §16.2 helps only where an identifier travels; where
+> nothing travels, nothing helps.
+>
+> **Why the trade was made this way.** A condition requiring notice retention is a condition, and
+> §10.1 exists precisely to have none. The choice is between a disclaimer that is easier to
+> assert and an instrument that asks nothing of its users, and this text takes the second. The
+> risk of the choice falls on the **Dedicator**, not on the recipient: an unenforced disclaimer
+> exposes the person who gave the work away, not the person who received it. That asymmetry is
+> what makes the trade defensible under the OSD, and it is why the point belongs in the
+> disclosures rather than in the conformance argument.
+
+**なぜこう答えるか**: この反論は Unlicense の審査で実際に出たもので、**ACD にはより強く
+当たる** —— Unlicense と違い ACD は §10.2 で「保持しなくてよい」と**明示的に述べている**
+からである。
+
+答えの構造は「**許諾の側は無傷、免責の側は本当に弱くなる**」であり、後者を認めることが
+要点になる。ここで「§16.2 があるから大丈夫」と言うのは誤り —— 識別子すら伝わらない場合を
+救わない。**そのうえで、弱くなることの損は Dedicator が被る**（免責が効かなければ困るのは
+渡した側であって受け取った側ではない）。**利用者に不利にならない形の欠陥**なので OSD 適合
+の議論ではなく開示に属する、という切り分けを明示する。
+
 ### §15 / §16
 
 **Q. §16.1 は、まだ割り当てられていない SPDX 識別子を書けと指示している。これは誤りではないのか。**
