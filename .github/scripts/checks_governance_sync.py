@@ -118,6 +118,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 """
 import re
 import json
+import subprocess
 
 
 def run(ctx):
@@ -740,6 +741,40 @@ def run(ctx):
             )
         except (OSError, _sp459.CalledProcessError) as _e459:
             warnings.append(f"Check 459: LICENSES の走査に失敗 ({_e459}) — 索引到達性を skip")
+
+    # ── 461b. LICENSES/*.md の last-updated が git の最終更新日以上であること (BLOCKING) ──
+    # **2026-09-05 に 12 ファイルが stale で見つかった**（最大 10 日ずれ）。しかも
+    # `AS-OF.md` で「日付は書いた日ではなく確かめた日を書く」と定めた直後である。
+    # Check 65 は**書式**（ISO-8601 か）だけを見ており、**値が実態と合うか**は見ていない。
+    # 長期戦では「最後にいつ触れたか」が審査者の判断材料になるので、古い申告は
+    # 「更新されていない文書」に見せる —— 実際には更新されているのに。
+    _lu461 = []
+    _lic461 = ROOT / "LICENSES"
+    if _lic461.exists():
+        for _f461 in sorted(_lic461.glob("*.md")):
+            _m461 = re.search(r"^last-updated:\s*(\d{4}-\d{2}-\d{2})\s*$",
+                              _f461.read_text(encoding="utf-8"), re.M)
+            if not _m461:
+                continue
+            try:
+                _git461 = subprocess.run(
+                    ["git", "log", "-1", "--format=%ad", "--date=short", "--", str(_f461)],
+                    capture_output=True, text=True, cwd=str(ROOT), timeout=20).stdout.strip()
+            except Exception:
+                continue
+            # 未コミットの新規ファイルは git 日付が空 → 検査しない
+            if _git461 and _m461.group(1) < _git461:
+                _lu461.append(f"{_f461.name}: 申告 {_m461.group(1)} / 実際の最終更新 {_git461}")
+    check(
+        not _lu461,
+        f"Check 461b: LICENSES/*.md の last-updated が実際の最終更新日と整合 "
+        f"({len(list(_lic461.glob('*.md'))) if _lic461.exists() else 0} file)",
+        f"Check 461b: last-updated が古いファイルがある: {_lu461[:6]}。"
+        f"**古い日付は「更新されていない文書」に見せる** —— 実際には更新されているのに、"
+        f"審査者は最後に触れた日を判断材料にする。編集したら同じ commit で日付も直せ "
+        f"(Check 65 は書式だけを見るので、値の整合は本 Check が担う)",
+        blocking=True,
+    )
 
     # ── 460. ドシエが自己申告する件数が実測と一致すること (BLOCKING) ────────────────────
     # 数字は書いた当日に drift する。読み手は数字を根拠に「網羅されている」と判断するので、

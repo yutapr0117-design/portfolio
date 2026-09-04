@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.comparison.md
 audience: ai, human (提出者), 監査人, 採用検討者, 第三者全般
-last-updated: 2026-08-27
+last-updated: 2026-09-05
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / docs/architecture/acd-license-rationale.md (§2 に無条件系との比較と 0BSD/Apache 逐条差分) / LICENSES/ACD-1.0.review-responses.md (総論の想定問答・索引)
 ---
 

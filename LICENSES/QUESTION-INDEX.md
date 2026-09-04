@@ -1,13 +1,13 @@
 ---
 file: LICENSES/QUESTION-INDEX.md
 audience: OSI license-discuss / license-review participants, licence reviewers
-last-updated: 2026-09-04
+last-updated: 2026-09-05
 canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md (the adverse case) / LICENSES/ACD-1.0.txt (authoritative text)
 ---
 
 # If you were going to ask — where the answer already is
 
-There are **141** worked entries across this directory (measured 2026-09-05; the list is append-only, so treat it as a floor). This page exists so that you do not have to
+There are **142** worked entries across this directory (measured 2026-09-05; the list is append-only, so treat it as a floor). This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
