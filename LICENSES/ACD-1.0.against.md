@@ -97,8 +97,8 @@ itself is in `ACD-1.0.comparison.md` §1.5.
 
 ## Sections the adverse list had never examined (2026-09-04)
 
-The 43 entries above were checked against where they came from, and four sections of the text had
-produced none: §3, §7, §11 and §14. Two of those yielded something on a hostile reading.
+At the time of this pass the list stood at 43 entries. They were checked against where they came
+from, and four sections of the text had produced none: §3, §7, §11 and §14. Two of those yielded something on a hostile reading.
 
 | # | Adverse fact | Status |
 |---|---|---|
@@ -140,14 +140,15 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list grew from 14 entries to 33 across four rounds of examination. This section did
-not grow at all, and that asymmetry was itself a distortion: a document whose adverse side
+The adverse list has grown from 14 entries to **51** across seven rounds of examination. When this
+section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
-1. **No design decision has been overturned.** Four rounds of adversarial reading — two prompted
-   by third parties, two self-initiated — produced 33 adverse facts, five errata, and two
-   corrections to our own descriptions. **None of them changed a design decision recorded in
+1. **No design decision has been overturned.** Seven rounds of adversarial reading — three
+   prompted by third parties, four self-initiated — have produced **51 adverse facts, 7
+   errata, and five corrections to our own documents** (three descriptions that were wrong:
+   #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
    explanations of those decisions (#24) and the precision of the text's wording (E1–E5). For an
    instrument with no legal review, "the design held and the drafting was imprecise" is a
@@ -173,7 +174,8 @@ follows is what actually held, restricted to things that were tested rather than
 6. **The clause-level defects found so far are all of one kind.** Five errata, three
    descriptions corrected in our own documents, and forty-five adverse facts have produced
    **no defect that changes what a recipient may do.** Every one is a matter of precision, of
-   scope of wording, or of a conclusion stated in the wrong form. That is not proof of quality —
+   scope of wording, or of a conclusion stated in the wrong form. (Counts are as of 2026-09-05;
+   the list is append-only, so they are floors. Check 460 now enforces them.) That is not proof of quality —
    it is a statement about the kind of fault that has been found, and the kind that has not.
 7. **A first approval in this category would help, whoever earns it.** #33 records that no
    AI-specific licence has ever been approved as an adverse fact, and it is one. The same fact

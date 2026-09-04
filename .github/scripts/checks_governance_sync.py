@@ -808,6 +808,39 @@ def run(ctx):
             elif int(_m4.group(1)) != _fa460:
                 _bad460.append(f"faq mirror の使う側: 申告 {_m4.group(1)} / 実測 {_fa460}")
 
+        # (e) against.md が自分の規模について述べる数字。**2026-09-05 に 3 件 stale で見つかった** ——
+        #   「43 entries」「14 から 33 へ」「33 adverse facts」と書いてあり実測は 51 だった。
+        #   append-only の一覧を持つ文書は、**自分の規模を本文で述べた瞬間に古くなる**。
+        _ag460 = ROOT / "LICENSES" / "ACD-1.0.against.md"
+        if _ag460.exists():
+            _agt = _ag460.read_text(encoding="utf-8")
+            _rows460 = len(re.findall(r"^\| \d+ \|", _agt, re.M))
+            for _m5 in re.finditer(r"grown from \d+ entries to \*\*(\d+)\*\*", _agt):
+                if int(_m5.group(1)) != _rows460:
+                    _bad460.append(f"against.md の規模: 申告 {_m5.group(1)} / 実測 {_rows460}")
+            for _m6 in re.finditer(r"produced \*\*(\d+) adverse facts", _agt):
+                if int(_m6.group(1)) != _rows460:
+                    _bad460.append(f"against.md の総括: 申告 {_m6.group(1)} / 実測 {_rows460}")
+            _er460 = ROOT / "LICENSES" / "ACD-1.0.errata.md"
+            if _er460.exists():
+                _ercnt = len(re.findall(r"^\| E\d+ \|", _er460.read_text(encoding="utf-8"), re.M))
+                for _m7 in re.finditer(r"(\d+) errata", _agt):
+                    if int(_m7.group(1)) != _ercnt:
+                        _bad460.append(f"against.md の errata 数: 申告 {_m7.group(1)} / 実測 {_ercnt}")
+
+        # (f) QUESTION-INDEX が述べる worked entry の総数。**索引は手で加算していたため 2 ずれていた**。
+        _qi460 = ROOT / "LICENSES" / "QUESTION-INDEX.md"
+        if _qi460.exists():
+            _tot460 = 0
+            for _f in sorted((ROOT / "LICENSES").glob("*.md")):
+                _tot460 += len(re.findall(r"^\*\*Q\.|^### (?:Q|A|B)\d+|^\| \d+ \|",
+                                          _f.read_text(encoding="utf-8"), re.M))
+            _m8 = re.search(r"There are \*\*(\d+)\*\* worked entries", _qi460.read_text(encoding="utf-8"))
+            if not _m8:
+                _bad460.append("QUESTION-INDEX.md: worked entry 総数の申告が見つからない")
+            elif int(_m8.group(1)) != _tot460:
+                _bad460.append(f"索引の総数: 申告 {_m8.group(1)} / 実測 {_tot460}")
+
         check(
             not _bad460,
             f"Check 460: ドシエの自己申告件数が実測と一致 "
