@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are 124 worked entries across this directory. This page exists so that you do not have to
+There are 125 worked entries across this directory. This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -27,6 +27,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | CC0 was stopped by OSI — why would this be different? | `comparison.md` §1.4 — the 2012 objection was the **patent carve-out** (weakening estoppel; putting users on notice), and §2.5 and §8.3 are built against exactly those two. **It does not follow that this clears the bar CC0 did not** |
 | Why not just use MIT-0, 0BSD, CC0 or Apache-2.0? | `comparison.md` §1 — including **when those are the better choice**, which is most of the time |
 | Doesn't OpenMDW or ModelGo already do this? | `comparison.md` §1.5 — adjacent, not the same question; and where they are better than this one. `against.md` #28, #31 |
+| Suppose they do add AI terms — what is left? | `comparison.md` §1.35 — **four of six distinguishing features would close**; two would not (it does not presume a right exists; it imposes no condition). With the costs of that structure listed beside them |
 | Won't GPL or Apache just add AI terms in their next version? | `comparison.md` §1.3 — **checked**: FSF and ASF are responding through criteria and guidance, not licence text, and no GPLv4 is announced. **If that changes, the section gets rewritten, not defended** |
 | Is this just licence proliferation? | The honest answer is that it is not obviously not. `comparison.md` §1 closing; `against.md` #28, #33 |
 

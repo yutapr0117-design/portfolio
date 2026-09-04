@@ -119,6 +119,83 @@ OSI が新規ライセンスの提出者に求めるのは、**最も近い承�
 > this section should be rewritten rather than defended, and `PEER-REVIEW-WATCH.md` records the
 > obligation to check.
 
+## 1.35 取り込んだ後も残る差は何か（差別化とその代償）
+
+§1.3 は「待てば済むのでは」に答えた。**ここは別の問いに答える** —— **既存ライセンスが
+AI 条項を実際に取り込んだとして、そのとき何が残るのか。** 「根本が異なる」と述べるだけでは
+主張であって説明ではないので、**条項を追加すれば埋まる差**と**追加では埋まらない差**を分ける。
+
+> **English:**
+>
+> ### Differences an amendment closes
+>
+> These are the ones that would disappear if Apache-2.0 or the GPL added AI terms tomorrow, and
+> it is worth saying so plainly rather than claiming a permanence they do not have.
+>
+> | Difference | Why an amendment closes it |
+> |---|---|
+> | Express permission for training and TDM | A clause can say this. Nothing structural prevents it |
+> | A statement that no TDM reservation is made | Same |
+> | Patent grant extending to models and outputs | Apache-2.0 already has the machinery; extending its scope is a drafting change |
+> | Database rights addressed | A clause can enumerate them |
+>
+> **Four of ACD-1.0's six distinguishing features are of this kind.** If the incumbents move,
+> the case for this instrument narrows to the remaining two — and the honest position is that
+> those two carry the argument, not the six.
+>
+> ### Differences an amendment does not close
+>
+> These follow from **where a licence starts**, not from what it contains.
+>
+> **1. A licence that presumes a right cannot be amended into one that does not.**
+> Apache-2.0, MIT and the GPL all begin from a grant by a copyright holder. That is their
+> operative premise: rights exist, and the holder permits certain uses of them. ACD-1.0 begins
+> one step earlier — §9.2 makes no representation that any right subsists, and states that where
+> none does, the instrument "adds nothing to Your existing freedom and takes nothing away";
+> §9.3 removes from the user any duty to determine which parts are machine-generated, and makes
+> no permission depend on "how any jurisdiction answers it, or on whether the answer changes."
+>
+> An AI clause bolted onto a conventional licence still inherits the premise. Applied to material
+> whose authorship may not subsist, it grants permissions under rights that may not be there —
+> which is precisely the "false IP norms" criticism levelled at AI-specific licences on
+> license-discuss in March 2026. **Restructuring around that premise is not an amendment; it is a
+> different instrument.**
+>
+> **2. "Conditions plus an exception" is not the same thing as no conditions.**
+> The incumbents are condition-bearing by design — attribution, notice retention, source
+> disclosure, reciprocity. An AI amendment would most naturally take the form of *permission to
+> train, subject to the existing conditions*. That is a coherent and probably good design. It is
+> not this one: §4.3 attaches no condition of any kind and §10.1 says so for the whole
+> instrument, so **there is no condition for a machine to satisfy, and therefore nothing for a
+> compliance step to check.**
+>
+> **3. Computational use is defined once, at the top, rather than added at the edge.**
+> §1.7 defines Computational Use to include reproduction, extraction, normalisation, indexing,
+> retrieval, analysis and TDM, *and* training, fine-tuning, evaluation, alignment and
+> distillation, *and* the making, distribution and use of any resulting model, weights,
+> embeddings or outputs. Because it is a defined term, §6.1 permits all of it in one sentence and
+> §8.4 follows it into patents. An amendment adds a clause; a definition changes what every other
+> clause is about.
+>
+> ### What this costs
+>
+> Structural difference is not free, and the costs are the mirror image of the advantages.
+>
+> - **No conditions means no attribution and no notice retention** — which some publishers want,
+>   and which makes the warranty disclaimer weaker in practice (`against.md` #41).
+> - **No patent retaliation** (§8.2, expressly) — OpenMDW and MG-BY both terminate on suit, and
+>   many reviewers regard defensive termination as a feature.
+> - **A patent grant this broad is expensive for a patent holder** — an organisation that wants
+>   to keep its patents cannot use this instrument (`against.md` #16).
+> - **Unfamiliarity.** Apache-2.0 with an AI clause is a document every legal team has already
+>   read. This is not, and that is a real adoption cost, not a rhetorical one.
+> - **No steward, no adoption, no legal review** (`against.md` #1, #4, #10).
+>
+> **The narrow claim.** If the incumbents amend, ACD-1.0's distinctiveness reduces to two things:
+> **it does not presume that a right exists, and it imposes no condition on anyone.** Whether
+> those two are worth a separate instrument is the proliferation question, and this document
+> does not claim the answer is obvious.
+
 ## 1.4 CC0 —— 同型で唯一 OSI で止まった先例（2012）
 
 **ACD-1.0 に最も近い先例は CC0 であり、その顛末はこの提出にとって最も重要な事実である。**
