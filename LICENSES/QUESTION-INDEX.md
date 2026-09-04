@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are 128 worked entries across this directory. This page exists so that you do not have to
+There are 130 worked entries across this directory. This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -48,6 +48,8 @@ If your question is not here, that is our omission and worth saying on the list.
 
 | Question | Where |
 |---|---|
+| Is there any condition anywhere in this instrument? | **One, and the text names it itself.** §16.5 conditions *distributing a translation of the licence text* on identifying it as a translation — and says in terms that this is not a condition on any use of the Work (§10.5). `clause-reference.md` |
+| Why is the same protection expressed three different ways? | Deliberate layering: surrender (§3), licence (§4), covenant (§5) — and §8.6 gives patents the second footing, §12.2 does the same for moral rights. `clause-reference.md` |
 | What does each of the 82 clauses do? | `clause-reference.md` — one row per clause, checked against the text (82/82) |
 | Are there known defects? | **Five.** `errata.md` — with severity, what 1.1 would do, and why none is fixed |
 | §16.1 tells adopters to write an unregistered SPDX identifier | **Correct, and it is the highest-severity item.** `errata.md` E1; `review-responses-clauses.md` §15/§16 |
