@@ -81,18 +81,27 @@ The repository's own CI enforces the rest: that the licence is declared identica
 published surface, that the counts these documents quote match reality, and that the frozen files
 are unchanged. Those are Checks 444, 460 and 453 respectively; `npm run verify` runs them.
 
-## Map of the Japanese documents
+## Map of the supporting documents, and which language each is actually in
 
-| File | What is in it |
-|---|---|
-| [`ACD-1.0.comparison.md`](ACD-1.0.comparison.md) | Why the nearest approved licences do not fit, by family (CC0, Unlicense, 0BSD/MIT-0, Apache-2.0, MPL) |
-| [`ACD-1.0.clause-reference.md`](ACD-1.0.clause-reference.md) | All 82 clauses, one line each, with what each is for |
-| [`ACD-1.0.jurisdictions.md`](ACD-1.0.jurisdictions.md) | Where the questions differ by jurisdiction (JP, DE, FR, US, EU, UK). **Questions, not conclusions** — no legal opinion is offered |
-| [`ACD-1.0.faq.md`](ACD-1.0.faq.md) | Practical questions from the adopter's side (SPDX notation, scanners, explaining it to a legal team, academic use, consumer-law limits) |
-| [`ACD-1.0.review-responses.md`](ACD-1.0.review-responses.md) | Anticipated objections: the four weaknesses stated first, then OSD clause by clause |
-| [`ACD-1.0.review-responses-clauses.md`](ACD-1.0.review-responses-clauses.md) | Anticipated objections at the clause level |
-| [`ACD-1.0.review-responses-meta.md`](ACD-1.0.review-responses-meta.md) | Objections about the instrument's provenance, name, stewardship, versioning and machine-readability |
-| [`ACD-1.0.discussion-log.md`](ACD-1.0.discussion-log.md) | Reserved for **actual** feedback once it arrives. Deliberately not filled with guesses |
+**Measured, not assumed** (2026-09-05, by counting Japanese vs Latin characters). The earlier
+version of this page called all of these "the Japanese documents", which was wrong for four of
+them and would have sent a reviewer away from material they can read.
+
+| File | Language | What is in it |
+|---|---|---|
+| [`ACD-1.0.comparison.md`](ACD-1.0.comparison.md) | **English** | Why the nearest approved licences do not fit, by family (CC0, Unlicense, 0BSD/MIT-0, Apache-2.0, MPL) |
+| [`ACD-1.0.clause-reference.md`](ACD-1.0.clause-reference.md) | Japanese | All 82 clauses, one line each, with what each is for |
+| [`ACD-1.0.jurisdictions.md`](ACD-1.0.jurisdictions.md) | Japanese | Where the questions differ by jurisdiction (JP, DE, FR, US, EU, UK). **Questions, not conclusions** — no legal opinion is offered |
+| [`ACD-1.0.faq.md`](ACD-1.0.faq.md) | Mixed; each answer has an English block | Practical questions from the adopter's side (SPDX notation, scanners, explaining it to a legal team, academic use, consumer-law limits) |
+| [`ACD-1.0.review-responses.md`](ACD-1.0.review-responses.md) | Mixed; **every answer is given in English**, with Japanese notes on why it is phrased that way | Anticipated objections: the four weaknesses stated first, then OSD clause by clause |
+| [`ACD-1.0.review-responses-clauses.md`](ACD-1.0.review-responses-clauses.md) | **English** | Anticipated objections at the clause level |
+| [`ACD-1.0.review-responses-meta.md`](ACD-1.0.review-responses-meta.md) | Mixed; answers in English | Objections about the instrument's provenance, name, stewardship, versioning and machine-readability |
+| [`ACD-1.0.discussion-log.md`](ACD-1.0.discussion-log.md) | Japanese | Reserved for **actual** feedback once it arrives. Deliberately not filled with guesses |
+
+**The documents a reviewer is most likely to want are already in English**: the adverse case, the
+errata, this page, the question index, the submission packet, and both of the anticipated-response
+files that deal with clauses and with comparison. What is Japanese is mostly the clause-by-clause
+reference and the jurisdiction map.
 
 If something you need is only in Japanese and matters to your review, say so on the list and it
 will be translated. Nothing here is withheld — the language is an artefact of who wrote it, not

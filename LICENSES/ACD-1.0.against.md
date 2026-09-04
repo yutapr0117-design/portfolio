@@ -118,6 +118,8 @@ from, and four sections of the text had produced none: §3, §7, §11 and §14. 
 
 | 52 | **The readiness document claimed a state that the record then contradicted.** `READY-TO-SUBMIT.md` said the text had been read "until findings reached zero", ending with "final read-through: 0 findings — this is where the judgement was made". Fifty-one adverse facts and seven errata have been found since, including one place where the text tells a reader to do something incorrect (§16.1). **A reviewer reading that document beside this one finds the first refuted by the second**, which puts the readiness judgement itself in question | **Corrected, and the correction is the more useful record.** The 2026-08-24 judgement was not wrong; the word "zero" was. It meant "the lenses available that day produced nothing new", not "no defects remain" — and lenses arrive later (the ones added since produced everything above). The right standard for submitting was never "zero defects", which would mean never submitting; it is **"nothing known is being concealed"**, and that held then and holds now. **Writing "zero" without stating the standard reads as swapping the standard**, which is the defect worth recording |
 
+| 53 | **The entry page told reviewers that documents they can read are in a language they cannot.** `REVIEWERS.md` headed its list "Map of the Japanese documents" and put eight files under it. Measured by character counts, **four of those are English or answer-in-English**: `comparison.md` (19,289 Latin characters against 1,860 Japanese), `review-responses-clauses.md` (22,738 against 2,836), and both `review-responses.md` and `review-responses-meta.md`, whose every answer is given in English with Japanese only in the notes explaining the phrasing. **A reviewer following that page would have skipped the clause-level objections and the licence comparison believing they could not read them** | **Corrected by measurement, and the measurement is now stated on the page.** The map gives a language per file and says which documents are already in English. **This was invisible to every check run so far** — they were all searches for patterns *within* a language, and none asked what language a file was in. The finding also reverses the assumption behind the page: the material a reviewer is most likely to want was already in English, and the page was directing them away from it |
+
 **What this exercise changed.** Two dossier statements were wrong and have been corrected
 (#15, #24 — the second of them a misdescription of which section grants the licence, which had
 been repeated across the submission packet). Two criticisms of the text are accepted as fair and
@@ -142,13 +144,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **52** across seven rounds of examination. When this
+The adverse list has grown from 14 entries to **53** across seven rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Seven rounds of adversarial reading — three
-   prompted by third parties, four self-initiated — have produced **52 adverse facts, 7
+   prompted by third parties, four self-initiated — have produced **53 adverse facts, 7
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
