@@ -268,6 +268,68 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 渡した側であって受け取った側ではない）。**利用者に不利にならない形の欠陥**なので OSD 適合
 の議論ではなく開示に属する、という切り分けを明示する。
 
+**Q. 許諾の射程と、終了トリガーの射程が食い違っていないか。複数の権利を許諾しておいて、
+そのうち一部の権利についてだけ効果が生じるのはなぜか。**
+
+> **English:**
+>
+> This question was put to another submission in the September 2026 review — a licence granting
+> "copyright, patent, trade secret, and database rights" whose termination clause fires only on a
+> patent or copyright assertion. The reviewer asked what principle explains the boundary: would a
+> database-right claim leave the grants intact? A trade-secret claim? It is a good question and
+> it generalises: **wherever a licence grants over set A and reacts over set B, the difference
+> between A and B has to be explicable.**
+>
+> ACD-1.0 does not have the asymmetry, because it has no B. §10.4 states that "No permission
+> granted by this Dedication terminates for any reason. This Dedication contains no termination
+> provision and no revival provision, because it contains nothing that You could breach." §8.2
+> says the same for patents specifically and adds that "its absence is deliberate."
+>
+> The design cost is real and is stated elsewhere: **no defensive termination** means a recipient
+> who sues the Dedicator keeps everything, and many reviewers regard defensive termination as a
+> feature (`against.md` #16 and the comparison in §1.5 of `comparison.md`). What the structure
+> buys is that the set-A/set-B question cannot arise here — there is no second set to explain.
+
+**Q. 条件を課すライセンスは、条件を果たしようがない形態の頒布にどう対応するのか。**
+
+> **English:**
+>
+> Also from the September 2026 review, and the sharpest of the exchanges: a licence defined
+> "Distribution" to include hosted and API access expressly, but its attribution condition
+> required notices to be provided "with" the distribution. Asked what compliance looks like when
+> only outputs reach the user and no materials are transferred, the submitter conceded that
+> hosted access "falls within 'Distribution' as defined" and then concluded that **no obligation
+> arises**, because "there is no Licensed Material to attach the License to."
+>
+> That answer is defensible and it is also an admission: the condition is inert in a delivery
+> mode the licence expressly contemplates. The submitter declined to add an output-notice
+> requirement — correctly, since such requirements have been treated as incompatible with open
+> source — and said future drafting should address "the method of satisfying attribution, not as
+> a condition on use."
+>
+> **The general principle is worth stating, because it is a failure mode rather than a defect of
+> that licence.** A condition has to be satisfiable in every mode of distribution the licence
+> defines, or it decays into a rule that binds some distributors and not others depending on
+> delivery mechanism. Where AI models are concerned, that split is not marginal: hosted inference
+> is the dominant mode.
+>
+> ACD-1.0 does not encounter this because §10.1 imposes no condition in respect of the Work and
+> §4.3 attaches none to the licence, so there is nothing whose satisfiability depends on how the
+> Work reaches someone. §16.4 and §16.5 do impose conditions, but §10.5 and §16.6 confine them to
+> the licence text as a document: they "are not terms of the Work, they bind no recipient of the
+> Work." A hosted-service operator is a recipient of the Work and owes nothing.
+
+**なぜこの 2 問を置くか**: どちらも **2026 年 9 月の実際の審査で他の instrument に向けられた
+問い**であり、条項が違っても**判断軸は同じ**である —— 「許諾した集合と反応する集合が違うなら、
+その差を説明できるか」「定義した頒布形態のすべてで、条件は満たしうるか」。
+
+ACD はどちらも構造的に回避しているが、**回避していることと、それを説明できることは別**で
+ある。訊かれてから §10.4 や §10.5 を指すのでは、読み手はそこへ辿り着くまでに疑いを持つ。
+
+**なお §10.5 / §16.6 の存在は、`against.md` #45 の記述を訂正する** —— あの項目は
+「§11.1 と §16 を結ぶ 1 文が紙面に無い」と書いたが、**§10.5 と §16.6 がまさにその 1 文**で
+ある。見落としだったので #45 に注記した。
+
 ### §15 / §16
 
 **Q. §16.1 は、まだ割り当てられていない SPDX 識別子を書けと指示している。これは誤りではないのか。**
