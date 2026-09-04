@@ -36,6 +36,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | 提出用の英文一式（**送るだけ**） | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) |
 | 提出judgment と**残る弱点** | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) |
 | **いまどの段階か / 凍結の状態** | [`FROZEN.md`](FROZEN.md) |
+| **古くなりうる事実と、最後に確かめた日（英語）** | [`AS-OF.md`](AS-OF.md) |
 | 機械可読な記述子 | [`ACD-1.0.machine.json`](ACD-1.0.machine.json) / [`ACD-1.0.spdx.xml`](ACD-1.0.spdx.xml) |
 
 設計根拠と申請ドシエは、このディレクトリの外にある

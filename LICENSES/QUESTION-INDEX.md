@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are 135 worked entries across this directory. This page exists so that you do not have to
+There are 136 worked entries across this directory. This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -103,6 +103,7 @@ If your question is not here, that is our omission and worth saying on the list.
 
 | Question | Where |
 |---|---|
+| Is any of this out of date? | **`AS-OF.md`** — every claim about the outside world (submission status, SPDX, adoption, other instruments) with the date it was last verified and how to re-check it. **If a date is old, treat the claim as unverified** |
 | What has actually been submitted, and where? | `REVIEWERS.md` — discussion only; nothing to license-review, nothing to SPDX |
 | Why discussion first? | OSI's guidance, not our foresight. `discussion-log.md` §3.5 — including that we described this wrongly once |
 | What happens when feedback arrives? | `REVISION-PROTOCOL.md` — verbatim archive, then decomposition; **1.0 is never mutated** |
