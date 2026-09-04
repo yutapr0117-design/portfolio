@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-08-26
+last-updated: 2026-09-05
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文) / LICENSES/ACD-1.0.submission.md (提出パケット) / LICENSES/READY-TO-SUBMIT.md (提出判断) / LICENSES/FROZEN.md (凍結宣言) / docs/architecture/acd-license-rationale.md (設計根拠)
 ---
 

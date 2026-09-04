@@ -1,7 +1,7 @@
 ---
 file: LICENSES/REVIEWERS.md
 audience: OSI license-discuss / license-review participants, licence reviewers, anyone arriving from the mailing list
-last-updated: 2026-08-27
+last-updated: 2026-09-05
 canonical-ref: LICENSES/ACD-1.0.txt (authoritative text) / LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/ACD-1.0.submission.md (the message as sent)
 ---
 

@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.against.md
 audience: OSI license-discuss / license-review participants, licence reviewers
-last-updated: 2026-08-28
+last-updated: 2026-09-05
 canonical-ref: LICENSES/ACD-1.0.txt (authoritative text) / LICENSES/ACD-1.0.submission.md (the message as sent) / LICENSES/READY-TO-SUBMIT.md
 ---
 
@@ -122,6 +122,8 @@ from, and four sections of the text had produced none: §3, §7, §11 and §14. 
 
 | 54 | **The index built to make 140 entries findable was itself the second-least findable document here.** Measured by inbound links between the files in this directory: `QUESTION-INDEX.md` had **2** (only the two entry pages), `AS-OF.md` had **4**, while the bodies they index had 6–11 each. **Nothing in the twelve substantive documents pointed at either.** A reviewer who opens a file directly — the normal way to read a repository on the web — would never learn the index exists, which is precisely the readership the index was written for | **Fixed by giving every body document a footer pointing at the index, the staleness table, and the adverse case.** The finding matters more than the fix: **this was invisible to every check so far because all of them read files, and none measured the shape of the links between them.** Content-level checks cannot see a topology problem. Adding an entry point does not help if only the entry points know about it |
 
+| 55 | **Twelve files declared a last-updated date older than their actual last edit**, by up to ten days — and they did so immediately after `AS-OF.md` established that a date should record when something was *verified*, not when it was written. An existing check (65) validated that these dates are well-formed ISO-8601 but never compared them to reality. **A stale date makes a document look untouched when it has been revised**, and in a review measured in months that is one of the few signals a reader has about currency | **Corrected and now enforced (Check 461b), but the enforcement was itself defective on the first attempt.** The check omitted an import, so every file threw and was swallowed by a `continue` — it reported "20 files consistent" while examining none. It passed its own non-vacuity test only after the missing import was found. **The lesson is the one this repository keeps relearning: a gate that reports success without examining anything is worse than no gate**, because it converts an unchecked property into a checked-looking one |
+
 **What this exercise changed.** Two dossier statements were wrong and have been corrected
 (#15, #24 — the second of them a misdescription of which section grants the licence, which had
 been repeated across the submission packet). Two criticisms of the text are accepted as fair and
@@ -146,13 +148,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **54** across seven rounds of examination. When this
+The adverse list has grown from 14 entries to **55** across seven rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Seven rounds of adversarial reading — three
-   prompted by third parties, four self-initiated — have produced **54 adverse facts, 7
+   prompted by third parties, four self-initiated — have produced **55 adverse facts, 7
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
