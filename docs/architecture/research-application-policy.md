@@ -169,6 +169,28 @@ Status        : 本 increment で新設。CLAUDE.md（thin router）から参照
   - **この件を見つける前に踏んだ失敗**: 変更前に `'Quiz'` / `"Quiz"` をクォート付きで grep して「依存なし」と判断したが、**既存テストは正規表現 `/^Quiz \|/` で pin していた**ため見落とした。検出器の網が狭いと「無い」を誤って結論する（本セッションで 3 回目の同型ミス）。
   - **適用条件**: オーナーが「タブ名は描画内容と一致すべき」と裁可した場合。その際は page-meta の fallback を `map.aws` にし、#926 のテストの期待値も同時に更新する（片方だけ変えると必ず RED）。
 
+- **依存の現行性ラウンド（2026-09-05・脆弱性が実際に出ていた回）:** これまでのラウンドは
+  `npm audit` が常に 0 で、確認作業だった。今回は**初めて 0 ではなかった** —— `fast-uri` に
+  high 4 件（host confusion / SSRF、`stylelint → table → ajv` 経由）、`qs` に moderate 2 件
+  （`http-server → union` 経由）。`npm audit fix` で `fast-uri 3.1.5→3.1.7` / `qs 6.15.2→6.16.0` /
+  `side-channel 1.1.0→1.1.1` の 3 件が patch・minor で解決し、**`package.json` は無変更**。
+
+  | 測定した観点 | 結果 |
+  | :-- | :-- |
+  | `npm audit`（dev 込み） | 6 件 → **0 vulnerabilities** |
+  | `npm audit --omit=dev`（配信物） | **修正前から 0** —— 配信物は依存ゼロの Vanilla JS なので到達しない |
+  | `npm run lint` | **0 errors / 54 warnings で不変** |
+  | `npm run lint:css` | PASS 不変（`stylelint` 経路の bump なので実測が要る） |
+  | behavior e2e | `qs` / `side-channel` は **e2e の静的サーバ `http-server` の依存**なので全件実行して確認 |
+
+  **記録しておく事実**: `npm audit` は `npm run verify` にも CI にも入っていない。**外の世界が動くと
+  リポジトリを一切変更しなくても赤くなる**ので、BLOCKING ゲートにすると壊れやすい（公開面の
+  `Cache-Control` を Check にしなかったのと同じ理由）。検出層は **Dependabot** が担っており、実際に
+  今回もそれが最初に知らせた。ただし **Dependabot alert は repo 管理者にしか見えない**ので、
+  `total-check-runbook.md` §9 の期待出力表が `found 0 vulnerabilities` と述べている状態は、
+  **今回のように一時的に偽になりうる**。数字を宣言している以上、依存を触ったラウンドでは実測して
+  合わせる（この行がその実測である）。
+
 - **依存の現行性ラウンド（2026-08-11・測ってから適用）:** `npm audit` は **0 vulnerabilities**。`npm outdated` の 3 件を、#974 と同じ「**新版が実問題を暴くか先に測ってから適用**」の手順で処理した。
 
   | パッケージ | 版 | 測定した観点 | 結果 |

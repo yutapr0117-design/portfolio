@@ -119,8 +119,17 @@ test('Quiz data is fetched only when the quiz is opened, and only the requested 
 // 利用者からは「検索したのに効いていない」としか見えず、入力欄に語が残っているので
 // 原因に見当がつかない。到着時点の入力値で描き直すのが正しい。
 test('Quiz applies a search typed while the data was still loading', async ({ page }) => {
+  // [FIX 2026-09-05] 旧版は `setTimeout(1200)` で到着を遅らせ、その 1,200ms の間に入力と
+  //   control の確認が終わることに**賭けていた**。フルスイートの並列負荷では `#content h1`
+  //   の可視待ちだけで窓を使い切り、**データが先に届いて「読み込み中」が消えてから** control
+  //   を読むので `toHaveCount(1)` が落ちる (実測 2026-09-05: フルスイート 1 回目で 1 failed /
+  //   単独実行と 2 回目は pass = 非決定的)。同じ class は 2026-08-23 に下の aria-busy テストで
+  //   一度潰しており、**このテストだけ掃引から漏れていた**。
+  //   時間ではなく**明示的な解放ゲート**にして、検証が終わるまで到着させない。
+  let releaseModule;
+  const moduleGate = new Promise((resolve) => { releaseModule = resolve; });
   await page.route('**/js/quiz/aws-quiz-data.js*', async (route) => {
-    await new Promise((r) => setTimeout(r, 1200));
+    await moduleGate;
     await route.continue();
   });
 
@@ -138,6 +147,9 @@ test('Quiz applies a search typed while the data was still loading', async ({ pa
   //   「見つかりませんでした」と出すと **嘘になる** (まだ届いていないだけ)。
   await expect(page.locator('[data-quiz-list]'),
     'データ未着なのに「見つかりませんでした」と出している').toContainText('読み込んでいます');
+
+  // ここまでの検証が終わってから初めてデータを流す —— 窓の長さがマシン速度に依存しなくなる。
+  releaseModule();
 
   // 到着後: 入力欄・一覧・アナウンスの 3 つが一致する
   //   [FIX] `[data-quiz-loading]` の消失で待ってはいけない —— **入力すると読み込み中の
