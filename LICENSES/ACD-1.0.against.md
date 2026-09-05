@@ -236,6 +236,15 @@ recent broad mechanisation. It was right, and there was more than one.
 |---|---|---|
 | 63 | **Four self-declared counts were stale, all of them just outside the fence the check was built to defend.** `docs/files/LICENSES/` mirrors said the adverse list held "14 件" (62) and the errata "不正確さ 5 件（E1〜E5）" (E1–E10) and "54 件の不利な事実" (62); `CLAUDE.md` §7 said the blind-spot file recorded "10 次元と未使用の候補 10 件" against an actual **17 and 3** — and the candidate figure erred in the direction that promises a future reader more unused ways to measure than exist. **The reason they survived is the more useful finding than the four instances.** Check 460 grew one face at a time, and *each face was added after a specific place had been caught drifting* — the submission packet, the FAQ, the clause reference, the FAQ mirror, `against.md`, the index, and (the same day) the entry pages. **Its coverage was therefore "places we have seen drift", never "places that can drift"** | **Fixed, and the design changed rather than the four lines.** Restating the dossier's scale is now **forbidden** in `docs/files/LICENSES/` (Check 460 face (h)) instead of compared, because a mirror describes *what a file is* and a size claim there has no reader value while its drift is certain — a comparison face would have created one more thing to maintain and one more way to be wrong. Inside `LICENSES/` the counts do have reader value (a reviewer wants scale), so those stay under the comparing faces. `CLAUDE.md` §7 now states no number and points at the file. **No check was added for `CLAUDE.md`**: it legitimately quotes past measurements as history, and separating history from a live claim is a judgement a regular expression cannot make — the same reason recorded in `check-repository-consistency-map.md` §2.9 for prose path references |
 
+## The same sweep, one document further in (2026-09-06)
+
+#63 fixed four stale counts outside the fence. Continuing the sweep **inside** it found two more,
+in the worst possible place.
+
+| # | Adverse fact | Status |
+|---|---|---|
+| 64 | **The message written to be sent to `license-review` misstated two of the numbers in the section whose entire purpose is that a machine can check them.** `submission.md` §4c is our answer to "no lawyer has read it": a table of properties that *can* be established without counsel, each with the command that establishes it. Two of its rows were wrong — "**50 entries, 1–50, no gaps**" for an adverse list that holds **63**, and "**29 / 29**" clause pointers in the machine-readable descriptor where the repository's own Check 451a counts **33** on every run. **A reviewer who runs the commands we published gets different numbers from the ones we published**, and that turns the section into evidence for the opposite of what it argues. The first number moves every time this list grows; the second was simply wrong, since both its inputs are frozen and cannot have drifted | **Corrected, and enforced (Check 460 face (i)).** Face (a) already read this file — but only one sentence of it, the one that counts worked entries — so §4c sat inside the fence and outside the check. The entry count is now compared against the measured rows and the pointer count against the descriptor itself, each proven to fire on its own. **The pattern across #58, #63 and #64 is one thing seen three times**: every face of this check was added after a specific place had been caught, so its coverage tracked *incidents*, not *risk*. What changed today is that two of the new faces forbid the claim instead of comparing it, and this one derives its expected value from the artefact rather than from a remembered number |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -252,13 +261,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **63** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **64** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **63 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **64 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later

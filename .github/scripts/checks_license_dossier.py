@@ -55,6 +55,10 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        ↔ FAQ の `### AN.` / `### BN.` の実測、(c) 逐条リファレンスの「全 X 節 Y 条」↔
        ACD-1.0.txt から抽出した節数・条数、(d) FAQ mirror の件数、(e) against.md が
        自分の規模について述べる数字、(f) QUESTION-INDEX の worked entry 総数、
+       (i) **提出パケット §4c の「機械的に確かめたこと」の数値** —— face (a) は同じ file の
+       別の 1 文しか見ておらず §4c の表は素通りだった。実測 (2026-09-06): 「50 entries, 1–50」
+       （実体 63）と「29 / 29 clause pointers」（実体 33）。**§4c は「弁護士が読んでいない」への
+       答えで、価値は機械で確かめられること**にあるため、数字が合わないと節ごと逆の証拠になる。
        (h) **`docs/files/LICENSES/` の mirror が規模を数字で述べないこと** —— (a)〜(g) は
        捕まるたびに 1 面ずつ後付けした比較なので、被覆は「drift を目撃した場所」であって
        「drift しうる場所」ではない。実測 (2026-09-06): 柵の外に 4 件残っていた。mirror は
@@ -425,6 +429,48 @@ def run(ctx):
                     if _hit:
                         _bad460.append(f"{_fm.name}:{_n}: mirror がドシエの規模を数字で述べている "
                                        f"({_hit.group(0)!r}) — 本体を指すだけにせよ")
+
+        # (i) **提出パケット §4c が述べる「機械的に確かめたこと」の数値。** face (a) は同じ file の
+        #   別の 1 文（worked entries / short answers）しか見ておらず、§4c の表は素通りしていた。
+        #   実測 (2026-09-06): 「**50 entries, 1–50**」（実体 63）と「**29 / 29** clause pointers」
+        #   （実体 33 —— Check 451a が同じ値を毎回数えている）。**§4c は「弁護士が読んでいない」に
+        #   対する我々の答え**であり、その価値は「機械が確かめられる」ことにある。審査者が同じ
+        #   コマンドを走らせて別の数字が出るなら、その節は逆の証拠になる。
+        _sbm460 = _L460 / "ACD-1.0.submission.md"
+        if _sbm460.exists() and _ag460.exists():
+            _st = _sbm460.read_text(encoding="utf-8")
+            _mi1 = re.search(r"\*\*(\d+) entries, 1–(\d+), no gaps", _st)
+            if not _mi1:
+                _bad460.append("submission.md §4c: 不利な事実の件数申告が見つからない")
+            elif int(_mi1.group(1)) != _rows460 or int(_mi1.group(2)) != _rows460:
+                _bad460.append(f"submission.md §4c の不利な事実: 申告 {_mi1.group(1)}–{_mi1.group(2)} / "
+                               f"実測 {_rows460}")
+            _md_i = _L460 / "ACD-1.0.machine.json"
+            if _md_i.exists():
+                try:
+                    _dj = json.loads(_md_i.read_text(encoding="utf-8"))
+                except ValueError:
+                    _dj = None
+                if _dj is not None:
+                    _cnt = []
+
+                    def _walk_i(o):
+                        if isinstance(o, dict):
+                            if isinstance(o.get("clause"), str):
+                                _cnt.append(o["clause"])
+                            for _v in o.values():
+                                _walk_i(_v)
+                        elif isinstance(o, list):
+                            for _v in o:
+                                _walk_i(_v)
+
+                    _walk_i(_dj)
+                    _mi2 = re.search(r"\*\*(\d+) / (\d+)\*\*", _st)
+                    if not _mi2:
+                        _bad460.append("submission.md §4c: clause pointer の件数申告が見つからない")
+                    elif int(_mi2.group(1)) != len(_cnt) or int(_mi2.group(2)) != len(_cnt):
+                        _bad460.append(f"submission.md §4c の clause pointer: 申告 "
+                                       f"{_mi2.group(1)}/{_mi2.group(2)} / 実測 {len(_cnt)}/{len(_cnt)}")
 
         check(
             not _bad460,
