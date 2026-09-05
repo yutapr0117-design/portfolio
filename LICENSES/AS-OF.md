@@ -42,6 +42,7 @@ These are observations of other people's submissions and are the fastest-moving 
 | OpenMDW-1.1 | **2026-09-04** | First submission, still open; the August 2026 thread ran to roughly 90 messages among about a dozen participants |
 | ModelGo MG0-2.0 / MG-BY-2.0 | **2026-09-04** | Third resubmission (Dec 2025); the author's follow-ups of Jan, May and Jul 2026 had gone unanswered |
 | Incumbent stewards' AI response | **2026-09-04** | FSF working on criteria for free ML applications, no GPLv4 announced; ASF publishing generative-tooling guidance, no licence amendment announced; CC0 unchanged since 2012 |
+| **OSAID (Open Source AI Definition)** | **not read in this environment** | Referenced as an evaluation frame in both adjacent reviews, and observed there that systematic OSAID-based comparison is barely published. **We have not read the current text**, so nothing here states what it requires | Read the current OSAID from OSI directly. **Do not restate its requirements from memory** — a live standard quoted from recollection is the failure mode this table exists to prevent |
 
 ## What is deliberately not here
 
