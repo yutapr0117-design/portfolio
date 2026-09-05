@@ -39,10 +39,10 @@ meaningless.
 |---|---|---|
 | The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders |
 | The message as sent | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
-| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 118 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **Read this first.** All 14 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
+| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 145 worked entries, indexed by the question rather than the filename |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **Read this first.** All 58 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
-| **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | Five imprecisions, all unrepaired while the freeze holds, with what 1.1 would do |
+| **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 9 known imprecisions, all unrepaired while the freeze holds, with what 1.1 would do |
 | Known weaknesses, longer form | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) | Stated by us, before you have to find them |
 
 ## Disclosures you should not have to dig for

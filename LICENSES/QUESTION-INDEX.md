@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are **142** worked entries across this directory (measured 2026-09-05; the list is append-only, so treat it as a floor). This page exists so that you do not have to
+There are **145** worked entries across this directory (measured 2026-09-05; the list is append-only, so treat it as a floor). This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -53,7 +53,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | Why is the same protection expressed three different ways? | Deliberate layering: surrender (§3), licence (§4), covenant (§5) — and §8.6 gives patents the second footing, §12.2 does the same for moral rights. `clause-reference.md` |
 | What does each of the 82 clauses do? | `clause-reference.md` — one row per clause, checked against the text (82/82) |
 | Didn't you say the text was finished? | **We said "zero findings" and were wrong to put it that way.** `READY-TO-SUBMIT.md` now records what the word meant and what the standard for submitting actually was. `against.md` #52 |
-| Are there known defects? | **Seven.** `errata.md` — with severity, what 1.1 would do, and why none is fixed |
+| Are there known defects? | **Nine.** `errata.md` — with severity, what 1.1 would do, and why none is fixed |
 | §16.1 tells adopters to write an unregistered SPDX identifier | **Correct, and it is the highest-severity item.** `errata.md` E1; `review-responses-clauses.md` §15/§16 |
 | §8.2 says "not terminable by the Dedicator" but §10.4 says "terminates for any reason" — which? | **Both; one is about the document, one about the actor.** No licence can promise survival of every external event, and §13.2 disclaims that. `review-responses-clauses.md` §8 |
 | §2.9 declares its own insolvency classification | `against.md` #21 — facts before the conclusion is right; asserting the conclusion is not |
@@ -65,7 +65,8 @@ If your question is not here, that is our omission and worth saying on the list.
 | Do you meet the practical submission requirements (existing users, SPDX id, endorsements)? | **Three of them, no.** `review-responses-meta.md` Q32b — stated as not met rather than argued around |
 | Is the name misleading? | `review-responses-meta.md` Q14 and Q32c — no existing licence's name or identifier is used, and §16.4 applies the same rule to this one |
 | Why is it 16 sections and 82 clauses? | `review-responses-meta.md` Q17 — an accepted cost, argued against the opposite failure |
-
+| Is your own SPDX XML a "modified form" under §16.4? | **Open, and we raised it against ourselves.** `errata.md` E8; `against.md` #56. The registration path requires a re-encoded rendering carrying the identifier, and the text does not say whether that counts |
+| Does anything in it impose an obligation on *anyone*? | **On a recipient of the Work, no.** On a person redistributing the licence *text*, §16.4 and §16.5 do — and §10.4's second sentence omits the qualifier its six neighbours carry. `errata.md` E9; `against.md` #57 |
 ## Machine learning, TDM, patents, data
 
 | Question | Where |
@@ -77,7 +78,6 @@ If your question is not here, that is our omission and worth saying on the list.
 | What about sui generis database rights? | §7, in the Database Directive's own vocabulary. `clause-reference.md` §7 rows |
 | Does it reach models, weights and outputs? | Yes — §8.4 for patents, §6.4 for encumbrance. `comparison.md` §1.5 |
 | Does it carve out distillation? | **No**, unlike ModelGo. `comparison.md` §1.5 — the one axis where the three are in real tension |
-
 ## Jurisdictions and effect
 
 | Question | Where |
@@ -99,7 +99,6 @@ If your question is not here, that is our omission and worth saying on the list.
 | Multiple rightsholders? | `faq.md` A26 — each applies for what they hold; §2.7 keeps it honest |
 | Research and teaching? | `faq.md` A25 — nothing required, but licence terms are not citation norms |
 | Images, audio, embedded metadata? | `faq.md` A22 — all in scope; fonts loaded from elsewhere are not |
-
 ## Process
 
 | Question | Where |
