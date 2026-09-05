@@ -110,10 +110,16 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        この数字は**書いた当日に drift する** —— 実測 (2026-08-27): FAQ に 9 問足した結果、
        索引と mirror が「使う側 12 問」のまま残り、逆引き表の行数も 2 箇所でずれていた。
        読み手は数字を根拠に「網羅されている」と判断するので、**古い数字は網羅の主張を
-       嘘にする**。3 面を検査する: (a) 提出パケットの worked entries / short answers ↔
+       嘘にする**。面は増える一方なので**数を書かずに列挙する**（この docstring 自身が
+       「3 面」と述べたまま 7 面へ育っていた —— 本 Check が禁じている当のこと）: (a) 提出パケットの worked entries / short answers ↔
        想定問答 3 分冊の `### ` 見出しと短答表の実測、(b) 索引の「使う側 N 問 / プロセス M 問」
        ↔ FAQ の `### AN.` / `### BN.` の実測、(c) 逐条リファレンスの「全 X 節 Y 条」↔
-       ACD-1.0.txt から抽出した節数・条数。Check 413b（内訳の和 = 合計）と同じ
+       ACD-1.0.txt から抽出した節数・条数、(d) FAQ mirror の件数、(e) against.md が
+       自分の規模について述べる数字、(f) QUESTION-INDEX の worked entry 総数、
+       (g) **入口ページ `REVIEWERS.md` と `READY-TO-SUBMIT.md` が述べる規模**
+       —— 2026-09-05 に 5 件 stale で見つかった面で、しかも 3 つとも**過少**申告
+       だった（「All 14 adverse facts」に対し実体 57）。**最後に書かれ最初に読まれるページ**が
+       (a)〜(f) のどこにも入っていなかった。Check 413b（内訳の和 = 合計）と同じ
        「**書いた数は数えて確かめる**」族。(BLOCKING)
 """
 import re
@@ -887,6 +893,40 @@ def run(ctx):
                 _bad460.append("QUESTION-INDEX.md: worked entry 総数の申告が見つからない")
             elif int(_m8.group(1)) != _tot460:
                 _bad460.append(f"索引の総数: 申告 {_m8.group(1)} / 実測 {_tot460}")
+
+        # (g) 入口ページと readiness が述べる規模。**2026-09-05 に 5 件 stale で見つかった** ——
+        #   REVIEWERS.md は「118 worked entries」「All 14 adverse facts」「Five imprecisions」と
+        #   書き、実体は 144 / 57 / 9 だった。**最後に書かれ最初に読まれるページ**が (a)〜(f) の
+        #   どの面にも入っていなかった。しかも 3 つとも**過少**申告で、「全部開示する」と述べる
+        #   ドシエが開示量を小さく言うのは、間違える向きとして最悪である（"All" は完全性の主張）。
+        _erp460 = _L460 / "ACD-1.0.errata.md"
+        _ern460 = len(re.findall(r"^\| E\d+ \|", _erp460.read_text(encoding="utf-8"), re.M)) if _erp460.exists() else -1
+        _agp460 = _L460 / "ACD-1.0.against.md"
+        _agn460 = len(re.findall(r"^\| \d+ \|", _agp460.read_text(encoding="utf-8"), re.M)) if _agp460.exists() else -1
+        _rvp = _L460 / "REVIEWERS.md"
+        if _rvp.exists():
+            _rvt = _rvp.read_text(encoding="utf-8")
+            for _pat, _want, _label in (
+                (r"(\d+) worked entries, indexed by the question", _tot460, "REVIEWERS.md worked entries"),
+                (r"All (\d+) adverse facts", _agn460, "REVIEWERS.md adverse facts"),
+                (r"(\d+) known imprecisions", _ern460, "REVIEWERS.md errata"),
+            ):
+                _mg = re.search(_pat, _rvt)
+                if not _mg:
+                    _bad460.append(f"{_label}: 申告が見つからない (規模を述べる文を消すか、数を書くなら数えられる形で書く)")
+                elif int(_mg.group(1)) != _want:
+                    _bad460.append(f"{_label}: 申告 {_mg.group(1)} / 実測 {_want}")
+        _rsp = _L460 / "READY-TO-SUBMIT.md"
+        if _rsp.exists():
+            _rst = _rsp.read_text(encoding="utf-8")
+            _mg2 = re.search(r"\*\*(\d+) 件の不利な事実\*\*と \*\*(\d+) 件の errata\*\*", _rst)
+            if not _mg2:
+                _bad460.append("READY-TO-SUBMIT.md: 凍結後の発見件数の申告が見つからない")
+            else:
+                if int(_mg2.group(1)) != _agn460:
+                    _bad460.append(f"READY-TO-SUBMIT.md の不利な事実: 申告 {_mg2.group(1)} / 実測 {_agn460}")
+                if int(_mg2.group(2)) != _ern460:
+                    _bad460.append(f"READY-TO-SUBMIT.md の errata: 申告 {_mg2.group(2)} / 実測 {_ern460}")
 
         check(
             not _bad460,

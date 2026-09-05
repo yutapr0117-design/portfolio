@@ -714,4 +714,52 @@ E2E_MUTATIONS_ARCHIVE3 = [
     "replace": "                type === 'pm' ? Promise.all([import('./js/quiz/aws-quiz-data.js'), import('./js/quiz/quality-quiz-data.js')]).then(() => import('./js/quiz/pm-quiz-data.js')).then(m => m.pmQuizData)",
     "test": "Quiz data is fetched only when the quiz is opened",
 },
+    {
+    "name": "quiz の読み込み中 aria-busy が消える —— 視覚的には「読み込んでいます…」と見えるが SR には「まだ来ていない」ことが伝わらない。遅延読み込み化で生まれた窓なので、遅延を作らないと検証すらできない面",
+    "file": ROOT / "js" / "quiz-renderer.js",
+    "find": "        listHost.setAttribute('aria-busy', 'true');\n",
+    "replace": "",
+    "test": "Quiz announces the loading window with aria-busy",
+},
+    {
+    "name": "quiz データの読み込み失敗が無音になる —— 遅延読み込み化で新しく生まれた経路。何も出さないと利用者には「問題が 0 件の問題集」と区別が付かず、通信を直せば直る話なのに壊れているのか判らない",
+    "file": ROOT / "js" / "quiz-renderer.js",
+    "find": """            listHost.appendChild(h("div", { class: 'card panel-empty', role: 'alert' },
+                '問題の読み込みに失敗しました。通信状況を確認して再読み込みしてください。'));""",
+    "replace": "            /* silent */",
+    "test": "Quiz reports a failed data load",
+},
+    {
+    "name": "quiz 一覧コンテナの契約フック data-quiz-list が消える —— これが無いと「データが届いた」ことを検証できない。#content h2 は同期描画される問い合わせ見出しに一致するため、データが来なくても通る vacuous な待ちに戻る",
+    "file": ROOT / "js" / "quiz-renderer.js",
+    "find": "const listHost = h(\"div\", { 'data-quiz-list': 'true' });",
+    "replace": "const listHost = h(\"div\", {});",
+    "test": "Quiz data is fetched only when the quiz is opened",
+},
+    {
+    "name": "quiz データ到着時に「描画開始時点の語」で描く —— 読み込み中に入力した検索語が捨てられ、入力欄には語が残ったまま一覧は絞り込み前になる。利用者には「検索したのに効いていない」としか見えない",
+    "file": ROOT / "js" / "quiz-renderer.js",
+    "find": "            renderList(searchInput.value);",
+    "replace": "            renderList(initialSearch);",
+    "test": "Quiz applies a search typed while the data was still loading",
+},
+    {
+    "name": "quiz が「まだ届いていない」を「見つかりませんでした」と偽る —— データ未着で検索すると 0 件になるが、それを not-found として出すと嘘になる。読み込み中は読み込み中として見せ続ける",
+    "file": ROOT / "js" / "quiz-renderer.js",
+    "find": """            if (!sourceData) {
+                listHost.appendChild(h("div", { class: 'card panel-empty', 'data-quiz-loading': 'true' },
+                    '問題を読み込んでいます…'));
+                return;
+            }
+""",
+    "replace": "",
+    "test": "Quiz applies a search typed while the data was still loading",
+},
+    {
+    "name": "hiring-risk の英語見出しから lang=\"en\" が外れる —— 日本語 SR が英語を日本語の音韻で読み上げる (WCAG 3.1.2)。axe には該当ルールが無く、視覚にも一切出ないので捕捉層はこの e2e だけ",
+    "file": ROOT / "js" / "hiring-risk-page.js",
+    "find": "h('h2', { class: 'h3', lang: 'en' }, '\U0001F4CB Executive Summary')",
+    "replace": "h('h2', { class: 'h3' }, '\U0001F4CB Executive Summary')",
+    "test": "全ルートで英語だけの文に lang=",
+},
 ]

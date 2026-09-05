@@ -448,6 +448,17 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (g): 入口ページが述べる不利な事実の件数だけを stale に戻す —— REVIEWERS.md は "
+            "reviewer が最初に読む英語ページで、そこが 'All N adverse facts' と完全性を主張する。"
+            "2026-09-05 に実測すると 118/14/Five と書いてあり実体は 144/57/9 で、3 つとも過少だった。"
+            "「全部開示する」と述べるドシエが開示量を小さく言うのは、間違える向きとして最悪である",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "All 58 adverse facts",
+    "replace": "All 14 adverse facts",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
@@ -497,59 +508,11 @@ _E2E_TAIL = [
 
 
 
-_E2E_TAIL.append({
-    "name": "quiz の読み込み中 aria-busy が消える —— 視覚的には「読み込んでいます…」と見えるが SR には「まだ来ていない」ことが伝わらない。遅延読み込み化で生まれた窓なので、遅延を作らないと検証すらできない面",
-    "file": ROOT / "js" / "quiz-renderer.js",
-    "find": "        listHost.setAttribute('aria-busy', 'true');\n",
-    "replace": "",
-    "test": "Quiz announces the loading window with aria-busy",
-})
 
-_E2E_TAIL.append({
-    "name": "quiz データの読み込み失敗が無音になる —— 遅延読み込み化で新しく生まれた経路。何も出さないと利用者には「問題が 0 件の問題集」と区別が付かず、通信を直せば直る話なのに壊れているのか判らない",
-    "file": ROOT / "js" / "quiz-renderer.js",
-    "find": """            listHost.appendChild(h("div", { class: 'card panel-empty', role: 'alert' },
-                '問題の読み込みに失敗しました。通信状況を確認して再読み込みしてください。'));""",
-    "replace": "            /* silent */",
-    "test": "Quiz reports a failed data load",
-})
 
-_E2E_TAIL.append({
-    "name": "quiz 一覧コンテナの契約フック data-quiz-list が消える —— これが無いと「データが届いた」ことを検証できない。#content h2 は同期描画される問い合わせ見出しに一致するため、データが来なくても通る vacuous な待ちに戻る",
-    "file": ROOT / "js" / "quiz-renderer.js",
-    "find": "const listHost = h(\"div\", { 'data-quiz-list': 'true' });",
-    "replace": "const listHost = h(\"div\", {});",
-    "test": "Quiz data is fetched only when the quiz is opened",
-})
 
-_E2E_TAIL.append({
-    "name": "quiz データ到着時に「描画開始時点の語」で描く —— 読み込み中に入力した検索語が捨てられ、入力欄には語が残ったまま一覧は絞り込み前になる。利用者には「検索したのに効いていない」としか見えない",
-    "file": ROOT / "js" / "quiz-renderer.js",
-    "find": "            renderList(searchInput.value);",
-    "replace": "            renderList(initialSearch);",
-    "test": "Quiz applies a search typed while the data was still loading",
-})
 
-_E2E_TAIL.append({
-    "name": "quiz が「まだ届いていない」を「見つかりませんでした」と偽る —— データ未着で検索すると 0 件になるが、それを not-found として出すと嘘になる。読み込み中は読み込み中として見せ続ける",
-    "file": ROOT / "js" / "quiz-renderer.js",
-    "find": """            if (!sourceData) {
-                listHost.appendChild(h("div", { class: 'card panel-empty', 'data-quiz-loading': 'true' },
-                    '問題を読み込んでいます…'));
-                return;
-            }
-""",
-    "replace": "",
-    "test": "Quiz applies a search typed while the data was still loading",
-})
 
-_E2E_TAIL.append({
-    "name": "hiring-risk の英語見出しから lang=\"en\" が外れる —— 日本語 SR が英語を日本語の音韻で読み上げる (WCAG 3.1.2)。axe には該当ルールが無く、視覚にも一切出ないので捕捉層はこの e2e だけ",
-    "file": ROOT / "js" / "hiring-risk-page.js",
-    "find": "h('h2', { class: 'h3', lang: 'en' }, '\U0001F4CB Executive Summary')",
-    "replace": "h('h2', { class: 'h3' }, '\U0001F4CB Executive Summary')",
-    "test": "全ルートで英語だけの文に lang=",
-})
 
 _E2E_TAIL.append({
     "name": "settings の aria-labelledby が dangling になる —— 支援技術がその参照を辿ると存在しない要素へ着地し、グループ名が失われる。視覚には一切出ないので screenshot でも目視でも気付けない",
