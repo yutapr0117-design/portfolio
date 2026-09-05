@@ -157,6 +157,25 @@ about itself: a dimension one can enumerate in advance is one already used.
 | 57 | **One sentence in the no-condition mesh is unqualified where its six neighbours are qualified.** §10.1 says "in respect of the Work"; §10.5, §11.3 and §11.4 each say a clause is "not a condition upon Your use of the Work"; §16.6 says §16.4-16.5 "bind no recipient of the Work". §10.4's second sentence says flatly that the instrument "contains nothing that You could breach" — and "You" is defined at §1.4 as **any person or entity exercising permissions under this Dedication**, §16.4 grants a permission over the text, and §16.5 states in terms that its proviso **is** "a condition upon distributing the translated text". **A translator-distributor is "You", and does have something to breach** | **Real, narrow, and unfixable while frozen** (`errata.md` E9). Nothing about what anyone may do with the Work changes, and #27 and #45 already answer the substantive version of this through §10.1's qualifier. What is new is that the qualifier is absent from exactly one sentence, and that a reviewer following the **defined term** rather than the section arrives there. **Found by following "You" through §1.4, §16.4 and §16.5 — the sections that use the term, not the section that is about conditions** |
 | 58 | **The entry page understated the disclosure by a factor of four, in the direction that looks like concealment.** `REVIEWERS.md` is the English page a reviewer reads first, and it declared "**118** worked entries", "**All 14** adverse facts" and "**Five** imprecisions" while the files behind those links held 144, 57 and 9 at the moment of the sweep (this row's own addition moved two of them again, which is the point). The word that does the damage is "All": it is a completeness claim, and a reviewer who opens a list four times longer than the page promised has been given a reason to distrust the page rather than the list. **Every one of the three erred low** — a dossier whose argument is "we disclose everything" cannot afford to under-report what it discloses | **Fixed, and the class was already known.** Check 460 exists precisely because "a document states its own scale and the statement is stale the day after"; it covered the submission packet, the FAQ, the clause reference, `against.md` and the index — **and not the page written last and read first**. It now covers `REVIEWERS.md` and `READY-TO-SUBMIT.md` too. **Found by sweeping every declared count in the directory after correcting one of them**, which is the discipline of #55 applied to a second kind of moving number |
 
+## What the machine-readable layer's own claims produced (2026-09-05)
+
+A third dimension from the same round, and the only one that was on `BLIND-SPOTS.md`'s candidate
+list: **check every claim the machine-readable descriptor makes against the clause it cites.**
+The descriptor exists because §6.5 holds that a permission an automated system cannot determine is
+no permission — so a licence saying that ought to be determinable by machine, and this repository's
+whole thesis is machine-readable authority. If any layer here should be exact, it is that one.
+
+**Most of it was clean, and the clean part is worth stating.** All 33 clause citations resolve
+(Check 451a already guarantees this, and it does), and every one of the 29 value-claims matches
+what the cited clause says — permissions, the six `requirements: false`, warranty and liability.
+Nothing was overstated.
+
+**What the dimension found was not an inaccuracy but a selection.**
+
+| # | Adverse fact | Status |
+|---|---|---|
+| 59 | **The descriptor enumerates six things the instrument does not do, and omits the one thing it does.** `reservationsAndLimits` covers TDM reservation, patent retaliation, field-of-use restriction, termination, trademark grant and governing law — **all six are absences**. The one restriction in the document, on redistributing the licence *text* in modified form under its name or identifier (§16.4, with §16.5's translation proviso), has no key at all — while §16's *permission* side does (`reusableByAnyone` → §16.3). **A consumer built on the descriptor concludes the document restricts nothing**, which is true of the Work and false of the text. The file's closing line, "Any adopter of ACD-1.0 may copy this file verbatim", is §16.4 applied to itself, phrased as a permission rather than as a limit | **Recorded, not fixed** (`errata.md` E10) — `machine.json` is pinned by Check 453. Honestly bounded: no user of the Work is misled about their own obligations (§16.4 binds no recipient — §16.6), the descriptor says in terms that it is non-operative and the text governs, and licence scanners rarely model restrictions on a licence text at all. It is here because **§6.5's reasoning cuts both ways** — a restriction an automated system cannot determine is one it will breach without knowing — and because the omission runs in the favourable direction, which is the direction that needs stating |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -173,17 +192,17 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **58** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **59** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **58 adverse facts, 9
+   prompted by third parties, four self-initiated — have produced **59 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
-   explanations of those decisions (#24) and the precision of the text's wording (E1–E9). For an
+   explanations of those decisions (#24) and the precision of the text's wording (E1–E10). For an
    instrument with no legal review, "the design held and the drafting was imprecise" is a
    meaningfully better result than the reverse.
 2. **Nothing found changes what a recipient may do.** Every errata entry is a matter of
