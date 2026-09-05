@@ -36,6 +36,14 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        実測 (2026-08-27) では orphan は 0 件だったが、**入口が存在しないため将来 orphan が
        生まれても誰も気付けない**状態だった。Check 361 / 408 / 454 と同じ
        「実在 ⟹ 登録」族の、ライセンス文書面。(BLOCKING)
+  461c. **`LICENSES/*.md` がすべて `last-updated` を宣言していること** (BLOCKING):
+       461b（stale 検査）の被覆は「その項目を持つファイル」で定義されており、
+       frontmatter を持たないファイルは**黙って対象外**になる。実測 (2026-09-05):
+       20 件中 3 件が frontmatter を持たず、それが提出物そのもの / 凍結と venue の
+       単一ソース / 提出可否の判断という、**最も鮮度が load-bearing な 3 件**だった。
+       461b は 17 件しか見ずに「stale なし」と緑を出す —— skip-on-missing が被覆の穴を
+       無音にする形。被覆は時間で動かない静的な性質なので BLOCKING にできる。(BLOCKING)
+
   460. **ドシエが自己申告する件数が実測と一致すること** (BLOCKING): ライセンス文書群は
        「全 82 条」「38 worked entries」「使う側 21 問」のように**自分の規模を数字で述べる**。
        この数字は**書いた当日に drift する** —— 実測 (2026-08-27): FAQ に 9 問足した結果、
@@ -225,6 +233,33 @@ def run(ctx):
         f"(1〜13 日の乖離は一括変更で普通に起きるので鳴らさない — 初版が BLOCKING で "
         f"これを見落として CI を落とした)",
         blocking=False,
+    )
+
+    # ── 461c. LICENSES/*.md がすべて last-updated を宣言していること (BLOCKING) ──────
+    # **461b の被覆は「その項目を持つファイル」で定義されていた。** `if not _m461: continue`
+    # なので、frontmatter を持たないファイルは**黙って対象外**になる。実測 (2026-09-05):
+    # 20 件中 3 件が frontmatter 自体を持っておらず、しかもそれが
+    # `ACD-1.0.submission.md`（提出物そのもの）/ `FROZEN.md`（凍結と venue の単一ソース）/
+    # `READY-TO-SUBMIT.md`（提出可否の判断）という、**最も鮮度が load-bearing な 3 件**だった。
+    # 461b は 17 件しか見ていないのに「stale なし」と緑を出す —— #885 と同型の
+    # 「skip-on-missing が被覆の穴を無音にする」形である。
+    # 被覆そのものは時間で動かない静的な性質なので BLOCKING にできる（461b を BLOCKING に
+    # 戻すのではない —— 動くのは日付の側であって、項目の有無ではない）。
+    _nofm461 = []
+    if _lic461.exists():
+        for _f461c in sorted(_lic461.glob("*.md")):
+            if not re.search(r"^last-updated:\s*\d{4}-\d{2}-\d{2}\s*$",
+                             _f461c.read_text(encoding="utf-8"), re.M):
+                _nofm461.append(_f461c.name)
+    check(
+        not _nofm461,
+        f"Check 461c: LICENSES/*.md がすべて last-updated を宣言 (461b の被覆が完全)",
+        (f"Check 461c: last-updated を持たないライセンス文書がある: {_nofm461}。"
+         "**461b は項目を持つファイルしか見ない**ので、宣言が無いファイルは stale 検査から"
+         "黙って外れる (実測 2026-09-05: 提出物・凍結マーカー・提出可否判断の 3 件が"
+         "そうなっていた)。鮮度を見せない文書は「更新されていない」とも「されている」とも"
+         "読めない"),
+        blocking=True,
     )
 
     # ── 460. ドシエが自己申告する件数が実測と一致すること (BLOCKING) ────────────────────
