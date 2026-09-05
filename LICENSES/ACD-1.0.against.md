@@ -176,6 +176,16 @@ Nothing was overstated.
 |---|---|---|
 | 59 | **The descriptor enumerates six things the instrument does not do, and omits the one thing it does.** `reservationsAndLimits` covers TDM reservation, patent retaliation, field-of-use restriction, termination, trademark grant and governing law — **all six are absences**. The one restriction in the document, on redistributing the licence *text* in modified form under its name or identifier (§16.4, with §16.5's translation proviso), has no key at all — while §16's *permission* side does (`reusableByAnyone` → §16.3). **A consumer built on the descriptor concludes the document restricts nothing**, which is true of the Work and false of the text. The file's closing line, "Any adopter of ACD-1.0 may copy this file verbatim", is §16.4 applied to itself, phrased as a permission rather than as a limit | **Recorded, not fixed** (`errata.md` E10) — `machine.json` is pinned by Check 453. Honestly bounded: no user of the Work is misled about their own obligations (§16.4 binds no recipient — §16.6), the descriptor says in terms that it is non-operative and the text governs, and licence scanners rarely model restrictions on a licence text at all. It is here because **§6.5's reasoning cuts both ways** — a restriction an automated system cannot determine is one it will breach without knowing — and because the omission runs in the favourable direction, which is the direction that needs stating |
 
+## What reading order produced (2026-09-05)
+
+The fourth dimension of the round, and the one #45 pointed at: **what does a reviewer actually
+meet first?** #45 was a reading-order defect inside the licence (§11.1 arrives before the §10.5 that
+reconciles it); the same question can be asked of the directory.
+
+| # | Adverse fact | Status |
+|---|---|---|
+| 60 | **The page GitHub renders when a reviewer opens `LICENSES/` contained no English sentence at all.** `LICENSES/README.md` is the directory's landing page, and measured by character class it is 885 Japanese characters against 1,248 Latin ones — **all of the Latin being filenames and identifiers, with not one English sentence in the file**. The English entry point is named on line 30, inside a Japanese table cell reading 「審査者が最初に読む英語の入口」; a reviewer who cannot read Japanese **cannot tell that cell from the others** and would have to guess from the filename. #53 corrected exactly this class one level down — the map inside `REVIEWERS.md` claiming documents were Japanese when four were English — and **nobody checked the page a reviewer lands on before reaching that map** | **Fixed, and enforced.** An English block now sits directly under the heading, pointing at `REVIEWERS.md`, the authoritative text, and this list; the whole file is deliberately not translated, which remains the stated policy. **Check 459b** requires an English pointer in the first 20 lines, because Check 459 only ever asked whether documents were *listed* — **listed and reachable are different properties when the reader cannot read the list**. Measured honestly: the root `README.md` does carry an English reviewer callout directly under its badges, so the failure was specific to the directory page |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -192,13 +202,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **59** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **60** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **59 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **60 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
