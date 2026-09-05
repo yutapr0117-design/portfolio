@@ -449,13 +449,17 @@ _MUTATIONS_TAIL.append({
 })
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 460 (g): 入口ページが述べる不利な事実の件数だけを stale に戻す —— REVIEWERS.md は "
+    "name": "Check 460 (g): 入口ページから規模の申告そのものを消す —— REVIEWERS.md は "
             "reviewer が最初に読む英語ページで、そこが 'All N adverse facts' と完全性を主張する。"
             "2026-09-05 に実測すると 118/14/Five と書いてあり実体は 144/57/9 で、3 つとも過少だった。"
             "「全部開示する」と述べるドシエが開示量を小さく言うのは、間違える向きとして最悪である",
     "file": ROOT / "LICENSES" / "REVIEWERS.md",
-    "find": "All 58 adverse facts",
-    "replace": "All 14 adverse facts",
+    # anchor は **数字を含めない** —— 件数は増分ごとに動くので、数字を釘にすると
+    # 次の増分で Check 362 が orphan として RED にする (本 mutation で実際に踏んだ)。
+    # "All " を落として申告そのものを消す形にすると、face (g) の「申告が見つからない」
+    # 枝を突ける —— 維持が面倒になった誰かが文ごと消す、という現実的な退行でもある。
+    "find": "**Read this first.** All ",
+    "replace": "**Read this first.** ",
     "check": CHECK,
 })
 
