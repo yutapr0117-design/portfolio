@@ -1,3 +1,10 @@
+---
+file: LICENSES/FROZEN.md
+audience: 次のセッションの実装者（一次読者）/ OSI license-discuss・license-review participants / 監査人
+last-updated: 2026-09-05
+canonical-ref: LICENSES/ACD-1.0.txt (凍結対象の本文) / LICENSES/REVISION-PROTOCOL.md (凍結が解けた後の手順)
+---
+
 # ACD-1.0 — 凍結中（OSI license-discuss へ投稿済み・結果待ち）
 
 ```

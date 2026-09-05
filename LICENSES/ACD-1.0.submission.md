@@ -1,3 +1,10 @@
+---
+file: LICENSES/ACD-1.0.submission.md
+audience: OSI license-discuss / license-review participants, SPDX submitters, the human who sends the message
+last-updated: 2026-09-05
+canonical-ref: LICENSES/ACD-1.0.txt (the text being submitted) / LICENSES/REVIEWERS.md (English entry point) / LICENSES/ACD-1.0.against.md (the adverse case)
+---
+
 # ACD-1.0 — submission packets (English, ready to paste)
 
 > **What this file is.** Everything a human needs in order to submit the Autonomous

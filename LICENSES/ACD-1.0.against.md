@@ -186,6 +186,40 @@ reconciles it); the same question can be asked of the directory.
 |---|---|---|
 | 60 | **The page GitHub renders when a reviewer opens `LICENSES/` contained no English sentence at all.** `LICENSES/README.md` is the directory's landing page, and measured by character class it is 885 Japanese characters against 1,248 Latin ones — **all of the Latin being filenames and identifiers, with not one English sentence in the file**. The English entry point is named on line 30, inside a Japanese table cell reading 「審査者が最初に読む英語の入口」; a reviewer who cannot read Japanese **cannot tell that cell from the others** and would have to guess from the filename. #53 corrected exactly this class one level down — the map inside `REVIEWERS.md` claiming documents were Japanese when four were English — and **nobody checked the page a reviewer lands on before reaching that map** | **Fixed, and enforced.** An English block now sits directly under the heading, pointing at `REVIEWERS.md`, the authoritative text, and this list; the whole file is deliberately not translated, which remains the stated policy. **Check 459b** requires an English pointer in the first 20 lines, because Check 459 only ever asked whether documents were *listed* — **listed and reachable are different properties when the reader cannot read the list**. Measured honestly: the root `README.md` does carry an English reviewer callout directly under its badges, so the failure was specific to the directory page |
 
+## What three more dimensions produced (2026-09-05)
+
+Three measurements, one of which found something. The other two are recorded because **a clean
+result is only useful if it is written down** — otherwise the next pass re-measures it.
+
+**Length distribution (clean, and it corroborates the dossier's own account).** Measured by
+characters per section: §1 Definitions 13.4%, §8 Patents 12.9%, §2 Scope 12.4% are the largest;
+§8 is by far the densest per clause (577 characters against a median near 300). §3 — the
+dedication itself, the operative act the instrument is named for — is **670 characters, 2.5%,
+three clauses**, the second-shortest section in the document. That inversion looks alarming until
+it is read with the negation counts below: §3 is short *and* the least defensive section in the
+text (0.9 negations per 100 words, the lowest). It is short because a surrender is a simple act.
+What a reviewer opening at §3 does not get is the argument that makes it survivable — that lives
+in §4.4 and §2 — which is **the same reading-order problem already recorded as #45 / errata E7**,
+not a new one.
+
+**Negation density (clean, and informative).** §10 Absence of Conditions is highest at 7.5 per
+100 words, which is what a section of absences should look like. Second is **§9
+Machine-Generated Material at 5.3** — short (3.6% of the text) but densely defensive, which is
+the signature of drafting around something that cannot be asserted positively. That is exactly
+what §9 is: the submission says it is built "the other way round", not presuming a right exists.
+**The measurement agrees with the account we already give**, which is the outcome worth recording.
+
+**File-size distribution (clean).** `against.md` is the largest file in the directory (61 KB) and
+is also the one reviewers are told to read first. That combination would be a defect if the worst
+facts were buried, but the two entries marked unanswerable are **#1 and #2** — the first two rows.
+The round-based sections that follow are chronological by the append-only rule. No change.
+
+**Audience coverage — this one found something, and not about audiences.**
+
+| # | Adverse fact | Status |
+|---|---|---|
+| 61 | **The staleness layer's coverage was defined by "files that have the field", so the three files whose currency matters most were silently exempt.** Check 461b compares each `LICENSES/*.md` frontmatter `last-updated` against git, and skips any file without that line (`if not _m461: continue`). Measured 2026-09-05: **3 of 20 files had no frontmatter at all** — and they were `ACD-1.0.submission.md` (the submitted packet), `FROZEN.md` (the single source for the freeze digests and the venue), and `READY-TO-SUBMIT.md` (the judgement that the text was ready). **The check examined 17 files and printed a clean result**, exactly the shape of #885: a skip-on-missing branch makes a coverage hole silent | **Fixed and enforced.** The three files now declare `file` / `audience` / `last-updated` / `canonical-ref` like every other document here. **Check 461c** (BLOCKING) requires the field to exist — coverage is a static property that does not move when a file is edited, so it can be blocking even though 461b itself must stay advisory (#55: the date moves as a side effect of editing, the field's existence does not). Found by measuring **declared audiences**, which is not what it found: three files declared none, and the reason turned out to be that they had no frontmatter for any layer to read |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -202,13 +236,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **60** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **61** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **60 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **61 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
