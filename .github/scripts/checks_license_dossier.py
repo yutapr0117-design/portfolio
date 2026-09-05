@@ -55,6 +55,10 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        ↔ FAQ の `### AN.` / `### BN.` の実測、(c) 逐条リファレンスの「全 X 節 Y 条」↔
        ACD-1.0.txt から抽出した節数・条数、(d) FAQ mirror の件数、(e) against.md が
        自分の規模について述べる数字、(f) QUESTION-INDEX の worked entry 総数、
+       (h) **`docs/files/LICENSES/` の mirror が規模を数字で述べないこと** —— (a)〜(g) は
+       捕まるたびに 1 面ずつ後付けした比較なので、被覆は「drift を目撃した場所」であって
+       「drift しうる場所」ではない。実測 (2026-09-06): 柵の外に 4 件残っていた。mirror は
+       規模を述べる読者価値が無いので、比較ではなく**禁止**で守る。
        (g) **入口ページ `REVIEWERS.md` と `READY-TO-SUBMIT.md` が述べる規模**
        —— 2026-09-05 に 5 件 stale で見つかった面で、しかも 3 つとも**過少**申告
        だった（「All 14 adverse facts」に対し実体 57）。**最後に書かれ最初に読まれるページ**が
@@ -395,6 +399,32 @@ def run(ctx):
                     _bad460.append(f"READY-TO-SUBMIT.md の不利な事実: 申告 {_mg2.group(1)} / 実測 {_agn460}")
                 if int(_mg2.group(2)) != _ern460:
                     _bad460.append(f"READY-TO-SUBMIT.md の errata: 申告 {_mg2.group(2)} / 実測 {_ern460}")
+
+        # (h) **維持できない場所では、申告そのものを禁じる。** (a)〜(g) は「申告 vs 実測」を
+        #   比較する形で、**捕まるたびに 1 面ずつ後付けで足してきた**。だから被覆は「これまでに
+        #   drift を目撃した場所」であって「drift しうる場所」ではない。実測 (2026-09-06・外部から
+        #   「まだ一致していない自己申告がある」とだけ指摘を受けて掃引): **4 件が柵の外に残って
+        #   いた** —— `docs/files/LICENSES/` の mirror 3 件（不利な事実「14 件」/ errata「5 件」/
+        #   「54 件の不利な事実」）と CLAUDE.md §7（「10 次元 / 候補 10 件」→ 実体 17 / 3）。
+        #   mirror は「その file が何であるか」を説明する文書で、**規模を述べる読者価値が無い**の
+        #   に対し drift は確実に起きる。よって比較ではなく**禁止**で守る（LICENSES/ 本体では
+        #   規模の申告に読者価値があるので (a)〜(g) の比較で守り続ける）。
+        _mir460 = ROOT / "docs" / "files" / "LICENSES"
+        if _mir460.exists():
+            _pat460h = re.compile(
+                r"[0-9]+\s*件の(?:不利な事実|errata)"
+                r"|不正確さ\s*[0-9]+\s*件"
+                r"|[0-9]+\s*件のうち"
+                r"|E1〜E[0-9]+"
+                r"|All\s+[0-9]+\s+adverse"
+                r"|[0-9]+\s+worked\s+entries"
+                r"|[0-9]+\s+imprecisions")
+            for _fm in sorted(_mir460.glob("*.md")):
+                for _n, _ln in enumerate(_fm.read_text(encoding="utf-8").splitlines(), 1):
+                    _hit = _pat460h.search(_ln)
+                    if _hit:
+                        _bad460.append(f"{_fm.name}:{_n}: mirror がドシエの規模を数字で述べている "
+                                       f"({_hit.group(0)!r}) — 本体を指すだけにせよ")
 
         check(
             not _bad460,

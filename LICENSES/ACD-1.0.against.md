@@ -226,6 +226,16 @@ The round-based sections that follow are chronological by the append-only rule. 
 |---|---|---|
 | 62 | **The frame reviewers of the adjacent submissions are using, we have never applied to this text.** Our own observation of the OpenMDW and ModelGo threads records that **OSAID (the Open Source AI Definition) is referenced as an evaluation frame**, and that systematic OSAID-based comparison is barely published. This dossier mentions OSAID exactly twice: once in that observation, and once in `submission.md` §1c to say the submission is *not* asking the list to decide anything about it. **There is no analysis.** A reviewer arriving from those threads may reasonably ask how an instrument written for works meant to be learned from stands in relation to it, and the honest answer today is that we have not looked | **Open, and stated rather than filled.** Two things can be said without reading anything. First, a **definitional consequence**: where any requirement is phrased in terms of an OSI-approved licence, an unapproved instrument cannot satisfy it — so for that class of requirement ACD-1.0's answer is fixed by #12 and #13 and does not depend on the text of the frame. Second, a **scoping point**: OSAID evaluates AI *systems*, and a licence is not a system; the relevant question is whether ACD-1.0 is a suitable instrument for the components such a system releases — weights, parameters, data — which is squarely what §6, §7 and §9 were written for. **What we deliberately do not do is state what OSAID requires.** We have not read its current text in this environment, and restating a live standard from memory is the specific failure this dossier's `AS-OF.md` exists to prevent (see the entry added there, with the re-check method). **Recorded as an adverse fact rather than a to-do**, because a reviewer's question is not answered by our intention to answer it later |
 
+## What an outside reader found that our own mechanisation had not (2026-09-06)
+
+An observation arrived from outside with **no location, no number, and no document named** — only
+that at least one self-declared count still disagreed with reality, and that it had survived the
+recent broad mechanisation. It was right, and there was more than one.
+
+| # | Adverse fact | Status |
+|---|---|---|
+| 63 | **Four self-declared counts were stale, all of them just outside the fence the check was built to defend.** `docs/files/LICENSES/` mirrors said the adverse list held "14 件" (62) and the errata "不正確さ 5 件（E1〜E5）" (E1–E10) and "54 件の不利な事実" (62); `CLAUDE.md` §7 said the blind-spot file recorded "10 次元と未使用の候補 10 件" against an actual **17 and 3** — and the candidate figure erred in the direction that promises a future reader more unused ways to measure than exist. **The reason they survived is the more useful finding than the four instances.** Check 460 grew one face at a time, and *each face was added after a specific place had been caught drifting* — the submission packet, the FAQ, the clause reference, the FAQ mirror, `against.md`, the index, and (the same day) the entry pages. **Its coverage was therefore "places we have seen drift", never "places that can drift"** | **Fixed, and the design changed rather than the four lines.** Restating the dossier's scale is now **forbidden** in `docs/files/LICENSES/` (Check 460 face (h)) instead of compared, because a mirror describes *what a file is* and a size claim there has no reader value while its drift is certain — a comparison face would have created one more thing to maintain and one more way to be wrong. Inside `LICENSES/` the counts do have reader value (a reviewer wants scale), so those stay under the comparing faces. `CLAUDE.md` §7 now states no number and points at the file. **No check was added for `CLAUDE.md`**: it legitimately quotes past measurements as history, and separating history from a live claim is a judgement a regular expression cannot make — the same reason recorded in `check-repository-consistency-map.md` §2.9 for prose path references |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -242,13 +252,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **62** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **63** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **62 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **63 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
