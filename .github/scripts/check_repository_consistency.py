@@ -145,6 +145,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_seo_baseline.py",  # split: SEO/AIO date-ISO + URL-resolution + HTTPS/meta baseline (181-189 minus 187)
     ROOT / ".github" / "scripts" / "checks_aio_config.py",  # split: AIO entity/crawler identity + CI/config governance (62-69)
     ROOT / ".github" / "scripts" / "checks_governance_sync.py",  # split: AIO/AI2AI/llms freshness & governance sync (21-27)
+    ROOT / ".github" / "scripts" / "checks_license_dossier.py",  # split: ACD-1.0 ドシエの自己整合 (458-461b)
     ROOT / ".github" / "scripts" / "checks_seo_meta.py",  # split: AIO/SEO meta + canonical URL + resource-resolution (149-166 minus 152/165)
     ROOT / ".github" / "scripts" / "checks_api_catalog.py",  # split: .well-known/api-catalog RFC 9727/9264/6573 conformance (165, 449)
     ROOT / ".github" / "scripts" / "checks_source_coherence.py",  # split: cross-file source coherence + CSP-hash (7/11/14/350・ctx-enrich)
@@ -358,6 +359,10 @@ _checks_date_sync.run(_ctx)
 #  連続 self-contained・各 Check 自前 read。21 位置で list 順連続実行。CHECK_SOURCE_FILES 登録で横断集約。)
 import checks_governance_sync as _checks_governance_sync
 _checks_governance_sync.run(_ctx)
+
+# ── 458-461b. ACD-1.0 ドシエ (LICENSES/) の自己整合 → checks_license_dossier.py ──
+import checks_license_dossier as _checks_license_dossier
+_checks_license_dossier.run(_ctx)
 
 # ── 31-41 (minus 37). repository hygiene / doc-dating / artifact / lock-sync → checks_repo_hygiene.py ──
 # (check.py split track. Claude2Claude↔AI2AI(31)/JSON-LD valid(32)/Zenn slug(33)/doc dating(34)/
