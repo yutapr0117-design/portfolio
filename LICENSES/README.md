@@ -7,6 +7,12 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 
 # LICENSES/ — 何がどこにあるか
 
+> **Reviewing ACD-1.0 and cannot read Japanese?** Start at
+> **[`REVIEWERS.md`](REVIEWERS.md)** — it is in English, states the submission status, says which
+> documents are already in English, and gives the commands to verify every claim made here.
+> The authoritative text is [`ACD-1.0.txt`](ACD-1.0.txt); the case against approving it is
+> [`ACD-1.0.against.md`](ACD-1.0.against.md), written by us.
+
 このディレクトリには **Autonomous Commons Dedication 1.0 (ACD-1.0)** の本文と、その周辺文書が
 置いてある。**目的は「疑問がこのリポジトリを見れば潰せる」ことである。**
 
