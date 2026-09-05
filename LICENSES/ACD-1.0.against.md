@@ -116,7 +116,7 @@ from, and four sections of the text had produced none: §3, §7, §11 and §14. 
 
 | 51 | **Every statement in the dossier about the outside world was undated.** Twenty-one claims describe things that can change — SPDX registration, adopter count, what other instruments are doing, whether any AI-specific licence has been approved — and none carried the date it was checked. Against a review measured in months to years, an undated "not registered" cannot be judged true or false by a reader six months later. **An unjudgeable claim is worse than a wrong one**, because it invites the reader to discount the claims around it | **Fixed structurally rather than line by line.** `AS-OF.md` collects them with a verification date and a re-check method each; the text's own properties are deliberately excluded, since those are settled by the digest check rather than by a date. What remains unresolved is the discipline: **updating a date without re-verifying the value would be the worst possible edit**, and nothing enforces that beyond saying so |
 
-| 52 | **The readiness document claimed a state that the record then contradicted.** `READY-TO-SUBMIT.md` said the text had been read "until findings reached zero", ending with "final read-through: 0 findings — this is where the judgement was made". Fifty-one adverse facts and seven errata have been found since, including one place where the text tells a reader to do something incorrect (§16.1). **A reviewer reading that document beside this one finds the first refuted by the second**, which puts the readiness judgement itself in question | **Corrected, and the correction is the more useful record.** The 2026-08-24 judgement was not wrong; the word "zero" was. It meant "the lenses available that day produced nothing new", not "no defects remain" — and lenses arrive later (the ones added since produced everything above). The right standard for submitting was never "zero defects", which would mean never submitting; it is **"nothing known is being concealed"**, and that held then and holds now. **Writing "zero" without stating the standard reads as swapping the standard**, which is the defect worth recording |
+| 52 | **The readiness document claimed a state that the record then contradicted.** `READY-TO-SUBMIT.md` said the text had been read "until findings reached zero", ending with "final read-through: 0 findings — this is where the judgement was made". Adverse facts have gone on accumulating since, and every errata entry was found after it (the counts are deliberately not repeated here — this list and `errata.md` are the authority, and a number written into prose is stale the day after, which is #55's lesson applied to itself), including one place where the text tells a reader to do something incorrect (§16.1). **A reviewer reading that document beside this one finds the first refuted by the second**, which puts the readiness judgement itself in question | **Corrected, and the correction is the more useful record.** The 2026-08-24 judgement was not wrong; the word "zero" was. It meant "the lenses available that day produced nothing new", not "no defects remain" — and lenses arrive later (the ones added since produced everything above). The right standard for submitting was never "zero defects", which would mean never submitting; it is **"nothing known is being concealed"**, and that held then and holds now. **Writing "zero" without stating the standard reads as swapping the standard**, which is the defect worth recording |
 
 | 53 | **The entry page told reviewers that documents they can read are in a language they cannot.** `REVIEWERS.md` headed its list "Map of the Japanese documents" and put eight files under it. Measured by character counts, **four of those are English or answer-in-English**: `comparison.md` (19,289 Latin characters against 1,860 Japanese), `review-responses-clauses.md` (22,738 against 2,836), and both `review-responses.md` and `review-responses-meta.md`, whose every answer is given in English with Japanese only in the notes explaining the phrasing. **A reviewer following that page would have skipped the clause-level objections and the licence comparison believing they could not read them** | **Corrected by measurement, and the measurement is now stated on the page.** The map gives a language per file and says which documents are already in English. **This was invisible to every check run so far** — they were all searches for patterns *within* a language, and none asked what language a file was in. The finding also reverses the assumption behind the page: the material a reviewer is most likely to want was already in English, and the page was directing them away from it |
 
@@ -131,6 +131,31 @@ left unrepaired because the text is frozen (#18, #20), with #22 a third if the l
 taken. Three are costs that were understated and are now stated (#16, #17, #21). **Nothing
 raised was dismissed**, and three rounds together moved the count of adverse facts from 14 to
 **51** — which is the honest direction for a list like this to move as it is examined. The third round was not prompted by anyone: it audited the dossier's own clause citations against the text, on the theory that the §3/§4 error (#24) was found only because someone finally read the clause, and that others of the same kind were likely.
+
+## What two dimensions borrowed from an outside review produced (2026-09-05)
+
+Two observations arrived from the OSI reviews of other instruments: the ModelGo submitter's
+interpretation that hosted-only delivery — where the remote user receives Output and never receives
+the Licensed or Derivative Materials — triggers no licence-copy or notice obligation, together with
+the drafting history that a notice requirement on Output had been **deleted** in March 2025 once it
+was seen that it could become a condition on mere use; and a decomposition, put to the OpenMDW
+thread, of where a litigation-termination clause first crosses an open-source principle.
+
+**Neither produced a new adverse fact.** Both had already been reduced on 2026-09-04, as #46 and
+#47. What they carried that was new were two *methods*: trace a concrete delivery mode until an
+obligation fires or does not, and follow a defined term across the sections that use it rather than
+the one that defines it. Applied to this text, those two produced the entries below.
+
+The material was worth more as a way of measuring than as a set of facts. That is the thesis
+`BLIND-SPOTS.md` was written on, and this is the first time it has been tested with material from
+outside. Neither dimension appears in that file's candidate list — which is the point it makes
+about itself: a dimension one can enumerate in advance is one already used.
+
+| # | Adverse fact | Status |
+|---|---|---|
+| 56 | **The artifact SPDX registration requires may be the thing §16.4 forbids.** §16.4 permits copying the text verbatim and forbids distributing it "in modified form under the name ... or under the identifier 'ACD-1.0'", so that name and identifier keep denoting one fixed text; §16.5 carves out translations and nothing else. `ACD-1.0.spdx.xml` carries `licenseId="ACD-1.0"` and the full name, and is not verbatim — every clause is reflowed into a `<p>` with the line breaks and indentation of the fixed text removed, and the header element carries an `<alt match=".+">` substitution point. **So the registration path, on a strict reading, requires producing what the licence prohibits** | **Unresolved, and unfixable while frozen** (`errata.md` E8). A sensible reading says a re-encoding is not a modification, and nobody has raised it. But the text does not say so, and the licence's own §6.5 — a permission an automated system cannot determine is not a permission — is the strongest argument that the machine-readable form should have been contemplated rather than left to inference. **Found by asking what forms the text is redistributed in, not by reading §16** |
+| 57 | **One sentence in the no-condition mesh is unqualified where its six neighbours are qualified.** §10.1 says "in respect of the Work"; §10.5, §11.3 and §11.4 each say a clause is "not a condition upon Your use of the Work"; §16.6 says §16.4-16.5 "bind no recipient of the Work". §10.4's second sentence says flatly that the instrument "contains nothing that You could breach" — and "You" is defined at §1.4 as **any person or entity exercising permissions under this Dedication**, §16.4 grants a permission over the text, and §16.5 states in terms that its proviso **is** "a condition upon distributing the translated text". **A translator-distributor is "You", and does have something to breach** | **Real, narrow, and unfixable while frozen** (`errata.md` E9). Nothing about what anyone may do with the Work changes, and #27 and #45 already answer the substantive version of this through §10.1's qualifier. What is new is that the qualifier is absent from exactly one sentence, and that a reviewer following the **defined term** rather than the section arrives there. **Found by following "You" through §1.4, §16.4 and §16.5 — the sections that use the term, not the section that is about conditions** |
+| 58 | **The entry page understated the disclosure by a factor of four, in the direction that looks like concealment.** `REVIEWERS.md` is the English page a reviewer reads first, and it declared "**118** worked entries", "**All 14** adverse facts" and "**Five** imprecisions" while the files behind those links held 144, 57 and 9 at the moment of the sweep (this row's own addition moved two of them again, which is the point). The word that does the damage is "All": it is a completeness claim, and a reviewer who opens a list four times longer than the page promised has been given a reason to distrust the page rather than the list. **Every one of the three erred low** — a dossier whose argument is "we disclose everything" cannot afford to under-report what it discloses | **Fixed, and the class was already known.** Check 460 exists precisely because "a document states its own scale and the statement is stale the day after"; it covered the submission packet, the FAQ, the clause reference, `against.md` and the index — **and not the page written last and read first**. It now covers `REVIEWERS.md` and `READY-TO-SUBMIT.md` too. **Found by sweeping every declared count in the directory after correcting one of them**, which is the discipline of #55 applied to a second kind of moving number |
 
 ## What survives
 
@@ -148,17 +173,17 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **55** across seven rounds of examination. When this
+The adverse list has grown from 14 entries to **58** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
-1. **No design decision has been overturned.** Seven rounds of adversarial reading — three
-   prompted by third parties, four self-initiated — have produced **55 adverse facts, 7
+1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
+   prompted by third parties, four self-initiated — have produced **58 adverse facts, 9
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
-   explanations of those decisions (#24) and the precision of the text's wording (E1–E5). For an
+   explanations of those decisions (#24) and the precision of the text's wording (E1–E9). For an
    instrument with no legal review, "the design held and the drafting was imprecise" is a
    meaningfully better result than the reverse.
 2. **Nothing found changes what a recipient may do.** Every errata entry is a matter of
