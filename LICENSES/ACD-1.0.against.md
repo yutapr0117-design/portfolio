@@ -251,6 +251,8 @@ in the worst possible place.
 
 | 67 | **The one file an adopter actually opens said nothing about the two facts most likely to change their mind.** `LICENSE` is what a person sees when they consider applying ACD-1.0 to their own work. It described the *implementation code* as "machine-generated under human direction", which is accurate — and said nothing about the licence text itself being drafted by an AI **without** direction, and nothing about **no lawyer having read it**. Both are recorded in the submission packet, in this list (#1, #5) and in the question index; **none of those is where an adopter looks**. The submission packet is addressed to a review committee, not to the person deciding whether to rely on the instrument | **Added to `LICENSE` as statements of fact, in the section that already exists for exactly that** ("Provenance — statements of fact, not conditions of use"), together with the unregistered-identifier form and pointers to this list and to the errata. **This is #66 applied one step further out**: that entry closed the gap between the dossier and the message sent to reviewers; this one closes the gap between the dossier and the file an adopter reads. **The general form is the same** — a disclosure that lives only where the reader has to go looking is not a disclosure — and the useful question it produces is *"who actually reads this, and what do they see?"*, asked of each surface separately rather than of the repository as a whole |
 
+| 68 | **The URL the submission gives as "the text" was the one thing the freeze did not check.** `FROZEN.md` pins three files and Check 453 fails the build if they change — but it compares **the copy in the repository**. What the submission packet points a reviewer at, what `ACD-1.0.machine.json` names in its `text` field, and what `ACD-1.0.spdx.xml` lists as its crossRef, is the **published** copy at the Pages URL. **Nothing compared the two.** A stale or altered deployment would leave every pin in the repository green while the reviewer read a different text — which is exactly what the freeze exists to prevent, positioned where the freeze cannot see | **Verified and now enforced.** The published copies of all three files match the pinned digests today; the check that establishes it was missing and has been added to the weekly `check_deployed_freshness.py`, which already had layers for *job failed*, *version stale* and *bytes differ from declared digest* — this is the fourth. **It compares against `FROZEN.md`, not against the working tree**, so that it validates the same authority a reviewer is told to check with `shasum -a 256 -c`; comparing against the tree would miss the case where both moved together. Proven to fire by altering one hex digit of a pinned digest. **Found by asking, of each surface in turn, who reads it and what they receive** — the same question that produced #66 and #67 |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -267,13 +269,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **67** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **68** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **67 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **68 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later

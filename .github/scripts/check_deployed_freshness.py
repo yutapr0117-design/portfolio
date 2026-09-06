@@ -558,6 +558,60 @@ def _check_digests(base):
         return 1
 
     print(f"OK: 公開されたテキスト資産 {len(targets)} 件が宣言 digest と一致している")
+    return _check_frozen_licence(base)
+
+
+def _check_frozen_licence(base):
+    """**審査者が読むテキストが、我々が pin したテキストと同じか。**
+
+    提出パケットが「the text」として示す URL、`ACD-1.0.machine.json` の `text` フィールド、
+    `ACD-1.0.spdx.xml` の crossRef —— この 3 つはすべて **公開された** `LICENSES/ACD-1.0.txt`
+    を指す。ところが凍結を強制する Check 453 が見ているのは**リポジトリ内の複製**だけである。
+
+    つまり Pages が古い版や変質した版を配ると、**リポジトリの pin は全部緑のまま、審査者だけが
+    別のテキストを読む**。これは凍結が防ごうとしている当のこと（読まれているテキストが動く）で
+    あり、しかも凍結の機構では原理的に検出できない位置にある。
+
+    比較先は作業ツリーではなく **`FROZEN.md` の FREEZE-DATA 表**にする —— 審査者が
+    `REVIEWERS.md` の検証コマンドで照合するのと同じ権威に対して照合するためで、
+    作業ツリーと比べると「両方が同時に動いた」場合に気付けない。
+    """
+    freeze = ROOT / "LICENSES" / "FROZEN.md"
+    if not freeze.exists():
+        print("OK: 凍結表が無い (凍結解除後) — 公開テキストの pin 照合は skip")
+        return 0
+
+    pinned = []
+    for line in freeze.read_text(encoding="utf-8").splitlines():
+        m = re.match(r"^([0-9a-f]{64})  (\S+)$", line)
+        if m:
+            pinned.append((m.group(2), m.group(1)))
+    if not pinned:
+        print("::error::FROZEN.md に FREEZE-DATA 行が無い — 凍結中に公開テキストを照合できない",
+              flush=True)
+        return 1
+
+    bad = []
+    for relpath, expected in pinned:
+        url = base + relpath
+        try:
+            actual = hashlib.sha256(_fetch_bytes(url)).hexdigest()
+        except Exception as e:  # noqa: BLE001
+            bad.append(f"{relpath}: 公開面から取得できない ({type(e).__name__}) — "
+                       f"提出パケットはこの URL を「the text」として示している")
+            continue
+        if actual != expected:
+            bad.append(f"{relpath}: pinned={expected[:16]}… served={actual[:16]}…")
+
+    if bad:
+        for b in bad:
+            print(f"::error::公開されているライセンス本文が凍結 pin と一致しない — {b}", flush=True)
+        print("::error::**審査者が読むのは公開面**であり、リポジトリ内の複製ではない。"
+              "Check 453 はリポジトリ側しか見ないので、この状態は repo 側が全部緑のまま成立する",
+              flush=True)
+        return 1
+
+    print(f"OK: 公開されているライセンス本文 {len(pinned)} 件が FROZEN.md の pin と一致している")
     return 0
 
 
