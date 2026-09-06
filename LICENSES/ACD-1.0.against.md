@@ -255,6 +255,8 @@ in the worst possible place.
 
 | 69 | **The design document `LICENSE` sends people to still announced, in its header, that the text was not frozen.** `docs/architecture/acd-license-rationale.md` is the one place `LICENSE` points to for the rationale and the conformance analysis, and its status block read "起草完了・申請前。**本文はまだ freeze していない**". The text has been frozen since 2026-08-24 — **and the same document says so further down**, in a section headed "凍結後に判明したこと" that begins "凍結中で一切変更していない". So the header contradicted the body of its own file, and the header is what a reader meets first. Its `last-updated` was also two weeks behind content added after it | **Corrected, and brought inside the venue check.** Check 458 enforces that every file stating the submission venue matches one source (`FROZEN.md`'s VENUE-DATA) — over a **hardcoded list of five**, and this file was not on it, although it states status and is the only design document `LICENSE` refers a reader to. It is now the sixth. **The list stays hardcoded rather than derived**, because "which files state the submission status" is a judgement about meaning, not a property a scan can decide — so the honest form is a list with a stated reason for each entry, and the reason for this one is the `LICENSE` pointer. **Non-vacuity took two attempts**: removing one mention of the venue did nothing, because the check asks whether the file *states* the venue and other mentions remained. Removing all of them fired it — which is the difference between testing the detector and testing what one assumes it does |
 
+| 70 | **The favourable section was the stale one.** "What survives" is the only part of this document that argues *for* the instrument, and three of its seven points had drifted: it said the machine-readable layer held "**29** clause pointers" and was "verified clean" (33, and #59 records that the descriptor omits the one restriction it contains); it said "**four of the six** distinguishing features" close and "the remaining **two**" do not (four of seven, remaining three — #65); and it said "**five errata** … forty-five adverse facts" against actuals of ten and sixty-nine. **The adverse list beside it was maintained to the entry.** A reviewer who finds the argument-for stale while the argument-against is exact has been shown which of the two we actually check | **Corrected, and the worst part was a sentence that claimed enforcement.** Point 6 stated its counts and added "**Check 460 now enforces them**" — **it did not**; face (e) covers two summary sentences elsewhere in the file and never reached this passage. **A false claim of enforcement is worse than a stale number**, because it tells the reader not to check. The numbers are now removed where they only restate an authority that exists elsewhere (points 5 and 6 point at `comparison.md` §1.35 and at the lists), and kept where the reader wants the figure (point 3), where face (i) already derives it from the descriptor. **Found by asking of the favourable section the same question #52 asked of the readiness document** — and the answer was worse here, because nobody re-reads the part that agrees with them |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -271,13 +273,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **69** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **70** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **69 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **70 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
@@ -288,26 +290,36 @@ follows is what actually held, restricted to things that were tested rather than
    precision, scope of wording, or the form in which a conclusion is stated. A defect of the
    other kind would be recorded here immediately, and the honest response to one might be
    withdrawal rather than repair.
-3. **The machine-readable layer verified clean.** All 29 clause pointers in
-   `ACD-1.0.machine.json` resolve to clauses that exist and are about the subject claimed, and
-   both machine-readable files record `osiApproved: false` and `spdxListed: false` rather than
-   overstating status. That is the same class of error as #24, checked mechanically and absent.
+3. **The machine-readable layer resolves, and its one gap is recorded.** All **33** clause
+   pointers in `ACD-1.0.machine.json` resolve to clauses that exist and are about the subject
+   claimed, and both machine-readable files record `osiApproved: false` and `spdxListed: false`
+   rather than overstating status. That is the same class of error as #24, checked mechanically
+   and absent. **What is not clean is selection**: the descriptor enumerates six things the
+   instrument does not do and omits the one thing it does (#59), so this point claims accuracy,
+   not completeness. The pointer count is checked on every CI run against the descriptor itself
+   (Check 460 face (i)), which is how the figure "29" written here was found to be wrong.
 4. **The question it answers is not the question the other two answer.** OpenMDW and ModelGo
    licence model artefacts; ACD-1.0 addresses computational use of any work, including material
    whose authorship may not subsist at all (§9). Neither of them has anything to say about that
    last case. This does not settle proliferation — see #28 and #33 — but it does settle overlap.
-5. **The two sections that no amendment closes are the ones the design turns on.** Four of the
-   six distinguishing features could be added to an existing licence as clauses
-   (`comparison.md` §1.35, recorded as #43). The two that could not — §9's refusal to presume
-   that a right subsists, and §10.1's absence of any condition — are not features bolted on but
-   consequences of where the instrument starts. That is a narrower claim than "it is different",
-   and it is the one that survives the incumbents moving.
-6. **The clause-level defects found so far are all of one kind.** Five errata, three
-   descriptions corrected in our own documents, and forty-five adverse facts have produced
-   **no defect that changes what a recipient may do.** Every one is a matter of precision, of
-   scope of wording, or of a conclusion stated in the wrong form. (Counts are as of 2026-09-05;
-   the list is append-only, so they are floors. Check 460 now enforces them.) That is not proof of quality —
-   it is a statement about the kind of fault that has been found, and the kind that has not.
+5. **The sections that no amendment closes are the ones the design turns on.** Most of the
+   distinguishing features could be added to an existing licence as clauses; the split is
+   enumerated in `comparison.md` §1.35 and is checked against its own two lists on every CI run
+   (Check 460 face (j)), so the arithmetic is not repeated here — **this passage previously said
+   "four of six" and "the remaining two" while the lists held four and three** (#65). The ones
+   that could not be added — §9's refusal to presume that a right subsists, §10.1's absence of
+   any condition, and computational use being defined once at the top rather than bolted on at
+   the edge — are not features but consequences of where the instrument starts. That is a
+   narrower claim than "it is different", and it is the one that survives the incumbents moving.
+6. **The clause-level defects found so far are all of one kind.** Every errata entry, every
+   description corrected in our own documents, and every adverse fact has produced **no defect
+   that changes what a recipient may do.** Each is a matter of precision, of scope of wording, or
+   of a conclusion stated in the wrong form. **The counts are deliberately not restated here** —
+   `errata.md` and the list above are the authority, and a number written into prose is stale the
+   day after (this passage previously read "five errata … forty-five adverse facts" against
+   actuals of ten and sixty-nine, **and claimed in the same breath that Check 460 enforced them,
+   which it did not** — #70). That is not proof of quality; it is a statement about the kind of
+   fault that has been found, and the kind that has not.
 7. **A first approval in this category would help, whoever earns it.** #33 records that no
    AI-specific licence has ever been approved as an adverse fact, and it is one. The same fact
    read forward is different: **if either instrument now in review is approved, the barrier that
