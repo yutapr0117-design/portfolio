@@ -391,6 +391,41 @@ ACD-1.0 はその問題を持たない —— **既存ライセンスの名称�
 詳しい。誤読されうることは認めるが、名称が指すテキストは 1 つに固定されており（§16.4）、
 指す先が動かない限り、誤読は読み合わせで解ける。
 
+### Q32c-2. SPDX の収録基準を原典で読むと、我々が述べていた理由は厳しすぎた
+
+**2026-09-06 に SPDX の inclusion principles を一次資料で読んだ。** これまでドシエは
+「SPDX は**相当程度の実使用**を求める。実績はこのリポジトリ 1 件なので条件を満たさない」と
+述べてきた。**基準はそう書かれていない。**
+
+> "The license has actual, substantial use such that it is likely to be encountered. Substantial
+> use may be demonstrated via use in many projects, **or in one or a few significant projects**.
+> **For new licenses, there are definitive plans for use in significant projects.**"
+
+**「多数のプロジェクト」は選択肢の一方にすぎず、「1 つまたは少数の *significant* なプロジェクト」
+でもよい。** さらに**新しいライセンス専用の経路**があり、そこでは「significant project での使用に
+ついて definitive plans がある」ことが問われる。**我々は、実際より狭い基準を自分に適用していた。**
+
+**それでも結論は変わらない。理由が変わる。** 正しい問いは「採用が 1 件か」ではなく
+「**その 1 件は *significant* か / significant な使用の definitive plans があるか**」であり、
+答えは **どちらも「無い」**である —— 唯一の採用者は steward 自身のポートフォリオであり、
+第三者による使用の具体的な計画も無い。**「1 件だから駄目」ではなく「significant ではなく、
+計画も無い」**が、こちらの正確な立場である。
+
+**同じ原典から、これまで述べていなかったことが 3 つ出た。**
+
+  1. **"All OSI-approved licenses receive automatic inclusion."** —— **OSI が承認すれば SPDX は
+     自動である。** つまり「OSI が先、SPDX が後」という順序は、単に基準を満たさないからでは
+     なく、**片方が他方を自動的に解決するから**である。これは我々が述べていた理由より強い。
+  2. **"Must have identifiable, stable text that is not still being drafted."** —— ACD-1.0 は
+     凍結され、3 file の sha256 が CI で pin されている（Check 453）。**満たしているだけでなく、
+     機械的に示せる。**
+  3. **"The license steward must commit to preventing modifications after addition and versioning
+     future updates."** —— §16.4（名称と識別子は 1 つの固定テキストを指し続ける）と
+     `REVISION-PROTOCOL.md` §2（**1.0 は永久凍結・次版は併置**）が、まさにその約束である。
+
+**3 つとも我々に有利であり、3 つとも述べていなかった。** #70 が記録したとおり、
+**擁護している側は読み返されないので、有利な事実の欠落も同じように起きる。**
+
 ### Q32d. OSAID（Open Source AI Definition）との関係はどうなるのか
 
 **2026-09-06 に原文で確認した。** OSAID v1.0 は、必要な 3 要素すべてを **OSI 承認**で条件付けている:
