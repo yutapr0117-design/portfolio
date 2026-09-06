@@ -226,6 +226,31 @@ AI 条項を実際に取り込んだとして、そのとき何が残るのか�
 > | The carve-out **puts users on notice** of patent risk, raising exposure | There is no carve-out to give notice of. §8.1 grants a patent licence; §8.4 extends it to computational use, models and outputs; §8.3 states in terms that nothing "reserves, preserves, or leaves unaffected any patent right of the Dedicator", because "a dedication that gives away copyright while withholding patent" leaves the recipient exposed |
 > | Fixing it would require a new version CC could not then produce | Not applicable — ACD-1.0 was drafted with §8 in place from the first published version |
 >
+> **A third objection, found on re-reading the archive in 2026-09, is the one this instrument was
+> built against.** Bruce Perens, 2012-02-18:
+>
+> > "CC0 is an abandonment of rights, and then a backup license that would be considered
+> > acquiescence, **but which is only in consideration *if your rights were not abandoned*.**
+> > So, I am reading this as **either an abandonment of rights OR acquiescence, but not both**."
+>
+> That is an objection to the **fallback** shape: a licence whose operation is conditioned on the
+> dedication having failed. **ACD-1.0 §4.4 is written so that the objection does not reach it** ——
+> the licence "is granted independently of Section 3 and does not depend on Section 3 being
+> ineffective", and where §3 is effective §4 is "redundant but not void" and remains available.
+> A recipient never has to decide which of the two operated, which is precisely the decision
+> Perens was pointing at.
+>
+> **This also explains why `against.md` #24 mattered more than a wording slip.** That entry
+> corrected our own documents for describing §3 as having a "fallback licence" —— i.e. for
+> describing ACD-1.0 as having **exactly the structure objected to here**. The error did not
+> merely misdescribe a clause; it handed a reviewer the 2012 objection, against an instrument
+> drafted to avoid it.
+>
+> **Honest limits of this reading.** The objections above are quoted from the license-review
+> archive for 2012-02 and 2012-03. **The message in which Creative Commons actually withdrew the
+> submission is not in the four months read (2012-01 to 2012-04) on this list**, so the outcome
+> as stated here still rests on the secondary record, and is marked as such in `AS-OF.md`.
+
 > **What this does not mean.** It does not mean ACD-1.0 clears the bar CC0 did not. CC0's
 > patent problem was one objection among several, the dedication-form question remains live
 > (§1b), and CC0 had adoption and an institutional steward that this instrument does not. What
