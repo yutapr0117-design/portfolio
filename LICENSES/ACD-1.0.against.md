@@ -257,6 +257,8 @@ in the worst possible place.
 
 | 70 | **The favourable section was the stale one.** "What survives" is the only part of this document that argues *for* the instrument, and three of its seven points had drifted: it said the machine-readable layer held "**29** clause pointers" and was "verified clean" (33, and #59 records that the descriptor omits the one restriction it contains); it said "**four of the six** distinguishing features" close and "the remaining **two**" do not (four of seven, remaining three — #65); and it said "**five errata** … forty-five adverse facts" against actuals of ten and sixty-nine. **The adverse list beside it was maintained to the entry.** A reviewer who finds the argument-for stale while the argument-against is exact has been shown which of the two we actually check | **Corrected, and the worst part was a sentence that claimed enforcement.** Point 6 stated its counts and added "**Check 460 now enforces them**" — **it did not**; face (e) covers two summary sentences elsewhere in the file and never reached this passage. **A false claim of enforcement is worse than a stale number**, because it tells the reader not to check. The numbers are now removed where they only restate an authority that exists elsewhere (points 5 and 6 point at `comparison.md` §1.35 and at the lists), and kept where the reader wants the figure (point 3), where face (i) already derives it from the descriptor. **Found by asking of the favourable section the same question #52 asked of the readiness document** — and the answer was worse here, because nobody re-reads the part that agrees with them |
 
+| 71 | **Fixing the instruction in one document left a second one asserting the old state.** #66 folded the AI-drafting disclosure into the message after finding §E's "fold it in if section B has not gone out yet". **The same instruction existed in `review-responses-meta.md`** — "送信済みなら follow-up で、未送信なら §5 に足す" — under a heading that read "**§B の disclosures には無い**". After #66 that heading was false: the disclosure *is* in the message. **A reviewer reading that document would conclude the message omits it**, which is the opposite of the state the repository was in | **Corrected, and the class is the finding.** Both passages were written from the same observation and only one was updated, because the fix was made where the omission was *noticed* rather than everywhere it was *asserted*. **The sweep that found it was mechanical**: search the dossier for instructions conditioned on a state ("if X has not yet happened…", "未送信なら…") and evaluate each condition now. Nine other conditional passages were checked and are still live and correct — the "add a paragraph about the license-discuss thread before sending" instruction in particular, which cannot be carried out until there is a thread to summarise. **The rule this produces**: when a condition resolves, update every place that states it, not the one where it was found |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -273,13 +275,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **70** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **71** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **70 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **71 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
