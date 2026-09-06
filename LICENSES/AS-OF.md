@@ -1,7 +1,7 @@
 ---
 file: LICENSES/AS-OF.md
 audience: OSI license-discuss / license-review participants, licence reviewers
-last-updated: 2026-09-06
+last-updated: 2026-09-07
 canonical-ref: LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/ACD-1.0.against.md / LICENSES/PEER-REVIEW-WATCH.md
 ---
 
@@ -33,6 +33,7 @@ The dossier is written to be checked, not believed, and that applies to its own 
 | Whether silence on the list carries a signal | **2026-09-06** | **Not reliably, in either direction** | Against reading it as neutral: a structurally comparable `license-discuss` post drew six replies in about ten hours (#83). Against reading it as negative: Max Mehl, whose submission the board **approved**, wrote *"It would have been great to get a feedback as a reply to the review request"* — **approval with no reply in the thread**. Both are from the 2026-08 archives |
 | `license-discuss` is not the approval venue | **2026-09-06** | Confirmed, quoted at source | McCoy Smith on the list, 2026-08-04, three weeks before our post: *"this list 'license-discuss' is for discussion of licenses, not for getting licenses approved. That list is 'license-review.'"* Until now this directory asserted the distinction; it is now cited. **Individual capacity, not an OSI ruling** — but it is the maintainer-side statement of how the two lists are used |
 | Subject-line convention for a submission | **2026-09-06** | `For Approval: <name>` on `license-review`; `For Discussion: <name>` on `license-discuss` | Measured across the archives held: 103 messages under `For Approval: OpenMDW License Agreement`, plus `Request for Legacy Approval of PHP License 3.01`, `CeCILL license V2.1 for Approval`, `For Discussion: GNU Affero General Public License`. **`submission.md` §B.0 already specifies `For Approval: Autonomous Commons Dedication 1.0 (ACD-1.0)`** — checked and correct, and now correct *for a recorded reason* rather than by chance |
+| **What a reviewer reading the archive actually gets** | **2026-09-07 · measured** | **Clean on three faces** | The concern is #68's, pointed at a delivery surface nobody had checked: the mailing-list archive is where a reviewer most plausibly reads the text, and it is produced by software we do not control. Measured: **(1)** the licence text embedded in the archived 2026-08-26 message is **byte-identical** to the frozen file — 597 of 597 lines, identical sha256 over the extracted region, no pipermail wrapping or entity damage; **(2)** all three URLs in that message return **200** (`…/LICENSES/ACD-1.0.txt`, the site root, the GitHub repository); **(3)** the text served at the canonical URL is byte-identical to the frozen file. Re-check: extract from `…/license-discuss_lists.opensource.org/2026-August.txt` between the title line and `END OF TERMS` and diff against `LICENSES/ACD-1.0.txt`. **What this does not establish**: the message was sent multipart and pipermail scrubbed an HTML part into a separate attachment — that attachment was not compared, and a reader who opens it rather than the plain text is reading something we have not checked |
 | Text frozen | **2026-09-05** | Yes; three files pinned | `grep -E "^[0-9a-f]{64}  " LICENSES/FROZEN.md \| shasum -a 256 -c` → 3× OK |
 
 ## Facts about the licence's standing
