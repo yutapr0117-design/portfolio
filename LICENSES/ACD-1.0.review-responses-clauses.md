@@ -70,6 +70,49 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 > 8.4, the effect is that a person who trains on the Work does not need to reason
 > about whether the Dedicator retained a hook into their model.
 
+#### §6.4 を、原理ではなく **license-review の記録** から論じる（2026-09-06 に一次資料で確認）
+
+これまで §6.4（「Computational Use から派生した model / parameter set / weight / embedding /
+output は、この Dedication によっても Dedicator のいかなる Covered Right によっても encumber
+されない」）は**原理から**論じてきた。**同じ結論を、このリストの記録そのものから論じられる。**
+
+2025-03、ModelGo の初期草案が出力へ notice を要求していた件について、`license-review` で
+次のやりとりがある（**アーカイブ本文から直接引いた。提出者による後の要約ではない**）:
+
+> **Moming Duan**（提出者・2025-03-03）: "I am also considering whether we could narrow this
+> clause so that it only applies when distributing a collection of outputs, requiring disclosure
+> of the info of original model and its license."
+>
+> **Simon Phipps**（*in a personal capacity* と明記・同日）:
+> "That sounds like **a restriction or condition on mere use. That would not be open source.**"
+>
+> **Richard Fontana**（同日）: "This would be akin to **putting an editor under a license that
+> required any file created with the editor to have an attribution notice.**" さらに前例に触れて
+> いる —— "I am reminded of the Kyle Mitchell license that was submitted several years ago …
+> it attempted to extend copyleft to the output of a program … **I recall that the general
+> sentiment on this list was against approval.**"
+>
+> **Moming Duan**（同日）: "Correct. As Pamela pointed out, the current clause **somewhat
+> oversteps**, as not all users will use the output to train a new model."
+
+要件はその後**削除された**（提出者が 2026-09-04 の返信でそう述べており、現行テキストにも無い）。
+
+**何が示されたのか。** 「出力に義務を掛けると mere use への条件になる」は我々が構成した理論では
+なく、**このリストで議論され、複数の参加者が同じ結論に達し、条文が実際に削除された軸**である。
+しかも Fontana 氏の記憶によれば、**出力へ copyleft を及ぼそうとした先行提出も同じ方向で退けられて
+いる**（撤回されたため裁定には至っていない）。§6.4 はこの軸に対して**構造的に安全な側**にいる ——
+出力に何も掛けないので、掛かるかどうかを検討する必要が生じない。
+
+**この論拠の限界も書いておく。**
+
+  - **どれも OSI の裁定ではない。** Phipps 氏は "in a personal capacity" と明記しており、
+    ModelGo の削除は**提出者の判断**、Kyle Mitchell の件は**撤回**であって決定ではない。
+    「リストの一般的な傾向」までしか言えない。
+  - **問われたのは *notice* 要件である。** ACD-1.0 はいかなる要件も持たないので同じ轍を踏み
+    ようがないが、それは設計の巧みさではなく**何も課さないことの帰結**にすぎない。
+  - **この記録は §6.4 を支持するだけである。** §9（機械生成物に権利が存在すると前提しない）や
+    §4.4（§3 と独立の許諾）といった、**本 instrument に固有の争点には何も述べていない。**
+
 ### §8 PATENTS
 
 **Q. 特許報復条項（defensive termination）がない。Apache-2.0 §3 を持たないのは弱点では。**
