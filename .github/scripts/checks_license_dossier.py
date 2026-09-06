@@ -55,6 +55,9 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        ↔ FAQ の `### AN.` / `### BN.` の実測、(c) 逐条リファレンスの「全 X 節 Y 条」↔
        ACD-1.0.txt から抽出した節数・条数、(d) FAQ mirror の件数、(e) against.md が
        自分の規模について述べる数字、(f) QUESTION-INDEX の worked entry 総数、
+       (k) **ドシエ内の `#N` / `E<n>` 参照がすべて解決すること** —— 実測 (2026-09-06) で
+       1 件だけ `#885`（**リポジトリの PR 番号**）が混ざっていた。同じ記法に 2 つの採番体系が
+       あると審査者は存在しない不利な事実を探しに行く。`#N` を 1 つの意味に限定する。
        (j) **`comparison.md` §1.35 の「N のうち M」が下の 2 つの列挙と一致すること** ——
        実測 (2026-09-06): 「six / remaining two」と書きながら列挙は 4 + 3 = 7 だった。宣言と
        列挙が同じ commit で入っており、書いた時点の誤り。宣言ではなく**列挙から導く**。
@@ -533,6 +536,25 @@ def run(ctx):
                     _bad460.append(f"comparison.md §1.35 の差別化総数: 申告 {_m_j.group(1)} ({_decl}) / "
                                    f"実測 {_tbl + _open_j} (閉じる {_tbl} + 閉じない {_open_j})")
 
+        # (k) **ドシエ内の `#N` 参照が、必ず不利な事実の行番号へ解決すること。** ドシエは自分の
+        #   主張を `#N` と `E<n>` で相互参照しており、**その解決性がこの文書群の信用の土台**である
+        #   （提出パケット §4c も「every cross-reference between the dossier documents resolves」と
+        #   述べている）。実測 (2026-09-06): 65 件の `#N` と 10 件の `E<n>` はすべて解決したが
+        #   **1 件だけ `#885`** があり、これは**リポジトリの PR 番号**だった —— 同じ記法で 2 つの
+        #   採番体系が混ざると、審査者は存在しない不利な事実 #885 を探しに行く。番号の由来を
+        #   説明するのではなく、**ドシエ内では `#N` を 1 つの意味に限定する**方が確実である。
+        if _ag460.exists() and _erp460.exists():
+            _nums_k = {int(_m) for _m in re.findall(r"^\| (\d+) \|", _agt, re.M)}
+            _ers_k = set(re.findall(r"^\| (E\d+) \|", _erp460.read_text(encoding="utf-8"), re.M))
+            for _fk in sorted(_L460.glob("*.md")):
+                for _n, _ln in enumerate(_fk.read_text(encoding="utf-8").splitlines(), 1):
+                    for _m in re.finditer(r"(?<![\w/])#(\d{1,4})\b", _ln):
+                        if int(_m.group(1)) not in _nums_k:
+                            _bad460.append(f"{_fk.name}:{_n}: `#{_m.group(1)}` が不利な事実へ解決しない "
+                                           f"(PR 番号など別の採番を `#N` で書かない)")
+                    for _m in re.finditer(r"(?<![\w])E(\d{1,2})\b", _ln):
+                        if f"E{_m.group(1)}" not in _ers_k:
+                            _bad460.append(f"{_fk.name}:{_n}: `E{_m.group(1)}` が errata へ解決しない")
         check(
             not _bad460,
             f"Check 460: ドシエの自己申告件数が実測と一致 "
