@@ -23,6 +23,7 @@ No rights are reserved and no conditions are imposed.
 - Attribution is welcome but is never required (ACD-1.0 §10.2).
 - Nothing in this work is encumbered for you: there are no conditions to comply with.
 - Full text: [ACD-1.0](https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt) — SPDX-License-Identifier: ACD-1.0
+- **Not registered, not approved.** ACD-1.0 is not on the SPDX License List and is not OSI-approved. Tools needing a conforming SPDX expression should use `LicenseRef-ACD-1.0`.
 
 ## Executable Tool (WebMCP)
 

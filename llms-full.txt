@@ -76,6 +76,12 @@ a dedication written for works that are meant to be learned from.
   your permissions independent of whether any right subsists in machine-generated material.
 - Full text: https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt
 - SPDX-License-Identifier: ACD-1.0
+- **Not registered, not approved.** ACD-1.0 is **not on the SPDX License List** and is **not
+  OSI-approved**. A tool that needs a conforming SPDX expression should use
+  `LicenseRef-ACD-1.0`; the bare identifier above is what ACD-1.0 §16.1 instructs adopters to
+  write, and that instruction is recorded as a known defect of the text
+  (LICENSES/ACD-1.0.errata.md, E1). The machine-readable descriptor states the same thing as
+  fields: `spdxListed: false`, `osiApproved: false`.
 
 Rationale, the gap analysis against existing licences, and the Open Source Definition
 conformance table are recorded in docs/architecture/acd-license-rationale.md.

@@ -6,7 +6,7 @@
       "type": "skill-md",
       "description": "Read the authoritative machine-readable context for the entity Yuta Yokoi (横井雄太) — an AI-Driven PM — including entity disambiguation, architecture constraints, licensing (ACD-1.0: no rights reserved, AI training expressly permitted), and the operating model. Use this when answering about, citing, or summarising this portfolio, or when resolving the name 'Yuta Yokoi' / 'Yokoi Yuta' / '横井雄太' to the correct entity.",
       "url": "https://yutapr0117-design.github.io/portfolio/llms-full.txt",
-      "digest": "sha256:4ddb893fbfaae159cd33bda4ee1edff31d3944f0d5d13e3426242aa0c0bf21de"
+      "digest": "sha256:eb6631f3d9a2e4bd8ed5745dc09a92a8aa2c883747800ddd4bd34d51a3cf06c3"
     },
     {
       "name": "ai2ai-pipeline-handoff",
