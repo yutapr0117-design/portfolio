@@ -277,6 +277,8 @@ in the worst possible place.
 
 | 80 | **The message we had ready to send was 7,500 words, to a list whose code of conduct asks for concision.** §B of the submission packet — the part meant to be pasted into an email — ran to **7,505 words across thirteen numbered sections**. The `license-review` code of conduct has asked participants to be "concise and low-volume" since it was first written, and that was restated in the August 2026 review. For comparison, the two new-licence submissions read from the archive opened at roughly 300 and 1,500 words. **A 7,500-word opening post is a statement about the submitter before it is a statement about the licence** | **Corrected by writing the message the design already implied.** §B.0 is the message as it should actually be sent: **≈600 words**, carrying every item OSI's process requires — attachment, affirmative OSD statement, header block, gap, nearest approved licences, structure, legal review, provenance — and pointing at the repository for the rest, including the adverse list. **§1–§5 are not deleted**; they are relabelled §B.1, "reference material behind the message (not for pasting)", which is what they always were in intent. **The dossier's whole premise is that depth in the repository buys brevity in the message**, and until now the packet did the opposite of what the premise says |
 
+| 81 | **The list of what the human must actually do told them to freeze a text that has been frozen for two weeks.** `READY-TO-SUBMIT.md` is the one document whose staleness causes a *wrong action* rather than a wrong impression, and its step 3 read "**freeze the text at the moment of submission**". The text has been frozen since 2026-08-24, with `FROZEN.md` present and Check 453 pinning three digests on every CI run. **An instruction written for a future state, left standing after the state arrived** — the same shape as #66 and #71, in the document where it costs the most | **Rewritten as the action that is actually left**: not to freeze, but **not to unfreeze**. The list also gained the two things today's reading of a live review made concrete — **send §B.0 and do not paste §B.1** (the list asks for concision, and §B.1 is reference material), and **attach the text as plain text** with the digest command so the reviewer can check the attachment against the published copy. **The general form is worth more than the fix**: a checklist written before an event describes a world that no longer exists once the event happens, and nothing prompts anyone to re-read it — **the trigger for re-reading a checklist has to be the checklist's own steps changing state, and there is no such trigger** |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -293,13 +295,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **80** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **81** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **80 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **81 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
