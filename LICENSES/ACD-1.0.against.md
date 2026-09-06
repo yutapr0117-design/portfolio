@@ -247,6 +247,8 @@ in the worst possible place.
 
 | 65 | **The section that answers "why not just amend Apache?" could not add up its own two lists.** `comparison.md` §1.35 splits ACD-1.0's distinguishing features into those an amendment would close and those it would not, and then says "**Four of ACD-1.0's six** distinguishing features are of this kind ... the case narrows to the **remaining two**". The lists below it hold **four and three**, so the total is seven and the remainder is three. `QUESTION-INDEX.md` repeated the wrong figure and named only two of the three. The third — that computational use is defined once at the top rather than added at the edge — **was simply dropped from the count while remaining on the page** | **Corrected, and derived from the lists (Check 460 face (j)).** `git log -S` shows the declaration and the list it miscounts **entered in the same commit**, whose own title read "4 つは消え、2 つは残る" — so this is the third thing found in one day that was wrong when written rather than gone stale (with the clause-pointer count and the defined-term minimum in #64). **That is the pattern worth carrying forward**: re-checking numbers that move finds none of these, because none of them moved. The check now counts both lists and compares; **its first version scanned the whole file and reported eight, which is the reminder that a detector needs its own scope verified before its output is believed** |
 
+| 66 | **The message that would go to `license-review` did not say the licence was drafted by an AI.** Section E of the submission packet is headed "disclosures that section B does not contain", and E.1 is the provenance statement. It was written under a hedge — "Section B is not rewritten here, **because it may already have been sent** … or fold it into section 5 if section B has not gone out yet" — and **the hedge's condition was false the whole time**: section B is labelled "not yet sent", nothing has gone to `license-review`, and CI enforces that against a single source (Check 458). So the instruction to fold was live and unexecuted, and the message as it stood would have reached the committee **without the disclosure this list calls something reviewers are entitled to weigh** (#5) | **Folded into section 5 on 2026-09-06, before anything was sent.** The addendum is kept rather than deleted, because how the omission was found and closed is part of the record. **The general shape is worth more than the instance**: a disclosure that lives only where the reader has to go looking is not the same as a disclosure — and an instruction conditioned on a state ("if X has not happened yet") **quietly expires into a to-do that nobody re-checks**, because the condition is evaluated once, at writing time. Found by reading section B as *the thing that gets sent* rather than as one more document in the directory |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -263,13 +265,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **65** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **66** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **65 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **66 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
