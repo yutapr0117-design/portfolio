@@ -431,6 +431,24 @@ that the two are read together rather than one being discovered after the other.
 | **OSD 7** Distribution of licence | **The sharpest one.** §10.2 says You need not "reproduce any notice ... retain this file, or inform anyone of anything," and §4.5 adds that nothing requires Your terms to reproduce this text. A downstream recipient may therefore never see that the Work is under ACD-1.0 | The criterion is about rights applying without an additional licence, not about notice. §1.4 defines You as **any** person exercising permissions, §4.1 grants to You directly, and §2.3 makes the grant effective "without any act of acceptance." Every recipient holds the grant from the Dedicator, not through a chain. **Precedent is squarely on point:** MIT-0 and 0BSD are approved and likewise require no notice retention. The practical gap — a recipient who does not know what they hold — is real and is recorded as adverse fact #20 rather than argued away |
 | **OSD 8** Not specific to a product | §16.3's wording is broader than needed (errata E2) | §16.3 states the instrument "is not specific to any project, person, organisation, jurisdiction, or field of endeavour," and the structural evidence is in §4b: no project name, no URL, no placeholder, no edit required to adopt |
 | **OSD 9** Must not restrict other software | §5.2(b) is a wide covenant about collateral obligations, and §4.5 speaks to what You may add | Both point away from restricting other software: §5.2 binds the **Dedicator**, and §4.5 expressly permits Your other terms to be "incompatible with these." Nothing conditions the licensing of anything distributed alongside the Work |
+
+**A live reading of OSD 9 that bears on this submission (read at source, license-review 2026-08).**
+In the OpenMDW review a participant argued that OSD 9 reaches further than the "same medium"
+example: *"I don't think it's much of a stretch to think of **defensive termination provisions as
+'restrictions'**"*, anchoring that in the history where Apache-2.0's patent-termination clause was
+treated as a source of GPLv2 incompatibility, and in OSD 9's role in the SSPL discussion.
+
+**Two things follow, and only the first is ours to claim.** ACD-1.0 has no termination of any kind
+(§10.4) and no patent retaliation (§8.2, expressly), so **whatever that reading decides, this
+instrument has nothing in the class being argued about**. That is not a virtue claimed after the
+fact —— it is the same design choice recorded as a **cost** in `against.md` #46, where a recipient
+who sues the Dedicator keeps every permission. The second thing is what we must not say: **this
+does not establish that ACD-1.0 satisfies OSD 9.** Our OSD 9 exposure, if any, is elsewhere ——
+§5.2's covenants and §16.4's restrictions on redistributing the licence text —— and it is argued in
+the row above on its own terms. **The reading quoted here is one participant's position in a live
+thread, not a settled rule**, and it is recorded because a submission that ignores how the criterion
+is currently being argued is answering a question nobody is asking.
+
 | **OSD 10** Technology-neutral | §2.3 forbids click-through, but §6 is written around a particular technology | §2.3 is the operative provision for OSD 10 and it removes the acceptance ritual entirely. §6's subject matter is technological; its **effect** is a grant with no technological predicate |
 
 **The one that would actually be litigated on the list is OSD 7**, and not because the criterion
