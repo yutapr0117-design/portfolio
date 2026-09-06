@@ -20,7 +20,7 @@ The dossier is written to be checked, not believed, and that applies to its own 
 | Fact | As of | Value | How to re-check |
 |---|---|---|---|
 | Where it has been submitted | **2026-09-05** | `license-discuss` only. Nothing to `license-review`. Nothing to SPDX | `FROZEN.md` VENUE-DATA is the single source; CI enforces every other file against it (Check 458) |
-| Responses received | **2026-09-05** | None | `ACD-1.0.discussion-log.md` — an empty log means nothing has arrived, and silence is recorded as an entry rather than as absence |
+| Responses received | **2026-09-06** | None — **verified at the primary source** | The public `license-discuss` archive for 2026-08 and 2026-09 was read directly: our post appears once (2026-08-26 17:17) and nothing follows it under that subject. Until this date the claim rested on the owner's report; it now rests on the archive. **The same archive shows the list answering a structurally comparable post six times within about ten hours** (`against.md` #83), so the silence is not a quiet list |
 | Text frozen | **2026-09-05** | Yes; three files pinned | `grep -E "^[0-9a-f]{64}  " LICENSES/FROZEN.md \| shasum -a 256 -c` → 3× OK |
 
 ## Facts about the licence's standing
