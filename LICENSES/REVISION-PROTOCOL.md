@@ -162,7 +162,7 @@ courtesy — a discussion whose subject changes underneath it is not a review of
 
 `license-review` の code of conduct は、**書かれた当初から「互いの貴重な時間を尊重して、
 簡潔かつ低volume であること」を求めている**。2026-08 に、その点が明示的に想起されている
-（アーカイブ本文より）:
+（**Luis Villa 氏・2026-08-28・`license-review`**。我々の投稿の 2 日後。個人の発言であって OSI の裁定ではないが、**code of conduct 自体の引用**である）:
 
 > "a polite reminder that the list's code of conduct has, since it was first written, asked people
 > to **respect each other's precious time by being concise and low-volume**. The people we most
