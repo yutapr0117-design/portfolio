@@ -278,6 +278,40 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 > should be able to determine that from the licence rather than from my
 > temperament.
 
+#### §11.4 が答えている、いま生きている原理的な反対（2026-08・一次資料）
+
+OpenMDW-1.1 の審査で、著作権侵害の主張を終了の引き金にすることへ、次の反対が出ている
+（アーカイブ本文より）:
+
+> "The reason for treating patent and copyright infringement differently is that **copyright
+> infringement requires copying**. That means that there was a volitional act … on the part of the
+> licensor, and the license gives them **blanket immunity** for that act. … So what you are
+> proposing is that **a completely non-culpable party has to give up a claim** against what might
+> be a deliberate, intentional, unlawful act… This seems to me to be **antithetical to open source
+> principles** — open source developers get exploited enough without being exploited by their own
+> community. If the model provider believes their deliberate use of someone else's copyrighted
+> work is non-infringing they should be **willing to defend the claim, not absolve themselves of
+> liability through contract**."
+
+**主張されている原理は 2 つある**: (a) ライセンスは、**落ち度のない第三者に請求権を放棄させて
+はならない**。(b) 提供者は、**契約によって自らの責任を免れてはならない**。
+
+**ACD-1.0 はどちらの形も持たない。** 終了の引き金が無いので (a) の構造が作れず、
+そして **§11.4 が (a) を明文で否定している** ——「本 Dedication は Covered Rights、§8 が述べる
+特許クレーム、§12 の範囲の Moral Rights に及ぶ。**それ以外には及ばない。**…
+**Dedicator 以外の者が保持する権利の下では、いかなる許諾も与えない**」。§11.4 は元来
+**個人データや第三者の権利**のために書かれた条項だが、**「他人の請求権に触れない」という同じ
+性質**が、この反対の中心にある心配をそのまま外している。
+
+**(b) については、正直に線を引く。** ACD-1.0 も §13 / §14 で warranty と liability を否認して
+おり、**それは「契約による免責」の一種である**。氏の批判が向いているのは「**第三者の請求権を
+消す**」形であって、「自分は保証しないと述べる」形ではない —— 後者はほぼすべての OSI 承認済み
+ライセンスが持つ。**両者を混ぜて「我々は該当しない」と言わないために、ここに書き分けておく。**
+
+**この記録は ACD-1.0 が何かを満たすことの証明ではない。** 誰も ACD-1.0 について述べていない。
+ここにあるのは、**いま審査の場で主張されている原理**と、**その原理に対して本文のどの条項が
+働くか**の対応づけだけである。
+
 ### §12 MORAL RIGHTS
 
 **Q. 日本法では人格権は放棄できない。§12.1 は空文ではないか。**
