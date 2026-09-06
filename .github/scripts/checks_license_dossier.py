@@ -472,6 +472,32 @@ def run(ctx):
                         _bad460.append(f"submission.md §4c の clause pointer: 申告 "
                                        f"{_mi2.group(1)}/{_mi2.group(2)} / 実測 {len(_cnt)}/{len(_cnt)}")
 
+            # 定義語の最小使用回数。**「Contribution at 4」と書いてあり実測は 3（しかも
+            # Machine-Generated Material と同値）だった** —— 本文は凍結されているので drift では
+            # なく**書いた時点で誤り**で、29/29 と同じ形。数え方は表の文言どおり
+            # 「その語を定義する条を除いた本文での出現」に固定する。
+            _txt_i = (_L460 / "ACD-1.0.txt")
+            if _txt_i.exists():
+                _lines_i = _txt_i.read_text(encoding="utf-8").split("\n")
+                _defs_i = []
+                for _i2, _l2 in enumerate(_lines_i):
+                    _m2 = re.match(r'^\s+1\.\d+\s+"([^"]+)"', _l2)
+                    if _m2:
+                        _defs_i.append((_m2.group(1), _i2))
+                _ends_i = [i for i, l in enumerate(_lines_i) if l.startswith("2. ")]
+                if _defs_i and _ends_i:
+                    _counts_i = []
+                    for _k, (_term, _i) in enumerate(_defs_i):
+                        _j = _defs_i[_k + 1][1] if _k + 1 < len(_defs_i) else _ends_i[0]
+                        _rest = "\n".join(_lines_i[:_i] + _lines_i[_j:])
+                        _counts_i.append((len(re.findall(r"\b" + re.escape(_term) + r"s?\b", _rest)), _term))
+                    _min_i = min(c for c, _ in _counts_i)
+                    _mt = re.search(r"the lowest is \*\*(\d+)\*\*", _st)
+                    if not _mt:
+                        _bad460.append("submission.md §4c: 定義語の最小使用回数の申告が見つからない")
+                    elif int(_mt.group(1)) != _min_i:
+                        _bad460.append(f"submission.md §4c の定義語 最小使用回数: 申告 {_mt.group(1)} / "
+                                       f"実測 {_min_i}")
         check(
             not _bad460,
             f"Check 460: ドシエの自己申告件数が実測と一致 "
