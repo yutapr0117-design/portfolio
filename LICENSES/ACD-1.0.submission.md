@@ -58,6 +58,21 @@ discussion is visibly accounted for rather than repeated.
 | Project using it | `https://yutapr0117-design.github.io/portfolio/` (source: `https://github.com/yutapr0117-design/portfolio`) |
 | OSI-approved | Not yet (this submission) |
 | Reusable by others | Yes — Section 16.3 states it is not specific to any project, person, organisation, jurisdiction, or field |
+| Submission category | **New License.** OSI's process defines a *Legacy License* as one "in use for at least five years by more than twenty projects maintained by different unrelated entities". ACD-1.0 meets none of the three: it was drafted in 2026, has one adopter, and that adopter is the steward. **This is the harder track and it is the correct one** (§4a) |
+| SPDX identifier | **Not registered.** `LicenseRef-ACD-1.0` is the conforming expression until it is (errata E1) |
+| ScanCode identifier | **None.** No ScanCode LicenseDB entry has been requested or created. Recorded here because OSI's process asks for "unique identifiers from other projects (SPDX, ScanCode)" and the honest answer to both is that there are none yet |
+| Proposed tags | **None proposed.** OSI's process invites the submitter to "identify any proposed tags". This submission proposes none and accepts whatever the committee considers appropriate, which is the same position taken on category in §4a — **a submission with one adopter is not in a position to ask for a designation** |
+
+---
+
+### A.1 Affirmative statement of OSD compliance
+
+OSI's process requires the submitter to "affirmatively state that the license complies with the
+Open Source Definition". **Stated plainly: I affirm that ACD-1.0 complies with the Open Source
+Definition.** The criterion-by-criterion analysis is in §3, and **§3b sets out, for each of the ten
+criteria, where a reviewer could still argue the opposite** — the affirmation is not offered in
+place of that, and nothing in §3b is withdrawn by making it.
+
 
 ---
 
@@ -581,7 +596,7 @@ machine can find are not present.
 | Every clause pointer in the machine-readable descriptor resolves and matches its subject | cross-check `ACD-1.0.machine.json` `clause` fields against the text | **33 / 33** |
 | Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
 | Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
-| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **76 entries, 1–76, no gaps; all citations resolve** |
+| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **77 entries, 1–77, no gaps; all citations resolve** |
 | Every defect called a "1.1 candidate" anywhere has an entry in the errata to point at | cross-check declarations against `errata.md` | **one was missing and has been added (E7)** |
 | Every negative self-claim the text makes about itself is true | extract each "contains no / imposes no / grants no / reaches nothing / specifies no" statement and search the whole text for the thing denied | **9 claims, 9 true** — each denied term appears only inside the clause doing the denying |
 | Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |

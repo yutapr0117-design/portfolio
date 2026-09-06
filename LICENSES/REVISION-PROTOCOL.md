@@ -145,6 +145,7 @@ courtesy — a discussion whose subject changes underneath it is not a review of
 | 5 | `license-review` 宛の文面が、discuss で起きたことの要約を織り込んでいる | `submission.md` §B ＋ `discussion-log.md` §3（沈黙で終わったなら「反応は無かった」と書く） |
 | 6 | 実務要件のうち**満たしていないもの**が本文に隠さず書いてある | `review-responses-meta.md` Q32b（採用実績 1 件 / SPDX 未登録 / 外部支持なし） |
 | 7 | `npm run verify` = 0 | CI |
+| 8 | **OSI が提出時に求める項目がすべて埋まっている** | 一次資料は OSI の review-process ページ（隣のスレッドの観察で代用しない —— #77 でそれをやって 3 件落とした）。**New License** として: 本文の text 添付 / **OSD 準拠の積極的な言明** / 使用プロジェクトの特定 / steward の連絡先 / 名称と版 / **SPDX・ScanCode の識別子（無いなら「無い」と書く）** / **提案する tag（無いなら「無い」と書く）**、加えて **既存で埋まらない gap** / **最近似の承認済ライセンスとの比較** / **法的レビューの有無** |
 
 **7 つとも真でも「出すべきだ」とは言えない。** ここが言えるのは「**出すなら、こちら側の準備で
 欠けているものは無い**」までである。踏み切りの判断はオーナーが行う。

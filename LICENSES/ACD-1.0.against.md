@@ -269,6 +269,8 @@ in the worst possible place.
 
 | 76 | **The dossier recorded a limitation of its own environment that was not real.** `AS-OF.md` said OSAID and the BOS text were "not read in this environment", and #62 said "we have not looked", both resting on the belief that this environment could not fetch. **It could.** A `curl` invocation was refused by a command-permission rule; that was generalised into "the network is blocked" and written into the dossier. Contradicting evidence was in hand the whole time — `check_deployed_freshness.py` retrieves sixty-odd URLs on every run and had been run four times that day. Measured on 2026-09-06: the same host that refused `curl` returns **200 and 238 KB** to a request with an ordinary browser user-agent, and the licence text on our own Pages returns 200 with the pinned byte count | **Corrected, and the correction unblocked three items at once** — OSAID (#62), the BOS text, and the `license-review` archives, including the three messages the owner wrote. **The class is the one this list spent the day on, turned inward**: a claim about our own state, written once, never re-tested, and load-bearing for what work was attempted. It is worse than the others in one respect — **the other entries were wrong about a document; this one was wrong about a capability, so it did not merely mislead a reader, it stopped work from happening.** The rule it produces: **a refusal from one tool is evidence about that tool, not about the world** |
 
+| 77 | **The submission packet was missing three things OSI's own process page asks for.** Q32b listed the practical requirements by observing what one *other* submitter had been asked for. Reading OSI's stated process instead (2026-09-06) turned up three items the packet did not address: an **affirmative statement that the licence complies with the OSD** (the packet had the criterion-by-criterion analysis and the counter-arguments, but never the affirmation the process asks for), a **ScanCode identifier** (never mentioned anywhere in the dossier), and **proposed tags** (never mentioned). None is hard to satisfy — which is the point: **they were missing because the requirement list had been reconstructed from a neighbour's experience rather than read at the source** | **All three added, and the answers are "none" twice.** There is no ScanCode entry and no tag is proposed, and both are stated as absences rather than skipped. The same reading also fixed a number we had been carrying loosely: OSI defines a Legacy License as one "in use for **at least five years by more than twenty projects maintained by different unrelated entities**", and ACD-1.0 meets **none of the three** — previously the dossier described the Unlicense's legacy route as "adoption by several unrelated parties over some years", which was right in substance and vague in a place where the source is exact. **The general shape**: reading the neighbour's thread tells you what reviewers argue about; only the process page tells you what you must hand in |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -285,13 +287,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **76** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **77** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **76 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **77 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
