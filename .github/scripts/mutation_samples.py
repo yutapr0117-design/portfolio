@@ -466,6 +466,17 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 464: 次版の変更リストから errata を 1 件落とす —— 1.0 は凍結中で「欠陥は直さず"
+            "記録する」運用なので、記録が集約点に載らなければそのまま忘れられる。1.1 の入力は "
+            "errata / review-responses-meta / review-responses-clauses / discussion-log の 4 か所に"
+            "散っており、議論後に回って集める手順は必ず落とす",
+    "file": ROOT / "LICENSES" / "ACD-1.1-CHANGELIST.md",
+    "find": "| E9 | §10.4 |",
+    "replace": "| E99 | §10.4 |",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

@@ -45,6 +45,15 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        10 個の marker が §B.0 に存在することを機械強制する。**中身の質は検査しない**
        （それは散文の判断である）。守るのは「**項目が消えていないこと**」だけ。(BLOCKING)
 
+  464. **`errata.md` の全 `E<n>` が、次版の変更リストに現れること** (BLOCKING):
+       1.0 は凍結中で、欠陥を見つけても直さず記録する運用である。**その記録の行き先が
+       4 か所以上に散っていた**（errata / review-responses-meta の「1.1 で足すかもしれない候補」/
+       review-responses-clauses の「1.1 候補」/ discussion-log の帰結値）。オーナーの運用方針は
+       「**届いた議論をそのまま全部取り込んだ改善版を出す**」で、**議論中に貯めたものも同じ入力**
+       である。議論が終わってから 4 か所を回って集める手順は必ず落とすので、
+       `ACD-1.1-CHANGELIST.md` を単一の集約点とし、**errata の全件がそこに現れること**を強制する。
+       内容の複製は要求しない（複製は drift する）—— **落ちていないこと**だけを見る。(BLOCKING)
+
   461c. **`LICENSES/*.md` がすべて `last-updated` を宣言していること** (BLOCKING):
        461b（stale 検査）の被覆は「その項目を持つファイル」で定義されており、
        frontmatter を持たないファイルは**黙って対象外**になる。実測 (2026-09-05):
@@ -338,6 +347,34 @@ def run(ctx):
          "読めない"),
         blocking=True,
     )
+
+    # ── 464. errata の全件が次版の変更リストに現れること (BLOCKING) ─────────────────────
+    # 凍結中の運用は「直さず記録する」であり、**記録の行き先が散ると議論の最後に落ちる**。
+    # 集約点を 1 つにしても、人手で同期するかぎり必ずずれるので機械強制する。
+    # 内容は複製しない (複製は drift する) —— `E<n>` の**出現**だけを見る。
+    _er464 = ROOT / "LICENSES" / "ACD-1.0.errata.md"
+    _cl464 = ROOT / "LICENSES" / "ACD-1.1-CHANGELIST.md"
+    if _er464.exists():
+        check(
+            _cl464.exists(),
+            "Check 464: 次版の変更リスト (ACD-1.1-CHANGELIST.md) が存在する",
+            ("Check 464: `LICENSES/ACD-1.1-CHANGELIST.md` が無い。凍結中に見つけた欠陥の"
+             "**行き先が無いと、議論の最後に 4 か所を回って集めることになり落ちる**"),
+            blocking=True,
+        )
+        if _cl464.exists():
+            _ers = set(re.findall(r"^\| (E\d+) \|", _er464.read_text(encoding="utf-8"), re.M))
+            _clt = _cl464.read_text(encoding="utf-8")
+            _missing464 = sorted(_e for _e in _ers if not re.search(rf"(?<![A-Za-z0-9]){_e}(?![0-9])", _clt))
+            check(
+                not _missing464,
+                f"Check 464: errata {len(_ers)} 件すべてが次版の変更リストに現れる",
+                (f"Check 464: 次版の変更リストから errata が落ちている: {_missing464}。"
+                 "**1.0 は凍結中で「直さず記録する」運用なので、記録が集約点に載らなければ"
+                 "そのまま忘れられる**。errata に entry を足したら "
+                 "`ACD-1.1-CHANGELIST.md` にも同じ `E<n>` を足せ (内容の複製は不要・落ちていないことだけを見る)"),
+                blocking=True,
+            )
 
     # ── 460. ドシエが自己申告する件数が実測と一致すること (BLOCKING) ────────────────────
     # 数字は書いた当日に drift する。読み手は数字を根拠に「網羅されている」と判断するので、
