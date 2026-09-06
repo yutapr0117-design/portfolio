@@ -139,9 +139,15 @@ AI 条項を実際に取り込んだとして、そのとき何が残るのか�
 > | Patent grant extending to models and outputs | Apache-2.0 already has the machinery; extending its scope is a drafting change |
 > | Database rights addressed | A clause can enumerate them |
 >
-> **Four of ACD-1.0's six distinguishing features are of this kind.** If the incumbents move,
-> the case for this instrument narrows to the remaining two — and the honest position is that
-> those two carry the argument, not the six.
+> **Four of ACD-1.0's seven distinguishing features are of this kind.** If the incumbents move,
+> the case for this instrument narrows to the remaining three — and the honest position is that
+> those three carry the argument, not the seven.
+>
+> *(Corrected 2026-09-06. This section said "six" and "the remaining two" while enumerating
+> four below one heading and three below the other. Both numbers were written in the same
+> commit as the list they miscount, so this was wrong when written rather than gone stale —
+> the third instance of that failure found in this dossier on one day. The arithmetic is now
+> derived from the two lists on every CI run.)*
 >
 > ### Differences an amendment does not close
 >

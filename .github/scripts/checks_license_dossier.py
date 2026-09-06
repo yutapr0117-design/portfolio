@@ -55,6 +55,9 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        ↔ FAQ の `### AN.` / `### BN.` の実測、(c) 逐条リファレンスの「全 X 節 Y 条」↔
        ACD-1.0.txt から抽出した節数・条数、(d) FAQ mirror の件数、(e) against.md が
        自分の規模について述べる数字、(f) QUESTION-INDEX の worked entry 総数、
+       (j) **`comparison.md` §1.35 の「N のうち M」が下の 2 つの列挙と一致すること** ——
+       実測 (2026-09-06): 「six / remaining two」と書きながら列挙は 4 + 3 = 7 だった。宣言と
+       列挙が同じ commit で入っており、書いた時点の誤り。宣言ではなく**列挙から導く**。
        (i) **提出パケット §4c の「機械的に確かめたこと」の数値** —— face (a) は同じ file の
        別の 1 文しか見ておらず §4c の表は素通りだった。実測 (2026-09-06): 「50 entries, 1–50」
        （実体 63）と「29 / 29 clause pointers」（実体 33）。**§4c は「弁護士が読んでいない」への
@@ -498,6 +501,38 @@ def run(ctx):
                     elif int(_mt.group(1)) != _min_i:
                         _bad460.append(f"submission.md §4c の定義語 最小使用回数: 申告 {_mt.group(1)} / "
                                        f"実測 {_min_i}")
+        # (j) **`comparison.md` §1.35 の「N のうち M」が、その下の 2 つの列挙と一致すること。**
+        #   実測 (2026-09-06): 「Four of ... six ... the remaining two」と書きながら、上の表は 4 行、
+        #   下の番号付き列挙は **3 件**で合計 7 だった。**宣言と列挙が同じ commit で入っている**ので
+        #   drift ではなく書いた時点の誤りで、同日 3 件目の同型（29/29・Contribution at 4）。
+        #   審査者が「なぜ Apache ではいけないのか」を確かめに来る節なので、そこの算数が合わないのは
+        #   主張そのものより先に信用を削る。宣言ではなく**列挙から導く**。
+        #   **初版は走査範囲を切らずに file 全体の `> | a | b |` を数え、他の引用表まで拾って 8 と
+        #   報告した** —— 検出器を書いたら、それが正しい対象だけを掴んでいるかを先に確かめること。
+        _cmp460 = _L460 / "ACD-1.0.comparison.md"
+        if _cmp460.exists():
+            _ct = _cmp460.read_text(encoding="utf-8")
+            _m_j = re.search(r"\*\*Four of ACD-1\.0's (\w+) distinguishing features", _ct)
+            _h1 = _ct.find("### Differences an amendment closes")
+            _h2 = _ct.find("### Differences an amendment does not close")
+            if not _m_j or _h1 < 0 or _h2 < 0:
+                _bad460.append("comparison.md §1.35: 差別化の宣言または 2 つの見出しが見つからない")
+            else:
+                _sec_end = _ct.find("\n## ", _h2)
+                _sec_end = len(_ct) if _sec_end < 0 else _sec_end
+                _closes_blk = _ct[_h1:_h2]
+                _open_blk = _ct[_h2:_sec_end]
+                _tbl = len([l for l in _closes_blk.splitlines()
+                            if re.match(r"^> \|", l) and not re.match(r"^> \|\s*(Difference|-)", l)])
+                _open_j = len(re.findall(r"^> \*\*\d+\. ", _open_blk, re.M))
+                _WORD = {"four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10}
+                _decl = _WORD.get(_m_j.group(1).lower())
+                if _decl is None:
+                    _bad460.append(f"comparison.md §1.35: 総数の語 {_m_j.group(1)!r} を解釈できない")
+                elif _decl != _tbl + _open_j:
+                    _bad460.append(f"comparison.md §1.35 の差別化総数: 申告 {_m_j.group(1)} ({_decl}) / "
+                                   f"実測 {_tbl + _open_j} (閉じる {_tbl} + 閉じない {_open_j})")
+
         check(
             not _bad460,
             f"Check 460: ドシエの自己申告件数が実測と一致 "
