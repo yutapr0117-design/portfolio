@@ -164,6 +164,12 @@ declines to make any reservation (§6); it grants a patent licence that reaches 
 of computational use (§8.4); and it makes the recipient's permissions independent of whether
 copyright subsists in machine-generated material at all (§9).
 
+**Why now, since the objection is reasonable.** Of roughly 250 submissions in the public review
+record, **none before 2024 substantively concerns machine learning or text-and-data mining, and
+three do in 2026** — two of them still under review. I do not claim the timing makes this licence
+necessary. I offer it against the fair objection that if the question were real, someone would
+have raised it long ago.
+
 **Nearest approved licences.** It is closest in effect to the Unlicense, MIT-0, 0BSD and CC0, and
 closest in patent machinery to Apache-2.0. The full comparison — **including where those are the
 better choice, which is most of the time** — is in the repository.
