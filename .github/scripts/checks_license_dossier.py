@@ -36,6 +36,15 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        実測 (2026-08-27) では orphan は 0 件だったが、**入口が存在しないため将来 orphan が
        生まれても誰も気付けない**状態だった。Check 361 / 408 / 454 と同じ
        「実在 ⟹ 登録」族の、ライセンス文書面。(BLOCKING)
+  463. **提出パケットの「送る文面」が、OSI が求める項目をすべて含むこと** (BLOCKING):
+       `submission.md` §B.0 は**実際にメールへ貼られる ~600 語**である。OSI の
+       review-process ページは提出時に 10 項目を求めるが、**2026-09-06 まで packet はそのうち
+       3 件を欠いていた**（OSD 準拠の積極的言明 / ScanCode 識別子 / 提案 tag —— #77）。
+       欠落の原因は「要件表を隣人の提出から再構成し、出典で読んでいなかった」ことで、
+       **同じ形は静かに再発する** —— 文面は増分のたびに書き換えられ、項目は 1 つずつ落ちる。
+       10 個の marker が §B.0 に存在することを機械強制する。**中身の質は検査しない**
+       （それは散文の判断である）。守るのは「**項目が消えていないこと**」だけ。(BLOCKING)
+
   461c. **`LICENSES/*.md` がすべて `last-updated` を宣言していること** (BLOCKING):
        461b（stale 検査）の被覆は「その項目を持つファイル」で定義されており、
        frontmatter を持たないファイルは**黙って対象外**になる。実測 (2026-09-05):
@@ -259,6 +268,49 @@ def run(ctx):
         f"これを見落として CI を落とした)",
         blocking=False,
     )
+
+    # ── 463. 提出パケットの「送る文面」が OSI の要求項目をすべて含むこと (BLOCKING) ──────
+    # §B.0 は**実際に貼られる文面**で、§B.1 以降は貼らない参考資料である。#77 で 3 件の欠落を
+    # 埋めたが、**文面は増分のたびに書き換えられる**ので、同じ欠落は静かに再発する。
+    # marker の存在だけを見る —— 中身の質は散文の判断であって Check の仕事ではない。
+    # **`_L460` に依存しない。** それは Check 460 の分岐内で定義される名前で、本 Check は
+    # 460 より前に走る。他の Check の局所名を借りると、順序を変えた瞬間に NameError で
+    # suite ごと止まる —— それは「Check が働いた」ではなく「Check が一度も走らなかった」
+    # である（#885 と同型）。実際、初版はそれで落ちた。
+    _sb463 = ROOT / "LICENSES" / "ACD-1.0.submission.md"
+    if _sb463.exists():
+        _t463 = _sb463.read_text(encoding="utf-8")
+        _i463 = _t463.find("### B.0 The message as it should actually be sent")
+        _j463 = _t463.find("### B.1 Reference material", _i463 + 1) if _i463 >= 0 else -1
+        _bad463 = []
+        if _i463 < 0 or _j463 < 0:
+            _bad463.append("§B.0 / §B.1 の見出しが見つからない (送る文面と参考資料の境界が失われている)")
+        else:
+            _b0 = _t463[_i463:_j463]
+            _req463 = [
+                ("attachment", r"attached as plain text"),
+                ("OSD affirmation", r"I affirm that ACD-1\.0 complies with the Open Source Definition"),
+                ("projects using it", r"Approved or Used by Projects"),
+                ("steward contact", r"Steward:.*@"),
+                ("name and version", r"License Name:"),
+                ("SPDX / ScanCode", r"SPDX / ScanCode Identifier"),
+                ("proposed tags", r"Proposed Tags:"),
+                ("gap statement", r"\*\*The gap\.\*\*"),
+                ("nearest approved licences", r"\*\*Nearest approved licences\.\*\*"),
+                ("legal review", r"\*\*Legal review: none\.\*\*"),
+            ]
+            _miss463 = [_n for _n, _r in _req463 if not re.search(_r, _b0, re.M)]
+            if _miss463:
+                _bad463.append(f"§B.0 に OSI 要求項目が欠けている: {_miss463}")
+        check(
+            not _bad463,
+            "Check 463: 送る文面 (§B.0) が OSI の要求 10 項目をすべて含む",
+            (f"Check 463: {_bad463}。要件の単一ソースは "
+             "https://opensource.org/licenses/review-process。**§B.0 は実際にメールへ貼られる文面**で、"
+             "§B.1 以降は貼らない参考資料である。#77 で 3 件の欠落を埋めたが、文面は増分のたび"
+             "書き換えられるので同じ欠落は静かに再発する"),
+            blocking=True,
+        )
 
     # ── 461c. LICENSES/*.md がすべて last-updated を宣言していること (BLOCKING) ──────
     # **461b の被覆は「その項目を持つファイル」で定義されていた。** `if not _m461: continue`
