@@ -30,7 +30,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | Doesn't OpenMDW or ModelGo already do this? | `comparison.md` §1.5 — adjacent, not the same question; and where they are better than this one. `against.md` #28, #31 |
 | Suppose they do add AI terms — what is left? | `comparison.md` §1.35 — **four of seven distinguishing features would close**; three would not (it does not presume a right exists; it imposes no condition; computational use is defined once at the top rather than added at the edge). With the costs of that structure listed beside them |
 | Won't GPL or Apache just add AI terms in their next version? | `comparison.md` §1.3 — **checked**: FSF and ASF are responding through criteria and guidance, not licence text, and no GPLv4 is announced. **If that changes, the section gets rewritten, not defended** |
-| Is this just licence proliferation? | The honest answer is that it is not obviously not. `comparison.md` §1 closing; `against.md` #28, #33 |
+| Is this just licence proliferation? | The honest answer is that it is not obviously not. `comparison.md` §1 closing; `against.md` #28, #33. **§1.38 quotes the heuristic a reviewer actually applied in 2026-07** — "if in more than 25 years nobody thought of it … unless something new has come around (see the SaaS model, or extensive AI model usage)" — which speaks to the category, not to this instrument |
 
 ## Conformance
 
