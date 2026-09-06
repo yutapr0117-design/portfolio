@@ -40,7 +40,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 5. **出典は「自分の送信控え」ではなく公開アーカイブから取る。** 送信控えは手元にしか無く、
    審査者が確かめられない。アーカイブは**配送された形**であり、読み手が実際に読むものである。
 
-## いまの状態（2026-09-06 時点・7 ファイル）
+## いまの状態（2026-09-06 時点・8 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -50,6 +50,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-09-03 | `license-review` | Michael Dolan → 受領 | 上記 OpenMDW 質問への回答（名指しで応答）|
 | 2026-09-04 | `license-review` | Moming Duan → 受領 | 上記 ModelGo 質問への回答（審査履歴 4 件を引用）|
 | 2026-09-04 | `license-review` | 送信 | Dolan 氏の回答を受けた閾値問題の分解（返信なし）|
+| 2026-09-04 | `license-review` | Shuji Sado → **引用** | 我々宛ではないが、我々の質問を明示的に引いて議論を進めている |
 | 2026-09-05 | `license-review` | Ruby Anna → 受領 | ModelGo 側からの確認。**我々の 2026-09-05 12:31 送信を引用の形でのみ含む** |
 
 **ACD-1.0 そのものについては、依然として受領がゼロである**（`license-discuss` の 2026-08-26
