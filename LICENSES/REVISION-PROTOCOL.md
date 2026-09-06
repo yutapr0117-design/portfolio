@@ -158,6 +158,41 @@ courtesy — a discussion whose subject changes underneath it is not a review of
 - **SPDX を先に出す**。SPDX は相当程度の実使用を求め、実績は 1 件で条件を満たさない。
   **満たしていないものを出さない**という判断であり、順序の都合ではない
 
+## 3.7 リストでの振る舞い —— 短く、少なく（2026-08 に一次資料で確認）
+
+`license-review` の code of conduct は、**書かれた当初から「互いの貴重な時間を尊重して、
+簡潔かつ低volume であること」を求めている**。2026-08 に、その点が明示的に想起されている
+（アーカイブ本文より）:
+
+> "a polite reminder that the list's code of conduct has, since it was first written, asked people
+> to **respect each other's precious time by being concise and low-volume**. The people we most
+> need on this list are those whose time is very precious. This particular license is obviously a
+> complex problem and requires complex discussions, so the word count is going to be high, but
+> **that's all the more reason to get to the point whenever possible**."
+
+**これは我々にとって特に効く規律である。** ACD-1.0 は 82 条あり（#6）、ドシエは 20 以上の文書と
+160 を超える worked entry を持ち、提出パケットは 800 行を超える。**手元に厚みがある側は、
+それを投稿へ流し込む誘惑を持つ。**
+
+**ドシエの設計はもともとその逆である。** 深さはリポジトリに置き、**やり取りは短く保つ** ——
+`REVIEWERS.md` は地図であって議論ではなく、`QUESTION-INDEX.md` は「探さずに済ませる」ための
+索引である。**厚いドシエの目的は、長く書くことではなく、短く答えられるようにすることである。**
+
+### 実務上の規則
+
+1. **1 つの指摘には 1 つの返信。** 複数論点をまとめて長文にせず、論点ごとに短く返す ——
+   ただし**投稿数を増やすのも volume である**ので、同じスレッドに連投しない。
+2. **結論を先に、根拠はリンクで。** 「答えは X。理由は §N（リンク）」の形。**根拠を全文貼らない。**
+3. **自分のリポジトリへのリンクを繰り返さない。** 同じ URL を何度も出すのは、
+   volume の別形であり、宣伝と受け取られうる。**1 スレッドに 1 回**を目安にする。
+4. **答えていない件は「未回答」と 1 行で書く**（§1 の ④）。長い弁明で埋めない。
+5. **人格ではなく条文について書く。** 同じスレッドで人身攻撃が問題になっていた。
+
+### この規律が守るもの
+
+**時間の希少な参加者を失わないこと。** 引用の最後の一文が理由をすべて述べている ——
+複雑な問題ほど word count は増えるが、**だからこそ要点へ早く行く**。
+
 ## 4. やってはいけないこと
 
 - **受領文を編集する。** 誤字も直さない。引用の都合で切るなら、切ったと明示する。
