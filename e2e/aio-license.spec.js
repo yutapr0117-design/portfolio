@@ -125,3 +125,33 @@ test('HTML 標準の license リンクが全ルートで解決可能な形で存
     expect(await res.text()).toContain('Autonomous Commons Dedication');
   }
 });
+
+// ===== 可視の `<a rel="license">` が UI に存在し、実文へ解決する =====
+// 【なぜ】ライセンスは head の `<link rel="license">` / JSON-LD / aio-manifest / llms-full
+// にしか無く、**機械だけが辿り着けて人間は辿り着けなかった**（実測: UI に "License" の語がゼロ、
+// 唯一の footer は sr-only + aria-hidden の RAG アンカー）。ACD-1.0 §6.5 は「機械が判定できない
+// 許諾は許諾ではない」と述べるので、機械にだけ伝えて人間に伝えない状態はその主張と整合しない。
+// 2026-08-26 に license-discuss で合意された手順の 4 段目（body の可視 `a rel="license"`）にあたる。
+// 【非 vacuous】リンクを消すと 1 番目が RED、href を別 path にすると 3 番目が RED。
+test('A visible rel=license link exists in the UI and resolves to the licence text', async ({ page }) => {
+  await page.goto('/#/about');
+  await page.waitForLoadState('domcontentloaded');
+  // ルート固有の見出しで待つ (汎用の h1 待ちは前ルートの残骸で充足しうる)
+  await expect(page.getByRole('heading', { level: 1, name: 'About / Philosophy' })).toBeVisible();
+
+  // sidebar と drawer が同じ実装を共有するため、desktop では sidebar 側の 1 件が可視になる
+  const link = page.locator('a[rel~="license"]:visible');
+  await expect(link).toHaveCount(1);
+  await expect(link).toHaveText(/License/);
+
+  // control: head の機械向け宣言は別物として今も存在する（可視リンクがその代替ではない）
+  await expect(page.locator('head link[rel="license"]')).toHaveCount(1);
+
+  // 実文へ解決する（リンク先が 404 なら「辿り着ける」は成立しない）
+  // [環境] e2e の http-server はリポジトリ root を配信するので `/portfolio` prefix を外す
+  //   (上の link[rel=license] テストと同じ理由・製品の問題ではない)
+  const href = await link.getAttribute('href');
+  const res = await page.request.get(href.replace(/^\/portfolio\//, '/'));
+  expect(res.status()).toBe(200);
+  expect(await res.text()).toContain('Autonomous Commons Dedication');
+});

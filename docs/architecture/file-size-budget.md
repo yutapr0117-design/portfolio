@@ -53,7 +53,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/settings-page.js` | 531 | 800 | `advisory` | 2026-07-05 bloat-reduction 分離 (js/apps.js より・最大 page ~373 行)。Settings factory（import/export/snapshot/手動追加/正規化）。private state = settings* (let × 7)。restore/import は Store.validateAndNormalize を通す (#93/#295/#561)。**2026-08-14: 記録値が 408 のまま drift していたのを実態 531 へ同期し advisory を 600 へラチェット**。**2026-08-20: #1178 (取り込んだ entry の中身が上限で削られる分の honest 報告) で 648 行となり advisory を 700 へラチェット**。**2026-08-20: import の「対象」モードを appsData にも効かせる修正 (既定の「追加のみ」が既存タスクを全消ししていた実バグ) で 716 行となり advisory を 800 へラチェット** —— 増分は id 併合ロジックと、なぜモード別の意味論が要るかの WHY。ハードゲートは Check 365 (1,000 行) のままで、次に大きく伸びるときは import 系を葉モジュールへ分離する —— 増分は照合ヘルパ 2 つと、なぜ entry 単位カウントでは足りないかを実測値付きで記録した WHY コメント —— 増分の大半は #1035〜#1040 の backup 契約バグ 6 件を記録した WHY コメントで、ロジックの肥大ではない。ハードゲートは Check 365 (1,000 行) のまま |
 | `js/settings-io.js` | 353 | 400 | `advisory` | 2026-08-20 bloat-reduction 分離 (js/settings-page.js より・746→483 行)。Settings の入出力 factory（export 4 形 / import の形の正規化 / lossParts）。UI フラグは getter 注入で読み取り専用ゆえ closure を持ち出さない |
 | `js/brand.js` | 65 | 120 | `advisory` | Stage 5-f 新設。Brand manager（primary palette/font switcher）factory。closure-deps = none（葉契約）+ Storage を引数注入 |
-| `js/components.js` | 503 | 600 | `advisory` | Stage 5-m 新設。UI page components factory。**bloat-reduction: HomePage / ProjectsPage / ProjectDetailPage / AIKnowhowPage を個別葉モジュール (js/home-page.js 等) へ分離し 1,335→454 行**。budget を実態へ tighten |
+| `js/components.js` | 514 | 600 | `advisory` | Stage 5-m 新設。UI page components factory。**bloat-reduction: HomePage / ProjectsPage / ProjectDetailPage / AIKnowhowPage を個別葉モジュール (js/home-page.js 等) へ分離し 1,335→454 行**。budget を実態へ tighten |
 | `js/ai-knowhow-page.js` | 327 | 450 | `advisory` | bloat-reduction 分離。AI 活用ノウハウページ factory。closure-deps = none + 引数注入 |
 | `js/ai-page.js` | 221 | 300 | `advisory` | 2026-07-04 bloat-reduction 分離 (js/apps.js より)。AI アシスト（ローカル版）factory。private state = aiLoading 1 個 |
 | `js/command-palette.js` | 279 | 300 | `advisory` | Command palette (Cmd+K omni-nav) factory。closure-deps = none + 引数注入 |
@@ -67,7 +67,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `js/identity.js` | 36 | 80 | `advisory` | Stage 5-e 新設。AUTHOR（DISPLAY_NAME / AUTHORITATIVE_NAME / JAPANESE_NAME）純データ。closure-deps = none |
 | `js/meta-management.js` | 218 | 280 | `advisory` | Stage 5-k' (Meta Management) 新設。Meta Management factory（updateDocumentHead/announceRouteForAccessibility/injectRouteEntityAnchor/injectStructuredData + applyMeta ファサード）。closure-deps = none + 引数注入。命名: PR #33。元 commit message では Stage 5-l と記録されたが、PR #37 で AIDK Rail も同名となったため、changelog 上では 5-k' として区別する（commit message は append-only で残置） |
 | `js/mobile-drawer.js` | 257 | 280 | `advisory` | Stage 5-q 新設。Mobile Drawer factory（syncMobileDrawer / secureExternalLinks / __setAppInert / __lockBodyScroll / __trapFocus / __releaseFocusTrap / openDrawer / closeDrawer + state）。closure-deps = none + 引数注入 |
-| `js/ui-components.js` | 342 | 400 | `advisory` | Stage 4 新設。DOM ビルダー・SVG アイコン・Toast・BGM の葉モジュール。安定 |
+| `js/ui-components.js` | 349 | 400 | `advisory` | Stage 4 新設。DOM ビルダー・SVG アイコン・Toast・BGM の葉モジュール。安定 |
 | `js/router.js` | 221 | 250 | `advisory` | Stage 5 新設。Hash-based SPA ルーター葉モジュール。安定 |
 | `js/state.js` | 287 | 320 | `advisory` | Stage 5-h 新設。State factory（clone-on-update isolation + subscriber + cross-tab + auto-save）。closure-deps = none + 引数注入。旧 Proxy 型安全モニタは never-activated だったため除去済 |
 | `js/page-meta.js` | 66 | 120 | `advisory` | Stage 5 新設。ページ SEO メタ単一ソース（AI SURFACE）。安定 |
@@ -93,7 +93,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `.github/scripts/checks_seo_meta.py` | 889 | 950 | `advisory` | SEO/meta 面の Check 群。同上の cohort |
 | `.github/scripts/checks_aio_config.py` | 868 | 950 | `advisory` | AIO 設定面の Check 群。同上の cohort |
 | `docs/session-records/AI2AI-archive-old.md` | 832 | 900 | `advisory` | Session Record の最古 archive。rotate の受け皿で編集は rotate 時のみだが、**archive も無限には伸ばせない**（2026-08-17 に e2e mutation archive が 1,033 行で BLOCKING に到達した実例がある） |
-| `.github/scripts/mutation_samples.py` | 935 | 975 | `advisory` | curated mutation データ (新しい側 tail + E2E)。**2026-07-04 log-rotation 分割: 1,597→870 行**。新規 mutation は本ファイル tail へ追記、~900 行超で最新の archive へ rotate（2026-07-12: Check 373-377 追加で 954→899 行。2026-07-23: 967→889 行へ Check 269-281 を rotate）。**2026-07-28: 2-file rotation 枯渇の恒久解として 3rd file (archive2) を新設し最古の連続ブロック Check 282-361 (80 entries) を rotate → 973→497 行へ縮小**。以後の新規 mutation は再び本 hot log tail へ余裕を持って追記できる。part 1/2 が 1,000 cap 近接したら archive3.py 等へさらに rotate。**2026-08-09: 955→896 行へ Check 366-372 系の最古 12 entries を archive2 へ rotate**（同日 2 回目: Check 375/376/393/402/403/112/130 系の mutation 追加で 985 行へ再到達したため最古 10 entries を追加 rotate。同日 3 回目: a11y/Check 404-407 系の mutation 追加で 1,001 行へ再到達したため最古 12 entries を追加 rotate）（hidden-project listing 面 mesh の e2e mutation 3 件追加で 975 advisory に近接したため）|
+| `.github/scripts/mutation_samples.py` | 938 | 975 | `advisory` | curated mutation データ (新しい側 tail + E2E)。**2026-07-04 log-rotation 分割: 1,597→870 行**。新規 mutation は本ファイル tail へ追記、~900 行超で最新の archive へ rotate（2026-07-12: Check 373-377 追加で 954→899 行。2026-07-23: 967→889 行へ Check 269-281 を rotate）。**2026-07-28: 2-file rotation 枯渇の恒久解として 3rd file (archive2) を新設し最古の連続ブロック Check 282-361 (80 entries) を rotate → 973→497 行へ縮小**。以後の新規 mutation は再び本 hot log tail へ余裕を持って追記できる。part 1/2 が 1,000 cap 近接したら archive3.py 等へさらに rotate。**2026-08-09: 955→896 行へ Check 366-372 系の最古 12 entries を archive2 へ rotate**（同日 2 回目: Check 375/376/393/402/403/112/130 系の mutation 追加で 985 行へ再到達したため最古 10 entries を追加 rotate。同日 3 回目: a11y/Check 404-407 系の mutation 追加で 1,001 行へ再到達したため最古 12 entries を追加 rotate）（hidden-project listing 面 mesh の e2e mutation 3 件追加で 975 advisory に近接したため）|
 | `.github/scripts/mutation_samples_archive.py` | 946 | 950 | `advisory` | curated mutation データ (最古 / rotated)。log-rotation part 1。編集は rotate 時のみ（2026-07-12: 863→917 行。2026-07-23: 917→995 行へ Check 269-281 を受領）。**⚠ advisory は hard ceiling (Check 365 の 1,000) より低く保つ**（2026-08-23 是正: 旧値は 1,000 = hard ceiling と同値で、**早期警告が構造的に一度も出ない**設定だった。OK からいきなり BLOCKING へ飛ぶので「advisory を BLOCKING の手前で効かせる」規律が働かない。Check 443 が機械強制）。cap 近接ゆえ本 part への追加 rotate は不可 = 以後の rotate は part 2 (archive2) 以降が受ける|
 | `.github/scripts/mutation_samples_archive2.py` | 935 | 950 | `advisory` | curated mutation データ (次に古い / rotated)。**log-rotation part 2 (2026-07-28 新設)**。part 1 が 995 行で 1,000 cap 枯渇したため hot log の最古ブロック Check 282-361 を受領。編集は rotate 時のみ。advisory は hard ceiling より低く保つ（Check 443）。近接したら archive3.py 等を新設|
 | `.github/scripts/mutation_samples_archive3.py` | 87 | 950 | `advisory` | curated mutation データ （consistency 側 rotate 先 part 3）。**2026-08-26 に rotate ツールが自動生成・自動配線した** —— 同日に直した `_wire_new_archive` が実運用で初めて働いた記録（それまでは `__main__` ガードより後ろの定義で CLI から NameError、かつ E2E 側の名前をハードコードしていたため consistency 側では entry が参照されなく なるか ImportError で、「受け皿が埋まったら次を起こす」機能は一度も動いたことがなかった）。編集は rotate 時のみ |
@@ -111,7 +111,7 @@ Status        : 本 increment で新設。Check 52 が本ファイルの BUDGET-
 | `e2e/a11y-best-practice.spec.js` | 88 | 900 | `advisory` | behavior e2e spec (axe best-practice タグの baseline・ゲートの死角を可視化)。Check 365 の 1,000 行 BLOCKING 対象。 |
 | `e2e/a11y-contrast.spec.js` | 540 | 900 | `advisory` | behavior e2e spec (コントラストと色の知覚・WCAG 1.4.1/1.4.3/1.4.11)。2026-08-20 に a11y-axe.spec.js が 996 行で BLOCKING(1,000) まで残り 3 行となり、**当たる前に**このテーマの塊を切り出した |
 | `e2e/a11y-lang-of-parts.spec.js` | 197 | 900 | `advisory` | behavior e2e spec (WCAG 3.1.2 Language of Parts)。2026-08-23 に a11y-axe.spec.js が 950 行で advisory(900) を超えたため、**BLOCKING(1,000) に当たる前に**単一達成基準の塊として切り出した |
-| `e2e/aio-license.spec.js` | 127 | 900 | `advisory` | behavior e2e spec (ライセンス宣言の機械可読性)。静的 Check 444 は index.html のソースを読むが、**route 追従ノードと speakable ノードは runtime 注入**なので「クローラが実際に見る状態」は e2e でしか測れない |
+| `e2e/aio-license.spec.js` | 157 | 900 | `advisory` | behavior e2e spec (ライセンス宣言の機械可読性)。静的 Check 444 は index.html のソースを読むが、**route 追従ノードと speakable ノードは runtime 注入**なので「クローラが実際に見る状態」は e2e でしか測れない |
 | `e2e/aio-agentic-state.spec.js` | 236 | 900 | `advisory` | behavior e2e spec (`body[data-ai-state]` の機械可読契約)。2026-08-23 に aio-meta.spec.js が 907 行で advisory(900) を超えたため、**BLOCKING(1,000) に当たる前に**単一の契約という coherent な塊として切り出した |
 | `e2e/aio-meta.spec.js` | 761 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
 | `e2e/apps-ai-notes.spec.js` | 890 | 900 | `advisory` | behavior e2e spec。Check 365 の 1,000 行 BLOCKING 上限の手前で警告する早期警告層 |
@@ -180,7 +180,7 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
      (architecture-validation.yml) がこの marker を読んで `WARN_COUNT > baseline → fail` で BLOCKING
      回帰防止する (Check 60 ADVISORY が marker 存在を保証し、実測比較は CI が担う設計)。-->
 
-<!-- PERF-BUDGET-DATA 726300 -->
+<!-- PERF-BUDGET-DATA 727300 -->
 
 > **2026-08-27 ラチェット 725,900 → 726,300（+400）**: ポモドーロの**リセットだけが無音**だった件の是正（開始/一時停止はボタン名、モード切替は `aria-pressed` が変化を伝えるのに、リセットはどちらも変わらず、タイマーは意図的に非 live なので結果だけ変わって無音・WCAG 4.1.3）。**上げる前に実測した** —— 超過は 55 バイトで、WHY の 1 行（66 バイト）を消せば技術的には収まるが、**残り 11 バイトの状態は次の変更で即破綻する＝実質「予算が無い」のと同じ**（2026-08-26 の同じ判断と揃えた）。WHY を残して小さく上げるほうが筋が良い。
 
@@ -194,9 +194,9 @@ Check 52 が advisory 警告を出した場合、人間（横井雄太）は次�
 
 > **2026-08-27 ラチェット 721,400 → 722,400（+1,000）**: 破壊的操作の確認文が**何を失うかを言っていなかった**件の是正。とくに FatalPage の「保存データを削除して再読み込み」は **SNAPSHOT_KEY も削除する**のに文言が言わず、**利用者の唯一の復元点が黙って消えていた**。全リセット側は逆に「スナップショットは残る」ことを言う（残るものを伝えるほうが判断できる）。**上げる前に実測した** —— 変更全体 +426 バイト、WHY は各 1 行（計約 240 バイト）まで圧縮済み。**コメントを全削除すれば 721,392 でちょうど収まる**が、**残り 8 バイトの状態は使えない**（次の変更が即座に破綻し、実質「予算が無い」のと同じ）。加えて「SNAPSHOT_KEY も消える」は**次の整理で消されやすい種類の知識**なので、1 行だけ残す判断をした。
 >
-<!-- PERF-BUDGET-CUMULATIVE session-start=716800 current=726300 -->
+<!-- PERF-BUDGET-CUMULATIVE session-start=716800 current=727300 -->
 
-> **本日の累積: 716,800 → 726,300（+9,500・+1.33%・11 回）。** すべて実測に基づく実バグ修正で、**大半はデータか結果が silent に失われる**面（取り込みの偽成功 / 非表示設定の脱落 / 貼り付けの無言切り捨て / スナップショット上書き / 全置換 / 復元点の無言削除 / 版数変更で全データが無言初期化 / 復元点の由来不明 / フルバックアップからの配色欠落 / 書き出しの無通知と致命昇格 / リセットの無音）。
+> **本日の累積: 716,800 → 726,600（+10,500・+1.47%・13 回）。** 13 回目 (+700) は 12 回目の副産物で、`ui-components.js` が `target="_blank"` の anchor で **rel を上書きし、呼び出し側のセマンティックトークン (`license` / `author` 等) を silent に捨てていた**のを union へ直した分（`against.md` #85）。 12 回目 (+300) だけは実バグ修正ではなく機能追加 —— **UI に可視の `<a rel="license">` が無く、ライセンスは head の link / JSON-LD / manifest / llms-full にしか無かった**（UI に "License" の語がゼロ）。ACD-1.0 §6.5 が「機械が判定できない許諾は許諾ではない」と述べる以上、**機械にだけ伝えて人間に伝えない状態**はその主張と整合しない。WHY コメントを 8 行→3 行に削っても 194 バイト超過が残ったので、**超過はリンク本体の分**と実測して上げた。 すべて実測に基づく実バグ修正で、**大半はデータか結果が silent に失われる**面（取り込みの偽成功 / 非表示設定の脱落 / 貼り付けの無言切り捨て / スナップショット上書き / 全置換 / 復元点の無言削除 / 版数変更で全データが無言初期化 / 復元点の由来不明 / フルバックアップからの配色欠落 / 書き出しの無通知と致命昇格 / リセットの無音）。
 >
 > **この行が stale になっていた（2026-08-27 に是正）。** 「716,800 → 722,400（+5,600）」のまま**その後 5 回上げていた**。個々のラチェットは理由を書いていたが、**累積を見て「まだ全部バグ修正か」を問い直すための行**が、上げた本人によって更新されていなかった。予算は自分で上げられる仕組みなので、歯止めは累積を見ることにしかない。**上の marker を Check 461 が PERF-BUDGET-DATA と照合する** ——予算を上げたら累積も同じ commit で更新しないと BLOCKING で止まる。
 

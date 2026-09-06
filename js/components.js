@@ -217,6 +217,17 @@ export function createComponents({ h, createIcon, BGM, AUTHOR, Router, State, Th
                     'aria-label': 'テーマを切り替える（現在: ' +
                         (state.theme === 'system' ? 'システム設定' : state.theme === 'dark' ? 'ダーク' : 'ライト') + '）'
                 }, createIcon(state.theme === 'dark' || (state.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'sun' : 'moon'))
+            ),
+            // [FIX] 可視の `<a rel="license">`。従来は head/JSON-LD/manifest だけで **人間は
+            //   ライセンスに辿り着けなかった**。id 無しは sidebar/drawer 共有ゆえ (#998)。
+            //   経緯は docs/files/js/components.js.md
+            h('div', { class: 'p-3' },
+                h('a', {
+                    class: 'text-xs text-muted',
+                    href: '/portfolio/LICENSES/ACD-1.0.txt',
+                    rel: 'license noopener noreferrer',
+                    target: '_blank'
+                }, 'License: ACD-1.0')
             )
         );
 

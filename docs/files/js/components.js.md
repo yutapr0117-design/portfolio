@@ -48,3 +48,15 @@ main.js
 
 ### For third parties
 - late-binding holder pattern による circular dependency 解決の実装例
+
+## ライセンスの可視リンク (2026-09-06)
+
+`Sidebar()` の末尾に `<a rel="license">` を置いている。従来ライセンスは head の
+`<link rel="license">` / JSON-LD / `aio-manifest.json` / `llms-full.txt` にしか無く、**機械だけが
+辿り着けて人間は辿り着けなかった**（実測: UI に "License" の語がゼロ・唯一の `<footer>` は
+`sr-only` かつ `aria-hidden`）。ACD-1.0 §6.5 は「機械が判定できない許諾は許諾ではない」と述べる
+ので、機械にだけ伝えて人間に伝えない状態はその主張と整合しない。2026-08-26 に `license-discuss`
+で合意された手順（REUSE + head の link + **body の可視 `a rel="license"`**）の 4 段目にあたる。
+
+**id を付けない**のは sidebar と drawer が同じ実装を共有し、mobile では両方が同時に DOM 上に
+存在するため（重複 id・#998）。BLOCKING gate は `e2e/aio-license.spec.js`。
