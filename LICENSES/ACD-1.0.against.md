@@ -2,7 +2,7 @@
 file: LICENSES/ACD-1.0.against.md
 audience: OSI license-discuss / license-review participants, licence reviewers
 last-updated: 2026-09-05
-canonical-ref: LICENSES/ACD-1.0.txt (authoritative text) / LICENSES/ACD-1.0.submission.md (the message as sent) / LICENSES/READY-TO-SUBMIT.md
+canonical-ref: LICENSES/ACD-1.0.txt (authoritative text) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/READY-TO-SUBMIT.md
 ---
 
 # The case against approving ACD-1.0
@@ -295,13 +295,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **81** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **84** across nine rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **81 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **84 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
@@ -368,7 +368,12 @@ Stated in advance so that it is not a reaction to how the discussion goes:
 - If a defect is found in the text, it will be **reported and left in place** while the
   discussion is open. The text is frozen and CI pins its SHA-256 (Check 453); changing wording
   underneath a live review would make that review meaningless.
-- `ACD-1.0.submission.md` §E.2 records the same conditions in the message as sent.
+- `ACD-1.0.submission.md` §E.2 records the same conditions in the packet prepared for `license-review`.
+- `LICENSES/rounds/2026-08-26-license-discuss-sent.txt` is the message that was actually sent to
+  `license-discuss`, reproduced verbatim from the public archive.
+| 82 | **For eleven days this directory called a document "the message as sent", and the message actually sent was not in the repository at all.** The front matter of two files and the entry page's table pointed a reviewer at `ACD-1.0.submission.md`. What `license-discuss` received on 2026-08-26 was **5,778 words**; §B.0, the thing now labelled the message, is **≈600 words and was written on 2026-09-06**, eleven days later. So a reviewer following that pointer read something the list had never seen. Worse than the label: **the primary artefact of this entire track — what we actually said — existed only in a third party's archive**. `REVISION-PROTOCOL.md` requires every received message to be stored verbatim in `rounds/` because "our reading may be wrong, but the record of what was said must not be"; **the rule was written about the other party's words and never turned around** | **The sent message is now [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt)**, verbatim from the public archive with the retrieval date, and the three labels now distinguish *what was sent* from *the packet prepared for `license-review`*, which has still gone nowhere. **The general form is the asymmetry, not the label**: a rule that protects the record from drift was applied to the words we receive and not to the words we send, and the gap was invisible precisely because our own message felt like something we already had — we had a document *about* it, which is not the same object |
+| 83 | **Silence here is not a quiet list. The same archive shows the list answering a near-identical post within hours.** On 2026-08-07 a solo, non-lawyer author posted a public-domain-equivalent instrument with zero adopters, redirected to `license-discuss` after `license-review` bounced it — the same shape as ours in every respect that can be seen from outside. It drew **six replies in about ten hours**, including from McCoy Smith, Rob Landley and David Woolley, engaging the text clause by clause. **Ours has drawn none in eleven days.** Every status line in this directory says "no responses yet", which invites the reading that a queue exists and our turn has not come. The archive says the queue is not the explanation | **The phrasing was neutral where the evidence is not, and the neutral phrasing was ours.** What the comparison establishes: the list is active and does engage this exact category, promptly and substantively. What it cannot establish: **why**. A 5,778-word opening post may simply not be read (that is #80's cost, and it was already paid before #80 was written); the premise may not be seen as contestable; it may be seen as not worth contesting. **We do not know, and picking a reading would be the same error in the opposite direction** — so the comparison is recorded and the reading is not. One consequence is actionable: the ≈600-word `license-review` message is now supported by evidence rather than by etiquette |
+| 84 | **The strongest question the list asked that comparable post has no answer anywhere in these fourteen documents.** Rob Landley's reply put the category argument in a frame we have never used: public-domain-equivalent licences are, on his understanding, **the only fungible category** — they do not require the licence text to be carried into derived works, so code under different ones combines without "the stuttering problem" — and 0BSD is in that category, in wide use, and authored under by Google, Microsoft and Facebook. His question was *"could you explain why you're doing another one?"* **The word `fungib` appears in none of the files here.** The 0BSD comparison exists — ten mentions in `comparison.md`, and the sent message names 0BSD as the nearest approved licence — but the incumbent's actual advantage was never stated, so the answer to it was never written | **ACD-1.0 is fungible in exactly that sense, and we have never said so.** §10.2 states a recipient need not give attribution or reproduce any notice; §4.3 and §10.1 attach no condition. It therefore combines as 0BSD does, and the trademark defect the list found in that post does not arise here (§1.5 excludes trademark from Covered Rights, §11.1 grants no right in one) — **both checked against the text, not assumed**. That makes the honest answer narrow, and narrower than the one we would have given: **not "better in the category", but "the cost of another entry in this category is low, and these three subjects are absent from the incumbent"** — training and TDM, patents reaching models and outputs, machine-generated material. Whether that is worth an entry is the reviewer's call, and **#4 is the reason it may not be**. Recorded, not written into the text, which is frozen |
 
 ## Why this document exists
 
