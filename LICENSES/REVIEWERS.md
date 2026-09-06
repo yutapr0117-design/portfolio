@@ -43,13 +43,16 @@ is the one to read first** — this is only a map of where the argument runs.
 **Start with what cannot be answered.** No lawyer has read this licence, and none has been
 engaged ([`against.md`](ACD-1.0.against.md) #1). The step that resolved the closest precedent —
 legal advisors concluding the Unlicense "would most likely be interpreted as a license and that
-the license met the OSD" — has no counterpart here (#2). Those two are stated first because they
-are the two we cannot fix.
+the license met the OSD" — has no counterpart here (#2). **And the precedent has not been
+repeated**: searching the public review tracker's 252 records for this family returns one approval —
+the Unlicense, 2020, on a legacy basis we cannot use — and one contemporary attempt, still
+unresolved, whose author was told on this list that a waiver of this kind needs a lawyer (#87).
+**Those three are stated first because they are the three we cannot fix.**
 
 | The claim | The strongest thing against it |
 |---|---|
 | **The gap is real**: no approved licence expressly permits training and text-and-data-mining, grants patents reaching models and outputs, and declines to presume that rights subsist in machine-generated material (§6, §8.4, §9) | **Four of the seven distinguishing features close if the incumbents amend** — and we say which four ([`comparison.md`](ACD-1.0.comparison.md) §1.35). The case then rests on the remaining three |
-| **It is reviewable**: §3 surrenders, §4 grants a licence *independently* (§4.4), so a reader never has to decide whether the surrender worked | **No court has characterised this construction**, in any jurisdiction (#3). A dedication taken alone is not approvable, and the escape is untested |
+| **It is reviewable**: §3 surrenders, §4 grants a licence *independently* (§4.4), so a reader never has to decide whether the surrender worked | **No court has characterised this construction**, in any jurisdiction (#3), and **no submission of this shape has been approved since 2020** (#87). A dedication taken alone is not approvable, and the escape is untested |
 | **It imposes nothing**: §10.1 and §4.3 attach no condition, so no obligation can fire in any delivery mode — the failure that condition-bearing instruments meet in hosted deployment | **The same structure weakens the warranty disclaimer** (#41) and forecloses defensive patent termination (#46). Both costs fall on the adopter, and both are deliberate |
 | **Anyone can adopt it**: zero project names, zero placeholders, no editing required — verifiable with the commands below | **One adopter: this repository** (#4). Reusability is a structural property; adoption is a social one, and only the first is shown |
 
