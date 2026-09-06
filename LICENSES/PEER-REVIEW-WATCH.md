@@ -259,6 +259,44 @@ ACD は **Maffulli の警告の両側に触れる** —— 政策論を持ち込
 **やらないこと**: 本文を読まずに BOS の条項を評価すること。読めるようになったら
 `comparison.md` の「無条件系」ではなく「**条件付き permissive**」の比較軸として扱う。
 
+## 3.9 アーカイブは直接取得できる（2026-09-06 に確定）—— 取得済みの窓と、そこで得たもの
+
+**「この環境は外向きの取得ができない」は誤りだった**（`against.md` #76）。`curl` が**コマンドの
+権限**で拒否されただけで、**ネットワークは通っている**。
+
+```
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/<YYYY>-<Month>.txt
+```
+
+**ブラウザ相当の User-Agent が要る**（既定の python UA では 403 が返る）。`WebFetch` ツールも
+使える。**オーナーに落としてもらう必要はない。**
+
+### 取得済みの窓と、そこで得たもの（**再読不要**）
+
+| 窓 | 得たもの | 反映先 |
+|---|---|---|
+| **2012-01〜04** | Bruce Perens 氏の「abandonment **OR** acquiescence, but not both」—— **fallback という形そのものへの反対**。§4.4 はこれが届かないように書かれている | `comparison.md` §1.4 |
+| **2020-03〜06** | License Review Committee の勧告本文。「dedication **taken alone** は承認されない」という**規則の出典**、および「lawyers **both US and non-US**」が一致したという決着の実体 | `submission.md` §1b / #2 #3 #7 |
+| **2025-03** | 出力への notice 要件が「**a restriction or condition on mere use. That would not be open source**」（Simon Phipps 氏・個人資格）と問われ、Fontana 氏が編集器の喩えと **Kyle Mitchell 氏の先行提出**にも言及、提出者が「somewhat oversteps」と認めて削除された | `review-responses-clauses.md` §6.4 |
+| **2026-08** | **OSD 9 の生きた読み方** —— 防御的終了条項自体が「restrictions」にあたりうる、Apache-2.0 の特許終了と GPLv2 非互換の歴史に接続 | `submission.md` §3b / #46 |
+| **2026-09** | オーナーの投稿 **3 通**（OpenMDW 2 / ModelGo 1）、Mike Dolan 氏の「the trigger **is not designed to match the grant**」、Moming Duan 氏の hosted-only 解釈、BOS v1.3 の提出本文 | 本書 / `AS-OF.md` |
+
+### 読み方の規律
+
+1. **原文を引き、発言者を書く。** 提出者による後の要約で代用しない（2025-03 は要約経由で一度
+   書いてから、本文で書き直した）。
+2. **その読みが**何を**establish しないか**を同じ場所に書く。個人資格での発言・提出者の判断・
+   撤回は、いずれも **OSI の裁定ではない**。
+3. **有利な材料も落とさない。** #70 が示したのは「擁護している側こそ古くなる」ことで、
+   **有利な展開を落とすのは期限切れを残すのと同じ失敗**である。
+
+### まだ読んでいない窓（候補）
+
+- **CC0 の撤回そのもの** —— 2012-01〜04 の license-review には無い。同時期の `license-discuss`、
+  または 2012 年の後の月を見る
+- **2026-07** —— 取得済みだが未読（9 通と小さい）
+- **ModelGo の 1st / 2nd 提出**（2025-02 前後）—— 3 度の再提出の経緯そのもの
+
 ## 4. 結果が出たとき、ACD の何が動くか（先に決めておく）
 
 改訂の圧力がかかった局面で考えると、都合よく読む。**先に決めておく。**
