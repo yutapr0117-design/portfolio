@@ -246,10 +246,34 @@ AI 条項を実際に取り込んだとして、そのとき何が残るのか�
 > merely misdescribe a clause; it handed a reviewer the 2012 objection, against an instrument
 > drafted to avoid it.
 >
-> **Honest limits of this reading.** The objections above are quoted from the license-review
-> archive for 2012-02 and 2012-03. **The message in which Creative Commons actually withdrew the
-> submission is not in the four months read (2012-01 to 2012-04) on this list**, so the outcome
-> as stated here still rests on the secondary record, and is marked as such in `AS-OF.md`.
+> **The withdrawal itself, verbatim (found 2026-09-06).** Christopher Allan Webber, Creative
+> Commons, license-review, 2012-02-24:
+>
+> > "We've discussed this internally, and unfortunately we agree that it's best to **withdraw CC0
+> > from the OSI review process at this time.** There have been several issues raised around the
+> > language declaring patents out of scope in the tool (**that they weaken equitable estoppel
+> > defenses against patents or that they heighten risk by putting someone "on notice" about
+> > patent risks in the associated code**)."
+>
+> **That confirms this section's account of the cause, in the withdrawing party's own words** ——
+> the two criticisms named above are the two named there, and no other ground is given.
+>
+> **It also adds a fact this section did not have: why the carve-out existed at all.**
+>
+> > "The patent language that exists comes out of conversations with the **scientific data
+> > community**, whom were a large target of adoption for the tool. This community felt strongly
+> > that there was a need to clearly waive something into the public domain **without also waiving
+> > patents in the process**."
+>
+> So the carve-out was **a deliberate accommodation of a named constituency**, not an oversight.
+> That matters for how ACD-1.0's opposite choice should be read: §8.3 states that a dedication
+> giving away copyright while withholding patents "leaves the recipient exposed, because software
+> cannot be practised without practising whatever patent claims it embodies". **That is a
+> considered disagreement with a position someone held for a reason** —— and the reason was that
+> the tool's target adopters were publishing data, not software. ACD-1.0 is written for works
+> meant to be learned from, which includes both, and it resolves the tension the other way.
+> **A reviewer is entitled to think the scientific-data community was right**; what this section
+> claims is only that the choice was made knowingly.
 
 > **What this does not mean.** It does not mean ACD-1.0 clears the bar CC0 did not. CC0's
 > patent problem was one objection among several, the dedication-form question remains live
