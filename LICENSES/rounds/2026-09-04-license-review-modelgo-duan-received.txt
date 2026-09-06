@@ -1,0 +1,84 @@
+Source: OSI license-review public archive, 2026-September.txt
+Retrieved: 2026-09-06 from lists.opensource.org
+Date: Fri, 4 Sep 2026 04:04:25 +0000
+From: Moming Duan <duanmoming@gmail.com> (ModelGo steward)
+Subject: [License-review] [3rd Resubmission] ModelGo Zero License (MG0-2.0) AND ModelGo Attribution License (MG-BY-2.0)
+
+受領。"Yokoi-san, Thank you for the careful reading." と応じ、条文に即して 3 点に回答し、
+2025-03 の審査履歴 4 件をアーカイブ URL で引いている。末尾に我々の送信本文が引用されている。
+
+公開アーカイブから逐語で複製したもの。無改変。
+
+----- begin verbatim -----
+
+From duanmoming at gmail.com  Fri Sep  4 04:04:25 2026
+From: duanmoming at gmail.com (Moming Duan)
+Date: Fri, 4 Sep 2026 04:04:25 +0000
+Subject: [License-review] [3rd Resubmission] ModelGo Zero License
+ (MG0-2.0) AND ModelGo Attribution License (MG-BY-2.0)
+In-Reply-To: 
+	<CANXZM59bK3MbU9xRM=2Y89XJJyg33oFfWN9NopahUDWq+=36OQ@mail.gmail.com>
+References: 
+	<CANXZM59bK3MbU9xRM=2Y89XJJyg33oFfWN9NopahUDWq+=36OQ@mail.gmail.com>
+Message-ID: 
+	<TY7PR01MB1570258C23FF98E1A93A136AAADB52@TY7PR01MB15702.jpnprd01.prod.outlook.com>
+
+Yokoi-san,
+
+Thank you for the careful reading. Let me answer from the text as written.
+
+1) Your reading of the definition is correct: providing the model as a hosted or API-based service falls within "Distribution" as defined.
+
+2) But note what Paragraph 2.2(a) actually requires: provide a copy of the License with the Licensed Materials, and retain the notices as part of the Distribution. In your scenario, no Licensed Materials are transferred to the remote user at all; they only receive Output. Strictly by the text, there is no Licensed Material to attach the License to, and no notices to retain as part of that distribution. So under the license as written, a provider offering only hosted access owes no Section 2.2(a) obligations to API users.
+
+3) So a provider offering only hosted access owes no Section 2.2(a) obligations to API users. I would not call this a drafting gap either; our review history points the same way. The output-notice requirement in the earlier MG0 draft was discussed at length in a dedicated thread in March 2025 [1]: it was questioned as "a restriction or condition on mere use. That would not be open source" [2], analogized to "putting an editor under a license that required any file created with the editor to have an attribution notice" [3], and I agreed at the time that it "somewhat oversteps" [4]. The requirement was later removed. Any new wording about providing license information on a service page should therefore be drafted as the method of satisfying attribution, not as a condition on use.
+
+Best,
+Moming Duan
+
+[1] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-March/005698.html
+
+[2] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-March/005704.html
+
+[3] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-March/005711.html
+
+[4] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-March/005718.html
+
+From: License-review <license-review-bounces at lists.opensource.org> on behalf of 横井雄太 <yuta.yokoi.r at gmail.com>
+Date: Thursday, September 3, 2026 at 23:54
+To: license-review at lists.opensource.org <license-review at lists.opensource.org>
+Subject: Re: [License-review] [3rd Resubmission] ModelGo Zero License (MG0-2.0) AND ModelGo Attribution License (MG-BY-2.0)
+
+
+I have one question about how the final MG-BY-2.0 text is intended to operate when Distribution consists solely of remote access.
+
+The definition of “Distribution” expressly includes:
+
+“providing the Licensed Materials or any part thereof as a hosted service or remotely accessible service, such as API-based access or web access.”
+
+Section 2.2(a), in turn, provides that if a licensee Distributes Licensed Materials or Derivative Materials, the licensee must, among other things:
+
+  1.  provide a copy of the License with the Licensed Materials or Derivative Materials; and
+  2.  retain, as part of the Distribution, existing copyright, attribution, and author-identification notices.
+
+I would like to understand precisely how those conditions are intended to be performed where the Distribution consists only of hosted or remotely accessible use.
+
+For example, suppose a provider operates an MG-BY-2.0-licensed model entirely on its own servers and exposes only an inference API or web interface. The remote user can interact with the model and receive Output, but receives no copy of the model weights, checkpoints, architecture files, Complementary Materials, or other underlying Licensed Materials.
+
+My reading is that this still falls within the definition of “Distribution,” because hosted and remotely accessible services are expressly included.
+
+If that reading is correct, could the steward clarify the following?
+
+  1.  Does providing API-based or web-based access to the hosted model trigger the Section 2.2(a) conditions even though no copy of the underlying Licensed Materials is transferred to the remote user?
+
+  2.  If so, what constitutes compliance with the requirement to provide a copy of the License “with the Licensed Materials” and to retain attribution notices “as part of the Distribution” in that remote-access context? For example, would making the License and applicable attribution notices clearly and persistently available through the service interface or accompanying API documentation satisfy those requirements?
+
+  3.  More generally, how should the express inclusion of hosted and remotely accessible services in the definition of “Distribution” be reconciled with Section 2.2(a)’s language concerning materials and notices provided “with” or “as part of” the Distribution where no underlying model artifact is actually delivered to the user?
+
+I am not suggesting that remote access should or should not be treated as Distribution, nor am I suggesting a particular form of compliance. My question is limited to how the current text is intended to operate in a scenario that the definition expressly includes.
+
+I think clarification would be useful for downstream users because the submission materials specifically identify remote-access scenarios, such as chatbot use, as one of the situations the ModelGo licenses are designed to address. A user deploying MG-BY-2.0 solely as a hosted service should therefore be able to determine from the license what actions satisfy the attribution and license-notice requirements in that expressly contemplated mode of Distribution.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260904/38e85e6d/attachment.htm>
+
