@@ -45,6 +45,15 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        10 個の marker が §B.0 に存在することを機械強制する。**中身の質は検査しない**
        （それは散文の判断である）。守るのは「**項目が消えていないこと**」だけ。(BLOCKING)
 
+  465. **`rounds/` の在庫申告が、実際に置かれている file と一致すること** (BLOCKING):
+       `LICENSES/rounds/` は「何と言われたか / 何と言ったか」の記録が drift しないためだけに
+       在るディレクトリなのに、その README は 2026-09-06 まで **「いまの状態: 空である」** と
+       書き続けていた —— 送信文を置いた当日から偽で、記録の入口が中身について偽を述べていた
+       (`against.md` #89)。原因は状態を *宣言* して *導出* していなかったことなので、文言では
+       なく**導出との照合**で守る。見出しの件数と在庫表の行数の**両方**を実 file 数と突き合わせ、
+       中身があるのに「空である」と述べていないことも見る。file 名の列挙までは求めない
+       (在庫表は日付と相手で引けることに意味があり、列挙は読者価値のない列を増やす)。
+
   464. **`errata.md` の全 `E<n>` が、次版の変更リストに現れること** (BLOCKING):
        1.0 は凍結中で、欠陥を見つけても直さず記録する運用である。**その記録の行き先が
        4 か所以上に散っていた**（errata / review-responses-meta の「1.1 で足すかもしれない候補」/
@@ -671,5 +680,57 @@ def run(ctx):
              "「網羅されている」と判断する**ので、古い数字は網羅の主張を嘘にする。"
              "文書を足したら申告も直せ (実測 2026-08-27: FAQ に 9 問足した結果、索引と mirror が"
              "「使う側 12 問」のまま残っていた)"),
+            blocking=True,
+        )
+
+    # ── 465. rounds/ の在庫申告が、実際に置かれている file と一致すること (BLOCKING) ──────
+    # `LICENSES/rounds/` は「何と言われたか / 何と言ったか」の記録が drift しないためだけに
+    # 存在するディレクトリである。にもかかわらず、その README は 2026-09-06 まで
+    # **「いまの状態: 空である」** と書き続けていた —— 2026-08-26 の送信文が置かれた時点で
+    # 偽になっており、記録の入口が中身について偽を述べていた (`against.md` #89)。
+    #
+    # 原因は「状態を *宣言* していて *導出* していなかった」ことなので、対処は文言の修正では
+    # なく**導出との照合**に置く。README が名乗る件数と、実際の file 数を突き合わせる。
+    #
+    # なぜ 2 通りで測るか: 見出しの `N ファイル` だけを見ると「数字は直したが表は古い」形を
+    # 素通りする (Check 460 が別の面で実際に踏んだ class)。表の行数も同時に照合する。
+    #
+    # 射程を README の在庫節に限る理由: file 名そのものの出現までは求めない。**在庫表は日付と
+    # 相手で引けることに意味がある**ので、file 名の列挙を強制すると読者価値のない列が増える
+    # (`docs/files/` mirror に規模の申告を禁じたのと同じ判断 — Check 460 face (h))。
+    _rd465 = ROOT / "LICENSES" / "rounds"
+    _rm465 = _rd465 / "README.md"
+    if not _rm465.exists():
+        check(False, "", "Check 465: LICENSES/rounds/README.md が無い — "
+                         "REVISION-PROTOCOL.md が 3 箇所で指す先の入口が失われている", blocking=True)
+    else:
+        _files465 = sorted(p.name for p in _rd465.iterdir()
+                           if p.is_file() and p.name != "README.md")
+        _t465 = _rm465.read_text(encoding="utf-8")
+        _bad465 = []
+        _mh465 = re.search(r"##\s*いまの状態[^\n]*?(\d+)\s*ファイル", _t465)
+        if not _mh465:
+            _bad465.append("README に「## いまの状態（… N ファイル）」の在庫見出しが無い "
+                           "(件数を導出と照合できない)")
+        elif int(_mh465.group(1)) != len(_files465):
+            _bad465.append(f"在庫見出しの申告 {_mh465.group(1)} / 実測 {len(_files465)}")
+        # 在庫表の行数 — 見出し行と区切り行を除いた `| ... |` の数
+        _sec465 = _t465[_mh465.start():] if _mh465 else ""
+        _sec465 = _sec465.split("\n## ")[0]
+        _rows465 = [ln for ln in _sec465.splitlines()
+                    if ln.startswith("| ") and not ln.startswith("|---")
+                    and not ln.startswith("| 日付 |")]
+        if _mh465 and len(_rows465) != len(_files465):
+            _bad465.append(f"在庫表の行数 {len(_rows465)} / 実測 file 数 {len(_files465)}")
+        # 中身があるのに不在を主張していないか (#89 の literal)
+        if _files465 and re.search(r"いまの状態[^\n]*\n+[^\n]*空である", _t465):
+            _bad465.append("file が置かれているのに「空である」と述べている")
+        check(
+            not _bad465,
+            f"Check 465: rounds/ の在庫申告が実測と一致 ({len(_files465)} file)",
+            (f"Check 465: rounds/ の在庫申告が実測とずれている: {_bad465}。**このディレクトリは"
+             "記録が drift しないためだけに在る**ので、その入口が中身について誤ると、"
+             "審査者は証拠の量を誤って受け取る (2026-09-06: 送信文を置いた当日から README が"
+             "「空である」と述べ続けていた = against.md #89)"),
             blocking=True,
         )
