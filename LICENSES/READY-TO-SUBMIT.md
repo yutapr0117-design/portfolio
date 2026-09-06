@@ -34,7 +34,7 @@ canonical-ref: LICENSES/ACD-1.0.submission.md (提出物) / LICENSES/ACD-1.0.aga
 ```
 
 **⚠ この「0 件」は 2026-08-24 時点の値であり、以後の発見によって明確に反証された（2026-09-05 追記）。**
-凍結後の敵対的読解で **80 件の不利な事実**と **10 件の errata**（うち §16.1 は本文が読み手に
+凍結後の敵対的読解で **81 件の不利な事実**と **10 件の errata**（うち §16.1 は本文が読み手に
 誤った行動を指示している）が出ている。**当時の判断が誤りだったのではなく、判断の根拠に
 した「ゼロ」の意味が狭すぎた** —— あれは「その日に使ったレンズでは新しい発見が出なかった」
 であって、「もう欠陥は無い」ではない。
@@ -102,15 +102,25 @@ canonical-ref: LICENSES/ACD-1.0.submission.md (提出物) / LICENSES/ACD-1.0.aga
 
 `LICENSES/ACD-1.0.submission.md` §D のチェックリストに従う。要点だけ:
 
-1. `npm run verify` が exit 0 であることを確認（XML と本文の同期、宣言面の整合が証明される）
-2. 公開コピーが到達可能か確認
-   （`curl -sI https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt`）
-3. **提出と同時にテキストを凍結する。** 以後の改善は `ACD-1.1` / `ACD-2.0` という別識別子で
-   行い、`ACD-1.0` が指すテキストは動かさない（§16.4 が条文としてもこれを定めている）
-4. **（未実施）** OSI の**承認申請**は `license-review@opensource.org`（**購読してから投稿**）/
+1. **送るのは `submission.md` §B.0（約 600 語）である。§B.1 以降を貼らない。**
+   §B.1 は「送る文面の背後にある参考資料」であり、リストは code of conduct で
+   **簡潔かつ低 volume** を求めている（`REVISION-PROTOCOL.md` §3.7）。
+   **§B.0 は OSI が求める 10 項目をすべて含んでおり、Check 463 がその存在を BLOCKING で守る。**
+2. **本文を plain text で添付する。** OSI の process は「attachment in simple text format」を
+   求めており、2026-07 の実例では審査者の最初の返信が
+   「**動的に変わらない版が評価には要る**」だった。添付が公開コピーと同一であることは
+   `grep -E "^[0-9a-f]{64}  " LICENSES/FROZEN.md | shasum -a 256 -c` で審査者自身が確かめられる。
+3. `npm run verify` が exit 0 であることを確認（XML と本文の同期、宣言面の整合が証明される）
+4. **パケット中の URL がすべて解決することを確認する**（同じ 2026-07 の実例で、審査者の
+   別の返信が「**your links are broken**」だった。`REVISION-PROTOCOL.md` ゲート 7b）
+5. **テキストは既に凍結されている**（2026-08-24〜・`LICENSES/FROZEN.md` の存在が凍結を意味し、
+   Check 453 が 3 file の sha256 を pin する）。**提出時にすることは凍結ではなく、凍結を解かない
+   こと**である。以後の改善は `ACD-1.1` / `ACD-2.0` という別識別子で行い、`ACD-1.0` が指す
+   テキストは動かさない（§16.4 が条文としてもこれを定めている）
+6. **（未実施）** OSI の**承認申請**は `license-review@opensource.org`（**購読してから投稿**）/
    SPDX は https://tools.spdx.org/app/submit_new_license/
-   —— 現在開いているのは `license-discuss` のスレッドであり、**この 4 は行っていない**
-5. **（4 を行った場合の話）** OSI の決定は初回投稿から概ね 60 日。
+   —— 現在開いているのは `license-discuss` のスレッドであり、**この 6 は行っていない**
+7. **（6 を行った場合の話）** OSI の決定は初回投稿から概ね 60 日。
    `license-discuss` は議論の場なので決定という概念自体が無く、この期限は当てはまらない
 
 ## このファイルの意味しないこと
