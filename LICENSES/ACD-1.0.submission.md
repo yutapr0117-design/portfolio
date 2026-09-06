@@ -540,7 +540,7 @@ machine can find are not present.
 | Property | Command | Result |
 |---|---|---|
 | Every defined term is actually defined, in one place | `grep -nE '^\s+1\.[0-9]+\s+"' LICENSES/ACD-1.0.txt` | 10 terms, all in §1.1–§1.10 |
-| No defined term is dead (each is used outside its own definition) | count occurrences of each term outside quotes | 10/10 used; lowest is `Contribution` at 4 |
+| No defined term is dead (each is used outside its own definition) | count occurrences of each term outside the clause that defines it | 10/10 used; the lowest is **3**, shared by `Contribution` and `Machine-Generated Material` |
 | Section numbering is contiguous with no gaps | `grep -cE '^[0-9]+\. [A-Z]' LICENSES/ACD-1.0.txt` | 16 sections, numbered 1–16 |
 | Internal cross-references all resolve to a clause that exists | enforced in CI (Check 441b) | no dangling `§N.M` |
 | The text is pure ASCII | byte scan for values > 127 | **0** non-ASCII bytes |
