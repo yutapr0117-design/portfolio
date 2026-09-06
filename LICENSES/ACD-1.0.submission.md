@@ -556,6 +556,16 @@ machine can find are not present.
 | The six clauses disclaiming condition-status cross-reference into one mesh centred on §10.1 | trace §4.6, §10.3, §10.5, §11.3, §11.4, §16.6 | consistent; documented in `clause-reference.md` |
 | The machine-readable layer does not overstate its status | `grep -o 'isOsiApproved="[a-z]*"' LICENSES/ACD-1.0.spdx.xml` and the `osiApproved` / `spdxListed` fields | all **false** |
 
+**Every row above was re-derived from the artefacts on 2026-09-06, and three were wrong.** The
+entry count was stale; the clause-pointer count and the defined-term minimum were wrong when
+written, since both of their inputs are frozen and could not have drifted. They are corrected
+here and are now checked on every CI run against the artefacts themselves rather than against a
+remembered number. A fourth was nearly reported in error: counting the negative self-claims with
+a looser pattern than the one this table names gives 10 or 11 rather than 9, because "contains
+nothing" contains the string "contains no". **Under the five phrase forms this row actually
+lists, the count is 9 and the row is correct** — which is the reason the counting rule is now
+stated in each row rather than left to the reader.
+
 **Why this is worth stating rather than skipping.** Drafting defects that reviewers routinely
 catch in new licences are disproportionately of the mechanical kind: a term used but never
 defined, a definition left over from an earlier draft, a cross-reference to a clause that was
