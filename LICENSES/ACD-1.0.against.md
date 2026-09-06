@@ -265,6 +265,8 @@ in the worst possible place.
 
 | 74 | **The published site still told machines that the rights were reserved.** `index.html` carries a hidden, machine-facing entity block (`#aio-footer-entity`, present for RAG chunk extraction) that read "© 2026 Yuta Yokoi … All architectural decisions, KERNEL framework design, and prompt engineering **are the intellectual property of** 横井雄太". ACD-1.0 §3 surrenders those rights and `LICENSE` says "No rights are reserved. No conditions are imposed." **So the AIO layer asserted a present-tense reservation on every page while the licence layer asserted the opposite** — and the AIO layer is the one this repository exists to get right. When "All Rights Reserved" was withdrawn on 2026-08-23 every other surface was swept; **this block was not, because it is invisible** | **Corrected on the surface where it was wrong.** The block now separates the two things `LICENSE` already separates: authorship is a historical fact and stays, the rights in it are surrendered by §3, nothing is reserved, attribution is welcome and never required — with the licence URL beside the canonical URL. **The class is the one #67 named**, moved one surface further: a claim can be false only where nobody looks. It survived a full withdrawal sweep because it is `sr-only` and `aria-hidden`, so no visual gate could see it and no human would read it — **only the machines it was written for** |
 
+| 75 | **The machine layer gave two different answers about the identifier, depending on which file was read.** `llms-full.txt` and `llms.txt` — the files this project points automated systems at as its authoritative context — ended their licence block with `SPDX-License-Identifier: ACD-1.0` and said nothing more. `ACD-1.0.machine.json`, on the same published surface, records `spdxListed: false` and `osiApproved: false`. **So a tool resolving the identifier finds it unresolvable on one surface and finds out why on another**, and the surface that omits the answer is the primary one. It also propagates errata E1 — the text instructing adopters to write an identifier SPDX has not assigned — to that surface with no note that it is a known defect | **Both files now state it: not on the SPDX License List, not OSI-approved, `LicenseRef-ACD-1.0` for tools needing a conforming expression, with the defect cited.** C6 was satisfied by substance rather than by signature: the statement is true (it matches the descriptor and the errata), it removes a divergence between published surfaces rather than creating one, and the digest chain was regenerated — the manifest diff is two content-derived `sha256` values and `generated_at`, which is exactly the A1/A2 derived-value exception. **This is #74's neighbour**: that entry found a surface contradicting the licence, this one found a surface that was merely silent where its sibling spoke — and silence in a machine-readable layer is a wrong answer, because nothing tells the reader to look elsewhere |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -281,13 +283,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **74** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **75** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **74 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **75 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
