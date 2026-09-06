@@ -549,7 +549,7 @@ machine can find are not present.
 | Every clause pointer in the machine-readable descriptor resolves and matches its subject | cross-check `ACD-1.0.machine.json` `clause` fields against the text | **33 / 33** |
 | Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
 | Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
-| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **65 entries, 1–65, no gaps; all citations resolve** |
+| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **66 entries, 1–66, no gaps; all citations resolve** |
 | Every defect called a "1.1 candidate" anywhere has an entry in the errata to point at | cross-check declarations against `errata.md` | **one was missing and has been added (E7)** |
 | Every negative self-claim the text makes about itself is true | extract each "contains no / imposes no / grants no / reaches nothing / specifies no" statement and search the whole text for the thing denied | **9 claims, 9 true** — each denied term appears only inside the clause doing the denying |
 | Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |
@@ -593,6 +593,21 @@ verified once is not a property that stays true.
   the committee's scrutiny of the two-step structure I have used there.
 - **Evidence of use.** At the time of submission the licence is applied to one substantial
   repository. I make no claim of wider adoption.
+- **Provenance of the drafting.** The text was drafted by an AI agent operating autonomously
+  in this project. **I did not write it, I did not direct the drafting, and I did not ask for
+  it** — the agent determined that the repository needed a licence, designed one, and wrote it,
+  and I learned that it existed afterwards. What is mine is what happened next: I decided to
+  keep it, it is applied to **my** work, and I brought it here. **I do not review the
+  repository** day to day; what reaches me is a summary. **The licence is the exception: I read
+  it in full and understood it before sending.** I am the Dedicator and the steward and I answer
+  for it, but at no point was I its author. The text cites exactly one external instrument
+  (Article 4(3) of Directive (EU) 2019/790, in Section 1.10), deliberately, because invented or
+  misattributed authority is the characteristic failure of machine-drafted legal text. Its
+  internal consistency — contiguous numbering, resolution of every cross-reference, use of all
+  ten defined terms, no obligation-imposing word directed at the user, nothing specific to my
+  project — is enforced in continuous integration, so those are conditions the repository cannot
+  be in violation of rather than assertions of care. **What none of that establishes is that the
+  reasoning is sound**, which is what I am here to find out. A fuller statement is in section E.1.
 - **Form.** The instrument is styled a *dedication* and contains a public-domain dedication
   (Section 3). I am aware of the committee's history with dedication-shaped instruments.
   Section 4 is a licence granted **independently** of Section 3 and expressly does not
@@ -656,9 +671,21 @@ Submit via https://tools.spdx.org/app/submit_new_license/ (preferred) or the
 
 Section B was written before the text was frozen and before the anticipated-objection
 dossier existed. Reviewing the two against each other surfaced one disclosure that the
-dossier argues is mandatory and that section B does not make. **Section B is not rewritten
-here, because it may already have been sent.** Add the following in a follow-up message,
-or fold it into section 5 if section B has not gone out yet.
+dossier argues is mandatory and that section B did not make.
+
+**The hedge this addendum was written under has since been resolved, and the instruction it
+gave has been carried out (2026-09-06).** It said "Section B is not rewritten here, because it
+may already have been sent — or fold it into section 5 if section B has not gone out yet."
+Section B has *not* gone out: what is open is a thread on `license-discuss`, nothing has been
+submitted to `license-review`, and CI enforces that statement against a single source
+(Check 458). So the condition for folding was satisfied and **E.1 now also appears, in shorter
+form, inside section 5 — the part that would actually be sent.**
+
+**Why that mattered.** Left as it was, the message a reviewer receives would not have said that
+the licence was drafted autonomously by an AI, while the repository's own adverse list calls
+that something "reviewers are entitled to weigh" (#5). A disclosure that lives only where the
+reader has to go looking is not the same as a disclosure. This addendum is kept rather than
+deleted, because how the omission was found and closed is itself part of the record.
 
 ### E.0 Which list this is on
 
