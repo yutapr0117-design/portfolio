@@ -120,7 +120,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (≈600 words)
+### B.0 The message as it should actually be sent (**660 words**, measured 2026-09-06)
 
 **Why this section exists.** Everything below §B.0 — §1 through §5 — runs to **7,500 words**. The
 list's code of conduct asks for "concise and low-volume" and that was restated in the August 2026
@@ -128,6 +128,8 @@ review (`REVISION-PROTOCOL.md` §3.7). **A 7,500-word opening post contradicts t
 dossier is built on**, which is that the repository holds the depth so the message can be short.
 §1–§5 are not deleted: they are the reference material the short message points at, and they are
 where a reviewer who asks a specific question is sent. **Send §B.0. Do not paste §1–§5.**
+
+**Length, stated rather than rounded.** This was 577 words when written on 2026-09-06 and is **660** after two additions the same day: *why now* (the review record contains no ML-substantive submission before 2024) and *why this one is shaped differently* (the AI-era submissions add conditions; this one removes them). **Both pre-empt an objection that would otherwise be raised first**, which is the only justification for spending words on a list that asks for concision. **If it grows again, the number here moves with it** — a heading that rounds its own length to a friendlier figure is the failure this dossier spent 2026-09-06 finding in itself.
 
 ---
 
@@ -169,6 +171,12 @@ record, **none before 2024 concerns machine learning or text-and-data mining at 
 — three of them in 2026, two still under review, **and none yet approved**. I do not claim the timing makes this licence
 necessary. I offer it against the fair objection that if the question were real, someone would
 have raised it long ago.
+
+**And why this one is shaped differently.** The AI-era submissions so far add conditions —
+transparency duties, attribution, notice on outputs — and that is where they have run into OSD 3,
+7 and 10. ACD-1.0 goes the other way: it imposes no condition at all (§10.1), and it makes no
+representation about whether copyright subsists in machine-generated material (§9.2), so a
+recipient never has to decide that question. It is the opposite bet on the same problem.
 
 **Nearest approved licences.** It is closest in effect to the Unlicense, MIT-0, 0BSD and CC0, and
 closest in patent machinery to Apache-2.0. The full comparison — **including where those are the
