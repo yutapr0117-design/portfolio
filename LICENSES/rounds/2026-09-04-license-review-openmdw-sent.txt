@@ -1,0 +1,111 @@
+Source: OSI license-review public archive, 2026-September.txt
+Retrieved: 2026-09-06 from lists.opensource.org
+Date: Fri, 4 Sep 2026 18:54:12 +0900
+From: Yuta Yokoi <yuta.yokoi.r@gmail.com>
+Subject: [License-review] For Approval: OpenMDW License Agreement, versions 1.1 (OpenMDW-1.1)
+
+送信。Dolan 氏の回答を受け、争点を「著作権訴訟を終了の引き金にしてよいのか」という閾値問題へ
+分解し、最小仮説を置いて境界を特定しようとしたもの。**In-Reply-To / References なし。**
+本ファイル取得時点（2026-09-06）のアーカイブに、これへの返信は無い。
+
+公開アーカイブから逐語で複製したもの。無改変。
+
+----- begin verbatim -----
+
+From yuta.yokoi.r at gmail.com  Fri Sep  4 09:54:12 2026
+From: yuta.yokoi.r at gmail.com (=?UTF-8?B?5qiq5LqV6ZuE5aSq?=)
+Date: Fri, 4 Sep 2026 18:54:12 +0900
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+Message-ID: 
+ <CANXZM5-uFJuvh+R5BaJ7E7+HZJUP5xvqa2=qHW4XM8bqvtsTDA@mail.gmail.com>
+
+Josh, Mike, Sado-san, Pamela, Richard, and all,
+
+Josh's latest message helped me isolate what I think may be the threshold
+question in this discussion.
+
+Mike's response to my earlier question clarified that OpenMDW-1.1 does not
+make its termination triggers symmetrical with all of the rights it grants.
+Database-right and trade-secret claims do not trigger termination; patent
+and copyright claims do. Mike explained that this boundary reflects the
+litigation threats the drafters considered realistic for openly published
+Model Materials.
+
+I think Josh is asking a logically prior question, however: even if
+copyright litigation is a realistic threat to model publishers, what
+open-source principle makes copyright litigation an acceptable termination
+trigger in the first place?
+
+Perhaps the cleanest way to test that is to strip away every broader
+feature of Section 5.
+
+Suppose a license provided only this:
+
+- a licensee brings a copyright infringement claim against the licensor;
+- the claim alleges that the licensed material itself infringes copyright
+owned by that licensee;
+- the claim concerns only that licensed material, not training conduct,
+unrelated material, or some other dispute;
+- filing or maintaining that claim terminates only the copyright permission
+granted to that claimant for that same licensed material;
+- every other grant remains intact.
+
+Would that narrowly matched copyright-for-copyright termination provision
+itself be incompatible with open-source principles?
+
+If yes, then the line seems categorical: copyright litigation cannot
+properly serve as a defensive termination trigger, even where the asserted
+right, licensed subject matter, counterparty, and terminated grant are all
+tightly matched.
+
+If no, then copyright as a trigger is not itself the decisive problem, and
+the actual OpenMDW-1.1 provision can be examined separately along at least
+three axes:
+
+1. Scope of consequence:
+   Section 5 terminates all rights and grants, rather than only the grant
+corresponding to the asserted right.
+
+2. Scope of counterparty:
+   The triggering lawsuit may be against "any person or entity," rather
+than only the licensor or provider of the relevant Model Materials.
+
+3. Timing:
+   Termination occurs upon filing or maintaining the claim, before the
+merits of the infringement allegation have been determined.
+
+This also seems to sharpen the nexus-and-proportionality point raised by
+Sado-san.
+
+Nexus can tell us how closely the claim must relate to the licensed subject
+matter. Proportionality can tell us whether the consequence is too broad.
+But neither necessarily answers the threshold question Josh identified:
+whether copyright litigation may legitimately be used as a termination
+trigger at all.
+
+So rather than asking whether Section 5 as a whole is too broad, I think
+the more diagnostic question is:
+
+Where is the first point at which the provision crosses the open-source
+boundary?
+
+If the minimal hypothetical above already crosses it, then the broader
+features of Section 5 are secondary.
+
+If it does not, then identifying which additional feature crosses the line
+would make the disagreement much more concrete and may also make the
+eventual OSI decision easier to articulate as a reusable principle rather
+than as a conclusion specific to OpenMDW.
+
+I am not arguing for either outcome here. I am trying to identify the
+smallest proposition on which the disagreement actually turns.
+
+I would be very interested in how others see that boundary.
+
+Best,
+Yuta Yokoi
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260904/e98de840/attachment-0001.htm>
+

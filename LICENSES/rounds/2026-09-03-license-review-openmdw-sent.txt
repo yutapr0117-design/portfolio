@@ -1,0 +1,75 @@
+Source: OSI license-review public archive, 2026-September.txt
+Retrieved: 2026-09-06 from lists.opensource.org
+Date: Thu, 3 Sep 2026 09:36:46 -0500
+From: Yuta Yokoi <yuta.yokoi.r@gmail.com>
+Subject: [License-review] For Approval: OpenMDW License Agreement, versions 1.1 (OpenMDW-1.1)
+
+送信。OpenMDW-1.1 の終了条項（Section 5）について、付与される権利の範囲と終了の引き金の
+範囲が非対称であることの根拠を steward に問うたもの。**このメッセージは In-Reply-To /
+References を持たない** —— 件名だけを引き継いだ新規スレッドとして配送されている。
+
+公開アーカイブから逐語で複製したもの。無改変。
+
+----- begin verbatim -----
+
+From yuta.yokoi.r at gmail.com  Thu Sep  3 14:36:46 2026
+From: yuta.yokoi.r at gmail.com (=?UTF-8?B?5qiq5LqV6ZuE5aSq?=)
+Date: Thu, 3 Sep 2026 09:36:46 -0500
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+Message-ID: 
+ <CANXZM596bB9nT5tPW7VDyLVuE2tJiykt=x1=Jmhfnrj0aGBHUA@mail.gmail.com>
+
+I have a question about the limiting principle of the litigation
+termination provision in OpenMDW-1.1.
+
+As clarified in this thread, OpenMDW-1.1 grants rights covering copyright,
+patent, trade secret, and database rights, while the termination provision
+is triggered only by litigation asserting that the Model Materials directly
+or indirectly infringe a patent or copyright.
+
+That creates an apparent asymmetry between the scope of the grant and the
+scope of the termination trigger, and I would like to understand whether
+that asymmetry is deliberate.
+
+For example, suppose a licensee brings a claim concerning the same Model
+Materials, but the claim is:
+
+   - infringement of a database right; or
+   - misappropriation of a trade secret.
+
+My reading of the current text is that neither claim would trigger
+termination, because the trigger expressly identifies only patent and
+copyright infringement.
+
+If that reading is correct, what principle explains the boundary between
+patent and copyright claims, which trigger termination, and database-right
+or trade-secret claims, which apparently do not?
+
+I think this distinction may be relevant to the broader question raised in
+this thread about the proper scope of litigation-triggered termination. In
+particular, if OpenMDW intentionally grants several categories of rights
+while limiting retaliation to only two of them, the reason for that
+boundary may help identify a principled stopping point rather than treating
+recognition of a copyright trigger as necessarily implying recognition of
+triggers for every other type of claim involving the licensed materials.
+
+To be clear, I am not suggesting that the termination provision should be
+expanded. I am asking how the present boundary should be understood.
+
+Could the steward therefore confirm:
+
+   1. whether a database-right infringement claim concerning the Model
+   Materials would leave the OpenMDW grants intact;
+   2. whether a trade-secret misappropriation claim concerning the Model
+   Materials would likewise leave the grants intact; and
+   3. what principle explains the different treatment of those claims from
+   patent and copyright infringement claims?
+
+Clarifying that boundary would, I think, be useful to the broader review of
+what kinds of litigation may appropriately trigger termination of rights
+under an open-source license.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260903/a515161e/attachment.htm>
+

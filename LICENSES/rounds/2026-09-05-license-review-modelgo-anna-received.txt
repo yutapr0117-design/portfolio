@@ -1,0 +1,100 @@
+Source: OSI license-review public archive, 2026-September.txt
+Retrieved: 2026-09-06 from lists.opensource.org
+Date: Sat, 5 Sep 2026 12:39:26 +0800
+From: Ruby Anna <finalfacility0828@gmail.com>（本文の署名は Tyrel・ModelGo 側）
+Subject: [License-review] [3rd Resubmission] ModelGo Zero License (MG0-2.0) AND ModelGo Attribution License (MG-BY-2.0)
+
+受領。"Your understanding is 100% correct" / "Thank you again for the clear and thorough
+analysis." と応じている。
+**重要**: 本ファイルは、これに先立つ我々の 2026-09-05 12:31 の送信本文を*引用の形でのみ*保持する。
+その送信自体は公開アーカイブに独立したメッセージとして現れない（理由は未確定 —— 宛先が
+リストではなく個人だった可能性と、アーカイブ側の欠落の可能性がある）。
+
+公開アーカイブから逐語で複製したもの。無改変。
+
+----- begin verbatim -----
+
+From finalfacility0828 at gmail.com  Sat Sep  5 04:39:26 2026
+From: finalfacility0828 at gmail.com (Ruby Anna)
+Date: Sat, 5 Sep 2026 12:39:26 +0800
+Subject: [License-review] [3rd Resubmission] ModelGo Zero License
+ (MG0-2.0) AND ModelGo Attribution License (MG-BY-2.0)
+In-Reply-To: 
+ <CANXZM5_pvyMq8c-rG6V4m-pYda9O=bNFXrcrjpnGtL3ukODd6A@mail.gmail.com>
+References: 
+ <CANXZM5_pvyMq8c-rG6V4m-pYda9O=bNFXrcrjpnGtL3ukODd6A@mail.gmail.com>
+Message-ID: 
+ <CAPC0fPB6cSM2D7ubNENOBwUkJn-8uMyZ5og3tn9e-rjeYCrN+A@mail.gmail.com>
+
+Hi Yuta,
+Thank you for taking the time to review the text and dig into the March
+2025 history.
+You have interpreted the text and our intent perfectly. Your understanding
+is 100% correct: hosted-only access does fall under the definition of
+"Distribution," but because remote users only receive Output (and not the
+Licensed or Derivative Materials), Section 2.2(a) does not trigger notice
+obligations for those end-users.
+As you noted, removing the Output-notice obligation during the earlier
+review was a deliberate choice to ensure compliance with the OSD regarding
+mere use. We also agree with your point regarding service-page wording—if
+we clarify this further, it will be to outline a path for satisfying
+existing attribution requirements rather than inventing new ones.
+Thank you again for the clear and thorough analysis.
+Best regards,
+Tyrel
+------------------------------
+
+On Sat, Sep 5, 2026 at 12:31 PM 横井雄太 <yuta.yokoi.r at gmail.com> wrote:
+
+> Moming,
+>
+> Thank you. That resolves the question I was trying to isolate.
+>
+> I now understand the intended operation of the current text as follows:
+>
+>    - hosted, API-based, and web-based access is “Distribution” under the
+>    definition; but
+>    - Section 2.2(a) does not impose license-copy or notice obligations on
+>    a hosted-only provider merely because remote access occurs, where the
+>    remote user receives only Output and no Licensed Materials or Derivative
+>    Materials.
+>
+> So the scope of “Distribution” as a defined term and the circumstances in
+> which the specific Section 2.2(a) obligations have something to attach to
+> are not identical. In the hosted-only case, Output alone does not supply
+> the Licensed Materials or Derivative Materials to which those requirements
+> apply.
+>
+> The March 2025 review history also makes the result much clearer. In
+> particular, it shows that the absence of an Output-notice obligation in the
+> current text is not simply an accidental omission: such a requirement was
+> considered and removed because of the concern that it would operate as a
+> condition on mere use.
+>
+> I also understand your service-page point in that same light: if wording
+> of that kind is added, it should describe a way to satisfy attribution
+> where attribution is otherwise required, rather than create a new
+> obligation merely because a user accesses the model remotely.
+>
+> That gives me a clear operational reading of the current text.
+>
+> Thank you for the detailed clarification and for pointing me to the
+> earlier review history.
+>
+> Best,
+>
+> Yuta Yokoi
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Communication from the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260905/7ec0b93a/attachment-0001.htm>
+

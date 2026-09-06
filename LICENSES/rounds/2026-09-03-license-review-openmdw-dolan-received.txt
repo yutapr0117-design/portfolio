@@ -1,0 +1,408 @@
+Source: OSI license-review public archive, 2026-September.txt
+Retrieved: 2026-09-06 from lists.opensource.org
+Date: Thu, 3 Sep 2026 16:55:58 -0400
+From: Michael Dolan <mdolan@linuxfoundation.org> (OpenMDW steward, Linux Foundation)
+Subject: [License-review] For Approval: OpenMDW License Agreement, versions 1.1 (OpenMDW-1.1)
+
+受領。冒頭で Sado 氏と本 steward の双方に名指しで応答している（"Sado-san, Yokoi-san, thank you
+both for your detailed questions about the scope of the termination trigger."）。
+**このメッセージは我々のメッセージ ID を参照していない** —— スレッド内の別メッセージへの返信
+として配送され、本文中で名指しに応答する形。ID 参照だけを追う検出では取りこぼす。
+
+公開アーカイブから逐語で複製したもの。無改変。
+
+----- begin verbatim -----
+
+From mdolan at linuxfoundation.org  Thu Sep  3 20:55:58 2026
+From: mdolan at linuxfoundation.org (Michael Dolan)
+Date: Thu, 3 Sep 2026 16:55:58 -0400
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+In-Reply-To: 
+ <CAAvo7O5unirCUqORbwm=-tX2greZ6L9vX=fU3+=wN6RJ2k6M+A@mail.gmail.com>
+References: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+ <CAC1cPGzpjtL=UyGT=bzu+6JmohsY567PPU=0ZxGJOrM7vNDdyw@mail.gmail.com>
+ <CAFV=PSE7swjqNpbLqLFoJJJOnf03khMJHa_FL_bP9ow40c0E2Q@mail.gmail.com>
+ <4d892328-fe83-471b-8714-bb0b818c54d9@chesteklegal.com>
+ <CAFV=PSEyd7Ly8aWtkdcm9X96bpTXBFZToKW0pADpwrhNhXPtog@mail.gmail.com>
+ <bd0fc092-4a3f-4e0a-a446-ccc1f344ee61@chesteklegal.com>
+ <f5ec169a-3f32-4631-a67b-075f18464ad0@berkus.org>
+ <CAC1cPGxNqTn=UhoB8pByXjdUKXicJE1r-bMVcOnRs1wxkzd_HQ@mail.gmail.com>
+ <83b0a64a-2f55-4c37-a235-e20f6c8895cb@chesteklegal.com>
+ <CAC1cPGy7Z3KkgXucNNqwFdpUmAgUK-oF-pnyjyZpG_qjAiNmcw@mail.gmail.com>
+ <920bdeb4-c87f-495d-a015-cd7349088949@chesteklegal.com>
+ <CAC1cPGy_kRtjJ86cstct6An4Ty-ouoda9502o2HehWHxAKe-vg@mail.gmail.com>
+ <43d93f2d-520a-409c-8974-52fb2097969b@lexpan.law>
+ <CAC1cPGzF07tWUkutgm0s2aUXjxH41=gDsa6CfNSH96ny-P1UKg@mail.gmail.com>
+ <TY7PR01MB15702B5B2FF40C26015621ECBADAA2@TY7PR01MB15702.jpnprd01.prod.outlook.com>
+ <85c6ae80-eb3c-4b94-ac7a-975d6f26ebdc@chesteklegal.com>
+ <CAFjZtReCmJfy4xhr+RTK=seNPdEVaqw8MS0C9hd9B+iH27x7Aw@mail.gmail.com>
+ <CAFV=PSFDwnSER7N3keCgHt9O+dppL2JngCiqo0nc2Ebsm7SPDA@mail.gmail.com>
+ <CAAvo7O5unirCUqORbwm=-tX2greZ6L9vX=fU3+=wN6RJ2k6M+A@mail.gmail.com>
+Message-ID: 
+ <CAFV=PSG-YVB_CruZdj+FGxopt20DvNLE2gJGxsxyDQfGOFPwqQ@mail.gmail.com>
+
+Sado-san, Yokoi-san, thank you both for your detailed questions about the
+scope of the termination trigger.
+
+1. "Directly or indirectly infringe" (Sado-san).
+
+Your first reading is the intended one. "Indirectly" covers secondary
+liability claims: for example, a claim that making, using, or distributing
+the Model Materials helps or causes other people to infringe someone's
+rights. You are right that, technically, this kind of liability belongs to
+a person rather than to materials. Apache-2.0 uses the same shorthand. Its
+Section 3 also references “the Work” itself (rather than an entity’s use,
+distribution, etc. of the Work) as something that "constitutes direct or
+contributory patent infringement," and we followed the same wording style.
+
+Other common FOSS licenses tend to use comparable language referring to the
+licensed thing itself when speaking of termination for infringement, e.g.
+EPL-2.0 section 7 (“...alleging that the Program itself… infringes such
+Recipient’s patent(s)”), CDDL-1.1 section 6.2 (“...alleging that the
+Participant Software… directly or indirectly infringes any patent”),
+MPL-2.0 section 5.2 (“...alleging that a Contributor Version directly or
+indirectly infringes any patent”).
+
+The OpenMDW-1.1 licenses the Model Materials only, and the termination
+provision requires a claim against the Model Materials. OpenMDW-1.1 does
+not reach back to artifacts used in the creation of the model unless such
+artifacts are included in the subsequently published Model Materials that
+are themselves licensed under OpenMDW-1.1.
+
+2. Re: the termination boundary (Yokoi-san).
+
+Taking your questions in order:
+
+1) Correct. A lawsuit claiming infringement of a database right does not
+trigger termination, and the license grants stay in place. The trigger
+covers only claims that the Model Materials "infringe any patent or
+copyright." Database rights are a right available in the EU, the UK, and a
+small number of other jurisdictions, but they are far from universal, and
+the US has no equivalent. We looked at this closely when we drafted the
+CDLA data license agreements.
+
+2) Correct. A trade secret lawsuit does not trigger termination. At least
+in the US, a trade secret claim is "misappropriation," not "infringement,"
+so it is outside the trigger. There is also a practical reason to leave it
+out as publishing materials openly destroys secrecy. A trade secret claim
+about openly published model materials makes little sense as a realistic
+threat.
+
+3) Your first two questions lead directly to the principle. The trigger is
+not designed to match the grant. It was designed to match the real
+litigation threats that openly published model materials face. Trade secret
+claims are not relevant because of the secrecy point above. Database rights
+are an odd situation because a license used worldwide should not make
+termination depend on a right most countries do not offer.
+
+The realistic lawsuit against model materials is still a copyright lawsuit
+or a patent claim against the functionality.
+
+I'd also point out that Apache-2.0 works on the same principle. It grants
+both copyright and patent licenses, but its termination trigger covers only
+patent claims. As discussed earlier in this thread, the Apache-2.0 trigger
+followed the prominent threat of its time, not the scope of its grant.
+
+I recognize the debate over OpenMDW-1.1 has extended into a broader policy
+on termination. My personal position is that adding copyright to the
+termination trigger does not imply that other claim types should follow.
+Copyright was added because that is where the very real threat to model
+publishers exists. Patent claim threats to model publishers are likewise
+real. We discussed this at one point in drafting, and this is where we
+ended up.
+
+Mike
+
+---
+Mike Dolan
+The Linux Foundation
+Cell: +1.440.552.5322
+mdolan at linuxfoundation.org
+
+For help scheduling a meeting, please contact Jackline Mbithi <
+jmbithi at linuxfoundation.org>.
+
+---
+
+
+On Wed, Sep 2, 2026 at 12:18 PM Shuji Sado <shujisado at gmail.com> wrote:
+
+>
+> Mike-san, one point of clarification on your summary in 7(b). I realized
+> that I may have been reading one part of Section 5 too narrowly. When the
+> license says that the Model Materials “directly or indirectly infringe”
+> copyright, what exactly is intended by “indirectly”?
+>
+> In copyright law, indirect infringement ordinarily makes me think of
+> secondary liability such as contributory or vicarious infringement, which
+> is generally liability of a person or entity rather than something that the
+> material itself “does.” Is “indirectly” intended to cover a claim that use
+> or distribution of the Model Materials induces or contributes to
+> third-party infringement, or is it intended more broadly, for example to
+> reach claims based on infringement occurring during the training process?
+>
+> Shuji
+>
+>
+> 2026/9/1 23:00 Michael Dolan <mdolan at linuxfoundation.org>:
+>
+>> A few points raised since Friday were new, so I will share my view on
+>> those in case it helps everyone's understanding. It’s challenging to
+>> keep up with all the points raised and comments. I will then summarize our
+>> position regarding the more contentious points and areas of confusion that
+>> resurface throughout this thread.
+>>
+>> 1. "Voluntarily participate" (Richard's point).
+>>
+>> Richard, you are correct in tracing this to the patent non-assert
+>> language from the Microsoft promises through OWFa 1.0, whose agreements we
+>> use today across a number of specification communities. For example, the
+>> Open Container Initiative releases specifications under the OWFa 1.0
+>> patent-only variant alongside Apache-2.0, and GraphQL is licensed under
+>> OWFa. The phrase does specific, narrow work. "File or maintain" alone would
+>> invite an obvious dodge: fund, direct, join, or control litigation
+>> nominally brought by someone else. The word "voluntarily" excludes
+>> compelled participation. A subpoenaed witness, a deposed employee, a juror,
+>> and a party joined involuntarily do not voluntarily participate. I can only
+>> confirm our intent in OpenMDW. David Rudin, who chimed in earlier on this
+>> thread, was part of drafting the OWFa (and maybe also the Microsoft
+>> promises). I'll defer to him on the OWFa's intent - we weren’t involved in
+>> that drafting work.
+>>
+>> 2. "Corresponding lawsuit" (Richard and John).
+>>
+>> The termination provision targets voluntary first aggression, so a party
+>> who was sued first does not lose its license by responding, whether by
+>> counterclaim, cross-claim, or a separately filed responsive action.
+>> "Lawsuit" rather than "counterclaim" is deliberate. Responsive claims
+>> sometimes must be brought as separate actions, in a different forum or a
+>> declaratory posture, and the exception should not turn on civil procedure.
+>> "Corresponding" ties the responsive suit to the litigation first brought
+>> against you. Without it, any unrelated suit anyone had ever filed against a
+>> party would immunize that party's later aggression indefinitely. I would
+>> also note that compulsory counterclaim rules in some jurisdictions require
+>> a defendant to assert related claims or lose them. The exception ensures
+>> the license never forces a choice between complying with those rules and
+>> keeping the license. So Richard is right that it does not require the two
+>> suits to share underlying subject matter, and it is not merely "another":
+>> it means responsive to the action first brought against you.
+>>
+>> 3. Use in litigation. (Kevin’s points)
+>>
+>> Kevin, regarding your concern about retained experts and counsel and
+>> access in litigation, I had a couple of reactions. First, termination
+>> operates only as of filing or participation, so all pre-suit investigation
+>> and testing happens under a full license. Second, use as evidence after
+>> filing does not depend on the license.
+>>
+>> Use for purposes of judicial proceedings is protected independent of any
+>> license, in the US as fair use, and analysis of accused materials proceeds
+>> through discovery. This isn’t just a license steward’s claim; see, e.g.,
+>> Bond v. Blum, 317 F.3d 385, 392-397 (4th Cir. 2003) (finding fair use of
+>> copyrighted materials when used as evidence in a court proceeding), and I’m
+>> sure dozens of other cases out there.
+>>
+>> I’ll point out that the same situation would apply, for example, for a
+>> case relating to software under MPL-2.0 where a plaintiff brings both
+>> patent and copyright claims (the Oracle v. Google litigation is an example
+>> where both types of claims were brought together, albeit not for
+>> MPL-2.0-licensed software). Section 5.2 of MPL-2.0 would terminate all
+>> license grants (both patent and copyright) due to the patent claim. The
+>> plaintiff would presumably have to investigate their copyright claims using
+>> mechanisms other than an explicit license grant under MPL-2.0. I can't
+>> claim to know how that would work outside the U.S., but at least in the
+>> U.S., we have other avenues than the license grant.
+>>
+>> 4. The API and RAG hypo (Moming's point).
+>>
+>> Moming, I don't think your hypothetical works as stated under the
+>> definition of Model Materials. Model Materials means the materials
+>> "provided to you" under the agreement. A provider's server-side store of
+>> user inputs is never provided to the user and is therefore not part of any
+>> user's Model Materials. A user of a hosted API typically receives no Model
+>> Materials at all and needs no copyright license to use a hosted service;
+>> the provider's terms of service govern that relationship, not this license.
+>> A claim that a provider is misusing your inputs is a claim about the
+>> provider's conduct, not a claim that materials provided to you infringe. I
+>> do not see how OpenMDW would apply in this scenario, as that conduct likely
+>> falls under their terms of use or service agreement.
+>>
+>> 5. Downstream recipients (Carlo, in response to your point (a)).
+>>
+>> Yes, the definition and grant are per recipient. Each recipient's license
+>> runs directly from the providers under that recipient's own agreement, not
+>> through a chain from an intermediate distributor, and termination reaches
+>> only the rights and grants made to the litigant. A downstream recipient who
+>> is not a participant in the litigation holds their own grant and is
+>> unaffected.
+>>
+>> I would note again that OpenMDW licenses are already in use in the field,
+>> and many licensors have published model materials under them. I accept your
+>> point that it could be clearer, but I'm also not aware of any perfectly
+>> drafted open source license… so I'll request a similarly fair evaluation as
+>> other licenses in use, warts and all. :-)
+>>
+>> 6. On the software freedom subthread, I'll stay out of the definitional
+>> debate, but Luis, your reframing toward the health of the software commons
+>> resonates with me. That is the test this license was built for: moving
+>> model publishers from bespoke restrictive terms into the commons. I
+>> couldn’t justify to a business decision-maker that they couldn’t use
+>> OpenMDW-1.1 licensed models because of the arguments playing out in this
+>> thread. At some point in the analysis, this thread has gone to a strange
+>> place.
+>>
+>> 7. Finally, since several earlier points keep resurfacing as the thread grows,
+>> and it appears people are not going back to read everything (which is
+>> understandable), I thought I’d provide a short summary of our positions
+>> as the steward, which we have already stated in this thread. Perhaps this
+>> will help bring this debate to a close:
+>>
+>> (a) The termination provision does not preclude or waive any claim or
+>> remedy, and it is merits-neutral. It presumes nothing about whether any
+>> claim, patent or copyright, is valid, and it operates identically either
+>> way, as patent retaliation always has. It does not prevent anyone from
+>> filing any litigation on any topic. It ends only the claimant's own license
+>> to the materials claimed to be infringing upon filing such a lawsuit.
+>> Pre-litigation enforcement is also out of scope. The license termination
+>> provision puts the parties back into the same position they were in before
+>> any license was conveyed.
+>>
+>> (b) The trigger reaches only claims that the licensed materials
+>> themselves infringe, the class of claims that attacks the subject of the
+>> grant itself. Broader triggers, such as any IP claim or any lawsuit, were
+>> considered and rejected.
+>>
+>>
+>> (c) Terminating copyright grants as a remedy appears in OSI-approved
+>> licenses (e.g., MPL 1.1 §8.2, CDDL 1.1 §6.2, OSL 3.0 §10, CAL-1.0 §5.3),
+>> and OSI has approved a trigger broader than patent claims in OCLC-2.0 §5.
+>>
+>> (d) OpenMDW does not relicense third-party code, and it doesn’t “grab”
+>> third-party code into its scope. The grant conveys only rights the
+>> providers hold or can pass through for the materials identified as being
+>> provided, and third-party components keep their own licenses and notices.
+>> Unlike other licenses, which may have narrower grants, the grant is
+>> intended to encompass all possible rights a user of an OpenMDW-license
+>> model may need to practice/use the model. This is intentional and designed
+>> to overcome potential lack of clarity in other licenses when used in an AI
+>> model context. For example, Apache-2.0’s grants are centered on copyright
+>> via “the Work” which is “the work of authorship” (copyright), and then the
+>> patent grant is scoped to “the Work”.
+>>
+>> (e) “Model Materials” is transaction-scoped to the materials provided to
+>> you under one agreement. Separate releases are separate agreements, and
+>> there is no ever-expanding covered work. The definition's own word
+>> "related" bounds the unit of materials concern that keeps coming up. I
+>> understand that the OpenMDW is novel in the scope of Model Materials, but
+>> honestly, for how many years have we debated “what is the Work” under
+>> Apache-2.0 or “the Program” under EPL-1.0 without ever questioning if they
+>> satisfy the OSD requirements?
+>>
+>>
+>> (f) The clearance paragraph is a risk-allocation disclaimer. The license
+>> has one affirmative condition, notice retention, and one termination
+>> mechanism, the litigation provision. Where this license family intends a
+>> condition, it says so expressly. And licenses such as §2(c) of EPL-1.0 and
+>> EPL-2.0 show that even if such risk-allocation terms were an explicit
+>> condition of the license grant (which they are not for OpenMDW), an
+>> explicit condition would still not conflict with the OSD.
+>>
+>> (g) We can clarify many of the concerns raised here with FAQ updates
+>> stating these interpretations and publishing guidance for model publishers
+>> that recommends enumeration of each release's Model Materials.
+>>
+>>
+>> ---
+>> Mike Dolan
+>> The Linux Foundation
+>> Cell: +1.440.552.5322 <(440)%20552-5322>
+>> mdolan at linuxfoundation.org
+>>
+>> For help scheduling a meeting, please contact Jackline Mbithi <
+>> jmbithi at linuxfoundation.org>.
+>>
+>> ---
+>>
+>>
+>> On Tue, Sep 1, 2026 at 1:19 AM Luis Villa <luis at lu.is> wrote:
+>>
+>>> On Sun, Aug 30, 2026 at 2:51 PM Pamela Chestek <pamela at chesteklegal.com>
+>>> wrote:
+>>>
+>>>> McCoy, you asked for a definition of "software freedom" and Moming's
+>>>> response is similar to my thoughts:
+>>>>
+>>>> On 8/29/2026 11:10 PM, Moming Duan wrote:
+>>>>
+>>>> Here is a simple test of my own: *if 99% of the world's models were
+>>>> released under license X, would our ecosystem be better off?*
+>>>>
+>>>> My premise is that the everyone benefits from a software commons, so,
+>>>> does the license encourage or discourage sharing?
+>>>>
+>>> "Software freedom" is the ability to do anything you want with the
+>>>> software. A few conditions/impairments are allowed because they indirectly
+>>>> encourage the growth of the software commons - giving credit (copyright
+>>>> notice/attribution), telling people what their rights are (the license),
+>>>> the appropriate distribution of risk (the "as-is" rep and disclaimer of
+>>>> warranty), and compulsory sharing (copyleft). The balance is very delicate.
+>>>> It's questionable whether the GPLv3, and then the AGPL, contribute to the
+>>>> health of the open source software commons because they are commonly used
+>>>> as the antagonist to encourage people to get a commercial license instead.
+>>>> It does, though, seem that lever isn't as successful anymore, since people
+>>>> are more willing to comply with the copyleft licenses and these two
+>>>> licenses are more often being used for their intended benefit.
+>>>>
+>>>> This, I think, is the piece that's missing from the OSD. We've seen the
+>>>> OSD gamed when it has been formally met but it is nevertheless clear that
+>>>> the license is designed to give one entity superior rights in the software
+>>>> or has mechanisms that will discourage the use of the software. "Providing
+>>>> software freedom" as a requirement is a check on that.
+>>>>
+>>> FWIW any or all of Pam's formulations of "encouraging sharing of
+>>> software" or "contributing to the health of the software commons" or
+>>> "protecting the open software ecosystem" (from an opensource.com essay
+>>> of yours, Pam, IIRC) would be vastly superior to "providing software
+>>> freedom".
+>>>
+>>> Besides the obvious point that software doesn't have freedom, any of
+>>> those would be much clearer to argue about, with less baggage. (There would
+>>> still be plenty of arguing; all of those still require value judgments. But
+>>> at least it'd be a value that one can attempt to decipher from the words.)
+>>> _______________________________________________
+>>> The opinions expressed in this email are those of the sender and not
+>>> necessarily those of the Open Source Initiative. Communication from the
+>>> Open Source Initiative will be sent from an opensource.org email
+>>> address.
+>>>
+>>> License-review mailing list
+>>> License-review at lists.opensource.org
+>>>
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not
+>> necessarily those of the Open Source Initiative. Communication from the
+>> Open Source Initiative will be sent from an opensource.org email address.
+>>
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>
+>
+> --
+> Shuji Sado
+> Chairman, Open Source Group Japan
+> https://opensource.jp/
+> English blog: https://shujisado.org/
+> Japanese blog: https://shujisado.com/
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260903/0491655c/attachment-0001.htm>
+
