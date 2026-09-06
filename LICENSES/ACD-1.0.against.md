@@ -273,6 +273,8 @@ in the worst possible place.
 
 | 78 | **The reason given for not submitting to SPDX was stricter than SPDX's own criterion, and three facts in our favour went unstated.** The dossier said in five places that SPDX "asks for substantial real-world use" and that one adopter fails it. The published inclusion principles read: "Substantial use may be demonstrated via use in many projects, **or in one or a few significant projects**", and separately, "**For new licenses, there are definitive plans for use in significant projects**". **Neither route is "many projects".** We had been applying a narrower bar to ourselves than the one written down, and stating it as the reason for a decision | **The decision stands; the reason is corrected.** The right question is not "is there only one adopter" but "is that adopter a *significant* project, or are there definitive plans for use in one", and the answer to both is no — the single adopter is the steward's own portfolio. **Reading the source also produced three things in our favour that had never been stated**: OSI approval carries **automatic** SPDX inclusion (so the OSI-then-SPDX ordering is not merely a bar we fail but a dependency that resolves itself); SPDX requires "identifiable, stable text that is not still being drafted", which the freeze plus Check 453's digest pins demonstrate mechanically; and SPDX requires the steward to commit to no post-inclusion modification and to versioning, which §16.4 and `REVISION-PROTOCOL.md` §2 already are. **#70 said the favourable side goes stale; this is the same failure in a different form** — three favourable facts absent because nobody read the source that contained them |
 
+| 79 | **The packet offered a URL where the process asks for an attachment, and we now know that is the first thing checked.** OSI's process requires "a copy of the license as an attachment in simple text format". §A named the canonical URL and stopped there. Reading the July 2026 review of a fresh submission shows what happens: the first substantive reply was *"Please attach a copy of the text to your submission. While we appreciate making it available via Github, **we need a version that isn't subject to dynamic changes to evaluate**"*, and the second reply was *"Please provide all the information as required on this page … and **in particular do not skip 'Describe any legal review the license has been through, including whether it was drafted by a lawyer.'**"* | **Both are now handled, and the second was already.** §A states the text is attached as plain text and points a reviewer at the digest command, so the attachment can be checked against the published copy rather than trusted — which is more than the request asked for and is the one place the freeze pays off in a reviewer's hands. The legal-review disclosure was already in §5 and §4c and is now also a line in the §A.0 header (`Drafted By Lawyer: No`). **The same thread produced a third thing worth acting on**: the reviewer also wrote *"your links are broken"*. **Every URL in this packet was fetched and all six return 200** (2026-09-06), and `REVISION-PROTOCOL.md` gains that as a pre-send gate — **a broken link costs credibility before anyone reads the text** |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -289,13 +291,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **78** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **79** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **78 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **79 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
