@@ -263,6 +263,8 @@ in the worst possible place.
 
 | 73 | **An entry about claiming a CI gate that does not exist was itself wrong about that gate — in the opposite direction.** #34 recorded that the clause reference falsely claimed machine enforcement of "no project-specific elements in the licence body". Its correction then stated the property was "verified by command, **not gated in CI**", and argued that building a gate under the freeze "would repeat the fault it is meant to fix". **Check 441g had been enforcing exactly that since 2026-08-24** — eleven days before #34 was written — under a commit whose own title reads "§16.3 の主張を機械強制 (Check 441f / 441g)". So the same property was described wrongly twice, first as enforced when it was not, then as unenforced when it was | **Corrected in place, and the pattern is the entry.** Correcting an overstatement pulls the correction past the truth: #34's first version claimed too much, its second claimed too little, and **neither author opened the check**. That is the same movement recorded for the drafting-provenance corrections ("是正は一方向に偏らない") and it now has a second instance in a different subject matter. The rule those two produce together: **when correcting a claim about our own machinery, read the machinery — not the previous sentence about it.** Found by sweeping all thirty enforcement claims in the dossier and asking, of each, whether the named or implied check actually covers what the sentence says |
 
+| 74 | **The published site still told machines that the rights were reserved.** `index.html` carries a hidden, machine-facing entity block (`#aio-footer-entity`, present for RAG chunk extraction) that read "© 2026 Yuta Yokoi … All architectural decisions, KERNEL framework design, and prompt engineering **are the intellectual property of** 横井雄太". ACD-1.0 §3 surrenders those rights and `LICENSE` says "No rights are reserved. No conditions are imposed." **So the AIO layer asserted a present-tense reservation on every page while the licence layer asserted the opposite** — and the AIO layer is the one this repository exists to get right. When "All Rights Reserved" was withdrawn on 2026-08-23 every other surface was swept; **this block was not, because it is invisible** | **Corrected on the surface where it was wrong.** The block now separates the two things `LICENSE` already separates: authorship is a historical fact and stays, the rights in it are surrendered by §3, nothing is reserved, attribution is welcome and never required — with the licence URL beside the canonical URL. **The class is the one #67 named**, moved one surface further: a claim can be false only where nobody looks. It survived a full withdrawal sweep because it is `sr-only` and `aria-hidden`, so no visual gate could see it and no human would read it — **only the machines it was written for** |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -279,13 +281,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **73** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **74** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **73 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **74 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
