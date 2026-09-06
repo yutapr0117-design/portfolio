@@ -275,6 +275,8 @@ in the worst possible place.
 
 | 79 | **The packet offered a URL where the process asks for an attachment, and we now know that is the first thing checked.** OSI's process requires "a copy of the license as an attachment in simple text format". §A named the canonical URL and stopped there. Reading the July 2026 review of a fresh submission shows what happens: the first substantive reply was *"Please attach a copy of the text to your submission. While we appreciate making it available via Github, **we need a version that isn't subject to dynamic changes to evaluate**"*, and the second reply was *"Please provide all the information as required on this page … and **in particular do not skip 'Describe any legal review the license has been through, including whether it was drafted by a lawyer.'**"* | **Both are now handled, and the second was already.** §A states the text is attached as plain text and points a reviewer at the digest command, so the attachment can be checked against the published copy rather than trusted — which is more than the request asked for and is the one place the freeze pays off in a reviewer's hands. The legal-review disclosure was already in §5 and §4c and is now also a line in the §A.0 header (`Drafted By Lawyer: No`). **The same thread produced a third thing worth acting on**: the reviewer also wrote *"your links are broken"*. **Every URL in this packet was fetched and all six return 200** (2026-09-06), and `REVISION-PROTOCOL.md` gains that as a pre-send gate — **a broken link costs credibility before anyone reads the text** |
 
+| 80 | **The message we had ready to send was 7,500 words, to a list whose code of conduct asks for concision.** §B of the submission packet — the part meant to be pasted into an email — ran to **7,505 words across thirteen numbered sections**. The `license-review` code of conduct has asked participants to be "concise and low-volume" since it was first written, and that was restated in the August 2026 review. For comparison, the two new-licence submissions read from the archive opened at roughly 300 and 1,500 words. **A 7,500-word opening post is a statement about the submitter before it is a statement about the licence** | **Corrected by writing the message the design already implied.** §B.0 is the message as it should actually be sent: **≈600 words**, carrying every item OSI's process requires — attachment, affirmative OSD statement, header block, gap, nearest approved licences, structure, legal review, provenance — and pointing at the repository for the rest, including the adverse list. **§1–§5 are not deleted**; they are relabelled §B.1, "reference material behind the message (not for pasting)", which is what they always were in intent. **The dossier's whole premise is that depth in the repository buys brevity in the message**, and until now the packet did the opposite of what the premise says |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -291,13 +293,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **79** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **80** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **79 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **80 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
