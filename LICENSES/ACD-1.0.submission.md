@@ -120,6 +120,83 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
+### B.0 The message as it should actually be sent (≈600 words)
+
+**Why this section exists.** Everything below §B.0 — §1 through §5 — runs to **7,500 words**. The
+list's code of conduct asks for "concise and low-volume" and that was restated in the August 2026
+review (`REVISION-PROTOCOL.md` §3.7). **A 7,500-word opening post contradicts the design this
+dossier is built on**, which is that the repository holds the depth so the message can be short.
+§1–§5 are not deleted: they are the reference material the short message points at, and they are
+where a reviewer who asks a specific question is sent. **Send §B.0. Do not paste §1–§5.**
+
+---
+
+**Subject:** For Approval: Autonomous Commons Dedication 1.0 (ACD-1.0)
+
+Dear License Review Committee,
+
+I am submitting the **Autonomous Commons Dedication 1.0 (ACD-1.0)** for approval. The text is
+attached as plain text; it is also published at
+`https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt`, and the attachment can be
+checked against it — the SHA-256 is pinned in `LICENSES/FROZEN.md` and verified by CI, so the text
+cannot drift during review.
+
+```
+License Name:                   Autonomous Commons Dedication
+Version:                        1.0
+Short Identifier:               ACD-1.0
+Copyleft:                       No
+Legacy or New:                  New License
+Drafted By Lawyer:              No
+Approved or Used by Projects:   One — my own repository
+Steward:                        Yuta Yokoi (横井雄太), yuta.yokoi.r@gmail.com
+SPDX / ScanCode Identifier:     None (LicenseRef-ACD-1.0 is the conforming form)
+Proposed Tags:                  None
+```
+
+**I affirm that ACD-1.0 complies with the Open Source Definition.** A criterion-by-criterion
+analysis is in the repository, and so is a companion section setting out, for each of the ten
+criteria, **where a reviewer could argue the opposite**.
+
+**The gap.** ACD-1.0 is written for works meant to be learned from. It does three things no
+approved licence does together: it expressly permits machine learning and text-and-data-mining and
+declines to make any reservation (§6); it grants a patent licence that reaches models and outputs
+of computational use (§8.4); and it makes the recipient's permissions independent of whether
+copyright subsists in machine-generated material at all (§9).
+
+**Nearest approved licences.** It is closest in effect to the Unlicense, MIT-0, 0BSD and CC0, and
+closest in patent machinery to Apache-2.0. The full comparison — **including where those are the
+better choice, which is most of the time** — is in the repository.
+
+**Structure, since it matters for reviewability.** §3 surrenders the Covered Rights and §4 grants a
+licence over the same rights **independently of §3** (§4.4): §4 does not wait for §3 to fail, and a
+recipient never has to decide which operated. The Committee's 2020 recommendation on the Unlicense
+records that a dedication *taken alone* would not be approved; ACD-1.0 is not taken alone.
+
+**Legal review: none.** No lawyer has drafted or read it. I state that plainly rather than let it
+be discovered. What can be shown without counsel is mechanical, and is checked in CI on every
+commit: numbering, cross-reference resolution, defined-term usage, absence of any
+obligation-imposing word directed at the user, absence of anything specific to my project, and
+pure-ASCII text.
+
+**Provenance.** The text was drafted by an AI agent operating autonomously in this project. I did
+not commission it or direct the drafting, and learned of it afterwards; I read it in full before
+relying on it. I am the Dedicator and steward and I answer for it.
+
+**Everything else, including the case against approving it.** The repository carries an adverse
+list — written by me, adverse items first, with the two entries that have no answer at the top —
+along with known defects in the text, the jurisdictional questions, and worked answers to the
+objections I expect. Start at `LICENSES/REVIEWERS.md`. I would rather you found those there than
+had to extract them from me.
+
+Thank you for your time.
+
+Yuta Yokoi
+
+---
+
+### B.1 Reference material behind the message (**not for pasting**)
+
 **Subject:** For Approval: Autonomous Commons Dedication 1.0 (ACD-1.0)
 
 Dear License Review Committee,
@@ -621,7 +698,7 @@ machine can find are not present.
 | Every clause pointer in the machine-readable descriptor resolves and matches its subject | cross-check `ACD-1.0.machine.json` `clause` fields against the text | **33 / 33** |
 | Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
 | Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
-| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **79 entries, 1–79, no gaps; all citations resolve** |
+| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **80 entries, 1–80, no gaps; all citations resolve** |
 | Every defect called a "1.1 candidate" anywhere has an entry in the errata to point at | cross-check declarations against `errata.md` | **one was missing and has been added (E7)** |
 | Every negative self-claim the text makes about itself is true | extract each "contains no / imposes no / grants no / reaches nothing / specifies no" statement and search the whole text for the thing denied | **9 claims, 9 true** — each denied term appears only inside the clause doing the denying |
 | Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |
