@@ -165,8 +165,8 @@ of computational use (§8.4); and it makes the recipient's permissions independe
 copyright subsists in machine-generated material at all (§9).
 
 **Why now, since the objection is reasonable.** Of roughly 250 submissions in the public review
-record, **none before 2024 substantively concerns machine learning or text-and-data mining, and
-three do in 2026** — two of them still under review. I do not claim the timing makes this licence
+record, **none before 2024 concerns machine learning or text-and-data mining at all, and six do since**
+— three of them in 2026, two still under review, **and none yet approved**. I do not claim the timing makes this licence
 necessary. I offer it against the fair objection that if the question were real, someone would
 have raised it long ago.
 
