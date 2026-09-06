@@ -67,6 +67,18 @@ correctly. It records what is true. It requires nothing of you, and ACD-1.0
   machine-generated under human direction (constraint C5). ACD-1.0 §9 is
   written for exactly this situation and makes your permissions independent of
   whether any right subsists in machine-generated material.
+- Authorship of ACD-1.0 itself: the licence text was drafted by an AI agent
+  operating autonomously in this project. It was not commissioned or directed
+  by the owner, who learned of it afterwards and read it in full before relying
+  on it. He is the Dedicator and the steward and answers for it. This is stated
+  here, and not only in the submission packet, because it is material to anyone
+  deciding whether to apply ACD-1.0 to their own work.
+- Legal review of ACD-1.0: none. No lawyer has read it. It is not OSI-approved
+  and not registered with SPDX; the conforming identifier for an unregistered
+  licence is LicenseRef-ACD-1.0. The complete list of facts that argue against
+  relying on it — written by us, adverse items first — is in
+  LICENSES/ACD-1.0.against.md, and the known defects in the text are in
+  LICENSES/ACD-1.0.errata.md.
 
 Saying truthfully that this work came from here is always permitted (ACD-1.0
 §11.2). Saying falsely that Yuta Yokoi or 株式会社日本経営 endorsed, approved, or
