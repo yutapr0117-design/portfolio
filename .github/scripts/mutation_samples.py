@@ -477,6 +477,17 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 465: rounds/ の在庫申告を実測より小さくする —— 記録が drift しないためだけに"
+            "在るディレクトリの入口が、中身の量について偽を述べる形。2026-09-06 まで実際に"
+            "「いまの状態: 空である」と書かれ続けており (against.md #89)、審査者は証拠の量を"
+            "その入口から受け取るので、小さく言うのは開示の主張を嘘にする",
+    "file": ROOT / "LICENSES" / "rounds" / "README.md",
+    "find": "## いまの状態（2026-09-06 時点・7 ファイル）",
+    "replace": "## いまの状態（2026-09-06 時点・6 ファイル）",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
