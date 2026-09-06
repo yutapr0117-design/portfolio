@@ -433,8 +433,11 @@ _MUTATIONS_TAIL.append({
             "累積が更新されなければ「今日で合計いくら増えたか」が視界に入らない。予算は自分で上げられる"
             "ので、歯止めは累積を見ることにしかない (2026-08-27 に実際 5 回分 stale 化していた)",
     "file": ROOT / "docs" / "architecture" / "file-size-budget.md",
-    "find": "session-start=716800 current=726300",
-    "replace": "session-start=716800 current=722400",
+    # [FIX] anchor をラチェットのたび動く値から不変部分へ移す。旧 anchor は `current=726300` を
+    #   直接掴んでおり、**次のラチェットで必ず orphan 化**した (実際に 2026-09-06 に Check 362 が検出)。
+    #   末尾に数字を足すだけで current が別値になり Check 461 が RED になる。
+    "find": "session-start=716800 current=",
+    "replace": "session-start=716800 current=9",
     "check": CHECK,
 })
 

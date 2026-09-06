@@ -50,3 +50,15 @@ main.js / 各 factory module
 
 ### For third parties
 - Boring Technology 哲学の hyperscript 実装。React なしで宣言的 DOM 構築する例
+
+## `rel` は上書きではなく合併する (2026-09-06)
+
+`h()` は `target="_blank"` の anchor に `noopener noreferrer` を強制するが、**従来は
+`setAttribute` で上書きしており、呼び出し側が付けたセマンティックトークン
+（`license` / `author` / `alternate` / `nofollow`）を silent に捨てていた**。
+実測: `rel: 'license noopener noreferrer'` が `noopener noreferrer` になる。
+
+誰も気付かなかったのは、**それまでセマンティックトークンを付ける呼び出し側が 1 つも
+無かった**から。union へ変えても `noopener`/`noreferrer` は必ず加わるのでセキュリティ契約は
+不変で、意図したセマンティクスだけが生き残る。外部リンクの `noopener noreferrer` は
+既存の security e2e が引き続き強制する。

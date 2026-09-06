@@ -159,7 +159,14 @@ export function h(tag, attrs = {}, ...children) {
         }
     }
     if (tag === 'a' && el.getAttribute('target') === '_blank') {
-        el.setAttribute('rel', 'noopener noreferrer');
+        // [FIX] 従来は setAttribute で **上書き**しており、呼び出し側が付けた rel の
+        //   セマンティックトークン (`license` / `author` / `alternate` 等) が silent に
+        //   捨てられていた (実測: rel:'license noopener noreferrer' が
+        //   'noopener noreferrer' になる)。**足す**形にすれば noopener/noreferrer は
+        //   必ず残る = セキュリティ契約は不変で、意図したセマンティクスだけが生き残る。
+        const rel = new Set(String(el.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
+        rel.add('noopener'); rel.add('noreferrer');
+        el.setAttribute('rel', [...rel].join(' '));
     }
     children.flat().forEach(child => {
         // [FIX] boolean 子を skip (React 等と同挙動)。`cond && h(...)` は falsy 時 `false` を返し、
