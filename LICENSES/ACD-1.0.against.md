@@ -245,6 +245,8 @@ in the worst possible place.
 |---|---|---|
 | 64 | **The message written to be sent to `license-review` misstated two of the numbers in the section whose entire purpose is that a machine can check them.** `submission.md` §4c is our answer to "no lawyer has read it": a table of properties that *can* be established without counsel, each with the command that establishes it. **Three of its rows were wrong** — "**50 entries, 1–50, no gaps**" for an adverse list that holds **63**; "**29 / 29**" clause pointers in the machine-readable descriptor where the repository's own Check 451a counts **33** on every run; and "lowest is `Contribution` at **4**" for defined-term usage where the lowest is **3**, and is shared with `Machine-Generated Material` — so that row was wrong about the number *and* about which term it identified. **A reviewer who runs the commands we published gets different numbers from the ones we published**, and that turns the section into evidence for the opposite of what it argues. Only the first moves as this list grows; **the other two could not have drifted at all** — their inputs are the frozen text and the pinned descriptor — so they were wrong when they were written, which is a different failure from staleness and one that no amount of re-checking a *moving* number would have caught | **Corrected, and enforced (Check 460 face (i)).** Face (a) already read this file — but only one sentence of it, the one that counts worked entries — so §4c sat inside the fence and outside the check. The entry count is now compared against the measured rows, the pointer count against the descriptor itself, and the defined-term minimum against the text under the counting rule the row states — each proven to fire on its own. **The pattern across #58, #63 and #64 is one thing seen three times**: every face of this check was added after a specific place had been caught, so its coverage tracked *incidents*, not *risk*. What changed today is that two of the new faces forbid the claim instead of comparing it, and this one derives its expected value from the artefact rather than from a remembered number |
 
+| 65 | **The section that answers "why not just amend Apache?" could not add up its own two lists.** `comparison.md` §1.35 splits ACD-1.0's distinguishing features into those an amendment would close and those it would not, and then says "**Four of ACD-1.0's six** distinguishing features are of this kind ... the case narrows to the **remaining two**". The lists below it hold **four and three**, so the total is seven and the remainder is three. `QUESTION-INDEX.md` repeated the wrong figure and named only two of the three. The third — that computational use is defined once at the top rather than added at the edge — **was simply dropped from the count while remaining on the page** | **Corrected, and derived from the lists (Check 460 face (j)).** `git log -S` shows the declaration and the list it miscounts **entered in the same commit**, whose own title read "4 つは消え、2 つは残る" — so this is the third thing found in one day that was wrong when written rather than gone stale (with the clause-pointer count and the defined-term minimum in #64). **That is the pattern worth carrying forward**: re-checking numbers that move finds none of these, because none of them moved. The check now counts both lists and compares; **its first version scanned the whole file and reported eight, which is the reminder that a detector needs its own scope verified before its output is believed** |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -261,13 +263,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **64** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **65** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **64 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **65 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
