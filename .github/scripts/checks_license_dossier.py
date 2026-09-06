@@ -106,6 +106,12 @@ def run(ctx):
                 "LICENSES/ACD-1.0.submission.md",
                 "LICENSES/ACD-1.0.review-responses.md",
                 "CLAUDE.md",
+                # **`LICENSE` が「rationale はここ」と指している先**であり、header block で
+                # status を述べている。2026-09-06 まで走査対象に入っておらず、その header は
+                # **「本文はまだ freeze していない」と書いたまま**だった —— 同じ文書の本文が
+                # 「凍結中で一切変更していない」と述べているのに、である。採用を検討する人が
+                # `LICENSE` から辿る唯一の設計文書なので、status を述べる面として縛る。
+                "docs/architecture/acd-license-rationale.md",
             ]
             _missing458, _false458 = [], []
             _others458 = {"license-discuss", "license-review"} - {_venue458}

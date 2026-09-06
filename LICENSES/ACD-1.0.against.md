@@ -253,6 +253,8 @@ in the worst possible place.
 
 | 68 | **The URL the submission gives as "the text" was the one thing the freeze did not check.** `FROZEN.md` pins three files and Check 453 fails the build if they change — but it compares **the copy in the repository**. What the submission packet points a reviewer at, what `ACD-1.0.machine.json` names in its `text` field, and what `ACD-1.0.spdx.xml` lists as its crossRef, is the **published** copy at the Pages URL. **Nothing compared the two.** A stale or altered deployment would leave every pin in the repository green while the reviewer read a different text — which is exactly what the freeze exists to prevent, positioned where the freeze cannot see | **Verified and now enforced.** The published copies of all three files match the pinned digests today; the check that establishes it was missing and has been added to the weekly `check_deployed_freshness.py`, which already had layers for *job failed*, *version stale* and *bytes differ from declared digest* — this is the fourth. **It compares against `FROZEN.md`, not against the working tree**, so that it validates the same authority a reviewer is told to check with `shasum -a 256 -c`; comparing against the tree would miss the case where both moved together. Proven to fire by altering one hex digit of a pinned digest. **Found by asking, of each surface in turn, who reads it and what they receive** — the same question that produced #66 and #67 |
 
+| 69 | **The design document `LICENSE` sends people to still announced, in its header, that the text was not frozen.** `docs/architecture/acd-license-rationale.md` is the one place `LICENSE` points to for the rationale and the conformance analysis, and its status block read "起草完了・申請前。**本文はまだ freeze していない**". The text has been frozen since 2026-08-24 — **and the same document says so further down**, in a section headed "凍結後に判明したこと" that begins "凍結中で一切変更していない". So the header contradicted the body of its own file, and the header is what a reader meets first. Its `last-updated` was also two weeks behind content added after it | **Corrected, and brought inside the venue check.** Check 458 enforces that every file stating the submission venue matches one source (`FROZEN.md`'s VENUE-DATA) — over a **hardcoded list of five**, and this file was not on it, although it states status and is the only design document `LICENSE` refers a reader to. It is now the sixth. **The list stays hardcoded rather than derived**, because "which files state the submission status" is a judgement about meaning, not a property a scan can decide — so the honest form is a list with a stated reason for each entry, and the reason for this one is the `LICENSE` pointer. **Non-vacuity took two attempts**: removing one mention of the venue did nothing, because the check asks whether the file *states* the venue and other mentions remained. Removing all of them fired it — which is the difference between testing the detector and testing what one assumes it does |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -269,13 +271,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **68** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **69** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **68 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **69 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later

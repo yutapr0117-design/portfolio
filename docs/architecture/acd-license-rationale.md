@@ -1,7 +1,7 @@
 ---
 file: docs/architecture/acd-license-rationale.md
 audience: ai, human (新卒), 監査人, 採用担当, 学術研究者, 第三者全般
-last-updated: 2026-08-23
+last-updated: 2026-09-06
 canonical-ref: LICENSES/ACD-1.0.txt / LICENSE / AI2AI.md / robots.txt
 ---
 
@@ -14,7 +14,11 @@ Short identifier  : ACD-1.0
 Full text         : LICENSES/ACD-1.0.txt
 Steward           : Yuta Yokoi (横井雄太 / Yokoi Yuta)
 Steward contact    : https://yutapr0117-design.github.io/portfolio/llms-full.txt
-Status            : 起草完了・申請前。**本文はまだ freeze していない**（§7 参照）
+Status            : **凍結中**（2026-08-24〜・`LICENSES/FROZEN.md` の存在が凍結を意味し、
+                    Check 453 が 3 file の sha256 を pin する）。投稿先は OSI の
+                    **`license-discuss` のみ**（一般的な議論リストであって承認の窓口ではない）。
+                    **`license-review` へも SPDX へも未提出**。単一ソースは FROZEN.md の
+                    VENUE-DATA marker で、Check 458 が各 status ファイルとの一致を強制する
 ```
 
 > **この文書の役割**: ACD-1.0 を SPDX License List / OSI License Review へ提出する際に
