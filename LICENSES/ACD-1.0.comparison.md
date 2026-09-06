@@ -202,6 +202,42 @@ AI 条項を実際に取り込んだとして、そのとき何が残るのか�
 > those two are worth a separate instrument is the proliferation question, and this document
 > does not claim the answer is obvious.
 
+## 1.38 「なぜ新しいライセンスが要るのか」に、審査者が実際に使っている経験則（2026-07・一次資料）
+
+`license-review` で 2026-07 に審査された新規提出に対し、Carlo Piana 氏がこう書いている
+（**要約ではなくアーカイブ本文**）:
+
+> "I am not even sure what shortcoming this license intends to cure compared to the hundreds of
+> already existing non copyleft MIT-style licenses. … the idea to create a new type of condition …
+> **creates additional friction in the compliance process** — which is already a nightmare for a
+> medium-sized embedded software project. Therefore I urge license submitter to introduce one only
+> where there is a strong rationale. **As a rule of the thumb, if in more than 25 years nobody
+> thought of it, most likely it is not a perceived problem, unless something new has come around
+> (see the SaaS model, or extensive AI model usage, etc.).**"
+
+**この経験則は 2 つの部分からできており、ACD-1.0 に対して逆向きに働く。**
+
+**(1) 「25 年誰も思いつかなかったなら、たぶん問題ではない —— *何か新しいことが起きていない限り*」。**
+氏が挙げた例の 1 つが **"extensive AI model usage"** である。ACD-1.0 の §1 の gap 主張は、
+まさに「機械学習と機械による著作が新しい事情である」というものなので、**審査者が明示した
+テストの、名指しされた例に当たる**。
+
+**ただしこれは*カテゴリ*についての支持であって、*この instrument* についてではない。**
+「AI が新しい事情である」と「ACD-1.0 がその事情に必要な instrument である」は別の命題で、
+後者は §1.35 が扱っている（**7 つのうち 4 つは既存が改訂すれば閉じる**）。**1 参加者の
+rule of thumb であって規則でもない。**
+
+**(2) 「新しい *条件* を作ると compliance の摩擦が増える」。** こちらは**この instrument には
+当たらない** —— ACD-1.0 は条件を 1 つも課さない（§10.1 / §4.3）。氏が懸念しているのは
+「条項を増やすと確認作業が増える」ことで、**確認すべきことがゼロの instrument は、
+その懸念の対象外**である。
+
+**逆に、この経験則が我々に突きつけるものもある。** 氏の最初の問いは
+「**hundreds of already existing MIT-style licenses に比べて、何の欠点を治すのか**」だった。
+それは `against.md` #28 / #33（proliferation）と同じ問いで、**この節の存在理由そのもの**である。
+`comparison.md` §1 全体がその答えであり、**§1.35 はその答えのうち「改訂で消える部分」を
+自分から先に切り出している。**
+
 ## 1.4 CC0 —— 同型で唯一 OSI で止まった先例（2012）
 
 **ACD-1.0 に最も近い先例は CC0 であり、その顛末はこの提出にとって最も重要な事実である。**
