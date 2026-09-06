@@ -71,6 +71,34 @@ OSI が新規ライセンスの提出者に求めるのは、**最も近い承�
 > existence only in the narrow band where those four assumptions fail together — which is where
 > this repository sits, and which is not where most projects sit.
 >
+> **The cost of another entry in this category, in the terms the list itself uses.** On
+> 2026-08-07 a solo author brought another public-domain-equivalent instrument to
+> `license-discuss`. Rob Landley's reply put the category argument in a frame this document had
+> not used: public-domain-equivalent licences are, on his understanding, **the only fungible
+> category** — they do not require the licence text to be carried into derived works, so code
+> from differently-licensed sources combines without listing each and without "the stuttering
+> problem" — and 0BSD is in that category, in wide use, and authored under by Google, Microsoft
+> and Facebook. His question to the newcomer was *"could you explain why you're doing another
+> one?"* (individual capacity, not an OSI position).
+>
+> **ACD-1.0 is fungible in exactly that sense, and this is checkable rather than argued.** §10.2
+> states a recipient need not give attribution or reproduce any notice; §4.3 and §10.1 attach no
+> condition of any kind. So the two costs a new licence usually imposes — compatibility analysis
+> and notice bookkeeping — are near zero here, in both directions: code under ACD-1.0 combines
+> into a 0BSD project and the reverse, with nothing to track. **That is the honest answer to
+> "why another one": not that it is better in the category, but that the category's cost of
+> admitting an entry is unusually low**, and the three subjects above are absent from the
+> incumbent.
+>
+> **It cuts against us as well, and the same sentence carries both edges.** If combining is free
+> and nothing must be carried, then an author who wants ACD-1.0's four properties for *their own*
+> work is well served, but a *downstream* project gains little from the licence's presence in the
+> world that it could not obtain by asking that author directly. Fungibility lowers the cost of
+> another entry; it does not by itself create a benefit. And low lock-in works the same way for
+> the adopter: **anyone who later regrets choosing ACD-1.0 can relicense outward freely**, which
+> makes adopting it cheap to reverse — a reason to be less worried about the choice, and equally
+> a reason the choice matters less than a steward would like it to.
+>
 > **The proliferation question is therefore not "is ACD-1.0 different?"** — it demonstrably is,
 > in the four respects above. It is "**is that difference worth another licence in the world?**"
 > That is a judgement for the list, and the honest position is that the answer is not obviously
