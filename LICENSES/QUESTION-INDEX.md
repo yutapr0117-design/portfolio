@@ -88,7 +88,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | Does it warrant that it works? | **No** — §13.2 says so expressly. `against.md` #26 |
 | What if the Dedicator dies, or the rights are sold? | §2.8 and §12.4 bind successors. `faq.md` A27 |
 | Consumer-protection law? | `faq.md` A24 — some of §13/§14 may not survive contact with it, and §14.2 anticipates that |
-
+| Does this licence make anyone else give up a claim? | **No, and §11.4 says so in terms.** It reaches the Dedicator's Covered Rights, the §8 patent claims and §12 moral rights, "and nothing else", and grants no permission under any right held by another person. `review-responses-clauses.md` §11 — with the honest carve-out that §13/§14 *are* a contractual disclaimer, of the ordinary kind |
 ## Using it
 
 | Question | Where |
