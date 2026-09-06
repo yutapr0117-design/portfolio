@@ -1,0 +1,279 @@
+Source: OSI license-review public archive, 2026-September.txt
+Retrieved: 2026-09-06 from lists.opensource.org
+Date: Fri, 4 Sep 2026 08:54:43 +0900
+From: Shuji Sado <shujisado@gmail.com>
+Subject: [License-review] For Approval: OpenMDW License Agreement, versions 1.1 (OpenMDW-1.1)
+
+**我々宛ではない。** Pamela Chestek 氏と list 全体に宛てた分析だが、その途中で我々の質問を
+明示的に引いて議論を進めている（"Yokoi-san's question and Mike's answer help here as well."）。
+返信ではないが**関与**であり、返信だけを数えると見落とす形なので同じ場所に置く。
+
+公開アーカイブから逐語で複製したもの。無改変。
+
+----- begin verbatim -----
+
+From shujisado at gmail.com  Thu Sep  3 23:54:43 2026
+From: shujisado at gmail.com (Shuji Sado)
+Date: Fri, 4 Sep 2026 08:54:43 +0900
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+In-Reply-To: <8fddbccf-07b4-402b-83e3-9edc7db03fb9@chesteklegal.com>
+References: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+ <CAC1cPGxE=ozAmGTfHt4k+SePQcstym_Kaq=w4Aj5_=hvkp15hA@mail.gmail.com>
+ <CAC1cPGyZf3indkwzeCHvodDFxyPmKhfRqGdbBx=+X+1wB9v86g@mail.gmail.com>
+ <CAFV=PSH_wNaPuPQi5i6-JZP2wfyx5UpudQsrjao3TCCSE4jb9w@mail.gmail.com>
+ <CAC1cPGzpjtL=UyGT=bzu+6JmohsY567PPU=0ZxGJOrM7vNDdyw@mail.gmail.com>
+ <CAFV=PSE7swjqNpbLqLFoJJJOnf03khMJHa_FL_bP9ow40c0E2Q@mail.gmail.com>
+ <4d892328-fe83-471b-8714-bb0b818c54d9@chesteklegal.com>
+ <CAFV=PSEyd7Ly8aWtkdcm9X96bpTXBFZToKW0pADpwrhNhXPtog@mail.gmail.com>
+ <bd0fc092-4a3f-4e0a-a446-ccc1f344ee61@chesteklegal.com>
+ <f5ec169a-3f32-4631-a67b-075f18464ad0@berkus.org>
+ <CAC1cPGxNqTn=UhoB8pByXjdUKXicJE1r-bMVcOnRs1wxkzd_HQ@mail.gmail.com>
+ <f96c1d69-4491-41de-98c8-ed5a15fa67fd@berkus.org>
+ <CAC1cPGwkRamwK7cXtEw+5nH8-W2UpjboL1iko-L2sNLV2So1Jg@mail.gmail.com>
+ <253bd118-cda4-4dac-b7e2-9f22161ae2be@lexpan.law>
+ <8fddbccf-07b4-402b-83e3-9edc7db03fb9@chesteklegal.com>
+Message-ID: 
+ <CAAvo7O7rVB3dxCJ3CuozdNT+X2vHVoJNcQPwjoZMXP47qa0Nkg@mail.gmail.com>
+
+Pamela-san and All,
+
+I have been translating almost all of this discussion into Japanese as I
+work through it, and it has been a genuinely deep discussion. It has also
+been costing me a little sleep lately. :)
+
+I think Pamela-san's latest message usefully identifies the philosophical
+divide, but Mike's clarification of the scope of the trigger makes me
+wonder whether the choice is quite as binary as it first appears.
+
+Mike has now clarified that "indirectly" in Section 5 is intended to refer
+to secondary liability, such as a claim that making, using, or distributing
+the Model Materials contributes to infringement by others. He also
+clarified that OpenMDW-1.1 does not reach back to artifacts used in
+creating the model unless those artifacts are themselves included in the
+subsequently published Model Materials.
+
+That distinction matters to me.
+
+A claim that copyrighted material was unlawfully acquired or copied during
+training is not, by itself, the same as a claim that the resulting Model
+Materials directly or indirectly infringe copyright. So, on Mike's stated
+interpretation, the picture in which an ordinary creator sues merely over
+unauthorized use of their work in training and therefore loses the OpenMDW
+license seems broader than the intended scope of the trigger.
+
+The trigger is instead directed at claims against the licensed Model
+Materials themselves, whether as direct infringement or under a theory of
+secondary liability. And when I look at that narrower relationship, I still
+have difficulty finding a reason why copyright should be categorically
+different from patent.
+
+Suppose the copyright holder of novel A is using model X under OpenMDW, and
+then sues the provider asserting that model X itself infringes the
+copyright in novel A. The copyright claim does not disappear. The plaintiff
+remains free to pursue the claim and seek whatever remedies are available.
+What terminates are the OpenMDW grants the plaintiff received with respect
+to those Model Materials.
+
+In that situation, I am not sure Open Source principles require the
+plaintiff to continue receiving permission to copy, modify, and distribute
+the same Model Materials that the plaintiff is asserting are infringing. I
+also do not think recognizing this necessarily leads to the broader
+position that any legal claim involving licensed materials may properly
+trigger termination.
+
+Yokoi-san's question and Mike's answer help here as well. OpenMDW grants
+rights relating to copyright, patent, database rights, and trade secrets,
+but database-right and trade-secret claims do not trigger termination. Mike
+explained that the trigger was not designed simply to mirror every right in
+the grant, but rather around the realistic litigation threats faced by
+openly published model materials.
+
+So perhaps the limiting principle need not be either "patents are
+historically special" or "any claim against licensed materials may trigger
+termination." Richard-san's historical point may explain why patent
+termination developed first, but I am not sure that history by itself
+establishes a categorical boundary for what may be acceptable today.
+
+I am increasingly inclined toward a more general principle:
+
+A defensive termination provision may be acceptable where the assertion is
+directed at the licensed subject matter itself, provided that the scope and
+consequences of the termination are reasonably related and proportionate to
+that assertion.
+
+This would not make every type of litigation a permissible trigger. It
+would instead ask whether there is a sufficiently close nexus between the
+assertion and the licensed subject matter, and whether the termination goes
+no further than is reasonably justified by that assertion. To me, that
+seems more durable than drawing the line solely according to whether the
+asserted right is a patent or a copyright.
+
+--
+Shuji Sado
+Chairman, Open Source Group Japan
+https://opensource.jp/
+English blog: https://shujisado.org/
+Japanese blog: https://shujisado.com/
+
+
+2026/9/3 8:46 Pamela Chestek <pamela at chesteklegal.com>:
+
+> On 9/2/2026 3:39 PM, McCoy Smith wrote:
+>
+> On 9/1/2026 3:34 PM, Richard Fontana via License-review wrote:
+>
+> On Tue, Sep 1, 2026 at 5:56 PM Josh Berkus <josh at berkus.org> wrote:
+>
+>> I'll stand by my claim, though, that any argument that can be made
+>> against the principle* of a copyright antisuit provision applies equally
+>> to a patent one.  And that if OSI decides that the former isn't
+>> OSI-compliant, then the latter isn't either, and we're going to need to
+>> revisit a lot of licenses.
+>>
+>
+> This is clearly one of the questions the OSI needs to resolve: is there
+> something special about copyright? Or is there something special about
+> patent?
+>
+> In terms of historical precedent, I think we can leave the long-abandoned
+> OCLC license aside as a likely case where the early OSI wasn't thinking
+> about things as carefully as the present-day OSI would (that's about as
+> charitable as I'm willing to be here). Having looked at the OCLC
+> license-discuss thread the other day, I don't think anyone paid any
+> attention to the litigation termination provision. I wonder actually if
+> some of the license-discuss participants noticed it but thought
+> "intellectual property" was synonymous with "patent", but I don't think any
+> of the participants were on the board at the time other than Russ Nelson. I
+> seriously think it's not beyond the realm of possibility that the OCLC
+> lawyers who *drafted* the license sincerely thought "intellectual property
+> infringement litigation" was synonymous with "patent infringement
+> litigation".
+>
+> The OSI should also think about the other side of the question. If a
+> copyright trigger for license termination (including copyright license
+> termination) is okay in addition to a patent litigation trigger, what about
+> other kinds of claims? Trademark infringement? Trade secret? What about
+> claims concerning things having no connection to the software (or model,
+> etc.) being licensed? Shareholder litigation? Personal injury? Employment
+> discrimination?
+>
+> The IBM Public License says:
+>
+> "If Recipient institutes patent litigation against a Contributor with
+> respect to a patent applicable to software (including a cross-claim or
+> counterclaim in a lawsuit), then any patent licenses granted by that
+> Contributor to such Recipient under this Agreement shall terminate as of
+> the date such litigation is filed."
+>
+> Assuming the OSI would consider this acceptable in an open source license
+> today, what if instead it said:
+>
+> "If Recipient institutes copyright litigation against a Contributor with
+> respect to a copyright applicable to software (including a cross-claim or
+> counterclaim in a lawsuit), then any copyright licenses granted by that
+> Contributor to such Recipient under this Agreement shall terminate as of
+> the date such litigation is filed."
+>
+> Surely that would not be okay ... would it?
+>
+> Litigation termination triggers seem to be the one area where the
+> discussion is converging on: what sort of litigation can properly terminate
+> grants in a license, and what grants can be terminated?
+>
+> So: can patent litigation trigger termination? That's a fairly common
+> trigger. Against what? The example above from the IBM public license
+> (OSI-approved https://opensource.org/license/IPL-1.0) the trigger applies
+> to any patent litigation "applicable to software." I think this sort of
+> broad trigger is, to put it mildly, disfavored. What about what's in the
+> currently pending ModelGo-Attribution-2.0 license:
+> "This License shall terminate immediately ... if You initiate any legal
+> action against the Licensor alleging that the Licensed Materials and/or
+> Derivative Materials infringe any patent worldwide."
+> I believe many feel that extending the trigger to Derivative Materials
+> (i.e., things beyond that which the patent holder has licensed under the
+> license) is also too broad (and most of the popular licenses explicitly or
+> implicitly are not triggered by patent claims against derivative works.
+>
+> As to Richard's question, I don't see where the trigger in OpenMDW-1.1 is
+> "concerning things having no connection to the software (or model, etc.)
+> being licensed." OpenMDW-1.1's trigger says:
+> "If you file, maintain, or voluntarily participate in a lawsuit against
+> any person or entity *asserting that the Model Materials directly or
+> indirectly infringe any patent or copyright,* then all rights and grants
+> made to you hereunder are terminated, unless that lawsuit was in response
+> to a corresponding lawsuit first brought against you."
+>
+> The license grants copyright and patent rights, and the trigger is a
+> reciprocal assertion of those same rights, and both apply to the Model
+> Materials, which is what the licensor licenses and the licensee is licensed
+> to. And unlike, say, ModelGo-Attribution, the assertion in OpenMDW-1.1 must
+> be against the "Model Materials" which are defined as "the materials
+> provided to you under this agreement," not what you were licensed plus
+> anything else that is subsequently created.
+>
+> If people think that patent triggers are OK (and possibly that patent
+> triggers can, as in MPLv2 & GPLv3, terminate other rights, like copyright),
+> and copyright triggers are not, that's OK, and we've had people try to
+> articulate why they believe it is philosophically different, but I'm not
+> sure it leads to a slippery slope where *any* sort of trigger must
+> therefore be permissible. And I wonder how that same rationale would deal
+> with the ModelGo-Attribution-2.0 trigger.
+>
+> I believe we are seeing a philosophical divide. I wouldn't consider the
+> more expansive view a slippery slope, but it is more generous to the
+> licensor because of the philosophical underpinnings.
+>
+> On one side we have the view that, if you use the fruit of my labor, it's
+> only fair that in exchange you not sue me. If that's the accepted rationale
+> for the trigger, then as a matter of logic it should be a valid position
+> for any kind of claim against the licensed materials, whether copyright,
+> trade secret, patent, database, moral rights, etc. The further extension
+> that Richard identified was that any claim against the licensor, i.e., what
+> Facebook's BSD + Patent license tried to do, could also be fair game. That
+> could be a slippery slope, but I don't think anyone is advocating for this
+> expansion.
+>
+> The other side of the divide is the one that believes patents are a
+> special case with logic that doesn't extend beyond patents, as articulated
+> in different ways by different people for different reasons.
+>
+> So the question is -- which is the better path?
+>
+> Just to clarify a statement you made, the OpenMDW grants patent,
+> copyright, trade secret and database rights, but only infringement of the
+> patent and copyright rights are a trigger.
+> On the ModelGo license question about Derivative Works, I don't think
+> that's particularly relevant to this license, because the OpenMDW license
+> doesn't take that position. It might be easier to just stick to the issues
+> presented in the OpenMDW license.
+>
+> Pam
+>
+>
+> Pamela S. Chestek
+> Chestek Legal
+> 4641 Post St.
+> <https://www.google.com/maps/search/4641+Post+St.+%0D%0A++++++Unit+4316+%0D%0A++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>
+> Unit 4316
+> <https://www.google.com/maps/search/4641+Post+St.+%0D%0A++++++Unit+4316+%0D%0A++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>
+> El Dorado Hills, CA 95762
+> <https://www.google.com/maps/search/4641+Post+St.+%0D%0A++++++Unit+4316+%0D%0A++++++El+Dorado+Hills,+CA+95762?entry=gmail&source=g>
+> +1 919-800-8033 <(919)%20800-8033>
+> pamela at chesteklegal.com
+> www.chesteklegal.com
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Communication from the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260904/0cd644b1/attachment-0001.htm>
+
