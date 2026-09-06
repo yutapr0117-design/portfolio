@@ -278,7 +278,9 @@ https://lists.opensource.org/pipermail/license-review_lists.opensource.org/<YYYY
 | **2012-01〜04** | Bruce Perens 氏の「abandonment **OR** acquiescence, but not both」—— **fallback という形そのものへの反対**。§4.4 はこれが届かないように書かれている | `comparison.md` §1.4 |
 | **2020-03〜06** | License Review Committee の勧告本文。「dedication **taken alone** は承認されない」という**規則の出典**、および「lawyers **both US and non-US**」が一致したという決着の実体 | `submission.md` §1b / #2 #3 #7 |
 | **2025-03** | 出力への notice 要件が「**a restriction or condition on mere use. That would not be open source**」（Simon Phipps 氏・個人資格）と問われ、Fontana 氏が編集器の喩えと **Kyle Mitchell 氏の先行提出**にも言及、提出者が「somewhat oversteps」と認めて削除された | `review-responses-clauses.md` §6.4 |
-| **2026-08** | **OSD 9 の生きた読み方** —— 防御的終了条項自体が「restrictions」にあたりうる、Apache-2.0 の特許終了と GPLv2 非互換の歴史に接続 | `submission.md` §3b / #46 |
+| **2025-02** | ModelGo の**最初の提出**。提出は短いラベル付き header block で始まる（`Drafted By Lawyer` / `Approved or Used by Projects` 等）。**MG-BY-2.0 は採用ゼロで提出され 3 ラウンド審査された** —— 採用は **SPDX の基準**であって `license-review` のゲートではない | `submission.md` §A.0 / #4 |
+| **2026-07** | **まるごと 1 件の新規提出のレビュー**（BOS v1.0 → 同月 v1.2）。審査者の最初の 2 通が 「**テキストを添付せよ。動的に変わらない版が要る**」と「**process ページの項目を飛ばすな、特に法的レビュー**」。3 通目に「**your links are broken**」。Carlo Piana 氏の経験則「**25 年誰も思いつかなかったなら問題ではない —— 何か新しいことが起きていない限り（SaaS、extensive AI model usage 等）**」 | `submission.md` §A / #79 / `comparison.md` §1.38 / `REVISION-PROTOCOL.md` ゲート 7b |
+| **2026-08** | **OSD 9 の生きた読み方**（防御的終了条項自体が「restrictions」にあたりうる・Apache-2.0 の特許終了と GPLv2 非互換の歴史）。さらに**原理的な反対** ——「著作権侵害は copying を要する。**落ち度のない第三者に請求権を放棄させる**のは open source の原理に反する」 | `submission.md` §3b / #46 / `review-responses-clauses.md` §11 |
 | **2026-09** | オーナーの投稿 **3 通**（OpenMDW 2 / ModelGo 1）、Mike Dolan 氏の「the trigger **is not designed to match the grant**」、Moming Duan 氏の hosted-only 解釈、BOS v1.3 の提出本文 | 本書 / `AS-OF.md` |
 
 ### 読み方の規律
@@ -294,8 +296,8 @@ https://lists.opensource.org/pipermail/license-review_lists.opensource.org/<YYYY
 
 - **CC0 の撤回そのもの** —— 2012-01〜04 の license-review には無い。同時期の `license-discuss`、
   または 2012 年の後の月を見る
-- **2026-07** —— 取得済みだが未読（9 通と小さい）
-- **ModelGo の 1st / 2nd 提出**（2025-02 前後）—— 3 度の再提出の経緯そのもの
+- **ModelGo の 2nd 提出**（2025 年半ば）—— 1st（2025-02）と 3rd（2025-12 提出・2026-09 も継続）は読んだ。**何がラウンドを跨いで変わったか**の中間点が残っている
+- **2026-08 の残り** —— 102 通のうち OSD 9 と第三者請求権の 2 筋を読んだ。**他の筋は未読**
 
 ## 4. 結果が出たとき、ACD の何が動くか（先に決めておく）
 
