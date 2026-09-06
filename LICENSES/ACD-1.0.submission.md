@@ -307,12 +307,26 @@ here rather than left to be discovered.**
    Unlicense's brevity left questions to be resolved by argument, this text tries to answer them
    in the text, and pays for it in length.
 
-3. **That approval rested on legal advice.** The committee recorded that legal advisors
-   concluded the document "would most likely be interpreted as a license and that the license met
-   the OSD." That is the decisive step, and it is precisely the step this submission cannot
-   replicate: no lawyer has read ACD-1.0 (§5, §4c). Where the Unlicense had counsel's reading to
-   resolve the dedication-versus-licence question, this submission has only the structure of the
-   text and whatever reading the list gives it.
+3. **That approval rested on legal advice.** The License Review Committee's recommendation reads,
+   in full on the point (read at source in the license-review archive, 2026-09-06):
+
+   > "It is an attempt to dedicate a work to the public domain (**which, taken alone, would not be
+   > approved as an open source license**) but it also has wording commonly used for license
+   > grants. There was some discussion about the legal effectiveness of the document, in particular
+   > how it would operate in a jurisdiction where one cannot dedicate a work to the public domain.
+   > **The lawyers who opined on the issue, both US and non-US, agreed that the document would most
+   > likely be interpreted as a license and that the license met the OSD.** It is therefore
+   > recommended for approval."
+
+   Two things follow, and they cut in opposite directions. The parenthesis is **the Committee's own
+   statement of the rule this submission must clear** — a dedication taken alone is not approvable
+   — and ACD-1.0's answer to it is structural: §4 is a licence granted independently of §3 and does
+   not wait for §3 to fail (§4.4), so the instrument is not "taken alone" as a dedication. But the
+   sentence that resolved the Unlicense is **legal opinion, from more than one lawyer, across
+   jurisdictions**, and that is precisely what this submission cannot replicate: no lawyer has read
+   ACD-1.0 (§5, §4c). Where the Unlicense had counsel's reading to settle the
+   dedication-versus-licence question, this submission has only the structure of the text and
+   whatever reading the list gives it.
 4. **It was not placed in a general category.** The committee recommended the Unlicense be placed
    in the "Special Purpose" category "because of its intended nature as a dedication to the public
    domain," and **rejected** the submitter's request for the "Popular and Widely-Used or With
