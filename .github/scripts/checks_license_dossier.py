@@ -366,10 +366,18 @@ def run(ctx):
         # (f) QUESTION-INDEX が述べる worked entry の総数。**索引は手で加算していたため 2 ずれていた**。
         _qi460 = ROOT / "LICENSES" / "QUESTION-INDEX.md"
         if _qi460.exists():
+            # **番号行は `against.md` からのみ数える。** 2026-09-06 まではこの区別が無く、
+            # `LICENSES/*.md` 全体の `| N |` を数えていた —— **たまたま番号付きの表が
+            # against.md にしか無かったので正しく見えていただけ**である。実際、
+            # REVISION-PROTOCOL に 7 行の番号付きゲート表を足した瞬間に総数が 152→159 へ跳ね、
+            # 「worked entries（答えのある項目）」でないものが混ざった。**指標の正しさが
+            # 偶然に依存していた**ので、意図（Q&A の項目 ∪ 不利な事実）に合わせて限定する。
             _tot460 = 0
             for _f in sorted((ROOT / "LICENSES").glob("*.md")):
-                _tot460 += len(re.findall(r"^\*\*Q\.|^### (?:Q|A|B)\d+|^\| \d+ \|",
-                                          _f.read_text(encoding="utf-8"), re.M))
+                _ft = _f.read_text(encoding="utf-8")
+                _tot460 += len(re.findall(r"^\*\*Q\.|^### (?:Q|A|B)\d+", _ft, re.M))
+                if _f.name == "ACD-1.0.against.md":
+                    _tot460 += len(re.findall(r"^\| \d+ \|", _ft, re.M))
             _m8 = re.search(r"There are \*\*(\d+)\*\* worked entries", _qi460.read_text(encoding="utf-8"))
             if not _m8:
                 _bad460.append("QUESTION-INDEX.md: worked entry 総数の申告が見つからない")
