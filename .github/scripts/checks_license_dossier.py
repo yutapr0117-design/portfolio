@@ -112,6 +112,11 @@ def run(ctx):
                 # 「凍結中で一切変更していない」と述べているのに、である。採用を検討する人が
                 # `LICENSE` から辿る唯一の設計文書なので、status を述べる面として縛る。
                 "docs/architecture/acd-license-rationale.md",
+                # **リポジトリの表紙**。バッジ直下の呼びかけが「OSI の `license-discuss` の
+                # スレッドから来たなら」と現在の venue を名指ししている。venue が動けばこの 1 行は
+                # stale になり、**新しい窓口から来た審査者が、来ていないスレッドの名前を読む**。
+                # 最も読まれるページなので、状態を述べる面として縛る。
+                "README.md",
             ]
             _missing458, _false458 = [], []
             _others458 = {"license-discuss", "license-review"} - {_venue458}
