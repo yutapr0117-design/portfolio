@@ -33,6 +33,26 @@ the text you are reading. If you find a defect in the text, it will be **reporte
 patched** — changing the wording underneath a live discussion would make your review of it
 meaningless.
 
+## The case, and the strongest thing against each part of it
+
+Nothing here is new; it is the argument from
+[`ACD-1.0.submission.md`](ACD-1.0.submission.md) §1–§4 compressed, with the best counter to each
+line placed beside it rather than further down. **The adverse case is the longer document and it
+is the one to read first** — this is only a map of where the argument runs.
+
+**Start with what cannot be answered.** No lawyer has read this licence, and none has been
+engaged ([`against.md`](ACD-1.0.against.md) #1). The step that resolved the closest precedent —
+legal advisors concluding the Unlicense "would most likely be interpreted as a license and that
+the license met the OSD" — has no counterpart here (#2). Those two are stated first because they
+are the two we cannot fix.
+
+| The claim | The strongest thing against it |
+|---|---|
+| **The gap is real**: no approved licence expressly permits training and text-and-data-mining, grants patents reaching models and outputs, and declines to presume that rights subsist in machine-generated material (§6, §8.4, §9) | **Four of the seven distinguishing features close if the incumbents amend** — and we say which four ([`comparison.md`](ACD-1.0.comparison.md) §1.35). The case then rests on the remaining three |
+| **It is reviewable**: §3 surrenders, §4 grants a licence *independently* (§4.4), so a reader never has to decide whether the surrender worked | **No court has characterised this construction**, in any jurisdiction (#3). A dedication taken alone is not approvable, and the escape is untested |
+| **It imposes nothing**: §10.1 and §4.3 attach no condition, so no obligation can fire in any delivery mode — the failure that condition-bearing instruments meet in hosted deployment | **The same structure weakens the warranty disclaimer** (#41) and forecloses defensive patent termination (#46). Both costs fall on the adopter, and both are deliberate |
+| **Anyone can adopt it**: zero project names, zero placeholders, no editing required — verifiable with the commands below | **One adopter: this repository** (#4). Reusability is a structural property; adoption is a social one, and only the first is shown |
+
 ## The three things you probably want first
 
 | | File | Note |
