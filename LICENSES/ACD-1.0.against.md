@@ -259,6 +259,8 @@ in the worst possible place.
 
 | 71 | **Fixing the instruction in one document left a second one asserting the old state.** #66 folded the AI-drafting disclosure into the message after finding §E's "fold it in if section B has not gone out yet". **The same instruction existed in `review-responses-meta.md`** — "送信済みなら follow-up で、未送信なら §5 に足す" — under a heading that read "**§B の disclosures には無い**". After #66 that heading was false: the disclosure *is* in the message. **A reviewer reading that document would conclude the message omits it**, which is the opposite of the state the repository was in | **Corrected, and the class is the finding.** Both passages were written from the same observation and only one was updated, because the fix was made where the omission was *noticed* rather than everywhere it was *asserted*. **The sweep that found it was mechanical**: search the dossier for instructions conditioned on a state ("if X has not yet happened…", "未送信なら…") and evaluate each condition now. Nine other conditional passages were checked and are still live and correct — the "add a paragraph about the license-discuss thread before sending" instruction in particular, which cannot be carried out until there is a thread to summarise. **The rule this produces**: when a condition resolves, update every place that states it, not the one where it was found |
 
+| 72 | **A document told reviewers that CI does not enforce something CI enforces.** `clause-reference.md` said the absence of proper nouns, URLs and replaceable text in the licence body was "verified by command … **but not enforced in CI**", and gave the freeze as the reason there was no need. **Check 441g had been enforcing five of those six things all along** — project name, personal name, URL, repository reference, organisation name — as a BLOCKING check. Only the sixth, replaceable text, was genuinely unenforced. **This understates our own machinery in front of the one audience that would check it**, and it does so in the document that goes clause by clause, which is where a reviewer looks for precision | **Corrected, and the half that was genuinely missing is now enforced too.** The placeholder pattern was added to 441g as its sixth, so `submission.md` §4c's row "No project-specific or replaceable text … 0 and 0" is machine-checked on both halves rather than one. **The class is the inverse of #58**: that entry under-reported what we disclose, this one under-reports what we verify, and both were found by asking whether a sentence about our own state is still true. **Absence claims about one's own machinery are the ones that rot silently**, because adding a check never prompts anyone to search for prose saying the check does not exist |
+
 ## What survives
 
 After the list above, the claim this submission actually makes is narrow, and it is the only one
@@ -275,13 +277,13 @@ in the first category substitutes for the second.
 
 ### What has held up, stated with the same discipline as the list above
 
-The adverse list has grown from 14 entries to **71** across eight rounds of examination. When this
+The adverse list has grown from 14 entries to **72** across eight rounds of examination. When this
 section was written it had not grown at all, and that asymmetry was itself a distortion: a document whose adverse side
 scales while its surviving side is frozen is not more honest, it is differently inaccurate. What
 follows is what actually held, restricted to things that were tested rather than asserted.
 
 1. **No design decision has been overturned.** Eight rounds of adversarial reading — four
-   prompted by third parties, four self-initiated — have produced **71 adverse facts, 10
+   prompted by third parties, four self-initiated — have produced **72 adverse facts, 10
    errata, and five corrections to our own documents** (three descriptions that were wrong:
    #24, #35, #36; and two gaps in the dossier's own machinery: #34, #40). **None of them changed a design decision recorded in
    `docs/architecture/acd-license-rationale.md`.** What changed was the accuracy of later
