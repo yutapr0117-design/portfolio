@@ -65,6 +65,31 @@ discussion is visibly accounted for rather than repeated.
 
 ---
 
+### A.0 The header block, in the form this list is used to seeing
+
+Submissions to `license-review` typically open with a short labelled block. Reproducing that shape
+costs nothing and spares a reviewer from hunting for the same facts in prose. **Filled in honestly,
+including where the answer is the weak one:**
+
+```
+License Name:                   Autonomous Commons Dedication
+Version:                        1.0
+Short Identifier:               ACD-1.0
+Copyleft:                       No
+Legacy or New:                  New License
+Drafted By Lawyer:              No
+Approved or Used by Projects:   One — the submitter's own repository
+License URL:                    https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt
+Steward:                        Yuta Yokoi (横井雄太)
+SPDX Identifier:                Not registered (LicenseRef-ACD-1.0 is the conforming form)
+ScanCode Identifier:            None
+Proposed Tags:                  None
+```
+
+**Two of those lines are the ones a reviewer will stop on**, and they are stated without
+softening: no lawyer drafted or reviewed it (#1), and the only project using it is the
+submitter's own (#4).
+
 ### A.1 Affirmative statement of OSD compliance
 
 OSI's process requires the submitter to "affirmatively state that the license complies with the
