@@ -120,7 +120,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**768 words**, measured 2026-09-07)
+### B.0 The message as it should actually be sent (**788 words**, measured 2026-09-07)
 
 **Why this section exists.** Everything below §B.0 — §1 through §5 — runs to **7,500 words**. The
 list's code of conduct asks for "concise and low-volume" and that was restated in the August 2026
@@ -131,10 +131,12 @@ where a reviewer who asks a specific question is sent. **Send §B.0. Do not past
 
 **Length, stated rather than rounded.** This was 577 words when written on 2026-09-06, **660** after
 two additions the same day, **685** after one more on 2026-09-07 (the enforcement sentence now says what each CI check actually
-establishes — `against.md` #95), and **768** after the OSD affirmation was made specific to
+establishes — `against.md` #95), **768** after the OSD affirmation was made specific to
 criteria 3, 5, 6 and 9 as the review-process page requires (`against.md` #97). **That last one is
 not optional**: on 2026-09-07 a reviewer publicly declined to comment on another submission at all
-until its missing required information was supplied. The two 2026-09-06 additions were: *why now* (the review record contains no ML-substantive submission before 2024) and *why this one is shaped differently* (the AI-era submissions add conditions; this one removes them). **Both pre-empt an objection that would otherwise be raised first**, which is the only justification for spending words on a list that asks for concision. **If it grows again, the number here moves with it** — a heading that rounds its own length to a friendlier figure is the failure this dossier spent 2026-09-06 finding in itself.
+until its missing required information was supplied. It is **788** after the "why now" paragraph was
+corrected the same day — it had said no submission before 2024 concerned machine learning, and the
+archive shows two in 2023 (`against.md` #103). The two 2026-09-06 additions were: *why now* (the review record contains no ML-substantive submission before 2024) and *why this one is shaped differently* (the AI-era submissions add conditions; this one removes them). **Both pre-empt an objection that would otherwise be raised first**, which is the only justification for spending words on a list that asks for concision. **If it grows again, the number here moves with it** — a heading that rounds its own length to a friendlier figure is the failure this dossier spent 2026-09-06 finding in itself.
 
 ---
 
@@ -176,11 +178,12 @@ declines to make any reservation (§6); it grants a patent licence that reaches 
 of computational use (§8.4); and it makes the recipient's permissions independent of whether
 copyright subsists in machine-generated material at all (§9).
 
-**Why now, since the objection is reasonable.** Of roughly 250 submissions in the public review
-record, **none before 2024 concerns machine learning or text-and-data mining at all, and six do since**
-— three of them in 2026, two still under review, **and none yet approved**. I do not claim the timing makes this licence
-necessary. I offer it against the fair objection that if the question were real, someone would
-have raised it long ago.
+**Why now, since the objection is reasonable.** Licences for machine learning have been brought to
+this list since at least April 2023 — the Restricted Artificial Intelligence License, withdrawn four
+days after submission, and the Open Constitution License later that year — and the rate has risen
+sharply since 2025. **None has been approved.** I do not claim the timing makes this licence
+necessary. I offer it against the fair objection that if the question were real, someone would have
+raised it long ago: it has been raised, repeatedly, and has not yet been answered.
 
 **And why this one is shaped differently.** The AI-era submissions so far add conditions —
 transparency duties, attribution, notice on outputs — and that is where they have run into OSD 3,
@@ -743,7 +746,7 @@ machine can find are not present.
 | Every clause pointer in the machine-readable descriptor resolves and matches its subject | cross-check `ACD-1.0.machine.json` `clause` fields against the text | **33 / 33** |
 | Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
 | Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
-| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **102 entries, 1–102, no gaps; all citations resolve** |
+| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **103 entries, 1–103, no gaps; all citations resolve** |
 | Every defect called a "1.1 candidate" anywhere has an entry in the errata to point at | cross-check declarations against `errata.md` | **one was missing and has been added (E7)** |
 | Every negative self-claim the text makes about itself is true | extract each "contains no / imposes no / grants no / reaches nothing / specifies no" statement and search the whole text for the thing denied | **9 claims, 9 true** — each denied term appears only inside the clause doing the denying |
 | Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |

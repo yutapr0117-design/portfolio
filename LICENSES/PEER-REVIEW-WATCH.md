@@ -250,6 +250,46 @@ ACD は **Maffulli の警告の両側に触れる** —— 政策論を持ち込
 **手順として持ち帰ったもの**: 分解の型そのものを `REVISION-PROTOCOL.md` §1.5 へ。指摘が
 「この条項は open source ではない」の形で来たときに、認める / 反論する の前に置く工程になる。
 
+### AI ライセンスは 2023 年から出ている —— RAIL（2023-04・4 日で撤回）
+
+**我々が「2024 年より前にゼロ」と述べていたのは、トラッカーの分類であって記録ではなかった**
+（`against.md` #103）。アーカイブを直接読むと 2023 年に 2 件ある。
+
+**Restricted Artificial Intelligence License (RAIL)** —— 2023-04-17 提出、**04-21 撤回**。
+提出者は個人（言語学出身のソフトウェア技術者）。
+
+**Carlo Piana 氏（2023-04-18）**:
+> it is **not a license, but a restriction applied on the top of a license**. As the name suggests,
+> the main intent of this document is to impose a restriction on certain uses, users and fields of
+> endeavour: **for that it is directly against #5 and #6**, in my reading. **That alone disqualifies
+> the "license".** Have you spent time considering the OSD before applying for approval, in the face
+> of this striking problem, **without even trying to address it with a convincing rationale**?
+
+**Simon Phipps 氏（同日・個人資格）**:
+> I do not believe this submission represents a valid license, since it is **a manifesto for an
+> unspecified text** intended to be applied to modify unspecified open source licenses. **Since we
+> do not have the full text of any combination to consider for approval**, I believe this submission
+> should be automatically rejected.
+
+**ACD へ還元した判断軸 3 つ**:
+
+1. **利用制限を課す AI ライセンスは OSD 5/6 で落ちる** —— これで**3 例目**（RAIL 2023 /
+   AI-MIT 2026 / Modified 0BSD 2026）。`comparison.md` §1.45 の結論が、別の年・別の instrument・
+   別の批判者で再現し続けている。**ACD-1.0 が条件を持たないことは、この類型で唯一空いている道である。**
+2. **OSD への rationale を「先に自分から」出していないと、それ自体が非難される** ——
+   *"without even trying to address it with a convincing rationale"*。`submission.md` §3 / §3b が
+   その位置にある（§3b は「審査者が逆を論じられる箇所」を我々の側から書く節）。
+3. **提出物は自己完結した全文でなければならない** —— 「他のライセンスに重ねて使う断片」は
+   *automatically rejected* と述べられている。ACD-1.0 は単独で成立し、置換テキストも
+   プロジェクト固有要素も持たない（Check 441g）。
+
+**もう 1 件（Open Constitution License・2023）** は「AI ネットワーク上にホストされたソースコードへ
+知的財産権を付与する」と自称する。**本文は未読**（優先度は低い —— 我々の類型ではない）。
+
+**Stefano Maffulli 氏（当時 OSI 事務局長）が同スレッドで語調を戒めている** ——
+*"Please, a reminder to everyone to moderate your tones and keep the conversation civil."*
+**このリストは荒れることがある**、というのは提出者側が知っておくべき事実である。
+
 ### 「取り込んで再提出」を実際にやった提出 —— MGB 1.0（2025-02 / 03 / 09・3 ラウンド 47 通）
 
 オーナー方針は「**届いた議論を全部取り込む → 再提出 → …… を承認されるまで**」である。
@@ -438,6 +478,7 @@ CC0 / Unlicense / 0BSD のどれも含まないので、**#87 の走査では原
 | ✅ | FMLL v1.0（`license-discuss`）| §3.x / #96 |
 | ✅ | Modified 0BSD (Maintenance-Required)（2026-03・却下）| `comparison.md` §1.48 / #102 |
 | ✅ | MGB 1.0（2025-02/03/09・3 ラウンド 47 通）| 本書「取り込んで再提出」節 |
+| ✅ | RAIL（2023-04・4 日で撤回）| 本書「AI ライセンスは 2023 年から」節 / #103 |
 
 **未読・優先順つき**（**この一覧は次に消費されるべき候補であって、網羅ではない**）:
 
