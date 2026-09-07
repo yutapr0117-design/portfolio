@@ -514,6 +514,55 @@ perpetual**, sublicensable, and transferable licence"*。§8.1 の特許許諾�
 ので、この論点で争う理由が無い。
 
 
+## 1.48 0BSD に条件を足した提出 —— Modified 0BSD (Maintenance-Required)（2026-03・12 通・却下）
+
+#87 はこれを「条件を足しているので比較対象ではない」として**中身を読まなかった**。
+だが**却下の理由**は、我々に効く材料を 3 つ含んでいた（2026-09-07 にアーカイブで読了）。
+
+### 1. 要求情報が無ければ、議論は始まらない —— **2 例目**
+
+**McCoy Smith（2026-03-17）**:
+> In order for this license to be considered for approval, **you need to answer all the questions
+> set forth in the process for approval**, found here: https://opensource.org/licenses/review-process
+
+2026-09-07 の Carlo Piana 氏（BOS 宛・`against.md` #97）と**同じ反応が、別の審査者から半年前に
+出ている**。**これはひとりの流儀ではなく、不完全な提出に対するリストの標準的な第一反応である。**
+`submission.md` §B.0 が 11 項目を満たしていることの重みが上がった。
+
+### 2. 「一つの instrument に一つの権利」という立場 —— **我々への生きた反論**
+
+**Rob Landley 氏（0BSD の作者）**:
+> **Copyrights, trademarks, patents, trade secrets are all DIFFERENT THINGS.** They are different
+> areas of law.
+> 0BSD is JUST a copyright license. **If you want to license patents, put a patent license
+> alongside it.** If you want to mess with trademarks, add a trademark license alongside it.
+
+**ACD-1.0 は 1 つの文書で著作権・隣接権・データベース権・特許・商標・人格権をすべて扱う。**
+この立場を機械的に当てれば、ACD-1.0 は「混ぜている」ことになる（`against.md` #102）。
+
+**答えは §1.5 にある** —— Covered Rights は「著作権・実演・放送録音・sui generis データベース権」
+であり、**特許（§8）・商標および名称（§11）・人格権（§12）を明示的に除外して、それぞれ独自の節へ
+送っている**。つまり ACD-1.0 は Landley 氏の要求（別々に扱え）を**文書内の別々の節として**
+実装している。争点は「別々に扱え」ではなく「**別々の文書でなければならないか**」であり、
+**Apache-2.0 が 1 つの文書で著作権と特許（§3）を扱って承認されている**ことが先例になる。
+
+**この反論は軽くない。** Landley 氏は #84（「PD 等価は代替可能なのに、なぜもう 1 つ？」）の
+発言者でもあり、**我々の類型について既に 2 つの独立した疑問を公に述べている唯一の人物**である。
+
+### 3. 積極的義務は「現物での対価」に見える —— 我々の設計の裏付け
+
+**Carlo Piana 氏（2026-03-18）**:
+> It remains **a positive obligation on which the license is conditioned** … In my view, this is
+> **not substantially different from requiring a fee or royalty** for commercial distribution.
+> Consequently, it appears to conflict with #1, as the fee or royalty is **in kind**
+
+**§10.1 が条件を一切課さない**ことの外部からの裏付けである。**積極的義務は、それが金銭でなくても
+対価として読まれうる。** ACD-1.0 にはその表面が無い。
+
+**結果**: Pamela Chestek 氏が *"IMO this license should be rejected … It is nonsensical."* と述べ、
+承認されていない。
+
+
 ## 1.5 AI-native な同時代 instrument（OSI 審査中・2026-09 時点）
 
 **ACD-1.0 は、OSI の前にある唯一の AI-native instrument ではない。** 2026-09 時点で
