@@ -120,7 +120,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**685 words**, measured 2026-09-07)
+### B.0 The message as it should actually be sent (**768 words**, measured 2026-09-07)
 
 **Why this section exists.** Everything below §B.0 — §1 through §5 — runs to **7,500 words**. The
 list's code of conduct asks for "concise and low-volume" and that was restated in the August 2026
@@ -130,8 +130,11 @@ dossier is built on**, which is that the repository holds the depth so the messa
 where a reviewer who asks a specific question is sent. **Send §B.0. Do not paste §1–§5.**
 
 **Length, stated rather than rounded.** This was 577 words when written on 2026-09-06, **660** after
-two additions the same day, and **685** after one more on 2026-09-07 — the enforcement sentence now
-says what each CI check actually establishes (`against.md` #95). The two 2026-09-06 additions were: *why now* (the review record contains no ML-substantive submission before 2024) and *why this one is shaped differently* (the AI-era submissions add conditions; this one removes them). **Both pre-empt an objection that would otherwise be raised first**, which is the only justification for spending words on a list that asks for concision. **If it grows again, the number here moves with it** — a heading that rounds its own length to a friendlier figure is the failure this dossier spent 2026-09-06 finding in itself.
+two additions the same day, **685** after one more on 2026-09-07 (the enforcement sentence now says what each CI check actually
+establishes — `against.md` #95), and **768** after the OSD affirmation was made specific to
+criteria 3, 5, 6 and 9 as the review-process page requires (`against.md` #97). **That last one is
+not optional**: on 2026-09-07 a reviewer publicly declined to comment on another submission at all
+until its missing required information was supplied. The two 2026-09-06 additions were: *why now* (the review record contains no ML-substantive submission before 2024) and *why this one is shaped differently* (the AI-era submissions add conditions; this one removes them). **Both pre-empt an objection that would otherwise be raised first**, which is the only justification for spending words on a list that asks for concision. **If it grows again, the number here moves with it** — a heading that rounds its own length to a friendlier figure is the failure this dossier spent 2026-09-06 finding in itself.
 
 ---
 
@@ -154,13 +157,18 @@ Legacy or New:                  New License
 Drafted By Lawyer:              No
 Approved or Used by Projects:   One — my own repository
 Steward:                        Yuta Yokoi (横井雄太), yuta.yokoi.r@gmail.com
+Submitter:                      The same person, in his own capacity
 SPDX / ScanCode Identifier:     None (LicenseRef-ACD-1.0 is the conforming form)
 Proposed Tags:                  None
 ```
 
-**I affirm that ACD-1.0 complies with the Open Source Definition.** A criterion-by-criterion
-analysis is in the repository, and so is a companion section setting out, for each of the ten
-criteria, **where a reviewer could argue the opposite**.
+**I affirm that ACD-1.0 complies with the Open Source Definition**, and specifically that it meets
+**OSD 3** (§4.2 permits modification and derivative works, and §10.1 attaches no condition to
+distributing them), **OSD 5 and OSD 6** (§4.3 states the licence is not conditioned on who You are
+or what You use the Work for, so no person, group or field of endeavour is excluded), and **OSD 9**
+(§5.2(b) and §2.3 confine the instrument to this Work, so nothing is required of other software
+distributed alongside it). A criterion-by-criterion analysis of all ten is in the repository, and so
+is a companion section setting out, for each, **where a reviewer could argue the opposite**.
 
 **The gap.** ACD-1.0 is written for works meant to be learned from. It does three things no
 approved licence does together: it expressly permits machine learning and text-and-data-mining and
@@ -715,7 +723,7 @@ machine can find are not present.
 | Every clause pointer in the machine-readable descriptor resolves and matches its subject | cross-check `ACD-1.0.machine.json` `clause` fields against the text | **33 / 33** |
 | Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
 | Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
-| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **96 entries, 1–96, no gaps; all citations resolve** |
+| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **97 entries, 1–97, no gaps; all citations resolve** |
 | Every defect called a "1.1 candidate" anywhere has an entry in the errata to point at | cross-check declarations against `errata.md` | **one was missing and has been added (E7)** |
 | Every negative self-claim the text makes about itself is true | extract each "contains no / imposes no / grants no / reaches nothing / specifies no" statement and search the whole text for the thing denied | **9 claims, 9 true** — each denied term appears only inside the clause doing the denying |
 | Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |

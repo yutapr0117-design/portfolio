@@ -317,6 +317,13 @@ def run(ctx):
             _req463 = [
                 ("attachment", r"attached as plain text"),
                 ("OSD affirmation", r"I affirm that ACD-1\.0 complies with the Open Source Definition"),
+                # **要件は「OSD に準拠する」ではなく「OSD 3, 5, 6, 9 を満たすと specifically 明言する」**。
+                # 原文: "Affirmatively state that the license complies with the Open Source Definition,
+                # including specifically affirming it meets OSD 3, 5, 6 and 9."
+                # 一般的な準拠宣言だけでは要件を満たさない。2026-09-07 に Carlo Piana 氏が別の提出に対し
+                # 「required information が無いので**解決するまでコメントしない**」と述べており
+                # (`against.md` #97)、欠落は議論の遅れではなく**議論の不成立**を招く。
+                ("OSD 3/5/6/9 specific", r"OSD 3\*\*[\s\S]{0,400}?OSD 5 and OSD 6\*\*[\s\S]{0,400}?OSD 9\*\*"),
                 ("projects using it", r"Approved or Used by Projects"),
                 ("steward contact", r"Steward:.*@"),
                 ("name and version", r"License Name:"),
@@ -331,7 +338,7 @@ def run(ctx):
                 _bad463.append(f"§B.0 に OSI 要求項目が欠けている: {_miss463}")
         check(
             not _bad463,
-            "Check 463: 送る文面 (§B.0) が OSI の要求 10 項目をすべて含む",
+            "Check 463: 送る文面 (§B.0) が OSI の要求 11 項目をすべて含む",
             (f"Check 463: {_bad463}。要件の単一ソースは "
              "https://opensource.org/licenses/review-process。**§B.0 は実際にメールへ貼られる文面**で、"
              "§B.1 以降は貼らない参考資料である。#77 で 3 件の欠落を埋めたが、文面は増分のたび"
