@@ -470,6 +470,50 @@ public domain / dedication / waiver / CC0 / Unlicense / 0BSD のいずれも含�
 審査者はそれを重く扱いうる。**「要件ではない」は「軽い」ではない。**
 
 
+## 1.47 撤回不能性が単独で審査された唯一の例 —— MIT-I（2025-07 提出・18 通）
+
+**Irrevocable MIT License (MIT-I)** は「MIT を撤回不能にする」という**一点だけ**を扱う提出で、
+18 通の議論を受けた。**ACD-1.0 の中核性質（§4.1 の irrevocable・perpetual / §8.1 / §10.4「何も
+終了しない」）が、単独の論点として審査された唯一の記録である**（2026-09-07 にアーカイブで読了）。
+
+### ACD-1.0 に有利に働く 2 つの発言
+
+**McCoy Smith（2025-08-14）**:
+> **Making a license irrevocable is fine, and many OSI licenses do that** (for example, Apache 2.0)
+
+**Pamela Chestek（2025-08-15）**:
+> I hadn't noticed before that the grant in the MIT license isn't perpetual or irrevocable. …
+> **all that really would need to be done is insert the words "perpetual" and "irrevocable" in the
+> grant language.**
+> I believe the standard MIT license is terminable, since it doesn't say it's irrevocable.
+
+**ACD-1.0 §4.1 は逐語でそうなっている** —— *"worldwide, royalty-free, non-exclusive, **irrevocable,
+perpetual**, sublicensable, and transferable licence"*。§8.1 の特許許諾も同じ語を持ち、§10.4 が
+「いかなる理由でも終了しない・復活条項も無い」と述べる。**委員長が「最小限これをすればよい」と
+述べたことを、本文が既に満たしている。**
+
+### 同じスレッドから来る、我々への警告
+
+**McCoy Smith（同日）**:
+> The statement that the "copyright holder(s) may not ... **modify** ... this version of the
+> Software" **violates OSD 3**. … If what is intended is that **the terms of the license** may not
+> be modified, t[hen say so]
+
+**§16.4 は「本文を改変した形を `ACD-1.0` の識別子の下で頒布すること」を禁じている。**
+対象は**著作物ではなく文書**であり、§10.5 と §16.6 がそれを明示するが、**この審査者は
+「modify してはならない」という語形に反応して OSD 3 を持ち出している**。
+`against.md` #101 として記録した —— **指摘は 1 行で出せて、答えは §10.5 → §16.6 → §16.4 の
+読み順を辿る必要がある**。#100 と同じ非対称である。
+
+### 結果
+
+提出者は議論の後に取り下げていない（2025-08-28 時点でスレッドは自然に終息）。**承認されていない。**
+だが**この提出が失敗した理由は撤回不能性ではない** —— McCoy 氏と Chestek 氏の指摘は
+「新しい段落のほとんどが surplusage・循環・悪手」であり、**撤回不能性そのものは "fine" と
+明言されている**。ACD-1.0 は撤回不能性を**独立した売りとして提出しない**（§4.1 の一語である）
+ので、この論点で争う理由が無い。
+
+
 ## 1.5 AI-native な同時代 instrument（OSI 審査中・2026-09 時点）
 
 **ACD-1.0 は、OSI の前にある唯一の AI-native instrument ではない。** 2026-09 時点で
