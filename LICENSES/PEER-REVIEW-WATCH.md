@@ -250,6 +250,48 @@ ACD は **Maffulli の警告の両側に触れる** —— 政策論を持ち込
 **手順として持ち帰ったもの**: 分解の型そのものを `REVISION-PROTOCOL.md` §1.5 へ。指摘が
 「この条項は open source ではない」の形で来たときに、認める / 反論する の前に置く工程になる。
 
+### 「取り込んで再提出」を実際にやった提出 —— MGB 1.0（2025-02 / 03 / 09・3 ラウンド 47 通）
+
+オーナー方針は「**届いた議論を全部取り込む → 再提出 → …… を承認されるまで**」である。
+**それを実際にやった提出が 1 件ある**ので、手順の側を読んだ（2026-09-07）。提出者は
+Mass General Brigham（機関）で、Apache-2.0 を改変した本文を 3 ラウンド出した。
+
+**1. 審査者は「何が新しいのか」を自分で差分にする —— そして下手にやったと言う。**
+Pamela Chestek 氏（2025-09-19・リスト宛）:
+> For easier reference, I'm attached a copy **marked up with what has changed from the Apache
+> license**. The definitions were re-ordered in this license, so **a mechanical comparison didn't
+> work**, meaning **there may be errors in my manual markup**.
+
+**手で差分を作らせると、その差分の誤りごと議論が進む。** ACD-1.0 は既存ライセンスの改変では
+ないので diff は作れないが、**「何が新しいか」を審査者の側の労力ゼロで示す義務は同じ**である。
+`comparison.md` の逐条比較がその役割を負う —— **そして「diff が作れない理由（祖先テキストが
+無い）」を先に述べる**ほうが、作れないことを黙っているより強い。
+
+**2. 同じ識別子が 2 つのテキストを指すことは、その場で止められる。**
+Chestek 氏（同日・提出者宛）:
+> You previously submitted "MGB 1.0," which … you said was already in use. **Are you creating a
+> second "MGB 1.0" license with different text? That's not workable, you'll need to have different
+> names to distinguish the two licenses.**
+
+**ACD-1.0 の凍結（`FROZEN.md` / Check 453）と §16.4 が防いでいるのは、まさにこの事故である。**
+「議論の最中に本文を差し替えない」は我々の内部規律だが、**外部から見ても同じ理由で止められる**。
+この観測は、凍結が慎重さではなく**手続き上の要件に近い**ことを示す。
+
+**3. 法的効果を持たない説明的条項は「役割は何か」と問われる。**
+Chestek 氏（2025-09-28）:
+> does the paragraph change anything about the licensor's liability? **Isn't it still just advisory
+> without any legal effect?** … I just think **we need to be clear about its value and role.**
+
+ACD-1.0 にも宣言的・説明的な条項がある（§9.2 が「表明しない」と述べる形、§16 の一部）。
+**それぞれが何をするのかを言えるようにしておく** —— 「読者の誤解を防ぐため」は答えになるが、
+**答えとして用意しておく必要がある**（この提出者はその場で問われて答えた）。
+
+**4. 借用は「似ている」ではなく指摘される。**
+McCoy Smith 氏（2025-09-29）: MGB は MPL/GPL の特許文言を Apache 形の本文へ持ち込んでおり、
+*"the problem here was to try to use those predecessor licenses' language in a license
+(Apache-2.0) that doesn't formulate it that way"*。
+→ **ACD-1.0 は 6 件のライセンスと 8 語連鎖を 1 つも共有しない**（実測・`submission.md` §4c）。
+
 ### 要求情報の欠落は、議論を遅らせるのではなく**成立させない**（2026-09-07・BOS スレッドで観測）
 
 Carlo Piana 氏が BOS Public License v1.3 の承認依頼へ返した全文（`license-review` 2026-09-07 09:15 CEST）:
@@ -394,13 +436,13 @@ CC0 / Unlicense / 0BSD のどれも含まないので、**#87 の走査では原
 | ✅ | ModelGo 各版 / OpenMDW-1.1 | §0.6 / §1.5 |
 | ✅ | BOS Public License v1.0〜v1.3 | §3.x / #79 |
 | ✅ | FMLL v1.0（`license-discuss`）| §3.x / #96 |
+| ✅ | Modified 0BSD (Maintenance-Required)（2026-03・却下）| `comparison.md` §1.48 / #102 |
+| ✅ | MGB 1.0（2025-02/03/09・3 ラウンド 47 通）| 本書「取り込んで再提出」節 |
 
 **未読・優先順つき**（**この一覧は次に消費されるべき候補であって、網羅ではない**）:
 
 | 優先 | スレッド | なぜ我々に効くか |
 |---|---|---|
-| 高 | **Modified 0BSD (Maintenance-Required)**（7 通・2026・却下）| #87 は「条件を足しているので比較対象ではない」として**中身を読んでいない**。だが**却下の理由**は、0BSD 系に条件を足すと何が起きるかの直接の記録である |
-| 高 | **MGB 1.0**（初回 + 2 回の再提出・計 ~45 通）| **単独提出者が再提出を重ねた過程**。オーナー方針「全部取り込んだ改訂版を出す」を実際にやった例として、手順そのものが参考になる |
 | 中 | **Tiwaz License v1.0**（24 通）| 大きなスレッド。内容未確認 |
 | 中 | **RAIL（Restricted AI License）**（5 通）| AI + 制限。**条件を足す AI ライセンスがどう扱われたか**の追加事例（`comparison.md` §1.45 の結論の検証） |
 | 中 | **Forever Free & Open License (FFOL)**（5 通）| 名称が永続・撤回不能を示唆。#1.47 の隣 |
