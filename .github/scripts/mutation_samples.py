@@ -493,6 +493,17 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 466: 表紙から審査者への案内を消す —— 送った文面は GitHub リポジトリを指すので "
+            "README.md は審査者の入口である。案内が無ければ、`LICENSES/` の 24 文書は在っても"
+            "到達されない。2026-09-07 まで実際にこの案内は 214 行下にあり、手前は AI 向けブロックと"
+            "日本語の節だった (against.md #94)",
+    "file": ROOT / "README.md",
+    "find": "> **[`LICENSES/REVIEWERS.md`](LICENSES/REVIEWERS.md)** \u2014 it is in English and states the",
+    "replace": "> **the reviewer guide in this repository** \u2014 it is in English and states the",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
