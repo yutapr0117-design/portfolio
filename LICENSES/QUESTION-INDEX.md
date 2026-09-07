@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are **186** worked entries across this directory (measured 2026-09-06; the list is append-only, so treat it as a floor). This page exists so that you do not have to
+There are **187** worked entries across this directory (measured 2026-09-06; the list is append-only, so treat it as a floor). This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -113,4 +113,5 @@ If your question is not here, that is our omission and worth saying on the list.
 | What happens when feedback arrives? | `REVISION-PROTOCOL.md` — verbatim archive, then decomposition; **1.0 is never mutated** |
 | What would make you withdraw? | `submission.md` §E.2; `against.md` closing section |
 | How long do you expect this to take? | We do not set a figure. `submission.md` §4a — the two comparable submissions point opposite ways |
+| Does it hit any of the OSI's published reasons for rejection? | **`submission.md` §3c** — the five patterns, item by item, read at source 2026-09-07. Four are clean by construction; the patent one is the opposite of a failure (the OSI treats patent *silence* as the risk, and §8 grants expressly). "Conditional licensing" is named as a nearby-sounding risk and answered from §4.4 and §10.4 |
 | How does this stand in relation to OSAID? | **Read at source 2026-09-06, and the answer is adverse.** OSAID v1.0 conditions all three required components on OSI approval in terms, so an AI system cannot be OSAID-conformant while its data information, code or parameters are under ACD-1.0 until ACD-1.0 is approved — and those three are what §6, §7 and §9 were written for. `review-responses-meta.md` Q32d; `against.md` #62 |

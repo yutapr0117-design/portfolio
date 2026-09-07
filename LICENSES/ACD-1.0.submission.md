@@ -598,6 +598,25 @@ fails — it does not — but because ACD-1.0 goes further than most approved li
 the recipient from any obligation to carry the notice forward. That choice is deliberate (§10.2),
 it has approved precedent, and its cost is stated as an adverse fact rather than defended.
 
+### 3c. The OSI's own list of common reasons for rejection, item by item
+
+**Source, read 2026-09-07**: `https://opensource.org/licenses/common-reasons-for-rejection-of-licenses`,
+linked from the review-process page. It names five patterns. Each is answered from the text.
+
+| Reason OSI publishes | ACD-1.0 |
+|---|---|
+| **"An express statement that no patent license is granted"** — fails OSD 6, 7 and 8; a licence that says nothing about patents *may* be acceptable if the grant can be read as implied | **The opposite.** §8.1 grants an express, irrevocable, worldwide patent licence, and §8.4 extends it to computational use, models and outputs. §8.2 states there is no retaliation provision and that its absence is deliberate. **This is also the clearest external support for §8 existing at all**: the OSI treats patent silence as a risk to be read around, so a dedication-shaped instrument that stayed silent would be relying on an implication |
+| **Badgeware** — requiring a trademark to be displayed; fails OSD 3 and 10 | **Not present.** §10.2 states You need not give attribution or reproduce any notice. §11.1 grants no trademark rights and §11.2 disclaims any requirement to use a name |
+| **Non-commercial and ethical clauses** — restrict where, why and how; fails OSD 6 | **Not present.** §4.3 states the licence is not conditioned on who You are or what You use the Work for. §10.1 imposes no condition of any kind |
+| **Conditional licensing** — "variable outcomes like BUSL that delay availability of full software freedom"; SISSL-style condition-selected *approved* licences have been approved | **Not present, and the nearby-sounding structure is different.** §3 (dedication) and §4 (licence) are not alternatives selected by a condition: §4.4 grants §4 **independently of §3 and not in dependence on §3 being ineffective**, so both operate and the recipient never determines which applies. Nothing becomes available later or expires: §10.4 states no permission terminates for any reason and there is no revival provision. **A reviewer may still raise this** — the answer is that BUSL varies *over time* and SISSL varies *by condition*, whereas ACD-1.0 varies in neither dimension |
+| **Phone-home provisions** — require interaction with a specific organisation, website or API; fails OSD 5, sometimes 8 and 10 | **Not present.** There is no interaction requirement of any kind; §10.1 and §10.2 exclude the category |
+
+**Why this section exists.** Until 2026-09-07 this dossier had never read this page, although it is
+two clicks from the process page a reviewer cited that morning and is 1,822 characters long
+(`against.md` #98). Four of the five are clean by construction — an instrument that imposes no
+conditions cannot impose *those* conditions — but **the first is not a negative result at all**: it
+is the OSI stating that saying nothing about patents is a risk, which is the case for §8.
+
 ### 4. What is deliberately absent
 
 Omissions are design decisions too, and the committee will ask about several of them.
@@ -723,7 +742,7 @@ machine can find are not present.
 | Every clause pointer in the machine-readable descriptor resolves and matches its subject | cross-check `ACD-1.0.machine.json` `clause` fields against the text | **33 / 33** |
 | Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
 | Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
-| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **97 entries, 1–97, no gaps; all citations resolve** |
+| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **98 entries, 1–98, no gaps; all citations resolve** |
 | Every defect called a "1.1 candidate" anywhere has an entry in the errata to point at | cross-check declarations against `errata.md` | **one was missing and has been added (E7)** |
 | Every negative self-claim the text makes about itself is true | extract each "contains no / imposes no / grants no / reaches nothing / specifies no" statement and search the whole text for the thing denied | **9 claims, 9 true** — each denied term appears only inside the clause doing the denying |
 | Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |
