@@ -4,6 +4,11 @@
 
 # Yuta Yokoi — AI-Driven PM Portfolio
 
+> **Reviewing the licence?** If you arrived from the OSI `license-discuss` thread on the
+> **Autonomous Commons Dedication 1.0 (ACD-1.0)**, start at
+> **[`LICENSES/REVIEWERS.md`](LICENSES/REVIEWERS.md)** — it is in English and states the
+> submission status, where the authoritative text is, and how to verify each claim.
+
 ## 30-second summary
 
 This repository is a public portfolio and experiment showing how one human PM
@@ -215,11 +220,6 @@ Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.tx
 ![Version](https://img.shields.io/badge/version-v74-brightgreen?style=flat-square)
 ![WCAG 2.2](https://img.shields.io/badge/WCAG-2.2%20AA-4caf50?style=flat-square)
 ![License](https://img.shields.io/badge/license-ACD--1.0-blue?style=flat-square)
-
-> **Reviewing the licence?** If you arrived from the OSI `license-discuss` thread on the
-> **Autonomous Commons Dedication 1.0 (ACD-1.0)**, start at
-> **[`LICENSES/REVIEWERS.md`](LICENSES/REVIEWERS.md)** — it is in English and states the
-> submission status, where the authoritative text is, and how to verify each claim.
 
 ### 横井雄太（Yuta Yokoi）によるAI-Driven PM実験リポジトリとは？
 
