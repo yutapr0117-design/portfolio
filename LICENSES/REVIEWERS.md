@@ -63,8 +63,8 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
-| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 181 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **Read this first.** All 92 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
+| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 182 worked entries, indexed by the question rather than the filename |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **Read this first.** All 93 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 10 known imprecisions, all unrepaired while the freeze holds, with what 1.1 would do |
 | Known weaknesses, longer form | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) | Stated by us, before you have to find them |
@@ -81,6 +81,25 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 ## Checking the claims yourself
 
 Every structural claim in the submission is meant to be verifiable in one command. A few:
+
+**These commands assume you have the repository.** One line gets it, and nothing here needs a
+build or a network beyond that:
+
+```sh
+git clone --depth 1 https://github.com/yutapr0117-design/portfolio && cd portfolio
+```
+
+**If you only have the attachment from the mailing list, use this instead** — it needs no clone,
+and it is the check that matters, because it compares *the bytes you were sent* against the
+pinned value rather than against anything this repository asserts about itself:
+
+```sh
+shasum -a 256 ACD-1.0.txt
+curl -s https://yutapr0117-design.github.io/portfolio/LICENSES/FROZEN.md \
+  | grep -E '^[0-9a-f]{64}  LICENSES/ACD-1\.0\.txt$'
+# the two digests must be identical; as of 2026-09-07 both are
+# 924e6a90d05cbc5dd8a400b4e892d7f323581c281d585d55a093d65a997b2d8a
+```
 
 ```sh
 # No project, author, domain or URL appears in the licence body      → expect 0
