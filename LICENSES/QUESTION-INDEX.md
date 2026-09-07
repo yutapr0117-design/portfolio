@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are **190** worked entries across this directory (measured 2026-09-06; the list is append-only, so treat it as a floor). This page exists so that you do not have to
+There are **191** worked entries across this directory (measured 2026-09-06; the list is append-only, so treat it as a floor). This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -113,6 +113,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | What happens when feedback arrives? | `REVISION-PROTOCOL.md` — verbatim archive, then decomposition; **1.0 is never mutated** |
 | What would make you withdraw? | `submission.md` §E.2; `against.md` closing section |
 | How long do you expect this to take? | We do not set a figure. `submission.md` §4a — the two comparable submissions point opposite ways |
+| Why is copyright, patents, trademarks and moral rights all in one document? | **`against.md` #102** — Rob Landley (author of 0BSD) holds they belong in separate instruments. §1.5 does separate them: Covered Rights excludes patents (§8), trademarks (§11) and moral rights (§12) by name. The live question is whether separate must mean a separate **document** — Apache-2.0 says no |
 | Has anything in this category actually been reviewed? | **Yes, once, and it was withdrawn.** PBZC v2.0 (2024-12 → 2025-01, 17 messages). All eight recorded objections worked through in `comparison.md` §1.46 — five do not apply by construction, **two endorse the §3/§4 structure**, one is live (`against.md` #100) |
 | Does OSI require a lawyer to have reviewed the licence? | **No — recommended only**, per the chair of the Licensing Committee on the record (2024-12-18), with the contrary claim retracted the same day. `AS-OF.md`. **Recommended still means weighed** |
 | Does §12's two-tier structure discriminate by jurisdiction (OSD 5)? | `against.md` #100 — the objection was raised against another instrument and is cheap to raise again. PBZC varied the **outcome**; ACD-1.0 varies only the **mechanism**, and §4.4 / §10.1 / §10.4 keep the outcome identical everywhere |
