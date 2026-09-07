@@ -250,6 +250,30 @@ ACD は **Maffulli の警告の両側に触れる** —— 政策論を持ち込
 **手順として持ち帰ったもの**: 分解の型そのものを `REVISION-PROTOCOL.md` §1.5 へ。指摘が
 「この条項は open source ではない」の形で来たときに、認める / 反論する の前に置く工程になる。
 
+### 要求情報の欠落は、議論を遅らせるのではなく**成立させない**（2026-09-07・BOS スレッドで観測）
+
+Carlo Piana 氏が BOS Public License v1.3 の承認依頼へ返した全文（`license-review` 2026-09-07 09:15 CEST）:
+
+> While on a cursory reading I see just little problems with the provided license text per se,
+> in addition to a proliferation issue of being the 10,354th submitted MIT derivative, I cannot
+> help but notice that **the submission does not include the required information and therefore
+> I will not comment it until the deficiencies are resolved.** Please refer to
+> https://opensource.org/licenses/review-process . I would suggest to resubmit.
+
+**読み取れること 2 点**（その読みが establish しないことも併記する規律どおり）:
+
+1. **要求情報の欠落は「指摘されて直す」ものではなく、「議論そのものが始まらない」ものである。**
+   本文の中身については *"just little problems"* とまで言いながら、**コメントを保留している**。
+   これは個人の対応であって OSI の裁定ではないが、**その人は 2026-07 の BOS v1.0 でも
+   最初期に発言している常連**であり、同じことが我々にも起こりうる。
+2. **proliferation が最初に来る。** *"the 10,354th submitted MIT derivative"* ——
+   ACD-1.0 は MIT 派生ではないが、**「なぜもう 1 つ要るのか」が最初の関門である**ことの
+   2 例目である（1 例目は Rob Landley 氏の代替可能性・`against.md` #84）。
+
+**この観測が我々に何をさせたか**: 要件を原典で読み直し、**送る文面（§B.0）が
+「OSD 3, 5, 6, 9 を specifically 明言する」要件を満たしていなかった**ことを見つけた
+（`against.md` #97）。修正済み。Check 463 も一般的な準拠宣言では通らない形へ締めた。
+
 ### FMLL v1.0（2026-07・`license-discuss`）—— **姿勢が最も近い比較対象**（2026-09-07 に原典で読了）
 
 **なぜこれが最も近いか**: 単独著者 / AI・機械学習のためのライセンス / **`license-review` ではなく

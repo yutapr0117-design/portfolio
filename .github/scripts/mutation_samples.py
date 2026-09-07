@@ -42,43 +42,6 @@ _MUTATIONS_TAIL = [
     # find 値) に当たって挙動が不安定になるため。Check 362 の非 vacuous 性は手動で実証済
     # (mutation の file を誤り先へ変えると Check 362 が RED・restore で緑)。
     {
-        "name": "Check 426: 2 つのバイナリ資産の entity 帰属が食い違っても検出しない — asset:image:entity / asset:audio:entity は WebP と MP3 の帰属先を AI クローラへ宣言する meta で、片方だけ変えても視覚にも behavior にも一切出ない。実測 (2026-08-17) ではこの entity 宣言を見ている層が皆無で、書き換えても全 gate が緑だった (#930 と同じ『宣言はあるが見ている層がゼロ』class)。単独 mutation で 426c だけが発火することを確認済み",
-        "file": ROOT / "index.html",
-        "find": 'name="asset:audio:entity" content="Yuta Yokoi (横井雄太 / Yokoi Yuta)"',
-        "replace": 'name="asset:audio:entity" content="Someone Else"',
-    },
-    {
-        "name": "Check 429: import \u3055\u308c\u3066\u3044\u308b\u3060\u3051\u3067\u4e00\u5ea6\u3082\u4f7f\u308f\u308c\u306a\u3044 pure-utils export \u3092\u691c\u51fa\u3057\u306a\u3044 \u2014\u2014 Check 47 \u306f\u300cexport \u21d4 import\u300d\u306e bijection \u3057\u304b\u898b\u306a\u3044\u305f\u3081\u3001import \u306f\u3055\u308c\u3066\u3044\u308b\u304c\u547c\u3070\u308c\u306a\u3044 export \u3092\u7d20\u901a\u308a\u3055\u305b\u308b\u3002ESLint \u3082 main.js \u304c\u5fc5\u305a import \u3059\u308b\u4ee5\u4e0a\u300c\u4f7f\u7528\u6e08\u307f\u300d\u3068\u898b\u306a\u3059\u3002\u5b9f\u4f8b: safeFetchJSON \u304c\u547c\u3073\u51fa\u3057 0 \u4ef6\u306e never-wired \u6b8b\u9ab8\u3068\u3057\u3066\u6b8b\u3063\u3066\u3044\u305f",
-        "file": ROOT / "main.js",
-        "find": "debounce(syncMobileDrawer, CONSTANTS.DEBOUNCE_DELAY)",
-        "replace": "syncMobileDrawer",
-    },
-
-    {
-        "name": "Check 427: BLOCKING の behavior gate が main で走らなくなり監査バッジが空白へ戻る — playwright-regression.yml から push(main) トリガを外すと、その workflow の run は PR の head 側にしか記録されず main に残らないため、STATUS.md の ?branch=main バッジが永久に 'no status' の空白になる。オーナーの唯一の監査導線に『緑』ではなく『何も分からない』が出るが、Check 415 は『バッジが在るか』しか見ないので素通りする",
-        "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
-        "find": "  push:\n    branches: [ \"main\" ]\n    paths:",
-        "replace": "  push_disabled:\n    branches: [ \"main\" ]\n    paths:",
-    },
-    {
-        "name": "Check 142b: BLOCKING gate が自身の定義変更を検証しなくなる — playwright-regression.yml の paths から自己参照を外すと、job 構成 / env / step を書き換えても behavior gate が一度も走らずに merge できる (実測 #1099: この workflow を書き換えた PR で playwright-validation が起動しなかった)。package.json を trigger に入れているのと同一 class",
-        "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
-        "find": "      - '.github/workflows/playwright-regression.yml'\n",
-        "replace": "",
-    },
-    {
-        "name": "Check 142c: push / pull_request の paths が非対称になる — 片方だけに path を足すと『PR では走るのに main では走らない』(逆も) 状態ができ、merge ゲートと監査バッジ (Check 427) の守備範囲がずれる。2 ブロック構成は #1099 で導入したもので、以後どちらか一方だけを編集する事故が起こりうる",
-        "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
-        "find": "  pull_request:\n    branches: [ \"main\" ]\n    paths:\n      - 'index.html'",
-        "replace": "  pull_request:\n    branches: [ \"main\" ]\n    paths:\n      - 'README.md'\n      - 'index.html'",
-    },
-    {
-        "name": "Check 428: 未定義のカスタムプロパティをフォールバック無しで参照しても検出しない — `var(--x)` の `--x` が未定義だと宣言ごと invalid at computed-value time になり **プロパティが初期値へ落ちる**。実測では hover 背景が透明になり『持ち上げて強調する』はずの操作でカードが表面を失っていた。エラーも警告も出ず stylelint も通り screenshot は ADVISORY なので、この Check だけが捕捉層",
-        "file": ROOT / "style.css",
-        "find": "            background: var(--surface-hover);",
-        "replace": "            background: var(--card-bg);",
-    },
-    {
         "name": "Check 431: \u767b\u9332\u6e08\u307f\u306a\u306e\u306b\u5b9f\u884c\u3055\u308c\u306a\u3044 Check module \u3092\u691c\u51fa\u3057\u306a\u3044 \u2014\u2014 run(_ctx) \u306e 1 \u884c\u3092\u5916\u3059\u3068\u3001\u305d\u306e module \u306e Check \u306f runbook \u00a79 \u306e\u7dcf\u6570\u306b\u6570\u3048\u3089\u308c Check 45 \u306b\u3082\u691c\u8a3c\u3055\u308c\u308b\u306e\u306b **\u4e00\u5ea6\u3082\u5b9f\u884c\u3055\u308c\u306a\u3044**\u3002\u300cN \u500b\u306e Check \u304c\u5b88\u3063\u3066\u3044\u308b\u300d\u3068\u3044\u3046\u8a18\u8ff0\u304c\u5618\u306b\u306a\u308b\u304c\u3001\u5931\u6557\u306f\u4e00\u5207\u306e signal \u3092\u51fa\u3055\u306a\u3044",
         "file": ROOT / ".github" / "scripts" / "check_repository_consistency.py",
         "find": "_checks_css.run(_ctx)",
@@ -501,6 +464,17 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "README.md",
     "find": "> **[`LICENSES/REVIEWERS.md`](LICENSES/REVIEWERS.md)** \u2014 it is in English and states the",
     "replace": "> **the reviewer guide in this repository** \u2014 it is in English and states the",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 463: 送る文面から OSD 3/5/6/9 の名指しを落とす —— OSI の review-process は"
+            "「OSD に準拠する」ではなく「**3, 5, 6, 9 を満たすと specifically 明言する**」を求める。"
+            "2026-09-07 に Carlo Piana 氏が別の提出へ『required information が無いので解決するまで"
+            "コメントしない』と述べた (against.md #97) ため、欠落は議論の遅れではなく不成立を招く",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
+    "find": "**OSD 5 and OSD 6**",
+    "replace": "**OSD 5/6**",
     "check": CHECK,
 })
 
