@@ -120,7 +120,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**660 words**, measured 2026-09-06)
+### B.0 The message as it should actually be sent (**685 words**, measured 2026-09-07)
 
 **Why this section exists.** Everything below §B.0 — §1 through §5 — runs to **7,500 words**. The
 list's code of conduct asks for "concise and low-volume" and that was restated in the August 2026
@@ -129,7 +129,9 @@ dossier is built on**, which is that the repository holds the depth so the messa
 §1–§5 are not deleted: they are the reference material the short message points at, and they are
 where a reviewer who asks a specific question is sent. **Send §B.0. Do not paste §1–§5.**
 
-**Length, stated rather than rounded.** This was 577 words when written on 2026-09-06 and is **660** after two additions the same day: *why now* (the review record contains no ML-substantive submission before 2024) and *why this one is shaped differently* (the AI-era submissions add conditions; this one removes them). **Both pre-empt an objection that would otherwise be raised first**, which is the only justification for spending words on a list that asks for concision. **If it grows again, the number here moves with it** — a heading that rounds its own length to a friendlier figure is the failure this dossier spent 2026-09-06 finding in itself.
+**Length, stated rather than rounded.** This was 577 words when written on 2026-09-06, **660** after
+two additions the same day, and **685** after one more on 2026-09-07 — the enforcement sentence now
+says what each CI check actually establishes (`against.md` #95). The two 2026-09-06 additions were: *why now* (the review record contains no ML-substantive submission before 2024) and *why this one is shaped differently* (the AI-era submissions add conditions; this one removes them). **Both pre-empt an objection that would otherwise be raised first**, which is the only justification for spending words on a list that asks for concision. **If it grows again, the number here moves with it** — a heading that rounds its own length to a friendlier figure is the failure this dossier spent 2026-09-06 finding in itself.
 
 ---
 
@@ -189,9 +191,10 @@ records that a dedication *taken alone* would not be approved; ACD-1.0 is not ta
 
 **Legal review: none.** No lawyer has drafted or read it. I state that plainly rather than let it
 be discovered. What can be shown without counsel is mechanical, and is checked in CI on every
-commit: numbering, cross-reference resolution, defined-term usage, absence of any
-obligation-imposing word directed at the user, absence of anything specific to my project, and
-pure-ASCII text.
+commit: contiguous clause numbering, resolution of every internal cross-reference, use of every
+defined term, absence of the obligation-imposing constructions I enumerate, absence of the
+project-specific elements I enumerate — names, URLs, placeholder text — and pure-ASCII text.
+**Each is a floor rather than a proof**: an enumeration catches the forms it lists.
 
 **Provenance.** The text was drafted by an AI agent operating autonomously in this project. I did
 not commission it or direct the drafting, and learned of it afterwards; I read it in full before
@@ -712,7 +715,7 @@ machine can find are not present.
 | Every clause pointer in the machine-readable descriptor resolves and matches its subject | cross-check `ACD-1.0.machine.json` `clause` fields against the text | **33 / 33** |
 | Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
 | Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
-| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **94 entries, 1–94, no gaps; all citations resolve** |
+| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **95 entries, 1–95, no gaps; all citations resolve** |
 | Every defect called a "1.1 candidate" anywhere has an entry in the errata to point at | cross-check declarations against `errata.md` | **one was missing and has been added (E7)** |
 | Every negative self-claim the text makes about itself is true | extract each "contains no / imposes no / grants no / reaches nothing / specifies no" statement and search the whole text for the thing denied | **9 claims, 9 true** — each denied term appears only inside the clause doing the denying |
 | Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |
