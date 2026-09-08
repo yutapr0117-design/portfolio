@@ -374,3 +374,40 @@ has been made**, but i have tried my best"* と書いている。**約 10 時間
 McCoy 氏のこの発言は「機械的に確かめられること」の外側にあるものを名指ししている。**
 `against.md` #5 / #79 はこの発言で**弱まるのではなく鋭くなる**。
 
+## 1.52 「弁護士が要る」への実務的な答えは、審査そのものである
+
+§1.51 の McCoy 氏の発言（この類型で弁護士なしは *"isn't likely to result in something functional"*）は
+**我々に反論の材料が無い**指摘だった。**だが同じアーカイブに、その指摘の実務的な帰結が書いてある。**
+
+**Carlo Piana 氏（2024-12・PBZC 審査）**:
+> OSI requires prior review by a lawyer because there are things that a layman very likely cannot
+> consider, not just to enrich lawyers (**who mostly do this job pro bono, as we are doing now**).
+
+**Carlo Piana 氏（2024-09・別の提出者へ）**:
+> I second the opinion that you should probably withdraw the submission and consider the valuable
+> advice you have been provided with (**for free**).
+
+**Josh Berkus 氏（2025-07・BOS の提出者へ・OSI Board Member として）**:
+> We are approaching 2 months from the submission of this license, **our usual interval for
+> examination**. You've received some critical feedback from **our volunteer attorneys**. Do you
+> plan to revise the license submission, or keep it as it is?
+
+### 読み取れること 3 点
+
+1. **このリストの審査者は、pro bono で働く弁護士たちである。**（Piana 氏の "as we are doing now" は
+   自分自身を含めた記述である。）**単独・無資金の起草者が条文に弁護士の目を通す実務的な経路は、
+   提出することそのものである。** McCoy 氏の指摘への答えは「反論」ではなく**「その通りであり、
+   だからこそ提出する」**である。
+2. **ただしこれは「弁護士が起草した」とは違う。** 受けられるのは**起草の代行ではなく批評**で、
+   しかも**提出後**にしか来ない。`submission.md` §B.0 が法的レビューの不在を先に述べるのは、
+   この順序を偽らないためである。
+3. **審査の標準的な間隔は約 2 か月**で、その時点で **「改訂するのか、このまま行くのか」を
+   聞かれる**。オーナー方針（届いた議論を全部取り込んで改訂版を出す）は、
+   **この問いに対する答えとして既に用意されている**（`REVISION-PROTOCOL.md` §1〜§2）。
+   **聞かれてから考えるのではなく、聞かれる前から決めてある**ことがこの track の設計である。
+
+**この節が establish しないこと**: pro bono の批評を受けられることは、**批評が好意的である
+ことを意味しない**（§1.51 の McCoy 氏の発言自体がその批評である）。また、
+**批評を受ける前提は「要求情報を満たした提出」**であって、満たしていなければ
+コメントは付かない（#97・Piana 氏 2026-09 / McCoy 氏 2024-10・2026-03 の 3 例）。
+
