@@ -120,7 +120,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**788 words**, measured 2026-09-07)
+### B.0 The message as it should actually be sent (**858 words**, measured 2026-09-08)
 
 **Why this section exists.** Everything below §B.0 — §1 through §5 — runs to **7,500 words**. The
 list's code of conduct asks for "concise and low-volume" and that was restated in the August 2026
@@ -135,7 +135,12 @@ establishes — `against.md` #95), **768** after the OSD affirmation was made sp
 criteria 3, 5, 6 and 9 as the review-process page requires (`against.md` #97). **That last one is
 not optional**: on 2026-09-07 a reviewer publicly declined to comment on another submission at all
 until its missing required information was supplied. It is **788** after the "why now" paragraph was
-corrected the same day — it had said no submission before 2024 concerned machine learning, and the
+corrected the same day, and **858** after 2026-09-08, when the structure paragraph gained the one
+thing that most directly answers *"why another public-domain-equivalent?"* — that §4.4 states in
+text the argument which had to be argued on this list to save the Unlicense in 2020
+(`review-precedents.md` §1.57). **That question is the opening move in this category**: it was put
+to Rob Landley's fungibility point (#84), to the UPD 1.5.2 author by David Woolley, and by Carlo
+Piana as proliferation — it had said no submission before 2024 concerned machine learning, and the
 archive shows two in 2023 (`against.md` #103). The two 2026-09-06 additions were: *why now* (the review record contains no ML-substantive submission before 2024) and *why this one is shaped differently* (the AI-era submissions add conditions; this one removes them). **Both pre-empt an objection that would otherwise be raised first**, which is the only justification for spending words on a list that asks for concision. **If it grows again, the number here moves with it** — a heading that rounds its own length to a friendlier figure is the failure this dossier spent 2026-09-06 finding in itself.
 
 ---
@@ -199,6 +204,12 @@ better choice, which is most of the time** — is in the repository.
 licence over the same rights **independently of §3** (§4.4): §4 does not wait for §3 to fail, and a
 recipient never has to decide which operated. The Committee's 2020 recommendation on the Unlicense
 records that a dedication *taken alone* would not be approved; ACD-1.0 is not taken alone.
+
+**Why that matters, and why another public-domain-equivalent.** The 2020 veto against the Unlicense
+was that it was *"very much not clear"*. What answered it was the argument that, even if the
+dedication were ineffective, the enumerated permissions would still operate. **That argument is not
+in the Unlicense's text — it had to be made on this list.** §4.4 states it, so no recipient and no
+court has to reach it.
 
 **Legal review: none.** No lawyer has drafted or read it. I state that plainly rather than let it
 be discovered. What can be shown without counsel is mechanical, and is checked in CI on every
