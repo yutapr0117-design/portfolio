@@ -250,6 +250,30 @@ ACD は **Maffulli の警告の両側に触れる** —— 政策論を持ち込
 **手順として持ち帰ったもの**: 分解の型そのものを `REVISION-PROTOCOL.md` §1.5 へ。指摘が
 「この条項は open source ではない」の形で来たときに、認める / 反論する の前に置く工程になる。
 
+### FFOL（2024-10・5 通）—— #97 で直した当の項目が、名指しで欠落を指摘されている
+
+Forever Free & Open License。McCoy Smith 氏の返信（2024-10-13）が、**OSI の要求項目のうち
+欠けているものを箇条書きで名指しした**:
+
+> The process for license approval has a couple of other requirements, which it doesn't look like
+> you've done completely here … It looks like you haven't done the following:
+> * **Affirmatively state that the license complies with the Open Source Definition, including
+>   specifically affirming it meets OSD 3, 5, 6 and 9.**
+> * Identify what projects are already using the license.
+> * Describe any legal review the license has been through, including whether it was drafted by a lawyer.
+
+**1 つ目は、2026-09-07 に我々が §B.0 で欠いていたと分かった当の項目である**（`against.md` #97）。
+**「specifically affirming it meets OSD 3, 5, 6 and 9」は、審査者が名指しで確認する項目だ**という
+直接の証拠であり、**直していなければこの返信を受けていた**。
+
+これで**要求情報の欠落に対する反応は 3 例**になった —— McCoy 氏（2024-10・FFOL / 2026-03・
+Modified 0BSD）と Piana 氏（2026-09・BOS）。**2 名・3 回・2 年にわたって同じ形である。**
+
+**本題（我々には当たらない）**: FFOL は対価の徴収を禁じようとしており、Piana 氏が
+*"The inability to charge a price for accessing the program is **directly against OSD #6**"*、
+そして **許諾そのものに対価や制限を課してはならない**（ソフトウェアを売ること自体は妨げられない）
+と整理している。ACD-1.0 は §4.3 / §10.1 により対価も制限も持たない。
+
 ### Tiwaz License v1.0（2025-05 / 07・16 通）—— 手続きの観測 3 件（2026-09-08 読了）
 
 MPL-2.0 から Secondary License 条項を除いた派生。ACD-1.0 とは類型が違うが、**審査者の作法**が
@@ -546,13 +570,13 @@ CC0 / Unlicense / 0BSD のどれも含まないので、**#87 の走査では原
 | ✅ | MGB 1.0（2025-02/03/09・3 ラウンド 47 通）| 本書「取り込んで再提出」節 |
 | ✅ | RAIL（2023-04・4 日で撤回）| 本書「AI ライセンスは 2023 年から」節 / #103 |
 | ✅ | Tiwaz License v1.0（2025-05/07・16 通）| 本書「Tiwaz」節 |
+| ✅ | FFOL（2024-10・5 通）| 本書「FFOL」節 —— #97 の外部裏付け |
 
 **未読・優先順つき**（**この一覧は次に消費されるべき候補であって、網羅ではない**）:
 
 | 優先 | スレッド | なぜ我々に効くか |
 |---|---|---|
 | 中 | **RAIL（Restricted AI License）**（5 通）| AI + 制限。**条件を足す AI ライセンスがどう扱われたか**の追加事例（`comparison.md` §1.45 の結論の検証） |
-| 中 | **Forever Free & Open License (FFOL)**（5 通）| 名称が永続・撤回不能を示唆。#1.47 の隣 |
 | 低 | Misty Foundation / Milenium / CingXaero / Linkumori / OSN-1.0 / FARCL / Orivex ほか小規模提出 | **単独・非弁護士の提出がどう扱われるかの類型**。1 件ずつではなく**まとめて傾向を見る**のが正しい使い方 |
 
 ### まだ読んでいない窓（候補）
