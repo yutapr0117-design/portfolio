@@ -563,6 +563,63 @@ perpetual**, sublicensable, and transferable licence"*。§8.1 の特許許諾�
 承認されていない。
 
 
+## 1.49 人格権 —— リストの日本人参加者が 2024 年から押している論点で、§12 はその答えである
+
+**ACD-1.0 §12 は、ドシエの中で「なぜこんな条項があるのか」が最も説明を要する節だった。**
+アーカイブを人格権で走査したところ（2026-09-08）、**この論点はリスト上で 2024 年から
+繰り返し提起されており、しかも提起しているのは日本の参加者である**ことが分かった。
+
+### 何が言われているか（原文・発言者・日付）
+
+**Shuji Sado 氏（2024-09・`license-review`）** —— Blue Oak Model License について:
+
+> In March, I pointed out that the Blue Oak Model License does not consider moral rights.
+> **The consensus in this thread was that, for software programs, not considering moral rights is
+> not an issue in most jurisdictions worldwide, but it can be a problem in East Asian countries,
+> particularly in Japan.**
+
+> …after discussions with multiple legal department members who hold law degrees, it was determined
+> that **in Japan, the Blue Oak License retains moral rights with the authors, posing a risk that
+> usage could be stopped at any time. This cannot be considered an Open Source Data license.**
+
+> In the case of the Apache 2.0 License, it explicitly states "copyright license," but it also
+> grants irrevocable permission for acts such as reproduction, distribution, and modification.
+> **This is interpreted as a declaration that moral rights will not be exercised.**
+
+> I recently learned that **Japan applies moral rights most strictly among countries**.
+
+**Carlo Piana 氏（2023-11）—— 反対の見方**:
+
+> On the moral rights, mind that **these are not licensable**, so anything the license says one way
+> or the other, nothing changes. I take the opinion that moral rights are probably not relevant in
+> software as they are in creative…
+
+**別の参加者（2023-11・Blue Oak を論じて）**:
+
+> **The CC0 mechanism (promise not to exercise or assert any remaining rights) seems much clearer.**
+
+### §12 がそれぞれにどう答えるか
+
+| 論点 | ACD-1.0 |
+|---|---|
+| 日本では人格権が著作権と別個で、**最も厳格に**運用される。触れないライセンスは「いつでも利用を止められる」risk を残す | **§12 が正面から扱う唯一の節である。** §12.1 が放棄可能な範囲で放棄し、§12.2 が**放棄不能な法域では不行使の合意**を置く |
+| 人格権は **licensable ではない**（Piana 氏）ので、条項は無意味ではないか | **§12.2 は許諾ではなく covenant（不行使の合意）である。** 「譲渡・放棄できない権利」でも「行使しないと約束する」ことはできる、という区別に依っている。Piana 氏の指摘は**放棄構成（§12.1）にだけ当たり、covenant 構成（§12.2）には当たらない** |
+| CC0 の「残る権利を行使しないと約束する」機構のほうが明確だ | **§12.2 はその機構である**（§5 の covenant not to assert と同じ設計）|
+| Apache-2.0 は「不可逆の許諾」を人格権不行使の宣言と**解釈で**読ませている | **ACD-1.0 は解釈に依存しない** —— §12 が明文で述べる。**日本法の下で最も強い形は、解釈ではなく明文である** |
+| 人格権は**著者の死後も存続**し、遺族や公的機関が行使しうる | **§12.4 がそこまで縛る**（承継人・相続人・遺言執行者・死後に行使しうる者）。**この節の存在理由は「最も長く残る risk」である**と条文自身が述べている |
+| 人格権が守る「氏名表示を偽られない利益」まで放棄させるのか | **§12.5 が明示的に留保する**（§11.3 の虚偽表示は covenant の外）。**放棄しない部分を書いてある** |
+
+### 我々にとっての意味
+
+1. **§12 は思弁ではなく、リスト上の実際の未解決論点への回答である。** しかも
+   **提起者は日本の参加者で、Dedicator も日本にいる。**
+2. **不利な側も同じ強さで書く**（`against.md` #104）—— Piana 氏の「人格権は licensable でない」は
+   §12.1 への有効な批判であり、**§12 全体が無意味だと読まれる余地がある**。答えは
+   「§12.2 は許諾ではなく covenant」だが、**それは条文を読ませて初めて通る答え**である。
+3. Sado 氏の基準（人格権を扱わないものは「Open Source Data license とは言えない」）は**高い**。
+   ACD-1.0 はその基準の正しい側に立つが、**基準が存在すること自体は覚えておく**。
+
+
 ## 1.5 AI-native な同時代 instrument（OSI 審査中・2026-09 時点）
 
 **ACD-1.0 は、OSI の前にある唯一の AI-native instrument ではない。** 2026-09 時点で
