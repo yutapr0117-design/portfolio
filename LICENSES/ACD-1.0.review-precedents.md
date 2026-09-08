@@ -467,3 +467,46 @@ them (if any) can be solved with a copyright license**"* —— AI 学習への�
 signalling をライセンスでやろうとしていない**（`research-application-policy.md` §3C が
 IETF AIPREF を採らない理由と同じ向き）。
 
+## 1.55 非ソフトウェア資産と AI エージェントの「スキル」—— 我々が実際に配っているもの（2026-04）
+
+ACD-1.0 は**リポジトリ全体**（ソース・文書・データ・メディア資産、そして
+`.well-known/` の **Agent Skills**）に適用されている。**その適用形態そのものが議論された
+スレッドがある**（`license-discuss` 2026-04・Moming Duan 氏の問題提起）。
+
+**問い**: スキル（AI コーディング支援への指示セット）に明示的なライセンスは要るのか。
+そもそも著作物なのか。米国著作権局は「プロンプトだけでは十分な人的支配を与えない」と結論して
+いるのではないか。従来の OSS ライセンスは適切なのか。
+
+**Richard Fontana 氏（Red Hat・2026-04-06）の回答が 3 点とも我々に効く**:
+
+> "Instructions" **can be copyrightable works**. I think at least some skills files are likely
+> copyrightable.
+
+> The document does not state that. Rather, it says that **prompts alone do not provide sufficient
+> human control over AI-generated *outputs*** to confer human authorship and thus copyrightability
+> **over the outputs**. It references [Part 2] that appears to endorse the view … that
+> **sufficiently creative prompts may be copyrightable**.
+
+> it's already the case that **open source software licenses are extensively used for non-software
+> material** in open source project repositories. My general view is that **traditional open source
+> software licenses are completely appropriate** for association with such material if they are
+> copyrightable.
+
+### 我々にとっての意味
+
+1. **「ソフトウェア用のライセンスを非ソフトウェア資産に当てている」ことは、この場では異常では
+   ない。** Fontana 氏が *"extensively used"* かつ *"completely appropriate"* と述べている。
+   **ただし Carlo Piana 氏（2023-07）は逆に近いことを述べている** —— *"the only non-software
+   specific licenses we approve are those bearing a total waiver of any right so that the work
+   becomes nearly public domain"*。**両方を記録する** —— そして**その「total waiver に近いもの」は
+   ACD-1.0 の形そのもの**なので、2 つの見解は我々については同じ結論へ収束する。
+2. **§9 が navigate している区別を、この場の第一人者が正確に述べている** ——
+   **プロンプトは著作物たりうる / そこから生成された出力は人的著作性を欠きうる**、は別の命題である。
+   **§9.2 が「表明しない」のは、この区別が未確定だからであって、不勉強だからではない。**
+   **よくある誤読（「著作権局はプロンプトは著作物でないと言った」）を、Fontana 氏がその場で
+   訂正している** —— 我々もその誤読を繰り返してはならない。
+3. **我々が配っている Agent Skills は、この議論の対象そのものである。** ACD-1.0 を
+   リポジトリ全体に当てるという選択は、**この論点に対する 1 つの答え**になっている
+   （スキルが著作物なら許諾が及び、著作物でないなら許諾は無害である —— §2.7 が
+   「Dedicator が保有する権利」に射程を閉じているので、**どちらでも壊れない**）。
+
