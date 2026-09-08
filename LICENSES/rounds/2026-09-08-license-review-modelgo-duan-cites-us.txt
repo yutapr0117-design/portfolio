@@ -1,0 +1,98 @@
+Source: OSI license-review public archive, 2026-September.txt
+Retrieved: 2026-09-08 from lists.opensource.org
+Date: Tue, 8 Sep 2026 05:06:35 +0000
+From: Moming Duan <duanmoming@gmail.com> (ModelGo steward)
+Subject: [License-review] ModelGo Attribution License, Version 2.0 — CALL FOR COMMENTS
+
+**我々宛ではない。** 上記 CALL FOR COMMENTS への steward の回答で、
+**Q1 と Q3 の背景資料として「Yokoi-san」をアーカイブ URL つきで 2 度引いている** ——
+Pamela Chestek 氏・McCoy Smith 氏・Josh Berkus 氏と並ぶ位置で。
+
+公開アーカイブから逐語で複製したもの。無改変。
+
+----- begin verbatim -----
+
+From duanmoming at gmail.com  Tue Sep  8 05:06:35 2026
+From: duanmoming at gmail.com (Moming Duan)
+Date: Tue, 8 Sep 2026 05:06:35 +0000
+Subject: [License-review] ModelGo Attribution License, Version 2.0 FINAL
+ CALL FOR COMMENTS
+In-Reply-To: <7914b856-57b3-4ee2-8592-cc1c9836e94c@lexpan.law>
+References: <883778D3-40CF-4DCF-B65F-AD07D9F427AD@gmail.com>
+ <e325347c-0c66-4294-bfe9-0d01dddbd58f@lexpan.law>
+ <5bca659c-c634-fa6d-5158-7799dc75d48e@chesteklegal.com>
+ <541EAF35-5686-48A5-8839-5808AA5E20FC@gmail.com>
+ <1B2ED380-0E90-4969-B9D6-B267F105BD2A@gmail.com>
+ <0197fe60-de0b-4ddb-8d42-99095ea228d3@chesteklegal.com>
+ <453E84A0-1DBE-4DB8-A61A-B178CFE348C5@gmail.com>
+ <3F3E65D0-B7A8-487F-B030-1ADB123CE4E8@gmail.com>
+ <7914b856-57b3-4ee2-8592-cc1c9836e94c@lexpan.law>
+Message-ID: 
+	<TY7PR01MB157026E48BDBE28F282F0BCCDADB12@TY7PR01MB15702.jpnprd01.prod.outlook.com>
+
+Hi McCoy and all,
+
+
+Thank you for the careful review and the structured questions.
+
+On the preamble difference:
+
+There is a difference in the language in the preamble of ModelGo Zero vs ModelGo Attribution. ModelGo Zero specifically points out the Sec 3 disclaimer, but Attribution does not. Also Attribution says that if you don't agree to the terms, then no rights are granted; ModelGo Zero doesn't require this. Is there a reason for that discrepancy between licenses? Should they be synchronized in this section of the license to be identical?
+
+When we removed the condition from Zero, the preamble was adjusted accordingly: MG0 has no obligations, so its acceptance clause only asks the user to read and understand the license (pointing to the Section 3 disclaimer); MG-BY carries attribution obligations, so it keeps the "agree to be bound" structure.
+
+
+About Q1-Q4: for the community's reference, here is the relevant background from ModelGo review threads:
+
+Q1 (hosted/API distribution and Freedom Zero):
+
+  *   Moming, Feb 2025: the submission identified the chatbot/remote-access scenario as a design target [2]
+  *   Josh, Feb 2025: flagged the AGPL-style nature of the hosted/API licensing [3]
+  *   Yokoi-san, Sep 2026: asked how the Section 2.2(a) conditions operate for hosted-only deployments; the steward's follow-up confirmed the reading [4][5]
+
+Q2 (Model + Complementary Materials in one definition):
+
+  *   Pam, Mar 2025: raised the "collectively" vs "and/or" question [6]
+  *   Moming, Mar 2025: clarified the intent [7]
+  *   Josh, Feb 2025: asked for expert review of the definition [3]
+  *   Moming, Jul 2025: tightened the definition [8]
+
+Q3 (termination directed only at the Licensor; patent claim terminating the copyright grant):
+
+  *   McCoy, May 2025: concluded "not an OSD violation, but an uptake issue" [9]
+  *   Moming, Jun 2025: the automatic-termination change [10]
+  *   OpenMDW thread, Aug-Sep 2026: precedents for patent claims terminating copyright grants [11]; Yokoi-san's three-axis framing [12]
+
+Q4 (the Derivative Materials trigger):
+
+  *   McCoy, May 2025: first raised the overbreadth concern (the "Liberty or Death" reading) [9]
+  *   Moming, May 2025: responded on "patent trap" and uptake grounds [1]
+  *   Moming, Dec 2025: excluded distillation-based models from Derivative Materials [13]
+  *
+McCoy, Sep 2026: contrasted MG-BY with OpenMDW-1.1 [14]
+
+Should the community have additional questions on these matters, I am happy to provide further clarification.
+
+
+Best,
+Moming
+
+[1] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-May/005777.html
+[2] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-February/005656.html
+[3] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-February/005691.html
+[4] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-September/006241.html
+[5] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-September/006248.html
+[6] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-March/005700.html
+[7] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-March/005724.html
+[8] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-July/005813.html
+[9] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-May/005764.html
+[10] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-June/005801.html
+[11] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-August/006129.html
+[12] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-September/006246.html
+[13] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-December/005937.html
+[14] https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-September/006237.html
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260908/4059bddb/attachment.htm>
+
