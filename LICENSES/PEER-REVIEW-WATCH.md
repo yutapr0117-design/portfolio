@@ -250,6 +250,40 @@ ACD は **Maffulli の警告の両側に触れる** —— 政策論を持ち込
 **手順として持ち帰ったもの**: 分解の型そのものを `REVISION-PROTOCOL.md` §1.5 へ。指摘が
 「この条項は open source ではない」の形で来たときに、認める / 反論する の前に置く工程になる。
 
+### Tiwaz License v1.0（2025-05 / 07・16 通）—— 手続きの観測 3 件（2026-09-08 読了）
+
+MPL-2.0 から Secondary License 条項を除いた派生。ACD-1.0 とは類型が違うが、**審査者の作法**が
+3 つ観測できた。
+
+**1. 法的レビューは要件ではない —— 3 例目、しかも OSI 理事から。**
+Josh Berkus 氏（**OSI Board Member** として署名・2025-05-27）:
+> where the opinions on these flaws in the MPL, and the revisions to them, drafted by an attorney
+> or with the help of one? **It's not a requirement, but lets us know how to regard the text of the
+> changes.**
+
+Chestek 氏（委員長・2024-12）と Piana 氏の撤回に続く**独立した 3 例目**であり、
+**最も有用な言い回し**でもある —— *"lets us know **how to regard** the text"*。
+**要件ではないが、テキストの読まれ方を変える。** 我々のドシエはこの温度で書くのが正しい
+（「blocker ではない」を「軽い」と読ませない）。
+
+**2. 審査者は提出者の URL を叩き、死んでいれば言う。**
+同じメッセージ: *"Note that the **tiwaz.fyi domain appears to be non-functional right now**."*
+→ 我々は 2026-09-07 に `LICENSES/**` の全 URL 30 件を実測し、**29/29 が 200**（残る 1 件は
+XML 名前空間 URI で link ではない）。`AS-OF.md`。**この掃引は儀式ではなかった。**
+
+**3. McCoy 氏の既定の審査方法は「既存ライセンスとの redline」であり、我々には使えない。**
+McCoy 氏（2025-05-28）: *"i did a compare of this license vs mpl-2.0 and posted it to github.
+**i find this an easier way of reviewing licenses that are derived from a preexisting license**"*
+—— 2026-09-07 の ModelGo 意見募集でも同じことをしている（**3 例目**）。
+**ACD-1.0 は既存ライセンスの派生ではないので redline が原理的に作れない。**
+黙っていると「比較材料を出さない提出」に見えるので、**作れない理由（祖先テキストが無い）を
+先に述べ、代わりに条項単位の比較（`comparison.md`）を出す**のが正しい（MGB の節と同じ結論）。
+
+**おまけ（実際に効いた）**: McCoy 氏は同スレッドで、MPL-2.0 が免責と責任制限を**黄色で強調**して
+いるのは米国 UCC の「conspicuous」要件のためで、ASCII 版では ALL CAPS やアスタリスク列で
+代替されると述べている。**ACD-1.0 の §13.1 / §13.2 / §14.1 は既に ALL CAPS である**
+（`submission.md` §4c に実測として追加）。
+
 ### 進行中の CALL FOR COMMENTS —— 4 つの問いが、すべて ACD には当たらない（2026-09-07〜08）
 
 McCoy Smith 氏が ModelGo 2 件について**公開の意見募集**を出した。宛先は
@@ -511,12 +545,12 @@ CC0 / Unlicense / 0BSD のどれも含まないので、**#87 の走査では原
 | ✅ | Modified 0BSD (Maintenance-Required)（2026-03・却下）| `comparison.md` §1.48 / #102 |
 | ✅ | MGB 1.0（2025-02/03/09・3 ラウンド 47 通）| 本書「取り込んで再提出」節 |
 | ✅ | RAIL（2023-04・4 日で撤回）| 本書「AI ライセンスは 2023 年から」節 / #103 |
+| ✅ | Tiwaz License v1.0（2025-05/07・16 通）| 本書「Tiwaz」節 |
 
 **未読・優先順つき**（**この一覧は次に消費されるべき候補であって、網羅ではない**）:
 
 | 優先 | スレッド | なぜ我々に効くか |
 |---|---|---|
-| 中 | **Tiwaz License v1.0**（24 通）| 大きなスレッド。内容未確認 |
 | 中 | **RAIL（Restricted AI License）**（5 通）| AI + 制限。**条件を足す AI ライセンスがどう扱われたか**の追加事例（`comparison.md` §1.45 の結論の検証） |
 | 中 | **Forever Free & Open License (FFOL)**（5 通）| 名称が永続・撤回不能を示唆。#1.47 の隣 |
 | 低 | Misty Foundation / Milenium / CingXaero / Linkumori / OSN-1.0 / FARCL / Orivex ほか小規模提出 | **単独・非弁護士の提出がどう扱われるかの類型**。1 件ずつではなく**まとめて傾向を見る**のが正しい使い方 |
