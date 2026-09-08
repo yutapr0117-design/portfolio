@@ -411,3 +411,59 @@ McCoy 氏のこの発言は「機械的に確かめられること」の外側�
 **批評を受ける前提は「要求情報を満たした提出」**であって、満たしていなければ
 コメントは付かない（#97・Piana 氏 2026-09 / McCoy 氏 2024-10・2026-03 の 3 例）。
 
+## 1.53 PUWL —— 「撤回不能」と「自動終了」を同居させると、献呈ではなくなる（2026-01）
+
+**P-EADCA Universal Waiver License (PUWL)** は `license-discuss` に出された waiver 型の草案。
+**Pamela Chestek 氏の返答は 3 行で、しかも致命的だった**（2026-01-27）:
+
+> How can you both "***irrevocably* releases it for unrestricted worldwide use by anyone, for any
+> purpose**" and also "**terminate automatically**" against "any party that initiates or threatens
+> patent litigation"?
+> **This is a license, not a dedication to the public domain.**
+
+**特許報復条項を足した瞬間に、その instrument は献呈ではなくなる。**
+
+**ACD-1.0 はこの矛盾を構造的に持てない** —— §8.2 が
+*"This Dedication contains no patent retaliation provision, and **its absence is deliberate**"* と
+明言し、§10.4 が「いかなる理由でも終了しない・復活条項も無い」と述べる。**「意図的な不在」と
+書いてあるのは、まさにこの指摘を先回りするためである。**
+
+**これで「条件を足すと献呈が壊れる」は 4 例目**（PBZC=コピーレフト混在 / AI-MIT=透明性条件 /
+Modified 0BSD=保守義務 / PUWL=特許報復）。**4 件とも承認されていない。**
+
+## 1.54 AIAL v2（旧 AI-MIT）—— 「1 つの文書で 3 つのことをやろうとしている」
+
+AI-MIT は 2026-03 に撤回されたあと、**AIAL v2 として `license-discuss` で議論が続いた**
+（`comparison.md` §1.45 は撤回までしか記録していなかった）。
+
+**Pamela Chestek 氏（2026-03-29）**:
+> It seems that you are trying to do **three different things with one document**: (1) create a
+> system for identifying the **provenance** of code, (2) apply a **license** and (3) optionally state
+> that someone is **waiving a claim to copyright** they might have. I don't see any reason why
+> purpose (1) is tied to purposes (2) and (3)… **Doing (2), and (3) optionally in the same document,
+> is unnecessarily complicating things.**
+
+**この批判は ACD-1.0 にも向けられうる**（`against.md` #105）。ACD は献呈（§3）・許諾（§4）・
+不行使の合意（§5）・TDM の言明（§6）・データベース権（§7）・特許（§8）・機械生成物についての
+言明（§9）・人格権（§12）・文書についての規則（§16）を 1 文書に持つ。
+
+**ただし Chestek 氏が束ねるなと言ったのは「来歴の識別システム」という*非法的・情報的*な目的**で
+あり、**ACD の各節はすべて同一の Work についての法的機構**である。最も近いのは §9 だが、
+**§9.2 は「表明しない」という法的態度**であって情報システムではない。**この区別は主張できるが、
+主張しなければ通らない。**
+
+**Bruce Perens 氏（2026-03-19・同スレッド）—— 我々に有利な形で効く警告**:
+> our community, in general, greatly **over-estimate the power of licenses and are unaware of the
+> limits of copyright** … They are surprised when companies blithely ignore their overestimations …
+> And of course they are liable to be **let down in court** if they try to en[force it]
+
+**ACD-1.0 は逆をやっている** —— §9.2 は機械生成物に著作権が生じるか否かについて**何も表明せず**、
+§13.2 は「いかなる権利が存在することも保証しない」と大文字で述べる。**過大評価の反対側に立つ
+設計であることは、この警告に照らして初めて説明しやすくなる。**
+
+**Stefano Maffulli 氏（2026-03-30）**: *"multiple things you're trying to achieve and **not all of
+them (if any) can be solved with a copyright license**"* —— AI 学習への選好の signalling は
+ライセンスでは解けない、という指摘。**ACD-1.0 は §6.2 で TDM の留保を*しない*と述べており、
+signalling をライセンスでやろうとしていない**（`research-application-policy.md` §3C が
+IETF AIPREF を採らない理由と同じ向き）。
+
