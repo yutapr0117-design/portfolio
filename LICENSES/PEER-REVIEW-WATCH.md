@@ -553,7 +553,7 @@ https://lists.opensource.org/pipermail/license-review_lists.opensource.org/<YYYY
 | 窓 | 得たもの | 反映先 |
 |---|---|---|
 | **2012-01〜04** | Bruce Perens 氏の「abandonment **OR** acquiescence, but not both」—— **fallback という形そのものへの反対**。§4.4 はこれが届かないように書かれている | `comparison.md` §1.4 |
-| **2020-03〜06** | License Review Committee の勧告本文。「dedication **taken alone** は承認されない」という**規則の出典**、および「lawyers **both US and non-US**」が一致したという決着の実体 | `submission.md` §1b / #2 #3 #7 |
+| **2020-03〜06**（**2026-09-08 に再読・論拠まで**）| License Review Committee の勧告本文。**加えて veto スレッド 49 通の論拠を初めて読んだ** —— Glaser 氏の「不明確でありライセンスの定義を満たさない」に対し、Chestek 氏の「**献呈が無効でも、列挙された許諾が抗弁になる**」が承認へ運んだ。**その読みは Unlicense の条文に無く、論証されたものである**（ACD §4.4 は条文にしている）。**§3.9 は「読了」としていたが、取り出していたのは結論 2 つだけだった** —— **「読了」と「論拠まで読んだ」は別である**。「dedication **taken alone** は承認されない」という**規則の出典**、および「lawyers **both US and non-US**」が一致したという決着の実体 | `submission.md` §1b / #2 #3 #7 |
 | **2025-03** | 出力への notice 要件が「**a restriction or condition on mere use. That would not be open source**」（Simon Phipps 氏・個人資格）と問われ、Fontana 氏が編集器の喩えと **Kyle Mitchell 氏の先行提出**にも言及、提出者が「somewhat oversteps」と認めて削除された | `review-responses-clauses.md` §6.4 |
 | **2025-02** | ModelGo の**最初の提出**。提出は短いラベル付き header block で始まる（`Drafted By Lawyer` / `Approved or Used by Projects` 等）。**MG-BY-2.0 は採用ゼロで提出され 3 ラウンド審査された** —— 採用は **SPDX の基準**であって `license-review` のゲートではない | `submission.md` §A.0 / #4 |
 | **2026-07** | **まるごと 1 件の新規提出のレビュー**（BOS v1.0 → 同月 v1.2）。審査者の最初の 2 通が 「**テキストを添付せよ。動的に変わらない版が要る**」と「**process ページの項目を飛ばすな、特に法的レビュー**」。3 通目に「**your links are broken**」。Carlo Piana 氏の経験則「**25 年誰も思いつかなかったなら問題ではない —— 何か新しいことが起きていない限り（SaaS、extensive AI model usage 等）**」 | `submission.md` §A / #79 / `comparison.md` §1.38 / `REVISION-PROTOCOL.md` ゲート 7b |
