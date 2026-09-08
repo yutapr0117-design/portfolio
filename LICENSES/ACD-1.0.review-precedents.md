@@ -336,3 +336,41 @@ Apache-2.0 は 1 文書で著作権と特許（§3）を扱って承認されて
 **条件つきである理由**: これは「§7 があってよかった」を示すが、**§7 の書き方が正しいことは
 示さない**。データベース権は EU 由来の制度で、法域ごとに存否も範囲も違う。
 §7 の妥当性そのものは依然として法的レビューを受けていない（#5 / #79）。
+
+## 1.51 構造上いちばん近い兄弟 —— UPD 1.5.2（2026-08・`license-discuss`・我々の 19 日前）
+
+**Universal Public Domain License 1.5.2** は、**献呈 + 許諾フォールバック / 単独著者 / 法的レビュー
+なし / 2026 年**という、**ACD-1.0 と外形が最も一致する提出**である（本文は `license-discuss`
+2026-08 のアーカイブに全文が載っている）。提出者自身が *"solely at my free time **no legal review
+has been made**, but i have tried my best"* と書いている。**約 10 時間で 6 通の応答**があった（#83）。
+
+**その 6 通が何を言ったか**（2026-09-08 に原文で読了）。
+
+| 指摘（発言者） | ACD-1.0 |
+|---|---|
+| **David Woolley 氏**: *"**What alleged defect in CC0 are you claiming to address?**"* | **同じ問いが我々にも来る。** #84（Landley 氏「PD 等価は代替可能。なぜもう 1 つ？」）と Piana 氏の proliferation（#97）に続く**3 例目**で、**この類型の開口一番の問い**である。答えは §6（TDM を積極的に許諾）/ §8.4（モデルと出力に届く特許許諾）/ §9（機械生成物の権利存否に依存しない）—— `submission.md` §B.0 の「The gap」段落がそれ |
+| **McCoy Smith 氏**: 「grant」が**対象と無関係なものまで含めて全知的財産権を放棄している | **当たらない。** §1.5 の Covered Rights は **the Work における**権利に限られ、§2.7 が Dedicator の保有する権利に射程を閉じる。**過大な放棄はこの類型の名指しされた失敗モードである** |
+| **subham mahesh 氏**: **商標まで放棄している**のは意味をなさない。通常のライセンスは「商標の使用許諾を与えない」と述べるだけ | **当たらない。ACD-1.0 は放棄していない** —— §11.1 は「商標および名称にいかなる権利も与えない」と述べる形で、**まさにここで推奨されている書き方**である |
+| **Rob Landley 氏**: PD 等価は **fungible**（代替可能）な唯一の類型で、0BSD がある | #84 の原典。`comparison.md` §1 が両刃で扱っている |
+
+### そして、我々の最大の弱点についての最も鋭い発言
+
+**McCoy Smith 氏（2026-08-07・同スレッド）**:
+
+> Although you say you've "tried your best" without the use of a lawyer, I think if you want to
+> propose something that has **any chance of being useable, and approvable**, you'd likely need to
+> have the help of a lawyer. **Waivers/disclaimers of IP rights are quite complex, particularly
+> given international laws in that regard, and trying to do this on your own isn't likely to result
+> in something functional.**
+
+**これは「法的レビューは要件ではない」（Chestek 氏・Berkus 氏・Piana 氏の撤回）と矛盾しない。
+だが同じ強さで読まれなければならない。** 委員長と理事が述べたのは**手続き上の要件ではない**
+ことであり、McCoy 氏が述べているのは **この類型に限れば実質的にほぼ必要**だということである。
+**しかも対象は「waivers/disclaimers of IP rights」で、ACD-1.0 の §3 / §12 / §13 / §14 がまさにそれ。**
+
+**我々の側の反応は「反論する」ではない**（反論できる材料が無い）。
+`submission.md` §B.0 は法的レビューの不在を**自分から先に述べ**、§4c が
+「弁護士なしで機械的に確かめられること」を列挙する構成になっている。**その構成は正しいが、
+McCoy 氏のこの発言は「機械的に確かめられること」の外側にあるものを名指ししている。**
+`against.md` #5 / #79 はこの発言で**弱まるのではなく鋭くなる**。
+
