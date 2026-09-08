@@ -543,3 +543,67 @@ to a solution**"* として 4 段の手順を示している:
    （6 面の cross-surface coherence を Check 444 が強制）が、**REUSE は「面」ではなく
    「ファイル単位」の標準**で、そちらは 1 つも無い。**強みを主張している領域の、名指しできる欠落。**
 
+## 1.57 Unlicense への「veto」（2020-04〜06・49 通）—— 否決の論拠と、それを条文にした ACD
+
+**Lukas Atkinson 氏は PBZC の審査（2024-12）で、我々の類型の新規提出者にこう求めた** ——
+*"I would be very happy if new licenses/dedications/devices in the 'PD dedication' or 'PD
+equivalent' category **make use of this wealth of prior discussions (well over a decade)** and
+avoid running into the same problems."*
+
+**その "wealth" の中心が、2020 年の Unlicense legacy 承認に対する veto スレッド（49 通）である。**
+ドシエは §3.9 でこの窓を「読了」としていたが、取り出していたのは **2 つの結論だけ**だった
+（「dedication *taken alone* は承認されない」「lawyers both US and non-US が一致した」）。
+**論拠そのものは読んでいなかった**（2026-09-08 に読了）。
+
+### veto 側の論拠（Thorsten Glaser 氏）
+
+> It is very much not clear, and we have rejected licences with less ambiguous reading.
+> **No, it does not meet the definition of "licence".**
+
+> it's not just about what a court would think, it's just as much about **promising to my (as a
+> distributor) downstreams that the stuff I take from upstream is under a good licence**.
+> This one is clearly not good and almost certainly not a licence.
+
+> [「訴えられない」に対し] **Wrong, at least for the part of the world not USA.**
+
+### 承認へ至った側の論拠（Pamela Chestek 氏）
+
+> Even though the person using this document … may be mistaken about the concept of public domain,
+> **the intent of the grantor is very clear** … For this document to not meet the definition of
+> "open source," a court would have to say that there is no such thing as "public domain" in the
+> jurisdiction … **the court will then have to ignore what the person thinks it means as clearly
+> described in the document, reaching a conclusion that the document is entirely meaningless**…
+> That is not something that would happen in a US court.
+
+> a court might hold that, **in the absence of an effective dedication to the public domain, a user
+> would not have a defense to a claim of infringement based on the clear statement of the uses the
+> author has identified in the document as permitted**.
+
+**McCoy Smith 氏**:
+> And (d) the assertion that this passage … **is not a license. Because if that's true, MIT and BSD
+> are also not licenses.**
+
+### ここが ACD-1.0 にとって決定的である
+
+**Unlicense を承認へ運んだ論拠は「献呈が無効でも、列挙された許諾が許諾として働く」である。**
+そしてそれは **Unlicense の条文に書かれていない** —— 弁護士がその読みを**論証した**のである。
+
+**ACD-1.0 §4.4 はそれを条文にしている** ——
+§4 の許諾は **§3 とは独立に付与され、§3 が無効であることに依存しない**。
+つまり **受領者も裁判所も、§3 の有効性を判断する必要がない。**
+
+**veto の中心は「不明確である」だった。§4.4 はその不明確さそのものを取り除いている。**
+これは「なぜもう 1 つ PD 等価が要るのか」（#84 / #97 / §1.51）への、**最も具体的な答え**である ——
+**前のものは弁護士が論証しなければならなかったことを、こちらは書いてある。**
+
+### 不利な側（同じ強さで）
+
+**Glaser 氏の「頒布者の下流への約束」論は、§4.4 では完全には解けない。** §4.4 は
+「受領者は §3 の有効性を判断しなくてよい」を与えるが、**再頒布者が下流に対して負う説明の
+負担**は、instrument が新しいぶんむしろ重い（0BSD や MIT なら名前だけで通る）。
+**#84 の「代替可能性」と同じ根**であり、`comparison.md` §1 が両刃で扱っている。
+
+**そして「Wrong, at least for the part of the world not USA」は今も生きている。**
+Chestek 氏の擁護は明示的に **US の裁判所**についてのものだった。§12 / §15.4 / §4.4 の
+多段構成はそこへの対処だが、**法的レビューを経ていない**（#5 / #79 / §1.51）。
+
