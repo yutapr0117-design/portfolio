@@ -109,6 +109,86 @@ English text prevails, is not a modified text for this purpose"*）。
 - **失うのは防御であって許諾ではない。** §15.2〜§15.6 は争われたときの備えで、
   **MIT・0BSD・Unlicense はそれを持たずに承認されている** —— 先例のある方向への移動である。
 
+## 2.6 縮小候補を**実際に書いてみた**結果 —— 見積もりは 42% 外れていた
+
+**§2.5 の表は語数を「節の大きさ」で並べていた。書き換え後の文を実際に起草して数えると、
+削減量は ≈529 語ではなく **306 語（本体 4,574 → 4,268・6.7%）** だった。**
+**見積もりを訂正する。**
+
+| 対象 | 現 | 改定後 | 削減 | なぜ見積もりが外れたか |
+|---|---:|---:|---:|---|
+| §2.9 | 111 | **55** | **56** | 落とすのは *"not executory"* の**結論**であって節ではない。倒産手続が許諾に影響しないという**事実は残す**必要がある |
+| §15.2 | 45 | 0 | 45 | — |
+| §15.3 | 28 | 0 | 28 | — |
+| §15.5 → §2.2 | 75 | **18** | **57** | 統合は削除ではない。1 文は残る |
+| §15.6 | 20 | 0 | 20 | — |
+| §2.5 | 90 | **35** | **55** | 圧縮のみ（estoppel の芯は残す）|
+| §16.4 + §16.5 | 165 | **120** | **45** | **2 度目の訂正。** 165 → ≈85 と直したが、まだ多かった。翻訳の但し書きは §16.4 に**書き足す**ので、消えるのは重複部分だけ |
+| ~~§1.10 の inline 化~~ | 74 | — | **0（撤回）** | **"Reservation" は §6.2 / §6.3 だけでなく §2 でも使われている**（実測 3 箇所）。74 語の列挙を 3 箇所へ展開すれば**長くなる** |
+
+**合計 306 語。gap 部（§6 / §8.4 / §9・1,041 語）には 1 語も触れていない。**
+
+### 起草した置換文（successor 候補・1.0 は凍結中につき適用しない）
+
+**§2.9（結論と自己説明を落とし、事実を残す）**
+
+```
+  2.9  No insolvency, bankruptcy, administration, receivership, liquidation,
+       dissolution, or similar proceeding in respect of the Dedicator, and no
+       act of a trustee, administrator, receiver, liquidator, or equivalent
+       officer, affects a permission granted here or revives a right given
+       away. Such an officer is a person to whom rights are transferred for the
+       purposes of Section 2.8.
+```
+
+**§2.2 の末尾へ（§15.5 の統合先）**
+
+```
+       Silence, delay, or non-enforcement by the Dedicator does not revive,
+       reserve, or narrow anything this Dedication gives away.
+```
+
+**§2.5（圧縮）**
+
+```
+  2.5  The Dedicator makes this Dedication intending that others rely on it and
+       incur effort and expense in doing so, and will not assert that it is
+       revocable or ineffective for want of consideration or formality.
+```
+
+**§16.4（§16.5 を吸収）**
+
+```
+  16.4 The text of this Dedication may be copied and distributed verbatim by
+       anyone, in any medium, for any purpose, without charge or permission. It
+       may not be distributed in modified form under the name "Autonomous
+       Commons Dedication" or under the identifier "ACD-1.0", so that the name
+       and the identifier continue to denote one fixed text. A modified text
+       may be distributed under a different name. A translation is not a
+       modified text for this purpose, and may be distributed under the name
+       and the identifier if it is identified as a translation and states that
+       the English text prevails (Section 15.8); that proviso is a condition
+       upon distributing the translated text, not upon any use of the Work
+       (Section 10.5).
+```
+
+### そして、これで足りないことが分かった
+
+**改定後は本体 4,268・全体で約 4,590 語。** 委員長が engage しなかった 2 例は
+**3,888 語**と**約 4,500 語**である（#116）。**機構部だけを削っても、その 2 つを下回らない。**
+
+**したがって B3 は「無駄を削る」問題ではない。** 下回るには次のどちらかが要る ——
+**(a) gap 部（§6 / §8.4 / §9）を削る**＝新規性の根拠を捨てるので**採らない**、
+**(b) 構造を変える**＝本文を短い中核に絞り、説明的な節（§2 の一部・§15・§16）を
+**規範的でない附属文書へ出す**。
+
+**(b) には代償がある** —— 附属文書は審査対象ではないので、**そこへ出した説明は「本文が
+述べていること」ではなくなる**。§4.4（献呈が無効でも許諾は独立に働く）のような
+**答えを条文で持っていること自体が我々の主張**だったので、どれを本文に残すかは
+**語数ではなく「争われたときに条文が答えているか」で決める。**
+
+**この判断は successor 設計の中心であり、まだ決めていない。**
+
 ## 3. 議論から来たもの（返信を受け取ってから埋まる）
 
 | ラウンド | 出所（`rounds/` の file） | 指摘 | 帰結 |
