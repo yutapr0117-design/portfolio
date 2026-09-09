@@ -805,3 +805,65 @@ Sado 氏は ACD-1.0 について何も述べていない。**彼が述べたの�
 than you will ever use this license"* である。**ACD-1.0 は proscriptive ではない**（§10.1 が
 条件を一切課さない・§4.3）が、**「他の誰も使わない」は採用 1 件の我々により強く当たる**。
 **数で反論して、推論の残り半分に答えないのは、いちばん都合のよい半分だけ取ることになる。**
+
+---
+
+## 1.61 「献呈なのかライセンスなのか、どちらかにせよ」—— 委員長が我々の中核構造に当たる言葉を書いている（2025-10）
+
+**ACD-1.0 の中核は §3（献呈）と §4（許諾）を並置し、§4.4 で「独立に付与される」と述べる構造で
+ある。** その構造に**そのまま当たる文**が、`license-discuss` に 11 か月前から在った。
+
+### 原文（Pamela Chestek 氏・`license-discuss` 2025-10-16・PUWL v1.0 宛）
+
+> **Which is it, a dedication to the public domain or a license? You can't have it both ways.**
+> A dedication to the public domain is a full release of any and all rights, but a license is a
+> way to exercise some control. You say that you want to have a dedication to the public, with
+> various fallback positions if the law doesn't allow it, **but then you are nevertheless trying to
+> retain some rights**
+
+彼女が「留保」として名指ししたのは **4 つ**である ——
+(a) 虚偽の著作者主張を認めない条項 / (b) 違法な利用を許さない条項 /
+(c) 特許訴訟による自動終了 / (d) 責任の否認。そして:
+
+> These provisions are **retention of rights**, contrary to the statement that the author is
+> releasing all rights whatsoever in the work… You can only enforce them if you are **maintaining
+> ownership of some rights** in the work… **The document is internally contradictory.**
+
+### ACD-1.0 を 4 点に当てる（条文を読んで確かめた・2026-09-09）
+
+| 彼女が挙げた留保 | ACD-1.0 |
+|---|---|
+| (b) 違法な利用を許さない条項 | **無い**（`grep -i 'unlawful\|illegal'` で 0 件）|
+| (c) 特許訴訟による終了 | **無い。** §8.2 が *"contains no patent retaliation provision, and its absence is deliberate"* |
+| (d) 責任の否認 | **有る**（§13 / §14）。**ただし承認済みライセンスはすべて持つ**ので、この項目は我々を他と区別しない |
+| (a) 虚偽の著作者主張 | **有る** —— §11.3 と §12.5。**ここが当たる** |
+
+**そして「all rights whatsoever を放棄する」という第一文が、そもそも ACD-1.0 に無い。**
+§3.1 が surrender するのは **Covered Rights** という定義された集合で、§1.5 が特許・商標・人格権を
+そこから除き、§2.7 が一般的な限界を述べる。**彼女が突いた「全部放棄と言いながら留保している」
+という形は、定義によって回避されている。**
+
+**§11.3 は、この反論を予期して書かれている** ——
+*"This Section states a **limit of the Dedication's reach**; it is **not a condition upon You**,
+and Section 10.1 is unaffected by it."* つまり「留保した権利を行使する」のではなく
+「そもそも Dedicator のものではなかったから許可のしようがない」という形にしてある
+（*"it was never the Dedicator's to permit"*）。§11.4 が privacy / publicity / データ保護について
+同じことをする。
+
+### それでも不利な事実として記録する理由（#110）
+
+**反論は 1 文、答えは 4 条である。** *"You can't have it both ways."* に答えるには
+§11.3 の最終文・§10.1・§1.5・§2.7 を読ませる必要がある。
+**#100 / #101 / #104 と同じ非対称**で、この非対称そのものが不利である。
+
+**さらに悪いのは、彼女が挙げた 4 つのうち我々に当たる 1 つが、我々自身の言葉と衝突すること。**
+ドシエは ACD-1.0 を「**何も留保しない instrument**」と繰り返し述べてきた（#6 の書き出しがそれ
+である）。**§11.3 と §12.5 は、少なくとも表面上は留保に見える。** 我々の説明は正しいと考えるが、
+**「留保していない」と一言で述べる書き方は、この反論に対して最も弱い形**である。
+
+### 有利な側も同じ強さで
+
+**この 1 通は、ACD-1.0 が回避している設計上の失敗を 3 つ名指ししている** ——
+違法利用条項 / 特許報復 / 全面放棄の宣言と個別留保の同居。
+**§8.2 が「不在は意図的である」と本文に書いてある理由**が、ここに実例として存在する。
+`comparison.md` §1.53（PUWL の「撤回不能」と「自動終了」の同居）と同じスレッドの、より深い層である。
