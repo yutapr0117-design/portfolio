@@ -147,7 +147,12 @@ canonical-ref: LICENSES/ACD-1.0.submission.md (提出物) / LICENSES/ACD-1.0.aga
 6. **（未実施）** OSI の**承認申請**は `license-review@opensource.org`（**購読してから投稿**）/
    SPDX は https://tools.spdx.org/app/submit_new_license/
    —— 現在開いているのは `license-discuss` のスレッドであり、**この 6 は行っていない**
-7. **（6 を行った場合の話）** OSI の決定は初回投稿から概ね 60 日。
+7. **（6 を行った場合の話）** **決定は「初回投稿から 60 日」ではない。** Licensing Committee の
+   McCoy Smith 氏が 2026-08-28 に機構を説明している —— *"We work on a **two-month review cycle**"*
+   で、起点は**最終提出**である（*"the July Board meeting was prior to two months from your final
+   submission"*）。委員会が**理事会へ勧告**し、**理事会が会合で決める**（2026 年は 8 月に会合が無く
+   9 月 24 日の対面会合へ回った）。**つまり本文を改訂するたびに時計が戻る** —— 凍結（§2）は
+   礼儀ではなく、決定までの時間を最短にする手段でもある。
    `license-discuss` は議論の場なので決定という概念自体が無く、この期限は当てはまらない
 
 ## このファイルの意味しないこと
