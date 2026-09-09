@@ -1,0 +1,63 @@
+Source: OSI license-review public archive, 2026-September.txt
+Retrieved: 2026-09-09 from lists.opensource.org
+Date: Wed, 9 Sep 2026 10:39:52 +0000
+From: Max Mehl <Max.Mehl@deutschebahn.com>
+Subject: [License-review] Submission: PSF-2.0
+
+**我々宛ではない。観測。同日（2026-09-09）に出された新規提出。** 約 270 語で、
+**採用実績（3 プロジェクト）と既承認ライセンスとの関係**に依っている。
+本文は text part として添付されている（我々の 2026-08-26 投稿と同じ形）。
+提出者は **steward 本人ではない**（PSF に資力が無いため代理で出すと明記）。
+
+**添付されたライセンス本文は含めない**（我々の判断を動かすのは提出メッセージの形であり、
+PSF-2.0 の条文ではない）。全文はアーカイブに在る。
+
+公開アーカイブから逐語で複製したもの。無改変。
+
+----- begin verbatim -----
+
+From Max.Mehl at deutschebahn.com  Wed Sep  9 10:39:52 2026
+From: Max.Mehl at deutschebahn.com (Max Mehl)
+Date: Wed, 9 Sep 2026 10:39:52 +0000
+Subject: [License-review] Submission: PSF-2.0
+Message-ID: 
+ <AS8PR06MB7527A96AA2C9791A6CA4CC9EFBB02@AS8PR06MB7527.eurprd06.prod.outlook.com>
+
+Dear all,
+
+After OSI has approved Python-2.0.1 and one of its components (CNRI-Python-GPL-Compatible), I would like to use the opportunity to ask the team and board to review and approve the "Python Software Foundation License 2.0" (SPDX: PSF-2.0). The license text, copied from https://docs.python.org/3/license.html and matching SPDX’ version, is attached.
+
+This also follows McCoy’s statement that such reviews are only executed upon explicit submission, see https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-August/006218.html
+
+PSF-2.0 is the license of the PSF, and part of the combined license of CPython releases (Python-2.0 and Python-2.0.1). But it’s also used verbatim and derived standalone by various projects, mostly in the Python ecosystem. Because of this, I consider it helpful to approve the license separately. Examples:
+
+  *
+https://github.com/jython/jython
+  *
+https://github.com/marcelotduarte/cx_Freeze
+  *
+https://github.com/chianjin/PDFeXpress
+
+Given that Python-2.0 and Python-2.0.1 both comply with the OSD, I’d consider it clear that PSF-2.0 can also be safely considered an Open Source license.
+
+The license steward is Python Software Foundation. As with my earlier submission, I refer to a discussion with Deb Nicholson in March 2026 in which she made transparent that PSF currently lacks the resources to go through this process and would be happy if I would do this.
+
+I hope to have provided all required information and hope for a swift and positive review and approval. Thanks!
+
+Best,
+Max
+
+--
+Max Mehl
+Open Source / Supply Chain
+Chief Technology & Enterprise Architecture Office
+DB Systel GmbH / Deutsche Bahn
+
+Schedule a meeting: cal.com/mxmehl<https://cal.com/mxmehl>
+
+
+________________________________
+
+Pflichtangaben anzeigen<https://www.deutschebahn.com/pflichtangaben/20260909>
+
+Nähere Informationen zur Datenverarbeitung im DB-Konzern finden Sie hier: https://www.deutschebahn.com/de/konzern/datenschutz
