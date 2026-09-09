@@ -1,0 +1,139 @@
+Source: OSI license-discuss public archive, 2026-September.txt
+Retrieved: 2026-09-09 from lists.opensource.org
+Thread: [License-discuss] Weak copyleft license with network use requirement?
+Messages: 3 (Viatrix 2026-09-05 / Bruce Perens 2026-09-05 / Matija Suklje 2026-09-07)
+
+**我々宛ではない。観測。** 新規の単独参加者が `license-discuss` に短い質問を投げ、
+**約 4 時間で 1 通目、約 2 日で 2 通目**の返信を得ている。我々の 2026-08-26 投稿は
+14 日で 0 通。**スレッドの形そのものが証拠**なので、1 メッセージ 1 ファイルの原則の
+例外として 1 スレッド 1 ファイルで置く（README「規則」6 を参照）。
+
+公開アーカイブから逐語で複製したもの。無改変。
+
+----- begin verbatim -----
+
+From viatrix-26278 at purelymail.com  Sat Sep  5 19:04:24 2026
+From: viatrix-26278 at purelymail.com (viatrix-26278 at purelymail.com)
+Date: Sat, 5 Sep 2026 12:04:24 -0700
+Subject: [License-discuss] Weak copyleft license with network use
+ requirement?
+Message-ID: <20260905120424.4a729af8@lm-Satellite-Pro-C70-B>
+
+Hello license-discuss,
+
+Is there a license or combination of licenses which apply to the
+following situation, and if not, would it be a good idea to create such
+a license?
+Situation: Someone writes a software library, wishes to mandate its
+source code be available to users including users over a network (à la
+AGPL), but otherwise wishes to make it weak-copyleft.
+
+I cannot find a license which would always satisfy this.
+Licenses I have considered but which may present problems:
+
+• AGPL with a classpath exception: Potential for incompatibility if the
+  library itself includes code under a license incompatible with AGPL.
+• EUPL: Potential for a derived work to no longer be beholden to the
+  network use requirement.
+
+If creating a new license would be a good idea, I was thinking a
+modification of the MPL 2.0 would work.
+
+
+From bruce at perens.com  Sat Sep  5 23:09:17 2026
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 5 Sep 2026 16:09:17 -0700
+Subject: [License-discuss] Weak copyleft license with network use
+ requirement?
+In-Reply-To: <20260905120424.4a729af8@lm-Satellite-Pro-C70-B>
+References: <20260905120424.4a729af8@lm-Satellite-Pro-C70-B>
+Message-ID: 
+ <CAK2MWOs31PdRUABwiR7X2+0Et2hcYkM=1LECC1s1b7wDCQPJEQ@mail.gmail.com>
+
+Just as an exercise, take any Open Source you like, tell an AI to do a
+clean-room re-implementation, put it under a different license, and wonder
+how much meaning copyright and licensing have for Open Source any
+logner. For example, I did this yesterday with Codec2 for technical, not
+licensing, reasons, to make it use fixed-point instead of floating point.
+The resulting CODEC is within 0.99996 conformance with the original for its
+bitstream. See
+https://github.com/BrucePerens/hams_open/tree/main/daemons/ham_digital_modes/src/codec2_3200
+
+I started filing patents. I have 46! I don't see that any other protection
+is valid for Open Source any longer.
+
+    Thanks
+
+    Bruce
+
+
+On Sat, Sep 5, 2026 at 3:21 PM Viatrix via License-discuss <
+license-discuss at lists.opensource.org> wrote:
+
+> Hello license-discuss,
+>
+> Is there a license or combination of licenses which apply to the
+> following situation, and if not, would it be a good idea to create such
+> a license?
+> Situation: Someone writes a software library, wishes to mandate its
+> source code be available to users including users over a network (à la
+> AGPL), but otherwise wishes to make it weak-copyleft.
+>
+> I cannot find a license which would always satisfy this.
+> Licenses I have considered but which may present problems:
+>
+> • AGPL with a classpath exception: Potential for incompatibility if the
+>   library itself includes code under a license incompatible with AGPL.
+> • EUPL: Potential for a derived work to no longer be beholden to the
+>   network use requirement.
+>
+> If creating a new license would be a good idea, I was thinking a
+> modification of the MPL 2.0 would work.
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Bruce Perens K6BP
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260905/a63d4b45/attachment.htm>
+
+
+From matija at suklje.email  Mon Sep  7 18:40:22 2026
+From: matija at suklje.email (=?UTF-8?Q?Matija_=C5=A0uklje?=)
+Date: Mon, 7 Sep 2026 20:40:22 +0200
+Subject: [License-discuss] Weak copyleft license with network use
+ requirement?
+In-Reply-To: <20260905120424.4a729af8@lm-Satellite-Pro-C70-B>
+References: <20260905120424.4a729af8@lm-Satellite-Pro-C70-B>
+Message-ID: <5af2a821-f1f2-4924-bf6a-e68cf6e55781@suklje.email>
+
+Viatrix via License-discuss je 5. 9. 2026 ob 21:04 napisal:
+> • AGPL with a classpath exception: Potential for incompatibility if the
+>    library itself includes code under a license incompatible with AGPL.
+
+I would rather try to apply LGPL-3.0 to AGPL-3.0. IMHO with a reasonable 
+reading of both, it should work.
+
+
+cheers,
+
+Matija
+
+-- 
+gsm:    tel:+386.41.849.552
+www:    https://matija.suklje.name
+xmpp:   hook at campfire.wheremymonkeyis.at
+matrix: @hook:kompot.si
+
+

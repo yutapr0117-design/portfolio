@@ -1,0 +1,355 @@
+Source: OSI license-review public archive, 2026-September.txt
+Retrieved: 2026-09-09 from lists.opensource.org
+Thread: [License-review] ModelGo Attribution License, Version 2.0 FINAL CALL FOR COMMENTS
+Messages: 2 (Pamela Chestek 2026-09-07 18:43 / McCoy Smith 2026-09-07 19:37)
+
+**我々宛ではない。観測。** Licensing Committee 委員長が、自身が 2025 年から
+関与している審査の CALL FOR COMMENTS に対し、**まず「本文へのリンクか写しをもらえますか」
+と尋ねている**。証拠は往復の形にある（要求 → リンク）ので 1 スレッド 1 ファイルで置く。
+
+公開アーカイブから逐語で複製したもの。無改変。
+
+----- begin verbatim -----
+
+From pamela at chesteklegal.com  Mon Sep  7 18:43:52 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 7 Sep 2026 11:43:52 -0700
+Subject: [License-review] ModelGo Attribution License, Version 2.0 FINAL
+ CALL FOR COMMENTS
+In-Reply-To: <7914b856-57b3-4ee2-8592-cc1c9836e94c@lexpan.law>
+References: <883778D3-40CF-4DCF-B65F-AD07D9F427AD@gmail.com>
+ <e325347c-0c66-4294-bfe9-0d01dddbd58f@lexpan.law>
+ <5bca659c-c634-fa6d-5158-7799dc75d48e@chesteklegal.com>
+ <541EAF35-5686-48A5-8839-5808AA5E20FC@gmail.com>
+ <1B2ED380-0E90-4969-B9D6-B267F105BD2A@gmail.com>
+ <0197fe60-de0b-4ddb-8d42-99095ea228d3@chesteklegal.com>
+ <453E84A0-1DBE-4DB8-A61A-B178CFE348C5@gmail.com>
+ <3F3E65D0-B7A8-487F-B030-1ADB123CE4E8@gmail.com>
+ <7914b856-57b3-4ee2-8592-cc1c9836e94c@lexpan.law>
+Message-ID: <3593da00-4856-4be3-bde3-60e03a904da2@chesteklegal.com>
+
+Can you provide a link or copy of the text of each license?
+
+Thanks,
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+
+On 9/7/2026 10:44 AM, McCoy Smith wrote:
+> All:
+>
+> There are two ModelGo licenses currently up for consideration:
+>
+> 1. ModelGo Zero (basically, a -0 version of these licenses, with no 
+> obligations on licensee);
+>
+> 2. ModelGo Attribution (basically a -BY version of these licenses, 
+> with certain attribution obligations on the licensee).
+>
+> I'd like to have those interested in either: a) approval of 
+> AI-directed licenses; or b) approval of licenses in general to have 
+> one more chance to comment upon these. Please don't assume comments 
+> you may have made in 2025 are applicable to these licenses since they 
+> have changed quite a bit since then, and a copyleft version has been 
+> dropped from consideration due to concerns raised at the time they 
+> were submitted.
+>
+> To ease review, I've done a redline of these two licenses against one 
+> another, here: 
+> https://github.com/McCoySmith/OSI-License-Review-Compare/raw/refs/heads/main/ModelGo%20Attribution%202.0%20compare%20ModelGo%20Zero%202.0.odt
+>
+> This shows how the Attribution version of the license adds additional 
+> requirements versus the Zero version.
+>
+> A few questions I'd specifically like to direct to the 
+> commenting/reviewing community on this list:
+>
+> 1. These licenses trigger obligations (to extent there are any) upon 
+> Distribution, which includes "providing the Licensed Materials or any 
+> part thereof as a hosted service or remotely accessible service, such 
+> as API-based access or web access." This sort of requirement is not 
+> uncommon in OSI approved licenses (for example, both versions of AGPL 
+> and the various versions of the Open Software License). Is this sort 
+> of obligation problematic for licenses designed for AI-models vs 
+> software? Is there a Freedom Zero issue with this sort of clause for 
+> an AI model?
+>
+> 2. The definition of "Licensed Materials" includes both the Model as 
+> well as "Complimentary Materials" defined as software used with the 
+> model. Is combining these two types of material together into the 
+> definition of what is licensed problematic? Some of the comments on 
+> OpenMDW-1.1 seemed to indicate some were concerned with that, but I'd 
+> like to know if in the case of these two licenses that concern attaches.
+>
+> 3. The Attribution version of this license has a termination clause, 
+> that allows for termination "if You initiate any legal action against 
+> the Licensor alleging that the Licensed Materials and/or Derivative 
+> Materials infringe any patent worldwide." Does this create a OSD 5 
+> problem because it only applies to Licensor, not Licensees (or just to 
+> specific works rather than specific parties)? Also, is this 
+> problematic in that a patent assertion can terminate all rights, 
+> including copyright rights (keeping in mind that at least MPLv2 and 
+> GPLv3 do the same)?
+>
+> 4. The termination for patent assertion clause applies to patent 
+> assertions against "Derivative Materials" -- i.e., subsequent 
+> modifications made by others. Is this problematic? This was generally 
+> considered to be too broad at the time that various patent assertion 
+> termination clauses were being drafted as it allowed for termination 
+> beyond the software the licensor originally licenses (one of the main 
+> concerns with how some people were reading "Liberty or Death" in GPLv2 
+> circa mid '00s). Most of the OSI-approved licenses that have patent 
+> assertion termination clauses limit them to assertions against the 
+> licensed work, not subsequent derivatives.
+>
+> Plus one question for the drafter, Dr. Duan:
+>
+> There is a difference in the language in the preamble of ModelGo Zero 
+> vs ModelGo Attribution. ModelGo Zero specifically points out the Sec 3 
+> disclaimer, but Attribution does not. Also Attribution says that if 
+> you don't agree to the terms, then no rights are granted; ModelGo Zero 
+> doesn't require this. Is there a reason for that discrepancy between 
+> licenses? Should they be synchronized in this section of the license 
+> to be identical?
+>
+> On 12/8/2025 6:51 AM, Moming Duan wrote:
+>> Dear OSI License Review Community,
+>>
+>>
+>> According to the previous discussions with Pam and McCoy, I have made 
+>> quick updates to the MG0 and MG-BY licenses. The major modification 
+>> is the exclusion of models created through distillation from the 
+>> definition of Derivative Materials.
+>>
+>> The newest text files are attached, and as suggested, I have included 
+>> word-diff comparisons with the previous versions. As I mentioned in 
+>> my last email, I intend to withdraw MG-BY-SA at this time because I 
+>> cannot identify a clear gap that this license would fill, and also 
+>> due to the “Preferred Form” concerns raised earlier by Carlo.
+>>
+>> Please feel free to share any comments.
+>>
+>>
+>> Word-diff:
+>> MG0: https://www.diffchecker.com/f8OumPRF/
+>> MG-BY: https://www.diffchecker.com/jVBWA9WF/
+>>
+>>
+>> Best,
+>> Moming
+>>
+>>
+>>
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not 
+>> necessarily those of the Open Source Initiative. Communication from 
+>> the Open Source Initiative will be sent from an opensource.org email 
+>> address.
+>>
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org 
+>>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not 
+> necessarily those of the Open Source Initiative. Communication from 
+> the Open Source Initiative will be sent from an opensource.org email 
+> address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org 
+>
+
+
+From mccoy at lexpan.law  Mon Sep  7 19:37:12 2026
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Mon, 7 Sep 2026 12:37:12 -0700
+Subject: [License-review] ModelGo Attribution License, Version 2.0 FINAL
+ CALL FOR COMMENTS
+In-Reply-To: <3593da00-4856-4be3-bde3-60e03a904da2@chesteklegal.com>
+References: <883778D3-40CF-4DCF-B65F-AD07D9F427AD@gmail.com>
+ <e325347c-0c66-4294-bfe9-0d01dddbd58f@lexpan.law>
+ <5bca659c-c634-fa6d-5158-7799dc75d48e@chesteklegal.com>
+ <541EAF35-5686-48A5-8839-5808AA5E20FC@gmail.com>
+ <1B2ED380-0E90-4969-B9D6-B267F105BD2A@gmail.com>
+ <0197fe60-de0b-4ddb-8d42-99095ea228d3@chesteklegal.com>
+ <453E84A0-1DBE-4DB8-A61A-B178CFE348C5@gmail.com>
+ <3F3E65D0-B7A8-487F-B030-1ADB123CE4E8@gmail.com>
+ <7914b856-57b3-4ee2-8592-cc1c9836e94c@lexpan.law>
+ <3593da00-4856-4be3-bde3-60e03a904da2@chesteklegal.com>
+Message-ID: <210825c6-e23a-4501-8b53-44e8c90164f5@lexpan.law>
+
+ModelGo Zero: 
+https://github.com/Xtra-Computing/ModelGo/blob/main/MGL/V2/MG0/LICENSE
+ModelGo Attribution: 
+https://github.com/Xtra-Computing/ModelGo/blob/main/MGL/V2/MG-BY/LICENSE
+
+On 9/7/2026 11:43 AM, Pamela Chestek wrote:
+> Can you provide a link or copy of the text of each license?
+>
+> Thanks,
+>
+> Pam
+>
+> Pamela S. Chestek
+> Chestek Legal
+> 4641 Post St.
+> Unit 4316
+> El Dorado Hills, CA 95762
+> +1 919-800-8033
+> pamela at chesteklegal.com
+> www.chesteklegal.com
+>
+>
+> On 9/7/2026 10:44 AM, McCoy Smith wrote:
+>> All:
+>>
+>> There are two ModelGo licenses currently up for consideration:
+>>
+>> 1. ModelGo Zero (basically, a -0 version of these licenses, with no 
+>> obligations on licensee);
+>>
+>> 2. ModelGo Attribution (basically a -BY version of these licenses, 
+>> with certain attribution obligations on the licensee).
+>>
+>> I'd like to have those interested in either: a) approval of 
+>> AI-directed licenses; or b) approval of licenses in general to have 
+>> one more chance to comment upon these. Please don't assume comments 
+>> you may have made in 2025 are applicable to these licenses since they 
+>> have changed quite a bit since then, and a copyleft version has been 
+>> dropped from consideration due to concerns raised at the time they 
+>> were submitted.
+>>
+>> To ease review, I've done a redline of these two licenses against one 
+>> another, here: 
+>> https://github.com/McCoySmith/OSI-License-Review-Compare/raw/refs/heads/main/ModelGo%20Attribution%202.0%20compare%20ModelGo%20Zero%202.0.odt
+>>
+>> This shows how the Attribution version of the license adds additional 
+>> requirements versus the Zero version.
+>>
+>> A few questions I'd specifically like to direct to the 
+>> commenting/reviewing community on this list:
+>>
+>> 1. These licenses trigger obligations (to extent there are any) upon 
+>> Distribution, which includes "providing the Licensed Materials or any 
+>> part thereof as a hosted service or remotely accessible service, such 
+>> as API-based access or web access." This sort of requirement is not 
+>> uncommon in OSI approved licenses (for example, both versions of AGPL 
+>> and the various versions of the Open Software License). Is this sort 
+>> of obligation problematic for licenses designed for AI-models vs 
+>> software? Is there a Freedom Zero issue with this sort of clause for 
+>> an AI model?
+>>
+>> 2. The definition of "Licensed Materials" includes both the Model as 
+>> well as "Complimentary Materials" defined as software used with the 
+>> model. Is combining these two types of material together into the 
+>> definition of what is licensed problematic? Some of the comments on 
+>> OpenMDW-1.1 seemed to indicate some were concerned with that, but I'd 
+>> like to know if in the case of these two licenses that concern attaches.
+>>
+>> 3. The Attribution version of this license has a termination clause, 
+>> that allows for termination "if You initiate any legal action against 
+>> the Licensor alleging that the Licensed Materials and/or Derivative 
+>> Materials infringe any patent worldwide." Does this create a OSD 5 
+>> problem because it only applies to Licensor, not Licensees (or just 
+>> to specific works rather than specific parties)? Also, is this 
+>> problematic in that a patent assertion can terminate all rights, 
+>> including copyright rights (keeping in mind that at least MPLv2 and 
+>> GPLv3 do the same)?
+>>
+>> 4. The termination for patent assertion clause applies to patent 
+>> assertions against "Derivative Materials" -- i.e., subsequent 
+>> modifications made by others. Is this problematic? This was generally 
+>> considered to be too broad at the time that various patent assertion 
+>> termination clauses were being drafted as it allowed for termination 
+>> beyond the software the licensor originally licenses (one of the main 
+>> concerns with how some people were reading "Liberty or Death" in 
+>> GPLv2 circa mid '00s). Most of the OSI-approved licenses that have 
+>> patent assertion termination clauses limit them to assertions against 
+>> the licensed work, not subsequent derivatives.
+>>
+>> Plus one question for the drafter, Dr. Duan:
+>>
+>> There is a difference in the language in the preamble of ModelGo Zero 
+>> vs ModelGo Attribution. ModelGo Zero specifically points out the Sec 
+>> 3 disclaimer, but Attribution does not. Also Attribution says that if 
+>> you don't agree to the terms, then no rights are granted; ModelGo 
+>> Zero doesn't require this. Is there a reason for that discrepancy 
+>> between licenses? Should they be synchronized in this section of the 
+>> license to be identical?
+>>
+>> On 12/8/2025 6:51 AM, Moming Duan wrote:
+>>> Dear OSI License Review Community,
+>>>
+>>>
+>>> According to the previous discussions with Pam and McCoy, I have 
+>>> made quick updates to the MG0 and MG-BY licenses. The major 
+>>> modification is the exclusion of models created through distillation 
+>>> from the definition of Derivative Materials.
+>>>
+>>> The newest text files are attached, and as suggested, I have 
+>>> included word-diff comparisons with the previous versions. As I 
+>>> mentioned in my last email, I intend to withdraw MG-BY-SA at this 
+>>> time because I cannot identify a clear gap that this license would 
+>>> fill, and also due to the “Preferred Form” concerns raised earlier 
+>>> by Carlo.
+>>>
+>>> Please feel free to share any comments.
+>>>
+>>>
+>>> Word-diff:
+>>> MG0: https://www.diffchecker.com/f8OumPRF/
+>>> MG-BY: https://www.diffchecker.com/jVBWA9WF/
+>>>
+>>>
+>>> Best,
+>>> Moming
+>>>
+>>>
+>>>
+>>>
+>>> _______________________________________________
+>>> The opinions expressed in this email are those of the sender and not 
+>>> necessarily those of the Open Source Initiative. Communication from 
+>>> the Open Source Initiative will be sent from an opensource.org email 
+>>> address.
+>>>
+>>> License-review mailing list
+>>> License-review at lists.opensource.org
+>>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org 
+>>>
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not 
+>> necessarily those of the Open Source Initiative. Communication from 
+>> the Open Source Initiative will be sent from an opensource.org email 
+>> address.
+>>
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org 
+>>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not 
+> necessarily those of the Open Source Initiative. Communication from 
+> the Open Source Initiative will be sent from an opensource.org email 
+> address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org 
+>
+
