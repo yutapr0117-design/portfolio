@@ -678,3 +678,77 @@ selling, importing, or otherwise transferring*。§8.4 も同じ列挙を繰り�
 **この指摘は当たらない**（`AS-OF.md` に日付つきで記録した）。**有利な実測を落とすと、
 不利な一覧は「不利に間違える圧力」の下で偏る**（`BLIND-SPOTS.md`「引き継ぎで失われるのは
 事実ではなく枠」(1)）。
+
+---
+
+## 1.59 「Blue Oak は、少なくとも日本では open source ではない」—— §12 が埋めている穴を、リストが 2024 年に名指ししていた
+
+**本セッションで最も重い発見である。** `license-discuss` 2024-03 の 15 通のスレッドで、
+**Shuji Sado 氏（Open Source Group Japan 代表理事）**が、Blue Oak Model License について
+次の結論を述べている。
+
+### 原文（`license-discuss` 2024-03-23）
+
+> To summarize the discussion so far, **the Blue Oak license is not open source, at least not in
+> Japan.** It is possible for an author to exercise author's moral rights to stop third parties
+> from modifying the program.
+
+**論拠**（同氏・2024-03-13 / 03-14）:
+
+> In Japan, copyright, which is a property right, and moral rights are separated… Moral rights,
+> however, cannot be transferred. The BlueOak license clearly states "copyright," but this would
+> probably be interpreted in Japan as **not including moral rights**. In other words, it seems to
+> me that **an author who releases software under this license can stop users from distributing or
+> modifying the software at any time.**
+
+> Japanese law recognizes the right of identity preservation **even for software**… Article 20(1)
+> The author of a work has the right to preserve the integrity of that work… Usually, in Japan,
+> contracts related to intellectual property rights always include a clause stating that
+> **"the author shall not exercise moral rights."**
+
+さらに同氏は、**韓国と台湾も同じ構造**（人格権は財産権と分離・譲渡不能・同一性保持権が
+ソフトウェアにも及ぶ）だと調べたうえで述べている。
+
+### ACD-1.0 §12 は、Sado 氏が「必要だ」と述べた当のものである
+
+| Sado 氏の指摘 | ACD-1.0 |
+|---|---|
+| 「copyright」としか書かないライセンスは人格権を留保したままになる | **§12 が Moral Rights を名指しで扱う** |
+| 譲渡も放棄もできない法域がある | **§12.2** —— 放棄できない法域では**行使しない旨の合意**へ切り替わる |
+| 日本の実務は「著作者人格権を行使しない」条項を必ず入れる | **§12.2 はその条項そのものである** |
+| 人格権は著作者の死後も残り、遺族等が行使しうる | **§12.4** が承継人・相続人・死後に行使しうる者まで拘束する |
+
+**§12.5 は行き過ぎも避けている** —— 虚偽の帰属に対する利益（§11.3）は covenant の外に置き、
+「人格権をすべて捨てさせる」形にしていない。
+
+### これが establish すること
+
+**「なぜ 0BSD があるのにもう 1 つ作るのか」（#84・Rob Landley 氏）への、実質的な答えが 1 つ出た。**
+0BSD も MIT-0 も Unlicense も CC0 以外は人格権に触れない。**Sado 氏の読みが正しければ、
+それらは日本・韓国・台湾では「著作者がいつでも改変を止められる」状態を残している。**
+これまで #84 に対して書けたのは「この類型に 1 件足す費用が低い」＋不在の 3 主題
+（学習と TDM / モデルと出力に及ぶ特許 / 機械生成物）だけだった。**4 つ目は、
+リスト上で名指しされた、法域固有の穴である。**
+
+### これが establish しないこと
+
+- **リストがこの結論を採用したわけではない。** Pamela Chestek 氏は同スレッドで
+  *"I'm curious why this particular license caught your attention. As far as I know, only the EUPL
+  has an accommodation for moral rights. **Wouldn't the same criticism hold true for all the other
+  licenses too?**"* と返している。**まさにそのとおりで、だからこそ我々の差分になる**が、
+  「では新しいライセンスが要る」という結論にリストが同意した記録は無い。
+- **穴は法域固有である。** David Woolley 氏は英国が**プログラムを同一性保持権の対象外**とすると
+  示し（CDPA 1988 s.81）、Matija Šuklje 氏はスロベニアでも同様だと述べている。
+  **効くのは日本・韓国・台湾のような法域だけである。**
+- **§12.2 が日本法の下で実際に機能するかは、弁護士が確かめていない**（我々の弱点 1）。
+  Sado 氏が述べているのは「実務がそうしている」であって「この文言で足りる」ではない。
+- **#104 は消えない。** Carlo Piana 氏の *"these are not licensable"* は **§12.1（放棄）**に当たる。
+  §12.2 は licence でも譲渡でもなく **不行使の合意**なので同じ反論では倒れないが、
+  **その区別を読み手が自力で見つけてくれると仮定してはいけない。**
+
+### 我々にとっての意味
+
+**#84 は「答えが無い」側に置かれてきた不利な事実である。** 本節はその一部を埋めるが、
+**埋めたのは我々の主張ではなくリスト上の記録である**という点が重要である ——
+Sado 氏は ACD-1.0 について何も述べていない。**彼が述べたのは incumbent の欠落であって、
+我々の充足ではない。**
