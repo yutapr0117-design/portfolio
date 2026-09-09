@@ -11,7 +11,7 @@ canonical-ref: LICENSES/ACD-1.0.submission.md (提出物) / LICENSES/ACD-1.0.aga
 判断日   : 2026-08-24
 対象     : LICENSES/ACD-1.0.txt (16 節 / 82 項 / 597 行 / 純 ASCII)
 提出物   : LICENSES/ACD-1.0.spdx.xml (本文から生成・CI が同期を強制)
-送る内容 : LICENSES/ACD-1.0.submission.md (英文・そのまま貼れる)
+送る内容 : LICENSES/ACD-1.0.submission.md (英文の雛形。**凍結中の 1.0 をそのまま出す計画ではない** —— 下記)
 根拠     : docs/architecture/acd-license-rationale.md
 ```
 
@@ -108,6 +108,14 @@ canonical-ref: LICENSES/ACD-1.0.submission.md (提出物) / LICENSES/ACD-1.0.aga
 
 下の「人間が行うこと」§4 と `ACD-1.0.submission.md` §B は license-review 宛の文面だが、
 それは**将来の手順**であって、送ったものではない。
+
+**そして「将来」の対象は、凍結中の 1.0 ではない（2026-09-09・オーナー直接確認）。**
+最初からの計画は **`license-discuss` → 外部指摘を収集 → 十分に取り込んだ改訂版を作る →
+その改訂版を `license-review` へ提出**であり、**本申請後も 1 回で終える計画ではない** ——
+レビューで出た指摘を次版へ反映し、必要なら改訂と再提出を繰り返す。
+**したがって §B.0 は「1.0 を送る文面」ではなく「改訂版を送るときの雛形」である。**
+ここに書かれた要求項目・開示・比較の枠組みは版が変わっても使えるが、
+**版数・gap の記述・既知欠陥の一覧は改訂版のものへ差し替える。**
 
 **SPDX を見送ったのは意図的である。** SPDX は「相当程度の実使用」を求めるが、現在の使用実績は
 本リポジトリ 1 件で、その条件を満たしていない。**満たしていないものを出さない**という判断で
