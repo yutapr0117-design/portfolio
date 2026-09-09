@@ -430,6 +430,48 @@ rule of thumb であって規則でもない。**
 > only if the adjacent question is worth a separate instrument** — which §1 of this document
 > says is true in a narrow band and false outside it.
 
+## 1.7 承認済みライセンスは、これより**強い**「留保」を持っている（2026-09-09・一次資料で確認）
+
+**答える対象**: *"Which is it, a dedication to the public domain or a license?
+**You can't have it both ways.** … The document is internally contradictory."*
+（Pamela Chestek・`license-discuss` 2025-10-16・#110）。**この批判の実体は並置そのものではなく、
+「全部渡すと言いながら個別に留保する」ことである**（挙げられた 4 つの留保は
+`objection-map.md` と `ACD-OSI-BOTTLENECKS.md` B4）。**なら、承認済みライセンスが同じ位置に
+何を置いているかを測ればよい。**
+
+**測定（SPDX License List の機械可読テキストから取得。同じ応答の `isOsiApproved` が `true`）**
+
+| instrument | 当該箇所（逐語）| 種別 |
+|---|---|---|
+| **BSD-3-Clause**（OSI 承認）| *"Neither the name of the copyright holder nor the names of its contributors **may be used to endorse or promote** products derived from this software **without specific prior written permission**."* | **受領者に課された条件**（違反は許諾違反）|
+| **Apache-2.0**（OSI 承認）| *"6. Trademarks. **This License does not grant permission** to use the trade names, trademarks, service marks, or product names of the Licensor…"* | **reach の限界**（条件ではない）|
+| **ACD-1.0 §11.3** | *"…is outside what this Dedication reaches, because it was never the Dedicator's to permit. **This Section states a limit of the Dedication's reach; it is not a condition upon You**, and Section 10.1 is unaffected by it."* | **reach の限界** |
+| **ACD-1.0 §12.5** | *"The covenant in Section 12.2 does not extend to conduct falling within Section 11.3."* | **実際に残す利益。ただし §12.2 の法域に限る** |
+
+**強さの順**: BSD-3-Clause の第 3 条（**条件**）＞ ACD-1.0 §12.5（**残す利益・条件ではない**）
+＞ Apache-2.0 §6 ＝ ACD-1.0 §11.3（**reach の限界**）。
+**最も強い形が承認されている。**
+
+### §12.5 について、正確に述べる
+
+**§12.5 は「reach の限界」ではない。実際に利益を残す。** そう書くのが正しい
+（`clause-reference.md` は最初からそう書いていた）。**ただし残るのは §12.2 の法域だけである** ——
+§12.1 は人格権を**放棄**し、§12.2 は「人格権が放棄不能である法域では代わりに不行使を約束する」と
+定める。**§12.5 が外すのはその §12.2 の約束であって、§12.1 の放棄ではない。**
+
+**帰結**: 放棄が有効な法域では、虚偽の帰属に対抗する利益も**放棄されている**。残るのは
+**法そのものが放棄を認めない法域だけ** ——つまり **どのみち渡せなかった場所でだけ残る**。
+
+### この節が establish しないこと
+
+- **B4 は解決しない。** 献呈と許諾を並置してよいかは OSI の判断であり（class 10）、
+  承認済みライセンスがより強い条項を持つことは **ACD-1.0 が OSD に適合する証明にはならない**。
+  適合はライセンスごとに判断される。
+- **不利な読みが残る。** 虚偽の帰属に対抗する人格権が、パリでは残りカリフォルニアでは
+  放棄される —— **法域による非対称は、審査者が「一貫していない」と読みうる。**
+  §12.1 / §12.2 の設計（放棄できるところは放棄する）から必然的に出るものだが、
+  **必然であることは、そう読まれないことを意味しない。**
+
 ## 2. Copyleft 系（GPL / AGPL / LGPL / MPL / EUPL）
 
 **これは価値観の問いである。** 「なぜ共有を要求しないのか」に技術的な答えを返すと噛み合わない。
