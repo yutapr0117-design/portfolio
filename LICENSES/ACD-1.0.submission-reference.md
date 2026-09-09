@@ -1,0 +1,621 @@
+---
+file: LICENSES/ACD-1.0.submission-reference.md
+audience: OSI license-review participants / licence reviewers / 監査人 / 次のセッションの実装者
+last-updated: 2026-09-09
+canonical-ref: LICENSES/ACD-1.0.submission.md (送る文面は §B.0。**これを貼らない**) / LICENSES/ACD-1.0.against.md / LICENSES/AS-OF.md
+---
+
+# ACD-1.0 — 提出文の背後にある参考資料（**貼らない**）
+
+**2026-09-09 に `ACD-1.0.submission.md` から切り出した。** 節番号は変えていない
+（`§1`〜`§5`）ので、既存の `submission.md §4c` 等の参照は**本書の同じ節へ解決する**。
+
+**なぜ分けたか。** `submission.md` は「**何を送るか**」（§A の要求情報・§B.0 の本文・
+§C の SPDX 用文面・§D の送信前チェック・§E の追加開示）で、読み手は**送る人**である。
+本書は「**送ったあとに、審査者が具体的な質問をしたときに指し示す先**」で、読み手は**審査者**で
+ある。**同じ文書に置くと、送る人が貼ってはいけないものを貼る危険が残る** ——
+`submission.md` §B.0 は 3 度にわたり「§1〜§5 を貼るな」と書いていたが、
+それは**同居している限り必要な警告**だった。分けたので、その危険は構造的に消える。
+
+**規模の理由もある**: 分割前の `submission.md` は 976 行で advisory (950) を越えていた。
+**BLOCKING (1000) に当たってから動くのでは遅い**（`file-size-budget.md` の二層設計）。
+
+---
+
+### B.1a 送り状の代替形（短い header 版・参考）
+
+**Subject:** For Approval: Autonomous Commons Dedication 1.0 (ACD-1.0)
+
+Dear License Review Committee,
+
+I am submitting the **Autonomous Commons Dedication 1.0 (ACD-1.0)** for approval.
+
+**Text:** https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt
+**Steward:** Yuta Yokoi
+**In use by:** https://github.com/yutapr0117-design/portfolio (the entire repository,
+including source, documentation, data and media assets)
+**Proposed proliferation category:** I do not ask for a "popular / widely used"
+designation. I submit it as a new licence and accept whatever category the committee
+considers appropriate on the evidence of use.
+
+---
+
+### 1. Why a new licence is necessary
+
+ACD-1.0 is written for works that are *meant to be learned from* by machines. Three
+questions decide whether such a work is safe to build on, and the licences in common use
+answer none of them:
+
+1. **Machine learning and text-and-data mining.** Permissive licences are silent.
+   Silence is not refusal — Article 4(3) of Directive (EU) 2019/790 requires an *express*
+   reservation — but silence is not something an automated consumer can rely on either.
+   The question is unsettled in most jurisdictions, and where a reservation mechanism
+   exists it can be operated by parties *other than the licensor* (a host, a platform, an
+   aggregator) through signals attached to the work. A consumer reading only the licence
+   cannot tell. ACD-1.0 Section 6 answers directly: Computational Use is expressly
+   permitted (6.1); the licensor makes no reservation and declines to make one (6.2); any
+   reservation attached to the work is withdrawn so far as the licensor's own rights reach
+   (6.3, bounded by 2.7); and no model, parameter set, weight, embedding or output is
+   encumbered (6.4).
+
+2. **Patents.** Public-domain-style instruments have withheld patent rights. That is the
+   very clause on which CC0 did not complete OSI review, and the committee's concern at
+   the time was that approving it would weaken, not strengthen, the position of users of
+   software so released. ACD-1.0 Section 8 grants an express patent licence, states that
+   it is subject to no condition and not terminable (8.2), rejects any reading that would
+   reserve patent rights (8.3), and **grants a further licence, in its own right, over
+   Computational Use and over any model, parameter set, weight, embedding or output
+   resulting from it (8.4)**. Section 8.4 is deliberately a grant and not a clarification:
+   whether a trained model is "the Work" or a derivative of it is unresolved, and a
+   provision that merely avoided doubt would be read down together with the reading it was
+   written to correct. Section 8.5 states the limits of the grant honestly, and Section 8.6 adds a
+   covenant not to assert, for any jurisdiction in which the patent licence itself is held
+   ineffective. Copyright is protected three times over in this instrument (surrender,
+   licence, covenant); Section 8.6 gives the patent grant the second footing it would
+   otherwise lack, in the manner Section 12.2 uses for moral rights.
+
+3. **Machine-generated material.** It is unsettled whether copyright subsists in it at
+   all. Section 9 makes the recipient's permissions independent of that question: the
+   licensor asserts no right in such material, the recipient is not required to determine
+   which parts are machine-generated, and if a right is later held to subsist, Sections 3
+   to 8 and Section 12 apply to it in full.
+
+### 1a. Two other AI-native instruments are already before this list
+
+Stated here because the gap argument above is weaker if it is read as "nobody else is working
+on this," which was never true and is not claimed.
+
+**OpenMDW-1.1** (Linux Foundation) and **ModelGo v2** (MG0-2.0 and MG-BY-2.0, National
+University of Singapore) are in review. Both are drafted for machine learning model materials:
+OpenMDW's subject matter is "one or more machine learning models (including architecture and
+parameters); and all related artifacts (including associated data, documentation and software)";
+ModelGo's is the Model plus Complementary Materials, with pretraining datasets expressly outside
+scope.
+
+**They answer a different question, and for their question they are better.** Theirs is *how do
+I license a model?* If that is the question, OpenMDW is the better instrument today — it names
+the artefacts a model release consists of, it has an institutional steward, and it has been
+through counsel. ACD-1.0's question is *how do I release any work so that machine processing of
+it is unencumbered?*, and it reaches models only because a model is a work.
+
+**Where their coverage exceeds ours.** OpenMDW licenses **trade secret rights** expressly;
+ACD-1.0's Covered Rights (§1.5) do not reach them. For weights protected by confidentiality
+rather than copyright, that is a gap on our side. (Whether licensing a trade secret has legal
+effect was itself questioned in OpenMDW's review, so the point is contested, not settled.)
+
+**Where ours differs.** ACD-1.0 imposes no condition at all, where OpenMDW requires the agreement
+and notices to be retained and MG-BY requires attribution and a modification notice. ACD-1.0 has
+no patent retaliation, where OpenMDW and MG-BY terminate on suit — deliberate, since a
+termination trigger is a condition, but many reviewers regard defensive termination as a feature.
+And ModelGo **excludes** models derived by distillation or synthetic data generation from its
+Derivative Materials, where ACD-1.0 §8.4 grants toward "any model, parameter set, weight,
+embedding, or output" of Computational Use. That last axis is where the three are genuinely in
+tension rather than merely adjacent.
+
+**The proliferation question this raises.** Not "is ACD-1.0 different from OpenMDW and ModelGo"
+— it is, in subject matter and in conditions. It is whether the adjacent question is worth a
+separate instrument when two others are already in flight for the neighbouring one. That is a
+judgement for the list. `ACD-1.0.comparison.md` §1.5 sets out the full comparison, and
+`ACD-1.0.against.md` #28–#31 record what this comparison costs our case.
+
+### 1c. Section 6 is a statement about my own rights, not a policy position
+
+Raised here because the same ground is being contested in another review as this is written, and
+because the distinction is easy to lose.
+
+A participant in the OpenMDW review put the difficulty plainly: the training-data question "is
+the center of the whole open source ai definition debate and IMO won't be solved by a license but
+needs to be solved at the policy level," and a licence review should not be "encumbered by policy
+discussions." That is a fair warning, and §6 of this instrument is exactly where it could apply.
+
+**It does not, and the text is drafted so that it does not.** §6 says nothing about what anyone
+else may reserve, what any legislature should do, or how fair use and the EU text-and-data-mining
+exception ought to be reconciled. It says what **this Dedicator** does with **this Dedicator's**
+rights:
+
+- §6.2 is limited on its face to "the Covered Rights and patent claims of the Dedicator" — the
+  Dedicator makes no reservation and declines to make one.
+- §2.7 confines the whole instrument to rights the Dedicator holds, and disclaims any
+  representation that the material is otherwise unencumbered.
+- §6.3 reaches reservations by others only to the extent the Dedicator "is able", which §2.7
+  already bounds.
+- §6.5 concedes the point that §6 is declaratory of §3–§5 rather than an independent enlargement.
+
+**Why state it at all, if it is declaratory?** Because in a regime where an opt-out is exercised
+by signalling, silence is not neutral — a work with no signal invites the argument that a
+reservation may exist. Saying "no reservation is made, and none will be" removes that argument
+for this work, without asserting anything about the regime itself.
+
+**What this submission is therefore not asking the list to decide.** Whether TDM opt-out regimes
+are good policy. Whether training on lawfully accessible material should require permission.
+Whether the Open Source AI Definition should require open training data. None of those is
+necessary to decide whether an instrument that reserves nothing meets the Open Source Definition.
+
+### 1d. What the text says about its own subject matter, measured
+
+The jurisdictional question in §1a — whether this list reviews licences for works that are not
+software — is usually argued from intent. It can also be measured, and the measurement cuts
+against us more sharply than the argument does.
+
+**The operative text does not describe itself as a software licence.**
+
+| Term | Occurrences in the whole text |
+|---|---|
+| "program" | **0** |
+| "executable" | **0** |
+| "software" | **2**, both in the explanatory preamble and in §8.3's reasoning; **none in an operative grant or condition** |
+| "source code" / "object code" | 1 each, inside §1.2's list of what a Work may be, alongside documentation, data, metadata and audiovisual material |
+
+**Read against ACD-1.0, this is a liability.** If the criterion is that OSI reviews software
+licences, an instrument whose operative provisions never mention software is further from that
+line than one that does. §1.2 places source code in a list where it is one item among six. A
+reviewer inclined to draw the line strictly has the text on their side, and I am not going to
+argue that "any Work" quietly means "software".
+
+**Read the other way, it is what makes the instrument coherent.** A licence that says "software"
+in its grants has to be stretched to cover a dataset, a set of weights, or a documentation
+corpus — and stretching is where the ambiguities that this whole review process exists to catch
+come from. §1.7's "Computational Use" is defined over the Work, not over programs, so §6.1 and
+§8.4 apply identically to code and to a corpus with no clause doing double duty.
+
+**What this does not resolve.** Whether the OSD, written for software, is the right instrument
+to judge this by. That question is live in another review as this is written (§1a), and it will
+not be settled by pointing at word counts in either direction. What the counts do settle is that
+the question is not marginal here: **this is not a software licence with data provisions bolted
+on, and it does not read as one.**
+
+### 1b. Whether an instrument of this kind is reviewable at all
+
+This question comes before the others, so it is answered first.
+
+**The OSI's stated position is that a public-domain dedication, taken alone, is not an open
+source licence.** That position is not a technicality to be argued around; it is the reason the
+form of this instrument was chosen rather than a bare waiver. If ACD-1.0 were only a dedication,
+the correct outcome would be that it falls outside what this list reviews.
+
+**It is not only a dedication, and the licence half is not a fallback.** §3 is the surrender and
+waiver. §4 is a licence grant, and §4.4 says in terms that it "is granted independently of
+Section 3 and does not depend on Section 3 being ineffective" — where §3 works, §4 "is redundant
+but not void, and it remains available to be relied upon by You," and "You are not required to
+determine whether Section 3 is effective in any jurisdiction."
+
+That construction is stronger than a fallback, and the difference matters to this question. A
+fallback invites the argument that the licence exists only if and when a court first finds the
+dedication ineffective — leaving open who decides, under which law, and what the recipient may
+rely on meanwhile. §4.1 grants outright: worldwide, royalty-free, irrevocable, perpetual,
+sublicensable, "subject to no condition of any kind" (§4.3). In every jurisdiction the recipient
+holds a licence on its own terms, and holds it without having to resolve anything about §3.
+
+**There is precedent for reviewing exactly this hybrid.** The Unlicense — an attempt at a public
+domain dedication that also uses licence-grant wording — was submitted in March 2020 and
+approved by the board in June 2020, and the discussion turned on that dual nature rather than
+treating the dedication half as disqualifying. The archives are public and worth reading against
+this submission:
+<https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2020-June/004890.html>
+
+**Two arguments from that review carry directly onto this text, and I would rather name them
+than wait for them.**
+
+*"This is not a license."* A reviewer took the position that the Unlicense "falls on the side of
+'this is not a license'", on the ground that it lacks a clear expression of intent to convey
+rights. The counter offered there was that its operative sentence — anyone is free to copy,
+modify, publish, use, compile, sell, or distribute — functions as a grant whatever the label,
+and that the BSD licence does not use the words "grant" or "permission" either. ACD-1.0 is on
+firmer ground here than the Unlicense was, and not because it is better drafted: §4.1 says
+"The Dedicator grants You a … licence", and §4.4 states that this grant is independent of the
+dedication and does not depend on it failing. Where the Unlicense had to argue that a permission
+was a grant, this text says so.
+
+*"No requirement to include the licence on redistribution — how effective is the disclaimer?"*
+This one lands, and lands harder here than there: §10.2 says expressly that You need not retain
+the file or reproduce any notice. The permissions are unaffected (§1.4, §4.1 and §2.3 make the
+grant run to each recipient directly, which is how MIT-0 and 0BSD operate), but a warranty
+disclaimer asserted against someone who never saw it is weaker than one that travelled with the
+work. **The loss falls on the Dedicator, not on the recipient**, which is why it is disclosed
+here rather than argued away in the conformance section. `ACD-1.0.review-responses-clauses.md`
+sets it out at length.
+
+The committee's own words are worth quoting, because they state the doctrine and the escape from
+it in one sentence: the Unlicense "is an attempt to dedicate a work to the public domain (which,
+taken alone, would not be approved as an open source license) but it also has wording commonly
+used for license grants."
+
+**Four differences from that precedent, all of which cut against this submission and are stated
+here rather than left to be discovered.**
+
+1. **The Unlicense entered by a request for *legacy* approval** — it was already in widespread
+   use by many unaffiliated parties, and that adoption carried weight the text alone might not
+   have. ACD-1.0 has one adopter and cannot borrow that argument. It has to stand on the text.
+2. **The Unlicense was approved despite broad agreement that it is poorly drafted.** ACD-1.0
+   errs in the opposite direction: 16 sections and 82 clauses, which will draw the opposite
+   criticism — that it is too long for what it does (answered at length in
+   `ACD-1.0.review-responses-meta.md` Q17). That trade was made deliberately. Where the
+   Unlicense's brevity left questions to be resolved by argument, this text tries to answer them
+   in the text, and pays for it in length.
+
+3. **That approval rested on legal advice.** The License Review Committee's recommendation reads,
+   in full on the point (read at source in the license-review archive, 2026-09-06):
+
+   > "It is an attempt to dedicate a work to the public domain (**which, taken alone, would not be
+   > approved as an open source license**) but it also has wording commonly used for license
+   > grants. There was some discussion about the legal effectiveness of the document, in particular
+   > how it would operate in a jurisdiction where one cannot dedicate a work to the public domain.
+   > **The lawyers who opined on the issue, both US and non-US, agreed that the document would most
+   > likely be interpreted as a license and that the license met the OSD.** It is therefore
+   > recommended for approval."
+
+   Two things follow, and they cut in opposite directions. The parenthesis is **the Committee's own
+   statement of the rule this submission must clear** — a dedication taken alone is not approvable
+   — and ACD-1.0's answer to it is structural: §4 is a licence granted independently of §3 and does
+   not wait for §3 to fail (§4.4), so the instrument is not "taken alone" as a dedication. But the
+   sentence that resolved the Unlicense is **legal opinion, from more than one lawyer, across
+   jurisdictions**, and that is precisely what this submission cannot replicate: no lawyer has read
+   ACD-1.0 (§5, §4c). Where the Unlicense had counsel's reading to settle the
+   dedication-versus-licence question, this submission has only the structure of the text and
+   whatever reading the list gives it.
+4. **It was not placed in a general category.** The committee recommended the Unlicense be placed
+   in the "Special Purpose" category "because of its intended nature as a dedication to the public
+   domain," and **rejected** the submitter's request for the "Popular and Widely-Used or With
+   Strong Communities" category. If ACD-1.0 were approved, a comparable narrow placement is the
+   realistic expectation, not a general endorsement — which is consistent with §4a above, where
+   this submission disclaims any request for such designations. (OSI's category names have since
+   been revised; the point is the narrowness, not the label.)
+
+**What follows if the hybrid framing is rejected.** If the list's view is that §4's independent
+grant does not make this a licence, then the honest conclusion is that ACD-1.0 is not a candidate for OSI
+approval in its present form, and the response will be to say so rather than to redraft under
+pressure. `ACD-1.0.submission.md` §E.2 already records what would cause the submission to be
+withdrawn; this is one of those conditions.
+
+### 2. How ACD-1.0 differs from the closest OSI-approved licences
+
+**Closest on "zero conditions": 0BSD.** 0BSD grants permission to *use, copy, modify and
+distribute this software*. ACD-1.0 shares that zero-condition character and differs in
+seven respects, each of which is operative rather than stylistic:
+
+| | 0BSD | ACD-1.0 |
+|---|---|---|
+| Subject matter | "software" | any Work: source, object, documentation, **data, metadata, audiovisual material**, and compilations (1.2) |
+| Patents | silent | 8.1–8.5, with 8.4 granting separately over Computational Use and its outputs |
+| ML / TDM | silent | 6.1–6.5 |
+| Sui generis database right | silent | 7.1–7.2 (extraction and re-utilisation of a substantial part, repeatedly and systematically) |
+| Moral rights | silent | 12.1–12.6: waiver, and in jurisdictions where moral rights cannot be waived, a covenant not to exercise them **limited to the Work** and binding successors |
+| Machine-generated material | silent | 9.1–9.4 |
+| Irrevocability / successors | silent | 2.2, 2.5 (reliance and estoppel), 2.8 (Sections 3, 4, 6 and 8 bind successors and transferees), 2.9 (not executory; unaffected by insolvency and by the acts of a trustee) |
+
+The enumerated acts also differ: 0BSD's four verbs do not cover sublicensing, communication
+to the public, public performance or display, rental, or adaptation, which ACD-1.0 Section
+4.2 lists expressly for civil-law jurisdictions where those are distinct exploitation
+rights.
+
+*Would 0BSD plus a separate patent grant do?* No. A separate instrument does not travel
+with the work, and a downstream recipient has no assurance it exists. The point of Section
+6.5 — that a permission an automated system cannot determine is, for a work meant to be
+learned from, no permission at all — applies to patents as much as to training.
+
+**Closest on "express patent licence": Apache-2.0.** Apache-2.0 conditions its grant on
+notice retention, change notices and NOTICE propagation; ACD-1.0 imposes no condition
+(4.3, 10.1). Apache-2.0 terminates the patent licence on patent litigation; ACD-1.0
+contains no retaliation provision and says so expressly (8.2). Apache-2.0's patent grant
+reaches "the Work and Derivative Works"; whether a *trained model* is either is unresolved,
+and Section 8.4 is written precisely to close that — as an independent grant, so that it
+does not fall with the reading of Section 8.1 it was written to survive.
+
+### 3. Open Source Definition conformance
+
+ACD-1.0 imposes no conditions at all, so conformance is straightforward. Addressing the
+criteria the committee asks submitters to speak to directly:
+
+- **OSD 1 (Free redistribution).** Section 4.2 permits distribution and sale by any means;
+  Section 4.3 attaches no condition, including no royalty.
+- **OSD 2 (Source code).** The licence permits distribution in source form, object form,
+  or any other form (4.2), and imposes no obstacle to providing source.
+- **OSD 3 (Derived works).** Section 4.2 permits modification and derivative works;
+  Section 4.3 forbids any reciprocal-licensing condition; and Section 4.5 states the
+  consequence positively — the Work and any adaptation or collection containing it may be
+  distributed under any terms the recipient chooses, **including terms incompatible with
+  these**, with nothing reaching through to their recipients. A recipient may therefore
+  place the Work inside a copyleft project without friction.
+- **OSD 4 (Integrity of the author's source code).** No restriction is imposed. Section
+  16.4 concerns the text of the licence *as a document*, not the licensed work; Sections
+  10.5 and 16.5 state this expressly.
+- **OSD 5 (No discrimination against persons or groups)** and **OSD 6 (No discrimination
+  against fields of endeavour).** Section 4.3 states that the licence is conditioned on no
+  restriction as to persons, groups, technologies, endeavours or jurisdictions, and on no
+  field of use.
+- **OSD 5 (No discrimination against persons or groups).** §4.3 states the licence is not
+  conditioned "on the identity, character, or purpose of the user, or on any restriction as to
+  persons, groups, technologies, endeavours, or jurisdictions." §2.3 adds that the grant takes
+  effect without any act of acceptance, so there is no gate at which a person could be excluded.
+- **OSD 6 (No discrimination against fields of endeavour).** The same sentence of §4.3 excludes
+  conditioning "on field of use." §6 goes further in one direction only — it names machine
+  learning and text-and-data-mining expressly in order to **permit** them, not to single them out
+  for a condition.
+- **OSD 7 (Distribution of licence).** Section 2.3 makes the licence effective without any
+  act of acceptance; Section 16.2 makes an identifier or SPDX tag sufficient notice, so
+  rights attach to every recipient without further action.
+- **OSD 8 (Licence must not be specific to a product).** Section 16.3.
+- **OSD 9 (Licence must not restrict other software).** Sections 4.3 and 10.1 impose no
+  requirement on anything distributed alongside the Work.
+- **OSD 10 (Licence must be technology-neutral).** Section 2.3 requires no click-through
+  or other individual act of assent; Section 5.2(b) forbids imposing one by collateral
+  means.
+
+### 3b. Where a reviewer could still argue, criterion by criterion
+
+The list above says why each criterion is met. This one says where the meeting is arguable, so
+that the two are read together rather than one being discovered after the other.
+
+| Criterion | The argument against | Why it is nonetheless met |
+|---|---|---|
+| **OSD 1** Free redistribution | §4.5 lets You redistribute "under any terms You choose, including terms that impose conditions upon Your own recipients." A reviewer may ask whether an instrument that permits proprietary relicensing satisfies a criterion about free redistribution | It does, and this is settled: every permissive approved licence allows it. OSD 1 constrains what the **licence** may require, not what a redistributor may add |
+| **OSD 2** Source code | The instrument never requires source to be available. §10.2 says You "need not ... make source available" | OSD 2 bars a licence from **obstructing** source distribution and requires the preferred form when a program is distributed under it; §4.2 grants distribution "in source form, in object form, or in any other form." Permissive licences are approved on this basis |
+| **OSD 3** Derived works | — | §4.2 grants adaptation, modification and derivative works expressly, and §4.3 attaches no condition to them |
+| **OSD 4** Integrity of the author's source code | §16.4 forbids distributing **the licence text** in modified form under the name or identifier. A reviewer skimming may read that as a restriction on the Work | It is not: §10.1 is limited to conditions "in respect of the Work," and §16.4 governs the licence text only. The provision is the same name-integrity term GPL and Apache-2.0 carry for their own texts. The looseness is in the notice wording, recorded as errata E3 |
+| **OSD 5** Persons or groups | §11.3 withholds one thing — falsely representing the Dedicator's authorship or endorsement | §11.3 says in terms that it "states a limit of the Dedication's reach; it is not a condition upon You, and Section 10.1 is unaffected by it." Misrepresentation was never the Dedicator's to permit, so withholding it discriminates against no one |
+| **OSD 6** Fields of endeavour | §6 names machine learning and TDM specifically. Naming a field at all can look like singling it out | The naming is entirely permissive: §6 grants and disclaims reservation. §4.3 excludes conditioning on field of use. A grant aimed at a field is not a restriction on it |
+| **OSD 7** Distribution of licence | **The sharpest one.** §10.2 says You need not "reproduce any notice ... retain this file, or inform anyone of anything," and §4.5 adds that nothing requires Your terms to reproduce this text. A downstream recipient may therefore never see that the Work is under ACD-1.0 | The criterion is about rights applying without an additional licence, not about notice. §1.4 defines You as **any** person exercising permissions, §4.1 grants to You directly, and §2.3 makes the grant effective "without any act of acceptance." Every recipient holds the grant from the Dedicator, not through a chain. **Precedent is squarely on point:** MIT-0 and 0BSD are approved and likewise require no notice retention. The practical gap — a recipient who does not know what they hold — is real and is recorded as adverse fact #20 rather than argued away |
+| **OSD 8** Not specific to a product | §16.3's wording is broader than needed (errata E2) | §16.3 states the instrument "is not specific to any project, person, organisation, jurisdiction, or field of endeavour," and the structural evidence is in §4b: no project name, no URL, no placeholder, no edit required to adopt |
+| **OSD 9** Must not restrict other software | §5.2(b) is a wide covenant about collateral obligations, and §4.5 speaks to what You may add | Both point away from restricting other software: §5.2 binds the **Dedicator**, and §4.5 expressly permits Your other terms to be "incompatible with these." Nothing conditions the licensing of anything distributed alongside the Work |
+
+**A live reading of OSD 9 that bears on this submission (read at source, license-review 2026-08).**
+In the OpenMDW review a participant argued that OSD 9 reaches further than the "same medium"
+example: *"I don't think it's much of a stretch to think of **defensive termination provisions as
+'restrictions'**"*, anchoring that in the history where Apache-2.0's patent-termination clause was
+treated as a source of GPLv2 incompatibility, and in OSD 9's role in the SSPL discussion.
+
+**Two things follow, and only the first is ours to claim.** ACD-1.0 has no termination of any kind
+(§10.4) and no patent retaliation (§8.2, expressly), so **whatever that reading decides, this
+instrument has nothing in the class being argued about**. That is not a virtue claimed after the
+fact —— it is the same design choice recorded as a **cost** in `against.md` #46, where a recipient
+who sues the Dedicator keeps every permission. The second thing is what we must not say: **this
+does not establish that ACD-1.0 satisfies OSD 9.** Our OSD 9 exposure, if any, is elsewhere ——
+§5.2's covenants and §16.4's restrictions on redistributing the licence text —— and it is argued in
+the row above on its own terms. **The reading quoted here is one participant's position in a live
+thread, not a settled rule**, and it is recorded because a submission that ignores how the criterion
+is currently being argued is answering a question nobody is asking.
+
+| **OSD 10** Technology-neutral | §2.3 forbids click-through, but §6 is written around a particular technology | §2.3 is the operative provision for OSD 10 and it removes the acceptance ritual entirely. §6's subject matter is technological; its **effect** is a grant with no technological predicate |
+
+**The one that would actually be litigated on the list is OSD 7**, and not because the criterion
+fails — it does not — but because ACD-1.0 goes further than most approved licences in releasing
+the recipient from any obligation to carry the notice forward. That choice is deliberate (§10.2),
+it has approved precedent, and its cost is stated as an adverse fact rather than defended.
+
+### 3c. The OSI's own list of common reasons for rejection, item by item
+
+**Source, read 2026-09-07**: `https://opensource.org/licenses/common-reasons-for-rejection-of-licenses`,
+linked from the review-process page. It names five patterns. Each is answered from the text.
+
+| Reason OSI publishes | ACD-1.0 |
+|---|---|
+| **"An express statement that no patent license is granted"** — fails OSD 6, 7 and 8; a licence that says nothing about patents *may* be acceptable if the grant can be read as implied | **The opposite.** §8.1 grants an express, irrevocable, worldwide patent licence, and §8.4 extends it to computational use, models and outputs. §8.2 states there is no retaliation provision and that its absence is deliberate. **This is also the clearest external support for §8 existing at all**: the OSI treats patent silence as a risk to be read around, so a dedication-shaped instrument that stayed silent would be relying on an implication |
+| **Badgeware** — requiring a trademark to be displayed; fails OSD 3 and 10 | **Not present.** §10.2 states You need not give attribution or reproduce any notice. §11.1 grants no trademark rights and §11.2 disclaims any requirement to use a name |
+| **Non-commercial and ethical clauses** — restrict where, why and how; fails OSD 6 | **Not present.** §4.3 states the licence is not conditioned on who You are or what You use the Work for. §10.1 imposes no condition of any kind |
+| **Conditional licensing** — "variable outcomes like BUSL that delay availability of full software freedom"; SISSL-style condition-selected *approved* licences have been approved | **Not present, and the nearby-sounding structure is different.** §3 (dedication) and §4 (licence) are not alternatives selected by a condition: §4.4 grants §4 **independently of §3 and not in dependence on §3 being ineffective**, so both operate and the recipient never determines which applies. Nothing becomes available later or expires: §10.4 states no permission terminates for any reason and there is no revival provision. **A reviewer may still raise this** — the answer is that BUSL varies *over time* and SISSL varies *by condition*, whereas ACD-1.0 varies in neither dimension |
+| **Phone-home provisions** — require interaction with a specific organisation, website or API; fails OSD 5, sometimes 8 and 10 | **Not present.** There is no interaction requirement of any kind; §10.1 and §10.2 exclude the category |
+
+**Why this section exists.** Until 2026-09-07 this dossier had never read this page, although it is
+two clicks from the process page a reviewer cited that morning and is 1,822 characters long
+(`against.md` #98). Four of the five are clean by construction — an instrument that imposes no
+conditions cannot impose *those* conditions — but **the first is not a negative result at all**: it
+is the OSI stating that saying nothing about patents is a risk, which is the case for §8.
+
+### 4. What is deliberately absent
+
+Omissions are design decisions too, and the committee will ask about several of them.
+
+- **No patent retaliation.** A grant that ends when the licensee litigates is a grant with
+  a condition. Section 8.2 says the absence is deliberate so that it is not mistaken for an
+  oversight.
+- **No attribution requirement.** Attribution is a real wish, so Section 10.3 separates the
+  wish from the obligation: any request the licensor makes, however phrased and wherever
+  expressed, is a request and not a condition; not observing it is not a breach and narrows
+  no permission.
+- **No field-of-use restriction of any kind**, including the "ethical" restrictions now in
+  circulation. Section 4.3 forecloses them expressly (OSD 6).
+- **No choice of law or forum.** Section 15.7. Naming one jurisdiction would disadvantage
+  recipients everywhere else.
+- **No anti-DRM condition on the licensee.** A licence that imposes nothing cannot impose
+  this either. The same protection is achieved from the other side: Section 5.2(a) is a
+  covenant by the *licensor* not to apply technological measures to the Work or to invoke
+  anti-circumvention law against You.
+- **No barrier to translation.** Section 16.4 fixes the text that the name denotes, but
+  Section 16.5 makes a translation an express exception: it may carry the name and the
+  identifier so long as it is identified as a translation and states that the English text
+  prevails. A rule that kept translations out would have put Section 16.4 at odds with
+  Section 15.8 and would have kept the licence away from readers who do not read English.
+- **No trademark licence.** Section 11.1. Trademarks identify origin, and an unconditional
+  grant would mislead. Section 11.2 preserves truthful nominative reference.
+- **No provenance or disclosure requirement for AI output.** Section 6.4 says outputs are
+  unencumbered; requiring their labelling would contradict the licence's central purpose.
+
+### 4a. Which track this submission is on, and what it does not ask for
+
+**This is a new licence, not a legacy one.** The review process distinguishes the two: a legacy
+licence is one already in widespread use for several years by a number of unaffiliated entities;
+everything else is a new licence. ACD-1.0 has one adopter and was published in 2026, so it is
+unambiguously in the new-licence track and is expected to answer the questions that track asks:
+
+| What the track asks | Where it is answered |
+|---|---|
+| What gap do existing licences not fill, compared with the most similar approved licence(s)? | §1 and §2 of this message; clause-level comparison in `ACD-1.0.comparison.md` |
+| What legal review has it had, and was it drafted by a lawyer? | §5 and §E.1 — **no legal review, not drafted by a lawyer**, stated without hedging |
+| Can others use it, or is it usable only by the submitter? | §4b below, with commands that verify each claim |
+
+**What is not being asked for.** Approval would place ACD-1.0 in the set of licences that meet
+the Open Source Definition. It would not make it recommended, popular, or preferred; those are
+separate designations driven by adoption data, and this submission makes no claim to them.
+Saying so up front is not modesty — conflating "conforms to the OSD" with "should be widely
+used" is a common way for a submission to overreach, and the honest position is the narrower one.
+
+**Timeline expectations are the reviewers', not mine, and the two comparable submissions do not
+point the same way.** The process describes a decision on the order of two months. The two
+AI-specific licences actually in review show a wider spread than that figure, in both directions:
+
+- **ModelGo** was submitted in February 2025, reached a third resubmission in December 2025, and
+  its author's follow-ups in January, May and July 2026 have gone unanswered.
+- **OpenMDW-1.1** is still on its first submission, and its August 2026 thread alone runs to some
+  48 messages among about a dozen participants — substantive engagement rather than silence,
+  with several of the submitter's explanations reported as resolving the concerns raised.
+
+Either pattern is possible here. This submission sets no deadline, asks for no expedited
+handling, **will not read silence as a verdict**, and does not treat repeated revision as
+failure — ModelGo's three rounds are what "improve and resubmit" looks like when it is working. If the
+outcome is rejection, §E.2 already states what would cause the licence to be withdrawn rather
+than re-argued.
+
+### 4b. That the licence is not usable only by me
+
+OSI's review process asks a submitter to show that a new licence is **not uniquely usable only
+by the submitter**. Two kinds of evidence are offered: what the text structurally is, and who
+else would plausibly reach for it.
+
+**Structural evidence (verifiable in one command each).**
+
+| Property | How to check | Result |
+|---|---|---|
+| No project, author, domain or URL appears in the licence body | `grep -icE "yokoi\|portfolio\|github\|https?://" LICENSES/ACD-1.0.txt` | **0** |
+| No placeholder or replaceable text (`<year>`, `[name]`, templates) | `grep -cE "<[a-z]+>\|\[year\]\|\[name\]\|YYYY" LICENSES/ACD-1.0.txt` | **0** |
+| Defined terms are generic role names, not identities | `"Work"`, `"You"`, `"Your"`, `"Dedicator"`, `"Contribution"`, `"Dedication"`, `"Reservation"` | 7 terms, none naming a person or project |
+| The application declaration is a separate file | `LICENSE` carries `SPDX-License-Identifier` and a path; `LICENSES/ACD-1.0.txt` is the generic instrument | Applied **by reference**, never by editing |
+
+The practical consequence: adopting ACD-1.0 requires **no edit to the licence text at all**. That
+is a stronger form of reusability than licences that must be filled in with a name and a year,
+and it is why the text is byte-identical for every adopter.
+
+**Who else would reach for it, and why the nearest approved licences do not fit.**
+
+| Adopter | Why not the nearest OSI-approved option |
+|---|---|
+| A research group publishing a corpus intended to be trained on | MIT-0 / 0BSD / Unlicense are silent on text-and-data-mining and on the EU sui generis database right. Silence is not permission where an opt-out regime exists; ACD-1.0 §6 affirmatively permits and makes no reservation |
+| A standards body publishing a reference implementation | The public-domain-like effect is wanted **together with** a patent grant. CC0's exclusion of patents is precisely what stopped it at OSI; ACD-1.0 §8 grants, and §8.4 reaches the trained model and its outputs |
+| A publisher of machine-generated artefacts | MIT/BSD assume a copyright exists to license. Where authorship may not subsist at all, that assumption is the problem; ACD-1.0 §9 makes the permissions independent of whether any right subsists |
+| A public-sector or civic-data publisher in a jurisdiction where waiver is ineffective | A bare dedication can fail outright in such jurisdictions. ACD-1.0 §3 falls back rather than failing |
+| Anyone shipping assets with embedded metadata (images, audio, models) | The status of embedded metadata is usually left unstated. ACD-1.0 §1.2 includes data, metadata and audiovisual material in the defined Work |
+
+None of these depend on anything about my project. Each is a gap that exists for the adopter
+regardless of who drafted the instrument.
+
+**A falsifiable test.** Copy `LICENSES/ACD-1.0.txt` into any unrelated repository, add a
+`LICENSE` file containing `SPDX-License-Identifier: ACD-1.0` and a pointer to the text, and the
+adoption is complete. If any step required editing the licence body, the claim in this section
+would be false. It does not.
+
+**What this section does not claim.** It does not claim adoption. Actual use is one repository,
+mine, and that limitation is stated plainly in §5 below. Reusability and adoption are different
+properties, and the requirement here is the former.
+
+### 4c. What was verified mechanically, since it was not verified legally
+
+No lawyer has read this. That is stated plainly in §5 and it is the weakest point of the
+submission. It cannot be repaired by asserting confidence, so what follows is the opposite: the
+narrow set of properties that **can** be established without counsel, each with the command that
+establishes it. None of these substitute for legal review. They only mean that the failures a
+machine can find are not present.
+
+| Property | Command | Result |
+|---|---|---|
+| Every defined term is actually defined, in one place | `grep -nE '^\s+1\.[0-9]+\s+"' LICENSES/ACD-1.0.txt` | 10 terms, all in §1.1–§1.10 |
+| No defined term is dead (each is used outside its own definition) | count occurrences of each term outside the clause that defines it | 10/10 used; the lowest is **3**, shared by `Contribution` and `Machine-Generated Material` |
+| Section numbering is contiguous with no gaps | `grep -cE '^[0-9]+\. [A-Z]' LICENSES/ACD-1.0.txt` | 16 sections, numbered 1–16 |
+| Internal cross-references all resolve to a clause that exists | enforced in CI (Check 441b) | no dangling `§N.M` |
+| The text is pure ASCII | byte scan for values > 127 | **0** non-ASCII bytes |
+| The authoritative language is stated in the text itself | `grep -n "authoritative language" LICENSES/ACD-1.0.txt` | §15.8 — English governs; translations are convenience only |
+| No project-specific or replaceable text | see §4b | 0 and 0 |
+| **The warranty disclaimer and liability limitation are conspicuous** | `grep -n '^ *1[34]\.' LICENSES/ACD-1.0.txt` and read the case of the text | **§13.1, §13.2 and §14.1 are entirely upper-case.** This follows the convention McCoy Smith described on this list (2025-05-28): MPL-2.0 highlights those paragraphs in yellow to meet the US UCC requirement that such disclaimers be *conspicuous*, and plain-text renderings substitute capitals or rules of asterisks. §13.3 (no duty to maintain) and §14.2 (savings clause) are not capitalised because they are not themselves disclaimers. Measured 2026-09-08 |
+| **No clause text is borrowed from an existing licence** | word-normalise both texts (lower-case, strip punctuation) and intersect their 8-word runs, against MIT, MIT-0, 0BSD, Apache-2.0, CC0-1.0 and the Unlicense | **0 shared 8-word runs with any of the six.** The longest shared run is **seven words** — *"for any purpose commercial or non commercial"* — appearing once, in common with the Unlicense. **Control**: the same method finds 555 shared 8-word runs between MIT and MIT-0 and 485 between MIT and the Unlicense, so it detects borrowing where borrowing exists. **Caveat**: the six reference texts were taken from their published web pages, so part of their mutual overlap is page furniture rather than licence text; that inflates the control and cannot deflate the zero. Measured 2026-09-07 |
+| Every clause pointer in the machine-readable descriptor resolves and matches its subject | cross-check `ACD-1.0.machine.json` `clause` fields against the text | **33 / 33** |
+| Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
+| Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
+| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **109 entries, 1–109, no gaps; all citations resolve** |
+| Every defect called a "1.1 candidate" anywhere has an entry in the errata to point at | cross-check declarations against `errata.md` | **one was missing and has been added (E7)** |
+| Every negative self-claim the text makes about itself is true | extract each "contains no / imposes no / grants no / reaches nothing / specifies no" statement and search the whole text for the thing denied | **9 claims, 9 true** — each denied term appears only inside the clause doing the denying |
+| Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |
+| The six clauses disclaiming condition-status cross-reference into one mesh centred on §10.1 | trace §4.6, §10.3, §10.5, §11.3, §11.4, §16.6 | consistent; documented in `clause-reference.md` |
+| The machine-readable layer does not overstate its status | `grep -o 'isOsiApproved="[a-z]*"' LICENSES/ACD-1.0.spdx.xml` and the `osiApproved` / `spdxListed` fields | all **false** |
+
+**Every row above was re-derived from the artefacts on 2026-09-06, and three were wrong.** The
+entry count was stale; the clause-pointer count and the defined-term minimum were wrong when
+written, since both of their inputs are frozen and could not have drifted. They are corrected
+here and are now checked on every CI run against the artefacts themselves rather than against a
+remembered number. A fourth was nearly reported in error: counting the negative self-claims with
+a looser pattern than the one this table names gives 10 or 11 rather than 9, because "contains
+nothing" contains the string "contains no". **Under the five phrase forms this row actually
+lists, the count is 9 and the row is correct** — which is the reason the counting rule is now
+stated in each row rather than left to the reader.
+
+**Why this is worth stating rather than skipping.** Drafting defects that reviewers routinely
+catch in new licences are disproportionately of the mechanical kind: a term used but never
+defined, a definition left over from an earlier draft, a cross-reference to a clause that was
+renumbered, a section that says "as set out below" with nothing below it. Those are exactly the
+faults a machine can rule out, and ruling them out is not nothing — it means the review time you
+spend can go to substance instead of bookkeeping.
+
+**What it does not establish.** Whether §4's independent grant is given effect in a
+jurisdiction that rejects waiver, and how a court there characterises the instrument as a whole. Whether §8.4's patent grant reaches what it says it reaches.
+Whether §12's moral-rights construction is effective in France. Whether §13/§14 survive contact
+with consumer-protection law. Every one of those is a legal question, none of them is answered
+here, and `ACD-1.0.jurisdictions.md` deliberately records them as **questions rather than
+conclusions**.
+
+**Stability of these results.** The text is frozen for the duration of this discussion and CI
+pins the SHA-256 of the three licence files (Check 453), so the properties above hold for exactly
+the text under discussion. If the freeze is lifted, they must be re-measured — a property
+verified once is not a property that stays true.
+
+### 5. Honest disclosures
+
+- **Legal review.** The text has not been reviewed by counsel. I state this plainly rather
+  than let the committee discover it. Section 12 in particular depends on the position of
+  moral rights under Japanese law (Copyright Act Articles 59 and 60), and I would welcome
+  the committee's scrutiny of the two-step structure I have used there.
+- **Evidence of use.** At the time of submission the licence is applied to one substantial
+  repository. I make no claim of wider adoption.
+- **Provenance of the drafting.** The text was drafted by an AI agent operating autonomously
+  in this project. **I did not write it, I did not direct the drafting, and I did not ask for
+  it** — the agent determined that the repository needed a licence, designed one, and wrote it,
+  and I learned that it existed afterwards. What is mine is what happened next: I decided to
+  keep it, it is applied to **my** work, and I brought it here. **I do not review the
+  repository** day to day; what reaches me is a summary. **The licence is the exception: I read
+  it in full and understood it before sending.** I am the Dedicator and the steward and I answer
+  for it, but at no point was I its author. The text cites exactly one external instrument
+  (Article 4(3) of Directive (EU) 2019/790, in Section 1.10), deliberately, because invented or
+  misattributed authority is the characteristic failure of machine-drafted legal text. Its
+  internal consistency — contiguous numbering, resolution of every cross-reference, use of all
+  ten defined terms, no obligation-imposing word directed at the user, nothing specific to my
+  project — is enforced in continuous integration, so those are conditions the repository cannot
+  be in violation of rather than assertions of care. **What none of that establishes is that the
+  reasoning is sound**, which is what I am here to find out. A fuller statement is in section E.1.
+- **Form.** The instrument is styled a *dedication* and contains a public-domain dedication
+  (Section 3). I am aware of the committee's history with dedication-shaped instruments.
+  Section 4 is a licence granted **independently** of Section 3 and expressly does not
+  depend on Section 3 being ineffective (2.4, 4.4). Where Section 3 operates, Section 4 is
+  redundant but not void and remains available to be relied upon. The licence is therefore
+  a licence in its own right, and is what I ask the committee to review.
+
+Thank you for your time.
+
+Yuta Yokoi
+
+---

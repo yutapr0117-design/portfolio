@@ -73,7 +73,7 @@ here rather than argued with.
 
 On the day the freeze is lifted — that is, when the discussion closes and the owner says so — the
 correct order is: apply E1 first (it is the only one that misdirects a reader), re-measure every
-property recorded in `ACD-1.0.submission.md` §4c, regenerate the digests in `FROZEN.md`, and
+property recorded in `ACD-1.0.submission-reference.md` §4c, regenerate the digests in `FROZEN.md`, and
 record in `ACD-1.0.discussion-log.md` which changes were driven by which feedback. A property
 verified once is not a property that stays true.
 

@@ -575,14 +575,17 @@ def run(ctx):
         #   （実体 33 —— Check 451a が同じ値を毎回数えている）。**§4c は「弁護士が読んでいない」に
         #   対する我々の答え**であり、その価値は「機械が確かめられる」ことにある。審査者が同じ
         #   コマンドを走らせて別の数字が出るなら、その節は逆の証拠になる。
-        _sbm460 = _L460 / "ACD-1.0.submission.md"
+        # 2026-09-09: §4c は ACD-1.0.submission-reference.md へ移った（送る文面と参考資料の
+        # 分割）。**節番号は変えていない**ので申告の形は同じだが、読む先は変える必要がある ——
+        # path を直さずに message だけ直すと、Check は存在しない節を探して黙る。
+        _sbm460 = _L460 / "ACD-1.0.submission-reference.md"
         if _sbm460.exists() and _ag460.exists():
             _st = _sbm460.read_text(encoding="utf-8")
             _mi1 = re.search(r"\*\*(\d+) entries, 1–(\d+), no gaps", _st)
             if not _mi1:
-                _bad460.append("submission.md §4c: 不利な事実の件数申告が見つからない")
+                _bad460.append("submission-reference.md §4c: 不利な事実の件数申告が見つからない")
             elif int(_mi1.group(1)) != _rows460 or int(_mi1.group(2)) != _rows460:
-                _bad460.append(f"submission.md §4c の不利な事実: 申告 {_mi1.group(1)}–{_mi1.group(2)} / "
+                _bad460.append(f"submission-reference.md §4c の不利な事実: 申告 {_mi1.group(1)}–{_mi1.group(2)} / "
                                f"実測 {_rows460}")
             _md_i = _L460 / "ACD-1.0.machine.json"
             if _md_i.exists():
@@ -606,9 +609,9 @@ def run(ctx):
                     _walk_i(_dj)
                     _mi2 = re.search(r"\*\*(\d+) / (\d+)\*\*", _st)
                     if not _mi2:
-                        _bad460.append("submission.md §4c: clause pointer の件数申告が見つからない")
+                        _bad460.append("submission-reference.md §4c: clause pointer の件数申告が見つからない")
                     elif int(_mi2.group(1)) != len(_cnt) or int(_mi2.group(2)) != len(_cnt):
-                        _bad460.append(f"submission.md §4c の clause pointer: 申告 "
+                        _bad460.append(f"submission-reference.md §4c の clause pointer: 申告 "
                                        f"{_mi2.group(1)}/{_mi2.group(2)} / 実測 {len(_cnt)}/{len(_cnt)}")
 
             # 定義語の最小使用回数。**「Contribution at 4」と書いてあり実測は 3（しかも
@@ -633,9 +636,9 @@ def run(ctx):
                     _min_i = min(c for c, _ in _counts_i)
                     _mt = re.search(r"the lowest is \*\*(\d+)\*\*", _st)
                     if not _mt:
-                        _bad460.append("submission.md §4c: 定義語の最小使用回数の申告が見つからない")
+                        _bad460.append("submission-reference.md §4c: 定義語の最小使用回数の申告が見つからない")
                     elif int(_mt.group(1)) != _min_i:
-                        _bad460.append(f"submission.md §4c の定義語 最小使用回数: 申告 {_mt.group(1)} / "
+                        _bad460.append(f"submission-reference.md §4c の定義語 最小使用回数: 申告 {_mt.group(1)} / "
                                        f"実測 {_min_i}")
         # (j) **`comparison.md` §1.35 の「N のうち M」が、その下の 2 つの列挙と一致すること。**
         #   実測 (2026-09-06): 「Four of ... six ... the remaining two」と書きながら、上の表は 4 行、
