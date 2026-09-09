@@ -1,14 +1,14 @@
 ---
 file: LICENSES/ACD-1.0.review-precedents.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人
-last-updated: 2026-09-08
+last-updated: 2026-09-09
 canonical-ref: LICENSES/ACD-1.0.comparison.md (条項レベルの比較はこちら) / LICENSES/PEER-REVIEW-WATCH.md (手続きの観測) / LICENSES/AS-OF.md (日付つきの外部事実)
 ---
 
 # 審査の記録から読み取ったこと —— ACD-1.0 に当たる指摘と、当たらない指摘
 
 **この文書は `ACD-1.0.comparison.md` から 2026-09-08 に切り出した。** 節番号は変えていない
-（`§1.45`〜`§1.50`）ので、既存の参照はそのまま解決する。
+（切り出し時点で `§1.45`〜`§1.50`、現在は下の目次のとおり）ので、既存の参照はそのまま解決する。
 
 **何のための文書か**: `comparison.md` は「既存ライセンスのどれを選ぶべきか」を条項で比べる。
 こちらは **`license-review` / `license-discuss` の記録を読んで、ACD-1.0 が実際に何を言われるかを
@@ -607,3 +607,74 @@ avoid running into the same problems."*
 Chestek 氏の擁護は明示的に **US の裁判所**についてのものだった。§12 / §15.4 / §4.4 の
 多段構成はそこへの対処だが、**法的レビューを経ていない**（#5 / #79 / §1.51）。
 
+
+---
+
+## 1.58 「OSD 違反ではないが、採用されるかは別問題」—— 特許条項の広さが uptake を下げるという指摘
+
+**ACD-1.0 §8 が最も広い形を取っている当のことについて、審査者が名指しで懸念を述べた記録がある。**
+これは我々が**差別化として提示している箇所**（§8.4）に当たるので、同じ強さで書く。
+
+### 原文（McCoy Smith 氏・`license-review` 2026-05-14・ModelGo 宛）
+
+> Finally, the termination provision for patent assertions applies to Derivative Works. There's a
+> long-standing debate about whether that sort of termination is overbroad… One of the reasons why
+> the newer, popular licenses articulate their defensive termination/suspension clauses more
+> narrowly than this is because of the concern that **patent holders would be reluctant to grant an
+> open-ended patent license to downstream licensees**. **I don't think that's an OSD violation, but
+> it is an issue as to whether a license of this scope would gain significant uptake at least from
+> patent holders.**
+
+**同じ人物が 2026-09-07 の CALL FOR COMMENTS で、これを 4 問中 2 問に組み直している** ——
+Q3（終了が Licensor にしか向かない非対称は OSD 5 の問題か / 特許主張が著作権の許諾まで終わらせてよいか）と
+Q4（引き金が Derivative Materials にまで及ぶのは広すぎないか。*"Most of the OSI-approved licenses
+that have patent assertion termination clauses limit them to assertions against the licensed work,
+not subsequent derivatives."*）。**1 年 4 か月にわたって同じ論点が生きている。**
+
+### ACD-1.0 に当たるか —— 二段に分けて答える
+
+**当たらない部分（形式）**: ACD-1.0 には**特許報復条項が存在しない**。§8.2 は
+*"This Dedication contains no patent retaliation provision, and its absence is deliberate."* と
+明言し、§10.4 は何も終了しない。**Q3・Q4 が問うている条項が無いので、その問いは当たらない。**
+
+**当たる部分（実質）**: McCoy 氏の懸念の中身は終了条項そのものではなく、
+**「特許権者は、下流の受領者へ開放的な特許許諾を与えたがらない」**である。
+その尺度で見ると **ACD-1.0 は ModelGo より広い** ——
+
+| | ModelGo Attribution 2.0 | ACD-1.0 |
+|---|---|---|
+| 特許許諾の範囲 | Licensed Materials とその派生 | Work とその派生（§8.1）**＋ 訓練済みモデル・パラメータ・出力**（§8.4）|
+| 取り戻す手段 | 特許主張があれば終了できる | **無い**（§8.2 が明示的に無条件・終了不能と述べる）|
+
+**つまり我々は、McCoy 氏が「uptake を下げる」と述べた方向の極限に立っている。**
+差別化として提示している §8.4 は、**その尺度では最も採用されにくい形**である。
+
+### これが establish すること / しないこと
+
+- **establish する**: 承認の障害ではない。McCoy 氏自身が *"I don't think that's an OSD violation"*
+  と述べている。**OSD 適合と採用可能性は別の軸である。**
+- **establish しない**: 「だから ACD-1.0 は採用されない」。彼が述べたのは**特許権者からの**
+  採用についてである。同じスレッドで Moming Duan 氏が反対側を書いている ——
+  *"patent holders are likely to be larger companies with the resources to file for patents and
+  obtain legal advice on their IP rights. Would such patent holders be likely to use a template
+  license, or would they have a bespoke license?"*（2026-05-15）。
+  **この反論は ACD-1.0 にもそのまま当たる。**
+
+### なぜこれを不利な事実として記録するか（#107）
+
+**SPDX は「相当程度の実使用」を要求し、我々の実績は 1 件である**（`READY-TO-SUBMIT.md`
+「残る弱点」2）。uptake を下げる設計は、**OSI の承認では問題にならないが SPDX の条件では
+直接効く**。**我々がいちばん弱い軸に、我々がいちばん強いと主張している条項が乗っている。**
+
+### 同じ発言の中に、我々にとって有利な実測もある
+
+McCoy 氏は同じメッセージの直前で、特許許諾の**動詞の列挙**についてこう述べている ——
+*"I understand there are precedents from prior licenses (BSD is the best example) for not fully
+articulating all of these rights, but **I think that precedent shouldn't be used to allow for
+incompletely written licenses now.**"*
+
+**ACD-1.0 §8.1 は 6 つすべてを列挙している** —— *making, having made, using, offering to sell,
+selling, importing, or otherwise transferring*。§8.4 も同じ列挙を繰り返す。
+**この指摘は当たらない**（`AS-OF.md` に日付つきで記録した）。**有利な実測を落とすと、
+不利な一覧は「不利に間違える圧力」の下で偏る**（`BLIND-SPOTS.md`「引き継ぎで失われるのは
+事実ではなく枠」(1)）。
