@@ -472,10 +472,14 @@ than you will ever use this license"* である。**ACD-1.0 は proscriptive で
 | (d) 責任の否認 | **有る**（§13 / §14）。**ただし承認済みライセンスはすべて持つ**ので、この項目は我々を他と区別しない |
 | (a) 虚偽の著作者主張 | **有る** —— §11.3 と §12.5。**ここが当たる** |
 
-**そして「all rights whatsoever を放棄する」という第一文が、そもそも ACD-1.0 に無い。**
+**「all rights whatsoever を放棄する」という第一文は、*operative な条文には* 無い。**
 §3.1 が surrender するのは **Covered Rights** という定義された集合で、§1.5 が特許・商標・人格権を
-そこから除き、§2.7 が一般的な限界を述べる。**彼女が突いた「全部放棄と言いながら留保している」
-という形は、定義によって回避されている。**
+そこから除き、§2.7 が一般的な限界を述べる。
+
+> **⚠ 2026-09-09 に、この段落は不十分だと分かった（#114）。** 条文だけを見て
+> 「定義によって回避されている」と書いたが、**PREAMBLE は見ていなかった。**
+> 前文は *"It **gives everything away**, once, without conditions"* と述べており、
+> **これは Chestek 氏が突いた形そのものである。** 訂正の詳細は §1.65。
 
 **§11.3 は、この反論を予期して書かれている** ——
 *"This Section states a **limit of the Dedication's reach**; it is **not a condition upon You**,
@@ -570,3 +574,57 @@ Pamela Chestek 氏（PBZC 審査 2024-12）は法的レビューを *"recommende
 **objection-map.md の「この表の限界」2（**反論は組み合わさる**）に、名前と日付が付いた。**
 個別に答えられる 3 つ（長さ・採用・弁護士）が、**1 文にまとめられた形**で 2021 年から
 存在している。**答えを 3 つ用意しておくことと、束ねられた 1 文に答えられることは別である。**
+
+---
+
+## 1.65 前文が「everything を渡す」と述べ、条文が 4 か所で渡していない —— 自分の主張の訂正（#114）
+
+**§1.61 で「Chestek 氏が突いた形（全部放棄と言いながら留保する）は ACD-1.0 には無い」と書いた。
+条文を読んで書いた。前文を読んでいなかった。**
+
+### 事実
+
+**PREAMBLE（第 2 段落）**:
+
+> This Dedication is written for works that are meant to be learned from.
+> **It gives everything away, once, without conditions**, and it speaks in the three places where
+> the existing tools are silent or hostile: machine learning, patents, and machine authorship.
+
+**そして条文は、4 か所で「everything」ではないと述べている。**
+
+| 渡していないもの | 条文 |
+|---|---|
+| 商標・サービスマーク・商号・ロゴ・人名 | **§11.1** *"grants no right in any trademark…"* |
+| データ保護・プライバシー・パブリシティ・人格の権利 | **§11.4** *"It reaches nothing else… any permission those laws require is not the Dedicator's to give"* |
+| 虚偽の著作者主張 | **§11.3** *"Representing that the Dedicator authored, endorsed… is outside what this Dedication reaches"* |
+| Dedicator が保有していない権利一般 | **§2.7** |
+
+**Chestek 氏が PUWL について書いたのは、まさにこの形である**（`rounds/` 参照）——
+*"These provisions are **retention of rights**, contrary to the statement that the author is
+releasing all rights whatsoever… **The document is internally contradictory.**"*
+
+### 反論できる材料（誇張せずに）
+
+1. **前文は自分が非 operative だと宣言している。** 見出しが
+   *"PREAMBLE (informative; not part of the operative terms)"* であり、末尾が
+   *"Sections 1 to 16 are the operative terms. This preamble is not, and **nothing in it qualifies
+   them.**"* である。**PUWL にはこの標識が無かった。**
+2. **"without conditions" の側は正確である**（§10.1）。不正確なのは "everything" だけである。
+3. **§11.3 と §11.4 は「留保」ではなく「reach の限界」として書かれている** ——
+   *"it was never the Dedicator's to permit"*。**Dedicator が持っていないものは渡せない**、
+   というのは全部渡すことと矛盾しない。**この読みが通れば "everything" は正しい**
+   ——「Dedicator が持っている everything」の意味で。
+4. **§11.1（商標）だけは、その読みでは救えない。** 商標は Dedicator が**持っている**権利であり、
+   §1.5 が意図的に Covered Rights から外している。**ここは正真正銘の留保である**
+   （ただし `against.md` の記録どおり、**商標を渡さないのは全承認済みライセンスの標準**である）。
+
+### 何を学んだか
+
+**「条文にはこう書いてある」で反論を退けるとき、条文の外にある文を数えていない。**
+前文・§16.1 の推奨 notice・`machine.json` の `notice` フィールド・提出文 §B.0 ——
+**審査者が読むのはそれらも含めた文書全体**である。#110 の答えを書いたとき、
+**4 つのうち 1 つしか見ていなかった。**
+
+これは #111（文ではなく論点を grep せよ）と同じ族の、**面の側**の失敗である。
+一般形: **自分の instrument について何かを主張するときは、その主張が及ぶ面をすべて列挙してから
+確かめる。** 面は条文だけではない。
