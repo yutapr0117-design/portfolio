@@ -752,3 +752,56 @@ selling, importing, or otherwise transferring*。§8.4 も同じ列挙を繰り�
 **埋めたのは我々の主張ではなくリスト上の記録である**という点が重要である ——
 Sado 氏は ACD-1.0 について何も述べていない。**彼が述べたのは incumbent の欠落であって、
 我々の充足ではない。**
+
+---
+
+## 1.60 委員長が 3 か月前に「長さ」を承認しない理由として述べている —— そして我々はその数を測っていなかった
+
+**Linkumori Free License への Pamela Chestek 氏の返信**（`license-discuss` 2026-06-23）。
+**Licensing Committee 委員長**であり、`license-review` の審査を主導している人物である。
+
+> That said, your license seems to be undergoing substantial **mission creep**. You originally said
+> it was to address the problem of attribution in a web-based context, but now you have added
+> **moral rights**, a secondary license clause, and I don't know what else. **It is now 3888 words,
+> longer than the GPLv3. It is excessively wordy and proscriptive. These qualities mean that no one
+> other than you will ever use this license, so it does not seem to be a good candidate for
+> approval.**
+
+**この 1 段落に、我々に当たるものが 3 つある。**
+
+1. **長さそのものが「承認の候補として良くない」理由として述べられている。** #6 はこれまで
+   我々自身の懸念として書かれていた。**委員長の発言として、しかも数つきで存在する。**
+2. **人格権条項の追加が mission creep の例として名指しされている** —— §1.59 で我々が
+   「incumbent に無い穴」として評価した当のものである。**同じ条項が、片方から見れば差別化で、
+   片方から見れば肥大である。**
+3. **推論の形**: 冗長 ∧ 命令的 → **他の誰も使わない** → 承認の候補として良くない。
+   **最後の 2 つは我々にも当たる**（採用実績 1 件・#2）。
+
+### そこで数を測った（2026-09-09）
+
+**この節を書くまで、我々は ACD-1.0 の語数を一度も測っていなかった。**
+#6 は「16 節 / 82 項 / 597 行」とだけ述べていた ——**審査者が使う単位（語数）ではない。**
+
+| | 全文 | 本体（前文・付録を除く） |
+|---|---|---|
+| GPL-3.0 | **5,644** | **4,617** |
+| **ACD-1.0** | **4,896** | **4,574** |
+| Linkumori（委員長が「GPLv3 より長い」と述べたもの） | 3,888（本人申告） | — |
+
+**ACD-1.0 は GPLv3 より長くない。** 本体で **43 語短く**、全文で **748 語短い**。
+
+**そして委員長の比較は、我々が測れるどの測り方でも成り立たない** ——
+3,888 は GPLv3 の本体 4,617 より短く、全文 5,644 より短い。
+**これを「委員長が間違えた」と使ってはならない。** 別の数え方（節の一部だけ、あるいは別の版）を
+していた可能性があり、**我々は本人の測り方を知らない**。記録するのは我々の測定であって、
+彼女の誤りではない。
+
+### この発見が両刃である理由
+
+**有利**: 長さの反論に対して、初めて**測った数**で答えられる。しかも
+「GPLv3 と同程度」は、この文脈で最も分かりやすい基準である。
+
+**不利**: 彼女の批判の核は数ではない。*"excessively wordy **and proscriptive**"* → *"no one other
+than you will ever use this license"* である。**ACD-1.0 は proscriptive ではない**（§10.1 が
+条件を一切課さない・§4.3）が、**「他の誰も使わない」は採用 1 件の我々により強く当たる**。
+**数で反論して、推論の残り半分に答えないのは、いちばん都合のよい半分だけ取ることになる。**
