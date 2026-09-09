@@ -701,6 +701,41 @@ Linkumori スレッドである。**「よく議論される主題になった�
 主題別の計量と件名の全数調査（上の「沈黙の基準率」節）を通した。
 **通読ではない**（読んだスレッドは各節に記録がある）。
 
+### 決定の機構が原典で分かった（2026-09-09・McCoy Smith 氏 2026-08-28）
+
+**ドシエは「OSI の決定は初回投稿から概ね 60 日」と 2 箇所で述べていた。誤りだった。**
+Licensing Committee として書かれた 1 通が、機構を説明している。
+
+> **We work on a two-month review cycle**, which normally would have put your licenses up for
+> Board review in August (**the July Board meeting was prior to two months from your final
+> submission**), but we don't have an August Board meeting (hard to get a quorum in August), in
+> favor of our **face-to-face Board meeting on September 24**.
+> …Please give any **final thoughts on these licenses before September 17 2026 so a recommendation
+> can be provided to the Board** at our September meeting.
+
+**分かること 3 つ。**
+
+1. **時計は「最終提出」から回る。** *"prior to two months from your **final** submission"*。
+   **改訂するたびに戻る。**
+2. **委員会が勧告し、理事会が会合で決める。** 会合の日程（8 月は定足数が取れないので飛ばした）は
+   リストからは見えない遅延要因である。
+3. **遅れの理由が提出者の改訂に帰されている** —— 同じ 1 通で
+   *"this is in part as a result of how your initial submission has progressed… **quite a bit of
+   revision by you** since then"*。
+
+**これは我々の版管理（`REVISION-PROTOCOL.md` §2「1.0 は永久凍結・次版は横に置く」）を、
+外側から裏づける。** 凍結は礼儀ではなく、**決定までの時間を最短にする手段**でもある ——
+審査中に本文を動かすと、その分だけサイクルが後ろへずれる。
+
+**そして沈黙の見え方が変わった。** ModelGo の steward は 2026-01-27 / 05-26 / 07-26 に
+フォローアップを出し、**どれにも返信が付かなかった**。**最初の返信は 2026-08-28** で、
+**10 日のうちにリスト上で最も活発なスレッドになった**（正式な意見募集・委員長の本文要求・
+4 人の関与）。**初回提出（2025-02）から 19 か月、最後の未応答フォローアップから 7 か月。**
+
+**ドシエはこの例を「返信を得ていない」として 2 箇所で引いていた** —— 書いた時点では真だった。
+**訂正済み**（`REVISION-PROTOCOL.md` §3.5 / §3.6）。**結論（移動の引き金を「返信」に置かない）は
+変わらないが、理由は「来ないかもしれない」から「間隔が月単位で制御外である」へ変わった。**
+
 ### まだ読んでいない窓（候補）
 
 > **この一覧は `AS-OF.md` と食い違いうる。** 実際 2026-09-06 に、**既に原典で読んだものが未読として
