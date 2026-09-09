@@ -686,3 +686,55 @@ license-review**"* と書いて始めている。
 Check 441d が列挙した構文の不在を BLOCKING で守っている。
 **なお McCoy 氏はこの点で Perens 氏に完全には同意していない**（*"it is one of those things that
 is so ingrained in legal drafting that we'll likely never be rid of it"*）—— **リストは一枚岩ではない。**
+
+---
+
+## 1.68 「pre-review」という下位集合を数えると、我々だけが沈黙している（#117）
+
+**朝に測った基準率**（`license-discuss` のスレッドの 22%、ライセンスを持ち込んだものでも 18% が
+返信ゼロ・#109）は**全体についての数**である。**その中に、我々の使い方と正確に一致する
+下位集合がある** —— **「`license-review` へ出す前の pre-review として明示的に投稿したもの」。**
+
+### 見つかった 3 件
+
+| 日付 | 投稿者 | 形 | 返信 |
+|---|---|---|---|
+| 2024-09-30 | 個人（非弁護士）| *"discuss and **pre-review** … **before submitting to license-review**"* | **15 通**（McCoy 氏が同日）|
+| 2025-10-27 | **企業**（Teradyne Robotics A/S・IPR Manager）| *"collect feedback on the proposed license **before submitting the license for a formal review by the OSI**"* | **29 通**（Berkus 氏・Perens 氏・McCoy 氏・Phipps 氏・Behlendorf 氏）|
+| **2026-08-26** | **我々** | ACD-1.0 の議論依頼 | **0 通** |
+
+**n = 3 で、沈黙しているのは我々だけである。**
+
+### これが establish すること / しないこと
+
+**establish する**: **#109 の慰めは、この下位集合には及ばない。** 全体の 18% という数は
+「ライセンスや草案を持ち込んだ」広い集合についてのもので、**その中で最も我々に近い形**を
+取り出すと、**返信が付かなかったのは我々の 1 件だけ**である。
+
+**establish しない**: **原因**。n = 3 は率を出せる大きさではない。**他の 2 件との差は複数ある** ——
+1 つは**企業**の提出であり（もう 1 つは個人）、どちらも**具体的な設計上の問題を抱えていた**
+（OSD 6 に触れる利用制限・特許/営業秘密の不許諾）。**議論しやすい欠陥がある提出の方が
+返信を集めるのは自然**で、これは **#96 の (a)** と同じ形である ——
+**「論争が少ない」を有利に読むな**、と同時に**「論争が無い」を不利に読み切ることもできない。**
+
+**そして #109 は撤回しない。** あれは「沈黙は欠陥の証拠でも拒絶の証拠でもない」を establish して
+おり、**それは本節でも変わらない。** 変わったのは**慰めの範囲**である ——
+**全体の基準率を、自分の下位集合の基準率として使ってはならない。**
+**これは #109 が記録した失敗（標本を率として報告した）の、鏡像である** ——
+今度は**率を、より狭い集合へそのまま持ち込もうとした。**
+
+### 同じスレッドから、我々に有利な材料も 2 つ
+
+**(1) プロジェクト固有性は採用の障害である、とリスト上で述べられている。**
+Bruce Perens 氏（2025-10-28）——licensed material を特定のファイル形式で定義していることについて:
+
+> this is also **so specific to your application that there is no use for other parties to adopt the
+> license** and thus less incentive…
+
+**§4b（「提出者専用ではないことの実証」）が測っているのは、まさにこの性質である**
+（固有名詞 0・置換テキスト 0・採用に本文編集が 1 箇所も要らない）。
+**我々は「使える」ことを測ってきたが、その測定が「なぜ重要か」はリスト上に在った。**
+
+**(2) OSD 6 の著者が、その条項について直接語っている。**
+Perens 氏 *"I would consider any use restriction at all to be in contravention of the Fields of
+Endeavor clause. **I wrote that clause.**"* ——ACD-1.0 §4.3 / §10.1 は利用制限を一切持たない。
