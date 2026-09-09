@@ -504,3 +504,69 @@ and Section 10.1 is unaffected by it."* つまり「留保した権利を行使�
 
 
 ---
+
+---
+
+## 1.64 「法的レビューも実使用も無い」を**接続詞で**言われた記録（2021-02・Ritchey Permissive License v11）
+
+**ドシエは「弁護士が読んでいない」（#5 / #79）と「採用が 1 件」（#2）を別々の不利な事実として
+持ってきた。** リスト上では、この 2 つは **1 文の中で結ばれて**承認しない理由として述べられている。
+
+### 原文（Lukas Atkinson 氏・`license-review` 2021-02-14）
+
+> I would ask the Board to not approve this license: it leads to unnecessary license
+> proliferation, and likely fails to provide sufficient software freedom.
+>
+> On a meta-level, the submission of this license makes a strong argument that **submitted licenses
+> should have either received legal review or at least non-negligible use. This license has
+> neither**: not even the license author seems to have published any works/material under this
+> license…
+
+**ACD-1.0 はその 2 つの条件について、片方は満たさず、もう片方は 1 リポジトリである。**
+（Ritchey 氏との差は、我々は**実際に自分の全リポジトリへ適用している**点だけである。）
+
+### 「良い性質があるから」は先に潰されている
+
+提出者が「法的レビューはライセンスが持ちうる多くの性質の 1 つに過ぎず、本ライセンスは
+他の質を持ち込む」と述べたのに対し、**McCoy Smith 氏（2021-02-15）**:
+
+> licenses are legal instruments, and **OSI approval is a mechanism that presents approved licenses
+> to the community as having value as a legal instrument.** Under your theory, a submitted license
+> that is unquestionably legally invalid should nevertheless be approved if it has good ideas in it
+> or the submitter feels strongly about it…
+
+**これは §4c（「弁護士が読んでいないことに対置する機械的検証」）へ直接向く警告である。**
+§4c は「代替にはならない」と明記してあるが、**明記してあることと、そう読まれることは別**である。
+
+**Josh Berkus 氏（2021-02-14）**はさらに直接的だった:
+
+> Given this statement, why would we take this license submission seriously? This is like
+> submitting a PR to someone else's repository with the commit message "I didn't do any tests or
+> use any linting tools". **That's an automatic rejection in most OSS projects I know.**
+
+**Russell Nelson 氏（2021-02-22）**: *"Programmers writing legal documents are like programmers
+creating user interfaces. **Don't. Just don't.** You have skills, and you're smart, but nobody is
+skilled at everything."*
+
+### 反対側 —— 同じ強さで
+
+**§1.52 が記録しているとおり、リストには逆向きの発言もある。**
+Pamela Chestek 氏（PBZC 審査 2024-12）は法的レビューを *"recommended"* であって
+*"not a blocker"* と述べ、Josh Berkus 氏自身も 2025-05 に同趣旨を述べている。
+**つまり「必須ではない」は制度の言明、「無いなら承認しない」は参加者の議論であり、
+両方がこのリストに在る。** 我々が選べるのは**どちらを引くか**ではなく、**両方あることを
+先に書くか**だけである。
+
+### 当たらないもの（同じスレッドから 3 件・条文で確認）
+
+| Ritchey 提出への指摘 | ACD-1.0 |
+|---|---|
+| *"permission to do anything **lawful**"* が OSD 違反になりうる。Carlo Piana 氏: *"it's **no business of a license** to limit use of software to what is lawful"* | **合法性への言及が本文に無い**（`unlawful` / `illegal` の出現 0 件・#110 で実測済み）|
+| 裁判管轄条項（*"only occur in the courts of British Columbia"*）—— McCoy 氏「**間接的に差別的**でありうる」/ Berkus 氏「**国家の禁輸で違反しうるライセンスは OSD 5 違反**というのがこの団体の方針だった」| **§15.7** —— *"This Dedication specifies **no governing law and no forum**."* |
+| 「この素材はこのライセンスの下に留まらなければならない」が copyleft 義務と読まれた | **§10.1** が条件を一切課さず、**§4.5** が「条件が無いので再頒布は自由」と明言する |
+
+### 我々にとっての意味
+
+**objection-map.md の「この表の限界」2（**反論は組み合わさる**）に、名前と日付が付いた。**
+個別に答えられる 3 つ（長さ・採用・弁護士）が、**1 文にまとめられた形**で 2021 年から
+存在している。**答えを 3 つ用意しておくことと、束ねられた 1 文に答えられることは別である。**

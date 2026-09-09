@@ -58,4 +58,9 @@ canonical-ref: LICENSES/ACD-1.0.review-precedents.md (各反論の原文と読�
    —— とくに **AI** の語は、上の 3 つの型を反射的に呼びうる（`rounds/` の Maness 氏 mirror doc）。
 2. **反論は組み合わさる。** 「長い」＋「採用 1 件」＋「弁護士が読んでいない」は、
    個別には答えられても**束ねられると 1 つの推論になる** —— Chestek 氏が実際にそう束ねている。
+   **そして束ね方は 1 通りではない**: Lukas Atkinson 氏は 2021-02-14 に
+   *"submitted licenses should have either received **legal review** or at least
+   **non-negligible use**. This license has **neither**"* として、
+   **弁護士と採用を 1 文で結んで**承認しないよう Board に求めている（#113 / `reviewer-positions.md` §1.64）。
+   **上の表は 1 行ずつ答えるが、束ねられた 1 文には答えていない。**
 3. **網羅ではない。** 読んだ窓は `PEER-REVIEW-WATCH.md` §3.9 と全数調査の節に列挙してある。
