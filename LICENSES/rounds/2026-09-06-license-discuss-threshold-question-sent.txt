@@ -1,0 +1,174 @@
+Source: OSI license-discuss public archive, 2026-September.txt
+Retrieved: 2026-09-09 from lists.opensource.org
+Date: Sun, 6 Sep 2026 04:12:11 -0400
+From: Yuta Yokoi <yuta.yokoi.r@gmail.com>
+Subject: [License-discuss] Discussion Request: Autonomous Commons Dedication 1.0 (ACD-1.0)
+         — one threshold question on Sections 3 and 4
+
+**我々（オーナー）が送った 2 通目。** 2026-09-06 に送ったとオーナーが報告していたが
+アーカイブに未反映だったため、それまでリポジトリには置けなかった。**2026-09-09 に反映を確認し、
+公開アーカイブから逐語で取得した。** 内容ではなく**配送された形**を出典とする規約
+（`rounds/README.md` 規則 5）に従う。
+
+**In-Reply-To も References も持たない** —— プロトコル上は 2026-08-26 の投稿への返信ではなく
+新規スレッドである（`against.md` #90 の 4 件目）。
+
+公開アーカイブから逐語で複製したもの。無改変。
+
+----- begin verbatim -----
+
+From yuta.yokoi.r at gmail.com  Sun Sep  6 08:12:11 2026
+From: yuta.yokoi.r at gmail.com (=?UTF-8?B?5qiq5LqV6ZuE5aSq?=)
+Date: Sun, 6 Sep 2026 04:12:11 -0400
+Subject: [License-discuss] =?utf-8?q?Discussion_Request=3A_Autonomous_C?=
+	=?utf-8?q?ommons_Dedication_1=2E0_=28ACD-1=2E0=29_=E2=80=94_one_threshold_q?=
+	=?utf-8?q?uestion_on_Sections_3_and_4?=
+Message-ID: 
+ <CANXZM58rCZacUiMBYRjHUnTzRETGe68SaxQPWs8DNo_vyekQ=w@mail.gmail.com>
+
+All,
+
+Rather than simply bumping my earlier request for broad feedback, I would
+like to narrow the discussion to one threshold question about Sections 3
+and 4.
+
+Even a brief view on this one point would be useful. I think it can be
+considered independently of the patent, machine-learning, moral-rights, and
+license-proliferation questions.
+
+Since my original post, I have been reading the 2020 License Review
+discussion concerning the Unlicense.
+
+I do not regard approval of the Unlicense as controlling precedent for
+ACD-1.0, particularly because it was considered as a legacy license rather
+than as a new-license submission.
+
+The discussion is nevertheless useful because it exposes both sides of the
+problem ACD-1.0 is trying to address:
+
+   - a public-domain dedication may not operate effectively in every
+   jurisdiction; but
+   - where a dedication does operate fully, there may no longer be a right
+   remaining in the Dedicator’s hands over which a licence needs to operate.
+
+ACD-1.0 attempts to avoid making the recipient resolve the first question
+before knowing whether the Work may be used.
+
+Section 2.4 says:
+
+«“Sections 3, 4, 5, and 6 are independent of one another. Each is granted
+on its own footing and none is conditioned on the failure of another.”»
+
+Section 3 attempts to surrender the Covered Rights.
+
+Section 4.1 separately makes a complete present grant:
+
+«“The Dedicator grants You a worldwide, royalty-free, non-exclusive,
+irrevocable, perpetual, sublicensable, and transferable licence to exercise
+all Covered Rights in the Work for any purpose whatsoever.”»
+
+Section 4.4 then says:
+
+«“The licence in Section 4.1 is granted independently of Section 3 and does
+not depend on Section 3 being ineffective. Where Section 3 is effective,
+this Section is redundant but not void, and it remains available to be
+relied upon by You.”»
+
+The intended recipient-facing result is simple:
+
+a recipient should not have to determine whether Section 3 succeeded in a
+particular jurisdiction before relying on the freedoms expressed by ACD-1.0.
+
+My threshold question is whether the current text reaches that result using
+a legally coherent description of the relationship between the dedication
+and the licence.
+
+I see two possible analyses.
+
+Reading A — the licence remains independently available.
+
+Section 4.1 is granted presently and unconditionally. Its existence never
+depends on failure of Section 3.
+
+If Section 3 fails, Section 4 supplies the permission.
+
+If Section 3 succeeds only partly, Section 4 applies to whatever Covered
+Rights remain.
+
+If Section 3 succeeds fully, Section 4 has no practical work to do, but the
+prior independent grant is not thereby invalidated.
+
+That is what the present phrase “redundant but not void” is intended to
+express.
+
+Reading B — the grant is independent, but successful surrender removes the
+right on which it would operate.
+
+Under this reading, Section 4.1 is still a present and unconditional grant,
+and it still solves the recipient-facing problem wherever any Covered Right
+remains.
+
+But once a particular Covered Right has actually been surrendered, it may
+be inaccurate to say that the licence over that right remains “available to
+be relied upon,” because there is no longer an exclusive right requiring
+permission.
+
+The practical result for the recipient is the same under both readings:
+
+   - if the right is gone, permission is unnecessary;
+   - if the right remains, Section 4.1 supplies it.
+
+So my concern is not whether the recipient remains free.
+
+It is whether Section 4.4 describes the legal route accurately.
+
+The narrow question I would especially welcome views on is therefore:
+
+Is “redundant but not void, and it remains available to be relied upon” a
+sound description of an independently granted licence after the
+corresponding Covered Right has successfully been surrendered?
+
+If not, would the better analysis be that the architecture itself is sound,
+but Section 4.4 should simply avoid making a claim about continued
+operation over rights that no longer exist?
+
+Put another way, I am trying to distinguish between two possible problems:
+
+   1. Architectural: a dedication and an unconditional present licence
+   should not be structured as independent concurrent footings at all; or
+   2. Drafting: the independent architecture is sound, but Section 4.4
+   describes the successful-dedication case too strongly.
+
+If the first is the problem, I would rather know that before refining
+secondary provisions.
+
+If the second is the problem, that suggests a much narrower revision.
+
+And if the present wording is already coherent, I would rather leave the
+fixed text alone than revise it unnecessarily.
+
+I have deliberately left Section 5’s covenant not to assert, the patent
+provisions, machine-learning provisions, machine-generated material,
+moral-rights provisions, and the separate license-proliferation question
+outside this message so that they do not obscure this one point.
+
+The ACD-1.0 text remains the same fixed text circulated with my original
+discussion request:
+
+https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt
+
+I am not reattaching it because the text has not changed, and I do not want
+a new attachment to suggest that a revised version is being circulated.
+
+Even a short reaction to the Section 3 / Section 4 relationship would be
+very helpful.
+
+Best regards,
+
+Yuta Yokoi
+License Steward
+Autonomous Commons Dedication 1.0 (ACD-1.0)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260906/bc58ee19/attachment.htm>
+

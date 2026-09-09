@@ -1,0 +1,248 @@
+Source: OSI license-discuss public archive, 2026-September.txt
+Retrieved: 2026-09-09 from lists.opensource.org
+Date: Sun, 6 Sep 2026 04:47:20 -0400
+From: Yuta Yokoi <yuta.yokoi.r@gmail.com>
+Subject: [License-discuss] Network copyleft — separating the trigger from the reciprocity scope
+
+**我々（オーナー）が送った 3 通目。ACD-1.0 についてではない** ——
+2026-09-05 に Viatrix 氏が投げた「ネットワーク利用条項を持つ弱コピーレフト」への実質的な回答で、
+CPAL-1.0 §3.7 / §15 と OSL-3.0 §5、および Lawrence Rosen 氏の 2005 年の説明を引いている。
+
+**In-Reply-To も References も持たない** —— **答えている当の質問へ結びついていない**
+（`against.md` #90 の 5 件目・**帰結が観測できる初めての例**）。
+
+公開アーカイブから逐語で複製したもの。無改変。
+
+----- begin verbatim -----
+
+From yuta.yokoi.r at gmail.com  Sun Sep  6 08:47:20 2026
+From: yuta.yokoi.r at gmail.com (=?UTF-8?B?5qiq5LqV6ZuE5aSq?=)
+Date: Sun, 6 Sep 2026 04:47:20 -0400
+Subject: [License-discuss] =?utf-8?q?Network_copyleft_=E2=80=94_separat?=
+	=?utf-8?q?ing_the_trigger_from_the_reciprocity_scope?=
+Message-ID: 
+ <CANXZM5-0PXcFSNH8J9U-xza5Cs-xi1Mv=pn=Vg8yobjb3KFcdA@mail.gmail.com>
+
+All,
+
+I think one distinction may simplify the design question considerably:
+
+the event that triggers reciprocity and the code to which reciprocity
+applies are separate drafting dimensions.
+
+Put more simply:
+
+   1. Trigger — what event causes the reciprocity obligation to apply?
+   2. Scope — once triggered, what code is subject to that obligation?
+
+A network-use provision can expand the first without necessarily expanding
+the second.
+
+After looking through several OSI-approved licenses and some older
+license-discuss history, I think CPAL-1.0 provides a particularly useful
+example.
+
+CPAL uses the MPL 1.1-style distinction between “Covered Code” and a
+“Larger Work.”
+
+A Larger Work may combine Covered Code with code not governed by CPAL.
+
+Section 3.7 expressly permits that arrangement:
+
+«“You may create a Larger Work by combining Covered Code with other code
+not governed by the terms of this License and distribute the Larger Work as
+a single product.”»
+
+The same provision requires CPAL’s requirements to continue to be satisfied
+for the Covered Code.
+
+So the scope boundary already exists before network use enters the analysis.
+
+Section 15 then introduces “External Deployment,” including making the
+Original Code or Modifications available as an application intended for use
+over a network.
+
+The important structural point is what happens next.
+
+Section 15 does not say that External Deployment causes the entire Larger
+Work to become Covered Code.
+
+Instead, External Deployment of the Original Code or Modifications is
+treated as distribution for purposes of Sections 3.1 and 3.2.
+
+For the source-reciprocity mechanism, the architecture therefore appears to
+be:
+
+Covered Code / Modification scope
++
+External Deployment trigger
+
+rather than:
+
+External Deployment
+↓
+new reciprocity boundary for the entire Larger Work
+
+That makes CPAL useful as an example of what I would describe as a
+scope-preserving network trigger.
+
+The network provision expands when the existing reciprocity obligation
+activates without, merely by doing so, expanding what code that obligation
+governs.
+
+OSL-3.0 provides a second useful comparison, although its reciprocity
+architecture is different from CPAL’s.
+
+Section 5 treats External Deployment of the Original Work or a Derivative
+Work as distribution under the license.
+
+What makes OSL especially useful here is the older license-discuss history.
+
+During discussion of the External Deployment provision in 2005, Lawrence
+Rosen addressed whether proprietary systems linked to externally deployed
+OSL software would consequently have to be disclosed.
+
+His explanation was that linking was not the relevant reciprocity boundary
+and that proprietary systems merely linked to the OSL software would not
+thereby become subject to disclosure; at most, modifications to the
+OSL-licensed software would have to be disclosed.
+
+That seems to illustrate the same separation:
+
+External Deployment answers whether the obligation is triggered.
+
+The definitions of Original Work and Derivative Work answer what the
+obligation reaches.
+
+There was also a license-discuss exchange in 2023 concerning network
+copyleft without some of AGPLv3’s additional requirements in which OSL-3.0
+Section 5 was specifically identified as an existing OSI-approved
+alternative.
+
+So I think the threshold question here can be made narrower than whether
+“weak network copyleft” is possible in the abstract.
+
+The labels “weak” and “strong” are useful shorthand, but I would not make
+them carry the whole analysis.
+
+The more precise question is:
+
+«Does the proposed network clause only add a new event that activates the
+license’s existing reciprocity rule, or does it also redefine the boundary
+of the code governed by that rule?»
+
+Consider a minimal example.
+
+   - File A is within the license’s existing reciprocal scope.
+   - A is modified.
+   - Files B and C are independently written and outside that scope.
+   - A, B, and C operate together as one network service.
+   - Remote users interact with that service.
+
+A scope-preserving network rule could produce:
+
+remote interaction
+↓
+reciprocity trigger occurs
+↓
+source for A and the modifications to A must be made available
+
+while preserving:
+
+B and C remain outside the reciprocity boundary
+
+assuming B and C were outside that boundary under the license’s ordinary
+scope rules in the first place.
+
+I think that final qualification is important.
+
+The network clause should not need to decide again whether B or C is a
+Modification, Derivative Work, Covered Code, part of the licensed Work, or
+otherwise within the reciprocal scope.
+
+That question should already have been answered by the license’s underlying
+reciprocity rules.
+
+The network provision should ideally answer only the new question:
+
+has an event occurred that activates those existing obligations?
+
+That suggests a simple drafting test.
+
+First determine the set of code subject to reciprocity without the network
+provision.
+
+Then add the network event.
+
+If the set of code governed by reciprocity remains the same and only the
+obligation changes from inactive to active, the provision is
+trigger-expanding but scope-preserving.
+
+If the network event also changes the set of code that falls within
+reciprocity, then the clause is doing two things:
+
+   1. expanding the trigger; and
+   2. expanding the scope.
+
+That may be intentional, but if so I think it should be explicit.
+
+This is the part of CPAL Section 15 that I find particularly useful.
+
+It names “Original Code or Modifications” as the subject of External
+Deployment and routes the consequence back into the existing source
+obligations, while Section 3.7 separately preserves the Larger Work
+distinction.
+
+In compact form:
+
+trigger expansion ≠ scope expansion
+
+If the intended design is MPL-style or Covered-Code reciprocity with remote
+network interaction added as another trigger for the same pre-existing
+reciprocity obligation, I would examine CPAL-1.0 especially closely.
+
+I would use OSL-3.0 as a second comparison because its license-discuss
+history makes the trigger/scope distinction unusually explicit.
+
+EUPL-1.2 is also relevant as secondary evidence because its definition of
+Distribution or Communication includes making functionality accessible over
+a network, while the operative subject matter remains defined elsewhere in
+the license. Its reciprocity architecture is sufficiently different that I
+would not treat it as the closest model.
+
+One caution about CPAL: its Section 14 attribution provisions have their
+own treatment of Larger Works.
+
+So I would not use CPAL as shorthand for the broader proposition that every
+CPAL obligation necessarily stops at the Covered Code boundary.
+
+The narrower proposition is sufficient:
+
+CPAL’s Section 15 source-reciprocity mechanism does not, merely by
+introducing External Deployment, erase the Covered Code / Larger Work
+distinction established elsewhere in the license.
+
+That seems to me the most useful precedent for the drafting question here.
+
+CPAL-1.0:
+https://opensource.org/license/cpal-1.0
+
+OSL-3.0:
+https://opensource.org/license/osl-3.0
+
+EUPL-1.2:
+https://opensource.org/license/eupl-1.2
+
+OSL / External Deployment discussion (2005):
+https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2005-September/010996.html
+
+Network copyleft discussion (2023):
+https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2023-May/022101.html
+
+Best regards,
+
+Yuta Yokoi
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260906/507f3645/attachment-0001.htm>
+
