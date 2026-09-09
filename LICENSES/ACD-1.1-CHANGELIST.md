@@ -52,6 +52,7 @@ canonical-ref: LICENSES/ACD-1.0.errata.md (欠陥の一次記録) / LICENSES/REV
 | E9 | §10.4 | 第 2 文だけが未限定（定義語 "You" の射程） | 反映予定 |
 | E10 | `machine.json` | `reservationsAndLimits` が唯一の制限を記述していない | 反映予定 |
 | E11 | §4.4 | 「§3 が有効な場合も relied upon され得る」の記述が正確か。**architectural か drafting か**を `license-discuss` で問い中 | **外部の回答待ち**（唯一、社内で見つけたのではなくリスト上で提起した項目）|
+| E12 | §16.1 notice | 「No rights are reserved」に限定が無い（§11.1 は商標を渡さない）。**E3 と同じ 1 文の前半** | 反映予定 |
 
 ## 2. 他文書に散っていた候補（ここが集約点になる）
 
