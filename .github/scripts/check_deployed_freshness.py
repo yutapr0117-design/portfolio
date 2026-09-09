@@ -612,6 +612,53 @@ def _check_frozen_licence(base):
         return 1
 
     print(f"OK: 公開されているライセンス本文 {len(pinned)} 件が FROZEN.md の pin と一致している")
+    return _check_dossier_reachable(base)
+
+
+def _check_dossier_reachable(base):
+    """**審査者が実際に辿る 40 数ファイルが、公開面から取得できるか。**
+
+    `LICENSES/README.md` は索引であり、Check 459 が「`LICENSES/*.md` がすべてそこから到達できる」
+    ことを BLOCKING で強制している。**ただし Check 459 が見ているのはリポジトリ内の相対リンク
+    だけ**で、審査者が読むのは公開された URL である。
+
+    `_check_frozen_licence` は凍結された 3 ファイルしか見ず、`_check_assets` は index.html の
+    参照と `.well-known/` と sitemap から導出する —— **ドシエはそのどの集合にも入っていない。**
+    つまり **索引が指す先が公開面で 404 でも、リポジトリ側の Check は全部緑のまま**である。
+    これは #93（審査者が実行できない検証コマンド）や #68（配信されるテキストの変質）と同じ
+    「**宣言はあるが、見ている層が無い**」class の、ドシエ面である。
+
+    対象は `git ls-files LICENSES` から**導出**する。ハードコードすると、
+    2026-09-09 に 3 ファイル増えたときのように、追加のたびに黙って射程から外れる。
+    """
+    try:
+        out = subprocess.run(["git", "ls-files", "LICENSES"], cwd=ROOT,
+                             capture_output=True, text=True, check=True).stdout.split()
+    except Exception as e:  # noqa: BLE001
+        print(f"::warning::ドシエの一覧を git から取得できない ({type(e).__name__}) — 到達性検査を skip",
+              flush=True)
+        return 0
+    if not out:
+        print("::error::LICENSES/ に追跡ファイルが無い — 導出が壊れている (ハードコードしない代償)",
+              flush=True)
+        return 1
+
+    bad = []
+    for rel in out:
+        try:
+            _fetch_bytes(base + rel)
+        except Exception as e:  # noqa: BLE001
+            bad.append(f"{rel} ({type(e).__name__})")
+
+    if bad:
+        for b in bad:
+            print(f"::error::ドシエのファイルが公開面から取得できない — {b}", flush=True)
+        print("::error::`LICENSES/README.md` は審査者向けの索引であり、Check 459 は"
+              "**リポジトリ内の**到達性しか見ない。公開面で 404 になると、"
+              "審査者にとっては存在しないのと同じである", flush=True)
+        return 1
+
+    print(f"OK: ドシエ {len(out)} ファイルが公開面から取得できる")
     return 0
 
 
