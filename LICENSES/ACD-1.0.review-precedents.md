@@ -459,14 +459,34 @@ rough consensus… Abstain."*）。手続きの記録として: **Simon Phipps �
 ものとして本文の側から縛り、Check 453 がその本文を pin する。**改名は別の instrument を作ること
 と同じ**である。0BSD は承認**後**に改名できたが、それは前例が無く rough consensus を要した。
 
-### 「Commons」について —— 言えることと言えないこと
+### 「Commons」と「Dedication」—— 主張ではなく実測（SPDX License List 3.28.0・2026-09-09）
 
-**言えること**: 2018 年にリストが反対した形は「**その名前が想起させるものと、実際の由来が
-一致していない**」であった（BSD の名を持つが ISC 由来のテキスト）。
-**CC0 の正式名は "Creative Commons Zero" であり、その副題は "Public Domain Dedication"** である。
-**"Autonomous Commons Dedication" は語の並びとして近い。**
+2018 年にリストが反対した形は「**その名前が想起させるものと、実際の由来が一致していない**」で
+あった（BSD の名を持つが ISC 由来のテキスト）。**では我々の名前は何を想起させるのか。**
+**主張せずに数えた** —— SPDX License List の **727 件**（うち OSI 承認 149 件）を機械で走査した。
 
-**言えないこと**: それが商標上の問題かどうか。**判断には弁護士が要る**（弱点 1）。
-**"commons" は "tragedy of the commons" のように CC より古い一般語**でもあるので、
-**近いことと問題であることは別**である。ここに書けるのは「**この形の名前は 2018 年に
-実際に争点になった**」までである。
+| 実測 | 結果 |
+|---|---|
+| 名前に **"Commons"** を含む | **58 件。内訳は Creative Commons **55**、Open Data Commons **3**。**それ以外は 0 件** |
+| 名前に **"Dedication"** を含む | **2 件のみ** —— `CC-PDDC`（Creative Commons Public Domain Dedication and Certification）と `PDDL-1.0`（Open Data Commons Public Domain Dedication & License）。**どちらも OSI 承認ではない** |
+| 識別子 `ACD-1.0` / `ACD` / `LicenseRef-ACD-1.0` | **いずれも未使用**（OSI の review-process が求める *"unique name"* を、識別子の側では満たす）|
+| 名前の衝突 | 無し。最も近いのは `CAL-1.0`「Cryptographic **Autonom**y License」で、語幹を共有するだけである |
+
+**この 4 行が言うこと。**
+
+1. **"Commons" はこのリストでは一般語として使われていない。** 58 件すべてが 2 つの組織
+   （Creative Commons / Open Data Commons）の名前である。**"commons" が
+   "tragedy of the commons" のように CC より古い一般語であることは事実だが、
+   *SPDX の名前空間では* 例外なく組織標識として使われている** —— この区別を落とすと、
+   自分に都合よく読むことになる。**これは #112 の懸念を、主張から実測へ変える。**
+2. **`PDDL-1.0` は "Public Domain **Dedication & License**" と名乗っている。**
+   委員長が *"You can't have it both ways"* と言った当の組み合わせを、**名前の中で明示している
+   既存の instrument が在る**（#110 / #1.61）。**先例が無いわけではない。**
+3. **ただしその 2 件はどちらも OSI 承認ではない。** *"Dedication" を名前に持つ OSI 承認
+   ライセンスは 0 件である。* **ここには読み方の但し書きが要る** —— CC0 の SPDX 名は
+   「Creative Commons Zero v1.0 Universal」で "Dedication" を含まないが、**中身は献呈である**。
+   つまりこの 0 件は**命名の慣行の反映**でもあり、承認可能性そのものの指標ではない。
+4. **識別子は空いている。** #108（REUSE 適合名 `LicenseRef-ACD-1.0`）が指す名前も未使用である。
+
+**なお言えないまま**: 「Commons」が商標上の問題かどうか。**判断には弁護士が要る**（弱点 1）。
+**近いことと問題であることは別**である。ここで増えたのは、**近さが実測になった**ことだけである。
