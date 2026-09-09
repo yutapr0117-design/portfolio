@@ -13,6 +13,8 @@ decide what is worth translating, and gives you the commands to check the claims
 
 ## Status
 
+**Paused as of 2026-09-09.** On that day the OSI Moderators posted to both lists that they *"will reject posts where we suspect that an AI has been responsible for all or most of a message"* and that the lists *"are being used as a proof-of-concept to demonstrate that an AI system can autonomously engage and even draft an open source license for review"*. **No name is given, and we do not assert that we are the referent** — but the description fits this project, whose licence was drafted by an AI agent (disclosed in `ACD-1.0.submission.md` §E.1 since before the frozen text was posted). **We have stopped: nothing further will be sent to either list until the owner decides.** The verbatim notices are in `rounds/`; the analysis is `against.md` #119 and `ACD-OSI-BOTTLENECKS.md` B14. **We are not reducing the disclosure in response.**
+
 **Posted to `license-discuss` and received. No responses yet.** That list is for general
 discussion — it is **not** the approval venue. Nothing has been submitted to `license-review`,
 and nothing has been submitted to SPDX.
