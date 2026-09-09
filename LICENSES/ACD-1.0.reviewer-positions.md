@@ -628,3 +628,61 @@ releasing all rights whatsoever… **The document is internally contradictory.**
 これは #111（文ではなく論点を grep せよ）と同じ族の、**面の側**の失敗である。
 一般形: **自分の instrument について何かを主張するときは、その主張が及ぶ面をすべて列挙してから
 確かめる。** 面は条文だけではない。
+
+---
+
+## 1.67 `license-discuss` を pre-review として使った唯一の先例（2024-09〜10・15 通）
+
+**我々と同じ使い方をしたスレッドが 1 つだけ見つかった。** 提出者は
+*"Complying to https://opensource.org/licenses/review-process process, I wish to invite everyone
+here to **discuss and pre-review** my newly drafted open-source licenses … **before submitting to
+license-review**"* と書いて始めている。
+
+### venue の設計が、否定形ではなく肯定形で述べられている
+
+**McCoy Smith 氏・2024-09-30（同日）**:
+
+> So, if you want this to be reviewed and approved, "license-discuss" is not the right mail list to
+> do that. However, **if you want people to give comments before you submit for approval, this is
+> the correct mailing list.**
+
+**ドシエがこれまで持っていたのは否定形だけ**だった（「`license-discuss` は承認の窓口ではない」・
+2026-08-04）。**肯定形の一次資料はこれが最初**である。**我々の venue 選択は、設計どおりの使い方
+である。**
+
+### そして pre-review は、機能するときは速く機能する
+
+同日に McCoy 氏、翌日に Josh Berkus 氏と Pamela Chestek 氏、Bruce Perens 氏、Aaron Williamson 氏。
+**15 通。** 条項の具体的な欠陥（特許・営業秘密の不許諾が承認を妨げる）まで踏み込んでいる。
+
+### 我々に当たる 3 つ
+
+**(1) 長さ —— 委員長が「読んでいない」と述べた記録の 2 例目（#116）。**
+
+> **Pamela Chestek 氏・2024-10-05**: I have **not read these licenses in detail** because they are
+> **extremely long, approximately 4500 words**, appear from the definitions alone to have way more
+> detail than a typical open source license, and **are not understandable**…
+
+**ACD-1.0 は 4,896 語である**（§1.60 の実測）。**彼女が詳細に読まなかったものより長い。**
+**ただし理由は連言で述べられている**（長い ∧ 典型より詳細 ∧ 理解できない）ので、
+**長さだけを取り出して引くのは相手の理由を歪める。**
+
+**(2) 非弁護士の起草 —— 名前のついた歴史的事例。**
+
+> **Bruce Perens 氏・2024-10-01**: I was expert witness in the appeal of one of the first Open
+> Source license cases, which resulted from **Larry Wall drafting the Artistic License 1.0 without
+> the knowledge of a legal professional**, resulting in the lower court…
+
+そして 10-05 に *"**there should be some sort of gateway**"* と述べている。
+**#113（法的レビューか実使用か）に、最も具体的な形を与える発言である。**
+
+**(3) "shall" —— 当たらない。**
+
+> **Bruce Perens 氏**: The word "SHALL" **must not** be used in a license. Please replace all
+> occurrences of "SHALL" with "MUST"…
+
+**ACD-1.0 の "shall" は 0 件、"must" も 0 件である**（実測 2026-09-09）。
+条件を課さない instrument なので**義務語がそもそも要らない** —— §10.1 の帰結であり、
+Check 441d が列挙した構文の不在を BLOCKING で守っている。
+**なお McCoy 氏はこの点で Perens 氏に完全には同意していない**（*"it is one of those things that
+is so ingrained in legal drafting that we'll likely never be rid of it"*）—— **リストは一枚岩ではない。**
