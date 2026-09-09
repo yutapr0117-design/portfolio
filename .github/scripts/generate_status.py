@@ -153,6 +153,37 @@ def build_status() -> str:
         if site_url:
             audit_lines.append(f"- **公開サイト（機能性の目視確認）**: {site_url}")
 
+    # ── ライセンス・トラック (ACD-1.0 / OSI) ─────────────────────────────────
+    # オーナーが「OSI 全振り」を指示している当のトラックが、**オーナーの唯一の BLUF ページに
+    # 一行も無かった** (実測 2026-09-09)。制御と監査の面に、優先度 1 の対象が映っていない状態は
+    # 「宣言はあるが見ている層が無い」class の裏返しである。
+    # **すべて導出する。** 外部の日付 (審査会合など) は STATUS に書かない —— 導出できないものを
+    # 書くと、生成物の中に手で古くなる値が混ざる (この file の存在理由がそれを禁じている)。
+    lic_lines = []
+    frozen_txt = _read("LICENSES/FROZEN.md")
+    if frozen_txt:
+        m_venue = re.search(r"<!--\s*VENUE-DATA:\s*(\S+)\s*-->", frozen_txt)
+        venue = m_venue.group(1) if m_venue else "(unknown)"
+        pinned = len(re.findall(r"(?m)^[0-9a-f]{64}  \S+$", frozen_txt))
+        lic_lines.append(f"- **本文の状態**: **凍結中**（`LICENSES/FROZEN.md` の存在が凍結を意味し、"
+                         f"Check 453 が {pinned} ファイルの sha256 を pin）。"
+                         f"**欠陥を見つけても直さず errata へ記録する。**")
+        lic_lines.append(f"- **投稿先**: `{venue}`（単一ソース = FROZEN.md の VENUE-DATA・Check 458 が全 status 面に強制）。"
+                         f"**承認の窓口である `license-review` にも SPDX にも未提出。**")
+    else:
+        lic_lines.append("- **本文の状態**: 凍結は解除されている（`LICENSES/FROZEN.md` が無い）。")
+    against = _read("LICENSES/ACD-1.0.against.md")
+    errata = _read("LICENSES/ACD-1.0.errata.md")
+    n_adv = len(re.findall(r"(?m)^\| (\d+) \|", against))
+    n_err = len(re.findall(r"(?m)^\| (E\d+) \|", errata))
+    if n_adv or n_err:
+        lic_lines.append(f"- **自分で書いた不利な事実**: {n_adv} 件（`LICENSES/ACD-1.0.against.md`・"
+                         f"不利なものを先に並べる）／**既知の欠陥**: {n_err} 件（`ACD-1.0.errata.md`・全件未修正＝凍結中のため）。")
+    if slug:
+        lic_lines.append(f"- **審査者向けの入口**: {site_url}LICENSES/REVIEWERS.md")
+    lic_lines.append("- **外部レビューの観測・手続き・期限**: `LICENSES/PEER-REVIEW-WATCH.md`"
+                     "（外部の日付はここが権威。STATUS には導出できない値を書かない）。")
+
     lines = [
         "# STATUS — リポジトリ現況 (owner-facing BLUF)",
         "",
@@ -172,6 +203,10 @@ def build_status() -> str:
         f"- **Pipeline-Version**: {version}",
         f"- **最新 Session Record**: #{latest_sr}（`AI2AI.md`）",
         "- **CI ゲート**: `npm run verify`（consistency Check + AIO digest + binary metadata + CSS lint + ESLint + node --check）が exit 0 で全緑が前提。behavior e2e が BLOCKING、homepage pixel screenshot は ADVISORY（§3(B)）。",
+        "",
+        "## ライセンス・トラック（ACD-1.0 → OSI）",
+        "",
+        *lic_lines,
         "",
         "## 監査（スマホからの確認導線）",
         "",

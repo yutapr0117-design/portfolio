@@ -43,6 +43,18 @@ Check 415        →  **生成器と独立に** workflow を直接 parse し、P
 - 出力フォーマット変更 → `npm run status` で STATUS.md 再生成し同コミットで同期（Check 121）
 - 埋め込みソース追加時は volatile（per-commit で変わる）値を避ける（低 churn 維持）
 
+### ライセンス・トラック節を足した理由（2026-09-09）
+
+**オーナーが「OSI 全振り」を指示している当のトラックが、オーナーの唯一の BLUF ページに
+一行も無かった。** 制御と監査の面に優先度 1 の対象が映っていないのは、
+「**宣言はあるが見ている層が無い**」class の裏返しである。
+
+**すべて導出する** —— 凍結の有無と pin 数は `LICENSES/FROZEN.md`、投稿先は同 file の
+`VENUE-DATA`（Check 458 の単一ソース）、不利な事実と errata の件数は各 file の表の行数
+（Check 460 と同じ導出）。**外部の日付（審査会合・意見締切）は STATUS に書かない** ——
+導出できない値を生成物へ入れると、機械生成の中に手で古くなる値が混ざる。
+外部の日付の権威は `LICENSES/PEER-REVIEW-WATCH.md` である。
+
 ## Constraints
 
 - **Python 3.10+ guard** 必須（Check 104。npm から呼ばれる .github/scripts/*.py の規律）
