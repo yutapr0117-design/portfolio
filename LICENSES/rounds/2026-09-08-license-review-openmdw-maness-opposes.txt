@@ -1,0 +1,77 @@
+Source: OSI license-review public archive, 2026-September.txt
+Retrieved: 2026-09-09 from lists.opensource.org
+Date: Tue, 8 Sep 2026 04:13:57 -0500
+From: Preston Maness <aspensmonster@riseup.net>
+Subject: [License-review] For Approval: OpenMDW License Agreement, versions 1.1 (OpenMDW-1.1)
+
+**我々宛ではない。観測。** OpenMDW-1.1 への反対意見。**個別のライセンスではなく
+「AI モデルに関するあらゆるライセンス」に対する反対**として述べられており、
+最後の一文は "The OSI should not approve this license or any other license with
+similar flaws." である。Fediverse 経由でこのスレッドを知ったと本人が書いている。
+
+公開アーカイブから逐語で複製したもの。無改変。
+
+----- begin verbatim -----
+
+From aspensmonster at riseup.net  Tue Sep  8 09:13:57 2026
+From: aspensmonster at riseup.net (Preston Maness)
+Date: Tue, 8 Sep 2026 04:13:57 -0500
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+In-Reply-To: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+References: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+Message-ID: <0a96ecc6-c07a-4300-a206-182d0effbfa3@riseup.net>
+
+Howdy folks,
+
+I was first alerted to this particular license and discussion on the 
+Fediverse a couple weeks ago:
+
+https://fedi.copyleft.org/@bkuhn/117169388027479476
+
+I've done a breadth-first search of the archives ("depth-1" replies to 
+the original email [which could be considered "depth-0", so-to-speak]) 
+prior to commenting myself (and have, for the time-being, subscribed to 
+the list). The closest match to my own concerns was from John Colagioia 
+on Saturday August 29 14:34:09 UTC 2026. Colagioia writes:
+
+ >A corollary to the lack of human input, models have no reasonable 
+"source code" to open, removing even the possibility of a license 
+offering Freedoms 1 and 3 in any reasonable sense.
+
+I disagree slightly, in that I do think there is a sort-of "source code" 
+to open. At minimum, the complete corresponding source code for a model 
+would necessarily require its training data. And, given that the license 
+text does not require the distribution of the training data, it seems 
+like "Open Model, Data, and Weights" is an odd name for such a license.
+
+More generally, I think my commentary on the Fediverse applies not only 
+to this license, but to any license concerning AI models:
+
+ >IMHO, a model without the underlying training data for reproducing it 
+is not, in any sense, Free or Open. At that point, you might as well 
+argue that distributing software binaries without the complete 
+corresponding source code is Free and Open because, in principle, you 
+can reverse engineer the binary.
+ >
+ >https://tenforward.social/@aspensmonster/117170572682529504
+
+The OSI should not approve this license or any other license with 
+similar flaws.
+
+-- 
+In Solidarity,
+Preston Maness
+512-955-1048
+https://keyoxide.org/79895B2E0F87503F1DDE80B649765D7F0DDD9BD5
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: OpenPGP_signature.asc
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260908/c4867c95/attachment.sig>
+
