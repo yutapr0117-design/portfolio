@@ -17,12 +17,15 @@ decide what is worth translating, and gives you the commands to check the claims
 discussion — it is **not** the approval venue. Nothing has been submitted to `license-review`,
 and nothing has been submitted to SPDX.
 
-**How it came to be on this list.** **No submission to license-review has been made.** When the
-owner moved to seek approval, the guidance from OSI was that a licence of this kind goes to
-license-discuss first, and that is what was done — the discussion post is the only thing that
-has been submitted anywhere. So discussion did come first, but the ordering reflects OSI's
-guidance rather than foresight on our part, and this page previously described it as a
-deliberate choice of ours. What is our own decision is the SPDX timing: SPDX asks for substantial
+**How it came to be on this list.** **No submission to license-review has been made, and the text
+now frozen is not what will be submitted there.** The sequence — post to license-discuss, collect
+what the list says, fold it into a revised version, and submit **that** to license-review — is the
+plan the owner has held from the outset, and it does not end at one submission: review comments
+feed a further revision, repeated as needed. **This paragraph is corrected as of 2026-09-09**; it
+previously said the ordering "reflects OSI's guidance rather than foresight on our part", which
+understated the owner's own plan, and before that it overstated it. **The correction rests on the
+owner's direct confirmation, not on inference from the repository**, which is why it is dated and
+marked. What is our own decision is the SPDX timing: SPDX asks for substantial
 real-world use, this work has one adopter, and we are not submitting something that does not
 meet the stated bar.
 
