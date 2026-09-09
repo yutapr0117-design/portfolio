@@ -691,6 +691,30 @@ def run(ctx):
                     for _m in re.finditer(r"(?<![\w])E(\d{1,2})\b", _ln):
                         if f"E{_m.group(1)}" not in _ers_k:
                             _bad460.append(f"{_fk.name}:{_n}: `E{_m.group(1)}` が errata へ解決しない")
+        # (l) **`errata.md` 自身の冒頭が述べる件数が、その下の表の行数と一致すること。**
+        #   実測 (2026-09-09): 冒頭は「**Seven** items are recorded: five imprecisions … **All five**
+        #   are unrepaired」と述べ、表には **10 行**あった。**自分の既知欠陥を列挙するページが、
+        #   いくつ知っているかを過少に申告していた** —— #58 と同じ「開示量を小さく言う」向きで、
+        #   これは間違える向きとして最悪である。REVIEWERS / READY-TO-SUBMIT 側の申告は face (a) が
+        #   既に見ていたが、**当のページ自身の申告だけが無検査だった** —— 「最後に書かれ最初に
+        #   読まれるページ」が抜ける #58 の構造がそのまま繰り返されている。
+        if _erp460.exists():
+            _et_l = _erp460.read_text(encoding="utf-8")
+            _rows_l = len(re.findall(r"^\| (E\d+) \|", _et_l, re.M))
+            _WORDS_L = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7,
+                        "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13,
+                        "fourteen": 14, "fifteen": 15, "sixteen": 16, "seventeen": 17,
+                        "eighteen": 18, "nineteen": 19, "twenty": 20}
+            _m_l = re.search(r"\*?\*?([A-Za-z]+|\d+)\*?\*? items are recorded", _et_l)
+            if not _m_l:
+                _bad460.append("errata.md: 冒頭の件数申告 (\"N items are recorded\") が見つからない")
+            else:
+                _raw_l = _m_l.group(1)
+                _decl_l = int(_raw_l) if _raw_l.isdigit() else _WORDS_L.get(_raw_l.lower())
+                if _decl_l is None:
+                    _bad460.append(f"errata.md: 件数の語 {_raw_l!r} を解釈できない")
+                elif _decl_l != _rows_l:
+                    _bad460.append(f"errata.md の冒頭 件数申告: 申告 {_raw_l} ({_decl_l}) / 実測 {_rows_l}")
         check(
             not _bad460,
             f"Check 460: ドシエの自己申告件数が実測と一致 "
