@@ -56,10 +56,16 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | **It imposes nothing**: §10.1 and §4.3 attach no condition, so no obligation can fire in any delivery mode — the failure that condition-bearing instruments meet in hosted deployment | **The same structure weakens the warranty disclaimer** (#41) and forecloses defensive patent termination (#46). Both costs fall on the adopter, and both are deliberate |
 | **Anyone can adopt it**: zero project names, zero placeholders, no editing required — verifiable with the commands below | **One adopter: this repository** (#4). Reusability is a structural property; adoption is a social one, and only the first is shown |
 
-## The three things you probably want first
+## What to open first
+
+> ⚠ **This heading said "The three things you probably want first" until 2026-09-09; the table
+> below has eight rows.** A number written into a heading stops matching the moment a row is
+> added, and this is the page a reviewer is asked to trust. The convention used elsewhere in this
+> directory is to **enumerate rather than count**, and it is now used here.
 
 | | File | Note |
 |---|---|---|
+| **Which known objections land** | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **One table.** Every objection raised on `license-review` / `license-discuss` in the last two years, whether it applies to ACD-1.0, and — for the ones that do not — the clause that answers it. **Objections that land are listed first** |
 | The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
