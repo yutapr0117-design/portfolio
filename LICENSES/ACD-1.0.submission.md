@@ -120,7 +120,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**858 words**, measured 2026-09-08)
+### B.0 The message as it should actually be sent (**971 words**, measured 2026-09-09)
 
 **Why this section exists.** Everything below §B.0 — §1 through §5 — runs to **7,500 words**. The
 list's code of conduct asks for "concise and low-volume" and that was restated in the August 2026
@@ -129,19 +129,44 @@ dossier is built on**, which is that the repository holds the depth so the messa
 §1–§5 are not deleted: they are the reference material the short message points at, and they are
 where a reviewer who asks a specific question is sent. **Send §B.0. Do not paste §1–§5.**
 
-**Length, stated rather than rounded.** This was 577 words when written on 2026-09-06, **660** after
-two additions the same day, **685** after one more on 2026-09-07 (the enforcement sentence now says what each CI check actually
-establishes — `against.md` #95), **768** after the OSD affirmation was made specific to
-criteria 3, 5, 6 and 9 as the review-process page requires (`against.md` #97). **That last one is
-not optional**: on 2026-09-07 a reviewer publicly declined to comment on another submission at all
-until its missing required information was supplied. It is **788** after the "why now" paragraph was
-corrected the same day, and **858** after 2026-09-08, when the structure paragraph gained the one
-thing that most directly answers *"why another public-domain-equivalent?"* — that §4.4 states in
-text the argument which had to be argued on this list to save the Unlicense in 2020
-(`review-precedents.md` §1.57). **That question is the opening move in this category**: it was put
-to Rob Landley's fungibility point (#84), to the UPD 1.5.2 author by David Woolley, and by Carlo
-Piana as proliferation — it had said no submission before 2024 concerned machine learning, and the
-archive shows two in 2023 (`against.md` #103). The two 2026-09-06 additions were: *why now* (the review record contains no ML-substantive submission before 2024) and *why this one is shaped differently* (the AI-era submissions add conditions; this one removes them). **Both pre-empt an objection that would otherwise be raised first**, which is the only justification for spending words on a list that asks for concision. **If it grows again, the number here moves with it** — a heading that rounds its own length to a friendlier figure is the failure this dossier spent 2026-09-06 finding in itself.
+**Length, stated rather than rounded.** 577 words when written on 2026-09-06; **660** after two
+additions the same day; **685** on 2026-09-07, when the enforcement sentence was changed to say what
+each CI check actually establishes (`against.md` #95); **768** when the OSD affirmation was made
+specific to criteria 3, 5, 6 and 9 as the review-process page requires (#97) — **that one is not
+optional**, because on 2026-09-07 a reviewer publicly declined to comment on another submission at
+all until its missing required information was supplied; **788** when the "why now" paragraph was
+corrected, because it had said no submission before 2024 concerned machine learning and the archive
+shows two in 2023 (#103); **858** on 2026-09-08, when the structure paragraph gained the thing that
+most directly answers *"why another public-domain-equivalent?"* — that §4.4 states in text the
+argument which had to be argued on this list to save the Unlicense in 2020
+(`review-precedents.md` §1.57); and **971** on 2026-09-09, when a second gap was added to the same
+paragraph — moral rights, which the chairman of Open Source Group Japan argued on this list in 2024
+leaves licences that speak only of copyright unable to guarantee modification in Japan
+(`review-precedents.md` §1.59).
+
+**Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
+move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
+UPD 1.5.2 author, Carlo Piana has put it as proliferation — and until 2026-09-09 the only answer in
+the message was about the Unlicense. **The 0BSD form of the question had no answer at all**, which
+is the form Landley actually asked. It now has one, and it is sourced to this list rather than to us.
+
+**Two defects in this paragraph were found on 2026-09-09 and are recorded rather than quietly
+swapped.** A clause about #103 had been stranded in the wrong sentence by an earlier edit, and the
+summary of the 2026-09-06 additions still described *"why now"* as claiming **no ML-substantive
+submission before 2024** — **the very claim #103 corrected in the message itself.** The message was
+right and its own changelog was wrong. **An account of our corrections that is itself uncorrected is
+the same failure as a stale count**, and it is worse here, because this is the paragraph a reader
+consults to find out what we fixed.
+
+**The instrument, stated with the number.** Whitespace-separated tokens from the `**Subject:**` line
+to the sign-off, fenced metadata block included, counted by `re.findall(r'\S+', ...)`. **This was
+written down on 2026-09-09 because it had never been**: recomputing the earlier figures showed the
+method matters by tens of words depending on where the count starts and whether the fenced block is
+included. **A number without its instrument is the failure recorded at #87**, and this dossier had
+been carrying six of them.
+
+**If it grows again, the number here moves with it** — a heading that rounds its own length to a
+friendlier figure is the failure this dossier spent 2026-09-06 finding in itself.
 
 ---
 
@@ -210,6 +235,14 @@ was that it was *"very much not clear"*. What answered it was the argument that,
 dedication were ineffective, the enumerated permissions would still operate. **That argument is not
 in the Unlicense's text — it had to be made on this list.** §4.4 states it, so no recipient and no
 court has to reach it.
+
+**And a second gap, named on this list rather than by me.** In March 2024 the chairman of Open
+Source Group Japan argued here that a licence speaking only of copyright — Blue Oak was the
+example, but 0BSD and MIT-0 read the same way — is *"not open source, at least not in Japan"*,
+because the right of integrity reaches software there and can be used to stop modification. §12
+answers that with a waiver where waiver is possible and, where it is not, a covenant not to
+exercise, binding heirs. **No lawyer has checked whether it works. What I claim is only that the
+incumbents do not attempt it.**
 
 **Legal review: none.** No lawyer has drafted or read it. I state that plainly rather than let it
 be discovered. What can be shown without counsel is mechanical, and is checked in CI on every
