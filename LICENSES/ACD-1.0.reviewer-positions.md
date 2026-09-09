@@ -228,7 +228,7 @@ to a solution**"* として 4 段の手順を示している:
 
 | 手順 | 本リポジトリ |
 |---|---|
-| 3. `<head>` の `<link rel="license">` | **満たす** —— `index.html:403`（Check 444a が BLOCKING で強制）|
+| 3. `<head>` の `<link rel="license">` | **満たす** —— `grep -n 'rel="license"' index.html`（Check 444a が BLOCKING で強制）|
 | 4. UI 内の `<a rel="license">` | **満たす** —— `js/components.js` の sidebar/drawer 共通部（`rel="license noopener noreferrer"`）|
 | 1. REUSE のファイル単位ヘッダ | **満たさない** —— shipped の HTML / CSS / JS に `SPDX-License-Identifier` ヘッダは **1 つも無い**（`against.md` #106）|
 | 2. SBOM / attribution file | **問題自体がほぼ生じない** —— C1（Boring Technology・外部フレームワークとライブラリ **ゼロ**）により、**配信物に第三者コードが含まれていない**。この手順が解こうとしている「束ねられた minified ライブラリのライセンス情報が失われる」問題が、この配信物には存在しない |
