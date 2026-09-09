@@ -254,6 +254,70 @@ English text prevails, is not a modified text for this purpose"*）。
 （**見積もりは書いてみるまで当たらない**）をここにも当てる ——**次の増分は、見積もりではなく
 実際の圧縮案 1 節分から始める。**
 
+## 2.8 (c) 本文内圧縮を、いちばん大きい定義 3 件で実測した —— 20%、そして届かない
+
+**§2.7 は「残る道は (c) 本文内圧縮のみ」で終わった。見積もりで語らないと決めたので、
+最大の定義 3 件を実際に書き直した。**
+
+| 条 | 現 | 改定案 | 削減 | 意味の変化 |
+|---|---:|---:|---:|---|
+| §1.5 Covered Rights | 89 | **66** | 23 | **無し。** 列挙（broadcast and recording rights → recordings）を縮め、除外 3 件を括弧参照へ。**除外の範囲は同一** |
+| §1.9 Contribution | 72 | **53** | 19 | **無し。** 「意図的とは何か」の同語反復（*"intentional if it is made … for that purpose"*）を落とした。除外 2 件は残す |
+| §1.4 You | 67 | **63** | 4 | **無し。** ほぼ圧縮余地が無い —— **既に締まっている条もある**という信号 |
+
+**3 件で 228 → 182 語（20%）。**
+
+### 起草した置換文（successor 候補・1.0 は凍結中につき適用しない）
+
+```
+  1.5  "Covered Rights" means every right the Dedicator holds or may come to hold
+       in the Work, anywhere and however arising, now or in future, whether or
+       not presently known or subsisting, including copyright, rights in
+       performances and recordings, sui generis database rights, and rights
+       against unfair extraction. It excludes patent rights (Section 8),
+       trademarks and rights in a name (Section 11), and Moral Rights
+       (Section 12).
+
+  1.9  "Contribution" means any work of authorship, including a modification,
+       addition, correction, translation, or accompanying material, that a
+       person intentionally submits for inclusion in the Work to the Dedicator
+       or to a repository or forum the Dedicator maintains. Material sent for
+       discussion only, or marked by its sender as not a Contribution, is
+       excluded.
+
+  1.4  "You" means any person or entity exercising permissions under this
+       Dedication, whether human, organisational, or automated, and "Your" is
+       construed accordingly. Where an automated system exercises a permission,
+       it is granted equally to the person or entity on whose behalf it acts and
+       to the one that operates it, so that no permission fails for want of a
+       legal person to hold it.
+```
+
+### 20% を機構部 1,797 語すべてに当てても、届かない
+
+**外挿すると約 360 語**（**これは外挿であって測定ではない。§1.4 が示すとおり、
+既に締まっている条ほど率は下がる**）。§2.6 の 306 語と合わせて **約 666 語**、
+**4,896 → 約 4,230 語。**
+
+**委員長が *"excessively wordy"* と述べた提出物は 3,888 語である（#116）。届かない。**
+
+### したがって B3 の結論
+
+**長さは「解消できる項目」ではなく「縮められるが答えきれない項目」である。**
+gap 部 1,041 語を削れば届くが、**それは新規性の根拠を捨てることなので採らない**
+（`ACD-OSI-BOTTLENECKS.md` B10 が「gap が残っているか」を最高位に置いている以上、
+**B3 のために B10 を悪化させるのは取引として成立しない**）。
+
+**残る緩和は 1 つだけで、それは本文の外にある** —— **短い入口**。
+#116 の disposition が既にそう書いていた（*"長さへの実際に効く緩和は短い入口である"*）。
+**現状の実測**: 送る文面は **972 語**（`submission.md` §B.0）、入口ページ `REVIEWERS.md` は
+**約 1,900 語**、`objection-map.md` は **653 語の 1 つの表**。
+**審査者が最初に触れる面はすでに本文の 1/5 である。**
+
+**この結論は「何もしない」ではない。** §2.6 と §2.8 の置換文 7 件は successor 候補として
+そのまま使える（**約 350 語・gap 損失ゼロ**）。**ただし「短くすれば通る」という筋書きは、
+測定によって否定された。**
+
 ## 3. 議論から来たもの（返信を受け取ってから埋まる）
 
 | ラウンド | 出所（`rounds/` の file） | 指摘 | 帰結 |
