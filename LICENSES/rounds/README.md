@@ -59,7 +59,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-09 時点・16 ファイル）
+## いまの状態（2026-09-09 時点・18 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -78,6 +78,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-09-07 | `license-review` | 観測（2 通）| Licensing Committee 委員長が CALL FOR COMMENTS に対し**まず本文を要求**している |
 | 2026-09-08 | `license-review` | Moming Duan → 参照 | 上記への steward 回答。**背景資料として「Yokoi-san」を 2 度引用**（我々宛ではない）|
 | 2026-09-08 | `license-review` | Preston Maness → 観測 | OpenMDW への反対。**「AI モデルに関するあらゆるライセンス」への反対**として述べられている |
+| 2026-09-09 | `license-discuss` | **OSI Moderators → 観測** | **AI 生成投稿は拒否すると宣言し、両リストが「AI が自律的に参加しライセンスを起草する proof-of-concept」に使われていると名指ししている。名前は出ていない** |
+| 2026-09-09 | `license-review` | **OSI Moderators → 観測** | 同文（同日 09:58・両リストへ）|
 | 2026-09-09 | `license-review` | Max Mehl → 観測 | **同日の新規提出（PSF-2.0）**。約 270 語で、**採用実績と既承認ライセンスとの関係**に依っている |
 
 **ACD-1.0 そのものについては、依然として受領がゼロである。** 2026-09-09 時点で

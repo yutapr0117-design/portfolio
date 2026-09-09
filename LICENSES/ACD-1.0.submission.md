@@ -122,6 +122,15 @@ Open Source Definition, and to say where the licence is used.
 
 ### B.0 The message as it should actually be sent (**971 words**, measured 2026-09-09)
 
+> **🛑 送る前に読む（2026-09-09 追加）。** OSI Moderators が同日、両リストへ
+> **「AI が全部または大半を書いたと疑われる投稿は拒否する」**と投稿し、両リストが
+> **「AI が自律的に参加しライセンスを起草する proof-of-concept」**に使われていると述べた
+> （逐語は `rounds/2026-09-09-license-{discuss,review}-osi-moderators-observed.txt`・
+> 分析は `ACD-1.0.against.md` #119 と `ACD-OSI-BOTTLENECKS.md` B14）。
+> **§B.0 は AI 起草の文面である。この状態で送ることは、その通知が名指しした行為に当たりうる。**
+> **次に何を送るか、そもそも送るかはオーナーの判断であり、AI はそれを代行しない。**
+> **開示（§E.1）を薄めて回避してはならない。**
+
 **Why this section exists.** Everything below §B.0 — §1 through §5 — runs to **7,500 words**. The
 list's code of conduct asks for "concise and low-volume" and that was restated in the August 2026
 review (`REVISION-PROTOCOL.md` §3.7). **A 7,500-word opening post contradicts the design this
