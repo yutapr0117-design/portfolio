@@ -11,9 +11,27 @@ This page is in English because the discussion is. Most of the supporting analys
 directory is written in Japanese; this page tells you what each document contains so you can
 decide what is worth translating, and gives you the commands to check the claims yourself.
 
+## In one screen
+
+- **What it is.** A dedication of copyright and neighbouring rights to the public, **plus a
+  licence granted independently of it** (§4.4), for works meant to be learned from. One file,
+  16 sections, no placeholders.
+- **The gap it claims.** No approved licence does these three together: expressly permits machine
+  learning and text-and-data-mining and makes no reservation (§6); grants a patent licence that
+  reaches **models and outputs** of computational use (§8.4); and makes your permissions
+  independent of whether copyright subsists in machine-generated material at all (§9).
+- **Nearest approved licences.** Closest in effect to the Unlicense, MIT-0, 0BSD and CC0; closest
+  in patent machinery to Apache-2.0. What it adds to each is the three items above.
+- **The two weaknesses, first.** **No lawyer has read it**, and **it has one adopter — this
+  repository**. Both are stated at length below and neither is repaired anywhere in this directory.
+- **Anyone can adopt it.** Zero project names, zero placeholders, no editing required — the
+  commands to check that are below.
+- **If you read one more thing**, read [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md):
+  every objection raised on the lists, which ones land, and the clause that answers each.
+
 ## Status
 
-**Paused as of 2026-09-09.** On that day the OSI Moderators posted to both lists that they *"will reject posts where we suspect that an AI has been responsible for all or most of a message"* and that the lists *"are being used as a proof-of-concept to demonstrate that an AI system can autonomously engage and even draft an open source license for review"*. **No name is given, and we do not assert that we are the referent** — but the description fits this project, whose licence was drafted by an AI agent (disclosed in `ACD-1.0.submission.md` §E.1 since before the frozen text was posted). **Nothing further will be sent to either list until the owner decides, and he is in a direct, off-list exchange with the moderator personally about it — **the policy decision belongs to OSI as an organisation and is not that exchange** (his statement, 2026-09-09; it will be published verbatim in `rounds/` when it concludes). **He states that the human decides the direction and that he checks and sends the messages himself** — the notice rejects posts made *"without careful review from the author"*, and that is the line it draws. The verbatim notices are in `rounds/`; the analysis is `against.md` #119 and `ACD-OSI-BOTTLENECKS.md` B14. **We are not reducing the disclosure in response.**
+**Paused as of 2026-09-09.** On that day the OSI Moderators posted to both lists that they *"will reject posts where we suspect that an AI has been responsible for all or most of a message"* and that the lists *"are being used as a proof-of-concept to demonstrate that an AI system can autonomously engage and even draft an open source license for review"*. **No name is given, and we do not assert that we are the referent** — but the description fits this project, whose licence was drafted by an AI agent (disclosed in `ACD-1.0.submission.md` §E.1 since before the frozen text was posted). **Nothing further will be sent to either list until the owner decides**, and he is in a direct, off-list exchange with the moderator personally about it — **the policy decision belongs to OSI as an organisation and is not that exchange** (his statement, 2026-09-09; it will be published verbatim in `rounds/` when it concludes). **He states that the human decides the direction and that he checks and sends the messages himself** — the notice rejects posts made *"without careful review from the author"*, and that is the line it draws. The verbatim notices are in `rounds/`; the analysis is `against.md` #119 and `ACD-OSI-BOTTLENECKS.md` B14. **We are not reducing the disclosure in response.**
 
 **Posted to `license-discuss` and received. No responses yet.** That list is for general
 discussion — it is **not** the approval venue. Nothing has been submitted to `license-review`,
