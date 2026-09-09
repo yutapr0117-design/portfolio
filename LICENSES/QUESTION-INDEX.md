@@ -17,14 +17,14 @@ If your question is not here, that is our omission and worth saying on the list.
 
 | Question | Where |
 |---|---|
-| If nobody has to keep the notice, is your warranty disclaimer worth anything? | **Weaker, yes — and the loss is ours.** `review-responses-clauses.md` §15/§16; `submission.md` §1b. Permissions are unaffected; the disclaimer is |
-| Isn't this "not a licence" at all? | `submission.md` §1b — the argument made against the Unlicense in 2020. §4.1 says "grants You a licence" in terms, which is more than the Unlicense had to work with |
-| Is this even a software licence? | **Measured, and the answer is unhelpful to us**: "program" and "executable" appear 0 times, "software" twice and never in an operative clause. `submission.md` §1d; the risk is `against.md` #37, #50 |
-| Isn't a public domain dedication outside what OSI reviews? | `submission.md` §1b — with the Unlicense precedent and the two ways it cuts against us |
+| If nobody has to keep the notice, is your warranty disclaimer worth anything? | **Weaker, yes — and the loss is ours.** `review-responses-clauses.md` §15/§16; `submission-reference.md` §1b. Permissions are unaffected; the disclaimer is |
+| Isn't this "not a licence" at all? | `submission-reference.md` §1b — the argument made against the Unlicense in 2020. §4.1 says "grants You a licence" in terms, which is more than the Unlicense had to work with |
+| Is this even a software licence? | **Measured, and the answer is unhelpful to us**: "program" and "executable" appear 0 times, "software" twice and never in an operative clause. `submission-reference.md` §1d; the risk is `against.md` #37, #50 |
+| Isn't a public domain dedication outside what OSI reviews? | `submission-reference.md` §1b — with the Unlicense precedent and the two ways it cuts against us |
 | So this is a dedication with a licence bolted on as a fallback? | **No.** §4 is granted independently of §3 and does not wait for it to fail (§4.4). `clause-reference.md` §4.4 row; `review-responses.md` §2 |
-| Has a lawyer read it? | **No.** `submission.md` §5 and §4c; `against.md` #1 — it is the weakest point and is stated without hedging |
+| Has a lawyer read it? | **No.** `submission-reference.md` §5 and §4c; `against.md` #1 — it is the weakest point and is stated without hedging |
 | Who wrote it? | An AI, autonomously, under a standing delegation. The owner did not commission it and learned of it afterwards; he read the full text before sending. `submission.md` §E.1; `against.md` #5 |
-| How many people use it? | **One repository.** `submission.md` §5; `against.md` #4. Reusability is shown structurally in §4b — a different property from adoption |
+| How many people use it? | **One repository.** `submission-reference.md` §5; `against.md` #4. Reusability is shown structurally in §4b — a different property from adoption |
 | CC0 was stopped by OSI — why would this be different? | `comparison.md` §1.4 — the 2012 objection was the **patent carve-out** (weakening estoppel; putting users on notice), and §2.5 and §8.3 are built against exactly those two. **It does not follow that this clears the bar CC0 did not** |
 | Why not just use MIT-0, 0BSD, CC0 or Apache-2.0? | `comparison.md` §1 — including **when those are the better choice**, which is most of the time |
 | 0BSD already exists and is fungible — why another one in this category? | `comparison.md` §1 — **answered in the frame the list actually used** (Rob Landley, `license-discuss` 2026-08-07). ACD-1.0 is fungible in the same sense (§10.2), so the cost of another entry is low; that is the whole of the answer, and **the same fact cuts against us** |
@@ -38,8 +38,8 @@ If your question is not here, that is our omission and worth saying on the list.
 
 | Question | Where |
 |---|---|
-| Does it meet each OSD criterion? | `submission.md` §3 — all ten, individually |
-| Where is each criterion arguable? | `submission.md` §3b — the counter-argument for all ten, written by us. **OSD 7 is the one we expect to be litigated** |
+| Does it meet each OSD criterion? | `submission-reference.md` §3 — all ten, individually |
+| Where is each criterion arguable? | `submission-reference.md` §3b — the counter-argument for all ten, written by us. **OSD 7 is the one we expect to be litigated** |
 | You grant over several kinds of right — do you react to litigation over all of them? | **There is nothing to react with.** §10.4 terminates nothing; §8.2 says the absence is deliberate. `review-responses-clauses.md` §15/§16; the cost is `against.md` #16, #46 |
 | How would your conditions work for a hosted API where nothing is transferred? | **There are no conditions to work.** §10.1 / §4.3; §16's conditions bind the licence text only (§10.5, §16.6). `against.md` #47 |
 | Does §5.2's anti-DRM covenant restrict the user? | No — it binds the Dedicator. `review-responses-clauses.md` Q26 |
@@ -73,7 +73,7 @@ If your question is not here, that is our omission and worth saying on the list.
 
 | Question | Where |
 |---|---|
-| Is §6 a policy position about AI training? | **No** — it is a statement about the Dedicator's own rights. `submission.md` §1c |
+| Is §6 a policy position about AI training? | **No** — it is a statement about the Dedicator's own rights. `submission-reference.md` §1c |
 | Does it purport to defeat someone else's TDM reservation? | No. §6.2 is limited to the Dedicator's rights; §6.3 handles others' within §2.7. `review-responses-clauses.md` §6 |
 | Does it license trade secrets? | **No** — §1.5 does not reach them. OpenMDW does. `against.md` #31 |
 | The Work contains personal data — does this make training on it lawful? | **No, and the text says so.** §11.4: permissions required by data-protection, privacy and publicity law "are not the Dedicator's to give". `faq.md` A28 splits the two questions and says which one this licence answers |
@@ -113,7 +113,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | Why discussion first? | OSI's guidance, not our foresight. `discussion-log.md` §3.5 — including that we described this wrongly once |
 | What happens when feedback arrives? | `REVISION-PROTOCOL.md` — verbatim archive, then decomposition; **1.0 is never mutated** |
 | What would make you withdraw? | `submission.md` §E.2; `against.md` closing section |
-| How long do you expect this to take? | We do not set a figure. `submission.md` §4a — the two comparable submissions point opposite ways |
+| How long do you expect this to take? | We do not set a figure. `submission-reference.md` §4a — the two comparable submissions point opposite ways |
 | Why is copyright, patents, trademarks and moral rights all in one document? | **`against.md` #102** — Rob Landley (author of 0BSD) holds they belong in separate instruments. §1.5 does separate them: Covered Rights excludes patents (§8), trademarks (§11) and moral rights (§12) by name. The live question is whether separate must mean a separate **document** — Apache-2.0 says no |
 | Why is another public-domain-equivalent needed when 0BSD and the Unlicense exist? | **The most concrete answer is `review-precedents.md` §1.57.** The 2020 veto against the Unlicense failed because a lawyer argued that the enumerated permissions operate even if the dedication fails — **an argument the Unlicense's text does not make. §4.4 states it.** The rest of the answer (TDM, patents on models and outputs, machine-generated material) is `submission.md` §B.0 |
 | Has anything in this category actually been reviewed? | **Yes, once, and it was withdrawn.** PBZC v2.0 (2024-12 → 2025-01, 17 messages). All eight recorded objections worked through in `comparison.md` §1.46 — five do not apply by construction, **two endorse the §3/§4 structure**, one is live (`against.md` #100) |
@@ -121,5 +121,5 @@ If your question is not here, that is our omission and worth saying on the list.
 | How long does examination take, and what happens then? | **About two months, then you are asked to choose.** Josh Berkus to another submitter: *"approaching 2 months… our usual interval for examination… Do you plan to revise the license submission, or keep it as it is?"* Our answer to that question is fixed in advance (`REVISION-PROTOCOL.md` §1–§2) |
 | Does OSI require a lawyer to have reviewed the licence? | **No — recommended only**, per the chair of the Licensing Committee on the record (2024-12-18), with the contrary claim retracted the same day. `AS-OF.md`. **Recommended still means weighed** |
 | Does §12's two-tier structure discriminate by jurisdiction (OSD 5)? | `against.md` #100 — the objection was raised against another instrument and is cheap to raise again. PBZC varied the **outcome**; ACD-1.0 varies only the **mechanism**, and §4.4 / §10.1 / §10.4 keep the outcome identical everywhere |
-| Does it hit any of the OSI's published reasons for rejection? | **`submission.md` §3c** — the five patterns, item by item, read at source 2026-09-07. Four are clean by construction; the patent one is the opposite of a failure (the OSI treats patent *silence* as the risk, and §8 grants expressly). "Conditional licensing" is named as a nearby-sounding risk and answered from §4.4 and §10.4 |
+| Does it hit any of the OSI's published reasons for rejection? | **`submission-reference.md` §3c** — the five patterns, item by item, read at source 2026-09-07. Four are clean by construction; the patent one is the opposite of a failure (the OSI treats patent *silence* as the risk, and §8 grants expressly). "Conditional licensing" is named as a nearby-sounding risk and answered from §4.4 and §10.4 |
 | How does this stand in relation to OSAID? | **Read at source 2026-09-06, and the answer is adverse.** OSAID v1.0 conditions all three required components on OSI approval in terms, so an AI system cannot be OSAID-conformant while its data information, code or parameters are under ACD-1.0 until ACD-1.0 is approved — and those three are what §6, §7 and §9 were written for. `review-responses-meta.md` Q32d; `against.md` #62 |

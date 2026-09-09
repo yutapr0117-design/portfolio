@@ -76,7 +76,7 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
   owner did not ask for a licence to be written, did not direct its contents, and learned of its
   existence afterwards. He read the full text before sending it.
 - **One adopter: this repository.** That is the only real-world use.
-- These are stated at length in `ACD-1.0.submission.md` §5 and §E.1, not buried.
+- These are stated at length in `ACD-1.0.submission-reference.md` §5 and §E.1, not buried.
 
 ## Checking the claims yourself
 

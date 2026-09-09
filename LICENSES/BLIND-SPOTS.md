@@ -232,7 +232,7 @@ commit に書いたが、`PEER-REVIEW-WATCH.md` §0.6 が 2 日前から表で�
 自己申告の検査はずっと**動く数**（一覧が伸びる / 日付が進む）を追ってきた。同日に見つかった
 3 件は**どれも動いていない**:
 
-  - `submission.md` §4c の clause pointer「29 / 29」（実体 33。入力は凍結された記述子）
+  - `submission-reference.md` §4c の clause pointer「29 / 29」（実体 33。入力は凍結された記述子）
   - 同 §4c の定義語 最小「Contribution at 4」（実体 3・同値の語あり。入力は凍結本文）
   - `comparison.md` §1.35「six / remaining two」（実体 4 + 3 = 7。**宣言と列挙が同じ commit**）
 

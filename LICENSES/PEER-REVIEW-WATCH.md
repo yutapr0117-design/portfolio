@@ -343,7 +343,7 @@ McCoy 氏（2025-05-28）: *"i did a compare of this license vs mpl-2.0 and post
 **おまけ（実際に効いた）**: McCoy 氏は同スレッドで、MPL-2.0 が免責と責任制限を**黄色で強調**して
 いるのは米国 UCC の「conspicuous」要件のためで、ASCII 版では ALL CAPS やアスタリスク列で
 代替されると述べている。**ACD-1.0 の §13.1 / §13.2 / §14.1 は既に ALL CAPS である**
-（`submission.md` §4c に実測として追加）。
+（`submission-reference.md` §4c に実測として追加）。
 
 ### 進行中の CALL FOR COMMENTS —— 4 つの問いが、すべて ACD には当たらない（2026-09-07〜08）
 
@@ -404,7 +404,7 @@ Chestek 氏・McCoy 氏・Berkus 氏と同じ列に。**ACD-1.0 への支持で�
    AI-MIT 2026 / Modified 0BSD 2026）。`comparison.md` §1.45 の結論が、別の年・別の instrument・
    別の批判者で再現し続けている。**ACD-1.0 が条件を持たないことは、この類型で唯一空いている道である。**
 2. **OSD への rationale を「先に自分から」出していないと、それ自体が非難される** ——
-   *"without even trying to address it with a convincing rationale"*。`submission.md` §3 / §3b が
+   *"without even trying to address it with a convincing rationale"*。`submission-reference.md` §3 / §3b が
    その位置にある（§3b は「審査者が逆を論じられる箇所」を我々の側から書く節）。
 3. **提出物は自己完結した全文でなければならない** —— 「他のライセンスに重ねて使う断片」は
    *automatically rejected* と述べられている。ACD-1.0 は単独で成立し、置換テキストも
@@ -457,7 +457,7 @@ ACD-1.0 にも宣言的・説明的な条項がある（§9.2 が「表明しな
 McCoy Smith 氏（2025-09-29）: MGB は MPL/GPL の特許文言を Apache 形の本文へ持ち込んでおり、
 *"the problem here was to try to use those predecessor licenses' language in a license
 (Apache-2.0) that doesn't formulate it that way"*。
-→ **ACD-1.0 は 6 件のライセンスと 8 語連鎖を 1 つも共有しない**（実測・`submission.md` §4c）。
+→ **ACD-1.0 は 6 件のライセンスと 8 語連鎖を 1 つも共有しない**（実測・`submission-reference.md` §4c）。
 
 ### 要求情報の欠落は、議論を遅らせるのではなく**成立させない**（2026-09-07・BOS スレッドで観測）
 
@@ -553,11 +553,11 @@ https://lists.opensource.org/pipermail/license-review_lists.opensource.org/<YYYY
 | 窓 | 得たもの | 反映先 |
 |---|---|---|
 | **2012-01〜04** | Bruce Perens 氏の「abandonment **OR** acquiescence, but not both」—— **fallback という形そのものへの反対**。§4.4 はこれが届かないように書かれている | `comparison.md` §1.4 |
-| **2020-03〜06**（**2026-09-08 に再読・論拠まで**）| License Review Committee の勧告本文。**加えて veto スレッド 49 通の論拠を初めて読んだ** —— Glaser 氏の「不明確でありライセンスの定義を満たさない」に対し、Chestek 氏の「**献呈が無効でも、列挙された許諾が抗弁になる**」が承認へ運んだ。**その読みは Unlicense の条文に無く、論証されたものである**（ACD §4.4 は条文にしている）。**§3.9 は「読了」としていたが、取り出していたのは結論 2 つだけだった** —— **「読了」と「論拠まで読んだ」は別である**。「dedication **taken alone** は承認されない」という**規則の出典**、および「lawyers **both US and non-US**」が一致したという決着の実体 | `submission.md` §1b / #2 #3 #7 |
+| **2020-03〜06**（**2026-09-08 に再読・論拠まで**）| License Review Committee の勧告本文。**加えて veto スレッド 49 通の論拠を初めて読んだ** —— Glaser 氏の「不明確でありライセンスの定義を満たさない」に対し、Chestek 氏の「**献呈が無効でも、列挙された許諾が抗弁になる**」が承認へ運んだ。**その読みは Unlicense の条文に無く、論証されたものである**（ACD §4.4 は条文にしている）。**§3.9 は「読了」としていたが、取り出していたのは結論 2 つだけだった** —— **「読了」と「論拠まで読んだ」は別である**。「dedication **taken alone** は承認されない」という**規則の出典**、および「lawyers **both US and non-US**」が一致したという決着の実体 | `submission-reference.md` §1b / #2 #3 #7 |
 | **2025-03** | 出力への notice 要件が「**a restriction or condition on mere use. That would not be open source**」（Simon Phipps 氏・個人資格）と問われ、Fontana 氏が編集器の喩えと **Kyle Mitchell 氏の先行提出**にも言及、提出者が「somewhat oversteps」と認めて削除された | `review-responses-clauses.md` §6.4 |
 | **2025-02** | ModelGo の**最初の提出**。提出は短いラベル付き header block で始まる（`Drafted By Lawyer` / `Approved or Used by Projects` 等）。**MG-BY-2.0 は採用ゼロで提出され 3 ラウンド審査された** —— 採用は **SPDX の基準**であって `license-review` のゲートではない | `submission.md` §A.0 / #4 |
 | **2026-07** | **まるごと 1 件の新規提出のレビュー**（BOS v1.0 → 同月 v1.2）。審査者の最初の 2 通が 「**テキストを添付せよ。動的に変わらない版が要る**」と「**process ページの項目を飛ばすな、特に法的レビュー**」。3 通目に「**your links are broken**」。Carlo Piana 氏の経験則「**25 年誰も思いつかなかったなら問題ではない —— 何か新しいことが起きていない限り（SaaS、extensive AI model usage 等）**」 | `submission.md` §A / #79 / `comparison.md` §1.38 / `REVISION-PROTOCOL.md` ゲート 7b |
-| **2026-08** | **OSD 9 の生きた読み方**（防御的終了条項自体が「restrictions」にあたりうる・Apache-2.0 の特許終了と GPLv2 非互換の歴史）。さらに**原理的な反対** ——「著作権侵害は copying を要する。**落ち度のない第三者に請求権を放棄させる**のは open source の原理に反する」 | `submission.md` §3b / #46 / `review-responses-clauses.md` §11 |
+| **2026-08** | **OSD 9 の生きた読み方**（防御的終了条項自体が「restrictions」にあたりうる・Apache-2.0 の特許終了と GPLv2 非互換の歴史）。さらに**原理的な反対** ——「著作権侵害は copying を要する。**落ち度のない第三者に請求権を放棄させる**のは open source の原理に反する」 | `submission-reference.md` §3b / #46 / `review-responses-clauses.md` §11 |
 | **2026-09** | オーナーの投稿 **4 通**（OpenMDW 2 / ModelGo 2。**うち 09-05 の 1 通はアーカイブに独立して存在せず、返信の引用の中にしか残っていない** —— `against.md` #91）、Mike Dolan 氏の「the trigger **is not designed to match the grant**」、Moming Duan 氏の hosted-only 解釈、**Shuji Sado 氏が我々の質問を引いて議論を進めた**、Ruby Anna 氏の "100% correct" 確認、BOS v1.3 の提出本文。**アーカイブ済み 22 通のうち steward は 3 通で最多タイ**（Fontana 氏・Dolan 氏と並ぶ）| 本書 §0.6 / `rounds/` 6 file / `AS-OF.md` |
 | **`license-discuss` 2026-07〜09**（**別のリスト**・2026-09-06） | **我々の投稿そのものが原典で確認できた** —— 2026-08-26 17:17 の 1 通、同題の後続 **0 通**、9 月は別スレッド 2 通のみ。ドシエが述べてきた「投稿し受理された・返信ゼロ」は**初めて一次資料で裏が取れた**。同時に **3 つの不利な事実**が出た: 送った本文は **5,778 語**でリポジトリに存在しなかった（#82）／**19 日前の同型の投稿（単独著者・非弁護士・PD 等価・採用ゼロ・license-review から差し戻し）には約 10 時間で 6 通の返信**が付いていた（#83）／Rob Landley 氏の「PD 等価は**代替可能**な唯一の類型で 0BSD が既にある。なぜもう一つ作る？」に答えが無い（#84）。**有利な確認も 3 つ**: 同スレッドで指摘された商標まで放棄する欠陥は ACD-1.0 には無い（§1.5 / §11.1・条文で確認）／**投稿の件名慣行**（`license-review` は `For Approval: <名前>`）に `submission.md` §B.0 が既に一致していた／**「`license-discuss` は承認の窓口ではない」を McCoy Smith 氏が 2026-08-04 にリスト上で明言**していたので、この主張が断言から出典付きへ変わった。さらに**代替説明が 1 つ潰れた** —— 同じアーカイブに「返信が spam に振り分けられていた」提出者がいる＝実在する失敗モードだが、**アーカイブが配信の記録**なので我々には当てはまらない | `rounds/2026-08-26-license-discuss-sent.txt` / #82 #83 #84 / `REVIEWERS.md` |
 
@@ -691,7 +691,7 @@ CC0 / Unlicense / 0BSD のどれも含まないので、**#87 の走査では原
 
 | 向こうの結果 | ACD 側で変えること |
 |---|---|
-| **承認された** | `comparison.md` §1.5 と `submission.md` §1a の「審査中」を「承認済み」へ。**より重要なのは「最も近い承認済みライセンス」の集合が変わる**こと —— OSI の必須比較対象に入るので、§1 の比較を書き直す。against.md #28 の status も動かす（proliferation の問いが一段厳しくなる） |
+| **承認された** | `comparison.md` §1.5 と `submission-reference.md` §1a の「審査中」を「承認済み」へ。**より重要なのは「最も近い承認済みライセンス」の集合が変わる**こと —— OSI の必須比較対象に入るので、§1 の比較を書き直す。against.md #28 の status も動かす（proliferation の問いが一段厳しくなる） |
 | **却下された** | **理由が ACD にも当たるかを 1 件ずつ見る。** 当たるものは against.md へ足す。**当たらないものを「向こう固有」として片付けない** —— 却下理由は分野全体の基準を示すことが多い |
 | **改訂された** | 差分を読み、**なぜ直したか**を見る。ACD の同じ箇所（notice / 特許報復 / 出力 / 蒸留）に同じ問題があれば errata へ |
 | **議論が長期化した** | 論点そのものを収穫する。**結論が出ていなくても、何が争点かは ACD の想定問答に効く** |

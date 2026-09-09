@@ -39,7 +39,7 @@ discussion-log にどの指摘がどの変更を導いたか記録）を固定�
 ## Change impact
 
 凍結が解けたら本書の手順に従い、E1 から順に適用して `FROZEN.md` の digest を再生成する。
-その際 `submission.md` §4c の測定値も再測定する（一度検証した性質は、そのまま真であり
+その際 `submission-reference.md` §4c の測定値も再測定する（一度検証した性質は、そのまま真であり
 続ける性質ではない）。
 
 ## Audience-specific notes
