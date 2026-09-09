@@ -424,8 +424,14 @@ _MUTATIONS_TAIL.append({
     # 次の増分で Check 362 が orphan として RED にする (本 mutation で実際に踏んだ)。
     # "All " を落として申告そのものを消す形にすると、face (g) の「申告が見つからない」
     # 枝を突ける —— 維持が面倒になった誰かが文ごと消す、という現実的な退行でもある。
-    "find": "**Read this first.** All ",
-    "replace": "**Read this first.** ",
+    # 2026-09-09 再アンカー (2 度目)。前の釘は "**Read this first.** All " で、#120 が
+    # その一文を書き換えた瞬間 orphan になった。**教訓は「数字を釘にするな」だけでは
+    # 足りない —— 説明文そのものが動く。** そこで今度は **Check 460 (g) が探す正規表現の
+    # 文字列そのもの**を釘にする: face (g) は `(\d+) worked entries, indexed by the question`
+    # を探すので、その語順を壊せば「申告が見つからない」枝が必ず発火する。
+    # **釘と検査対象が同一なので、検査が在る限り釘も在る。**
+    "find": "worked entries, indexed by the question",
+    "replace": "worked entries, listed by the question",
     "check": CHECK,
 })
 

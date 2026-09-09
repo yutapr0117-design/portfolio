@@ -21,7 +21,7 @@
 
 - **本文の状態**: **凍結中**（`LICENSES/FROZEN.md` の存在が凍結を意味し、Check 453 が 3 ファイルの sha256 を pin）。**欠陥を見つけても直さず errata へ記録する。**
 - **投稿先**: `license-discuss`（単一ソース = FROZEN.md の VENUE-DATA・Check 458 が全 status 面に強制）。**承認の窓口である `license-review` にも SPDX にも未提出。**
-- **自分で書いた不利な事実**: 119 件（`LICENSES/ACD-1.0.against.md`・不利なものを先に並べる）／**既知の欠陥**: 13 件（`ACD-1.0.errata.md`・全件未修正＝凍結中のため）。
+- **自分で書いた不利な事実**: 120 件（`LICENSES/ACD-1.0.against.md`・不利なものを先に並べる）／**既知の欠陥**: 13 件（`ACD-1.0.errata.md`・全件未修正＝凍結中のため）。
 - **審査者向けの入口**: https://yutapr0117-design.github.io/portfolio/LICENSES/REVIEWERS.md
 - **外部レビューの観測・手続き・期限**: `LICENSES/PEER-REVIEW-WATCH.md`（外部の日付はここが権威。STATUS には導出できない値を書かない）。
 
