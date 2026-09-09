@@ -84,6 +84,14 @@ courtesy — a discussion whose subject changes underneath it is not a review of
 
 全部 ✅ でなければ出さない。ひとつでも欠けたら、**出さない理由を discussion-log に書く**。
 
+**ゲート 0（2026-09-09 新設・他のすべてに先行する）。**
+**OSI Moderators は同日、両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と
+投稿し、両リストが「AI が自律的に参加しライセンスを起草する proof-of-concept」に使われていると
+述べた**（逐語は `rounds/`・分析は `against.md` #119 と `ACD-OSI-BOTTLENECKS.md` B14）。
+したがって **送信可否そのものがオーナーの判断事項**になった。**AI は送る文面を完成品として
+提示しない。** 併せて、更新されると予告された Code of Conduct の公開を確認すること
+（*"We'll share more details soon."*）。**開示（`submission.md` §E.1）を薄めて回避しない。**
+
 1. 受領全文が `rounds/` に無改変で入っている
 2. 指摘が 1 件残らず discussion-log に分解され、分類が付いている
 3. 反論する件は**根拠**が書いてある（「納得しなかった」だけにしない）
