@@ -123,8 +123,9 @@ def run(ctx):
         )
         check(
             not _missing142,
-            "Check 142: playwright-regression.yml paths filter は e2e ツールチェーン manifest "
-            "(package.json + package-lock.json) を含む (dep bump で behavior gate が再実行される)",
+            "Check 142 (142a/142b): playwright-regression.yml paths filter は e2e ツールチェーン "
+            "manifest (package.json + package-lock.json) と **この workflow 自身** を含む "
+            "(dep bump と gate 定義の変更のどちらでも behavior gate が再実行される)",
             f"Check 142: playwright-regression.yml の paths filter に {_missing142} が無い — "
             "e2e ツールチェーン (@playwright/test / @axe-core/playwright + transitive deps) の "
             "bump 時に BLOCKING behavior gate が skip され未検証で出荷される (file-exists≠file-wired "

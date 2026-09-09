@@ -523,7 +523,9 @@ def run(ctx):
 
             check(
                 not _bad444,
-                f"Check 444: ライセンス宣言が全機械可読面で整合 ({_spdx444} / {_rel444})",
+                f"Check 444 (444a rel=license / 444b JSON-LD / 444c manifest / 444d sitemap / "
+                f"444e llms / 444f runtime JSON-LD / 444g 記述子の到達性): "
+                f"ライセンス宣言が全機械可読面で整合 ({_spdx444} / {_rel444})",
                 (f"Check 444: ライセンス宣言の cross-surface drift: {_bad444}。"
                  "**ACD-1.0 §6.5 は「自動化システムが判定できない許諾は許諾ではない」と述べている** —— "
                  "どこか 1 面でも欠けると、その経路の agent は「学習してよいか」を判定できない。"
