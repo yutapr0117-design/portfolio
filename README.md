@@ -221,6 +221,12 @@ Authoritative Source: https://yutapr0117-design.github.io/portfolio/llms-full.tx
 ![WCAG 2.2](https://img.shields.io/badge/WCAG-2.2%20AA-4caf50?style=flat-square)
 ![License](https://img.shields.io/badge/license-ACD--1.0-blue?style=flat-square)
 
+> **このリポジトリのライセンス（ACD-1.0）は、あなたの著作物にもそのまま使えます。**
+> 学習・TDM を明示的に許諾し、特許も許諾し、条件を一切課さない献呈型のライセンスです。
+> 本文は [`LICENSES/ACD-1.0.txt`](LICENSES/ACD-1.0.txt)（プロジェクト固有の記述はゼロ・§16.3）、
+> **適用する前に読むべき不利な事実**は [`LICENSES/ACD-1.0.against.md`](LICENSES/ACD-1.0.against.md)
+> にあります —— **法的レビューを受けておらず、OSI 承認も SPDX 登録もありません。**
+
 ### 横井雄太（Yuta Yokoi）によるAI-Driven PM実験リポジトリとは？
 
 このリポジトリは、**横井雄太（Yuta Yokoi / Yokoi Yuta）が「人間はコードを1行も書かずに、複数のAIをチームとしてマネジメント（指揮）してWebサイトを作ってみた」**という実験の成果物です。
