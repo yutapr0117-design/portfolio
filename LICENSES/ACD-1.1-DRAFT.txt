@@ -49,7 +49,13 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       each other, and so do "Dedicator" and "Covered Rights". **E13 said one
       was irreducible; measuring the dependency graph shows two are.**
       The definitions themselves are unchanged; only their order and numbers.
-    * 1.0: 4,896 words, 82 clauses. This draft: 4,667 words, 77 clauses.
+    * Section 8.4 now says what it does not reach: claims that would be
+      infringed by a model or output produced without any use of the Work
+      (errata E15). The test is causation, not quantity -- a quantitative
+      threshold would be a condition, and Section 10.1 permits none. The gap
+      the Section exists to fill is untouched: a patent licence that reaches
+      models and outputs of computational use of the Work.
+    * 1.0: 4,896 words, 82 clauses. This draft: 4,742 words, 77 clauses.
 
   Still open in this draft, deliberately: E11 (Section 4.4, awaiting an answer
   from the list), E13 (the definition order), E15 (Section 8.4 has no
@@ -396,7 +402,13 @@ PREAMBLE (informative; not part of the operative terms)
        The proviso in Section 8.1 as to subject matter contained in the Work is
        deliberately absent from this Section: a model is not subject matter
        contained in the Work, so importing that proviso would restore the
-       exposure this Section exists to remove.
+       exposure this Section exists to remove. This Section reaches only claims
+       whose infringement depends upon the use of the Work; it does not licence
+       a claim that would be infringed by a model, parameter set, weight,
+       embedding, or output produced without any use of the Work. That is a
+       question of causation and not of quantity: no threshold of how much of
+       the Work was used is imposed, because such a threshold would be a
+       condition and Section 10.1 permits none.
 
   8.5  Sections 8.1 to 8.4 are subject to Section 2.7: they reach only patent
        claims the Dedicator owns or controls, and are neither a representation

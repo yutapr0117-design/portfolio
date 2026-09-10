@@ -69,6 +69,17 @@ canonical-ref: LICENSES/ACD-1.0.errata.md (欠陥の一次記録) / LICENSES/REV
 素の文字列置換では当たらず、**新 §1.5（Work）を指したまま通るところだった**（意味は Covered Rights）。
 **空白をまたぐ正規表現で付け替え、参照先を「番号」ではなく「定義された語」で照合して確かめた。**
 
+**第 5 段（同日）**: **E15 を閉じた** ——§8.4 に**因果の限定**を足した。
+*"This Section reaches only claims whose infringement depends upon the use of the Work; it does not
+licence a claim that would be infringed by a model … produced without any use of the Work.
+**That is a question of causation and not of quantity**: no threshold … would be a condition and
+Section 10.1 permits none."* **+75 語**（4,667 → **4,742**）。
+
+**B7 の取引を回避できた稀な例である。** register は「§8.4 を狭めれば gap（B10）が縮む」と
+記録していたが、**縮めたのは射程ではなく因果の外側**であり、**gap（モデルと出力に及ぶ特許許諾）は
+そのまま**残る。**量の閾値にしなかったのは、閾値は条件であり §10.1 が条件を許さないからである** ——
+**背骨を折らずに敵対的読解（極少量の混入で広い許諾を主張する）を閉じる置き方はこれしか無い。**
+
 **まだ入れていない**: E11（外部回答待ちなので触らない）/
 E15（§8.4 の程度の限定 ——**入れれば gap が縮む**ので設計判断）/ E16（§2.6 の opt-out の可視性）。
 
