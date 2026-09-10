@@ -541,6 +541,7 @@ machine can find are not present.
 | Section numbering is contiguous with no gaps | `grep -cE '^[0-9]+\. [A-Z]' LICENSES/ACD-1.0.txt` | 16 sections, numbered 1–16 |
 | Internal cross-references all resolve to a clause that exists | enforced in CI (Check 441b) | no dangling `§N.M` |
 | The text is pure ASCII | byte scan for values > 127 | **0** non-ASCII bytes |
+| **Every promise §B.0 makes about the repository resolves** | 2026-09-10 に手で掃引 —— 「in the repository」型の 4 つ（OSD 逐条 / 反対の読み方の対 / 比較 / 不利な事実の一覧）、本文の URL、backtick で名指しした 2 path（`FROZEN.md` / `REVIEWERS.md`）| **全部在る。****1 件は同日に自分で作って同日に直した** ——「The command is in the repository」と書いた時点で `measure_gap_claim.py` は無かった。**Check は作らない**: 失敗したのは path ではなく散文の約束で、backtick path を検査する gate はこの class を捕まえない ——**捕まえない gate は名前だけの gate** |
 | **The gap claim in §B.0 is reproducible** | `python3 .github/scripts/measure_gap_claim.py` —— SPDX の `isOsiApproved` 全件の本文を取得して主題語を数える | **149 件・4 語すべて 0 件、`output` が `patent` の 250 字以内に現れるものも 0 件**（2026-09-10・SPDX 3.28.0）。**script 自身が「語の不在は効果の不在ではない」を印字する** |
 | The authoritative language is stated in the text itself | `grep -n "authoritative language" LICENSES/ACD-1.0.txt` | §15.8 — English governs; translations are convenience only |
 | No project-specific or replaceable text | see §4b | 0 and 0 |
