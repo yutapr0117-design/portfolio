@@ -75,7 +75,7 @@ These are observations of other people's submissions and are the fastest-moving 
 
 | Fact | As of | Value |
 |---|---|---|
-| OpenMDW-1.1 | **2026-09-04** | First submission, still open; the August 2026 thread ran to roughly 90 messages among about a dozen participants |
+| OpenMDW-1.1 | **2026-09-04; re-measured 2026-09-10 15:25 JST** | First submission, still open. **August 2026: 86 messages. September to date: 19 more — 105 across the two months, 20 distinct participants.** The earlier figure of "roughly 90 among about a dozen" was **one measurement of a thread that is still running**; the direction of the error was to understate both. **ModelGo over the same window: 9 messages, 5 participants.** Re-measure before quoting either |
 | ModelGo MG0-2.0 / MG-BY-2.0 | **2026-09-04** | Third resubmission (Dec 2025); the author's follow-ups of Jan, May and Jul 2026 had gone unanswered |
 | Incumbent stewards' AI response | **2026-09-04** | FSF working on criteria for free ML applications, no GPLv4 announced; ASF publishing generative-tooling guidance, no licence amendment announced; CC0 unchanged since 2012 |
 | **The CC0 review record (2012)** | **2026-09-06 · read at source, including the withdrawal** | The objections, Bruce Perens' objection to the abandonment-plus-fallback structure, **and Creative Commons' own withdrawal message (2012-02-24)** are all quoted from license-review 2012-02. The withdrawal names exactly two grounds — estoppel and "on notice" — and states that the patent carve-out came from the **scientific data community** | license-review archive, 2012-February |
