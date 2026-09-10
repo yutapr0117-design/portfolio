@@ -55,7 +55,12 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       threshold would be a condition, and Section 10.1 permits none. The gap
       the Section exists to fill is untouched: a patent licence that reaches
       models and outputs of computational use of the Work.
-    * 1.0: 4,896 words, 82 clauses. This draft: 4,742 words, 77 clauses.
+    * Section 10.4's second sentence is qualified "in respect of the Work", like
+      every other clause in the no-condition mesh (errata E9: Sections 10.1,
+      10.5, 11.3 and 11.4 all carry such a qualifier and only this one did not,
+      which left it reading as a claim about the document rather than about the
+      permissions in the Work).
+    * 1.0: 4,896 words, 82 clauses. This draft: 4,747 words, 77 clauses.
 
   Still open in this draft, deliberately: E11 (Section 4.4, awaiting an answer
   from the list), E13 (the definition order), E15 (Section 8.4 has no
@@ -470,8 +475,9 @@ PREAMBLE (informative; not part of the operative terms)
        permission granted here.
 
   10.4 No permission granted by this Dedication terminates for any reason. This
-       Dedication contains no termination provision and no revival provision,
-       because it contains nothing that You could breach.
+       Dedication, in respect of the Work, contains no termination provision
+       and no revival provision, because it contains nothing that You could
+       breach.
 
   10.5 Section 16 concerns the text of this Dedication as a document, and not
        the Work. Nothing in Section 16 is a condition upon Your use of the
