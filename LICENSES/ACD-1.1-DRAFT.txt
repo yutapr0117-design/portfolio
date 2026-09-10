@@ -78,7 +78,14 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       pronouns were repaired at the same time: it said "They are not terms"
       after 1.0's Sections 16.4 and 16.5 had been merged into one -- a defect
       this draft introduced and this pass removed.
-    * 1.0: 4,896 words, 82 clauses. This draft: 4,858 words, 77 clauses.
+    * Section 16.3 says "to any work in which they hold rights", and names whose
+      permission is not needed: the authors of this Dedication (errata E2). The
+      1.0 wording -- "to any work, without permission from ... its authors" --
+      read as an invitation to apply the notice to somebody else's work, and
+      the person harmed by that is the downstream recipient who relies on the
+      signal. Section 2.7 already made the effect honest; this makes the
+      sentence say it.
+    * 1.0: 4,896 words, 82 clauses. This draft: 4,866 words, 77 clauses.
 
   Still open in this draft, deliberately: E11 (Section 4.4, awaiting an answer
   from the list), E13 (the definition order), E15 (Section 8.4 has no
@@ -644,10 +651,10 @@ PREAMBLE (informative; not part of the operative terms)
        terms apply in full whether or not a copy of this text accompanies the
        work.
 
-  16.3 This Dedication may be applied by anyone, to any work, without
-       permission from, notice to, or any relationship with its authors. It is
-       not specific to any project, person, organisation, jurisdiction, or
-       field of endeavour.
+  16.3 This Dedication may be applied by anyone, to any work in which they hold
+       rights, without permission from, notice to, or any relationship with the
+       authors of this Dedication. It is not specific to any project, person,
+       organisation, jurisdiction, or field of endeavour.
 
   16.4 The text of this Dedication may be copied and distributed verbatim by
        anyone, in any medium, for any purpose, without charge or permission. It
