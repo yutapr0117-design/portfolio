@@ -66,7 +66,12 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       that any right subsists, which is a claim about the law rather than about
       what the Dedicator will do -- and it sat oddly beside Section 9, which
       exists precisely so that nobody has to decide that question.
-    * 1.0: 4,896 words, 82 clauses. This draft: 4,774 words, 77 clauses.
+    * Section 11.1 now points forward to Section 10.5, so a reader who meets
+      "no right is granted in any name" before reaching Section 16 is not left
+      to reconcile it alone (errata E7: the reconciliation existed but sat
+      between the two clauses, so the order of reading decided whether it was
+      found).
+    * 1.0: 4,896 words, 82 clauses. This draft: 4,816 words, 77 clauses.
 
   Still open in this draft, deliberately: E11 (Section 4.4, awaiting an answer
   from the list), E13 (the definition order), E15 (Section 8.4 has no
@@ -497,7 +502,10 @@ PREAMBLE (informative; not part of the operative terms)
   11.1 This Dedication grants no right in any trademark, service mark, trade
        name, logo, or personal name of the Dedicator or of any other person.
        Nothing in this Section reduces a permission granted by Sections 3 to
-       10.
+       10. Where Section 16 speaks of the name and the identifier of this
+       Dedication, it speaks of the text of this Dedication as a document and
+       not of the Work, and it asks nothing of You in respect of the Work
+       (Section 10.5).
 
   11.2 Nominative reference is unaffected. You may state truthfully what the
        Work is, where it came from, and who made it, and You may name the
