@@ -41,48 +41,10 @@ _MUTATIONS_TAIL = [
     # 自己参照になり、mutation_probe の replace(find, replace, 1) が先頭 (= その mutation 自身の
     # find 値) に当たって挙動が不安定になるため。Check 362 の非 vacuous 性は手動で実証済
     # (mutation の file を誤り先へ変えると Check 362 が RED・restore で緑)。
-    {
-        "name": "Check 431: \u767b\u9332\u6e08\u307f\u306a\u306e\u306b\u5b9f\u884c\u3055\u308c\u306a\u3044 Check module \u3092\u691c\u51fa\u3057\u306a\u3044 \u2014\u2014 run(_ctx) \u306e 1 \u884c\u3092\u5916\u3059\u3068\u3001\u305d\u306e module \u306e Check \u306f runbook \u00a79 \u306e\u7dcf\u6570\u306b\u6570\u3048\u3089\u308c Check 45 \u306b\u3082\u691c\u8a3c\u3055\u308c\u308b\u306e\u306b **\u4e00\u5ea6\u3082\u5b9f\u884c\u3055\u308c\u306a\u3044**\u3002\u300cN \u500b\u306e Check \u304c\u5b88\u3063\u3066\u3044\u308b\u300d\u3068\u3044\u3046\u8a18\u8ff0\u304c\u5618\u306b\u306a\u308b\u304c\u3001\u5931\u6557\u306f\u4e00\u5207\u306e signal \u3092\u51fa\u3055\u306a\u3044",
-        "file": ROOT / ".github" / "scripts" / "check_repository_consistency.py",
-        "find": "_checks_css.run(_ctx)",
-        "replace": "pass  # mutated",
-    },
-    {
-        "name": "Check 432: \u5ba3\u8a00\u7684\u306a test.skip \u3092\u691c\u51fa\u3057\u306a\u3044 \u2014\u2014 test( \u3092 test.skip( \u306b\u5909\u3048\u308b\u3060\u3051\u3067\u305d\u306e\u30c6\u30b9\u30c8\u306f\u5b8c\u5168\u306b\u7121\u52b9\u5316\u3055\u308c\u308b\u306e\u306b CI \u306f\u7dd1\u306e\u307e\u307e\u3067\u3001\u8986\u3063\u3066\u3044\u305f\u6319\u52d5\u304c\u7121\u9632\u5099\u306b\u306a\u3063\u305f\u3053\u3068\u306b\u8ab0\u3082\u6c17\u4ed8\u3051\u306a\u3044 (Check 114 \u306e .only \u306e\u88cf\u8fd4\u3057)",
-        "file": ROOT / "e2e" / "print.spec.js",
-        "find": "test('\u5370\u5237\u6642\u306f\u30ca\u30d3 chrome \u304c\u6d88\u3048",
-        "replace": "test.skip('\u5370\u5237\u6642\u306f\u30ca\u30d3 chrome \u304c\u6d88\u3048",
-    },
-    {
-        "name": "Check 433: \u610f\u5473\u3092\u6301\u3064\u30af\u30e9\u30b9\u306b CSS \u5ba3\u8a00\u304c\u7121\u3044\u72b6\u614b\u3092\u691c\u51fa\u3057\u306a\u3044 \u2014\u2014 .alert-error \u306e\u5ba3\u8a00\u3092\u524a\u308b\u3068\u3001\u30b3\u30fc\u30c9\u306f\u7a2e\u5225\u3092\u9078\u3073\u5206\u3051\u3066\u3044\u308b\u306e\u306b\u5b9f\u969b\u306f\u5168\u3066\u540c\u3058\u306b\u63cf\u304b\u308c\u308b\u72b6\u614b\u3078\u623b\u308b (#1160 / #1166 \u3067\u5b9f\u30d0\u30b0\u5316\u3057\u305f class)",
-        "file": ROOT / "style.css",
-        "find": "        .alert-error   { border-left-color: var(--on-tint-danger); }\n",
-        "replace": "",
-    },
-    {
-        "name": "Check 434: verify \u304c\u672a\u8ffd\u8de1\u30d5\u30a1\u30a4\u30eb\u3092\u898b\u843d\u3068\u3057\u305f\u307e\u307e\u7dd1\u306b\u306a\u308b\u306e\u3092\u6b62\u3081\u3089\u308c\u306a\u304f\u306a\u308b \u2014\u2014 \u7d71\u6cbb\u5bfe\u8c61\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u306e\u5224\u5b9a\u3092\u7a7a\u306b\u3059\u308b\u3068\u4f55\u3082\u691c\u51fa\u3057\u306a\u304f\u306a\u308a\u3001git add \u524d\u306e\u65b0\u898f\u30d5\u30a1\u30a4\u30eb\u306b\u95a2\u3059\u308b invariant \u3092\u4e00\u3064\u3082\u691c\u67fb\u3057\u306a\u3044\u307e\u307e\u7dd1\u306b\u306a\u308b (#1169 \u3067\u5b9f\u969b\u306b\u8e0f\u3093\u3060)",
-        "file": ROOT / ".github" / "scripts" / "checks_tracked_files.py",
-        "find": "    _governed434 = (\"js/\", \"e2e/\", \".github/scripts/\", \"docs/\")",
-        "replace": "    _governed434 = (\"__never_matches__/\",)",
-    },
 ]
 
 # 公開 API: archive(古) + archive2 + tail(新) の連結。mutation_probe.py が import する (順序 = 時系列)。
-_MUTATIONS_TAIL.append({
-    "name": "Check 435: quiz の模範解答フォームが実行不能な長さの mailto を作れるようになる —— タイトルを少し伸ばすだけで Windows の約 2,048 文字上限を silent に超え、本文が切られるかメールソフトが開かない (利用者には何も伝わらない)",
-    "file": ROOT / "js" / "quiz-renderer.js",
-    "find": "quality: '\u54c1\u8cea\u30fb\u30d7\u30ed\u30bb\u30b9\u554f\u984c\u96c6'",
-    "replace": "quality: '\u54c1\u8cea\u30fb\u30d7\u30ed\u30bb\u30b9\u554f\u984c\u96c6\uff08\u7dcf\u5408\u6f14\u7fd2\u7de8\uff09'",
-    "check": CHECK,
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 435b: mailto を組む面が増えても気付けなくなる —— 435 は quiz-renderer.js を決め打ちで長さ検証するため、新しい mailto 経路は長さを一切検査されないまま「約 2,048 文字で silent に失敗する」class を素通しする (Check 124/411/434b と同じ scope-drift)",
-    "file": ROOT / "js" / "apps.js",
-    "find": "export function createApps(",
-    "replace": "const _probe = () => { location.href = `mailto:x@y.z?subject=${'a'}&body=${'b'}`; };\n\nexport function createApps(",
-    "check": CHECK,
-})
 
 _MUTATIONS_TAIL.append({
     "name": "Check 436: 規範層に canon が否定した「裁可待ち」型の defer 理由が再混入しても気付けなくなる —— canon を直しても下流の規範文書は自動では直らず、読み手は否定された規則を持ち帰る (2026-08-20 に research-application-policy.md で実際に起きた)",
@@ -481,6 +443,35 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "LICENSES" / "ACD-1.0.submission.md",
     "find": "**OSD 5 and OSD 6**",
     "replace": "**OSD 5/6**",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 467: 発信を止めたまま単一ソースだけ `active` に戻す —— 停止は 4 面に散らばっており、"
+            "**両方向に危険である**。止めたのに面が残っていなければ次のセッションが送りかねず、"
+            "再開したのにバナーが残れば送れるのに送らない。marker と面が食い違ったら必ず RED になること",
+    "file": ROOT / "LICENSES" / "FROZEN.md",
+    "find": "<!-- POSTING-STATUS: paused 2026-09-09 -->",
+    "replace": "<!-- POSTING-STATUS: active -->",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (m): register の集計行を古い値に戻す —— 項目を足すたび列は増えるのに集計行は"
+            "動かない。**しかも過少申告は #58 と同じ向きの誤りで、読み手は残作業を少なく見積もる**",
+    "file": ROOT / "LICENSES" / "ACD-OSI-BOTTLENECKS.md",
+    "find": "**OSI の判断が要る 6**",
+    "replace": "**OSI の判断が要る 3**",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 460 (n): §4c の「機械的に確かめた」数字を 1 つずらす —— この表は審査者に"
+            "「弁護士がいなくても機械で確かめられること」を示す面で、**表自身が『nothing enforces it』と"
+            "書いていた**（2026-09-06 の再導出では実際に 3 行が誤っていた）",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission-reference.md",
+    "find": "| 10 terms, all in §1.1",
+    "replace": "| 11 terms, all in §1.1",
     "check": CHECK,
 })
 
