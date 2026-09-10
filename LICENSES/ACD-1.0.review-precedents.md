@@ -537,3 +537,35 @@ Mehl 氏は B で通り、我々は A で通すしかない ——**そして A 
 - **「短くてよい」の証拠ではない。** 彼が短く書けるのは、**長く説明すべきことが無いから**である。
 - **彼の提出が承認される保証も無い**（本節は形の観測であって結果の予測ではない）。
 - **同日という一致は偶然である。** 1 件の同時代例から傾向を読まない（#109 の教訓）。
+
+## 1.67 委員会が実際に述べた「承認しない／受け入れる」規則の全数（2024-01〜2026-09）と、ACD-1.0 の当たり方
+
+**方法**: `license-review` の 2024-01〜2026-09（33 か月・804 通・111 スレッド）を取得し、
+**引用行を除いた本文**から `OSI will/does not approve` / `OSI will accept` / `OSI requires` /
+`cannot be approved` の形を全数抽出した。**名称検索ではなく形の全数列挙である**（#87 / #99 の
+「名前で数えると母集団を数えたことにならない」を避けるため）。**得られたのは 5 件**で、
+うち 4 件は Licensing Committee 委員長（Pamela Chestek 氏）の発言である。
+
+| # | 述べられた規則（逐語） | 出典 | ACD-1.0 の位置 |
+|---|---|---|---|
+| R1 | *"OSI **requires prior review by a lawyer** because there are things that a layman very likely cannot consider, not just to enrich lawyers (who mostly do this job **pro bono**, as we are doing now)"* | Carlo Piana 氏・2024-12-18・PBZC スレッド。**"in his own capacity" と自ら明記している** | **⚠ 我々に不利で、しかも既存の記述と食い違う。** B1 は委員長の *"recommended … not a blocker"*（同じ 2024-12 の PBZC スレッド）と Berkus 理事の同趣旨（2025-05）に依っている —— **同一スレッドの中で、2 人の OSI 関係者が期待値を別の言葉で述べている。** 我々の disposition は変えない（委員長は委員会として述べ、Piana 氏は個人の資格と明記している）が、**この逐語を B1 の隣に置かずに「recommended だ」とだけ書くのは、有利な側だけを引くことである** |
+| R2 | *"OSI will not approve licenses that are **not self-contained** because of the high likelihood that the added content will not comply with the OSD or OSAID"* | Chestek 氏・2025-02-14・MGB 1.0（annex を許す構造への指摘） | **通る。実測: ACD-1.0 本文に外部参照は 0 件**（`http` / `annex` / `available at` / `incorporated by reference` のいずれも 0）。**付属文書も、後から差し替わる余地もない** |
+| R3 | *"The OSI **will not approve a license that attempts to describe which claims are licensed and which are not by what type of rights the user is exercising** - they must be allowed to exercise them all"* | Chestek 氏・2025-02-14・MGB 1.0。MGB は特許許諾を「再現・派生に必要な範囲」に限っており、**ソフトウェアを実行するだけの人に許諾が届かない**ため OSD 6 違反と判断された | **当たらない。** §8.1 の限定は**行使する権利の種類**ではなく **Work との関係**である —— *"every patent claim … that would be infringed by making, having made, **using**, offering to sell, selling, importing, or otherwise transferring the Work"*。**"using" が入っているので、実行するだけの受領者にも届く**（MGB が落ちた当の点） |
+| R4 | *"The OSI **will accept** a patent grant that is limited to only the claims that are **necessarily infringed by the patentee's contribution** (alone or in combination with the preexisting software) and temporally limited to only what was granted at the time of the contribution"* | 同上（R3 の直後・**受け入れる形を名指しした唯一の発言**） | **この形に一致する。** §8.1 末尾は *"where the infringement is caused by subject matter contained in the Work as made available by the Dedicator"* ——**寄与によって必然的に侵害される請求項に限る**という同じ限定である。**ただし ACD は時点による限定を置いていない**（*"now or in future"*）—— これは受け入れ条件より**広い**方向の差であり、狭い方向の差ではない |
+| R5 | *"OSI will not approve licenses where the **title refers to a particular person, entity or software** or that have them 'hard coded' into the license (see **'Standard for New Licenses' para. 1**)"* | Chestek 氏・2026-04-18・CNPL-1.0（名称に "CompanioNation" を含むことへの指摘） | **通る。** 名称に人・団体・ソフトウェアの名は無く、**本文の固有名詞は 0 件・置換テキストも 0 件**（`submission.md` §4b の実測）。**B6 が扱っているのは別の懸念**（"Commons" が CC/ODC の house mark と衝突しうること）で、**この規則そのものには当たらない** |
+
+**同じ 2026-04-18 の CNPL への指摘には、規則の形をとっていないがもう 1 つ重要な点がある**:
+*"The license does not grant all the rights under copyright, at least under US law. US law also
+includes the right to **publicly perform and publicly display** … it is also **better practice not
+to define the grant by enumerating specific rights**, since those may be country-specific."*
+**ACD-1.0 はこの指摘の両方に対して逆側に立っている** —— §4.1 は列挙ではなく
+*"all Covered Rights in the Work for any purpose whatsoever"* という**範囲による許諾**で、
+§4.2 は *"includes, **without limitation**"* と明示したうえで
+**"publicly display, publicly perform" を実際に含んでいる**。
+
+**この節が意味すること（過大に読まないための注記）**: **R2 / R3 / R5 に「当たらない」ことは、
+承認されることを意味しない。** これらは**失格の形**であって合格の条件ではなく、我々の 2 大弱点
+（B1 法的レビュー・B2 実使用）はここでは 1 つも解消していない。**それでも記録する理由は 2 つ**
+——**(a)** これまでドシエは「我々は OSD に適合すると考える」という**自分の推論**を積んでおり、
+**委員会が実際に口にした規則に対して当てた記録が無かった**。**(b)** R1 は不利であり、
+**探して見つかったのが有利な 4 件だけだったのではないことを、同じ表の中で示す必要がある。**

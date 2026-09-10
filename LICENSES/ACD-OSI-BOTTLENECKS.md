@@ -574,6 +574,7 @@ a legal instrument"* ——これは **§4c を正面から指す**）。Josh Be
 |---|---|
 | **事実** | 上記 3 発言はアーカイブに在る。ACD-1.0 は弁護士未読・採用 1 件 |
 | **事実（逆向き・同じ重さで書く）** | Chestek 氏は PBZC 審査 (2024-12) で法的レビューを *"recommended"* かつ ***"not a blocker"*** と明言し、Berkus 氏も 2025-05 に同趣旨（**3 例**・§1.52）|
+| **⚠ その逆向きの、さらに逆向き（2026-09-11 に全数掃引で見つけた）** | **同じ PBZC スレッドの中で、Carlo Piana 氏が *"OSI **requires** prior review by a lawyer because there are things that a layman very likely cannot consider"* と述べている**（2024-12-18・ただし *"in his own capacity"* と自ら明記）。**つまり我々の「recommended, not a blocker」という土台は、同一スレッドの中で別の言葉と併存している。** disposition は変えない（委員長は委員会として述べている）が、**有利な 3 例だけを引いて不利な 1 例を落とせば、それは B1 についての記録ではなく B1 についての弁論になる。** 逐語と方法は `ACD-1.0.review-precedents.md` §1.67 R1 |
 | **推論** | **手続き上は要件ではないが、結果としてほぼ必要** ——両立する。要件でないことは、無いまま通ることを意味しない |
 | **予測（弱い・根拠を明記）** | 両枝を欠いたまま `license-review` へ出すと「撤回して助言を検討せよ」と言われうる。根拠は PBZC（2024-12・同日撤回）と 2024-09 の撤回勧奨の 2 例のみ |
 
