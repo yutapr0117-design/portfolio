@@ -920,4 +920,12 @@ probe は All 364 caught。** **そして同日夜、オーナーが「現行は
 **4,742 語 77 条 ——正味 −154 語にしかならない**（機構部 −302、正確さのため +148）——
 **長さは正確さと直接競合する**と register B3 に確定した。**Check 468 が草案を守る**
 （NOT IN FORCE の明示 / 純 ASCII / 参照の解決 / 申告語数の一致）。
+**そして 2026-09-10 夜、オーナーが moderator（Nick Vidal 氏）との off-list の往復を逐語で提供した** ——
+**公開通知の 2 日前（09-07）に、moderator は我々へ直接、ACD-1.0 を名指しして 5 問を送っていた**
+（*"Please reply directly to this message before making further submissions related to ACD-1.0"*）。
+**steward は 5 問すべてに答え、その返信への応答はまだ無い。** **前提条件は満たされたが、
+発信可否はオーナーと OSI の側にあり、`POSTING-STATUS` は `paused` のまま。**
+**🔴 齟齬が 1 件出た（#125）** ——§E.1 は *"I did not direct the drafting"*、返信は
+*"I was involved in determining the direction"*。**両立しうるが同じ主張ではない。**
+**steward 自身の役割についての開示を steward 抜きで調整しないので、黙って揃えず差し戻した。**
 **1.0 の本文は 1 文字も触っていない。**
