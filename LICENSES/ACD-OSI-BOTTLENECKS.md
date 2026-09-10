@@ -52,14 +52,20 @@ canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の本体) / LICENSES
 **#112 が記録したとおり、我々は数週間テキストを敵対的に読みながら、
 「名前そのもの」を一度も検査していなかった。** 0BSD の改名は `license-review` で 54 通を要している。
 
-**測定（SPDX License List 3.28.0・727 件・2026-09-10 に機械可読データで確認）**
+**⚠ この測定は新しくない。** `AS-OF.md` に **2026-09-09 付**で同じ測定が既に在り、
+**しかもそちらの方が詳しい**（最近似は `CAL-1.0` "Cryptographic Autonomy License" で語幹のみ共有、
+という事実をこちらは持っていなかった）。**本節が足したのは disposition であって測定ではない。**
+**「初めて検査した」と書きかけて、grep して取り下げた** —— #88 / #92 と同じ形
+（**「X はどこにも無い」と書く前に X を grep する**）。
+
+**測定（SPDX License List 3.28.0・727 件・`AS-OF.md` 2026-09-09 / 本増分で 2026-09-10 に再確認）**
 
 | 検査 | 結果 |
 |---|---|
 | `ACD` で始まる識別子 | **0 件。空いている** |
 | 名称に "Autonomous" を含むもの | **0 件** |
 | 名称に **"Commons"** を含むもの | **58 件 —— 内訳は Creative Commons 55 / Open Data Commons 3。例外なし** |
-| 名称に "Dedication" を含むもの | 2 件（`CC-PDDC` / **`PDDL-1.0` = *"Public Domain **Dedication & License**"***）|
+| 名称に "Dedication" を含むもの | 2 件（`CC-PDDC` / **`PDDL-1.0` = *"Public Domain **Dedication & License**"***）—— **ただしどちらも OSI 承認ではない**。**命名の先例ではあるが、承認の先例ではない** |
 
 **そこから出る 2 点**
 
@@ -73,6 +79,8 @@ canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の本体) / LICENSES
    名前そのものによって強められている。**
    **そして同じ表に、その解き方が載っている** —— PDDL は
    ***"Public Domain Dedication & License"*** と名乗る。
+   **ただし PDDL は OSI 承認ではない。使えるのは「名前でその対を表す前例が在る」ことまでで、
+   「その対が承認された」ことではない。**
 
 **最小の解消方法**: **1.0 は改名しない。** 凍結中であり、この名前で既に投稿され、
 識別子は `machine.json` / `spdx.xml` / `FROZEN.md` / Check 441・453 に pin されている。
