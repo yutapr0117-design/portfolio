@@ -66,7 +66,11 @@ def _pick_archive(stem="mutation_samples_e2e_archive", list_base="E2E_MUTATIONS_
                 '"""%s%d.py — rotate 先 (自動生成)。\n\n' % (stem, n)
                 + 'rotate_mutation_samples.py が受け皿の余裕を実測して選び、埋まったら次を起こす。\n'
                   '**新しい mutation は mutation_samples.py の tail へ足すこと** (ここは退避先)。\n"""\n'
-                  'from mutation_samples_common import ROOT\n\n'
+                  # **CHECK も import する。** consistency 側の entry は `"check": CHECK` を
+                  # 持つので、ROOT だけを import した受け皿へ退避すると **NameError で
+                  # mutation_samples 全体が import 不能になる** (2026-09-10 に実際に踏んだ)。
+                  # 受け皿は「どちらの側の entry も受け取りうる」ので両方を入れる。
+                  'from mutation_samples_common import ROOT, CHECK  # noqa: F401 (entry 内で参照)\n\n'
                 + "%s%d = [\n]\n" % (list_base, n),
                 encoding="utf-8",
             )
