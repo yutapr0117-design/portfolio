@@ -738,3 +738,49 @@ Bruce Perens 氏（2025-10-28）——licensed material を特定のファイル
 **(2) OSD 6 の著者が、その条項について直接語っている。**
 Perens 氏 *"I would consider any use restriction at all to be in contravention of the Fields of
 Endeavor clause. **I wrote that clause.**"* ——ACD-1.0 §4.3 / §10.1 は利用制限を一切持たない。
+
+## 1.69 終了トリガーの境界論争（2026-09・OpenMDW）—— ACD-1.0 は係争域の外に在る
+
+**2026-09 の `license-review` は、OpenMDW の終了条項をめぐって「どの種類の主張なら
+許諾を終了させてよいか」を論じている。** これは我々についての議論ではないが、
+**§8.2（報復条項ゼロ）が置かれている場所を、審査者自身の言葉で位置づけられる。**
+
+**Richard Fontana 氏（2026-09-01）** —— 論点そのものの定式化:
+> This is clearly one of the questions the OSI needs to resolve: is there something special about
+> copyright? Or is there something special about patent? … If a copyright trigger for license
+> termination … is okay in addition to a patent litigation trigger, **what about other kinds of
+> claims? Trademark infringement? Trade secret? What about claims concerning things having no
+> connection to the software (or model, etc.) being licensed?**
+
+**Joshua Gay 氏（2026-09-03・OSI Board Member）** —— 審査が何を問うべきかの分離:
+> Those are separate inquiries: **1.** Every restrictive condition can be characterized as the price
+> a licensor demands in exchange for use of its work. **2.** Open-source review must still determine
+> **whether imposing that price is consistent with the freedoms the license is supposed to carry to
+> users**.
+
+そして**特許許諾がなぜ要るか**についての説明:
+> A copyright license alone may not provide practical freedom to make, use, or distribute software
+> **because patents can independently prohibit those same activities**. … The patent grant closes
+> that gap.
+
+### ACD-1.0 への還元（3 点・いずれも条文で確かめた）
+
+1. **境界論争そのものが当たらない。** §8.2 は *"subject to no condition and are not terminable by
+   the Dedicator on any ground"*、*"This Dedication contains no patent retaliation provision, and
+   its absence is deliberate."* と述べる ——**どの種類の主張であれ終了しない**ので、
+   Fontana 氏の「では他の種類は？」という滑り坂に乗る面が無い。
+2. **Gay 氏の第 2 の問い（価格が自由と整合するか）は、我々には自明に満たされる** ——
+   **価格が無い**（§10.1 / §4.3）。**ただしこれは「承認される」という意味ではない**：
+   同じ検査を通ることと、承認に値することは別である。
+3. **Gay 氏の「特許許諾がなぜ要るか」の説明は、§8.3 が条文で述べていることと同じである** ——
+   *"software cannot be practised without practising whatever patent claims it embodies"*。
+   **#124（四隅）の基準で言えば、この理由は我々の場合は条文の中に在る。**
+
+### この節が establish しないこと
+
+- **これは我々についての議論ではない。** OpenMDW の終了条項についての論争であり、
+  **ACD-1.0 が承認されやすいことを示すものではない。**
+- **「係争域の外に在る」は有利にも不利にも読める** ——争点を持たないことは、
+  **審査者が労力を割く理由も持たないこと**でありうる（#116 / §1.60 の長さの議論と同じ向き）。
+- **引用は 2026-09-10 にアーカイブから取得した。スレッドは進行中であり、立場は動きうる。**
+
