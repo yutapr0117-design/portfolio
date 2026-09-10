@@ -663,3 +663,39 @@ category である** —— MIT-CMU は *"redundant"* と名指しされたう�
 **空欄を持つ様式**だったことを示している —— **ACD-1.0 は固有名詞 0・置換テキスト 0**
 （`submission.md` §4b）で、**採用に本文の編集を 1 箇所も要しない。** これは §4b が
 「提出者専用ではない」ために書かれた測定だが、**同時に「様式ではない」ことの測定でもある。**
+
+## 1.70 **新規ライセンスに適用される 8 つの基準**（原典・2026-09-11 取得）と、ACD-1.0 の当たり方
+
+**このドシエは、これを一度も条ごとに当てていなかった。** `review-process` ページは #77 で
+「提出時に何を出すか」のために読んだが、**同じページの「License approval standards」節、
+すなわち承認の基準そのものは、`Standard for New Licenses` という語で 1 度引用しただけだった**
+（R5・§1.67）。**逐語は以下**（`https://opensource.org/licenses/review-process` ——
+ページ自身が *"Last modified on March 13, 2024"* と述べている。2026-09-11 取得）。
+
+**⚠ 検出器の注意**: このページを最初に走査したとき「該当なし」と出た ——
+**`Standard for New Licenses` を大文字のまま探したが、ページ上の見出しは
+`Standard for new licenses` である。** 大小の 1 文字で「基準は存在しない」と読むところだった。
+
+| # | 逐語（*"In addition to meeting the Open Source Definition, the following standards apply to new licenses"*） | ACD-1.0 の位置 |
+|---|---|---|
+| 1 | *"The license must be **reusable**, meaning that it can be used by any licensor **without changing the terms** or **having the terms achieve a different result for a different licensor**"* | **前半は測ってある** —— 固有名詞 0・置換テキスト 0・採用に本文編集は不要（§4b）。**後半は我々が一度も検討していない** —— **§12（人格権）は法域によって効果が変わる**（放棄できる法域では放棄、できない法域では不行使の合意）。**これは条項が licensor を区別しているのではなく法が異なるのだが、「異なる licensor には異なる結果になる」と読まれうる。**（`against.md` #129）|
+| 2 | *"The license does not have terms that **structurally put the licensor in a more favored position** than any licensee"* | **当たらない方向に作ってある。** 受領者に条件は一切なく（§10.1）、Dedicator の側に義務がある（§5 の不行使の約束・§12・§2.6 の特定義務）。**licensor にだけ有利な留保は §11 の商標のみ**で、これは承認済みライセンスに広くある |
+| 3 | *"To the extent that any terms are **ambiguous, the ambiguity must not have a material effect** on the application of the license"* | **§15.1**（最も広い許諾を与えるように解釈する）と **§15.3**（起草者不利の解釈準則を排除しない —— 排除**しない**と明記）が、まさにこの基準に向けて書かれている |
+| 4 | *"The license must be **grammatically and syntactically clear** to a speaker of the language of the license"* | **我々の生きたリスク。** 非母語話者が起草し弁護士のレビューが無く、4,896 語ある（B3 / #116）。**否決された「起草が粗い」3 件はいずれも我々より短い**（§1.69）|
+| 5 | *"**Every possible variation** of the application of the license must meet the OSD"* | **条件が無いので変化の幅が小さい** —— 適用者は本文を編集せず、選択肢も持たない（§10.1 / §4b）|
+| 6 | *"It must be **possible to comply with the license on submission**"*（例として SSPL が挙がっている） | **義務が 1 つも無いので、遵守は自明に可能である。** この基準は ACD にとって最も安全な 1 行 |
+| 7 | *"The license must **fill a gap that currently existing licenses do not fill**"* | **gap の主張は任意ではなく要件だった。** B10 がこれに当たる。1 文の形は §B.0 と入口ページに置いた |
+| 8 | *"The text must be the **complete license**; overlays like Commons Clause and exceptions like ClassPath will not be approved in isolation"* | **通る。外部参照 0 件・付属文書なし**（§1.67 R2 と同じ測定）|
+
+**同じ節に、基準の外側から効く 2 文がある。どちらも我々に不利な向きである。**
+
+1. *"**Approval of a license with the same or similar terms in the past does not bind the OSI**
+   to approval of a newly submitted license."* ——**§1.69 で見つけた「MIT-CMU は *redundant* と
+   名指しされて承認された」を、そのままは押せない。** 重複が障害でないことは示すが、
+   **過去の承認は次の承認を拘束しない**と明文で述べられている。
+2. *"Members of the license-review list are highly skilled … **Their consensus that a license does
+   not ensure software freedom may, in some cases, be the justification for rejecting a license
+   even where they cannot identify a specific aspect of the OSD or the approval guidelines below
+   that is not met**."* ——**列挙された基準を全部通ることは、承認を意味しない。**
+   我々の証拠戦略（OSD 逐条・機械的検証・§1.67 の規則に当たらないこと）は**必要条件の側だけを
+   固めている**のであって、**十分条件は存在しない。**（`against.md` #130）
