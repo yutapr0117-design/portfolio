@@ -39,6 +39,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | **疑問から引く索引（審査者向け・英語）** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) |
 | **不利な事実の網羅（先に読ませる用・英語）** | [`ACD-1.0.against.md`](ACD-1.0.against.md) |
 | **既知の欠陥と、直さない理由（英語）** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) |
+| **次版の本文（草案）** | [`ACD-1.1-DRAFT.txt`](ACD-1.1-DRAFT.txt) —— **NOT IN FORCE / NOT SUBMITTED / NOT APPLIED**。7 件の記録済み欠陥を閉じてある。**条番号は §15 以降で 1.0 と異なる**ので、**1.0 を引くときは 1.0 の本文から**（対応表は changelist §0.5）|
 | **次版に反映するものの集約点** | [`ACD-1.1-CHANGELIST.md`](ACD-1.1-CHANGELIST.md) |
 | **改訂サイクルの手順（長期戦の骨格）** | [`REVISION-PROTOCOL.md`](REVISION-PROTOCOL.md) |
 | **盲点の探し方（どの次元をまだ測っていないか）** | [`BLIND-SPOTS.md`](BLIND-SPOTS.md) |
