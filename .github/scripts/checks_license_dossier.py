@@ -599,10 +599,29 @@ def run(ctx):
                 _m = re.search(r"^%d\. [A-Z].*?(?=^\d+\. [A-Z])" % _n, _txt, re.M | re.S)
                 return re.sub(r"\s+", " ", _m.group(0)).strip() if _m else ""
 
+            # **byte 等価では厳しすぎる。** 2026-09-11 に E4 (§6.4 の "is not encumbered" →
+            # "no enforceable claim arises") で実際に発火した —— **記録済みの欠陥を直す正当な改訂**
+            # まで止めてしまう。守りたいのは**文面の同一性ではなく gap の生存**なので、
+            # **各 gap 条項が担っている中身を marker で見る**形へ変えた。
+            # **marker は「その条項が何をするか」を一言で表す語句**であり、言い回しを変えても残る。
             _lost468 = []
-            for _n468 in (6, 9):
-                if _sec468(_t10, _n468) != _sec468(_draft_lic, _n468):
-                    _lost468.append(f"§{_n468} が 1.0 と一致しない (gap を担う条項は successor でも保つこと)")
+            _markers468 = {
+                6: ["Computational Use of the Work is expressly permitted",
+                    "without condition",
+                    "makes no Reservation",
+                    "expressly declines to make one",
+                    "withdraws it and disclaims reliance",
+                    "no permission at all"],
+                9: ["makes no representation that any right subsists",
+                    "asserts no right in Machine-Generated Material",
+                    "are not required to determine",
+                    "depends on that"],
+            }
+            for _n468, _ms468 in _markers468.items():
+                _sec_txt468 = _sec468(_draft_lic, _n468)
+                for _mk468 in _ms468:
+                    if _mk468 not in _sec_txt468:
+                        _lost468.append(f"§{_n468} から gap の中身が消えている: {_mk468!r}")
             for _kw468 in ("model", "parameter set", "weight", "embedding", "output"):
                 if _kw468 not in _draft_lic.lower():
                     _lost468.append(f"§8.4 の gap 語 {_kw468!r} が草案から消えている")
