@@ -541,6 +541,7 @@ machine can find are not present.
 | Section numbering is contiguous with no gaps | `grep -cE '^[0-9]+\. [A-Z]' LICENSES/ACD-1.0.txt` | 16 sections, numbered 1–16 |
 | Internal cross-references all resolve to a clause that exists | enforced in CI (Check 441b) | no dangling `§N.M` |
 | The text is pure ASCII | byte scan for values > 127 | **0** non-ASCII bytes |
+| **The gap claim in §B.0 is reproducible** | `python3 .github/scripts/measure_gap_claim.py` —— SPDX の `isOsiApproved` 全件の本文を取得して主題語を数える | **149 件・4 語すべて 0 件、`output` が `patent` の 250 字以内に現れるものも 0 件**（2026-09-10・SPDX 3.28.0）。**script 自身が「語の不在は効果の不在ではない」を印字する** |
 | The authoritative language is stated in the text itself | `grep -n "authoritative language" LICENSES/ACD-1.0.txt` | §15.8 — English governs; translations are convenience only |
 | No project-specific or replaceable text | see §4b | 0 and 0 |
 | **The warranty disclaimer and liability limitation are conspicuous** | `grep -n '^ *1[34]\.' LICENSES/ACD-1.0.txt` and read the case of the text | **§13.1, §13.2 and §14.1 are entirely upper-case.** This follows the convention McCoy Smith described on this list (2025-05-28): MPL-2.0 highlights those paragraphs in yellow to meet the US UCC requirement that such disclaimers be *conspicuous*, and plain-text renderings substitute capitals or rules of asterisks. §13.3 (no duty to maintain) and §14.2 (savings clause) are not capitalised because they are not themselves disclaimers. Measured 2026-09-08 |
