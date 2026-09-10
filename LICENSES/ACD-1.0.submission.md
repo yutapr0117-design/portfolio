@@ -130,7 +130,12 @@ Open Source Definition, and to say where the licence is used.
 > `FROZEN.md` の FREEZE-DATA に行を足す（置き換えない）/ **(2)** `generate_spdx_license_xml.py` で
 > XML を生成する（**Check 445a が本文からの再生成と byte 一致を強制するので、手で書く余地は無い**）/
 > **(3)** 本 §B.0 の header block・URL・語数申告を新版へ向ける（**Check 444 が cross-surface の
-> 一致を強制するので、片側だけ直すと落ちる**）。
+> 一致を強制するので、片側だけ直すと落ちる**）。**そして §4c の数値を再導出する** ——
+> 条数は **82 → 77** に変わり、clause pointer 数は新しい `machine.json` から数え直しになる。
+> **(4) 版に紐づく Check の対象を新版へ向ける。** **Check 460 face (n) は §4c を `ACD-1.0.txt` と
+> `ACD-1.0.machine.json` に対して照合し、Check 468 / 468d は `ACD-1.1-DRAFT.txt` を見ている** ——
+> **確定の瞬間に、前者は古い版を、後者は消えた file を指す。**
+> **CI が最も止まってほしくない日に止まるので、ここは確定作業の一部として先に書いておく。**
 > **どれも AI が実行できるが、「確定させる」判断はオーナーのものである。**
 
 > **🛑 送る前に読む（2026-09-09 追加）。** OSI Moderators が同日、両リストへ
