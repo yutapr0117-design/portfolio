@@ -31,7 +31,12 @@ ACD-1.1 — DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       and extends the naming restriction from the single identifier "ACD-1.0"
       to the family "ACD-N" / "ACD-N.N" (errata E14: in 1.0 a third party could
       publish a modified text as "ACD-1.1" without touching the wording).
-    * 1.0: 4,896 words, 82 clauses. This draft: 4,594 words, 77 clauses.
+    * Section 16.1's recommended notice no longer says "No rights are reserved
+      and no conditions are imposed" without qualification: it now says "no
+      rights in this work" and "no conditions ... in respect of it", and states
+      that trademarks are not granted (errata E3 and E12 — the same sentence
+      overclaimed at both ends, and Section 11.1 has always said otherwise).
+    * 1.0: 4,896 words, 82 clauses. This draft: 4,612 words, 77 clauses.
 
   Still open in this draft, deliberately: E11 (Section 4.4, awaiting an answer
   from the list), E13 (the definition order), E15 (Section 8.4 has no
@@ -568,9 +573,10 @@ PREAMBLE (informative; not part of the operative terms)
        the following form:
 
            This work is released under the Autonomous Commons Dedication 1.1
-           (ACD-1.1). No rights are reserved and no conditions are imposed.
-           Machine learning and text and data mining are expressly permitted,
-           and a patent licence is granted.
+           (ACD-1.1). No rights in this work are reserved and no conditions are
+           imposed in respect of it; trademarks and other rights in names are
+           not granted (Section 11). Machine learning and text and data mining
+           are expressly permitted, and a patent licence is granted.
            Full text: <location of this file>
            SPDX-License-Identifier: ACD-1.1
 
