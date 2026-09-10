@@ -59,7 +59,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-10 時点・19 ファイル）
+## いまの状態（2026-09-10 時点・20 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -78,6 +78,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-09-07 | `license-review` | 観測（2 通）| Licensing Committee 委員長が CALL FOR COMMENTS に対し**まず本文を要求**している |
 | 2026-09-08 | `license-review` | Moming Duan → 参照 | 上記への steward 回答。**背景資料として「Yokoi-san」を 2 度引用**（我々宛ではない）|
 | 2026-09-08 | `license-review` | Preston Maness → 観測 | OpenMDW への反対。**「AI モデルに関するあらゆるライセンス」への反対**として述べられている |
+| 2026-09-07 | **リスト外（off-list）** | **Nick Vidal → 受領 + 送信（往復）** | **moderator が ACD-1.0 を名指しして 5 問を出し、「ACD-1.0 に関する次の提出の前に直接返信せよ」と求めた。steward は 5 問すべてに答えた。****公開アーカイブには存在しない** —— 2026-09-10 に steward が逐語で提供したもので、**それがこの記録の唯一の根拠である** |
 | 2026-09-09 | `license-discuss` | **OSI Moderators → 観測** | **AI 生成投稿は拒否すると宣言し、両リストが「AI が自律的に参加しライセンスを起草する proof-of-concept」に使われていると名指ししている。名前は出ていない** |
 | 2026-09-09 | `license-review` | **OSI Moderators → 観測** | 同文（同日 09:58・両リストへ）|
 | 2026-09-09 | `license-discuss` | **Bruce Perens → 観測（上の通知への唯一の返信）** | **内容は他の投稿者の表示名についての一言のみ。誰を指した通知かは述べていない** |
