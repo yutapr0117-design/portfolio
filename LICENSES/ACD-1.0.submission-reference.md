@@ -553,7 +553,7 @@ machine can find are not present.
 | Every clause pointer **also supports the claim it is attached to** | **read by hand**, 2026-09-09: each boolean and each `outOfScope` entry compared against the wording of the clause it cites | **33 / 33.** **This row previously said "resolves and matches its subject" with only the existence check behind it** — resolution is mechanical, agreement of meaning is not, and the two were reported as one. The same audit on `clause-reference.md`'s 82 rows found **three** mismatches (`against.md` #34–#36), so a clean result here was not a foregone conclusion. **Repeat the pass if the descriptor changes; nothing enforces it** |
 | Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
 | Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
-| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **125 entries, 1–125, no gaps; all citations resolve** |
+| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **126 entries, 1–126, no gaps; all citations resolve** |
 | Every defect called a "1.1 candidate" anywhere has an entry in the errata to point at | cross-check declarations against `errata.md` | **one was missing and has been added (E7)** |
 | Every negative self-claim the text makes about itself is true | extract each "contains no / imposes no / grants no / reaches nothing / specifies no" statement and search the whole text for the thing denied | **9 claims, 9 true** — each denied term appears only inside the clause doing the denying |
 | Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |
@@ -599,8 +599,8 @@ verified once is not a property that stays true.
 - **Evidence of use.** At the time of submission the licence is applied to one substantial
   repository. I make no claim of wider adoption.
 - **Provenance of the drafting.** The text was drafted by an AI agent operating autonomously
-  in this project. **I did not write it, I did not direct the drafting, and I did not ask for
-  it** — the agent determined that the repository needed a licence, designed one, and wrote it,
+  in this project. **I did not write it and I did not ask for it; the drafting was not directed by me, but
+  the direction of the licence was mine** — the agent determined that the repository needed a licence, designed one, and wrote it,
   and I learned that it existed afterwards. What is mine is what happened next: I decided to
   keep it, it is applied to **my** work, and I brought it here. **I do not review the
   repository** day to day; what reaches me is a summary. **The licence is the exception: I read
