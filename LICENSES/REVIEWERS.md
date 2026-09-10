@@ -16,7 +16,13 @@ decide what is worth translating, and gives you the commands to check the claims
 - **What it is.** A dedication of copyright and neighbouring rights to the public, **plus a
   licence granted independently of it** (§4.4), for works meant to be learned from. One file,
   16 sections, no placeholders.
-- **The gap it claims.** No approved licence does these three together: expressly permits machine
+- **The gap it claims, in one sentence.** The approved licences that impose **no conditions**
+  (the Unlicense, 0BSD, MIT-0) say **nothing** about machine learning; the machine-learning
+  licences brought to this list have, so far, **added conditions**, and that is where each has run
+  into the OSD. **ACD-1.0 is the intersection** — no condition of any kind (§10.1), *and* explicit
+  about training, models and outputs (§6, §8.4, §9). **Both halves are checkable**: the string
+  measurement across all 149 approved texts is a command below; the other half is the text itself.
+- **The same gap, in detail.** No approved licence does these three together: expressly permits machine
   learning and text-and-data-mining and makes no reservation (§6); grants a patent licence that
   reaches **models and outputs** of computational use (§8.4); and makes your permissions
   independent of whether copyright subsists in machine-generated material at all (§9).
