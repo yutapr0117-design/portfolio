@@ -56,6 +56,15 @@ courtesy — a discussion whose subject changes underneath it is not a review of
 
 **決定（2026-09-04）**: 改訂は**上書きではなく併置**にする。
 
+> **実体化した（2026-09-10）。** オーナーが「現行は保持、次版を作って改善し続けるのは問題ない」と
+> 述べたので **`LICENSES/ACD-1.1-DRAFT.txt`** を置いた。**まだ `ACD-1.1.txt` ではない** ——
+> **草案は 1 行目で NOT IN FORCE / NOT SUBMITTED / NOT APPLIED を述べ、`FROZEN.md` にも
+> `LICENSE` にも AIO 層にも登録していない。** 下の手順（FREEZE-DATA に行を足す / `LICENSE` と
+> AIO を新版へ向ける）は、**版として確定するときに初めて行う。**
+> **いま在るのは「次版の作業場」であって「次版」ではない。**
+> 守っているのは **Check 468**（身分表明 / 純 ASCII / 参照の解決 / 申告語数の一致）と
+> **Check 468d**（**gap を担う §6 / §9 / §8.4 の射程語が失われないこと**）。
+
 - `LICENSES/ACD-1.0.txt` / `.spdx.xml` / `.machine.json` は**恒久的に凍結**する。list が読んだ
   テキストだからで、これが動くと過去の議論が何についてのものだったか分からなくなる。
 - 次版は `LICENSES/ACD-1.1.txt` などとして**新規に置く**。本文 §16.4 は改変版が
