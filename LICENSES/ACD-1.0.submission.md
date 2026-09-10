@@ -122,6 +122,17 @@ Open Source Definition, and to say where the licence is used.
 
 ### B.0 The message as it should actually be sent (**1048 words**, measured 2026-09-10)
 
+> **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
+> 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
+> **したがって提出対象は 1.0 ではなく、確定した次版になる。** 本 §B.0 の header block と URL は
+> **まだ 1.0 を指している** ——**それが誤りなのではなく、次版が確定していないからである。**
+> **確定させるのに必要なのは 3 手だけ**: **(1)** `ACD-1.1-DRAFT.txt` を `ACD-1.1.txt` として確定し
+> `FROZEN.md` の FREEZE-DATA に行を足す（置き換えない）/ **(2)** `generate_spdx_license_xml.py` で
+> XML を生成する（**Check 445a が本文からの再生成と byte 一致を強制するので、手で書く余地は無い**）/
+> **(3)** 本 §B.0 の header block・URL・語数申告を新版へ向ける（**Check 444 が cross-surface の
+> 一致を強制するので、片側だけ直すと落ちる**）。
+> **どれも AI が実行できるが、「確定させる」判断はオーナーのものである。**
+
 > **🛑 送る前に読む（2026-09-09 追加）。** OSI Moderators が同日、両リストへ
 > **「AI が全部または大半を書いたと疑われる投稿は拒否する」**と投稿し、両リストが
 > **「AI が自律的に参加しライセンスを起草する proof-of-concept」**に使われていると述べた
