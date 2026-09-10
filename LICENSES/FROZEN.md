@@ -25,6 +25,16 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結対象の本文) / LICENSES/REVISION-
 ```
 
 <!-- VENUE-DATA: license-discuss -->
+<!-- POSTING-STATUS: paused 2026-09-09 -->
+<!--
+  発信を止めているかどうかを宣言する**単一ソース**。値は `active` か `paused <YYYY-MM-DD>`。
+  2026-09-09 に OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は
+  拒否する」と投稿したため停止した (`ACD-1.0.against.md` #119 / `ACD-OSI-BOTTLENECKS.md` B14)。
+  **止めているのは発信だけで、テキストの正しさ・ドシエ・観測は続ける。**
+  再開はオーナーの判断であり、AI は送る文面を完成品として提示しない。
+  `generate_status.py` がこの値を読んで STATUS.md のライセンス節に出す ——
+  **オーナーの唯一の BLUF 面に、いま最も重い事実が映らないのを避けるため。**
+-->
 <!--
   現在の投稿先を宣言する**単一ソース**。Check 458 が、状態を述べる各ファイルがこの値と
   一致することを BLOCKING で強制する。venue が変わったら **ここを変えれば残りは CI が指す**。

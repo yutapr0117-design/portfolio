@@ -170,6 +170,18 @@ def build_status() -> str:
                          f"**欠陥を見つけても直さず errata へ記録する。**")
         lic_lines.append(f"- **投稿先**: `{venue}`（単一ソース = FROZEN.md の VENUE-DATA・Check 458 が全 status 面に強制）。"
                          f"**承認の窓口である `license-review` にも SPDX にも未提出。**")
+        # 発信を止めているか。**オーナーの唯一の BLUF 面に、いま最も重い事実が映らないのを避ける。**
+        # 単一ソースは FROZEN.md の POSTING-STATUS marker (値は `active` か `paused <YYYY-MM-DD>`)。
+        m_post = re.search(r"<!--\s*POSTING-STATUS:\s*(active|paused)(?:\s+(\d{4}-\d{2}-\d{2}))?\s*-->", frozen_txt)
+        if m_post and m_post.group(1) == "paused":
+            lic_lines.append(
+                f"- **発信の状態**: **停止中（{m_post.group(2) or '日付不明'}〜）**。"
+                f"2026-09-09 に OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と"
+                f"投稿したため（`ACD-1.0.against.md` #119 / `ACD-OSI-BOTTLENECKS.md` B14）。"
+                f"**止めているのは発信だけで、テキストの正しさ・ドシエ・観測は続いている。**"
+                f"**再開はオーナーの判断であり、AI は送る文面を完成品として提示しない。**")
+        elif m_post:
+            lic_lines.append("- **発信の状態**: 通常（`FROZEN.md` の POSTING-STATUS が `active`）。")
     else:
         lic_lines.append("- **本文の状態**: 凍結は解除されている（`LICENSES/FROZEN.md` が無い）。")
     against = _read("LICENSES/ACD-1.0.against.md")
