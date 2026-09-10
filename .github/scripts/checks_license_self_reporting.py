@@ -470,6 +470,30 @@ def run(ctx):
                 elif int(_m460n.group(1)) != _want460:
                     _bad460.append(f"{_lab460}: 申告 {_m460n.group(1)} / 実測 {_want460}")
 
+        # (o) **入口ページが register について述べる「最高 severity は N 件」が、register の表と一致すること。**
+        #   2026-09-10 に **同じ日のうちに 4 度**「数えられるものを、数える前に書いた」——
+        #   削減見積もり (42% 過大) / register の集計行 (3 対 6) / worked entries (215 対 219) /
+        #   入口の "two of the three heaviest" (実際は 4 件)。**最後のものだけが無検査だった**
+        #   ((m) は register 自身の集計行、(a)/(g) は件数の申告を見るが、**入口の散文は見ていない**)。
+        _bp460o = _L460 / "ACD-OSI-BOTTLENECKS.md"
+        _rv460o = _L460 / "REVIEWERS.md"
+        if _bp460o.exists() and _rv460o.exists():
+            _rows460o = re.findall(r"^\| \*\*B\d+\*\* \|[^|]*\|([^|]*)\|", _bp460o.read_text(encoding="utf-8"), re.M)
+            _top460o = sum(1 for _c in _rows460o if "最高" in _c)
+            _WORDS460o = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
+                          "seven": 7, "eight": 8, "nine": 9, "ten": 10}
+            _m460o = re.search(r"\*\*([a-z]+|\d+) are marked highest severity", _rv460o.read_text(encoding="utf-8"))
+            if not _m460o:
+                _bad460.append("REVIEWERS.md: register の最高 severity 件数の申告が見つからない "
+                               "(消して黙らせない。数を書くなら数えられる形で書く)")
+            else:
+                _raw460o = _m460o.group(1)
+                _decl460o = int(_raw460o) if _raw460o.isdigit() else _WORDS460o.get(_raw460o)
+                if _decl460o is None:
+                    _bad460.append(f"REVIEWERS.md: 件数の語 {_raw460o!r} を解釈できない")
+                elif _decl460o != _top460o:
+                    _bad460.append(f"REVIEWERS.md の最高 severity: 申告 {_raw460o} ({_decl460o}) / 実測 {_top460o}")
+
         check(
             not _bad460,
             f"Check 460: ドシエの自己申告件数が実測と一致 "
