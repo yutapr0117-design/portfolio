@@ -68,6 +68,27 @@ The dossier is written to be checked, not believed, and that applies to its own 
 | Adopters | **2026-09-05** | One: this repository | Any public search; we do not track adoption and would not know of others |
 | No AI-specific licence has been OSI-approved | **2026-09-04** | True at that date | OSI approved-licence list — **this is the claim most likely to change**, and if it does, `against.md` #33 improves rather than breaks |
 
+
+## 何が起きれば、この読みは誤りだったと分かるか（2026-09-10 新設）
+
+**この文書は「いつ測ったか」を書いてきたが、「いつまでに何が起きなければ読みが誤りだと分かるか」は
+1 行も書いていなかった**（`BLIND-SPOTS.md` が「まだ使っていない次元」として名指しした当のもの）。
+**反証条件を先に書かないと、どんな観測も後から自分に都合よく解釈できる。**
+
+| いま採っている読み | **これが起きたら誤りだった** | 期限の根拠 |
+|---|---|---|
+| **沈黙は欠陥の証拠ではない**（#109 / #117・返信ゼロは 24%）| **同じ窓に投稿した他の「pre-review を名乗る投稿」がすべて返信を得て、我々だけが 60 日を越えて沈黙したまま**であること。#117 はすでにこの方向を示しており、**次に 1 件でも同型の投稿が返信を得たら、読みは「沈黙は普通」から「我々に固有」へ動く** | サブクラスの実測（`PEER-REVIEW-WATCH.md`）|
+| **B14 は我々を名指ししていない**（#119）| **moderator が名指しする / 我々の投稿が実際に拒否される / 更新後の CoC が我々の運用形態を明示的に禁じる**、のいずれか | *"We'll share more details soon."*（通知本文）|
+| **gap は実在する**（B10・§6 / §8.4 / §9）| **同じ 3 点を持つライセンスが OSI に承認される**、または **審査者が「既存で埋まる」と具体的な条文を挙げて示す** —— **どちらも我々の主張を無効にする** | OpenMDW / ModelGo の審査（意見締切・理事会の日付は `PEER-REVIEW-WATCH.md` が権威）|
+| **献呈と許諾の並置は構造的に不能ではない**（B4）| **委員会がその理由だけで却下する**、または **Unlicense の先例が「legacy ゆえ」と明示的に切り離される** | 審査は最終提出から約 2 か月（McCoy 氏・2026-08-28）|
+| **長さは致命的ではない**（B3・4,896 語）| **提出後、長さだけを理由に engage されない**（委員長は 3,888 語と約 4,500 語で 2 度そうしている）| #116 |
+| **B1 は提出の産物である**（審査者は pro bono の弁護士）| **提出しても法的な指摘が 1 つも返らない**、または **「弁護士を通してから出直せ」で終わる**（PBZC 2024-12 はそう終わった）| §1.52 / §1.51 |
+
+**この表の使い方**: **観測が来たら、まずここを見る。** 「読みが当たっていた」と述べる前に、
+**その読みの反証条件が満たされていないことを確かめる。**
+**そして反証条件が満たされたら、記録を書き換えるのではなく、誤りだったと書き足す**
+（`REVISION-PROTOCOL.md` §2 —— 版ごとに不利な事実が短くなるなら、それは改善ではなく記録の消去）。
+
 ## Facts about other instruments
 
 These are observations of other people's submissions and are the fastest-moving statements here.
