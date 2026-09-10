@@ -54,7 +54,10 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        venue が 1 日で 2 度 drift した Check 458 と**同じ族**で、しかもこちらは**両方向に危険**である:
        止めたのに面が残っていなければ次のセッションが送りかねず、**再開したのにバナーが残れば
        送れるのに送らない**。marker が `paused` なら 3 面の marker 文字列の存在を、`active` なら
-       不在を強制する。**文言の質は見ない**（それは散文の判断である）。(BLOCKING)
+       不在を強制する。**文言の質は見ない**（それは散文の判断である）。**467b は同じ形を凍結に与える**
+       —— **凍結は一度だけ解除される**（オーナーが結果を伝えたときに `FROZEN.md` を削除する）ので、
+       その 1 回が面の掃き忘れの最も起きやすい瞬間である。`FROZEN.md` が無いのに「凍結中」と
+       述べている面が在れば RED。**凍結中は何も要求しない**（Check 453 が pin を守っている）。(BLOCKING)
 
   466. **審査者への案内が、表紙の先頭に在ること** (BLOCKING): 送った文面は GitHub リポジトリを
        指しているので `README.md` は審査者の入口である。その「どこから読めばよいか」の案内は
@@ -504,3 +507,28 @@ def run(ctx):
                  "単一ソースは FROZEN.md の POSTING-STATUS で、そこを変えれば残りは CI が指す"),
                 blocking=True,
             )
+
+    # ── 467b. 凍結が解除されたとき、面が「凍結中」と言い続けないこと (BLOCKING) ─────────────
+    #   **凍結は一度だけ解除される**（オーナーが結果を伝えたときに FROZEN.md を削除する）。
+    #   その 1 回が、面の掃き忘れが最も起きやすい瞬間である —— 「凍結中」と述べる面は
+    #   ドシエ・router・入口に散らばっており、**解除した本人が全部を覚えている前提**になっていた。
+    #   467 が発信について両方向を守るのと同じ形を、凍結について与える。
+    #   **凍結中は何も要求しない**（Check 453 が pin を守っており、面の記述は正しい）。
+    _frz467b = ROOT / "LICENSES" / "FROZEN.md"
+    if not _frz467b.exists():
+        _stale467b = []
+        for _p467b in sorted((ROOT / "LICENSES").glob("*.md")) + [ROOT / "CLAUDE.md", ROOT / "STATUS.md"]:
+            if not _p467b.exists():
+                continue
+            _t467b = _p467b.read_text(encoding="utf-8")
+            if "凍結中" in _t467b or "is **frozen**" in _t467b:
+                _stale467b.append(_p467b.relative_to(ROOT).as_posix())
+        check(
+            not _stale467b,
+            "Check 467b: 凍結解除後に「凍結中」と述べている面は無い",
+            (f"Check 467b: `FROZEN.md` が無い（＝凍結は解除された）のに、まだ「凍結中」と"
+             f"述べている面がある: {_stale467b}。**解除は一度だけ起こり、その 1 回が"
+             "掃き忘れの最も起きやすい瞬間である。** 面を直すか、解除が意図でないなら "
+             "FROZEN.md を復元せよ"),
+            blocking=True,
+        )
