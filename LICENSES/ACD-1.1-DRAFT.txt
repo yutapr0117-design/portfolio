@@ -60,7 +60,13 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       10.5, 11.3 and 11.4 all carry such a qualifier and only this one did not,
       which left it reading as a claim about the document rather than about the
       permissions in the Work).
-    * 1.0: 4,896 words, 82 clauses. This draft: 4,747 words, 77 clauses.
+    * Section 6.4 says "no enforceable claim arises" instead of "is not
+      encumbered", and adds that whether a right subsists in a model or output
+      is not decided here (errata E4). The old wording could be read as denying
+      that any right subsists, which is a claim about the law rather than about
+      what the Dedicator will do -- and it sat oddly beside Section 9, which
+      exists precisely so that nobody has to decide that question.
+    * 1.0: 4,896 words, 82 clauses. This draft: 4,774 words, 77 clauses.
 
   Still open in this draft, deliberately: E11 (Section 4.4, awaiting an answer
   from the list), E13 (the definition order), E15 (Section 8.4 has no
@@ -343,11 +349,13 @@ PREAMBLE (informative; not part of the operative terms)
        Dedication was applied, the Dedicator withdraws it and disclaims
        reliance on it, to the fullest extent the Dedicator is able.
 
-  6.4  No model, parameter set, weight, embedding, or output derived from
-       Computational Use of the Work is encumbered by this Dedication or by any
-       Covered Right of the Dedicator, and You owe nothing in respect of any of
-       them. Nothing in this Dedication requires You to license, disclose, or
-       attribute any such thing.
+  6.4  No enforceable claim arises against You, under this Dedication or under
+       any Covered Right of the Dedicator, in respect of a model, parameter
+       set, weight, embedding, or output derived from Computational Use of the
+       Work, and You owe nothing in respect of any of them. Whether a right
+       subsists in any such thing is not decided here and does not need to be
+       (Section 9). Nothing in this Dedication requires You to license,
+       disclose, or attribute any such thing.
 
   6.5  Section 6 states expressly what Sections 3 to 5 would in any event
        permit. It is stated expressly because silence on this subject has
