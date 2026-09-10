@@ -925,7 +925,12 @@ probe は All 364 caught。** **そして同日夜、オーナーが「現行は
 （*"Please reply directly to this message before making further submissions related to ACD-1.0"*）。
 **steward は 5 問すべてに答え、その返信への応答はまだ無い。** **前提条件は満たされたが、
 発信可否はオーナーと OSI の側にあり、`POSTING-STATUS` は `paused` のまま。**
-**🔴 齟齬が 1 件出た（#125）** ——§E.1 は *"I did not direct the drafting"*、返信は
-*"I was involved in determining the direction"*。**両立しうるが同じ主張ではない。**
-**steward 自身の役割についての開示を steward 抜きで調整しないので、黙って揃えず差し戻した。**
+**齟齬が 1 件出て、同日に解消した（#125）** ——§E.1 は *"I did not direct the drafting"* とだけ述べ、
+**steward が方向を決めたことに触れていなかった。** steward は **09-07 当日に返信し、そのまま答えていた**
+ので、**誤っていたのは返信ではなく我々の公開文（AI が書いた §E.1）**である。4 ファイルを
+*"…the drafting was not directed by me, **but the direction of the licence was mine**"* へ訂正。
+**開示は薄めていない ——欠けていた半分を足した。**
+**そして #126**: **通知（09-09）は、steward が 09-07 に否定した当のこと**
+（*"used as a proof-of-concept…"*）**を事実として述べており、通知は回答の後に出ている。**
+**(a) 我々についてでない / (b) 回答が採られなかった / (c) 独立に用意された、の 3 読みがあり選べない。**
 **1.0 の本文は 1 文字も触っていない。**
