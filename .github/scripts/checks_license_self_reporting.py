@@ -423,6 +423,53 @@ def run(ctx):
                         _bad460.append(
                             f"ACD-OSI-BOTTLENECKS.md の集計 {_label}: 申告 {_mm.group(1)} / 実測 {_want}")
 
+        # (n) **`submission-reference.md` §4c の「機械的に確かめた」欄が、いま現物と一致すること。**
+        #   §4c は審査者向けに「弁護士がいなくても機械で確かめられること」を数字で並べる表である。
+        #   **その表自身が「Repeat the pass if the descriptor changes; nothing enforces it」と
+        #   書いていた** —— つまり **drift しうると自認しながら、強制する層が無かった。**
+        #   実際 2026-09-06 の再導出では **3 行が誤っていた**（表の中にそう書いてある）。
+        #   ここで縛るのは**機械的に導出できる 5 つ**だけで、手読みの行（pointer が主張を支えるか等）は
+        #   対象にしない ——**機械で確かめられないものを機械が確かめたことにしない。**
+        _srp460 = _L460 / "ACD-1.0.submission-reference.md"
+        _txp460 = _L460 / "ACD-1.0.txt"
+        _mjp460 = _L460 / "ACD-1.0.machine.json"
+        if _srp460.exists() and _txp460.exists() and _mjp460.exists():
+            _lic460 = _txp460.read_text(encoding="utf-8")
+            _srt460 = _srp460.read_text(encoding="utf-8")
+            _terms460 = len(re.findall(r'^  \d+\.\d+\s+"[^"]+"\s+means', _lic460, re.M))
+            _cl460n = len(re.findall(r"^  \d+\.\d+\s", _lic460, re.M))
+            _sec460n = len(re.findall(r"^\d+\. [A-Z]", _lic460, re.M))
+            _nonascii460 = sum(1 for _b in _txp460.read_bytes() if _b > 127)
+            _ptr460 = []
+
+            def _walk460(_o):
+                if isinstance(_o, dict):
+                    for _k, _v in _o.items():
+                        if _k == "clause" and isinstance(_v, str):
+                            _ptr460.append(_v)
+                        else:
+                            _walk460(_v)
+                elif isinstance(_o, list):
+                    for _v in _o:
+                        _walk460(_v)
+
+            try:
+                _walk460(json.loads(_mjp460.read_text(encoding="utf-8")))
+            except Exception as _e460n:
+                _bad460.append(f"§4c: machine.json を parse できない: {_e460n}")
+            for _pat460, _want460, _lab460 in (
+                (r"\| (\d+) terms, all in §1\.1", _terms460, "§4c 定義語数"),
+                (r"\| (\d+) sections, numbered 1", _sec460n, "§4c 節数"),
+                (r"\| \*\*(\d+)\*\* non-ASCII bytes", _nonascii460, "§4c 非 ASCII バイト"),
+                (r"\*\*(\d+) / \d+\*\*, machine-checked", len(_ptr460), "§4c clause pointer 数"),
+                (r"\*\*(\d+) / \d+\*\*, no gaps either way", _cl460n, "§4c 条数"),
+            ):
+                _m460n = re.search(_pat460, _srt460)
+                if not _m460n:
+                    _bad460.append(f"{_lab460}: §4c の申告が見つからない (行を消して黙らせない)")
+                elif int(_m460n.group(1)) != _want460:
+                    _bad460.append(f"{_lab460}: 申告 {_m460n.group(1)} / 実測 {_want460}")
+
         check(
             not _bad460,
             f"Check 460: ドシエの自己申告件数が実測と一致 "
