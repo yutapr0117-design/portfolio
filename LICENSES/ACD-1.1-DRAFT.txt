@@ -1,4 +1,4 @@
-ACD-1.1 — DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
+ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
 
   This file is the successor text under construction. The licence that actually
   covers this repository is ACD-1.0, whose text is frozen and pinned by SHA-256
@@ -16,7 +16,7 @@ ACD-1.1 — DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       LICENSES/ACD-1.1-CHANGELIST.md. Nothing is changed here that is not
       recorded there.
 
-  Changes in this draft, relative to ACD-1.0 (first pass — machinery only):
+  Changes in this draft, relative to ACD-1.0 (first pass -- machinery only):
 
     * Section 2.2 absorbs the "silence does not revive anything" sentence that
       1.0 carried as Section 15.5.
@@ -34,9 +34,16 @@ ACD-1.1 — DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 16.1's recommended notice no longer says "No rights are reserved
       and no conditions are imposed" without qualification: it now says "no
       rights in this work" and "no conditions ... in respect of it", and states
-      that trademarks are not granted (errata E3 and E12 — the same sentence
+      that trademarks are not granted (errata E3 and E12 -- the same sentence
       overclaimed at both ends, and Section 11.1 has always said otherwise).
-    * 1.0: 4,896 words, 82 clauses. This draft: 4,612 words, 77 clauses.
+    * Section 2.6 no longer permits a silent opt-out. A contributor may still
+      keep a Contribution out of this Dedication, but the Dedicator undertakes
+      to identify that material in a form that travels with the Work (errata
+      E16: 1.0 let a carve-out leave no trace while Section 16.2 told readers
+      the terms "apply in full", and Section 6.5 says a permission an automated
+      system cannot determine is no permission at all). The undertaking binds
+      the Dedicator, not You.
+    * 1.0: 4,896 words, 82 clauses. This draft: 4,667 words, 77 clauses.
 
   Still open in this draft, deliberately: E11 (Section 4.4, awaiting an answer
   from the list), E13 (the definition order), E15 (Section 8.4 has no
@@ -178,7 +185,12 @@ PREAMBLE (informative; not part of the operative terms)
 
   2.6  A Contribution is submitted under this Dedication, and the person making
        it becomes a Dedicator as to that Contribution, unless they state
-       otherwise at the time of submission. No separate instrument, assignment,
+       otherwise at the time of submission. Where a person states otherwise,
+       the Dedicator will identify the material concerned in a form that
+       accompanies the Work, so that a person or an automated system reading
+       the Work can determine what this Dedication does not cover; this
+       undertaking binds the Dedicator and imposes nothing upon You, and
+       Section 6.5 states why it matters. No separate instrument, assignment,
        or agreement is required, and none may be required of them as a condition
        of the Contribution being accepted. Nothing in this Section obliges
        anyone to submit anything, or obliges the Dedicator to accept anything.
