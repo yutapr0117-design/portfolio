@@ -53,7 +53,11 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        NOT SUBMITTED / NOT APPLIED** を述べること、**(b)** 純 ASCII・節が連番・`Section N.M` の
        参照がすべて実在すること（**1.0 について §4c が測っている性質を、草案でも同じ形で保つ**）、
        **(c)** 冒頭が申告する語数・条数が実測と一致すること。**(c) が要るのは、本日 6 回
-       「数えられるものを、数える前に書いた」からである。** (BLOCKING)
+       「数えられるものを、数える前に書いた」からである。**
+       **468d は別の危険を見る** —— **この instrument が新規である理由は §6 / §8.4 / §9 の 3 点**
+       であり（register B10）、**次版で「短くする」圧力がかかったとき最初に削られうるのがここである。**
+       §6 と §9 は 1.0 と等価であること、§8.4 は射程語（model / parameter set / weight /
+       embedding / output）が残っていることを求める。**正当な改訂は止めず、静かな喪失だけを止める。** (BLOCKING)
 
   467. **発信を止めているかどうかの記録が単一ソースと一致すること** (BLOCKING): 2026-09-09 に
        OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と
@@ -578,6 +582,40 @@ def run(ctx):
                 _bad468.append(f"語数: 申告 {_dw468} / 実測 {_aw468}")
             if _dc468 != _ac468:
                 _bad468.append(f"条数: 申告 {_dc468} / 実測 {_ac468}")
+        # ── 468d. gap を担う条項が successor でも生き残っていること ──────────────────────
+        #   **この instrument が新規である理由は §6 / §8.4 / §9 の 3 点である** (register B10)。
+        #   **次版で「短くする」圧力がかかったとき、最初に削られうるのがここである** ——
+        #   実際 B3 の測定は「機構部だけを削る」と明記しているが、**明記は強制ではない。**
+        #   §6 と §9 は 1.0 と byte 等価 (空白正規化後) であることを求める。
+        #   **§8.4 は 2026-09-10 に因果の限定 (E15) を入れたので等価ではない** ——
+        #   代わりに **gap の核となる語** (model / parameter set / weight / embedding / output) が
+        #   すべて残っていることを見る。**正当な改訂を止めず、静かな喪失だけを止める。**
+        _10_468 = ROOT / "LICENSES" / "ACD-1.0.txt"
+        if _10_468.exists():
+            _t10 = _10_468.read_text(encoding="utf-8")
+            _draft_lic = _t468.split(_sep468, 1)[1] if _sep468 in _t468 else _t468
+
+            def _sec468(_txt, _n):
+                _m = re.search(r"^%d\. [A-Z].*?(?=^\d+\. [A-Z])" % _n, _txt, re.M | re.S)
+                return re.sub(r"\s+", " ", _m.group(0)).strip() if _m else ""
+
+            _lost468 = []
+            for _n468 in (6, 9):
+                if _sec468(_t10, _n468) != _sec468(_draft_lic, _n468):
+                    _lost468.append(f"§{_n468} が 1.0 と一致しない (gap を担う条項は successor でも保つこと)")
+            for _kw468 in ("model", "parameter set", "weight", "embedding", "output"):
+                if _kw468 not in _draft_lic.lower():
+                    _lost468.append(f"§8.4 の gap 語 {_kw468!r} が草案から消えている")
+            check(
+                not _lost468,
+                "Check 468d: gap を担う条項 (§6 / §9 / §8.4 の射程語) が successor でも生きている",
+                (f"Check 468d: 次版で gap が失われている: {_lost468}。**この instrument が新規である"
+                 "理由は §6 / §8.4 / §9 の 3 点であり、短くする圧力がかかったとき最初に削られうるのが"
+                 "ここである。** 意図的に変えるなら `ACD-1.1-CHANGELIST.md` に記録し、"
+                 "**register B10 の主張も同時に書き換えること**"),
+                blocking=True,
+            )
+
         check(
             not _bad468,
             f"Check 468: 次版草案が自分を述べ内部的に健全 ({len(_cl468)} 条 / {len(_lic468.split())} 語)",
