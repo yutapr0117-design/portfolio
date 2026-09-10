@@ -255,7 +255,7 @@ incumbents do not attempt it.**
 
 **Legal review: none.** No lawyer has drafted or read it. I state that plainly rather than let it
 be discovered. What can be shown without counsel is mechanical, and is checked in CI on every
-commit: contiguous clause numbering, resolution of every internal cross-reference, use of every
+pull request and on every push to the main branch: contiguous clause numbering, resolution of every internal cross-reference, use of every
 defined term, absence of the obligation-imposing constructions I enumerate, absence of the
 project-specific elements I enumerate — names, URLs, placeholder text — and pure-ASCII text.
 **Each is a floor rather than a proof**: an enumeration catches the forms it lists.
