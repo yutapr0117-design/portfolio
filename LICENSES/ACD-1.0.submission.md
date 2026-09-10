@@ -157,6 +157,15 @@ Open Source Definition, and to say where the licence is used.
 > **(3)** 本 §B.0 の header block・URL・語数申告を新版へ向ける（**Check 444 が cross-surface の
 > 一致を強制するので、片側だけ直すと落ちる**）。**そして §4c の数値を再導出する** ——
 > 条数は **82 → 77** に変わり、clause pointer 数は新しい `machine.json` から数え直しになる。
+> **(5) 新版をこのリポジトリへ適用する。** **適用しなければ、提出する版の利用者は 0 件になる。**
+> 現在 ACD-1.0 は root `LICENSE` を含む約 10 面（`llms.txt` / `llms-full.txt` /
+> `llms_well-known.txt` / `.well-known/*` / `index.html` の JSON-LD / `robots.txt` /
+> `sitemap.xml` / README バッジ）で宣言され、**Check 444 が cross-surface 一致を強制**している。
+> **1.0 の本文は動かない** —— 凍結は**本文の byte についての約束**であって、リポジトリが
+> どの版を適用するかの約束ではない。**B2（実使用 1 件）は我々の 2 大弱点の一つであり、
+> 経路の変更でそれを 1 → 0 にしてはならない。** AIO 編集なので `aio-guardian` を通し
+> digest を再生成する（C6）。
+>
 > **(4) 版に紐づく Check の対象を新版へ向ける。** **Check 460 face (n) は §4c を `ACD-1.0.txt` と
 > `ACD-1.0.machine.json` に対して照合し、Check 468 / 468d は `ACD-1.1-DRAFT.txt` を見ている** ——
 > **確定の瞬間に、前者は古い版を、後者は消えた file を指す。**
