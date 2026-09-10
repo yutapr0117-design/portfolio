@@ -602,9 +602,54 @@ to define the grant by enumerating specific rights**, since those may be country
    under German law"* ——**特定の法域で、既存の承認済みライセンスの特定の条項が効かない**、
    というそれだけである。**3 か月・約 14 通で決定に至っている。**
 
-**ACD-1.0 の輪郭は、承認された 2 件ではなく否決された 6 件の側に一致する** ——
+**⚠ この節の数（承認 2・否決 6）は、同じ日のうちに §1.69 で訂正された。** 検出器が理事会の告知文だけを見ており、**委員会の Rationale Document を読んでいなかった**。**正しくは承認 4・否決 8・「新規ではない」1 である。** 以下の読み（我々の輪郭が否決側に一致する）は**訂正後の数でも変わらない**（承認 4 件はいずれも既存テキストで、新規の道具は 1 件も無い）。
+
+**ACD-1.0 の輪郭は、承認された側ではなく否決された側に一致する** ——
 **新規・単独著者・非弁護士・採用 1 件**。**これは感想ではなく、上の表の読み方である**
 （`against.md` #128）。**同時に、gap の論の形は OSC と同型でもある** ——
 「既存の承認済みライセンスが、ある領域で効かない」。**違いは幅である**: OSC は 1 法域の 1 条項、
 ACD は ML/TDM・特許・機械生成物の 3 つを述べている。**この差は本文ではなく提出文で縮められる**
 （B13・入口の設計）—— **本文は凍結中で触れないが、gap を 1 文で言い切る形は提出文の側の仕事である。**
+
+## 1.69 §1.68 の数を訂正する —— 委員会の Rationale Document を読んでいなかった
+
+**§1.68 は同じ日のうちに誤りだと分かった。** 検出器が拾っていたのは**理事会の決定を告知する
+文面**（*"the Board voted"* / *"declined to accept"*）だけで、**委員会が list に投稿する
+Rationale Document**（*"Resolved that it is the opinion of the OSI that …"*）を見ていなかった。
+**同じ corpus に、決議は 11 件あった。** これは #87 / #99 と同じ形である ——
+**当て方を変えたら母集団が変わった。**
+
+**訂正後の全体（2024-01〜2026-09・決議と告知を合わせた）**:
+
+| 結果 | ライセンス | 分類・理由（逐語の要点） |
+|---|---|---|
+| **承認** | **MIT-CMU License**（2024-09） | **"Redundant with More Popular" category** ——*"a simple license that grants full rights … without any restrictions"* |
+| **承認** | **Los Alamos National Labs BSD-3 Variant**（2024-09） | **"Non-Reusable" category** ——*"a legacy license, already in use for a number of projects"* |
+| **承認** | **OSC License version 1**（2025-03） | **"International" category** —— MIT と同等で、**ドイツ法に合わせた免責**。弁護士が市の代理で提出 |
+| **承認** | **BSD-3-Clause-Open-MPI**（2025-07） | 機関・BSD 変種（告知のみ・rationale は corpus に無い） |
+| 否決 | Zeppelin Public License 1.0 | **起草が粗く解釈問題を生む**。"contribution" が未定義で OSD 9 に触れうる |
+| 否決 | Setup Tooling License 1.3 | 決議のみ（理由は corpus の抜粋範囲外） |
+| 否決 | Open Source Protection License | *"Adaptations should respect the original Work's integrity"* / *"align with the original Author's vision"* → **OSD 6**。*"No reviewer was in favor"* |
+| 否決 | Adversary Public License 1.0 | **MIT ＋ 7 つの追加条件** —— 条件として読むと**適用不能**になり複数の OSD に触れる |
+| 否決 | Berkeley Artistic License V5 | **全コメントが否定的**・解釈問題・**題名が誤認を招く**（Berkeley 由来でも Artistic 由来でもない） |
+| 否決 | Python Statistics Calculator License | **OSD 5**（経験ある開発者しか改変できない）と **OSD 6**（教育目的を差別） |
+| 否決 | Accountable Resolver License 1.0 | §4.6 の**利用制限**（プライバシー）→ **OSD 6**。加えて起草が粗い |
+| 新規でない | W3C Software and Document license 2023 | *"is not a new license"* —— サイト表記の修正で処理 |
+
+**否決の理由は 2 つの束に落ちる**: **(a) 条件・利用制限・差別**（OSPL / Adversary / PSCL /
+Accountable Resolver）と **(b) 起草の粗さと解釈問題**（Zeppelin / Berkeley Artistic /
+Accountable Resolver）。**題名の誤認**（Berkeley Artistic）が 1 件。
+
+**ACD-1.0 の当たり方**: **(a) には構造上あたらない** —— §10.1 が条件を一切持たないので、
+「条件として読むと適用不能」も「利用制限」も生じようがない。**(b) が我々の生きたリスクである**
+—— 4,896 語・弁護士のレビュー無しで、**否決された「起草が粗い」3 件はいずれも我々より短い**。
+**長さは明晰さと同じではないが、解釈問題は我々に最も起こりやすい失敗の形である。**
+**題名は誤認を招かない**（由来を主張していない）。
+
+**そして、この掘削でいちばん効く 1 件が出た。** **"Redundant with More Popular" は承認の
+category である** —— MIT-CMU は *"redundant"* と名指しされたうえで **2024 年に承認されている**。
+**つまり、既存と重複していることは承認の障害ではなく、棚の名前である。**
+これは **#84（Rob Landley 氏「PD 等価は代替可能な唯一の類型で 0BSD がある。なぜもう一つ？」）に
+対する、我々の推論ではない答え**である —— **リスト自身の運用が、重複を理由に落としていない。**
+（**過大に読まない**: 重複が障害でないことと、承認されることは別である。MIT-CMU は
+**既に広く使われている実テキスト**であり、我々は採用 1 件である。）
