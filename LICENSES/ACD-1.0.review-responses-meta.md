@@ -320,8 +320,8 @@ Check 458 が単一ソースと各 file の一致を強制する）、条件は�
 > **English (add to the disclosures):**
 >
 > - **Provenance of the drafting.** The text was drafted by an AI agent operating
->   autonomously in this project. **I did not write it, I did not direct the drafting, and
->   I did not ask for it** — the agent determined that the repository needed a licence,
+>   autonomously in this project. **I did not write it and I did not ask for it; the drafting was not directed by me, but the
+>   direction of the licence was mine** — the agent determined that the repository needed a licence,
 >   designed one, and wrote it, and I learned that it existed afterwards. What is mine is
 >   what happened next: I decided to keep it, it is applied to my work, and — on a
 >   recommendation that also came from an AI, not from me — I brought it here. **I do not
@@ -475,10 +475,11 @@ related to ACD-1.0**."* ——**返信済み。2026-09-10 時点でその返信�
   **可否の判断は steward と OSI の側にある**（`FROZEN.md` の `POSTING-STATUS` が単一ソース）。
 - **公開通知（09-09）が我々だけについてであること。** 通知は名前を出していない。
   **言えるのは「同じ問いを 2 日前に、直接、名指しで受けた」までである。**
-- **⚠ そして 3 番目の答えは、我々が公開している §E.1 と同じ文言ではない**
-  （§E.1 は *"I did not direct the drafting"*、返信は *"I was involved in determining the
-  direction"*）。**両立しうるが同じ主張ではないので、`against.md` #125 に記録し、
-  steward の回答を待っている。黙って揃えない。**
+- **✅ 3 番目の答えと §E.1 の食い違いは解消した（2026-09-10）。** §E.1 は
+  *"I did not direct the drafting"* とだけ述べ、**steward が方向を決めたことに触れていなかった。**
+  **誤っていたのは返信ではなく我々の公開文である**（§E.1 は AI が書いた）。
+  steward の確認を得て 4 ファイルを *"I did not write it and I did not ask for it; the drafting was
+  not directed by me, **but the direction of the licence was mine**"* へ直した（`against.md` #125）。
 
 ### Q33. バージョニングの仕組みが無い。「ACD-1.0 or later」と書けるのか
 

@@ -224,8 +224,8 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 >
 > No lawyer has reviewed this text. I say that first because it changes how the
 > rest should be read. **The text was drafted by an AI agent operating autonomously in
-> this project — I did not write it, I did not direct the drafting, and I did not ask
-> for it** (see the provenance disclosure; I learned the licence existed after the agent
+> this project — I did not write it and I did not ask for it; the drafting was not directed by me,
+> but the direction of the licence was mine** (see the provenance disclosure; I learned the licence existed after the agent
 > had written it; the suggestion to submit it for review also came from an AI, not from
 > me). **I do not review the repository** — what reaches me is a summary, not the files —
 > **but the licence is the exception: I read it in full and understood it before sending.**

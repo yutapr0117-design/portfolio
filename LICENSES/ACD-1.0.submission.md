@@ -367,8 +367,8 @@ If the thread is on `license-discuss`, say so plainly, and say what you want fro
 ### E.1 Provenance of the drafting
 
 - **Provenance of the drafting.** The text was drafted by an AI agent operating
-  autonomously in this project. **I did not write it, I did not direct the drafting, and
-  I did not ask for it** — the agent determined that the repository needed a licence,
+  autonomously in this project. **I did not write it and I did not ask for it; the drafting was not directed by me, but the
+  direction of the licence was mine** — the agent determined that the repository needed a licence,
   designed one, and wrote it, and I learned that it existed afterwards. What is mine is
   what happened next: I decided to keep it, it is applied to **my** work, and — on a
   recommendation that also came from an AI, not from me — I brought it here. **I do not
