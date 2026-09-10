@@ -45,6 +45,17 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        10 個の marker が §B.0 に存在することを機械強制する。**中身の質は検査しない**
        （それは散文の判断である）。守るのは「**項目が消えていないこと**」だけ。(BLOCKING)
 
+  467. **発信を止めているかどうかの記録が単一ソースと一致すること** (BLOCKING): 2026-09-09 に
+       OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と
+       投稿したため発信を止めた (`against.md` #119 / `ACD-OSI-BOTTLENECKS.md` B14)。
+       停止は **4 面**に書かれている —— 提出パケット §B.0 の停止バナー / 入口ページ `REVIEWERS.md`
+       の Status / `REVISION-PROTOCOL.md` のゲート 0 / `STATUS.md`（生成器が描画）。
+       **単一ソースは `FROZEN.md` の `POSTING-STATUS` marker**（`active` / `paused <YYYY-MM-DD>`）。
+       venue が 1 日で 2 度 drift した Check 458 と**同じ族**で、しかもこちらは**両方向に危険**である:
+       止めたのに面が残っていなければ次のセッションが送りかねず、**再開したのにバナーが残れば
+       送れるのに送らない**。marker が `paused` なら 3 面の marker 文字列の存在を、`active` なら
+       不在を強制する。**文言の質は見ない**（それは散文の判断である）。(BLOCKING)
+
   466. **審査者への案内が、表紙の先頭に在ること** (BLOCKING): 送った文面は GitHub リポジトリを
        指しているので `README.md` は審査者の入口である。その「どこから読めばよいか」の案内は
        2026-09-07 まで **11,024 文字・214 行下**にあり、手前は 30 秒要約・日本語の実績節・
@@ -455,3 +466,41 @@ def run(ctx):
              "下へ押さないこと"),
             blocking=True,
         )
+
+    # ── 467. 発信の停止が単一ソースと一致すること (BLOCKING) ──────────────────────────────
+    #   Check 458 (venue) と同じ族。**両方向に危険**なので両方向を検査する。
+    _fr467 = ROOT / "LICENSES" / "FROZEN.md"
+    if _fr467.exists():
+        _ft467 = _fr467.read_text(encoding="utf-8")
+        _m467 = re.search(r"<!--\s*POSTING-STATUS:\s*(active|paused)(?:\s+(\d{4}-\d{2}-\d{2}))?\s*-->",
+                          _ft467)
+        if not _m467:
+            check(False, "",
+                  "Check 467: FROZEN.md に POSTING-STATUS marker が無い "
+                  "(値は `active` か `paused <YYYY-MM-DD>`。発信を止めているかどうかは "
+                  "4 面に散らばるので単一ソースが要る)",
+                  blocking=True)
+        else:
+            _paused467 = _m467.group(1) == "paused"
+            _faces467 = (
+                ("LICENSES/ACD-1.0.submission.md", "🛑 送る前に読む", "提出パケット §B.0 の停止バナー"),
+                ("LICENSES/REVIEWERS.md", "Paused as of", "入口ページ REVIEWERS.md の Status"),
+                ("LICENSES/REVISION-PROTOCOL.md", "ゲート 0", "REVISION-PROTOCOL のゲート 0"),
+            )
+            _bad467 = []
+            for _rel467, _marker467, _label467 in _faces467:
+                _p467 = ROOT / _rel467
+                _present467 = _p467.exists() and _marker467 in _p467.read_text(encoding="utf-8")
+                if _paused467 and not _present467:
+                    _bad467.append(f"{_label467} に停止の記述が無い (marker: {_marker467!r})")
+                if (not _paused467) and _present467:
+                    _bad467.append(f"{_label467} に停止の記述が残っている (POSTING-STATUS は active)")
+            check(
+                not _bad467,
+                f"Check 467: 発信の状態 ({_m467.group(1)}) が 3 面と一致している",
+                (f"Check 467: 発信の状態が面と食い違っている: {_bad467}。"
+                 "**両方向に危険である** —— 止めたのに面が残っていなければ次のセッションが送りかねず、"
+                 "**再開したのにバナーが残れば送れるのに送らない**。"
+                 "単一ソースは FROZEN.md の POSTING-STATUS で、そこを変えれば残りは CI が指す"),
+                blocking=True,
+            )
