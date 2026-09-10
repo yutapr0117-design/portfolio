@@ -387,6 +387,42 @@ def run(ctx):
                     _bad460.append(f"errata.md: 件数の語 {_raw_l!r} を解釈できない")
                 elif _decl_l != _rows_l:
                     _bad460.append(f"errata.md の冒頭 件数申告: 申告 {_raw_l} ({_decl_l}) / 実測 {_rows_l}")
+        # (m) **`ACD-OSI-BOTTLENECKS.md` の集計行が、その上の表から導出できること。**
+        #   実測 (2026-09-10): 集計行は「OSI 判断依存 **3** (B4・B10・B11 の一部)」と述べ、
+        #   OSI 列に ○ が付いている行は **6** だった (B4/B5/B7/B10/B11/B14)。
+        #   **項目を足すたび列は増えるのに、集計行は最初に書いた数のまま動かない。**
+        #   しかも**過少**申告で、#58 / face (l) と同じ「開示量を小さく言う」向きである。
+        #   register は「今どこが詰まっているか」の単一 canonical なので、
+        #   **その要約が実態より小さいと、読み手は残作業を少なく見積もる。**
+        _bp460 = _L460 / "ACD-OSI-BOTTLENECKS.md"
+        if _bp460.exists():
+            _bt460 = _bp460.read_text(encoding="utf-8")
+            _rows_m = re.findall(r"^\| \*\*B\d+\*\* \|(.*)$", _bt460, re.M)
+            if not _rows_m:
+                _bad460.append("ACD-OSI-BOTTLENECKS.md: 索引の表が見つからない")
+            else:
+                # 各行の末尾 3 列が 人間 / 弁護士 / OSI
+                _need = {"人間": 0, "弁護士": 0, "OSI": 0}
+                for _r in _rows_m:
+                    _cols = [c.strip() for c in _r.split("|")]
+                    _cols = [c for c in _cols if c != ""]
+                    if len(_cols) >= 3:
+                        _h, _l, _o = _cols[-3], _cols[-2], _cols[-1]
+                        if "○" in _h: _need["人間"] += 1
+                        if "○" in _l: _need["弁護士"] += 1
+                        if "○" in _o: _need["OSI"] += 1
+                for _label, _pat in (("主要", r"主要\s*(\d+)"),
+                                     ("OSI", r"OSI の判断が要る\s*(\d+)"),
+                                     ("弁護士", r"弁護士が要る\s*(\d+)"),
+                                     ("人間", r"人間が要る\s*(\d+)")):
+                    _mm = re.search(_pat, _bt460)
+                    _want = len(_rows_m) if _label == "主要" else _need[_label]
+                    if not _mm:
+                        _bad460.append(f"ACD-OSI-BOTTLENECKS.md: 集計行に「{_label}」の申告が無い")
+                    elif int(_mm.group(1)) != _want:
+                        _bad460.append(
+                            f"ACD-OSI-BOTTLENECKS.md の集計 {_label}: 申告 {_mm.group(1)} / 実測 {_want}")
+
         check(
             not _bad460,
             f"Check 460: ドシエの自己申告件数が実測と一致 "
