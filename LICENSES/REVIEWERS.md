@@ -49,6 +49,8 @@ marked. What is our own decision is the SPDX timing: SPDX asks for substantial
 real-world use, this work has one adopter, and we are not submitting something that does not
 meet the stated bar.
 
+**A successor draft exists and is not in force.** `LICENSES/ACD-1.1-DRAFT.txt` closes seven of the recorded defects and says so in its own first line — **NOT IN FORCE, NOT SUBMITTED, NOT APPLIED TO THIS REPOSITORY**. It is mentioned here because you would find it anyway, and because the alternative reading — that we are quietly revising the text under discussion — is the one thing it must not be mistaken for. **The clause numbers differ from 1.0 after Section 15**, so a citation to 1.0 must use the 1.0 text. A CI check requires the draft to keep declaring what it is.
+
 The text is **frozen** while this is open. `LICENSES/FROZEN.md` exists to say so, and
 **Check 453 in CI pins the SHA-256 of three files** (`ACD-1.0.txt`, `ACD-1.0.spdx.xml`,
 `ACD-1.0.machine.json`) so that an accidental edit fails the build rather than silently changing
