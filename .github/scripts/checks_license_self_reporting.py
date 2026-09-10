@@ -494,6 +494,30 @@ def run(ctx):
                 elif _decl460o != _top460o:
                     _bad460.append(f"REVIEWERS.md の最高 severity: 申告 {_raw460o} ({_decl460o}) / 実測 {_top460o}")
 
+        # (p) **§B.0 の見出しが述べる語数が、その file に書いてある instrument で数え直したものと一致すること。**
+        #   §B.0 は **実際にメールへ貼られる文面**で、長さは B3（最重要 bottleneck の一つ）そのものである。
+        #   file 自身が instrument を明記している ——**`**Subject:**` の行から署名までの空白区切りトークン**。
+        #   **にもかかわらず、2026-09-11 に一段落を足したとき、申告 1048 は動かず何も落ちなかった**
+        #   （実測 1098）。**数の申告のうち、いちばん外へ出る面が無検査だった。**
+        _sb460p = _L460 / "ACD-1.0.submission.md"
+        if _sb460p.exists():
+            _t460p = _sb460p.read_text(encoding="utf-8")
+            _h460p = re.search(r"### B\.0 [^\n]*?\(\*\*([\d,]+) words\*\*", _t460p)
+            _s460p = [m.start() for m in re.finditer(r"(?m)^\*\*Subject:\*\*", _t460p)]
+            _e460p = _t460p.find("### B.1")
+            if not _h460p:
+                _bad460.append("submission.md: §B.0 の見出しに語数の申告が無い "
+                               "(消して黙らせない —— 長さは B3 そのものなので、数えられる形で書く)")
+            elif _s460p and _e460p > _s460p[0]:
+                _occ460p = [m.start() for m in re.finditer("Yuta Yokoi", _t460p[_s460p[0]:_e460p])]
+                if _occ460p:
+                    _end460p = _t460p.find("\n", _s460p[0] + _occ460p[-1])
+                    _n460p = len(re.findall(r"\S+", _t460p[_s460p[0]:_end460p]))
+                    _d460p = int(_h460p.group(1).replace(",", ""))
+                    if _d460p != _n460p:
+                        _bad460.append(f"submission.md §B.0 の語数: 申告 {_d460p} / 実測 {_n460p} "
+                                       "(instrument は file 自身が書いている: Subject 行から署名まで)")
+
         check(
             not _bad460,
             f"Check 460: ドシエの自己申告件数が実測と一致 "

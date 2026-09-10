@@ -145,7 +145,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1048 words**, measured 2026-09-10)
+### B.0 The message as it should actually be sent (**1098 words**, measured 2026-09-11)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -157,6 +157,10 @@ Open Source Definition, and to say where the licence is used.
 > **(3)** 本 §B.0 の header block・URL・語数申告を新版へ向ける（**Check 444 が cross-surface の
 > 一致を強制するので、片側だけ直すと落ちる**）。**そして §4c の数値を再導出する** ——
 > 条数は **82 → 77** に変わり、clause pointer 数は新しい `machine.json` から数え直しになる。
+> **(4) 版に紐づく Check の対象を新版へ向ける。** **Check 460 face (n) は §4c を `ACD-1.0.txt` と
+> `ACD-1.0.machine.json` に対して照合し、Check 468 / 468d は `ACD-1.1-DRAFT.txt` を見ている** ——
+> **確定の瞬間に、前者は古い版を、後者は消えた file を指す。**
+> **CI が最も止まってほしくない日に止まるので、ここは確定作業の一部として先に書いておく。**
 > **(5) 新版をこのリポジトリへ適用する。** **適用しなければ、提出する版の利用者は 0 件になる。**
 > 現在 ACD-1.0 は root `LICENSE` を含む約 10 面（`llms.txt` / `llms-full.txt` /
 > `llms_well-known.txt` / `.well-known/*` / `index.html` の JSON-LD / `robots.txt` /
@@ -166,10 +170,6 @@ Open Source Definition, and to say where the licence is used.
 > 経路の変更でそれを 1 → 0 にしてはならない。** AIO 編集なので `aio-guardian` を通し
 > digest を再生成する（C6）。
 >
-> **(4) 版に紐づく Check の対象を新版へ向ける。** **Check 460 face (n) は §4c を `ACD-1.0.txt` と
-> `ACD-1.0.machine.json` に対して照合し、Check 468 / 468d は `ACD-1.1-DRAFT.txt` を見ている** ——
-> **確定の瞬間に、前者は古い版を、後者は消えた file を指す。**
-> **CI が最も止まってほしくない日に止まるので、ここは確定作業の一部として先に書いておく。**
 > **どれも AI が実行できるが、「確定させる」判断はオーナーのものである。**
 
 > **🛑 送る前に読む（2026-09-09 追加）。** OSI Moderators が同日、両リストへ
@@ -201,7 +201,9 @@ argument which had to be argued on this list to save the Unlicense in 2020
 (`review-precedents.md` §1.57); **971** on 2026-09-09, when a second gap was added to the same
 paragraph — moral rights, which the chairman of Open Source Group Japan argued on this list in 2024
 leaves licences that speak only of copyright unable to guarantee modification in Japan
-(`review-precedents.md` §1.59).; and **1,048** on 2026-09-10, when the gap paragraph stopped asserting that no approved licence does these things and started **stating the measurement** —— all 149 OSI-approved texts searched, four strings at zero （**+77 語。長さは B3 の争点であり、足すたびに理由を書く**）
+(`review-precedents.md` §1.59).; **1,048** on 2026-09-10, when the gap paragraph stopped asserting that no approved licence does these things and started **stating the measurement** —— all 149 OSI-approved texts searched, four strings at zero （**+77 語。長さは B3 の争点であり、足すたびに理由を書く**）
+
+**And 1,098 on 2026-09-11**, when the gap paragraph gained **a one-sentence form before the detail**. The reason is a precedent rather than a preference: **the only new licence approved in 33 months whose submitter was an individual** — the OSC License, a lawyer submitting for the city of Solingen — **stated its gap in one sentence** (*"the versatile MIT license does not contain a limitation of liability that is effective under German law"*) and reached a decision in three months (`review-precedents.md` §1.68). **Ours named three areas before it named one.**
 
 **Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
 move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
@@ -261,7 +263,11 @@ or what You use the Work for, so no person, group or field of endeavour is exclu
 distributed alongside it). A criterion-by-criterion analysis of all ten is in the repository, and so
 is a companion section setting out, for each, **where a reviewer could argue the opposite**.
 
-**The gap.** ACD-1.0 is written for works meant to be learned from. It does three things no
+**The gap.** In one sentence: the approved licences that impose no conditions say nothing about
+machine learning, and the machine-learning licences brought to this list have so far added
+conditions; ACD-1.0 is the intersection — no condition of any kind (§10.1), and explicit about
+training, models and outputs (§6, §8.4, §9). **In detail**, ACD-1.0 is written for works meant
+to be learned from. It does three things no
 approved licence does together: it expressly permits machine learning and text-and-data-mining and
 declines to make any reservation (§6); it grants a patent licence that reaches models and outputs
 of computational use (§8.4); and it makes the recipient's permissions independent of whether
