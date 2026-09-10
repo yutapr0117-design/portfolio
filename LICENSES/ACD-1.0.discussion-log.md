@@ -7,6 +7,9 @@ canonical-ref: LICENSES/ACD-1.0.submission.md (提出パケット・§B が lice
 
 # ACD-1.0 — 議論ログ（license-discuss → license-review の橋渡し）
 
+> **発信は 2026-09-09 から停止している。** OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と投稿したため（`ACD-1.0.against.md` #119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）。**単一ソースは `FROZEN.md` の `POSTING-STATUS` marker**で、**Check 467 が 4 面と両方向で照合する。**
+
+
 ```
 現在の venue : LICENSES/FROZEN.md の VENUE-DATA marker が単一ソース (Check 458 が整合を強制)
 本書の役割   : license-discuss で実際に何を言われ、それにどう答え、何が変わったかの記録

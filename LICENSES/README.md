@@ -7,6 +7,9 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 
 # LICENSES/ — 何がどこにあるか
 
+> **発信は 2026-09-09 から停止している。** OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と投稿したため（`ACD-1.0.against.md` #119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）。**単一ソースは `FROZEN.md` の `POSTING-STATUS` marker**で、**Check 467 が 4 面と両方向で照合する。**
+
+
 > **Reviewing ACD-1.0 and cannot read Japanese?** Start at
 > **[`REVIEWERS.md`](REVIEWERS.md)** — it is in English, states the submission status, says which
 > documents are already in English, and gives the commands to verify every claim made here.

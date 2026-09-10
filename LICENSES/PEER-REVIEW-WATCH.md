@@ -7,6 +7,9 @@ canonical-ref: LICENSES/ACD-1.0.comparison.md §1.5 (比較の本体) / LICENSES
 
 # 同時代 instrument の経過観察（OpenMDW / ModelGo）
 
+> **発信は 2026-09-09 から停止している。** OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と投稿したため（`ACD-1.0.against.md` #119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）。**単一ソースは `FROZEN.md` の `POSTING-STATUS` marker**で、**Check 467 が 4 面と両方向で照合する。**
+
+
 **方針（2026-09-04 オーナー）**: OpenMDW と ModelGo も長期戦になるので、**日数を空けながら
 経過を見て**、議論・改訂・レビュー結果から ACD に役立つものがあれば自然に取り込む。
 頻度とやり方は委任。
