@@ -51,7 +51,7 @@
     {
       "path": "AI2AI.md",
       "role": "AI-to-AI implementation handoff",
-      "sha256": "e66e9877e55c9035e6747ad54eec4cce6c264069bc7636f066fdfaf0e9c98950"
+      "sha256": "2dcaac334c6ba66e3406c3eca3e6d6defe82deaee0da60e6f6ec0cba1b2bc0ff"
     },
     {
       "path": "yuta-yokoi-ai-pm-orchestration-system.webp",
@@ -105,7 +105,7 @@
       "sha256": "8b919cc6aecfc80935161cc40c298eb0150cb24a8d021bd2d95716cf7677e3b9"
     }
   ],
-  "generated_at": "2026-09-10T05:51:22Z",
+  "generated_at": "2026-09-10T08:28:30Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
