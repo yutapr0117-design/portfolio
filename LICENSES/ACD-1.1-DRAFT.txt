@@ -71,7 +71,14 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       to reconcile it alone (errata E7: the reconciliation existed but sat
       between the two clauses, so the order of reading decided whether it was
       found).
-    * 1.0: 4,896 words, 82 clauses. This draft: 4,816 words, 77 clauses.
+    * Section 16.4 says that a faithful machine-readable re-encoding is not a
+      modified text (errata E8: the SPDX XML that registration requires carries
+      the name and the identifier while reflowing every clause, so the clause
+      as drafted forbade the artifact the process asks for). Section 16.5's
+      pronouns were repaired at the same time: it said "They are not terms"
+      after 1.0's Sections 16.4 and 16.5 had been merged into one — a defect
+      this draft introduced and this pass removed.
+    * 1.0: 4,896 words, 82 clauses. This draft: 4,858 words, 77 clauses.
 
   Still open in this draft, deliberately: E11 (Section 4.4, awaiting an answer
   from the list), E13 (the definition order), E15 (Section 8.4 has no
@@ -653,10 +660,13 @@ PREAMBLE (informative; not part of the operative terms)
        identifier if it is identified as a translation and states that the
        English text prevails (Section 15.4); that proviso is a condition upon
        distributing the translated text, not upon any use of the Work
-       (Section 10.5).
+       (Section 10.5). A re-encoding of the text into a machine-readable form
+       is likewise not a modified text for this purpose, provided the words are
+       unchanged and the form is identified as a re-encoding; differences of
+       line breaking, indentation, or markup are not modifications.
 
-  16.5 Section 16.4 governs the text of this Dedication as a document.
-       They are not terms of the Work, they bind no recipient of the Work, and
+  16.5 Section 16.4 governs the text of this Dedication as a document. It is
+       not a term of the Work, it binds no recipient of the Work, and
        Section 10.5 applies.
 
 
