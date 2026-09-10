@@ -45,6 +45,16 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        10 個の marker が §B.0 に存在することを機械強制する。**中身の質は検査しない**
        （それは散文の判断である）。守るのは「**項目が消えていないこと**」だけ。(BLOCKING)
 
+  468. **次版の草案が、自分が何であるかを述べ、内部的に健全であること** (BLOCKING): 2026-09-10 に
+       オーナーが「現行は保持、次版を作って改善し続けるのは問題ない」と述べたので
+       `LICENSES/ACD-1.1-DRAFT.txt` を置いた。**草案は 1.0 と紛らわしい** —— 同じ書式・同じ節見出しで、
+       条番号だけが §15 以降でずれている。**読み手が取り違えると、凍結中の提出物について
+       誤った条番号を引くことになる。** 3 つを強制する: **(a)** 冒頭が **NOT IN FORCE /
+       NOT SUBMITTED / NOT APPLIED** を述べること、**(b)** 純 ASCII・節が連番・`Section N.M` の
+       参照がすべて実在すること（**1.0 について §4c が測っている性質を、草案でも同じ形で保つ**）、
+       **(c)** 冒頭が申告する語数・条数が実測と一致すること。**(c) が要るのは、本日 6 回
+       「数えられるものを、数える前に書いた」からである。** (BLOCKING)
+
   467. **発信を止めているかどうかの記録が単一ソースと一致すること** (BLOCKING): 2026-09-09 に
        OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と
        投稿したため発信を止めた (`against.md` #119 / `ACD-OSI-BOTTLENECKS.md` B14)。
@@ -530,5 +540,49 @@ def run(ctx):
              f"述べている面がある: {_stale467b}。**解除は一度だけ起こり、その 1 回が"
              "掃き忘れの最も起きやすい瞬間である。** 面を直すか、解除が意図でないなら "
              "FROZEN.md を復元せよ"),
+            blocking=True,
+        )
+
+    # ── 468. 次版の草案が自分を述べ、内部的に健全であること (BLOCKING) ─────────────────────
+    #   草案は 1.0 と書式が同じで、条番号だけ §15 以降がずれている。**取り違えは実害を生む**
+    #   (凍結中の提出物について誤った条番号を引く)。だから「自分が何か」を本文に述べさせる。
+    _dr468 = ROOT / "LICENSES" / "ACD-1.1-DRAFT.txt"
+    if _dr468.exists():
+        _t468 = _dr468.read_text(encoding="utf-8")
+        _bad468 = []
+        for _phrase in ("NOT IN FORCE", "NOT SUBMITTED", "NOT APPLIED"):
+            if _phrase not in _t468:
+                _bad468.append(f"冒頭に {_phrase!r} が無い (草案は自分の身分を述べること)")
+        _na468 = sum(1 for _b in _dr468.read_bytes() if _b > 127)
+        if _na468:
+            _bad468.append(f"非 ASCII が {_na468} バイトある (1.0 の §4c が測る性質を草案でも保つ)")
+        _sep468 = "-" * 80
+        _lic468 = _t468.split(_sep468, 1)[1] if _sep468 in _t468 else _t468
+        _secs468 = [int(_m) for _m in re.findall(r"^(\d+)\. [A-Z]", _lic468, re.M)]
+        if _secs468 != list(range(1, len(_secs468) + 1)):
+            _bad468.append(f"節番号が連番でない: {_secs468}")
+        _cl468 = set(re.findall(r"^  (\d+\.\d+) ", _lic468, re.M))
+        _refs468 = set(re.findall(r"Sections?\s+(\d+\.\d+)", _lic468))
+        _dang468 = sorted(_r for _r in _refs468 if _r not in _cl468)
+        if _dang468:
+            _bad468.append(f"解決しない参照: {_dang468} (**行をまたぐ参照は素の置換では当たらない**)")
+        _mw468 = re.search(r"This draft: ([\d,]+) words, (\d+) clauses", _t468)
+        if not _mw468:
+            _bad468.append("冒頭に語数/条数の申告が無い (消して黙らせない)")
+        else:
+            _dw468 = int(_mw468.group(1).replace(",", ""))
+            _dc468 = int(_mw468.group(2))
+            _aw468 = len(_lic468.split())
+            _ac468 = len(_cl468)
+            if _dw468 != _aw468:
+                _bad468.append(f"語数: 申告 {_dw468} / 実測 {_aw468}")
+            if _dc468 != _ac468:
+                _bad468.append(f"条数: 申告 {_dc468} / 実測 {_ac468}")
+        check(
+            not _bad468,
+            f"Check 468: 次版草案が自分を述べ内部的に健全 ({len(_cl468)} 条 / {len(_lic468.split())} 語)",
+            (f"Check 468: 次版草案に問題がある: {_bad468}。**草案は 1.0 と書式が同じで条番号だけ"
+             "ずれているので、取り違えると凍結中の提出物について誤った条番号を引くことになる。**"
+             "自分が何であるかを本文に述べ、1.0 について測っている性質を同じ形で保つこと"),
             blocking=True,
         )
