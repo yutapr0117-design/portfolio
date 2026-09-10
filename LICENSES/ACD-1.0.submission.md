@@ -120,7 +120,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**971 words**, measured 2026-09-09)
+### B.0 The message as it should actually be sent (**1048 words**, measured 2026-09-10)
 
 > **🛑 送る前に読む（2026-09-09 追加）。** OSI Moderators が同日、両リストへ
 > **「AI が全部または大半を書いたと疑われる投稿は拒否する」**と投稿し、両リストが
@@ -148,10 +148,10 @@ corrected, because it had said no submission before 2024 concerned machine learn
 shows two in 2023 (#103); **858** on 2026-09-08, when the structure paragraph gained the thing that
 most directly answers *"why another public-domain-equivalent?"* — that §4.4 states in text the
 argument which had to be argued on this list to save the Unlicense in 2020
-(`review-precedents.md` §1.57); and **971** on 2026-09-09, when a second gap was added to the same
+(`review-precedents.md` §1.57); **971** on 2026-09-09, when a second gap was added to the same
 paragraph — moral rights, which the chairman of Open Source Group Japan argued on this list in 2024
 leaves licences that speak only of copyright unable to guarantee modification in Japan
-(`review-precedents.md` §1.59).
+(`review-precedents.md` §1.59).; and **1,048** on 2026-09-10, when the gap paragraph stopped asserting that no approved licence does these things and started **stating the measurement** —— all 149 OSI-approved texts searched, four strings at zero （**+77 語。長さは B3 の争点であり、足すたびに理由を書く**）
 
 **Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
 move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
@@ -215,7 +215,11 @@ is a companion section setting out, for each, **where a reviewer could argue the
 approved licence does together: it expressly permits machine learning and text-and-data-mining and
 declines to make any reservation (§6); it grants a patent licence that reaches models and outputs
 of computational use (§8.4); and it makes the recipient's permissions independent of whether
-copyright subsists in machine-generated material at all (§9).
+copyright subsists in machine-generated material at all (§9). **That claim is measurable, and I
+measured it**: across all 149 OSI-approved texts (SPDX List 3.28.0, fetched 2026-09-10) the strings
+"machine learning", "text and data mining", "machine-generated" and "subsist" occur **zero** times.
+Absence of the words is not absence of effect — a permissive licence allows training by allowing
+everything — but it is what leaves §6, §8.4 and §9 open. The command is in the repository.
 
 **Why now, since the objection is reasonable.** Licences for machine learning have been brought to
 this list since at least April 2023 — the Restricted Artificial Intelligence License, withdrawn four
