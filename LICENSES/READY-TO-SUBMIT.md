@@ -159,8 +159,16 @@ canonical-ref: LICENSES/ACD-1.0.submission.md (提出物) / LICENSES/ACD-1.0.aga
    McCoy Smith 氏が 2026-08-28 に機構を説明している —— *"We work on a **two-month review cycle**"*
    で、起点は**最終提出**である（*"the July Board meeting was prior to two months from your final
    submission"*）。委員会が**理事会へ勧告**し、**理事会が会合で決める**（2026 年は 8 月に会合が無く
-   9 月 24 日の対面会合へ回った）。**つまり本文を改訂するたびに時計が戻る** —— 凍結（§2）は
-   礼儀ではなく、決定までの時間を最短にする手段でもある。
+   9 月 24 日の対面会合へ回った）。**⚠ 2026-09-10 訂正**: 公開されている規則を読むと、改訂は**全部やり直し**ではない ——
+   review-process ページ（最終更新 2024-03-13・2026-09-10 取得）は Decision Date を
+   *"(a) **60 days after a license is initially submitted** … or (b) **30 days after submission of
+   a revised version** … **provided that date is no earlier than 60 days after the original**"*
+   と定める。**改訂の費用は 30 日（初回から 60 日を下回らない範囲で）であって、新たな 60 日ではない。**
+   **どちらも一次資料である** ——ページは**公開された規則**、McCoy 氏の発言は**委員会の実務**。
+   食い違う場合は**両方を記録し、選ばない。**
+   したがって凍結（§2）の理由は「時計が戻るから」ではなく、
+   **審査中に読まれているテキストが動くと議論そのものが無意味になるから**である
+   （§16.4 と `REVISION-PROTOCOL.md` §2 が本来述べていた理由）。
    `license-discuss` は議論の場なので決定という概念自体が無く、この期限は当てはまらない
 
 ## このファイルの意味しないこと
