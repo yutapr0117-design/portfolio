@@ -76,7 +76,7 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       the name and the identifier while reflowing every clause, so the clause
       as drafted forbade the artifact the process asks for). Section 16.5's
       pronouns were repaired at the same time: it said "They are not terms"
-      after 1.0's Sections 16.4 and 16.5 had been merged into one — a defect
+      after 1.0's Sections 16.4 and 16.5 had been merged into one -- a defect
       this draft introduced and this pass removed.
     * 1.0: 4,896 words, 82 clauses. This draft: 4,858 words, 77 clauses.
 
