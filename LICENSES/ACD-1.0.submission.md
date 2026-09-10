@@ -114,6 +114,31 @@ place of that, and nothing in §3b is withdrawn by making it.
 > of that file. **If something raised there is still unanswered, say so** — hiding it fails
 > the moment the person who raised it is also on license-review.
 
+> **⚠ 2026-09-11 追加 —— 上の指示は「指摘が届いた」場合の形しか持っていない。** 「最も強い反論 /
+> 認めたこと / 変えたこと」を 3 点選べという指示は、**選ぶ材料があることを前提にしている**。
+> **沈黙のまま出す経路がある**（`REVISION-PROTOCOL.md` §3.6 分岐 B・オーナー 2026-09-11）。
+> **その場合にこの指示へ従おうとすると、無いものを作文する場所になる** —— 提出文のうち
+> **最も嘘が混入しやすい一段落**が、まさにここである。**そこで沈黙版を先に書いておく。**
+>
+> **沈黙版（そのまま貼れる形。送る日に日付と「返信ゼロ」を測り直すこと）:**
+>
+> > **On the earlier license-discuss thread.** ACD-1.0 was posted to `license-discuss` on
+> > 26 August 2026, to ask for pre-review before requesting approval. A second and narrower
+> > message followed on 6 September 2026, putting one question about the relationship between
+> > Sections 3 and 4. **Neither has drawn a reply in the public archive as of <DATE>.**
+> > I do not read that silence as agreement. Replies on that list arrive on their own
+> > schedule, and a measurable share of threads there receive none at all.
+> > **The differences between the text discussed there and the text submitted here are
+> > therefore not responses to comments. They are defects I found in my own text**, and each
+> > one is listed, with what was changed and why, in the errata record linked below.
+> > **Defects that are still unrepaired are listed as unrepaired.**
+>
+> **この段落で守ること**: **(1)** 沈黙を支持と読ませない（`against.md` #109 —— 返信ゼロは
+> 珍しくない）。**(2)** 「指摘を反映した」と書かない —— **1.1 草案が閉じている 12 件は
+> 全件が自己発見の errata で、言われて直したものは 1 件も無い**。**(3)** 未修理を未修理と書く。
+> **(4)** 貼れば §B.0 の語数が約 110 語増える —— **申告語数を測り直す**（確定手順の (3)）。
+> **返信が届いていたら、この沈黙版は使わず上の元の指示に従う。**
+
 Send to `license-review@opensource.org` (subscribe first). OSI asks submitters to state
 the rationale, to distinguish the licence from the closest approved one, to address the
 Open Source Definition, and to say where the licence is used.
