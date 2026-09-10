@@ -653,3 +653,13 @@ category である** —— MIT-CMU は *"redundant"* と名指しされたう�
 対する、我々の推論ではない答え**である —— **リスト自身の運用が、重複を理由に落としていない。**
 （**過大に読まない**: 重複が障害でないことと、承認されることは別である。MIT-CMU は
 **既に広く使われている実テキスト**であり、我々は採用 1 件である。）
+
+**同じ Rationale から、手続きについて 2 つ。** **(1)** Berkeley Artistic の理由には
+*"the license submitter **agreed that a revision was advisable** … however, the license submitter
+**only solicited others to revise the license and did not submit an amended version**"* とある ——
+**「直すべきだと認めること」は、直したテキストを出すことの代わりにならない。** 指摘に同意したなら、
+**改訂版はこちらが書いて出す**（`REVISION-PROTOCOL.md` §1 の ⑤⑥ に規則として足した）。
+**(2)** 同じ決議の Exhibit A は、そのライセンスが *"Project:(project name here)"* のような
+**空欄を持つ様式**だったことを示している —— **ACD-1.0 は固有名詞 0・置換テキスト 0**
+（`submission.md` §4b）で、**採用に本文の編集を 1 箇所も要しない。** これは §4b が
+「提出者専用ではない」ために書かれた測定だが、**同時に「様式ではない」ことの測定でもある。**

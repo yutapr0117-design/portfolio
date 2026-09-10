@@ -31,6 +31,7 @@ courtesy — a discussion whose subject changes underneath it is not a review of
 | **③ 分類** | 各件を `認めた` / `反論した` / `1.1 候補` / `撤回検討` / `未回答` のどれかへ。テキストの欠陥は `errata.md` へ、不利な事実は `against.md` へ**行を足す**（既存行は消さない） | 反論できるからといって against から消さない。status を動かすだけ |
 | **④ 応答** | list へ返す。**答えていない件を答えたことにしない** | 未回答は未回答と書く |
 | **⑤ 改訂** | §2 の版管理に従って次版を作る。**1.0 は触らない** | 凍結解除＝1.0 を編集してよい、ではない |
+| **⑤b 改訂は我々が書く** | 指摘に同意したなら、**改訂版のテキストをこちらが起草して出す**。「直すべきだと思う」と述べるだけ、あるいは**他者に改訂を募る**のは、審査上は改訂していないのと同じ | **実例がある。** Berkeley Artistic V5 の否決理由は *"agreed that a revision was advisable … only solicited others to revise the license and **did not submit an amended version**"* （`review-precedents.md` §1.69）|
 | **⑥ 再提出** | §3 のゲートを全部通してから出す | 通っていない項目があるなら出さない |
 
 ## 1.5 「② 分解」で使う境界分解の型
