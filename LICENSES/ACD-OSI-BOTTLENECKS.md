@@ -14,6 +14,36 @@ canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の本体) / LICENSES
 残る不可制御要因を減らすこと**である。不利な事実（`against.md`）は**入力**であって、
 ここに載るのは**承認確率に効くもの**だけである。
 
+## 2026-09-11 の掘削で確定したこと（この節は結論だけ。逐語は `review-precedents.md` §1.67〜§1.70a）
+
+**この日、`license-review` の 2024-01〜2026-09（33 か月・804 通・111 スレッド）を取得し、
+基準・規則・結果の 3 層を一次資料で押さえた。register の各項目はこれを前提に読む。**
+
+1. **承認の基準は 8 条あり、原典に書いてある。** `review-process` の "Standard for new licenses"。
+   **7 条は我々の側で確かめられ、いずれも通る** ——再利用可能性（前半）/ licensor 優遇なし /
+   曖昧性の実質的影響（§15.1・§15.3）/ 適用の変化幅 / **提出時点で遵守可能（義務ゼロなので自明）** /
+   完全なテキスト（外部参照 0）/ **gap を埋めること**。**8 条目（明晰さ）だけが判断の余地を残す。**
+2. **その明晰さも、代理指標では良い側にある**（§1.70a・**ただし訂正を経ている**）——
+   平均文長 27.3 / 最長 85 語（比較 6 本で最短）/ **従属節を 2 つ以上積んだ長文は 0 件**。
+   **これが動かさないもの: B1（弁護士レビュー無し）は 1 ミリも動かない。**
+3. **gap は「あれば良いもの」ではなく要件だった**（基準 7）。**B10 の位置づけが上がる。**
+4. **委員会が実際に述べた「承認しない／受け入れる」規則は 5 件**（§1.67）。**4 件は当たらないか
+   一致する。1 件（*"OSI requires prior review by a lawyer"* ・Piana 氏・個人の資格）は B1 に不利で、
+   B1 の欄に逐語で置いた。**
+5. **結果の分布**（§1.68・§1.69・**同日に自己訂正した**）: 決議 11 件 + 告知で、**承認 4・否決 8**。
+   **承認 4 件はいずれも既存テキストである**（MIT-CMU / Los Alamos BSD-3 Variant /
+   OSC License v1 = MIT + ドイツ法対応 1 段落 / BSD-3-Clause-Open-MPI）——**新規の道具は 1 件も無い。**
+   **我々の輪郭は否決側に一致する**（`against.md` #128）。
+6. **否決の理由は 2 束** ——**条件・利用制限・差別**（§10.1 により構造上あたらない）と
+   **起草の粗さ・解釈問題**（当たりうる唯一の束）。
+7. **「重複」は承認の category である**（MIT-CMU は *"Redundant with More Popular"* として承認）——
+   **#84「なぜもう一つ PD 等価を？」への、我々の推論ではない答え。**
+8. **⚠ 上の全部に掛かる天井が 2 つある**（`against.md` #130）:
+   *"Their consensus that a license does not ensure software freedom may … be the justification for
+   rejecting a license **even where they cannot identify a specific aspect of the OSD or the approval
+   guidelines … that is not met**"* と、*"**Approval of a license with the same or similar terms in
+   the past does not bind the OSI**"*。**必要条件はいくら積んでも十分条件にならない。**
+
 ## 解消可能性の分類
 
 `1` 文言修正 / `2` 条項削除 / `3` 条項縮小 / `4` 条項統合 / `5` 構造変更 /
