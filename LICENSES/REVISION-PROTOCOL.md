@@ -227,6 +227,8 @@ courtesy — a discussion whose subject changes underneath it is not a review of
 **(ii) 本文とドシエの bottleneck を減らすこと**（`ACD-OSI-BOTTLENECKS.md`）—— の 2 つである。
 **日付を待つだけの作業は 1 つも無い。**
 
+**2026-09-11 に測った事実を 1 つ**: **`license-discuss` を先に通すのは例外である** ——2024-01〜2026-09 に `license-review` へ出た提出のうち、**名称一致で数えられる範囲で 20 件中 15 件が discuss に一度も現れずに直接出している**（`review-precedents.md` §1.71）。**先に議論したかどうかは結果を予測しない**（先行 5 件は承認 1・撤回 2・審査中 2）。**ゆえに「discuss が沈黙だから本申請へ出せない」はこの記録からは支持されず、「discuss を通したから有利」も支持されない。**
+
 **どちらの経路でも、リストへ実際に送る 1 通は moderator 通知（`ACD-OSI-BOTTLENECKS.md` B14）の
 下にある。** 経路の選択と、送信の再開は別の判断である。
 
