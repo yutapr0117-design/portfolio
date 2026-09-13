@@ -146,7 +146,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1272 words**, measured 2026-09-13)
+### B.0 The message as it should actually be sent (**1297 words**, measured 2026-09-13)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -258,8 +258,9 @@ Proposed Tags:                  None
 ```
 
 **I affirm that ACD-1.0 complies with the Open Source Definition**, and specifically that it meets
-**OSD 3** (§4.2 permits modification and derivative works, and §10.1 attaches no condition to
-distributing them), **OSD 5 and OSD 6** (§4.3 states the licence is not conditioned on who You are
+**OSD 3** (§4.2 permits modification and derivative works; §10.1 attaches no condition to
+distributing them; and §16.3 lets anyone apply this text to a work in which they hold rights, so a
+derived work may be distributed **under these same terms**), **OSD 5 and OSD 6** (§4.3 states the licence is not conditioned on who You are
 or what You use the Work for, so no person, group or field of endeavour is excluded), and **OSD 9**
 (§5.2(b) and §2.3 confine the instrument to this Work, so nothing is required of other software
 distributed alongside it). A criterion-by-criterion analysis of all ten is in the repository, and so
