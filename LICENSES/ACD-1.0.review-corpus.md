@@ -770,3 +770,18 @@ version … provided that date is no earlier than 60 days after the original"*�
 ページの自己申告は **"Last modified on November 2, 2023"** のままで、
 **本文に AI への言及は 1 語も無い**（"AI" の出現はナビゲーションの "Open Source AI" のみ）。
 **これは B14 についての事実であって、通知の当否についての事実ではない。**
+
+## 1.83 理事会議事録（→ `ACD-1.0.board-decisions.md` へ分離）
+
+**2026-09-13 に理事会議事録という新しい一次資料を開いたところ、本 file が 900 行の advisory を
+越えた。** 圧縮せず、**いま触っている塊**を出した ——`LICENSES/ACD-1.0.board-decisions.md`。
+
+**分ける基準は「資料の種類」である。** 本 file はメーリングリストのアーカイブ**全体**を測る場所、
+`review-precedents.md` は**個別スレッド**の読み、そして `board-decisions.md` は
+**理事会という別の発話主体**の記録である。**同じ出来事について、リストは議論を、理事会は決定を残す。**
+**両者を 1 つの file に置くと、「誰が言ったか」が節の位置から読めなくなる。**
+
+**そこに在る最も重いもの**: **第 3 の帰結 —— `reject` ではなく `not approved`**
+（*"a license could stay in a status where it is not approved if it is **duplicative and not used by
+a project**"*・2025-07-18 理事会）。**duplicative と not-used の両方が我々に当たり、
+その区別は 14 か月経っても公表されていない。**
