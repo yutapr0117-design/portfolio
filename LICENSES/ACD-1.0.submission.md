@@ -83,6 +83,7 @@ License URL:                    https://yutapr0117-design.github.io/portfolio/LI
 Steward:                        Yuta Yokoi (横井雄太)
 SPDX Identifier:                Not registered (LicenseRef-ACD-1.0 is the conforming form)
 ScanCode Identifier:            None
+Third-party Endorsement:        None (no Debian, FSF or Fedora review)
 Proposed Tags:                  None
 ```
 
@@ -145,7 +146,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1098 words**, measured 2026-09-11)
+### B.0 The message as it should actually be sent (**1107 words**, measured 2026-09-13)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -252,6 +253,7 @@ Approved or Used by Projects:   One — my own repository
 Steward:                        Yuta Yokoi (横井雄太), yuta.yokoi.r@gmail.com
 Submitter:                      The same person, in his own capacity
 SPDX / ScanCode Identifier:     None (LicenseRef-ACD-1.0 is the conforming form)
+Third-party Endorsement:        None (no Debian, FSF or Fedora review)
 Proposed Tags:                  None
 ```
 

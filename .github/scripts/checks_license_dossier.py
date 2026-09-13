@@ -325,6 +325,13 @@ def run(ctx):
                 ("projects using it", r"Approved or Used by Projects"),
                 ("steward contact", r"Steward:.*@"),
                 ("name and version", r"License Name:"),
+                # **2026-09-13 追加。** 要件リストを原典で 1 項目ずつ突き合わせたら、
+                # *"Provide **any additional information** … For example, approval of the license by
+                # **Debian, the FSF or the Fedora Project** would be relevant"* だけが §B.0 で
+                # 答えられていなかった (#77 と同じ形 —— 原典で読んで初めて出る欠落)。
+                # **我々の答えは「無い」なので、書き落としても文面は自然に読める** ——
+                # だから機械で縛る (`review-precedents.md` §1.76)。
+                ("third-party endorsement", r"Third-party Endorsement:"),
                 ("SPDX / ScanCode", r"SPDX / ScanCode Identifier"),
                 ("proposed tags", r"Proposed Tags:"),
                 ("gap statement", r"\*\*The gap\.\*\*"),
@@ -343,7 +350,11 @@ def run(ctx):
                 _bad463.append(f"§B.0 に OSI 要求項目が欠けている: {_miss463}")
         check(
             not _bad463,
-            "Check 463: 送る文面 (§B.0) が OSI の要求 11 項目をすべて含む",
+            # **件数は導出する（2026-09-13 是正）。** ここは長らく「11 項目」とリテラルで書かれており、
+            # **項目を足しても OK メッセージは 11 のままだった** —— Check 460 が他所で禁じている
+            # 「自己申告の件数が実測とずれる」を、**Check 自身の成功メッセージでやっていた。**
+            # 成功メッセージは読み手が最も信用する場所なので、ここでの drift は最も悪い。
+            f"Check 463: 送る文面 (§B.0) が OSI の要求 {len(_req463)} 項目をすべて含む",
             (f"Check 463: {_bad463}。要件の単一ソースは "
              "https://opensource.org/licenses/review-process。**§B.0 は実際にメールへ貼られる文面**で、"
              "§B.1 以降は貼らない参考資料である。#77 で 3 件の欠落を埋めたが、文面は増分のたび"
