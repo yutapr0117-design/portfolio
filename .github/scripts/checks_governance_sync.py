@@ -74,7 +74,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `docs/incident-artifacts/` が**性質上の歴史記録**で、そこへ注記を強制すると履歴を
        濁す圧力になるため (#977 の「書き換えれば履歴を偽る」判断と同じ線引き)。
        否定・超越を明示する行 (SUPERSEDED / 否定された / 存在しない 等) は違反にしない。 (BLOCKING)
-
+       **436b** = 同じ invariant の姉妹面: **規範層がオーナーの発話を「指示」「命令」と書かないこと**。canon (Check 102g) は principle が AI2AI.md に*在ること*しか見ておらず、**我々自身の散文がそれに反していても無検査だった**。実測 2026-09-13 で 4 件、**うち 2 件は router の、principle を述べている当の節の数行下**。**行単位の否定検出は使えない** (§7 の bullet は 1 行 14,000 字超) ので**行内 60 字の窓**で見る。
   450. Tracked text files carry no stray non-Japanese script (Cyrillic / Hangul / Arabic / Thai /
        Devanagari / Hebrew): an LLM writing Japanese can emit a homoglyph-adjacent character from
        another script mid-word, producing text that *looks* almost right but is corrupt — and no
@@ -305,6 +305,27 @@ def run(ctx):
     _OK436 = ("SUPERSEDED", "否定された", "存在しない", "読み違い", "解決済み", "誤りだった",
               "承認ゲートではない", "是正", "standing approval", "撤回")
 
+    # ── 436b: **オーナーの発話を「指示」「命令」と書かない** (同じ Check の姉妹面) ─────────
+    # canon (Check 102g) は「人間の発話は『指示』ではなく『依頼』(Request, not command)」を
+    # 強制するが、**それは AI2AI.md に principle が*在ること*しか見ていない。**
+    # 我々自身の散文がその principle に反していても、どの層も見ていなかった。
+    # 実測 (2026-09-13): 規範層 204 file で **3 件** ——うち 2 件は **router `CLAUDE.md` §7 の中**で、
+    # **principle を述べている当の節の数行下**にあった (「オーナー指示「…全振り」」/「オーナー
+    # 「止めるな」指示」)。3 件目は research-application-policy.md の見出し
+    # 「三つの禁止事項 (オーナー明示・強い指示)」で、**canon に二重に反していた** ——
+    # オーナーは「禁止事項 0」と明言しており、かつ指示を出さない。
+    # **害は「言葉遣いが不正確」ではない**: cold-start の AI はここを読んで
+    # 「人間が課した制限がある」と理解し、**実在しない制限のもとで動く** (§7 が名指しする最大の逸脱)。
+    #
+    # **行単位で否定語を探してはならない。** `CLAUDE.md` の §7 は 1 行が **14,000 字超**で、
+    # 同じ行の無関係な「依頼」が本物の違反を打ち消す (**実測で確認済み**)。
+    # これは本日 Check 458b で踏んだ罠と同型なので、**前後 60 字の窓**で判定する。
+    # 例外: canon の唯一の directive である「停止指示」/ principle を述べる・否定する文脈。
+    _CMD436 = re.compile(r"(オーナー|owner|本人|人間)[^。\n]{0,14}(指示|命令)")
+    _CMD_OK436 = ("依頼", "ではなく", "ではない", "お願い", "停止",
+                  "Request, not command", "読み替え", "102g", "禁じ")
+
+
     # 走査対象 = 規範層。docs/architecture/ に加え、**最も規範的な canon と router そのもの**を含める。
     # 2026-08-23 に射程を広げた理由: 旧 scope は docs/architecture/ だけを見ており、canon (AI2AI.md) と
     # router (CLAUDE.md) は**射程外だった**。つまり「規範層から裁可待ち文言を排除する」Check が、
@@ -366,6 +387,31 @@ def run(ctx):
                 _o.lower() in _lo for _o in _OK436
             ):
                 _viol436.append(f"{_f.relative_to(ROOT)}:{_n}")
+    # 436b: オーナーの発話を「指示」「命令」と書いていないこと。**窓は行内 60 字**で取る ——
+    # 行単位で否定語を探すと、`CLAUDE.md` §7 の 14,000 字超の bullet では**同じ行の無関係な
+    # 「依頼」が本物の違反を打ち消す**（実測で確認済み・Check 458b 初版と同型の罠）。
+    _viol436b = []
+    for _f in _files436:
+        for _n, _line in _normative_lines436(_f):
+            for _m in _CMD436.finditer(_line):
+                _win = _line[max(0, _m.start() - 60):_m.end() + 60]
+                if any(_k in _win for _k in _CMD_OK436):
+                    continue
+                _viol436b.append(f"{_f.relative_to(ROOT)}:{_n} ({_m.group(0)})")
+    check(
+        not _viol436b,
+        "Check 436b: 規範層がオーナーの発話を「指示」「命令」と書いていない "
+        "(canon: Request, not command)",
+        (f"Check 436b: オーナーの発話が「指示」「命令」として書かれている: {_viol436b[:5]}。"
+         "**オーナーは指示を出さない** —— 発話はすべて依頼の形をとる (Check 102g が canon 上の "
+         "presence を強制する)。**害は言葉遣いではない**: cold-start の AI はここを読んで"
+         "「人間が課した制限がある」と理解し、**実在しない制限のもとで動く** "
+         "(§7 が名指しする最大の運用逸脱)。実測 2026-09-13: 3 件のうち 2 件は router `CLAUDE.md` §7 の"
+         "**principle を述べている当の節の数行下**にあった。"
+         "「停止」だけが canon 上の例外である"),
+        blocking=True,
+    )
+
     check(
         not _viol436,
         f"Check 436: 規範層 {len(_files436)} file (docs/architecture/ + canon/router/外部向け文書"
