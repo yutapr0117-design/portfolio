@@ -74,6 +74,20 @@ the minutes here, check the wiki"* と述べ、**最古が 2025-06-20**（ペー
 | ページの自己申告 last modified | **March 13, 2024** |
 
 **「次の理事会まで」と述べられた改訂は、14 か月後の今日も入っていない。**
+
+**そしてこれは 1 件ではない。** 2026-01-16 の議事録にも同じ形がある ——
+*"BarrerSoftware License **will be withdrawn** as it is a non-commercial license. **We have to update
+the list of common problems with licenses to make it clear that non-commercial licenses will be
+withdrawn**."*
+**拒否理由ページを実測すると、`Non-commercial and ethical clauses` の項は在るが、
+それが*否決*ではなく*取り下げ*になると述べる文は無い**（同ページの `withdraw` の唯一の出現は
+cookie バナーである）。**ページの自己申告 last modified は March 12, 2024** ——
+**この指示より 22 か月前である。**
+
+**⚠ 一般化しすぎない。** 言えるのは **「理事会が公表を指示した 2 件が、公表されていない」**ことだけで、
+**OSI のページ全般が古いとも、指示が無視されたとも述べていない**（内部で進行中かもしれない）。
+**我々にとっての含意は 1 つだけ ——公表された基準を読み尽くしても、委員会が実際に使う基準を
+読み尽くしたことにはならない。**
 （`duplicative` は 1 回出るが *"Purpose of the process: Discourage duplicative and poorly written
 licenses"* で、**2024 年から在る文言**である ——**懸念は目的として公表されているが、
 帰結の状態と非 OSD 基準は公表されていない。**）
@@ -104,6 +118,17 @@ rejection**"* と述べていたが、**2026-05-22 にそれが委任された�
 **我々が `license-review` へ送った substantive なメッセージ 2 通は moderation に拒否されて届いていない**
 （#128）。**リストの側から見れば、「送れていない」と「応答しない」は区別がつかない。**
 **提出するなら、この経路が通ることを先に確かめる必要がある。**
+
+**そしてこの帰結には、既に実例が 2 件ある。** 2026-01-16 の議事録 ——
+*"QmDeve License and CinqXaero Open Source License are **likely to be withdrawn because of the lack
+of communication with their submitters**."*
+**取り下げの理由が、本文の欠陥ではなく「連絡が取れないこと」だけで記録されている。**
+**2026-05-22 の委任は、この運用を権限として明文化したものである。**
+
+**我々に当てはまる形を、正確に書く。** 我々は**沈黙していない** ——投稿し、5 問に当日回答している。
+**だが我々の 2 通はリストに現れておらず、リストの記録だけを見る人には沈黙と同じに見える。**
+**これは「不当に扱われる」という主張ではない**（誰も我々をそう扱ったという証拠は無い）。
+**述べているのは、我々の側の記録と、リスト側から見える像が食い違っているという事実だけである。**
 
 ## 5. 公開 12 回で読める決定（告知メールより多い）
 
