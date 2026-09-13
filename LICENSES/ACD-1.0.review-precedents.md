@@ -821,3 +821,42 @@ Los Alamos / ESA-PL / Milenium / BOS / PSF-2.0 / CompanioNation / NIST / UPD）�
 （§1.69 のとおり 21 の提出型スレッドのうち告知は 8 件）。**撤回・停止・沈黙で終わったものは
 「時間がかかった」ではなく「決まらなかった」であり、この中央値には現れない。**
 **したがってこれは「決まった場合の所要時間」であって「出せば 3 か月で決まる」ではない。**
+
+## 1.73 Licensing Committee 委員長が、我々を名指しで謝辞した（2026-09-10）—— そして、それが何を示さないか
+
+**逐語**（`rounds/2026-09-10-license-review-chestek-names-us.txt`・OpenMDW-1.1 の審査スレッド）:
+
+> *"I would like to thank **Yuta-san** for their **insightful view on the termination provision**,
+> which I find helpful."* —— Pamela Chestek（**Licensing Committee 委員長**・2026-09-10 18:07）
+
+**これで `license-review` 上で我々の投稿に反応した人は 6 人になった**（2026-09-13 に全数で確認）:
+Michael Dolan 氏（LF・OpenMDW steward・名指しで回答）/ Moming Duan 氏（ModelGo steward・条文に即した
+回答 + 2026-09-08 に参照リストへ採録）/ Shuji Sado 氏（我々の質問を引いて議論を進めた）/
+Ruby Anna 氏（*"Hi Yuta … You have interpreted …"*）/ **Pamela Chestek 氏（委員長）**。
+
+**示すこと（狭く書く）**:
+
+- **委員長は我々の寄与を読み、有用だと述べ、承認リスト上で名指しした。**
+- **それは moderator 通知（2026-09-09）の翌日である。** ——**通知の後も、委員長による実質的な
+  やり取りは続いている。**
+
+**示さないこと（同じ精度で書く）**:
+
+- **ACD-1.0 について何も言っていない。** 発言は**他者の提出**（OpenMDW-1.1）の審査中のもので、
+  **我々の提出への応答ではない。ACD-1.0 への返信は依然としてゼロである**（2026-09-13 時点・
+  `license-discuss` 2026-09 は 9 通のままで、我々の 2 通に返信は無い）。
+- **我々が moderator 通知の名宛人だったかを決めない。** 翌日に委員長が謝辞したことは、
+  **「通知は我々のことではなかった」とも「我々は問題視されていない」とも読めない。**
+  通知は moderators が出し、謝辞は委員長が出した ——**別の人が、別のことについて述べている。**
+- **B1（法的レビュー無し）と B2（採用 1 件）を 1 ミリも動かさない。**
+
+**議論の中身も記録しておく（ACD の設計に直接あたる）。** このスレッドの争点は
+**「著作権の主張を引き金にした許諾の終了」が open source と両立するか**である。委員長は
+*"I do find it inconsistent with my understanding of open source … that someone who intentionally
+committed a wrongful act should be allowed to avoid the consequences"* と述べ、
+Josh Berkus 理事は逆に *"accidental infringing copying happens all the time"* と述べ、
+Richard Fontana 氏は *"OpenMDW-1.1 is different in this respect because its copyright-triggered
+termination reaches **all** sorts of copyright claims"* と述べている。
+**ACD-1.0 はこの争点の外にある** ——**終了条項を持たず（§10.4）、報復条項も持たない（§8.2）。**
+**ただしこれは「だから承認される」ではない**: 争点の外にあることは失格を 1 つ免れることであって、
+**承認の理由にはならない**（§1.70 の天井 —— 必要条件は十分条件にならない）。
