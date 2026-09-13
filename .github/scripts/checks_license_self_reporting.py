@@ -64,6 +64,23 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `file-size-budget.md` は第 3 の値「12 面」を述べていた。**3 つの数が 3 つとも違い、
        どれも実測ではなかった。** 本 docstring は「数を書かずに列挙する」と述べているが、
        **列挙もまた、足した面を書き足さなければ古くなる。**
+  469. **自己申告の「列挙」が、消化した項目で古くならないこと** (BLOCKING): Check 460 は
+       **数**の申告を実測と突き合わせる。本 Check はその隣 ——**列挙**の申告を突き合わせる。
+       **数と列挙は drift の仕方が違う**: 数は「増えたか」を見れば気づけるが、
+       **列挙は項目を 1 つ消化するたびに古くなり、消化しているその瞬間こそ列挙を見ていない**
+       (しかも**減る側**へ drift するので、増加を見る習慣では検出できない)。
+       (a) **`checks_license_self_reporting.py` の docstring inventory が挙げる face 文字 ⟺
+       run() 内で実装されている face 文字** (双方向)。実測 (2026-09-13): inventory は (a)〜(k) の
+       11 面、実装は (a)〜(p) の **16 面**、`file-size-budget.md` は第 3 の値「12 面」——
+       **3 つの数が 3 つとも違った**。**Check 45 は「Check 番号」の bijection しか見ないので、
+       面は黙って増やせる。** (b) **`ACD-1.1-CHANGELIST.md` の errata 状態が、
+       `ACD-1.0.errata.md` の E-ID 集合と双方向に対応し、かつ file 内部で自己矛盾しないこと**。
+       実測 (2026-09-13): §0.7 が「その他 (E2 / E4 / E6〜E10) | 未着手 | まだ見ていない」と述べ、
+       **7 件中 6 件は既に草案で閉じていた** ——その節を作った commit は、**それらを閉じた
+       6 commit より前**にある (**書いた時点では真だった**)。同じ表の §1 側は逆向きに
+       E1 / E6 を「反映予定」のまま残していた (**決定済みを未定と言う方が我々に有利に見える**)
+       ——**向きは一定しない**。**引用は現在の主張ではない**ので blockquote 行 (`>`) は
+       走査から外す (#977 の「歴史記録は書き換えない」と同じ線引き)。
 """
 
 import json
@@ -540,3 +557,90 @@ def run(ctx):
              "「使う側 12 問」のまま残っていた)"),
             blocking=True,
         )
+
+    # ── 469. 自己申告の「列挙」が、消化した項目で古くならないこと (BLOCKING) ──────────────
+    # Check 460 は「数」を、本 Check は「列挙」を実測と突き合わせる。列挙は減る側へ drift する
+    # ので、「増えたか」を見る習慣では永久に検出できない。
+    _bad469 = []
+    _impl469, _erids = set(), set()
+
+    # (a) face inventory (docstring) ⟺ 実装
+    _self469 = (ROOT / ".github" / "scripts" / "checks_license_self_reporting.py")
+    if not _self469.exists():
+        warnings.append("Check 469: self-reporting module が無い — face 照合を skip")
+    else:
+        _src469 = _self469.read_text(encoding="utf-8")
+        _doc469 = _src469.split('"""')[1] if _src469.count('"""') >= 2 else ""
+        # 460 の inventory ブロックだけを見る (469 自身の (a)/(b) を拾わないため = 自己参照回避)
+        _m469 = re.search(r"^  460\..*?(?=^  \d+\.)", _doc469, re.S | re.M)
+        # **範囲の言及は entry ではない** —— 初版は `(a)〜(p)` の端点まで「宣言済み」と数え、
+        # **(p) の記述を丸ごと消しても緑だった**（動機になった drift を素通り）。
+        # 前後が波ダッシュのものを落とす。
+        _decl469 = ({m.group(1) for m in re.finditer(r"(?<![〜～])\(([a-z])\)(?![〜～])",
+                                                     _m469.group(0))} if _m469 else set())
+        _impl469 = set(re.findall(r"^\s{8}# \(([a-z])\)", _src469, re.M))
+        if not _m469:
+            _bad469.append("(a) docstring から Check 460 の inventory ブロックを取り出せない")
+        elif _decl469 != _impl469:
+            _bad469.append(
+                f"(a) face の列挙と実装が食い違う: 宣言のみ {sorted(_decl469 - _impl469)} / "
+                f"実装のみ {sorted(_impl469 - _decl469)} "
+                f"(宣言 {len(_decl469)} 面 / 実装 {len(_impl469)} 面)")
+
+    # (b) errata の E-ID ⟺ CHANGELIST §1 表、かつ CHANGELIST 内部で状態が矛盾しないこと
+    _er469 = _L460 / "ACD-1.0.errata.md"
+    _cl469 = _L460 / "ACD-1.1-CHANGELIST.md"
+    if not (_er469.exists() and _cl469.exists()):
+        warnings.append("Check 469: errata / changelist が無い — 状態照合を skip")
+    else:
+        _ert = _er469.read_text(encoding="utf-8")
+        _clt = _cl469.read_text(encoding="utf-8")
+        _erids = set(re.findall(r"^\|\s*\*{0,2}(E\d+)\*{0,2}\s*\|", _ert, re.M))
+        _rows469 = dict(re.findall(r"^\|\s*\*{0,2}(E\d+)\*{0,2}\s*\|(.*)$", _clt, re.M))
+        if not _erids:
+            _bad469.append("(b) errata.md から E-ID を 1 件も取り出せない")
+        if _erids != set(_rows469):
+            _bad469.append(
+                f"(b) errata.md と CHANGELIST の E-ID が対応しない: "
+                f"errata のみ {sorted(_erids - set(_rows469))} / "
+                f"CHANGELIST のみ {sorted(set(_rows469) - _erids)}")
+
+        # 状態語彙: settled = もう動かないと述べたもの / pending = まだと述べたもの
+        _settled469 = ("反映済み", "直さないと決めた", "狭めないと決めた", "触らない")
+        _pending469 = ("未着手", "まだ見ていない", "反映予定")
+
+        def _ids_on(line):
+            """1 行が状態を述べている E-ID 集合 (E6〜E10 のような範囲も展開する)。"""
+            got = set(re.findall(r"E(\d+)", line))
+            for a, b in re.findall(r"E(\d+)\s*[〜～–-]\s*E?(\d+)", line):
+                got |= {str(n) for n in range(int(a), int(b) + 1)}
+            return {"E" + n for n in got}
+
+        _claim469 = {}
+        for raw in _clt.splitlines():
+            line = raw.strip()
+            if line.startswith(">"):      # 引用は現在の主張ではない (#977 と同じ線引き)
+                continue
+            hit_s = any(w in line for w in _settled469)
+            hit_p = any(w in line for w in _pending469)
+            if not (hit_s or hit_p):
+                continue
+            for i in _ids_on(line):
+                _claim469.setdefault(i, set()).add("settled" if hit_s and not hit_p else
+                                                   "pending" if hit_p and not hit_s else "both")
+        for i in sorted(_claim469, key=lambda x: int(x[1:])):
+            if _claim469[i] == {"settled", "pending"}:
+                _bad469.append(
+                    f"(b) {i} の状態が file 内で矛盾している (ある行は決着済み / 別の行は未着手)")
+
+    check(
+        not _bad469,
+        "Check 469: 自己申告の列挙が実装・現物と一致 "
+        f"(Check 460 の face {len(_impl469)} 面 / errata {len(_erids)} 件)",
+        ("Check 469: 自己申告の「列挙」が古い: " + "; ".join(_bad469) +
+         "。**列挙は項目を消化するたびに古くなり、消化しているその瞬間こそ列挙を見ていない。**"
+         "数と違って減る側へ drift するので「増えたか」では検出できない ——"
+         "**成果物から導出し直せ** (実測 2026-09-13: §0.7 が 7 件を『まだ見ていない』と述べ、"
+         "うち 6 件は既に閉じていた)"),
+        blocking=True,
+    )
