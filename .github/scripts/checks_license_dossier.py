@@ -653,6 +653,42 @@ def run(ctx):
                 blocking=True,
             )
 
+        # ── 468e: 草案が宣言する「まだ open な errata」が、errata の現物と一致すること ────
+        # Check 468 は語数・条数・参照の解決を見るが、**草案が自分の*状態*について述べる文**は
+        # 見ていなかった。実測 (2026-09-14): preamble の status block が
+        # 「Still open in this draft, deliberately: E11 / E13 / E15 / E16」と述べ、
+        # **4 件とも errata では閉じていた** —— E13 は 2026-09-10、E15 は 09-11、E16 は 09-13 から
+        # 誤っており、**4 日間、提出される文書が自分の状態について偽の宣言を持っていた**。
+        # **しかも「They are not oversights」と*意図的である*ことまで主張していた** ——
+        # 直した項目について「わざと残した」と述べるのは、単に古いより悪い。
+        # **これは「やることリストは、項目を消化した瞬間に古くなる」class の最も外へ出る面である**
+        # (Check 469 が CHANGELIST について守っているのと同じ invariant を、**本文側**で守る)。
+        _st468 = re.search(r"Still open in this draft[^:]*:(.*?)(?:cost\.|\n\n)", _t468, re.S)
+        if _st468 is None:
+            _bad468.append("preamble に「Still open in this draft」の宣言が無い "
+                           "(宣言しないなら本 face を外すこと。黙って消さない)")
+        else:
+            _declared468 = set(re.findall(r"\bE\d+\b", _st468.group(1)))
+            _erp468 = ROOT / "LICENSES" / "ACD-1.0.errata.md"
+            if _erp468.exists():
+                _ert468 = _erp468.read_text(encoding="utf-8")
+                _openset468 = set()
+                for _ln468 in _ert468.splitlines():
+                    _m468 = re.match(r"\|\s*\*{0,2}(E\d+)\*{0,2}\s*\|", _ln468)
+                    if not _m468:
+                        continue
+                    # **「確定手順へ回した」は「閉じた」ではない。** E10 は 1.1 の descriptor が
+                    # 存在しないので*ここでは*閉じられないだけで、欠陥としては残っている。
+                    # 初版はこれを closed 扱いにし、**本 face が導入直後に自分の誤りを指摘した。**
+                    if "1.1 草案で閉じた" in _ln468:
+                        continue
+                    _openset468.add(_m468.group(1))
+                if _declared468 != _openset468:
+                    _bad468.append(
+                        f"preamble の「Still open」が errata と食い違う: "
+                        f"宣言のみ {sorted(_declared468 - _openset468)} / "
+                        f"errata のみ {sorted(_openset468 - _declared468)}")
+
         check(
             not _bad468,
             f"Check 468: 次版草案が自分を述べ内部的に健全 ({len(_cl468)} 条 / {len(_lic468.split())} 語)",
