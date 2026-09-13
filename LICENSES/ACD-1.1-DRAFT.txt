@@ -71,6 +71,33 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       to reconcile it alone (errata E7: the reconciliation existed but sat
       between the two clauses, so the order of reading decided whether it was
       found).
+    * Section 4.4 no longer says that, where Section 3 is effective, the licence
+      "remains available to be relied upon" (errata E11). The sentence claimed
+      more than the two around it need: the licence is granted independently of
+      Section 3, and You are not required to determine whether Section 3 worked.
+      Whether a licence can operate over a right that has been surrendered is
+      the question put to the list; dropping the claim does not answer it.
+    * Section 5.3 carries the qualifier Section 12.4 already carried -- the
+      covenants bind successors "to the fullest extent the law permits the
+      Dedicator to bind them" -- and reliance by remote recipients is qualified
+      by whether a jurisdiction gives effect to it (errata E17). "Run with the
+      Work" is gone: it applied a real-property idea to an intangible and said
+      nothing the explicit binding does not. Sections 3 and 4 operate in a
+      recipient's favour independently, so the qualifier opens no hole.
+    * Section 6.3 says that where a Reservation is another rightsholder's, made
+      in exercise of rights of their own, the Dedicator has no power to withdraw
+      it and does not purport to have one; the disclaimer of reliance operates
+      in every case. Withdrawal and disclaimer are separate acts and the clause
+      had run them together.
+    * Section 16.1's notice shows the LicenseRef form for use while this
+      Dedication is not on the SPDX License List, and Section 16.2 accepts that
+      tag as notice (errata E1). Both forms are correct at different times; the
+      notice previously showed only the one that is correct after registration.
+    * Section 16.4 opens by saying that making a modified text is not
+      restricted, and that what is restricted is distributing one. The clause
+      always permitted it -- a modified text may be distributed under a
+      different name -- but a reader who stopped at the first sentence could
+      take the opposite meaning.
     * Section 16.4 says that a faithful machine-readable re-encoding is not a
       modified text (errata E8: the SPDX XML that registration requires carries
       the name and the identifier while reflowing every clause, so the clause
@@ -85,12 +112,14 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       the person harmed by that is the downstream recipient who relies on the
       signal. Section 2.7 already made the effect honest; this makes the
       sentence say it.
-    * 1.0: 4,896 words, 82 clauses. This draft: 4,935 words, 77 clauses.
+    * 1.0: 4,896 words, 82 clauses. This draft: 4,938 words, 77 clauses.
 
-  Still open in this draft, deliberately: E11 (Section 4.4, awaiting an answer
-  from the list), E13 (the definition order), E15 (Section 8.4 has no
-  materiality threshold) and E16 (Section 2.6 permits an opt-out that leaves no
-  trace). They are not oversights; each is recorded with what it would cost.
+  Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
+      well as the use of the Work -- examined and deliberately not narrowed) and
+      E10 (the machine-readable descriptor does not describe the one thing this
+      document restricts -- it cannot be closed until the 1.1 descriptor is
+      written). Every other entry in the errata is closed in this draft. Neither
+      of these is an oversight; each is recorded with what it would cost.
 
 --------------------------------------------------------------------------------
 
@@ -652,11 +681,11 @@ PREAMBLE (informative; not part of the operative terms)
            SPDX-License-Identifier: ACD-1.1
            (LicenseRef-ACD-1.1 while not on the SPDX License List)
 
-  16.2 Where a work is accompanied by the identifier "ACD-1.1", by an
-       "SPDX-License-Identifier: ACD-1.1" tag, or by a reference to this
-       Dedication by name, that is sufficient notice of these terms, and the
-       terms apply in full whether or not a copy of this text accompanies the
-       work.
+  16.2 Where a work is accompanied by the identifier "ACD-1.1", by an "SPDX-
+       License-Identifier: ACD-1.1" or "LicenseRef-ACD-1.1" tag, or by a
+       reference to this Dedication by name, that is sufficient notice
+       of these terms, and the terms apply in full whether or not a copy
+       of this text accompanies the work.
 
   16.3 This Dedication may be applied by anyone, to any work in which they hold
        rights, without permission from, notice to, or any relationship with the
