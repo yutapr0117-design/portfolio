@@ -85,7 +85,7 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       the person harmed by that is the downstream recipient who relies on the
       signal. Section 2.7 already made the effect honest; this makes the
       sentence say it.
-    * 1.0: 4,896 words, 82 clauses. This draft: 4,866 words, 77 clauses.
+    * 1.0: 4,896 words, 82 clauses. This draft: 4,919 words, 77 clauses.
 
   Still open in this draft, deliberately: E11 (Section 4.4, awaiting an answer
   from the list), E13 (the definition order), E15 (Section 8.4 has no
@@ -367,6 +367,10 @@ PREAMBLE (informative; not part of the operative terms)
        Dedicator or by another person, and whether before or after this
        Dedication was applied, the Dedicator withdraws it and disclaims
        reliance on it, to the fullest extent the Dedicator is able.
+       Where the Reservation is another rightsholder's, made in exercise
+       of rights of their own, the Dedicator has no power to withdraw it
+       and this Section does not purport to give one; the disclaimer of
+       reliance operates in every case (Section 2.7).
 
   6.4  No enforceable claim arises against You, under this Dedication or under
        any Covered Right of the Dedicator, in respect of a model, parameter
@@ -657,20 +661,23 @@ PREAMBLE (informative; not part of the operative terms)
        organisation, jurisdiction, or field of endeavour.
 
   16.4 The text of this Dedication may be copied and distributed verbatim by
-       anyone, in any medium, for any purpose, without charge or permission. It
-       may not be distributed in modified form under the name "Autonomous
-       Commons Dedication" or under any identifier of the form "ACD-N" or
-       "ACD-N.N", so that the name and the identifiers of this family continue
-       to denote fixed texts published by the steward. A modified text may be
-       distributed under a different name. A translation is not a modified text
-       for this purpose and may be distributed under the name and the
-       identifier if it is identified as a translation and states that the
-       English text prevails (Section 15.4); that proviso is a condition upon
-       distributing the translated text, not upon any use of the Work
-       (Section 10.5). A re-encoding of the text into a machine-readable form
-       is likewise not a modified text for this purpose, provided the words are
-       unchanged and the form is identified as a re-encoding; differences of
-       line breaking, indentation, or markup are not modifications.
+       anyone, in any medium, for any purpose, without charge or
+       permission. Making a modified text is not restricted; what is
+       restricted is distributing one. A modified text may not be
+       distributed under the name "Autonomous Commons Dedication" or
+       under any identifier of the form "ACD-N" or "ACD-N.N", so that
+       the name and the identifiers of this family continue to denote
+       fixed texts published by the steward. A modified text may be
+       distributed under a different name. A translation is not a
+       modified text for this purpose and may be distributed under the
+       name and the identifier if it is identified as a translation and
+       states that the English text prevails (Section 15.4); that
+       proviso is a condition upon distributing the translated text, not
+       upon any use of the Work (Section 10.5). A re-encoding of the
+       text into a machine-readable form is likewise not a modified text
+       for this purpose, provided the words are unchanged and the form
+       is identified as a re-encoding; differences of line breaking,
+       indentation, or markup are not modifications.
 
   16.5 Section 16.4 governs the text of this Dedication as a document. It is
        not a term of the Work, it binds no recipient of the Work, and
