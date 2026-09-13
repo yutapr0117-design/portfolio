@@ -121,11 +121,20 @@ OSI のリストは法的な場だが、AI 学習に対する価値判断は 202
 > The steward is me, and that is a real limitation. Two things reduce what it
 > costs a user.
 >
-> First, Section 16.4 makes the text of ACD-1.0 immutable: it may be copied and
-> distributed verbatim only, and any change is a different version under a
-> different identifier. So there is no maintenance activity that a user depends
-> on. A licence that never changes does not need a living steward to keep being
-> what it was.
+> First, the text a user relies on does not move. Section 16.4 states its own
+> purpose — that the name and the identifier "continue to denote one fixed text"
+> — and forbids distributing a modified text under them; and I have frozen 1.0
+> as a matter of stewardship, with a checksum test in this repository's CI that
+> fails if any of the three fixed files changes by a byte. So there is no
+> maintenance activity that a user depends on. A licence that never changes does
+> not need a living steward to keep being what it was.
+>
+> Two limits on that, stated rather than left to be found. Section 16.4 does not
+> prohibit modification: its third sentence expressly permits a modified text
+> "under a different name". And it names only the identifier "ACD-1.0", so it
+> does not by its wording reach a modified text distributed as "ACD-1.1" or
+> "ACD-2.0", and I assert no trademark (Section 11.1). That gap is recorded as
+> E14 in the errata and is one of the things registration would close.
 >
 > Second, Section 10.4 means there is nothing to enforce: the instrument contains
 > no condition and no termination provision, so there is no scenario in which a
@@ -136,6 +145,8 @@ OSI のリストは法的な場だが、AI 学習に対する価値判断は 202
 > cannot promise to be there. What I can say is that nothing about 1.0 stops
 > anyone else from writing that successor, because Section 16.3 lets anyone apply
 > this text to anything and Section 16.5 permits translation without permission.
+
+**⚠ 2026-09-13 に第 1 の柱を書き直した。** 直前まで *"Section 16.4 makes the text of ACD-1.0 immutable: it may be copied and distributed verbatim only, and any change is a different version under a different identifier"* と書いていたが、**§16.4 は 2 点ともそう述べていない** ——第 3 文が*"A modified text may be distributed under a different name"* と**改変を明示的に許し**、識別子は **`ACD-1.0` しか名指ししていない**（後継識別子に届かないことは **E14** として**2026-09-10 に自分で記録済み**だった）。**欠陥を集めた file に書いておきながら、その欠陥に依拠する主張のほうを直していなかった**（`against.md` #138）。**主張自体は生き残る** ——Q12 の論点は「利用者が保守活動に依存しない」ことで、それを支えるのは §10.4 と凍結 pin であり、E14 はどちらにも触れない。**生き残らなかったのは言い方のほうである。**
 
 **なぜこう答えるか**: 個人 steward は率直に弱点である。だが**「維持を必要としない設計になっている」**ことは実際に条文上そうなっており（§16.4 の不変性・§10.4 の非条件性）、これは言い訳ではなく設計の帰結である。**「将来版が必要になったときだけ困る」と限定して認める**のが正確。
 
