@@ -57,6 +57,22 @@ courtesy — a discussion whose subject changes underneath it is not a review of
 
 **決定（2026-09-04）**: 改訂は**上書きではなく併置**にする。
 
+> **根拠は我々の理屈だけではない（2026-09-13 に process ページを再取得して確認）。**
+> OSI 自身が *"**a license cannot be changed while it is being considered**. If the license submitter
+> would like to change the language of the license, **the current version of the license should be
+> withdrawn from review and an updated version submitted**"* と書いている
+> （`https://opensource.org/licenses/review-process`・逐語と含意は `ACD-1.0.review-corpus.md` §1.82）。
+> **つまり凍結は steward の礼儀ではなく、公表された手続きが要求していることである。**
+>
+> **ここから、この文書に書かれていなかった一手が出る** ——**`license-review` に出したあとで
+> 版を替えるなら、「送り直す」のではなく「取り下げてから更新版を提出する」。**
+> **下の手順は取り下げを含んでいなかった**ので、分岐 B（次版を出す）の実行時に必ず参照すること。
+>
+> **同じ段落が、オーナーの方針をそのまま推奨してもいる** ——
+> *"wait and **collect all the desired changes in a single new submission** rather than withdrawing
+> and resubmitting the same license several times"*。
+> **「全部取り込んだ改善版を 1 回で出す」は、我々が選んだ流儀ではなく OSI の明文の推奨である。**
+
 > **実体化した（2026-09-10）。** オーナーが「現行は保持、次版を作って改善し続けるのは問題ない」と
 > 述べたので **`LICENSES/ACD-1.1-DRAFT.txt`** を置いた。**まだ `ACD-1.1.txt` ではない** ——
 > **草案は 1 行目で NOT IN FORCE / NOT SUBMITTED / NOT APPLIED を述べ、`FROZEN.md` にも
