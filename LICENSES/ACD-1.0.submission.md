@@ -204,7 +204,7 @@ paragraph — moral rights, which the chairman of Open Source Group Japan argued
 leaves licences that speak only of copyright unable to guarantee modification in Japan
 (`review-precedents.md` §1.59).; **1,048** on 2026-09-10, when the gap paragraph stopped asserting that no approved licence does these things and started **stating the measurement** —— all 149 OSI-approved texts searched, four strings at zero （**+77 語。長さは B3 の争点であり、足すたびに理由を書く**）
 
-**And 1,098 on 2026-09-11**, when the gap paragraph gained **a one-sentence form before the detail**. The reason is a precedent rather than a preference: **the only new licence approved in 33 months whose submitter was an individual** — the OSC License, a lawyer submitting for the city of Solingen — **stated its gap in one sentence** (*"the versatile MIT license does not contain a limitation of liability that is effective under German law"*) and reached a decision in three months (`review-precedents.md` §1.68). **Ours named three areas before it named one.**
+**And 1,098 on 2026-09-11**, when the gap paragraph gained **a one-sentence form before the detail**. The reason is a precedent rather than a preference: **the only new licence approved in 33 months whose submitter was an individual** — the OSC License, a lawyer submitting for the city of Solingen — **stated its gap in one sentence** (*"the versatile MIT license does not contain a limitation of liability that is effective under German law"*) and reached a decision in three months (`review-corpus.md` §1.68). **Ours named three areas before it named one.**
 
 **Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
 move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
