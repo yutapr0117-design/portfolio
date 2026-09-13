@@ -579,3 +579,58 @@ notice である —— 本文の写しが付いていなくても」と述べ�
 licensee's obligations to clear rights are addressed"*）、**Fontana 氏の OSD 9 の疑いは
 解消していない。** **同時代 instrument の経過観察として、決定が出たら読み直す**
 （`PEER-REVIEW-WATCH.md` の 4 分岐）。
+
+## 1.79 `license-discuss` に「CC0 に特許許諾を足した」提出が既にあった（2024-04）—— 我々の §8.1 と同じ語が「正しい文言」と呼ばれている
+
+**`license-discuss` 2024-01〜2026-09（443 通・76 スレッド）を全数で件名列挙し、我々の設計に
+触れる 11 スレッドを特定した**（公有・CC0・献呈・Unlicense・0BSD・waiver・proliferation・AI・訓練）。
+**そのうち 1 件は、ドシエが一度も扱っていなかった。**
+
+**"I edited the CC0 license to solve patent issue, need some advice"**（2024-04-05・4 通）。
+提出者の動機は我々と同じである ——*"I just want to release my code to public domain and CC0 are
+an excellent tool for that … but **the patent problem of CC0** grant me headache … so I just edit
+the CC0 legal code to **explicitly grant patent and trademark rights**"*。
+**（名称は "True Zero License" ——`CC` が Creative Commons の商標だからだと本人が書いている。
+§1.77 (b) の「名称は照合される」および B6 と同じ族の実例である。）**
+
+### 🟢 Bruce Perens 氏が挙げた「正しい文言」は、ACD §8.1 と同じ限定である
+
+> *"I think **the proper language** would be to grant rights to patents that are **'necessarily
+> practiced in the work as issued by the grantor'**. Because of course **anyone can modify the work
+> to exercise any patent claim you happen to own**."* —— Bruce Perens 氏・2024-04-06
+
+**ACD §8.1 の末尾**: *"where the infringement is **caused by subject matter contained in the Work
+as made available by the Dedicator**."* ——**同じ限定である。**
+**これで独立な 2 つの出典が同じ形を指している** ——Perens 氏（2024-04・`license-discuss`）と
+**Chestek 委員長が「OSI は受け入れる」と述べた形**（2025-02・`license-review`・§1.67 R4）。
+**我々は両方を満たしている。**
+
+### 🔴 同じ人が、献呈そのものについて我々に不利なことも述べている
+
+> *"**CC0 was never all that strong.** It is probably going to be parsed in court as **a dedication
+> to the public domain rather than a contract**. **There is thus some question of how binding the
+> terms could be on the grantor.**"* —— 同上
+
+**ACD は Dedicator 側の約束を 3 か所持っている** ——**§5.1/§5.2**（不行使および技術的措置・
+付随契約・狭い解釈の主張をしないという covenant）、**§8**（特許許諾）、**§2.6**（他人の権利が
+混ざる部分を特定する義務）。**Perens 氏の疑いが当たるなら、これらの拘束力が問われうる。**
+
+**ACD の構造上の答えは 2 つある（いずれも本文にある）**:
+**(1) §4.4** —— **§4 の許諾は §3 とは独立に付与され、§3 の有効性に依存しない。**
+**§8 も許諾（licence）であって献呈ではない。** **(2) §2.9** ——
+*"This Dedication is **fully performed when it is applied**. It leaves **no continuing obligation**
+on the Dedicator … and so is **not executory**."*
+**つまり ACD は「継続的な義務で受領者を守る」構造を意図的に避け、適用の時点で完了する
+許諾と放棄で構成している。**
+
+**それでも残る弱点を、正直に書く**: **§5 は文言上 covenant（約束）であり、
+「完了する」構造の外にある可能性がある。** §2.9 は *"leaves no continuing obligation"* と述べるが、
+**§5.2(b) の「付随契約で義務を課さない」は、性質上、将来にわたる不作為の約束である。**
+**この緊張は 1.1 の errata には入っていない**（本文の欠陥ではなく、性格づけの問題だから）。
+**`against.md` #135 に立てた。**
+
+### この節が establish しないこと
+
+**Perens 氏の発言は個人の見解であり、Licensing Committee の判断ではない。**
+**また 2024-04 の時点のもので、CC0 についてのものである** ——
+**ACD の §4.4 / §2.9 のような構造を見たうえでの発言ではない。**
