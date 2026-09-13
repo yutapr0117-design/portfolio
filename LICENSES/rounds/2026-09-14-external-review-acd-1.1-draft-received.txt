@@ -10,6 +10,16 @@ Provenance, stated exactly: THE STEWARD RECEIVED THIS AND PASSED IT ON. It did n
         1.1 draft text that this project has received.
 Retrieved: pasted by the steward; no fetch was performed by this repository.
 
+WHICH TEXT WAS REVIEWED (verified, not assumed). The steward supplied the exact file he uploaded.
+It is BYTE-IDENTICAL to LICENSES/ACD-1.1-DRAFT.txt as of this commit:
+    sha256 e61f9f6a278d8fa636cac01c887f3fd6b70c24e31e7b8587002e78c98a9bc3ba   (38432 bytes)
+This matters because every judgement in the decomposition (`ACD-1.0.discussion-log.md`, round 0)
+was reached by testing the reviewer's claims against the CURRENT draft. Had the reviewed text been
+an earlier one, those judgements would have been measurements of the wrong artifact.
+THE CHECK WAS RUN AFTER THE CLASSIFICATION, NOT BEFORE -- the classification was written while the
+identity of the reviewed text was still an assumption. It held, but it was an assumption.
+If a later review arrives, pin the reviewed bytes BEFORE classifying it.
+
 ONE ALTERATION, AND WHY. The body's citation links were AWS presigned URLs carrying
 `AWSAccessKeyId`, `Signature` and `x-amz-security-token` query parameters -- that is, credentials.
 Every such query string has been replaced with `[presigned-query-redacted]`. Nothing else is
