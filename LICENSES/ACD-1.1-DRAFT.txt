@@ -85,7 +85,7 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       the person harmed by that is the downstream recipient who relies on the
       signal. Section 2.7 already made the effect honest; this makes the
       sentence say it.
-    * 1.0: 4,896 words, 82 clauses. This draft: 4,949 words, 77 clauses.
+    * 1.0: 4,896 words, 82 clauses. This draft: 4,935 words, 77 clauses.
 
   Still open in this draft, deliberately: E11 (Section 4.4, awaiting an answer
   from the list), E13 (the definition order), E15 (Section 8.4 has no
@@ -298,11 +298,10 @@ PREAMBLE (informative; not part of the operative terms)
        technologies, endeavours, or jurisdictions.
 
   4.4  The licence in Section 4.1 is granted independently of Section 3 and
-       does not depend on Section 3 being ineffective. Where Section 3 is
-       effective, this Section is redundant but not void, and it remains
-       available to be relied upon by You. You are not required to determine
-       whether Section 3 is effective in any jurisdiction, and no permission
-       granted here depends on that question or on how it is answered.
+       does not depend on Section 3 being ineffective. You are not
+       required to determine whether Section 3 is effective in any
+       jurisdiction, and no permission granted here depends on that
+       question or on how it is answered.
 
   4.5  Because this licence imposes no condition, You may distribute the Work,
        and any adaptation or collection containing it, under any terms You
@@ -651,6 +650,7 @@ PREAMBLE (informative; not part of the operative terms)
            are expressly permitted, and a patent licence is granted.
            Full text: <location of this file>
            SPDX-License-Identifier: ACD-1.1
+           (LicenseRef-ACD-1.1 while not on the SPDX License List)
 
   16.2 Where a work is accompanied by the identifier "ACD-1.1", by an
        "SPDX-License-Identifier: ACD-1.1" tag, or by a reference to this
