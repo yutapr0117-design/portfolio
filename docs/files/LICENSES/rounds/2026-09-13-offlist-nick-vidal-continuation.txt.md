@@ -1,0 +1,57 @@
+---
+file: LICENSES/rounds/2026-09-13-offlist-nick-vidal-continuation.txt
+audience: ai, human (新卒), 監査人, 第三者全般
+last-updated: 2026-09-13
+canonical-ref: LICENSES/rounds/2026-09-07-offlist-nick-vidal-moderator-exchange.txt (この往復の前半) / LICENSES/ACD-1.0.against.md #136 / LICENSES/ACD-OSI-BOTTLENECKS.md B14
+---
+
+# LICENSES/rounds/2026-09-13-offlist-nick-vidal-continuation.txt
+
+## What
+
+**リスト外（off-list）の往復の続き、3 通の逐語。** 2026-09-12 の steward 発、2026-09-13 の
+moderator 発、同日の steward 発。**公開アーカイブには 1 通も存在しない**（steward が提供した
+ものであり、それがこの記録の証拠のすべてである）。
+
+**最も重い内容は 1 点** —— **steward が送った substantive な review メッセージが 2 通
+（ModelGo 宛・BOS Public License 宛）moderation に拒否され、提出者にもリストにも届かなかった。**
+
+## Why
+
+**この repository が置いていた前提を 1 つ壊すからである。**
+
+**#91 は「送っていないのか、アーカイブに載らなかったのかを我々には区別できない」と記録していた。**
+**少なくとも 2 通については、答えが判明した —— 送っており、ブロックされた。**
+**したがって今後「アーカイブに我々の投稿が無い」と書くときは、必ず
+「少なくとも 2 通は拒否された」を併記しなければならない**（`against.md` #136）。
+
+**2026-09-13 に公開アーカイブで実測**: `license-review` に届いている我々の最後のメッセージは
+**2026-09-04** で、以降は 1 通も無い。
+
+## How
+
+`REVISION-PROTOCOL.md` §1 ①（受領）の規約どおり **無改変**で保存した。整形・翻訳・並べ替え・
+省略をしていない。**送信・受領の両方向を同じ規則で置く**（記録が誤ってはならない理由は向きによって
+変わらない）。
+
+## Constraints
+
+- **これは 1 人の個人との私信である。** 記録するのは「何と言われたかの記録が誤ってはならない」
+  からであって、**OSI という組織の立場を性格づけるためではない** ——
+  **steward 自身が 2026-09-10 にその線を引いている**（B14）。
+- **リスト上でこれを引かない。公開の場でこれを根拠に論じない。**
+- **投稿は引き続き停止中**（`FROZEN.md` の `POSTING-STATUS`）。**本文も凍結中。**
+- Check 465 が `rounds/README.md` の在庫申告を実 file から導出して照合するので、
+  **file を足したら README の一覧と件数も同じ commit で更新する。**
+
+## Change impact
+
+この file を消すと `against.md` #136 が出典を失う。内容を編集すると、**逐語であるという前提が壊れる。**
+
+## Audience-specific notes
+
+- **AI（次のセッション）**: **2 通の拒否は「我々の提出（ACD-1.0）への応答」ではない。**
+  拒否されたのは**他者のライセンスへの review コメント**であり、**ACD-1.0 は別のリストで
+  2026-08-26 以降 返信ゼロのままである。** **この 2 つを混ぜると記録が実態と変わる。**
+- **監査人**: 公開アーカイブとの突合は可能である（我々の最後の到達は 2026-09-04）。
+- **第三者**: **moderator の行為は組織の決定ではない。** ここには組織からの表明は 1 つも無い。
