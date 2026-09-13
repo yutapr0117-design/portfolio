@@ -1,0 +1,281 @@
+Source: External review of LICENSES/ACD-1.1-DRAFT.txt, provided to the steward and shared by him
+        with this repository on 2026-09-14 (JST).
+Provenance, stated exactly: THE STEWARD RECEIVED THIS AND PASSED IT ON. It did not arrive on
+        `license-discuss` or `license-review`, it is not in any public archive, and this repository
+        did not commission it. The citation markers in the body link to an AI file-upload host
+        (`ppl-ai-file-upload.s3.amazonaws.com`), so on its face it is an AI-produced review reading
+        the uploaded draft. THE AUTHOR IS NOT IDENTIFIED, IS NOT A LICENSE-REVIEW PARTICIPANT, AND
+        IS NOT STATED TO BE A LAWYER. Nothing here may be described as OSI feedback, as list
+        feedback, or as legal review. What it is: the first substantive outside reading of the
+        1.1 draft text that this project has received.
+Retrieved: pasted by the steward; no fetch was performed by this repository.
+
+ONE ALTERATION, AND WHY. The body's citation links were AWS presigned URLs carrying
+`AWSAccessKeyId`, `Signature` and `x-amz-security-token` query parameters -- that is, credentials.
+Every such query string has been replaced with `[presigned-query-redacted]`. Nothing else is
+changed: no word of the review is added, removed, reordered, or rewritten, and the link targets
+(host and path) are left intact.
+
+This is a deliberate exception to the verbatim rule of this directory, taken because the two rules
+conflict: `rounds/` exists so that what was said cannot drift, and a public repository must not
+publish credentials. THE RULE THAT WON IS THE ONE PROTECTING SOMEONE ELSE. The redacted material
+was a temporary access token (the URLs carried `Expires=1789315612`), it was not part of the
+review's content, and its removal cannot change any reading of what the reviewer said.
+If that judgement is wrong, the fix is to restore the query strings from the steward's own copy --
+NOT to assume this file is complete in that one respect.
+
+================================================================================
+REVIEW AS RECEIVED (links redacted as stated above)
+================================================================================
+
+## レビュー結論
+
+ACD-1.1は、**設計意図が一貫しており、OSD 3・5・6・9を正面から意識した、相当に作り込まれたドラフト**です。  
+一方で、OSI本申請の観点では、現状の最大リスクは「オープンソース性」そのものより、**条文が複雑で、AI・特許・第三者権利・文書名称保護を一つの無条件ライセンスに収めた結果、法的効果と機械的判定が不明確になる箇所が残っていること**です。 [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/50311014/7dd29c6b-1b71-48b3-9cf5-c72dcb0345f6/ACD-1.1-DRAFT.txt?[presigned-query-redacted])
+
+## 良い点
+
+### 1. 三重構造の意図が明確
+
+Section 3の権利放棄、Section 4のライセンス、Section 5の不行使約束を独立させた構造は、単純な「放棄が失敗したらライセンス」というフォールバック構造を避けています。Section 2.4と前文でその意図も明示されており、設計上の主張が読み手に伝わります。 [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/50311014/7dd29c6b-1b71-48b3-9cf5-c72dcb0345f6/ACD-1.1-DRAFT.txt?[presigned-query-redacted])
+
+これはACDの重要な強みです。特に、法域によってパブリックドメイン放棄の効力が異なるという前提に対し、利用者に法的評価を要求しない設計になっています。
+
+### 2. 無条件性はかなり強く書けている
+
+Sections 4.3、10.1、10.2、10.3、10.4は、表示、通知保持、ソース公開、相互ライセンス、用途、利用者、技術、地域などを条件にしないことを繰り返し確認しています。 [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/50311014/7dd29c6b-1b71-48b3-9cf5-c72dcb0345f6/ACD-1.1-DRAFT.txt?[presigned-query-redacted])
+
+OSD 3・5・6・9への対応としては、意図が非常に明確です。特にSection 10.2で、利用者に帰属表示やライセンス文保持さえ要求しないことを具体化している点は、MIT等との差分説明にも使えます。
+
+ただし、同じ内容が複数箇所に分散しているため、後述する「no-condition mesh」の整合性確認は必要です。
+
+### 3. 機械学習許可の対象が具体的
+
+Section 1.7は、単なる「AI利用」ではなく、次を列挙しています。
+
+- reproduction
+- extraction
+- indexing
+- retrieval
+- text and data mining
+- train
+- fine-tune
+- evaluate
+- align
+- distil
+- model、weight、embedding、outputの作成・配布・利用
+
+Section 6.1、6.4、6.5もこの定義と連動しています。機械学習利用を明示するライセンスとして、目的と対象の具体性は高いです。 [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/50311014/7dd29c6b-1b71-48b3-9cf5-c72dcb0345f6/ACD-1.1-DRAFT.txt?[presigned-query-redacted])
+
+ただし、この具体性がSection 8.4の特許範囲と結びつくため、AI条項単体よりも特許条項との一体評価が重要になります。
+
+### 4. 機械生成物について法的断定を避けている
+
+Section 9.2は、機械生成物について権利が存在しないと断定せず、権利が存在する場合にはSections 3〜8、12を適用する構造です。 [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/50311014/7dd29c6b-1b71-48b3-9cf5-c72dcb0345f6/ACD-1.1-DRAFT.txt?[presigned-query-redacted])
+
+これは、「AI生成物には必ず著作権がない」といった法域依存の主張を避けており、本文として慎重です。Section 9.3で利用者に機械生成部分の判定を要求していない点も、無条件性と整合しています。
+
+## 重大レビュー事項
+
+### 1. Section 8.4は最優先で再検証すべき
+
+Section 8.4は、WorkのComputational Useや、そこから生じたモデル・重み・埋め込み・出力に関係する、Dedicator所有・管理特許を許諾します。 [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/50311014/7dd29c6b-1b71-48b3-9cf5-c72dcb0345f6/ACD-1.1-DRAFT.txt?[presigned-query-redacted])
+
+この条項はACDの独自性の中心ですが、同時に最も不安定です。
+
+#### 問題点
+
+「a claim whose infringement depends upon the use of the Work」という表現が、法的にどの範囲を指すかが確定していません。
+
+例えば、次のケースが曖昧です。
+
+- Workを学習データの一部として使ったモデルの推論処理。
+- Workを使って作った埋め込みを別モデルの入力に使う場合。
+- Workを使ったことがモデルの特許侵害の必要条件ではない場合。
+- 同じモデルが、Workを使わなくても同一の構成を実現できる場合。
+- Workの利用が、特許請求項の一要素にだけ関係する場合。
+- Workを使ったモデルの配布ではなく、サービス提供だけを行う場合。
+
+現行条文は「因果関係であり量ではない」と説明していますが、**因果関係の判定基準自体は定義していません**。 [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/50311014/7dd29c6b-1b71-48b3-9cf5-c72dcb0345f6/ACD-1.1-DRAFT.txt?[presigned-query-redacted])
+
+#### レビュー判断
+
+ここは、閾値を入れるかどうか以前に、次のどちらを選ぶかを決める必要があります。
+
+- 特許ライセンスの範囲を明確化するため、Computational Useの結果に対する対象行為を限定する。
+- 現行の広い表現を維持し、申請資料で「特許請求項の侵害がWorkの使用に依存する場合」の意味を具体例で説明する。
+
+現状のままだと、**意図は広いが、許諾範囲の境界が読者ごとに変わり得る**のが問題です。OSIの新ライセンス基準にある「重大な効果を持つ曖昧さを避ける」という観点で、最も強く質問される箇所だと思います。
+
+### 2. Section 6.3は権限のない第三者Reservationを撤回するようにも読める
+
+Section 6.3は、ReservationがDedicatorまたは第三者によって行われた場合に、Dedicatorがそれを撤回し、依存しないと定めています。 [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/50311014/7dd29c6b-1b71-48b3-9cf5-c72dcb0345f6/ACD-1.1-DRAFT.txt?[presigned-query-redacted])
+
+しかしSection 2.7、6.2、8.5は、Dedicatorが保有しない第三者権利には影響しないとしています。 [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/50311014/7dd29c6b-1b71-48b3-9cf5-c72dcb0345f6/ACD-1.1-DRAFT.txt?[presigned-query-redacted])
+この2つが衝突して読める可能性があります。
+
+特に、第三者が権利者であり、第三者自身がTDMやAI学習を留保している場合、DedicatorにはそのReservationを撤回する権限がありません。
+
+#### 修正の方向
+
+Section 6.3は、少なくとも意味上、次のように限定した方が安全です。
+
+> Where a Reservation has been made by the Dedicator, or by a person acting under the Dedicator's authority, the Dedicator withdraws it and disclaims reliance on it to the fullest extent the Dedicator is able.
+
+第三者Reservationについて言及を残すなら、第三者の権利・Reservationを無効化しないことを明示すべきです。
+
+現行の「whether ... by another person」は、**第三者のReservationについてもDedicatorが何らかの法的処理をするように読める**ため、重大な明確性リスクです。
+
+### 3. Section 2.6のContribution処理は、ライセンスの適用機構として重い
+
+Section 2.6は、Contributionを原則としてACD適用下に置き、オプトアウト時にはDedicatorがWorkに伴う形式で対象部分を識別する義務を負います。 [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/50311014/7dd29c6b-1b71-48b3-9cf5-c72dcb0345f6/ACD-1.1-DRAFT.txt?[presigned-query-redacted])
+
+意図は理解できます。特に「自動システムが、何がACD対象か判断できること」を重視している点は、ACDの目的と整合します。
+
+ただし、次の実務ケースが未処理です。
+
+- オプトアウト表示が後から追加された場合。
+- 表示がコピー・変換・分割で失われた場合。
+- Contributionが複数人の共同作業である場合。
+- 既存素材をContributionとして誤認した場合。
+- リポジトリやフォーラム以外から取り込んだ素材。
+- "not a Contribution"の表記が曖昧な場合。
+- 識別情報が間違っていた場合。
+
+さらに、Section 2.6がDedicatorに課す識別義務は、Section 10.1の「Youに条件を課さない」とは矛盾しませんが、**ACDの適用を受けるWorkの構成要件**として機能しています。つまり、単なる説明条項ではなく、適用範囲を決める実質条項です。
+
+ここは、オプトアウトを維持するなら、識別方法をもう少し機械可読にする必要があります。例えば、対象ファイル・範囲・Contribution者・適用除外の形式を定める方式です。
+
+### 4. Section 16.4は、OSD上の文書改変自由と衝突して見える
+
+Section 16.4は、ACD本文の改変版を同じ名称・識別子で配布することを禁止し、別名での配布を要求しています。 [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/50311014/7dd29c6b-1b71-48b3-9cf5-c72dcb0345f6/ACD-1.1-DRAFT.txt?[presigned-query-redacted])
+
+ライセンス本文の名称を保護すること自体は、ライセンスの同一性維持や混同防止のために理解できます。問題は、OSD 3が派生物の作成・配布を認めることとの見え方です。
+
+Section 16.5で「これはWorkの利用条件ではない」と切り分けていますが、申請者の説明だけでなく、本文上も次を明確にした方がよいです。
+
+- ACD適用Workの改変・再配布には一切適用されない。
+- ACD本文の改変版を作ること自体は禁止していない。
+- 禁止するのは、固定本文と誤認させる同一名称・識別子での配布だけ。
+- 別名での改変ライセンス配布は許可される。
+- ACD本文の改変版をWorkに適用することに、ACDは条件を課さない。
+
+現行条文は大部分を説明していますが、**"may not be distributed in modified form"という冒頭の強い表現だけを読むと、改変版の配布自体を禁止しているように見える**のが問題です。
+
+### 5. 「SPDX登録が必要」という前提は本文から外した方がよい
+
+ドラフトの変更履歴には、SPDX XML登録との関係でSection 16.4を修正したとあります。 [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/50311014/7dd29c6b-1b71-48b3-9cf5-c72dcb0345f6/ACD-1.1-DRAFT.txt?[presigned-query-redacted])
+
+ただし、OSI承認とSPDX登録は別プロセスです。SPDXの識別子は、SPDX License Listに登録された標準識別子として扱われます。 [spdx](https://spdx.dev/learn/handling-license-info/)
+そのため、OSI申請前の段階で本文に`SPDX-License-Identifier: ACD-1.1`を正式な識別子として書くと、すでにSPDX登録済み、あるいはOSI承認済みと誤認される可能性があります。
+
+本文の適用例に残す場合は、少なくとも申請中であることを外部文書で明示するか、申請前のドラフトでは次のような表記にする方が安全です。
+
+```text
+Proposed SPDX-License-Identifier: ACD-1.1
+Pending OSI and SPDX review
+```
+
+ただし、最終ライセンス本文は、申請後に識別子が確定する可能性も考慮して設計してください。
+
+## 構造・可読性レビュー
+
+### 1. 条文が長く、各節に理由が入りすぎている
+
+ACD-1.1は、条文だけでなく、なぜその条文が存在するかまで本文中にかなり詳しく書いています。
+
+例えばSection 8.4は、許諾内容、範囲、反対解釈の否定、Section 1.5との関係、Section 6.5との関係、因果関係と量の区別まで一つの節に入っています。 [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/50311014/7dd29c6b-1b71-48b3-9cf5-c72dcb0345f6/ACD-1.1-DRAFT.txt?[presigned-query-redacted])
+
+これは設計文書としては優秀ですが、法的本文としては次の問題があります。
+
+- 解釈上、説明文が operative term と一体化する。
+- 例示・理由・法的効果の境界が曖昧になる。
+- 将来、理由部分だけが別の意味に読まれる。
+- 翻訳・機械解析で主語と法的効果が取りにくい。
+- 審査者が、実際の許諾範囲を短時間で把握しにくい。
+
+#### 推奨
+
+条文を次の2層に分けるのが望ましいです。
+
+- ライセンス本文：権利・義務・範囲・例外だけ。
+- Rationale/Commentary：なぜ必要か、何を排除するか、既存条項との関係。
+
+現行前文はinformativeと明示されていますが、Section 8.4やSection 2.8には、実質的に解説・立法理由が入っています。特に本申請版では、解説を削るか、`Commentary (non-operative)`として本文外に出す検討を勧めます。
+
+### 2. 相互参照が多く、読み手の負担が大きい
+
+ACDは各節が細かく相互参照しています。
+
+- Section 2.4 → Section 15.1
+- Section 2.6 → Section 6.5
+- Section 2.7 → Section 13.2
+- Section 4.4 → Section 3
+- Section 4.6 → Sections 1.6、5.3、2.3
+- Section 6.2 → Sections 2.7、6.3
+- Section 8.4 → Sections 1.5、6.4、6.5
+- Section 10.5 → Section 16
+- Section 11.1 → Section 16、10.5
+
+これ自体が無効というわけではありません。しかし、ライセンスを読む人が「権利を得るためにどこを見ればよいか」を直感的に理解しにくくなっています。
+
+特にSection 15.1の「widest permission and least obligation」を全体の解釈規則として置いているため、曖昧な条文があった場合に、利用者有利の解釈で広げられる可能性があります。これは利用者保護には有利ですが、ライセンサーの特許許諾範囲なども広がり得ます。
+
+## 条文別の修正優先順位
+
+### 最優先：修正または明確な解決が必要
+
+1. Section 6.3  
+   第三者ReservationをDedicatorが撤回できるように読める部分。
+
+2. Section 8.4  
+   因果関係、モデル・出力、特許侵害の範囲。
+
+3. Section 16.4  
+   ACD本文改変の配布制限とOSD 3との切り分け。
+
+4. Section 2.6  
+   Contributionのオプトアウトと識別義務。
+
+5. Section 1.5 / 1.7  
+   Covered Rightsから特許を除外しながら、Computational Useについて特許を別途許諾する構造の説明。
+
+### 次に確認
+
+6. Section 2.8  
+   将来の譲受人を「bind」する効果を、Dedicatorの権限の範囲内に限定できているか。
+
+7. Section 5.3 / 8.6 / 12.4  
+   "run with the Work"と意図された第三者受益者の法的効果が、法域をまたいで過度に断定されていないか。
+
+8. Section 11.3  
+   false attributionを「許諾の範囲外」とするだけで、利用者に実質的な義務を課していないことが十分明確か。
+
+9. Section 15.2  
+   "reformed to the minimum extent necessary"が、裁判所による再構成を広く許しすぎないか。
+
+10. Section 16.2  
+    ライセンス本文なしで、名称または識別子だけにより全文の条件が適用される構造。名称の誤用や偽版との混同処理が必要。
+
+## 総合判定
+
+**設計品質：高い。**  
+**目的の一貫性：高い。**  
+**OSD適合を意識した明示性：高い。**  
+**法的・実務的な単純性：低め。**  
+**本申請で質問される可能性：高い。**
+
+ACD-1.1の最大の弱点は、OSDに反する明白な利用分野制限ではありません。むしろ、**「すべてを無条件に許可する」という目標を、特許・AI出力・第三者権利・本文識別子・Contribution処理まで同時に実現しようとしているため、条文の法的境界が複雑になっていること**です。 [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/50311014/7dd29c6b-1b71-48b3-9cf5-c72dcb0345f6/ACD-1.1-DRAFT.txt?[presigned-query-redacted])
+
+レビューとしての最終的なコメントは次のとおりです。
+
+- Section 4.4は、設計意図は明確で、独立ライセンスの説明としてよい。
+- Section 6.3は、現状のままでは第三者Reservationとの関係が危険。
+- Section 8.4は、ACDの核心だが、現状で最も解釈不確実性が高い。
+- Section 2.6は、機械可読性を理由にした設計として理解できるが、実装形式が不足。
+- Section 16.4は、名称保護として合理性がある一方、OSD 3との関係を最も丁寧に説明すべき。
+- Section 9は慎重でよいが、機械生成物の権利不存在を断定しない点を維持すべき。
+- Section 10の無条件性は強みなので、他の条項が実質的な条件に見えないよう全体整合性を守るべき。
+- 本文中の理由説明は、可能なら本文外の解説に移した方が、法的明確性と審査可能性が上がる。
+
+以上が、`ACD-1.1-DRAFT.txt`本文に対するレビューです。 [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/50311014/7dd29c6b-1b71-48b3-9cf5-c72dcb0345f6/ACD-1.1-DRAFT.txt?[presigned-query-redacted])
