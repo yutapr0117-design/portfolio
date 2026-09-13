@@ -52,6 +52,18 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        だった（「All 14 adverse facts」に対し実体 57）。**最後に書かれ最初に読まれるページ**が
        (a)〜(f) のどこにも入っていなかった。Check 413b（内訳の和 = 合計）と同じ
        「**書いた数は数えて確かめる**」族。(BLOCKING)
+
+       (l) **`errata.md` 冒頭の件数 ↔ その下の表の行数** —— 実測 (2026-09-09): 冒頭は
+       「Seven items … All five are unrepaired」、表は 10 行。**自分の既知欠陥を列挙する
+       ページが過少申告していた。** (m) **`ACD-OSI-BOTTLENECKS.md` の集計行 ↔ 表からの導出**。
+       (n) **`submission-reference.md` §4c の「機械的に確かめた」欄 ↔ 現物**。
+       (o) **入口ページが register について述べる散文の件数 ↔ register の表**。
+       (p) **§B.0 の見出しが述べる語数 ↔ file 自身が明記する instrument で数え直した値**。
+       **この列挙は Check 469 (a) が実装と双方向で照合する** —— 実測 (2026-09-13): 本 inventory は
+       (a)〜(k) の 11 面しか挙げていないのに実装は (a)〜(p) の **16 面**あり、
+       `file-size-budget.md` は第 3 の値「12 面」を述べていた。**3 つの数が 3 つとも違い、
+       どれも実測ではなかった。** 本 docstring は「数を書かずに列挙する」と述べているが、
+       **列挙もまた、足した面を書き足さなければ古くなる。**
 """
 
 import json
