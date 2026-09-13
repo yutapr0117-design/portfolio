@@ -280,6 +280,13 @@ courtesy — a discussion whose subject changes underneath it is not a review of
 
 5. **人格ではなく条文について書く。** 同じスレッドで人身攻撃が問題になっていた。
 
+7. **他者のライセンスについて述べるときは、1 行で利害を開示する。** 例:
+   *"Disclosure: I am the steward of ACD-1.0, which is under discussion on license-discuss."*
+   **根拠は Code of Conduct の "Disclose potential conflicts"** ——*"conflicted due to … **other
+   projects they are involved in**"* / ***"When in doubt, over-disclose."*** **2026-09-13 に実測した
+   ところ、他者のライセンスについて述べた 4 通すべてで開示していなかった**（`against.md` #137）。
+   **質問しかしていない場合でも開示する** ——CoC の基準は「賛否を述べたか」ではなく「利害があるか」である。
+
 ### この規律が守るもの
 
 **時間の希少な参加者を失わないこと。** 引用の最後の一文が理由をすべて述べている ——

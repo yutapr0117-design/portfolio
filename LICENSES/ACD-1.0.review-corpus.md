@@ -675,3 +675,52 @@ B3 を緩めるものではない。** ——**2 つを同じ「長さ」で括�
 （提出者の既知性・ライセンスの種類・時期・required information の充足）に左右される**
 ——§1.75 が示したとおり、**手続きの不備の方がはるかに強い効果を持つ。**
 **相関がゼロであることは「長さは無害」ではなく「長さでは説明できない」である。**
+
+## 1.81 規範文書の「読んだ」と「1 条ずつ当てた」を棚卸しし、未適用が 1 つ出た —— **Code of Conduct を我々自身に当てていなかった**
+
+**2026-09-13 に同じ形の欠落が 3 度出たので**（提出要件の third-party endorsement / OSD 3 の後半 /
+#77 の 3 件）、**承認に効く規範文書を列挙し、「読んだだけ」と「1 条ずつ当てた」を分けて数えた。**
+
+| 規範文書 | 読んだ | **1 条ずつ当てた** | 置き場 |
+|---|---|---|---|
+| **Open Source Definition**（10 条）| 2026-09-06 | **✅ 2026-09-13 に完了**（4/6/7/9/10 は 09-06、1/2/3/5/8 は 09-13）| `submission-reference.md` §3 / §3b |
+| **review-process "How to submit a request"**（legacy 8 + new 3）| 2026-09-06 | **✅ 2026-09-13**（1 件欠落を発見・補填）| §1.76 / Check 463（**12 項目を機械強制**）|
+| **review-process "Standard for new licenses"**（8 条）| 2026-09-11 | **✅ 2026-09-11** | §1.70 |
+| **review-process "License approval standards" 前文** | 2026-09-11 | **✅**（天井 2 つ）| `against.md` #130 |
+| **common-reasons-for-rejection** | 2026-09-07 | **✅** | `submission-reference.md` §3c |
+| **OSAID v1.0** | 2026-09-06 | **✅** | `review-responses-meta.md` Q32d |
+| **SPDX inclusion principles** | 2026-09-06 | **✅** | `against.md` #78 |
+| **Mailing List Code of Conduct** | 2026-09-09（**全文確保は 09-13**）| **❌ 我々自身の行動に当てていなかった** | **本節** |
+
+**最後の 1 行が、いちばん当てるべきものだった** ——**2026-09-09 の通知が援用したのはこの文書である。**
+
+### 当てた結果 —— 1 件、我々は満たしていない
+
+**"Disclose potential conflicts"**（逐語）:
+> *"List discussions often involve **interested parties**. We expect participants to be aware when
+> they are conflicted due to employment or **other projects they are involved in**, and **disclose
+> those interests** to other project members. … **When in doubt, over-disclose.** Perceived
+> conflicts of interest are important to address, so that the lists' decisions are credible."*
+
+**実測（2026-09-13・アーカイブの全文から）**: **`license-review` へ送った 3 通
+（2026-09-03 ×2・2026-09-04）は、いずれも ACD-1.0 に一切触れていない。**
+**`license-discuss` の 2026-09-06 04:47（他者のネットワーク・コピーレフト質問への回答）も
+触れていない。** **つまり、他者のライセンスについて実質的な意見を述べた 4 通すべてで、
+我々自身が同じ領域のライセンスを係属させていることを開示していない。**
+
+**軽くする事情は書くが、消しはしない**: 4 通はいずれも**条文の作動についての質問と分解**であり、
+承認への賛否を述べていない（2026-09-04 のものは *"I am not arguing for either outcome here"* と
+明言している）。**だが CoC の基準は「賛否を述べたか」ではなく「利害があるか」であり、
+*"when in doubt, over-disclose"* と書いてある。**
+
+### やること（`REVISION-PROTOCOL.md` §3.7 に規則 7 として追加した）
+
+**他者のライセンスについて述べるときは、1 行で開示する。** 例:
+*"Disclosure: I am the steward of ACD-1.0, which is under discussion on license-discuss."*
+**これは投稿再開の可否とは無関係に、こちらの側で先に決めておけることである。**
+
+### この節が establish しないこと
+
+**開示していなかったことが、通知の理由だったとは言えない。** 通知は AI 生成について述べており、
+**利益相反には触れていない。** **2 つを結び付けるのは、我々の推測である。**
+**記録するのは「CoC を当てたら 1 件出た」という事実だけである。**
