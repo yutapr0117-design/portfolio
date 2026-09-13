@@ -2,7 +2,7 @@
 file: LICENSES/rounds/2026-09-10-license-review-chestek-names-us.txt
 audience: ai, human (新卒), 監査人, 第三者全般
 last-updated: 2026-09-13
-canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0.review-precedents.md §1.73 / LICENSES/AS-OF.md
+canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0.review-corpus.md §1.73 / LICENSES/AS-OF.md
 ---
 
 # LICENSES/rounds/2026-09-10-license-review-chestek-names-us.txt
