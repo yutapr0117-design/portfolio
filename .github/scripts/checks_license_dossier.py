@@ -329,6 +329,13 @@ def run(ctx):
                 ("proposed tags", r"Proposed Tags:"),
                 ("gap statement", r"\*\*The gap\.\*\*"),
                 ("nearest approved licences", r"\*\*Nearest approved licences\.\*\*"),
+                # **2026-09-13 追記（この項目を足した理由の裏付け）。** 委員長は BOS Public License の
+                # 提出に対し、欠けている項目のうち**この 1 件だけを名指しして**
+                # *"in particular do not skip 'Describe any legal review the license has been
+                # through, including whether it was drafted by a lawyer.'"* と述べている (2026-07-23)。
+                # **我々の最大の弱点そのものを述べる項目なので、書き落とす方向の圧力が構造的にある。**
+                # 実測: この行を "**Legal review status.**" へ変えると Check 463 が RED になる
+                # (`review-precedents.md` §1.75)。
                 ("legal review", r"\*\*Legal review: none\.\*\*"),
             ]
             _miss463 = [_n for _n, _r in _req463 if not re.search(_r, _b0, re.M)]

@@ -900,3 +900,40 @@ the OSD** … that is not met"*。**争点の外にいることは、失格を 3
 起草者の著作権表示を要求していた件）。**#129 で我々が literal に読んで不安に思った基準 1 が、
 実際に適用された唯一の例はこれである** ——**適用対象は「本文に起草者固有のものが埋め込まれている」
 ケースであって、法域による効果の差ではなかった。** §1.70 row 1 の読みを、実例が 1 つ支持する。
+
+## 1.75 我々と同じ類型の提出が止まっている理由は、テキストではなく**手続き**だった（3 件を通しで読んだ）
+
+**個人が単独で出した直近 3 件を、スレッドの最初から最後まで読んだ。** 共通しているのは、
+**審査者が本文の評価に入る前に、required information の欠落で止めている**ことである。
+
+| 提出 | 経過 | 審査者が実際に言ったこと |
+|---|---|---|
+| **Misty Foundation License**（2025-12・**5 日で撤回**）| 6.3 → 1.7 を 2 日で差し替え | Chestek 氏: *"You should **read this page** … and submit the license **with the additional information** as outlined on that webpage"* / Piana 氏: *"**a brief introduction to oneself and a signature of a real person** … would probably be a modicum of courtesy"* |
+| **Milenium License**（2026-05・**5 日**）| 1.0 → 1.1 を 2 日で差し替え | Kevin Fleming 氏: *"There are **a number of details which you will need to provide in addition to the license text itself**"* / McCoy 氏: *"this submission **has not followed the process of answering the questions**"* |
+| **BOS Public License**（2026-07-22 〜 2026-09-07・**6 週間以上・3 版**）| 1.0 → 1.2（2 日）→ 1.3（6 週後）| Berkus 氏: *"Please **attach a copy of the text** … Also, **your links are broken**"* / Chestek 氏: *"Please provide **all the information as required** … and **in particular do not skip 'Describe any legal review the license has been through, including whether it was drafted by a lawyer.'**"* / Chestek 氏（v1.2 に対して）: *"Please provide **the rest of the information**"* / Piana 氏（v1.3 に対して・6 週間後）: *"the submission **does not include the required information** and therefore **I will not comment it until the deficiencies are remedied**"* |
+
+**読み取れること（3 点・いずれも我々の側で使える）**:
+
+1. **版を差し替えても進まない。** 3 件とも数日で改訂版を出したが、**審査者の要求は変わらなかった**
+   ——欠けていたのは条文ではなく提出物だったからである。**「まず出して、指摘されたら直す」は、
+   この類型では機能していない。** オーナーの方針（**自信を持って出せる版ができるまで出さない**）は、
+   この記録と整合する。
+2. **審査者は required information が揃うまで本文を読まない、と明言する。** Piana 氏の
+   *"I will not comment it until the deficiencies are remedied"* が最も明確である。
+   **つまり手続きの不備は、悪い評価ではなく評価そのものの不在を招く。**
+3. **委員長が名指しした唯一の項目が「法的レビューの有無」だった。** ——**我々の最大の弱点
+   （B1）を述べる項目である。** 我々の §B.0 は *"**Legal review: none.** No lawyer has drafted or
+   read it."* と書いており、**Check 463 がその文言の存在を BLOCKING で強制している**
+   （2026-09-13 に実測: この行を "Legal review status." に変えると RED）。
+   **弱点を述べる項目ほど、書き落とす方向の圧力が構造的にある**ので、機械で縛る意味がある。
+
+**この節が establish しないこと（逆は言えない）**: **「required information が揃っていれば
+engagement が得られる」とは言えない。** 上の 3 件が示すのは **「欠けていると読まれない」**という
+一方向だけである。**我々自身が反例になりうる** —— `license-discuss` への 2 通は必要な材料を
+添えて出したが、**返信はゼロである**（2026-09-13 時点）。
+**ただし `license-discuss` は提出の窓口ではないので、同じ要求が働く場ではない**（#83 / §1.71）。
+
+**併せて記録する不利な材料**: Piana 氏は BOS v1.3 を *"the **10,354th** submitted MIT derivative"*
+と呼び、Misty に対しては *"**Why another MIT-style license, the hundredth or so?**"* と書いている。
+**proliferation への疲れは、条文とは独立に、提出そのものへの心証として存在する** ——
+#84 / B6 と同じ族で、**我々の答え（この類型に 1 件足す費用が低い）は、この心証には届かない。**
