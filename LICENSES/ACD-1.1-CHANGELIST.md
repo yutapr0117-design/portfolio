@@ -345,6 +345,28 @@ open だった理由が 4 件とも違った。** 宣言ではなく errata の�
 並べるが、**この文書が実際に制限している唯一のもの ——本文の改変頒布 —— には key が無い。**
 **§6.5 の理屈は両刃である: 自動化システムが判定できない制限は、知らずに破られる。**
 
+**ドシエの逐語引用のうち、新版では成立しなくなるもの（2026-09-14 に実測した）**
+
+**提出パケットと入口ページは 1.0 の文面を逐語で引く。** 新版を出すなら、その引用は**新版の文面と
+一致しなければならない** ——**引用が現物と違う提出は、審査者が最初に気づく種類の誤りである。**
+
+**測った結果は 1 件だけだった**（`submission.md` / `submission-reference.md` / `REVIEWERS.md` /
+`READY-TO-SUBMIT.md` の 40 字以上の逐語引用を全部取り、1.0 に在り 1.1 に無いものを抽出）:
+
+- `submission-reference.md` の **§6.4 からの引用**
+  —— *"You owe nothing in respect of any of them. Nothing in this Dedication requires You to
+  license, disclose, or attribute any such thing."*
+  **1.0 では連続する 2 文だが、1.1 では E4 の改訂で間に 1 文（*"Whether a right subsists … (Section 9)"*）
+  が入ったので、連続した引用として成立しない。**
+
+**確定時の手順**: 上の抽出を**もう一度回す**（1.1 → 確定版で再測）。
+**「1 件だけだった」を持ち越さない** ——**この数は、草案を触るたびに変わる。**
+
+**✅ 併せて確かめた（再確認不要）**: **提出文 §B.0 の Unlicense 差別化の議論は 1.1 でも成立する。**
+根拠として引くのは *"§4 does not wait for §3 to fail"* の趣旨で、**1.1 の §4.4 は
+*"granted independently of Section 3 and does not depend on Section 3 being ineffective"* と
+述べており、そこは残っている**（E11 で落としたのは*過大な主張*のほうだけである）。
+
 **なぜ先に書くか**: **CI が最も止まってほしくない日は、版を確定させて提出する日である。**
 **その日に原因を探すのは、探さなくてよい探索である。**
 
