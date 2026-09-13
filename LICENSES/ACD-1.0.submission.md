@@ -146,7 +146,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1183 words**, measured 2026-09-13)
+### B.0 The message as it should actually be sent (**1272 words**, measured 2026-09-13)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -297,6 +297,13 @@ that mentioning model Output at all creates *"ambiguity about the legal status o
 is *"not worth including"* (15 December 2025). ACD-1.0 mentions it anyway, in §6.4, for the reason
 §6.5 gives: silence has proved ambiguous, and a permission an automated system cannot determine is
 no permission at all. That is a deliberate trade-off, not an oversight.
+
+**On the scope of the patent grant.** §8.1 reaches claims infringed by subject matter contained in
+the Work as made available by the Dedicator. That is the limitation this list has itself described
+as acceptable — Pamela Chestek's formulation in February 2025, and the phrasing Bruce Perens called
+*"the proper language"* in April 2024. I mention it because a non-lawyer's drafting is otherwise
+hard for you to check: the wording was fixed on 23 August 2026, before this project had read either
+message, and the repository's history shows that.
 
 **Nearest approved licences.** It is closest in effect to the Unlicense, MIT-0, 0BSD and CC0, and
 closest in patent machinery to Apache-2.0. The full comparison — **including where those are the
