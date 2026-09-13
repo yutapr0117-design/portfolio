@@ -144,6 +144,21 @@ E15（§8.4 の程度の限定 ——**入れれば gap が縮む**ので設計�
 
 ## 0.7 草案で **直さないと決めた** errata と、その理由（2026-09-10）
 
+**追加（2026-09-13）—— §6（出力への言及）も、直さないと決めた。**
+**理由は errata と違い、外部の見解との対立である。** Licensing Committee 委員長は 2025-12-15 に
+ModelGo に対し *"you have created ambiguity about the legal status of the output **by mentioning
+it**"* / *"**it's not worth including Output at all in the license**"* と述べている
+（`review-corpus.md` §1.77・`against.md` #133）。**ACD §6.4 は意図的に言及している。**
+
+**削らない理由は 2 つ。** **(1)** §6 は **gap の主張の 3 分の 1** を担っており、
+**gap は「あれば良いもの」ではなく承認の要件である**（"Standard for new licenses" 項目 7）。
+**(2)** 委員長自身が *"I wouldn't reject the license for that reason"* と明記しており、
+**失格事由ではない。**
+
+**かわりにやったこと**: **提出文（§B.0）でこの対立を自分から名指しした**（2026-09-13）。
+**相手が挙げた争点を、指摘される前にこちらから出す**のは `against.md` の方式そのものであり、
+**「読んでいなかった」と見えることだけは避けられる。**
+
 **閉じた 7 件は §0 に書いた。閉じなかったものにも理由が要る** ——
 **理由の無い不作為は、次のセッションから見れば「まだ手が回っていない」と同じに見える。**
 
