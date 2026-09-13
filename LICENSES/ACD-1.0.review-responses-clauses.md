@@ -197,6 +197,56 @@ output は、この Dedication によっても Dedicator のいかなる Covered
 （特許を持つ採用者）を名指しする。そのうえで**答えを持たない部分**（出力にまで及ぶ必要が
 本当にあるか）は 1.1 候補として残し、ここで弁護しない。
 
+**Q. 「Work の使用に起因する」という因果の限定は、具体的な場面で何を答えるのか。判定基準が定義されていない。**
+
+> **English:**
+>
+> The criticism is right that the text states a test and does not define it, and the honest
+> answer is case by case. Six situations, worked. **Where the answer differs between 1.0 and the
+> 1.1 draft I say so, because 1.0 does not contain the causation sentence at all.**
+>
+> - **A model trained on the Work, then run for inference.** Covered. The model is one
+>   "resulting from that use", and Section 8.4 licenses claims infringed by the "use" of such a
+>   model, not only by its transfer.
+> - **Operating a service rather than distributing anything.** Covered, and by the same word.
+>   The enumerated acts are "making, having made, **use**, offering for sale, sale, importation,
+>   or other transfer". A hosted service uses the model. Nothing turns on distribution.
+> - **The use of the Work is not a necessary condition of the infringement.** Not covered under
+>   1.1, which reaches "only claims whose infringement **depends upon** the use of the Work".
+>   **Under 1.0 this is unresolved**: the only limiter there is "resulting from that use", which
+>   reads as factual causation and does not ask whether the infringement depended on it.
+> - **An identical model obtainable without the Work at all.** **This is where 1.0 and 1.1 give
+>   different answers, and it is the sharpest example of what the 1.1 sentence does.** Under 1.1
+>   the claim does not depend on the Work, so it is outside. Under 1.0 the model in fact resulted
+>   from the use, so on the words it is inside even though the Work was dispensable.
+> - **The Work's use supplies one element of a claim.** Covered on the natural reading:
+>   infringement is of the claim as a whole, and if the Work's use supplies an element the
+>   infringement depends on it. I am not aware of an argument the other way that the text supports.
+> - **An embedding derived from the Work, used as input to a second model.** **Unresolved, and I
+>   will not pretend otherwise.** The embedding results from the use; whether the second model
+>   does is a question about how far down a chain "resulting from" runs, and neither version
+>   answers it. This is the weakest point in the section and it is recorded rather than argued.
+>
+> **What this shows about the design.** Five of the six turn on words already in the section —
+> "use", "resulting from", "depends upon" — and the sixth is a genuine gap. **The section is
+> broad by intent and the boundary is doing real work in at least two of these cases**, which is
+> the answer to the charge that the reach is unlimited. It is not the answer to the charge that
+> the test is undefined, and I do not claim it is.
+
+**なぜこの問答を足すか**: **§8.4 の「広さ」は既に 2 問で扱っているが、境界の作例が 1 つも無かった。**
+外部レビュー（2026-09-14・`ACD-1.0.discussion-log.md` ラウンド 0 #3）が 6 つの場面を挙げ、
+**「因果と量の区別は述べているが、因果の判定基準自体は定義していない」**と指摘した。
+**指摘は正しい。定義できないなら、せめて当てて見せる。**
+
+**作ってみて分かったことが 2 つある。** **(1) 6 件中 5 件は条文の語（"use" / "resulting from" /
+"depends upon"）で答えが出る** ——**「射程は無限」という読みへの反論は、抽象論ではなく作例で示せる。**
+**(2) 4 件目（Work 無しでも同一のモデルに到達できる場合）で 1.0 と 1.1 の答えが割れる** ——
+**1.0 には因果の文が無く、"resulting from that use" は事実的因果として読める**ので、
+**Work が不可欠でなくても射程に入る。** E15 で 1.1 に足した 1 文が、**実際に何をしているか**が
+この 1 件で目に見える。**提出するのが 1.0 なら、この差は先に述べておくほうがよい。**
+
+**6 件目は答えを持っていない**（連鎖の深さ）。**持っていないと書く。**
+
 **Q. §8.2 は「Dedicator によって終了させられない」と限定するのに、§10.4 は「いかなる理由でも終了しない」と限定していない。どちらが本当なのか。**
 
 > **English:**
@@ -577,6 +627,50 @@ ACD はどちらも構造的に回避しているが、**回避しているこ�
 > If the criticism is that a construction clause adds nothing a court would not
 > do anyway for a gratuitous grant, I would not fight that. It costs three
 > sentences and it removes an argument.
+
+### Q22b. §15.1 は、どちら向きに効くのか ——特許許諾まで広げてしまうのではないか
+
+> **English:**
+>
+> Yes, and that is not an oversight. Section 15.1 resolves ambiguity toward the reading that
+> grants more to You. Applied to Section 8.4, whose reach is deliberately wide and whose
+> causal boundary I have already conceded is not defined, it means the uncertainty does not sit
+> evenly: **it resolves outward.** A Dedicator with a patent portfolio should assume the wider
+> reading of Section 8.4, not the narrower one.
+>
+> I would rather state that than have it found. It is the same cost Section 8.4 already carries
+> — an organisation that wants to keep its patents should not use this instrument — and
+> Section 15.1 sharpens it rather than creating it.
+>
+> **Why the clause stays anyway.** Two reasons, and the second matters more for this review.
+> First, an instrument whose whole claim is that it imposes no condition cannot also have its
+> ambiguities resolved against the recipient; that would defeat the thing it exists to do.
+> Second, **a construction rule that fixes the direction is how ambiguity is kept from having
+> substantive effect.** The approval standard asks that ambiguities not have a significant
+> effect on what the licence does. Without Section 15.1 an ambiguous clause could be argued to
+> narrow a permission; with it, it cannot. Removing the rule would make the text look simpler
+> and make its permissions less certain.
+>
+> **What I am not claiming.** Section 15.1 does not make an unclear clause clear. It decides who
+> wins if it stays unclear. Those are different, and the criticism that Section 8.4's test is
+> undefined is untouched by it.
+
+**なぜこの問答を足すか**: **Q22 は §15.1 を扱っているが、扱っているのは*執行可能性*である**
+（当事者が裁判所に読み方を指示できるのか / §5.2(c) の covenant がそれを実効化する）。
+**「どちら向きに効くか」は扱っていなかった** —— 外部レビュー（2026-09-14）が
+「利用者保護には有利だが、ライセンサーの特許許諾範囲なども広がり得る」と指摘して初めて出た角度である。
+
+**これは我々に不利な方向の事実なので、先に述べる。** §8.4 の因果の境界が未定義であることは
+既に認めており（直前の問答）、**§15.1 はその未定義を「どちらに転ぶか分からない」ではなく
+「広い方に転ぶ」に変える。** 特許を持つ採用者にとっての費用は、**§8.4 単独で見るより重い。**
+
+**そのうえで条項は残す**。理由は 2 つで、**2 つ目が審査では効く** ——
+**解釈規則は、曖昧さが実質的効果を持つのを防ぐ機構である。** 承認基準の 1 つが
+「曖昧さが重大な効果を持たないこと」なので、**§15.1 を外すと、曖昧な条項が許諾を*狭める*方向に
+主張されうるようになる。** **外せばテキストは簡単に見え、許諾は不確かになる。**
+
+**主張しないこと**: §15.1 は不明確な条項を明確にしない。**不明確なままだったとき誰が勝つかを決めるだけ**で、
+**「§8.4 の判定基準が未定義だ」という批判には何も答えていない。**
 
 ### Q23. §15.3（contra proferentem を排除する）——排除できるのか
 
