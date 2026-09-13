@@ -724,3 +724,49 @@ B3 を緩めるものではない。** ——**2 つを同じ「長さ」で括�
 **開示していなかったことが、通知の理由だったとは言えない。** 通知は AI 生成について述べており、
 **利益相反には触れていない。** **2 つを結び付けるのは、我々の推測である。**
 **記録するのは「CoC を当てたら 1 件出た」という事実だけである。**
+
+## 1.82 凍結は我々の礼儀ではなく、OSI が書いている手続きである（2026-09-13・process ページを再取得）
+
+**`REVISION-PROTOCOL.md` §2 は凍結を我々自身の理屈で正当化してきた** ——「読まれたテキストが動けば、
+その議論は何についてのものでもなくなる」。**正しいが、OSI は同じことを規則として書いている。**
+**我々はそれを一度も引いていなかった。**
+
+**逐語**（`https://opensource.org/licenses/review-process`・2026-09-13 15:00 JST 取得）:
+
+> *"However, **a license cannot be changed while it is being considered**. If the license submitter
+> would like to change the language of the license, **the current version of the license should be
+> withdrawn from review and an updated version submitted**."*
+
+**これは 2 つのことを変える。**
+
+**(1) 我々の方針が「規律」から「手続きの遵守」になる。** 審査者が `REVISION-PROTOCOL.md` を読んで
+見るのは steward の自己規律だが、**規則を引けば、公表された手続きに従っていることの記述になる。**
+**手続きが門番であることは §1.75 で実測済み**（我々と同じ類型の直近 3 件は、本文の評価に入る前に
+required information の欠落で止まった）——**その門の内側にある規則を引かない理由が無い。**
+
+**(2) 分岐 B の手順に、書かれていなかった一段がある。** 1.0 を `license-review` に出したあとで
+次版に替えるなら、規則は「送り直す」ではなく **「取り下げてから、更新版を提出する」**である。
+`REVISION-PROTOCOL.md` §2 の「1.0 は永久凍結・次版は併置」はこれと矛盾しないが、
+**取り下げという手続き上の一手はどの文書にも書かれていなかった。**
+
+**そして同じ段落が、オーナーの方針をそのまま推奨している。**
+
+> *"We recommend that, if changes are going to be made, that the license submitter **wait and collect
+> all the desired changes in a single new submission** rather than withdrawing and resubmitting the
+> same license several times."*
+
+**「届いた議論を全部取り込んだ改善版を出す」（2026-09-04 オーナー）は、我々が選んだ流儀ではなく、
+OSI が明文で推奨している出し方だった。** 分岐 B（沈黙のまま自己改善版を出す）でも同じ形になる。
+
+**⚠ 新しい事実ではないもの（混ぜない）**: Decision Date の規則
+（*"(a) 60 days after a license is initially submitted … or (b) 30 days after submission of a revised
+version … provided that date is no earlier than 60 days after the original"*）は
+**`review-responses.md` §5 の 2026-09-10 補足に既に記録されている。** 本節は再導出で確認しただけである。
+**なお、この公表規則と McCoy Smith 氏の *"two months from your final submission"*（2026-08-28）は
+同じことを述べていない** ——規則では改訂は時計を初回起点のまま +30 日にするだけで、**2 か月へ戻さない。**
+**どちらが実務を支配するかは我々には決められない**ので、両方を並べて置く。
+
+**Code of Conduct は、予告されたが 2026-09-13 15:00 JST 時点でまだ更新されていない。**
+ページの自己申告は **"Last modified on November 2, 2023"** のままで、
+**本文に AI への言及は 1 語も無い**（"AI" の出現はナビゲーションの "Open Source AI" のみ）。
+**これは B14 についての事実であって、通知の当否についての事実ではない。**
