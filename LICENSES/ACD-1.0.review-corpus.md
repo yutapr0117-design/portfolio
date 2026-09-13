@@ -518,3 +518,57 @@ an automated system cannot determine is … no permission at all**."*
 **§1.75 の (1)（版を差し替えても進まない）と同じ結論に、committee 側の言葉で到達している** ——
 **改訂そのものが時計を戻す。** `REVISION-PROTOCOL.md` §2 の凍結規律は、礼儀であると同時に
 **決定までの時間を最短にする手段**でもある（既に §2 に書いてあるが、**根拠がこれで一次資料になった**）。
+
+## 1.78 OpenMDW-1.1 の審査（117 通・1 か月）の中心論点と、ACD が当たるか当たらないか
+
+**2026-08-13 から 2026-09-12 までの 117 通を読み、steward 以外の発言から論点を抽出した。**
+**参加者は 12 人**で、内訳は Richard Fontana 氏 22 / Pamela Chestek 氏（委員長）19 /
+McCoy Smith 氏 11 / Shuji Sado 氏 9 / Luis Villa 氏 8 / Rob Landley 氏 7 ほか。
+**現時点で最も活発な審査であり、ACD と同じ「AI 時代の新規ライセンス」である。**
+
+**中心論点は 2 つに収束している。**
+
+### (a) **束ねること**（"Model Materials" 構成）—— OSD 9 の疑い
+
+> *"across the whole set of conceptually distinct things, such that **a claim against one item
+> triggers termination of rights in another item**, is possibly an **OSD 9 violation**"*
+> —— Fontana 氏・2026-08-13。以後 1 か月にわたり *"I may come back to my OSD 9 concern"*
+> *"this is what I mean when I say there may be an OSD 9 problem"* と繰り返している。
+> **Sado 氏は反対の立場**（*"I am still not convinced that treating the Model Materials as a single
+> unit is, by itself, an OSD 9 problem"*）で、**決着していない。**
+
+**ACD の位置**: **当たらない。** OSD 9 が禁じるのは「一緒に頒布される**他の**ソフトウェアへの制限」で、
+**ACD は制限を 1 つも置かない**（§10.1）。**束ねの問題が OSD 9 に化けるのは「1 つへの主張が
+別のものの権利を終了させる」経路があるからで、ACD には終了そのものが無い**（§10.4）。
+**ACD の "Work" も複数の種類の素材を 1 語で束ねている**（§1.2 —— source code / object code /
+documentation / data / metadata / audiovisual material）**が、束ねた結果として起こることが
+「全部が同じく無条件に使える」ことだけなので、束ねが不利益を伝播させない。**
+
+### (b) **範囲の判定可能性** —— *"How do you know what the 'covered work' is?"*（Fontana 氏・2026-08-16）
+
+**これは我々に当たる論点である。** 審査者が問うているのは「許諾が寛容か」ではなく
+**「第三者が、何が対象かを判定できるか」**である。
+
+**ACD の答えは 3 条に分かれている**: **§1.2** が Work を「Dedicator が本文を適用した素材」と
+**適用行為**で定義し、**§2.7** が「Dedicator が持つ権利にしか及ばない」と述べ、
+**§2.6** が **「他人の権利が混ざっている部分は、Work に付随する形で特定する」**という
+**Dedicator 側の義務**を置いている。
+**そして §6.5 が、なぜそれが重要かを本文の中で述べている** ——
+*"a permission that an automated system cannot determine is … no permission at all"*。
+
+**ただし、正直に言えば ACD の答えは OpenMDW より弱い面がある** ——
+**ACD は「何が Work か」を本文では決めず、適用行為に委ねている。**
+**「この file には適用され、あの file には適用されていない」を判定する責任は、
+実質的に Dedicator の運用（§2.6 の特定）に乗っている。**
+**リポジトリ側でそれを機械可読にしているのが我々の実装**（`LICENSE` / SPDX タグ / `machine.json` /
+`.well-known` の宣言）だが、**それはこのリポジトリの性質であって、本文が保証するものではない。**
+**この非対称は `against.md` #134 に立てた。**
+
+### この節が establish しないこと
+
+**OpenMDW の論点が ACD に当たらないことは、ACD が承認されることを意味しない。**
+**また、OpenMDW がどう決まるかもまだ分からない** —— 2026-09-12 時点で審査は継続中で、
+**委員長は条件付きで賛成しうると述べ**（*"if my concerns about the paragraph enumerating the
+licensee's obligations to clear rights are addressed"*）、**Fontana 氏の OSD 9 の疑いは
+解消していない。** **同時代 instrument の経過観察として、決定が出たら読み直す**
+（`PEER-REVIEW-WATCH.md` の 4 分岐）。
