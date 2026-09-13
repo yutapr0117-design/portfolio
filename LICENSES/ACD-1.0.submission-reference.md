@@ -335,7 +335,12 @@ criteria the committee asks submitters to speak to directly:
   consequence positively — the Work and any adaptation or collection containing it may be
   distributed under any terms the recipient chooses, **including terms incompatible with
   these**, with nothing reaching through to their recipients. A recipient may therefore
-  place the Work inside a copyleft project without friction.
+  place the Work inside a copyleft project without friction. **The criterion's second limb
+  is met expressly as well**: OSD 3 requires that derived works be allowed *"to be distributed
+  **under the same terms as the license of the original software**"*, and §16.3 permits anyone
+  to apply this text to a work in which they hold rights — so a derivative may carry ACD-1.0
+  itself. **Checked word for word against the source on 2026-09-13**; the earlier rendering
+  answered the first limb only.
 - **OSD 4 (Integrity of the author's source code).** No restriction is imposed. Section
   16.4 concerns the text of the licence *as a document*, not the licensed work; Sections
   10.5 and 16.5 state this expressly.
