@@ -860,3 +860,43 @@ termination reaches **all** sorts of copyright claims"* と述べている。
 **ACD-1.0 はこの争点の外にある** ——**終了条項を持たず（§10.4）、報復条項も持たない（§8.2）。**
 **ただしこれは「だから承認される」ではない**: 争点の外にあることは失格を 1 つ免れることであって、
 **承認の理由にはならない**（§1.70 の天井 —— 必要条件は十分条件にならない）。
+
+## 1.74 **モデルの出力に条件を課すことは OSD 9 違反である**と委員長が述べている —— ACD は条件ではなく放棄で扱っている
+
+**ドシエはこの論点を一度も扱っていなかった**（2026-09-13 に `grep` で確認 ——
+`OSD 9` と `output` を同時に含む行が LICENSES/ 全体で 0 件だった）。**逐語は 2 件ある。**
+
+> *"I do not believe that **putting conditions on output of a model is workable** and, where the
+> output is **not a derivative work** under copyright law, **it violates OSD9, 'License Must Not
+> Restrict Other Software.'**"* —— **Pamela Chestek 氏（Licensing Committee 委員長）**・2025-12-05・
+> MG-BY-2.0 / MG-BY-SA 宛。同じメールで、派生物の定義を「モデルと**機能的に似た振る舞いを achieve する**
+> ために」と狭めた改訂について *"does not address this problem and, in fact, **exacerbates** it"*
+> と述べている ——**狭めても、著作権法上の派生物でない出力に届く限り同じ問題である。**
+
+> *"there is an argument that that obligation **arguably violates OSD 9** — even though
+> **OSD 9 talks about 'other software' not 'other output' or 'other content'**"* ——
+> **McCoy Smith 氏**・2025-05-14・出力への attribution 義務について。
+
+**ACD-1.0 の位置（有利な側）**: **出力に条件を 1 つも課していない。** §6.4 は
+*"No model, parameter set, weight, embedding, or output derived from Computational Use of the Work
+is encumbered … and **You owe nothing** in respect of any of them. **Nothing in this Dedication
+requires You to license, disclose, or attribute any such thing.**"* ——**委員長が「workable でない」
+と述べた設計（出力に条件）の、ちょうど反対側である。** §9.2 / §9.3 も同じ向きで、
+**受領者は「どの部分が機械生成か」を判定する必要がない。**
+
+**これで、リストの生きた争点 3 つすべてについて、ACD が外側にいることが確かめられた** ——
+**終了条項**（§1.73・§10.4 が持たない）/ **条件・利用制限**（§1.69 の否決理由 (a)・§10.1 が持たない）/
+**出力への条件**（本節・§6.4 が持たない）。**共通の理由は 1 つで、ACD は何も足していないからである。**
+
+**不利な側（同じ精度で書く）**: **McCoy 氏の一文は、OSD が我々の領域を想定して書かれていないことを
+committee 側が認めている記録でもある** ——*"OSD 9 talks about 'other software' not 'other output'"*。
+**これは gap の主張を支える一方で、我々を承認する OSD 上の足場も無いことを意味する。**
+**そして §1.70 の天井が効く** ——*"consensus that a license does not ensure software freedom may …
+be the justification for rejecting a license **even where they cannot identify a specific aspect of
+the OSD** … that is not met"*。**争点の外にいることは、失格を 3 つ免れることであって、承認の理由ではない。**
+
+**副次的に確かめたこと**: 委員長は 2026-05-04 に、**OSD 9 と「新規ライセンスの基準 1（再利用可能性）」を
+同じ段落で併用している**（Milenium License が、そのライセンスを使う**他人のプロジェクト**に
+起草者の著作権表示を要求していた件）。**#129 で我々が literal に読んで不安に思った基準 1 が、
+実際に適用された唯一の例はこれである** ——**適用対象は「本文に起草者固有のものが埋め込まれている」
+ケースであって、法域による効果の差ではなかった。** §1.70 row 1 の読みを、実例が 1 つ支持する。
