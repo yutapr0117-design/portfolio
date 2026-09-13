@@ -52,6 +52,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | 提出用の英文一式（**送るだけ**） | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) |
 | 提出文の背後にある参考資料（**貼らない**・§1〜§5） | [`ACD-1.0.submission-reference.md`](ACD-1.0.submission-reference.md) |
 | **承認阻害ボトルネックの一覧（canonical）** | [`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) |
+| 「**外の答えを待っている項目は何か**」 | [`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) —— 我々の作業では動かせない 7 項目の深い分析（法的レビュー / 実使用 / §4.4 の外部回答待ち / 特許射程 / gap / SPDX / AI 起草の扱い）。**索引と集計は上の register が canonical** |
 | 既知の反論が当たるか（**1 表・審査者が最初に読む**） | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) |
 | 審査者は主題について何と言っているか（人格権 / 特許 / 長さ / 構造 …） | [`ACD-1.0.reviewer-positions.md`](ACD-1.0.reviewer-positions.md) |
 | 提出judgment と**残る弱点** | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) |
