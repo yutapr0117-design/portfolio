@@ -937,3 +937,32 @@ engagement が得られる」とは言えない。** 上の 3 件が示すのは
 と呼び、Misty に対しては *"**Why another MIT-style license, the hundredth or so?**"* と書いている。
 **proliferation への疲れは、条文とは独立に、提出そのものへの心証として存在する** ——
 #84 / B6 と同じ族で、**我々の答え（この類型に 1 件足す費用が低い）は、この心証には届かない。**
+
+## 1.76 要件リストを原典で 1 項目ずつ当てたら、1 件だけ答えていなかった
+
+**§1.75 で「手続きの不備は評価の不在を招く」と分かったので、次にやることは決まっていた** ——
+**求められている項目と、我々が実際に送る文面を、1 項目ずつ突き合わせる。**
+`review-process` ページの "How to submit a request" を取り直し（2026-09-13）、
+**legacy 8 項目 + new 3 項目**を §B.0 に当てた。
+
+**11 項目中 10 項目は満たしていた。** 欠けていたのは 1 つだけである:
+
+> *"Provide **any additional information** that the submitter believes would be helpful for license
+> review. **For example, approval of the license by Debian, the FSF or the Fedora Project** would be
+> relevant to the review process."*
+
+**我々の答えは「無い」である。** だが**答えが「無い」の項目ほど、書かなくても文面は自然に読める**
+——これは #77（ScanCode 識別子・提案 tag）で 2 度踏んだ形と同じで、
+**「我々の弱点を述べる項目ほど、静かに落ちる」**という一般形になる。
+`Third-party Endorsement: None (no Debian, FSF or Fedora review)` を両方の metadata block に足し、
+**Check 463 の要求項目へ加えた。**
+
+**この増分で、Check 自身の欠陥も 1 つ出た。** Check 463 の**成功メッセージ**が
+*"OSI の要求 **11 項目**をすべて含む"* とリテラルで述べており、**項目を足しても 11 のままだった。**
+**Check 460 が他所で禁じている「自己申告の件数が実測とずれる」を、Check 自身の成功メッセージで
+やっていた** ——しかも**成功メッセージは読み手が最も信用する場所**なので、ここでの drift は最も悪い。
+`len(_req463)` からの導出へ直した（現在 **12 項目**）。
+
+**併せて、先に足した Check 460 face (p) が即座に働いた。** 文面に 1 行足した瞬間、
+**申告語数 1098 と実測 1107 のずれを検出した** ——**face (p) を足したのが同じ日の午前で、
+その日の午後に元を取った。**
