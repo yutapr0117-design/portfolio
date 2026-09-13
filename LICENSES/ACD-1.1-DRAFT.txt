@@ -85,7 +85,7 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       the person harmed by that is the downstream recipient who relies on the
       signal. Section 2.7 already made the effect honest; this makes the
       sentence say it.
-    * 1.0: 4,896 words, 82 clauses. This draft: 4,919 words, 77 clauses.
+    * 1.0: 4,896 words, 82 clauses. This draft: 4,949 words, 77 clauses.
 
   Still open in this draft, deliberately: E11 (Section 4.4, awaiting an answer
   from the list), E13 (the definition order), E15 (Section 8.4 has no
@@ -341,10 +341,13 @@ PREAMBLE (informative; not part of the operative terms)
        (c)  assert that any permission granted here is narrower than Section
             15.1 requires it to be read.
 
-  5.3  The covenants in Sections 5.1 and 5.2 run with the Work, bind the
-       Dedicator's successors, assigns, heirs, and personal representatives,
-       and may be relied upon by You and by anyone who receives the Work from
-       You, directly or indirectly, as an intended beneficiary.
+  5.3  The covenants in Sections 5.1 and 5.2 bind the Dedicator's successors,
+       assigns, heirs, and personal representatives, to the fullest
+       extent the law permits the Dedicator to bind them, and may be
+       relied upon by You and by anyone who receives the Work from You,
+       directly or indirectly, as an intended beneficiary, to the extent
+       a jurisdiction gives effect to such reliance. Sections 3 and 4
+       operate in their favour independently of this Section.
 
 
 6. MACHINE LEARNING, TEXT AND DATA MINING, AND MODEL TRAINING
