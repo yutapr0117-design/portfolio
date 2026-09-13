@@ -398,12 +398,28 @@ Submit via https://tools.spdx.org/app/submit_new_license/ (preferred) or the
    resolve, and every declaration surface agrees).
 4. Subscribe to `license-review@opensource.org` before posting; the list rejects mail from
    non-subscribers.
-5. Expect roughly 60 days to a decision from first posting.
-6. **Fold in the license-discuss summary** (section 3 of `LICENSES/ACD-1.0.discussion-log.md`).
+5. **Confirm the message actually reached the list**, by finding it in the public archive —
+   not by finding it in your sent folder. `https://lists.opensource.org/pipermail/license-review_lists.opensource.org/<YYYY>-<Month>.txt`,
+   fetched with a browser user-agent. **This step exists because two of our substantive
+   messages to `license-review` were rejected in moderation and never appeared** (`against.md`
+   #128). **From the list's side, "could not send" and "did not answer" look identical**, and
+   the board minutes record two submissions withdrawn for *"lack of communication with their
+   submitters"* alone, with the committee holding delegated authority since 2026-05-22 to
+   reject an unresponsive submitter without a board vote (`ACD-1.0.board-decisions.md` §4).
+   **A submission that is not delivered is worse than one not sent**: the clock runs and the
+   silence is attributed to us.
+6. **Decision timing: read the rule, not the folklore.** The published rule is 60 days from
+   first submission, or 30 days from a revised version but never earlier than 60 days from the
+   original; the Licensing Committee has separately described *"two months from your final
+   submission"*. **These do not say the same thing** and we cannot tell which governs
+   (`review-corpus.md` §1.82). **Measured time-to-decision, where a decision was reached at
+   all, has a median of 101 days** (§1.72) — and *"not approved"* without a decision is a
+   status the board has said it may leave a licence in (`board-decisions.md` §2).
+7. **Fold in the license-discuss summary** (section 3 of `LICENSES/ACD-1.0.discussion-log.md`).
    Three points, not the whole log. If the log is empty, say the thread drew no response —
    that is also a fact about the licence, and stating it is better than implying a debate
    that did not happen.
-7. **Re-read section E** of this file. Its disclosures apply to whatever is posted, and the
+8. **Re-read section E** of this file. Its disclosures apply to whatever is posted, and the
    provenance one (E.1) is the disclosure most likely to be discovered independently.
 
 ---

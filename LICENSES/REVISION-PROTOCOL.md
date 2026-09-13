@@ -127,6 +127,14 @@ courtesy — a discussion whose subject changes underneath it is not a review of
 7. `npm run verify` = 0（Check 444 / 453 / 458 / 460 を含む）
 8. 前版との**差分と理由**が公開されている（何をどの指摘で変えたか）
 9. venue の記述が `FROZEN.md` の VENUE-DATA と一致（Check 458）
+10. **送信後、公開アーカイブで実物を確認する**（送信控えではなく、**配信された形**で）。
+    **2026-09-13 新設** —— 我々が `license-review` へ送った substantive な 2 通は
+    moderation に拒否され、リストに現れなかった（`against.md` #128）。
+    **リストの側からは「送れていない」と「応答しない」は区別がつかず**、理事会議事録には
+    *"lack of communication with their submitters"* だけを理由に取り下げられた提出が 2 件あり、
+    2026-05-22 以降、委員会は応答しない提出者を**理事会の議決なしに**却下できる
+    （`ACD-1.0.board-decisions.md` §4）。**届かなかった提出は、送らなかった提出より悪い**
+    ——時計は進み、沈黙はこちらの責に帰される。**確認できないうちは「提出済み」と書かない。**
 
 ## 3.5 何も返ってこないとき
 
