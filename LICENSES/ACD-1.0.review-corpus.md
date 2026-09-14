@@ -829,54 +829,48 @@ version … provided that date is no earlier than 60 days after the original"*�
 a project**"*・2025-07-18 理事会）。**duplicative と not-used の両方が我々に当たり、
 その区別は 14 か月経っても公表されていない。**
 
-### 1.82 承認は取り消せない —— そしてその事実を、承認する側が自分で述べている（2026-09-15 に取得）
+## 1.82 本文を変えたい提出者に、process ページが課している手続き（原典・2026-09-14 に保存）
 
-**逐語は `rounds/2026-09-14-license-review-openmdw-thread-observed.txt`**（OpenMDW スレッドの
-観測。**我々宛ではなく ACD-1.0 についてでもない** ——register に効く 2 文があるので記録する）。
+**4 つの文書がこの節番号を引いていたのに、節が存在しなかった**（`REVISION-PROTOCOL.md` §1 /
+`board-decisions.md` §2b / `submission.md` §4a / `AS-OF.md`）。**参照を先に書いて本体を書かなかった**
+のが原因である。**逐語は `rounds/2026-09-14-osi-normative-pages-snapshot.txt`**
+（自己取得・`Last modified on March 13, 2024` とページ自身が述べている）。
 
-**(A) Richard Fontana 氏・2026-09-11**（配送された本体を保存。引用の中だけではない）:
+### 🔴 審査中に本文を差し替えることは、手続きが禁じている
 
-> The OSI does not currently have a process for de-listing licenses, and I wouldn't put
-> OFL-1.1 at the top of the list if it did because there are actually worse licenses on
-> the OSI-approved list, but it would be on the list.
+> However, **a license cannot be changed while it is being considered**. If the license submitter
+> would like to change the language of the license, the current version of the license should be
+> **withdrawn from review and an updated version submitted**. We recommend that, if changes are
+> going to be made, that the license submitter **wait and collect all the desired changes in a
+> single new submission** rather than withdrawing and resubmitting the same license several times.
 
-**(B) Carlo Piana 氏・2026-09-14**（de-listing の是非を持ち出した参加者への返信）:
+**3 つのことが同時に確定する。**
 
-> It's a hell of an important issue and whichever decision would bring unintended
-> consequences. We have discussed internally many times and for the time being we
-> defaulted to not take any action, even though revising ALL the approved licenses
-> (which we have done recently), some approved licenses, fortunately some seldom if at
-> all used, leave licensing experts scratching their heads as to how the heck...
+1. **凍結は我々の礼儀ではなく、向こうが書いている手続きである**（`FROZEN.md` の運用は
+   偶然に一致していたのではなく、規則と一致していた）。
+2. **分岐 B には「取り下げ」という一手が要る** ——版を差し替えるには、まず取り下げる。
+   **どの文書にもその手順が書かれていなかった。**
+3. **オーナーの方針（「全部取り込んだ改善版を 1 回で出す」）は、このページが明文で推奨している形**
+   —— *"collect all the desired changes in a single new submission"*。
 
-#### 何が確立し、何が確立しないか
+### 決定日の規則 —— そして、これと委員の発言は同じことを述べていない
 
-**確立する 3 点:**
+> The "Decision Date" for a license normally means (a) **60 days after a license is initially
+> submitted**, or (b) **30 days after submission of a revised version** of a license that was
+> previously submitted for review, **provided that date is no earlier than 60 days after the
+> original license was submitted**. While we will try to adhere to this 60/30 day Decision Date
+> definition, **circumstances may require us to extend the Decision Date further**.
 
-1. **承認は事実上取り消せない。** de-listing の手続きは**無く**、作る議論は内部で何度も行われて
-   **「当面は何もしない」**に落ち着いている。
-2. **承認済みリストには、専門家が首をかしげる起草のライセンスが実在する** ——
-   そう述べているのは**承認する側の人間**である。
-3. **委員会は最近、承認済みライセンスを全件見直した。**
+**規則は初回提出を起点とし、改訂で +30 日する。** 一方 Licensing Committee の委員は
+*"two-month review cycle"* の起点を**最終提出**だと述べている（§1.67）。
+**どちらが支配するかは我々には決められない。** 実測の中央値は **101 日**（§1.72・
+**決まった場合の**所要であって、決まらなかった提出は入っていない）。
+**「60 日で決まる」と読める書き方をしないこと。**
 
-**確立しないこと**: どのライセンスのことか / それが**新規提出の基準に影響するか**。
-**両氏とも ACD-1.0 について何も述べていない。**
+### この節が establish しないこと
 
-#### 🟢 我々に有利な読み
-
-**起草の粗さは、承認の絶対的な障壁ではない**（#6 / B3）。**承認済みリストにその実例が在ると
-承認する側が認めている。** これは我々の推論ではなく、**リスト上の発言**である。
-
-#### 🔴 そして同じ 2 文の、より強い不利な読み
-
-**取り消せないからこそ、入口が固くなる。** 誤った承認のコストが**永久**であり、
-しかも**最近になって全件を見直した結果として不満が残っている**なら、
-**委員会が「もう一つ首をかしげるものを足す」ことに慎重になる理由は増える。**
-
-**この読みは #84（なぜもう一つ PD 等価を）と B2（採用 1 件）に直接乗る** ——
-Landley 氏の問いは「代替可能な類型に 1 件足す費用」を問うており、
-**その費用が「取り消せない」なら、答えるべき費用は我々が見積もっていたより高い。**
-`comparison.md` §1 の「この類型に 1 件足す費用が低い」という答えは、
-**「費用が低い」ではなく「費用は低いが取り返しがつかない」へ書き換わる。**
-
-**どちらが勝つかは我々には決められない。両方を register に載せる。**
+**このページは 2024-03-13 から更新されていない**とページ自身が述べており、
+**理事会が公表を指示した項目のうち少なくとも 2 件が、まだここに載っていない**
+（`board-decisions.md`）。**公表された手続きを読み尽くしても、委員会が実際に使う手続きを
+読み尽くしたことにはならない。**
 
