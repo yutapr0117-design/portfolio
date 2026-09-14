@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are **237** worked entries across this directory (measured 2026-09-09; the list is append-only, so treat it as a floor). This page exists so that you do not have to
+There are **238** worked entries across this directory (measured 2026-09-09; the list is append-only, so treat it as a floor). This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -90,7 +90,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | Does it warrant that it works? | **No** — §13.2 says so expressly. `against.md` #26 |
 | What if the Dedicator dies, or the rights are sold? | §2.8 and §12.4 bind successors. `faq.md` A27 |
 | Consumer-protection law? | `faq.md` A24 — some of §13/§14 may not survive contact with it, and §14.2 anticipates that |
-| Does this licence make anyone else give up a claim? | **No, and §11.4 says so in terms.** It reaches the Dedicator's Covered Rights, the §8 patent claims and §12 moral rights, "and nothing else", and grants no permission under any right held by another person. `review-responses-clauses.md` §11 — with the honest carve-out that §13/§14 *are* a contractual disclaimer, of the ordinary kind |
+| Does this licence make anyone else give up a claim? | **No, and §11.4 says so in terms.** It reaches the Dedicator's Covered Rights, the §8 patent claims and §12 moral rights, and it "reaches nothing else", and grants no permission under any right held by another person. `review-responses-clauses.md` §11 — with the honest carve-out that §13/§14 *are* a contractual disclaimer, of the ordinary kind |
 ## Using it
 
 | Question | Where |
