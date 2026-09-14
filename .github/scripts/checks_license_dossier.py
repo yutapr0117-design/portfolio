@@ -108,6 +108,17 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        461b は 17 件しか見ずに「stale なし」と緑を出す —— skip-on-missing が被覆の穴を
        無音にする形。被覆は時間で動かない静的な性質なので BLOCKING にできる。(BLOCKING)
 
+  471. **ドシエ内の参照記法が解決すること** (BLOCKING): Check 460 face (k) は `#N` と `E<n>`
+       だけを見ていた。2026-09-14 の敵対的検証（主張の種類 7）で**参照記法を数え上げ、
+       1 つずつ壊して測った**ところ、**7 形のうち 5 形が誰にも見られていなかった** ——
+       `AUDIT-LEDGER.md` はこの種類を「機械強制済」と書いており、**その申告自身が誤りだった。**
+       本 Check は**誤検出 0 を実測できた 3 形**を受け持つ: (a) `rounds/<file>` ——
+       **「一次資料はここに在る」という証拠の主張そのもの**で、指した先が無ければ審査者は
+       存在しない原文を探しに行く、(b) `B<n>` —— **方針を決めている register の項目** (286 箇所)、
+       (c) `Check <N>` —— **実装の最大番号を超える参照は、存在しない機械強制を根拠として示す**
+       ことになる (178 箇所)。**残る 2 形は Check にしない**（裸の `` `file.md` `` 1,061 箇所と
+       ドシエ内部の `§N.M` 2,024 箇所は、リポジトリ外・仮称・文脈依存を含み意味の判断が要る）。
+       **ここに穴が残ることは台帳の種類 7 に書いてある。**
 """
 import re
 import json
@@ -695,5 +706,81 @@ def run(ctx):
             (f"Check 468: 次版草案に問題がある: {_bad468}。**草案は 1.0 と書式が同じで条番号だけ"
              "ずれているので、取り違えると凍結中の提出物について誤った条番号を引くことになる。**"
              "自分が何であるかを本文に述べ、1.0 について測っている性質を同じ形で保つこと"),
+            blocking=True,
+        )
+
+    # ── 471. ドシエ内の参照記法が解決すること (BLOCKING) ──────────────────────────────────
+    # **Check 460 face (k) は `#N` と `E<n>` だけを見ていた。** 2026-09-14 の敵対的検証
+    # （主張の種類 7）で**ドシエの参照記法を数え上げ、1 つずつ壊して測った**ところ、
+    # **7 形のうち 5 形が誰にも見られていなかった** —— 台帳はこの種類を「機械強制済」と
+    # 書いており、**その申告自身が誤りだった。**
+    #
+    # 本 Check はそのうち**誤検出 0 を実測できた 3 形**を受け持つ:
+    #   (a) `rounds/<file>` —— **ドシエの証拠の主張そのもの**（「一次資料は rounds/ に在る」）。
+    #       指した先が無ければ、審査者は**存在しない原文を探しに行く**。
+    #   (b) `B<n>` —— bottleneck register の項目 (286 箇所)。register は**方針を決めている
+    #       文書**なので、番号が動いたときに黙って別の項目を指すのが最も高くつく。
+    #   (c) `Check <N>` —— リポジトリの Check 番号 (178 箇所)。実装の最大番号を超える参照は、
+    #       **存在しない機械強制を根拠として示している**ことになる。
+    #
+    # **残る 2 形は Check にしない**（意味の判断が要るため。#977 / #1212 と同じ）:
+    # 裸の `` `file.md` `` (1,061 箇所・リポジトリ外や仮称も含む) と、
+    # ドシエ内部の `§N.M` (2,024 箇所・どの文書の節かは文脈でしか決まらない)。
+    # **ここに穴が残ることは `AUDIT-LEDGER.md` の種類 7 に書いてある。**
+    _lic471 = ROOT / "LICENSES"
+    _rounds471 = _lic471 / "rounds"
+    if _rounds471.is_dir():
+        _have471 = {_p.name for _p in _rounds471.iterdir() if _p.is_file()}
+        _reg471 = _lic471 / "ACD-OSI-BOTTLENECKS.md"
+        _ids471 = set()
+        if _reg471.exists():
+            _rt471 = _reg471.read_text(encoding="utf-8")
+            _ids471 = (set(re.findall(r"\*\*(B\d{1,2})\*\*", _rt471))
+                       | set(re.findall(r"^\| (B\d{1,2}) \|", _rt471, re.M)))
+        # 最大 Check 番号は**実装から導出する**（決め打ちは Check を足すたび stale になる）。
+        _max471 = 0
+        _scripts471 = ROOT / ".github" / "scripts"
+        for _cf471 in sorted(_scripts471.glob("checks_*.py")) + [_scripts471 / "check_repository_consistency.py"]:
+            if _cf471.exists():
+                for _m471 in re.finditer(r"# \u2500\u2500 (\d{1,3})[a-z]?\.", _cf471.read_text(encoding="utf-8")):
+                    _max471 = max(_max471, int(_m471.group(1)))
+
+        def _expand471(_s):
+            # `rounds/…-{discuss,review}-…txt` のような brace 記法を展開する。
+            # **展開せずに数えると、正しい参照を「解決しない」と報告する**（実測 1 件）。
+            _m = re.search(r"\{([^}]*)\}", _s)
+            if not _m:
+                return [_s]
+            return [_x for _alt in _m.group(1).split(",")
+                    for _x in _expand471(_s[:_m.start()] + _alt + _s[_m.end():])]
+
+        _bad471 = []
+        _files471 = sorted(_lic471.glob("*.md")) + sorted((ROOT / "docs" / "files" / "LICENSES").glob("*.md"))
+        for _f471 in _files471:
+            for _i471, _l471 in enumerate(_f471.read_text(encoding="utf-8").split("\n"), 1):
+                # (a) rounds/ —— 拡張子で終端を決める。**行の折り返しや省略記号 (…) を
+                # 終端と見なすと、正しい参照を誤検出する**（実測 2 件）。
+                for _m471 in re.finditer(r"rounds/([0-9][A-Za-z0-9._\-{},]+\.(?:txt|md))", _l471):
+                    for _cand471 in _expand471(_m471.group(1)):
+                        if _cand471 not in _have471:
+                            _bad471.append(f"{_f471.name}:{_i471} `rounds/{_cand471}` が実在しない")
+                # (b) B<n>
+                if _ids471:
+                    for _m471 in re.finditer(r"(?<![A-Za-z0-9])B(\d{1,2})(?![0-9A-Za-z])", _l471):
+                        if "B" + _m471.group(1) not in _ids471:
+                            _bad471.append(f"{_f471.name}:{_i471} `B{_m471.group(1)}` が register の項目に解決しない")
+                # (c) Check <N>
+                if _max471:
+                    for _m471 in re.finditer(r"Check (\d{1,4})", _l471):
+                        if int(_m471.group(1)) > _max471:
+                            _bad471.append(f"{_f471.name}:{_i471} `Check {_m471.group(1)}` は実装の最大番号 {_max471} を超える")
+        check(
+            not _bad471,
+            f"Check 471: \u30c9\u30b7\u30a8\u306e\u53c2\u7167\u8a18\u6cd5 3 \u5f62 (rounds/ \u30d1\u30b9 / B<n> / Check N) \u304c\u3059\u3079\u3066\u89e3\u6c7a\u3059\u308b",
+            (f"Check 471: \u30c9\u30b7\u30a8\u5185\u306e\u53c2\u7167\u304c\u89e3\u6c7a\u3057\u306a\u3044: {_bad471}\u3002"
+             "**`rounds/` \u306f\u300c\u4e00\u6b21\u8cc7\u6599\u306f\u3053\u3053\u306b\u5728\u308b\u300d\u3068\u3044\u3046\u8a3c\u62e0\u306e\u4e3b\u5f35\u305d\u306e\u3082\u306e**\u3067\u3042\u308a\u3001"
+             "**`B<n>` \u306f\u65b9\u91dd\u3092\u6c7a\u3081\u3066\u3044\u308b register \u306e\u9805\u76ee**\u3067\u3042\u308a\u3001"
+             "**`Check <N>` \u306f\u5b58\u5728\u3057\u306a\u3044\u6a5f\u68b0\u5f37\u5236\u3092\u6839\u62e0\u3068\u3057\u3066\u793a\u3059\u3053\u3068\u306b\u306a\u308b**\u3002"
+             "\u53c2\u7167\u5148\u3092\u76f4\u3059\u304b\u3001\u53c2\u7167\u3092\u3084\u3081\u3066\u8a18\u8ff0\u306b\u305b\u3088"),
             blocking=True,
         )
