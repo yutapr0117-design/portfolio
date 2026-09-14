@@ -262,7 +262,23 @@ def run(ctx):
                 r"|E1〜E[0-9]+"
                 r"|All\s+[0-9]+\s+adverse"
                 r"|[0-9]+\s+worked\s+entries"
-                r"|[0-9]+\s+imprecisions")
+                r"|[0-9]+\s+imprecisions"
+                # 2026-09-14 追加。**本 face は 7 綴りの whitelist だった** —— そして
+                # この face 自身のコメントが *「被覆は drift を目撃した場所であって
+                # drift しうる場所ではない」* と書いている。**綴りの面で、同じことを
+                # していた。** 敵対的検証で mirror を機械走査すると、**whitelist の外で
+                # 4 件が実際に stale だった**: 不利な事実「117 件」(実体 145) /
+                # 「既にある 118 件」(実体 239) / 草案「4,742 語・77 条」(実体 4,938 語) /
+                # 本文「16 節・68 項」(**実体 82 条・書いた時点で誤り**)。
+                # **綴りを足すのも whitelist の延長でしかない**が、blanket 禁止は
+                # 実測 87 件の正当な記述を RED にするので採らない (#977 / #1212)。
+                # **穴が残ることは `AUDIT-LEDGER.md` に書いてある。**
+                r"|不利な事実[（(]?\s*[0-9]+\s*件"
+                r"|既にある\s*[0-9]+\s*件"
+                r"|[0-9][0-9,]*\s*語・[0-9]+\s*条"
+                r"|[0-9]+\s*節・[0-9]+\s*項"
+                r"|errata[（(]?\s*[0-9]+\s*件"
+                r"|[0-9]+\s*件の\s*worked")
             for _fm in sorted(_mir460.glob("*.md")):
                 for _n, _ln in enumerate(_fm.read_text(encoding="utf-8").splitlines(), 1):
                     _hit = _pat460h.search(_ln)
