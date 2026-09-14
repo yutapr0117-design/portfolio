@@ -109,7 +109,7 @@ OSI が新規ライセンスの提出者に求めるのは、**最も近い承�
 > just finished re-reading itself has a reason to be slower at the door.** So the honest answer
 > to "why another one" is not *"the cost of admitting an entry is low"* but ***"the cost is low
 > and permanent"*** — a worse answer than the one we had, and the true one. Neither speaker was
-> addressing ACD-1.0 (`review-corpus.md` §1.82, `against.md` #146).
+> addressing ACD-1.0 (`review-precedents.md` §1.83, `against.md` #146).
 >
 > **The proliferation question is therefore not "is ACD-1.0 different?"** — it demonstrably is,
 > in the four respects above. It is "**is that difference worth another licence in the world?**"

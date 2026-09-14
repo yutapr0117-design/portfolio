@@ -116,9 +116,12 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        **「一次資料はここに在る」という証拠の主張そのもの**で、指した先が無ければ審査者は
        存在しない原文を探しに行く、(b) `B<n>` —— **方針を決めている register の項目** (286 箇所)、
        (c) `Check <N>` —— **実装の最大番号を超える参照は、存在しない機械強制を根拠として示す**
-       ことになる (178 箇所)。**残る 2 形は Check にしない**（裸の `` `file.md` `` 1,061 箇所と
-       ドシエ内部の `§N.M` 2,024 箇所は、リポジトリ外・仮称・文脈依存を含み意味の判断が要る）。
-       **ここに穴が残ることは台帳の種類 7 に書いてある。**
+       ことになる (178 箇所)、(d) **`<file>.md` §N.M —— 文書を名指しした節参照** (実測 94 箇所)。
+       (d) は 2026-09-15 に追加した —— **`review-corpus.md` §1.82 を 4 つの文書が引いていて、
+       その節は存在しなかった**（参照を先に書いて本体を書かなかった）。**読み手は「そこに根拠が
+       ある」と読んで探しに行く。** **残る 2 形は Check にしない**（裸の `` `file.md` `` 1,061 箇所と、
+       **文書を名指ししない**裸の `§N.M` 2,024 箇所は、リポジトリ外・仮称・文脈依存を含み
+       意味の判断が要る）。**ここに穴が残ることは台帳の種類 7 に書いてある。**
 """
 import re
 import json
@@ -754,6 +757,19 @@ def run(ctx):
             return [_x for _alt in _m.group(1).split(",")
                     for _x in _expand471(_s[:_m.start()] + _alt + _s[_m.end():])]
 
+        # 各ドシエ file が実際に持つ節 id（見出しの先頭の番号 / 英字ラベル）
+        _heads471 = {}
+        for _hf471 in sorted(_lic471.glob("*.md")) + sorted(_rounds471.glob("*.md")):
+            _ids471h = set()
+            for _hl471 in _hf471.read_text(encoding="utf-8").split("\n"):
+                _mh471 = re.match(r"^#{1,6}\s+([0-9]+(?:\.[0-9]+)*[a-z]?)\b", _hl471)
+                if _mh471:
+                    _ids471h.add(_mh471.group(1))
+                _mh471b = re.match(r"^#{1,6}\s+\u00a7?\s*([A-Z](?:\.[0-9]+)*)\b", _hl471)
+                if _mh471b:
+                    _ids471h.add(_mh471b.group(1))
+            _heads471[_hf471.name] = _ids471h
+
         _bad471 = []
         _files471 = sorted(_lic471.glob("*.md")) + sorted((ROOT / "docs" / "files" / "LICENSES").glob("*.md"))
         for _f471 in _files471:
@@ -769,6 +785,18 @@ def run(ctx):
                     for _m471 in re.finditer(r"(?<![A-Za-z0-9])B(\d{1,2})(?![0-9A-Za-z])", _l471):
                         if "B" + _m471.group(1) not in _ids471:
                             _bad471.append(f"{_f471.name}:{_i471} `B{_m471.group(1)}` が register の項目に解決しない")
+                # (d) `<file>.md` §N.M —— **文書を名指しした節参照。** 2026-09-15 に実測したところ
+                # **`review-corpus.md` §1.82 を 4 つの文書が引いていて、その節は存在しなかった**
+                # （参照を先に書いて本体を書かなかった）。**読み手は「そこに根拠がある」と読んで
+                # 探しに行く。** ドシエ内部の裸の `§N.M`（どの文書の節かが文脈でしか決まらない）は
+                # 依然 Check にしないが、**文書を名指しした形は曖昧さが無い**（実測 94 件・誤検出 0）。
+                for _m471 in re.finditer(
+                        r"`([A-Za-z0-9._\-]+\.md)`\s*(?:\u306e)?\s*\u00a7\s*"
+                        r"([0-9]+(?:\.[0-9]+)*[a-z]?|[A-Z](?:\.[0-9]+)*)", _l471):
+                    _tgt471, _sec471 = _m471.group(1), _m471.group(2)
+                    if _tgt471 in _heads471 and _sec471 not in _heads471[_tgt471]:
+                        _bad471.append(
+                            f"{_f471.name}:{_i471} `{_tgt471}` \u00a7{_sec471} \u304c\u5b9f\u5728\u3057\u306a\u3044")
                 # (c) Check <N>
                 if _max471:
                     for _m471 in re.finditer(r"Check (\d{1,4})", _l471):
@@ -776,7 +804,7 @@ def run(ctx):
                             _bad471.append(f"{_f471.name}:{_i471} `Check {_m471.group(1)}` は実装の最大番号 {_max471} を超える")
         check(
             not _bad471,
-            f"Check 471: \u30c9\u30b7\u30a8\u306e\u53c2\u7167\u8a18\u6cd5 3 \u5f62 (rounds/ \u30d1\u30b9 / B<n> / Check N) \u304c\u3059\u3079\u3066\u89e3\u6c7a\u3059\u308b",
+            f"Check 471: \u30c9\u30b7\u30a8\u306e\u53c2\u7167\u8a18\u6cd5 4 \u5f62 (rounds/ \u30d1\u30b9 / B<n> / Check N / \u540d\u6307\u3057\u3057\u305f \u00a7N.M) \u304c\u3059\u3079\u3066\u89e3\u6c7a\u3059\u308b",
             (f"Check 471: \u30c9\u30b7\u30a8\u5185\u306e\u53c2\u7167\u304c\u89e3\u6c7a\u3057\u306a\u3044: {_bad471}\u3002"
              "**`rounds/` \u306f\u300c\u4e00\u6b21\u8cc7\u6599\u306f\u3053\u3053\u306b\u5728\u308b\u300d\u3068\u3044\u3046\u8a3c\u62e0\u306e\u4e3b\u5f35\u305d\u306e\u3082\u306e**\u3067\u3042\u308a\u3001"
              "**`B<n>` \u306f\u65b9\u91dd\u3092\u6c7a\u3081\u3066\u3044\u308b register \u306e\u9805\u76ee**\u3067\u3042\u308a\u3001"

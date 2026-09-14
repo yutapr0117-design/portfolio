@@ -555,3 +555,54 @@ Mehl 氏は B で通り、我々は A で通すしかない ——**そして A 
 - **「短くてよい」の証拠ではない。** 彼が短く書けるのは、**長く説明すべきことが無いから**である。
 - **彼の提出が承認される保証も無い**（本節は形の観測であって結果の予測ではない）。
 - **同日という一致は偶然である。** 1 件の同時代例から傾向を読まない（#109 の教訓）。
+
+## 1.83 承認は取り消せない —— そしてその事実を、承認する側が自分で述べている（2026-09-15 に取得）
+
+**逐語は `rounds/2026-09-14-license-review-openmdw-thread-observed.txt`**（OpenMDW スレッドの
+観測。**我々宛ではなく ACD-1.0 についてでもない** ——register に効く 2 文があるので記録する）。
+
+**(A) Richard Fontana 氏・2026-09-11**（配送された本体を保存。引用の中だけではない）:
+
+> The OSI does not currently have a process for de-listing licenses, and I wouldn't put
+> OFL-1.1 at the top of the list if it did because there are actually worse licenses on
+> the OSI-approved list, but it would be on the list.
+
+**(B) Carlo Piana 氏・2026-09-14**（de-listing の是非を持ち出した参加者への返信）:
+
+> It's a hell of an important issue and whichever decision would bring unintended
+> consequences. We have discussed internally many times and for the time being we
+> defaulted to not take any action, even though revising ALL the approved licenses
+> (which we have done recently), some approved licenses, fortunately some seldom if at
+> all used, leave licensing experts scratching their heads as to how the heck...
+
+#### 何が確立し、何が確立しないか
+
+**確立する 3 点:**
+
+1. **承認は事実上取り消せない。** de-listing の手続きは**無く**、作る議論は内部で何度も行われて
+   **「当面は何もしない」**に落ち着いている。
+2. **承認済みリストには、専門家が首をかしげる起草のライセンスが実在する** ——
+   そう述べているのは**承認する側の人間**である。
+3. **委員会は最近、承認済みライセンスを全件見直した。**
+
+**確立しないこと**: どのライセンスのことか / それが**新規提出の基準に影響するか**。
+**両氏とも ACD-1.0 について何も述べていない。**
+
+#### 🟢 我々に有利な読み
+
+**起草の粗さは、承認の絶対的な障壁ではない**（#6 / B3）。**承認済みリストにその実例が在ると
+承認する側が認めている。** これは我々の推論ではなく、**リスト上の発言**である。
+
+#### 🔴 そして同じ 2 文の、より強い不利な読み
+
+**取り消せないからこそ、入口が固くなる。** 誤った承認のコストが**永久**であり、
+しかも**最近になって全件を見直した結果として不満が残っている**なら、
+**委員会が「もう一つ首をかしげるものを足す」ことに慎重になる理由は増える。**
+
+**この読みは #84（なぜもう一つ PD 等価を）と B2（採用 1 件）に直接乗る** ——
+Landley 氏の問いは「代替可能な類型に 1 件足す費用」を問うており、
+**その費用が「取り消せない」なら、答えるべき費用は我々が見積もっていたより高い。**
+`comparison.md` §1 の「この類型に 1 件足す費用が低い」という答えは、
+**「費用が低い」ではなく「費用は低いが取り返しがつかない」へ書き換わる。**
+
+**どちらが勝つかは我々には決められない。両方を register に載せる。**

@@ -63,7 +63,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
-| 2026-09-14 | `license-review` | **観測（OpenMDW スレッド・2 通）** | **我々宛でも ACD-1.0 についてでもない。** Fontana 氏 *"The OSI does not currently have a process for **de-listing** licenses"*（配送された本体を保存）と、Piana 氏 *"revising **ALL** the approved licenses (which we have done recently), some approved licenses … leave licensing experts **scratching their heads**"*。**承認は取り消せず、承認済みに首をかしげる起草が実在すると承認する側が述べている** ——**有利・不利の両方に読める**（`review-corpus.md` §1.82）|
+| 2026-09-14 | `license-review` | **観測（OpenMDW スレッド・2 通）** | **我々宛でも ACD-1.0 についてでもない。** Fontana 氏 *"The OSI does not currently have a process for **de-listing** licenses"*（配送された本体を保存）と、Piana 氏 *"revising **ALL** the approved licenses (which we have done recently), some approved licenses … leave licensing experts **scratching their heads**"*。**承認は取り消せず、承認済みに首をかしげる起草が実在すると承認する側が述べている** ——**有利・不利の両方に読める**（`review-precedents.md` §1.83）|
 | 2026-08-26 | `license-discuss` | 送信 | ACD-1.0 の議論依頼（5,778 語）|
 | 2026-09-14 | **OSI / REUSE の規範ページ 5 件** | 一次資料 → 自己取得 | **我々が「基準」として引いているページの、その日の姿。** review-process / 拒否理由 / OSD / OSAID / REUSE 3.3。**敵対的検証で見つかった第 3 の source class** —— アーカイブを全部取っても出てこず、**予告なく変わる**（理事会が 2 度公表を指示した項目は、この時点でまだ入っていない）。分析は `AUDIT-LEDGER.md` §6 |
 | 2026-09-14 | **リスト外**（Perplexity）| レビュー → オーナー経由で受領 | **1.1 草案本文への、初めての実質的な外部レビュー。** 出自は AI レビューで、**リスト参加者でも弁護士でもなく、公開アーカイブにも無い** ——**B1 を動かさない。** **唯一の改変**: 本文中の presigned URL が AWS の資格情報を含んでいたため query string のみ伏せた（**理由は file の header に明記**。無改変規約と、資格情報を公開しない義務が衝突し、**他者を守る側を採った**）。分解は `ACD-1.0.discussion-log.md`「ラウンド 0」|
