@@ -99,6 +99,18 @@ OSI が新規ライセンスの提出者に求めるのは、**最も近い承�
 > makes adopting it cheap to reverse — a reason to be less worried about the choice, and equally
 > a reason the choice matters less than a steward would like it to.
 >
+> **Corrected 2026-09-15 after reading the list.** The sentence above says the category's cost of
+> admitting an entry is low. **It is low, and it cannot be taken back.** Richard Fontana,
+> `license-review` 2026-09-11: *"The OSI does not currently have a process for de-listing
+> licenses ... there are actually worse licenses on the OSI-approved list."* Carlo Piana, the
+> following day, declining to open the question: the committee *"discussed internally many times
+> and for the time being ... defaulted to not take any action, even though revising ALL the
+> approved licenses (which we have done recently)."* **A list that cannot remove entries and has
+> just finished re-reading itself has a reason to be slower at the door.** So the honest answer
+> to "why another one" is not *"the cost of admitting an entry is low"* but ***"the cost is low
+> and permanent"*** — a worse answer than the one we had, and the true one. Neither speaker was
+> addressing ACD-1.0 (`review-corpus.md` §1.82, `against.md` #146).
+>
 > **The proliferation question is therefore not "is ACD-1.0 different?"** — it demonstrably is,
 > in the four respects above. It is "**is that difference worth another licence in the world?**"
 > That is a judgement for the list, and the honest position is that the answer is not obviously

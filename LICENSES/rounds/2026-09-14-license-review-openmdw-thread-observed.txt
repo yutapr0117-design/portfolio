@@ -1,0 +1,308 @@
+OBSERVED (not received by us) — license-review public archive, 2026-09 monthly mbox
+Fetched 2026-09-15 from
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-September.txt
+Preserved verbatim, unmodified. These messages are NOT addressed to us and are NOT
+about ACD-1.0; they are recorded because two statements in them bear on our register.
+
+=== (A) Carlo Piana, 2026-09-14 — "revising ALL the approved licenses ... scratching their heads"
+=== (B) Richard Fontana, 2026-09-11 — "The OSI does not currently have a process for de-listing licenses"
+    (the delivered message itself, not only the quotation inside (A))
+
+From carlo at piana.eu  Mon Sep 14 09:18:15 2026
+From: carlo at piana.eu (Carlo Piana)
+Date: Mon, 14 Sep 2026 11:18:15 +0200 (CEST)
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+In-Reply-To: <caceb824-da67-408a-9800-dc54185f00e1@riseup.net>
+References: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+ <253bd118-cda4-4dac-b7e2-9f22161ae2be@lexpan.law>
+ <8fddbccf-07b4-402b-83e3-9edc7db03fb9@chesteklegal.com>
+ <CAAvo7O7rVB3dxCJ3CuozdNT+X2vHVoJNcQPwjoZMXP47qa0Nkg@mail.gmail.com>
+ <CA+gCWQV8jOw0nfeWhr-rx6_OgO-yv7vYFihPRGk8tarOGc3EwQ@mail.gmail.com>
+ <90f5840b-617a-41bf-82b7-6b173a3e9b9f@chesteklegal.com>
+ <CAC1cPGwmWHcZ_5790CsboRtCFsfAxzWnD7axyMBt8RrbwTxxXw@mail.gmail.com>
+ <caceb824-da67-408a-9800-dc54185f00e1@riseup.net>
+Message-ID: <1210716340.1917347.1789377495987.JavaMail.zimbra@piana.eu>
+
+Dear Preston,
+
+This is not something that can be easily thrown in as a "by the way" ;-)
+
+It's a hell of an important issue and whichever decision would bring unintended consequences. We have discussed internally many times and for the time being we defaulted to not take any action, even though revising ALL the approved licenses (which we have done recently), some approved licenses, fortunately some seldom if at all used, leave licensing experts scratching their heads as to how the heck...
+
+But please do not digress in an already very wide and hard to follow thread.
+
+Cheers
+
+Carlo
+
+
+----- Messaggio originale -----
+> Da: "Preston Maness" <aspensmonster at riseup.net>
+> A: "license-review at lists.opensource.org" <license-review at lists.opensource.org>
+> Inviato: Sabato, 12 settembre 2026 20:15:04
+> Oggetto: Re: [License-review] For Approval: OpenMDW License Agreement, versions 1.1 (OpenMDW-1.1)
+
+> On 9/11/26 08:01, Richard Fontana via License-review wrote:
+> 
+>> The OSI does not currently have a process for de-listing
+>> licenses, and I wouldn't put OFL-1.1 at the top of the list if it did
+>> because there are actually worse licenses on the OSI-approved list,
+>> but it would be on the list.
+> Orthogonal to the topic at hand, but I'd support having a process for
+> de-listing licenses. No person or group can get the right or best answer
+> all of the time. Sometimes only history can inform whether or not a
+> choice is truly in line with goals or intentions.
+> 
+> --
+> In Solidarity,
+> Preston Maness
+> 512-955-1048
+> https://keyoxide.org/79895B2E0F87503F1DDE80B649765D7F0DDD9BD5
+> 
+> 
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+> 
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+
+========================================================================
+
+From rfontana at redhat.com  Fri Sep 11 13:01:16 2026
+From: rfontana at redhat.com (Richard Fontana)
+Date: Fri, 11 Sep 2026 09:01:16 -0400
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+In-Reply-To: <90f5840b-617a-41bf-82b7-6b173a3e9b9f@chesteklegal.com>
+References: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+ <CAFV=PSH_wNaPuPQi5i6-JZP2wfyx5UpudQsrjao3TCCSE4jb9w@mail.gmail.com>
+ <CAC1cPGzpjtL=UyGT=bzu+6JmohsY567PPU=0ZxGJOrM7vNDdyw@mail.gmail.com>
+ <CAFV=PSE7swjqNpbLqLFoJJJOnf03khMJHa_FL_bP9ow40c0E2Q@mail.gmail.com>
+ <4d892328-fe83-471b-8714-bb0b818c54d9@chesteklegal.com>
+ <CAFV=PSEyd7Ly8aWtkdcm9X96bpTXBFZToKW0pADpwrhNhXPtog@mail.gmail.com>
+ <bd0fc092-4a3f-4e0a-a446-ccc1f344ee61@chesteklegal.com>
+ <f5ec169a-3f32-4631-a67b-075f18464ad0@berkus.org>
+ <CAC1cPGxNqTn=UhoB8pByXjdUKXicJE1r-bMVcOnRs1wxkzd_HQ@mail.gmail.com>
+ <f96c1d69-4491-41de-98c8-ed5a15fa67fd@berkus.org>
+ <CAC1cPGwkRamwK7cXtEw+5nH8-W2UpjboL1iko-L2sNLV2So1Jg@mail.gmail.com>
+ <253bd118-cda4-4dac-b7e2-9f22161ae2be@lexpan.law>
+ <8fddbccf-07b4-402b-83e3-9edc7db03fb9@chesteklegal.com>
+ <CAAvo7O7rVB3dxCJ3CuozdNT+X2vHVoJNcQPwjoZMXP47qa0Nkg@mail.gmail.com>
+ <CA+gCWQV8jOw0nfeWhr-rx6_OgO-yv7vYFihPRGk8tarOGc3EwQ@mail.gmail.com>
+ <90f5840b-617a-41bf-82b7-6b173a3e9b9f@chesteklegal.com>
+Message-ID: 
+ <CAC1cPGwmWHcZ_5790CsboRtCFsfAxzWnD7axyMBt8RrbwTxxXw@mail.gmail.com>
+
+On Thu, Sep 10, 2026 at 9:09 PM Pamela Chestek <pamela at chesteklegal.com> wrote:
+>
+> I do find it inconsistent with my understanding of open source and the open source community that someone who intentionally committed a wrongful act should be allowed to avoid the consequences of that act. I raised this point early on and no one responded to give a reason why this intentional conduct was innocent enough that the withdrawal of the license, in Joshua's words, is a price that a licensor can demand in exchange for the use of their work. We expect members of the open source community to act ethically, but this provision allows deliberate, intentionally, willful wrongdoers to escape some degree of responsibility for their choices merely by choosing this license. This is not an AI vs. software issue, this is true if the license is used for software alone, as it can be. I don't understand why that is acceptable in a license and would very much like to understand from others why they think it is.
+
+Thinking about Luis's comment about Oracle/Google: I would assert that
+in FOSS, copying and reimplementing APIs has, in a non-strictly-legal
+sense, basically not been considered "wrongful" by those carefully or
+intuitively considering the question, going back to the dawn of time,
+at least prior to Oracle reviving the theory of API copyrightability
+(Oracle, arguably unlike Sun in this specific context, was part of the
+FOSS community). So if a purportedly FOSS license had a provision that
+said "if you try to sue me via a copyright claim for reimplementing
+what you contend are 'your' APIs, you lose all the copyright licenses
+I'm granting you", maybe that would be okay. OpenMDW-1.1 is different
+in this respect because its copyright-triggered termination reaches
+*all* sorts of copyright claims, and I recognize the point Mike made
+that it would probably not be feasible to have a more narrowly
+tailored one that distinguished different types of claims.
+
+The justification given for (what I continue to contend is) the
+unprecedented copyright-triggered termination in OpenMDW-1.1 is
+centered around the current risk situation faced by model publishers.
+Let's be clear that what this means is publishers of pretrained model
+weights (and probably in practice only those sorts of models that are
+trained on a vast amount of data). The other copyrightable materials
+released by model publishers, in connection with their release of
+model weights, do not, of course, face this situation. No one seemed
+to think much of my highlighting of that Nemotron model latex2html
+Python script, but am going to stubbornly insist that it's a good
+example of why this license is problematic. The asserted policy
+justification for copyright-triggered termination has no relevance to
+latex2html.py, and yet it is swept in improperly by this termination
+provision. It's true that if I care a lot about this issue, I can try
+to go to NVIDIA and get them to release latex2html.py under the MIT
+license, but that is not likely to be successful, in part because it
+would defeat the theoretical purpose in selecting this all-purpose
+license to begin with.
+
+Maybe the OpenMDW-1.1 meets the expectations the OSI had for terms for
+*parameters* in the OSAID: "The Open Source AI Definition does not
+require a specific legal mechanism for assuring that the model
+parameters are freely available to all. They may be free by their
+nature or a license or other legal instrument may be required to
+ensure their freedom. We expect this will become clearer over time,
+once the legal system has had more opportunity to address Open Source
+AI systems." (OSAID-1.0) See also:
+https://opensource.org/ai/checklist, where it is quite clear that the
+OSI contemplates that things other than OSI-approved licenses might be
+suitable for model parameters, but that does not apply to code or
+model architecture materials.
+
+I believe it was Sado-san who pointed out that the OSI had approved
+the SIL Open Font License, as an example of a license that is designed
+and contemplated mainly for a special type of material that is not
+software in the conventional sense, but I would assert that this
+license (while possibly acceptable in the scheme of things for
+quasi-open fonts, given the sad history surrounding that topic) was
+wrongly approved by the OSI, because of its "Sun RPC" clause ("Neither
+the Font Software nor any of its individual components, in Original or
+Modified Versions, may be sold by itself"). I apologize 17 years later
+for having played a small undocumented part in that approval, in the
+form of encouragement of Michael Tiemann to promote the license for
+OSI approval. The OSI does not currently have a process for de-listing
+licenses, and I wouldn't put OFL-1.1 at the top of the list if it did
+because there are actually worse licenses on the OSI-approved list,
+but it would be on the list.
+
+However, for better or worse, the OSAID is completely irrelevant here.
+The license steward is not submitting this license as a potentially
+OSAID-conformant license aimed solely at model parameters, but as a
+normal potential OSI-approved license, that can apply to software
+having no connection whatsoever to AI models, or indeed other kinds of
+copyrightable materials that are commonly placed under open source
+licenses. The prospect of OpenMDW-1.1 being used as a license for some
+or all parts of an OSAID-1.0-conformant model release is, I assume,
+extremely remote.
+
+The OSI must consider how a submitted license will operate when
+applied to ordinary software. OpenMDW-1.1 is flawed in its basic
+conception, as a consequence of the termination provision. Its whole
+raison d'être is to have a single license that applies to everything.
+But IMO that suggests that the policy justification for the
+termination provision is not persuasive because that policy
+justification only truly applies to model weights - leaving aside
+whether the justification has merit in that specific context.
+
+ Richard
+
+========================================================================
+
+From rfontana at redhat.com  Fri Sep 11 13:01:16 2026
+From: rfontana at redhat.com (Richard Fontana)
+Date: Fri, 11 Sep 2026 09:01:16 -0400
+Subject: [License-review] For Approval: OpenMDW License Agreement,
+ versions 1.1 (OpenMDW-1.1)
+In-Reply-To: <90f5840b-617a-41bf-82b7-6b173a3e9b9f@chesteklegal.com>
+References: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+ <CAFV=PSH_wNaPuPQi5i6-JZP2wfyx5UpudQsrjao3TCCSE4jb9w@mail.gmail.com>
+ <CAC1cPGzpjtL=UyGT=bzu+6JmohsY567PPU=0ZxGJOrM7vNDdyw@mail.gmail.com>
+ <CAFV=PSE7swjqNpbLqLFoJJJOnf03khMJHa_FL_bP9ow40c0E2Q@mail.gmail.com>
+ <4d892328-fe83-471b-8714-bb0b818c54d9@chesteklegal.com>
+ <CAFV=PSEyd7Ly8aWtkdcm9X96bpTXBFZToKW0pADpwrhNhXPtog@mail.gmail.com>
+ <bd0fc092-4a3f-4e0a-a446-ccc1f344ee61@chesteklegal.com>
+ <f5ec169a-3f32-4631-a67b-075f18464ad0@berkus.org>
+ <CAC1cPGxNqTn=UhoB8pByXjdUKXicJE1r-bMVcOnRs1wxkzd_HQ@mail.gmail.com>
+ <f96c1d69-4491-41de-98c8-ed5a15fa67fd@berkus.org>
+ <CAC1cPGwkRamwK7cXtEw+5nH8-W2UpjboL1iko-L2sNLV2So1Jg@mail.gmail.com>
+ <253bd118-cda4-4dac-b7e2-9f22161ae2be@lexpan.law>
+ <8fddbccf-07b4-402b-83e3-9edc7db03fb9@chesteklegal.com>
+ <CAAvo7O7rVB3dxCJ3CuozdNT+X2vHVoJNcQPwjoZMXP47qa0Nkg@mail.gmail.com>
+ <CA+gCWQV8jOw0nfeWhr-rx6_OgO-yv7vYFihPRGk8tarOGc3EwQ@mail.gmail.com>
+ <90f5840b-617a-41bf-82b7-6b173a3e9b9f@chesteklegal.com>
+Message-ID: 
+ <CAC1cPGwmWHcZ_5790CsboRtCFsfAxzWnD7axyMBt8RrbwTxxXw@mail.gmail.com>
+
+On Thu, Sep 10, 2026 at 9:09 PM Pamela Chestek <pamela at chesteklegal.com> wrote:
+>
+> I do find it inconsistent with my understanding of open source and the open source community that someone who intentionally committed a wrongful act should be allowed to avoid the consequences of that act. I raised this point early on and no one responded to give a reason why this intentional conduct was innocent enough that the withdrawal of the license, in Joshua's words, is a price that a licensor can demand in exchange for the use of their work. We expect members of the open source community to act ethically, but this provision allows deliberate, intentionally, willful wrongdoers to escape some degree of responsibility for their choices merely by choosing this license. This is not an AI vs. software issue, this is true if the license is used for software alone, as it can be. I don't understand why that is acceptable in a license and would very much like to understand from others why they think it is.
+
+Thinking about Luis's comment about Oracle/Google: I would assert that
+in FOSS, copying and reimplementing APIs has, in a non-strictly-legal
+sense, basically not been considered "wrongful" by those carefully or
+intuitively considering the question, going back to the dawn of time,
+at least prior to Oracle reviving the theory of API copyrightability
+(Oracle, arguably unlike Sun in this specific context, was part of the
+FOSS community). So if a purportedly FOSS license had a provision that
+said "if you try to sue me via a copyright claim for reimplementing
+what you contend are 'your' APIs, you lose all the copyright licenses
+I'm granting you", maybe that would be okay. OpenMDW-1.1 is different
+in this respect because its copyright-triggered termination reaches
+*all* sorts of copyright claims, and I recognize the point Mike made
+that it would probably not be feasible to have a more narrowly
+tailored one that distinguished different types of claims.
+
+The justification given for (what I continue to contend is) the
+unprecedented copyright-triggered termination in OpenMDW-1.1 is
+centered around the current risk situation faced by model publishers.
+Let's be clear that what this means is publishers of pretrained model
+weights (and probably in practice only those sorts of models that are
+trained on a vast amount of data). The other copyrightable materials
+released by model publishers, in connection with their release of
+model weights, do not, of course, face this situation. No one seemed
+to think much of my highlighting of that Nemotron model latex2html
+Python script, but am going to stubbornly insist that it's a good
+example of why this license is problematic. The asserted policy
+justification for copyright-triggered termination has no relevance to
+latex2html.py, and yet it is swept in improperly by this termination
+provision. It's true that if I care a lot about this issue, I can try
+to go to NVIDIA and get them to release latex2html.py under the MIT
+license, but that is not likely to be successful, in part because it
+would defeat the theoretical purpose in selecting this all-purpose
+license to begin with.
+
+Maybe the OpenMDW-1.1 meets the expectations the OSI had for terms for
+*parameters* in the OSAID: "The Open Source AI Definition does not
+require a specific legal mechanism for assuring that the model
+parameters are freely available to all. They may be free by their
+nature or a license or other legal instrument may be required to
+ensure their freedom. We expect this will become clearer over time,
+once the legal system has had more opportunity to address Open Source
+AI systems." (OSAID-1.0) See also:
+https://opensource.org/ai/checklist, where it is quite clear that the
+OSI contemplates that things other than OSI-approved licenses might be
+suitable for model parameters, but that does not apply to code or
+model architecture materials.
+
+I believe it was Sado-san who pointed out that the OSI had approved
+the SIL Open Font License, as an example of a license that is designed
+and contemplated mainly for a special type of material that is not
+software in the conventional sense, but I would assert that this
+license (while possibly acceptable in the scheme of things for
+quasi-open fonts, given the sad history surrounding that topic) was
+wrongly approved by the OSI, because of its "Sun RPC" clause ("Neither
+the Font Software nor any of its individual components, in Original or
+Modified Versions, may be sold by itself"). I apologize 17 years later
+for having played a small undocumented part in that approval, in the
+form of encouragement of Michael Tiemann to promote the license for
+OSI approval. The OSI does not currently have a process for de-listing
+licenses, and I wouldn't put OFL-1.1 at the top of the list if it did
+because there are actually worse licenses on the OSI-approved list,
+but it would be on the list.
+
+However, for better or worse, the OSAID is completely irrelevant here.
+The license steward is not submitting this license as a potentially
+OSAID-conformant license aimed solely at model parameters, but as a
+normal potential OSI-approved license, that can apply to software
+having no connection whatsoever to AI models, or indeed other kinds of
+copyrightable materials that are commonly placed under open source
+licenses. The prospect of OpenMDW-1.1 being used as a license for some
+or all parts of an OSAID-1.0-conformant model release is, I assume,
+extremely remote.
+
+The OSI must consider how a submitted license will operate when
+applied to ordinary software. OpenMDW-1.1 is flawed in its basic
+conception, as a consequence of the termination provision. Its whole
+raison d'être is to have a single license that applies to everything.
+But IMO that suggests that the policy justification for the
+termination provision is not persuasive because that policy
+justification only truly applies to model weights - leaving aside
+whether the justification has merit in that specific context.
+
+ Richard
+
+
