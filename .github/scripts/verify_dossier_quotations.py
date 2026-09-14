@@ -40,12 +40,18 @@ NAME = re.compile(r"(Smith|Chestek|Fontana|Villa|Landley|Piana|Berkus|Perens|Sad
 
 
 def norm(text):
-    """比較用の正規化: markdown の強調を落とし、空白を畳む。
+    """比較用の正規化。**アーカイブは清書テキストではない**ことを前提に畳む。
 
-    **逐語テキストの検出器は、まず空白を正規化する** —— 行またぎで折り返された引用を
-    「不一致」と誤報告した実例が 2026-09-09 にある。
+    **空白**: 行またぎで折り返された引用を「不一致」と誤報告した実例が 2026-09-09 にある。
+    **quoted-printable**: pipermail は `=\n` の軟改行と `=E2=80=99` 形式の escape を含む。
+    **約物**: 丸い引用符・ダッシュ・省略記号が、我々の側と source 側で食い違う。
+
+    **2026-09-14 の実測**: 空白だけを畳む版で 156/251、ここまで畳んで **193/257**。
+    **37 件は「引用が違う」のではなく「読み方が硬すぎた」だけだった。**
     """
-    return re.sub(r"[*`]", "", " ".join(text.split()))
+    text = text.replace("=\n", "")
+    text = re.sub(r"=[0-9A-F]{2}", " ", text)
+    return " ".join(re.sub(r"[^A-Za-z0-9]+", " ", text.lower()).split())
 
 
 def load_sources(root="."):
@@ -72,7 +78,10 @@ def collect_quotes(root="."):
             if not NAME.search(context):
                 continue
             for m in re.finditer(r'\*"([^"]{25,400})"\*', line):
-                q = norm(m.group(1))
+                # **生のまま集める。** norm() は約物を落とすので、ここで正規化すると
+                # **省略記号が消え、present() の分割照合が永久に発火しなくなる**
+                # （2026-09-14 に実際にそうなり、確認数が 193 → 155 へ落ちた）。
+                q = re.sub(r"[*`]", "", " ".join(m.group(1).split()))
                 if len(q.split()) < 5:
                     continue
                 if sum(ord(c) < 128 for c in q) / len(q) <= 0.9:
@@ -82,10 +91,15 @@ def collect_quotes(root="."):
 
 
 def present(quote, blob):
-    """引用が source に在るか。**省略記号を挟む部分引用は、断片ごとに照合する。**"""
-    if quote in blob:
+    """引用が source に在るか。**正規化は比較の時にだけ行う。**
+
+    **省略記号を挟む部分引用は断片ごとに照合する** —— そのために、分割は
+    *生の引用*に対して行い、正規化はそのあとで各断片に当てる。
+    """
+    if norm(quote) in blob:
         return True
-    segs = [s.strip() for s in re.split(r"\.{3}|…", quote) if len(s.split()) >= 5]
+    segs = [norm(s) for s in re.split(r"\.{3}|…", quote)]
+    segs = [s for s in segs if len(s.split()) >= 5]
     return bool(segs) and all(s in blob for s in segs)
 
 
