@@ -13,7 +13,7 @@ canonical-ref: LICENSE / docs/architecture/acd-license-rationale.md / .github/sc
 ライセンスで、**汎用**（特定のプロジェクト・人・法域に固有の記述を一切含まない）。
 このリポジトリでの適用宣言と entity provenance は `LICENSE` 側に分離してある。
 
-16 節・68 項。骨子:
+16 節・82 条。骨子:
 
 - §3 公有化 / §4 許諾 / §5 不提訴の合意 —— **相互に独立**（§2.4）で、累積的に働く
 - §6 機械学習・TDM の積極的許諾と**留保の明示的放棄**
