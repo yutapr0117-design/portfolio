@@ -829,51 +829,6 @@ version … provided that date is no earlier than 60 days after the original"*�
 a project**"*・2025-07-18 理事会）。**duplicative と not-used の両方が我々に当たり、
 その区別は 14 か月経っても公表されていない。**
 
-## 1.82 本文を変えたい提出者に、process ページが課している手続き（原典・2026-09-14 に保存）
-
-**4 つの文書がこの節番号を引いていたのに、節が存在しなかった**（`REVISION-PROTOCOL.md` §1 /
-`board-decisions.md` §2b / `submission.md` §4a / `AS-OF.md`）。**参照を先に書いて本体を書かなかった**
-のが原因である。**逐語は `rounds/2026-09-14-osi-normative-pages-snapshot.txt`**
-（自己取得・`Last modified on March 13, 2024` とページ自身が述べている）。
-
-### 🔴 審査中に本文を差し替えることは、手続きが禁じている
-
-> However, **a license cannot be changed while it is being considered**. If the license submitter
-> would like to change the language of the license, the current version of the license should be
-> **withdrawn from review and an updated version submitted**. We recommend that, if changes are
-> going to be made, that the license submitter **wait and collect all the desired changes in a
-> single new submission** rather than withdrawing and resubmitting the same license several times.
-
-**3 つのことが同時に確定する。**
-
-1. **凍結は我々の礼儀ではなく、向こうが書いている手続きである**（`FROZEN.md` の運用は
-   偶然に一致していたのではなく、規則と一致していた）。
-2. **分岐 B には「取り下げ」という一手が要る** ——版を差し替えるには、まず取り下げる。
-   **どの文書にもその手順が書かれていなかった。**
-3. **オーナーの方針（「全部取り込んだ改善版を 1 回で出す」）は、このページが明文で推奨している形**
-   —— *"collect all the desired changes in a single new submission"*。
-
-### 決定日の規則 —— そして、これと委員の発言は同じことを述べていない
-
-> The "Decision Date" for a license normally means (a) **60 days after a license is initially
-> submitted**, or (b) **30 days after submission of a revised version** of a license that was
-> previously submitted for review, **provided that date is no earlier than 60 days after the
-> original license was submitted**. While we will try to adhere to this 60/30 day Decision Date
-> definition, **circumstances may require us to extend the Decision Date further**.
-
-**規則は初回提出を起点とし、改訂で +30 日する。** 一方 Licensing Committee の委員は
-*"two-month review cycle"* の起点を**最終提出**だと述べている（§1.67）。
-**どちらが支配するかは我々には決められない。** 実測の中央値は **101 日**（§1.72・
-**決まった場合の**所要であって、決まらなかった提出は入っていない）。
-**「60 日で決まる」と読める書き方をしないこと。**
-
-### この節が establish しないこと
-
-**このページは 2024-03-13 から更新されていない**とページ自身が述べており、
-**理事会が公表を指示した項目のうち少なくとも 2 件が、まだここに載っていない**
-（`board-decisions.md`）。**公表された手続きを読み尽くしても、委員会が実際に使う手続きを
-読み尽くしたことにはならない。**
-
 ## 1.85 moderator に問われた「長さと密度」を実測した（2026-09-15・両リスト 3 か月・192 通）
 
 **問いは moderator から直接来た**（`rounds/2026-09-15-offlist-nick-vidal-round3.txt`）——
@@ -972,4 +927,63 @@ all or most of a message"* —— **は Code of Conduct には無い。** modera
 CoC 自身が *"We expect it to be followed **in spirit as much as in the letter**"* と述べており、
 **3 つのうち 1 つに当たれば、条に当たっている。**
 **確立するのは「どこに当たり、どこに当たらないか」だけである。**
+
+## 1.87 `license-review` の**全期間**（199 か月・6,272 通）を数えた —— 我々の参照クラスは、19 年で 3 件しかない
+
+**ドシエが持っていた提出の統計は、33 か月（決議）と 44 か月（スレッド）の窓で測ったものだった。**
+**アーカイブは 2007-12 から在る。** **#87 の規律**（*名称検索は下限であって全数調査ではない*）を、
+**窓の側にも当てた。** 道具は `.github/scripts/census_license_review_archive.py`（committed）。
+
+**span 2007-12 → 2026-09 / 199 か月 / 6,272 通 / 652 スレッド。**
+
+### (a) 提出はどれくらい engagement を得るのか —— 基準率
+
+**件名が承認依頼の形で始まるスレッド 99 件**（メタ議論を落とす厳しい判定。
+緩い判定では 206 件・返信ゼロ 16.5% になるが、*"recent submissions merit no action"* のような
+議論スレッドが混ざる）:
+
+| | 値 |
+|---|---|
+| **返信ゼロ（1 通のみ）** | **10 件 = 10.1%**（うち 3 件は同一提出 MOSL の重複件名なので、実質は 8 件 ≈ 8.2%）|
+| 通数の中央値 | **11 通** |
+| 最大 | **175 通**（Cryptographic Autonomy License Beta 4・2019-12）|
+
+**⚠ これは `license-review` の数である。** 我々の 2026-08-26 の投稿は **`license-discuss`** に在るので、
+**この基準率を我々の沈黙に直接当ててはならない。** 別のリストの別の母集団である
+（`license-discuss` 側の基準率は #109 が別に測っている）。
+
+**それでも確立することが 1 つある**: **正式な提出に対しては、返信が付くのが通常である**
+（中央値 11 通・ゼロは 1 割）。**分岐 B で `license-review` へ出したとき、
+「誰も読まなかった」は起こりにくい。**
+
+### (b) 我々の類型は、19 年で何回出たのか
+
+**名称一致は下限**（件名に出ない提出は取りこぼす）だが、**19 年分を通して見ると像がはっきりする。**
+
+| 年 | 何が起きたか | 規模 |
+|---|---|---|
+| **2009-02** | WTFPL の承認依頼 | 8 通。**承認されていない** |
+| **2010-04** | 個人が自作の「公有化由来を認める」ライセンスを提出 | **1 通・返信ゼロ** |
+| **2011-09** | *"Can OSI specify that public domain is open source?"* | 16 通（方針の議論）|
+| **2012** | **CC0** —— 招請 → 提出 → 特許での異議 → **Creative Commons による取り下げ** | **13 スレッド・290 通**（*"CC withdrawl of CC0 from OSI process"* 44 通 / *"CC0 incompliant with OSD on patents"* 40+22+1 通 / straw poll 25 通）|
+| **2017-04** | 公有化ソフト向けの Modified MIT の提案 | 10 通 |
+| **2020** | **Unlicense** —— **legacy 承認**として依頼 → **veto 反対** → 承認 | **5 スレッド・66 通**（依頼 12 通 / veto 32+17+4+1 通）|
+| **2026-03** | Modified 0BSD (Maintenance-Required) | 12 通（撤回）|
+
+### この測定が establish すること（3 点だけ）
+
+1. **我々の類型で「新規」として承認された例は、19 年で 1 件も無い。** Unlicense は
+   **legacy 承認**（*"Request for legacy approval"* と件名が述べている）で入っており、
+   **我々はその経路を使えない**（採用 1 件では legacy の要件 —— 5 年・20 プロジェクト —— に届かない）。
+2. **CC0 は「止まった」のではなく「取り下げられた」。** 件名が *"CC withdrawl of CC0 from OSI
+   process"* と述べている。**そして争点は特許だった**（*"CC0 incompliant with OSD on patents"* が
+   3 スレッド・63 通）。**§8.1 が存在する理由は、この 63 通である。**
+3. **承認された 1 件も、無風ではなかった** —— Unlicense には **veto の反対スレッドが 54 通**付いている。
+   **「PD 等価は揉めない」は、この archive では成り立たない。**
+
+### この測定が establish しないこと
+
+**名称一致は下限である。** 件名に類型名を書かなかった提出は数えていない。
+**「19 年で 3 件」は「少なくとも 3 件」であって「ちょうど 3 件」ではない。**
+**そして本節は件名しか見ていない** ——**本文を読めば分類が変わるスレッドが在りうる。**
 
