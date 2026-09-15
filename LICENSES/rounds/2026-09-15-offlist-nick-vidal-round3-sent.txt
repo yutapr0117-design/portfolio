@@ -1,0 +1,56 @@
+SENT (off-list, not on any public mailing list) — steward's reply to the moderator
+Sent by Yuta Yokoi on 2026-09-15 JST, in reply to Nick Vidal's message of the same
+day preserved in rounds/2026-09-15-offlist-nick-vidal-round3.txt.
+Preserved verbatim, unmodified.
+
+WHY THIS FILE EXISTS: for two weeks this dossier held documents *about* what we
+had sent while holding no copy of the message itself (against.md #82). The rule
+that came out of that is: our own sent messages are preserved with the same
+discipline as messages we receive. This is the first reply recorded under that
+rule at the time of sending rather than afterwards.
+
+DRAFTING: written by the steward. The measurement figures quoted in it were
+produced by .github/scripts/measure_list_verbosity.py and are reported in
+ACD-1.0.review-corpus.md §1.85. The message says so itself, in its last
+paragraph.
+
+MEASURED (same instrument, for the record): 271 words, 15 sentences, 4
+paragraphs; 18.1 words per sentence; 62.4th percentile against the 186
+other-participant messages in the 2026-07..09 window. Our own previous median
+was 683.
+
+================================================================================
+
+Hi Nick,
+
+I checked the mailing list archives. My posts were longer than usual.
+The median word count for my new posts was 683 words, while the median
+for other participants was 188 words. In particular, my post on August
+26 regarding ACD ended up being quite long because I pasted the full
+text of the license into the body of the message. I should have
+attached it as a file instead. Since I ended up burdening everyone
+with unnecessary reading material, I'll make sure to keep my posts
+shorter in the future.
+
+The messages were not denser, however: 22.0 words per sentence versus
+23.0 for others, and 21.5 words per paragraph versus 34.5.
+
+Regarding AI, I believe the definition of terms is important. I always
+read, understand, approve, and send the content I publish under my own
+name, and I take full responsibility for it. That said, AI does
+sometimes draft my text, including most of the wording in some cases.
+If the literal meaning of the rule is that "AI must not create the
+majority of a text (even if a human reviews the content and takes
+responsibility)," then my current workflow does not fully comply with
+that rule, so I will change my approach. If that is not the case, and
+the intention is to distinguish between contributions made by humans
+with AI assistance and those made by autonomous AI, please let me
+know. I do not wish to speculate on the moderators' intentions.
+
+While I used AI to organize the measurement data that forms the basis
+of this response, I wrote everything else myself. Thank you for your
+understanding.
+
+Thanks,
+
+Yuta
