@@ -148,6 +148,7 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_license_dossier.py",  # split: ACD-1.0 ドシエの自己整合 (458-461b)
     ROOT / ".github" / "scripts" / "checks_license_self_reporting.py",  # split: 自己申告件数 (460)
     ROOT / ".github" / "scripts" / "checks_license_quotation.py",  # split: 引用の忠実性 (470)
+    ROOT / ".github" / "scripts" / "checks_license_references.py",  # split: 参照の解決 (471)
     ROOT / ".github" / "scripts" / "checks_seo_meta.py",  # split: AIO/SEO meta + canonical URL + resource-resolution (149-166 minus 152/165)
     ROOT / ".github" / "scripts" / "checks_api_catalog.py",  # split: .well-known/api-catalog RFC 9727/9264/6573 conformance (165, 449)
     ROOT / ".github" / "scripts" / "checks_source_coherence.py",  # split: cross-file source coherence + CSP-hash (7/11/14/350・ctx-enrich)
@@ -375,6 +376,10 @@ _checks_license_self_reporting.run(_ctx)
 # ── 470 (引用の忠実性) → checks_license_quotation.py ──
 import checks_license_quotation as _checks_license_quotation
 _checks_license_quotation.run(_ctx)
+
+# ── 471 (参照の解決) → checks_license_references.py ──
+import checks_license_references as _checks_license_references
+_checks_license_references.run(_ctx)
 
 # ── 31-41 (minus 37). repository hygiene / doc-dating / artifact / lock-sync → checks_repo_hygiene.py ──
 # (check.py split track. Claude2Claude↔AI2AI(31)/JSON-LD valid(32)/Zenn slug(33)/doc dating(34)/
