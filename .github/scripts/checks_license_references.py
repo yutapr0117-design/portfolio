@@ -12,7 +12,7 @@ checks_license_references.py — ドシエが書いた矢印が、指した先�
 **宣言と実測の差は、宣言した本人には見えない。**
 
 Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()):
-  471. **ドシエ内の参照記法が解決すること** (BLOCKING): Check 460 face (k) は `#N` と `E<n>`
+  471. **ドシエが書いた矢印が、指した先に在ること** (BLOCKING・6 形): Check 460 face (k) は `#N` と `E<n>`
        だけを見ていた。2026-09-14 の敵対的検証（主張の種類 7）で**参照記法を数え上げ、
        1 つずつ壊して測った**ところ、**7 形のうち 5 形が誰にも見られていなかった** ——
        `AUDIT-LEDGER.md` はこの種類を「機械強制済」と書いており、**その申告自身が誤りだった。**
@@ -194,9 +194,37 @@ def run(ctx):
                     for _m471 in re.finditer(r"Check (\d{1,4})", _l471):
                         if int(_m471.group(1)) > _max471:
                             _bad471.append(f"{_f471.name}:{_i471} `Check {_m471.group(1)}` は実装の最大番号 {_max471} を超える")
+        # (f) **`\u00a71.xx` の共有採番が衝突しないこと。** この採番は 4 file に分かれており
+        # （comparison / review-precedents / review-corpus / reviewer-positions）、
+        # **同じ番号を 2 つの file が使うと、参照は「解決する」のに別の節へ着く。**
+        # **Check 471 (d)(e) は解決性しか見ないので、この形は原理的に捕捉できない。**
+        # 2026-09-15 に実害: **`\u00a71.82` は既に在ったのに、見出しを `###` で grep して
+        # 見落とし、「4 文書が引く節が存在しない」と誤診して新しい `\u00a71.82` を書いた。**
+        # **診断が誤りで、その「修正」が本物の重複を作った。**
+        # **既存の 3 件（1.67 / 1.68 / 1.69）は grandfather する** ——番号を動かすと
+        # 既存の参照がどちらを指すか決められなくなる（本 file 群の規約は「節番号を動かさない」）。
+        _grand471 = {"1.67", "1.68", "1.69"}
+        _seriesfiles471 = ("ACD-1.0.comparison.md", "ACD-1.0.review-precedents.md",
+                           "ACD-1.0.review-corpus.md", "ACD-1.0.reviewer-positions.md")
+        _own471 = re.compile(r"^#{1,6}\s+\**\s*(1\.\d+[a-z]?)[ .\uff0e\u3000]")
+        _where471 = {}
+        for _sf471 in _seriesfiles471:
+            _sp471 = _lic471 / _sf471
+            if not _sp471.exists():
+                continue
+            for _sl471 in _sp471.read_text(encoding="utf-8").split("\n"):
+                _ms471 = _own471.match(_sl471)
+                if _ms471:
+                    _where471.setdefault(_ms471.group(1), []).append(_sf471)
+        for _sid471, _fs471 in sorted(_where471.items()):
+            if len(_fs471) > 1 and _sid471 not in _grand471:
+                _bad471.append(
+                    f"\u00a7{_sid471} \u304c\u8907\u6570\u306e file \u306b\u5b58\u5728\u3059\u308b: {_fs471} "
+                    f"\uff08\u53c2\u7167\u306f\u89e3\u6c7a\u3059\u308b\u304c\u5225\u306e\u7bc0\u3078\u7740\u304f\uff09")
+
         check(
             not _bad471,
-            f"Check 471: \u30c9\u30b7\u30a8\u306e\u53c2\u7167\u8a18\u6cd5 4 \u5f62 (rounds/ \u30d1\u30b9 / B<n> / Check N / \u540d\u6307\u3057\u3057\u305f \u00a7N.M) \u304c\u3059\u3079\u3066\u89e3\u6c7a\u3059\u308b",
+            f"Check 471: \u30c9\u30b7\u30a8\u306e\u53c2\u7167\u8a18\u6cd5 6 \u5f62 (rounds/ \u30d1\u30b9 / B<n> / Check N / \u540d\u6307\u3057\u306e \u00a7N.M / \u88f8\u306e \u00a7N.M / \u5171\u6709\u63a1\u756a\u306e\u4e00\u610f\u6027) \u304c\u3059\u3079\u3066\u89e3\u6c7a\u3059\u308b",
             (f"Check 471: \u30c9\u30b7\u30a8\u5185\u306e\u53c2\u7167\u304c\u89e3\u6c7a\u3057\u306a\u3044: {_bad471}\u3002"
              "**`rounds/` \u306f\u300c\u4e00\u6b21\u8cc7\u6599\u306f\u3053\u3053\u306b\u5728\u308b\u300d\u3068\u3044\u3046\u8a3c\u62e0\u306e\u4e3b\u5f35\u305d\u306e\u3082\u306e**\u3067\u3042\u308a\u3001"
              "**`B<n>` \u306f\u65b9\u91dd\u3092\u6c7a\u3081\u3066\u3044\u308b register \u306e\u9805\u76ee**\u3067\u3042\u308a\u3001"
