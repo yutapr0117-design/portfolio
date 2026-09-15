@@ -26,6 +26,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結対象の本文) / LICENSES/REVISION-
 
 <!-- VENUE-DATA: license-discuss -->
 <!-- POSTING-STATUS: paused 2026-09-09 -->
+<!-- POSTING-NOTE: 2026-09-15 時点の最新は moderator との直接往復の第 3 ラウンド。steward は「素直な読みなら送り方を変える」と*先に*述べた（rounds/2026-09-15-offlist-nick-vidal-round3-sent.txt）。分岐 (a) の中身は REVISION-PROTOCOL.md のゲート 0b に在る。 -->
 <!--
   発信を止めているかどうかを宣言する**単一ソース**。値は `active` か `paused <YYYY-MM-DD>`。
   2026-09-09 に OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は
