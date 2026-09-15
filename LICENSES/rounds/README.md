@@ -59,10 +59,11 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-15 時点・29 ファイル）
+## いまの状態（2026-09-15 時点・30 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
+| 2026-09-15 | **OSI のメーリングリスト CoC** | 一次資料 → 自己取得 | **我々は 2 つある CoC のうち別の方を pin していた。**リストを規律するのは `/code-of-conduct`（"Code of Conduct for OSI Mailing Lists"）で、本文はほぼ同一だが**条を引かれた相手はこちら**。**予告された AI 関連の更新は 6 日経っても起きていない**（自称更新日 2023-05-04 のまま）|
 | 2026-09-15 | **リスト外（off-list）** | **送信** | **moderator の 3 問への返信。steward が自分で書いた**（本リポジトリは文面を起草していない）。**271 語・62.4 パーセンタイル** ——「長い」と言われた問いに短い文で答えている。不利な数を先に出し、貼り付け→添付の是正を自分で名指しし、**素直な読みを自分に当てて "so I will change my approach" と先に述べている** |
 | 2026-09-07 〜 15 | **リスト外（off-list）** | **受領 + 送信（moderator 往復・第 3 ラウンド）** | **moderator の 5 問 → steward の回答 → 「ゲーム」の提案 → steward の長文説明（身元証拠の PDF 2 通を添付・**本リポジトリには置かない**）→ **moderator が Code of Conduct の *"Respect time and attention"* との整合と、メールの長さ・密度の実測比較を求めた**（2026-09-15）。**測定は `review-corpus.md` §1.85**、道具は `measure_list_verbosity.py` |
 | 2026-09-14 | `license-review` | **観測（OpenMDW スレッド・2 通）** | **我々宛でも ACD-1.0 についてでもない。** Fontana 氏 *"The OSI does not currently have a process for **de-listing** licenses"*（配送された本体を保存）と、Piana 氏 *"revising **ALL** the approved licenses (which we have done recently), some approved licenses … leave licensing experts **scratching their heads**"*。**承認は取り消せず、承認済みに首をかしげる起草が実在すると承認する側が述べている** ——**有利・不利の両方に読める**（`review-precedents.md` §1.83）|
