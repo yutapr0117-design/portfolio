@@ -180,6 +180,12 @@ def build_status() -> str:
                 f"投稿したため（`ACD-1.0.against.md` #119 / `ACD-OSI-BOTTLENECKS.md` B14）。"
                 f"**止めているのは発信だけで、テキストの正しさ・ドシエ・観測は続いている。**"
                 f"**再開はオーナーの判断であり、AI は送る文面を完成品として提示しない。**")
+            # 最新の展開は FROZEN.md の POSTING-NOTE marker から**導出する**。
+            # **ここへ直接書くと、次の展開が来たときに generator を書き換えることになり、
+            # 単一ソースが 2 つになる。** marker が無ければ何も足さない。
+            m_note = re.search(r"<!--\s*POSTING-NOTE:\s*(.+?)\s*-->", frozen_txt, re.S)
+            if m_note:
+                lic_lines.append(f"- **この件の最新**: {' '.join(m_note.group(1).split())}")
         elif m_post:
             lic_lines.append("- **発信の状態**: 通常（`FROZEN.md` の POSTING-STATUS が `active`）。")
     else:
