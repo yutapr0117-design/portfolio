@@ -606,3 +606,59 @@ Landley 氏の問いは「代替可能な類型に 1 件足す費用」を問う
 **「費用が低い」ではなく「費用は低いが取り返しがつかない」へ書き換わる。**
 
 **どちらが勝つかは我々には決められない。両方を register に載せる。**
+
+## 1.84 委員長が OpenMDW に当てている原理を、我々の §6.3 に当てると刺さる（2026-09-15）
+
+**§1.83 と同じスレッドの読み。** 2026-09-10〜09-14 の争点は**終了条項**であり、
+**ACD には終了が無い**（§10.1 / §10.4）ので**表面は当たらない**。
+**だが委員長が使っている原理は、条項の種類に依存していない。**
+
+> **You're putting the burden on the potentially wronged party to limit their choices rather than
+> on the licensor to avoid wrongful conduct.** … You are also assuming the licensee has knowledge
+> that will allow them to make an informed choice, **but that's not the reality**. The OpenMDW-1.1
+> licensee is asked to agree to the license **without having any knowledge about whether it
+> infringes**
+> —— Pamela Chestek 氏（Licensing Committee 委員長）、`license-review` 2026-09-11
+
+### 🔴 この原理が当たる場所が、ACD に 1 つだけある
+
+**§6.3 は、ACD 全体でただ一つ、「第三者がした行為」に対して働くと述べる条項である。**
+
+> Where a Reservation has been made in respect of the Work, **whether by the Dedicator or by
+> another person**, and whether before or after this Dedication was applied, the Dedicator
+> **withdraws it and disclaims reliance on it, to the fullest extent the Dedicator is able**.
+
+**実測して確かめた**: 第三者に触れる他の条項は、いずれも **Dedicator 自身の行為**しか縛らない ——
+§5.1 と §8.6 は *"not to authorise or assist **any other person** to assert"*（Dedicator の不作為）、
+§8.2 は報復条項の不在、§2.7 は**及ばないことの宣言**。
+**「他人がしたことを取り消す」と述べるのは §6.3 だけである。**
+
+**委員長の 2 つの問いを、そのまま当てる。**
+
+1. **負担は誰に置かれているか。** 第三者は、自分の Reservation が「撤回された」と書かれた文書を
+   読む。**その撤回が自分に届いていないことを知る負担は、その第三者にある。**
+2. **読み手は判断に足る知識を持っているか。** 受領者は、目の前の Work に他人の Reservation が
+   付いていたかどうかも、Dedicator が *"able"* だったかどうかも**知り得ない**。
+   ***"to the fullest extent the Dedicator is able"* は、読んだ時点では何も確定させない限定である。**
+
+### 我々の答えと、その答えの弱いところ
+
+**答えはある。** §2.7 が instrument 全体を「Dedicator が持つ権利」に縛り、
+§6.2 の末文が *"does not purport to defeat a Reservation made by another rightsholder"* と述べ、
+§6.3 の *"to the fullest extent the Dedicator is able"* がその限定を条文内で繰り返している。
+**法的には、届かない撤回は届かない。**
+
+**弱いところは、それが読み手の作業になることである。** 3 条（§2.7 / §6.2 / §6.3）を
+**この順で読んだ人にしか成立しない**。**そして #99 が既に記録しているとおり、読み順は我々が
+決められない。** 委員長の言い方を借りれば、**我々は「届かないと分かるはずだ」という前提で
+負担を読み手に置いている。**
+
+### この節が establish しないこと
+
+**委員長は ACD-1.0 について何も述べていない。** これは**他者の提出に当てている原理を、
+我々が自分に当てた結果**であって、指摘を受けたのではない。
+**1.1 で直すかどうかは別の判断である**（`ACD-1.1-CHANGELIST.md` へ回す）。
+**そして逆側**: 原理が当たることと、**それが OSD 違反であること**は別である ——
+§6.3 は条件でも制限でもなく、**誰の自由も減らしていない**（減らしうるのは第三者の Reservation の
+効力だけで、それは届かない）。**「刺さる」と「不承認の理由になる」を混ぜない。**
+

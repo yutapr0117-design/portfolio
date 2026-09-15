@@ -661,6 +661,15 @@ gap 部 1,041 語を削れば届くが、**それは新規性の根拠を捨て�
 |---|---|---|---|
 | — | — | **まだ届いていない。** `license-discuss` への投稿（2026-08-26）に返信はなく、原典で確認済み | — |
 
+## 3b. 他者の審査で使われた原理を、我々が自分に当てて出したもの
+
+**⚠ これは「指摘を受けた」ではない。** 出所は他者の提出についての発言で、**ACD-1.0 には
+一言も触れていない**。**提出文で「指摘を反映した」と書けば嘘になる**（`REVISION-PROTOCOL.md` §3.6）。
+
+| 出所 | 原理 | 当たる場所 | 1.1 での扱い |
+|---|---|---|---|
+| Pamela Chestek 氏（委員長）・`license-review` 2026-09-11（OpenMDW の終了条項について）—— *"You're putting the **burden on the potentially wronged party** … You are also assuming the licensee **has knowledge** that will allow them to make an informed choice, but **that's not the reality**"* | **負担を、知り得ない側に置いていないか** | **§6.3** ——**ACD 全体でただ一つ、第三者がした行為に対して働くと述べる条項**（実測: §5.1 / §8.6 / §8.2 / §2.7 はいずれも Dedicator 自身の行為しか縛らない）。*"to the fullest extent the Dedicator is able"* は**読んだ時点では何も確定させない限定**で、届いていないことを知る負担は第三者と受領者に残る | **未決。** 答えは在るが **§2.7 → §6.2 → §6.3 をこの順で読んだ人にしか成立しない**（#99 と同族の読み順問題）。**条文を足して長さを増やす**のか、**§6.3 の限定を自己完結させる**のかは、B3（長さ）との取引になる。**決めていない** —— 決めるのは次版を確定するときであり、それまでは候補として置く（`review-precedents.md` §1.84 / `against.md` #147）|
+
 ## Constraints
 
 - **1.0 の本文は凍結。** ここに何が書かれても Check 453 が本文の変更を BLOCKING で止める。
