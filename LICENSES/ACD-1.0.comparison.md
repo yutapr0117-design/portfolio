@@ -140,6 +140,31 @@ OSI が新規ライセンスの提出者に求めるのは、**最も近い承�
 > That is a defensible choice — arguably the better one for a steward with a large installed
 > base, since amending a licence in wide use imposes migration costs on everyone using it.
 >
+> **The same point, stated as a history rather than as a defect (added 2026-09-16).** The
+> incumbents in this family were drafted when AI was not a form of use. **They are not
+> permissive-about-AI; they are silent-about-AI, and silence cost nothing while there was
+> nothing to be silent about.** What changed is that three questions acquired answers with
+> consequences, and a licence that says nothing now leaves all three to be resolved elsewhere:
+>
+> | | the question that did not exist before | where ACD-1.0 answers it | what an incumbent says |
+> |---|---|---|---|
+> | **use** | is computational processing of the work a permitted use? | **§6.1** — expressly permitted, for any purpose, without condition | nothing |
+> | **output** | does anything reach the model, the weights, the output? | **§6.4 / §8.4** — no claim arises, and the patent grant reaches them | nothing |
+> | **the right itself** | does a right even subsist in machine-generated material? | **§9** — the permission stands either way, so no one has to decide | nothing |
+>
+> **This is not a claim to be freer than 0BSD.** It is a claim that **the same freedom is
+> legible on three axes where the incumbent text is simply absent** — and §6.5 states why
+> legibility is the point: *a permission an automated system cannot determine is not, for a
+> work meant to be learned from, a permission at all.*
+>
+> **⚠ And the strongest counter, in the same breath.** A reviewer can answer that a grant of
+> everything **already** reaches all three, so the explicit text buys nothing and costs length —
+> **which is Landley's fungibility objection (#84) and B3 combined, and this framing does not
+> defeat it.** It relocates the disagreement: **not "how much is permitted" but "whether the
+> permission is readable by the party that has to act on it."** **If a reviewer does not accept
+> that legibility has value, the three axes collapse back into redundancy** — and that is the
+> form in which this argument actually loses.
+>
 > **But it means the licence text stays silent, and silence is not neutral in a regime where an
 > opt-out is exercised by signalling.** A work under Apache-2.0 today says nothing about
 > text-and-data mining, nothing about whether a reservation has been made, and nothing about
