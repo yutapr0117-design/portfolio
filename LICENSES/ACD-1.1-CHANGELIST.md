@@ -811,3 +811,66 @@ OF THIS DEDICATION IS EFFECTIVE IN ANY JURISDICTION"* と明言し、§15.2 が�
 
 **§16.5 の代名詞** —— 1.0 の §16.4 と §16.5 を 1 条へ統合した後も *"They are not terms"* が残っていた。
 **草案が持ち込み、同じ pass の中で消した。** 草案冒頭の変更一覧が既にそう述べている。
+
+### 🔴 §16.4 —— 制限を「族」へ広げたとき、自分の次版も締め出していた
+
+**E14 の修正は、単一の識別子 `ACD-1.0` への制限を族 `ACD-N` / `ACD-N.N` へ広げた。**
+第三者が改変テキストを `ACD-1.1` として出す穴は塞がった。**同時に、この文書自身の次版も塞がった。**
+
+ACD-1.2 は「この文書の改変テキストを族の識別子で頒布するもの」であり、§16.4 の禁止に当たる。
+**条文は目的（*"so that … continue to denote fixed texts published by the steward"*）を述べていたが、
+目的は例外ではない。** 文字どおり読むと、**この条は自分の次版を禁じている。**
+
+**1.0 では起きない**（制限が `ACD-1.0` だけを名指すので、1.1 は自由に出せた）——
+**つまりこれは草案が作った欠陥である。**
+
+### 🔴 同じ条が、定義されていない行為者に依存していた
+
+上の目的節に現れる **"the steward" は、この文書のどこにも定義が無い。**
+§1 は 10 語を定義しており、これはその 1 つではない。**そして、この文書で唯一の制限条項が依存する
+唯一の行為者である。**
+
+**見つけ方**: **used ⟹ defined** —— 本リポジトリで最も多産だったレンズ（icon 名 / `data-action` /
+`aria-*` の idref / `CONSTANTS` / CSS 変数）を、**ライセンス本文の*行為者*へ初めて当てた。**
+本文の定冠詞つき役割語を機械的に列挙すると `the author`（×3・§1.2 と §12.4 の一般的用法）、
+`the user`（§4.3）、`the recipient`（§8.3）、`the authors`（§16.3）、`the steward`（§16.4）で、
+**操作的な効果がぶら下がっているのは最後の 1 つだけ**だった。**他は clean。**
+
+### 修正 —— 例外を明示し、行為者を機能で定義した（固有名詞は入れない）
+
+§16.4 に *"except by the Steward (Section 16.5)"* を入れ、新 §16.5 を置いた:
+
+> In Section 16.4, "the Steward" means the person or entity that first published
+> this text under the name and the identifier it bears, and any person or entity
+> to whom that role is assigned by the person or entity then holding it.
+
+**名前ではなく機能で定義したのは、提出パケット §4b が測っている性質（本文に固有名詞が無いこと）を
+壊さないため**であり、**理事会が genericize の権限を実際に使った引き金が「部署の名前」だった**（`board-decisions.md`）ことも同じ向きを指す。
+
+**先例を原典で測った**（SPDX の canonical text を取得して逐語確認・2026-09-17）:
+
+| instrument | steward 条項 | 承継（assignment） |
+| :-- | :-- | :-- |
+| **EPL-2.0** | 有（`The Eclipse Foundation is the initial Agreement Steward.`）| **有** ——*"may assign the responsibility to serve as the Agreement Steward to a suitable separate entity"* |
+| MPL-2.0 | 有（`Mozilla Foundation is the license steward.`）| **無** |
+| CC0-1.0 / Unlicense / Apache-2.0 | **無**（語が 1 度も出ない）| — |
+
+**つまり「steward を条文に置く」も「承継を条文に置く」も OSI 承認済みの先例がある。**
+ACD は **名前を置かずに両方を置いた**形になる。
+
+### 費用と、逆側
+
+**+46 語**（4,987 → **5,033**）。**草案は 5,000 語を越え、1.0 より 137 語長い。**
+B3（長さ）に対する費用として正直に記録する ——**「正確さのためなら足してよい」は、
+使うたびに同じ場所へ記録する約束の下でだけ使える。**
+
+**⚠ この修正が establish しないこと**: **steward が 1 人であることは何も変わらない**（register B12）。
+条文が扱えるのは「役割の承継が可能であること」だけで、**承継先が実在するかは条文の外の事実**である。
+**「条文で扱えない」と「条文で何も扱えない」を混ぜない** —— B12 はその 2 つを束ねて
+「解消方法不明」としていた。**束をほどくと、片方は条文の問題だった。**
+
+**⚠ もう 1 つ**: §16.3 は *"without permission from … the authors of this Dedication"* と述べ、
+§16.4 は「the Steward」を名指す。**隣り合う 2 条が、おそらく同じ人々を別の語で呼んでいる。**
+**揃えなかった** —— §16.3 の論点は「許可は要らない」であって役割の同定ではなく、
+そこを "Steward" に書き換えると **E2 で直した「誰の許可が要らないか」の文が、役割の話へずれる。**
+検討して残した記録として置く。
