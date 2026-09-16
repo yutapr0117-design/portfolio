@@ -118,10 +118,33 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * Section 16.4 says that a faithful machine-readable re-encoding is not a
       modified text (errata E8: the SPDX XML that registration requires carries
       the name and the identifier while reflowing every clause, so the clause
-      as drafted forbade the artifact the process asks for). Section 16.5's
+      as drafted forbade the artifact the process asks for). The closer's
       pronouns were repaired at the same time: it said "They are not terms"
       after 1.0's Sections 16.4 and 16.5 had been merged into one -- a defect
-      this draft introduced and this pass removed.
+      this draft introduced and this pass removed. **The plural is correct
+      again**, because the closer now governs two Sections again (16.4 and the
+      new 16.5); it is numbered 16.6.
+    * Section 16.4 now excepts the Steward from the naming restriction, and a
+      new Section 16.5 says what "the Steward" means. **Two defects, both of
+      them made by this draft.** (1) Extending the restriction from the single
+      identifier "ACD-1.0" to the family "ACD-N" / "ACD-N.N" closed the hole a
+      third party could use -- and closed the door on this document's own
+      successor at the same time, because ACD-1.2 would be a modified text
+      distributed under a family identifier, and the clause stated its purpose
+      without creating an exception. **As it stood, the clause forbade the next
+      version of itself.** (2) The clause turned on "the steward", a role the
+      document never identified: Section 1 defines ten terms and this was not
+      one of them, and it is the only actor an operative restriction in this
+      document depends on. The definition is functional rather than a name --
+      whoever first published this text under the name and the identifier it
+      bears, and whoever that role is assigned to -- so the text still contains
+      no personal or organisational name, which is the property the submission
+      packet measures at Section 4b. Assignment follows EPL-2.0, which is
+      OSI-approved and says the steward "may assign the responsibility to serve
+      as the Agreement Steward to a suitable separate entity"; MPL-2.0 names a
+      steward without an assignment limb, and CC0, the Unlicense and Apache-2.0
+      have no steward clause at all. **This does not make the steward more than
+      one person**, which is a fact about the world and not about the text.
     * Section 16.3 says "to any work in which they hold rights", and names whose
       permission is not needed: the authors of this Dedication (errata E2). The
       1.0 wording -- "to any work, without permission from ... its authors" --
@@ -129,7 +152,7 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       the person harmed by that is the downstream recipient who relies on the
       signal. Section 2.7 already made the effect honest; this makes the
       sentence say it.
-    * 1.0: 4,896 words, 82 clauses. This draft: 4,987 words, 77 clauses.
+    * 1.0: 4,896 words, 82 clauses. This draft: 5,033 words, 78 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed) and
@@ -717,10 +740,10 @@ PREAMBLE (informative; not part of the operative terms)
        permission. Making a modified text is not restricted; what is
        restricted is distributing one. A modified text may not be
        distributed under the name "Autonomous Commons Dedication" or
-       under any identifier of the form "ACD-N" or "ACD-N.N", so that
-       the name and the identifiers of this family continue to denote
-       fixed texts published by the steward. A modified text may be
-       distributed under a different name. A translation is not a
+       under any identifier of the form "ACD-N" or "ACD-N.N", except by
+       the Steward (Section 16.5), so that each name and identifier in
+       this family continues to denote one fixed text. A modified text
+       may be distributed under a different name. A translation is not a
        modified text for this purpose and may be distributed under the
        name and the identifier if it is identified as a translation and
        states that the English text prevails (Section 15.4); that
@@ -731,9 +754,14 @@ PREAMBLE (informative; not part of the operative terms)
        is identified as a re-encoding; differences of line breaking,
        indentation, or markup are not modifications.
 
-  16.5 Section 16.4 governs the text of this Dedication as a document. It is
-       not a term of the Work, it binds no recipient of the Work, and
-       Section 10.5 applies.
+  16.5 In Section 16.4, "the Steward" means the person or entity that first
+       published this text under the name and the identifier it bears, and
+       any person or entity to whom that role is assigned by the person or
+       entity then holding it.
+
+  16.6 Sections 16.4 and 16.5 govern the text of this Dedication as a
+       document. They are not terms of the Work, they bind no recipient of
+       the Work, and Section 10.5 applies.
 
 
 END OF TERMS
