@@ -37,12 +37,18 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       that trademarks are not granted (errata E3 and E12 -- the same sentence
       overclaimed at both ends, and Section 11.1 has always said otherwise).
     * Section 2.6 no longer permits a silent opt-out. A contributor may still
-      keep a Contribution out of this Dedication, but the Dedicator undertakes
-      to identify that material in a form that travels with the Work (errata
+      keep material out of this Dedication, but the Dedicator undertakes to
+      identify that material in a form that travels with the Work (errata
       E16: 1.0 let a carve-out leave no trace while Section 16.2 told readers
       the terms "apply in full", and Section 6.5 says a permission an automated
       system cannot determine is no permission at all). The undertaking binds
-      the Dedicator, not You.
+      the Dedicator, not You. **There are two ways to keep material out, and
+      the first pass of this draft closed only one of them**: a person may
+      state otherwise at the time of submission, or may mark the material as
+      not being a Contribution, which Section 1.9 excludes from the definition
+      -- so the undertaking, which spoke of "a Contribution", did not reach the
+      second route at all. Section 2.6 now names both. Section 1.9 is
+      unchanged; the definitions in this draft are still those of 1.0.
     * Section 1 is reordered so that a reader meeting a defined term has
       already met the terms it is built from (errata E13). Two forward
       references remain and cannot be removed: "Work" and "Dedicator" define
@@ -55,6 +61,17 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       threshold would be a condition, and Section 10.1 permits none. The gap
       the Section exists to fill is untouched: a patent licence that reaches
       models and outputs of computational use of the Work.
+    * Section 4.6 no longer restates Section 5.3 without Section 5.3's
+      qualifier. In 1.0 the restatement was exact, because neither
+      clause was qualified; this draft added "to the extent a jurisdiction
+      gives effect to such reliance" to Section 5.3 for errata E17 and left the
+      restatement standing. **The defect is one this draft created.** The
+      outcome does not change -- Section 4.6 gives three independent reasons a
+      remote recipient is not cut off, and the other two (Section 1.6 and
+      Section 2.3) carry no such qualifier -- but the reader Section 4.6 is
+      written for is exactly the remote recipient, and that reader was being
+      told the strongest of the three reasons without its limit.
+
     * Section 10.4's second sentence is qualified "in respect of the Work", like
       every other clause in the no-condition mesh (errata E9: Sections 10.1,
       10.5, 11.3 and 11.4 all carry such a qualifier and only this one did not,
@@ -112,7 +129,7 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       the person harmed by that is the downstream recipient who relies on the
       signal. Section 2.7 already made the effect honest; this makes the
       sentence say it.
-    * 1.0: 4,896 words, 82 clauses. This draft: 4,967 words, 77 clauses.
+    * 1.0: 4,896 words, 82 clauses. This draft: 4,987 words, 77 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed) and
@@ -257,9 +274,10 @@ PREAMBLE (informative; not part of the operative terms)
   2.6  A Contribution is submitted under this Dedication, and the person making
        it becomes a Dedicator as to that Contribution, unless they state
        otherwise at the time of submission. Where a person states otherwise,
-       the Dedicator will identify the material concerned in a form that
-       accompanies the Work, so that a person or an automated system reading
-       the Work can determine what this Dedication does not cover; this
+       or marks material as not being a Contribution (Section 1.9), and that
+       material is included in the Work, the Dedicator will identify it in a
+       form that accompanies the Work, so that a person or an automated system
+       reading the Work can determine what this Dedication does not cover; this
        undertaking binds the Dedicator and imposes nothing upon You, and
        Section 6.5 states why it matters. No separate instrument, assignment,
        or agreement is required, and none may be required of them as a condition
@@ -344,8 +362,8 @@ PREAMBLE (informative; not part of the operative terms)
        recipients off from this Dedication: a person who exercises a
        permission granted here is You in their own right (Section 1.6), the
        covenants may be relied upon by anyone who receives the Work from You,
-       directly or indirectly (Section 5.3), and no act of acceptance is
-       needed (Section 2.3). Terms You add govern what You give; they do not
+       directly or indirectly, on the terms Section 5.3 states, and no act of
+       acceptance is needed (Section 2.3). Terms You add govern what You give; they do not
        narrow what the Dedicator has already given in respect of the Work.
 
 
