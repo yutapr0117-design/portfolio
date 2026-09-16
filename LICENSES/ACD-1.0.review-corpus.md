@@ -147,130 +147,6 @@ category である** —— MIT-CMU は *"redundant"* と名指しされたう�
 （`submission.md` §4b）で、**採用に本文の編集を 1 箇所も要しない。** これは §4b が
 「提出者専用ではない」ために書かれた測定だが、**同時に「様式ではない」ことの測定でもある。**
 
-## 1.70 **新規ライセンスに適用される 8 つの基準**（原典・2026-09-11 取得）と、ACD-1.0 の当たり方
-
-**このドシエは、これを一度も条ごとに当てていなかった。** `review-process` ページは #77 で
-「提出時に何を出すか」のために読んだが、**同じページの「License approval standards」節、
-すなわち承認の基準そのものは、`Standard for New Licenses` という語で 1 度引用しただけだった**
-（R5・§1.67）。**逐語は以下**（`https://opensource.org/licenses/review-process` ——
-ページ自身が *"Last modified on March 13, 2024"* と述べている。2026-09-11 取得）。
-
-**⚠ 検出器の注意**: このページを最初に走査したとき「該当なし」と出た ——
-**`Standard for New Licenses` を大文字のまま探したが、ページ上の見出しは
-`Standard for new licenses` である。** 大小の 1 文字で「基準は存在しない」と読むところだった。
-
-| # | 逐語（*"In addition to meeting the Open Source Definition, the following standards apply to new licenses"*） | ACD-1.0 の位置 |
-|---|---|---|
-| 1 | *"The license must be **reusable**, meaning that it can be used by any licensor **without changing the terms** or **having the terms achieve a different result for a different licensor**"* | **前半は測ってある** —— 固有名詞 0・置換テキスト 0・採用に本文編集は不要（§4b）。**後半は我々が一度も検討していない** —— **§12（人格権）は法域によって効果が変わる**（放棄できる法域では放棄、できない法域では不行使の合意）。**これは条項が licensor を区別しているのではなく法が異なるのだが、「異なる licensor には異なる結果になる」と読まれうる。**（`against.md` #129）**同じ日に、同じ corpus から答えが出た** —— **OSC License v1 は、「MIT の免責がドイツ法では効かない」ことを理由に承認されている**（§1.69・委員会の理由書: *"under German law, an attempt to disclaim liability that cannot lawfully be disclaimed might create greater liability than necessary for the copyright owner"*）。**MIT は承認されたままである。****つまり OSI は、効果が法域で変わるライセンスを承認しており、しかも「効果が法域で変わること」を理由に別のライセンスを承認した。** ゆえに基準 1 の第 2 枝は「効果に法域差があってはならない」とは読めず、**「本文が特定の licensor に合わせて作られていてはならない」**（第 1 枝と同じ趣旨）と読むほかない。**§12 の本文はどの licensor に対しても同一である。** 併せて、*"to the fullest extent permitted by law"* 型の免責と §15.4 の可分性は**承認済みライセンスに遍在する**同型の構造である |
-| 2 | *"The license does not have terms that **structurally put the licensor in a more favored position** than any licensee"* | **当たらない方向に作ってある。** 受領者に条件は一切なく（§10.1）、Dedicator の側に義務がある（§5 の不行使の約束・§12・§2.6 の特定義務）。**licensor にだけ有利な留保は §11 の商標のみ**で、これは承認済みライセンスに広くある |
-| 3 | *"To the extent that any terms are **ambiguous, the ambiguity must not have a material effect** on the application of the license"* | **§15.1**（最も広い許諾を与えるように解釈する）と **§15.3**（起草者不利の解釈準則を排除しない —— 排除**しない**と明記）が、まさにこの基準に向けて書かれている |
-| 4 | *"The license must be **grammatically and syntactically clear** to a speaker of the language of the license"* | **我々の生きたリスク。** 非母語話者が起草し弁護士のレビューが無く、4,896 語ある（B3 / #116）。**否決された「起草が粗い」3 件はいずれも我々より短い**（§1.69）|
-| 5 | *"**Every possible variation** of the application of the license must meet the OSD"* | **条件が無いので変化の幅が小さい** —— 適用者は本文を編集せず、選択肢も持たない（§10.1 / §4b）|
-| 6 | *"It must be **possible to comply with the license on submission**"*（例として SSPL が挙がっている） | **義務が 1 つも無いので、遵守は自明に可能である。** この基準は ACD にとって最も安全な 1 行 |
-| 7 | *"The license must **fill a gap that currently existing licenses do not fill**"* | **gap の主張は任意ではなく要件だった。** B10 がこれに当たる。1 文の形は §B.0 と入口ページに置いた |
-| 8 | *"The text must be the **complete license**; overlays like Commons Clause and exceptions like ClassPath will not be approved in isolation"* | **通る。外部参照 0 件・付属文書なし**（§1.67 R2 と同じ測定）|
-
-**同じ節に、基準の外側から効く 2 文がある。どちらも我々に不利な向きである。**
-
-1. *"**Approval of a license with the same or similar terms in the past does not bind the OSI**
-   to approval of a newly submitted license."* ——**§1.69 で見つけた「MIT-CMU は *redundant* と
-   名指しされて承認された」を、そのままは押せない。** 重複が障害でないことは示すが、
-   **過去の承認は次の承認を拘束しない**と明文で述べられている。
-2. *"Members of the license-review list are highly skilled … **Their consensus that a license does
-   not ensure software freedom may, in some cases, be the justification for rejecting a license
-   even where they cannot identify a specific aspect of the OSD or the approval guidelines below
-   that is not met**."* ——**列挙された基準を全部通ることは、承認を意味しない。**
-   我々の証拠戦略（OSD 逐条・機械的検証・§1.67 の規則に当たらないこと）は**必要条件の側だけを
-   固めている**のであって、**十分条件は存在しない。**（`against.md` #130）
-
-### 1.70a 基準 4（明晰さ）だけは主張ではなく測定にできる —— 承認済みライセンスとの文長比較
-
-**⚠ この節は公開した数時間後に、同じ日のうちに全面訂正した。最初の表は誤りで、しかも
-我々が最も悪く見える向きに誤っていた。** 経緯を消さずに書く ——**誤った数を出した記録の方が、
-出したことを隠した記録より価値がある。**
-
-**何が起きたか。** 文の切り方を「`. ; :` の後に**大文字・引用符・括弧**が続く位置」と定義した。
-**ACD は条番号が本文と同じ行に続く形式（`8.1 The Dedicator grants …`）なので、`.` の次が数字であり
-切れ目として認識されない** ——**2 つ以上の条が 1 文として数えられ、平均も最長も長文率も膨らんだ。**
-**Apache-2.0 と MPL-2.0 は見出しが別行なので同じ instrument でも数値が変わらない** ——
-**つまり歪みは比較対象ではなく我々の側だけに掛かっていた。**
-**instrument が、我々が使っている書式だけを罰していた。**
-
-**訂正した instrument**: 切れ目の条件に「数字 + ピリオド」を足す（`(?=[A-Z"(]|\d+\.\d|\d+\. )`）。
-**検証**: 同じ変更で **Apache-2.0 と MPL-2.0 の数値は 1 文も動かない**（43 文 / 80 文のまま）——
-**変わったのは条番号が行内にある text だけ**である。
-
-| ライセンス | 文数 | 平均 | 中央値 | 最長 | **45 語超** | うち列挙型 | うち従属節 2 つ以上 |
-|---|---|---|---|---|---|---|---|
-| **ACD-1.0** | 179 | **27.3** | 25.0 | **85** | **11.7%** | 76.2% | **0.0%** |
-| **ACD-1.1 草案** | 173 | 28.0 | 25.0 | **85** | 13.3% | 69.6% | **0.0%** |
-| Apache-2.0 | 43 | 36.5 | 30.0 | 180 | 25.6% | 81.8% | 18.2% |
-| MPL-2.0 | 80 | 30.0 | 25.5 | 108 | 18.8% | 66.7% | 13.3% |
-| EPL-2.0 | 50 | 42.5 | 28.5 | 195 | 28.0% | 71.4% | 21.4% |
-| OSL-3.0 | 47 | 34.8 | 33.0 | 119 | 23.4% | 54.5% | 0.0% |
-| CDDL-1.0 | 95 | 26.3 | 24.0 | 151 | 11.6% | 63.6% | 9.1% |
-
-**訂正後の読み**:
-
-- **平均文長は比較した 5 本のうち 4 本より短い**（27.3 —— CDDL-1.0 の 26.3 に次ぐ）。
-- **最長文は 6 本中で最も短い**（85 語。次点は CDDL-1.0 の 151、EPL-2.0 は 195）。
-- **45 語超の割合も最小に近い**（11.7% —— CDDL-1.0 の 11.6% とほぼ同じ）。
-- **従属節が 2 つ以上積まれた長文は 0 件**（Apache-2.0 は 18.2%、EPL-2.0 は 21.4%）——
-  **解析の負荷という意味では、比較した中で最も軽い。**
-
-**したがって、前の版が出した作業項目（「1.1 で長文の割合を下げる」）は撤回する。**
-**下げるべき値ではなかった** ——**数字は既に比較群の良い側にあり、下げようとして列挙を切れば
-語数が増えて明晰さは上がらない。** **測り直した結果、やるべきでないと分かった作業を
-やらないことも成果である。**
-
-#### 1.70b 二度目の訂正（2026-09-14）—— 表の 7 列のうち 2 列は、方法が書かれていなかった
-
-**上の訂正は文の切り方だけを直した。** 敵対的検証（主張の種類 6）で同じ表を当たると、
-**最後の 2 列「うち列挙型」「うち従属節 2 つ以上」の定義が、この節にもドシエのどこにも無い。**
-**定義の無い数字は再実行できない。** そして**結論を運んでいるのはその 2 列である**
-（*「解析の負荷という意味では、比較した中で最も軽い」*）。
-
-**方法を書いて測り直した。** 道具は `.github/scripts/measure_clause_clarity.py`（committed・
-定義は docstring に書いてある。切れ目は上の訂正で確定した条件、「列挙型」＝45 語超でカンマ 3 つ以上、
-「従属節 2 つ以上」＝従属を導く語が 2 回以上出現）。比較対象は SPDX の清書テキスト。
-
-| ライセンス | 文数 | 平均 | 中央値 | 最長 | 45 語超 | うち列挙型 | **うち従属節 2 つ以上** |
-|---|---|---|---|---|---|---|---|
-| **ACD-1.0** | 175 | 26.0 | 23 | **81** | 10.3% | 83.3% | **61.1%** |
-| **ACD-1.1 草案** | 172 | 26.7 | 23.0 | 81 | 12.2% | 81.0% | **61.9%** |
-| Apache-2.0 | 50 | 31.3 | 27.0 | 110 | 22.0% | 81.8% | 54.5% |
-| MPL-2.0 | 96 | 24.7 | 19.5 | 108 | 13.5% | 92.3% | 38.5% |
-| EPL-2.0 | 62 | 34.2 | 25.0 | 183 | 21.0% | 84.6% | 61.5% |
-| OSL-3.0 | 67 | 24.4 | 20 | **76** | 13.4% | 66.7% | **33.3%** |
-| CDDL-1.0 | 98 | 25.4 | 24.0 | 151 | 10.2% | 70.0% | 50.0% |
-
-**🔴 撤回するもの（2 つ）**
-
-1. ***「従属節が 2 つ以上積まれた長文は 0 件」*** —— 方法を書いた指標では **61.1%** で、
-   **比較群の中でも高い側**に来る。**記録の 0.0% を「誤り」とは言わない** ——「積まれた」が
-   *入れ子だけ*を意味していた可能性は排除できないからである。**言えるのは、
-   この数字は再実行できず、方法を書いた指標では結論が逆向きになる、ということだけ。**
-   **したがって *「解析の負荷という意味では、比較した中で最も軽い」* は取り下げる。**
-2. ***「最長文は 6 本中で最も短い」*** —— 再実行では **OSL-3.0 が 76 語**で ACD の 81 語より短い。
-   **順位が方法に依存する** のに、依存しないかのように書いていた。
-
-**🟢 残るもの（同じ再実行で支持された）**
-
-- **平均・中央値・45 語超の割合は、いずれも比較群の良い側**（平均 26.0 は 7 本中 3 番目に短く、
-  45 語超 10.3% は**最小**）。**「代理指標では良い側にある」という register の要旨は生き残る。**
-- **B1（弁護士レビュー無し）には何の影響も無い。** この節が動いても動かなくても、
-  **1 ミリも動かない**ことは前から書いてあるとおりである。
-
-**⚠ そしてこの訂正自身の逆側**: 審査者がこの測定を自分で走らせる見込みは高くない。
-**露出しているのは「我々が引用した」という事実のほうであって、彼らが検算することではない。**
-**だが我々のドシエは *"check us"* を掲げている** ——検算されない前提で数字を置くなら、
-その掲示のほうが嘘になる。**だから直した。**
-
-**この測定が establish しないもの（訂正前と同じく、ここは変わらない）**:
-**短い文は明晰であることを意味しない。** 文長は代理指標であって明晰さそのものではなく、
-**非母語話者の起草に固有の誤り（冠詞・前置詞・時制の一致）はこの測定に一切現れない。**
-**弁護士のレビューが無いという事実（B1）は、この測定では 1 ミリも動かない。**
-
 ## 1.71 `license-discuss` を先に通すのは、例外である —— 20 件中 15 件が直接 `license-review` へ出している
 
 **なぜ測ったか。** 我々は `license-discuss` に出しており、そこが沈黙のままなら
@@ -463,35 +339,6 @@ engagement が得られる」とは言えない。** 上の 3 件が示すのは
 と呼び、Misty に対しては *"**Why another MIT-style license, the hundredth or so?**"* と書いている。
 **proliferation への疲れは、条文とは独立に、提出そのものへの心証として存在する** ——
 #84 / B6 と同じ族で、**我々の答え（この類型に 1 件足す費用が低い）は、この心証には届かない。**
-
-## 1.76 要件リストを原典で 1 項目ずつ当てたら、1 件だけ答えていなかった
-
-**§1.75 で「手続きの不備は評価の不在を招く」と分かったので、次にやることは決まっていた** ——
-**求められている項目と、我々が実際に送る文面を、1 項目ずつ突き合わせる。**
-`review-process` ページの "How to submit a request" を取り直し（2026-09-13）、
-**legacy 8 項目 + new 3 項目**を §B.0 に当てた。
-
-**11 項目中 10 項目は満たしていた。** 欠けていたのは 1 つだけである:
-
-> *"Provide **any additional information** that the submitter believes would be helpful for license
-> review. **For example, approval of the license by Debian, the FSF or the Fedora Project** would be
-> relevant to the review process."*
-
-**我々の答えは「無い」である。** だが**答えが「無い」の項目ほど、書かなくても文面は自然に読める**
-——これは #77（ScanCode 識別子・提案 tag）で 2 度踏んだ形と同じで、
-**「我々の弱点を述べる項目ほど、静かに落ちる」**という一般形になる。
-`Third-party Endorsement: None (no Debian, FSF or Fedora review)` を両方の metadata block に足し、
-**Check 463 の要求項目へ加えた。**
-
-**この増分で、Check 自身の欠陥も 1 つ出た。** Check 463 の**成功メッセージ**が
-*"OSI の要求 **11 項目**をすべて含む"* とリテラルで述べており、**項目を足しても 11 のままだった。**
-**Check 460 が他所で禁じている「自己申告の件数が実測とずれる」を、Check 自身の成功メッセージで
-やっていた** ——しかも**成功メッセージは読み手が最も信用する場所**なので、ここでの drift は最も悪い。
-`len(_req463)` からの導出へ直した（現在 **12 項目**）。
-
-**併せて、先に足した Check 460 face (p) が即座に働いた。** 文面に 1 行足した瞬間、
-**申告語数 1098 と実測 1107 のずれを検出した** ——**face (p) を足したのが同じ日の午前で、
-その日の午後に元を取った。**
 
 ## 1.77 ModelGo Zero の審査から —— 我々の §6 に**直撃する**委員長の見解と、名称規約についての有利な先例
 
@@ -719,101 +566,6 @@ B3 を緩めるものではない。** ——**2 つを同じ「長さ」で括�
 ——§1.75 が示したとおり、**手続きの不備の方がはるかに強い効果を持つ。**
 **相関がゼロであることは「長さは無害」ではなく「長さでは説明できない」である。**
 
-## 1.81 規範文書の「読んだ」と「1 条ずつ当てた」を棚卸しし、未適用が 1 つ出た —— **Code of Conduct を我々自身に当てていなかった**
-
-**2026-09-13 に同じ形の欠落が 3 度出たので**（提出要件の third-party endorsement / OSD 3 の後半 /
-#77 の 3 件）、**承認に効く規範文書を列挙し、「読んだだけ」と「1 条ずつ当てた」を分けて数えた。**
-
-| 規範文書 | 読んだ | **1 条ずつ当てた** | 置き場 |
-|---|---|---|---|
-| **Open Source Definition**（10 条）| 2026-09-06 | **✅ 2026-09-13 に完了**（4/6/7/9/10 は 09-06、1/2/3/5/8 は 09-13）| `submission-reference.md` §3 / §3b |
-| **review-process "How to submit a request"**（legacy 8 + new 3）| 2026-09-06 | **✅ 2026-09-13**（1 件欠落を発見・補填）| §1.76 / Check 463（**12 項目を機械強制**）|
-| **review-process "Standard for new licenses"**（8 条）| 2026-09-11 | **✅ 2026-09-11** | §1.70 |
-| **review-process "License approval standards" 前文** | 2026-09-11 | **✅**（天井 2 つ）| `against.md` #130 |
-| **common-reasons-for-rejection** | 2026-09-07 | **✅** | `submission-reference.md` §3c |
-| **OSAID v1.0** | 2026-09-06 | **✅** | `review-responses-meta.md` Q32d |
-| **SPDX inclusion principles** | 2026-09-06 | **✅** | `against.md` #78 |
-| **Mailing List Code of Conduct** | 2026-09-09（**全文確保は 09-13**）| **❌ 我々自身の行動に当てていなかった** | **本節** |
-
-**最後の 1 行が、いちばん当てるべきものだった** ——**2026-09-09 の通知が援用したのはこの文書である。**
-
-### 当てた結果 —— 1 件、我々は満たしていない
-
-**"Disclose potential conflicts"**（逐語）:
-> *"List discussions often involve **interested parties**. We expect participants to be aware when
-> they are conflicted due to employment or **other projects they are involved in**, and **disclose
-> those interests** to other project members. … **When in doubt, over-disclose.** Perceived
-> conflicts of interest are important to address, so that the lists' decisions are credible."*
-
-**実測（2026-09-13・アーカイブの全文から）**: **`license-review` へ送った 3 通
-（2026-09-03 ×2・2026-09-04）は、いずれも ACD-1.0 に一切触れていない。**
-**`license-discuss` の 2026-09-06 04:47（他者のネットワーク・コピーレフト質問への回答）も
-触れていない。** **つまり、他者のライセンスについて実質的な意見を述べた 4 通すべてで、
-我々自身が同じ領域のライセンスを係属させていることを開示していない。**
-
-**軽くする事情は書くが、消しはしない**: 4 通はいずれも**条文の作動についての質問と分解**であり、
-承認への賛否を述べていない（2026-09-04 のものは *"I am not arguing for either outcome here"* と
-明言している）。**だが CoC の基準は「賛否を述べたか」ではなく「利害があるか」であり、
-*"when in doubt, over-disclose"* と書いてある。**
-
-### やること（`REVISION-PROTOCOL.md` §3.7 に規則 7 として追加した）
-
-**他者のライセンスについて述べるときは、1 行で開示する。** 例:
-*"Disclosure: I am the steward of ACD-1.0, which is under discussion on license-discuss."*
-**これは投稿再開の可否とは無関係に、こちらの側で先に決めておけることである。**
-
-### この節が establish しないこと
-
-**開示していなかったことが、通知の理由だったとは言えない。** 通知は AI 生成について述べており、
-**利益相反には触れていない。** **2 つを結び付けるのは、我々の推測である。**
-**記録するのは「CoC を当てたら 1 件出た」という事実だけである。**
-
-## 1.82 凍結は我々の礼儀ではなく、OSI が書いている手続きである（2026-09-13・process ページを再取得）
-
-**`REVISION-PROTOCOL.md` §2 は凍結を我々自身の理屈で正当化してきた** ——「読まれたテキストが動けば、
-その議論は何についてのものでもなくなる」。**正しいが、OSI は同じことを規則として書いている。**
-**我々はそれを一度も引いていなかった。**
-
-**逐語**（`https://opensource.org/licenses/review-process`・2026-09-13 15:00 JST 取得）:
-
-> *"However, **a license cannot be changed while it is being considered**. If the license submitter
-> would like to change the language of the license, **the current version of the license should be
-> withdrawn from review and an updated version submitted**."*
-
-**これは 2 つのことを変える。**
-
-**(1) 我々の方針が「規律」から「手続きの遵守」になる。** 審査者が `REVISION-PROTOCOL.md` を読んで
-見るのは steward の自己規律だが、**規則を引けば、公表された手続きに従っていることの記述になる。**
-**手続きが門番であることは §1.75 で実測済み**（我々と同じ類型の直近 3 件は、本文の評価に入る前に
-required information の欠落で止まった）——**その門の内側にある規則を引かない理由が無い。**
-
-**(2) 分岐 B の手順に、書かれていなかった一段がある。** 1.0 を `license-review` に出したあとで
-次版に替えるなら、規則は「送り直す」ではなく **「取り下げてから、更新版を提出する」**である。
-`REVISION-PROTOCOL.md` §2 の「1.0 は永久凍結・次版は併置」はこれと矛盾しないが、
-**取り下げという手続き上の一手はどの文書にも書かれていなかった。**
-
-**そして同じ段落が、オーナーの方針をそのまま推奨している。**
-
-> *"We recommend that, if changes are going to be made, that the license submitter **wait and collect
-> all the desired changes in a single new submission** rather than withdrawing and resubmitting the
-> same license several times."*
-
-**「届いた議論を全部取り込んだ改善版を出す」（2026-09-04 オーナー）は、我々が選んだ流儀ではなく、
-OSI が明文で推奨している出し方だった。** 分岐 B（沈黙のまま自己改善版を出す）でも同じ形になる。
-
-**⚠ 新しい事実ではないもの（混ぜない）**: Decision Date の規則
-（*"(a) 60 days after a license is initially submitted … or (b) 30 days after submission of a revised
-version … provided that date is no earlier than 60 days after the original"*）は
-**`review-responses.md` §5 の 2026-09-10 補足に既に記録されている。** 本節は再導出で確認しただけである。
-**なお、この公表規則と McCoy Smith 氏の *"two months from your final submission"*（2026-08-28）は
-同じことを述べていない** ——規則では改訂は時計を初回起点のまま +30 日にするだけで、**2 か月へ戻さない。**
-**どちらが実務を支配するかは我々には決められない**ので、両方を並べて置く。
-
-**Code of Conduct は、予告されたが 2026-09-13 15:00 JST 時点でまだ更新されていない。**
-ページの自己申告は **"Last modified on November 2, 2023"** のままで、
-**本文に AI への言及は 1 語も無い**（"AI" の出現はナビゲーションの "Open Source AI" のみ）。
-**これは B14 についての事実であって、通知の当否についての事実ではない。**
-
 ## 1.83 理事会議事録（→ `ACD-1.0.board-decisions.md` へ分離）
 
 **2026-09-13 に理事会議事録という新しい一次資料を開いたところ、本 file が 900 行の advisory を
@@ -878,56 +630,6 @@ Code of Conduct の *"Respect time and attention"* であり、**比較は弁明
 **確立するのは 3 点だけ** —— **(1)** prose で我々は明確に長い側、**(2)** 密度では濃くない、
 **(3)** 総量では 7 位で、支配的ではない。**そして (1) には、手続きが示す具体的な直し方がある。**
 
-## 1.86 Code of Conduct を 1 項ずつ当てた —— 引かれた条は 3 つの番号付き小項目を持ち、我々は 1 つしか答えていなかった
-
-**2026-09-15 の moderator の問いは *"Respect time and attention"* を名指ししている。**
-**その条を原典で読むと、番号付きの小項目が 3 つある**（逐語は
-`rounds/2026-09-15-osi-mailing-list-code-of-conduct-snapshot.txt`）。
-**§1.85 が答えたのは 1 だけである。**
-
-### 🔴 まず、我々は 2 つある Code of Conduct のうち別の方を pin していた
-
-| URL | 自称 | 我々の扱い |
-|---|---|---|
-| `/codeofconduct` | Page created 2007-11-19 / Last modified **2023-11-02** | **2026-09-13 に pin 済み** |
-| `/code-of-conduct` | **"Code of Conduct for OSI Mailing Lists"**・created 2013-02-06 / Last modified **2023-05-04** | **2026-09-15 に pin（本増分）** |
-
-**実測すると本文はほぼ同一**（776 語 対 789 語・差は箇条書きの番号と markup であって中身ではない）
-なので、**前の pin から引いた結論に誤りは無い。** だが**リストを規律しているのは後者**であり、
-**条を引かれた相手も後者**である。**「近い文書」は「その文書」ではない。**
-
-### 🔴 そして、予告された更新はまだ起きていない
-
-**2026-09-09 に moderators は CoC を *"updated to better reflect the use of AI"* にすると述べた。
-2026-09-15 時点で、両ページとも変わっていない**（自称更新日は 2023-05-04 / 2023-11-02 のまま、
-本文に AI の条項は 1 つも無い）。
-
-**したがって、steward に引かれた規則** —— *"We do not allow posts generated by AI without careful
-review from the author and will reject posts where we suspect that an AI has been responsible for
-all or most of a message"* —— **は Code of Conduct には無い。** moderators のリスト投稿に在る。
-**これは反論ではなく、どの文書に何が書いてあるかという事実である。**
-**そして反論として使ってはならない** ——リストを運営しているのは moderators であり、
-**published かどうかは、その方針が実在するかとは別の問いである。**
-
-### 3 つの小項目に、1 つずつ当てた
-
-| | 条文（要点）| 我々の実測 | 判定 |
-|---|---|---|---|
-| **1** | *"we value concision and clarity. Emails that are brief and to the point…"* | **散文の中央値 683 語 対 他 188 語。6 通すべてが 69〜95 パーセンタイル** | **🔴 当たる**（§1.85）|
-| **2** | *"Conversations should remain focused and on-topic … **avoid flooding the list with long threads** by reading the entire thread first, instead of **responding quickly to many emails in a short period of time**"* | **6 通 / 活動 4 日 / 1 日最大 2 通 / 24 時間内に 3 通以上が 1 回**（2026-09-03 23:36・23:56 と 09-04 18:54 の 19.3 時間）。同じ窓で **Fontana 氏 13 回・Chestek 氏 5 回・McCoy 氏 5 回・Dolan 氏 1 回** | **🟢 当たらない（低い側）。ただし 0 ではない** |
-| **3** | *"New members … should be careful to respect the time and energy of long-time list members by **doing research** … before asking questions"* | **6 通に条項・OSD の引用が計 55 件**（8/26 の投稿だけで OSD 十条中 11 の一意参照、9/6 の 1 通で条項 25 件）。**機械的に測れるのはここまで**で、「研究したか」そのものは測れない | **🟢 当たらない方向の証拠はある** |
-
-**別条だが同じページの *"Disclose potential conflicts"* は、既に当てて外れていた** ——
-他者のライセンスについて述べた 4 通すべてで、**我々が提出者であることを開示していなかった**
-（#137・`REVISION-PROTOCOL.md` の規則 7 として前向きに閉じた）。
-
-### この節が establish しないこと
-
-**「小項目 2 と 3 に当たらない」は、小項目 1 に当たることを打ち消さない。**
-CoC 自身が *"We expect it to be followed **in spirit as much as in the letter**"* と述べており、
-**3 つのうち 1 つに当たれば、条に当たっている。**
-**確立するのは「どこに当たり、どこに当たらないか」だけである。**
-
 ## 1.87 `license-review` の**全期間**（199 か月・6,272 通）を数えた —— 我々の参照クラスは、19 年で 3 件しかない
 
 **ドシエが持っていた提出の統計は、33 か月（決議）と 44 か月（スレッド）の窓で測ったものだった。**
@@ -981,9 +683,37 @@ CoC 自身が *"We expect it to be followed **in spirit as much as in the letter
 3. **承認された 1 件も、無風ではなかった** —— Unlicense には **veto の反対スレッドが 54 通**付いている。
    **「PD 等価は揉めない」は、この archive では成り立たない。**
 
+### (c) 提出は、どれくらいの速さで、何人に読まれるのか（同じ 99 件で測った）
+
+**これは名称一致に依存しない** ——header の日時と差出人だけを見る。
+
+| | 値 |
+|---|---|
+| 返信が付いた提出 | **89 / 99** |
+| **初回返信までの時間** | **中央値 9.9 時間**（25% 1.0 h / 75% 29.0 h / 最大 407 h）|
+| **24 時間以内に返信** | **60 / 89 = 67%** |
+| **参加者数** | **中央値 6 人**（最大 24 人）|
+
+**分岐 B の読みが 1 つ確定する** —— **`license-review` へ正式に出せば、
+modal な結果は「1 日以内に、6 人ほどから返信が来る」である。**
+**「誰も読まなかった」は起こりにくい。**
+
+**⚠ そして同じ数の逆側。** **読まれるということは、働かされるということでもある。**
+中央値 11 通・参加者 6 人は、**準備の足りないテキストを出す費用が高い**ことを意味する。
+**沈黙なら静かに終わるが、engagement は記録に残り、`license-review` のアーカイブは永続する。**
+**B3（長さ）と B1（法的レビュー無し）は、engagement があるほど強く当たる。**
+
 ### この測定が establish しないこと
 
 **名称一致は下限である。** 件名に類型名を書かなかった提出は数えていない。
 **「19 年で 3 件」は「少なくとも 3 件」であって「ちょうど 3 件」ではない。**
 **そして本節は件名しか見ていない** ——**本文を読めば分類が変わるスレッドが在りうる。**
 
+**🔵 承認率は測らなかった（測ろうとして、やめた）。** 提出スレッドの件名から
+ライセンス名を取り、いまの SPDX 承認リストと突き合わせる方法を実装して走らせたが、
+**誤対応が両方向に出た** ——*"GNU Affero General Public License"* が `GPL-2.0+` に、
+*"Free Public License 1.0.0"* が `AFL-1.1` に、*"Eclipse Public License version 2.0"* が
+`EPL-1.0` に当たる。**出た数（24%）は、根拠として使えない。**
+**改名・legacy 経路・件名に名前を書かない提出が、いずれも一方向でなく両方向に効く。**
+**防御できない数は出さない** ——**承認率が要るなら、理事会議事録**
+（`ACD-1.0.board-decisions.md`・**決定の記録**）**から数えること。アーカイブは議論の記録である**（#139）。

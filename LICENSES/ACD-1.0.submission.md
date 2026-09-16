@@ -412,7 +412,7 @@ Submit via https://tools.spdx.org/app/submit_new_license/ (preferred) or the
    first submission, or 30 days from a revised version but never earlier than 60 days from the
    original; the Licensing Committee has separately described *"two months from your final
    submission"*. **These do not say the same thing** and we cannot tell which governs
-   (`review-corpus.md` §1.82). **Measured time-to-decision, where a decision was reached at
+   (`review-rules.md` §1.82). **Measured time-to-decision, where a decision was reached at
    all, has a median of 101 days** (§1.72) — and *"not approved"* without a decision is a
    status the board has said it may leave a licence in (`board-decisions.md` §2).
 7. **Fold in the license-discuss summary** (section 3 of `LICENSES/ACD-1.0.discussion-log.md`).

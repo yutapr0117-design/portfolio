@@ -61,7 +61,7 @@ courtesy — a discussion whose subject changes underneath it is not a review of
 > OSI 自身が *"**a license cannot be changed while it is being considered**. If the license submitter
 > would like to change the language of the license, **the current version of the license should be
 > withdrawn from review and an updated version submitted**"* と書いている
-> （`https://opensource.org/licenses/review-process`・逐語と含意は `ACD-1.0.review-corpus.md` §1.82）。
+> （`https://opensource.org/licenses/review-process`・逐語と含意は `ACD-1.0.review-rules.md` §1.82）。
 > **つまり凍結は steward の礼儀ではなく、公表された手続きが要求していることである。**
 >
 > **ここから、この文書に書かれていなかった一手が出る** ——**`license-review` に出したあとで
