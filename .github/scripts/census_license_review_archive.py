@@ -26,6 +26,7 @@
 import argparse
 import collections
 import os
+import quopri
 import re
 import statistics
 import sys
@@ -78,9 +79,34 @@ def load(ms, fetch):
     return rows
 
 
+def decode_words(s):
+    """件名の encoded-word を復号する。
+
+    **これを忘れると、同じスレッドが複数に割れる。** 2026-09-15 の初版はこれを欠いており、
+    `license-discuss` では PUWL への返信が別スレッドへ落ちて「返信ゼロ」に見え、
+    `license-review` では提出スレッドが 105 → 99 に、返信ゼロが 12 → 10 に見えた。
+    **どちらも結論は変えなかったが、数は変えた。**
+    """
+    def _q(m):
+        try:
+            return quopri.decodestring(m.group(1).replace("_", " ")).decode("utf-8", "replace")
+        except Exception:  # noqa: BLE001
+            return m.group(1)
+
+    def _b(m):
+        try:
+            return base64.b64decode(m.group(1) + "===").decode("utf-8", "replace")
+        except Exception:  # noqa: BLE001
+            return m.group(1)
+
+    s = re.sub(r"=\?[^?]+\?[qQ]\?([^?]*)\?=", _q, s)
+    return re.sub(r"=\?[^?]+\?[bB]\?([^?]*)\?=", _b, s)
+
+
 def norm(s):
-    s = re.sub(r"^(Re:|Fwd:|\[License-review\]|\s)+", "", s, flags=re.I)
-    return " ".join(s.replace("[License-review]", "").split())
+    s = decode_words(s)
+    s = re.sub(r"^(Re:|Fwd:|\[License-review\]|\[EXTERNAL\]|\s)+", "", s, flags=re.I)
+    return " ".join(s.replace("[License-review]", "").replace("[EXTERNAL]", "").split())
 
 
 def main():
