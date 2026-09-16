@@ -165,7 +165,8 @@ def run(ctx):
                 # **一般形: 「機械で判定できない」と結論する前に、その形が単一の形かを見る。**
                 _series471 = set()
                 for _sf471 in ("ACD-1.0.comparison.md", "ACD-1.0.review-precedents.md",
-                               "ACD-1.0.review-corpus.md", "ACD-1.0.reviewer-positions.md"):
+                               "ACD-1.0.review-corpus.md", "ACD-1.0.reviewer-positions.md",
+                               "ACD-1.0.review-rules.md"):
                     _series471 |= _headnum471.get(_sf471, set())
                 _pack471 = (_headnum471.get("ACD-1.0.submission.md", set())
                             | _headnum471.get("ACD-1.0.submission-reference.md", set()))
@@ -205,7 +206,8 @@ def run(ctx):
         # 既存の参照がどちらを指すか決められなくなる（本 file 群の規約は「節番号を動かさない」）。
         _grand471 = {"1.67", "1.68", "1.69"}
         _seriesfiles471 = ("ACD-1.0.comparison.md", "ACD-1.0.review-precedents.md",
-                           "ACD-1.0.review-corpus.md", "ACD-1.0.reviewer-positions.md")
+                           "ACD-1.0.review-corpus.md", "ACD-1.0.reviewer-positions.md",
+                           "ACD-1.0.review-rules.md")
         _own471 = re.compile(r"^#{1,6}\s+\**\s*(1\.\d+[a-z]?)[ .\uff0e\u3000]")
         _where471 = {}
         for _sf471 in _seriesfiles471:

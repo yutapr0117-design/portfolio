@@ -33,6 +33,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | 「既存の X で足りるのでは」 | [`ACD-1.0.comparison.md`](ACD-1.0.comparison.md) |
 | 「この提出は実際に何を言われるのか」 | [`ACD-1.0.review-precedents.md`](ACD-1.0.review-precedents.md) —— **個別スレッドを読んで**得た、当たる指摘と当たらない指摘（§1.45〜§1.66）|
 | 「アーカイブ全体では何が起きているのか」 | [`ACD-1.0.review-corpus.md`](ACD-1.0.review-corpus.md) —— **アーカイブを全部取得して測った**こと（承認の基準 8 条 / 委員会が述べた規則 / 決議の分布 / 提出から決定までの所要 / 手続きの実態・§1.67〜）。**前者は読み、後者は測定である** |
+| 「OSI が**公表している規則**は何と書いてあるのか」 | [`ACD-1.0.review-rules.md`](ACD-1.0.review-rules.md) —— **公表ページを原典で読んだ**記録（承認基準 8 条 / 提出の要件リスト / Code of Conduct の逐条 / 本文を変えたい提出者への手続き・§1.70 / §1.76 / §1.81 / §1.82 / §1.86）。**公表ページは規則を、リストは議論を、理事会は決定を残す** ——資料の種類で分けてある |
 | 「**理事会は実際に何を決めたのか**」 | [`ACD-1.0.board-decisions.md`](ACD-1.0.board-decisions.md) —— **公開議事録という別の一次資料**から読める決定（承認 8・否決 9・取り下げ 2／公開 12 回の範囲）。**最も重いのは、公表されていない第 3 の帰結** ——*reject* ではなく *"not approved … if it is **duplicative and not used by a project**"*。**リストは議論を、理事会は決定を残す** |
 | 「うちの国では効かないのでは」 | [`ACD-1.0.jurisdictions.md`](ACD-1.0.jurisdictions.md) |
 | **使ってよいか / どう使うか / 法務に何を見せるか** | [`ACD-1.0.faq.md`](ACD-1.0.faq.md) |

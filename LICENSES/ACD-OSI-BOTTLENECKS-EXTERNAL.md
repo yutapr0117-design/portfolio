@@ -597,7 +597,7 @@ running the Program"* は**著作権の話であって特許ではない**）。
 **§6**（ML / TDM の明示的許諾と Reservation の否認）/ **§8.4**（特許がモデル・出力に及ぶ）/
 **§9**（機械生成物に権利が存するか否かと無関係に許諾が成立する）。
 
-**この 3 つを削ると、ACD-1.0 は 0BSD / Unlicense に収束する** ——**そして承認基準 7（*"The license must fill a gap that currently existing licenses do not fill"*・`review-corpus.md` §1.70）を満たさなくなる。**
+**この 3 つを削ると、ACD-1.0 は 0BSD / Unlicense に収束する** ——**そして承認基準 7（*"The license must fill a gap that currently existing licenses do not fill"*・`review-rules.md` §1.70）を満たさなくなる。**
 *（2026-09-15 訂正: ここは長く、**どの文書にも存在しない節番号**を「の失敗」として引いていた。意図は復元できないので、番号ではなく**何が失敗するのか**を書いた。Check 471 (e) が検出。**訂正の注記に、訂正した当の記法を書き写さないこと** ——本日 3 度目の自己マッチである。）*
 **逆にこの 3 つ以外はすべて削減候補である。**
 
