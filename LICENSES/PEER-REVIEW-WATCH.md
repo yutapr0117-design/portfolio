@@ -551,10 +551,26 @@ https://lists.opensource.org/pipermail/license-review_lists.opensource.org/<YYYY
 **ブラウザ相当の User-Agent が要る**（既定の python UA では 403 が返る）。`WebFetch` ツールも
 使える。**オーナーに落としてもらう必要はない。**
 
+### 🟢 2026-09-15 以降、窓という単位で考える必要が無くなった
+
+**両アーカイブを全期間取得できることを実測した。** `license-review` は **199 か月**（2007-12〜2026-09・6,272 通）、`license-discuss` は **307 か月**。索引ページは `.txt.gz` へリンクしているが、**`.txt` でも取れる**（`.txt` で index を grep すると 0 件になる —— 初版で実際にそうなった）。
+
+**したがって「どの窓を読んだか」は、もはや取得の制約ではなく、*何を測ったか* の記録である。**
+道具は committed:
+
+| 道具 | 何を測るか |
+|---|---|
+| `.github/scripts/census_license_review_archive.py` | 提出の分布・返信ゼロの基準率・我々の類型の出現 |
+| `.github/scripts/measure_list_verbosity.py` | 我々のメールの長さと密度（delivered / prose を分ける）|
+| `.github/scripts/verify_dossier_quotations.py` | 外部 source への逐語引用の照合 |
+
+**⚠ 取得した月次 mbox は `rounds/` に置かない。** `rounds/` は「何と言われたか / 何と言ったか」の記録であって、**読んだものの置き場ではない**。**証拠を持つのではなく、到達手順を持つ。**
+
 ### 取得済みの窓と、そこで得たもの（**再読不要**）
 
 | 窓 | 得たもの | 反映先 |
 |---|---|---|
+| **全期間（199 か月・2026-09-15）** | **提出 99 件の基準率** —— 返信ゼロ 10.1% / 初回返信の中央値 **9.9 時間** / 24 時間以内 **67%** / 参加者中央値 **6 人** / 通数中央値 **11**。そして**我々の類型で「新規」承認は 19 年でゼロ**（Unlicense は legacy 経路）、**CC0 は取り下げ**（特許争点だけで 63 通）、**提出者は 19 年で 76 人** | `review-corpus.md` §1.87 / §1.89 |
 | **2012-01〜04** | Bruce Perens 氏の「abandonment **OR** acquiescence, but not both」—— **fallback という形そのものへの反対**。§4.4 はこれが届かないように書かれている | `comparison.md` §1.4 |
 | **2020-03〜06**（**2026-09-08 に再読・論拠まで**）| License Review Committee の勧告本文。**加えて veto スレッド 49 通の論拠を初めて読んだ** —— Glaser 氏の「不明確でありライセンスの定義を満たさない」に対し、Chestek 氏の「**献呈が無効でも、列挙された許諾が抗弁になる**」が承認へ運んだ。**その読みは Unlicense の条文に無く、論証されたものである**（ACD §4.4 は条文にしている）。**§3.9 は「読了」としていたが、取り出していたのは結論 2 つだけだった** —— **「読了」と「論拠まで読んだ」は別である**。「dedication **taken alone** は承認されない」という**規則の出典**、および「lawyers **both US and non-US**」が一致したという決着の実体 | `submission-reference.md` §1b / #2 #3 #7 |
 | **2025-03** | 出力への notice 要件が「**a restriction or condition on mere use. That would not be open source**」（Simon Phipps 氏・個人資格）と問われ、Fontana 氏が編集器の喩えと **Kyle Mitchell 氏の先行提出**にも言及、提出者が「somewhat oversteps」と認めて削除された | `review-responses-clauses.md` §6.4 |
