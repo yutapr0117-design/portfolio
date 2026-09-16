@@ -124,6 +124,20 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       this draft introduced and this pass removed. **The plural is correct
       again**, because the closer now governs two Sections again (16.4 and the
       new 16.5); it is numbered 16.6.
+    * Section 15.1's construction rule is qualified "in respect of the Work",
+      like the six clauses of the no-condition mesh. **This is errata E9's fix
+      applied to the clause E9 did not reach.** E9 qualified Section 10.4's
+      second sentence because "You" is defined as any person exercising a
+      permission under this Dedication and Section 16.4 grants a permission
+      over the text, so an unqualified sentence read as a claim about the
+      document rather than about the Work. **Section 15.1 has the identical
+      structure and was left as it was** -- which meant that the rule resolving
+      every ambiguity toward the reader also reached the one clause that
+      restricts anything, and did so against it. That matters more now than it
+      did in 1.0: Section 16.2 lets an identifier alone be sufficient notice,
+      which is only true while identifiers denote fixed texts, which is what
+      Section 16.4 exists to keep true. **The fix is one member of a set
+      checked, and the set not checked** -- the same shape as the entry above.
     * Section 16.4 now excepts the Steward from the naming restriction, and a
       new Section 16.5 says what "the Steward" means. **Two defects, both of
       them made by this draft.** (1) Extending the restriction from the single
@@ -152,7 +166,7 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       the person harmed by that is the downstream recipient who relies on the
       signal. Section 2.7 already made the effect honest; this makes the
       sentence say it.
-    * 1.0: 4,896 words, 82 clauses. This draft: 5,033 words, 78 clauses.
+    * 1.0: 4,896 words, 82 clauses. This draft: 5,038 words, 78 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed) and
@@ -690,10 +704,10 @@ PREAMBLE (informative; not part of the operative terms)
 
 15. CONSTRUCTION AND SEVERABILITY
 
-  15.1 This Dedication is to be construed so as to give the widest permission
-       and the least obligation that its words allow. Where a provision is
-       capable of more than one reading, the reading that grants more to You
-       prevails.
+  15.1 This Dedication, in respect of the Work, is to be construed so as to give
+       the widest permission and the least obligation that its words allow.
+       Where a provision is capable of more than one reading, the reading that
+       grants more to You prevails.
 
   15.2 If a provision of this Dedication is held invalid or unenforceable in a
        jurisdiction, it is to be reformed to the minimum extent necessary to
