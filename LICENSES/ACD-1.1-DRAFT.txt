@@ -112,7 +112,7 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       the person harmed by that is the downstream recipient who relies on the
       signal. Section 2.7 already made the effect honest; this makes the
       sentence say it.
-    * 1.0: 4,896 words, 82 clauses. This draft: 4,951 words, 77 clauses.
+    * 1.0: 4,896 words, 82 clauses. This draft: 4,967 words, 77 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed) and
@@ -383,7 +383,8 @@ PREAMBLE (informative; not part of the operative terms)
 
   6.1  Computational Use of the Work is expressly permitted, for any purpose,
        commercial or non-commercial, by any person or automated system,
-       without condition.
+       without condition, so far as the Covered Rights and patent claims of
+       the Dedicator are concerned (Section 2.7).
 
   6.2  The Dedicator makes no Reservation in respect of the Work and expressly
        declines to make one. So far as the Covered Rights and patent claims of
