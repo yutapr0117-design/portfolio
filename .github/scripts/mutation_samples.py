@@ -483,6 +483,36 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 470: 条項に帰属させた逐語引用を、別の条へ付け替える —— 法への参照規則は §15.2 に"
+            "在るのに §15.6 に帰属していた（実欠陥・2026-09-15）。**§15.6 は代理・組合の否認で、"
+            "法への参照を 1 つも持たない** ——審査者が pointer を辿ると空振りする",
+    "file": ROOT / "LICENSES" / "AS-OF.md",
+    "find": "\u00a715.2's interpretation rule",
+    "replace": "\u00a715.6's interpretation rule",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 471 (a): `rounds/` の一次資料への参照を、実在しない file 名へ変える —— "
+            "**`rounds/` は「一次資料はここに在る」という証拠の主張そのもの**で、"
+            "指した先が無ければ審査者は存在しない原文を探しに行く",
+    "file": ROOT / "LICENSES" / "AUDIT-LEDGER.md",
+    "find": "rounds/2026-09-14-osi-normative-pages-snapshot.txt",
+    "replace": "rounds/2026-09-14-osi-normative-pages-missing.txt",
+    "check": CHECK,
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 471 (f): \u00a71.xx の共有採番を衝突させる —— この採番は 5 file に分かれており、"
+            "**同じ番号を 2 つの file が使うと参照は「解決する」のに別の節へ着く。(d)(e) は解決性しか"
+            "見ないので原理的に捕捉できない** (2026-09-15 に実際に重複を作った)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.review-precedents.md",
+    "find": "## 1.88 \u627f\u8a8d\u306f\u53d6\u308a\u6d88\u305b\u306a\u3044",
+    "replace": "## 1.87 \u627f\u8a8d\u306f\u53d6\u308a\u6d88\u305b\u306a\u3044",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
