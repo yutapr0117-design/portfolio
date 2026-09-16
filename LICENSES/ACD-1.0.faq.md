@@ -491,6 +491,32 @@ Dedicator が与えうるものではなく、本 Dedication はそれを与え�
 
 ## B. プロセスの疑問
 
+### A29. 作品に第三者が付けた「学習禁止」シグナルは、このライセンスで無効になるのか
+
+**ならない。§6.3 が「撤回する」と書いているのは、Dedicator が撤回できる Reservation についてだけである。**
+
+条文は 2 つの作用を持ち、**効く範囲が違う。**
+
+| 作用 | 誰の Reservation に効くか |
+|---|---|
+| **撤回（withdraw）** | **Dedicator が撤回する権限を持つものだけ。** 例: 配布者として自分で付けた metadata、hosting 側の既定 robots directive のうち自分で外せるもの |
+| **依拠しない宣言（disclaim reliance）** | **誰が付けたものについても成り立つ。** Dedicator は「その signal を根拠に権利主張しない」と述べているだけで、他人の権利には触れていない |
+
+**したがって、第三者が自分の権利の行使として付けた Reservation は、そのまま有効である。**
+§6.2 の末文が *"does not purport to defeat a Reservation made by another rightsholder"* と述べ、
+§2.7 が instrument 全体を「Dedicator が持つ権利」に縛っている。**届かない撤回は、届かない。**
+
+**⚠ 1.0 の本文では、この答えが 3 条（§2.7 → §6.2 → §6.3）に分かれている。**
+**読み順を我々は決められないので、1 条だけ読んだ人には「他人の signal まで剥がす」と読める。**
+**次版の草案では §6.3 自身が**
+*"the Dedicator has **no power to withdraw it** and this Section does not purport to give one"*
+**と明記して、この読み替えを条文内で閉じている**（`ACD-1.1-CHANGELIST.md` §1・2026-09-14）。
+**1.0 は凍結中なので直さず、ここに記録する。**
+
+**利用者にとっての実務的な帰結**: **ACD-1.0 の作品を学習に使う前に、第三者の Reservation が
+付いていないかは自分で確かめる必要がある。** このライセンスはそれを肩代わりしない ——
+§13.2（無保証）と §2.7（保有する権利にのみ及ぶ）が、その限界を条文で述べている。
+
 ### B1. いまどの段階か
 
 `LICENSES/FROZEN.md` の `VENUE-DATA` marker が**単一ソース**である（Check 458 が
