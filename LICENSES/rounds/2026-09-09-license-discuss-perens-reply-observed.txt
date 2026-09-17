@@ -1,12 +1,16 @@
 Source: https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2026-September.txt
-Retrieved: 2026-09-10T08:16:40 (Asia/Tokyo)
+Retrieved: 2026-09-17T16:06:44 (Asia/Tokyo)
 List: license-discuss
-Direction: observed — a reply to the OSI Moderators' notice of the same day, addressed to the list.
-Why kept: it is the only reply to that notice in the archive at the time of retrieval, and its
-          whole content is an observation about another poster's display name. It does not say
-          who the notice refers to, and nothing here asserts that it does.
-Analysis lives in: LICENSES/ACD-OSI-BOTTLENECKS.md B14 / LICENSES/ACD-1.0.against.md #119
+Direction: observed -- addressed to the list, not to us. No name is given in it.
+Why kept: this is the only reply to the OSI Moderators' 2026-09-09 notice, and it was posted
+          about four hours AFTER our snapshot of that notice, so it was missing from
+          `2026-09-09-license-discuss-osi-moderators-observed.txt`. It names a different
+          actor -- "a recent poster ... using a latin parody of my name" -- which bears on
+          how the notice's "various emails" should be read. **It does not establish that the
+          notice is not about us**, and nothing here is asserted beyond what the text says.
+
 ----- begin verbatim -----
+
 From bruce at perens.com  Wed Sep  9 18:55:44 2026
 From: bruce at perens.com (Bruce Perens)
 Date: Wed, 9 Sep 2026 11:55:44 -0700
@@ -68,3 +72,5 @@ Bruce Perens K6BP
 -------------- next part --------------
 An HTML attachment was scrubbed...
 URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260909/642ca253/attachment.htm>
+
+----- end verbatim -----
