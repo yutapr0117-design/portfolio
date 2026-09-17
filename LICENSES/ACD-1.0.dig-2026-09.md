@@ -238,3 +238,72 @@ Josh Berkus 65 / Rick Moen 57 / Van Lindberg 55 / Russ Nelson 50 / Larry Rosen 4
 **「返信が来るか」と「議論になるか」は別の問い**で、後者は後ろ盾で変わりうる ——
 CAL（Van Lindberg・Holochain）は 25 通、CERN OHL は 2 通である。**この表が否定しているのは
 「後ろ盾が無いと無視される」であって、「後ろ盾は関係ない」ではない。**
+
+## 1.95 OSAID の checklist を原典で読み、承認済み 141 本を走査した —— gap が OSI 自身の表で裏づく（2026-09-17）
+
+**きっかけはオーナーが共有した 2026 年 10 月の OSI 関連イベント**（とくに **10/20 All Things Open の
+OSI「State of the Source」track** と **10/21 Opening Convening for Open Source AI（OSI × Duke・
+OSAID の実装が議題）**）。**OSAID 本体は 2026-09-06 に読み済み**（`review-responses-meta.md` Q32d）だが、
+**checklist は読んでいなかった。**
+
+### OSI の checklist は、要素ごとに「license」と「terms」を書き分けている
+
+| 要素 | 求められるもの |
+| :-- | :-- |
+| Datasets / Research paper / Technical report / Data card | **OSI-approved terms** |
+| Code（前処理・訓練/検証/テスト・推論・支援ライブラリ）| **OSI-approved license** |
+| **Model architecture** | **OSI-approved license** |
+| **Model parameters** | **OSI-approved terms** |
+
+**そして checklist は "terms" を脚注で定義している**:
+
+> *"**Available under OSI-approved terms** means that the OSI will review licenses **and agreements**
+> to ensure that all materials are available under terms that conform with the Open Source Definition."*
+
+**つまり "terms" は「何でもよい」ではなく「OSI が OSD 適合を審査する」**である。
+**Q32d が意図的に解かないまま残した非対称に、OSI 自身の定義が付いた。**
+
+**そして `license-review` の参加者が、同じ読みを公開の場でしている**（2026-09-14・OpenMDW スレッド）:
+*"it is quite clear that the OSI contemplates that things other than OSI-approved licenses might be
+suitable for **model parameters**, but **that does not apply to code or model architecture materials**."*
+（逐語は `rounds/2026-09-14-license-review-openmdw-thread-observed.txt`）
+
+### 承認済みライセンス 141 本を走査した —— 該当語はほぼ皆無だった
+
+**SPDX の license-list-data から `isOsiApproved` かつ非 deprecated の 141 本の本文を取得**して数えた
+（2026-09-17）:
+
+| 語 | 該当数 / 141 |
+| :-- | --: |
+| **"sui generis"** | **0** |
+| "database" | 3（`WordNet` は対象物の名前・`PostgreSQL` は製品名・`OLFL-1.3` は「データベースで使ってよい」の許諾文脈）|
+| "text and data mining" / "data mining" | **0** |
+| "machine learning" / "training" | **0** |
+
+**対照（検出器が効くことの確認）**: **`CC-BY-4.0` では "sui generis" が検出される**ので、
+**0 は検出器の欠陥ではない。** なお **CC0-1.0 は OSI 承認集合に入っていない**（審査中に撤回された）
+ので、この 0 は「データベース権に触れる instrument が存在しない」ではなく
+**「OSI が承認した 141 本の中に無い」**である。
+
+### ACD にとっての含意（狭く書く）
+
+**OSAID の checklist が "OSI-approved terms" を要求するのは、コード以外の成果物**である ——
+**データセット・データカード・技術報告・研究論文・モデルパラメータ**。
+**ACD-1.1 はそれらを射程に持つ**: §1.3 の *Work* が *"source code, object code, documentation,
+**data, metadata**, audiovisual material, and any collection or compilation of these"* を含み、
+**§7 が sui generis database 権を Covered Right として扱い**、§6 が Computational Use を明示的に許し、
+§8.4 の特許許諾が**モデル・パラメータ・出力**に届く。
+
+**つまり「既存で埋まらない gap」（OSI の承認基準 7・要件である）に、OSI 自身の表と実測が付いた。**
+
+### ⚠ 逆側 —— この節が establish しないこと
+
+1. **OSAID 適合は承認の条件ではない**（理事会が明言・`board-decisions.md`）。**この節は承認の理由にならない。**
+2. **OSAID は parameters について *"They may be free by their nature"* とも述べる** ——
+   **パラメータに権利が及ばないなら instrument は要らない**、という読みが同じ文の中にある。
+   **我々の §9 が解く問題は、存在しないかもしれない。**
+3. **語が無いことは、効果が無いことではない。** MIT や 0BSD は "sui generis" と書かずに
+   *"deal in the Software without restriction"* と書く ——**広い文言が黙示に及ぶ**という読みは成り立つ。
+   **測ったのは*明示*の有無であって、*効果*の有無ではない。**
+4. **ACD は承認されていない**ので、**今日この slot を埋められない。** これは循環であり、
+   **「承認が要る理由」にはなっても「承認すべき理由」にはならない**（Q32d が既に述べた線引き）。
