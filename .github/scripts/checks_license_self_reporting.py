@@ -73,7 +73,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        run() 内で実装されている face 文字** (双方向)。実測 (2026-09-13): inventory は (a)〜(k) の
        11 面、実装は (a)〜(p) の **16 面**、`file-size-budget.md` は第 3 の値「12 面」——
        **3 つの数が 3 つとも違った**。**Check 45 は「Check 番号」の bijection しか見ないので、
-       面は黙って増やせる。** (b) **`ACD-1.1-CHANGELIST.md` の errata 状態が、
+       面は黙って増やせる。** (b) **`ACD-<版>-CHANGELIST.md` 群の errata 状態が、
        `ACD-1.0.errata.md` の E-ID 集合と双方向に対応し、かつ file 内部で自己矛盾しないこと**。
        実測 (2026-09-13): §0.7 が「その他 (E2 / E4 / E6〜E10) | 未着手 | まだ見ていない」と述べ、
        **7 件中 6 件は既に草案で閉じていた** ——その節を作った commit は、**それらを閉じた
@@ -624,12 +624,16 @@ def run(ctx):
 
     # (b) errata の E-ID ⟺ CHANGELIST §1 表、かつ CHANGELIST 内部で状態が矛盾しないこと
     _er469 = _L460 / "ACD-1.0.errata.md"
-    _cl469 = _L460 / "ACD-1.1-CHANGELIST.md"
-    if not (_er469.exists() and _cl469.exists()):
+    # **版を決め打ちしない（2026-09-18 に直した）。** 1.1 を確定させて作業場が 1.2 へ移ると、
+    # **1.2 の表に載せた errata が「CHANGELIST に無い」と報告される。**
+    # Check 464 と同じ形の欠陥で、**確定手順が列挙していた「版に紐づく Check」に両方とも
+    # 入っていなかった** —— **列挙は、列挙した時点で見えていたものしか含まない。**
+    _cls469 = sorted(_L460.glob("ACD-*-CHANGELIST.md"))
+    if not (_er469.exists() and _cls469):
         warnings.append("Check 469: errata / changelist が無い — 状態照合を skip")
     else:
         _ert = _er469.read_text(encoding="utf-8")
-        _clt = _cl469.read_text(encoding="utf-8")
+        _clt = "\n".join(_p.read_text(encoding="utf-8") for _p in _cls469)
         _erids = set(re.findall(r"^\|\s*\*{0,2}(E\d+)\*{0,2}\s*\|", _ert, re.M))
         _rows469 = dict(re.findall(r"^\|\s*\*{0,2}(E\d+)\*{0,2}\s*\|(.*)$", _clt, re.M))
         if not _erids:

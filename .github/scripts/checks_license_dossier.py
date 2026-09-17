@@ -393,27 +393,34 @@ def run(ctx):
     # 凍結中の運用は「直さず記録する」であり、**記録の行き先が散ると議論の最後に落ちる**。
     # 集約点を 1 つにしても、人手で同期するかぎり必ずずれるので機械強制する。
     # 内容は複製しない (複製は drift する) —— `E<n>` の**出現**だけを見る。
+    # **2026-09-18: 版に依らない形へ直した。** 初版は `ACD-1.1-CHANGELIST.md` を決め打ちしており、
+    # **1.1 を確定させて作業場が 1.2 へ移った瞬間に、1.2 で閉じた errata を「落ちている」と報告した。**
+    # **確定手順 (§0.13) が列挙していた「版に紐づく Check」に 464 と 468e が入っていなかった** ——
+    # **列挙は、列挙した時点で見えていたものしか含まない。**
     _er464 = ROOT / "LICENSES" / "ACD-1.0.errata.md"
-    _cl464 = ROOT / "LICENSES" / "ACD-1.1-CHANGELIST.md"
+    _cls464 = sorted((ROOT / "LICENSES").glob("ACD-*-CHANGELIST.md"))
     if _er464.exists():
         check(
-            _cl464.exists(),
-            "Check 464: 次版の変更リスト (ACD-1.1-CHANGELIST.md) が存在する",
-            ("Check 464: `LICENSES/ACD-1.1-CHANGELIST.md` が無い。凍結中に見つけた欠陥の"
+            bool(_cls464),
+            f"Check 464: 次版の変更リストが存在する ({len(_cls464)} 件)",
+            ("Check 464: `LICENSES/ACD-<版>-CHANGELIST.md` が 1 つも無い。凍結中に見つけた欠陥の"
              "**行き先が無いと、議論の最後に 4 か所を回って集めることになり落ちる**"),
             blocking=True,
         )
-        if _cl464.exists():
+        if _cls464:
             _ers = set(re.findall(r"^\| (E\d+) \|", _er464.read_text(encoding="utf-8"), re.M))
-            _clt = _cl464.read_text(encoding="utf-8")
+            # **どの版の変更リストに載っていてもよい。** 1.0 の欠陥は、1.1 で閉じたものも
+            # 1.2 で閉じたものもあり、**行き先は版ごとに分かれる**。見たいのは
+            # 「**どこにも載っていない entry が無いこと**」であって、特定の file への集約ではない。
+            _clt = "\n".join(_p.read_text(encoding="utf-8") for _p in _cls464)
             _missing464 = sorted(_e for _e in _ers if not re.search(rf"(?<![A-Za-z0-9]){_e}(?![0-9])", _clt))
             check(
                 not _missing464,
-                f"Check 464: errata {len(_ers)} 件すべてが次版の変更リストに現れる",
-                (f"Check 464: 次版の変更リストから errata が落ちている: {_missing464}。"
+                f"Check 464: errata {len(_ers)} 件すべてが、いずれかの版の変更リストに現れる",
+                (f"Check 464: どの版の変更リストにも現れない errata がある: {_missing464}。"
                  "**1.0 は凍結中で「直さず記録する」運用なので、記録が集約点に載らなければ"
                  "そのまま忘れられる**。errata に entry を足したら "
-                 "`ACD-1.1-CHANGELIST.md` にも同じ `E<n>` を足せ (内容の複製は不要・落ちていないことだけを見る)"),
+                 "`ACD-<版>-CHANGELIST.md` のいずれかへ同じ `E<n>` を足せ (内容の複製は不要)"),
                 blocking=True,
             )
 
@@ -698,7 +705,9 @@ def run(ctx):
                     # **「確定手順へ回した」は「閉じた」ではない。** E10 は 1.1 の descriptor が
                     # 存在しないので*ここでは*閉じられないだけで、欠陥としては残っている。
                     # 初版はこれを closed 扱いにし、**本 face が導入直後に自分の誤りを指摘した。**
-                    if "1.1 草案で閉じた" in _ln468:
+                    # **版番号を決め打ちしない。** 1.1 を確定させた時点で作業場は 1.2 へ移り、
+                    # **1.2 で閉じた entry が「まだ open」と読まれた**（2026-09-18 に実際に発火）。
+                    if re.search(r"\d+\.\d+ 草案で閉じた", _ln468):
                         continue
                     _openset468.add(_m468.group(1))
                 if _declared468 != _openset468:

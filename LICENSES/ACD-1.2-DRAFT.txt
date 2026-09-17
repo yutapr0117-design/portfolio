@@ -21,8 +21,17 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
 
   Changes in this draft, relative to ACD-1.1:
 
-    * None yet.
-    * ACD-1.1: 5051 words, 78 clauses. This draft: 5051 words, 78 clauses.
+    * Section 2.6 no longer forbids the Dedicator from asking a contributor for
+      anything (errata E22). The sentence said that no separate instrument,
+      assignment, or agreement "may be required of them as a condition of the
+      Contribution being accepted", which reads as a rule about how a project
+      governs its own contributions rather than about what a recipient of the
+      Work may do. It imposed nothing on You, so Section 10.1 was untouched;
+      what it did was make this Dedication awkward for any project that runs a
+      contributor agreement -- which is most institutionally backed projects,
+      the adopters this instrument most lacks. The half worth keeping is kept:
+      nothing further is needed to place a Contribution under this Dedication.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5063 words, 78 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -172,8 +181,10 @@ PREAMBLE (informative; not part of the operative terms)
        reading the Work can determine what this Dedication does not cover; this
        undertaking binds the Dedicator and imposes nothing upon You, and
        Section 6.5 states why it matters. No separate instrument, assignment,
-       or agreement is required, and none may be required of them as a condition
-       of the Contribution being accepted. Nothing in this Section obliges
+       or agreement is needed to place a Contribution under this Dedication.
+       Whether the Dedicator asks a contributor for anything else is a matter
+       of project governance and is not addressed here. Nothing in this Section
+       obliges
        anyone to submit anything, or obliges the Dedicator to accept anything.
 
   2.7  This Dedication reaches only rights the Dedicator holds. Where the Work
