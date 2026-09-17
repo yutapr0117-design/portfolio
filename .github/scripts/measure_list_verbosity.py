@@ -9,12 +9,17 @@ other emails sent to these two mailing lists by humans."*（`rounds/2026-09-15-o
 **だから道具を置いて、誰でも同じ数を出せるようにした。**
 
 **2 つの長さを分けて数えるのが要点である。**
-  * **delivered** = 受け手の inbox に届いた本文全体（貼り付けた条文・引用を含む）。
-    **「時間と注意」を消費するのはこちらである。**
+  * **delivered** = **アーカイブに展開されて出る量**（本文 + 添付 + 引用）。
+    **アーカイブを読む人が出会うのはこちらである。**
+  * **inbox**     = **読み手の画面に出る本文だけ**（`next part` より前）。
+    **⚠ 2026-09-17 訂正**: 初版はこの区別が無く、`delivered` を「inbox に届いた本文全体」と
+    呼んでいた。**添付は本文ではない。**
   * **prose**     = その人が新しく書いた散文だけ（引用行・署名・フッタ・MIME の次パートを除く）。
     **「長い文章を書く人か」を見るのはこちらである。**
 **片方だけで語ると、有利にも不利にも見せられる** —— 2026-08-26 の ACD 投稿は
-**delivered 5,778 語 / prose 867 語**で、**どちらも真だが答える問いが違う。**
+**アーカイブ上 5,778 語 / 本文 867 語 / prose 867 語**である ——
+**条文は本文に貼られたのではなく添付されていた**（本文自身が *"attached as ACD-1.0.txt"* と述べる）。
+**どれも真だが答える問いが違う。**
 
 密度の代理指標は **1 文あたりの語数**と **1 段落あたりの語数**。**短い文・短い段落は
 読みやすさの側**なので、「長い」と「密である」は別に測る。
@@ -60,7 +65,20 @@ def fetch(months):
 
 
 def split_parts(msg):
-    """delivered（届いた本文全体）と prose（新しく書いた散文）に分ける。"""
+    """**3 つに分ける** —— body（読み手の画面に出る本文）/ attached（添付として届いたもの）/
+    prose（その人が新しく書いた散文）。
+
+    **⚠ 2026-09-17 の訂正。** 初版は `delivered` を「受け手の inbox に届いた本文全体」と
+    呼び、**pipermail が `next part` の後ろへ展開した添付まで本文として数えていた。**
+    実測すると 2026-08-26 の ACD 投稿は **本文 867 語 + 添付（ACD-1.0.txt）**で、
+    アーカイブの 5,778 語は**アーカイブの見え方**であって受信箱の見え方ではない
+    （本文自身が *"The complete license text is attached as ACD-1.0.txt."* と述べている）。
+    **「届いた」と「アーカイブに出ている」を同じ語で呼んだのが誤り**で、その語を根拠に
+    「8 月の投稿は長すぎた」と読んでいた。**添付は注意を要求する形が本文とは違う。**
+
+    `delivered` は body+attached の合計として残す（アーカイブを読む人が出会う量であり、
+    それも真の問いに答える）が、**どちらの数かを呼び分ける。**
+    """
     body = msg.split("\n\n", 1)[1] if "\n\n" in msg else ""
     delivered = len(body.split())
     cut = body.find("-------------- next part")
@@ -79,7 +97,9 @@ def split_parts(msg):
         if "The opinions expressed in this email" in s:
             break
         kept.append(s)
-    return delivered, "\n".join(kept).strip()
+    inbox = len(head.split())          # 読み手の画面に出る本文だけ
+    attached = delivered - inbox       # pipermail が展開した添付・スクラブ告知
+    return delivered, "\n".join(kept).strip(), inbox, attached
 
 
 def measure(months):
@@ -94,14 +114,15 @@ def measure(months):
                 frm = re.search(r"^From: ([^\n]+)", msg, re.M)
                 if not frm:
                     continue
-                delivered, prose = split_parts(msg)
+                delivered, prose, inbox, attached = split_parts(msg)
                 if len(prose.split()) < 5 and delivered < 20:
                     continue
                 sents = [x for x in re.split(r"(?<=[.!?])\s+", prose) if len(x.split()) > 2]
                 paras = [p for p in re.split(r"\n\s*\n", prose) if p.strip()]
                 words = len(prose.split())
                 rows.append(dict(
-                    list=lst, frm=frm.group(1), delivered=delivered, prose=words,
+                    list=lst, frm=frm.group(1), delivered=delivered, inbox=inbox,
+                    attached=attached, prose=words,
                     date=(re.search(r"^Date: ([^\n]+)", msg, re.M).group(1)
                           if re.search(r"^Date: ([^\n]+)", msg, re.M) else ""),
                     wps=(words / len(sents) if sents else 0),
