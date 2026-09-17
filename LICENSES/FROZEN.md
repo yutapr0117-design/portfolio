@@ -25,8 +25,8 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結対象の本文) / LICENSES/REVISION-
 ```
 
 <!-- VENUE-DATA: license-discuss -->
-<!-- POSTING-STATUS: paused 2026-09-09 -->
-<!-- POSTING-NOTE: 2026-09-15 時点の最新は moderator との直接往復の第 3 ラウンド。steward は「素直な読みなら送り方を変える」と*先に*述べた（rounds/2026-09-15-offlist-nick-vidal-round3-sent.txt）。分岐 (a) の中身は REVISION-PROTOCOL.md のゲート 0b に在る。 -->
+<!-- POSTING-STATUS: active -->
+<!-- POSTING-NOTE: 2026-09-17 にオーナーが ACD-1.1 の短い Discussion Request を license-discuss へ送ったと報告した（本人の報告であって、我々が見たからではない）。文面はオーナーが書き、AI がしたのは事実確認と語句の指摘である（8 月の投稿との矛盾の指摘 / 特許許諾と those rights の語 / OSD compliance の語 / URL 2 本）。本文に AI 起草の開示段落が入っており、その段落は AI が 1 語も書いていない。**同 16:31 JST 取得時点で公開アーカイブにはまだ現れていない** —— REVISION-PROTOCOL.md ゲート 10 に従い、配信された形をアーカイブで確認してから rounds/ へ逐語保存する。**「送った」を送信控えで確かめない。** 2026-09-13 に substantive な review メッセージ 2 通が moderation で拒否された実例があるため、届いたことは自動では仮定しない。 -->
 <!--
   発信を止めているかどうかを宣言する**単一ソース**。値は `active` か `paused <YYYY-MM-DD>`。
   2026-09-09 に OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は
