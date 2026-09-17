@@ -74,7 +74,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `docs/incident-artifacts/` が**性質上の歴史記録**で、そこへ注記を強制すると履歴を
        濁す圧力になるため (#977 の「書き換えれば履歴を偽る」判断と同じ線引き)。
        否定・超越を明示する行 (SUPERSEDED / 否定された / 存在しない 等) は違反にしない。 (BLOCKING)
-       **436b** = 同じ invariant の姉妹面: **規範層がオーナーの発話を「指示」「命令」と書かないこと**。canon (Check 102g) は principle が AI2AI.md に*在ること*しか見ておらず、**我々自身の散文がそれに反していても無検査だった**。実測 2026-09-13 で 4 件、**うち 2 件は router の、principle を述べている当の節の数行下**。**行単位の否定検出は使えない** (§7 の bullet は 1 行 14,000 字超) ので**行内 60 字の窓**で見る。
+       **436b** = 同じ invariant の姉妹面: **規範層がオーナーの発話を「指示」「命令」と書かないこと**。canon (Check 102g) は principle が AI2AI.md に*在ること*しか見ておらず、**我々自身の散文がそれに反していても無検査だった**。実測 2026-09-13 で 4 件、**うち 2 件は router の、principle を述べている当の節の数行下**。**行単位の否定検出は使えない** (§7 の bullet は 1 行 14,000 字超) ので**行内 60 字の窓**で見る。**2026-09-17 に射程へ `LICENSES/` (rounds/ を除く) を足した** —— この Check を持ちながら同じ日に AI 自身がドシエで違反を書いた。否定形は窓では拾えないので**一致直後 16 字に直接ぶら下がる否定だけ**を例外にする (窓へ「ない」を足すと無関係な語が違反を打ち消す)。
   450. Tracked text files carry no stray non-Japanese script (Cyrillic / Hangul / Arabic / Thai /
        Devanagari / Hebrew): an LLM writing Japanese can emit a homoglyph-adjacent character from
        another script mid-word, producing text that *looks* almost right but is corrupt — and no
@@ -401,12 +401,36 @@ def run(ctx):
     # 436b: オーナーの発話を「指示」「命令」と書いていないこと。**窓は行内 60 字**で取る ——
     # 行単位で否定語を探すと、`CLAUDE.md` §7 の 14,000 字超の bullet では**同じ行の無関係な
     # 「依頼」が本物の違反を打ち消す**（実測で確認済み・Check 458b 初版と同型の罠）。
+    # **2026-09-17: 436b の射程へ `LICENSES/` を足した。** 理由は per-instance で出た ——
+    # この Check を持ちながら、**同じ日に AI 自身が `LICENSES/` の 2 file で違反を書いた**
+    # (オーナーから届いた測り方を「という指示である」と記述し、オーナーが同日
+    # 「思うだから、指示では無いよ」と否定した)。**`LICENSES/` は本リポジトリで最大の散文体で、
+    # AI が能動的に書き、しかも外部の審査者が読む面**でありながら、436b は一度も見ていなかった。
+    # **436 (裁可待ち文言) の射程は広げない** —— ドシエは OSI の手続きについて「承認が要る」と
+    # 正しく述べる面であり、そこで承認語を禁じると**外部の事実の記述を潰す。**
+    # `rounds/` は受領文の無改変保存なので除外する (そこで byte を変えることが規約違反)。
+    _dossier436b = [
+        _f for _f in sorted((ROOT / "LICENSES").rglob("*.md"))
+        if "rounds/" not in _f.relative_to(ROOT).as_posix()
+    ]
+    # **否定形は窓の語リストでは拾えなかった。** 実測 (2026-09-17) で `LICENSES/` に 2 件上がり、
+    # **2 件とも正しい記述**だった —— 「オーナーは指示を**出さない**」「人間は…逐条で指示
+    # **してもいない**」。窓の例外語は「ではない」しか持っておらず、**否定の活用形に届かない。**
+    # **「ない」を窓へ足すのは採らない**: 60 字窓のどこかに現れた無関係な「ない」が本物の違反を
+    # 打ち消す (Check 458b 初版・436b 初版で 2 度踏んだ罠)。**否定は 指示/命令 に直接ぶら下がる
+    # ときだけ例外とする** ——一致直後の 16 字だけを見る。
+    _NEG436B = re.compile(
+        r"^(?:を|は|も|等|など)*(?:出さ|出し|し|され|与え)(?:て(?:も)?(?:い)?)?(?:ない|ません|ず)"
+        r"|^で(?:は)?(?:ない|なく)"
+    )
     _viol436b = []
-    for _f in _files436:
+    for _f in _files436 + _dossier436b:
         for _n, _line in _normative_lines436(_f):
             for _m in _CMD436.finditer(_line):
                 _win = _line[max(0, _m.start() - 60):_m.end() + 60]
                 if any(_k in _win for _k in _CMD_OK436):
+                    continue
+                if _NEG436B.match(_line[_m.end():_m.end() + 16]):
                     continue
                 _viol436b.append(f"{_f.relative_to(ROOT)}:{_n} ({_m.group(0)})")
     check(
