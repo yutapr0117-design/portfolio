@@ -2,14 +2,14 @@
 file: LICENSES/rounds/2026-09-14-external-review-acd-1.1-draft-received.txt
 audience: ai, human (新卒), 監査人, 第三者全般
 last-updated: 2026-09-14
-canonical-ref: LICENSES/ACD-1.0.discussion-log.md (ラウンド 0 が分解と分類) / LICENSES/ACD-OSI-BOTTLENECKS.md (B1 / B7 / B13) / LICENSES/ACD-1.1-DRAFT.txt (レビュー対象)
+canonical-ref: LICENSES/ACD-1.0.discussion-log.md (ラウンド 0 が分解と分類) / LICENSES/ACD-OSI-BOTTLENECKS.md (B1 / B7 / B13) / LICENSES/ACD-1.1.txt (レビュー対象)
 ---
 
 # LICENSES/rounds/2026-09-14-external-review-acd-1.1-draft-received.txt
 
 ## What
 
-**`ACD-1.1-DRAFT.txt` 本文への、初めての実質的な外部レビューの逐語。**
+**`ACD-1.1.txt` 本文への、初めての実質的な外部レビューの逐語。**
 良い点 4 件・重大事項 5 件・構造 2 件・優先順位 10 件からなる。
 
 ## Why

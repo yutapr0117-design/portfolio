@@ -5,7 +5,7 @@ last-updated: 2026-09-05
 canonical-ref: LICENSES/ACD-1.0.txt (凍結対象の本文) / LICENSES/REVISION-PROTOCOL.md (凍結が解けた後の手順)
 ---
 
-# ACD-1.0 — 凍結中（OSI license-discuss へ投稿済み・結果待ち）
+# ACD-1.0 と ACD-1.1 — 凍結中（1.0 は OSI license-discuss へ投稿済み・結果待ち／1.1 は 2026-09-17 に確定）
 
 ```
 凍結日   : 2026-08-24
@@ -54,7 +54,19 @@ canonical-ref: LICENSES/ACD-1.0.txt (凍結対象の本文) / LICENSES/REVISION-
 924e6a90d05cbc5dd8a400b4e892d7f323581c281d585d55a093d65a997b2d8a  LICENSES/ACD-1.0.txt
 a9cdf425929af1afbf6b854204eea9df3199c8759bc05b411ab327c90932d00e  LICENSES/ACD-1.0.spdx.xml
 c2d47b80981536d56b8d6debe51520068804d235549999e24a85bb7b6e0d1e37  LICENSES/ACD-1.0.machine.json
+79f54dc6cea8bde42df651ebbcccbf60aa943e44bf8219aed7e4caf4a2223b38  LICENSES/ACD-1.1.txt
+0a8e249aeabe3891abdc671a3364e55b8cde6b6be85e984800e6ea1b6f68a173  LICENSES/ACD-1.1.machine.json
 ```
+
+**1.1 は 2026-09-17 に確定して追加した。行は足したのであって置き換えていない** ——
+`REVISION-PROTOCOL.md` §2 の「1.0 は永久凍結・次版は併置」がそう定めている。
+**1.1 を凍結しても 1.0 は動かない**（凍結は本文の byte についての約束であり、
+リポジトリがどの版を適用するかの約束ではない）。**次版の作業場は `ACD-1.2-DRAFT.txt`**。
+
+**1.1 に `spdx.xml` が無いのは意図である。** あの XML は **SPDX 収録が要求する成果物**で、
+1.1 は SPDX にも `license-review` にも出していない。**出すときに作る**
+（手順は `ACD-1.0.submission.md` §B.0 の確定手順 (2)）——**要求されていない成果物を先に作ると、
+本文を触るたびに silent に古くなる面が 1 つ増える。**
 
 - `ACD-1.0.txt` — **提出物そのもの**。SPDX はテキスト一致で照合し、識別子とテキストは 1 対 1 で
   対応しなければならない（条文自身も §16.4 でそう定めている）

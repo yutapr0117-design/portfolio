@@ -58,7 +58,7 @@ def load_sources(root="."):
     """照合先: rounds/ の一次資料 + 本文 + 取得済みアーカイブ。"""
     out = []
     pats = [f"{root}/LICENSES/rounds/*", f"{CACHE}/*.txt",
-            f"{root}/LICENSES/ACD-1.0.txt", f"{root}/LICENSES/ACD-1.1-DRAFT.txt", f"{root}/LICENSE"]
+            f"{root}/LICENSES/ACD-1.0.txt", f"{root}/LICENSES/ACD-1.1.txt", f"{root}/LICENSE"]
     for pat in pats:
         for f in glob.glob(pat):
             try:

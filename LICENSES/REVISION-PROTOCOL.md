@@ -74,7 +74,7 @@ courtesy — a discussion whose subject changes underneath it is not a review of
 > **「全部取り込んだ改善版を 1 回で出す」は、我々が選んだ流儀ではなく OSI の明文の推奨である。**
 
 > **実体化した（2026-09-10）。** オーナーが「現行は保持、次版を作って改善し続けるのは問題ない」と
-> 述べたので **`LICENSES/ACD-1.1-DRAFT.txt`** を置いた。**まだ `ACD-1.1.txt` ではない** ——
+> 述べたので **`LICENSES/ACD-1.1.txt`** を置いた。**まだ `ACD-1.1.txt` ではない** ——
 > **草案は 1 行目で NOT IN FORCE / NOT SUBMITTED / NOT APPLIED を述べ、`FROZEN.md` にも
 > `LICENSE` にも AIO 層にも登録していない。** 下の手順（FREEZE-DATA に行を足す / `LICENSE` と
 > AIO を新版へ向ける）は、**版として確定するときに初めて行う。**

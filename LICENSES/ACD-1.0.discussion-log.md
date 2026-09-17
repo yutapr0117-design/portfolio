@@ -150,7 +150,7 @@ verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against ap
 **リストには届いていない。公開アーカイブに無い。我々が発注したものでもない。**
 
 **レビューされたテキストは確かめた（仮定ではなく）**: オーナーが渡した現物は、
-**`LICENSES/ACD-1.1-DRAFT.txt` と byte 一致**
+**`LICENSES/ACD-1.1.txt` と byte 一致**
 （`sha256 e61f9f6a278d8fa636cac01c887f3fd6b70c24e31e7b8587002e78c98a9bc3ba` / 38,432 bytes）。
 **下の分類はすべて「現行の草案に当てて確かめた」結果なので、もし読まれたのが旧版だったなら、
 全部が別の成果物についての測定になっていた。**

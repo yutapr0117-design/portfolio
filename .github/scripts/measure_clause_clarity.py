@@ -109,7 +109,7 @@ def main():
     here = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     rows = []
     for name, path in [("ACD-1.0", "LICENSES/ACD-1.0.txt"),
-                       ("ACD-1.1 draft", "LICENSES/ACD-1.1-DRAFT.txt")]:
+                       ("ACD-1.1", "LICENSES/ACD-1.1.txt")]:
         with open(os.path.join(here, path), encoding="utf-8") as fh:
             rows.append(row(name, body(fh.read())))
     missing = []

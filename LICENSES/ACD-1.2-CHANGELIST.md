@@ -1,0 +1,57 @@
+---
+file: LICENSES/ACD-1.2-CHANGELIST.md
+audience: OSI license-discuss / license-review participants, licence reviewers, a future drafter
+last-updated: 2026-09-17
+canonical-ref: LICENSES/ACD-1.2-DRAFT.txt (草案) / LICENSES/ACD-1.1.txt (議論に付した確定テキスト・凍結) / LICENSES/ACD-1.1-CHANGELIST.md (1.0 → 1.1 の記録) / LICENSES/ACD-1.0.errata.md
+---
+
+# ACD-1.2 で変えるもの
+
+**この一覧は空である。空であることが現在の正しい状態であって、記録の欠落ではない。**
+ACD-1.1 は 2026-09-17 に確定・凍結し、**改善はここから先で行う。**
+
+## 入力は 3 系統ある
+
+| 系統 | どこから来るか | 行き先 |
+| :-- | :-- | :-- |
+| **届いた議論** | `license-discuss` / `license-review` のアーカイブ、off-list の往復 | 受領文は `rounds/` へ**無改変保存** → `ACD-1.0.discussion-log.md` で分解 → 帰結を本表へ |
+| **我々の掃引** | `ACD-1.1-SELF-AUDIT.md` のレンズを 1.2 草案へ当て直す | 1.0 にも在る欠陥なら `ACD-1.0.errata.md` の `E<n>`、草案だけなら SELF-AUDIT |
+| **外から届いた測り方** | オーナー経由・他の AI・法域調査など | **欠陥ではなく*次元*として受け取る**（`BLIND-SPOTS.md`）|
+
+## 表（変更が入ったらここへ足す）
+
+| 対象 | 何を変えるか | なぜ | 費用（語） | 状態 |
+| :-- | :-- | :-- | :-- | :-- |
+| — | — | — | — | **まだ 1 件も無い** |
+
+## まだ開いているもの（1.1 から持ち越し）
+
+- **E6** —— §8.4 が出力まで届くべきか。**検討して狭めないと決めた**ので、開いているのは
+  「決めていない」からではなく「決めた結果として残している」からである。
+- **E10** —— 記述子は版ごとに作るので、**版が変わるたびに閉じ直す必要がある。**
+  1.1 では `ACD-1.1.machine.json` の `reservationsAndLimits.textRedistribution` で閉じた。
+- **E11** —— §4.4 の法的説明。**唯一の外部回答待ち**（steward が自らリストへ出した問い）。
+
+## やらないと決めていること
+
+- **1.1 の本文を直さない。** 直したくなったら 1.2 で直す（Check 453 が byte を pin する）。
+- **長さを、gap を削って縮めない。** 縮小の余地は `ACD-1.1-CHANGELIST.md` §2.5〜§2.8 で
+  実測済みで、**機構部だけを削っても委員長が engage しなかった水準には届かない**。
+- **採用実績を作るためにライセンスを歪めない**（register B2）。
+
+## Constraints
+
+- **`ACD-1.0.txt` / `ACD-1.1.txt` とその記述子は編集しない**（Check 453）
+- 草案の申告語数・条数は実測と一致させる（Check 468）
+- Check 459 が索引（`LICENSES/README.md`）からの到達性を、Check 461c が `last-updated` を強制
+
+## Change impact
+
+**本表に行を足したら**、同じ変更を `ACD-1.2-DRAFT.txt` の冒頭の変更一覧にも足す。
+**片方だけ直すと、草案が自分の状態について偽を述べる**（Check 468e が errata について同じことを強制する）。
+
+## Audience-specific notes
+
+- **審査者**: 議論の対象は `ACD-1.1.txt` である。本書は**その次**に何が入るかの記録で、
+  **1.1 の本文は本書の存在によって一切変わらない。**
+- **後任 AI**: 空の表を見て「記録が無い」と読まないこと。**空が正しい状態である。**

@@ -122,7 +122,7 @@ embedding / output にまで特許許諾を及ぼす。** 射程はこの発言�
 
 ### 🔴 2026-09-14 追記 —— §15.1 が B7 を増幅する（外部レビューで初めて指摘された）
 
-**`ACD-1.1-DRAFT.txt` §15.1 はこう述べる**:
+**`ACD-1.1.txt` §15.1 はこう述べる**:
 
 > *"This Dedication is to be construed so as to give the **widest permission and the least
 > obligation** that its words allow. Where a provision is capable of more than one reading,

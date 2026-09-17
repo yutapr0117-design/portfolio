@@ -47,7 +47,7 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
 
   468. **次版の草案が、自分が何であるかを述べ、内部的に健全であること** (BLOCKING): 2026-09-10 に
        オーナーが「現行は保持、次版を作って改善し続けるのは問題ない」と述べたので
-       `LICENSES/ACD-1.1-DRAFT.txt` を置いた。**草案は 1.0 と紛らわしい** —— 同じ書式・同じ節見出しで、
+       次版の草案 (**現在は `LICENSES/ACD-1.2-DRAFT.txt`**) を置いた。**草案は確定版と紛らわしい** —— 同じ書式・同じ節見出しで、
        条番号だけが §15 以降でずれている。**読み手が取り違えると、凍結中の提出物について
        誤った条番号を引くことになる。** 3 つを強制する: **(a)** 冒頭が **NOT IN FORCE /
        NOT SUBMITTED / NOT APPLIED** を述べること、**(b)** 純 ASCII・節が連番・`Section N.M` の
@@ -568,7 +568,7 @@ def run(ctx):
     # ── 468. 次版の草案が自分を述べ、内部的に健全であること (BLOCKING) ─────────────────────
     #   草案は 1.0 と書式が同じで、条番号だけ §15 以降がずれている。**取り違えは実害を生む**
     #   (凍結中の提出物について誤った条番号を引く)。だから「自分が何か」を本文に述べさせる。
-    _dr468 = ROOT / "LICENSES" / "ACD-1.1-DRAFT.txt"
+    _dr468 = ROOT / "LICENSES" / "ACD-1.2-DRAFT.txt"
     if _dr468.exists():
         _t468 = _dr468.read_text(encoding="utf-8")
         _bad468 = []
