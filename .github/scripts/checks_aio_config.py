@@ -831,6 +831,13 @@ def run(ctx):
         import hashlib as _hl453
         _txt453 = _fz453.read_text(encoding="utf-8")
         _rows453 = re.findall(r"^([0-9a-f]{64})  (\S+)$", _txt453, re.M)
+        # **必須の下限**。ここから*外す*ことは実質的な凍結解除なので禁じる。
+        # **足すことは禁じない** —— 版が確定するたびに凍結対象は増える
+        # (`REVISION-PROTOCOL.md` §2「1.0 は永久凍結・次版は併置」)。
+        # **2026-09-17 に 1.1 を確定させたときに、集合の完全一致がその正当な追加を止めた** ——
+        # 集合を凍結していたのは「外させない」ためであって「増やさせない」ためではない。
+        # ただし**何でも足せる**ようにはしない: 追加は `LICENSES/ACD-<版>.…` の形に限る
+        # (無関係な file を凍結対象へ紛れ込ませると、その file が触れなくなる)。
         _EXPECT453 = {
             "LICENSES/ACD-1.0.txt",
             "LICENSES/ACD-1.0.spdx.xml",
@@ -838,12 +845,18 @@ def run(ctx):
         }
         _bad453 = []
         _paths453 = {_p for _, _p in _rows453}
-        if _paths453 != _EXPECT453:
+        _missing453 = sorted(_EXPECT453 - _paths453)
+        if _missing453:
             _bad453.append(
-                "凍結対象の集合が変わっている: 欠落="
-                + str(sorted(_EXPECT453 - _paths453))
-                + " / 追加=" + str(sorted(_paths453 - _EXPECT453))
-                + "。**対象を外すのは実質的な凍結解除**であり、解除は FROZEN.md の削除で表す"
+                f"凍結対象が FREEZE-DATA から外されている: {_missing453}。"
+                "**対象を外すのは実質的な凍結解除**であり、解除は FROZEN.md の削除で表す"
+            )
+        _shape453 = re.compile(r"^LICENSES/ACD-\d+\.\d+\.[A-Za-z.]+$")
+        _odd453 = sorted(_p for _p in _paths453 - _EXPECT453 if not _shape453.match(_p))
+        if _odd453:
+            _bad453.append(
+                f"凍結対象に版の成果物でない path が入っている: {_odd453}。"
+                "**凍結は版のテキストと、その版に付随する機械可読成果物についての約束**である"
             )
         for _h453, _rel453 in _rows453:
             _f453 = ROOT / _rel453
@@ -861,7 +874,7 @@ def run(ctx):
             f"Check 453: 凍結中のライセンス提出物 {len(_rows453)} 件が申請時点のまま",
             (f"Check 453: 凍結が破られている: {_bad453}。"
              "オーナーが SPDX / OSI へ申請中で、**結果を伝えるまでテキストを動かさない**という"
-             "指示のもとにある (LICENSES/FROZEN.md)。**sha256 を書き換えて Check を黙らせるのは"
+             "依頼のもとにある (LICENSES/FROZEN.md)。**sha256 を書き換えて Check を黙らせるのは"
              "凍結の趣旨に反する** —— 本文に是正すべき欠陥を見つけた場合でも、直すのではなく"
              "オーナーへ報告せよ。審査中の差し替えは、審査側が見ているテキストとの乖離を生む。"
              "解除はオーナーが結果を伝えたときに FROZEN.md を削除して行う"),

@@ -1,15 +1,15 @@
 ---
-file: LICENSES/ACD-1.1-DRAFT.txt
+file: LICENSES/ACD-1.1.txt
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人, 後任 AI
-last-updated: 2026-09-10
+last-updated: 2026-09-17
 canonical-ref: LICENSES/ACD-1.0.txt (現に効力を持つ本文・凍結) / LICENSES/ACD-1.1-CHANGELIST.md (何をなぜ変えるかの集約点) / LICENSES/ACD-1.0.errata.md (各変更が閉じる欠陥) / LICENSES/REVISION-PROTOCOL.md §2 (1.0 は永久凍結・次版は併置)
 ---
 
-# LICENSES/ACD-1.1-DRAFT.txt
+# LICENSES/ACD-1.1.txt
 
 ## What
 
-**次版 ACD-1.1 の草案。** 冒頭に **NOT IN FORCE / NOT SUBMITTED / NOT APPLIED** と自分で述べる。
+**ACD-1.1 の確定テキスト（2026-09-17 凍結）。** 冒頭に **FROZEN TEXT / NOT SUBMITTED FOR APPROVAL / NOT APPLIED TO THIS REPOSITORY** と自分で述べ、`FROZEN.md` が sha256 で pin する（Check 453）。**次版の作業場は `ACD-1.2-DRAFT.txt`。**
 **このリポジトリを覆っているのは 1.0** であり、その本文は凍結され sha256 が pin されている。
 
 第 1 段（machinery のみ）で入れた変更: §2.2 が 1.0 の §15.5 を吸収 / §2.5 圧縮 /
@@ -58,4 +58,4 @@ canonical-ref: LICENSES/ACD-1.0.txt (現に効力を持つ本文・凍結) / LIC
 
 - **審査者**: これは提出物ではない。提出物は 1.0 であり、**議論の最中に動かさない**
 - **後任 AI**: **変換は script で行い、相互参照は意味で確かめる。** 番号の一致は安全の証拠ではない
-- **監査人**: 1.0 との差分は `git diff --no-index LICENSES/ACD-1.0.txt LICENSES/ACD-1.1-DRAFT.txt` で見える
+- **監査人**: 1.0 との差分は `git diff --no-index LICENSES/ACD-1.0.txt LICENSES/ACD-1.1.txt` で見える

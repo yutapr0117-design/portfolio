@@ -43,6 +43,13 @@ decide what is worth translating, and gives you the commands to check the claims
 discussion — it is **not** the approval venue. Nothing has been submitted to `license-review`,
 and nothing has been submitted to SPDX.
 
+**ACD-1.1 was frozen on 2026-09-17** (`ACD-1.1.txt`, pinned by SHA-256 in `FROZEN.md` and
+verified in CI). It closes nineteen of the twenty-one recorded defects in ACD-1.0 and is the
+text now put forward for discussion; **work on the next version happens in `ACD-1.2-DRAFT.txt`,
+so the text under discussion does not move.** **ACD-1.0 remains frozen and remains the licence
+this repository applies** — freezing a text is a promise about its bytes, not a statement about
+which version a project uses, and the two facts are deliberately kept apart here.
+
 **How it came to be on this list.** **No submission to license-review has been made, and the text
 now frozen is not what will be submitted there.** The sequence — post to license-discuss, collect
 what the list says, fold it into a revised version, and submit **that** to license-review — is the
@@ -55,7 +62,7 @@ marked. What is our own decision is the SPDX timing: SPDX asks for substantial
 real-world use, this work has one adopter, and we are not submitting something that does not
 meet the stated bar.
 
-**A successor draft exists and is not in force.** `LICENSES/ACD-1.1-DRAFT.txt` closes seven of the recorded defects and says so in its own first line — **NOT IN FORCE, NOT SUBMITTED, NOT APPLIED TO THIS REPOSITORY**. It is mentioned here because you would find it anyway, and because the alternative reading — that we are quietly revising the text under discussion — is the one thing it must not be mistaken for. **The clause numbers differ from 1.0 after Section 15**, so a citation to 1.0 must use the 1.0 text. A CI check requires the draft to keep declaring what it is.
+**A successor draft exists and is not in force.** `LICENSES/ACD-1.1.txt` closes seven of the recorded defects and says so in its own first line — **NOT IN FORCE, NOT SUBMITTED, NOT APPLIED TO THIS REPOSITORY**. It is mentioned here because you would find it anyway, and because the alternative reading — that we are quietly revising the text under discussion — is the one thing it must not be mistaken for. **The clause numbers differ from 1.0 after Section 15**, so a citation to 1.0 must use the 1.0 text. A CI check requires the draft to keep declaring what it is.
 
 The text is **frozen** while this is open. `LICENSES/FROZEN.md` exists to say so, and
 **Check 453 in CI pins the SHA-256 of three files** (`ACD-1.0.txt`, `ACD-1.0.spdx.xml`,

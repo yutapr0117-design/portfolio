@@ -2,7 +2,7 @@
 file: LICENSES/ACD-1.1-SELF-AUDIT.md
 audience: a future 1.1 drafter, OSI license-review participants, licence reviewers
 last-updated: 2026-09-17
-canonical-ref: LICENSES/ACD-1.1-DRAFT.txt (the draft) / LICENSES/ACD-1.1-CHANGELIST.md (all other changes) / LICENSES/ACD-1.0.errata.md (defects in 1.0)
+canonical-ref: LICENSES/ACD-1.1.txt (the draft) / LICENSES/ACD-1.1-CHANGELIST.md (all other changes) / LICENSES/ACD-1.0.errata.md (defects in 1.0)
 ---
 
 # 草案を我々自身が掃引して出たもの

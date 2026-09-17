@@ -1,199 +1,41 @@
-ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
+ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
 
-  This file is the successor text under construction. The licence that actually
-  covers this repository is ACD-1.0, whose text is frozen and pinned by SHA-256
-  in LICENSES/FROZEN.md and verified in CI; nothing here changes it.
+  This file is the successor text under construction. The frozen text now put
+  forward for discussion is ACD-1.1 (LICENSES/ACD-1.1.txt), and the licence
+  that covers this repository is ACD-1.0. Both are pinned by SHA-256 in
+  LICENSES/FROZEN.md and verified in CI; nothing here changes either of them.
 
   Status of this draft, stated plainly so that nobody has to infer it:
 
-    * It has had no legal review, like 1.0.
+    * It has had no legal review, like 1.0 and 1.1.
     * It has not been posted to any list, and posting is paused (see
       LICENSES/ACD-OSI-BOTTLENECKS.md B14).
-    * Clause numbers here do NOT correspond to 1.0 after Section 15; the
-      machinery sections were shortened and renumbered. Citations to 1.0
-      must keep using the 1.0 text.
-    * What each change closes, and what it costs, is recorded in
-      LICENSES/ACD-1.1-CHANGELIST.md. Nothing is changed here that is not
-      recorded there.
+    * It is at present identical to ACD-1.1 apart from the version number and
+      the identifiers that name it. **An empty change list below means nothing
+      has been changed yet -- not that the record is missing.**
+    * Clause numbers follow ACD-1.1, not ACD-1.0. Citations to 1.0 must keep
+      using the 1.0 text, and citations to 1.1 the 1.1 text.
+    * Changes will be recorded in LICENSES/ACD-1.2-CHANGELIST.md, and defects
+      this draft introduces itself in LICENSES/ACD-1.1-SELF-AUDIT.md, which is
+      a register of our own sweeps rather than of any one version.
 
-  Changes in this draft, relative to ACD-1.0 (first pass -- machinery only):
+  Changes in this draft, relative to ACD-1.1:
 
-    * Section 2.2 absorbs the "silence does not revive anything" sentence that
-      1.0 carried as Section 15.5.
-    * Section 2.5 is compressed; the estoppel core is kept.
-    * Section 2.9 keeps the insolvency facts and drops the conclusion that the
-      instrument "is not executory" (errata E5: that classification is for the
-      forum, not for the instrument to declare).
-    * Sections 15.2, 15.3, 15.5 and 15.6 of 1.0 are gone; 15.4, 15.7 and 15.8
-      become 15.2, 15.3 and 15.4. MIT, 0BSD and the Unlicense carry none of the
-      dropped material.
-    * Section 16.4 absorbs the translation proviso that 1.0 carried as 16.5,
-      and extends the naming restriction from the single identifier "ACD-1.0"
-      to the family "ACD-N" / "ACD-N.N" (errata E14: in 1.0 a third party could
-      publish a modified text as "ACD-1.1" without touching the wording).
-    * Section 16.1's recommended notice no longer says "No rights are reserved
-      and no conditions are imposed" without qualification: it now says "no
-      rights in this work" and "no conditions ... in respect of it", and states
-      that trademarks are not granted (errata E3 and E12 -- the same sentence
-      overclaimed at both ends, and Section 11.1 has always said otherwise).
-    * Section 2.6 no longer permits a silent opt-out. A contributor may still
-      keep material out of this Dedication, but the Dedicator undertakes to
-      identify that material in a form that travels with the Work (errata
-      E16: 1.0 let a carve-out leave no trace while Section 16.2 told readers
-      the terms "apply in full", and Section 6.5 says a permission an automated
-      system cannot determine is no permission at all). The undertaking binds
-      the Dedicator, not You. **There are two ways to keep material out, and
-      the first pass of this draft closed only one of them**: a person may
-      state otherwise at the time of submission, or may mark the material as
-      not being a Contribution, which Section 1.9 excludes from the definition
-      -- so the undertaking, which spoke of "a Contribution", did not reach the
-      second route at all. Section 2.6 now names both. Section 1.9 is
-      unchanged; the definitions in this draft are still those of 1.0.
-    * Section 1 is reordered so that a reader meeting a defined term has
-      already met the terms it is built from (errata E13). Two forward
-      references remain and cannot be removed: "Work" and "Dedicator" define
-      each other, and so do "Dedicator" and "Covered Rights". **E13 said one
-      was irreducible; measuring the dependency graph shows two are.**
-      The definitions themselves are unchanged; only their order and numbers.
-    * Section 8.4 now says what it does not reach: claims that would be
-      infringed by a model or output produced without any use of the Work
-      (errata E15). The test is causation, not quantity -- a quantitative
-      threshold would be a condition, and Section 10.1 permits none. The gap
-      the Section exists to fill is untouched: a patent licence that reaches
-      models and outputs of computational use of the Work.
-    * Section 4.6 no longer restates Section 5.3 without Section 5.3's
-      qualifier. In 1.0 the restatement was exact, because neither
-      clause was qualified; this draft added "to the extent a jurisdiction
-      gives effect to such reliance" to Section 5.3 for errata E17 and left the
-      restatement standing. **The defect is one this draft created.** The
-      outcome does not change -- Section 4.6 gives three independent reasons a
-      remote recipient is not cut off, and the other two (Section 1.6 and
-      Section 2.3) carry no such qualifier -- but the reader Section 4.6 is
-      written for is exactly the remote recipient, and that reader was being
-      told the strongest of the three reasons without its limit.
-
-    * Section 10.4's second sentence is qualified "in respect of the Work", like
-      every other clause in the no-condition mesh (errata E9: Sections 10.1,
-      10.5, 11.3 and 11.4 all carry such a qualifier and only this one did not,
-      which left it reading as a claim about the document rather than about the
-      permissions in the Work).
-    * Section 6.4 says "no enforceable claim arises" instead of "is not
-      encumbered", and adds that whether a right subsists in a model or output
-      is not decided here (errata E4). The old wording could be read as denying
-      that any right subsists, which is a claim about the law rather than about
-      what the Dedicator will do -- and it sat oddly beside Section 9, which
-      exists precisely so that nobody has to decide that question.
-    * Section 11.1 now points forward to Section 10.5, so a reader who meets
-      "no right is granted in any name" before reaching Section 16 is not left
-      to reconcile it alone (errata E7: the reconciliation existed but sat
-      between the two clauses, so the order of reading decided whether it was
-      found).
-    * Section 4.4 no longer says that, where Section 3 is effective, the licence
-      "remains available to be relied upon" (errata E11). The sentence claimed
-      more than the two around it need: the licence is granted independently of
-      Section 3, and You are not required to determine whether Section 3 worked.
-      Whether a licence can operate over a right that has been surrendered is
-      the question put to the list; dropping the claim does not answer it.
-    * Section 5.3 carries the qualifier Section 12.4 already carried -- the
-      covenants bind successors "to the fullest extent the law permits the
-      Dedicator to bind them" -- and reliance by remote recipients is qualified
-      by whether a jurisdiction gives effect to it (errata E17). "Run with the
-      Work" is gone: it applied a real-property idea to an intangible and said
-      nothing the explicit binding does not. Sections 3 and 4 operate in a
-      recipient's favour independently, so the qualifier opens no hole.
-    * Section 6.3 says that where a Reservation is another rightsholder's, made
-      in exercise of rights of their own, the Dedicator has no power to withdraw
-      it and does not purport to have one; the disclaimer of reliance operates
-      in every case. Withdrawal and disclaimer are separate acts and the clause
-      had run them together.
-    * Section 16.1's notice shows the LicenseRef form for use while this
-      Dedication is not on the SPDX License List, and Section 16.2 accepts that
-      tag as notice (errata E1). Both forms are correct at different times; the
-      notice previously showed only the one that is correct after registration.
-    * Section 16.4 opens by saying that making a modified text is not
-      restricted, and that what is restricted is distributing one. The clause
-      always permitted it -- a modified text may be distributed under a
-      different name -- but a reader who stopped at the first sentence could
-      take the opposite meaning.
-    * Section 16.4 says that a faithful machine-readable re-encoding is not a
-      modified text (errata E8: the SPDX XML that registration requires carries
-      the name and the identifier while reflowing every clause, so the clause
-      as drafted forbade the artifact the process asks for). The closer's
-      pronouns were repaired at the same time: it said "They are not terms"
-      after 1.0's Sections 16.4 and 16.5 had been merged into one -- a defect
-      this draft introduced and this pass removed. **The plural is correct
-      again**, because the closer now governs two Sections again (16.4 and the
-      new 16.5); it is numbered 16.6.
-    * Section 7.2 carries the house phrase that all four clauses of Section 6
-      carry (errata E21). Section 7.2 is the operative permission of the
-      section -- "You may extract and re-utilise the whole or any substantial
-      part of the contents of the Work ... without limit and without
-      condition" -- and it named neither whose rights it spoke of nor the
-      boundary with anybody else's. **Section 7.1 does that work, but a reader
-      who has just read Section 6 has met the qualifier four times in the
-      adjacent section and does not meet it here**, and the contents of a
-      database are the place where another person's material is most likely to
-      be sitting. The same reading that errata E18 and E9 turn on -- a
-      qualifier stated everywhere but one place invites the inference that its
-      absence was meant -- applies to a permission just as it does to a
-      condition.
-    * Section 15.1's construction rule is qualified "in respect of the Work",
-      like the six clauses of the no-condition mesh. **This is errata E9's fix
-      applied to the clause E9 did not reach.** E9 qualified Section 10.4's
-      second sentence because "You" is defined as any person exercising a
-      permission under this Dedication and Section 16.4 grants a permission
-      over the text, so an unqualified sentence read as a claim about the
-      document rather than about the Work. **Section 15.1 has the identical
-      structure and was left as it was** -- which meant that the rule resolving
-      every ambiguity toward the reader also reached the one clause that
-      restricts anything, and did so against it. That matters more now than it
-      did in 1.0: Section 16.2 lets an identifier alone be sufficient notice,
-      which is only true while identifiers denote fixed texts, which is what
-      Section 16.4 exists to keep true. **The fix is one member of a set
-      checked, and the set not checked** -- the same shape as the entry above.
-    * Section 16.4 now excepts the Steward from the naming restriction, and a
-      new Section 16.5 says what "the Steward" means. **Two defects, both of
-      them made by this draft.** (1) Extending the restriction from the single
-      identifier "ACD-1.0" to the family "ACD-N" / "ACD-N.N" closed the hole a
-      third party could use -- and closed the door on this document's own
-      successor at the same time, because ACD-1.2 would be a modified text
-      distributed under a family identifier, and the clause stated its purpose
-      without creating an exception. **As it stood, the clause forbade the next
-      version of itself.** (2) The clause turned on "the steward", a role the
-      document never identified: Section 1 defines ten terms and this was not
-      one of them, and it is the only actor an operative restriction in this
-      document depends on. The definition is functional rather than a name --
-      whoever first published this text under the name and the identifier it
-      bears, and whoever that role is assigned to -- so the text still contains
-      no personal or organisational name, which is the property the submission
-      packet measures at Section 4b. Assignment follows EPL-2.0, which is
-      OSI-approved and says the steward "may assign the responsibility to serve
-      as the Agreement Steward to a suitable separate entity"; MPL-2.0 names a
-      steward without an assignment limb, and CC0, the Unlicense and Apache-2.0
-      have no steward clause at all. **This does not make the steward more than
-      one person**, which is a fact about the world and not about the text.
-    * Section 16.3 says "to any work in which they hold rights", and names whose
-      permission is not needed: the authors of this Dedication (errata E2). The
-      1.0 wording -- "to any work, without permission from ... its authors" --
-      read as an invitation to apply the notice to somebody else's work, and
-      the person harmed by that is the downstream recipient who relies on the
-      signal. Section 2.7 already made the effect honest; this makes the
-      sentence say it.
-    * 1.0: 4,896 words, 82 clauses. This draft: 5,051 words, 78 clauses.
+    * None yet.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5051 words, 78 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
-      well as the use of the Work -- examined and deliberately not narrowed) and
-      E10 (the machine-readable descriptor does not describe the one thing this
-      document restricts -- it cannot be closed until the 1.1 descriptor is
-      written). Every other entry in the errata is closed in this draft. Neither
-      of these is an oversight; each is recorded with what it would cost.
+      well as the use of the Work -- examined and deliberately not narrowed)
+      and E10 (the machine-readable descriptor; closed for 1.1 in
+      ACD-1.1.machine.json, and it must be closed again for each new version
+      because each version carries its own descriptor).
 
 --------------------------------------------------------------------------------
 
                       Autonomous Commons Dedication
-                              Version 1.1
+                              Version 1.2
 
-Short identifier: ACD-1.1
+Short identifier: ACD-1.2
 
 
 PREAMBLE (informative; not part of the operative terms)
@@ -743,17 +585,17 @@ PREAMBLE (informative; not part of the operative terms)
   16.1 To apply this Dedication, place a notice with the Work in substantially
        the following form:
 
-           This work is released under the Autonomous Commons Dedication 1.1
-           (ACD-1.1). No rights in this work are reserved and no conditions are
+           This work is released under the Autonomous Commons Dedication 1.2
+           (ACD-1.2). No rights in this work are reserved and no conditions are
            imposed in respect of it; trademarks and other rights in names are
            not granted (Section 11). Machine learning and text and data mining
            are expressly permitted, and a patent licence is granted.
            Full text: <location of this file>
-           SPDX-License-Identifier: ACD-1.1
-           (LicenseRef-ACD-1.1 while not on the SPDX License List)
+           SPDX-License-Identifier: ACD-1.2
+           (LicenseRef-ACD-1.2 while not on the SPDX License List)
 
-  16.2 Where a work is accompanied by the identifier "ACD-1.1", by an "SPDX-
-       License-Identifier: ACD-1.1" or "LicenseRef-ACD-1.1" tag, or by a
+  16.2 Where a work is accompanied by the identifier "ACD-1.2", by an "SPDX-
+       License-Identifier: ACD-1.2" or "LicenseRef-ACD-1.2" tag, or by a
        reference to this Dedication by name, that is sufficient notice
        of these terms, and the terms apply in full whether or not a copy
        of this text accompanies the work.
