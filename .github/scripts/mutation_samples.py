@@ -447,12 +447,14 @@ _MUTATIONS_TAIL.append({
 })
 
 _MUTATIONS_TAIL.append({
-    "name": "Check 467: 発信を止めたまま単一ソースだけ `active` に戻す —— 停止は 4 面に散らばっており、"
-            "**両方向に危険である**。止めたのに面が残っていなければ次のセッションが送りかねず、"
-            "再開したのにバナーが残れば送れるのに送らない。marker と面が食い違ったら必ず RED になること",
+    "name": "Check 467: 単一ソースだけ `paused` へ戻す —— 状態は面に散らばっており、**両方向に危険である**。"
+            "止めたのに面が残っていなければ次のセッションが送りかねず、再開したのにバナーが残れば"
+            "送れるのに送らない。marker と面が食い違ったら必ず RED になること。"
+            "**2026-09-17 に発信が再開したので、mutation の向きを逆にした** ——"
+            "**anchor が解決することは、正しい向きを打っている証拠ではない**",
     "file": ROOT / "LICENSES" / "FROZEN.md",
-    "find": "<!-- POSTING-STATUS: paused 2026-09-09 -->",
-    "replace": "<!-- POSTING-STATUS: active -->",
+    "find": "<!-- POSTING-STATUS: active -->",
+    "replace": "<!-- POSTING-STATUS: paused 2026-09-09 -->",
     "check": CHECK,
 })
 

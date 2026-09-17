@@ -517,19 +517,37 @@ def run(ctx):
                   blocking=True)
         else:
             _paused467 = _m467.group(1) == "paused"
-            _faces467 = (
-                ("LICENSES/ACD-1.0.submission.md", "🛑 送る前に読む", "提出パケット §B.0 の停止バナー"),
+            # **状態を述べている面は 1 つだけである。** 2026-09-17 に発信が再開したとき、
+            # 初版は 3 面すべてを「停止の記述」として扱っており、**再開するには恒久的な手続きを
+            # 削れと要求した** —— §B.0 のバナーは「**その節が AI 起草の文面であり、そのままでは
+            # 送れない**」という*成果物についての*警告で、発信が再開しても真である。
+            # ゲート 0 は「**AI は送る文面を完成品として提示しない**」という*恒久の手続き*で、
+            # **オーナーが自分の言葉で送ったことは、ゲート 0 が満たされた例であって、削る理由ではない。**
+            # **状態と手続きを 1 つの旗で表そうとしたのが誤り**だったので、面を 2 種類に分ける。
+            _status_faces467 = (
                 ("LICENSES/REVIEWERS.md", "Paused as of", "入口ページ REVIEWERS.md の Status"),
-                ("LICENSES/REVISION-PROTOCOL.md", "ゲート 0", "REVISION-PROTOCOL のゲート 0"),
+            )
+            # **状態に依らず常に在るべき面。** 消えたら RED になる (再開を理由に消されないため)。
+            _permanent_faces467 = (
+                ("LICENSES/ACD-1.0.submission.md", "🛑 送る前に読む",
+                 "提出パケット §B.0 の「そのままでは送れない」警告"),
+                ("LICENSES/REVISION-PROTOCOL.md", "ゲート 0",
+                 "REVISION-PROTOCOL のゲート 0 (AI は送る文面を完成品として提示しない)"),
             )
             _bad467 = []
-            for _rel467, _marker467, _label467 in _faces467:
+            for _rel467, _marker467, _label467 in _status_faces467:
                 _p467 = ROOT / _rel467
                 _present467 = _p467.exists() and _marker467 in _p467.read_text(encoding="utf-8")
                 if _paused467 and not _present467:
                     _bad467.append(f"{_label467} に停止の記述が無い (marker: {_marker467!r})")
                 if (not _paused467) and _present467:
                     _bad467.append(f"{_label467} に停止の記述が残っている (POSTING-STATUS は active)")
+            for _rel467, _marker467, _label467 in _permanent_faces467:
+                _p467 = ROOT / _rel467
+                if not (_p467.exists() and _marker467 in _p467.read_text(encoding="utf-8")):
+                    _bad467.append(
+                        f"{_label467} が消えている (marker: {_marker467!r})。"
+                        "**これは状態の宣言ではなく恒久の手続きである** —— 発信の再開は削る理由にならない")
             check(
                 not _bad467,
                 f"Check 467: 発信の状態 ({_m467.group(1)}) が 3 面と一致している",
