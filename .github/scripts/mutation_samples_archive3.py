@@ -158,4 +158,43 @@ MUTATIONS_ARCHIVE3 = [
     "replace": "const _probe = () => { location.href = `mailto:x@y.z?subject=${'a'}&body=${'b'}`; };\n\nexport function createApps(",
     "check": CHECK,
 },
+    {
+    "name": "Check 436: 規範層に canon が否定した「裁可待ち」型の defer 理由が再混入しても気付けなくなる —— canon を直しても下流の規範文書は自動では直らず、読み手は否定された規則を持ち帰る (2026-08-20 に research-application-policy.md で実際に起きた)",
+    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
+    "find": "## 9.",
+    "replace": "\u3053\u306e\u9805\u76ee\u306f\u30aa\u30fc\u30ca\u30fc\u304c\u88c1\u53ef\u3057\u305f\u6642\u306b\u7740\u624b\u3059\u308b\u3002\n\n## 9.",
+    "check": CHECK,
+},
+    {
+    "name": "Check 437: install の step timeout が単一ソースから外れ、赤の帰属メッセージが古い分数を出しても気付けなくなる —— このメッセージは CI が赤いときにこそ読まれるので、古い値は誤診に直結する (2026-08-20 に message だけ 8 分のまま drift していた)",
+    "file": ROOT / ".github" / "workflows" / "playwright-regression.yml",
+    "find": "INSTALL_TIMEOUT_MIN: 11",
+    "replace": "INSTALL_TIMEOUT_MIN: 14",
+    "check": CHECK,
+},
+    {
+    "name": "Check 438: 葉モジュールの docstring が宣言する export と実際の return が drift しても気付けなくなる —— 宣言されていないメンバーは「再利用してよいか」を判断する人から見えず、散文は誰も読まないので放置され続ける (2026-08-20 に抽出増分の中で 2 件同時に drift した)",
+    "file": ROOT / "js" / "settings-page.js",
+    "find": "    return { SettingsPage, getImportOptions };",
+    "replace": "    return { SettingsPage, getImportOptions, extra: 1 };",
+    "check": CHECK,
+},
+    {
+    "name": "Check 439: e2e の走査ルート一覧に存在しないハッシュが混ざる —— その entry は NotFound へ解決するため gate は淡々と緑を返し、本物のページが一度も走査されない (#96-99 の vacuous-hash class の a11y 版)",
+    "file": ROOT / "e2e" / "a11y-axe.spec.js",
+    "find": "'/#/apps/pomodoro', '/#/settings', '/#/quiz'",
+    "replace": "'/#/apps/pomodoro', '/#/apps/settings', '/#/quiz'",
+},
+    {
+    "name": "Check 440: コード側から docs/ への参照が腐る —— 「詳細はこの doc を読め」という読者の導線が行き止まりになるが、コメントなので lint も test も気付かない",
+    "file": ROOT / "playwright.config.cjs",
+    "find": "docs/files/playwright.config.cjs.md",
+    "replace": "docs/files/playwright.config.cjs.MISSING.md",
+},
+    {
+    "name": "Check 46d: JS 構文 gate が名ばかりへ戻る —— bare `node --check <file>` は ESM file の構文エラーを報告せず exit 0 するため、shipped JS 40 file 中 35 file が silent に無検査になる (2026-08-22 実測: js/brand.js に `let let = 1;` を植えても rc=0)",
+    "file": ROOT / "package.json",
+    "find": "\"lint:js\": \"node .github/scripts/check_js_syntax.mjs main.js",
+    "replace": "\"lint:js\": \"node --check main.js && node .github/scripts/check_js_syntax.mjs main.js",
+},
 ]
