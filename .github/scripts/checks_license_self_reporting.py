@@ -421,13 +421,32 @@ def run(ctx):
             _WORDS_L = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7,
                         "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13,
                         "fourteen": 14, "fifteen": 15, "sixteen": 16, "seventeen": 17,
-                        "eighteen": 18, "nineteen": 19, "twenty": 20}
-            _m_l = re.search(r"\*?\*?([A-Za-z]+|\d+)\*?\*? items are recorded", _et_l)
+                        "eighteen": 18, "nineteen": 19, "twenty": 20, "thirty": 30,
+                        "forty": 40, "fifty": 50, "sixty": 60, "seventy": 70,
+                        "eighty": 80, "ninety": 90}
+
+            def _word2int_l(_w):
+                """**綴りの上限は、Check 自身が持っていた scale 天井だった。**
+                2026-09-17 に "Twenty-one" で発火した ——正規表現 `[A-Za-z]+` が
+                **ハイフンの後ろの "one" だけを掴み、21 を 1 と読んだ。**
+                **誤りの向きが最悪** (申告が実測より小さいと「網羅していない」と自白する形になる)
+                なので、**十の位 + 一の位の合成**を扱えるようにした。"""
+                _w = _w.lower()
+                if _w.isdigit():
+                    return int(_w)
+                if "-" in _w:
+                    _a, _b = _w.split("-", 1)
+                    if _a in _WORDS_L and _b in _WORDS_L:
+                        return _WORDS_L[_a] + _WORDS_L[_b]
+                    return None
+                return _WORDS_L.get(_w)
+
+            _m_l = re.search(r"\*?\*?([A-Za-z]+(?:-[A-Za-z]+)?|\d+)\*?\*? items are recorded", _et_l)
             if not _m_l:
                 _bad460.append("errata.md: 冒頭の件数申告 (\"N items are recorded\") が見つからない")
             else:
                 _raw_l = _m_l.group(1)
-                _decl_l = int(_raw_l) if _raw_l.isdigit() else _WORDS_L.get(_raw_l.lower())
+                _decl_l = _word2int_l(_raw_l)
                 if _decl_l is None:
                     _bad460.append(f"errata.md: 件数の語 {_raw_l!r} を解釈できない")
                 elif _decl_l != _rows_l:

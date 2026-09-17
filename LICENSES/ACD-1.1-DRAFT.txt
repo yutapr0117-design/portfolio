@@ -124,6 +124,19 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       this draft introduced and this pass removed. **The plural is correct
       again**, because the closer now governs two Sections again (16.4 and the
       new 16.5); it is numbered 16.6.
+    * Section 7.2 carries the house phrase that all four clauses of Section 6
+      carry (errata E21). Section 7.2 is the operative permission of the
+      section -- "You may extract and re-utilise the whole or any substantial
+      part of the contents of the Work ... without limit and without
+      condition" -- and it named neither whose rights it spoke of nor the
+      boundary with anybody else's. **Section 7.1 does that work, but a reader
+      who has just read Section 6 has met the qualifier four times in the
+      adjacent section and does not meet it here**, and the contents of a
+      database are the place where another person's material is most likely to
+      be sitting. The same reading that errata E18 and E9 turn on -- a
+      qualifier stated everywhere but one place invites the inference that its
+      absence was meant -- applies to a permission just as it does to a
+      condition.
     * Section 15.1's construction rule is qualified "in respect of the Work",
       like the six clauses of the no-condition mesh. **This is errata E9's fix
       applied to the clause E9 did not reach.** E9 qualified Section 10.4's
@@ -166,7 +179,7 @@ ACD-1.1 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       the person harmed by that is the downstream recipient who relies on the
       signal. Section 2.7 already made the effect honest; this makes the
       sentence say it.
-    * 1.0: 4,896 words, 82 clauses. This draft: 5,038 words, 78 clauses.
+    * 1.0: 4,896 words, 82 clauses. This draft: 5,051 words, 78 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed) and
@@ -483,7 +496,8 @@ PREAMBLE (informative; not part of the operative terms)
 
   7.2  You may extract and re-utilise the whole or any substantial part of the
        contents of the Work, repeatedly and systematically, without limit and
-       without condition.
+       without condition, so far as the Covered Rights of the Dedicator are
+       concerned (Section 2.7).
 
 
 8. PATENT LICENCE AND COVENANT
