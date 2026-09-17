@@ -1,15 +1,37 @@
 ---
 file: LICENSES/REVIEWERS.md
 audience: OSI license-discuss / license-review participants, licence reviewers, anyone arriving from the mailing list
-last-updated: 2026-09-05
-canonical-ref: LICENSES/ACD-1.0.txt (authoritative text) / LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review)
+last-updated: 2026-09-17
+canonical-ref: LICENSES/ACD-1.0.txt (the text posted, and the one this repository applies) / LICENSES/ACD-1.1.txt (the frozen successor) / LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review)
 ---
 
-# Reviewing ACD-1.0 — start here
+# Reviewing ACD — start here
 
 This page is in English because the discussion is. Most of the supporting analysis in this
 directory is written in Japanese; this page tells you what each document contains so you can
 decide what is worth translating, and gives you the commands to check the claims yourself.
+
+## Which text you are looking at
+
+**There are two frozen texts, and they are frozen for different reasons.**
+
+| | |
+| :-- | :-- |
+| [`ACD-1.0.txt`](ACD-1.0.txt) | **The text posted to `license-discuss` on 2026-08-26, and the licence this repository applies.** Frozen since 2026-08-24 so that the text under discussion does not move. |
+| [`ACD-1.1.txt`](ACD-1.1.txt) | **The successor, frozen 2026-09-17.** It closes nineteen of the twenty-one defects recorded in [`ACD-1.0.errata.md`](ACD-1.0.errata.md). It has **not** been submitted to `license-review` and is **not** applied to this repository. |
+
+**Work on the next version happens in [`ACD-1.2-DRAFT.txt`](ACD-1.2-DRAFT.txt)**, so neither
+frozen text moves while it is being discussed. Both are pinned by SHA-256 in
+[`FROZEN.md`](FROZEN.md) and checked in CI; the command to verify that is below.
+
+**Clause numbers do not transfer cleanly between the two, and this matters when you read the
+analysis below, which is written against 1.0.** Measured, not assumed:
+
+- **§1 to §14 — every clause number means the same thing in both texts.** Most citations on
+  this page (§4.4, §6, §8.4, §9, §10.1) are therefore good for either.
+- **§15 and §16 were shortened and renumbered.** 1.0's §15.5–§15.8 have no counterpart in 1.1,
+  and the meaning of §15.2–§15.4 and of §16.4–§16.6 differs between the two. **A citation to
+  §15 or §16 has to name the version.**
 
 ## In one screen
 
