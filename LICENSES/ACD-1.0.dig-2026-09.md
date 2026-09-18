@@ -305,5 +305,9 @@ suitable for **model parameters**, but **that does not apply to code or model ar
 3. **語が無いことは、効果が無いことではない。** MIT や 0BSD は "sui generis" と書かずに
    *"deal in the Software without restriction"* と書く ——**広い文言が黙示に及ぶ**という読みは成り立つ。
    **測ったのは*明示*の有無であって、*効果*の有無ではない。**
+   **⚠ 2026-09-18 追記 —— この読みは実際に狭まった。** grant 条項を逐語で当てると、
+   **`CAL-1.0` §3.1(a) は *"non-patent intellectual property laws of any jurisdiction"* に及び、
+   database 権にも届く**（`comparison.md` §1.96）。**したがって「承認済みに database 権へ届くものは無い」は偽**であり、
+   **正しくは「条件ゼロで届くものが無い」**である。**この節の 0 という数字は変わらないが、そこから引ける結論は変わった。**
 4. **ACD は承認されていない**ので、**今日この slot を埋められない。** これは循環であり、
    **「承認が要る理由」にはなっても「承認すべき理由」にはならない**（Q32d が既に述べた線引き）。
