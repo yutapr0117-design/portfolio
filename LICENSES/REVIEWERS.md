@@ -38,12 +38,22 @@ analysis below, which is written against 1.0.** Measured, not assumed:
 - **What it is.** A dedication of copyright and neighbouring rights to the public, **plus a
   licence granted independently of it** (§4.4), for works meant to be learned from. One file,
   16 sections, no placeholders.
-- **The gap it claims, in one sentence.** The approved licences that impose **no conditions**
-  (the Unlicense, 0BSD, MIT-0) say **nothing** about machine learning; the machine-learning
-  licences brought to this list have, so far, **added conditions**, and that is where each has run
-  into the OSD. **ACD-1.0 is the intersection** — no condition of any kind (§10.1), *and* explicit
-  about training, models and outputs (§6, §8.4, §9). **Both halves are checkable**: the string
-  measurement across all 149 approved texts is a command below; the other half is the text itself.
+- **The gap it claims, in one sentence.** **No OSI-approved instrument grants all three of these
+  at once**: (i) a grant that expressly reaches **non-copyright rights in data** — the EU sui generis
+  database right and its own verbs, *extraction* and *re-utilisation*; (ii) a **patent licence that
+  survives the transformation of the work into a model** and its outputs; and (iii) **no condition
+  on you at all**. Two of the three exist in several places; the three together do not.
+  **This is checkable from the grant clauses themselves**, not from what the texts omit:
+  Apache-2.0 §2 calls itself a *"copyright license"* and its §3 patent grant is bounded by *"the
+  Work"*; 0BSD and the Unlicense enumerate copyright verbs (the Unlicense dedicates *"copyright
+  interest"* in terms); CAL-1.0 §3.1(a) **does** reach *"non-patent intellectual property laws of
+  any jurisdiction"* — but it is conditioned on its §4, and its patent grant expressly excludes
+  claims infringed only *"by combination"*. The clause-by-clause comparison is
+  [`ACD-1.0.comparison.md`](ACD-1.0.comparison.md) §1.96.
+  **What this does not claim**: MIT's *"deal in the Software without restriction"* may well reach
+  those rights by implication. The argument is that it is **left to interpretation**, and §6.5 of
+  this text holds that a permission an automated system cannot determine is, for a work meant to be
+  learned from, no permission at all. **That is a design argument, not a legal opinion.**
 - **The same gap, in detail.** No approved licence does these three together: expressly permits machine
   learning and text-and-data-mining and makes no reservation (§6); grants a patent licence that
   reaches **models and outputs** of computational use (§8.4); and makes your permissions

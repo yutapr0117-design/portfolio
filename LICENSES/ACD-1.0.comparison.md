@@ -693,3 +693,57 @@ rule of thumb であって規則でもない。**
 **Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
 the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
 verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against approving this.
+
+## 1.96 gap を「語の不在」から「法的効果の不在」へ移した —— 承認済み instrument の grant を逐語で当てた（2026-09-18）
+
+**これまでの gap 論証は語の不在に寄っていた**（§1.95 の実測: 承認済み 141 本に "sui generis" / TDM /
+machine learning が **0 件**）。**その caveat は我々自身が同じ節に書いている** ——
+***語が無いことは、効果が無いことではない。*** MIT の *"deal in the Software without restriction"* が
+黙示に及ぶ、という読みは成り立つ。
+
+**だから grant 条項を逐語で読んだ。** OSI の承認基準は「既存で埋まらない gap」を要求し、
+**承認された新規 instrument の実例（OSC License v1）は、gap を *1 条・1 法域* の具体で述べている**
+（`review-corpus.md` §1.69）。**我々も同じ粒度まで降りる。**
+
+### 逐語（SPDX の canonical text・2026-09-18 取得）
+
+| instrument | grant の文言 | 射程 |
+| :-- | :-- | :-- |
+| **MIT / MIT-0** | *"to deal in the **Software** without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell"* | **広いが、権利の種類を名指ししない。** 非著作権の権利に及ぶかは**解釈**である |
+| **0BSD** | *"Permission to **use, copy, modify, and/or distribute** this software for any purpose"* | **著作権の動詞を列挙している。** *extraction* / *re-utilisation* は無い |
+| **Unlicense** | *"dedicate any and all **copyright interest**"* ＋ fallback で *"to use, copy, modify, publish, distribute"* | **自ら「copyright interest」と限定している** |
+| **Apache-2.0 §2** | *"**copyright license** to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work"* | **明示的に copyright license である** |
+| **Apache-2.0 §3** | *"patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer **the Work**"*、かつ *"necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with **the Work**"* | **Work に限定。** 訓練で生じたモデル・出力には届かない |
+| **CAL-1.0 §3.1(a)** | *"Take any action with the Work that would infringe the **non-patent intellectual property laws of any jurisdiction**"* | **非特許 IP 全般に及ぶ** ——**database 権にも届く。ただし §3.1 は「§4 の遵守を条件とする」** |
+| **CAL-1.0 §3.1(b)/§3.2(a)** | claims *"embodied in the Work as distributed by Licensor"*、かつ **combination で初めて侵害されるクレームは明示的に除外** | **モデル（＝他要素との結合）には届かない** |
+
+### そこから出る gap —— 1 文で述べられる
+
+> **OSI が承認した instrument の中に、(i) データについての非著作権の権利へ*明示的に*及ぶ grant と、
+> (ii) 著作物がモデルへ変換された後も残る特許許諾と、(iii) 受領者への条件ゼロ、
+> の 3 つを同時に満たすものは無い。**
+
+**3 つのうち 2 つまでは存在する。**
+
+- **条件ゼロで広い**（0BSD / MIT-0 / Unlicense）——しかし **grant は著作権の語彙で書かれ、特許が無い。**
+- **非著作権の権利に届く**（CAL-1.0）——しかし **条件が重く**、**特許は結合を明示的に除外する。**
+- **特許がある**（Apache-2.0）——しかし **copyright license と自称し**、**特許は Work に限定される。**
+
+**ACD はこの 3 つを同時に満たす**（§1.5 が Covered Rights に sui generis database 権を含め、
+§7 がその行為の語（*extract / re-utilise*）で許し、§8.4 がモデル・パラメータ・出力へ届き、
+§10.1 が条件を置かない）。
+
+### ⚠ 逆側 —— この節が establish しないこと（同じ重さで書く）
+
+1. **MIT の *"without restriction"* が非著作権の権利に及ぶ、という読みは十分に成り立つ。**
+   **我々は「及ばない」と主張していない。** 主張しているのは **「明示されていないので解釈になる」**
+   ことだけで、**§6.5 の基準（自動化システムが判定できない許諾は許諾ではない）に照らすと
+   解釈に委ねること自体が費用になる**、という位置づけである。**これは法的主張ではなく設計上の主張である。**
+2. **0BSD / Unlicense の読みは、我々の逐語読解であって法律意見ではない。**
+   **「著作権の動詞しか書いていないから database 権に及ばない」は、争える読みである。**
+3. **CAL-1.0 は非著作権 IP に届く。** したがって **「承認済みに database 権へ届くものは無い」は偽**であり、
+   **正しくは「条件ゼロで届くものが無い」**である。**この訂正は §1.95 の読みを狭める。**
+4. **3 つを同時に満たす必要があること自体は、まだ実需で示されていない**（register B2）。
+   **gap の存在と、その gap を埋める需要の存在は別である。**
+5. **法律家のレビューを代替しない。** ここで行ったのは**条文の文言の比較**であって、
+   各法域での効果の判定ではない。
