@@ -317,6 +317,50 @@ impossible to determine whether or not it complies with the OSD"* と**同じ構
 **カテゴリは否決の道具としてではなく、承認の粒度として使われている。**
 **⚠ 逆側**: §8.1 が示すとおり、**同じ分類感覚が却下側にも働く**（*redundant* / *duplicative*）。
 
+### 8.6 🔴🟢 **0BSD の決定記録を読んだ —— #84 が引いている当のライセンスである**
+
+**`board_minutes` が指す 2015-10-14 の議事録は、0BSD（提出時の名は Free Public License 1.0.0・
+提出 2015-08-30 / 承認 2015-10-14）の審議そのものである。** 逐語:
+
+> **Free Public License** Similar to CC0, getting at quasi-public domain, where there is a license
+> with no conditions **Cannot be argued to violate OSD, appears more permissive that MIT**, i.e.
+> no copyright notice required nor required to include license text. Review has focused about
+> issues from a policy perspective: requireing preservation of copyright licenses and text.
+> **Without such, users would not know who copyright holder is.** One benefit is that it
+> **re-uses existing lanuage from existing and understood licenses (basically the ISC License)**.
+> **This might be a thought experiment–is it really going to be used?**
+> **Essentially the same as the WTFPL license.** **Should we consider criteria for use when
+> assessing licenses.**
+
+> Motion (Ricard): **Approve Free Public License 1.0.0** Second (Simon). … **Vote: 8 Yes; 0 No; 0
+> Abstain.** **NOTE: we will have a review done to assess potencial harm to open source community
+> with such a format.**
+
+**（原文ママ。綴りの誤りも含めて直していない。）**
+
+**有利な点が 3 つある。**
+
+1. **条件を課さないライセンスについて、理事会自身が
+   *"Cannot be argued to violate OSD, appears more permissive that MIT"* と述べている。**
+   **notice の保持を要求しないこと**まで名指ししたうえでの評価である ——
+   `submission-reference.md` §3b が「実際に争われるのは OSD 7 だ」と書いた当の点に、
+   **理事会側の言明が在る。**
+2. **同じ席で *"Essentially the same as the WTFPL license"* と言われながら承認されている。**
+   **2009 年に却下された WTFPL との違いは、条文が献呈ではなく*ライセンス*として書かれていることである**
+   （§8.1）。**ACD の §3 / §4 の並存は、この 2 つの記録の差そのものに当たる。**
+3. **「本当に使われるのか」は問われ、そして承認を止めていない**（B2）。
+   *"This might be a thought experiment–is it really going to be used?"*
+
+**不利な点も同じ席に在る。**
+
+1. *"Without such, users would not know who copyright holder is."* ——**notice を要求しない設計の費用**を
+   理事会が明示している。**ACD §10.2 はさらに踏み込んでいる**（`against.md` の OSD 7 の項）。
+2. *"Should we consider criteria for use when assessing licenses."* ——**2015 年に蒔かれたこの問いが、
+   2025-07-18 の *"should the LC reject a license proposal that is valid but is not in use anywhere?"*
+   へ育っている**（§2）。**B2 は 10 年かけて重くなった。**
+3. **NOTE が付いている** ——*"we will have a review done to assess potencial harm … with such a format"*。
+   **承認は、この形式への留保つきで出ている。**
+
 ## 7. この文書が establish しないこと
 
 - **公開分が不完全**なので、上の件数は「公開されている範囲で」に限られる。**母数は分からない。**
