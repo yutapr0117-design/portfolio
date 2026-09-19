@@ -43,6 +43,13 @@ analysis below, which is written against 1.0.** Measured, not assumed:
   database right and its own verbs, *extraction* and *re-utilisation*; (ii) a **patent licence that
   survives the transformation of the work into a model** and its outputs; and (iii) **no condition
   on you at all**. Two of the three exist in several places; the three together do not.
+  **Measured over the whole approved list rather than over comparators we chose**: of the
+  **141 licences SPDX marks OSI-approved and not deprecated, exactly three impose no condition
+  on the licensee** — **0BSD, MIT-0 and the Unlicense** — and **none of those three contains the
+  word *patent* at all**, while the Unlicense limits itself in terms to *"any and all
+  **copyright** interest"*. The census, its method, and the two places where an English-keyword
+  count got it wrong (a German text and a French one) are in
+  [`ACD-1.0.comparison.md`](ACD-1.0.comparison.md) §1.97.
   **This is checkable from the grant clauses themselves**, not from what the texts omit:
   Apache-2.0 §2 calls itself a *"copyright license"* and its §3 patent grant is bounded by *"the
   Work"*; 0BSD and the Unlicense enumerate copyright verbs (the Unlicense dedicates *"copyright
