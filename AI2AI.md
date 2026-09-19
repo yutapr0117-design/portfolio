@@ -851,6 +851,34 @@ probe は All 364 caught。** **そして同日夜、オーナーが「現行は
 - **英語の入口が「承認を塞いでいるもの」の一覧を指していなかった**（#181・30 file 中 16 しか名指ししていない）。
   **#58 の 1 歩外側** ——過少申告ではなく、**そもそも指していない**。
 
+- **4 つ目の source type を開いた —— 権威の GitHub org と、そこから辿れる決定の記録。**
+  `https://opensource.org/api/licenses` が **提出日・承認日・提出メールの URL・決めた回の議事録**を持つ
+  （`review-rules.md` §1.102。提出→承認は**中央値 83 日** n=60。**⚠ 承認された提出だけの母集団**で、
+  `approved` の boolean は 7 件しか true でない ——**権威が公開していても中身は自動的に正しくない**）。
+  **その `board_minutes` を辿ると、理事会議事録は 2005 年から 36 回開く** ——
+  1 週間前に我々は索引を読んで「公開分は 12 回」と書いていた。
+  **索引に載っていないことは、公開されていないことの証拠ではない。**
+- **🔴 そこに、我々の類型の却下と承認が両方在った。**
+  **WTFPL（2009-03-04・却下）**: *"It's no different from dedication to the public domain … author is
+  free to make public domain dedication"* ——**理由は条文の質ではなく「それは献呈であって、
+  自分でできる」。そして同じ 4 行に *"public domain doesn't exist in Europe"* がある**（#182）。
+  **0BSD（2015-10-14・承認 8-0）**: 同じ席で *"Essentially the same as the WTFPL license"* と言われ、
+  *"is it really going to be used?"* と問われながら承認され、
+  **条件を課さない形について *"Cannot be argued to violate OSD, appears more permissive that MIT"*** と
+  述べられている（§8.6）。**2 つの記録の差は、献呈として書くか、ライセンスとして書くかである。**
+  **ACD の §3 / §4 の並存は、その差そのものに当たる。**
+- **🔴 長さは決定を生む**（#183）。2017 秋の理事会は NOSA 2.0 について
+  *"in view of the length, complexity, and ambiguities … cannot be assured … neither approve nor
+  reject"* と決議した。**B3 / B13 が抽象的な懸念でないことの実例で、Project Tick GPL と合わせて橋は 2 本。**
+- **🔴 #184**: 我々は「既存 6 本と 8 語連鎖ゼロ」を**強み**として記録しているが、
+  理事会は 0BSD を承認する席で**逆**を利点に挙げていた（*"re-uses existing lanuage from existing and
+  understood licenses"*）。**両方とも真で、別の問いへの答えである。我々は前者だけを記録していた。**
+- **我々の 3 大ボトルネックは 2005 年の「3 つの追加テスト」だった**（§8.7）——
+  *"a. Uniqueness b. Re-useable c. Readibility"*。**OSD に入れるかは未決のまま「推奨」に落ちた。**
+  **非増殖の成文規則が無いことは 2013 年に委員長が述べており、13 年後も公表されていない**（§8.8）。
+  **カテゴリは棚であって門である**（§8.10・2024-09-20 に *Redundant with More Popular* と
+  *Non-Reusable* の両カテゴリで承認が出ている）。
+
 ### 運用メモ
 
 `AI2AI.md` が 972 行（BLOCKING 1,000）に達したため、**Session Record #26–#30 を
