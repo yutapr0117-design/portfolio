@@ -173,7 +173,16 @@ def present(quote, blob):
 
 
 def needed_months(missing, root="."):
-    """未確認の引用の近傍にある日付から、取得すべき月を導出する。"""
+    """未確認の引用の近傍にある日付から、取得すべき月を導出する。
+
+    **近傍は「前後数行」ではなく「その引用が属する節」である。** 2026-09-20 に、
+    正しく逐語である引用が 2 件「未確認」として残った ——Pamela Chestek 氏の
+    2024-03-14（日付は 20 行上の表に在る）と Simon Phipps 氏の 2018-10
+    （日付は 30 行上の節見出しに在る）。**どちらもアーカイブに実在し、逐語でも一致した。**
+    窓が 4 行だったので、道具は「取りに行くべき月」を導出できず、
+    **結果は「誤引用かもしれない」と読める形で出ていた。**
+    ——**検出器が 0 を返したら、まず当て方を疑う。**
+    """
     need = collections.Counter()
     for locs in missing.values():
         for loc in locs:
@@ -183,14 +192,51 @@ def needed_months(missing, root="."):
             except OSError:
                 continue
             i = int(ln)
-            ctx = " ".join(lines[max(0, i - 4):i + 3])
+            # 直上の見出しまで遡る（節の中の日付は、その節の引用すべてに効く）。
+            start = 0
+            for j in range(min(i, len(lines)) - 1, -1, -1):
+                if lines[j].startswith("#"):
+                    start = j
+                    break
+            ctx = " ".join(lines[start:i + 3])
             for y, mm in re.findall(r"(20\d\d)-(\d\d)", ctx):
                 if 1 <= int(mm) <= 12:
                     need[(y, MONTHS[int(mm) - 1])] += 1
     return need
 
 
-def fetch(months, limit=30):
+def needed_years(missing, root="."):
+    """年しか書かれていない引用のために、その年の全月を候補にする。
+
+    **月が導出できないのは引用の欠陥ではなく、我々の書き方の性質である。**
+    節に `YYYY` しか無ければ、その年の 12 か月を候補に入れる。
+    """
+    need = collections.Counter()
+    for locs in missing.values():
+        for loc in locs:
+            fname, _, ln = loc.partition(":")
+            try:
+                lines = open(f"{root}/LICENSES/{fname}", encoding="utf-8").read().split("\n")
+            except OSError:
+                continue
+            i = int(ln)
+            start = 0
+            for j in range(min(i, len(lines)) - 1, -1, -1):
+                if lines[j].startswith("#"):
+                    start = j
+                    break
+            ctx = " ".join(lines[start:i + 3])
+            for y in set(re.findall(r"\b(20[12]\d)\b", ctx)):
+                for m in MONTHS:
+                    need[(y, m)] += 1
+    return need
+
+
+def fetch(months, limit=200):
+    """**上限は「取りに行かなかった月」を作る。** 既定が 30 だった間、導出された月の裾は
+    静かに落ち、その月から引いた引用は「未確認」として残った ——
+    **未取得と誤引用が同じ欄に出る。** 月の総数は導出結果で頭打ちになるので、
+    実質的に全件を取りに行く値にしてある。"""
     os.makedirs(CACHE, exist_ok=True)
     got = 0
     for (y, m), _ in months.most_common(limit):
@@ -227,6 +273,16 @@ def main():
         blob = load_sources(args.root)
         miss = {q: v for q, v in miss.items() if not present(q, blob)}
         print(f"  再照合後: 確認できた {len(quotes) - len(miss)} / 確認できない {len(miss)}")
+        # **2 巡目は年で取る。** 月の導出は「節の中に `YYYY-MM` が書いてあること」に依存するが、
+        # ドシエは *"submitted later that year"* のように**年しか書いていない**箇所がある
+        # （2026-09-20 実測: Open Constitution License の引用がこれで永久に未確認だった）。
+        # **書き手が月を書かなかったことが、道具の側では「出典に当たれていない」として出る。**
+        if miss:
+            n2 = fetch(needed_years(miss, args.root))
+            print(f"  年単位でさらに {n2} file 取得して再照合")
+            blob = load_sources(args.root)
+            miss = {q: v for q, v in miss.items() if not present(q, blob)}
+            print(f"  再照合後（年単位）: 確認できた {len(quotes) - len(miss)} / 確認できない {len(miss)}")
 
     # **残差を 2 つに割る。** 外部で確認できなかったもののうち、**自分の成果物に在る**ものは
     # 外部照合の対象ではない（自己引用）。**残りだけが「出典に当たれていない引用」である。**
