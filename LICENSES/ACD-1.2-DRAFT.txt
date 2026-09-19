@@ -31,7 +31,17 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       contributor agreement -- which is most institutionally backed projects,
       the adopters this instrument most lacks. The half worth keeping is kept:
       nothing further is needed to place a Contribution under this Dedication.
-    * ACD-1.1: 5051 words, 78 clauses. This draft: 5063 words, 78 clauses.
+    * Section 2.8 no longer says that a transferee "may not make a Reservation
+      in respect of the Work" (errata E23). The same sentence already binds
+      Section 6 to transferees, and Section 6.2 has the Dedicator make no
+      Reservation and decline to make one while Section 6.3 withdraws any that
+      exists and disclaims reliance on it -- so the prohibition added nothing
+      the binding did not already do. What it did add was a rule about whether
+      a different rightsholder may perform a statutory act, which is not this
+      document's to decide (the reasoning of errata E5), and a named
+      prohibition on the transferee alone, which invites the reading that the
+      Dedicator may do what the transferee may not.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5055 words, 78 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -196,9 +206,9 @@ PREAMBLE (informative; not part of the operative terms)
   2.8  Sections 3, 4, 6, and 8 bind the Dedicator's successors, assigns, heirs,
        and personal representatives, and any person to whom a Covered Right or
        a patent claim in the Work is transferred, to the fullest extent the law
-       permits. A transferee takes subject to them, and may not make a
-       Reservation in respect of the Work. This is stated expressly because
-       Sections 5.3 and 12.4 say as much for the covenants they contain, and
+       permits. A transferee takes subject to them, Section 6 included. This
+       is stated expressly because Sections 5.3 and 12.4 say as much for the
+       covenants they contain, and
        silence here would invite the argument that the grants themselves stop
        at the Dedicator, which would leave the longest-lived risk, the change
        of hands, open.

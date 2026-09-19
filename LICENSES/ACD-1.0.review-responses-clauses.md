@@ -851,3 +851,38 @@ ACD はどちらも構造的に回避しているが、**回避しているこ�
 **Lost?** [`QUESTION-INDEX.md`](QUESTION-INDEX.md) indexes every worked entry in this directory by
 the question it answers. [`AS-OF.md`](AS-OF.md) lists which claims about the outside world were
 verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against approving this.
+
+### Q33. §1.4（1.1 以降は §1.6）——なぜ機械が「You」なのか。法人格の無いものを licensee にする必要があるのか
+
+**この問いには答えが用意されていなかった。** 2026-09-19 に `automated` / `legal person` で
+ドシエ全体を検索すると、**この構造を説明した箇所は 1 つも無かった**（引用としての出現のみ）。
+**明らかに来る問いに答えが無い状態**だったので、ここに置く。
+
+> **The automated system is not a rights-holder, and this text does not make it one.**
+>
+> The definition says that "You" may be human, organisational, or automated, and then places
+> the permission in a legal person: where an automated system exercises a permission, that
+> permission is granted **equally to the person or entity on whose behalf it acts and to the
+> person or entity that operates it**. Both of those are legal persons. Nothing is granted to
+> a machine that is not simultaneously granted to a person.
+>
+> The word "automated" earns its place in one narrow way. This is a licence for works that are
+> meant to be read and used by machines, and a great deal of that use happens with no human in
+> the loop at the moment of use — a crawler fetches, a pipeline extracts, a training run
+> consumes. **The clause exists so that nobody can argue that a permission failed at the moment
+> it was exercised because the actor was not a person.** It is belt and braces, not a theory of
+> machine personhood.
+>
+> **What it would cost to remove it.** The second sentence would still place the permission in
+> the operator and the principal, so the practical effect is the same. What would be lost is
+> the answer to the argument itself — and that argument is cheap to make and expensive to
+> rebut once a dispute has started.
+
+**⚠ この問答が establish しないこと**: **機械が権利を持ちうるか**という問いには触れていない。
+§9 が「権利が存在するかは決めない」と述べているのと同じ姿勢で、ここでも決めない。
+**述べているのは、許諾が人に置かれている、ということだけである。**
+
+**⚠ 逆側（外部レビューの指摘を退けたのではない）**: **「削れば意味をほぼ失わず clarity を上げられる」
+という読みは成り立つ。** 我々が採らなかったのは、**失うのが効果ではなく*答え*だから**である ——
+条文を削ると、この問答が守っている当の議論に対して、条文の側に手がかりが無くなる。
+**この判断は、条文を短くする圧力（B3）と正面から衝突している。記録して残す。**
