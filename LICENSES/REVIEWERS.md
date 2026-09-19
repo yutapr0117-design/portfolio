@@ -158,8 +158,8 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
-| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 277 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 180 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
+| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 278 worked entries, indexed by the question rather than the filename |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 181 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 30 known imprecisions, all unrepaired while the freeze holds, with what 1.1 would do |
 | Known weaknesses, longer form | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) | Stated by us, before you have to find them |
@@ -233,6 +233,7 @@ them and would have sent a reviewer away from material they can read.
 | [`ACD-1.0.faq.md`](ACD-1.0.faq.md) | Mixed; each answer has an English block | Practical questions from the adopter's side (SPDX notation, scanners, explaining it to a legal team, academic use, consumer-law limits) |
 | [`ACD-1.0.review-responses.md`](ACD-1.0.review-responses.md) | Mixed; **every answer is given in English**, with Japanese notes on why it is phrased that way | Anticipated objections: the four weaknesses stated first, then OSD clause by clause |
 | [`ACD-1.0.review-responses-clauses.md`](ACD-1.0.review-responses-clauses.md) | **English** | Anticipated objections at the clause level |
+| [`ACD-1.0.review-responses-boilerplate.md`](ACD-1.0.review-responses-boilerplate.md) | **English** | Anticipated objections to the boilerplate and construction provisions — whether a court will give them the effect they claim |
 | [`ACD-1.0.review-responses-meta.md`](ACD-1.0.review-responses-meta.md) | Mixed; answers in English | Objections about the instrument's provenance, name, stewardship, versioning and machine-readability |
 | [`ACD-1.0.discussion-log.md`](ACD-1.0.discussion-log.md) | Japanese | Reserved for **actual** feedback once it arrives. Deliberately not filled with guesses |
 
@@ -244,6 +245,28 @@ reference and the jurisdiction map.
 If something you need is only in Japanese and matters to your review, say so on the list and it
 will be translated. Nothing here is withheld — the language is an artefact of who wrote it, not
 a choice about who should read it.
+
+### The rest of the directory, in one line each
+
+The table above is where to start. It is not the inventory, and until 2026-09-20 this page did
+not mention the following files at all — including the register of what we believe stands
+between this instrument and approval, which is the most self-critical thing here.
+
+| File | Language | What is in it |
+|---|---|---|
+| [`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) | Japanese | **The register of what we think blocks approval** — fourteen entries with severity, who can move each, and none marked resolved |
+| [`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) | Japanese | The entries whose answer is not ours to give (legal review, adoption, the gap question, the moderator decision) |
+| [`ACD-1.0.review-precedents.md`](ACD-1.0.review-precedents.md) | Japanese, quoting English verbatim | What this list has actually done to submissions of our shape, read from the archives |
+| [`ACD-1.0.review-corpus.md`](ACD-1.0.review-corpus.md) | Japanese, quoting English verbatim | Measurements over the archives as a whole, as distinct from readings of single threads |
+| [`ACD-1.0.review-rules.md`](ACD-1.0.review-rules.md) | Japanese, quoting English verbatim | The OSI's own published pages, read at source and applied criterion by criterion |
+| [`ACD-1.0.board-decisions.md`](ACD-1.0.board-decisions.md) | Japanese, quoting English verbatim | The board's published minutes — where decisions are recorded, which the mailing list does not record |
+| [`ACD-1.0.reviewer-positions.md`](ACD-1.0.reviewer-positions.md) / [`ACD-1.0.review-labels.md`](ACD-1.0.review-labels.md) | Japanese | Positions taken by named participants, and the labels this list uses for licences like this one |
+| [`AUDIT-LEDGER.md`](AUDIT-LEDGER.md) | Japanese | How each class of claim in this dossier was verified, with the counts and the residue |
+| [`BLIND-SPOTS.md`](BLIND-SPOTS.md) | Japanese | The dimensions we have used to look for our own defects, and the ones we have not |
+| [`PEER-REVIEW-WATCH.md`](PEER-REVIEW-WATCH.md) | Japanese | Contemporary instruments under review, and what we would change if each is approved, rejected, revised or stalls |
+| [`ACD-1.1-CHANGELIST.md`](ACD-1.1-CHANGELIST.md) / [`ACD-1.2-CHANGELIST.md`](ACD-1.2-CHANGELIST.md) | Japanese | What each successor draft changes, and why, one erratum at a time |
+| [`ACD-1.1-SELF-AUDIT.md`](ACD-1.1-SELF-AUDIT.md) | Japanese | Defects the successor drafts introduce themselves |
+| [`ACD-1.0.dig-2026-09.md`](ACD-1.0.dig-2026-09.md) | Japanese | The record of one archive excavation, kept because the method is reusable |
 
 ## What is not being asked for
 
