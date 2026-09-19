@@ -566,11 +566,23 @@ def run(ctx):
         # 非 ASCII が 1 文字あるだけで latin-1 系の環境で mojibake になり、byte 比較にも
         # 正規化の議論が要る。2026-08-24 に em dash 3 箇所を ASCII へ置換して純 ASCII 化した
         # (英語としても non-restrictive clause なのでカンマの方が自然だった)。
-        _nonascii441 = sorted({_c for _c in _src441 if ord(_c) > 127})
+        # **⚠ 2026-09-20: 対象を 1.0 決め打ちから `LICENSES/ACD-*.txt` の導出へ変えた。**
+        # CLAUDE.md §7 は **「次版が現れた時点で `LICENSES/ACD-*.txt` を対象に強制する余地がある」**
+        # と 2026-09-06 に書いていた。**次版は 2 つ現れている**（1.1 は凍結・1.2 は作業中で、
+        # 本日だけで 3 回編集した）。**提出パケット §4b の主張は「提出する版」について真で
+        # なければならず、1.0 についてだけ守っても意味がない。**
+        # **実測で 3 版とも clean** なので、これは是正ではなく**動く対象への予防**である。
+        _versions441 = sorted(_lic441.glob("ACD-*.txt")) if (_lic441 := ROOT / "LICENSES").exists() else []
+        _bad441f = {}
+        for _vp441 in _versions441:
+            _vt441 = _vp441.read_text(encoding="utf-8", errors="replace")
+            _na441 = sorted({_c for _c in _vt441 if ord(_c) > 127})
+            if _na441:
+                _bad441f[_vp441.name] = _na441[:8]
         check(
-            not _nonascii441,
-            "Check 441f: ACD-1.0 本文が純 ASCII (あらゆる符号化のファイルへ埋め込める)",
-            (f"Check 441f: ACD-1.0 本文に非 ASCII 文字がある: {_nonascii441[:8]}。"
+            not _bad441f,
+            f"Check 441f: ACD 各版の本文が純 ASCII ({len(_versions441)} 版・あらゆる符号化のファイルへ埋め込める)",
+            (f"Check 441f: ACD 本文に非 ASCII 文字がある: {_bad441f}。"
              "本文は**あらゆる符号化のファイルへ埋め込まれる**ことを前提にした資産で、"
              "非 ASCII が 1 文字あるだけで latin-1 系の環境で mojibake になり、byte 比較にも"
              "正規化の議論が要る。ASCII の等価表現へ置換せよ"),
@@ -582,8 +594,8 @@ def run(ctx):
         # ない」と**条文で主張している**。SPDX の inclusion principles も「特定のプロジェクト・
         # 団体・企業に固有でないこと」を要件にする。主張と実態が乖離すれば、提出はその一点で
         # 崩れる。プロジェクト固有の記述は `LICENSE` 側 (適用の宣言) が持つ。
-        _proj441 = []
-        for _pat441, _label441 in [
+        _proj441 = {}
+        _pats441 = [
             (r"portfolio", "プロジェクト名"),
             (r"Yokoi|Yuta|\u6a2a\u4e95", "個人名"),
             (r"https?://", "URL"),
@@ -595,13 +607,17 @@ def run(ctx):
             # コマンド検証止まりだった** (2026-09-06 実測)。片側だけ機械強制されている状態は、
             # 文書が「CI では強制していない」と書く根拠にもなっていた (#72)。
             (r"<[a-zA-Z]+>|\[year\]|\[name\]|YYYY|__[A-Z]+__|\{\{", "置換テキスト"),
-        ]:
-            if re.search(_pat441, _src441, re.I):
-                _proj441.append(_label441)
+        ]
+        # **441g も同じ理由で全版へ広げた**（上の 441f の注記を参照）。
+        for _vp441 in _versions441:
+            _vt441 = _vp441.read_text(encoding="utf-8", errors="replace")
+            _hits441 = [_lab for _pat441, _lab in _pats441 if re.search(_pat441, _vt441, re.I)]
+            if _hits441:
+                _proj441[_vp441.name] = _hits441
         check(
             not _proj441,
-            "Check 441g: ACD-1.0 本文にプロジェクト固有の要素が無い (§16.3 の主張が真)",
-            (f"Check 441g: ACD-1.0 本文にプロジェクト固有の要素がある: {_proj441}。"
+            f"Check 441g: ACD 各版の本文にプロジェクト固有の要素が無い ({len(_versions441)} 版・§16.3 の主張が真)",
+            (f"Check 441g: ACD 本文にプロジェクト固有の要素がある: {_proj441}。"
              "**§16.3 は条文で「いかなるプロジェクトにも固有ではない」と主張しており**、"
              "SPDX の inclusion principles も同じことを要件にする。主張と実態が乖離すれば"
              "提出はその一点で崩れる。プロジェクト固有の記述は `LICENSE` 側 (適用の宣言) へ"),
