@@ -175,6 +175,27 @@ canonical-ref: LICENSES/ACD-1.0.review-responses-clauses.md (第 1 層・条項�
 > Whether a given court agrees that the instrument is non-executory is not
 > something I can guarantee, and I do not claim it. What I can do is not leave
 > the question unaddressed.
+>
+> A reviewer raised *In re Qimonda* against this clause, and reading the
+> judgment strengthens the design rather than the objection. In *Jaffé v.
+> Samsung Electronics Co.* (4th Cir., No. 12-1802, 3 Dec 2013), a German
+> insolvency administrator sought discretionary relief under Chapter 15 that
+> would have let him cancel licences to the debtor's U.S. patents. The
+> bankruptcy court granted relief but, after a four-day evidentiary hearing,
+> *"conditioned the § 1521 relief with the requirement that Jaffé afford the
+> licensees of Qimonda's U.S. patents the treatment they would have received in
+> the United States under 11 U.S.C. § 365(n)"*, and the Fourth Circuit affirmed,
+> holding that § 1522(a) requires a *"particularized balancing analysis"* and
+> that applying § 365(n) *"was necessary to ensure the licensees under
+> Qimonda's U.S. patents were sufficiently protected"*. The licensees kept what
+> they had been given — **but only as the outcome of a discretionary balance.**
+> That is the reason this instrument does not rest on § 365(n): Section 3 is a
+> completed surrender with nothing left to reject, and Section 2.9's second
+> sentence puts the officer inside Section 2.8 rather than outside it. **The
+> honest limit is the same one stated above, now with a case attached**: a
+> forum decides these questions on its own facts, and the first sentence of
+> Section 2.9 states a result rather than producing it. That is recorded against
+> us at `against.md` #178.
 
 ### Q26. §5.2(a) の反 DRM 条項は、利用者への制限ではないのか
 
