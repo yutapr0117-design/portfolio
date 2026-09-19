@@ -35,8 +35,10 @@ analysis below, which is written against 1.0.** Measured, not assumed:
   different things.**
 - **§15 and §16 were shortened and renumbered.** 1.0's §15.7 and §15.8 are 1.2's §15.3 and
   §15.4; 1.0's §15.2 has no counterpart in 1.1 but its three rules of construction were
-  restored at 1.2's §15.5 (errata E24); 1.0's §16.5 (translations) was absorbed into 1.2's
-  §16.4, and **1.2's §16.5 is a different clause — the definition of the Steward**.
+  restored at 1.2's §15.5 (errata E24); **1.0's §15.3 likewise has no counterpart in 1.1 and
+  is restored word for word at 1.2's §15.6** (errata E25); 1.0's §16.5 (translations) was
+  absorbed into 1.2's §16.4, and **1.2's §16.5 is a different clause — the definition of the
+  Steward**.
   **A citation to §1, §15 or §16 has to name the version.** The full map, citation by citation,
   is in [`ACD-1.2-CHANGELIST.md`](ACD-1.2-CHANGELIST.md).
 
@@ -156,10 +158,10 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
-| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 254 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 158 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
+| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 255 worked entries, indexed by the question rather than the filename |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 159 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
-| **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 24 known imprecisions, all unrepaired while the freeze holds, with what 1.1 would do |
+| **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 25 known imprecisions, all unrepaired while the freeze holds, with what 1.1 would do |
 | Known weaknesses, longer form | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) | Stated by us, before you have to find them |
 
 ## Disclosures you should not have to dig for
