@@ -27,11 +27,18 @@ frozen text moves while it is being discussed. Both are pinned by SHA-256 in
 **Clause numbers do not transfer cleanly between the two, and this matters when you read the
 analysis below, which is written against 1.0.** Measured, not assumed:
 
-- **§1 to §14 — every clause number means the same thing in both texts.** Most citations on
+- **§2 to §14 — every clause number means the same thing in both texts.** The citations on
   this page (§4.4, §6, §8.4, §9, §10.1) are therefore good for either.
-- **§15 and §16 were shortened and renumbered.** 1.0's §15.5–§15.8 have no counterpart in 1.1,
-  and the meaning of §15.2–§15.4 and of §16.4–§16.6 differs between the two. **A citation to
-  §15 or §16 has to name the version.**
+- **§1's definitions were reordered, so four of them changed number.** Matched by defined term:
+  1.0's §1.2 *Work* is 1.2's §1.3, §1.3 *Dedicator* is §1.4, §1.4 *You* is §1.6, and §1.6 *Moral
+  Rights* is §1.2. **The numbers all exist in both, so nothing dangles — they simply mean
+  different things.**
+- **§15 and §16 were shortened and renumbered.** 1.0's §15.7 and §15.8 are 1.2's §15.3 and
+  §15.4; 1.0's §15.2 has no counterpart in 1.1 but its three rules of construction were
+  restored at 1.2's §15.5 (errata E24); 1.0's §16.5 (translations) was absorbed into 1.2's
+  §16.4, and **1.2's §16.5 is a different clause — the definition of the Steward**.
+  **A citation to §1, §15 or §16 has to name the version.** The full map, citation by citation,
+  is in [`ACD-1.2-CHANGELIST.md`](ACD-1.2-CHANGELIST.md).
 
 ## In one screen
 
