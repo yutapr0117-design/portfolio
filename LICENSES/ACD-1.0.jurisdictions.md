@@ -424,7 +424,57 @@ verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against ap
 | **DMCA 17 U.S.C. §1202**（CMI）| §16.4 | 名称・識別子の制限が著作権管理情報の要件と交差する | **§16.4 が「本文についての規律」に留まるか** |
 | **消費者契約法 8 条 1 項**（日本）| §14.1 | 故意・重過失の全部免責は無効 | **§14.2 の「法が許す最大限」で足りるか** |
 | **droit de retrait**（フランス）| §2.2 | 撤回権の事前放棄は無効とされる蓋然性 | **§2.2 の irrevocable が、どの法域でどこまで立つか** |
-| **不公正契約条項の枠組み**（EU）| **§15.6** | 不明確な条項を受領者に有利に読む強行規定があり、**contra proferentem の排除は実効性を失う** | **本日 E25 で戻した §15.6 が買っているものの大きさ** |
+| **不公正契約条項の枠組み**（EU）| **§15.6** | 不明確な条項を受領者に有利に読む強行規定があり、**contra proferentem の排除は実効性を失う** | **✅ 2026-09-20 に原典で読んだ。下の §9a。** |
+
+### 9a. 8 件のうち 2 件を原典で読んだ（2026-09-20・EUR-Lex から取得）
+
+**残る 6 件は未読のままである。** 読めた 2 件について、**レビューの主張は構造としては当たっており、
+射程は述べられていたより狭い。**
+
+#### (1) 指令 96/9/EC 第 15 条 —— 逐語（CELEX:31996L0009）
+
+> **Article 15 —— Binding nature of certain provisions.**
+> *Any contractual provision contrary to Articles 6 (1) and 8 shall be null and void.*
+
+**第 6 条 (1) と第 8 条は「lawful user」の権利**であり、**保護されるデータベースについて働く。**
+**したがって「保護されないデータベースには第 15 条が無効化するものが無い」という読みは、
+条文の構造と整合する。** レビューの指摘はここまでは当たっている。
+
+**⚠ だが ACD については別の条が既に答えている。** レビューは
+「Dedicator が利用規約でスクレイピングを禁じれば §7.2 の許諾を契約で無効化できる」と述べるが、
+**§5.2(b) は Dedicator が *"by contract, terms of service, access condition, click-through,
+registration requirement, or any other collateral means"* 義務を課さないと約束している条である。**
+**これは「付随手段で許諾を空洞化しない」ための covenant そのもの**で、
+**レビューはこの条を見ていない**（`against.md` #170 の**6 件目の見落とし**）。
+**⚠ ただし §5.2(b) は Dedicator を縛るのであって、第三者のプラットフォームは縛らない**（#171）。
+
+#### (2) 指令 93/13/EEC —— 逐語（CELEX:31993L0013）
+
+> **Article 5.** *Where there is doubt about the meaning of a term, the interpretation most
+> favourable to the consumer shall prevail.*
+>
+> **Article 2.** *(b) 'consumer' means any natural person who … is acting for purposes which are
+> outside his trade, business or profession; (c) 'seller or supplier' means any natural or legal
+> person who … is acting for purposes relating to his trade, business or profession …*
+>
+> **Article 3 (1).** *A contractual term which has not been individually negotiated …*
+
+**contra proferentem は確かに強行規定として在る。** **だが射程は 2 つの当事者要件で限られている**
+——**事業として行為する提供者**と**事業の外で行為する自然人**の間の契約である。
+
+**したがってレビューの「§15.6 は実効性を失う」は、無条件には成り立たない。**
+**成り立つ場合**: **Dedicator が事業として献呈しており、受領者が消費者である**とき
+——**それは B2 が最も欠いている「組織の後ろ盾を持つ採用者」の場合**である。
+**成り立たない場合**: 個人が無償で世界へ献呈する典型的な場合、
+**指令の当事者要件を満たすかは疑わしい。**
+
+**⚠ E25 は撤回しない。** E25 の理由は「§16 の上で 2 つの canon が順序なく働く」ことであって
+**排除の執行可能性ではない。** **だが「戻したから効く」とは書けない** ——
+**効く範囲は、誰が Dedicator であるかによって変わる。**
+
+**⚠ この 2 件を読んで分かった一般形**: **外から来た指摘は、構造としては当たっていて
+射程は広すぎることがある。** **原典に当たると、指摘は消えずに*狭くなる*。**
+**狭くなった形の方が、我々にとっても審査者にとっても使える。**
 
 **⚠ 最後の 1 行は、本日の自分の作業に当たっている。** **E25 を撤回はしない** ——
 E25 の理由は「§16 の上で 2 つの canon が順序なく働く」ことであって、
