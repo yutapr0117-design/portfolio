@@ -841,75 +841,15 @@ Endeavor clause. **I wrote that clause.**"* ——ACD-1.0 §4.3 / §10.1 は利�
 **⚠ 確立しないこと**: 本人が ACD について何か述べた記録は**無い**。これは
 **「返信を書く人の型」を先に読んでおく**ための記録であって、予測ではない。
 
-## 1.98 リストが我々の類型に付けている名前と、その名前が本当に指している害（2026-09-19）
+## 1.98 / 1.99 は別ファイルにある
 
-**外部レポート 3 本が「クレヨン・ライセンス」という語を、非弁護士が起草したライセンスへの蔑称として
-挙げていた。** **語が実在するかをアーカイブで確かめたら、実在しただけでなく、
-その語について最も重要な発言が見つかった。**
+**2026-09-19 に `LICENSES/ACD-1.0.review-labels.md` へ切り出した**（Check 365 の 1,000 行に当たったため）。
+**節番号は動かしていない**ので `§1.98` / `§1.99` への既存参照はそのまま意味を保つ。
 
-### 定義 —— Bruce Perens 氏（`license-discuss` 2025-10-01）
+- **§1.98 「クレヨン・ライセンス」** —— 誰が書いたかの label。**Licensing Committee 委員長の
+  *unpredictable interpretation* の一文**はここにある。
+- **§1.99 「vanity license」** —— 誰のためのテキストかの label。**OSI の Proliferation Report に
+  定義があり、Marc Jones 氏の 4 段テストに 1 つずつ当てた結果もここにある。**
 
-> *"A **\"crayon license\"** is a license obviously produced by a **non-legal-professional**, which
-> has obvious faults that a legal professional would know to avoid. The name comes from a Monty
-> Python sketch in which a man presents a cat license which is a dog license with the word dog
-> crossed out and \"cat\" written in, in crayon."*
-
-**我々は定義の前半に当たる**（非弁護士が起草した）。**後半に当たるかは、実際に faults があるかで決まる。**
-
-### 何が label を引き寄せるか —— McCoy Smith 氏（`license-discuss` 2024-02-05・Anu Initiative 宛）
-
-> *"It is a crayon license, and **the author points out its whimsical nature while wishfully saying
-> the terms bind anyway**. There is no point in passing it on for disapproval or doing anything else
-> to take it seriously. Just politely tell the author there isn't a chance."*
-
-**引き金は起草者自身が非真面目さを示すこと**である。**ACD はその形をしていない**
-——本文は真面目に書かれ、弱点は先に開示され、条文は逐語で検証できる。**だがそれは我々の自己評価である。**
-
-### 🔴 最も重要な 1 文 —— Pamela Chestek 氏（Licensing Committee・`license-review` 2019-06-27・CAL の審査）
-
-> *"**The high likelihood that the license would be interpreted in significantly different ways in
-> different legal jurisdictions militates against its approval.** Although the CAL is not, by any
-> means, a \"crayon\" license, **it has the potential for the same negative consequence, which is
-> unpredictable interpretation**."*
-
-**これは我々の risk model を書き換える。**
-
-- **委員長が名指しした害は「非弁護士が書いたこと」ではなく、「法域をまたいで解釈が大きく割れること」である。**
-- **「クレヨン」はその害の代理指標であって、害そのものではない。**
-- **弁護士が書いたライセンス（CAL）でも同じ害を持ちうる、と明言している。**
-
-**そして ACD は、構造上まさにその害の側にある** —— §3 / §4 / §5 は法域ごとに効き方が変わることを
-前提に並置され、§3.3 は放棄不能の法域を、§12.2 は人格権放棄不能の法域を、§15.2 は無効な条項を、
-それぞれ法域ごとに扱う。**「法域によって違う読まれ方をする」ことを設計として引き受けている。**
-
-### だからこの発見は、B1 を作り直す
-
-**register B1（弁護士レビュー不在）は class 1 で「提出することが弁護士の目を通す経路」と記録されている
-——それは今も真である。** **だが Chestek 氏の 1 文は、B1 の下に *AI で動かせる* 部分があることを示す。**
-
-| | |
-| :-- | :-- |
-| **動かせない** | 弁護士が読んだという事実そのもの（B1） |
-| **動かせる** | **解釈のばらつきを減らすこと** ——E19 / E20 / E21 / E23 / E24 はすべてこれをやっていた。**名前が付いていなかっただけである** |
-
-**そして「クレヨン」の label は致命傷ではない。**
-
-- **CAL はこの発言の後に承認された**（2019-06 の時点では *"the reasons that the license has not been
-  approved"* と書かれている）。
-- **`license-discuss` の投稿者が Unlicense を *"the Unlicense are crayon"* と書いている**（2024-04-05）
-  ——**承認済みのライセンスにも付く label である。**
-- **Perens 氏は SIL Open Font License を deprecate 候補に挙げている**（2022-12-13）——同じく承認済みである。
-
-### 記録されている唯一の防ぎ方 —— Van Lindberg 氏（`license-discuss` 2020-01-05・CAL 審査中）
-
-> *"You bring up the vanity licenses, the crayon licenses, etc. **The CAL is none of those.**"*
-
-**黙殺ではなく、明示的に区別する。** **我々の入口ページは既に弱点を先に述べているが、
-「この類型ではない」と正面から言ってはいない。**
-
-### ⚠ この節が establish しないこと
-
-**Chestek 氏の発言は CAL についてのもので、ACD についてではない。** 2019 年の発言であり、
-**同じ委員が今も同じ重みを置くかは分からない。** そして**「解釈のばらつきを減らした」という我々の主張は、
-測っていない** ——`ACD-1.1-SELF-AUDIT.md` §3k が相互参照の密度を測ったが、
-**解釈のばらつきそのものを測る方法を我々は持っていない。**
+**この 2 つを分けた理由**: 他の §1.x は「**特定の人 / 特定の提出**についての記録」だが、
+§1.98 / §1.99 は「**リストが我々の類型に付ける呼び名**についての記録」で、読む動機が違う。
