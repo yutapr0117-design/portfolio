@@ -7,7 +7,7 @@ canonical-ref: LICENSES/REVIEWERS.md (entry point) / LICENSES/ACD-1.0.against.md
 
 # If you were going to ask — where the answer already is
 
-There are **273** worked entries across this directory (measured 2026-09-09; the list is append-only, so treat it as a floor). This page exists so that you do not have to
+There are **274** worked entries across this directory (measured 2026-09-09; the list is append-only, so treat it as a floor). This page exists so that you do not have to
 find them by guessing which filename they are in. **It is organised by the question, not by the
 document.**
 
@@ -42,7 +42,7 @@ If your question is not here, that is our omission and worth saying on the list.
 | Where is each criterion arguable? | `submission-reference.md` §3b — the counter-argument for all ten, written by us. **OSD 7 is the one we expect to be litigated** |
 | You grant over several kinds of right — do you react to litigation over all of them? | **There is nothing to react with.** §10.4 terminates nothing; §8.2 says the absence is deliberate. `review-responses-clauses.md` §15/§16; the cost is `against.md` #16, #46 |
 | How would your conditions work for a hosted API where nothing is transferred? | **There are no conditions to work.** §10.1 / §4.3; §16's conditions bind the licence text only (§10.5, §16.6). `against.md` #47 |
-| Does §5.2's anti-DRM covenant restrict the user? | No — it binds the Dedicator. `review-responses-clauses.md` Q26 |
+| Does §5.2's anti-DRM covenant restrict the user? | No — it binds the Dedicator. `review-responses-boilerplate.md` Q26 |
 | Does §16.4's name restriction breach OSD 4? | No — §10.1 is limited to conditions "in respect of the Work"; §16.4 governs the licence text. `against.md` #27; the loose shorthand is errata E3 |
 | §11 says no trademark right, but §16 makes the name carry meaning — which is it? | **Both, and §10.5 / §16.6 are the join.** §16's conditions bind the licence text, not the Work. `clause-reference.md` — the six clauses that disclaim being conditions form one mesh |
 | Does §11.3 (no false attribution) discriminate? | No — it states a limit of reach, and says so in terms. `clause-reference.md` §11.3 row |
@@ -75,6 +75,7 @@ If your question is not here, that is our omission and worth saying on the list.
 |---|---|
 | Is §6 a policy position about AI training? | **No** — it is a statement about the Dedicator's own rights. `submission-reference.md` §1c |
 | Does it purport to defeat someone else's TDM reservation? | No. §6.2 is limited to the Dedicator's rights; §6.3 handles others' within §2.7. `review-responses-clauses.md` §6 |
+| Has the question §6.2 turns on actually been litigated? | Yes — HansOLG 5 U 104/24 (10 Dec 2025), on attribution of an agency's reservation and on machine-readable form; **not final, and read from the court's press release**. `jurisdictions.md` §9a (9) / `review-responses-clauses.md` §6 |
 | Does it license trade secrets? | **No** — §1.5 does not reach them. OpenMDW does. `against.md` #31 |
 | The Work contains personal data — does this make training on it lawful? | **No, and the text says so.** §11.4: permissions required by data-protection, privacy and publicity law "are not the Dedicator's to give". `faq.md` A28 splits the two questions and says which one this licence answers |
 | What about sui generis database rights? | §7, in the Database Directive's own vocabulary. `clause-reference.md` §7 rows |

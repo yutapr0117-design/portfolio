@@ -29,7 +29,7 @@ canonical-ref: LICENSES/ACD-1.0.txt / LICENSES/ACD-1.0.submission.md / LICENSES/
 「答えられるか」ではなく「**審査者が持ち出しうるか**」を採用基準にする。分類は
 `Unanswerable by us` / `Unresolved` / `Accepted cost` / `Answered` の 4 つで、
 各行は対応する詳細文書（submission §1b/§4a/§4b/§4c、review-responses-meta Q12/Q17/Q33、
-review-responses-clauses Q26、jurisdictions.md）を指す。
+review-responses-boilerplate Q26、jurisdictions.md）を指す。
 
 最後に **survives** 節で「結局この提出が主張していること」を 1 段落に絞り、
 **withdrawal** 節で撤回条件を議論の前に固定する（議論の展開への反応にしないため）。

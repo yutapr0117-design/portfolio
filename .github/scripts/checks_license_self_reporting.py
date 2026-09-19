@@ -124,7 +124,14 @@ def run(ctx):
         warnings.append("Check 460: ライセンス文書の一部が無い — 件数照合を skip")
     else:
         # (a) 提出パケットの worked entries / short answers
-        _entries460 = sum(len(re.findall(r"^### ", t, re.M)) for t in (_rr460, _rc460, _rm460))
+        # 走査先は glob から導出する。2026-09-20 に条項別の分冊を 2 つに割ったとき、
+        # ここが 3 file 決め打ちだったため申告 47 / 実測 34 になった —— **決め打ちの走査先は
+        # 分割の日に静かに scope を失い、しかも「申告の方が古い」形で報告されるので、
+        # 原因が申告側にあるように見える。**
+        _rrfiles460 = sorted(_L460.glob("ACD-1.0.review-responses*.md"))
+        _entries460 = sum(
+            len(re.findall(r"^### ", _f.read_text(encoding="utf-8"), re.M)) for _f in _rrfiles460
+        )
         _sec7 = re.search(r"^## 7\..*?(?=^## )", _rr460, re.S | re.M)
         _short460 = (len(re.findall(r"^\| ", _sec7.group(0), re.M)) - 1) if _sec7 else -1
         _m = re.search(r"\((\d+) worked entries plus a table of (\d+) short answers", _sb460)

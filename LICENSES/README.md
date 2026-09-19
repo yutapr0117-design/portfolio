@@ -39,6 +39,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | **使ってよいか / どう使うか / 法務に何を見せるか** | [`ACD-1.0.faq.md`](ACD-1.0.faq.md) |
 | レビューで来るであろう指摘への回答（総論・OSD・認める弱点） | [`ACD-1.0.review-responses.md`](ACD-1.0.review-responses.md) |
 | 同・条項別 | [`ACD-1.0.review-responses-clauses.md`](ACD-1.0.review-responses-clauses.md) |
+| 同・定型条項と解釈条項への攻撃（Q22〜Q33）| [`ACD-1.0.review-responses-boilerplate.md`](ACD-1.0.review-responses-boilerplate.md) |
 | 同・起草の出自 / 名称 / 運用（**LLM 起草の扱い・撤回条件**） | [`ACD-1.0.review-responses-meta.md`](ACD-1.0.review-responses-meta.md) |
 | **実際に来た指摘**とその答え | [`ACD-1.0.discussion-log.md`](ACD-1.0.discussion-log.md) |
 | **審査者が最初に読む英語の入口**（license-discuss から来た人向け） | [`REVIEWERS.md`](REVIEWERS.md) |
