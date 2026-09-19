@@ -726,3 +726,58 @@ ACD の表面集合が交わらない**（#101 の再現）。
 ——`against.md` #179。**⚠ ただし広い読みは確立していない**: 氏自身が *"arguably"* と書き、
 steward が正面から争っており、委員会の裁定でも理事会の決定でもない。
 **確立するのは「そういう読みがリスト上に現れた」ことだけである。**
+
+
+## 1.101 リストは「学習のための複製がそもそも侵害か」を未決として論じている —— そして TDM 例外を名指ししている（2026-09-10〜14）
+
+**取得**: `license-review` 2026-09（取得時刻 2026-09-19T16:55Z）。**OpenMDW の終了条項をめぐる
+スレッドで、議論は「著作権の主張を引き金に許諾を切ってよいか」へ移った。**
+**我々宛でも ACD-1.0 についてでもない。**
+
+**Pamela Chestek 氏（Licensing Committee 委員長・2026-09-10）**:
+
+> What I find distinguishable about a termination of the copyright license versus the patent
+> license is that copyright infringement doesn't happen by accident. There is no copyright
+> infringement without deliberate, knowing copying.
+
+**Luis Villa 氏（同日）が正面から否定し、根拠に法域の例外を 2 つ名指しした**:
+
+> This conflates two different things: copying is always intentional, but not all copying is
+> copyright infringement. There are very clear good-faith arguments (under both the EU's TDM
+> exception and US fair use) that the sorts of copying we're mostly talking about here are not
+> copyright infringement.
+
+**Josh Berkus 氏（2026-09-11 / 09-14）は「事故による侵害的複製」の実例を列挙し、
+その中に生成 AI を入れている**:
+
+> Speaking as a software developer, accidental infringing copying happens all the time.
+
+> - Stack overflow - GenAI & Autocomplete - Copying code from a private project to a public one,
+> forgetting where you got it in the first place …
+
+**Richard Fontana 氏（2026-09-11）は、FOSS が「不正」と見なしてこなかった行為を罰する条項の危うさを述べた**
+（API の再実装を例に）。**Michael Dolan 氏（2026-09-14・OpenMDW steward）は束ね方の論点で答えている。**
+
+### ACD-1.0 に効く点
+
+**(1) B10 の 1 本目に、リスト側からの裏付けが付く。** 我々は §6 の gap を
+「既存の承認済みライセンスはこの主題に沈黙している」という**語の不在**で示してきた。
+**このスレッドは、沈黙が残す当の問い ——学習のための複製が侵害にあたるのか——
+を、審査する側自身が未決として論じ、EU の TDM 例外を名指ししていることを示す。**
+**同じ問いを、同じ週に、ドイツの控訴審が UrhG 44b 条 / UrhG 60d 条で決めている**（`jurisdictions.md` §9a (9)）。
+**「沈黙が未解決に残すもの」は仮定ではない。**
+
+**(2) §2.7 が答えている懸念が、実例つきで述べられた。** Berkus 氏の一覧は
+「付与者が、自分の持っていない権利を渡したつもりになる」経路の列挙である。
+**ACD §2.7 は *"reaches only rights the Dedicator holds"* と述べ、§1.3（1.1 以降は §1.4）は
+Dedicator を *"to the extent that person or entity holds or may hold Covered Rights"* で定義する。**
+**先回りではない** ——同じ懸念に既に答えている、というだけである。
+
+### establish しないこと
+
+- **これは ACD-1.0 についての議論ではない。** OpenMDW の終了条項についてであり、
+  **ACD には終了条項が無い**（§10.4）ので、争点そのものは当たらない。
+- **リストがこの種の明示を望んでいる証拠ではない。** Villa 氏自身が
+  *"maybe you don't agree with those arguments (I move back and forth myself a lot of the time!)"*
+  と書いている ——**未決であることの証拠であって、答えの証拠ではない。**
+- **個人の資格での発言である。** 委員長の発言も含め、委員会の裁定でも理事会の決定でもない。
