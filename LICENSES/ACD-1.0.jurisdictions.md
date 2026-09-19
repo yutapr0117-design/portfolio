@@ -248,6 +248,51 @@ to exercise"* と述べており、**covenant には形式要件が無い。**
 
 ---
 
+### 6a. 放棄できない報酬請求権 —— §3.2 が名指しで surrender すると書いているもの（2026-09-19 に原典で確認）
+
+**§3.2 は surrender の射程をこう述べる**: *"includes any right to **compensation, remuneration,
+levy, or royalty** arising from any use of the Work."*
+**EU にはそれを放棄できないと定める条文がある。**
+
+**Directive 2006/115/EC（貸与権・公貸権）第 5 条「Unwaivable right to equitable remuneration」**:
+
+> *"1. Where an author or performer has transferred or assigned his rental right concerning a
+> **phonogram or an original or copy of a film** to a phonogram or film producer, that author or
+> performer **shall retain the right to obtain an equitable remuneration for the rental**.
+> 2. **The right to obtain an equitable remuneration for rental cannot be waived by authors or
+> performers.**"*
+
+**同第 6 条（公貸権）**: 加盟国は貸与の排他権を制限できるが *"**provided that at least authors
+obtain a remuneration for such lending**"*。
+
+### なぜ ACD に当たりうるのか
+
+- **§1.3 の Work は *audiovisual material* を含む。** 映画や録音物へ適用されれば射程に入りうる。
+- **§4.2 は *lend, rent* を明示的に許諾している。**
+- **§3.2 は報酬請求権を surrender の対象として名指ししている。**
+
+### それでも利用者の立場は変わらない —— 3 つの理由
+
+1. **§3.2 は §3.1 の射程を述べる文であり、§3.1 は *"to the fullest extent permitted by the law of
+   each jurisdiction"* を持つ。** 放棄できない法域では**その分だけ縮む。本文は不可能を主張していない。**
+2. **報酬は多くの場合、利用者ではなく機器の製造者・輸入者や図書館制度から徴収機構を通じて支払われる。**
+   **放棄できない報酬請求権が残っても、それは You に対する義務にならない。**
+3. **第 5 条の要件は「producer への rental right の譲渡」**である。ACD は producer への譲渡ではなく
+   万人への放棄・許諾なので、**そのまま当てはまるかは自明でない。**
+
+### ⚠ それでも記録する理由
+
+**§3.2 を単独で読むと絶対的に見える。** E19 / E21 で直したのと同じ形である ——
+**ただし §3.2 は *"The surrender in Section 3.1 is made …"* と明示的に §3.1 へ錨を下ろしているので、
+本掃引が定めた規則（錨がある条は clean）に従い、本文は変えない。**
+**変えるのは、この事実が我々の側から先に述べられているかどうかである。**
+
+**⚠ 確立しないこと**: 各国の実装は一様でない（ドイツは著作権法 27 条が貸与・公貸に報酬請求権を置くなど、
+指令より踏み込む例がある）。**本書はどの国内法がどこまで及ぶかを判断しない。**
+**私的複製の補償金は別の指令に由来するが、本書では原典を当てていないので触れない。**
+
+---
+
 ## 7. 英国
 
 **問い**: 人格権の扱いが他の欧州法域と違うのでは。**機械生成著作物に条文があるのでは**。
