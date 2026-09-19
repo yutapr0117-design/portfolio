@@ -813,7 +813,7 @@ mailing list and participate in the license review process"* と書いている�
 **このドシエは *check us* を掲げているので、有利側の誤りの方が高くつく。**
 
 
-## 1.91 / 1.93 は `ACD-1.0.dig-2026-09.md` へ移した（2026-09-17）
+## §1.91 と §1.93 の移転先 —— `ACD-1.0.dig-2026-09.md`（2026-09-17）
 
 **この file が 985 行で advisory (900) を鳴らしたので分割した。BLOCKING (1,000) には当てていない**
 （残り 15 行だった）。

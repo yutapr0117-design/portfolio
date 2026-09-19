@@ -205,9 +205,14 @@ def run(ctx):
         # **既存の 3 件（1.67 / 1.68 / 1.69）は grandfather する** ——番号を動かすと
         # 既存の参照がどちらを指すか決められなくなる（本 file 群の規約は「節番号を動かさない」）。
         _grand471 = {"1.67", "1.68", "1.69"}
-        _seriesfiles471 = ("ACD-1.0.comparison.md", "ACD-1.0.review-precedents.md",
-                           "ACD-1.0.review-corpus.md", "ACD-1.0.reviewer-positions.md",
-                           "ACD-1.0.review-rules.md")
+        # **⚠ 2026-09-19: 決め打ちの 5 file から導出へ変えた。** 決め打ちは書いた日の正しさしか
+        # 持たず、**実測すると `dig-2026-09.md`(4) / `objection-map.md`(1) の 2 file が最初から
+        # 射程外**で、同日の分割で生まれた `review-labels.md`(2) も**静かに射程外になった**
+        # ——**衝突を見張る Check が、見張る対象の一部を見ていなかった**（Check 124 / 411 /
+        # 435b と同じ scope-drift の族）。**共有採番が住むのは `ACD-1.0.*.md` である**ことを
+        # 単一の根拠にして導出する（`REVISION-PROTOCOL.md` の §1.5 は**その文書自身の節番号**で
+        # 共有系列ではないため、prefix で自然に外れる）。
+        _seriesfiles471 = tuple(sorted(_p471.name for _p471 in _lic471.glob("ACD-1.0.*.md")))
         _own471 = re.compile(r"^#{1,6}\s+\**\s*(1\.\d+[a-z]?)[ .\uff0e\u3000]")
         _where471 = {}
         for _sf471 in _seriesfiles471:
