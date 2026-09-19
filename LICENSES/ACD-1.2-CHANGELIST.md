@@ -160,16 +160,49 @@ ACD-1.1 は 2026-09-17 に確定・凍結し、**改善はここから先で行�
 §15.3 の中身は 1.2 §15.6 にある」。** ——**2026-09-19 に `REVIEWERS.md` 側を直したので、
 この項目は「予定」ではなく「済み」である**（残りの D-1 / D-2 は未着手）。
 
-**D-1. `submission-reference.md` L589 の前方参照の分析。** 1.0 の定義順を前提に
+**D-1. `submission-reference.md` の前方参照の分析。** 1.0 の定義順を前提に
 *"The three forward references are §1.2→§1.3, §1.3→§1.5 and §1.5→§1.6"* と述べている。
-**1.2 は E13 で並べ替えており、相互定義は 2 対**（`Work` ⇄ `Dedicator` / `Dedicator` ⇄ `Covered Rights`）。
-**段落ごと書き直す。**
+**1.2 は E13 で並べ替えている。2026-09-20 に 1.2 本文へ当てて実測した**（定義 10 件を互いに走査）:
 
-**D-2. `submission-reference.md` L583 の §6.4 の逐語引用。**
+| | 1.0 | **1.2（実測）** |
+| :-- | :-- | :-- |
+| 定義の並び | Dedication / Work / Dedicator / You / Covered Rights / Moral Rights / … | **Dedication / Moral Rights / Work / Dedicator / Covered Rights / You / …** |
+| 相互定義 | 1 対（Work ⇄ Dedicator）| **2 対**（Work ⇄ Dedicator・**Dedicator ⇄ Covered Rights**）|
+| 前方参照 | 3 件 | **2 件**（§1.3 Work → §1.4 Dedicator / §1.4 Dedicator → §1.5 Covered Rights）|
+
+**差し替える段落（英文・確定日はこれを貼るだけ）**:
+
+> **Two mutual pairs and two forward references, all stated rather than denied.** The pairs are
+> **"Work" ⇄ "Dedicator"** (§1.3 defines the Work by reference to the Dedicator, §1.4 the Dedicator
+> by reference to the Work) and **"Dedicator" ⇄ "Covered Rights"** (§1.4 is qualified by the rights
+> the party holds, §1.5 defines those rights as the Dedicator's). **Neither is vicious**, because
+> both are anchored to an act outside the definitions — the placing of the notice under §16.1 — so
+> each pair is fixed by something a reader can observe rather than by the definitions alone. **This
+> is the ordinary shape**; MIT and Apache-2.0 tie their "Work" and licensor terms the same way.
+> **The two forward references are §1.3→§1.4 and §1.4→§1.5.** A reader going strictly top-down
+> meets a term twice before it is defined. **No reordering removes both**, because the mutual pairs
+> guarantee at least one each.
+
+**⚠ 逆側を落とさない**: **1.0 の「3 件」から減ったのは E13 の並べ替えの効果だが、
+*相互定義は 1 対から 2 対へ増えている***（`Covered Rights` が `Dedicator` を使い、
+`Dedicator` が `Covered Rights` で限定されるため）。**「改善した」とだけ書くと片面になる。**
+
+**D-2. `submission-reference.md` の §6.4 の逐語引用。**
 *"You owe nothing in respect of any of them. Nothing in this Dedication requires You to license,
 disclose, or attribute any such thing."* を**連続した 2 文**として引いているが、
-**1.2 では E4 の改訂で間に 1 文が入る**（*"Whether a right subsists … (Section 9)."*）。
-**連続引用として成立しない。**（`ACD-1.1-CHANGELIST.md` §0.13 が既に挙げていた 1 件で、
+**1.2 では間に 1 文が入る**（*"Whether a right subsists in any such thing is not decided here and
+does not need to be (Section 9)."*）。**連続引用として成立しない。**
+
+**差し替える引用（確定日はこれを貼るだけ）**:
+
+> §6.4: *"You owe nothing in respect of any of them. … Nothing in this Dedication requires You to
+> license, disclose, or attribute any such thing."*
+
+**省略記号を入れるだけで足りる。** **落ちる 1 文は主張を弱めない**
+——*"Whether a right subsists … is not decided here"* は「出力に条件が付かない」という
+主張と同じ向きで、むしろ補強する。**⚠ それでも省略は省略と示す**
+（2026-09-20 の引用掃引で、**編集が忠実さを壊す形を 6 件**見ている・`against.md` #166）。
+（`ACD-1.1-CHANGELIST.md` §0.13 が既に挙げていた 1 件で、
 **本掃引が独立に再発見した** ——§0.13 の「確定時にもう一度回す」という指示が働いた形である。）
 
 ### E. 番号も主張も生きているもの —— 11 条すべて
