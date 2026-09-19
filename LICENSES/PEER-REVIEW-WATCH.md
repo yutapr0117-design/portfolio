@@ -581,6 +581,27 @@ https://lists.opensource.org/pipermail/license-review_lists.opensource.org/<YYYY
 | **`license-discuss` 2026-07〜09**（**別のリスト**・2026-09-06） | **我々の投稿そのものが原典で確認できた** —— 2026-08-26 17:17 の 1 通、同題の後続 **0 通**、9 月は別スレッド 2 通のみ。ドシエが述べてきた「投稿し受理された・返信ゼロ」は**初めて一次資料で裏が取れた**。同時に **3 つの不利な事実**が出た: 送った本文は **5,778 語**でリポジトリに存在しなかった（#82）／**19 日前の同型の投稿（単独著者・非弁護士・PD 等価・採用ゼロ・license-review から差し戻し）には約 10 時間で 6 通の返信**が付いていた（#83）／Rob Landley 氏の「PD 等価は**代替可能**な唯一の類型で 0BSD が既にある。なぜもう一つ作る？」に答えが無い（#84）。**有利な確認も 3 つ**: 同スレッドで指摘された商標まで放棄する欠陥は ACD-1.0 には無い（§1.5 / §11.1・条文で確認）／**投稿の件名慣行**（`license-review` は `For Approval: <名前>`）に `submission.md` §B.0 が既に一致していた／**「`license-discuss` は承認の窓口ではない」を McCoy Smith 氏が 2026-08-04 にリスト上で明言**していたので、この主張が断言から出典付きへ変わった。さらに**代替説明が 1 つ潰れた** —— 同じアーカイブに「返信が spam に振り分けられていた」提出者がいる＝実在する失敗モードだが、**アーカイブが配信の記録**なので我々には当てはまらない | `rounds/2026-08-26-license-discuss-sent.txt` / #82 #83 #84 / `REVIEWERS.md` |
 | **両リスト 2026-09（再取得・取得時刻 2026-09-19T16:55Z）** | **ACD-1.0 への返信は依然ゼロ**（我々の最後の投稿は `license-discuss` 2026-09-06 の 2 通。**この「ゼロ」は上の取得時刻についての言明であって、それ以降について何も述べない** ——同じ月次 URL が朝と午後で違う件数を返した実測がある）。**`license-review` は 46 通で活発**（OpenMDW が大半・ModelGo が 09-16 / 09-18）。**`license-discuss` は 9 通しかなく、09-09 の moderator 通知の後は 09-17 の 1 通だけ**。**新しい実質は 2 件**: **(a) 2026-09-16 McCoy Smith 氏が OSD 5 の広い読みを持ち出した** ——終了の引き金が *"against the Licensor"* に限られると Licensor と Licensee が別扱いになり *"arguably violates OSD 5"* とし、**Apache-2.0 / MPL-2.0 / EPL-2.0 / GPL-3.0 の 4 つを並べて「引き金は*当事者*ではなく*著作物*に向いている」**と示した。**09-18 に Duan 氏が *"Licensor is a role in the license, not a person"* と答えて譲らなかった。****ACD には終了規定が一切無い（§10.4）ので、この族の指摘は構造上あたらない ——同じ形の確認は 3 例目**（2025-03 / 2026-08 / 本件）。**⚠ 逆側**: その免疫は #174 が費用として記録した「特許報復の不在」と**同じ 1 つの事実**である。**(b) 2026-09-17 FLA-2.1_RC の意見募集**（FSFE の inbound 合意・Matija Šuklje 氏）。*"with "generative AI" looming over all of us, is there anything in the text that needs to be improved to account for that too?"* と**inbound 側が同じ問いを開いている**。ACD は §2.6 で「寄与も同じ dedication で入る」と構造で答えており、CLA を持たない | `review-precedents.md` §1.90 / `against.md` #179 |
 
+### 3.9a 2026-09-20 に足した 2 本目の口 —— **決定の側から取る**
+
+アーカイブは議論を残し、**理事会は決定を残す**（`board-decisions.md`）。
+**決定の側からは、こう取る。**
+
+```
+https://opensource.org/api/licenses                  # 126 件。提出日 / 承認日 / 提出メール URL /
+                                                     # board_minutes / 増殖カテゴリ
+https://opensource.org/api/license/<id>              # 1 件
+https://opensource.org/meeting-minutes/<YYYY-MM-DD>  # 2023 年以降
+https://opensource.org/meeting-minutes/minutes<YYYYMMDD>  # 2005〜2020 の綴り
+```
+
+**索引ページ（`/minutes`）に並ぶのは一部である。** API の `board_minutes` を辿ると
+**2005-09-12 から 36 回**開く。**8 件は `wiki.opensource.org` を指しており、そこはもう OSI の
+内容を返さない**（Unlicense と MIT-0 の決定回がこれ）。2010 年代の一部は本文が空。
+
+**次に見るときの手順**: API を取り直し、**`approval_date` が前回より新しい entry**だけを見る。
+新しい承認があれば、その `board_minutes` を開く ——**動議は理由つきで記録されている。**
+（2026-09-20 時点の最新承認は 2026-06-29 の 2 件。）
+
 ### 読み方の規律
 
 1. **原文を引き、発言者を書く。** 提出者による後の要約で代用しない（2025-03 は要約経由で一度
