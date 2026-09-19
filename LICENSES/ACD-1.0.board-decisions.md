@@ -24,9 +24,23 @@ canonical-ref: LICENSES/rounds/2026-09-13-osi-board-meeting-minutes-2025-06-to-2
 逐語を `rounds/2026-09-13-osi-board-meeting-minutes-2025-06-to-2026-06.txt` に保存した。
 
 **⚠ 公開分は不完全である。** 索引ページ自身が *"This page is under construction … If you can't find
-the minutes here, check the wiki"* と述べ、**最古が 2025-06-20**（ページ作成は 2007 年）、
+the minutes here, check the wiki"* と述べ、**索引に並ぶ最古が 2025-06-20**（ページ作成は 2007 年）、
 **最新が 2026-06-29**。**「議事録に無い」は「決定が無かった」を意味しない。**
-以下の件数はすべて**公開されている 12 回の範囲での**件数である。
+§2〜§8 の件数はすべて**索引に並ぶ 12 回の範囲での**件数である。
+
+### 1a. 🔴 訂正（2026-09-20）—— 索引に無いだけで、2005 年以降の議事録は公開されている
+
+**上の「最古が 2025-06-20」は、索引ページについての事実であって、公開されているものについての
+事実ではなかった。** OSI 自身のライセンス API（`review-rules.md` §1.102）は各ライセンスに
+`board_minutes` のリンクを持っており、**そこを辿ると 2005-09-12 から 2026-06-29 まで
+36 回分が実際に開ける**（`https://opensource.org/meeting-minutes/<日付>`）。
+
+**一般形: 索引に載っていないことは、公開されていないことの証拠ではない。**
+**我々は索引を読んで「公開分は 12 回」と書き、その 1 週間後に 36 回を開いた。**
+**⚠ ただし完全でもない** —— 8 件の `board_minutes` は `wiki.opensource.org` を指しており、
+そこは**現在 XWiki 社の宣伝ページに解決する**（**Unlicense と MIT-0 の決定回がこれに当たる** ——
+**我々にとって最も近い 2 つの先例の決定記録が、OSI 自身のリンクから辿れない**）。
+2010 年代の一部のページは本文が空で、cookie バナーしか返さない。
 
 ## 2. 🔴 第 3 の帰結 —— 「reject」ではなく「not approved」。そして我々の輪郭がそこに当たる
 
@@ -227,6 +241,81 @@ communicate the difference between a license approval and OSAID compliance."*
 except for the names of the departments"* だった。**提出パケット §4b（本文の固有名詞 0・置換テキスト 0・
 採用に本文編集が 1 箇所も要らない）は、我々が思いついた論点ではなく、
 委員会が現に手を動かしている論点である。**
+
+## 8. 2005〜2026 の 36 回から出た決定（2026-09-20 取得）
+
+**動議は理由つきで記録されている。** ACD に当たるものを、有利・不利の両方で並べる。
+
+### 8.1 🔴 **我々と同じ類型が、まさにその理由で却下されている（2009-03-04・WTFPL）**
+
+Licensing Committee の報告が理事会の議事録に逐語で入っている:
+
+> Title: WTFPL … Comments: **It's no different from dedication to the public domain. Author has
+> submitted license approval request — author is free to make public domain dedication.**
+> Although he agrees with the recommendation, Mr. Michlmayr notes that **public domain doesn't
+> exist in Europe.** Recommend: **Reject**
+
+**却下の理由は「悪い条文だから」ではない。「それはライセンスでなく献呈であり、献呈は自分でできる」である。**
+**これは #84 と B4 に対する、これまでで最も正面からの反証**で、
+*「公有化の献呈は、それ単体では open source ライセンスとして承認されない」*という
+我々が §7 handoff に書いてきた命題の、**理事会側の出典**でもある。
+
+**⚠ そして同じ 4 行に、我々の §4 が存在する理由も書かれている。**
+**推薦に同意した委員自身が「ヨーロッパに public domain は存在しない」と付言している。**
+**ACD-1.0 の構造 ——§3 が献呈で、§4 が §3 と独立に付与される許諾—— は、
+この 2009 年の記録の中で、反対意見と反論が同じ段落に並んでいる当のものである。**
+**⚠ ただし WTFPL は許諾条項を持たない。** ACD は持つ。**だから同じ結論になるとは限らない**
+——**が、「献呈と同じに見える」段階で止められる危険は、実例で示されている。**
+
+### 8.2 🔴 **長さ・複雑さ・曖昧さが、承認でも却下でもない決議を生んだ（2017 秋 f2f・NOSA 2.0）**
+
+> Resolved, That, **in view of the length, complexity, and ambiguities in the submitted drafts of
+> the NASA Open Source Agreement version 2.0, it is the opinion of the OSI that the conformance of
+> NOSA 2.0 to the OSD cannot be assured. OSI thus can neither approve nor reject the license**, and
+> NASA is invited to submit a new draft of NOSA for consideration by the OSI.
+
+**B3（長さ 4,896 語）と B13（審査者の理解コスト）が、抽象的な懸念ではないことを示す決議である。**
+**「OSD に適合しない」ではなく「適合を確かめられない」で止まっている** ——
+`review-corpus.md` §1.82 が記録した Project Tick GPL の *"ambiguities in drafting make it
+impossible to determine whether or not it complies with the OSD"* と**同じ構造**で、
+**こちらは 2017 年、あちらは近年**。**橋は 1 本ではなく 2 本架かっている。**
+**⚠ 逆側**: NOSA は**条件と義務を持つ長い契約**で、ACD は §10.1 により条件を持たない。
+**長さの由来が違う**（あちらは義務、こちらは説明）。**だが「読んで確かめられるか」は同じ問いである。**
+
+### 8.3 第 3・第 4 の帰結が、20 年にわたって使われている
+
+| 年 | 文言 | 帰結 |
+|---|---|---|
+| 2007-06-06 | *"we **decline to approve at this time** and suggest that the committee in future consider compatibility for licenses that advertise simplification"*（Simple Public License）| 承認でも却下でもない |
+| 2009-03-04 | *"Discussion continues, but Bruce says **'Deny approval' because the benefits aren't worth the cost**"*（TGPPL）| **費用対効果**で語られている |
+| 2017 秋 | *"can **neither approve nor reject**"*（NOSA 2.0）| 上記 |
+| 2025-07-18 | *"could stay in a status where it is **not approved** if it is duplicative and not used by a project"* | §2 |
+
+**「承認か却下か」で数えてきた我々の分布は、20 年分の記録に対して粗すぎた**（#139 の続き）。
+
+### 8.4 翻訳は、3 か月前に方針として閉じられた（2026-06-29）
+
+> Motion: McCoy moves to adopt a policy that **the board will not approve translations for approved
+> licenses.**
+
+同じ回に、**キリル文字表記の露語ライセンス名**の 1 件が
+*"as this is a translation of the ISC license which is already approved"* として却下されている。
+（**名前はここに書き写さない** ——`rounds/` の逐語保存には在るが、Check 450 は日本語テキストへの
+別スクリプト混入を BLOCKING で止める規約で、**その Check 自身の注記が同じ理由で同じ扱いをしている。**）
+
+**ACD-1.0 §16.5 は翻訳を「改変されたテキストではない」として名称の下での頒布を許す。**
+**この方針は「翻訳を承認しない」であって「翻訳を禁じる」ではない**ので §16.5 に矛盾はしないが、
+**翻訳版を別の識別子で承認させる道は閉じている**と読める。
+**⚠ 我々は翻訳を提出していないし、する予定も無い。** ここに書くのは、**方針が新しく、
+かつ「既に承認済みのものと同じ」を理由に却下した直近の例だから**である（§8.1 と同じ族）。
+
+### 8.5 有利な事実 —— 分類は柔らかく、承認の側で使われている
+
+2023〜2026 の動議は **"in the special purpose category" / "in the International category" /
+"in the legacy category" / "as a regular license"** と、**category を付けて承認している。**
+`review-rules.md` §1.102 の `keywords` は、この category がそのまま機械可読に出ているものである。
+**カテゴリは否決の道具としてではなく、承認の粒度として使われている。**
+**⚠ 逆側**: §8.1 が示すとおり、**同じ分類感覚が却下側にも働く**（*redundant* / *duplicative*）。
 
 ## 7. この文書が establish しないこと
 
