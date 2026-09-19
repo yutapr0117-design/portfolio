@@ -46,7 +46,7 @@ canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の本体) / LICENSES
 |---|---|---|
 | Shuji Sado 氏 *"not open source, at least not in Japan"* | **提出文 §B.0 の gap 主張 2 本目**（§12 の存在理由）| ✅ 一致 |
 | Pamela Chestek 氏 *"3888 words … excessively wordy and proscriptive"* | **B3（長さ）の根拠** | ✅ 一致 |
-| 同 *"approximately 4500 words … I have not read these licenses in detail"* | 同上・2 例目 | ✅ 一致 |
+| 同 *"approximately 4500 words … I have not read these licenses in detail"* | 同上・2 例目 | **⚠ 2026-09-19 に不一致が判明** ——原文は *"because **the are** extremely long"* で、我々は *"they are"* と書いていた（**出典の誤植を黙って直していた**）。`[sic]` を付けて原文へ戻した。**この行が「✅ 一致」と述べていたのは、照合が空の cache に対して行われていたから**（`against.md` #165）|
 | Rob Landley 氏 *"could you explain why you're doing another one?"* | **#84（なぜもう一つ PD 等価を）** | ✅ 一致 |
 | Bruce Perens 氏 *"the proper language"* | **§8.1 の語が受け入れられた形だという主張** | ✅ 一致 |
 

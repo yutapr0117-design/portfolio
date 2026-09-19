@@ -659,9 +659,14 @@ license-review**"* と書いて始めている。
 
 **(1) 長さ —— 委員長が「読んでいない」と述べた記録の 2 例目（#116）。**
 
-> **Pamela Chestek 氏・2024-10-05**: I have **not read these licenses in detail** because they are
+> **Pamela Chestek 氏・2024-10-05**: I have **not read these licenses in detail** because the are [sic]
 > **extremely long, approximately 4500 words**, appear from the definitions alone to have way more
 > detail than a typical open source license, and **are not understandable**…
+
+**⚠ `the are [sic]` は原文どおりである。** **2026-09-19 まで我々は `they are` と書いていた** ——
+**出典の誤植を黙って直していた。** 逐語引用は逐語でなければならず、**直せば、審査者が
+アーカイブを検索しても我々の引用に辿り着けない。** 見つけ方は
+`verify_dossier_quotations.py` を**初めて全 corpus に対して**回したこと（`against.md` #165）。
 
 **ACD-1.0 は 4,896 語である**（§1.60 の実測）。**彼女が詳細に読まなかったものより長い。**
 **ただし理由は連言で述べられている**（長い ∧ 典型より詳細 ∧ 理解できない）ので、

@@ -11,8 +11,21 @@ CLAUDE.md §7 が *「自動監視は CI に入れない（外部フォーラム
 **これは手で回す道具であって Check ではない。** 結果は `LICENSES/AUDIT-LEDGER.md` へ記録する。
 
 使い方:
-    python3 .github/scripts/verify_dossier_quotations.py            # 手元の source だけで照合
-    python3 .github/scripts/verify_dossier_quotations.py --fetch    # 不足月をアーカイブから取得して照合
+    # ⚠ **cache を指定せずに回すと、ほぼ何も照合できない。** 既定は空の /tmp/arc で、
+    # 2026-09-19 の実測では **322 件中 100 件しか確認できず、残り 222 件が「未確認」**になった
+    # ——**道具は動いているのに、入力が空である**（`against.md` #165）。
+    DOSSIER_ARCHIVE_CACHE=<取得済みアーカイブのディレクトリ> \
+        python3 .github/scripts/verify_dossier_quotations.py
+    # 不足月を自分で取りに行く（同じ cache へ書く）:
+    DOSSIER_ARCHIVE_CACHE=<同上> python3 .github/scripts/verify_dossier_quotations.py --fetch
+    # 未確認を全件出す（既定は上位 15 件）:
+    DOSSIER_ALL=1 DOSSIER_ARCHIVE_CACHE=<同上> python3 ...
+
+**corpus の置き場所の規約**: 月次アーカイブは `<cache>/*.txt` であれば名前は問わない
+（`discuss-2024-10.txt` でも `license-discuss-2024-October.txt` でもよい）。
+**2026-09-19 時点で必要な範囲は 2012 / 2017〜2026 の両リスト**で、
+**2017 / 2018 / 2021 / 2022 は「ドシエが引いているのに一度も取得していなかった」**
+——取得後に確認数が 238 → 249 へ動いた。**「未確認」が減らないときは、まず月の欠落を疑う。**
 
 **⚠ 検出器を信じる前に、検出器を疑うこと。** 2026-09-14 の初版は
 「引用らしき文字列」を 4,976 件と数え、そのほとんどが **markdown の太字記法**だった。
@@ -160,8 +173,8 @@ def main():
         print(f"  再照合後: 確認できた {len(quotes) - len(miss)} / 確認できない {len(miss)}")
 
     if miss:
-        print("\n--- 未確認（上位 15） ---")
-        for q, locs in list(miss.items())[:15]:
+        print("\n--- 未確認（全件） ---")
+        for q, locs in list(miss.items())[: (999 if os.environ.get("DOSSIER_ALL") else 15)]:
             print(f"  [{locs[0]}] {q[:110]}")
         print("\n**未確認 = 誤引用ではない。** 我々自身の文を強調で括ったものと、"
               "まだ取得していない月の両方が入る。**分類してから結論すること。**")
