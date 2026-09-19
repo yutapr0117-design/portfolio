@@ -94,7 +94,15 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       on the face of that one sentence. In Section 16.5 the second "it"
       becomes "that role", because the first "it" in the same sentence refers
       to the text and the second referred to the role.
-    * ACD-1.1: 5051 words, 78 clauses. This draft: 5191 words, 80 clauses.
+    * Section 4.4 no longer denies a fallback reading by naming it; it states
+      the positive instead (errata E28). The old wording said the licence
+      "does not depend on Section 3 being ineffective", which states the
+      fallback frame in order to reject it. Three readers have taken the frame
+      anyway: this dossier did so twice and had to correct itself (adverse
+      facts 24 and 35), and an outside reviewer did so on 2026-09-20 while
+      calling the clause appropriate. The phrase "granted independently of
+      Section 3" is kept because the submission packet quotes it.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5198 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -309,11 +317,11 @@ PREAMBLE (informative; not part of the operative terms)
        purpose of the user, or on any restriction as to persons, groups,
        technologies, endeavours, or jurisdictions.
 
-  4.4  The licence in Section 4.1 is granted independently of Section 3 and
-       does not depend on Section 3 being ineffective. You are not required to
-       determine whether Section 3 is effective in any jurisdiction, and no
-       permission granted here depends on that question or on how it is
-       answered.
+  4.4  The licence in Section 4.1 is granted independently of Section 3, and
+       not as a fallback for it: it takes effect whether or not Section 3
+       does. You are not required to determine whether Section 3 is effective
+       in any jurisdiction, and no permission granted here depends on that
+       question or on how it is answered.
 
   4.5  Because this licence imposes no condition, You may distribute the Work,
        and any adaptation or collection containing it, under any terms You
