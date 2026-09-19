@@ -588,6 +588,13 @@ OLG の press release は *"Eine anonymisierte Volltextfassung der Entscheidung 
 
 #### (9) 🔴 控訴審は既に出ている —— HansOLG 5 U 104/24（2025-12-10 判決・**レビューは第一審しか挙げていない**）
 
+**取得元**: `https://justiz.hamburg.de/gerichte/hanseatisches-oberlandesgericht/gerichtspressestelle/
+ki-und-urheberrecht-hanseatisches-oberlandesgericht-weist-berufung-zurueck-1126528`
+（2026-09-20 に自己取得・ページ自身の日付は *Stand: 10.12.2025, 12:00*）。
+**`rounds/` には置かない** ——同ディレクトリの規則 6 が述べるとおり、そこは**我々のやり取りと、
+我々を名指しした短い観測**のための場所であって、公開されている第三者ページの複製ではない。
+**決定的な箇所を発言者（ここでは裁判所）と日付つきで引く**のが、この種の資料の扱いである。
+
 **ハンブルク上級地方裁判所 第 5 民事部の press release（裁判所自身の発表）より:**
 
 > Der 5. Zivilsenat … hat mit heute verkündetem Urteil (Az.: **5 U 104/24**) die Berufung eines
