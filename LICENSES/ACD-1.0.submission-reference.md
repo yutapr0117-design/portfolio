@@ -243,9 +243,13 @@ used for license grants."
 **Four differences from that precedent, all of which cut against this submission and are stated
 here rather than left to be discovered.**
 
-1. **The Unlicense entered by a request for *legacy* approval** — it was already in widespread
-   use by many unaffiliated parties, and that adoption carried weight the text alone might not
-   have. ACD-1.0 has one adopter and cannot borrow that argument. It has to stand on the text.
+1. **The Unlicense was submitted as a request for *legacy* approval** — the thread is titled
+   *"Request for legacy approval: The Unlicense"* — and it was already in widespread use by many
+   unaffiliated parties, which is weight the text alone might not have carried. ACD-1.0 has one
+   adopter and cannot borrow that argument. It has to stand on the text. **What the record does
+   not show is the basis the board actually used**: the OSI's own licence list categorises the
+   Unlicense as `special-purpose`, not as legacy (the category exists and holds other licences),
+   and the board minutes for that decision are linked to a wiki that no longer serves them.
 2. **The Unlicense was approved despite broad agreement that it is poorly drafted.** ACD-1.0
    errs in the opposite direction: 16 sections and 82 clauses, which will draw the opposite
    criticism — that it is too long for what it does (answered at length in
@@ -696,7 +700,7 @@ machine can find are not present.
 | Every clause pointer **also supports the claim it is attached to** | **read by hand**, 2026-09-09: each boolean and each `outOfScope` entry compared against the wording of the clause it cites | **33 / 33.** **This row previously said "resolves and matches its subject" with only the existence check behind it** — resolution is mechanical, agreement of meaning is not, and the two were reported as one. The same audit on `clause-reference.md`'s 82 rows found **three** mismatches (`against.md` #34–#36), so a clean result here was not a foregone conclusion. **Repeat the pass if the descriptor changes; nothing enforces it** |
 | Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
 | Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
-| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **184 entries, 1–184, no gaps; all citations resolve** |
+| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **185 entries, 1–185, no gaps; all citations resolve** |
 | Every defect called a "1.1 candidate" anywhere has an entry in the errata to point at | cross-check declarations against `errata.md` | **one was missing and has been added (E7)** |
 | Every negative self-claim the text makes about itself is true | extract each "contains no / imposes no / grants no / reaches nothing / specifies no" statement and search the whole text for the thing denied | **9 claims, 9 true** — each denied term appears only inside the clause doing the denying |
 | Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |
