@@ -41,7 +41,21 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       document's to decide (the reasoning of errata E5), and a named
       prohibition on the transferee alone, which invites the reading that the
       Dedicator may do what the transferee may not.
-    * ACD-1.1: 5051 words, 78 clauses. This draft: 5055 words, 78 clauses.
+    * A new Section 15.5 restores the three rules of construction that ACD-1.0
+      carried at its Section 15.2 and that this line of drafting dropped
+      (errata E24). Dropping them was reasoned from the wrong comparison: MIT,
+      0BSD and the Unlicense carry no such rules, but they also carry almost no
+      enumerations, and this text has twelve. Without the rules, (a) each of
+      the twelve lists introduced by "including" -- among them the definitions
+      of Work, Covered Rights, Computational Use and Reservation, which are the
+      definitions that carry what this text claims is new -- invites the reading
+      that the list is exhaustive, which is the same *expressio unius* argument
+      this draft has used three times on itself; (b) the five uses of the
+      singular "Covered Right", in Sections 2.8, 3.3, 5.1 and 6.4, are a form
+      of a term defined only in the plural; and (c) the reference in Section
+      1.10 to Article 4(3) of Directive (EU) 2019/790 is a reference to the
+      2019 text alone. Only Section 4.2 said "without limitation" on its own.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5098 words, 79 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -598,6 +612,11 @@ PREAMBLE (informative; not part of the operative terms)
   15.4 English is the authoritative language of this Dedication. A translation
        is for convenience only; in the event of conflict, this English text
        prevails.
+
+  15.5 In this Dedication, words in the singular include the plural and words
+       in the plural include the singular; "including" introduces examples and
+       does not limit what precedes it; and a reference to a law includes that
+       law as amended, replaced, or re-enacted.
 
 
 16. APPLYING THIS DEDICATION, AND THE STATUS OF THIS TEXT
