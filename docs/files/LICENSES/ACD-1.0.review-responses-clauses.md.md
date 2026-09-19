@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-clauses.md
 audience: ai, human (提出者), 監査人, 学術研究者, 第三者全般
-last-updated: 2026-08-26
+last-updated: 2026-09-20
 canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES/ACD-1.0.review-responses-meta.md (出自・名称・運用) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
@@ -11,8 +11,9 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 
 ACD-1.0 の**条項別**想定問答。`ACD-1.0.review-responses.md`（総論・OSD 逐条・認める弱点・議論の進め方）の分冊で、2 層に分かれる。
 
-- **第 1 層 —— その条文は何を意味するのか**: §2 SCOPE（irrevocable の実効性 / §2.8 承継人拘束）/ §6 ML・TDM（§6.2 の射程 / §6.4 の出力）/ §8 PATENTS（**特許報復条項の不在を譲らず擁護する** / §8.4 の前例の無さ）/ §9 機械生成物 / §10・§11 非条件性（§11.3 は制限か）/ §12 人格権 / §15・§16。
-- **第 2 層 —— その意味を裁判所が認めるのか**: §15.1 解釈条項の拘束力 / §15.3 contra proferentem の排除 / §15.5 の一方向性 / **§2.9 non-executory と米国倒産法 §365(n)** / §5.2(a) 反 DRM の誤読 / §5.2(b) の誤読 / §7 DB 権の冗長性 / §13・§14 の定型 / **§31 日本法固有の論点** / §32 承認後の 1.1 の扱い。
+**本書は第 1 層だけを持つ。** §2 SCOPE（irrevocable の実効性 / §2.8 承継人拘束）/ §6 ML・TDM（§6.2 の射程 / **§6.2 が扱う問題が現に争われた HansOLG 5 U 104/24** / §6.4 の出力）/ §8 PATENTS（**特許報復条項の不在を譲らず擁護する** / §8.4 の前例の無さ）/ §9 機械生成物 / §10・§11 非条件性（§11.3 は制限か）/ §12 人格権 / §15・§16。
+
+**第 2 層（その意味を裁判所が認めるのか・Q22〜Q33）は 2026-09-20 に `ACD-1.0.review-responses-boilerplate.md` へ分けた** —— 下の「Change impact」がその手順を予告しており、advisory（900 行）を超えた日にそのとおり実行した。**Q 番号は動かしていない。**
 
 ## Why
 
@@ -34,7 +35,8 @@ ACD-1.0 の**条項別**想定問答。`ACD-1.0.review-responses.md`（総論・
 ## Change impact
 
 - レビューで条項への指摘を受けたら、**その指摘と回答をここに追記する**。
-- 900 行の advisory に近づいたら、第 1 層 / 第 2 層でさらに分ける（時系列 log ではないので rotate ではなく主題分割）。
+- **この予告は 2026-09-20 に実行済み**（第 2 層 → `ACD-1.0.review-responses-boilerplate.md`）。次に advisory へ近づいたら、同じく主題で分ける（時系列 log ではないので rotate ではない）。
+- **第 2 層の Q を足すのはこちらではない。** 足すと分割した意味が消える。
 
 ## Audience-specific notes
 
