@@ -86,6 +86,12 @@ a dedication written for works that are meant to be learned from.
 Rationale, the gap analysis against existing licences, and the Open Source Definition
 conformance table are recorded in docs/architecture/acd-license-rationale.md.
 
+The review dossier is published alongside the text and is meant to be checked rather than
+believed: LICENSES/REVIEWERS.md is the English entry point, LICENSES/ACD-1.0.against.md is the
+complete adverse record (every defect found in this instrument, written by us, none removed),
+and LICENSES/ACD-OSI-BOTTLENECKS.md is the register of what we believe still stands between
+ACD-1.0 and OSI approval, with none of its entries marked resolved.
+
 ## Executable Tool (WebMCP)
 
 This site is not only readable by agents — it registers one **executable** tool.
