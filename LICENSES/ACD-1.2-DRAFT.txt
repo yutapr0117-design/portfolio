@@ -71,7 +71,17 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       permissions narrowly. Nothing about the Work was affected either way
       (Sections 10.5 and 16.6), which is why this is stated as a repair of an
       accident rather than as a defence of a clause.
-    * ACD-1.1: 5051 words, 78 clauses. This draft: 5127 words, 80 clauses.
+    * Sections 8.6 and 12.2 now each say that You are not required to
+      determine which of their branches applies (errata E26). Four Sections
+      operate differently according to the law of a jurisdiction and then
+      close the difference by a second footing, and until now only two of
+      them -- Section 4.4 for the surrender, Section 9.3 for machine-generated
+      material -- said so to the reader. The patent grant and the moral rights
+      waiver did the same thing and said nothing, so a reader met the branch
+      at Section 8.6 and Section 12.2 with no statement that it did not matter
+      which side of it they were on. The asymmetry is the defect; the sentences
+      are copied from the two that already existed.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5190 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -456,7 +466,9 @@ PREAMBLE (informative; not part of the operative terms)
        times over, by surrender (Section 3), by licence (Section 4), and by
        covenant (Section 5); this Section gives the patent grant the second
        footing it would otherwise lack, in the manner Section 12.2 uses for
-       Moral Rights.
+       Moral Rights. You are not required to determine whether either licence
+       is effective in any jurisdiction, and nothing granted in this Section
+       depends on that question or on how it is answered.
 
 
 9. MACHINE-GENERATED MATERIAL AND AUTHORSHIP
@@ -554,7 +566,10 @@ PREAMBLE (informative; not part of the operative terms)
        to the author, inalienable, or incapable of waiver, Section 12.1 does
        not apply in that jurisdiction, and instead the Dedicator covenants not
        to exercise Moral Rights in the Work against You or against any person
-       who receives the Work from You.
+       who receives the Work from You. You are not required to determine which
+       of Section 12.1 and this Section applies in a jurisdiction, and nothing
+       permitted by this Dedication depends on that question or on how it is
+       answered.
 
   12.3 The covenant in Section 12.2 is limited to the Work. It extends to no
        other work of the Dedicator, whether existing or future, and it is given
