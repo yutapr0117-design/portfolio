@@ -437,6 +437,41 @@ fails — it does not — but because ACD-1.0 goes further than most approved li
 the recipient from any obligation to carry the notice forward. That choice is deliberate (§10.2),
 it has approved precedent, and its cost is stated as an adverse fact rather than defended.
 
+#### 3b-i. The wide reading of OSD 5, applied
+
+A criterion is a text, and the people who vote are still arguing about how wide some of them
+are. On 2026-09-16 McCoy Smith read OSD 5 as reaching **asymmetry between roles**, not only
+discrimination between persons and groups: a termination trigger firing only on claims
+"against the Licensor" "puts Licensors & Licensees in different positions vis a vis patent
+assertions, and therefore arguably violates OSD 5". The reading is contested — its author wrote
+"arguably", the steward of the instrument in question answered that "Licensor is a role in the
+license, not a person", and no committee or board has ruled on it. We had applied OSD 5 only in
+its narrow sense, so we have now applied the wide one as well.
+
+| Asymmetric provision | What it does one way | Under the wide reading |
+| :-- | :-- | :-- |
+| **§5.2** | The Dedicator covenants not to apply or invoke technological measures or laws against You, not to impose collateral conditions, and not to argue for a narrow construction | **The asymmetry runs against the grantor and in favour of every recipient equally.** No recipient is placed in a different position from any other, and the party disadvantaged is the one making the grant |
+| **§11.3** | Withholds permission to misrepresent the Dedicator's authorship or endorsement | **Applies identically to every recipient.** It is a limit of reach, not a condition (§10.1 is unaffected), and what it withholds was never the Dedicator's to permit |
+| **§12.2** | The Dedicator covenants not to exercise Moral Rights against You or against anyone who receives the Work from You | **Runs one way only, in the recipient's favour, and reaches downstream recipients as well.** Nobody is worse off than anybody else |
+| **§16.4** | A modified licence text may not be distributed under the name or an `ACD-N.N` identifier **except by the Steward** | **This is the one place where a named role may do something others may not**, and it should be conceded plainly rather than argued away |
+
+**On §16.4**, three things are true at once. It concerns **the licence text as a document, not
+the Work**: §10.5 and §16.5 say so in terms, so it places no person in a different position with
+respect to the licensed work, which is what OSD 5 governs. It is **the same name-integrity term
+that approved licences carry for their own texts**, so a reading of OSD 5 that condemned it would
+condemn a large part of the approved list with it. And OSD 4 **expressly contemplates** name
+restrictions of this shape. **What remains, and we state it rather than resolve it**: the
+Steward's exception is a role-based difference on the face of the document, and a reviewer taking
+the wide reading at full strength is entitled to ask about it. Our answer is the subject-matter
+limit, not a denial that the difference exists.
+
+**⚠ And the converse.** Under the wide reading this instrument is *unusually* well placed in the
+vulnerable place — it has no termination provision at all (§10.4: no permission
+"terminates for any reason") and a non-terminable patent licence (§8.2), so there is no trigger
+whose direction could be asymmetric. **But that immunity and a recorded weakness are the same
+fact**: the absence of patent retaliation is listed as a cost at `against.md` #174. Being
+unreachable by an objection is not the same as having made the better choice.
+
 ### 3c. The OSI's own list of common reasons for rejection, item by item
 
 **Source, read 2026-09-07**: `https://opensource.org/licenses/common-reasons-for-rejection-of-licenses`,
