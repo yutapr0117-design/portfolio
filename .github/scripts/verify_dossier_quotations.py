@@ -38,6 +38,7 @@ import glob
 import json
 import os
 import re
+import subprocess
 import sys
 import urllib.request
 
@@ -81,6 +82,42 @@ def load_sources(root="."):
     return " || ".join(out)
 
 
+def load_self(root="."):
+    """**自分自身の成果物**（ドシエ本体・commit message・README 等）を、外部 source とは
+    **別の blob** として読む。
+
+    **なぜ分けるか。** ドシエは `*"..."*` を「逐語引用」の記法として使い、その対象は
+    *人の発言*とは限らない ——**自分の commit message・自分の節の注記・自分の README の
+    呼び出し文**も同じ記法で引く。**人名の近傍にある**という抽出条件だけでは両者を分けられず、
+    その結果「未確認」の大半が**外部照合の対象ですらないもの**で埋まり、
+    **残差の数が判断に使えなくなる**（2026-09-19 に 73 件中の大半がこれだった・`against.md` #165）。
+
+    **⚠ この blob を外部照合に混ぜてはならない。** 混ぜると、**人の発言を誤って書き写しても
+    自分の file と一致して「確認できた」になる** ——道具が守ろうとしている当のものが壊れる。
+    だから `present()` には渡さず、**外部で確認できなかったものだけ**をここへ当てる。
+    """
+    # **⚠ 引用記法そのものを落としてから読む。** 落とさないと **引用は自分が書かれている file に
+    # 必ず在る**ので、この分類は **全件を自己引用と判定する**（2026-09-19 に実際にそうなった
+    # ——324 件中 73 件の残差が「自己引用 73 / 出典に当たれていない 0」という、
+    # **一見きれいで中身の無い数**を返した）。**判定したいのは「同じ語が、引用符の外の、
+    # 我々自身の地の文に在るか」**である。
+    strip = re.compile(r'\*"[^"]{1,400}"\*')
+    out = []
+    for pat in (f"{root}/LICENSES/*.md", f"{root}/README.md",
+                f"{root}/docs/architecture/*.md"):
+        for f in glob.glob(pat):
+            try:
+                out.append(norm(strip.sub(" ", open(f, encoding="utf-8", errors="replace").read())))
+            except OSError:
+                continue
+    try:
+        out.append(norm(subprocess.run(["git", "log", "--format=%B", "-n", "400"],
+                                       cwd=root, capture_output=True, text=True).stdout))
+    except Exception:          # noqa: BLE001 — git が無い環境でも道具は動くべき
+        pass
+    return " || ".join(out)
+
+
 def collect_quotes(root="."):
     """`*"..."*` 形式で、人名の近傍にある英語の逐語引用を集める。"""
     quotes = {}
@@ -109,11 +146,30 @@ def present(quote, blob):
     **省略記号を挟む部分引用は断片ごとに照合する** —— そのために、分割は
     *生の引用*に対して行い、正規化はそのあとで各断片に当てる。
     """
+    # **角括弧は 2 通りに読める。** `[sic]` と `code[s]` は**挿入なので落とす**のが正しく、
+    # `appropri[ate]` は**補完なので中身を残す**のが正しい。**どちらが正しいかは書き手の意図で、
+    # 記法からは決まらない**ので、**両方を試して片方でも一致すれば可**とする
+    # （2026-09-19: `[sic]` を付けて出典へ戻した引用が、その `[sic]` のせいで
+    # 「出典に当たれていない」に落ちた ——**忠実さを上げた修正が、忠実さの検査を落とした**）。
+    import re as _re
+    for _v in (_re.sub(r"\s*\[[^\]]*\]", "", quote), _re.sub(r"[\[\]]", "", quote), quote):
+        if norm(_v) in blob:
+            return True
+        _s = [norm(x) for x in _re.split(r"\.{3}|…", _v)]
+        _k = [x for x in _s if len(x.split()) >= 3] or [x for x in _s if len(x.split()) >= 2]
+        if _k and all(x in blob for x in _k):
+            return True
     if norm(quote) in blob:
         return True
     segs = [norm(s) for s in re.split(r"\.{3}|…", quote)]
-    segs = [s for s in segs if len(s.split()) >= 5]
-    return bool(segs) and all(s in blob for s in segs)
+    # **短い断片を捨てない。** 5 語未満を捨てる実装では、断片が全部短い引用
+    # （*"3888 words … excessively wordy and proscriptive"* ——2 語と 4 語）で
+    # **segs が空になり、照合せずに「未確認」を返していた**（2026-09-19 実測）。
+    # **短い断片も要求するのは緩和ではなく強化である**（満たすべき条件が増える）。
+    keep = [s for s in segs if len(s.split()) >= 3]
+    if not keep:
+        keep = [s for s in segs if len(s.split()) >= 2]
+    return bool(keep) and all(s in blob for s in keep)
 
 
 def needed_months(missing, root="."):
@@ -171,6 +227,14 @@ def main():
         blob = load_sources(args.root)
         miss = {q: v for q, v in miss.items() if not present(q, blob)}
         print(f"  再照合後: 確認できた {len(quotes) - len(miss)} / 確認できない {len(miss)}")
+
+    # **残差を 2 つに割る。** 外部で確認できなかったもののうち、**自分の成果物に在る**ものは
+    # 外部照合の対象ではない（自己引用）。**残りだけが「出典に当たれていない引用」である。**
+    selfblob = load_self(args.root)
+    selfq = {q: v for q, v in miss.items() if present(q, selfblob)}
+    miss = {q: v for q, v in miss.items() if q not in selfq}
+    print(f"  うち自己引用（外部照合の対象外）: {len(selfq)}")
+    print(f"  出典に当たれていない引用: {len(miss)}")
 
     if miss:
         print("\n--- 未確認（全件） ---")

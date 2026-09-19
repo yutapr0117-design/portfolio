@@ -310,9 +310,9 @@ the OSD** … that is not met"*。**争点の外にいることは、失格を 3
 
 | 提出 | 経過 | 審査者が実際に言ったこと |
 |---|---|---|
-| **Misty Foundation License**（2025-12・**5 日で撤回**）| 6.3 → 1.7 を 2 日で差し替え | Chestek 氏: *"You should **read this page** … and submit the license **with the additional information** as outlined on that webpage"* / Piana 氏: *"**a brief introduction to oneself and a signature of a real person** … would probably be a modicum of courtesy"* |
+| **Misty Foundation License**（2025-12・**5 日で撤回**）| 6.3 → 1.7 を 2 日で差し替え | Chestek 氏: *"You should **read this page** … and submit the license **with the additional information** as outlined on that webpage"* / Piana 氏: *"**a brief of [sic] introduction to oneself and a signature of a real person** … would probably be a modicum of courtesy"* |
 | **Milenium License**（2026-05・**5 日**）| 1.0 → 1.1 を 2 日で差し替え | Kevin Fleming 氏: *"There are **a number of details which you will need to provide in addition to the license text itself**"* / McCoy 氏: *"this submission **has not followed the process of answering the questions**"* |
-| **BOS Public License**（2026-07-22 〜 2026-09-07・**6 週間以上・3 版**）| 1.0 → 1.2（2 日）→ 1.3（6 週後）| Berkus 氏: *"Please **attach a copy of the text** … Also, **your links are broken**"* / Chestek 氏: *"Please provide **all the information as required** … and **in particular do not skip 'Describe any legal review the license has been through, including whether it was drafted by a lawyer.'**"* / Chestek 氏（v1.2 に対して）: *"Please provide **the rest of the information**"* / Piana 氏（v1.3 に対して・6 週間後）: *"the submission **does not include the required information** and therefore **I will not comment it until the deficiencies are remedied**"* |
+| **BOS Public License**（2026-07-22 〜 2026-09-07・**6 週間以上・3 版**）| 1.0 → 1.2（2 日）→ 1.3（6 週後）| Berkus 氏: *"Please **attach a copy of the text** … Also, **your links are broken**"* / Chestek 氏: *"Please provide **all the information as required** … and **in particular do not skip 'Describe any legal review the license has been through, including whether it was drafted by a lawyer.'**"* / Chestek 氏（v1.2 に対して）: *"Please provide **the rest of the information**"* / Piana 氏（v1.3 に対して・6 週間後）: *"the submission **does not include the required information** and therefore **I will not comment it until the deficiencies are resolved**"* |
 
 **読み取れること（3 点・いずれも我々の側で使える）**:
 
@@ -321,7 +321,7 @@ the OSD** … that is not met"*。**争点の外にいることは、失格を 3
    この類型では機能していない。** オーナーの方針（**自信を持って出せる版ができるまで出さない**）は、
    この記録と整合する。
 2. **審査者は required information が揃うまで本文を読まない、と明言する。** Piana 氏の
-   *"I will not comment it until the deficiencies are remedied"* が最も明確である。
+   *"I will not comment it until the deficiencies are resolved"* が最も明確である。
    **つまり手続きの不備は、悪い評価ではなく評価そのものの不在を招く。**
 3. **委員長が名指しした唯一の項目が「法的レビューの有無」だった。** ——**我々の最大の弱点
    （B1）を述べる項目である。** 我々の §B.0 は *"**Legal review: none.** No lawyer has drafted or
