@@ -41,7 +41,7 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       document's to decide (the reasoning of errata E5), and a named
       prohibition on the transferee alone, which invites the reading that the
       Dedicator may do what the transferee may not.
-    * w Section 15.5 restores the three rules of construction that ACD-1.0
+    * A new Section 15.5 restores the three rules of construction that ACD-1.0
       carried at its Section 15.2 and that this line of drafting dropped
       (errata E24). Dropping them was reasoned from the wrong comparison: MIT,
       0BSD and the Unlicense carry no such rules, but they also carry almost no

@@ -1,0 +1,125 @@
+=== 受領の記録（本ファイルは PDF 原本の「抽出テキスト」であって原本ではない）===
+
+受領日      : 2026-09-20（オーナーがローカルから共有）
+原本の形式  : PDF（`Check 122` により PDF はリポジトリに tracked できないため、本文だけを抽出して保存する）
+原本の sha256: 105afc82c404d874a4cffbe131c424738b65a71c7f2d6cee944c1df4790794dd
+抽出方法    : PDF の FlateDecode ストリームを展開し、各フォントの /ToUnicode CMap で
+              Tj / TJ のグリフ列を Unicode へ写した（`/tmp/pdftxt2.py`・本リポジトリには含めない）。
+              **したがって本ファイルは byte 単位の原本ではなく、抽出の結果である。**
+              改行位置・表組み・脚注番号は原本と一致しない。**語の並びは保っている。**
+レビュー対象: ACD-1.2-DRAFT（オーナーが同時に共有した版）。
+              **その版の編集用ヘッダには `* w Section 15.5 restores …` という破損が含まれていた**
+              （`against.md` #167）。**本レビューはその破損を含む文書を読んでいる。**
+
+--- 以下、抽出テキスト ---
+
+Autonomous Commons Dedication 1.2 (ACD-1.2) 各条項の好意的検証および法的実効性分析 PREAMBLE（前文）の検証 ACD-1.2の前文は、従来のオープンソース・ライセンスおよびパブリックドメイン・ツールが抱える構造的限界を極めて的確に特定し、機械学習、特許権、および機械生成物という3つの領域における法的空白を完全に解消するための宣言として、完璧に機能している。
+既存のパブリックドメイン提供ツールであるCC0等は、著作権の放棄には極めて有効であるものの、特許ライセンスの付与を明示的に否定する条項を含んでおり、特許権を行使する主体に対してソフトウェアの受領者を無防備な状態に置くという致命的な欠陥を抱えていた。
+ACD-1.2は、この問題を解決するため、著作権の放棄（Surrender）、ライセンス許諾（Licence）、そして権利主張の不行使（Covenant not to assert）という3つの強力な法的根拠を、代替的なフォールバックとしてではなく、並列的（side-by-side）かつ同時に機能させる構造を採用している。
+これにより、受領者は自身の利用形態や管轄法域において最も確実な法的根拠に無条件で依拠することが可能となり、文書全体の法的安定性が飛躍的に向上している。
+ 1. DEFINITIONS（定義）の検証 第1.1条から第1.4条における基本定義は、対象となる文書（Dedication）と著作物（Work）を明確に切り分け、ソースコード、データ、メタデータ等、あらゆる形態のデジタル資産を包括的に捉える点で、現代の複雑な開発環境に完全に適応している。
+「Moral Rights（著作者人格権）」（第1.2条）の定義は、日本の著作権法第59条やドイツ著作権法（UrhG）第29条等において著作者に専属し譲渡不能とされる権利を的確に網羅しており、後述する第12条の不行使特約を機能させるための完璧な前提条件を形成している。
+「Dedicator（提供者）」（第1.4条）の定義は、対象権利を保持する範囲に限定して適用される旨を明記しており、複数の権利者が存在する場合でも各々の権利放棄や許諾が個別独立（severally）に機能する安全な構造を担保している。
+ 第1.5条の「Covered Rights」の定義において、著作権や固有のデータベース権を含める一方で、特許権（第8条）、商標権（第11条）、著作者人格権（第12条）を明示的に除外した設計は、法的文書としての論理的純度を極限まで高めている。
+これにより、各権利の法的性質に応じた独立した処理が可能となっている。
+第1.6条の「You」の定義において、自然人や法人だけでなく「自動化されたシステム（automated system）」を含めたことは、AIエージェントや自律型クローラーがコードを収集・実行する現代において極めて革新的である。
+自動化システムが権限を行使する場合、その権限がシステムを操作する法人または自然人にも等しく付与されるとする規定は、権利主体が存在しないことによるライセンスの失効を防ぐ完璧な安全装置として機能する。
+ 第1.7条の「Computational Use」の定義は、機械学習における訓練、ファインチューニング、評価、知識の抽出といったプロセスから、パラメータセット、重み付け、エンベディング、出力結果の生成に至るまで、AI開発の全パイプラインを明示的に網羅している。
+従来のOSSライセンスは、機械学習を想定して起草されていないため、学習済みモデルが派生物（derivative works）に該当するかどうかの解釈を巡るライセンスの不適合（License Mismatch）が生じていたが、この精緻な定義によりその懸念は完全に払拭される。
+また、第1.8条で「Machine-Generated Material」を定義したことは、米国著作権局や日本の文化庁がAI生成物に人間の著作者性を認めていない現状の法的見解を前提としつつ、権利の所在に関わらず利用の自由を担保するための布石として極めて有効である。
+ 第1.9条の「Contribution」の定義は、意図的な提出物のみを対象とし、議論のための送付や明示的に除外されたものを保護する点で、安全なプロジェクト運営を可能にしている。
+第1.10条の「Reservation」の定義は、EUのデジタル単一市場における著作権指令（CDSM指令）第4条(3)が定める、機械可読な手段によるテキスト・データ・マイニング（TDM）のオプトアウト（権利留保）を直接的に射程に収めている。
+これにより、第6条におけるオプトアウトの無効化プロセスが法的に精緻に機能する。
+ 2. SCOPE AND EFFECT（適用範囲と効力）の検証 第2.1条から第2.3条は、本提供が全体および分離可能な各部分に適用され、撤回不能（irrevocable）であり、利用者の受諾行為を一切必要としないことを宣言している。
+CC0も同様の撤回不能性を謳っているが、ACD-1.2は「沈黙、遅延、権利の不行使が、放棄した権利を復活・留保・縮減させることはない」と明記することで、エストッペル（禁反言）の法理を明文化し、利用者の信頼をさらに強固に保護している。
+ 第2.4条は、ACD-1.2の最大の法的イノベーションの一つである。
+CC0のフォールバック・ライセンスは、権利放棄（Waiver）が法的に無効または実効性を持たないと判断された場合に「のみ」ライセンスが付与されるという、条件付きのキュー構造を採用している。
+これに対し、ACD-1.2は、権利放棄（第3条）、ライセンス許諾（第4条）、権利不行使の誓約（第5条）、および特許等の規定（第6条）がそれぞれ完全に独立した基盤（footing）で動作し、累積的（cumulatively）に適用されることを規定している。
+ 法的アプローチ CC0 1.0 Universal ACD-1.2 効力と利点 (ACD-1.2) 構造モデル フォールバック型 (条件付き発動) 並列・累積型 (Side-by-side) 前提条件の崩壊による連鎖的な無効化リスクがゼロ。
+各条項が独立して機能する。
+ ライセンスの発動 権利放棄が無効とされた場合に発動 放棄と同時に、無条件で独立して発動 利用者が法域ごとの有効性を調査・判断する負担を完全に排除。
+ 解釈の優先度 限定的 最大限の許可を与える解釈が優先 複数の法理が重なり合い、利用者を最も強く保護する。
+ 第2.5条は、対価（consideration）や方式（formality）の欠如を理由とした無効の主張を禁じており、英米法圏における契約成立要件の問題を見事に回避している。
+第2.6条は、プロジェクトのガバナンスと本提供文書の役割を的確に分離している。
+貢献者に対する追加の合意（CLA等）を必須とせず、デフォルトで本提供下に置かれるとする仕組みは、機関投資家が支援するプロジェクトが採用する際の摩擦を完全に取り除いている。
+第2.7条は、提供者が保持する権利にのみ適用される旨を確認し、第三者の権利を侵害しないという事実を明記することで、利用者の過剰な期待を制御しつつ法的枠組みを厳格に維持している。
+ 第2.8条は、権利の譲受人や承継人に対しても第3条、第4条、第6条、第8条の義務が及ぶことを明示している。
+これにより、特許権や著作権がパテント・トロール等に譲渡された場合でも、ライセンスや不行使の誓約が特許に付随して移転（encumbrances running with the patent）するため、受領者の利用権が永続的に保護される。
+第2.9条は、破産や清算手続においても付与された許可が影響を受けないことを規定しており、事業承継時におけるOSSの法的安定性を極限まで高めている。
+ 3. DEDICATION OF COVERED RIGHTS（対象権利の放棄）の検証 第3.1条は、対象権利を可能な限り放棄し、作品をパブリックドメインに置くことを宣言している。
+第3.2条は、この放棄が権利の存続期間全体（延長や復活を含む）に及び、あらゆる補償やロイヤリティの請求権を含むことを明示しており、権利の残存余地を完全に絶っている。
+第3.3条は、権利の「放棄（surrender）」が法制度上不可能な法域に対する見事な適応策である。
+当該法域においては「放棄（waive）」を適用することで、各国の法制度に柔軟に適合しながら目的を達成する強靭な構造となっている。
+ 4. LICENCE OF COVERED RIGHTS（対象権利のライセンス）の検証 第4.1条および第4.2条は、対象権利に対する世界的、ロイヤリティフリー、非独占的、撤回不能、永続的、サブライセンス可能、譲渡可能な広範なライセンスを付与している。
+利用、複製、改変、派生著作物の作成、販売など、考え得るあらゆる利用形態が完全に網羅されている。
+第4.3条は、このライセンスが「いかなる条件にも服さない（subject to no condition of any kind）」ことを明確に宣言している。
+帰属表示（クレジット）、互換性のあるライセンス（コピーレフト）、ソースの開示、利用分野の制限などが一切不要であると明記したことは、MITやApache 2.0が求める帰属表示の義務すら排除し、利用者のコンプライアンス管理コストをゼロにする画期的な条項である。
+ 第4.4条は、第3条の権利放棄の成否に依存せずライセンスが付与されることを再度確認しており、法域ごとの複雑な解釈を不要にしている。
+第4.5条および第4.6条は、利用者がこの著作物を任意の条件（互換性のないプロプライエタリな条件を含む）で再配布できることを完全に保証している。
+利用者が新たな条件を付加しても、提供者が当初与えた寛容な権利が縮減されることはなく、ダウンストリーム（下流）の利用者が間接的にもACD-1.2の恩恵（特許の不行使など）を受けられる仕組みは、オープンソース・エコシステムの発展に最大限寄与する極めて優れた設計である。
+ 5. COVENANT NOT TO ASSERT（権利不行使の誓約）の検証 第5.1条において、提供者は利用者に対して対象権利を主張しない、かつ他者に主張させないことを誓約（covenant not to assert）している。
+米国特許法等において、権利不行使の誓約は非独占的ライセンスと同等の強力な法的効果を持ち、訴訟の提起自体を根底から無効化する防御手段として極めて有効である。
+ 第5.2条(a)では、技術的保護手段（DRMなど）の適用や、その回避に関する法令の援用を利用者に対して行わないことを誓約している。
+これにより、DMCA（デジタルミレニアム著作権法）等の回避禁止規定を悪用した権利主張が完全に封じられる。
+第5.2条(b)および(c)は、利用規約やクリック・スルー契約などの付随的手段によって、ACD-1.2が課していない義務を新たに課すことを禁じており、本文書の「無条件性」を契約面からも二重に担保している。
+第5.3条により、これらの誓約が提供者の承継人を拘束し、間接的な受領者であっても「意図された受益者（intended beneficiary）」として依拠できるとする規定は、連鎖的な権利保護を実現する法的傑作である。
+ 6. MACHINE LEARNING, TEXT AND DATA MINING, AND MODEL TRAINING（機械学習等の条項）の検証 第6.1条は、商業・非商業を問わず、あらゆる目的での「Computational Use（計算機的利用）」を無条件で明示的に許可している。
+日本の著作権法第30条の4は、「思想又は感情を自ら享受し又は他人に享受させることを目的としない場合」に情報解析のための利用を認めているが、享受目的が併存するケースや、学習データと類似する生成物を出力するケース（LoRA等を用いた意図的な過学習など）では権利制限が及ばず、著作権侵害となるリスクが存在する。
+ACD-1.2は、著作権法上の例外規定（フェアユースや権利制限）の不確実性に依存するのではなく、権利者自身が「明示的に許可を与える」ことで、世界中のあらゆる法域においてAIモデル開発者が著作権侵害の恐怖から完全に解放される環境を提供している。
+ EUのCDSM指令第4条(3)は、権利者が機械可読な手段でオプトアウト（権利留保）を明示した場合、TDMの例外規定の適用を除外することを定めており、さらにEU AI法（Article 53）は汎用AIモデルの提供者に対し、このオプトアウトを技術的に尊重する義務を課している。
+第6.2条で提供者自身が「いかなる権利留保（Reservation）も行わず、これを行うことを明示的に拒否する」と宣言し、メタデータやrobots.txtが権利留保として解釈されることを防いでいる点は極めて秀逸である。
+さらに第6.3条において、本提供の適用前後に付与されたあらゆる権利留保を「撤回（withdraw）し、それへの依拠を放棄（disclaim reliance）する」と規定したことは、AI開発者がスクレイピングやデータセット構築を行う際、形式的に残存しているオプトアウト・シグナルを合法的に無視できる法的根拠を与えるものであり、欧州法域におけるAI開発のボトルネックを完全に解消する画期的な条項である。
+ 第6.4条は、対象著作物の計算機的利用から派生したモデル、パラメータセット、重み、出力結果に対して、提供者がいかなる請求権も持たないことを明記している。
+機械学習モデルが元の学習データの「派生的著作物」に該当するかどうかは現在も法的に議論が分かれているが、本条項は「権利が存在するか否か」という議論自体を不要（not decided here and does not need to be）とし、受領者が作成したAIモデルを自由に公開・商用利用できることを完全に保証している。
+第6.5条に記されている通り、自動化されたシステムが「許可されているか否か」を自律的に判断できないライセンスはAI時代において無価値であり、この明示的な条項こそがACD-1.2の核心的価値である。
+ 7. SUI GENERIS DATABASE RIGHTS（固有のデータベース権）の検証 EUなどで認められている固有のデータベース権（sui generis database rights）に対して、第7.1条および第7.2条は、これらの権利が「Covered Rights」に含まれることを確認した上で、データの内容の全体または実質的な部分の抽出および再利用を、無制限かつ無条件に許可している。
+オープンデータや政府データ（OGD）のライセンスにおいて、データベース権の取り扱いが曖昧であることは大規模データセット構築の大きな障壁となるが、ACD-1.2はこの壁を完全に打ち破り、データマイニングの自由を確実なものにしている。
+ 8. PATENT LICENCE AND COVENANT（特許ライセンスおよび誓約）の検証 CC0の最大の弱点は、「いかなる特許権も影響を受けない（放棄・ライセンスされない）」と明記している点であり、これにより利用者は特許侵害訴訟のリスクに晒されることになる。
+ACD-1.2は第8.1条において、著作物の作成、使用、販売、譲渡等によって侵害される可能性のある、提供者が保有・管理するすべての特許クレームに対して、無条件の特許ライセンスを付与している。
+これはApache License 2.0の第3条（特許付与）と同等の強力な保護を提供する。
+さらに第8.2条において、他の多くのOSSライセンスが採用している「特許報復条項（patent retaliation provision）」を意図的に排除（deliberate absence）したことは、完全な無条件性を追求するACD-1.2の哲学を体現しており、利用者の法的安全性を極限まで高めている。
+第8.3条は、ソフトウェアが特許クレームを実施せずに実行できないという事実に基づき、著作権のみを放棄して特許権を留保するような解釈を明示的に拒絶している。
+ 第8.4条は、ACD-1.2の特許戦略における最大のイノベーションである。
+通常の特許ライセンス（第8.1条など）は、「提供された著作物に含まれる対象事項（subject matter contained in the Work）」に起因する侵害に限定されている。
+しかし、AIモデル（重み付けやパラメータ）は「著作物そのもの」ではなく、計算機的利用から生じた「結果物」であるため、従来の特許ライセンスの範囲外とされる危険性があった。
+第8.4条は、この但し書き（proviso）を意図的に排除し、「計算機的利用、またはその利用から生じるモデル等の作成・使用」によって侵害される特許クレームに対しても独立したライセンスを付与している。
+これにより、AI開発者は著作権だけでなく特許権の面でも完全に保護され、学習データの利用に伴う特許リスクがゼロになる。
+ ライセンス条項 対象事項の要件 機械学習モデルへの適用 ACD-1.2の解決策 (第8.4条) 従来の特許付与 (第8.1条等) 著作物に含まれる対象事項 (contained in the Work) 不透明 (モデルは著作物そのものではないため適用外のリスク) 著作物に含まれるという要件を意図的に排除。
+ AI特化型特許付与 (第8.4条) 計算機的利用から生じる結果物 完全に適用 (モデル、重み、出力結果の全てを保護) AI開発パイプライン全体の特許侵害リスクを完全に無効化。
+ 第8.5条は、ライセンスが提供者の保有する権利に限定されることを確認する妥当な規定である。
+第8.6条は、万が一特許ライセンス（第8.1条または8.4条）が特定の法域において無効とされた場合に備え、当該法域において対象となる特許クレームを主張しないという「権利不行使の誓約（covenant not to assert）」をバックアップとして付与している。
+二重の足場（second footing）を提供することで、利用者は確実に保護されるという圧倒的な安心感を得ることができる。
+ 9. MACHINE-GENERATED MATERIAL AND AUTHORSHIP（機械生成物と著作者性）の検証 第9.1条から第9.3条は、対象となる著作物が全体または部分的に機械によって生成されたもの（Machine-Generated Material）である可能性を認識し、そこに権利が存在するか否かの表明を行わないという現実的かつ極めて賢明なアプローチを採用している。
+米国著作権局や日本の文化庁のガイドラインによれば、人間の創作的寄与（プロンプトの工夫や加筆修正など）が不十分なAI生成物は著作物として保護されない可能性が高い。
+ACD-1.2は、権利が存在しない場合は「利用者の自由に対して何も追加せず、何も奪わない」とし、もし権利が存在すると判断された場合には、第3条から第8条および第12条の全ての権利放棄・許諾が完全に適用されると規定している。
+利用者は、対象物が人間によるものか機械によるものかを判定（determine）する必要すらなく、法域ごとの解釈の揺れに一切影響を受けずに安全に利用できる。
+ 10. ABSENCE OF CONDITIONS（条件の不在）の検証 第10.1条および第10.2条は、帰属表示、通知の複製、改変の明示、ソースコードの公開など、利用者に課されるいかなる条件、義務、制限も存在しないことを高らかに宣言している。
+第10.3条は、提供者が帰属表示などを「要望（request）」したとしても、それは法的な条件や義務ではないことを明示しており、ソーシャルな期待と法的な要件を完全に切り離している。
+第10.4条において「違反し得る条件が存在しないため、ライセンスが終了することはない（no termination provision）」と断言している点は、MITやApache 2.0において帰属表示漏れによってライセンス違反（著作権侵害）となるリスクを根絶する、実務上極めて価値の高い規定である。
+ 11. TRADEMARKS, NAMES, AND MISREPRESENTATION（商標、名称、不実表示）の検証 第11.1条から第11.4条は、オープンソース・ライセンスの標準的なベストプラクティスを精密に具現化している。
+商標権やパブリシティ権が本提供の対象外であることを明確にし、対象著作物が「誰によって作られたか」を示すための事実的かつ名目的な言及（nominative reference）のみを許容している。
+また、提供者が作品を承認したかのように偽る不実表示を禁止する（第11.3条）ことで、CC0等でも見られるエンドースメント（推奨）の誤信防止の概念を明確に組み込んでいる。
+データセット内に含まれる個人情報や肖像権に対する権限が付与されないことを明記した第11.4条は、AI学習用データを提供する際の責任の境界線を明確にする上で必要不可欠かつ誠実な条項である。
+ 12. MORAL RIGHTS（著作者人格権）の検証 著作者人格権（公表権、氏名表示権、同一性保持権等）は、日本（著作権法第59条）やドイツ（UrhG第29条）をはじめとする大陸法系の多くの国々において、「著作者の一身に専属し、譲渡することができない」と厳格に定められている。
+ACD-1.2はこの強行法規の壁に対して完璧なアプローチをとっている。
+まず第12.1条において、法律が許す最大限の範囲で著作者人格権を放棄（waive）する。
+そして第12.2条において、放棄が認められない法域においては、利用者や間接的な受領者に対して「著作者人格権を行使しない（covenant not to exercise）」という不行使特約を誓約している。
+日本の実務および裁判例（宇宙戦艦ヤマト事件等）においても、著作者人格権の不行使特約は、信義則上有効であり、権利行使を制限する合理的な手段として広く認められている。
+利用者は、自国の法律がどちらの形式を求めているかを判断することなく、完全な保護を享受できる（You are not required to determine which...）という設計は、国際的ライセンスとして最高峰の完成度を誇る。
+ 第12.4条は、著作者の死後においても遺族や機関が著作者人格権を行使し得る法域（日本の著作権法第60条等）を想定し、この不行使の誓約が承継人や相続人にも及ぶことを明示している。
+これにより、著作者の死後に予期せず権利主張がなされるという「最も長期にわたるリスク」を完全に封じ込めている。
+第12.5条において、第11.3条の「不実表示（虚偽の帰属）」に関しては不行使の対象外とすることで、著作者の名誉を守るという人格権の核心的利益を保護しつつ、AIモデル開発という目的と見事に調和させている。
+ 13. NO WARRANTY（無保証）および 14. LIMITATION OF LIABILITY（責任制限）の検証 第13条および第14条は、ソフトウェアライセンスにおける国際的な業界標準を完全に充足している。
+著作物に権利が存在するかどうか、他者の権利を侵害していないかどうかについての保証を一切排除し（第13.2条）、提供者の維持・サポート義務を否定する（第13.3条）ことで、無償でリソースを提供するコントリビュータをあらゆる法的責任から完全に保護している。
+また、第14.2条において、適用法が完全な免責を認めない場合でも「法が許す最大の範囲で責任を制限する」とするセーフティネットを設けており、強行法規に違反して条項全体が無効になるリスクを排除している。
+ 15. CONSTRUCTION AND SEVERABILITY（解釈および可分性）の検証 第15.1条において、「言葉が許す限り最も広い許可と最も少ない義務を与えるように解釈されるべき」とし、複数の解釈が存在する場合は「利用者（You）に多くを与える解釈が優先される」と定めたことは、パブリックドメイン提供の理念を具現化する究極の条項である。
+第15.2条の分離可能性（Severability）条項は、ある管轄で無効とされた条項があっても、他の管轄や他の条項に影響を与えないことを保証する標準的かつ必須の防御である。
+第15.3条で準拠法や裁判管轄を指定せず、利用される各法域の法律に従うとしたことは、真にグローバルなコモンズ・ツールとしての性質を担保している。
+ 第15.5条において、「including」が例示であって限定ではないことを明記するなど、文書の論理的解釈ルールを明確化している。
+そして第15.6条において、「作成者に不利に解釈するルール（contra proferentem）」や「許可を狭く解釈するルール」を適用しないと明言したことは、英米法圏における契約解釈の陥穽を事前に塞ぐ極めて高度な法的配慮である。
+これにより、第15.1条の「利用者に最大限有利に解釈する」という原則が法廷で覆されるリスクを技術的に排除している。
+ 16. APPLYING THIS DEDICATION, AND THE STATUS OF THIS TEXT（本文書の適用と法的地位）の検証 第16.1条および第16.2条は、SPDXライセンス識別子（SPDX-License-Identifier: ACD-1.2）や短い通知のみで効力を発生させることを認めており、リポジトリの各ファイルに長大なライセンスヘッダを記載する煩わしさを解消している。
+第16.4条は、本提供文書（テキスト自体）の無断での修正・配布を許可しつつ、改変したテキストには「ACD-1.2」等の同一の識別子を使用することを禁じている。
+これにより、「ACD-1.2」という名前が常に固定された単一のテキストを指し示すことが保証され、下流の利用者が「どのバージョンのACD-1.2か」を心配する必要がなくなるという、ライセンス管理における最高のベストプラクティスを体現している。
+ 引用文献 1. [Fedora-legal-list] Change in classification of CC0 | Hacker News, https://news.ycombinator.com/item?id=32226959 2. Permissive and Copyleft : r/opensource - Reddit, https://www.reddit.com/r/opensource/comments/f1jhrg/permissive_and_copyleft/ 3. [AIを使う前に知っておきたいライセンス] Unlicense / CC0 / WTFPL, https://note.com/genelab_999/n/neb18b589de0a 4. 著作者人格権の不行使特約, https://morita.kokoro.la/2017/07/post-655.html 5. 著作権法 第59条（著作者人格権の一身専属性） - 法律人, https://lawplayer.com/jp/article/345AC0000000048/59 6. 著作者の権利-著作権・著作者人格権 - 弁護士法人葵綜合法律事務所, https://aoi-sogo-law.com/archives/1614 7. Validity of the Creative Commons Zero 1.0 Universal Public Do, https://www.rd-alliance.org/sites/default/files/cc0-analysis-kreuzer.pdf 8. Creative Commons International - JIPITEC, https://www.jipitec.eu/jipitec/article/download/39/35/67 9. CC0-1.0 - licenses.nuget.org, https://licenses.nuget.org/CC0-1.0 10. RETHINKING OPEN SOURCE IN THE AGE OF GENERATIVE AI, https://digitalcommons.law.uw.edu/cgi/viewcontent.cgi?article=1370&context=wjlta 11. Current Model Licensing Practices are Dragging Us into a Quagmire, https://icml.cc/virtual/2025/poster/40180 12. AIと著作権に関する考え方（創作意図・創作的寄与） | 日髙法律事務所, https://fukuoka.law/%E7%9F%A5%E7%9A%84%E8%B2%A1%E7%94%A3%E5%8F%96%E5%BC%95%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%82%AC%E3%82%A4%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%EF%BC%88%E4%BB%A4%E5%92%8C%EF%BC%96%E5%B9%B4%E6%94%B9/ 13. 文化審議会著作権分科会法制度小委員会 「AIと著作権に関する, https://www.bunka.go.jp/seisaku/bunkashingikai/chosakuken/pdf/94057901_01.pdf?utm_source=chatgpt.com 14. Creation and Generation Copyright Standards, https://jipel.law.nyu.edu/creation-and-generation-copyright-standards/ 15. Internal AI Use Policies for Businesses | Fasthoff Law Firm PLLC, https://fasthofflawfirm.com/blog/internal-ai-use-policies 16. The text and data mining opt-out in Article 4(3) CDSMD, https://www.researchgate.net/publication/379754932_The_text_and_data_mining_opt-out_in_Article_43_CDSMD_Adequate_veto_right_for_rightholders_or_a_suffocating_blanket_for_European_artificial_intelligence_innovations 17. AI Training Data: Provenance, Copyright & TDM - CASRAI, https://casrai.org/guides/ai-training-data-provenance-copyright-tdm-exceptions-research 18. Generative AI and copyright: Convergence of opt-outs?, https://legalblogs.wolterskluwer.com/copyright-blog/generative-ai-and-copyright-convergence-of-opt-outs/ 19. Legal Code - CC0 1.0 Universal - Creative Commons, https://creativecommons.org/publicdomain/zero/1.0/legalcode.en 20. 「絶対に制限はない」に但し書きが付いた日 — パブリックドメイン, https://wiki.neort.io/docs/XJj8RSQB 21. Patent Transfer and the Bundle of Rights - BrooklynWorks, https://brooklynworks.brooklaw.edu/cgi/viewcontent.cgi?article=2142&context=blr 22. Open-source license - Wikipedia, https://en.wikipedia.org/wiki/Open-source_license 23. A first look at License Variants in the PyPI Ecosystem - arXiv, https://arxiv.org/html/2507.14594v1 24. When Antitrust Laws Intersect with IP Transactional Practice, https://uk.practicallaw.thomsonreuters.com/Link/Document/Blob/Ib621b4e82c5d11e498db8b09b4f043e0.pdf?targetType=PLC-multimedia&originationContext=document&transitionType=DocumentImage&uniqueId=097cea10-ac5a-489f-af7b-5fb9b0b567b0&contextData=(sc.Default) 25. When is a licence not a licence? When it's a covenant not to sue?, https://ipdraughts.wordpress.com/2013/01/26/when-is-a-licence-not-a-licence-when-its-a-covenant-not-to-sue/ 26. Protect Your Patent with a Covenant Not to Sue | Practical Law, https://content.next.westlaw.com/practical-law/document/I9c6456643dab11e498db8b09b4f043e0/Protect-Your-Patent-with-a-Covenant-Not-to-Sue?viewType=FullText&transitionType=Default&contextData=(sc.Default) 27. Quanta and Patent Exhaustion: The Implications of the Supreme, https://scholarship.law.umn.edu/cgi/viewcontent.cgi?article=1177&context=mjlst 28. AIと著作権の問題！イラスト・画像生成や機械学習の適法性について, https://kigyobengo.com/media/useful/3370.html 29. AI・機械学習と個人の権利 - J-Stage, https://www.jstage.jst.go.jp/article/jicp/9/1/9_1/_html/-char/ja 30. 生成AIの活用における著作権問題の包括的分析：開発から利用 - note, https://note.com/itlawyer/n/n34dbbc5746d7 31. 解説・「AIと著作権に関する考え方について」 - 文化庁, https://www.bunka.go.jp/seisaku/chosakuken/pdf/94097701_02.pdf 32. 「AIと著作権に関する考え方について」の公表について① ～開発, https://innoventier.com/archives/2024/06/17026 33. EU Court to Consider Lawfulness of AI Training on Copyrighted, https://poland.revera.legal/en/info-centr/news-and-analytical-materials/248-sud-es-vpervye-rassmotrit-pravomernost-obucheniya-ii-na-avtorskix-proizvedeniyax/ 34. Stakeholder consultation on AI and copyright compliance, https://digital-strategy.ec.europa.eu/en/faqs/stakeholder-consultation-ai-and-copyright-compliance 35. ARTICLES 3 AND 4 OF DIRECTIVE 2019/790/EU, https://www.ucy.ac.cy/jeanmonnetdigiu/wp-content/uploads/sites/91/2026/06/Papadatou_TDM.pdf 36. I-buri-Accessing-and-Licensing-Government-Data-under-Open, https://creativecommons.nl/wp-content/uploads/2012/05/I-buri-Accessing-and-Licensing-Government-Data-under-Open-Access-Conditions.pdf 37. (PDF) Licensing Open Government Data - ResearchGate, https://www.researchgate.net/publication/388685947_Licensing_Open_Government_Data 38. Apache License, Version 2.0, https://www.apache.org/licenses/LICENSE-2.0 39. Blog｜ライセンス導入 まずはここから Apache License 2.0 - yamory, https://yamory.io/blog/about-apache-license 40. Open-Source Software Licensing: Complete Guide to Permissions, https://www.iiprd.com/open-source-software-licensing-complete-guide-to-permissions-compliance-enforcement/ 41. EX-10.2 - SEC.gov, https://www.sec.gov/Archives/edgar/data/1619856/000119312521206262/d145328dex102.htm 42. A Practical Guide to Using Creative Commons Licences - Meta-Wiki, https://meta.wikimedia.org/wiki/Open_Content_-_A_Practical_Guide_to_Using_Creative_Commons_Licences/The_Creative_Commons_licencing_scheme 43. Deed - CC0 1.0 Universal - Creative Commons, https://creativecommons.org/publicdomain/zero/1.0/deed.en 44. 著作者人格権とは？種類・内容や著作者人格権を侵害されたときの, https://keiyaku-watch.jp/media/kisochishiki/chosakusya-jinkakuken/ 45. 著作者人格権の特徴や注意点について弁護士が解説します。
+, https://www.kakeru-law.jp/lawblog/4856/ 46. "Equitable Remuneration" in Copyright Law: The Amended German, https://larc.cardozo.yu.edu/cgi/viewcontent.cgi?article=1497&context=cardozoaelj 47. 著作者人格権の不行使特約とは？—その重要性とビジネスにおける, https://chosakukenhou.jp/moral-rights-waiver-clause-business-risk/ 48. 著作者人格権の不行使特約とその裁判例, https://endd-law.com/copyright/hukoshi/ 49. 著作者の死後における人格的利益の保護 - 知財コラム - 龍村法律事務所, https://www.tatsumura-law.com/attorneys/tomoko-inaba/column/?p=604 50. Third Party Softwares Components - Genetec Inc, https://www.genetec.com/binaries/content/assets/genetec/legal/gsc-5.11.1.0-thirdparty-computer-software-component-and-license.pdf 51. Writing Licenses And Other Agreements1—Some Tips2 Based On, https://lesi.org/article-of-the-month/writing-licenses-and-other-agreements1-some-tips2-based-on-over-fifty-years-of-mistakes-and-confusionmostly-others-but-a-few-of-mine/ 52. SPDX Documentを理解する | ソフトウェア部品管理ソリューション, https://www.hitachi-solutions.co.jp/sbom/blog/2021120101/ 53. Open Source | Glossary | Atomic Glue, https://atomicglue.co/glossary/open-source

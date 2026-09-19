@@ -1,0 +1,136 @@
+=== 受領の記録（本ファイルは PDF 原本の「抽出テキスト」であって原本ではない）===
+
+受領日      : 2026-09-20（オーナーがローカルから共有）
+原本の形式  : PDF（`Check 122` により PDF はリポジトリに tracked できないため、本文だけを抽出して保存する）
+原本の sha256: 1b9947a8c0b587855367b8c35fdd9ae3e40b7d3778127104e006ac5411c7c6e6
+抽出方法    : PDF の FlateDecode ストリームを展開し、各フォントの /ToUnicode CMap で
+              Tj / TJ のグリフ列を Unicode へ写した（`/tmp/pdftxt2.py`・本リポジトリには含めない）。
+              **したがって本ファイルは byte 単位の原本ではなく、抽出の結果である。**
+              改行位置・表組み・脚注番号は原本と一致しない。**語の並びは保っている。**
+レビュー対象: ACD-1.2-DRAFT（オーナーが同時に共有した版）。
+              **その版の編集用ヘッダには `* w Section 15.5 restores …` という破損が含まれていた**
+              （`against.md` #167）。**本レビューはその破損を含む文書を読んでいる。**
+
+--- 以下、抽出テキスト ---
+
+Autonomous Commons Dedication 1.2 (ACD-1.2-DRAFT) ライセンス条項適切性詳細審査報告書 本報告書は、「Autonomous Commons Dedication Version 1.2 (ACD-1.2-DRAFT)」の各条項に関する法的適切性の審査結果のみを記述する。
+対象文書の各項目が、意図されたパブリックドメインへの提供および無条件のライセンス付与という目的を達成するための法的要件を充足しているかを、提供された関連法規および既存のライセンス実務に照らし合わせて厳密に評価する。
+ PREAMBLE (前文) の適切性 前文は「informative; not part of the operative terms（参考情報であり、効力を持つ条項ではない）」と明記されており、ライセンス本体の法的権利義務関係を修飾・制限しない構造となっている。
+法的文書において前文（Recitals/Preamble）を契約の拘束力から意図的に切り離すことは、条項解釈の曖昧さを排除するための標準的かつ適切な手法である。
+機械学習、特許、および機械生成物に関する本ライセンスの適用範囲を宣言するにとどめ、第1条以降の効力に影響を与えないよう設計されている点で、ライセンス項目として適切である。
+ 第1条：DEFINITIONS (定義) の適切性 本条項は、ライセンスの対象となる権利と除外される権利、および対象物を明確に定義しており、ライセンス項目として極めて適切に構成されている。
+ 定義項目 法的評価の要点 適切性の判定 1.2 Moral Rights (著作者人格権) ベルヌ条約第6条の2に基づく氏名表示権や同一性保持権を網羅し、一部法域の一身専属性を定義に包含。
+ 適切 1.5 Covered Rights (対象権利) 著作権やデータベース権を包括しつつ、特許権、商標権、著作者人格権を明示的に除外。
+ 適切 1.7 Computational Use (計算機的利用) TDM（テキスト・データマイニング）およびAIモデル開発に関連する利用行為を網羅。
+ 適切 1.8 Machine-Generated Material 人間の創作的寄与の有無にかかわらず、自動化システムによって生成された部分を定義。
+ 適切 1.10 Reservation (権利の留保) EU指令に基づくオプトアウトなど、利用許可を留保するあらゆる電磁的・契約的手段を定義。
+ 適切 第1.2条における「Moral Rights（著作者人格権）」の定義は、ベルヌ条約第6条の2が規定する「著作者であることを主張する権利（氏名表示権）」や「著作物の変更・切除等に異議を申し立てる権利（同一性保持権）」を過不足なく網羅している。
+さらに、「法律上著作者に専属し、譲渡不能とされる権利」という文言を含めることで、日本の著作権法第59条のような著作者人格権の一身専属性（譲渡禁止）を定める法域の要件を定義段階で正確に捕捉しており、ライセンス項目として適切である。
+ 第1.5条の「Covered Rights（対象権利）」は、著作権や隣接権に加え、不当な抽出に対する権利などを包括的に定めている。
+特記すべきは、ここで特許権（第8条で処理）、商標権（第11条で処理）、著作者人格権（第12条で処理）を明確に除外している点である。
+これは「CC0 1.0 Universal」が著作権と関連権利の放棄に特化し、特許や商標を別条項で明示的に除外しているアプローチ（CC0第4条）と同様の法的明確性を持っており、条項間の矛盾を防ぐ設計として適切に記載されている。
+ 第1.7条から第1.10条にかけての定義群は、現代のデジタル環境におけるライセンス適用を法的に安定させるための記述である。
+第1.10条における「Reservation（権利の留保）」の定義は、EU指令2019/790第4条(3)等におけるTDM（テキストおよびデータマイニング）のオプトアウト権に対応するものであり、後続の第6条でこれを処理するための前提要件として的確に定義されている。
+総じて、第1条の各定義はライセンスの適用範囲を画定する上で法的瑕疵がなく、適切である。
+ 第2条：SCOPE AND EFFECT (適用範囲と効力) の適切性 本条項は、提供される権利の不可逆性と、利用者側の手続き的負担の排除、および各条項の独立性を担保しており、オープンライセンスとして適切な記述である。
+ 条項 法的要件 適切性の判定 2.2 取消不能性 提供の撤回や追加条件の賦課を恒久的に禁止する規定。
+ 適切 2.3 受諾行為の不要 利用者側の明示的な署名や同意の手続きを不要とする規定。
+ 適切 2.4 各条項の独立性 第3条から第6条までの付与や誓約が相互に独立して機能する設計。
+ 適切 2.8 承継人等への拘束 ライセンサーの権利承継人や譲受人にもライセンス効力を及ぼす規定。
+ 適切 第2.2条におけるライセンスの取消不能性（irrevocable）の宣言は、パブリックドメイン提供や恒久的なオープンライセンスにおいて中核をなす要件である。
+CC0 1.0 Universalの第2条（Waiver）においても「permanently, irrevocably and unconditionally（永久に、取り消し不能な形で、無条件に）」権利を放棄することが明記されており、本条項はこれに準拠した法的効果を発生させるため適切である。
+ 第2.3条の受諾行為を不要とする規定は、ソフトウェアやデータの広範な流通を前提とするオープンソース・ライセンスにおける標準的な実務慣行に合致している。
+利用者が受諾行為を行わずともライセンスが成立するという設計は、不特定多数の利用における法的摩擦を排除する項目として適切である。
+ 第2.4条は、後述する権利の「放棄（第3条）」「ライセンス（第4条）」「不行使特約（第5条）」を累積的かつ独立して運用する旨を定めている。
+これにより、いずれかの法理が特定法域において無効と判断された場合であっても、残りの法理によって利用許諾が維持されるため、法的安定性を担保する構造として極めて適切である。
+ 第2.8条において、ライセンサーの承継人、譲受人、法定代理人等に対しても第3条、第4条、第6条、第8条の効力が及ぶことを明記している点は、権利の移転によるライセンスの不本意な終了（権利トロールやサブマリン特許によるリスク）を未然に防ぐための強力な手当てであり、ライセンス項目として適切に記載されている。
+ 第3条・第4条：対象権利の放棄とライセンス付与の適切性 本ライセンスは、対象権利の処理について「放棄（Waiver/Surrender）」と「ライセンス付与（License）」という二段構えのアプローチを採用しており、各国の著作権法体系の差異を吸収する極めて適切な条項設計となっている。
+ 第3.1条および第3.3条は、法律が許容する最大限の範囲で対象権利を放棄し、著作物をパブリックドメインに置くことを規定している。
+これはCC0の第2条（Waiver）における「waives, abandons, and surrenders all of Affirmer's Copyright and Related Rights（著作者の著作権および関連権利のすべてを放棄、遺棄、および引き渡す）」という記述と法的に同一の機能を有しており、権利放棄が認められる法域において適切に作用する。
+ これに対し、第4.1条から第4.4条にかけては、第3条の権利放棄が法律上無効または適用不可とされる法域における「パブリック・ライセンス・フォールバック（Public License Fallback）」を規定している。
+ドイツ著作権法のように厳格な一元論（monistic approach）を採用する法域においては、著作権そのものを他者に譲渡したり、著作者自身が放棄したりすることは原則として認められない。
+このような法域においてパブリックドメイン化を意図する場合、権利の放棄に代わって、限りなく広範かつ無条件の利用権（ライセンス）を付与する法的構成をとる必要がある。
+第4.4条が「第3条が有効であるか否かに依存せず、独立してライセンスを付与する」と明記しているのは、まさにこの法制上の障壁を乗り越えるためであり、国際的な利用を前提とするライセンス条項として極めて適切に記載されている。
+ さらに、第4.5条および第4.6条において、利用者が著作物や派生物を任意の条件（本ライセンスと互換性のない条件を含む）で再配布できることを認めている。
+これは、ライセンスがコピーレフト（Copyleft）や継承（ShareAlike）の要件を含まず、受領者にいかなる追加義務も課さないことを担保するものであり、完全な自由利用を実現するための規定として適切である。
+ 第5条：COVENANT NOT TO ASSERT (権利不行使の特約) の適切性 第5.1条から第5.3条は、権利放棄（第3条）およびライセンス付与（第4条）に次ぐ第三の法的根拠として「権利不行使の特約（Covenant not to assert）」を定めている。
+ 第5条の構成 法的機能と効果 適切性の判定 5.1 権利不行使の誓約 利用者に対して対象権利を行使しない、または他者に行使させない債権的合意。
+ 適切 5.2 技術的保護等の禁止 アクセス制限技術の適用禁止、および別契約による追加義務の賦課禁止。
+ 適切 5.3 承継人・第三者への効力 第三者のための契約（intended beneficiary）として間接受領者にも効力を及ぼす規定。
+ 適切 米国などの実務において、「提訴しないという誓約（covenant not to sue / covenant not to assert）」は、非独占的ライセンスと法的にほぼ同等の効果を持つものと解釈される。
+特許法や著作権法の枠組みの中で、権利者が自らの権利を行使しないことを契約上誓約することは、ライセンス契約が何らかの理由で無効化された場合の強力な防護壁となる。
+本条項は、この法理をパブリックドメイン提供の補強として用いており、ライセンス項目として適切に記載されている。
+ 第5.2条における技術的保護手段（DRM等）の適用禁止や、利用規約等（クリック・スルー等）による付随的な義務の賦課を禁じる規定は、オープンなデータやソフトウェアの利用を実効的に確保するために不可欠な制限であり、適切である。
+ 第6条：MACHINE LEARNING, TEXT AND DATA MINING, AND MODEL TRAINING の適切性 AIモデルの学習やテキスト・データマイニング（TDM）の利用を対象とした本条項は、現代の技術的要請に合致した極めて特異かつ適切な規定である。
+ 第6.1条は、あらゆる主体（自動化システムを含む）によるいかなる目的での計算機的利用（Computational Use）も明示的に許可している。
+日本の著作権法第30条の4（情報解析のための利用）のように、著作物に表現された思想や感情の「享受」を目的としない情報解析について著作権の例外を認める法域も存在するが、各国の法整備は一様ではない。
+したがって、越境的な利用を想定し、ライセンス条項自体で明示的に許諾を与える構成は、法的安定性の観点から極めて適切である。
+ 第6.2条および第6.3条は、権利留保（Reservation）の否認と撤回を規定している。
+EU指令2019/790第4条(3)等においては、機械読取可能な手段によるオプトアウト（TDMに対する権利留保）が認められている。
+本条項は、ライセンサー自身がこのオプトアウト権を行使しないこと、および既に付与されているオプトアウトのシグナルを撤回することを宣言するものである。
+権利者自身の権限の範囲内で権利主張を無効化する処理であり、ライセンス項目として法的妥当性を備えている。
+ 第6.4条は、計算機的利用から派生したモデル、パラメータ、重み、出力結果等に関して、本ライセンスに基づく一切の請求権が発生しないことを定めている。
+これにより、AI開発者が学習データとして本著作物を利用した際に、派生モデルに対するロイヤリティや帰属表示の義務から完全に解放されることが担保されており、AI時代のオープンライセンスとして適切な設計である。
+ 第7条：SUI GENERIS DATABASE RIGHTS (特殊なデータベース権) の適切性 第7.1条および第7.2条は、データベースに対するsui generis（特殊な）権利を「対象権利」に含め、その内容の無制限な抽出および再利用を許可している。
+ 欧州連合（EU）の指令96/9/EC第7条等は、著作権とは独立して、データベースの作成に実質的な投資を行った者に対し、その内容の抽出や再利用を制限するsui generis権を付与している。
+CC0 1.0 Universalの第1条(vi)においても、このデータベース権（Directive 96/9/ECに基づく権利等）が明確に対象として挙げられており、同等の権利放棄処理が行われている。
+ACD-1.2-DRAFTにおいて、この欧州特有のデータベース権を対象権利に含め、データベースのスクレイピングやデータセット利用を明示的に許可する記載は、データ提供のライセンスとして極めて適切である。
+ 第8条：PATENT LICENCE AND COVENANT (特許ライセンスおよび不行使特約) の適切性 本ライセンスの第8条は、ソフトウェア等の利用における特許リスクを排除するための規定であり、CC0の設計上の欠落を補う高度に適切な条項である。
+ 第8条の構成 法的機能と効果 適切性の判定 8.1 一般特許ライセンス 提供された著作物を利用する際に侵害となる特許クレームの無条件許諾。
+ 適切 8.3 CC0との差異の明示 特許権を留保しないことを明示し、特許リスクの露出を防ぐ規適切 第8条の構成 法的機能と効果 適切性の判定 定。
+ 8.4 AI派生物への特許ライセンス 学習モデルや出力物に対して侵害となる特許クレームの許諾。
+ 適切 8.6 特許不行使特約 ライセンスが無効となった場合のフォールバック（covenant not to assert）。
+ 適切 CC0 1.0 Universalは第4条(a)において「Affirmerが保有する特許権や商標権は放棄されず、本ライセンスの影響を受けない（No trademark or patent rights held by Affirmer are waived...）」と明記し、特許の許諾を意図的に除外している。
+しかし、ソフトウェアの実行やAIモデルの実装においては、著作権の放棄だけでは特許権侵害のリスクが残存する。
+ACD-1.2-DRAFTの第8.1条から第8.3条は、この問題を解決するために、著作物の利用に必要なすべての特許クレームに対する無条件・ロイヤリティフリーのライセンスを付与しており、ソフトウェアやデータを安全に流通させるライセンス項目として極めて適切である。
+また、オープンソース・ライセンスに特有の「特許報復条項（patent retaliation）」をあえて含めない（第8.2条）設計も、無条件許諾という目的に合致している。
+ さらに第8.4条は、AI学習の結果生成されるモデルや重み、出力等に対する特許ライセンスを独立して付与している。
+第8.1条が「提供された著作物に含まれる主題」による侵害に限定しているのに対し、派生物であるAIモデルを対象とする独自の許諾レイヤーを設けた点は、AI特有の法的因果関係に配慮した緻密かつ適切な記述である。
+ 第8.6条は、特許ライセンスが特定法域で無効とされた場合のフォールバックとして「特許不行使特約（Covenant not to assert）」を定めている。
+前述の通り、提訴しないという誓約は実務上特許ライセンスと同等の防衛効果を持つため（Non-exclusive license相当）、著作権の処理（放棄・許諾・不行使）と同様の強固な三重構造を特許権に対しても構築する手法として完全に適切である。
+ 第9条：MACHINE-GENERATED MATERIAL AND AUTHORSHIP (機械生成物と著作者性) の適切性 第9条は、AI等によって生成された対象物（Machine-Generated Material）の権利処理に関する規定であり、各国の著作権局の最新の解釈に合致した適切な記述となっている。
+ 米国著作権局（USCO）が2023年に発行したガイダンス（Copyright Registration Guidance: Works Containing Material Generated by Artificial Intelligence）によれば、著作権法に基づく保護の対象となるのは「人間の創造的寄与（human authorship）」が存在する作品のみであり、機械や自動化プロセスによってランダムまたは自動的に生成され、人間の創造的入力がない生成物には著作権が認められない。
+人間のプロンプト指示のみで生成された複雑な作品において、従来の著作物としての要素を決定・実行しているのは技術（AI）であり人間ではないため、著作権登録は拒絶される。
+ 第9.2条は、この法的現状を正確に反映し、「機械生成物に権利が存在する旨の表明を行わず、権利を主張しない」と規定している。
+権利が存在しない場合には本ライセンスは何ら新たな制限を加えず、仮に将来的に権利が存在すると判断された場合には、第3条から第8条および第12条の完全許諾が適用されるというフォールバック構造をとっている。
+AI生成物の著作権適格性が法域ごとに流動的であることを前提に、権利の有無にかかわらず最終的な自由利用を保証するこの論理展開は、ライセンス項目として極めて適切である。
+また、第9.3条で利用者に「どの部分が機械生成であるか」の特定義務を負わせない点も、運用上の摩擦を排除する上で適切である。
+ 第10条：ABSENCE OF CONDITIONS (条件の不在) の適切性 第10.1条から第10.4条は、利用者に対していかなる条件、義務、制限も課さないことを規定している。
+具体的には、帰属表示（クレジット表記）、改変の明示、ソースコードの公開義務などをすべて否定している。
+これはCC0の設計思想と完全に一致する。
+第10.3条において、提供者からのクレジットや引用の「要望（request）」はあくまで要望であり、法的「条件（condition）」ではないと明言している点は、ライセンス違反による利用権終了のリスクを根絶するための極めて適切な条項記述である。
+ 第11条：TRADEMARKS, NAMES, AND MISREPRESENTATION (商標、名称、および不実表示) の適切性 第11条は、パブリックドメイン提供の効力が及ばない範囲（商標権、プライバシー権等）を明示する条項である。
+ 第11.1条において商標、ロゴ、名称に関する権利を許諾しない旨を定めることは、CC0第4条の免責事項と同様であり、オープンライセンスにおける必須の法的制限として適切である。
+ 第11.3条の「提供者が著作物を承認・後援していると不実に表示することの禁止」や、第11.4条の「データ保護法、プライバシー権、パブリシティ権に対する許諾の不存在」は、著作権者自身が放棄・許諾する権限を持たない第三者の権利に関する境界を明示するものである。
+特にCC0の適用にあたっても、作品に含まれる他人の肖像やプライバシーに関するパブリシティ権のクリアランスは利用者の自己責任とされることが明記されており、本条項がこれらの限界をライセンス内に記載することは法的に適切である。
+ 第12条：MORAL RIGHTS (著作者人格権) の適切性 第12条は、法域ごとに取り扱いが大きく異なる「著作者人格権（Moral Rights）」に対して、二段階の適切な法的処理を規定している。
+ 第12条の構成 法的機能と効果 適切性の判定 12.1 人格権の放棄 法律上人格権の放棄が認められる法域において、権利を放棄する合意。
+ 適切 12.2 不行使の特約 放棄が不可の法域において、利用者に対して人格権を行使しない債権的合意。
+ 適切 12.4 承継人等への拘束 死後に人格権を行使し得る遺族や公的機関も拘束する規定。
+ 適切 日本の著作権法第59条に代表されるように、多くの法域において著作者人格権は「著作者の一身に専属し、譲渡することができない（一身専属性）」と定められている。
+このような法域では、第12.1条のような権利の「放棄（Waiver）」自体が無効と解釈されるリスクが高い。
+ この問題に対処するため、日本の実務では著作権譲渡やオープン利用の契約において「著作者人格権を行使しない」旨の特約（著作者人格権不行使特約）を設けることが一般的かつ有効な手段とされている。
+第12.2条はまさにこの実務慣行を踏襲しており、人格権が譲渡不能または放棄不能とされる法域において、自動的に「利用者および受領者に対して人格権を行使しない」という不行使の特約（covenant not to exercise）へと切り替わる構造を採用している。
+これにより、法域の強行法規に抵触することなく改変や氏名表示の省略を合法的に許可することが可能となっており、ライセンス項目として極めて高度で適切である。
+ 第13条・第14条：NO WARRANTY (無保証) および LIMITATION OF LIABILITY (責任財産限定) の適切性 第13.1条および第14.1条は、提供物が「現状有姿（AS IS）」で提供され、一切の保証を持たず、提供者の責任を免除することを定めている。
+本条項における特筆すべき法的適切性は、条文全体がすべて大文字（ALL CAPS）で記述されている点にある。
+ 米国統一商事法典（UCC）第2-316条は、黙示の保証（implied warranties）の否認に関する要件を定めている。
+特に、商品適格性（merchantability）の黙示の保証を否認するためには、契約書面において「merchantability」という単語を明示しなければならず、かつその記載が「目立つように（conspicuous）」行われていなければならないと規定されている。
+判例等においても、通常サイズの活字の中に埋もれた免責条項は無効とされる一方、大文字や太字で強調されたものは「conspicuous」の要件を満たすと判断される。
+ACD-1.2-DRAFTの第13.1条は、このUCC要件に完全に従い、全大文字を使用し、かつ「MERCHANTABILITY」や「FITNESS FOR A PARTICULAR PURPOSE」という必須の文言を含めている。
+したがって、免責条項としての法的要件を厳格に満たしており、極めて適切である。
+ また、第13.2条における「第三者の権利を侵害していないことの無保証（non-infringementの否認）」も、オープンソース・ライセンスが意図せず特許侵害等の責任を負うこと（UCCの特定の解釈に基づくリスク）を防ぐための標準的かつ不可欠な防衛策であり適切に記載されている。
+ 第15条：CONSTRUCTION AND SEVERABILITY (解釈および分離可能性) の適切性 第15条は、ライセンスの解釈原則を定めた契約法上の一般条項（ボイラープレート）であり、適切に構成されている。
+ 第15.1条において、文言に複数の解釈が生じ得る場合は「利用者（You）に最も広い許可を与え、最も少ない義務を課す解釈を優先する」と定めている点は、パブリックドメイン提供の目的に合致する。
+第15.2条の分離可能性（Severability）条項は、特定法域における一部条項の無効化が契約全体の無効化に波及することを防ぐための標準的かつ適切な項目である。
+ 特に第15.6条は、「作成者に不利な解釈を行う原則（contra proferentem）」や「付与された権利を受領者に対して狭く解釈する原則」の適用を明示的に排除している。
+これは、権利の広範な許諾を意図した第15.1条の趣旨を、相反する伝統的な契約解釈の法理から保護するためにDRAFT版で意図的に修復・追加されたものであり、ライセンスの意図を法廷で正確に反映させるための措置として極めて適切である。
+ 第16条：APPLYING THIS DEDICATION, AND THE STATUS OF THIS TEXT (適用とテキストの地位) の適切性 第16条は、ライセンスの適用方法と、ライセンステキスト自体の著作権的地位について定めており、適切である。
+ 第16.1条および第16.2条では、本ライセンスを適用するための標準的な通知形式と、SPDX-License-Identifier: ACD-1.2 などの識別子を通じた適用方法を規定している。
+これは現代のソフトウェア開発エコシステムにおけるライセンスコンプライアンスの自動化や機械可読性の要件を満たす適切なアプローチである。
+ 第16.4条は、ライセンステキスト自体の自由な複製・配布を認める一方で、改変されたライセンステキストを「Autonomous Commons Dedication」や「ACD-1.2」といった同一の名称・識別子で配布することを禁止している。
+これはオープンソースコミュニティにおいて「ライセンスの断片化（License Proliferation）」を防止するための標準的な保護手法である。
+特定の識別子が常に一意で不変の法的テキストを指し示すことを保証する設計となっており、ライセンスの完全性を維持するための項目として極めて適切に記載されている。
+ 結論 「Autonomous Commons Dedication Version 1.2 (ACD-1.2-DRAFT)」のテキスト全体を審査した結果、同文書の第1条から第16条までの各条項は、欧州のデータベース権処理、日本の著作者人格権における不行使特約の実務要件、特許法理における提訴しない誓約の効力、AI生成物の著作権適格性に関する米国著作権局の解釈、およびUCC § 2-316が課す免責条項の明示要件 など、複雑に交錯する国際的な法的要件を網羅的かつ精緻に満たしている。
+意図された無条件の利用許諾とパブリックドメイン提供を法的に安定させるためのライセンス項目として、すべての記載が極めて妥当かつ適切であると結論付ける。
+ 引用文献 1. MULTILATERAL Berne Convention for the Protection of Literary and, https://treaties.un.org/doc/Publication/UNTS/Volume%20828/volume-828-I-11850-English.pdf 2. Berne Convention for the Protection of Literary and Artistic Works, https://www.wipo.int/wipolex/en/text/283698 3. 著作者人格権の不行使特約とは？—その重要性とビジネスにおける, https://chosakukenhou.jp/moral-rights-waiver-clause-business-risk/ 4. 著作者人格権の不行使特約とは？「著作者 ... - 業務委託契約書の達人, https://www.gyoumuitakukeiyakusho.com/special-agreement-not-to-exercise-moral-rights/ 5. Legal Code - CC0 1.0 Universal - Creative Commons, https://creativecommons.org/publicdomain/zero/1.0/legalcode.en 6. Deed - CC0 1.0 Universal - Creative Commons, https://creativecommons.org/publicdomain/zero/1.0/deed.en 7. Creative Commons — CC0 1.0 Universal, https://labs.creativecommons.org/demos/pd/zero.html 8. CC0-1.0 - licenses.nuget.org, https://licenses.nuget.org/CC0-1.0 9. Validity of the Creative Commons Zero 1.0 Universal Public Do, https://www.rd-alliance.org/sites/default/files/cc0-analysis-kreuzer.pdf 10. CC0 1.0 Universal : r/COPYRIGHT - Reddit, https://www.reddit.com/r/COPYRIGHT/comments/mzqw19/cc0_10_universal/ 11. Protect Your Patent with a Covenant Not to Sue - Practical Law, https://uk.practicallaw.thomsonreuters.com/9-572-3927?transitionType=Default&contextData=(sc.Default) 12. Covenant Not to Sue and Patent Exhaustion - AU LLC, https://www.au-llc.com/blog/2021/11/covenant-not-to-sue-and-patent-exhaustion/ 13. When is a licence not a licence? When it's a covenant not to sue?, https://ipdraughts.wordpress.com/2013/01/26/when-is-a-licence-not-a-licence-when-its-a-covenant-not-to-sue/ 14. Is a Covenant-Not-To-Sue A License? — Christopher Newman, https://nplblog.law.harvard.edu/2015/11/11/is-a-covenant-not-to-sue-a-license-christopher-newman/ 15. 文化庁『AIと著作権に関する考え方』の要点解説：クリエイター, https://arm-csl.com/%E6%96%87%E5%8C%96%E5%BA%81%E3%80%8Eai%E3%81%A8%E8%91%97%E4%BD%9C%E6%A8%A9%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E8%80%83%E3%81%88%E6%96%B9%E3%80%8F%E3%81%AE%E8%A6%81%E7%82%B9%E8%A7%A3%E8%AA%AC%EF%BC%9A/ 16. html - EUR-Lex, https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62007CJ0304 17. Article 43, Databases containing certain data - EU Data Act, https://www.eu-data-act.com/Data_Act_Article_43.html 18. Art. 43 Data Act - Databases containing certain data, https://data-act-law.eu/article/43/ 19. Confidential Exclusive Patent License and Covenant Not ... - SEC.gov, https://www.sec.gov/Archives/edgar/data/1588978/000158897823000009/exhibit1017-proceptxhydroc.htm 20. Patent License Agreement Confirmed a Covenant not to Sue, http://www2.tsailee.com/about_periodical_show_en.aspx?p=1&cid=1115 21. U.S. Copyright Guidelines for Works Containing AI-Generated Material, https://founderslegal.com/copyright-guidelines-ai-generated-material/ 22. Copyright Registration Guidance: Works Containing Material, https://www.federalregister.gov/documents/2023/03/16/2023-05321/copyright-registration-guidance-works-containing-material-generated-by-artificial-intelligence 23. AI Policy Corner: U.S. Copyright Guidance on Works Created with AI, https://montrealethics.ai/ai-policy-corner-u-s-copyright-guidance-on-works-created-with-ai/ 24. Registration Process - Part 4 - The Copyright Detective, https://thecopyrightdetective.com/copyrightability-of-content-that-was-created-with-any-use-of-artificial-intelligence/ 25. The U.S. Copyright Office's Position on the Copyrightability of Works, https://www.sternekessler.com/news-insights/insights/the-u-s-copyright-offices-position-on-the-copyrightability-of-works-made-with-the-assistance-of-generative-ai-part-two/ 26. 著作権譲渡契約書の作成を弁護士が解説！安易な雛形利用は危険！, https://kigyobengo.com/media/useful/822.html 27. 著作権譲渡契約書の書き方｜必須記載事項・登録制度・AI生成物, https://office-tree.jp/blog/legal-documents/copyright-transfer-agreement/ 28. 著作者人格権の不行使特約について考える - 著作権のネタ帳, https://copyright-topics.jp/topics/non-exercise-of-authors-moral-rights/ 29. Bill of sale generator - Granite, https://granite.co/library/tools/bill-of-sale 30. Warranty and Disclaimer of Warranties Clause - GC AI, https://gc.ai/clauses/warranty-disclaimer 31. Contracts 2022: Defenses - Open Casebooks, https://opencasebook.org/casebooks/4201-contracts-2022/as-printable-html/7/ 32. Orally disclaiming warranty of merchantability : r/barexam - Reddit, https://www.reddit.com/r/barexam/comments/1dejzyy/orally_disclaiming_warranty_of_merchantability/ 33. The GPL Meets the UCC: Does Free Software Come with a Warranty, https://dc.suffolk.edu/cgi/viewcontent.cgi?article=1090&context=suls-faculty 34. 13 Misc. 3d 1151 - Direct Capital Corp. v. New ABI Inc. | OpenJurist, https://openjurist.org/13/misc3d/1151/direct-capital-corp-v-new-abi-inc-6307617
