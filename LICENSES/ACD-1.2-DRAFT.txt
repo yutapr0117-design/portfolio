@@ -110,7 +110,21 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       often data about people. The notice is the surface an adopter reads and
       the only one that travels with the Work, so a carve-out it does not name
       is a carve-out most readers never meet.
-    * ACD-1.1: 5051 words, 78 clauses. This draft: 5205 words, 80 clauses.
+    * Section 2.9 no longer states what an insolvency proceeding does; it
+      states what this Dedication does (errata E30). The old first sentence
+      said that no such proceeding and no act of an officer "affects a
+      permission granted here or revives a right given away", which is a
+      statement about the result a forum will reach, not about the terms of
+      this instrument -- the same defect errata E5 removed from the sentence
+      beside it when it dropped "and so is not executory". The point is live:
+      in Jaffe v. Samsung (4th Cir., 3 December 2013) a foreign representative
+      sought authority to cancel licences to the debtor's US patents, and the
+      answer took a four-day evidentiary hearing and a discretionary balance.
+      The new wording keeps the assurance and puts it where it belongs: nothing
+      here is conditioned on, suspended by, or revived by such a proceeding.
+      The second sentence is unchanged, and it is the part that does the work
+      -- the officer takes as a transferee under Section 2.8.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5207 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -281,12 +295,12 @@ PREAMBLE (informative; not part of the operative terms)
        the grants themselves stop at the Dedicator, which would leave the
        longest-lived risk, the change of hands, open.
 
-  2.9  No insolvency, bankruptcy, administration, receivership, liquidation,
-       dissolution, or similar proceeding in respect of the Dedicator, and no
-       act of a trustee, administrator, receiver, liquidator, or equivalent
-       officer, affects a permission granted here or revives a right given
-       away. Such an officer is a person to whom rights are transferred for the
-       purposes of Section 2.8.
+  2.9  Nothing in this Dedication is conditioned on, suspended by, or revived
+       by an insolvency, bankruptcy, administration, receivership, liquidation,
+       dissolution, or similar proceeding in respect of the Dedicator, or by
+       any act of a trustee, administrator, receiver, liquidator, or equivalent
+       officer. Such an officer is a person to whom rights are transferred for
+       the purposes of Section 2.8.
 
 3. DEDICATION OF COVERED RIGHTS
 
