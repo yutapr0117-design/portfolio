@@ -426,10 +426,25 @@ verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against ap
 | **droit de retrait**（フランス）| §2.2 | 撤回権の事前放棄は無効とされる蓋然性 | **§2.2 の irrevocable が、どの法域でどこまで立つか** |
 | **不公正契約条項の枠組み**（EU）| **§15.6** | 不明確な条項を受領者に有利に読む強行規定があり、**contra proferentem の排除は実効性を失う** | **✅ 2026-09-20 に原典で読んだ。下の §9a。** |
 
-### 9a. 8 件のうち 2 件を原典で読んだ（2026-09-20・EUR-Lex から取得）
+### 9a. 8 件のうち 7 件を原典で読んだ（2026-09-20）
 
-**残る 6 件は未読のままである。** 読めた 2 件について、**レビューの主張は構造としては当たっており、
-射程は述べられていたより狭い。**
+**⚠ この節は「6 件は未読のまま」と書いて始まった。** その記述は**試さずに書いたもので、誤りだった**
+——オーナーの指摘（*「そのまま読みに行くことがあなたは可能です」*）で取りに行くと、**7 件が取れた**
+（`against.md` #176）。**取れなかったのは Kneschke 判決の本文 1 件だけで、
+それも「openjur が人間確認を要求する」という具体的な理由である。**
+
+| 法源 | 取得元 | 結果 |
+| :-- | :-- | :-- |
+| 指令 96/9/EC 第 15 条 | EUR-Lex CELEX:31996L0009 | ✅ 逐語 |
+| **Ryanair v PR Aviation** | EUR-Lex CELEX:62014CJ0030 | ✅ **主文を逐語** |
+| 指令 93/13/EEC | EUR-Lex CELEX:31993L0013 | ✅ 逐語 |
+| **17 U.S.C. §201(b)** | Cornell LII | ✅ 逐語 |
+| **17 U.S.C. §1202** | Cornell LII | ✅ 逐語 |
+| **11 U.S.C. §365(n)** | Cornell LII | ✅ 逐語 |
+| **消費者契約法 8 条** | e-Gov 法令 API（412AC0000000061）| ✅ 逐語 |
+| **UrhG UrhG 44b 条 / UrhG 60d 条**（Kneschke の争点）| gesetze-im-internet.de | ✅ **条文は逐語。判決本文は未取得**（openjur が captcha）|
+
+**読めた 7 件について、レビューの主張は構造としては当たっており、射程は述べられていたより狭い。**
 
 #### (1) 指令 96/9/EC 第 15 条 —— 逐語（CELEX:31996L0009）
 
@@ -485,3 +500,87 @@ E25 の理由は「§16 の上で 2 つの canon が順序なく働く」こと�
 （§6.2 *"does not purport to defeat a Reservation made by another rightsholder"* /
 §6.3 *"the Dedicator has no power to withdraw it and this Section does not purport to give one"*）。
 **現物に当たれる主張は当たった。当たれない主張は、当たれないと書く。**
+
+#### (3) Ryanair v PR Aviation（C-30/14）—— 主文を逐語
+
+> *"Directive 96/9/EC … must be interpreted as meaning that **it is not applicable to a database
+> which is not protected either by copyright or by the sui generis right** under that directive,
+> so that Articles 6(1), 8 and 15 of that directive **do not preclude the author of such a database
+> from laying down contractual limitations on its use by third parties**, without prejudice to the
+> applicable national law."*
+
+**レビューの要約は主文と一致する。** **そして最後の一句 *"without prejudice to the applicable
+national law"* は、レビューが落としていた** ——**契約による制限は、各国法の下でなお争われうる。**
+
+#### (4) 17 U.S.C. §201(b) —— 逐語
+
+> *"In the case of a work made for hire, the employer … is considered the author for purposes of
+> this title, and, **unless the parties have expressly agreed otherwise in a written instrument
+> signed by them**, owns all of the rights comprised in the copyright."*
+
+**§2.6 への攻撃は、条文に当てると成立しない。** **1.2 の定義条**は Dedicator を
+「Covered Rights を保有し、または保有しうる限度で」に限り、
+§2.7 は *"reaches only rights the Dedicator holds"* と述べる。
+（**条番号は版で動く** ——1.0 では §1.3、1.2 では §1.4 が Dedicator の定義である。）
+**雇用された contributor は持っていないものを献呈できず、この instrument もそう書いてある。**
+**§201(b) の但書は逆に有利に働く** ——**書面の合意があれば従業者が権利を持ちうる**ので、
+**§1.4 の「保有する限度で」は、その場合も正しく動く。**
+
+#### (5) 17 U.S.C. §1202 —— 逐語
+
+> *"(b) **Removal or Alteration** of Copyright Management Information.— No person shall,
+> **without the authority of the copyright owner or the law**, (1) intentionally remove or alter
+> any copyright management information …"*
+
+**レビューは「被告は『削除を契約上許可された』と抗弁できる」と述べたが、条文はそれ以上を述べている**
+——**禁止そのものが *"without the authority of the copyright owner"* を要件にしている。**
+**§10.2 が *"You need not … reproduce any notice"* と述べる以上、その authority は与えられており、
+§1202(b) の要件が最初から満たされない。**
+**したがって「識別子の表示を法的に守る手段が無い」は正しく、それは #175 が
+「帰属ゼロの費用」として既に記録したもの**である。**新しい欠陥ではなく、記録済みの費用の法的な裏づけ。**
+
+#### (6) 11 U.S.C. §365(n) —— 逐語
+
+> *"If the trustee rejects an executory contract under which the debtor is a licensor of a right to
+> intellectual property, the licensee … may elect … (B) **to retain its rights** …"*
+
+**§365(n) は「executory contract が rejected された場合」の受け皿である。**
+**ACD-1.1 以降は §2.9 で「倒産手続は許諾に影響しない」と述べ、1.0 の §2.9 が持っていた
+*"not executory"* という*結論*は E5 で落としている**（法廷地の分類を本文が断定しないため）。
+**レビューの Qimonda の点（越境倒産で §365(n) の保護が失われうる）は、条文からは確かめられない**
+——**判例の射程の問題であり、判決本文は未取得である。**
+
+#### (7) 消費者契約法 8 条 —— 逐語（e-Gov・412AC0000000061）
+
+> **第八条** 次に掲げる**消費者契約**の条項は、無効とする。
+> 一 **事業者**の債務不履行により消費者に生じた損害を賠償する責任の**全部**を免除し…
+> 二 …（**故意又は重大な過失**によるものに限る）…責任の**一部**を免除し…
+>
+> **第二条** 「消費者」とは、個人（**事業として又は事業のために契約の当事者となる場合を除く**）をいう。
+> 「事業者」とは、法人その他の団体及び**事業として又は事業のために契約の当事者となる場合における個人**をいう。
+
+**93/13/EEC と同じ形の限定がある** ——**「消費者契約」＝消費者と*事業者*の間の契約**。
+**個人が無償で世界へ献呈する場合、Dedicator が「事業者」に当たるかは疑わしい。**
+**⚠ だが当たる場合は当たる** ——**組織の後ろ盾を持つ採用者**（B2 が最も欠いている層）が
+Dedicator になれば、**§14.1 の全部免責は 8 条 1 項 1 号で無効**になりうる。
+**§14.2 の「法が許す最大の範囲」はそのための条だが、8 条は「無効とする」と書いており、
+縮減で救えるかは条文からは決まらない。**
+
+#### (8) UrhG UrhG 44b 条 / UrhG 60d 条 —— 条文は逐語、判決は未取得
+
+> **UrhG 44b 条 (3)** *Nutzungen nach Absatz 2 Satz 1 sind nur zulässig, wenn der Rechtsinhaber sich diese
+> **nicht vorbehalten** hat. Ein Nutzungsvorbehalt bei online zugänglichen Werken ist nur dann
+> wirksam, wenn er **in maschinenlesbarer Form** erfolgt.*
+
+**§6.2 が名指ししているもの**（*"no notice, marking, metadata, protocol element, header, robots
+directive, or other signal … is to be read as a Reservation"*）**は、まさに UrhG 44b 条(3) が
+「機械可読な形式でのみ有効」と述べている当のものである。** **§6.2 は抽象的な用心ではなく、
+名前のある制度に対応している**（§12.4 と 60 条の関係と同じ形）。
+
+**⚠ 逆側**: **UrhG 60d 条（学術研究のための TDM）には `vorbehalten` の語が無い** ——**opt-out が無い。**
+**したがってドイツにおける §6 の追加価値は、研究機関に対しては小さく、商用の TDM に対して大きい。**
+**日本の 30 条の 4 について出した結論と同じ形である** ——**主張を弱い方へ言い直す。**
+
+**⚠ Kneschke 判決の本文は取れていない**（openjur が人間確認を要求した）。
+**したがって「機械可読な opt-out の有効性が争われた」までは条文構造から言えるが、
+その事件で何が決まったかは我々の記録に無い。**
