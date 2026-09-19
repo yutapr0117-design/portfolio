@@ -543,6 +543,40 @@ are not present."* **この 1 文を落としてはならない。**
 
 ---
 
+
+### 2026-09-19 —— 委員長が名指しした害は「弁護士が居ないこと」ではなかった
+
+**リストは我々の類型に名前を付けている。** Bruce Perens 氏の定義（`license-discuss` 2025-10-01）:
+*"A **\"crayon license\"** is a license obviously produced by a **non-legal-professional**, which has
+obvious faults that a legal professional would know to avoid."*
+
+**我々は前半に当たる。後半に当たるかは、実際に faults があるかで決まる。**
+
+**そして Licensing Committee 委員長は、CAL の審査でこう書いている**（`license-review` 2019-06-27）:
+
+> *"**The high likelihood that the license would be interpreted in significantly different ways in
+> different legal jurisdictions militates against its approval.** Although the CAL is not, by any
+> means, a \"crayon\" license, **it has the potential for the same negative consequence, which is
+> unpredictable interpretation**."*
+
+**害は「非弁護士が書いたこと」ではなく「法域をまたいで解釈が割れること」である。**
+**「クレヨン」はその代理指標であって、害そのものではない。**
+
+**したがって B1 は 2 層に分かれる。**
+
+| 層 | 動かせるか |
+| :-- | :-- |
+| 弁護士が読んだという**事実** | **動かせない**（class 1 のまま。提出が弁護士の目を通す経路であることも変わらない）|
+| **解釈のばらつき** | **動かせる。** E19 / E20 / E21 / E23 / E24 はすべてこれをやっていた ——**名前が付いていなかっただけである** |
+
+**⚠ そして label は致命傷ではない**: **CAL はこの発言の後に承認された**／
+**承認済みの Unlicense も `license-discuss` で crayon と呼ばれている**（2024-04-05）／
+**Perens 氏は承認済みの SIL Open Font License を deprecate 候補に挙げている**（2022-12-13）。
+
+**⚠ 逆側**: **ACD は構造上その害の側にある** ——§3 / §4 / §5 は法域ごとに効き方が変わることを前提に
+並置され、§3.3・§12.2・§15.2 は法域ごとの分岐そのものである。**「設計として引き受けている」ことは、
+委員長の懸念に対する答えにならない。** 詳細は `ACD-1.0.reviewer-positions.md` §1.98。
+
 ## B4 —— §3 献呈と §4 許諾の並存。class 12 候補として検証し、否定した
 
 **なぜ承認上の問題か（事実）**: Licensing Committee 委員長が
