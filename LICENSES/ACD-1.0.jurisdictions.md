@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.jurisdictions.md
 audience: ai, human (提出者), 監査人, 採用検討者, 学術研究者, 第三者全般
-last-updated: 2026-09-05
+last-updated: 2026-09-20
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条リファレンス) / LICENSES/ACD-1.0.review-responses-clauses.md (§31 に日本法の論点)
 ---
 
@@ -417,7 +417,7 @@ verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against ap
 
 | 法源 / 判例 | 当たる条 | レビューの主張（要約・**我々の読みではない**）| 読んだら何が決まるか |
 | :-- | :-- | :-- | :-- |
-| **Kneschke v. LAION**（ハンブルク地裁）| §6.2 / §6.3 | 機械可読な TDM オプトアウトの有効性が現に争われている | **§6 が「沈黙は許諾ではない」と述べる前提の、実際の係争状況** |
+| **Kneschke v. LAION**（ハンブルク地裁 → **控訴審 HansOLG 5 U 104/24**）| §6.2 / §6.3 | 機械可読な TDM オプトアウトの有効性が現に争われている | **✅ 2026-09-20 に控訴審の press release を読んだ。下の §9a (9)。レビューは第一審しか挙げていない。** |
 | **Ryanair v PR Aviation**（CJEU）| §7.2 | **保護されないデータベース**には指令 96/9 第 15 条（利用者の権利を制限する契約を無効とする規定）が及ばず、**契約で自由に制限できる** | **§7.2 の許諾が、権利者側の TOS によって迂回されうるか** |
 | **Qimonda**（Chapter 15）| §2.9 | 越境倒産では 11 U.S.C. §365(n) の保護が失われうる | **§2.9 が「倒産手続は許諾に影響しない」と述べる射程の限界** |
 | **17 U.S.C. §201(b)**（職務著作）| §2.6 / §2.7 | 企業に雇用された contributor は、§2.6 が献呈させようとする権利を持っていない | **§2.7 の「保有する権利にしか及ばない」で足りるか** |
@@ -426,7 +426,7 @@ verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against ap
 | **droit de retrait**（フランス）| §2.2 | 撤回権の事前放棄は無効とされる蓋然性 | **§2.2 の irrevocable が、どの法域でどこまで立つか** |
 | **不公正契約条項の枠組み**（EU）| **§15.6** | 不明確な条項を受領者に有利に読む強行規定があり、**contra proferentem の排除は実効性を失う** | **✅ 2026-09-20 に原典で読んだ。下の §9a。** |
 
-### 9a. 8 件のうち 7 件を原典で読んだ（2026-09-20）
+### 9a. 8 件のうち 7 件を原典で読み、8 件目も裁判所自身の発表までは読んだ（2026-09-20）
 
 **⚠ この節は「6 件は未読のまま」と書いて始まった。** その記述は**試さずに書いたもので、誤りだった**
 ——オーナーの指摘（*「そのまま読みに行くことがあなたは可能です」*）で取りに行くと、**7 件が取れた**
@@ -442,7 +442,8 @@ verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against ap
 | **17 U.S.C. §1202** | Cornell LII | ✅ 逐語 |
 | **11 U.S.C. §365(n)** | Cornell LII | ✅ 逐語 |
 | **消費者契約法 8 条** | e-Gov 法令 API（412AC0000000061）| ✅ 逐語 |
-| **UrhG UrhG 44b 条 / UrhG 60d 条**（Kneschke の争点）| gesetze-im-internet.de | ✅ **条文は逐語。判決本文は未取得**（openjur が captcha）|
+| **UrhG 44b 条 / UrhG 60d 条**（Kneschke の争点）| gesetze-im-internet.de | ✅ **条文は逐語。判決本文は未取得**（openjur が captcha）|
+| **HansOLG 5 U 104/24**（Kneschke 控訴審・2025-12-10）| justiz.hamburg.de の press release | ⚠ **裁判所自身の発表は逐語。判決本文ではない**（下の §9a (9)）|
 
 **読めた 7 件について、レビューの主張は構造としては当たっており、射程は述べられていたより狭い。**
 
@@ -581,6 +582,49 @@ directive, or other signal … is to be read as a Reservation"*）**は、まさ
 **したがってドイツにおける §6 の追加価値は、研究機関に対しては小さく、商用の TDM に対して大きい。**
 **日本の 30 条の 4 について出した結論と同じ形である** ——**主張を弱い方へ言い直す。**
 
-**⚠ Kneschke 判決の本文は取れていない**（openjur が人間確認を要求した）。
-**したがって「機械可読な opt-out の有効性が争われた」までは条文構造から言えるが、
-その事件で何が決まったかは我々の記録に無い。**
+**⚠ 判決本文（PDF / 全文）は取れていない** ——openjur は人間確認を要求し、
+OLG の press release は *"Eine anonymisierte Volltextfassung der Entscheidung kann angefragt werden"*
+（全文は請求すれば得られる）と述べている。**以下は裁判所自身の press release に基づく。**
+
+#### (9) 🔴 控訴審は既に出ている —— HansOLG 5 U 104/24（2025-12-10 判決・**レビューは第一審しか挙げていない**）
+
+**ハンブルク上級地方裁判所 第 5 民事部の press release（裁判所自身の発表）より:**
+
+> Der 5. Zivilsenat … hat mit heute verkündetem Urteil (Az.: **5 U 104/24**) die Berufung eines
+> Fotografen gegen das klagabweisende Urteil des Landgerichts Hamburg (Az.: 310 O 227/23)
+> **zurückgewiesen**.
+
+**決まったことは 4 つ**（いずれも我々の §6 に直接当たる）:
+
+1. **UrhG 44b 条の適用が認められた** ——*"Deren Anwendbarkeit hatte das Landgericht … noch
+   offengelassen"*。**第一審が開いたままにした点を、控訴審が閉じた。**
+2. **エージェンシーが置いた利用留保は権利者に帰属させられる** ——
+   *"müsse ein von dieser aufgestellter Nutzungsvorbehalt auch ihm als Rechtsinhaber zugerechnet
+   werden"*。**他人が置いた signal が権利者のものとして扱われうる**という、**§6.2 が正面から
+   扱っている当の状況**である。
+3. **🔴 だがその留保は「機械可読の形式」を欠いていたので効かなかった** ——
+   *"habe vorliegend aber nicht die gesetzlich vorgesehene Form (Maschinenlesbarkeit) aufgewiesen"*、
+   *"so dass die streitgegenständliche Vervielfältigung zulässig gewesen sei"*（UrhG 44b 条 3 項 2 文）。
+4. **UrhG 60d 条（学術研究）でも正当化される** ——データセットの作成自体が応用研究にあたり、
+   *"Auch der Umstand, dass ebenso kommerzielle Anbieter den Datensatz nutzen könnten, führe zu
+   keinem anderen Ergebnis"*（私企業の決定的影響が無い限り・60d 条 2 項 3 文）。
+
+**⚠ 確定していない。** *"Die Entscheidung ist nicht rechtskräftig. Der Senat hat die Revision
+zugelassen"* ——**連邦通常裁判所（BGH）の判断が残っている。**
+
+**我々にとっての意味を、有利・不利の両方で書く。**
+
+**有利**: **§6.2 は court-tested な問題に答えている。** 「誰が置いたかを問わず、Work に付随する
+signal を Reservation と読まない」という §6.2 の一文は、**(2) の帰属と (3) の形式要件が
+実際に争われた場面そのもの**を扱っている。**しかも §6.2 は 44b 条 3 項より広い**
+——**機械可読な signal であっても Dedicator の側では Reservation と読まないと述べている。**
+**§12.4 と 60 条の関係と同じく、名前のある制度に対応している。**
+
+**不利**: **(4) により、ドイツでは研究目的の TDM は留保に関係なく通る。**
+**したがってドイツにおける §6 の追加価値は、研究機関に対しては小さい。**
+**さらに (3) は「留保が形式を欠いていた」から勝った事件であり、
+*形式を満たした留保なら結論が変わりうる*ことを含意する** ——
+**§6.2 の価値はそこで上がるが、同時に「他人の留保は §2.7 により我々の手に負えない」ことも変わらない。**
+
+**⚠ 引用の限界**: **これは判決本文ではなく、裁判所の press release である。**
+**全文は請求すれば得られると書かれているが、我々は請求していない。**
