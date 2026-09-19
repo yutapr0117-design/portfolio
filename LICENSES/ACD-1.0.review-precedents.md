@@ -681,3 +681,48 @@ Landley 氏の問いは「代替可能な類型に 1 件足す費用」を問う
 **しかもその草案は、前日に自分が編集した file である。**
 `BLIND-SPOTS.md` が *「近いものほど確認が省かれる」* と記録している当のことをした。
 
+
+## 1.100 OSD 5 に広い読みが持ち出された —— そして ACD には当たらない理由が、同時に費用でもある（2026-09-16 / 09-18）
+
+**取得**: `license-review` 2026-09 のアーカイブ（取得時刻 2026-09-19T16:55Z）。
+
+**McCoy Smith 氏（Licensing Committee）が ModelGo Attribution 2.0 の終了条項に、
+これまでこのリストで読んだことのない角度を当てた。** 条文は終了の引き金を
+*"if You initiate any legal action "against the Licensor" alleging that the Licensed Materials
+and/or Derivative Materials infringe any patent worldwide"* と書いている。氏はこう述べた:
+
+> That means a patent assertion against a *Licensee* (someone who has received and is using
+> the licensed code, but has not granted any license too it) does not trigger termination of
+> the license. This puts Licensors & Licensees in different positions vis a vis patent
+> assertions, and therefore arguably violates OSD 5
+
+**そして 4 つの既承認ライセンスを並べ、引き金が*当事者*ではなく*著作物*に向いていることを示した**
+——Apache-2.0 *"against any entity … alleging that the Work or a Contribution … constitutes direct or
+contributory patent infringement"* / MPL-2.0 *"against any entity by asserting a patent infringement
+claim … alleging that a Contributor Version directly or indirectly infringes any patent"* /
+EPL-2.0 / GPL-3.0。
+
+**09-18 に steward（Duan 氏）は譲らなかった**:
+
+> OSD 5 says the license must not discriminate against any person or group of persons. Here,
+> Licensor is a role in the license, not a person.
+
+**我々にとっての意味を、有利・不利の両方で書く。**
+
+**有利（構造的に当たらない）**: **ACD には終了規定が一切無い。** §10.4 が
+*"No permission granted by this Dedication terminates for any reason. This Dedication, in respect
+of the Work, contains no termination provision and no revival provision, because it contains
+nothing that You could breach."* と述べ、§8.2 が特許許諾を終了不能としている。
+**引き金が無いので、引き金の向きを問う指摘は起動しない。**
+**同じ形の確認はこれで 3 例目**（2025-03 / 2026-08 / 本件）——**リストが労力を割いている論点集合と
+ACD の表面集合が交わらない**（#101 の再現）。
+
+**不利（同じ 1 つの事実である）**: **その免疫は、#174 が費用として記録した「特許報復の不在」と同一の事実**である。
+エコシステムが報復条項を置いたのには理由があり、ACD はその防御手段を持たない。
+**「指摘されない」と「その設計が良い」は別**であり、ここで得ているのは前者だけである。
+
+**不利（我々の OSD 逐条の当て方）**: **氏の読みは OSD 5 を「人・集団」ではなく「役割の非対称」まで広げている。**
+我々の OSD 5 の当て方（`submission-reference.md` §3 / §3b）は**狭い読みしか当てていない**
+——`against.md` #179。**⚠ ただし広い読みは確立していない**: 氏自身が *"arguably"* と書き、
+steward が正面から争っており、委員会の裁定でも理事会の決定でもない。
+**確立するのは「そういう読みがリスト上に現れた」ことだけである。**
