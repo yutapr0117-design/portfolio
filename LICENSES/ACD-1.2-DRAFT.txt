@@ -41,20 +41,21 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       document's to decide (the reasoning of errata E5), and a named
       prohibition on the transferee alone, which invites the reading that the
       Dedicator may do what the transferee may not.
-    * A new Section 15.5 restores the three rules of construction that ACD-1.0
+    * w Section 15.5 restores the three rules of construction that ACD-1.0
       carried at its Section 15.2 and that this line of drafting dropped
       (errata E24). Dropping them was reasoned from the wrong comparison: MIT,
       0BSD and the Unlicense carry no such rules, but they also carry almost no
       enumerations, and this text has twelve. Without the rules, (a) each of
       the twelve lists introduced by "including" -- among them the definitions
       of Work, Covered Rights, Computational Use and Reservation, which are the
-      definitions that carry what this text claims is new -- invites the reading
-      that the list is exhaustive, which is the same *expressio unius* argument
-      this draft has used three times on itself; (b) the five uses of the
-      singular "Covered Right", in Sections 2.8, 3.3, 5.1 and 6.4, are a form
-      of a term defined only in the plural; and (c) the reference in Section
-      1.10 to Article 4(3) of Directive (EU) 2019/790 is a reference to the
-      2019 text alone. Only Section 4.2 said "without limitation" on its own.
+      definitions that carry what this text claims is new -- invites the
+      reading that the list is exhaustive, which is the same *expressio unius*
+      argument this draft has used three times on itself; (b) the five uses of
+      the singular "Covered Right", in Sections 2.8, 3.3, 5.1 and 6.4, are a
+      form of a term defined only in the plural; and (c) the reference in
+      Section 1.10 to Article 4(3) of Directive (EU) 2019/790 is a reference to
+      the 2019 text alone. Only Section 4.2 said "without limitation" on its
+      own.
     * A new Section 15.6 restores, word for word, the rule of construction
       that ACD-1.0 carried at its Section 15.3 and that this line of drafting
       dropped (errata E25). It was dropped on the ground that Section 15.1
@@ -81,7 +82,19 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       at Section 8.6 and Section 12.2 with no statement that it did not matter
       which side of it they were on. The asymmetry is the defect; the sentences
       are copied from the two that already existed.
-    * ACD-1.1: 5051 words, 78 clauses. This draft: 5190 words, 80 clauses.
+    * Three sentences are re-ordered so that a qualifier or a pronoun cannot
+      attach to the wrong thing (errata E27). No word is added to two of them
+      and one word is added to the third; nothing they say changes. In Section
+      5.2(a) "against You" now precedes the law it qualifies, so it can no
+      longer be read as governing the covenant not to apply a technological
+      measure at all. In Section 2.2 the qualifier "in respect of any copy of
+      the Work that has been made available" now sits in front of the term it
+      limits, so it can no longer be read as limiting the prohibition on
+      withdrawal -- which is the instrument's central promise and was two-way
+      on the face of that one sentence. In Section 16.5 the second "it"
+      becomes "that role", because the first "it" in the same sentence refers
+      to the text and the second referred to the role.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5191 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -201,10 +214,10 @@ PREAMBLE (informative; not part of the operative terms)
   2.1  This Dedication applies to the Work as a whole and to every separable
        part of it.
 
-  2.2  This Dedication is irrevocable. The Dedicator may not withdraw it, and
-       may not impose any further term, condition, or restriction, in respect
-       of any copy of the Work that has been made available. Silence, delay, or
-       non-enforcement by the Dedicator does not revive, reserve, or narrow
+  2.2  This Dedication is irrevocable. The Dedicator may not withdraw it, and,
+       in respect of any copy of the Work that has been made available, may
+       not impose any further term, condition, or restriction. Silence, delay,
+       or non-enforcement by the Dedicator does not revive, reserve, or narrow
        anything this Dedication gives away.
 
   2.3  This Dedication takes effect without any act of acceptance by You. You
@@ -328,8 +341,8 @@ PREAMBLE (informative; not part of the operative terms)
        of the Work:
 
        (a)  apply, or assert rights in respect of, any technological measure
-            that restricts access to or use of the Work, or invoke any law
-            concerning the circumvention of such measures against You;
+            that restricts access to or use of the Work, or invoke against
+            You any law concerning the circumvention of such measures;
 
        (b)  impose by contract, terms of service, access condition, click-
             through, registration requirement, or any other collateral means an
@@ -700,7 +713,7 @@ PREAMBLE (informative; not part of the operative terms)
   16.5 In Section 16.4, "the Steward" means the person or entity that first
        published this text under the name and the identifier it bears, and any
        person or entity to whom that role is assigned by the person or entity
-       then holding it.
+       then holding that role.
 
   16.6 Sections 16.4 and 16.5 govern the text of this Dedication as a document.
        They are not terms of the Work, they bind no recipient of the Work, and
