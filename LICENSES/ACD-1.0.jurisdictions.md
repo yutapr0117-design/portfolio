@@ -133,6 +133,66 @@ Reduktion の制限もそのままには及ばない。**どちらであるか�
 **確立していないこと**: **裁判所が実際に non-executory と認めるかは保証できない。**
 §2.9 の文言はその主張であって、判断ではない。
 
+### 5a. 法定の終了権（17 U.S.C. §203）—— 「irrevocable」は、米国の §4 については statute に負ける
+
+**2026-09-19 に原典で確認した**（`https://www.law.cornell.edu/uscode/text/17/203`）。
+条文はこう定める:
+
+> *"the exclusive or nonexclusive **grant of a transfer or license** of copyright or of any right
+> under a copyright, **executed by the author** … otherwise than by will, is subject to
+> termination …"*（§203(a)）
+> *"Termination of the grant may be effected **notwithstanding any agreement to the contrary** …"*（§203(a)(5)）
+
+**帰結を隠さずに書く。** §4 は **licence** であり、**§203 はそれに届く。**
+**§2.2 と §4.1 の *"irrevocable"* は、米国で著作者本人（またはその承継者）が 35 年後に行う
+法定の終了を止められない** ——*"notwithstanding any agreement to the contrary"* がそう述べている。
+**本文の語がどれほど強くても、この点では statute が勝つ。**
+
+**本文の手当ては §15.2 である**（無効なら当該法域についてのみ改釈・可分）。
+**つまり文書が「誤っている」のではなく、当該法域で当該条が縮む、という構造になっている。**
+
+**そして、ここで三重構造が初めて冗長でなくなる。**
+
+| 条 | §203 に対して |
+| :-- | :-- |
+| **§4（ライセンス）** | **届く。** 終了されうる |
+| **§3（放棄・献呈）** | **§203 の語は *"transfer or license"* である。放棄はそのどちらでもない**（権利を移すのではなく消す）——**条文の文言上は届かない** |
+| **§5（不主張の約束）** | **grant ではない。** §203(b) が復帰させるのは *"all rights … that were covered by the terminated grants"* であって covenant ではない |
+
+**⚠ この表が establish しないこと**: **米国法上の著作権放棄は判例法の領域で、確立した手続が無い**
+（この文書の §5 冒頭の問いがまさにそれ）。**「§3 は §203 に届かないから安全」ではなく、
+「§3 が有効なら §203 の射程外にある」**である ——**二重の不確実性が直列につながっている。**
+**§5 の生存も同様に未確定**で、*"agreement to the contrary"* と読まれれば同じ運命になりうる。
+
+**言えるのはここまで**: **§3 / §4 / §5 が並置されていることは、§203 に対しては
+「同じことを 3 回言っている」ではなく「効き方の違う 3 つを置いている」。**
+
+### 5b. 人格権（17 U.S.C. §106A・VARA）—— §12.1 は米国では形式要件を満たさない。だから §12.2 がある
+
+**2026-09-19 に原典で確認した**（`https://www.law.cornell.edu/uscode/text/17/106A`）:
+
+> *"those rights may be waived if the author **expressly agrees to such waiver in a written
+> instrument signed by the author**. Such instrument shall **specifically identify the work, and
+> uses of that work**, to which the waiver applies …"*（§106A(e)(1)）
+
+**§12.1 の放棄は、この形式を満たさない。** リポジトリに置かれた LICENSE file は
+**著作者が署名した書面ではなく**、**用途を特定してもいない。**
+**したがって米国では §12.1 は放棄として成立しないと考えるのが素直である。**
+
+**それは設計どおりである** ——§12.2 が *"Where the law of a jurisdiction provides that Moral Rights
+are … incapable of waiver, Section 12.1 does not apply … and instead the Dedicator covenants not
+to exercise"* と述べており、**covenant には形式要件が無い。**
+
+**⚠ ただし射程を誇張しない。** **VARA が及ぶのは *works of visual art* だけ**であり、その定義は
+絵画・素描・版画・彫刻・展示目的の限定部数の写真に限られ、**映画その他の audiovisual work は
+定義から明文で除かれている。** **ソフトウェアは対象外である。**
+**したがって ACD の典型的な対象物について、VARA はそもそもほとんど発動しない** ——
+**この節は「米国には人格権の問題がある」ではなく、「あるとしても §12.2 が受け止める形になっている」
+ことを示すためにある。**
+
+**⚠ そして §12.2 自体の有効性は別問題である。** 形式要件が無いことと、
+**covenant が裁判所で執行されることは同じではない。** ここは外部の法律意見が要る（register B1）。
+
 ---
 
 ## 6. EU（TDM と DB 権）
