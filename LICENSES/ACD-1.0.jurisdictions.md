@@ -419,14 +419,14 @@ verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against ap
 | :-- | :-- | :-- | :-- |
 | **Kneschke v. LAION**（ハンブルク地裁 → **控訴審 HansOLG 5 U 104/24**）| §6.2 / §6.3 | 機械可読な TDM オプトアウトの有効性が現に争われている | **✅ 2026-09-20 に控訴審の press release を読んだ。下の §9a (9)。レビューは第一審しか挙げていない。** |
 | **Ryanair v PR Aviation**（CJEU）| §7.2 | **保護されないデータベース**には指令 96/9 第 15 条（利用者の権利を制限する契約を無効とする規定）が及ばず、**契約で自由に制限できる** | **§7.2 の許諾が、権利者側の TOS によって迂回されうるか** |
-| **Qimonda**（Chapter 15）| §2.9 | 越境倒産では 11 U.S.C. §365(n) の保護が失われうる | **§2.9 が「倒産手続は許諾に影響しない」と述べる射程の限界** |
+| **Qimonda**（Chapter 15）| §2.9 | 越境倒産では 11 U.S.C. §365(n) の保護が失われうる | **✅ 2026-09-20 に判決本文を読んだ。下の §9a (10)。構造は当たり、結論は逆で、§2.9 の設計の根拠になる** |
 | **17 U.S.C. §201(b)**（職務著作）| §2.6 / §2.7 | 企業に雇用された contributor は、§2.6 が献呈させようとする権利を持っていない | **§2.7 の「保有する権利にしか及ばない」で足りるか** |
 | **DMCA 17 U.S.C. §1202**（CMI）| §16.4 | 名称・識別子の制限が著作権管理情報の要件と交差する | **§16.4 が「本文についての規律」に留まるか** |
 | **消費者契約法 8 条 1 項**（日本）| §14.1 | 故意・重過失の全部免責は無効 | **§14.2 の「法が許す最大限」で足りるか** |
 | **droit de retrait**（フランス）| §2.2 | 撤回権の事前放棄は無効とされる蓋然性 | **§2.2 の irrevocable が、どの法域でどこまで立つか** |
 | **不公正契約条項の枠組み**（EU）| **§15.6** | 不明確な条項を受領者に有利に読む強行規定があり、**contra proferentem の排除は実効性を失う** | **✅ 2026-09-20 に原典で読んだ。下の §9a。** |
 
-### 9a. 8 件のうち 7 件を原典で読み、8 件目も裁判所自身の発表までは読んだ（2026-09-20）
+### 9a. 8 件すべてを原典で読んだ —— 判例 2 件のうち 1 件は判決本文、1 件は裁判所自身の発表まで（2026-09-20）
 
 **⚠ この節は「6 件は未読のまま」と書いて始まった。** その記述は**試さずに書いたもので、誤りだった**
 ——オーナーの指摘（*「そのまま読みに行くことがあなたは可能です」*）で取りに行くと、**7 件が取れた**
@@ -444,6 +444,7 @@ verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against ap
 | **消費者契約法 8 条** | e-Gov 法令 API（412AC0000000061）| ✅ 逐語 |
 | **UrhG 44b 条 / UrhG 60d 条**（Kneschke の争点）| gesetze-im-internet.de | ✅ **条文は逐語。判決本文は未取得**（openjur が captcha）|
 | **HansOLG 5 U 104/24**（Kneschke 控訴審・2025-12-10）| justiz.hamburg.de の press release | ⚠ **裁判所自身の発表は逐語。判決本文ではない**（下の §9a (9)）|
+| **Jaffé v. Samsung**（Qimonda 控訴審・4th Cir. 2013-12-03）| ca4.uscourts.gov の公刊判決 PDF | ✅ **判決本文を全文（64,760 文字）**（下の §9a (10)）|
 
 **読めた 7 件について、レビューの主張は構造としては当たっており、射程は述べられていたより狭い。**
 
@@ -635,3 +636,52 @@ signal を Reservation と読まない」という §6.2 の一文は、**(2) �
 
 **⚠ 引用の限界**: **これは判決本文ではなく、裁判所の press release である。**
 **全文は請求すれば得られると書かれているが、我々は請求していない。**
+
+#### (10) Qimonda —— 判決を読むと、レビューの論点は §2.9 に対する**反論ではなく根拠**だった
+
+**取得元**: 第 4 巡回区控訴裁判所自身のサイト（`https://www.ca4.uscourts.gov/opinions/Published/121802.P.pdf`・
+2026-09-20 に自己取得）。*Michael Jaffé v. Samsung Electronics Co.*, No. 12-1802（2013-12-03 判決・PUBLISHED）。
+**これは press release ではなく判決本文である**（64,760 文字・全文）。
+
+**何が争われたか**: ドイツの倒産管財人（Jaffé 氏）が Chapter 15 の裁量的救済を求め、
+**Qimonda の米国特許のライセンスを一方的に解除できる地位**を得ようとした。破産裁判所は救済を与えたが、
+**4 日間の証拠調べの後、条件を付けた**:
+
+> it conditioned the § 1521 relief with the requirement that Jaffé afford the licensees of
+> Qimonda's U.S. patents the treatment they would have received in the United States under
+> 11 U.S.C. § 365(n)
+
+さらに 11 U.S.C. §1506 により、管財人による一方的解除は
+*"would be manifestly contrary to the public policy of the United States"* であり、
+*"a fundamental U.S. public policy promoting technological innovation"* を損なうとした。
+**控訴審はこれを維持した**:
+
+> the bankruptcy court reasonably exercised its discretion in balancing the interests of the
+> licensees against the interests of the debtor and finding that application of § 365(n) was
+> necessary to ensure the licensees under Qimonda's U.S. patents were sufficiently protected.
+> Accordingly, we affirm.
+
+**そして §1522(a) の読み方を確定させた** ——
+
+> requiring a particularized balancing analysis that considers the "interests of the creditors
+> and other interested entities, including the debtor,"
+
+**レビューの主張は「越境倒産では §365(n) の保護が失われうる」だった。読むと、構造としては当たっている**
+——Chapter 15 において §365(n) は**自動的に適用される規定ではなく、裁量的救済に付された条件**であり、
+**4 日間の証拠調べと利益衡量を経て初めて**licensee に届いた。**ただし結論は逆で、licensee は勝っている。**
+
+**我々にとっての意味**:
+
+**有利**: **これは §2.9 に対する反論ではなく、§2.9 が採っている経路の根拠である。**
+§365(n) に依存する設計は、越境倒産では**衡量の結果に依存する**ことが実際に示された。
+ACD が採るのは別の経路で、**(a) §3 の surrender は完了した行為であって拒絶の対象が無く、
+(b) §2.9 第 2 文が倒産手続の officer を §2.8 の承継人として捉えて §3・§4・§6・§8 に服させる。**
+**「§365(n) が使えるはずだ」と言わずに済む設計であること自体が、この判決の教えるところである。**
+
+**不利**: **同じ判決が、こういう結論は forum が事実と裁量で決めると示している。**
+1.0 §2.9 は *"and so is not executory"* と分類まで断定しており、**我々は受領前に自分で E5 として記録し、
+1.1 以降はその結論を落としている**。だが**残した第 1 文は「いかなる倒産手続も許諾に影響しない」という
+結果の断定**であって、Qimonda が 4 日かけて決めたのはまさにその種の問いである
+（`against.md` #178）。**⚠ 逆側**: 断定を緩めれば依拠価値が下がり語数も増える（B3）。
+**実際に効いているのは断定ではなく §2.8 との接続**なので、直すべきは文言より、
+**問われたときにこの判決を引ける準備の方である**（`review-responses-boilerplate.md` Q25）。
