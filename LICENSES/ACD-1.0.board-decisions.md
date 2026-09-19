@@ -361,6 +361,65 @@ impossible to determine whether or not it complies with the OSD"* と**同じ構
 3. **NOTE が付いている** ——*"we will have a review done to assess potencial harm … with such a format"*。
    **承認は、この形式への留保つきで出ている。**
 
+### 8.7 我々の 3 大ボトルネックは、2005 年に「3 つの追加テスト」として提案されたものである
+
+**2005-09-12 の議題そのものが *"1. Three New Criteria"* で、中身は
+*"a. Uniqueness b. Re-useable c. Readibility"*（原文ママ）。**
+
+> Admit we didn't do a good job of building support for the 3 additional tests. Craft a plan to
+> build acceptance now. **Question of whether they should be in the OSD…** … **Mr. Radcliffe says
+> we can establish any criteria we want to. Mr. Coar is worried about appearing arbitrary.** …
+> Mr. Ghosh wants to let License Proliferation take up the application of the "Three Qualities"
+> **as separate from the application of the OSD**. … maybe **shouldn't be an administrative
+> criteria but rather a recommendation** to be put into "how to submit to OSI"
+
+**B10（gap = uniqueness）/ `submission-reference.md` §4b（提出者専用でない = re-usable）/
+B13（理解コスト = readability）は、偶然 3 つなのではない。** 2005 年に**OSD とは別の追加テスト**
+として提案され、**OSD に入れるかどうかが未決のまま**「推奨」に落とされた 3 つと同じである。
+
+**有利**: **これらは OSD の条項ではない。** 2025-07-18 の理事会も
+*"a license should be rejected only if it violates the OSD"* と述べている（§2）。
+**不利**: *"we can establish any criteria we want to"* が同じ記録に在り、
+**2025 年の「duplicative and not used なら not approved のまま留め置かれうる」がその実装**である。
+**20 年かけて、追加テストは「却下の根拠」ではなく「承認しないまま置く根拠」として形を得た。**
+
+### 8.8 「非増殖の成文規則は無い」は、2013 年に委員長が述べている
+
+> Villa said that part of the reason CeCILL hasn't been approved in the past is that it feels like a
+> violation of our proliferation report. However, **we have no written rules about
+> non-proliferation** and it's otherwise a compliant license. … In the longer term, **put in
+> concrete rules regarding proliferation**
+
+**2013 年に「長期的に具体的な規則を入れる」とされ、2025-07-18 に理事会が
+「まず License process ページで明確に伝えること」を求め（§2）、§3 が記録するとおり
+14 か月後もそれは公表されていない。** **同じ項目が 13 年空いている。**
+**⚠ これは怠慢の指摘ではなく、我々の予測に効く事実である** ——
+**公表された基準を読み尽くしても、実際に使われる基準を読み尽くしたことにはならない**（§3 の再確認）。
+
+### 8.9 「成功しそうか」は基準として使われてこなかった（2009-04-01）
+
+> Bruce Perens doesn't think it will be successful, but **we've never used likelihood of achieving
+> the author's goals as a criteria for license approval.**（SIL Open Font License 1.1・承認）
+
+**B2 に対する、20 年の歴史側からの反証である。** **⚠ 逆側**: §8.6 が示すとおり
+2015 年に *"Should we consider criteria for use when assessing licenses"* が提起され、
+**2025 年には「使われていないなら not approved のまま」まで来ている。**
+**「使われてこなかった」は「今も使われない」を意味しない。**
+
+### 8.10 カテゴリは棚であって門ではない —— 同じ 1 回で 3 つの動議（2024-09-20）
+
+| 動議 | 帰結 |
+|---|---|
+| Open Source Protection License | *"does not conform to the OSD and assure software freedom and the license is therefore **not approved**"* |
+| MIT-CMU | *"be **approved** … in the **Redundant with More Popular** category"* |
+| Los Alamos National Labs BSD-3 Variant | *"be **approved** … in the **Non-Reusable** category"* |
+
+**同じ会議で、OSD 不適合は承認されず、重複と非再利用は承認されている。**
+**門は OSD で、カテゴリは棚である**（§2 の *"rejected only if it violates the OSD"* と整合）。
+**`review-rules.md` §1.102 の `keywords` は、この動議の言葉がそのまま機械可読になったものである。**
+**⚠ 逆側**: **棚に置かれること自体は費用**で、`submission-reference.md` §4b が
+「提出者専用ではない」を論証しているのは、**その棚を避けるためである。**
+
 ## 7. この文書が establish しないこと
 
 - **公開分が不完全**なので、上の件数は「公開されている範囲で」に限られる。**母数は分からない。**
