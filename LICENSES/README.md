@@ -63,6 +63,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | 「**外の答えを待っている項目は何か**」 | [`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) —— 我々の作業では動かせない 7 項目の深い分析（法的レビュー / 実使用 / §4.4 の外部回答待ち / 特許射程 / gap / SPDX / AI 起草の扱い）。**索引と集計は上の register が canonical** |
 | 既知の反論が当たるか（**1 表・審査者が最初に読む**） | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) |
 | 審査者は主題について何と言っているか（人格権 / 特許 / 長さ / 構造 …） | [`ACD-1.0.reviewer-positions.md`](ACD-1.0.reviewer-positions.md) |
+| リストが我々の類型に付ける呼び名（「クレヨン」「vanity」）と、それが実際に指している害 | [`ACD-1.0.review-labels.md`](ACD-1.0.review-labels.md) |
 | 提出judgment と**残る弱点** | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) |
 | **いまどの段階か / 凍結の状態** | [`FROZEN.md`](FROZEN.md) |
 | **古くなりうる事実と、最後に確かめた日（英語）** | [`AS-OF.md`](AS-OF.md) |
