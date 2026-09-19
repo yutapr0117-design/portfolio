@@ -55,7 +55,23 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       of a term defined only in the plural; and (c) the reference in Section
       1.10 to Article 4(3) of Directive (EU) 2019/790 is a reference to the
       2019 text alone. Only Section 4.2 said "without limitation" on its own.
-    * ACD-1.1: 5051 words, 78 clauses. This draft: 5098 words, 79 clauses.
+    * A new Section 15.6 restores, word for word, the rule of construction
+      that ACD-1.0 carried at its Section 15.3 and that this line of drafting
+      dropped (errata E25). It was dropped on the ground that Section 15.1
+      already says the same thing twice. That was true of one half of it and
+      never of the other: Section 15.1 is a rule of direction and Section 15.3
+      was a rule of disapplication, and a direction cannot switch a canon off.
+      Since errata E20 the point is sharper still, because Section 15.1 now
+      reads "in respect of the Work" and so reaches none of Section 16, where
+      the dropped rule reached everything. The effect of dropping it was that
+      two canons of construction came back on over Section 16 and pulled in
+      opposite directions on the same clause, with nothing in the text to
+      order them -- contra proferentem reading Section 16.4's restriction
+      narrowly, and the narrow construction of grants reading Section 16.4's
+      permissions narrowly. Nothing about the Work was affected either way
+      (Sections 10.5 and 16.6), which is why this is stated as a repair of an
+      accident rather than as a defence of a clause.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5127 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -617,6 +633,10 @@ PREAMBLE (informative; not part of the operative terms)
        in the plural include the singular; "including" introduces examples and
        does not limit what precedes it; and a reference to a law includes that
        law as amended, replaced, or re-enacted.
+
+  15.6 No rule of construction that resolves ambiguity against the drafter
+       applies to this Dedication, and no rule that construes a grant narrowly
+       against the grantee applies to it.
 
 
 16. APPLYING THIS DEDICATION, AND THE STATUS OF THIS TEXT

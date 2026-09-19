@@ -674,19 +674,55 @@ ACD はどちらも構造的に回避しているが、**回避しているこ�
 
 ### Q23. §15.3（contra proferentem を排除する）——排除できるのか
 
+**⚠ この項目は 2026-09-19 に書き直した。** 旧版の答えは **2 つの canon を 1 つとして扱っており、
+その混同は 1.1 が §15.3 を落としたときの理由にもそのまま入っていた**（errata E25・`against.md` #159）。
+**旧文はここに引き写さない**（引用すると誤った読みがもう 1 部増える）—— 差分は
+`git log -p -- LICENSES/ACD-1.0.review-responses-clauses.md` で読める。
+
 > **English:**
 >
-> Contra proferentem exists to protect the party who did not draft, in a bargain.
-> This is not a bargain: there is no negotiation, no acceptance (Section 2.3), no
-> consideration flowing to the Dedicator, and no obligation on the recipient
-> (Section 10.1). Applying a rule that resolves ambiguity *against the drafter*
-> here would resolve it against the person giving everything away and in favour
-> of nobody — the recipient does not benefit from a narrower grant.
+> The clause names two canons, and in this instrument they do not run the same
+> way.
 >
-> So Section 15.3 is not an attempt to disable a protective rule; it says the
-> rule has no work to do because its premise is absent. Whether a court agrees is
-> a question I cannot answer, and Section 15.4 means that if it is struck the
-> rest survives.
+> The second — that a grant is construed narrowly against the grantee — runs
+> against the recipient, and Section 15.1 already says the opposite in terms:
+> the reading that grants more to You prevails.
+>
+> The first — contra proferentem, which resolves ambiguity against the drafter —
+> runs *in the recipient's favour*, because the drafter here is the party giving
+> everything away. It points the same way as Section 15.1, not against it. So
+> the clause is not a drafter shielding himself from a protective rule. In
+> respect of the Work it does no work that Section 15.1 does not already do.
+>
+> Where it does work is on this document. Section 16 governs the text of this
+> Dedication as a document; it is not a term of the Work and binds no recipient
+> of it (Sections 10.5 and 16.6). Section 15.1 is limited to the Work, so it
+> does not reach Section 16 at all. Without a clause disapplying the canons,
+> both of them come back on over Section 16 and pull in opposite directions on
+> the same clause — contra proferentem reading Section 16.4's restriction
+> narrowly, and the narrow construction of grants reading Section 16.4's
+> permissions (verbatim copying, translation, re-encoding) narrowly — with
+> nothing in the text to order them. Section 16.4 is what keeps one name and one
+> identifier pointing at one fixed text until a registry does that job instead,
+> so leaving it to be read by two canons at once is not a small thing.
+>
+> Whether a court gives effect to any of this I cannot say. Severability means
+> that if it is struck the rest survives (Section 15.4 in 1.0; Section 15.2 in
+> the 1.2 draft).
+>
+> **What I had wrong, since you can see it in the history anyway.** The answer
+> given here until 2026-09-19 said that applying contra proferentem "would
+> resolve it against the person giving everything away and in favour of nobody".
+> That treated the two canons as one: resolving ambiguity against the drafter is
+> resolving it *for* the recipient. The 1.1 draft then dropped Section 15.3 on
+> the same reasoning — that Section 15.1 was saying it twice — and the 1.2 draft
+> restores it word for word now that the mistake is visible.
+
+**主張しないこと**: **この条項が有効だとは述べていない。** 述べているのは、**無い場合に何が起きるか**
+——§16 の上で順序の定まらない 2 つの canon が同じ条文を反対向きに引く —— だけである。
+**⚠ 逆側**: 「contra proferentem を排除する条項」は、**それ自体が「起草者が保護規則から逃げている」
+と読まれうる**。**この読みは、条項の射程が §16（＝この文書）に寄っているほど弱くなるが、
+条文は Work についても排除している**ので、完全には消えない。
 
 ### Q24. §15.5（不行使を放棄と読むな）——やりすぎではないか
 
