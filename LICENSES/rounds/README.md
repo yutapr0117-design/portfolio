@@ -1,7 +1,7 @@
 ---
 file: LICENSES/rounds/README.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-discuss・license-review participants / 監査人
-last-updated: 2026-09-15
+last-updated: 2026-09-19
 canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲート 1) / LICENSES/ACD-1.0.discussion-log.md (分解と分類はこちら)
 ---
 
@@ -59,7 +59,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-15 時点・30 ファイル）
+## いまの状態（2026-09-19 時点・33 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -93,6 +93,9 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-09-09 | `license-discuss` | **Bruce Perens → 観測（上の通知への唯一の返信）** | **内容は他の投稿者の表示名についての一言のみ。誰を指した通知かは述べていない** |
 | 2026-09-10 | `license-review` | **Pamela Chestek（Licensing Committee 委員長）→ 名指し** | **我々宛ではない**（OpenMDW の審査中の発言）が、*"I would like to thank **Yuta-san** for their **insightful view on the termination provision**, which I find helpful"* と**名指しで謝辞している**。**moderator 通知（2026-09-09）の翌日である** |
 | 2026-09-09 | `license-review` | Max Mehl → 観測 | **同日の新規提出（PSF-2.0）**。約 270 語で、**採用実績と既承認ライセンスとの関係**に依っている |
+| 2026-09-19 | （リスト外）| **第三者 AI レポート① 承認プロセスの調査 → 受領** | オーナー経由。**リストの発言ではないので、証拠ではなく*測り方*として扱う** |
+| 2026-09-19 | （リスト外）| **第三者 AI レポート② 敵対的検証 → 受領** | **前提に事実誤りがある** ——解析対象を `against.md` と取り違えている（`against.md` #158）|
+| 2026-09-19 | （リスト外）| **第三者 AI レポート③ 好意的検証 → 受領** | **「クレヨン・ライセンス」の語を運んできた** ——アーカイブで実在を確認し、委員長の発言に到達した（`reviewer-positions.md` §1.98）|
 
 **ACD-1.0 そのものについては、依然として受領がゼロである。** 2026-09-09 時点で
 **ACD-1.0 の投稿は 2 通あり、どちらも別スレッドとして立ち、どちらにも返信が無い**

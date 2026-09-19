@@ -53,3 +53,13 @@ sitemap.xml    text eol=lf
 *.zip     binary
 *.tar.gz  binary
 *.tar     binary
+
+# ── 受領文の無改変保存 (DO NOT auto-convert line endings) ────────────────────
+# `LICENSES/rounds/` は「何と言われたか / 何と言ったか」を **byte のまま** 残すためだけに在る
+# ディレクトリである (`LICENSES/rounds/README.md`)。ところが 2026-09-19 まで、この規約は
+# **人間の約束としてだけ存在し、git の改行変換からは守られていなかった** ——
+# 同日に初めて CRLF を含む受領文 (外部レポート 3 本) が届き、git が LF へ正規化しようとして
+# 初めて分かった。**それまで CRLF の受領文が無かったので、穴が発火していなかっただけである。**
+# **`-text` は改行変換を完全に無効化する** ——差分は読みにくくなるが、
+# **このディレクトリで守るべきは読みやすさではなく同一性である。**
+LICENSES/rounds/**   -text
