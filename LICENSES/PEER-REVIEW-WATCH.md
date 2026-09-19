@@ -1,7 +1,7 @@
 ---
 file: LICENSES/PEER-REVIEW-WATCH.md
 audience: 次のセッションの実装者（一次読者）
-last-updated: 2026-09-04
+last-updated: 2026-09-20
 canonical-ref: LICENSES/ACD-1.0.comparison.md §1.5 (比較の本体) / LICENSES/ACD-1.0.against.md #28-#31 (不利な材料) / LICENSES/REVISION-PROTOCOL.md (改訂サイクル)
 ---
 
