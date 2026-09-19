@@ -1,0 +1,154 @@
+=== 受領の記録（本ファイルは PDF 原本の「抽出テキスト」であって原本ではない）===
+
+受領日      : 2026-09-20（オーナーがローカルから共有・**2 回目の受け渡しで初めて届いた 3 件目**）
+原本の形式  : PDF（`Check 122` により PDF はリポジトリに tracked できないため、本文だけを抽出して保存する）
+原本の sha256: accd5c6355863e2d374d46707f7f2e1f436eedc02ddaa02092ca3416e94508b6
+抽出方法    : PDF の FlateDecode ストリームを展開し、各フォントの /ToUnicode CMap で
+              Tj / TJ のグリフ列を Unicode へ写した。**byte 単位の原本ではなく、抽出の結果である。**
+              改行位置・表組み・脚注番号は原本と一致しない。**語の並びは保っている。**
+レビュー対象: ACD-1.2-DRAFT（ヘッダに `* w Section 15.5 restores …` の破損を含む版・`against.md` #167）。
+              **したがって §4.4 は E28 以前の文言である。**
+性格        : **敵対的検証。** 同日に届いた他の 2 件（好意的検証・条項適切性）が指摘ゼロだったのに対し、
+              **本件は名前のある法源・判例を挙げて条ごとに攻撃ベクターを述べる。**
+              **我々はその法源をオフラインで確認できていない**（`against.md` #170）。
+
+--- 以下、抽出テキスト ---
+
+ACD-1.2-DRAFT.txt 各項目に対する敵対的検証報告書 PREAMBLE（前文）に対する敵対的検証 本前文は、拘束力を持たない情報提供（informative）として位置付けられているが、英米法圏における契約解釈においては起草者の意図を示す極めて重要な判断材料となる。
+本前文において「機械学習、特許、機械の著作者性」に関する既存ライセンスの沈黙に対処すると宣言し、第3条（権利放棄）、第4条（ライセンス）、第5条（権利不行使の誓約）を「それぞれ独立した基盤（Each is given on its own terms）」として並立させる構造を採用している。
+しかし、この構造は大陸法系（特にドイツやフランス）の法域において、法的に両立し得ない概念の混在とみなされ、ライセンス全体の法的安定性を根底から破壊する深刻な解釈上のリスクを内包している。
+完全な権利放棄（パブリックドメイン化）による権利の消滅と、権利の存在を前提とするライセンスの付与は論理的に排反であり、訴訟において権利侵害を主張する原告側（デディケーター側）から「契約の目的の不確実性」や「法規律の矛盾」を突かれ、ライセンス条項全体が無効化される敵対的攻撃の余地を与えている。
+ 第1条（DEFINITIONS／定義）に対する敵対的検証 1.2 "Moral Rights"（著作者人格権）の定義拡張による強行法規違反リスク 著作者人格権の定義は広範に設定されており、法域によって譲渡不可、放棄不可とされる権利（公表権、氏名表示権、同一性保持権など）を網羅しようと試みている。
+しかし、ベルヌ条約第6条の2に基づく著作者人格権は、フランス知的財産法典（CPI）L121-1条等において「一身専属、永久、譲渡不能、時効にかからない」と明確に定められている強行法規である。
+広範な定義をもって契約書上に明記したとしても、後述する第12条の人格権放棄条項が強行法規に抵触するリスクを回避できるわけではない。
+逆に、定義を広げすぎることで、譲渡・放棄が一切不可能な権利までも契約の対象に含めようとしたという事実が、ライセンス全体の公序良俗違反を主張する攻撃材料として利用される。
+ 法域 著作者人格権の放棄・譲渡性に対する敵対的解釈の余地 根拠となる法令・判例・条約 フランス 完全に放棄不可（Inalienable）。
+撤回権（droit de retrait）や氏名表示権に対する放棄条項は公序良俗違反として無効化される。
+ 知的財産法典（CPI）L121-1条 ドイツ 権利の譲渡は原則不可。
+著作者と著作物の精神的結合（Urheberrecht）を根拠に、事前かつ包括的な放棄は無効とされる。
+ 著作権法（Urheberrechtsgesetz）第29条 英国 書面による放棄（Waiver）は可能だが、放棄の対象が不明確な包括的放棄は、限定解釈される余地がある。
+ 著作権・意匠・特許法（CDPA 1988）第87条 米国 視覚芸術作品（VARA）に限定さ米国著作権法 17 U.S.C. § 法域 著作者人格権の放棄・譲渡性に対する敵対的解釈の余地 根拠となる法令・判例・条約 れるが、放棄には著作物と利用目的の特定が必要。
+本ライセンスのような白紙的放棄は要件を欠く。
+ 106A 1.4 "Dedicator"（デディケーター）における共同著作者の分離不可能性 複数のデディケーターが存在する場合、「個別（severally）」に機能し、一人の行為の失敗や無効が他方に影響を与えないと規定している。
+敵対的検証の観点からは、この規定は共同著作物（Joint Work）の利用において致命的なトラップとなる。
+一部の著作者のみが本ライセンスを適用して権利を放棄し、他の共同著作者が権利を留保している状態が法的に生じ得るためである。
+英国著作権・意匠・特許法（CDPA 1988）第87条(3)などが示すように、一人の権利放棄は他の共同著作者の権利に何ら影響を与えない。
+結果として、受領者（You）は本ライセンスを信頼して著作物を利用したにもかかわらず、権利を留保している他の共同著作者からの権利侵害差止や巨額の損害賠償請求の標的となる。
+ 1.6 "You"（受領者）における機械の権利能力の否定 受領者の定義に「自動化されたシステム（automated system）」を含め、システムが権限を行使する場合、その権限は運用する法人等に平等に付与されるとしている。
+しかし、米国におけるThaler v. Perlmutter事件の連邦控訴裁判所（D.C. Circuit）判決が明確に示した通り、人間以外のエンティティやAI（Creativity Machine等）は著作権法上の主体としての適格性を欠き、いかなる法的な権利能力も有しない。
+機械に対して直接許諾を与える（あるいは機械が許諾を自律的に行使する）という法理は現行法上成立しない。
+原告側は、この定義が「法的に存在しない主体」に対する許諾を試みている点を突いて、ライセンス付与そのものの有効性を争うことが可能である。
+ 1.10 "Reservation"（留保）定義の過剰な拡張による第三者権利侵害 EUのデジタル単一市場における著作権指令（指令(EU)2019/790）第4条(3)が規定する「機械可読な手段（machine-readable means）」等によるTDM（テキスト・データ・マイニング）のオプトアウトを対象としている。
+後述の第6条においてこの留保を無効化する意図があるが、法的定義として第三者が付与したメタデータ、プロトコル要素、ヘッダーまでもを「留保」と定義付けることで、ライセンス適用者の権限を逸脱する運用を引き起こす。
+AI開発者が本ライセンスに従いデータセットを一括処理した場合、第三者が正当な権利に基づいて設定したオプトアウト宣言を不当に無効化し、直接的な著作権侵害訴訟を誘発する脆弱性である。
+ 第2条（SCOPE AND EFFECT／適用範囲と効果）に対する敵対的検証 2.2 取消不能（Irrevocable）条項の強行法規による無効化 「撤回できない（may not withdraw it）」とする規定は、大陸法系における著作者人格権を直接的に侵害する構成となっている。
+特にフランス法における「撤回権（droit de retrait）」は、著作者が思想上の変化などを理由に著作物を市場から引き揚げる権利を保障しており、事前の契約による放棄は無効と判断される蓋然性が高い。
+原告は、この「取消不能」条項が公共の秩序（public policy）に反するとしてライセンス全体の無効を主張し、すでに流通している著作物の強制的な利用停止を求める敵対的手段を講じることができる。
+ 2.6 コントリビューション（Contribution）と職務著作の不一致 別途の譲渡証書や合意書（CLA等）を不要とし、提出行為そのものをもって本ライセンスが適用されるとする。
+敵対的視点からは、コントリビューターが企業に雇用されている場合、職務著作（work made for hire）として米国著作権法（17 U.S.C. § 201(b)）に基づき、実際の著作権および特許権は雇用主である企業に帰属しているという事実が最大の攻撃ベクターとなる。
+個人のコントリビューターからの提出行為のみをもって、第三者である法人の権利を有効に吸い上げることはできず、後に企業側が「従業員には本ライセンスの下で提出する権限がなかった」と主張して、受領者に対して大規模な権利侵害訴訟を提起する深刻なデューデリジェンスの欠如をもたらす。
+ 2.8 譲受人への拘束（Binding Successors and Assigns）の法理的破綻 特許権の譲受人が第8条（特許ライセンス）等の義務を承継し、譲受人はそれに服する（takes subject to them）としている。
+しかし、米国連邦巡回区控訴裁判所（Federal Circuit）の判例（*Lone Star Silicon Innovations LLC v. United Microelectronics Corp.*等）が示す通り、「提訴しないとの誓約（covenant not to sue）」や特定のライセンス義務が、特許権の移転に伴って自動的に譲受人に承継される（run with the patent）とは限らない。
+パテント・トロール（NPE）がデディケーターから特許を買い取った場合、NPEは「本ライセンスの誓約は債権的な義務（in personam）に過ぎず、特許権という物権的権利の譲受人である自社には及ばない」と主張し、受領者に対して自由に特許侵害訴訟を提起することが可能である。
+ 2.9 倒産・破産手続き（Insolvency and Bankruptcy）における管財人解除権の優越 破産管財人の行為がライセンスに影響を与えず、権利を復活させないとしている。
+しかし、破産法制は各国の強行法規であり、私的契約によって管財人の法定権限を奪うことはできない。
+米国連邦破産法11 U.S.C. 365(n)においては、ライセンサーの破産時にライセンシーが知的財産権のライセンスを保持する選択権が認められており一定の保護があるが、商標等の一部権利は除外される議論が存在した（Tempnology事件等）。
+さらに、日本法の破産法第53条第1項によれば、双務契約が未履行の場合、破産管財人は契約の解除を選択する権利を有する。
+ライセンス契約において対抗要件（登録等）を備えていない場合、管財人はライセンスを解除し、クリーンな状態で特許権等を第三者に売却して、受領者の利用を差し止めることが合法的に可能である。
+ 破産法域 破産管財人によるライセンス解除の敵対的リスク 根拠法令・判例 米国 11 U.S.C. 365(n)により知財ライセンスは一定の保護を受けるが、海外での倒産手続き（Chapter 15）の適用時などには他国法が優先され保護が失われるリスクがある（Qimonda事件）。
+ 11 U.S.C. 365(n) 日本 未履行双務契約として破産法53条1項に基づく解除の対象となる。
+対抗要件（特許庁への登録等）を欠く場合、受領者は保護さ破産法第53条第1項 破産法域 破産管財人によるライセンス解除の敵対的リスク 根拠法令・判例 れない。
+ ドイツ 倒産管理人はライセンス契約を終了させる強い権限を持ち、米国365(n)のような明示的なライセンシー保護規定は弱い。
+ Qimonda AG 倒産事件の管財人主張 第3条（DEDICATION OF COVERED RIGHTS／対象権利の放棄）に対する敵対的検証 3.1 および 3.3（パブリックドメインへの提供と放棄）の無効性 全権利の放棄（surrender, abandon, relinquish）を宣言し、パブリックドメインに置くとしている。
+しかし、ドイツの著作権法（Urheberrechtsgesetz）やフランスの知的財産法典においては、財産権の完全な放棄や譲渡は認められていない。
+第3.3条で「放棄が認められない法域では権利行使を放棄（waive）する」と代替規定を設けているが、これも実態として「利用目的を特定しない白紙的な包括的利用許諾」と解釈される。
+独仏の法域において、無制限の権利行使放棄は特定性欠如を理由に無効とされる余地があり、デディケーターは後日「権利放棄は法的に無効であった」と主張して、突如として利用料の請求や差止請求を行うことが可能である。
+ 第4条（LICENCE OF COVERED RIGHTS／対象権利のライセンス）に対する敵対的検証 4.1 ～ 4.5（無条件ライセンスとサブライセンス）によるライセンス汚染の誘発 第3条の権利放棄が無効であった場合のフォールバックとして機能し、いかなる条件も課さない非独占的ライセンスを付与する。
+さらに第4.5条において、受領者が「非互換の条件（incompatible with these）を含め、自ら選ぶいかなる条件の下でも」頒布できるとしている。
+敵対的検証の観点からは、これはGPL（GNU General Public License）等の厳格なコピーレフト・ライセンスに対するトロイの木馬として機能する。
+ACDを適用したコードをGPLコードとリンクさせた場合、受領者はGPLの伝播性（派生物へのソースコード開示義務）に従う必要が生じるが、ACD側が「無条件での独自条件付加」を認めることで、下流のユーザーに対するライセンスの境界線が著しく不透明になる。
+これを悪用し、オープンソース・コミュニティ内で意図的に非互換のプロプライエタリ条項を付加して再頒布を行い、エコシステム全体をライセンス違反の連鎖に陥れることが可能である。
+ 第5条（COVENANT NOT TO ASSERT／権利不行使の誓約）に対する敵対的検証 5.2(a)（技術的保護手段に関する誓約）のプラットフォーム規約との衝突 技術的保護手段（TPM）の適用およびその迂回に関する法令を援用しないとの誓約である。
+米国デジタルミレニアム著作権法（DMCA 17 U.S.C. 1201）やEU情報社会指令（2001/29/EC 第6条）は、TPMの迂回を法的に禁じている。
+本条項はデディケーター自身がこれを援用しないとしているが、デディケーターがGitHubや各種パッケージマネージャー等のサードパーティ・プラットフォームを介して著作物を提供した場合、そのプラットフォーム側がシステムとして適用するDRMやTPMを受領者が迂回した際、プラットフォーム自身がDMCA違反で受領者を訴えるリスクに対して、本条項は何の保護も提供しない。
+受領者はライセンスで許可されていると信じてDRMを迂回し、プラットフォーム事業者からの巨額の損害賠償請求（刑罰を含む）の対象となる。
+ 第6条（MACHINE LEARNING, TEXT AND DATA MINING, AND MODEL TRAINING／機械学習等）に対する敵対的検証 6.2 および 6.3（留保の無効化と撤回）による第三者オプトアウトの侵害 指令(EU)2019/790 第4条(3)に基づくTDMのオプトアウト（Reservation）を行わないとし、存在する留保も撤回すると規定する。
+近年の*Robert Kneschke v. LAION e.V.*事件（ハンブルク地方裁判所）が示すように、ウェブサイトの利用規約やrobots.txt等の機械可読な手段によるオプトアウトの有効性が法的に鋭く争われている。
+第6.3条において、「他の権利者による留保」を撤回する権限がデディケーターにないことを認めているが、データセット内に第三者の著作物が混入していた場合、本ライセンスの「留保の撤回」を信じたAI開発者がTDMを実行すれば、第三者のオプトアウト宣言に直接抵触する。
+第三者は、本ライセンスを隠れ蓑にしてスクレイピングを行ったAI開発者に対して、重大な著作権侵害訴訟を提起することができる。
+ 6.4（派生物に対する請求権の放棄）における権利存在の錯誤 モデル、パラメータ、ウェイト等の出力に対する請求権を放棄している。
+ここで「当該出力に権利が存続するか否かは決定しない」としているが、米国におけるThaler v. Perlmutter事件等の確立された判例は「人間の著作者性のないAI生成物」に著作権を認めていない。
+すなわち、本条項は「そもそも存在しない権利」の不行使を誓約しているに過ぎず、受領者に対して心理的な安心感を与える以上の法的な防御力を持たない。
+原告は、「権利が存在しない以上、放棄の誓約自体が意味を成さず、学習段階での複製行為そのものに対して別途侵害を構成する」と主張することが可能である。
+ 第7条（SUI GENERIS DATABASE RIGHTS／Sui Generis データベース権）に対する敵対的検証 7.1 および 7.2（抽出および再利用の許可）の非保護データベースにおける死角 指令96/9/ECに基づくSui Generisデータベース権に関する規定である。
+Ryanair v PR Aviation事件のCJEU判決によれば、著作権やSui Generis権による保護を受けない「非保護データベース」に対しては、指令第15条（正当なユーザーの権利を制限する契約を無効とする強行規定）が適用されず、データベース作成者は契約によって自由に使用を制限できる。
+本条項は対象権利（Covered Rights）にSui Generis権が含まれる場合に限り適用される（第7.1条）ため、保護要件（実質的投資の証明）を満たさない単なるデータセットの場合、受領者は明示的なライセンスによる保護の枠外に置かれる。
+デディケーターはサイトの利用規約（TOS）においてスクレイピング禁止条項を別途設けることで、本ライセンスの許可を契約法理を用いて合法的に無効化し、受領者を訴えることが可能である。
+ 第8条（PATENT LICENCE AND COVENANT／特許ライセンスおよび誓約）に対する敵対的検証 8.1 および 8.2（特許の付与と報復条項の意図的欠如）による致命的な非対称性 ACD-1.2は、Apache License 2.0などに存在する「特許報復条項（Patent Retaliation Clause）」を意図的に排除している（第8.2条）。
+特許報復条項は、受領者がライセンサーに対して特許侵害訴訟を起こした場合にライセンスを終了させるものであり、オープンソース・エコシステムにおいてパテント・トロールや競合他社からの攻撃を抑止するための極めて重要な防衛メカニズムである（GPLv3の第10条等も同様の機能を持つ）。
+ 敵対的視点からは、この条項の排除はデディケーターに対する無制限の攻撃を許可するに等しい。
+受領者はACD-1.2の下でデディケーターから無償で特許を実施しつつ、自社の特許を用いてデディケーターを別件で提訴しても、ACD-1.2に基づくライセンスを失うことがない。
+競合他社は本ライセンスを悪用してデディケーターの技術をノーリスクで吸収し、同時にデディケーターに対して特許訴訟を仕掛けることが可能となる。
+ オープンソースライセンス 特許報復条項（Patent Retaliation）の有無 敵対的攻撃への耐性 Apache License 2.0 あり。
+特許訴訟を提起した時点でライセンス終了。
+ 高い。
+競合他社からの無用な訴訟を抑止する。
+ GPLv3 あり（第10条）。
+クロスライセンス的な防衛が働く。
+ 高い。
+パテント・トロール対策として機能する。
+ ACD-1.2-DRAFT なし（意図的排除）。
+ 極めて低い。
+デディケーターは一方的に特許リスクを負う。
+ MIT / BSD なし（特許許諾自体が明示されていない）。
+ 低い。
+暗黙のライセンスに依存するため不安定。
+ 8.4（機械学習のための特許ライセンス）のインプライド・ライセンスの暴走 AIモデルの訓練や出力に関する特許クレームについてもライセンスを付与している。
+しかし、AIモデルのウェイトやパラメータが「派生物」に該当するか否かの法的境界が未確定な現状において、「利用（Computational Use）に起因する全ての特許クレーム」を無条件で許諾する規定は、デディケーターが保有する広範な周辺特許（アルゴリズムの最適化手法や特定のニューラルネットワーク構造に関する特許など）まで意図せず広範に許諾（インプライド・ライセンス）してしまう危険性を孕む。
+デディケーターの特許ポートフォリオ全体の価値を無自覚に毀損するトロイの木馬となり得る。
+ 8.6（特許権利不行使の誓約）と譲受人による権利行使 ライセンスが無効な法域におけるフォールバックとして「提訴しない誓約」を定めている。
+しかし前述の通り、米国法下において「提訴しない誓約」が特許権の譲渡とともに譲受人に自動的に承継されるか（run with the patent）については否定的な判例（Datatreasury事件等）が存在する。
+デディケーターから特許を買い取った第三者（トロール等）は、「この誓約は元のデディケーターとの債権的合意に過ぎず、特許の譲受人には対抗できない」と主張し、受領者に対して特許侵害訴訟を提起することが可能である。
+ 第9条（MACHINE-GENERATED MATERIAL AND AUTHORSHIP／機械生成マテリアル等）に対する敵対的検証 9.2 および 9.3（機械生成物の権利主張の放棄）による侵害特定義務の免除と死角 著作物の一部が「機械生成（Machine-Generated）」である可能性を認め、それに権利が存在するとの表明を行わないとしている。
+これはThaler v. Perlmutter事件が示す「人間の著作者性の欠如」による著作権発生の否定を前提としている。
+しかし、敵対的検証の観点からは、受領者が「どの部分が人間の創作でどの部分がAI生成か」を区別する義務を免除される（第9.3条）ことで、結果的に重大なコンプライアンスの死角を生む。
+AIが第三者の著作物を過剰適合（Overfitting）によって丸写ししたコードや画像を出力し、それが本ライセンス下で提供された場合、受領者は「AI生成物として区別義務を免除されている」と信じて利用するが、著作権を侵害された真の第三者からは直接的に損害賠償を請求される。
+本条項は受領者の注意義務を意図的に麻痺させる罠として機能する。
+ 第10条（ABSENCE OF CONDITIONS／条件の不存在）に対する敵対的検証 10.1 および 10.3（帰属表示等の義務の否定）の強行法規による無効化 著作物の利用に対していかなる条件（帰属表示等を含む）も課さないとし、デディケーターからの要求は「単なる要望（request）」に過ぎず、法的義務を一切生じさせないと規定する。
+しかし、フランス法やドイツ法のように氏名表示権（droit de paternité）が強行法規として譲渡・放棄不可能である法域においては、「要望に従わなくても契約違反ではない」とする本条項の合意自体が公序良俗違反等で無効とされる。
+悪意を持ったデディケーターは、本ライセンスで「帰属表示は不要」と謳っておきながら、後日、フランス等の裁判所で氏名表示権を行使して訴えを起こすことができる。
+受領者は「ライセンス上義務はない」と抗弁しても、法律上の人格権侵害として敗訴するリスクを免れない。
+ 第11条（TRADEMARKS, NAMES, AND MISREPRESENTATION／商標等）に対する敵対的検証 11.3 および 11.4（適用範囲の限界）によるプライバシー侵害の誘発 商標権やパブリシティ権、プライバシー権に対する許可は付与しないと明記している。
+TDMやAI訓練においては、データセットに個人情報や肖像が含まれることが常態化している。
+本ライセンスが著作権および特許権のクリアランスのみを提供し、GDPR等のデータ保護法制やパブリシティ権のクリアランスを明示的に否定している事実は、これを利用するAI開発者にとって「本ライセンスさえあれば安全に学習・利用できる」という錯覚を抱かせ、利用者を重大なコンプライアンス違反へと誘発するトラップとなり得る。
+デディケーター自身が肖像権を持つ画像を提供し、受領者がそれを利用した後に、パブリシティ権侵害で提訴するというマッチポンプ的な攻撃が可能である。
+ 第12条（MORAL RIGHTS／著作者人格権）に対する敵対的検証 12.1（著作者人格権の放棄） 「法の許す最大限の範囲で放棄し、行使しないことに同意する」としている。
+英国（CDPA 1988年第87条）やカナダにおいては書面による人格権の放棄が認められているため有効に機能する。
+しかし、大陸法系（フランス、ドイツ、イタリアなど）およびベルヌ条約第6条の2を厳格に解釈する法域では、著作者人格権の包括的・事前的な放棄は公序良俗に反し無効である。
+ 12.2 および 12.4（人格権不行使の誓約とその相続人への拘束力）の法理的限界 放棄が無効な法域に向けた「権利不行使の誓約（covenant not to exercise）」条項である。
+日本の実務等では「著作者人格権の不行使特約」は一般に有効とされるが、著作物の本質的価値を著しく損なうような改変等に対しては公序良俗違反で無効とされる余地がある。
+ さらに致命的な欠陥は、第12.4条における「相続人や代理人に対する拘束」である。
+フランス法等の下では、著作者人格権は著作者の死後も相続人に引き継がれ、永久かつ時効にかからない（perpetual, inalienable and imprescriptible）。
+契約によって著作者が生前に自身の権利行使を（事実上）制限できたとしても、その債権的契約の効力が、法律によって固有の権利として人格権を承継した相続人を法的に拘束できるかは極めて疑わしい。
+相続人が「死者の名誉」を毀損するとして作品の改変（例えばAIによる歪曲的な画像生成）の差止めを求めた場合、本条項は抗弁として機能せず、受領者は生成物の提供停止や損害賠償を余儀なくされる。
+ 第13条（NO WARRANTY／無保証）および 第14条（LIMITATION OF LIABILITY／責任の制限）に対する敵対的検証 13.1 および 14.1（全面的な免責）の消費者保護法制による無効化 すべての明示的・黙示的保証を否定し、直接的・間接的・懲罰的損害を含む一切の責任を免除する規定である。
+これは米国のUCC（統一商事法典）などを意識した標準的なボイラープレートであるが、世界的に適用を意図する場合、各国の消費者保護法制や不法行為法と完全に衝突する。
+ 例えば、日本における「消費者契約法」第8条第1項によれば、事業者の故意または重大な過失による債務不履行責任や不法行為責任を完全に免除する条項は無効とされる。
+デディケーターが企業で受領者が個人開発者等（消費者とみなされる場合）であるケースにおいて、提供されたコードに意図的なマルウェアや重大な過失によるセキュリティ欠陥が含まれていた場合、本免責条項は法的に保護されない。
+第14.2条で「法が許す最大の範囲」というセーフーバーを置いているが、免責が無効化された瞬間にデディケーターは予測不能な巨額の損害賠償リスクを負う。
+受領者はこれを逆手に取り、損害が発生したとしてデディケーターを相手取り巨額の訴訟を提起することが可能である。
+ 第15条（CONSTRUCTION AND SEVERABILITY／解釈および分離可能性）に対する敵対的検証 15.3（準拠法および管轄裁判所の指定なし）によるフォーラム・ショッピングの誘発 本ライセンスの最大の法体系的欠陥である。
+「各法域の法に基づいて運用される」と規定し、あえて準拠法（Governing Law）および専属的合意管轄（Forum）を定めていない。
+ 敵対的視点からは、これは「国際私法（抵触法）上の終わりのない紛争」を招く致命的なバグである。
+権利侵害やライセンス違反が発生した場合、原告（デディケーターまたは第三者）は自分に最も有利な法域を選択するフォーラム・ショッピング（Forum Shopping）が可能となる。
+例えば、特許権不行使の誓約が契約として有効か、財産権の移転として有効かという解釈において、日、米、欧で全く異なる結論が導き出される。
+法的安定性が完全に欠如しており、原告は最も勝訴確率が高く、最も高額な損害賠償が認められる法域（例：米国の陪審制等）を意図的に選択して訴訟を仕掛けることができる。
+ 15.6（作成者不利の原則の排除／Contra Proferentem）の無効性 疑わしきは作成者の不利に解釈する「Contra Proferentem」の法理を適用しないとする。
+しかし、このルール自体が一種の付合契約（Adhesion Contract）または標準約款に対する裁判所の解釈原則であることを踏まえると、契約当事者間で交渉の余地がなく一律に提供される本ライセンスにおいて、裁判所がこの第15.6条の指示に必ずしも拘束されるとは限らない。
+特に欧州の不公正契約条項指令等の枠組みの下では、不明確な条項は受領者に有利に解釈される強行規定が存在するため、この条項は実効性を失い、結局のところ起草者（デディケーター）に著しく不利な解釈が下されるリスクを排除できない。
+ 第16条（APPLYING THIS DEDICATION...／適用およびテキストのステータス）に対する敵対的検証 16.1 および 16.4（改変の制限とCMIの意図的削除） ライセンステキストの逐語的複製を許容する一方で、「Autonomous Commons Dedication」や「ACD-1.N」といった名称および識別子を使用した改変版の頒布を禁じている。
+ 名称保護自体はオープンソース・ライセンスにおいて一般的であるが、敵対的検証の観点からは、米国デジタルミレニアム著作権法（DMCA）17 U.S.C. 1202条が規定する「著作権管理情報（Copyright Management Information: CMI）」の改ざん・削除要件との関連が最大の攻撃ベクターとなる。
+ 悪意のある受領者が、自身の派生物をクローズドな環境に持ち込むために、ACDの識別子やタグを削除または改ざんした場合、著作権そのものの侵害（本ライセンスは無条件付与のため成立しにくい）ではなく、CMIの意図的削除（1202条違反）という別個の法定損害賠償（最大25,000ドル）の対象となる可能性がある。
+しかし、第10.1条および第10.2条において「一切の条件（通知や識別子の複製を含む）を課さない」と明言しているため、被告側は「CMI削除の法的責任すらもデディケーター自らが事前に放棄し、削除を契約上許可した」と抗弁することが可能である。
+結果として、デディケーターはライセンスの表示を法的に保護する手段を自ら放棄しており、ライセンスロンダリング（出所の隠蔽）に対して完全に無力化されている。
+ 引用文献 1. Moral Rights Waiver: VARA, Drafting & Enforceability - ContractKen, https://www.contractken.com/glossary/moral-rights-waiver 2. Moral rights - Wikipedia, https://en.wikipedia.org/wiki/Moral_rights 3. Article L. 121-1 du Code de la propriété intellectuelle, https://www.baumann-avocats.com/CPI/article-l121-1-du-code-de-la-propriete-intellectuelle.php 4. Chapitre Ier : Droits moraux (Articles L121-1 à L121-9) - Légifrance, https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006069414/LEGISCTA000006161636/ 5. Moral Rights In European Copyright Law. - Law Gratis, https://mail.lawgratis.com/blog-detail/moral-rights-in-european-copyright-law 6. The Moral Dilemma of France's Moral Rights: The Author vs. the, https://www.americanbar.org/groups/intellectual_property_law/resources/landslide/2026-winter/moral-dilemma-france-moral-rights-author-vs-public-domain/ 7. Chapter IV Moral Rights - Copyright, Designs and Patents Act 1988, https://www.legislation.gov.uk/ukpga/1988/48/part/I/chapter/IV 8. Copyright, Designs and Patents Act 1988 - unodc sherloc, https://sherloc.unodc.org/cld/uploads/res/document/gbr/1988/copyright_designs_and_patents_act_1988_html/Copyright_Designs_and_Patents_Act_1988.pdf 9. Copyright Denied for Generative AI: Remarks on Thaler v Perlmutter, https://utrechtjournal.org/article/download/26122/27067/69408 10. Appellate Court Affirms Human Authorship Requirement ... - Skadden, https://www.skadden.com/insights/publications/2025/03/appellate-court-affirms-human-authorship 11. Thaler v. Perlmutter - BitLaw, https://www.bitlaw.com/source/cases/copyright/Thaler-Perlmutter.html 12. Landmark decision on AI training and text and data mining, https://www.bechbruun.com/insights/news-and-cases/landmark-decision-on-ai-training-and-text-and-data-mining/ 13. AI and Copyright – Part II – The European and US Approach, https://www.hannessnellman.com/news-and-views/blog/ai-and-copyright-part-ii-the-european-and-us-approach/ 14. Thaler v. Perlmutter - U.S. Court of Appeals for the D.C. Circuit, https://media.cadc.uscourts.gov/opinions/docs/2025/03/23-5233.pdf 15. Meyer 72(1) - The Copyright Society, https://copyrightsociety.org/wp-content/uploads/2025/06/Moffat-721-2.pdf 16. Patent Transfer And The Bundle of Sticks - Scholarly Commons, https://scholarship.law.gwu.edu/cgi/viewcontent.cgi?article=2497&context=faculty_publications 17. “Patent Owners Should Mind Assignee Rights Restrictions,” Law360, https://www.alston.com/en/insights/publications/2020/06/patent-owners-should-mind-assignee-rights 18. united states bankruptcy court district of new hampshire, https://www.nhb.uscourts.gov/sites/nhb/files/opinions/2015BNH011-Tempnology.pdf 19. Can Bankruptcy terminate a licensee's rights in a trademark license?, https://boothlaw.com/can-bankruptcy-terminate-a-licensees-rights-in-a-trademark-license/ 20. 商標法（１１）ライセンス ～商標のライセンスってなんですか？, https://iplaw-net.com/ip-qa/trademark-11 21. ライセンシー保護の在り方について - 特許庁, https://www.jpo.go.jp/resources/shingikai/sangyo-kouzou/shousai/chizai_bunkakai/document/seisakubukai-09-shiryou/shiryou_2-2.pdf 22. 破産法第56条 - Wikibooks, https://ja.wikibooks.org/wiki/%E7%A0%B4%E7%94%A3%E6%B3%95%E7%AC%AC56%E6%9D%A1 23. Why is there no public domain licensing in Europe?, https://opensource.stackexchange.com/questions/9871/why-is-there-no-public-domain-licensing-in-europe 24. CC0 1.0 Universal – Beurteilung der Verzichtserklärung und der, https://phaidra.univie.ac.at/api/object/o:528411/download 25. Open Source License Comparison: MIT, Apache, GPL, BSD, https://safeguard.sh/resources/blog/open-source-license-comparison-mit-apache-gpl-bsd 26. What Open Source Licenses Actually Enforce in Court - Codequiry, https://codequiry.com/blog/what-open-source-licenses-actually-enforce-in-court 27. Italian Court Refers Question to the CJEU Regarding Circumvention, https://www.insideglobaltech.com/2012/09/14/italian-court-refers-question-to-the-cjeu-regarding-circumvention-of-technological-copyright-protections/ 28. Section 1201 - U.S. Copyright Office, https://www.copyright.gov/1201/2018/ 29. Study in support of the evaluation of Directive 96/9/EC on the legal, https://technopolis-group.com/wp-content/uploads/2020/02/Study-in-Support-of-the-Evaluation-of-the-Database-Directive.pdf 30. Contractual restrictions on lawful use of information: sole-source, https://www.researchgate.net/publication/322702449_Contractual_restrictions_on_lawful_use_of_information_sole-source_databases_protected_by_the_back_door 31. What is the difference between MIT and Apache 2.0? Comparing, https://note.com/snake_dragon/n/nfe340e18705d?hl=en 32. Open-Source Software Licensing: Complete Guide to Permissions, https://www.iiprd.com/open-source-software-licensing-complete-guide-to-permissions-compliance-enforcement/ 33. The Hidden IP Risks of GPLv3 in Commercial Software, https://visualitynq.com/resources/hidden-ip-risks-embedding-gplv3-code-commercial-software/ 34. イラスト勝手に改変して大丈夫？知らないと怖い「著作者人格権」, https://patent-revenue.iprich.jp/%E4%B8%80%E8%88%AC%E5%90%91%E3%81%91/3183/ 35. 著作者人格権の不行使特約とは？—その重要性とビジネスにおける, https://chosakukenhou.jp/moral-rights-waiver-clause-business-risk/ 36. Section 87 - Copyright, Designs and Patents Act 1988, https://www.legislation.gov.uk/ukpga/1988/48/section/87 37. Waiving Moral Rights Can Be Moral | Intellepedia, https://www.bananaip.com/intellepedia/waiving-moral-rights-in-copyright-law-india/ 38. BtoC取引における免責条項についての実務的留意事項 - OIKE LAW+, https://oikelaw-plus.com/blog/793/ 39. DMCA Copyright Section 1202 Claims Explained | Vondran Legal, https://www.vondranlegal.com/dmca-copyright-1202-claims-explained-stevens-v-corelogic-9th-circuit
