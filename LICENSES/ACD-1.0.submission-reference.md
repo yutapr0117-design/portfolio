@@ -460,30 +460,59 @@ is the OSI stating that saying nothing about patents is a risk, which is the cas
 
 Omissions are design decisions too, and the committee will ask about several of them.
 
+**Each entry below now states what the absence costs, not only why it was chosen** (added
+2026-09-20). Until then every item carried the favourable half alone, which was found by
+auditing our own record after an adversarial reading pointed at one of them (`against.md`
+#174). **An omission that only ever appears as a strength is being argued rather than
+disclosed**, and this list is the wrong place to argue.
+
 - **No patent retaliation.** A grant that ends when the licensee litigates is a grant with
   a condition. Section 8.2 says the absence is deliberate so that it is not mistaken for an
-  oversight.
+  oversight. **Cost:** retaliation is the standard deterrent in Apache-2.0 §3 and GPLv3 §10,
+  and this instrument has no substitute for it — a competitor may take everything and sue
+  anyway. **The accurate statement is that Section 10.1 makes retaliation impossible here,
+  not that retaliation is undesirable** (`against.md` #174).
 - **No attribution requirement.** Attribution is a real wish, so Section 10.3 separates the
   wish from the obligation: any request the licensor makes, however phrased and wherever
   expressed, is a request and not a condition; not observing it is not a breach and narrows
-  no permission.
+  no permission. **Cost:** nothing carries provenance downstream. A recipient may strip every
+  trace of origin lawfully, so the chain that lets a later reader find the source is broken by
+  design, and the licence offers no answer to origin-laundering.
 - **No field-of-use restriction of any kind**, including the "ethical" restrictions now in
-  circulation. Section 4.3 forecloses them expressly (OSD 6).
+  circulation. Section 4.3 forecloses them expressly (OSD 6). **Cost:** a Dedicator who later
+  objects to a particular use has no recourse under this instrument, and adopters who want
+  such limits cannot get them here. **OSD 6 requires this; the cost is still real.**
 - **No choice of law or forum.** Section 15.7. Naming one jurisdiction would disadvantage
-  recipients everywhere else.
+  recipients everywhere else. **Cost:** a plaintiff chooses the venue, and neither party can
+  predict which law governs before a dispute begins. An adversarial reading of 2026-09-20
+  called this the instrument's greatest systemic defect; **the dossier answers it
+  (`review-responses-clauses.md`) but the text does not.**
 - **No anti-DRM condition on the licensee.** A licence that imposes nothing cannot impose
   this either. The same protection is achieved from the other side: Section 5.2(a) is a
   covenant by the *licensor* not to apply technological measures to the Work or to invoke
-  anti-circumvention law against You.
+  anti-circumvention law against You. **Cost:** downstream is unconstrained — a recipient may
+  wrap the Work in access controls, and a measure applied by a distribution platform is
+  outside the covenant entirely (`against.md` #171). **The Work stays free; copies of it need
+  not.**
 - **No barrier to translation.** Section 16.4 fixes the text that the name denotes, but
   Section 16.5 makes a translation an express exception: it may carry the name and the
   identifier so long as it is identified as a translation and states that the English text
   prevails. A rule that kept translations out would have put Section 16.4 at odds with
   Section 15.8 and would have kept the licence away from readers who do not read English.
+  **Cost:** a translation may drift in meaning while carrying the same name and identifier.
+  Section 15.8 makes English authoritative, but **a reader who relies on the translation is
+  misled in fact even where the text is right in law.**
 - **No trademark licence.** Section 11.1. Trademarks identify origin, and an unconditional
-  grant would mislead. Section 11.2 preserves truthful nominative reference.
+  grant would mislead. Section 11.2 preserves truthful nominative reference. **Cost:** an
+  adopter cannot use the Dedicator's marks to signal what they have adopted, and the notice
+  in Section 16.1 named this carve-out while passing over the wider one in Section 11.4 until
+  errata E29 (`against.md` #173).
 - **No provenance or disclosure requirement for AI output.** Section 6.4 says outputs are
   unencumbered; requiring their labelling would contradict the licence's central purpose.
+  **Cost:** it sits against the direction transparency regulation is moving, and a reviewer
+  may read it as the licence declining a duty the law is about to impose. **The answer is that
+  a licence condition and a statutory duty are different instruments — but the tension is
+  real, and it is not resolved by pointing at OSD 6.**
 
 ### 4a. Which track this submission is on, and what it does not ask for
 
@@ -632,7 +661,7 @@ machine can find are not present.
 | Every clause pointer **also supports the claim it is attached to** | **read by hand**, 2026-09-09: each boolean and each `outOfScope` entry compared against the wording of the clause it cites | **33 / 33.** **This row previously said "resolves and matches its subject" with only the existence check behind it** — resolution is mechanical, agreement of meaning is not, and the two were reported as one. The same audit on `clause-reference.md`'s 82 rows found **three** mismatches (`against.md` #34–#36), so a clean result here was not a foregone conclusion. **Repeat the pass if the descriptor changes; nothing enforces it** |
 | Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
 | Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
-| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **174 entries, 1–174, no gaps; all citations resolve** |
+| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **175 entries, 1–175, no gaps; all citations resolve** |
 | Every defect called a "1.1 candidate" anywhere has an entry in the errata to point at | cross-check declarations against `errata.md` | **one was missing and has been added (E7)** |
 | Every negative self-claim the text makes about itself is true | extract each "contains no / imposes no / grants no / reaches nothing / specifies no" statement and search the whole text for the thing denied | **9 claims, 9 true** — each denied term appears only inside the clause doing the denying |
 | Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |
