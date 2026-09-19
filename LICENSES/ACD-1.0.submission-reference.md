@@ -561,6 +561,46 @@ would be false. It does not.
 mine, and that limitation is stated plainly in §5 below. Reusability and adoption are different
 properties, and the requirement here is the former.
 
+**What this property is called on these lists, and the one criterion it does not clear.** The
+OSI's own License Proliferation Report names a category of *"Non-reusable licenses"* —
+*"licenses in this group are **specific to their authors and cannot be reused by others**. Many,
+but not all, of these licenses fall into the category of **vanity licenses**"* — a definition
+quoted on `license-discuss` by three participants independently in 2020 (Fontana, 2020-03-31;
+Smith and Rosen, 2020-04-01). On the same list in 2019, Marc Jones proposed four things a
+reusable licence should not do (2019-02-11). Measured against them:
+
+| What Jones proposed excluding | ACD-1.0 |
+|---|---|
+| *"hard code a specific person/company as being the licensor and the code base being licensed"* | **Clear** — §16.3, and the two greps above return 0 |
+| *"hard code the licensor being in an **unreasonably privileged position**"* | **Not clear. See below** |
+| *"required significant changes or modifications to the license text to be used by others"* | **Clear** — adoption requires no edit at all |
+| *"if only the company sponsoring the license is capable of **complying**"* | **Clear, and this is the strongest of the four** — §10.1 imposes no condition, so there is no one who can fail to comply |
+
+**The one that is not clear, stated here rather than left to be found.** §16.4 forbids
+distributing a *modified text* under the name or under an `ACD-N` / `ACD-N.N` identifier
+*"except by the Steward"*, and §16.5 defines that role as whoever first published the text
+under that name. That is a privilege held by one party and **written into the licence itself**.
+Three things bound it, and none of them makes it disappear. First, §16.6 places §16.4 and
+§16.5 outside the terms of the Work: they bind no recipient of a work, and nothing about what
+anyone may do with a work turns on them — but Jones's criterion is about the text, and carries
+no such limit. Second, a steward is ordinary; Apache, Mozilla and the FSF each have one. What
+is unusual here is writing it into the text rather than operating it outside, which MIT, 0BSD
+and the Unlicense do by naming no steward at all. Third, it is there for a reason that expires:
+an identifier has to keep denoting one fixed text, and until a registry performs that function
+the text is the only place it can be performed.
+
+So the honest statement is that **identifier stability and the absence of in-text privilege
+cannot both be had, and this instrument chose the first**. A reviewer may prefer the second.
+What would not be honest is to answer the point by quoting §16.6, as though the criterion had a
+limit it does not have.
+
+**And the label is removed by an explanation, not by the text.** On `license-review`
+(2023-01-18) Bradley M. Kuhn declined to withdraw the word from another submission in these
+terms: *"absent that explanation, this really does still look like a vanity license to me at
+the moment"* — the explanation being why someone would need this licence instead of an existing
+one. That question is answered in §1 and §2 above; the answer here is only that it is the same
+question.
+
 ### 4c. What was verified mechanically, since it was not verified legally
 
 No lawyer has read this. That is stated plainly in §5 and it is the weakest point of the
