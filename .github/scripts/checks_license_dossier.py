@@ -82,6 +82,13 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        pointer が下へ押される**。位置は宣言ではなく副作用として動くので人の注意では止まらない。
        **marker の有無と byte offset だけ**を見る (文言の質もリンク先の中身も見ない)。
 
+  472. **提出側の文書の `§N.M` 引用が、`SUBMISSION-TARGET` が宣言する版の条文に実在すること** (BLOCKING):
+       **条番号は版をまたいで保存されない。** 1.0 の §15.5 / §15.7 / §15.8 は 1.1 以降に無く、
+       §16.4〜§16.6 は番号が同じまま意味が違う。**提出対象を切り替えた瞬間に、提出物が
+       「何も述べていない条」へ審査者を送る** (`against.md` #144 で一度踏んだ class で、
+       **審査者が最初に確かめる種類の誤り**)。**確定手順 §0.13 はこの再写像を列挙していなかった。**
+       `§N.M` は条とドシエの節の 2 系統に使われるので、**いずれかの版に条として実在する番号だけ**を見る。
+
   465. **`rounds/` の在庫申告が、実際に置かれている file と一致すること** (BLOCKING):
        `LICENSES/rounds/` は「何と言われたか / 何と言ったか」の記録が drift しないためだけに
        在るディレクトリなのに、その README は 2026-09-06 まで **「いまの状態: 空である」** と
@@ -423,6 +430,78 @@ def run(ctx):
                  "`ACD-<版>-CHANGELIST.md` のいずれかへ同じ `E<n>` を足せ (内容の複製は不要)"),
                 blocking=True,
             )
+
+    # ── 472. 提出側の文書の条項引用が、提出対象の版に実在すること (BLOCKING) ──────────────
+    #   **条番号は版をまたいで保存されない。** 1.0 の §15.5 / §15.7 / §15.8 は 1.1 以降に無く、
+    #   §16.4〜§16.6 は番号が同じまま意味が違う。**提出対象を切り替えた瞬間に、提出物が
+    #   「何も述べていない条」へ審査者を送る。** `against.md` #144 で一度踏んだ class で、
+    #   **審査者が最初に確かめる種類の誤り**である。
+    #   **確定手順 (§0.13) はこの再写像を列挙していなかった** —— 列挙は、列挙した時点で
+    #   見えていたものしか含まない（Check 464 / 469(b) / 468e と同じ形で本日 2 度目）。
+    #   単一ソースは `submission.md` の `SUBMISSION-TARGET` marker。**そこを変えれば残りは CI が指す。**
+    _sub472 = ROOT / "LICENSES" / "ACD-1.0.submission.md"
+    if _sub472.exists():
+        _st472 = _sub472.read_text(encoding="utf-8")
+        _m472 = re.search(r"<!--\s*SUBMISSION-TARGET:\s*(ACD-\d+\.\d+)\s*-->", _st472)
+        if not _m472:
+            check(False, "",
+                  "Check 472: `submission.md` に SUBMISSION-TARGET marker が無い "
+                  "(値は `ACD-<版>`。提出対象が宣言されていないと、条項引用をどの版に対して"
+                  "照合すべきか決まらない)",
+                  blocking=True)
+        else:
+            _ver472 = _m472.group(1)
+            _txt472 = ROOT / "LICENSES" / (
+                f"{_ver472}.txt" if (ROOT / "LICENSES" / f"{_ver472}.txt").exists()
+                else f"{_ver472}-DRAFT.txt")
+            if not _txt472.exists():
+                check(False, "",
+                      f"Check 472: SUBMISSION-TARGET が {_ver472} を指すが本文が無い "
+                      f"({_txt472.name})",
+                      blocking=True)
+            else:
+                _body472 = _txt472.read_text(encoding="utf-8")
+                _sep472 = "-" * 80
+                if _sep472 in _body472:
+                    _body472 = _body472.split(_sep472, 1)[1]
+                _have472 = set(re.findall(r"^  (\d+\.\d+) ", _body472, re.M))
+                # **`§N.M` は 2 つの採番体系に使われている** —— ライセンスの条と、ドシエの節
+                # (`§1.96` / `§3.6` など。`§1.xx` は file をまたぐ共有系列で Check 471(f) が担当)。
+                # **どちらか判らない番号を条として扱うと誤検出になる**ので、
+                # **「いずれかの版に条として実在する番号」だけを条項引用とみなす。**
+                # ドシエの節番号はどの版の条にも無いので自然に外れ、
+                # **版をまたいで消えた条 (1.0 の §15.7 など) は残る** —— 見たいのはそれである。
+                _universe472 = set(_have472)
+                for _other472 in sorted((ROOT / "LICENSES").glob("ACD-*.txt")):
+                    _ot = _other472.read_text(encoding="utf-8")
+                    if _sep472 in _ot:
+                        _ot = _ot.split(_sep472, 1)[1]
+                    _universe472 |= set(re.findall(r"^  (\d+\.\d+) ", _ot, re.M))
+                # 提出側の面だけを見る。分析・記録の面は 1.0 について述べるのが正しい。
+                _faces472 = ["ACD-1.0.submission.md", "ACD-1.0.submission-reference.md",
+                             "REVIEWERS.md", "ACD-1.0.objection-map.md"]
+                _bad472 = []
+                for _rel472 in _faces472:
+                    _p472 = ROOT / "LICENSES" / _rel472
+                    if not _p472.exists():
+                        continue
+                    _cited = set(re.findall(r"§\s?(\d{1,2}\.\d{1,2})",
+                                            _p472.read_text(encoding="utf-8")))
+                    _miss = sorted(_c for _c in _cited
+                                   if _c in _universe472 and _c not in _have472)
+                    if _miss:
+                        _bad472.append(f"{_rel472}: {_miss}")
+                check(
+                    not _bad472,
+                    f"Check 472: 提出側 {len(_faces472)} 面の条項引用が {_ver472} に実在する",
+                    (f"Check 472: 提出対象 ({_ver472}) に存在しない条を引いている面がある: {_bad472}。"
+                     "**条番号は版をまたいで保存されない** —— 1.0 の §15.5 / §15.7 / §15.8 は "
+                     "1.1 以降に無く、§16.4〜§16.6 は番号が同じまま意味が違う。"
+                     "**提出物が「何も述べていない条」へ審査者を送るのは、最初に確かめられる種類の誤りである** "
+                     "(`against.md` #144)。SUBMISSION-TARGET を切り替えたら引用も写像せよ "
+                     "(対応表は `ACD-1.1-CHANGELIST.md` の条項対応節)"),
+                    blocking=True,
+                )
 
     # ── 465. rounds/ の在庫申告が、実際に置かれている file と一致すること (BLOCKING) ──────
     # `LICENSES/rounds/` は「何と言われたか / 何と言ったか」の記録が drift しないためだけに

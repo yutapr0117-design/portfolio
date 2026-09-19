@@ -11,6 +11,21 @@ canonical-ref: LICENSES/ACD-1.0.txt (the text being submitted) / LICENSES/REVIEW
 > Commons Dedication 1.0 to the SPDX License List and to OSI License Review, written in
 > the language those bodies use, so that the human-only step is *send*, not *compose*.
 >
+<!-- SUBMISSION-TARGET: ACD-1.0 -->
+<!--
+  **この packet がどの版を提出対象にしているかを宣言する単一ソース。** 値は `ACD-<版>`。
+  **Check 472 が、提出側の文書に現れる `§N.M` 引用のすべてが、この版の条文に実在することを
+  BLOCKING で強制する。**
+
+  なぜ要るか: **条番号は版をまたいで保存されない。** 1.0 の §15.5 / §15.7 / §15.8 は
+  1.1 以降に存在せず、§16.4〜§16.6 は意味が違う。**提出対象を切り替えた瞬間に、
+  提出物が「何も述べていない条」へ審査者を送る**ことになる ——`against.md` #144 で
+  一度踏んだ class そのもの（自分のライセンスを 5 か所で誤引用し、2 か所は審査者を
+  別の条へ送っていた）。**確定手順 (§0.13) はこの再写像を列挙していなかった。**
+
+  切り替え方: **ここを `ACD-1.2` に変えれば、残りは CI が指す。**
+-->
+
 > **Status of the licence itself:** see `LICENSES/ACD-1.0.txt`. The rationale, the
 > gap analysis, the clause-level comparison with the closest OSI-approved licences, and
 > the honest weaknesses are in `docs/architecture/acd-license-rationale.md` (Japanese).
