@@ -46,7 +46,7 @@
     {
       "path": "llms-full.txt",
       "role": "full AI context",
-      "sha256": "eb6631f3d9a2e4bd8ed5745dc09a92a8aa2c883747800ddd4bd34d51a3cf06c3"
+      "sha256": "c348ecdba4ee5d9518be8c07e0f2c58f1da7ca71e84048272b4d8d639dd3232c"
     },
     {
       "path": "AI2AI.md",
@@ -105,7 +105,7 @@
       "sha256": "8b919cc6aecfc80935161cc40c298eb0150cb24a8d021bd2d95716cf7677e3b9"
     }
   ],
-  "generated_at": "2026-09-19T18:29:01Z",
+  "generated_at": "2026-09-19T18:33:13Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
