@@ -102,7 +102,15 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       facts 24 and 35), and an outside reviewer did so on 2026-09-20 while
       calling the clause appropriate. The phrase "granted independently of
       Section 3" is kept because the submission packet quotes it.
-    * ACD-1.1: 5051 words, 78 clauses. This draft: 5198 words, 80 clauses.
+    * The recommended notice in Section 16.1 now names the second carve-out as
+      well as the first (errata E29). It said "trademarks and other rights in
+      names are not granted (Section 11)", which names Section 11.1 and passes
+      over Section 11.4 -- data protection, privacy, publicity, personality --
+      although Section 11.4 exists because a work meant to be learned from is
+      often data about people. The notice is the surface an adopter reads and
+      the only one that travels with the Work, so a carve-out it does not name
+      is a carve-out most readers never meet.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5205 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -682,9 +690,10 @@ PREAMBLE (informative; not part of the operative terms)
 
            This work is released under the Autonomous Commons Dedication 1.2
            (ACD-1.2). No rights in this work are reserved and no conditions are
-           imposed in respect of it; trademarks and other rights in names are
-           not granted (Section 11). Machine learning and text and data mining
-           are expressly permitted, and a patent licence is granted.
+           imposed in respect of it; trademarks, other rights in names, and
+           rights of privacy, publicity, and data protection are not granted
+           (Section 11). Machine learning and text and data mining are
+           expressly permitted, and a patent licence is granted.
            Full text: <location of this file>
            SPDX-License-Identifier: ACD-1.2
            (LicenseRef-ACD-1.2 while not on the SPDX License List)
