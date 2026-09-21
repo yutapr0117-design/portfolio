@@ -32,8 +32,13 @@ canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の本体) / LICENSES
    **これが動かさないもの: B1（弁護士レビュー無し）は 1 ミリも動かない。**
 3. **gap は「あれば良いもの」ではなく要件だった**（基準 7）。**B10 の位置づけが上がる。**
 4. **委員会が実際に述べた「承認しない／受け入れる」規則は 5 件**（§1.67）。**4 件は当たらないか
-   一致する。1 件（*"OSI requires prior review by a lawyer"* ・Piana 氏・個人の資格）は B1 に不利で、
-   B1 の欄に逐語で置いた。**
+   一致する。1 件（*"OSI requires prior review by a lawyer"* ・Piana 氏）は B1 に不利で、
+   B1 の欄に逐語で置いた。** **⚠ 2026-09-22 に根拠を差し替えた（#186）** ——旧文は
+   「個人の資格だから軽い」と読んでいたが、process ページは *"Board members and employees of OSI
+   may participate in license review **in their individual capacity**"* と定めており、
+   **その断り書きは理事が参加するときの印である。Piana 氏は OSI 理事**（2025-06〜2026-06 の名簿 12 回）。
+   **disposition は変わらない**が、支えるのは我々の推論ではなく公表規則 ——
+   *"**no one person, including a Board member, has the authority to approve or reject a license**"*。
 5. **結果の分布**（§1.68・§1.69・**同日に自己訂正した**）: 決議 11 件 + 告知で、**承認 4・否決 8**。
    **承認 4 件はいずれも既存テキストである**（MIT-CMU / Los Alamos BSD-3 Variant /
    OSC License v1 = MIT + ドイツ法対応 1 段落 / BSD-3-Clause-Open-MPI）——**新規の道具は 1 件も無い。**
