@@ -1,0 +1,454 @@
+Source: https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-August.txt
+Retrieved: 2026-09-21T17:53Z (UTC) / 2026-09-22 (Asia/Tokyo)
+List: license-review
+Direction: observed -- addressed to the ModelGo steward and the list, not to us.
+Why kept: this is the source of two claims the dossier leans on and did not hold.
+          (1) *"We work on a two-month review cycle"* and the statement that the clock
+              runs from the FINAL submission -- cited in AS-OF.md, READY-TO-SUBMIT.md,
+              PEER-REVIEW-WATCH.md and ACD-1.0.review-corpus.md 1.72.
+          (2) the capacity marker *"[on behalf of the Licensing Committee]"*, which the
+              dossier quotes in square brackets. VERIFIED AT SOURCE 2026-09-21: the
+              bracketed phrase is McCoy Smith's own sign-off, not our editorial insertion.
+          Note for the capacity question: the message was sent from a law-firm address
+          (mccoy at lexpan.law), not an opensource.org address, while signing on behalf of
+          the committee -- so the address convention and the self-designation point in
+          opposite directions within one message. Do not infer capacity from the address alone.
+Analysis lives in: LICENSES/ACD-1.0.review-rules.md 1.103 / LICENSES/ACD-1.0.against.md #188
+----- begin verbatim -----
+From mccoy at lexpan.law  Fri Aug 28 02:08:11 2026
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Thu, 27 Aug 2026 19:08:11 -0700
+Subject: [License-review] [3rd Resubmission] ModelGo Zero License
+ (MG0-2.0) AND ModelGo Attribution License (MG-BY-2.0)
+In-Reply-To: 
+ <TY7PR01MB157022207390182DB1E222809ADCD2@TY7PR01MB15702.jpnprd01.prod.outlook.com>
+References: <883778D3-40CF-4DCF-B65F-AD07D9F427AD@gmail.com>
+ <3760E516-7839-446B-9797-2A24ABF97F52@gmail.com>
+ <acfc77b6-c0cf-4bc7-8c39-91b50bd15b89@chesteklegal.com>
+ <TY7PR01MB157020D2DE2921B8B1A08229DAD0B2@TY7PR01MB15702.jpnprd01.prod.outlook.com>
+ <TY7PR01MB157022207390182DB1E222809ADCD2@TY7PR01MB15702.jpnprd01.prod.outlook.com>
+Message-ID: <ce760936-8ea8-440b-8af3-e97128601a22@lexpan.law>
+
+Dr. Duan:
+
+I understand you may be frustrated by the ModelGo licenses not yet 
+having been decided upon by the OSI Board, but please understand that 
+this is in part as a result of how your initial submission has 
+progressed through the process. Although you did originally submit a 
+version 2.0 of the Model Go Zero and Model Go Attribution-Open Source 
+licenses in February, 2025: 
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-February/005656.html 
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-February/005658.html 
+those licenses have undergone quite a bit of commentary and quite a bit 
+of revision by you since then (including the Attribution-Open Source 
+license being changed or renamed to Attribution-Share Alike, and which 
+appears to have been withdrawn from consideration in view of the 
+Attribution version of the license).
+
+It appears to me that the last re-submission that was done was on 26 May 
+2026 
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-May/006101.html, 
+in which you responded to some comments from Pam Chestek but do not 
+appear to have made any textual changes. There were some textual changes 
+made (mainly in response to me) in December 2025 
+https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-December/005945.html
+
+We work on a two-month review cycle, which normally would have put your 
+licenses up for Board review in August (the July Board meeting was prior 
+to two months from your final submission), but we don't have an August 
+Board meeting (hard to get a quorum in August), in favor of our 
+face-to-face Board meeting on September 24.
+
+The Model Go licenses (which are Zero -- MG0-2.0 -- and Attribution -- 
+MG-BY-2.0) are on the agenda for the September meeting. Please confirm 
+that the texts that you wish to have approved are those on the ModelGo 
+Github repositories:
+https://github.com/Xtra-Computing/ModelGo/blob/main/MGL/V2/MG0/LICENSE
+
+https://github.com/Xtra-Computing/ModelGo/blob/main/MGL/V2/MG-BY/LICENSE
+
+For the commenters on license-discuss: Please give any final thoughts on 
+these licenses before September 17 2026 so a recommendation can be 
+provided to the Board at our September meeting.
+
+McCoy
+
+[on behalf of the Licensing Committee]
+
+On 7/25/2026 10:45 PM, Moming Duan wrote:
+>
+> Dear OSI Community,
+>
+>
+> I am writing to respectfully follow up on the review status of the 
+> ModelGo licenses, namely the ModelGo Zero License (MG0-2.0) and the 
+> ModelGo Attribution License (MG-BY-2.0).
+>
+> I have noticed that the review process for the ModelGo licenses 
+> appears to have been frozen again for approximately two months, with 
+> no visible progress or further discussion on the mailing list. I also 
+> reviewed the latest available OSI Board meeting minutes, and it seems 
+> that discussion of the ModelGo licenses has been muted or absent there 
+> as well.
+>
+> Since my first submission of the ModelGo licenses to OSI in Feb 2025, 
+> we have witnessed the continued growth of Open Source AI activities. 
+> Open models and open AI ecosystems are becoming an increasingly 
+> significant and transformative force. At the same time, the community 
+> is also facing a growing challenge from “open washing” practices, 
+> where custom pseudo-open licenses are used to present restricted AI 
+> models as open source.
+>
+> This was precisely one of the motivations behind the ModelGo license 
+> project. My project manager and I started this work because we 
+> believed that the open source community needs a reusable, 
+> community-reviewed licensing framework for open models — one that can 
+> support genuinely open model sharing while distinguishing it from 
+> proprietary or pseudo-open licensing practices.
+>
+> As a research institution, we have invested both project funding and 
+> considerable effort into the development, revision, and resubmission 
+> of these licenses. We fully understand that OSI review is rigorous and 
+> that the committee and community members are contributing their time 
+> and expertise. However, whether the final outcome is approval or 
+> rejection, we respectfully need an answer rather than continued silence.
+>
+> If there are remaining concerns, unresolved objections, or additional 
+> information that OSI needs from us, please let us know. We remain 
+> willing to provide clarifications, revise the text where appropriate, 
+> and engage constructively with the review process.
+>
+> Finally, I would like to sincerely thank the OSI license review team 
+> and all community members who have previously discussed and 
+> contributed feedback on the ModelGo licenses. Their comments have been 
+> valuable in helping us improve the drafts and better understand the 
+> expectations of the OSI license review process.
+>
+>
+> Best,
+> Moming
+>
+>
+> *From: *Moming Duan <duanmoming at gmail.com>
+> *Date: *Tuesday, May 26, 2026 at 14:15
+> *To: *License submissions for OSI review 
+> <license-review at lists.opensource.org>
+> *Cc: *Pamela Chestek <pamela at chesteklegal.com>; Josh Berkus 
+> <josh at berkus.org>
+> *Subject: *Re: [License-review] [3rd Resubmission] ModelGo Zero 
+> License (MG0-2.0) AND ModelGo Attribution License (MG-BY-2.0)
+>
+> Hi Pam, Josh, and everyone,
+>
+>
+> Thanks again for all the feedback over the past year, it's been really 
+> helpful.
+> /
+> /
+> */A quick follow-up on two things /*
+> */
+> /*
+>
+>  *
+>     */On the review status:/*
+>
+>
+> The board minutes from January 16 mentioned that ModelGo licenses were 
+> still in discussions. Just wanted to check in, what's the latest major 
+> concern about these two licenses? Happy to work on addressing it : )
+>
+>
+>  *
+>     */On Pam's point about Output in the Limitation of Liability:/*
+>
+>
+> Just to follow up on that, with AI agents now generating and 
+> auto-executing code, the risk around model output has gotten pretty 
+> real, so having Output explicitly covered in the disclaimer and 
+> limitation of liability seems like a meaningful protection. And I 
+> noticed that both Meta (Llama) and Google (Gemma) also mention Output 
+> in their warranty disclaimers, which might be for similar reasons. So 
+> I'm leaning toward keeping it as is, but happy to hear if others feel 
+> differently.
+>
+>
+> Best,
+> Moming
+>
+>
+> *From: *License-review <license-review-bounces at lists.opensource.org> 
+> on behalf of Pamela Chestek <pamela at chesteklegal.com>
+> *Date: *Monday, December 15, 2025 at 20:52
+> *To: *license-review at lists.opensource.org 
+> <license-review at lists.opensource.org>
+> *Subject: *Re: [License-review] [3rd Resubmission] ModelGo Zero 
+> License (MG0-2.0) AND ModelGo Attribution License (MG-BY-2.0)
+>
+> Hi Moming,
+>
+> As I read it, there is only one thing that applies to Output, which is 
+> in the Limitation of Liability. But does the fact that you mention it 
+> in the first place lead to a negative implication that you haven't 
+> granted the necessary rights to create Output? With software it's been 
+> a fairly bright line that any output isn't subject matter of the 
+> license unless it's a derivative work. Here, though, you have created 
+> ambiguity about the legal status of the output by mentioning it and 
+> also made the license much more complicated.
+>
+> In my view it's not worth including Output at all in the license. The 
+> only liability you /might/ be avoiding is from the person creating the 
+> output. The Limitation on Liability won't be a defense to any claims 
+> from copyright owners, or those whose loved one harmed themselves 
+> because the model encouraged them to do so, or criminal liability. So 
+> I don't think it's worth the trade-off, although I wouldn't reject the 
+> license for that reason.
+>
+> Pam
+>
+> Pamela S. Chestek
+> Chestek Legal
+> 4641 Post St.
+> Unit 4316
+> El Dorado Hills, CA 95762
+> +1 919-800-8033
+> pamela at chesteklegal
+> www.chesteklegal.com
+>
+>
+> On 12/8/2025 6:57 PM, Moming Duan wrote:
+>
+>     Dear OSI License Review Community,
+>
+>
+>     As suggested, I am starting this new thread to submit the updated
+>     MG0-2.0 and MG-BY-2.0 licenses that address the comments from the
+>     second resubmission. The major modification is the exclusion of
+>     models created through distillation from the definition of
+>     Derivative Materials, along with two improvements suggested by
+>     McCoy. I have also provided word-diff comparisons with the
+>     previous versions. Please feel free to share any comments.
+>
+>
+>     Word-diff:
+>     MG0: https://www.diffchecker.com/f8OumPRF/
+>     MG-BY: https://www.diffchecker.com/jVBWA9WF/
+>
+>
+>
+>
+>
+>     Best,
+>     Moming
+>
+>         —————— License Introduction (MG0-2.0)
+>
+>         *License Name*: ModelGo Zero License
+>         *Version*: 2.0
+>         *Short Identifier: *MG0-2.0
+>         *Copyleft: *No
+>         *Legacy or New*: New License
+>         *Drafted By Lawyer*: Yes, Rajah & Tann Singapore LLP
+>         *Approved or Used by Projects*: No
+>
+>         *License URL*: https://ids.nus.edu.sg/modelgo-mg0.html
+>         *Introduction and Video*: https://www.modelgo.li/
+>
+>         *Overview*:
+>
+>         ModelGo Zero License Version 2.0 (MG0-2.0) is a new license
+>         designed for publishing models (typically neural networks like
+>         Llama2, DeepSeek). It is one of the variants in the ModelGo
+>         License family. MG0-2.0 is the most permissive license in the
+>         ModelGo family.
+>
+>         *Complies with OSD:*
+>         *
+>         *
+>         OSD 3 Derived Works — MG0-2.0  Clause 2.1 (a) grants copyright
+>         and patent rights to create derivatives.
+>         OSD 5 and OSD 6 — No discrimination clause is included in MG0-2.0.
+>         OSD 9 License Must Not Restrict Other Software — No such
+>         restriction is included in MG0-2.0.
+>
+>         *The Gap to Fill:*
+>         Model sharing is very common on the web, with over 1.4 million
+>         models currently listed on Hugging Face
+>         (https://huggingface.co/models). However, most of these models
+>         are not properly licensed. When publishing their models,
+>         developers typically choose from three main options (as seen
+>         in the model license tags on the Hugging Face website):
+>
+>           * OSS licenses, e.g., Apache-2.0, MIT
+>           * Open responsible AI licenses (OpenRAILs),
+>             e.g., CreativeML-OpenRAIL-M, OpenRAIL++
+>           * Proprietary Licenses, e.g., Llama2, Llama3
+>
+>
+>         However, not all licenses are well-suited for model publishing.
+>
+>         *Why not use OSS licenses? *
+>         Traditional OSS licenses lack clear definitions regarding
+>         machine learning concepts, such as Models, Output, and
+>         Derivatives created through knowledge transfer. This
+>         ambiguity can result in certain ML activities (e.g.,
+>         Distillation, Mix-of-Expert) being beyond the control of the
+>         model owner.
+>
+>         *Why not use OpenRAILs? *
+>         Recently, Responsible AI Licenses (https://www.licenses.ai/)
+>         have been widely advocated to govern AI technologies, aiming
+>         to restrict unlawful and unethical uses of models. While I
+>         acknowledge the growing need for such governance, these
+>         copyleft-style restrictions do not comply with the OSD and may
+>         cause incompatibility with licenses like GPL-3.0. Another
+>         concern is that these behavioral restrictions may proliferate
+>         within the AI model ecosystem, increasing the risk of license
+>         breaches.
+>
+>         *Why not use Llama2 or Llama3 Licenses?*
+>         These licenses are proprietary licenses that are not
+>         reusable. Furthermore, they include exclusive terms such as
+>         "You will not use the Llama Materials or any output or results
+>         of the Llama Materials to improve any other large language
+>         model" and copyleft-style behavioral restrictions.
+>
+>         In fact, the dilemma in current model publishing is the lack
+>         of a general-purpose license for model developers.
+>         Additionally, since no single license meets diverse model
+>         publishing needs, some developers resort to using CC licenses
+>         with different elements. However, CC licenses are ill-suited
+>         for this purpose as they do not grant patent rights. This
+>         motivated the drafting of ModelGo License family, which
+>         provides different licensing elements similar to CC but
+>         specifically designed for model publishing.
+>
+>         *Comparison with Existing OSI-Approved Licenses:*
+>         Since I could not find an OSI-approved model license, I can
+>         only compare MG0-2.0 with one similar OSS license — Apache-2.0
+>
+>           * MG0-2.0 defines licensed materials and derivative works
+>             differently from Apache-2.0, tailoring them to models.
+>           * MG0-2.0 can govern the remote access (e.g., chatbot) scenario.
+>           * MG0-2.0 does not require retaining attribution or stating
+>             modifications when redistributing derivatives.
+>
+>
+>
+>         —————— License Introduction (MG-BY-2.0)
+>         *
+>         *
+>         *License Name*: ModelGo Attribution License
+>         *Version*: 2.0
+>         *Short Identifier: *MG-BY-2.0
+>         *Copyleft: *No
+>         *Legacy or New*: New License
+>         *Drafted By Lawyer*: Yes, Rajah & Tann Singapore LLP
+>         *Approved or Used by Projects*: No
+>
+>         *License URL*: https://ids.nus.edu.sg/modelgo-mg-by.html
+>         *Introduction and Video*: https://www.modelgo.li/
+>
+>         *Overview*:
+>
+>         ModelGo Attribution License Version 2.0 (MG-BY-2.0) is a new
+>         license designed for publishing models (typically neural
+>         networks like Llama2, DeepSeek). It is one of the variants in
+>         the ModelGo License family. MG-BY-2.0 is the a permissive
+>         license in the ModelGo family, requiring that the original
+>         license and attribution be provided when distributing the
+>         original Licensed Materials or Derivative Materials (Licensed
+>         Materials and Derivative Materials are defined in Clause 1). A
+>         statement of modification is required, if applicable.
+>         (Red content represents the differences from MG0-2.0 license)
+>
+>         *Complies with OSD:*
+>         *
+>         *
+>         OSD 3 Derived Works — MG-BY-2.0  Clause 2.1 (a) grants
+>         copyright and patent rights to create derivatives.
+>         OSD 5 and OSD 6 — No discrimination clause is included in
+>         MG-BY-2.0.
+>         OSD 9 License Must Not Restrict Other Software — No such
+>         restriction is included in MG-BY-2.0.
+>
+>         *The Gap to Fill:*
+>         Model sharing is very common on the web, with over 1.4 million
+>         models currently listed on Hugging Face
+>         (https://huggingface.co/models). However, most of these models
+>         are not properly licensed. When publishing their models,
+>         developers typically choose from three main options (as seen
+>         in the model license tags on the Hugging Face website):
+>
+>           * OSS licenses, e.g., Apache-2.0, MIT
+>           * Open responsible AI licenses (OpenRAILs),
+>             e.g., CreativeML-OpenRAIL-M, OpenRAIL++
+>           * Proprietary Licenses, e.g., Llama2, Llama3
+>
+>
+>         However, not all licenses are well-suited for model publishing.
+>
+>         *Why not use OSS licenses? *
+>         Traditional OSS licenses lack clear definitions regarding
+>         machine learning concepts, such as Models, Output, and
+>         Derivatives created through knowledge transfer. This
+>         ambiguity can result in certain ML activities (e.g.,
+>         Distillation, Mix-of-Expert) being beyond the control of the
+>         model owner.
+>
+>         *Why not use OpenRAILs? *
+>         Recently, Responsible AI Licenses (https://www.licenses.ai/)
+>         have been widely advocated to govern AI technologies, aiming
+>         to restrict unlawful and unethical uses of models. While I
+>         acknowledge the growing need for such governance, these
+>         copyleft-style restrictions do not comply with the OSD and may
+>         cause incompatibility with licenses like GPL-3.0. Another
+>         concern is that these behavioral restrictions may proliferate
+>         within the AI model ecosystem, increasing the risk of license
+>         breaches.
+>
+>         *Why not use Llama2 or Llama3 Licenses?*
+>         These licenses are proprietary licenses that are not
+>         reusable. Furthermore, they include exclusive terms such as
+>         "You will not use the Llama Materials or any output or results
+>         of the Llama Materials to improve any other large language
+>         model" and copyleft-style behavioral restrictions.
+>
+>         In fact, the dilemma in current model publishing is the lack
+>         of a general-purpose license for model developers.
+>         Additionally, since no single license meets diverse model
+>         publishing needs, some developers resort to using CC licenses
+>         with different elements. However, CC licenses are ill-suited
+>         for this purpose as they do not grant patent rights. This
+>         motivated the drafting of ModelGo License family, which
+>         provides different licensing elements similar to CC but
+>         specifically designed for model publishing.
+>
+>         *Co**mparison with Existing OSI-Approved Licenses:*
+>         Since I could not find an OSI-approved model license, I can
+>         only compare MG-BY-2.0 with one similar OSS license — Apache-2.0
+>
+>           * MG-BY-2.0 defines licensed materials and derivative works
+>             differently from Apache-2.0, tailoring them to models.
+>           * MG-BY-2.0 can govern the remote access (e.g., chatbot)
+>             scenario.
+>
+>
+>     _______________________________________________ The opinions
+>     expressed in this email are those of the sender and not
+>     necessarily those of the Open Source Initiative. Communication
+>     from the Open Source Initiative will be sent from an
+>     opensource.org email address. License-review mailing list
+>     License-review at lists.opensource.org
+>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260827/cc791d3b/attachment-0001.htm>

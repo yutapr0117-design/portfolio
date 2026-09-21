@@ -405,3 +405,68 @@ duplicative and not used by a project"*・`board-decisions.md` §2）を、**こ
   中身が自動的に正しいわけではない** ——**我々自身の自己申告について繰り返し学んだことが、
   相手側にも当てはまる。**
 - **次に見るときは取り直す。** 上の数はすべて 2026-09-20 の取得である。
+
+## 1.103 リストの自動フッタは資格の規則である —— 5 つの `rounds/` file に逐語で在り、一度も読まれていなかった（2026-09-21）
+
+**取得**: `license-review` / `license-discuss` の 2026-August・2026-September アーカイブ
+（取得時刻 **2026-09-21T17:53Z / 17:54Z**）。**ブラウザ相当 UA。**
+
+### 規則そのもの（逐語・全メッセージに自動付加される）
+
+> *"The opinions expressed in this email are those of the sender and **not necessarily those of
+> the Open Source Initiative**. **Communication from the Open Source Initiative will be sent
+> from an opensource.org email address.**"*
+
+**これは我々が既に持っていた。** `rounds/` の 5 file（Perens 返信 / Sado 引用 / OpenMDW スレッド /
+Dolan 受領 ×2）に逐語で入っている。**引用の一部として保存され、規則として読まれていなかった。**
+**理事会議事録のときと同じ形である**（#186）——**持っているが、その目的で読んでいない。**
+
+### 効果 1 —— **既定は「個人の意見」であり、それは我々に有利な引用にも等しく掛かる**
+
+ドシエは、リスト上の発言を「委員会が述べた」「OSI が述べた」と読む場面で重み付けしてきた。
+**リスト自身の既定はその逆である。** B1 を支える *"we do not require review by a lawyer,
+only recommend it"* も、R2〜R5 の 4 規則も、**既定では発言者個人の意見**である。
+
+**⚠ ただしフッタは boilerplate なので、個々のメッセージについての証拠としては弱い。**
+**既定を定めるだけであり、明示の自己表示はこれを上書きする。** 実際:
+
+| 発言 | 明示の資格表示 | 既定に留まるか |
+|---|---|---|
+| Chestek 氏 2024-12「recommended, not a blocker」| **在り** —— *"Chair, Licensing Committee, Open Source Initiative"* と署名 | 上書きされる |
+| McCoy 氏 2026-08-28「two-month review cycle」| **在り** —— *"[on behalf of the Licensing Committee]"*（**2026-09-21 に原文で確認。我々の挿入ではない**） | 上書きされる |
+| Piana 氏 2024-12「OSI requires prior review by a lawyer」| **在り（逆向き）** —— *"in his own capacity"* | 個人 |
+| R2〜R5（Chestek 氏 2025-02 / 2026-04）| **未確認** | **既定のまま = 個人の意見** |
+
+**したがって R2〜R5 を「委員会が述べた規則」と呼ぶのは、確認していない資格に依っている。**
+`review-corpus.md` §1.67 の見出しは「**委員会が実際に述べた**規則」と読める ——
+**正しくは「委員長が述べた規則」であり、そのうち資格表示を確認したものは無い。**
+
+### 効果 2 —— **B14 の通知だけが、3 つの制度的マーカーを揃えている（我々に不利）**
+
+**2026-09-09 の moderator 通知を、リスト自身の慣習で測ると:**
+
+1. **`nick.vidal at opensource.org` から送られている** ——フッタが「OSI からの連絡はこの
+   アドレスから送られる」と名指ししている当のアドレス。
+2. **署名が "OSI Moderators"** ——個人名ではない。
+3. **🔴 そのフッタが付いていない。** 両リストの当該メッセージで **0 件**
+   （2026-09-21 に原典を取り直して確認。**保存時の欠落ではない**）。
+   **対照**: 同じ主題への Perens 氏の返信（同日・`bruce at perens.com`）には **1 件在る。**
+
+**つまり、我々の corpus 全体で唯一、「発言者個人の意見である」という既定が働いていない
+メッセージが、我々に最も不利なメッセージである。**
+
+### ⚠ 逆側（同じ重さで）
+
+- **「OSI からの連絡」は「OSI の決定」ではない。** 通知は moderation の運用と CoC 改定予告で
+  あって理事会決議ではなく、**ACD-1.0 についての立場は依然 1 語も述べていない。**
+  `CLAUDE.md` §7 の「組織の立場は依然不明」は**そのまま生きる** ——変わるのは
+  「moderator の行為は一個人の行為ではない」という点だけである。
+- **フッタの規則は必要条件であって十分条件ではない。** *"will be sent from an opensource.org
+  email address"* は、そのアドレスからの全てが公式だとは述べていない。
+- **アドレスから資格を推論してはならない。** McCoy 氏は**法律事務所のアドレス**から
+  *"[on behalf of the Licensing Committee]"* と署名している ——**1 通の中で、アドレスの慣習と
+  自己表示が逆を向いている。** process ページの「個人資格なら非 OSI アドレスを使うことが
+  期待される」は、**実務では守られていない場合がある。**
+- **有利な側**: 既定が「個人の意見」であることは、**我々に不利な発言にも等しく掛かる** ——
+  McCoy 氏の *"waivers/disclaimers of IP rights は自力では難しい"*（B1 に不利・§1.51）も、
+  Landley 氏の #84 も、既定では個人の意見である。**この規則は片側だけを削らない。**
