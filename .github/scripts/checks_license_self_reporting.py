@@ -59,6 +59,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        (n) **`submission-reference.md` §4c の「機械的に確かめた」欄 ↔ 現物**。
        (o) **入口ページが register について述べる散文の件数 ↔ register の表**。
        (p) **§B.0 の見出しが述べる語数 ↔ file 自身が明記する instrument で数え直した値**。
+       (q) **審査者に「これを走らせろ」と示す検証コマンドの期待値 ↔ `FROZEN.md` の digest 行数**。
+       **これは件数の申告の中でいちばん確かめられやすい形である** ——審査者はコマンドを貼って
+       走らせるだけでよく、数が違えば最初に目に入る。実測 (2026-09-22): `REVIEWERS.md` と
+       `errata.md` が **"3× OK"** と述べ、実際の出力は **5× OK** だった（1.1 の 2 件が後から
+       凍結対象に加わったのに、期待値が追従していなかった）。**`REVIEWERS.md` はこのコマンドを
+       *"The last one is the important one"* と呼んでいる。** 散文側の「three files」「all three
+       files」も同じ数に縛る。
        **この列挙は Check 469 (a) が実装と双方向で照合する** —— 実測 (2026-09-13): 本 inventory は
        (a)〜(k) の 11 面しか挙げていないのに実装は (a)〜(p) の **16 面**あり、
        `file-size-budget.md` は第 3 の値「12 面」を述べていた。**3 つの数が 3 つとも違い、
@@ -588,6 +595,38 @@ def run(ctx):
                     if _d460p != _n460p:
                         _bad460.append(f"submission.md §B.0 の語数: 申告 {_d460p} / 実測 {_n460p} "
                                        "(instrument は file 自身が書いている: Subject 行から署名まで)")
+
+        # (q) **審査者に示す検証コマンドの期待値が、そのコマンドの実際の出力件数と一致すること。**
+        #   `FROZEN.md` の digest 行数がそのまま `shasum -c` の OK 行数になる。
+        #   **審査者が貼って走らせる 1 行なので、ずれは最初に目に入る** ——しかも
+        #   `REVIEWERS.md` はこれを *"The last one is the important one"* と呼んでいる。
+        #   実測 (2026-09-22): 2 面が「3× OK」、散文 2 箇所が「three files」/「all three files」、
+        #   実際は **5**（1.1 の 2 件が凍結対象に加わったのに期待値が追従していなかった）。
+        _fz460q = _L460 / "FROZEN.md"
+        if _fz460q.exists():
+            _n460q = len(re.findall(r"(?m)^[0-9a-f]{64}  \S+", _fz460q.read_text(encoding="utf-8")))
+            _WORD460Q = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five",
+                         6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten"}
+            for _nm460q in ("REVIEWERS.md", "ACD-1.0.errata.md"):
+                _p460q = _L460 / _nm460q
+                if not _p460q.exists():
+                    continue
+                _t460q = _p460q.read_text(encoding="utf-8")
+                for _m460q in re.finditer(r"(\d+)× OK", _t460q):
+                    if int(_m460q.group(1)) != _n460q:
+                        _bad460.append(
+                            f"{_nm460q}: 検証コマンドの期待値 {_m460q.group(1)}× OK / "
+                            f"FROZEN.md の digest 行 {_n460q} 件 "
+                            "(審査者が走らせて最初に気づく種類のずれ)")
+                # 散文側 —— 「N files」の N も同じ数に縛る (綴り語と数字の両方)
+                for _m460r in re.finditer(r"(?:pins the SHA-256 of|prints `OK` for all) ([a-z]+|\d+) files?", _t460q):
+                    _raw460r = _m460r.group(1)
+                    _got460r = int(_raw460r) if _raw460r.isdigit() else {v: k for k, v in _WORD460Q.items()}.get(_raw460r)
+                    if _got460r is None:
+                        _bad460.append(f"{_nm460q}: 凍結件数の語 {_raw460r!r} を解釈できない")
+                    elif _got460r != _n460q:
+                        _bad460.append(
+                            f"{_nm460q}: 散文の凍結件数 {_raw460r} / FROZEN.md の digest 行 {_n460q} 件")
 
         check(
             not _bad460,

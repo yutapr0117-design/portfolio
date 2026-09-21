@@ -113,9 +113,11 @@ meet the stated bar.
 **A successor draft exists and is not in force.** `LICENSES/ACD-1.1.txt` closes seven of the recorded defects and says so in its own first line — **NOT IN FORCE, NOT SUBMITTED, NOT APPLIED TO THIS REPOSITORY**. It is mentioned here because you would find it anyway, and because the alternative reading — that we are quietly revising the text under discussion — is the one thing it must not be mistaken for. **The clause numbers differ from 1.0 after Section 15**, so a citation to 1.0 must use the 1.0 text. A CI check requires the draft to keep declaring what it is.
 
 The text is **frozen** while this is open. `LICENSES/FROZEN.md` exists to say so, and
-**Check 453 in CI pins the SHA-256 of three files** (`ACD-1.0.txt`, `ACD-1.0.spdx.xml`,
-`ACD-1.0.machine.json`) so that an accidental edit fails the build rather than silently changing
-the text you are reading. If you find a defect in the text, it will be **reported, not quietly
+**Check 453 in CI pins the SHA-256 of five files** — the three submitted ones
+(`ACD-1.0.txt`, `ACD-1.0.spdx.xml`, `ACD-1.0.machine.json`) and the two that carry the
+**next-version draft** (`ACD-1.1.txt`, `ACD-1.1.machine.json`), which is **not in force,
+not submitted and not applied** — so that an accidental edit fails the build rather than
+silently changing the text you are reading. If you find a defect in the text, it will be **reported, not quietly
 patched** — changing the wording underneath a live discussion would make your review of it
 meaningless.
 
@@ -158,8 +160,8 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
-| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 286 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 189 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
+| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 287 worked entries, indexed by the question rather than the filename |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 190 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 30 known imprecisions, all unrepaired while the freeze holds, with what 1.1 would do |
 | Known weaknesses, longer form | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) | Stated by us, before you have to find them |
@@ -208,14 +210,14 @@ grep -cE "<[a-z]+>|\[year\]|\[name\]|YYYY" LICENSES/ACD-1.0.txt
 # Section count                                                       → expect 16
 grep -cE "^[0-9]+\. [A-Z]" LICENSES/ACD-1.0.txt
 
-# Verify that the text you are reading is the text that is pinned      → 3× OK
+# Verify that the text you are reading is the text that is pinned      → 5× OK
 grep -E "^[0-9a-f]{64}  " LICENSES/FROZEN.md | shasum -a 256 -c
 ```
 
 The last one is the important one. `LICENSES/FROZEN.md` records the digests in the same format
 `shasum` emits, so the check is a single pipe with no trust in anything this repository says
 about itself: if the licence text had been altered since the discussion began, that line would
-print `FAILED` instead of `OK`. It currently prints `OK` for all three files.
+print `FAILED` instead of `OK`. It currently prints `OK` for all five files.
 
 The repository's own CI enforces the rest: that the licence is declared identically across every
 published surface, that the counts these documents quote match reality, and that the frozen files
