@@ -25,8 +25,11 @@ ACD-1.0 は AI が起草したか / **OSI の審査過程での自律参加を�
 我々へ、名指しで問うていた。**
 
 **そして返信の文言が、我々が公開している §E.1 と同じではない**（#125）——
-§E.1 は *"I did not direct the drafting"*、返信は *"I was involved in determining the direction"*。
-**両立しうるが同じ主張ではない**ので、**黙って揃えず記録した。**
+**当時の** §E.1 は *"I did not direct the drafting"*、返信は
+*"I was involved in determining the direction"*。**両立しうるが同じ主張ではない**ので、
+**黙って揃えず記録した。その後 §E.1 の側が訂正されており**、現行は
+*"the drafting was not directed by me, but the direction of the licence was mine"*、
+**旧い句は `submission.md` に 0 回**である（2026-09-22 / `against.md` #191）。
 
 ## How
 
