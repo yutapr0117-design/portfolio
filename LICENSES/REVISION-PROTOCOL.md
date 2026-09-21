@@ -141,7 +141,7 @@ message**"* に当たらないこと ——**つまり、リストへ送る文�
 the basis of this response, I wrote everything else myself"*）。**これを毎回やる。**
 
 **🔴 そして (a) は、提出パケットに直接当たる。** `submission.md` §B.0 は自分を
-***"The message as it should actually be sent"*** と名乗る **1,297 語の AI 起草文**である。
+***"The message as it should actually be sent"*** と名乗る **1,308 語の AI 起草文**である。
 **(a) の下では、この文面をそのまま送ることはできない。** **いま restructure はしない**
 （どちらの読みが支配するかが未確定で、先回りの改造は (b) の下では損になる）が、
 **帰結はここに記録しておく** —— **(a) が確定した日にやることは、§B.0 を「送る文面」から

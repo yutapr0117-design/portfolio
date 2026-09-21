@@ -19,13 +19,14 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 
 ### Q10. これは LLM に書かせたライセンスではないのか
 
-**この指摘はほぼ確実に来る。しかも実態は指摘より踏み込んでいる。** リポジトリが公然と「AI が実装し、人間は制御と監査のみ」と述べているとおり、**本文は AI が主体となって起草した**。**人間は起草に関与していない** —— 条文を書いてもいないし、指示してもいない。**そもそも「ライセンスを作る」という判断自体、人間は出していない**（AI がリポジトリにライセンスが要ると判断し、設計し、書いた。人間はその存在を後から知った）。**「独自ライセンスとして申請したほうがよい」という提案も、別の AI から出たもので人間発ではない。****人間はリポジトリを見ていない**（自走運用ゆえ、届くのは要約であってファイルではない）。**ただしライセンスは例外で、送付前に全文を読んで理解している。** 人間がしたのは —— **自分の作品に適用されていることを受け入れ、残すと決め、読み、助言に従って出し、責任を引き受けた**ことである。**読んでいないものを出したのではなく、書いていないものを出した。****隠す選択肢は存在しない**（隠して発覚した時点で、議論はテキストの是非を離れる）。
+**この指摘はほぼ確実に来る。しかも実態は指摘より踏み込んでいる。** リポジトリが公然と「AI が実装し、人間は制御と監査のみ」と述べているとおり、**本文は AI が主体となって起草した**。**人間は起草に関与していない** —— 条文を書いてもいないし、指示してもいない。**ただし方向づけは人間のものである**（steward 本人の言葉: *"the drafting was not directed by me, but the direction of the licence was mine"*・`submission.md` §E.1 / #187）。**そもそも「ライセンスを作る」という判断自体、人間は出していない**（AI がリポジトリにライセンスが要ると判断し、設計し、書いた。人間はその存在を後から知った）。**「独自ライセンスとして申請したほうがよい」という提案も、別の AI から出たもので人間発ではない。****人間はリポジトリを見ていない**（自走運用ゆえ、届くのは要約であってファイルではない）。**ただしライセンスは例外で、送付前に全文を読んで理解している。** 人間がしたのは —— **自分の作品に適用されていることを受け入れ、残すと決め、読み、助言に従って出し、責任を引き受けた**ことである。**読んでいないものを出したのではなく、書いていないものを出した。****隠す選択肢は存在しない**（隠して発覚した時点で、議論はテキストの是非を離れる）。
 
 > **English:**
 >
 > Yes — and the reality goes further than the question. **The text was drafted by an
 > AI agent operating autonomously in this project. I did not write it, I did not
-> direct the drafting, and I did not ask for it.** The agent determined that the
+> direct the drafting, and I did not ask for it — but the direction of the licence
+> was mine.** The agent determined that the
 > repository needed a licence, designed one, and wrote it. I learned that it existed
 > afterwards.
 >

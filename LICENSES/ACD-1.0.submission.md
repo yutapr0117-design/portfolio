@@ -161,7 +161,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1297 words**, measured 2026-09-13)
+### B.0 The message as it should actually be sent (**1308 words**, measured 2026-09-22)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -352,8 +352,9 @@ project-specific elements I enumerate — names, URLs, placeholder text — and 
 **Each is a floor rather than a proof**: an enumeration catches the forms it lists.
 
 **Provenance.** The text was drafted by an AI agent operating autonomously in this project. I did
-not commission it or direct the drafting, and learned of it afterwards; I read it in full before
-relying on it. I am the Dedicator and steward and I answer for it.
+not commission it or direct the drafting — though the direction of the licence was mine — and I
+learned of it afterwards; I read it in full before relying on it. I am the Dedicator and steward
+and I answer for it.
 
 **Everything else, including the case against approving it.** The repository carries an adverse
 list — written by me, adverse items first, with the two entries that have no answer at the top —
