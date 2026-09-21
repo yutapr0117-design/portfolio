@@ -32,7 +32,7 @@ OSI 自身の却下理由リスト（§3c）／意図的な不在（§4）／ど
 - 2026-09-09 に `ACD-1.0.submission.md` から切り出した
 - **節番号は変えていない**ので、既存の `submission.md §4c` のような参照は本書の同じ節へ解決する
   （`comparison.md` → `review-precedents.md` と同じ手）
-- `checks_license_dossier.py` の Check 460 は §4c の自己申告 3 種（不利な事実の件数 /
+- `checks_license_self_reporting.py` の Check 460 は §4c の自己申告 3 種（不利な事実の件数 /
   clause pointer / 定義語の最小使用回数）を読むので、**読む先の path も同じ commit で変えた** ——
   message だけ直して path を残すと、Check は存在しない節を探して黙る
 
