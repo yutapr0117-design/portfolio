@@ -27,7 +27,7 @@ exists. A defect found now is therefore **reported and left in place**.
 Verify the freeze rather than taking it on trust:
 
 ```sh
-grep -E "^[0-9a-f]{64}  " LICENSES/FROZEN.md | shasum -a 256 -c   # expect 3× OK
+grep -E "^[0-9a-f]{64}  " LICENSES/FROZEN.md | shasum -a 256 -c   # expect 5× OK
 ```
 
 ## The list
