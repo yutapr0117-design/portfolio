@@ -372,9 +372,13 @@ ACD-1.0**."*
    **読みは 3 つあり、我々には選べない** ——**(a)** 通知は我々についてではない /
    **(b)** 我々についてだが、その回答は採られなかった / **(c)** 通知は回答とは独立に用意されていた。
    **どれであるかは通知にも往復にも書かれていない。**
-5. **返信の文言が我々の公開する §E.1 と同じではない**（**#125**）——
-   §E.1 は *"I did not direct the drafting"*、返信は *"I was involved in determining the direction"*。
-   **両立しうるが同じ主張ではない。黙って揃えず、オーナーへ差し戻した。**
+5. **返信の文言が我々の公開していた §E.1 と同じではなかった**（**#125・解消済み**）——
+   **当時の** §E.1 は *"I did not direct the drafting"*、返信は
+   *"I was involved in determining the direction"*。**両立しうるが同じ主張ではない。**
+   **黙って揃えず、オーナーへ差し戻した。その結果 §E.1 の側が訂正された** ——
+   現行は *"the drafting was not directed by me, **but the direction of the licence was mine**"* で、
+   **旧い句は `submission.md` に 0 回**である（`git log -S` で削除 commit まで確認・2026-09-22 / #191）。
+   **⚠ この行は 2026-09-22 まで、解消済みの齟齬を現在形で述べていた。**
 
 ### オーナーからの回答（2026-09-09 夜・逐語）
 

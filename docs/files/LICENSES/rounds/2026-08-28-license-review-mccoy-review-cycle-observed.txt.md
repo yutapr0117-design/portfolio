@@ -18,7 +18,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0
    **最終**提出から動くこと（*"the July Board meeting was prior to two months from your
    **final** submission"*）。`AS-OF.md` / `READY-TO-SUBMIT.md` / `PEER-REVIEW-WATCH.md` /
    `ACD-1.0.review-corpus.md` §1.72 がこれを引く。
-2. **資格表示** —— 署名 *"McCoy / [on behalf of the Licensing Committee]"*。
+2. **資格表示** —— 署名は `McCoy` の次行に `[on behalf of the Licensing Committee]`（**逐語。改行を含むので 1 行に畳まない** ——畳んで逐語記法で囲むと、それは引用ではなく要約である・#191）。
    ドシエはこれを角括弧付きで引用しており、**我々の編集挿入かどうかが読み手に判別できなかった。**
 
 ## Why
