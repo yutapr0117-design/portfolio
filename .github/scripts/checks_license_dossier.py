@@ -98,6 +98,22 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        中身があるのに「空である」と述べていないことも見る。file 名の列挙までは求めない
        (在庫表は日付と相手で引けることに意味があり、列挙は読者価値のない列を増やす)。
 
+  473. **来歴の開示が、否定の半分だけで現れないこと** (BLOCKING): steward は
+       *"the drafting was not directed by me, **but the direction of the licence was mine**"*
+       と述べており、2026-09-14 (#125) に開示を**両方の半分を持つ形**へ訂正した。
+       **にもかかわらず、短い写しを載せている面は列挙されなかった** —— 2026-09-22 の実測で
+       **`LICENSE`・入口 2 面（#187）に続き、`submission.md` §B.0（実際に送る本文そのもの）と
+       Q10 の日英 2 面（#189）**が否定の半分だけを述べていた。**同じ族の 4 回目**
+       （#66 送る文面に開示が無い / #67 採用者が開く `LICENSE` に無い / #125 / #187）なので、
+       per-instance をやめて構造で縛る。**開示を薄める向きではなく、*人間の関与を過少に述べる*
+       向きの誤り**であり、moderator が AI の関与度をまさに問うている最中 (B14) に最も不利である。
+       **検出器の設計が本体である**（今日 3 回外した）: (1) **行の折り返しを潰す** ——
+       `I did\nnot commission` は素の正規表現では一致しない。(2) **`>` の引用マーカーを剥がす**
+       —— 剥がさないと `the direction of the licence\n> was mine` が語として繋がらない。
+       (3) **段落粒度で見る** —— file 粒度の集合演算は、**訂正済みの写しと未訂正の写しを
+       同じ file に持つ**場合を必ず取り逃がす（`submission.md` が実例で、#187 はこれで
+       「一覧は 3 項目」と誤って完全性を主張した）。(BLOCKING)
+
   464. **`errata.md` の全 `E<n>` が、次版の変更リストに現れること** (BLOCKING):
        1.0 は凍結中で、欠陥を見つけても直さず記録する運用である。**その記録の行き先が
        4 か所以上に散っていた**（errata / review-responses-meta の「1.1 で足すかもしれない候補」/
@@ -824,3 +840,75 @@ def run(ctx):
              "自分が何であるかを本文に述べ、1.0 について測っている性質を同じ形で保つこと"),
             blocking=True,
         )
+
+    # ── 473. 来歴の開示が、否定の半分だけで現れないこと (BLOCKING) ─────────────────────
+    # WHY: steward 本人の言葉は 2 つの半分から成る ——
+    #   *"the drafting was not directed by me, but the direction of the licence was mine"*。
+    #   2026-09-14 (#125) に開示を訂正したが、**短い写しを載せている面は列挙されなかった**。
+    #   2026-09-22 に 5 段落が否定の半分だけを述べており、その中に
+    #   **実際に送る本文 (§B.0)** と **不利な一覧の来歴 entry (#5)** が入っていた。
+    #   誤りの向きは「AI をより自律的に見せる」側で、B14 の最中に最も不利である。
+    # 検出器の設計 (今日 3 回外したので、外し方を実装に残す):
+    #   (1) 行の折り返しを潰す —— `I did\nnot commission` は素の正規表現に当たらない。
+    #   (2) `>` の引用マーカーを剥がす —— 剥がさないと語が繋がらない。
+    #   (3) **段落粒度**で見る —— file 粒度の集合演算は、訂正済みと未訂正の写しを
+    #       同じ file に持つ場合を必ず取り逃がす (#187 がこれで完全性を誤主張した)。
+    _NEG473 = re.compile(
+        r"(did not (ask for|commission|direct)|not commissioned or directed"
+        r"|not directed by me|指示してもいない|起草に関与していない)", re.I)
+    _DIR473 = re.compile(
+        r"(direction of the licen[cs]e was (mine|his)|direction was (mine|his)"
+        r"|involved in determining the direction|nonetheless his|方向づけ)", re.I)
+    # この欠陥そのものを記録している段落は対象外。記録を禁じると、
+    # **欠陥の記録が Check に消される**という逆向きの害が出る (#977 と同じ線引き)。
+    _META473 = re.compile(r"(#18[5-9]|#12[45]|#6[67]|訂正|corrected|初版|BLIND|旧文|Check 473)")
+    _SUBJ473 = re.compile(r"(drafting|drafted|起草|licen[cs]e|ライセンス)", re.I)
+
+    def _norm473(s):
+        s = re.sub(r"(?m)^\s*>+\s?", "", s)   # (2) 引用マーカー
+        return re.sub(r"\s+", " ", s)          # (1) 折り返し
+
+    # ⚠ **初版はここで ctx の `read()` を呼び、module に bind されていないので NameError を投げ、
+    #    それを裸の `except Exception: continue` が握り潰して 79 file すべてを読み飛ばした。**
+    #    **動機となった欠陥を戻しても GREEN のまま**で、非 vacuity 検証だけがそれを教えた
+    #    （`BLIND-SPOTS.md`「crash は grep をすり抜ける」の 2 例目）。
+    #    **対処は 2 つとも要る**: (i) 未 bind の名前に依存せず Path から直接読む、
+    #    (ii) **例外を握り潰さない** ——読めない file は数え、0 件でないなら RED にする。
+    _paths473 = sorted(
+        list((ROOT / "LICENSES").glob("*.md"))
+        + list((ROOT / "docs" / "files" / "LICENSES").glob("*.md"))
+        + [ROOT / "LICENSE"]
+    )
+    _files473 = [str(q) for q in _paths473]
+    _bad473 = []
+    _unread473 = []
+    for _q473 in _paths473:
+        try:
+            _t473 = _q473.read_text(encoding="utf-8")
+        except Exception as _e473:          # (ii) 握り潰さない
+            _unread473.append(f"{_q473.name}: {type(_e473).__name__}")
+            continue
+        _f473 = str(_q473)
+        for _para473 in re.split(r"\n\s*\n|\n(?=\| )", _t473):   # (3) 段落粒度
+            _p473 = _norm473(_para473)
+            if not _NEG473.search(_p473):
+                continue
+            if not _SUBJ473.search(_p473):
+                continue
+            if _META473.search(_p473):
+                continue
+            if _DIR473.search(_p473):
+                continue
+            _bad473.append(f"{_f473.split('portfolio/')[-1]}: {_p473.strip()[:90]}")
+
+    check(
+        not _bad473 and not _unread473,
+        f"Check 473: 来歴の開示 {len(_files473)} file、否定の半分だけで現れる段落 0 件",
+        (f"Check 473: 来歴の開示が否定の半分だけで現れている: {_bad473}。**steward 本人は "
+         "*\"the drafting was not directed by me, but the direction of the licence was mine\"* と "
+         "述べている。**「指示していない」だけを書くと、人間の関与を実際より小さく述べることになり、"
+         "moderator が AI の関与度を問うている最中 (B14) には最も不利な向きである。"
+         "同じ段落に肯定の半分を置け (`submission.md` §E.1 が権威)"
+         f" / 読めなかった file: {_unread473}"),
+        blocking=True,
+    )
