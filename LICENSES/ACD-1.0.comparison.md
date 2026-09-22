@@ -836,6 +836,28 @@ Apache-2.0 / BlueOak-1.0.0・2026-09-22）。
    `moral rights` を放棄対象に列挙している** ——どちらも我々の主張とは衝突しない
    （我々は MIT-0 / 0BSD / Unlicense に限定して述べている）。
 
+### 第 2 巡 —— 比較表の逐語引用そのものを当てた（同日・12 件すべて一致）
+
+**1 巡目は「X を持たない」型の主張を当てた。2 巡目は逆で、比較表が
+既存ライセンスから*引いている逐語*が、その本文にそのまま在るかを当てた。**
+
+| 当てた主張 | 結果 |
+|---|---|
+| Apache-2.0 §6 商標（*"This License does not grant permission to use the trade names…"*）| **一致** |
+| Apache-2.0 §2 copyright license の動詞列 | **一致** |
+| Apache-2.0 §3 patent license の動詞列 ＋ *"necessarily infringed by their Contribution(s)"* | **一致** |
+| MIT *"to deal in the Software without restriction, including without limitation…"* | **一致** |
+| MIT-0 *"deal in the Software without restriction"* | **一致** |
+| 0BSD *"Permission to use, copy, modify, and/or distribute this software for any purpose"* | **一致** |
+| Unlicense *"dedicate any and all copyright interest"* | **一致** |
+| 0BSD / MIT-0 / Unlicense に `patent` が **0 回** | **一致（3 本とも 0）** |
+| 0BSD に *extraction* / *re-utilisation* が無い | **一致** |
+
+**12 件すべて一致。** **比較の土台は、実本文に当ててもそのまま立つ。**
+**1 巡目で 1 件外れたことと、2 巡目が全件通ったことは、同じ重さで書く** ——
+**外れたのは「持たない」型の否定命題で、通ったのは逐語引用である。**
+**否定命題のほうが外れやすい**（何が無いかは、全部読まないと言えない）。
+
 **⚠ この節を書いた最初の番号は §1.103 で、同じ日に `review-rules.md` が取った番号と衝突していた。**
 共有採番は 4 file に分かれており、**衝突すると参照は解決するのに別の節へ着く**。
 **gate（Check 471(f)）は正しく発火する** ——probe で確認した。**今回は私が grep で先に見つけただけで、
