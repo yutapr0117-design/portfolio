@@ -413,7 +413,15 @@ def run(ctx):
         if _ag460.exists() and _erp460.exists():
             _nums_k = {int(_m) for _m in re.findall(r"^\| (\d+) \|", _agt, re.M)}
             _ers_k = set(re.findall(r"^\| (E\d+) \|", _erp460.read_text(encoding="utf-8"), re.M))
-            for _fk in sorted(_L460.glob("*.md")):
+            # ⚠ **2026-09-22 に射程を mirror へ広げた。** face (k) は `LICENSES/*.md` だけを
+            #    見ており、**`docs/files/LICENSES/` の mirror に在る 124 件の `#N` / `E<n>` は
+            #    無防備だった** ——mirror は「この file を理解するには何を読むか」を渡す層で、
+            #    そこに解決しない `#N` が在れば、読み手は**存在しない不利な事実を探しに行く**。
+            #    face (k) が名指しする害そのものが、face (k) の外で起きうる状態だった（#194 と同型）。
+            #    **広げる前に測った: 124 件すべて解決し、誤検出 0。**
+            _scope_k = sorted(_L460.glob("*.md")) + sorted(
+                (ROOT / "docs" / "files" / "LICENSES").rglob("*.md"))
+            for _fk in _scope_k:
                 for _n, _ln in enumerate(_fk.read_text(encoding="utf-8").splitlines(), 1):
                     for _m in re.finditer(r"(?<![\w/])#(\d{1,4})\b", _ln):
                         if int(_m.group(1)) not in _nums_k:
