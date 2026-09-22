@@ -781,3 +781,52 @@ Dedicator を *"to the extent that person or entity holds or may hold Covered Ri
   *"maybe you don't agree with those arguments (I move back and forth myself a lot of the time!)"*
   と書いている ——**未決であることの証拠であって、答えの証拠ではない。**
 - **個人の資格での発言である。** 委員長の発言も含め、委員会の裁定でも理事会の決定でもない。
+
+## 1.105 記録に在る唯一の日本発の提出を、初めて開いた —— 止めたのは本文ではなく翻訳の証明だった（2026-09-22）
+
+**きっかけはオーナーの 1 行**（*「日本人も幾らかは居るはずだよ。日本人からの申請受け付ける人も必要だしさ」*）。
+**推論だったので、測った** ——`license-review` / `license-discuss` のアーカイブ 314 file・
+差出人 633 人を数えると、**日本の参加者が実在する**: 佐渡秀治氏 38 通（**ドシエが既に 9 file で引用**）、
+**Yutaka MATSUBARA 氏 25 通（`ertl.jp`・名古屋大 ERTL）——ドシエでの言及 0 件**、ほか 2 名。
+
+**MATSUBARA 氏の 25 通のうち 23 通が 1 つのスレッドだった**:
+**「For Legacy Approval: TOPPERS License」（2015-06-10 〜 2015-11-04・全 50 通）。**
+**記録に在る唯一の日本発の提出であり、我々は一度も開いていなかった。**
+
+### 何が起きたか
+
+- 提出は **legacy approval** 目的。ライセンスは**日本語版と英語版**を持つ。
+- **理事たちは前向きだった** —— Josh Berkus 氏 *"I am +1 to approve as a legacy license"*、
+  提出者側の要約でも *"the English-language version ... worthy of OSI legacy approval"*。
+- **止めたのは翻訳の証明である。** Richard Fontana 氏:
+  *"We'd prefer to have an affidavit from a **professional translation service**. I realize that
+  might be a little odd in this case, but the nature of this case also calls for **some extra care
+  on our part**."* ——提出者が提案した「計算機科学と OSS に詳しい弁護士による検証」は**採られなかった**。
+- 同じスレッドに **"International License category"** の語が在り、
+  *"err on the side of strictness concerning the certified translation requirement,
+  at least until we get more experience with the International License category"* と述べられている。
+- **スレッドは 2015-11-04 で止まっている**（2015-11 / 2015-12 のアーカイブは取得済みで、以降は無い）。
+
+### ⚠ 確立しないこと
+
+**却下されたとは書けない。** 止まっただけで、**取り下げたのか、リスト外へ移ったのか、
+立ち消えたのかはアーカイブからは決まらない**（#91 / #139 と同じ形）。
+OSI のライセンス API（126 件・**網羅ではない**）にも SPDX にも TOPPERS は無いが、
+**不在は決定の証拠ではない。**
+
+### ACD-1.0 に効くところ
+
+1. **§15.8 は英語を正文と定め、§16.4 は翻訳の頒布を同じ名称・識別子の下で許している。**
+   **OSI には、非英語版が在るライセンスに *professional translation service の宣誓供述書* を
+   求めた実例が在る。** 日本語版の ACD が §16.4 の許す形で配られたとき、この先例が当たる。
+2. **手続きが門番である**（§1.75 と同じ結論が、別の年・別の国・別の類型で再現した）——
+   **5 か月・24 通を投じた提出者が、本文の評価ではなく証明の要件で止まっている。**
+3. **我々に最も近い「国」の先例**であり、**steward は日本人で、ドシエの大半は日本語である。**
+
+### ⚠ 逆側
+
+**これは我々に不利な材料ではない。** ACD-1.0 は**英語で書かれ、日本語版は存在せず、
+§15.8 が英語を正文と定めている** ——**翻訳証明の要件は、いま我々には発火しない。**
+**発火するのは「日本語版を配ったとき」だけ**であり、それは §16.4 が許すが、我々はしていない。
+**先例を知らずに日本語版を出すことが危険だった**のであって、現状が危険だったのではない。
+
