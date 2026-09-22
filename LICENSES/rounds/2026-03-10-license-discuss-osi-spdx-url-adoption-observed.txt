@@ -1,0 +1,452 @@
+Source:   https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2026-March.txt
+Fetched:  2026-09-22（ブラウザ相当の UA。既取得分のキャッシュから切り出し）
+Thread:   [License-discuss] OSI Adopts SPDX IDs for License URLs（2026-03-10〜12・全 6 通）
+参加者:   Nick Vidal 氏（OSI）/ Richard Fontana 氏 / Simon Phipps 氏（元 OSI 会長・個人の資格と明記）
+          / Matija Šuklje 氏
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **承認済みライセンスの正規 URL が SPDX 識別子へ標準化された告知と、その日のうちに
+          list のフィードバックで方針が 1 度変わった記録。**
+          §16.4 / E14（識別子は 1 つの固定テキストを指し続けねばならない）に**両向きで**当たる。
+          読みは LICENSES/ACD-1.0.against.md #210 へ。ここには分析を書かない（規約 2）。
+注記:     アーカイブ本文に "zGPL-X.Y-only" という綴りが在る。**明らかな typo と見えるが、
+          無改変保存の規約により直していない**（規約 1）。
+
+----- begin verbatim -----
+From nick.vidal at opensource.org  Tue Mar 10 12:16:13 2026
+From: nick.vidal at opensource.org (Nick Vidal)
+Date: Tue, 10 Mar 2026 09:16:13 -0300
+Subject: [License-discuss] OSI Adopts SPDX IDs for License URLs
+Message-ID: 
+ <CAFifBTpP2_mqQ0mfMksB0hQ-ZHOSfNGpiTOXY3x9Rgj-UgrJFg@mail.gmail.com>
+
+Hi everyone,
+
+The OSI is looking for feedback from the community about an important
+change to the OSI-Approved licenses listed on our website.
+
+We've standardized OSI license URLs using SPDX identifiers, while carefully
+preserving compatibility with the many links that already exist across the
+web and tools.
+
+The full set of OSI-approved licenses continues to be available at:
+
+https://opensource.org/licenses
+
+More details about the update is available here:
+
+https://opensource.org/blog/osi-adopts-spdx-ids-for-license-urls
+
+If you spot any broken links or odd behaviour, please let us know.
+
+Feel free to reach out to us by replying to this mailing list or by
+commenting here:
+
+https://github.com/spdx/license-list-XML/issues/2959
+
+Thanks,
+Nick
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260310/fab8c430/attachment.htm>
+
+From nick.vidal at opensource.org  Tue Mar 10 15:14:37 2026
+From: nick.vidal at opensource.org (Nick Vidal)
+Date: Tue, 10 Mar 2026 12:14:37 -0300
+Subject: [License-discuss] OSI Adopts SPDX IDs for License URLs
+In-Reply-To: 
+ <CAFifBTpP2_mqQ0mfMksB0hQ-ZHOSfNGpiTOXY3x9Rgj-UgrJFg@mail.gmail.com>
+References: 
+ <CAFifBTpP2_mqQ0mfMksB0hQ-ZHOSfNGpiTOXY3x9Rgj-UgrJFg@mail.gmail.com>
+Message-ID: 
+ <CAFifBTr7j-TjDt0-To8cW_nFjkXMWGFigE=FV7oaQvaK6QxC1A@mail.gmail.com>
+
+Cross posting comment from ferdnyc at
+https://github.com/spdx/license-list-XML/issues/2959#issuecomment-4018341555
+
+I wanted to bring up the GPL specifically: I notice that OSI is listing all
+of the GPL versions as "GPL-X.Y-only" (and in fact, URLs like
+https://opensource.org/license/GPL-3.0-or-later result in a 404 error), but
+the license text displayed at https://opensource.org/license/GPL-3.0-only
+has a "How to Apply These Terms..." section that includes the "either
+version 3 of the License, or (at your option) any later version." text,
+making it appear to be GPL-3.0-or-later.
+
+(In truth, AIUI the FSF doesn't differentiate between GPL-3.0-only and
+GPL-3.0-or-later themselves, the difference is in how you choose to apply
+the license to your work. But in light of that, calling the license
+"GPL-3.0-only" doesn't appear to be correct... it's either just "GPL-3.0",
+or it's "GPL-3.0-or-later" (as it allows for the "any later version"
+stipulation, or it's BOTH.)
+
+On Tue, Mar 10, 2026 at 9:16 AM Nick Vidal <nick.vidal at opensource.org>
+wrote:
+
+> Hi everyone,
+>
+> The OSI is looking for feedback from the community about an important
+> change to the OSI-Approved licenses listed on our website.
+>
+> We've standardized OSI license URLs using SPDX identifiers, while
+> carefully preserving compatibility with the many links that already exist
+> across the web and tools.
+>
+> The full set of OSI-approved licenses continues to be available at:
+>
+> https://opensource.org/licenses
+>
+> More details about the update is available here:
+>
+> https://opensource.org/blog/osi-adopts-spdx-ids-for-license-urls
+>
+> If you spot any broken links or odd behaviour, please let us know.
+>
+> Feel free to reach out to us by replying to this mailing list or by
+> commenting here:
+>
+> https://github.com/spdx/license-list-XML/issues/2959
+>
+> Thanks,
+> Nick
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260310/8c573a1b/attachment.htm>
+
+From rfontana at redhat.com  Tue Mar 10 20:59:14 2026
+From: rfontana at redhat.com (Richard Fontana)
+Date: Tue, 10 Mar 2026 16:59:14 -0400
+Subject: [License-discuss] OSI Adopts SPDX IDs for License URLs
+In-Reply-To: 
+ <CAFifBTr7j-TjDt0-To8cW_nFjkXMWGFigE=FV7oaQvaK6QxC1A@mail.gmail.com>
+References: 
+ <CAFifBTpP2_mqQ0mfMksB0hQ-ZHOSfNGpiTOXY3x9Rgj-UgrJFg@mail.gmail.com>
+ <CAFifBTr7j-TjDt0-To8cW_nFjkXMWGFigE=FV7oaQvaK6QxC1A@mail.gmail.com>
+Message-ID: 
+ <CAC1cPGz_1QkYzxpd9VAAZRKCG493TBVsFD8KPu8wTqjY7DUJFA@mail.gmail.com>
+
+I agree with the comment. SPDX's replacement of GPL-2.0/GPL-2.0+ with
+"GPL-2.0-only"/"GPL-2.0-or-later" (etc.) (at the instigation of the
+FSF) has been pretty much a complete debacle IMO, but "GPL-2.0"
+continues to be a valid SPDX identifier and I think it is usefully
+used for things like this where the license is one level of
+abstraction removed from its actual application to some sort of
+licensable material.
+
+Richard
+
+On Tue, Mar 10, 2026 at 11:19 AM Nick Vidal <nick.vidal at opensource.org> wrote:
+>
+> Cross posting comment from ferdnyc at https://github.com/spdx/license-list-XML/issues/2959#issuecomment-4018341555
+>
+> I wanted to bring up the GPL specifically: I notice that OSI is listing all of the GPL versions as "GPL-X.Y-only" (and in fact, URLs like https://opensource.org/license/GPL-3.0-or-later result in a 404 error), but the license text displayed at https://opensource.org/license/GPL-3.0-only has a "How to Apply These Terms..." section that includes the "either version 3 of the License, or (at your option) any later version." text, making it appear to be GPL-3.0-or-later.
+>
+> (In truth, AIUI the FSF doesn't differentiate between GPL-3.0-only and GPL-3.0-or-later themselves, the difference is in how you choose to apply the license to your work. But in light of that, calling the license "GPL-3.0-only" doesn't appear to be correct... it's either just "GPL-3.0", or it's "GPL-3.0-or-later" (as it allows for the "any later version" stipulation, or it's BOTH.)
+>
+> On Tue, Mar 10, 2026 at 9:16 AM Nick Vidal <nick.vidal at opensource.org> wrote:
+>>
+>> Hi everyone,
+>>
+>> The OSI is looking for feedback from the community about an important change to the OSI-Approved licenses listed on our website.
+>>
+>> We've standardized OSI license URLs using SPDX identifiers, while carefully preserving compatibility with the many links that already exist across the web and tools.
+>>
+>> The full set of OSI-approved licenses continues to be available at:
+>>
+>> https://opensource.org/licenses
+>>
+>> More details about the update is available here:
+>>
+>> https://opensource.org/blog/osi-adopts-spdx-ids-for-license-urls
+>>
+>> If you spot any broken links or odd behaviour, please let us know.
+>>
+>> Feel free to reach out to us by replying to this mailing list or by commenting here:
+>>
+>> https://github.com/spdx/license-list-XML/issues/2959
+>>
+>> Thanks,
+>> Nick
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Official statements by the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+
+
+From simon at webmink.net  Tue Mar 10 22:26:17 2026
+From: simon at webmink.net (Simon Phipps)
+Date: Tue, 10 Mar 2026 22:26:17 +0000
+Subject: [License-discuss] OSI Adopts SPDX IDs for License URLs
+In-Reply-To: 
+ <CAC1cPGz_1QkYzxpd9VAAZRKCG493TBVsFD8KPu8wTqjY7DUJFA@mail.gmail.com>
+References: 
+ <CAFifBTpP2_mqQ0mfMksB0hQ-ZHOSfNGpiTOXY3x9Rgj-UgrJFg@mail.gmail.com>
+ <CAFifBTr7j-TjDt0-To8cW_nFjkXMWGFigE=FV7oaQvaK6QxC1A@mail.gmail.com>
+ <CAC1cPGz_1QkYzxpd9VAAZRKCG493TBVsFD8KPu8wTqjY7DUJFA@mail.gmail.com>
+Message-ID: 
+ <CAA4ffp_xT9O=mFOVMh23DJjbSGHMmdX=jR=KNuZV-f5QaM74xA@mail.gmail.com>
+
+I agree with Richard here. The -only and -or-later variants are all
+deployment options for the GPL licenses and do not reflect the licenses
+that OSI has actually approved, which embrace both variants.
+
+Simon
+(in a personal capacity)
+
+On Tue, Mar 10, 2026 at 9:00 PM Richard Fontana via License-discuss <
+license-discuss at lists.opensource.org> wrote:
+
+> I agree with the comment. SPDX's replacement of GPL-2.0/GPL-2.0+ with
+> "GPL-2.0-only"/"GPL-2.0-or-later" (etc.) (at the instigation of the
+> FSF) has been pretty much a complete debacle IMO, but "GPL-2.0"
+> continues to be a valid SPDX identifier and I think it is usefully
+> used for things like this where the license is one level of
+> abstraction removed from its actual application to some sort of
+> licensable material.
+>
+> Richard
+>
+> On Tue, Mar 10, 2026 at 11:19 AM Nick Vidal <nick.vidal at opensource.org>
+> wrote:
+> >
+> > Cross posting comment from ferdnyc at
+> https://github.com/spdx/license-list-XML/issues/2959#issuecomment-4018341555
+> >
+> > I wanted to bring up the GPL specifically: I notice that OSI is listing
+> all of the GPL versions as "GPL-X.Y-only" (and in fact, URLs like
+> https://opensource.org/license/GPL-3.0-or-later result in a 404 error),
+> but the license text displayed at
+> https://opensource.org/license/GPL-3.0-only has a "How to Apply These
+> Terms..." section that includes the "either version 3 of the License, or
+> (at your option) any later version." text, making it appear to be
+> GPL-3.0-or-later.
+> >
+> > (In truth, AIUI the FSF doesn't differentiate between GPL-3.0-only and
+> GPL-3.0-or-later themselves, the difference is in how you choose to apply
+> the license to your work. But in light of that, calling the license
+> "GPL-3.0-only" doesn't appear to be correct... it's either just "GPL-3.0",
+> or it's "GPL-3.0-or-later" (as it allows for the "any later version"
+> stipulation, or it's BOTH.)
+> >
+> > On Tue, Mar 10, 2026 at 9:16 AM Nick Vidal <nick.vidal at opensource.org>
+> wrote:
+> >>
+> >> Hi everyone,
+> >>
+> >> The OSI is looking for feedback from the community about an important
+> change to the OSI-Approved licenses listed on our website.
+> >>
+> >> We've standardized OSI license URLs using SPDX identifiers, while
+> carefully preserving compatibility with the many links that already exist
+> across the web and tools.
+> >>
+> >> The full set of OSI-approved licenses continues to be available at:
+> >>
+> >> https://opensource.org/licenses
+> >>
+> >> More details about the update is available here:
+> >>
+> >> https://opensource.org/blog/osi-adopts-spdx-ids-for-license-urls
+> >>
+> >> If you spot any broken links or odd behaviour, please let us know.
+> >>
+> >> Feel free to reach out to us by replying to this mailing list or by
+> commenting here:
+> >>
+> >> https://github.com/spdx/license-list-XML/issues/2959
+> >>
+> >> Thanks,
+> >> Nick
+> >
+> > _______________________________________________
+> > The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+> >
+> > License-discuss mailing list
+> > License-discuss at lists.opensource.org
+> >
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260310/3ee6ad8b/attachment-0001.htm>
+
+From nick.vidal at opensource.org  Tue Mar 10 23:52:34 2026
+From: nick.vidal at opensource.org (Nick Vidal)
+Date: Tue, 10 Mar 2026 20:52:34 -0300
+Subject: [License-discuss] OSI Adopts SPDX IDs for License URLs
+In-Reply-To: 
+ <CAA4ffp_xT9O=mFOVMh23DJjbSGHMmdX=jR=KNuZV-f5QaM74xA@mail.gmail.com>
+References: 
+ <CAFifBTpP2_mqQ0mfMksB0hQ-ZHOSfNGpiTOXY3x9Rgj-UgrJFg@mail.gmail.com>
+ <CAFifBTr7j-TjDt0-To8cW_nFjkXMWGFigE=FV7oaQvaK6QxC1A@mail.gmail.com>
+ <CAC1cPGz_1QkYzxpd9VAAZRKCG493TBVsFD8KPu8wTqjY7DUJFA@mail.gmail.com>
+ <CAA4ffp_xT9O=mFOVMh23DJjbSGHMmdX=jR=KNuZV-f5QaM74xA@mail.gmail.com>
+Message-ID: 
+ <CAFifBTqmVHvkus3Urtmpy7RsPXDh=L8wpyo8=YGeXLf2VCcVHw@mail.gmail.com>
+
+Thanks Simon and Richard for the guidance.
+
+Now "zGPL-X.Y-only" and "zGPL-X.Y-or-later" will redirect to "zGPL-X.Y"
+
+On Tue, Mar 10, 2026 at 7:28 PM Simon Phipps <simon at webmink.net> wrote:
+
+> I agree with Richard here. The -only and -or-later variants are all
+> deployment options for the GPL licenses and do not reflect the licenses
+> that OSI has actually approved, which embrace both variants.
+>
+> Simon
+> (in a personal capacity)
+>
+> On Tue, Mar 10, 2026 at 9:00 PM Richard Fontana via License-discuss <
+> license-discuss at lists.opensource.org> wrote:
+>
+>> I agree with the comment. SPDX's replacement of GPL-2.0/GPL-2.0+ with
+>> "GPL-2.0-only"/"GPL-2.0-or-later" (etc.) (at the instigation of the
+>> FSF) has been pretty much a complete debacle IMO, but "GPL-2.0"
+>> continues to be a valid SPDX identifier and I think it is usefully
+>> used for things like this where the license is one level of
+>> abstraction removed from its actual application to some sort of
+>> licensable material.
+>>
+>> Richard
+>>
+>> On Tue, Mar 10, 2026 at 11:19 AM Nick Vidal <nick.vidal at opensource.org>
+>> wrote:
+>> >
+>> > Cross posting comment from ferdnyc at
+>> https://github.com/spdx/license-list-XML/issues/2959#issuecomment-4018341555
+>> >
+>> > I wanted to bring up the GPL specifically: I notice that OSI is listing
+>> all of the GPL versions as "GPL-X.Y-only" (and in fact, URLs like
+>> https://opensource.org/license/GPL-3.0-or-later result in a 404 error),
+>> but the license text displayed at
+>> https://opensource.org/license/GPL-3.0-only has a "How to Apply These
+>> Terms..." section that includes the "either version 3 of the License, or
+>> (at your option) any later version." text, making it appear to be
+>> GPL-3.0-or-later.
+>> >
+>> > (In truth, AIUI the FSF doesn't differentiate between GPL-3.0-only and
+>> GPL-3.0-or-later themselves, the difference is in how you choose to apply
+>> the license to your work. But in light of that, calling the license
+>> "GPL-3.0-only" doesn't appear to be correct... it's either just "GPL-3.0",
+>> or it's "GPL-3.0-or-later" (as it allows for the "any later version"
+>> stipulation, or it's BOTH.)
+>> >
+>> > On Tue, Mar 10, 2026 at 9:16 AM Nick Vidal <nick.vidal at opensource.org>
+>> wrote:
+>> >>
+>> >> Hi everyone,
+>> >>
+>> >> The OSI is looking for feedback from the community about an important
+>> change to the OSI-Approved licenses listed on our website.
+>> >>
+>> >> We've standardized OSI license URLs using SPDX identifiers, while
+>> carefully preserving compatibility with the many links that already exist
+>> across the web and tools.
+>> >>
+>> >> The full set of OSI-approved licenses continues to be available at:
+>> >>
+>> >> https://opensource.org/licenses
+>> >>
+>> >> More details about the update is available here:
+>> >>
+>> >> https://opensource.org/blog/osi-adopts-spdx-ids-for-license-urls
+>> >>
+>> >> If you spot any broken links or odd behaviour, please let us know.
+>> >>
+>> >> Feel free to reach out to us by replying to this mailing list or by
+>> commenting here:
+>> >>
+>> >> https://github.com/spdx/license-list-XML/issues/2959
+>> >>
+>> >> Thanks,
+>> >> Nick
+>> >
+>> > _______________________________________________
+>> > The opinions expressed in this email are those of the sender and not
+>> necessarily those of the Open Source Initiative. Official statements by the
+>> Open Source Initiative will be sent from an opensource.org email address.
+>> >
+>> > License-discuss mailing list
+>> > License-discuss at lists.opensource.org
+>> >
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not
+>> necessarily those of the Open Source Initiative. Official statements by the
+>> Open Source Initiative will be sent from an opensource.org email address.
+>>
+>> License-discuss mailing list
+>> License-discuss at lists.opensource.org
+>>
+>> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260310/02ec4a3c/attachment.htm>
+
+From matija at suklje.email  Thu Mar 12 09:42:19 2026
+From: matija at suklje.email (Matija =?UTF-8?B?xaB1a2xqZQ==?=)
+Date: Thu, 12 Mar 2026 10:42:19 +0100
+Subject: [License-discuss] OSI Adopts SPDX IDs for License URLs
+In-Reply-To: 
+ <CAFifBTqmVHvkus3Urtmpy7RsPXDh=L8wpyo8=YGeXLf2VCcVHw@mail.gmail.com>
+References: 
+ <CAFifBTpP2_mqQ0mfMksB0hQ-ZHOSfNGpiTOXY3x9Rgj-UgrJFg@mail.gmail.com>
+ <CAA4ffp_xT9O=mFOVMh23DJjbSGHMmdX=jR=KNuZV-f5QaM74xA@mail.gmail.com>
+ <CAFifBTqmVHvkus3Urtmpy7RsPXDh=L8wpyo8=YGeXLf2VCcVHw@mail.gmail.com>
+Message-ID: <5694748.GXAFRqVoOG@leza>
+
+Dne sreda, 11. marec 2026 ob 00:52:34 Srednjeevropski standardni čas je Nick 
+Vidal napisal(a):
+
+> Thanks Simon and Richard for the guidance.
+> 
+> Now "zGPL-X.Y-only" and "zGPL-X.Y-or-later" will redirect to "zGPL-X.Y"
+
+That sounds like a good solution to me (and is similar to how we handle it 
+internally in our licensing policy at work).
+
+
+cheers,
+Matija
+—
+P.S. I wish we could revise the GNU license naming debacle to make it in line 
+with the general SPDX nomenclature.
+-- 
+gsm:    tel:+386.41.849.552
+www:    https://matija.suklje.name
+xmpp:   hook at campfire.wheremymonkeyis.at
+matrix: @hook:kompot.si
+
+
+
+
+

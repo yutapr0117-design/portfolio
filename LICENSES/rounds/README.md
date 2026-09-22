@@ -59,7 +59,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-22 時点・40 ファイル）
+## いまの状態（2026-09-22 時点・41 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -67,6 +67,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-09-15 | **リスト外（off-list）** | **送信** | **moderator の 3 問への返信。steward が自分で書いた**（本リポジトリは文面を起草していない）。**271 語・62.4 パーセンタイル** ——「長い」と言われた問いに短い文で答えている。不利な数を先に出し、貼り付け→添付の是正を自分で名指しし、**素直な読みを自分に当てて "so I will change my approach" と先に述べている** |
 | 2026-09-07 〜 15 | **リスト外（off-list）** | **受領 + 送信（moderator 往復・第 3 ラウンド）** | **moderator の 5 問 → steward の回答 → 「ゲーム」の提案 → steward の長文説明（身元証拠の PDF 2 通を添付・**本リポジトリには置かない**）→ **moderator が Code of Conduct の *"Respect time and attention"* との整合と、メールの長さ・密度の実測比較を求めた**（2026-09-15）。**測定は `review-corpus.md` §1.85**、道具は `measure_list_verbosity.py` |
 | 2026-09-14 | `license-review` | **観測（OpenMDW スレッド・2 通）** | **我々宛でも ACD-1.0 についてでもない。** Fontana 氏 *"The OSI does not currently have a process for **de-listing** licenses"*（配送された本体を保存）と、Piana 氏 *"revising **ALL** the approved licenses (which we have done recently), some approved licenses … leave licensing experts **scratching their heads**"*。**承認は取り消せず、承認済みに首をかしげる起草が実在すると承認する側が述べている** ——**有利・不利の両方に読める**（`review-precedents.md` §1.88）|
+| 2026-03-10 | `license-discuss` | **観測（OSI が承認済みライセンスの URL を SPDX 識別子へ標準化・全 6 通）** | **§16.4 / E14 に両向きで当たる。** **有利**: Fontana 氏が GPL の `-only`/`-or-later` 分割を *"a complete debacle"*、Šuklje 氏が *"the GNU license naming debacle"* と呼ぶ ——**識別子が 1 つの固定テキストを指さなくなる害の、初めての外部の証人**。**不利**: Fontana 氏 *"one level of abstraction removed from its actual application"* / Phipps 氏 *"deployment options … do not reflect the licenses that OSI has actually approved"* ——**OSI 自身の模型は 1 識別子対多形態で、§16.4 は 1 対 1 を主張する。** しかも **11 時間で方針が 1 度変わっている**（`against.md` #210）|
 | 2026-05-04 | `license-review` | **観測（PHP ライセンスの自主的 retire・全 4 通）** | **承認が steward 自身の申し出で巻き戻された 1 例。** OSI が歓迎し Licensing Committee の委員が *"Kudos"* と応じ、**誰も「そういう手続きは無い」とは述べていない。** **`against.md` #146 の *"An approval cannot be undone"* を限定する**（#209）。**⚠ 有利な材料なので狭く** ——n=1・**提出者自身が手続きの不在を述べ、誰も答えていない**・retire は「承認されなかったこと」ではない・**steward が生きていることが要る（#10）** |
 | 2026-08-28 | `license-review` | **観測（Luis Villa 氏 → Rob Landley 氏・volume の作法）** | **B14 の moderator 通知が引いたのと同じ CoC 条項が、その 12 日前に、AI とは無関係に、人間へ向けて引かれている。** *"concise and low-volume … The people we most need on this list are those whose time is very precious"*。**条項が在ることと、社会的に強制されていることは別で、後者の一次資料はこれが初めて**（`reviewer-positions.md` §1.99・`against.md` #208）。**⚠ 同じ 1 通が volume を正当化する側にも働くが、それは*議論*の volume であって本文の語数（B3）ではない** |
 | 2026-08-28 | `license-review` | **観測（McCoy Smith 氏 → ModelGo steward）** | **ドシエが 4 文書で引きながら、原文を持っていなかった 1 通。** *"We work on a **two-month review cycle**"* と「時計は**最終**提出から動く」の出典であり、同時に資格表示 *"[on behalf of the Licensing Committee]"* の出典でもある。**2026-09-21 に原文で確認: 角括弧は本人の署名であって我々の挿入ではない**（clean）。**⚠ ただし送信元は法律事務所のアドレス** ——アドレスの慣習と自己表示が 1 通の中で逆を向いている（`review-rules.md` §1.103）|
