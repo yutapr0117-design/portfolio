@@ -1,0 +1,181 @@
+Source:   https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2026-April.txt
+Fetched:  2026-09-22（ブラウザ相当の UA。既取得分のキャッシュから切り出し）
+Thread:   [License-discuss] Licensing AI Agent Skills - A New Frontier?（2026-04-06・全 3 通）
+参加者:   Moming Duan 氏（ModelGo steward）/ Richard Fontana 氏 / Pamela Chestek 氏
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **ACD が立つ 3 つの gap のうち「機械生成物の権利存否への対処」（register B10）に、
+          正面から当たる発言を含む。** Fontana 氏は、伝統的な OSS ライセンスが
+          *"appropriate even in situations where copyrightability is relatively dubious"* と
+          述べている ——**§9 が埋めると主張している当の状況である。**
+          **⚠ 同じ 1 通が逆にも働く**（境界が本当に不確かであることを裏づける）。
+          **主題はこのリポジトリが実際に公開している資料の類型でもある**（`.well-known/agent-skills/`）。
+          読みは LICENSES/ACD-1.0.against.md #211 / #212 へ。ここには分析を書かない（規約 2）。
+
+----- begin verbatim -----
+From duanmoming at gmail.com  Mon Apr  6 14:39:32 2026
+From: duanmoming at gmail.com (Moming Duan)
+Date: Mon, 6 Apr 2026 22:39:32 +0800
+Subject: [License-discuss] Licensing AI Agent Skills - A New Frontier?
+Message-ID: 
+ <CAE=aCWVSN5hy_MQ=zGaFy0_rtFMZtGvD6iqj=CkyQahU3BaKEQ@mail.gmail.com>
+
+Hi OSI license community,
+
+Following previous discussions on model licensing and distillation, I
+wanted to raise another emerging question: how should we think about
+licensing AI agent "skills"?
+
+Skills are instruction sets for AI coding assistants (Claude Code, Cursor,
+etc.), they're essentially structured prompts with metadata, code snippets,
+and workflows that tell the AI how to perform specific tasks. They're
+distributed like software packages but aren't executed code.
+
+A few questions I'm curious about:
+
+1. Do skills need explicit licenses?
+
+Anthropic's official skills use a restrictive proprietary license
+prohibiting extraction, derivatives, and distribution [1], while community
+skills like Tavily's often use MIT [2]. But are skills even copyrightable
+works, or just instructions?
+
+2. Are these licenses enforceable?
+
+The US Copyright Office has concluded that "prompts alone do not provide
+sufficient human control" to qualify for copyright protection [3]. If the
+underlying prompts aren't copyrightable, what legal basis do skill licenses
+actually rest on?
+
+3. Are traditional OSS licenses appropriate?
+
+Skills aren't software that gets compiled and executed - they're
+instructions that guide AI behavior. Do concepts like "derivative works"
+and "distribution" even apply in the same way?
+
+This matters beyond just skills. As AI agents become more autonomous and
+instruction-based, we're seeing a shift from licensing executed code to
+licensing the instructions that generate code. The legal frameworks we've
+built for software might not map cleanly.
+
+Curious to hear thoughts from the community.
+
+Best,
+Moming Duan
+
+--- Refs
+
+
+
+*[1] Anthropic skill LICENSE example:
+https://github.com/anthropics/skills/blob/main/skills/docx/LICENSE.txt
+<https://github.com/anthropics/skills/blob/main/skills/docx/LICENSE.txt>[2]
+Tavily skills (MIT): https://github.com/tavily-ai/skills
+<https://github.com/tavily-ai/skills>[3] US Copyright Office on prompt
+copyrightability: https://www.congress.gov/crs-product/LSB10922
+<https://www.congress.gov/crs-product/LSB10922>*
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260406/566c2db8/attachment.htm>
+
+From rfontana at redhat.com  Mon Apr  6 15:29:59 2026
+From: rfontana at redhat.com (Richard Fontana)
+Date: Mon, 6 Apr 2026 11:29:59 -0400
+Subject: [License-discuss] Licensing AI Agent Skills - A New Frontier?
+In-Reply-To: 
+ <CAE=aCWVSN5hy_MQ=zGaFy0_rtFMZtGvD6iqj=CkyQahU3BaKEQ@mail.gmail.com>
+References: 
+ <CAE=aCWVSN5hy_MQ=zGaFy0_rtFMZtGvD6iqj=CkyQahU3BaKEQ@mail.gmail.com>
+Message-ID: 
+ <CAC1cPGz6kX6qx9sv_jEdpHpGZH4AWS2Vc6utgueMvKp14AX1tw@mail.gmail.com>
+
+On Mon, Apr 6, 2026 at 10:52 AM Moming Duan <duanmoming at gmail.com> wrote:
+>
+> Hi OSI license community,
+>
+> Following previous discussions on model licensing and distillation, I wanted to raise another emerging question: how should we think about licensing AI agent "skills"?
+>
+> Skills are instruction sets for AI coding assistants (Claude Code, Cursor, etc.), they're essentially structured prompts with metadata, code snippets, and workflows that tell the AI how to perform specific tasks. They're distributed like software packages but aren't executed code.
+>
+> A few questions I'm curious about:
+>
+> 1. Do skills need explicit licenses?
+
+In general I think so.
+
+> Anthropic's official skills use a restrictive proprietary license prohibiting extraction, derivatives, and distribution [1], while community skills like Tavily's often use MIT [2]. But are skills even copyrightable works, or just instructions?
+
+"Instructions" can be copyrightable works. I think at least some
+skills files are likely copyrightable.
+
+> 2. Are these licenses enforceable?
+>
+> The US Copyright Office has concluded that "prompts alone do not provide sufficient human control" to qualify for copyright protection [3]. If the underlying prompts aren't copyrightable, what legal basis do skill licenses actually rest on?
+
+The document does not state that. Rather, it says that prompts alone
+do not provide sufficient human control over AI-generated outputs to
+confer human authorship and thus copyrightability over the outputs. It
+references an earlier document ("Copyright and Artificial Intelligence
+- Part 2: Copyrightability"
+https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf)
+that appears to endorse the view (which I think is pretty obvious)
+that sufficiently creative prompts may be copyrightable.
+
+> 3. Are traditional OSS licenses appropriate?
+>
+> Skills aren't software that gets compiled and executed - they're instructions that guide AI behavior. Do concepts like "derivative works" and "distribution" even apply in the same way?
+
+So I was just involved in an email thread about this topic. They may
+not apply in the same way as that gets compiled and executed, but it's
+already the case that open source software licenses are extensively
+used for non-software material in open source project repositories.
+
+My general view is that traditional open source software licenses are
+completely appropriate for association with such material if they are
+copyrightable (and I'm starting to come around to the view, which I'd
+previously been resisting for a complex set of reasons, that they are
+appropriate even in situations where copyrightability is relatively
+dubious).
+
+Richard
+
+> --- Refs
+> [1] Anthropic skill LICENSE example: https://github.com/anthropics/skills/blob/main/skills/docx/LICENSE.txt
+> [2] Tavily skills (MIT): https://github.com/tavily-ai/skills
+> [3] US Copyright Office on prompt copyrightability: https://www.congress.gov/crs-product/LSB10922
+
+
+From pamela at chesteklegal.com  Mon Apr  6 16:05:44 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Mon, 6 Apr 2026 09:05:44 -0700
+Subject: [License-discuss] Licensing AI Agent Skills - A New Frontier?
+In-Reply-To: 
+ <CAC1cPGz6kX6qx9sv_jEdpHpGZH4AWS2Vc6utgueMvKp14AX1tw@mail.gmail.com>
+References: 
+ <CAE=aCWVSN5hy_MQ=zGaFy0_rtFMZtGvD6iqj=CkyQahU3BaKEQ@mail.gmail.com>
+ <CAC1cPGz6kX6qx9sv_jEdpHpGZH4AWS2Vc6utgueMvKp14AX1tw@mail.gmail.com>
+Message-ID: <7b940613-b7c9-4afd-9fc5-29d07389cf1d@chesteklegal.com>
+
+On 4/6/2026 8:29 AM, Richard Fontana via License-discuss wrote:
+> My general view is that traditional open source software licenses are
+> completely appropriate for association with such material if they are
+> copyrightable (and I'm starting to come around to the view, which I'd
+> previously been resisting for a complex set of reasons, that they are
+> appropriate even in situations where copyrightability is relatively
+> dubious).
+Can you elaborate?
+
+Pam
+
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260406/c7320a7d/attachment.htm>
+
