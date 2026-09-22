@@ -858,3 +858,35 @@ Endeavor clause. **I wrote that clause.**"* ——ACD-1.0 §4.3 / §10.1 は利�
 
 **この 2 つを分けた理由**: 他の §1.x は「**特定の人 / 特定の提出**についての記録」だが、
 §1.98 / §1.99 は「**リストが我々の類型に付ける呼び名**についての記録」で、読む動機が違う。
+
+## 1.106 steward 自身が公開の場で展開した分析を、我々は回数として数えていた（2026-09-22）
+
+**オーナーの指摘**: *「使って無かったがそもそも勿体ない。それこそ固定観念やんけ」*。
+
+**ドシエは steward の list 上の寄稿を「4 通送信・4 人が関与」「Duan 氏が three-axis framing を
+引いた」と**注意の計量**として記録してきた。**中身を使ったことは一度も無い。**
+
+**アーカイブから中身を出す。5 件あり、そのうち 3 件は ACD-1.0 自身の設計に直接効く。**
+
+| 日付 / 場 | 何を論じたか | ACD-1.0 のどこに効くか |
+|---|---|---|
+| 2026-09-03 `license-review`（OpenMDW）| **終了条項の限定原理** ——OpenMDW-1.1 は著作権・特許・営業秘密・データベース権を付与しながら、**終了の引き金は特許と著作権の訴訟に限られる**。*"That creates an apparent asymmetry between the scope of the grant and the scope of the termination trigger, and I would like to understand whether that asymmetry is deliberate."* | **§10.4** ——ACD は**終了条項を持たない**。非対称が生じる余地そのものが無い |
+| 2026-09-03 `license-review`（ModelGo）| **hosted-only の Distribution で §2.2(a) の条件がどう働くか** ——定義は API / web アクセスを Distribution に含むのに、課される条件は複製の引き渡しを前提にしている | **§6.4 / Computational Use** ——ACD は出力にもモデルにも何も課さないので、この gap が生じない |
+| 2026-09-04 `license-review`（OpenMDW）| **threshold question の切り出し** ——*"whether copyright litigation may legitimately trigger termination"* を、nexus（請求と対象の近さ）と proportionality（結果の広さ）から分けた。**佐渡氏の論点を名指しで受けて発展させ**、Gay 氏・Chestek 氏がこの段落を引いた | **§10.4 + §8.2**（報復条項が無いことは設計であり、§8.2 がそれを明示する）|
+| 2026-09-06 `license-discuss`（ACD-1.0）| **§3 と §4 の 1 点に絞った threshold question。** 2020 年の Unlicense 審査を読んだうえで、*"I do not regard approval of the Unlicense as controlling precedent for ACD-1.0"* と**自分から先例性を退けている** | **B4**（献呈と許諾の並置）——register は「Unlicense が先例」と「legacy ゆえ切り離されうる」の両方を書いているが、**steward が自分で先例扱いを退けている事実を使っていない** |
+| 2026-09-06 `license-discuss`（network copyleft）| **trigger と scope は独立した設計次元である** ——*"the event that triggers reciprocity and the code to which reciprocity applies are separate drafting dimensions"*。CPAL-1.0 を例に挙げた | 同上（終了・報復の設計を語る語彙そのもの）|
+
+### なぜこれが使える材料なのか、そして使えない部分
+
+**使える**: **これは我々のドシエの中の主張ではなく、`license-review` 上で OSI の参加者に当てられ、
+受け止められ、引き継がれた推論である** ——佐渡氏が発展させ、Gay 氏と Chestek 氏が引いた。
+**「我々がそう書いた」と「公開の場で当てて誰も倒さなかった」は別の強さを持つ。**
+
+**⚠ 使えない**: **これは B1 を治さない。** 弁護士のレビューではないし、
+**他人の instrument について正しく論じられることは、自分の instrument が正しい証拠ではない。**
+**そして自分の分析を自分の支持として引くのは循環に近い** ——だから
+**引くのは結論ではなく、その推論が公開で当てられたという事実だけにする。**
+
+**⚠ さらに**: 上の 3 件が効くのは**「ACD が終了を持たないのは設計である」の説明**であって、
+**終了を持たないこと自体の正当化ではない**（それは #46 が費用込みで記録している）。
+
