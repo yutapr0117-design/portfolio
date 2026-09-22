@@ -379,8 +379,14 @@ ACD-1.0**."*
    **当時の** §E.1 は *"I did not direct the drafting"*、返信は
    *"I was involved in determining the direction"*。**両立しうるが同じ主張ではない。**
    **黙って揃えず、オーナーへ差し戻した。その結果 §E.1 の側が訂正された** ——
-   現行は *"the drafting was not directed by me, **but the direction of the licence was mine**"* で、
-   **旧い句は `submission.md` に 0 回**である（`git log -S` で削除 commit まで確認・2026-09-22 / #191）。
+   **⚠ そしてその訂正も足りていなかった（2026-09-23 / #216）。** 現行は 3 段で述べる ——
+   **人間発の目的・上位設計 → AI による具体的な法的設計と起草 → 委任下の自走による発展・一般化**。
+   根拠は steward 自身の 2026-09-14 の手紙（**2026-09-15 から `rounds/` に逐語で在った**）:
+   *"**I then told the AI that I wanted my own license to aim for external approval** … I did not
+   begin by writing a detailed legal specification myself … **I gave the goal, and the AI generated
+   and developed the license**"*。**「人間は存在を後から知った」の対象は 3 段目**（名称 `ACD-1.0`・
+   一般化された成果物・提出パケット・レビュー基盤）**であって、ライセンスを持つという判断ではない。**
+   **B14 の記述・提出パケット・入口ページはこの切り分けで統一してある**（オーナー明示・2026-09-23）。
    **⚠ この行は 2026-09-22 まで、解消済みの齟齬を現在形で述べていた。**
 
 ### オーナーからの回答（2026-09-09 夜・逐語）

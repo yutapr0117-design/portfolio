@@ -223,11 +223,13 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 > **English:**
 >
 > No lawyer has reviewed this text. I say that first because it changes how the
-> rest should be read. **The text was drafted by an AI agent operating autonomously in
-> this project — I did not write it and I did not ask for it; the drafting was not directed by me,
-> but the direction of the licence was mine** (see the provenance disclosure; I learned the licence existed after the agent
-> had written it; the suggestion to submit it for review also came from an AI, not from
-> me). **I do not review the repository** — what reaches me is a summary, not the files —
+> rest should be read. **I decided to have a licence of my own and said it
+> should aim at external approval; I gave the goal and the top-level direction, and an AI agent
+> generated the concrete legal design and the text under my standing delegation** (see the
+> provenance disclosure; I did not write a legal specification or supply a list of legal
+> requirements, and the name ACD-1.0, the generalised instrument and the submission material
+> took shape during that delegated work, whose concrete state I came to know afterwards).
+> **I do not review the repository** — what reaches me is a summary, not the files —
 > **but the licence is the exception: I read it in full and understood it before sending.**
 > I am the Dedicator and the steward: I decided to keep it, it is applied to my work, I read
 > it, I acted on that advice, and I answer for it. It was checked mechanically against the published criteria
@@ -245,7 +247,7 @@ OSD への適合は提出者が**自分から**述べるべきものである。
 食い違っていた**。横断監査で見つけて「under my direction（私の指示で）」へ直したが、
 **それも実態を弱めていた** —— 実際には**人間は起草に関与していない**。二度目の是正で
 「**AI が自律的に起草し、人間は書いても逐条で指示してもいない**」という事実へ揃えた。
-**弱める方向の言い換えも矛盾である。** 三度目でさらに踏み込んだ —— **「ライセンスを作る」という判断自体、人間は出していない**（AI が必要と判断して設計・起草し、人間は存在を後から知った）。**事実を弱めるほうへ丸めない。** 四度目でさらに判明した —— **「独自ライセンスとして申請せよ」という提案も別の AI から出ており、人間発ではない**。**是正のたびに人間の関与が減った**というこの経過自体が、**私の下書きが実態より人間の主体性を高く見積もる方向へ寄っていた**ことの記録である。五度目では**人間がリポジトリを見ていない**ことが判明し、**六度目でそれはライセンス以外の話**であり **メール送付時には全文を読んで理解している**と訂正された —— **今度は私が逆方向へ行き過ぎた**。**5 回は過大に、6 回目は過小に書いた**のだから、教訓は「一方向に偏る」ではなく、より単純に —— **人間が何をしたかを、確かめずに書いていた**。書けるのは **(a) 本人が述べたこと / (b) リポジトリに証跡があること**の 2 つだけで、どちらでもないなら**その文は書かない**（「した」とも「していない」とも書かない）。
+**弱める方向の言い換えも矛盾である。** 三度目でさらに踏み込んだ —— **「ライセンスを作る」という判断自体、人間は出していない**（AI が必要と判断して設計・起草し、人間は存在を後から知った）。**事実を弱めるほうへ丸めない。** 四度目でさらに判明した —— **「独自ライセンスとして申請せよ」という提案も別の AI から出ており、人間発ではない**。**是正のたびに人間の関与が減った**というこの経過自体が、**私の下書きが実態より人間の主体性を高く見積もる方向へ寄っていた**ことの記録である。五度目では**人間がリポジトリを見ていない**ことが判明し、**六度目でそれはライセンス以外の話**であり **メール送付時には全文を読んで理解している**と訂正された —— **今度は私が逆方向へ行き過ぎた**。**そして 2026-09-23 に 7 度目が来た —— 今度は過小の側で、しかも一次資料を手元に持ったままだった。** steward の 2026-09-14 の手紙は **2026-09-15 から `rounds/` に逐語で在り**、*"I then told the AI that I wanted my own license to aim for external approval … **I gave the goal, and the AI generated and developed the license**"* と述べている。**「『ライセンスを作る』という判断自体、人間は出していない」は誤りだった**（`against.md` #216）。**上の 3 度目・4 度目の記述は、この訂正によって否定されている。歴史として残すが、事実として読まないこと。** **5 回は過大に、6 回目と 7 回目は過小に書いた**のだから、教訓は「一方向に偏る」ではなく、より単純に —— **人間が何をしたかを、確かめずに書いていた**。書けるのは **(a) 本人が述べたこと / (b) リポジトリに証跡があること**の 2 つだけで、どちらでもないなら**その文は書かない**（「した」とも「していない」とも書かない）。
 
 ### A2. 実使用が 1 件しかない
 

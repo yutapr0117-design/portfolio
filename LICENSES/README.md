@@ -57,6 +57,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | **草案を我々自身が掃引して出たもの** | [`ACD-1.1-SELF-AUDIT.md`](ACD-1.1-SELF-AUDIT.md) |
 | **改訂サイクルの手順（長期戦の骨格）** | [`REVISION-PROTOCOL.md`](REVISION-PROTOCOL.md) |
 | **盲点の探し方（どの次元をまだ測っていないか）** | [`BLIND-SPOTS.md`](BLIND-SPOTS.md) |
+| **その適用の日次ログ（いつ何を使い、何が出たか）** | [`BLIND-SPOTS-LOG.md`](BLIND-SPOTS-LOG.md) |
 | **同時代 instrument の経過観察（OpenMDW / ModelGo）** | [`PEER-REVIEW-WATCH.md`](PEER-REVIEW-WATCH.md) |
 | 提出用の英文一式（**送るだけ**） | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) |
 | 提出文の背後にある参考資料（**貼らない**・§1〜§5） | [`ACD-1.0.submission-reference.md`](ACD-1.0.submission-reference.md) |

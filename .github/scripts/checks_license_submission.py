@@ -496,6 +496,46 @@ def run(ctx):
                 continue
             _bad473.append(f"{_f473.split('portfolio/')[-1]}: {_p473.strip()[:90]}")
 
+    # ── 473b: 2026-09-23 に事実として否定された文が、現在形の面へ戻らないこと ──────────
+    # **`against.md` #216。** steward の 2026-09-14 の手紙（`rounds/2026-09-15-…round3.txt`）は
+    # *"I then told the AI that I wanted my own license to aim for external approval …
+    # I gave the goal, and the AI generated and developed the license"* と述べており、
+    # **我々が 8 日間publish していた「人間は作る判断をしていない」「頼んでいない」
+    # 「AI がリポジトリにライセンスが要ると判断した」は誤りだった。**
+    # **473 本体は「否定の半分だけで現れるな」を守るが、否定そのものが偽になった場合は見ない。**
+    # ⚠ **射程は「現在の言明として読まれる 4 面」に限る。** `against.md` や
+    #   `review-responses.md` の是正史はこれらの句を**歴史として**引くので、そこまで禁じると
+    #   履歴を消す圧力になる（#977 と同じ線引き）。`rounds/` は無改変保存ゆえ当然に対象外。
+    _cur473b = ["LICENSE", "LICENSES/REVIEWERS.md",
+                "LICENSES/ACD-1.0.submission.md", "LICENSES/ACD-1.0.submission-reference.md"]
+    _dead473b = ("did not ask for it", "not commissioned",
+                 "determined that the repository needed a licence",
+                 "did not commission it")
+    _bad473b = []
+    for _rel473b in _cur473b:
+        _p473b = ROOT / _rel473b
+        if not _p473b.exists():
+            _bad473b.append(f"{_rel473b}: 存在しない (射程が drift したら Check を直せ)")
+            continue
+        _t473b = re.sub(r"\s+", " ", _p473b.read_text(encoding="utf-8", errors="replace"))
+        for _d in _dead473b:
+            if _d in _t473b:
+                _bad473b.append(f"{_rel473b}: 否定済みの句 {_d!r}")
+        # 肯定側（目的の出所）が在ること。**消して黙らせる経路も塞ぐ。**
+        if "aim at external approval" not in _t473b and "aim for external approval" not in _t473b:
+            _bad473b.append(f"{_rel473b}: 目的の出所（人間が外部承認を目指すと述べたこと）が無い")
+    check(
+        not _bad473b,
+        f"Check 473b: 現在形の来歴 {len(_cur473b)} 面に、否定済みの句 0 件・目的の出所あり",
+        (f"Check 473b: {_bad473b}。**2026-09-23 に steward 本人が訂正した** —— "
+         "ライセンスを持つ判断と上位の方向づけは人間発であり、"
+         "*\"the agent determined that the repository needed a licence\"* 等は事実として誤り "
+         "(`against.md` #216)。**順序は 3 段** —— 人間発の目的・上位設計 → "
+         "AI による具体的な法的設計と起草 → 委任下の自走による発展・一般化。"
+         "**「後から知った」を書くなら対象を 3 段目に明示せよ**"),
+        blocking=True,
+    )
+
     check(
         not _bad473 and not _unread473,
         f"Check 473: 来歴の開示 {len(_files473)} file、否定の半分だけで現れる段落 0 件",
