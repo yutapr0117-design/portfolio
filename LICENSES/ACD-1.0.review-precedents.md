@@ -807,7 +807,8 @@ Dedicator を *"to the extent that person or entity holds or may hold Covered Ri
 - 同じスレッドに **"International License category"** の語が在り、
   *"err on the side of strictness concerning the certified translation requirement,
   at least until we get more experience with the International License category"* と述べられている。
-- **スレッドは 2015-11-04 で止まっている**（2015-11 / 2015-12 のアーカイブは取得済みで、以降は無い）。
+- **スレッドは 2015-11-04 で止まっている。**
+  **⚠ 最初にこう書いたとき、corpus には 2016 年が丸ごと欠けていた** ——2015 と 2017 は在り、**続きが在るなら在る場所だけが穴だった**。**同日に 2016 年の両リストを取得して 測り直した**: 21 か月を取得（3 か月は月次 file 自体が存在せず 404）、**TOPPERS の言及は 0 件**。**「止まっている」は、いま 2015〜2016 を通して測った上での主張である。**
 
 ### ⚠ 確立しないこと
 
