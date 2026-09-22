@@ -23,15 +23,16 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 
 > **English:**
 >
-> Yes — and the reality goes further than the question. **The text was drafted by an
-> AI agent operating autonomously in this project. I did not write it, I did not
-> direct the drafting, and I did not ask for it — but the direction of the licence
-> was mine.** The agent determined that the
-> repository needed a licence, designed one, and wrote it. I learned that it existed
-> afterwards.
+> Yes, and the answer has three stages rather than one. **I decided to have a licence of
+> my own and said that it should aim at external approval; I gave the goal and the
+> top-level direction.** I did not write a legal specification and I did not supply a list
+> of legal requirements. **An AI agent generated the concrete legal design and the text
+> and developed it further under my standing delegation.** **The name ACD-1.0, the
+> generalised instrument, this packet and the review apparatus took shape during that
+> delegated work, and I came to know their concrete state afterwards.**
 >
-> **The suggestion that it be submitted for review as an independent licence also came
-> from an AI, not from me.** I acted on that advice.
+> **So the decision to have a licence, and the direction it should take, are mine; the
+> concrete legal design and every clause are the agent's.** I did not write any of them.
 >
 > I should be precise about what I did and did not read. **I do not review the repository**
 > — the project runs autonomously and what reaches me is a summary, not the files. **The
@@ -39,10 +40,10 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 > I am not asking you to review something I have not read; I am telling you I did not
 > write it.
 >
-> What is mine is this: the licence is applied to **my** work, I decided to keep it, I read
-> it, I acted on the recommendation to bring it here, and I answer for it. I am the
-> Dedicator and the steward — but at no point was I its author, and I would be
-> misrepresenting it if I let you think otherwise.
+> What is mine is this: the goal and the top-level direction were mine, the licence is
+> applied to **my** work, I decided to keep it, I read it, I brought it here, and I answer
+> for it. I am the Dedicator and the steward — **but I did not write its clauses**, and I
+> would be misrepresenting it if I let you think otherwise.
 >
 > If the provenance makes you weigh the text more sceptically, that is the correct
 > response, and it is why everything in it that can be checked without trusting anyone is
@@ -519,15 +520,17 @@ related to ACD-1.0**."* ——**返信済み。2026-09-10 時点でその返信�
 - **公開通知（09-09）が我々だけについてであること。** 通知は名前を出していない。
   **言えるのは「同じ問いを 2 日前に、直接、名指しで受けた」までである。**
 - **✅ 3 番目の答えと §E.1 の食い違いは解消した（2026-09-10）。** §E.1 は
-  *"I did not direct the drafting"* とだけ述べ、**steward が方向を決めたことに触れていなかった。**
+  *"I did not direct the drafting"*（**訂正済みの旧文。#125 → さらに #216**）とだけ述べ、
+  **steward が方向を決めたことに触れていなかった。**
   **誤っていたのは返信ではなく我々の公開文である**（§E.1 は AI が書いた）。
-  steward の確認を得て 4 ファイルを *"I did not write it and I did not ask for it; the drafting was
+  steward の確認を得て 4 ファイルを（**この句も 2026-09-23 に #216 で訂正された旧文である**）
+  *"I did not write it and I did not ask for it; the drafting was **（#216 で訂正済みの旧文）**
   not directed by me, **but the direction of the licence was mine**"* へ直した（`against.md` #125）。
 - **🔴 そしてその訂正も足りていなかった（2026-09-23・`against.md` #216）。** 2026-09-14 の
   steward の手紙 —— **2026-09-15 から `rounds/` に逐語で在った** —— は
   *"I then told the AI that I wanted my own license to aim for external approval … **I gave the
   goal, and the AI generated and developed the license**"* と述べており、**我々が公開していた
-  「『ライセンスを作る』という判断自体、人間は出していない」「人間は存在を後から知った」は
+  「『ライセンスを作る』という判断自体、人間は出していない」「人間は存在を後から知った」は（**訂正済みの旧文・#216**）
   誤りだった。** **一次資料を 8 日間持ったまま、それと矛盾する文を提出パケットに載せていた。**
   現行は 3 段（**人間発の目的・上位設計 → AI による具体的な法的設計と起草 → 委任下の自走に
   よる発展・一般化**）で、**「後から知った」の対象は 3 段目に限定して明示してある。**

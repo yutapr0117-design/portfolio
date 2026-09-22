@@ -7,6 +7,14 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0
 
 # LICENSES/rounds/2026-09-07-offlist-nick-vidal-moderator-exchange.txt
 
+
+> **🔴 2026-09-23: この file の本文は撤去された。**
+> steward の指示により、**第三者（OSI moderator）の off-list 私信の全文を公開リポジトリに置かない**
+> 方針を実装した（`against.md` #217）。**やり取りが在ったこと・日付・向きは残してある**
+> ——それを消すと接触量を実態より小さく見せることになり、`rounds/` が防ぐために在る失敗そのものになる（#89）。
+> **⚠ git 履歴には残っている。** 履歴の書き換えはこのリポジトリでは行わない。
+> **⚠ 費用**: この本文に依拠していた逐語引用は、**リポジトリ内では検証できなくなった。**
+
 ## What
 
 **moderator（Nick Vidal 氏）と steward の往復、逐語 2 通。** 2026-09-07、**公開通知の 2 日前**に、
