@@ -1,0 +1,285 @@
+Source:   オーナーから受領（2026-09-22）。外部の AI によるレビュー結果。
+Received: 2026-09-22
+Subject:  ACD-1.2 DRAFT-1 徹底レビュー統合レポート
+Note:     我々が依頼したものではない。オーナーが別の AI に読ませた結果を、そのまま渡した。
+          レビュー対象として渡された ACD-1.2-DRAFT_1.txt は、受領時点の
+          LICENSES/ACD-1.2-DRAFT.txt と sha256 が一致する (1356b2b01396be4f4ff871bcc073599aee
+          164cc39ffbb7684c499d326cc59c72) —— **この評は現行の byte に当たっている。**
+          読みと採否は LICENSES/ACD-1.0.against.md #207 と
+          LICENSES/ACD-1.2-CHANGELIST.md へ。ここには分析を書かない (規則 2)。
+
+----- begin verbatim -----
+# ACD-1.2 DRAFT-1 徹底レビュー統合レポート
+
+- 対象: `ACD-1.2-DRAFT-1.txt`
+- 目的: OSI承認を最終目標とするライセンス草案について、条文品質、実装可能性、OSI申請準備を統合評価する
+- 性質: 本書は文言・制度設計・申請戦略のレビューであり、法的助言ではない
+- 作成日: 2026-09-22
+
+## エグゼクティブ判断
+
+ACD-1.2は、AI学習・TDM・モデル生成物・特許・機械生成物を明示対象にし、権利放棄、無条件ライセンス、不行使誓約を独立・累積で置く、思想的一貫性の高い草案である。[file:1]
+
+ただし、現時点での最優先課題は「法的レビューを取得すること」ではない。OSI承認を目指すなら、OSD適合、既存承認ライセンスで埋まらない必要性、文言の明確性、ライセンス増殖への反論、公開レビューでの応答可能性を揃えることである。[page:1]
+
+外部の法的レビューは、OSI申請の形式的必須要件ではない。OSIの新規ライセンス申請では、法的レビューを受けている場合にその内容を説明することが求められるが、未実施であること自体が申請不能を意味しない。[page:1]
+
+## 前提の確認
+
+対象ファイルは、ACD-1.2を「DRAFT」「NOT IN FORCE」「NOT SUBMITTED」「NOT APPLIED TO THIS REPOSITORY」と明示し、法的レビュー未実施であることも記載している。[file:1]
+
+本文は、ACD-1.1との同一性を述べながら、E22からE30までの実質変更、語数の増加、条項数の増加も列挙している。この記述は草案の基準版と差分範囲を不明確にするため、公開レビュー前に直すべきである。[file:1]
+
+## 強み
+
+### 三層の許諾構造
+
+Section 3はCovered Rightsの放棄、Section 4はライセンス、Section 5は不行使誓約を定め、Section 2.4はそれらを独立・累積の根拠として扱う。[file:1]
+
+Section 4.4は、放棄が有効かを利用者に判断させず、Section 4のライセンスが独立して効くことを明示する。この設計は、法域差による受領者の判断負担を下げる狙いとして強い。[file:1]
+
+### AI利用の明示性
+
+Computational Useは、TDM、抽出、索引化、学習、微調整、評価、アラインメント、蒸留に加え、モデル、パラメータ、重み、埋め込み、出力の作成・配布・利用まで含むと定義されている。[file:1]
+
+Section 6はAI・TDM利用を明示許可し、Section 8.4は当該利用に関わる特許リスクにも対応しようとする。これは、AI利用の可否を曖昧にしないというACD固有の主張になる。[file:1]
+
+### 無条件性の一貫性
+
+Section 4.3およびSections 10.1–10.4は、帰属、通知保持、ソース公開、同一ライセンス、用途、利用者属性、終了条件を課さない方針を明確にしている。[file:1]
+
+この設計はOSDの派生物、個人・団体、利用分野、他ソフトウェアに関する制限禁止と整合させやすい。[page:1][file:1]
+
+## P0: 公開前に直すべき点
+
+### 草案ステータスの矛盾
+
+冒頭にはACD-1.1と版番号・識別子以外は同一である旨があるが、その後に多数の条文変更、5,051語から5,207語への増加、78条から80条への増加が記載される。[file:1]
+
+この矛盾は、固定本文・差分・レビュー対象を曖昧にし、厳密なバージョニングを掲げる文書の信頼性を損なう。
+
+**推奨文案**
+
+```text
+Status: Draft 1. Not in force. Not submitted. Not applied to this repository.
+
+Base text: ACD-1.1, identified by [hash].
+This draft incorporates the substantive changes listed in
+ACD-1.2-CHANGELIST.md. Except for those changes and version identifiers,
+the operative text is identical to ACD-1.1.
+
+Open issues: E6, E10.
+Review status: No external legal review has been completed.
+```
+
+### Contributionの実務設計
+
+Section 2.6は、意図して提出されたContributionを原則としてACDの下に置き、提出者をその寄与分のDedicatorとする。[file:1]
+
+しかし、PR、Issue内コード、Botの自動投稿、フォークからのマージ、雇用成果物、共同著作物、第三者素材の混入について、誰に権限があり、何をACD対象と扱うかが十分に確定していない。
+
+**推奨対応**
+
+- `CONTRIBUTING.md`で対象チャネル、Bot、除外意思表示、提出権限を定義する
+- `NOTICE`で非ACD素材のパス、ハッシュ、権利状態、取得元を示す
+- `REUSE.toml`、SPDXファイル情報、SBOMなどでファイル単位の権利状態を表現する
+- CIでライセンス不明・第三者由来・除外指定の素材を検査する
+- DCOまたはCLAを採用するか、採用しないならその理由と代替統制を明示する
+
+**条文の方向性**
+
+```text
+A Contribution is material intentionally submitted by a person
+with authority to submit it for inclusion in the Work, through a
+channel designated by the Dedicator for that purpose.
+```
+
+### Section 16.2の適用意思
+
+Section 16.2は、名称、ACD-1.2識別子、SPDX表記またはLicenseRef表記が伴うだけで、本文が同梱されなくても条項が完全に適用されると定める。[file:1]
+
+第三者による誤表示、依存関係ツールによる推測タグ、比較記事・テスト素材での名称参照まで含むように読めるため、適用する権限者の意思を要件にするべきである。
+
+**推奨文案**
+
+```text
+Where a person with authority to apply this Dedication to a Work
+indicates that intent by using the identifier ACD-1.2, an applicable
+SPDX expression, or an equivalent notice, that indication is
+sufficient notice of these terms.
+```
+
+## P1: OSI審査で重点的に説明すべき点
+
+### ライセンス増殖への回答
+
+OSIは、既存ライセンスとの不必要な重複を避け、既存ライセンスでは埋められないギャップを示すことを新規ライセンス審査の中核に置いている。[page:1]
+
+ACDは、CC0、0BSD、MIT-0、Apache-2.0などと比較し、次の論点を個別に示す必要がある。
+
+- AI学習・TDMに対する明示許可
+- Reservation、robots directive、類似の機械可読なオプトアウト信号への立場
+- モデル、重み、埋め込み、出力に関する明示性
+- 特許ライセンスと不行使誓約の組合せ
+- 機械生成物に権利が存在しない／後に存在するとされる場合の両対応
+- 無条件かつ非終了型の設計
+
+### Section 8.4の範囲
+
+Section 8.4は、Computational Useおよびそこから生じたモデル、パラメータ、重み、埋め込み、出力に関して侵害されるDedicatorの特許請求項を広く許諾する。[file:1]
+
+これはACDの主要な独自性になり得るが、`output`、`resulting from`、因果関係、将来の特許請求項、`controlled`の意味が審査上の焦点になる。
+
+**決めるべき政策選択**
+
+- AI利用に関する特許不安の最大除去を優先するなら現行の広さを維持する
+- 組織採用の予測可能性を優先するなら、出力を切り分けるか、対象を「当該Computational Useにより侵害される範囲」として再定義する
+- どちらを選んでも、具体例と非適用例をFAQで示す
+
+### Section 6.2と6.3
+
+Section 6.2はDedicatorに関係する信号をReservationとして読まないとし、Section 6.3は第三者権利者のReservationを撤回できないと認める。[file:1]
+
+両者が矛盾するように見えるため、Dedicator由来の信号と第三者由来のReservationを明示的に分離する。
+
+```text
+No signal placed by or on behalf of the Dedicator is a Reservation
+of the Dedicator's rights in the Work.
+
+A Reservation made by another rightsholder is not withdrawn or
+defeated by this Dedication. The Dedicator disclaims reliance on
+such a Reservation to the extent of the Dedicator's own rights.
+```
+
+### Section 16.4とStewardship
+
+Section 16.4は、改変版をACD名またはACD系列識別子で配布することを制限し、名称と識別子が固定本文を表すようにする。[file:1]
+
+狙いは妥当だが、Section 16.5のStewardの継承、停止、共同管理、移転公表、採番権限、緊急改訂、商標との関係を別のガバナンス文書で定める必要がある。
+
+## P2: 文言・構造の改善
+
+### 規範文と理由説明の分離
+
+Sections 8.3、8.4、9.4、11.4、12.4、16.4などは、法的効果と設計理由・反対解釈への反論を同じ本文に置いている。[file:1]
+
+草案討議には有益だが、最終ライセンスでは解釈上のノイズ、翻訳負荷、文章量を増やす。規範文を本文に残し、理由はRationaleへ移す。
+
+### 定義と参照の精度
+
+`automated system`、`substantial part`、`output`、`rightsholder`、`controlled`などは重要だが、未定義または広い。[file:1]
+
+すべてを定義する必要はないが、重要な境界事例はFAQで明示し、Section 8.6の「the patent claims that Section describes」は「the applicable one of Sections 8.1 and 8.4」とするなど、参照先を特定する。
+
+### 可読性
+
+本文には、長文、連続した理由説明、`a / b / c`の列挙、句読点が少ない箇所がある。[file:1]
+
+最終配布物は、整形済みプレーンテキストとMarkdownを同一内容で管理し、ハッシュを公開する。各号を段落として分離し、PDFを提供する場合も正本のプレーンテキストと相互参照させる。
+
+## 「制限なし」と法的レビュー
+
+利用者に条件を課さないことと、文書が意図どおりに効くかを検討しなくてよいことは別である。Section 10は利用者の義務を否定するが、権利帰属、第三者権利、寄与者の権限、人格権、特許、承継、データ保護の問題を消すものではない。[file:1]
+
+ただしOSI承認を最終目標とする場合、外部弁護士による事前法的レビューは形式的必須要件ではない。重要なのは、未実施なら透明に申告し、公開のライセンスレビューで寄せられる法的・制度的な問いに、条文・比較・ユースケースで応答できることだ。[page:1]
+
+CC0のような無条件のパブリックドメイン文書も、放棄が効かない場合の無条件ライセンスを備えつつ、権利帰属や非侵害などを保証しないことを明示している。無条件の許諾は、リスク不存在の保証ではない。[web:2][web:4]
+
+## OSI申請パッケージ
+
+### 必須級の成果物
+
+- `ACD-1.2.txt`: 正本。固定された完全な英語テキスト
+- `ACD-1.2.md`: 可読版。正本とのハッシュ一致を明記
+- `ACD-1.2-CHANGELIST.md`: 1.1からの規範的変更と非規範的変更
+- `ACD-1.2-RATIONALE.md`: 条項別の設計理由
+- `ACD-1.2-FAQ.md`: 導入者・利用者・企業法務・AI開発者向けQ&A
+- `ACD-1.2-ADOPTION.md`: NOTICE、混在物、寄与、SPDX、CIの導入手順
+- `ACD-1.2.machine.json`: 機械可読記述。本文ハッシュとリリース状態を含める
+- `GOVERNANCE.md`: Steward、継承、採番、改訂、緊急対応
+- `OSD-MAPPING.md`: OSD各項目と該当条文の対応
+- `COMPARISON.md`: CC0、MIT-0、0BSD、Apache-2.0等との比較
+- `USE-CASES.md`: ソフトウェア、データセット、モデル補助データ、AI生成ドキュメントの適用例
+
+### OSDマッピングの骨子
+
+| OSD論点 | ACDでの主な根拠 | 留意点 |
+|---|---|---|
+| 自由な再配布 | §§4.1–4.5、10.1–10.2 | ライセンステキストの名称規則はWorkの利用制限ではないと整理する |
+| ソースコード | §§4.1–4.3、10.2 | ソース開示を求めない |
+| 派生物 | §§4.1–4.5 | 派生物の任意条件での配布を許す |
+| 個人・団体非差別 | §4.3 | 明示的に利用者属性を条件にしない |
+| 利用分野非差別 | §4.3、§6.1 | 商用AI利用も許可する |
+| 他ソフトウェアへの制限なし | §§4.5、10.1 | 再配布者の追加条件と元の許諾を区別する |
+
+## OSI提出文の叩き台
+
+```text
+ACD-1.2 is submitted as a new license intended for works that are
+meant to be learned from, including software, documentation, data,
+and machine-generated material.
+
+It grants unconditional permissions through three independent and
+cumulative mechanisms: public-domain dedication where effective,
+a worldwide perpetual license, and a covenant not to assert. It also
+expressly addresses computational use, text and data mining, model
+training, and patent claims implicated by those uses.
+
+The license imposes no attribution, notice-retention, source-disclosure,
+reciprocity, field-of-use, user-identity, or termination condition on
+recipients. It is intended to comply with the Open Source Definition.
+
+The gap addressed is not merely permission to copy software. The text
+is intended to provide a machine-readable and explicit permission model
+for AI-related use and a patent backstop without imposing obligations
+on recipients.
+
+No external legal review has been conducted as of submission. The
+license has undergone public clause-by-clause review, with a public
+changelog and self-audit. The submitter welcomes legal and technical
+analysis during the OSI License Review process.
+```
+
+## 90日アクションプラン
+
+### フェーズ1: 本文固定（1–2週）
+
+- 冒頭メタ情報の矛盾を解消する
+- §2.6、§6.2–6.3、§8.6、§16.2を修正する
+- E6の結論を出し、§8.4の出力への特許許諾範囲を固定する
+- 版番号、識別子、正本ハッシュ、機械可読記述を揃える
+
+### フェーズ2: 申請資料作成（2–4週）
+
+- OSD-MAPPING、COMPARISON、RATIONALE、FAQを作る
+- 既存ライセンスとの差分を「AI利用」「特許」「機械生成物」「無条件性」に分ける
+- 悪用・誤適用・混在物・第三者Reservationのユースケースを公開する
+- Stewardshipとバージョニングの運用規則を固定する
+
+### フェーズ3: 敵対的公開レビュー（4–8週）
+
+- OSS法務、企業コンプライアンス、AIデータセット運用、SPDX、パッケージ管理、リポジトリ保守の観点でレビューを依頼する
+- 指摘をIssue化し、採否・理由・本文への反映を追跡可能にする
+- 本文を変える場合は、毎回ハッシュ・変更理由・差分を公開する
+
+### フェーズ4: OSI提出（固定後）
+
+- 固定本文のみを提出する
+- 申請中の本文変更は、OSIの手順に従い改訂版として扱う
+- 提出者が継続して質問に応答できる体制を確保する
+
+## 最終判定
+
+ACD-1.2は、AI時代の無条件コモンズを目指す文書として、論点設定と構造に独自性がある。[file:1]
+
+OSI承認を目標とするなら、事前の外部法的レビューの有無を成功条件と捉えるべきではない。成功条件は、固定された本文、OSDへの明確な対応、既存ライセンスとの差分の必然性、曖昧さへの先回り、公開レビューへの継続的な応答、そしてライセンス増殖への説得的な反論である。[page:1]
+
+最大の改善余地は、条文をさらに増やすことではなく、適用意思、寄与物、第三者権利、AI出力特許、名称ガバナンスの境界を明確にし、本文・根拠・導入運用を別成果物へ分離することにある。[file:1]
+
+## 参照
+
+- 対象草案: `ACD-1.2-DRAFT-1.txt` [file:1]
+- OSI, The License Review process: https://opensource.org/licenses/review-process [page:1]
+- OSI, How the OSI checks if new licenses comply with the Open Source Definition: https://opensource.org/blog/how-the-osi-checks-if-new-licenses-comply-with-the-open-source-definition [page:1]
+- Creative Commons, CC0 1.0 Universal Legal Code: https://creativecommons.org/publicdomain/zero/1.0/legalcode.en [web:2]
+- Creative Commons, CC0 FAQ: https://wiki.creativecommons.org/wiki/CC0_FAQ [web:4]

@@ -47,7 +47,11 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **468d は別の危険を見る** —— **この instrument が新規である理由は §6 / §8.4 / §9 の 3 点**
        であり（register B10）、**次版で「短くする」圧力がかかったとき最初に削られうるのがここである。**
        §6 と §9 は 1.0 と等価であること、§8.4 は射程語（model / parameter set / weight /
-       embedding / output）が残っていることを求める。**正当な改訂は止めず、静かな喪失だけを止める。** (BLOCKING)
+       embedding / output）が残っていることを求める。**正当な改訂は止めず、静かな喪失だけを止める。**
+       **468e は「まだ open な errata」の宣言を errata の現物と照合し、468f は冒頭が主張する
+       「1.1 との同一性」をすぐ下の変更一覧と照合する** ——**どちらも「やることリストは項目を
+       消化した瞬間に古くなり、消化しているその瞬間こそ一覧を見ていない」class** で、
+       468f は **2026-09-22 に外部の AI レビューが見つけた** (`against.md` #207)。 (BLOCKING)
   473. **来歴の開示が、否定の半分だけで現れないこと** (BLOCKING): steward は
        *"the drafting was not directed by me, **but the direction of the licence was mine**"*
        と述べており、2026-09-14 (#125) に開示を**両方の半分を持つ形**へ訂正した。
@@ -388,6 +392,40 @@ def run(ctx):
                         f"preamble の「Still open」が errata と食い違う: "
                         f"宣言のみ {sorted(_declared468 - _openset468)} / "
                         f"errata のみ {sorted(_openset468 - _declared468)}")
+
+        # ── 468f: 草案の冒頭が主張する「1.1 との同一性」が、すぐ下の変更一覧と整合すること ──
+        # **2026-09-22 に外部の AI レビューが見つけた** (`against.md` #207)。status block が
+        # *"It is at present identical to ACD-1.1 apart from the version number and the
+        # identifiers that name it"* と述べたまま、**すぐ下に E22〜E30 の 9 件が並び、同じ
+        # ヘッダが 5,051→5,207 語・78→80 条と申告していた。**
+        # **468c は申告した数を守り、468e は open な errata の一覧を守っていたが、
+        # 「自分は前版と同一である」という文だけは、どの face も見ていなかった。**
+        # 害は文言ではない ——`ACD-1.1-SELF-AUDIT.md` の同一性監査が **この文を根拠として引いて
+        # おり**、偽になった文の上に「§16.2 の変更は宣言済み」という結論が載っていた。
+        # **⚠ 片側だけ禁じない。** 変更一覧が空のときに同一性の主張を*消して*黙らせるのも
+        # 同じ drift なので、両向きで要求する（空なら述べよ・空でないなら述べるな）。
+        _hdr468f = _t468.split(_sep468, 1)[0] if _sep468 in _t468 else _t468
+        _blk468f = re.search(r"Changes in this draft[^:]*:(.*?)(?:\n  Still open|\Z)",
+                             _hdr468f, re.S)
+        if _blk468f is None:
+            _bad468.append("冒頭に「Changes in this draft」の一覧が無い "
+                           "(空でも見出しは残すこと。消して黙らせない)")
+        else:
+            # 末尾の語数・条数 bullet は変更ではないので数えない。
+            _items468f = [_b for _b in re.findall(r"^    \* (.*)$", _blk468f.group(1), re.M)
+                          if not re.search(r"words, \d+ clauses", _b)]
+            _claim468f = re.search(r"is (?:at present )?identical to ACD-1\.\d", _hdr468f)
+            if _items468f and _claim468f:
+                _bad468.append(
+                    f"冒頭が「1.1 と同一」と述べているのに変更一覧に {len(_items468f)} 件ある "
+                    f"({_claim468f.group(0)!r})。**同一性の主張は一覧が空のときだけ真である。** "
+                    "一覧に項目が在るなら「下に列挙した変更と版数識別子を除いて 1.1 の本文である」"
+                    "の形にすること (`against.md` #207)")
+            if not _items468f and not _claim468f:
+                _bad468.append(
+                    "変更一覧が空なのに、冒頭が 1.1 との同一性を述べていない。"
+                    "**空であることは黙っていてよい理由ではない** ——読み手には "
+                    "「まだ変えていない」と「記録が無い」の区別がつかない")
 
         check(
             not _bad468,

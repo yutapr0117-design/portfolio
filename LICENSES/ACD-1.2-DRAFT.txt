@@ -10,9 +10,11 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
     * It has had no legal review, like 1.0 and 1.1.
     * It has not been posted to any list, and posting is paused (see
       LICENSES/ACD-OSI-BOTTLENECKS.md B14).
-    * It is at present identical to ACD-1.1 apart from the version number and
-      the identifiers that name it. **An empty change list below means nothing
-      has been changed yet -- not that the record is missing.**
+    * Apart from the changes listed below, and the version number and the
+      identifiers that name it, the operative text is ACD-1.1's. **An empty
+      change list below means nothing has been changed yet -- not that the
+      record is missing; a list with entries in it is the whole of the
+      difference.**
     * Clause numbers follow ACD-1.1, not ACD-1.0. Citations to 1.0 must keep
       using the 1.0 text, and citations to 1.1 the 1.1 text.
     * Changes will be recorded in LICENSES/ACD-1.2-CHANGELIST.md, and defects
