@@ -890,3 +890,56 @@ Endeavor clause. **I wrote that clause.**"* ——ACD-1.0 §4.3 / §10.1 は利�
 **⚠ さらに**: 上の 3 件が効くのは**「ACD が終了を持たないのは設計である」の説明**であって、
 **終了を持たないこと自体の正当化ではない**（それは #46 が費用込みで記録している）。
 
+## 1.107 第 4 系統を初めて通した —— OpenMDW / ModelGo 審査を「設計の作業」として読む（2026-09-22）
+
+**#205 で経路を開いた。ここはその最初の通し。** 対象は `license-review` の OpenMDW 審査
+（**85 通・85,884 語・2026-08-13〜08-31** と 9 月の続き）と ModelGo。
+**読み方は「この反論は我々に当たるか」ではなく「彼らが作業した結果は何か」。**
+
+### (A) 委員長の一般則 —— 冗長な条項は無害ではない。そして ACD は最後の鎖で切れている
+
+> *"The licensor has a typical statement that the materials are provided as-is (and disclaimers of
+> warranty and liability) so the above clause is, in my opinion, **redundant or unnecessary**.
+> **The problem with having it is that it can be construed as a positive duty under the license
+> which can be breached, terminating the license.** This seems problematic; **no other widely used
+> open source license come to mind that impose burdens beyond the license notice, attribution and
+> copyleft**."*
+> —— Pamela Chestek 氏・`license-review` 2026-08-16（佐渡氏が 08-19 に同じ段落を引いて議論を続けた）
+
+**一般則**: **冗長 → 義務と構成されうる → 破られうる → 終了する。**
+
+**ACD-1.0 への当たり方**: **最後の鎖が存在しない。§10.4 は終了条項を持たず、
+*"contains nothing that You could breach"* と述べる。** したがって
+**この一般則が向かう先は ACD では起きない。**
+
+**⚠ ただし最初の鎖は残る。** 「冗長な条項が義務と構成されうる」までは当たり、
+**ACD は冗長な条項を意図的に持ち、本文でそう述べている**
+（§4.4 *"this Section is redundant but not void"*、§6.5 *"states expressly what Sections 3 to 5
+would in any event permit"*）。**答えは no-condition mesh**（§10.1 / §10.3 / §10.5 / §11.3 / §11.4 / §16.6）
+**だが、その mesh の 1 文が限定を欠いていることは E9 / #57 が既に記録している。**
+
+**⚠ そして「他の広く使われる OSS ライセンスは notice / attribution / copyleft を超える負担を課さない」
+という後段は、ACD には**有利**に当たる** ——**ACD はそのいずれも課さない**（§10.2）。
+
+### (B) 提出者側の設計論 —— estoppel に委ねるか、条文に書くか
+
+> *"a party should not be able to exploit a work while maintaining that the work is unlawful.
+> OpenMDW-1.1 **writes that expectation into the license prospectively and neutrally, for everyone
+> equally, instead of leaving it to after-the-fact estoppel and waiver arguments**."*
+> —— Michael Dolan 氏（OpenMDW steward）・2026-08-24
+
+**ACD-1.0 は反対の側を選んでいる。** §2.5 は **estoppel** そのものである ——
+*"The Dedicator will not assert that this Dedication is revocable … and **is estopped from doing so**"*。
+
+**⚠ 向きが違うので直接の対立ではない。** Dolan 氏が条文化したのは**受領者**に対する期待
+（訴えながら使い続けるな）で、**ACD の §2.5 は Dedicator 自身を縛る**。
+**ACD は受領者に何も課さないので、条文化すべき期待がそもそも無い。**
+**だが「estoppel に委ねるのは弱い」という彼の論は、§2.5 の強さについての問いとして残る**
+——そして **#135（Perens 氏「献呈として読まれ、grantor をどれだけ拘束するか疑問」）と同じ根**である。
+
+### この節が establish しないこと
+
+**どちらも ACD-1.0 について述べられたものではない。** 我々が当てただけである。
+**(A) は我々に有利に働く**ので、**#83 が自分に課した規律（我々宛でないものを我々の証拠にしない）が
+より強く当たる** ——有利な向きだからこそ、確立する範囲を狭く書く。
+

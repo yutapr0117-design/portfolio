@@ -466,6 +466,25 @@ a latin parody of my name."*（逐語は `rounds/2026-09-09-license-discuss-pere
 
 ## B1 + B2 —— この 2 つは、リスト上では**別々ではなく 1 文で**争われている
 
+> **🆕 2026-09-22 追記 —— B2 の板挟みを、委員長自身が「Catch-22」と呼んでいた。**
+>
+> > *"Yes, the review process certainly creates a **Catch-22**. **We want to see licenses early to
+> > correct them, but are less inclined to approve a license that doesn't have a track record.**"*
+> > —— Pamela Chestek 氏・`license-review` 2026-08-26（OpenMDW 審査）
+>
+> **この register は B2 を「解消可能・未実施（discoverability のみ制御可）」と書いてきたが、
+> *その板挟みが OSI の側にも在り、委員長がそう認めている* ことを記録していなかった。**
+> **我々の側の困難としてだけ書いていた。**
+>
+> **⚠ 過大に読まない。** これは「実績が無くても承認する」ではない。
+> **「早く見たいが、実績が無いと承認しにくい」という構造を、承認する側が認めた**だけである。
+> **B2 の disposition は動かない。** 動くのは、**この板挟みが我々の失敗ではなく
+> 手続きの性質である**という一点である。
+>
+> **⚠ 文脈**: これは steward が「本文を改訂しても、既に配布されたモデルは出荷時の文言のまま」
+> と述べたことへの返信であり、**続けて委員長は「steward の見解は契約解釈に関係しないかもしれない」
+> とも述べている**（#124 と同じ論点）。**有利な半分だけを取らない。**
+
 **分けて書かない理由**: ドシエは長らく「法的レビューが無い」(#5 / #79) と「採用が 1 件」(#2) を
 別項目・別回答として持っていた。**リスト上では 1 文で結ばれている**（#113）——
 Lukas Atkinson 氏・`license-review` 2021-02-14:
