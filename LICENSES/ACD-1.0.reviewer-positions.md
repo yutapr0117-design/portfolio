@@ -943,3 +943,56 @@ would in any event permit"*）。**答えは no-condition mesh**（§10.1 / §10
 **(A) は我々に有利に働く**ので、**#83 が自分に課した規律（我々宛でないものを我々の証拠にしない）が
 より強く当たる** ——有利な向きだからこそ、確立する範囲を狭く書く。
 
+
+## §1.99 B14 の moderator が引いた CoC 条項は、その 12 日前に、AI とは無関係に、人間へ向けて引かれていた
+
+**2026-09-22 に、未読スレッドの全数列挙から出た 1 通**（`rounds/2026-08-28-license-review-villa-volume-etiquette-observed.txt`）。
+**件名だけを見て飛ばしていた** —— *"Reminder of list etiquette around volume"* は、
+我々がライセンスの話として探していた語を 1 つも含まない。
+
+> *"a polite reminder that **the list's code of conduct has, since it was first written, asked
+> people to respect each other's precious time by being concise and low-volume**. **The people we
+> most need on this list are those whose time is very precious.**"*
+> —— Luis Villa 氏・`license-review` 2026-08-28（OpenMDW 審査スレッド中、Rob Landley 氏宛）
+
+**B14 の moderator 通知（2026-09-09）が引いたのは、同じ条項である** ——
+*"this behavior goes against the **"Respect time and attention"** from our Code of Conduct"*
+（`rounds/2026-09-09-license-review-osi-moderators-observed.txt`）。
+
+### 何が establish されるか
+
+**(1) この規範は AI のために作られたものではなく、AI とは無関係に運用されている。**
+我々は既に「現行 CoC の実質は簡潔さで、AI への言及は 1 語も無い」を**条文で**確かめていた
+（B14）。**これはその条項が実際に list 上で発動した記録である。** 条文が在ることと、
+社会的に強制されていることは別で、**後者を示す一次資料をこれまで持っていなかった。**
+
+**(2) 同じ機構が、別の人物から独立にもう一度述べられている。** *"The people we most need on this
+list are those whose time is very precious"* は、**委員長が 3,888 語 / 約 4,500 語の提出に
+engage しなかった記録（#116）と同じ論理**である。**#116 は行動からの推定だったが、これは
+明示された規範である。**
+
+### ⚠ 逆側 —— 同じ 1 通が、長さの弁護にもなる
+
+> *"This particular license is **obviously a complex problem and requires complex discussions**,
+> so **the word count is going to be high**, but that's all the more reason to get to the point
+> whenever possible."*
+
+**複雑な instrument について volume が高くなること自体は、この list で正当と述べられている。**
+**ただし述べられているのは*議論*の volume であって、*ライセンス本文*の語数ではない** ——
+**B3（本文 4,896 語）へ流用してはならない。** 括ると片方の測定が他方の弁護に使われる
+（#116 が記録した誤りと同じ形）。
+
+**当たるのは `review-corpus.md` §1.80 の軸**（提出メールの長さ・我々は 94 パーセンタイル）である。
+**§1.80 は「長さは engagement を予測しない（corr = −0.02）」と測った。この 1 通はそれを覆さない**
+——相関が無いことと、規範が存在することは両立する。**変わるのは、短くする理由が
+「返信が増えるから」ではなく「list が明示的にそう求めているから」になる**ことである。
+
+### この節が establish しないこと
+
+**我々について述べられたものではない。** 名指しされたのは Rob Landley 氏で、
+**その文脈には Villa 氏が「他の人に任せる」と述べた人身攻撃の問題が併存している** ——
+**volume の指摘だけを切り出すと、その 1 通の実際の主題を狭く伝えることになる。**
+
+**そして Villa 氏は OSI の役員でも moderator でもない**（末尾の定型文が
+*"The opinions expressed in this email are those of the sender and not necessarily those of the
+Open Source Initiative"* と述べている）。**これは参加者の発言であって OSI の立場ではない。**

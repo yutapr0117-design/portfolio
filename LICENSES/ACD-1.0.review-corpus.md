@@ -562,6 +562,14 @@ on the Dedicator … and so is **not executory**."*
   **我々の 1,272 語はそれより長いが、同じ桁である。**
 - **🔴 それでも 94 パーセンタイルは事実である。** 中央値の 3.6 倍であり、
   **上位 6% に入る長さで出すことは、それ自体が一つの選択である。**
+- **🔴 2026-09-22 追記 —— 相関が無いことは、規範が無いことではない。** この節は
+  *"corr(語数, 返信数) = −0.02"* を根拠に「長いと読まれないはこの記録からは支持されない」と
+  述べている。**その測定は変わらない。** だが 2026-08-28 に **Luis Villa 氏が list 上で
+  CoC を引き**、*"the list's code of conduct has, since it was first written, asked people to
+  respect each other's precious time by **being concise and low-volume**"* と述べている
+  （`reviewer-positions.md` §1.99・`against.md` #208）。**短くする理由は「返信が増えるから」
+  ではなく「list が明示的にそう求めているから」である。** 相関はその要求を測っていない ——
+  **規範に反した参加者が返信を*多く*受け取ることは、規範の不在を意味しない。**
 
 ### 1.80a 独立な corpus で測り直した —— **そして「我々に有利な訂正」の方が誤りだった**（2026-09-20）
 
