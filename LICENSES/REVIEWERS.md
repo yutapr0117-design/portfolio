@@ -7,6 +7,27 @@ canonical-ref: LICENSES/ACD-1.0.txt (the text posted, and the one this repositor
 
 # Reviewing ACD — start here
 
+## The short path, and what it costs you
+
+**You are a volunteer. Nothing here is required reading.** Measured 2026-09-22, this directory
+is **251,824 words** — **51 times the licence** — and the whole of it exists so that a claim we
+make can be checked, **not so that it must be**.
+
+**If you read three things you have checked the parts that decide the question:**
+
+| | words | why |
+| :-- | --: | :-- |
+| [`ACD-1.0.txt`](ACD-1.0.txt) | **4,896** | the licence. Nothing outside it fixes it |
+| the two facts at the top of [`ACD-1.0.against.md`](ACD-1.0.against.md) | ~400 | **no lawyer has read this text**, and **the only project using it is the author's**. Either is a sufficient reason to decline |
+| [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **949** | every objection we found on these lists in 24 months, and whether it lands |
+
+**≈ 6,250 words.** **What you give up by stopping there**: the clause-by-clause reasoning, the
+jurisdiction analysis, and the archive measurements — **all of which are evidence for claims,
+not claims themselves.** The four commands below check the licence text without trusting any
+of it.
+
+---
+
 This page is in English because the discussion is. Most of the supporting analysis in this
 directory is written in Japanese; this page tells you what each document contains so you can
 decide what is worth translating, and gives you the commands to check the claims yourself.
@@ -160,8 +181,8 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
-| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 297 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 200 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
+| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 298 worked entries, indexed by the question rather than the filename |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 201 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 30 known imprecisions, all unrepaired while the freeze holds, with what 1.1 would do |
 | Known weaknesses, longer form | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) | Stated by us, before you have to find them |
