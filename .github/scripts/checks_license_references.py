@@ -31,6 +31,19 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
 
 import re
 
+# **`Check <N>` 参照の単一の読み取り口**（face (c) と face (g) が共有する）。
+# **並びの 2 番目以降まで取るのが要点** ——先頭だけ見る実装は、この repo で
+# 最も普通の書き方（`Check 45 / 70 / 105`）の大半を検証しない。
+_CHECKREF471 = re.compile(r"\bChecks?\s+(\d{1,4})((?:\s*[/,、・]\s*\d{1,4})+)?")
+
+
+def _checknums471(m):
+    """マッチから、先頭と並びの残り全部の番号を返す."""
+    nums = [int(m.group(1))]
+    if m.group(2):
+        nums += [int(x) for x in re.findall(r"\d{1,4}", m.group(2))]
+    return nums
+
 
 def run(ctx):
     """Run the reference-resolution Checks. ctx carries shared check()/ROOT by reference."""
@@ -190,11 +203,46 @@ def run(ctx):
                             or _sid471 in _allnum471):
                         continue
                     _bad471.append(f"{_f471.name}:{_i471} `\u00a7{_sid471}` \u306f\u3069\u306e\u6587\u66f8\u306e\u7bc0\u306b\u3082\u89e3\u6c7a\u3057\u306a\u3044")
-                # (c) Check <N>
+                # (c) Check <N> / Checks <N> / 番号の並び
+                # ⚠ **2026-09-22 に 3 つの穴を実測で塞いだ**（別記法で殴って RED を確かめる掃引）:
+                #   (1) **複数形 `Checks N`** ——素通りしていた。実使用 3 箇所で、**うち 1 つは
+                #       入口ページ `REVIEWERS.md` の「Checks 444, 460」**である。
+                #   (2) **並びの 2 番目以降** ——スラッシュ・カンマ・読点で番号を並べた形は、
+                #       **先頭しか検証されていなかった**（2 番目以降が存在しない番号でも緑）。
+                #       この書き方は規範層で 322 + 29 + 141 箇所使われている。
+                #   (3) 走査範囲は face (g) で広げた（下）。
                 if _max471:
-                    for _m471 in re.finditer(r"Check (\d{1,4})", _l471):
-                        if int(_m471.group(1)) > _max471:
-                            _bad471.append(f"{_f471.name}:{_i471} `Check {_m471.group(1)}` は実装の最大番号 {_max471} を超える")
+                    for _m471 in _CHECKREF471.finditer(_l471):
+                        for _n471 in _checknums471(_m471):
+                            if _n471 > _max471:
+                                _bad471.append(
+                                    f"{_f471.name}:{_i471} `Check {_n471}` は実装の最大番号 {_max471} を超える")
+        # (g) **走査範囲を規範層へ広げる（2026-09-22）。**
+        # face (c) は `LICENSES/` しか見ておらず、**該当参照 約 3,454 件のうち 235 件
+        # （6.8%）しか検証していなかった。** だが face (c) が名指しする害 ——
+        # **「存在しない機械強制を根拠として示す」** —— が最も起きやすいのは
+        # **規範層（check-map / runbook / CLAUDE.md / mirror）**で、そこに 1,654 + 308 + 755 件が在る。
+        # ⚠ **広げる前に誤検出を測った: 3,454 件すべてが最大番号以下で、RED は 0 件。**
+        # ⚠ **`docs/incident-artifacts/` と `docs/session-records/` は対象外** ——
+        # 分割前に書かれた歴史記録であり、書き換えれば履歴を偽る
+        # (`check-repository-consistency-map.md` §2.9 / §2.10 と同じ線引き)。
+        if _max471:
+            _scope471g = sorted(
+                list((ROOT / "docs" / "architecture").glob("*.md"))
+                + [ROOT / "CLAUDE.md", ROOT / ".claude" / "CLAUDE.md"]
+                + [_q for _q in (ROOT / "docs" / "files").rglob("*.md")
+                   if "incident-artifacts" not in _q.parts and "session-records" not in _q.parts])
+            for _q471g in _scope471g:
+                if not _q471g.exists():
+                    continue
+                for _i471g, _l471g in enumerate(_q471g.read_text(encoding="utf-8").splitlines(), 1):
+                    for _m471g in _CHECKREF471.finditer(_l471g):
+                        for _n471g in _checknums471(_m471g):
+                            if _n471g > _max471:
+                                _bad471.append(
+                                    f"{_q471g.name}:{_i471g} `Check {_n471g}` は実装の最大番号 "
+                                    f"{_max471} を超える (規範層 —— 存在しない機械強制を根拠にしている)")
+
         # (f) **`\u00a71.xx` の共有採番が衝突しないこと。** この採番は 4 file に分かれており
         # （comparison / review-precedents / review-corpus / reviewer-positions）、
         # **同じ番号を 2 つの file が使うと、参照は「解決する」のに別の節へ着く。**
