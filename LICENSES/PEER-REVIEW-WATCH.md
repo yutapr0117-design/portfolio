@@ -58,6 +58,20 @@ license-review に実際に投稿しており、その投稿と返信をアー�
 **返信だけを数えると関与を 1 つ落とす。** Shuji Sado 氏は我々宛ではなく list 宛の分析の中で、
 我々の質問を明示的に引いて議論を進めている ——
 *"Yokoi-san's question and Mike's answer help here as well."*（2026-09-04）。
+
+**⚠ 2026-09-22 追記 —— これは一方向ではなく、往復である。** 記録は佐渡氏→我々の 1 件しか
+持っていなかったが、アーカイブを読むと**双方向の実質的なやり取り**になっている:
+
+| 日付 | 誰 | 何を |
+|---|---|---|
+| 2026-09-03 | **佐渡秀治氏 → 我々** | *"**Yokoi-san's question and Mike's answer help here as well.**"* ——我々の問いを議論の土台に使い、OpenMDW の終了条項が database-right / trade-secret 請求では発火しない点へ接続 |
+| 2026-09-04 | **我々 → 佐渡氏** | *"This also seems to sharpen the **nexus-and-proportionality point raised by Sado-san**. Nexus can tell us how closely the claim must relate to the licensed subject matter. Proportionality can tell us whether the consequence is too broad."* ——**名指しで受けて発展させている** |
+| 2026-09-11 | 佐渡氏 | 上の往復を含む本文が再引用され、スレッドが続く |
+
+**さらにこの段落は他者にも引き継がれている** ——Joshua Gay 氏と Pamela Chestek 氏が同じ箇所を引いた。
+
+**⚠ 記録側の欠落**: `nexus` の語は、この掃引まで**分析文書に 1 件も無かった**
+（`against.md` #203）。**我々は「引かれた」ことは数えたが、「引き返した」ことを書いていない。**
 **引用は、返信とも名指しの応答とも別の経路**であり、`In-Reply-To` を追う検出でも宛先照合でも
 拾えない。同氏は AI-MIT / AIAL-1.0 に反対した 3 名の 1 人で、その反対理由は
 `comparison.md` §1.45 が ACD-1.0 に構造上あたらないと分析している当の人物である。
