@@ -293,8 +293,18 @@ def main():
     print(f"  出典に当たれていない引用: {len(miss)}")
 
     if miss:
-        print("\n--- 未確認（全件） ---")
-        for q, locs in list(miss.items())[: (999 if os.environ.get("DOSSIER_ALL") else 15)]:
+        # ⚠ **見出しは実際に出す件数を述べること。** 2026-09-22 まで、この見出しは
+        # 既定でも「未確認（全件）」と名乗りながら **15 件で打ち切っていた** ——
+        # 読み手（実際に踏んだ）は 15 件を分類して「全部が自己引用の強調＝clean」と結論できる。
+        # **`against.md` #180 はこの道具が残差を誤って報告する件だった。同じ族の 2 度目である。**
+        _all = bool(os.environ.get("DOSSIER_ALL"))
+        _shown = list(miss.items()) if _all else list(miss.items())[:15]
+        if _all or len(_shown) == len(miss):
+            print(f"\n--- 未確認（全 {len(miss)} 件） ---")
+        else:
+            print(f"\n--- 未確認（{len(miss)} 件中 {len(_shown)} 件のみ表示 / "
+                  f"全件は DOSSIER_ALL=1） ---")
+        for q, locs in _shown:
             print(f"  [{locs[0]}] {q[:110]}")
         print("\n**未確認 = 誤引用ではない。** 我々自身の文を強調で括ったものと、"
               "まだ取得していない月の両方が入る。**分類してから結論すること。**")
