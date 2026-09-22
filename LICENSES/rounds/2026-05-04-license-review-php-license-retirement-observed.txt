@@ -1,0 +1,267 @@
+Source:   https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-May.txt
+Fetched:  2026-09-22（ブラウザ相当の UA。既取得分のキャッシュから切り出し）
+Thread:   [License-review] Voluntary retirement of the PHP License（2026-05-04・全 4 通）
+参加者:   Ben Ramsey 氏（PHP Group を代表して）/ Nick Vidal 氏（OSI）/ McCoy Smith 氏
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。** 承認済みライセンスが
+          **steward 自身の申し出で retire された 1 例**。OSI 側は歓迎し、Licensing Committee の
+          委員が *"Kudos"* と応じ、**誰も「そういう手続きは無い」とは述べていない。**
+          **ただし提出者自身が *"the process for voluntary retirement isn't described on the
+          OSI website"* と述べ、誰もその手続きを示していない。**
+          読みは LICENSES/ACD-1.0.against.md #209 へ。ここには分析を書かない（規約 2）。
+
+----- begin verbatim -----
+From ben at benramsey.com  Mon May  4 14:58:36 2026
+From: ben at benramsey.com (Ben Ramsey)
+Date: Mon, 4 May 2026 09:58:36 -0500
+Subject: [License-review] Voluntary retirement of the PHP License
+Message-ID: <8FE97D51-963A-49D6-8302-C808108FC4C9@benramsey.com>
+
+On behalf of the PHP Group, I am submitting notice of the voluntary retirement of the PHP License 3.01.
+
+I recently wrapped up a multi-year process, working with the PHP Group, Zend Technologies, and the PHP internals community to invoke clause 5 of the PHP License 3.01[1] to adopt the Modified BSD License as the new version of the PHP License.[2]
+
+As of today, the PHP License 3.01 is no longer used by PHP, and the PHP project discourages use of the license for new works.
+
+See also:
+
+* https://www.php.net/license/
+* https://github.com/php/php-src/blob/master/LICENSE
+
+The PHP License 3.0 is listed on the OSI website as superseded by the PHP License 3.01. Since 3.01 is retired, 3.0 is also voluntarily retired. (The page for 3.0 is stuck in a redirect loop: https://opensource.org/license/php-3.0/).
+
+Since the process for voluntary retirement isn’t described on the OSI website, please let me know if there’s anything else you need from me to complete this process.
+
+Cheers,
+Ben
+
+
+[1]: https://www.php.net/license/3_01.txt
+[2]: https://wiki.php.net/rfc/php_license_update 
+
+From nick.vidal at opensource.org  Mon May  4 15:04:15 2026
+From: nick.vidal at opensource.org (Nick Vidal)
+Date: Mon, 4 May 2026 12:04:15 -0300
+Subject: [License-review] Voluntary retirement of the PHP License
+In-Reply-To: <8FE97D51-963A-49D6-8302-C808108FC4C9@benramsey.com>
+References: <8FE97D51-963A-49D6-8302-C808108FC4C9@benramsey.com>
+Message-ID: 
+ <CAFifBTqfWySwP08L=uB6W1+jb_-Lv6KP1iavHzsEgRVJW+Pt5w@mail.gmail.com>
+
+Hi Ben and the PHP community,
+
+I really appreciate the effort to move this forward. Sharing your blog post
+here to the mailing list and also adding it to OSI's monthly newsletter:
+
+https://ben.ramsey.dev/blog/2026/05/the-php-license-simplified
+
+Warm regards,
+Nick
+
+
+On Mon, May 4, 2026 at 11:59 AM Ben Ramsey <ben at benramsey.com> wrote:
+
+> On behalf of the PHP Group, I am submitting notice of the voluntary
+> retirement of the PHP License 3.01.
+>
+> I recently wrapped up a multi-year process, working with the PHP Group,
+> Zend Technologies, and the PHP internals community to invoke clause 5 of
+> the PHP License 3.01[1] to adopt the Modified BSD License as the new
+> version of the PHP License.[2]
+>
+> As of today, the PHP License 3.01 is no longer used by PHP, and the PHP
+> project discourages use of the license for new works.
+>
+> See also:
+>
+> * https://www.php.net/license/
+> * https://github.com/php/php-src/blob/master/LICENSE
+>
+> The PHP License 3.0 is listed on the OSI website as superseded by the PHP
+> License 3.01. Since 3.01 is retired, 3.0 is also voluntarily retired. (The
+> page for 3.0 is stuck in a redirect loop:
+> https://opensource.org/license/php-3.0/).
+>
+> Since the process for voluntary retirement isn’t described on the OSI
+> website, please let me know if there’s anything else you need from me to
+> complete this process.
+>
+> Cheers,
+> Ben
+>
+>
+> [1]: https://www.php.net/license/3_01.txt
+> [2]: https://wiki.php.net/rfc/php_license_update
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Communication from the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260504/12a3ef14/attachment.htm>
+
+From ben at benramsey.com  Mon May  4 15:19:44 2026
+From: ben at benramsey.com (Ben Ramsey)
+Date: Mon, 4 May 2026 10:19:44 -0500
+Subject: [License-review] Voluntary retirement of the PHP License
+In-Reply-To: 
+ <CAFifBTqfWySwP08L=uB6W1+jb_-Lv6KP1iavHzsEgRVJW+Pt5w@mail.gmail.com>
+References: <8FE97D51-963A-49D6-8302-C808108FC4C9@benramsey.com>
+ <CAFifBTqfWySwP08L=uB6W1+jb_-Lv6KP1iavHzsEgRVJW+Pt5w@mail.gmail.com>
+Message-ID: <1464785C-122C-4308-A79D-5CA8853DCD1B@benramsey.com>
+
+Thanks, Nick!
+
+
+
+> On May 4, 2026, at 10:04, Nick Vidal <nick.vidal at opensource.org> wrote:
+> 
+> Hi Ben and the PHP community,
+> 
+> I really appreciate the effort to move this forward. Sharing your blog post here to the mailing list and also adding it to OSI's monthly newsletter:
+> 
+> https://ben.ramsey.dev/blog/2026/05/the-php-license-simplified
+> 
+> Warm regards,
+> Nick
+> 
+> 
+> On Mon, May 4, 2026 at 11:59 AM Ben Ramsey <ben at benramsey.com <mailto:ben at benramsey.com>> wrote:
+>> On behalf of the PHP Group, I am submitting notice of the voluntary retirement of the PHP License 3.01.
+>> 
+>> I recently wrapped up a multi-year process, working with the PHP Group, Zend Technologies, and the PHP internals community to invoke clause 5 of the PHP License 3.01[1] to adopt the Modified BSD License as the new version of the PHP License.[2]
+>> 
+>> As of today, the PHP License 3.01 is no longer used by PHP, and the PHP project discourages use of the license for new works.
+>> 
+>> See also:
+>> 
+>> * https://www.php.net/license/
+>> * https://github.com/php/php-src/blob/master/LICENSE
+>> 
+>> The PHP License 3.0 is listed on the OSI website as superseded by the PHP License 3.01. Since 3.01 is retired, 3.0 is also voluntarily retired. (The page for 3.0 is stuck in a redirect loop: https://opensource.org/license/php-3.0/).
+>> 
+>> Since the process for voluntary retirement isn’t described on the OSI website, please let me know if there’s anything else you need from me to complete this process.
+>> 
+>> Cheers,
+>> Ben
+>> 
+>> 
+>> [1]: https://www.php.net/license/3_01.txt
+>> [2]: https://wiki.php.net/rfc/php_license_update 
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org <http://opensource.org/> email address.
+>> 
+>> License-review mailing list
+>> License-review at lists.opensource.org <mailto:License-review at lists.opensource.org>
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+> 
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260504/372c8630/attachment.htm>
+
+From mccoy at lexpan.law  Mon May  4 23:19:33 2026
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Mon, 4 May 2026 16:19:33 -0700
+Subject: [License-review] Voluntary retirement of the PHP License
+In-Reply-To: <1464785C-122C-4308-A79D-5CA8853DCD1B@benramsey.com>
+References: <8FE97D51-963A-49D6-8302-C808108FC4C9@benramsey.com>
+ <CAFifBTqfWySwP08L=uB6W1+jb_-Lv6KP1iavHzsEgRVJW+Pt5w@mail.gmail.com>
+ <1464785C-122C-4308-A79D-5CA8853DCD1B@benramsey.com>
+Message-ID: <11a94d8e-a58b-4067-9a77-5d32e5fab512@lexpan.law>
+
+Kudos to the PHP community!
+
+On 5/4/2026 8:19 AM, Ben Ramsey wrote:
+> Thanks, Nick!
+>
+>
+>
+>> On May 4, 2026, at 10:04, Nick Vidal <nick.vidal at opensource.org> wrote:
+>>
+>> Hi Ben and the PHP community,
+>>
+>> I really appreciate the effort to move this forward. Sharing your 
+>> blog post here to the mailing list and also adding it to OSI's 
+>> monthly newsletter:
+>>
+>> https://ben.ramsey.dev/blog/2026/05/the-php-license-simplified
+>>
+>> Warm regards,
+>> Nick
+>>
+>>
+>> On Mon, May 4, 2026 at 11:59 AM Ben Ramsey <ben at benramsey.com> wrote:
+>>
+>>     On behalf of the PHP Group, I am submitting notice of the
+>>     voluntary retirement of the PHP License 3.01.
+>>
+>>     I recently wrapped up a multi-year process, working with the PHP
+>>     Group, Zend Technologies, and the PHP internals community to
+>>     invoke clause 5 of the PHP License 3.01[1] to adopt the Modified
+>>     BSD License as the new version of the PHP License.[2]
+>>
+>>     As of today, the PHP License 3.01 is no longer used by PHP, and
+>>     the PHP project discourages use of the license for new works.
+>>
+>>     See also:
+>>
+>>     * https://www.php.net/license/
+>>     * https://github.com/php/php-src/blob/master/LICENSE
+>>
+>>     The PHP License 3.0 is listed on the OSI website as superseded by
+>>     the PHP License 3.01. Since 3.01 is retired, 3.0 is also
+>>     voluntarily retired. (The page for 3.0 is stuck in a redirect
+>>     loop: https://opensource.org/license/php-3.0/).
+>>
+>>     Since the process for voluntary retirement isn’t described on the
+>>     OSI website, please let me know if there’s anything else you need
+>>     from me to complete this process.
+>>
+>>     Cheers,
+>>     Ben
+>>
+>>
+>>     [1]: https://www.php.net/license/3_01.txt
+>>     [2]: https://wiki.php.net/rfc/php_license_update
+>>     _______________________________________________
+>>     The opinions expressed in this email are those of the sender and
+>>     not necessarily those of the Open Source Initiative.
+>>     Communication from the Open Source Initiative will be sent from
+>>     an opensource.org <http://opensource.org/> email address.
+>>
+>>     License-review mailing list
+>>     License-review at lists.opensource.org
+>>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not 
+>> necessarily those of the Open Source Initiative. Communication from 
+>> the Open Source Initiative will be sent from an opensource.org email 
+>> address.
+>>
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260504/1e026067/attachment.htm>
+
