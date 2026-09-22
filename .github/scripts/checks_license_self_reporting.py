@@ -88,6 +88,12 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        E1 / E6 を「反映予定」のまま残していた (**決定済みを未定と言う方が我々に有利に見える**)
        ——**向きは一定しない**。**引用は現在の主張ではない**ので blockquote 行 (`>`) は
        走査から外す (#977 の「歴史記録は書き換えない」と同じ線引き)。
+  474. **不利な事実の register が、潰すための backlog として機械可読であること** (BLOCKING):
+       **steward 明言 (2026-09-23)「全て潰すためです。最終的に全て潰してください」**。
+       **にもかかわらず 219 entry のどれにも状態欄が無く、開いている項目を導出できなかった**
+       (判定語は実測 140 種・69 entry は太字ですらない)。各 entry の `Status` 欄先頭に
+       state token をちょうど 1 つ求め、**凡例が実際に使われている token を過不足なく
+       列挙している**ことも見る。**件数は宣言させず、この Check の OK 行で導出する。**
 """
 
 import json
@@ -737,3 +743,50 @@ def run(ctx):
          "うち 6 件は既に閉じていた)"),
         blocking=True,
     )
+
+    # ── 474. 不利な事実の register が、潰すための backlog として機械可読であること ─────────
+    #   **steward 明言（2026-09-23）: 「ライセンス全てを敵対的検証して貰ってるのは、全て潰す
+    #   ためです。経過で増減するのは問題無いです。最終的に全て潰してください。」**
+    #   **にもかかわらず 219 entry のどれにも状態欄が無く、開いている項目を導出できなかった。**
+    #   実測すると `Status` 欄の判定語は **140 種**あり、**69 entry は太字ですらない** ——
+    #   **散文からは確信を持って分類できない。無い field は作るしかない。**
+    #   **⚠ 件数は宣言しない。** この Check の OK 行が唯一の集計であり、**現物から導出する。**
+    #   宣言を置くと、消化しているその瞬間に古くなる（Check 469 が記録している class）。
+    _V474 = ("CLOSED", "TEXT", "DOSSIER", "EXTERNAL", "TRADE", "OPEN", "UNTRIAGED")
+    _p474 = ROOT / "LICENSES" / "ACD-1.0.against.md"
+    if _p474.exists():
+        _t474 = _p474.read_text(encoding="utf-8")
+        _bad474, _seen474 = [], {}
+        for _l in _t474.splitlines():
+            _m = re.match(r"^\| (\d+) \|[^|]*\|\s*(.*)$", _l)
+            if not _m:
+                continue
+            _n, _rest = _m.group(1), _m.group(2)
+            _tok = re.findall(r"\*\*\[([A-Z]+)\]\*\*", _rest)
+            if len(_tok) != 1:
+                _bad474.append(f"#{_n}: state token が {len(_tok)} 個 (ちょうど 1 個にせよ)")
+                continue
+            if _tok[0] not in _V474:
+                _bad474.append(f"#{_n}: 未知の state token {_tok[0]!r} (語彙は {_V474})")
+                continue
+            _seen474[_n] = _tok[0]
+        # 凡例が、実際に使われている token を過不足なく列挙していること（Check 469 の class）
+        _leg474 = set(re.findall(r"\*\*`\[([A-Z]+)\]`\*\*", _t474))
+        _used474 = set(_seen474.values())
+        if _used474 - _leg474:
+            _bad474.append(f"凡例に無い token が使われている: {sorted(_used474 - _leg474)}")
+        if _leg474 - set(_V474):
+            _bad474.append(f"凡例が語彙に無い token を挙げている: {sorted(_leg474 - set(_V474))}")
+        _cnt474 = {k: sum(1 for v in _seen474.values() if v == k) for k in _V474}
+        _open474 = sum(v for k, v in _cnt474.items() if k != "CLOSED")
+        check(
+            not _bad474 and _seen474,
+            ("Check 474: register が backlog として機械可読 —— "
+             + " / ".join(f"{k} {_cnt474[k]}" for k in _V474)
+             + f" (閉じていない = {_open474} / 全 {len(_seen474)})"),
+            (f"Check 474: {_bad474}。**この register は記録ではなく潰すための backlog である**"
+             "（steward 2026-09-23）。**各 entry は `Status` 欄の先頭に state token を"
+             "ちょうど 1 つ持つこと。** 分類できないものを勝手に `CLOSED` にせず "
+             "`[UNTRIAGED]` を使え ——**未分類の数を見せるほうが潰せる**"),
+            blocking=True,
+        )
