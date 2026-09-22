@@ -14,7 +14,7 @@ canonical-ref: LICENSES/FROZEN.md (凍結と venue の単一ソース) / LICENSE
 
 ## 0. English summary — two commitments
 
-**Feedback is recorded verbatim.** Whatever arrives from the list is archived unaltered in
+**Feedback is recorded verbatim.** Whatever arrives from **the list** is archived unaltered in
 `LICENSES/rounds/`, separately from any analysis of it. Our reading may be wrong; the record of
 what was actually said must not be. Summaries live elsewhere and are always marked as ours.
 
@@ -148,7 +148,8 @@ the basis of this response, I wrote everything else myself"*）。**これを毎
 「送る文面が満たすべき材料」へ性格を変え、語は steward が書くことである。**
 **Check 463 は要求項目の*存在*を見ているので、材料一覧の形でも働き続ける。**
 
-1. 受領全文が `rounds/` に無改変で入っている
+1. 受領全文が `rounds/` に無改変で入っている（**⚠ 第三者との private off-list correspondence は例外**
+   —— 本文を公開せず metadata と stub だけを残す。`rounds/README.md` の例外節・`against.md` #217/#219）
 1b. **レビューされたテキストの byte が pin されている**（**分類より先に**）。
     **2026-09-14 新設** —— 初の外部レビューを 15 点に分解し、各点を**現行草案に当てて**判定したが、
     **「読まれたのが現行草案である」ことは、その時点では仮定だった**（後から byte 一致を確認し、

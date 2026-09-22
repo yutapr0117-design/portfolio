@@ -555,6 +555,37 @@ def run(ctx):
         _t473b = re.sub(r"\s+", " ", _p473b.read_text(encoding="utf-8"))
         if "aim at external approval" not in _t473b and "aim for external approval" not in _t473b:
             _bad473b.append(f"{_rel473b}: 目的の出所（人間が外部承認を目指すと述べたこと）が無い")
+    # ── 473c: `rounds/` の運用規約と、実際の file の状態が食い違わないこと ────────────────
+    # **`against.md` #219。** 2026-09-23 に off-list 私信 5 件を stub 化したが、
+    # **`rounds/README.md` / `REVISION-PROTOCOL.md` / `CLAUDE.md` は「無改変で本文そのものを
+    # 置く」と規定したままだった** ——**規則と現物が真っ向から食い違い、しかも 473b は
+    # 「否定済みフレーズ」しか見ないので原理的に検出しない**（オーナー指摘）。
+    # **両向きで強制する** ——stub が在るなら例外を述べよ / 例外を述べるなら stub が在ること
+    # （**死んだ規則を作らない**）。
+    _stub473c = [p for p in sorted((ROOT / "LICENSES" / "rounds").glob("*.txt"))
+                 if "THE TEXT HAS BEEN WITHDRAWN" in p.read_text(encoding="utf-8", errors="replace")]
+    _conv473c = ("LICENSES/rounds/README.md", "LICENSES/REVISION-PROTOCOL.md", "CLAUDE.md")
+    _bad473c = []
+    for _rel in _conv473c:
+        _p = ROOT / _rel
+        if not _p.exists():
+            _bad473c.append(f"{_rel}: 存在しない"); continue
+        _has = "off-list correspondence" in _p.read_text(encoding="utf-8", errors="replace")
+        if _stub473c and not _has:
+            _bad473c.append(f"{_rel}: stub が {len(_stub473c)} 件在るのに例外が書かれていない")
+        if not _stub473c and _has:
+            _bad473c.append(f"{_rel}: 例外を述べているが stub が 1 件も無い (死んだ規則)")
+    check(
+        not _bad473c,
+        f"Check 473c: rounds/ の規約と現物が整合 (stub {len(_stub473c)} 件 / 規約 {len(_conv473c)} 面)",
+        (f"Check 473c: {_bad473c}。**`rounds/` は「無改変で本文を置く」場所だと 3 面が規定して"
+         "いる。第三者との private off-list correspondence を stub 化するなら、その例外を同じ "
+         "3 面に書かなければ、規則と現物が食い違ったまま公開される**"
+         " (`against.md` #219・オーナー指摘 2026-09-23)。**逆に、例外を書いて stub が 1 件も"
+         "無ければ死んだ規則である**"),
+        blocking=True,
+    )
+
     check(
         not _bad473b and not _unread473b,
         f"Check 473b: 来歴 {len(_scope473b)} 面に否定済みの句 0 件（訂正の印つきは可）",
