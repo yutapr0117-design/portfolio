@@ -496,43 +496,72 @@ def run(ctx):
                 continue
             _bad473.append(f"{_f473.split('portfolio/')[-1]}: {_p473.strip()[:90]}")
 
-    # ── 473b: 2026-09-23 に事実として否定された文が、現在形の面へ戻らないこと ──────────
+    # ── 473b: 2026-09-23 に事実として否定された文が、現在形の言明として残らないこと ────────
     # **`against.md` #216。** steward の 2026-09-14 の手紙（`rounds/2026-09-15-…round3.txt`）は
     # *"I then told the AI that I wanted my own license to aim for external approval …
     # I gave the goal, and the AI generated and developed the license"* と述べており、
-    # **我々が 8 日間publish していた「人間は作る判断をしていない」「頼んでいない」
+    # **我々が 8 日間 publish していた「人間は作る判断をしていない」「頼んでいない」
     # 「AI がリポジトリにライセンスが要ると判断した」は誤りだった。**
     # **473 本体は「否定の半分だけで現れるな」を守るが、否定そのものが偽になった場合は見ない。**
-    # ⚠ **射程は「現在の言明として読まれる 4 面」に限る。** `against.md` や
-    #   `review-responses.md` の是正史はこれらの句を**歴史として**引くので、そこまで禁じると
-    #   履歴を消す圧力になる（#977 と同じ線引き）。`rounds/` は無改変保存ゆえ当然に対象外。
-    _cur473b = ["LICENSE", "LICENSES/REVIEWERS.md",
-                "LICENSES/ACD-1.0.submission.md", "LICENSES/ACD-1.0.submission-reference.md"]
-    _dead473b = ("did not ask for it", "not commissioned",
+    #
+    # ⚠ **初版は射程を 4 面に決め打ちし、`review-responses-meta.md` の Q10 English を
+    #   見逃した**（オーナー指摘・2026-09-23）——**同じ Q10 の日本語だけが直り、英語が
+    #   訂正前の説明を現行の回答として載せたままだった。** 決め打ちをやめて導出に変える。
+    # ⚠ **是正史は禁じない。** `against.md` や Q&A の訂正記録は、これらの句を**歴史として**
+    #   引く。全面禁止は履歴を消す圧力になる（#977 の線引き）ので、**473 本体と同じ手で
+    #   「訂正の印が近くに在るか」で分ける。** `rounds/` は無改変保存ゆえ対象外。
+    _dead473b = ("did not ask for it", "not commissioned", "did not commission it",
                  "determined that the repository needed a licence",
-                 "did not commission it")
-    _bad473b = []
-    for _rel473b in _cur473b:
+                 "I did not direct the drafting",
+                 "判断自体、人間は出していない")
+    _mark473b = re.compile(r"(#216|#125|#187|#191|訂正|corrected|誤りだった|旧文|是正|history|"
+                           r"Check 473|superseded|歴史として)")
+    _scope473b = [ROOT / "LICENSE"] + sorted((ROOT / "LICENSES").rglob("*.md"))
+    _bad473b, _unread473b = [], []
+    for _f473b in _scope473b:
+        if "rounds" in _f473b.parts:
+            continue
+        try:
+            _raw473b = _f473b.read_text(encoding="utf-8")
+        except Exception:
+            _unread473b.append(str(_f473b.relative_to(ROOT)))
+            continue
+        # **粒度が本体である。** 初版は正規化後の ±300 字の窓で見て、
+        # **`against.md` の 1 行 3,000 字の entry 内に在る訂正印に届かなかった。**
+        # 単位は「その句を含む*行*」または「その句を含む*段落*」——どちらかに印が在れば可。
+        # 行は register の 1 entry に、段落は折り返された散文に対応する。
+        _paras473b = _raw473b.split("\n\n")
+        _units473b = _raw473b.splitlines() + _paras473b
+        for _d in _dead473b:
+            _dn = re.sub(r"\s+", " ", _d)
+            for _u in _units473b:
+                if _dn not in re.sub(r"\s+", " ", _u):
+                    continue
+                if not _mark473b.search(_u):
+                    _bad473b.append(f"{_f473b.relative_to(ROOT)}: 否定済みの句 {_d!r} が"
+                                    "訂正の印なしで現れる")
+                    break
+    # 肯定側（目的の出所）が、現在形で読まれる主要 4 面に在ること。**消して黙らせる経路も塞ぐ。**
+    for _rel473b in ("LICENSE", "LICENSES/REVIEWERS.md", "LICENSES/ACD-1.0.submission.md",
+                     "LICENSES/ACD-1.0.submission-reference.md"):
         _p473b = ROOT / _rel473b
         if not _p473b.exists():
             _bad473b.append(f"{_rel473b}: 存在しない (射程が drift したら Check を直せ)")
             continue
-        _t473b = re.sub(r"\s+", " ", _p473b.read_text(encoding="utf-8", errors="replace"))
-        for _d in _dead473b:
-            if _d in _t473b:
-                _bad473b.append(f"{_rel473b}: 否定済みの句 {_d!r}")
-        # 肯定側（目的の出所）が在ること。**消して黙らせる経路も塞ぐ。**
+        _t473b = re.sub(r"\s+", " ", _p473b.read_text(encoding="utf-8"))
         if "aim at external approval" not in _t473b and "aim for external approval" not in _t473b:
             _bad473b.append(f"{_rel473b}: 目的の出所（人間が外部承認を目指すと述べたこと）が無い")
     check(
-        not _bad473b,
-        f"Check 473b: 現在形の来歴 {len(_cur473b)} 面に、否定済みの句 0 件・目的の出所あり",
+        not _bad473b and not _unread473b,
+        f"Check 473b: 来歴 {len(_scope473b)} 面に否定済みの句 0 件（訂正の印つきは可）",
         (f"Check 473b: {_bad473b}。**2026-09-23 に steward 本人が訂正した** —— "
          "ライセンスを持つ判断と上位の方向づけは人間発であり、"
          "*\"the agent determined that the repository needed a licence\"* 等は事実として誤り "
          "(`against.md` #216)。**順序は 3 段** —— 人間発の目的・上位設計 → "
          "AI による具体的な法的設計と起草 → 委任下の自走による発展・一般化。"
-         "**「後から知った」を書くなら対象を 3 段目に明示せよ**"),
+         "**「後から知った」を書くなら対象を 3 段目に明示せよ。** "
+         "歴史として引くなら、同じ段落に訂正の印（#216 等）を置くこと"
+         f" / 読めなかった file: {_unread473b}"),
         blocking=True,
     )
 

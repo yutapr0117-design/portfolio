@@ -1,64 +1,29 @@
-Source: Supplied verbatim by the steward (Yuta Yokoi) on 2026-09-13 (JST afternoon), as the
-        continuation of the exchange already stored as
-        2026-09-07-offlist-nick-vidal-moderator-exchange.txt.
-Provenance: OFF-LIST. None of these messages is in any public pipermail archive, and none can be
-            verified there. They are kept because the steward reported them; that is the whole of
-            their evidentiary basis (the same rule the rest of this directory follows).
-Direction: sent (steward, 2026-09-12) + received (Nick Vidal, 2026-09-13) + sent (steward, 2026-09-13)
-Why kept: it records (a) that at least two substantive review messages the steward sent to
-          license-review were REJECTED by moderation and therefore never reached the list, and
-          (b) the moderator's reply to that report, and (c) the steward's answer.
-          (a) is load-bearing for this repository's own reasoning: until 2026-09-13 we had been
-          reading the absence of our messages from the archive as the state of affairs. For at
-          least two messages it is not: they were sent and blocked. See against.md #136.
-Caution for the next session: this is private correspondence with one named individual. It is
-          recorded because the record of what was said must not be wrong. It is NOT a basis for
-          characterising the position of the Open Source Initiative as an organisation — the
-          steward himself drew that distinction on 2026-09-10 (see B14). Do not quote it on any
-          list, and do not argue from it in public. Posting remains paused.
-Not altered: no reformatting, no translation, no reordering, no elision.
+OFF-LIST — moderator correspondence. **THE TEXT HAS BEEN WITHDRAWN FROM THIS REPOSITORY.**
 
---------------------------------------------------------------------------------
+Dates:      2026-09-12 〜 09-13
+Direction:  sent (steward) + received (Nick Vidal) + sent (steward)
+Where its content is used: `against.md` #(the rejection record) / B14 —— **`license-review` へ送った substantive な review 2 通が moderation に拒否されたことの出典**
 
-横井雄太 <yuta.yokoi.r@gmail.com>
-9月12日(土) 0:20
-To Nick
+WHY IT IS NOT HERE
+  These messages are private correspondence with an OSI moderator. **The steward directed
+  (2026-09-23) that a third party's off-list private mail should not sit in full in a public
+  repository.** That direction is followed here. The fact of the correspondence, its dates and
+  its direction are kept, because withdrawing the record of *that* would misstate how much
+  contact there has been — which is the failure `rounds/` exists to prevent (`against.md` #89).
 
-Hi Nick,
+WHAT REMAINS AVAILABLE
+  * The steward's own statements, where this dossier quotes them, are his own words and are
+    quoted in the analysis files named above. Nick Vidal's messages are not reproduced.
+  * The analysis that rests on this correspondence is unchanged and is in the files named above.
 
-I wanted to let you know about one concrete effect of the current moderation.
+WHAT THIS DOES NOT DO — stated plainly rather than implied
+  **Git history still contains the withdrawn text.** Removing it from history would require
+  rewriting published history, which this repository does not do and which this session is not
+  permitted to do. **So this is a change to what the repository presents, not a guarantee that
+  the text cannot be recovered by anyone who looks at earlier commits.** Anyone relying on the
+  withdrawal should know that.
 
-At least two substantive review messages I sent — one regarding ModelGo and one regarding the BOS Public License — were rejected by the moderator. Those messages contained specific review points about the licenses, so the submitters and the review list did not receive that feedback.
-
-I am only flagging this because it means the moderation has already had a practical consequence: substantive license-review feedback has been prevented from reaching the people reviewing the licenses.
-
-Kind regards,
-Yuta Yokoi
-
-
-Nick Vidal
-3:28 (2026-09-13)
-To 自分
-
-Hi Yuta-san, Let's play a game. If you win, I'll review your emails. If you lose, you don't post anymore. How does that sound?
-
-
-横井雄太 <yuta.yokoi.r@gmail.com>
-13:43 (2026-09-13)
-To nick.vidal
-
-Hi Nick,
-
-Do you mean this literally — that whether I may continue posting to
-the lists would be decided by the outcome of a game?
-
-Shouldn't moderation instead be based on the substance and conduct
-involved: whether a post is relevant, not spam or flooding, reviewed
-and understood by the person sending it, taken responsibility for by
-that person, and compliant with the published Code of Conduct and
-moderation policy, applied consistently to everyone?
-
-A game's outcome seems unrelated to those criteria.
-
-Best,
-Yuta
+PROVENANCE LIMIT, unchanged
+  What was here was a transcription supplied by the steward of correspondence that is by
+  definition off-list. It could never be checked against any public archive. That was the whole
+  of its evidentiary basis before the withdrawal, and nothing about the withdrawal changes it.
