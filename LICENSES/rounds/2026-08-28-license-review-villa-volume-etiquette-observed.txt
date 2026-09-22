@@ -1,0 +1,261 @@
+Source:   https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2026-August.txt
+Fetched:  2026-09-22（ブラウザ相当の UA。既取得分のキャッシュから切り出し）
+Date:     Fri, 28 Aug 2026 17:56:17 -0700（アーカイブの From 行は Sat Aug 29 00:56:17 2026 UTC）
+From:     Luis Villa <luis at lu.is>
+Subject:  [License-review] Reminder of list etiquette around volume Re: For Approval:
+          OpenMDW License Agreement, versions 1.1 (OpenMDW-1.1)
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。** OpenMDW 審査スレッドの中で、
+          参加者が **list の Code of Conduct の「簡潔さ・低 volume」条項を人間の参加者に対して
+          引いた 1 通**。**B14 の moderator 通知（2026-09-09）が引いたのと同じ CoC 条項が、
+          その 12 日前に、AI とは無関係の文脈で引かれている。**
+          引用元の Landley 氏の本文も、配送された形のまま残してある（規約 1）。
+          読みは LICENSES/ACD-1.0.against.md #208 へ。ここには分析を書かない（規約 2）。
+
+----- begin verbatim -----
+From luis at lu.is  Sat Aug 29 00:56:17 2026
+From: luis at lu.is (Luis Villa)
+Date: Fri, 28 Aug 2026 17:56:17 -0700
+Subject: [License-review] Reminder of list etiquette around volume Re:  For
+ Approval: OpenMDW License Agreement, versions 1.1 (OpenMDW-1.1)
+In-Reply-To: <805c676d-a78f-4ab1-9f56-4b7c5563ee6e@landley.net>
+References: 
+ <CAFV=PSG=bsLTemzjyCKYYz9j=rX9dcNo6=2T6htbxTRgervMrA@mail.gmail.com>
+ <CAC1cPGxE=ozAmGTfHt4k+SePQcstym_Kaq=w4Aj5_=hvkp15hA@mail.gmail.com>
+ <CAC1cPGyZf3indkwzeCHvodDFxyPmKhfRqGdbBx=+X+1wB9v86g@mail.gmail.com>
+ <CAFV=PSH_wNaPuPQi5i6-JZP2wfyx5UpudQsrjao3TCCSE4jb9w@mail.gmail.com>
+ <CAC1cPGzpjtL=UyGT=bzu+6JmohsY567PPU=0ZxGJOrM7vNDdyw@mail.gmail.com>
+ <CAFV=PSE7swjqNpbLqLFoJJJOnf03khMJHa_FL_bP9ow40c0E2Q@mail.gmail.com>
+ <4d892328-fe83-471b-8714-bb0b818c54d9@chesteklegal.com>
+ <0e164b03-ff31-48b2-bf23-f1f53e490ecf@maffulli.net>
+ <03dfe4a9-6a89-451c-9b07-0eeb73ba563e@chesteklegal.com>
+ <84ff911e-31c4-4a07-99db-e51a3e0ff0a4@maffulli.net>
+ <10992f43-01cc-45d5-a4e3-6790cd407b0a@landley.net>
+ <39f2cc82-687f-42d8-a646-8d4feaa82604@maffulli.net>
+ <bd9eb42d-8e48-4f44-bba8-49ceadec2ffc@landley.net>
+ <32f4c773-b06b-4e59-989d-495c93cfa4e5@lexpan.law>
+ <805c676d-a78f-4ab1-9f56-4b7c5563ee6e@landley.net>
+Message-ID: 
+ <CAFjZtRce9YnKirMrXHZT6meqb=F7KsQ=BfaQdDgdhwdD14h5-A@mail.gmail.com>
+
+Rob (and others!), a polite reminder that the list’s code of conduct has,
+since it was first written, asked people to respect each other’s precious
+time by being concise and low-volume. The people we most need on this list
+are those whose time is very precious.
+
+This particular license is obviously a complex problem and requires complex
+discussions, so the word count is going to be high, but that’s all the more
+reason to get to the point whenever possible.
+
+(I’ll leave it to others to discuss all the personal attacks; this
+particular clause is important to the unusual nature of this list and so
+often forgotten.)
+
+On Fri, Aug 28, 2026 at 5:28 PM Rob Landley <rob at landley.net> wrote:
+
+> On 8/28/26 15:10, McCoy Smith wrote:
+> > On 8/28/2026 12:00 PM, Rob Landley wrote:
+> >>
+> >> AI's need for Lebensraum is irrelevant to whether copyright
+> >> termination for an assertion of copyright infringement is compatible
+> >> with the open source definition.
+> >>
+> >> I would argue that it is not, nor should it be. If this was a term of
+> >> GPLv2, no company would have ever touched it. It attempts to give
+> >> sufficiently popular projects blanket permission to infringe any
+> >> copyright.
+> >
+> > As Richard previously established, GPLv3 allows copyright termination
+> > for an assertion of patent infringement: https://lists.opensource.org/
+> > pipermail/license-review_lists.opensource.org/2026-August/006142.html.
+>
+> Patents are not copyrights. I am automatically granted a copyright for
+> typing this sentence. Obtaining a patent is a long expensive process
+> requiring manual approval from professionals.
+>
+> If you believe they are the same thing, show me one example of a class
+> action suit where more than a hundred different patentholders came
+> together to complain that each one had a patent that had been infringed
+> by the same individual.
+>
+> Because this is common in the copyright world. Here's an example of a
+> copyright class action suit from 10 years ago having nothing to do with
+> "AI" or even software:
+>
+>
+> https://authorsguild.org/advocacy/accomplishments/multimillion-dollar-freelance-settlement/
+>
+> > The question in my mind then, is what's the difference between copyright
+> > termination for a patent assertion (OK, at least under GPLv3 and MPLv2)
+> > and copyright termination for copyright assertion (several have argued
+> > that that is impermissible)?
+>
+> The copyright is what is BEING licensed. Most open source projects don't
+> have any patents, but all of them have copyrights. Licensing copyrights
+> is the primary purpose of open source licenses. A copyright suit
+> _against_ the project is an assertion that some of the copyrights they
+> are licensing do not belong to them, that the entity suing is the actual
+> copyright holder, and that the material covered by the licenses has thus
+> been misrepresented.
+>
+> Copyright and patent are fundamentally different. I have literally
+> thousands of copyrights. My wife has copyrights. My mother had
+> copyrights. My brother and sister each have copyrights. With the
+> possible exception of my brother, I believe all of us have licensed them
+> professionally at one point or another.
+>
+> None of us have patents. (It's possible my father's name has been _on_
+> patents over a 30 year career as an electrical engineer, but if so they
+> belonged to his employer.)
+>
+> Almost the entire population of the united states has copyrights. You
+> would have to have never written or recorded anything to not _have_ a
+> copyright.
+>
+> According to https://fred.stlouisfed.org/series/PATENTUSALLTOTAL less
+> than 200k patents are granted in the USA annually. I'm aware Gemini
+> provided a 350k annual figure when I searched for that, before I
+> scrolled down to a source I trust.) Either way even if each patent was
+> given to a different individual US resident (which is not the case),
+> that's less than 1% of the population receiving patents each year. Which
+> then expire after 20 years. (Copyrights last at _least_ a century,
+> usually longer.)
+>
+> And that's before you get into domain specificity: I doubt anything I've
+> uploaded to github infringes on a pharmaceutical manufacturing update
+> for selecting specific isomers from an otherwise generic drug. Cuts the
+> number of patents applicable to software projects down quite a bit, I
+> expect.
+>
+> The surface area for patent plaintiffs to object to what is
+> fundamentally a copyright license to begin with is much, much smaller.
+> The number of copyrights "in play" at any given time (and thus the
+> potential number of plaintiffs who may have grounds to sue) are multiple
+> orders of magnitude different.
+>
+> > A few have invoked "software
+> > freedom" (which I'm not sure how we measure that -- is it the OSD, is it
+> > the FSD, or something else?) or more explicitly -- Simon in particular
+> > -- Freedom Zero. Freedom Zero says  you have "[the freedom to *run* the
+> > program as you wish, for any purpose" https://www.fsf.org/blogs/
+> > community/your-digital-life-is-not-yours [emphasis added] That's not a
+> > copyright right.* It's probably a patent right ("use"). So I'd like to
+> > understand more about how we get to the rationale that if you sue for
+> > patent infringement, it's OK to terminate (and that doesn't violate
+> > Freedom Zero), but it's absolutely impermissible to have the same for
+> > copyright infringement.
+>
+> There's no first sale doctrine for patent rights. It very different law.
+>
+> > Especially since, I think, the mere act of
+> > running software is probably not something you're going to be able to
+> > sue for copyright infringement anyway.
+>
+> Launching a binary means copying the software from storage into memory,
+> and often saving it to swap space. (Yes this got relitigated back in the
+> 90s, I think it was settled rather than forming a new precedent but only
+> because
+>
+> https://en.wikipedia.org/wiki/Sony_Corp._of_America_v._Universal_City_Studios,_Inc.
+>
+> was waved prominently around. I think I wrote a Motley Fool column
+> mentioning it but am not digging for it.)
+>
+> Since then the DMCA got passed with anti-circumvention provisions and
+> they threw a TPM and signing chain in there so arbitrary DRM enforcement
+> could extrajudicially create felonies if you tried to get time shifting
+> or first sale doctrine back. It's terrible and complicated and handing
+> the people who want to extend it more weapons seems like a terrible idea.
+>
+> > FWIW, if your answer is "it's not really grounded in the OSD, or FSD,
+> > but is more of a gestalt principle around my sense of what is 'software
+> > freedom,'"
+>
+> In 2006 I filed GPL enforcement lawsuits on behalf of busybox. (Well,
+> Eben Moglen filed them, I got the ball rolling and signed paperwork.)
+>
+> If GPLv2 had this copyright termination clause in it, and any of the
+> companies we sued had ever contributed code to a GPL project (kernel
+> etc: some of these were big companies with a lot of employees touching a
+> lot of projects), they could say "you have filed a copyright enforcement
+> suit against us: you OWN right to use busybox is terminated". (Because
+> we took external contributions, and could no longer distribute THAT code
+> without a license to it.)
+>
+> Or would the judge merely have terminated our right to use the kernel?
+> Do you consider either case compatible with the open source definition?
+> (How about Freedom 9? If I filed suite against the copyright holder, is
+> the termination limited to JUST that package, or any other packages
+> under the same license they have code in?)
+>
+> > that's OK, but you have to understand that OSI is going to
+> > need to understand the metes and bounds of that principle as we evaluate
+> > license submissions (both plain old software licenses, and AI licenses)
+> > going forward, and reasonable minds will likely differ on what is that
+> > gestalt.
+>
+> If you want the headline to be "Hugging Face convinced OSI to approve a
+> license that automatically terminates for anyone who tries to enforce a
+> legitimate copyright claim", go for it.
+>
+> > *I understand there is some case law in the USA about ephemeral copies
+> > potentially being the subject of copyright infringement under the
+> > copyright right to control copying/reproduction, but those tend to be
+> > ones that fall outside the bounds of 17 USC 117(a)(1), which would
+> > likely be implicated in the specific scenarios invoked here.
+>
+> Oh there's YEARS of back and forth on that. Stallman was originally
+> trying to do GPLv3 to close what he called the "application service
+> provider" loophole where GPL code would run on a web server and the code
+> itself never be distributed outside it, but data was processed by it and
+> he wanted to change GPL so he could not get THAT code, but had the right
+> to install modified versions of it. (And I pointed out that if the World
+> of Warcraft servers were running busybox, and I had a WoW subscription,
+> they did not owe me root access to the servers to run arbitrary code
+> there.)
+>
+> All this was 20+ years ago. Very old well-trodden ground even before the
+> big GPLv3 push circa 2006. The "tivoization" stuff was an early version
+> of leveraging DMCA anti-circumvention provisions to attach a signing key
+> to authorized binaries so "distributing tools" to let you run different
+> code on your own device potentially becomes a federal felony. Old old
+> old:
+> https://www.eff.org/pages/unintended-consequences-fifteen-years-under-dmca
+>
+> Most of my vagueness about this issue is "wow, the last time people
+> argued about this was so LONG ago, this was settled what-a-terrible-idea
+> from the dot-com era". In theory, copyright termination means you can't
+> launch a _countersuit_. (The person claiming you've mis-licensed their
+> code means they're claiming to have code under your license, and
+> therefore if you countersue for legal fees or some such: boom, you've
+> terminated your own license. If you didn't 100% author all the material
+> you're distributing, you can't redistribute anybody ELSE'S code under
+> that license now, because you sued.)
+>
+> There's just all sorts of landmines here from "should a putative GPLv3
+> do THIS" discussions at LinuxWorld Expo and so on. (The hallway track
+> after Stallman's panel in... I want to say 2000? California I think? I'm
+> pretty sure it was the one mentioned at
+>
+> https://www.fool.com/archive/portfolios/rulemaker/2000/02/25/inside-intel-again-merced-vs-crusoe.aspx
+> not the New York one the same year because I got all the casette tapes
+> from that one and don't remember Stallman's speech being among them. But
+> it was a quarter century ago now.)
+>
+> There's a reason people haven't made this common practice before now.
+>
+> Rob
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Communication from the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260828/36a7c0bb/attachment-0001.htm>
+
