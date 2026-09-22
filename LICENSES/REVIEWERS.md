@@ -181,8 +181,8 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
-| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 312 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 215 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
+| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 313 worked entries, indexed by the question rather than the filename |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 216 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 30 known imprecisions, all unrepaired while the freeze holds, with what 1.1 would do |
 | Known weaknesses, longer form | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) | Stated by us, before you have to find them |
@@ -190,11 +190,15 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 ## Disclosures you should not have to dig for
 
 - **No lawyer was involved.** The licence has had no legal review.
-- **The drafting was done by an AI**, autonomously, under a standing delegation. The human
-  owner did not ask for a licence to be written, did not direct its contents, and learned of its
-  existence afterwards. He read the full text before sending it. **The direction of the licence
-  was nonetheless his**: he decided to keep it, it is applied to his own work, he brought it
-  here, and he answers for it as Dedicator and steward (`submission.md` §E.1).
+- **The goal was the owner's; the concrete legal design and the text are an AI's.** He decided
+  to have a licence of his own and said it should aim at external approval; he gave the goal and
+  the top-level direction, and **did not write a legal specification or supply a list of legal
+  requirements**. An AI agent generated the concrete legal design and the text and developed it
+  further under a standing delegation. **The name ACD-1.0, the generalised instrument and the
+  submission material took shape during that delegated work, and he came to know their concrete
+  state afterwards.** He read the full text and understood it before sending it. He is the
+  Dedicator and the steward and answers for it; **he did not write its clauses**
+  (`submission.md` §E.1).
 - **One adopter: this repository.** That is the only real-world use.
 - These are stated at length in `ACD-1.0.submission-reference.md` §5 and §E.1, not buried.
 

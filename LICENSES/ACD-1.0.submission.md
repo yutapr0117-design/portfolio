@@ -161,7 +161,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1308 words**, measured 2026-09-22)
+### B.0 The message as it should actually be sent (**1362 words**, measured 2026-09-22)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -351,10 +351,13 @@ defined term, absence of the obligation-imposing constructions I enumerate, abse
 project-specific elements I enumerate — names, URLs, placeholder text — and pure-ASCII text.
 **Each is a floor rather than a proof**: an enumeration catches the forms it lists.
 
-**Provenance.** The text was drafted by an AI agent operating autonomously in this project. I did
-not commission it or direct the drafting — though the direction of the licence was mine — and I
-learned of it afterwards; I read it in full before relying on it. I am the Dedicator and steward
-and I answer for it.
+**Provenance.** I decided to have a licence of my own and said it should aim at external approval;
+I gave the goal and the top-level direction, and did not write a legal specification or supply a
+list of legal requirements. An AI agent generated the concrete legal design and the text and
+developed it further under my standing delegation. The name ACD-1.0, the generalised instrument
+and this packet took shape during that delegated work, and I came to know their concrete state
+afterwards. I read the text in full and understood it before relying on it. I am the Dedicator and
+steward and I answer for it; I did not write its clauses.
 
 **Everything else, including the case against approving it.** The repository carries an adverse
 list — written by me, adverse items first, with the two entries that have no answer at the top —
@@ -470,15 +473,17 @@ If the thread is on `license-discuss`, say so plainly, and say what you want fro
 
 ### E.1 Provenance of the drafting
 
-- **Provenance of the drafting.** The text was drafted by an AI agent operating
-  autonomously in this project. **I did not write it and I did not ask for it; the drafting was not directed by me, but the
-  direction of the licence was mine** — the agent determined that the repository needed a licence,
-  designed one, and wrote it, and I learned that it existed afterwards. What is mine is
-  what happened next: I decided to keep it, it is applied to **my** work, and — on a
-  recommendation that also came from an AI, not from me — I brought it here. **I do not
-  review the repository**; what reaches me is a summary, not the files. **The licence is the
-  exception: I read it in full and understood it before sending.** I am the Dedicator and the
-  steward and I answer for it, but at no point was I its author. The project states publicly that it
+- **Provenance of the drafting.** Another AI told me that creating a custom licence was
+  possible; **I then said that I wanted a licence of my own and that it should aim at external
+  approval.** I did not write a legal specification and I did not supply a list of legal
+  requirements: **I gave the goal and the top-level direction**, and the AI generated the
+  concrete legal design and the text and developed it further under the standing delegation this
+  repository runs on. **The name ACD-1.0, the generalised instrument, the submission packet and
+  the review apparatus took shape during that delegated work, and I came to know their concrete
+  state afterwards.** It is applied to **my** work. **I do not review the repository**; what
+  reaches me is a summary, not the files. **The licence is the exception: I read it in full and
+  understood it before sending.** I am the Dedicator and the steward and I answer for it;
+  **I did not write its clauses.** The project states publicly that it
   operates this way — the human role is direction and audit, not implementation. The text cites exactly one external
   instrument (Article 4(3) of Directive (EU) 2019/790, in Section 1.10), deliberately,
   because invented or misattributed authority is the characteristic failure of

@@ -19,7 +19,7 @@ canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES
 
 ### Q10. これは LLM に書かせたライセンスではないのか
 
-**この指摘はほぼ確実に来る。しかも実態は指摘より踏み込んでいる。** リポジトリが公然と「AI が実装し、人間は制御と監査のみ」と述べているとおり、**本文は AI が主体となって起草した**。**人間は起草に関与していない** —— 条文を書いてもいないし、指示してもいない。**ただし方向づけは人間のものである**（steward 本人の言葉: *"the drafting was not directed by me, but the direction of the licence was mine"*・`submission.md` §E.1 / #187）。**そもそも「ライセンスを作る」という判断自体、人間は出していない**（AI がリポジトリにライセンスが要ると判断し、設計し、書いた。人間はその存在を後から知った）。**「独自ライセンスとして申請したほうがよい」という提案も、別の AI から出たもので人間発ではない。****人間はリポジトリを見ていない**（自走運用ゆえ、届くのは要約であってファイルではない）。**ただしライセンスは例外で、送付前に全文を読んで理解している。** 人間がしたのは —— **自分の作品に適用されていることを受け入れ、残すと決め、読み、助言に従って出し、責任を引き受けた**ことである。**読んでいないものを出したのではなく、書いていないものを出した。****隠す選択肢は存在しない**（隠して発覚した時点で、議論はテキストの是非を離れる）。
+**この指摘はほぼ確実に来る。しかも実態は指摘より踏み込んでいる。** リポジトリが公然と「AI が実装し、人間は制御と監査のみ」と述べているとおり、**本文は AI が主体となって起草した**。**人間は条文を書いておらず、法的構造の具体化も AI が担った。****ただし、ライセンスを持つという判断と、その上位の方向づけは人間のものである** —— steward 本人の言葉（2026-09-14・`rounds/2026-09-15-offlist-nick-vidal-round3.txt`）: *"Another AI told me about custom licenses and the possibility of creating one. **I then told the AI that I wanted my own license to aim for external approval.** I did not begin by writing a detailed legal specification myself. I did not provide a large list of initial legal requirements. **I gave the goal, and the AI generated and developed the license** inside the same delegated operating model used by the repository."* **したがって順序は 3 段である** —— **人間発の目的・上位設計 → AI による具体的な法的設計と起草 → 委任下の自走による発展・一般化。****`ACD-1.0` という名称・一般化された成果物・提出パケット・レビュー基盤は 3 段目で形になったもので、人間がその具体的な状態を後から認識したのはそちらである**（`against.md` #216）。**人間はリポジトリを見ていない**（自走運用ゆえ、届くのは要約であってファイルではない）。**ただしライセンスは例外で、送付前に全文を読んで理解している。** 人間がしたのは —— **自分の作品に適用されていることを受け入れ、残すと決め、読み、助言に従って出し、責任を引き受けた**ことである。**読んでいないものを出したのではなく、書いていないものを出した。****隠す選択肢は存在しない**（隠して発覚した時点で、議論はテキストの是非を離れる）。
 
 > **English:**
 >
@@ -331,12 +331,13 @@ Check 458 が単一ソースと各 file の一致を強制する）、条件は�
 
 > **English (add to the disclosures):**
 >
-> - **Provenance of the drafting.** The text was drafted by an AI agent operating
->   autonomously in this project. **I did not write it and I did not ask for it; the drafting was not directed by me, but the
->   direction of the licence was mine** — the agent determined that the repository needed a licence,
->   designed one, and wrote it, and I learned that it existed afterwards. What is mine is
->   what happened next: I decided to keep it, it is applied to my work, and — on a
->   recommendation that also came from an AI, not from me — I brought it here. **I do not
+> - **Provenance of the drafting.** Another AI told me that creating a custom licence was
+>   possible; **I then said that I wanted a licence of my own and that it should aim at external
+>   approval.** I did not write a legal specification and I did not supply a list of legal
+>   requirements: **I gave the goal and the top-level direction**, and the AI generated the
+>   concrete legal design and the text and developed it further under my standing delegation.
+>   **The name ACD-1.0, the generalised instrument and the submission material took shape during
+>   that delegated work, and I came to know their concrete state afterwards.** **I do not
 >   review the repository**, but **the licence is the exception: I read it in full before
 >   sending.** I am the Dedicator and the steward and I answer for it. The text
 >   cites exactly one external instrument (Article 4(3) of Directive (EU)
@@ -522,6 +523,14 @@ related to ACD-1.0**."* ——**返信済み。2026-09-10 時点でその返信�
   **誤っていたのは返信ではなく我々の公開文である**（§E.1 は AI が書いた）。
   steward の確認を得て 4 ファイルを *"I did not write it and I did not ask for it; the drafting was
   not directed by me, **but the direction of the licence was mine**"* へ直した（`against.md` #125）。
+- **🔴 そしてその訂正も足りていなかった（2026-09-23・`against.md` #216）。** 2026-09-14 の
+  steward の手紙 —— **2026-09-15 から `rounds/` に逐語で在った** —— は
+  *"I then told the AI that I wanted my own license to aim for external approval … **I gave the
+  goal, and the AI generated and developed the license**"* と述べており、**我々が公開していた
+  「『ライセンスを作る』という判断自体、人間は出していない」「人間は存在を後から知った」は
+  誤りだった。** **一次資料を 8 日間持ったまま、それと矛盾する文を提出パケットに載せていた。**
+  現行は 3 段（**人間発の目的・上位設計 → AI による具体的な法的設計と起草 → 委任下の自走に
+  よる発展・一般化**）で、**「後から知った」の対象は 3 段目に限定して明示してある。**
 
 ### Q33. バージョニングの仕組みが無い。「ACD-1.0 or later」と書けるのか
 
