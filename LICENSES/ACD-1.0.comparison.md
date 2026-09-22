@@ -804,3 +804,44 @@ SPDX の `license-list-data` から **`isOsiApproved` かつ非 deprecated の 1
 4. **この census は「だから承認せよ」を意味しない。** OSI の基準 7 は gap を要求するが、
    **gap の存在は承認の十分条件ではない**（理事会は *"even where they cannot identify a specific
    aspect of the OSD"* でも consensus で否決しうると述べている）。
+
+## 1.104 既存ライセンスについての我々の主張を、その本文に当てた（2026-09-22）—— 5/6 が真、1 件を訂正
+
+**未使用の次元だった。** このドシエの gap 論は「既存ライセンスは X を持たない」に依っているが、
+**その主張を実際の本文に当てた記録は 1 つも無かった** ——本文はリポジトリに無く、Check も無い。
+
+**取得**: SPDX license-list-data から 7 本（MIT / MIT-0 / 0BSD / Unlicense / CC0-1.0 /
+Apache-2.0 / BlueOak-1.0.0・2026-09-22）。
+
+| 我々の主張 | 実測 |
+|---|---|
+| MIT-0 / 0BSD / Unlicense は **TDM と EU sui generis データベース権に沈黙** | **真。** 3 本とも該当語 0 件。**主張が正しく 3 本に限定されている**ことも確認 |
+| Apache-2.0 は **特許の機構を既に持つ** | **真** |
+| CC0 は **特許を明示的に放棄しない** | **真。** §4(a) *"No trademark or patent rights held by Affirmer are waived…"* |
+| 機械生成物・計算的利用に触れる既存本文は無い | **真。** 7 本すべてで該当語 0 件 |
+| MIT / 0BSD / Unlicense は**列挙をほとんど持たない** | **真。** `including` が 2 / 1 / 1 件（ACD-1.0 は 14 件）|
+| 🔴 MIT / 0BSD / Unlicense は**解釈準則を持たない** | **不正確だった。** 一般準則は確かに無いが、**MIT は operative grant で `including without limitation`**、Unlicense は免責で `including but not limited to` を使う ——**device は在り、規則として述べていないだけ**である。1.2 草案ヘッダを訂正した |
+
+**なぜこの 1 件が重いか**: **MIT は世界で最も読まれているライセンス本文**であり、
+この主張は**§15.5 を足す理由**として書かれている。**審査者は暗記している。**
+訂正後の形は**論拠を弱めない** ——本当の論拠は後半（列挙がほとんど無いので準則が要らない）で、
+そちらは実測で真である。
+
+### ⚠ 検出器を 2 回疑った
+
+1. **BlueOak が「機械学習」に一致した** ——**名称が Blue Oak *Model* License** だから。
+2. **CC0 が「sui generis」に一致したと読んだ** ——実際は `find` が **-1** を返し、
+   `t[max(0,i-130):...]` が **file の先頭**を表示していた。**「見つからない」が「見つかった」に見える形。**
+   正しくは CC0 は `sui generis` の語を持たず、**`database rights`（Directive 96/9/EC を名指し）と
+   `moral rights` を放棄対象に列挙している** ——どちらも我々の主張とは衝突しない
+   （我々は MIT-0 / 0BSD / Unlicense に限定して述べている）。
+
+**⚠ この節を書いた最初の番号は §1.103 で、同じ日に `review-rules.md` が取った番号と衝突していた。**
+共有採番は 4 file に分かれており、**衝突すると参照は解決するのに別の節へ着く**。
+**gate（Check 471(f)）は正しく発火する** ——probe で確認した。**今回は私が grep で先に見つけただけで、
+gate の穴ではない。** 空き番号を実測してから付けること。
+
+**Check は作らない。** 外部本文はリポジトリに無く、取得を CI に入れるのは壊れやすい
+（`PEER-REVIEW-WATCH.md` が外部フォーラムの定期取得について同じ判断をしている）。
+**次に gap 論を書き換えるときは、この 6 行を手で当て直すこと。**
+

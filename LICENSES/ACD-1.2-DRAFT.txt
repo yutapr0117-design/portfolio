@@ -43,9 +43,13 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       Dedicator may do what the transferee may not.
     * A new Section 15.5 restores the three rules of construction that ACD-1.0
       carried at its Section 15.2 and that this line of drafting dropped
-      (errata E24). Dropping them was reasoned from the wrong comparison: MIT,
-      0BSD and the Unlicense carry no such rules, but they also carry almost no
-      enumerations, and this text has twelve. Without the rules, (a) each of
+      (errata E24). Dropping them was reasoned from the wrong comparison. Those
+      three carry no general rule of construction -- though MIT carries the
+      device inline in its operative grant ("including without limitation") and
+      the Unlicense carries it in its disclaimer ("including but not limited
+      to") -- and, more to the point, they carry almost no enumerations to need
+      one: MIT has two, 0BSD and the Unlicense one each, and this text has
+      twelve. Without the rules, (a) each of
       the twelve lists introduced by "including" -- among them the definitions
       of Work, Covered Rights, Computational Use and Reservation, which are the
       definitions that carry what this text claims is new -- invites the
