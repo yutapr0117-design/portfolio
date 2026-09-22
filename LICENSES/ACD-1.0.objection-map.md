@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.objection-map.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人
-last-updated: 2026-09-09
+last-updated: 2026-09-22
 canonical-ref: LICENSES/ACD-1.0.review-precedents.md (各反論の原文と読みはこちら) / LICENSES/ACD-1.0.against.md (不利な事実の本体) / LICENSES/REVIEWERS.md (入口)
 ---
 
@@ -41,6 +41,13 @@ canonical-ref: LICENSES/ACD-1.0.review-precedents.md (各反論の原文と読�
 | *"**it is an issue as to whether a license of this scope would gain significant uptake at least from patent holders**"* | McCoy Smith・`license-review` 2025-05-14 | **§8.1 + §8.4 + 報復ゼロ。** OSD 違反ではないが **SPDX の実使用条件**に効く | #107 / §1.58 |
 | *"three different things with one document"* | Pamela Chestek・`license-discuss` 2026-03-29 | **16 節の構成。** ただし ACD-1.0 の各節は同一 Work に作用する法的機構である | #105 |
 | **「一つの instrument に一つの権利」** | Rob Landley | **§3〜§12 が複数の権利種を扱うこと。** #105 と逆を向いており、並べ替えでは両立しない | #102 |
+| *"there is **no requirement for a court to consider statements outside** the license itself… **you can't count on FAQs** to prevent an unintended interpretation"* | Pamela Chestek・`license-review` 2026-09-01 | **このドシエ全体の形。** 本文外の説明は意図の証拠にしかならない。**答えは書き足すことではない** ——§4.4 は、この論点を FAQ でなく条文に置いた 1 例 | #124 |
+| *"**it's not worth including Output at all** in the license"*（言及すること自体が否定的含意と曖昧さを生む）| Pamela Chestek・同 2025-12-15 | **§6.4。意図して採っている設計**なので、指摘される前に `submission.md` §B.0 で名指しした。**同じ発言に *"I wouldn't reject the license for that reason"* も在る** | #133 |
+| *"**How do you know what the covered work is?**"*（1 か月の審査で繰り返された中心的な問い）| Richard Fontana・同 2026-08-16 | **§1.2（適用という行為で Work を定める）+ §2.7 + Dedicator の識別義務。** 部分的にしか答えていない | #134 |
+| *"probably going to be parsed in court as a **dedication rather than a contract**. There is thus **some question of how binding the terms could be on the grantor**"* | Bruce Perens・`license-discuss` 2024-04-06 | **§3 の上に Dedicator の約束を 3 つ置いていること。** 「当たるもの」の 4 行目（献呈か許諾か）と同じ根 | #135 |
+| *"The OSI **does not currently have a process for de-listing** licenses"* | Richard Fontana・`license-review` 2026-09-11（+ Piana 氏 2026-09-14）| **#84 への我々の答えの費用側。** 「この類型に 1 件足す費用は低い」は「**低いが取り消せない**」へ書き換えた | #146 |
+| *"putting the **burden on the potentially wronged party**… assuming the licensee **has knowledge**… **that's not the reality**"* | Pamela Chestek・同 2026-09-11 | **§6.3** ——ACD で唯一、第三者の行為に対して働くと述べる条項。**1.1 草案では閉じている**（1.0 は凍結） | #147 |
+| **OSD 5 を「役割の非対称」まで広げて読む**（我々は「人・集団への差別」としてしか当てていなかった）| McCoy Smith・同 2026-09-16 | **§16.4 の Steward 例外。** 広い読みで当て直すと、**差は在るが この基準が支配する対象ではない、と認めるしかない。論破していない** | #179 / §3b-i |
 
 ### 当たらないもの（理由は条文で確かめた）
 
@@ -73,6 +80,12 @@ canonical-ref: LICENSES/ACD-1.0.review-precedents.md (各反論の原文と読�
 | **出力への表示義務・透明性義務**（AI 時代の提出が OSD 3 / 7 / 10 で止まった論点）| AI-MIT / RAIL / FMLL の各スレッド | **§10.1** —— 条件を一切課さない。§B.0 が「反対方向の賭け」と述べているのはこの点 |
 
 ### この表の限界
+
+**⚠ この表は 2026-09-09 から 2026-09-22 まで更新が止まり、その間に記録された
+「当たる反論」7 件が入っていなかった**（#124 / #133 / #134 / #135 / #146 / #147 / #179・
+`against.md` #196）。**B13（長さ）の緩和はこの「短い扉」に懸かっているので、
+扉が古くなることは長さの問題を悪化させる。** **誰も見ていない** ——
+`against.md` に entry を足しても、この表に足す機構は無い。
 
 1. **「当たらない」は我々の読みである。** 審査者が同じ語をどの条項へ向けるかは我々が決められない
    —— とくに **AI** の語は、上の 3 つの型を反射的に呼びうる（`rounds/` の Maness 氏 mirror doc）。
