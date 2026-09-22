@@ -516,7 +516,11 @@ def run(ctx):
                  "判断自体、人間は出していない")
     _mark473b = re.compile(r"(#216|#125|#187|#191|訂正|corrected|誤りだった|旧文|是正|history|"
                            r"Check 473|superseded|歴史として)")
-    _scope473b = [ROOT / "LICENSE"] + sorted((ROOT / "LICENSES").rglob("*.md"))
+    # ⚠ **mirror 層を射程に入れる（2026-09-23・`against.md` #218）。** 初版は `LICENSES/` だけを
+    #   見ており、**`docs/files/` の mirror は同じ主張を写しているのに一度も射程に入っていなかった。**
+    #   実測でそこに 3 件残っていた。**「本体を直した」は「写しも直った」ではない。**
+    _scope473b = ([ROOT / "LICENSE"] + sorted((ROOT / "LICENSES").rglob("*.md"))
+                  + sorted((ROOT / "docs" / "files" / "LICENSES").rglob("*.md")))
     _bad473b, _unread473b = [], []
     for _f473b in _scope473b:
         if "rounds" in _f473b.parts:
