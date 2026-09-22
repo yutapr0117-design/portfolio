@@ -174,7 +174,7 @@ ACD がどちらのパターンになるかは、いまの材料では決まら�
 
 スレッドは **2026-08-13 開始・当月のアーカイブ 102 通のうち 86 通**を占め（**2026-09-10 にヘッダの折り返しを解いて数え直した値。折り返しを解かない最初の集計は 85 と出た** ——**pipermail の Subject は継続行へ折り返されうるので、数える前に unfold する**）、
 Richard Fontana / Pamela Chestek / Luis Villa / McCoy Smith / Rob Landley / Stefano Maffulli /
-Carlo Piana ら**審査の中心にいる参加者が多数**関与している。提出者は Mike Dolan（Linux
+Carlo Piana ら**審査の中心にいる参加者が多数**関与している（**Piana 氏と McCoy Smith 氏は OSI 理事**であり、承認の動議に票を投じる側である ——`against.md` #186）。提出者は Mike Dolan（Linux
 Foundation・SVP Legal & Strategic Programs）。
 
 **提出文の作り（ACD が持たないものが明確に分かる）**:
