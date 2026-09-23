@@ -777,6 +777,26 @@ def run(ctx):
             _bad474.append(f"凡例に無い token が使われている: {sorted(_used474 - _leg474)}")
         if _leg474 - set(_V474):
             _bad474.append(f"凡例が語彙に無い token を挙げている: {sorted(_leg474 - set(_V474))}")
+        # ── 474b: `EXTERNAL` と `TRADE` は「我々に何ができるか」を必ず述べること ───────────
+        #   **外部依存を「待ち」ではなく作業へ変える唯一の形は、各件に *我々にできることは
+        #   ここまで* と書くことである**（steward 2026-09-23「最終的に全て潰してください」)。
+        #   **書かれていない `EXTERNAL` は、記録の形をした「待ち」である。**
+        #   `TRADE` は直すものが無い区分なので、代わりに**合否**（立場を述べ切れているか）を書く。
+        #   ⚠ **初回の自動導出では 48 件が無記載だった**。埋める過程で、**5 件は分類そのものが
+        #   誤っており（我々の側の作業を外部依存と読んでいた）**、そちらも訂正した ——
+        #   **「外部依存」に見えるものの中に我々の作業が混じっていることが、待ちを作る。**
+        _need474b = ("潰し方", "合否", "我々にできる", "我々の側でできる")
+        _bad474b = []
+        for _l474 in _t474.splitlines():
+            _m474 = re.match(r"^\| (\d+) \|[^|]*\|\s*\*\*\[(EXTERNAL|TRADE)\]\*\*(.*)$", _l474)
+            if not _m474:
+                continue
+            if not any(_k in _m474.group(3) for _k in _need474b):
+                _bad474b.append(f"#{_m474.group(1)} ({_m474.group(2)})")
+        if _bad474b:
+            _bad474.append(
+                f"`EXTERNAL` / `TRADE` なのに「我々に何ができるか」が書かれていない: {_bad474b}"
+                " —— **書かれていない外部依存は、記録の形をした「待ち」である**")
         _cnt474 = {k: sum(1 for v in _seen474.values() if v == k) for k in _V474}
         _open474 = sum(v for k, v in _cnt474.items() if k != "CLOSED")
         check(
