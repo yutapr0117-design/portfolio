@@ -1,0 +1,51 @@
+# REUSE.toml — file-level licensing information (REUSE Specification 3.3)
+#
+# WHY THIS FILE EXISTS
+#   `against.md` #106: this repository claims machine-readable licensing as a strength and
+#   carried no file-level licensing information at all. Six *surfaces* declare the licence
+#   (rel=license, JSON-LD, sitemap, aio-manifest, llms, robots — Check 444 enforces their
+#   coherence), but REUSE operates at the level of *files*, and at that level the repository
+#   was silent: zero of the 42 shipped files carried an `SPDX-License-Identifier`.
+#
+# WHY A TOML FILE RATHER THAN PER-FILE HEADERS
+#   REUSE Specification 3.3 lists comment headers as the RECOMMENDED method, not the required
+#   one; `REUSE.toml` is an equal alternative and **touches no shipped byte**. That matters
+#   here because `main.js` contains a byte-frozen kernel region (Check 43) and `LICENSES/
+#   ACD-1.0.txt` is pinned by sha256 (Check 453). An earlier disposition of #106 asserted that
+#   step 1 "means a header in every shipped file" and treated that as the obstacle — that was
+#   an assertion about a specification that had not been read. It is not a requirement.
+#
+# ⚠ WHAT THIS FILE DOES NOT ACHIEVE — stated here so it is not mistaken for conformance
+#   REUSE also requires each licence file to be named `LICENSES/<SPDX identifier>.txt`. ACD-1.0
+#   is not on the SPDX License List, so the conforming identifier is `LicenseRef-ACD-1.0` and
+#   the conforming filename would be `LICENSES/LicenseRef-ACD-1.0.txt`. **This repository has
+#   promised not to move `LICENSES/ACD-1.0.txt`** (it is the URL the submission packet gives a
+#   reviewer, and Check 453 pins it). So a REUSE linter will still report a naming
+#   non-conformance. That bind is recorded separately as `against.md` #108, and **it dissolves
+#   on OSI approval**, at which point the identifier becomes registrable. This file closes the
+#   file-level silence; it does not claim REUSE conformance.
+#
+# ⚠ ON THE COPYRIGHT LINE
+#   REUSE requires a copyright statement. ACD-1.0 §3 surrenders every Covered Right, so the
+#   line below records **authorship as a historical fact, not a subsisting claim** — which is
+#   the same distinction the root `LICENSE` file draws: "Authorship remains a historical fact;
+#   the rights do not." Anyone reading this file for permission should read `LICENSE`.
+
+version = 1
+
+SPDX-PackageName = "portfolio"
+SPDX-PackageDownloadLocation = "https://github.com/yutapr0117-design/portfolio"
+
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Yuta Yokoi (横井雄太) — authorship recorded as a historical fact; all Covered Rights are surrendered by ACD-1.0 Section 3"
+SPDX-License-Identifier = "LicenseRef-ACD-1.0"
+
+# The received texts in LICENSES/rounds/ are other people's words, preserved unmodified.
+# They are quoted for the record; no licence is asserted over them by this repository.
+[[annotations]]
+path = "LICENSES/rounds/**"
+precedence = "override"
+SPDX-FileCopyrightText = "The respective authors of each preserved message"
+SPDX-License-Identifier = "NOASSERTION"
