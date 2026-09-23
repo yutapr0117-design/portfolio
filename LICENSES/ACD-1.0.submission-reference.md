@@ -184,6 +184,50 @@ not be settled by pointing at word counts in either direction. What the counts d
 the question is not marginal here: **this is not a software licence with data provisions bolted
 on, and it does not read as one.**
 
+### 1e. Why one document, and what would have to be true for that to be wrong
+
+A structural objection has been put to another AI-era submitter on this list, and read from a
+table of contents it is the shape of ACD-1.0. Pamela Chestek, `license-discuss` 2026-03-29:
+
+> *"It seems that you are trying to do **three different things with one document**: (1) create
+> a system for identifying the provenance of code, (2) apply a license and (3) optionally state
+> that someone is waiving a claim to copyright they might have. I don't see any reason why
+> purpose (1) is tied to purposes (2) and (3)… **Doing (2), and (3) optionally in the same
+> document, is unnecessarily complicating things.**"*
+
+ACD-1.0 has a dedication (§3), a licence (§4), a covenant not to assert (§5), express permission
+for text and data mining (§6), database rights (§7), patents (§8), a statement about
+machine-generated material (§9), moral rights (§12), and rules governing the document itself
+(§16). **That is a long list, and the objection is not answered by saying the list is long for
+good reasons.** It is answered, if at all, by what kind of thing each item is.
+
+**The distinction I am relying on is between a purpose and a right.** What the objection names
+is a *provenance-identification system* — an informational mechanism that is not a grant, not a
+waiver, not a covenant, and which could be attached to any licence or to none. Bundling it with
+legal operations ties two things that need not travel together, and a reader has to decide which
+of them a given sentence belongs to.
+
+**Every section listed above is a legal operation on the same Work.** §3 surrenders, §4 grants,
+§5 covenants, §6 permits, §7 and §8 and §12 do the same over a different right, and §9 states
+what is not represented. There is one subject matter throughout — the Work identified in §1.2 —
+and one section per kind of right in it. **The nearest thing here to a declaration is §9.2, and
+it is a refusal to represent rather than an information system**: it tells a recipient that no
+claim is made about whether rights subsist in machine-generated material, which is a statement
+about the grant's own reach.
+
+**What would make this answer wrong.** If any section could be lifted out and applied to a
+different work, or to no work, without changing what the others do, then it is a separate purpose
+and belongs in a separate document. I do not think any of them can be, but that is the test, and
+it is the reviewer's to apply rather than mine to assert.
+
+**⚠ Two objections in this family pull in opposite directions, and I cannot satisfy both.** Rob
+Landley has argued on this list that one instrument should carry one kind of right, which would
+mean splitting §§3–8 apart. Chestek's objection is that unrelated purposes should not be bundled.
+Elsewhere Piana and Chestek have both warned against leaving rights out, which is an argument for
+keeping them together. **A submission cannot satisfy all three by rearranging the same material.
+It can only say which principle it follows and why.** ACD-1.0 follows: one Work, one document,
+one section per kind of right in that Work, and no non-legal purposes.
+
 ### 1b. Whether an instrument of this kind is reviewable at all
 
 This question comes before the others, so it is answered first.
