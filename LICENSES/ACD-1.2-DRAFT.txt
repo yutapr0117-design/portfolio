@@ -144,7 +144,18 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       granting and this speaks of the Dedicator's own conduct -- the same
       distinction Sections 12.1 and 12.2 already draw -- and rights of this kind
       held by anyone else are untouched.
-    * ACD-1.1: 5051 words, 78 clauses. This draft: 5264 words, 80 clauses.
+    * The preamble no longer says that this Dedication "gives everything away"
+      (errata E32). Read at face value that sentence is false: Section 11.1
+      grants no trademark right, Section 11.4 grants nothing under privacy,
+      publicity, personality or data-protection law, and Section 2.7 reaches
+      only rights the Dedicator holds. The preamble marks itself as not part of
+      the operative terms and nothing in it qualifies them, so nothing a
+      recipient may do turns on the sentence -- but the shape is the one the
+      Licensing Committee chair has called internally contradictory in another
+      review, and a reader meets the claim before meeting the carve-out. The
+      replacement keeps the force within the scope that is true and points at
+      the carve-out in the same breath.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5279 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -176,9 +187,10 @@ PREAMBLE (informative; not part of the operative terms)
   about them at all, and both leave the recipient of software exposed.
 
   This Dedication is written for works that are meant to be learned from. It
-  gives everything away, once, without conditions, and it speaks in the three
-  places where the existing tools are silent or hostile: machine learning,
-  patents, and machine authorship.
+  gives away, once and without conditions, every right it reaches -- and
+  Section 11 names the ones it does not -- and it speaks in the three places
+  where the existing tools are silent or hostile: machine learning, patents,
+  and machine authorship.
 
   It does so on three footings that stand side by side rather than in a queue.
   Section 3 surrenders the rights. Section 4 grants a licence over the same
