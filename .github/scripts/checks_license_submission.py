@@ -68,6 +68,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        同じ file に持つ**場合を必ず取り逃がす（`submission.md` が実例で、#187 はこれで
        「一覧は 3 項目」と誤って完全性を主張した）。(BLOCKING)
 """
+import json
 import re
 
 
@@ -392,6 +393,40 @@ def run(ctx):
                         f"preamble の「Still open」が errata と食い違う: "
                         f"宣言のみ {sorted(_declared468 - _openset468)} / "
                         f"errata のみ {sorted(_openset468 - _declared468)}")
+
+        # ── 468h: 版ごとの機械可読 descriptor が、この instrument の*唯一の制限*を述べること ──
+        #   **`against.md` #59 / errata E10。** `reservationsAndLimits` は「しないこと」を 6 つ
+        #   並べる一方、**この文書が現に持つ 1 つの制限**（改変テキストを名称・識別子の下で
+        #   頒布しないこと・§16.4）に key が無かった。**descriptor だけを読む消費者は
+        #   「何も制限しない」と結論する** ——著作物については真で、テキストについては偽である。
+        #   **§6.5 の理由は両刃**（自動化システムが判定できない制限は、知らずに破られる）。
+        #   1.1 では `reservationsAndLimits.textRedistribution` で閉じた。
+        #   ⚠ **E10 は「版ごとに閉じ直す」種類**なので、**新しい版の descriptor を作る瞬間が
+        #   再発の瞬間である。** そこを機械で押さえる。
+        #   ⚠ **`ACD-1.0.machine.json` は対象外** —— **凍結された欠陥そのもの**であり
+        #   （Check 453 が byte を pin している）、直すことは凍結の趣旨に反する。
+        _desc468h = [p for p in sorted((ROOT / "LICENSES").glob("ACD-*.machine.json"))
+                     if p.name != "ACD-1.0.machine.json"]
+        _bad468h = []
+        for _d in _desc468h:
+            try:
+                _j = json.loads(_d.read_text(encoding="utf-8"))
+            except Exception as _e:
+                _bad468h.append(f"{_d.name}: JSON として読めない ({type(_e).__name__})")
+                continue
+            _r = _j.get("reservationsAndLimits")
+            if not isinstance(_r, dict):
+                _bad468h.append(f"{_d.name}: reservationsAndLimits が無い")
+                continue
+            _tr = _r.get("textRedistribution")
+            if not isinstance(_tr, dict):
+                _bad468h.append(f"{_d.name}: textRedistribution が無い "
+                                "(§16.4 —— この文書が現に持つ唯一の制限)")
+            elif str(_tr.get("clause", "")) != "16.4":
+                _bad468h.append(f"{_d.name}: textRedistribution.clause が "
+                                f"{_tr.get('clause')!r} (16.4 であること)")
+        if _bad468h:
+            _bad468.append(f"descriptor が唯一の制限を述べていない: {_bad468h}")
 
         # ── 468f: 草案の冒頭が主張する「1.1 との同一性」が、すぐ下の変更一覧と整合すること ──
         # **2026-09-22 に外部の AI レビューが見つけた** (`against.md` #207)。status block が
