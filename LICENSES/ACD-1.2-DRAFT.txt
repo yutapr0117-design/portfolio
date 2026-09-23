@@ -130,7 +130,21 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       here is conditioned on, suspended by, or revived by such a proceeding.
       The second sentence is unchanged, and it is the part that does the work
       -- the officer takes as a transferee under Section 2.8.
-    * ACD-1.1: 5051 words, 78 clauses. This draft: 5207 words, 80 clauses.
+    * Section 5.2 gains a fourth covenant (errata E31). Section 11.4 says that this
+      Dedication grants no permission under a right of privacy, publicity, or
+      personality; it does not say that the Dedicator will not assert one. The
+      covenant in Section 5.1 reaches Covered Rights only, and Section 1.5 does
+      not include these, so nothing in the text stopped a Dedicator from suing a
+      recipient -- under their own likeness, voice, or performance -- for a use
+      this Dedication permits. That route is not hypothetical for an instrument
+      written for works meant to be learned from, which Section 11.4 itself says
+      are often data about people. The mechanism is one this text already uses:
+      Section 12.2 gives exactly this form of covenant for Moral Rights where a
+      waiver is unavailable. Section 11.4 is not touched, because it speaks of
+      granting and this speaks of the Dedicator's own conduct -- the same
+      distinction Sections 12.1 and 12.2 already draw -- and rights of this kind
+      held by anyone else are untouched.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5264 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -386,7 +400,13 @@ PREAMBLE (informative; not part of the operative terms)
             itself impose, and it imposes none (Section 10.1); or
 
        (c)  assert that any permission granted here is narrower than Section
-            15.1 requires it to be read.
+            15.1 requires it to be read; or
+
+       (d)  assert against You a right of privacy, publicity, or personality
+            held by the Dedicator, in respect of any use of the Work that this
+            Dedication permits. This is a covenant about the Dedicator's own
+            conduct and not a grant: Section 11.4 is unaffected, and rights of
+            this kind held by any other person are untouched.
 
   5.3  The covenants in Sections 5.1 and 5.2 bind the Dedicator's successors,
        assigns, heirs, and personal representatives, to the fullest extent the
