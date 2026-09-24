@@ -32,37 +32,6 @@ This page is in English because the discussion is. Most of the supporting analys
 directory is written in Japanese; this page tells you what each document contains so you can
 decide what is worth translating, and gives you the commands to check the claims yourself.
 
-## Which text you are looking at
-
-**There are two frozen texts, and they are frozen for different reasons.**
-
-| | |
-| :-- | :-- |
-| [`ACD-1.0.txt`](ACD-1.0.txt) | **The text posted to `license-discuss` on 2026-08-26, and the licence this repository applies.** Frozen since 2026-08-24 so that the text under discussion does not move. |
-| [`ACD-1.1.txt`](ACD-1.1.txt) | **The successor, frozen 2026-09-17.** When it was frozen it closed nineteen of the twenty-one defects then recorded in [`ACD-1.0.errata.md`](ACD-1.0.errata.md); the list has kept growing since, and each entry says which version addresses it. It has **not** been submitted to `license-review` and is **not** applied to this repository. |
-
-**Work on the next version happens in [`ACD-1.2-DRAFT.txt`](ACD-1.2-DRAFT.txt)**, so neither
-frozen text moves while it is being discussed. Both are pinned by SHA-256 in
-[`FROZEN.md`](FROZEN.md) and checked in CI; the command to verify that is below.
-
-**Clause numbers do not transfer cleanly between the two, and this matters when you read the
-analysis below, which is written against 1.0.** Measured, not assumed:
-
-- **§2 to §14 — every clause number means the same thing in both texts.** The citations on
-  this page (§4.4, §6, §8.4, §9, §10.1) are therefore good for either.
-- **§1's definitions were reordered, so four of them changed number.** Matched by defined term:
-  1.0's §1.2 *Work* is 1.2's §1.3, §1.3 *Dedicator* is §1.4, §1.4 *You* is §1.6, and §1.6 *Moral
-  Rights* is §1.2. **The numbers all exist in both, so nothing dangles — they simply mean
-  different things.**
-- **§15 and §16 were shortened and renumbered.** 1.0's §15.7 and §15.8 are 1.2's §15.3 and
-  §15.4; 1.0's §15.2 has no counterpart in 1.1 but its three rules of construction were
-  restored at 1.2's §15.5 (errata E24); **1.0's §15.3 likewise has no counterpart in 1.1 and
-  is restored word for word at 1.2's §15.6** (errata E25); 1.0's §16.5 (translations) was
-  absorbed into 1.2's §16.4, and **1.2's §16.5 is a different clause — the definition of the
-  Steward**.
-  **A citation to §1, §15 or §16 has to name the version.** The full map, citation by citation,
-  is in [`ACD-1.2-CHANGELIST.md`](ACD-1.2-CHANGELIST.md).
-
 ## In one screen
 
 - **What it is.** A dedication of copyright and neighbouring rights to the public, **plus a
@@ -100,10 +69,41 @@ analysis below, which is written against 1.0.** Measured, not assumed:
   in patent machinery to Apache-2.0. What it adds to each is the three items above.
 - **The two weaknesses, first.** **No lawyer has read it**, and **it has one adopter — this
   repository**. Both are stated at length below and neither is repaired anywhere in this directory.
-- **Anyone can adopt it.** Zero project names, zero placeholders, no editing required — the
+- **Anyone can adopt it.** Zero project names, no placeholders in the clauses (only §16.1's notice template has a blank, filled in the adopter's own notice), no editing of the licence text required — the
   commands to check that are below.
 - **If you read one more thing**, read [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md):
   every objection raised on the lists, which ones land, and the clause that answers each.
+
+## Which text you are looking at
+
+**There are two frozen texts, and they are frozen for different reasons.**
+
+| | |
+| :-- | :-- |
+| [`ACD-1.0.txt`](ACD-1.0.txt) | **The text posted to `license-discuss` on 2026-08-26, and the licence this repository applies.** Frozen since 2026-08-24 so that the text under discussion does not move. |
+| [`ACD-1.1.txt`](ACD-1.1.txt) | **The successor, frozen 2026-09-17.** When it was frozen it closed nineteen of the twenty-one defects then recorded in [`ACD-1.0.errata.md`](ACD-1.0.errata.md); the list has kept growing since, and each entry says which version addresses it. It has **not** been submitted to `license-review` and is **not** applied to this repository. |
+
+**Work on the next version happens in [`ACD-1.2-DRAFT.txt`](ACD-1.2-DRAFT.txt)**, so neither
+frozen text moves while it is being discussed. Both are pinned by SHA-256 in
+[`FROZEN.md`](FROZEN.md) and checked in CI; the command to verify that is below.
+
+**Clause numbers do not transfer cleanly between the two, and this matters when you read the
+analysis below, which is written against 1.0.** Measured, not assumed:
+
+- **§2 to §14 — every clause number means the same thing in both texts.** The citations on
+  this page (§4.4, §6, §8.4, §9, §10.1) are therefore good for either.
+- **§1's definitions were reordered, so four of them changed number.** Matched by defined term:
+  1.0's §1.2 *Work* is 1.2's §1.3, §1.3 *Dedicator* is §1.4, §1.4 *You* is §1.6, and §1.6 *Moral
+  Rights* is §1.2. **The numbers all exist in both, so nothing dangles — they simply mean
+  different things.**
+- **§15 and §16 were shortened and renumbered.** 1.0's §15.7 and §15.8 are 1.2's §15.3 and
+  §15.4; 1.0's §15.2 has no counterpart in 1.1 but its three rules of construction were
+  restored at 1.2's §15.5 (errata E24); **1.0's §15.3 likewise has no counterpart in 1.1 and
+  is restored word for word at 1.2's §15.6** (errata E25); 1.0's §16.5 (translations) was
+  absorbed into 1.2's §16.4, and **1.2's §16.5 is a different clause — the definition of the
+  Steward**.
+  **A citation to §1, §15 or §16 has to name the version.** The full map, citation by citation,
+  is in [`ACD-1.2-CHANGELIST.md`](ACD-1.2-CHANGELIST.md).
 
 ## Status
 
@@ -165,7 +165,7 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | **The gap is real**: no approved licence expressly permits training and text-and-data-mining, grants patents reaching models and outputs, and declines to presume that rights subsist in machine-generated material (§6, §8.4, §9) | **Four of the seven distinguishing features close if the incumbents amend** — and we say which four ([`comparison.md`](ACD-1.0.comparison.md) §1.35). The case then rests on the remaining three |
 | **It is reviewable**: §3 surrenders, §4 grants a licence *independently* (§4.4), so a reader never has to decide whether the surrender worked | **No court has characterised this construction**, in any jurisdiction (#3), and **no submission of this shape has been approved since 2020** (#87). A dedication taken alone is not approvable, and the escape is untested |
 | **It imposes nothing**: §10.1 and §4.3 attach no condition, so no obligation can fire in any delivery mode — the failure that condition-bearing instruments meet in hosted deployment | **The same structure weakens the warranty disclaimer** (#41) and forecloses defensive patent termination (#46). Both costs fall on the adopter, and both are deliberate |
-| **Anyone can adopt it**: zero project names, zero placeholders, no editing required — verifiable with the commands below | **One adopter: this repository** (#4). Reusability is a structural property; adoption is a social one, and only the first is shown |
+| **Anyone can adopt it**: zero project names, no placeholders in the clauses (one blank in §16.1's notice template), no editing of the licence text required — verifiable with the commands below | **One adopter: this repository** (#4). Reusability is a structural property; adoption is a social one, and only the first is shown |
 
 ## What to open first
 

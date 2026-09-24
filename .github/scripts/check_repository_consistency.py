@@ -146,7 +146,8 @@ CHECK_SOURCE_FILES: list = [
     ROOT / ".github" / "scripts" / "checks_aio_config.py",  # split: AIO entity/crawler identity + CI/config governance (62-69)
     ROOT / ".github" / "scripts" / "checks_governance_sync.py",  # split: AIO/AI2AI/llms freshness & governance sync (21-27)
     ROOT / ".github" / "scripts" / "checks_license_dossier.py",  # split: ACD-1.0 ドシエの自己整合 (458-461b)
-    ROOT / ".github" / "scripts" / "checks_license_submission.py",  # split: 審査者が受け取る面 (463/468/472/473)
+    ROOT / ".github" / "scripts" / "checks_license_submission.py",  # split: 審査者が受け取る面 (463/472/473)
+    ROOT / ".github" / "scripts" / "checks_license_draft.py",  # split: 次版の草案 (468)
     ROOT / ".github" / "scripts" / "checks_license_self_reporting.py",  # split: 自己申告件数 (460)
     ROOT / ".github" / "scripts" / "checks_license_quotation.py",  # split: 引用の忠実性 (470)
     ROOT / ".github" / "scripts" / "checks_license_references.py",  # split: 参照の解決 (471)
@@ -367,10 +368,14 @@ _checks_governance_sync.run(_ctx)
 # ── 458-461b. ACD-1.0 ドシエ (LICENSES/) の自己整合 → checks_license_dossier.py ──
 import checks_license_dossier as _checks_license_dossier
 
-# ── 463/468/472/473. 審査者が受け取る提出物そのもの → checks_license_submission.py ──
+# ── 463/472/473. 審査者が受け取る提出物そのもの → checks_license_submission.py ──
 import checks_license_submission as _checks_license_submission
 _checks_license_dossier.run(_ctx)
 _checks_license_submission.run(_ctx)
+# ── 468 (次版の草案) → checks_license_draft.py ──
+import checks_license_draft as _checks_license_draft
+
+_checks_license_draft.run(_ctx)
 
 # ── 460 (自己申告件数) → checks_license_self_reporting.py ──
 #  NOTE: 番号の直後に "." を置かない —— `_sec_re` は `# ── N.` を section header として数えるので、

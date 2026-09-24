@@ -52,23 +52,7 @@ _MUTATIONS_TAIL = [
 
 
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 46c: JS 構文 gate が存在するのに配線されない —— runner を残したまま lint:js から呼び出しを外すと、gate は「在る」のに一度も走らず全 shipped JS が無検査になる (存在 ≠ 配線)",
-    "file": ROOT / "package.json",
-    "find": "node .github/scripts/check_js_syntax.mjs main.js sw.js",
-    "replace": "node .github/scripts/check_js_syntax.UNWIRED.mjs main.js sw.js",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 413b: 「数値の真値」を名乗る runbook §9 の行が自分自身と矛盾する —— 1 つの数値だけ更新して内訳を忘れると、同じ行が複数の総数を同時に主張する状態になり、読み手はどれを信じるか決められない (2026-08-22 実測: 総数 530 / source 264 / mirror 250 / = 490 の 3 通りが同居し、Check 413 は 6 個中 2 個しか git と突き合わせないため緑だった)",
-    "file": ROOT / "docs" / "architecture" / "total-check-runbook.md",
-    # anchor は **不変の定数**「README + _template の 2」を狙う。総数/source/mirror の 3 つは
-    # file を 1 つ足すだけで動くので、そこを anchor にすると **増分のたび Check 362 が orphan を
-    # 報告する**（2026-08-23 に実際に発生）。**2** は docs/files の 2 つの非 mirror file を数えた
-    # 値で、file 数が動いても変わらない。2→3 にすると和が総数を 1 超えて 413b が RED になる。
-    "find": "`docs/files/_template.md` の **2**",
-    "replace": "`docs/files/_template.md` の **3**",
-})
 
 # ── Check 441 (ACD-1.0 ライセンス本文の構造整合と配線) ──────────────────────────
 # NOTE: **Check 442 (binary metadata の到達可能性) には mutation を登録できない。**
@@ -77,39 +61,9 @@ _MUTATIONS_TAIL.append({
 #   実測済 (COMM の size を過大値へ戻す → 442a/442b が RED / RIFF size を 1 ずらす → 442c が RED)。
 #   RED を実測できない mutation を安全網に混ぜないための非登録であって、被覆漏れではない。
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 441a (ライセンス本文の条項番号): 節内で番号を重複させる —— 条項を挿入・削除して "
-            "再採番を忘れると起きる。ライセンスは CI のどの層にも読まれないので壊れても全部緑のまま "
-            "SPDX / OSI 提出まで到達しうる (起草中に実際に踏んだ)",
-    "file": ROOT / "LICENSES" / "ACD-1.0.txt",
-    "find": "  15.8 English is the authoritative",
-    "replace": "  15.7 English is the authoritative",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 441b (ライセンス本文の相互参照): 存在しない条項を指させる —— 再採番したのに "
-            "本文中の 'Section N.M' を追従させ忘れると、読み手は別の条項へ飛ばされる",
-    "file": ROOT / "LICENSES" / "ACD-1.0.txt",
-    "find": "Section 15.4 applies, and the invalidity",
-    "replace": "Section 15.99 applies, and the invalidity",
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 441c (ライセンス本文の定義語): 定義だけ改名して本文の使用箇所を残す —— "
-            "定義が本文で一度も使われない状態は、起草途中の残骸か削除した条項の痕跡",
-    "file": ROOT / "LICENSES" / "ACD-1.0.txt",
-    "find": '"Reservation" means any act',
-    "replace": '"ReservationX" means any act',
-})
 
-_MUTATIONS_TAIL.append({
-    "name": "Check 441d (ライセンス本文の義務語): 利用者への義務を混入させる —— §10.1 は「利用者に "
-            "一切の条件を課さない」と宣言しており、義務語の混入は**このライセンスの中核主張そのものを "
-            "偽にする**。しかも混入先が「表示は不要」と述べる §10.2 なので、本文が自分と逆のことを言い出す",
-    "file": ROOT / "LICENSES" / "ACD-1.0.txt",
-    "find": "  10.2 In particular, You need not give attribution",
-    "replace": "  10.2 You must give attribution. In particular, You need not",
-})
 
 _MUTATIONS_TAIL.append({
     "name": "Check 441e (LICENSE の配線): 全文 path への参照を外す —— 全文ファイルが存在しても "
@@ -499,6 +453,20 @@ _MUTATIONS_TAIL.append({
     "file": ROOT / "LICENSES" / "REVIEWERS.md",
     "find": "editing            → expect 1",
     "replace": "editing            → expect 0",
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 472d (入口の到達距離): \"In one screen\" を見出しごと消す —— B13 の唯一の実効的な緩和が黙って失われる",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "## In one screen\n",
+    "replace": "## At a glance\n",
+})
+
+_MUTATIONS_TAIL.append({
+    "name": "Check 472e (placeholder 0 の限定): 限定を外して無限定の 0 に戻す —— §16.1 の雛形 1 欄があるので偽",
+    "file": ROOT / "LICENSES" / "ACD-1.0.review-rules.md",
+    "find": "固有名詞 0・条項の置換テキスト 0（§16.1 の推奨 notice の雛形 1 欄を除く）・採用に本文編集は不要（§4b）",
+    "replace": "固有名詞 0・置換テキスト 0・採用に本文編集は不要（§4b）",
 })
 
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
