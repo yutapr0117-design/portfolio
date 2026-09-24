@@ -1,0 +1,334 @@
+Source:   https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Fetched:  2026-09-24（ブラウザ相当の UA。既取得分のキャッシュから切り出し）
+Thread:   Adding the curl License —— discuss 側
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **最初の照会。** McCoy 氏が venue を訂正し（*"the proper e-mail list is license-approval"* → Berkus 氏が *"license-review"* と再訂正）、**「license-discuss で見当を付けるなら、それは OK」**と述べている。
+          **同じスレッドの他方のリスト側は 2026-01-03-license-discuss-… / 2026-02-04-license-review-… にある**
+          （rounds/README.md の命名規約どおり venue ごとに分けてある）。
+          読みは LICENSES/ACD-1.0.against.md #220 へ。ここには分析を書かない（規約 2）。
+
+----- begin verbatim -----
+From Christoph.Roeth at web.de  Sat Jan  3 11:38:54 2026
+From: Christoph.Roeth at web.de (=?UTF-8?Q?Christoph_R=C3=B6th?=)
+Date: Sat, 3 Jan 2026 12:38:54 +0100
+Subject: [License-discuss] Adding the curl license
+Message-ID: <3e8d7c0f-7943-491e-a327-9e28be8b7b84@web.de>
+
+Dear OSI License Discussion Forum,
+
+
+I would like the curl license to be added. Th|e license has been around 
+for quite some time, so it can be classified as a legacy license. The 
+license is available at SPDX. Please find the required information 
+attached.|
+
+
+**• Submit a copy of the license as an attachment in simple text format.**
+
+COPYRIGHT AND PERMISSION NOTICE
+
+Copyright (c) 1996 - 2015, Daniel Stenberg, <daniel at haxx.se>.
+All rights reserved.
+
+Permission to use, copy, modify, and distribute this software for any 
+purpose with or without fee is hereby granted, provided that the above 
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF 
+THIRD PARTY RIGHTS. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS 
+BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN 
+ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall 
+not be used in advertising or otherwise to promote the sale, use or 
+other dealings in this Software without prior written authorization of 
+the copyright holder.
+
+
+**• Affirmatively *state that the license complies*with the Open Source 
+Definition, including specifically affirming it meets OSD 3, 5, 6 and 9.**
+
+I can confirm that the license complies with the Open Source Definition.
+
+3. Derived Works: Yes
+
+5. No Discrimination Against Persons or Groups: Yes
+
+6. No Discrimination Against Fields of Endeavor: Yes
+
+9. License Must Not Restrict Other Software: Yes
+
+
+**• Identify what projects are *already using*the license.**
+
+The curl project itself.
+
+
+**• Provide the identity and contact details of the *license steward*, 
+if known, and of the submitter. The OSI will try to get in touch with 
+the license steward if the license submitter is not the steward.**
+
+Daniel Stenberg, <daniel at haxx.se>
+
+
+**• Provide any additional information that the submitter believes would 
+be helpful for license review. For example, approval of the license by 
+Debian, the FSF or the Fedora Project would be relevant to the review 
+process.**
+
+
+The website contains this text with detailed information about the 
+license, https://curl.se/docs/faq.html#license
+
+
+What license does curl use exactly?
+
+curl is released under an MIT derivative license. It is similar but not 
+identical to the MIT license.
+
+The difference is considered big enough to make SPDX list it under its 
+own identifier: curl.
+
+The changes done to the license that make it uniquely curl were tiny and 
+well-intended, but the reasons for them have been forgotten and we 
+strongly discourage others from doing the same thing.
+
+
+**• Provide a *unique name*for the license, preferably including the 
+version number.**
+
+Full name: |curl License ||(according to SPDX)|
+
+Short identifier: |curl ||(according to SPDX)|
+
+
+**• If any exist, provide the unique identifier by other projects, like 
+SPDX or ScanCode.**
+
+https://spdx.org/licenses/curl.html <https://spdx.org/licenses/curl.html>
+
+
+Best regards
+
+Christoph
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260103/4c158db9/attachment.htm>
+
+From mccoy at lexpan.law  Mon Jan  5 15:16:17 2026
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Mon, 5 Jan 2026 07:16:17 -0800
+Subject: [License-discuss] Adding the curl license
+In-Reply-To: <3e8d7c0f-7943-491e-a327-9e28be8b7b84@web.de>
+References: <3e8d7c0f-7943-491e-a327-9e28be8b7b84@web.de>
+Message-ID: <220f2499-0355-4295-a527-e18398a9ec85@lexpan.law>
+
+if you want this approved to add to the OSI list, the proper e-mail list 
+is license-approval, not license-discuss. Some people use 
+license-discuss as a place to get an initial sense of whether a license 
+might get approved, so if you're doing that here, then it's OK.
+
+I think at a minimum, you'd need to (in addition to the below):
+
+1. Indicate that you've contacted the license steward (since you are not 
+the steward) and indicate whether they approve or disapprove of 
+submission of this license for approval;
+
+2. Give a little bit better description of why changes to MIT were made 
+in this license, and why, and what their effect would be on the license. 
+The FAQs say both "The changes done to the license that make it uniquely 
+curl were tiny and well-intended, but the reasons for them have been 
+forgotten and we strongly discourage others from doing the same thing" 
+and "This license puts the restrictions we want on curl/libcurl and it 
+does not spread to other programs or libraries that use it." I think it 
+would be helpful to understand why curl believes the differences between 
+curl and MIT are so important they cannot be changed, but also are tiny 
+and forgotten.
+
+FWIW, attached is a compare I did between MIT and curl. To my mind, this 
+looks like an effort to take MIT and "BSD" it by making the license 
+grants more similar to the way they are expressed in BSD, and also to 
+add the non-endorsement clause of BSD-3. To my mind, this is just a 
+reworded version of BSD-3. Whether or not it is better than BSD-3 or MIT 
+is an interesting question (I'd argue it's a worse version of MIT 
+because it omits some of the license grants, most notably "sell" and 
+"sublicense" It seems fairly equivalent, albeit somewhat sorter, version 
+of BSD. Although the one change is the qualification of "third party 
+rights" in the disclaimer of non-infringement warranties. I don't think 
+that's practically substantive, but I think some explanation of why 
+that's in there would be merited.
+
+
+On 1/3/2026 3:38 AM, Christoph Röth via License-discuss wrote:
+>
+> Dear OSI License Discussion Forum,
+>
+>
+> I would like the curl license to be added. Th|e license has been 
+> around for quite some time, so it can be classified as a legacy 
+> license. The license is available at SPDX. Please find the required 
+> information attached.|
+>
+>
+> **• Submit a copy of the license as an attachment in simple text format.**
+>
+> COPYRIGHT AND PERMISSION NOTICE
+>
+> Copyright (c) 1996 - 2015, Daniel Stenberg, <daniel at haxx.se>.
+> All rights reserved.
+>
+> Permission to use, copy, modify, and distribute this software for any 
+> purpose with or without fee is hereby granted, provided that the above 
+> copyright notice and this permission notice appear in all copies.
+>
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+> EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+> MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT 
+> OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+> HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER 
+> IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR 
+> IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+> SOFTWARE.
+>
+> Except as contained in this notice, the name of a copyright holder 
+> shall not be used in advertising or otherwise to promote the sale, use 
+> or other dealings in this Software without prior written authorization 
+> of the copyright holder.
+>
+>
+> **• Affirmatively *state that the license complies*with the Open 
+> Source Definition, including specifically affirming it meets OSD 3, 5, 
+> 6 and 9.**
+>
+> I can confirm that the license complies with the Open Source Definition.
+>
+> 3. Derived Works: Yes
+>
+> 5. No Discrimination Against Persons or Groups: Yes
+>
+> 6. No Discrimination Against Fields of Endeavor: Yes
+>
+> 9. License Must Not Restrict Other Software: Yes
+>
+>
+> **• Identify what projects are *already using*the license.**
+>
+> The curl project itself.
+>
+>
+> **• Provide the identity and contact details of the *license steward*, 
+> if known, and of the submitter. The OSI will try to get in touch with 
+> the license steward if the license submitter is not the steward.**
+>
+> Daniel Stenberg, <daniel at haxx.se>
+>
+>
+> **• Provide any additional information that the submitter believes 
+> would be helpful for license review. For example, approval of the 
+> license by Debian, the FSF or the Fedora Project would be relevant to 
+> the review process.**
+>
+>
+> The website contains this text with detailed information about the 
+> license, https://curl.se/docs/faq.html#license
+>
+>
+> What license does curl use exactly?
+>
+> curl is released under an MIT derivative license. It is similar but 
+> not identical to the MIT license.
+>
+> The difference is considered big enough to make SPDX list it under its 
+> own identifier: curl.
+>
+> The changes done to the license that make it uniquely curl were tiny 
+> and well-intended, but the reasons for them have been forgotten and we 
+> strongly discourage others from doing the same thing.
+>
+>
+> **• Provide a *unique name*for the license, preferably including the 
+> version number.**
+>
+> Full name: |curl License ||(according to SPDX)|
+>
+> Short identifier: |curl ||(according to SPDX)|
+>
+>
+> **• If any exist, provide the unique identifier by other projects, 
+> like SPDX or ScanCode.**
+>
+> https://spdx.org/licenses/curl.html <https://spdx.org/licenses/curl.html>
+>
+>
+> Best regards
+>
+> Christoph
+>
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Official statements by the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260105/c34f50a8/attachment-0001.htm>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: curl compare mit.odt
+Type: application/vnd.oasis.opendocument.text
+Size: 34996 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20260105/c34f50a8/attachment-0001.odt>
+
+From josh.berkus at opensource.org  Mon Jan  5 17:33:21 2026
+From: josh.berkus at opensource.org (Josh Berkus)
+Date: Mon, 5 Jan 2026 09:33:21 -0800
+Subject: [License-discuss] Adding the curl license
+In-Reply-To: <220f2499-0355-4295-a527-e18398a9ec85@lexpan.law>
+References: <3e8d7c0f-7943-491e-a327-9e28be8b7b84@web.de>
+ <220f2499-0355-4295-a527-e18398a9ec85@lexpan.law>
+Message-ID: <4d04fad6-7eb5-44e8-b444-71d46241e70a@opensource.org>
+
+On 1/5/26 7:16 AM, McCoy Smith wrote:
+> if you want this approved to add to the OSI list, the proper e-mail list 
+> is license-approval, not license-discuss. Some people use license- 
+> discuss as a place to get an initial sense of whether a license might 
+> get approved, so if you're doing that here, then it's OK.
+
+Correction: license-review at lists.opensource.org
+
+-- 
+-- Josh Berkus
+OSI Board Member
+
+From Christoph.Roeth at web.de  Wed Jan  7 18:26:55 2026
+From: Christoph.Roeth at web.de (=?UTF-8?Q?Christoph_R=C3=B6th?=)
+Date: Wed, 7 Jan 2026 19:26:55 +0100
+Subject: [License-discuss] Adding the curl license
+In-Reply-To: <4d04fad6-7eb5-44e8-b444-71d46241e70a@opensource.org>
+References: <3e8d7c0f-7943-491e-a327-9e28be8b7b84@web.de>
+ <220f2499-0355-4295-a527-e18398a9ec85@lexpan.law>
+ <4d04fad6-7eb5-44e8-b444-71d46241e70a@opensource.org>
+Message-ID: <0445554d-88c4-42d2-a29d-1643b7d50fcb@web.de>
+
+Thank you very much for the detailed steps and comparison.
+I will continue to work on the information and send it to the 
+appropriate distribution list.
+
+Am 05.01.26 um 18:33 schrieb Josh Berkus:
+> On 1/5/26 7:16 AM, McCoy Smith wrote:
+>> if you want this approved to add to the OSI list, the proper e-mail 
+>> list is license-approval, not license-discuss. Some people use 
+>> license- discuss as a place to get an initial sense of whether a 
+>> license might get approved, so if you're doing that here, then it's OK.
+>
+> Correction: license-review at lists.opensource.org
+>
+
