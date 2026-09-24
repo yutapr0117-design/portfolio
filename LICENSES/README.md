@@ -16,6 +16,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 > The authoritative text is [`ACD-1.0.txt`](ACD-1.0.txt); the case against approving it is
 > [`ACD-1.0.against.md`](ACD-1.0.against.md), written by us.
 | 「**その記述は、本当に確かめられたのか**」 | [`AUDIT-LEDGER.md`](AUDIT-LEDGER.md) —— **ドシエ自身への敵対的検証の台帳**。主張を種類（逐語引用 / 件数 / 不在の主張 / 条項の挙動…）に分け、種類ごとに母数・確認済み・道具を持つ。**進捗は宣言せず道具から導出する** |
+| 「**機械可読な面（記述子・spdx.xml・LICENSE・REUSE.toml・manifest）が述べていることは、いま真か**」 | [`MACHINE-SURFACES-AUDIT.md`](MACHINE-SURFACES-AUDIT.md) —— 2026-09-24 の検証報告。**欠陥は直さず候補として列挙**してある |
 
 このディレクトリには **Autonomous Commons Dedication 1.0 (ACD-1.0)** の本文と、その周辺文書が
 置いてある。**目的は「疑問がこのリポジトリを見れば潰せる」ことである。**
