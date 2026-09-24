@@ -70,6 +70,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (このリポジトリに適用している�
 | 機械可読な記述子 | [`ACD-1.0.machine.json`](ACD-1.0.machine.json) / [`ACD-1.0.spdx.xml`](ACD-1.0.spdx.xml) |
 | 「**その記述は、本当に確かめられたのか**」 | [`AUDIT-LEDGER.md`](AUDIT-LEDGER.md) —— **ドシエ自身への敵対的検証の台帳**。主張を種類（逐語引用 / 件数 / 不在の主張 / 条項の挙動…）に分け、種類ごとに母数・確認済み・道具を持つ。**進捗は宣言せず道具から導出する** |
 | 「**機械可読な面（記述子・spdx.xml・LICENSE・REUSE.toml・manifest）が述べていることは、いま真か**」 | [`MACHINE-SURFACES-AUDIT.md`](MACHINE-SURFACES-AUDIT.md) —— 2026-09-24 の検証報告。**欠陥は直さず候補として列挙**してある |
+| 「**OSI 承認までに必要なものは何で、いまどこにいるのか**」 | [`OSI-APPROVAL-PLAN.md`](OSI-APPROVAL-PLAN.md) —— OSD 10 条・新規ライセンスの基準 8 条・提出要件 12 項目・却下理由 5 型・手続きを全部並べた計画と、「いま出したら通るか」の自問自答。**越えない線は 2 本（外への送信はオーナー / 条文の選択はオーナー）** |
 
 設計根拠と申請ドシエは、このディレクトリの外にある
 —— [`docs/architecture/acd-license-rationale.md`](../docs/architecture/acd-license-rationale.md)。
