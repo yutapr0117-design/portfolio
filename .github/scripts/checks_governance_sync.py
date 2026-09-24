@@ -689,11 +689,11 @@ def run(ctx):
     import subprocess as _sp450
     try:
         _tracked450 = [
-            _ln.strip()
+            _ln
             for _ln in _sp450.run(
-                ["git", "ls-files"], cwd=str(ROOT), capture_output=True, text=True, check=True
-            ).stdout.splitlines()
-            if _ln.strip()
+                ["git", "ls-files", "-z"], cwd=str(ROOT), capture_output=True, text=True, check=True
+            ).stdout.split("\0")
+            if _ln
         ]
     except (OSError, _sp450.CalledProcessError):
         _tracked450 = []      # git 不在環境では Check 434 が視界不完全を BLOCKING で受ける

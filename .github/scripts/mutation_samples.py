@@ -469,6 +469,14 @@ _MUTATIONS_TAIL.append({
     "replace": "固有名詞 0・置換テキスト 0・採用に本文編集は不要（§4b）",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 434c (git の -z): Check 454 の git ls-files から -z を外す —— 日本語名のパスが引用符付きで返り、"
+            "is_file() が偽になって黙って飛ばされる (2026-09-21 の週次配信検査の赤と同じ根)",
+    "file": ROOT / ".github" / "scripts" / "checks_size_budget.py",
+    "find": '_ls454 = _sp454.run(["git", "ls-files", "-z"], cwd=str(ROOT),',
+    "replace": '_ls454 = _sp454.run(["git", "ls-files"], cwd=str(ROOT),',
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

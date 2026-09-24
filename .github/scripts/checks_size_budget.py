@@ -409,9 +409,9 @@ def run(ctx):
     _CEIL365 = HARD_CEILING
     try:
         _ls365 = _sp365.run(
-            ["git", "ls-files"], cwd=str(ROOT), capture_output=True, text=True, check=True
+            ["git", "ls-files", "-z"], cwd=str(ROOT), capture_output=True, text=True, check=True
         )
-        _tracked365 = [ln.strip() for ln in _ls365.stdout.splitlines() if ln.strip()]
+        _tracked365 = [ln for ln in _ls365.stdout.split("\0") if ln]
         _over365 = []
         for _rel in _tracked365:
             _p365 = ROOT / _rel
@@ -525,10 +525,10 @@ def run(ctx):
                 _line454 = _line454.strip()
                 if _line454 and not _line454.startswith("#") and "|" in _line454:
                     _registered454.add(_line454.split("|")[0].strip())
-        _ls454 = _sp454.run(["git", "ls-files"], cwd=str(ROOT),
+        _ls454 = _sp454.run(["git", "ls-files", "-z"], cwd=str(ROOT),
                             capture_output=True, text=True, check=True)
         _missing454 = []
-        for _rel454 in (ln.strip() for ln in _ls454.stdout.splitlines() if ln.strip()):
+        for _rel454 in (ln for ln in _ls454.stdout.split("\0") if ln):
             if _rel454 in _registered454:
                 continue
             _p454 = ROOT / _rel454

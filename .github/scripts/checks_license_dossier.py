@@ -196,10 +196,10 @@ def run(ctx):
     else:
         _txt459 = _idx459.read_text(encoding="utf-8")
         try:
-            _ls459 = _sp459.run(["git", "ls-files", "LICENSES"], cwd=str(ROOT),
+            _ls459 = _sp459.run(["git", "ls-files", "-z", "LICENSES"], cwd=str(ROOT),
                                 capture_output=True, text=True, check=True)
-            _docs459 = [ln.strip() for ln in _ls459.stdout.splitlines()
-                        if ln.strip().endswith(".md")]
+            _docs459 = [ln for ln in _ls459.stdout.split("\0")
+                        if ln.endswith(".md")]
             _miss459 = [d for d in _docs459
                         if d != "LICENSES/README.md" and d.split("/")[-1] not in _txt459]
             check(

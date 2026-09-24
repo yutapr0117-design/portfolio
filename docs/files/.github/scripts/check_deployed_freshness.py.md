@@ -196,6 +196,8 @@ python3 .github/scripts/check_deployed_freshness.py
 
 **2026-09-24 の是正: 「何を照合するか」はリポジトリの宣言から導出する。** 以前は照合対象の導出に**公開** `sitemap.xml` を取得していた。すると (a) 取得できない環境（プロキシ 403 のローカル等）では `robots.txt` が照合対象から黙って抜け、**BLOCKING の Check 457c の合否がネットワーク到達性で変わっていた**（このため 457c のローカル RED は長く「環境依存」と片付けられていた）。(b) 配信されている sitemap が古いと、**検証される側が検証の範囲を決める**循環になる。`robots.txt` は元からローカルで読んでいたので、sitemap だけが非対称だった。配信されているかどうかは `_check_assets` が引き続き公開 sitemap で測る。
 
+**2026-09-24 の是正: 日本語名のパスでは 2 段の落とし穴があった。** 2026-09-21 の週次実行はドシエの到達性で赤くなり、4 件のうち 3 件は `LICENSES/rounds/` の**日本語名のファイル**（2026-09-19 追加）だった。(1) `git ls-files` を `-z` なしで読むと、非 ASCII のパスは引用符 + 8 進エスケープの形で返り、そのまま URL に組まれて 404 になる。(2) `-z` で正しい名前を得ても、percent-encode しなければ urllib が `UnicodeEncodeError` を投げる。両方直した（`-z` + `quote()`）。**4 件目（ASCII 名・09-14 には通っていた）は型名しか残っておらず、404 か一過性かを区別できなかった**ので、失敗時に HTTP ステータスも出すようにした。`-z` は Check 434c が `.github/scripts/` 全体で強制する。
+
 **制御外として記録しておく事実**: `.well-known/api-catalog` は拡張子が無いため GitHub Pages が `application/octet-stream` で返す（RFC 9727 が期待するのは `application/linkset+json`）。media type を厳格に見る agent は受け取れない可能性があるが、**Pages の MIME マッピングは制御できない**ので Check にはしない（`Cache-Control` を Check にしなかったのと同じ判断）。**測って分かった事実として残す。**
 
 ## Constraints
