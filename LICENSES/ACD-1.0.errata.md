@@ -74,11 +74,15 @@ than corrected. They came out **cleaner than the human-facing notice**:
 
 - `ACD-1.0.machine.json` records `osiApproved: false` and `spdxListed: false`, is marked
   `NON-OPERATIVE` with the text prevailing, and its `notice` field **omits** the SPDX identifier
-  line — so E1 does not propagate there. E3 does, and that is now noted in the row above.
+  line — so E1 does not propagate there. E3 and E12 do, and both rows above say so.
 - `ACD-1.0.spdx.xml` records `isOsiApproved="false"`.
-- Every one of the **29** `clause` pointers in the descriptor resolves to a clause that exists
+- Every one of the **33** `clause` pointers in the descriptor resolves to a clause that exists
   and is about the subject claimed. Verify it by cross-checking the `clause` fields against
-  `ACD-1.0.txt`; the result is 29/29.
+  `ACD-1.0.txt` (`grep -c '"clause"' LICENSES/ACD-1.0.machine.json` gives the count); the result
+  is 33/33, re-read clause by clause on 2026-09-24. *(Corrected 2026-09-24: this line said
+  **29 / 29**. The descriptor is frozen and has always had 33, so the number was wrong when it was
+  written — the same figure `against.md` #64 corrected in `submission-reference.md` §4c, left
+  standing here in the one section of this page that argues for the machine layer.)*
 
 That asymmetry is itself the lesson for 1.1: the machine-readable files say "not approved, not
 listed" in the same breath as the identifier, and the human notice does not. **The notice should
