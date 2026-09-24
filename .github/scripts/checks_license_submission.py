@@ -42,6 +42,13 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        入ったもので **1.0 には Steward という役割自体が無い**（`against.md` #160）。**472 は番号の
        存在しか見ないので通していた。** 引用の直前 250 字が他の版を名指しているもの
        （`1.1` / `1.2` / successor / draft / 草案）は、版を明示した引用として許す。
+       **(472c・2026-09-24)** 入口ページ `REVIEWERS.md` が審査者に貼らせる検証コマンドの**期待値**
+       （sh ブロックのコメント `→ expect N` / `→ N× OK`）が、**実際に実行した結果と一致する**こと。
+       `grep` で始まるコマンドだけを実行する。#190 は同じページの期待値が実行結果と食い違っていた件を
+       手で直したが、**機械で照合する層が無かった**。さらに 2026-09-24、置換テキストの検査が
+       `<[a-z]+>` で**複数語の雛形 `<location of this file>` を拾えず 0 を返していた** ——
+       **期待値が合っていても、測り方が対象を見ていないことがある。** 472c が守るのは前者だけで、
+       後者は正規表現を広げて直した（期待値 1）。
   468. **次版の草案が、自分が何であるかを述べ、内部的に健全であること** (BLOCKING): 2026-09-10 に
        オーナーが「現行は保持、次版を作って改善し続けるのは問題ない」と述べたので
        次版の草案 (**現在は `LICENSES/ACD-1.2-DRAFT.txt`**) を置いた。**草案は確定版と紛らわしい** —— 同じ書式・同じ節見出しで、
@@ -271,6 +278,43 @@ def run(ctx):
                      "提出対象の版の語句で引き直すか、直前で版を明示せよ"),
                     blocking=True,
                 )
+
+    # ── 472c. 入口ページの検証コマンドの期待値が、実行結果と一致すること ─────────────────
+    #   審査者は「コピーして貼るだけ」のコマンドを最も信用する。その期待値が実行結果と違えば、
+    #   正しいテキストを前にして「改変されている」と読ませる (#190)。grep 始まりだけを実行する。
+    _rv472c = ROOT / "LICENSES" / "REVIEWERS.md"
+    if _rv472c.exists():
+        import subprocess as _sp472c
+        _bad472c, _n472c = [], 0
+        for _blk in re.findall(r"```sh\n(.*?)```", _rv472c.read_text(encoding="utf-8"), re.S):
+            _lines = _blk.split("\n")
+            for _k, _ln in enumerate(_lines):
+                _me = re.search(r"→\s*(?:expect\s+(\d+)|(\d+)×\s*OK)", _ln)
+                if not (_ln.lstrip().startswith("#") and _me):
+                    continue
+                _cmd = next((_c.strip() for _c in _lines[_k + 1:]
+                             if _c.strip() and not _c.lstrip().startswith("#")), "")
+                if not _cmd.startswith("grep "):
+                    continue
+                _cmd = _cmd.replace("shasum -a 256 -c", "sha256sum -c")
+                _out = _sp472c.run(_cmd, shell=True, cwd=str(ROOT), capture_output=True,
+                                   text=True).stdout
+                _n472c += 1
+                if _me.group(1) is not None:
+                    _got = _out.strip()
+                    if _got != _me.group(1):
+                        _bad472c.append(f"{_cmd[:60]} → 期待 {_me.group(1)} / 実行 {_got!r}")
+                else:
+                    _ok = sum(1 for _o in _out.splitlines() if _o.rstrip().endswith(": OK"))
+                    if _ok != int(_me.group(2)):
+                        _bad472c.append(f"{_cmd[:60]} → 期待 {_me.group(2)}× OK / 実行 {_ok}× OK")
+        check(
+            _n472c > 0 and not _bad472c,
+            f"Check 472c: REVIEWERS.md の検証コマンド {_n472c} 本の期待値が実行結果と一致",
+            (f"Check 472c: 入口ページの検証コマンドの期待値が実行結果と違う: {_bad472c or '照合できたコマンドが 0 本'}。"
+             "**審査者はこれを貼って結果を比べる** —— 食い違えば、正しいテキストを前に改変を疑わせる (#190)"),
+            blocking=True,
+        )
 
     # ── 468. 次版の草案が自分を述べ、内部的に健全であること (BLOCKING) ─────────────────────
     #   草案は 1.0 と書式が同じで、条番号だけ §15 以降がずれている。**取り違えは実害を生む**

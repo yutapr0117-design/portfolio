@@ -493,6 +493,14 @@ _MUTATIONS_TAIL.append({
     "replace": "> **発信は 2026-09-09 から停止している**（",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 472c (入口ページの検証コマンド): 期待値を実行結果と違う値にする —— 審査者は貼って比べるので、"
+            "正しいテキストを前に改変を疑わせる (#190)",
+    "file": ROOT / "LICENSES" / "REVIEWERS.md",
+    "find": "editing            → expect 1",
+    "replace": "editing            → expect 0",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
