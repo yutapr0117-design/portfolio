@@ -1,7 +1,8 @@
 SPDX-License-Identifier: ACD-1.0
 
 This work is released under the Autonomous Commons Dedication 1.0 (ACD-1.0).
-No rights are reserved. No conditions are imposed.
+No rights in this work are reserved. No conditions are imposed in respect of it.
+Trademarks and personal names are not granted (ACD-1.0 §11.1).
 
 Full text: LICENSES/ACD-1.0.txt
 
@@ -11,7 +12,9 @@ What this means for you
 You may read, copy, modify, redistribute, sell, and build upon everything in
 this repository — the source code, the documentation, the binary assets (WebP /
 MP3), and the AIO metadata layers — for any purpose, without asking anyone and
-without giving credit. Training a machine learning model on it is expressly
+without giving credit. The one exception is LICENSES/rounds/: those files are
+other people's messages preserved verbatim, this repository holds no rights in
+them, and ACD-1.0 reaches only rights the Dedicator holds (§2.7). Training a machine learning model on it is expressly
 permitted (ACD-1.0 §6). There is nothing to comply with, so there is nothing
 you can get wrong.
 
