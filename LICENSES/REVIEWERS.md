@@ -67,7 +67,8 @@ analysis below, which is written against 1.0.** Measured, not assumed:
 
 - **What it is.** A dedication of copyright and neighbouring rights to the public, **plus a
   licence granted independently of it** (§4.4), for works meant to be learned from. One file,
-  16 sections, no placeholders.
+  16 sections, no placeholders in the clauses (the one blank, in §16.1's notice template, goes
+  in the adopter's own notice).
 - **The gap it claims, in one sentence.** **No OSI-approved instrument grants all three of these
   at once**: (i) a grant that expressly reaches **non-copyright rights in data** — the EU sui generis
   database right and its own verbs, *extraction* and *re-utilisation*; (ii) a **patent licence that
@@ -178,7 +179,7 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 |---|---|---|
 | **What is blocking approval** | [`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) | **The register.** Fourteen items, each with why it is an approval problem, what is fact and what is inference, the smallest resolution, what would be lost, and who can move it — **four are marked highest severity, and none of them is repaired by editing the licence**: no legal review (B1) and one adopter (B2) advance only by submitting and by time; whether the gap justifies a new licence is OSI's call (B10); and the moderators' notice about AI-written posts is being handled by the owner directly (B14). Its summary line is derived from the table by a CI check, so it cannot quietly understate what is left |
 | **Which known objections land** | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **One table.** Every objection **we have found** in the `license-review` / `license-discuss` archives of the last two years **that bears on a public-domain-equivalent or AI-facing instrument** — found by a subject census plus reading the threads that matched, which is **a floor, not a census of every objection ever raised** (#87). Whether each applies to ACD-1.0, and — for the ones that do not — the clause that answers it. **Objections that land are listed first** |
-| The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders |
+| The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders in the clauses (one in §16.1's notice template) |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
 | **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 318 worked entries, indexed by the question rather than the filename |
