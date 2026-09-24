@@ -1,7 +1,7 @@
 ---
 file: LICENSES/READY-TO-SUBMIT.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-discuss・license-review participants / 監査人
-last-updated: 2026-09-20
+last-updated: 2026-09-24
 canonical-ref: LICENSES/ACD-1.0.submission.md (提出物) / LICENSES/ACD-1.0.against.md (不利な事実) / LICENSES/ACD-1.0.errata.md (既知の欠陥)
 ---
 
@@ -13,8 +13,10 @@ canonical-ref: LICENSES/ACD-1.0.submission.md (提出物) / LICENSES/ACD-1.0.aga
 > 「いま送れる状態ではない」と述べ続けていた**（`against.md` #195）。
 > 止めた経緯は残す: 2026-09-09 に OSI Moderators が両リストへ **「AI が全部または大半を書いたと
 > 疑われる投稿は拒否する」**と投稿した（`against.md` #119 / `ACD-OSI-BOTTLENECKS.md` **B14**・
-> 逐語は `rounds/`）。**Check 467 が単一ソースと面を両方向で照合する。**
-> **単一ソースは `FROZEN.md` の `POSTING-STATUS` marker**で、**Check 467 が 4 面と両方向で照合する。**
+> 逐語は `rounds/`）。**再開後にオーナーが `license-discuss` へ送った 1 通は moderation で拒否されている**
+> （`against.md` #215）—— `active` は「我々の側で止めていない」であって「届く」ではない。
+> **Check 467 が照合するのは状態の面 1 つ（`REVIEWERS.md` の `Paused as of`）と恒久の面 2 つ**
+> （§B.0 の警告 / ゲート 0）である。旧文は「4 面」と述べていたが、実装と一致していなかった（#222）。
 > **次に何を送るか、そもそも送るかはオーナーの判断であり、AI は送る文面を完成品として提示しない。**
 > **この文書が述べる「準備できている」は、テキストとドシエについてであって、送信可否ではない。**
 
@@ -45,7 +47,7 @@ canonical-ref: LICENSES/ACD-1.0.submission.md (提出物) / LICENSES/ACD-1.0.aga
 ```
 
 **⚠ この「0 件」は 2026-08-24 時点の値であり、以後の発見によって明確に反証された（2026-09-05 追記）。**
-凍結後の敵対的読解で **221 件の不利な事実**と **32 件の errata**（うち §16.1 は本文が読み手に
+凍結後の敵対的読解で **223 件の不利な事実**と **33 件の errata**（うち §16.1 は本文が読み手に
 誤った行動を指示している）が出ている。**当時の判断が誤りだったのではなく、判断の根拠に
 した「ゼロ」の意味が狭すぎた** —— あれは「その日に使ったレンズでは新しい発見が出なかった」
 であって、「もう欠陥は無い」ではない。

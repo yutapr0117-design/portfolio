@@ -67,7 +67,8 @@ analysis below, which is written against 1.0.** Measured, not assumed:
 
 - **What it is.** A dedication of copyright and neighbouring rights to the public, **plus a
   licence granted independently of it** (§4.4), for works meant to be learned from. One file,
-  16 sections, no placeholders.
+  16 sections, no placeholders in the clauses (the one blank, in §16.1's notice template, goes
+  in the adopter's own notice).
 - **The gap it claims, in one sentence.** **No OSI-approved instrument grants all three of these
   at once**: (i) a grant that expressly reaches **non-copyright rights in data** — the EU sui generis
   database right and its own verbs, *extraction* and *re-utilisation*; (ii) a **patent licence that
@@ -113,8 +114,9 @@ discussion — it is **not** the approval venue. Nothing has been submitted to `
 and nothing has been submitted to SPDX.
 
 **ACD-1.1 was frozen on 2026-09-17** (`ACD-1.1.txt`, pinned by SHA-256 in `FROZEN.md` and
-verified in CI). When frozen it closed nineteen of the twenty-one defects then recorded in ACD-1.0 (the list has
-grown since), and it is the text now put forward for discussion; **work on the next version happens in `ACD-1.2-DRAFT.txt`,
+verified in CI). When frozen it closed nineteen of the twenty-one defects then recorded in ACD-1.0.
+**The owner sent it to `license-discuss` the same day, and that message was rejected by moderation**
+(`ACD-1.0.against.md` #215), so the list has not yet received this text; **work on the next version happens in `ACD-1.2-DRAFT.txt`,
 so the text under discussion does not move.** **ACD-1.0 remains frozen and remains the licence
 this repository applies** — freezing a text is a promise about its bytes, not a statement about
 which version a project uses, and the two facts are deliberately kept apart here.
@@ -136,8 +138,8 @@ meet the stated bar.
 The text is **frozen** while this is open. `LICENSES/FROZEN.md` exists to say so, and
 **Check 453 in CI pins the SHA-256 of five files** — the three submitted ones
 (`ACD-1.0.txt`, `ACD-1.0.spdx.xml`, `ACD-1.0.machine.json`) and the two that carry the
-**successor** (`ACD-1.1.txt`, `ACD-1.1.machine.json`), which is **not in force,
-not submitted and not applied** — so that an accidental edit fails the build rather than
+**frozen successor** (`ACD-1.1.txt`, `ACD-1.1.machine.json`), which is **not in force,
+not submitted for approval and not applied** — so that an accidental edit fails the build rather than
 silently changing the text you are reading. If you find a defect in the text, it will be **reported, not quietly
 patched** — changing the wording underneath a live discussion would make your review of it
 meaningless.
@@ -178,13 +180,13 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 |---|---|---|
 | **What is blocking approval** | [`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) | **The register.** Fourteen items, each with why it is an approval problem, what is fact and what is inference, the smallest resolution, what would be lost, and who can move it — **four are marked highest severity, and none of them is repaired by editing the licence**: no legal review (B1) and one adopter (B2) advance only by submitting and by time; whether the gap justifies a new licence is OSI's call (B10); and the moderators' notice about AI-written posts is being handled by the owner directly (B14). Its summary line is derived from the table by a CI check, so it cannot quietly understate what is left |
 | **Which known objections land** | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) | **One table.** Every objection **we have found** in the `license-review` / `license-discuss` archives of the last two years **that bears on a public-domain-equivalent or AI-facing instrument** — found by a subject census plus reading the threads that matched, which is **a floor, not a census of every objection ever raised** (#87). Whether each applies to ACD-1.0, and — for the ones that do not — the clause that answers it. **Objections that land are listed first** |
-| The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders |
+| The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders in the clauses (one in §16.1's notice template) |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
-| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 318 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 221 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
+| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 320 worked entries, indexed by the question rather than the filename |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 223 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
-| **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 32 known imprecisions, all unrepaired while the freeze holds, with what 1.1 would do |
+| **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 33 known imprecisions, all unrepaired while the freeze holds, with what 1.1 would do |
 | Known weaknesses, longer form | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) | Stated by us, before you have to find them |
 
 ## Disclosures you should not have to dig for

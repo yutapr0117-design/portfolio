@@ -4,13 +4,14 @@
 
 # Yuta Yokoi — AI-Driven PM Portfolio
 
-> **Reviewing the licence?** If you arrived from the OSI `license-discuss` thread on the
-> **Autonomous Commons Dedication 1.0 (ACD-1.0)**, start at
+> **Reviewing the licence?** If you arrived from an OSI `license-discuss` thread on the
+> **Autonomous Commons Dedication** (ACD-1.0, or its frozen successor ACD-1.1), start at
 > **[`LICENSES/REVIEWERS.md`](LICENSES/REVIEWERS.md)** — it is in English and states the
 > submission status, where the authoritative text is, and how to verify each claim.
 >
 > **Want to use the licence?** It is written to be applied by anyone to any work — no project
-> names, no placeholders, nothing to edit ([`LICENSES/ACD-1.0.txt`](LICENSES/ACD-1.0.txt), §16.3).
+> names and nothing to edit in the text ([`LICENSES/ACD-1.0.txt`](LICENSES/ACD-1.0.txt), §16.3); the
+> one blank, in §16.1's notice template, is filled in your own notice.
 > **Read the case against it first**
 > ([`LICENSES/ACD-1.0.against.md`](LICENSES/ACD-1.0.against.md)): **no lawyer has reviewed it, it
 > is not OSI-approved, and it is not on the SPDX License List.**

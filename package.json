@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "description": "Dev-tooling manifest for the AI-Driven PM Portfolio. The published site is dependency-free Vanilla JS (Boring Technology); these are CI/dev tools only (lint, CSS lint, E2E). No runtime dependencies. Application code imports nothing from here.",
-  "license": "UNLICENSED",
+  "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "lint": "eslint main.js error-suppressor.js karte-init.js theme-init.js aio-guard.js sw.js js/ai-knowhow-page.js js/ai-page.js js/aidk-rails.js js/apps.js js/brand.js js/command-palette.js js/components.js js/constants.js js/fatal-overlay.js js/hiring-risk-page.js js/home-page.js js/identity.js js/meta-management.js js/mobile-drawer.js js/page-meta.js js/pages.js js/perf-guards.js js/pomodoro-page.js js/project-detail-page.js js/projects-page.js js/pure-utils.js js/quiz-renderer.js js/quiz/architecture-quiz-data.js js/quiz/aws-quiz-data.js js/quiz/pm-quiz-data.js js/quiz/quality-quiz-data.js js/router.js js/settings-io.js js/settings-page.js js/state.js js/storage.js js/store.js js/theme.js js/ui-components.js",
     "lint:css": "python3 .github/scripts/check_css_stylelint.py",
