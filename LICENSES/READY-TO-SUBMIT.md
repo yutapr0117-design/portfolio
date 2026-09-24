@@ -1,7 +1,7 @@
 ---
 file: LICENSES/READY-TO-SUBMIT.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-discuss・license-review participants / 監査人
-last-updated: 2026-09-20
+last-updated: 2026-09-24
 canonical-ref: LICENSES/ACD-1.0.submission.md (提出物) / LICENSES/ACD-1.0.against.md (不利な事実) / LICENSES/ACD-1.0.errata.md (既知の欠陥)
 ---
 
@@ -45,7 +45,7 @@ canonical-ref: LICENSES/ACD-1.0.submission.md (提出物) / LICENSES/ACD-1.0.aga
 ```
 
 **⚠ この「0 件」は 2026-08-24 時点の値であり、以後の発見によって明確に反証された（2026-09-05 追記）。**
-凍結後の敵対的読解で **221 件の不利な事実**と **32 件の errata**（うち §16.1 は本文が読み手に
+凍結後の敵対的読解で **221 件の不利な事実**と **33 件の errata**（うち §16.1 は本文が読み手に
 誤った行動を指示している）が出ている。**当時の判断が誤りだったのではなく、判断の根拠に
 した「ゼロ」の意味が狭すぎた** —— あれは「その日に使ったレンズでは新しい発見が出なかった」
 であって、「もう欠陥は無い」ではない。

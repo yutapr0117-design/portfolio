@@ -155,7 +155,15 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       review, and a reader meets the claim before meeting the carve-out. The
       replacement keeps the force within the scope that is true and points at
       the carve-out in the same breath.
-    * ACD-1.1: 5051 words, 78 clauses. This draft: 5279 words, 80 clauses.
+    * Section 1.5 now names the fourth exclusion (errata E33). Its list of
+      what Covered Rights excludes named patents, trademarks and names, and
+      Moral Rights, and stopped; rights under data protection, privacy,
+      publicity, or personality law were excluded only by inference from
+      Section 11.4, some sixty clauses later, while Section 1.5 defines Covered
+      Rights as every right "however arising" and Section 15.1 asks for the
+      widest reading. Nothing a recipient may do changes; the definition now
+      states its own boundary instead of leaving it to be inferred.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5299 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -233,8 +241,9 @@ PREAMBLE (informative; not part of the operative terms)
        extraction, and any right of similar effect, whether or not presently
        known and whether or not presently subsisting. Covered Rights excludes
        patent rights, which Section 8 addresses; trademark rights and rights in
-       a name, which Section 11 addresses; and Moral Rights, which Section 12
-       addresses.
+       a name, which Section 11 addresses; Moral Rights, which Section 12
+       addresses; and rights under the law of data protection or under a right
+       of privacy, publicity, or personality, which Section 11.4 addresses.
 
   1.6  "You" means any person or entity exercising permissions under this
        Dedication, whether human, organisational, or automated. "Your" is
