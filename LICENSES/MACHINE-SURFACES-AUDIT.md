@@ -50,6 +50,7 @@ REUSE は `reuse lint` を**実際に走らせた**（リポジトリ本体と�
 - **なぜ捕まらなかったか**: Check 444d は sitemap に全文の `<loc>` が**在ること**を見る。**食い違う宣言が無いこと**は見ていない。
 - **逆側**: Google は 2022 年に image sitemap の `image:license` を非推奨にしており、Google はこれを読まない。ただし namespace を読む他の消費者はいる。**害の向きは「実際より制限的に見える」** で、ACD-1.0 §6.5 が避けようとしている当のこと（機械が許諾を判定できない）の逆向き版である。
 - **扱い**: sitemap は AIO 公開層なので、直すなら `aio-guardian` 経由（C6 は内容の正しさを守るもので、署名待ちではない）。
+- **是正済み（2026-09-24）**: steward が「揃えてください」と答えたので、`image:license` を ACD-1.0 の全文 URL（JSON-LD の `license` と同じ値）へ変えた。**過去形の記録としてこの節は残す**（`against.md` #221）。
 
 ### 🔴 M2. `REUSE.toml` と `against.md` #108 は、`reuse lint` が何を言うかを過少に予告している
 

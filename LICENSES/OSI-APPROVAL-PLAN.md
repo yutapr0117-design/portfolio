@@ -184,11 +184,12 @@ OSI に承認され得るかの自問自答と、より承認されやすくす�
 
 | 何を | なぜオーナーか | 置き場 |
 | :-- | :-- | :-- |
-| `sitemap.xml` のヒーロー画像の `image:license`（CC BY-NC-ND 4.0 のまま） | その画像にどの条件を適用するかの選択 | `against.md` #221 |
 | 名称（B6） | 審査に出す名前の選択 | `ACD-OSI-BOTTLENECKS.md` B6 |
 | 1.2 で閉じる errata のうち条文の中身を変えるもの | 条件の選択 | `ACD-1.2-CHANGELIST.md` |
 | 弁護士に読んでもらうか・誰に | 依頼の主体 | B1 |
 | B14 への対応と、次にいつ何を送るか | 外へ出るもの | `FROZEN.md` |
+
+`sitemap.xml` のヒーロー画像の `image:license` は 2026-09-24 に steward が「揃えてください」と答え、ACD-1.0 へ揃えた（`against.md` #221）。
 
 ---
 
