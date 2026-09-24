@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-responses-meta.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-09-19
+last-updated: 2026-09-24
 canonical-ref: LICENSES/ACD-1.0.review-responses.md (総論・索引) / LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威)
 ---
 
@@ -568,8 +568,11 @@ MPL 系で、いずれも **steward（FSF / Mozilla）が組織として継続�
 
 **検出しやすい側の性質を持っている。** 根拠は 2 つで、どちらも実測できる。
 
-**(1) 本文に置換テキストが 1 箇所も無い。** 実測: `ACD-1.0.txt` に `<year>` / `<name>` /
-`[year]` / `YYYY` / テンプレート記法は **0 件**。MIT や BSD は著作権者名と年が本文に埋め込まれる
+**(1) 条項に置換テキストが 1 箇所も無い。** 実測: `ACD-1.0.txt` に `<year>` / `<name>` /
+`[year]` / `YYYY` は **0 件**、雛形記法は **1 件**で、それは §16.1 の推奨 notice の *"Full text: &lt;location of this file&gt;"*
+—— **採用者が自分の notice に書く欄**であり、本文の中では文字どおりの定型文である（`spdx.xml` も本文中は固定文字列、
+`standardLicenseHeader` でだけ `<alt>` にしている）。*（2026-09-24 訂正: 以前は「テンプレート記法は 0 件」と書いていた。
+測定の正規表現 `<[a-z]+>` が複数語の欄を拾えなかったため。）*MIT や BSD は著作権者名と年が本文に埋め込まれる
 ため、スキャナは「可変部分」を吸収する正規化を必要とするが、ACD-1.0 の本文は**誰が適用しても
 1 バイトも変わらない**。SPDX の matching guidelines が扱う困難のうち、可変テキストに起因する
 ものは構造的に発生しない。

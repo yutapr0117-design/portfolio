@@ -1,19 +1,15 @@
 ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
 
-  This file is the successor text under construction. The frozen text the
-  owner sent for discussion on 2026-09-17 is ACD-1.1 (LICENSES/ACD-1.1.txt);
-  that message was rejected by moderation, so the list has not yet received
-  it (LICENSES/ACD-1.0.against.md #215). The licence that covers this
-  repository is ACD-1.0. Both are pinned by SHA-256 in
+  This file is the successor text under construction. The frozen text now put
+  forward for discussion is ACD-1.1 (LICENSES/ACD-1.1.txt), and the licence
+  that covers this repository is ACD-1.0. Both are pinned by SHA-256 in
   LICENSES/FROZEN.md and verified in CI; nothing here changes either of them.
 
   Status of this draft, stated plainly so that nobody has to infer it:
 
     * It has had no legal review, like 1.0 and 1.1.
-    * It has not been posted to any list. (Whether posting is currently
-      paused is stated only in LICENSES/FROZEN.md, POSTING-STATUS; it is not
-      copied here because copies went stale. Background:
-      LICENSES/ACD-OSI-BOTTLENECKS.md B14).
+    * It has not been posted to any list. (Posting about ACD-1.1 resumed
+      on 2026-09-17; the current state is LICENSES/FROZEN.md POSTING-STATUS.)
     * Apart from the changes listed below, and the version number and the
       identifiers that name it, the operative text is ACD-1.1's. **An empty
       change list below means nothing has been changed yet -- not that the

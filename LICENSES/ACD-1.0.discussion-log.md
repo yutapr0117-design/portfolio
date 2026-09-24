@@ -1,13 +1,13 @@
 ---
 file: LICENSES/ACD-1.0.discussion-log.md
 audience: ai, human (提出者), 監査人, 第三者全般
-last-updated: 2026-09-05
+last-updated: 2026-09-24
 canonical-ref: LICENSES/ACD-1.0.submission.md (提出パケット・§B が license-review 宛の文面) / LICENSES/ACD-1.0.review-responses.md (想定問答) / LICENSES/FROZEN.md (凍結と VENUE-DATA)
 ---
 
 # ACD-1.0 — 議論ログ（license-discuss → license-review の橋渡し）
 
-> **発信の状態はここに書かない** —— 単一ソースは `FROZEN.md` の `POSTING-STATUS` marker である（状態を写した面は再開後も「停止」と言い続けた・`ACD-1.0.against.md` #195 / #222）。経緯だけを日付つきで置く: 2026-09-09 に OSI Moderators の通知を受けて停止し（#119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）、2026-09-17 に再開した。**再開後にオーナーが `license-discuss` へ送った 1 通は moderation で拒否されている**（#215）。
+> **発信は 2026-09-17 に再開した**（オーナーが ACD-1.1 の短い Discussion Request を自分の言葉で `license-discuss` へ送った）。2026-09-09 から 09-17 までは止めていた —— OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と投稿したため（`ACD-1.0.against.md` #119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）。**再開後の 1 通が公開アーカイブに現れたかは未確認**（`against.md` #192）。**単一ソースは `FROZEN.md` の `POSTING-STATUS` marker**で、**Check 467 が状態を述べる面と恒久の手続きの面を両方向で照合し、467c が「停止している」という現在形の残存を LICENSES 全体で禁じる。**
 
 
 ```

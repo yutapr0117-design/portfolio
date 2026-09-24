@@ -45,6 +45,23 @@ offset も変わらない:
 WebP 側は XMP が text なので、既存 `update_binary_aio_organization.py` と同じく
 RIFF chunk を再計算して置換する (この経路は Check 337 が検証済)。
 
+## 2026-09-24 追補 —— 「no rights」も過大だった (errata E12)
+
+1 回目の置換は `All rights reserved` を消したが、代わりに書いた *"no rights reserved"* /
+*"(no rights)"* は ACD-1.0 §11.1（商標・人名は付与しない）と両立しない。LICENSE・llms 層・
+manifest は同日に本文どおりへ直したので、binary 2 面も揃える:
+
+  - WebP `dc:rights` を「この著作物について留保しない・商標と人名は付与しない (§11.1)」へ
+  - WebP `xmpRights:Marked` を**外す**。XMP の意味は True = 権利管理下 / False = public domain /
+    省略 = 不明。§3 の放棄は法域によって効かず (§3.3)、許諾は §4 が別に立てるので、
+    **True は `dc:rights` と矛盾し、False も過大** —— 正確なのは省略である
+  - MP3 `TCOP` を同じ範囲の文言へ、`WCOP`（「利用条件が書かれたページ」の URL）をサイト
+    トップから本文へ
+
+**MP3 は今回は frame を組み直す。** COMM は 1 回目で修復済みで walk は padding まで通るので、
+「壊れた frame を組み直すと悪化する」という前回の制約はもう無い。**tag の総サイズは変えない**
+（padding 2,364 bytes から差分を吸収する）ので、音声データの offset も file size も不変。
+
 ## 冪等
 
 いずれも「既に適用済みなら何もしない」。日付フィールドは C6 の A1 派生値例外に従い
@@ -75,6 +92,16 @@ NEW_RIGHTS_WEBP = ("2026 Yuta Yokoi (横井雄太). Released under the Autonomou
 # MP3 TCOP は **同一バイト長 (52) ** でなければならない (offset を動かさないため)。
 OLD_TCOP = "2026 Yuta Yokoi (横井雄太). All rights reserved."
 NEW_TCOP = "2026 Yuta Yokoi (横井雄太). ACD-1.0 (no rights)."
+
+# 2026-09-24 (errata E12): 「no rights」は §11.1 と両立しないので本文どおりの範囲へ
+RIGHTS_WEBP_V2 = ("2026 Yuta Yokoi (横井雄太). Released under the Autonomous Commons Dedication 1.0 "
+                  "(ACD-1.0): no rights in this work reserved and no conditions imposed in respect of it; "
+                  "trademarks and personal names not granted (section 11.1); machine learning expressly "
+                  "permitted. Canonical: https://yutapr0117-design.github.io/portfolio/")
+MARKED_LINE = "  <xmpRights:Marked>True</xmpRights:Marked>\n"
+TCOP_V2 = ("2026 Yuta Yokoi (横井雄太). ACD-1.0: no rights in this work reserved; "
+           "trademarks and personal names not granted (section 11.1).")
+WCOP_V2 = "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt"
 
 
 def _synchsafe(n: int) -> bytes:
@@ -161,7 +188,7 @@ def update_mp3_tcop(path: Path) -> bool:
                            f"offset を動かさない前提が崩れるので中断")
     i = data.find(old)
     if i < 0:
-        if data.find(new) >= 0:
+        if data.find(new) >= 0 or data.find(TCOP_V2.encode("utf-8")) >= 0:
             print("MP3 TCOP: 既に ACD-1.0 表記 — skip")
             return False
         raise RuntimeError("TCOP: 想定した旧文言が見つからない")
@@ -183,7 +210,7 @@ def update_webp_rights(path: Path) -> bool:
     xmp_size = struct.unpack("<I", data[xmp_pos + 4:xmp_pos + 8])[0]
     xmp_text = data[xmp_pos + 8:xmp_pos + 8 + xmp_size].decode("utf-8")
 
-    if NEW_RIGHTS_WEBP in xmp_text:
+    if NEW_RIGHTS_WEBP in xmp_text or RIGHTS_WEBP_V2 in xmp_text:
         print("WebP dc:rights: 既に ACD-1.0 表記 — skip")
         return False
     if OLD_RIGHTS_WEBP not in xmp_text:
@@ -200,11 +227,80 @@ def update_webp_rights(path: Path) -> bool:
     return True
 
 
+def update_webp_rights_v2(path: Path) -> bool:
+    """dc:rights を E12 の範囲へ直し、xmpRights:Marked を外す (RIFF chunk を再計算)。"""
+    data = path.read_bytes()
+    xmp_pos = data.find(b"XMP ")
+    xmp_size = struct.unpack("<I", data[xmp_pos + 4:xmp_pos + 8])[0]
+    text = data[xmp_pos + 8:xmp_pos + 8 + xmp_size].decode("utf-8")
+    new = text
+    if NEW_RIGHTS_WEBP in new:
+        new = new.replace(NEW_RIGHTS_WEBP, RIGHTS_WEBP_V2, 1)
+    elif RIGHTS_WEBP_V2 not in new:
+        raise RuntimeError("WebP dc:rights: 想定した文言が見つからない")
+    new = new.replace(MARKED_LINE, "", 1)
+    if "xmpRights:Marked" in new:
+        raise RuntimeError("WebP: xmpRights:Marked が想定と違う形で残っている")
+    if new == text:
+        print("WebP v2: 既に適用済み — skip")
+        return False
+    payload = new.encode("utf-8")
+    chunk = b"XMP " + struct.pack("<I", len(payload)) + payload + (b"\x00" if len(payload) % 2 else b"")
+    old_total = 8 + xmp_size + (xmp_size % 2)
+    out = data[:xmp_pos] + chunk + data[xmp_pos + old_total:]
+    out = b"RIFF" + struct.pack("<I", len(out) - 8) + out[8:]
+    path.write_bytes(out)
+    print(f"WebP v2: dc:rights を E12 の範囲へ・Marked を除去 ({len(data)} -> {len(out)} bytes)")
+    return True
+
+
+def update_mp3_rights_v2(path: Path) -> bool:
+    """TCOP / WCOP を組み直す。tag の総サイズは padding で吸収して変えない。"""
+    data = path.read_bytes()
+    if data[:3] != b"ID3" or data[3] != 4 or data[5] != 0:
+        raise RuntimeError("MP3: ID3v2.4・flag 無しを前提にしている (前提が崩れたので中断)")
+    tag_size = _read_synchsafe(data[6:10])
+    end = 10 + tag_size
+    pos, frames = 10, []
+    while pos + 10 <= end and data[pos:pos + 1] != b"\x00":
+        fid = data[pos:pos + 4]
+        if not all(48 <= c <= 57 or 65 <= c <= 90 for c in fid):
+            raise RuntimeError(f"MP3: {pos} で walk が破綻 —— 組み直しは安全でないので中断")
+        fs = _read_synchsafe(data[pos + 4:pos + 8])
+        frames.append([fid, data[pos + 8:pos + 10], data[pos + 10:pos + 10 + fs]])
+        pos += 10 + fs
+    tcop = b"\x03" + TCOP_V2.encode("utf-8") + b"\x00"
+    wcop = WCOP_V2.encode("latin-1") + b"\x00"
+    changed = False
+    for f in frames:
+        if f[0] == b"TCOP" and f[2] != tcop:
+            f[2], changed = tcop, True
+        if f[0] == b"WCOP" and f[2] != wcop:
+            f[2], changed = wcop, True
+    if not changed:
+        print("MP3 v2: 既に適用済み — skip")
+        return False
+    body = b"".join(fid + _synchsafe(len(d)) + flags + d for fid, flags, d in frames)
+    if len(body) > tag_size:
+        raise RuntimeError("MP3: padding が足りない —— tag を広げると音声の offset が動くので中断")
+    before = readable_frame_count(data)
+    out = data[:10] + body + b"\x00" * (tag_size - len(body)) + data[end:]
+    assert len(out) == len(data), "file size が変わった"
+    after = readable_frame_count(out)
+    if after != before:
+        raise RuntimeError(f"MP3: 読める frame 数が変わった ({before} -> {after}) —— 中断")
+    path.write_bytes(out)
+    print(f"MP3 v2: TCOP / WCOP を組み直した (frame {after} 本・file size 不変・padding {tag_size - len(body)})")
+    return True
+
+
 def main() -> int:
     changed = False
     changed |= repair_malformed_frame(MP3)
     changed |= update_mp3_tcop(MP3)
     changed |= update_webp_rights(WEBP)
+    changed |= update_webp_rights_v2(WEBP)
+    changed |= update_mp3_rights_v2(MP3)
 
     if changed:
         # C6 A1 派生値: semantic 編集に伴う日付フィールドを同一 commit で同期する (Check 91)

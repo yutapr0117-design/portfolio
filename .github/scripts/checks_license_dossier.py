@@ -49,6 +49,12 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        —— **凍結は一度だけ解除される**（オーナーが結果を伝えたときに `FROZEN.md` を削除する）ので、
        その 1 回が面の掃き忘れの最も起きやすい瞬間である。`FROZEN.md` が無いのに「凍結中」と
        述べている面が在れば RED。**凍結中は何も要求しない**（Check 453 が pin を守っている）。(BLOCKING)
+       **(467c・2026-09-24)** marker が `active` のあいだ、`LICENSES/` の文書と草案が発信の停止を
+       **現在形で述べていない**こと。467 の状態の面は `REVIEWERS.md` の 1 面だけで、**再開から 7 日後も
+       入口 `README.md`・議論ログ・PEER-REVIEW-WATCH の冒頭 3 面と 1.2 草案が「停止している」と
+       述べていた**（`against.md` #195 が 3 面を直したが、同じ class の残りは面を列挙する方式では
+       見えなかった）。**列挙ではなく文言で全体を掃く。** 過去の出来事として記録する file
+       （against / BLIND-SPOTS-LOG / AUDIT-LEDGER / MACHINE-SURFACES-AUDIT）は対象外。
 
   466. **審査者への案内が、表紙の先頭に在ること** (BLOCKING): 送った文面は GitHub リポジトリを
        指しているので `README.md` は審査者の入口である。その「どこから読めばよいか」の案内は
@@ -473,6 +479,34 @@ def run(ctx):
                  "単一ソースは FROZEN.md の POSTING-STATUS で、そこを変えれば残りは CI が指す"),
                 blocking=True,
             )
+
+    # ── 467c. 発信が active のあいだ、停止を現在形で述べる文書が無いこと (BLOCKING) ───────────
+    #   467 は状態の面を列挙して見るので、列挙に入っていない面は再開後も「停止している」と
+    #   言い続けた（入口 README / 議論ログ / PEER-REVIEW-WATCH / 1.2 草案・再開から 7 日）。
+    #   **面を足すのではなく、文言で LICENSES 全体を掃く。**
+    _fr467c = ROOT / "LICENSES" / "FROZEN.md"
+    if _fr467c.exists() and re.search(r"<!--\s*POSTING-STATUS:\s*active\s*-->",
+                                        _fr467c.read_text(encoding="utf-8")):
+        _pat467c = re.compile(r"(発信|投稿)は[^。\n]{0,25}停止している|停止中である|"
+                              r"posting is paused|posting remains paused|posting is stopped", re.I)
+        _ex467c = {"ACD-1.0.against.md", "BLIND-SPOTS-LOG.md", "AUDIT-LEDGER.md",
+                   "MACHINE-SURFACES-AUDIT.md"}
+        _bad467c = []
+        _files467c = sorted((ROOT / "LICENSES").glob("*.md")) + sorted((ROOT / "LICENSES").glob("*-DRAFT.txt"))
+        for _f467c in _files467c:
+            if _f467c.name in _ex467c:
+                continue
+            for _i467c, _l467c in enumerate(_f467c.read_text(encoding="utf-8").splitlines(), 1):
+                if _pat467c.search(_l467c):
+                    _bad467c.append(f"{_f467c.name}:{_i467c}")
+        check(
+            not _bad467c,
+            f"Check 467c: POSTING-STATUS が active のあいだ、LICENSES の {len(_files467c)} file に停止を現在形で述べる行が無い",
+            (f"Check 467c: 発信は再開している (POSTING-STATUS: active) のに、停止を現在形で述べる行がある: {_bad467c}。"
+             "**再開したのに『停止している』が残れば、読む人は送れるのに送らない** —— 467 の双方向の危険のうち、"
+             "列挙した面の外で起きる側。過去の出来事なら過去形で書け"),
+            blocking=True,
+        )
 
     # ── 467b. 凍結が解除されたとき、面が「凍結中」と言い続けないこと (BLOCKING) ─────────────
     #   **凍結は一度だけ解除される**（オーナーが結果を伝えたときに FROZEN.md を削除する）。

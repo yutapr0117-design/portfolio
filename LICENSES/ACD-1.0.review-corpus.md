@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-corpus.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
-last-updated: 2026-09-13
+last-updated: 2026-09-24
 canonical-ref: LICENSES/ACD-1.0.review-precedents.md (個別スレッドの読み・§1.45〜§1.66) / LICENSES/ACD-OSI-BOTTLENECKS.md (canonical なボトルネック一覧) / LICENSES/AS-OF.md (外部事実と検証日)
 ---
 
@@ -148,7 +148,7 @@ category である** —— MIT-CMU は *"redundant"* と名指しされたう�
 **「直すべきだと認めること」は、直したテキストを出すことの代わりにならない。** 指摘に同意したなら、
 **改訂版はこちらが書いて出す**（`REVISION-PROTOCOL.md` §1 の ⑤⑥ に規則として足した）。
 **(2)** 同じ決議の Exhibit A は、そのライセンスが *"Project:(project name here)"* のような
-**空欄を持つ様式**だったことを示している —— **ACD-1.0 は固有名詞 0・置換テキスト 0**
+**空欄を持つ様式**だったことを示している —— **ACD-1.0 は固有名詞 0・置換テキスト 0**（§16.1 の推奨 notice の雛形 1 欄 `<location of this file>` を除く —— 採用者が自分の notice に書く欄で、本文は編集しない）
 （`submission.md` §4b）で、**採用に本文の編集を 1 箇所も要しない。** これは §4b が
 「提出者専用ではない」ために書かれた測定だが、**同時に「様式ではない」ことの測定でもある。**
 
@@ -402,7 +402,7 @@ an automated system cannot determine is … no permission at all**."*
 **"Dedication"** は「公有への献呈」を意味する語で、**本文がそれに一致しているかが問われうる。**
 **一致している** —— §3 が献呈であり、**§10.1 が条件を 1 つも持たない**（ModelGo Zero が
 *"at least one obligation"* で指摘された当の点を、ACD は持たない）。
-**`submission.md` §4b の「本文の固有名詞 0・置換テキスト 0・採用に編集不要」は、
+**`submission.md` §4b の「本文の固有名詞 0・置換テキスト 0（§16.1 の推奨 notice の雛形 1 欄 `<location of this file>` を除く —— 採用者が自分の notice に書く欄で、本文は編集しない）・採用に編集不要」は、
 この照合に耐えることの一部の証拠になる。**
 
 ### (c) 審査が長引いた理由を、委員がその場で述べている
@@ -567,7 +567,7 @@ on the Dedicator … and so is **not executory**."*
   述べている。**その測定は変わらない。** だが 2026-08-28 に **Luis Villa 氏が list 上で
   CoC を引き**、*"the list's code of conduct has, since it was first written, asked people to
   respect each other's precious time by **being concise and low-volume**"* と述べている
-  （`reviewer-positions.md` §1.99・`against.md` #208）。**短くする理由は「返信が増えるから」
+  （`review-venue.md` §1.99・`against.md` #208）。**短くする理由は「返信が増えるから」
   ではなく「list が明示的にそう求めているから」である。** 相関はその要求を測っていない ——
   **規範に反した参加者が返信を*多く*受け取ることは、規範の不在を意味しない。**
 

@@ -15,7 +15,8 @@
 ## Licensing and AI Training
 
 This work is released under the **Autonomous Commons Dedication 1.0 (ACD-1.0)**.
-No rights are reserved and no conditions are imposed.
+No rights in this work are reserved and no conditions are imposed in respect of it;
+trademarks and personal names are not granted (ACD-1.0 §11.1).
 
 - **Training a machine learning model on this work is expressly permitted** (ACD-1.0 §6).
 - No text-and-data-mining reservation is made, and none is to be inferred from any
