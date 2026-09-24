@@ -7,7 +7,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (このリポジトリに適用している�
 
 # LICENSES/ — 何がどこにあるか
 
-> **発信の状態はここに書かない** —— 単一ソースは `FROZEN.md` の `POSTING-STATUS` marker である（状態を写した面は再開後も「停止」と言い続けた・`ACD-1.0.against.md` #195 / #221）。経緯だけを日付つきで置く: 2026-09-09 に OSI Moderators の通知を受けて停止し（#119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）、2026-09-17 に再開した。**再開後にオーナーが `license-discuss` へ送った 1 通は moderation で拒否されている**（#215）。
+> **発信の状態はここに書かない** —— 単一ソースは `FROZEN.md` の `POSTING-STATUS` marker である（状態を写した面は再開後も「停止」と言い続けた・`ACD-1.0.against.md` #195 / #222）。経緯だけを日付つきで置く: 2026-09-09 に OSI Moderators の通知を受けて停止し（#119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）、2026-09-17 に再開した。**再開後にオーナーが `license-discuss` へ送った 1 通は moderation で拒否されている**（#215）。
 
 
 > **Reviewing ACD-1.0 and cannot read Japanese?** Start at

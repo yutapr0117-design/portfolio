@@ -35,10 +35,17 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        「何も述べていない条」へ審査者を送る** (`against.md` #144 で一度踏んだ class で、
        **審査者が最初に確かめる種類の誤り**)。**確定手順 §0.13 はこの再写像を列挙していなかった。**
        `§N.M` は条とドシエの節の 2 系統に使われるので、**いずれかの版に条として実在する番号だけ**を見る。
+       **(472b・2026-09-24)** 同じ 4 面の**逐語引用** (`*"…"*`) が、いずれかの版の本文から
+       取られているなら、**提出対象の版の本文にも実在する**こと。**番号が実在しても語句が
+       別の版のものなら、審査者は存在しない条文を読まされる** —— 実例: `submission-reference.md`
+       §4b が ACD-1.0 の §16.4 を *"except by the Steward"* と引いていたが、その語句は 1.1 で
+       入ったもので **1.0 には Steward という役割自体が無い**（`against.md` #160）。**472 は番号の
+       存在しか見ないので通していた。** 引用の直前 250 字が他の版を名指しているもの
+       （`1.1` / `1.2` / successor / draft / 草案）は、版を明示した引用として許す。
   468. **次版の草案が、自分が何であるかを述べ、内部的に健全であること** (BLOCKING): 2026-09-10 に
        オーナーが「現行は保持、次版を作って改善し続けるのは問題ない」と述べたので
        次版の草案 (**現在は `LICENSES/ACD-1.2-DRAFT.txt`**) を置いた。**草案は確定版と紛らわしい** —— 同じ書式・同じ節見出しで、
-       条番号だけが §15 以降でずれている。**読み手が取り違えると、凍結中の提出物について
+       条番号だけが §1（定義の並べ替え・E13）と §15 以降でずれている。**読み手が取り違えると、凍結中の提出物について
        誤った条番号を引くことになる。** 3 つを強制する: **(a)** 冒頭が **NOT IN FORCE /
        NOT SUBMITTED / NOT APPLIED** を述べること、**(b)** 純 ASCII・節が連番・`Section N.M` の
        参照がすべて実在すること（**1.0 について §4c が測っている性質を、草案でも同じ形で保つ**）、
@@ -213,6 +220,55 @@ def run(ctx):
                      "**提出物が「何も述べていない条」へ審査者を送るのは、最初に確かめられる種類の誤りである** "
                      "(`against.md` #144)。SUBMISSION-TARGET を切り替えたら引用も写像せよ "
                      "(対応表は `ACD-1.1-CHANGELIST.md` の条項対応節)"),
+                    blocking=True,
+                )
+
+                # ── 472b. 提出側の逐語引用が、提出対象の版の本文に実在すること ────────────────
+                #   472 は**番号の存在**しか見ない。§16.4 は 1.0 にも 1.1 にも在るので、
+                #   1.1 の語句 *"except by the Steward"* を 1.0 の §16.4 として引いても通った
+                #   (`against.md` #160)。**番号が一致し語句が別の版のもの**という形を捕まえる。
+                #   本文から取られていない引用（リストの発言など）はどの版にも無いので対象外になる。
+                def _norm472(_t):
+                    return re.sub(r"\s+", " ", re.sub(r"[*_`]", "", _t)).strip().lower()
+                _tgt472 = _norm472(_txt472.read_text(encoding="utf-8"))
+                _vers472 = {}
+                for _vp472 in sorted((ROOT / "LICENSES").glob("ACD-*.txt")):
+                    _vers472[_vp472.name] = _norm472(_vp472.read_text(encoding="utf-8"))
+                _qbad472 = []
+                _nq472 = 0
+                _marked472 = 0
+                for _rel472 in _faces472:
+                    _p472 = ROOT / "LICENSES" / _rel472
+                    if not _p472.exists():
+                        continue
+                    _raw472 = _p472.read_text(encoding="utf-8")
+                    for _mq in re.finditer(r'\*"([^"\n]{12,400})"\*', _raw472):
+                        _parts = [_x.strip() for _x in re.split(r"…|\.\.\.", _mq.group(1))
+                                  if len(_x.strip()) >= 12]
+                        if not _parts:
+                            continue
+                        _np = [_norm472(_x) for _x in _parts]
+                        _from = [_n for _n, _vt in _vers472.items() if all(_x in _vt for _x in _np)]
+                        if not _from:
+                            continue
+                        _nq472 += 1
+                        if all(_x in _tgt472 for _x in _np):
+                            continue
+                        _pre = _raw472[max(0, _mq.start() - 250):_mq.start()]
+                        if re.search(r"1\.[1-9](?!\d)|successor|draft|草案|次版", _pre, re.I):
+                            _marked472 += 1
+                            continue
+                        _ln = _raw472.count("\n", 0, _mq.start()) + 1
+                        _qbad472.append(f"{_rel472}:{_ln} *\"{_mq.group(1)[:60]}\"* ({'/'.join(_from)} にだけ在る)")
+                check(
+                    not _qbad472,
+                    (f"Check 472b: 提出側 {len(_faces472)} 面の本文逐語引用 {_nq472} 件のうち "
+                     f"{_nq472 - _marked472} 件が {_ver472} の本文に実在し、"
+                     f"{_marked472} 件は他の版を明示して引いている"),
+                    (f"Check 472b: 提出対象 ({_ver472}) の本文に無い語句を、版を示さずに引いている: {_qbad472}。"
+                     "**番号は両方の版に在っても、語句は別の版のものでありうる** —— "
+                     "審査者は存在しない条文を読まされる (`against.md` #160)。"
+                     "提出対象の版の語句で引き直すか、直前で版を明示せよ"),
                     blocking=True,
                 )
 
