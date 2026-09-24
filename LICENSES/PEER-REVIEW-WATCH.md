@@ -1,13 +1,13 @@
 ---
 file: LICENSES/PEER-REVIEW-WATCH.md
 audience: 次のセッションの実装者（一次読者）
-last-updated: 2026-09-20
+last-updated: 2026-09-24
 canonical-ref: LICENSES/ACD-1.0.comparison.md §1.5 (比較の本体) / LICENSES/ACD-1.0.against.md #28-#31 (不利な材料) / LICENSES/REVISION-PROTOCOL.md (改訂サイクル)
 ---
 
 # 同時代 instrument の経過観察（OpenMDW / ModelGo）
 
-> **我々の発信は 2026-09-09 から停止している**（本書が観測している OpenMDW / ModelGo の話ではない）。 OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と投稿したため（`ACD-1.0.against.md` #119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）。**単一ソースは `FROZEN.md` の `POSTING-STATUS` marker**で、**Check 467 が 4 面と両方向で照合する。**
+> **我々の発信は 2026-09-17 に再開した**（本書が観測している OpenMDW / ModelGo の話ではない・オーナーが ACD-1.1 の短い Discussion Request を自分の言葉で送った）。2026-09-09 から 09-17 までは止めていた —— OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と投稿したため（`ACD-1.0.against.md` #119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）。**再開後の 1 通が公開アーカイブに現れたかは未確認**（`against.md` #192）。**単一ソースは `FROZEN.md` の `POSTING-STATUS` marker**で、**Check 467 が状態を述べる面と恒久の手続きの面を両方向で照合し、467c が「停止している」という現在形の残存を LICENSES 全体で禁じる。**
 
 
 **方針（2026-09-04 オーナー）**: OpenMDW と ModelGo も長期戦になるので、**日数を空けながら
