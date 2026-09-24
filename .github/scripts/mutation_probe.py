@@ -121,8 +121,19 @@ def main() -> int:
     drifted: list[str] = []
     crashed: list[str] = []
 
-    print(f"mutation-probe: applying {len(MUTATIONS)} curated mutations...\n")
-    for m in MUTATIONS:
+    # [FIX 2026-09-24・#224] consistency 側にも shard を配線した。
+    #   behavior 側は 2026-08-17 に 55 分で cancelled になり 8 分割したが、**兄弟である
+    #   consistency 側は一度も分割されなかった**。2026-09-24 の dispatch で **372 件中 368 件
+    #   まで進んで timeout-minutes: 30 に到達し cancelled** ——残り 4 件。
+    #   **cancelled は success でも failure でもないので「All N caught」の判定行が出ず、
+    #   安全網の自己検証はそのまま結論を出さずに終わる。** 週次なので誰も rerun しない。
+    #   **壁に当たった層だけ直して兄弟を残すと、同じ壁にもう一度当たる。**
+    _shard, _shards = _parse_shard()
+    _targets = [m for i, m in enumerate(MUTATIONS) if i % _shards == _shard - 1]
+    print(f"mutation-probe: applying {len(_targets)}/{len(MUTATIONS)} curated mutations "
+          f"(shard {_shard}/{_shards})...\n")
+    _t0c = time.monotonic()
+    for m in _targets:
         f: Path = m["file"]
         original = f.read_text(encoding="utf-8")
         if m["find"] not in original:
@@ -169,7 +180,19 @@ def main() -> int:
         for s in survived:
             print(f"  - {s}")
         return 1
-    print(f"All {len(MUTATIONS)} mutations were caught by the safety net. Net is healthy. ✓")
+    # elapsed を必ず出す —— これが **timeout に当たる前に分割数を上げる唯一の材料**である
+    # (e2e 側は 2026-08-17 から出していたが、consistency 側だけ出していなかった。
+    #  今回 cancelled になるまで所要が伸びていることに誰も気付けなかったのはこのため)。
+    _elc = time.monotonic() - _t0c
+    print(f"\nelapsed: {_elc / 60:.1f} min for {len(_targets)} mutations "
+          f"({_elc / len(_targets) if _targets else 0:.1f}s each) — timeout に近づいたら shard 数を上げる")
+
+    # shard 実行では **その shard が検証した件数**だけを主張する (e2e 側 [FIX] と同じ理由 ——
+    # 一部しか回していない shard が全件主張を出すと、ログだけ読んで「健全」と誤結論できる)。
+    _scope = (f"All {len(_targets)} mutations" if _shards == 1
+              else f"All {len(_targets)} mutations in shard {_shard}/{_shards} "
+                   f"(of {len(MUTATIONS)} total)")
+    print(f"{_scope} were caught by the safety net. Net is healthy. ✓")
     return 0
 
 
