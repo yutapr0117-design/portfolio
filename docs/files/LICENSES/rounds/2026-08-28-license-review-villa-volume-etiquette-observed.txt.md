@@ -2,7 +2,7 @@
 file: LICENSES/rounds/2026-08-28-license-review-villa-volume-etiquette-observed.txt
 audience: ai, human (新卒), 監査人, 第三者全般
 last-updated: 2026-09-22
-canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0.reviewer-positions.md §1.99 / LICENSES/ACD-1.0.against.md #208 / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B14)
+canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0.review-venue.md §1.99 / LICENSES/ACD-1.0.against.md #208 / LICENSES/ACD-OSI-BOTTLENECKS-EXTERNAL.md (B14)
 ---
 
 # LICENSES/rounds/2026-08-28-license-review-villa-volume-etiquette-observed.txt

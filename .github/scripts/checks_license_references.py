@@ -177,9 +177,10 @@ def run(ctx):
                 # **残る 1 箇所が実欠陥だった** —— どこにも存在しない `§27` を「失敗」として引いていた。
                 # **一般形: 「機械で判定できない」と結論する前に、その形が単一の形かを見る。**
                 _series471 = set()
-                for _sf471 in ("ACD-1.0.comparison.md", "ACD-1.0.review-precedents.md",
-                               "ACD-1.0.review-corpus.md", "ACD-1.0.reviewer-positions.md",
-                               "ACD-1.0.review-rules.md"):
+                # **2026-09-24: 決め打ちの 5 file から導出へ。** face (f) は 09-19 に導出へ直したが
+                # この (e) は残っていた ——**同じ系列を見る 2 つの face が別の file 集合を見ていた。**
+                # 分割で生まれた `review-venue.md` の節を指す裸の参照が、ここだけで未解決になる。
+                for _sf471 in sorted(_p.name for _p in _lic471.glob("ACD-1.0.*.md")):
                     _series471 |= _headnum471.get(_sf471, set())
                 _pack471 = (_headnum471.get("ACD-1.0.submission.md", set())
                             | _headnum471.get("ACD-1.0.submission-reference.md", set()))
