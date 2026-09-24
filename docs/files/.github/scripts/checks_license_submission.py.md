@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/checks_license_submission.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-09-22
+last-updated: 2026-09-24
 canonical-ref: .github/scripts/check_repository_consistency.py (集約器) / docs/architecture/check-repository-consistency-map.md (全 Check の一覧) / docs/architecture/total-check-runbook.md §9 (総数の権威)
 ---
 
@@ -10,9 +10,9 @@ canonical-ref: .github/scripts/check_repository_consistency.py (集約器) / doc
 ## What
 
 **LICENSES/ のうち「審査者が直接受け取る面」だけを検査する consistency Check module。**
-4 つの Check を持つ ——**463**（提出パケットの「送る文面」が OSI の要求項目を含むこと）/
-**468**（次版の草案が自分が何であるかを述べ、内部的に健全であること）/
-**472**（提出側の文書の条項引用が、提出対象の版に実在すること）/
+3 つの Check を持つ ——**463**（提出パケットの「送る文面」が OSI の要求項目を含むこと）/
+**472**（提出側の文書の条項引用が、提出対象の版に実在すること。472b 版の一致・472c 入口の検証コマンド・
+472d 入口の "In one screen" の位置・472e placeholder 0 の限定）/
 **473**（来歴の開示が、否定の半分だけで現れないこと）。
 
 ## Why
@@ -27,6 +27,9 @@ canonical-ref: .github/scripts/check_repository_consistency.py (集約器) / doc
 こちら側が壊れたときの損害は「**審査者が誤った物を読む**」で、質が違う。
 
 ## How
+
+- **2026-09-24: 468（次版草案）を `checks_license_draft.py` へ出した。** 801 行で advisory (800) を越えたため。
+  草案は「まだ誰にも渡していない」面で、ここが守る「審査者がいま受け取る面」とは損害の質が違う
 
 - 集約器 `check_repository_consistency.py` の `CHECK_SOURCE_FILES` に登録し、
   `_checks_license_submission.run(_ctx)` で呼ばれる（**Check 431 が実在 ⟺ 登録 ⟺ 実行を強制**）
@@ -52,7 +55,7 @@ Check を足すときは docstring inventory + `# ── N.` + map + runbook §9
 
 ## Audience-specific notes
 
-- **審査者**: ここに在る 4 つは、あなたが実際に読む面（送る文面・草案・条項引用・来歴の開示）を
+- **審査者**: ここに在る 3 つは、あなたが実際に読む面（送る文面・条項引用と入口ページ・来歴の開示）を
   機械で縛っている層である
 - **後任 AI**: **新しい Check の行き先はこの 2 分割で決める** ——
-  審査者が受け取る面なら本 file、運用の記録なら `checks_license_dossier.py`
+  審査者が受け取る面なら本 file、次版の草案なら `checks_license_draft.py`、運用の記録なら `checks_license_dossier.py`
