@@ -9,9 +9,13 @@ canonical-ref: LICENSES/ACD-1.0.txt (the text posted, and the one this repositor
 
 ## The short path, and what it costs you
 
-**You are a volunteer. Nothing here is required reading.** Measured 2026-09-22, this directory
-is **251,824 words** — **51 times the licence** — and the whole of it exists so that a claim we
-make can be checked, **not so that it must be**.
+**You are a volunteer. Nothing here is required reading.** Measured 2026-09-24, this directory
+is **295,277 words** — **60 times the licence** — and that figure *understates* it: it splits on
+whitespace, and much of the directory is Japanese, which is not space-delimited (a further
+~359,000 Japanese characters are not counted as words at all). The whole of it exists so that a
+claim we make can be checked, **not so that it must be**. *(The count grows with every entry;
+it was 251,824 two days earlier. To re-measure: `git ls-files -z LICENSES | xargs -0 cat | wc -w` —
+the `-z` matters, because three file names are Japanese and the plain form silently skips them.)*
 
 **If you read three things you have checked the parts that decide the question:**
 
