@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-labels.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人
-last-updated: 2026-09-19
+last-updated: 2026-09-24
 canonical-ref: LICENSES/ACD-1.0.reviewer-positions.md (主題ごとの記録・ここから切り出した) / LICENSES/ACD-1.0.against.md (#157 / #160 / #161) / LICENSES/ACD-OSI-BOTTLENECKS.md (B1 / B2)
 ---
 
@@ -142,7 +142,7 @@ GPL は FSF）。**違うのは、それらが本文の外で運用されてい�
 **MIT / 0BSD / Unlicense は steward を本文に持たない。** そして**書いた理由は E14**
 ——識別子が固定テキストを指し続けることを、登録簿が引き受けるまでのあいだ本文で保つためで、
 `ACD-1.1-CHANGELIST.md` §2.6 はそれを「**登録されるまでの橋**」と呼んでいる。
-**したがってこれは欠陥ではなく取引である** ——**識別子の安定と、本文内の特権の不在は、同時には持てない。**
+**したがってこれは欠陥ではなく取引である** ——**識別子の*族全体*の安定と、本文内の特権の不在は、同時には持てない。** **⚠ この取引は 1.1 以降のもので、1.0 には無い**（2026-09-24 訂正）: 1.0 の §16.4 は名称と識別子 `ACD-1.0` を**誰に対しても例外なく**閉じており、Steward という役割自体が存在しない。**1.0 は特権の不在の側に立ち、代償として E14（族が守られない）を払っている。** この表が 1.2 について書かれているのは正しいが、同じ評価を 1.0 へ持ち込むと誤りになる（`against.md` #160 がそうしていた）。
 **当たられたときに黙るのではなく、取引だと述べる**（`against.md` #160）。
 
 ### 派生 1 —— 名前（Bradley M. Kuhn 氏・`license-discuss` 2022-12-13）
