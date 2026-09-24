@@ -49,6 +49,11 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        `<[a-z]+>` で**複数語の雛形 `<location of this file>` を拾えず 0 を返していた** ——
        **期待値が合っていても、測り方が対象を見ていないことがある。** 472c が守るのは前者だけで、
        後者は正規表現を広げて直した（期待値 1）。
+       **⚠ そして 472c 自身が同じ形で誤っていた（2026-09-24・#223）**: 初版は実行前に
+       `shasum -a 256 -c` を `sha256sum -c` へ置換しており、**審査者が貼る文字列ではなく
+       別の文字列を実行していた**。Linux では両者の結果が同じなので CI は緑、macOS では
+       `sha256sum -c` が operand 省略時に stdin へ落ちないため**入口ページのコマンドは
+       正しいのにこの Check だけが RED** になる。置換をやめて逐語で実行する。
        **(472d・2026-09-24)** 入口ページの **"In one screen" が冒頭 10% 以内に在る**こと。B13 は
        「長さへの唯一の実効的な緩和は短い入口」と結論し、2026-09-09 に gap への到達を 35% → 5% に
        縮めたが、その後 "The short path" と "Which text you are looking at" が**前に**足され、
@@ -287,7 +292,12 @@ def run(ctx):
                              if _c.strip() and not _c.lstrip().startswith("#")), "")
                 if not _cmd.startswith("grep "):
                     continue
-                _cmd = _cmd.replace("shasum -a 256 -c", "sha256sum -c")
+                # **書き換えないこと。** 初版は `shasum -a 256 -c` を `sha256sum -c` へ
+                # 置換してから実行していた。Linux では両者が同じ結果を出すので CI は緑のまま
+                # だったが、macOS では `sha256sum -c` が **operand を省くと stdin へ落ちず
+                # usage を出して何も検証しない**ため、入口ページのコマンド自体は正しいのに
+                # この Check だけが RED になっていた (2026-09-24 実測)。
+                # **審査者が貼る文字列を検査すると名乗る Check が、別の文字列を実行していた。**
                 _out = _sp472c.run(_cmd, shell=True, cwd=str(ROOT), capture_output=True,
                                    text=True).stdout
                 _n472c += 1
