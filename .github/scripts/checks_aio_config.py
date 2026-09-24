@@ -497,9 +497,14 @@ def run(ctx):
             # 444d は「在ること」しか見ておらず、同じ画像について XMP と JSON-LD が ACD-1.0 を
             # 述べる横で `<image:license>` が CC BY-NC-ND 4.0 を宣言し続けていた (2026-09-24 発見)。
             # **存在の検査は、矛盾する宣言の共存を検出しない。**
-            for _il444 in re.findall(r"<image:license>\s*([^<\s]+)\s*</image:license>", _sm444):
-                if _il444 != _url444:
-                    _bad444.append(f"sitemap.xml の <image:license> が canonical と異なるライセンスを宣言: {_il444}")
+            # 値の取り方は `[^<\s]+` ではなく `(.*?)` + re.S + strip にしてある。
+            # **差は実測した** (2026-09-24): 折り返した URL は前者でも拾える (周囲の `\s*` が吸う) が、
+            # **空白を含む値 `CC BY-NC-ND 4.0` と空要素は一致 0 件になり、黙って通る** ——
+            # 人間が手で書けばライセンス*名*を書く方が自然なので、これは現実に起こる形である。
+            # **一致が 0 件であることは「違反が無い」と区別がつかない。**
+            for _il444 in re.findall(r"<image:license>\s*(.*?)\s*</image:license>", _sm444, re.S):
+                if _il444.strip() != _url444:
+                    _bad444.append(f"sitemap.xml の <image:license> が canonical と異なるライセンスを宣言: {_il444.strip()}")
 
             # 444e — llms 層が識別子に言及すること
             for _lf444 in ("llms.txt", "llms-full.txt"):
