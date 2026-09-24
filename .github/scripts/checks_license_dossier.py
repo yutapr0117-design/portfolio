@@ -488,7 +488,7 @@ def run(ctx):
     if _fr467c.exists() and re.search(r"<!--\s*POSTING-STATUS:\s*active\s*-->",
                                         _fr467c.read_text(encoding="utf-8")):
         _pat467c = re.compile(r"(発信|投稿)は[^。\n]{0,25}停止している|停止中である|"
-                              r"posting is paused|posting remains paused|posting is stopped", re.I)
+                              r"posting is paused|posting remains paused|posting is stopped|paused since|No — paused|still paused", re.I)
         _ex467c = {"ACD-1.0.against.md", "BLIND-SPOTS-LOG.md", "AUDIT-LEDGER.md",
                    "MACHINE-SURFACES-AUDIT.md"}
         _bad467c = []
