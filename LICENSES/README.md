@@ -1,13 +1,13 @@
 ---
 file: LICENSES/README.md
 audience: 誰でも（ここが入口）
-last-updated: 2026-09-20
+last-updated: 2026-09-24
 canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN.md (凍結と投稿先の単一ソース)
 ---
 
 # LICENSES/ — 何がどこにあるか
 
-> **発信は 2026-09-09 から停止している。** OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と投稿したため（`ACD-1.0.against.md` #119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）。**単一ソースは `FROZEN.md` の `POSTING-STATUS` marker**で、**Check 467 が 4 面と両方向で照合する。**
+> **発信は 2026-09-17 に再開した**（オーナーが ACD-1.1 の短い Discussion Request を自分の言葉で `license-discuss` へ送った）。2026-09-09 から 09-17 までは止めていた —— OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と投稿したため（`ACD-1.0.against.md` #119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）。**再開後の 1 通が公開アーカイブに現れたかは未確認**（`against.md` #192）。**単一ソースは `FROZEN.md` の `POSTING-STATUS` marker**で、**Check 467 が状態を述べる面と恒久の手続きの面を両方向で照合し、467c が「停止している」という現在形の残存を LICENSES 全体で禁じる。**
 
 
 > **Reviewing ACD-1.0 and cannot read Japanese?** Start at

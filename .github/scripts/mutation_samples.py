@@ -485,6 +485,14 @@ _MUTATIONS_TAIL.append({
     "replace": "**Applies identically; §16.4 reads *\"except by the Steward\"*.**",
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 467c (発信停止の現在形): 再開後の入口 README に「停止している」を戻す —— 467 の状態の面は"
+            " REVIEWERS.md だけなので、列挙外の面が再開後も停止を述べ続けても通っていた",
+    "file": ROOT / "LICENSES" / "README.md",
+    "find": "> **発信は 2026-09-17 に再開した**（",
+    "replace": "> **発信は 2026-09-09 から停止している**（",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
