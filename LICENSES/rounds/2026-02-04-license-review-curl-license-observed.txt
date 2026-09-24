@@ -1,0 +1,796 @@
+Source:   https://lists.opensource.org/pipermail/license-review_lists.opensource.org/
+Fetched:  2026-09-24（ブラウザ相当の UA。既取得分のキャッシュから切り出し）
+Thread:   Adding the curl License —— review 側
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **承認する側の投票が出た側。** Piana 氏 *"If it was a new license, I would advise to non-accept it … proliferation concerns are moot at this point"* / Chestek 氏「legacy category は *a more liberal review*」/ Berkus 氏・Šuklje 氏 賛成。**その後 3 か月動かず、提出者が 2026-05-04 に再照会している。**
+          **同じスレッドの他方のリスト側は 2026-01-03-license-discuss-… / 2026-02-04-license-review-… にある**
+          （rounds/README.md の命名規約どおり venue ごとに分けてある）。
+          読みは LICENSES/ACD-1.0.against.md #220 へ。ここには分析を書かない（規約 2）。
+
+----- begin verbatim -----
+From Christoph.Roeth at web.de  Wed Feb  4 18:44:36 2026
+From: Christoph.Roeth at web.de (=?UTF-8?Q?Christoph_R=C3=B6th?=)
+Date: Wed, 4 Feb 2026 19:44:36 +0100
+Subject: [License-review] Adding the curl License
+Message-ID: <03d890e4-d9c0-479e-925a-382c0c94ef21@web.de>
+
+Dear OSI License-Approval Forum,
+
+
+I would like the curl license to be added. The license has been around 
+for quite some time, so it can be classified as a legacy license. The 
+license is available at SPDX. The first communication with the OSI took 
+place in the license-discuss forum 
+(https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2026-January/022507.html). 
+I have received permission from the author of the curl project to have 
+the license listed with OSI (https://curl.se/mail/lib-2026-02/).
+
+
+The question was raised in the discussion forum whether there are plans 
+to convert the Curl license to MIT. Since the license has been in use 
+for over 20 years now, there are no plans to change it. The reasons for 
+this are listed in the email communication.
+In my opinion, the separate listing at SPDX also speaks in favour of a 
+separate license (https://spdx.org/licenses/curl.html).
+
+
+Please find enclosed the information required for submitting a license 
+to the license-review mailing list.
+
+
+**• Submit a copy of the license as an attachment in simple text format.**
+
+COPYRIGHT AND PERMISSION NOTICE
+
+Copyright (c) 1996 - 2015, Daniel Stenberg, <daniel at haxx.se> 
+<mailto:daniel at haxx.se>.
+All rights reserved.
+
+Permission to use, copy, modify, and distribute this software for any 
+purpose with or without fee is hereby granted, provided that the above 
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF 
+THIRD PARTY RIGHTS. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS 
+BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN 
+ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall 
+not be used in advertising or otherwise to promote the sale, use or 
+other dealings in this Software without prior written authorization of 
+the copyright holder.
+
+
+**• Affirmatively state that the license complies with the Open Source 
+Definition, including specifically affirming it meets OSD 3, 5, 6 and 9.**
+
+I can confirm that the license complies with the Open Source Definition.
+
+3. Derived Works: Yes
+
+5. No Discrimination Against Persons or Groups: Yes
+
+6. No Discrimination Against Fields of Endeavor: Yes
+
+9. License Must Not Restrict Other Software: Yes
+
+
+**• Identify what projects are already using the license.**
+
+The curl project itself.
+
+
+**• Provide the identity and contact details of the license steward, if 
+known, and of the submitter. The OSI will try to get in touch with the 
+license steward if the license submitter is not the steward.**
+
+Daniel Stenberg, <daniel at haxx.se>
+The permission for listing by the Open Source Initiative can be found 
+here: https://curl.se/mail/lib-2026-02/
+
+
+**• Provide any additional information that the submitter believes would 
+be helpful for license review. For example, approval of the license by 
+Debian, the FSF or the Fedora Project would be relevant to the review 
+process.**
+
+
+The website contains this text with detailed information about the 
+license, https://curl.se/docs/faq.html#license
+
+
+What license does curl use exactly?
+
+curl is released under an MIT derivative license. It is similar but not 
+identical to the MIT license.
+
+The difference is considered big enough to make SPDX list it under its 
+own identifier: curl.
+
+The changes done to the license that make it uniquely curl were tiny and 
+well-intended, but the reasons for them have been forgotten and we 
+strongly discourage others from doing the same thing.
+
+
+**• Provide a unique name for the license, preferably including the 
+version number.**
+
+Full name: curl License (according to SPDX)
+
+Short identifier: curl (according to SPDX)
+
+
+**• If any exist, provide the unique identifier by other projects, like 
+SPDX or ScanCode.**
+
+https://spdx.org/licenses/curl.html
+
+
+
+
+McCoy Smith added a comparison of the licenses to the License-discuss 
+forum. Here is the content of the *.odt file that was attached at the 
+time. The colours blue and red are the colours used in SPDX. The 
+strikethrough text was included in the MIT license and has been omitted 
+from the curl license. The green text was not available in the MIT 
+license and has been added. I hope the email transfers the format correctly.
+
+MIT License
+
+COPYRIGHT AND PERMISSION NOTICE
+
+Copyright (c) <year> <copyright holders>1996 - 2015, Daniel Stenberg, 
+<daniel at haxx.se>.
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a 
+copy of this software and associated documentation files(the 
+"Software"), to deal in the Softwarewithout restriction, including 
+without limitation the rights to use, copy, modify, merge, publish, and 
+distribute, sublicense, and/or sell copies of the this sSoftware, and to 
+permit persons to whom the Softwareis furnished to do so, subject to the 
+following conditions:for any purpose with or without fee is hereby 
+granted, provided that
+
+tThe above copyright notice and this permission notice appear(including 
+the next paragraph)shall be included in all copiesor substantial 
+portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF 
+THIRD PARTY RIGHTS. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS 
+BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN 
+ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall 
+not be used in advertising or otherwise to promote the sale, use or 
+other dealings in this Software without prior written authorization of 
+the copyright holder.
+
+
+Best regards
+
+Christoph
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260204/4a43fd2c/attachment.htm>
+
+From carlo at piana.eu  Thu Feb  5 09:51:26 2026
+From: carlo at piana.eu (Carlo Piana)
+Date: Thu, 5 Feb 2026 10:51:26 +0100 (CET)
+Subject: [License-review] Adding the curl License
+In-Reply-To: <03d890e4-d9c0-479e-925a-382c0c94ef21@web.de>
+References: <03d890e4-d9c0-479e-925a-382c0c94ef21@web.de>
+Message-ID: <363720030.37542654.1770285086762.JavaMail.zimbra@piana.eu>
+
+If it was a new license, I would advise to non-accept it. But since it's a widely used and for a long time license, I think we can give it a slot in the accepted licenses list, since any proliferation concerns are moot at this point ;-) 
+
+Carlo 
+
+
+
+
+Da: "Christoph Röth via License-review" <license-review at lists.opensource.org> 
+A: "license-review at lists.opensource.org" <license-review at lists.opensource.org> 
+Cc: "Christoph Röth" <Christoph.Roeth at web.de> 
+Inviato: Mercoledì, 4 febbraio 2026 19:44:36 
+Oggetto: [License-review] Adding the curl License 
+
+
+
+
+BQ_BEGIN
+
+
+Dear OSI License-Approval Forum, 
+
+
+
+
+I would like the curl license to be added. The license has been around for quite some time, so it can be classified as a legacy license. The license is available at SPDX. The first communication with the OSI took place in the license-discuss forum ( [ https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2026-January/022507.html | https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2026-January/022507.html ] ). I have received permission from the author of the curl project to have the license listed with OSI ( [ https://curl.se/mail/lib-2026-02/ | https://curl.se/mail/lib-2026-02/ ] ). 
+
+
+
+
+The question was raised in the discussion forum whether there are plans to convert the Curl license to MIT. Since the license has been in use for over 20 years now, there are no plans to change it. The reasons for this are listed in the email communication. 
+In my opinion, the separate listing at SPDX also speaks in favour of a separate license ( [ https://spdx.org/licenses/curl.html | https://spdx.org/licenses/curl.html ] ). 
+
+
+
+
+Please find enclosed the information required for submitting a license to the license-review mailing list. 
+
+
+
+
+**• Submit a copy of the license as an attachment in simple text format.** 
+
+COPYRIGHT AND PERMISSION NOTICE 
+
+Copyright (c) 1996 - 2015, Daniel Stenberg, [ mailto:daniel at haxx.se | <daniel at haxx.se> ] . 
+All rights reserved. 
+
+Permission to use, copy, modify, and distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies. 
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+
+Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization of the copyright holder. 
+
+
+
+
+**• Affirmatively state that the license complies with the Open Source Definition, including specifically affirming it meets OSD 3, 5, 6 and 9.** 
+
+I can confirm that the license complies with the Open Source Definition. 
+
+3. Derived Works: Yes 
+
+5. No Discrimination Against Persons or Groups: Yes 
+
+6. No Discrimination Against Fields of Endeavor: Yes 
+
+9. License Must Not Restrict Other Software: Yes 
+
+
+
+
+**• Identify what projects are already using the license.** 
+
+The curl project itself. 
+
+
+
+
+**• Provide the identity and contact details of the license steward, if known, and of the submitter. The OSI will try to get in touch with the license steward if the license submitter is not the steward.** 
+
+Daniel Stenberg, < [ mailto:daniel at haxx.se | daniel at haxx.se ] > 
+The permission for listing by the Open Source Initiative can be found here: [ https://curl.se/mail/lib-2026-02/ | https://curl.se/mail/lib-2026-02/ ] 
+
+
+
+
+
+**• Provide any additional information that the submitter believes would be helpful for license review. For example, approval of the license by Debian, the FSF or the Fedora Project would be relevant to the review process.** 
+
+
+
+
+The website contains this text with detailed information about the license, [ https://curl.se/docs/faq.html#license | https://curl.se/docs/faq.html#license ] 
+
+
+
+
+
+What license does curl use exactly? 
+
+curl is released under an MIT derivative license. It is similar but not identical to the MIT license. 
+
+The difference is considered big enough to make SPDX list it under its own identifier: curl. 
+
+The changes done to the license that make it uniquely curl were tiny and well-intended, but the reasons for them have been forgotten and we strongly discourage others from doing the same thing. 
+
+
+
+
+**• Provide a unique name for the license, preferably including the version number.** 
+
+Full name: curl License (according to SPDX) 
+
+Short identifier: curl (according to SPDX) 
+
+
+
+
+**• If any exist, provide the unique identifier by other projects, like SPDX or ScanCode.** 
+
+[ https://spdx.org/licenses/curl.html | https://spdx.org/licenses/curl.html ] 
+
+
+
+
+
+
+
+
+
+McCoy Smith added a comparison of the licenses to the License-discuss forum. Here is the content of the *.odt file that was attached at the time. The colours blue and red are the colours used in SPDX. The strikethrough text was included in the MIT license and has been omitted from the curl license. The green text was not available in the MIT license and has been added. I hope the email transfers the format correctly. 
+
+
+
+MIT License 
+
+COPYRIGHT AND PERMISSION NOTICE 
+
+Copyright (c) < year> <copyright holders> 1996 - 2015, Daniel Stenberg, [ mailto:daniel at haxx.se | <daniel at haxx.se> ] . 
+All rights reserved. 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the " Software "), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, and distribute , sublicense, and/or sell copies of the this s S oftware , and to permit persons to whom the Software is furnished to do so, subject to the following conditions: for any purpose with or without fee is hereby granted, provided that 
+
+t T he above copyright notice and this permission notice appear (including the next paragraph) shall be included in all copies or substantial portions of the Software . 
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS . IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE . 
+
+Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization of the copyright holder. 
+
+
+
+
+Best regards 
+
+Christoph 
+
+_______________________________________________ 
+The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address. 
+
+License-review mailing list 
+License-review at lists.opensource.org 
+http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org 
+BQ_END
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260205/d8497349/attachment-0001.htm>
+
+From pamela at chesteklegal.com  Thu Feb  5 16:42:45 2026
+From: pamela at chesteklegal.com (Pamela Chestek)
+Date: Thu, 5 Feb 2026 08:42:45 -0800
+Subject: [License-review] Adding the curl License
+In-Reply-To: <363720030.37542654.1770285086762.JavaMail.zimbra@piana.eu>
+References: <03d890e4-d9c0-479e-925a-382c0c94ef21@web.de>
+ <363720030.37542654.1770285086762.JavaMail.zimbra@piana.eu>
+Message-ID: <1494177c-1389-41b8-a945-7257b2963194@chesteklegal.com>
+
+I agree. In my opinion this was the intention of the legacy category, a 
+more liberal review of licenses that are widely accepted as open source.
+
+Pam
+
+Pamela S. Chestek
+Chestek Legal
+4641 Post St.
+Unit 4316
+El Dorado Hills, CA 95762
++1 919-800-8033
+pamela at chesteklegal.com
+www.chesteklegal.com
+
+On 2/5/2026 1:51 AM, Carlo Piana via License-review wrote:
+> If it was a new license, I would advise to non-accept it. But since 
+> it's a widely used and for a long time license, I think we can give it 
+> a slot in the accepted licenses list, since any proliferation concerns 
+> are moot at this point ;-)
+>
+> Carlo
+>
+> ------------------------------------------------------------------------
+>
+>     *Da: *"Christoph Röth via License-review"
+>     <license-review at lists.opensource.org>
+>     *A: *"license-review at lists.opensource.org"
+>     <license-review at lists.opensource.org>
+>     *Cc: *"Christoph Röth" <Christoph.Roeth at web.de>
+>     *Inviato: *Mercoledì, 4 febbraio 2026 19:44:36
+>     *Oggetto: *[License-review] Adding the curl License
+>
+>     Dear OSI License-Approval Forum,
+>
+>
+>     I would like the curl license to be added. The license has been
+>     around for quite some time, so it can be classified as a legacy
+>     license. The license is available at SPDX. The first communication
+>     with the OSI took place in the license-discuss forum
+>     (https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2026-January/022507.html).
+>     I have received permission from the author of the curl project to
+>     have the license listed with OSI (https://curl.se/mail/lib-2026-02/).
+>
+>
+>     The question was raised in the discussion forum whether there are
+>     plans to convert the Curl license to MIT. Since the license has
+>     been in use for over 20 years now, there are no plans to change
+>     it. The reasons for this are listed in the email communication.
+>     In my opinion, the separate listing at SPDX also speaks in favour
+>     of a separate license (https://spdx.org/licenses/curl.html).
+>
+>
+>     Please find enclosed the information required for submitting a
+>     license to the license-review mailing list.
+>
+>
+>     **• Submit a copy of the license as an attachment in simple text
+>     format.**
+>
+>     COPYRIGHT AND PERMISSION NOTICE
+>
+>     Copyright (c) 1996 - 2015, Daniel Stenberg, <daniel at haxx.se>
+>     <mailto:daniel at haxx.se>.
+>     All rights reserved.
+>
+>     Permission to use, copy, modify, and distribute this software for
+>     any purpose with or without fee is hereby granted, provided that
+>     the above copyright notice and this permission notice appear in
+>     all copies.
+>
+>     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+>     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+>     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+>     NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE
+>     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+>     OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+>     OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+>     OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+>
+>     Except as contained in this notice, the name of a copyright holder
+>     shall not be used in advertising or otherwise to promote the sale,
+>     use or other dealings in this Software without prior written
+>     authorization of the copyright holder.
+>
+>
+>     **• Affirmatively state that the license complies with the Open
+>     Source Definition, including specifically affirming it meets OSD
+>     3, 5, 6 and 9.**
+>
+>     I can confirm that the license complies with the Open Source
+>     Definition.
+>
+>     3. Derived Works: Yes
+>
+>     5. No Discrimination Against Persons or Groups: Yes
+>
+>     6. No Discrimination Against Fields of Endeavor: Yes
+>
+>     9. License Must Not Restrict Other Software: Yes
+>
+>
+>     **• Identify what projects are already using the license.**
+>
+>     The curl project itself.
+>
+>
+>     **• Provide the identity and contact details of the license
+>     steward, if known, and of the submitter. The OSI will try to get
+>     in touch with the license steward if the license submitter is not
+>     the steward.**
+>
+>     Daniel Stenberg, <daniel at haxx.se>
+>     The permission for listing by the Open Source Initiative can be
+>     found here: https://curl.se/mail/lib-2026-02/
+>
+>
+>     **• Provide any additional information that the submitter believes
+>     would be helpful for license review. For example, approval of the
+>     license by Debian, the FSF or the Fedora Project would be relevant
+>     to the review process.**
+>
+>
+>     The website contains this text with detailed information about the
+>     license, https://curl.se/docs/faq.html#license
+>
+>
+>     What license does curl use exactly?
+>
+>     curl is released under an MIT derivative license. It is similar
+>     but not identical to the MIT license.
+>
+>     The difference is considered big enough to make SPDX list it under
+>     its own identifier: curl.
+>
+>     The changes done to the license that make it uniquely curl were
+>     tiny and well-intended, but the reasons for them have been
+>     forgotten and we strongly discourage others from doing the same thing.
+>
+>
+>     **• Provide a unique name for the license, preferably including
+>     the version number.**
+>
+>     Full name: curl License (according to SPDX)
+>
+>     Short identifier: curl (according to SPDX)
+>
+>
+>     **• If any exist, provide the unique identifier by other projects,
+>     like SPDX or ScanCode.**
+>
+>     https://spdx.org/licenses/curl.html
+>
+>
+>
+>
+>     McCoy Smith added a comparison of the licenses to the
+>     License-discuss forum. Here is the content of the *.odt file that
+>     was attached at the time. The colours blue and red are the colours
+>     used in SPDX. The strikethrough text was included in the MIT
+>     license and has been omitted from the curl license. The green text
+>     was not available in the MIT license and has been added. I hope
+>     the email transfers the format correctly.
+>
+>     MIT License
+>
+>     COPYRIGHT AND PERMISSION NOTICE
+>
+>     Copyright (c) <year> <copyright holders>1996 - 2015, Daniel
+>     Stenberg, <daniel at haxx.se>.
+>     All rights reserved.
+>
+>     Permission is hereby granted, free of charge, to any person
+>     obtaining a copy of this software and associated documentation
+>     files(the "Software"), to deal in the Softwarewithout restriction,
+>     including without limitation the rights to use, copy, modify,
+>     merge, publish, and distribute, sublicense, and/or sell copies of
+>     the this sSoftware, and to permit persons to whom the Softwareis
+>     furnished to do so, subject to the following conditions:for any
+>     purpose with or without fee is hereby granted, provided that
+>
+>     tThe above copyright notice and this permission notice
+>     appear(including the next paragraph)shall be included in all
+>     copiesor substantial portions of the Software.
+>
+>     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+>     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+>     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+>     NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE
+>     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+>     OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+>     OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+>     OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+>
+>     Except as contained in this notice, the name of a copyright holder
+>     shall not be used in advertising or otherwise to promote the sale,
+>     use or other dealings in this Software without prior written
+>     authorization of the copyright holder.
+>
+>
+>     Best regards
+>
+>     Christoph
+>
+>
+>
+>     _______________________________________________
+>     The opinions expressed in this email are those of the sender and
+>     not necessarily those of the Open Source Initiative. Communication
+>     from the Open Source Initiative will be sent from an
+>     opensource.org email address.
+>
+>     License-review mailing list
+>     License-review at lists.opensource.org
+>     http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260205/15c72e8c/attachment-0001.htm>
+
+From josh at berkus.org  Thu Feb  5 21:32:05 2026
+From: josh at berkus.org (Josh Berkus)
+Date: Thu, 5 Feb 2026 13:32:05 -0800
+Subject: [License-review] Adding the curl License
+In-Reply-To: <1494177c-1389-41b8-a945-7257b2963194@chesteklegal.com>
+References: <03d890e4-d9c0-479e-925a-382c0c94ef21@web.de>
+ <363720030.37542654.1770285086762.JavaMail.zimbra@piana.eu>
+ <1494177c-1389-41b8-a945-7257b2963194@chesteklegal.com>
+Message-ID: <ccd11bc3-d664-4fc2-aee4-d84157874929@berkus.org>
+
+On 2/5/26 8:42 AM, Pamela Chestek wrote:
+> I agree. In my opinion this was the intention of the legacy category, a 
+> more liberal review of licenses that are widely accepted as open source.
+
++1 to approve from me as well.
+
+-- 
+Josh Berkus
+
+From matija at suklje.email  Fri Feb  6 22:00:22 2026
+From: matija at suklje.email (Matija =?UTF-8?B?xaB1a2xqZQ==?=)
+Date: Fri, 06 Feb 2026 23:00:22 +0100
+Subject: [License-review] Adding the curl License
+In-Reply-To: <1494177c-1389-41b8-a945-7257b2963194@chesteklegal.com>
+References: 
+ <03d890e4-d9c0-479e-925a-382c0c94ef21@web.de>
+ <363720030.37542654.1770285086762.JavaMail.zimbra@piana.eu>
+ <1494177c-1389-41b8-a945-7257b2963194@chesteklegal.com>
+Message-ID: <5652849.GXAFRqVoOG@leza>
+
+Dne četrtek, 5. februar 2026 ob 17:42:45 Srednjeevropski standardni čas je Pamela Chestek 
+napisal(a):
+
+
+I agree. In my opinion this was the intention of the legacy category, a more liberal review of 
+licenses that are widely accepted as open source.
+
+This is in line with my understanding and I also support the inclusion (+ same “concerns” as 
+Carlo).
+
+cheers,
+Matija
+-- 
+gsm:    tel:+386.41.849.552
+www:    https://matija.suklje.name
+xmpp:   hook at campfire.wheremymonkeyis.at
+matrix: @hook:kompot.si
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260206/74cfaf8c/attachment.htm>
+
+From Christoph.Roeth at web.de  Mon May  4 17:13:23 2026
+From: Christoph.Roeth at web.de (=?UTF-8?Q?Christoph_R=C3=B6th?=)
+Date: Mon, 4 May 2026 19:13:23 +0200
+Subject: [License-review] Adding the curl License
+In-Reply-To: <5652849.GXAFRqVoOG@leza>
+References: <03d890e4-d9c0-479e-925a-382c0c94ef21@web.de>
+ <363720030.37542654.1770285086762.JavaMail.zimbra@piana.eu>
+ <1494177c-1389-41b8-a945-7257b2963194@chesteklegal.com>
+ <5652849.GXAFRqVoOG@leza>
+Message-ID: <a82e6e43-37bf-4a4b-887a-04381851ea59@web.de>
+
+Dear OSI License-Approval Forum,
+
+I’d like to bring up the curl license again. The first reports on this 
+topic emerged in early February.
+I’ve received some positive feedback, with the note that this is a 
+license that falls under the legacy category.
+Unfortunately, I’m not sure what the next steps are.
+
+Best regards
+Christoph
+
+On 2/6/26 23:00, Matija Šuklje wrote:
+>
+> Dne četrtek, 5. februar 2026 ob 17:42:45 Srednjeevropski standardni 
+> čas je Pamela Chestek napisal(a):
+>
+> I agree. In my opinion this was the intention of the legacy category, 
+> a more liberal review of licenses that are widely accepted as open source.
+>
+>
+> This is in line with my understanding and I also support the inclusion 
+> (+ same “concerns” as Carlo).
+>
+>
+> cheers,
+>
+> Matija
+>
+> -- 
+>
+> gsm: tel:+386.41.849.552
+>
+> www: https://matija.suklje.name
+>
+> xmpp: hook at campfire.wheremymonkeyis.at
+>
+> matrix: @hook:kompot.si
+>
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260504/7dbbeb7e/attachment-0001.htm>
+
+From carlo at piana.eu  Tue May  5 10:33:57 2026
+From: carlo at piana.eu (Carlo Piana)
+Date: Tue, 5 May 2026 12:33:57 +0200 (CEST)
+Subject: [License-review] Adding the curl License
+In-Reply-To: <a82e6e43-37bf-4a4b-887a-04381851ea59@web.de>
+References: <03d890e4-d9c0-479e-925a-382c0c94ef21@web.de>
+ <363720030.37542654.1770285086762.JavaMail.zimbra@piana.eu>
+ <1494177c-1389-41b8-a945-7257b2963194@chesteklegal.com>
+ <5652849.GXAFRqVoOG@leza> <a82e6e43-37bf-4a4b-887a-04381851ea59@web.de>
+Message-ID: <1969362791.31469425.1777977237995.JavaMail.zimbra@piana.eu>
+
+Thanks Christoph for bringing it up again. 
+
+On a side note, for those who might be unaware, more than an approval forum (yet surely part of the approval mechanism), this can be better described as a submissions and peer review forum. The approval and non approval of licenses is taken by the Board, upon a suggestion made by the Licensing Committee, taking into account the received feedback. 
+
+Incidentally, it helps when other voices chime in to bring licensing wisdom, not just the usual suspect who are also on the Licensing Committee ;-) 
+
+Cheers 
+
+Carlo 
+
+> Da: "Christoph Röth via License-review" <license-review at lists.opensource.org>
+> A: "license-review at lists.opensource.org" <license-review at lists.opensource.org>
+> Cc: "Christoph Röth" <Christoph.Roeth at web.de>
+> Inviato: Lunedì, 4 maggio 2026 19:13:23
+> Oggetto: Re: [License-review] Adding the curl License
+
+> Dear OSI License-Approval Forum,
+
+> I’d like to bring up the curl license again. The first reports on this topic
+> emerged in early February.
+> I’ve received some positive feedback, with the note that this is a license that
+> falls under the legacy category.
+> Unfortunately, I’m not sure what the next steps are.
+
+> Best regards
+> Christoph
+> On 2/6/26 23:00, Matija Šuklje wrote:
+
+>> Dne četrtek, 5. februar 2026 ob 17:42:45 Srednjeevropski standardni čas je
+>> Pamela Chestek napisal(a):
+
+>> I agree. In my opinion this was the intention of the legacy category, a more
+>> liberal review of licenses that are widely accepted as open source.
+
+>> This is in line with my understanding and I also support the inclusion (+ same
+>> “concerns” as Carlo).
+
+>> cheers,
+
+>> Matija
+
+>> --
+
+>> gsm: tel:+386.41.849.552
+
+>> www: [ https://matija.suklje.name/ | https://matija.suklje.name ]
+
+>> xmpp: [ mailto:hook at campfire.wheremymonkeyis.at |
+>> hook at campfire.wheremymonkeyis.at ]
+
+>> matrix: @hook:kompot.si
+
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not necessarily
+>> those of the Open Source Initiative. Communication from the Open Source
+>> Initiative will be sent from an opensource.org email address.
+
+>> License-review mailing list [ mailto:License-review at lists.opensource.org |
+>> License-review at lists.opensource.org ] [
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>> |
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>> ]
+
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20260505/957fb48d/attachment.htm>
+
