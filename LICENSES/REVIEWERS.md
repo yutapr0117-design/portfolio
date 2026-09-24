@@ -114,8 +114,9 @@ discussion — it is **not** the approval venue. Nothing has been submitted to `
 and nothing has been submitted to SPDX.
 
 **ACD-1.1 was frozen on 2026-09-17** (`ACD-1.1.txt`, pinned by SHA-256 in `FROZEN.md` and
-verified in CI). When frozen it closed nineteen of the twenty-one defects then recorded in ACD-1.0 (the list has
-grown since), and it is the text now put forward for discussion; **work on the next version happens in `ACD-1.2-DRAFT.txt`,
+verified in CI). When frozen it closed nineteen of the twenty-one defects then recorded in ACD-1.0.
+**The owner sent it to `license-discuss` the same day, and that message was rejected by moderation**
+(`ACD-1.0.against.md` #215), so the list has not yet received this text; **work on the next version happens in `ACD-1.2-DRAFT.txt`,
 so the text under discussion does not move.** **ACD-1.0 remains frozen and remains the licence
 this repository applies** — freezing a text is a promise about its bytes, not a statement about
 which version a project uses, and the two facts are deliberately kept apart here.
@@ -137,8 +138,8 @@ meet the stated bar.
 The text is **frozen** while this is open. `LICENSES/FROZEN.md` exists to say so, and
 **Check 453 in CI pins the SHA-256 of five files** — the three submitted ones
 (`ACD-1.0.txt`, `ACD-1.0.spdx.xml`, `ACD-1.0.machine.json`) and the two that carry the
-**successor** (`ACD-1.1.txt`, `ACD-1.1.machine.json`), which is **not in force,
-not submitted and not applied** — so that an accidental edit fails the build rather than
+**frozen successor** (`ACD-1.1.txt`, `ACD-1.1.machine.json`), which is **not in force,
+not submitted for approval and not applied** — so that an accidental edit fails the build rather than
 silently changing the text you are reading. If you find a defect in the text, it will be **reported, not quietly
 patched** — changing the wording underneath a live discussion would make your review of it
 meaningless.
@@ -182,8 +183,8 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 | The licence itself | [`ACD-1.0.txt`](ACD-1.0.txt) | 597 lines, 16 sections. Plain ASCII, no placeholders in the clauses (one in §16.1's notice template) |
 | **What was actually sent** | [`rounds/2026-08-26-license-discuss-sent.txt`](rounds/2026-08-26-license-discuss-sent.txt) | The `license-discuss` post of 2026-08-26, verbatim from the public archive. 5,778 words |
 | The packet prepared for `license-review` | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) | English, **not yet sent anywhere**. Gap statement, comparison, OSD conformance, disclosures, and what is deliberately absent |
-| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 318 worked entries, indexed by the question rather than the filename |
-| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 221 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
+| **Looking for a specific answer** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) | 319 worked entries, indexed by the question rather than the filename |
+| **The case against** | [`ACD-1.0.against.md`](ACD-1.0.against.md) | **The complete record, and the largest document here — six times the length of the licence.** All 222 adverse facts, written by us. Two have no answer; one of those is on its own a sufficient reason to decline |
 | **Which facts have gone stale** | [`AS-OF.md`](AS-OF.md) | Every claim about the outside world, with the date it was last verified |
 | **Known defects in the text** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) | 33 known imprecisions, all unrepaired while the freeze holds, with what 1.1 would do |
 | Known weaknesses, longer form | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) | Stated by us, before you have to find them |
