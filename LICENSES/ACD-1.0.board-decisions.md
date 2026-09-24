@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.board-decisions.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
-last-updated: 2026-09-13
+last-updated: 2026-09-24
 canonical-ref: LICENSES/rounds/2026-09-13-osi-board-meeting-minutes-2025-06-to-2026-06.txt (逐語の一次資料) / LICENSES/ACD-1.0.review-corpus.md (アーカイブ全体の測定) / LICENSES/ACD-OSI-BOTTLENECKS.md (B2 / B10)
 ---
 
@@ -238,7 +238,7 @@ communicate the difference between a license approval and OSAID compliance."*
 **(2) 固有名詞を持たないことは、委員会が実際に気にしている性質である。** 2025-10-17 に理事会は
 **「委員会が任意のライセンスを genericize（固有名を placeholder へ置換）する権限」を、
 追加の理事会投票なしに**与えている ——きっかけは *"a license that was identical to the BSD-LBNL,
-except for the names of the departments"* だった。**提出パケット §4b（本文の固有名詞 0・置換テキスト 0・
+except for the names of the departments"* だった。**提出パケット §4b（本文の固有名詞 0・置換テキスト 0（§16.1 の推奨 notice の雛形 1 欄 `<location of this file>` を除く —— 採用者が自分の notice に書く欄で、本文は編集しない）・
 採用に本文編集が 1 箇所も要らない）は、我々が思いついた論点ではなく、
 委員会が現に手を動かしている論点である。**
 

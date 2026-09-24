@@ -229,8 +229,9 @@ curl -s https://yutapr0117-design.github.io/portfolio/LICENSES/FROZEN.md \
 # No project, author, domain or URL appears in the licence body      → expect 0
 grep -icE "yokoi|portfolio|github|https?://" LICENSES/ACD-1.0.txt
 
-# No placeholder or replaceable text (so adoption needs no editing)  → expect 0
-grep -cE "<[a-z]+>|\[year\]|\[name\]|YYYY" LICENSES/ACD-1.0.txt
+# Placeholders: only §16.1's notice template, which the adopter fills in
+# their own notice — the licence text itself needs no editing            → expect 1
+grep -cE "<[^>]+>|\[year\]|\[name\]|YYYY" LICENSES/ACD-1.0.txt
 
 # Section count                                                       → expect 16
 grep -cE "^[0-9]+\. [A-Z]" LICENSES/ACD-1.0.txt

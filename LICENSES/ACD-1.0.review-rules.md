@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-rules.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人
-last-updated: 2026-09-15
+last-updated: 2026-09-24
 canonical-ref: LICENSES/ACD-1.0.review-corpus.md (アーカイブ全体の測定) / LICENSES/ACD-1.0.review-precedents.md (個別スレッドの読み) / LICENSES/ACD-1.0.board-decisions.md (理事会の決定) / LICENSES/rounds/ (原典の保存)
 ---
 
@@ -377,7 +377,7 @@ via an API」が 2025-06 に閉じられた**（`#N` はこのドシエでは不
    `review-labels.md` §1.98 / §1.99 が扱う *crayon* / *vanity* のラベルは、**承認の障害として
    一貫して働いてきたわけではない。** **⚠ ただし 25 件はいずれも旧い承認で、
    現在の委員会が同じ扱いをする証拠ではない。** 我々の答えは依然 `submission-reference.md` §4b
-   （固有名詞 0・置換テキスト 0）であって、この統計ではない。
+   （固有名詞 0・置換テキスト 0（§16.1 の推奨 notice の雛形 1 欄 `<location of this file>` を除く —— 採用者が自分の notice に書く欄で、本文は編集しない））であって、この統計ではない。
 2. **`redundant-with-more-popular` が 12 件ある。そこに Blue Oak が入っている** ——
    **承認日 2024-01-19、つまり最近の承認である。**
    **#84（「0BSD が在るのになぜもう 1 つ」）に対する、我々の推論ではない答えがここにある**:
