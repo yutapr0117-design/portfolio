@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-23 時点・43 ファイル）
+## いまの状態（2026-09-24 時点・45 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -71,6 +71,8 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-09-14 | `license-review` | **観測（OpenMDW スレッド・2 通）** | **我々宛でも ACD-1.0 についてでもない。** Fontana 氏 *"The OSI does not currently have a process for **de-listing** licenses"*（配送された本体を保存）と、Piana 氏 *"revising **ALL** the approved licenses (which we have done recently), some approved licenses … leave licensing experts **scratching their heads**"*。**承認は取り消せず、承認済みに首をかしげる起草が実在すると承認する側が述べている** ——**有利・不利の両方に読める**（`review-precedents.md` §1.88）|
 | 2026-09-18 | （リスト外）| **受領（moderator とのやり取り round 4・Gmail 逐語）** | **`license-discuss` への投稿が拒否された** ——**discuss 側の拒否は、これまでどこにも記録が無かった**（記録は review 側の 2 通のみ）。steward は *"content of this specific message, or … my current moderation status"* のどちらかを問い、**その問いには答えが返っていない**。**moderator が警告の根拠として引いたのは、我々が `LICENSE` に載せている開示文そのもの**（`against.md` #215）。**#214 の一次資料でもある** |
 | 2026-04-06 | `license-discuss` | **観測（AI エージェントの skill のライセンス・全 3 通）** | **ACD が立つ 3 つの gap の 1 つに正面から当たる。** Fontana 氏 *"open source software licenses are extensively used for non-software material"* / *"appropriate **even in situations where copyrightability is relatively dubious**"* ——**§9 が在る理由そのものの状況**（`against.md` #211）。**⚠ 同じ 1 通が逆にも働く**（*"sufficiently creative prompts may be copyrightable"* = 境界は本当に不確か）。**主題は我々が実際に公開している資料の類型でもあり、そこを測って #212 が出た** |
+| 2026-01-03 | `license-discuss` | **観測（curl ライセンスの追加・discuss 側 4 通）** | **B1 / B2 の二経路が投票の言葉で現れた唯一の例。** Piana 氏 *"**If it was a new license, I would advise to non-accept it.** But since it's a widely used and for a long time license … **proliferation concerns are moot at this point**"* / Chestek 氏「legacy category は ***a more liberal review***」。**四票が付いた上で 3 か月動かなかった** ——**全会一致の支持は決定ではない**（`against.md` #220）|
+| 2026-02-04 | `license-review` | **観測（curl ライセンスの追加・review 側 7 通）** | **承認する側の投票が出た側。** 同上（`against.md` #220）|
 | 2026-03-10 | `license-discuss` | **観測（OSI が承認済みライセンスの URL を SPDX 識別子へ標準化・全 6 通）** | **§16.4 / E14 に両向きで当たる。** **有利**: Fontana 氏が GPL の `-only`/`-or-later` 分割を *"a complete debacle"*、Šuklje 氏が *"the GNU license naming debacle"* と呼ぶ ——**識別子が 1 つの固定テキストを指さなくなる害の、初めての外部の証人**。**不利**: Fontana 氏 *"one level of abstraction removed from its actual application"* / Phipps 氏 *"deployment options … do not reflect the licenses that OSI has actually approved"* ——**OSI 自身の模型は 1 識別子対多形態で、§16.4 は 1 対 1 を主張する。** しかも **11 時間で方針が 1 度変わっている**（`against.md` #210）|
 | 2026-05-04 | `license-review` | **観測（PHP ライセンスの自主的 retire・全 4 通）** | **承認が steward 自身の申し出で巻き戻された 1 例。** OSI が歓迎し Licensing Committee の委員が *"Kudos"* と応じ、**誰も「そういう手続きは無い」とは述べていない。** **`against.md` #146 の *"An approval cannot be undone"* を限定する**（#209）。**⚠ 有利な材料なので狭く** ——n=1・**提出者自身が手続きの不在を述べ、誰も答えていない**・retire は「承認されなかったこと」ではない・**steward が生きていることが要る（#10）** |
 | 2026-08-28 | `license-review` | **観測（Luis Villa 氏 → Rob Landley 氏・volume の作法）** | **B14 の moderator 通知が引いたのと同じ CoC 条項が、その 12 日前に、AI とは無関係に、人間へ向けて引かれている。** *"concise and low-volume … The people we most need on this list are those whose time is very precious"*。**条項が在ることと、社会的に強制されていることは別で、後者の一次資料はこれが初めて**（`reviewer-positions.md` §1.99・`against.md` #208）。**⚠ 同じ 1 通が volume を正当化する側にも働くが、それは*議論*の volume であって本文の語数（B3）ではない** |
