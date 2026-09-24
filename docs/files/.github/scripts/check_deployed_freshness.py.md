@@ -187,12 +187,14 @@ python3 .github/scripts/check_deployed_freshness.py
 | path | 導出元 |
 |---|---|
 | `.well-known/**` | tracked file の glob |
-| `robots.txt` | sitemap の `<loc>` |
+| `robots.txt` | **リポジトリの** sitemap の `<loc>`（2026-09-24 に公開 sitemap から切り替えた・下記）|
 | `sitemap.xml` | robots の `Sitemap:`（相互宣言）|
 | `manifest.webmanifest` | index.html の `<link rel="manifest">` |
 | `llms_well-known.txt` | **導出不能**（どこからも宣言されない root ミラー）→ 由来を書いて明示追加 |
 
 **Check 457c** が「機械向け宣言面 ⊆ 照合対象」を BLOCKING 強制する。非 vacuity は (a) ローカルで `robots.txt` に 1 行足して**実際に公開サイトへ当てて**名指しの検出を確認、(b) `.well-known` の導出を外すと 457c が RED（帰属も単独）。
+
+**2026-09-24 の是正: 「何を照合するか」はリポジトリの宣言から導出する。** 以前は照合対象の導出に**公開** `sitemap.xml` を取得していた。すると (a) 取得できない環境（プロキシ 403 のローカル等）では `robots.txt` が照合対象から黙って抜け、**BLOCKING の Check 457c の合否がネットワーク到達性で変わっていた**（このため 457c のローカル RED は長く「環境依存」と片付けられていた）。(b) 配信されている sitemap が古いと、**検証される側が検証の範囲を決める**循環になる。`robots.txt` は元からローカルで読んでいたので、sitemap だけが非対称だった。配信されているかどうかは `_check_assets` が引き続き公開 sitemap で測る。
 
 **制御外として記録しておく事実**: `.well-known/api-catalog` は拡張子が無いため GitHub Pages が `application/octet-stream` で返す（RFC 9727 が期待するのは `application/linkset+json`）。media type を厳格に見る agent は受け取れない可能性があるが、**Pages の MIME マッピングは制御できない**ので Check にはしない（`Cache-Control` を Check にしなかったのと同じ判断）。**測って分かった事実として残す。**
 

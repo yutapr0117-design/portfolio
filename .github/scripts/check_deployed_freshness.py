@@ -356,7 +356,13 @@ def discovery_sha256_targets(html):
         return path[len(prefix):] if path.startswith(prefix) else path.lstrip("/")
 
     declared = {_norm(r) for r in _same_origin_refs(html, base)}
-    declared |= {_norm(l) for l in _sitemap_locs(base)}
+    # [FIX 2026-09-24] sitemap はリポジトリ側から読む (robots.txt と同じ)。以前は**公開**
+    #   sitemap.xml を取得して導出していたため、(a) 取得できない環境では robots.txt が
+    #   照合対象から黙って抜け、BLOCKING の Check 457c がネットワーク到達性で合否を変え、
+    #   (b) 配信されている sitemap が古ければ**照合対象そのものが古い宣言で縮む** ——
+    #   検証される側が検証の範囲を決める循環だった。「何を照合するか」はリポジトリの宣言、
+    #   「配信されているか」は `_check_assets` が公開 sitemap で測る、と役割を分ける。
+    declared |= {_norm(l) for l in _local_sitemap_locs()}
     declared |= {_norm(m.group(1)) for m in
                  re.finditer(r"(?im)^\s*sitemap:\s*(\S+)", _read_robots())}
 
@@ -369,6 +375,15 @@ def discovery_sha256_targets(html):
             out.add(ref)
     # shipped 資産は `_check_shipped_bytes` が既に照合しているので二重取得しない
     return sorted(out - set(shipped_sha256_targets()))
+
+
+def _local_sitemap_locs():
+    """リポジトリの sitemap.xml が宣言するページの `<loc>`（fragment 除去）。"""
+    path = ROOT / "sitemap.xml"
+    if not path.exists():
+        return []
+    xml = path.read_text(encoding="utf-8")
+    return [loc.split("#")[0] for loc in re.findall(r"<loc>([^<]+)</loc>", xml)]
 
 
 def _read_robots():
