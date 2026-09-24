@@ -26,6 +26,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        ある」と読んで探しに行く。** **残る 2 形は Check にしない**（裸の `` `file.md` `` 1,061 箇所と、
        **文書を名指ししない**裸の `§N.M` 2,024 箇所は、リポジトリ外・仮称・文脈依存を含み
        意味の判断が要る）。**ここに穴が残ることは台帳の種類 7 に書いてある。**
+       **(h)・2026-09-24**: 他文書を行番号（`` `file.md` L123 ``）で指さないこと —— 行番号は書いた日の
+       位置でしかなく、確定手順の表が 11 箇所中 9 箇所で既に別の行を指していた。
 
 """
 
@@ -278,9 +280,19 @@ def run(ctx):
                     f"\u00a7{_sid471} \u304c\u8907\u6570\u306e file \u306b\u5b58\u5728\u3059\u308b: {_fs471} "
                     f"\uff08\u53c2\u7167\u306f\u89e3\u6c7a\u3059\u308b\u304c\u5225\u306e\u7bc0\u3078\u7740\u304f\uff09")
 
+        # (h) **他文書を行番号 (`L123`) で指さないこと。** 行番号は書いた日の位置であって、
+        # 読む日の位置ではない。2026-09-24 に `ACD-1.2-CHANGELIST.md` の確定手順の表が
+        # `submission-reference.md` を 11 箇所行番号で指しており、**9 箇所が既に別の行を指していた**
+        # （確定の日に表どおり置換すると別の文を書き換える）。件数か導出コマンドで書く。
+        _lnref471 = re.compile(r"`[\w./-]+\.(?:md|txt|py)`[^|\n]{0,8}\bL\d{2,4}\b")
+        for _lf471 in sorted(_lic471.glob("*.md")):
+            for _li471, _ll471 in enumerate(_lf471.read_text(encoding="utf-8").split("\n"), 1):
+                if _lnref471.search(_ll471):
+                    _bad471.append(f"{_lf471.name}:{_li471} \u884c\u756a\u53f7\u3067\u4ed6\u6587\u66f8\u3092\u6307\u3057\u3066\u3044\u308b (face h)")
+
         check(
             not _bad471,
-            f"Check 471: \u30c9\u30b7\u30a8\u306e\u53c2\u7167\u8a18\u6cd5 6 \u5f62 (rounds/ \u30d1\u30b9 / B<n> / Check N / \u540d\u6307\u3057\u306e \u00a7N.M / \u88f8\u306e \u00a7N.M / \u5171\u6709\u63a1\u756a\u306e\u4e00\u610f\u6027) \u304c\u3059\u3079\u3066\u89e3\u6c7a\u3059\u308b",
+            f"Check 471: \u30c9\u30b7\u30a8\u306e\u53c2\u7167\u8a18\u6cd5 7 \u5f62 (rounds/ \u30d1\u30b9 / B<n> / Check N / \u540d\u6307\u3057\u306e \u00a7N.M / \u88f8\u306e \u00a7N.M / \u5171\u6709\u63a1\u756a\u306e\u4e00\u610f\u6027 / \u884c\u756a\u53f7\u53c2\u7167\u306e\u4e0d\u5728) \u304c\u3059\u3079\u3066\u89e3\u6c7a\u3059\u308b",
             (f"Check 471: \u30c9\u30b7\u30a8\u5185\u306e\u53c2\u7167\u304c\u89e3\u6c7a\u3057\u306a\u3044: {_bad471}\u3002"
              "**`rounds/` \u306f\u300c\u4e00\u6b21\u8cc7\u6599\u306f\u3053\u3053\u306b\u5728\u308b\u300d\u3068\u3044\u3046\u8a3c\u62e0\u306e\u4e3b\u5f35\u305d\u306e\u3082\u306e**\u3067\u3042\u308a\u3001"
              "**`B<n>` \u306f\u65b9\u91dd\u3092\u6c7a\u3081\u3066\u3044\u308b register \u306e\u9805\u76ee**\u3067\u3042\u308a\u3001"
