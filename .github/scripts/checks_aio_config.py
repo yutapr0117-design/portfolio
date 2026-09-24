@@ -19,6 +19,7 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **機械可読な全面から一貫して発見できる**こと。444a `<link rel="license">` が index.html に
        あり実 file へ解決する / 444b JSON-LD の `license` が同一 URL を指す / 444c aio-manifest の
        top-level `license` の spdx_id と url が整合する / 444d sitemap に全文の `<loc>` がある /
+       **444h sitemap の `<image:license>` が canonical と一致する**（#221 —— 2 つの公開面が同一資源について矛盾する許諾を宣言していた）/
        444e llms.txt と llms-full.txt が SPDX 識別子に言及する。
        動機 (2026-08-23 実測): LICENSE を ACD-1.0 へ移行した時点で、**7 面すべてに宣言がゼロ**
        だった —— 「この著作物を学習に使ってよいか」に機械可読な答えが存在しなかった。
@@ -491,6 +492,24 @@ def run(ctx):
             if _url444 not in _sm444:
                 _bad444.append(f"sitemap.xml に {_rel444} の <loc> が無い (crawler が到達できない)")
 
+            # 444h — sitemap が**別のライセンスを宣言していない**こと。
+            #   **`against.md` #221。** 444d は「全文への `<loc>` が在るか」だけを見ており、
+            #   **同じ file の `<image:license>` が何を述べているかを一度も見ていなかった。**
+            #   実測 2026-09-24: hero 画像が **CC BY-NC-ND 4.0（非営利・改変禁止）**を宣言し、
+            #   **同じ画像 URL の JSON-LD は ACD-1.0 を宣言していた** ——2 つの公開面が
+            #   同一資源について矛盾する許諾を述べていた。**2026-04-25 に入り、
+            #   2026-08-23 の ACD-1.0 採用（All Rights Reserved の撤回）を 4 か月またいで
+            #   生き残った** ——**撤回のとき、許諾を*名乗る*面は掃いたが、
+            #   許諾を*宣言する*面を全部は掃いていなかった。**
+            #   ⚠ **「条件なし」を主張する instrument にとって、これは stale な文より重い** ——
+            #   自動化システムは*制限が在る*と判定する。§6.5 の基準が逆向きに当たる面である。
+            for _il444 in re.findall(r"<image:license>\s*(.*?)\s*</image:license>", _sm444, re.S):
+                if _il444.strip() != _url444:
+                    _bad444.append(
+                        f"sitemap の <image:license> が canonical と不一致: {_il444.strip()!r} "
+                        f"(canonical: {_url444!r})。**同じ資源について 2 つの公開面が矛盾する"
+                        "許諾を宣言することになる**")
+
             # 444e — llms 層が識別子に言及すること
             for _lf444 in ("llms.txt", "llms-full.txt"):
                 if _spdx444 not in (ROOT / _lf444).read_text(encoding="utf-8"):
@@ -523,7 +542,7 @@ def run(ctx):
 
             check(
                 not _bad444,
-                f"Check 444 (444a rel=license / 444b JSON-LD / 444c manifest / 444d sitemap / "
+                f"Check 444 (444a rel=license / 444b JSON-LD / 444c manifest / 444d sitemap / 444h image:license / "
                 f"444e llms / 444f runtime JSON-LD / 444g 記述子の到達性): "
                 f"ライセンス宣言が全機械可読面で整合 ({_spdx444} / {_rel444})",
                 (f"Check 444: ライセンス宣言の cross-surface drift: {_bad444}。"
