@@ -567,7 +567,7 @@ on the Dedicator … and so is **not executory**."*
   述べている。**その測定は変わらない。** だが 2026-08-28 に **Luis Villa 氏が list 上で
   CoC を引き**、*"the list's code of conduct has, since it was first written, asked people to
   respect each other's precious time by **being concise and low-volume**"* と述べている
-  （`reviewer-positions.md` §1.99・`against.md` #208）。**短くする理由は「返信が増えるから」
+  （`review-venue.md` §1.99・`against.md` #208）。**短くする理由は「返信が増えるから」
   ではなく「list が明示的にそう求めているから」である。** 相関はその要求を測っていない ——
   **規範に反した参加者が返信を*多く*受け取ることは、規範の不在を意味しない。**
 
