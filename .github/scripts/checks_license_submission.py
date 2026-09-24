@@ -201,8 +201,23 @@ def run(ctx):
                         _ot = _ot.split(_sep472, 1)[1]
                     _universe472 |= set(re.findall(r"^  (\d+\.\d+) ", _ot, re.M))
                 # 提出側の面だけを見る。分析・記録の面は 1.0 について述べるのが正しい。
-                _faces472 = ["ACD-1.0.submission.md", "ACD-1.0.submission-reference.md",
-                             "REVIEWERS.md", "ACD-1.0.objection-map.md"]
+                # **面の集合は導出する。** 決め打ちの 4 面だったときの被覆を測ると
+                #   (2026-09-25・#227)、**提出側が審査者を送る 35 file のうち 4 file** しか
+                #   見ていなかった。**現時点では実害ゼロ**（回答文書 9 面 272 引用すべてが
+                #   対象版に実在する）だが、**危険が最大化するのは SUBMISSION-TARGET を
+                #   切り替えた瞬間**である —— そのとき `ACD-1.0.faq.md` などは「別の版について
+                #   書かれた文書」に変わり、決め打ちの 4 面はその変化を一切見ない。#144 が
+                #   一度踏んだ class で、**審査者が最初に確かめる種類の誤り**。
+                #   導出規則は 2 つだけにする（複雑な規則は誤検出を生む）:
+                #     (1) 名前が `<target>.` で始まる file —— その版について書かれている
+                #     (2) 版に中立な入口・索引の面 —— どの版が対象でも対象版を指すべき
+                #   **版名を持つ他版の file は自然に外れる** —— `ACD-1.1-CHANGELIST.md` が
+                #   1.1 の条を引くのは正しく、対象版で照合したら誤検出になる。
+                _neutral472 = ("REVIEWERS.md", "READY-TO-SUBMIT.md", "QUESTION-INDEX.md",
+                               "ACD-1.0.objection-map.md")
+                _faces472 = sorted(
+                    {_q.name for _q in (ROOT / "LICENSES").glob(f"{_ver472}.*.md")} |
+                    {_n for _n in _neutral472 if (ROOT / "LICENSES" / _n).exists()})
                 _bad472 = []
                 for _rel472 in _faces472:
                     _p472 = ROOT / "LICENSES" / _rel472
@@ -226,6 +241,16 @@ def run(ctx):
                     blocking=True,
                 )
 
+                # **472b の面は広げない（2026-09-25・#227 で測って決めた）。**
+                #   472 を 4 面 → 25 面へ導出型にした直後、472b が 4 file・16 件で発火した。
+                #   **読むとすべて正当だった** —— `errata.md` が「E<n> は 1.1 でこう直った」と
+                #   **後継の文言を逐語で引く**のはその文書の仕事そのもので、`against.md` /
+                #   `discussion-log.md` / `jurisdictions.md` も版をまたぐ記録である。
+                #   **条*番号*と逐語*引用*は別の性質だった**: 番号は対象版で解決すべきだが、
+                #   引用は「版を比較する文書」が他版から引くのが正当。
+                #   **広げた scope をそのまま両方に使うと、正しい記述を RED にする。**
+                _faces472b = ["ACD-1.0.submission.md", "ACD-1.0.submission-reference.md",
+                              "REVIEWERS.md", "ACD-1.0.objection-map.md"]
                 # ── 472b. 提出側の逐語引用が、提出対象の版の本文に実在すること ────────────────
                 #   472 は**番号の存在**しか見ない。§16.4 は 1.0 にも 1.1 にも在るので、
                 #   1.1 の語句 *"except by the Steward"* を 1.0 の §16.4 として引いても通った
@@ -240,7 +265,7 @@ def run(ctx):
                 _qbad472 = []
                 _nq472 = 0
                 _marked472 = 0
-                for _rel472 in _faces472:
+                for _rel472 in _faces472b:
                     _p472 = ROOT / "LICENSES" / _rel472
                     if not _p472.exists():
                         continue
@@ -265,7 +290,7 @@ def run(ctx):
                         _qbad472.append(f"{_rel472}:{_ln} *\"{_mq.group(1)[:60]}\"* ({'/'.join(_from)} にだけ在る)")
                 check(
                     not _qbad472,
-                    (f"Check 472b: 提出側 {len(_faces472)} 面の本文逐語引用 {_nq472} 件のうち "
+                    (f"Check 472b: 提出側 {len(_faces472b)} 面の本文逐語引用 {_nq472} 件のうち "
                      f"{_nq472 - _marked472} 件が {_ver472} の本文に実在し、"
                      f"{_marked472} 件は他の版を明示して引いている"),
                     (f"Check 472b: 提出対象 ({_ver472}) の本文に無い語句を、版を示さずに引いている: {_qbad472}。"
