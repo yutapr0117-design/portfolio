@@ -19,8 +19,9 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        **機械可読な全面から一貫して発見できる**こと。444a `<link rel="license">` が index.html に
        あり実 file へ解決する / 444b JSON-LD の `license` が同一 URL を指す / 444c aio-manifest の
        top-level `license` の spdx_id と url が整合する / 444d sitemap に全文の `<loc>` がある /
-       **444h sitemap の `<image:license>` が canonical と一致する**（#221 —— 2 つの公開面が同一資源について矛盾する許諾を宣言していた）/
        444e llms.txt と llms-full.txt が SPDX 識別子に言及する。
+       **444h (2026-09-24)** sitemap の `<image:license>` がすべて canonical を指す —— 存在の検査は、
+       矛盾する宣言の共存を検出しない（CC BY-NC-ND 4.0 が同じ画像について残っていた）。
        動機 (2026-08-23 実測): LICENSE を ACD-1.0 へ移行した時点で、**7 面すべてに宣言がゼロ**
        だった —— 「この著作物を学習に使ってよいか」に機械可読な答えが存在しなかった。
        単なる登録漏れではなく、**ACD-1.0 §6.5 自身が「自動化システムが判定できない許諾は、
@@ -492,23 +493,16 @@ def run(ctx):
             if _url444 not in _sm444:
                 _bad444.append(f"sitemap.xml に {_rel444} の <loc> が無い (crawler が到達できない)")
 
-            # 444h — sitemap が**別のライセンスを宣言していない**こと。
-            #   **`against.md` #221。** 444d は「全文への `<loc>` が在るか」だけを見ており、
-            #   **同じ file の `<image:license>` が何を述べているかを一度も見ていなかった。**
-            #   実測 2026-09-24: hero 画像が **CC BY-NC-ND 4.0（非営利・改変禁止）**を宣言し、
-            #   **同じ画像 URL の JSON-LD は ACD-1.0 を宣言していた** ——2 つの公開面が
-            #   同一資源について矛盾する許諾を述べていた。**2026-04-25 に入り、
-            #   2026-08-23 の ACD-1.0 採用（All Rights Reserved の撤回）を 4 か月またいで
-            #   生き残った** ——**撤回のとき、許諾を*名乗る*面は掃いたが、
-            #   許諾を*宣言する*面を全部は掃いていなかった。**
-            #   ⚠ **「条件なし」を主張する instrument にとって、これは stale な文より重い** ——
-            #   自動化システムは*制限が在る*と判定する。§6.5 の基準が逆向きに当たる面である。
+            # 444h — sitemap の画像ライセンス宣言が canonical と食い違わないこと。
+            # 444d は「在ること」しか見ておらず、同じ画像について XMP と JSON-LD が ACD-1.0 を
+            # 述べる横で `<image:license>` が CC BY-NC-ND 4.0 を宣言し続けていた (2026-09-24 発見)。
+            # **存在の検査は、矛盾する宣言の共存を検出しない。**
+            # ⚠ **空白・改行に寛容な形を採る（2 セッションが独立に実装し、突き合わせて選んだ）。**
+            #   `[^<\s]+` だと **値が改行や空白を挟んだ瞬間に 1 件もマッチせず、黙って通る** ——
+            #   **一致が 0 件であることは「違反が無い」と区別がつかない。**
             for _il444 in re.findall(r"<image:license>\s*(.*?)\s*</image:license>", _sm444, re.S):
                 if _il444.strip() != _url444:
-                    _bad444.append(
-                        f"sitemap の <image:license> が canonical と不一致: {_il444.strip()!r} "
-                        f"(canonical: {_url444!r})。**同じ資源について 2 つの公開面が矛盾する"
-                        "許諾を宣言することになる**")
+                    _bad444.append(f"sitemap.xml の <image:license> が canonical と異なるライセンスを宣言: {_il444.strip()}")
 
             # 444e — llms 層が識別子に言及すること
             for _lf444 in ("llms.txt", "llms-full.txt"):
@@ -542,8 +536,8 @@ def run(ctx):
 
             check(
                 not _bad444,
-                f"Check 444 (444a rel=license / 444b JSON-LD / 444c manifest / 444d sitemap / 444h image:license / "
-                f"444e llms / 444f runtime JSON-LD / 444g 記述子の到達性): "
+                f"Check 444 (444a rel=license / 444b JSON-LD / 444c manifest / 444d sitemap / "
+                f"444e llms / 444f runtime JSON-LD / 444g 記述子の到達性 / 444h 画像ライセンスの矛盾): "
                 f"ライセンス宣言が全機械可読面で整合 ({_spdx444} / {_rel444})",
                 (f"Check 444: ライセンス宣言の cross-surface drift: {_bad444}。"
                  "**ACD-1.0 §6.5 は「自動化システムが判定できない許諾は許諾ではない」と述べている** —— "
@@ -777,6 +771,16 @@ def run(ctx):
                     _mv451 = _lic_blk451.get(_mk451)
                     _dv451 = (_d451.get(_path451[0], {}) or {}).get(_path451[1], {}).get("value")
                     if _mv451 is not None and _dv451 is not None and _mv451 != _dv451:
+                        _mis451.append(f"{_mk451}: manifest={_mv451} / 記述子={_dv451}")
+                # 登録状態 (記述子では top-level の真偽値)。manifest がそれを名乗るなら一致させる
+                # (2026-09-24: manifest の license ブロックだけが未登録であることを言っていなかった)
+                for _mk451, _dk451 in (("spdx_listed", "spdxListed"), ("osi_approved", "osiApproved")):
+                    _mv451 = _lic_blk451.get(_mk451)
+                    _dv451 = _d451.get(_dk451)
+                    if _mv451 is None:
+                        _mis451.append(f"{_mk451}: manifest に無い (記述子={_dv451}) —— 未登録の識別子を"
+                                       "spdx_id として名乗る面が、登録状態を言わない")
+                    elif _mv451 != _dv451:
                         _mis451.append(f"{_mk451}: manifest={_mv451} / 記述子={_dv451}")
             check(
                 not _mis451,

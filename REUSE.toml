@@ -20,10 +20,13 @@
 #   is not on the SPDX License List, so the conforming identifier is `LicenseRef-ACD-1.0` and
 #   the conforming filename would be `LICENSES/LicenseRef-ACD-1.0.txt`. **This repository has
 #   promised not to move `LICENSES/ACD-1.0.txt`** (it is the URL the submission packet gives a
-#   reviewer, and Check 453 pins it). So a REUSE linter will still report a naming
-#   non-conformance. That bind is recorded separately as `against.md` #108, and **it dissolves
-#   on OSI approval**, at which point the identifier becomes registrable. This file closes the
-#   file-level silence; it does not claim REUSE conformance.
+#   reviewer, and Check 453 pins it). That naming bind is recorded as `against.md` #108 and
+#   dissolves on SPDX registration. **It is not the only non-conformance** — measured with
+#   `reuse lint` 6.2.0 on 2026-09-24: the linter stops with a CRITICAL error, because REUSE reads
+#   every file in `LICENSES/` as a licence text and that directory also holds the review dossier;
+#   and prose that quotes the SPDX identifier tag itself is read as invalid tags. Neither
+#   depends on approval. This file closes the file-level silence (614/614 files carry licensing
+#   information once the linter can run); it does not claim REUSE conformance.
 #
 # ⚠ ON THE COPYRIGHT LINE
 #   REUSE requires a copyright statement. ACD-1.0 §3 surrenders every Covered Right, so the
