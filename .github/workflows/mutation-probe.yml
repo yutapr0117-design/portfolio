@@ -65,10 +65,24 @@ jobs:
   #   両者は互いに独立 (別の安全網を検証する) ので直列である必然性が無く、
   #   consistency 側は playwright を使わないので npm ci / browser install も不要になる。
   # ────────────────────────────────────────────────────────────────────────────
+  # ⚠ 2026-09-24: **この層も壁に当たった** —— 単一ジョブの実測が 372 件中 368 件で
+  #   timeout-minutes: 30 に到達し **cancelled**（残り 4 件・約 4.9 秒/件）。
+  #   **cancelled は success でも failure でもないので「All N caught」の判定行が出ず、
+  #   安全網の自己検証はそのまま結論を出さずに終わる。** 週次なので誰も rerun しない。
+  #   behavior 側は 2026-08-17 に同じ壁へ当たって 8 分割したのに、**兄弟である
+  #   こちらは一度も分割されなかった** ——**壁に当たった層だけ直すと、同じ壁にもう一度当たる。**
+  #   4 分割（全 372 件を過不足なく 1 回ずつ覆うことを実測済み）で最悪ケースは ~7.6 分になり、
+  #   timeout 30 分に対して約 4 倍の余裕。**consistency は 1 件あたりの所要が均一**
+  #   （毎回同じ gate を 1 回走らせるだけ）なので、behavior 側で起きた「剰余は均等な件数を
+  #   作るが均等な所要は作らない」偏りはこの層では起きにくい。
   consistency:
-    name: Consistency safety-net self-check
+    name: Consistency safety-net self-check (shard ${{ matrix.shard }}/4)
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    strategy:
+      fail-fast: false    # 1 shard が落ちても他 shard の結果を必ず得る (どこが vacuous か知りたい)
+      matrix:
+        shard: [1, 2, 3, 4]
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -83,7 +97,7 @@ jobs:
       - name: Run consistency probe
         env:
           MUTATION_PROBE: '1'
-        run: python3 .github/scripts/mutation_probe.py
+        run: python3 .github/scripts/mutation_probe.py --shard ${{ matrix.shard }}/4
 
       - name: Assert working tree is restored
         if: always()
