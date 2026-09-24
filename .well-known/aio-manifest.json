@@ -26,27 +26,35 @@
   },
   "license": {
     "spdx_id": "ACD-1.0",
+    "spdx_listed": false,
+    "osi_approved": false,
+    "conforming_spdx_expression": "LicenseRef-ACD-1.0",
     "name": "Autonomous Commons Dedication 1.0",
     "url": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.txt",
     "machine_readable": "https://yutapr0117-design.github.io/portfolio/LICENSES/ACD-1.0.machine.json",
-    "applies_to": "the entire repository, including source code, documentation, binary assets, and this AIO layer",
+    "applies_to": "the entire repository, including source code, documentation, binary assets, and this AIO layer — except the third-party messages preserved verbatim under LICENSES/rounds/, in which this repository holds no rights (ACD-1.0 section 2.7)",
     "rights_reserved": false,
+    "not_granted": [
+      "trademarks, service marks, trade names, logos, and personal names (ACD-1.0 section 11.1)",
+      "rights under data protection, privacy, publicity, or personality law (ACD-1.0 section 11.4)",
+      "rights held by anyone other than the Dedicator (ACD-1.0 section 2.7)"
+    ],
     "conditions": [],
     "ai_training_permitted": true,
     "tdm_reservation": false,
     "attribution_required": false,
-    "note": "No rights are reserved and no conditions are imposed. Training a machine learning model on this work is expressly permitted (ACD-1.0 section 6). No text-and-data-mining reservation is made, and none is to be inferred from any signal associated with this work."
+    "note": "No rights in this work are reserved and no conditions are imposed in respect of it; trademarks and personal names are not granted (ACD-1.0 section 11.1). Training a machine learning model on this work is expressly permitted (ACD-1.0 section 6). No text-and-data-mining reservation is made, and none is to be inferred from any signal associated with this work."
   },
   "source_of_truth": [
     {
       "path": "llms.txt",
       "role": "short AI routing context",
-      "sha256": "f5df0d6baa74fabc98024b64450c1282e3e2d4e9a561696901a754fe7acdc401"
+      "sha256": "b286137998937490d9e8739e112ea76ba702ab23553618906cfb946f8dab9c78"
     },
     {
       "path": "llms-full.txt",
       "role": "full AI context",
-      "sha256": "c348ecdba4ee5d9518be8c07e0f2c58f1da7ca71e84048272b4d8d639dd3232c"
+      "sha256": "ea8938dffba78ba6095e7f18b411b2bb75c8e4f23b7965993c5aae694a75eaa0"
     },
     {
       "path": "AI2AI.md",
@@ -105,7 +113,7 @@
       "sha256": "8b919cc6aecfc80935161cc40c298eb0150cb24a8d021bd2d95716cf7677e3b9"
     }
   ],
-  "generated_at": "2026-09-22T17:02:54Z",
+  "generated_at": "2026-09-24T07:30:36Z",
   "manifest_version": "1.0",
   "observational_evidence": [
     {
