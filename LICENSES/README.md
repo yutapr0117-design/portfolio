@@ -1,13 +1,13 @@
 ---
 file: LICENSES/README.md
 audience: 誰でも（ここが入口）
-last-updated: 2026-09-20
-canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN.md (凍結と投稿先の単一ソース)
+last-updated: 2026-09-24
+canonical-ref: LICENSES/ACD-1.0.txt (このリポジトリに適用している本文) / LICENSES/FROZEN.md (凍結と投稿先の単一ソース)
 ---
 
 # LICENSES/ — 何がどこにあるか
 
-> **発信は 2026-09-09 から停止している。** OSI Moderators が両リストへ「AI が全部または大半を書いたと疑われる投稿は拒否する」と投稿したため（`ACD-1.0.against.md` #119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）。**単一ソースは `FROZEN.md` の `POSTING-STATUS` marker**で、**Check 467 が 4 面と両方向で照合する。**
+> **発信の状態はここに書かない** —— 単一ソースは `FROZEN.md` の `POSTING-STATUS` marker である（状態を写した面は再開後も「停止」と言い続けた・`ACD-1.0.against.md` #195 / #221）。経緯だけを日付つきで置く: 2026-09-09 に OSI Moderators の通知を受けて停止し（#119 / `ACD-OSI-BOTTLENECKS.md` **B14**・逐語は `rounds/`）、2026-09-17 に再開した。**再開後にオーナーが `license-discuss` へ送った 1 通は moderation で拒否されている**（#215）。
 
 
 > **Reviewing ACD-1.0 and cannot read Japanese?** Start at
@@ -15,13 +15,11 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 > documents are already in English, and gives the commands to verify every claim made here.
 > The authoritative text is [`ACD-1.0.txt`](ACD-1.0.txt); the case against approving it is
 > [`ACD-1.0.against.md`](ACD-1.0.against.md), written by us.
-| 「**その記述は、本当に確かめられたのか**」 | [`AUDIT-LEDGER.md`](AUDIT-LEDGER.md) —— **ドシエ自身への敵対的検証の台帳**。主張を種類（逐語引用 / 件数 / 不在の主張 / 条項の挙動…）に分け、種類ごとに母数・確認済み・道具を持つ。**進捗は宣言せず道具から導出する** |
-| 「**機械可読な面（記述子・spdx.xml・LICENSE・REUSE.toml・manifest）が述べていることは、いま真か**」 | [`MACHINE-SURFACES-AUDIT.md`](MACHINE-SURFACES-AUDIT.md) —— 2026-09-24 の検証報告。**欠陥は直さず候補として列挙**してある |
 
 このディレクトリには **Autonomous Commons Dedication 1.0 (ACD-1.0)** の本文と、その周辺文書が
 置いてある。**目的は「疑問がこのリポジトリを見れば潰せる」ことである。**
 
-**権威は `ACD-1.0.txt` だけ**である。他はすべて非規範で、齟齬があれば本文が勝つ。
+**このリポジトリに適用されている本文は `ACD-1.0.txt` だけ**である。`ACD-1.1.txt` は 1.1 という別識別子の本文として権威を持つが、このリポジトリには適用していない。それ以外はすべて非規範で、齟齬があれば各版の本文が勝つ。
 
 ---
 
@@ -44,13 +42,12 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | 同・起草の出自 / 名称 / 運用（**LLM 起草の扱い・撤回条件**） | [`ACD-1.0.review-responses-meta.md`](ACD-1.0.review-responses-meta.md) |
 | **実際に来た指摘**とその答え | [`ACD-1.0.discussion-log.md`](ACD-1.0.discussion-log.md) |
 | **審査者が最初に読む英語の入口**（license-discuss から来た人向け） | [`REVIEWERS.md`](REVIEWERS.md) |
-| **受け取った議論の原文**（無改変で置く場所・いまは空） | [`rounds/`](rounds/README.md) |
+| **受け取った議論の原文**（無改変で置く場所・一覧と件数は `rounds/README.md` が実 file から導出して持つ） | [`rounds/`](rounds/README.md) |
 | **疑問から引く索引（審査者向け・英語）** | [`QUESTION-INDEX.md`](QUESTION-INDEX.md) |
 | **不利な事実の網羅（先に読ませる用・英語）** | [`ACD-1.0.against.md`](ACD-1.0.against.md) |
 | **既知の欠陥と、直さない理由（英語）** | [`ACD-1.0.errata.md`](ACD-1.0.errata.md) |
-| **次版の本文（草案）** | [`ACD-1.1.txt`](ACD-1.1.txt) —— **NOT IN FORCE / NOT SUBMITTED / NOT APPLIED**。7 件の記録済み欠陥を閉じてある。**条番号は §15 以降で 1.0 と異なる**ので、**1.0 を引くときは 1.0 の本文から**（対応表は changelist §0.5）|
-| **次版に反映するものの集約点** | [`ACD-1.1-CHANGELIST.md`](ACD-1.1-CHANGELIST.md) |
-| **議論に付した確定テキスト（凍結）** | [`ACD-1.1.txt`](ACD-1.1.txt) |
+| **1.1 で何を変えたか（1.0 → 1.1 の記録）** | [`ACD-1.1-CHANGELIST.md`](ACD-1.1-CHANGELIST.md) |
+| **1.0 の後継として確定したテキスト（2026-09-17 凍結）** | [`ACD-1.1.txt`](ACD-1.1.txt) —— 1 行目は **FROZEN TEXT. NOT SUBMITTED FOR APPROVAL. NOT APPLIED TO THIS REPOSITORY.**（草案ではない）。オーナーが同日 `license-discuss` へ送った 1 通は moderation で拒否されており（`ACD-1.0.against.md` #215）、**リストはまだこのテキストを受け取っていない**。閉じた欠陥の数は 1.1 自身の冒頭が述べる（凍結時点の数）。**条番号は §1 の定義（§1.2〜§1.4 / §1.6）と §15・§16 で 1.0 と異なる**ので、**1.0 を引くときは 1.0 の本文から**（定義語による対応は `REVIEWERS.md`「Which text you are looking at」）|
 | **その機械可読記述子** | [`ACD-1.1.machine.json`](ACD-1.1.machine.json) |
 | **次版の草案（作業場）** | [`ACD-1.2-DRAFT.txt`](ACD-1.2-DRAFT.txt) |
 | **次版に反映するものの集約点（1.2）** | [`ACD-1.2-CHANGELIST.md`](ACD-1.2-CHANGELIST.md) |
@@ -67,10 +64,12 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | 既知の反論が当たるか（**1 表・審査者が最初に読む**） | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) |
 | 審査者は主題について何と言っているか（人格権 / 特許 / 長さ / 構造 …） | [`ACD-1.0.reviewer-positions.md`](ACD-1.0.reviewer-positions.md) |
 | リストが我々の類型に付ける呼び名（「クレヨン」「vanity」）と、それが実際に指している害 | [`ACD-1.0.review-labels.md`](ACD-1.0.review-labels.md) |
-| 提出judgment と**残る弱点** | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) |
+| 提出判断と**残る弱点** | [`READY-TO-SUBMIT.md`](READY-TO-SUBMIT.md) |
 | **いまどの段階か / 凍結の状態** | [`FROZEN.md`](FROZEN.md) |
 | **古くなりうる事実と、最後に確かめた日（英語）** | [`AS-OF.md`](AS-OF.md) |
 | 機械可読な記述子 | [`ACD-1.0.machine.json`](ACD-1.0.machine.json) / [`ACD-1.0.spdx.xml`](ACD-1.0.spdx.xml) |
+| 「**その記述は、本当に確かめられたのか**」 | [`AUDIT-LEDGER.md`](AUDIT-LEDGER.md) —— **ドシエ自身への敵対的検証の台帳**。主張を種類（逐語引用 / 件数 / 不在の主張 / 条項の挙動…）に分け、種類ごとに母数・確認済み・道具を持つ。**進捗は宣言せず道具から導出する** |
+| 「**機械可読な面（記述子・spdx.xml・LICENSE・REUSE.toml・manifest）が述べていることは、いま真か**」 | [`MACHINE-SURFACES-AUDIT.md`](MACHINE-SURFACES-AUDIT.md) —— 2026-09-24 の検証報告。**欠陥は直さず候補として列挙**してある |
 
 設計根拠と申請ドシエは、このディレクトリの外にある
 —— [`docs/architecture/acd-license-rationale.md`](../docs/architecture/acd-license-rationale.md)。

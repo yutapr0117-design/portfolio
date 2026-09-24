@@ -76,9 +76,11 @@ than corrected. They came out **cleaner than the human-facing notice**:
   `NON-OPERATIVE` with the text prevailing, and its `notice` field **omits** the SPDX identifier
   line — so E1 does not propagate there. E3 does, and that is now noted in the row above.
 - `ACD-1.0.spdx.xml` records `isOsiApproved="false"`.
-- Every one of the **29** `clause` pointers in the descriptor resolves to a clause that exists
+- Every one of the **33** `clause` pointers in the descriptor resolves to a clause that exists
   and is about the subject claimed. Verify it by cross-checking the `clause` fields against
-  `ACD-1.0.txt`; the result is 29/29.
+  `ACD-1.0.txt`; the result is 33/33. (This line said 29 until 2026-09-24 — the same undercount
+  `against.md` #64 corrected elsewhere, left here in the one paragraph that defends the
+  machine-readable layer. Check 451a counts the pointers on every run.)
 
 That asymmetry is itself the lesson for 1.1: the machine-readable files say "not approved, not
 listed" in the same breath as the identifier, and the human notice does not. **The notice should
