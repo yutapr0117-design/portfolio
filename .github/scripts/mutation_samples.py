@@ -476,6 +476,15 @@ _MUTATIONS_TAIL.append({
     "check": CHECK,
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 472b (提出側の逐語引用の版): 1.1 の語句を 1.0 の条文として引かせる —— §16.4 は両方の版に"
+            "在るので番号の存在しか見ない Check 472 は通すが、*\"except by the Steward\"* は 1.0 に無く、"
+            "審査者は存在しない条文を読まされる (against.md #160 の実例)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission-reference.md",
+    "find": "**Applies identically to every distributor of the text, the steward included.**",
+    "replace": "**Applies identically; §16.4 reads *\"except by the Steward\"*.**",
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [

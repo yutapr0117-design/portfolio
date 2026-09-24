@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.jurisdictions.md
 audience: ai, human (提出者), 監査人, 採用検討者, 学術研究者, 第三者全般
-last-updated: 2026-09-20
+last-updated: 2026-09-24
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / LICENSES/ACD-1.0.clause-reference.md (逐条リファレンス) / LICENSES/ACD-1.0.review-responses-clauses.md (§31 に日本法の論点)
 ---
 
@@ -192,7 +192,7 @@ Reduktion の制限もそのままには及ばない。**どちらであるか�
 法定の終了を止められない** ——*"notwithstanding any agreement to the contrary"* がそう述べている。
 **本文の語がどれほど強くても、この点では statute が勝つ。**
 
-**本文の手当ては §15.2 である**（無効なら当該法域についてのみ改釈・可分）。
+**本文の手当ては §15.4 である**（1.1 / 1.2 草案では §15.2。無効なら当該法域についてのみ改釈・可分）。
 **つまり文書が「誤っている」のではなく、当該法域で当該条が縮む、という構造になっている。**
 
 **そして、ここで三重構造が初めて冗長でなくなる。**
@@ -276,7 +276,7 @@ obtain a remuneration for such lending**"*。
 
 ### なぜ ACD に当たりうるのか
 
-- **§1.3 の Work は *audiovisual material* を含む。** 映画や録音物へ適用されれば射程に入りうる。
+- **§1.2 の Work は *audiovisual material* を含む**（1.1 / 1.2 草案では §1.3）。 映画や録音物へ適用されれば射程に入りうる。
 - **§4.2 は *lend, rent* を明示的に許諾している。**
 - **§3.2 は報酬請求権を surrender の対象として名指ししている。**
 
@@ -424,7 +424,7 @@ verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against ap
 | **DMCA 17 U.S.C. §1202**（CMI）| §16.4 | 名称・識別子の制限が著作権管理情報の要件と交差する | **§16.4 が「本文についての規律」に留まるか** |
 | **消費者契約法 8 条 1 項**（日本）| §14.1 | 故意・重過失の全部免責は無効 | **§14.2 の「法が許す最大限」で足りるか** |
 | **droit de retrait**（フランス）| §2.2 | 撤回権の事前放棄は無効とされる蓋然性 | **§2.2 の irrevocable が、どの法域でどこまで立つか** |
-| **不公正契約条項の枠組み**（EU）| **§15.6** | 不明確な条項を受領者に有利に読む強行規定があり、**contra proferentem の排除は実効性を失う** | **✅ 2026-09-20 に原典で読んだ。下の §9a。** |
+| **不公正契約条項の枠組み**（EU）| **§15.3**（1.2 草案では §15.6・1.1 は削除）| 不明確な条項を受領者に有利に読む強行規定があり、**contra proferentem の排除は実効性を失う** | **✅ 2026-09-20 に原典で読んだ。下の §9a。** |
 
 ### 9a. 8 件すべてを原典で読んだ —— 判例 2 件のうち 1 件は判決本文、1 件は裁判所自身の発表まで（2026-09-20）
 
@@ -500,7 +500,10 @@ E25 の理由は「§16 の上で 2 つの canon が順序なく働く」こと�
 **⚠ そしてこの表は、レビューの他の主張を裏書きしない。** 同じレビューは
 **§6.2 / §6.3 が第三者の留保を無効化する**と述べているが、**その 2 条は自分でそう述べていない**
 （§6.2 *"does not purport to defeat a Reservation made by another rightsholder"* /
-§6.3 *"the Dedicator has no power to withdraw it and this Section does not purport to give one"*）。
+§6.3 *"the Dedicator has no power to withdraw it and this Section does not purport to give one"*。
+**§6.3 の引用はレビューが読んだ 1.2 草案（と 1.1）の文言である。** **1.0 の §6.3 はこの但し書きを持たず**、
+*"whether by the Dedicator or by another person"* の留保を *"to the fullest extent the Dedicator is able"* の限度で撤回すると述べるだけ
+なので、**1.0 について同じ主張をされたら、答えは §6.3 自身ではなく §2.7 と「able」の語に頼ることになる**）。
 **現物に当たれる主張は当たった。当たれない主張は、当たれないと書く。**
 
 #### (3) Ryanair v PR Aviation（C-30/14）—— 主文を逐語

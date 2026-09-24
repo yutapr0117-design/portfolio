@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.submission-reference.md
 audience: OSI license-review participants / licence reviewers / 監査人 / 次のセッションの実装者
-last-updated: 2026-09-09
+last-updated: 2026-09-24
 canonical-ref: LICENSES/ACD-1.0.submission.md (送る文面は §B.0。**これを貼らない**) / LICENSES/ACD-1.0.against.md / LICENSES/AS-OF.md
 ---
 
@@ -501,17 +501,22 @@ its narrow sense, so we have now applied the wide one as well.
 | **§5.2** | The Dedicator covenants not to apply or invoke technological measures or laws against You, not to impose collateral conditions, and not to argue for a narrow construction | **The asymmetry runs against the grantor and in favour of every recipient equally.** No recipient is placed in a different position from any other, and the party disadvantaged is the one making the grant |
 | **§11.3** | Withholds permission to misrepresent the Dedicator's authorship or endorsement | **Applies identically to every recipient.** It is a limit of reach, not a condition (§10.1 is unaffected), and what it withholds was never the Dedicator's to permit |
 | **§12.2** | The Dedicator covenants not to exercise Moral Rights against You or against anyone who receives the Work from You | **Runs one way only, in the recipient's favour, and reaches downstream recipients as well.** Nobody is worse off than anybody else |
-| **§16.4** | A modified licence text may not be distributed under the name or an `ACD-N.N` identifier **except by the Steward** | **This is the one place where a named role may do something others may not**, and it should be conceded plainly rather than argued away |
+| **§16.4** | A modified licence text may not be distributed under the name "Autonomous Commons Dedication" or under the identifier "ACD-1.0". **ACD-1.0 makes no exception for any party** | **Applies identically to every distributor of the text, the steward included.** The role-based difference this row once conceded is in the **successor**, not in 1.0: ACD-1.1 and the 1.2 draft add *"except by the Steward"* to close errata E14 — see below |
 
 **On §16.4**, three things are true at once. It concerns **the licence text as a document, not
-the Work**: §10.5 and §16.5 say so in terms, so it places no person in a different position with
+the Work**: §10.5 and §16.6 say so in terms, so it places no person in a different position with
 respect to the licensed work, which is what OSD 5 governs. It is **the same name-integrity term
 that approved licences carry for their own texts**, so a reading of OSD 5 that condemned it would
 condemn a large part of the approved list with it. And OSD 4 **expressly contemplates** name
-restrictions of this shape. **What remains, and we state it rather than resolve it**: the
-Steward's exception is a role-based difference on the face of the document, and a reviewer taking
-the wide reading at full strength is entitled to ask about it. Our answer is the subject-matter
-limit, not a denial that the difference exists.
+restrictions of this shape. **In ACD-1.0 there is no role-based difference at all**: §16.4 closes
+the name and the identifier to every distributor alike. **What remains, and we state it rather
+than resolve it, belongs to the successor**: to close errata E14 (1.0 protects the name in general
+but only the one identifier `ACD-1.0`), ACD-1.1 and the 1.2 draft protect the whole `ACD-N` /
+`ACD-N.N` family and let **the Steward alone** issue a modified text under it. That is a
+role-based difference on the face of the document, and a reviewer taking the wide reading at full
+strength is entitled to ask about it. Our answer there is the subject-matter limit, not a denial
+that the difference exists. *(Corrected 2026-09-24: this paragraph and the row above had
+attributed 1.1's Steward exception to ACD-1.0, whose §16.4 has none — `against.md` #160.)*
 
 **⚠ And the converse.** Under the wide reading this instrument is *unusually* well placed in the
 vulnerable place — it has no termination provision at all (§10.4: no permission
@@ -673,7 +678,7 @@ would be false. It does not.
 mine, and that limitation is stated plainly in §5 below. Reusability and adoption are different
 properties, and the requirement here is the former.
 
-**What this property is called on these lists, and the one criterion it does not clear.** The
+**What this property is called on these lists, and the one criterion the successor does not clear.** The
 OSI's own License Proliferation Report names a category of *"Non-reusable licenses"* —
 *"licenses in this group are **specific to their authors and cannot be reused by others**. Many,
 but not all, of these licenses fall into the category of **vanity licenses**"* — a definition
@@ -684,27 +689,36 @@ reusable licence should not do (2019-02-11). Measured against them:
 | What Jones proposed excluding | ACD-1.0 |
 |---|---|
 | *"hard code a specific person/company as being the licensor and the code base being licensed"* | **Clear** — §16.3, and the two greps above return 0 |
-| *"hard code the licensor being in an **unreasonably privileged position**"* | **Not clear. See below** |
+| *"hard code the licensor being in an **unreasonably privileged position**"* | **Clear in ACD-1.0, at the cost of errata E14; not clear from 1.1 on. See below** |
 | *"required significant changes or modifications to the license text to be used by others"* | **Clear** — adoption requires no edit at all |
 | *"if only the company sponsoring the license is capable of **complying**"* | **Clear, and this is the strongest of the four** — §10.1 imposes no condition, so there is no one who can fail to comply |
 
-**The one that is not clear, stated here rather than left to be found.** §16.4 forbids
-distributing a *modified text* under the name or under an `ACD-N` / `ACD-N.N` identifier
-*"except by the Steward"*, and §16.5 defines that role as whoever first published the text
-under that name. That is a privilege held by one party and **written into the licence itself**.
-Three things bound it, and none of them makes it disappear. First, §16.6 places §16.4 and
-§16.5 outside the terms of the Work: they bind no recipient of a work, and nothing about what
-anyone may do with a work turns on them — but Jones's criterion is about the text, and carries
-no such limit. Second, a steward is ordinary; Apache, Mozilla and the FSF each have one. What
-is unusual here is writing it into the text rather than operating it outside, which MIT, 0BSD
-and the Unlicense do by naming no steward at all. Third, it is there for a reason that expires:
-an identifier has to keep denoting one fixed text, and until a registry performs that function
-the text is the only place it can be performed.
+**Why ACD-1.0 clears it, and what that costs — stated here rather than left to be found.**
+ACD-1.0's §16.4 forbids distributing a *modified text* under the name "Autonomous Commons
+Dedication" or under the identifier "ACD-1.0", and it makes **no exception for anyone**: the
+steward is bound exactly as every other distributor of the text is. No party holds a privilege
+written into the text, so the criterion is clear. **The cost is errata E14**: 1.0 protects the
+name in general but only the one identifier `ACD-1.0`, so a modified text can circulate as
+`ACD-1.1` or `ACD-2.0` as long as it avoids the name.
 
-So the honest statement is that **identifier stability and the absence of in-text privilege
-cannot both be had, and this instrument chose the first**. A reviewer may prefer the second.
-What would not be honest is to answer the point by quoting §16.6, as though the criterion had a
-limit it does not have.
+**The successor closes E14 and thereby fails this criterion.** ACD-1.1 and the 1.2 draft protect
+the whole `ACD-N` / `ACD-N.N` family and let a modified text be distributed under it
+*"except by the Steward"*, a role their §16.5 defines as whoever first published the text under
+that name. That is a privilege held by one party and **written into the licence itself**. Three
+things bound it, and none of them makes it disappear. First, the successor's §16.6 places
+§16.4 and §16.5 outside the terms of the Work: they bind no recipient of a work — but Jones's
+criterion is about the text, and carries no such limit. Second, a steward is ordinary; Apache,
+Mozilla and the FSF each have one. What is unusual is writing it into the text rather than
+operating it outside, which MIT, 0BSD and the Unlicense do by naming no steward at all. Third,
+it is there for a reason that expires: an identifier family has to keep denoting fixed texts,
+and until a registry performs that function the text is the only place it can be performed.
+
+So the honest statement is that **family-wide identifier stability and the absence of in-text
+privilege cannot both be had: ACD-1.0 has the second and pays for it with E14, and the successor
+chose the first**. A reviewer may prefer either. What would not be honest is to answer the
+point by quoting §16.6, as though the criterion had a limit it does not have — or to present the
+successor's privilege as a property of the text under review. *(Corrected 2026-09-24: this
+section had attributed 1.1's Steward exception to ACD-1.0 — `against.md` #160.)*
 
 **And the label is removed by an explanation, not by the text.** On `license-review`
 (2023-01-18) Bradley M. Kuhn declined to withdraw the word from another submission in these
@@ -744,7 +758,7 @@ machine can find are not present.
 | Every clause pointer **also supports the claim it is attached to** | **read by hand**, 2026-09-09: each boolean and each `outOfScope` entry compared against the wording of the clause it cites | **33 / 33.** **This row previously said "resolves and matches its subject" with only the existence check behind it** — resolution is mechanical, agreement of meaning is not, and the two were reported as one. The same audit on `clause-reference.md`'s 82 rows found **three** mismatches (`against.md` #34–#36), so a clean result here was not a foregone conclusion. **Repeat the pass if the descriptor changes; nothing enforces it** |
 | Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
 | Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
-| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **220 entries, 1–220, no gaps; all citations resolve** |
+| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **221 entries, 1–221, no gaps; all citations resolve** |
 | Every defect called a "1.1 candidate" anywhere has an entry in the errata to point at | cross-check declarations against `errata.md` | **one was missing and has been added (E7)** |
 | Every negative self-claim the text makes about itself is true | extract each "contains no / imposes no / grants no / reaches nothing / specifies no" statement and search the whole text for the thing denied | **9 claims, 9 true** — each denied term appears only inside the clause doing the denying |
 | Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |
