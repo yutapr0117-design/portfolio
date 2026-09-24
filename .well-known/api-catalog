@@ -46,14 +46,6 @@
       ]
     },
     {
-      "anchor": "https://yutapr0117-design.github.io/portfolio/.well-known/agent-skills/index.json",
-      "service-desc": [
-        {
-          "href": "https://schemas.agentskills.io/discovery/0.2.0/schema.json"
-        }
-      ]
-    },
-    {
       "anchor": "https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json",
       "service-meta": [
         {
@@ -90,6 +82,14 @@
       "service-meta": [
         {
           "href": "https://yutapr0117-design.github.io/portfolio/.well-known/aio-manifest.json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://yutapr0117-design.github.io/portfolio/.well-known/agent-skills/index.json",
+      "service-desc": [
+        {
+          "href": "https://yutapr0117-design.github.io/portfolio/docs/files/.well-known/index.json.md"
         }
       ]
     }

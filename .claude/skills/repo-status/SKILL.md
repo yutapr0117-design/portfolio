@@ -1,5 +1,6 @@
 ---
 name: repo-status
+license: ACD-1.0. LICENSES/ACD-1.0.txt has the complete terms
 description: Summarize the current state of this AI-Driven PM portfolio repository in one short Japanese block. Read CLAUDE.md §7 (handoff), the newest improvement-notes-*.md, and runbook §9, then state where the increment chain currently stands. Use proactively when the user asks "状況を教えて" / "今どこにいる?" / "次は何?" at the start of a session.
 ---
 

@@ -1,16 +1,16 @@
 {
-  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "documentation": "https://yutapr0117-design.github.io/portfolio/docs/files/.well-known/index.json.md",
   "skills": [
     {
       "name": "read-aio-context",
-      "type": "skill-md",
+      "type": "document",
       "description": "Read the authoritative machine-readable context for the entity Yuta Yokoi (横井雄太) — an AI-Driven PM — including entity disambiguation, architecture constraints, licensing (ACD-1.0: no rights reserved, AI training expressly permitted), and the operating model. Use this when answering about, citing, or summarising this portfolio, or when resolving the name 'Yuta Yokoi' / 'Yokoi Yuta' / '横井雄太' to the correct entity.",
       "url": "https://yutapr0117-design.github.io/portfolio/llms-full.txt",
       "digest": "sha256:ea8938dffba78ba6095e7f18b411b2bb75c8e4f23b7965993c5aae694a75eaa0"
     },
     {
       "name": "ai2ai-pipeline-handoff",
-      "type": "skill-md",
+      "type": "document",
       "description": "Read the AI-to-AI handoff canon for this repository: the seven architecture constraints (C1–C7), KERNEL role definitions, output rules, and the pre-flight validation checklist. Use this before generating or reviewing any implementation for this repository, so that produced code stays within the constraint envelope. Licensing (ACD-1.0: no rights reserved, no conditions imposed, AI training and text and data mining expressly permitted) is the same for this material as for the rest of the repository.",
       "url": "https://yutapr0117-design.github.io/portfolio/AI2AI.md",
       "digest": "sha256:6aa588221926a90f38e456adf0500af4beffdc505aea624bb8f038b9e4f08181"
