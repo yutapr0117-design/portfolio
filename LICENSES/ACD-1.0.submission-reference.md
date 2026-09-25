@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.submission-reference.md
 audience: OSI license-review participants / licence reviewers / 監査人 / 次のセッションの実装者
-last-updated: 2026-09-24
+last-updated: 2026-09-25
 canonical-ref: LICENSES/ACD-1.0.submission.md (送る文面は §B.0。**これを貼らない**) / LICENSES/ACD-1.0.against.md / LICENSES/AS-OF.md
 ---
 

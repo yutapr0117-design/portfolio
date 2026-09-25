@@ -1,7 +1,7 @@
 ---
 file: LICENSES/rounds/README.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-discuss・license-review participants / 監査人
-last-updated: 2026-09-19
+last-updated: 2026-09-25
 canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲート 1) / LICENSES/ACD-1.0.discussion-log.md (分解と分類はこちら)
 ---
 
