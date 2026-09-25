@@ -270,7 +270,7 @@ gap は**許諾の不在**ではなく**明示の不在**であり、4 条の文
 
 1. **作品を超える対象を名指す許諾は既に在る**（`S3` 4 本）:
    - `UPL-1.0`: *"permission is hereby granted to any person obtaining a copy of this software, associated documentation and/or data (collectively the "Software"), free of charge and under…"* ——**data を対象に含め**、特許は `lrgrwrks.txt` に列挙した Larger Works にも及ぶ。
-   - `CERN-OHL-S-2.0`: *"each Licensor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in subsections 7.2 and 8.4) patent license to Make, have Made, use, offer to sell, sell, import, and otherwise transfer the Covered Source and Products, where such…"* ——**ソースから作った製造物（Products）**に及ぶ。**「作品から作られた別の物」へ特許を及ぼす型の先例**で、(c) の構造に最も近い。
+   - `CERN-OHL-S-2.0`: *"each Licensor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in subsections 7.2 and 8.4) patent license to Make, have Made, use, offer to sell, sell, import, and otherwise transfer the Covered Source and Products, where such…"* ——そして Product の定義は *"'Product' means any device, component, work or physical object, whether in finished or intermediate form, arising from the use, application or processing of Covered Source."*。**定義に *work* と *processing* が入っているので、Covered Source で学習したモデルを Product と読むことを本文は排除しない。** **(c) に対する最も強い反例候補**で、ACD との差は**名指しの有無・条件（Product を渡すとき Notice への到達を求める P の §4）・報復条項（P の §6.2 / S・W の §7.2）**に縮む。
 2. **出力をライセンスの外に置く規定は古くから在る**（`output` 18 件のうち実質的なもの）:
    - `GPL-3.0-only` §2: *"The output from running a covered work is covered by this License only if the output, given its content, constitutes a covered work. This…"*
    - `GPL-2.0-only` §0: *"the output from the Program is covered only if its contents constitute a work based on the Program (independent of having been made by…"*
@@ -282,7 +282,7 @@ gap は**許諾の不在**ではなく**明示の不在**であり、4 条の文
 ## 我々に不利な材料（まとめ）
 
 1. **(b) は連言でしか立たない。** 許容型 ＋ 明示特許は `BSD-2-Clause-Patent` / `BlueOak-1.0.0` / `UPL-1.0` が既に持つ。
-2. **(c) の構造には先例がある。** 作品から作られた物へ特許を及ぼす型（CERN-OHL の Products）と、出力を外に置く型（GPL 系 / Artistic-1.0 系）。
+2. **(c) の構造には先例がある。** 作品から作られたもの（定義上 *work* を含み、モデルに届く読みが成り立つ）へ特許を及ぼす型（CERN-OHL の Products）と、出力を外に置く型（GPL 系 / Artistic-1.0 系）。
 3. **(a) の 0 は明示の 0 であって許諾の 0 ではない。** 無限定の *use* が TDM を含む読みは成り立つ。
 4. **判定は人が読んだ。** 分類 `M-*` の 16 本と `選択式` 1 本は読んで決めたもので、**別の読み手は `CECILL-2.1` の不行使約束を `明示` に入れない**かもしれない。
 5. **語の 0 は英語の語の 0 である。** 非英語の本文（`comparison.md` §1.97 が 18 本と数えた）では、**同じ概念を別の語で述べている可能性を排除していない**。
@@ -293,5 +293,5 @@ gap は**許諾の不在**ではなく**明示の不在**であり、4 条の文
   > *Of the 141 OSI-approved, non-deprecated licenses (SPDX list 3.29.0), none names text and data mining, machine learning, trained models, or model parameters; the three that impose no conditions (0BSD, MIT-0, Unlicense) do not use the word "patent".*
   **この文と対で必ず置く逆側**: *Permissive licenses with an express patent grant already exist (BSD-2-Clause-Patent, BlueOak-1.0.0, UPL-1.0); the gap is the conjunction, not either half.*
 - **「出力の扱いは新しくない」を先に認める**（GPL-3.0 §2 / Artistic-1.0 §6）——審査者が引く前に引く。
-- **CERN-OHL の Products 条項**は (c) の最も近い先例で、比較表に足す価値がある（`comparison.md` への還元は所有者の判断に委ねる）。
+- **CERN-OHL の Products 条項**は (c) の最も近い先例。**提出参考資料 `submission-reference.md` §2 と入口 `REVIEWERS.md` へは 2026-09-25 に還元済み**（「承認済みライセンスでモデルに届く特許許諾は無い」とは書かず、「モデルを名指しするものは無い」に狭めた）。`against.md` / `comparison.md` への登録は各所有者の判断に委ねる。
 - **再現**: 上の正規表現と `licenses.json` の版数があれば、誰でも同じ表を作り直せる。**数が違ったら、それは我々の誤りか、リストの版の差である。**

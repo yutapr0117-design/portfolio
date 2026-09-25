@@ -399,6 +399,28 @@ Work as provided by Licensor, directly or indirectly, with any other component"*
 model is such a combination, so the patent grant stops before the artefact ACD-1.0 Section 8.4
 is written to reach.
 
+**Closest on "a patent grant that reaches things made from the work": CERN-OHL-P-2.0**
+(and its S and W variants, which share the definition). **This is the comparison that most
+narrows the claim that no approved licence carries a patent grant past the work itself, and
+until 2026-09-25 this dossier had not made it.** CERN-OHL-P-2.0 §6.1 grants a patent licence
+*"to Make, have Made, use, offer to sell, sell, import, and otherwise transfer the Covered
+Source **and Products**"*, and §1.4 defines a Product as *"any device, component, **work** or
+physical object, whether in finished or intermediate form, arising from the use, application
+or **processing** of Covered Source"*. **A reviewer can fairly read a model trained on Covered
+Source as such a Product**, and nothing in the text excludes that reading. **So "no approved
+licence grants patents that reach a trained model" should not be asserted. What can be
+asserted is narrower**: no approved licence *names* models, parameters or outputs (census,
+[`ACD-1.0.gap-census.md`](ACD-1.0.gap-census.md)). The remaining differences are the same kind
+as with CAL-1.0. First, conveying a Product is conditioned: CERN-OHL-P-2.0 §4 permits it
+*"provided that You ensure that the recipient of the Product has access to any Notices
+applicable to the Product"* — a notice obligation that would travel with a model — whereas
+ACD-1.0 imposes none (4.3, 10.1). Second, §6.2 terminates all rights on patent litigation
+alleging that the Covered Source *or a Product* infringes; ACD-1.0 has no retaliation
+provision (8.2). **Third, and against us**: CERN-OHL was drafted for hardware, where "things
+made from the source" is the central case, so its authors had already solved in general terms
+the structural problem Section 8.4 solves for one artefact. **Section 8.4's novelty is naming
+the artefact, not the idea of a grant that follows what is made.**
+
 ### 3. Open Source Definition conformance
 
 ACD-1.0 imposes no conditions at all, so conformance is straightforward. Addressing the
