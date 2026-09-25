@@ -1,0 +1,750 @@
+From rpp at MIT.EDU  Tue Jul 11 17:08:40 2006
+From: rpp at MIT.EDU (Rory Pheiffer)
+Date: Tue, 11 Jul 2006 13:08:40 -0400
+Subject: For Approval: Broad Institute Public License (BIPL)
+Message-ID: <200607111708.k6BH8e48024945@outgoing.mit.edu>
+
+Hello Discussion Board,
+
+ 
+
+I e-mailed you just over two months ago with regard to my submission of the
+Broad Institute Public License (BIPL) for approval.  Russ informed me today
+that my original e-mail did not have the proper Subject header, and
+therefore, he asked me to resubmit the license for discussion.  A discussion
+on this license already occurred between May 8th and May 19th, and can be
+found here: http://crynwr.com/cgi-bin/ezmlm-cgi?3:sss:11537.  In case you
+failed to see this discussion initially because of the improperly labeled
+header, please take a moment to review the license and provide your
+comments.  I have also included the initial e-mail I sent to this list back
+on May 8th.
+
+ 
+
+We are anxious to have this license approved.  Thank you for your
+consideration.
+
+ 
+
+Regards,
+
+Rory
+
+ 
+
+ 
+
+ 
+
+ 
+
+Hello,
+
+ 
+
+I am writing to begin a discussion about the license we (the Massachusetts
+Institute of Technology or MIT for short) recently submitted to the Open
+Source Initiative for approval as an OSI Certified license.  The title of
+the license is the Broad (pronounced Brr-ode as opposed to Brr-awed)
+Institute Public License, or BIPL for short.  Below please find the three
+sections which your group has asked me to address:
+
+ 
+
+ 
+
+SECTION ONE - Most Similar OSI Certified License to the BIPL.
+
+ 
+
+The OSI Certified license that is most similar to the BIPL is the Mozilla
+Public License (MPL).  However, because of the Broad Institute's affiliation
+with MIT, and further because of MIT's unique situation as a very large
+research and educational institution, we could not distribute software under
+all of the MPL's terms.
+
+ 
+
+The most significant reason why we could not use the MPL is because MIT
+cannot agree to grant a license to any MIT-owned patent that may end up
+being associated with the software.  This is because it is virtually
+impossible for MIT to know if any of its many professors, researchers,
+investigators, or students have, are, or will do work that gives rise to a
+patent claim that covers use of its software under the BIPL.  MIT cannot
+grant rights to these patent claims because the professors, researchers,
+investigators, or students involved with the patent claim would not have an
+opportunity to make decisions regarding the licensing of these patent claims
+if a blind patent grant was part of a license that we distribute under.  The
+patent grant in the MPL is an encumbrance that MIT cannot agree to give.
+
+ 
+
+In the process of modifying the MPL to not include a grant to MIT-owned
+patents, other less significant changes were also made.  These changes
+resulted from cleaning up the current MPL to reflect MIT-preferred language
+in some areas and to clear up areas of the MPL that can often be confusing.
+As a whole though, the only major difference between the MPL and BIPL is the
+loss of the patent grant language found in section 2.1 of the MPL.
+
+ 
+
+ 
+
+SECTION TWO - Use in Conjunction with Software Distributed Under Other Open
+Source Licenses.
+
+ 
+
+Because we have incorporated many of the ideas of the MPL into the BIPL,
+software distributed under the BIPL can easily be used in conjunction with
+software distributed under other open source licenses.  Both sections 3.6
+and sections 12 of the BIPL allow for such distribution.  It is likely that
+derivative and combined works would be licensed under the BIPL, but because
+of its versatility, there is no reason the rest of the work could not be
+licensed under another open source license so long as the requirements of
+the BIPL are met for the Covered Code.  We are not aware of any software
+license that would be entirely incompatible with the BIPL, although if a
+license is entirely incompatible with the MPL, it would also likely be
+incompatible with the BIPL.
+
+ 
+
+ 
+
+SECTION THREE - Plain Text Version of the BIPL.
+
+ 
+
+I have attached two documents to this e-mail to aid the discussion.  The
+first is a Text and HTML version of the BIPL (entitled Broad Institute
+Public License Clean 2006-05-05).  If for some reason you have difficulty
+reading this attachment, you can also find the license here:
+http://web.mit.edu/afs/athena.mit.edu/user/r/p/rpp/www/.  The second is a
+comparison of the BIPL to the MPL, performed using Deltaview but saved as
+both a Microsoft Word and HTML file (entitled DV Comparison - MPL vs BIPL
+2006-05-05).
+
+ 
+
+ 
+
+I look forward to receiving your feedback on the BIPL.  Please don't
+hesitate to contact me with any questions or concerns that you may have.
+
+ 
+
+Best regards,
+
+Rory Pheiffer
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rory P. Pheiffer, Esq.
+
+Technology Licensing Associate
+
+Massachusetts Institute of Technology
+
+Technology Licensing Office
+
+Five Cambridge Center, NE25-230
+
+Kendall Square
+
+Cambridge, MA  02142-1493
+
+ 
+
+E-mail:   <mailto:rpp at mit.edu> rpp at mit.edu
+
+Telephone:  (617) 253-6966
+
+Fax:  (617) 258-6790
+
+ 
+
+____________________________________________________________________________
+___ 
+
+NOTICE: This email may contain confidential or privileged information
+intended for the addressee 
+
+only.  If you are not the addressee, be aware that any disclosure, copying,
+distribution, or use of the 
+
+information is prohibited.  If you have received this email in error, please
+call us at 617-253-6966.
+
+____________________________________________________________________________
+___ 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20060711/5c05b637/attachment.html>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: Broad Institute Public License Clean 2006-05-05.txt
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20060711/5c05b637/attachment.txt>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20060711/5c05b637/attachment-0001.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: DV Comparison - MPL vs BIPL 2006-05-05.doc
+Type: application/msword
+Size: 146944 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20060711/5c05b637/attachment.doc>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20060711/5c05b637/attachment-0002.html>
+
+From lrosen at rosenlaw.com  Tue Jul 11 18:39:18 2006
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Tue, 11 Jul 2006 11:39:18 -0700
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <200607111708.k6BH8e48024945@outgoing.mit.edu>
+Message-ID: <01c601c6a519$53637430$6401a8c0@LROSENTOSHIBA>
+
+Thank you for resubmitting your license. I didn't focus on it when you first
+submitted this.
+
+ 
+
+If MIT refuses to grant a patent license for its software, then there is a
+possibility that MIT (or its faculty, researchers, graduate students, staff,
+etc.) will later claim royalties for the patents embodied in that software
+from the users of that open source software. Is it your intention to allow
+that? How is this at heart different from the Rambus licensing model?
+
+ 
+
+How does this comport with OSD #7:
+
+
+7. Distribution of License
+
+
+The rights attached to the program must apply to all to whom the program is
+redistributed without the need for execution of an additional license by
+those parties.
+
+Your license has removed important parts of the MPL that treat the Initial
+Developer and subsequent Contributors the same. In your case, the Initial
+Developer (MIT) does not grant a patent license but Contributors do. That
+doesn't sound fair.
+
+Many popular open source licenses are entirely silent about patents, so it
+is hard to know what their licensors really intended about patent grants. In
+your case, though, you have expressly made silent a patent grant that
+existed previously in the MPL. So it is now fair to challenge you about your
+removing a patent grant that "is an encumbrance that MIT cannot agree to
+give" and passing that cost and risk onto your licensees. Is that
+reasonable?
+
+/Larry Rosen
+
+ 
+
+Lawrence Rosen
+
+Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com)
+
+Stanford University, Lecturer in Law
+
+3001 King Ranch Road, Ukiah, CA 95482
+
+707-485-1242  *  fax: 707-485-1243
+
+Author of "Open Source Licensing: Software Freedom and 
+
+                Intellectual Property Law" (Prentice Hall 2004)
+
+  _____  
+
+From: Rory Pheiffer [mailto:rpp at MIT.EDU] 
+Sent: Tuesday, July 11, 2006 10:09 AM
+To: license-discuss at opensource.org
+Cc: 'Russ Nelson'; 'Karin Rivard'
+Subject: For Approval: Broad Institute Public License (BIPL)
+
+ 
+
+Hello Discussion Board,
+
+ 
+
+I e-mailed you just over two months ago with regard to my submission of the
+Broad Institute Public License (BIPL) for approval.  Russ informed me today
+that my original e-mail did not have the proper Subject header, and
+therefore, he asked me to resubmit the license for discussion.  A discussion
+on this license already occurred between May 8th and May 19th, and can be
+found here: http://crynwr.com/cgi-bin/ezmlm-cgi?3:sss:11537.  In case you
+failed to see this discussion initially because of the improperly labeled
+header, please take a moment to review the license and provide your
+comments.  I have also included the initial e-mail I sent to this list back
+on May 8th.
+
+ 
+
+We are anxious to have this license approved.  Thank you for your
+consideration.
+
+ 
+
+Regards,
+
+Rory
+
+ 
+
+ 
+
+ 
+
+ 
+
+Hello,
+
+ 
+
+I am writing to begin a discussion about the license we (the Massachusetts
+Institute of Technology or MIT for short) recently submitted to the Open
+Source Initiative for approval as an OSI Certified license.  The title of
+the license is the Broad (pronounced Brr-ode as opposed to Brr-awed)
+Institute Public License, or BIPL for short.  Below please find the three
+sections which your group has asked me to address:
+
+ 
+
+ 
+
+SECTION ONE - Most Similar OSI Certified License to the BIPL.
+
+ 
+
+The OSI Certified license that is most similar to the BIPL is the Mozilla
+Public License (MPL).  However, because of the Broad Institute's affiliation
+with MIT, and further because of MIT's unique situation as a very large
+research and educational institution, we could not distribute software under
+all of the MPL's terms.
+
+ 
+
+The most significant reason why we could not use the MPL is because MIT
+cannot agree to grant a license to any MIT-owned patent that may end up
+being associated with the software.  This is because it is virtually
+impossible for MIT to know if any of its many professors, researchers,
+investigators, or students have, are, or will do work that gives rise to a
+patent claim that covers use of its software under the BIPL.  MIT cannot
+grant rights to these patent claims because the professors, researchers,
+investigators, or students involved with the patent claim would not have an
+opportunity to make decisions regarding the licensing of these patent claims
+if a blind patent grant was part of a license that we distribute under.  The
+patent grant in the MPL is an encumbrance that MIT cannot agree to give.
+
+ 
+
+In the process of modifying the MPL to not include a grant to MIT-owned
+patents, other less significant changes were also made.  These changes
+resulted from cleaning up the current MPL to reflect MIT-preferred language
+in some areas and to clear up areas of the MPL that can often be confusing.
+As a whole though, the only major difference between the MPL and BIPL is the
+loss of the patent grant language found in section 2.1 of the MPL.
+
+ 
+
+ 
+
+SECTION TWO - Use in Conjunction with Software Distributed Under Other Open
+Source Licenses.
+
+ 
+
+Because we have incorporated many of the ideas of the MPL into the BIPL,
+software distributed under the BIPL can easily be used in conjunction with
+software distributed under other open source licenses.  Both sections 3.6
+and sections 12 of the BIPL allow for such distribution.  It is likely that
+derivative and combined works would be licensed under the BIPL, but because
+of its versatility, there is no reason the rest of the work could not be
+licensed under another open source license so long as the requirements of
+the BIPL are met for the Covered Code.  We are not aware of any software
+license that would be entirely incompatible with the BIPL, although if a
+license is entirely incompatible with the MPL, it would also likely be
+incompatible with the BIPL.
+
+ 
+
+ 
+
+SECTION THREE - Plain Text Version of the BIPL.
+
+ 
+
+I have attached two documents to this e-mail to aid the discussion.  The
+first is a Text and HTML version of the BIPL (entitled Broad Institute
+Public License Clean 2006-05-05).  If for some reason you have difficulty
+reading this attachment, you can also find the license here:
+http://web.mit.edu/afs/athena.mit.edu/user/r/p/rpp/www/.  The second is a
+comparison of the BIPL to the MPL, performed using Deltaview but saved as
+both a Microsoft Word and HTML file (entitled DV Comparison - MPL vs BIPL
+2006-05-05).
+
+ 
+
+ 
+
+I look forward to receiving your feedback on the BIPL.  Please don't
+hesitate to contact me with any questions or concerns that you may have.
+
+ 
+
+Best regards,
+
+Rory Pheiffer
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rory P. Pheiffer, Esq.
+
+Technology Licensing Associate
+
+Massachusetts Institute of Technology
+
+Technology Licensing Office
+
+Five Cambridge Center, NE25-230
+
+Kendall Square
+
+Cambridge, MA  02142-1493
+
+ 
+
+E-mail:   <mailto:rpp at mit.edu> rpp at mit.edu
+
+Telephone:  (617) 253-6966
+
+Fax:  (617) 258-6790
+
+ 
+
+____________________________________________________________________________
+___ 
+
+NOTICE: This email may contain confidential or privileged information
+intended for the addressee 
+
+only.  If you are not the addressee, be aware that any disclosure, copying,
+distribution, or use of the 
+
+information is prohibited.  If you have received this email in error, please
+call us at 617-253-6966.
+
+____________________________________________________________________________
+___ 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20060711/9702d327/attachment.html>
+
+From nelson at crynwr.com  Thu Jul 13 04:18:24 2006
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 13 Jul 2006 00:18:24 -0400
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <01c601c6a519$53637430$6401a8c0@LROSENTOSHIBA>
+References: <200607111708.k6BH8e48024945@outgoing.mit.edu>
+	<01c601c6a519$53637430$6401a8c0@LROSENTOSHIBA>
+Message-ID: <17589.51600.869168.190829@desk.crynwr.com>
+
+Lawrence Rosen writes:
+ > If MIT refuses to grant a patent license for its software, then there is a
+ > possibility that MIT (or its faculty, researchers, graduate students, staff,
+ > etc.) will later claim royalties for the patents embodied in that software
+ > from the users of that open source software. Is it your intention to allow
+ > that? How is this at heart different from the Rambus licensing model?
+
+Maybe Larry understands the solution, but I'm not sure I understand
+the problem.  If MIT owns a patent, why is there any difficulty with
+granting a license to it?  If a license for open source users is a
+problem, then sooner or later you're going to get a pacifist who will
+object to military uses, or a vegetarian who will object to
+meat-packing uses.  If you think you have problems now, just try
+crossing a Quaker.
+
+It seems to me that the problem is that MIT's patent licensing system
+is broken, not that there is a problem with the MPL that needs fixing.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | When immigration is
+Crynwr sells support for free software  | PGPok | outlawed, only criminals
+521 Pleasant Valley Rd. | +1 315-323-1241       | will immigrate.  Illegal
+Potsdam, NY 13676-3213  |     Sheepdog          | immigration causes crime.
+
+
+From steveq at exegesys.com  Thu Jul 13 14:16:44 2006
+From: steveq at exegesys.com (Steve Quinn)
+Date: Thu, 13 Jul 2006 08:16:44 -0600
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <17589.51600.869168.190829@desk.crynwr.com>
+Message-ID: <mailman.79.1512593945.25929.license-discuss_lists.opensource.org@lists.opensource.org>
+
+ 
+How do I unsubscribe from this list?  I am no longer in the software
+industry and no longer wish to receive these email.  Can someone please help
+me?
+
+Steve Quinn
+
+-----Original Message-----
+From: Russ Nelson [mailto:nelson at crynwr.com] 
+Sent: Wednesday, July 12, 2006 10:18 PM
+To: license-discuss at opensource.org; 'Karin Rivard'
+Subject: RE: For Approval: Broad Institute Public License (BIPL)
+
+Lawrence Rosen writes:
+ > If MIT refuses to grant a patent license for its software, then there is
+a  > possibility that MIT (or its faculty, researchers, graduate students,
+staff,  > etc.) will later claim royalties for the patents embodied in that
+software  > from the users of that open source software. Is it your
+intention to allow  > that? How is this at heart different from the Rambus
+licensing model?
+
+Maybe Larry understands the solution, but I'm not sure I understand the
+problem.  If MIT owns a patent, why is there any difficulty with granting a
+license to it?  If a license for open source users is a problem, then sooner
+or later you're going to get a pacifist who will object to military uses, or
+a vegetarian who will object to meat-packing uses.  If you think you have
+problems now, just try crossing a Quaker.
+
+It seems to me that the problem is that MIT's patent licensing system is
+broken, not that there is a problem with the MPL that needs fixing.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | When immigration is
+Crynwr sells support for free software  | PGPok | outlawed, only criminals
+521 Pleasant Valley Rd. | +1 315-323-1241       | will immigrate.  Illegal
+Potsdam, NY 13676-3213  |     Sheepdog          | immigration causes crime.
+
+--
+No virus found in this incoming message.
+Checked by AVG Free Edition.
+Version: 7.1.394 / Virus Database: 268.9.10/384 - Release Date: 7/10/2006
+ 
+
+-- 
+No virus found in this outgoing message.
+Checked by AVG Free Edition.
+Version: 7.1.394 / Virus Database: 268.9.10/384 - Release Date: 7/10/2006
+ 
+
+
+
+From superm40 at comcast.net  Thu Jul 13 16:40:00 2006
+From: superm40 at comcast.net (Matthew Seth Flaschen)
+Date: Thu, 13 Jul 2006 12:40:00 -0400
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <17589.51600.869168.190829@desk.crynwr.com>
+References: <200607111708.k6BH8e48024945@outgoing.mit.edu>	<01c601c6a519$53637430$6401a8c0@LROSENTOSHIBA> <17589.51600.869168.190829@desk.crynwr.com>
+Message-ID: <44B67760.3040403@comcast.net>
+
+Russ Nelson wrote:
+> Lawrence Rosen writes:
+>  > If MIT refuses to grant a patent license for its software, then there is a
+>  > possibility that MIT (or its faculty, researchers, graduate students, staff,
+>  > etc.) will later claim royalties for the patents embodied in that software
+>  > from the users of that open source software. Is it your intention to allow
+>  > that? How is this at heart different from the Rambus licensing model?
+> 
+> Maybe Larry understands the solution, but I'm not sure I understand
+> the problem.  If MIT owns a patent, why is there any difficulty with
+> granting a license to it?  If a license for open source users is a
+> problem, then sooner or later you're going to get a pacifist who will
+> object to military uses, or a vegetarian who will object to
+> meat-packing uses.  If you think you have problems now, just try
+> crossing a Quaker.
+> 
+> It seems to me that the problem is that MIT's patent licensing system
+> is broken, not that there is a problem with the MPL that needs fixing.
+> 
+
+They provided an answer to this, though I don't think it's quite 
+satisfactory either.  They are concerend that they might accidently 
+include a patented algorithm in open-source code.  As you say, they 
+could normally remedy this by licensing all relevant patents in the 
+open-source license.  However, they fear that they may have agreed to an 
+*exclusive* license for one of these patents, without knowing it.
+
+Matthew Flaschen
+
+
+From btilly at gmail.com  Thu Jul 13 16:49:35 2006
+From: btilly at gmail.com (Ben Tilly)
+Date: Thu, 13 Jul 2006 09:49:35 -0700
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <44B67760.3040403@comcast.net>
+References: <200607111708.k6BH8e48024945@outgoing.mit.edu>
+	 <01c601c6a519$53637430$6401a8c0@LROSENTOSHIBA>
+	 <17589.51600.869168.190829@desk.crynwr.com>
+	 <44B67760.3040403@comcast.net>
+Message-ID: <acc274b30607130949j75324245md63a181ab454ac57@mail.gmail.com>
+
+On 7/13/06, Matthew Seth Flaschen <superm40 at comcast.net> wrote:
+> Russ Nelson wrote:
+> > Lawrence Rosen writes:
+[...]
+> > It seems to me that the problem is that MIT's patent licensing system
+> > is broken, not that there is a problem with the MPL that needs fixing.
+> >
+>
+> They provided an answer to this, though I don't think it's quite
+> satisfactory either.  They are concerend that they might accidently
+> include a patented algorithm in open-source code.  As you say, they
+> could normally remedy this by licensing all relevant patents in the
+> open-source license.  However, they fear that they may have agreed to an
+> *exclusive* license for one of these patents, without knowing it.
+
+As Russ said, the problem is that MIT's patent licensing system is
+broken.  I fully understand why it is broken.  That it is broken seems
+like an inevitable consequence of our patent system and how actively
+MIT pursues patents.
+
+But I have no sympathy for them.  There is a very easy solution, and
+it isn't my fault that MIT doesn't want to consider it.
+
+Cheers,
+Ben
+
+
+From nelson at crynwr.com  Thu Jul 13 17:00:48 2006
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 13 Jul 2006 13:00:48 -0400
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <44B67760.3040403@comcast.net>
+References: <200607111708.k6BH8e48024945@outgoing.mit.edu>
+	<01c601c6a519$53637430$6401a8c0@LROSENTOSHIBA>
+	<17589.51600.869168.190829@desk.crynwr.com>
+	<44B67760.3040403@comcast.net>
+Message-ID: <17590.31808.51912.11335@desk.crynwr.com>
+
+NOTE: this is just my opinion.  It is not an official OSI position.
+
+Matthew Seth Flaschen writes:
+ > They provided an answer to this, though I don't think it's quite 
+ > satisfactory either.  They are concerend that they might accidently 
+ > include a patented algorithm in open-source code.  As you say, they 
+ > could normally remedy this by licensing all relevant patents in the 
+ > open-source license.  However, they fear that they may have agreed to an 
+ > *exclusive* license for one of these patents, without knowing it.
+
+If you can infringe a patent without knowing that you're doing it,
+then the patent system is broken.  In essence the existing patent
+system creates a system of law which is so complicated that nobody can
+ever know if they're engaging in lawful or illegal behavior.  Worse,
+the current law turns ignorance of the law into a defense.  "I'm an
+innocent infringer; I didn't know that thing was patented."  That
+completely goes against the rule of law, and turns it into a rule of
+man.
+
+MIT can't fix the patent system.  MIT has to solve its problem within
+its purview.  I think that MIT needs to tell all its exclusive
+licensees "We intend to publish XYZ as open source.  We don't think it
+infringes the patent we licensed to you.  You have 30 days to review
+this software for infringements.  After that time, we will release it
+as open source software."
+
+If MIT doesn't know what patents it owns, or if it doesn't know to
+whom it has licensed the patents, or what are the terms of those
+patents, then MIT has a bigger problem than just releasing open
+source.
+
+-- 
+--my blog is at    http://blog.russnelson.com   | When immigration is
+Crynwr sells support for free software  | PGPok | outlawed, only criminals
+521 Pleasant Valley Rd. | +1 315-323-1241       | will immigrate.  Illegal
+Potsdam, NY 13676-3213  |     Sheepdog          | immigration causes crime.
+
+
+From superm40 at comcast.net  Thu Jul 13 20:17:28 2006
+From: superm40 at comcast.net (Matthew Seth Flaschen)
+Date: Thu, 13 Jul 2006 16:17:28 -0400
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <17590.31808.51912.11335@desk.crynwr.com>
+References: <200607111708.k6BH8e48024945@outgoing.mit.edu>	<01c601c6a519$53637430$6401a8c0@LROSENTOSHIBA>	<17589.51600.869168.190829@desk.crynwr.com>	<44B67760.3040403@comcast.net> <17590.31808.51912.11335@desk.crynwr.com>
+Message-ID: <44B6AA58.8030202@comcast.net>
+
+Russ Nelson wrote:
+> If you can infringe a patent without knowing that you're doing it,
+> then the patent system is broken.
+
+Agreed, but as you say later, there's not much that can be immediately 
+done about this.
+
+> I think that MIT needs to tell all its exclusive
+> licensees "We intend to publish XYZ as open source.  We don't think it
+> infringes the patent we licensed to you.  You have 30 days to review
+> this software for infringements.  After that time, we will release it
+> as open source software."
+
+The problem is, the patent licensees have no legal obligation to 
+cooperate with this.  They can refuse to review the code and still sue 
+open source users and/or MIT later.
+
+Regardless, I agree that we don't have to solve MIT's problem for them. 
+  The license is extremely non-reciprocal and unlikely to be reused.  I 
+think it should be rejected.
+
+Matthew Flaschen
+
+
+From rivard at MIT.EDU  Fri Jul 14 14:43:01 2006
+From: rivard at MIT.EDU (Karin Rivard)
+Date: Fri, 14 Jul 2006 10:43:01 -0400
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <44B6AA58.8030202@comcast.net>
+References: <200607111708.k6BH8e48024945@outgoing.mit.edu>
+ <01c601c6a519$53637430$6401a8c0@LROSENTOSHIBA>
+ <17589.51600.869168.190829@desk.crynwr.com>
+ <44B67760.3040403@comcast.net>
+ <17590.31808.51912.11335@desk.crynwr.com>
+ <44B6AA58.8030202@comcast.net>
+Message-ID: <6.2.3.4.2.20060714101621.02de7f20@hesiod>
+
+Dear BIPL Discussion Group:
+
+I am writing on behalf of MIT.  It's not clear to me if this is how 
+the process works, but the group has raised a few issues on which I 
+would like to comment.
+
+It appears from discussion that there are three concerns raised about 
+the BIPL license:
+
+1.  MIT does not explicitly license MIT-owned patent rights that 
+might cover the open source software.
+2.  The license isn't fair because the BIPL requires "contributors" 
+to license their patent rights that cover their contributions, while 
+MIT does not do the same.
+3.  The license is unlikely to be "used."
+
+Here are my comments:
+
+1.  The requirements for OSI certification do not include a 
+requirement that the originator of the software offer a license to 
+originator owned patents.  As has been pointed out in the discussion 
+group, MIT's position  on not offering a patent license in the BIPL 

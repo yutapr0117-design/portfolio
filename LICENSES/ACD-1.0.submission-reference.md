@@ -544,6 +544,47 @@ two clicks from the process page a reviewer cited that morning and is 1,822 char
 conditions cannot impose *those* conditions — but **the first is not a negative result at all**: it
 is the OSI stating that saying nothing about patents is a risk, which is the case for §8.
 
+### 3d. Subject matter: why this is a software licence and where the overlap with an open-culture licence lies
+
+**The decision this answers.** On 15 September 2023 the OSI Board declined the four Mulan Open
+Works Licenses. The recommendation carried to the Board did not find any Open Source Definition
+failure. It reads: *"Resolved that it is the opinion of the OSI that the licenses, **as open
+culture licenses, are not appropriate for OSI approval**."* The rationale quotes the licences'
+own definition — *"a written work, a musical work, a fine art work, an architecture work, a
+photographic work, **an audiovisual work**, a graphic work, and a model work"* — and concludes
+that *"open culture licenses are outside the purview of the Open Source Initiative."*
+
+**The overlap, stated before it is found.** ACD-1.0 §1.2: *"'Work' means the material to which the
+Dedicator has applied this Dedication, in whole or in part, in any medium and in any form,
+including source code, object code, documentation, data, metadata, **audiovisual material**, and
+any collection or compilation of these."* One of the words the 2023 rationale names appears in our
+definition.
+
+**Where the committee itself drew the line.** Pamela Chestek, chairing the License Committee, on
+10 August 2023: *"the OSI is not in the practice of approving licenses that are not
+software-specific. ... Sometimes an OSI license will **cross over into data or hardware when tied
+to software**, but not a license altogether unrelated to software."* Carlo Piana, 5 July 2023:
+*"In general, all the licenses should be rejected for not being (Open Source) software licenses."*
+Josh Berkus, 1 March 2023: *"OSI has not previously approved content licenses ... it would be an
+organizational policy change and therefore not a routine license approval."*
+
+**Why we say this falls on the near side of that line, and what is our reading rather than theirs.**
+The Mulan definition contains no software at all; §1.2 begins with source code and object code, the
+preamble's first sentence is *"Software and the works that surround it"*, and the work the
+instrument is applied to is a software repository. Chestek's carve-out — a licence that crosses
+over into data *when tied to software* — describes that shape. **But that is our reading of her
+sentence, not a ruling, and the risk is not structural: it is that §1.2, read on its own, is hard
+to distinguish from the definition that was declined.**
+
+**Why we have not narrowed §1.2, stated as a cost rather than a defence.** The gap this instrument
+claims is about material that is trained on and produced by machines: datasets, model weights and
+outputs are exactly the non-code assets in that enumeration. Removing *"audiovisual material"* to
+look more software-specific would make the licence read better to a reviewer and cover less of what
+it exists to cover. **We would rather carry the objection than narrow the instrument to avoid it.**
+**The cost is real and is not cured by saying so:** a reviewer may conclude, as the Board did in
+2023, that the subject matter places the instrument outside the OSI's purview, and nothing in this
+section prevents that conclusion.
+
 ### 4. What is deliberately absent
 
 Omissions are design decisions too, and the committee will ask about several of them.
@@ -758,7 +799,7 @@ machine can find are not present.
 | Every clause pointer **also supports the claim it is attached to** | **read by hand**, 2026-09-09: each boolean and each `outOfScope` entry compared against the wording of the clause it cites | **33 / 33.** **This row previously said "resolves and matches its subject" with only the existence check behind it** — resolution is mechanical, agreement of meaning is not, and the two were reported as one. The same audit on `clause-reference.md`'s 82 rows found **three** mismatches (`against.md` #34–#36), so a clean result here was not a foregone conclusion. **Repeat the pass if the descriptor changes; nothing enforces it** |
 | Every clause in the text has a row in the clause-by-clause reference, and every row a clause | cross-check `ACD-1.0.clause-reference.md` against the text | **82 / 82**, no gaps either way |
 | Each row's description was read against its clause | manual pass over all 82, 2026-09-04 | **3 mismatches found and corrected** (against.md #34–#36) |
-| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **236 entries, 1–236, no gaps; all citations resolve** |
+| The adverse list is numbered without gaps or duplicates, and every cross-reference between the dossier documents resolves | count `#N` entries; check each `#N` and `EN` citation against the lists | **240 entries, 1–240, no gaps; all citations resolve** |
 | Every defect called a "1.1 candidate" anywhere has an entry in the errata to point at | cross-check declarations against `errata.md` | **one was missing and has been added (E7)** |
 | Every negative self-claim the text makes about itself is true | extract each "contains no / imposes no / grants no / reaches nothing / specifies no" statement and search the whole text for the thing denied | **9 claims, 9 true** — each denied term appears only inside the clause doing the denying |
 | Subordination claims are consistent: every "is subject to / bounded by Section N" points at a clause that exists and is a general principle | read the full text and follow each cross-reference | **2 found, both pointing at §2.7**, which is the general limitation clause |

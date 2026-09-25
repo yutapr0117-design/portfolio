@@ -161,7 +161,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1362 words**, measured 2026-09-22)
+### B.0 The message as it should actually be sent (**1456 words**, measured 2026-09-25)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -220,6 +220,14 @@ leaves licences that speak only of copyright unable to guarantee modification in
 (`review-precedents.md` §1.59).; **1,048** on 2026-09-10, when the gap paragraph stopped asserting that no approved licence does these things and started **stating the measurement** —— all 149 OSI-approved texts searched, four strings at zero （**+77 語。長さは B3 の争点であり、足すたびに理由を書く**）
 
 **And 1,098 on 2026-09-11**, when the gap paragraph gained **a one-sentence form before the detail**. The reason is a precedent rather than a preference: **the only new licence approved in 33 months whose submitter was an individual** — the OSC License, a lawyer submitting for the city of Solingen — **stated its gap in one sentence** (*"the versatile MIT license does not contain a limitation of liability that is effective under German law"*) and reached a decision in three months (`review-corpus.md` §1.68). **Ours named three areas before it named one.**
+
+**And 1,456 on 2026-09-25**, when a subject-matter paragraph was added. **The first draft of it ran
+223 words and was cut to 94 before it was kept.** The reason is this section's own design: the
+repository holds the depth so the message can be short, and a 223-word pre-emption written into the
+message would have worsened **the one bottleneck with two recorded instances of a reviewer not
+engaging at all** (`ACD-OSI-BOTTLENECKS.md` B3). **The full treatment went to the reference instead**
+(`ACD-1.0.submission-reference.md` §3d). **Naming an objection before the reviewer finds it is worth
+words; explaining it at length in the opening message is not.**
 
 **Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
 move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
@@ -320,6 +328,13 @@ as acceptable — Pamela Chestek's formulation in February 2025, and the phrasin
 *"the proper language"* in April 2024. I mention it because a non-lawyer's drafting is otherwise
 hard for you to check: the wording was fixed on 23 August 2026, before this project had read either
 message, and the repository's history shows that.
+
+**Subject matter, which I raise because a 2023 decision turned on it.** The Mulan Open Works
+Licenses were declined as open culture licences rather than for any Open Source Definition failure,
+and the rationale quoted their own list of covered works. ACD-1.0's §1.2 lists "audiovisual
+material" beside source and object code. I have not narrowed it, because datasets and model weights
+are the non-code material the gap is about; the overlap, and the committee's own line between a
+licence tied to software and one unrelated to it, are set out in the reference (§3d).
 
 **Nearest approved licences.** It is closest in effect to the Unlicense, MIT-0, 0BSD and CC0, and
 closest in patent machinery to Apache-2.0. The full comparison — **including where those are the
