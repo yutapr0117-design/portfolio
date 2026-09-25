@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-25 時点・51 ファイル）
+## いまの状態（2026-09-25 時点・61 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -110,6 +110,16 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-09-19 | （リスト外）| **第三者 AI レポート② 敵対的検証 → 受領** | **前提に事実誤りがある** ——解析対象を `against.md` と取り違えている（`against.md` #158）|
 | 2026-09-19 | （リスト外）| **第三者 AI レポート③ 好意的検証 → 受領** | **「クレヨン・ライセンス」の語を運んできた** ——アーカイブで実在を確認し、委員長の発言に到達した（`review-labels.md` §1.98）|
 | 2026-09-22 | （リスト外）| **ACD-1.2 草案への外部レビュー（OSI 承認準備）→ 受領** | オーナー経由。**渡されたレビュー対象が現行 `ACD-1.2-DRAFT.txt` と sha256 一致**（`1356b2b0…`）—— **この評は現行の byte に当たっている**（09-20 の 3 件は PDF 抽出で、`against.md` #167 の破損ヘッダを含む版を読んでいた）。**確定した実欠陥 1 件**: 冒頭が「1.1 と同一」と述べたまま下に 9 件の変更が並んでいた（`against.md` #207・**4 日間偽で、09-20 の 3 件は報告していない**）。**5 条の指摘のうち §6.2 / §6.3 は、勧める分離が既に本文にある** |
+| 2016-01 | `license-review`（観測）| **BSD + Patent の承認審査 68 通 → 観測保存（1/10 部）** | **`BSD-2-Clause-Patent` の承認審査。我々の特許 gap にとって最も近い承認済みの隣人**で、**テキストの census からは出ない「承認理由の逐語」**が在る —— *"the desire of certain organizations to have a simple permissive license that is compatible with the GNU General Public License (GPL), version 2, but which also has an express patent grant included"*（提出者 McCoy Smith 氏）。**我々の理由とは違う**（#235） |
+| 2016-01 | `license-review`（観測）| **BSD + Patent の承認審査 68 通 → 観測保存（2/10 部）** | **同じスレッドの 2/10 部。** 本文は無改変で、順に結合すれば元の連続になる |
+| 2016-01 | `license-review`（観測）| **BSD + Patent の承認審査 68 通 → 観測保存（3/10 部）** | **同じスレッドの 3/10 部。** 本文は無改変で、順に結合すれば元の連続になる |
+| 2016-01 | `license-review`（観測）| **BSD + Patent の承認審査 68 通 → 観測保存（4/10 部）** | **同じスレッドの 4/10 部。** 本文は無改変で、順に結合すれば元の連続になる |
+| 2016-01 | `license-review`（観測）| **BSD + Patent の承認審査 68 通 → 観測保存（5/10 部）** | **同じスレッドの 5/10 部。** 本文は無改変で、順に結合すれば元の連続になる |
+| 2016-01 | `license-review`（観測）| **BSD + Patent の承認審査 68 通 → 観測保存（6/10 部）** | **同じスレッドの 6/10 部。** 本文は無改変で、順に結合すれば元の連続になる |
+| 2016-01 | `license-review`（観測）| **BSD + Patent の承認審査 68 通 → 観測保存（7/10 部）** | **同じスレッドの 7/10 部。** 本文は無改変で、順に結合すれば元の連続になる |
+| 2016-01 | `license-review`（観測）| **BSD + Patent の承認審査 68 通 → 観測保存（8/10 部）** | **同じスレッドの 8/10 部。** 本文は無改変で、順に結合すれば元の連続になる |
+| 2016-01 | `license-review`（観測）| **BSD + Patent の承認審査 68 通 → 観測保存（9/10 部）** | **同じスレッドの 9/10 部。** 本文は無改変で、順に結合すれば元の連続になる |
+| 2016-01 | `license-review`（観測）| **BSD + Patent の承認審査 68 通 → 観測保存（10/10 部）** | **同じスレッドの 10/10 部。** 本文は無改変で、順に結合すれば元の連続になる |
 | 2012-03 | `license-review`（観測）| **CC0 の OSD 適合をめぐる特許論争 69 通 → 観測保存（1/6 部）** | **我々の gap 主張が依拠している当の議論で、ドシエは一度も引いていなかった**（#233）。Rosen 氏が *"In some cases, they expressly \*exclude\* a patent grant (e.g., CC0)"* と問題を定式化し、Piana 氏が特許除外を OSD 違反として争い、**Nelson 氏が対称性の反論**（*"The BSD has no explicit patent waiver … your own logic demands that we deprecate the BSD OR that we give up on requiring patent waivers"*）を出している。**Tzeng 氏は CC0 を "first a public domain COPYRIGHT dedication with a permissive fallback" と述べており、これは ACD の §3+§4 の構造そのものである** |
 | 2012-03 | `license-review`（観測）| **CC0 の OSD 適合をめぐる特許論争 69 通 → 観測保存（2/6 部）** | **同じスレッドの 2/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続になる（分割は Check 365 の 1,000 行上限のため・メッセージ境界で切ってある） |
 | 2012-03 | `license-review`（観測）| **CC0 の OSD 適合をめぐる特許論争 69 通 → 観測保存（3/6 部）** | **同じスレッドの 3/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続になる（分割は Check 365 の 1,000 行上限のため・メッセージ境界で切ってある） |
