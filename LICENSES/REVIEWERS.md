@@ -53,14 +53,14 @@ decide what is worth translating, and gives you the commands to check the claims
   word *patent* at all**, while the Unlicense limits itself in terms to *"any and all
   **copyright** interest"*. The census, its method, and the two places where an English-keyword
   count got it wrong (a German text and a French one) are in
-  [`ACD-1.0.comparison.md`](ACD-1.0.comparison.md) §1.97.
+  [`ACD-1.0.gap-measurements.md`](ACD-1.0.gap-measurements.md) §1.97.
   **This is checkable from the grant clauses themselves**, not from what the texts omit:
   Apache-2.0 §2 calls itself a *"copyright license"* and its §3 patent grant is bounded by *"the
   Work"*; 0BSD and the Unlicense enumerate copyright verbs (the Unlicense dedicates *"copyright
   interest"* in terms); CAL-1.0 §3.1(a) **does** reach *"non-patent intellectual property laws of
   any jurisdiction"* — but it is conditioned on its §4, and its patent grant expressly excludes
   claims infringed only *"by combination"*. The clause-by-clause comparison is
-  [`ACD-1.0.comparison.md`](ACD-1.0.comparison.md) §1.96.
+  [`ACD-1.0.gap-measurements.md`](ACD-1.0.gap-measurements.md) §1.96.
   **What this does not claim**: MIT's *"deal in the Software without restriction"* may well reach
   those rights by implication. The argument is that it is **left to interpretation**, and §6.5 of
   this text holds that a permission an automated system cannot determine is, for a work meant to be
