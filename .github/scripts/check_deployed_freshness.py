@@ -505,13 +505,28 @@ def _check_shipped_bytes(base):
     return 0
 
 
-def _fetch_bytes(url):
-    req = urllib.request.Request(url, headers={
-        "Cache-Control": "no-cache",
-        "User-Agent": "portfolio-deployed-freshness-check",
-    })
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return r.read()
+def _fetch_bytes(url, retries=2):
+    """公開面から 1 件取得する。**429 / 5xx は一過性として最大 `retries` 回だけ再試行する。**
+
+    [ADD 2026-09-25] ドシエ 92 件を 1 回ずつ取ると、どれか 1 件の一過性 503 で週次監視が
+    丸ごと赤くなり、後段の引用監視まで走らない（2026-09-25 の手動実行で
+    `ACD-1.0.review-corpus.md (HTTPError 503)` を実測。2026-09-21 の ASCII 名 1 件も型名しか
+    残っておらず同じ種類だった可能性が高い）。**404 は再試行しない** —— 配信されていないことは
+    一過性ではなく、それを見つけるのがこの検査の目的である。
+    """
+    for attempt in range(retries + 1):
+        req = urllib.request.Request(url, headers={
+            "Cache-Control": "no-cache",
+            "User-Agent": "portfolio-deployed-freshness-check",
+        })
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return r.read()
+        except urllib.error.HTTPError as e:
+            if attempt < retries and (e.code == 429 or e.code >= 500):
+                time.sleep(3 * (attempt + 1))
+                continue
+            raise
 
 
 def _check_digests(base):

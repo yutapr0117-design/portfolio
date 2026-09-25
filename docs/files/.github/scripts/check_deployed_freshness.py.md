@@ -198,6 +198,8 @@ python3 .github/scripts/check_deployed_freshness.py
 
 **2026-09-24 の是正: 日本語名のパスでは 2 段の落とし穴があった。** 2026-09-21 の週次実行はドシエの到達性で赤くなり、4 件のうち 3 件は `LICENSES/rounds/` の**日本語名のファイル**（2026-09-19 追加）だった。(1) `git ls-files` を `-z` なしで読むと、非 ASCII のパスは引用符 + 8 進エスケープの形で返り、そのまま URL に組まれて 404 になる。(2) `-z` で正しい名前を得ても、percent-encode しなければ urllib が `UnicodeEncodeError` を投げる。両方直した（`-z` + `quote()`）。**4 件目（ASCII 名・09-14 には通っていた）は型名しか残っておらず、404 か一過性かを区別できなかった**ので、失敗時に HTTP ステータスも出すようにした。`-z` は Check 434c が `.github/scripts/` 全体で強制する。
 
+**2026-09-25: 一過性の 5xx で週次監視全体が赤くなっていた。** 上の修正の直後に手動実行すると、今度は `ACD-1.0.review-corpus.md (HTTPError 503)` の 1 件で落ちた（ステータスを出すようにしたので分かった）。ドシエ 92 件を 1 回ずつ取ると、どれか 1 件の一過性エラーで job ごと失敗し、**後段の引用監視まで走らない**。`_fetch_bytes` は 429 / 5xx だけを最大 2 回再試行する（3 秒・6 秒）。**404 は再試行しない** —— 配信されていないことを見つけるのがこの検査の目的だからである。
+
 **制御外として記録しておく事実**: `.well-known/api-catalog` は拡張子が無いため GitHub Pages が `application/octet-stream` で返す（RFC 9727 が期待するのは `application/linkset+json`）。media type を厳格に見る agent は受け取れない可能性があるが、**Pages の MIME マッピングは制御できない**ので Check にはしない（`Cache-Control` を Check にしなかったのと同じ判断）。**測って分かった事実として残す。**
 
 ## Constraints
