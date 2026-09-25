@@ -163,7 +163,7 @@ ACD-1.2 -- DRAFT. NOT IN FORCE. NOT SUBMITTED. NOT APPLIED TO THIS REPOSITORY.
       Rights as every right "however arising" and Section 15.1 asks for the
       widest reading. Nothing a recipient may do changes; the definition now
       states its own boundary instead of leaving it to be inferred.
-    * ACD-1.1: 5051 words, 78 clauses. This draft: 5299 words, 80 clauses.
+    * ACD-1.1: 5051 words, 78 clauses. This draft: 5335 words, 80 clauses.
 
   Still open in this draft: E6 (whether Section 8.4 needs to reach outputs as
       well as the use of the Work -- examined and deliberately not narrowed)
@@ -303,8 +303,11 @@ PREAMBLE (informative; not part of the operative terms)
        cumulatively, and Section 15.1 governs their construction.
 
   2.5  The Dedicator makes this Dedication intending that others rely on it and
-       incur effort and expense in doing so, and will not assert that it is
-       revocable or ineffective for want of consideration or formality.
+       incur effort and expense in doing so; that reliance is the purpose of this
+       Dedication and not merely a foreseeable consequence of it. The Dedicator
+       will not assert that this Dedication is revocable or ineffective for want
+       of consideration or formality, and is estopped from doing so to the extent
+       the law of any jurisdiction gives that principle effect.
 
   2.6  A Contribution is submitted under this Dedication, and the person making
        it becomes a Dedicator as to that Contribution, unless they state
