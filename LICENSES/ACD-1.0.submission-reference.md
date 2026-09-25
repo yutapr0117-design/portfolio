@@ -344,7 +344,7 @@ in data** — in the EU the sui generis database right, whose own verbs are *ext
 model** and the outputs of that model; and **(iii)** **no condition on the licensee at all**.
 **Two of the three exist in several approved licences. The three together do not.** This is
 checkable from the grant clauses themselves rather than from what the texts omit, and the
-clause-by-clause reading is in `ACD-1.0.comparison.md` §1.96.
+clause-by-clause reading is in `ACD-1.0.gap-measurements.md` §1.96.
 
 **What this does not claim.** MIT's *"deal in the Software without restriction"* may well reach
 those rights by implication; this submission does not argue that it does not. It argues that the

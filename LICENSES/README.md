@@ -58,6 +58,7 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | **次版に反映するものの集約点（1.2）** | [`ACD-1.2-CHANGELIST.md`](ACD-1.2-CHANGELIST.md) |
 | **93 か月の掘削と仮説の検定** | [`ACD-1.0.dig-2026-09.md`](ACD-1.0.dig-2026-09.md) |
 | **3 つの gap を承認済み 141 本の全数に当てた表（逆側つき）** | [`ACD-1.0.gap-census.md`](ACD-1.0.gap-census.md) |
+| **gap の主張を既存ライセンスの本文に当てた測定（§1.96 / §1.97 / §1.104）** | [`ACD-1.0.gap-measurements.md`](ACD-1.0.gap-measurements.md) |
 | **草案を我々自身が掃引して出たもの** | [`ACD-1.1-SELF-AUDIT.md`](ACD-1.1-SELF-AUDIT.md) |
 | **改訂サイクルの手順（長期戦の骨格）** | [`REVISION-PROTOCOL.md`](REVISION-PROTOCOL.md) |
 | **盲点の探し方（どの次元をまだ測っていないか）** | [`BLIND-SPOTS.md`](BLIND-SPOTS.md) |
