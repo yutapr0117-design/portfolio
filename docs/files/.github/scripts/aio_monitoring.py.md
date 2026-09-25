@@ -25,6 +25,26 @@ GitHub Actions (.github/workflows/aio-monitoring.yml)
             └─ canary token 引用観測 → docs/evidence/aio-monitoring-log.json に append
 ```
 
+### 2026-09-25: この監視は、始まってから一度も測れていなかった
+
+蓄積ログの **23 回（2026-05-18〜2026-09-25）すべてで、Gemini も OpenAI も成功した問い合わせが 0 件**だった。
+Gemini は 2026-08-10 まで **429**（無料枠のレート制限）、2026-08-11 以降は **404**（`gemini-2.0-flash` が
+"no longer available"）。OpenAI は 2026-06-01 以降ずっと無料枠切れ。**それでも各回の summary は
+「cited 0/5」だけを残しており、読み手には観測された 0 に見えた。** 公開面（manifest / llms / mcp.json /
+SECURITY.md）はこのログを「試行の記録で、引用の証拠ではない」と正しく述べていたので、偽だったのは
+スクリプトの出力の側である。直したこと:
+
+- summary に `*_measured_count` / `*_error_count` / `measured_query_count` / `gemini_model` を記録する。
+  **1 件も測れなかった回は `::warning::` と step summary で「引用 0 は観測ではない」と明示**し、
+  前回との増減比較もしない（測定の失敗が「引用の減少」に化けるのを防ぐ）
+- モデル名をハードコードせず、既定が一覧に無ければ `ListModels` から**最新の安定版 flash**
+  （lite / preview / exp などを除く・`generateContent` を持つ）を選び直す。`GEMINI_MODEL` で上書きできる
+- **測れるようになった瞬間に出るはずだった偽陽性も先に潰した**: 5 問中 4 問がシグナル語を含むため、
+  応答がクエリを復唱するだけで "cited" になっていた。クエリ自体に含まれる語は数えない
+
+**429 は直していない**（無料枠の制約で、コードの欠陥ではない）。次の実行でモデルが解決しても、
+429 に戻れば「測れていない」と正しく表示されるだけである。
+
 ## Constraints
 
 - **Check 11**: summary dict に `enabled_engines` + `total_cited_count` キー
