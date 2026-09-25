@@ -694,7 +694,17 @@ ACD を含むというのは**我々の読みであって委員会の判断で�
 **危険は構造ではなく読まれ方にある** —— §1.2 を単独で読む審査者にとって、この列挙は
 不承認になった定義と見分けがつかない。**その結論を、この節は防がない。**
 
-**逆側。** 有利な読みも 1 つある —— **不承認の理由が OSD 違反ではなかった**ということは、
+**逆側 —— そして 2026-09-25 に、もう 1 つ実物が出た。** **OSI はフォントのライセンスを承認している**
+（IPA Font License v1.0・2009・`review-precedents.md` §1.110）。主題は source code でも object code
+でもなく**書体**である。同じスレッドで John Cowan 氏が理由を述べている ——
+*"In the U.S., the appearance of a font is what is not copyrightable ... **A vector font, however,
+is considered program code and therefore copyrightable**."*
+**つまり線は「コードか否か」ではなく「プログラムとして扱えるか / ソフトウェアに結びついているか」に
+引かれている** ——これは Chestek 氏の *"tied to software"* と同じ線である。
+**⚠ ただし線の位置は分からないままで、§1.2 が名指しする "audiovisual material" は、
+フォントより Mulan の列挙に近い語である。**
+
+**逆側（2）。** 有利な読みも 1 つある —— **不承認の理由が OSD 違反ではなかった**ということは、
 **主題が近いと判定されれば OSD 側の審査に進む**ということでもある（同じ記録で、
 理事会は否決を *"only if it violates the OSD"* に狭めている・§B2 節）。
 **ただしそれは「否決されにくい」であって「承認される」ではない** ——

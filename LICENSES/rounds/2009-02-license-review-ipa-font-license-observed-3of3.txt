@@ -1,0 +1,299 @@
+> >
+> > Hope you find these amendments to be an improvement to the draft
+> > license, and hope you find this license comply with the OSD.
+> >
+> > Kind regards,
+> >
+> > Yuko Noguchi
+> >
+>
+
+From bruce at perens.com  Wed Mar  4 17:59:58 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 04 Mar 2009 09:59:58 -0800
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <6cca531e0903040542o68d983bbyb1f5c07293fc438e@mail.gmail.com>
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com>	 <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local>	 <499E0476.5060109@perens.com>	 <10FAE7C07A4AC64BA87502D67A7690B501CF1745@MHM-MSG.inter.local>	 <10FAE7C07A4AC64BA87502D67A7690B501CF1CFA@MHM-MSG.inter.local>	 <10FAE7C07A4AC64BA87502D67A7690B501CF1D32@MHM-MSG.inter.local> <6cca531e0903040542o68d983bbyb1f5c07293fc438e@mail.gmail.com>
+Message-ID: <49AEC19E.3050306@perens.com>
+
+Yuko,
+
+Please convey to your colleagues my appreciation for the excellent way 
+they have listened and responded to the objections.
+
+This version looks much better. I will go over it carefully for little 
+problems, but I feel the major issues have been resolved.
+
+    Thanks
+
+    Bruce
+
+
+From yuko.noguchi at mhmjapan.com  Thu Mar  5 11:27:19 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Thu, 5 Mar 2009 20:27:19 +0900
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B501CF1D3B@MHM-MSG.inter.local>
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local> <499E0476.5060109@perens.com> <10FAE7C07A4AC64BA87502D67A7690B501CF1745@MHM-MSG.inter.local> <10FAE7C07A4AC64BA87502D67A7690B501CF1CFA@MHM-MSG.inter.local>  <10FAE7C07A4AC64BA87502D67A7690B501CF1D3B@MHM-MSG.inter.local>
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B501CF1E66@MHM-MSG.inter.local>
+
+Dear all,
+
+As promised, here is a slightly revised version of the new draft
+license.
+
+http://ipafont.ipa.go.jp/enduserlicensedraft090305.htm
+(clean revised draft of the IPA Font License v1.0)
+
+http://ipafont.ipa.go.jp/enduserlicensedraft090305.pdf
+(redline version from the first draft dated Feb. 3rd in PDF to check the
+revision)
+
+Thank you for your cooperation.
+ 
+Kind regards,
+
+Yuko Noguchi
+
+
+
+From tiemann at opensource.org  Fri Mar 27 21:26:55 2009
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Fri, 27 Mar 2009 17:26:55 -0400
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B501CF1E66@MHM-MSG.inter.local>
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com>
+	 <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local>
+	 <499E0476.5060109@perens.com>
+	 <10FAE7C07A4AC64BA87502D67A7690B501CF1745@MHM-MSG.inter.local>
+	 <10FAE7C07A4AC64BA87502D67A7690B501CF1CFA@MHM-MSG.inter.local>
+	 <10FAE7C07A4AC64BA87502D67A7690B501CF1D3B@MHM-MSG.inter.local>
+	 <10FAE7C07A4AC64BA87502D67A7690B501CF1E66@MHM-MSG.inter.local>
+Message-ID: <6cca531e0903271426u22215e9dsb7456c8c40880890@mail.gmail.com>
+
+I see positive comments from Bruce Perens, and I hereby add my own
+affirmation that this license appears to meet the criteria of the OSD in
+letter and in spirit.  I hope that the License Chair makes a favorable
+report to approve this license at the next OSI board meeting.
+
+M
+
+On Thu, Mar 5, 2009 at 7:27 AM, <yuko.noguchi at mhmjapan.com> wrote:
+
+> Dear all,
+>
+> As promised, here is a slightly revised version of the new draft
+> license.
+>
+> http://ipafont.ipa.go.jp/enduserlicensedraft090305.htm
+> (clean revised draft of the IPA Font License v1.0)
+>
+> http://ipafont.ipa.go.jp/enduserlicensedraft090305.pdf
+> (redline version from the first draft dated Feb. 3rd in PDF to check the
+> revision)
+>
+> Thank you for your cooperation.
+>
+> Kind regards,
+>
+> Yuko Noguchi
+>
+>
+
+From chuck at codefab.com  Fri Mar 27 21:34:46 2009
+From: chuck at codefab.com (Chuck Swiger)
+Date: Fri, 27 Mar 2009 14:34:46 -0700
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <6cca531e0903271426u22215e9dsb7456c8c40880890@mail.gmail.com>
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local> <499E0476.5060109@perens.com> <10FAE7C07A4AC64BA87502D67A7690B501CF1745@MHM-MSG.inter.local> <10FAE7C07A4AC64BA87502D67A7690B501CF1CFA@MHM-MSG.inter.local> <10FAE7C07A4AC64BA87502D67A7690B501CF1D3B@MHM-MSG.inter.local> <10FAE7C07A4AC64BA87502D67A7690B501CF1E66@MHM-MSG.inter.local> <6cca531e0903271426u22215e9dsb7456c8c40880890@mail.gmail.com>
+Message-ID: <193F608D-11F9-4D66-B243-7B49DC5ABD57@codefab.com>
+
+On Mar 27, 2009, at 2:26 PM, Michael Tiemann wrote:
+> I see positive comments from Bruce Perens, and I hereby add my own
+> affirmation that this license appears to meet the criteria of the  
+> OSD in
+> letter and in spirit.  I hope that the License Chair makes a favorable
+> report to approve this license at the next OSI board meeting.
+
+Yes, the license seems to be fully OSD-compliant.  It would be more  
+universal if "Article 5 (Governing Law)" section could be removed, but  
+as this license seems to be fairly specific to IPA anyway, that might  
+be a moot concern: regardless, I would recommend approval and placing  
+it into the "Non-reusable licenses" category....
+
+Regards,
+-- 
+-Chuck
+
+
+
+From yuko.noguchi at mhmjapan.com  Mon Mar 30 04:35:09 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Mon, 30 Mar 2009 13:35:09 +0900
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <193F608D-11F9-4D66-B243-7B49DC5ABD57@codefab.com>
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local> <499E0476.5060109@perens.com> <10FAE7C07A4AC64BA87502D67A7690B501CF1745@MHM-MSG.inter.local> <10FAE7C07A4AC64BA87502D67A7690B501CF1CFA@MHM-MSG.inter.local> <10FAE7C07A4AC64BA87502D67A7690B501CF1D3B@MHM-MSG.inter.local> <10FAE7C07A4AC64BA87502D67A7690B501CF1E66@MHM-MSG.inter.local> <6cca531e0903271426u22215e9dsb7456c8c40880890@mail.gmail.com> <193F608D-11F9-4D66-B243-7B49DC5ABD57@codefab.com>
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B501DAE060@MHM-MSG.inter.local>
+
+Dear Bruce, Michael and Chuck,
+
+Thank you all for your positive comments.  We sincerely hope that the
+IPA license is approved in the next board meeting.  Please let us know
+if there is anything we need to consider before the next board meeting.
+
+Kind regards,
+
+Yuko Noguchi
+
+
+From tdaskk at riseup.net  Thu Sep  4 16:55:49 2025
+From: tdaskk at riseup.net (tdaskk at riseup.net)
+Date: Fri, 5 Sep 2025 01:55:49 +0900
+Subject: [License-discuss] Is the IPA Font License truly open source?
+Message-ID: <c7648a77-9038-49ad-b8c9-43995d97342a@riseup.net>
+
+Hello,
+
+In March 2024, an incident occurred where the operator of a web service 
+converting IPA fonts licensed under the IPA Font License to WOFF format 
+received a warning from the IPA to discontinue the service.
+In response, questions have arisen within the Japanese-speaking 
+open-source community about whether the IPA Font License fundamentally 
+meets the definition of open source.
+
+I can provide several documents related to this matter, but I lack the 
+ability to translate them into English.
+
+https://moji.or.jp/2024/03/01/ipa%e3%83%95%e3%82%a9%e3%83%b3%e3%83%88%e3%83%a9%e3%82%a4%e3%82%bb%e3%83%b3%e3%82%b9%e3%82%92%e5%b7%a1%e3%81%a3%e3%81%a6-2/
+https://x.com/shujisado/status/1765541973203853320
+https://mandel59.hateblo.jp/entry/2024/03/07/010127
+https://x.com/search?q=ipa%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%20%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9&src=typed_query&f=live
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20250905/e224a454/attachment.htm>
+
+From josh at berkus.org  Sun Sep  7 22:30:36 2025
+From: josh at berkus.org (Josh Berkus)
+Date: Sun, 7 Sep 2025 15:30:36 -0700
+Subject: [License-discuss] Is the IPA Font License truly open source?
+In-Reply-To: <c7648a77-9038-49ad-b8c9-43995d97342a@riseup.net>
+References: <c7648a77-9038-49ad-b8c9-43995d97342a@riseup.net>
+Message-ID: <5a6d4b0a-6304-4a40-a1d0-2741f7ef0ed6@berkus.org>
+
+On 9/4/25 09:55, tdaskk at riseup.net wrote:
+> In March 2024, an incident occurred where the operator of a web service 
+> converting IPA fonts licensed under the IPA Font License to WOFF format 
+> received a warning from the IPA to discontinue the service.
+> In response, questions have arisen within the Japanese-speaking open- 
+> source community about whether the IPA Font License fundamentally meets 
+> the definition of open source.
+
+The IPA Font License pretty explicitly allows changes of format and 
+redistribution.  Am I not understanding the case here?  What is IPA's 
+objection?
+
+-- 
+Josh Berkus
+
+From shujisado at gmail.com  Wed Sep 17 01:00:46 2025
+From: shujisado at gmail.com (Shuji Sado)
+Date: Wed, 17 Sep 2025 10:00:46 +0900
+Subject: [License-discuss] Is the IPA Font License truly open source?
+In-Reply-To: <5a6d4b0a-6304-4a40-a1d0-2741f7ef0ed6@berkus.org>
+References: <c7648a77-9038-49ad-b8c9-43995d97342a@riseup.net>
+ <5a6d4b0a-6304-4a40-a1d0-2741f7ef0ed6@berkus.org>
+Message-ID: 
+ <CAAvo7O6of2Ne_H1BLjJ5JvUO2=gcMEZmWLcYkcei=C2r5xJGxg@mail.gmail.com>
+
+Hi,
+
+Thanks for looping me in—since my X/Twitter thread was referenced, I should
+clarify my view.
+
+As a matter of fact, the Council for the Promotion of Character Information
+Technology (CITPC), which inherited the font program from IPA, contacted
+the operator of a site that offered WOFF-converted builds of the MJ Mincho
+font released under the IPA Font License v1.0, and asked them to refrain
+from publishing those fonts. The operator subsequently removed the fonts. I
+don’t know what was discussed privately between the parties.
+
+Based on the public information, my read is: the WOFF builds were treated
+as a “derived program” under the IPA Font License (format conversions are
+expressly considered derivatives), and the redistribution appears not to
+have followed Article 3.1 conditions. If they had renamed the
+font/family/file names, provided any additional files (if any) needed for
+further modification, offered a method for recipients to replace the
+derived program with the original, and distributed under the same license,
+I believe the service could likely have continued. It seems the operator
+chose removal rather than implementing those compliance steps.
+
+Accordingly, I don’t see this episode as bearing on whether the IPA Font
+License v1.0 is “Open Source.” It looks like an operational compliance
+issue around redistribution conditions, not a challenge to the license’s
+status.
+
+--
+Shuji Sado
+
+2025/9/8 7:32 Josh Berkus <josh at berkus.org>:
+
+> On 9/4/25 09:55, tdaskk at riseup.net wrote:
+> > In March 2024, an incident occurred where the operator of a web service
+> > converting IPA fonts licensed under the IPA Font License to WOFF format
+> > received a warning from the IPA to discontinue the service.
+> > In response, questions have arisen within the Japanese-speaking open-
+> > source community about whether the IPA Font License fundamentally meets
+> > the definition of open source.
+>
+> The IPA Font License pretty explicitly allows changes of format and
+> redistribution.  Am I not understanding the case here?  What is IPA's
+> objection?
+>
+> --
+> Josh Berkus
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not
+> necessarily those of the Open Source Initiative. Official statements by the
+> Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-discuss mailing list
+> License-discuss at lists.opensource.org
+>
+> http://lists.opensource.org/mailman/listinfo/license-discuss_lists.opensource.org
+>
+
+
+-- 
+Shuji Sado
+Chairman, Open Source Group Japan
+https://opensource.jp/
+https://shujisado.com/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20250917/37573119/attachment.htm>
+
+From josh at berkus.org  Wed Sep 17 18:33:22 2025
+From: josh at berkus.org (Josh Berkus)
+Date: Wed, 17 Sep 2025 11:33:22 -0700
+Subject: [License-discuss] Is the IPA Font License truly open source?
+In-Reply-To: 
+ <CAAvo7O6of2Ne_H1BLjJ5JvUO2=gcMEZmWLcYkcei=C2r5xJGxg@mail.gmail.com>
+References: <c7648a77-9038-49ad-b8c9-43995d97342a@riseup.net>
+ <5a6d4b0a-6304-4a40-a1d0-2741f7ef0ed6@berkus.org>
+ <CAAvo7O6of2Ne_H1BLjJ5JvUO2=gcMEZmWLcYkcei=C2r5xJGxg@mail.gmail.com>
+Message-ID: <59519cee-abaf-43c3-ab04-7cf65bf6d9f8@berkus.org>
+
+On 9/16/25 18:00, Shuji Sado wrote:
+> Accordingly, I don’t see this episode as bearing on whether the IPA Font 
+> License v1.0 is “Open Source.” It looks like an operational compliance 
+> issue around redistribution conditions, not a challenge to the license’s 
+> status.
+
+Thanks for the info Shuji!
+
+-- 
+Josh Berkus
+
