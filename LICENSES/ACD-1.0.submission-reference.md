@@ -390,7 +390,11 @@ the approved list will reach for, and it is the one that most narrows the claim 
 CAL-1.0 §3.1(a) grants permission to *"take any action with the Work that would infringe the
 **non-patent intellectual property laws of any jurisdiction** to which You are subject"* — which
 does reach a sui generis database right, expressly and without naming it. **So it is not true
-that no approved licence reaches these rights.** Two differences remain, and they are the ones
+that no approved licence reaches these rights.** (Nor is it true that none treats a database as licensed material:
+WordNet grants *"Permission to use, copy, modify and distribute this software and database"*,
+though it names no right beyond that list; a full-text scan of the 141 approved licences finds
+`sui generis` and `database right` in none —
+[`ACD-1.0.gap-census.md`](ACD-1.0.gap-census.md).) Two differences remain, and they are the ones
 that matter here. First, CAL-1.0 §3.1 opens *"Conditioned on compliance with section 4"*, and
 §4 carries attribution, source-availability and Recipient-Data obligations; ACD-1.0 imposes no
 condition of any kind (4.3, 10.1). Second, CAL-1.0 §3.2(a) states that the Licensor *"does not
