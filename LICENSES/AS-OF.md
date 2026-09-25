@@ -1,7 +1,7 @@
 ---
 file: LICENSES/AS-OF.md
 audience: OSI license-discuss / license-review participants, licence reviewers
-last-updated: 2026-09-07
+last-updated: 2026-09-25
 canonical-ref: LICENSES/FROZEN.md (freeze + venue, single source) / LICENSES/ACD-1.0.against.md / LICENSES/PEER-REVIEW-WATCH.md
 ---
 
@@ -238,3 +238,12 @@ ways; that is as far as the evidence goes.
 | **moderator が第 3 ラウンドで何を求め、steward が何を答えたか** | **2026-09-15 · steward が逐語で提供。OFF-LIST なので公開アーカイブには無く、読み手はそこで確かめられない** | 求められたのは 3 つ（CoC との整合 / 長さと密度の実測比較 / 通知の一文を満たすか）。**steward は素直な読みを自分に当て、*"so I will change my approach"* と先に述べた**（`rounds/2026-09-15-offlist-nick-vidal-round3-sent.txt`）|
 | **`license-discuss` の ACD-1.0 投稿に返信が付いたか** | **2026-09-15 · アーカイブを取り直して差分を取った** | **1 通も増えていない。返信はゼロのまま**（2026-08-26 から 20 日） |
 
+
+## 2026-09-25 に足した行（件名フィルタの recall が当てた 4 スレッド）
+
+| Fact | As of | Value | How to re-check |
+|---|---|---|---|
+| **CC0 が承認されていない理由と、決定が下されたか** | **2026-09-25 · 一次資料で確認・第 2 の出典** | **理由は特許の明示的除外。そして「確定的には決まっていない」。** Pamela Chestek 氏（License Committee 委員長）2023-08-10 —— *"they expressly state that they do not grant a patent license. **This is the reason that the CC-0 license is not an OSI-approved license** ... although **it has not been definitively decided due to Creative Commons' withdrawal**."* **⚠ これは ACD-1.0 が基準を満たすことを establish しない** —— CC0 が越えられなかった bar が ACD-1.0 が備えて書かれた bar だ、と言うだけである | `rounds/2023-02-license-review-mulanowl-open-works-observed-*.txt` を `grep -n "CC-0"`。従来の出典は Phipps 氏 2014 の 1 件だけだった（`comparison.md` §1.4）|
+| **OSI が「ソフトウェア以外を主題とするライセンス」をどう扱うか** | **2026-09-25 · 理事会の議決を一次資料で確認** | **2023-09-15、Mulan Open Works Licenses 4 本を不承認。勧告文は OSD 違反を 1 つも挙げず**、*"as open culture licenses, are not appropriate for OSI approval"* とだけ述べる。委員長の境界線は *"cross over into data or hardware **when tied to software**, but not a license altogether unrelated to software"*。**ACD-1.0 §1.2 の列挙は "audiovisual material" を含む**（`against.md` #237 / B15）| 同 `rounds/` を `grep -n "open culture"`。**この行は「我々が不適格だ」とは述べていない** —— 我々の読みでは §1.2 は software-led だが、**それは委員会の判断ではない** |
+| **承認済みであることが、現在の基準を教えるか** | **2026-09-25 · リスト上の発言を一次資料で確認** | **教えない、とリスト上で述べられている。** David Dillard 氏 2006-07-14 —— *"as experience grows people learn that mistakes have been made ... there are some previously approved licenses that **would not be approved if submitted today**."* **我々が Unlicense を引く用途に当たる** ——**当たるのは合否の予測に使うときだけ**で、「献呈 + 許諾の併置が審査対象になりうる」ことを示す用途には当たらない（`submission.md` §1b）| `rounds/2006-07-license-discuss-broad-institute-bipl-observed-*.txt` を `grep -n "would not be approved"` |
+| **明示的な特許許諾についてのリストの扱い** | **2026-09-25 · 3 段に分けて測り直した** | **沈黙は許され、明示的な除外は致命的で、明示的な許諾が実務の標準とされている。** 3 段目は Rosen 氏 2006-07-14 —— *"that's **a thin reed** ... **All modern, professionally-written open source licenses, including the proposed new GPLv3, contain explicit patent grants**."* **⚠ これは §8 を「要求されている」ことにしない** —— #236 の 4 人（+ 本増分の 5 人目）は消えない。**§8 は安全な端に在るだけで、担っているのは適合ではなく gap 主張である** | `against.md` #238。3 段それぞれに逐語と出典が付いている |
