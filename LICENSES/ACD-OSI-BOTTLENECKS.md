@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-OSI-BOTTLENECKS.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-review participants / 監査人
-last-updated: 2026-09-09
+last-updated: 2026-09-25
 canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の本体) / LICENSES/ACD-1.0.errata.md (本文の既知欠陥) / LICENSES/AS-OF.md (外部事実と検証日) / LICENSES/ACD-1.0.objection-map.md (反論の当否)
 ---
 
@@ -80,11 +80,12 @@ canonical-ref: LICENSES/ACD-1.0.against.md (不利な事実の本体) / LICENSES
 | **B12** | steward が 1 人 / 承継 | 低 | 11 | **解消方法不明** | ○ | — | — |
 | **B13** | reviewer の理解コスト | 高 | 1 / 3 | **継続対象**（B3 の結論により、長さへの唯一の実効的緩和）| — | — | — |
 | **B14** | **AI 起草の投稿は拒否すると両リストの moderator が宣言した（2026-09-09）** | **最高** | 新設 | **規制判断は OSI（組織）・オーナーは Nick 氏個人とリスト外で対応中**（AI には解けない）| ○ | — | ○ |
+| **B15** | **主題適格 —— §1.2 の列挙が、2023 年に理事会が不承認とした当の理由に触れている** | **高** | 10 | **OSI 判断依存・本文では解けない**（列挙を狭めると B10 を自分で折る・#237）| — | — | ○ |
 
-**深い分析の所在**: **B1 + B2 / B4 / B5 / B7 / B10 / B11 / B14** は [`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) に在る（**外の答えに依存する項目**）。**B3 / B6 / B8 / B9 / B12 / B13** はこの file の下。**索引・分類・集計は分離していない。**
+**深い分析の所在**: **B1 + B2 / B4 / B5 / B7 / B10 / B11 / B15** は [`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) に在る（**外の答えに依存する項目**）。**B14 だけは [`ACD-OSI-BOTTLENECKS-POSTING.md`](ACD-OSI-BOTTLENECKS-POSTING.md)** ——**instrument の中身ではなく、そもそも投稿できるかという手続きの問題**だから（2026-09-25 に主題で分離）。**B3 / B6 / B8 / B9 / B12 / B13** はこの file の下。**索引・分類・集計は分離していない。**
 
-**集計（表から導出・Check 460 (m) が照合する）**: 主要 14 / 解消済み 0 /
-**OSI の判断が要る 7** / **弁護士が要る 2** / **人間が要る 3** / **構造的拒否候補 0**。
+**集計（表から導出・Check 460 (m) が照合する）**: 主要 15 / 解消済み 0 /
+**OSI の判断が要る 8** / **弁護士が要る 2** / **人間が要る 3** / **構造的拒否候補 0**。
 
 > **⚠ この行は 2026-09-10 に直した。** 直前まで「**OSI 判断依存 3**（B4・B10・B11 の一部）」と
 > 書いてあり、**実際に ○ が付いている行は 6 つ**だった（B4 / B5 / B7 / B10 / B11 / B14）。

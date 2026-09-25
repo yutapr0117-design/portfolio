@@ -1,7 +1,7 @@
 ---
 file: LICENSES/READY-TO-SUBMIT.md
 audience: 次のセッションの実装者（一次読者）/ OSI license-discuss・license-review participants / 監査人
-last-updated: 2026-09-24
+last-updated: 2026-09-25
 canonical-ref: LICENSES/ACD-1.0.submission.md (提出物) / LICENSES/ACD-1.0.against.md (不利な事実) / LICENSES/ACD-1.0.errata.md (既知の欠陥)
 ---
 

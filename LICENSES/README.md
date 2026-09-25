@@ -65,7 +65,8 @@ canonical-ref: LICENSES/ACD-1.0.txt (本文・唯一の権威) / LICENSES/FROZEN
 | 提出用の英文一式（**送るだけ**） | [`ACD-1.0.submission.md`](ACD-1.0.submission.md) |
 | 提出文の背後にある参考資料（**貼らない**・§1〜§5） | [`ACD-1.0.submission-reference.md`](ACD-1.0.submission-reference.md) |
 | **承認阻害ボトルネックの一覧（canonical）** | [`ACD-OSI-BOTTLENECKS.md`](ACD-OSI-BOTTLENECKS.md) |
-| 「**外の答えを待っている項目は何か**」 | [`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) —— 我々の作業では動かせない 7 項目の深い分析（法的レビュー / 実使用 / §4.4 の外部回答待ち / 特許射程 / gap / SPDX / AI 起草の扱い）。**索引と集計は上の register が canonical** |
+| 「**外の答えを待っている項目は何か**」 | [`ACD-OSI-BOTTLENECKS-EXTERNAL.md`](ACD-OSI-BOTTLENECKS-EXTERNAL.md) —— 我々の作業では動かせない 7 項目の深い分析（法的レビュー / 実使用 / §4.4 の外部回答待ち / 特許射程 / gap / SPDX / 主題適格）。**索引と集計は上の register が canonical** |
+| 「**そもそも投稿できるのか**」 | [`ACD-OSI-BOTTLENECKS-POSTING.md`](ACD-OSI-BOTTLENECKS-POSTING.md) —— **B14 のみ**。2026-09-09 に OSI Moderators が両リストへ「AI が全部または大半を書いた投稿は拒否する」と投稿して以降の経過。**instrument の中身ではなく手続きの問題**なので 2026-09-25 に分離した。**行動（投稿停止・本文凍結・リスト上でこの件を論じない）はここが単一の所在である** |
 | 既知の反論が当たるか（**1 表・審査者が最初に読む**） | [`ACD-1.0.objection-map.md`](ACD-1.0.objection-map.md) |
 | 審査者は主題について何と言っているか（人格権 / 特許 / 長さ / 構造 …） | [`ACD-1.0.reviewer-positions.md`](ACD-1.0.reviewer-positions.md) |
 | **審査の場がどう働き、誰がそこで書いているか**（pre-review としての `license-discuss` / 沈黙の比較 / 書き手の記録 / moderator が引いた CoC） | [`ACD-1.0.review-venue.md`](ACD-1.0.review-venue.md) —— `reviewer-positions.md` から 2026-09-24 に切り出した（§1.67 以降・節番号は不変） |

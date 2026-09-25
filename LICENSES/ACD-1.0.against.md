@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.against.md
 audience: OSI license-discuss / license-review participants, licence reviewers
-last-updated: 2026-09-24
+last-updated: 2026-09-25
 canonical-ref: LICENSES/ACD-1.0.txt (authoritative text) / LICENSES/ACD-1.0.submission.md (the packet prepared for license-review) / LICENSES/rounds/2026-08-26-license-discuss-sent.txt (what was actually sent) / LICENSES/READY-TO-SUBMIT.md
 ---
 
