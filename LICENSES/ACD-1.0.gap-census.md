@@ -279,6 +279,16 @@ gap は**許諾の不在**ではなく**明示の不在**であり、4 条の文
 3. **行為を無限定に許す特許許諾**（`S2`）: `BlueOak-1.0.0` の *everything with this software* は、学習という行為を**文言上排除しない**。**(c) の gap は「モデルという対象の名指し」であって「学習という行為の許諾」ではない。**
 4. **`CAL-1.0` は出力を*義務*の側で扱う**: *""User Data" means any data that is an input to or an output from the Work"* ——出力を**名指す承認済みライセンスは在り**、それは許諾ではなく**受領者のデータ返還義務**の定義である。
 
+### 補助 —— データベース権（sui generis）
+
+3 gap の外だが、ドシエの比較表（`submission-reference.md` §2 の 0BSD 表・CAL-1.0 段落）が依拠している軸なので同じ取得物で当てた。
+
+- `sui generis` / `database right(s)` / `96/9`（EU データベース指令）を含む本: **0**
+- `database(s)` の語を含む本: **3**（`OLFL-1.3`、`PostgreSQL`、`WordNet`）——**データベース権を名指しする本は無い**。`OLFL-1.3` は作品を *"use it in databases, data networks and online services"* する利用態様の列挙、`PostgreSQL` は製品名。**ただし `WordNet` は *"Permission to use, copy, modify and distribute this software and database"* とデータベースそのものを許諾対象に含む** ——権利の種類は名指さないが、**承認済みライセンスが既にデータベースを対象としている**ことは我々に不利な事実として記録する。
+- 種類を名指さずに非著作権の権利へ届く文言を持つ本: **2**（`CAL-1.0`、`CAL-1.0-Combined-Work-Exception`・*"non-patent intellectual property laws of any jurisdiction"*）——`submission-reference.md` §2 が「この点で最も近い」として既に論じている当の本で、**全数で当てても他に無かった**。
+
+**逆側**: 0 は「及ばない」ではない。*deal in the Software without restriction*（MIT-0）のような無限定の文言がデータベース権に及ぶ読みは成り立つ。主張できるのは**名指しの不在**だけである。
+
 ## 我々に不利な材料（まとめ）
 
 1. **(b) は連言でしか立たない。** 許容型 ＋ 明示特許は `BSD-2-Clause-Patent` / `BlueOak-1.0.0` / `UPL-1.0` が既に持つ。
