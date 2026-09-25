@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.review-precedents.md
 audience: OSI license-review / license-discuss participants, licence reviewers, 監査人
-last-updated: 2026-09-09
+last-updated: 2026-09-25
 canonical-ref: LICENSES/ACD-1.0.comparison.md (条項レベルの比較はこちら) / LICENSES/PEER-REVIEW-WATCH.md (手続きの観測) / LICENSES/AS-OF.md (日付つきの外部事実)
 ---
 
@@ -607,181 +607,6 @@ Landley 氏の問いは「代替可能な類型に 1 件足す費用」を問う
 
 **どちらが勝つかは我々には決められない。両方を register に載せる。**
 
-## 1.84 委員長が OpenMDW に当てている原理を、我々の §6.3 に当てると刺さる（2026-09-15）
-
-**§1.88 と同じスレッドの読み。** 2026-09-10〜09-14 の争点は**終了条項**であり、
-**ACD には終了が無い**（§10.1 / §10.4）ので**表面は当たらない**。
-**だが委員長が使っている原理は、条項の種類に依存していない。**
-
-> **You're putting the burden on the potentially wronged party to limit their choices rather than
-> on the licensor to avoid wrongful conduct.** … You are also assuming the licensee has knowledge
-> that will allow them to make an informed choice, **but that's not the reality**. The OpenMDW-1.1
-> licensee is asked to agree to the license **without having any knowledge about whether it
-> infringes**
-> —— Pamela Chestek 氏（Licensing Committee 委員長）、`license-review` 2026-09-11
-
-### 🔴 この原理が当たる場所が、ACD に 1 つだけある
-
-**§6.3 は、ACD 全体でただ一つ、「第三者がした行為」に対して働くと述べる条項である。**
-
-> Where a Reservation has been made in respect of the Work, **whether by the Dedicator or by
-> another person**, and whether before or after this Dedication was applied, the Dedicator
-> **withdraws it and disclaims reliance on it, to the fullest extent the Dedicator is able**.
-
-**実測して確かめた**: 第三者に触れる他の条項は、いずれも **Dedicator 自身の行為**しか縛らない ——
-§5.1 と §8.6 は *"not to authorise or assist **any other person** to assert"*（Dedicator の不作為）、
-§8.2 は報復条項の不在、§2.7 は**及ばないことの宣言**。
-**「他人がしたことを取り消す」と述べるのは §6.3 だけである。**
-
-**委員長の 2 つの問いを、そのまま当てる。**
-
-1. **負担は誰に置かれているか。** 第三者は、自分の Reservation が「撤回された」と書かれた文書を
-   読む。**その撤回が自分に届いていないことを知る負担は、その第三者にある。**
-2. **読み手は判断に足る知識を持っているか。** 受領者は、目の前の Work に他人の Reservation が
-   付いていたかどうかも、Dedicator が *"able"* だったかどうかも**知り得ない**。
-   ***"to the fullest extent the Dedicator is able"* は、読んだ時点では何も確定させない限定である。**
-
-### 我々の答えと、その答えの弱いところ
-
-**答えはある。** §2.7 が instrument 全体を「Dedicator が持つ権利」に縛り、
-§6.2 の末文が *"does not purport to defeat a Reservation made by another rightsholder"* と述べ、
-§6.3 の *"to the fullest extent the Dedicator is able"* がその限定を条文内で繰り返している。
-**法的には、届かない撤回は届かない。**
-
-**弱いところは、それが読み手の作業になることである。** 3 条（§2.7 / §6.2 / §6.3）を
-**この順で読んだ人にしか成立しない**。**そして #99 が既に記録しているとおり、読み順は我々が
-決められない。** 委員長の言い方を借りれば、**我々は「届かないと分かるはずだ」という前提で
-負担を読み手に置いている。**
-
-### この節が establish しないこと
-
-**委員長は ACD-1.0 について何も述べていない。** これは**他者の提出に当てている原理を、
-我々が自分に当てた結果**であって、指摘を受けたのではない。
-**そして逆側**: 原理が当たることと、**それが OSD 違反であること**は別である ——
-§6.3 は条件でも制限でもなく、**誰の自由も減らしていない**（減らしうるのは第三者の Reservation の
-効力だけで、それは届かない）。**「刺さる」と「不承認の理由になる」を混ぜない。**
-
-### 🔴 この節の初版は「1.1 で直すかどうかは未決」と書いた。**草案を開かずに書いた。**
-
-**1.1 草案の §6.3 は、既にこれを条文内で閉じている**（**前日 2026-09-14** に、
-外部レビューを受けて入れた）:
-
-> *"Where the Reservation is another rightsholder's, made in exercise of rights of their own, the
-> **Dedicator has no power to withdraw it and this Section does not purport to give one**;
-> the disclaimer of reliance operates in every case (Section 2.7)."*
-
-**したがって残るのは 1.0 についてだけ**であり、1.0 は凍結中なので**直さず記録する**。
-
-**それでもこの節に価値がある理由は 2 つ。** (1) **前日の修正は「狭めよ」という処方への
-対案として入れた**もので、*なぜ*入れる価値があったのかは書いていなかった ——
-**委員長の原理が、その理由を外から名指しする**（負担を、知り得ない側に置いていた）。
-(2) **1.0 の側は依然として読み順に依存している**ことが、これで明確になった。
-
-**⚠ そして本日 9 度目の同じ失敗である。** 「未決」と書く前に草案を開いていない ——
-**しかもその草案は、前日に自分が編集した file である。**
-`BLIND-SPOTS.md` が *「近いものほど確認が省かれる」* と記録している当のことをした。
-
-
-## 1.100 OSD 5 に広い読みが持ち出された —— そして ACD には当たらない理由が、同時に費用でもある（2026-09-16 / 09-18）
-
-**取得**: `license-review` 2026-09 のアーカイブ（取得時刻 2026-09-19T16:55Z）。
-
-**McCoy Smith 氏（Licensing Committee）が ModelGo Attribution 2.0 の終了条項に、
-これまでこのリストで読んだことのない角度を当てた。** 条文は終了の引き金を
-*"if You initiate any legal action "against the Licensor" alleging that the Licensed Materials
-and/or Derivative Materials infringe any patent worldwide"* と書いている。氏はこう述べた:
-
-> That means a patent assertion against a *Licensee* (someone who has received and is using
-> the licensed code, but has not granted any license too it) does not trigger termination of
-> the license. This puts Licensors & Licensees in different positions vis a vis patent
-> assertions, and therefore arguably violates OSD 5
-
-**そして 4 つの既承認ライセンスを並べ、引き金が*当事者*ではなく*著作物*に向いていることを示した**
-——Apache-2.0 *"against any entity … alleging that the Work or a Contribution … constitutes direct or
-contributory patent infringement"* / MPL-2.0 *"against any entity by asserting a patent infringement
-claim … alleging that a Contributor Version directly or indirectly infringes any patent"* /
-EPL-2.0 / GPL-3.0。
-
-**09-18 に steward（Duan 氏）は譲らなかった**:
-
-> OSD 5 says the license must not discriminate against any person or group of persons. Here,
-> Licensor is a role in the license, not a person.
-
-**我々にとっての意味を、有利・不利の両方で書く。**
-
-**有利（構造的に当たらない）**: **ACD には終了規定が一切無い。** §10.4 が
-*"No permission granted by this Dedication terminates for any reason. This Dedication, in respect
-of the Work, contains no termination provision and no revival provision, because it contains
-nothing that You could breach."* と述べ、§8.2 が特許許諾を終了不能としている。
-**引き金が無いので、引き金の向きを問う指摘は起動しない。**
-**同じ形の確認はこれで 3 例目**（2025-03 / 2026-08 / 本件）——**リストが労力を割いている論点集合と
-ACD の表面集合が交わらない**（#101 の再現）。
-
-**不利（同じ 1 つの事実である）**: **その免疫は、#174 が費用として記録した「特許報復の不在」と同一の事実**である。
-エコシステムが報復条項を置いたのには理由があり、ACD はその防御手段を持たない。
-**「指摘されない」と「その設計が良い」は別**であり、ここで得ているのは前者だけである。
-
-**不利（我々の OSD 逐条の当て方）**: **氏の読みは OSD 5 を「人・集団」ではなく「役割の非対称」まで広げている。**
-我々の OSD 5 の当て方（`submission-reference.md` §3 / §3b）は**狭い読みしか当てていない**
-——`against.md` #179。**⚠ ただし広い読みは確立していない**: 氏自身が *"arguably"* と書き、
-steward が正面から争っており、委員会の裁定でも理事会の決定でもない。
-**確立するのは「そういう読みがリスト上に現れた」ことだけである。**
-
-
-## 1.101 リストは「学習のための複製がそもそも侵害か」を未決として論じている —— そして TDM 例外を名指ししている（2026-09-10〜14）
-
-**取得**: `license-review` 2026-09（取得時刻 2026-09-19T16:55Z）。**OpenMDW の終了条項をめぐる
-スレッドで、議論は「著作権の主張を引き金に許諾を切ってよいか」へ移った。**
-**我々宛でも ACD-1.0 についてでもない。**
-
-**Pamela Chestek 氏（Licensing Committee 委員長・2026-09-10）**:
-
-> What I find distinguishable about a termination of the copyright license versus the patent
-> license is that copyright infringement doesn't happen by accident. There is no copyright
-> infringement without deliberate, knowing copying.
-
-**Luis Villa 氏（同日）が正面から否定し、根拠に法域の例外を 2 つ名指しした**:
-
-> This conflates two different things: copying is always intentional, but not all copying is
-> copyright infringement. There are very clear good-faith arguments (under both the EU's TDM
-> exception and US fair use) that the sorts of copying we're mostly talking about here are not
-> copyright infringement.
-
-**Josh Berkus 氏（2026-09-11 / 09-14）は「事故による侵害的複製」の実例を列挙し、
-その中に生成 AI を入れている**:
-
-> Speaking as a software developer, accidental infringing copying happens all the time.
-
-> - Stack overflow - GenAI & Autocomplete - Copying code from a private project to a public one,
-> forgetting where you got it in the first place …
-
-**Richard Fontana 氏（2026-09-11）は、FOSS が「不正」と見なしてこなかった行為を罰する条項の危うさを述べた**
-（API の再実装を例に）。**Michael Dolan 氏（2026-09-14・OpenMDW steward）は束ね方の論点で答えている。**
-
-### ACD-1.0 に効く点
-
-**(1) B10 の 1 本目に、リスト側からの裏付けが付く。** 我々は §6 の gap を
-「既存の承認済みライセンスはこの主題に沈黙している」という**語の不在**で示してきた。
-**このスレッドは、沈黙が残す当の問い ——学習のための複製が侵害にあたるのか——
-を、審査する側自身が未決として論じ、EU の TDM 例外を名指ししていることを示す。**
-**同じ問いを、同じ週に、ドイツの控訴審が UrhG 44b 条 / UrhG 60d 条で決めている**（`jurisdictions.md` §9a (9)）。
-**「沈黙が未解決に残すもの」は仮定ではない。**
-
-**(2) §2.7 が答えている懸念が、実例つきで述べられた。** Berkus 氏の一覧は
-「付与者が、自分の持っていない権利を渡したつもりになる」経路の列挙である。
-**ACD §2.7 は *"reaches only rights the Dedicator holds"* と述べ、§1.3（1.1 以降は §1.4）は
-Dedicator を *"to the extent that person or entity holds or may hold Covered Rights"* で定義する。**
-**先回りではない** ——同じ懸念に既に答えている、というだけである。
-
-### establish しないこと
-
-- **これは ACD-1.0 についての議論ではない。** OpenMDW の終了条項についてであり、
-  **ACD には終了条項が無い**（§10.4）ので、争点そのものは当たらない。
-- **リストがこの種の明示を望んでいる証拠ではない。** Villa 氏自身が
-  *"maybe you don't agree with those arguments (I move back and forth myself a lot of the time!)"*
-  と書いている ——**未決であることの証拠であって、答えの証拠ではない。**
-- **個人の資格での発言である。** 委員長の発言も含め、委員会の裁定でも理事会の決定でもない。
-
 ## 1.105 記録に在る唯一の日本発の提出を、初めて開いた —— 止めたのは本文ではなく翻訳の証明だった（2026-09-22）
 
 **きっかけはオーナーの指摘**（*「世界中で議論するのに、日本人不在はおかしい」*）。
@@ -832,4 +657,68 @@ OSI のライセンス API（126 件・**網羅ではない**）にも SPDX に�
 §15.8 が英語を正文と定めている** ——**翻訳証明の要件は、いま我々には発火しない。**
 **発火するのは「日本語版を配ったとき」だけ**であり、それは §16.4 が許すが、我々はしていない。
 **先例を知らずに日本語版を出すことが危険だった**のであって、現状が危険だったのではない。
+
+
+## 1.108 理事会が実際に不承認にした、我々の時代でいちばん近い審査 —— 理由は OSD ではなく主題だった（2026-09-25）
+
+**Mulan Open Works Licenses（MulanOWL BY / BY-SA / BY-PL / BY-PL-SA）**。
+提出 2023-02-20、**理事会の議決 2023-09-15、結論は不承認**。
+一次資料は `rounds/2023-02-license-review-mulanowl-open-works-observed-*.txt`（14 通・11 部）。
+
+**このスレッドは、件名に主題語を 1 つも含まないので、我々の census には一度も現れなかった**
+（`against.md` #240 —— 件名がライセンスの名前でできているから）。
+
+### 勧告文は OSD 違反を 1 つも挙げていない
+
+> *"Resolved that it is the opinion of the OSI that the licenses, **as open culture licenses, are
+> not appropriate for OSI approval**."*
+>
+> Reasons for withholding approval: The subject matter of licenses is "intellectual achievement
+> protected by copyright law that is licensed under This License, including but not limited to a
+> written work, a musical work, a fine art work, an architecture work, a photographic work, **an
+> audiovisual work**, a graphic work, and a model work." Because of the differences in the purposes
+> and goals of these different (albeit related) areas, **open culture licenses are outside the
+> purview of the Open Source Initiative.**
+
+**ACD-1.0 §1.2 の列挙は "audiovisual material" を含む**（`against.md` #237・bottleneck B15）。
+
+### 境界は委員会自身が引いている
+
+Pamela Chestek 氏（License Committee 委員長）2023-08-10 ——
+*"the OSI is not in the practice of approving licenses that are not software-specific. ...
+Sometimes an OSI license will **cross over into data or hardware when tied to software**, but not a
+license altogether unrelated to software."*
+
+Carlo Piana 氏 2023-07-05 —— *"In general, all the licenses should be rejected for not being
+(Open Source) software licenses."* Josh Berkus 氏 2023-03-01 —— *"OSI has not previously approved
+content licenses ... it would be an **organizational policy change** and therefore not a routine
+license approval."*
+
+### 同じスレッドが、CC0 について我々が持っていなかった第 2 の出典を与える
+
+Chestek 氏 2023-08-10 —— *"Two of the licenses ... are not likely to be approved because they
+**expressly state that they do not grant a patent license**. **This is the reason that the CC-0
+license is not an OSI-approved license** ... although **it has not been definitively decided due to
+Creative Commons' withdrawal of the license from consideration**."*
+Piana 氏 —— *"pure copyright licenses excluding all other rights ... **do not meet the OSD**, since
+they **expressly carve out patents** from the scope of the license."*
+**`comparison.md` §1.4 へ還元済み。**
+
+### 手続きについて 2 つ
+
+**(1) 複数本の同時提出は審査を難しくする**、と委員長が明言している ——
+*"It is also difficult to manage the approval process when **more than one license is submitted at
+a time**."* **ACD は 1 本なので当たらないが、1.x 系列を同時に出す誘惑への答えになる。**
+
+**(2) 公表された決定期限は守られていない。** 勧告文自身が *"Decision date: due no later than the
+first Board meeting after **April 20, 2023**"* と述べ、**実際の議決は 2023-09-15**（提出から 207 日）。
+委員長は *"I apologize for not processing these licenses sooner, time slipped away from me."* と書いている。
+**`AS-OF.md` の所要日数（実測中央値 101 日）は「決まった場合」の値であり、期限は上限ではない。**
+
+### この節が establish しないこと
+
+**「我々が不適格だ」とは述べていない。** §1.2 は source code / object code から始まり、
+PREAMBLE の第 1 文は *"Software and the works that surround it"* で、適用先はソフトウェアの
+リポジトリである。**上の carve-out は ACD の形をそのまま述べている** ——
+**だがそれは我々の読みであって委員会の判断ではない。**
 

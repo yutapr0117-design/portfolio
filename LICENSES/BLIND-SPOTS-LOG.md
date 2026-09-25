@@ -133,7 +133,7 @@ canonical-ref: LICENSES/BLIND-SPOTS.md (方法論の本体・こちらが上位)
 **「読んだ」「1 条ずつ当てた」に 3 つ目が付いた ——どの読みで当てたか。**
 我々は OSD 5 を「人・集団への差別」として当て、逐条は済んだと記録していた。
 2026-09-16 に Licensing Committee の委員が **「役割の非対称」まで広げた読み**を
-リスト上で使った（*"arguably violates OSD 5"*・`review-precedents.md` §1.100）。
+リスト上で使った（*"arguably violates OSD 5"*・`review-doctrine.md` §1.100）。
 **広い読みで当て直すと、1 箇所は「差は在るが、この基準が支配する対象ではない」と
 認めるしかなかった**（§16.4 の Steward 例外・`submission-reference.md` §3b-i）。
 
