@@ -1,0 +1,750 @@
+> the discussion we had WRT the MXM license. The fact that BSD and MIT,
+> and all academic licenses are historical cornerstones of FOSS licensing
+> is not a reason to perpetuate an use which was state-of-the art back
+> then, but it is by an large not any more.
+> 
+> Cheers
+> 
+> Carlo
+> 
+> 
+> On 09/08/2017 19:35, Wendy Seltzer wrote:
+>> Hi,
+>>
+>> This is a submission of the W3C Software and Document License (2015) for
+>> Approval, per the process described at https://opensource.org/approval .
+>> I am counsel to the World Wide Web Consortium (W3C).
+>>
+>> The license can be found at:
+>> https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+>> A text copy of the license is attached.
+>>
+>> Rationale: This 2015 revision updates the earlier version of a W3C
+>> Software License currently listed by OSI:
+>> https://opensource.org/licenses/W3C
+>> The 2015 version makes clear that the license is applicable to both
+>> software and text, by changing the name and substituting "work" for
+>> instances of "software and its documentation." It moves "notice of
+>> changes or modifications to the files" to the copyright notice, to make
+>> clear that the license is compatible with other liberal licenses.
+>>
+>> Distinguish: This license is substantively equivalent to the previous
+>> version of the W3C Software License. We should replace the previous
+>> version with this 2015 version.
+>>
+>> Legal review: W3C counsel discussed with the W3C Patents and Standards
+>> Interest Group; Advisory Committee; and membership. We believe it to be
+>> substantively equivalent to the earlier license.
+>>
+>> Proliferation category: Replacing an existing Non-reusable license.
+>> W3C updated the license to reduce proliferation by making it clearly
+>> possible to publish both software and spcopyrightecifications under the same
+>> free/open license. The license is used by W3C groups and their
+>> contributors for software such as test suites and reference
+>> implementations, as well as for some documentation and specifications.
+>>
+>>
+>>
+>> I'm making this request now because a W3C participant brought to my
+>> attention that projects would find it easier to use and distribute
+>> W3C-licensed software if our current license were OSI-listed.
+>>
+>> Please let me know if you have any questions.
+>>
+>> Thanks,
+>> --Wendy
+>>
+>>
+
+
+From carlo at piana.eu  Thu Aug 10 10:08:24 2017
+From: carlo at piana.eu (Carlo Piana)
+Date: Thu, 10 Aug 2017 12:08:24 +0200
+Subject: [License-review] For Approval: W3C Software and Document License
+In-Reply-To: <bfa8ccbf-aa39-917c-7076-0792ab043e7d@w3.org>
+References: <821e3959-9143-f033-3d82-b8ff06bd129f@w3.org> <f630520e-9baf-d339-d161-3fe752a7d706@piana.eu> <bfa8ccbf-aa39-917c-7076-0792ab043e7d@w3.org>
+Message-ID: <6daacb65-5b28-cb19-b627-db7c3e34ec4a@piana.eu>
+
+On 09/08/2017 21:15, Wendy Seltzer wrote:
+> On 08/09/2017 02:47 PM, Carlo Piana wrote:
+>> Wendy, all,
+>>
+>> A few belated comments, as the early decision on the previous version
+>> would probably estop objections to approval on pre-existing terms.
+>> Because of the public and general teaching that our discussion creates
+>> to the benefit of all drafters, I will anyhow make two them for the records.
+> Thanks Carlo, replies below:
+>> # Lack of a full liability disclaimer (common to many licenses)
+>>
+>> One thing that has always puzzled me is that the liability disclaimer is
+>> **only to the benefit of the copyright holder(s)**. That means that if I
+>> merely host the software to the benefit of others, or make insubstantial
+>> (copyright-wise) changes, or just plug a component in my non-derivative
+>> project, thus **not being copyright holder, but liable** for the very
+>> use of the permissions of the  license, I will not be protected by the
+>> liability disclaimer.
+>>
+>> I understand that many of the licensing conditions only belong to the
+>> copyright holders, but with specific regard to liability (hence not a
+>> direct copyright issue), why these licenses let non-copyright-holders
+>> out in the cold, unprotected? Why not just using the elegant wording of
+>> the GPL v3 as a reference: "ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO
+>> MODIFIES AND/OR CONVEYS THE PROGRAM AS PERMITTED ABOVE"?
+>>
+>> This discussion has arguably no impact on OSD compliance (or has it?),
+>> the non-copyright-holder may add their own distribution terms, I reckon.
+>> But those distribution terms **would not be based on copyright law**;
+>> rather they will be on contractual or quasi-contractual grounds,
+>> therefore in a much less solid terrain, if not in the sand. I would like
+>> to see this point addressed by all submitters, if their license want to
+>> create  commons and an ecosystem.
+> The copyright license document speaks for the copyright holders, so it
+> is their statement that they are disclaiming any liability.
+>
+> Distributors remain free to make their own non-conflicting statements,
+> such as adding their own disclaimers of liability, or, if they choose,
+> accepting liability (perhaps for a fee).
+
+Agreed, I anticipated this objection, but I find it totally unconvincing.
+
+Firstly, the copyright holders are perfectly at liberty of adding a
+disclaimer to the advantage of all those who participate in the
+distribution chain, with just a handful of words and no downsides.
+Choosing not to do that looks very selfish, creating two class of
+liabilities for those who distribute: those having copyright interest
+and those not having copyright interest in the software, but perhaps
+having done much work, including copyright subject matter, which they
+have assigned to the project leader. Maybe this is not your case, but I
+speak in general terms. 
+As I said, having liability disclaimers as a copyright condition is
+totally different from having it on contractual terms (provided that
+distributors may have a chance to enter into a binding agreement that
+they will later benefit from). You surely see the difference.
+
+Plus it creates unnecessary friction and legal paperwork to add up and
+document at any distribution step, where the same could have been
+achieved by adding a few words in the public license, which should be
+self-sufficient for the entire distribution.
+
+Secondly, if they chose to accept liability, they could do so by
+*adding* their own terms to therms that would otherwise disclaim
+liability. It's perfect commonplace that in software distribution
+agreements the EULA disclaims all possible liabilities, and even the
+distribution agreement does so, but then the distributor adds the
+exceptions for which she undertakes liability.
+
+
+>
+>
+>> # Implied possible ambiguity as to patents
+>>
+>> On a different but related topic.
+>>
+>> This license reads an evident copyright-only license: wide use of
+>> copyright only concepts and wording; lack of any even vague reference to
+>> patents or other rights impinging (h/t Andrew Katz) on the software are
+>> a red herring. Is there any *arri?re pens?e* that the patents (if any)
+>> that may read on an unmodified version of the software are intentionally
+>> not licensed by the copyright holders and therefore if someone wanted to
+>> use, distribute, copy, modify etc. the software, she should seek a
+>> separate license?
+> This is a copyright-only license. It makes no statement about the
+> presence or absence of patent claims covering the licensed works.
+> Copyright and patent are distinct regimes, so I don't believe there's
+> ambiguity in offering one without discussing the other.
+
+I beg to disagree.
+
+Thank you for resolving the ambiguity, which indeed does not come from
+the text (pretty clear), but from the claimed open source nature of the
+license.
+
+The scope of a FOSS license is to give permission to do things with
+software. They are *historically* conceived as copyright licenses
+because *historically* that was what drafters understood it was the
+regime under which rights had to be conferred on software.
+
+If different rights insist on software, the owner of those rights who
+purports to give permission *must* give those permission under all the
+rights she may have, or the openness test would miserably fail.
+
+Otherwise it is like opening one lock of a door, with the other
+remaining closed. The door will not open. So if the license is a key,
+you cannot just say "this key will conditionally open all the copyright
+locks on my doors" and claim that the doors will be "open doors". If
+there are patent locks of yours, the doors will remain shut. [0]
+
+A license which only gives copyright licenses but refuses to do so for
+patents is not an open source license in my and many others' opinion.
+It's a public license, it is valid, it has some scope, but it's not open
+source.
+
+I invite OSI to take a stance once for all as to this conceptual ambiguity.
+
+> As you note, W3C Recommendations have a distinct patent policy,
+> https://www.w3.org/Consortium/Patent-Policy that applies, per its terms,
+> when a specification is made a W3C Recommendation.
+
+Yes, and I always praise it as the to-date golden standard for IPR
+policy in SSBs (kudos on that). But unfortunately this is totally
+immaterial to the discussion on open source public licenses, which must
+stand or fall on their own.
+
+Carlo
+
+
+[0] of course you can only give permissions for the rights you own or
+control.
+
+
+>
+> --Wendy
+>
+>> I am aware of the IPR policy of W3C in this domain, and that this would
+>> be an infrequent (but not impossible!) case in the context; I am also
+>> aware that the suggested proliferation category is "non reusable". Yet,
+>> leaving such possibility open is something that in a modern FOSS license
+>> creates potential problems and eventually non-openness. Besides, despite
+>> the clear ? and maybe elsewhere clearly spelled out ? intentions of the
+>> drafters, a license might be interpreted beyond the intentions of the
+>> drafter and sometimes also not against her interests; in many laws there
+>> is a *contra proferentem* rule, but that may be recessive or non
+>> applicable, and anyway being based on contractual law, *the rule itself*
+>> would largely vary, never mind *its concrete application*. So if leaving
+>> patents out of the license was not the intention of the drafters, this
+>> could very well be the legal consequence of applying the proposed license.
+>>
+>> In a nutshell: what is the attitude of the license WRT the
+>> (hypothetical) patents held by a copyright holder reading on the
+>> licensed work?
+>>
+>> And why ? if the ambiguity was spotted ? was it not more clearly avoided
+>> one way or the other? 
+>>
+>> At least up to the limited approach to the problem that the APL takes
+>> (contributors' patent license), patents should be expressly taken care
+>> by a FOSS license. See the CC0 discussion, and, in similar terms, see
+>> the discussion we had WRT the MXM license. The fact that BSD and MIT,
+>> and all academic licenses are historical cornerstones of FOSS licensing
+>> is not a reason to perpetuate an use which was state-of-the art back
+>> then, but it is by an large not any more.
+>>
+>> Cheers
+>>
+>> Carlo
+[---]
+
+
+From Nigel.Tzeng at jhuapl.edu  Fri Aug 11 15:44:53 2017
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Fri, 11 Aug 2017 15:44:53 +0000
+Subject: [License-review] For Approval: W3C Software and Document License
+In-Reply-To: <6daacb65-5b28-cb19-b627-db7c3e34ec4a@piana.eu>
+References: <821e3959-9143-f033-3d82-b8ff06bd129f@w3.org> <f630520e-9baf-d339-d161-3fe752a7d706@piana.eu> <bfa8ccbf-aa39-917c-7076-0792ab043e7d@w3.org>, <6daacb65-5b28-cb19-b627-db7c3e34ec4a@piana.eu>
+Message-ID: <e9ae56de6b8f47b6a52c7f05f182c4e3@aplex01.dom1.jhuapl.edu>
+
+
+From: Carlo Piana <carlo at piana.eu<mailto:carlo at piana.eu>>
+Date: Thursday, Aug 10, 2017, 6:08 AM
+To: license-review at opensource.org <license-review at opensource.org<mailto:license-review at opensource.org>>
+Subject: Re: [License-review] For Approval: W3C Software and Document License
+
+On 09/08/2017 21:15,
+
+The scope of a FOSS license is to give permission to do things with
+software. They are *historically* conceived as copyright licenses
+because *historically* that was what drafters understood it was the
+regime under which rights had to be conferred on software.
+
+If different rights insist on software, the owner of those rights who
+purports to give permission *must* give those permission under all the
+rights she may have, or the openness test would miserably fail.
+
+Otherwise it is like opening one lock of a door, with the other
+remaining closed. The door will not open. So if the license is a key,
+you cannot just say "this key will conditionally open all the copyright
+locks on my doors" and claim that the doors will be "open doors". If
+there are patent locks of yours, the doors will remain shut. [0]
+
+A license which only gives copyright licenses but refuses to do so for
+patents is not an open source license in my and many others' opinion.
+It's a public license, it is valid, it has some scope, but it's not open
+source.
+
+I invite OSI to take a stance once for all as to this conceptual ambiguity.
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170811/7d155716/attachment.html>
+
+From Nigel.Tzeng at jhuapl.edu  Fri Aug 11 15:51:13 2017
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Fri, 11 Aug 2017 15:51:13 +0000
+Subject: [License-review] For Approval: W3C Software and Document License
+In-Reply-To: <e9ae56de6b8f47b6a52c7f05f182c4e3@aplex01.dom1.jhuapl.edu>
+References: <821e3959-9143-f033-3d82-b8ff06bd129f@w3.org> <f630520e-9baf-d339-d161-3fe752a7d706@piana.eu> <bfa8ccbf-aa39-917c-7076-0792ab043e7d@w3.org>, <6daacb65-5b28-cb19-b627-db7c3e34ec4a@piana.eu>, <e9ae56de6b8f47b6a52c7f05f182c4e3@aplex01.dom1.jhuapl.edu>
+Message-ID: <21cf92dd738f420693a5abacb2c88e32@aplex01.dom1.jhuapl.edu>
+
+Oops.
+
+My comment is that there is no red line for patents in the OSD.
+
+Either get the necessary consensus to change the OSD or stop debating this in every single Open Source license submission and holding them up.
+
+The FACT remains that non-OSI approved licenses, namely CC0, are considered Open Source by many open source practioners so your opinion is not necessarily the majority view and certainly not the universal view.
+
+From: Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu<mailto:Nigel.Tzeng at jhuapl.edu>>
+Date: Friday, Aug 11, 2017, 11:45 AM
+To: License submissions for OSI review <license-review at opensource.org<mailto:license-review at opensource.org>>
+Subject: Re: [License-review] For Approval: W3C Software and Document License
+
+
+From: Carlo Piana <carlo at piana.eu<mailto:carlo at piana.eu>>
+Date: Thursday, Aug 10, 2017, 6:08 AM
+To: license-review at opensource.org <license-review at opensource.org<mailto:license-review at opensource.org>>
+Subject: Re: [License-review] For Approval: W3C Software and Document License
+
+On 09/08/2017 21:15,
+
+The scope of a FOSS license is to give permission to do things with
+software. They are *historically* conceived as copyright licenses
+because *historically* that was what drafters understood it was the
+regime under which rights had to be conferred on software.
+
+If different rights insist on software, the owner of those rights who
+purports to give permission *must* give those permission under all the
+rights she may have, or the openness test would miserably fail.
+
+Otherwise it is like opening one lock of a door, with the other
+remaining closed. The door will not open. So if the license is a key,
+you cannot just say "this key will conditionally open all the copyright
+locks on my doors" and claim that the doors will be "open doors". If
+there are patent locks of yours, the doors will remain shut. [0]
+
+A license which only gives copyright licenses but refuses to do so for
+patents is not an open source license in my and many others' opinion.
+It's a public license, it is valid, it has some scope, but it's not open
+source.
+
+I invite OSI to take a stance once for all as to this conceptual ambiguity.
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170811/3870b85e/attachment.html>
+
+From carlo at piana.eu  Fri Aug 11 17:17:45 2017
+From: carlo at piana.eu (Carlo)
+Date: Fri, 11 Aug 2017 19:17:45 +0200
+Subject: [License-review] For Approval: W3C Software and Document License
+In-Reply-To: <21cf92dd738f420693a5abacb2c88e32@aplex01.dom1.jhuapl.edu>
+References: <821e3959-9143-f033-3d82-b8ff06bd129f@w3.org> <f630520e-9baf-d339-d161-3fe752a7d706@piana.eu> <bfa8ccbf-aa39-917c-7076-0792ab043e7d@w3.org> <6daacb65-5b28-cb19-b627-db7c3e34ec4a@piana.eu> <e9ae56de6b8f47b6a52c7f05f182c4e3@aplex01.dom1.jhuapl.edu> <21cf92dd738f420693a5abacb2c88e32@aplex01.dom1.jhuapl.edu>
+Message-ID: <2cfb03d5-d2e4-9729-2792-558fd5e547fb@piana.eu>
+
+Dear Nigel,
+
+I will stop repeating the same comment (which I myself received firstly,
+by the way) when this nonsense of considering "open source" a
+copyright-only licensing issue will come to an end, or, more
+appropriately, when this larger and graver nonsense of applying patents
+to software would not be gone for good.
+
+A legal text must be interpreted in the situation where it applies. If
+the scenario changes, its interpretation must change. So be for the OSD,
+if the "evolutionary" interpretation is not defeated an insurmountable
+wording therein. This is not the case. My reading of the OSD is
+perfectly compatible with the text. No need whatsoever to change the
+OSD. The OSD says "the *distribution terms* of open source must comply".
+Not "the distribution terms under copyright". The distribution terms.
+Period.
+
+How come if you have two sets of rights on the software you yourself
+make or modify and distribute, you may  sanely say "take it, this is
+open open source", and when someone starts using it you say "hey, but
+not THAT open, here's a license, here's a bill for royalties, if you
+want to continue using it". "But you have a license!" "Ah-ah! A license
+on copyright, not a license on patents!"
+
+Where is the "without the need for execution of an additional license"?
+
+Of course, if somebody else come forward with their own patent for
+software they have not created, this would be a problem of the legal
+system, not of the license. But if the license allows a "gotcha"
+situation by the same developer, sorry, that's a problem of the license.
+
+Then you can do as you please, and call "open source" a /legal
+/instrument that only people having signed a patent license and pay
+royalties for it can /legally/ use, modify, distribute. I will still
+retain the right to think and say it's a totally foolish and
+self-defeating position. Will I be alone or just with the minority? Too bad!
+
+Brexit showed us that the decision of the majority not necessarily is
+the most sane, never mind the most informed one. Good luck!
+
+All the best,
+
+Carlo
+ 
+
+On 11/08/2017 17:51, Tzeng, Nigel H. wrote:
+> Oops.
+>
+> My comment is that there is no red line for patents in the OSD.
+>
+> Either get the necessary consensus to change the OSD or stop debating
+> this in every single Open Source license submission and holding them up.
+>
+> The FACT remains that non-OSI approved licenses, namely CC0, are
+> considered Open Source by many open source practioners so your opinion
+> is not necessarily the majority view and certainly not the universal view.
+>
+> *From: *Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu
+> <mailto:Nigel.Tzeng at jhuapl.edu>>
+> *Date: *Friday, Aug 11, 2017, 11:45 AM
+> *To: *License submissions for OSI review
+> <license-review at opensource.org <mailto:license-review at opensource.org>>
+> *Subject: *Re: [License-review] For Approval: W3C Software and
+> Document License
+>
+>
+>     *From: *Carlo Piana <carlo at piana.eu <mailto:carlo at piana.eu>>
+>     *Date: *Thursday, Aug 10, 2017, 6:08 AM
+>     *To: *license-review at opensource.org <license-review at opensource.org
+>     <mailto:license-review at opensource.org>>
+>     *Subject: *Re: [License-review] For Approval: W3C Software and
+>     Document License
+>
+>     On 09/08/2017 21:15, 
+>
+>     The scope of a FOSS license is to give permission to do things with
+>     software. They are *historically* conceived as copyright licenses
+>     because *historically* that was what drafters understood it was the
+>     regime under which rights had to be conferred on software.
+>
+>     If different rights insist on software, the owner of those rights who
+>     purports to give permission *must* give those permission under all the
+>     rights she may have, or the openness test would miserably fail.
+>
+>     Otherwise it is like opening one lock of a door, with the other
+>     remaining closed. The door will not open. So if the license is a key,
+>     you cannot just say "this key will conditionally open all the
+>     copyright
+>     locks on my doors" and claim that the doors will be "open doors". If
+>     there are patent locks of yours, the doors will remain shut. [0]
+>
+>     A license which only gives copyright licenses but refuses to do so for
+>     patents is not an open source license in my and many others' opinion.
+>     It's a public license, it is valid, it has some scope, but it's
+>     not open
+>     source.
+>
+>     I invite OSI to take a stance once for all as to this conceptual
+>     ambiguity.
+>
+>
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170811/83314726/attachment.html>
+
+From cem.f.karan.civ at mail.mil  Fri Aug 11 18:11:48 2017
+From: cem.f.karan.civ at mail.mil (Karan, Cem F CIV USARMY RDECOM ARL (US))
+Date: Fri, 11 Aug 2017 18:11:48 +0000
+Subject: [License-review] [Non-DoD Source] Re: For Approval: W3C Software and Document License
+In-Reply-To: <2cfb03d5-d2e4-9729-2792-558fd5e547fb@piana.eu>
+References: <821e3959-9143-f033-3d82-b8ff06bd129f@w3.org> <f630520e-9baf-d339-d161-3fe752a7d706@piana.eu> <bfa8ccbf-aa39-917c-7076-0792ab043e7d@w3.org> <6daacb65-5b28-cb19-b627-db7c3e34ec4a@piana.eu> <e9ae56de6b8f47b6a52c7f05f182c4e3@aplex01.dom1.jhuapl.edu> <21cf92dd738f420693a5abacb2c88e32@aplex01.dom1.jhuapl.edu> <2cfb03d5-d2e4-9729-2792-558fd5e547fb@piana.eu>
+Message-ID: <A677A9FB362B2F499BEFD6F80687FE97C44E6C7A@UMECHPA7F.easf.csd.disa.mil>
+
+As someone who is advocating for using CC0 on Government code that doesn't 
+have copyright attached, I agree with Carlo about the patent issues.  ARL's 
+official policy handles the patent issue by waving patent rights which covers 
+the hole left by CC0 (see 
+https://github.com/USArmyResearchLab/ARL-Open-Source-Guidance-and-Instructions#433214A2C17C11E6952E003EE1B763F8). 
+We've got a series of bugs filed to try to improve on that, but I for one 
+agree that patent issues are a concern.
+
+That said, I do understand that some third party may hold patent rights that 
+can be infringed upon.  That is not something that any license will be able to 
+cover completely, and would likely end in litigation of some kind.
+
+Thanks,
+Cem Karan
+
+> -----Original Message-----
+> From: License-review [mailto:license-review-bounces at opensource.org] On 
+> Behalf Of Carlo
+> Sent: Friday, August 11, 2017 1:18 PM
+> To: license-review at opensource.org
+> Subject: [Non-DoD Source] Re: [License-review] For Approval: W3C Software 
+> and Document License
+>
+> All active links contained in this email were disabled. Please verify the 
+> identity of the sender, and confirm the authenticity of all links
+> contained within the message prior to copying and pasting the address to a 
+> Web browser.
+>
+>
+> ________________________________
+>
+>
+>
+> Dear Nigel,
+>
+> I will stop repeating the same comment (which I myself received firstly, by 
+> the way) when this nonsense of considering "open source" a
+> copyright-only licensing issue will come to an end, or, more appropriately, 
+> when this larger and graver nonsense of applying patents to
+> software would not be gone for good.
+>
+> A legal text must be interpreted in the situation where it applies. If the 
+> scenario changes, its interpretation must change. So be for the
+> OSD, if the "evolutionary" interpretation is not defeated an insurmountable 
+> wording therein. This is not the case. My reading of the OSD is
+> perfectly compatible with the text. No need whatsoever to change the OSD. 
+> The OSD says "the *distribution terms* of open source must
+> comply". Not "the distribution terms under copyright". The distribution 
+> terms. Period.
+>
+> How come if you have two sets of rights on the software you yourself make or 
+> modify and distribute, you may  sanely say "take it, this is
+> open open source", and when someone starts using it you say "hey, but not 
+> THAT open, here's a license, here's a bill for royalties, if you
+> want to continue using it". "But you have a license!" "Ah-ah! A license on 
+> copyright, not a license on patents!"
+>
+> Where is the "without the need for execution of an additional license"?
+>
+> Of course, if somebody else come forward with their own patent for software 
+> they have not created, this would be a problem of the legal
+> system, not of the license. But if the license allows a "gotcha" situation 
+> by the same developer, sorry, that's a problem of the license.
+>
+> Then you can do as you please, and call "open source" a legal instrument 
+> that only people having signed a patent license and pay royalties
+> for it can legally use, modify, distribute. I will still retain the right to 
+> think and say it's a totally foolish and self-defeating position. Will I be
+> alone or just with the minority? Too bad!
+>
+> Brexit showed us that the decision of the majority not necessarily is the 
+> most sane, never mind the most informed one. Good luck!
+>
+> All the best,
+>
+> Carlo
+>
+>
+>
+> On 11/08/2017 17:51, Tzeng, Nigel H. wrote:
+>
+>
+> 	Oops.
+>
+> 	My comment is that there is no red line for patents in the OSD.
+>
+> 	Either get the necessary consensus to change the OSD or stop debating this 
+> in every single Open Source license submission and
+> holding them up.
+>
+> 	The FACT remains that non-OSI approved licenses, namely CC0, are considered 
+> Open Source by many open source practioners so
+> your opinion is not necessarily the majority view and certainly not the 
+> universal view.
+>
+> 	From: Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu < 
+> Caution-mailto:Nigel.Tzeng at jhuapl.edu > >
+> 	Date: Friday, Aug 11, 2017, 11:45 AM
+> 	To: License submissions for OSI review <license-review at opensource.org < 
+> Caution-mailto:license-review at opensource.org > >
+> 	Subject: Re: [License-review] For Approval: W3C Software and Document 
+> License
+>
+>
+>
+> 		From: Carlo Piana <carlo at piana.eu < Caution-mailto:carlo at piana.eu > >
+> 		Date: Thursday, Aug 10, 2017, 6:08 AM
+> 		To: license-review at opensource.org < 
+> Caution-mailto:license-review at opensource.org > 
+> <license-review at opensource.org
+> < Caution-mailto:license-review at opensource.org > >
+> 		Subject: Re: [License-review] For Approval: W3C Software and Document 
+> License
+>
+>
+> 		On 09/08/2017 21:15,
+>
+> 		The scope of a FOSS license is to give permission to do things with
+> 		software. They are *historically* conceived as copyright licenses
+> 		because *historically* that was what drafters understood it was the
+> 		regime under which rights had to be conferred on software.
+>
+> 		If different rights insist on software, the owner of those rights who
+> 		purports to give permission *must* give those permission under all the
+> 		rights she may have, or the openness test would miserably fail.
+>
+> 		Otherwise it is like opening one lock of a door, with the other
+> 		remaining closed. The door will not open. So if the license is a key,
+> 		you cannot just say "this key will conditionally open all the copyright
+> 		locks on my doors" and claim that the doors will be "open doors". If
+> 		there are patent locks of yours, the doors will remain shut. [0]
+>
+> 		A license which only gives copyright licenses but refuses to do so for
+> 		patents is not an open source license in my and many others' opinion.
+> 		It's a public license, it is valid, it has some scope, but it's not open
+> 		source.
+>
+> 		I invite OSI to take a stance once for all as to this conceptual 
+> ambiguity.
+>
+>
+>
+>
+>
+>
+> 	_______________________________________________License-review mailing 
+> listLicense-review at opensource.org < Caution-
+> mailto:License-review at opensource.org > 
+> Caution-https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review 
+> < Caution-
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review >
+>
+>
+>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 6419 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170811/083adc77/attachment.p7s>
+
+From lrosen at rosenlaw.com  Fri Aug 11 21:05:16 2017
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 11 Aug 2017 14:05:16 -0700
+Subject: [License-review] For Approval: W3C Software and Document License
+In-Reply-To: <2cfb03d5-d2e4-9729-2792-558fd5e547fb@piana.eu>
+References: <821e3959-9143-f033-3d82-b8ff06bd129f@w3.org> <f630520e-9baf-d339-d161-3fe752a7d706@piana.eu> <bfa8ccbf-aa39-917c-7076-0792ab043e7d@w3.org> <6daacb65-5b28-cb19-b627-db7c3e34ec4a@piana.eu> <e9ae56de6b8f47b6a52c7f05f182c4e3@aplex01.dom1.jhuapl.edu> <21cf92dd738f420693a5abacb2c88e32@aplex01.dom1.jhuapl.edu> <2cfb03d5-d2e4-9729-2792-558fd5e547fb@piana.eu>
+Message-ID: <035201d312e5$8ba910c0$a2fb3240$@rosenlaw.com>
+
+I agree with Carlo about the relevance of patents to open source software. But some solutions already exist. Some licenses are better than others. This W3C copyright license is the wrong battlefield to argue about patents.
+ 
+
+W3C has resolved the public's patent issues with a wonderful Patent Policy that already protects both open source and proprietary software that implements W3C standards. In conjunction with this new "W3C Software and Document License", that "W3C Patent Policy" is what open source wanted and is given.
+ 
+
+That is why the W3C Software and Document License is all we now need. OSI should please approve it.
+ 
+
+/Larry
+ 
+ 
+
+From: License-review [mailto:license-review-bounces at opensource.org] On Behalf Of Carlo
+Sent: Friday, August 11, 2017 10:18 AM
+To: license-review at opensource.org
+Subject: Re: [License-review] For Approval: W3C Software and Document License
+ 
+
+Dear Nigel,
+
+I will stop repeating the same comment (which I myself received firstly, by the way) when this nonsense of considering "open source" a copyright-only licensing issue will come to an end, or, more appropriately, when this larger and graver nonsense of applying patents to software would not be gone for good. 
+
+A legal text must be interpreted in the situation where it applies. If the scenario changes, its interpretation must change. So be for the OSD, if the "evolutionary" interpretation is not defeated an insurmountable wording therein. This is not the case. My reading of the OSD is perfectly compatible with the text. No need whatsoever to change the OSD. The OSD says "the *distribution terms* of open source must comply". Not "the distribution terms under copyright". The distribution terms. Period. 
+
+How come if you have two sets of rights on the software you yourself make or modify and distribute, you may  sanely say "take it, this is open open source", and when someone starts using it you say "hey, but not THAT open, here's a license, here's a bill for royalties, if you want to continue using it". "But you have a license!" "Ah-ah! A license on copyright, not a license on patents!"
+
+Where is the "without the need for execution of an additional license"? 
+
+Of course, if somebody else come forward with their own patent for software they have not created, this would be a problem of the legal system, not of the license. But if the license allows a "gotcha" situation by the same developer, sorry, that's a problem of the license.
+
+Then you can do as you please, and call "open source" a legal instrument that only people having signed a patent license and pay royalties for it can legally use, modify, distribute. I will still retain the right to think and say it's a totally foolish and self-defeating position. Will I be alone or just with the minority? Too bad!
+
+Brexit showed us that the decision of the majority not necessarily is the most sane, never mind the most informed one. Good luck!
+
+All the best,
+
+Carlo
+ 
+
+On 11/08/2017 17:51, Tzeng, Nigel H. wrote:
+
+Oops.
+ 
+
+My comment is that there is no red line for patents in the OSD. 
+ 
+
+Either get the necessary consensus to change the OSD or stop debating this in every single Open Source license submission and holding them up.
+ 
+
+The FACT remains that non-OSI approved licenses, namely CC0, are considered Open Source by many open source practioners so your opinion is not necessarily the majority view and certainly not the universal view.
+ 
+
+From: Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu <mailto:Nigel.Tzeng at jhuapl.edu> >
+
+Date: Friday, Aug 11, 2017, 11:45 AM
+
+To: License submissions for OSI review <license-review at opensource.org <mailto:license-review at opensource.org> >
+
+Subject: Re: [License-review] For Approval: W3C Software and Document License
+ 
+ 
+
+From: Carlo Piana <carlo at piana.eu <mailto:carlo at piana.eu> >
+
+Date: Thursday, Aug 10, 2017, 6:08 AM
+
+To: license-review at opensource.org <mailto:license-review at opensource.org>  <license-review at opensource.org <mailto:license-review at opensource.org> >
+
+Subject: Re: [License-review] For Approval: W3C Software and Document License
+ 
+
+On 09/08/2017 21:15, 
+
+The scope of a FOSS license is to give permission to do things with
+software. They are *historically* conceived as copyright licenses
+because *historically* that was what drafters understood it was the
+regime under which rights had to be conferred on software.
+
+If different rights insist on software, the owner of those rights who
+purports to give permission *must* give those permission under all the
+rights she may have, or the openness test would miserably fail.
+
+Otherwise it is like opening one lock of a door, with the other
+remaining closed. The door will not open. So if the license is a key,
+you cannot just say "this key will conditionally open all the copyright
+locks on my doors" and claim that the doors will be "open doors". If
+there are patent locks of yours, the doors will remain shut. [0]
+
+A license which only gives copyright licenses but refuses to do so for
+patents is not an open source license in my and many others' opinion.
+It's a public license, it is valid, it has some scope, but it's not open
+source.
+
+I invite OSI to take a stance once for all as to this conceptual ambiguity.
+ 
+ 
+
+
+
+
+
+
+_______________________________________________
+License-review mailing list
+License-review at opensource.org <mailto:License-review at opensource.org> 
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170811/29dff81b/attachment.html>
+

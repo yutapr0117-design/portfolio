@@ -1,0 +1,750 @@
+From publisher at ompages.com  Tue May  4 08:04:23 1999
+From: publisher at ompages.com (Paul Nathan Puri)
+Date: Tue, 4 May 1999 01:04:23 -0700
+Subject: W3C needs help to defeat a patent!
+Message-ID: <19990504010423.A3269@office.office.natepuri.com>
+
+See the www.w3.org, and check out it's problem with P3P technology.  W3C
+is working to keep this important security technology in the public
+domain.  
+
+They need everyone with the time to research the prior art for this
+technology in order to get the patent claim rejected. It is currently
+owned by Seattle software company www.intermind.com. 
+
+See the W3C site for details on  this software and its applications.  I
+will devote space on my website http://www.ompages.com/ to the findings. I
+will update the responders on the specifics after we discuss matters
+further.
+
+I hope to hear from you.  Thank you.
+ -- 
+NatePuri
+Certified Law Student
+Debian GNU/Linux Monk
+McGeorge School of Law
+Sacramento, CA
+publisher at ompages.com
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 290 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/19990504/a5cfd870/attachment.sig>
+
+From jdassen at wi.leidenuniv.nl  Tue May  4 08:41:03 1999
+From: jdassen at wi.leidenuniv.nl (J.H.M. Dassen)
+Date: Tue, 4 May 1999 10:41:03 +0200
+Subject: W3C needs help to defeat a patent!
+In-Reply-To: <19990504010423.A3269@office.office.natepuri.com>; from Paul Nathan Puri on Tue, May 04, 1999 at 01:04:23AM -0700
+References: <19990504010423.A3269@office.office.natepuri.com>
+Message-ID: <19990504104103.A13642@ultra5.wi.leidenuniv.nl>
+
+On Tue, May 04, 1999 at 01:04:23 -0700, Paul Nathan Puri wrote:
+> See the www.w3.org, and check out it's problem with P3P technology.
+
+See http://www.wired.com/news/news/politics/story/19452.html for media
+coverage.
+
+http://www.w3.org/P3P/ (the most obvious place), unfortunately has no
+details on it yet.
+
+Ray
+-- 
+LEADERSHIP  A form of self-preservation exhibited by people with auto-
+destructive imaginations in order to ensure that when it comes to the crunch 
+it'll be someone else's bones which go crack and not their own.       
+- The Hipcrime Vocab by Chad C. Mulligan    
+
+
+From weigel+ at pitt.edu  Thu Aug 30 20:59:38 2001
+From: weigel+ at pitt.edu (Matthew C. Weigel)
+Date: Thu, 30 Aug 2001 16:59:38 -0400 (EDT)
+Subject: W3C license
+Message-ID: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu>
+
+Why is this license
+(http://www.w3.org/Consortium/Legal/ipr-notice-20000612) not listed on
+the OSI list of approved licenses
+(http://www.opensource.org/licenses/)?
+
+Actions the W3C would apparently like to take - including hosting Amaya
+on sourceforge.net - depend upon this approval, which has been pending
+for over a year.
+
+Although I have no stake in this license, it seems it should be a
+higher priority and easier decision than some of the other licenses
+recently approved, since they actually need the approval to continue
+with some of their plans.
+--  Matthew Weigel Research Systems Programmer mcweigel at cs.cmu.edu ne weigel at pitt.edu
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From david at usermode.org  Thu Aug 30 22:34:53 2001
+From: david at usermode.org (David Johnson)
+Date: Thu, 30 Aug 2001 15:34:53 -0700
+Subject: W3C license
+In-Reply-To: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu>
+References: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu>
+Message-ID: <200108302231.PAA3469669@meer.meer.net>
+
+On Thursday 30 August 2001 01:59 pm, Matthew C. Weigel wrote:
+> Why is this license
+> (http://www.w3.org/Consortium/Legal/ipr-notice-20000612) not listed on
+> the OSI list of approved licenses
+> (http://www.opensource.org/licenses/)?
+
+The page you referenced is not the page containing the software license. This 
+is a better link: 
+http://www.w3.org/Consortium/Legal/copyright-software-19980720
+
+As to why it has not yet been approved, I couldn't tell you. I understand 
+that it is in the queue and being actively considered. I see onthing in the 
+license that would prevent its approval, as it is a straight forward 
+variation of the BSD and MIT licenses.
+
+-- 
+David Johnson
+___________________
+http://www.usermode.org
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From weigel+ at pitt.edu  Thu Aug 30 22:41:06 2001
+From: weigel+ at pitt.edu (Matthew C. Weigel)
+Date: Thu, 30 Aug 2001 18:41:06 -0400 (EDT)
+Subject: W3C license
+In-Reply-To: <200108302231.PAA3469669@meer.meer.net>
+Message-ID: <Pine.GSO.4.33P.0108301836550.16864-100000@unixs1.cis.pitt.edu>
+
+On Thu, 30 Aug 2001, David Johnson wrote:
+
+> The page you referenced is not the page containing the software license. This
+> is a better link:
+> http://www.w3.org/Consortium/Legal/copyright-software-19980720
+
+Thanks.
+
+> As to why it has not yet been approved, I couldn't tell you. I
+> understand that it is in the queue and being actively considered. I
+> see onthing in the license that would prevent its approval, as it is
+> a straight forward variation of the BSD and MIT licenses.
+
+Yes, that's the point.  Russ got onto me awhile back for complaining
+about the OSI not listening, without sending mail to
+osi at opensource.org.  So, I sent a message to osi at opensource.org with
+the complaint that they have, for the past I think two years, managed
+to not see on license-discuss.
+
+There is no reason to think it is in the queue because it was never
+actually listed as being in the queue; they are, for wont of a better
+explanation, ignoring it.
+--  Matthew Weigel Research Systems Programmer mcweigel at cs.cmu.edu ne weigel at pitt.edu
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From dtype at dtype.org  Thu Aug 30 22:48:25 2001
+From: dtype at dtype.org (M. Drew Streib)
+Date: Thu, 30 Aug 2001 22:48:25 +0000
+Subject: W3C license
+In-Reply-To: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu>
+Message-ID: <20010830224825.P28767@dtype.org>
+
+On Thu, Aug 30, 2001 at 04:59:38PM -0400, Matthew C. Weigel wrote:
+> Actions the W3C would apparently like to take - including hosting Amaya
+> on sourceforge.net - depend upon this approval, which has been pending
+> for over a year.
+
+As for SourceForge.net approval of licenses, that is something I could
+help with. This goes for anyone else on this list.
+
+As an interim measure to get a project on SourceForge, I'd be able to
+look at the license and evaluate it as far as SourceForge.net is concerned.
+Please just let me know the request, and that you have filed an application
+on SourceForge.net. Also note in the application that you have 
+submitted the license to me for review.
+
+-drew
+
+-- 
+M. Drew Streib <dtype at dtype.org> | http://dtype.org/
+FSG <dtype at freestandards.org>    | Linux International <dtype at li.org>
+freedb <dtype at freedb.org>        | SourceForge <dtype at sourceforge.net>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 240 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20010830/5fd7b4d6/attachment.sig>
+
+From nelson at crynwr.com  Fri Aug 31 03:53:54 2001
+From: nelson at crynwr.com (Russell Nelson)
+Date: Thu, 30 Aug 2001 23:53:54 -0400 (EDT)
+Subject: W3C license
+In-Reply-To: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu>
+References: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu>
+Message-ID: <15247.2101.428701.163590@desk.crynwr.com>
+
+Matthew C. Weigel writes: > Why is this license > (http://www.w3.org/Consortium/Legal/ipr-notice-20000612) not listed on > the OSI list of approved licenses > (http://www.opensource.org/licenses/)?
+
+Why isn't it listed?  Because it's not approved.
+Why isn't it approved?  Because we got hideously backlogged.
+Why did we get backlogged?  Because approving licenses is a lot of work, and we're all working on open source with just as much on our TODO lists as anybody else in the field, if not more.
+So now what?  We changed the license submittal procedure to take some of the work off of our shoulders and put it on those of the people submitting licenses.  This has the beneficial effect of making it harder to create Yet Another open source license.
+Hey, when did you do that?  25 April 2001.
+Why didn't you tell me??  Because if you don't bother asking us how the license approval is going, you obviously don't care.  If you don't care, we don't care.
+
+In other words, if you want it approved, and you've submitted it and
+haven't heard from us, resubmit it.
+
+-- 
+-russ nelson <sig at russnelson.com>  http://russnelson.com
+Crynwr sells support for free software  | PGPok | The most basic moral/ethical
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | question is who gets to use
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   | force, and when -- ESR
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From weigel+ at pitt.edu  Fri Aug 31 05:52:15 2001
+From: weigel+ at pitt.edu (Matthew C. Weigel)
+Date: Fri, 31 Aug 2001 01:52:15 -0400 (EDT)
+Subject: W3C license
+In-Reply-To: <15247.2101.428701.163590@desk.crynwr.com>
+Message-ID: <Pine.GSO.4.33P.0108310126160.1181-100000@unixs1.cis.pitt.edu>
+
+On Thu, 30 Aug 2001, Russell Nelson wrote:
+
+> Hey, when did you do that?  25 April 2001.
+> Why didn't you tell me??  Because if you don't bother asking us how
+>     the license approval is going, you obviously don't care.  If you
+>     don't care, we don't care.
+
+http://www.mail-archive.com/license-discuss at opensource.org/msg03417.html
+
+Apparently, Joseph was under the horribly mistaken impression that
+mailing to license-discuss was an appropriate way to find this out.
+
+Last September, it was discussed in response to Lawrence Rosen's
+posting to the list - it was pretty clear that Joseph was asking for
+help on getting his license approved.  No one from the OSI responded.
+Again this past June.  No one responded, except yours truly, and I
+recommended contacting webmaster at opensource.org (a position that we
+later found out was vacant at the time).
+
+Don't get your panties in a knot over what *we're* doing wrong.  Try
+making it clear how to do it right.
+http://www.opensource.org/docs/certification_mark.html#approval
+certainly doesn't reflect this, and - gasp - it was updated 5 days
+after this grand policy change.
+
+Do your statements here suggest that anything that we actually want
+people in the OSI to see should go to osi at opensource.org?
+
+Since Joseph Reagle has apparently been too lazy to be worth your
+attention, I'll forward your message to him.
+--  Matthew Weigel Research Systems Programmer mcweigel at cs.cmu.edu ne weigel at pitt.edu
+
+
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From Ken.Coar at Golux.Com  Fri Aug 31 11:40:14 2001
+From: Ken.Coar at Golux.Com (Rodent of Unusual Size)
+Date: Fri, 31 Aug 2001 07:40:14 -0400
+Subject: W3C license
+References: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu> <15247.2101.428701.163590@desk.crynwr.com>
+Message-ID: <3B8F779E.CAE4BDA0@Golux.Com>
+
+Russell Nelson wrote:
+> 
+> This has the beneficial effect of making it
+> harder to create Yet Another open source license.
+
+I continue to feel that the 'benefit' is a matter of
+opinion, not a certainty nor natural law.  Therefore
+I continue to object -- courteously -- to remarks that
+take it as a given and axiomatic to the industry.
+-- 
+#ken	P-)}
+
+Ken Coar, Sanagendamgagwedweinini  http://Golux.Com/coar/
+Author, developer, opinionist      http://Apache-Server.Com/
+
+"All right everyone!  Step away from the glowing hamburger!"
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From reagle at w3.org  Fri Aug 31 13:04:19 2001
+From: reagle at w3.org (Joseph Reagle)
+Date: Fri, 31 Aug 2001 09:04:19 -0400
+Subject: W3C license
+In-Reply-To: <Pine.GSO.4.33P.0108301836550.16864-100000@unixs1.cis.pitt.edu>
+References: <Pine.GSO.4.33P.0108301836550.16864-100000@unixs1.cis.pitt.edu>
+Message-ID: <20010831130420.4E497875DF@policy.w3.org>
+
+On Thursday 30 August 2001 18:41, Matthew C. Weigel wrote:
+> Yes, that's the point.  Russ got onto me awhile back for complaining
+> about the OSI not listening, without sending mail to
+> osi at opensource.org. 
+
+Our request is pending from January 14 2000 [1], which complied with the 
+stated policy of sending the request to license-approval. John Cowan actually 
+stated it should be added to the list for consideration in September 2000 
+[2], but still no action as recently discussed [3].
+
+[1] http://lists.w3.org/Archives/Public/www-archive/2001Jun/0017.html
+[2] http://www.mail-archive.com/license-discuss at opensource.org/msg02310.html
+[3] http://www.mail-archive.com/license-discuss at open source.org/msg03484.html
+
+> There is no reason to think it is in the queue because it was never
+> actually listed as being in the queue; they are, for wont of a better
+> explanation, ignoring it.
+
+Correct. Fortunately with respect to my SourceForge concern, this has not 
+been a problem with them; for example HTML Tidy is now a SourceForge project. 
+It's just rather confusing, and slightly awkward with respect to this whole 
+OSI process and the classification of "other/proprietary" on SourceForge. But 
+there's ultimately bigger problems in the world <smile/>.
+
+[4] http://sourceforge.net/projects/tidy
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From reagle at w3.org  Fri Aug 31 15:09:28 2001
+From: reagle at w3.org (Joseph Reagle)
+Date: Fri, 31 Aug 2001 11:09:28 -0400
+Subject: W3C license
+In-Reply-To: <15247.2101.428701.163590@desk.crynwr.com>
+References: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu> <15247.2101.428701.163590@desk.crynwr.com>
+Message-ID: <20010831150929.1C835875DF@policy.w3.org>
+
+On Thursday 30 August 2001 23:53, Russell Nelson wrote:
+> Why didn't you tell me??  Because if you don't bother asking us how
+>     the license approval is going, you obviously don't care.  If you
+>     don't care, we don't care.
+
+I fear this style of collaberation isn't as productive as *anyone* would 
+like. Instead I offer the following:
+
+http://www.w3.org/People/Reagle/work-style.html#document
+2. I document my expectations, dependencies and requirements, and I try to 
+extract clear comitments from others. I've probably read your email, and I 
+try to frequently refer to your Web pages, but I'm not reading your mind. 
+Mure your pages say what you mean and get an affirmative response or 
+commitment from me if you want to be sure I understand.
+
+> In other words, if you want it approved, and you've submitted it and
+> haven't heard from us, resubmit it.
+
+Please deprecate the original policy [1] and include this information. I will 
+resubmit our license in compliance to [2] to license-discuss@, 
+license-approval@ and osi@ since I'm still confused about this part of your 
+policy.
+
+[1] http://www.opensource.org/certification-mark.html#approval
+[2] http://www.opensource.org/docs/certification_mark.html#approval
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From reagle at w3.org  Fri Aug 31 15:10:35 2001
+From: reagle at w3.org (Joseph Reagle)
+Date: Fri, 31 Aug 2001 11:10:35 -0400
+Subject: Submission of W3C Software License for Review
+Message-ID: <20010831151036.2FE20875DF@policy.w3.org>
+
+
+This is a resubmission of the W3C License (first submitted January 2000 [1]) 
+with your new policy [2].
+
+Please let me know if you have any questions or if this submission is not 
+conformant with your policy.
+
+[1] http://lists.w3.org/Archives/Public/www-archive/2001Jun/0017.html
+[2] http://www.opensource.org/docs/certification_mark.html#approval
+
+>    1. Put the license on a web page in HTML form. We will convert it
+>       into the same style as the existing approved licenses. You can
+>       help us by publishing it in that style yourself to save us the
+>       conversion step.
+
+http://www.w3.org/Consortium/Legal/copyright-software-19980720
+
+>    2. Tell us which existing OSI-approved license is most similar to
+>       your license. Explain why that license will not suffice for your
+>       needs. If your proposed license is derived from a license we have
+>       already approved, describe exactly what you have changed. This
+>       document is not part of the license; it is solely to help the
+>       board understand and review your license.
+
+This license predates many of the approved licenses. >cvs log copyright-software.html   revision 1.1 date: 1997/09/26 18:18:44;  author: fillault;  state: Exp;
+
+It evolved from the MIT license [3] with a few substantive tweaks to improve 
+the communication of the source from which derivations stem, and a clause 
+prohibiting the misleading claims of W3C affiliation.
+
+[3] http://opensource.org/licenses/mit-license.html
+
+>    3. Explain how software distributed under your license can be used in
+>       conjunction with software distributed under other open source
+>       licenses. Which license do you think will take precedence for
+>       derivative or combined works? Is there any software license that
+>       is entirely incompatible with your proposed license?.
+
+I'm unaware of all of those new licenses -- I appreciate your concern over 
+their proliferation. I think perhaps we need a couple  "model contract" 
+licenses ... Regardless, our license can obviously be used with any license 
+with which its terms don't conflict. The only bilateral confirmation license 
+compatibility is with one of the most strictest, the GPL [4], so I expect few 
+problems.
+
+[4] http://www.gnu.org/philosophy/license-list.html
+
+>    4. Send your proposed license by email to
+>       license-approval at opensource.org. Indicate in the email whether you
+>       want the license posted to the license-discuss list with your
+>       identification or anonymously.
+
+It may be discussed publicly.
+
+>    5. If we find that the license does not conform to the Open Source
+>       Definition, we will work with you to resolve the problems.
+
+Please notify me in this case.
+
+>    6. At the same time, we will monitor the license-discuss list and
+>       work with you to resolve any problems uncovered in public comment.
+
+Good!
+
+>    7. As part of this process, we may also seek outside legal advice on
+>       license issues.
+
+Acknowledged.
+
+>    8. Once we are assured that the license conforms to the Open Source
+>       Definition and has received thorough discussion on license-discuss
+>       or by other reviewers, and there are no remaining issues that we
+>       judge significant, we will notify you that the license has been
+>       approved, copy it to our website, and add it to the list below.
+
+I look forward to that.
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From david at usermode.org  Fri Aug 31 16:12:39 2001
+From: david at usermode.org (David Johnson)
+Date: Fri, 31 Aug 2001 09:12:39 -0700
+Subject: Submission of W3C Software License for Review
+In-Reply-To: <20010831151036.2FE20875DF@policy.w3.org>
+References: <20010831151036.2FE20875DF@policy.w3.org>
+Message-ID: <200108311609.JAA3603944@meer.meer.net>
+
+On Friday 31 August 2001 08:10 am, Joseph Reagle wrote:
+> This is a resubmission of the W3C License (first submitted January 2000
+> [1]) with your new policy [2].
+>
+> Please let me know if you have any questions or if this submission is not
+> conformant with your policy.
+
+As a member of the community of Open Source developers and users, I recommend 
+to the approval body that this license be approved forthwith. I would call 
+attention to the fact that this license is already approved by the Free 
+Software Foundation as being GPL compatible and suitable for the use in Free 
+Software projects. The text of the license itself is remarkably similar to 
+existing Open Source licenses. I have not found any phrase, clause or section 
+in this license that is contrary to the Open Source Definition.
+
+In addition, I am currently using software released under this license (tidy).
+
+Thank you,
+
+-- 
+David Johnson
+___________________
+http://www.usermode.org
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From steve at opensourcedirectory.com  Fri Aug 31 18:13:22 2001
+From: steve at opensourcedirectory.com (Steve Mallett)
+Date: Fri, 31 Aug 2001 15:13:22 -0300
+Subject: W3C license
+In-Reply-To: <20010831150929.1C835875DF@policy.w3.org>
+References: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu> <15247.2101.428701.163590@desk.crynwr.com> <20010831150929.1C835875DF@policy.w3.org>
+Message-ID: <01083115132200.01107@mullett.localdomain>
+
+> Please deprecate the original policy [1] and include this information. I
+> will resubmit our license in compliance to [2] to license-discuss@,
+> license-approval@ and osi@ since I'm still confused about this part of your
+> policy.
+>
+> [1] http://www.opensource.org/certification-mark.html#approval
+> [2] http://www.opensource.org/docs/certification_mark.html#approval
+
+With regards to the above confusion:  George, the former webmaster had done a 
+good job of redirecting old bookmarked pages [1] to the newer [2] revised and 
+working pages...... except this one.  Unless there is good reason.  (Please 
+check you bookmarks.  If there are duplicated and non-forwarding ones plz let 
+me know.)
+
+I'll leave this one 'as is' to give folks a chance to review the email I am 
+replying to.
+
+-- 
+Steve Mallett | Just Stable, Open-Source Apps 
+http://OpenSourceDirectory.org | steve at opensourcedirectory.com
+
+Project-Listing Maintenance In A Can: http://trovesendtwo.sf.net
+
+webmaster at opensource.org  (Aug 15th/01,
+I have nothing to do with license approval.)
+
+
+"Non-cooperation with evil is as much a duty as cooperation with good." -- Mohandas Gandhi 
+
+
+
+
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rick at linuxmafia.com  Wed Sep  5 03:03:06 2001
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 4 Sep 2001 20:03:06 -0700
+Subject: W3C license
+In-Reply-To: <3B8F779E.CAE4BDA0@Golux.Com>
+References: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu> <15247.2101.428701.163590@desk.crynwr.com> <3B8F779E.CAE4BDA0@Golux.Com>
+Message-ID: <20010904200306.R21743@linuxmafia.com>
+
+begin Rodent of Unusual Size quotation: 
+>> This has the beneficial effect of making it
+>> harder to create Yet Another open source license.
+> 
+> I continue to feel that the 'benefit' is a matter of
+> opinion, not a certainty nor natural law.
+
+Licence compatibility issues involving n-factorial licences?
+Surely the benefit of discouraging their proliferation is
+self-evident.
+
+-- 
+Cheers,                                     The Viking's Reminder:
+Rick Moen                                   Pillage first, _then_ burn.
+rick at linuxmafia.com
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From Ken.Coar at Golux.Com  Wed Sep  5 12:01:27 2001
+From: Ken.Coar at Golux.Com (Rodent of Unusual Size)
+Date: Wed, 05 Sep 2001 08:01:27 -0400
+Subject: W3C license
+References: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu> <15247.2101.428701.163590@desk.crynwr.com> <3B8F779E.CAE4BDA0@Golux.Com> <20010904200306.R21743@linuxmafia.com>
+Message-ID: <3B961417.7B0B703B@Golux.Com>
+
+Rick Moen wrote:
+> 
+> begin Rodent of Unusual Size quotation:
+> 
+> >> This has the beneficial effect of making it
+> >> harder to create Yet Another open source license.
+> >
+> > I continue to feel that the 'benefit' is a matter of
+> > opinion, not a certainty nor natural law.
+> 
+> Licence compatibility issues involving n-factorial licences?
+> Surely the benefit of discouraging their proliferation is
+> self-evident.
+
+'Discouraging proliferation' != 'making it harder to create'.
+This attitude seems equivalent to saying, 'Okey, we have all the
+good licencing ideas there ever will be, close the doors' -- which
+is, IMHO, shortsighted and downright stupid.
+
+Yes, new licences need to add some unique value or combination
+not already represented in an existing licence -- but the
+limiting condition is the existing licence base, NOT the narrow
+attitudes of people who do not want to do it anymore.
+-- 
+#ken	P-)}
+
+Ken Coar, Sanagendamgagwedweinini  http://Golux.Com/coar/
+Author, developer, opinionist      http://Apache-Server.Com/
+
+"All right everyone!  Step away from the glowing hamburger!"
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rick at linuxmafia.com  Wed Sep  5 17:38:46 2001
+From: rick at linuxmafia.com (Rick Moen)
+Date: Wed, 5 Sep 2001 10:38:46 -0700
+Subject: W3C license
+In-Reply-To: <3B961417.7B0B703B@Golux.Com>
+References: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu> <15247.2101.428701.163590@desk.crynwr.com> <3B8F779E.CAE4BDA0@Golux.Com> <20010904200306.R21743@linuxmafia.com> <3B961417.7B0B703B@Golux.Com>
+Message-ID: <20010905103846.X21743@linuxmafia.com>
+
+begin Rodent of Unusual Size quotation:
+
+> 'Discouraging proliferation' != 'making it harder to create'.
+> This attitude seems equivalent to saying, 'Okey, we have all the
+> good licencing ideas there ever will be, close the doors'....
+
+Spot the irrelevant straw-man argument.  No points.
+
+-- 
+Cheers,     "There is hardly anything in the world that some man cannot make a 
+Rick Moen   little worse and sell a little cheaper, and the people who consider
+rick at linuxmafia.com  price only are this man's lawful prey." - J. Ruskin (attr.)
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From Ken.Coar at Golux.Com  Wed Sep  5 18:00:55 2001
+From: Ken.Coar at Golux.Com (Rodent of Unusual Size)
+Date: Wed, 05 Sep 2001 14:00:55 -0400
+Subject: W3C license
+References: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu> <15247.2101.428701.163590@desk.crynwr.com> <3B8F779E.CAE4BDA0@Golux.Com> <20010904200306.R21743@linuxmafia.com> <3B961417.7B0B703B@Golux.Com> <20010905103846.X21743@linuxmafia.com>
+Message-ID: <3B966857.9F6F3EE6@Golux.Com>
+
+Rick Moen wrote:
+> 
+> begin Rodent of Unusual Size quotation:
+> 
+> > 'Discouraging proliferation' != 'making it harder to create'.
+> > This attitude seems equivalent to saying, 'Okey, we have all the
+> > good licencing ideas there ever will be, close the doors'....
+> 
+> Spot the irrelevant straw-man argument.  No points.
+
+Um, excuse me?  I suspect I would like to respond, but since your
+remark is so cryptic I am not sure ehat it is saying..
+-- 
+#ken	P-)}
+
+Ken Coar, Sanagendamgagwedweinini  http://Golux.Com/coar/
+Author, developer, opinionist      http://Apache-Server.Com/
+
+"All right everyone!  Step away from the glowing hamburger!"
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From tammie.gorzelsky at jda.com  Wed Sep  5 18:15:56 2001
+From: tammie.gorzelsky at jda.com (Tammie Gorzelsky)
+Date: Wed, 5 Sep 2001 14:15:56 -0400 
+Subject: W3C license
+Message-ID: <837760A1253CD411BD980060083922670ABA18@A2EX>
+
+http://www.intrepidsoftware.com/fallacy/straw.htm
+
+http://www.infidels.org/news/atheism/logic.html#strawman
+
+-----Original Message-----
+From: Rodent of Unusual Size [mailto:Ken.Coar at Golux.Com]
+Sent: Wednesday, September 05, 2001 2:01 PM
+To: license-discuss at opensource.org
+Subject: Re: W3C license
+
+
+Rick Moen wrote:
+> 
+> begin Rodent of Unusual Size quotation:
+> 
+> > 'Discouraging proliferation' != 'making it harder to create'.
+> > This attitude seems equivalent to saying, 'Okey, we have all the
+> > good licencing ideas there ever will be, close the doors'....
+> 
+> Spot the irrelevant straw-man argument.  No points.
+
+Um, excuse me?  I suspect I would like to respond, but since your
+remark is so cryptic I am not sure ehat it is saying..
+-- 
+#ken	P-)}
+
+Ken Coar, Sanagendamgagwedweinini  http://Golux.Com/coar/
+Author, developer, opinionist      http://Apache-Server.Com/
+
+"All right everyone!  Step away from the glowing hamburger!"
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20010905/6a4338a5/attachment.html>
+
+From rick at linuxmafia.com  Wed Sep  5 18:16:21 2001
+From: rick at linuxmafia.com (Rick Moen)
+Date: Wed, 5 Sep 2001 11:16:21 -0700
+Subject: W3C license
+In-Reply-To: <3B966857.9F6F3EE6@Golux.Com>
+References: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu> <15247.2101.428701.163590@desk.crynwr.com> <3B8F779E.CAE4BDA0@Golux.Com> <20010904200306.R21743@linuxmafia.com> <3B961417.7B0B703B@Golux.Com> <20010905103846.X21743@linuxmafia.com> <3B966857.9F6F3EE6@Golux.Com>
+Message-ID: <20010905111621.C21743@linuxmafia.com>
+
+begin Rodent of Unusual Size quotation:
+
+> Um, excuse me?  I suspect I would like to respond, but since your
+> remark is so cryptic I am not sure ehat it is saying..
+
+To be really explicit, then:  You indulged the time-honoured pastime of
+setting up a caricature of your interlocutor's position and then
+knocking it down.
+
+It would be a somewhat arch understatement to say that most of us have
+seen that before.  But welcome to the Internet.
+
+-- 
+Cheers,
+Rick Moen                           Never ask a sysadmin "What's up?"
+rick at linuxmafia.com
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From Ken.Coar at Golux.Com  Wed Sep  5 19:04:44 2001
+From: Ken.Coar at Golux.Com (Rodent of Unusual Size)
+Date: Wed, 05 Sep 2001 15:04:44 -0400
+Subject: W3C license
+References: <Pine.GSO.4.33P.0108301653440.16864-100000@unixs1.cis.pitt.edu> <15247.2101.428701.163590@desk.crynwr.com> <3B8F779E.CAE4BDA0@Golux.Com> <20010904200306.R21743@linuxmafia.com> <3B961417.7B0B703B@Golux.Com> <20010905103846.X21743@linuxmafia.com> <3B966857.9F6F3EE6@Golux.Com> <20010905111621.C21743@linuxmafia.com>
+Message-ID: <3B96774C.A3814AA5@Golux.Com>
+
+Rick Moen wrote:
+> 
+> To be really explicit, then:  You indulged the time-honoured
+> pastime of setting up a caricature of your interlocutor's
+> position and then knocking it down.
+
+If I did, I assure you it was unintentional. :-)  If anything,
+I think you may have been guilty of this before I, since it was
+you who changed the text tomake it appear that I was against
+proliferating licences. :-)  I am not against that at all -- what
+I am against, and apparently failed to make clear, was the
+attitude in the original post that supports 'making it harder to
+create a new licence is beneficial.'  Or, to quote Russ exactly,
+"This has the beneficial effect of making it harder to create Yet
+Another open source license."
+
+I agree with keeping the number of essentially identical licences
+to a minimum.  I do *not* agree with accomplishing that by
+discouraging people from trying.
+
+Is that any more clear? :-)
+-- 

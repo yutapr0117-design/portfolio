@@ -335,3 +335,69 @@ Perens 氏の案は *そのライセンスの下の派生物* への条件づけ
 **提出者自身による 2012 年の総括**（*"as MXM is a copyright-only license, and **this is why, in my
 recollection, it failed to be approved**"*・保存先は `2012-03-license-review-cc0-osd-patents-observed-*.txt`）
 である。**「不承認」と書くときは、この出典が提出者本人の回想であることを併記する。**
+
+## 1.112 特許について沈黙したライセンスは、反対を記録に残したまま承認されている —— W3C（2017）（2026-09-25）
+
+一次資料は `rounds/1999-2024-license-review-w3c-software-license-observed-*.txt`（72 通・7 部）。
+**Piana 氏が 2023 年に名指しした 3 件（CC0 / MXM / W3C）の最後の 1 件であり、
+3 件のうち唯一「承認された」ものである。**
+
+### 提出者は「著作権のみ」だと明言している
+
+Wendy Seltzer 氏（W3C 顧問弁護士）2017-08-09 ——
+*"**This is a copyright-only license. It makes no statement about the presence or absence of patent
+claims covering the licensed works.** Copyright and patent are distinct regimes, so I don't believe
+there's ambiguity in offering one without discussing the other."*
+
+### 反対は記録され、承認は止まらなかった
+
+Carlo Piana 氏 2017-08-11 —— *"If different rights insist on software, the owner of those rights
+who purports to give permission **must** give those permission under all the rights she may have,
+or the openness test would miserably fail. ... **A license which only gives copyright licenses but
+refuses to do so for patents is not an open source license in my and many others' opinion.**"*
+
+**しかし氏は保留を求めていない** —— 2017-08-16 *"I have acknowledged that the issue is of minimal
+importance in the context of this particular license ... and **I have not asked to withhold
+approval**. However, I still keep the point ... that the issue **whether an open source license can
+openly exclude patent rights from the grants and still be called 'open source' must be resolved**."*
+
+Nigel Tzeng 氏 —— *"**there is no red line for patents in the OSD.** Either get the necessary
+consensus to change the OSD or **stop debating this in every single Open Source license submission
+and holding them up**."* Lawrence Rosen 氏 —— *"This W3C copyright license is **the wrong
+battlefield** to argue about patents ... OSI should please approve it."*
+
+**Richard Fontana 氏が 2017-10-26 に承認を勧告し、2017-11-29 に承認された。**
+
+### なぜこれが #238 の 3 段構造を強めるのか
+
+**#238 は「沈黙は許され、明示的な除外は致命的で、明示的な許諾が実務の標準」と書いた。
+1 段目の根拠はそれまで「発言」だけだった。ここには承認がある** ——
+**同じ反対者（Piana 氏）が、沈黙には保留を求めず（W3C・2017）、
+明示的な除外には OSD 違反だと述べている（MXM・2009 / MulanOWL・2023）。**
+**1 人の中で線が引かれており、線の位置は「沈黙 / 除外」の境目にある。**
+
+**⚠ ただし Piana 氏の 2017 年の文は「未解決だ」と言っている。**
+**「沈黙は許される」は、争わないという運用であって、決着した規則ではない。**
+
+### 特許の除外が持ち出される条は、時期によって違う
+
+**OSD 7**（Nelson 氏 / Swiger 氏 / Rosen 氏・2009・MXM）/ **"most of the OSD rules"**
+（Perens 氏・2009・§1.111）/ **OSD 1**（McCoy Smith 氏・2024・W3C の IP disclaimer 条項について
+*"would allow this license to include disclaimers that would make it violative of OSD 1"*）。
+
+**ACD-1.0 はどれにも当たらない** —— §8 が明示的に許諾し、§8.2 が *"subject to no condition"*、
+§10.1 が条件を付けない。**だが提出文は OSD 3 / 5 / 6 / 9 しか名指ししていなかった**
+（review-process ページが求める 4 つ）。**記録上、特許まわりの反対が実際に持ち出される条は
+OSD 1 と OSD 7 である** ——**満たしている条を名指ししない理由が無いので、1 文足した**
+（`submission.md` §B.0）。
+
+### 25 年分を束ねたので、別の時代の事実も 1 つ入っている
+
+**2001 年、W3C の提出は 19 か月放置されていた**（2000-01 提出 → 2001-08 時点で未処理）。
+Russ Nelson 氏の答え —— *"Why isn't it approved? Because we got hideously backlogged. ...
+**if you want it approved, and you've submitted it and haven't heard from us, resubmit it.**"*
+
+**⚠ これを我々の沈黙への処方として読んではならない。** 2001 年の運用には moderation が無く、
+**我々の場合は moderator が「ACD-1.0 に関する further submissions の前に直接返信せよ」と
+求め、その後も投稿が通っていない**（B14 / `ACD-OSI-BOTTLENECKS-POSTING.md`）。
+**「再提出せよ」という処方が在ることと、我々がいま再提出できることは別である。**

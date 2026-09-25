@@ -1,0 +1,201 @@
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-- 
+Pamela S. Chestek Chair, License Committee Open Source Initiative
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20240812/b69df5b3/attachment.htm>
+
+From pamela.chestek at opensource.org  Sun Sep  8 22:12:41 2024
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Sun, 8 Sep 2024 18:12:41 -0400
+Subject: [License-review] Request for approval of the updated W3C Software license
+In-Reply-To: <482a56a1-1b69-460b-a264-5d9c5e28146c@opensource.org>
+References: <5ced66ba-1ee3-485e-a39c-80b35226e5cd@w3.org> <482a56a1-1b69-460b-a264-5d9c5e28146c@opensource.org>
+Message-ID: <d51bfa9b-09a7-4c55-85d4-7664cd6394d4@opensource.org>
+
+At the Board meeting on August 16, the Board adopted the recommendation 
+of the License Committee that "the W3C Software and Document license - 
+2023 version is not a new license. The text on the OSI website will be 
+modified to reflect that the license has alternative text for the names 
+of the copyright owners."
+
+Pam
+
+Pamela S. Chestek
+Chair, License Committee
+Open Source Initiative
+
+On 8/12/2024 9:17 PM, Pamela Chestek wrote:
+>
+> Below is the recommendation of the License Committee on the W3C 
+> license, which is /"Resolved that it is the opinion of the OSI that 
+> the W3C Software and Document license - 2023 version is not a new 
+> license. The text on the OSI website will be modified to reflect that 
+> the license has alternative text for the names of the copyright owners."/
+>
+> ?The next Board meeting is Friday, August 16, when I expect the Board 
+> will vote on the recommendation.
+>
+> Pam
+>
+> ====================
+>
+> License: W3C Software and Document license - 2023 version (Exhibit A)
+> Submitted: 18 April 2024, 
+> https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2024-April/005464.html
+> Decision date: due no later than the first Board meeting after 18 June 
+> 2024
+>
+> *License Review Committee Recommendation: *
+>
+> Resolved that it is the opinion of the OSI that the W3C Software and 
+> Document license - 2023 version is not a new license. The text on the 
+> OSI website will be modified to reflect that the license has 
+> alternative text for the names of the copyright owners."
+>
+> Rationale Document
+>
+> The license-review list criticized this license here and here for its 
+> reference to external documents (?Permission to copy ? provided that 
+> you include the following on ALL copies of the work or portions 
+> thereof, including modifications: Any pre-existing intellectual 
+> property disclaimers, notices, or terms and conditions?) that might 
+> add unacceptable limitations, including the withholding of patent 
+> licenses. However, this license was approved in 2017, despite the 
+> objections also being voiced then.
+>
+> SPDX, which has established standards for determining when changes to 
+> a license create a new version, said ?In 2023, W3C made minor 
+> modifications to this license as of Jan 1, 2023?. However, those 
+> changes did not give rise to a new license under the SPDX Matching 
+> Guidelines, thus the same id can be used.?
+>
+> In order to maintain consistency with OSI?s past decisions and with 
+> SPDX (thus also avoiding the challenge of having an OSI-approved 
+> license that would not have a unique SPDX identifier), the OSI will 
+> also consider this license the same license as the 2015 version and an 
+> OSI-approved license.
+>
+> Exhibit A
+>
+> Software and Document license - 2023 version
+>
+> Status: This document is in effect since 1 January 2023.
+> ????????????????????????????????????????
+> This work is being provided by the copyright holders under the following
+> license.
+>
+> License
+>
+> By obtaining and/or copying this work, you (the licensee) agree that 
+> you have read, understood, and will comply with the following terms 
+> and conditions.
+>
+> Permission to copy, modify, and distribute this work, with or without 
+> modification, for any purpose and without fee or royalty is hereby 
+> granted, provided that you include the following on ALL copies of the 
+> work or portions thereof, including modifications:
+>
+> ? ? The full text of this NOTICE in a location viewable to users of 
+> the redistributed or derivative work.
+> ? ? Any pre-existing intellectual property disclaimers, notices, or 
+> terms and conditions. If none exist, the W3C software and document 
+> short notice should be included.
+> ? ? Notice of any changes or modifications, through a copyright 
+> statement on the new code or document such as "This software or 
+> document includes material copied from or derived from [title and URI 
+> of the W3C document]. Copyright ? [$year-of-document] World Wide Web 
+> Consortium. https://www.w3.org/copyright/software-license-2023/"
+>
+> Disclaimers
+>
+> THIS WORK IS PROVIDED "AS IS," AND COPYRIGHT HOLDERS MAKE NO 
+> REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT 
+> LIMITED TO, WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY 
+> PARTICULAR PURPOSE OR THAT THE USE OF THE SOFTWARE OR DOCUMENT WILL 
+> NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER 
+> RIGHTS.
+>
+> COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL 
+> OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR 
+> DOCUMENT.
+>
+> The name and trademarks of copyright holders may NOT be used in 
+> advertising or
+> publicity pertaining to the work without specific, written prior 
+> permission. Title to copyright in this work will at all times remain 
+> with copyright holders.
+>
+> Versions
+>
+> ? ? This version: https://www.w3.org/copyright/software-license-2023/
+> ? ? Latest version: https://www.w3.org/copyright/software-license/
+> ? ? Previous version: https://www.w3.org/copyright/software-license-2015/
+>
+> Changes since the previous document
+>
+> ? ? The 2023 version updates identification of the copyright holder.
+>
+> On 4/18/2024 10:42 AM, Rigo Wenning wrote:
+>> Hello,
+>>
+>> W3C has registered its Software Notice and License with OSI. OSI 
+>> approved the 2015 version of the license on November 29, 2017.
+>>
+>> https://opensource.org/license/w3c
+>>
+>> On 2023-01-01, W3C changed its underlying structure and legal status. 
+>> This affects the wording of the license registered with OSI.
+>>
+>> W3C updated the 2015 Software license with the necessary legal 
+>> information and created the 2023 Software license.
+>>
+>> The main change is in the copyright notice. There is no change in the 
+>> legal text, except for the attribution to the new legal entity moving 
+>> from W3C hosts to the new W3C legal entity.
+>>
+>> The new license can be seen online here:
+>>
+>> https://www.w3.org/copyright/software-license-2023/
+>>
+>> and attached as text version.
+>>
+>> Asserting that, like the 2015 version, the 2023 version of the W3C 
+>> Software license continues to comply with the Open Source Definition. 
+>> Especially it continues to comply OSD principle 3 by allowing for 
+>> derivative works, principle 5 and 6 by avoiding all discriminations 
+>> and principle 9 as it does not affect combinability.
+>>
+>> W3C therefore humbly requests the approval of the 2023 version of the 
+>> W3C Software license by OSI and the update of the license stored in
+>>
+>> https://opensource.org/license/w3c
+>>
+>> Yours sincerely
+>>
+>> ?--
+>> ?Rechtsanwalt Rigo Wenning
+>> ?ERCIM/W3C Legal counsel
+>>
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>>
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+> -- 
+> Pamela S. Chestek Chair, License Committee Open Source Initiative
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20240908/58650874/attachment.htm>
+

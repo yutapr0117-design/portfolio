@@ -1,0 +1,750 @@
+From carlo at piana.eu  Wed Aug 16 10:14:39 2017
+From: carlo at piana.eu (Carlo)
+Date: Wed, 16 Aug 2017 12:14:39 +0200
+Subject: [License-review] For Approval: W3C Software and Document License
+In-Reply-To: <035201d312e5$8ba910c0$a2fb3240$@rosenlaw.com>
+References: <821e3959-9143-f033-3d82-b8ff06bd129f@w3.org> <f630520e-9baf-d339-d161-3fe752a7d706@piana.eu> <bfa8ccbf-aa39-917c-7076-0792ab043e7d@w3.org> <6daacb65-5b28-cb19-b627-db7c3e34ec4a@piana.eu> <e9ae56de6b8f47b6a52c7f05f182c4e3@aplex01.dom1.jhuapl.edu> <21cf92dd738f420693a5abacb2c88e32@aplex01.dom1.jhuapl.edu> <2cfb03d5-d2e4-9729-2792-558fd5e547fb@piana.eu> <035201d312e5$8ba910c0$a2fb3240$@rosenlaw.com>
+Message-ID: <3f6c7f07-ca4b-18df-09f7-3464f3962cbf@piana.eu>
+
+Dear Larry, all,
+
+indeed, I have acknowledged that the issue is of minimal importance in
+the context of this particular license, due to its admittedly narrow
+field of application, where thanks to a wise IPR policy the patent's
+problem should not be that relevant, and I have not asked to withhold
+approval.
+
+However, I still keep the point, valid in general and more relevant as
+more "patent agnostic" licenses come around, that the issue whether an
+open source license can openly exclude patent rights [0] from the grants
+and still be called "open source" must be resolved.
+
+All the best,
+
+Carlo
+
+[0] at least those patents relevant to the contribution made and shared
+by the copyright holder under the license in hand.
+
+On 11/08/2017 23:05, Lawrence Rosen wrote:
+>
+> I agree with Carlo about the relevance of patents to open source
+> software. But some solutions already exist. Some licenses are better
+> than others. This W3C copyright license is the wrong battlefield to
+> argue about patents.
+>
+>  
+>
+> W3C has resolved the public's patent issues with a wonderful Patent
+> Policy that already protects both open source and proprietary software
+> that implements W3C standards. In conjunction with this new "W3C
+> Software and Document License", that "W3C Patent Policy" is what open
+> source wanted and is given.
+>
+>  
+>
+> That is why the W3C Software and Document License is all we now need.
+> OSI should please approve it.
+>
+>  
+>
+> /Larry
+>
+>  
+>
+>  
+>
+> *From:*License-review [mailto:license-review-bounces at opensource.org]
+> *On Behalf Of *Carlo
+> *Sent:* Friday, August 11, 2017 10:18 AM
+> *To:* license-review at opensource.org
+> *Subject:* Re: [License-review] For Approval: W3C Software and
+> Document License
+>
+>  
+>
+> Dear Nigel,
+>
+> I will stop repeating the same comment (which I myself received
+> firstly, by the way) when this nonsense of considering "open source" a
+> copyright-only licensing issue will come to an end, or, more
+> appropriately, when this larger and graver nonsense of applying
+> patents to software would not be gone for good.
+>
+> A legal text must be interpreted in the situation where it applies. If
+> the scenario changes, its interpretation must change. So be for the
+> OSD, if the "evolutionary" interpretation is not defeated an
+> insurmountable wording therein. This is not the case. My reading of
+> the OSD is perfectly compatible with the text. No need whatsoever to
+> change the OSD. The OSD says "the *distribution terms* of open source
+> must comply". Not "the distribution terms under copyright". The
+> distribution terms. Period.
+>
+> How come if you have two sets of rights on the software you yourself
+> make or modify and distribute, you may  sanely say "take it, this is
+> open open source", and when someone starts using it you say "hey, but
+> not THAT open, here's a license, here's a bill for royalties, if you
+> want to continue using it". "But you have a license!" "Ah-ah! A
+> license on copyright, not a license on patents!"
+>
+> Where is the "without the need for execution of an additional license"?
+>
+> Of course, if somebody else come forward with their own patent for
+> software they have not created, this would be a problem of the legal
+> system, not of the license. But if the license allows a "gotcha"
+> situation by the same developer, sorry, that's a problem of the license.
+>
+> Then you can do as you please, and call "open source" a /legal
+> /instrument that only people having signed a patent license and pay
+> royalties for it can /legally/ use, modify, distribute. I will still
+> retain the right to think and say it's a totally foolish and
+> self-defeating position. Will I be alone or just with the minority?
+> Too bad!
+>
+> Brexit showed us that the decision of the majority not necessarily is
+> the most sane, never mind the most informed one. Good luck!
+>
+> All the best,
+>
+> Carlo
+>
+>  
+>
+> On 11/08/2017 17:51, Tzeng, Nigel H. wrote:
+>
+>     Oops.
+>
+>      
+>
+>     My comment is that there is no red line for patents in the OSD.
+>
+>      
+>
+>     Either get the necessary consensus to change the OSD or stop
+>     debating this in every single Open Source license submission and
+>     holding them up.
+>
+>      
+>
+>     The FACT remains that non-OSI approved licenses, namely CC0, are
+>     considered Open Source by many open source practioners so your
+>     opinion is not necessarily the majority view and certainly not the
+>     universal view.
+>
+>      
+>
+>     *From: *Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu
+>     <mailto:Nigel.Tzeng at jhuapl.edu>>
+>
+>     *Date: *Friday, Aug 11, 2017, 11:45 AM
+>
+>     *To: *License submissions for OSI review
+>     <license-review at opensource.org <mailto:license-review at opensource.org>>
+>
+>     *Subject: *Re: [License-review] For Approval: W3C Software and
+>     Document License
+>
+>      
+>
+>      
+>
+>         *From: *Carlo Piana <carlo at piana.eu <mailto:carlo at piana.eu>>
+>
+>         *Date: *Thursday, Aug 10, 2017, 6:08 AM
+>
+>         *To: *license-review at opensource.org
+>         <mailto:license-review at opensource.org>
+>         <license-review at opensource.org
+>         <mailto:license-review at opensource.org>>
+>
+>         *Subject: *Re: [License-review] For Approval: W3C Software and
+>         Document License
+>
+>          
+>
+>         On 09/08/2017 21:15, 
+>
+>         The scope of a FOSS license is to give permission to do things
+>         with
+>         software. They are *historically* conceived as copyright licenses
+>         because *historically* that was what drafters understood it
+>         was the
+>         regime under which rights had to be conferred on software.
+>
+>         If different rights insist on software, the owner of those
+>         rights who
+>         purports to give permission *must* give those permission under
+>         all the
+>         rights she may have, or the openness test would miserably fail.
+>
+>         Otherwise it is like opening one lock of a door, with the other
+>         remaining closed. The door will not open. So if the license is
+>         a key,
+>         you cannot just say "this key will conditionally open all the
+>         copyright
+>         locks on my doors" and claim that the doors will be "open
+>         doors". If
+>         there are patent locks of yours, the doors will remain shut. [0]
+>
+>         A license which only gives copyright licenses but refuses to
+>         do so for
+>         patents is not an open source license in my and many others'
+>         opinion.
+>         It's a public license, it is valid, it has some scope, but
+>         it's not open
+>         source.
+>
+>         I invite OSI to take a stance once for all as to this
+>         conceptual ambiguity.
+>
+>          
+>
+>          
+>
+>
+>
+>
+>     _______________________________________________
+>
+>     License-review mailing list
+>
+>     License-review at opensource.org <mailto:License-review at opensource.org>
+>
+>     https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+>  
+>
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170816/2769f65f/attachment.html>
+
+From jwright at commsoft.com  Wed Aug 16 16:49:18 2017
+From: jwright at commsoft.com (Jim Wright)
+Date: Wed, 16 Aug 2017 09:49:18 -0700
+Subject: [License-review] For Approval: W3C Software and Document License
+In-Reply-To: <3f6c7f07-ca4b-18df-09f7-3464f3962cbf@piana.eu>
+References: <821e3959-9143-f033-3d82-b8ff06bd129f@w3.org> <f630520e-9baf-d339-d161-3fe752a7d706@piana.eu> <bfa8ccbf-aa39-917c-7076-0792ab043e7d@w3.org> <6daacb65-5b28-cb19-b627-db7c3e34ec4a@piana.eu> <e9ae56de6b8f47b6a52c7f05f182c4e3@aplex01.dom1.jhuapl.edu> <21cf92dd738f420693a5abacb2c88e32@aplex01.dom1.jhuapl.edu> <2cfb03d5-d2e4-9729-2792-558fd5e547fb@piana.eu> <035201d312e5$8ba910c0$a2fb3240$@rosenlaw.com> <3f6c7f07-ca4b-18df-09f7-3464f3962cbf@piana.eu>
+Message-ID: <79007C21-0FED-4DB5-A1E7-8D015A38EEAB@commsoft.com>
+
+Well said Carlo and agreed.  (And add one vote to the "No it cannot" box.)
+ Best, Jim
+
+
+> On Aug 16, 2017, at 3:14 AM, Carlo <carlo at piana.eu> wrote:
+> 
+> Dear Larry, all,
+> 
+> indeed, I have acknowledged that the issue is of minimal importance in the context of this particular license, due to its admittedly narrow field of application, where thanks to a wise IPR policy the patent's problem should not be that relevant, and I have not asked to withhold approval.
+> 
+> However, I still keep the point, valid in general and more relevant as more "patent agnostic" licenses come around, that the issue whether an open source license can openly exclude patent rights [0] from the grants and still be called "open source" must be resolved. 
+> 
+> All the best,
+> 
+> Carlo
+> 
+> [0] at least those patents relevant to the contribution made and shared by the copyright holder under the license in hand.
+> 
+>> On 11/08/2017 23:05, Lawrence Rosen wrote:
+>> I agree with Carlo about the relevance of patents to open source software. But some solutions already exist. Some licenses are better than others. This W3C copyright license is the wrong battlefield to argue about patents.
+>>  
+>> W3C has resolved the public's patent issues with a wonderful Patent Policy that already protects both open source and proprietary software that implements W3C standards. In conjunction with this new "W3C Software and Document License", that "W3C Patent Policy" is what open source wanted and is given.
+>>  
+>> That is why the W3C Software and Document License is all we now need. OSI should please approve it.
+>>  
+>> /Larry
+>>  
+>>  
+>> From: License-review [mailto:license-review-bounces at opensource.org] On Behalf Of Carlo
+>> Sent: Friday, August 11, 2017 10:18 AM
+>> To: license-review at opensource.org
+>> Subject: Re: [License-review] For Approval: W3C Software and Document License
+>>  
+>> Dear Nigel,
+>> 
+>> I will stop repeating the same comment (which I myself received firstly, by the way) when this nonsense of considering "open source" a copyright-only licensing issue will come to an end, or, more appropriately, when this larger and graver nonsense of applying patents to software would not be gone for good. 
+>> 
+>> A legal text must be interpreted in the situation where it applies. If the scenario changes, its interpretation must change. So be for the OSD, if the "evolutionary" interpretation is not defeated an insurmountable wording therein. This is not the case. My reading of the OSD is perfectly compatible with the text. No need whatsoever to change the OSD. The OSD says "the *distribution terms* of open source must comply". Not "the distribution terms under copyright". The distribution terms. Period. 
+>> 
+>> How come if you have two sets of rights on the software you yourself make or modify and distribute, you may  sanely say             "take it, this is open open source", and when someone starts using it you say "hey, but not THAT open, here's a license, here's a bill for royalties, if you want to continue using it". "But you have a license!" "Ah-ah! A license on copyright, not a license on patents!"
+>> 
+>> Where is the "without the need for execution of an additional license"? 
+>> 
+>> Of course, if somebody else come forward with their own patent for software they have not created, this would be a problem of the legal system, not of the license. But if the license allows a "gotcha" situation by the same developer, sorry, that's a problem of the license.
+>> 
+>> Then you can do as you please, and call "open source" a legal instrument that only people having signed a patent license and pay royalties for it can legally use, modify, distribute. I will still retain the right to think and say it's a totally foolish and self-defeating position. Will I be alone or just with the minority? Too bad!
+>> 
+>> Brexit showed us that the decision of the majority not necessarily is the most sane, never mind the most informed one. Good luck!
+>> 
+>> All the best,
+>> 
+>> Carlo
+>> 
+>>  
+>> 
+>> On 11/08/2017 17:51, Tzeng, Nigel H. wrote:
+>> Oops.
+>>  
+>> My comment is that there is no red line for patents in the OSD.
+>>  
+>> Either get the necessary consensus to change the OSD or stop debating this in every single Open Source license submission and holding them up.
+>>  
+>> The FACT remains that non-OSI approved licenses, namely CC0, are considered Open Source by many open source practioners so your opinion is not necessarily the majority view and certainly not the universal view.
+>>  
+>> From: Tzeng, Nigel H. <Nigel.Tzeng at jhuapl.edu>
+>> Date: Friday, Aug 11, 2017, 11:45 AM
+>> To: License submissions for OSI review <license-review at opensource.org>
+>> Subject: Re: [License-review] For Approval: W3C Software and Document License
+>>  
+>>  
+>> From: Carlo Piana <carlo at piana.eu>
+>> Date: Thursday, Aug 10, 2017, 6:08 AM
+>> To: license-review at opensource.org <license-review at opensource.org>
+>> Subject: Re: [License-review] For Approval: W3C Software and Document License
+>>  
+>> On 09/08/2017 21:15, 
+>> 
+>> The scope of a FOSS license is to give permission to do things with
+>> software. They are *historically* conceived as copyright licenses
+>> because *historically* that was what drafters understood it was the
+>> regime under which rights had to be conferred on software.
+>> 
+>> If different rights insist on software, the owner of those rights who
+>> purports to give permission *must* give those permission under all the
+>> rights she may have, or the openness test would miserably fail.
+>> 
+>> Otherwise it is like opening one lock of a door, with the other
+>> remaining closed. The door will not open. So if the license is a key,
+>> you cannot just say "this key will conditionally open all the copyright
+>> locks on my doors" and claim that the doors will be "open doors". If
+>> there are patent locks of yours, the doors will remain shut. [0]
+>> 
+>> A license which only gives copyright licenses but refuses to do so for
+>> patents is not an open source license in my and many others' opinion.
+>> It's a public license, it is valid, it has some scope, but it's not open
+>> source.
+>> 
+>> I invite OSI to take a stance once for all as to this conceptual ambiguity.
+>>  
+>>  
+>> 
+>> 
+>> 
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at opensource.org
+>> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>>  
+>> 
+>> 
+>> 
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at opensource.org
+>> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+> 
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20170816/6b19b385/attachment.html>
+
+From wseltzer at w3.org  Thu Oct 26 12:19:41 2017
+From: wseltzer at w3.org (Wendy Seltzer)
+Date: Thu, 26 Oct 2017 08:19:41 -0400
+Subject: [License-review] W3C License currently under review?
+Message-ID: <5f098fce-6824-0fc8-eb38-726eacf5a92e@w3.org>
+
+While I hesitate to interrupt the discussion of Zero Reciprocal, I
+wonder if I can encourage an update on the W3C Software and Document
+License submission I made in August,
+https://lists.opensource.org/pipermail/license-review/2017-August/003070.html
+
+I believe there are no outstanding questions and some on-list support.
+
+Thanks,
+--Wendy
+-- 
+Wendy Seltzer -- wseltzer at w3.org +1.617.715.4883 (office)
+Strategy Lead and Counsel, World Wide Web Consortium (W3C)
+https://wendy.seltzer.org/        +1.617.863.0613 (mobile)
+
+
+
+
+From fontana at sharpeleven.org  Thu Oct 26 18:17:42 2017
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Thu, 26 Oct 2017 14:17:42 -0400
+Subject: [License-review] W3C License currently under review?
+In-Reply-To: <5f098fce-6824-0fc8-eb38-726eacf5a92e@w3.org>
+References: <5f098fce-6824-0fc8-eb38-726eacf5a92e@w3.org>
+Message-ID: <1509041862.3609483.1152119056.571A27E0@webmail.messagingengine.com>
+
+On Thu, Oct 26, 2017, at 08:19 AM, Wendy Seltzer wrote:
+> While I hesitate to interrupt the discussion of Zero Reciprocal, I
+> wonder if I can encourage an update on the W3C Software and Document
+> License submission I made in August,
+> https://lists.opensource.org/pipermail/license-review/2017-August/003070.html
+> 
+> I believe there are no outstanding questions and some on-list support. 
+Wendy,
+
+I plan to recommend OSI approval at the next board meeting. 
+
+Richard
+
+
+From richard.evan.fontana at gmail.com  Thu Nov 30 02:11:57 2017
+From: richard.evan.fontana at gmail.com (Richard Fontana)
+Date: Wed, 29 Nov 2017 21:11:57 -0500
+Subject: [License-review] W3C Software and Document License
+Message-ID: <CAExdoGCsR+wO_4u7H6MKq8=6vJuVxYJEgHNrnx=Z_2kz9y-xcg@mail.gmail.com>
+
+Good news, everyone!
+
+The OSI has approved the W3C Software and Document License (2015), as
+submitted here:
+https://lists.opensource.org/pipermail/license-review/2017-August/003070.html
+
+Richard
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20171129/6eef8d23/attachment.html>
+
+From Brian.Warner2 at fmr.com  Fri Sep 22 16:06:52 2023
+From: Brian.Warner2 at fmr.com (Warner, Brian (TS3K))
+Date: Fri, 22 Sep 2023 16:06:52 +0000
+Subject: [License-review] W3C license text might be incorrect on website
+Message-ID: <DM8P105MB040245FE5287AF62411EA9F2BBFFA@DM8P105MB0402.NAMP105.PROD.OUTLOOK.COM>
+
+Hi,
+
+I'm looking at the license entry for W3C, and it looks like the website text [1] differs from what was proposed [2].
+
+There have been a few revisions of the W3C license through the years. I'm guessing based upon the original 2017 proposal that the intention was to approve the 2015 version (W3C-20150513). The SPDX ID on the website also indicates the 2015 version. However, the website text appears to match the 1998 version (W3C-19980720) [3].
+
+I believe the remedy would be to update the text on the OSI page [1] to match the 2015 version. Is this the right place to suggest an update?
+
+Thanks!
+Brian
+
+[1]: https://opensource.org/license/w3c-php/
+[2]: http://lists.opensource.org/pipermail/license-review_lists.opensource.org/2017-August/003070.html
+[3]: https://spdx.org/licenses/W3C-19980720.html
+--
+Brian Warner
+Director, Fidelity Investments OSPO
+brian.warner2 at fmr.com<mailto:brian.warner2 at fmr.com>
++1 724-301-6171
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20230922/533e845e/attachment.html>
+
+From josh at berkus.org  Thu Sep 28 19:57:58 2023
+From: josh at berkus.org (Josh Berkus)
+Date: Thu, 28 Sep 2023 12:57:58 -0700
+Subject: [License-review] W3C license text might be incorrect on website
+In-Reply-To: <DM8P105MB040245FE5287AF62411EA9F2BBFFA@DM8P105MB0402.NAMP105.PROD.OUTLOOK.COM>
+References: <DM8P105MB040245FE5287AF62411EA9F2BBFFA@DM8P105MB0402.NAMP105.PROD.OUTLOOK.COM>
+Message-ID: <175bceb3-122a-4bc5-8c28-2d6cc4312054@berkus.org>
+
+On 9/22/23 09:06, Warner, Brian (TS3K) via License-review wrote:
+
+> I believe the remedy would be to update the text on the OSI page [1] to 
+> match the 2015 version. Is this the right place to suggest an update?
+
+This is the right list, thanks for pointing this out.  Currently 
+reviewing the mailing list and voting history to see if this is just a 
+clerical mistake with updating the website.
+
+-- 
+Josh Berkus
+
+
+
+From josh at berkus.org  Fri Oct 27 18:08:21 2023
+From: josh at berkus.org (Josh Berkus)
+Date: Fri, 27 Oct 2023 11:08:21 -0700
+Subject: [License-review] W3C license text might be incorrect on website
+In-Reply-To: <175bceb3-122a-4bc5-8c28-2d6cc4312054@berkus.org>
+References: <DM8P105MB040245FE5287AF62411EA9F2BBFFA@DM8P105MB0402.NAMP105.PROD.OUTLOOK.COM> <175bceb3-122a-4bc5-8c28-2d6cc4312054@berkus.org>
+Message-ID: <6f5ee8d3-a900-437c-a400-d54f6782fc33@berkus.org>
+
+On 9/28/23 12:57, Josh Berkus wrote:
+> On 9/22/23 09:06, Warner, Brian (TS3K) via License-review wrote:
+> 
+>> I believe the remedy would be to update the text on the OSI page [1] 
+>> to match the 2015 version. Is this the right place to suggest an update?
+> 
+> This is the right list, thanks for pointing this out.? Currently 
+> reviewing the mailing list and voting history to see if this is just a 
+> clerical mistake with updating the website.
+
+The current version of the W3C license was discussed in 2017 but, for 
+some reason, never voted on.
+
+We should proceed to reach consensus on the new license version.
+
+-- 
+Josh Berkus
+
+
+
+From rigo at w3.org  Thu Apr 18 17:42:18 2024
+From: rigo at w3.org (Rigo Wenning)
+Date: Thu, 18 Apr 2024 19:42:18 +0200
+Subject: [License-review] Request for approval of the updated W3C Software license
+Message-ID: <5ced66ba-1ee3-485e-a39c-80b35226e5cd@w3.org>
+
+Hello,
+
+W3C has registered its Software Notice and License with OSI. OSI 
+approved the 2015 version of the license on November 29, 2017.
+
+https://opensource.org/license/w3c
+
+On 2023-01-01, W3C changed its underlying structure and legal status. 
+This affects the wording of the license registered with OSI.
+
+W3C updated the 2015 Software license with the necessary legal 
+information and created the 2023 Software license.
+
+The main change is in the copyright notice. There is no change in the 
+legal text, except for the attribution to the new legal entity moving 
+from W3C hosts to the new W3C legal entity.
+
+The new license can be seen online here:
+
+https://www.w3.org/copyright/software-license-2023/
+
+and attached as text version.
+
+Asserting that, like the 2015 version, the 2023 version of the W3C 
+Software license continues to comply with the Open Source Definition. 
+Especially it continues to comply OSD principle 3 by allowing for 
+derivative works, principle 5 and 6 by avoiding all discriminations and 
+principle 9 as it does not affect combinability.
+
+W3C therefore humbly requests the approval of the 2023 version of the 
+W3C Software license by OSI and the update of the license stored in
+
+https://opensource.org/license/w3c
+
+Yours sincerely
+ -- Rechtsanwalt Rigo Wenning ERCIM/W3C Legal counsel
+
+-------------- next part --------------
+Software and Document license - 2023 version
+
+Status: This document is in effect since 1 January 2023.
+
+???????????????????????????????????????????????????????????????????????????????
+
+This work is being provided by the copyright holders under the following
+license.
+
+License
+
+By obtaining and/or copying this work, you (the licensee) agree that you have
+read, understood, and will comply with the following terms and conditions.
+
+Permission to copy, modify, and distribute this work, with or without
+modification, for any purpose and without fee or royalty is hereby granted,
+provided that you include the following on ALL copies of the work or portions
+thereof, including modifications:
+ ? The full text of this NOTICE in a location viewable to users of the redistributed or derivative work. ? Any pre-existing intellectual property disclaimers, notices, or terms and conditions. If none exist, the W3C software and document short notice should be included. ? Notice of any changes or modifications, through a copyright statement on the new code or document such as "This software or document includes material copied from or derived from [title and URI of the W3C document]. Copyright ? [$year-of-document] World Wide Web Consortium. https:// www.w3.org/copyright/software-license-2023/"
+
+Disclaimers
+
+THIS WORK IS PROVIDED "AS IS," AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR
+WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO, WARRANTIES OF
+MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE
+SOFTWARE OR DOCUMENT WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS,
+TRADEMARKS OR OTHER RIGHTS.
+
+COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR
+CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR DOCUMENT.
+
+The name and trademarks of copyright holders may NOT be used in advertising or
+publicity pertaining to the work without specific, written prior permission.
+Title to copyright in this work will at all times remain with copyright
+holders.
+
+Versions
+ ? This version: https://www.w3.org/copyright/software-license-2023/ ? Latest version: https://www.w3.org/copyright/software-license/ ? Previous version: https://www.w3.org/copyright/software-license-2015/
+
+Changes since the previous document
+ ? The 2023 version updates identification of the copyright holder.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: OpenPGP_signature.asc
+Type: application/pgp-signature
+Size: 840 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20240418/54479e5a/attachment.asc>
+
+From carlo at piana.eu  Sat Apr 20 10:50:34 2024
+From: carlo at piana.eu (Carlo Piana)
+Date: Sat, 20 Apr 2024 12:50:34 +0200 (CEST)
+Subject: [License-review] Request for approval of the updated W3C Software license
+In-Reply-To: <5ced66ba-1ee3-485e-a39c-80b35226e5cd@w3.org>
+References: <5ced66ba-1ee3-485e-a39c-80b35226e5cd@w3.org>
+Message-ID: <1380182666.41125.1713610234521.JavaMail.zimbra@piana.eu>
+
+Dear Mr. Wenning,
+
+thank you for your submission. I am replying in my personal capacity of Open Source lawyer, without any of my statements and opinions meant or be construed as an official position of OSI in any manner.
+
+I have in the past expressed some reservations as to how the license, in its previous incarnations, is drafted, but since it has been approved and it has not been substantially changed, I will defer to the previous evaluation and will not reopen the discussion. 
+
+On a general note, and building from the experience of retrospectively reviewing all the previously approved licenses, I note some points that I submit to you and to all future drafters of similar licenses.
+
+This license seems conceived more as a one-off license that a contributor to a standard should prepare when a reference implementation is submitted. However, an Open Source license in my reading should be conceived to be used and easily implemented in all subsequent modifications and combinations. I will suggest here after a few possible doubts that a downstream developer could have.
+
+- First bullet. "The full text of this NOTICE". What is the "notice" part of the license? The entirety?
+- Second bullet. Someone getting the software and wanting to reuse may be confused, not understanding what is the document you refer to, which is not defined. 
+- Third bullet. It refers to a "W3C document", but why, since this is a software license? Maybe you will put a clarification note as to where you host the document and what it is meant to be. This clarification should be available irrespective of the availability of the web resources, including by OSI public repository of licenses. All licenses should be as much as possible self-contained and self-sufficient.
+- Disclaimers. This does not raise particular concerns, but may I point out that the disclaimer only benefits copyright holders and not all who distribute, promote the software as is and could be left out in the cold? By contrast, the GPLv3 license provides "...OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS THE PROGRAM AS PERMITTED ABOVE".
+
+Again, this is not meant to raise any objection, or to imply criticism to the drafting, but as a general remark to any who would like to create a new Open Source license.
+
+All the best,
+
+Carlo 
+
+ 
+
+----- Messaggio originale -----
+> Da: "Rigo Wenning" <rigo at w3.org>
+> A: "license-review at lists.opensource.org" <license-review at lists.opensource.org>
+> Inviato: Gioved?, 18 aprile 2024 19:42:18
+> Oggetto: [License-review] Request for approval of the updated W3C Software license
+
+> Hello,
+> 
+> W3C has registered its Software Notice and License with OSI. OSI
+> approved the 2015 version of the license on November 29, 2017.
+> 
+> https://opensource.org/license/w3c
+> 
+> On 2023-01-01, W3C changed its underlying structure and legal status.
+> This affects the wording of the license registered with OSI.
+> 
+> W3C updated the 2015 Software license with the necessary legal
+> information and created the 2023 Software license.
+> 
+> The main change is in the copyright notice. There is no change in the
+> legal text, except for the attribution to the new legal entity moving
+> from W3C hosts to the new W3C legal entity.
+> 
+> The new license can be seen online here:
+> 
+> https://www.w3.org/copyright/software-license-2023/
+> 
+> and attached as text version.
+> 
+> Asserting that, like the 2015 version, the 2023 version of the W3C
+> Software license continues to comply with the Open Source Definition.
+> Especially it continues to comply OSD principle 3 by allowing for
+> derivative works, principle 5 and 6 by avoiding all discriminations and
+> principle 9 as it does not affect combinability.
+> 
+> W3C therefore humbly requests the approval of the 2023 version of the
+> W3C Software license by OSI and the update of the license stored in
+> 
+> https://opensource.org/license/w3c
+> 
+> Yours sincerely
+> 
+>  --
+>  Rechtsanwalt Rigo Wenning
+>  ERCIM/W3C Legal counsel
+> 
+> 
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+> 
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+From mccoy at lexpan.law  Sun Apr 21 17:44:37 2024
+From: mccoy at lexpan.law (McCoy Smith)
+Date: Sun, 21 Apr 2024 10:44:37 -0700
+Subject: [License-review] Request for approval of the updated W3C Software license
+In-Reply-To: <1380182666.41125.1713610234521.JavaMail.zimbra@piana.eu>
+References: <5ced66ba-1ee3-485e-a39c-80b35226e5cd@w3.org> <1380182666.41125.1713610234521.JavaMail.zimbra@piana.eu>
+Message-ID: <06fd01da9413$94d50990$be7f1cb0$@lexpan.law>
+
+The part about this that gives me pause is that it appears to contemplate licensors adding non-removable IP disclaimers ("Any pre-existing intellectual property disclaimers" must be preserved). Given that the W3C patent policy, although royalty-free, allows participants to exclude out patents (see W3C patent policy, Sec 4), this provision would seem to allow licensors to exclude out some or all of their patents that are infringed by the licensed code. Which would allow this license to include disclaimers that would make it violative of OSD 1.
+I'd suggest that the Board consider whether this provision (which exists also in the old, previously approved, version) might be violative of the OSD. Perhaps the text itself (a variant of MIT) provides enough patent protection even if a W3C member opts out its patents to a specification, but I'm not sure it makes sense to have an approved license that allows for add-on IP disclaimers around copyright or patent.
+
+> -----Original Message-----
+> From: License-review <license-review-bounces at lists.opensource.org> On
+> Behalf Of Carlo Piana
+> Sent: Saturday, April 20, 2024 3:51 AM
+> To: License submissions for OSI review <license-review at lists.opensource.org>
+> Subject: Re: [License-review] Request for approval of the updated W3C
+> Software license
+> 
+> Dear Mr. Wenning,
+> 
+> thank you for your submission. I am replying in my personal capacity of Open
+> Source lawyer, without any of my statements and opinions meant or be
+> construed as an official position of OSI in any manner.
+> 
+> I have in the past expressed some reservations as to how the license, in its
+> previous incarnations, is drafted, but since it has been approved and it has not
+> been substantially changed, I will defer to the previous evaluation and will not
+> reopen the discussion.
+> 
+> On a general note, and building from the experience of retrospectively
+> reviewing all the previously approved licenses, I note some points that I submit
+> to you and to all future drafters of similar licenses.
+> 
+> This license seems conceived more as a one-off license that a contributor to a
+> standard should prepare when a reference implementation is submitted.
+> However, an Open Source license in my reading should be conceived to be used
+> and easily implemented in all subsequent modifications and combinations. I
+> will suggest here after a few possible doubts that a downstream developer
+> could have.
+> 
+> - First bullet. "The full text of this NOTICE". What is the "notice" part of the
+> license? The entirety?
+> - Second bullet. Someone getting the software and wanting to reuse may be
+> confused, not understanding what is the document you refer to, which is not
+> defined.
+> - Third bullet. It refers to a "W3C document", but why, since this is a software
+> license? Maybe you will put a clarification note as to where you host the
+> document and what it is meant to be. This clarification should be available
+> irrespective of the availability of the web resources, including by OSI public
+> repository of licenses. All licenses should be as much as possible self-contained
+> and self-sufficient.
+> - Disclaimers. This does not raise particular concerns, but may I point out that
+> the disclaimer only benefits copyright holders and not all who distribute,
+> promote the software as is and could be left out in the cold? By contrast, the
+> GPLv3 license provides "...OR ANY OTHER PARTY WHO MODIFIES AND/OR
+> CONVEYS THE PROGRAM AS PERMITTED ABOVE".
+> 
+> Again, this is not meant to raise any objection, or to imply criticism to the
+> drafting, but as a general remark to any who would like to create a new Open
+> Source license.
+> 
+> All the best,
+> 
+> Carlo
+> 
+> 
+> 
