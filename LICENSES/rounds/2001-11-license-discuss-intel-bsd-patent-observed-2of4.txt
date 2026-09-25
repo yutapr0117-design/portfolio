@@ -1,0 +1,671 @@
+Source:   https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Fetched:  2026-09-25T09:07:03+00:00（ブラウザ相当の UA・件名で厳密に抽出）
+Thread:   Intel's proposed BSD + Patent License —— 全 50 通（2001-11）
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **特許許諾を GPL の OS に条件づけた 2001 年版が OSD 3 / 6 / 8 で争われ、承認されなかった。** 2016 年の無条件版は承認されている（`2016-01-...` を参照）。**ACD §8.2 が無条件・終了不能である理由に当たる。**
+          分割は Check 365（1,000 行）のため・メッセージ境界（2/4 部・9 通）。
+          読みは LICENSES/ACD-1.0.against.md #236 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From kmself at ix.netcom.com  Mon Nov  5 05:47:06 2001
+From: kmself at ix.netcom.com (Karsten M. Self)
+Date: Sun, 4 Nov 2001 21:47:06 -0800
+Subject: Intel's proposed BSD + Patent License
+In-Reply-To: <15333.65503.900492.555290@desk.crynwr.com>; from nelson@crynwr.com on Sun, Nov 04, 2001 at 10:05:23PM -0500
+References: <200110310512.f9V5CAjG003403@lima.epix.net> <15331.7619.661513.726542@desk.crynwr.com> <20011104182203.B18425@navel.introspect> <15333.65503.900492.555290@desk.crynwr.com>
+Message-ID: <20011104214705.D18425@navel.introspect>
+
+on Sun, Nov 04, 2001 at 10:05:23PM -0500, Russell Nelson (nelson at crynwr.com) wrote:
+> Karsten M. Self writes:
+>  > on Fri, Nov 02, 2001 at 05:34:48PM -0500, Russell Nelson (nelson at crynwr.com) wrote:
+>  > > The BSD+Patent license doesn't restrict use either.  The patent system 
+>  > > restricts use.  The BSD+Patent license grants use.
+>  > 
+>  > The patent license creates an explicit class of works under which the
+>  > software is not freely utilizeable.
+> 
+> No it doesn't.  The patent *system* creates this class of works.
+
+Specious.  You could make the same argument of any copyright license.
+Exclusive rights in both cases are retained unless granted...explicitly
+or implicitly.  Question for the lawyers:  does, over the life of a
+patent, failure to seek enforcement, create a circumstance construable
+as an implied license?
+
+The fact is that Intel has chosen to open the door to the room granted
+them by 35 USC, only for the specific instance of operating systems.
+
+Lacking a specific patent grant, one is left in a grey zone.  Invoking
+quantum physics isn't fully appropriate, but the sitation isn't resolved
+until the patent holder decides to enforce and through actions,
+establish the parameters of licensing, implicit or explicit.   Intel is
+acting in a manner that's harmful to free software by resolving this
+grey zone in the form in which they've chosen to do so.
+
+Again, the patent grant, specific to the software, and therefor in my
+reading, a part of the software's licensing, applies to a specific class
+of works.  This is incompatible with the OSD.
+
+IANAL, TINLA, YADA.
+
+Peace.
+
+-- 
+Karsten M. Self <kmself at ix.netcom.com>       http://kmself.home.netcom.com/
+ What part of "Gestalt" don't you understand?             Home of the brave
+  http://gestalt-system.sourceforge.net/                   Land of the free
+   Free Dmitry! Boycott Adobe! Repeal the DMCA! http://www.freesklyarov.org
+Geek for Hire                     http://kmself.home.netcom.com/resume.html
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 232 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20011104/8382d4e9/attachment.sig>
+
+From david at usermode.org  Mon Nov  5 07:13:54 2001
+From: david at usermode.org (David Johnson)
+Date: Sun, 4 Nov 2001 23:13:54 -0800
+Subject: Intel's proposed BSD + Patent License
+In-Reply-To: <20011104214705.D18425@navel.introspect>
+References: <200110310512.f9V5CAjG003403@lima.epix.net> <15333.65503.900492.555290@desk.crynwr.com> <20011104214705.D18425@navel.introspect>
+Message-ID: <200111050749.XAA958400@meer.meer.net>
+
+On Sunday 04 November 2001 09:47 pm, Karsten M. Self wrote:
+
+> >  > The patent license creates an explicit class of works under which the
+> >  > software is not freely utilizeable.
+> >
+> > No it doesn't.  The patent *system* creates this class of works.
+>
+> Specious.  You could make the same argument of any copyright license.
+> Exclusive rights in both cases are retained unless granted...explicitly
+> or implicitly.  Question for the lawyers:  does, over the life of a
+> patent, failure to seek enforcement, create a circumstance construable
+> as an implied license?
+
+Here's a license: "You may freely copy and redistribute this software, and 
+modify it for use on operating systems licensed under the GPL version 2.0." 
+Is this an Open Source License? In the absence of a copyright it is Open 
+Source. In the presence of of a copyright it is not. Notice that it is the 
+copyright *system* that makes this closed source, and not the license itself.
+
+-- 
+David Johnson
+___________________
+http://www.usermode.org
+pgp public key on website
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rhkramer at fast.net  Mon Nov  5 15:16:39 2001
+From: rhkramer at fast.net (Randy Kramer)
+Date: Mon, 05 Nov 2001 10:16:39 -0500
+Subject: Intel's proposed BSD + Patent License
+References: <200110310512.f9V5CAjG003403@lima.epix.net>
+		<15331.7619.661513.726542@desk.crynwr.com>
+		<20011104182203.B18425@navel.introspect> <15333.65503.900492.555290@desk.crynwr.com>
+Message-ID: <3BE6AD57.315C@fast.net>
+
+Russell Nelson wrote:
+> I think we could put forth a clear case for going either way on this.
+> Given how controversial it is, I think I'm going to vote against it.
+
+Russell,
+
+Thank you, I agree that a vote against this license is appropriate.  I
+don't understand all the issues, but if anything (like the patent
+system) creates a situation where software licensed under an "open
+source" license has less privileges than other software under open
+source licenses (or software that doesn't have patent issues), I think
+it would be inappropriate to call it open source.  
+
+This certainly leaves the door open for Intel to revise the license or
+for further discussion. (But I think some revision of the license is
+required).  
+
+Is it the case that all other software licensed under an open source
+license might become restricted if the underlying software includes
+patented technology?  If so, I think that needs to be addressed somehow,
+by the OSI.  (Does the GPL manage to avoid restrictions if the
+underlying software is patented?)
+
+Thanks,
+Randy Kramer
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From nelson at crynwr.com  Mon Nov  5 15:31:44 2001
+From: nelson at crynwr.com (Russell Nelson)
+Date: Mon,  5 Nov 2001 10:31:44 -0500 (EST)
+Subject: Intel's proposed BSD + Patent License
+In-Reply-To: <3BE6AD57.315C@fast.net>
+References: <200110310512.f9V5CAjG003403@lima.epix.net>
+	<15331.7619.661513.726542@desk.crynwr.com>
+	<20011104182203.B18425@navel.introspect>
+	<15333.65503.900492.555290@desk.crynwr.com>
+	<3BE6AD57.315C@fast.net>
+Message-ID: <15334.44750.980881.667879@desk.crynwr.com>
+
+Randy Kramer writes:
+ > Russell Nelson wrote:
+ > > I think we could put forth a clear case for going either way on this.
+ > > Given how controversial it is, I think I'm going to vote against it.
+ > 
+ > Russell,
+ > 
+ > Thank you, I agree that a vote against this license is appropriate.  I
+ > don't understand all the issues, but if anything (like the patent
+ > system) creates a situation where software licensed under an "open
+ > source" license has less privileges than other software under open
+ > source licenses (or software that doesn't have patent issues), I think
+ > it would be inappropriate to call it open source.  
+
+We can't and don't make that judgement.  We have a published list of
+criteria -- the Open Source Definition -- by which we judge licenses.
+Like anything else written, it is subject to interpretation.  We seek, 
+in all cases, to not surprise anyone.  The OSD should reflect the
+community's perception of what is open source and what is not.
+
+We've changed the OSD before to match the community's expectations.
+We'll change it again if necessary.  However, at any time, we have to
+judge licenses by the OSD and nothing else.  If we are to reject a
+license, it must be for non-compliance with some term of the OSD.
+
+ > Is it the case that all other software licensed under an open source
+ > license might become restricted if the underlying software includes
+ > patented technology?
+
+I see that you are starting to realize how awful the patent system is.
+
+-- 
+-russ nelson <sig at russnelson.com>  http://russnelson.com
+Crynwr sells support for free software  | PGPok | Why are we still fighting
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | the war on drugs when there
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   | is a real war to fight?
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From kmself at ix.netcom.com  Tue Nov  6 22:08:59 2001
+From: kmself at ix.netcom.com (Karsten M. Self)
+Date: Tue, 6 Nov 2001 14:08:59 -0800
+Subject: Intel's proposed BSD + Patent License
+In-Reply-To: <200111050749.XAA958400@meer.meer.net>; from david@usermode.org on Sun, Nov 04, 2001 at 11:13:54PM -0800
+References: <200110310512.f9V5CAjG003403@lima.epix.net> <15333.65503.900492.555290@desk.crynwr.com> <20011104214705.D18425@navel.introspect> <200111050749.XAA958400@meer.meer.net>
+Message-ID: <20011106140859.G361@navel.introspect>
+
+on Sun, Nov 04, 2001 at 11:13:54PM -0800, David Johnson (david at usermode.org) wrote:
+> On Sunday 04 November 2001 09:47 pm, Karsten M. Self wrote:
+> 
+> > >  > The patent license creates an explicit class of works under which the
+> > >  > software is not freely utilizeable.
+> > >
+> > > No it doesn't.  The patent *system* creates this class of works.
+> >
+> > Specious.  You could make the same argument of any copyright license.
+> > Exclusive rights in both cases are retained unless granted...explicitly
+> > or implicitly.  Question for the lawyers:  does, over the life of a
+> > patent, failure to seek enforcement, create a circumstance construable
+> > as an implied license?
+> 
+> Here's a license: "You may freely copy and redistribute this software,
+> and modify it for use on operating systems licensed under the GPL
+> version 2.0." Is this an Open Source License? In the absence of a
+> copyright it is Open Source. In the presence of of a copyright it is
+> not. Notice that it is the copyright *system* that makes this closed
+> source, and not the license itself.
+
+Good example.
+
+My read:  no, it is not, for the same reasons Intel's patent-encumberd
+BSD is not.  The license is specific to a class of works, and violates
+term 6 of the OSD.
+
+Peace.
+
+-- 
+Karsten M. Self <kmself at ix.netcom.com>       http://kmself.home.netcom.com/
+ What part of "Gestalt" don't you understand?             Home of the brave
+  http://gestalt-system.sourceforge.net/                   Land of the free
+   Free Dmitry! Boycott Adobe! Repeal the DMCA! http://www.freesklyarov.org
+Geek for Hire                     http://kmself.home.netcom.com/resume.html
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 232 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20011106/c9eda89f/attachment.sig>
+
+From nelson at crynwr.com  Tue Oct 30 16:40:02 2001
+From: nelson at crynwr.com (Russell Nelson)
+Date: Tue, 30 Oct 2001 11:40:02 -0500 (EST)
+Subject: Intel's proposed BSD + Patent License
+In-Reply-To: <B6E52B5EDFAFD411BA42009027AE9D580F4A4C09@FMSMSX39>
+References: <B6E52B5EDFAFD411BA42009027AE9D580F4A4C09@FMSMSX39>
+Message-ID: <15326.54865.13625.224451@desk.crynwr.com>
+
+[  Please review this license.  If you do so promptly enough, we may
+be able to include it in tomorrow's board meeting.  -russ  ]
+
+
+After reviewing the following license with key open source developers, Intel
+is submitting a new license called the "BSD + Patent License".  This is a
+combination of the BSD license (the post July 22, 1999 version without the
+"advertising" clause), with patent license language derived from the Common
+Public License ("CPL").
+
+Contributors to Linux or other GPL works may provide their independently
+created code under the BSD license (see the FSF's web site at
+http://www.fsf.org/licenses/license-list.html#ModifiedBSD). To address
+concerns that users of Intel's contributions under the BSD license risked
+patent infringement claims from Intel, this license submission expressly
+includes patent licensing language.
+
+Intel modified the BSD license in the following ways:
+
+1. Intel made OPTIONAL the inclusion of a copyright notice (i.e.,
+"Redistributions of source code of the Software may retain the above
+copyright notice, this list of conditions and the following disclaimer").
+
+2. Intel added certain definitions derived from the patent license in the
+Common Public License, and added a license grant under certain Intel patents
+to distribute Intel software contributions, alone or as incorporated in any
+operating system licensed under the GPL (version 2.0 or later).  
+
+Please post the license to the "license-discuss" list under my name on
+behalf of Intel Corporation. Thank you for your consideration.
+
+Regards,
+
+Michelle V. Stamnes
+Intel Corporation
+
+----
+
+
+The Intel BSD + Patent License
+
+
+Recipient has requested a license and Intel Corporation ("Intel") is
+willing to grant a license for the software entitled _____________
+(the "Software") being provided by Intel Corporation.
+
+The following definitions apply to this License:
+
+"Licensed Patents" means patent claims licensable by Intel Corporation
+which are necessarily infringed by the use or sale of the Software
+alone or when combined with the operating system referred to below.
+"Recipient" means the party to whom Intel delivers this Software.
+"Licensee" means Recipient and those third parties that receive a
+license to any operating system available under the GNU Public License
+version 2.0 or later.
+
+Copyright (c) 1996-2001 Intel Corporation All rights reserved.
+
+The license is provided to Recipient and Recipient's Licensees under
+the following terms.
+
+Redistribution and use in source and binary forms of the Software,
+with or without modification, are permitted provided that the
+following conditions are met:
+
+Redistributions of source code of the Software may retain the above
+copyright notice, this list of conditions and the following
+disclaimer.  Redistributions in binary form of the Software may
+reproduce the above copyright notice, this list of conditions and the
+following disclaimer in the documentation and/or other materials
+provided with the distribution.  Neither the name of Intel Corporation
+nor the names of its contributors shall be used to endorse or promote
+products derived from this Software without specific prior written
+permission.
+
+Intel hereby grants Recipient and Licensees a non-exclusive,
+worldwide, royalty-free patent license under Licensed Patents to make,
+use, sell, offer to sell, import and otherwise transfer the Software,
+if any, in source code and object code form. This license shall
+include changes to the Software that are error corrections or other
+minor changes to the Software that do not add functionality or
+features when the Software is incorporated in any version of a
+operating system that has been distributed under the GNU General
+Public License 2.0 or later.  This patent license shall apply to the
+combination of the Software and any operating system licensed under
+the GNU Public License version 2.0 or later if, at the time Intel
+provides the Software to Recipient, such addition of the Software to
+the then publicly available versions of such operating system
+available under the GNU Public License version 2.0 or later (whether
+in gold, beta or alpha form) causes such combination to be covered by
+the Licensed Patents. The patent license shall not apply to any other
+combinations which include the Software. No hardware per se is
+licensed hereunder.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL INTEL OR ITS
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-- 
+-russ nelson <sig at russnelson.com>  http://russnelson.com
+Crynwr sells support for free software  | PGPok | Why are we still fighting
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | the war on drugs when there
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   | is a real war to fight?
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From yann.dietrich at rd.francetelecom.com  Tue Oct 30 17:28:09 2001
+From: yann.dietrich at rd.francetelecom.com (DIETRICH Yann FTRD/VAT/ISS)
+Date: Tue, 30 Oct 2001 18:28:09 +0100
+Subject: Intel's proposed BSD + Patent License
+Message-ID: <6544C6BD4C1DD1119AFC00805F15DA71026A5230@p-geai.rd.francetelecom.fr>
+
+Is there anyone have samples of license including patent issues ? I am
+working on such problems for a consortium which will develop and distribute
+free software. The limitation of the patent license for any use of the
+software only on GPL licensed OS is very interesting, I think and can help
+patent owners to use opensource software. In fact, because of the exhaustion
+of IP rights, it is very dangerous to grant any right on a software because
+it may risk to imply a license of the patents covering this software. So it
+is very important to limit the scope of such license. what do you think
+about such limitations ? 
+
+with thanks and regards, 
+-----------------------------
+Yann Dietrich 
+IP/Licensing Legal Counsel 
+France Telecom R&D / VAT 
+member of the editorial board of http://www.juriscom.net 
+homepage : http://www.chez.com/ydietrich
+ 
+
+> -----Message d'origine-----
+> De : Russell Nelson [mailto:nelson at crynwr.com]
+> Envoye : mardi 30 octobre 2001 17:40
+> A : license-discuss at opensource.org
+> Cc : Kolb, Doug; Stamnes, Michelle; Simon, David
+> Objet : Intel's proposed BSD + Patent License
+> 
+> 
+> [  Please review this license.  If you do so promptly enough, we may
+> be able to include it in tomorrow's board meeting.  -russ  ]
+> 
+> 
+> After reviewing the following license with key open source 
+> developers, Intel
+> is submitting a new license called the "BSD + Patent 
+> License".  This is a
+> combination of the BSD license (the post July 22, 1999 
+> version without the
+> "advertising" clause), with patent license language derived 
+> from the Common
+> Public License ("CPL").
+> 
+> Contributors to Linux or other GPL works may provide their 
+> independently
+> created code under the BSD license (see the FSF's web site at
+> http://www.fsf.org/licenses/license-list.html#ModifiedBSD). To address
+> concerns that users of Intel's contributions under the BSD 
+> license risked
+> patent infringement claims from Intel, this license 
+> submission expressly
+> includes patent licensing language.
+> 
+> Intel modified the BSD license in the following ways:
+> 
+> 1. Intel made OPTIONAL the inclusion of a copyright notice (i.e.,
+> "Redistributions of source code of the Software may retain the above
+> copyright notice, this list of conditions and the following 
+> disclaimer").
+> 
+> 2. Intel added certain definitions derived from the patent 
+> license in the
+> Common Public License, and added a license grant under 
+> certain Intel patents
+> to distribute Intel software contributions, alone or as 
+> incorporated in any
+> operating system licensed under the GPL (version 2.0 or later).  
+> 
+> Please post the license to the "license-discuss" list under my name on
+> behalf of Intel Corporation. Thank you for your consideration.
+> 
+> Regards,
+> 
+> Michelle V. Stamnes
+> Intel Corporation
+> 
+> ----
+> 
+> 
+> The Intel BSD + Patent License
+> 
+> 
+> Recipient has requested a license and Intel Corporation ("Intel") is
+> willing to grant a license for the software entitled _____________
+> (the "Software") being provided by Intel Corporation.
+> 
+> The following definitions apply to this License:
+> 
+> "Licensed Patents" means patent claims licensable by Intel Corporation
+> which are necessarily infringed by the use or sale of the Software
+> alone or when combined with the operating system referred to below.
+> "Recipient" means the party to whom Intel delivers this Software.
+> "Licensee" means Recipient and those third parties that receive a
+> license to any operating system available under the GNU Public License
+> version 2.0 or later.
+> 
+> Copyright (c) 1996-2001 Intel Corporation All rights reserved.
+> 
+> The license is provided to Recipient and Recipient's Licensees under
+> the following terms.
+> 
+> Redistribution and use in source and binary forms of the Software,
+> with or without modification, are permitted provided that the
+> following conditions are met:
+> 
+> Redistributions of source code of the Software may retain the above
+> copyright notice, this list of conditions and the following
+> disclaimer.  Redistributions in binary form of the Software may
+> reproduce the above copyright notice, this list of conditions and the
+> following disclaimer in the documentation and/or other materials
+> provided with the distribution.  Neither the name of Intel Corporation
+> nor the names of its contributors shall be used to endorse or promote
+> products derived from this Software without specific prior written
+> permission.
+> 
+> Intel hereby grants Recipient and Licensees a non-exclusive,
+> worldwide, royalty-free patent license under Licensed Patents to make,
+> use, sell, offer to sell, import and otherwise transfer the Software,
+> if any, in source code and object code form. This license shall
+> include changes to the Software that are error corrections or other
+> minor changes to the Software that do not add functionality or
+> features when the Software is incorporated in any version of a
+> operating system that has been distributed under the GNU General
+> Public License 2.0 or later.  This patent license shall apply to the
+> combination of the Software and any operating system licensed under
+> the GNU Public License version 2.0 or later if, at the time Intel
+> provides the Software to Recipient, such addition of the Software to
+> the then publicly available versions of such operating system
+> available under the GNU Public License version 2.0 or later (whether
+> in gold, beta or alpha form) causes such combination to be covered by
+> the Licensed Patents. The patent license shall not apply to any other
+> combinations which include the Software. No hardware per se is
+> licensed hereunder.
+>  
+> THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+> "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+> LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+> A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL INTEL OR ITS
+> CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+> EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+> PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+> PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+> LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+> NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+> SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+> 
+> -- 
+> -russ nelson <sig at russnelson.com>  http://russnelson.com
+> Crynwr sells support for free software  | PGPok | Why are we 
+> still fighting
+> 521 Pleasant Valley Rd. | +1 315 268 1925 voice | the war on 
+> drugs when there
+> Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   | is a real 
+> war to fight?
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+> 
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From arromdee at rahul.net  Tue Oct 30 17:54:01 2001
+From: arromdee at rahul.net (Ken Arromdee)
+Date: Tue, 30 Oct 2001 09:54:01 -0800 (PST)
+Subject: Intel's proposed BSD + Patent License
+In-Reply-To: <15326.54865.13625.224451@desk.crynwr.com>
+Message-ID: <Pine.BSF.4.21.0110300947050.51013-100000@yellow.rahul.net>
+
+> Intel hereby grants Recipient and Licensees a non-exclusive,
+> worldwide, royalty-free patent license under Licensed Patents to make,
+> use, sell, offer to sell, import and otherwise transfer the Software,
+> if any, in source code and object code form. This license shall
+> include changes to the Software that are error corrections or other
+> minor changes to the Software that do not add functionality or
+> features when the Software is incorporated in any version of a
+> operating system that has been distributed under the GNU General
+> Public License 2.0 or later.
+
+This is odd.  What is "the software" when linked into an operating system?
+Does "the software" include anything linked with it, and therefore, would a
+change to the operating system that adds features be considered a change to
+"the software"?
+
+If yes, then the software becomes pretty much useless--you can link it into
+an operating system only if you don't change the operating system.
+
+If no, than anyone can change the software any way they want anyway, merely
+by claiming the changes are changes to the operating system.
+
+Also, wouldn't it violate the fields of endeavor clause and specific to a
+product clause to only allow the software to be linked with operating systems?
+(I can see a way around this: claim that of course the user is allowed to
+link it with anything, it's just that it would violate patents, but it's
+not the license which says you're prohibited from violating patents, just an
+external law.  The problems with this workaround are left as an exercise to
+the reader.)
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Tue Oct 30 19:01:52 2001
+From: jcowan at reutershealth.com (John Cowan)
+Date: Tue, 30 Oct 2001 14:01:52 -0500
+Subject: Intel's proposed BSD + Patent License
+References: <B6E52B5EDFAFD411BA42009027AE9D580F4A4C09@FMSMSX39> <15326.54865.13625.224451@desk.crynwr.com>
+Message-ID: <3BDEF920.2060500@reutershealth.com>
+
+Russell Nelson wrote:
+
+> [  Please review this license.  If you do so promptly enough, we may
+> be able to include it in tomorrow's board meeting.  -russ  ]
+
+
+I have tried to turn around this response as fast as possible,
+so please forgive any defects of detail.
+
+Executive summary: this license is not Open Source because works
+governed by it cannot be freely used except on a limited class of
+operating systems, and is not truly open-source software even there.
+
+
+> To address
+> concerns that users of Intel's contributions under the BSD license risked
+> patent infringement claims from Intel, this license submission expressly
+> includes patent licensing language.
+
+
+So it does, but unfortunately not the right kind.  What the BSD license
+gives away, the patent licensing language takes back.
+
+ 
+> 2. Intel added certain definitions derived from the patent license in the
+> Common Public License, and added a license grant under certain Intel patents
+> to distribute Intel software contributions, alone or as incorporated in any
+> operating system licensed under the GPL (version 2.0 or later).  
+
+
+This provision carves out a safe harbor for Linux, but not
+for other free operating systems.  It would be the height of irony if
+software licensed under a so-called "BSD + Patent License" was not
+usable by any BSD operating system, but such appears to be the case.
+Criterion 8 (License Must Not Be Specific To A Product) is violated,
+in substance if not to the letter; this license is in effect specific
+to Linux.
+
+
+> This license shall
+> include changes to the Software that are error corrections or other
+> minor changes to the Software that do not add functionality or
+> features when the Software is incorporated in any version of a
+> operating system that has been distributed under the GNU General
+> Public License 2.0 or later.
+
+
+And so even on Linux, the software can't be substantially reused or
+improved; only bugs can be fixed.  The copyright license allows you
+to make such improved versions, but the patent license prevents you
+or anyone else from actually *using* them for anything more than
+"research".  In short, the hood is still welded shut,
+even though there is a maintenance port on the side of the car.
+Criterion 3 (Derived Works) goes by the board here, since the
+kind of derived work that can be made (or more accurately, used)
+is highly restricted.
+
+> The patent license shall not apply to any other
+> combinations which include the Software. 
+
+
+Everything that is not permitted is forbidden.
+
+This license is in effect much like the pre-QPL Trolltech license,
+which was not Open Source because (inter alia) it forbade Open Source Qt
+programs for Windows and MacOS.  Trolltech's own Qt ports to those
+operating systems are still encumbered, but nothing (except time and
+trouble) prevents someone from porting the Open Source Qt/X11 version
+to Windows and MacOS.
+
+
+If Intel's sole concern with the BSD license is that users may feel
+
+at risk from its patents, it should adopt the CPL, which well
+addresses those very concerns.  It would still be possible for
+Intel to distribute a port of its software to unfree operating
+systems that was itself encumbered without interfering with
+Open Source.
+
+I am not a lawyer; this is not legal advice.
+
+-- 
+Not to perambulate             || John Cowan <jcowan at reutershealth.com>
+    the corridors               || http://www.reutershealth.com
+during the hours of repose     || http://www.ccil.org/~cowan
+    in the boots of ascension.  \\ Sign in Austrian ski-resort hotel
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+

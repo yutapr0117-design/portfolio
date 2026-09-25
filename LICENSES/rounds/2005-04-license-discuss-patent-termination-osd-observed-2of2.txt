@@ -1,0 +1,73 @@
+Source:   https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Fetched:  2026-09-25T09:07:03+00:00（ブラウザ相当の UA・件名で厳密に抽出）
+Thread:   Proposed new OSD item - patent termination —— 全 21 通（2005-04）
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **Perens 氏「BSD には黙示の特許許諾が在る —— 自分の特許を体現するソフトを使用許諾つきで頒布すれば、その特許について estoppel を与えたことになる」**、Garrett 氏「OSD はそもそも特許許諾を要求していない」。**特許 gap の重みに直接当たる。**
+          分割は Check 365（1,000 行）のため・メッセージ境界（2/2 部・2 通）。
+          読みは LICENSES/ACD-1.0.against.md #236 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From lists at opensourcelaw.biz  Sun Apr 10 04:22:09 2005
+From: lists at opensourcelaw.biz (Brendan Scott)
+Date: Sun, 10 Apr 2005 14:22:09 +1000
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <4257DD6C.1090409@perens.com>
+References: <1113044503.30171.23.camel@tyrosine> <4257DD6C.1090409@perens.com>
+Message-ID: <4258A9F1.2070003@opensourcelaw.biz>
+
+Bruce Perens wrote:
+> This provision doesn't seem to be in the general interest of Open Source 
+> software because it would prevent an Open Source license from 
+> terminating when patent action is brought regarding other Open Source 
+> software.
+> 
+> I would much rather see it done the way Larry once proposed (which he 
+> should have stuck with IMO), which was that if you brought a patent 
+> action regarding any software with an Open Source license, the licenses 
+> for other Open Source software would terminate. Larry backed down on 
+> this because of opposition from HP. Given the way that IBM and HP, 
+> purportedly our friends, are lobbying for increases in software 
+> patenting that will do serious damage to Open Source, we need to think 
+> about this sort of defense.
+
+So, create a rider which achieves this and let anyone apply the rider to their preferred license. I think it would be snapped up by the developer community "toot sweet".
+
+Brendan 
+
+
+From galactus at stack.nl  Sun Apr 10 10:57:10 2005
+From: galactus at stack.nl (Arnoud Engelfriet)
+Date: Sun, 10 Apr 2005 12:57:10 +0200
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <42582A82.4040101@perens.com>
+References: <1113044503.30171.23.camel@tyrosine> <20050409123614.GA61443@stack.nl> <1113054870.14234.7.camel@tyrosine> <4257E23C.10907@perens.com> <20050409161809.GA86383@stack.nl> <42580C3F.2070901@perens.com> <20050409182611.GA97910@stack.nl> <42582A82.4040101@perens.com>
+Message-ID: <20050410105710.GA219@stack.nl>
+
+Bruce Perens wrote:
+> Arnoud Engelfriet wrote:
+> >But I do not think it's reasonable to ask for a consideration in a totally 
+> >unrelated area.
+> >
+> Can you write a good definition of "unrelated area" that protects Open 
+> Source?
+
+How about "anything unrelated to the licensed software".
+
+In other words, you can ask for free grantbacks regarding the
+software you distribute (and derivatives thereof) but not for
+grantbacks regarding other software that's aggregated with it
+or for e.g. patents that aren't infringed by the licensed software.
+
+OSD #9 in my view already contains this definition with regards
+to copyright. You can't ask for free copyright licenses under
+software aggregated with your work. So this could be extended
+to patents.
+
+Arnoud
+
+-- 
+Arnoud Engelfriet, Dutch patent attorney - Speaking only for myself
+Patents, copyright and IPR explained for techies: http://www.iusmentis.com/
+
+
