@@ -1,0 +1,667 @@
+Source:   https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2016-January.txt
+Fetched:  2026-09-25T08:42:28+00:00（ブラウザ相当の UA）
+Thread:   [License-review] Approval: BSD + Patent License —— 全 68 通（2016 年・承認された）
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **permissive なライセンスに明示的特許許諾を足したものを OSI が承認した審査**で、
+          **我々の特許 gap にとって最も近い承認済みの隣人**である。
+          **テキストの census（`ACD-1.0.gap-census.md`）からは出ない「承認理由の逐語」がここに在る。**
+          ⚠ 抽出は**件名で厳密に**行った —— 本文中の語で拾うと別スレッド 4 通が混入した。
+          分割は Check 365（1,000 行）のため・メッセージ境界で切ってある（3/10 部・9 通）。
+          読みは LICENSES/ACD-1.0.against.md #235 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From Nigel.Tzeng at jhuapl.edu  Fri Jan 15 14:59:18 2016
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Fri, 15 Jan 2016 14:59:18 +0000
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B51933DCEB56@FMSMSX108.amr.corp.intel.com>
+References: <D2BDCEDB.28541%Nigel.Tzeng@jhuapl.edu>
+ <2D52F7EE739F8542A700CAB96276B51933DCEB56@FMSMSX108.amr.corp.intel.com>
+Message-ID: <D2BE6BAC.285D2%Nigel.Tzeng@jhuapl.edu>
+
+1) So the intent of the statement:
+
+"where such license applies only to those patent claims licensable by such
+copyright holder or contributor that are necessarily infringed by:?
+
+
+is what?  I have a patent. I am precluded by an previous agreement so I
+cannot license it.  Is this still a license I must grant?
+
+Thinking about it it strikes me the easiest way around the issue is to
+form some other legal entity, transfer the copyright to it and then do the
+open source release from there.  That entity holds no patents that the
+organization is not willing to give away either by design or by accident.
+
+2) Would you be willing to add "No other express or implied licenses are
+granted.??  That seems to be a better statement than your hardware one.
+
+
+
+On 1/15/16, 12:18 AM, "License-review on behalf of Smith, McCoy"
+<license-review-bounces at opensource.org on behalf of mccoy.smith at intel.com>
+wrote:
+
+>It appears (although it's not entirely clear) that the FSF considers that
+>particular provision of ECLv2 to render it GPLv2 incompatible:
+>http://www.gnu.org/licenses/license-list.html#ECL2.0 .  ("the scope of
+>the patent license has changed so that when an organization's employee
+>works on a project, the organization does not have to license all of its
+>patents to recipients. This patent license and the indemnification clause
+>in section 9 make this license incompatible with GPLv2")
+>Since GPLv2 compatibility is a goal of this license, adding such a
+>provision would defeat that goal (or at least, raise questions as to
+>whether it is GPLv2 compatible).
+>
+>
+>-----Original Message-----
+>From: License-review [mailto:license-review-bounces at opensource.org] On
+>Behalf Of Tzeng, Nigel H.
+>Sent: Thursday, January 14, 2016 8:16 PM
+>To: License submissions for OSI review
+>Cc: Goepel, James E.
+>Subject: Re: [License-review] Approval: BSD + Patent License
+>
+>McCoy,
+>
+>Would the statement:
+>
+>"where such license applies only to those patent claims licensable by
+>such copyright holder or contributor that are necessarily infringed by:?
+>
+>mean that where a copyright holder is precluded from licensing a patent
+>because of existing grant and research funding agreements that there is
+>no explicit patent license?
+>
+>The question is derived from the language of ECL V2
+>(http://opensource.org/licenses/ECL-2.0) that limits the Apache patent
+>license with the following text:
+>
+>"Any patent license granted hereby with respect to contributions by an
+>individual employed by an institution or organization is limited to
+>patent claims where the individual that is the author of the Work is also
+>the inventor of the patent claims licensed, and where the organization or
+>institution has the right to grant such license under applicable grant
+>and research funding agreements. No other express or implied licenses are
+>granted."
+>
+>
+>Would it be acceptable to add "No other express or implied licenses are
+>granted.? after the statement "No hardware per se is licensed hereunder.??
+>
+>I presume that the limitation that the only patent licenses explicitly
+>granted are for patents that were invented by the authors of the work to
+>be too limiting for general use.
+>
+>Did you intend that language to allow this scenario?  If so it would
+>address some of the concerns of research institutions with respect to
+>implicit and explicit patent grants in open source licenses conflicting
+>with grant agreements.
+>
+>Regards,
+>
+>Nigel
+>
+>Ob Dis: IANAL and not representing my employer in any fashion.
+>
+>
+>
+>On 1/13/16, 1:57 PM, "License-review on behalf of Smith, McCoy"
+><license-review-bounces at opensource.org on behalf of mccoy.smith at intel.com>
+>wrote:
+>
+>>OSI License Submission for BSD + Patent License
+>>
+>>The attached license is submitted to the Open Source Initiative for
+>>approval as an OSI-approved Open Source license.
+>>
+>>RATIONALE:
+>>
+>>This license has been created to address a specific problem that has
+>>been encountered with existing licenses:  the desire of certain
+>>organizations to have a simple permissive license that is compatible
+>>with the GNU General Public License (GPL), version 2, but which also
+>>has an express patent grant included.
+>>
+>>PROLIFERATION CATEGORY:
+>>
+>>This license should be categorized as a ?Special Purpose License,? or,
+>>alternatively, as an approved variant of the BSD 2-clause license.
+>>
+>>DISTINGUISHING FROM OTHER OSI-APPROVED LICENSES:
+>>
+>>The BSD 2-clause license is currently categorized as one of the
+>>?Licenses that are popular and widely used or with strong communities.?
+>>The BSD 2-clause license is also considered by the Free Software
+>>Foundation (FSF) to be compatible with both GPLv2 and GPLv3.  However,
+>>some organizations ? particularly those with large or valuable patent
+>>portfolios ? are reluctant to use the BSD (and MIT) licenses because of
+>>the lack of an express patent license grant in those licenses.  Because
+>>of that issue, many patent holders prefer to use the Apache 2.0 license
+>>when they wish to license code permissively, since it has an express,
+>>and well-written, patent license grant.  Unfortunately, the FSF has
+>>determined that the Apache 2.0 license is not compatible with GPLv2
+>>because ?it has some requirements that are not in that GPL version.
+>>These include certain patent termination and indemnification
+>>provisions.?
+>>
+>>There is currently only one GPLv2-compatible permissive license that
+>>includes an express patent license ? the relatively-recently approved
+>>Universal Permissive License (UPL).  In the past, this has created a
+>>problem for some authors wishing to license their code permissively,
+>>but also including an express patent license grant, and also having the
+>>license be GPLv2 compatible so that users have the ability to integrate
+>>that code into GPLv2-licensed code (including, for example, the Linux
+>>kernel).  Although the UPL provides such an option, we believe that
+>>users will still wish to have a license with more familiar, and widely
+>>accepted licensing language (like a BSD-variant) that solves the issue
+>>of an express patent grant and GPLv2 compatibility.
+>>
+>>We believe that this license is non-duplicative (for the reasons set
+>>forth above), as it solves an issue all but one OSI-approved license
+>>solves (permissive, express patent license grant, GPLv2 compatibility).
+>>The license itself is a combination of language from the BSD 2-clause
+>>license, the Apache 2.0 license, and the Eclipse Public License (all of
+>>which are already OSI-approved, and all of which are in the category of
+>>?Licenses that are popular and widely used or with strong communities?).
+>>It therefore should meet all the criteria of the OSD.
+>>
+>>LEGAL REVIEW:
+>>
+>>The text of the license is reproduced below.  We have also included an
+>>attached mark-up of the license showing where the language comes from
+>>BSD 2-clause, Apache 2.0 and Eclipse.  The patent grant from Apache 2.0
+>>and Eclipse were used because the combination of the two was more
+>>tightly-worded and fit better with the existing language in the BSD
+>>2-clause license.  Note that we have removed the ?patent
+>>termination/retaliation? language from both of these licenses because
+>>this language is one of the reasons why Apache 2.0 has been found to be
+>>incompatible with GPLv2.
+>>
+>>In keeping with the License Approval Process submission guidelines:
+>>
+>>	1. We have read the Open Source Definition and ensured that this
+>>license complies with it (and in fact, this license is an amalgamation
+>>of already OSI-approved licenses).
+>>	2. This is an Approval submission, as this is a new license (albeit
+>>derived from existing OSI-approved licenses).
+>>	3. We have appropriate standing to submit this request, as this
+>>license was created by us (again, derived from existing OSI-approved
+>>licenses).
+>>	4. We are subscribed to license-review.
+>>	5. This communication is our  formal request to license-review.
+>>
+>>Please approve this license for inclusion on the OSI approved license
+>>list.
+>>
+>>McCoy Smith
+>>Intel Corporation
+>>Legal & Corporate Affairs
+>>
+>>
+>>PLAINTEXT COPY OF LICENSE BELOW:
+>>
+>>=======================================================================
+>>=== 
+>>=======================================================================
+>>=== =============================================
+>>Copyright (c) <YEAR>, <COPYRIGHT HOLDERS>
+>>
+>>Redistribution and use in source and binary forms, with or without
+>>modification, are permitted provided that the following conditions are
+>>met:
+>>
+>>1.	Redistributions of source code must retain the above copyright notice,
+>>this list of conditions and the following disclaimer.
+>>2.	Redistributions in binary form must reproduce the above copyright
+>>notice, this list of conditions and the following disclaimer in the
+>>documentation and/or other materials provided with the distribution.
+>>
+>>Each copyright holder and contributor hereby grants to those exercising
+>>copyright rights under this license a perpetual, worldwide,
+>>non-exclusive, no-charge, royalty-free, irrevocable patent license to
+>>make, have made, use, offer to sell, sell, import, and otherwise
+>>transfer their copyrighted material (whether in source code or binary
+>>form) made available under this license, where such license applies
+>>only to those patent claims licensable by such copyright holder or
+>>contributor that are necessarily infringed by:
+>>
+>>(a)  their copyrighted material alone; or
+>>(b) by combination of their copyrighted material with the work of
+>>authorship to which such copyrighted material was added by such
+>>copyright holder or contributor, if, at the time the copyrighted
+>>material was added, such addition causes such combination to be covered
+>>by the patent claim. The patent license shall not apply to any other
+>>combinations which include their copyrighted material.
+>>
+>>No hardware per se is licensed hereunder.
+>>
+>>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+>>IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+>>TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+>>PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+>>HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+>>SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+>>LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+>>DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+>>THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+>>(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+>>OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+>>
+>
+>_______________________________________________
+>License-review mailing list
+>License-review at opensource.org
+>https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>_______________________________________________
+>License-review mailing list
+>License-review at opensource.org
+>https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+From mike.milinkovich at eclipse.org  Fri Jan 15 16:15:14 2016
+From: mike.milinkovich at eclipse.org (Mike Milinkovich)
+Date: Fri, 15 Jan 2016 11:15:14 -0500
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+References: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+Message-ID: <56991B12.7010305@eclipse.org>
+
+On 13/01/2016 1:57 PM, Smith, McCoy wrote:
+> PROLIFERATION CATEGORY:
+>
+> This license should be categorized as a ?Special Purpose License,? or, alternatively, as an approved variant of the BSD 2-clause license.
+
+McCoy,
+
+I also like the direction that proposal is going in. I believe that such 
+a license has the potential to be very useful and popular. Thank you for 
+taking the initiative to put this together.
+
+One criticism of the BSD-style license that I have heard in the past is 
+that because it is an editable template, downstream consumers have an 
+added compliance burden to ensure that the version that they are looking 
+at is, in fact, an exact copy of the BSD.  Have you considered giving 
+this license a name, and copyrighting it to help alleviate this issue? I 
+would guess that some text similar to what I've pasted below from the 
+EPL would be required. I am not sure who could be the license steward. I 
+would suggest the OSI itself, but I don't know if that is too radical a 
+departure from past practice.
+
+    Everyone is permitted to copy and distribute copies of this
+    Agreement, but in order to avoid inconsistency the Agreement is
+    copyrighted and may only be modified in the following manner. The
+    Agreement Steward reserves the right to publish new versions
+    (including revisions) of this Agreement from time to time. No one
+    other than the Agreement Steward has the right to modify this
+    Agreement. The <<some organization>> is the initial Agreement
+    Steward. The <<some organization>> may assign the responsibility to
+    serve as the Agreement Steward to a suitable separate entity. Each
+    new version of the Agreement will be given a distinguishing version
+    number. The Program (including Contributions) may always be
+    distributed subject to the version of the Agreement under which it
+    was received. In addition, after a new version of the Agreement is
+    published, Contributor may elect to distribute the Program
+    (including its Contributions) under the new version.
+
+
+-- 
+Mike Milinkovich
+Eclipse Foundation and OSI Director
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20160115/70638692/attachment.html>
+
+From cowan at mercury.ccil.org  Fri Jan 15 16:52:25 2016
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Fri, 15 Jan 2016 11:52:25 -0500
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <D2BDCEDB.28541%Nigel.Tzeng@jhuapl.edu>
+References: <D2BDCEDB.28541%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <20160115165225.GA29157@mercury.ccil.org>
+
+Tzeng, Nigel H. scripsit:
+
+> "Any patent license granted hereby with respect to contributions by an
+> individual employed by an institution or organization is limited to patent
+> claims where the individual that is the author of the Work is also the
+> inventor of the patent claims licensed, and where the organization or
+> institution has the right to grant such license under applicable grant and
+> research funding agreements. No other express or implied licenses are
+> granted."
+
+This clause seems to be grotesquely underinclusive.  For example, if I
+issue a work under the ECLv2, I am granting no patent licenses at all,
+because my employer (which has nothing to do with the work) has no
+right to issue such licenses on my behalf under any pretext whatever,
+much less under any non-existent funding agreements.  Furthermore, the
+patent licensor might not be the inventor, but the inventor's heir
+or devisee or successor in bankruptcy or what not.
+
+> I presume that the limitation that the only patent licenses explicitly
+> granted are for patents that were invented by the authors of the work to
+> be too limiting for general use.
+
+The same note about not being the inventor applies here.  It's presumably
+too late to fix the ECL (and if it is used only by educational
+institutions, it may not matter), but its language should be rectified
+before being used more widely, it seems to me.
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+Your worships will perhaps be thinking that it is an easy thing
+to blow up a dog? [Or] to write a book?
+    --Don Quixote, Introduction
+
+
+From jim.wright at oracle.com  Fri Jan 15 17:20:00 2016
+From: jim.wright at oracle.com (Jim Wright)
+Date: Fri, 15 Jan 2016 09:20:00 -0800
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <D2BE6BAC.285D2%Nigel.Tzeng@jhuapl.edu>
+References: <D2BDCEDB.28541%Nigel.Tzeng@jhuapl.edu>
+ <2D52F7EE739F8542A700CAB96276B51933DCEB56@FMSMSX108.amr.corp.intel.com>
+ <D2BE6BAC.285D2%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <EBDF4C09-CEA4-4FDD-AAA4-ABB4DF8E550D@oracle.com>
+
+McCoy, I applaud your efforts here.  A few questions in no particular order:
+
+ - If a patent claim has some parts of a device or method in hardware and some in software, is the intent of stating that hardware per se is not licensed here that it not be covered?  (While some have concluded CC0 is GPL compatible even with an express reservation of patent rights, in my mind, the idea of expressly reserving some patent rights that may actually cover the software as combined with HW on which it runs is curious.)
+
+ - I note you make the patent license irrevocable - how do you intend this to interact with the conditional nature of the copyright license?  The wording strikes me as interesting here, because you provide that anyone exercising copyright rights under the license is the beneficiary of an irrevocable patent license grant - but what if the party exercising copyright rights is also breaching the license in another context (e.g., providing attribution for one use but not another).  The way I read it, the party is exercising copyright rights under the license, and therefore all their activities benefit from the patent license, potentially even if out of compliance in other contexts??  
+
+ - Vis-a-vis Carlo?s question, and Richard?s, I might go further - does a recipient get, or not get, patent rights from a downstream redistributor under the license, since a redistributor is arguably neither a contributor nor a copyright holder here?
+
+ - This one will not be popular but some have actually questioned the idea of the BSD license?s GPL compatibility (vs., e.g., MIT).  Would it be useful to add sublicense or other rights for certainty in this regard?
+
+Oh, and Josh, McCoy can answer for this new proposed license, but as to the UPL, we considered this, and I think we would take the position that A is a licensor having provided the software under the UPL of X+Y, and therefore has granted that patent license to ?anyone obtaining a copy of? X+Y.  (We can discuss offline if you like in order to avoid bogging down the discussion of McCoy?s proposal.)
+
+ Best,
+  Jim
+
+
+
+
+From Nigel.Tzeng at jhuapl.edu  Fri Jan 15 17:30:24 2016
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Fri, 15 Jan 2016 17:30:24 +0000
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <20160115165225.GA29157@mercury.ccil.org>
+References: <D2BDCEDB.28541%Nigel.Tzeng@jhuapl.edu>
+ <20160115165225.GA29157@mercury.ccil.org>
+Message-ID: <D2BE8F89.28628%Nigel.Tzeng@jhuapl.edu>
+
+Given that ECL is Apache 2 for research institutions I doubt it?s in wide
+use outside of Sakai and a few other edu projects.
+
+If you do work in a work for hire situation you don?t own that work and
+you cannot issue it under ECL V2 or anything else.  Likewise it probably
+owns the patents you invented.
+
+
+So when Software Project Foo is released under ECL v2 it?s not being
+released by the authors but by Big Research Grant University which owns a
+lot of patents including Patent Bar that was developed under a grant by
+someone else that the authors and approving management chain had no clue
+about because it?s part of a completely different division/laboratory/etc
+with it?s own IP office, approval chain and contractual requirements but
+part the same umbrella BRGU legal entity.
+
+ECL doesn?t need fixing since it was built to address a specific domain.
+If you aren?t MIT/Lincoln, Georgia Tech/GTRI, Caltech/JPL, etc it probably
+doesn?t solve any problems you have and Apache the better choice.
+
+
+
+On 1/15/16, 11:52 AM, "License-review on behalf of John Cowan"
+<license-review-bounces at opensource.org on behalf of
+cowan at mercury.ccil.org> wrote:
+
+>Tzeng, Nigel H. scripsit:
+>
+>> "Any patent license granted hereby with respect to contributions by an
+>> individual employed by an institution or organization is limited to
+>>patent
+>> claims where the individual that is the author of the Work is also the
+>> inventor of the patent claims licensed, and where the organization or
+>> institution has the right to grant such license under applicable grant
+>>and
+>> research funding agreements. No other express or implied licenses are
+>> granted."
+>
+>This clause seems to be grotesquely underinclusive.  For example, if I
+>issue a work under the ECLv2, I am granting no patent licenses at all,
+>because my employer (which has nothing to do with the work) has no
+>right to issue such licenses on my behalf under any pretext whatever,
+>much less under any non-existent funding agreements.  Furthermore, the
+>patent licensor might not be the inventor, but the inventor's heir
+>or devisee or successor in bankruptcy or what not.
+>
+>> I presume that the limitation that the only patent licenses explicitly
+>> granted are for patents that were invented by the authors of the work to
+>> be too limiting for general use.
+>
+>The same note about not being the inventor applies here.  It's presumably
+>too late to fix the ECL (and if it is used only by educational
+>institutions, it may not matter), but its language should be rectified
+>before being used more widely, it seems to me.
+>
+>-- 
+>John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+>Your worships will perhaps be thinking that it is an easy thing
+>to blow up a dog? [Or] to write a book?
+>    --Don Quixote, Introduction
+>_______________________________________________
+>License-review mailing list
+>License-review at opensource.org
+>https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+From lrosen at rosenlaw.com  Fri Jan 15 17:04:27 2016
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 15 Jan 2016 09:04:27 -0800
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <56991B12.7010305@eclipse.org>
+References: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+ <56991B12.7010305@eclipse.org>
+Message-ID: <022a01d14fb6$cc5771a0$650654e0$@rosenlaw.com>
+
+Hi McCoy and Mike,
+
+ 
+
+While we do want to avoid random and often incomprehensible changes to our software licenses, the effective solution is not to place a copyright notice on something that is probably not copyrightable. Even though, that's what I did anyway myself, hoping to scare people. :-)  Perhaps trademark protection for its name is more appropriate?
+
+ 
+
+I struggled with that problem with AFL/OSL, mostly after critics complained that I was selfishly reserving for myself the right to steward the text of a FOSS license. On the other hand, at that time, I didn't trust OSI to steward it for me.
+
+ 
+
+So here's what I wrote, in the form of an express license condition:
+
+ 
+
+16) Modification of This License. This License is Copyright ? 2005 Lawrence Rosen. Permission is granted to copy, distribute, or communicate this License without modification. Nothing in this License permits You to modify this License as applied to the Original Work or to Derivative Works. However, You may modify the text of this License and copy, distribute or communicate your modified version (the "Modified License") and apply it to other original works of authorship subject to the following conditions: (i) You may not indicate in any way that your Modified License is the "Academic Free License" or "AFL" and you may not use those names in the name of your Modified License; (ii) You must replace the notice specified in the first paragraph above with the notice "Licensed under <insert your license name here>" or with a notice of your own that is not confusingly similar to the notice in this License; and (iii) You may not claim that your original works are open source software unless your Modified License has been approved by Open Source Initiative (OSI) and You comply with its license review and certification process.
+
+ 
+
+/Larry
+
+ 
+
+From: Mike Milinkovich [mailto:mike.milinkovich at eclipse.org] 
+Sent: Friday, January 15, 2016 8:15 AM
+To: license-review at opensource.org
+Subject: Re: [License-review] Approval: BSD + Patent License
+
+ 
+
+On 13/01/2016 1:57 PM, Smith, McCoy wrote:
+
+PROLIFERATION CATEGORY:
+ 
+This license should be categorized as a ?Special Purpose License,? or, alternatively, as an approved variant of the BSD 2-clause license.
+
+
+McCoy,
+
+I also like the direction that proposal is going in. I believe that such a license has the potential to be very useful and popular. Thank you for taking the initiative to put this together.
+
+One criticism of the BSD-style license that I have heard in the past is that because it is an editable template, downstream consumers have an added compliance burden to ensure that the version that they are looking at is, in fact, an exact copy of the BSD.  Have you considered giving this license a name, and copyrighting it to help alleviate this issue? I would guess that some text similar to what I've pasted below from the EPL would be required. I am not sure who could be the license steward. I would suggest the OSI itself, but I don't know if that is too radical a departure from past practice.
+
+Everyone is permitted to copy and distribute copies of this Agreement, but in order to avoid inconsistency the Agreement is copyrighted and may only be modified in the following manner. The Agreement Steward reserves the right to publish new versions (including revisions) of this Agreement from time to time. No one other than the Agreement Steward has the right to modify this Agreement. The <<some organization>> is the initial Agreement Steward. The <<some organization>> may assign the responsibility to serve as the Agreement Steward to a suitable separate entity. Each new version of the Agreement will be given a distinguishing version number. The Program (including Contributions) may always be distributed subject to the version of the Agreement under which it was received. In addition, after a new version of the Agreement is published, Contributor may elect to distribute the Program (including its Contributions) under the new version. 
+
+ 
+
+-- 
+Mike Milinkovich
+Eclipse Foundation and OSI Director
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20160115/6e9c8dad/attachment.html>
+
+From cowan at mercury.ccil.org  Fri Jan 15 18:44:04 2016
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Fri, 15 Jan 2016 13:44:04 -0500
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <D2BE8F89.28628%Nigel.Tzeng@jhuapl.edu>
+References: <D2BDCEDB.28541%Nigel.Tzeng@jhuapl.edu>
+ <20160115165225.GA29157@mercury.ccil.org>
+ <D2BE8F89.28628%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <20160115184403.GH29157@mercury.ccil.org>
+
+Tzeng, Nigel H. scripsit:
+
+> ECL doesn?t need fixing since it was built to address a specific domain.
+
+That's what I figured.  But cloning its patent language is still a bad
+idea for the reasons I mentioned.
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+He made the Legislature meet at one-horse tank-towns out in the alfalfa
+belt, so that hardly nobody could get there and most of the leaders
+would stay home and let him go to work and do things as he pleased.
+    --H.L. Mencken's translation of the Declaration of Independence
+
+
+From mccoy.smith at intel.com  Fri Jan 15 18:57:53 2016
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Fri, 15 Jan 2016 18:57:53 +0000
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <022a01d14fb6$cc5771a0$650654e0$@rosenlaw.com>
+References: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+ <56991B12.7010305@eclipse.org> <022a01d14fb6$cc5771a0$650654e0$@rosenlaw.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B51933DD0054@FMSMSX108.amr.corp.intel.com>
+
+I?m somewhat skeptical of the approach of copyrighting a license (especially this one, which is a mere amalgam of language from other licenses) or trademarking its name (especially this one, as I chose the name to convey descriptively what it is ? BSD, plus a patent license), as I think using IP infringement as a mechanism to enforce uniformity is not particularly efficient.  And a new name unique enough to merit trademark rights tends to not convey to the potential user what the license is about.
+
+There are a ton of BSD variants, and a few Apache ones, and even some GPL ones (including ones that include what I believe to be additional restrictions which the GPL doesn?t permit).  Trying to chase those down and stop their use seems like an exercise in whack-a-mole.  I tend to think that the best mechanism is for the user to simply compare with the canonical version on the OSI website (either manually, or through the various tools that do those sorts of things), and if you come upon a variant, decide if you can live with the variant or only want the canonical version (and I know in some cases when you ask the author using a non-canonical variant to relicense under a canonical version, they sometimes will).  I also tend to think the OSI imprimatur does have the beneficial effect of causing most people to choose the approved canonical version versus forking their own, which is enough of a control mechanism for most important cases.  And there is also the community enforcement angle ? if enough users say they don?t like a non-canonical variant, that variant?s use becomes moribund, and it dies (or is killed).  For example:  https://opensource.org/licenses/intel-open-source-license.php
+
+So for this one, I think asserting a copyright or trademark and adding additional terms about making variants gets it away from the special purpose for which it was drafted.  I can, however, see the benefit for those licenses with more originality to them.
+
+McCoy
+From: License-review [mailto:license-review-bounces at opensource.org] On Behalf Of Lawrence Rosen
+Sent: Friday, January 15, 2016 9:04 AM
+To: 'License submissions for OSI review'
+Subject: Re: [License-review] Approval: BSD + Patent License
+
+Hi McCoy and Mike,
+
+While we do want to avoid random and often incomprehensible changes to our software licenses, the effective solution is not to place a copyright notice on something that is probably not copyrightable. Even though, that's what I did anyway myself, hoping to scare people. :-)  Perhaps trademark protection for its name is more appropriate?
+
+I struggled with that problem with AFL/OSL, mostly after critics complained that I was selfishly reserving for myself the right to steward the text of a FOSS license. On the other hand, at that time, I didn't trust OSI to steward it for me.
+
+So here's what I wrote, in the form of an express license condition:
+
+16) Modification of This License. This License is Copyright ? 2005 Lawrence Rosen. Permission is granted to copy, distribute, or communicate this License without modification. Nothing in this License permits You to modify this License as applied to the Original Work or to Derivative Works. However, You may modify the text of this License and copy, distribute or communicate your modified version (the "Modified License") and apply it to other original works of authorship subject to the following conditions: (i) You may not indicate in any way that your Modified License is the "Academic Free License" or "AFL" and you may not use those names in the name of your Modified License; (ii) You must replace the notice specified in the first paragraph above with the notice "Licensed under <insert your license name here>" or with a notice of your own that is not confusingly similar to the notice in this License; and (iii) You may not claim that your original works are open source software unless your Modified License has been approved by Open Source Initiative (OSI) and You comply with its license review and certification process.
+
+/Larry
+
+
+From: Mike Milinkovich [mailto:mike.milinkovich at eclipse.org]
+Sent: Friday, January 15, 2016 8:15 AM
+To: license-review at opensource.org<mailto:license-review at opensource.org>
+Subject: Re: [License-review] Approval: BSD + Patent License
+
+On 13/01/2016 1:57 PM, Smith, McCoy wrote:
+
+PROLIFERATION CATEGORY:
+
+
+
+This license should be categorized as a ?Special Purpose License,? or, alternatively, as an approved variant of the BSD 2-clause license.
+
+McCoy,
+
+I also like the direction that proposal is going in. I believe that such a license has the potential to be very useful and popular. Thank you for taking the initiative to put this together.
+
+One criticism of the BSD-style license that I have heard in the past is that because it is an editable template, downstream consumers have an added compliance burden to ensure that the version that they are looking at is, in fact, an exact copy of the BSD.  Have you considered giving this license a name, and copyrighting it to help alleviate this issue? I would guess that some text similar to what I've pasted below from the EPL would be required. I am not sure who could be the license steward. I would suggest the OSI itself, but I don't know if that is too radical a departure from past practice.
+Everyone is permitted to copy and distribute copies of this Agreement, but in order to avoid inconsistency the Agreement is copyrighted and may only be modified in the following manner. The Agreement Steward reserves the right to publish new versions (including revisions) of this Agreement from time to time. No one other than the Agreement Steward has the right to modify this Agreement. The <<some organization>> is the initial Agreement Steward. The <<some organization>> may assign the responsibility to serve as the Agreement Steward to a suitable separate entity. Each new version of the Agreement will be given a distinguishing version number. The Program (including Contributions) may always be distributed subject to the version of the Agreement under which it was received. In addition, after a new version of the Agreement is published, Contributor may elect to distribute the Program (including its Contributions) under the new version.
+
+--
+Mike Milinkovich
+Eclipse Foundation and OSI Director
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20160115/3282981c/attachment.html>
+
+From jim at jaguNET.com  Fri Jan 15 19:19:38 2016
+From: jim at jaguNET.com (Jim Jagielski)
+Date: Fri, 15 Jan 2016 14:19:38 -0500
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <1452869876.7711.12.camel@klomp.org>
+References: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+ <20160114214133.GA328@sharpeleven.org>
+ <449DD2E1-0019-4697-9375-8C81B49C31DC@jaguNET.com>
+ <1452869876.7711.12.camel@klomp.org>
+Message-ID: <5AD182A4-0EDE-4E8A-A3A9-4E705B847134@jaguNET.com>
+
+I encourage you to read the full history, esp:
+
+	http://mail-archives.apache.org/mod_mbox/archive-license/200401.mbox/%3c20040109143803.G31301 at fez.hyperreal.org%3e
+	http://mail-archives.apache.org/mod_mbox/archive-license/200401.mbox/%3c23385101-4E15-11D8-915D-000393753936 at apache.org%3e
+	http://mail-archives.apache.org/mod_mbox/archive-license/200401.mbox/%3c4686EED7-4E1D-11D8-915D-000393753936 at apache.org%3e
+
+Thx.
+
+> On Jan 15, 2016, at 9:57 AM, Mark Wielaard <mark at klomp.org> wrote:
+> 
+> On Fri, 2016-01-15 at 09:20 -0500, Jim Jagielski wrote:
+>> For the record, the ALv2 was also designed to be compatible w/ the
+>> GPLv2 and during the drafting process, comments and suggestions
+>> from various parties associated with the GPL were incorporated.
+>> We fully expected that the FSF (and others), based on this and
+>> from their feedback, would formally state that ALv2 was compatible;
+>> you can imagine our surprise (and disappointment) when, not long
+>> after we released it, we were told "nope".
+> 
+> That is not how I read the feedback the FSF gave on the ASLv2 draft:
+> http://mail-archives.apache.org/mod_mbox/archive-license/200311.mbox/%
+> 3C16309.18688.540989.283163 at new.law.columbia.edu%3E
+> It states that the patent retaliation clause is incompatible in general
+> with GPLv2. But that it is a good idea anyway. And that if the ASLv2 was
+> changed in certain ways then it could be used as template for the next
+> version of the GPL to make ASLv2 and GPLv3 compatible. Which is what
+> happily happened in the end.
+> 
+> Eben Moglen's comments on the ASLv2 draft above might be interesting in
+> general for this discussion since it not only touches on patent clauses
+> that might be (in)compatible with the GPL, but also what is a
+> contribution/contributor.
+> 
+> Cheers,
+> 
+> Mark
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+

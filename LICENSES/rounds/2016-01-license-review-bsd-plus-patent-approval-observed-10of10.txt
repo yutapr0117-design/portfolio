@@ -1,0 +1,446 @@
+Source:   https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2016-January.txt
+Fetched:  2026-09-25T08:42:28+00:00（ブラウザ相当の UA）
+Thread:   [License-review] Approval: BSD + Patent License —— 全 68 通（2016 年・承認された）
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **permissive なライセンスに明示的特許許諾を足したものを OSI が承認した審査**で、
+          **我々の特許 gap にとって最も近い承認済みの隣人**である。
+          **テキストの census（`ACD-1.0.gap-census.md`）からは出ない「承認理由の逐語」がここに在る。**
+          ⚠ 抽出は**件名で厳密に**行った —— 本文中の語で拾うと別スレッド 4 通が混入した。
+          分割は Check 365（1,000 行）のため・メッセージ境界で切ってある（10/10 部・3 通）。
+          読みは LICENSES/ACD-1.0.against.md #235 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From jim at jaguNET.com  Fri Jan 22 17:56:50 2016
+From: jim at jaguNET.com (Jim Jagielski)
+Date: Fri, 22 Jan 2016 12:56:50 -0500
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <032701d1552f$f2040a70$d60c1f50$@rosenlaw.com>
+References: <2D52F7EE739F8542A700CAB96276B51933DE3D8E@FMSMSX108.amr.corp.intel.com>
+ <7E0E67AF-720A-4E15-8D37-7C1F4F69FA5D@oracle.com>
+ <2D52F7EE739F8542A700CAB96276B51933DEC3FE@FMSMSX108.amr.corp.intel.com>
+ <75E8EB71-984C-4D43-8410-C51D5DFF5527@oracle.com>
+ <EE7262B4-E569-4D20-BD65-93E806594184@oracle.com>
+ <032701d1552f$f2040a70$d60c1f50$@rosenlaw.com>
+Message-ID: <D065656A-6960-4A48-B8A1-90769DA15028@jaguNET.com>
+
+The intent, of course, it to prevent anyone from doing a "submarine"
+submission of code to the ASF, at which point, the code gets popular
+and used and widely disseminated all the while the owner waits for
+their patent to be granted.
+
+> On Jan 22, 2016, at 11:14 AM, Lawrence Rosen <lrosen at rosenlaw.com> wrote:
+> 
+> Jim Wright wrote:
+> > P.S.--> It just occurred to me to look as I fall into bed here, and this is what the ASF FAQ says on the subject of their patent language
+>  
+> Jim, I hope you slept well.  BTW, I wrote those statements posted on the ASF website. Do you agree with them? Please remember that nothing posted on the ASF (or the FSF!) website bears the blessing of a court. But I'm glad to know that Oracle has read it and intends to obey.
+>  
+> /Larry
+>  
+>  
+> From: Jim Wright [mailto:jim.wright at oracle.com] 
+> Sent: Thursday, January 21, 2016 10:16 PM
+> To: Smith, McCoy <mccoy.smith at intel.com>
+> Cc: License submissions for OSI review <license-review at opensource.org>
+> Subject: Re: [License-review] Approval: BSD + Patent License
+>  
+> P.S.--> It just occurred to me to look as I fall into bed here, and this is what the ASF FAQ says on the subject of their patent language (which also does not expressly refer to after-acquired grants but does not feature the same time limitation as the BSD+PL requiring the material to be covered "at the time the copyrighted material was added"):
+>  
+> Q2:
+> If at any time after my contribution, I am able to license other patent claims that would have been subject to Apache's Grant of Patent License if they were licenseable by me at the time of my contribution, do those other claims become subject to the Grant of Patent License?
+> A2:
+> Yes.
+> Q3:
+> If I own or control a licensable patent and contribute code to a specific Apache product, which of my patent claims are subject to Apache's Grant of Patent License?
+> A3:
+> The only patent claims that are licensed to the ASF are those you own or have the right to license that read on your contribution or on the combination of your contribution with the specific Apache product to which you contributed as it existed at the time of your contribution. No additional patent claims become licensed as a result of subsequent combinations of your contribution with any other software. Note, however, that licensable patent claims include those that you acquire in the future, as long as they read on your original contribution as made at the original time. Once a patent claim is subject to Apache's Grant of Patent License, it is licensed under the terms of that Grant to the ASF and to recipients of any software distributed by the ASF for any Apache software product whatsoever.
+>  
+> So perhaps I am not alone in my read on the temporal scope of grants in the absence of limiting language here.  (Of course reasonable men may differ on these Qs.)
+>  
+>  Best,
+>   Jim
+> 
+>  
+> On Jan 21, 2016, at 9:00 PM, Jim Wright <jim.wright at oracle.com> wrote:
+> 
+>> Interesting question.  Like you, I find the Amp/Transcore/General Protecht/Endo etc. cases? less than a model of clarity on these issues.  :-)  But in the absence of clear law to the contrary, of which I like you am unaware (but maybe I just missed something that Richard or others became aware of in the GPLv3 drafting process), I would not want to be standing in the shoes of a someone arguing for infringement where the accused instrumentality was something they had licensed under the UPL, which does not expressly limit the license to patents issued prior to the moment of the grant rather than all those owned or freely licensable during the term of the license.  (I was basically making the opposite of your posited assumption - that a grant so-phrased, covering a narrowly defined and specific instrument but without any express time or other exclusions, would not suffer a claim that the instrument infringed, whether by construction of the express grant to cover patents owned or freely licensable during the term, or by legal estoppel - in the words of the General Protecht court, derograting from rights granted under the license.)  But perhaps I am mistaken, as I have certainly seen plenty of express language addressing this in commercial agreements as well, though this may just be a response to the less than clear case law on point - I am always happy to be enlightened, esp. if someone can point me to a case in which a grant of rights to all patents covering X was later held to allow suit under later acquired patents reading on X while the license was still in force.
+>> 
+>> In any event I do read the verbiage of the grant in the BSD+PL as arguably more stringent here because it seems to me the condition "if, at the time the copyrighted material was added, such addition causes such combination to be covered by the patent claim." can be argued to be unsatisfied by a patent claim that does not exist at the time the copyrighted material in question was added.  This express time condition does not exist in the UPL, which refers only to the Software being unmodified from that contributed to or distributed by the licensor - that the grant is only to patents at a single point in time would have to be implied by law for the UPL, where in the BSD+PL, I think you could argue it is express.  But let me backpedal and revise my assessment here: not having seen any case law as per above that says a grant of license to all patents covering the item X I distributed does not cover later acquired patents reading on X, the risk of the UPL being interpreted to allow action on after acquired patents seems to me perhaps lower than the risk of BSD+PL being interpreted in this way.  If revising on other points anyway, maybe you should just expressly add after-acquired patents here?  
+>> 
+>> Best,
+>> Jim
+>> 
+>> 
+>> 
+>>> On Jan 21, 2016, at 1:44 PM, Smith, McCoy <mccoy.smith at intel.com> wrote:
+>>>  
+>>> This statement interests me:  "I believe the UPL patent grant *would* include a later granted patent from a licensor under the license, while the language of the BSD+PL would arguably *not* include it due to the instantaneous nature of the grant. "
+>>>  
+>>> Neither UPL nor BSD + Patent defines the licensed patent claims as those "already acquired or hereafter acquired" (to borrow from GPLv3).  That sort of clarification of what patent claims are licensed is not a feature in most OSI licenses that include a patent grant (not Apache, not Eclipse, not GPLv2, and of course none of the licenses without express patent licenses).  GPLv3 does have it.  Lots of proprietary licenses do also.
+>>>  
+>>> If we assume, for the sake of argument, that the absence of such language creates a license only to those patent claims in existence (Issued?  Filed?  Reduced to practice?  Conceived?) at some snapshot of time (which I think you believe would be measured by "when the grant is made"), I'm curious what leads to that conclusion (and how UPL avoids it and BSD+Patent doesn't).  I think, perhaps the language " if, at the time the copyrighted material was added" in the combination grant of BSD+Patent is leading you to concluding that that sets the snapshot in time.  I tend to think that measures the scope of the grant, not the scope of the licensed patent claims.  I believe the only definition of the patent claims licensed are those " licensable by such copyright holder or contributor" (BSD+Patent) or "owned or freely licensable by each licensor " (UPL), which seem to me to be coextensive (putting aside the difference already discussed as to copyright holder/contributor vs. contribut[or]/provid[er]).  Perhaps there's something in the UPL grant that avoids a temporal limitation that I'm missing.  If it's the sublicense rights, I'm not sure how that would work.
+>>>  
+>>> I'm of course talking about the express patent grant itself.  If the theory is based on implied patent licensing, I'm not certain how one could take the Transcore line of cases to that conclusion (I find the Transcore line of cases, considered together, quite murky on how one determines when, and of what scope, an implied patent license exists).
+>>>  
+>>> I will note that I haven't really seen any case law that addresses this issue.  General Protech is sort of the reverse of that question (if there's an express disclaimer of later-issued patents, is there nevertheless a potential implied license).  If someone knows of precedent that might directly (or inferentially) lead to that conclusion, I'd be curious to see it.  It certainly would be relevant to measurement of the patent claims licensed in many of frequently-used OSI-approved licenses.   Or at least proof that the authors of GPLv3 thought and addressed a corner case that prior license drafters did not.
+>>>  
+>>> McCoy
+>>>  
+>>> -----Original Message-----
+>>> From: Jim Wright [mailto:jim.wright at oracle.com] 
+>>> Sent: Thursday, January 21, 2016 7:43 AM
+>>> To: Smith, McCoy
+>>> Cc: License submissions for OSI review
+>>> Subject: Re: [License-review] Approval: BSD + Patent License
+>>>  
+>>> Thank you for the thoughtful and detailed reply McCoy, a pleasure as always.  Sounds like you?re going to propose a revision then?
+>>>  
+>>> Assuming you end up tweaking not to exclude hardware components, and adding back conditioning of the patent license on attribution along with the copyright license, then to address the proliferation question, I think that might nail down a few substantive differences from the UPL (which, IMHO, is the core of non-proliferation evaluation - clear differences in effect of the license):
+>>>  
+>>> - As you correctly observe in one of your other replies, the UPL includes a patent license from someone who redistributes under the license (though they may choose to sublicense under other terms to avoid this - it was a feature :), the BSD+PL will not include one, so in the base case, a recipient would still be relying on an implied license from any non-contributor for any use of the code.  This may also affect how distribution of combinations would likely be interpreted (in the A/B/X/Y example, under the UPL, a party distributing two pieces of code under the license would license both, while under the BSD+PL, they only license the code they?ve contributed to and arguably not another piece of code distributed alongside, though one might at least try to counter-argue that this combination is itself a copyrightable contribution in some cases (collective work anyone? {Shudder}) then causing them to grant a license to the assembled whole.)
+>>>  
+>>> - The UPL expressly permits sublicensing, the BSD+PL does not (and the extent to which sublicense rights may or may not be implied varies both by circumstance and by jurisdiction - one may not safely assume that sublicense rights to the code would be implied in all jurisdictions) such that under the BSD+PL you could not necessarily, e.g., cut and paste code into something licensed under terms that require the entirety of the work to be under a single license, or offer the work on proprietary terms, and purporting to do so could be infringing.
+>>>  
+>>> - Getting to Nigel?s most recent question, I believe the UPL patent grant *would* include a later granted patent from a licensor under the license, while the language of the BSD+PL would arguably *not* include it due to the instantaneous nature of the grant.  
+>>>  
+>>> There are other differences but I don?t think we need a comprehensive list here.  
+>>>  
+>>> Best,
+>>> Jim
+>>>  
+>>>  
+>>>  
+>>>> On Jan 20, 2016, at 8:38 AM, Smith, McCoy <mccoy.smith at intel.com> wrote:
+>>>>  
+>>>> -- Hardware Per Se license exclusion:
+>>>>  
+>>>> You know, after your first comment (and some other public or private comments I got), I'm thinking that maybe the exclusion of "hardware per se" from the license may not be helpful, and perhaps harmful, for the following reasons:
+>>>>  
+>>>> 1.  I have a feeling that it might render the license GPLv2 incompatible;  although OSI licenses are generally used for software, they can be (and have been) used for hardware*, and to exclude out hardware from the patent license could be considered an additional restriction incompatible with GPL (either v2 or v3).  EPL and CPL both have this exclusion, and the FSF does not point to that as rendering the licenses incompatible with GPL, but that's likely because the weak copyleft nature of these licenses was the primary reason for the opinion that EPL & CPL are GPL compatible.
+>>>>  
+>>>> 2.  "Hardware per se" is, in my (and others') opinion, somewhat ambiguous in its scope.
+>>>>  
+>>>> Nigel Tzeng suggested substituting a more general disclaimer (for example " No other express or implied licenses are granted");  I can see some merit to that as an alternative disclaimer.  I'm curious of the mailing list's thoughts on this sort of disclaimer.  I know it is something that is often put in proprietary licenses, although even those sorts of disclaimer don't necessarily preclude an implied license being found (at least in the US, per the Transcore decision and certain progeny).  As to whether this disclaimer might impact GPLv2 compatibility, I think not (given the finding that the Clear BSD -- with a complete disclaimer of all patent licenses -- is GPLv2 and GPLv3 compatible: http://www.gnu.org/licenses/license-list.en.html#clearbsd  )
+>>>>  
+>>>> --Irrevocability of patent license:
+>>>>  
+>>>> When importing that Apache/Eclipse patent license, I did take out the clause that the grant was "Subject to the terms and conditions of this License" (Apache)/" Subject to the terms of this Agreement" (Eclipse).  When I drafted it, I was thinking that the "Terms and Conditions" of BSD are so minimal that making the grant conditioned upon them was not worth it, and that patent litigation is a pretty expensive hammer to wield in order to get someone to comply with the two conditions of BSD-2-Clause.  But then again, we do see some people failing to comply with those minimal requirements, and they do provide a valuable notice function that ought to be preserved (and to get the valuable benefit of a patent license, you ought to at least comply with those requirements).  I'm leaning toward maybe inserting a "subject to" clause to the patent grant for this reason and to maintain better consistency with the Apache/Eclipse patent grants.
+>>>>  
+>>>> --License from redistributor:
+>>>>  
+>>>> This really is a question as to the scope of how the Apache/Eclipse style patent license is drafted;  I have of course reproduced (as best I can) that form of license.  Those licenses are measured by the contribution made by the patent holder (alone or in combination).  A mere redistributor, who makes no changes/"Contribution", is not subject to the grant of that form of license (at least I believe that to be the interpretation -- anyone can correct me if they think I am wrong).  As the Apache form of a patent license is the type that many patent holding entities find an acceptable bargain (and which why many of them like Apache, but for its GPLv2 incompatibility), I've retained that scope.
+>>>>  
+>>>> --Sublicense rights:
+>>>>  
+>>>> I've tried to track the language (and thinking behind) BSD and Apache/Eclipse, which I believe is designed to be a direct license from the copyright holder to everyone that uses the licensed subject matter, thus precluding the need for a sublicense right (this is also the thinking that was part of the drafting and discussion of GPLv3).  I'm not aware of the argument that somehow the lack of sublicense rights in BSD (or other licenses) might render it GPLv2 compatible, and I'm curious as to how that would work given that the FSF has long maintained that sublicense rights are not a part of GPL, and GPLv3 says, in Section 2, that "Sublicensing is not allowed" (because they believe it to be unnecessary. 
+>>>>  
+>>>>  
+>>>> *Those of you know me know I've been noodling  around with issues around open hardware licensing for a while, and I have some skepticism about the use of OSI licenses in their pure form for hardware licensing, but that's beside the point of this particular license draft and OSI approval. 
+>>>>  
+>>>> McCoy
+>>>> -----Original Message-----
+>>>> From: Jim Wright [mailto:jim.wright at oracle.com] 
+>>>> Sent: Friday, January 15, 2016 9:20 AM
+>>>> To: License submissions for OSI review
+>>>> Cc: Smith, McCoy; josh at postgresql.org
+>>>> Subject: Re: [License-review] Approval: BSD + Patent License
+>>>>  
+>>>> McCoy, I applaud your efforts here.  A few questions in no particular order:
+>>>>  
+>>>> - If a patent claim has some parts of a device or method in hardware and some in software, is the intent of stating that hardware per se is not licensed here that it not be covered?  (While some have concluded CC0 is GPL compatible even with an express reservation of patent rights, in my mind, the idea of expressly reserving some patent rights that may actually cover the software as combined with HW on which it runs is curious.)
+>>>>  
+>>>> - I note you make the patent license irrevocable - how do you intend this to interact with the conditional nature of the copyright license?  The wording strikes me as interesting here, because you provide that anyone exercising copyright rights under the license is the beneficiary of an irrevocable patent license grant - but what if the party exercising copyright rights is also breaching the license in another context (e.g., providing attribution for one use but not another).  The way I read it, the party is exercising copyright rights under the license, and therefore all their activities benefit from the patent license, potentially even if out of compliance in other contexts??  
+>>>>  
+>>>> - Vis-a-vis Carlo?s question, and Richard?s, I might go further - does a recipient get, or not get, patent rights from a downstream redistributor under the license, since a redistributor is arguably neither a contributor nor a copyright holder here?
+>>>>  
+>>>> - This one will not be popular but some have actually questioned the idea of the BSD license?s GPL compatibility (vs., e.g., MIT).  Would it be useful to add sublicense or other rights for certainty in this regard?
+>>>>  
+>>>> Oh, and Josh, McCoy can answer for this new proposed license, but as to the UPL, we considered this, and I think we would take the position that A is a licensor having provided the software under the UPL of X+Y, and therefore has granted that patent license to ?anyone obtaining a copy of? X+Y.  (We can discuss offline if you like in order to avoid bogging down the discussion of McCoy?s proposal.)
+>>>>  
+>>>> Best,
+>>>> Jim
+>>>  
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at opensource.org
+>> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+From jim.wright at oracle.com  Fri Jan 22 18:40:01 2016
+From: jim.wright at oracle.com (Jim Wright)
+Date: Fri, 22 Jan 2016 10:40:01 -0800
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <D065656A-6960-4A48-B8A1-90769DA15028@jaguNET.com>
+References: <2D52F7EE739F8542A700CAB96276B51933DE3D8E@FMSMSX108.amr.corp.intel.com>
+ <7E0E67AF-720A-4E15-8D37-7C1F4F69FA5D@oracle.com>
+ <2D52F7EE739F8542A700CAB96276B51933DEC3FE@FMSMSX108.amr.corp.intel.com>
+ <75E8EB71-984C-4D43-8410-C51D5DFF5527@oracle.com>
+ <EE7262B4-E569-4D20-BD65-93E806594184@oracle.com>
+ <032701d1552f$f2040a70$d60c1f50$@rosenlaw.com>
+ <D065656A-6960-4A48-B8A1-90769DA15028@jaguNET.com>
+Message-ID: <29A3A728-FCF5-4E3A-82CA-BB10A8952276@oracle.com>
+
+Totally agreed, though I think the effect would also be to cover patents later acquired from non-organic sources (e.g., through M&A), and that?s a good thing.  (And sadly not enough sleep Larry? I?ll catch up when Jr goes to college I guess?)
+
+
+> On Jan 22, 2016, at 9:56 AM, Jim Jagielski <jim at jaguNET.com> wrote:
+> 
+> The intent, of course, it to prevent anyone from doing a "submarine"
+> submission of code to the ASF, at which point, the code gets popular
+> and used and widely disseminated all the while the owner waits for
+> their patent to be granted.
+> 
+>> On Jan 22, 2016, at 11:14 AM, Lawrence Rosen <lrosen at rosenlaw.com> wrote:
+>> 
+>> Jim Wright wrote:
+>>> P.S.--> It just occurred to me to look as I fall into bed here, and this is what the ASF FAQ says on the subject of their patent language
+>> 
+>> Jim, I hope you slept well.  BTW, I wrote those statements posted on the ASF website. Do you agree with them? Please remember that nothing posted on the ASF (or the FSF!) website bears the blessing of a court. But I'm glad to know that Oracle has read it and intends to obey.
+>> 
+>> /Larry
+>> 
+>> 
+>> From: Jim Wright [mailto:jim.wright at oracle.com] 
+>> Sent: Thursday, January 21, 2016 10:16 PM
+>> To: Smith, McCoy <mccoy.smith at intel.com>
+>> Cc: License submissions for OSI review <license-review at opensource.org>
+>> Subject: Re: [License-review] Approval: BSD + Patent License
+>> 
+>> P.S.--> It just occurred to me to look as I fall into bed here, and this is what the ASF FAQ says on the subject of their patent language (which also does not expressly refer to after-acquired grants but does not feature the same time limitation as the BSD+PL requiring the material to be covered "at the time the copyrighted material was added"):
+>> 
+>> Q2:
+>> If at any time after my contribution, I am able to license other patent claims that would have been subject to Apache's Grant of Patent License if they were licenseable by me at the time of my contribution, do those other claims become subject to the Grant of Patent License?
+>> A2:
+>> Yes.
+>> Q3:
+>> If I own or control a licensable patent and contribute code to a specific Apache product, which of my patent claims are subject to Apache's Grant of Patent License?
+>> A3:
+>> The only patent claims that are licensed to the ASF are those you own or have the right to license that read on your contribution or on the combination of your contribution with the specific Apache product to which you contributed as it existed at the time of your contribution. No additional patent claims become licensed as a result of subsequent combinations of your contribution with any other software. Note, however, that licensable patent claims include those that you acquire in the future, as long as they read on your original contribution as made at the original time. Once a patent claim is subject to Apache's Grant of Patent License, it is licensed under the terms of that Grant to the ASF and to recipients of any software distributed by the ASF for any Apache software product whatsoever.
+>> 
+>> So perhaps I am not alone in my read on the temporal scope of grants in the absence of limiting language here.  (Of course reasonable men may differ on these Qs.)
+>> 
+>> Best,
+>>  Jim
+>> 
+>> 
+>> On Jan 21, 2016, at 9:00 PM, Jim Wright <jim.wright at oracle.com> wrote:
+>> 
+>>> Interesting question.  Like you, I find the Amp/Transcore/General Protecht/Endo etc. cases? less than a model of clarity on these issues.  :-)  But in the absence of clear law to the contrary, of which I like you am unaware (but maybe I just missed something that Richard or others became aware of in the GPLv3 drafting process), I would not want to be standing in the shoes of a someone arguing for infringement where the accused instrumentality was something they had licensed under the UPL, which does not expressly limit the license to patents issued prior to the moment of the grant rather than all those owned or freely licensable during the term of the license.  (I was basically making the opposite of your posited assumption - that a grant so-phrased, covering a narrowly defined and specific instrument but without any express time or other exclusions, would not suffer a claim that the instrument infringed, whether by construction of the express grant to cover patents owned or freely licensable during the term, or by legal estoppel - in the words of the General Protecht court, derograting from rights granted under the license.)  But perhaps I am mistaken, as I have certainly seen plenty of express language addressing this in commercial agreements as well, though this may just be a response to the less than clear case law on point - I am always happy to be enlightened, esp. if someone can point me to a case in which a grant of rights to all patents covering X was later held to allow suit under later acquired patents reading on X while the license was still in force.
+>>> 
+>>> In any event I do read the verbiage of the grant in the BSD+PL as arguably more stringent here because it seems to me the condition "if, at the time the copyrighted material was added, such addition causes such combination to be covered by the patent claim." can be argued to be unsatisfied by a patent claim that does not exist at the time the copyrighted material in question was added.  This express time condition does not exist in the UPL, which refers only to the Software being unmodified from that contributed to or distributed by the licensor - that the grant is only to patents at a single point in time would have to be implied by law for the UPL, where in the BSD+PL, I think you could argue it is express.  But let me backpedal and revise my assessment here: not having seen any case law as per above that says a grant of license to all patents covering the item X I distributed does not cover later acquired patents reading on X, the risk of the UPL being interpreted to allow action on after acquired patents seems to me perhaps lower than the risk of BSD+PL being interpreted in this way.  If revising on other points anyway, maybe you should just expressly add after-acquired patents here?  
+>>> 
+>>> Best,
+>>> Jim
+>>> 
+>>> 
+>>> 
+>>>> On Jan 21, 2016, at 1:44 PM, Smith, McCoy <mccoy.smith at intel.com> wrote:
+>>>> 
+>>>> This statement interests me:  "I believe the UPL patent grant *would* include a later granted patent from a licensor under the license, while the language of the BSD+PL would arguably *not* include it due to the instantaneous nature of the grant. "
+>>>> 
+>>>> Neither UPL nor BSD + Patent defines the licensed patent claims as those "already acquired or hereafter acquired" (to borrow from GPLv3).  That sort of clarification of what patent claims are licensed is not a feature in most OSI licenses that include a patent grant (not Apache, not Eclipse, not GPLv2, and of course none of the licenses without express patent licenses).  GPLv3 does have it.  Lots of proprietary licenses do also.
+>>>> 
+>>>> If we assume, for the sake of argument, that the absence of such language creates a license only to those patent claims in existence (Issued?  Filed?  Reduced to practice?  Conceived?) at some snapshot of time (which I think you believe would be measured by "when the grant is made"), I'm curious what leads to that conclusion (and how UPL avoids it and BSD+Patent doesn't).  I think, perhaps the language " if, at the time the copyrighted material was added" in the combination grant of BSD+Patent is leading you to concluding that that sets the snapshot in time.  I tend to think that measures the scope of the grant, not the scope of the licensed patent claims.  I believe the only definition of the patent claims licensed are those " licensable by such copyright holder or contributor" (BSD+Patent) or "owned or freely licensable by each licensor " (UPL), which seem to me to be coextensive (putting aside the difference already discussed as to copyright holder/contributor vs. contribut[or]/provid[er]).  Perhaps there's something in the UPL grant that avoids a temporal limitation that I'm missing.  If it's the sublicense rights, I'm not sure how that would work.
+>>>> 
+>>>> I'm of course talking about the express patent grant itself.  If the theory is based on implied patent licensing, I'm not certain how one could take the Transcore line of cases to that conclusion (I find the Transcore line of cases, considered together, quite murky on how one determines when, and of what scope, an implied patent license exists).
+>>>> 
+>>>> I will note that I haven't really seen any case law that addresses this issue.  General Protech is sort of the reverse of that question (if there's an express disclaimer of later-issued patents, is there nevertheless a potential implied license).  If someone knows of precedent that might directly (or inferentially) lead to that conclusion, I'd be curious to see it.  It certainly would be relevant to measurement of the patent claims licensed in many of frequently-used OSI-approved licenses.   Or at least proof that the authors of GPLv3 thought and addressed a corner case that prior license drafters did not.
+>>>> 
+>>>> McCoy
+>>>> 
+>>>> -----Original Message-----
+>>>> From: Jim Wright [mailto:jim.wright at oracle.com] 
+>>>> Sent: Thursday, January 21, 2016 7:43 AM
+>>>> To: Smith, McCoy
+>>>> Cc: License submissions for OSI review
+>>>> Subject: Re: [License-review] Approval: BSD + Patent License
+>>>> 
+>>>> Thank you for the thoughtful and detailed reply McCoy, a pleasure as always.  Sounds like you?re going to propose a revision then?
+>>>> 
+>>>> Assuming you end up tweaking not to exclude hardware components, and adding back conditioning of the patent license on attribution along with the copyright license, then to address the proliferation question, I think that might nail down a few substantive differences from the UPL (which, IMHO, is the core of non-proliferation evaluation - clear differences in effect of the license):
+>>>> 
+>>>> - As you correctly observe in one of your other replies, the UPL includes a patent license from someone who redistributes under the license (though they may choose to sublicense under other terms to avoid this - it was a feature :), the BSD+PL will not include one, so in the base case, a recipient would still be relying on an implied license from any non-contributor for any use of the code.  This may also affect how distribution of combinations would likely be interpreted (in the A/B/X/Y example, under the UPL, a party distributing two pieces of code under the license would license both, while under the BSD+PL, they only license the code they?ve contributed to and arguably not another piece of code distributed alongside, though one might at least try to counter-argue that this combination is itself a copyrightable contribution in some cases (collective work anyone? {Shudder}) then causing them to grant a license to the assembled whole.)
+>>>> 
+>>>> - The UPL expressly permits sublicensing, the BSD+PL does not (and the extent to which sublicense rights may or may not be implied varies both by circumstance and by jurisdiction - one may not safely assume that sublicense rights to the code would be implied in all jurisdictions) such that under the BSD+PL you could not necessarily, e.g., cut and paste code into something licensed under terms that require the entirety of the work to be under a single license, or offer the work on proprietary terms, and purporting to do so could be infringing.
+>>>> 
+>>>> - Getting to Nigel?s most recent question, I believe the UPL patent grant *would* include a later granted patent from a licensor under the license, while the language of the BSD+PL would arguably *not* include it due to the instantaneous nature of the grant.  
+>>>> 
+>>>> There are other differences but I don?t think we need a comprehensive list here.  
+>>>> 
+>>>> Best,
+>>>> Jim
+>>>> 
+>>>> 
+>>>> 
+>>>>> On Jan 20, 2016, at 8:38 AM, Smith, McCoy <mccoy.smith at intel.com> wrote:
+>>>>> 
+>>>>> -- Hardware Per Se license exclusion:
+>>>>> 
+>>>>> You know, after your first comment (and some other public or private comments I got), I'm thinking that maybe the exclusion of "hardware per se" from the license may not be helpful, and perhaps harmful, for the following reasons:
+>>>>> 
+>>>>> 1.  I have a feeling that it might render the license GPLv2 incompatible;  although OSI licenses are generally used for software, they can be (and have been) used for hardware*, and to exclude out hardware from the patent license could be considered an additional restriction incompatible with GPL (either v2 or v3).  EPL and CPL both have this exclusion, and the FSF does not point to that as rendering the licenses incompatible with GPL, but that's likely because the weak copyleft nature of these licenses was the primary reason for the opinion that EPL & CPL are GPL compatible.
+>>>>> 
+>>>>> 2.  "Hardware per se" is, in my (and others') opinion, somewhat ambiguous in its scope.
+>>>>> 
+>>>>> Nigel Tzeng suggested substituting a more general disclaimer (for example " No other express or implied licenses are granted");  I can see some merit to that as an alternative disclaimer.  I'm curious of the mailing list's thoughts on this sort of disclaimer.  I know it is something that is often put in proprietary licenses, although even those sorts of disclaimer don't necessarily preclude an implied license being found (at least in the US, per the Transcore decision and certain progeny).  As to whether this disclaimer might impact GPLv2 compatibility, I think not (given the finding that the Clear BSD -- with a complete disclaimer of all patent licenses -- is GPLv2 and GPLv3 compatible: http://www.gnu.org/licenses/license-list.en.html#clearbsd  )
+>>>>> 
+>>>>> --Irrevocability of patent license:
+>>>>> 
+>>>>> When importing that Apache/Eclipse patent license, I did take out the clause that the grant was "Subject to the terms and conditions of this License" (Apache)/" Subject to the terms of this Agreement" (Eclipse).  When I drafted it, I was thinking that the "Terms and Conditions" of BSD are so minimal that making the grant conditioned upon them was not worth it, and that patent litigation is a pretty expensive hammer to wield in order to get someone to comply with the two conditions of BSD-2-Clause.  But then again, we do see some people failing to comply with those minimal requirements, and they do provide a valuable notice function that ought to be preserved (and to get the valuable benefit of a patent license, you ought to at least comply with those requirements).  I'm leaning toward maybe inserting a "subject to" clause to the patent grant for this reason and to maintain better consistency with the Apache/Eclipse patent grants.
+>>>>> 
+>>>>> --License from redistributor:
+>>>>> 
+>>>>> This really is a question as to the scope of how the Apache/Eclipse style patent license is drafted;  I have of course reproduced (as best I can) that form of license.  Those licenses are measured by the contribution made by the patent holder (alone or in combination).  A mere redistributor, who makes no changes/"Contribution", is not subject to the grant of that form of license (at least I believe that to be the interpretation -- anyone can correct me if they think I am wrong).  As the Apache form of a patent license is the type that many patent holding entities find an acceptable bargain (and which why many of them like Apache, but for its GPLv2 incompatibility), I've retained that scope.
+>>>>> 
+>>>>> --Sublicense rights:
+>>>>> 
+>>>>> I've tried to track the language (and thinking behind) BSD and Apache/Eclipse, which I believe is designed to be a direct license from the copyright holder to everyone that uses the licensed subject matter, thus precluding the need for a sublicense right (this is also the thinking that was part of the drafting and discussion of GPLv3).  I'm not aware of the argument that somehow the lack of sublicense rights in BSD (or other licenses) might render it GPLv2 compatible, and I'm curious as to how that would work given that the FSF has long maintained that sublicense rights are not a part of GPL, and GPLv3 says, in Section 2, that "Sublicensing is not allowed" (because they believe it to be unnecessary. 
+>>>>> 
+>>>>> 
+>>>>> *Those of you know me know I've been noodling  around with issues around open hardware licensing for a while, and I have some skepticism about the use of OSI licenses in their pure form for hardware licensing, but that's beside the point of this particular license draft and OSI approval. 
+>>>>> 
+>>>>> McCoy
+>>>>> -----Original Message-----
+>>>>> From: Jim Wright [mailto:jim.wright at oracle.com] 
+>>>>> Sent: Friday, January 15, 2016 9:20 AM
+>>>>> To: License submissions for OSI review
+>>>>> Cc: Smith, McCoy; josh at postgresql.org
+>>>>> Subject: Re: [License-review] Approval: BSD + Patent License
+>>>>> 
+>>>>> McCoy, I applaud your efforts here.  A few questions in no particular order:
+>>>>> 
+>>>>> - If a patent claim has some parts of a device or method in hardware and some in software, is the intent of stating that hardware per se is not licensed here that it not be covered?  (While some have concluded CC0 is GPL compatible even with an express reservation of patent rights, in my mind, the idea of expressly reserving some patent rights that may actually cover the software as combined with HW on which it runs is curious.)
+>>>>> 
+>>>>> - I note you make the patent license irrevocable - how do you intend this to interact with the conditional nature of the copyright license?  The wording strikes me as interesting here, because you provide that anyone exercising copyright rights under the license is the beneficiary of an irrevocable patent license grant - but what if the party exercising copyright rights is also breaching the license in another context (e.g., providing attribution for one use but not another).  The way I read it, the party is exercising copyright rights under the license, and therefore all their activities benefit from the patent license, potentially even if out of compliance in other contexts??  
+>>>>> 
+>>>>> - Vis-a-vis Carlo?s question, and Richard?s, I might go further - does a recipient get, or not get, patent rights from a downstream redistributor under the license, since a redistributor is arguably neither a contributor nor a copyright holder here?
+>>>>> 
+>>>>> - This one will not be popular but some have actually questioned the idea of the BSD license?s GPL compatibility (vs., e.g., MIT).  Would it be useful to add sublicense or other rights for certainty in this regard?
+>>>>> 
+>>>>> Oh, and Josh, McCoy can answer for this new proposed license, but as to the UPL, we considered this, and I think we would take the position that A is a licensor having provided the software under the UPL of X+Y, and therefore has granted that patent license to ?anyone obtaining a copy of? X+Y.  (We can discuss offline if you like in order to avoid bogging down the discussion of McCoy?s proposal.)
+>>>>> 
+>>>>> Best,
+>>>>> Jim
+>>>> 
+>>> _______________________________________________
+>>> License-review mailing list
+>>> License-review at opensource.org
+>>> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>> _______________________________________________
+>> License-review mailing list
+>> License-review at opensource.org
+>> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+> 
+
+
+
+From mccoy.smith at intel.com  Wed Jan 27 00:53:35 2016
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Wed, 27 Jan 2016 00:53:35 +0000
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+References: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B51933DFA368@FMSMSX108.amr.corp.intel.com>
+
+All:
+
+I've thought about and tried to respond to a lot of different commentary on the original submission for this license.  I'm now submitting a slightly revised version of this license (reproduced below, and shown in the attached markup which indicates from which license the language was derived).  Specifically, this draft differs from the original submission in the following ways:
+
+1.  I have retained the "subject to" language (and the parenthetical about the irrevocability) from the Apache 2.0 patent grant, since several people (Jim Wright, for example), noted that it might allow a licensee to retain the benefit of the patent grant without complying with the copyright and license notice obligations of parts 1 and 2 of the copyright grant.  This is a useful feature that I hadn't thought of in my original drafting.
+
+2.  I have removed the disclaimer for "hardware per se" since several people found that to be potentially ambiguous and might be considered an issue for using this license for hardware designs or design files.  Although I think the intent of this clause was to make clear that merely running code on a piece of hardware doesn't confer a patent grant to that hardware, I think that the scope of the express patent grant should be the main mechanism to do that.
+
+I have also added two provisions, in [square brackets] in response to comments, the square brackets indicating I'm not firm on whether they should be included but am interested in discussion and opinion:
+
+1.  I've added language specifying that the patent license is granted to patent claims already or after acquired (that particular language comes from GPLv3).  Although such language is in neither Apache or Eclipse, I think the language of the patent grants in those licenses does not preclude after-acquired patents, and the Apache website makes clear it is not intended to do so, so I tend to think such clarifying language is not needed (in this license, or in Apache or Eclipse).  But to the extent that some see there to be an ambiguity on that point, this language would address it.
+
+2.  I've added a more detailed disclaimer of other licenses.  The language itself comes from Eclipse (at the end of Section 7), although I've not used the "all rights reserved" language (since all rights reserved clauses, in my and many others' opinions, are historical anachronisms).  People have expressed differing opinions on use of this sort of disclaimer -- on the one hand, that it could be found to add complexity, and might impact GPLv2 compatibility (although given ClearBSD, I'm not sure why that would be the case), and on the other hand, that given the state of the law of implied patent licensing in the US, this helps clarify that the express patent license is the only patent license.
+
+In addition, several people stated that they thought that since one of the primary goals of this license is to be GPLv2 compatible, it ought to first get acknowledgement by FSF that it is so before OSI approves it.  I am communicating separately with FSF about GPLv2 compatibility (tying that issue into this thread seemed like it would muddle issues and result in a mixed discussion about OSI approval vs. FSF approval).  I'm perfectly happy to await word from FSF on GPLv2 compatibility before OSI approval of the license.  Nevertheless, having a discussion and debate about other drafting and scope issues with the license has helped clarify my thinking on the license and opened up some different interpretations for the language used that I found enlightening.
+
+Other issues were raised, and I tried to respond to them via e-mail, but don't think there ought to be a change in the proposed language.  Everyone on the list is welcome to respond to any of the points above, or give additional opinions on the language itself or the value of having a license of this type.
+
+McCoy
+
+PLAINTEXT COPY OF UPDATED LICENSE BELOW:
+
+=================================================================================================================================================================================================
+Copyright (c) <YEAR>, <COPYRIGHT HOLDERS>
+
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1.	Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2.	Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+Subject to the terms and conditions of this license, each copyright holder and contributor hereby grants to those exercising copyright rights under this license a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer their copyrighted material, (whether in source code or binary form) made available under this license, where such license applies only to those patent claims [, already acquired or hereafter acquired,] licensable by such copyright holder or contributor that are necessarily infringed by:
+
+(a) their copyrighted material alone; or
+
+(b) combination of their copyrighted material with the work of authorship to which such copyrighted material was added by such copyright holder or contributor, if, at the time the copyrighted material was added, such addition causes such combination to be covered by the patent claim. The patent license shall not apply to any other combinations which include the copyrighted material.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+
+[Except as expressly stated above, you receive no rights or licenses to the intellectual property of any copyright holder or contributor under this license, whether expressly, by implication, estoppel or otherwise.]
+
+=================================================================================================================================================================================================
+-----Original Message-----
+From: Smith, McCoy 
+Sent: Wednesday, January 13, 2016 10:57 AM
+To: License submissions for OSI review
+Subject: Approval: BSD + Patent License
+
+OSI License Submission for BSD + Patent License
+
+The attached license is submitted to the Open Source Initiative for approval as an OSI-approved Open Source license.
+
+RATIONALE:
+
+This license has been created to address a specific problem that has been encountered with existing licenses:  the desire of certain organizations to have a simple permissive license that is compatible with the GNU General Public License (GPL), version 2, but which also has an express patent grant included.
+
+PROLIFERATION CATEGORY:
+
+This license should be categorized as a ?Special Purpose License,? or, alternatively, as an approved variant of the BSD 2-clause license.
+
+DISTINGUISHING FROM OTHER OSI-APPROVED LICENSES:
+
+The BSD 2-clause license is currently categorized as one of the ?Licenses that are popular and widely used or with strong communities.?  The BSD 2-clause license is also considered by the Free Software Foundation (FSF) to be compatible with both GPLv2 and GPLv3.  However, some organizations ? particularly those with large or valuable patent portfolios ? are reluctant to use the BSD (and MIT) licenses because of the lack of an express patent license grant in those licenses.  Because of that issue, many patent holders prefer to use the Apache 2.0 license when they wish to license code permissively, since it has an express, and well-written, patent license grant.  Unfortunately, the FSF has determined that the Apache 2.0 license is not compatible with GPLv2 because ?it has some requirements that are not in that GPL version. These include certain patent termination and indemnification provisions.? 
+
+There is currently only one GPLv2-compatible permissive license that includes an express patent license ? the relatively-recently approved Universal Permissive License (UPL).  In the past, this has created a problem for some authors wishing to license their code permissively, but also including an express patent license grant, and also having the license be GPLv2 compatible so that users have the ability to integrate that code into GPLv2-licensed code (including, for example, the Linux kernel).  Although the UPL provides such an option, we believe that users will still wish to have a license with more familiar, and widely accepted licensing language (like a BSD-variant) that solves the issue of an express patent grant and GPLv2 compatibility.
+
+We believe that this license is non-duplicative (for the reasons set forth above), as it solves an issue all but one OSI-approved license solves (permissive, express patent license grant, GPLv2 compatibility).  The license itself is a combination of language from the BSD 2-clause license, the Apache 2.0 license, and the Eclipse Public License (all of which are already OSI-approved, and all of which are in the category of ?Licenses that are popular and widely used or with strong communities?).  It therefore should meet all the criteria of the OSD.
+
+LEGAL REVIEW:
+
+The text of the license is reproduced below.  We have also included an attached mark-up of the license showing where the language comes from BSD 2-clause, Apache 2.0 and Eclipse.  The patent grant from Apache 2.0 and Eclipse were used because the combination of the two was more tightly-worded and fit better with the existing language in the BSD 2-clause license.  Note that we have removed the ?patent termination/retaliation? language from both of these licenses because this language is one of the reasons why Apache 2.0 has been found to be incompatible with GPLv2.
+
+In keeping with the License Approval Process submission guidelines:
+
+	1. We have read the Open Source Definition and ensured that this license complies with it (and in fact, this license is an amalgamation of already OSI-approved licenses).
+	2. This is an Approval submission, as this is a new license (albeit derived from existing OSI-approved licenses).
+	3. We have appropriate standing to submit this request, as this license was created by us (again, derived from existing OSI-approved licenses).
+	4. We are subscribed to license-review.
+	5. This communication is our  formal request to license-review. 
+
+Please approve this license for inclusion on the OSI approved license list.
+
+McCoy Smith
+Intel Corporation
+Legal & Corporate Affairs
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: BSD + Patent markup vs. BSD & Apache & Eclipse v 2.odt
+Type: application/octet-stream
+Size: 31641 bytes
+Desc: BSD + Patent markup vs. BSD & Apache & Eclipse v 2.odt
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20160127/863a1ce0/attachment.obj>
+

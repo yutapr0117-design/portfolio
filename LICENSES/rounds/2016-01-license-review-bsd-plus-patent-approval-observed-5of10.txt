@@ -1,0 +1,684 @@
+Source:   https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2016-January.txt
+Fetched:  2026-09-25T08:42:28+00:00（ブラウザ相当の UA）
+Thread:   [License-review] Approval: BSD + Patent License —— 全 68 通（2016 年・承認された）
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **permissive なライセンスに明示的特許許諾を足したものを OSI が承認した審査**で、
+          **我々の特許 gap にとって最も近い承認済みの隣人**である。
+          **テキストの census（`ACD-1.0.gap-census.md`）からは出ない「承認理由の逐語」がここに在る。**
+          ⚠ 抽出は**件名で厳密に**行った —— 本文中の語で拾うと別スレッド 4 通が混入した。
+          分割は Check 365（1,000 行）のため・メッセージ境界で切ってある（5/10 部・9 通）。
+          読みは LICENSES/ACD-1.0.against.md #235 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From jim at jaguNET.com  Wed Jan 20 14:32:45 2016
+From: jim at jaguNET.com (Jim Jagielski)
+Date: Wed, 20 Jan 2016 09:32:45 -0500
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+References: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+Message-ID: <A7215066-53EF-413A-A4B0-95DA02C0D78B@jaguNET.com>
+
+Ouch! 
+
+For the record and IMO, the OSI is the steward of the OSD and *part*
+of that is related to understanding and approving new licenses. But
+there is also a clear desire to control and limit the unfettered
+growth and proliferation of such licenses, esp. if they don't fill
+a need/niche not currently handled by an already existing license.
+
+As I understand it, the proposed license has 3 goals:
+
+  o Be a simple permissive license
+  o Have an explicit and express patent grant
+  o Be GPLv2 compatible
+
+Certainly ensuring that one of the goals (GPLv2 compatibility)
+is actually *achieved* is not wasteful at all. Are you suggesting
+that OSI should approve it anyway, regardless of whether or not
+the license satisfies its goals, simply to avoid OSI demonstrating a
+"lack of clear and consistent initiative" ??
+
+
+> On Jan 19, 2016, at 6:24 PM, Chris Jones <chrisjones at spin.net.au> wrote:
+> 
+> Not having this license approved would demonstrate (again) the lack of clear and consistent initiative by the OSI to understand and approve new licenses.
+> 
+> I see too many of these examples.
+> 
+> 
+> Regards,
+> 
+> Chris Jones
+
+
+
+From Nigel.Tzeng at jhuapl.edu  Wed Jan 20 14:35:49 2016
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Wed, 20 Jan 2016 14:35:49 +0000
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <569F13C6.6050108@postgresql.org>
+References: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+ <CACJu1NxTEQ-vaov97drzx0w4xstTcTXyjSV9kwH3Ci0vy44KAg@mail.gmail.com>
+ <569F13C6.6050108@postgresql.org>
+Message-ID: <D2C4EE91.28881%Nigel.Tzeng@jhuapl.edu>
+
+The license is short so review by the FSF should be quick.  If someone is requesting a ?niche use? license is it unreasonable to say ?prove to me that it actually fills that niche??  However unlikely what if the FSF says ?No? or just doesn?t answer for a while?
+
+I am also curious why UPL isn?t good enough.  Because UPL is a re-worded MIT license with patent grant:
+
+What is the UPL and why did you create it?
+
+The UPL is a highly permissive license, including both copyright and patent licenses, which permits use and relicensing under both copyleft and commercial terms, and also facilitates use as a contributor license agreement.
+
+It was originally borne out of a discussion in the Java Community Process around what it would take to permit collaboration on JSR reference implementations in open source forges without the necessity of collaborators signing the JSPA or an Oracle Contributor Agreement. In order to accommodate the broadest possible use case, the license needed to include an express patent license and to be broadly agreed to be GPLv2, GPLv2+Classpath Exception, CDDL, and commercial license compatible, including the ability to cut and paste code between modules, and while it is almost universally agreed among those knowledgeable in FOSS licensing that license proliferation is something to be avoided without good cause, since a license meeting these relatively simple and obvious criteria did not exist, it was decided to draft one.
+
+Drafting started with the MIT license, and after a lot of discussion with other open source lawyers, developers, members of the Java Community Process Executive Committee, and reviewers and board members of the Open Source Initiative, and several rounds of revision, finally arrived at the vetted license text you see here. The license was approved by the OSI as conforming with the Open Source Definition and non-duplicative of existing permissive licenses in February 2015.?
+
+Can you point to some concrete problems the UPL solves that you could not have addressed with the MIT, BSD or Apache licenses?
+
+The most important problem the UPL solves is the inclusion of an express patent license in a license that is both broadly agreed to be uniformly copyleft compatible and also permits the software to be freely used in commercially licensed software (i.e., without concerns about reciprocal license obligations).
+
+The MIT and BSD licenses do not include express patent licenses, and while many argue that there is an implied patent license, there is nontrivial debate about the existence & scope of any such implied license.  This is addressed in some more detail below.  The Apache license, on the other hand, is argued by some not to be GPLv2 compatible, which makes it tricky to use in connection with GPLv2 licensed code ? the GPLv2 is still by far the most popular open source license, and unambiguous, undisputed GPL compatibility was a crucial qualifier for any license considered for use in the JCP.  (Even the BSD license has been argued not to be GPL compatible ? while this need not be addressed here, and it is not the conclusion of the FSF or most others, by virtue of expressly permitting relicensing on other terms, the UPL is definitively and fully GPLv2 compatible.)
+
+https://oss.oracle.com/licenses/upl/#_What_is_the_1
+
+So exactly why do we need a BSD variant with patent grant when we already have a MIT variant with a patent grant that the FSF has already publicly agreed as GPL V2 compliant on their website?
+
+All of a sudden license proliferation is a non-issue?  That?s fine by me as I?ve never been that much of a fan of that concern.
+
+Are any of the other concerns voiced two years ago about UPL any better addressed by BSD+Patent Grant?  I guess without the Larger Works clause there is one less file to look for.
+
+However, I would ask that if the BSD+PL:
+
+?(b) by combination of their copyrighted material with the work of authorship to which such copyrighted material was added by such copyright holder or contributor, if, at the time the copyrighted material was added, such addition causes such combination to be covered by the patent claim. The patent license shall not apply to any other combinations which include their copyrighted material. ?
+
+better fulfills the same role as the UPL:
+
+?(b) any piece of software and/or hardware listed in the lrgrwrks.txt file if one is included with the Software (each a ?Larger Work? to which the Software is contributed by such licensors),?
+
+Because at least the lrgrwkrs.txt file is explicit.
+
+Q. Does using the ?at the time the copyrighted material was added? phrase means that if I want to do my due diligence I need to look at commit times and when patents were granted to make sure someone hasn?t submarined a patent in there?
+
+Q: What happens if someone commits changes to a BSD+PL licensed reference implementation that at the time of commit there isn?t a patent BUT later on they apply for and a patent is granted to them?  Do I have a patent license or not?
+
+Regards,
+
+Nigel
+
+On 1/19/16, 11:57 PM, "License-review on behalf of Josh Berkus" <license-review-bounces at opensource.org<mailto:license-review-bounces at opensource.org> on behalf of josh at postgresql.org<mailto:josh at postgresql.org>> wrote:
+
+On 01/19/2016 06:12 PM, Mike Milinkovich wrote:
+Wow, this thread has degraded to the point of silliness.
+Every OSI Board member who has commented on this license has said
+positive things about it. It's a good license. It fills a niche that we
+have long wanted filled.
+
+Yes, and I have an *immediate* use for such a license.
+
+I haven't seen an attorney weigh in on the patent grant issues inherent
+in a liberal patent-grant license.  Has one posted a review elsewhere?
+
+--
+Josh Berkus
+PostgreSQL Project
+_______________________________________________
+License-review mailing list
+License-review at opensource.org<mailto:License-review at opensource.org>
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20160120/980bb58e/attachment.html>
+
+From mccoy.smith at intel.com  Wed Jan 20 16:38:39 2016
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Wed, 20 Jan 2016 16:38:39 +0000
+Subject: [License-review] Approval:  BSD + Patent License
+Message-ID: <2D52F7EE739F8542A700CAB96276B51933DE3D8E@FMSMSX108.amr.corp.intel.com>
+
+-- Hardware Per Se license exclusion:
+
+You know, after your first comment (and some other public or private comments I got), I'm thinking that maybe the exclusion of "hardware per se" from the license may not be helpful, and perhaps harmful, for the following reasons:
+
+1.  I have a feeling that it might render the license GPLv2 incompatible;  although OSI licenses are generally used for software, they can be (and have been) used for hardware*, and to exclude out hardware from the patent license could be considered an additional restriction incompatible with GPL (either v2 or v3).  EPL and CPL both have this exclusion, and the FSF does not point to that as rendering the licenses incompatible with GPL, but that's likely because the weak copyleft nature of these licenses was the primary reason for the opinion that EPL & CPL are GPL compatible.
+
+2.  "Hardware per se" is, in my (and others') opinion, somewhat ambiguous in its scope.
+
+Nigel Tzeng suggested substituting a more general disclaimer (for example " No other express or implied licenses are granted");  I can see some merit to that as an alternative disclaimer.  I'm curious of the mailing list's thoughts on this sort of disclaimer.  I know it is something that is often put in proprietary licenses, although even those sorts of disclaimer don't necessarily preclude an implied license being found (at least in the US, per the Transcore decision and certain progeny).  As to whether this disclaimer might impact GPLv2 compatibility, I think not (given the finding that the Clear BSD -- with a complete disclaimer of all patent licenses -- is GPLv2 and GPLv3 compatible: http://www.gnu.org/licenses/license-list.en.html#clearbsd  )
+
+--Irrevocability of patent license:
+
+When importing that Apache/Eclipse patent license, I did take out the clause that the grant was "Subject to the terms and conditions of this License" (Apache)/" Subject to the terms of this Agreement" (Eclipse).  When I drafted it, I was thinking that the "Terms and Conditions" of BSD are so minimal that making the grant conditioned upon them was not worth it, and that patent litigation is a pretty expensive hammer to wield in order to get someone to comply with the two conditions of BSD-2-Clause.  But then again, we do see some people failing to comply with those minimal requirements, and they do provide a valuable notice function that ought to be preserved (and to get the valuable benefit of a patent license, you ought to at least comply with those requirements).  I'm leaning toward maybe inserting a "subject to" clause to the patent grant for this reason and to maintain better consistency with the Apache/Eclipse patent grants.
+
+--License from redistributor:
+
+This really is a question as to the scope of how the Apache/Eclipse style patent license is drafted;  I have of course reproduced (as best I can) that form of license.  Those licenses are measured by the contribution made by the patent holder (alone or in combination).  A mere redistributor, who makes no changes/"Contribution", is not subject to the grant of that form of license (at least I believe that to be the interpretation -- anyone can correct me if they think I am wrong).  As the Apache form of a patent license is the type that many patent holding entities find an acceptable bargain (and which why many of them like Apache, but for its GPLv2 incompatibility), I've retained that scope.
+
+--Sublicense rights:
+
+I've tried to track the language (and thinking behind) BSD and Apache/Eclipse, which I believe is designed to be a direct license from the copyright holder to everyone that uses the licensed subject matter, thus precluding the need for a sublicense right (this is also the thinking that was part of the drafting and discussion of GPLv3).  I'm not aware of the argument that somehow the lack of sublicense rights in BSD (or other licenses) might render it GPLv2 compatible, and I'm curious as to how that would work given that the FSF has long maintained that sublicense rights are not a part of GPL, and GPLv3 says, in Section 2, that "Sublicensing is not allowed" (because they believe it to be unnecessary. 
+
+
+*Those of you know me know I've been noodling  around with issues around open hardware licensing for a while, and I have some skepticism about the use of OSI licenses in their pure form for hardware licensing, but that's beside the point of this particular license draft and OSI approval. 
+
+McCoy
+-----Original Message-----
+From: Jim Wright [mailto:jim.wright at oracle.com] 
+Sent: Friday, January 15, 2016 9:20 AM
+To: License submissions for OSI review
+Cc: Smith, McCoy; josh at postgresql.org
+Subject: Re: [License-review] Approval: BSD + Patent License
+
+McCoy, I applaud your efforts here.  A few questions in no particular order:
+
+ - If a patent claim has some parts of a device or method in hardware and some in software, is the intent of stating that hardware per se is not licensed here that it not be covered?  (While some have concluded CC0 is GPL compatible even with an express reservation of patent rights, in my mind, the idea of expressly reserving some patent rights that may actually cover the software as combined with HW on which it runs is curious.)
+
+ - I note you make the patent license irrevocable - how do you intend this to interact with the conditional nature of the copyright license?  The wording strikes me as interesting here, because you provide that anyone exercising copyright rights under the license is the beneficiary of an irrevocable patent license grant - but what if the party exercising copyright rights is also breaching the license in another context (e.g., providing attribution for one use but not another).  The way I read it, the party is exercising copyright rights under the license, and therefore all their activities benefit from the patent license, potentially even if out of compliance in other contexts??  
+
+ - Vis-a-vis Carlo?s question, and Richard?s, I might go further - does a recipient get, or not get, patent rights from a downstream redistributor under the license, since a redistributor is arguably neither a contributor nor a copyright holder here?
+
+ - This one will not be popular but some have actually questioned the idea of the BSD license?s GPL compatibility (vs., e.g., MIT).  Would it be useful to add sublicense or other rights for certainty in this regard?
+
+Oh, and Josh, McCoy can answer for this new proposed license, but as to the UPL, we considered this, and I think we would take the position that A is a licensor having provided the software under the UPL of X+Y, and therefore has granted that patent license to ?anyone obtaining a copy of? X+Y.  (We can discuss offline if you like in order to avoid bogging down the discussion of McCoy?s proposal.)
+
+ Best,
+  Jim
+
+
+
+From mccoy.smith at intel.com  Wed Jan 20 19:46:58 2016
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Wed, 20 Jan 2016 19:46:58 +0000
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <569F3629.1080405@postgresql.org>
+References: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+ <CACJu1NxTEQ-vaov97drzx0w4xstTcTXyjSV9kwH3Ci0vy44KAg@mail.gmail.com>
+ <569F13C6.6050108@postgresql.org> <569F3629.1080405@postgresql.org>
+Message-ID: <2D52F7EE739F8542A700CAB96276B51933DE5856@FMSMSX108.amr.corp.intel.com>
+
+So, for what it's worth, I'm a patent lawyer* and I'm the one submitting the license.
+
+As noted in the original submission, and in some of my responses, I've modeled the patent grant as best as possible to replicate the Apache 2.0/Eclipse 1.0 patent grant formulation, but for the removal of the "patent retaliation"/defensive termination clause (which is one of the stated reasons why Apache 2.0 is GPLv2 incompatible).  I'm pretty sure that the grant in the proposed license (putting aside the response I made to the very salient comments by Jim Wright, Richard Fontana, Carlo Piana, Nigel Tzeng, as well as several people who have contacted me off-list), is of equal scope to those OSI-approved, "popular," licenses.  Given that many of the people I've talked to who like the Apache patent grant, but want a permissive license that is GPLv2 compatible and has such a grant, it should grant a patent license consistent with that desire.
+
+*As an aside, saying you're a patent lawyer just means you've been registered with the relevant government patent office to file patent applications.  It has little or nothing to do with whether you can competently draft patent licenses.  Although some of the lawyers on this list are patent lawyers, many are not, including many of the ones who have actually written the most prominent and widely-used OSI-approved licenses.  I wouldn't put too much weight on whether a patent lawyer has written a license or has given an opinion on it.
+
+-----Original Message-----
+From: License-review [mailto:license-review-bounces at opensource.org] On Behalf Of Josh Berkus
+Sent: Tuesday, January 19, 2016 11:24 PM
+To: mike at opensource.org; License submissions for OSI review
+Subject: Re: [License-review] Approval: BSD + Patent License
+
+On 01/19/2016 08:57 PM, Josh Berkus wrote:
+> On 01/19/2016 06:12 PM, Mike Milinkovich wrote:
+>> Wow, this thread has degraded to the point of silliness. 
+>>
+>> Every OSI Board member who has commented on this license has said 
+>> positive things about it. ?It's a good license. It fills a niche that 
+>> we have long wanted filled.
+> 
+> Yes, and I have an *immediate* use for such a license.
+> 
+> I haven't seen an attorney weigh in on the patent grant issues 
+> inherent in a liberal patent-grant license.  Has one posted a review elsewhere?
+> 
+
+To be specific: is the patent grant language of the license correct and successful in granting a patent license on any concepts embodied in the code released, and only on those?  It's more than a bit opaque to non-lawyers.
+
+--
+Josh Berkus
+PostgreSQL Project
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+From lrosen at rosenlaw.com  Wed Jan 20 20:01:10 2016
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Wed, 20 Jan 2016 12:01:10 -0800
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B51933DE5856@FMSMSX108.amr.corp.intel.com>
+References: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+ <CACJu1NxTEQ-vaov97drzx0w4xstTcTXyjSV9kwH3Ci0vy44KAg@mail.gmail.com>
+ <569F13C6.6050108@postgresql.org> <569F3629.1080405@postgresql.org>
+ <2D52F7EE739F8542A700CAB96276B51933DE5856@FMSMSX108.amr.corp.intel.com>
+Message-ID: <011301d153bd$50368650$f0a392f0$@rosenlaw.com>
+
+McCoy Smith wrote:
+> I'm pretty sure that the grant in the proposed license
+> (putting aside the response I made to the very salient
+> comments by Jim Wright, Richard Fontana, Carlo Piana,
+> Nigel Tzeng, as well as several people who have
+> contacted me off-list), is of equal scope to those
+> OSI-approved, "popular," licenses.  
+
+I know you haven't been pleased to hear my comments recently, but I will ++1 yours anyway. 
+
+Your BSD + Patent License is fine FOSS, regardless of what people say is "popular" on the OSI website. It ought to be approved.
+
+/Larry
+
+
+-----Original Message-----
+From: Smith, McCoy [mailto:mccoy.smith at intel.com] 
+Sent: Wednesday, January 20, 2016 11:47 AM
+To: License submissions for OSI review <license-review at opensource.org>; mike at opensource.org
+Subject: Re: [License-review] Approval: BSD + Patent License
+
+So, for what it's worth, I'm a patent lawyer* and I'm the one submitting the license.
+
+As noted in the original submission, and in some of my responses, I've modeled the patent grant as best as possible to replicate the Apache 2.0/Eclipse 1.0 patent grant formulation, but for the removal of the "patent retaliation"/defensive termination clause (which is one of the stated reasons why Apache 2.0 is GPLv2 incompatible).  I'm pretty sure that the grant in the proposed license (putting aside the response I made to the very salient comments by Jim Wright, Richard Fontana, Carlo Piana, Nigel Tzeng, as well as several people who have contacted me off-list), is of equal scope to those OSI-approved, "popular," licenses.  Given that many of the people I've talked to who like the Apache patent grant, but want a permissive license that is GPLv2 compatible and has such a grant, it should grant a patent license consistent with that desire.
+
+*As an aside, saying you're a patent lawyer just means you've been registered with the relevant government patent office to file patent applications.  It has little or nothing to do with whether you can competently draft patent licenses.  Although some of the lawyers on this list are patent lawyers, many are not, including many of the ones who have actually written the most prominent and widely-used OSI-approved licenses.  I wouldn't put too much weight on whether a patent lawyer has written a license or has given an opinion on it.
+
+-----Original Message-----
+From: License-review [mailto:license-review-bounces at opensource.org] On Behalf Of Josh Berkus
+Sent: Tuesday, January 19, 2016 11:24 PM
+To: mike at opensource.org; License submissions for OSI review
+Subject: Re: [License-review] Approval: BSD + Patent License
+
+On 01/19/2016 08:57 PM, Josh Berkus wrote:
+> On 01/19/2016 06:12 PM, Mike Milinkovich wrote:
+>> Wow, this thread has degraded to the point of silliness. 
+>>
+>> Every OSI Board member who has commented on this license has said 
+>> positive things about it. ?It's a good license. It fills a niche that 
+>> we have long wanted filled.
+> 
+> Yes, and I have an *immediate* use for such a license.
+> 
+> I haven't seen an attorney weigh in on the patent grant issues 
+> inherent in a liberal patent-grant license.  Has one posted a review elsewhere?
+> 
+
+To be specific: is the patent grant language of the license correct and successful in granting a patent license on any concepts embodied in the code released, and only on those?  It's more than a bit opaque to non-lawyers.
+
+--
+Josh Berkus
+PostgreSQL Project
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+From mccoy.smith at intel.com  Wed Jan 20 21:20:52 2016
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Wed, 20 Jan 2016 21:20:52 +0000
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <011301d153bd$50368650$f0a392f0$@rosenlaw.com>
+References: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+ <CACJu1NxTEQ-vaov97drzx0w4xstTcTXyjSV9kwH3Ci0vy44KAg@mail.gmail.com>
+ <569F13C6.6050108@postgresql.org> <569F3629.1080405@postgresql.org>
+ <2D52F7EE739F8542A700CAB96276B51933DE5856@FMSMSX108.amr.corp.intel.com>
+ <011301d153bd$50368650$f0a392f0$@rosenlaw.com>
+Message-ID: <2D52F7EE739F8542A700CAB96276B51933DE8F82@FMSMSX108.amr.corp.intel.com>
+
+I've tried to read and comment publicly to the public comments made on this license (although I have concatenated some of the comments into single messages in the interest of brevity).  I'll continue to try to do that.
+
+There's a separate thread that spun out of this relating to two issues:  1)  license proliferation;  and 2)  FSF's criteria for GPLv2 compatibility (the second being one that Larry and others have commented extensively upon).  The former is relevant to approval of this particular license, and I'll respond in due course.  The latter is in my mind off-topic to this license and its approval by OSI, although I will say that if -- despite my efforts to the contrary -- it is ultimately found GPLv2 incompatible by FSF, it will be updated to rectify that.
+
+McCoy
+
+-----Original Message-----
+From: License-review [mailto:license-review-bounces at opensource.org] On Behalf Of Lawrence Rosen
+Sent: Wednesday, January 20, 2016 12:01 PM
+To: 'License submissions for OSI review'
+Cc: Lawrence Rosen
+Subject: Re: [License-review] Approval: BSD + Patent License
+
+McCoy Smith wrote:
+> I'm pretty sure that the grant in the proposed license (putting aside 
+> the response I made to the very salient comments by Jim Wright, 
+> Richard Fontana, Carlo Piana, Nigel Tzeng, as well as several people 
+> who have contacted me off-list), is of equal scope to those 
+> OSI-approved, "popular," licenses.
+
+I know you haven't been pleased to hear my comments recently, but I will ++1 yours anyway. 
+
+Your BSD + Patent License is fine FOSS, regardless of what people say is "popular" on the OSI website. It ought to be approved.
+
+/Larry
+
+
+-----Original Message-----
+From: Smith, McCoy [mailto:mccoy.smith at intel.com]
+Sent: Wednesday, January 20, 2016 11:47 AM
+To: License submissions for OSI review <license-review at opensource.org>; mike at opensource.org
+Subject: Re: [License-review] Approval: BSD + Patent License
+
+So, for what it's worth, I'm a patent lawyer* and I'm the one submitting the license.
+
+As noted in the original submission, and in some of my responses, I've modeled the patent grant as best as possible to replicate the Apache 2.0/Eclipse 1.0 patent grant formulation, but for the removal of the "patent retaliation"/defensive termination clause (which is one of the stated reasons why Apache 2.0 is GPLv2 incompatible).  I'm pretty sure that the grant in the proposed license (putting aside the response I made to the very salient comments by Jim Wright, Richard Fontana, Carlo Piana, Nigel Tzeng, as well as several people who have contacted me off-list), is of equal scope to those OSI-approved, "popular," licenses.  Given that many of the people I've talked to who like the Apache patent grant, but want a permissive license that is GPLv2 compatible and has such a grant, it should grant a patent license consistent with that desire.
+
+*As an aside, saying you're a patent lawyer just means you've been registered with the relevant government patent office to file patent applications.  It has little or nothing to do with whether you can competently draft patent licenses.  Although some of the lawyers on this list are patent lawyers, many are not, including many of the ones who have actually written the most prominent and widely-used OSI-approved licenses.  I wouldn't put too much weight on whether a patent lawyer has written a license or has given an opinion on it.
+
+-----Original Message-----
+From: License-review [mailto:license-review-bounces at opensource.org] On Behalf Of Josh Berkus
+Sent: Tuesday, January 19, 2016 11:24 PM
+To: mike at opensource.org; License submissions for OSI review
+Subject: Re: [License-review] Approval: BSD + Patent License
+
+On 01/19/2016 08:57 PM, Josh Berkus wrote:
+> On 01/19/2016 06:12 PM, Mike Milinkovich wrote:
+>> Wow, this thread has degraded to the point of silliness. 
+>>
+>> Every OSI Board member who has commented on this license has said 
+>> positive things about it. ?It's a good license. It fills a niche that 
+>> we have long wanted filled.
+> 
+> Yes, and I have an *immediate* use for such a license.
+> 
+> I haven't seen an attorney weigh in on the patent grant issues 
+> inherent in a liberal patent-grant license.  Has one posted a review elsewhere?
+> 
+
+To be specific: is the patent grant language of the license correct and successful in granting a patent license on any concepts embodied in the code released, and only on those?  It's more than a bit opaque to non-lawyers.
+
+--
+Josh Berkus
+PostgreSQL Project
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+From mccoy.smith at intel.com  Wed Jan 20 22:33:14 2016
+From: mccoy.smith at intel.com (Smith, McCoy)
+Date: Wed, 20 Jan 2016 22:33:14 +0000
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <D2C4EE91.28881%Nigel.Tzeng@jhuapl.edu>
+References: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+ <CACJu1NxTEQ-vaov97drzx0w4xstTcTXyjSV9kwH3Ci0vy44KAg@mail.gmail.com>
+ <569F13C6.6050108@postgresql.org> <D2C4EE91.28881%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <2D52F7EE739F8542A700CAB96276B51933DE9208@FMSMSX108.amr.corp.intel.com>
+
+If the FSF says that this license is GPLv2 incompatible, it fails to meet its purpose and will be updated so that it is.  I've tried to model the license language on existing licenses already stated by FSF to be GPLv2 compatible (and to remove any parts that are specifically identified to not be GPLv2 compatible), so I certainly believe it to be compatible.  If anyone has any good arguments why they think it would not be, I'd love to hear them.  If I read my history correctly, UPL was approved as a GPLv2 compatible license by OSI in February 2015, prior to the FSF officially designating it as GPLv2 compatible in September 2015, so I don't believe FSF designation is required before OSI approval.
+
+As to the UPL, as noted in the original submission for the BSD + Patent license, it is (AFAIK) the only other OSI-approved permissive license with an express patent grant that is written to be (and has been acknowledged by the FSF to be) GPLv2 compatible.  The text is derived from MIT, with an included patent grant that varies in at least two material ways from the patent grant in Apache/Eclipse/BSD + Patent:  1)  the patent grant extending to the unmodified Software "contributed to *or provided by* the licensor"; 2) the patent grant extending to combinations of that Software with other software or hardware identified in a "lrgrwrks.txt" file included with the Software.  The reasons for those choices in the UPL appear to be pretty well documented in the discussion thread for the approval of that license by OSI;  depending on the perspective of the licensor and any licensee, that grant could be a bug, or could be a feature, over BSD + Patent.  The choice of the Apache/Eclipse formulation of the patent grant (and the BSD 2-clause as the foundational basis of BSD + Patent rather than MIT), is the relatively familiarity, and "popularity," of those formulations to those I have spoken to about permissive licensing and GPLv2 compatibility.  I think there is room for at least two choices on this type of license, particularly when different entities have different perspectives on the scope of the patent license grant they want to give, or want to get.
+
+I'm definitely sensitive to the question of license proliferation (and believe I may have some bona fides in that regard: http://www.cnet.com/news/intel-to-stop-using-open-source-license/), having served on the first iteration of the License Proliferation Committee of OSI circa 2005. Which is why I submit this license somewhat advisedly and suggesting that it be a special purpose license under OSI's categorization system, as it exists primarily to solve a particular problem.
+
+As to the scope of the patent grant itself and efforts that a licensor might engage in to undermine it, I again refer back to Apache & Eclipse (or for that matter, other OSI-approved licenses with patent grants of equal or similar formulation).  I believe these license grants to be reasonably clear and generally well understood, and believe that the BSD + Patent grant does the same.  Another goal here is to adopt the simplicity and brevity of BSD 2-clause and the Apache/Eclipse patent grant.  One could of course draft numerous clauses and definitions that more specifically address various worst case scenarios - and many of us have read, or written, proprietary licenses doing just that - at the expense of such simplicity and brevity, as well as at the expense of casting off the comfort and familiarity that many users have with the language of these licenses.
+
+McCoy
+
+From: License-review [mailto:license-review-bounces at opensource.org] On Behalf Of Tzeng, Nigel H.
+Sent: Wednesday, January 20, 2016 6:36 AM
+To: License submissions for OSI review; mike at opensource.org
+Subject: Re: [License-review] Approval: BSD + Patent License
+
+The license is short so review by the FSF should be quick.  If someone is requesting a "niche use" license is it unreasonable to say "prove to me that it actually fills that niche"?  However unlikely what if the FSF says "No" or just doesn't answer for a while?
+
+I am also curious why UPL isn't good enough.  Because UPL is a re-worded MIT license with patent grant:
+
+What is the UPL and why did you create it?
+
+The UPL is a highly permissive license, including both copyright and patent licenses, which permits use and relicensing under both copyleft and commercial terms, and also facilitates use as a contributor license agreement.
+
+It was originally borne out of a discussion in the Java Community Process around what it would take to permit collaboration on JSR reference implementations in open source forges without the necessity of collaborators signing the JSPA or an Oracle Contributor Agreement. In order to accommodate the broadest possible use case, the license needed to include an express patent license and to be broadly agreed to be GPLv2, GPLv2+Classpath Exception, CDDL, and commercial license compatible, including the ability to cut and paste code between modules, and while it is almost universally agreed among those knowledgeable in FOSS licensing that license proliferation is something to be avoided without good cause, since a license meeting these relatively simple and obvious criteria did not exist, it was decided to draft one.
+
+Drafting started with the MIT license, and after a lot of discussion with other open source lawyers, developers, members of the Java Community Process Executive Committee, and reviewers and board members of the Open Source Initiative, and several rounds of revision, finally arrived at the vetted license text you see here. The license was approved by the OSI as conforming with the Open Source Definition and non-duplicative of existing permissive licenses in February 2015."
+
+Can you point to some concrete problems the UPL solves that you could not have addressed with the MIT, BSD or Apache licenses?
+
+The most important problem the UPL solves is the inclusion of an express patent license in a license that is both broadly agreed to be uniformly copyleft compatible and also permits the software to be freely used in commercially licensed software (i.e., without concerns about reciprocal license obligations).
+
+The MIT and BSD licenses do not include express patent licenses, and while many argue that there is an implied patent license, there is nontrivial debate about the existence & scope of any such implied license.  This is addressed in some more detail below.  The Apache license, on the other hand, is argued by some not to be GPLv2 compatible, which makes it tricky to use in connection with GPLv2 licensed code - the GPLv2 is still by far the most popular open source license, and unambiguous, undisputed GPL compatibility was a crucial qualifier for any license considered for use in the JCP.  (Even the BSD license has been argued not to be GPL compatible - while this need not be addressed here, and it is not the conclusion of the FSF or most others, by virtue of expressly permitting relicensing on other terms, the UPL is definitively and fully GPLv2 compatible.)
+
+https://oss.oracle.com/licenses/upl/#_What_is_the_1
+
+So exactly why do we need a BSD variant with patent grant when we already have a MIT variant with a patent grant that the FSF has already publicly agreed as GPL V2 compliant on their website?
+
+All of a sudden license proliferation is a non-issue?  That's fine by me as I've never been that much of a fan of that concern.
+
+Are any of the other concerns voiced two years ago about UPL any better addressed by BSD+Patent Grant?  I guess without the Larger Works clause there is one less file to look for.
+
+However, I would ask that if the BSD+PL:
+
+"(b) by combination of their copyrighted material with the work of authorship to which such copyrighted material was added by such copyright holder or contributor, if, at the time the copyrighted material was added, such addition causes such combination to be covered by the patent claim. The patent license shall not apply to any other combinations which include their copyrighted material. "
+
+
+better fulfills the same role as the UPL:
+
+
+"(b) any piece of software and/or hardware listed in the lrgrwrks.txt file if one is included with the Software (each a "Larger Work" to which the Software is contributed by such licensors),"
+
+Because at least the lrgrwkrs.txt file is explicit.
+
+Q. Does using the "at the time the copyrighted material was added" phrase means that if I want to do my due diligence I need to look at commit times and when patents were granted to make sure someone hasn't submarined a patent in there?
+
+Q: What happens if someone commits changes to a BSD+PL licensed reference implementation that at the time of commit there isn't a patent BUT later on they apply for and a patent is granted to them?  Do I have a patent license or not?
+
+Regards,
+
+Nigel
+
+On 1/19/16, 11:57 PM, "License-review on behalf of Josh Berkus" <license-review-bounces at opensource.org<mailto:license-review-bounces at opensource.org> on behalf of josh at postgresql.org<mailto:josh at postgresql.org>> wrote:
+
+On 01/19/2016 06:12 PM, Mike Milinkovich wrote:
+Wow, this thread has degraded to the point of silliness.
+Every OSI Board member who has commented on this license has said
+positive things about it. It's a good license. It fills a niche that we
+have long wanted filled.
+
+Yes, and I have an *immediate* use for such a license.
+
+I haven't seen an attorney weigh in on the patent grant issues inherent
+in a liberal patent-grant license.  Has one posted a review elsewhere?
+
+--
+Josh Berkus
+PostgreSQL Project
+_______________________________________________
+License-review mailing list
+License-review at opensource.org<mailto:License-review at opensource.org>
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20160120/14468251/attachment.html>
+
+From cowan at mercury.ccil.org  Wed Jan 20 23:38:03 2016
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Wed, 20 Jan 2016 18:38:03 -0500
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <2D52F7EE739F8542A700CAB96276B51933DE9208@FMSMSX108.amr.corp.intel.com>
+References: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+ <CACJu1NxTEQ-vaov97drzx0w4xstTcTXyjSV9kwH3Ci0vy44KAg@mail.gmail.com>
+ <569F13C6.6050108@postgresql.org>
+ <D2C4EE91.28881%Nigel.Tzeng@jhuapl.edu>
+ <2D52F7EE739F8542A700CAB96276B51933DE9208@FMSMSX108.amr.corp.intel.com>
+Message-ID: <20160120233803.GA19133@mercury.ccil.org>
+
+Smith, McCoy scripsit:
+
+> [S]o I don't believe FSF designation is required before OSI approval.
+
+No, of course not.  But if the whole purpose of the license is GPLv2
+compatibility, and the FSF is considered the judge of that (ultimately
+the judge of that is an actual judge, of course), then it makes sense
+to ask the FSF what it thinks, so that the OSI can determine if the
+license does what it says on the tin before approving it.
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+All Norstrilians knew that humor was "pleasurable corrigible malfunction".
+        --Cordwainer Smith, Norstrilia
+
+
+From fontana at sharpeleven.org  Wed Jan 20 23:55:42 2016
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Wed, 20 Jan 2016 18:55:42 -0500
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <D2C4EE91.28881%Nigel.Tzeng@jhuapl.edu>
+References: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+ <CACJu1NxTEQ-vaov97drzx0w4xstTcTXyjSV9kwH3Ci0vy44KAg@mail.gmail.com>
+ <569F13C6.6050108@postgresql.org>
+ <D2C4EE91.28881%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <20160120235542.GA10652@sharpeleven.org>
+
+If this license were more complex I might agree about consultation
+with the FSF, but the likelihood of the FSF saying this license is not
+GPLv2 compatible seems very low to me based on their past statements
+about other licenses. 
+
+On Wed, Jan 20, 2016 at 02:35:49PM +0000, Tzeng, Nigel H. wrote:
+> The license is short so review by the FSF should be quick.  If someone is
+> requesting a ?niche use? license is it unreasonable to say ?prove to me that it
+> actually fills that niche??  However unlikely what if the FSF says ?No? or just
+> doesn?t answer for a while?
+> 
+> I am also curious why UPL isn?t good enough.  Because UPL is a re-worded MIT
+> license with patent grant:
+> 
+> 
+>     What is the UPL and why did you create it?
+> 
+>     The UPL is a highly permissive license, including both copyright and patent
+>     licenses, which permits use and relicensing under both copyleft and
+>     commercial terms, and also facilitates use as a contributor license
+>     agreement.
+> 
+>     It was originally borne out of a discussion in the Java Community Process
+>     around what it would take to permit collaboration on JSR reference
+>     implementations in open source forges without the necessity of
+>     collaborators signing the JSPA or an Oracle Contributor Agreement. In order
+>     to accommodate the broadest possible use case, the license needed to
+>     include an express patent license and to be broadly agreed to be GPLv2,
+>     GPLv2+Classpath Exception, CDDL, and commercial license compatible,
+>     including the ability to cut and paste code between modules, and while it
+>     is almost universally agreed among those knowledgeable in FOSS licensing
+>     that license proliferation is something to be avoided without good cause,
+>     since a license meeting these relatively simple and obvious criteria did
+>     not exist, it was decided to draft one.
+> 
+>     Drafting started with the MIT license, and after a lot of discussion with
+>     other open source lawyers, developers, members of the Java Community
+>     Process Executive Committee, and reviewers and board members of the Open
+>     Source Initiative, and several rounds of revision, finally arrived at the
+>     vetted license text you see here. The license was approved by the OSI as
+>     conforming with the Open Source Definition and non-duplicative of existing
+>     permissive licenses in February 2015.?
+> 
+> 
+>     Can you point to some concrete problems the UPL solves that you could not
+>     have addressed with the MIT, BSD or Apache licenses?
+> 
+>      
+> 
+>     The most important problem the UPL solves is the inclusion of an express
+>     patent license in a license that is both broadly agreed to be uniformly
+>     copyleft compatible and also permits the software to be freely used in
+>     commercially licensed software (i.e., without concerns about reciprocal
+>     license obligations).  
+> 
+>      
+> 
+>     The MIT and BSD licenses do not include express patent licenses, and while
+>     many argue that there is an implied patent license, there is nontrivial
+>     debate about the existence & scope of any such implied license.  This is
+>     addressed in some more detail below.  The Apache license, on the other
+>     hand, is argued by some not to be GPLv2 compatible, which makes it tricky
+>     to use in connection with GPLv2 licensed code ? the GPLv2 is still by far
+>     the most popular open source license, and unambiguous, undisputed GPL
+>     compatibility was a crucial qualifier for any license considered for use in
+>     the JCP.  (Even the BSD license has been argued not to be GPL compatible ?
+>     while this need not be addressed here, and it is not the conclusion of the
+>     FSF or most others, by virtue of expressly permitting relicensing on other
+>     terms, the UPL is definitively and fully GPLv2 compatible.)
+> 
+> 
+> 
+> https://oss.oracle.com/licenses/upl/#_What_is_the_1
+> 
+> So exactly why do we need a BSD variant with patent grant when we already have
+> a MIT variant with a patent grant that the FSF has already publicly agreed as
+> GPL V2 compliant on their website?
+> 
+> All of a sudden license proliferation is a non-issue?  That?s fine by me as
+> I?ve never been that much of a fan of that concern.
+> 
+> Are any of the other concerns voiced two years ago about UPL any better
+> addressed by BSD+Patent Grant?  I guess without the Larger Works clause there
+> is one less file to look for.
+> 
+> However, I would ask that if the BSD+PL:
+> 
+> ?(b) by combination of their copyrighted material with the work of authorship
+> to which such copyrighted material was added by such copyright holder or
+> contributor, if, at the time the copyrighted material was added, such addition
+> causes such combination to be covered by the patent claim. The patent license
+> shall not apply to any other combinations which include their copyrighted
+> material. ?
+> 
+> better fulfills the same role as the UPL:
+> 
+> ?(b) any piece of software and/or hardware listed in the lrgrwrks.txt file if
+> one is included with the Software (each a ?Larger Work? to which the Software
+> is contributed by such licensors),?
+> 
+> Because at least the lrgrwkrs.txt file is explicit.  
+> 
+> Q. Does using the ?at the time the copyrighted material was added? phrase means
+> that if I want to do my due diligence I need to look at commit times and when
+> patents were granted to make sure someone hasn?t submarined a patent in there?
+> 
+> Q: What happens if someone commits changes to a BSD+PL licensed reference
+> implementation that at the time of commit there isn?t a patent BUT later on
+> they apply for and a patent is granted to them?  Do I have a patent license or
+> not?  
+> 
+> Regards,
+> 
+> Nigel
+> 
+> On 1/19/16, 11:57 PM, "License-review on behalf of Josh Berkus" <
+> license-review-bounces at opensource.org on behalf of josh at postgresql.org> wrote:
+> 
+> 
+>     On 01/19/2016 06:12 PM, Mike Milinkovich wrote:
+> 
+>         Wow, this thread has degraded to the point of silliness.
+>         Every OSI Board member who has commented on this license has said
+>         positive things about it. It's a good license. It fills a niche that we
+>         have long wanted filled.
+> 
+> 
+>     Yes, and I have an *immediate* use for such a license.
+> 
+>     I haven't seen an attorney weigh in on the patent grant issues inherent
+>     in a liberal patent-grant license.  Has one posted a review elsewhere?
+> 
+>     --
+>     Josh Berkus
+>     PostgreSQL Project
+>     _______________________________________________
+>     License-review mailing list
+>     License-review at opensource.org
+>     https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+> 
+> 
+
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+

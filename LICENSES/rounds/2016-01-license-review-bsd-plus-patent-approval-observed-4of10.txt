@@ -1,0 +1,742 @@
+Source:   https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2016-January.txt
+Fetched:  2026-09-25T08:42:28+00:00（ブラウザ相当の UA）
+Thread:   [License-review] Approval: BSD + Patent License —— 全 68 通（2016 年・承認された）
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **permissive なライセンスに明示的特許許諾を足したものを OSI が承認した審査**で、
+          **我々の特許 gap にとって最も近い承認済みの隣人**である。
+          **テキストの census（`ACD-1.0.gap-census.md`）からは出ない「承認理由の逐語」がここに在る。**
+          ⚠ 抽出は**件名で厳密に**行った —— 本文中の語で拾うと別スレッド 4 通が混入した。
+          分割は Check 365（1,000 行）のため・メッセージ境界で切ってある（4/10 部・13 通）。
+          読みは LICENSES/ACD-1.0.against.md #235 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From lrosen at rosenlaw.com  Fri Jan 15 20:34:20 2016
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 15 Jan 2016 12:34:20 -0800
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <5AD182A4-0EDE-4E8A-A3A9-4E705B847134@jaguNET.com>
+References: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+ <20160114214133.GA328@sharpeleven.org>
+ <449DD2E1-0019-4697-9375-8C81B49C31DC@jaguNET.com>
+ <1452869876.7711.12.camel@klomp.org>
+ <5AD182A4-0EDE-4E8A-A3A9-4E705B847134@jaguNET.com>
+Message-ID: <028701d14fd4$1e9e58d0$5bdb0a70$@rosenlaw.com>
+
+Jim Jagielski wrote:
+>> We fully expected that the FSF (and others), based on this and from 
+>> their feedback, would formally state that ALv2 was compatible; you 
+>> can imagine our surprise (and disappointment) when, not long after we 
+>> released it, we were told "nope".
+
+FSF opinions on license compatibility, to steal McCoy's phrase for this purpose, seem "like an exercise in whack-a-mole." Roy Fielding's stated opinions on that dispute between FSF and Apache were as usual dead-right. FSF's objections to Apache 2.0 came out of left field.  
+
+But Apache's own license compatibility matrix is equally nonsense. This desire of people in open source to "be nice to community opinions" has resulted in unnecessary confusion about license compatibility. 
+
+Here's another example: Apache2.0 allows AFL3.0 contributions. GPLv3 allows Apache2.0 contributions presumably including those AFL3.0 parts. But GPLv3 doesn't allow AFL3.0 contributions because that license "contains contract provisions."  :-)  You figure it out.
+
+/Larry
+
+
+
+-----Original Message-----
+From: Jim Jagielski [mailto:jim at jaguNET.com] 
+Sent: Friday, January 15, 2016 11:20 AM
+To: License submissions for OSI review <license-review at opensource.org>
+Subject: Re: [License-review] Approval: BSD + Patent License
+
+I encourage you to read the full history, esp:
+
+	http://mail-archives.apache.org/mod_mbox/archive-license/200401.mbox/%3c20040109143803.G31301 at fez.hyperreal.org%3e
+	http://mail-archives.apache.org/mod_mbox/archive-license/200401.mbox/%3c23385101-4E15-11D8-915D-000393753936 at apache.org%3e
+	http://mail-archives.apache.org/mod_mbox/archive-license/200401.mbox/%3c4686EED7-4E1D-11D8-915D-000393753936 at apache.org%3e
+
+Thx.
+
+> On Jan 15, 2016, at 9:57 AM, Mark Wielaard <mark at klomp.org> wrote:
+> 
+> On Fri, 2016-01-15 at 09:20 -0500, Jim Jagielski wrote:
+>> For the record, the ALv2 was also designed to be compatible w/ the
+>> GPLv2 and during the drafting process, comments and suggestions from 
+>> various parties associated with the GPL were incorporated.
+>> We fully expected that the FSF (and others), based on this and from 
+>> their feedback, would formally state that ALv2 was compatible; you 
+>> can imagine our surprise (and disappointment) when, not long after we 
+>> released it, we were told "nope".
+> 
+> That is not how I read the feedback the FSF gave on the ASLv2 draft:
+> http://mail-archives.apache.org/mod_mbox/archive-license/200311.mbox/%
+> 3C16309.18688.540989.283163 at new.law.columbia.edu%3E
+> It states that the patent retaliation clause is incompatible in 
+> general with GPLv2. But that it is a good idea anyway. And that if the 
+> ASLv2 was changed in certain ways then it could be used as template 
+> for the next version of the GPL to make ASLv2 and GPLv3 compatible. 
+> Which is what happily happened in the end.
+> 
+> Eben Moglen's comments on the ASLv2 draft above might be interesting 
+> in general for this discussion since it not only touches on patent 
+> clauses that might be (in)compatible with the GPL, but also what is a 
+> contribution/contributor.
+> 
+> Cheers,
+> 
+> Mark
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+From jim at jaguNET.com  Sat Jan 16 14:20:25 2016
+From: jim at jaguNET.com (Jim Jagielski)
+Date: Sat, 16 Jan 2016 09:20:25 -0500
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <028701d14fd4$1e9e58d0$5bdb0a70$@rosenlaw.com>
+References: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+ <20160114214133.GA328@sharpeleven.org>
+ <449DD2E1-0019-4697-9375-8C81B49C31DC@jaguNET.com>
+ <1452869876.7711.12.camel@klomp.org>
+ <5AD182A4-0EDE-4E8A-A3A9-4E705B847134@jaguNET.com>
+ <028701d14fd4$1e9e58d0$5bdb0a70$@rosenlaw.com>
+Message-ID: <C4B464FF-CCF9-4FA3-B0FF-D912D1FA173A@jaguNET.com>
+
+
+> On Jan 15, 2016, at 3:34 PM, Lawrence Rosen <lrosen at rosenlaw.com> wrote:
+> 
+> Jim Jagielski wrote:
+>>> We fully expected that the FSF (and others), based on this and from 
+>>> their feedback, would formally state that ALv2 was compatible; you 
+>>> can imagine our surprise (and disappointment) when, not long after we 
+>>> released it, we were told "nope".
+> 
+> FSF opinions on license compatibility, to steal McCoy's phrase for this purpose, seem "like an exercise in whack-a-mole." Roy Fielding's stated opinions on that dispute between FSF and Apache were as usual dead-right. FSF's objections to Apache 2.0 came out of left field.  
+
+++1.
+
+> 
+> But Apache's own license compatibility matrix is equally nonsense. This desire of people in open source to "be nice to community opinions" has resulted in unnecessary confusion about license compatibility. 
+> 
+
+
+Yeah, that is true as well, although 'nonsense' may be kind of
+strong :)
+
+> Here's another example: Apache2.0 allows AFL3.0 contributions. GPLv3 allows Apache2.0 contributions presumably including those AFL3.0 parts. But GPLv3 doesn't allow AFL3.0 contributions because that license "contains contract provisions."  :-)  You figure it out.
+> 
+> /Larry
+
+
+
+From mark at klomp.org  Sat Jan 16 16:16:14 2016
+From: mark at klomp.org (Mark Wielaard)
+Date: Sat, 16 Jan 2016 17:16:14 +0100
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <028701d14fd4$1e9e58d0$5bdb0a70$@rosenlaw.com>
+References: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+ <20160114214133.GA328@sharpeleven.org>
+ <449DD2E1-0019-4697-9375-8C81B49C31DC@jaguNET.com>
+ <1452869876.7711.12.camel@klomp.org>
+ <5AD182A4-0EDE-4E8A-A3A9-4E705B847134@jaguNET.com>
+ <028701d14fd4$1e9e58d0$5bdb0a70$@rosenlaw.com>
+Message-ID: <20160116161614.GF2958@blokker.redhat.com>
+
+On Fri, Jan 15, 2016 at 12:34:20PM -0800, Lawrence Rosen wrote:
+> Jim Jagielski wrote:
+> >> We fully expected that the FSF (and others), based on this and from 
+> >> their feedback, would formally state that ALv2 was compatible; you 
+> >> can imagine our surprise (and disappointment) when, not long after we 
+> >> released it, we were told "nope".
+> 
+> FSF opinions on license compatibility, to steal McCoy's phrase for this
+> purpose, seem "like an exercise in whack-a-mole." Roy Fielding's stated
+> opinions on that dispute between FSF and Apache were as usual dead-right.
+> FSF's objections to Apache 2.0 came out of left field.  
+
+If you read the whole history then it is clear that the FSF was
+(at least according to the public record) pretty consistent. Patent
+retaliation clauses are not GPLv2 compatible. That doesn't mean they
+are not a good idea, they are. And that is why GPLv3 does contain one.
+Based on the same language the FSF suggested the ASLv2 should adopt.
+That is also what they said publicly they would do when reviewing the
+ASLv2 draft and when the ASLv2 was finalized.
+
+The point is not who is "right" about who is reponsible for this dispute
+which is now 10+ years old. Reading the whole history shows some people
+might misremember or misunderstood what was said by whom, or simply
+assumed the opinion of the other didn't matter. Sadly that happens.
+The point is just that at least with respect to patent retaliation
+clauses and the GPLv2 the FSF has publicly been very consistent.
+So if the point of this license is to be explicitly GPLv2-only
+(and not just GPLv3+) compatible, then adding a patent retaliation
+clause is not the way to go. Just stick with an explicit patent grant.
+
+> Here's another example: Apache2.0 allows AFL3.0 contributions. GPLv3
+> allows Apache2.0 contributions presumably including those AFL3.0 parts.
+> But GPLv3 doesn't allow AFL3.0 contributions because that license
+> "contains contract provisions."  :-)  You figure it out.
+
+This seems somewhat offtopic for this license review. And it seems that
+the simplest explanation is that the presumption is incorrect. But I
+think it shows that if your goal is to create a new license that is
+compatible with another one, then it is good to talk to the license
+steward to make sure your assumptions are correct.
+
+Cheers,
+
+Mark
+
+
+From fontana at sharpeleven.org  Sat Jan 16 18:23:01 2016
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Sat, 16 Jan 2016 13:23:01 -0500
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <20160116161614.GF2958@blokker.redhat.com>
+References: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+ <20160114214133.GA328@sharpeleven.org>
+ <449DD2E1-0019-4697-9375-8C81B49C31DC@jaguNET.com>
+ <1452869876.7711.12.camel@klomp.org>
+ <5AD182A4-0EDE-4E8A-A3A9-4E705B847134@jaguNET.com>
+ <028701d14fd4$1e9e58d0$5bdb0a70$@rosenlaw.com>
+ <20160116161614.GF2958@blokker.redhat.com>
+Message-ID: <20160116182301.GA30204@sharpeleven.org>
+
+On Sat, Jan 16, 2016 at 05:16:14PM +0100, Mark Wielaard wrote:
+> This seems somewhat offtopic for this license review.
+
+Agreed. Let's please keep discussion focused directly on this BSD +
+Patent license.
+
+Richard
+
+
+
+
+
+From lrosen at rosenlaw.com  Sat Jan 16 18:03:33 2016
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sat, 16 Jan 2016 10:03:33 -0800
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <20160116161614.GF2958@blokker.redhat.com>
+References: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+ <20160114214133.GA328@sharpeleven.org>
+ <449DD2E1-0019-4697-9375-8C81B49C31DC@jaguNET.com>
+ <1452869876.7711.12.camel@klomp.org>
+ <5AD182A4-0EDE-4E8A-A3A9-4E705B847134@jaguNET.com>
+ <028701d14fd4$1e9e58d0$5bdb0a70$@rosenlaw.com>
+ <20160116161614.GF2958@blokker.redhat.com>
+Message-ID: <031c01d15088$38fb4260$aaf1c720$@rosenlaw.com>
+
+Larry Rosen wrote:
+> > Here's another example: Apache2.0 allows AFL3.0 contributions. GPLv3 
+> > allows Apache2.0 contributions presumably including those AFL3.0 parts.
+> > But GPLv3 doesn't allow AFL3.0 contributions because that license 
+> > "contains contract provisions."  :-)  You figure it out.
+
+Mark Wielaard responded:
+> This seems somewhat offtopic for this license review. And it seems that 
+> the simplest explanation is that the presumption is incorrect. But I think it
+> shows that if your goal is to create a new license that is compatible with
+> another one, then it is good to talk to the license steward to make sure
+> your assumptions are correct.
+
+
+Whether or not you talk to this license steward (me!) to explain AFL 3.0, there is another reason why this topic is relevant for the license-review@ list.
+
+McCoy is proposing a BSD license plus patent license. It is an okay FOSS license. But AFL 3.0 did that very thing 10 years ago. The only reason for AFL 3.0 not being accepted generally for that same purpose is the FSF's complaint, "contains contract provisions." That kind of quasi-legal balderdash is directly relevant to what McCoy and others want to do. 
+
+And if AFL 3.0 isn't satisfactory for some random reason, then use the Apache 2.0 license. If FSF continues its argument that the Apache 2.0 license is incompatible with GPLv2, make them prove it with an argument that would pass muster in law school or the courts.
+
+This subject is LICENSE-REVIEW.
+
+/Larry
+
+Lawrence Rosen
+"If this were legal advice it would have been accompanied by a bill."
+
+Rosenlaw & Einschlag (www.rosenlaw.com) 
+3001 King Ranch Rd., Ukiah, CA 95482
+Cell: 707-478-8932 
+LinkedIn: http://lnkd.in/D9CWhD 
+
+
+-----Original Message-----
+From: Mark Wielaard [mailto:mark at klomp.org] 
+Sent: Saturday, January 16, 2016 8:16 AM
+To: License submissions for OSI review <license-review at opensource.org>
+Subject: Re: [License-review] Approval: BSD + Patent License
+
+On Fri, Jan 15, 2016 at 12:34:20PM -0800, Lawrence Rosen wrote:
+> Jim Jagielski wrote:
+> >> We fully expected that the FSF (and others), based on this and from 
+> >> their feedback, would formally state that ALv2 was compatible; you 
+> >> can imagine our surprise (and disappointment) when, not long after 
+> >> we released it, we were told "nope".
+> 
+> FSF opinions on license compatibility, to steal McCoy's phrase for 
+> this purpose, seem "like an exercise in whack-a-mole." Roy Fielding's 
+> stated opinions on that dispute between FSF and Apache were as usual dead-right.
+> FSF's objections to Apache 2.0 came out of left field.  
+
+If you read the whole history then it is clear that the FSF was (at least according to the public record) pretty consistent. Patent retaliation clauses are not GPLv2 compatible. That doesn't mean they are not a good idea, they are. And that is why GPLv3 does contain one.
+Based on the same language the FSF suggested the ASLv2 should adopt.
+That is also what they said publicly they would do when reviewing the
+ASLv2 draft and when the ASLv2 was finalized.
+
+The point is not who is "right" about who is reponsible for this dispute which is now 10+ years old. Reading the whole history shows some people might misremember or misunderstood what was said by whom, or simply assumed the opinion of the other didn't matter. Sadly that happens.
+The point is just that at least with respect to patent retaliation clauses and the GPLv2 the FSF has publicly been very consistent.
+So if the point of this license is to be explicitly GPLv2-only (and not just GPLv3+) compatible, then adding a patent retaliation clause is not the way to go. Just stick with an explicit patent grant.
+
+> Here's another example: Apache2.0 allows AFL3.0 contributions. GPLv3 
+> allows Apache2.0 contributions presumably including those AFL3.0 parts.
+> But GPLv3 doesn't allow AFL3.0 contributions because that license 
+> "contains contract provisions."  :-)  You figure it out.
+
+This seems somewhat offtopic for this license review. And it seems that the simplest explanation is that the presumption is incorrect. But I think it shows that if your goal is to create a new license that is compatible with another one, then it is good to talk to the license steward to make sure your assumptions are correct.
+
+Cheers,
+
+Mark
+_______________________________________________
+License-review mailing list
+License-review at opensource.org
+https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+From lrosen at rosenlaw.com  Sun Jan 17 18:36:36 2016
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Sun, 17 Jan 2016 10:36:36 -0800
+Subject: [License-review] Approval:  BSD + Patent License
+Message-ID: <03b701d15156$01802e30$04808a90$@rosenlaw.com>
+
+Mark Wielaard wrote on this license-review@ list:
+
+> Patent retaliation clauses are not GPLv2 compatible. 
+
+ 
+
+Says who? Legal basis for that conclusion? 
+
+ 
+
+> That doesn't mean they are not a good idea, they are.
+
+ 
+
+They sure are! They are now in most FOSS licenses in one form or another.
+
+ 
+
+> And that is why GPLv3 does contain one.
+
+ 
+
+Great, but now GPLv3 is apparently not compatible with GPLv2. :-)  That's
+unfortunate. 
+
+ 
+
+I frequently joke when I do something illegal as a driver that there is a
+"Larry Exception" in the California Vehicle Code. It is much like the GPL
+exceptions regarding license compatibility. They are the imaginary
+constructs of the FSF.
+
+ 
+
+/Larry
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20160117/a5f07e94/attachment.html>
+
+From cowan at mercury.ccil.org  Mon Jan 18 02:40:09 2016
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Sun, 17 Jan 2016 21:40:09 -0500
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <03b701d15156$01802e30$04808a90$@rosenlaw.com>
+References: <03b701d15156$01802e30$04808a90$@rosenlaw.com>
+Message-ID: <20160118024009.GA22470@mercury.ccil.org>
+
+Lawrence Rosen scripsit:
+
+> Great, but now GPLv3 is apparently not compatible with GPLv2. :-)  That's
+> unfortunate. 
+
+Right, it isn't.  Given a work under the GPLv2 and another work under the
+GPLv3, you can't combine them into a joint work and license them under
+any license at all, for they are both jealous gods.  Fortunately, most
+works under the GPLv2 are dual-licensed under the GPLv3.
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+You cannot enter here.  Go back to the abyss prepared for you!  Go back!
+Fall into the nothingness that awaits you and your Master.  Go! --Gandalf
+
+
+From mark at klomp.org  Mon Jan 18 08:32:09 2016
+From: mark at klomp.org (Mark Wielaard)
+Date: Mon, 18 Jan 2016 09:32:09 +0100
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <031c01d15088$38fb4260$aaf1c720$@rosenlaw.com>
+References: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+ <20160114214133.GA328@sharpeleven.org>
+ <449DD2E1-0019-4697-9375-8C81B49C31DC@jaguNET.com>
+ <1452869876.7711.12.camel@klomp.org>
+ <5AD182A4-0EDE-4E8A-A3A9-4E705B847134@jaguNET.com>
+ <028701d14fd4$1e9e58d0$5bdb0a70$@rosenlaw.com>
+ <20160116161614.GF2958@blokker.redhat.com>
+ <031c01d15088$38fb4260$aaf1c720$@rosenlaw.com>
+Message-ID: <20160118083209.GI2958@blokker.redhat.com>
+
+On Sat, Jan 16, 2016 at 10:03:33AM -0800, Lawrence Rosen wrote:
+> McCoy is proposing a BSD license plus patent license. It is an okay
+> FOSS license. But AFL 3.0 did that very thing 10 years ago. The only
+> reason for AFL 3.0 not being accepted generally for that same purpose
+> is the FSF's complaint, "contains contract provisions." That kind of
+> quasi-legal balderdash is directly relevant to what McCoy and others
+> want to do. 
+> 
+> And if AFL 3.0 isn't satisfactory for some random reason, then use
+> the Apache 2.0 license.
+
+Sorry Larry, but these are impractical suggestions wrt reviewing the
+license submission and intent of the BSD + Patent License. The AFLv3
+is GPL incompatible because it contains contract provisions requiring
+distributors to obtain the express assent of recipients to the license
+terms. The extra restrictions making ASLv2 incompatible with GPLv2 have
+already been discussed. Both are clearly documented cases of expressly
+incompatible licenses by the GPL license steward the FSF. I understand
+your desire to mention your disagreement with the license steward and
+discuss alternative legal interpretations of what it means to be
+compatible with the GPL then what might be generally accepted and
+used in practice. But it is offtopic and not a very constructive
+discussion in the context of this license submission, which doesn't
+contain any of those extra restrictions.
+
+Cheers,
+
+Mark
+
+
+From Nigel.Tzeng at jhuapl.edu  Mon Jan 18 15:22:40 2016
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Mon, 18 Jan 2016 15:22:40 +0000
+Subject: [License-review] Approval:  BSD + Patent License
+In-Reply-To: <20160118083209.GI2958@blokker.redhat.com>
+References: <2D52F7EE739F8542A700CAB96276B51933DC992E@FMSMSX108.amr.corp.intel.com>
+ <20160114214133.GA328@sharpeleven.org>
+ <449DD2E1-0019-4697-9375-8C81B49C31DC@jaguNET.com>
+ <1452869876.7711.12.camel@klomp.org>
+ <5AD182A4-0EDE-4E8A-A3A9-4E705B847134@jaguNET.com>
+ <028701d14fd4$1e9e58d0$5bdb0a70$@rosenlaw.com>
+ <20160116161614.GF2958@blokker.redhat.com>
+ <031c01d15088$38fb4260$aaf1c720$@rosenlaw.com>
+ <20160118083209.GI2958@blokker.redhat.com>
+Message-ID: <D2C26A87.286D2%Nigel.Tzeng@jhuapl.edu>
+
+Is there any reason then to approve this license if the FSF does not
+explicitly state it is GPL V2 compatible?
+
+
+Why guess?  There?s no point in approving a niche license that doesn?t
+actually fulfill its niche.
+
+My opinion is step 1 is to submit to the FSF for approval rather than
+the OSI since it appears it passes here other than for proliferation.
+If the FSF publically says it?s GPL v2 compatible then approval here
+should be relatively straightforward.
+
+Regards,
+
+Nigel
+
+On 1/18/16, 3:32 AM, "License-review on behalf of Mark Wielaard"
+<license-review-bounces at opensource.org on behalf of mark at klomp.org> wrote:
+
+>On Sat, Jan 16, 2016 at 10:03:33AM -0800, Lawrence Rosen wrote:
+>> McCoy is proposing a BSD license plus patent license. It is an okay
+>> FOSS license. But AFL 3.0 did that very thing 10 years ago. The only
+>> reason for AFL 3.0 not being accepted generally for that same purpose
+>> is the FSF's complaint, "contains contract provisions." That kind of
+>> quasi-legal balderdash is directly relevant to what McCoy and others
+>> want to do. 
+>> 
+>> And if AFL 3.0 isn't satisfactory for some random reason, then use
+>> the Apache 2.0 license.
+>
+>Sorry Larry, but these are impractical suggestions wrt reviewing the
+>license submission and intent of the BSD + Patent License. The AFLv3
+>is GPL incompatible because it contains contract provisions requiring
+>distributors to obtain the express assent of recipients to the license
+>terms. The extra restrictions making ASLv2 incompatible with GPLv2 have
+>already been discussed. Both are clearly documented cases of expressly
+>incompatible licenses by the GPL license steward the FSF. I understand
+>your desire to mention your disagreement with the license steward and
+>discuss alternative legal interpretations of what it means to be
+>compatible with the GPL then what might be generally accepted and
+>used in practice. But it is offtopic and not a very constructive
+>discussion in the context of this license submission, which doesn't
+>contain any of those extra restrictions.
+>
+>Cheers,
+>
+>Mark
+>_______________________________________________
+>License-review mailing list
+>License-review at opensource.org
+>https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+From chrisjones at spin.net.au  Tue Jan 19 23:24:31 2016
+From: chrisjones at spin.net.au (Chris Jones)
+Date: Wed, 20 Jan 2016 09:24:31 +1000
+Subject: [License-review] Approval: BSD + Patent License
+Message-ID: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+
+Not having this license approved would demonstrate (again) the lack of
+clear and consistent initiative by the OSI to understand and approve new
+licenses.
+
+I see too many of these examples.
+
+
+Regards,
+
+Chris Jones
+
+
+
+
+Date: Mon, 18 Jan 2016 15:22:40 +0000
+> From: "Tzeng, Nigel H." <Nigel.Tzeng at jhuapl.edu>
+> To: License submissions for OSI review <license-review at opensource.org>
+> Subject: Re: [License-review] Approval:  BSD + Patent License
+> Message-ID: <D2C26A87.286D2%Nigel.Tzeng at jhuapl.edu>
+> Content-Type: text/plain; charset="iso-8859-1"
+>
+> Is there any reason then to approve this license if the FSF does not
+> explicitly state it is GPL V2 compatible?
+>
+>
+> Why guess?  There?s no point in approving a niche license that doesn?t
+> actually fulfill its niche.
+>
+> My opinion is step 1 is to submit to the FSF for approval rather than
+> the OSI since it appears it passes here other than for proliferation.
+> If the FSF publically says it?s GPL v2 compatible then approval here
+> should be relatively straightforward.
+>
+> Regards,
+>
+> Nigel
+>
+> On 1/18/16, 3:32 AM, "License-review on behalf of Mark Wielaard"
+> <license-review-bounces at opensource.org on behalf of mark at klomp.org> wrote:
+>
+> >On Sat, Jan 16, 2016 at 10:03:33AM -0800, Lawrence Rosen wrote:
+> >> McCoy is proposing a BSD license plus patent license. It is an okay
+> >> FOSS license. But AFL 3.0 did that very thing 10 years ago. The only
+> >> reason for AFL 3.0 not being accepted generally for that same purpose
+> >> is the FSF's complaint, "contains contract provisions." That kind of
+> >> quasi-legal balderdash is directly relevant to what McCoy and others
+> >> want to do.
+> >>
+> >> And if AFL 3.0 isn't satisfactory for some random reason, then use
+> >> the Apache 2.0 license.
+> >
+> >Sorry Larry, but these are impractical suggestions wrt reviewing the
+> >license submission and intent of the BSD + Patent License. The AFLv3
+> >is GPL incompatible because it contains contract provisions requiring
+> >distributors to obtain the express assent of recipients to the license
+> >terms. The extra restrictions making ASLv2 incompatible with GPLv2 have
+> >already been discussed. Both are clearly documented cases of expressly
+> >incompatible licenses by the GPL license steward the FSF. I understand
+> >your desire to mention your disagreement with the license steward and
+> >discuss alternative legal interpretations of what it means to be
+> >compatible with the GPL then what might be generally accepted and
+> >used in practice. But it is offtopic and not a very constructive
+> >discussion in the context of this license submission, which doesn't
+> >contain any of those extra restrictions.
+> >
+> >Cheers,
+> >
+> >Mark
+> >_______________________________________________
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20160120/6f8e6903/attachment.html>
+
+From mike at opensource.org  Wed Jan 20 02:12:10 2016
+From: mike at opensource.org (Mike Milinkovich)
+Date: Tue, 19 Jan 2016 21:12:10 -0500
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+References: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+Message-ID: <CACJu1NxTEQ-vaov97drzx0w4xstTcTXyjSV9kwH3Ci0vy44KAg@mail.gmail.com>
+
+Wow, this thread has degraded to the point of silliness.
+
+Every OSI Board member who has commented on this license has said positive
+things about it. ?It's a good license. It fills a niche that we have long
+wanted filled.
+
+Can everyone please just chill, and let the review process run its course?
+And speaking of which, can we please keep this thread on the topic of
+actually discussing the license, instead of last century's political
+battles?
+
+
+
+On Tue, Jan 19, 2016 at 6:24 PM, Chris Jones <chrisjones at spin.net.au> wrote:
+
+> Not having this license approved would demonstrate (again) the lack of
+> clear and consistent initiative by the OSI to understand and approve new
+> licenses.
+>
+> I see too many of these examples.
+>
+>
+> Regards,
+>
+> Chris Jones
+>
+>
+>
+>
+> Date: Mon, 18 Jan 2016 15:22:40 +0000
+>> From: "Tzeng, Nigel H." <Nigel.Tzeng at jhuapl.edu>
+>> To: License submissions for OSI review <license-review at opensource.org>
+>> Subject: Re: [License-review] Approval:  BSD + Patent License
+>> Message-ID: <D2C26A87.286D2%Nigel.Tzeng at jhuapl.edu>
+>> Content-Type: text/plain; charset="iso-8859-1"
+>>
+>> Is there any reason then to approve this license if the FSF does not
+>> explicitly state it is GPL V2 compatible?
+>>
+>>
+>> Why guess?  There?s no point in approving a niche license that doesn?t
+>> actually fulfill its niche.
+>>
+>> My opinion is step 1 is to submit to the FSF for approval rather than
+>> the OSI since it appears it passes here other than for proliferation.
+>> If the FSF publically says it?s GPL v2 compatible then approval here
+>> should be relatively straightforward.
+>>
+>> Regards,
+>>
+>> Nigel
+>>
+>> On 1/18/16, 3:32 AM, "License-review on behalf of Mark Wielaard"
+>> <license-review-bounces at opensource.org on behalf of mark at klomp.org>
+>> wrote:
+>>
+>> >On Sat, Jan 16, 2016 at 10:03:33AM -0800, Lawrence Rosen wrote:
+>> >> McCoy is proposing a BSD license plus patent license. It is an okay
+>> >> FOSS license. But AFL 3.0 did that very thing 10 years ago. The only
+>> >> reason for AFL 3.0 not being accepted generally for that same purpose
+>> >> is the FSF's complaint, "contains contract provisions." That kind of
+>> >> quasi-legal balderdash is directly relevant to what McCoy and others
+>> >> want to do.
+>> >>
+>> >> And if AFL 3.0 isn't satisfactory for some random reason, then use
+>> >> the Apache 2.0 license.
+>> >
+>> >Sorry Larry, but these are impractical suggestions wrt reviewing the
+>> >license submission and intent of the BSD + Patent License. The AFLv3
+>> >is GPL incompatible because it contains contract provisions requiring
+>> >distributors to obtain the express assent of recipients to the license
+>> >terms. The extra restrictions making ASLv2 incompatible with GPLv2 have
+>> >already been discussed. Both are clearly documented cases of expressly
+>> >incompatible licenses by the GPL license steward the FSF. I understand
+>> >your desire to mention your disagreement with the license steward and
+>> >discuss alternative legal interpretations of what it means to be
+>> >compatible with the GPL then what might be generally accepted and
+>> >used in practice. But it is offtopic and not a very constructive
+>> >discussion in the context of this license submission, which doesn't
+>> >contain any of those extra restrictions.
+>> >
+>> >Cheers,
+>> >
+>> >Mark
+>> >_______________________________________________
+>>
+>
+>
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> https://lists.opensource.org/cgi-bin/mailman/listinfo/license-review
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20160119/52714930/attachment.html>
+
+From josh at postgresql.org  Wed Jan 20 04:57:42 2016
+From: josh at postgresql.org (Josh Berkus)
+Date: Tue, 19 Jan 2016 20:57:42 -0800
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <CACJu1NxTEQ-vaov97drzx0w4xstTcTXyjSV9kwH3Ci0vy44KAg@mail.gmail.com>
+References: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+ <CACJu1NxTEQ-vaov97drzx0w4xstTcTXyjSV9kwH3Ci0vy44KAg@mail.gmail.com>
+Message-ID: <569F13C6.6050108@postgresql.org>
+
+On 01/19/2016 06:12 PM, Mike Milinkovich wrote:
+> Wow, this thread has degraded to the point of silliness. 
+> 
+> Every OSI Board member who has commented on this license has said
+> positive things about it. ?It's a good license. It fills a niche that we
+> have long wanted filled. 
+
+Yes, and I have an *immediate* use for such a license.
+
+I haven't seen an attorney weigh in on the patent grant issues inherent
+in a liberal patent-grant license.  Has one posted a review elsewhere?
+
+-- 
+Josh Berkus
+PostgreSQL Project
+
+
+From josh at postgresql.org  Wed Jan 20 07:24:25 2016
+From: josh at postgresql.org (Josh Berkus)
+Date: Tue, 19 Jan 2016 23:24:25 -0800
+Subject: [License-review] Approval: BSD + Patent License
+In-Reply-To: <569F13C6.6050108@postgresql.org>
+References: <CAPaMSD2O0Os_ObguJcukVHGNk2Wr-Ofcctkt0PdXv8sq6STUFQ@mail.gmail.com>
+ <CACJu1NxTEQ-vaov97drzx0w4xstTcTXyjSV9kwH3Ci0vy44KAg@mail.gmail.com>
+ <569F13C6.6050108@postgresql.org>
+Message-ID: <569F3629.1080405@postgresql.org>
+
+On 01/19/2016 08:57 PM, Josh Berkus wrote:
+> On 01/19/2016 06:12 PM, Mike Milinkovich wrote:
+>> Wow, this thread has degraded to the point of silliness. 
+>>
+>> Every OSI Board member who has commented on this license has said
+>> positive things about it. ?It's a good license. It fills a niche that we
+>> have long wanted filled. 
+> 
+> Yes, and I have an *immediate* use for such a license.
+> 
+> I haven't seen an attorney weigh in on the patent grant issues inherent
+> in a liberal patent-grant license.  Has one posted a review elsewhere?
+> 
+
+To be specific: is the patent grant language of the license correct and
+successful in granting a patent license on any concepts embodied in the
+code released, and only on those?  It's more than a bit opaque to
+non-lawyers.
+
+-- 
+Josh Berkus
+PostgreSQL Project
+
+
