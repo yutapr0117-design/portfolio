@@ -1,0 +1,750 @@
+4. Breach and Termination
+
+
+4.1 If You breached This License, any Contributor has the right to notify You in writing to terminate its license granted to You under This License. The license granted to You by such Contributor terminates upon Your receipt of such notice of termination. Notwithstanding the foregoing, Your license will not be terminated even if You received a notice of termination from Contributor, under three circumstances as set forth below:
+
+
+(1) You have cured all the breaches prior to receipt of such notice of termination; or,
+
+
+(2) it?s Your first time to receive a notice of termination from such Contributor pursuant to This License, and You have cured all the breaches within 30 days of receipt of such notice; or,
+
+
+(3) Contributor has expressly reinstated the license granted to You.
+
+
+4.2 Termination of Your license under This License shall not affect any rights under This License granted to any others who directly or indirectly receive This Work from You, provided that they comply with the terms and conditions of This License.
+
+
+4.3 Sections 0, 4, 5, and 6 survive termination of This License.
+
+
+5. Disclaimer of Warranty and Limitation of Liability
+
+
+THIS WORK IS PROVIDED WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. IN NO EVENT SHALL ANY CONTRIBUTOR BE LIABLE TO YOU FOR ANY DAMAGES, INCLUDING BUT NOT LIMITED TO ANY DIRECT OR INDIRECT DAMAGES ARISING FROM YOUR USE OR INABILITY TO USE THIS WORK, NO MATTER HOW IT IS CAUSED OR BASED ON WHICH LEGAL THEORY, EVEN IF SUCH CONTRIBUTOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+
+6. Language
+
+
+THIS LICENSE IS WRITTEN IN BOTH CHINESE AND ENGLISH, AND THE CHINESE VERSION AND ENGLISH VERSION SHALL HAVE THE SAME LEGAL EFFECT. IN CASE OF DIVERGENCE BETWEEN THE CHINESE AND ENGLISH VERSIONS, THE CHINESE VERSION SHALL PREVAIL.
+
+
+END OF THE TERMS AND CONDITIONS
+
+
+--------------------------------------------------End of the license--------------------------------------------------
+
+
+
+
+4) Mulan Open Works License Attribution-PatentLicensed-ShareAlike, Version 1 (MulanOWL BY-PL-SA v1)
+
+
+--------------------------------------------------Begin of the license--------------------------------------------------
+
+
+?????????? ??-????-????????1?
+
+
+2022?12? http://license.coscl.org.cn/MulanOWLBYPLSAv1
+
+
+?????????????????????????????????? ??-????-????????1???????????????????????
+
+
+0. ??
+
+
+????????????????????????????????????????????????????????????????????????????????
+
+
+?????????????????????????????????????????????????????
+
+
+??????????????????????????????????????????????????
+
+
+????????????????????????????????????????????????????????????????
+
+
+????????????????????????????????????????????????????????????????????????????????????????50%????????????????????
+
+
+???????????????????????????????????????????????????????????????
+
+
+????????????http://license.coscl.org.cn/faq?????????????????????????????
+
+
+?????????????????????????????????????????????????????
+
+
+1. ??????
+
+
+??????????????????????????????????????????????????????????????????????????????????????????????
+
+
+2. ??????
+
+
+2.1 ????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+
+
+2.2 ?????????????????????????????????????????????????????????????????????????????????????????????????
+
+
+2.3 ?2.1??2.2??????????????????????????????????????????2.1?????????????????2.2?????????????????
+
+
+3. ?????
+
+
+??????????????????????????????????????
+
+
+4. ??????
+
+
+????????????????????????????????????????
+
+
+?1??????????????????????????????????????????
+
+
+?2????????????????????????????????????/??????????????????????????????????????????
+
+
+?3?????????????????????????????????????????????????????????????????????????????????????????????????????????
+
+
+?4?????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+
+
+?????????????????????????????????????????????????????????????????????????????????1?-?3??????????????????
+
+
+5. ?????
+
+
+5.1 ???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+
+
+?1????????????????????????
+
+
+?2??????????????????????????????????????????????30????????????
+
+
+?3???????????????????
+
+
+5.2 ????????????????????????????????????????????????????????????????????????????????
+
+
+5.3 ????????0?5?6?7?????????????????
+
+
+6. ?????????
+
+
+?????????????????????????????????????????????????????????????????????????????????????????????????????????????
+
+
+7. ??
+
+
+???????????????????????????????????????????????????
+
+
+????
+
+
+&nbsp; 
+
+
+Mulan Open Works License Attribution-PatentLicensed-ShareAlike, Version 1 (MulanOWL BY-PL-SA v1)
+
+
+December 2022 http://license.coscl.org.cn/MulanOWLBYPLSAv1
+
+
+Your reproduction, use, modification and Dissemination of This Work shall be subject to Mulan Open Works License Attribution-PatentLicensed-ShareAlike, Version 1 (This License) with following terms and conditions:
+
+
+0. Definition
+
+
+This Work means intellectual achievement protected by copyright law that is licensed under This License, including but not limited to a written work, a musical work, a fine art work, an architecture work, a photographic work, an audiovisual work, a graphic work, and a model work.
+
+
+Adapted Work means a work that is created based on This Work, including but not limited to modification, translation, annotation, or arrangement of This Work in whole or in part.
+
+
+Contributor means the licensor(s) of the rights related to This Work under This License, including the copyright holder(s) and its authorized individual(s) or Organization(s).
+
+
+You means the licensee of the rights related to This Work under This License, who is an individual or Organization exercising the rights granted under This License. Your has a corresponding meaning.
+
+
+Organization means any legal entity(ies), unincorporated organization(s), and their affiliate(s). Aforesaid ?affiliate? means any entity that controls, is controlled by, or is under common control with any party under This License. Aforesaid ?control? means direct or indirect ownership of at least fifty percent (50%) of the voting power, capital or other securities of controlled or commonly controlled entity.
+
+
+Disseminate (or Dissemination) means the act of making works available to others through any medium, including but not limited to distribution, lease, exhibition, performance, projection, providing works through information networks or by any other means providing works.
+
+
+Compatible License means any license that is listed on http://license.coscl.org.cn/faq and officially approved by Mulan Community as compatible with This License.
+
+
+Effective Technical Measures means those technical measures taken by copyright holders to prevent unauthorized use of work, from which circumvention by users are prohibited under laws of applicable jurisdiction.
+
+
+1. Grant of Copyright License
+
+
+Subject to Your compliance with the terms and conditions of This License, each Contributor hereby grants You, according to This License, a perpetual, worldwide, royalty-free, non-exclusive, irrevocable copyright license to copy, modify, Disseminate, and in other manner use This Work.
+
+
+2. Grant of Patent License
+
+
+2.1 Subject to Your compliance with the terms and conditions of This License, each Contributor hereby grants You, according to This License, a perpetual, worldwide, royalty-free, non-exclusive, irrevocable (unless terminated early according to This License) patent license for You to make, have made, use, sell, offer for sale and import any products based on This Work. The foregoing patent license applies only to patent claims or design features that are owned or controlled by the Contributor now or in future, covered by the copyrighted portion of This Work and necessarily infringed by making, having made, using, selling, offering for sale, or importing the products based on This Work.
+
+
+2.2 If You directly or indirectly institute patent litigation (including a cross-claim or counterclaim in a litigation) or other patent enforcement activities against anyone with respect to This Work, accusing them of infringement of patents, then any patent license granted to You under This License for This Work shall terminate as of the date such litigation or activity is filed or taken.
+
+
+2.3 The patents in Sections 2.1 and 2.2 include design; if design is not protected under patent law of the applicable jurisdiction, the Contributor's license of design in Section 2.1 and the termination of Your license of design in Section 2.2 remains unaffected.
+
+
+3. No Other License
+
+
+Except for those as expressly stated in This License, This License does not provide any other licenses, including trademark license.
+
+
+4. Dissemination Conditions
+
+
+You may Disseminate This Work or Your Adapted Work in any manner, provided that the following conditions are met:
+
+
+(1) You must provide the text or URI of This License with This Work or Your Adapted Work;
+
+
+(2) You must retain any URI, Contributor?s attribution and/or copyright statements (unless the Contributor requires removal), modification statements, patent statements, trademark statements, and disclaimer statements of This Work or parts thereof that You use;
+
+
+(3) If You create an Adapted Work based on This Work and Disseminate it, You must indicate in a reasonable manner that You modified This Work; You must license Your Adapted Work under This License or any Compatible License and provide text or URI of the applied license;
+
+
+(4) You must not exert any restrictions on or apply any Effective Technical Measures to This Work or the Adapted Work to restrict any others who receive This Work or Adapted Work from exercising the rights granted under This License or any Compatible License; if This Work You received had been exerted foregoing restrictions or applied Effective Technical Measures, You are entitled to remove or circumvent them.
+
+
+You may indicate in a reasonable manner the information such as the title or version of This Work or parts thereof that You use; if This Work or parts thereof that You use or Your Adapted Work is Disseminated through information networks, You may use hyperlinks for provision of the foregoing texts or URIs in (1)-(3) of Section 4.
+
+
+5. Breach and Termination
+
+
+5.1 If You breached This License, any Contributor has the right to notify You in writing to terminate its license granted to You under This License. The license granted to You by such Contributor terminates upon Your receipt of such notice of termination. Notwithstanding the foregoing, Your license will not be terminated even if You received a notice of termination from Contributor, under three circumstances as set forth below:
+
+
+(1) You have cured all the breaches prior to receipt of such notice of termination; or,
+
+
+(2) it?s Your first time to receive a notice of termination from such Contributor pursuant to This License, and You have cured all the breaches within 30 days of receipt of such notice; or,
+
+
+(3) Contributor has expressly reinstated the license granted to You.
+
+
+5.2 Termination of Your license under This License shall not affect any rights under This License granted to any others who directly or indirectly receive This Work from You, provided that they comply with the terms and conditions of This License.
+
+
+5.3 Sections 0, 5, 6, and 7 survive termination of This License.
+
+
+6. Disclaimer of Warranty and Limitation of Liability
+
+
+THIS WORK IS PROVIDED WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. IN NO EVENT SHALL ANY CONTRIBUTOR BE LIABLE TO YOU FOR ANY DAMAGES, INCLUDING BUT NOT LIMITED TO ANY DIRECT OR INDIRECT DAMAGES ARISING FROM YOUR USE OR INABILITY TO USE THIS WORK, NO MATTER HOW IT IS CAUSED OR BASED ON WHICH LEGAL THEORY, EVEN IF SUCH CONTRIBUTOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+
+7. Language
+
+
+THIS LICENSE IS WRITTEN IN BOTH CHINESE AND ENGLISH, AND THE CHINESE VERSION AND ENGLISH VERSION SHALL HAVE THE SAME LEGAL EFFECT. IN CASE OF DIVERGENCE BETWEEN THE CHINESE AND ENGLISH VERSIONS, THE CHINESE VERSION SHALL PREVAIL.
+
+
+END OF THE TERMS AND CONDITIONS
+
+
+&nbsp;
+--------------------------------------------------End of the license--------------------------------------------------
+
+
+&nbsp;
+
+
+&nbsp;
+
+
+&nbsp;
+
+
+&nbsp;
+
+
+&nbsp;
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20230210/d00651e5/attachment-0001.html>
+
+From lists.osi-license-review at kevin.km6g.us  Fri Feb 17 11:31:19 2023
+From: lists.osi-license-review at kevin.km6g.us (Kevin P. Fleming)
+Date: Fri, 17 Feb 2023 11:31:19 -0000
+Subject: [License-review] For Approval: MulanOWL BY v1; MulanOWL BY-SA v1;
+ MulanOWL BY-PL v1; MulanOWL BY-PL-SA v1
+In-Reply-To: <tencent_706011BE736FCAB58293668EA185D8B54C07@qq.com>
+References: <tencent_706011BE736FCAB58293668EA185D8B54C07@qq.com>
+Message-ID: <5de0cb1d-9f8f-4810-8583-a935fa058459@app.fastmail.com>
+
+On Fri, Feb 10, 2023, at 04:23, ?? via License-review wrote:
+> Distinguish:
+> As the name suggests, Mulan OWLs can be applied to general works under copyright law, so there is no existing OSI-approved license to directly compare and contrast it with. The set of licenses, of course, can be used for software (but not suggested) and thus are probably most closely comparable to Apache License 2.0, BSD 3-clause License and Mulan PSL v2. However, these licenses are not suitable for other types of works.
+
+It may be useful to provide comparisons between your proposed licenses and the closest relevant Creative Commons licenses, since the CC licenses are also designed to be used by general creative (non-software) works.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20230217/b0ce7fa5/attachment.html>
+
+From josh at berkus.org  Wed Mar  1 22:45:47 2023
+From: josh at berkus.org (Josh Berkus)
+Date: Wed, 1 Mar 2023 14:45:47 -0800
+Subject: [License-review] For Approval: MulanOWL BY v1; MulanOWL BY-SA v1;
+ MulanOWL BY-PL v1; MulanOWL BY-PL-SA v1
+In-Reply-To: <tencent_706011BE736FCAB58293668EA185D8B54C07@qq.com>
+References: <tencent_706011BE736FCAB58293668EA185D8B54C07@qq.com>
+Message-ID: <5183f59b-bf99-3010-a32b-defe9d89029e@berkus.org>
+
+On 2/10/23 01:23, ?? via License-review wrote:
+> I would like to submit Mulan Open Works Licenses, Version 1 (Mulan OWLs 
+> v1) for approval.
+> 
+
+Thanks for submitting these!  OSI has not previously approved content 
+licenses.  You'll note that, for example, the Creative Commons licenses 
+are not certified by the OSI.  That doesn't mean that we might not do it 
+in the future, just that it would be an organizational policy change and 
+therefore not a routine license approval.
+
+For my sake, and for the record, can you explain what the Mulan OWL 
+licenses offer that's not covered by Creative Commons licenses?  Are 
+they just more compatible with Chinese law, or is there something else 
+as well?
+
+-- 
+Josh Berkus
+
+
+
+From yaolu.nudt at qq.com  Tue Mar  7 13:33:07 2023
+From: yaolu.nudt at qq.com (=?gb18030?B?wqzSow==?=)
+Date: Tue, 7 Mar 2023 21:33:07 +0800
+Subject: [License-review] =?gb18030?b?u9i4tKO6ICBGb3IgQXBwcm92YWw6IE11?=
+ =?gb18030?q?lanOWL_BY_v1=3B_MulanOWL_BY-SA_v1=3B_MulanOWL_BY-PL_v1=3B_Mul?=
+ =?gb18030?q?anOWL_BY-PL-SA_v1?=
+In-Reply-To: <5183f59b-bf99-3010-a32b-defe9d89029e@berkus.org>
+References: <tencent_706011BE736FCAB58293668EA185D8B54C07@qq.com>
+ <5183f59b-bf99-3010-a32b-defe9d89029e@berkus.org>
+Message-ID: <tencent_5B81862062D732B945E4CF2B286B0B2E9A09@qq.com>
+
+Dear Josh,
+
+
+Thanks a lot for your valuable comments!
+
+
+We are, I believe, witnessing that the idea and production mode of open source have been extended to non-software domain. We do expect that OSI, as the leading&nbsp;open-source&nbsp;organization in the world,&nbsp;can continue this trend and become the leading ?open content? organization in the world. It may refer to the&nbsp;organizational policy changes, but it may be&nbsp;valuable and worthwhile,&nbsp;just as OSI has approved open font and open hardware licenses, and I believe OSI will continue receiving non-software licenses for approval in future.&nbsp;Since CC licenses contain '-ND' licenses, they do not fully meet the idea and definition of 'open source', 'open content', or 'open works'. In this sense, the CC organization may not be an&nbsp;open content organization.
+
+
+The differences between Mulan OWLs v1 and CC licenses are summarized below. The major difference is that Mulan OWLs v1 contain licenses that&nbsp;include terms of granting license of patent covered by the copyrighted portion of the open works (MulanOWL BY-PL v1 and&nbsp;MulanOWL BY-PL-SA v1), which meets users' requirements and can make significant influences, e.g., the&nbsp;cases of&nbsp;Tesla,&nbsp;Medtronic, and the&nbsp;Open COVID License&nbsp;described in the previous message.
+1) Mulan OWLs v1&nbsp;are applicable for open works and thus allow adapted works;
+2)&nbsp;Mulan OWLs v1 include two licenses that grant patent license (MulanOWL BY-PL v1 and MulanOWL BY-PL-SA v1);
+3)&nbsp;Mulan OWLs v1&nbsp;provide conventions of attribution for multiversion works, which facilitates the use and retrieval of works that are frequently modified, such as crowdsourced works;
+
+
+
+
+Best regards,
+Yao Lu
+
+
+
+
+
+
+------------------&nbsp;????&nbsp;------------------
+???:                                                                                                                        "License submissions for OSI review"                                                                                    <josh at berkus.org&gt;;
+????:&nbsp;2023?3?2?(???) ??6:45
+???:&nbsp;"License submissions for OSI review"<license-review at lists.opensource.org&gt;;
+
+??:&nbsp;Re: [License-review] For Approval: MulanOWL BY v1; MulanOWL BY-SA v1; MulanOWL BY-PL v1; MulanOWL BY-PL-SA v1
+
+
+
+On 2/10/23 01:23, ?? via License-review wrote:
+&gt; I would like to submit Mulan Open Works Licenses, Version 1 (Mulan OWLs 
+&gt; v1) for approval.
+&gt; 
+
+Thanks for submitting these!&nbsp; OSI has not previously approved content 
+licenses.&nbsp; You'll note that, for example, the Creative Commons licenses 
+are not certified by the OSI.&nbsp; That doesn't mean that we might not do it 
+in the future, just that it would be an organizational policy change and 
+therefore not a routine license approval.
+
+For my sake, and for the record, can you explain what the Mulan OWL 
+licenses offer that's not covered by Creative Commons licenses?&nbsp; Are 
+they just more compatible with Chinese law, or is there something else 
+as well?
+
+-- 
+Josh Berkus
+
+
+_______________________________________________
+The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+
+License-review mailing list
+License-review at lists.opensource.org
+http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20230307/a30d14dd/attachment.html>
+
+From tg at mirbsd.de  Wed Mar  8 08:17:49 2023
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Wed, 8 Mar 2023 08:17:49 +0000 (UTC)
+Subject: [License-review] For Approval: MulanOWL BY v1; MulanOWL BY-SA v1;
+ MulanOWL BY-PL v1; MulanOWL BY-PL-SA v1
+In-Reply-To: <5de0cb1d-9f8f-4810-8583-a935fa058459@app.fastmail.com>
+References: <tencent_706011BE736FCAB58293668EA185D8B54C07@qq.com>
+ <5de0cb1d-9f8f-4810-8583-a935fa058459@app.fastmail.com>
+Message-ID: <Pine.BSM.4.64L.2303080812520.1269@herc.mirbsd.org>
+
+Kevin P. Fleming dixit:
+
+>It may be useful to provide comparisons between your proposed licenses
+>and the closest relevant Creative Commons licenses, since the CC
+>licenses are also designed to be used by general creative
+>(non-software) works.
+
+And The MirOS Licence, which is designed to not even distinguish
+between software and n?n-software works and just grants rights on
+the works, so it?s fine for either and combined works as well.
+
+(And for those concerned about patents, I consider the permissions
+to use, distribute, etc. an implicit patent grant for cases where
+patents touching the licenced work exist, which for software is not
+legal, per se, but apparently in existence.)
+
+In general, if one?s new licence is closest to MIT/BSD/ISC but also
+applicable for n?n-software and/or its disclaimer is tweaked for EU,
+then the closest is probably MirBSD instead.
+
+bye,
+//mirabilos
+-- 
+I believe no one can invent an algorithm. One just happens to hit upon it
+when God enlightens him. Or only God invents algorithms, we merely copy them.
+If you don't believe in God, just consider God as Nature if you won't deny
+existence.		-- Coywolf Qi Hunt
+
+
+From joseph at odonahue.com  Thu Mar  9 01:20:16 2023
+From: joseph at odonahue.com (Joseph Donahue)
+Date: Wed, 8 Mar 2023 17:20:16 -0800
+Subject: [License-review] For Approval: MulanOWL BY v1; MulanOWL BY-SA v1;
+ MulanOWL BY-PL v1; MulanOWL BY-PL-SA v1
+In-Reply-To: <tencent_706011BE736FCAB58293668EA185D8B54C07@qq.com>
+References: <tencent_706011BE736FCAB58293668EA185D8B54C07@qq.com>
+Message-ID: <ef25e9fc-0d98-5727-2f3f-4acbd33caf27@odonahue.com>
+
+How does that work exactly?? A Chinese fluent licensee can read and 
+understand it's terms and rely on them completely, but an English fluent 
+licensee cannot?? The fact this clause is deemed to be needed is 
+concerning to me.? I am not a lawyer, but I would think they should both 
+be legally enforceable and I am not sure how that works.? Seems the OSI 
+would need some strong non-computerized interpreters to ensure both 
+versions are consistent.? Do they have resources for that?
+
+
+<https://stackexchange.com/users/3795089/jwdonahue>
+On 2/10/2023 1:23 AM, ?? via License-review wrote:
+> In case of divergence between the Chinese and English versions
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20230308/a64b760a/attachment.html>
+
+From carlo at piana.eu  Fri Mar 10 13:12:32 2023
+From: carlo at piana.eu (Carlo Piana)
+Date: Fri, 10 Mar 2023 14:12:32 +0100 (CET)
+Subject: [License-review] For Approval: MulanOWL BY v1; MulanOWL BY-SA v1;
+ MulanOWL BY-PL v1; MulanOWL BY-PL-SA v1
+In-Reply-To: <ef25e9fc-0d98-5727-2f3f-4acbd33caf27@odonahue.com>
+References: <tencent_706011BE736FCAB58293668EA185D8B54C07@qq.com>
+ <ef25e9fc-0d98-5727-2f3f-4acbd33caf27@odonahue.com>
+Message-ID: <311267729.1031976.1678453952507.JavaMail.zimbra@piana.eu>
+
+> Da: "Joseph Donahue" <joseph at odonahue.com>
+> A: "license-review at lists.opensource.org" <license-review at lists.opensource.org>
+> Inviato: Gioved?, 9 marzo 2023 2:20:16
+> Oggetto: Re: [License-review] For Approval: MulanOWL BY v1; MulanOWL BY-SA v1;
+> MulanOWL BY-PL v1; MulanOWL BY-PL-SA v1
+
+> How does that work exactly? A Chinese fluent licensee can read and understand
+> it's terms and rely on them completely, but an English fluent licensee cannot?
+> The fact this clause is deemed to be needed is concerning to me. I am not a
+> lawyer, but I would think they should both be legally enforceable and I am not
+> sure how that works. Seems the OSI would need some strong non-computerized
+> interpreters to ensure both versions are consistent. Do they have resources for
+> that?
+Answer: no and it is not our task. 
+
+Quite on the contrary, the presence of the clause renders it unnecessary, since in case of discrepancy one of them prevails. Actually it was I who pointed out its need. It is always a big mess when you have two equivalent versions, I have direct experience since it's a requirement for a client of mine (all contracts and deeds in general must be bilingual). 
+
+Just a thought experiment. Think if version A requires you to paint the wall black. Version B to make it red. Can both of them apply at the same time? 
+
+Now think if X paints it black and Y paints it red. W mixes them, what would the wall be? Stripes? A de-saturated and darker red? Half and half in vertical? Horizontal? Would a mesh of colors comply with either versions of the license? 
+
+This in my recollection is why Creative Commons abandoned the nationalized versions. 
+
+Cheers 
+
+K 
+
+> [ https://stackexchange.com/users/3795089/jwdonahue ]
+> On 2/10/2023 1:23 AM, ?? via License-review wrote:
+
+>> In case of divergence between the Chinese and English versions
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20230310/f1ad9da9/attachment.html>
+
+From yaolu.nudt at qq.com  Mon Mar 13 15:10:43 2023
+From: yaolu.nudt at qq.com (=?gb18030?B?wqzSow==?=)
+Date: Mon, 13 Mar 2023 23:10:43 +0800
+Subject: [License-review] =?gb18030?b?u9i4tKO6ICBGb3IgQXBwcm92YWw6IE11?=
+ =?gb18030?q?lanOWL_BY_v1=3B_MulanOWL_BY-SA_v1=3B_MulanOWL_BY-PL_v1=3B_Mul?=
+ =?gb18030?q?anOWL_BY-PL-SA_v1?=
+In-Reply-To: <Pine.BSM.4.64L.2303080812520.1269@herc.mirbsd.org>
+References: <tencent_706011BE736FCAB58293668EA185D8B54C07@qq.com>
+ <5de0cb1d-9f8f-4810-8583-a935fa058459@app.fastmail.com>
+ <Pine.BSM.4.64L.2303080812520.1269@herc.mirbsd.org>
+Message-ID: <tencent_6099472225E73A94960551CDC14321B16008@qq.com>
+
+Hi, Thorsten,
+
+
+Thanks for your reminder of the MirOS Licence.
+
+
+I have carefully studied the MirOS Licence. I think Mulan OWLs v1 and the MirOS Licence may differ in the following aspects:
+1) Mulan OWLs are a&nbsp;suite of four licenses, which provide '-SA' licenses and 'non-PL'&nbsp;licenses&nbsp;for users to choose based on their requirements;
+2) MulanOWL BY-PL v1 and MulanOWL BY-PL-SA v1&nbsp;explictly&nbsp;grant patent license for&nbsp;licensees&nbsp;make, have made, offer for sale and import&nbsp;any products&nbsp;based on the work, while the MirOS Licence does not explictly grant such patent rights; this may minimize misunderstandings in practice;
+3)&nbsp;Mulan OWLs v1 have terms on effective technical measures, indication of adapted works, and&nbsp;recovery of the license.
+
+
+Regards,
+Yao Lu
+
+
+
+
+------------------&nbsp;????&nbsp;------------------
+???:                                                                                                                        "License submissions for OSI review"                                                                                    <tg at mirbsd.de&gt;;
+????:&nbsp;2023?3?8?(???) ??4:17
+???:&nbsp;"License submissions for OSI review"<license-review at lists.opensource.org&gt;;
+
+??:&nbsp;Re: [License-review] For Approval: MulanOWL BY v1; MulanOWL BY-SA v1; MulanOWL BY-PL v1; MulanOWL BY-PL-SA v1
+
+
+
+Kevin P. Fleming dixit:
+
+&gt;It may be useful to provide comparisons between your proposed licenses
+&gt;and the closest relevant Creative Commons licenses, since the CC
+&gt;licenses are also designed to be used by general creative
+&gt;(non-software) works.
+
+And The MirOS Licence, which is designed to not even distinguish
+between software and n?n-software works and just grants rights on
+the works, so it?s fine for either and combined works as well.
+
+(And for those concerned about patents, I consider the permissions
+to use, distribute, etc. an implicit patent grant for cases where
+patents touching the licenced work exist, which for software is not
+legal, per se, but apparently in existence.)
+
+In general, if one?s new licence is closest to MIT/BSD/ISC but also
+applicable for n?n-software and/or its disclaimer is tweaked for EU,
+then the closest is probably MirBSD instead.
+
+bye,
+//mirabilos
+-- 
+I believe no one can invent an algorithm. One just happens to hit upon it
+when God enlightens him. Or only God invents algorithms, we merely copy them.
+If you don't believe in God, just consider God as Nature if you won't deny
+existence.		-- Coywolf Qi Hunt
+
+_______________________________________________
+The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+
+License-review mailing list
+License-review at lists.opensource.org
+http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20230313/fade59ef/attachment.html>
+
+From yaolu.nudt at qq.com  Mon Mar 13 15:35:35 2023
+From: yaolu.nudt at qq.com (=?gb18030?B?wqzSow==?=)
+Date: Mon, 13 Mar 2023 23:35:35 +0800
+Subject: [License-review] =?gb18030?b?u9i4tKO6ICBGb3IgQXBwcm92YWw6IE11?=
+ =?gb18030?q?lanOWL_BY_v1=3B_MulanOWL_BY-SA_v1=3B_MulanOWL_BY-PL_v1=3B_Mul?=
+ =?gb18030?q?anOWL_BY-PL-SA_v1?=
+Message-ID: <tencent_0627518A1598340F0DB9C58E6442899C9D0A@qq.com>
+
+Hi, Joseph,
+
+
+Thanks for your valuable comments. 
+
+
+Thanks for Carlo's explanations. Based on Carlo's explanations, I want to add that this term is also in Mulan PSL v2 (approved by the OSI in 2020) and consistency among different licenses in the&nbsp;Mulan license family is also one consideration.
+
+
+Regards,
+Yao Lu
+
+
+
+
+------------------ ???? ------------------
+???:                                                                                                                        "License submissions for OSI review"                                                                                    <joseph at odonahue.com&gt;;
+????:&nbsp;2023?3?9?(???) ??9:20
+???:&nbsp;"license-review"<license-review at lists.opensource.org&gt;;
+
+??:&nbsp;Re: [License-review] For Approval: MulanOWL BY v1; MulanOWL BY-SA v1; MulanOWL BY-PL v1; MulanOWL BY-PL-SA v1
+
+
+
+                   
+How does that work exactly?&nbsp; A Chinese fluent licensee can read       and understand it's terms and rely on them completely, but an       English fluent licensee cannot?&nbsp; The fact this clause is deemed to       be needed is concerning to me.&nbsp; I am not a lawyer, but I would       think they should both be legally enforceable and I am not sure       how that works.&nbsp; Seems the OSI would need some strong       non-computerized interpreters to ensure both versions are       consistent.&nbsp; Do they have resources for that?
+     
+                        
+                
+     
+     On 2/10/2023 1:23 AM, ?? via       License-review wrote:
+     
+     In       case of divergence between the Chinese and English versions
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20230313/5465b0d9/attachment.html>
+
+From carlo at piana.eu  Wed Jul  5 13:59:38 2023
+From: carlo at piana.eu (Carlo Piana)
+Date: Wed, 5 Jul 2023 15:59:38 +0200 (CEST)
+Subject: [License-review] A request for checking the review status of
+ Mulan OWLs v1
+In-Reply-To: <tencent_432242E7C4943D054CCD1A4363B191998608@qq.com>
+References: <tencent_432242E7C4943D054CCD1A4363B191998608@qq.com>
+Message-ID: <1545611467.2073870.1688565578446.JavaMail.zimbra@piana.eu>
+
+dear Dr. Yao Lu, 
+
+sorry for this community to be unresponsive. I am writing in my private capacity as subscriber to the license-review mailing list and without committing to a particular vote if and when this license comes to the Board. I was under the impression that the feedback I am giving was already public and coming from other people, but evidently I was wrong. 
+
+Quoting you: 
+
+>  Mulan OWLs can be applied to general works under copyright law, so there is no existing OSI-approved license to directly compare and contrast it with.
+
+This is no coincidence. At OSI, we approve Open Source (software) licenses. 
+
+To my recollection, the only non-software specific licenses we approve are those bearing a total waiver of any right so that the work becomes nearly public domain. The submitted licenses (please always submit one license at a time anyway) are openly targeting non-software works, which defies the scope of the submission. In theory, one could use non-software specific licenses for software and meet the conditions, but it is still difficult to meet all conditions while expressly targeting software, proposing non-software licenses for software is a really bad idea, IMHO. 
+
+In addition, we have in the past discussed many times (see discussion of CC0 or the MXM license or the W3C license) pure copyright licenses excluding all other rights, therefore at least the non-patent licenses do not meet the OSD, since they expressly carve out patents from the scope of the license. 
+
+My tentative conclusion is that:
+
+- Mulan Open Works License Attribution, Version 1 (MulanOWL BY v1)
+- Mulan Open Works License Attribution-ShareAlike, Version 1 (MulanOWL BY-SA v1)
+
+should be rejected for not giving all rights potentially controlled by the licensor. 
+
+In general, all the licenses should be rejected for not being (Open Source) software licenses. 
+
+All the best, 
+
+Carlo
+
+----- Messaggio originale -----
+> Da: "?? via License-review" <license-review at lists.opensource.org>
+> A: "License-review" <License-review at lists.opensource.org>
+> Cc: "??" <yaolu.nudt at qq.com>
+> Inviato: Mercoled?, 5 luglio 2023 14:36:16
+> Oggetto: [License-review] A request for checking the review status of Mulan OWLs v1
+
+> Dear License Review Team,
+
+> Sorry for disturbing you. I am not sure if it is the right time to contact you
+> to inquire about the status of my submission of Mulan Open Works Licenses,
+> Version 1 (Mulan OWLs v1).) for approval. This request was submitted four
+> months ago ( [
+> https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2023-February/005356.html
+> |
+> https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2023-February/005356.html
+> ] ). I would be greatly appreciated if you could check the review status of the
+> licenses. I am pleased to hear from you on the reviewer?s comments.
+
+> Thank you very much for your consideration.
+
+> Best regards,
+> Yao Lu
+> PhD
+> National University of Defense Technology
+
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily
+> those of the Open Source Initiative. Communication from the Open Source
+> Initiative will be sent from an opensource.org email address.
+
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+
+
+From pamela.chestek at opensource.org  Fri Aug 11 04:32:11 2023
+From: pamela.chestek at opensource.org (Pamela Chestek)
+Date: Thu, 10 Aug 2023 21:32:11 -0700
+Subject: [License-review] A request for checking the review status of
+ Mulan OWLs v1
+In-Reply-To: <1545611467.2073870.1688565578446.JavaMail.zimbra@piana.eu>
+References: <tencent_432242E7C4943D054CCD1A4363B191998608@qq.com>
+ <1545611467.2073870.1688565578446.JavaMail.zimbra@piana.eu>
+Message-ID: <b425c2dc-3ae6-e31f-1ed0-c120be7e5fb1@opensource.org>
+
+I apologize for not processing these licenses sooner, time slipped away 

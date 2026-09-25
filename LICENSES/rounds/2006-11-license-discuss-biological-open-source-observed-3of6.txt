@@ -1,0 +1,750 @@
+
+4. Source code
+
+ 
+
+The freedom to copy and modify open source software programs and to
+distribute copies and modifications is only one important aspect of open
+source licensing.  Another is the practical enablement of that freedom
+through unrestricted access to software source code.  In the case of
+patented biotechnologies, it may be argued that the equivalent of source
+code is automatically publicly available because of the disclosure
+requirement under patent law, and that an open source-style licence grant is
+all that is needed to render a patented technology "open source".  On the
+other hand, biotechnology licensors typically go beyond this level of
+disclosure when attempting a genuine transfer of technology.  This practice
+suggests that patent disclosure many not be enough to give full practical
+effect to the legal freedom to use and improve a technology that is intended
+to be conferred by an open source licence grant.  
+
+ 
+
+In the BiOS PET licensing scheme, separate provision is in fact made for
+access to materials needed to practise the licensed patents.  This access is
+governed by the terms of the TSSS Agreement (see Licence cl. 4) and appears
+to be conditional upon (1) a substantial annual payment for at least three
+years, depending on the licensee's organisation type and number of employees
+and (2) significant reporting requirements regarding new materials,
+technology data and project ideas.  If access to materials needed to
+practise the licensed payments is regarded as equivalent to access to source
+code, these restrictions represent a significant departure from established
+open source principles of non-discrimination among licensees, access to
+source code for free or at the minimum charge required to recover the
+provider's costs, and freedom from ongoing obligations to the licensor,
+including obligations that take the form of reporting requirements.
+
+ 
+
+5. Grantback
+
+The next phase in the scheme established by the BiOS licences and TSSS
+agreements is triggered when a licensee, in the course of exercising the
+licence grant, makes or discovers something new.  
+
+ 
+
+The BiOS PET licensing scheme distinguishes between "BiOS Licensed
+Products", which may be developed, made, used and commercialised "without
+obligation to CAMBIA", and "Improvements", which are subject to a grantback
+obligation  (see below) that also covers Improvement Patents and Improvement
+Materials (Licence cll. 1.7 and 1.11, respectively).  The definitions of
+these different categories of potential follow-on innovations are
+complicated and tinged with uncertainty.  However, the fundamental intention
+appears to be to allow the licensee to appropriate any new asset that has
+been generated through use of the IP and technology and is intended for
+commercialisation.  Such an asset is a "BiOS Licensed Product" (Licence cl.
+1.4), provided it does not fall within the definition of "Improvement"
+(Licence cl. 1.6).   
+
+ 
+
+The definition of "Improvement" is thus a critical element of the BiOS
+scheme. This definition is potentially extremely broad.  Note in particular
+that even something as minor as a repeatable observation can constitute an
+Improvement, and that an Improvement need not be a Plant Enabling Technology
+(itself very broadly defined in Licence cl. 1.12) because of the catch-all
+"but for the terms of this License Agreement...".  
+
+ 
+
+5a. Does the definition of "Improvement" limit the licence grant itself?
+
+ 
+
+A preliminary question is whether the broad definition of "Improvement" in
+Licence cl. 1.6 effectively limits the scope of the main licence grant in
+Licence cl. 2.  As noted earlier, the purpose of the grant is limited to
+"developing, making, using and commercialising BiOS Licensed Products".
+"BiOS Licensed Products" is defined in cl. 1.4 to mean "any tangible or
+intangible asset of BiOS LICENSEE (including without limitation any material
+or method, but excluding Improvements)".  This suggests that anything that
+falls within the definition of Improvement automatically falls outside the
+definition of BiOS Licensed Product and therefore is not covered by the
+grant even for purposes other than commercialisation. 
+
+ 
+
+Similarly, any new development that is neither a BiOS Licensed Product nor
+an Improvement does not appear to be covered by the terms of the licence.
+In either case, further permissions may be required in order to avoid
+infringing the licensor's proprietary rights.  CAMBIA appears to be free to
+make such permissions conditional upon payment of royalties or other
+conventional licensing terms -- or to refuse them altogether.
+
+ 
+
+5b. Grantback: copyleft equivalent or licensing "club"?
+
+ 
+
+>From an open source perspective, the breadth of the definition of
+"Improvements" is not necessarily a problem, although it could be if it
+extended the range of follow-on innovations that would be caught by the
+grantback well beyond those that would be caught by a copyleft-style
+provision relating to "derivative works".  As I understand it, the question
+of what constitutes an appropriate incentive for licensees to innovate in a
+copyleft-style licence is a separate issue from compatibility with open
+source principles.  The broadest examples of copyleft "hooks" in open source
+software licences are tailored to catch all derivative works that are
+distributed outside the boundaries of the licensee's own organisation; other
+open source licences permit varying degrees of freedom to operate with
+derivative works. The BiOS grantback appears to fall somewhere in the middle
+of this spectrum.  In a 2004 article on open source patent licensing, Sara
+Boettiger and Dan Burk point out that copyright confers exclusive rights
+only against unauthorised copying or other violations of the specifically
+enumerated rights of the copyright owner arising out of contact with the
+copyrighted work itself.  By contrast, independent creation is not a defense
+to claims of patent infringement. The BiOS licence appears designed to
+replicate the copyright situation by excluding from the definition of
+Improvement improvements that are "developed without the use of the IP and
+Technology".  Similarly, the BiOS arrangement appears intended to mirror
+open source software licences by permitting in-house use of improvements
+that are actively protected as trade secrets: these are not caught by the
+BiOS grantback. (Note, however, that this escape clause may be somewhat
+narrower than the positive requirement in open source software licensing for
+a derivative work to be externally deployed before it triggers any copyleft
+obligation: clearly, there is a difference between active dissemination of a
+technology and merely failing to  adequately protect a trade secret.
+Further, note that in-house use of an improvement under conditions of trade
+secrecy may not be permitted at all under the BiOS scheme unless interpreted
+as a form of "commercialisation": see Licence Grant in cl. 2.2 and
+definition of BiOS Licensed Product in cl. 1.4.)
+
+ 
+
+The point at which the BiOS licence provisions relating to follow-on
+innovations appear to me to depart from open source principles is not in the
+breadth of what may be caught by the grantback, but in the fact of the
+grantback itself.  While the copyleft or "reciprocal" obligation to be found
+in some open source licences has been characterised in academic literature
+as a type of grantback, this does not appear to me to be an accurate
+description.  A copyleft licence does not establish a tit-for-tat
+relationship between the licensor and licensee.  Rather, a copyleft licensor
+says to the licensee: "Do as you have been done by".  The copyleft
+obligation is not to the licensor per se -- though he or she may be
+responsible for enforcing it -- but to the whole community of potential
+users of the follow-on innovation.  The licensor may or may not be a member
+of this community, depending on the scope of his or her activities and
+interests.  For this reason, I prefer to describe the copyleft obligation as
+a "grantforward" (as in "passing it forward") rather than a "grantback".
+
+ 
+
+The BiOS grantback, by contrast, appears to be just that: whether or not the
+intention is noble, it still constitutes a type of privilege granted by the
+licensee to the licensor in partial consideration of the licence grant.
+Under cll. 3 and 4 of the Licence and relevant provisions of the TSSS
+Agreement, a BiOS licensee is obliged to grant to CAMBIA a worldwide,
+non-exclusive, royalty-free licence (with the right to sublicense to other
+BiOS licensees) to Improvement Patents, Improvements, Technology Data, and
+any  Improvement Material provided by the licensee to CAMBIA and necessary
+to practise Improvements. (Definitions are in Licence cll. 1.7, 1.6, 1.13
+and 1.11 respectively.)  Thus, the form of the BiOS licence differs from a
+copyleft open source licence: instead of requiring licensees to license a
+subset of follow-on innovations on the same terms as those of the original
+licence, it builds the follow-on licence into the original licence and
+places the initial IP owner, CAMBIA, at the centre of the network as a kind
+of gatekeeper. While CAMBIA does have an obligation to make these follow-on
+innovations available on the same terms as the initial licence, that
+obligation extends only to existing BiOS licensees.  In essence, the
+arrangement is a licensing "club".  Given the restrictions on sublicensing
+by BiOS licensees (Licence cl. 2), new members can join this club only by
+executing a new licence with CAMBIA; CAMBIA is under no obligation to grant
+such a licence.
+
+ 
+
+Club-type licensing arrangements are actually quite familiar in the
+biotechnology context.  Depending on the circumstances, such an arrangement
+may be good for innovation, but it seems to me that it is not open source.
+Why?  Because an arrangement in which the initial licensor retains a central
+position linked to his or her ownership of the seed IP and Technology is
+inconsistent with the freedom to fork the innovative process.  
+
+ 
+
+The freedom to create a 'code fork' is regarded by some as a defining
+characteristic of open source -- recall Eric Raymond's open letter to Sun a
+little while back. According to Steve Weber (author of The Success of Open
+Source), under the terms of an open source licence, anyone who is
+dissatisfied with the conduct of a project leader -- on technical,
+administrative, political or even purely personal grounds -- is free to take
+the collaborative effort in a new direction. Even though in practice,
+forking is rare, the ever-present possibility makes project leaders
+responsible to their co-developers and ensures that no individual or group
+unduly dominates the process of technology development. At the same time, it
+ensures that a promising technology need not be left on the shelf because of
+waning interest or incapacity on the part of an initial innovator.  This is
+a concern often expressed on this list in the form of: "What happens to the
+licence if So-and-so, the licensor, goes bankrupt or disappears in ten
+years' time?" 
+
+ 
+
+Of course, all else being equal, it is natural for an initial innovator to
+remain in charge of ongoing development and to act as a champion of the
+technology. However, it seems key to the open source approach that the
+initial innovator not use his or her ownership of the intellectual property
+in the initial seed technology to retain control over its ongoing
+development.  
+
+ 
+
+It appears to me that this freedom to fork the innovative process with or
+without the approval of the initial licensor is lacking in the BiOS scheme.
+Why?
+
+(a) The grantback incorporates stringent reporting requirements to CAMBIA
+(Licence cll. 3.2 and 3.4) and obliges the licensee to provide CAMBIA with
+any materials necessary to practise Improvements (Licence cl. 3.2). 
+
+(b) Discussions of technology data between BiOS licensees must be channeled
+through CAMBIA (TSSS Agreement, cl. 2.3).  
+
+(c) CAMBIA retains the right to impose an obligation on licensees to include
+CAMBIA's trademarks in downstream technologies (Licence cl. 7.9).  (This
+provision closely resembles one that I thought was removed from an early
+version of the open source BSD software licence because it imposed too much
+of a restriction on the freedom of downstream developers -- is this
+correct?) 
+
+(d) Under Licence cl. 7.5 and a similar provision in the TSSS Agreement,
+CAMBIA "may publish revised and/or new versions of the BiOS License for
+Plant Enabling Technologies from time to time. Such new versions will be
+similar in spirit to the present version, but may differ in detail to
+address new or newly identified issues. Each version will be given a
+distinguishing version number. ... Where there is... any controversy between
+the parties respecting the interpretation or application of the terms of
+this Agreement, the latest... version of the Agreement published on the BIOS
+website shall be controlling." 
+
+(e) Perhaps the most extreme instance of CAMBIA's apparent attempt to keep
+its hand on the reins of future development is in the TSSS Agreement, cl. 6,
+which reads in part:
+
+"From time to time BiOS LICENSEE may have interest in exploring solutions to
+certain problems in its field of business. In such case BiOS LICENSEE shall
+[emphasis added] send a written project proposal to CAMBIA. To the extent
+that such project proposal is consistent with the terms and intent of the
+BIOS License, which consistency shall be determined by CAMBIA in its sole
+discretion, CAMBIA shall use its best efforts to... bring the proposal to
+the attention of other parties within the BIOS Initiative...".  
+
+In other words, the licensee is obliged to send a written proposal to
+CAMBIA, but CAMBIA is not obliged to do anything with it.  The effect
+(whether or not intended) is that CAMBIA gets a private preview of any new
+project.
+
+ 
+
+Thank you for your input.
+
+ 
+
+Janet
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20061115/7c98bd71/attachment.html>
+
+From webmaven at cox.net  Thu Nov 16 06:01:10 2006
+From: webmaven at cox.net (Michael Bernstein)
+Date: Wed, 15 Nov 2006 22:01:10 -0800
+Subject: "Biological Open Source"
+In-Reply-To: <020e01c7093c$f4474e30$0202fea9@LROSENTOSHIBA>
+References: <020e01c7093c$f4474e30$0202fea9@LROSENTOSHIBA>
+Message-ID: <1163656870.12639.97.camel@localhost.localdomain>
+
+On Wed, 2006-11-15 at 21:06 -0800, Lawrence Rosen wrote:
+> What is different or unique about Biological Open Source that suggests
+> we need something new?
+
+I think the point is that biological systems have 'source code', ie.
+DNA, that can be 'compiled' into opaque blobs (though not binary ones).
+These blobs can frequently reproduce themselves (like computer worms),
+and you can reverse-engineer them to figure out what the source code is.
+
+In fact, all of the extant source code we have has been
+reverse-engineered from these opaque blobs.
+
+Many of the commercial entities engaged in this reverse-engineering work
+are claiming patents on the resulting source, making it illegal for
+anyone else to use that source, even if they reverse-engineered it
+independently from some other organism (rather than from a proprietary
+product).
+
+Many of the commercial entities engaged in this reverse-engineering work
+are also patenting the compiling and decompiling tools they devise, even
+though these too are largely derived by decompiling naturally occuring
+blobs.
+
+(note: although DNA is the closest analog to computer source code in
+this area, there are plenty of other forms of data (for example,
+proteomics) that are important as well)
+
+All of this is providing a serious incentive to create a voluntary
+commons of various forms of biological data, techniques, and tools that
+is strongly analogous to (and partially inspired by) the FOSS community.
+
+Analogies aside, no existing software licenses (or, I suspect (though
+IANAL), even their terms of art) can be used verbatim, so new licenses
+are needed to achieve the desired result.
+
+Janet is asking our advice regarding the necessary freedoms that these
+licenses need to protect, and how to do so.
+
+In this case, the covenants and licenses covering patented biological
+techniques and biological source that can be implemented in (potentially
+self-reproducing) biological systems may need to be significantly
+different in detail, even if they are similar in spirit, to their
+equivalents in software licenses.
+
+Have I correctly summed this up, Janet?
+
+- Michael R. Bernstein
+  michaelbernstein.com
+
+
+
+From janet.hope at anu.edu.au  Thu Nov 16 06:02:47 2006
+From: janet.hope at anu.edu.au (Janet Hope)
+Date: Thu, 16 Nov 2006 17:02:47 +1100
+Subject: "Biological Open Source"
+In-Reply-To: <020e01c7093c$f4474e30$0202fea9@LROSENTOSHIBA>
+References: <020e01c7093c$f4474e30$0202fea9@LROSENTOSHIBA>
+Message-ID: <732BA34C-580B-43DA-ADE0-5BBF1756AB9B@anu.edu.au>
+
+Larry,
+
+Thanks for your response.  I learned a lot by reading your book, by  
+the way!
+
+I think we talked about this very issue when we met back in 2003.  My  
+question is this.  Suppose you have a technology that has nothing to  
+do with software whatsoever -- for example, a method for creating a  
+genetically engineered plant.  Suppose that the technology is  
+protected solely under patent law.  In that case there is no  
+copyright licence, because there is no copyright.
+
+So, I'm talking about a situation in which the assumption that
+> Presumably software is involved in Biological Open Source or we  
+> wouldn't be discussing this here at all.
+does not hold.  (As I mentioned in my earlier post, strictly speaking  
+this discussion is off topic for that very reason and may end up  
+getting moved to another list.)
+
+Now suppose that the owner of this patented technology wants to  
+distribute it in a way that achieves the same substantive outcomes in  
+terms of "technology freedom" and ongoing collaboration as a  
+copyright owner seeks to achieve by adopting an open source copyright  
+licence -- the same *substantive* outcomes, I say, but inevitably  
+through different licensing *forms* given that there is no copyright  
+but only a patent right.  How would he or she go about it?
+
+As I understand it, this is what CAMBIA have tried to do with their  
+BiOS licence, and they have solved many of the obvious problems  
+satisfactorily.  I've identified a few areas where I think the  
+practical effect of the licence is more restrictive than would be  
+permitted in the case of an open source copyright licence.  What I'd  
+like to know is, could CAMBIA have built a better (meaning closer)  
+analogy with the open source copyright approach?  Or are these  
+differences inevitable given the different legal and/or technical  
+context in which they are working?
+
+If I understand correctly, this is a slightly different problem to  
+that addressed by the patent licence grants you mention, because they  
+in a sense are merely "getting out of the way" of an open source  
+copyright licence, not doing all the work of implementing an open  
+source-style approach in the absence of any copyright grant.
+
+On the other hand, I don't see why my hypothetical patent owner  
+wouldn't just use language very similar to that included in OSL 3.0.   
+The only part of that language that wouldn't make sense in the  
+absence of any copyrighted work is the reference to an Original Work  
+or Derivative Work.  Nevertheless, CAMBIA have chosen to use quite  
+different wording in their grant (BiOS PET License Clause 2), and I'm  
+wondering whether that wording looks open source to you.  Assuming  
+the patent is a process patent, are they granting every possible  
+freedom to licensees, or are they holding something back?  If they're  
+holding something back, can they still call what they are doing "open  
+source"?
+
+Does all this make sense? Or am I still missing something?
+
+Cheers
+Janet
+
+
+
+>
+>
+>
+> Best regards,
+>
+>
+>
+> /Larry
+>
+>
+>
+> Lawrence Rosen
+>
+> Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com)
+>
+> Stanford University, Lecturer in Law
+>
+> 3001 King Ranch Road, Ukiah, CA 95482
+>
+> 707-485-1242  *  fax: 707-485-1243
+>
+> Author of "Open Source Licensing: Software Freedom and
+>
+>                 Intellectual Property Law" (Prentice Hall 2004)
+>
+> From: Janet Hope [mailto:janet.hope at anu.edu.au]
+> Sent: Wednesday, November 15, 2006 5:58 PM
+> To: license-discuss at opensource.org
+> Subject: Re: "Biological Open Source"
+>
+>
+>
+>
+>
+> On 15/11/2006, at 11:39 PM, Michael Tiemann wrote:
+>>
+>>
+>> Janet, I for one welcome your participation.  Moreover, while it  
+>> is not
+>>
+>> likely to lead to a specific license approval, it is very much on  
+>> topic
+>>
+>> for the expertise this list represents.
+>>
+>>
+>
+>
+> Thanks, Michael, for your positive response.  Having received some  
+> private as well as public encouragement and no discouragement, I'll  
+> go ahead and put my question to the list.  (It has been suggested  
+> that a new list could be started for non-software open source  
+> licensing issues to cut down on off-topic posts -- I think that  
+> would be very helpful.)
+>
+>
+>
+> This post is long. Most of it falls under the headings "Background"  
+> and "Preliminary licence analysis".  Readers who are interested,  
+> but not that interested, are encouraged to skip those parts.
+>
+>
+>
+> THE LICENCES
+>
+>
+>
+> The licensor, CAMBIA, has issued two "Biological Open  
+> Source" ("BiOS") licences, one for Plant Enabling Technologies  
+> ("PET") and one for Genetic Resources Indexing Technologies  
+> ("GRIT").  Each must be read in conjunction with its own Technology  
+> Support Services Subscription Agreement ("PET TSSS" and "GRIT  
+> TSSS").  All of these instruments are currently in version 1.3 and  
+> are available at http://www.bios.net/daisy.
+>
+>
+>
+> Let me say up front that I am not affiliated with CAMBIA and have  
+> not been involved in the process of drafting the BiOS licences.  As  
+> a matter of courtesy to the drafters, I am simultaneously posting  
+> my comments to CAMBIA's own discussion forum.  However, as Michael  
+> suggests, I suspect that license-discuss is where much of the  
+> relevant expertise is to be found.
+>
+>
+>
+> THE QUESTION
+>
+>
+>
+> The question is: To what extent is CAMBIA's BiOS licence scheme  
+> "open source" in the software sense?
+>
+>
+>
+> In other words:  If the BiOS licences were software/copyright  
+> licences, would you recommend them for OSI approval?  If not, why not?
+>
+>
+>
+> SPECIFIC QUERIES
+>
+>
+>
+> In particular (see the rest of this post for more detail on each of  
+> these points):
+>
+>
+>
+> (1) If a licence is primarily a patent licence and the patent grant  
+> itself purports to be open source (not just compatible with an open  
+> source copyright grant elsewhere in the licence), should field of  
+> use restrictions be permitted? (OSD #6)
+>
+>
+>
+> (2) What should be regarded as the equivalent of "source code" in a  
+> biotechnology licence? Should it include materials etc in addition  
+> to that which would be required for disclosure under patent law? If  
+> so, on what terms should it be made available to users?  
+> Specifically, is it acceptable to charge a fee that does more than  
+> recover the costs for storage/retrieval/postage of samples etc (OSD  
+> #2)? Is it acceptable for the amount of the fee to depend on the  
+> size and type of the user's organisation (OSD #5) and the length of  
+> the user's "subscription" to ongoing "technology support services"?
+>
+>
+>
+> (3) What is the nearest patent equivalent of the open source  
+> copyright licence grant to copy, modify, and distribute copies or  
+> derivative works (OSD #1)?  Does it depend on the type of patent  
+> (eg process or product)?  Is the patent grant in the BiOS licences  
+> effectively limited by the exclusion of "Improvements" from the  
+> definition of "BiOS Licensed Products"?
+>
+>
+>
+> (4) Is a right to sublicense essential in an open source licence?  
+> Is it acceptable for this right to be limited or absent? If so,  
+> what other conditions should be met to ensure that a licensor  
+> cannot impose non-open source restrictions as a condition of  
+> issuing a new licence (eg OSD #7)? How can these conditions be met  
+> in the case of a technology to which the equivalent of a copyright  
+> notice cannot be so easily attached as it can to software code?
+>
+>
+>
+> (5) Does the grantback in the BiOS licence go beyond a copyleft- 
+> style provision in restricting users' freedom to fork the  
+> innovative process? Is there any pressing legal or practical reason  
+> why the licensor in a biotechnology/patent context could not simply  
+> require licensees to make defined improvements available on the  
+> same terms as the original licence, as in the software/copyright  
+> context?
+>
+>
+>
+> BACKGROUND
+>
+>
+>
+> CAMBIA (formerly an acronym for Center for Application of Molecular  
+> Biology in International Agriculture) is a private, not-for-profit  
+> research institute located in Canberra, Australia.  Founded in 1994  
+> by its present CEO Dr Richard Jefferson, CAMBIA is a small  
+> organisation that -- atypically -- combines "wet lab" development  
+> of biotechnology research tools with intellectual property  
+> informatics and policy development.  CAMBIA is financed by grants  
+> from philanthropic organisations including the Rockefeller  
+> Foundation, by national and international research funding bodies,  
+> by official development assistance and by licence revenue from its  
+> own patented technologies.(See http://www.cambia.org/daisy/cambia/ 
+> 589.html.)
+>
+>
+>
+> In 2005, CAMBIA launched an initiative called Biological Innovation  
+> for Open Society (BIOS: note the upper case "I").  The BIOS  
+> initiative consists of:
+>
+> (1) Patent Lens: searchable databases containing EPO, US and PCT  
+> patent documents, together with ancillary IP-related information  
+> and tutorials.
+>
+> (2) BioForge (styled after Sourceforge.net): a portal for protocol- 
+> sharing, comments on patents, and discussion tools in both public  
+> and secure environments; intended to develop into a collaborative  
+> technology development platform.
+>
+> (3) Biological Open Source (BiOS with a lower case "i") is the  
+> aspect of the BIOS initiative that is "intended to extend the  
+> metaphor and concepts of Open Source to biotechnology and other  
+> forms of innovation in biology". (See CAMBIA BiOS License for Plant  
+> Enabling Technology Version 1.3, Recitals, first paragraph.)
+>
+>
+>
+> A description of the materials and methods that researchers can  
+> obtain from CAMBIA, including an indication of which materials and  
+> methods are available under which BiOS licence, is at http:// 
+> www.cambia.org/daisy/cambia/materials.html.  These technologies  
+> are, of course, quite different from those licensed under OSI- 
+> certified software licences.  Plant enabling technologies and  
+> genetic resource indexing technologies consist not of software code  
+> (though software may be one component), but of heterogeneous  
+> methods and materials, including living biological materials.   
+> Typically, such technologies are legally protected by a mixture of  
+> intellectual and personal property rights, including patents.  By  
+> contrast, I understand that most open source software licences are  
+> primarily copyright licences, though some also contain a limited  
+> patent grant.
+>
+>
+>
+> As I mentioned in my first post, the fact that the BiOS licences  
+> apply to plant enabling technologies and genetic resources indexing  
+> technologies means that they cannot be certified by the Open Source  
+> Initiative as being "open source" licences because the terms of the  
+> official Open Source Definition are not broad enough to accommodate  
+> the legal and technical differences just described. In consequence,  
+> there is no certification signal to help potential users determine  
+> whether or not signing up to a BiOS licence will actually give them  
+> the nearest equivalent to the "software freedom" guaranteed by the  
+> principles of open source software licensing.  Clearly, the task of  
+> translating open source licensing principles from one technology  
+> setting to another is one that creates room for both legitimate  
+> adaptations and distortions of the kind that would lead the OSI to  
+> refuse to certify the relevant licence if the technology in  
+> question were, in fact, software.  By my preliminary analysis, the  
+> BiOS licences contain a mixture of the two.  However, I (and many  
+> others) would like to be able to supplement that analysis with the  
+> expert views of people on this list.
+>
+>
+>
+> Note that I am in no way impugning CAMBIA's good faith or  
+> suggesting that the BiOS licences are "bad".  Certainly, CAMBIA has  
+> made a serious effort at a very difficult task.  The licences may  
+> well be good licences, and good for innovation.  However, the  
+> question here is whether it is reasonable to describe them as "open  
+> source".
+>
+>
+>
+> PRELIMINARY LICENCE ANALYSIS (WARNING: MAY CONTAIN ERRORS! TINLA!!)
+>
+>
+>
+> For simplicity, I refer here only to the terms of the BiOS Plant  
+> Enabling Technology (PET) agreement. The PET scheme closely  
+> resembles the GRIT scheme. The main difference is that whereas the  
+> PET scheme contains a limited sublicensing right, the GRIT scheme  
+> does not contain any right to sublicense.
+>
+>
+>
+> 1. Overall scheme of the licence
+>
+>
+>
+> The BiOS licensing scheme encapsulated in version 1.3 of the PET  
+> Licence and corresponding TSSS Agreement contemplates an initial  
+> contribution of IP and technology by CAMBIA that may act as a seed  
+> for ongoing technology development. ("IP and Technology" is defined  
+> in Licence cl. 1.8.)  Thus, the subject of the initial licence  
+> grant is a collection of CAMBIA's own patents, materials and  
+> technology data.(See definitions of "CAMBIA Patents", "CAMBIA  
+> Material" and "Technology Data" in Licence cll.1.9, 1.10 and 1.13  
+> respectively.)  Downstream, this initial subject-matter may be  
+> supplemented by "Improvements", "Improvement Patents" and  
+> "Improvement Materials" (Licence cll 1.6, 1.7 and 1.11  
+> respectively) developed by the licensee,  non-exclusively granted  
+> back to CAMBIA under Licence cl. 3 and then redistributed by CAMBIA  
+> to all BiOS licensees as part of the grant of "IP and Technology".
+>
+>
+>
+> 2. Parties
+>
+>
+>
+> Although the licence is described on the BIOS forum as a  
+> "template", one party (CAMBIA) is explicitly named throughout the  
+> licence text as the licensor.  I understand that this is  
+> discouraged in the OSI approval process because it contributes to  
+> licence proliferation; however, this is a relatively minor point.
+>
+>
+>
+> The sense in which the BiOS licences are templates is that they  
+> contemplate a number of licensees all receiving CAMBIA's permission  
+> to use the IP and Technology on "substantially similar" terms. (See  
+> Licence Recitals, paragraph 3. Why are the terms "substantially  
+> similar" and not identical?  Two reasons: (1) different licensees  
+> may agree to different numbered versions of the licence (see  
+> Licence cl. 7.5 and TSSS Agreement cl. 7.6). (2) The terms on which  
+> licensees can access any materials needed to practise the licensed  
+> inventions vary according to the type and size of the licensee  
+> organisation (see TSSS Agreement cl. 3 and Annex D).)
+>
+>
+>
+> 3. Patent grant
+>
+>
+>
+> The licence grant is contained in clause 2 of the PET Licence, the  
+> key part of which reads:
+>
+> "2.1 CAMBIA hereby grants to BiOS LICENSEE under Licensed Patents  
+> in the Field of Agriculture a worldwide, non-exclusive, royalty- 
+> free right and license to make and use the IP & Technology for the  
+> purpose of developing, making, using, and commercializing BiOS  
+> Licensed Products without obligation to CAMBIA...."
+>
+>
+>
+> The nature of the grant is crucial to the question whether the BiOS  
+> licences can be justifiably described as "open source". Note that  
+> unlike open source software licences, the BiOS licence is primarily  
+> a patent licence.  While patent grants in open source software  
+> licences must be compatible with an open source copyright grant,  
+> they are not the primary means by which these licences seek to  
+> protect users' rights to access and use the technology.  The  
+> question here is not merely whether the BiOS patent licence grant  
+> is \textit{compatible} with open source principles, but whether it  
+> is itself "open source" (whatever that is taken to mean in the  
+> biology context).
+>
+>
+>
+> 3a. Grant is restricted to a particular field of use
+>
+>
+>
+> The BiOS patent licence grant is limited to a particular field of  
+> use, namely Agriculture. ("Agriculture" is defined quite broadly in  
+> Licence cl. 1.3.)  There is a question whether this conflicts with  

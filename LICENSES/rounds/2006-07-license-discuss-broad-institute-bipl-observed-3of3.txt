@@ -1,0 +1,523 @@
+
+If that's what worries you, then add a proviso to the Open Source license
+of your choice stating that its patent permissions do not apply to any
+MIT patents that are exclusively licensed to third parties.  This would
+leave the user no worse off than in the case of any other submarine
+patent that might torpedo an Open Source program.
+
+-- 
+John Cowan    http://ccil.org/~cowan  cowan at ccil.org
+The Penguin shall hunt and devour all that is crufty, gnarly and
+bogacious; all code which wriggles like spaghetti, or is infested with
+blighting creatures, or is bound by grave and perilous Licences shall it
+capture.  And in capturing shall it replicate, and in replicating shall
+it document, and in documentation shall it bring freedom, serenity and
+most cool froodiness to the earth and all who code therein.  --Gospel of Tux
+
+
+From rivard at MIT.EDU  Fri Jul 14 17:43:25 2006
+From: rivard at MIT.EDU (Karin Rivard)
+Date: Fri, 14 Jul 2006 13:43:25 -0400
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <4909D274-8127-4F65-81F5-CCDEC71F6665@apple.com>
+References: <6.2.3.4.2.20060714101621.02de7f20@hesiod>
+ <035a01c6a75c$b794f420$6401a8c0@LROSENTOSHIBA>
+ <6.2.3.4.2.20060714115316.03137f90@hesiod>
+ <4909D274-8127-4F65-81F5-CCDEC71F6665@apple.com>
+Message-ID: <6.2.3.4.2.20060714131624.030f23e0@hesiod>
+
+Ernie,
+You ask an excellent question:  Why do we (MIT) want another OSI 
+approved license?
+
+It all starts with the NIH.  The NIH is requiring that grantees 
+agree, loosely stated, to release their software via an open source 
+license.  Within MIT and elsewhere, I imagine, there is some 
+discussion as to the benefits of an OSI approved license to show 
+compliance with the NIH funding requirements.  MIT desires that the 
+BIPL be OSI approved so that we have a license for NIH funded 
+software that, without question, meets NIH's requirements.
+
+As to the patent grants, MIT included the partial protection out of a 
+sense of responsibility to the community and not to game the 
+system.  Though, I definitely understand how and why the approach is 
+viewed as unfair.  MIT can adjust the license to agree with your 
+preference for "patent-neutrality."   MIT does also want post-backs, 
+but we are willing to accept the patent risk of using any such post-backs.
+
+Karin
+
+At 12:58 PM 7/14/2006, Ernest Prabhakar wrote:
+>Hi Karin,
+>
+>On Jul 14, 2006, at 9:27 AM, Karin Rivard wrote:
+>>It would be unfortunate if MIT could never receive an OSI approved 
+>>open source license because of this issue, but I understand that 
+>>OSI will apply its standards as it sees fit.  MIT can not change 
+>>its Policy for this one license.
+>
+>Well, to be precise, MIT already has *one* OSI approved open source 
+>license. :-)
+>
+><http://www.opensource.org/licenses/mit-license.php>http://www.opensource.org/licenses/mit-license.php
+>
+>I guess the question is, why do you want another?  (yes, I realize 
+>it is different a "you")
+>
+>It sounds to me as if you *like* the fact that the MPL-style 
+>licenses provide i) patent protection and ii) mandatory giveback of 
+>modifications, but you don't want to make similar grants to the community.
+>
+>Whether or not this violates the letter of the OSD, I think the 
+>various posters are correct that this redaction would be *perceived* 
+>as deliberate and suspicious by the community.  I realize that your 
+>policy is the legacy of hard-earned experience, but so is our 
+>paranoia!   I don't think anyone would be well-served by us 
+>approving a license under such terms, regardless of the technicalities.
+>
+>Frankly, I think you would be better off with a "patent-neutral" 
+>license, where you dodge the question entirely.   The problem, I 
+>presume, is that you want something like the MPL/IBM licenses which 
+>require postbacks.  I am not aware of any such license (except the 
+>GPL, of course) which doesn't have explicit patent statements, but 
+>maybe somebody here can suggest one.
+>
+>-- Ernie P.
+>MIT '88
+>
+>
+>
+>>>
+>>>As Russ Nelson suggested, maybe MIT can make a more valiant 
+>>>attempt to solve this patent problem, rather than passing it on to 
+>>>users to deal with in the absence of patent information that only 
+>>>MIT has at its disposal.
+>>>Other universities and their technology licensing departments are 
+>>>trying to address this problem in a more comprehensive way. 
+>>>Perhaps MIT can help us create a better solution than a license 
+>>>that places risky software into the stream of commerce.
+>>
+>>Agreed.  But solutions take time and policy changes.  MIT's current 
+>>policy is the result of some past occurrences that were a problem 
+>>for us.  To change it would mean the possibility of the past 
+>>problem reoccurring.  The process for change is being looked into, 
+>>but it takes time.
+
+__________________________________________________
+Karin K. Rivard, Asst. Director and Counsel
+MIT Technology Licensing Office, Room NE25-230
+Five Cambridge Center, Kendall Square
+Cambridge, MA 02142
+Phone:  (617) 253-6966; Fax: (617) 258-6790
+Email:  rivard at mit.edu
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20060714/cb3e03cf/attachment.html>
+
+From rivard at MIT.EDU  Fri Jul 14 17:46:08 2006
+From: rivard at MIT.EDU (Karin Rivard)
+Date: Fri, 14 Jul 2006 13:46:08 -0400
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <20060714171701.GC18595@ccil.org>
+References: <6.2.3.4.2.20060714101621.02de7f20@hesiod>
+ <035a01c6a75c$b794f420$6401a8c0@LROSENTOSHIBA>
+ <6.2.3.4.2.20060714115316.03137f90@hesiod>
+ <20060714171701.GC18595@ccil.org>
+Message-ID: <6.2.3.4.2.20060714134327.0309beb0@hesiod>
+
+John,
+>>If that's what worries you, then add a proviso to the Open Source license
+>>of your choice stating that its patent permissions do not apply to any
+>>MIT patents that are exclusively licensed to third parties.  This would
+>>leave the user no worse off than in the case of any other submarine
+>>patent that might torpedo an Open Source program.
+
+To my mind, all this time, I thought this offers little to no 
+benefit, but if this language is acceptable to OSI, I will run it by 
+our policy committee.  There may be internal concerns that prevent 
+our using that language, but I will certainly check.
+Thank you.
+Karin
+
+At 01:17 PM 7/14/2006, John Cowan wrote:
+>Karin Rivard scripsit:
+>
+> > MIT has not announced that, on its own, it would pursue users of the
+> > open source code in order to enforce patents against users of the
+> > open source code.
+>
+>That is, hmmm, most carefully worded.  "MIT has not announced [...] that
+>it would pursue" is by no means the same as "MIT has announced [...] that
+>it would not pursue".  The latter, expressed in legally binding words,
+>would be an Extremely Good Thing.  The former, not so much.
+>
+> > MIT's position is that we have not knowingly filed any patents that
+> > cover the use of the software to be implemented under the BIPL.
+> > However, MIT has over 2000 patents in its portfolio, many of which
+> > have been licensed to third parties exclusively.  Our exclusive
+> > license enables the exclusive licensee to name MIT as a party to an
+> > infringement lawsuit as the patent owner--this may only be done if
+> > legally necessary in pursuing the infringer and only after discussion
+> > (but not permission) from MIT.  Because of wonderfully creative and
+> > appropriate patent claim interpretations, it is possible that patents we
+> > never anticipated covering use of the open source code could, in fact,
+> > have claims that cover use of the open source code.
+>
+>If that's what worries you, then add a proviso to the Open Source license
+>of your choice stating that its patent permissions do not apply to any
+>MIT patents that are exclusively licensed to third parties.  This would
+>leave the user no worse off than in the case of any other submarine
+>patent that might torpedo an Open Source program.
+>
+>--
+>John Cowan    http://ccil.org/~cowan  cowan at ccil.org
+>The Penguin shall hunt and devour all that is crufty, gnarly and
+>bogacious; all code which wriggles like spaghetti, or is infested with
+>blighting creatures, or is bound by grave and perilous Licences shall it
+>capture.  And in capturing shall it replicate, and in replicating shall
+>it document, and in documentation shall it bring freedom, serenity and
+>most cool froodiness to the earth and all who code therein.  --Gospel of Tux
+
+__________________________________________________
+Karin K. Rivard, Asst. Director and Counsel
+MIT Technology Licensing Office, Room NE25-230
+Five Cambridge Center, Kendall Square
+Cambridge, MA 02142
+Phone:  (617) 253-6966; Fax: (617) 258-6790
+Email:  rivard at mit.edu
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20060714/7f4bff54/attachment.html>
+
+From andrew.wilson at intel.com  Fri Jul 14 17:47:39 2006
+From: andrew.wilson at intel.com (Wilson, Andrew)
+Date: Fri, 14 Jul 2006 10:47:39 -0700
+Subject: For Approval: Broad Institute Public License (BIPL)
+Message-ID: <CFC8CCBFB0D386448DE64EE85BA15C8D2B774B@orsmsx419.amr.corp.intel.com>
+
+Ernest Prabakhar wrote:
+
+> Frankly, I think you would be better off with a "patent-neutral"
+license, 
+> where you dodge the question entirely.   The problem, I presume, is 
+> that you want something like the MPL/IBM licenses which require
+postbacks.  
+> I am not aware of any such license (except the GPL, of course) which 
+> doesn't have explicit patent statements, but maybe somebody here can
+suggest one.
+
+The Artistic License, to the extent I understand it (minimal!), is
+a reciprocal license that doesn't mention patents.
+
+Back to the main topic of why MIT believes they need a license
+with an asymmetrical patent grant, e.g. exclusive patent licenses the
+Institute
+may have granted to 3rd parties.  Karin, my reading of CDDL
+(http://www.opensource.org/licenses/cddl1.php) would be
+that such patents are not capital-L Licensable under CDDL.
+However, other patents owned by the Institute would be
+Licensable and covered by the original developer grant.  In other words,
+I believe CDDL accomplishes your stated goals.
+
+Andy Wilson (MIT dad - Tom Wilson BSCS '05, MSCS '06)
+Intel Open Source Technology Center
+
+
+From cowan at ccil.org  Fri Jul 14 17:49:11 2006
+From: cowan at ccil.org (John Cowan)
+Date: Fri, 14 Jul 2006 13:49:11 -0400
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <6.2.3.4.2.20060714131624.030f23e0@hesiod>
+References: <6.2.3.4.2.20060714101621.02de7f20@hesiod> <035a01c6a75c$b794f420$6401a8c0@LROSENTOSHIBA> <6.2.3.4.2.20060714115316.03137f90@hesiod> <4909D274-8127-4F65-81F5-CCDEC71F6665@apple.com> <6.2.3.4.2.20060714131624.030f23e0@hesiod>
+Message-ID: <20060714174911.GF18595@ccil.org>
+
+Karin Rivard scripsit:
+
+> MIT does also want post-backs, 
+> but we are willing to accept the patent risk of using any such post-backs.
+
+Ask for them by all means, but don't demand them as of right.  That also
+raises red flags.  (In practice, people who make changes *want* to post
+them back and get them incorporated into the standard version so that
+they don't have to reinstall them over and over as new versions of
+the software come downstream.)
+
+Even the GPL and other reciprocal licenses don't demand that you send patches
+back upstream, only that you send the patches to *your* downstream distributees.
+
+-- 
+Ambassador Trentino: I've said enough. I'm a man of few words.
+Rufus T. Firefly: I'm a man of one word: scram!
+        --Duck Soup                     John Cowan <cowan at ccil.org>
+
+
+From prabhaka at apple.com  Fri Jul 14 17:51:40 2006
+From: prabhaka at apple.com (Ernest Prabhakar)
+Date: Fri, 14 Jul 2006 10:51:40 -0700
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <6.2.3.4.2.20060714131624.030f23e0@hesiod>
+References: <6.2.3.4.2.20060714101621.02de7f20@hesiod> <035a01c6a75c$b794f420$6401a8c0@LROSENTOSHIBA> <6.2.3.4.2.20060714115316.03137f90@hesiod> <4909D274-8127-4F65-81F5-CCDEC71F6665@apple.com> <6.2.3.4.2.20060714131624.030f23e0@hesiod>
+Message-ID: <DD710194-09AE-4193-B57B-213288E12EAB@apple.com>
+
+On Jul 14, 2006, at 10:43 AM, Karin Rivard wrote:
+> As to the patent grants, MIT included the partial protection out of  
+> a sense of responsibility to the community and not to game the  
+> system.  Though, I definitely understand how and why the approach  
+> is viewed as unfair.  MIT can adjust the license to agree with your  
+> preference for "patent-neutrality."   MIT does also want post- 
+> backs, but we are willing to accept the patent risk of using any  
+> such post-backs.
+
+Thanks.  Though, I think John's solution is worth considering:
+
+> If that's what worries you, then add a proviso to the Open Source  
+> license
+> of your choice stating that its patent permissions do not apply to any
+> MIT patents that are exclusively licensed to third parties.  This  
+> would
+> leave the user no worse off than in the case of any other submarine
+> patent that might torpedo an Open Source program.
+
+In other words, make sure you grant *all* the rights you are are  
+_able_ to grant, but admit that there are certain rights you no  
+longer have the right to grant.
+
+I tend to agree with John, that as long as you (the copyright owner)  
+grant the patent rights you have access to, people can live with the  
+uncertainty that there may be hidden patents outside your control/ 
+knowledge.
+
+-- Ernie P.
+
+
+
+
+
+From lrosen at rosenlaw.com  Fri Jul 14 19:24:15 2006
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 14 Jul 2006 12:24:15 -0700
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <CFC8CCBFB0D386448DE64EE85BA15C8D2B774B@orsmsx419.amr.corp.intel.com>
+Message-ID: <037e01c6a77b$18b66360$6401a8c0@LROSENTOSHIBA>
+
+Andy Wilson wrote:
+> Back to the main topic of why MIT believes they need a license
+> with an asymmetrical patent grant, e.g. exclusive patent licenses the
+> Institute
+> may have granted to 3rd parties.  Karin, my reading of CDDL
+> (http://www.opensource.org/licenses/cddl1.php) would be
+> that such patents are not capital-L Licensable under CDDL.
+> However, other patents owned by the Institute would be
+> Licensable and covered by the original developer grant.  In other words,
+> I believe CDDL accomplishes your stated goals.
+
+So does the OSL/AFL. It only grants patent claims that are "owned or
+controlled by the Licensor." I believe that's typical language for most
+modern open source licenses.
+
+/Larry
+
+
+
+From lrosen at rosenlaw.com  Fri Jul 14 19:29:14 2006
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 14 Jul 2006 12:29:14 -0700
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <DD710194-09AE-4193-B57B-213288E12EAB@apple.com>
+Message-ID: <037f01c6a77b$cb05f8a0$6401a8c0@LROSENTOSHIBA>
+
+Ernie Prabhakar wrote:
+> I tend to agree with John, that as long as you (the copyright owner)
+> grant the patent rights you have access to, people can live with the
+> uncertainty that there may be hidden patents outside your control/
+> knowledge.
+
+As I'm sure we all know, there is a difference between "outside your
+knowledge" and "outside your control."
+
+If it comes to MIT's attention that an encumbered patent exists (for
+example, some third party is about to initiate patent litigation and seeks
+to name MIT as a necessary plaintiff), then I would assume an obligation
+(perhaps implied?) on MIT's part to notify potential infringers through
+public announcements. MIT's proposed license is trying to protect MIT
+because it doesn't really know how to mine its portfolio of 2,000+ patents
+every time some open source software is distributed. Nevertheless, MIT's
+open source contributors ought to be obligated to disclose at least those
+patent facts within their actual knowledge.
+
+"Outside your control" is a reasonable suggestion. If MIT has granted an
+exclusive license elsewhere, then (and only then) should those MIT patent
+claims be excluded from the open source license.
+
+Going forward, however, is there some plan by MIT to exclude from future
+exclusive licenses any encumbrances to the free practice of patents in open
+source software? Otherwise this problem will get worse and may become
+subject to gaming and trolling. MIT ought to covenant that the University
+itself will never assert its patents against open source software. Such a
+covenant from MIT would go a long way toward satisfying the requirements of
+NIH and the goal of encouraging free and open source software.
+
+/Larry Rosen
+
+
+
+From superm40 at comcast.net  Fri Jul 14 19:30:29 2006
+From: superm40 at comcast.net (Matthew Flaschen)
+Date: Fri, 14 Jul 2006 15:30:29 -0400
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <037e01c6a77b$18b66360$6401a8c0@LROSENTOSHIBA>
+References: <037e01c6a77b$18b66360$6401a8c0@LROSENTOSHIBA>
+Message-ID: <44B7F0D5.5060004@comcast.net>
+
+Lawrence Rosen wrote:
+> So does the OSL/AFL. It only grants patent claims that are "owned or
+> controlled by the Licensor." I believe that's typical language for most
+> modern open source licenses.
+> 
+> /Larry
+> 
+> 
+> 
+
+IANAL, but it seems clear the patent claims *are* owned by MIT, though 
+not controlled by them.  Thus, they are unfortunately "owned or 
+controlled" and would necessarily have to be granted.  This is intended 
+for cases where a company is an exclusive licensee, while MIT is the 
+exclusive licensor.
+
+Matthew Flaschen
+
+
+From lrosen at rosenlaw.com  Fri Jul 14 19:36:17 2006
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 14 Jul 2006 12:36:17 -0700
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <44B7F0D5.5060004@comcast.net>
+Message-ID: <038001c6a77c$c70a1d70$6401a8c0@LROSENTOSHIBA>
+
+Matthew Flaschen wrote:
+> IANAL, but it seems clear the patent claims *are* owned by MIT, though
+> not controlled by them.  Thus, they are unfortunately "owned or
+> controlled" and would necessarily have to be granted.  This is intended
+> for cases where a company is an exclusive licensee, while MIT is the
+> exclusive licensor.
+
+Perhaps you're right. If so, that's an easy change to make and they are free
+to make it. :-) /Larry
+
+
+> -----Original Message-----
+> From: Matthew Flaschen [mailto:superm40 at comcast.net]
+> Sent: Friday, July 14, 2006 12:30 PM
+> To: lrosen at rosenlaw.com
+> Cc: license-discuss at opensource.org
+> Subject: Re: For Approval: Broad Institute Public License (BIPL)
+> 
+> Lawrence Rosen wrote:
+> > So does the OSL/AFL. It only grants patent claims that are "owned or
+> > controlled by the Licensor." I believe that's typical language for most
+> > modern open source licenses.
+> >
+> > /Larry
+> >
+> >
+> >
+> 
+> IANAL, but it seems clear the patent claims *are* owned by MIT, though
+> not controlled by them.  Thus, they are unfortunately "owned or
+> controlled" and would necessarily have to be granted.  This is intended
+> for cases where a company is an exclusive licensee, while MIT is the
+> exclusive licensor.
+> 
+> Matthew Flaschen
+
+
+
+From andrew.wilson at intel.com  Fri Jul 14 19:39:02 2006
+From: andrew.wilson at intel.com (Wilson, Andrew)
+Date: Fri, 14 Jul 2006 12:39:02 -0700
+Subject: For Approval: Broad Institute Public License (BIPL)
+Message-ID: <CFC8CCBFB0D386448DE64EE85BA15C8D2B79D2@orsmsx419.amr.corp.intel.com>
+
+ 
+Matthew Flaschen wrote:
+
+> IANAL, but it seems clear the patent claims *are* owned by MIT, though
+
+> not controlled by them.  Thus, they are unfortunately "owned or 
+> controlled" and would necessarily have to be granted.  This is
+intended 
+> for cases where a company is an exclusive licensee, while MIT is the 
+> exclusive licensor.
+
+The exact definition of Licensable in CDDL is
+"means having the right to grant."  If the Institute
+has already granted exclusivity to a 3rd party,
+seems to me that patent is not Licensable since
+the Institute has no further rights to grant.
+
+IANAL, etc., etc.
+
+Andy Wilson
+Intel Open Source Technology Center
+
+
+
+From superm40 at comcast.net  Fri Jul 14 20:04:27 2006
+From: superm40 at comcast.net (Matthew Flaschen)
+Date: Fri, 14 Jul 2006 16:04:27 -0400
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <038001c6a77c$c70a1d70$6401a8c0@LROSENTOSHIBA>
+References: <038001c6a77c$c70a1d70$6401a8c0@LROSENTOSHIBA>
+Message-ID: <44B7F8CB.3090101@comcast.net>
+
+Lawrence Rosen wrote:
+> Matthew Flaschen wrote:
+> 
+>>IANAL, but it seems clear the patent claims *are* owned by MIT, though
+>>not controlled by them.  Thus, they are unfortunately "owned or
+>>controlled" and would necessarily have to be granted.  This is intended
+>>for cases where a company is an exclusive licensee, while MIT is the
+>>exclusive licensor.
+> 
+> 
+> Perhaps you're right. If so, that's an easy change to make and they are free
+> to make it. :-) /Larry
+
+I agree; it would be preferrable to approve a license like that.  We can 
+be sure it is still OSI-compliant; there would still be license 
+proliferation, but at least it would be mitigated.
+
+Matthew Flaschen
+
+
+From superm40 at comcast.net  Fri Jul 14 20:08:07 2006
+From: superm40 at comcast.net (Matthew Flaschen)
+Date: Fri, 14 Jul 2006 16:08:07 -0400
+Subject: For Approval: Broad Institute Public License (BIPL)
+In-Reply-To: <CFC8CCBFB0D386448DE64EE85BA15C8D2B79D2@orsmsx419.amr.corp.intel.com>
+References: <CFC8CCBFB0D386448DE64EE85BA15C8D2B79D2@orsmsx419.amr.corp.intel.com>
+Message-ID: <44B7F9A7.8070300@comcast.net>
+
+Wilson, Andrew wrote:
+> The exact definition of Licensable in CDDL is
+> "means having the right to grant."  If the Institute
+> has already granted exclusivity to a 3rd party,
+> seems to me that patent is not Licensable since
+> the Institute has no further rights to grant.
+> 
+> IANAL, etc., etc.
+> 
+> Andy Wilson
+> Intel Open Source Technology Center
+
+I agree. I was talking about clause 2 of the OSL, which includes 
+"Licensor grants You a worldwide, royalty-free, non-exclusive, 
+sublicensable license, under patent claims owned or controlled [...]." 
+Your assessment of clause 1.8 (definition of Licensable) of CDDL, which 
+includes "having the right to grant, to the maximum extent possible" 
+seems correct.
+
+Matthew Flaschen
+
+

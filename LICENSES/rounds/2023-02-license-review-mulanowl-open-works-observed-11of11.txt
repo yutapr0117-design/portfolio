@@ -1,0 +1,74 @@
+>> Disseminated through information networks, You may use hyperlinks for 
+>> provision of the foregoing texts or URIs in (1)-(3) of Section 4.
+>>
+>> 5. Breach and Termination
+>>
+>> 5.1 If You breached This License, any Contributor has the right to 
+>> notify You in writing to terminate its license granted to You under 
+>> This License. The license granted to You by such Contributor 
+>> terminates upon Your receipt of such notice of termination. 
+>> Notwithstanding the foregoing, Your license will not be terminated 
+>> even if You received a notice of termination from Contributor, under 
+>> three circumstances as set forth below:
+>>
+>> (1) You have cured all the breaches prior to receipt of such notice 
+>> of termination; or,
+>>
+>> (2) it?s Your first time to receive a notice of termination from such 
+>> Contributor pursuant to This License, and You have cured all the 
+>> breaches within 30 days of receipt of such notice; or,
+>>
+>> (3) Contributor has expressly reinstated the license granted to You.
+>>
+>> 5.2 Termination of Your license under This License shall not affect 
+>> any rights under This License granted to any others who directly or 
+>> indirectly receive This Work from You, provided that they comply with 
+>> the terms and conditions of This License.
+>>
+>> 5.3 Sections 0, 5, 6, and 7 survive termination of This License.
+>>
+>> 6. Disclaimer of Warranty and Limitation of Liability
+>>
+>> THIS WORK IS PROVIDED WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS 
+>> OR IMPLIED. IN NO EVENT SHALL ANY CONTRIBUTOR BE LIABLE TO YOU FOR 
+>> ANY DAMAGES, INCLUDING BUT NOT LIMITED TO ANY DIRECT OR INDIRECT 
+>> DAMAGES ARISING FROM YOUR USE OR INABILITY TO USE THIS WORK, NO 
+>> MATTER HOW IT IS CAUSED OR BASED ON WHICH LEGAL THEORY, EVEN IF SUCH 
+>> CONTRIBUTOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+>>
+>> 7. Language
+>>
+>> THIS LICENSE IS WRITTEN IN BOTH CHINESE AND ENGLISH, AND THE CHINESE 
+>> VERSION AND ENGLISH VERSION SHALL HAVE THE SAME LEGAL EFFECT. IN CASE 
+>> OF DIVERGENCE BETWEEN THE CHINESE AND ENGLISH VERSIONS, THE CHINESE 
+>> VERSION SHALL PREVAIL.
+>>
+>> END OF THE TERMS AND CONDITIONS
+>>
+>> --------------------------------------------------End of the 
+>> license--------------------------------------------------
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>> _______________________________________________
+>> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>>
+>> License-review mailing list
+>> License-review at lists.opensource.org
+>> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+>
+>
+> _______________________________________________
+> The opinions expressed in this email are those of the sender and not necessarily those of the Open Source Initiative. Communication from the Open Source Initiative will be sent from an opensource.org email address.
+>
+> License-review mailing list
+> License-review at lists.opensource.org
+> http://lists.opensource.org/mailman/listinfo/license-review_lists.opensource.org
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20231015/fcb8d5b3/attachment-0001.html>
+

@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-25 時点・72 ファイル）
+## いまの状態（2026-09-25 時点・92 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -137,6 +137,26 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2012-03 | `license-review`（観測）| **CC0 の OSD 適合をめぐる特許論争 69 通 → 観測保存（4/6 部）** | **同じスレッドの 4/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続になる（分割は Check 365 の 1,000 行上限のため・メッセージ境界で切ってある） |
 | 2012-03 | `license-review`（観測）| **CC0 の OSD 適合をめぐる特許論争 69 通 → 観測保存（5/6 部）** | **同じスレッドの 5/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続になる（分割は Check 365 の 1,000 行上限のため・メッセージ境界で切ってある） |
 | 2012-03 | `license-review`（観測）| **CC0 の OSD 適合をめぐる特許論争 69 通 → 観測保存（6/6 部）** | **同じスレッドの 6/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続になる（分割は Check 365 の 1,000 行上限のため・メッセージ境界で切ってある） |
+| 2006-07 | `license-discuss`（観測）| **Broad Institute Public License（BIPL）の承認審査 28 通 → 観測保存（1/3 部）** | **特許について、我々に有利な発言と不利な発言が同じスレッドに在る。** Rosen 氏 *"many people hope that the old BSD- and MIT-style licenses have 'implicit patent licenses,' but that's **a thin reed** ... All modern, professionally-written open source licenses ... contain explicit patent grants."* に対し、提出者側弁護士 Rivard 氏 *"The requirements for OSI certification do not include a requirement that the originator of the software offer a license to originator owned patents."*（#236 の 4 人に続く 5 人目）。**Unlicense 先例への依拠に当たるもの**も在る —— Dillard 氏 *"there are some previously approved licenses that would not be approved if submitted today"*（#238 / #239） |
+| 2006-07 | `license-discuss`（観測）| **Broad Institute Public License（BIPL）の承認審査 28 通 → 観測保存（2/3 部）** | **同じスレッドの 2/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2006-07 | `license-discuss`（観測）| **Broad Institute Public License（BIPL）の承認審査 28 通 → 観測保存（3/3 部）** | **同じスレッドの 3/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2006-11 | `license-discuss`（観測）| **Biological Open Source（BiOS）の非ソフトウェア特許ライセンス相談 11 通 → 観測保存（1/6 部）** | **Rosen 氏の、特許条項そのものに向けられた proliferation 反対** —— *"I don't think there's much enthusiasm to come up with yet another way to say these things about patents."* **ACD-1.0 §8.4 は「特許について言う、もう一つの言い方」そのものである**（#239） |
+| 2006-11 | `license-discuss`（観測）| **Biological Open Source（BiOS）の非ソフトウェア特許ライセンス相談 11 通 → 観測保存（2/6 部）** | **同じスレッドの 2/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2006-11 | `license-discuss`（観測）| **Biological Open Source（BiOS）の非ソフトウェア特許ライセンス相談 11 通 → 観測保存（3/6 部）** | **同じスレッドの 3/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2006-11 | `license-discuss`（観測）| **Biological Open Source（BiOS）の非ソフトウェア特許ライセンス相談 11 通 → 観測保存（4/6 部）** | **同じスレッドの 4/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2006-11 | `license-discuss`（観測）| **Biological Open Source（BiOS）の非ソフトウェア特許ライセンス相談 11 通 → 観測保存（5/6 部）** | **同じスレッドの 5/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2006-11 | `license-discuss`（観測）| **Biological Open Source（BiOS）の非ソフトウェア特許ライセンス相談 11 通 → 観測保存（6/6 部）** | **同じスレッドの 6/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（1/11 部）** | **理事会が実際に不承認を議決した、我々の時代にいちばん近い審査。** 委員長 Chestek 氏が **CC0 が承認されていない理由**を名指しし（*"they expressly state that they do not grant a patent license. This is the reason that the CC-0 license is not an OSI-approved license ... although it has not been definitively decided due to Creative Commons' withdrawal"*）、**不承認の理由は OSD 違反ではなく主題**だった（*"open culture licenses are outside the purview of the Open Source Initiative"*）。その主題の定義は *"...an audiovisual work, a graphic work, and a model work"* で、**ACD-1.0 §1.2 の列挙は "audiovisual material" を含む**（#237 / #238） |
+| 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（2/11 部）** | **同じスレッドの 2/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（3/11 部）** | **同じスレッドの 3/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（4/11 部）** | **同じスレッドの 4/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（5/11 部）** | **同じスレッドの 5/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（6/11 部）** | **同じスレッドの 6/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（7/11 部）** | **同じスレッドの 7/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（8/11 部）** | **同じスレッドの 8/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（9/11 部）** | **同じスレッドの 9/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（10/11 部）** | **同じスレッドの 10/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
+| 2023-02 | `license-review`（観測）| **Mulan Open Works Licenses 4 本の承認審査 14 通 → 観測保存（11/11 部）** | **同じスレッドの 11/11 部。** 本文は無改変で、11 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
 
 **ACD-1.0 そのものについては、依然として受領がゼロである。** 2026-09-09 時点で
 **ACD-1.0 の投稿は 2 通あり、どちらも別スレッドとして立ち、どちらにも返信が無い**
