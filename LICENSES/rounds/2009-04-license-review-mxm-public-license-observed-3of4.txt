@@ -1,0 +1,750 @@
+
+CC proponents would likely disagree with your interpretation.
+
+>> Not if the license arbiter says "out of my jurisdiction".
+
+>It's not out of OSI's jurisdiction.  OSI's jurisdiction is software, and
+>that's exactly what this is about.
+
+OSI's jurisdiction is currently limited to just open source software 
+(that's what the mark is for)...which MXM would not be.  
+
+Back on topic I agree with Russ's suggestion that it simply be called 
+something else...the question for the other list is whether OSI has or 
+wants an official opinion on whether it be called "Shared Source", 
+"Read-Only Source" or "Source-Available Software" or if it prefers 
+other folks to make that distinction.
+
+If we don't provide a preferred term then we can't very well complain 
+if folks adopt the term "Shared Source" for this kind of stuff. 
+
+Cross posted so that we can continue this solely on license-discuss.
+
+
+From nelson at crynwr.com  Fri Apr 10 16:50:53 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 10 Apr 2009 12:50:53 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <80993A52-A726-4B12-9709-EB49ED5227AE@gmail.com>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org> <18911.26495.878470.831483@desk.crynwr.com> <80993A52-A726-4B12-9709-EB49ED5227AE@gmail.com>
+Message-ID: <18911.30957.630987.3273@desk.crynwr.com>
+
+Simon Phipps writes: >  > On Apr 10, 2009, at 16:36, Russ Nelson wrote: > > If the water were *that* muddy, then someone would have by now used > > the BSD on patented software, gained a market, and then pointed to the > > patent.  They could defend themselves against a reliance counter-suit > > by pointing to the utter lack of a patent license in the BSD text. > > > > Except ... that nobody has done that because the water isn't very   > > muddy. >  > I'd suggest no-one has done it because anyone worth targeting with   > that predatory behaviour has been advised BSD-licensed source comes   > with no patent licenses and should be treated with extreme caution.   > Based on my own experience and advice received, of course.
+
+Yeah, and evolution is just a theory.
+
+Lawyers don't give you business advice.  They give you legal advice.
+If you never ignore your lawyers' advice, you're not taking enough
+legal risks.
+
+If anybody thought that the BSD *didn't* come with an implicit patent
+license, then somebody would have at least *asserted* "You have no
+patent license".  And yet nobody has.  Easy to prove me wrong.  All
+you need is a single inconvenient fact.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Cloudmade supports http://openstreetmap.org/ 
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From cowan at ccil.org  Fri Apr 10 17:04:11 2009
+From: cowan at ccil.org (John Cowan)
+Date: Fri, 10 Apr 2009 13:04:11 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <18911.30957.630987.3273@desk.crynwr.com>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org> <18911.26495.878470.831483@desk.crynwr.com> <80993A52-A726-4B12-9709-EB49ED5227AE@gmail.com> <18911.30957.630987.3273@desk.crynwr.com>
+Message-ID: <20090410170411.GD12970@mercury.ccil.org>
+
+Russ Nelson scripsit:
+
+> If anybody thought that the BSD *didn't* come with an implicit patent
+> license, then somebody would have at least *asserted* "You have no
+> patent license".  And yet nobody has.
+
+At http://mail-archives.apache.org/mod_mbox/archive-license/200311.mbox/<B839DF64-1625-11D8-9F2A-000393753936 at apache.org> ,
+Roy Fielding wrote:
+
+# Several comments are to the effect that the patent license [clause
+# in Apache 2.0] cannot be terminated.  There is no such restriction
+# in the DFSG.  Furthermore, the GPL[v2], BSD, and other licenses that
+# Debian claims are free have no patent license grant at all, which is
+# equivalent to a terminated license. If the proposed 2.0 license is
+# non-free, then none of your example licenses are free either.
+
+> Easy to prove me wrong.  
+
+It was, indeed.  Less than five minutes of googling.
+
+-- 
+I marvel at the creature: so secret and         John Cowan
+so sly as he is, to come sporting in the pool   cowan at ccil.org
+before our very window.  Does he think that     http://www.ccil.org/~cowan
+Men sleep without watch all night?
+
+
+From lrosen at rosenlaw.com  Fri Apr 10 17:24:46 2009
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 10 Apr 2009 10:24:46 -0700
+Subject: For approval: MXM Public license
+In-Reply-To: <18911.30957.630987.3273@desk.crynwr.com>
+References: <49DCA566.2040603@piana.eu><49DCC7BB.9030500@gatech.edu><49DCD7DF.4000406@piana.eu><49DCDDD3.5020406@gatech.edu><1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu><49DCF339.4050607@gatech.edu><20090408192245.GE7278@mercury.ccil.org><18911.26495.878470.831483@desk.crynwr.com><80993A52-A726-4B12-9709-EB49ED5227AE@gmail.com> <18911.30957.630987.3273@desk.crynwr.com>
+Message-ID: <9D31A306FC4F42C7BDDEB953A4C3B7A5@LROSENTOSHIBA>
+
+Russ Nelson wrote: 
+> Lawyers don't give you business advice.  They give you legal advice.
+> If you never ignore your lawyers' advice, you're not taking enough
+> legal risks.
+
+Russ, there are so many things to argue about in those three sentences....
+But I don't dare start another thread on here in defense of lawyers. :-)
+
+Suffice it to say, the MXM Public License doesn't pass the OSD test.
+
+/Larry [A lawyer who gives both business advice and legal advice,  and hopes his clients at least listen to his advice before ignoring it]
+
+Lawrence Rosen
+Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com)
+3001 King Ranch Road, Ukiah, CA 95482
+707-485-1242 * cell: 707-478-8932 * fax: 707-485-1243
+Skype: LawrenceRosen
+
+
+
+
+> -----Original Message-----
+> From: Russ Nelson [mailto:nelson at crynwr.com]
+> Sent: Friday, April 10, 2009 9:51 AM
+> To: License Review
+> Subject: Re: For approval: MXM Public license
+> 
+> Simon Phipps writes:
+>  >
+>  > On Apr 10, 2009, at 16:36, Russ Nelson wrote:
+>  > > If the water were *that* muddy, then someone would have by now used
+>  > > the BSD on patented software, gained a market, and then pointed to
+> the
+>  > > patent.  They could defend themselves against a reliance counter-suit
+>  > > by pointing to the utter lack of a patent license in the BSD text.
+>  > >
+>  > > Except ... that nobody has done that because the water isn't very
+>  > > muddy.
+>  >
+>  > I'd suggest no-one has done it because anyone worth targeting with
+>  > that predatory behaviour has been advised BSD-licensed source comes
+>  > with no patent licenses and should be treated with extreme caution.
+>  > Based on my own experience and advice received, of course.
+> 
+> Yeah, and evolution is just a theory.
+> 
+> Lawyers don't give you business advice.  They give you legal advice.
+> If you never ignore your lawyers' advice, you're not taking enough
+> legal risks.
+> 
+> If anybody thought that the BSD *didn't* come with an implicit patent
+> license, then somebody would have at least *asserted* "You have no
+> patent license".  And yet nobody has.  Easy to prove me wrong.  All
+> you need is a single inconvenient fact.
+> 
+> --
+> --my blog is at    http://blog.russnelson.com
+> Cloudmade supports http://openstreetmap.org/
+> 521 Pleasant Valley Rd. | +1 315-323-1241
+> Potsdam, NY 13676-3213  |     Sheepdog
+
+
+
+From lrosen at rosenlaw.com  Fri Apr 10 17:49:16 2009
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 10 Apr 2009 10:49:16 -0700
+Subject: For approval: MXM Public license
+In-Reply-To: <20090410170411.GD12970@mercury.ccil.org>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org> <18911.26495.878470.831483@desk.crynwr.com> <80993A52-A726-4B12-9709-EB49ED5227AE@gmail.com> <18911.30957.630987.3273@desk.crynwr.com> <20090410170411.GD12970@mercury.ccil.org>
+Message-ID: <D823A0C80E5D42C69BE0D0E4ED42AE6E@LROSENTOSHIBA>
+
+Russ Nelson challenged:
+> > If anybody thought that the BSD *didn't* come with an implicit patent
+> > license, then somebody would have at least *asserted* "You have no
+> > patent license".  And yet nobody has.
+> >
+> > Easy to prove me wrong.
+
+John Cowan countered:
+> It was, indeed.  Less than five minutes of googling.
+
+
+John, to be fair, nobody has asserted *in court* that the BSD didn't come
+with an implicit patent license. That would take an actual patent and
+actually infringing software. Courts don't conjecture.
+
+What Roy Fielding asserted in some email archives, while fascinating, is
+about as authoritative as my own emails on this topic and worth less than
+the paper it is printed on. (BTW and FWIW, I actually agree with Roy!)
+
+There is a good argument to be made that patent licenses NOWADAYS ought to
+be explicit rather than implicit, regardless of our sloppy FOSS licenses in
+the past. Courts prefer to read words actually written rather than words
+that are divined from intention of the parties or from some purely legal
+construct based upon public policy. 
+
+That is why it frustrates me--as a lawyer--that we continue to recommend the
+BSD license to our community. People needn't continue to argue about the
+effect of the BSD license on patents when there are perfectly good licenses
+available for our use that don't suffer that particular ambiguity.
+
+Perhaps this discussion ought to be moved to the license-proliferation-2
+list?
+
+/Larry
+
+Lawrence Rosen
+Rosenlaw & Einschlag, a technology law firm (www.rosenlaw.com)
+3001 King Ranch Road, Ukiah, CA 95482
+707-485-1242 * cell: 707-478-8932 * fax: 707-485-1243
+Skype: LawrenceRosen
+
+
+
+
+> -----Original Message-----
+> From: John Cowan [mailto:cowan at ccil.org]
+> Sent: Friday, April 10, 2009 10:04 AM
+> To: Russ Nelson
+> Cc: License Review
+> Subject: Re: For approval: MXM Public license
+> 
+> Russ Nelson scripsit:
+> 
+> > If anybody thought that the BSD *didn't* come with an implicit patent
+> > license, then somebody would have at least *asserted* "You have no
+> > patent license".  And yet nobody has.
+> 
+> At http://mail-archives.apache.org/mod_mbox/archive-
+> license/200311.mbox/<B839DF64-1625-11D8-9F2A-000393753936 at apache.org> ,
+> Roy Fielding wrote:
+> 
+> # Several comments are to the effect that the patent license [clause
+> # in Apache 2.0] cannot be terminated.  There is no such restriction
+> # in the DFSG.  Furthermore, the GPL[v2], BSD, and other licenses that
+> # Debian claims are free have no patent license grant at all, which is
+> # equivalent to a terminated license. If the proposed 2.0 license is
+> # non-free, then none of your example licenses are free either.
+> 
+> > Easy to prove me wrong.
+> 
+> It was, indeed.  Less than five minutes of googling.
+> 
+> --
+> I marvel at the creature: so secret and         John Cowan
+> so sly as he is, to come sporting in the pool   cowan at ccil.org
+> before our very window.  Does he think that     http://www.ccil.org/~cowan
+> Men sleep without watch all night?
+
+
+
+From nelson at crynwr.com  Fri Apr 10 18:58:04 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 10 Apr 2009 14:58:04 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <20090410170411.GD12970@mercury.ccil.org>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org> <18911.26495.878470.831483@desk.crynwr.com> <80993A52-A726-4B12-9709-EB49ED5227AE@gmail.com> <18911.30957.630987.3273@desk.crynwr.com> <20090410170411.GD12970@mercury.ccil.org>
+Message-ID: <18911.38588.55473.433257@desk.crynwr.com>
+
+John Cowan writes: > Russ Nelson scripsit: >  > > If anybody thought that the BSD *didn't* come with an implicit patent > > license, then somebody would have at least *asserted* "You have no > > patent license".  And yet nobody has. >  > It was, indeed.  Less than five minutes of googling.
+
+Hrm.  I didn't mean that someone was bloviating about the BSD.
+There's been plenty of that.  I meant that I've never heard of anybody
+who said "Here is this patent-encumbered code licensed under the BSD
+license for which I am not granting you a license".
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Cloudmade supports http://openstreetmap.org/ 
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From luis.villa at gmail.com  Fri Apr 10 19:26:12 2009
+From: luis.villa at gmail.com (Luis Villa)
+Date: Fri, 10 Apr 2009 15:26:12 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <18911.38588.55473.433257@desk.crynwr.com>
+References: <49DCA566.2040603@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org> <18911.26495.878470.831483@desk.crynwr.com> <80993A52-A726-4B12-9709-EB49ED5227AE@gmail.com> <18911.30957.630987.3273@desk.crynwr.com> <20090410170411.GD12970@mercury.ccil.org> <18911.38588.55473.433257@desk.crynwr.com>
+Message-ID: <2cb10c440904101226u708a7c6bo9c2cfab200e07ef9@mail.gmail.com>
+
+On Fri, Apr 10, 2009 at 2:58 PM, Russ Nelson <nelson at crynwr.com> wrote:
+> John Cowan writes:
+> ?> Russ Nelson scripsit:
+> ?>
+> ?> > If anybody thought that the BSD *didn't* come with an implicit patent
+> ?> > license, then somebody would have at least *asserted* "You have no
+> ?> > patent license". ?And yet nobody has.
+> ?>
+> ?> It was, indeed. ?Less than five minutes of googling.
+>
+> Hrm. ?I didn't mean that someone was bloviating about the BSD.
+> There's been plenty of that. ?I meant that I've never heard of anybody
+> who said "Here is this patent-encumbered code licensed under the BSD
+> license for which I am not granting you a license".
+
+s/BSD/MIT/
+s/am not/cannot/
+
+http://www.fluendo.com/shop/product/fluendo-mp3-decoder/
+
+Luis
+
+
+From cowan at ccil.org  Fri Apr 10 19:43:09 2009
+From: cowan at ccil.org (John Cowan)
+Date: Fri, 10 Apr 2009 15:43:09 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <2cb10c440904101226u708a7c6bo9c2cfab200e07ef9@mail.gmail.com>
+References: <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org> <18911.26495.878470.831483@desk.crynwr.com> <80993A52-A726-4B12-9709-EB49ED5227AE@gmail.com> <18911.30957.630987.3273@desk.crynwr.com> <20090410170411.GD12970@mercury.ccil.org> <18911.38588.55473.433257@desk.crynwr.com> <2cb10c440904101226u708a7c6bo9c2cfab200e07ef9@mail.gmail.com>
+Message-ID: <20090410194309.GB24667@mercury.ccil.org>
+
+Luis Villa scripsit:
+
+> > Hrm. ?I didn't mean that someone was bloviating about the BSD.
+> > There's been plenty of that. ?I meant that I've never heard of anybody
+> > who said "Here is this patent-encumbered code licensed under the BSD
+> > license for which I am not granting you a license".
+> 
+> s/BSD/MIT/
+> s/am not/cannot/
+
+Not really on point, because Fluendo doesn't own the patent and is not allowed
+to sublicense it to downstream recipients of source code.
+
+-- 
+You are a child of the universe no less         John Cowan
+than the trees and all other acyclic            http://www.ccil.org/~cowan
+graphs; you have a right to be here.            cowan at ccil.org --DeXiderata by Sean McGrath
+
+
+From lrosen at rosenlaw.com  Fri Apr 10 19:47:25 2009
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Fri, 10 Apr 2009 12:47:25 -0700
+Subject: For approval: MXM Public license
+In-Reply-To: <2cb10c440904101226u708a7c6bo9c2cfab200e07ef9@mail.gmail.com>
+References: <49DCA566.2040603@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org> <18911.26495.878470.831483@desk.crynwr.com> <80993A52-A726-4B12-9709-EB49ED5227AE@gmail.com> <18911.30957.630987.3273@desk.crynwr.com> <20090410170411.GD12970@mercury.ccil.org> <18911.38588.55473.433257@desk.crynwr.com> <2cb10c440904101226u708a7c6bo9c2cfab200e07ef9@mail.gmail.com>
+Message-ID: <AFCD0BD24B27490DA8642D0F25433070@LROSENTOSHIBA>
+
+Luis Villa referred us to:
+> http://www.fluendo.com/shop/product/fluendo-mp3-decoder/ 
+
+The following paragraph is from that page:
+
+*********************
+On the other hand, if you live in a country where the patents apply, or if
+you are a distribution maker who sells your distribution in countries where
+the patents apply, then you need the licensed binary from Fluendo. This of
+course is no problem, but be aware that even if our binary is made from MIT
+licensed source code the resulting binary combined with our license is not
+free software, at least not GPL-compatible. This means that if you ship
+GStreamer with our binary mp3 plug-in, you need to be sure that you don't
+ship any GPL-licensed plug-ins that could end up being used together with
+the mp3 plug-in, as this would violate the GPL. And you don't want to
+violate the GPL. You also need to make sure you don't ship any GPL-licensed
+players which would use this plug-in.
+*********************
+
+What does the sentence starting "This means that..." actually mean? Is it
+accurate when it says that can't "use together" the GPL-licensed plug-ins
+with this patented mp3 plug-in?
+
+I think it is bull, and totally irrelevant to the MXM Public License.
+
+/Larry
+
+
+
+
+> -----Original Message-----
+> From: Luis Villa [mailto:luis.villa at gmail.com]
+> Sent: Friday, April 10, 2009 12:26 PM
+> To: Russ Nelson
+> Cc: License Review
+> Subject: Re: For approval: MXM Public license
+> 
+> On Fri, Apr 10, 2009 at 2:58 PM, Russ Nelson <nelson at crynwr.com> wrote:
+> > John Cowan writes:
+> > ?> Russ Nelson scripsit:
+> > ?>
+> > ?> > If anybody thought that the BSD *didn't* come with an implicit
+> patent
+> > ?> > license, then somebody would have at least *asserted* "You have no
+> > ?> > patent license". ?And yet nobody has.
+> > ?>
+> > ?> It was, indeed. ?Less than five minutes of googling.
+> >
+> > Hrm. ?I didn't mean that someone was bloviating about the BSD.
+> > There's been plenty of that. ?I meant that I've never heard of anybody
+> > who said "Here is this patent-encumbered code licensed under the BSD
+> > license for which I am not granting you a license".
+> 
+> s/BSD/MIT/
+> s/am not/cannot/
+> 
+> http://www.fluendo.com/shop/product/fluendo-mp3-decoder/
+> 
+> Luis
+
+
+
+From luis.villa at gmail.com  Fri Apr 10 19:56:22 2009
+From: luis.villa at gmail.com (Luis Villa)
+Date: Fri, 10 Apr 2009 15:56:22 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <20090410194309.GB24667@mercury.ccil.org>
+References: <49DCDDD3.5020406@gatech.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org> <18911.26495.878470.831483@desk.crynwr.com> <80993A52-A726-4B12-9709-EB49ED5227AE@gmail.com> <18911.30957.630987.3273@desk.crynwr.com> <20090410170411.GD12970@mercury.ccil.org> <18911.38588.55473.433257@desk.crynwr.com> <2cb10c440904101226u708a7c6bo9c2cfab200e07ef9@mail.gmail.com> <20090410194309.GB24667@mercury.ccil.org>
+Message-ID: <2cb10c440904101256v641b94ffuc1eb70c29861e377@mail.gmail.com>
+
+On Fri, Apr 10, 2009 at 3:43 PM, John Cowan <cowan at ccil.org> wrote:
+> Luis Villa scripsit:
+>
+>> > Hrm. ?I didn't mean that someone was bloviating about the BSD.
+>> > There's been plenty of that. ?I meant that I've never heard of anybody
+>> > who said "Here is this patent-encumbered code licensed under the BSD
+>> > license for which I am not granting you a license".
+>>
+>> s/BSD/MIT/
+>> s/am not/cannot/
+>
+> Not really on point, because Fluendo doesn't own the patent and is not allowed
+> to sublicense it to downstream recipients of source code.
+
+Does go directly to the point that there are examples where code has
+been placed out there where patents are licensed by the code-writing
+organization, and which are very definitely *not* passed along with
+the MIT/BSD-style license.
+
+Luis
+
+
+From nelson at crynwr.com  Mon Apr 13 14:22:16 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Mon, 13 Apr 2009 10:22:16 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <2cb10c440904101256v641b94ffuc1eb70c29861e377@mail.gmail.com>
+References: <49DCDDD3.5020406@gatech.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org> <18911.26495.878470.831483@desk.crynwr.com> <80993A52-A726-4B12-9709-EB49ED5227AE@gmail.com> <18911.30957.630987.3273@desk.crynwr.com> <20090410170411.GD12970@mercury.ccil.org> <18911.38588.55473.433257@desk.crynwr.com> <2cb10c440904101226u708a7c6bo9c2cfab200e07ef9@mail.gmail.com> <20090410194309.GB24667@mercury.ccil.org> <2cb10c440904101256v641b94ffuc1eb70c29861e377@mail.gmail.com>
+Message-ID: <18915.19096.953500.582736@desk.crynwr.com>
+
+Luis Villa writes: > On Fri, Apr 10, 2009 at 3:43 PM, John Cowan <cowan at ccil.org> wrote: > > Luis Villa scripsit: > > > >> > Hrm. ?I didn't mean that someone was bloviating about the BSD. > >> > There's been plenty of that. ?I meant that I've never heard of anybody > >> > who said "Here is this patent-encumbered code licensed under the BSD > >> > license for which I am not granting you a license". > >> >  > Does go directly to the point that there are examples where code has > been placed out there where patents are licensed by the code-writing > organization, and which are very definitely *not* passed along with > the MIT/BSD-style license.
+
+Also hrm.  Seems that I was proposing the wrong test.  If you say
+"Here is this patent-encumbered code licensed under the BSD license
+for which I am not granting you a license" isn't that acknowledging
+that there IS in fact an implicit patent license which they must
+disclaim?
+
+Instead, a disproof has to work the way I first proposed: Somebody
+gets a patent, writes patented code, distributes it under the BSD, and
+then asserts "You have no patent license" and sues them.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Cloudmade supports http://openstreetmap.org/ 
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From webmink at gmail.com  Mon Apr 13 14:32:59 2009
+From: webmink at gmail.com (Simon Phipps)
+Date: Mon, 13 Apr 2009 15:32:59 +0100
+Subject: For approval: MXM Public license
+In-Reply-To: <18915.19096.953500.582736@desk.crynwr.com>
+References: <49DCDDD3.5020406@gatech.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org> <18911.26495.878470.831483@desk.crynwr.com> <80993A52-A726-4B12-9709-EB49ED5227AE@gmail.com> <18911.30957.630987.3273@desk.crynwr.com> <20090410170411.GD12970@mercury.ccil.org> <18911.38588.55473.433257@desk.crynwr.com> <2cb10c440904101226u708a7c6bo9c2cfab200e07ef9@mail.gmail.com> <20090410194309.GB24667@mercury.ccil.org> <2cb10c440904101256v641b94ffuc1eb70c29861e377@mail.gmail.com> <18915.19096.953500.582736@desk.crynwr.com>
+Message-ID: <37470692-4D87-45BB-9250-4741588E131B@gmail.com>
+
+
+On Apr 13, 2009, at 15:22, Russ Nelson wrote:
+
+> Instead, a disproof has to work the way I first proposed: Somebody
+> gets a patent, writes patented code, distributes it under the BSD, and
+> then asserts "You have no patent license" and sues them.
+
+If that had happened, given that the target would likely be a large  
+corporate that prefers to settle, how would you know?
+
+S.
+
+
+
+From nelson at crynwr.com  Mon Apr 13 14:50:01 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Mon, 13 Apr 2009 10:50:01 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <37470692-4D87-45BB-9250-4741588E131B@gmail.com>
+References: <49DCDDD3.5020406@gatech.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org> <18911.26495.878470.831483@desk.crynwr.com> <80993A52-A726-4B12-9709-EB49ED5227AE@gmail.com> <18911.30957.630987.3273@desk.crynwr.com> <20090410170411.GD12970@mercury.ccil.org> <18911.38588.55473.433257@desk.crynwr.com> <2cb10c440904101226u708a7c6bo9c2cfab200e07ef9@mail.gmail.com> <20090410194309.GB24667@mercury.ccil.org> <2cb10c440904101256v641b94ffuc1eb70c29861e377@mail.gmail.com> <18915.19096.953500.582736@desk.crynwr.com> <37470692-4D87-45BB-9250-4741588E131B@gmail.com>
+Message-ID: <18915.20761.156183.906986@desk.crynwr.com>
+
+Simon Phipps writes: >  > On Apr 13, 2009, at 15:22, Russ Nelson wrote: >  > > Instead, a disproof has to work the way I first proposed: Somebody > > gets a patent, writes patented code, distributes it under the BSD, and > > then asserts "You have no patent license" and sues them. >  > If that had happened, given that the target would likely be a large   > corporate that prefers to settle, how would you know?
+
+Might not know if it only happened once.  But companies usually like
+to make some noise about patent matters, in case somebody has prior
+art.  If you've created an invention prior to someone else, ya kinda
+get a little grumpy if someone comes along later and tries to steal it
+from the public domain.  I know I did...
+
+But why does this whole process resemble the Mafia's protection racket?
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Cloudmade supports http://openstreetmap.org/ 
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From matthew.flaschen at gatech.edu  Mon Apr 13 20:06:42 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Mon, 13 Apr 2009 16:06:42 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <37470692-4D87-45BB-9250-4741588E131B@gmail.com>
+References: <49DCDDD3.5020406@gatech.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org> <18911.26495.878470.831483@desk.crynwr.com> <80993A52-A726-4B12-9709-EB49ED5227AE@gmail.com> <18911.30957.630987.3273@desk.crynwr.com> <20090410170411.GD12970@mercury.ccil.org> <18911.38588.55473.433257@desk.crynwr.com> <2cb10c440904101226u708a7c6bo9c2cfab200e07ef9@mail.gmail.com> <20090410194309.GB24667@mercury.ccil.org> <2cb10c440904101256v641b94ffuc1eb70c29861e377@mail.gmail.com> <18915.19096.953500.582736@desk.crynwr.com> <37470692-4D87-45BB-9250-4741588E131B@gmail.com>
+Message-ID: <49E39B52.2050609@gatech.edu>
+
+Simon Phipps wrote:
+> 
+> On Apr 13, 2009, at 15:22, Russ Nelson wrote:
+> 
+>> Instead, a disproof has to work the way I first proposed: Somebody
+>> gets a patent, writes patented code, distributes it under the BSD, and
+>> then asserts "You have no patent license" and sues them.
+> 
+> If that had happened, given that the target would likely be a large
+> corporate that prefers to settle, how would you know?
+
+First, the initial lawsuit, if any, is recorded.  Second, patent trolls
+love to publicize the fact that there was a settlement, usually
+including the relevant circumstances but omitting the dollar figure.
+This latter phenomenon occurs even without an actual lawsuit.
+
+Matt Flaschen
+
+
+
+From alesvonalem at googlemail.com  Tue Apr 14 19:56:57 2009
+From: alesvonalem at googlemail.com (ales von alem)
+Date: Tue, 14 Apr 2009 21:56:57 +0200
+Subject: MXMPL *is* open source
+Message-ID: <7e97a6340904141256u2cc920b4jce90ecb54cf25d58@mail.gmail.com>
+
+Notice 1.10:
+
+http://www.crynwr.com/cgi-bin/ezmlm-cgi?17:mss:717
+
+"ISO/IEC JTC1/SC29/WG11"
+
+ISO/EIC doesn't hold any patents.
+
+Any source code copyrighted by ISO/IEC and released under the MXMPL is
+undoubtedly open source.
+
+Some may require a third party's patent license, but that doesn't make
+the ISO/IEC's source code (released under the MXMPL) any less open
+source.
+
+IMHO.
+
+
+From bruce at perens.com  Tue Apr 14 20:11:19 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 14 Apr 2009 13:11:19 -0700
+Subject: What would work instead of the MXM public license?
+Message-ID: <49E4EDE7.7090203@perens.com>
+
+Hi Carlo,
+
+I am the creator of the Open Source Definition, and thus can shed some 
+light on the parts that might be seen as ambiguous. I apologize for 
+being on vacation during the first 40 messages of this discussion.
+
+The OSD does not distinguish between copyright, moral rights, patents, 
+contract restriction, or any other means of restricting what someone can 
+do with software. It applies equally to all of those. And thus I believe 
+that your proposed license, by making explicit that patent rights are 
+not granted for a large class of binary derivatives of the program, 
+violates most of the OSD rules, not just rule number 7.
+
+You could, however, construct a license that is
+1) fully compliant with the OSD and
+2) grants patent rights only for derivative works under that license, and
+3) spoils the potential revenue stream from non-commercially-licensed 
+derivatives as much as it can.
+
+For example, a patent grant that applies only to software under the 
+AGPL3 license, along with an AGPL3 licensed reference implementation, 
+would be sufficiently restrictive that many implementors would prefer to 
+license commercially. You can simultaneously place your reference 
+implementation under a commercial license and an Open Source license 
+like AGPL3, so that those who wish to commercially license the patents 
+have a well-defined path for doing so.
+
+It may be that the AGPL3 isn't quite what you are looking for, I suggest 
+it as an example of how far a license can go to spoil the potential 
+revenue stream for a non-commercially-licensed derivative of a program, 
+by mandating that a version that can be distributed at zero cost be made 
+available.
+
+So, what you get is the "free" world using the patent without charge, 
+and the proprietary world using it under license and paying royalties.
+
+This is not perfect, there are well-known ways for proprietary software 
+suites to contain GPL-licensed components that they make use of without 
+the creation of a derivative work. But it's the best I can offer you if 
+you want to be OSD compliant.
+
+Over the longer term I feel this is going to be moot. The free codecs 
+from various organizations are getting better, many fundamental patents 
+are expiring, and the tipping-point will soon be crossed. Then 
+royalty-free becomes a standard checklist item for codec acceptance.
+ Thanks
+ Bruce
+
+
+From bruce at perens.com  Tue Apr 14 20:20:53 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 14 Apr 2009 13:20:53 -0700
+Subject: MXMPL *is* open source
+In-Reply-To: <7e97a6340904141256u2cc920b4jce90ecb54cf25d58@mail.gmail.com>
+References: <7e97a6340904141256u2cc920b4jce90ecb54cf25d58@mail.gmail.com>
+Message-ID: <49E4F025.8070305@perens.com>
+
+Hi Ales,
+
+The fact that the copyright is owned by ISO/IEC is not important. If it 
+were, it would be easy to circumvent the requirements for Open Source 
+simply by having some sort of shell organization to own the copyright of 
+the software separate from patent rights that apply to the software.
+
+The license makes explicit the non-grant of patent rights concerning a 
+large class of binary derivative works. That's sufficient to disqualify 
+it. The contributors to the standard can't separate themselves from the 
+implicit patent grant even though there is a separate organization 
+holding the copyright. That's why they insisted on the non-grant terms 
+being present.
+
+I have suggested an alternative for them to consider that allows them to 
+continue to have a commercial revenue stream from their patents while 
+making them available for Open Source use - but only under one of the 
+more restrictive Open Source licenses. That's the best we can offer 
+them, I think.
+ Thanks
+ Bruce
+
+
+ales von alem wrote:
+> Notice 1.10:
+>
+> http://www.crynwr.com/cgi-bin/ezmlm-cgi?17:mss:717
+>
+> "ISO/IEC JTC1/SC29/WG11"
+>
+> ISO/EIC doesn't hold any patents.
+>
+> Any source code copyrighted by ISO/IEC and released under the MXMPL is
+> undoubtedly open source.
+>
+> Some may require a third party's patent license, but that doesn't make
+> the ISO/IEC's source code (released under the MXMPL) any less open
+> source.
+>
+> IMHO.
+>   
+
+
+
+From bruce at perens.com  Tue Apr 14 20:47:03 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 14 Apr 2009 13:47:03 -0700
+Subject: MXMPL *is* open source
+In-Reply-To: <7e97a6340904141338x20a07b7erf55582f178690c9b@mail.gmail.com>
+References: <7e97a6340904141256u2cc920b4jce90ecb54cf25d58@mail.gmail.com>	 <49E4F025.8070305@perens.com> <7e97a6340904141338x20a07b7erf55582f178690c9b@mail.gmail.com>
+Message-ID: <49E4F647.2010205@perens.com>
+
+ales von alem wrote:
+> Do you mean the FSF, Bruce?
+>   
+Tee hee. Don't you think FSF considers that before they accept a 
+copyright assignment? Richard and Eben are both smart enough, and I 
+remember Richard asking me for an opinion on a contribution with patent 
+risk about 10 years ago.
+ Thanks
+ Bruce
+
+
+From rick at linuxmafia.com  Tue Apr 14 20:54:29 2009
+From: rick at linuxmafia.com (Rick Moen)
+Date: Tue, 14 Apr 2009 13:54:29 -0700
+Subject: MXMPL *is* open source
+In-Reply-To: <7e97a6340904141256u2cc920b4jce90ecb54cf25d58@mail.gmail.com>
+References: <7e97a6340904141256u2cc920b4jce90ecb54cf25d58@mail.gmail.com>
+Message-ID: <20090414205429.GI8103@linuxmafia.com>
+
+> ales von alem <alesvonalem at googlemail.com>
+
+Anyone want to take side-bets on how long _this_ pseudonymous persona
+is going to last before flaming out?
+
+
+
+From bruce at perens.com  Tue Apr 14 20:58:13 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 14 Apr 2009 13:58:13 -0700
+Subject: What would work instead of the MXM public license?
+In-Reply-To: <49E4EDE7.7090203@perens.com>
+References: <49E4EDE7.7090203@perens.com>
+Message-ID: <49E4F8E5.1040607@perens.com>
+
+Bruce Perens wrote:
+> I suggest it as an example of how far a license can go to spoil the 
+> potential revenue stream for a non-commercially-licensed derivative of 
+> a program, by mandating that a version that can be distributed at zero 
+> cost be made available.
+You can also require that the creators of derivative works make a 
+similar patent grant to yours. Which would make the Open Source folks 
+happy while giving the commercial folks even more reason to commercially 
+license.
+
+Hm. I guess nobody has worked out the maximally-restrictive Open Source 
+license. Oops, I've created a monster.
+ Thanks
+ Bruce
+
+
+From bruce at perens.com  Wed Apr 15 08:56:01 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 15 Apr 2009 01:56:01 -0700
+Subject: [Fwd: Re: What would work instead of the MXM public license?]
+Message-ID: <49E5A121.9020605@perens.com>
+
+
+-------------- next part --------------
+An embedded message was scrubbed...
+From: Carlo Piana <osi-review at piana.eu>
+Subject: Re: What would work instead of the MXM public license?
+Date: Wed, 15 Apr 2009 10:10:06 +0200
+Size: 7693
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20090415/c06012d5/attachment.eml>
+
+From bruce at perens.com  Wed Apr 15 09:11:00 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 15 Apr 2009 02:11:00 -0700
+Subject: [Fwd: Re: What would work instead of the MXM public license?]
+In-Reply-To: <49E5A121.9020605@perens.com>
+References: <49E5A121.9020605@perens.com>
+Message-ID: <49E5A4A4.9030001@perens.com>
+
+
+> The point is that a strong copyleft license has many
+> downsides in the standardization process, because the reference code cannot be put into a proprietary derivative as mandated by the neutrality of the standard making process.
+This is why I suggested that you dual-license the reference code.
+> The same neutrality that
+> would vouch for mandating a zero royalty RAND conditions,
+It is reassuring to see that more national declarations, especially in 
+Europe, recognize that RF is a necessary component of an Open Standard.
+
+Are you able to further discuss the motivation of the contributors? Do 
+they really wish to gain a revenue from use of the patents _as exercised 

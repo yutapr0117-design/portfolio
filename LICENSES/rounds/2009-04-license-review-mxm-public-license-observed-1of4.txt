@@ -1,0 +1,750 @@
+From osi-review at piana.eu  Wed Apr  8 13:23:50 2009
+From: osi-review at piana.eu (OSI review)
+Date: Wed, 08 Apr 2009 15:23:50 +0200
+Subject: For approval: MXM Public license
+Message-ID: <49DCA566.2040603@piana.eu>
+
+Dear all,
+
+I am submitting this license on behalf of Mr. Leonardo Chiariglione, the
+convenor of the MPEG Working Group (ISO/IEC JTC1/SC29/WG11). MPEG is
+currently working on the ISO/IEC 23006 MPEG eXtensible Middleware (MXM)
+standard, which has reached the Committee Draft status, and this license
+is intended to cover the reference implementation of said upcoming standard.
+
+** Rationale for submission
+
+I and Mr. Chiariglione, as well as other people familiar with the
+matter, have been discussing about the possibility to make the reference
+implementation that would accompany the above mentioned upcoming
+International Standard under a Free/Open Source Software that could meet
+the concerns of the technology contributors' community (mainly, the
+multimedia software and content industry). We have come to the
+conclusion that the Mozilla Public License was the closest to meet the
+constraints, but for the patent deals into it. So we have worked to
+modify the MPL into what we called the MXM License, which has gathered
+interim consensus from the Working Group.
+
+The ISO/IEC Working Group have expressed the desire to receive the
+approval from OSI, and Mr. Chiariglione has asked me to volunteer for
+going through the process. Therefore I am submitting the license here,
+but the steward of the license is going to be Mr. Chiariglione himself,
+who receives a carbon copy of this email.
+
+As you will notice, we have removed some of the patent conditions that
+existed in the MPL. This is because none of the contributors would have
+accepted to encapsulate their patents in a FOSS license without the
+ability to ask for a license separately from the copyright. This is a
+basic tenet that is enshrined in the so-called ISO/IEC Directives for
+the development of International Standards. Some of you might know about
+my public stance against software patents and my approval to some of the
+licenses which impose implied licensing to or patent retaliation against
+all who distribute FOSS software while relying on patent protection.
+However, the sad truth is that if we did not offer a patent-agnostic
+license we would have made all efforts to have an open source reference
+implementation moot.
+
+I have insisted and obtained, however, that an explicit patent covenant
+be inserted, to the effect to exclude from any patent concern all who
+don't distribute the compiled version of the software and to those who
+compile it only for internal purposes without direct commercial
+exploitation. This covenant being irrevocable, unconditioned and
+detached from the copyright licensing conditions. I have asked myself if
+this could work and if it complied with the OSI definition. My  final
+conclusion is that if the BSD family is considered compliant, so shall
+be the MXM, as it does not condition the copyright grant to the
+obtaining of the patents, just as the BSD licenses don't deal with them.
+And insofar an implementer is confident that the part of the code it
+uses if free from the patented area, or it decided to later challenge
+the patent in case an infringement litigation is threatened, the license
+works just fine.
+
+I also have added some modification to the "litigation" section, where I
+introduced the concept of RAND patent pool. At least.
+
+** Closest OSI-Approved license: MPL
+
+See above for a discussion about the main differences with the MPL
+
+
+** Proliferation category: Special purpose licenses
+
+Please be informed that this license is conceived and intended to be
+used only to cover a specific use, possibly only extended to similar
+standards and to serve an example to ISO/IEC that a reference
+implementation could be made open source.
+
+Not for general use
+
+
+** Status of the license and my personal
+
+Despite the license being unofficially approved, we are most keen to
+receive any feedback from the reviewers and will gladly accept any
+suggestion or improvement, as long as possible. I will humbly take any
+blame for the legal mischief done and will work to sort things out.
+
+I am a lawyer qualified in Italy and before the European Court of
+Justice. I am legal counsel to the Free Software Foundation Europe, as
+well as to some Free/Open Source Software projects, and I am an
+outspoken Free Software and Digital Liberties advocate, but I am here
+acting independently from any of my appointments and solely upon
+instructions from my Client Mr. Chiariglione. None of my words shall be
+attributed to any other clients or entities to which I am publicly
+associated.
+
+I attach hereto a plaintext version of the license.
+
+Thank you for your attention.
+
+Carlo Piana
+
+========================
+Avv. Carlo Piana
+
+Piazza Castello 24 - 20121 Milan - Italy
+phone +39 02 72 00000 3
+fax +39 02 86 90 901
+http://law.piana.eu (firm)
+http://www.piana.eu (blog)
+email carlo at piana.eu
+
+**NEW** gpg/pgp public key: http://www.piana.eu/gpg
+Fingerprint 9046 9688 5465 DDF8 D712 4A7C 7F30 CB15 4580 F067
+#old key was revoked, please use the new one#
+
+Law is Freedom, and Freedom is all the rest.
+Protecting digital freedom, your rights!
+
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: w10167.txt
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20090408/21f30e39/attachment.txt>
+
+From matthew.flaschen at gatech.edu  Wed Apr  8 15:50:19 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Wed, 08 Apr 2009 11:50:19 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <49DCA566.2040603@piana.eu>
+References: <49DCA566.2040603@piana.eu>
+Message-ID: <49DCC7BB.9030500@gatech.edu>
+
+OSI review wrote:
+
+>My final conclusion is that if the BSD family is considered compliant,
+so shall
+> be the MXM, as it does not condition the copyright grant to the
+> obtaining of the patents, just as the BSD licenses don't deal with them.
+
+I don't accept this analogy.  Your license has kept MPL's "under
+intellectual property rights (other than patent or trademark)"
+disclaimer but then removed "under Patents Claims infringed by the
+making, using or selling of Original Code".  So basically, you're
+denying an implicit license like MPL, but then refusing to grant even
+the minimally required explicit license.
+
+On the other hand, BSD has "Redistribution and use in source and binary
+forms, with or without modification, are permitted".  This is a solid
+implicit patent license, and there is no attempt to disclaim it.
+
+Thus, I think this license is non-approvable in its own right, and very
+similar to unsuccessful past licenses such as Broad Institute Public License
+
+> And insofar an implementer is confident that the part of the code it
+> uses if free from the patented area, or it decided to later challenge
+> the patent in case an infringement litigation is threatened, the license
+> works just fine.
+
+Open Source licensees should not fear being sued for simply exercising
+the rights laid out in the OSD.  The OSD says nothing about being
+limited to copyright.  "You can challenge the patent in court" is
+obvious and not a consolation.  You know full well that route is
+completely infeasible for most licensees.
+
+Matt Flaschen
+
+
+From cowan at ccil.org  Wed Apr  8 16:18:38 2009
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 8 Apr 2009 12:18:38 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <49DCC7BB.9030500@gatech.edu>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu>
+Message-ID: <20090408161838.GA11497@mercury.ccil.org>
+
+Matthew Flaschen scripsit:
+
+> On the other hand, BSD has "Redistribution and use in source and binary
+> forms, with or without modification, are permitted".  This is a solid
+> implicit patent license, and there is no attempt to disclaim it.
+
+I'm very skeptical of this talk of implicit patent licenses.  For years
+we assumed that the MIT license had an IPL because of the word "use",
+and along comes MIT and disclaims that absolutely.
+
+I don't think you can produce any language in the OSD that requires a
+patent license as a condition of being open source.  OSD #3, per contra,
+clearly requires a copyright license through the term "modifications
+and derived works".
+
+> Thus, I think this license is non-approvable in its own right, and very
+> similar to unsuccessful past licenses such as Broad Institute Public License
+
+The BIPL tried to *retroactively* exclude patent rights that the
+license had granted, on the grounds that MIT couldn't keep track of what
+conflicting exclusive rights it might have already granted.
+
+> Open Source licensees should not fear being sued for simply exercising
+> the rights laid out in the OSD.  The OSD says nothing about being
+> limited to copyright.  "You can challenge the patent in court" is
+> obvious and not a consolation.  You know full well that route is
+> completely infeasible for most licensees.
+
+In a world of submarine patents, *all* programmers must be prudent
+about the risk of exercising the rights laid out in the OSD or anywhere
+else.  It is hardly possible to write code at all without stepping on
+some wrongly-decided patent.
+
+-- 
+A witness cannot give evidence of his           John Cowan
+age unless he can remember being born.          cowan at ccil.org --Judge Blagden                               http://www.ccil.org/~cowan
+
+
+From matthew.flaschen at gatech.edu  Wed Apr  8 16:29:38 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Wed, 08 Apr 2009 12:29:38 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <20090408161838.GA11497@mercury.ccil.org>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <20090408161838.GA11497@mercury.ccil.org>
+Message-ID: <49DCD0F2.9080405@gatech.edu>
+
+John Cowan wrote:
+> I'm very skeptical of this talk of implicit patent licenses.
+
+Implied/implicit patent licenses are well-documented.  See
+http://www.wilmerhale.com/publications/whPubsDetail.aspx?publication=2326
+and http://www.patentlyo.com/patent/2008/04/implied-license.html for
+just a couple good discussions.
+ For years
+> we assumed that the MIT license had an IPL because of the word "use",
+> and along comes MIT and disclaims that absolutely.
+
+They don't have any right to disclaim the text of their license.
+
+> I don't think you can produce any language in the OSD that requires a
+> patent license as a condition of being open source.  OSD #3, per contra,
+> clearly requires a copyright license through the term "modifications
+> and derived works".
+
+It says nothing about copyright.  It says what the user must be able to
+do, period.
+
+>> Thus, I think this license is non-approvable in its own right, and very
+>> similar to unsuccessful past licenses such as Broad Institute Public License
+> 
+> The BIPL tried to *retroactively* exclude patent rights that the
+> license had granted, on the grounds that MIT couldn't keep track of what
+> conflicting exclusive rights it might have already granted.
+
+There was nothing solely retroactive about it.  2.1 of Broad was almost
+exactly the same.  It removed the explicit patent license, while
+continuing to disclaim an implicit license.
+
+> In a world of submarine patents, *all* programmers must be prudent
+> about the risk of exercising the rights laid out in the OSD or anywhere
+> else.
+
+Agreed, but an open source licensee should not fear being sued directly
+by the licensor, over patent claims that are essential to any use of the
+program.
+
+Matt Flaschen
+
+
+From tcallawa at redhat.com  Wed Apr  8 16:32:17 2009
+From: tcallawa at redhat.com (Tom "spot" Callaway)
+Date: Wed, 08 Apr 2009 12:32:17 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <20090408161838.GA11497@mercury.ccil.org>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <20090408161838.GA11497@mercury.ccil.org>
+Message-ID: <49DCD191.2040309@redhat.com>
+
+On 04/08/2009 12:18 PM, John Cowan wrote:
+> In a world of submarine patents, *all* programmers must be prudent
+> about the risk of exercising the rights laid out in the OSD or anywhere
+> else.  It is hardly possible to write code at all without stepping on
+> some wrongly-decided patent.
+
+While this is true, this is the first instance of a license that I've
+ever seen where it is being specifically drafted to remove patent
+protection, and intended for use only in a highly patented space (MPEG).
+
+To give such a license OSI approval would only serve to encourage such
+practices, rather than condemn them.
+
+"Yes, this playground is full of hidden land mines. But it is
+state-certified as handicapped accessible!"
+
+Tom Callaway, Fedora Legal
+
+
+
+From osi-review at piana.eu  Wed Apr  8 17:10:27 2009
+From: osi-review at piana.eu (Carlo Piana)
+Date: Wed, 08 Apr 2009 19:10:27 +0200
+Subject: For approval: MXM Public license
+In-Reply-To: <49DCD191.2040309@redhat.com>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <20090408161838.GA11497@mercury.ccil.org> <49DCD191.2040309@redhat.com>
+Message-ID: <49DCDA83.5090304@piana.eu>
+
+Tom "spot" Callaway ha scritto:
+> On 04/08/2009 12:18 PM, John Cowan wrote:
+>   
+>> In a world of submarine patents, *all* programmers must be prudent
+>> about the risk of exercising the rights laid out in the OSD or anywhere
+>> else.  It is hardly possible to write code at all without stepping on
+>> some wrongly-decided patent.
+>>     
+>
+> While this is true, this is the first instance of a license that I've
+> ever seen where it is being specifically drafted to remove patent
+> protection, and intended for use only in a highly patented space (MPEG).
+>
+> To give such a license OSI approval would only serve to encourage such
+> practices, rather than condemn them.
+>
+> "Yes, this playground is full of hidden land mines. But it is
+> state-certified as handicapped accessible!"
+>
+> Tom Callaway, Fedora Legal
+>
+>   
+Matthew, Tom, all,
+
+[please disregard my other messages, which have not hit the list!
+entirely my fault! Including the one which said to disregard the
+previous ones for the same reason. :-(( ]
+
+Thank for your answers. You have hit of course the nodal point. Whether
+a license that clearly separates the copyright licensing from the patent
+licensing is compliant with the OSD. This is the very question that I
+have asked myself when I was requested to submit the license to OSI
+(initially I had drafted the license slightly differently).
+
+If the answer is "in order to be OSI certified the license should grant
+-- explicitly or implicitly -- the right to use the patented stuff in
+it", then the discussion is over because the avoidance of such licensing
+has been chartered to the license since the beginning, and thus there is
+*no* way to produce an ISO/IEC reference implementation under an OSI
+certified license.
+
+I guess this should be reflected in the OSD, though, not only in the
+opinion of the discussants.
+
+I remain skeptical about the notion that the BSD provides a patent
+license at all, leave alone a "solid" implicit patent license. I think I
+am not alone in this, as some distinguished expert like Dan Ravicher, or
+those who have conceived the Clear BSD license, have different opinions.
+Same appears to be the case for some of the members of this list [0].
+Maybe this is beyond the point, but I don't buy this argument at face
+value. If the BSD remains silent, then at least it allows a great deal
+of ambiguity (I am not a big fan of BSD or of permissive licenses in
+general, I guess it is clear, I am more of a copyleft guy).
+
+My position is that software patents should not exist *at all*, and that
+all Free and Open Source Software License ideally should have software
+patents anti-bodies insofar and until software patents exist. I have
+advocated and praised that GPL v.3 included an express patent grant.
+This is however impossible in the examined field of endeavour (of course
+until the software patent system will be abolished).
+
+I would appreciate any further thought.
+
+With best regards,
+
+Carlo
+
+
+
+
+[0] I am perfectly conscious that we are not discussing BSD but patent
+as opposed and as interfering with copyright licenses and how this can
+be written -- or not written -- in an OSD compliant license, therefore
+the discussion is off-mark if we follow this route.
+
+
+
+
+From matthew.flaschen at gatech.edu  Wed Apr  8 17:24:35 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Wed, 08 Apr 2009 13:24:35 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <49DCD7DF.4000406@piana.eu>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu>
+Message-ID: <49DCDDD3.5020406@gatech.edu>
+
+Carlo wrote:
+> If the answer is "in order to be OSI certified the license should grant
+> -- explicitly or implicitly -- the right to use the patented stuff in
+> it", then the discussion is over because the avoidance of such licensing
+> has been chartered to the license since the beginning
+
+There is no way to produce a FOSS license that explicitly denies patent
+rights.
+
+> I remain skeptical, though, about the notion that the BSD provides a
+> patent license at all, leave alone a "solid" implicit patent license. I
+> think I am not alone in this, as some distinguished expert like Dan
+> Ravicher, or those who have conceived the Clear BSD license, have
+> different opinions. Maybe this is beyond the point, but I don't buy this
+> argument at face value. If the BSD remains silent, then at least it
+> allows a great deal of ambiguity.
+
+Even if it were true that BSD is ambiguous, your license is worse than
+ambiguous because it explicitly denies the needed rights.  As far as
+Clear BSD (http://labs.metacarta.com/license-explanation.html), it's
+obvious that their license is not motivated by a desire for clarity, but
+rather a desire to avoid a commonly-understood interpretation of the
+actual BSD license.
+
+If it were true that "it is widely understood that the BSD probably does
+not grant patent rights anyway", there would be no point to Clear BSD!
+Their argument is self-defeating.
+
+> Of course my position is that software patents should not exist *at
+> all*, and that all Free and Open Source Software License should have
+> software patents anti-bodies insofar and until software patents exist.
+
+Your stated position is not particularly relevant.  What is relevant is
+the text of the license, which by your own admission does not follow
+your declared principles.
+
+Matt Flaschen
+
+
+From rfontana at redhat.com  Wed Apr  8 17:43:16 2009
+From: rfontana at redhat.com (Richard Fontana)
+Date: Wed, 8 Apr 2009 13:43:16 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <49DCDA83.5090304@piana.eu>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <20090408161838.GA11497@mercury.ccil.org> <49DCD191.2040309@redhat.com> <49DCDA83.5090304@piana.eu>
+Message-ID: <20090408134316.6a7f791e@calliope>
+
+On Wed, 08 Apr 2009 19:10:27 +0200
+Carlo Piana <osi-review at piana.eu> wrote:
+
+> If the answer is "in order to be OSI certified the license should
+> grant -- explicitly or implicitly -- the right to use the patented
+> stuff in it", then the discussion is over because the avoidance of
+> such licensing has been chartered to the license since the beginning,
+> and thus there is *no* way to produce an ISO/IEC reference
+> implementation under an OSI certified license.
+> 
+> I guess this should be reflected in the OSD, though, not only in the
+> opinion of the discussants.
+> 
+> I remain skeptical about the notion that the BSD provides a patent
+> license at all, leave alone a "solid" implicit patent license. I
+> think I am not alone in this, as some distinguished expert like Dan
+> Ravicher, or those who have conceived the Clear BSD license, have
+> different opinions. Same appears to be the case for some of the
+> members of this list [0]. Maybe this is beyond the point, but I don't
+> buy this argument at face value. If the BSD remains silent, then at
+> least it allows a great deal of ambiguity (I am not a big fan of BSD
+> or of permissive licenses in general, I guess it is clear, I am more
+> of a copyleft guy).
+
+I think the problem here is that this license clearly puts the user on
+notice that he/she may need to pay patent royalties to the copyright
+licensor for exercising rights that OSI-approved licences are supposed
+to provide.  
+
+If a copyright holder licenses some software (including source code of
+course) under the BSD license, and then that copyright holder (not some
+unrelated third party) demands patent license fees from his BSD
+licensees for "redistribution and use" of that same software, and that
+software, under those circumstances, is considered "Open Source" by
+reference to the Open Source Definition merely because, in isolation,
+the BSD license meets the Open Source Definition, then perhaps there is
+something missing from the Open Source Definition. 
+
+For the most part the OSD refers to licenses, which I think overlooks
+the reality (at least as I see it) that whether something is really
+FOSS may be affected by circumstances external to the license itself.
+This is certainly the way we analyze such matters at Red Hat, and in
+the Fedora Project. In one respect the OSD recognizes this fact: The OSD
+prevents one from calling "Open Source" some software for which source
+code is not provided, even if the license formally meets OSD 1 and
+3-10. Perhaps the OSD ought to be revised to prevent one from calling
+software "Open Source" if the licensor's grant of rights is
+contradicted by more or less simultaneous actions by that licensor
+(using copyright law, patent law, or otherwise).  This of course is a
+problem that the various versions of the GPL try to solve explicitly in
+the license. 
+
+- RF
+
+
+
+From chuck at codefab.com  Wed Apr  8 18:06:37 2009
+From: chuck at codefab.com (Chuck Swiger)
+Date: Wed, 8 Apr 2009 11:06:37 -0700
+Subject: For approval: MXM Public license
+In-Reply-To: <49DCDA83.5090304@piana.eu>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <20090408161838.GA11497@mercury.ccil.org> <49DCD191.2040309@redhat.com> <49DCDA83.5090304@piana.eu>
+Message-ID: <29597AA2-811D-4B27-85CB-D5507F36923D@codefab.com>
+
+Hi, Carlo--
+
+On Apr 8, 2009, at 10:10 AM, Carlo Piana wrote:
+> If the answer is "in order to be OSI certified the license should  
+> grant
+> -- explicitly or implicitly -- the right to use the patented stuff in
+> it", then the discussion is over because the avoidance of such  
+> licensing
+> has been chartered to the license since the beginning, and thus  
+> there is
+> *no* way to produce an ISO/IEC reference implementation under an OSI
+> certified license.
+>
+> I guess this should be reflected in the OSD, though, not only in the
+> opinion of the discussants.
+
+It is-- see OSD #1 & #7, although the notion that an open source  
+license must convey all needed permissions to use as well as modify  
+and redistribute changes to the software being licensed is pretty  
+fundamental.  As you said in your initial message:
+
+"As you will notice, we have removed some of the patent conditions that
+existed in the MPL. This is because none of the contributors would have
+accepted to encapsulate their patents in a FOSS license without the
+ability to ask for a license separately from the copyright."
+
+If these contributors explicitly intend to require (or retain the  
+capability to require) a separate license for their patented material,  
+which is not already conveyed by the MXM, then that contradicts OSD #7:
+
+"Distribution of License
+The rights attached to the program must apply to all to whom the  
+program is redistributed without the need for execution of an  
+additional license by those parties."
+
+...and suggests that the contributors don't really intend to open- 
+source their stuff in the first place.  Some of the other terms, such  
+as in MXM 2.1: "Patent Covenant is however extended to the compilation  
+and use of a compiled version (as Executable) of this software for  
+study and evaluation purposes only, with the exclusion of distribution  
+of compiled code or any other commercial exploitation."
+
+...confirm this impression, as this contradicts OSD #6.  Accordingly,  
+I recommend rejection of the MXM.
+
+Regards,
+-- 
+-Chuck
+
+
+
+From Nigel.Tzeng at jhuapl.edu  Wed Apr  8 18:11:05 2009
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Wed, 8 Apr 2009 14:11:05 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <49DCDDD3.5020406@gatech.edu>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu>
+Message-ID: <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu>
+
+>Carlo wrote:
+>> If the answer is "in order to be OSI certified the license should grant
+>> -- explicitly or implicitly -- the right to use the patented stuff in
+>> it", then the discussion is over because the avoidance of such licensing
+>> has been chartered to the license since the beginning
+
+>There is no way to produce a FOSS license that explicitly denies patent
+>rights.
+
+Mmmm...not providing patent rights is the same thing in as much as the
+result is the same.
+
+The question is whether OSD #1 requires patent grants and if the patent
+covenant in 2.1 provides sufficient rights to meet OSD #1 and #7 (I'm thinking 
+no). The patent clause itself probably fails OSD #6.
+
+Eh...ultimately an ISO reference implementation will get used with or
+without OSI approval as "open source".  I'm not sure what it buys ISO
+given that it wouldn't be GPL compatible anyway and not likely to 
+even be usable by BSD projects without patent grants anyway.
+
+>If it were true that "it is widely understood that the BSD probably does
+>not grant patent rights anyway", there would be no point to Clear BSD!
+>Their argument is self-defeating.
+
+I don't know that any aspect of implicit vs. explicit patent rights is 
+widely understood by FOSS developers, period.  Therefore it's probably
+hard to argue either way what is or isn't widely "understood".
+
+Nigel
+
+
+
+From lrosen at rosenlaw.com  Wed Apr  8 18:16:55 2009
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Wed, 8 Apr 2009 11:16:55 -0700
+Subject: For approval: MXM Public license
+In-Reply-To: <20090408134316.6a7f791e@calliope>
+References: <49DCA566.2040603@piana.eu><49DCC7BB.9030500@gatech.edu><20090408161838.GA11497@mercury.ccil.org><49DCD191.2040309@redhat.com><49DCDA83.5090304@piana.eu> <20090408134316.6a7f791e@calliope>
+Message-ID: <797DD96352794389A7ACC9FE08BABA92@LROSENTOSHIBA>
+
+Richard Fontana wrote:
+> Perhaps the OSD ought to be revised to prevent one from calling
+> software "Open Source" if the licensor's grant of rights is
+> contradicted by more or less simultaneous actions by that licensor
+> (using copyright law, patent law, or otherwise).
+
+What about OSD 7, "Distribution of License": 
+ The rights attached to the program must apply to all  to whom the program is redistributed without the need for execution of an additional license by those parties.
+
+I read this as covering the MXM situation, unless under MXM "the rights
+attached to the program" do not include the rights to make and distribute
+free open source copies and derivative works, in which case the MXM violates
+other parts of the OSD. Why should it matter if the violation is explicit or
+implicit?
+
+/Larry 
+
+
+
+
+> -----Original Message-----
+> From: Richard Fontana [mailto:rfontana at redhat.com]
+> Sent: Wednesday, April 08, 2009 10:43 AM
+> To: license-review at opensource.org
+> Subject: Re: For approval: MXM Public license
+> 
+> On Wed, 08 Apr 2009 19:10:27 +0200
+> Carlo Piana <osi-review at piana.eu> wrote:
+> 
+> > If the answer is "in order to be OSI certified the license should
+> > grant -- explicitly or implicitly -- the right to use the patented
+> > stuff in it", then the discussion is over because the avoidance of
+> > such licensing has been chartered to the license since the beginning,
+> > and thus there is *no* way to produce an ISO/IEC reference
+> > implementation under an OSI certified license.
+> >
+> > I guess this should be reflected in the OSD, though, not only in the
+> > opinion of the discussants.
+> >
+> > I remain skeptical about the notion that the BSD provides a patent
+> > license at all, leave alone a "solid" implicit patent license. I
+> > think I am not alone in this, as some distinguished expert like Dan
+> > Ravicher, or those who have conceived the Clear BSD license, have
+> > different opinions. Same appears to be the case for some of the
+> > members of this list [0]. Maybe this is beyond the point, but I don't
+> > buy this argument at face value. If the BSD remains silent, then at
+> > least it allows a great deal of ambiguity (I am not a big fan of BSD
+> > or of permissive licenses in general, I guess it is clear, I am more
+> > of a copyleft guy).
+> 
+> I think the problem here is that this license clearly puts the user on
+> notice that he/she may need to pay patent royalties to the copyright
+> licensor for exercising rights that OSI-approved licences are supposed
+> to provide.
+> 
+> If a copyright holder licenses some software (including source code of
+> course) under the BSD license, and then that copyright holder (not some
+> unrelated third party) demands patent license fees from his BSD
+> licensees for "redistribution and use" of that same software, and that
+> software, under those circumstances, is considered "Open Source" by
+> reference to the Open Source Definition merely because, in isolation,
+> the BSD license meets the Open Source Definition, then perhaps there is
+> something missing from the Open Source Definition.
+> 
+> For the most part the OSD refers to licenses, which I think overlooks
+> the reality (at least as I see it) that whether something is really
+> FOSS may be affected by circumstances external to the license itself.
+> This is certainly the way we analyze such matters at Red Hat, and in
+> the Fedora Project. In one respect the OSD recognizes this fact: The OSD
+> prevents one from calling "Open Source" some software for which source
+> code is not provided, even if the license formally meets OSD 1 and
+> 3-10. Perhaps the OSD ought to be revised to prevent one from calling
+> software "Open Source" if the licensor's grant of rights is
+> contradicted by more or less simultaneous actions by that licensor
+> (using copyright law, patent law, or otherwise).  This of course is a
+> problem that the various versions of the GPL try to solve explicitly in
+> the license.
+> 
+> - RF
+
+
+
+From rfontana at redhat.com  Wed Apr  8 18:38:58 2009
+From: rfontana at redhat.com (Richard Fontana)
+Date: Wed, 8 Apr 2009 14:38:58 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <797DD96352794389A7ACC9FE08BABA92@LROSENTOSHIBA>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <20090408161838.GA11497@mercury.ccil.org> <49DCD191.2040309@redhat.com> <49DCDA83.5090304@piana.eu> <20090408134316.6a7f791e@calliope> <797DD96352794389A7ACC9FE08BABA92@LROSENTOSHIBA>
+Message-ID: <20090408143858.20df67d0@calliope>
+
+On Wed, 8 Apr 2009 11:16:55 -0700
+"Lawrence Rosen" <lrosen at rosenlaw.com> wrote:
+
+> Richard Fontana wrote:
+> > Perhaps the OSD ought to be revised to prevent one from calling
+> > software "Open Source" if the licensor's grant of rights is
+> > contradicted by more or less simultaneous actions by that licensor
+> > (using copyright law, patent law, or otherwise).
+> 
+> What about OSD 7, "Distribution of License": 
+> 
+>    The rights attached to the program must apply to all 
+>    to whom the program is redistributed without the need
+>    for execution of an additional license by those parties.
+> 
+> I read this as covering the MXM situation, unless under MXM "the
+> rights attached to the program" do not include the rights to make and
+> distribute free open source copies and derivative works, in which
+> case the MXM violates other parts of the OSD. Why should it matter if
+> the violation is explicit or implicit?
+
+Possibly. I had overlooked that. I am not sure how to read "the rights
+attached to the program". 
+
+The OSI's annotated OSD
+http://www.opensource.org/docs/definition.php
+gives the example of requiring a separate NDA, which seems analogous.
+ - RF
+
+
+
+From matthew.flaschen at gatech.edu  Wed Apr  8 18:55:53 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Wed, 08 Apr 2009 14:55:53 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu>
+Message-ID: <49DCF339.4050607@gatech.edu>
+
+Tzeng, Nigel H. wrote:
+>> There is no way to produce a FOSS license that explicitly denies patent
+>> rights.
+> 
+> Mmmm...not providing patent rights is the same thing in as much as the
+> result is the same.
+
+Right, and every OSI-approved license provides patent rights, not
+withstanding the efforts by some to muddy the waters.
+
+> The question is whether OSD #1 requires patent grants
+
+No provision of the OSD /explicitly/ requires any specific grant of
+intellectual property.  There is no mention of copyright, patent, or
+trademark in the OSD.  So saying, the OSD doesn't require patent grants
+makes no sense. It doesn't require copyright license grants explicitly
+either.  In practice, /both/ copyright and patent rights must be granted
+in order to ensure the actions listed in the OSD are possible.
+
+> Eh...ultimately an ISO reference implementation will get used with or
+> without OSI approval as "open source".
+
+If the submitter doesn't care about OSI approval they're free to leave. But OSI shouldn't weaken its standards on the grounds of
+"inevitability" (though it's far from inevitable that a given ISO
+standard becomes popular).
