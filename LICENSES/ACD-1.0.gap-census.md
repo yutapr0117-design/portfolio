@@ -289,6 +289,14 @@ gap は**許諾の不在**ではなく**明示の不在**であり、4 条の文
 
 **逆側**: 0 は「及ばない」ではない。*deal in the Software without restriction*（MIT-0）のような無限定の文言がデータベース権に及ぶ読みは成り立つ。主張できるのは**名指しの不在**だけである。
 
+### 補助 —— 人格権（ACD-1.0 §12）
+
+- 人格権（`moral right(s)` / `droit moral`）に触れる本: **2**（`EUPL-1.1`、`EUPL-1.2`）
+- `EUPL-1.2`: *"In the countries where moral rights apply, the Licensor waives his right to exercise his moral right to the extent allowed by law"*
+
+**両面**: **有利** —— 人格権の不行使を条文に書いたライセンスが承認されている。**それが審査でどう論じられたかは読んでいない**ので、「人格権条項は問題にされない」とまでは言わない。
+**不利** —— §12 の「放棄できる法域では放棄・できない法域では不行使」という構造は新規ではない。§12 が EUPL に足しているのは**不行使の相手方の明示（受領者と下流）と承継人の拘束（§12.4）**であって、発想ではない。
+
 ## 我々に不利な材料（まとめ）
 
 1. **(b) は連言でしか立たない。** 許容型 ＋ 明示特許は `BSD-2-Clause-Patent` / `BlueOak-1.0.0` / `UPL-1.0` が既に持つ。
