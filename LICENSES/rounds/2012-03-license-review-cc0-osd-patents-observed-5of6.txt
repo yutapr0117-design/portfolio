@@ -1,0 +1,713 @@
+Source:   https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-March.txt
+Fetched:  2026-09-25T04:40Z（ブラウザ相当の UA）
+Thread:   CC0 incompliant with OSD on patents, [was: MXM compared to CC0 ] —— 全 69 通
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **我々の gap 主張（公有化型ツールにおける明示的特許許諾）が依拠している当の議論で、
+          ドシエは 2026-09-25 まで 1 行も引いていなかった**（against.md #233）。
+          **1,000 行の上限（Check 365）を越えるため、メッセージ境界で 6 部に分けてある。
+          本文は無改変で、部をまたいで結合すれば元の連続になる。**
+          これは 5/6 部（11 通）。
+          読みは LICENSES/ACD-1.0.against.md #233 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From alexander.terekhov at gmail.com  Sat Mar 10 17:24:01 2012
+From: alexander.terekhov at gmail.com (Alexander Terekhov)
+Date: Sat, 10 Mar 2012 18:24:01 +0100
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <Pine.BSM.4.64L.1203091654500.24179@herc.mirbsd.org>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+	<03be01ccfd8e$852d65b0$8f883110$@com>
+	<CALMwxMYKuNkUK7LD3G_AovG8Ophii_G9mHrZqL_oekbpw1DCWQ@mail.gmail.com>
+	<Pine.BSM.4.64L.1203091654500.24179@herc.mirbsd.org>
+Message-ID: <CALMwxMbFvwG7pN-CKCU5C=Tb=k84C-fdSP8nus66XfHS2=varw@mail.gmail.com>
+
+On Fri, Mar 9, 2012 at 5:55 PM, Thorsten Glaser <tg at mirbsd.de> wrote:
+> Alexander Terekhov dixit:
+>
+>>"Dedicated Works
+>>
+>>If, upon viewing a work, you see words such as, ?This work is
+>>dedicated to the public domain,? then it is free for you to use. "
+>
+> This is a lie. It may be free for you to use, but not for me.
+
+Who told you that?
+
+According to your email address you live in .de just like me:
+
+I currently live in Germany nearby Stuttgart and OLG Stuttgart (the
+highest appeals court of BW land apart from BGH and BVerfG) ruled long
+ago:
+
+(Kein Schutz von Public Domain Software, Urteil vom 22. Dezember 1993
+(4 U 223/93) nach Hrsg. RA Dr. Thomas Graefe: Computer und Recht;
+Verlag Dr. Otto Schmidt KG, K?ln 10. Jahrgang 1994, Seiten 743, 744)
+
+"Aufgrund des Vertriebs der beiden Spiele durch die Kl?gerin als nach
+ihrem Vorbringen ausschlie?licher Nutzungsberechtigter unter der
+Bezeichnung als PD durfte die Beklagte -- wie auch jeder andere, sogar
+zwischengeschaltete Bezieher der Zeitschriften der Kl?gerin -- darauf
+vertrauen, da? die Kl?gerinn zumindest auf eine Geltendmachung eines
+Urheberrechts oder ausschlie?lichen Nutzungsrechts verzichtete,
+jedenfalls soweit es um die unver?nderte Vervielf?ltigung und Nutzung
+der Programme ging."
+
+"Zwar ist eine scharfe Abgrenzung der in diesem Zusammenhang
+gebrauchten Begriffe PD, freeware und shareware aus der Literatur
+nicht eindeutig entnehmbar, und es wird ausgef?hrt, da? die ganze
+Entwicklung auf diesem Markt sich im Flu? befinde. Zweifelsfrei
+gemeinsam ist f?r die Autoren jedoch der Ausgangspunkt, da? PD
+zun?chst eine unentgeltliche und frei verbreitete Software
+bezeichnet."
+
+"Auch die Rechtsprechung hat den Begriff PD bislang im vorgenannten
+Sinn verstanden. So hat das OLG Frankfurt in einem Urteil vom
+20.4.1989 (CR 1989, 905) den Begriff PD als urheberrechtlich von
+vornherein nicht gesch?tztes Werk bzw. als dem freien Zugriff
+unterliegendes Programm verstanden."
+
+"Es konnte somit dahingestellt bleiben, ob die streitgegenst?ndlichen
+beiden Computerspiele (Softwareprogramme) ... grunds?tzlich
+Urheberrechtsschutz genie?en."
+
+"Im vorliegenden einstweiligen Verf?gungsverfahren war davon
+auszugehen, da? durch den Gebrauch des Begriffes PD auf die
+Geltendmachung etwaiger entsprechender Anspr?che gegen eine Person,
+welche das Programm vervielf?ltigt und weiter vertreibt, von
+vornherein verzichtet wird."
+
+I'm not aware of any other German court contradicting OLG Stuttgart in
+this respect... do you have a link/evidence to back your claim that
+"This is a lie. It may be free for you to use, but not for me." ????
+
+
+
+
+From alexander.terekhov at gmail.com  Sat Mar 10 18:07:16 2012
+From: alexander.terekhov at gmail.com (Alexander Terekhov)
+Date: Sat, 10 Mar 2012 19:07:16 +0100
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <20314.57786.961493.497830@desk.crynwr.com>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<20314.57786.961493.497830@desk.crynwr.com>
+Message-ID: <CALMwxMYho5mbT180uJ8q52NJ5L1qoWMWUGAWOpVvmWrzRHYpuQ@mail.gmail.com>
+
+On Sat, Mar 10, 2012 at 6:08 AM, Russ Nelson <nelson at crynwr.com> wrote:
+[...]
+> Now, in this particular case, Mr. Moen has pointed to a web page of
+> his which addresses Dr. Bernstein's arguments. There is NO POINT in
+> copying from Dr. Bernstein's web page arguments which have already
+> been replied-to. You should look at Mr. Moen's page, and address his
+
+I've looked at
+
+http://linuxmafia.com/faq/Licensing_and_Law/public-domain.html
+
+and I can tell you that anyone with even a little skill to perform
+research can find out that Mr. Moen is at best deeply mistaken.
+
+
+
+
+From tg at mirbsd.de  Sat Mar 10 18:13:55 2012
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Sat, 10 Mar 2012 18:13:55 +0000 (UTC)
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <CALMwxMbFvwG7pN-CKCU5C=Tb=k84C-fdSP8nus66XfHS2=varw@mail.gmail.com>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+	<03be01ccfd8e$852d65b0$8f883110$@com>
+	<CALMwxMYKuNkUK7LD3G_AovG8Ophii_G9mHrZqL_oekbpw1DCWQ@mail.gmail.com>
+	<Pine.BSM.4.64L.1203091654500.24179@herc.mirbsd.org>
+	<CALMwxMbFvwG7pN-CKCU5C=Tb=k84C-fdSP8nus66XfHS2=varw@mail.gmail.com>
+Message-ID: <Pine.BSM.4.64L.1203101813110.24179@herc.mirbsd.org>
+
+Alexander Terekhov dixit:
+
+>vertrauen, da? die Kl?gerinn zumindest auf eine Geltendmachung eines
+>Urheberrechts oder ausschlie?lichen Nutzungsrechts verzichtete,
+>jedenfalls soweit es um die unver?nderte Vervielf?ltigung und Nutzung
+>der Programme ging."
+
+ND isn???t Open Source, though.
+
+Furthermore, think of liabilities.
+
+bye,
+//mirabilos
+-- 
+  ???Having a smoking section in a restaurant is like having
+          a peeing section in a swimming pool.???
+						-- Edward Burr
+
+
+
+
+From alexander.terekhov at gmail.com  Sat Mar 10 18:38:26 2012
+From: alexander.terekhov at gmail.com (Alexander Terekhov)
+Date: Sat, 10 Mar 2012 19:38:26 +0100
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <Pine.BSM.4.64L.1203101813110.24179@herc.mirbsd.org>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+	<03be01ccfd8e$852d65b0$8f883110$@com>
+	<CALMwxMYKuNkUK7LD3G_AovG8Ophii_G9mHrZqL_oekbpw1DCWQ@mail.gmail.com>
+	<Pine.BSM.4.64L.1203091654500.24179@herc.mirbsd.org>
+	<CALMwxMbFvwG7pN-CKCU5C=Tb=k84C-fdSP8nus66XfHS2=varw@mail.gmail.com>
+	<Pine.BSM.4.64L.1203101813110.24179@herc.mirbsd.org>
+Message-ID: <CALMwxMbS-=ZKjB9YvC-+y5cpkM+LDmgm-GSW2nn1=KVCU8CDoA@mail.gmail.com>
+
+2012/3/10 Thorsten Glaser <tg at mirbsd.de>:
+> Alexander Terekhov dixit:
+>
+>>vertrauen, da? die Kl?gerinn zumindest auf eine Geltendmachung eines
+>>Urheberrechts oder ausschlie?lichen Nutzungsrechts verzichtete,
+>>jedenfalls soweit es um die unver?nderte Vervielf?ltigung und Nutzung
+>>der Programme ging."
+>
+> ND isn?t Open Source, though.
+
+Please explain in details what do you mean by proclaiming that "ND
+isn?t Open Source",
+
+I mean:
+
+ND stans for what?
+
+>
+> Furthermore, think of liabilities.
+
+Likewise, details, please.
+
+
+
+
+From tg at mirbsd.de  Sat Mar 10 18:51:46 2012
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Sat, 10 Mar 2012 18:51:46 +0000 (UTC)
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <CALMwxMbS-=ZKjB9YvC-+y5cpkM+LDmgm-GSW2nn1=KVCU8CDoA@mail.gmail.com>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+	<03be01ccfd8e$852d65b0$8f883110$@com>
+	<CALMwxMYKuNkUK7LD3G_AovG8Ophii_G9mHrZqL_oekbpw1DCWQ@mail.gmail.com>
+	<Pine.BSM.4.64L.1203091654500.24179@herc.mirbsd.org>
+	<CALMwxMbFvwG7pN-CKCU5C=Tb=k84C-fdSP8nus66XfHS2=varw@mail.gmail.com>
+	<Pine.BSM.4.64L.1203101813110.24179@herc.mirbsd.org>
+	<CALMwxMbS-=ZKjB9YvC-+y5cpkM+LDmgm-GSW2nn1=KVCU8CDoA@mail.gmail.com>
+Message-ID: <Pine.BSM.4.64L.1203101849540.24179@herc.mirbsd.org>
+
+Alexander Terekhov dixit:
+
+>> ND isn?t Open Source, though.
+>
+>Please explain in details what do you mean by proclaiming that "ND
+>isn?t Open Source",
+
+Oh sorry. No Derivatives. The text you cited was clear on applying
+only to unmodified works.
+
+>> Furthermore, think of liabilities.
+>
+>Likewise, details, please.
+
+Disclaimers in copyright licences usually exist to reduce them to
+a minimum. Who???s liable for PD stuff? Also, if I want to include a
+???PD??? work in another work, which I publish under an OSS licence,
+this may be an issue.
+
+bye,
+//mirabilos
+-- 
+  ???Having a smoking section in a restaurant is like having
+          a peeing section in a swimming pool.???
+						-- Edward Burr
+
+
+
+
+From alexander.terekhov at gmail.com  Sat Mar 10 20:04:57 2012
+From: alexander.terekhov at gmail.com (Alexander Terekhov)
+Date: Sat, 10 Mar 2012 21:04:57 +0100
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <Pine.BSM.4.64L.1203101849540.24179@herc.mirbsd.org>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+	<03be01ccfd8e$852d65b0$8f883110$@com>
+	<CALMwxMYKuNkUK7LD3G_AovG8Ophii_G9mHrZqL_oekbpw1DCWQ@mail.gmail.com>
+	<Pine.BSM.4.64L.1203091654500.24179@herc.mirbsd.org>
+	<CALMwxMbFvwG7pN-CKCU5C=Tb=k84C-fdSP8nus66XfHS2=varw@mail.gmail.com>
+	<Pine.BSM.4.64L.1203101813110.24179@herc.mirbsd.org>
+	<CALMwxMbS-=ZKjB9YvC-+y5cpkM+LDmgm-GSW2nn1=KVCU8CDoA@mail.gmail.com>
+	<Pine.BSM.4.64L.1203101849540.24179@herc.mirbsd.org>
+Message-ID: <CALMwxMZFzz48tezq-cmuPbSPKWNOtKm5xV+Zey8wsOUY_CmJRQ@mail.gmail.com>
+
+On Sat, Mar 10, 2012 at 7:51 PM, Thorsten Glaser <tg at mirbsd.de> wrote:
+> Alexander Terekhov dixit:
+>
+>>> ND isn?t Open Source, though.
+>>
+>>Please explain in details what do you mean by proclaiming that "ND
+>>isn?t Open Source",
+>
+> Oh sorry. No Derivatives. The text you cited was clear on applying
+> only to unmodified works.
+
+Do you really think that similar text would not apply if the dedicator
+would release a right to prepare derivates to the public domain as
+well?
+
+
+
+
+From tg at mirbsd.de  Sat Mar 10 20:15:10 2012
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Sat, 10 Mar 2012 20:15:10 +0000 (UTC)
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <CALMwxMZFzz48tezq-cmuPbSPKWNOtKm5xV+Zey8wsOUY_CmJRQ@mail.gmail.com>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+	<03be01ccfd8e$852d65b0$8f883110$@com>
+	<CALMwxMYKuNkUK7LD3G_AovG8Ophii_G9mHrZqL_oekbpw1DCWQ@mail.gmail.com>
+	<Pine.BSM.4.64L.1203091654500.24179@herc.mirbsd.org>
+	<CALMwxMbFvwG7pN-CKCU5C=Tb=k84C-fdSP8nus66XfHS2=varw@mail.gmail.com>
+	<Pine.BSM.4.64L.1203101813110.24179@herc.mirbsd.org>
+	<CALMwxMbS-=ZKjB9YvC-+y5cpkM+LDmgm-GSW2nn1=KVCU8CDoA@mail.gmail.com>
+	<Pine.BSM.4.64L.1203101849540.24179@herc.mirbsd.org>
+	<CALMwxMZFzz48tezq-cmuPbSPKWNOtKm5xV+Zey8wsOUY_CmJRQ@mail.gmail.com>
+Message-ID: <Pine.BSM.4.64L.1203102014220.24179@herc.mirbsd.org>
+
+Alexander Terekhov dixit:
+
+>Do you really think that similar text would not apply if the dedicator
+>would release a right to prepare derivates to the public domain as
+>well?
+
+This sentence is wrong. Public Domain is no rights grant.
+And it does not cross country boundaries, as the Berne
+Convention doesn?t norm it.
+
+fup2p
+
+bye,
+//mirabilos
+-- 
+  ?Having a smoking section in a restaurant is like having
+          a peeing section in a swimming pool.?
+						-- Edward Burr
+
+
+
+
+From alexander.terekhov at gmail.com  Sat Mar 10 20:44:14 2012
+From: alexander.terekhov at gmail.com (Alexander Terekhov)
+Date: Sat, 10 Mar 2012 21:44:14 +0100
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <Pine.BSM.4.64L.1203102014220.24179@herc.mirbsd.org>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+	<03be01ccfd8e$852d65b0$8f883110$@com>
+	<CALMwxMYKuNkUK7LD3G_AovG8Ophii_G9mHrZqL_oekbpw1DCWQ@mail.gmail.com>
+	<Pine.BSM.4.64L.1203091654500.24179@herc.mirbsd.org>
+	<CALMwxMbFvwG7pN-CKCU5C=Tb=k84C-fdSP8nus66XfHS2=varw@mail.gmail.com>
+	<Pine.BSM.4.64L.1203101813110.24179@herc.mirbsd.org>
+	<CALMwxMbS-=ZKjB9YvC-+y5cpkM+LDmgm-GSW2nn1=KVCU8CDoA@mail.gmail.com>
+	<Pine.BSM.4.64L.1203101849540.24179@herc.mirbsd.org>
+	<CALMwxMZFzz48tezq-cmuPbSPKWNOtKm5xV+Zey8wsOUY_CmJRQ@mail.gmail.com>
+	<Pine.BSM.4.64L.1203102014220.24179@herc.mirbsd.org>
+Message-ID: <CALMwxMasxTnCzPWswWB6R9NPH-RfUrXF2-49Oi-dd70zUKaqVg@mail.gmail.com>
+
+On Sat, Mar 10, 2012 at 9:15 PM, Thorsten Glaser <tg at mirbsd.de> wrote:
+> Alexander Terekhov dixit:
+>
+>>Do you really think that similar text would not apply if the dedicator
+>>would release a right to prepare derivates to the public domain as
+>>well?
+>
+> This sentence is wrong. Public Domain is no rights grant.
+
+Hmmm... public domain gives a positive right to 'use' (shorthand)
+something. All IP right(s) give a negative right to sue someone for
+right(s) infringement.
+
+
+
+
+From alexander.terekhov at gmail.com  Sat Mar 10 22:05:20 2012
+From: alexander.terekhov at gmail.com (Alexander Terekhov)
+Date: Sat, 10 Mar 2012 23:05:20 +0100
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <20315.51235.975519.835777@desk.crynwr.com>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<20314.57786.961493.497830@desk.crynwr.com>
+	<CALMwxMYho5mbT180uJ8q52NJ5L1qoWMWUGAWOpVvmWrzRHYpuQ@mail.gmail.com>
+	<20315.42495.513205.489178@desk.crynwr.com>
+	<CALMwxMYZP6sz5UGB4z+uVNtFNNMtG-8X7rSnBanYFmCCgiLNhw@mail.gmail.com>
+	<20315.51235.975519.835777@desk.crynwr.com>
+Message-ID: <CALMwxMZv0eM0g=KFvERnxbdztiedHZDr3q+gf=r=ajq66fNcmA@mail.gmail.com>
+
+On Sat, Mar 10, 2012 at 10:31 PM, Russ Nelson <nelson at crynwr.com> wrote:
+ > Alexander Terekhov writes:
+ >  > May I suggest that you finally do your own research, Mr. Nelson?
+ >
+ > You're the one who wants to convince me of something.
+
+How about this (see below), Mr. Nelson?
+
+http://unlicense.org/
+
+ Unlicense Yourself: Set Your Code Free
+
+ What is the Unlicense?
+ The Unlicense is a template for disclaiming copyright interest in
+ software you've written; in other words, it is a template for
+ dedicating your software to the public domain. It combines a copyright
+ waiver patterned after the very successful public domain SQLite
+ project with the no-warranty statement from the widely-used MIT/X11
+ license.
+
+ Why Use the Unlicense?
+ Because you have more important things to do than enriching lawyers or
+ imposing petty restrictions on users of your code. How often have you
+ passed up on utilizing and contributing to a great software library
+ just because its open source license was not compatible with your own
+ preferred flavor of open source? How many precious hours of your life
+ have you spent deliberating how to license your software or worrying
+ about licensing compatibility with other software? You will never get
+ those hours back, but here's your chance to start cutting your losses.
+ Life's too short, let's get back to coding.
+
+ The Unlicense
+ To opt out of the copyright game altogether and set your code free,
+ put your next software project into the public domain using the
+ following (un)licensing statement:
+
+ This is free and unencumbered software released into the public domain.
+
+ Anyone is free to copy, modify, publish, use, compile, sell, or
+ distribute this software, either in source code form or as a compiled
+ binary, for any purpose, commercial or non-commercial, and by any
+ means.
+
+ In jurisdictions that recognize copyright laws, the author or authors
+ of this software dedicate any and all copyright interest in the
+ software to the public domain. We make this dedication for the benefit
+ of the public at large and to the detriment of our heirs and
+ successors. We intend this dedication to be an overt act of
+ relinquishment in perpetuity of all present and future rights to this
+ software under copyright law.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+
+ For more information, please refer to <http://unlicense.org/>
+ In a saner world, you would only need the first two paragraphs. For
+ the time being you'll probably want to retain the whole shebang. (You
+ should feel free, though, to leave out the last line containing the
+ link to this site, if that's your preference.)
+
+ You would traditionally put the above statement into a file named
+ COPYING or LICENSE. However, to explicitly distance yourself from the
+ whole concept of copyright licensing, we recommend that you put your
+ unlicensing statement in a file named UNLICENSE. Doing so also means
+ that your project can more easily be found on e.g. GitHub, Bitbucket
+ or Google Code Search, enabling others to reuse your code in their own
+ unencumbered public domain projects.
+
+ For a comprehensive listing of software using the Unlicense, google
+ for the first line of the Unlicense. It was purposely worded uniquely,
+ which means that all the returned search results are likely to relate
+ to the Unlicense in some way.
+
+ Unlicensing Contributions
+ In order to ensure your project remains completely free and
+ unencumbered by copyright, it is advisable that you ask any
+ contributors to explicitly dedicate their code base contributions to
+ the public domain.
+
+ At minimum, you should ask them to accompany any non-trivial patches
+ with a simple statement like the following:
+
+ I dedicate any and all copyright interest in this software to the
+ public domain. I make this dedication for the benefit of the public at
+ large and to the detriment of my heirs and successors. I intend this
+ dedication to be an overt act of relinquishment in perpetuity of all
+ present and future rights to this software under copyright law.
+ Better yet is to ask the major contributors to digitally sign a more
+ explicit copyright release (see an example WAIVER file), and then to
+ keep a record of such signatures in an AUTHORS file accompanying your
+ software. Using GnuPG, contributors can sign a copyright waiver file
+ as follows:
+
+ $ gpg --no-version --armor --sign WAIVER
+ Note that if a contributor makes significant changes or enhancements
+ in his capacity as an employee of some organization, then the above
+ may be insufficient and you would additionally need to ask for a
+ copyright disclaimer signed by a company officer. For more
+ information, have a look at how the SQLite project handles this. The
+ Free Software Foundation also provides an example of a simple
+ copyright disclaimer to be signed by an employer.
+
+ For a concrete example of this contributor process, see how the
+ unlicensed RDF.rb project has handled this.
+
+ Unlicensed Free Software
+ Here follows a sample of some of the software projects that have
+ already adopted the Unlicense or a derivative thereof:
+
+ Bitcoin.php, a PHP library (and plugins for WP e-Commerce, Ubercart,
+ and VirtueMart) for the Bitcoin peer-to-peer digital currency system.
+ CRM114.rb, a Ruby interface to the CRM114 Controllable Regex Mutilator.
+ Dagny, a Django adaptation of Ruby on Rails's Resource-Oriented Architecture.
+ EagleClaw, a Ruby library for building screen scrapers.
+ Fancypants, a JavaScript and Python library of data visualisation trinkets.
+ fastFrag, a simple JSON-based client-side JavaScript templating engine.
+ ficly, writes like, a Google Chrome extension for analyzing ficly.com
+ stories using the iwl.me service.
+ GrowlAMQP, a Ruby daemon that reports AMQP messages via Growl.
+ Habilis, an email-to-Dropbox gateway.
+ Have-a-Cookie, a Google Chrome extension for enhanced-privacy cookie
+management.
+ HTML5 Boilerplate, a rock-solid HTML5/CSS/JS template for creating
+ fast, robust, and future-proof sites.
+ I2P.rb, a Ruby library for interacting with the I2P anonymity network.
+ JavaScript Object Graph, a Java library designed to make working with
+ JSON simple.
+ Jibber, a small blogging engine built with Sinatra.
+ jQuery JSON-RPC, a JavaScript JSON-RPC library for jQuery.
+ JSched, a simple Java framework for coroutines.
+ loopozorg, Python infrastructure for executing shell commands on file
+ modification.
+ Machinery, a C library for dynamic x86 and MIPS code generation.
+ Markdoc, a Python-based lightweight Markdown-based wiki system.
+ MathIsFun2, a simple iPhone game.
+ netscan, a C-based set of low-level network utilities.
+ Nuush, a Bash-based command-line RSS feed reader.
+ OpenCoinage, an open-source digital cash library.
+ OpenPGP.rb, a Ruby implementation of the OpenPGP Message Format (RFC 4880).
+ PHP.rb, a Ruby-to-PHP code generator.
+ Prosper, a PHP 5.3 database abstraction layer library.
+ pyFaceGraph, a Python client library for Facebook's Open Graph Protocol.
+ Qataki, a command-line Identi.ca/StatusNet/Twitter client.
+ Rack::Throttle, Rack middleware for rate-limiting incoming HTTP requests.
+ RDF.rb, a Ruby library for working with Resource Description Framework
+ (RDF) data.
+ RDFI.js, a JavaScript implementation of the core RDF Interfaces Specification.
+ RDFgrid, a framework for map/reduce-based batch-processing of RDF data
+ with Hadoop.
+ RSA.rb, a Ruby implementation of the RSA encryption algorithm and the
+ PKCS#1 cryptography standard.
+ Tor.rb, a Ruby library for interacting with the Tor anonymity network.
+ Trith, an experimental concatenative programming language.
+ Trinity, a Ruby web framework for publishing Linked Data.
+ Tubras, a C++/Lua game engine.
+ Tween-o-Matic, a Mac OS X application for designing
+ CAMediaTimingFunction animation curves.
+ SXP, a data interchange format based on S-expressions.
+ Spira, a Linked Data ORM for Ruby.
+ Sudoku, a fancy, feature-complete, cross-platform Sudoku app written in C++/Qt.
+ UpTheAsset, a semantic ontology and system for double-entry
+ bookkeeping and accounting.
+ weblayer, a lightweight, componentized Python package for writing web
+ applications.
+ WP Citation Manager, a WordPress plugin for managing external
+ citations to content.
+ WP Disable Registration Email, a WordPress plugin for disabling
+ post-registration e-mails to the administrator.
+ xo, a superoptimizer for generating optimal x86 assembly programs.
+ ZF-Boilerplate, a pre-packaged, pre-configured Zend Framework-based
+ blueprint for enterprise-grade PHP applications.
+ If you would like your own project added to this list, drop us a note
+ on the mailing list or create a ticket.
+
+ For a more comprehensive listing of software using the Unlicense,
+ google for the first line of the Unlicense. See also a list of authors
+ who unlicense the software they write as a matter of course.
+
+ Public Domain Software
+ Some examples of well-known public domain or license-free software
+ libraries and applications:
+
+ CERN httpd, the original World Wide Web daemon developed by Tim
+ Berners-Lee, was in the public domain.
+ SQLite, the most widely-deployed SQL database in the world, is in the
+ public domain.
+ qmail, the second-most popular MTA on the Internet, is in the public domain.
+ djbdns, the second-most popular DNS server software on the Internet,
+ is in the public domain.
+ libdjb, a project aiming to make the excellent libraries from Dan
+ Bernstein available to a wider public by extracting them from his
+ packages and providing a minimal Makefile for each library.
+ BLAST, one of the most widely used bioinformatics programs, is in the
+ public domain.
+ dlmalloc, a widely-used memory allocator implementation for C, is in
+ the public domain.
+ HLA, a high-level assembler for the x86 architecture, is in the public domain.
+ CMUCL, a popular implementation of the Common Lisp programming
+ language, is mostly in the public domain.
+ SBCL, another popular Common Lisp implementation, is likewise mostly
+ in the public domain.
+ CLIPS, a widely-used forward-chaining, rule-based inference engine, is
+ in the public domain.
+ byacc, the Berkeley Yacc parser generator, is in the public domain.
+ Lemon, a thread-safe LALR(1) parser generator, is in the public domain.
+ re2c, a high-performance lexer generator, is in the public domain.
+ Docutils, the Python text-processing system, is mostly in the public domain.
+ PyCrypto, the Python cryptography toolkit, is largely in the public domain.
+ Crypto++, a cryptographic library for C++, is mostly in the public domain.
+ MPICH2, a high-performance implementation of the MPI standard, is
+ largely in the public domain.
+ MinGW's runtime, which provides POSIX compatibility for Windows, is in
+ the public domain.
+ Phyz, a soft body dynamics physics engine for Windows, is in the public domain.
+ NBDS, a C library for various lock-free algorithms (including a
+ lock-free hash table), is in the public domain.
+ Djehuty, a fully-verifiable operating system written in the D
+ programming language, is in the public domain.
+ XOS, a multitasking operating system for the x86 architecture, is in
+ the public domain.
+ snafu, a small operating system written in assembly language, is in
+ the public domain.
+ PDCLib, a minimal C standard library implementation, is in the public domain.
+ WPDCC, a C preprocessor and compiler implementation, is in the public domain.
+ For other listings of public domain software, see Whoow, Wikipedia,
+ SourceForge, Ohloh, Google Code Hosting, Alioth, Savannah, Launchpad,
+ CodePlex, RubyForge and the Python Cheeseshop.
+
+ Other Popular Unlicenses
+ Some other ways to set your code free:
+
+ BOLA - Buena Onda License Agreement is similar to the Unlicense in intent.
+ CC0 - Creative Commons Zero is not intended for software per se.
+ WTFPL - Do What The Fuck You Want To Public License can't be beat for
+ blunt directness.
+ Unlicensing Resources
+ If setting your code entirely free still seems a somewhat daunting
+ prospect, try these perspectives on for size:
+
+ Who's Afraid of the Public Domain?
+ The Surprising History of Copyright and The Promise of a Post-Copyright World
+ The Unlicense: The First Year in Review
+ Licensed, License-Free, and Unlicensed Code
+ Set Your Code Free
+ Dissecting the Unlicense: Software Freedom in Four Clauses and a Link
+ Why I'm Going Public
+ The Promising Future of the Unlicense
+ To License or to Unlicense?
+ no rights reserved. powered by markdoc. hosted by dreamhost.
+
+
+
+
+From josh at postgresql.org  Sun Mar 11 22:58:19 2012
+From: josh at postgresql.org (Josh Berkus)
+Date: Sun, 11 Mar 2012 15:58:19 -0700
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <20313.33179.543764.42560@desk.crynwr.com>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20313.33179.543764.42560@desk.crynwr.com>
+Message-ID: <4F5D2E0B.7080001@postgresql.org>
+
+
+> My parenthetical remark should have been predictable as a mistake. I
+> should have left it for the patent policy committee to resolve. Sorry,
+> my bad.
+
+I'm in favor of awaiting the outcome of the discussion on patent-policy
+to decide on approval of CC0 or not.
+
+--Josh
+
+
+
+
+
+From Nigel.Tzeng at jhuapl.edu  Mon Mar 12 14:10:37 2012
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Mon, 12 Mar 2012 10:10:37 -0400
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <20313.33179.543764.42560@desk.crynwr.com>
+Message-ID: <CB837AE2.15011%Nigel.Tzeng@jhuapl.edu>
+
+Russ,
+
+My comment was that these other open organizations, for various reasons,
+has chosen to explicitly not provide patent grants.  Given that their
+goals are not diametrically opposed nor completely orthogonal to open
+source software I wanted these reasons explicitly addressed as opposed to
+simply handwaved as "we're ALL agreed...".
+
+Nigel
+
+On 3/8/12 11:05 PM, "Russ Nelson" <nelson at crynwr.com> wrote:
+
+>Tzeng, Nigel H. writes:
+> > On 3/7/12 8:41 PM, "Russ Nelson" <nelson at crynwr.com> wrote:
+> > >(I think we're ALL agreed that patents
+> > >which are not freely licensed -- at least for open source software --
+> > >are not compatible with open source software, right?)
+>
+>My parenthetical remark should have been predictable as a mistake. I
+>should have left it for the patent policy committee to resolve. Sorry,
+>my bad.
+>
+>-- 
+>--my blog is at    http://blog.russnelson.com
+>Crynwr supports open source software
+>521 Pleasant Valley Rd. | +1 315-600-8815
+>Potsdam, NY 13676-3213  |     Sheepdog
+>_______________________________________________
+>License-review mailing list
+>License-review at opensource.org
+>http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+
+

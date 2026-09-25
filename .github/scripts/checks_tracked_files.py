@@ -110,7 +110,13 @@ def run(ctx):
     # 新規ファイルを add せずに verify を回すと **そのファイルの invariant を一つも検査しないまま
     # 緑** になり、CI で初めて赤くなる (2026-08-20 #1169 で実際に踏んだ)。
     # mirror/bijection 系が統治するディレクトリに未追跡があれば止める。
-    _governed434 = ("js/", "e2e/", ".github/scripts/", "docs/")
+    # **`LICENSES/` を 2026-09-25 に足した（#234）。** それまで射程外で、
+    #   `LICENSES/rounds/` へ置いた未追跡の一次資料が **local verify を素通りし、
+    #   CI で初めて 3 つの Check（108 mirror / 365 行数 / 454 予算）が同時に落ちた。**
+    #   **この Check が在る理由そのもの** —— `git ls-files` を真値にする Check は
+    #   未追跡ファイルを見ないので、`git add` 前の verify は「緑」を意味しない。
+    #   **`LICENSES/` は一次資料が最も頻繁に足されるディレクトリであり、射程に無かった。**
+    _governed434 = ("js/", "e2e/", ".github/scripts/", "docs/", "LICENSES/")
     # 434b: **この Check 自身の走査範囲を守る。** 範囲を空にすると
     # `str.startswith(())` は常に False を返すため、未追跡ファイルが幾つあっても
     # `_untracked434` が空になり **何も検出しないまま緑**になる。

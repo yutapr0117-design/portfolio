@@ -1,0 +1,711 @@
+Source:   https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-March.txt
+Fetched:  2026-09-25T04:40Z（ブラウザ相当の UA）
+Thread:   CC0 incompliant with OSD on patents, [was: MXM compared to CC0 ] —— 全 69 通
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **我々の gap 主張（公有化型ツールにおける明示的特許許諾）が依拠している当の議論で、
+          ドシエは 2026-09-25 まで 1 行も引いていなかった**（against.md #233）。
+          **1,000 行の上限（Check 365）を越えるため、メッセージ境界で 6 部に分けてある。
+          本文は無改変で、部をまたいで結合すれば元の連続になる。**
+          これは 3/6 部（11 通）。
+          読みは LICENSES/ACD-1.0.against.md #233 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From alexander.terekhov at gmail.com  Thu Mar  8 21:40:53 2012
+From: alexander.terekhov at gmail.com (Alexander Terekhov)
+Date: Thu, 8 Mar 2012 22:40:53 +0100
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <20120308205117.GC15452@linuxmafia.com>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+Message-ID: <CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+
+On Thu, Mar 8, 2012 at 9:51 PM, Rick Moen <rick at linuxmafia.com> wrote:
+[...]
+> a fallback permissive licence, the document's fundamental reason for
+> existing is foolhardy: the delusional belief that creative works can be
+> safely magicked into the public domain despite a worldwide copyright
+> regime, and the equally delusional belief that it's even desirable to
+> try (and thereby, among other problems, have no protection against
+> warranty claims).
+
+http://cr.yp.to/publicdomain.html
+
+"Placing documents into the public domain
+
+Most rights can be voluntarily abandoned ("waived") by the owner of
+the rights. Legislators can go to extra effort to create rights that
+can't be abandoned, but usually they don't do this.
+In particular, you can voluntarily abandon your United States copyrights:
+
+It is well settled that rights gained under the Copyright Act may be
+abandoned. But abandonment of a right must be manifested by some overt
+act indicating an intention to abandon that right. See Hampton v.
+Paramount Pictures Corp., 279 F.2d 100, 104 (9th Cir. 1960).
+Micro-Star v. Formgen Inc., 154 F.3d 1107 (9th Cir. 1998).
+
+Note for people not familiar with legal citations: After a "District
+Court" makes its decision in a United States court case, the losing
+party can appeal to the "Circuit Court of Appeals" that supervises the
+district court. These "Circuit Courts of Appeals" are manned by about
+200 of the nation's most experienced judges. Each appeal is heard by
+three of these appellate judges; for example, the "Micro-Star v.
+Formgen" appeal was heard by Alex Kozinski, David R. Thompson, and
+Stephen S. Trott. Judge Kozinski, with agreement from the other two
+judges, wrote the decision in the case (in 1998). My quote is from
+Judge Kozinski's decision.
+
+Does the public domain exist in Europe too?
+
+Yes. You can voluntarily abandon your European copyrights. You can't
+abandon certain reputation rights (such as the right to stop people
+from removing your name from your work), but you can abandon your
+copyrights.
+
+How do I place my work into the public domain?
+
+The normal way to abandon a copyright is to make a clear written
+dedication of the work to the public domain. For example:
+
+Most documents have a conventional location for a copyright notice
+(e.g., the bottom of page 1 of a scientific paper). You can write
+"Public domain" in this location rather than "Copyright 2005,"
+"Copyright 2006," etc. This, by itself, clearly satisfies the "overt
+act" test.
+
+You can write a subsequent document saying "I hereby place my paper
+`On The Origin Of Species' into the public domain." This, by itself,
+clearly satisfies the "overt act" test.
+
+How do courts resolve disputes over public-domain status?
+
+The Ninth Circuit Model Civil Jury Instructions, 2007 edition, Section
+17.19, states a model for the text that courts give to juries:
+
+17.19 COPYRIGHT - AFFIRMATIVE DEFENSE - ABANDONMENT
+
+The defendant contends that a copyright does not exist in the
+plaintiff's work because the plaintiff abandoned the copyright. The
+plaintiff cannot claim ownership of the copyright if it was abandoned.
+In order to show abandonment, the defendant has the burden of proving
+each of the following by a preponderance of the evidence:
+
+1. the plaintiff intended to surrender [ownership] rights in the work; and
+
+2. an act by the plaintiff evidencing that intent.
+
+Mere inaction [, or publication without a copyright notice,] does not
+constitute abandonment of the copyright; however, [this may be a
+factor] [these may be factors] for you to consider in determining
+whether the plaintiff has abandoned the copyright.
+
+If you find that the plaintiff has proved [his] [her] [its] claim[s]
+in accordance with Instruction[s] [insert cross reference to the
+pertinent instructions on the plaintiff's theory of infringement],
+your verdict should be for the plaintiff, unless you find that the
+defendant has proved each of the elements of this affirmative defense,
+in which event your verdict should be for the defendant.
+
+See also Section 20.19 in the 2001 edition.
+
+Isn't it impossible to place work into the public domain?
+
+Lawrence Rosen is a lawyer who makes money helping people create, and
+comply with, complicated copying conditions. In an essay titled "Why
+the public domain isn't a license," Rosen claims that a clear written
+dedication of a copyrighted work to the public domain doesn't actually
+abandon copyright. In particular, Rosen claims that "Intellectual
+property enters the public domain only when it grows old" and that
+"There is no mechanism in the law by which an owner of software can
+simply elect to place it in the public domain."
+
+If you see a Ninth Circuit panel writing "It is well settled that
+rights gained under the Copyright Act may be abandoned," and then a
+lawyer making the opposite claim, you probably expect the lawyer to
+explain the contradiction. Rosen doesn't do this. In fact, he doesn't
+seem to be aware that he's contradicting anybody, let alone three
+federal judges and the Ninth Circuit Model Civil Jury Instructions.
+
+Let's look at the details of Rosen's argument:
+
+Rosen claims an analogy between littering and abandoning a copyright:
+"Just as there is nothing in the law that permits a person to dump
+personal property in the public highway, there is nothing that permits
+the dumping of intellectual property into the public domain."
+
+In fact, there are laws against littering, and those laws put
+considerable limits on the ways in which you can abandon your real
+property. There are no laws against abandoning a copyright.
+
+Rosen claims that placement into the public domain is a "gift" that
+"cannot be enforced" (under "basic contract law") and that can be
+"retract[ed] at any time." He says that this is "scant security for
+someone intending to make long-term use of a piece of software."
+
+Rosen doesn't seem to understand the differences between waivers,
+gifts, and contracts. It's true that a gratuitous promise, a contract
+without "consideration," generally can't be enforced: someone who
+makes a promise, without being promised anything in return, can
+retract the promise. But this has no relevance to a gift that has been
+given; a donor cannot demand that his gift be returned. It also has no
+relevance to a right that has been waived.
+
+Rosen claims that public-domain software can't be distributed "as is,"
+without warranty. Rosen also observes, correctly, that public-domain
+software allows recipients to "make secret changes to the donated
+software and re-release the changed version to the world for a fee
+under a proprietary license."
+
+This part of Rosen's essay follows his general "Public domain is
+evil!" theme but obviously doesn't support his "Public domain is
+nonexistent!" claim.
+
+If these are the best arguments that Rosen can come up with, I'm not
+surprised to see judges saying that they're "settled" on the opposite
+position. "
+
+
+
+
+From alexander.terekhov at gmail.com  Thu Mar  8 22:09:43 2012
+From: alexander.terekhov at gmail.com (Alexander Terekhov)
+Date: Thu, 8 Mar 2012 23:09:43 +0100
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <20120308215325.GF23669@mercury.ccil.org>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<20120308215325.GF23669@mercury.ccil.org>
+Message-ID: <CALMwxMZ+Rb8gut4Z-quBRcW9UjACxhU4LwPfoT3Lox=a1CtHOw@mail.gmail.com>
+
+On Thu, Mar 8, 2012 at 10:53 PM, John Cowan <cowan at mercury.ccil.org> wrote:
+[...]
+> Someone in the other thread raised the points of first sale and patent
+> exhaustion, but by the same token I doubt if pulling source code off
+> a website counts as a sale: there is neither an express nor an implied
+> contract here, I'd say.
+
+"First sale" in the copyright context is just a shorthand for the
+judicially-created doctrine that is now codified in 17 USC 109.  It
+does not require a "sale" but applies to anyone who is "the owner of
+a particular copy or phonorecord lawfully made under this title".
+
+You can become the lawful owner of a copy by gift or similar things
+that are not a sale.
+
+And if You are the lawful owner, You can dispose of your copy in any
+way You want, except for rental in the case of phonorecords or most
+computer programs, as far as 17 USC is concerned.
+
+regards,
+alexander.
+
+
+
+
+From alexander.terekhov at gmail.com  Thu Mar  8 23:04:47 2012
+From: alexander.terekhov at gmail.com (Alexander Terekhov)
+Date: Fri, 9 Mar 2012 00:04:47 +0100
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <20120308220641.GE15452@linuxmafia.com>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<20120308215325.GF23669@mercury.ccil.org>
+	<20120308220641.GE15452@linuxmafia.com>
+Message-ID: <CALMwxMbzv6Tx3BQO6bLVk6A6RDLZwu+JYijXHTiidGie1pjSXA@mail.gmail.com>
+
+On Thu, Mar 8, 2012 at 11:06 PM, Rick Moen <rick at linuxmafia.com> wrote:
+[...]
+> Abandonment of ownership...
+
+It all boils down to a defense against a claim of IP infringement...
+
+A dedication to the public domain (abandonment) defense is a much
+better defense than IP license because it doesn't raise the questions
+of acting outside the scope of license or breach of license contract.
+
+
+
+
+From lrosen at rosenlaw.com  Thu Mar  8 23:19:32 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 8 Mar 2012 15:19:32 -0800
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+	patents, [was: MXM compared to CC0 ]
+In-Reply-To: <CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+References: <20312.3654.6344.712709@desk.crynwr.com>	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>	<20120308205117.GC15452@linuxmafia.com>
+	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+Message-ID: <039b01ccfd81$eba04720$c2e0d560$@com>
+
+[paring the distribution list]
+
+Thank you, Alexander, for a clear rejoinder to my essay arguing that the
+public domain is not effective. The case you referenced in your email,
+Hampton v. Paramount Pictures, 279 F.2d 100 (9th Cir. Cal. 1960), stands for
+the proposition that, at least in the Ninth Circuit, a person can indeed
+abandon his copyrights (counter to what I wrote in my article) -- but it
+takes the equivalent of a manifest license to do so. :-)
+
+   Rights gained under the Copyright Law, 17 U.S.C.A. 1 et seq., 
+   may be abandoned. Abandonment of such rights, however, must be 
+   manifested by some overt act indicative of a purpose to surrender 
+   the rights and allow the public to copy. National Comics 
+   Publications v. Fawcett Publications, 2 Cir., 191 F.2d 594, 598.
+
+In the Hampton v. Paramount case, by the way, the court concluded that
+Paramount had *not* abandoned its copyright despite numerous writings
+brought into evidence. Even the equitable doctrines of estoppel and laches
+were rejected by the court.
+
+For the record, I have already voted +1 to approve the CC0 public domain
+dedication and fallback license as OSD compliant. I admit that I have argued
+for years against the "public domain" as an open source license, but in
+retrospect, considering the minimal risk to developers and users relying on
+such software and the evident popularity of that "license", I changed my
+mind. One can't stand in the way of a fire hose of free public domain
+software, even if it doesn't come with a better FOSS license that I trust
+more.
+
+/Larry
+
+
+> -----Original Message-----
+> From: license-review-bounces at opensource.org [mailto:license-review-
+> bounces at opensource.org] On Behalf Of Alexander Terekhov
+> Sent: Thursday, March 08, 2012 1:41 PM
+> To: license-discuss at opensource.org; OSI License Review; OSI Board
+> Subject: Re: [License-review] [License-discuss] CC0 incompliant with
+> OSD on patents, [was: MXM compared to CC0 ]
+<snip>
+
+
+
+
+
+
+From alexander.terekhov at gmail.com  Thu Mar  8 23:57:48 2012
+From: alexander.terekhov at gmail.com (Alexander Terekhov)
+Date: Fri, 9 Mar 2012 00:57:48 +0100
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <20120308232731.GF15452@linuxmafia.com>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+	<20120308232731.GF15452@linuxmafia.com>
+Message-ID: <CALMwxMagZsziyXvgZMySn3z-dKVsmEChVyUepjqnkf_27b=U1g@mail.gmail.com>
+
+On Fri, Mar 9, 2012 at 12:27 AM, Rick Moen <rick at linuxmafia.com> wrote:
+> [Moving this back over to license-discuss where it _still_ belongs,
+> thank you.]
+>
+> Quoting Lawrence Rosen (lrosen at rosenlaw.com):
+>
+>> [paring the distribution list]
+>
+> Previously CC'd to Basingstoke and back, I wouldn't doubt.
+
+For the record: I've simply followed suggestion from my gmail
+(https://mail.google.com/mail) interface window saying:
+
+ 	"Consider including: OSI Board OSI License Review"
+
+and clicked on the links.
+
+
+
+
+From lrosen at rosenlaw.com  Fri Mar  9 00:49:43 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 8 Mar 2012 16:49:43 -0800
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD
+	on	patents, [was: MXM compared to CC0 ]
+In-Reply-To: <039b01ccfd81$eba04720$c2e0d560$@com>
+References: <20312.3654.6344.712709@desk.crynwr.com>	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>	<20120308205117.GC15452@linuxmafia.com>	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+Message-ID: <03be01ccfd8e$852d65b0$8f883110$@com>
+
+After receiving a couple of private comments, I want to add something else.
+
+We can spend a large amount of time discussing the legal effects of a public
+domain copyright dedication. I think that would be a waste of our time. Can
+rights be abandoned? And then recaptured? Are there implied warranties or
+liabilities? What about express or implied patent grants? 
+
+This isn't a law school exam, folks!
+
+Suppose we give Alexander Terekhov and Prof. Bernstein the benefit of the
+doubt. The fact is that, in the two cases Alexander cited, and despite the
+courts' apparent approval of the existence of the public domain, the courts
+actually ruled *in these cases* that there was no effective public domain
+dedication! So the courts resorted to analyzing contracts and licenses!
+
+CC0 -- like most other of our FOSS licenses, I might add -- has never been
+tested in court. My guess is that CC0, like GPLv2 with all its known
+shortcomings and most other of our licenses, will work out just fine for
+lots of works and will not actually be challenged anyplace other than these
+hypothetical threads on this list. (Except for details like the linking
+controversy, which I'll never let die...!)
+
+So we're faced with the same decision: Should we approve the widely-admired
+CC0 license despite its known disadvantages in some situations for computer
+software -- particularly with respect to patents? (I know many people who
+feel the same way about the patent provisions in other already-approved
+licenses.) 
+
+Can we please decide this without doing a legal and business analysis of the
+glorious copyright public domain and the frightening world of patents?
+
+FWIW, I already voted +1.
+
+/Larry
+
+
+> -----Original Message-----
+> From: license-review-bounces at opensource.org [mailto:license-review-
+> bounces at opensource.org] On Behalf Of Lawrence Rosen
+> Sent: Thursday, March 08, 2012 3:20 PM
+> To: license-review at opensource.org
+> Subject: Re: [License-review] [License-discuss] CC0 incompliant with
+> OSD on patents, [was: MXM compared to CC0 ]
+> 
+> [paring the distribution list]
+> 
+> Thank you, Alexander, for a clear rejoinder to my essay arguing that
+> the
+> public domain is not effective. The case you referenced in your email,
+> Hampton v. Paramount Pictures, 279 F.2d 100 (9th Cir. Cal. 1960),
+> stands for
+> the proposition that, at least in the Ninth Circuit, a person can
+> indeed
+> abandon his copyrights (counter to what I wrote in my article) -- but
+> it
+> takes the equivalent of a manifest license to do so. :-)
+> 
+>    Rights gained under the Copyright Law, 17 U.S.C.A. 1 et seq.,
+>    may be abandoned. Abandonment of such rights, however, must be
+>    manifested by some overt act indicative of a purpose to surrender
+>    the rights and allow the public to copy. National Comics
+>    Publications v. Fawcett Publications, 2 Cir., 191 F.2d 594, 598.
+> 
+> In the Hampton v. Paramount case, by the way, the court concluded that
+> Paramount had *not* abandoned its copyright despite numerous writings
+> brought into evidence. Even the equitable doctrines of estoppel and
+> laches
+> were rejected by the court.
+> 
+> For the record, I have already voted +1 to approve the CC0 public
+> domain
+> dedication and fallback license as OSD compliant. I admit that I have
+> argued
+> for years against the "public domain" as an open source license, but in
+> retrospect, considering the minimal risk to developers and users
+> relying on
+> such software and the evident popularity of that "license", I changed
+> my
+> mind. One can't stand in the way of a fire hose of free public domain
+> software, even if it doesn't come with a better FOSS license that I
+> trust
+> more.
+> 
+> /Larry
+> 
+> 
+> > -----Original Message-----
+> > From: license-review-bounces at opensource.org [mailto:license-review-
+> > bounces at opensource.org] On Behalf Of Alexander Terekhov
+> > Sent: Thursday, March 08, 2012 1:41 PM
+> > To: license-discuss at opensource.org; OSI License Review; OSI Board
+> > Subject: Re: [License-review] [License-discuss] CC0 incompliant with
+> > OSD on patents, [was: MXM compared to CC0 ]
+> <snip>
+> 
+> 
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+
+
+
+From alexander.terekhov at gmail.com  Fri Mar  9 01:09:55 2012
+From: alexander.terekhov at gmail.com (Alexander Terekhov)
+Date: Fri, 9 Mar 2012 02:09:55 +0100
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <03be01ccfd8e$852d65b0$8f883110$@com>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+	<03be01ccfd8e$852d65b0$8f883110$@com>
+Message-ID: <CALMwxMYKuNkUK7LD3G_AovG8Ophii_G9mHrZqL_oekbpw1DCWQ@mail.gmail.com>
+
+On Fri, Mar 9, 2012 at 1:49 AM, Lawrence Rosen <lrosen at rosenlaw.com> wrote:
+[...]
+> Suppose we give Alexander Terekhov and Prof. Bernstein the benefit of
+> the doubt.
+
+Add stanford.edu:
+
+http://fairuse.stanford.edu/Copyright_and_Fair_Use_Overview/chapter8/index.html
+
+"Dedicated Works
+
+If, upon viewing a work, you see words such as, ?This work is
+dedicated to the public domain,? then it is free for you to use. "
+
+
+
+
+From bruce at perens.com  Fri Mar  9 01:48:32 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 08 Mar 2012 17:48:32 -0800
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <03be01ccfd8e$852d65b0$8f883110$@com>
+References: <20312.3654.6344.712709@desk.crynwr.com>	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>	<20120308205117.GC15452@linuxmafia.com>	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+	<03be01ccfd8e$852d65b0$8f883110$@com>
+Message-ID: <4F596170.7010306@perens.com>
+
+On 03/08/2012 04:49 PM, Lawrence Rosen wrote:
+> We can spend a large amount of time discussing the legal effects of a public domain copyright dedication.
+The people who are making decisions are not attorneys, nor are those 
+like me who are attempting to influence the process. Those folks 
+sometimes need backgrounders on the law. We also have the participation 
+of a number of people with interest in the law who aren't actually 
+licensed to opine. Some of them quite good, and some who will be 
+effective sources of misinformation if they go unchallenged.
+
+On topics that attorneys aren't agreed upon, of which there seem to be a 
+good many, we need to hear sufficient argument to make our own decision.
+> Should we approve the widely-admired CC0 license
+/CC/ is widely admired. The license alone does not have the same degree 
+of admiration.
+> Can we please decide this without doing a legal and business analysis of the glorious copyright public domain and the frightening world of patents?
+I don't see that we'd be effectively serving our community if we're 
+bypassing this. However, I do believe that we can go through the process 
+without having to address in great detail every one of Alexander's 
+misconceptions regarding legal topics - and I'm sorry, but I am seeing a 
+good many of them. Perhaps, Larry, you could establish a background 
+dialogue with Alexander so that the rest of us are spared.
+
+     Thanks
+
+     Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120308/055f90be/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120308/055f90be/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120308/055f90be/attachment.p7s>
+
+
+
+From lrosen at rosenlaw.com  Fri Mar  9 02:07:19 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Thu, 8 Mar 2012 18:07:19 -0800
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+	patents, [was: MXM compared to CC0 ]
+In-Reply-To: <4F596170.7010306@perens.com>
+References: <20312.3654.6344.712709@desk.crynwr.com>	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>	<20120308205117.GC15452@linuxmafia.com>	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+	<03be01ccfd8e$852d65b0$8f883110$@com> <4F596170.7010306@perens.com>
+Message-ID: <03e101ccfd99$5bf358c0$13da0a40$@com>
+
+Bruce Perens made a wish:
+
+Perhaps, Larry, you could establish a background dialogue with Alexander so that the rest of us are spared.
+
+
+
+Thanks a lot for the invitation, Bruce. It so happens I just wrote a detailed reply to Alexander and requested that we leave it rest. I'm glad I can do you this favor, which I will someday expect you to repay.
+
+ 
+
+/Larry
+
+ 
+
+ 
+
+From: Bruce Perens [mailto:bruce at perens.com] 
+Sent: Thursday, March 08, 2012 5:49 PM
+To: license-review at opensource.org
+Cc: Lawrence Rosen
+Subject: Re: [License-review] [License-discuss] CC0 incompliant with OSD on patents, [was: MXM compared to CC0 ]
+
+ 
+
+On 03/08/2012 04:49 PM, Lawrence Rosen wrote: 
+
+ 
+We can spend a large amount of time discussing the legal effects of a public domain copyright dedication.
+
+The people who are making decisions are not attorneys, nor are those like me who are attempting to influence the process. Those folks sometimes need backgrounders on the law. We also have the participation of a number of people with interest in the law who aren't actually licensed to opine. Some of them quite good, and some who will be effective sources of misinformation if they go unchallenged.
+
+On topics that attorneys aren't agreed upon, of which there seem to be a good many, we need to hear sufficient argument to make our own decision.
+
+
+
+Should we approve the widely-admired CC0 license
+
+CC is widely admired. The license alone does not have the same degree of admiration.
+
+
+
+ 
+Can we please decide this without doing a legal and business analysis of the glorious copyright public domain and the frightening world of patents?
+
+I don't see that we'd be effectively serving our community if we're bypassing this. However, I do believe that we can go through the process without having to address in great detail every one of Alexander's misconceptions regarding legal topics - and I'm sorry, but I am seeing a good many of them. Perhaps, Larry, you could establish a background dialogue with Alexander so that the rest of us are spared.
+
+    Thanks
+
+    Bruce
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120308/801a36ff/attachment.html>
+
+
+
+From nelson at crynwr.com  Fri Mar  9 04:05:47 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Thu, 8 Mar 2012 23:05:47 -0500
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <20313.33179.543764.42560@desk.crynwr.com>
+
+Tzeng, Nigel H. writes:
+ > On 3/7/12 8:41 PM, "Russ Nelson" <nelson at crynwr.com> wrote:
+ > >(I think we're ALL agreed that patents
+ > >which are not freely licensed -- at least for open source software --
+ > >are not compatible with open source software, right?)
+
+My parenthetical remark should have been predictable as a mistake. I
+should have left it for the patent policy committee to resolve. Sorry,
+my bad.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+
+
+From alexander.terekhov at gmail.com  Fri Mar  9 07:00:46 2012
+From: alexander.terekhov at gmail.com (Alexander Terekhov)
+Date: Fri, 9 Mar 2012 08:00:46 +0100
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <20120308215325.GF23669@mercury.ccil.org>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<20120308215325.GF23669@mercury.ccil.org>
+Message-ID: <CALMwxMaVwABV+nn1xwKWox=ceENHwJw6MTN9+3jUwuzFC_mWHA@mail.gmail.com>
+
+On Thu, Mar 8, 2012 at 10:53 PM, John Cowan <cowan at mercury.ccil.org> wrote:
+[...]
+> I think this language is much too strong. ?It's true that there is no
+> treaty or statutory language allowing abandonment, ...
+
+Certainly there is statutory language, e.g.:
+
+http://www.copyright.gov/reports/exsum.html
+
+"Waiver of Moral Rights in Visual Artworks
+
+Executive Summary
+
+ Introduction
+
+ The Visual Artists Rights Act of 1990 (VARA) directed the Copyright
+Office to conduct a study to assess for Congress the impact of the
+waiver provisions contained in that legislation.
+
+ On December 1, 1992, the Copyright Office submitted to Congress an
+Interim Report summarizing the responses to its earlier Request for
+Information and outlining other proposed inquiries and avenues of
+research it would undertake on this question. This final report
+represents the completed Office study responsive to Congress' request.
+
+I. THE VISUAL ARTISTS RIGHTS ACT OF 1990
+
+ In 1990, Congress for the first time legislated limited moral rights
+of attribution and integrity to authors of narrowly defined works of
+visual arts. These rights, following the model suggested in the
+international Berne Convention for the Protection of Literary and
+Artistic Works, mirror rights granted to authors by most
+industrialized nations of the world. They guarantee to authors of
+so-called fine arts and exhibition photographs the right to claim or
+disclaim authorship in a work; limited rights to prevent distortion,
+mutilation, or modification of a work; and the right, under some
+circumstances, to prevent destruction of a work that is incorporated
+into a building.
+
+ After hearing testimony from artists' representatives, commercial
+users and other interested parties, Congress determined that the
+artists' rights should not be absolute, but that they should be
+tempered by commercial realities, provided that provisions were
+enacted to insulate authors from being unduly influenced to give away
+their new-found rights. Thus, the legislation provides for waiver of
+these moral rights, but only by a signed, written agreement specifying
+the work and the precise uses to which a waiver applies. ..."
+
+http://www.law.cornell.edu/uscode/text/17/106A
+
+"Transfer and Waiver.?
+
+(1) The rights conferred by subsection (a) may not be transferred, but
+those rights may be waived if the author expressly agrees to such
+waiver in a written instrument signed by the author. Such instrument
+shall specifically identify the work, and uses of that work, to which
+the waiver applies, and the waiver shall apply only to the work and
+uses so identified. In the case of a joint work prepared by two or
+more authors, a waiver of rights under this paragraph made by one such
+author waives such rights for all such authors.
+
+(2) Ownership of the rights conferred by subsection (a) with respect
+to a work of visual art is distinct from ownership of any copy of that
+work, or of a copyright or any exclusive right under a copyright in
+that work. Transfer of ownership of any copy of a work of visual art,
+or of a copyright or any exclusive right under a copyright, shall not
+constitute a waiver of the rights conferred by subsection (a). Except
+as may otherwise be agreed by the author in a written instrument
+signed by the author, a waiver of the rights conferred by subsection
+(a) with respect to a work of visual art shall not constitute a
+transfer of ownership of any copy of that work, or of ownership of a
+copyright or of any exclusive right under a copyright in that work."
+
+
+
+

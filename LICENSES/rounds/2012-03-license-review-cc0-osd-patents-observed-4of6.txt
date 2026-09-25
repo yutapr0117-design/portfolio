@@ -1,0 +1,711 @@
+Source:   https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-March.txt
+Fetched:  2026-09-25T04:40Z（ブラウザ相当の UA）
+Thread:   CC0 incompliant with OSD on patents, [was: MXM compared to CC0 ] —— 全 69 通
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **我々の gap 主張（公有化型ツールにおける明示的特許許諾）が依拠している当の議論で、
+          ドシエは 2026-09-25 まで 1 行も引いていなかった**（against.md #233）。
+          **1,000 行の上限（Check 365）を越えるため、メッセージ境界で 6 部に分けてある。
+          本文は無改変で、部をまたいで結合すれば元の連続になる。**
+          これは 4/6 部（18 通）。
+          読みは LICENSES/ACD-1.0.against.md #233 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From jim at jimjag.com  Fri Mar  9 11:37:50 2012
+From: jim at jimjag.com (Jim Jagielski)
+Date: Fri, 9 Mar 2012 06:37:50 -0500
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+	patents, [was: MXM compared to CC0 ]
+In-Reply-To: <03e101ccfd99$5bf358c0$13da0a40$@com>
+References: <20312.3654.6344.712709@desk.crynwr.com>	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>	<20120308205117.GC15452@linuxmafia.com>	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+	<03be01ccfd8e$852d65b0$8f883110$@com> <4F596170.7010306@perens.com>
+	<03e101ccfd99$5bf358c0$13da0a40$@com>
+Message-ID: <1BAF12F1-B924-46B9-8F8F-4D8B6E0053A2@jimjag.com>
+
+
+On Mar 8, 2012, at 9:07 PM, Lawrence Rosen wrote:
+
+> Bruce Perens made a wish:
+> Perhaps, Larry, you could establish a background dialogue with Alexander so that the rest of us are spared.
+> 
+> Thanks a lot for the invitation, Bruce. It so happens I just wrote a detailed reply to Alexander and requested that we leave it rest. I'm glad I can do you this favor, which I will someday expect you to repay.
+>  
+> /Larry
+
+Could I suggest the semi-continual prods @ Russ as a suggested favor repayment??
+
+
+
+
+
+From kfogel at red-bean.com  Fri Mar  9 16:40:54 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Fri, 09 Mar 2012 10:40:54 -0600
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was: MXM compared to CC0 ]
+In-Reply-To: <20312.3654.6344.712709@desk.crynwr.com> (Russ Nelson's message
+	of "Wed, 7 Mar 2012 20:41:26 -0500")
+References: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+	<4F5646E9.1070603@perens.com>
+	<20310.56584.864194.25687@desk.crynwr.com>
+	<C6EE1049-DF07-4B59-96A9-D993E79CE262@jimjag.com>
+	<013701ccfc8b$b75e8360$261b8a20$@com>
+	<20312.3654.6344.712709@desk.crynwr.com>
+Message-ID: <87y5r9682x.fsf@kwarm.red-bean.com>
+
+Russ Nelson <nelson at crynwr.com> writes:
+>I don't think this committee has the necessary guidance to come to one
+>opinion about patent waviers on open source licenses. I suggest that
+>we ask the board to constitute a new committee which will formulate an
+>OSI patent wavier policy.  (I think we're ALL agreed that patents
+>which are not freely licensed -- at least for open source software --
+>are not compatible with open source software, right?)
+>
+>In fact, I think that's the right thing to do, so I'm going to ask
+>Karl to bring that suggestion to the board. Anybody who disagrees
+>should make their own proposition to Karl. I'd appreciate a CC on that
+>otherwise-private email.
+
+Thanks. I've raised the patent issue with the board, though without
+prejudging the question of whether a new committee is the right answer
+(it's not a bad idea, of course).
+
+But please note that the board is focused on the upcoming director
+elections right now, which require even more attention than in the past
+because it's the first time the new Affiliate orgs are involved, so my
+guess is there won't be action on patent policy until after that.
+
+Best,
+-K
+
+
+
+
+From kfogel at red-bean.com  Fri Mar  9 16:49:14 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Fri, 09 Mar 2012 10:49:14 -0600
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was: MXM compared to CC0 ]
+In-Reply-To: <4F58F2CE.4060000@perens.com> (Bruce Perens's message of "Thu, 08
+	Mar 2012 09:56:30 -0800")
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com>
+Message-ID: <87pqcl67p1.fsf@kwarm.red-bean.com>
+
+Bruce Perens <bruce at perens.com> writes:
+
+>No, they will prefer to use software with such grants because it
+>reduces their risk. What they worry about is contributing their own
+>work to such software. In general the ones who also have a patent
+>royalty business either refuse to make such contributions or use
+>intermediaries to develop them.
+>
+>If you want an organization that recommends licenses, the FSF is happy
+>to help. I agree that OSI should have a short-list of recommended
+>licenses, but the politics of dis-recommending some organization's
+>license are too much for them.
+
+This isn't actually the case, by the way.  It's not the politics; it's
+more the time it takes to do it right.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 835 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120309/d026ac7f/attachment.sig>
+
+
+
+From cowan at mercury.ccil.org  Fri Mar  9 16:55:05 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Fri, 9 Mar 2012 11:55:05 -0500
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was:	MXM compared to CC0 ]
+In-Reply-To: <87pqcl67p1.fsf@kwarm.red-bean.com>
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+Message-ID: <20120309165505.GA24767@mercury.ccil.org>
+
+Karl Fogel scripsit:
+
+> >If you want an organization that recommends licenses, the FSF is happy
+> >to help. I agree that OSI should have a short-list of recommended
+> >licenses, but the politics of dis-recommending some organization's
+> >license are too much for them.
+> 
+> This isn't actually the case, by the way.  It's not the politics; it's
+> more the time it takes to do it right.
+
+I sat on the committee that came up with OSI's current classifications.
+Its original remit was to evaluate licenses into best/okay/bad, but no
+one except me was willing to actually say that a license was bad or that
+people shouldn't use it, so we wound up with the existing, basically
+fact-based classification scheme.  And we took plenty of time just to
+get to that, so it wasn't a matter of time.
+
+I believe I was the only non-lawyer on that committee, except for ESR
+who wasn't able to attend most of the meetings.
+
+-- 
+If you have ever wondered if you are in hell,         John Cowan
+it has been said, then you are on a well-traveled     http://www.ccil.org/~cowan
+road of spiritual inquiry.  If you are absolutely     cowan at ccil.org
+sure you are in hell, however, then you must be
+on the Cross Bronx Expressway.          --Alan Feuer, NYTimes, 2002-09-20
+
+
+
+
+From tg at mirbsd.de  Fri Mar  9 16:55:43 2012
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Fri, 9 Mar 2012 16:55:43 +0000 (UTC)
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD on
+ patents, [was: MXM compared to CC0 ]
+In-Reply-To: <CALMwxMYKuNkUK7LD3G_AovG8Ophii_G9mHrZqL_oekbpw1DCWQ@mail.gmail.com>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+	<03be01ccfd8e$852d65b0$8f883110$@com>
+	<CALMwxMYKuNkUK7LD3G_AovG8Ophii_G9mHrZqL_oekbpw1DCWQ@mail.gmail.com>
+Message-ID: <Pine.BSM.4.64L.1203091654500.24179@herc.mirbsd.org>
+
+Alexander Terekhov dixit:
+
+>"Dedicated Works
+>
+>If, upon viewing a work, you see words such as, ?This work is
+>dedicated to the public domain,? then it is free for you to use. "
+
+This is a lie. It may be free for you to use, but not for me.
+(And I???ve had arguments with Prof. Bernstein, and others, about
+this. Most agreed to place a fallback licence. Sadly, not all.)
+
+bye,
+//mirabilos
+-- 
+  ???Having a smoking section in a restaurant is like having
+          a peeing section in a swimming pool.???
+						-- Edward Burr
+
+
+
+
+From rick at linuxmafia.com  Fri Mar  9 17:03:44 2012
+From: rick at linuxmafia.com (Rick Moen)
+Date: Fri, 9 Mar 2012 09:03:44 -0800
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <87pqcl67p1.fsf@kwarm.red-bean.com>
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+Message-ID: <20120309170344.GT15452@linuxmafia.com>
+
+Quoting Karl Fogel (kfogel at red-bean.com):
+> Bruce Perens <bruce at perens.com> writes:
+> 
+> >If you want an organization that recommends licenses, the FSF is happy
+> >to help. I agree that OSI should have a short-list of recommended
+> >licenses, but the politics of dis-recommending some organization's
+> >license are too much for them.
+> 
+> This isn't actually the case, by the way.  It's not the politics; it's
+> more the time it takes to do it right.
+
+In fact, if anything, OSI has occasionally let everyone down on occasion
+by approving really rather wretched (but thankfully now obscure)
+licences that it should not have.  So, sorry Bruce, but are you smoking
+the funny stuff?
+
+
+
+
+
+From bruce at perens.com  Fri Mar  9 17:21:29 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 09 Mar 2012 09:21:29 -0800
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <20120309170344.GT15452@linuxmafia.com>
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309170344.GT15452@linuxmafia.com>
+Message-ID: <4F5A3C19.5050203@perens.com>
+
+On 03/09/2012 09:03 AM, Rick Moen wrote:
+> In fact, if anything, OSI has occasionally let everyone down on 
+> occasion by approving really rather wretched (but thankfully now 
+> obscure) licences that it should not have. So, sorry Bruce, but are 
+> you smoking the funny stuff?
+Sigh.
+
+If you would address your comments to arguments rather than people it 
+would be helpful. Let's not encourage people to do otherwise, OK?
+
+Of course I know that OSI has accepted some absolutely horrid licenses. 
+Some of which never had the benefit of the work of an attorney before 
+they were approved. I've hardly been quiet in my opposition to that.
+
+In addition, there's no short-list. I think this lets developers down too.
+
+Is there something I'm missing?
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120309/18701046/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120309/18701046/attachment.p7s>
+
+
+
+From rick at linuxmafia.com  Fri Mar  9 17:36:49 2012
+From: rick at linuxmafia.com (Rick Moen)
+Date: Fri, 9 Mar 2012 09:36:49 -0800
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <4F5A3C19.5050203@perens.com>
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309170344.GT15452@linuxmafia.com>
+	<4F5A3C19.5050203@perens.com>
+Message-ID: <20120309173649.GW15452@linuxmafia.com>
+
+Quoting Bruce Perens (bruce at perens.com):
+
+> Sigh.
+> 
+> If you would address your comments to arguments rather than people
+> it would be helpful. Let's not encourage people to do otherwise, OK?
+
+Bruce, would you like to borrow a virtual hanky?   Sorry, such public
+theatrics really aren't impressive.
+
+I know you personally, and that was me suggesting you knock off a line
+of argument that you know has no merit.  And this is me doing it again.
+
+> Is there something I'm missing?
+
+Did you just volunteer?
+
+
+
+
+
+From kfogel at red-bean.com  Fri Mar  9 17:37:54 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Fri, 09 Mar 2012 11:37:54 -0600
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was: MXM compared to CC0 ]
+In-Reply-To: <20120309165505.GA24767@mercury.ccil.org> (John Cowan's message
+	of "Fri, 9 Mar 2012 11:55:05 -0500")
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309165505.GA24767@mercury.ccil.org>
+Message-ID: <87boo54qvh.fsf@kwarm.red-bean.com>
+
+John Cowan <cowan at mercury.ccil.org> writes:
+>I sat on the committee that came up with OSI's current classifications.
+>Its original remit was to evaluate licenses into best/okay/bad, but no
+>one except me was willing to actually say that a license was bad or that
+>people shouldn't use it, so we wound up with the existing, basically
+>fact-based classification scheme.  And we took plenty of time just to
+>get to that, so it wasn't a matter of time.
+>
+>I believe I was the only non-lawyer on that committee, except for ESR
+>who wasn't able to attend most of the meetings.
+
+I'm referring to OSI's willingness today, not in the past :-).
+
+
+
+
+From kfogel at red-bean.com  Fri Mar  9 17:49:06 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Fri, 09 Mar 2012 11:49:06 -0600
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was: MXM compared to CC0 ]
+In-Reply-To: <20120309173649.GW15452@linuxmafia.com> (Rick Moen's message of
+	"Fri, 9 Mar 2012 09:36:49 -0800")
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309170344.GT15452@linuxmafia.com> <4F5A3C19.5050203@perens.com>
+	<20120309173649.GW15452@linuxmafia.com>
+Message-ID: <87sjhh3bsd.fsf@kwarm.red-bean.com>
+
+Rick Moen <rick at linuxmafia.com> writes:
+>> If you would address your comments to arguments rather than people
+>> it would be helpful. Let's not encourage people to do otherwise, OK?
+>
+>Bruce, would you like to borrow a virtual hanky?   Sorry, such public
+>theatrics really aren't impressive.
+>
+>I know you personally, and that was me suggesting you knock off a line
+>of argument that you know has no merit.  And this is me doing it again.
+
+Oy :-).  Either one of you could simply start ignoring the ad hominem
+portion of the other's mail at any time, and the list would be better
+off for it.
+
+This list does really good analysis.  It also has a small number of
+people who have a tendency to amplify and draw attention to ad hominem
+comments rather than defuse them.  I can only beg that those people
+consider other tactics for dealing with such comments.
+
+
+
+
+From rick at linuxmafia.com  Fri Mar  9 18:16:01 2012
+From: rick at linuxmafia.com (Rick Moen)
+Date: Fri, 9 Mar 2012 10:16:01 -0800
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <87sjhh3bsd.fsf@kwarm.red-bean.com>
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309170344.GT15452@linuxmafia.com>
+	<4F5A3C19.5050203@perens.com>
+	<20120309173649.GW15452@linuxmafia.com>
+	<87sjhh3bsd.fsf@kwarm.red-bean.com>
+Message-ID: <20120309181601.GZ15452@linuxmafia.com>
+
+Quoting Karl Fogel (kfogel at red-bean.com):
+
+> Rick Moen <rick at linuxmafia.com> writes:
+> >> If you would address your comments to arguments rather than people
+> >> it would be helpful. Let's not encourage people to do otherwise, OK?
+> >
+> >Bruce, would you like to borrow a virtual hanky?   Sorry, such public
+> >theatrics really aren't impressive.
+> >
+> >I know you personally, and that was me suggesting you knock off a line
+> >of argument that you know has no merit.  And this is me doing it again.
+> 
+> Oy :-).  Either one of you could simply start ignoring the ad hominem
+> portion of the other's mail at any time, and the list would be better
+> off for it.
+> 
+> This list does really good analysis.  It also has a small number of
+> people who have a tendency to amplify and draw attention to ad hominem
+> comments rather than defuse them.  I can only beg that those people
+> consider other tactics for dealing with such comments.
+
+I applaud the sentiment, except I will politely point out that you will
+actually find no ad-hominem characteristion whatsoever in what I wrote
+that you have quoted above.   I asserted that a particular thing Bruce
+said has no merit, that public theatrics are not impressive, and that he
+should please knock it off.  
+
+If pointing out that someone has indulged public theatrics is 'ad
+hominem', then I am utterly delighted to have somehow warped into a
+painfully polite universe exceeding the fondest dreams of Judith Martin.
+Please advise if that has happened when I wasn't looking.
+
+
+
+
+
+From kfogel at red-bean.com  Fri Mar  9 19:52:10 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Fri, 09 Mar 2012 13:52:10 -0600
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was: MXM compared to CC0 ]
+In-Reply-To: <20120309181601.GZ15452@linuxmafia.com> (Rick Moen's message of
+	"Fri, 9 Mar 2012 10:16:01 -0800")
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309170344.GT15452@linuxmafia.com> <4F5A3C19.5050203@perens.com>
+	<20120309173649.GW15452@linuxmafia.com>
+	<87sjhh3bsd.fsf@kwarm.red-bean.com>
+	<20120309181601.GZ15452@linuxmafia.com>
+Message-ID: <87r4x11rit.fsf@kwarm.red-bean.com>
+
+Rick Moen <rick at linuxmafia.com> writes:
+>I applaud the sentiment, except I will politely point out that you will
+>actually find no ad-hominem characteristion whatsoever in what I wrote
+>that you have quoted above.   I asserted that a particular thing Bruce
+>said has no merit, that public theatrics are not impressive, and that he
+>should please knock it off.  
+>
+>If pointing out that someone has indulged public theatrics is 'ad
+>hominem', then I am utterly delighted to have somehow warped into a
+>painfully polite universe exceeding the fondest dreams of Judith Martin.
+>Please advise if that has happened when I wasn't looking.
+
+"Ad hominem" was too strong a description, you're right -- sorry for
+exaggerating a bit.  
+
+But it's not Judith Martin territory to suggest that some of these
+expressions could be toned down, though, if the poster wants to --
+including ones that aren't ad hominem but that still contain more
+ridicule or disdain than is actually necessary to make the point.
+That's all I was trying to say.
+
+Each poster has to judge where that line is for them.  I'm merely
+suggesting that people reconsider their current default calibrations,
+since there is clearly a tendency for escalation to happen even though
+any individual post is not necessarily the "single cause" of it.
+
+I hope that makes what I was trying to say more clear.
+
+Best,
+-Karl
+
+
+
+
+From rick at linuxmafia.com  Fri Mar  9 21:12:02 2012
+From: rick at linuxmafia.com (Rick Moen)
+Date: Fri, 9 Mar 2012 13:12:02 -0800
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <87r4x11rit.fsf@kwarm.red-bean.com>
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309170344.GT15452@linuxmafia.com>
+	<4F5A3C19.5050203@perens.com>
+	<20120309173649.GW15452@linuxmafia.com>
+	<87sjhh3bsd.fsf@kwarm.red-bean.com>
+	<20120309181601.GZ15452@linuxmafia.com>
+	<87r4x11rit.fsf@kwarm.red-bean.com>
+Message-ID: <20120309211202.GE15452@linuxmafia.com>
+
+Quoting Karl Fogel (kfogel at red-bean.com):
+
+> But it's not Judith Martin territory to suggest that some of these
+> expressions could be toned down, though, if the poster wants to --
+> including ones that aren't ad hominem but that still contain more
+> ridicule or disdain than is actually necessary to make the point.
+> That's all I was trying to say.
+
+Fair enough.  For immediate context, please realise that I've known
+Bruce socially for a long time, and hoped my comment would be received
+as a gentle chiding over abandonment of perspective by someone he knows.
+
+No interpersonal unpleasantness was (in that case) intended, or, I hope,
+perceived.  (And I do appreciate your speaking up.)
+
+
+
+
+
+From bruce at perens.com  Fri Mar  9 21:26:22 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Fri, 09 Mar 2012 13:26:22 -0800
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <20120309211202.GE15452@linuxmafia.com>
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309170344.GT15452@linuxmafia.com>
+	<4F5A3C19.5050203@perens.com>
+	<20120309173649.GW15452@linuxmafia.com>
+	<87sjhh3bsd.fsf@kwarm.red-bean.com>
+	<20120309181601.GZ15452@linuxmafia.com>
+	<87r4x11rit.fsf@kwarm.red-bean.com>
+	<20120309211202.GE15452@linuxmafia.com>
+Message-ID: <4F5A757E.2070309@perens.com>
+
+On 03/09/2012 01:12 PM, Rick Moen wrote:
+> hoped my comment would be received as a gentle chiding over 
+> abandonment of perspective by someone he knows
+It was only an issue because of other stuff on the list.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120309/d238b237/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120309/d238b237/attachment.p7s>
+
+
+
+From kfogel at red-bean.com  Fri Mar  9 21:50:07 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Fri, 09 Mar 2012 15:50:07 -0600
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was: MXM compared to CC0 ]
+In-Reply-To: <4F5A757E.2070309@perens.com> (Bruce Perens's message of "Fri, 09
+	Mar 2012 13:26:22 -0800")
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309170344.GT15452@linuxmafia.com> <4F5A3C19.5050203@perens.com>
+	<20120309173649.GW15452@linuxmafia.com>
+	<87sjhh3bsd.fsf@kwarm.red-bean.com>
+	<20120309181601.GZ15452@linuxmafia.com>
+	<87r4x11rit.fsf@kwarm.red-bean.com>
+	<20120309211202.GE15452@linuxmafia.com> <4F5A757E.2070309@perens.com>
+Message-ID: <87boo5zbow.fsf@kwarm.red-bean.com>
+
+Bruce Perens <bruce at perens.com> writes:
+>On 03/09/2012 01:12 PM, Rick Moen wrote:
+>> hoped my comment would be received as a gentle chiding over
+>> abandonment of perspective by someone he knows
+>
+>It was only an issue because of other stuff on the list.
+
+Sure, understood.
+
+To be completely above-board: My long-term goal here -- which I think
+others on this list share -- is to make the list a more welcoming place
+for newcomers who a) don't have personal history with the organization
+or with others on these lists, and b) don't necessarily have the thick
+skins that participation here has, um, historically required.
+
+My thesis is that the quality of license analysis will go up, not down,
+if we can attract & keep some of those people.  Which is not to say the
+quality is low now.  It's just that there is a high S-to-N ratio and
+it's hard sometimes to extract the oil from the shale.
+
+(My other goal is improving my metaphors.)
+
+-Karl
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 835 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120309/4625ee8b/attachment.sig>
+
+
+
+From kfogel at red-bean.com  Fri Mar  9 21:54:41 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Fri, 09 Mar 2012 15:54:41 -0600
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was: MXM compared to CC0 ]
+In-Reply-To: <20120309211202.GE15452@linuxmafia.com> (Rick Moen's message of
+	"Fri, 9 Mar 2012 13:12:02 -0800")
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309170344.GT15452@linuxmafia.com> <4F5A3C19.5050203@perens.com>
+	<20120309173649.GW15452@linuxmafia.com>
+	<87sjhh3bsd.fsf@kwarm.red-bean.com>
+	<20120309181601.GZ15452@linuxmafia.com>
+	<87r4x11rit.fsf@kwarm.red-bean.com>
+	<20120309211202.GE15452@linuxmafia.com>
+Message-ID: <877gytzbha.fsf@kwarm.red-bean.com>
+
+Rick Moen <rick at linuxmafia.com> writes:
+>Fair enough.  For immediate context, please realise that I've known
+>Bruce socially for a long time, and hoped my comment would be received
+>as a gentle chiding over abandonment of perspective by someone he knows.
+>
+>No interpersonal unpleasantness was (in that case) intended, or, I hope,
+>perceived.  (And I do appreciate your speaking up.)
+
+Ah, thanks -- knowing that context helps.
+
+One of the things that's tricky on these lists, I think, is that two
+interlocutors may know each other personally, but *that fact* may be
+unknown to others on the list (as it was to me, for example)... Which
+means that gentle-but-public chiding between old acquaintances can cause
+others to think that that kind chiding is appropriate between strangers,
+thus unintentionally contributing to a general anything-goes atmosphere.
+
+The solution, I think, is not to talk to everyone as though they're a
+stranger, but just to make sure that the context is clear when you're
+addressing someone familiarly -- so that observers know that's what's
+going on.
+
+(And I realize this is a lot of meta-conversation here, but I think it's
+needed to avoid other threads getting as heated as CC0 got.)
+
+-K
+
+
+
+
+From rick at linuxmafia.com  Fri Mar  9 22:08:31 2012
+From: rick at linuxmafia.com (Rick Moen)
+Date: Fri, 9 Mar 2012 14:08:31 -0800
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <877gytzbha.fsf@kwarm.red-bean.com>
+References: <4F58F2CE.4060000@perens.com> <87pqcl67p1.fsf@kwarm.red-bean.com>
+	<20120309170344.GT15452@linuxmafia.com>
+	<4F5A3C19.5050203@perens.com>
+	<20120309173649.GW15452@linuxmafia.com>
+	<87sjhh3bsd.fsf@kwarm.red-bean.com>
+	<20120309181601.GZ15452@linuxmafia.com>
+	<87r4x11rit.fsf@kwarm.red-bean.com>
+	<20120309211202.GE15452@linuxmafia.com>
+	<877gytzbha.fsf@kwarm.red-bean.com>
+Message-ID: <20120309220831.GG15452@linuxmafia.com>
+
+Quoting Karl Fogel (kfogel at red-bean.com):
+
+> One of the things that's tricky on these lists, I think, is that two
+> interlocutors may know each other personally, but *that fact* may be
+> unknown to others on the list (as it was to me, for example)...
+
+Point well taken.
+
+Not to detract from any of that, but I've found over the years that the
+world of open source usual suspects (and even hangers-on) _is_ actually
+ridiculously small and familiar.  It's one of the reasons I take greater
+care, these days, to not push people's buttons:  You never know if the
+djbware fan you annoyed yesterday (by saying on your personal Web pages
+that you didn't enjoy administering qmail for a living and don't
+appreciate its oddities) might become your boss tomorrow.
+
+Anyway, probably many of us have encountered each other, even if we are
+not currently associating name with face.  And are likely to do so again
+-- so watch out whom you choose to bad-mouth, folks.
+
+
+
+
+
+From nelson at crynwr.com  Sat Mar 10 03:31:43 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 9 Mar 2012 22:31:43 -0500
+Subject: [License-review] [License-discuss] CC0 incompliant with OSD
+	on	patents, [was: MXM compared to CC0 ]
+In-Reply-To: <1BAF12F1-B924-46B9-8F8F-4D8B6E0053A2@jimjag.com>
+References: <20312.3654.6344.712709@desk.crynwr.com>
+	<CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+	<20120308205117.GC15452@linuxmafia.com>
+	<CALMwxMZRmr+HndtiUZ6HyHEg4XQahTxYyakVTR8jq8LFkKH97w@mail.gmail.com>
+	<039b01ccfd81$eba04720$c2e0d560$@com>
+	<03be01ccfd8e$852d65b0$8f883110$@com> <4F596170.7010306@perens.com>
+	<03e101ccfd99$5bf358c0$13da0a40$@com>
+	<1BAF12F1-B924-46B9-8F8F-4D8B6E0053A2@jimjag.com>
+Message-ID: <20314.51999.635615.607257@desk.crynwr.com>
+
+Jim Jagielski writes:
+ > Could I suggest the semi-continual prods @ Russ as a suggested favor repayment??
+
+I'll admit it -- it takes no particular skill to troll me.  All you
+need to do is claim to be a founder of the Open Source Initiative or
+be the author of the Open Source Definition, as if they were both
+perpetual motion machines needing no lubrication or external power.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+
+

@@ -1,0 +1,687 @@
+Source:   https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-March.txt
+Fetched:  2026-09-25T04:40Z（ブラウザ相当の UA）
+Thread:   CC0 incompliant with OSD on patents, [was: MXM compared to CC0 ] —— 全 69 通
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **我々の gap 主張（公有化型ツールにおける明示的特許許諾）が依拠している当の議論で、
+          ドシエは 2026-09-25 まで 1 行も引いていなかった**（against.md #233）。
+          **1,000 行の上限（Check 365）を越えるため、メッセージ境界で 6 部に分けてある。
+          本文は無改変で、部をまたいで結合すれば元の連続になる。**
+          これは 2/6 部（16 通）。
+          読みは LICENSES/ACD-1.0.against.md #233 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From osi-review at piana.eu  Tue Mar  6 16:11:10 2012
+From: osi-review at piana.eu (Carlo Piana)
+Date: Tue, 06 Mar 2012 17:11:10 +0100
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+References: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <4F56371E.1060304@piana.eu>
+
+On 06/03/2012 16:24, Tzeng, Nigel H. wrote:
+> Frankly Carlo, it strikes me as sour grapes with you constantly bringing
+> up MXM.  Approval of new general purpose open source licenses should
+> probably consider/require explicit patent grants.  However, special
+> purpose licenses in the past have specifically limited patent grants and
+> received OSI approval.
+
+Not at all. I have brought it up only this time, then developed a
+discussion on it -- as some others have pointed out it is the most
+closely related example. I have said that I expressly agree with the
+evaluation of many in the list that MXM was not compliant, that's history.
+
+By the way, MXM was presented as a special purpose license too. But this
+discussion is not about MXM, it's about unbundling patents and copyright
+in a software license.
+
+> Folks appear to be forgetting that CC0 is first a public domain COPYRIGHT
+> dedication with a permissive fallback.  As such, it's another special
+> purpose license that fills a need within the community (PD dedication) not
+> met by another approved license.
+>
+> In many countries I would imagine that the fallback would not come into
+> play.  In which case you still only have copyright rights unless public
+> domain copyright dedications automatically come with trademark and patent
+> rights bundled together.
+
+I submit that if we start saying that a license that limits its scope to
+the copyright domain would qualify as "open source", then we will go
+down a very slippery slope, special purpose or not (but is it?)
+
+I would regard as "openly licensed" only something for which the
+licensor makes a good faith attempt at clearing the licensed thing under
+*all* applicable rights that could prevent software from being used,
+modified, distributed etc.
+
+If company X uses CC0 to distribute software and somebody happily uses
+it in their own application, and then company X says "wait a minute, you
+have a /copyright/ permission, now let's talk about patents", I would
+submit that this is not respecting most of the freedoms that are
+chartered in the OSD.
+
+So far I have not heard any convincing explanation to the contrary.
+
+> Note that the ODC PDDL also only dedicates copyright and data rights to
+> the public domain and not trademarks or patents.
+>
+> I'm going disagree with folks regarding deprecating licenses without
+> explicit patent grants.  If the OSI is dumb enough to deprecate the BSD
+> license I'll go ahead and deprecate the OSI as having lost touch with the
+> community and I don't think I'll be alone in doing so.
+
+As it has been discussed, BSD is an entirely different case and it does
+not make any attempt to separate copyright and patents.
+
+With best regards,
+
+Carlo
+
+
+
+
+
+From bruce at perens.com  Tue Mar  6 17:18:33 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 06 Mar 2012 09:18:33 -0800
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+References: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <4F5646E9.1070603@perens.com>
+
+On 03/06/2012 07:24 AM, Tzeng, Nigel H. wrote:
+> If the OSI is dumb enough to deprecate the BSD license I'll go ahead and deprecate the OSI as having lost touch with the community and I don't think I'll be alone in doing so.
+I don't think there is the slightest danger of this happening. The only 
+person suggesting this has some sort of bee in his bonnet regarding me 
+personally. However, I do think that OSI should be more cognizant of 
+patent issues in the approval process going forward.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120306/be083092/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120306/be083092/attachment.p7s>
+
+
+
+From kfogel at red-bean.com  Tue Mar  6 17:28:26 2012
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Tue, 06 Mar 2012 11:28:26 -0600
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was: MXM compared to CC0 ]
+In-Reply-To: <4F5646E9.1070603@perens.com> (Bruce Perens's message of "Tue, 06
+	Mar 2012 09:18:33 -0800")
+References: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+	<4F5646E9.1070603@perens.com>
+Message-ID: <87399lljut.fsf@kwarm.red-bean.com>
+
+Bruce Perens <bruce at perens.com> writes:
+>I don't think there is the slightest danger of this happening. The
+>only person suggesting this has some sort of bee in his bonnet
+>regarding me personally. However, I do think that OSI should be more
+>cognizant of patent issues in the approval process going forward.
+
+...a sentiment others here have expressed too (e.g., Chris DiBona).
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 835 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120306/ce05f791/attachment.sig>
+
+
+
+From nelson at crynwr.com  Wed Mar  7 03:59:04 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Tue, 6 Mar 2012 22:59:04 -0500
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <4F5646E9.1070603@perens.com>
+References: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+	<4F5646E9.1070603@perens.com>
+Message-ID: <20310.56584.864194.25687@desk.crynwr.com>
+
+Bruce Perens writes:
+ > On 03/06/2012 07:24 AM, Tzeng, Nigel H. wrote:
+ > > If the OSI is dumb enough to deprecate the BSD license I'll go ahead and deprecate the OSI as having lost touch with the community and I don't think I'll be alone in doing so.
+ > I don't think there is the slightest danger of this happening.
+
+Really? REALLY? No danger at all? You own argumentation says that it
+is an absolute requirement. You want us to require a patent
+wavier. You also say in another context that we can't afford to WIN a
+lawsuit (much less lose one). Thus we should avoid setting new law.
+The BSD has no explicit patent waiver. It might have an implicit
+one. Settling that issue would be setting new law. Thus, your own
+logic demands that we deprecate the BSD OR that we give up on
+requiring patent waviers. Are you having trouble following your own
+logic?
+
+Seriously, Bruce, just this once, it's NOT about you personally.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+
+
+From jim at jimjag.com  Wed Mar  7 16:51:23 2012
+From: jim at jimjag.com (Jim Jagielski)
+Date: Wed, 7 Mar 2012 11:51:23 -0500
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was: MXM compared to CC0 ]
+In-Reply-To: <20310.56584.864194.25687@desk.crynwr.com>
+References: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+	<4F5646E9.1070603@perens.com>
+	<20310.56584.864194.25687@desk.crynwr.com>
+Message-ID: <C6EE1049-DF07-4B59-96A9-D993E79CE262@jimjag.com>
+
+I have a hard time following all this, based on the mix of factual
+data in combo with the ad-hominum attacks floating around...
+
+
+
+
+From bruce at perens.com  Wed Mar  7 17:06:13 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 07 Mar 2012 09:06:13 -0800
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <C6EE1049-DF07-4B59-96A9-D993E79CE262@jimjag.com>
+References: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+	<4F5646E9.1070603@perens.com>
+	<20310.56584.864194.25687@desk.crynwr.com>
+	<C6EE1049-DF07-4B59-96A9-D993E79CE262@jimjag.com>
+Message-ID: <4F579585.3080802@perens.com>
+
+Since most of the posters on this list are calm and rational, even if 
+you disagree with them, I suggest you simply become selective regarding 
+whose email you read.
+
+On 03/07/2012 08:51 AM, Jim Jagielski wrote:
+> I have a hard time following all this, based on the mix of factual
+> data in combo with the ad-hominum attacks floating around...
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120307/96dcfec4/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120307/96dcfec4/attachment.p7s>
+
+
+
+From lrosen at rosenlaw.com  Wed Mar  7 17:57:08 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Wed, 7 Mar 2012 09:57:08 -0800
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was: MXM compared to CC0 ]
+In-Reply-To: <C6EE1049-DF07-4B59-96A9-D993E79CE262@jimjag.com>
+References: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>	<4F5646E9.1070603@perens.com>	<20310.56584.864194.25687@desk.crynwr.com>
+	<C6EE1049-DF07-4B59-96A9-D993E79CE262@jimjag.com>
+Message-ID: <013701ccfc8b$b75e8360$261b8a20$@com>
+
+Dear Colleagues,
+
+Let's try to restate the problem so we can get back on track:
+
+There are FOSS-friendly software licensors who -- for a variety of reasons
+-- do not include an express patent grant in their software licenses (e.g.,
+BSD). In some cases, they expressly *exclude* a patent grant (e.g., CC0).
+Even those who do grant patent licenses often restrict the license to
+specific claims (e.g., claims embodied in the original work) or for specific
+purposes (e.g., necessary claims to implement a standard). And as a final
+insult to innocent developers and users, in many cases the licensor simply
+doesn't own or control all necessary patent claims, leaving licensees
+without much assurance anyway. Most FOSS licenses are "AS-IS" and without
+warranty.
+
+Meanwhile, there are software distributors who are able and willing to
+provide some level of IP infringement indemnification for a fee. Presumably
+these distributors have either deep pockets or a keener understanding of the
+risks involved. In any event, the pricing of risk is altogether typical in
+the software business and best left off of OSI discussion lists.
+
+None of this is counter to the OSD. 
+
+I suggest that we get back to approving licenses that do just that, and
+leave the patent policy issues to other lists, or at least other threads.
+
+Best,
+
+/Larry
+
+
+> -----Original Message-----
+> From: license-review-bounces at opensource.org [mailto:license-review-
+> bounces at opensource.org] On Behalf Of Jim Jagielski
+> Sent: Wednesday, March 07, 2012 8:51 AM
+> To: license-review at opensource.org
+> Subject: Re: [License-review] CC0 incompliant with OSD on patents,
+> [was: MXM compared to CC0 ]
+> 
+> I have a hard time following all this, based on the mix of factual
+> data in combo with the ad-hominum attacks floating around...
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+
+
+
+From nelson at crynwr.com  Thu Mar  8 01:20:55 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Wed, 7 Mar 2012 20:20:55 -0500
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was: MXM compared to CC0 ]
+In-Reply-To: <C6EE1049-DF07-4B59-96A9-D993E79CE262@jimjag.com>
+References: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+	<4F5646E9.1070603@perens.com>
+	<20310.56584.864194.25687@desk.crynwr.com>
+	<C6EE1049-DF07-4B59-96A9-D993E79CE262@jimjag.com>
+Message-ID: <20312.2423.286624.828347@desk.crynwr.com>
+
+Jim Jagielski writes:
+ > I have a hard time following all this, based on the mix of factual
+ > data in combo with the ad-hominum attacks floating around...
+
+Facts:
+  o Everybody says we should avoid making new law, because we can't
+    even afford to *win* a patent suit, much less lose.
+  o The BSD license has no patent wavier.
+  o The BSD license *might* have an implicit patent wavier, but that
+    has never been tested in court.
+  o Claims that the BSD license has an implicit patent wavier create
+    new law.
+
+Beliefs:
+  o Many people think the BSD is el-primo numero uno Open Source
+    License.
+  o Many people think the CC0 is NOT an open source license because it
+    doesn't come with a patent wavier.
+  o Some people think that OSD compliance needs a patent waiver/license.
+  o Some people think that the OSI should use OSI approval to mean
+    that software is safe to use.
+
+Not all of these beliefs can be true at the same time. I get a little
+frustrated with people who can't see their nose to spite their face.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+
+
+From nelson at crynwr.com  Thu Mar  8 01:41:26 2012
+From: nelson at crynwr.com (Russ Nelson)
+Date: Wed, 7 Mar 2012 20:41:26 -0500
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was: MXM compared to CC0 ]
+In-Reply-To: <013701ccfc8b$b75e8360$261b8a20$@com>
+References: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+	<4F5646E9.1070603@perens.com>
+	<20310.56584.864194.25687@desk.crynwr.com>
+	<C6EE1049-DF07-4B59-96A9-D993E79CE262@jimjag.com>
+	<013701ccfc8b$b75e8360$261b8a20$@com>
+Message-ID: <20312.3654.6344.712709@desk.crynwr.com>
+
+Lawrence Rosen writes:
+ > I suggest that we get back to approving licenses that do just that, and
+ > leave the patent policy issues to other lists, or at least other threads.
+
+I don't think this committee has the necessary guidance to come to one
+opinion about patent waviers on open source licenses. I suggest that
+we ask the board to constitute a new committee which will formulate an
+OSI patent wavier policy.  (I think we're ALL agreed that patents
+which are not freely licensed -- at least for open source software --
+are not compatible with open source software, right?)
+
+In fact, I think that's the right thing to do, so I'm going to ask
+Karl to bring that suggestion to the board. Anybody who disagrees
+should make their own proposition to Karl. I'd appreciate a CC on that
+otherwise-private email.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Crynwr supports open source software
+521 Pleasant Valley Rd. | +1 315-600-8815
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+
+
+From bruce at perens.com  Thu Mar  8 02:15:05 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Wed, 07 Mar 2012 18:15:05 -0800
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <013701ccfc8b$b75e8360$261b8a20$@com>
+References: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>	<4F5646E9.1070603@perens.com>	<20310.56584.864194.25687@desk.crynwr.com>	<C6EE1049-DF07-4B59-96A9-D993E79CE262@jimjag.com>
+	<013701ccfc8b$b75e8360$261b8a20$@com>
+Message-ID: <4F581629.3020209@perens.com>
+
+Larry,
+
+I don't really see that you are stating anything new. We know full well 
+that the grantors only hold a few patents in the torrent. In the recent 
+vote, it looked like about 50% still felt it was worthwhile to make sure 
+that the grantors are not themselves taking bad action.
+
+It's nice that some business gets indemnities from big companies. My own 
+experience, however, is that projects like JMRI only receive attention 
+from those companies once there is already a lower court ruling that 
+would severely inconvenience the large companies.
+
+Ultimately, this comes down to who you're working for. If your customer 
+is Red Hat and its users, this issue doesn't matter much to you. For OSI 
+to be a rubber-stamp of licenses without considering policy might well 
+be a good decision for those parties. If you're trying to look out for 
+the volunteer developers and their projects, you get a different answer.
+
+But it might also be that you are attempting to address with light a 
+portion of the argument that is only heat. I don't think that will work.
+
+     Thanks
+
+     Bruce
+
+
+
+
+
+
+From tg at mirbsd.de  Thu Mar  8 13:36:47 2012
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Thu, 8 Mar 2012 13:36:47 +0000 (UTC)
+Subject: [License-review] CC0 incompliant with OSD on patents
+In-Reply-To: <20312.3654.6344.712709@desk.crynwr.com>
+References: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+	<4F5646E9.1070603@perens.com>
+	<20310.56584.864194.25687@desk.crynwr.com>
+	<C6EE1049-DF07-4B59-96A9-D993E79CE262@jimjag.com>
+	<013701ccfc8b$b75e8360$261b8a20$@com>
+	<20312.3654.6344.712709@desk.crynwr.com>
+Message-ID: <Pine.BSM.4.64L.1203081333330.24179@herc.mirbsd.org>
+
+Russ Nelson dixit:
+
+>(I think we're ALL agreed that patents
+>which are not freely licensed -- at least for open source software --
+>are not compatible with open source software, right?)
+
+No.
+
+If I write something (and I don?t hold any patents), sitting in
+Europe, and give that to you in America under an Open Source
+licence, the existence of a patent on this in, say, Korea should
+not make this piece of software not open source.
+
+Please keep OSI approval of (Open Source software) licences
+and patent policies separate from each other. The patent
+situation is a whole different boat and deliberately vague
+(see Debian?s new patent policy). If I can only publish
+software where I _know_ there are no patents on, I?d rather
+ignore the OSI? and my guess is most would.
+
+bye,
+//mirabilos
+-- 
+I believe no one can invent an algorithm. One just happens to hit upon it
+when God enlightens him. Or only God invents algorithms, we merely copy them.
+If you don't believe in God, just consider God as Nature if you won't deny
+existence.		-- Coywolf Qi Hunt
+
+
+
+
+From alexander.terekhov at gmail.com  Thu Mar  8 14:27:46 2012
+From: alexander.terekhov at gmail.com (Alexander Terekhov)
+Date: Thu, 8 Mar 2012 15:27:46 +0100
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <4F581629.3020209@perens.com>
+References: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+	<4F5646E9.1070603@perens.com>
+	<20310.56584.864194.25687@desk.crynwr.com>
+	<C6EE1049-DF07-4B59-96A9-D993E79CE262@jimjag.com>
+	<013701ccfc8b$b75e8360$261b8a20$@com> <4F581629.3020209@perens.com>
+Message-ID: <CALMwxMY6hkiEu2ikSOeY76dgPENeaPj-D9ztzw5qGBkOLHtiwg@mail.gmail.com>
+
+On Thu, Mar 8, 2012 at 3:15 AM, Bruce Perens <bruce at perens.com> wrote:
+[...]
+> experience, however, is that projects like JMRI only receive attention from
+> those companies once there is already a lower court ruling that would
+> severely inconvenience the large companies.
+
+Hmmm... in JMRI case, the ultimate ruling by the lower court (after
+first appeal and before second appeal went nowhere) is of severely
+*convenience* to companies (mega, large, mid, and small):
+
+"Claim for Breach of Contract ... as the claim for breach of contract
+is currently drafted, there is no indication what, if any, damages
+Jacobsen claims to have incurred that were the proximate cause of a
+breach of the Artistic License.  For this reason, the allegations for
+breach of contract fail to state a claim upon which relief can be
+granted and the claim is dismissed ... Jacobsen Fails to Meet
+Heightened Burden of Demonstrating Harm"
+
+http://jmri.sourceforge.net/k/docket/284.pdf
+
+regards,
+alexander.
+
+
+
+
+From Nigel.Tzeng at jhuapl.edu  Thu Mar  8 15:06:37 2012
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Thu, 8 Mar 2012 10:06:37 -0500
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <20312.3654.6344.712709@desk.crynwr.com>
+Message-ID: <CB7E3086.14EFB%Nigel.Tzeng@jhuapl.edu>
+
+On 3/7/12 8:41 PM, "Russ Nelson" <nelson at crynwr.com> wrote:
+>(I think we're ALL agreed that patents
+>which are not freely licensed -- at least for open source software --
+>are not compatible with open source software, right?)
+
+No. I say no is because I see explicit trademark and patent rights
+exclusion from other open commons licenses for data, etc and even code
+when you count CC0.
+
+Without knowing the reasons why they explicitly choose to do so I'm
+disinclined to accept the assertion that there is no case where explicitly
+not granting patent rights has no value to the open source community as a
+whole...not just for the more vocal parts of the community that joins
+these lists.
+
+Also, by making this assertion without challenge I believe that you will
+more easily end up with a scenario where BSD and other useful licenses get
+deprecated.
+
+
+
+
+
+From Nigel.Tzeng at jhuapl.edu  Thu Mar  8 15:32:59 2012
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Thu, 8 Mar 2012 10:32:59 -0500
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <4F581629.3020209@perens.com>
+Message-ID: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+
+On 3/7/12 9:15 PM, "Bruce Perens" <bruce at perens.com> wrote:
+
+>I don't really see that you are stating anything new. We know full well
+>that the grantors only hold a few patents in the torrent. In the recent
+>vote, it looked like about 50% still felt it was worthwhile to make sure
+>that the grantors are not themselves taking bad action.
+
+As long as it's plainly stated that the license does not provide a patent
+license then users of the software can judge for themselves the risks
+involved.  Just like they do with copyleft vs permissive licenses.
+
+Many folks will only use a smaller subset of the open source available to
+them for a variety of reasons.
+
+>Ultimately, this comes down to who you're working for. If your customer
+>is Red Hat and its users, this issue doesn't matter much to you. For OSI
+>to be a rubber-stamp of licenses without considering policy might well
+>be a good decision for those parties. If you're trying to look out for
+>the volunteer developers and their projects, you get a different answer.
+>
+>But it might also be that you are attempting to address with light a
+>portion of the argument that is only heat. I don't think that will work.
+
+Allowing licenses that explicitly do not provide a patent license like CC0
+is not a rubber stamp of licenses without considering policy.  Especially
+if labeled as a special purpose license.
+
+Nor does it ignore the need of volunteer developers in favor of corporate
+need.  Frankly, it will likely be corporations that will avoid the use of
+open source without explicit patent grants more often as a matter of
+policy.  One less thing to worry about in terms of compliance.
+
+"Looking out" for volunteer developers isn't tightening the definition of
+the OSD but to clearly provide a set of licenses that are easy to
+understand from a layperson perspective as to what their compliance
+requirements will be, what their risks are AND to provide a sufficient
+range of licenses that covers the needs of the community as a whole.
+
+Something CC does and OSI does not for their respective communities.  I've
+seen several times volunteer developers ask for an open source license
+with a non-commercial clause for their projects only to be told "that's
+not open source...go look elsewhere because we wont help you and don't
+even think to use CC-SA-NC either".
+
+
+
+
+
+From bruce at perens.com  Thu Mar  8 17:56:30 2012
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 08 Mar 2012 09:56:30 -0800
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <4F58F2CE.4060000@perens.com>
+
+On 03/08/2012 07:32 AM, Tzeng, Nigel H. wrote:
+> As long as it's plainly stated that the license does not provide a 
+> patent license then users of the software can judge for themselves the 
+> risks involved. Just like they do with copyleft vs permissive licenses.
+They can judge the risk regarding copyright-based licenses because the 
+copyrighted material is there in front of them. This is not the case 
+regarding patents.
+
+If I were to evaluate the U.S. patent risk for a company, a great deal 
+of the burden would be search and evaluation of a very large collection 
+of patents. The engagement would be around USD$100K, and that's not 
+counting what the attorney who gets my report would charge. And there 
+would be some big caveats in my report.
+
+The cost of engagement for evaluating risk and establishing policies and 
+processes for combining Open Source and proprietary software would be 
+less than 1/5 of that.
+
+It is not clear to me that the small and private Open Source projects 
+are at all equipped to perform the evaluation.
+>   Frankly, it will likely be corporations that will avoid the use of 
+> open source without explicit patent grants more often as a matter of 
+> policy.
+No, they will prefer to /use /software with such grants because it 
+reduces their risk. What they worry about is /contributing/ their own 
+work to such software. In general the ones who also have a patent 
+royalty business either refuse to make such contributions or use 
+intermediaries to develop them.
+
+If you want an organization that recommends licenses, the FSF is happy 
+to help. I agree that OSI should have a short-list of recommended 
+licenses, but the politics of dis-recommending some organization's 
+license are too much for them.
+
+     Thanks
+
+     Bruce
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120308/0f1113f7/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: bruce.vcf
+Type: text/x-vcard
+Size: 266 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120308/0f1113f7/attachment.vcf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4447 bytes
+Desc: S/MIME Cryptographic Signature
+URL: <http://lists.opensource.org/pipermail/license-review_lists.opensource.org/attachments/20120308/0f1113f7/attachment.p7s>
+
+
+
+From cowan at mercury.ccil.org  Thu Mar  8 18:10:11 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Thu, 8 Mar 2012 13:10:11 -0500
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was:	MXM compared to CC0 ]
+In-Reply-To: <4F58F2CE.4060000@perens.com>
+References: <CB7E3536.14F26%Nigel.Tzeng@jhuapl.edu>
+	<4F58F2CE.4060000@perens.com>
+Message-ID: <20120308181011.GB848@mercury.ccil.org>
+
+Bruce Perens scripsit:
+
+> If you want an organization that recommends licenses, the FSF is happy  
+> to help. I agree that OSI should have a short-list of recommended  
+> licenses, but the politics of dis-recommending some organization's  
+> license are too much for them.
+
+Indeed.  I have a personal license-recommendation wizard at
+http://ccil.org/~cowan/floss for anyone who cares to use it.
+
+-- 
+What asininity could I have uttered     John Cowan <cowan at ccil.org>
+that they applaud me thus?              http://www.ccil.org/~cowan
+        --Phocion, Greek orator
+
+
+
+

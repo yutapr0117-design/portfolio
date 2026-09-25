@@ -1,0 +1,292 @@
+Source:   https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-March.txt
+Fetched:  2026-09-25T04:40Z（ブラウザ相当の UA）
+Thread:   CC0 incompliant with OSD on patents, [was: MXM compared to CC0 ] —— 全 69 通
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **我々の gap 主張（公有化型ツールにおける明示的特許許諾）が依拠している当の議論で、
+          ドシエは 2026-09-25 まで 1 行も引いていなかった**（against.md #233）。
+          **1,000 行の上限（Check 365）を越えるため、メッセージ境界で 6 部に分けてある。
+          本文は無改変で、部をまたいで結合すれば元の連続になる。**
+          これは 6/6 部（5 通）。
+          読みは LICENSES/ACD-1.0.against.md #233 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From Nigel.Tzeng at jhuapl.edu  Mon Mar 12 14:29:13 2012
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Mon, 12 Mar 2012 10:29:13 -0400
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <4F58F2CE.4060000@perens.com>
+Message-ID: <CB837C24.1501C%Nigel.Tzeng@jhuapl.edu>
+
+On Thu, 8 Mar 2012 12:56:30, Bruce Perens <bruce at perens.com> wrote:
+  
+>>On 03/08/2012 07:32 AM, Tzeng, Nigel H. wrote:
+    
+>>As long as it's plainly stated that the license does not provide a
+>>patent
+>>license then users of the software can judge for themselves the
+>>risks
+>>involved. Just like they do with copyleft vs permissive licenses.
+
+>They can judge the risk regarding copyright-based licenses because
+>the copyrighted material is there in front of them. This is not the
+>case regarding patents.
+ 
+It doesn't matter.  My assertion is that simply folks that judge any
+patent risk as too high will simply avoid the use of any software
+that does not provide an explicit patent grant.  They can do this
+without any knowledge other than what the license says.
+
+This is exactly the same risk analysis regarding any uncertainty with
+copyleft.  Folks that do not wish to worry about the linking controversy
+or whatever will simply ignore GPL licensed software and use only LGPL,
+Apache, BSD, etc. 
+   
+>If I were to evaluate the U.S. patent risk for a company, a great
+>deal of the burden would be search and evaluation of a very large
+>collection of patents. The engagement would be around USD$100K, and
+>that's not counting what the attorney who gets my report would
+>charge. And there would be some big caveats in my report.
+    
+>The cost of engagement for evaluating risk and establishing policies
+>and processes for combining Open Source and proprietary software
+>would be less than 1/5 of that.
+ 
+The costs and results are very similar.
+
+These licenses are approved for use:  <list of approved licenses>
+    
+ 
+>>Frankly, it will likely be corporations that will avoid the use of
+>>open source without explicit patent grants more often as a matter
+>>of policy.
+
+>No, they will prefer to use software with such grants
+>because it reduces their risk.
+
+That is exactly what I said albeit with a confusing double negative.
+
+>What they worry about is contributing their own work to such software.
+>In general the ones who also have a patent royalty business either
+>refuse to make such contributions or use intermediaries to develop them.
+   
+Yes.  Or they use some other license that provides source with only
+limited or no patent licenses.  Since there are no commonly used
+licenses that provide these in the "open source" world they will likely
+be different, confusing and fragmented.
+
+That may be awesome for open source purists.  Not so much for the rest
+of the developer community.
+ 
+>If you want an organization that recommends licenses, the FSF is
+>happy to help. I agree that OSI should have a short-list of
+>recommended licenses, but the politics of dis-recommending some
+>organization's license are too much for them.
+
+If I wanted a very narrow view of what open source is then yes, the
+FSF is satisfactory.  I do not.
+
+Frankly, what I want is the family of CC licenses for software.  Then
+devs without some philosophical axe to grind will have a wide range of
+very permissive to moderately restricted software common licenses
+to use as needed on OUR terms.
+
+Nigel
+
+
+
+
+
+From cowan at mercury.ccil.org  Mon Mar 12 16:04:20 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Mon, 12 Mar 2012 12:04:20 -0400
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was:	MXM compared to CC0 ]
+In-Reply-To: <CB837C24.1501C%Nigel.Tzeng@jhuapl.edu>
+References: <4F58F2CE.4060000@perens.com>
+	<CB837C24.1501C%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <20120312160420.GP22879@mercury.ccil.org>
+
+Tzeng, Nigel H. scripsit:
+
+> It doesn't matter.  My assertion is that simply folks that judge any
+> patent risk as too high will simply avoid the use of any software
+> that does not provide an explicit patent grant.  
+
+Actually, such people will rationally avoid the use of all software
+except what is sold to them by a deep-pocketed company that promises to
+indemnify them against patent claims.  They will certainly not develop
+their own software, so they won't care if it's open source or not.
+
+You don't satisfy such worrywarts by pointing out the difference between
+licenses that deal with 1% of the problem and those that deal with none of it.
+
+-- 
+John Cowan  cowan at ccil.org  http://ccil.org/~cowan
+If I have not seen as far as others, it is because giants were standing
+on my shoulders.
+        --Hal Abelson
+
+
+
+
+From Nigel.Tzeng at jhuapl.edu  Mon Mar 12 16:31:34 2012
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Mon, 12 Mar 2012 12:31:34 -0400
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <20120312160420.GP22879@mercury.ccil.org>
+Message-ID: <CB8397FD.1504E%Nigel.Tzeng@jhuapl.edu>
+
+John,
+
+I think most folks are willing to accept some risk and I can understand
+the desire for even that 1% difference.  And that risk tolerance differs
+even for myself depending on the projects I'm working on.
+
+What I would like to avoid is that 1% difference becoming a litmus test
+for what is or isn't open source.  It strikes me that the definition is
+already too narrow.  Others, I'm sure, think the definition is currently
+too broad...but for that we already have the FSF.  Two organizations with
+narrow viewpoints strikes me as redundant.
+
+Regards,
+
+Nigel
+
+
+On 3/12/12 12:04 PM, "John Cowan" <cowan at mercury.ccil.org> wrote:
+
+>Tzeng, Nigel H. scripsit:
+>
+>> It doesn't matter.  My assertion is that simply folks that judge any
+>> patent risk as too high will simply avoid the use of any software
+>> that does not provide an explicit patent grant.
+>
+>Actually, such people will rationally avoid the use of all software
+>except what is sold to them by a deep-pocketed company that promises to
+>indemnify them against patent claims.  They will certainly not develop
+>their own software, so they won't care if it's open source or not.
+>
+>You don't satisfy such worrywarts by pointing out the difference between
+>licenses that deal with 1% of the problem and those that deal with none
+>of it.
+>
+>-- 
+>John Cowan  cowan at ccil.org  http://ccil.org/~cowan
+>If I have not seen as far as others, it is because giants were standing
+>on my shoulders.
+>        --Hal Abelson
+>_______________________________________________
+>License-review mailing list
+>License-review at opensource.org
+>http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+
+
+From cowan at mercury.ccil.org  Mon Mar 12 16:45:20 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Mon, 12 Mar 2012 12:45:20 -0400
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was:	MXM compared to CC0 ]
+In-Reply-To: <CB8397FD.1504E%Nigel.Tzeng@jhuapl.edu>
+References: <20120312160420.GP22879@mercury.ccil.org>
+	<CB8397FD.1504E%Nigel.Tzeng@jhuapl.edu>
+Message-ID: <20120312164520.GR22879@mercury.ccil.org>
+
+Tzeng, Nigel H. scripsit:
+
+> What I would like to avoid is that 1% difference becoming a litmus test
+> for what is or isn't open source.  It strikes me that the definition is
+> already too narrow.  Others, I'm sure, think the definition is currently
+> too broad...but for that we already have the FSF.  Two organizations with
+> narrow viewpoints strikes me as redundant.
+
+Actually, "free software" has only four defining points; "open source"
+has ten.  As for specific licenses, I think there is actual disagreement
+only on the obsolete Artistic V1 and APSL V1 licenses.  So I'm not clear
+what you mean by "broad" and "narrow" here.
+
+-- 
+John Cowan              cowan at ccil.org          http://www.ccil.org/~cowan
+Any day you get all five woodpeckers is a good day.  --Elliotte Rusty Harold
+
+
+
+
+From lrosen at rosenlaw.com  Mon Mar 12 18:02:49 2012
+From: lrosen at rosenlaw.com (Lawrence Rosen)
+Date: Mon, 12 Mar 2012 11:02:49 -0700
+Subject: [License-review] CC0 incompliant with OSD on patents,
+	[was: MXM compared to CC0 ]
+In-Reply-To: <20120312164520.GR22879@mercury.ccil.org>
+References: <20120312160420.GP22879@mercury.ccil.org>	<CB8397FD.1504E%Nigel.Tzeng@jhuapl.edu>
+	<20120312164520.GR22879@mercury.ccil.org>
+Message-ID: <020501cd007a$568bb920$03a32b60$@com>
+
+> Actually, "free software" has only four defining points; "open source"
+> has ten.  As for specific licenses, I think there is actual
+> disagreement only on the obsolete Artistic V1 and APSL V1 licenses.  
+> So I'm not clear what you mean by "broad" and "narrow" here.
+
+
+"Freedom of speech" has only one defining point. You can't get much broader
+and ambiguous than that! So what?
+
+In my book I boiled both FSF and OSD theories of freedom to five points, and
+my publisher created cover art with those points on parchment as if they
+were the constitution of our movement. :-) I found that humorous because, at
+the time, I couldn't get the OSI board to agree that my 5 were the same as
+their 10, nor get FSF to agree that my 5 were not different from their 4.
+
+What matters is the way those points are reflected in actual life
+situations. *Patents* create some of those situation. And if this group
+believes that we can be the ones to boil those complex patent situations
+down to a few fundamental freedoms, I'm curious to see the result.
+
+/Larry
+
+
+> -----Original Message-----
+> From: license-review-bounces at opensource.org [mailto:license-review-
+> bounces at opensource.org] On Behalf Of John Cowan
+> Sent: Monday, March 12, 2012 9:45 AM
+> To: license-review at opensource.org
+> Subject: Re: [License-review] CC0 incompliant with OSD on patents,
+> [was: MXM compared to CC0 ]
+> 
+> Tzeng, Nigel H. scripsit:
+> 
+> > What I would like to avoid is that 1% difference becoming a litmus
+> test
+> > for what is or isn't open source.  It strikes me that the definition
+> is
+> > already too narrow.  Others, I'm sure, think the definition is
+> currently
+> > too broad...but for that we already have the FSF.  Two organizations
+> with
+> > narrow viewpoints strikes me as redundant.
+> 
+> Actually, "free software" has only four defining points; "open source"
+> has ten.  As for specific licenses, I think there is actual
+> disagreement
+> only on the obsolete Artistic V1 and APSL V1 licenses.  So I'm not
+> clear
+> what you mean by "broad" and "narrow" here.
+> 
+> --
+> John Cowan              cowan at ccil.org
+> http://www.ccil.org/~cowan
+> Any day you get all five woodpeckers is a good day.  --Elliotte Rusty
+> Harold
+> _______________________________________________
+> License-review mailing list
+> License-review at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-review
+
+
+
+
