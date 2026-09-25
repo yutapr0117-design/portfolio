@@ -161,7 +161,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1488 words**, measured 2026-09-25)
+### B.0 The message as it should actually be sent (**1519 words**, measured 2026-09-25)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -235,6 +235,13 @@ its patent grant over *Products* can be read to reach a trained model, so the pa
 gap holds only as "names models" (`against.md` #241). The three-together claim still stands, but a
 reviewer who knows CERN-OHL would have found the nearest counter-example before we named it.
 **+32 words**, against a first draft of 50.
+
+**And 1,519 later still on 2026-09-25**, when two comparative claims in the message were found false
+against this dossier's own records. *"Nearest approved licences"* listed CC0, which is not approved, and
+named Apache-2.0 as the nearest patent machinery, where the census found three permissive licences with an
+express patent grant (`review-responses.md` §6). *"The incumbents do not attempt"* moral rights was
+false for EUPL, which `submission-reference.md` already quoted against us. **Both had been corrected in the
+reference material and not in the message** — the surface that is read first was the one left stale.
 
 **Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
 move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
@@ -345,8 +352,9 @@ material" beside source and object code. I have not narrowed it, because dataset
 are the non-code material the gap is about; the overlap, and the committee's own line between a
 licence tied to software and one unrelated to it, are set out in the reference (§3d).
 
-**Nearest approved licences.** It is closest in effect to the Unlicense, MIT-0, 0BSD and CC0, and
-closest in patent machinery to Apache-2.0. The full comparison — **including where those are the
+**Nearest approved licences.** It is closest in effect to the Unlicense, MIT-0 and 0BSD (and to
+CC0, which is not approved), and in patent terms to UPL-1.0, BlueOak-1.0.0 and BSD-2-Clause-Patent,
+each of which differs from it by one kind of condition. The full comparison — **including where those are the
 better choice, which is most of the time** — is in the repository.
 
 **Structure, since it matters for reviewability.** §3 surrenders the Covered Rights and §4 grants a
@@ -366,7 +374,7 @@ example, but 0BSD and MIT-0 read the same way — is *"not open source, at least
 because the right of integrity reaches software there and can be used to stop modification. §12
 answers that with a waiver where waiver is possible and, where it is not, a covenant not to
 exercise, binding heirs. **No lawyer has checked whether it works. What I claim is only that the
-incumbents do not attempt it.**
+permissive incumbents do not attempt it;** EUPL, a copyleft licence, does, in the same shape as §12.
 
 **Legal review: none.** No lawyer has drafted or read it. I state that plainly rather than let it
 be discovered. What can be shown without counsel is mechanical, and is checked in CI on every
