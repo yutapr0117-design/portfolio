@@ -14,7 +14,7 @@ canonical-ref: LICENSES/rounds/README.md (置き方の規約) / LICENSES/ACD-1.0
 
 ## Why
 
-**permissive なライセンスに明示的特許許諾を足したものを OSI が承認した唯一の近い先例**で、
+**permissive なライセンスに明示的特許許諾を足したものを OSI が承認した近い先例の 1 つ**で（同じ形の承認済みは他に UPL-1.0 と BlueOak-1.0.0 がある —— `ACD-1.0.gap-census.md`。**審査スレッドで承認理由まで読めるのはこの 1 本**）、
 **我々の特許 gap にとって最も近い承認済みの隣人**である。
 
 **テキストの census（`ACD-1.0.gap-census.md`）は「その条文が在る」ことは示すが、
