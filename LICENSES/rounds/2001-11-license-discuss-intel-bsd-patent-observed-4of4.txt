@@ -1,0 +1,573 @@
+Source:   https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Fetched:  2026-09-25T09:07:03+00:00（ブラウザ相当の UA・件名で厳密に抽出）
+Thread:   Intel's proposed BSD + Patent License —— 全 50 通（2001-11）
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **特許許諾を GPL の OS に条件づけた 2001 年版が OSD 3 / 6 / 8 で争われ、承認されなかった。** 2016 年の無条件版は承認されている（`2016-01-...` を参照）。**ACD §8.2 が無条件・終了不能である理由に当たる。**
+          分割は Check 365（1,000 行）のため・メッセージ境界（4/4 部・10 通）。
+          読みは LICENSES/ACD-1.0.against.md #236 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From nelson at crynwr.com  Wed Oct 31 06:07:38 2001
+From: nelson at crynwr.com (Russell Nelson)
+Date: Wed, 31 Oct 2001 01:07:38 -0500 (EST)
+Subject: Intel's proposed BSD + Patent License
+In-Reply-To: <200110310532.VAA94387@meer.meer.net>
+References: <B6E52B5EDFAFD411BA42009027AE9D580F4A4C09@FMSMSX39>
+	<200110310456.UAA80826@meer.meer.net>
+	<15327.34396.414744.755641@desk.crynwr.com>
+	<200110310532.VAA94387@meer.meer.net>
+Message-ID: <15327.37697.272888.361340@desk.crynwr.com>
+
+David Johnson writes:
+ > Okay, we can play fun little metaphysical games with the BSD license, but it 
+ > ignores an important point: the BSD+Patent License restricts what operating 
+ > systems you may use it on.
+
+No it doesn't, for several reasons:
+
+  1) You might live in a jurisdiction where software parents are not recognized.
+  2) The software you are using may not be patented.
+  3) The patent in question might not be valid.
+  4) You might have a license for the patent.
+  5) You might be able to negotiate a free license for your operating
+     system.
+
+The Patent License does not say that you cannot run the software if
+your operating system is not GPL'ed.  It says that you are granted a
+license if your operating system is GPL'ed.  That's *all*.  It's
+presence does not take anything away from anyone; therefore if the
+license is approvable without it, then it is approvable with it.
+
+-- 
+-russ nelson <sig at russnelson.com>  http://russnelson.com
+Crynwr sells support for free software  | PGPok | Why are we still fighting
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | the war on drugs when there
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   | is a real war to fight?
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From david at usermode.org  Wed Oct 31 06:56:39 2001
+From: david at usermode.org (David Johnson)
+Date: Tue, 30 Oct 2001 22:56:39 -0800
+Subject: Intel's proposed BSD + Patent License
+In-Reply-To: <15327.37697.272888.361340@desk.crynwr.com>
+References: <B6E52B5EDFAFD411BA42009027AE9D580F4A4C09@FMSMSX39> <200110310532.VAA94387@meer.meer.net> <15327.37697.272888.361340@desk.crynwr.com>
+Message-ID: <200110310656.WAA76052@meer.meer.net>
+
+On Tuesday 30 October 2001 10:07 pm, Russell Nelson wrote:
+
+> The Patent License does not say that you cannot run the software if
+> your operating system is not GPL'ed.  It says that you are granted a
+> license if your operating system is GPL'ed.  That's *all*. 
+
+And that's enough to disqualify it. The patent related rights granted may be 
+specious and useless, but they are rights. The OSD says "The rights attached 
+to the program must not depend on the program's being part of a particular 
+software distribution," and "all parties to whom the program is redistributed 
+should have the same rights as those that are granted in conjunction with the 
+original software distribution."
+
+My interpretation is that "the rights" mentioned are all rights, not just 
+those related to the software's opensourcedness.
+
+-- 
+David Johnson
+___________________
+http://www.usermode.org
+pgp public key on website
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From kmself at ix.netcom.com  Wed Oct 31 08:45:22 2001
+From: kmself at ix.netcom.com (Karsten M. Self)
+Date: Wed, 31 Oct 2001 00:45:22 -0800
+Subject: Intel's proposed BSD + Patent License
+In-Reply-To: <200110310532.VAA94387@meer.meer.net>; from david@usermode.org on Tue, Oct 30, 2001 at 09:32:40PM -0800
+References: <B6E52B5EDFAFD411BA42009027AE9D580F4A4C09@FMSMSX39> <200110310456.UAA80826@meer.meer.net> <15327.34396.414744.755641@desk.crynwr.com> <200110310532.VAA94387@meer.meer.net>
+Message-ID: <20011031004522.B23332@navel.introspect>
+
+on Tue, Oct 30, 2001 at 09:32:40PM -0800, David Johnson (david at usermode.org) wrote:
+> On Tuesday 30 October 2001 09:07 pm, Russell Nelson wrote:
+> 
+> >  > ??? GPL my copy of FreeBSD ???
+> >  >
+> >  > Precisely how do I go about this? Replace all copies of the BSD license
+> >  > under /usr/src and recompile?
+> >
+> > Why bother?  Why not simply decide in your own head that, if you ever
+> > give away a copy of your FreeBSD, you'll do so under the GPL.  Poof,
+> > instant GPL'ed operating system.
+> 
+> Okay, we can play fun little metaphysical games with the BSD license, but it 
+> ignores an important point: the BSD+Patent License restricts what operating 
+> systems you may use it on. I can't use it on Solaris, QNX or IRIX. And I 
+> can't use it on some imaginary MPL or QPL licensed OS. This is a violation of 
+> clause 8. Wasn't the OpenMotif license reject for the same reason?
+
+I'd disqualify it on 6, but not 8.  It's not specific to a product, but
+it *is* specific to a field of endeavor:  OS applications.
+
+Peace.
+
+-- 
+Karsten M. Self <kmself at ix.netcom.com>       http://kmself.home.netcom.com/
+ What part of "Gestalt" don't you understand?             Home of the brave
+  http://gestalt-system.sourceforge.net/                   Land of the free
+   Free Dmitry! Boycott Adobe! Repeal the DMCA! http://www.freesklyarov.org
+Geek for Hire                     http://kmself.home.netcom.com/resume.html
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 232 bytes
+Desc: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20011031/64a1253a/attachment.sig>
+
+From yann.dietrich at rd.francetelecom.com  Wed Oct 31 09:49:09 2001
+From: yann.dietrich at rd.francetelecom.com (DIETRICH Yann FTRD/VAT/ISS)
+Date: Wed, 31 Oct 2001 10:49:09 +0100
+Subject: Intel's proposed BSD + Patent License
+Message-ID: <6544C6BD4C1DD1119AFC00805F15DA71026A5234@p-geai.rd.francetelecom.fr>
+
+what is the policy of opensource about patents ? and such license in
+opensource license ? what is the way ? 
+I think it is important to integrate patents issues in such license. In
+fact, the main risk for a patent holder is not about licensing business but
+to not exhaust its patent rights in a non delimited field. I think that a
+lot of patent holder will be agree to grant license for use in the "
+opensource " field but not in the traditional business field, that is the
+purpose of the limitation of Intel, i think. But, the problem with BSD, or
+in my case with LGPL, is that such software can be integrated in a
+traditionnal commercial software, and in this case, patent holder would like
+to have money. And not if the software is integrated in an opensource
+software .. ... finally, most of big companies will enter in opensource
+process if they have solutions to manage such issues, I think and it can be
+great for the developement of opensource software, no ??? 
+
+regards, 
+
+-----------------------------
+Yann Dietrich 
+IP/Licensing Legal Counsel 
+France Telecom R&D / VAT 
+member of the editorial board of http://www.juriscom.net 
+homepage : http://www.chez.com/ydietrich
+ 
+
+> -----Message d'origine-----
+> De : Karsten M. Self [mailto:kmself at ix.netcom.com]
+> Envoye : mercredi 31 octobre 2001 09:45
+> A : license-discuss at opensource.org
+> Objet : Re: Intel's proposed BSD + Patent License
+> 
+> 
+> on Tue, Oct 30, 2001 at 09:32:40PM -0800, David Johnson 
+> (david at usermode.org) wrote:
+> > On Tuesday 30 October 2001 09:07 pm, Russell Nelson wrote:
+> > 
+> > >  > ??? GPL my copy of FreeBSD ???
+> > >  >
+> > >  > Precisely how do I go about this? Replace all copies 
+> of the BSD license
+> > >  > under /usr/src and recompile?
+> > >
+> > > Why bother?  Why not simply decide in your own head that, 
+> if you ever
+> > > give away a copy of your FreeBSD, you'll do so under the 
+> GPL.  Poof,
+> > > instant GPL'ed operating system.
+> > 
+> > Okay, we can play fun little metaphysical games with the 
+> BSD license, but it 
+> > ignores an important point: the BSD+Patent License 
+> restricts what operating 
+> > systems you may use it on. I can't use it on Solaris, QNX 
+> or IRIX. And I 
+> > can't use it on some imaginary MPL or QPL licensed OS. This 
+> is a violation of 
+> > clause 8. Wasn't the OpenMotif license reject for the same reason?
+> 
+> I'd disqualify it on 6, but not 8.  It's not specific to a 
+> product, but
+> it *is* specific to a field of endeavor:  OS applications.
+> 
+> Peace.
+> 
+> -- 
+> Karsten M. Self <kmself at ix.netcom.com>       
+http://kmself.home.netcom.com/
+ What part of "Gestalt" don't you understand?             Home of the brave
+  http://gestalt-system.sourceforge.net/                   Land of the free
+   Free Dmitry! Boycott Adobe! Repeal the DMCA! http://www.freesklyarov.org
+Geek for Hire                     http://kmself.home.netcom.com/resume.html
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From nelson at crynwr.com  Wed Oct 31 14:00:27 2001
+From: nelson at crynwr.com (Russell Nelson)
+Date: Wed, 31 Oct 2001 09:00:27 -0500 (EST)
+Subject: Intel's proposed BSD + Patent License
+In-Reply-To: <3BDDF9D6.4B09@bixoft.nl>
+References: <B6E52B5EDFAFD411BA42009027AE9D580F4A4C09@FMSMSX39>
+	<15326.54865.13625.224451@desk.crynwr.com>
+	<3BDDF9D6.4B09@bixoft.nl>
+Message-ID: <15328.793.975682.416370@desk.crynwr.com>
+
+Abe Kornelis writes:
+ > Russell Nelson wrote:
+ > > 
+ > > [  Please review this license.  If you do so promptly enough, we may
+ > > be able to include it in tomorrow's board meeting.  -russ  ]
+ > --
+ > This raises some questions. We recently had a lengthy discussion
+ > on the speed with which licenses are handled by the OSI board.
+ > It's good to see that speed is attempted, but it leaves me
+ > wondering when other license proposals (4 in wait, as far as I know)
+ > will be discussed on a board meeting.
+
+They're on the agenda also.
+
+ > But speed has its disadvantages. You sent your mail at 11:40 Eastern
+ > Standard Time. For us in europe that is 17:40.
+
+We don't meet for another 7 hours from now.
+
+It's obvious that this license will take a lot more discussion.  I'm
+not going to put it on the agenda (although of course other board
+members may choose to introduce it).
+
+-- 
+-russ nelson <sig at russnelson.com>  http://russnelson.com
+Crynwr sells support for free software  | PGPok | Why are we still fighting
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | the war on drugs when there
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   | is a real war to fight?
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From email at greglondon.com  Wed Oct 31 14:22:39 2001
+From: email at greglondon.com (email at greglondon.com)
+Date: 31 Oct 2001 06:22:39 -0800
+Subject: Intel's proposed BSD + Patent License
+Message-ID: <20011031142239.22638.cpmta@c001.snv.cp.net>
+
+An embedded and charset-unspecified text was scrubbed...
+Name: not available
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20011031/dca76d3e/attachment.ksh>
+
+From chloehoffman at hotmail.com  Wed Oct 31 17:33:06 2001
+From: chloehoffman at hotmail.com (Chloe Hoffman)
+Date: Wed, 31 Oct 2001 12:33:06 -0500
+Subject: Intel's proposed BSD + Patent License
+Message-ID: <F144I5BrxJuLpTkmHYI0000240f@hotmail.com>
+
+This is not legal advice. No client-attorney relationship is established. 
+Speaking solely for myself. etc etc
+
+----- Original Message -----
+From: "Russell Nelson" <nelson at crynwr.com>
+To: "John Cowan" <jcowan at reutershealth.com>
+Cc: <license-discuss at opensource.org>; "Kolb, Doug" <doug.kolb at intel.com>;
+"Stamnes, Michelle" <michelle.stamnes at intel.com>; "Simon, David"
+<david.simon at intel.com>
+Sent: Tuesday, October 30, 2001 4:15 PM
+Subject: Re: Intel's proposed BSD + Patent License
+
+
+>John Cowan writes:
+>  > Russell Nelson wrote:
+>  >
+
+[snip]
+
+>
+>Essentially, we are all of us completely and totally screwed by the
+>patent system.  If I invent something that you have put into your
+>(unpublished -- at least as far as the patent system is concerned)
+>code for decades, and patent it, I 0WN J00.  Doesn't matter if you're
+>IBM and I'm Joe Blow, or vice-versa even.
+
+This statement can't be categorically made and misses nuances. For example, 
+in probably every country in the world, there are prior user rights of some 
+form i.e. someone using a patented invention before application for that 
+invention can continue to use that invention.Unfortunately in the U.S. they 
+are very narrow rights but in other countries they are quite broad. Further, 
+prior use and prior invention can be a bar to or invalidate a patent in the 
+U.S. and elsewhere - the devil is in the details.
+
+>
+>  > Criterion 8 (License Must Not Be Specific To A Product) is violated,
+>  > in substance if not to the letter; this license is in effect specific
+>  > to Linux.
+>
+>On the other hand, if they left that patent license off, we would
+>certify it.  However, you would have less freedom to use such patented
+>software because you don't have a license.
+>
+
+I think you are assuming that the BSD grant does not include rights to
+patents. From what I recall, the BSD makes no reference to specific rights, 
+whether copyright, patent or anything else for that matter (except it 
+requires the inclusion of the copyright notice).
+
+>Patents suck THIIIIIIIIIIIIIIIIIIIIIIIIS much (picture me opening my
+>hands above my head to show you how bad patents are).  In essence,
+>every open source license which does not include a patent grant is
+>just so much hot air.  About the only thing we can reasonably do is be
+>thankful that any patent rights are included, and approve the license
+>based on the copyright permissions granted.  Note that the Intel
+>BSD+Patent License does not make copying dependent upon patent
+>noninfringement.  The patent grant is a separate term.
+>
+>And what about jurisdictions?  Jurisdiction is even more significant
+>in the patent field than in the copyright field.  At least copyright
+>lawyers have the Berne Convention.  So in a jurisdiction where
+>software cannot be patented, the patent grant is meaningless.
+>
+>--
+>-russ nelson <sig at russnelson.com>  http://russnelson.com
+>Crynwr sells support for free software  | PGPok | Why are we still
+fighting
+>521 Pleasant Valley Rd. | +1 315 268 1925 voice | the war on drugs when
+there
+>Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   | is a real war to fight?
+>--
+>license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+>
+
+_________________________________________________________________
+Get your FREE download of MSN Explorer at http://explorer.msn.com/intl.asp
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From chloehoffman at hotmail.com  Wed Oct 31 17:47:27 2001
+From: chloehoffman at hotmail.com (Chloe Hoffman)
+Date: Wed, 31 Oct 2001 12:47:27 -0500
+Subject: Intel's proposed BSD + Patent License
+Message-ID: <F215o7yPueAdnU4lgyR000023ec@hotmail.com>
+
+This is not legal advice. No lawyer-client relationship is established. 
+Speaking only for myself. etc etc.
+
+>From: email at greglondon.com
+>CC: license-discuss at opensource.org
+>Subject: Re: Intel's proposed BSD + Patent License
+>Date: 30 Oct 2001 18:24:32 -0800
+>
+>On Tue, 30 October 2001, Russell Nelson wrote:
+>
+> > Essentially, we are all of us completely and totally screwed by the
+> > patent system.  If I invent something that you have put into your
+> > (unpublished -- at least as far as the patent system is concerned)
+> > code for decades, and patent it, I 0WN J00.  Doesn't matter if you're
+> > IBM and I'm Joe Blow, or vice-versa even.
+>
+>
+>given:
+>
+>http://www.nolo.com/encyclopedia/faqs/pts/pct3.html#FAQ-294
+>
+>=Patents must be novel (that is, it must be different from all
+>=previous inventions in some important way).
+>=
+>=Patents must be nonobvious (a surprising and significant development)
+>=to somebody who understands the technical field of the invention.
+>
+>I don't see how you could patent something that I've had in
+>code for decades. It's neither nonobvious nor novel.
+>
+
+If the invention embodied within the code has never become publicly known or 
+used or has otherwise been kept secret, then it is possible. The patent 
+system is all about encouraging disclosure.
+
+
+>Granted, software patents can be a pain
+>(Some perl/tk widgets had to have functionality
+>ripped out because they supported a patented image format)
+>
+>and, IMHO, stupid (the "one-click" patent from days gone by)
+>
+>but has the scenario you described actually happened?
+>(i.e. decades old code getting patented out from under someone)
+>
+
+Not sure about the circumstance regarding the "decades old code". If the 
+invention was properly made known or used in the public then a granted 
+patent for that invention may be invalid. You have to remember that the 
+patent system is not all knowing - it may not know of this "decades old 
+code" unless it has been cited to the relevant patent office. If the 
+invention was kept secret, then a patent for the invention may be valid. 
+However a user of the invention before the grant of the patent may be able 
+to continue to use the invention under prior use rights. Patent systems are 
+different around the world so no general statement can be made. Further, 
+each situation is very fact specific.
+
+>Greg
+>
+>
+>
+>--
+>license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+_________________________________________________________________
+Get your FREE download of MSN Explorer at http://explorer.msn.com/intl.asp
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From chloehoffman at hotmail.com  Wed Oct 31 18:11:08 2001
+From: chloehoffman at hotmail.com (Chloe Hoffman)
+Date: Wed, 31 Oct 2001 13:11:08 -0500
+Subject: Intel's proposed BSD + Patent License
+Message-ID: <F972bhBzHz5JCGyEK7S00017179@hotmail.com>
+
+This is not legal advice. No lawyer-client relationship is established. 
+Speaking for myself only. etc etc
+
+
+>From: email at greglondon.com
+>CC: license-discuss at opensource.org
+>Subject: Re: Intel's proposed BSD + Patent License
+>Date: 31 Oct 2001 06:22:39 -0800
+>
+>On Tue, 30 October 2001, David Johnson wrote:
+>
+> >
+> > On Tuesday 30 October 2001 06:24 pm, email at greglondon.com wrote:
+> > > =Patents must be novel (that is, it must be different from all
+> > > =previous inventions in some important way).
+> > > =
+> > > =Patents must be nonobvious (a surprising and significant development)
+> > > =to somebody who understands the technical field of the invention.
+>
+> > The current system is based on "whoever filed first". It may not be the
+> > "law", but it is the practice.
+>
+>But if I code some software, register it with the copyright office,
+>put a LGPL license on it, put it on the web, and I DON'T get a
+>patent for it,
+>
+>then, YOU shouldn't be able to take my code and patent it,
+>just because there's no prior patent art, doesn't mean it's novel.
+>
+
+Someone may be able to get a patent but it may be invalid. The relevant 
+patent office may not be aware of this code. Further, someone is not 
+entitled to a patent for someone else's invention. The applicant must have 
+invented the invention not have taken it. This issue is called "derivation" 
+in patent law circles. Non-patent prior art is relevant to the examination 
+of applications for patents and for invalidating granted patents.
+
+>at work, we get a patent refresher every year or so.
+>basically, we are not to tell our customers anything
+>about future ASIC products without first passing it by our
+>legal department for approval. apparently if we say
+>too much, give away too much detail, we can lose
+>a right to a possible patent.
+>
+>code registered with the copyright office decades ago
+>should similarly disqualify patentability.
+
+It may but it depends on what is actually registered. In many cases a 
+registration for software includes a redacted version of source code (to 
+preserve trade secrets). Accordingly, the invalidating effect may be 
+limited.
+
+>
+> >Unfortunately, the patent system is no longer being
+> >run by logic, common sense, or even the LAW. It's being
+> >run by lawyers.  Despite our veneer of civilization,
+> >might still makes right, and the lawyers have a monopoly
+> >on the application of "might". The law means whatever
+> >they say it means.
+>
+
+While I share your concerns about where the "patent system" is headed, I 
+would note that the "patent system" is ultimately run by the various 
+national governments. They can put an end to the "patent system". Lawyers 
+are ultimately just middlemen and dependent on the graces of the national 
+governments. Further, lawyers typically act on behalf of clients. While 
+lawyers certainly have a vested interest, they are dependent on benefactors 
+(otherwise they are doing something else). So, I would suggest that the 
+responsibilities of the government and interests of the patent system 
+end-users not be lost. Just my biased two cents ;-)
+
+>OK, time for a beer.	;)
+>
+>Greg
+>
+>
+>--
+>license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+_________________________________________________________________
+Get your FREE download of MSN Explorer at http://explorer.msn.com/intl.asp
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From abe at bixoft.nl  Tue Oct 30 12:42:56 2001
+From: abe at bixoft.nl (Abe Kornelis)
+Date: Tue, 30 Oct 2001 04:42:56 -0800
+Subject: Intel's proposed BSD + Patent License
+References: <B6E52B5EDFAFD411BA42009027AE9D580F4A4C09@FMSMSX39>
+		<15326.54865.13625.224451@desk.crynwr.com>
+		<3BDDF9D6.4B09@bixoft.nl> <15328.793.975682.416370@desk.crynwr.com>
+Message-ID: <3BDEA050.7C44@bixoft.nl>
+
+Russell Nelson wrote:
+> 
+> Abe Kornelis writes:
+>  > Russell Nelson wrote:
+>  > >
+>  > > [  Please review this license.  If you do so promptly enough, we may
+>  > > be able to include it in tomorrow's board meeting.  -russ  ]
+>  > --
+>  > This raises some questions. We recently had a lengthy discussion
+>  > on the speed with which licenses are handled by the OSI board.
+>  > It's good to see that speed is attempted, but it leaves me
+>  > wondering when other license proposals (4 in wait, as far as I know)
+>  > will be discussed on a board meeting.
+> 
+> They're on the agenda also.
+> 
+>  > But speed has its disadvantages. You sent your mail at 11:40 Eastern
+>  > Standard Time. For us in europe that is 17:40.
+> 
+> We don't meet for another 7 hours from now.
+> It's obvious that this license will take a lot more discussion.  I'm
+> not going to put it on the agenda (although of course other board
+> members may choose to introduce it).
+--
+Ok, that's fair enough. I do think it's important that
+anybody on the list gets a decent chance to react to any
+license for which approval is requested. Since this
+seems indeed to be the case, I apologize for my apparent
+overreaction to your first mail.
+
+Regards, Abe.
+-- 
+Abe F. Kornelis, B.V. Bixoft
+Het Jaagpad 63, 3461 HA Linschoten
+The Netherlands
+phone: +31-6-22755401
+
+To visit our website:
+either: http://www.bixoft.com
+    or: http://www.bixoft.nl
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+

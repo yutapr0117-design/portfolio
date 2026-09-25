@@ -1,0 +1,501 @@
+Source:   https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Fetched:  2026-09-25T09:07:03+00:00（ブラウザ相当の UA・件名で厳密に抽出）
+Thread:   International treatment of the public domain —— 全 8 通（2004-02）
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **Engelfriet 氏「人格権は譲渡も放棄もできず、それゆえ他の方法で真に public domain へ入ることは不可能かもしれない」** —— §3 と §12 の中核問題に当たる 2004 年の議論。
+          読みは LICENSES/ACD-1.0.against.md #236 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From russell at flora.ca  Tue Feb 17 19:10:23 2004
+From: russell at flora.ca (Russell McOrmond)
+Date: Tue, 17 Feb 2004 14:10:23 -0500 (EST)
+Subject: International treatment of the public domain
+In-Reply-To: <16433.15751.902942.889695@desk.crynwr.com>
+Message-ID: <Pine.LNX.4.44.0402171354070.14556-100000@calcutta.flora.ca>
+
+
+  I believe that the OSI is not USA only, so I hope this question does
+receive some discussion.
+
+On Mon, 16 Feb 2004, Russell Nelson wrote:
+
+> jcowan at reutershealth.com writes:
+>  > So Americans can ignore the civil-servant version of the NOSA license with
+>  > impunity, but not so Australians.
+> 
+> Interesting ... so what happens if an American citizen takes public
+> domain US Government software into Australia and starts redistributing
+> it there?  But I suppose that's a problem that the NOSA will fix, so
+> at least for this discussion it's a moot point.
+
+  What if any US citizen took this work that is under the public domain
+(for them) and applied a BSD (or any other) license and redistributed
+worldwide?  It appears that with US government created works that every US
+citizen has the right to apply licenses to the work, so whether any
+specific citizen (or a group) applied a NOSA license doesn't seem all that
+relevant.
+
+  Which license agreements apply to a Canadian like myself?  I would
+suspect any of them -- whether it be the NOSA agreement or the BSD or
+whatever other license an American wishes to apply to this public domain
+work.  If I don't like the NOSA agreement I can just call a friend in the
+USA who can offer me the work to me in a BSD license.
+
+  I think there is an interesting question being opened up by this
+discussion.  Given that term expiry is not the only way for a work to
+enter the public domain, and term expiry can be different in different
+countries (A Disney production gets 95 years in the USA but fortunately
+only 50 years in Canada), are the other methods to enter into the public
+domain also country specific?
+
+  It was always my understanding that a work that was released into the
+public domain by its author (Such as by a public domain dedication
+http://creativecommons.org/licenses/publicdomain/ ) in the USA or any
+other country that this work was instantaneously in the public domain in
+all countries.
+
+  This thread is outside the topic of license approval so is likely
+considered off-topic. This is unless we want to consider the worldwide
+applicability of the Creative Commons "public domain dedication" as an OSI
+license approval question.
+
+---
+ Russell McOrmond, Internet Consultant: <http://www.flora.ca/> 
+ Perspective of a digital copyright reformer on Sheila Copps, MP.
+ http://www.flora.ca/russell/drafts/copps-ndp.html
+ Discuss at: http://www.lulu.com/forums/viewtopic.php?t=2757
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From galactus at stack.nl  Tue Feb 17 19:21:41 2004
+From: galactus at stack.nl (Arnoud Engelfriet)
+Date: Tue, 17 Feb 2004 20:21:41 +0100
+Subject: International treatment of the public domain
+In-Reply-To: <Pine.LNX.4.44.0402171354070.14556-100000@calcutta.flora.ca>
+References: <16433.15751.902942.889695@desk.crynwr.com> <Pine.LNX.4.44.0402171354070.14556-100000@calcutta.flora.ca>
+Message-ID: <20040217192141.GA84087@stack.nl>
+
+Russell McOrmond wrote:
+> On Mon, 16 Feb 2004, Russell Nelson wrote:
+> > jcowan at reutershealth.com writes:
+> >  > So Americans can ignore the civil-servant version of the NOSA license with
+> >  > impunity, but not so Australians.
+[This was in response to my quoting from the Berne Convention to
+show that copyright in "other" Berne countries is independent from
+existence of copyright in the "home" country, as long as the work
+qualifies as protected matter under the BC. Apparently under US
+law works by the NASA may be public domain by law]
+
+> > Interesting ... so what happens if an American citizen takes public
+> > domain US Government software into Australia and starts redistributing
+> > it there?  But I suppose that's a problem that the NOSA will fix, so
+> > at least for this discussion it's a moot point.
+> 
+>   What if any US citizen took this work that is under the public domain
+> (for them) and applied a BSD (or any other) license and redistributed
+> worldwide?
+
+I don't think it is legal in the USA to apply your own license to
+a public domain work. How can you license something to which you
+do not have a copyright?
+
+Presumably creating a modified version or something would entitle
+you to a copyright to that version, but the 'bare' public domain
+work cannot be under copyright.
+
+>   I think there is an interesting question being opened up by this
+> discussion.  Given that term expiry is not the only way for a work to
+> enter the public domain, and term expiry can be different in different
+> countries (A Disney production gets 95 years in the USA but fortunately
+> only 50 years in Canada), are the other methods to enter into the public
+> domain also country specific?
+
+I think so. In fact it may be impossible for a work to truly enter
+the public domain in any other way. Most countries recognize the
+concept of 'moral rights' that are inalienable rights of the
+author and which cannot be transferred or given up. These rights
+permit the author to act against "mutilation" of his work, even
+when licensing it under an open source license, and also when
+saying "this work is in the public domain" or words to that effect.
+
+Arnoud
+
+-- 
+Arnoud Engelfriet, Dutch patent attorney - Speaking only for myself
+Patents, copyright and IPR explained for techies: http://www.iusmentis.com/
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Tue Feb 17 19:48:29 2004
+From: jcowan at reutershealth.com (jcowan at reutershealth.com)
+Date: Tue, 17 Feb 2004 14:48:29 -0500
+Subject: International treatment of the public domain
+In-Reply-To: <Pine.LNX.4.44.0402171354070.14556-100000@calcutta.flora.ca>
+References: <16433.15751.902942.889695@desk.crynwr.com> <Pine.LNX.4.44.0402171354070.14556-100000@calcutta.flora.ca>
+Message-ID: <20040217194829.GB28109@skunk.reutershealth.com>
+
+Russell McOrmond scripsit:
+
+> It appears that with US government created works that every US
+> citizen has the right to apply licenses to the work, 
+
+Not so.  See my other posting.
+
+> Given that term expiry is not the only way for a work to
+> enter the public domain, and term expiry can be different in different
+> countries (A Disney production gets 95 years in the USA but fortunately
+> only 50 years in Canada), are the other methods to enter into the public
+> domain also country specific?
+
+Yes.  U.S. government works are P.D. in the U.S., but Canadian government
+works appear not to be so in Canada, and U.K. government works are definitely
+copyrighted by the Crown.
+
+In addition, there are country-specific rights:  for example, a Canadian
+performer in Canada has a right in the nature of copyright over his unrecorded
+performance (it can't be imitated or recorded without a license), whereas in
+the U.S. nothing that is not "fixed in a tangible medium" can be the object
+of copyright.
+
+>   It was always my understanding that a work that was released into the
+> public domain by its author (Such as by a public domain dedication
+> http://creativecommons.org/licenses/publicdomain/ ) in the USA or any
+> other country that this work was instantaneously in the public domain in
+> all countries.
+
+Seemingly not.
+
+-- 
+Some people open all the Windows;       John Cowan
+wise wives welcome the spring           jcowan at reutershealth.com
+by moving the Unix.                     http://www.reutershealth.com
+  --ad for Unix Book Units (U.K.)       http://www.ccil.org/~cowan
+        (see http://cm.bell-labs.com/cm/cs/who/dmr/unix3image.gif)
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From russell at flora.ca  Tue Feb 17 20:03:58 2004
+From: russell at flora.ca (Russell McOrmond)
+Date: Tue, 17 Feb 2004 15:03:58 -0500 (EST)
+Subject: International treatment of the public domain
+In-Reply-To: <20040217192141.GA84087@stack.nl>
+Message-ID: <Pine.LNX.4.44.0402171453411.15818-100000@calcutta.flora.ca>
+
+
+On Tue, 17 Feb 2004, Arnoud Engelfriet wrote:
+
+> I don't think it is legal in the USA to apply your own license to
+> a public domain work. How can you license something to which you
+> do not have a copyright?
+
+  This is just some of the odd things we end up if we play the word game
+we were being lead into.  I was trying to follow with the concept that a
+work in the public domain in the USA, unrelated to copyright term
+differences, was potentially not in the public domain outside of the USA.
+
+  If NASA has the ability to apply a license in a foreign country to a
+works that is in the public domain in the USA, then does not any other US
+citizen have the ability to apply a license as well?  If these other US
+citizens do not, then does NASA?
+
+  Does the concept of there being a "copyright holder" outside of the USA
+make sense when US legislation says that the US government creator does
+not receive copyright inside the USA?
+
+> I think so. In fact it may be impossible for a work to truly enter
+> the public domain in any other way. Most countries recognize the
+> concept of 'moral rights' that are inalienable rights of the
+> author and which cannot be transferred or given up.
+
+  Different countries treat this differently.  In Canada you can waive
+your moral rights, but cannot transfer them.
+
+  If the phrase "public domain" means "not protected by copyright", then
+the actual meaning of the public domain changes in every country as 
+copyright is different in every country.
+
+
+  I will be watching the work of iCommons Canada
+<http://www.cippic.ca/icommons-canada> and suggest that they include a
+Canadian public domain declaration in with their Canadianized license
+agreements.  My hope is that once they are finished the Creative Commons 
+licenses that they will start into some of the most popular OSI and FSF 
+approved software licenses.
+
+  I wonder if the OSI is interested in this type of International work 
+similar to what the Creative Commons is doing?
+  http://creativecommons.org/projects/international/
+
+---
+ Russell McOrmond, Internet Consultant: <http://www.flora.ca/> 
+ Perspective of a digital copyright reformer on Sheila Copps, MP.
+ http://www.flora.ca/russell/drafts/copps-ndp.html
+ Discuss at: http://www.lulu.com/forums/viewtopic.php?t=2757
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rodd at cyberspaces.org  Tue Feb 17 20:39:24 2004
+From: rodd at cyberspaces.org (Rod Dixon)
+Date: Tue, 17 Feb 2004 15:39:24 -0500 (EST)
+Subject: International treatment of the public domain
+In-Reply-To: <Pine.LNX.4.44.0402171354070.14556-100000@calcutta.flora.ca>
+References: <Pine.LNX.4.44.0402171354070.14556-100000@calcutta.flora.ca>
+Message-ID: <Pine.BSF.4.58.0402171521520.52685@gamma.pair.com>
+
+I do not have an answer to the specific question, but I suspect the answer
+may reside in a treaty or an international agreement that is not a treaty.
+The Uruguay Round Agreements Act (URAA), for instance, allows works in the
+public domain in the U.S. to be scooped out of the public domain
+retroactively if those works whose source country is a member of the WTO
+or the Berne convention meets a set of criteria that the U.S. has agreed
+to. I doubt that this is a unilateral privilege so we may assume the
+public domain shrank in 1994 and thereafter. Still, I am unsure how this
+would affect an open source license since the license MAY be enforceable
+in the U.S. or, possibly, an international dispute resolution forum
+administered by WTO/WIPO
+
+-Rod
+rod at cyberspaces.org
+opensource.cyberspaces.org
+
+
+On Tue, 17 Feb 2004, Russell McOrmond wrote:
+
+>
+>   I believe that the OSI is not USA only, so I hope this question does
+> receive some discussion.
+>
+> On Mon, 16 Feb 2004, Russell Nelson wrote:
+>
+> > jcowan at reutershealth.com writes:
+> >  > So Americans can ignore the civil-servant version of the NOSA license with
+> >  > impunity, but not so Australians.
+> >
+> > Interesting ... so what happens if an American citizen takes public
+> > domain US Government software into Australia and starts redistributing
+> > it there?  But I suppose that's a problem that the NOSA will fix, so
+> > at least for this discussion it's a moot point.
+>
+>   What if any US citizen took this work that is under the public domain
+> (for them) and applied a BSD (or any other) license and redistributed
+> worldwide?  It appears that with US government created works that every US
+> citizen has the right to apply licenses to the work, so whether any
+> specific citizen (or a group) applied a NOSA license doesn't seem all that
+> relevant.
+>
+>   Which license agreements apply to a Canadian like myself?  I would
+> suspect any of them -- whether it be the NOSA agreement or the BSD or
+> whatever other license an American wishes to apply to this public domain
+> work.  If I don't like the NOSA agreement I can just call a friend in the
+> USA who can offer me the work to me in a BSD license.
+>
+>   I think there is an interesting question being opened up by this
+> discussion.  Given that term expiry is not the only way for a work to
+> enter the public domain, and term expiry can be different in different
+> countries (A Disney production gets 95 years in the USA but fortunately
+> only 50 years in Canada), are the other methods to enter into the public
+> domain also country specific?
+>
+>   It was always my understanding that a work that was released into the
+> public domain by its author (Such as by a public domain dedication
+> http://creativecommons.org/licenses/publicdomain/ ) in the USA or any
+> other country that this work was instantaneously in the public domain in
+> all countries.
+>
+>   This thread is outside the topic of license approval so is likely
+> considered off-topic. This is unless we want to consider the worldwide
+> applicability of the Creative Commons "public domain dedication" as an OSI
+> license approval question.
+>
+> ---
+>  Russell McOrmond, Internet Consultant: <http://www.flora.ca/>
+>  Perspective of a digital copyright reformer on Sheila Copps, MP.
+>  http://www.flora.ca/russell/drafts/copps-ndp.html
+>  Discuss at: http://www.lulu.com/forums/viewtopic.php?t=2757
+>
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+>
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Tue Feb 17 21:02:53 2004
+From: jcowan at reutershealth.com (jcowan at reutershealth.com)
+Date: Tue, 17 Feb 2004 16:02:53 -0500
+Subject: International treatment of the public domain
+In-Reply-To: <Pine.LNX.4.44.0402171453411.15818-100000@calcutta.flora.ca>
+References: <20040217192141.GA84087@stack.nl> <Pine.LNX.4.44.0402171453411.15818-100000@calcutta.flora.ca>
+Message-ID: <20040217210253.GC28109@skunk.reutershealth.com>
+
+Russell McOrmond scripsit:
+
+>   If NASA has the ability to apply a license in a foreign country to a
+> works that is in the public domain in the USA, then does not any other US
+> citizen have the ability to apply a license as well?  If these other US
+> citizens do not, then does NASA?
+
+Why, because NASA, through its employees who actually write the works, is
+the author.  The Berne Convention gives rights to the authors of foreign
+works (relative to the country where the Convention is being applied), not
+to randoms in those countries who had nothing to do with the creation of the
+work.
+
+>   Does the concept of there being a "copyright holder" outside of the USA
+> make sense when US legislation says that the US government creator does
+> not receive copyright inside the USA?
+
+Just as much as the notion that _Steamboat Willie_ has a copyright holder
+in the U.S. but not in Canada.
+
+>   Different countries treat this differently.  In Canada you can waive
+> your moral rights, but cannot transfer them.
+
+The Berne Convention forces all participants to recognize a limited subset
+of moral rights, and the U.S. hews closely to that definition:  thus the
+creators of works of visual art have moral rights, but writers, poets, and
+programmers do not.
+
+Nevertheless, I write on some of my programs the sentence "John Cowan claims
+the moral right to be recognized as the author of this work."  My government
+will not enforce this right for me, but I claim it anyway.
+
+>   If the phrase "public domain" means "not protected by copyright", then
+> the actual meaning of the public domain changes in every country as 
+> copyright is different in every country.
+
+Not the meaning, but rather the contents, of the public domain is indeed
+country-specific.
+
+-- 
+"Well, I'm back."  --Sam        John Cowan <jcowan at reutershealth.com>
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From russell at flora.ca  Tue Feb 17 21:44:47 2004
+From: russell at flora.ca (Russell McOrmond)
+Date: Tue, 17 Feb 2004 16:44:47 -0500 (EST)
+Subject: International treatment of the public domain
+In-Reply-To: <20040217210253.GC28109@skunk.reutershealth.com>
+Message-ID: <Pine.LNX.4.44.0402171634300.15818-100000@calcutta.flora.ca>
+
+
+
+  Lets continue down this line of thinking... (just trying to understand
+the logic people have presented...)
+
+On Tue, 17 Feb 2004 jcowan at reutershealth.com wrote:
+
+> Russell McOrmond scripsit:
+> 
+> >   If NASA has the ability to apply a license in a foreign country to a
+> > works that is in the public domain in the USA, then does not any other US
+> > citizen have the ability to apply a license as well?  If these other US
+> > citizens do not, then does NASA?
+> 
+> Why, because NASA, through its employees who actually write the works, is
+> the author.
+
+  Like other forms of "work for hire", the employer (The United States
+Government) would be the copyright holder if there was copyright.  In this
+case the employer has released the works into the public domain via
+legislation.
+
+  Like other forms of "work for hire" the employees do not have rights in
+the United States or any other country, and would not be considered the
+author for the purposes of copyright.
+
+Note: I am not a supporter of the concept of "work for hire" or what is
+sometimes called "contractual rights", but that is a political
+conversation outside the scope of this list.  I believe that
+first-copyright should only exist for natural persons, and that any
+transfer of copyright to an employer (natural person or corporation), if
+it happens at all, should be negotiated as part of an employment agreement
+or other legal document.
+
+> >   Does the concept of there being a "copyright holder" outside of the USA
+> > make sense when US legislation says that the US government creator does
+> > not receive copyright inside the USA?
+> 
+> Just as much as the notion that _Steamboat Willie_ has a copyright holder
+> in the U.S. but not in Canada.
+
+  You will need to provide a reference here.  Is this a case where an
+author died more than 50 years ago (Canadian term for natural persons) but
+less than 75 (US term for natural persons).  If this is the case then we
+are talking about a copyright term question, not a question when the
+potential copyright holder waives copyright and related rights (releases
+the work to the public domain).
+
+---
+ Russell McOrmond, Internet Consultant: <http://www.flora.ca/> 
+ Perspective of a digital copyright reformer on Sheila Copps, MP.
+ http://www.flora.ca/russell/drafts/copps-ndp.html
+ Discuss at: http://www.lulu.com/forums/viewtopic.php?t=2757
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Tue Feb 17 22:33:18 2004
+From: jcowan at reutershealth.com (jcowan at reutershealth.com)
+Date: Tue, 17 Feb 2004 17:33:18 -0500
+Subject: International treatment of the public domain
+In-Reply-To: <Pine.LNX.4.44.0402171634300.15818-100000@calcutta.flora.ca>
+References: <20040217210253.GC28109@skunk.reutershealth.com> <Pine.LNX.4.44.0402171634300.15818-100000@calcutta.flora.ca>
+Message-ID: <20040217223318.GE28109@skunk.reutershealth.com>
+
+Russell McOrmond scripsit:
+
+> > >   If NASA has the ability to apply a license in a foreign country to a
+> > > works that is in the public domain in the USA, then does not any other US
+> > > citizen have the ability to apply a license as well?  If these other US
+> > > citizens do not, then does NASA?
+> > 
+> > Why, because NASA, through its employees who actually write the works, is
+> > the author.
+> 
+>   Like other forms of "work for hire", the employer (The United States
+> Government) would be the copyright holder if there was copyright.  In this
+> case the employer has released the works into the public domain via
+> legislation.
+
+Just so.  NASA is the author, but the works are born in the public domain
+in the U.S. (but apparently not elsewhere).
+
+> I believe that
+> first-copyright should only exist for natural persons, and that any
+> transfer of copyright to an employer (natural person or corporation), if
+> it happens at all, should be negotiated as part of an employment agreement
+> or other legal document.
+
+Effectively it's just an implicit term in such an agreement.  It is already
+possible to contract out of it by explicit language.
+
+> > Just as much as the notion that _Steamboat Willie_ has a copyright holder
+> > in the U.S. but not in Canada.
+> 
+>   You will need to provide a reference here.  
+
+I was referring to the notorious 1928 film starring Mickey Mouse.  This work
+seems to be P.D. in Canada under the 50-year provision for cinematographic
+works, but is very much in copyright in the U.S.
+
+-- 
+A poetical purist named Cowan           [that's me: jcowan at reutershealth.com]
+Once put the rest of us dowan.          [on xml-dev]
+    "Your verse would be sweeter        http://www.ccil.org/~cowan
+    If it only had metre                http://www.reutershealth.com
+And rhymes that didn't force me to frowan."     [overpacked line!] --Michael Kay
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+

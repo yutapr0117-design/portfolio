@@ -1,0 +1,387 @@
+Source:   https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Fetched:  2026-09-25T09:07:03+00:00（ブラウザ相当の UA・件名で厳密に抽出）
+Thread:   Response to comments on Intel's proposed BSD+Patent license —— 全 8 通（2001-11）
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          上記への提出者 Intel の応答。**「BSD より多くの権利を与えるライセンスが open でないとは論理的でない」**という主張と、その反論。
+          読みは LICENSES/ACD-1.0.against.md #236 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From michelle.stamnes at intel.com  Thu Nov  1 01:31:29 2001
+From: michelle.stamnes at intel.com (Stamnes, Michelle)
+Date: Wed, 31 Oct 2001 17:31:29 -0800
+Subject: Response to comments on Intel's proposed BSD+Patent license
+Message-ID: <59885C5E3098D511AD690002A5072D3C028E70@orsmsx111.jf.intel.com>
+
+There seem to be a number of comments on the BSD+ Patent license we have
+proposed that claim that the license is not "open" because it only licenses
+a specific product; i.e., Linux.  
+
+First, this is not true.  The patent license that is extended is for ANY OS
+that is licensed under the GPL.  It may be Linux or any other OS that is
+licensed under GPL.
+
+Second, and far more fundamental, all of the threads seem to agree:
+
+1. BSD is a copyright only license.
+2. BSD grants NO rights to patents.
+3. BSD is an open license.
+
+It is not logical to say that a license that grants MORE rights than the BSD
+is not "open".  If you use the software in an OS licensed under GPL, you
+also get a patent license on the use of that software.  For the sake of
+example, let's assume that instead of granting the additional value of a
+patent license from Intel, the proposed license said "If you use the
+software in an OS that is licensed under the GPL, Intel will pay you $100".
+The license merely provides an incentive for a particular use, but does not
+prohibit other uses.  Now, change the value to being a patent license.  That
+does not change the fact that there is additional value; it is just value of
+a different form. How is that not an open license?  
+
+Finally, under the proposed license, you can use the software in Solaris or
+any other proprietary OS or in any other piece of software (in addition to
+the GPL based OS's).  You just don't have a patent license; so you are no
+worse off than with the BSD license.
+
+
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From weigel+ at pitt.edu  Thu Nov  1 05:06:41 2001
+From: weigel+ at pitt.edu (Matthew C. Weigel)
+Date: Thu, 01 Nov 2001 00:06:41 -0500 (EST)
+Subject: Response to comments on Intel's proposed BSD+Patent license
+In-Reply-To: <59885C5E3098D511AD690002A5072D3C028E70@orsmsx111.jf.intel.com>
+Message-ID: <Pine.GSO.4.33P.0110312326060.9701-100000@unixs-eval.cis.pitt.edu>
+
+On Wed, 31 Oct 2001, Stamnes, Michelle wrote:
+
+> Finally, under the proposed license, you can use the software in
+> Solaris or any other proprietary OS or in any other piece of software
+> (in addition to the GPL based OS's).  You just don't have a patent
+> license; so you are no worse off than with the BSD license.
+
+I'm afraid the license is not entirely clear on this point:
+
+       This license shall include  changes to the Software that are
+       error corrections or other minor changes to the Software that do
+       not add functionality or features when the Software is
+       incorporated in any version of a operating system that has been
+       distributed under the GNU General Public License 2.0 or later.
+
+Does that mean that the license *only* includes such changes to the
+software under *only* such operating systems?
+
+       This patent license shall apply to the combination of the
+       Software and any operating system licensed under the GNU Public
+       License version 2.0 or later if, at the time Intel provides the
+       Software to Recipient, such addition of the Software to the then
+       publicly available versions of such operating system available
+       under the GNU Public License version 2.0 or later (whether in
+       gold, beta or alpha form) causes such combination to be covered
+       by the Licensed Patents.
+
+It is not clear whether "this patent license" means the license to make
+'bug-fixing/ modifications, or the license before that:
+
+       Intel hereby grants Recipient and Licensees a non-exclusive,
+       worldwide, royalty-free patent license under Licensed Patents to
+       make, use, sell, offer to sell, import and otherwise transfer
+       the Software, if any, in source code and object code form.
+
+If it's the latter, then use is effectively restricted (through patent
+law, and not copyright law, but I don't think the OSD allows for such
+distinction).  If it's the former, then the right to create derivative
+works is effectively restricted (again, through patent law and not
+copyright law).
+
+Please remember that the OSI certifies *software*, so - in my opinion -
+software distributed under this license, whose use or sale infringes
+upon patent claims licensable by Intel, restricts the user's ability to
+make derived works unacceptably, and discriminates against persons not
+using a GPL'd operating system.
+
+This means, IMO, that if software whose use or sale infringes upon
+patents is to be considered "OSI Certified Open Source Software," the
+patent license must also support the OSD.
+
+Compare this license to the license a while back that restricted the
+ability of the user to modify some "pay for this software" routines: if
+the copyright holder of that software managed to get a patent for his
+"pay for this software" routines, and distributed it under this
+license, would it be considered "OSI Certified Open Source Software"?
+-- 
+ Matthew Weigel
+ Research Systems Programmer
+ mcweigel at cs.cmu.edu ne weigel at pitt.edu
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From mibsoft at mibsoftware.com  Thu Nov  1 13:21:45 2001
+From: mibsoft at mibsoftware.com (Forrest J. Cavalier III)
+Date: Thu, 1 Nov 2001 08:21:45 -0500 (EST)
+Subject: Response to comments on Intel's proposed BSD+Patent license
+Message-ID: <200111011321.fA1DLjjG019479@lima.epix.net>
+
+> Finally, under the proposed license, you can use the software in Solaris or
+> any other proprietary OS or in any other piece of software (in addition to
+> the GPL based OS's).  You just don't have a patent license; so you are no
+> worse off than with the BSD license.
+> 
+
+Yes, that point was made already.  But why is it important for
+Intel to provide a patent grant from within the copyright license?
+They could be separate documents.
+
+It seems that your position is that the OSI board should approve
+the license based on the copyright license terms alone, and they
+should ignore the patent terms.  Many posters have indicated
+the patent license terms should also meet the spirit of the OSD.
+Do you agree?
+
+Your main point seems to be that the patent terms are "better
+than nothing."  But the bar for OSI approval is higher than that.
+There are "better than nothing" copyright licenses out there.
+(Including the "No commercial use" licenses.)  They are not OSI
+certified.
+
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rhkramer at fast.net  Fri Nov  2 14:08:58 2001
+From: rhkramer at fast.net (Randy Kramer)
+Date: Fri, 02 Nov 2001 09:08:58 -0500
+Subject: Response to comments on Intel's proposed BSD+Patent license
+References: <200111011321.fA1DLjjG019479@lima.epix.net>
+Message-ID: <3BE2A8FA.494C@fast.net>
+
+I've skimmed this thread, but don't know if I got the point.  I'd like
+to try to make a few simple statements and questions, and have somebody
+tell me if I'm on the right page or not:
+
+1. Use (and modification) of software can be restricted by copyright but
+might also be restricted by patent (if the software uses something which
+is patented).
+
+2. The open source licenses attempt to give us (or avoid restricting)
+our ability to use (and modify) software which might be copyrighted.
+
+3. The Intel license is attempting to give us (or avoid restricting) our
+ability to use (and modify??) software which might also be protected by
+patent?
+
+4. If I'm on the right track so far, is the Intel license (with respect
+to the patent issue) more like the GPL, that is attempting to guarantee
+that the software can never become proprietary?
+
+If the above are true then:
+
+1. Thank you Intel.
+
+2. A question is whether the patent issue should be handled in the same
+document as the software issue.  
+
+As a potential user of the software, I would want to know (quickly and
+easily) what rights I have or do not have if using that software.  
+
+It could be handled either way, but if it is handled by separate
+licenses for the copyright and patent issues, I think a summary
+statement is required which addresses the overall rights of usage and
+modification considering both the copyright license and the patent
+license. 
+
+Further, an organization like opensource.org, dealing with the copyright
+issues associated with different licenses, could be helpful in dealing
+with the similar issues for a patent license.
+
+Aside: I would feel cheated (misled, whatever) if I started to use
+software that was open source (with the rights associated with the open
+source license applied to that software), but some of those rights were
+restricted by patent issues, especially if the licensing was so opaque
+that I didn't realize that until later.
+
+Randy Kramer
+
+
+Forrest J. Cavalier III wrote:
+> 
+> > Finally, under the proposed license, you can use the software in Solaris or
+> > any other proprietary OS or in any other piece of software (in addition to
+> > the GPL based OS's).  You just don't have a patent license; so you are no
+> > worse off than with the BSD license.
+> >
+> 
+> Yes, that point was made already.  But why is it important for
+> Intel to provide a patent grant from within the copyright license?
+> They could be separate documents.
+> 
+> It seems that your position is that the OSI board should approve
+> the license based on the copyright license terms alone, and they
+> should ignore the patent terms.  Many posters have indicated
+> the patent license terms should also meet the spirit of the OSD.
+> Do you agree?
+> 
+> Your main point seems to be that the patent terms are "better
+> than nothing."  But the bar for OSI approval is higher than that.
+> There are "better than nothing" copyright licenses out there.
+> (Including the "No commercial use" licenses.)  They are not OSI
+> certified.
+> 
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From nelson at crynwr.com  Fri Nov  2 18:03:02 2001
+From: nelson at crynwr.com (Russell Nelson)
+Date: Fri,  2 Nov 2001 13:03:02 -0500 (EST)
+Subject: Response to comments on Intel's proposed BSD+Patent license
+In-Reply-To: <59885C5E3098D511AD690002A5072D3C028E70@orsmsx111.jf.intel.com>
+References: <59885C5E3098D511AD690002A5072D3C028E70@orsmsx111.jf.intel.com>
+Message-ID: <15330.57231.64157.686611@desk.crynwr.com>
+
+Stamnes, Michelle writes:
+ > It is not logical to say that a license that grants MORE rights than the BSD
+ > is not "open".
+
+Agreed.  And yet, we don't have logic to work from, we have the Open
+Source Definition.
+
+-- 
+-russ nelson <sig at russnelson.com>  http://russnelson.com
+Crynwr sells support for free software  | PGPok | Why are we still fighting
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | the war on drugs when there
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   | is a real war to fight?
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From nelson at crynwr.com  Fri Nov  2 18:08:49 2001
+From: nelson at crynwr.com (Russell Nelson)
+Date: Fri,  2 Nov 2001 13:08:49 -0500 (EST)
+Subject: Response to comments on Intel's proposed BSD+Patent license
+In-Reply-To: <3BE2A8FA.494C@fast.net>
+References: <200111011321.fA1DLjjG019479@lima.epix.net>
+	<3BE2A8FA.494C@fast.net>
+Message-ID: <15330.57382.88528.963585@desk.crynwr.com>
+
+Randy Kramer writes:
+ > 1. Use (and modification) of software can be restricted by copyright but
+ > might also be restricted by patent (if the software uses something which
+ > is patented).
+
+Because U.S. law relating to intellectual property has been corrupted.
+
+ > Aside: I would feel cheated (misled, whatever) if I started to use
+ > software that was open source (with the rights associated with the open
+ > source license applied to that software), but some of those rights were
+ > restricted by patent issues, especially if the licensing was so opaque
+ > that I didn't realize that until later.
+
+Worse than what Intel is doing (that is, trying to be helpful), is the 
+issue of third-party and submarine patents.  Intel could write
+software (patented or not), release it under the proposed BSD+Patent
+license, and both you and Intel would be very surprised if someone
+else turned up to also have a patent, or a patent could turn up to
+have been registered but not granted until after you started using
+it.
+
+Intel can't solve those problems but it should be commended for doing
+what it can (even if it isn't doing everything that we think
+possible).
+
+-- 
+-russ nelson <sig at russnelson.com>  http://russnelson.com
+Crynwr sells support for free software  | PGPok | Why are we still fighting
+521 Pleasant Valley Rd. | +1 315 268 1925 voice | the war on drugs when there
+Potsdam, NY 13676-3213  | +1 315 268 9201 FAX   | is a real war to fight?
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From weigel+ at pitt.edu  Fri Nov  2 21:05:39 2001
+From: weigel+ at pitt.edu (Matthew C. Weigel)
+Date: Fri, 02 Nov 2001 16:05:39 -0500 (EST)
+Subject: Response to comments on Intel's proposed BSD+Patent license
+In-Reply-To: <15330.57382.88528.963585@desk.crynwr.com>
+Message-ID: <Pine.GSO.4.33P.0111021601580.7819-100000@unixs-eval.cis.pitt.edu>
+
+On Fri, 2 Nov 2001, Russell Nelson wrote:
+
+> Intel can't solve those problems but it should be commended for doing
+> what it can (even if it isn't doing everything that we think
+> possible).
+
+Yes.  Although my one response to this was in the negative, I *do*
+think it's great that Intel is trying.  It's wonderful that Intel is
+interested in contributing to the wider community some access to their
+patents.
+
+Nonetheless, I think this license can only apply to open source
+software in the trivial case (no patents).
+-- 
+ Matthew Weigel
+ Research Systems Programmer
+ mcweigel at cs.cmu.edu ne weigel at pitt.edu
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rhkramer at fast.net  Sun Nov  4 12:52:25 2001
+From: rhkramer at fast.net (Randy Kramer)
+Date: Sun, 04 Nov 2001 07:52:25 -0500
+Subject: Response to comments on Intel's proposed BSD+Patent license
+References: <200111011321.fA1DLjjG019479@lima.epix.net>
+		<3BE2A8FA.494C@fast.net> <15330.57382.88528.963585@desk.crynwr.com>
+Message-ID: <3BE53A09.37CB@fast.net>
+
+Russel,
+
+Thanks for your response!  I'm not exactly clear on what Intel proposes
+for patented software, or the implications thereof, but I imagine that
+will become clear as I continue to skim the thread.  OK, I went back and
+reread some of the thread -- I guess they propose to give a royalty free
+license (on the patent) that allows use (only under a GPL'd OS), but not
+modification?  I guess I have the gist of it and can follow along now!
+
+Thanks,
+Randy Kramer
+
+Russell Nelson wrote:
+> 
+> Randy Kramer writes:
+>  > 1. Use (and modification) of software can be restricted by copyright but
+>  > might also be restricted by patent (if the software uses something which
+>  > is patented).
+> 
+> Because U.S. law relating to intellectual property has been corrupted.
+> 
+>  > Aside: I would feel cheated (misled, whatever) if I started to use
+>  > software that was open source (with the rights associated with the open
+>  > source license applied to that software), but some of those rights were
+>  > restricted by patent issues, especially if the licensing was so opaque
+>  > that I didn't realize that until later.
+> 
+> Worse than what Intel is doing (that is, trying to be helpful), is the
+> issue of third-party and submarine patents.  Intel could write
+> software (patented or not), release it under the proposed BSD+Patent
+> license, and both you and Intel would be very surprised if someone
+> else turned up to also have a patent, or a patent could turn up to
+> have been registered but not granted until after you started using
+> it.
+> 
+> Intel can't solve those problems but it should be commended for doing
+> what it can (even if it isn't doing everything that we think
+> possible).
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+

@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-25 時点・61 ファイル）
+## いまの状態（2026-09-25 時点・72 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -110,6 +110,17 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2026-09-19 | （リスト外）| **第三者 AI レポート② 敵対的検証 → 受領** | **前提に事実誤りがある** ——解析対象を `against.md` と取り違えている（`against.md` #158）|
 | 2026-09-19 | （リスト外）| **第三者 AI レポート③ 好意的検証 → 受領** | **「クレヨン・ライセンス」の語を運んできた** ——アーカイブで実在を確認し、委員長の発言に到達した（`review-labels.md` §1.98）|
 | 2026-09-22 | （リスト外）| **ACD-1.2 草案への外部レビュー（OSI 承認準備）→ 受領** | オーナー経由。**渡されたレビュー対象が現行 `ACD-1.2-DRAFT.txt` と sha256 一致**（`1356b2b0…`）—— **この評は現行の byte に当たっている**（09-20 の 3 件は PDF 抽出で、`against.md` #167 の破損ヘッダを含む版を読んでいた）。**確定した実欠陥 1 件**: 冒頭が「1.1 と同一」と述べたまま下に 9 件の変更が並んでいた（`against.md` #207・**4 日間偽で、09-20 の 3 件は報告していない**）。**5 条の指摘のうち §6.2 / §6.3 は、勧める分離が既に本文にある** |
+| 2001-11 | `license-discuss`（観測）| **Intel's proposed BSD + Patent License → 観測保存（1of4 部）** | **特許許諾を GPL の OS に条件づけた 2001 年版が OSD 3 / 6 / 8 で争われ、承認されなかった。** 2016 年の無条件版は承認されている（`2016-01-...` を参照）。**ACD §8.2 が無条件・終了不能である理由に当たる。** |
+| 2001-11 | `license-discuss`（観測）| **Intel's proposed BSD + Patent License → 観測保存（2of4 部）** | **特許許諾を GPL の OS に条件づけた 2001 年版が OSD 3 / 6 / 8 で争われ、承認されなかった。** 2016 年の無条件版は承認されている（`2016-01-...` を参照）。**ACD §8.2 が無条件・終了不能である理由に当たる。** |
+| 2001-11 | `license-discuss`（観測）| **Intel's proposed BSD + Patent License → 観測保存（3of4 部）** | **特許許諾を GPL の OS に条件づけた 2001 年版が OSD 3 / 6 / 8 で争われ、承認されなかった。** 2016 年の無条件版は承認されている（`2016-01-...` を参照）。**ACD §8.2 が無条件・終了不能である理由に当たる。** |
+| 2001-11 | `license-discuss`（観測）| **Intel's proposed BSD + Patent License → 観測保存（4of4 部）** | **特許許諾を GPL の OS に条件づけた 2001 年版が OSD 3 / 6 / 8 で争われ、承認されなかった。** 2016 年の無条件版は承認されている（`2016-01-...` を参照）。**ACD §8.2 が無条件・終了不能である理由に当たる。** |
+| 2001-11 | `license-discuss`（観測）| **Response to comments on Intel's proposed BSD+Patent lice → 観測保存** | 上記への提出者 Intel の応答。**「BSD より多くの権利を与えるライセンスが open でないとは論理的でない」**という主張と、その反論。 |
+| 2004-01 | `license-discuss`（観測）| **Public domain mistake? → 観測保存** | **promissory estoppel の 4 要件と、公開ライセンスに当てたときの反論** ——Cowan 氏「licensor は相手を知らないので要件 (2) が立たない」、Rosen 氏「estoppel は契約の法理で bare license とは無関係」。**§2.5 に直接当たる。** |
+| 2004-02 | `license-discuss`（観測）| **International treatment of the public domain → 観測保存** | **Engelfriet 氏「人格権は譲渡も放棄もできず、それゆえ他の方法で真に public domain へ入ることは不可能かもしれない」** —— §3 と §12 の中核問題に当たる 2004 年の議論。 |
+| 2005-04 | `license-discuss`（観測）| **Proposed new OSD item - patent termination → 観測保存（1of2 部）** | **Perens 氏「BSD には黙示の特許許諾が在る —— 自分の特許を体現するソフトを使用許諾つきで頒布すれば、その特許について estoppel を与えたことになる」**、Garrett 氏「OSD はそもそも特許許諾を要求していない」。**特許 gap の重みに直接当たる。** |
+| 2005-04 | `license-discuss`（観測）| **Proposed new OSD item - patent termination → 観測保存（2of2 部）** | **Perens 氏「BSD には黙示の特許許諾が在る —— 自分の特許を体現するソフトを使用許諾つきで頒布すれば、その特許について estoppel を与えたことになる」**、Garrett 氏「OSD はそもそも特許許諾を要求していない」。**特許 gap の重みに直接当たる。** |
+| 2014-05 | `license-discuss`（観測）| **Can OSI take stance that U.S. public domain is open sour → 観測保存（1of2 部）** | **当時の OSI 会長 Simon Phipps 氏が「CC0 は OSI が否決したのではなく取り下げられた」と明言**し、Fontana 氏が「CC0 は明らかに小文字の open source」、Cowan 氏が「明示的特許許諾が無いライセンスを open source でないとは誰も言えない」と述べている。**§3 の枠と特許 gap の重みの両方に当たる。** |
+| 2014-05 | `license-discuss`（観測）| **Can OSI take stance that U.S. public domain is open sour → 観測保存（2of2 部）** | **当時の OSI 会長 Simon Phipps 氏が「CC0 は OSI が否決したのではなく取り下げられた」と明言**し、Fontana 氏が「CC0 は明らかに小文字の open source」、Cowan 氏が「明示的特許許諾が無いライセンスを open source でないとは誰も言えない」と述べている。**§3 の枠と特許 gap の重みの両方に当たる。** |
 | 2016-01 | `license-review`（観測）| **BSD + Patent の承認審査 68 通 → 観測保存（1/10 部）** | **`BSD-2-Clause-Patent` の承認審査。我々の特許 gap にとって最も近い承認済みの隣人**で、**テキストの census からは出ない「承認理由の逐語」**が在る —— *"the desire of certain organizations to have a simple permissive license that is compatible with the GNU General Public License (GPL), version 2, but which also has an express patent grant included"*（提出者 McCoy Smith 氏）。**我々の理由とは違う**（#235） |
 | 2016-01 | `license-review`（観測）| **BSD + Patent の承認審査 68 通 → 観測保存（2/10 部）** | **同じスレッドの 2/10 部。** 本文は無改変で、順に結合すれば元の連続になる |
 | 2016-01 | `license-review`（観測）| **BSD + Patent の承認審査 68 通 → 観測保存（3/10 部）** | **同じスレッドの 3/10 部。** 本文は無改変で、順に結合すれば元の連続になる |

@@ -1,0 +1,703 @@
+Source:   https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Fetched:  2026-09-25T09:07:03+00:00（ブラウザ相当の UA・件名で厳密に抽出）
+Thread:   Proposed new OSD item - patent termination —— 全 21 通（2005-04）
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **Perens 氏「BSD には黙示の特許許諾が在る —— 自分の特許を体現するソフトを使用許諾つきで頒布すれば、その特許について estoppel を与えたことになる」**、Garrett 氏「OSD はそもそも特許許諾を要求していない」。**特許 gap の重みに直接当たる。**
+          分割は Check 365（1,000 行）のため・メッセージ境界（1/2 部・19 通）。
+          読みは LICENSES/ACD-1.0.against.md #236 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From mjg59 at srcf.ucam.org  Sat Apr  9 11:01:42 2005
+From: mjg59 at srcf.ucam.org (Matthew Garrett)
+Date: Sat, 09 Apr 2005 12:01:42 +0100
+Subject: Proposed new OSD item - patent termination
+Message-ID: <1113044503.30171.23.camel@tyrosine>
+
+No copyright license termination on unrelated patent action
+
+The copyright license must not terminate if patent action unrelated to
+the licensed software is initiated against the licensor.
+
+----------------------------------------------------------------------
+
+The APSL contains a term that terminates the entire license if you
+initiate patent action against Apple. Apple manufacture hardware - if
+they infringe a hardware patent I hold, I'm not able to sue them if I
+want to carry on using any software they produced. Open source licenses
+shouldn't restrict my rights to perform reasonable acts (such as sue a
+hardware manufacturer for patent infringement).
+
+-- 
+Matthew Garrett | mjg59 at srcf.ucam.org
+
+
+
+From galactus at stack.nl  Sat Apr  9 12:36:14 2005
+From: galactus at stack.nl (Arnoud Engelfriet)
+Date: Sat, 9 Apr 2005 14:36:14 +0200
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <1113044503.30171.23.camel@tyrosine>
+References: <1113044503.30171.23.camel@tyrosine>
+Message-ID: <20050409123614.GA61443@stack.nl>
+
+Matthew Garrett wrote:
+> No copyright license termination on unrelated patent action
+> 
+> The copyright license must not terminate if patent action unrelated to
+> the licensed software is initiated against the licensor.
+
+The more common situation I think is that the whole license terminates
+if you sue a contributor for patent infringement regarding
+the licensed software. Perhaps it would be wise to say something
+about that explicitly.
+
+Examples are the OSL and the Mozilla Public License. The latter
+also terminates the patent license if you sue over "any
+[other] software, hardware, or device". What about that?
+
+Arnoud
+
+-- 
+Arnoud Engelfriet, Dutch patent attorney - Speaking only for myself
+Patents, copyright and IPR explained for techies: http://www.iusmentis.com/
+
+
+From bruce at perens.com  Sat Apr  9 13:49:32 2005
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 09 Apr 2005 06:49:32 -0700
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <1113044503.30171.23.camel@tyrosine>
+References: <1113044503.30171.23.camel@tyrosine>
+Message-ID: <4257DD6C.1090409@perens.com>
+
+This provision doesn't seem to be in the general interest of Open Source 
+software because it would prevent an Open Source license from 
+terminating when patent action is brought regarding other Open Source 
+software.
+
+I would much rather see it done the way Larry once proposed (which he 
+should have stuck with IMO), which was that if you brought a patent 
+action regarding any software with an Open Source license, the licenses 
+for other Open Source software would terminate. Larry backed down on 
+this because of opposition from HP. Given the way that IBM and HP, 
+purportedly our friends, are lobbying for increases in software 
+patenting that will do serious damage to Open Source, we need to think 
+about this sort of defense.
+
+In addition, the patent policies we generally are able to negotiate with 
+standards organizations include the sort of reciprocity that you object 
+to below. The grants to make royalty-free use of patents in the 
+implementation of a standard terminate if the other party brings a 
+patent suit.
+
+In general, nobody wants to make a patent grant to a party that is 
+bringing patent suits against them.
+
+    Thanks
+
+    Bruce
+
+Matthew Garrett wrote:
+
+>No copyright license termination on unrelated patent action
+>
+>The copyright license must not terminate if patent action unrelated to
+>the licensed software is initiated against the licensor.
+>
+>----------------------------------------------------------------------
+>
+>The APSL contains a term that terminates the entire license if you
+>initiate patent action against Apple. Apple manufacture hardware - if
+>they infringe a hardware patent I hold, I'm not able to sue them if I
+>want to carry on using any software they produced. Open source licenses
+>shouldn't restrict my rights to perform reasonable acts (such as sue a
+>hardware manufacturer for patent infringement).
+>
+>  
+>
+
+
+
+From mjg59 at srcf.ucam.org  Sat Apr  9 13:54:30 2005
+From: mjg59 at srcf.ucam.org (Matthew Garrett)
+Date: Sat, 09 Apr 2005 14:54:30 +0100
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <20050409123614.GA61443@stack.nl>
+References: <1113044503.30171.23.camel@tyrosine>
+	 <20050409123614.GA61443@stack.nl>
+Message-ID: <1113054870.14234.7.camel@tyrosine>
+
+On Sat, 2005-04-09 at 14:36 +0200, Arnoud Engelfriet wrote:
+
+> The more common situation I think is that the whole license terminates
+> if you sue a contributor for patent infringement regarding
+> the licensed software. Perhaps it would be wise to say something
+> about that explicitly.
+
+I tend towards thinking that that's acceptable behaviour, though I don't
+have a very strong explanation as to why I think that. People obviously
+feel that this level of patent termination is fairly important - it's
+pretty common in current licenses.
+
+> Examples are the OSL and the Mozilla Public License. The latter
+> also terminates the patent license if you sue over "any
+> [other] software, hardware, or device". What about that?
+
+I think this is more difficult. The OSD doesn't require that a license
+give you a patent grant in the first place (BSD is an obvious example of
+one that doesn't do anything related to patents). Effectively,
+terminating a patent license just turns the license into one that didn't
+grant you a patent in the first place. If that license would be OSD
+compliant, I don't see any real way to argue that that sort of clause is
+unacceptable.
+
+-- 
+Matthew Garrett | mjg59 at srcf.ucam.org
+
+
+
+From mjg59 at srcf.ucam.org  Sat Apr  9 14:00:01 2005
+From: mjg59 at srcf.ucam.org (Matthew Garrett)
+Date: Sat, 09 Apr 2005 15:00:01 +0100
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <4257DD6C.1090409@perens.com>
+References: <1113044503.30171.23.camel@tyrosine>
+	 <4257DD6C.1090409@perens.com>
+Message-ID: <1113055202.14234.12.camel@tyrosine>
+
+On Sat, 2005-04-09 at 06:49 -0700, Bruce Perens wrote:
+
+> In general, nobody wants to make a patent grant to a party that is 
+> bringing patent suits against them.
+
+The APSL doesn't make a *copyright* grant to parties that bring patent
+suits against Apple. The clause I suggested has nothing to do with
+patent grants.
+
+-- 
+Matthew Garrett | mjg59 at srcf.ucam.org
+
+
+
+From bruce at perens.com  Sat Apr  9 14:10:04 2005
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 09 Apr 2005 07:10:04 -0700
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <1113054870.14234.7.camel@tyrosine>
+References: <1113044503.30171.23.camel@tyrosine>	 <20050409123614.GA61443@stack.nl> <1113054870.14234.7.camel@tyrosine>
+Message-ID: <4257E23C.10907@perens.com>
+
+Matthew Garrett wrote:
+
+>BSD is an obvious example of one that doesn't do anything related to patents
+>
+There is an implicit patent grant in the BSD license. If you distribute 
+software embodying your own patents with a license to make use of the 
+software, you are effectively granting an estoppel regarding those 
+patents. I suppose the estoppel might be limited to the practice of the 
+patents as it is carried out in the software that you distributed, but 
+given that you are also granting a license to modify the software, 
+that's less clear.
+
+>Effectively, terminating a patent license just turns the license into one that didn't grant you a patent in the first place.
+>  
+>
+In some cases, the copyright license, not just the patent grant, should 
+terminate upon a software patent suit.
+
+In his presentation on GPL 3 at the OSDL conference, Eben Moglen 
+suggested that a better defense against software patents would be a goal 
+of GPL 3. I would imagine this might take the form of a blanket 
+termination of all GPL 3 software in response to a software patent 
+lawsuit regarding GPL 3 software.
+
+    Thanks
+
+    Bruce
+
+
+From bruce at perens.com  Sat Apr  9 14:12:16 2005
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 09 Apr 2005 07:12:16 -0700
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <1113055202.14234.12.camel@tyrosine>
+References: <1113044503.30171.23.camel@tyrosine>	 <4257DD6C.1090409@perens.com> <1113055202.14234.12.camel@tyrosine>
+Message-ID: <4257E2C0.9020204@perens.com>
+
+Matthew Garrett wrote:
+
+>The APSL doesn't make a *copyright* grant to parties that bring patent
+>suits against Apple. The clause I suggested has nothing to do with
+>patent grants.
+>
+>  
+>
+It seems reasonable, though, even in the case of copyright grants that 
+terminate upon a patent lawsuit. Who wants to make free grants to folks 
+who are suing them?
+
+    Thanks
+
+    Bruce
+
+
+From mjg59 at srcf.ucam.org  Sat Apr  9 14:28:07 2005
+From: mjg59 at srcf.ucam.org (Matthew Garrett)
+Date: Sat, 09 Apr 2005 15:28:07 +0100
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <4257E2C0.9020204@perens.com>
+References: <1113044503.30171.23.camel@tyrosine>
+	 <4257DD6C.1090409@perens.com> <1113055202.14234.12.camel@tyrosine>
+	 <4257E2C0.9020204@perens.com>
+Message-ID: <1113056887.14234.31.camel@tyrosine>
+
+On Sat, 2005-04-09 at 07:12 -0700, Bruce Perens wrote:
+
+> It seems reasonable, though, even in the case of copyright grants that 
+> terminate upon a patent lawsuit. Who wants to make free grants to folks 
+> who are suing them?
+
+You're saying that if Apple infringe my hypothetical patent on internal
+case airflow (developed after years of painstaking research in
+windtunnels), it's reasonable for me to lose the right to use their open
+source software if I sue them over it? I disagree. Open source requires
+copyright holders to make some sacrifices.
+
+If I build a business on top of a piece of software under a license like
+the APSL, it effectively gives the copyright holder carte blanche to
+violate as many of my patents as they want. This isn't anything even
+vaguely approaching an equal transfer of rights.
+
+-- 
+Matthew Garrett | mjg59 at srcf.ucam.org
+
+
+
+From brianwc at ocf.berkeley.edu  Sat Apr  9 14:35:40 2005
+From: brianwc at ocf.berkeley.edu (Brian C)
+Date: Sat, 09 Apr 2005 07:35:40 -0700
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <1113044503.30171.23.camel@tyrosine>
+References: <1113044503.30171.23.camel@tyrosine>
+Message-ID: <4257E83C.50003@ocf.berkeley.edu>
+
+While the earliest version of APSL was rejected by both the OSI and FSF,
+Apple's subsequent changes to the license have satisfied both groups.
+
+Earlier Complaints:
+by OSI members: http://www.perens.com/Articles/APSL.html
+by the FSF: https://www.fsf.org/licensing/essays/historical-apsl.html
+
+Subsequent Acceptance of APSL 2.0:
+OSI: http://www.opensource.org/licenses/apsl-2.0.php
+FSF: https://www.fsf.org/licensing/essays/apsl.html
+
+As others have mentioned, using similar terms as a patent defense for
+free software could be a strong defense for the community. If, for
+instance, bringing a patent infringement suit against a free software
+developer terminated the plaintiff's licenses to a large amount of free
+software, this could be such a strong deterrent that almost no one would
+bring such a suit.
+
+There would be other concerns about such a proposal and the details
+would matter, but closing the door to such a defense before thinking
+about it from this side too would be rash. I will say though that I
+might agree with the heart of your point, I'd just like to see
+"unrelated" defined adequately. I think that would be difficult.
+
+Brian Carver
+
+Matthew Garrett wrote:
+> No copyright license termination on unrelated patent action
+> 
+> The copyright license must not terminate if patent action unrelated to
+> the licensed software is initiated against the licensor.
+> 
+> ----------------------------------------------------------------------
+> 
+> The APSL contains a term that terminates the entire license if you
+> initiate patent action against Apple. Apple manufacture hardware - if
+> they infringe a hardware patent I hold, I'm not able to sue them if I
+> want to carry on using any software they produced. Open source licenses
+> shouldn't restrict my rights to perform reasonable acts (such as sue a
+> hardware manufacturer for patent infringement).
+> 
+
+
+From bruce at perens.com  Sat Apr  9 15:13:25 2005
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 09 Apr 2005 08:13:25 -0700
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <1113056887.14234.31.camel@tyrosine>
+References: <1113044503.30171.23.camel@tyrosine>	 <4257DD6C.1090409@perens.com> <1113055202.14234.12.camel@tyrosine>	 <4257E2C0.9020204@perens.com> <1113056887.14234.31.camel@tyrosine>
+Message-ID: <4257F115.3070501@perens.com>
+
+Matthew Garrett wrote:
+
+>You're saying that if Apple infringe my hypothetical patent on internal
+>case airflow (developed after years of painstaking research in
+>windtunnels), it's reasonable for me to lose the right to use their open
+>source software if I sue them over it?
+>  
+>
+Think of it as a quid-pro-quo with items of value exchanged on both 
+sides.  You refrain from asserting patent rights against them in 
+exchange for the right to use, distribute, and modify some valuable 
+software. If you aren't interested in taking part in an exchange of 
+patent and copyright rights with them, nobody is forcing you to do so.
+
+>it effectively gives the copyright holder carte blanche to violate as many of my patents as they want.
+>
+Actually, it doesn't. The license is not a covenant not to sue, it's 
+simply a termination clause that will lose you some copyright rights. If 
+that termination would be bad for your business, you are welcome to 
+purchase Apple's software under a commercial license. They do offer one, 
+and that license has a different quid-pro-quo not involving patent terms.
+
+Now, say you were dealing with a business entity that refused to grant a 
+commercial license, rather than Apple. You might really lose some 
+copyright rights irrevocably in that case. And that is one of the costs 
+that you must consider before bringing suit.
+
+    Thanks
+
+    Bruce
+
+
+
+From galactus at stack.nl  Sat Apr  9 16:18:09 2005
+From: galactus at stack.nl (Arnoud Engelfriet)
+Date: Sat, 9 Apr 2005 18:18:09 +0200
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <4257E23C.10907@perens.com>
+References: <1113044503.30171.23.camel@tyrosine> <20050409123614.GA61443@stack.nl> <1113054870.14234.7.camel@tyrosine> <4257E23C.10907@perens.com>
+Message-ID: <20050409161809.GA86383@stack.nl>
+
+Bruce Perens wrote:
+> In some cases, the copyright license, not just the patent grant, should 
+> terminate upon a software patent suit.
+
+But in the APSL, the copyright license terminates over _any_
+patent suit. Not just a software patent suit. Is that still
+reasonable? 
+
+And I'm not even sure if you _can_ drag completely unrelated
+patent litigation into a copyright license. 
+
+Arnoud
+
+-- 
+Arnoud Engelfriet, Dutch patent attorney - Speaking only for myself
+Patents, copyright and IPR explained for techies: http://www.iusmentis.com/
+
+
+From mjg59 at srcf.ucam.org  Sat Apr  9 16:35:18 2005
+From: mjg59 at srcf.ucam.org (Matthew Garrett)
+Date: Sat, 09 Apr 2005 17:35:18 +0100
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <4257F115.3070501@perens.com>
+References: <1113044503.30171.23.camel@tyrosine>
+	 <4257DD6C.1090409@perens.com> <1113055202.14234.12.camel@tyrosine>
+	 <4257E2C0.9020204@perens.com> <1113056887.14234.31.camel@tyrosine>
+	 <4257F115.3070501@perens.com>
+Message-ID: <1113064519.14234.46.camel@tyrosine>
+
+On Sat, 2005-04-09 at 08:13 -0700, Bruce Perens wrote:
+
+> Think of it as a quid-pro-quo with items of value exchanged on both 
+> sides.  You refrain from asserting patent rights against them in 
+> exchange for the right to use, distribute, and modify some valuable 
+> software. If you aren't interested in taking part in an exchange of 
+> patent and copyright rights with them, nobody is forcing you to do so.
+
+Sure. I understand the principle. However, that argument applies equally
+to other cases - think of a hypothetical license that grants you
+permission to use, modify and distribute the licensed software in return
+for you granting the same permissions to the copyright holder on every
+piece of software you've ever written. It's an exchange of items of
+value, and you're not forced to accept it. I'd hope it's not something
+we'd think would be an acceptable open source license, though.
+
+Some exchanges are acceptable. Some are not. I believe the one present
+in the APSL falls into the latter category.
+
+> Now, say you were dealing with a business entity that refused to grant a 
+> commercial license, rather than Apple. You might really lose some 
+> copyright rights irrevocably in that case. And that is one of the costs 
+> that you must consider before bringing suit.
+
+Again, this argument applies to other cases that we'd consider
+unacceptable. Imagine a hypothetical license that terminates if you
+write a critical review of any of the company's other products. You'd
+still be able to write that review, but the cost to you may be large.
+How about a license that terminates if you file an unfair dismissal
+lawsuit against the copyright holder? 
+
+Software patents are a real problem, and it's not unreasonable for
+licenses to attempt to protect the licensor from software-related patent
+suits. However, I don't think there's any great consensus that patents
+in general are a bad thing. Why should an open source *software* license
+attempt to restrict what I can do with the non-software patents I hold? 
+-- 
+Matthew Garrett | mjg59 at srcf.ucam.org
+
+
+
+From mjg59 at srcf.ucam.org  Sat Apr  9 16:46:57 2005
+From: mjg59 at srcf.ucam.org (Matthew Garrett)
+Date: Sat, 09 Apr 2005 17:46:57 +0100
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <4257E83C.50003@ocf.berkeley.edu>
+References: <1113044503.30171.23.camel@tyrosine>
+	 <4257E83C.50003@ocf.berkeley.edu>
+Message-ID: <1113065217.14234.55.camel@tyrosine>
+
+On Sat, 2005-04-09 at 07:35 -0700, Brian C wrote:
+
+> As others have mentioned, using similar terms as a patent defense for
+> free software could be a strong defense for the community. If, for
+> instance, bringing a patent infringement suit against a free software
+> developer terminated the plaintiff's licenses to a large amount of free
+> software, this could be such a strong deterrent that almost no one would
+> bring such a suit.
+
+Indeed - however, the question is whether it's reasonable to restrict
+activities which are entirely reasonable in the hope that this will help
+prevent less reasonable activities. A balance has to be struck. I don't
+think anyone would argue that suing Apple over a hardware patent
+infringement is in any way unreasonable or detrimental to free software.
+As a result, it seems odd to forbid it in an open source license.
+
+> There would be other concerns about such a proposal and the details
+> would matter, but closing the door to such a defense before thinking
+> about it from this side too would be rash. I will say though that I
+> might agree with the heart of your point, I'd just like to see
+> "unrelated" defined adequately. I think that would be difficult.
+
+There's two possible cases - termination of copyright license on any
+patent suit, or termination of copyright license on software-related
+patent suits. Defining it clearly would depend on which of these we
+wanted to forbid.
+
+-- 
+Matthew Garrett | mjg59 at srcf.ucam.org
+
+
+
+From bruce at perens.com  Sat Apr  9 17:09:19 2005
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 09 Apr 2005 10:09:19 -0700
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <20050409161809.GA86383@stack.nl>
+References: <1113044503.30171.23.camel@tyrosine> <20050409123614.GA61443@stack.nl> <1113054870.14234.7.camel@tyrosine> <4257E23C.10907@perens.com> <20050409161809.GA86383@stack.nl>
+Message-ID: <42580C3F.2070901@perens.com>
+
+Arnoud Engelfriet wrote:
+
+>But in the APSL, the copyright license terminates over _any_
+>patent suit. Not just a software patent suit. Is that still
+>reasonable?
+>  
+>
+In many cases.
+
+1. Hardware patents can be enforced against software.
+
+2. Hardware patents can be enforced against the critical infrastructure 
+for an Open Source program. For example, I run GNU Radio, a 
+software-defined-radio program. I have a Universal Software Radio 
+Peripheral (USRP), which is a hardware device essential to making GNU 
+Radio work for any bandwidth wider than what a sound card will handle. I 
+want to protect the USRP against patents too, or GNU Radio is pretty 
+useless.
+
+3. We should be able to protect the OpenCores VLSI designs and other 
+Open Source hardware designs. They are also potential hardware 
+infrastructure for Open Source software. Someday the available 
+off-the-shelf PC hardware may be bound to Trusted Computing features 
+that do not admit Open Source software. Thus, it's in our interest to 
+preserve our own path for VLSI creation.
+
+4. As you can infer from #2 and #3, the line between hardware and 
+software is blurring. Thus, we are getting many purported hardware 
+patents that are actually software patents.
+
+    Thanks
+
+    Bruce
+
+
+From mjg59 at srcf.ucam.org  Sat Apr  9 17:18:42 2005
+From: mjg59 at srcf.ucam.org (Matthew Garrett)
+Date: Sat, 09 Apr 2005 18:18:42 +0100
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <42580C3F.2070901@perens.com>
+References: <1113044503.30171.23.camel@tyrosine>
+	 <20050409123614.GA61443@stack.nl> <1113054870.14234.7.camel@tyrosine>
+	 <4257E23C.10907@perens.com> <20050409161809.GA86383@stack.nl>
+	 <42580C3F.2070901@perens.com>
+Message-ID: <1113067122.14234.61.camel@tyrosine>
+
+On Sat, 2005-04-09 at 10:09 -0700, Bruce Perens wrote:
+
+> 4. As you can infer from #2 and #3, the line between hardware and 
+> software is blurring. Thus, we are getting many purported hardware 
+> patents that are actually software patents.
+
+Wait a minute. I was under the impression that the main issue with
+software patents was that the software invention process is very
+different to the physical object invention process (faster turnaround,
+smaller number of ways to fix the same problem, that sort of thing). You
+seem to be implying the issue is the use of /any/ patents against the
+open source community. I think that's a very different argument, and I
+don't think it's clear that it's the right one.
+
+-- 
+Matthew Garrett | mjg59 at srcf.ucam.org
+
+
+
+From bruce at perens.com  Sat Apr  9 17:29:36 2005
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 09 Apr 2005 10:29:36 -0700
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <1113067122.14234.61.camel@tyrosine>
+References: <1113044503.30171.23.camel@tyrosine>	 <20050409123614.GA61443@stack.nl> <1113054870.14234.7.camel@tyrosine>	 <4257E23C.10907@perens.com> <20050409161809.GA86383@stack.nl>	 <42580C3F.2070901@perens.com> <1113067122.14234.61.camel@tyrosine>
+Message-ID: <42581100.5050302@perens.com>
+
+Matthew Garrett wrote:
+
+>You seem to be implying the issue is the use of /any/ patents against the open source community.
+>  
+>
+This is due to concerns regarding the likely topics of Open Source 
+development.
+
+VLSI designs are already software. They are programmed into a gate-array 
+in fundamentaly the same way that we program a computer. They are 
+presently the topic of a vigorous Open Source development. Thus OpenCores.
+
+Signal-processing designs, formerly in the domain of hardware, are also 
+software. Thus, we have GNU Radio.
+
+Three dimensional CAD designs, potentially realizable in tangible 
+objects, are today exchanged as Open Source, and there is an Open Source 
+program for controlling a milling machine.
+
+So, yes, what falls out is that we will probably want to guard against 
+enforcement of patents against Open Source designs, whether they are 
+designs for software programs or teapots.
+
+    Thanks
+
+    Bruce
+
+
+From mjg59 at srcf.ucam.org  Sat Apr  9 17:39:27 2005
+From: mjg59 at srcf.ucam.org (Matthew Garrett)
+Date: Sat, 09 Apr 2005 18:39:27 +0100
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <42581100.5050302@perens.com>
+References: <1113044503.30171.23.camel@tyrosine>
+	 <20050409123614.GA61443@stack.nl> <1113054870.14234.7.camel@tyrosine>
+	 <4257E23C.10907@perens.com> <20050409161809.GA86383@stack.nl>
+	 <42580C3F.2070901@perens.com> <1113067122.14234.61.camel@tyrosine>
+	 <42581100.5050302@perens.com>
+Message-ID: <1113068367.14234.65.camel@tyrosine>
+
+On Sat, 2005-04-09 at 10:29 -0700, Bruce Perens wrote:
+
+> So, yes, what falls out is that we will probably want to guard against 
+> enforcement of patents against Open Source designs, whether they are 
+> designs for software programs or teapots.
+
+Then we should have that discussion. "We will probably want to guard
+against this" is not equivalent to "Licenses of this sort should be
+treated as open source".
+
+-- 
+Matthew Garrett | mjg59 at srcf.ucam.org
+
+
+
+From galactus at stack.nl  Sat Apr  9 18:26:11 2005
+From: galactus at stack.nl (Arnoud Engelfriet)
+Date: Sat, 9 Apr 2005 20:26:11 +0200
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <42580C3F.2070901@perens.com>
+References: <1113044503.30171.23.camel@tyrosine> <20050409123614.GA61443@stack.nl> <1113054870.14234.7.camel@tyrosine> <4257E23C.10907@perens.com> <20050409161809.GA86383@stack.nl> <42580C3F.2070901@perens.com>
+Message-ID: <20050409182611.GA97910@stack.nl>
+
+Bruce Perens wrote:
+> 4. As you can infer from #2 and #3, the line between hardware and 
+> software is blurring. Thus, we are getting many purported hardware 
+> patents that are actually software patents.
+
+I accept that; I've always maintained that you can't draw a good
+line between "hardware" and "software"(*). Hence there's no point
+in treating "software patents" as a special case.
+
+Getting back to the original issue: it boils down to what kind 
+of consideration an OSI-approved license may ask from a licensee.
+
+It's quite reasonable to ask reciprocity for derivative works. It
+also seems reasonable to ask for a non-assert on patents covering the
+work, or to include a patent termination clause in case the licensee
+sues with such a patent. But I do not think it's reasonable to ask
+for a consideration in a totally unrelated area.
+
+To make an analogy, the license could also stipulate that a
+licensee from now on shall publish all his works under the GPL
+(or another OSI-approved license). Your reasoning seems to apply
+equally well to that case. But it has nothing to do with the
+work being licensed. 
+
+Of course, the condition of this analogy would run afoul of OSD #9.
+And I think the same principle should apply to "other patents",
+to use the wording of OSD #9. It's just not reasonable anymore.
+
+Arnoud
+(*) Other than what I was taught in Compsci 101: software is
+the part you can't kick.
+-- 
+Arnoud Engelfriet, Dutch patent attorney - Speaking only for myself
+Patents, copyright and IPR explained for techies: http://www.iusmentis.com/
+
+
+From bruce at perens.com  Sat Apr  9 19:18:26 2005
+From: bruce at perens.com (Bruce Perens)
+Date: Sat, 09 Apr 2005 12:18:26 -0700
+Subject: Proposed new OSD item - patent termination
+In-Reply-To: <20050409182611.GA97910@stack.nl>
+References: <1113044503.30171.23.camel@tyrosine> <20050409123614.GA61443@stack.nl> <1113054870.14234.7.camel@tyrosine> <4257E23C.10907@perens.com> <20050409161809.GA86383@stack.nl> <42580C3F.2070901@perens.com> <20050409182611.GA97910@stack.nl>
+Message-ID: <42582A82.4040101@perens.com>
+
+Arnoud Engelfriet wrote:
+
+>But I do not think it's reasonable to ask for a consideration in a totally unrelated area.
+>  
+>
+Can you write a good definition of "unrelated area" that protects Open 
+Source?
+
+>Of course, the condition of this analogy would run afoul of OSD #9.
+>  
+>
+#9 disallows an Open Source license from having terms restricting 
+aggregation in copyright law rather than derivation. Covenants regarding 
+lawsuits may be rejected due to being judged as burdensome, but it's not 
+clear this falls under #9.
+
+>Other than what I was taught in Compsci 101: software is the part you can't kick.
+>  
+>
+I'll never forget the day I got a Buzz Lightyear toy, after seeing Buzz 
+on a screen for years at Pixar and thinking of him as only a virtual object.
+
+    Thanks
+
+    Bruce
+
+
+

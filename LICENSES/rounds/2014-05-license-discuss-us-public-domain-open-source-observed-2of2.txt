@@ -1,0 +1,533 @@
+Source:   https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Fetched:  2026-09-25T09:07:03+00:00（ブラウザ相当の UA・件名で厳密に抽出）
+Thread:   Can OSI take stance that U.S. public domain is open source? —— 全 22 通（2014-05）
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **当時の OSI 会長 Simon Phipps 氏が「CC0 は OSI が否決したのではなく取り下げられた」と明言**し、Fontana 氏が「CC0 は明らかに小文字の open source」、Cowan 氏が「明示的特許許諾が無いライセンスを open source でないとは誰も言えない」と述べている。**§3 の枠と特許 gap の重みの両方に当たる。**
+          分割は Check 365（1,000 行）のため・メッセージ境界（2/2 部・8 通）。
+          読みは LICENSES/ACD-1.0.against.md #236 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From fontana at sharpeleven.org  Sun May  4 18:06:26 2014
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Sun, 4 May 2014 14:06:26 -0400
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <87wqe1a3si.fsf@floss.red-bean.com>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+	<20140503201337.GF31120@mercury.ccil.org>
+	<87wqe1a3si.fsf@floss.red-bean.com>
+Message-ID: <20140504140626.6237fe1c@riley>
+
+On Sun, 04 May 2014 11:48:13 -0500
+Karl Fogel <kfogel at red-bean.com> wrote:
+
+> IMHO it would be a long-term problem for the OSI (and for open source
+> in general, given the useful standardization/certification role OSI
+> plays) to have there be licenses that we call "open source" but don't
+> certify.
+> 
+> After all, the *definition* of "open source" is supposed to be just
+> "whatever complies with the OSD".  And our certification process is
+> also "Does this comply with the OSD?"...  So the two shouldn't
+> diverge; to the extent that they do, we have a problem.
+[...]
+> But in the long run I think we have two
+> mutually exclusive choices:
+> 
+>   1) Have licenses out in the world that are OSD-compliant, and that
+> we informally agree are "open source", but that we don't certify.
+>      This will cause growing divergence between "what is open source"
+>      and "what the OSI has approved".  That would be very, very bad.
+
+I consider it important to understand, and acknowledge, that this
+divergence already exists in most people's minds (i.e. those people who
+have enough knowledge of what's going on in the real world).
+It exists in my own mind. 
+
+I don't know offhand the current count of OSI-approved licenses but I
+think it is around 70. In a typical traditional server/desktop Linux
+distro, the numbers of distinct licenses regarded *reasonably* by the
+communities of users and distributors of that distro as "open
+source" must number at least in the several hundreds. (Think of
+the universe of licenses covering packages considered
+DFSG-conformant in Debian, since the criteria are at least superficially
+very similar to the OSD, its descendant.)  
+
+To me the bigger problem has always been the use of "open source" to
+label things that are not reasonably considered OSD-compliant
+(regardless of whether a license has been certified by the OSI). 
+
+>   2) Officially certify any license (or PD status / PD dedication)
+> that is OSD-compliant as open source, but for most of them attach
+>      commentary explaining why most people probably shouldn't use it
+> and why one should one of the popular licenses instead.
+> 
+> (1) is a disaster.  It will defeat much of the point of the OSI, in
+> the long run.
+
+But (1) is where we are today, and where we always have been, except
+that the OSI is the one institution that can't easily admit this. 
+
+> We're sort of doing the complement of (2) right now, with the "Popular
+> Licenses" section. 
+
+Sort of except that OSI does not consider the issue of certification if
+no one (or no one with authority, in the typical case) submits a
+license for approval. One effect of this is that legacy licenses are
+unlikely to be OSI-approved (although we've seen a few license
+submissions of this sort), which may be fine. But we shouldn't pretend
+that just because a license was never submitted for OSI approval, it
+must fail the OSD. An interesting example someone brought up some time
+ago is that the OSI apparently never certified GPLv1, not surprisingly
+since it's seen little (explicit) use since 1991, though usage is not
+zero. 
+
+> ...but I think we do need to come to some sort of solution soon.  The
+> U.S. government is going to keep releasing what is (obviously) open
+> source software into the public domain; CC0 is also becoming more
+> popular in non-software works and will inevitably make inroads into
+> software too.
+
+I'm going to out myself here and say that I believe CC0 is obviously
+lowercase-o, lowercase-s open source despite the clause about patents.
+That doesn't mean the OSI should have approved it, that doesn't mean
+the OSI should recommend its use in its current form or cease its
+current practice of recommending against its use. I have a similar view
+of US government public domain works (with the added problem that it is
+clear that many intellectual property lawyers working across different
+US government agencies are confused over what 17 USC 105 means). 
+
+Yes, US works that are public domain worldwide are obviously open
+source, but as with CC0 this has some implications for how licenses that
+explicitly mention disposition of patent rights should be treated.
+ 
+> I completely agree, by the way, that we can be active about requiring
+> certain kinds of patent promises.  E.g., maybe we wouldn't certify PD
+> itself for software works, but would certify PD *when accompanied by*
+> a particular patent non-assertion text.  We'd have a lot of leverage
+> to do so, given that refusing to make that non-assertion promise,
+> when asked for it, would draw attention to the fact that the party
+> has now publicly decided not to be open source enough for the OSI.
+> So I'm not saying we should just certify PD and CC0 and be done with
+> it -- it's more complex than that.
+
+I agree.
+
+- RF
+
+
+From cowan at mercury.ccil.org  Sun May  4 18:49:35 2014
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Sun, 4 May 2014 14:49:35 -0400
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <87wqe1a3si.fsf@floss.red-bean.com>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+	<20140503201337.GF31120@mercury.ccil.org>
+	<87wqe1a3si.fsf@floss.red-bean.com>
+Message-ID: <20140504184935.GB12238@mercury.ccil.org>
+
+Karl Fogel scripsit:
+
+> After all, the *definition* of "open source" is supposed to be just
+> "whatever complies with the OSD".  And our certification process is
+> also "Does this comply with the OSD?"...  So the two shouldn't diverge;
+> to the extent that they do, we have a problem.
+
+Actually, that's only part of our process.  We also are supposed to
+"discourage vanity and duplicative licenses".  We have neither the
+resources nor the desire (I think) to certify all the unique licenses
+that companies have cooked up for their products, to say nothing of all
+the skrillions of BSD and MPL variants out there.  So I think the two
+must and should diverge: arse [sic] longa, vita brevis.
+
+What is more, we don't certify a license unless the license steward
+asks us to.  When I proposed that the MSPL be certified, the request
+was (rightly) rejected, because I am not the steward; later, the actual
+steward did request it and it was certified.  At neither time did anyone
+say the license was not open-source.
+
+In the end, certification is just a convenience to the users: it says
+that a group of fairly knowledgeable people are willing to stand behind
+the cliam that each certified license conforms to the OSD.  We don't
+and can't claim to have a comprehensive list.  We know that uncertified
+but compliant licenses are Out There, and new ones can and will appear
+indefinitely.
+
+> But in the long run I think we have two mutually exclusive choices:
+> 
+>   1) Have licenses out in the world that are OSD-compliant, and that we
+>      informally agree are "open source", but that we don't certify.
+
+This is not a choice, it's an accomplished fact.
+
+>      This will cause growing divergence between "what is open source"
+>      and "what the OSI has approved".  That would be very, very bad.
+
+Bad or not, it is inevitable.
+
+>   2) Officially certify any license (or PD status / PD dedication) that
+>      is OSD-compliant as open source, but for most of them attach
+>      commentary explaining why most people probably shouldn't use it and
+>      why one should one of the popular licenses instead.
+
+That would be a return to our original process, when we tried to do
+just that.  Not only did we fail, we got substantial pushback that
+what we were doing is not what users needed, so we adopted our current,
+more conservative process.
+
+> I completely agree, by the way, that we can be active about requiring
+> certain kinds of patent promises.  E.g., maybe we wouldn't certify PD
+> itself for software works, but would certify PD *when accompanied by* a
+> particular patent non-assertion text.  
+
+Unless you can show how a failure to mention patents, or even a completely
+adverse mention of them ("no patent rights whatsoever") contravenes the
+OSD, this position contradicts your above position of "certify anything
+that conforms".  You can't have it both ways.
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+The peculiar excellence of comedy is its excellent fooling, and Aristophanes's
+claim to immortality is based upon one title only: he was a master maker
+of comedy, he could fool excellently.  Here Gilbert stands side by side
+with him.  He, too, could write the most admirable nonsense.  There has
+never been better fooling than his, and a comparison with him carries
+nothing derogatory to the great Athenian. --Edith Hamilton, The Greek Way
+
+
+From rick at linuxmafia.com  Sun May  4 19:52:02 2014
+From: rick at linuxmafia.com (Rick Moen)
+Date: Sun, 4 May 2014 12:52:02 -0700
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <20140504184935.GB12238@mercury.ccil.org>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+	<20140503201337.GF31120@mercury.ccil.org>
+	<87wqe1a3si.fsf@floss.red-bean.com>
+	<20140504184935.GB12238@mercury.ccil.org>
+Message-ID: <20140504195202.GI17999@linuxmafia.com>
+
+Quoting John Cowan (cowan at mercury.ccil.org):
+
+[Appreciating and agreeing with what you say, FWIW, but I have one thing
+to add.]
+
+> In the end, certification is just a convenience to the users: it says
+> that a group of fairly knowledgeable people are willing to stand behind
+> the cliam that each certified license conforms to the OSD.
+
+In my opinion, this is a particularly important function because of
+firms that publish deliberately deceptive licensing, such as sneaking
+extremely problematic and intrusive badgeware clauses, having the effect
+of greatly deterring all third-party commercial reuse, into what is
+publicly claimed to be [A]GPL v3 licensing using the 'legal notices or
+author attributions' incorporate-by-reference feature in section 7 of
+[A]GPL v3.
+
+SugarCRM, one of the main drivers of the badgeware model - back in the
+days when OSI was being arm-twisted by that gang of OSBC regulars in the
+advocacy effort that resulted in certification of dead-on-arrival
+minimal badgeware licence CPAL - appears to have pioneered this style of
+Section 7 hokery:  The sponsoring firm behind a Web 2.0 hosted
+application claims in all the public marketing materials that the
+software is open source under GPLv3 or APGLv3, disclosing _only_ in
+obscure, not-easily-noticed places that they actually mean GPLv3 or
+APGLv3 with additional restrictions encumbering commercial third-party
+reuse.
+
+Admittedly, OSI's licence-certification program doesn't do much to stop
+this sort of chicanery, but at least OSI makes clear that its
+certificaiton program certifies specific licence texts and not also
+Everyone's Vaguely Similar Imitation Licences with Concealed
+Anti-Competition Restrictions.
+
+(As an aside, I also think SugarCRM and imitators' use of section 7, 
+when last I checked on that usage[1], vastly exceeded the permitted scope
+of notice, e.g., the only notices that may be required to be included
+somewhere in the interactive user interface display are a copyright notice 
+and warranty disclaimer if applicable:  That is made clear in the
+licence text's definition of Appropriate Legal Notices.  Requiring a
+company logo on every single user interace screen of the work and all
+derivative works exceed greatly what section 7 permits, not to mention
+requiring UI display of legal notices beyond the copyright notice and
+warranty disclaimer.  This misuse is particularly egregious since
+the section 7 wording was edited to its present state at the request 
+of SugarCRM, Inc., according to Richard Fontana's post to debian-legal
+a couple of years ago.[2])
+
+
+[1] http://linuxgazette.net/159/misc/lg/sugarcrm_and_badgeware_licensing_again.html
+[2] https://lists.debian.org/debian-legal/2011/12/msg00045.html 
+Richard opines in this post that SugarCRM's logo requirement as 
+of mid-2007, in his judgement complied with FSF's intent about how 
+intrusive badgeware might be and still remain free software.  I respect
+Richard highly and of course believe him.  By 2009, when I last checked
+SugarCRM's terms, they were excessive enough that IMO, if FSF still
+thinks that's not out of bounds for free software, they've lost their
+collective minds.
+
+
+
+From henrik.ingo at avoinelama.fi  Sun May  4 19:53:11 2014
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Sun, 4 May 2014 22:53:11 +0300
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <20140504140626.6237fe1c@riley>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+	<20140503201337.GF31120@mercury.ccil.org>
+	<87wqe1a3si.fsf@floss.red-bean.com> <20140504140626.6237fe1c@riley>
+Message-ID: <CAKHyketyOK_xSHdv=7cFP+T=cVYtgG6jxTzd3YYDv2yMFuWgkA@mail.gmail.com>
+
+Richard,
+
+I just wanted to call out a neat statistical trick you just made:
+
+On Sun, May 4, 2014 at 9:06 PM, Richard Fontana <fontana at sharpeleven.org> wrote:
+> On Sun, 04 May 2014 11:48:13 -0500
+> Karl Fogel <kfogel at red-bean.com> wrote:
+> I don't know offhand the current count of OSI-approved licenses but I
+> think it is around 70. In a typical traditional server/desktop Linux
+> distro, the numbers of distinct licenses regarded *reasonably* by the
+> communities of users and distributors of that distro as "open
+> source" must number at least in the several hundreds. (Think of
+> the universe of licenses covering packages considered
+> DFSG-conformant in Debian, since the criteria are at least superficially
+> very similar to the OSD, its descendant.)
+
+Sure. But it isn't at bad as you make it sound. The above sounds like
+more than half of the licenses in Debian (as an example of the distro
+with most packages) are not OSI certified. At the same time, Debian
+has over 37k packages and what stats we have from blackduck and other
+sources make me comfortable in guessing that safely more than 99% and
+probably more than 99,9% of Debian packages do use an OSI certified
+license. From this point of view I'd say we are doing very well here.
+
+I obviously agree that it is important that reality and OSI converge,
+but at the same time it serves no useful purpose to spend time
+certifying things like GPLv1.
+
+
+>> ...but I think we do need to come to some sort of solution soon.  The
+>> U.S. government is going to keep releasing what is (obviously) open
+>> source software into the public domain; CC0 is also becoming more
+>> popular in non-software works and will inevitably make inroads into
+>> software too.
+>
+> I'm going to out myself here and say that I believe CC0 is obviously
+> lowercase-o, lowercase-s open source despite the clause about patents.
+> That doesn't mean the OSI should have approved it, that doesn't mean
+> the OSI should recommend its use in its current form or cease its
+> current practice of recommending against its use. I have a similar view
+> of US government public domain works (with the added problem that it is
+> clear that many intellectual property lawyers working across different
+> US government agencies are confused over what 17 USC 105 means).
+>
+> Yes, US works that are public domain worldwide are obviously open
+> source, but as with CC0 this has some implications for how licenses that
+> explicitly mention disposition of patent rights should be treated.
+
+Is the US governments exclusion of patents that explicit? I mean I
+don't contest it as a fact, but to a layman I don't expect legislation
+to be coherent or 100% intentional. Politics to me seems much more
+like a one hand giveth, one taketh away kind of situation. Kind of
+like the discussion whether the US government works truly are
+worldwide public domain or just "except for all the other countries
+but US" public domain. It's messy reality and there's nothing we can
+do about it. (Another analogue: do software patents exist in Europe or
+not? That's a good ice breaker for conversation, but I wouldn't want
+OSI to assume "no" as the correct answer for purposes of certifying
+licenses.)
+
+CC0 otoh had an explicit sentence excluding patent rights, that to me
+seems much more problematic.
+
+As we are going on the record then, I see a distinction between CC0
+being intentionally wrong and US public domain works just being an
+imperfect legal construct.
+
+
+John keeps asking for statements like above to always be based on
+specific OSD paragraphs. Maybe that's a good idea. I'll try to express
+my judgement of CC0:
+
+The patent clause in CC0 fails in OSD compliance because:
+
+?1: it explicitly reserves the right to restrict some party or any
+party from selling, giving away and redistributing, now or at a future
+time. It also explicitly reserves the right to ask for royalties for
+such sale or redistribtuion.
+
+?5 and ?6: even if the license text itself is neutral, it reserves the
+right for the licensor to discriminate between recipients of the
+license such as prohibiting some recipients from using or
+redistributing the software, or requiring royalties for some type of
+use or users. For example separating commercial/non-commercial,
+geographically or just tactically or even arbitrarily. I should note
+that this would be a very likely way of enforcing ones patent rights.
+
+?7: excluding a patent grant fails the intent of this paragraph,
+though technically the rights actually included in CC0 do satisfy this
+paragraph.
+
+?8 and ?10: I see similar risks here: it is likely that a patent
+holder could enforce patents in a way that fail to meet the intent of
+these paragraphs, even if the license text otherwise is neutral here.
+
+
+
+
+henrik
+
+
+
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From cowan at mercury.ccil.org  Sun May  4 21:42:37 2014
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Sun, 4 May 2014 17:42:37 -0400
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <CAKHyketyOK_xSHdv=7cFP+T=cVYtgG6jxTzd3YYDv2yMFuWgkA@mail.gmail.com>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+	<20140503201337.GF31120@mercury.ccil.org>
+	<87wqe1a3si.fsf@floss.red-bean.com> <20140504140626.6237fe1c@riley>
+	<CAKHyketyOK_xSHdv=7cFP+T=cVYtgG6jxTzd3YYDv2yMFuWgkA@mail.gmail.com>
+Message-ID: <20140504214236.GC27065@mercury.ccil.org>
+
+Henrik Ingo scripsit:
+
+> Is the US governments exclusion of patents that explicit? 
+
+The only thing that makes the U.S. Government different from any other
+actor in IP law is that it cannot (and therefore its employees acting in
+the scope of their employment cannot) acquire copyright on any works it
+has created.  It can and does hold copyright that has been transferred
+to it by other creators, and it can and does acquire patents.
+
+That is what makes the NOSA 1.3 important as an OSI certified license.
+It allows any U.S. government agency to open-source its works fully.
+
+> John keeps asking for statements like above to always be based on
+> specific OSD paragraphs. Maybe that's a good idea. I'll try to express
+> my judgement of CC0:
+
+Thanks.  I'll have to reflect further on your specifics about #5, #6,
+#8, and #10.  As I said before, I think #1 is a reasonable argument
+against CC0 but #7 is not.
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+But that, he realized, was a foolish thought; as no one knew better than
+he that the Wall had no other side.
+        --Arthur C. Clarke, "The Wall of Darkness"
+
+
+From simon at webmink.com  Sun May  4 23:04:51 2014
+From: simon at webmink.com (Simon Phipps)
+Date: Mon, 5 May 2014 00:04:51 +0100
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <20140503201337.GF31120@mercury.ccil.org>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+	<20140503201337.GF31120@mercury.ccil.org>
+Message-ID: <CAA4ffp_9RZ58W3c02xiVjcW6mO1GZr+fBSd14hVT2G3dQec17w@mail.gmail.com>
+
+On Sat, May 3, 2014 at 9:13 PM, John Cowan <cowan at mercury.ccil.org> wrote:
+>
+>
+> I continue to think that our CC0 decision was wrong insofar as it can
+> be read as saying that the CC0 license is not an open-source (as opposed
+> to OSI Certified) license.  There may be reasons not to certify it,
+> but not to deny that it is open source.
+
+
+We did not decide against CC0. The discussion was certainly at a low point
+when Creative Commons withdrew it from the approval process, but that's
+what happened, not an OSI denial. Had they persisted, I believe OSI would
+have needed to face the issue of how licenses treat patents.
+
+S.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20140505/f16f5247/attachment.html>
+
+From cowan at mercury.ccil.org  Mon May  5 01:48:45 2014
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Sun, 4 May 2014 21:48:45 -0400
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <CAA4ffp_9RZ58W3c02xiVjcW6mO1GZr+fBSd14hVT2G3dQec17w@mail.gmail.com>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+	<20140503201337.GF31120@mercury.ccil.org>
+	<CAA4ffp_9RZ58W3c02xiVjcW6mO1GZr+fBSd14hVT2G3dQec17w@mail.gmail.com>
+Message-ID: <20140505014843.GD27065@mercury.ccil.org>
+
+Simon Phipps scripsit:
+
+> We did not decide against CC0. The discussion was certainly at a low point
+> when Creative Commons withdrew it from the approval process, but that's
+> what happened, not an OSI denial. Had they persisted, I believe OSI would
+> have needed to face the issue of how licenses treat patents.
+
+I stand corrected.
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+    "Any legal document draws most of its meaning from context.  A telegram
+    that says 'SELL HUNDRED THOUSAND SHARES IBM SHORT' (only 190 bits in
+    5-bit Baudot code plus appropriate headers) is as good a legal document
+    as any, even sans digital signature." --me
+
+
+From kfogel at red-bean.com  Mon May  5 16:44:07 2014
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Mon, 05 May 2014 11:44:07 -0500
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+	is open source?
+In-Reply-To: <20140504140626.6237fe1c@riley> (Richard Fontana's message of
+	"Sun, 4 May 2014 14:06:26 -0400")
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+	<20140503201337.GF31120@mercury.ccil.org>
+	<87wqe1a3si.fsf@floss.red-bean.com> <20140504140626.6237fe1c@riley>
+Message-ID: <878uqgfa5k.fsf@ktab.red-bean.com>
+
+Richard Fontana <fontana at sharpeleven.org> writes:
+>>   1) Have licenses out in the world that are OSD-compliant, and that
+>> we informally agree are "open source", but that we don't certify.
+>>      This will cause growing divergence between "what is open source"
+>>      and "what the OSI has approved".  That would be very, very bad.
+>
+>I consider it important to understand, and acknowledge, that this
+>divergence already exists in most people's minds (i.e. those people who
+>have enough knowledge of what's going on in the real world).
+>It exists in my own mind. 
+
+Certainly, and in mind too.  But I'd always assumed that the divergence
+exists mostly for the minority of people paying close attention.  I
+could be wrong, and if I am, then perhaps (1) isn't so bad after all,
+since we seem to be playing a valuable role even in that world.
+
+It would still be useful to have a better answer on US-gov't-produced
+PD software, though.
+
+
+

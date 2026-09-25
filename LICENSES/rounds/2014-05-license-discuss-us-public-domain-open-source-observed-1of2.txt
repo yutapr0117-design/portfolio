@@ -1,0 +1,670 @@
+Source:   https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Fetched:  2026-09-25T09:07:03+00:00（ブラウザ相当の UA・件名で厳密に抽出）
+Thread:   Can OSI take stance that U.S. public domain is open source? —— 全 22 通（2014-05）
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **当時の OSI 会長 Simon Phipps 氏が「CC0 は OSI が否決したのではなく取り下げられた」と明言**し、Fontana 氏が「CC0 は明らかに小文字の open source」、Cowan 氏が「明示的特許許諾が無いライセンスを open source でないとは誰も言えない」と述べている。**§3 の枠と特許 gap の重みの両方に当たる。**
+          分割は Check 365（1,000 行）のため・メッセージ境界（1/2 部・14 通）。
+          読みは LICENSES/ACD-1.0.against.md #236 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From kfogel at red-bean.com  Fri May  2 19:55:55 2014
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Fri, 02 May 2014 14:55:55 -0500
+Subject: [License-discuss] Can OSI take stance that U.S. public domain is
+	open source?
+Message-ID: <87eh0cuf90.fsf@ktab.red-bean.com>
+
+This thread on GitHub gets (needlessly?) complicated.  It's about a
+public-domain software work put out by the U.S. government, and there's
+no clarity on whether calling it "open source" and citing the OSI's
+definition of the term would be appropriate:
+
+  https://github.com/ngageoint/geoevents/issues/2#issuecomment-41739913
+
+Someone cites our FAQ item on it (which, as its primary author, I found
+tickled my vanity :-) ), but really, I wish they didn't have to cite the
+OSI FAQ and could instead just say "yup, public domain is open source".
+
+The things we don't like about public domain (lack of explicit liability
+limitation, different definitions in different jurisdictions) are not in
+themselves counter to the OSD, after all.
+
+Thoughts?  Should OSI look for a route to say that public domain works
+(like ones put out by the U.S. government) are open source too, or is it
+just too problematic?
+
+Stirring the pot,
+-Karl
+
+
+From kuno at frob.nl  Fri May  2 20:22:31 2014
+From: kuno at frob.nl (Kuno Woudt)
+Date: Fri, 02 May 2014 15:22:31 -0500
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <87eh0cuf90.fsf@ktab.red-bean.com>
+References: <87eh0cuf90.fsf@ktab.red-bean.com>
+Message-ID: <5363FE87.1020101@frob.nl>
+
+Hello Karl,
+
+On 02-05-14 14:55, Karl Fogel wrote:
+> This thread on GitHub gets (needlessly?) complicated.  It's about a
+> public-domain software work put out by the U.S. government, and there's
+> no clarity on whether calling it "open source" and citing the OSI's
+> definition of the term would be appropriate:
+>
+>    https://github.com/ngageoint/geoevents/issues/2#issuecomment-41739913
+>
+> Someone cites our FAQ item on it (which, as its primary author, I found
+> tickled my vanity :-) ), but really, I wish they didn't have to cite the
+> OSI FAQ and could instead just say "yup, public domain is open source".
+>
+> The things we don't like about public domain (lack of explicit liability
+> limitation, different definitions in different jurisdictions) are not in
+> themselves counter to the OSD, after all.
+>
+> Thoughts?  Should OSI look for a route to say that public domain works
+> (like ones put out by the U.S. government) are open source too, or is it
+> just too problematic?
+
+My understanding is that works by the U.S. government are not entitled 
+to domestic copyright protection under U.S. law. The U.S. government 
+asserts that it can still hold the copyright to those works in other 
+countries.
+
+So, that particular example seems problematic.
+
+-- Kuno.
+
+
+
+From fontana at sharpeleven.org  Sat May  3 03:44:20 2014
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Fri, 2 May 2014 23:44:20 -0400
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <87eh0cuf90.fsf@ktab.red-bean.com>
+References: <87eh0cuf90.fsf@ktab.red-bean.com>
+Message-ID: <20140502234420.479f4953@riley>
+
+On Fri, 02 May 2014 14:55:55 -0500
+Karl Fogel <kfogel at red-bean.com> wrote:
+
+> This thread on GitHub gets (needlessly?) complicated.  It's about a
+> public-domain software work put out by the U.S. government, and
+> there's no clarity on whether calling it "open source" and citing the
+> OSI's definition of the term would be appropriate:
+> 
+>   https://github.com/ngageoint/geoevents/issues/2#issuecomment-41739913
+> 
+> Someone cites our FAQ item on it (which, as its primary author, I
+> found tickled my vanity :-) ), but really, I wish they didn't have to
+> cite the OSI FAQ and could instead just say "yup, public domain is
+> open source".
+> 
+> The things we don't like about public domain (lack of explicit
+> liability limitation, different definitions in different
+> jurisdictions) are not in themselves counter to the OSD, after all.
+> 
+> Thoughts?  Should OSI look for a route to say that public domain works
+> (like ones put out by the U.S. government) are open source too, or is
+> it just too problematic?
+
+This work's authors seem to explicitly say that they are dedicating it
+to the public domain, not merely (or explicitly at all, as far as
+I can see here) relying on the notion of statutory public domain for
+US government works. I'd argue those are two different concepts of
+"public domain" (one of which is really something more akin to the
+effect achieved by CC0). 
+
+With statutory public domain works, you can't be sure out of context
+what the status of the work is when published outside the US. See e.g.
+http://www.cendi.gov/publications/04-8copyright.html#317. I've found
+that many US government lawyers dealing with open source seem to assume
+that 17 USC 105 operates worldwide (this sometimes comes up in the form
+of a refusal to sign CLAs because 'there is no copyright to license').
+
+Also with statutory public domain works you have the same old MXM/CC0
+inconsistency problem in a different form. Consider the case of public
+domain source code created by a US government employee, having features
+covered by a patent held by the US government.
+
+ - RF
+
+
+
+From kfogel at red-bean.com  Sat May  3 19:00:53 2014
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Sat, 03 May 2014 14:00:53 -0500
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+	is open source?
+In-Reply-To: <20140502234420.479f4953@riley> (Richard Fontana's message of
+	"Fri, 2 May 2014 23:44:20 -0400")
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+Message-ID: <87d2fu7km2.fsf@floss.red-bean.com>
+
+Richard Fontana <fontana at sharpeleven.org> writes:
+>This work's authors seem to explicitly say that they are dedicating it
+>to the public domain, not merely (or explicitly at all, as far as
+>I can see here) relying on the notion of statutory public domain for
+>US government works. I'd argue those are two different concepts of
+>"public domain" (one of which is really something more akin to the
+>effect achieved by CC0). 
+
+No, I took away the opposite impression: they are US gov't employees
+working on a gov't project on gov't time, and that they contend they
+therefore have no choice about its public domain status.
+
+That's what they seem to be saying in the comments, and it matches the
+owner of the GitHub account, which is the US National Geospatial Agency:
+
+   https://github.com/ngageoint/geoevents/
+
+>With statutory public domain works, you can't be sure out of context
+>what the status of the work is when published outside the US. See e.g.
+>http://www.cendi.gov/publications/04-8copyright.html#317. I've found
+>that many US government lawyers dealing with open source seem to assume
+>that 17 USC 105 operates worldwide (this sometimes comes up in the form
+>of a refusal to sign CLAs because 'there is no copyright to license').
+>
+>Also with statutory public domain works you have the same old MXM/CC0
+>inconsistency problem in a different form. Consider the case of public
+>domain source code created by a US government employee, having features
+>covered by a patent held by the US government.
+
+The patent issue would apply just as much if it were MIT- or
+BSD-licensed, though, and we'd call it "open source" then, right?
+
+http://www.cendi.gov/publications/04-8copyright.html#317 seems to
+indicate that we'd need an explicit notice that the U.S. government will
+not claim any copyright on the work in jurisdictions outside the U.S.
+
+If the US government were to publish such notice on a given work -- say,
+if standardized language for doing so were approved by the OSI :-) --
+then would there be any sense in which the work would not be compliant
+with the OSD?  E.g., would its open-sourceness be materially different
+from an MIT-licensed work?
+
+It wouldn't have any attribution or no-warranty clause, but the
+*absence* of those clauses is not a problem w.r.t. the OSD.
+
+Best,
+-K
+
+
+From henrik.ingo at avoinelama.fi  Sat May  3 19:07:19 2014
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Sat, 3 May 2014 22:07:19 +0300
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <20140502234420.479f4953@riley>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+Message-ID: <CAKHyket=JpN47_EynbNy_dd_M9WzATWtdfGpU8O_q-XKwJeLog@mail.gmail.com>
+
+That's an interesting angle to bite on...
+
+Does the US government grant itself patents, and if so, what does it do
+with those patents?
+On 3 May 2014 06:45, "Richard Fontana" <fontana at sharpeleven.org> wrote:
+
+> On Fri, 02 May 2014 14:55:55 -0500
+> Karl Fogel <kfogel at red-bean.com> wrote:
+>
+> > This thread on GitHub gets (needlessly?) complicated.  It's about a
+> > public-domain software work put out by the U.S. government, and
+> > there's no clarity on whether calling it "open source" and citing the
+> > OSI's definition of the term would be appropriate:
+> >
+> >   https://github.com/ngageoint/geoevents/issues/2#issuecomment-41739913
+> >
+> > Someone cites our FAQ item on it (which, as its primary author, I
+> > found tickled my vanity :-) ), but really, I wish they didn't have to
+> > cite the OSI FAQ and could instead just say "yup, public domain is
+> > open source".
+> >
+> > The things we don't like about public domain (lack of explicit
+> > liability limitation, different definitions in different
+> > jurisdictions) are not in themselves counter to the OSD, after all.
+> >
+> > Thoughts?  Should OSI look for a route to say that public domain works
+> > (like ones put out by the U.S. government) are open source too, or is
+> > it just too problematic?
+>
+> This work's authors seem to explicitly say that they are dedicating it
+> to the public domain, not merely (or explicitly at all, as far as
+> I can see here) relying on the notion of statutory public domain for
+> US government works. I'd argue those are two different concepts of
+> "public domain" (one of which is really something more akin to the
+> effect achieved by CC0).
+>
+> With statutory public domain works, you can't be sure out of context
+> what the status of the work is when published outside the US. See e.g.
+> http://www.cendi.gov/publications/04-8copyright.html#317. I've found
+> that many US government lawyers dealing with open source seem to assume
+> that 17 USC 105 operates worldwide (this sometimes comes up in the form
+> of a refusal to sign CLAs because 'there is no copyright to license').
+>
+> Also with statutory public domain works you have the same old MXM/CC0
+> inconsistency problem in a different form. Consider the case of public
+> domain source code created by a US government employee, having features
+> covered by a patent held by the US government.
+>
+>  - RF
+>
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20140503/d0e35356/attachment.html>
+
+From cowan at mercury.ccil.org  Sat May  3 19:10:55 2014
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Sat, 3 May 2014 15:10:55 -0400
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <87d2fu7km2.fsf@floss.red-bean.com>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com>
+Message-ID: <20140503191055.GC31120@mercury.ccil.org>
+
+Karl Fogel scripsit:
+
+> The patent issue would apply just as much if it were MIT- or
+> BSD-licensed, though, and we'd call it "open source" then, right?
+
+Indeed.  We may not be in the business of approving licenses without
+patent grants any more, but nobody can say that licenses that don't
+grant patent rights explicitly are not open-source licenses.
+
+> If the US government were to publish such notice on a given work -- say,
+> if standardized language for doing so were approved by the OSI :-) 
+
+That's essentially what the NASA Open Source Agreement does
+<http://opensource.org/licenses/NASA-1.3>.  It's already fully templated
+(except for the name, which is inessential), and U.S. government employees
+should be urged to use it.
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+Most people are much more ignorant about language than they are about
+[other subjects], but they reckon that because they can talk and read and
+write, their opinions about talking and reading and writing are as well
+informed as anybody's.  And since I have DNA, I'm entitled to carry on at
+length about genetics without bothering to learn anything about it.  Not.
+                        --Mark Liberman
+
+
+From cowan at mercury.ccil.org  Sat May  3 19:15:26 2014
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Sat, 3 May 2014 15:15:26 -0400
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <CAKHyket=JpN47_EynbNy_dd_M9WzATWtdfGpU8O_q-XKwJeLog@mail.gmail.com>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<CAKHyket=JpN47_EynbNy_dd_M9WzATWtdfGpU8O_q-XKwJeLog@mail.gmail.com>
+Message-ID: <20140503191526.GD31120@mercury.ccil.org>
+
+Henrik Ingo scripsit:
+
+> Does the US government grant itself patents, and if so, what does it do
+> with those patents?
+
+In the case of 6630507, they apply criminal sanctions to people who
+seek to make use of the patented technology.  Google for [patent 6630507].
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+                I am a member of a civilization. --David Brin
+
+
+From fontana at sharpeleven.org  Sat May  3 19:34:32 2014
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Sat, 3 May 2014 15:34:32 -0400
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <CAKHyket=JpN47_EynbNy_dd_M9WzATWtdfGpU8O_q-XKwJeLog@mail.gmail.com>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<CAKHyket=JpN47_EynbNy_dd_M9WzATWtdfGpU8O_q-XKwJeLog@mail.gmail.com>
+Message-ID: <20140503153432.6907b1c2@riley>
+
+On Sat, 3 May 2014 22:07:19 +0300
+Henrik Ingo <henrik.ingo at avoinelama.fi> wrote:
+ 
+> Does the US government grant itself patents, 
+
+Yes.
+
+> and if so, what does it
+> do with those patents?
+
+Many are licensed to the private sector for revenue. 
+
+ - RF
+ 
+
+
+From fontana at sharpeleven.org  Sat May  3 19:53:16 2014
+From: fontana at sharpeleven.org (Richard Fontana)
+Date: Sat, 3 May 2014 15:53:16 -0400
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <87d2fu7km2.fsf@floss.red-bean.com>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com>
+Message-ID: <20140503155316.4d149d8f@riley>
+
+On Sat, 03 May 2014 14:00:53 -0500
+Karl Fogel <kfogel at red-bean.com> wrote:
+
+> Richard Fontana <fontana at sharpeleven.org> writes:
+ 
+> >Also with statutory public domain works you have the same old MXM/CC0
+> >inconsistency problem in a different form. Consider the case of
+> >public domain source code created by a US government employee,
+> >having features covered by a patent held by the US government.
+> 
+> The patent issue would apply just as much if it were MIT- or
+> BSD-licensed, though, and we'd call it "open source" then, right?
+
+Unless perhaps the situation -- a statute that says that US government
+works are in the copyright public domain, with no counterpart provision
+in the Patent Act -- is more akin to CC0, and depending on whether you'd
+call CC0-covered source code "open source". 
+ 
+> http://www.cendi.gov/publications/04-8copyright.html#317 seems to
+> indicate that we'd need an explicit notice that the U.S. government
+> will not claim any copyright on the work in jurisdictions outside the
+> U.S.
+> 
+> If the US government were to publish such notice on a given work --
+> say, if standardized language for doing so were approved by the
+> OSI :-) -- then would there be any sense in which the work would not
+> be compliant with the OSD?  E.g., would its open-sourceness be
+> materially different from an MIT-licensed work?
+
+When the MXM license was considered, some people pointed to OSD #7 as
+suggesting that a sufficiently narrowly-drawn patent license grant in
+a license would not be Open Source. This was the problem I raised when CC0 was
+submitted. It was the inconsistency. It depends on your view of how the
+OSD applies to patents. 
+
+- RF
+
+
+From cowan at mercury.ccil.org  Sat May  3 20:13:37 2014
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Sat, 3 May 2014 16:13:37 -0400
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <20140503155316.4d149d8f@riley>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+Message-ID: <20140503201337.GF31120@mercury.ccil.org>
+
+Richard Fontana scripsit:
+
+> When the MXM license was considered, some people pointed to OSD #7
+> as suggesting that a sufficiently narrowly-drawn patent license grant
+> in a license would not be Open Source. This was the problem I raised
+> when CC0 was submitted. It was the inconsistency. It depends on your
+> view of how the OSD applies to patents.
+
+Since it nowhere mentions them, I don't see how it can apply to them.
+#7 merely says that licenses of the form "You get rights a, b, and c,
+whereas your transferees only get rights a and b", possibly qualified by
+"unless they sign this", aren't open-source licenses.
+
+I continue to think that our CC0 decision was wrong insofar as it can
+be read as saying that the CC0 license is not an open-source (as opposed
+to OSI Certified) license.  There may be reasons not to certify it,
+but not to deny that it is open source.
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+Female celebrity stalker, on a hot morning in Cairo:
+"Imagine, Colonel Lawrence, ninety-two already!"
+El Auruns's reply:  "Many happy returns of the day!"
+
+
+From henrik.ingo at avoinelama.fi  Sun May  4 06:47:23 2014
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Sun, 4 May 2014 09:47:23 +0300
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <20140503201337.GF31120@mercury.ccil.org>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+	<20140503201337.GF31120@mercury.ccil.org>
+Message-ID: <CAKHykesQ4ft24MJPn1TrsZmyFO6pYOnmvYtDYbhmgD045oAhWA@mail.gmail.com>
+
+The analoguous explanation for why cc0 didn't qualify is that it explicitly
+said "you get rights a and b but not c", with c a necessary right to copy
+and use the software. It should be obvious that - even if you'd disagree
+wrt patents - at least for some values of c that is clearly not open source.
+
+The fact that many older licenses are silent/ambiguous about c, and were
+written in a time when c didn't exist, is a different problem.
+
+henrik
+On 3 May 2014 23:14, "John Cowan" <cowan at mercury.ccil.org> wrote:
+
+> Richard Fontana scripsit:
+>
+> > When the MXM license was considered, some people pointed to OSD #7
+> > as suggesting that a sufficiently narrowly-drawn patent license grant
+> > in a license would not be Open Source. This was the problem I raised
+> > when CC0 was submitted. It was the inconsistency. It depends on your
+> > view of how the OSD applies to patents.
+>
+> Since it nowhere mentions them, I don't see how it can apply to them.
+> #7 merely says that licenses of the form "You get rights a, b, and c,
+> whereas your transferees only get rights a and b", possibly qualified by
+> "unless they sign this", aren't open-source licenses.
+>
+> I continue to think that our CC0 decision was wrong insofar as it can
+> be read as saying that the CC0 license is not an open-source (as opposed
+> to OSI Certified) license.  There may be reasons not to certify it,
+> but not to deny that it is open source.
+>
+> --
+> John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+> Female celebrity stalker, on a hot morning in Cairo:
+> "Imagine, Colonel Lawrence, ninety-two already!"
+> El Auruns's reply:  "Many happy returns of the day!"
+> _______________________________________________
+> License-discuss mailing list
+> License-discuss at opensource.org
+> http://projects.opensource.org/cgi-bin/mailman/listinfo/license-discuss
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/attachments/20140504/76c3c998/attachment.html>
+
+From cowan at mercury.ccil.org  Sun May  4 07:33:18 2014
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Sun, 4 May 2014 03:33:18 -0400
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <CAKHykesQ4ft24MJPn1TrsZmyFO6pYOnmvYtDYbhmgD045oAhWA@mail.gmail.com>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+	<20140503201337.GF31120@mercury.ccil.org>
+	<CAKHykesQ4ft24MJPn1TrsZmyFO6pYOnmvYtDYbhmgD045oAhWA@mail.gmail.com>
+Message-ID: <20140504073314.GC10505@mercury.ccil.org>
+
+Henrik Ingo scripsit:
+
+> The analoguous explanation for why cc0 didn't qualify is that it
+> explicitly said "you get rights a and b but not c", with c a necessary
+> right to copy and use the software. It should be obvious that - even
+> if you'd disagree wrt patents - at least for some values of c that is
+> clearly not open source.
+
+Yes, but c (patent rights) is not granted to *anyone* by CC0.  Whether
+those rights are necessary or not, they don't come within the ambit of
+OSD #7, which is about indirect distributees getting the same rights as
+direct distributees.  Here, neither kind get any patent rights, so #7
+is not triggered.
+
+You could argue that selling is a patent right, and OSD #1 is violated
+if a patent restricts you from selling software distributed under CC0.
+But #1 reads to me as a restriction on the license, which contains no
+such provision.
+
+If the open-source nature of CC0 is to be disproved, it must be shown that
+it violates some clause of the OSD.  This is distinct from the prudence
+or otherwise of certifying the license.
+
+-- 
+John Cowan          http://www.ccil.org/~cowan        cowan at ccil.org
+It was dreary and wearisome.  Cold clammy winter still held sway in this
+forsaken country.  The only green was the scum of livid weed on the dark
+greasy surfaces of the sullen waters.  Dead grasses and rotting reeds loomed
+up in the mists like ragged shadows of long-forgotten summers.
+        --LOTR, "The Passage of the Marshes"
+
+
+From henrik.ingo at avoinelama.fi  Sun May  4 12:58:50 2014
+From: henrik.ingo at avoinelama.fi (Henrik Ingo)
+Date: Sun, 4 May 2014 15:58:50 +0300
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+ is open source?
+In-Reply-To: <20140503153432.6907b1c2@riley>
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<CAKHyket=JpN47_EynbNy_dd_M9WzATWtdfGpU8O_q-XKwJeLog@mail.gmail.com>
+	<20140503153432.6907b1c2@riley>
+Message-ID: <CAKHykevuiBrC0+87KsCGBzW62w1Up=QLUGmpm9rN8VE+hVDh=A@mail.gmail.com>
+
+On Sat, May 3, 2014 at 10:34 PM, Richard Fontana
+<fontana at sharpeleven.org> wrote:
+> On Sat, 3 May 2014 22:07:19 +0300
+> Henrik Ingo <henrik.ingo at avoinelama.fi> wrote:
+>
+>> Does the US government grant itself patents,
+>
+> Yes.
+>
+>> and if so, what does it
+>> do with those patents?
+>
+> Many are licensed to the private sector for revenue.
+
+That is so perverse I cannot even formulate words to explain how I
+feel about that...
+
+Wrt the original question it seems there are good grounds to ask
+federal employees to pony up an actual open source license, especially
+one of those that includes a patent license. That said, it seems most
+will agree that the public domain copyright is for all intents and
+purposes open source. I suppose this is comparable to how artistic
+license is open source but preferably you'd use a better license.
+
+henrik
+
+
+
+-- 
+henrik.ingo at avoinelama.fi
++358-40-5697354        skype: henrik.ingo            irc: hingo
+www.openlife.cc
+
+My LinkedIn profile: http://fi.linkedin.com/pub/henrik-ingo/3/232/8a7
+
+
+From kfogel at red-bean.com  Sun May  4 16:48:13 2014
+From: kfogel at red-bean.com (Karl Fogel)
+Date: Sun, 04 May 2014 11:48:13 -0500
+Subject: [License-discuss] Can OSI take stance that U.S. public domain
+	is open source?
+In-Reply-To: <20140503201337.GF31120@mercury.ccil.org> (John Cowan's message
+	of "Sat, 3 May 2014 16:13:37 -0400")
+References: <87eh0cuf90.fsf@ktab.red-bean.com> <20140502234420.479f4953@riley>
+	<87d2fu7km2.fsf@floss.red-bean.com> <20140503155316.4d149d8f@riley>
+	<20140503201337.GF31120@mercury.ccil.org>
+Message-ID: <87wqe1a3si.fsf@floss.red-bean.com>
+
+John Cowan <cowan at mercury.ccil.org> writes:
+>I continue to think that our CC0 decision was wrong insofar as it can
+>be read as saying that the CC0 license is not an open-source (as opposed
+>to OSI Certified) license.  There may be reasons not to certify it,
+>but not to deny that it is open source.
+
+[warning: long]
+
+IMHO it would be a long-term problem for the OSI (and for open source in
+general, given the useful standardization/certification role OSI plays)
+to have there be licenses that we call "open source" but don't certify.
+
+After all, the *definition* of "open source" is supposed to be just
+"whatever complies with the OSD".  And our certification process is also
+"Does this comply with the OSD?"...  So the two shouldn't diverge; to
+the extent that they do, we have a problem.
+
+The distinction we are being pushed toward, I think, is the subset of
+open source licenses (that is, OSD-compliant licenses) that the OSI
+would *recommend* for use.  Er, if we did recommending :-).  Right now,
+we don't, officially.  We're edging into it warily, though, with the
+rearrangement of the http://opensource.org/licenses/ page, which starts
+off with the "Popular Licenses" section.
+
+This is not a criticism, by the way.  Such tentative steps are the right
+way to get there.  But in the long run I think we have two mutually
+exclusive choices:
+
+  1) Have licenses out in the world that are OSD-compliant, and that we
+     informally agree are "open source", but that we don't certify.
+     This will cause growing divergence between "what is open source"
+     and "what the OSI has approved".  That would be very, very bad.
+
+  2) Officially certify any license (or PD status / PD dedication) that
+     is OSD-compliant as open source, but for most of them attach
+     commentary explaining why most people probably shouldn't use it and
+     why one should one of the popular licenses instead.
+
+(1) is a disaster.  It will defeat much of the point of the OSI, in the
+long run.
+
+We're sort of doing the complement of (2) right now, with the "Popular
+Licenses" section.  Whether it's useful to limit ourselves to labeling
+some licenses preferable, or should do the other side as well and label
+other licenses as "yeah, it's open source, but we don't recommend using
+it for new code unless you have no choice" is, of course, a complicated
+political question.  We don't need to resolve it in this thread...
+
+...but I think we do need to come to some sort of solution soon.  The
+U.S. government is going to keep releasing what is (obviously) open
+source software into the public domain; CC0 is also becoming more
+popular in non-software works and will inevitably make inroads into
+software too.
+
+These works are all basically OSD-compliant, and will be treated by
+people as open source.  If we don't find some way to incorporate those
+terms into our certification process, it's the certification mark that
+will be hurt in the long run, not the licenses / PD statuses.  That's
+why I'm so worried by threads like that one I saw on GitHub that started
+this.  Those folks are crying out for us to provide clarity, even if
+they don't know it yet :-), and we must find a way to do so.
+
+I completely agree, by the way, that we can be active about requiring
+certain kinds of patent promises.  E.g., maybe we wouldn't certify PD
+itself for software works, but would certify PD *when accompanied by* a
+particular patent non-assertion text.  We'd have a lot of leverage to do
+so, given that refusing to make that non-assertion promise, when asked
+for it, would draw attention to the fact that the party has now publicly
+decided not to be open source enough for the OSI.  So I'm not saying we
+should just certify PD and CC0 and be done with it -- it's more complex
+than that.
+
+But the current limbo is not stable, and will inevitably damage the
+remarkable unanimity we currently have around OSI certification.  We'll
+have to solve this, probably sooner rather than later.
+
+Best,
+-K
+
+

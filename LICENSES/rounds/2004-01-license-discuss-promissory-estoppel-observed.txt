@@ -1,0 +1,444 @@
+Source:   https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/
+Fetched:  2026-09-25T09:07:03+00:00（ブラウザ相当の UA・件名で厳密に抽出）
+Thread:   Public domain mistake? —— 全 8 通（2004-01）
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **promissory estoppel の 4 要件と、公開ライセンスに当てたときの反論** ——Cowan 氏「licensor は相手を知らないので要件 (2) が立たない」、Rosen 氏「estoppel は契約の法理で bare license とは無関係」。**§2.5 に直接当たる。**
+          読みは LICENSES/ACD-1.0.against.md #236 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From danw6144 at insightbb.com  Tue Jan 27 20:26:50 2004
+From: danw6144 at insightbb.com (daniel wallace)
+Date: Tue, 27 Jan 2004 15:26:50 -0500
+Subject: Public domain mistake? 
+Message-ID: <4016C98A.2090807@insightbb.com>
+
+
+Under Utah law, the elements of promissory estoppel are:
+
+(1) The promisee acted with prudence and in reasonable
+    reliance on a promise made by the promisor;
+    
+(2) the promisor knew that the promisee had relied on
+the promise which the promisor should reasonably expect
+to induce action or forbearance on the part of the promisee
+or a third person;
+
+(3) the promisor was aware of all material facts; and
+ 
+(4) the promisee relied on the promise and the reliance
+resulted in a loss to the promisee.
+
+--- J.R. Simplot Co. v. Sales King Int'l, Inc., 17 P.3d 1100,
+Utah 2000)
+ 
+In the citation above, I was thinking of the GPL, but it seems
+it would apply to open source licenses generally.
+ 
+If there exists a mistaken presumption of law (not material fact)
+which preempts or voids an open source license agreement and
+the source code has been widely distributed under that license,
+the copyrighted code permissions would exist in the public domain
+for all practical purpose.
+ 
+Anyone who could show they had invested time and effort in
+reliance on promised copyright permissions could claim
+promissory estoppel to continue developing and expanding projects
+into the future.
+
+RMS would be rather disappointed. Microsoft would be happy.
+   
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rousskov at measurement-factory.com  Tue Jan 27 20:49:28 2004
+From: rousskov at measurement-factory.com (Alex Rousskov)
+Date: Tue, 27 Jan 2004 13:49:28 -0700 (MST)
+Subject: Public domain mistake? 
+In-Reply-To: <4016C98A.2090807@insightbb.com>
+References: <4016C98A.2090807@insightbb.com>
+Message-ID: <Pine.BSF.4.58.0401271345240.24113@measurement-factory.com>
+
+Daniel,
+
+	Could you please clarify for a non-lawyer where you see the
+"Public domain mistake" here (the Subject of your message)?
+
+If my understanding is correct, you are saying that if a permissible
+open source license agreement is not enforceable then the source code
+is in public domain for all practical purposes. That sounds
+reasonable/natural to me. Where is the public domain mistake?
+
+Thanks,
+
+Alex.
+
+On Tue, 27 Jan 2004, daniel wallace wrote:
+
+> If there exists a mistaken presumption of law (not material fact)
+> which preempts or voids an open source license agreement and the
+> source code has been widely distributed under that license, the
+> copyrighted code permissions would exist in the public domain for
+> all practical purpose.
+>
+> Anyone who could show they had invested time and effort in reliance
+> on promised copyright permissions could claim promissory estoppel to
+> continue developing and expanding projects into the future.
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From jcowan at reutershealth.com  Tue Jan 27 21:33:34 2004
+From: jcowan at reutershealth.com (jcowan at reutershealth.com)
+Date: Tue, 27 Jan 2004 16:33:34 -0500
+Subject: Public domain mistake?
+In-Reply-To: <4016C98A.2090807@insightbb.com>
+References: <4016C98A.2090807@insightbb.com>
+Message-ID: <20040127213334.GH5560@skunk.reutershealth.com>
+
+daniel wallace scripsit:
+
+> Under Utah law, the elements of promissory estoppel are:
+> 
+> (1) The promisee acted with prudence and in reasonable
+>    reliance on a promise made by the promisor;
+>    
+> (2) the promisor knew that the promisee had relied on
+> the promise which the promisor should reasonably expect
+> to induce action or forbearance on the part of the promisee
+> or a third person;
+
+Since public licenses are promises to everyone, I should think the
+elements of #2 would be hard to establish in any particular case.
+When I license my work, I don't *know* that you rely on my promises,
+since I don't know you at all.
+
+> If there exists a mistaken presumption of law (not material fact)
+> which preempts or voids an open source license agreement and
+> the source code has been widely distributed under that license,
+> the copyrighted code permissions would exist in the public domain
+> for all practical purpose.
+> 
+> Anyone who could show they had invested time and effort in
+> reliance on promised copyright permissions could claim
+> promissory estoppel to continue developing and expanding projects
+> into the future.
+
+It looks to me like this would protect you against an attempt to
+revoke a GPL license in bad faith; but it's far from clear to me that
+it would give you full rights to the work beyond what the GPL allows.
+
+IANAL, TINLA.
+
+-- 
+You are a child of the universe no less         John Cowan
+than the trees and all other acyclic            http://www.reutershealth.com
+graphs; you have a right to be here.            http://www.ccil.org/~cowan
+  --DeXiderata by Sean McGrath                  jcowan at reutershealth.com
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From rousskov at measurement-factory.com  Tue Jan 27 21:46:10 2004
+From: rousskov at measurement-factory.com (Alex Rousskov)
+Date: Tue, 27 Jan 2004 14:46:10 -0700 (MST)
+Subject: Public domain mistake?
+In-Reply-To: <20040127213334.GH5560@skunk.reutershealth.com>
+References: <4016C98A.2090807@insightbb.com> <20040127213334.GH5560@skunk.reutershealth.com>
+Message-ID: <Pine.BSF.4.58.0401271441590.24113@measurement-factory.com>
+
+
+On Tue, 27 Jan 2004 jcowan at reutershealth.com wrote:
+
+> daniel wallace scripsit:
+>
+> > Under Utah law, the elements of promissory estoppel are:
+> >
+> > (1) The promisee acted with prudence and in reasonable
+> >    reliance on a promise made by the promisor;
+> >
+> > (2) the promisor knew that the promisee had relied on
+> > the promise which the promisor should reasonably expect
+> > to induce action or forbearance on the part of the promisee
+> > or a third person;
+>
+> Since public licenses are promises to everyone, I should think the
+> elements of #2 would be hard to establish in any particular case.
+> When I license my work, I don't *know* that you rely on my promises,
+> since I don't know you at all.
+
+IMO, #2 is pretty much assumed under any license. One does not need to
+"know" licensee(s) to know what they rely on. A reasonable license
+giver should know that license users rely on the permission to use the
+licensed work.
+
+Alex.
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From lrosen at rosenlaw.com  Tue Jan 27 21:42:00 2004
+From: lrosen at rosenlaw.com (Lawrence E. Rosen)
+Date: Tue, 27 Jan 2004 13:42:00 -0800
+Subject: Public domain mistake? 
+In-Reply-To: <4016C98A.2090807@insightbb.com>
+Message-ID: <092701c3e51e$6e971300$927ba8c0@ROSENGARDEN>
+
+Daniel,
+
+I don't think your analysis is correct. Promissory estoppel is a contract
+doctrine that has nothing to do with a bare license like the GPL. 
+
+/Larry Rosen
+
+> -----Original Message-----
+> From: daniel wallace [mailto:danw6144 at insightbb.com] 
+> Sent: Tuesday, January 27, 2004 12:27 PM
+> To: license-discuss at opensource.org
+> Subject: Public domain mistake? 
+> 
+> 
+> 
+> Under Utah law, the elements of promissory estoppel are:
+> 
+> (1) The promisee acted with prudence and in reasonable
+>     reliance on a promise made by the promisor;
+>     
+> (2) the promisor knew that the promisee had relied on
+> the promise which the promisor should reasonably expect
+> to induce action or forbearance on the part of the promisee
+> or a third person;
+> 
+> (3) the promisor was aware of all material facts; and
+>  
+> (4) the promisee relied on the promise and the reliance 
+> resulted in a loss to the promisee.
+> 
+> --- J.R. Simplot Co. v. Sales King Int'l, Inc., 17 P.3d 1100, 
+> Utah 2000)
+>  
+> In the citation above, I was thinking of the GPL, but it 
+> seems it would apply to open source licenses generally.
+>  
+> If there exists a mistaken presumption of law (not material 
+> fact) which preempts or voids an open source license 
+> agreement and the source code has been widely distributed 
+> under that license, the copyrighted code permissions would 
+> exist in the public domain for all practical purpose.
+>  
+> Anyone who could show they had invested time and effort in 
+> reliance on promised copyright permissions could claim 
+> promissory estoppel to continue developing and expanding 
+> projects into the future.
+> 
+> RMS would be rather disappointed. Microsoft would be happy.
+>    
+> 
+> --
+> license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+> 
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From danw6144 at insightbb.com  Wed Jan 28 01:07:06 2004
+From: danw6144 at insightbb.com (daniel wallace)
+Date: Tue, 27 Jan 2004 20:07:06 -0500
+Subject: Public domain mistake?
+Message-ID: <40170B3A.2030403@insightbb.com>
+
+If the GPL is a "bare" license,then what binds the two
+mutually disjoint permissions in a distributed
+derivative work. How is distribution authorized?
+
+There are two copyright authors in a derivative work,
+the "preexisting" authorizing author and "modifying" author.
+In a "bare" license or unilateral permission, by
+definition the licensor may place no condition on
+another's disjoint reward of exclusive rights
+(or they wouldn't be "exclusive").
+
+You can authorize a derivative work with a unilateral
+permission, but it requires a bilateral grant of
+permissions to distribute a derivative work.
+
+The unilateral permission or "bare" license model
+of patent law history breaks down under copyright
+law because of the two disjoint exclusive
+copyrights existing at the same time in a derivative
+work. There is no analogous "derivative" patent.
+
+In IBM v. SCO, IBM refers to the GPL as a public
+agreement in "binding legal form" because in a
+derivative work both copyright permissions of
+both authors must be legally secured in a binding
+agreement or distribution of a derivative work
+infringes one of the author's rights.
+
+When the GPL says:
+
+"You may... copy and distribute such modifications or work
+under the terms of Section 1 above, provided that you also
+meet all of these conditions:..."
+
+It is not possible to grant permission to "distribute
+modifications... provided that you also meet all of these
+conditions:..." without placing  conditions on the
+exclusive rights of the modifying author and it takes his
+legally binding permission to do so..
+
+This result leads to enforcement of the GPL under state
+law. This ultimately leads to preemption of the GPL under
+sec. 301 because "copyleft" is a new "right against the
+world" as cited in ProCD, Inc. v. Zeidenberg, 86 F.3d 1447.
+
+When SCO's Mark Heise said copyright law "preempted" the GPL
+and only allowed "one copy" he was being deliberately
+misleading. He wasn't referring to the "number of copies",
+he was referring to the "number of successors".
+
+
+
+
+
+
+
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From russell at flora.ca  Wed Jan 28 01:57:46 2004
+From: russell at flora.ca (Russell McOrmond)
+Date: Tue, 27 Jan 2004 20:57:46 -0500 (EST)
+Subject: Public domain mistake? 
+In-Reply-To: <4016C98A.2090807@insightbb.com>
+Message-ID: <Pine.LNX.4.44.0401272052160.26846-100000@calcutta.flora.ca>
+
+On Tue, 27 Jan 2004, daniel wallace wrote:
+
+> Anyone who could show they had invested time and effort in reliance on
+> promised copyright permissions could claim promissory estoppel to
+> continue developing and expanding projects into the future.
+
+  I've been trying to wrap my head around this and I'm thus far not able 
+to.
+
+
+  The GPL is an example of a copyright permission.  If a third party (such 
+as a patent holder) tried to revoke the promise of the GPL, would this not 
+be an area of law that would protect us against this?  We are building an 
+entire economy around copyleft and non-copyleft free software and patent 
+filers are attempting to harm that economy by creating legal "landmines".
+
+
+> RMS would be rather disappointed. Microsoft would be happy.
+
+  Sounds like RMS would be happy, Microsoft/SCO/IBM would be disappointed.
+
+  What am I missing here?  What is a situation where a
+monopoly-rent-seeker would gain benefit from this area of law, but a
+non-monopoly-rent-seeker (FLOSS movement) would not?
+
+---
+ Russell McOrmond, Internet Consultant: <http://www.flora.ca/> 
+ Governance software that controls ICT, automates government policy, or
+ electronically counts votes, shouldn't be bought any more than 
+ politicians should be bought.  -- http://www.flora.ca/russell/
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
+From russell at flora.ca  Wed Jan 28 02:48:56 2004
+From: russell at flora.ca (Russell McOrmond)
+Date: Tue, 27 Jan 2004 21:48:56 -0500 (EST)
+Subject: Public domain mistake?
+In-Reply-To: <40170B3A.2030403@insightbb.com>
+Message-ID: <Pine.LNX.4.44.0401272102590.26846-100000@calcutta.flora.ca>
+
+Note: IANAL, I just hang around with and enjoy conversations with lawyers
+and law students.
+
+On Tue, 27 Jan 2004, daniel wallace wrote:
+
+> There are two copyright authors in a derivative work,
+> the "preexisting" authorizing author and "modifying" author.
+> In a "bare" license or unilateral permission, by
+> definition the licensor may place no condition on
+> another's disjoint reward of exclusive rights
+> (or they wouldn't be "exclusive").
+
+  Aren't we talking about possibly two different things here?
+
+  There are different situations here: where the new work is a derivative
+of existing code (you modifying someone else's work with their permission
+and conditions)  and where there is new code being added to the collection
+(linked) to form part of a larger "program" (where that linking and later
+distribution of the whole "program" is done with permission and
+conditions).
+
+  When you wish your "new" work to be linked/compiled/etc together with
+the existing work, the only way you have permission to do so is if you
+offer that work in a compatible license.  What you authored is not itself
+be a derivative work, but when it is added to the "program" the result is
+a "derivative program".
+
+  I don't think copyright law talks in terms of works under copyright, and
+"programs" which are a "linking" together of many individual works under
+copyright.  Even the term "compilation" and "collection" has a meaning in
+copyright circles different than what we would be trying to talk about
+here.
+
+  I don't see how you loose any exclusive right if you wish to
+link/compile/etc together your new code (your "work") with the existing
+GPL licensed work(s).  You can license the same code in additional
+licenses.  Some software projects have asked copyright holders to
+"relicense" their work which really means offering existing copyright code
+in yet another license as you cannot revoke any existing irrevocable
+license.  The GPL just says (unfortunately not in as clear terms as we all
+would like) that at least one of the licenses you offer must be a
+worldwide, irrevocable license compatible with the GPL.
+
+
+
+  One of the problems I find with the GPL is that it is written more like
+a manifesto to explain why it exists rather than to use traditional
+license terminology.  While this is great in explaining the principles of
+the GNU project, it makes understanding it in connection with the laws and
+case-law of any given country just that much harder.
+
+> It is not possible to grant permission to "distribute
+> modifications... provided that you also meet all of these
+> conditions:..." without placing  conditions on the
+> exclusive rights of the modifying author and it takes his
+> legally binding permission to do so..
+> 
+> This result leads to enforcement of the GPL under state
+> law. This ultimately leads to preemption of the GPL under
+> sec. 301 because "copyleft" is a new "right against the
+> world" as cited in ProCD, Inc. v. Zeidenberg, 86 F.3d 1447.
+
+  This is something I wonder if it would be worth looking at a bit closer.  
+I believe this is why Eben Moglen is so insistent that the GPL is a
+copyright permission and not a contract.
+
+  There are two different sets of permissions here: the permission to
+modify an existing work (and related conditions), and the permission to
+distribute the entire "program" (with or without additions, and under
+related conditions). I don't think these different permissions come into
+conflict.
+
+---
+ Russell McOrmond, Internet Consultant: <http://www.flora.ca/> 
+ Governance software that controls ICT, automates government policy, or
+ electronically counts votes, shouldn't be bought any more than 
+ politicians should be bought.  -- http://www.flora.ca/russell/
+
+--
+license-discuss archive is at http://crynwr.com/cgi-bin/ezmlm-cgi?3
+
+
