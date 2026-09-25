@@ -91,6 +91,16 @@ Self-integrity: aggregated by _aggregate_check_numbers() via CHECK_SOURCE_FILES
        461b は 17 件しか見ずに「stale なし」と緑を出す —— skip-on-missing が被覆の穴を
        無音にする形。被覆は時間で動かない静的な性質なので BLOCKING にできる。(BLOCKING)
 
+  476. **「OSI 承認済みライセンスは N 本」という申告が、実測した版の実数であること** (BLOCKING):
+       ドシエは承認済みライセンスの全数に当てた測定を何度も引く（3.28.0 で 149 本 / 3.29.0 で
+       非 deprecated 141 本）。**2026-09-19 に、不利な事実の件数（#150 / #151）を上げた一括の数値
+       更新が、偶然同じ値だった承認済みの本数まで 149 → 150 → 151 と押し上げていた**
+       （`submission-reference.md` の 2 行・2026-09-25 に `measure_gap_claim.py` を 3.28.0 で
+       再実行して発覚）。**2 つの量が偶然同じ値を持つと、片方の更新がもう片方を巻き込み、
+       どの Check も気付かない。** 本数を名乗る数が、実測済みの版の値（`_SPDX476`）の
+       どれかであることを強制する。新しい版を測ったら `_SPDX476` に足す（足すこと自体が
+       「その版を実際に測った」という記録になる）。(BLOCKING)
+
 """
 import re
 import json
@@ -532,3 +542,37 @@ def run(ctx):
              "FROZEN.md を復元せよ"),
             blocking=True,
         )
+
+    # ── 476. 「OSI 承認済みライセンスは N 本」の申告が、実測した版の実数であること (BLOCKING) ──
+    #   **量が偶然一致すると、片方の一括更新がもう片方を巻き込む。** 2026-09-19 に不利な事実の
+    #   件数を 149 → 150 → 151 と上げた更新が、承認済みの本数（3.28.0 で 149）まで押し上げた。
+    #   値は SPDX license-list-data を取得して数えたもの（isOsiApproved の全件 / 非 deprecated）。
+    #   **新しい版を測ったら、ここに足す** —— 足さずに新しい数を書くと RED になるのは意図どおり。
+    _SPDX476 = {
+        "3.28.0": {149, 136},   # 全件 / 非 deprecated（deprecated ID 13）
+        "3.29.0": {154, 141},   # 同上（2026-09-16 release・3.28.0 から新規承認扱い 5 件）
+    }
+    _ok476 = set().union(*_SPDX476.values())
+    _pats476 = [
+        re.compile(r"(?<![\d.,#])(\d{3})(?![\d.,])\s*(?:OSI-approved|approved licen)"),
+        re.compile(r"(?:承認済み|OSI-approved|isOsiApproved)[^\d\n|]{0,12}(?<![\d.,#])(\d{3})(?![\d.,])\s*(?:本|件|licen|texts)"),
+        # 2026-09-19 の実例の形: 「`isOsiApproved` 全件の本文を … | **151 件」—— 語と数の間が表のセル境界を越える
+        re.compile(r"isOsiApproved[^\n]{0,80}?\*\*(\d{3})\s*件"),
+    ]
+    _bad476 = []
+    _files476 = sorted((ROOT / "LICENSES").glob("*.md")) + sorted((ROOT / "docs" / "files" / "LICENSES").glob("*.md"))
+    for _f476 in _files476:
+        for _i476, _l476 in enumerate(_f476.read_text(encoding="utf-8").split("\n"), 1):
+            for _p476 in _pats476:
+                for _m476 in _p476.finditer(_l476):
+                    if int(_m476.group(1)) not in _ok476:
+                        _bad476.append(f"{_f476.relative_to(ROOT)}:{_i476} {_m476.group(1)}")
+    check(
+        not _bad476,
+        f"Check 476: 承認済みライセンスの本数の申告はすべて実測値 ({sorted(_ok476)}) のどれか",
+        (f"Check 476: 承認済みライセンスの本数として、どの版の実測値でもない数がある: {_bad476}。"
+         "**不利な事実の件数など別の量の一括更新に巻き込まれていないか**を先に疑え "
+         "(2026-09-19 に 149 → 150 → 151 の実例)。新しい SPDX 版を実際に測ったなら "
+         "`_SPDX476` にその版と値を足せ"),
+        blocking=True,
+    )

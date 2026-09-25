@@ -477,6 +477,13 @@ _MUTATIONS_TAIL.append({
     "replace": '_ls454 = _sp454.run(["git", "ls-files"], cwd=str(ROOT),',
 })
 
+_MUTATIONS_TAIL.append({
+    "name": "Check 476 (承認済みライセンスの本数): 別の量の一括更新に巻き込まれた本数 —— 2026-09-19 に "
+            "不利な事実の件数を 149 → 150 と上げた更新が、偶然同じ値だった承認済みの本数まで押し上げた実例の再現",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission-reference.md",
+    "find": "against all 149 OSI-approved licence texts",
+    "replace": "against all 150 OSI-approved licence texts",
+})
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
