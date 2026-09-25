@@ -1,0 +1,750 @@
+
+>> If it were true that "it is widely understood that the BSD probably does
+>> not grant patent rights anyway", there would be no point to Clear BSD!
+>> Their argument is self-defeating.
+> 
+> I don't know that any aspect of implicit vs. explicit patent rights is 
+> widely understood by FOSS developers, period.
+
+Did I say anything about FOSS developers?  Letting developers come up
+with licenses without asking legal advice gives us things like the
+Artistic License.
+
+Matt Flaschen
+
+
+From cowan at ccil.org  Wed Apr  8 19:22:45 2009
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 8 Apr 2009 15:22:45 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <49DCF339.4050607@gatech.edu>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu>
+Message-ID: <20090408192245.GE7278@mercury.ccil.org>
+
+Matthew Flaschen scripsit:
+
+> Right, and every OSI-approved license provides patent rights, not
+> withstanding the efforts by some to muddy the waters.
+
+I don't think your cases about implicit licenses are on point, and the
+most I'm willing to say is that some licenses provide patent rights and
+some are silent on the subject.  The water is muddy, but that is not
+my doing.
+
+> Did I say anything about FOSS developers?  Letting developers come up
+> with licenses without asking legal advice gives us things like the
+> Artistic License.
+
+...which shares with the GPLv2 the virtue of actually having survived
+a court test.
+
+-- 
+Mark Twain on Cecil Rhodes:                    John Cowan
+I admire him, I freely admit it,               http://www.ccil.org/~cowan
+and when his time comes I shall                cowan at ccil.org
+buy a piece of the rope for a keepsake.
+
+
+From matthew.flaschen at gatech.edu  Wed Apr  8 21:14:22 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Wed, 08 Apr 2009 17:14:22 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <20090408192245.GE7278@mercury.ccil.org>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org>
+Message-ID: <49DD13AE.2090004@gatech.edu>
+
+John Cowan wrote:
+> I don't think your cases about implicit licenses are on point, and the
+> most I'm willing to say is that some licenses provide patent rights and
+> some are silent on the subject.  The water is muddy, but that is not
+> my doing.
+
+I was referring to those like our submitter and the Clear BSD folks
+(http://labs.metacarta.com/license-explanation.html).  But I object to
+the idea that software is somehow an exception to the general principle
+of implicit patent licenses.
+
+>> Did I say anything about FOSS developers?  Letting developers come up
+>> with licenses without asking legal advice gives us things like the
+>> Artistic License.
+> 
+> ...which shares with the GPLv2 the virtue of actually having survived
+> a court test.
+
+In Artistic's case, on appeal and no thanks to the license writer.
+
+Matt Flaschen
+
+
+From cowan at ccil.org  Thu Apr  9 00:00:15 2009
+From: cowan at ccil.org (John Cowan)
+Date: Wed, 8 Apr 2009 20:00:15 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <49DD13AE.2090004@gatech.edu>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org> <49DD13AE.2090004@gatech.edu>
+Message-ID: <20090409000015.GD10348@mercury.ccil.org>
+
+Matthew Flaschen scripsit:
+
+> In Artistic's case, on appeal and no thanks to the license writer.
+
+If it hadn't been on appeal, its precedential value would be nil.
+And it was because the license writer said "condition" that
+the case was won, though I don't mean to say that he intended
+that to be the winning point.
+
+-- 
+John Cowan              http://www.ccil.org/~cowan      cowan at ccil.org
+Would your name perchance be surname Puppet, given name Sock? --Rick Moen
+
+
+From matthew.flaschen at gatech.edu  Thu Apr  9 00:07:48 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Wed, 08 Apr 2009 20:07:48 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <20090409000015.GD10348@mercury.ccil.org>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org> <49DD13AE.2090004@gatech.edu> <20090409000015.GD10348@mercury.ccil.org>
+Message-ID: <49DD3C54.80809@gatech.edu>
+
+John Cowan wrote:
+> Matthew Flaschen scripsit:
+> 
+>> In Artistic's case, on appeal and no thanks to the license writer.
+> 
+> If it hadn't been on appeal, its precedential value would be nil.
+
+A good license writer aims to avoid lawsuits, not to set a judicial
+precedent.
+
+Matt Flaschen
+
+
+From Nigel.Tzeng at jhuapl.edu  Thu Apr  9 15:36:39 2009
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Thu, 9 Apr 2009 11:36:39 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <49DCF339.4050607@gatech.edu>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu>
+Message-ID: <1073897725056E4A944FC4FD0DB6EF71705DEAE55E@aplesstar.dom1.jhuapl.edu>
+
+>From: Matthew Flaschen [mailto:matthew.flaschen at gatech.edu] 
+>Tzeng, Nigel H. wrote:
+>>> There is no way to produce a FOSS license that explicitly denies patent
+>>> rights.
+>> 
+>> Mmmm...not providing patent rights is the same thing in as much as the
+>> result is the same.
+
+>Right, and every OSI-approved license provides patent rights, not
+>withstanding the efforts by some to muddy the waters.
+
+If this were absolutely true (the waters were not muddy) then there
+would not have been a second (or third?) generation of OSI-approved
+licenses with explicit patent grants.
+
+If implicit patent grants were crystal clear and provided all the
+protection required for open source why then almost all modern open 
+source licenses have explicit grants?
+
+>> The question is whether OSD #1 requires patent grants
+
+>No provision of the OSD /explicitly/ requires any specific grant of
+>intellectual property.  There is no mention of copyright, patent, or
+>trademark in the OSD.  So saying, the OSD doesn't require patent grants
+>makes no sense. It doesn't require copyright license grants explicitly
+>either.  In practice, /both/ copyright and patent rights must be granted
+>in order to ensure the actions listed in the OSD are possible.
+
+Perhaps.  However, there appears to be licenses in the past without
+explicit grants of patents and explicitly do not grant trademarks. 
+
+Also, there has always been some "muddied" waters with respect to how far
+some explicit patent grants in some older OSI approved licenses go with 
+respect to forks.
+
+The caveat "The patent license shall not apply to any other combinations 
+which include the Contribution" in some licenses (mostly retired?)
+has caused some discussion in the past I think.
+
+>> Eh...ultimately an ISO reference implementation will get used with or
+>> without OSI approval as "open source".
+
+>If the submitter doesn't care about OSI approval they're free to leave.
+>   But OSI shouldn't weaken its standards on the grounds of
+>"inevitability" (though it's far from inevitable that a given ISO
+>standard becomes popular).
+
+I'm not suggesting that.  I'm simply saying that the OSI has been 
+acknowledged as the arbiter of open source by ISO which should be giving
+some folks (at least those not so self-righteous in their indignation
+that someone would dare submit a license not up to spec) warm fuzzies.  
+
+I would hope that the OSI would take the opportunity to say "yes, sorry, 
+this isn't open source but perhaps we should think about a category of 
+"reference software licenses".  This might be helpful to the community.
+
+It might not.
+
+However, Creative Commons has a wide range of licenses.  Some would meet 
+the OSD,  some, like the noncommercial share-a-likes, would not.  While 
+they don't step on OSI's toes by doing software licenses, if the OSI 
+simply shows ISO the hand they might go to CC and ask for a wrapper on 
+their site like for GPL v2.0, LGPL and BSD to clearly explain to developers 
+their rights and responsibilities under the MXM license.  Then display a 
+CC logo.
+
+That's probably almost as good for them as OSI branding.  Yep, they sure
+are free to leave.  Do you really want them to?
+
+We're software folks.  We really SHOULD understand the concept of evolve
+or become MUMPS coders.  Highly paid, sometimes desperately needed but 
+mostly irrelevant to the software industry at large (no offense to MUMPS
+programmers...just picking an older language at random).
+
+No one is really filling a CC-like umbrella role for software licenses at 
+the moment and perhaps it is too far outside the domain of open source 
+for the OSI.
+
+>>> If it were true that "it is widely understood that the BSD probably does
+>>> not grant patent rights anyway", there would be no point to Clear BSD!
+>>> Their argument is self-defeating.
+>> 
+>> I don't know that any aspect of implicit vs. explicit patent rights is 
+>> widely understood by FOSS developers, period.
+
+>Did I say anything about FOSS developers?  Letting developers come up
+>with licenses without asking legal advice gives us things like the
+>Artistic License.
+
+It probably isn't all that clear to many lawyers either without first 
+reading up on it. Even a few general IP lawyers.
+
+
+From chuck at codefab.com  Thu Apr  9 16:40:03 2009
+From: chuck at codefab.com (Chuck Swiger)
+Date: Thu, 9 Apr 2009 09:40:03 -0700
+Subject: For approval: MXM Public license
+In-Reply-To: <1073897725056E4A944FC4FD0DB6EF71705DEAE55E@aplesstar.dom1.jhuapl.edu>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE55E@aplesstar.dom1.jhuapl.edu>
+Message-ID: <A2CD6290-C881-41DD-B8F7-32BCB1DEA690@codefab.com>
+
+Hi, Nigel--
+
+On Apr 9, 2009, at 8:36 AM, Tzeng, Nigel H. wrote:
+>> From: Matthew Flaschen [mailto:matthew.flaschen at gatech.edu]
+>> Tzeng, Nigel H. wrote:
+>>>> There is no way to produce a FOSS license that explicitly denies  
+>>>> patent
+>>>> rights.
+>>>
+>>> Mmmm...not providing patent rights is the same thing in as much as  
+>>> the
+>>> result is the same.
+>
+>> Right, and every OSI-approved license provides patent rights, not
+>> withstanding the efforts by some to muddy the waters.
+>
+> If this were absolutely true (the waters were not muddy) then there
+> would not have been a second (or third?) generation of OSI-approved
+> licenses with explicit patent grants.
+>
+> If implicit patent grants were crystal clear and provided all the
+> protection required for open source why then almost all modern open
+> source licenses have explicit grants?
+
+Modern open source licenses are now being written and/or reviewed much  
+more carefully by lawyers and by organizations such as the FSF and OSI  
+who have more experience with licensing, then the folks who wrote  
+something like the BSD or MIT licenses.  I happen to think that  
+something like "Permission is hereby granted, free of charge, to any  
+person [ ... ] to use, copy, modify, merge, publish, distribute,  
+sublicense, and/or sell copies of the Software, ..." is completely  
+clear that the copyright owner has conveyed all necessary rights to  
+use the software, including those related to any patents which might  
+apply (to the extent that the copyright owner is able to convey such  
+rights, anyway).
+
+However, just because I have the above opinion, does not mean that a  
+diligent lawyer who wishes to make things clear, would not want to use  
+more explicit terms of the legal art-- such as the Academic Free  
+License clause 2, "Grant of Patent License" or similar....
+
+>>> The question is whether OSD #1 requires patent grants
+>> No provision of the OSD /explicitly/ requires any specific grant of
+>> intellectual property.  There is no mention of copyright, patent, or
+>> trademark in the OSD.  So saying, the OSD doesn't require patent  
+>> grants
+>> makes no sense. It doesn't require copyright license grants  
+>> explicitly
+>> either.  In practice, /both/ copyright and patent rights must be  
+>> granted
+>> in order to ensure the actions listed in the OSD are possible.
+>
+> Perhaps.  However, there appears to be licenses in the past without
+> explicit grants of patents and explicitly do not grant trademarks.
+>
+> Also, there has always been some "muddied" waters with respect to  
+> how far
+> some explicit patent grants in some older OSI approved licenses go  
+> with
+> respect to forks.
+>
+> The caveat "The patent license shall not apply to any other  
+> combinations
+> which include the Contribution" in some licenses (mostly retired?)
+> has caused some discussion in the past I think.
+
+The main examples Google can find are the Eclipse Public License, and  
+the Common Public License.  (And Plan9.)
+
+>>> Eh...ultimately an ISO reference implementation will get used with  
+>>> or
+>>> without OSI approval as "open source".
+>
+>> If the submitter doesn't care about OSI approval they're free to  
+>> leave.
+>>  But OSI shouldn't weaken its standards on the grounds of
+>> "inevitability" (though it's far from inevitable that a given ISO
+>> standard becomes popular).
+>
+> I'm not suggesting that.  I'm simply saying that the OSI has been
+> acknowledged as the arbiter of open source by ISO which should be  
+> giving
+> some folks (at least those not so self-righteous in their indignation
+> that someone would dare submit a license not up to spec) warm fuzzies.
+>
+> I would hope that the OSI would take the opportunity to say "yes,  
+> sorry,
+> this isn't open source but perhaps we should think about a category of
+> "reference software licenses".  This might be helpful to the  
+> community.
+>
+> It might not.
+
+Well, I think that the FSF http://www.fsf.org/licensing/licenses/ page  
+is helpful, although it is written from a perspective that I'm not in  
+a position to always agree with, at least as far as my day job is  
+concerned.  :-)
+
+> However, Creative Commons has a wide range of licenses.  Some would  
+> meet
+> the OSD,  some, like the noncommercial share-a-likes, would not.   
+> While
+> they don't step on OSI's toes by doing software licenses, if the OSI
+> simply shows ISO the hand they might go to CC and ask for a wrapper on
+> their site like for GPL v2.0, LGPL and BSD to clearly explain to  
+> developers
+> their rights and responsibilities under the MXM license.  Then  
+> display a
+> CC logo.
+>
+> That's probably almost as good for them as OSI branding.  Yep, they  
+> sure
+> are free to leave.  Do you really want them to?
+
+Branding is mainly valuable for the sake of product identification and  
+labeling, so that people know what to expect when they see something  
+like the OSI logo, but the value of branding is compromised if it is  
+used for things which don't actually meet the standards which users  
+expect.
+
+I don't have a preference whether the MXM or another submitted license  
+under consideration receives OSI approval; my concern is whether the  
+license meets the OSD in terms of the letter and spirit or intent, and  
+whether the license is well-crafted in terms of being understandable  
+to someone with some background in computers rather than law.
+
+In particular, I don't have any objection to the ISO folks deciding to  
+make their license free for non-commercial purposes, but require a  
+separate patent license for commercial use.  However, if that is what  
+they want to do, that circumstance is not "open source" per the OSI  
+and as is commonly understood by the larger community, and therefore  
+should not receive OSI approval.
+
+Regards,
+-- 
+-Chuck
+
+
+
+From Nigel.Tzeng at jhuapl.edu  Thu Apr  9 22:50:01 2009
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Thu, 9 Apr 2009 18:50:01 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <A2CD6290-C881-41DD-B8F7-32BCB1DEA690@codefab.com>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE55E@aplesstar.dom1.jhuapl.edu> <A2CD6290-C881-41DD-B8F7-32BCB1DEA690@codefab.com>
+Message-ID: <1073897725056E4A944FC4FD0DB6EF71705DEAE683@aplesstar.dom1.jhuapl.edu>
+
+>From: Chuck Swiger [mailto:chuck at codefab.com] 
+
+>However, just because I have the above opinion, does not mean that a  
+>diligent lawyer who wishes to make things clear, would not want to use  
+>more explicit terms of the legal art-- such as the Academic Free  
+>License clause 2, "Grant of Patent License" or similar....
+
+I don't disagree in substance.  I'm just saying that there was either
+ambiguity or perceived ambiguity that folks resolved in later licenses.
+
+>The main examples Google can find are the Eclipse Public License, and  
+>the Common Public License.  (And Plan9.)
+
+My vague recollection was related to when Apache was writing 2.0 and
+folks wrote about it.
+
+>Well, I think that the FSF http://www.fsf.org/licensing/licenses/ page  
+>is helpful, although it is written from a perspective that I'm not in  
+>a position to always agree with, at least as far as my day job is  
+>concerned.  :-)
+
+Yes.
+
+>> That's probably almost as good for them as OSI branding.  Yep, they  
+>> sure
+>> are free to leave.  Do you really want them to?
+
+>Branding is mainly valuable for the sake of product identification and  
+>labeling, so that people know what to expect when they see something  
+>like the OSI logo, but the value of branding is compromised if it is  
+>used for things which don't actually meet the standards which users  
+>expect.
+
+Sure.  I do think, though, if you let someone else start defining
+the general categories of software licenses then you run the risk
+reducing your own ability to define the term "open source".
+
+I don't think the risk is very high but take this case as an example.
+ISO comes to OSI, OSI says, sorry not open source and therefore not
+our problem they can either just live with that, find someone else
+to "certify" their license as SOME kind of "open" or software 
+license, "certify" it themselves (they are ISO) or use another term like 
+"shared source".
+
+I can just see Michael jumping up and down with joy...or something...if 
+that last happened and got canonized by ISO.
+
+
+From matthew.flaschen at gatech.edu  Fri Apr 10 12:31:05 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Fri, 10 Apr 2009 08:31:05 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <1073897725056E4A944FC4FD0DB6EF71705DEAE55E@aplesstar.dom1.jhuapl.edu>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE55E@aplesstar.dom1.jhuapl.edu>
+Message-ID: <49DF3C09.2030705@gatech.edu>
+
+Tzeng, Nigel H. wrote:
+> If this were absolutely true (the waters were not muddy) then there
+> would not have been a second (or third?) generation of OSI-approved
+> licenses with explicit patent grants.
+> 
+> If implicit patent grants were crystal clear and provided all the
+> protection required for open source why then almost all modern open 
+> source licenses have explicit grants?
+
+Because if nothing else, explicit grants are much easier to understand.
+
+> Perhaps.  However, there appears to be licenses in the past without
+> explicit grants of patents and explicitly do not grant trademarks. 
+
+The OSD does not require that downstream users be able to use the same name.
+
+> I'm not suggesting that.  I'm simply saying that the OSI has been 
+> acknowledged as the arbiter of open source by ISO which should be giving
+> some folks (at least those not so self-righteous in their indignation
+> that someone would dare submit a license not up to spec) warm fuzzies.  
+
+I have no problem whatsoever with a good-faith submission, nor with ISO
+using OSI as their arbitrator.  I have a problem with your suggestion
+that it ultimately doesn't matter what OSI does, so they might as well
+approve.
+
+> I would hope that the OSI would take the opportunity to say "yes, sorry, 
+> this isn't open source but perhaps we should think about a category of 
+> "reference software licenses".  This might be helpful to the community.
+
+I think that would be unhelpful, and against the purpose of the
+organization.
+
+> 
+> However, Creative Commons has a wide range of licenses.
+
+Such a wide range there's pretty much nothing you can say about all CC
+licenses
+
+> if the OSI simply shows ISO the hand they might go to CC and ask for a
+wrapper on
+> their site like for GPL v2.0, LGPL and BSD to clearly explain to developers 
+> their rights and responsibilities under the MXM license.
+
+What exactly would this plain-text description be.  "You have the right
+to redistribute the program, but then you might get sued by the Licensor
+for patent infringement anyway."
+
+They can go to CC, though it seems a bit ridiculous to suddenly switch
+your license arbitrator when you don't get your way.
+
+> That's probably almost as good for them as OSI branding.  Yep, they sure
+> are free to leave.  Do you really want them to?
+
+If an OSD-compliant license is impossible, then that's the only choice.
+
+Matt Flaschen
+
+
+From Nigel.Tzeng at jhuapl.edu  Fri Apr 10 13:49:26 2009
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Fri, 10 Apr 2009 09:49:26 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <49DF3C09.2030705@gatech.edu>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE55E@aplesstar.dom1.jhuapl.edu> <49DF3C09.2030705@gatech.edu>
+Message-ID: <1073897725056E4A944FC4FD0DB6EF71705DEAE6FC@aplesstar.dom1.jhuapl.edu>
+
+>From: Matthew Flaschen [mailto:matthew.flaschen at gatech.edu] 
+
+>I have no problem whatsoever with a good-faith submission, nor with ISO
+>using OSI as their arbitrator.  I have a problem with your suggestion
+>that it ultimately doesn't matter what OSI does, so they might as well
+>approve.
+
+If it sounded that way then I worded it poorly.  I think have clearly
+stated my position since.
+
+>> I would hope that the OSI would take the opportunity to say "yes, sorry, 
+>> this isn't open source but perhaps we should think about a category of 
+>> "reference software licenses".  This might be helpful to the community.
+
+>I think that would be unhelpful, and against the purpose of the
+>organization.
+
+I disagree.  The area that would be relaxed for reference/academic licenses
+is one aspect of OSD#6...namely for non-commercial use.  Given that the
+rationale for OSD #6 is "We want commercial users to join our community, 
+not feel excluded from it." and it is primarily commercial users that want
+such a limitation then calling it Reference Licenses vs open would clearly
+indicate that these licenses are not open source, BUT meets the OSD in all
+other areas except for one aspect of OSD#6 and standardizes the terminology
+so that no confusing term (like shared source) needs to be used to describe
+this kind of code.
+
+The FSF is savvy in its understanding that controlling the definition of the
+words used in the discussion is important.  I just think they go a bit
+overboard.
+
+>> However, Creative Commons has a wide range of licenses.
+
+>Such a wide range there's pretty much nothing you can say about all CC
+>licenses
+
+All current CC licenses allow the core right to redistribute a work
+for non-commercial purposes without modification.  But you also don't
+NEED to say anything about all CC licenses.  The license banners are
+very clear in your rights and obligations.
+
+We simply have a subset of CC licenses: Attribution alone and Attribution
++ ShareAlike.
+
+>> if the OSI simply shows ISO the hand they might go to CC and ask for a
+>> wrapper on their site like for GPL v2.0, LGPL and BSD to clearly explain 
+>> to developers their rights and responsibilities under the MXM license.
+
+>What exactly would this plain-text description be.  "You have the right
+>to redistribute the program, but then you might get sued by the Licensor
+>for patent infringement anyway."
+
+BY-NC-SA - Attribution + Non-Commercial + ShareAlike.
+
+Simple and clear, no?  CC doesn't have some of the same issues and concerns
+we do and but the system seems reasonably clear and they have addressed
+both proliferation and interoperability by standardization.
+
+>They can go to CC, though it seems a bit ridiculous to suddenly switch
+>your license arbitrator when you don't get your way.
+
+Not if the license arbiter says "out of my jurisdiction".
+
+>> That's probably almost as good for them as OSI branding.  Yep, they sure
+>> are free to leave.  Do you really want them to?
+
+>If an OSD-compliant license is impossible, then that's the only choice.
+
+Currently.  I doubt the CC would really want to alienate the FSF again
+so soon but they might wrap the MXM license like they did for GPL/LGPL and 
+BSD.
+
+But really, even if we do not want a new license category wouldn't it be 
+nice if the OSI did the wrapping in the same kind of clear manner for license
+categories?  Permissive, Strong-Copyleft, Weak-Copyleft and Special Purpose 
+are some that easily come to mind.
+
+I guess we've moved into the license-discuss realm so I'll stop here.  If
+you'd like to continue, let's do so there.
+
+
+From matthew.flaschen at gatech.edu  Fri Apr 10 14:47:33 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Fri, 10 Apr 2009 10:47:33 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <1073897725056E4A944FC4FD0DB6EF71705DEAE6FC@aplesstar.dom1.jhuapl.edu>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE55E@aplesstar.dom1.jhuapl.edu> <49DF3C09.2030705@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE6FC@aplesstar.dom1.jhuapl.edu>
+Message-ID: <49DF5C05.3090203@gatech.edu>
+
+Tzeng, Nigel H. wrote:
+> I disagree.  The area that would be relaxed for reference/academic licenses
+> is one aspect of OSD#6...namely for non-commercial use.
+
+You haven't clearly defined what a "reference software license" is.  But
+non-commercial licenses violate OSD #1, #5, and #6.
+ Given that the
+> rationale for OSD #6 is "We want commercial users to join our community, 
+> not feel excluded from it." and it is primarily commercial users that want
+> such a limitation then calling it Reference Licenses vs open would clearly
+> indicate that these licenses are not open source, BUT meets the OSD in all
+> other areas except for one aspect of OSD#6 and standardizes the terminology
+> so that no confusing term (like shared source) needs to be used to describe
+> this kind of code.
+
+As is, businesses are excluded from neither end.  Businesses can use all
+open source software, and they can distribute open source software (and
+profit from it).  Your proposal would exclude them from one end.
+
+> All current CC licenses allow the core right to redistribute a work
+> for non-commercial purposes without modification.
+
+Actually, Dev Nations
+(http://creativecommons.org/licenses/devnations/2.0/) does not allow me
+to do even that, because I do not live in a developing nation.
+ But you also don't
+> NEED to say anything about all CC licenses.  The license banners are
+> very clear in your rights and obligations.
+
+Most users are not going to look at those.  The point is, there is no
+single principle behind CC I can tell people about.
+
+>> What exactly would this plain-text description be.  "You have the right
+>> to redistribute the program, but then you might get sued by the Licensor
+>> for patent infringement anyway."
+> 
+> BY-NC-SA - Attribution + Non-Commercial + ShareAlike.
+
+You can be sued for infringing a patent even if you never do anything
+commercial.  So you have less rights than BY-NC-SA.
+
+>> They can go to CC, though it seems a bit ridiculous to suddenly switch
+>> your license arbitrator when you don't get your way.
+> 
+> Not if the license arbiter says "out of my jurisdiction".
+
+It's not out of OSI's jurisdiction.  OSI's jurisdiction is software, and
+that's exactly what this is about.
+
+Matt Flaschen
+
+
+
+From nelson at crynwr.com  Fri Apr 10 15:26:38 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 10 Apr 2009 11:26:38 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <49DCA566.2040603@piana.eu>
+References: <49DCA566.2040603@piana.eu>
+Message-ID: <18911.25902.25176.543012@desk.crynwr.com>
+
+OSI review writes: > However, the sad truth is that if we did not offer a patent-agnostic > license we would have made all efforts to have an open source reference > implementation moot.
+
+That's fair enough.  The world isn't a perfect place, and not
+everybody who wants a pony is going to get one.  This license
+obviously does not comply with the Open Source Definition's term #7,
+Distribution of License.
+
+But I don't mean to discourage you from having an reference
+implementation under glass.  You can call it Shared Source, or
+Read-Only Source, or I prefer Source-Available Software.  But it's not
+Open Source.
+ > I have insisted and obtained, however, that an explicit patent covenant > be inserted, to the effect to exclude from any patent concern all who > don't distribute the compiled version of the software and to those who > compile it only for internal purposes without direct commercial > exploitation. This covenant being irrevocable, unconditioned and > detached from the copyright licensing conditions.
+
+You would get more traction if you gave a patent covenant to everyone
+who used an OSI-Approved open-source license.  It *still* wouldn't be
+open source, but at least the idea wouldn't be dead on the vine in the
+open source community.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Cloudmade supports http://openstreetmap.org/ 
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From nelson at crynwr.com  Fri Apr 10 15:36:31 2009
+From: nelson at crynwr.com (Russ Nelson)
+Date: Fri, 10 Apr 2009 11:36:31 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <20090408192245.GE7278@mercury.ccil.org>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org>
+Message-ID: <18911.26495.878470.831483@desk.crynwr.com>
+
+John Cowan writes: > Matthew Flaschen scripsit: >  > > Right, and every OSI-approved license provides patent rights, not > > withstanding the efforts by some to muddy the waters. >  > I don't think your cases about implicit licenses are on point, and the > most I'm willing to say is that some licenses provide patent rights and > some are silent on the subject.  The water is muddy, but that is not > my doing.
+
+If the water were *that* muddy, then someone would have by now used
+the BSD on patented software, gained a market, and then pointed to the
+patent.  They could defend themselves against a reliance counter-suit
+by pointing to the utter lack of a patent license in the BSD text.
+
+Except ... that nobody has done that because the water isn't very muddy.
+
+-- 
+--my blog is at    http://blog.russnelson.com
+Cloudmade supports http://openstreetmap.org/ 
+521 Pleasant Valley Rd. | +1 315-323-1241    
+Potsdam, NY 13676-3213  |     Sheepdog       
+
+
+From webmink at gmail.com  Fri Apr 10 15:57:24 2009
+From: webmink at gmail.com (Simon Phipps)
+Date: Fri, 10 Apr 2009 16:57:24 +0100
+Subject: For approval: MXM Public license
+In-Reply-To: <18911.26495.878470.831483@desk.crynwr.com>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <20090408192245.GE7278@mercury.ccil.org> <18911.26495.878470.831483@desk.crynwr.com>
+Message-ID: <80993A52-A726-4B12-9709-EB49ED5227AE@gmail.com>
+
+
+On Apr 10, 2009, at 16:36, Russ Nelson wrote:
+> If the water were *that* muddy, then someone would have by now used
+> the BSD on patented software, gained a market, and then pointed to the
+> patent.  They could defend themselves against a reliance counter-suit
+> by pointing to the utter lack of a patent license in the BSD text.
+>
+> Except ... that nobody has done that because the water isn't very  
+> muddy.
+
+I'd suggest no-one has done it because anyone worth targeting with  
+that predatory behaviour has been advised BSD-licensed source comes  
+with no patent licenses and should be treated with extreme caution.  
+Based on my own experience and advice received, of course.
+
+S.
+
+
+
+From Nigel.Tzeng at jhuapl.edu  Fri Apr 10 16:40:53 2009
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Fri, 10 Apr 2009 12:40:53 -0400
+Subject: For approval: MXM Public license
+In-Reply-To: <49DF5C05.3090203@gatech.edu>
+References: <49DCA566.2040603@piana.eu> <49DCC7BB.9030500@gatech.edu> <49DCD7DF.4000406@piana.eu> <49DCDDD3.5020406@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE37E@aplesstar.dom1.jhuapl.edu> <49DCF339.4050607@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE55E@aplesstar.dom1.jhuapl.edu> <49DF3C09.2030705@gatech.edu> <1073897725056E4A944FC4FD0DB6EF71705DEAE6FC@aplesstar.dom1.jhuapl.edu> <49DF5C05.3090203@gatech.edu>
+Message-ID: <1073897725056E4A944FC4FD0DB6EF71705DEAE7AE@aplesstar.dom1.jhuapl.edu>
+
+>From: Matthew Flaschen [mailto:matthew.flaschen at gatech.edu] 
+
+>> All current CC licenses allow the core right to redistribute a work
+>> for non-commercial purposes without modification.
+
+>Actually, Dev Nations
+>(http://creativecommons.org/licenses/devnations/2.0/) does not allow me
+>to do even that, because I do not live in a developing nation.
+
+Dev Nations is retired.
+
+>> But you also don't NEED to say anything about all CC licenses.  The 
+>> license banners are very clear in your rights and obligations.
+
+>Most users are not going to look at those.  The point is, there is no
+>single principle behind CC I can tell people about.

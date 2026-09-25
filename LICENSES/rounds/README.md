@@ -61,7 +61,7 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
    短い観測」のための場所**であって、第三者スレッドの丸ごとの複製ではない。
    **アーカイブは公開されており、読み手は自分で取れる。**
 
-## いまの状態（2026-09-25 時点・92 ファイル）
+## いまの状態（2026-09-25 時点・106 ファイル）
 
 | 日付 | venue | 相手 / 向き | 中身 |
 |---|---|---|---|
@@ -137,6 +137,20 @@ canonical-ref: LICENSES/REVISION-PROTOCOL.md (§1 の ① 受領 / §3 のゲー
 | 2012-03 | `license-review`（観測）| **CC0 の OSD 適合をめぐる特許論争 69 通 → 観測保存（4/6 部）** | **同じスレッドの 4/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続になる（分割は Check 365 の 1,000 行上限のため・メッセージ境界で切ってある） |
 | 2012-03 | `license-review`（観測）| **CC0 の OSD 適合をめぐる特許論争 69 通 → 観測保存（5/6 部）** | **同じスレッドの 5/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続になる（分割は Check 365 の 1,000 行上限のため・メッセージ境界で切ってある） |
 | 2012-03 | `license-review`（観測）| **CC0 の OSD 適合をめぐる特許論争 69 通 → 観測保存（6/6 部）** | **同じスレッドの 6/6 部。** 本文は無改変で、6 部を順に結合すれば元の連続になる（分割は Check 365 の 1,000 行上限のため・メッセージ境界で切ってある） |
+| 2009-04 | `license-review`（観測）| **MXM Public License の承認審査 59 通 → 観測保存（1/4 部）** | **Piana 氏が 2023 年に、特許を除外した著作権のみのライセンスの先例として名指しした 3 件のうちの 1 件**（*"see discussion of CC0 or **the MXM license** or the W3C license"*）—— **そして氏自身が提出者だった**。**最も重いのは OSD の起草者本人の発言** —— Perens 氏 *"The OSD does not distinguish between copyright, **moral rights**, patents, contract restriction, or any other means of restricting what someone can do with software. **It applies equally to all of those.**"*（#244 / #245） |
+| 2009-04 | `license-review`（観測）| **MXM Public License の承認審査 59 通 → 観測保存（2/4 部）** | **同じスレッドの 2/4 部。** 本文は無改変で、4 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2009-04 | `license-review`（観測）| **MXM Public License の承認審査 59 通 → 観測保存（3/4 部）** | **同じスレッドの 3/4 部。** 本文は無改変で、4 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2009-04 | `license-review`（観測）| **MXM Public License の承認審査 59 通 → 観測保存（4/4 部）** | **同じスレッドの 4/4 部。** 本文は無改変で、4 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 1999-2024 | `license-review`（観測）| **W3C Software License をめぐる 25 年分 72 通（件名で束ねたもの） → 観測保存（1/7 部）** | **Piana 氏が名指しした 3 件（CC0 / MXM / W3C）のうち唯一「承認された」もの。** W3C の弁護士 *"This is a **copyright-only license**. It makes no statement about the presence or absence of patent claims"* に Piana 氏が反対したが**保留を求めず、2017-11-29 に承認**（#246）。**2001 年には 19 か月放置された提出への OSI の答えも在る** —— Nelson 氏 *"if you want it approved, and you've submitted it and haven't heard from us, **resubmit it**."* |
+| 1999-2024 | `license-review`（観測）| **W3C Software License をめぐる 25 年分 72 通（件名で束ねたもの） → 観測保存（2/7 部）** | **同じ束の 2/7 部。** 本文は無改変で、7 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 1999-2024 | `license-review`（観測）| **W3C Software License をめぐる 25 年分 72 通（件名で束ねたもの） → 観測保存（3/7 部）** | **同じ束の 3/7 部。** 本文は無改変で、7 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 1999-2024 | `license-review`（観測）| **W3C Software License をめぐる 25 年分 72 通（件名で束ねたもの） → 観測保存（4/7 部）** | **同じ束の 4/7 部。** 本文は無改変で、7 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 1999-2024 | `license-review`（観測）| **W3C Software License をめぐる 25 年分 72 通（件名で束ねたもの） → 観測保存（5/7 部）** | **同じ束の 5/7 部。** 本文は無改変で、7 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 1999-2024 | `license-review`（観測）| **W3C Software License をめぐる 25 年分 72 通（件名で束ねたもの） → 観測保存（6/7 部）** | **同じ束の 6/7 部。** 本文は無改変で、7 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 1999-2024 | `license-review`（観測）| **W3C Software License をめぐる 25 年分 72 通（件名で束ねたもの） → 観測保存（7/7 部）** | **同じ束の 7/7 部。** 本文は無改変で、7 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2009-02 | `license-review`（観測）| **IPA Font License v1.0 の承認審査 41 通（2025-09 の後日談を含む） → 観測保存（1/3 部）** | **`review-precedents.md` §1.105 が「記録に在る唯一の日本発の提出」と述べていたのは誤りで、これが 2 件目である —— しかも承認されている**（#242）。提出者は **Mori Hamada & Matsumoto の弁護士**が**IPA を代理**しており、**成功した日本の先例には弁護士が付いていた**。**Swiger 氏は "Non-reusable licenses" カテゴリへの収容を勧めたうえで承認を推している** ——**再利用の見込みの無さは却下ではなく分類で処理された** |
+| 2009-02 | `license-review`（観測）| **IPA Font License v1.0 の承認審査 41 通（2025-09 の後日談を含む） → 観測保存（2/3 部）** | **同じスレッドの 2/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
+| 2009-02 | `license-review`（観測）| **IPA Font License v1.0 の承認審査 41 通（2025-09 の後日談を含む） → 観測保存（3/3 部）** | **同じスレッドの 3/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界**） |
 | 2006-07 | `license-discuss`（観測）| **Broad Institute Public License（BIPL）の承認審査 28 通 → 観測保存（1/3 部）** | **特許について、我々に有利な発言と不利な発言が同じスレッドに在る。** Rosen 氏 *"many people hope that the old BSD- and MIT-style licenses have 'implicit patent licenses,' but that's **a thin reed** ... All modern, professionally-written open source licenses ... contain explicit patent grants."* に対し、提出者側弁護士 Rivard 氏 *"The requirements for OSI certification do not include a requirement that the originator of the software offer a license to originator owned patents."*（#236 の 4 人に続く 5 人目）。**Unlicense 先例への依拠に当たるもの**も在る —— Dillard 氏 *"there are some previously approved licenses that would not be approved if submitted today"*（#238 / #239） |
 | 2006-07 | `license-discuss`（観測）| **Broad Institute Public License（BIPL）の承認審査 28 通 → 観測保存（2/3 部）** | **同じスレッドの 2/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |
 | 2006-07 | `license-discuss`（観測）| **Broad Institute Public License（BIPL）の承認審査 28 通 → 観測保存（3/3 部）** | **同じスレッドの 3/3 部。** 本文は無改変で、3 部を順に結合すれば元の連続に byte 単位で戻る（**分割は行境界** —— 単一メッセージが Check 365 の 1,000 行上限を超えるため） |

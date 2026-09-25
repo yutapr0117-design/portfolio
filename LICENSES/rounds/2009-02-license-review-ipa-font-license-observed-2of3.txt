@@ -1,0 +1,750 @@
+Let me know if it is better to send the revised draft of the license.
+
+Kind regards,
+
+Yuko Noguchi
+
+From matthew.flaschen at gatech.edu  Thu Feb 19 19:55:01 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Thu, 19 Feb 2009 14:55:01 -0500
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B501C3EC1D@MHM-MSG.inter.local>
+References: <6cca531e0902171103k2d890fe4y7a4977439ff13ee3@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B501C3EC1D@MHM-MSG.inter.local>
+Message-ID: <499DB915.8050101@gatech.edu>
+
+yuko.noguchi at mhmjapan.com wrote:
+> Therefore, font programs is a
+> program that has the function of both object code and source code at the
+> same time.
+
+It may be true that /some/ fonts have no source code, but it is probably
+not true for most.
+
+> IPA informs me that there is another type of files called "native files"
+> created by font developing tools, which are sometimes attached to font
+> programs.  These native files, however, is not required in order for a
+> recipient of font programs to modify the font programs.
+
+In my opinion, this /is/ the source code.  Source code is (per OSD),
+"the preferred form in which a programmer would modify the program."
+Someone would /prefer/ to have access to the native files.
+
+  For example,
+> OSS developing tool "fontforge" and "TTX/Font Tools" do not require
+> native files to modify font programs.
+
+That's not the point.  I can modify the Linux kernel with a hex editor,
+but I would strongly prefer the C code.  I realize that the distinction
+between font source and object may be less important than (for example)
+C source and object code.  However, there still is a distinction.
+
+> IPA acknowledges that SIL Open Font License is now approved by OSI.  IPA
+> understands that the largest difference between the IPA license as
+> proposed and the SIL OFL is this difference file requirement.  IPA
+> thought that, because font programs have the function of source code, it
+> could ask the difference file system under OSD #4, and also it would
+> help avoiding confusions in the OSS font market by making the changes
+> readily distinguished from the base source.
+
+As I said, you can required that derived versions be made
+distinguishable by a new name and version.
+
+Matt Flaschen
+
+
+From matthew.flaschen at gatech.edu  Thu Feb 19 20:02:05 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Thu, 19 Feb 2009 15:02:05 -0500
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local>
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local>
+Message-ID: <499DBABD.8050806@gatech.edu>
+
+yuko.noguchi at mhmjapan.com wrote:
+> 2) As an exception to the rule explained in 1) above, the Recipient do not need to provide the difference file if the modification is only a change of file format.
+
+Exactly how does this work?  Say, for instance, I port a TTF font to
+SVG.  Does that mean future modifications to the SVG never need a diff file?
+
+> Let me know if it is better to send the revised draft of the license.
+
+Yes, I think so.  That way there's no confusion.
+
+Matt Flaschen
+
+
+From yuko.noguchi at mhmjapan.com  Fri Feb 20 00:23:17 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Fri, 20 Feb 2009 09:23:17 +0900
+Subject: For Approval: IPA Font License v1.0
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local> <499DBABD.8050806@gatech.edu>
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B50176F251@MHM-MSG.inter.local>
+
+Dear Matt,
+
+I will then re-draft the relevant clauses and will post to the ML.
+I will also check in with IPA about the points you raised.
+
+Thank you for your kind assistance,
+
+Yuko Noguchi
+
+-----Original Message-----
+From: Matthew Flaschen [mailto:matthew.flaschen at gatech.edu]
+Sent: 2009/02/20 (?) 5:02
+To: License Review
+Subject: Re: For Approval: IPA Font License v1.0
+ 
+yuko.noguchi at mhmjapan.com wrote:
+> 2) As an exception to the rule explained in 1) above, the Recipient do not need to provide the difference file if the modification is only a change of file format.
+
+Exactly how does this work?  Say, for instance, I port a TTF font to
+SVG.  Does that mean future modifications to the SVG never need a diff file?
+
+> Let me know if it is better to send the revised draft of the license.
+
+Yes, I think so.  That way there's no confusion.
+
+Matt Flaschen
+
+
+From bruce at perens.com  Fri Feb 20 01:16:38 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Thu, 19 Feb 2009 17:16:38 -0800
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local>
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local>
+Message-ID: <499E0476.5060109@perens.com>
+
+Hi Yuko,
+
+yuko.noguchi at mhmjapan.com wrote:
+> 1) The Recipient can re-distribute the modified version of the Licensed Program, only if such modified program accompanies a difference file from the original program.
+> IPA understands Bruce's point regarding OSD#2 and the practicality he seeks, and have decided to allow distribution of the font file in a modified form.
+> However, IPA still believes it very important to have a difference file so that recipient can see how the program was modified.
+>   
+I would suggest "a difference file from the original program, or
+information on how to get the difference file, either online or on
+physical media for no more than the cost of postage, media, and handling."
+
+The font could be embedded in a document, and embedding of difference
+files is not something that the word processors do. Embedding the
+difference file in each document that embeds the font would also inflate
+the size of each document. Encoding a notice and URL in the font is much
+more practical.
+
+There are other potential space-critical uses of the font, for example
+in embedded systems like a cell phone. Phone manufacturers would not be
+happy about doubling the effective size of the font for license purposes
+alone.
+
+Many Thanks
+
+Bruce
+
+
+
+From tg at mirbsd.de  Fri Feb 20 08:37:15 2009
+From: tg at mirbsd.de (Thorsten Glaser)
+Date: Fri, 20 Feb 2009 08:37:15 +0000 (UTC)
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B50176F251@MHM-MSG.inter.local>
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com>
+ <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local>
+ <499DBABD.8050806@gatech.edu> <10FAE7C07A4AC64BA87502D67A7690B50176F251@MHM-MSG.inter.local>
+Message-ID: <Pine.BSM.4.64L.0902200835540.8136@herc.mirbsd.org>
+
+yuko.noguchi at mhmjapan.com dixit:
+
+>I will also check in with IPA about the points you raised.
+
+There?s another point: IANAL, but from what I?ve heard, fonts do
+not fall under copyright/droit d?auteur law in (at least) Germany,
+only trademark law (protection of the font ?look? / glyphs, but
+not the actual implementation of it).
+
+(If someone who is actually a German lawyer could confirm this,
+I?d be glad.)
+
+bye,
+//mirabilos
+-- 
+?It is inappropriate to require that a time represented as
+ seconds since the Epoch precisely represent the number of
+ seconds between the referenced time and the Epoch.?
+	-- IEEE Std 1003.1b-1993 (POSIX) Section B.2.2.2
+
+
+From cowan at ccil.org  Sun Feb 22 08:11:18 2009
+From: cowan at ccil.org (John Cowan)
+Date: Sun, 22 Feb 2009 03:11:18 -0500
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <Pine.BSM.4.64L.0902200835540.8136@herc.mirbsd.org>
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local> <499DBABD.8050806@gatech.edu> <10FAE7C07A4AC64BA87502D67A7690B50176F251@MHM-MSG.inter.local> <Pine.BSM.4.64L.0902200835540.8136@herc.mirbsd.org>
+Message-ID: <20090222081118.GA28324@mercury.ccil.org>
+
+Thorsten Glaser scripsit:
+
+> There?s another point: IANAL, but from what I?ve heard, fonts do
+> not fall under copyright/droit d?auteur law in (at least) Germany,
+> only trademark law (protection of the font ?look? / glyphs, but
+> not the actual implementation of it).
+
+In the U.S., the appearance of a font is what is not copyrightable, nor is a
+straight representation of the font (in the form of a bitmap or pieces of lead
+type) either.  A vector font, however, is considered program code and therefore
+copyrightable.  The font's name of course is trademarkable.
+
+(IANAL; TINLA; but not UPL either.)
+
+-- 
+LEAR: Dost thou call me fool, boy?      John Cowan
+FOOL: All thy other titles              http://www.ccil.org/~cowan
+             thou hast given away:      cowan at ccil.org
+      That thou wast born with.
+
+
+From yuko.noguchi at mhmjapan.com  Tue Feb 24 07:13:15 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Tue, 24 Feb 2009 16:13:15 +0900
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <20090222081118.GA28324@mercury.ccil.org>
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local> <499DBABD.8050806@gatech.edu> <10FAE7C07A4AC64BA87502D67A7690B50176F251@MHM-MSG.inter.local> <Pine.BSM.4.64L.0902200835540.8136@herc.mirbsd.org> <20090222081118.GA28324@mercury.ccil.org>
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B501C3F0B1@MHM-MSG.inter.local>
+
+> In the U.S., the appearance of a font is what is not copyrightable,
+nor is a
+> straight representation of the font (in the form of a bitmap or pieces
+of lead
+> type) either.  A vector font, however, is considered program code and
+therefore
+> copyrightable.  The font's name of course is trademarkable.
+
+I understand the legal argument is the same in Japan.
+
+Kind regards,
+
+Yuko Noguchi
+
+
+From yuko.noguchi at mhmjapan.com  Tue Feb 24 07:28:14 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Tue, 24 Feb 2009 16:28:14 +0900
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <499DB915.8050101@gatech.edu>
+References: <6cca531e0902171103k2d890fe4y7a4977439ff13ee3@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B501C3EC1D@MHM-MSG.inter.local> <499DB915.8050101@gatech.edu>
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B501C3F0B8@MHM-MSG.inter.local>
+
+Dear Matt,
+
+Regarding the issue of whether "native files" should be regarded as the
+source code
+for font programs, I have discussed with IPA, and it seems that IPA has
+different technological understanding from your view.
+
+> > IPA informs me that there is another type of files called "native
+files"
+> > created by font developing tools, which are sometimes attached to
+font
+> > programs.  These native files, however, is not required in order for
+a
+> > recipient of font programs to modify the font programs.
+> 
+> In my opinion, this /is/ the source code.  Source code is (per OSD),
+> "the preferred form in which a programmer would modify the program."
+> Someone would /prefer/ to have access to the native files.
+
+According to IPA, it is true that some of the GPL font licenses attach
+native files.
+Most of these native files are created by a Microsoft's font developing
+tool called "VOLT."
+Native files created by VOLT can only be used when you want to modify
+the font program
+using VOLT, and do not have any interoperability with other developing
+tools.
+
+Moreover, some of the developing tools for font programs, such as OSS
+developing tool 
+"fontforge" or developing tools provided by IPA, do not need any native
+files to open 
+and modify the font programs, and also do not create any native files
+for others to reference.
+
+If we ask that all the recipients should always provide native files
+along with the font program,
+we believe there would be recipients who would have difficulties
+complying the license.
+Or, to put it differently, IPA is reluctant to mandate the distribution
+of native files because 
+it may create some effects to limit the available developing tools the
+recipient can use, which 
+IPA believes is contradictory to openness.
+
+Therefore, IPA understands that the role of native file is largely
+different from the source code
+in the context of usual software program.  Of course, the IPA license
+does not in any way
+prohibit the attachment of the native files.  If there is one, it is of
+course desirable to share it:
+however, mandating to do so is not suitable for font files.
+
+Kind regards,
+
+Yuko Noguchi
+
+
+From bruce at perens.com  Tue Feb 24 07:53:15 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Mon, 23 Feb 2009 23:53:15 -0800
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B501C3F0B8@MHM-MSG.inter.local>
+References: <6cca531e0902171103k2d890fe4y7a4977439ff13ee3@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B501C3EC1D@MHM-MSG.inter.local> <499DB915.8050101@gatech.edu> <10FAE7C07A4AC64BA87502D67A7690B501C3F0B8@MHM-MSG.inter.local>
+Message-ID: <49A3A76B.6000009@perens.com>
+
+Yuko,
+
+If some information is lost in the conversion from the "native file" to 
+a directly usable font file, the native file would be the preferred medium.
+
+Perhaps this information might be comments, or some sort of 
+supplementary information used by the artist to create the font but not 
+necessary in the font itself. If this information has /ever /existed, 
+the form in which it existed is the preferred form.
+
+The supplementary information would be alignment lines and compass 
+circles in romanji but I have no idea if there is an equivalent for 
+kanji. The supplementary information would potentially be useful as more 
+kokuji enter the language and are added to the font.
+
+    Thanks
+
+    Bruce
+
+From yuko.noguchi at mhmjapan.com  Tue Feb 24 08:44:32 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Tue, 24 Feb 2009 17:44:32 +0900
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <49A3A76B.6000009@perens.com>
+References: <6cca531e0902171103k2d890fe4y7a4977439ff13ee3@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B501C3EC1D@MHM-MSG.inter.local> <499DB915.8050101@gatech.edu> <10FAE7C07A4AC64BA87502D67A7690B501C3F0B8@MHM-MSG.inter.local> <49A3A76B.6000009@perens.com>
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B501C3F0D4@MHM-MSG.inter.local>
+
+How best should IPA address the distribution of the native file?
+ 
+1) would it be better to mandate that, if you ever have a native file,
+you should distribute such native file;  or,
+2) would it be sufficient to ask that, if you ever have a native file,
+you may (or are recommended to) distribute the native file.
+ 
+Either way, we would like to make clear that if there is NO native file
+for the changes you have made, then no requirement for native files.
+ 
+Let us know, and we will try to revise the license accordingly.
+ 
+Kind regards,
+ 
+Yuko
+ 
+
+From bruce at perens.com  Tue Feb 24 20:47:57 2009
+From: bruce at perens.com (Bruce Perens)
+Date: Tue, 24 Feb 2009 12:47:57 -0800
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B501C3F0D4@MHM-MSG.inter.local>
+References: <6cca531e0902171103k2d890fe4y7a4977439ff13ee3@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B501C3EC1D@MHM-MSG.inter.local> <499DB915.8050101@gatech.edu> <10FAE7C07A4AC64BA87502D67A7690B501C3F0B8@MHM-MSG.inter.local> <49A3A76B.6000009@perens.com> <10FAE7C07A4AC64BA87502D67A7690B501C3F0D4@MHM-MSG.inter.local>
+Message-ID: <49A45CFD.3040003@perens.com>
+
+yuko.noguchi at mhmjapan.com wrote:
+> How best should IPA address the distribution of the native file?
+>   
+Yuko,
+
+I do not suggest you call it "Native File", as that name is probably 
+specific to that particular Microsoft program. I've never heard it before.
+> 1) would it be better to mandate that, if you ever have a native file,
+> you should distribute such native file;  or,
+> 2) would it be sufficient to ask that, if you ever have a native file,
+> you may (or are recommended to) distribute the native file.
+>
+>   
+You should at least encourage distribution of the preferred form for 
+modification. It would be OK to compel it.
+I don't have a strong opinion so far regarding whether or not you should 
+compel it.
+
+This is, however, important when considering the question of whether a 
+font is source or binary. At least some of the time, there _is_ a source 
+file that is different from the font file in its usable form.
+
+    Thanks
+
+    Bruce
+
+
+From matthew.flaschen at gatech.edu  Wed Feb 25 12:41:23 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Wed, 25 Feb 2009 07:41:23 -0500
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B501C3F0D4@MHM-MSG.inter.local>
+References: <6cca531e0902171103k2d890fe4y7a4977439ff13ee3@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B501C3EC1D@MHM-MSG.inter.local> <499DB915.8050101@gatech.edu> <10FAE7C07A4AC64BA87502D67A7690B501C3F0B8@MHM-MSG.inter.local> <49A3A76B.6000009@perens.com> <10FAE7C07A4AC64BA87502D67A7690B501C3F0D4@MHM-MSG.inter.local>
+Message-ID: <49A53C73.2060401@gatech.edu>
+
+yuko.noguchi at mhmjapan.com wrote:
+> How best should IPA address the distribution of the native file?
+>  
+> 1) would it be better to mandate that, if you ever have a native file,
+> you should distribute such native file;  or,
+> 2) would it be sufficient to ask that, if you ever have a native file,
+> you may (or are recommended to) distribute the native file.
+
+This is a technical issue.  It should not be spelled out in the license.
+ It would be like saying, "If you have configure scripts, you should
+distribute them.  If not, you don't have to".  But it is a mistake to
+say only certain parts of the source "count" as source.
+
+Matt Flaschen
+
+
+From matthew.flaschen at gatech.edu  Wed Feb 25 12:43:15 2009
+From: matthew.flaschen at gatech.edu (Matthew Flaschen)
+Date: Wed, 25 Feb 2009 07:43:15 -0500
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B501C3F0B8@MHM-MSG.inter.local>
+References: <6cca531e0902171103k2d890fe4y7a4977439ff13ee3@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B501C3EC1D@MHM-MSG.inter.local> <499DB915.8050101@gatech.edu> <10FAE7C07A4AC64BA87502D67A7690B501C3F0B8@MHM-MSG.inter.local>
+Message-ID: <49A53CE3.10904@gatech.edu>
+
+yuko.noguchi at mhmjapan.com wrote:
+> According to IPA, it is true that some of the GPL font licenses attach
+> native files.
+
+I didn't say anything about the GPL.
+
+> Most of these native files are created by a Microsoft's font developing
+> tool called "VOLT."
+
+Nor is any of this specific to VOLT.
+
+> Native files created by VOLT can only be used when you want to modify
+> the font program
+> using VOLT, and do not have any interoperability with other developing
+> tools.
+
+Again, how is this relevant?  It would be great if native files were
+inter-operable, but that's a separate issue from their being part of the
+source.
+
+> Moreover, some of the developing tools for font programs, such as OSS
+> developing tool 
+> "fontforge" or developing tools provided by IPA, do not need any native
+> files to open 
+> and modify the font programs, and also do not create any native files
+> for others to reference.
+
+Then in those cases native files are not part of the source.  But in
+other cases they are.
+
+> If we ask that all the recipients should always provide native files
+> along with the font program,
+> we believe there would be recipients who would have difficulties
+> complying the license.
+
+How so?  I think the diff-related requirements are far more difficult.
+
+> Or, to put it differently, IPA is reluctant to mandate the distribution
+> of native files because 
+> it may create some effects to limit the available developing tools the
+> recipient can use, which 
+> IPA believes is contradictory to openness.
+
+That's not true.  If I get a copy of the complete C source code of the
+Linux kernel, I'm still free to compile it then edit it in a hex editor.
+ I don't have to use all the parts of the source.  Similarly, even
+though I received native files, I don't have to use them.
+
+> Therefore, IPA understands that the role of native file is largely
+> different from the source code
+> in the context of usual software program.  Of course, the IPA license
+> does not in any way
+> prohibit the attachment of the native files.  If there is one, it is of
+> course desirable to share it:
+> however, mandating to do so is not suitable for font files.
+
+This can be solved by requiring full source be distributed in response
+to a written request.
+
+Matt Flaschen
+
+
+From yuko.noguchi at mhmjapan.com  Thu Feb 26 07:44:05 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Thu, 26 Feb 2009 16:44:05 +0900
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <499E0476.5060109@perens.com>
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local> <499E0476.5060109@perens.com>
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B501CF1745@MHM-MSG.inter.local>
+
+Dear Bruce,
+
+> I would suggest "a difference file from the original program, or
+> information on how to get the difference file, either online or on
+> physical media for no more than the cost of postage, media, 
+> and handling."
+
+will do so.
+
+> The font could be embedded in a document, and embedding of difference
+> files is not something that the word processors do. Embedding the
+> difference file in each document that embeds the font would 
+> also inflate
+> the size of each document. Encoding a notice and URL in the 
+> font is much
+> more practical.
+
+as you can see in Article 2 Paragraph 4 of the draft license, when the
+fonts are embedded in a digital document file (such as PDF) 
+and will stay within the file, then we do not ask to follow the license
+(i.e., different file).
+In any event, we will allow the users to include the URL of the
+difference file when it is required.
+
+Kind regards,
+
+Yuko
+
+
+From yuko.noguchi at mhmjapan.com  Wed Mar  4 09:51:17 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Wed, 4 Mar 2009 18:51:17 +0900
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B501CF1745@MHM-MSG.inter.local>
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local> <499E0476.5060109@perens.com> <10FAE7C07A4AC64BA87502D67A7690B501CF1745@MHM-MSG.inter.local>
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B501CF1CFA@MHM-MSG.inter.local>
+
+Dear OSI members:
+ 
+After an intensive discussion with IPA, we are pleased to inform you
+that 
+we have revised the draft license in a significant way.
+
+The full text of the revised draft license can be found at the following
+URL:
+
+http://ipafont.ipa.go.jp/enduser_license_draft090304.html 
+(clean revised draft of the IPA Font License v1.0)
+
+http://ipafont.ipa.go.jp/enduser_license_draft090304.pdf 
+(redline version from the last draft in PDF to check the revision)
+
+The following is the main change we have made in this draft.
+
+1)  IPA agrees that the difference file system adds complication.
+Therefore, IPA decides to drop all the requirements regarding the
+difference file, and thus, also deleted the definition of the difference
+file.
+-  Article 1 paragraph 8 --> Deleted, 
+-  Article 2 paragraph 6 --> revised,
+-  Article 3 paragraph 1 --> revised.
+
+2)  given the discussion about the source code / binary code etc,
+we have asked to make available the font file as well as any additional
+file created by the font developing program in the course of creating
+the Derived Program that can be used for further modification of the
+Derived Program, if any (See Article 3 Paragraph 1 (1)).
+
+3) Made the language in Article 2 paragraph 4 more clear to show that
+usage and distribution of SVG document file (such as PDF) that embeds
+Licensed Program as Embedded Fonts is not subject to this Agreement:
+however, if someone creates Derived Program by extracting such Embedded
+Fonts, the Agreement shall apply. 
+
+Hope you find these amendments to be an improvement to the draft
+license, and hope you find this license comply with the OSD.
+
+Kind regards,
+
+Yuko Noguchi
+
+
+From yuko.noguchi at mhmjapan.com  Wed Mar  4 12:46:02 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Wed, 4 Mar 2009 21:46:02 +0900
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B501CF1CFA@MHM-MSG.inter.local>
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local> <499E0476.5060109@perens.com> <10FAE7C07A4AC64BA87502D67A7690B501CF1745@MHM-MSG.inter.local> <10FAE7C07A4AC64BA87502D67A7690B501CF1CFA@MHM-MSG.inter.local>
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B501CF1D32@MHM-MSG.inter.local>
+
+ Dear all,
+
+The link I have sent below appears to be broken.
+
+Please use the ones below.
+
+http://ipafont.ipa.go.jp/enduser_license_draft090304.html
+(clean revised draft of the IPA Font License v1.0)
+
+http://ipafont.ipa.go.jp/enduser_license_draft090304.pdf
+(redline version from the last draft in PDF to check the revision)
+
+Kind regards,
+
+Yuko
+
+> -----Original Message-----
+> From: yuko.noguchi at mhmjapan.com [mailto:yuko.noguchi at mhmjapan.com] 
+> Sent: Wednesday, March 04, 2009 6:51 PM
+> To: license-review at opensource.org
+> Subject: RE: For Approval: IPA Font License v1.0
+> 
+> Dear OSI members:
+>  
+> After an intensive discussion with IPA, we are pleased to inform you
+> that 
+> we have revised the draft license in a significant way.
+> 
+> The full text of the revised draft license can be found at 
+> the following
+> URL:
+> 
+> http://ipafont.ipa.go.jp/enduser_license_draft090304.html 
+> (clean revised draft of the IPA Font License v1.0)
+> 
+> http://ipafont.ipa.go.jp/enduser_license_draft090304.pdf 
+> (redline version from the last draft in PDF to check the revision)
+> 
+> The following is the main change we have made in this draft.
+> 
+> 1)  IPA agrees that the difference file system adds complication.
+> Therefore, IPA decides to drop all the requirements regarding the
+> difference file, and thus, also deleted the definition of the 
+> difference
+> file.
+> -  Article 1 paragraph 8 --> Deleted, 
+> -  Article 2 paragraph 6 --> revised,
+> -  Article 3 paragraph 1 --> revised.
+> 
+> 2)  given the discussion about the source code / binary code etc,
+> we have asked to make available the font file as well as any 
+> additional
+> file created by the font developing program in the course of creating
+> the Derived Program that can be used for further modification of the
+> Derived Program, if any (See Article 3 Paragraph 1 (1)).
+> 
+> 3) Made the language in Article 2 paragraph 4 more clear to show that
+> usage and distribution of SVG document file (such as PDF) that embeds
+> Licensed Program as Embedded Fonts is not subject to this Agreement:
+> however, if someone creates Derived Program by extracting 
+> such Embedded
+> Fonts, the Agreement shall apply. 
+> 
+> Hope you find these amendments to be an improvement to the draft
+> license, and hope you find this license comply with the OSD.
+> 
+> Kind regards,
+> 
+> Yuko Noguchi
+> 
+
+
+From yuko.noguchi at mhmjapan.com  Wed Mar  4 13:03:18 2009
+From: yuko.noguchi at mhmjapan.com (yuko.noguchi at mhmjapan.com)
+Date: Wed, 4 Mar 2009 22:03:18 +0900
+Subject: For Approval: IPA Font License v1.0
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com> <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local> <499E0476.5060109@perens.com> <10FAE7C07A4AC64BA87502D67A7690B501CF1745@MHM-MSG.inter.local> <10FAE7C07A4AC64BA87502D67A7690B501CF1CFA@MHM-MSG.inter.local> 
+Message-ID: <10FAE7C07A4AC64BA87502D67A7690B501CF1D3B@MHM-MSG.inter.local>
+
+Dear all,
+
+It seems it did not work again.
+I also found some grammatical/technical points to be improved, so I will
+resend the draft again.
+I apologize for this confusion.
+
+We will not change any of the substance, so if any of you could actually
+open the file,
+we would appreciate your kind response.
+
+I will post the new URL tomorrow.
+
+Kind regards,
+
+Yuko
+
+
+From tiemann at opensource.org  Wed Mar  4 13:42:17 2009
+From: tiemann at opensource.org (Michael Tiemann)
+Date: Wed, 4 Mar 2009 08:42:17 -0500
+Subject: For Approval: IPA Font License v1.0
+In-Reply-To: <10FAE7C07A4AC64BA87502D67A7690B501CF1D32@MHM-MSG.inter.local>
+References: <6cca531e0902190737w7292367fq4ccb5507db23926@mail.gmail.com>
+	 <10FAE7C07A4AC64BA87502D67A7690B50176F24B@MHM-MSG.inter.local>
+	 <499E0476.5060109@perens.com>
+	 <10FAE7C07A4AC64BA87502D67A7690B501CF1745@MHM-MSG.inter.local>
+	 <10FAE7C07A4AC64BA87502D67A7690B501CF1CFA@MHM-MSG.inter.local>
+	 <10FAE7C07A4AC64BA87502D67A7690B501CF1D32@MHM-MSG.inter.local>
+Message-ID: <6cca531e0903040542o68d983bbyb1f5c07293fc438e@mail.gmail.com>
+
+I was able to see both documents.  I am reviewing now.
+
+On Wed, Mar 4, 2009 at 7:46 AM, <yuko.noguchi at mhmjapan.com> wrote:
+
+>  Dear all,
+>
+> The link I have sent below appears to be broken.
+>
+> Please use the ones below.
+>
+> http://ipafont.ipa.go.jp/enduser_license_draft090304.html
+> (clean revised draft of the IPA Font License v1.0)
+>
+> http://ipafont.ipa.go.jp/enduser_license_draft090304.pdf
+> (redline version from the last draft in PDF to check the revision)
+>
+> Kind regards,
+>
+> Yuko
+>
+> > -----Original Message-----
+> > From: yuko.noguchi at mhmjapan.com [mailto:yuko.noguchi at mhmjapan.com]
+> > Sent: Wednesday, March 04, 2009 6:51 PM
+> > To: license-review at opensource.org
+> > Subject: RE: For Approval: IPA Font License v1.0
+> >
+> > Dear OSI members:
+> >
+> > After an intensive discussion with IPA, we are pleased to inform you
+> > that
+> > we have revised the draft license in a significant way.
+> >
+> > The full text of the revised draft license can be found at
+> > the following
+> > URL:
+> >
+> > http://ipafont.ipa.go.jp/enduser_license_draft090304.html
+> > (clean revised draft of the IPA Font License v1.0)
+> >
+> > http://ipafont.ipa.go.jp/enduser_license_draft090304.pdf
+> > (redline version from the last draft in PDF to check the revision)
+> >
+> > The following is the main change we have made in this draft.
+> >
+> > 1)  IPA agrees that the difference file system adds complication.
+> > Therefore, IPA decides to drop all the requirements regarding the
+> > difference file, and thus, also deleted the definition of the
+> > difference
+> > file.
+> > -  Article 1 paragraph 8 --> Deleted,
+> > -  Article 2 paragraph 6 --> revised,
+> > -  Article 3 paragraph 1 --> revised.
+> >
+> > 2)  given the discussion about the source code / binary code etc,
+> > we have asked to make available the font file as well as any
+> > additional
+> > file created by the font developing program in the course of creating
+> > the Derived Program that can be used for further modification of the
+> > Derived Program, if any (See Article 3 Paragraph 1 (1)).
+> >
+> > 3) Made the language in Article 2 paragraph 4 more clear to show that
+> > usage and distribution of SVG document file (such as PDF) that embeds
+> > Licensed Program as Embedded Fonts is not subject to this Agreement:
+> > however, if someone creates Derived Program by extracting
+> > such Embedded
+> > Fonts, the Agreement shall apply.

@@ -161,7 +161,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1456 words**, measured 2026-09-25)
+### B.0 The message as it should actually be sent (**1505 words**, measured 2026-09-25)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -229,6 +229,11 @@ engaging at all** (`ACD-OSI-BOTTLENECKS.md` B3). **The full treatment went to th
 (`ACD-1.0.submission-reference.md` §3d). **Naming an objection before the reviewer finds it is worth
 words; explaining it at length in the opening message is not.**
 
+**And 1,505 the same day**, when the OSD affirmation gained **OSD 1 and OSD 7**. The review-process
+page asks for 3, 5, 6 and 9, and those were there; **the archive shows 1 and 7 are the criteria a
+patent objection is actually raised under** (`review-doctrine.md` §1.112). **Naming a criterion we
+meet costs 49 words and removes a place the reviewer has to go looking.**
+
 **Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
 move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
 UPD 1.5.2 author, Carlo Piana has put it as proliferation — and until 2026-09-09 the only answer in
@@ -286,7 +291,10 @@ distributing them; and §16.3 lets anyone apply this text to a work in which the
 derived work may be distributed **under these same terms**), **OSD 5 and OSD 6** (§4.3 states the licence is not conditioned on who You are
 or what You use the Work for, so no person, group or field of endeavour is excluded), and **OSD 9**
 (§5.2(b) and §2.3 confine the instrument to this Work, so nothing is required of other software
-distributed alongside it). A criterion-by-criterion analysis of all ten is in the repository, and so
+distributed alongside it). I add **OSD 1 and OSD 7**, because the archive shows those are the
+criteria under which a patent objection is actually raised: §8 grants a patent licence on the same
+terms to everyone who receives the Work, so nothing further has to be executed by a downstream
+recipient. A criterion-by-criterion analysis of all ten is in the repository, and so
 is a companion section setting out, for each, **where a reviewer could argue the opposite**.
 
 **The gap.** In one sentence: the approved licences that impose no conditions say nothing about
