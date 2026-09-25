@@ -1,0 +1,666 @@
+Source:   https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2012-March.txt
+Fetched:  2026-09-25T04:40Z（ブラウザ相当の UA）
+Thread:   CC0 incompliant with OSD on patents, [was: MXM compared to CC0 ] —— 全 69 通
+位置づけ: **観測。我々宛ではなく、ACD-1.0 についてでもない。**
+          **我々の gap 主張（公有化型ツールにおける明示的特許許諾）が依拠している当の議論で、
+          ドシエは 2026-09-25 まで 1 行も引いていなかった**（against.md #233）。
+          **1,000 行の上限（Check 365）を越えるため、メッセージ境界で 6 部に分けてある。
+          本文は無改変で、部をまたいで結合すれば元の連続になる。**
+          これは 1/6 部（8 通）。
+          読みは LICENSES/ACD-1.0.against.md #233 へ。ここには分析を書かない（規約 2）。
+
+=== 以下、本文（無改変）===
+
+From osi-review at piana.eu  Fri Mar  2 08:12:35 2012
+From: osi-review at piana.eu (Carlo Piana)
+Date: Fri, 02 Mar 2012 09:12:35 +0100
+Subject: [License-review] MXM compared to CC0
+In-Reply-To: <89376739-4BF2-4484-B731-C06D3ADA3369@codefab.com>
+References: <87ipincylr.fsf@floss.red-bean.com>
+	<CAKHykesKtou5FQY9xfQDT9V6zvE1S5o+2Z8orzh1nGhKYxuoQg@mail.gmail.com>
+	<4F507548.6090204@piana.eu>
+	<89376739-4BF2-4484-B731-C06D3ADA3369@codefab.com>
+Message-ID: <4F5080F3.7030109@piana.eu>
+
+On 02/03/2012 09:02, Chuck Swiger wrote:
+> On Mar 1, 2012, at 11:22 PM, Carlo Piana wrote:
+>> As a submitter of the MXM license, I would be puzzled if CC0 was approved and MXM remained disapproved. Or someone should in case explain which different rationale applies apart from an /ad personam/ one or that the MXM contained at least a limited patent covenant for distribution in source code.
+> The MXM license was obviously not OSD-compliant because you cannot discriminate against commercial use of  software and still be "open source".
+>
+> I think the actual effect of the CC0 license includes a covenant or promise by the Affirmer to not bring action to users of the CC0-licensed work for any reason, including patent rights, trademarks, or anything else.  If that isn't what folks mean to do, then they should find a different license to use than CC0.
+>
+> Regards,
+
+I don't think you have it right. MXM did not discriminate at all against 
+commercial exploitation. It had a patent covenant that you might as well 
+have disregarded, for source only distribution. It was entirely agnostic 
+versus patents. The covenant was an additional provision, not a part of 
+the licensing conditions.  You might say that this is confusing as 
+people would believe they have a license to patents, but I believe the 
+same can be said for CC0.
+
+In this regard, you might want to explain why you believe that "No 
+trademark or patent rights held by Affirmer are waived, abandoned, 
+surrendered, *licensed* or otherwise affected by this document." 
+[emphasis added] does match with the idea that permission is given to 
+use the software under the patent rights of the licensor. Which is 
+precisely what MXM said: you don't have the patents of the licensor or 
+of the contributors.
+
+So my question still stands, I believe.
+
+
+Cheers
+
+Carlo
+
+
+
+
+
+
+From chuck at codefab.com  Fri Mar  2 08:29:01 2012
+From: chuck at codefab.com (Chuck Swiger)
+Date: Fri, 02 Mar 2012 00:29:01 -0800
+Subject: [License-review] MXM compared to CC0
+In-Reply-To: <4F5080F3.7030109@piana.eu>
+References: <87ipincylr.fsf@floss.red-bean.com>
+	<CAKHykesKtou5FQY9xfQDT9V6zvE1S5o+2Z8orzh1nGhKYxuoQg@mail.gmail.com>
+	<4F507548.6090204@piana.eu>
+	<89376739-4BF2-4484-B731-C06D3ADA3369@codefab.com>
+	<4F5080F3.7030109@piana.eu>
+Message-ID: <F20CCBCE-2290-4BED-8923-F46368EE425D@codefab.com>
+
+On Mar 2, 2012, at 12:12 AM, Carlo Piana wrote:
+>> The MXM license was obviously not OSD-compliant because you cannot discriminate against commercial use of  software and still be "open source".
+>> 
+>> I think the actual effect of the CC0 license includes a covenant or promise by the Affirmer to not bring action to users of the CC0-licensed work for any reason, including patent rights, trademarks, or anything else.  If that isn't what folks mean to do, then they should find a different license to use than CC0.
+> 
+> I don't think you have it right.
+
+That's OK, I'm not surprised that you hold such an opinion.
+
+> MXM did not discriminate at all against commercial exploitation.
+
+Sure it did.  Quoting from Message-ID: <49DCA566.2040603 at piana.eu>:
+
+"I have insisted and obtained, however, that an explicit patent covenant
+be inserted, to the effect to exclude from any patent concern all who
+don't distribute the compiled version of the software and to those who
+compile it only for internal purposes without direct commercial
+exploitation."
+
+Both the repeated use of the word "exploitation" and the MXM definition:
+
+1.0.1. "Commercial Use" 
+means distribution or otherwise making the Covered Code available to a third party.'
+[ ... ]
+2.1. General.
+This software has been developed as a reference implementation of ISO/IEC 23006.
+The Initial Developer and Contributors hereby irrevocably covenant (?Patent Covenant?) not to assert their Patent Claims over the Covered Code, regardless whether You have obtained a proper license on said patents and as long as the other provisions of this license are respected,  limited to any use of this software in Source Code, excluding any distribution as Executable or execution through runtime, debuggers or emulators. Patent Covenant is however extended to the compilation and use of a compiled version (as Executable) of this software for study and evaluation purposes only, with the exclusion of distribution of compiled code or any other commercial exploitation.
+
+...are clear enough, are they not?
+
+> It had a patent covenant that you might as well have disregarded, for source only distribution.
+
+Source-only isn't sufficient; OSD #2 states "The program must include source code, and must allow distribution in source code as well as compiled form."
+
+> It was entirely agnostic versus patents. The covenant was an additional provision, not a part of the licensing conditions.  You might say that this is confusing as people would believe they have a license to patents, but I believe the same can be said for CC0.
+> 
+> In this regard, you might want to explain why you believe that "No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, *licensed* or otherwise affected by this document." [emphasis added] does match with the idea that permission is given to use the software under the patent rights of the licensor. Which is precisely what MXM said: you don't have the patents of the licensor or of the contributors.
+
+CC0 doesn't include a license grant.  It does include a covenant not to bring action for any reason against users of the Work, and even uses terms like "royalty free" and "the public can reliably and without fear of later claims of infringement build upon, modify, incorporate in other works, reuse and redistribute as freely as possible in any form whatsoever and for any purposes, including without limitation commercial purposes...."
+
+...which is very distinct from the language and intent of the MXM.
+
+Regards,
+-- 
+-Chuck
+
+
+
+
+
+
+From osi-review at piana.eu  Mon Mar  5 09:54:18 2012
+From: osi-review at piana.eu (Carlo Piana)
+Date: Mon, 05 Mar 2012 10:54:18 +0100
+Subject: [License-review] MXM compared to CC0
+In-Reply-To: <F20CCBCE-2290-4BED-8923-F46368EE425D@codefab.com>
+References: <87ipincylr.fsf@floss.red-bean.com>
+	<CAKHykesKtou5FQY9xfQDT9V6zvE1S5o+2Z8orzh1nGhKYxuoQg@mail.gmail.com>
+	<4F507548.6090204@piana.eu>
+	<89376739-4BF2-4484-B731-C06D3ADA3369@codefab.com>
+	<4F5080F3.7030109@piana.eu>
+	<F20CCBCE-2290-4BED-8923-F46368EE425D@codefab.com>
+Message-ID: <4F548D4A.6030602@piana.eu>
+
+On 02/03/2012 09:29, Chuck Swiger wrote:
+> On Mar 2, 2012, at 12:12 AM, Carlo Piana wrote:
+>>> The MXM license was obviously not OSD-compliant because you cannot discriminate against commercial use of  software and still be "open source".
+>>>
+>>> I think the actual effect of the CC0 license includes a covenant or promise by the Affirmer to not bring action to users of the CC0-licensed work for any reason, including patent rights, trademarks, or anything else.  If that isn't what folks mean to do, then they should find a different license to use than CC0.
+>> I don't think you have it right.
+> That's OK, I'm not surprised that you hold such an opinion.
+>
+>> MXM did not discriminate at all against commercial exploitation.
+> Sure it did.  Quoting from Message-ID:<49DCA566.2040603 at piana.eu>:
+>
+> "I have insisted and obtained, however, that an explicit patent covenant
+> be inserted, to the effect to exclude from any patent concern all who
+> don't distribute the compiled version of the software and to those who
+> compile it only for internal purposes without direct commercial
+> exploitation."
+>
+> Both the repeated use of the word "exploitation" and the MXM definition:
+>
+> 1.0.1. "Commercial Use"
+> means distribution or otherwise making the Covered Code available to a third party.'
+> [ ... ]
+> 2.1. General.
+> This software has been developed as a reference implementation of ISO/IEC 23006.
+> The Initial Developer and Contributors hereby irrevocably covenant (?Patent Covenant?) not to assert their Patent Claims over the Covered Code, regardless whether You have obtained a proper license on said patents and as long as the other provisions of this license are respected,  limited to any use of this software in Source Code, excluding any distribution as Executable or execution through runtime, debuggers or emulators. Patent Covenant is however extended to the compilation and use of a compiled version (as Executable) of this software for study and evaluation purposes only, with the exclusion of distribution of compiled code or any other commercial exploitation.
+>
+> ...are clear enough, are they not?
+
+
+If you extract this from the context, surely it is. But that is not the
+license, as MXM is a copyright-only license, and this is why, in my
+recollection, it failed to be approved. That means, an OSI approved
+license must license -- or atleast attempt to license -- all necessary
+rights, not only copyright, otherwise you cannot use the software. I
+accept and approve this stance.
+
+On discrimination, let me ask you a question:
+
+rightsholder A) says "you hereby receive all permissions to use software
+X under copyright, but you don't receive any rights under patents" for
+you it's fine
+
+rightsholder B) says "you hereby receive all permissions to use software
+X under copyright, but you don't receive any rights under patents; oh,
+by the way, as patents are concerned, please be assured that this does
+not cover use of the source code for study and evaluation" for you this
+is discriminatory.
+
+Frankly I fail to understand your logic and your definition of
+discrimination. To me, the evaluation must be on if A gives all the
+necessary rights without discriminating against any use, what's added is
+just a plus, just as I added a provision "you can't use my trademark,
+but you can use it for descriptive purposes and not to advertise the
+product". Is this discriminatory against commercial use?
+
+I would say "no", unless you deem that a trademark license is necessary
+to the use of software, which I admittedly believe it is not.
+
+So we are back to the question on whether the license has all the
+necessary rights licensed. If it fails this test, it fails this test
+regardless it excludes the license to all or only by discriminating
+against  certain categories.
+
+>
+>> It had a patent covenant that you might as well have disregarded, for source only distribution.
+> Source-only isn't sufficient; OSD #2 states "The program must include source code, and must allow distribution in source code as well as compiled form."
+>
+>> It was entirely agnostic versus patents. The covenant was an additional provision, not a part of the licensing conditions.  You might say that this is confusing as people would believe they have a license to patents, but I believe the same can be said for CC0.
+>>
+>> In this regard, you might want to explain why you believe that "No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, *licensed* or otherwise affected by this document." [emphasis added] does match with the idea that permission is given to use the software under the patent rights of the licensor. Which is precisely what MXM said: you don't have the patents of the licensor or of the contributors.
+> CC0 doesn't include a license grant.  It does include a covenant not to bring action for any reason against users of the Work, and even uses terms like "royalty free" and "the public can reliably and without fear of later claims of infringement build upon, modify, incorporate in other works, reuse and redistribute as freely as possible in any form whatsoever and for any purposes, including without limitation commercial purposes...."
+>
+> ...which is very distinct from the language and intent of the MXM.
+
+I very much beg to differ. CC0 contains a list of waivers under certain
+rights, with the *express exclusion* of trademark rights (and I agree
+with that) and of patent rights. We are evaluating it as a license, or
+as its next best friend, so we are evaluating what freedom does it
+provides and under which legal guarantees, methinks.
+
+If I say that a right is *not* abandoned, waived, surrendered or
+licensed, or otherwise affected, does it mean that by that legal
+document I am giving you any permission or that I will be bound to not
+assert my patents if any?
+
+Are we evaluating legal code or intent? Because as a manifesto CC0 is
+just nice, I love it, full marks.
+
+As for the legal code I find it lacking and contradictory at best. And I
+fear that if somebody uses it *for software*, this chap will be under
+the *same* trouble as with BSD, MXM, WTF, MIT or any license that fails
+to tackle the issue of patents. I.E. nobody will have minimum legal
+guarantees or a defence to claim that software can be used without
+having to ask permission by the very ones who create and distribute it.
+At least the hyperpermissive licenses don't say anything, so you can
+rely on promissory estoppel, /contra se venire/ or all other legal
+theories. But the agnostic ones -- and I put both MXM and CC0 in that
+category -- are in this more dangerous, as you cannot construe against
+what it's clearly spelt out.
+
+To be clear, this is not an attempt to revive MXM discussion, is to have
+a clear understanding on what a license must have in it to be approved.
+Intent and character of submitter are immaterial, or, as I said, _ad
+personam_ argument.
+
+With best regards,
+
+Carlo
+
+
+
+
+
+
+
+From chuck at codefab.com  Mon Mar  5 19:15:00 2012
+From: chuck at codefab.com (Chuck Swiger)
+Date: Mon, 05 Mar 2012 14:15:00 -0500
+Subject: [License-review] MXM compared to CC0
+In-Reply-To: <4F548D4A.6030602@piana.eu>
+References: <87ipincylr.fsf@floss.red-bean.com>
+	<CAKHykesKtou5FQY9xfQDT9V6zvE1S5o+2Z8orzh1nGhKYxuoQg@mail.gmail.com>
+	<4F507548.6090204@piana.eu>
+	<89376739-4BF2-4484-B731-C06D3ADA3369@codefab.com>
+	<4F5080F3.7030109@piana.eu>
+	<F20CCBCE-2290-4BED-8923-F46368EE425D@codefab.com>
+	<4F548D4A.6030602@piana.eu>
+Message-ID: <4F5510B4.90808@codefab.com>
+
+On 3/5/2012 4:54 AM, Carlo Piana wrote:
+> On 02/03/2012 09:29, Chuck Swiger wrote:
+[ ... ]
+>> Both the repeated use of the word "exploitation" and the MXM definition:
+>>
+>> 1.0.1. "Commercial Use"
+>> means distribution or otherwise making the Covered Code available to a third party.'
+>> [ ... ]
+>> 2.1. General.
+>> This software has been developed as a reference implementation of ISO/IEC 23006.
+>> The Initial Developer and Contributors hereby irrevocably covenant (?Patent Covenant?) not to assert their Patent Claims over the Covered Code, regardless whether You have obtained a proper license on said patents and as long as the other provisions of this license are respected,  limited to any use of this software in Source Code, excluding any distribution as Executable or execution through runtime, debuggers or emulators. Patent Covenant is however extended to the compilation and use of a compiled version (as Executable) of this software for study and evaluation purposes only, with the exclusion of distribution of compiled code or any other commercial exploitation.
+>>
+>> ...are clear enough, are they not?
+>
+> If you extract this from the context, surely it is. But that is not the
+> license, as MXM is a copyright-only license, and this is why, in my
+> recollection, it failed to be approved. That means, an OSI approved
+> license must license -- or at least attempt to license -- all necessary
+> rights, not only copyright, otherwise you cannot use the software. I
+> accept and approve this stance.
+
+Open source software must allow a user to run the software, as well as modify 
+it and make modified versions available to others, both in software source 
+code and compiled formats.
+
+> On discrimination, let me ask you a question:
+>
+> rightsholder A) says "you hereby receive all permissions to use software
+> X under copyright, but you don't receive any rights under patents" for
+> you it's fine
+>
+> rightsholder B) says "you hereby receive all permissions to use software
+> X under copyright, but you don't receive any rights under patents; oh,
+> by the way, as patents are concerned, please be assured that this does
+> not cover use of the source code for study and evaluation" for you this
+> is discriminatory.
+>
+> Frankly I fail to understand your logic and your definition of
+> discrimination.
+
+If you are trying to consider a hypothetical position and "your" is in 
+reference to that, well, I admit I don't understand it either.  :-)
+
+If you were trying to speak for what I actually believe, then the description 
+involving rightsholder A is not my position.
+
+> To me, the evaluation must be on if A gives all the
+> necessary rights without discriminating against any use, what's added is
+> just a plus, just as I added a provision "you can't use my trademark,
+> but you can use it for descriptive purposes and not to advertise the
+> product". Is this discriminatory against commercial use?
+
+I would say no, that a trademark restriction is not discriminatory against 
+commercial use.
+
+It might be relevant to note that my local legal framework permits and/or even 
+encourages nominative fair use of trademarks for identification and commercial 
+marketing purposes, even without permission from the mark holder:
+
+   http://en.wikipedia.org/wiki/Nominative_use
+
+(I should also note that making something available for sale provides an 
+implied patent grant to exercise rights necessary and customarily associated 
+with using that product, which leads into areas like the first-sale doctrine 
+and patent exhaustion.  Can one claim to have purchased a CC0 work for its 
+offered price of "royalty-free"...?  :)
+
+> I would say "no", unless you deem that a trademark license is necessary
+> to the use of software, which I admittedly believe it is not.
+
+So we agree this far.
+
+> So we are back to the question on whether the license has all the
+> necessary rights licensed. If it fails this test, it fails this test
+> regardless it excludes the license to all or only by discriminating
+> against  certain categories.
+
+Yes.
+
+[ ... ]
+>>> In this regard, you might want to explain why you believe that "No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, *licensed* or otherwise affected by this document." [emphasis added] does match with the idea that permission is given to use the software under the patent rights of the licensor. Which is precisely what MXM said: you don't have the patents of the licensor or of the contributors.
+>> CC0 doesn't include a license grant.  It does include a covenant not to bring action for any reason against users of the Work, and even uses terms like "royalty free" and "the public can reliably and without fear of later claims of infringement build upon, modify, incorporate in other works, reuse and redistribute as freely as possible in any form whatsoever and for any purposes, including without limitation commercial purposes...." [1]
+>>
+>> ...which is very distinct from the language and intent of the MXM.
+>
+> I very much beg to differ. CC0 contains a list of waivers under certain
+> rights, with the *express exclusion* of trademark rights (and I agree
+> with that) and of patent rights. We are evaluating it as a license, or
+> as its next best friend, so we are evaluating what freedom does it
+> provides and under which legal guarantees, methinks.
+>
+> If I say that a right is *not* abandoned, waived, surrendered or
+> licensed, or otherwise affected, does it mean that by that legal
+> document I am giving you any permission or that I will be bound to not
+> assert my patents if any?
+
+Portions of the CC0 make the attempt to place trademark and patent rights out 
+of the scope of CC0.
+
+Other portions disclaim ownership (if possible) and offer royalty-free license 
+to the Work, even though those rights would be under the scope of patent law, 
+assuming the Affirmer had relevant patent rights associated with the Work.
+
+> Are we evaluating legal code or intent? Because as a manifesto CC0 is
+> just nice, I love it, full marks.
+>
+> As for the legal code I find it lacking and contradictory at best.
+
+Yes, that is the main problem with the CC0 which I'd like to see corrected 
+before the OSI evaluates it, and is why-- although I believe the CC0 is 
+OSD-compliant-- I gave a -1 to approving it at this moment.
+
+However, the language it includes for resolving contradictions gives the CC0 
+Statement of Purpose priority over clause 4a:
+
+"Should any part of the License for any reason be judged legally invalid or 
+ineffective under applicable law, such partial invalidity or ineffectiveness 
+shall not invalidate the remainder of the License, and in such case Affirmer 
+hereby affirms that he or she will not (i) exercise any of his or her 
+remaining Copyright and Related Rights in the Work or (ii) assert any 
+associated claims and causes of action with respect to the Work, in either 
+case contrary to Affirmer's express Statement of Purpose."
+
+In other words, I don't think CC0's clause 4a is effective with regard to a 
+CC0 Work, or anything derived from a CC0 Work.  However, the Affirmer would 
+still retain patent and trademark rights (and other rights, perhaps) with 
+regard to anything else.
+
+> And I fear that if somebody uses it *for software*, this chap will be under
+> the *same* trouble as with BSD, MXM, WTF, MIT or any license that fails
+> to tackle the issue of patents. I.E. nobody will have minimum legal
+> guarantees or a defence to claim that software can be used without
+> having to ask permission by the very ones who create and distribute it.
+
+If you want to claim the WTF license does not provide any patent grants, well, 
+I would agree.
+
+However, the MIT license invokes a number of key phrases from US patent law: 
+"to deal in the Software without restriction, including without limitation the 
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
+sell copies of the Software".  That is an explicit grant of rights governed by 
+patent law, even if the MIT license doesn't use the word "patent" anywhere in 
+the license text.
+
+> At least the hyperpermissive licenses don't say anything, so you can
+> rely on promissory estoppel, /contra se venire/ or all other legal
+> theories. But the agnostic ones -- and I put both MXM and CC0 in that
+> category -- are in this more dangerous, as you cannot construe against
+> what it's clearly spelt out.
+
+How is CC0 agnostic?  I think the CC0 license, by offering "royalty-free" etc 
+(see [1] above) permission to the Work, is providing such rights to the public 
+at large that would be governed by patent law, very much as the MIT license does.
+
+> To be clear, this is not an attempt to revive MXM discussion, is to have
+> a clear understanding on what a license must have in it to be approved.
+> Intent and character of submitter are immaterial, or, as I said, _ad
+> personam_ argument.
+
+Indeed, I appreciate the distinction you are trying to draw, and have tried to 
+respond accordingly....
+
+Regards,
+-- 
+-Chuck
+
+
+
+
+From cowan at mercury.ccil.org  Mon Mar  5 20:18:44 2012
+From: cowan at mercury.ccil.org (John Cowan)
+Date: Mon, 5 Mar 2012 15:18:44 -0500
+Subject: [License-review] MXM compared to CC0
+In-Reply-To: <4F5510B4.90808@codefab.com>
+References: <87ipincylr.fsf@floss.red-bean.com>
+	<CAKHykesKtou5FQY9xfQDT9V6zvE1S5o+2Z8orzh1nGhKYxuoQg@mail.gmail.com>
+	<4F507548.6090204@piana.eu>
+	<89376739-4BF2-4484-B731-C06D3ADA3369@codefab.com>
+	<4F5080F3.7030109@piana.eu>
+	<F20CCBCE-2290-4BED-8923-F46368EE425D@codefab.com>
+	<4F548D4A.6030602@piana.eu> <4F5510B4.90808@codefab.com>
+Message-ID: <20120305201843.GA15048@mercury.ccil.org>
+
+Chuck Swiger scripsit:
+
+> Open source software must allow a user to run the software, as well
+> as modify it and make modified versions available to others, both in
+> software source code and compiled formats.
+
+That's not possible.  The most that can be achieved is that the author
+of the software must not prevent users from running it.  Because patent
+rights are negative (the right to forbid use, rather than the right
+to use), no one can reliably deliver the right to use in a wide-open
+software patent regime.
+
+> However, the MIT license invokes a number of key phrases from US
+> patent law: "to deal in the Software without restriction, including
+> without limitation the rights to use, copy, modify, merge, publish,
+> distribute, sublicense, and/or sell copies of the Software".  That is
+> an explicit grant of rights governed by patent law, even if the MIT
+> license doesn't use the word "patent" anywhere in the license text.
+
+Either that, or the presence of "use" and "sell" mean nothing whatever,
+since lawful owners of copies already have those rights.
+
+-- 
+John Cowan              cowan at ccil.org          http://www.ccil.org/~cowan
+C'est la` pourtant que se livre le sens du dire, de ce que, s'y conjuguant
+le nyania qui bruit des sexes en compagnie, il supplee a ce qu'entre eux,
+de rapport nyait pas.               --Jacques Lacan, "L'Etourdit"
+
+
+
+
+From chuck at codefab.com  Mon Mar  5 20:58:01 2012
+From: chuck at codefab.com (Chuck Swiger)
+Date: Mon, 05 Mar 2012 15:58:01 -0500
+Subject: [License-review] MXM compared to CC0
+In-Reply-To: <20120305201843.GA15048@mercury.ccil.org>
+References: <87ipincylr.fsf@floss.red-bean.com>
+	<CAKHykesKtou5FQY9xfQDT9V6zvE1S5o+2Z8orzh1nGhKYxuoQg@mail.gmail.com>
+	<4F507548.6090204@piana.eu>
+	<89376739-4BF2-4484-B731-C06D3ADA3369@codefab.com>
+	<4F5080F3.7030109@piana.eu>
+	<F20CCBCE-2290-4BED-8923-F46368EE425D@codefab.com>
+	<4F548D4A.6030602@piana.eu> <4F5510B4.90808@codefab.com>
+	<20120305201843.GA15048@mercury.ccil.org>
+Message-ID: <4F5528D9.4080504@codefab.com>
+
+On 3/5/2012 3:18 PM, John Cowan wrote:
+> Chuck Swiger scripsit:
+>> Open source software must allow a user to run the software, as well
+>> as modify it and make modified versions available to others, both in
+>> software source code and compiled formats.
+>
+> That's not possible.  The most that can be achieved is that the author
+> of the software must not prevent users from running it.  Because patent
+> rights are negative (the right to forbid use, rather than the right
+> to use), no one can reliably deliver the right to use in a wide-open
+> software patent regime.
+
+I see the distinction you are trying to draw, but you discount the first-sale 
+doctrine and patent exhaustion.  Even the worst patent trolls [1] generally 
+avoid suing end-users of a product, although if the Quanta v. LG Electronics 
+decision went the other way, things might well be otherwise.
+
+In any event, a CC0 Affirmer cannot grant rights which they do not possess.
+
+And we can't make OSD-compliance and OSI license approval decisions depend 
+upon the licensor granting rights which they do not hold.
+
+>> However, the MIT license invokes a number of key phrases from US
+>> patent law: "to deal in the Software without restriction, including
+>> without limitation the rights to use, copy, modify, merge, publish,
+>> distribute, sublicense, and/or sell copies of the Software".  That is
+>> an explicit grant of rights governed by patent law, even if the MIT
+>> license doesn't use the word "patent" anywhere in the license text.
+>
+> Either that, or the presence of "use" and "sell" mean nothing whatever,
+> since lawful owners of copies already have those rights.
+
+Yes.
+
+Regards,
+-- 
+-Chuck
+
+[1]: I'm thinking of Innovatio or Rambus-- who are undoubtedly lurking under 
+the bridge over the River Lethe-- even they aren't going so far as to sue 
+end-users who have a wireless laptop or which uses memory that implemented a 
+JEDEC standard.
+
+
+
+
+From osi-review at piana.eu  Tue Mar  6 09:15:03 2012
+From: osi-review at piana.eu (Carlo Piana)
+Date: Tue, 06 Mar 2012 10:15:03 +0100
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <4F5510B4.90808@codefab.com>
+References: <87ipincylr.fsf@floss.red-bean.com>
+	<CAKHykesKtou5FQY9xfQDT9V6zvE1S5o+2Z8orzh1nGhKYxuoQg@mail.gmail.com>
+	<4F507548.6090204@piana.eu>
+	<89376739-4BF2-4484-B731-C06D3ADA3369@codefab.com>
+	<4F5080F3.7030109@piana.eu>
+	<F20CCBCE-2290-4BED-8923-F46368EE425D@codefab.com>
+	<4F548D4A.6030602@piana.eu> <4F5510B4.90808@codefab.com>
+Message-ID: <4F55D597.2000309@piana.eu>
+
+On 05/03/2012 20:15, Chuck Swiger wrote:
+> However, the language it includes for resolving contradictions gives
+> the CC0 Statement of Purpose priority over clause 4a:
+>
+> "Should any part of the License for any reason be judged legally
+> invalid or ineffective under applicable law, such partial invalidity
+> or ineffectiveness shall not invalidate the remainder of the License,
+> and in such case Affirmer hereby affirms that he or she will not (i)
+> exercise any of his or her remaining Copyright and Related Rights in
+> the Work or (ii) assert any associated claims and causes of action
+> with respect to the Work, in either case contrary to Affirmer's
+> express Statement of Purpose."
+>
+> In other words, I don't think CC0's clause 4a is effective with regard
+> to a CC0 Work, or anything derived from a CC0 Work.  However, the
+> Affirmer would still retain patent and trademark rights (and other
+> rights, perhaps) with regard to anything else. 
+
+
+I think this misunderstanding is at the foundation of our disagreement.
+This is NOT a clause that resolves contradictions. This is standard
+language in any agreement I know, and it is called "severability clause"
+[0], i.e., it safeguards an agreement from being declared null and void
+in case one or more provisions are null and void.
+
+I don't recognize in the cited clause anything that detracts from the
+clear provision of 4.a, because it still covers only "Copyright and
+Related Rights in the Work", which is has a very precise legal meaning,
+and this is consistent with the Statement of Purposes that only speaks
+about "Copyright and Related Rights in the Work."
+
+I see this is particularly troublesome since even people otherwise
+conversant with the OS licensing is misguided by the actual language.
+
+Thus, to me, the only discrimen to decide whether this license is to be
+approved is to decide whether, as Brendan has put it clearly, if the OSD
+relates to all the rights the licensor controls or to copyright only.
+This is the objection I received when I proposed the MXM and that
+convinced me.
+
+Russ has a point when he says that patent rights are negative in nature
+and nobody can guarantee that you can use the software under patent
+rights, this is one of the many shortcomings of the patent system
+compared to the copyright system (although also the copyright, in this
+regard, is a negative right, only it's easier to know whether you
+control the entirety or only a part of it).
+
+However, to me Brendan (and those who have affirmed the same principle
+earlier on) is right. I don't believe that the OSD should limit itself
+to copyright, allowing the licensor to give with one hand and retain
+with the other. All modern licenses (contrary to MXM and CC0) say that
+both the initial licensor and any contributor give permission to use
+under copyright and patent they control. Of course they cannot give
+permission concerning something they cannot control.
+
+With best regards,
+
+Carlo
+
+
+[0] http://en.wikipedia.org/wiki/Severability
+
+
+
+
+From Nigel.Tzeng at jhuapl.edu  Tue Mar  6 15:24:08 2012
+From: Nigel.Tzeng at jhuapl.edu (Tzeng, Nigel H.)
+Date: Tue, 6 Mar 2012 10:24:08 -0500
+Subject: [License-review] CC0 incompliant with OSD on patents,
+ [was: MXM compared to CC0 ]
+In-Reply-To: <4F55D597.2000309@piana.eu>
+Message-ID: <CB7B8DC9.14CC7%Nigel.Tzeng@jhuapl.edu>
+
+Frankly Carlo, it strikes me as sour grapes with you constantly bringing
+up MXM.  Approval of new general purpose open source licenses should
+probably consider/require explicit patent grants.  However, special
+purpose licenses in the past have specifically limited patent grants and
+received OSI approval.
+
+Folks appear to be forgetting that CC0 is first a public domain COPYRIGHT
+dedication with a permissive fallback.  As such, it's another special
+purpose license that fills a need within the community (PD dedication) not
+met by another approved license.
+
+In many countries I would imagine that the fallback would not come into
+play.  In which case you still only have copyright rights unless public
+domain copyright dedications automatically come with trademark and patent
+rights bundled together.
+
+Note that the ODC PDDL also only dedicates copyright and data rights to
+the public domain and not trademarks or patents.
+
+I'm going disagree with folks regarding deprecating licenses without
+explicit patent grants.  If the OSI is dumb enough to deprecate the BSD
+license I'll go ahead and deprecate the OSI as having lost touch with the
+community and I don't think I'll be alone in doing so.
+
+
+On 3/6/12 4:15 AM, "Carlo Piana" <osi-review at piana.eu> wrote:
+
+>Thus, to me, the only discrimen to decide whether this license is to be
+>approved is to decide whether, as Brendan has put it clearly, if the OSD
+>relates to all the rights the licensor controls or to copyright only.
+>This is the objection I received when I proposed the MXM and that
+>convinced me.
+
+
+
+
+
