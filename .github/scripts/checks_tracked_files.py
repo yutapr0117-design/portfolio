@@ -128,12 +128,14 @@ def run(ctx):
     )
     try:
         _out434 = subprocess.run(
-            ["git", "status", "--porcelain", "--untracked-files=all"],
+            ["git", "status", "--porcelain", "-z", "--untracked-files=all"],
             cwd=ROOT, capture_output=True, text=True, timeout=30,
         )
+        # `-z` が要る: 無しだと非 ASCII のパスは `"docs/..."` と引用符付きで返り、
+        # startswith(_governed434) が一致せず **日本語名の未追跡ファイルを見落とす** (434c)。
         _untracked434 = sorted(
-            ln[3:].strip() for ln in _out434.stdout.splitlines()
-            if ln.startswith("?? ") and ln[3:].strip().startswith(_governed434)
+            ln[3:] for ln in _out434.stdout.split("\0")
+            if ln.startswith("?? ") and ln[3:].startswith(_governed434)
         )
         check(
             not _untracked434,
@@ -148,3 +150,28 @@ def run(ctx):
         check(False, "Check 434: git status",
               f"Check 434: git status を実行できない ({_e434}) — verify の視界を確認できない",
               blocking=True)
+    # 434c: **パスを出力する git コマンドは `-z` で呼ぶ。** 既定 (core.quotepath=true) の git は
+    # 非 ASCII のパスを `"LICENSES/rounds/...\\343\\203..."` と引用符 + 8 進エスケープで返す。
+    # 行で読むと `is_file()` が偽になって**黙って飛ばされる** (Check 365 / 454 は日本語名の
+    # 3 ファイルを一度も数えていなかった) か、そのまま URL に組まれて**404 になる**
+    # (週次の配信検査が 2026-09-21 に赤くなった当の原因)。走査範囲は導出する。
+    _nz434, _seen434 = [], 0
+    for _py434 in sorted((ROOT / ".github" / "scripts").glob("*.py")):
+        if _py434.name.startswith("mutation_samples"):
+            continue          # mutation の定義は「壊した形」を置くデータで、実行される呼び出しではない
+        _src434 = _py434.read_text(encoding="utf-8", errors="replace")
+        for _m434 in re.finditer(r'\[\s*"git"\s*,\s*"(ls-files|status|diff)"[^\]]*\]', _src434):
+            _seen434 += 1
+            _call434 = _m434.group(0)
+            if _m434.group(1) == "diff" and "--name" not in _call434:
+                continue
+            if '"-z"' not in _call434:
+                _nz434.append(f"{_py434.name}:{_src434.count(chr(10), 0, _m434.start()) + 1}")
+    check(
+        _seen434 > 0 and not _nz434,
+        f"Check 434c: パスを出力する git 呼び出し {_seen434} 件がすべて -z で呼ばれている",
+        (f"Check 434c: -z なしでパスを読む git 呼び出しがある: {_nz434 or '走査で 1 件も見つからない (正規表現が綴りを外した)'}。"
+         "非 ASCII のパスは引用符 + 8 進エスケープで返り、is_file() が偽になって黙って飛ばされるか、"
+         "URL に組まれて 404 になる (2026-09-21 の週次配信検査の赤)。`-z` と split('\\0') で読め"),
+        blocking=True,
+    )

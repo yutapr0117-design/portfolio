@@ -429,8 +429,8 @@ def run(ctx):
         _m_src413 = re.search(r"source file が \*\*(\d+)\*\*", _rb413)
         try:
             _files413 = [ln for ln in _sp413.run(
-                ["git", "ls-files"], cwd=str(ROOT), capture_output=True, text=True, check=True
-            ).stdout.splitlines() if ln.strip()]
+                ["git", "ls-files", "-z"], cwd=str(ROOT), capture_output=True, text=True, check=True
+            ).stdout.split("\0") if ln]
         except Exception:  # noqa: BLE001 — git 不在環境では検証をスキップ (ADVISORY ゆえ fail-soft)
             _files413 = []
         if _files413 and _m_total413 and _m_src413:
@@ -502,10 +502,10 @@ def run(ctx):
     # **最も助けが要るときにだけ**壊れる形だった。
     import subprocess as _sp456
     try:
-        _ls456 = _sp456.run(["git", "ls-files", ".github/scripts"], cwd=str(ROOT),
+        _ls456 = _sp456.run(["git", "ls-files", "-z", ".github/scripts"], cwd=str(ROOT),
                             capture_output=True, text=True, check=True)
         _bad456 = []
-        for _rel456 in (ln.strip() for ln in _ls456.stdout.splitlines() if ln.strip().endswith(".py")):
+        for _rel456 in (ln for ln in _ls456.stdout.split("\0") if ln.endswith(".py")):
             _p456 = ROOT / _rel456
             if not _p456.is_file():
                 continue

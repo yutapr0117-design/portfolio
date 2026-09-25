@@ -371,9 +371,9 @@ def run(ctx):
                       blocking=True)
             if _disc457 is not None:
                 import subprocess as _sp457
-                _wk457 = {ln.strip() for ln in _sp457.run(
-                    ["git", "ls-files", ".well-known"], cwd=str(ROOT),
-                    capture_output=True, text=True, check=True).stdout.splitlines() if ln.strip()}
+                _wk457 = {ln for ln in _sp457.run(
+                    ["git", "ls-files", "-z", ".well-known"], cwd=str(ROOT),
+                    capture_output=True, text=True, check=True).stdout.split("\0") if ln}
                 _want457 = _wk457 | {"robots.txt", "sitemap.xml", "manifest.webmanifest"}
                 _want457 = {w for w in _want457 if (ROOT / w).is_file()}
                 _gap457 = sorted(_want457 - _disc457 - _targets457)
