@@ -5,7 +5,7 @@ aio_monitoring.py — AIO Effect Monitoring Script (free-tier edition)
 Yuta Yokoi (横井雄太) のポートフォリオが引用・言及されているかを検出する。
 
 【無料枠前提の対応エンジン】
-  Gemini API (gemini-2.0-flash + Google Search grounding)
+  Gemini API (flash + Google Search grounding。既定 gemini-2.0-flash、廃止時は一覧から選び直す)
     Google AI Studio 無料枠: 15 RPM / 1500 RPD
     クレジットカード不要。長期的に安定して利用可能。主力。
 
@@ -102,9 +102,14 @@ def post_json(url: str, headers: dict, body: dict) -> dict:
 
 # ── 信号検出 ───────────────────────────────────────────────────────────────
 
-def detect_signals(text: str) -> dict:
+def detect_signals(text: str, query: str = "") -> dict:
     text_lower = text.lower()
-    found = [s for s in ENTITY_SIGNALS if s.lower() in text_lower]
+    # [FIX 2026-09-25] クエリ自体に含まれる語は数えない。5 問中 4 問がシグナル語
+    # （Yuta Yokoi / 横井雄太 / KERNEL framework / AI-Driven PM Portfolio）を含むので、
+    # 応答がクエリを復唱するだけで "cited" になっていた。測定が止まっていた間は
+    # 表に出なかったが、測れるようになった瞬間に偽の「引用増加」を出す形だった。
+    query_lower = query.lower()
+    found = [s for s in ENTITY_SIGNALS if s.lower() in text_lower and s.lower() not in query_lower]
     return {
         "portfolio_url_found": CANONICAL_URL in text_lower,
         "signals_found": found,
@@ -117,11 +122,63 @@ def detect_signals(text: str) -> dict:
 
 # ── Gemini（主力・無料）─────────────────────────────────────────────────────
 
-def query_gemini(query: str, api_key: str) -> dict:
-    """Gemini 2.0 Flash + Google Search grounding（無料枠）でクエリを実行する。"""
+GEMINI_DEFAULT_MODEL = "gemini-2.0-flash"
+_GEMINI_EXCLUDE = ("lite", "preview", "exp", "tts", "image", "live", "audio", "thinking", "embedding")
+
+
+def pick_gemini_model(models: list) -> str | None:
+    """ListModels の結果から、generateContent を持つ最新の安定版 flash を選ぶ。
+
+    [ADD 2026-09-25] 既定の gemini-2.0-flash は 2026-08-11 以降 404
+    （"no longer available"）を返しており、監視は 1 件も測れていなかった。モデル名を
+    ハードコードすると廃止のたびに黙って止まるので、廃止時は一覧から選び直す。
+    """
+    import re as _re
+    best, best_ver = None, -1.0
+    for m in models or []:
+        name = str(m.get("name", "")).removeprefix("models/")
+        if "flash" not in name or any(x in name for x in _GEMINI_EXCLUDE):
+            continue
+        if "generateContent" not in (m.get("supportedGenerationMethods") or []):
+            continue
+        mv = _re.match(r"gemini-(\d+(?:\.\d+)?)-flash$", name)
+        if not mv:
+            continue
+        ver = float(mv.group(1))
+        if ver > best_ver:
+            best, best_ver = name, ver
+    return best
+
+
+def resolve_gemini_model(api_key: str) -> str:
+    """GEMINI_MODEL（環境変数）> 既定。既定が廃止されていれば一覧から選び直す。"""
+    override = os.environ.get("GEMINI_MODEL", "").strip()
+    if override:
+        return override
+    try:
+        req = urllib.request.Request(
+            "https://generativelanguage.googleapis.com/v1beta/models?pageSize=200&key=" + api_key)
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            models = json.loads(resp.read().decode("utf-8")).get("models", [])
+    except Exception as e:  # noqa: BLE001 — 一覧が取れなければ既定で試す（結果は error として記録される）
+        print(f"::warning::Gemini のモデル一覧を取得できない ({type(e).__name__}) — 既定 {GEMINI_DEFAULT_MODEL} で試す")
+        return GEMINI_DEFAULT_MODEL
+    names = {str(m.get("name", "")).removeprefix("models/") for m in models}
+    if GEMINI_DEFAULT_MODEL in names:
+        return GEMINI_DEFAULT_MODEL
+    picked = pick_gemini_model(models)
+    if picked:
+        print(f"::notice::既定の {GEMINI_DEFAULT_MODEL} は一覧に無い — {picked} を使う")
+        return picked
+    print(f"::warning::generateContent を持つ flash モデルが一覧に無い — 既定 {GEMINI_DEFAULT_MODEL} で試す")
+    return GEMINI_DEFAULT_MODEL
+
+
+def query_gemini(query: str, api_key: str, model: str = GEMINI_DEFAULT_MODEL) -> dict:
+    """Gemini flash + Google Search grounding（無料枠）でクエリを実行する。"""
     url = (
         "https://generativelanguage.googleapis.com/v1beta/models/"
-        "gemini-2.0-flash:generateContent?key=" + api_key
+        + model + ":generateContent?key=" + api_key
     )
     body = {
         "contents": [{"parts": [{"text": query}], "role": "user"}],
@@ -142,10 +199,10 @@ def query_gemini(query: str, api_key: str) -> dict:
             if "web" in chunk
         ]
         all_text = text + " " + " ".join(cited_urls)
-        signals = detect_signals(all_text)
+        signals = detect_signals(all_text, query)
         return {
             "status": "ok",
-            "model_used": "gemini-2.0-flash",
+            "model_used": model,
             "response_excerpt": text[:300],
             "cited_urls": cited_urls,
             **signals,
@@ -194,7 +251,7 @@ def query_openai(query: str, api_key: str) -> dict:
             "status": "ok",
             "model_used": "gpt-4o-mini",
             "response_excerpt": content[:300],
-            **detect_signals(content),
+            **detect_signals(content, query),
         }
     except (KeyError, IndexError) as e:
         return {"status": "parse_error", "detail": str(e), "cited": False, "signals_found": []}
@@ -297,6 +354,11 @@ def main() -> None:
     )
     print("")
 
+    gemini_model = resolve_gemini_model(gemini_key) if gemini_key else None
+    if gemini_model:
+        s0 = run_record["summary"]
+        s0["gemini_model"] = gemini_model
+
     for i, query in enumerate(QUERIES):
         print(f"[{i+1}/{len(QUERIES)}] {query}")
         query_record = {"query": query, "results": {}}
@@ -304,7 +366,7 @@ def main() -> None:
         if gemini_key:
             if i > 0:
                 time.sleep(GEMINI_INTER_QUERY_SLEEP)  # 無料枠レート制限対応
-            gr = query_gemini(query, gemini_key)
+            gr = query_gemini(query, gemini_key, gemini_model)
             query_record["results"]["gemini"] = gr
             if gr.get("cited"):
                 run_record["summary"]["gemini_cited_count"] += 1
@@ -333,6 +395,14 @@ def main() -> None:
     # total_cited_count を計算してから save_log する
     s = run_record["summary"]
     s["total_cited_count"] = s["gemini_cited_count"] + s["openai_cited_count"]
+    # [ADD 2026-09-25] 「測った結果 0」と「測れていない」を分けて記録する。2026-05-18 からの
+    # 23 回は全件が error / quota skip で、1 件も測れていなかったのに summary は毎回
+    # 「cited 0/5」だけを残していた —— 読み手には観測された 0 に見える。
+    for _eng in ("gemini", "openai"):
+        _st = [q["results"][_eng].get("status") for q in run_record["queries"] if _eng in q["results"]]
+        s[f"{_eng}_measured_count"] = sum(1 for x in _st if x == "ok")
+        s[f"{_eng}_error_count"] = sum(1 for x in _st if x in ("error", "parse_error"))
+    s["measured_query_count"] = s["gemini_measured_count"] + s["openai_measured_count"]
     # 全クエリ・全エンジンの結果から canary 再現（取り込みの決定的証拠）を集計する。
     s["canary_reproduced_count"] = sum(
         1
@@ -347,7 +417,8 @@ def main() -> None:
     # サマリー
     print("\n=== Summary ===")
     if gemini_key:
-        print(f"Gemini cited:   {s['gemini_cited_count']}/{s['total_queries']}")
+        print(f"Gemini cited:   {s['gemini_cited_count']}/{s['total_queries']}"
+              f" (measured {s['gemini_measured_count']}, errors {s['gemini_error_count']}, model {s.get('gemini_model')})")
     if openai_key:
         sk = s["openai_skipped_quota"]
         if sk == len(QUERIES):
@@ -356,6 +427,9 @@ def main() -> None:
             print(f"OpenAI cited:   {s['openai_cited_count']}/{s['total_queries']}"
                   + (f" ({sk} skipped quota)" if sk else ""))
     print(f"Total cited:    {s['total_cited_count']}/{s['total_queries']}")
+    if s["measured_query_count"] == 0:
+        print("::warning::AIO monitoring measured nothing this run — every engine errored or was skipped. "
+              "'cited 0' here is NOT an observation of non-citation.")
 
     # GitHub Step Summary
     step_summary = os.environ.get("GITHUB_STEP_SUMMARY")
@@ -372,6 +446,9 @@ def main() -> None:
                 else:
                     f.write(f"| OpenAI (free credits) | {s['openai_cited_count']} / {s['total_queries']} |\n")
             f.write("| Perplexity | 廃止（無料枠なし） |\n")
+            if s["measured_query_count"] == 0:
+                f.write("\n**⚠ この回は 1 件も測れていない**（全エンジンが error / 枠切れ）。"
+                        "「引用 0」は観測ではない。\n")
 
     # 変化検出
     github_output = os.environ.get("GITHUB_OUTPUT")
@@ -383,6 +460,12 @@ def main() -> None:
                 with open(github_output, "a") as f:
                     f.write("citation_change=configuration_changed\n")
                     f.write("citation_delta=0\n")
+        elif s["measured_query_count"] == 0:
+            # 何も測れていない回の 0 を前回と比べると、測定の失敗が「引用の減少」に化ける。
+            print("::notice::No measurement this run — citation change not evaluated.")
+            if github_output:
+                with open(github_output, "a") as f:
+                    f.write("citation_change=none\ncitation_delta=0\n")
         else:
             # OpenAI が全スキップの場合は比較対象から除外
             all_openai_skipped = s.get("openai_skipped_quota", 0) == len(QUERIES)
