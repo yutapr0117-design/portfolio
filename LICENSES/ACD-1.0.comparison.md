@@ -52,8 +52,8 @@ OSI が新規ライセンスの提出者に求めるのは、**最も近い承�
 > |---|---|---|---|---|---|---|---|
 > | **MIT-0** | none | no | no | no | no | no | no |
 > | **0BSD** | none | no | no | no | no | no | no |
-> | **Unlicense** | none | no (silent) | no | no | dedication form only | no | no |
-> | **CC0** (not approved) | none | **expressly excluded** | no | no | dedication form only | waived where possible | no |
+> | **Unlicense** | none | no (silent) | no | no | dedication form only | no | the dedication only (*"to the detriment of our heirs and successors"*) |
+> | **CC0** (not approved) | none | **expressly excluded** | no | no | dedication form only | waived where possible | the waiver only (*"to the detriment of Affirmer's heirs and successors"*) |
 > | **Apache-2.0** | notice, NOTICE file | yes, limited to claims necessarily infringed | no | no | no | no | no |
 > | **ACD-1.0** | none | yes, reaching computational use, models and outputs (§8.4) | yes, affirmatively (§6) | expressly declines to make one (§6.2) | §9 makes permissions independent of subsistence | §12.1 waiver, §12.2 covenant where waiver is impossible | §2.8, §12.4 |
 >
@@ -61,7 +61,9 @@ OSI が新規ライセンスの提出者に求めるのは、**最も近い承�
 > grant that follows the work into training and inference; an affirmative statement about
 > machine learning and text-and-data-mining, including a refusal to make a reservation; a
 > construction that does not assume any right subsists in the first place; and provisions that
-> follow the rights when they change hands. Everything else it shares with MIT-0 and 0BSD.
+> follow the rights when they change hands — for the licence, the patent grant and the
+> machine-learning statement, not only for the dedication (the Unlicense and CC0 already say their
+> dedication binds heirs and successors; §2.8 extends that to Sections 4, 6 and 8). Everything else it shares with MIT-0 and 0BSD.
 >
 > **When the approved alternatives are the better choice — which is most of the time.** If the
 > work is ordinary software, if the author holds no patents, if no text-and-data-mining opt-out
