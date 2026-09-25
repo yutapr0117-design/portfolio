@@ -161,7 +161,7 @@ Open Source Definition, and to say where the licence is used.
 
 ---
 
-### B.0 The message as it should actually be sent (**1456 words**, measured 2026-09-25)
+### B.0 The message as it should actually be sent (**1488 words**, measured 2026-09-25)
 
 > **どの版を出すのか（2026-09-11 追加）。** **オーナー確認済みの計画は「discuss で受けたものを
 > 取り込んだ改訂版を `license-review` へ出す」である**（`REVIEWERS.md` の Status）。
@@ -228,6 +228,13 @@ message would have worsened **the one bottleneck with two recorded instances of 
 engaging at all** (`ACD-OSI-BOTTLENECKS.md` B3). **The full treatment went to the reference instead**
 (`ACD-1.0.submission-reference.md` §3d). **Naming an objection before the reviewer finds it is worth
 words; explaining it at length in the opening message is not.**
+
+**And 1,488 later on 2026-09-25**, when the gap paragraph gained one sentence naming
+CERN-OHL-P-2.0. A census of all 141 approved texts that day (`ACD-1.0.gap-census.md`) found that
+its patent grant over *Products* can be read to reach a trained model, so the patent limb of the
+gap holds only as "names models" (`against.md` #241). The three-together claim still stands, but a
+reviewer who knows CERN-OHL would have found the nearest counter-example before we named it.
+**+32 words**, against a first draft of 50.
 
 **Why that last addition earns its words.** *"Why another public-domain-equivalent?"* is the opening
 move in this category — Rob Landley put it as fungibility (#84), David Woolley put it to the
@@ -302,6 +309,8 @@ measured it**: across all 149 OSI-approved texts (SPDX List 3.28.0, fetched 2026
 "machine learning", "text and data mining", "machine-generated" and "subsist" occur **zero** times.
 Absence of the words is not absence of effect — a permissive licence allows training by allowing
 everything — but it is what leaves §6, §8.4 and §9 open. The command is in the repository.
+**The nearest approach:** CERN-OHL-P-2.0 grants patents over work *"arising from the … processing
+of Covered Source"*, which can be read to reach a model. It does not name models and has conditions.
 
 **Why now, since the objection is reasonable.** Licences for machine learning have been brought to
 this list since at least April 2023 — the Restricted Artificial Intelligence License, withdrawn four
