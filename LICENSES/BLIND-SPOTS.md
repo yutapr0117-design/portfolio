@@ -586,7 +586,7 @@ verified when. [`ACD-1.0.against.md`](ACD-1.0.against.md) is the case against ap
 
 ## 「未決」と書く前に、その file を開く（2026-09-15）
 
-**本日 9 度目の同じ形。** `review-precedents.md` §1.84 / `against.md` #147 /
+**本日 9 度目の同じ形。** `review-doctrine.md` §1.84 / `against.md` #147 /
 `ACD-1.1-CHANGELIST.md` §3b の 3 箇所に「1.1 での扱いは**未決**」と書いた。
 **草案の §6.3 は、その前日に既に閉じていた。**
 
