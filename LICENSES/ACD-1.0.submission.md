@@ -431,8 +431,10 @@ Submit via https://tools.spdx.org/app/submit_new_license/ (preferred) or the
   CreativeWork node, in `sitemap.xml`, in `.well-known/aio-manifest.json`, and in the
   `llms.txt` family, each of which is checked in CI.
 - **Not a duplicate:** it is not a variant of any listed licence. A clause-level comparison
-  with 0BSD (closest on "zero conditions") and Apache-2.0 (closest on "express patent
-  licence") is given in section B.2 above.
+  with 0BSD (closest on "zero conditions"), with UPL-1.0, BlueOak-1.0.0 and
+  BSD-2-Clause-Patent (closest on "permissive with an express patent licence", each with one
+  kind of condition), and with CERN-OHL-P-2.0 (whose patent licence can be read to reach
+  things made from the work) is in `LICENSES/ACD-1.0.submission-reference.md` section 2.
 - **Steward commitment:** I am the steward. Once `ACD-1.0` is on the list I will not modify
   the text that the identifier denotes. Any later improvement will be issued as a distinct
   version (`ACD-1.1`, `ACD-2.0`) with its own identifier. Section 16.4 of the text itself

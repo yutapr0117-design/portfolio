@@ -1,7 +1,7 @@
 ---
 file: .github/scripts/checks_license_references.py
 audience: ai, human (新卒), 監査人, 第三者全般
-last-updated: 2026-09-15
+last-updated: 2026-09-25
 canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK_SOURCE_FILES) / .github/scripts/checks_license_dossier.py (切り出し元) / LICENSES/AUDIT-LEDGER.md §7 (出自)
 ---
 
@@ -19,6 +19,7 @@ canonical-ref: .github/scripts/check_repository_consistency.py (monolith / CHECK
 | (c) `Check <N>` | 178 | **存在しない機械強制を根拠として示さないこと**（最大番号は実装から導出）|
 | (d) `` `file.md` `` §N.M | 94 | **文書を名指しした節参照** |
 | (e) 裸の `§N.M` | 3,190 | 上記以外のすべての節参照 |
+| (i) 英語の `section B.0` | 1 | **§ を付けずに英語で書いた英字節参照**（2026-09-25 追加。SPDX 提出文の「section B.2 above」が分割で消えた節を指していた） |
 
 ## Why
 

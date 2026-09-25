@@ -26,6 +26,8 @@ Check inventory (Check 45 enforces sync with the `# ── N.` sections in run()
        ある」と読んで探しに行く。** **残る 2 形は Check にしない**（裸の `` `file.md` `` 1,061 箇所と、
        **文書を名指ししない**裸の `§N.M` 2,024 箇所は、リポジトリ外・仮称・文脈依存を含み
        意味の判断が要る）。**ここに穴が残ることは台帳の種類 7 に書いてある。**
+       **(i)・2026-09-25**: 英語で書いた英字節参照 `section B.2` —— face (e) は `§` 付きしか見ず、
+       SPDX 提出文が存在しない「section B.2 above」を指していたのを素通りした。
        **(h)・2026-09-24**: 他文書を行番号（`` `file.md` L123 ``）で指さないこと —— 行番号は書いた日の
        位置でしかなく、確定手順の表が 11 箇所中 9 箇所で既に別の行を指していた。
 
@@ -206,6 +208,15 @@ def run(ctx):
                             or _sid471 in _allnum471):
                         continue
                     _bad471.append(f"{_f471.name}:{_i471} `\u00a7{_sid471}` \u306f\u3069\u306e\u6587\u66f8\u306e\u7bc0\u306b\u3082\u89e3\u6c7a\u3057\u306a\u3044")
+                # (i) **英語で書いた英字節参照 `section B.2`**（2026-09-25）。face (e) は `\u00a7` で
+                # 始まる形しか見ておらず、**SPDX 提出文 §C が「section B.2 above」と存在しない節を
+                # 指していたのを素通りした**（比較は分割時に `submission-reference.md` §2 へ移っていた）。
+                # 英字の節（A.0 / B.0 / E.1 …）は提出パケットにしか無いので、解決先はその 2 file の見出し。
+                # **数字の `Section 8.4` はライセンス条項を指すので対象外**（英字 1 文字で始まる形だけを見る）。
+                for _m471 in re.finditer(r"\b[Ss]ection\s+([A-Z]\.[0-9]+[a-z]?)\b", _l471):
+                    if _m471.group(1) not in _pack471:
+                        _bad471.append(
+                            f"{_f471.name}:{_i471} `section {_m471.group(1)}` \u306f\u63d0\u51fa\u30d1\u30b1\u30c3\u30c8\u306e\u7bc0\u306b\u89e3\u6c7a\u3057\u306a\u3044")
                 # (c) Check <N> / Checks <N> / 番号の並び
                 # ⚠ **2026-09-22 に 3 つの穴を実測で塞いだ**（別記法で殴って RED を確かめる掃引）:
                 #   (1) **複数形 `Checks N`** ——素通りしていた。実使用 3 箇所で、**うち 1 つは
@@ -292,7 +303,7 @@ def run(ctx):
 
         check(
             not _bad471,
-            f"Check 471: \u30c9\u30b7\u30a8\u306e\u53c2\u7167\u8a18\u6cd5 7 \u5f62 (rounds/ \u30d1\u30b9 / B<n> / Check N / \u540d\u6307\u3057\u306e \u00a7N.M / \u88f8\u306e \u00a7N.M / \u5171\u6709\u63a1\u756a\u306e\u4e00\u610f\u6027 / \u884c\u756a\u53f7\u53c2\u7167\u306e\u4e0d\u5728) \u304c\u3059\u3079\u3066\u89e3\u6c7a\u3059\u308b",
+            f"Check 471: \u30c9\u30b7\u30a8\u306e\u53c2\u7167\u8a18\u6cd5 8 \u5f62 (rounds/ \u30d1\u30b9 / B<n> / Check N / \u540d\u6307\u3057\u306e \u00a7N.M / \u88f8\u306e \u00a7N.M / section B.0 / \u5171\u6709\u63a1\u756a\u306e\u4e00\u610f\u6027 / \u884c\u756a\u53f7\u53c2\u7167\u306e\u4e0d\u5728) \u304c\u3059\u3079\u3066\u89e3\u6c7a\u3059\u308b",
             (f"Check 471: \u30c9\u30b7\u30a8\u5185\u306e\u53c2\u7167\u304c\u89e3\u6c7a\u3057\u306a\u3044: {_bad471}\u3002"
              "**`rounds/` \u306f\u300c\u4e00\u6b21\u8cc7\u6599\u306f\u3053\u3053\u306b\u5728\u308b\u300d\u3068\u3044\u3046\u8a3c\u62e0\u306e\u4e3b\u5f35\u305d\u306e\u3082\u306e**\u3067\u3042\u308a\u3001"
              "**`B<n>` \u306f\u65b9\u91dd\u3092\u6c7a\u3081\u3066\u3044\u308b register \u306e\u9805\u76ee**\u3067\u3042\u308a\u3001"
