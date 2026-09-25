@@ -484,6 +484,16 @@ _MUTATIONS_TAIL.append({
     "find": "against all 149 OSI-approved licence texts",
     "replace": "against all 150 OSI-approved licence texts",
 })
+_MUTATIONS_TAIL.append({
+    "name": "Check 471 (i): 英語で書いた英字節参照 `section E.1` を存在しない節へ向ける —— "
+            "face (e) は `\u00a7` 付きしか見ておらず、SPDX 提出文の「section B.2 above」"
+            "（分割で消えた節）を素通りした (2026-09-25)",
+    "file": ROOT / "LICENSES" / "ACD-1.0.submission-reference.md",
+    "find": "A fuller statement is in section E.1.",
+    "replace": "A fuller statement is in section E.9.",
+    "check": CHECK,
+})
+
 MUTATIONS = MUTATIONS_ARCHIVE3 + MUTATIONS_ARCHIVE + MUTATIONS_ARCHIVE2 + _MUTATIONS_TAIL
 
 _E2E_TAIL = [
