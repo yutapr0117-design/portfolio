@@ -53,6 +53,16 @@ canonical-ref: LICENSES/ACD-1.0.comparison.md §1.97 (条件の有無を同じ 1
 - **⚠ 判定は人が読んだもので、正規表現の結果ではない。** 初版の抽出正規表現は `BlueOak-1.0.0` の
   *licenses you to do everything* を見落とし、GPL-2.0 系の §7（*if a patent license would not permit …*）を許諾と誤認した。**両方とも読んで直した。**
 
+## 141 と 149 —— 同じ repo の旧い census との対照
+
+このドシエには **「承認済み 149 本」** を母集団にした旧い測定がある（`AS-OF.md` / `AUDIT-LEDGER.md` / `ACD-OSI-BOTTLENECKS-EXTERNAL.md`・2026-09-10・SPDX **3.28.0**）。
+**どちらかが誤りなのではなく、母集団の定義と版が違う。** 2 つのリストを取得して差を取った（2026-09-25）:
+
+- **149** = 3.28.0 の `isOsiApproved` **全件**（非 deprecated 136 ＋ deprecated 13）。deprecated 13 件は `AGPL-3.0`、`GPL-2.0`、`GPL-2.0+`、`GPL-3.0`、`GPL-3.0+`、`GPL-3.0-with-GCC-exception`、`LGPL-2.0`、`LGPL-2.0+`、`LGPL-2.1`、`LGPL-2.1+`、`LGPL-3.0`、`LGPL-3.0+`、`wxWindows` ——**うち 11 件は `-only` / `-or-later` へ移行済みの旧 ID で本文が現行 ID と重複し、残る 2 件（`GPL-3.0-with-GCC-exception` / `wxWindows`）は例外条項の本文である。**
+- **141** = 3.29.0 の `isOsiApproved` かつ **非 deprecated**。3.28.0 から **新たに承認済みになったのが 5 件**: `BSD-ask-to-endorse`、`CDDL-1.1`、`CNRI-Python-GPL-Compatible`、`Python-2.0.1`、`curl`。**外れたものは 0 件。**
+- **旧い数との整合**: 旧 census の「patent を含む 92 本 / output を含む 30 本」は、本表の 82 本 / 18 本から「新 5 件の寄与（patent は `CDDL-1.1` の 1 本・output は 0 本）」を引き、deprecated 13 件の寄与を足すと一致する。**deprecated 13 件は 3.28.0 の `text/deprecated_<id>.txt` を取得して実測した**（patent を含むもの 11 本・output を含むもの 12 本。差し引きで出した数ではない）。
+- **使い分け**: 数を引くときは**版と定義を同じ文に書く**。重複本文を数えない分、**非 deprecated の方が「何種類のライセンスが」という主張に正確**である。
+
 ## 全数表
 
 列 `tdm`〜`output` は語の出現回数（0 は空欄）。`許諾` と `範囲` は上の基準。
