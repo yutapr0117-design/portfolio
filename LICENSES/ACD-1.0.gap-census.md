@@ -27,6 +27,7 @@ canonical-ref: LICENSES/ACD-1.0.gap-measurements.md §1.97 (条件の有無を�
 - **取得できた本数: 141 / 141**・**できなかった本数: 0**。
   deprecated の承認済み識別子 13 件（`GPL-2.0` など、`-only`/`-or-later` へ移行済みの旧名）は除外した。
 - **本文の同一性**: 各 text の sha256 を取得時に記録した（下表の `sha256` 列は先頭 12 桁）。
+- **生成**: `.github/scripts/generate_gap_census.py`（取得は `--fetch`・一致確認は `--check`）。**このファイルは手で編集しない** —— 手で直すと表と文の数が食い違う。
 - **語の計数**: 空白を 1 つに正規化してから、大文字小文字を区別せずに数えた。用いた正規表現:
 
   | 列 | 正規表現 |
@@ -312,4 +313,4 @@ gap は**許諾の不在**ではなく**明示の不在**であり、4 条の文
   **この文と対で必ず置く逆側**: *Permissive licenses with an express patent grant already exist (BSD-2-Clause-Patent, BlueOak-1.0.0, UPL-1.0); the gap is the conjunction, not either half.*
 - **「出力の扱いは新しくない」を先に認める**（GPL-3.0 §2 / Artistic-1.0 §6）——審査者が引く前に引く。
 - **CERN-OHL の Products 条項**は (c) の最も近い先例。**提出参考資料 `submission-reference.md` §2 と入口 `REVIEWERS.md` へは 2026-09-25 に還元済み**（「承認済みライセンスでモデルに届く特許許諾は無い」とは書かず、「モデルを名指しするものは無い」に狭めた）。`against.md` / `comparison.md` への登録は各所有者の判断に委ねる。
-- **再現**: 上の正規表現と `licenses.json` の版数があれば、誰でも同じ表を作り直せる。**数が違ったら、それは我々の誤りか、リストの版の差である。**
+- **再現**: `python3 .github/scripts/generate_gap_census.py --fetch` で取得し、引数なしで本書を生成する（`--check` は書き換えずに一致だけを見る）。**本文中の件数はすべてこのスクリプトが表を数えて出したもの**で、手で判定した分類はスクリプト内にデータとして置いてある。**数が違ったら、それは我々の誤りか、リストの版の差である。**
