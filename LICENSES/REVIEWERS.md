@@ -69,8 +69,12 @@ decide what is worth translating, and gives you the commands to check the claims
   learning and text-and-data-mining and makes no reservation (§6); grants a patent licence that
   reaches **models and outputs** of computational use (§8.4); and makes your permissions
   independent of whether copyright subsists in machine-generated material at all (§9).
-- **Nearest approved licences.** Closest in effect to the Unlicense, MIT-0, 0BSD and CC0; closest
-  in patent machinery to Apache-2.0. What it adds to each is the three items above.
+- **Nearest approved licences.** Closest in effect to the Unlicense, MIT-0 and 0BSD (and to CC0,
+  which is **not** OSI-approved); closest in patent machinery to Apache-2.0. What it adds to each
+  is the three items above. **Against three it adds less**: UPL-1.0, BlueOak-1.0.0 and
+  BSD-2-Clause-Patent already combine a permissive grant with an express patent grant under one
+  notice condition — there the difference is that condition, not the patent grant
+  ([`submission-reference.md`](ACD-1.0.submission-reference.md) §2).
 - **The two weaknesses, first.** **No lawyer has read it**, and **it has one adopter — this
   repository**. Both are stated at length below and neither is repaired anywhere in this directory.
 - **Anyone can adopt it.** Zero project names, no placeholders in the clauses (only §16.1's notice template has a blank, filled in the adopter's own notice), no editing of the licence text required — the
@@ -166,7 +170,7 @@ unresolved, whose author was told on this list that a waiver of this kind needs 
 
 | The claim | The strongest thing against it |
 |---|---|
-| **The gap is real**: no approved licence expressly permits training and text-and-data-mining, grants patents reaching models and outputs, and declines to presume that rights subsist in machine-generated material (§6, §8.4, §9) | **Four of the seven distinguishing features close if the incumbents amend** — and we say which four ([`comparison.md`](ACD-1.0.comparison.md) §1.35). The case then rests on the remaining three |
+| **The gap is real**: no approved licence expressly permits training and text-and-data-mining, grants patents reaching models and outputs, and declines to presume that rights subsist in machine-generated material (§6, §8.4, §9) | **Four of the seven distinguishing features close if the incumbents amend** — and we say which four ([`comparison.md`](ACD-1.0.comparison.md) §1.35). The case then rests on the remaining three. **And the patent limb holds only as "names models"**: CERN-OHL-P-2.0 grants patents over *Products* — *"any … work … arising from the … processing of Covered Source"* — which can be read to reach a trained model ([`submission-reference.md`](ACD-1.0.submission-reference.md) §2, [`gap-census.md`](ACD-1.0.gap-census.md)) |
 | **It is reviewable**: §3 surrenders, §4 grants a licence *independently* (§4.4), so a reader never has to decide whether the surrender worked | **No court has characterised this construction**, in any jurisdiction (#3), and **no submission of this shape has been approved since 2020** (#87). A dedication taken alone is not approvable, and the escape is untested |
 | **It imposes nothing**: §10.1 and §4.3 attach no condition, so no obligation can fire in any delivery mode — the failure that condition-bearing instruments meet in hosted deployment | **The same structure weakens the warranty disclaimer** (#41) and forecloses defensive patent termination (#46). Both costs fall on the adopter, and both are deliberate |
 | **Anyone can adopt it**: zero project names, no placeholders in the clauses (one blank in §16.1's notice template), no editing of the licence text required — verifiable with the commands below | **One adopter: this repository** (#4). Reusability is a structural property; adoption is a social one, and only the first is shown |
@@ -263,7 +267,7 @@ them and would have sent a reviewer away from material they can read.
 
 | File | Language | What is in it |
 |---|---|---|
-| [`ACD-1.0.comparison.md`](ACD-1.0.comparison.md) | **English** | Why the nearest approved licences do not fit, by family (CC0, Unlicense, 0BSD/MIT-0, Apache-2.0, MPL) |
+| [`ACD-1.0.comparison.md`](ACD-1.0.comparison.md) | **English** | Why the nearest licences do not fit, by family (Unlicense, 0BSD/MIT-0, Apache-2.0, MPL — all OSI-approved — and CC0, which is not) |
 | [`ACD-1.0.clause-reference.md`](ACD-1.0.clause-reference.md) | Japanese | All 82 clauses, one line each, with what each is for |
 | [`ACD-1.0.jurisdictions.md`](ACD-1.0.jurisdictions.md) | Japanese | Where the questions differ by jurisdiction (JP, DE, FR, US, EU, UK). **Questions, not conclusions** — no legal opinion is offered |
 | [`ACD-1.0.faq.md`](ACD-1.0.faq.md) | Mixed; each answer has an English block | Practical questions from the adopter's side (SPDX notation, scanners, explaining it to a legal team, academic use, consumer-law limits) |
