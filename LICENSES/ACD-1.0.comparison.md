@@ -1,7 +1,7 @@
 ---
 file: LICENSES/ACD-1.0.comparison.md
 audience: ai, human (提出者), 監査人, 採用検討者, 第三者全般
-last-updated: 2026-09-19
+last-updated: 2026-09-25
 canonical-ref: LICENSES/ACD-1.0.txt (凍結中の本文・唯一の権威) / docs/architecture/acd-license-rationale.md (§2 に無条件系との比較と 0BSD/Apache 逐条差分) / LICENSES/ACD-1.0.review-responses.md (総論の想定問答・索引)
 ---
 
@@ -368,6 +368,26 @@ rule of thumb であって規則でもない。**
 > > that there was a need to clearly waive something into the public domain **without also waiving
 > > patents in the process**."
 >
+> **Both halves of this section were confirmed by the current chair, in a different thread, nine
+> years later (found 2026-09-25).** Pamela Chestek, chairing the License Committee, on the Mulan
+> Open Works Licenses, 10 August 2023:
+>
+> > "Two of the licenses ... are not likely to be approved because they **expressly state that they
+> > do not grant a patent license**. **This is the reason that the CC-0 license is not an
+> > OSI-approved license**, https://opensource.org/faq/#cc-zero, although **it has not been
+> > definitively decided due to Creative Commons' withdrawal of the license from consideration**."
+>
+> **One sentence carries both.** The *cause* is the patent carve-out, which is what this section
+> reconstructed from the 2012 archive. The *status* is that nothing was decided, which is the
+> correction the heading above now carries — and which until today rested on Simon Phipps's 2014
+> remark alone. **Two independent sources, a decade apart, and the later one is the sitting chair
+> of the committee that would decide ours.**
+>
+> **What it does not establish.** That ACD-1.0 clears the bar. It says the bar CC0 failed to clear
+> is the one ACD-1.0 was drafted against — **not that there is no other bar.** The same chair, in
+> the same thread, declined the Mulan licences on a ground that has nothing to do with patents
+> (`against.md` #237), and `comparison.md` cannot answer that one.
+
 > So the carve-out was **a deliberate accommodation of a named constituency**, not an oversight.
 > That matters for how ACD-1.0's opposite choice should be read: §8.3 states that a dedication
 > giving away copyright while withholding patents "leaves the recipient exposed, because software
