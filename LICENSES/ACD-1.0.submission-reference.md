@@ -421,6 +421,30 @@ made from the source" is the central case, so its authors had already solved in 
 the structural problem Section 8.4 solves for one artefact. **Section 8.4's novelty is naming
 the artefact, not the idea of a grant that follows what is made.**
 
+**Closest on "permissive, one condition, express patent grant": UPL-1.0, BlueOak-1.0.0 and
+BSD-2-Clause-Patent.** **This is the question a reviewer is most likely to ask first — "why
+not one of these?" — and until 2026-09-25 this section did not answer it.** All three are
+approved, all three grant patents expressly, and each carries exactly one kind of condition:
+
+| | Condition | Patent grant reaches | Also |
+|---|---|---|---|
+| **UPL-1.0** | *"The above copyright notice and either this complete permission notice or at a minimum a reference to the UPL must be included in all copies or substantial portions of the Software."* | the unmodified Software, and the *"Larger Work(s)"* **listed in `lrgrwrks.txt`** | licensed material is *"software, associated documentation and/or **data**"* |
+| **BlueOak-1.0.0** | *"You must ensure that everyone who gets a copy of any part of this software from you … also gets the text of this license or a link"*, with a 30-day cure (*Excuse*) | *"everything with this software that would otherwise infringe any patent claims they can license or become able to license"* | *"No contributor can revoke this license."* |
+| **BSD-2-Clause-Patent** | retention of the notice in source and binary redistributions (clauses 1–2) | Contributions alone, or in the combination they were added to *"at the time the Contribution is added"*; *"shall not apply to any other combinations"* | |
+
+**What this concedes, stated first.** (i) **BlueOak's patent grant is not limited by activity**:
+training a model on the software is something done *"with this software"*, so the act of
+training is covered in terms — the difference from Section 8.4 is whether the grant also follows
+the resulting model once it is used apart from the software, which BlueOak does not say.
+(ii) **UPL already names data as licensed material and already lets a licensor extend the patent
+grant to named downstream works** — a licensor could list a model in `lrgrwrks.txt`. The
+difference is that UPL makes that the licensor's per-work act, where Section 8.4 makes it the
+default for every recipient. (iii) **The remaining difference on every row is the condition.**
+ACD-1.0 has none (4.3, 10.1), and that is the whole of the case against these three — not the
+patent grant, which they already have. **A reviewer who thinks a single notice condition is not
+a burden worth a new licence has answered the question against us, and that is a fair answer**
+(see [`ACD-1.0.board-decisions.md`](ACD-1.0.board-decisions.md) on *"duplicative"*, and #84 on fungibility).
+
 ### 3. Open Source Definition conformance → [`ACD-1.0.submission-osd.md`](ACD-1.0.submission-osd.md)
 
 **この節は 2026-09-25 に `ACD-1.0.submission-osd.md` へ移した**（節番号はそのまま）。
